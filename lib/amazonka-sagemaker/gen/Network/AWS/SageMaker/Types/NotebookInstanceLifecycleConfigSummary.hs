@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSummary where
+module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSummary
+  ( NotebookInstanceLifecycleConfigSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotebookInstanceLifecycleConfigSummary,
+
+    -- * Lenses
+    nilcsCreationTime,
+    nilcsLastModifiedTime,
+    nilcsNotebookInstanceLifecycleConfigName,
+    nilcsNotebookInstanceLifecycleConfigARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides a summary of a notebook instance lifecycle configuration.
 --
---
---
--- /See:/ 'notebookInstanceLifecycleConfigSummary' smart constructor.
+-- /See:/ 'mkNotebookInstanceLifecycleConfigSummary' smart constructor.
 data NotebookInstanceLifecycleConfigSummary = NotebookInstanceLifecycleConfigSummary'
-  { _nilcsCreationTime ::
-      !( Maybe
-           POSIX
-       ),
-    _nilcsLastModifiedTime ::
-      !( Maybe
-           POSIX
-       ),
-    _nilcsNotebookInstanceLifecycleConfigName ::
-      !Text,
-    _nilcsNotebookInstanceLifecycleConfigARN ::
-      !Text
+  { creationTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    lastModifiedTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    notebookInstanceLifecycleConfigName ::
+      Lude.Text,
+    notebookInstanceLifecycleConfigARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotebookInstanceLifecycleConfigSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nilcsCreationTime' - A timestamp that tells when the lifecycle configuration was created.
---
--- * 'nilcsLastModifiedTime' - A timestamp that tells when the lifecycle configuration was last modified.
---
--- * 'nilcsNotebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
---
--- * 'nilcsNotebookInstanceLifecycleConfigARN' - The Amazon Resource Name (ARN) of the lifecycle configuration.
-notebookInstanceLifecycleConfigSummary ::
-  -- | 'nilcsNotebookInstanceLifecycleConfigName'
-  Text ->
-  -- | 'nilcsNotebookInstanceLifecycleConfigARN'
-  Text ->
+-- * 'creationTime' - A timestamp that tells when the lifecycle configuration was created.
+-- * 'lastModifiedTime' - A timestamp that tells when the lifecycle configuration was last modified.
+-- * 'notebookInstanceLifecycleConfigARN' - The Amazon Resource Name (ARN) of the lifecycle configuration.
+-- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
+mkNotebookInstanceLifecycleConfigSummary ::
+  -- | 'notebookInstanceLifecycleConfigName'
+  Lude.Text ->
+  -- | 'notebookInstanceLifecycleConfigARN'
+  Lude.Text ->
   NotebookInstanceLifecycleConfigSummary
-notebookInstanceLifecycleConfigSummary
+mkNotebookInstanceLifecycleConfigSummary
   pNotebookInstanceLifecycleConfigName_
   pNotebookInstanceLifecycleConfigARN_ =
     NotebookInstanceLifecycleConfigSummary'
-      { _nilcsCreationTime =
-          Nothing,
-        _nilcsLastModifiedTime = Nothing,
-        _nilcsNotebookInstanceLifecycleConfigName =
+      { creationTime =
+          Lude.Nothing,
+        lastModifiedTime = Lude.Nothing,
+        notebookInstanceLifecycleConfigName =
           pNotebookInstanceLifecycleConfigName_,
-        _nilcsNotebookInstanceLifecycleConfigARN =
+        notebookInstanceLifecycleConfigARN =
           pNotebookInstanceLifecycleConfigARN_
       }
 
 -- | A timestamp that tells when the lifecycle configuration was created.
-nilcsCreationTime :: Lens' NotebookInstanceLifecycleConfigSummary (Maybe UTCTime)
-nilcsCreationTime = lens _nilcsCreationTime (\s a -> s {_nilcsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nilcsCreationTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Lude.Maybe Lude.Timestamp)
+nilcsCreationTime = Lens.lens (creationTime :: NotebookInstanceLifecycleConfigSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: NotebookInstanceLifecycleConfigSummary)
+{-# DEPRECATED nilcsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A timestamp that tells when the lifecycle configuration was last modified.
-nilcsLastModifiedTime :: Lens' NotebookInstanceLifecycleConfigSummary (Maybe UTCTime)
-nilcsLastModifiedTime = lens _nilcsLastModifiedTime (\s a -> s {_nilcsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nilcsLastModifiedTime :: Lens.Lens' NotebookInstanceLifecycleConfigSummary (Lude.Maybe Lude.Timestamp)
+nilcsLastModifiedTime = Lens.lens (lastModifiedTime :: NotebookInstanceLifecycleConfigSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: NotebookInstanceLifecycleConfigSummary)
+{-# DEPRECATED nilcsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the lifecycle configuration.
-nilcsNotebookInstanceLifecycleConfigName :: Lens' NotebookInstanceLifecycleConfigSummary Text
-nilcsNotebookInstanceLifecycleConfigName = lens _nilcsNotebookInstanceLifecycleConfigName (\s a -> s {_nilcsNotebookInstanceLifecycleConfigName = a})
+--
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nilcsNotebookInstanceLifecycleConfigName :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Lude.Text
+nilcsNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: NotebookInstanceLifecycleConfigSummary -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: NotebookInstanceLifecycleConfigSummary)
+{-# DEPRECATED nilcsNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-nilcsNotebookInstanceLifecycleConfigARN :: Lens' NotebookInstanceLifecycleConfigSummary Text
-nilcsNotebookInstanceLifecycleConfigARN = lens _nilcsNotebookInstanceLifecycleConfigARN (\s a -> s {_nilcsNotebookInstanceLifecycleConfigARN = a})
+--
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nilcsNotebookInstanceLifecycleConfigARN :: Lens.Lens' NotebookInstanceLifecycleConfigSummary Lude.Text
+nilcsNotebookInstanceLifecycleConfigARN = Lens.lens (notebookInstanceLifecycleConfigARN :: NotebookInstanceLifecycleConfigSummary -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigARN = a} :: NotebookInstanceLifecycleConfigSummary)
+{-# DEPRECATED nilcsNotebookInstanceLifecycleConfigARN "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigARN' instead." #-}
 
-instance FromJSON NotebookInstanceLifecycleConfigSummary where
+instance Lude.FromJSON NotebookInstanceLifecycleConfigSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "NotebookInstanceLifecycleConfigSummary"
       ( \x ->
           NotebookInstanceLifecycleConfigSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .: "NotebookInstanceLifecycleConfigName")
-            <*> (x .: "NotebookInstanceLifecycleConfigArn")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..: "NotebookInstanceLifecycleConfigName")
+            Lude.<*> (x Lude..: "NotebookInstanceLifecycleConfigArn")
       )
-
-instance Hashable NotebookInstanceLifecycleConfigSummary
-
-instance NFData NotebookInstanceLifecycleConfigSummary

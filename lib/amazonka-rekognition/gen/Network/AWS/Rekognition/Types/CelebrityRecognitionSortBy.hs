@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.CelebrityRecognitionSortBy where
+module Network.AWS.Rekognition.Types.CelebrityRecognitionSortBy
+  ( CelebrityRecognitionSortBy
+      ( CelebrityRecognitionSortBy',
+        CRSBId,
+        CRSBTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CelebrityRecognitionSortBy
-  = CRSBId
-  | CRSBTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CelebrityRecognitionSortBy = CelebrityRecognitionSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CelebrityRecognitionSortBy where
-  parser =
-    takeLowerText >>= \case
-      "id" -> pure CRSBId
-      "timestamp" -> pure CRSBTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing CelebrityRecognitionSortBy from value: '" <> e
-            <> "'. Accepted values: id, timestamp"
+pattern CRSBId :: CelebrityRecognitionSortBy
+pattern CRSBId = CelebrityRecognitionSortBy' "ID"
 
-instance ToText CelebrityRecognitionSortBy where
-  toText = \case
-    CRSBId -> "ID"
-    CRSBTimestamp -> "TIMESTAMP"
+pattern CRSBTimestamp :: CelebrityRecognitionSortBy
+pattern CRSBTimestamp = CelebrityRecognitionSortBy' "TIMESTAMP"
 
-instance Hashable CelebrityRecognitionSortBy
-
-instance NFData CelebrityRecognitionSortBy
-
-instance ToByteString CelebrityRecognitionSortBy
-
-instance ToQuery CelebrityRecognitionSortBy
-
-instance ToHeader CelebrityRecognitionSortBy
-
-instance ToJSON CelebrityRecognitionSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  CRSBId,
+  CRSBTimestamp,
+  CelebrityRecognitionSortBy'
+  #-}

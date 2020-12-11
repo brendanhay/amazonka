@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag where
+module Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
+  ( Scte35NoRegionalBlackoutFlag
+      ( Scte35NoRegionalBlackoutFlag',
+        NoRegionalBlackout,
+        RegionalBlackout
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Corresponds to the no_regional_blackout_flag parameter. A value of REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification. If you include one of the "restriction" flags then you must include all four of them.
-data Scte35NoRegionalBlackoutFlag
-  = NoRegionalBlackout
-  | RegionalBlackout
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35NoRegionalBlackoutFlag = Scte35NoRegionalBlackoutFlag' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35NoRegionalBlackoutFlag where
-  parser =
-    takeLowerText >>= \case
-      "no_regional_blackout" -> pure NoRegionalBlackout
-      "regional_blackout" -> pure RegionalBlackout
-      e ->
-        fromTextError $
-          "Failure parsing Scte35NoRegionalBlackoutFlag from value: '" <> e
-            <> "'. Accepted values: no_regional_blackout, regional_blackout"
+pattern NoRegionalBlackout :: Scte35NoRegionalBlackoutFlag
+pattern NoRegionalBlackout = Scte35NoRegionalBlackoutFlag' "NO_REGIONAL_BLACKOUT"
 
-instance ToText Scte35NoRegionalBlackoutFlag where
-  toText = \case
-    NoRegionalBlackout -> "NO_REGIONAL_BLACKOUT"
-    RegionalBlackout -> "REGIONAL_BLACKOUT"
+pattern RegionalBlackout :: Scte35NoRegionalBlackoutFlag
+pattern RegionalBlackout = Scte35NoRegionalBlackoutFlag' "REGIONAL_BLACKOUT"
 
-instance Hashable Scte35NoRegionalBlackoutFlag
-
-instance NFData Scte35NoRegionalBlackoutFlag
-
-instance ToByteString Scte35NoRegionalBlackoutFlag
-
-instance ToQuery Scte35NoRegionalBlackoutFlag
-
-instance ToHeader Scte35NoRegionalBlackoutFlag
-
-instance ToJSON Scte35NoRegionalBlackoutFlag where
-  toJSON = toJSONText
-
-instance FromJSON Scte35NoRegionalBlackoutFlag where
-  parseJSON = parseJSONText "Scte35NoRegionalBlackoutFlag"
+{-# COMPLETE
+  NoRegionalBlackout,
+  RegionalBlackout,
+  Scte35NoRegionalBlackoutFlag'
+  #-}

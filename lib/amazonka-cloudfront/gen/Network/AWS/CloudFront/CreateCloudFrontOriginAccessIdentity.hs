@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
-  ( -- * Creating a Request
-    createCloudFrontOriginAccessIdentity,
-    CreateCloudFrontOriginAccessIdentity,
+  ( -- * Creating a request
+    CreateCloudFrontOriginAccessIdentity (..),
+    mkCreateCloudFrontOriginAccessIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccfoaiCloudFrontOriginAccessIdentityConfig,
 
-    -- * Destructuring the Response
-    createCloudFrontOriginAccessIdentityResponse,
-    CreateCloudFrontOriginAccessIdentityResponse,
+    -- * Destructuring the response
+    CreateCloudFrontOriginAccessIdentityResponse (..),
+    mkCreateCloudFrontOriginAccessIdentityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccfoairsETag,
     ccfoairsLocation,
     ccfoairsCloudFrontOriginAccessIdentity,
@@ -39,144 +34,146 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Restricting Access to Amazon S3 Content by Using an Origin Access Identity> in the /Amazon CloudFront Developer Guide/ .
 --
---
---
--- /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
+-- /See:/ 'mkCreateCloudFrontOriginAccessIdentity' smart constructor.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
-  { _ccfoaiCloudFrontOriginAccessIdentityConfig ::
+  { cloudFrontOriginAccessIdentityConfig ::
       CloudFrontOriginAccessIdentityConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' - The current configuration information for the identity.
-createCloudFrontOriginAccessIdentity ::
-  -- | 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+-- * 'cloudFrontOriginAccessIdentityConfig' - The current configuration information for the identity.
+mkCreateCloudFrontOriginAccessIdentity ::
+  -- | 'cloudFrontOriginAccessIdentityConfig'
   CloudFrontOriginAccessIdentityConfig ->
   CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity
+mkCreateCloudFrontOriginAccessIdentity
   pCloudFrontOriginAccessIdentityConfig_ =
     CreateCloudFrontOriginAccessIdentity'
-      { _ccfoaiCloudFrontOriginAccessIdentityConfig =
+      { cloudFrontOriginAccessIdentityConfig =
           pCloudFrontOriginAccessIdentityConfig_
       }
 
 -- | The current configuration information for the identity.
-ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\s a -> s {_ccfoaiCloudFrontOriginAccessIdentityConfig = a})
+--
+-- /Note:/ Consider using 'cloudFrontOriginAccessIdentityConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens.Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
+ccfoaiCloudFrontOriginAccessIdentityConfig = Lens.lens (cloudFrontOriginAccessIdentityConfig :: CreateCloudFrontOriginAccessIdentity -> CloudFrontOriginAccessIdentityConfig) (\s a -> s {cloudFrontOriginAccessIdentityConfig = a} :: CreateCloudFrontOriginAccessIdentity)
+{-# DEPRECATED ccfoaiCloudFrontOriginAccessIdentityConfig "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityConfig' instead." #-}
 
-instance AWSRequest CreateCloudFrontOriginAccessIdentity where
+instance Lude.AWSRequest CreateCloudFrontOriginAccessIdentity where
   type
     Rs CreateCloudFrontOriginAccessIdentity =
       CreateCloudFrontOriginAccessIdentityResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateCloudFrontOriginAccessIdentityResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Location")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCloudFrontOriginAccessIdentity
-
-instance NFData CreateCloudFrontOriginAccessIdentity
-
-instance ToElement CreateCloudFrontOriginAccessIdentity where
+instance Lude.ToElement CreateCloudFrontOriginAccessIdentity where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CloudFrontOriginAccessIdentityConfig"
-      . _ccfoaiCloudFrontOriginAccessIdentityConfig
+      Lude.. cloudFrontOriginAccessIdentityConfig
 
-instance ToHeaders CreateCloudFrontOriginAccessIdentity where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateCloudFrontOriginAccessIdentity where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateCloudFrontOriginAccessIdentity where
-  toPath = const "/2020-05-31/origin-access-identity/cloudfront"
+instance Lude.ToPath CreateCloudFrontOriginAccessIdentity where
+  toPath = Lude.const "/2020-05-31/origin-access-identity/cloudfront"
 
-instance ToQuery CreateCloudFrontOriginAccessIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCloudFrontOriginAccessIdentity where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
+-- /See:/ 'mkCreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-  { _ccfoairsETag ::
-      !( Maybe
-           Text
-       ),
-    _ccfoairsLocation ::
-      !( Maybe
-           Text
-       ),
-    _ccfoairsCloudFrontOriginAccessIdentity ::
-      !( Maybe
-           CloudFrontOriginAccessIdentity
-       ),
-    _ccfoairsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    location ::
+      Lude.Maybe
+        Lude.Text,
+    cloudFrontOriginAccessIdentity ::
+      Lude.Maybe
+        CloudFrontOriginAccessIdentity,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccfoairsETag' - The current version of the origin access identity created.
---
--- * 'ccfoairsLocation' - The fully qualified URI of the new origin access identity just created.
---
--- * 'ccfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
---
--- * 'ccfoairsResponseStatus' - -- | The response status code.
-createCloudFrontOriginAccessIdentityResponse ::
-  -- | 'ccfoairsResponseStatus'
-  Int ->
+-- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
+-- * 'eTag' - The current version of the origin access identity created.
+-- * 'location' - The fully qualified URI of the new origin access identity just created.
+-- * 'responseStatus' - The response status code.
+mkCreateCloudFrontOriginAccessIdentityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
+mkCreateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
   CreateCloudFrontOriginAccessIdentityResponse'
-    { _ccfoairsETag =
-        Nothing,
-      _ccfoairsLocation = Nothing,
-      _ccfoairsCloudFrontOriginAccessIdentity = Nothing,
-      _ccfoairsResponseStatus = pResponseStatus_
+    { eTag =
+        Lude.Nothing,
+      location = Lude.Nothing,
+      cloudFrontOriginAccessIdentity = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the origin access identity created.
-ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairsETag = lens _ccfoairsETag (\s a -> s {_ccfoairsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfoairsETag :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Lude.Maybe Lude.Text)
+ccfoairsETag = Lens.lens (eTag :: CreateCloudFrontOriginAccessIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ccfoairsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new origin access identity just created.
-ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairsLocation = lens _ccfoairsLocation (\s a -> s {_ccfoairsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfoairsLocation :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Lude.Maybe Lude.Text)
+ccfoairsLocation = Lens.lens (location :: CreateCloudFrontOriginAccessIdentityResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ccfoairsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The origin access identity's information.
-ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ccfoairsCloudFrontOriginAccessIdentity = lens _ccfoairsCloudFrontOriginAccessIdentity (\s a -> s {_ccfoairsCloudFrontOriginAccessIdentity = a})
+--
+-- /Note:/ Consider using 'cloudFrontOriginAccessIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfoairsCloudFrontOriginAccessIdentity :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Lude.Maybe CloudFrontOriginAccessIdentity)
+ccfoairsCloudFrontOriginAccessIdentity = Lens.lens (cloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentityResponse -> Lude.Maybe CloudFrontOriginAccessIdentity) (\s a -> s {cloudFrontOriginAccessIdentity = a} :: CreateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ccfoairsCloudFrontOriginAccessIdentity "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentity' instead." #-}
 
--- | -- | The response status code.
-ccfoairsResponseStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
-ccfoairsResponseStatus = lens _ccfoairsResponseStatus (\s a -> s {_ccfoairsResponseStatus = a})
-
-instance NFData CreateCloudFrontOriginAccessIdentityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfoairsResponseStatus :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse Lude.Int
+ccfoairsResponseStatus = Lens.lens (responseStatus :: CreateCloudFrontOriginAccessIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCloudFrontOriginAccessIdentityResponse)
+{-# DEPRECATED ccfoairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

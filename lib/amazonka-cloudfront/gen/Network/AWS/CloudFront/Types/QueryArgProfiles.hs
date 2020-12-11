@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.QueryArgProfiles where
+module Network.AWS.CloudFront.Types.QueryArgProfiles
+  ( QueryArgProfiles (..),
+
+    -- * Smart constructor
+    mkQueryArgProfiles,
+
+    -- * Lenses
+    qapItems,
+    qapQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.QueryArgProfile
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Query argument-profile mapping for field-level encryption.
 --
---
---
--- /See:/ 'queryArgProfiles' smart constructor.
+-- /See:/ 'mkQueryArgProfiles' smart constructor.
 data QueryArgProfiles = QueryArgProfiles'
-  { _qapItems ::
-      !(Maybe [QueryArgProfile]),
-    _qapQuantity :: !Int
+  { items ::
+      Lude.Maybe [QueryArgProfile],
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryArgProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qapItems' - Number of items for query argument-profile mapping for field-level encryption.
---
--- * 'qapQuantity' - Number of profiles for query argument-profile mapping for field-level encryption.
-queryArgProfiles ::
-  -- | 'qapQuantity'
-  Int ->
+-- * 'items' - Number of items for query argument-profile mapping for field-level encryption.
+-- * 'quantity' - Number of profiles for query argument-profile mapping for field-level encryption.
+mkQueryArgProfiles ::
+  -- | 'quantity'
+  Lude.Int ->
   QueryArgProfiles
-queryArgProfiles pQuantity_ =
-  QueryArgProfiles' {_qapItems = Nothing, _qapQuantity = pQuantity_}
+mkQueryArgProfiles pQuantity_ =
+  QueryArgProfiles' {items = Lude.Nothing, quantity = pQuantity_}
 
 -- | Number of items for query argument-profile mapping for field-level encryption.
-qapItems :: Lens' QueryArgProfiles [QueryArgProfile]
-qapItems = lens _qapItems (\s a -> s {_qapItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapItems :: Lens.Lens' QueryArgProfiles (Lude.Maybe [QueryArgProfile])
+qapItems = Lens.lens (items :: QueryArgProfiles -> Lude.Maybe [QueryArgProfile]) (\s a -> s {items = a} :: QueryArgProfiles)
+{-# DEPRECATED qapItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | Number of profiles for query argument-profile mapping for field-level encryption.
-qapQuantity :: Lens' QueryArgProfiles Int
-qapQuantity = lens _qapQuantity (\s a -> s {_qapQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapQuantity :: Lens.Lens' QueryArgProfiles Lude.Int
+qapQuantity = Lens.lens (quantity :: QueryArgProfiles -> Lude.Int) (\s a -> s {quantity = a} :: QueryArgProfiles)
+{-# DEPRECATED qapQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML QueryArgProfiles where
+instance Lude.FromXML QueryArgProfiles where
   parseXML x =
     QueryArgProfiles'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "QueryArgProfile"))
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "QueryArgProfile")
+               )
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable QueryArgProfiles
-
-instance NFData QueryArgProfiles
-
-instance ToXML QueryArgProfiles where
+instance Lude.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "QueryArgProfile" <$> _qapItems),
-        "Quantity" @= _qapQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "QueryArgProfile" Lude.<$> items),
+        "Quantity" Lude.@= quantity
       ]

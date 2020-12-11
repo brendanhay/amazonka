@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.Profile where
+module Network.AWS.MediaPackage.Types.Profile
+  ( Profile
+      ( Profile',
+        PHbbtv15,
+        PNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Profile
-  = PHbbtv15
-  | PNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Profile = Profile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Profile where
-  parser =
-    takeLowerText >>= \case
-      "hbbtv_1_5" -> pure PHbbtv15
-      "none" -> pure PNone
-      e ->
-        fromTextError $
-          "Failure parsing Profile from value: '" <> e
-            <> "'. Accepted values: hbbtv_1_5, none"
+pattern PHbbtv15 :: Profile
+pattern PHbbtv15 = Profile' "HBBTV_1_5"
 
-instance ToText Profile where
-  toText = \case
-    PHbbtv15 -> "HBBTV_1_5"
-    PNone -> "NONE"
+pattern PNone :: Profile
+pattern PNone = Profile' "NONE"
 
-instance Hashable Profile
-
-instance NFData Profile
-
-instance ToByteString Profile
-
-instance ToQuery Profile
-
-instance ToHeader Profile
-
-instance ToJSON Profile where
-  toJSON = toJSONText
-
-instance FromJSON Profile where
-  parseJSON = parseJSONText "Profile"
+{-# COMPLETE
+  PHbbtv15,
+  PNone,
+  Profile'
+  #-}

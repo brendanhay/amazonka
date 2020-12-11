@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayAttachmentState where
+module Network.AWS.EC2.Types.TransitGatewayAttachmentState
+  ( TransitGatewayAttachmentState
+      ( TransitGatewayAttachmentState',
+        TGASAvailable,
+        TGASDeleted,
+        TGASDeleting,
+        TGASFailed,
+        TGASFailing,
+        TGASInitiating,
+        TGASInitiatingRequest,
+        TGASModifying,
+        TGASPending,
+        TGASPendingAcceptance,
+        TGASRejected,
+        TGASRejecting,
+        TGASRollingBack
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayAttachmentState
-  = TGASAvailable
-  | TGASDeleted
-  | TGASDeleting
-  | TGASFailed
-  | TGASFailing
-  | TGASInitiating
-  | TGASInitiatingRequest
-  | TGASModifying
-  | TGASPending
-  | TGASPendingAcceptance
-  | TGASRejected
-  | TGASRejecting
-  | TGASRollingBack
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayAttachmentState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure TGASAvailable
-      "deleted" -> pure TGASDeleted
-      "deleting" -> pure TGASDeleting
-      "failed" -> pure TGASFailed
-      "failing" -> pure TGASFailing
-      "initiating" -> pure TGASInitiating
-      "initiatingrequest" -> pure TGASInitiatingRequest
-      "modifying" -> pure TGASModifying
-      "pending" -> pure TGASPending
-      "pendingacceptance" -> pure TGASPendingAcceptance
-      "rejected" -> pure TGASRejected
-      "rejecting" -> pure TGASRejecting
-      "rollingback" -> pure TGASRollingBack
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayAttachmentState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, failed, failing, initiating, initiatingrequest, modifying, pending, pendingacceptance, rejected, rejecting, rollingback"
+pattern TGASAvailable :: TransitGatewayAttachmentState
+pattern TGASAvailable = TransitGatewayAttachmentState' "available"
 
-instance ToText TransitGatewayAttachmentState where
-  toText = \case
-    TGASAvailable -> "available"
-    TGASDeleted -> "deleted"
-    TGASDeleting -> "deleting"
-    TGASFailed -> "failed"
-    TGASFailing -> "failing"
-    TGASInitiating -> "initiating"
-    TGASInitiatingRequest -> "initiatingRequest"
-    TGASModifying -> "modifying"
-    TGASPending -> "pending"
-    TGASPendingAcceptance -> "pendingAcceptance"
-    TGASRejected -> "rejected"
-    TGASRejecting -> "rejecting"
-    TGASRollingBack -> "rollingBack"
+pattern TGASDeleted :: TransitGatewayAttachmentState
+pattern TGASDeleted = TransitGatewayAttachmentState' "deleted"
 
-instance Hashable TransitGatewayAttachmentState
+pattern TGASDeleting :: TransitGatewayAttachmentState
+pattern TGASDeleting = TransitGatewayAttachmentState' "deleting"
 
-instance NFData TransitGatewayAttachmentState
+pattern TGASFailed :: TransitGatewayAttachmentState
+pattern TGASFailed = TransitGatewayAttachmentState' "failed"
 
-instance ToByteString TransitGatewayAttachmentState
+pattern TGASFailing :: TransitGatewayAttachmentState
+pattern TGASFailing = TransitGatewayAttachmentState' "failing"
 
-instance ToQuery TransitGatewayAttachmentState
+pattern TGASInitiating :: TransitGatewayAttachmentState
+pattern TGASInitiating = TransitGatewayAttachmentState' "initiating"
 
-instance ToHeader TransitGatewayAttachmentState
+pattern TGASInitiatingRequest :: TransitGatewayAttachmentState
+pattern TGASInitiatingRequest = TransitGatewayAttachmentState' "initiatingRequest"
 
-instance FromXML TransitGatewayAttachmentState where
-  parseXML = parseXMLText "TransitGatewayAttachmentState"
+pattern TGASModifying :: TransitGatewayAttachmentState
+pattern TGASModifying = TransitGatewayAttachmentState' "modifying"
+
+pattern TGASPending :: TransitGatewayAttachmentState
+pattern TGASPending = TransitGatewayAttachmentState' "pending"
+
+pattern TGASPendingAcceptance :: TransitGatewayAttachmentState
+pattern TGASPendingAcceptance = TransitGatewayAttachmentState' "pendingAcceptance"
+
+pattern TGASRejected :: TransitGatewayAttachmentState
+pattern TGASRejected = TransitGatewayAttachmentState' "rejected"
+
+pattern TGASRejecting :: TransitGatewayAttachmentState
+pattern TGASRejecting = TransitGatewayAttachmentState' "rejecting"
+
+pattern TGASRollingBack :: TransitGatewayAttachmentState
+pattern TGASRollingBack = TransitGatewayAttachmentState' "rollingBack"
+
+{-# COMPLETE
+  TGASAvailable,
+  TGASDeleted,
+  TGASDeleting,
+  TGASFailed,
+  TGASFailing,
+  TGASInitiating,
+  TGASInitiatingRequest,
+  TGASModifying,
+  TGASPending,
+  TGASPendingAcceptance,
+  TGASRejected,
+  TGASRejecting,
+  TGASRollingBack,
+  TransitGatewayAttachmentState'
+  #-}

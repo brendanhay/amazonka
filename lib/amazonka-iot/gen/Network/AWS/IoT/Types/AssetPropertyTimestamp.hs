@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AssetPropertyTimestamp where
+module Network.AWS.IoT.Types.AssetPropertyTimestamp
+  ( AssetPropertyTimestamp (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssetPropertyTimestamp,
+
+    -- * Lenses
+    aptOffsetInNanos,
+    aptTimeInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An asset property timestamp entry containing the following information.
 --
---
---
--- /See:/ 'assetPropertyTimestamp' smart constructor.
+-- /See:/ 'mkAssetPropertyTimestamp' smart constructor.
 data AssetPropertyTimestamp = AssetPropertyTimestamp'
-  { _aptOffsetInNanos ::
-      !(Maybe Text),
-    _aptTimeInSeconds :: !Text
+  { offsetInNanos ::
+      Lude.Maybe Lude.Text,
+    timeInSeconds :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssetPropertyTimestamp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aptOffsetInNanos' - Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
---
--- * 'aptTimeInSeconds' - A string that contains the time in seconds since epoch. Accepts substitution templates.
-assetPropertyTimestamp ::
-  -- | 'aptTimeInSeconds'
-  Text ->
+-- * 'offsetInNanos' - Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+-- * 'timeInSeconds' - A string that contains the time in seconds since epoch. Accepts substitution templates.
+mkAssetPropertyTimestamp ::
+  -- | 'timeInSeconds'
+  Lude.Text ->
   AssetPropertyTimestamp
-assetPropertyTimestamp pTimeInSeconds_ =
+mkAssetPropertyTimestamp pTimeInSeconds_ =
   AssetPropertyTimestamp'
-    { _aptOffsetInNanos = Nothing,
-      _aptTimeInSeconds = pTimeInSeconds_
+    { offsetInNanos = Lude.Nothing,
+      timeInSeconds = pTimeInSeconds_
     }
 
 -- | Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
-aptOffsetInNanos :: Lens' AssetPropertyTimestamp (Maybe Text)
-aptOffsetInNanos = lens _aptOffsetInNanos (\s a -> s {_aptOffsetInNanos = a})
+--
+-- /Note:/ Consider using 'offsetInNanos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aptOffsetInNanos :: Lens.Lens' AssetPropertyTimestamp (Lude.Maybe Lude.Text)
+aptOffsetInNanos = Lens.lens (offsetInNanos :: AssetPropertyTimestamp -> Lude.Maybe Lude.Text) (\s a -> s {offsetInNanos = a} :: AssetPropertyTimestamp)
+{-# DEPRECATED aptOffsetInNanos "Use generic-lens or generic-optics with 'offsetInNanos' instead." #-}
 
 -- | A string that contains the time in seconds since epoch. Accepts substitution templates.
-aptTimeInSeconds :: Lens' AssetPropertyTimestamp Text
-aptTimeInSeconds = lens _aptTimeInSeconds (\s a -> s {_aptTimeInSeconds = a})
+--
+-- /Note:/ Consider using 'timeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aptTimeInSeconds :: Lens.Lens' AssetPropertyTimestamp Lude.Text
+aptTimeInSeconds = Lens.lens (timeInSeconds :: AssetPropertyTimestamp -> Lude.Text) (\s a -> s {timeInSeconds = a} :: AssetPropertyTimestamp)
+{-# DEPRECATED aptTimeInSeconds "Use generic-lens or generic-optics with 'timeInSeconds' instead." #-}
 
-instance FromJSON AssetPropertyTimestamp where
+instance Lude.FromJSON AssetPropertyTimestamp where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssetPropertyTimestamp"
       ( \x ->
           AssetPropertyTimestamp'
-            <$> (x .:? "offsetInNanos") <*> (x .: "timeInSeconds")
+            Lude.<$> (x Lude..:? "offsetInNanos") Lude.<*> (x Lude..: "timeInSeconds")
       )
 
-instance Hashable AssetPropertyTimestamp
-
-instance NFData AssetPropertyTimestamp
-
-instance ToJSON AssetPropertyTimestamp where
+instance Lude.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =
-    object
-      ( catMaybes
-          [ ("offsetInNanos" .=) <$> _aptOffsetInNanos,
-            Just ("timeInSeconds" .= _aptTimeInSeconds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("offsetInNanos" Lude..=) Lude.<$> offsetInNanos,
+            Lude.Just ("timeInSeconds" Lude..= timeInSeconds)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.KeyGroupConfig where
+module Network.AWS.CloudFront.Types.KeyGroupConfig
+  ( KeyGroupConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKeyGroupConfig,
+
+    -- * Lenses
+    kgcComment,
+    kgcName,
+    kgcItems,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A key group configuration.
 --
---
 -- A key group contains a list of public keys that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html CloudFront signed URLs and signed cookies> .
 --
---
--- /See:/ 'keyGroupConfig' smart constructor.
+-- /See:/ 'mkKeyGroupConfig' smart constructor.
 data KeyGroupConfig = KeyGroupConfig'
-  { _kgcComment :: !(Maybe Text),
-    _kgcName :: !Text,
-    _kgcItems :: ![Text]
+  { comment ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    items :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyGroupConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kgcComment' - A comment to describe the key group.
---
--- * 'kgcName' - A name to identify the key group.
---
--- * 'kgcItems' - A list of the identifiers of the public keys in the key group.
-keyGroupConfig ::
-  -- | 'kgcName'
-  Text ->
+-- * 'comment' - A comment to describe the key group.
+-- * 'items' - A list of the identifiers of the public keys in the key group.
+-- * 'name' - A name to identify the key group.
+mkKeyGroupConfig ::
+  -- | 'name'
+  Lude.Text ->
   KeyGroupConfig
-keyGroupConfig pName_ =
+mkKeyGroupConfig pName_ =
   KeyGroupConfig'
-    { _kgcComment = Nothing,
-      _kgcName = pName_,
-      _kgcItems = mempty
+    { comment = Lude.Nothing,
+      name = pName_,
+      items = Lude.mempty
     }
 
 -- | A comment to describe the key group.
-kgcComment :: Lens' KeyGroupConfig (Maybe Text)
-kgcComment = lens _kgcComment (\s a -> s {_kgcComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgcComment :: Lens.Lens' KeyGroupConfig (Lude.Maybe Lude.Text)
+kgcComment = Lens.lens (comment :: KeyGroupConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: KeyGroupConfig)
+{-# DEPRECATED kgcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | A name to identify the key group.
-kgcName :: Lens' KeyGroupConfig Text
-kgcName = lens _kgcName (\s a -> s {_kgcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgcName :: Lens.Lens' KeyGroupConfig Lude.Text
+kgcName = Lens.lens (name :: KeyGroupConfig -> Lude.Text) (\s a -> s {name = a} :: KeyGroupConfig)
+{-# DEPRECATED kgcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of the identifiers of the public keys in the key group.
-kgcItems :: Lens' KeyGroupConfig [Text]
-kgcItems = lens _kgcItems (\s a -> s {_kgcItems = a}) . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgcItems :: Lens.Lens' KeyGroupConfig [Lude.Text]
+kgcItems = Lens.lens (items :: KeyGroupConfig -> [Lude.Text]) (\s a -> s {items = a} :: KeyGroupConfig)
+{-# DEPRECATED kgcItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance FromXML KeyGroupConfig where
+instance Lude.FromXML KeyGroupConfig where
   parseXML x =
     KeyGroupConfig'
-      <$> (x .@? "Comment")
-      <*> (x .@ "Name")
-      <*> (x .@? "Items" .!@ mempty >>= parseXMLList "PublicKey")
+      Lude.<$> (x Lude..@? "Comment")
+      Lude.<*> (x Lude..@ "Name")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "PublicKey"
+               )
 
-instance Hashable KeyGroupConfig
-
-instance NFData KeyGroupConfig
-
-instance ToXML KeyGroupConfig where
+instance Lude.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =
-    mconcat
-      [ "Comment" @= _kgcComment,
-        "Name" @= _kgcName,
-        "Items" @= toXMLList "PublicKey" _kgcItems
+    Lude.mconcat
+      [ "Comment" Lude.@= comment,
+        "Name" Lude.@= name,
+        "Items" Lude.@= Lude.toXMLList "PublicKey" items
       ]

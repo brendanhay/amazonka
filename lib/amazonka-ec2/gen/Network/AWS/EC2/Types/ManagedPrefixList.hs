@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,166 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ManagedPrefixList where
+module Network.AWS.EC2.Types.ManagedPrefixList
+  ( ManagedPrefixList (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkManagedPrefixList,
+
+    -- * Lenses
+    mplStateMessage,
+    mplState,
+    mplPrefixListARN,
+    mplAddressFamily,
+    mplOwnerId,
+    mplPrefixListId,
+    mplVersion,
+    mplPrefixListName,
+    mplMaxEntries,
+    mplTags,
+  )
+where
+
 import Network.AWS.EC2.Types.PrefixListState
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a managed prefix list.
 --
---
---
--- /See:/ 'managedPrefixList' smart constructor.
+-- /See:/ 'mkManagedPrefixList' smart constructor.
 data ManagedPrefixList = ManagedPrefixList'
-  { _mplStateMessage ::
-      !(Maybe Text),
-    _mplState :: !(Maybe PrefixListState),
-    _mplPrefixListARN :: !(Maybe Text),
-    _mplAddressFamily :: !(Maybe Text),
-    _mplOwnerId :: !(Maybe Text),
-    _mplPrefixListId :: !(Maybe Text),
-    _mplVersion :: !(Maybe Integer),
-    _mplPrefixListName :: !(Maybe Text),
-    _mplMaxEntries :: !(Maybe Int),
-    _mplTags :: !(Maybe [Tag])
+  { stateMessage ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe PrefixListState,
+    prefixListARN :: Lude.Maybe Lude.Text,
+    addressFamily :: Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    prefixListId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Integer,
+    prefixListName :: Lude.Maybe Lude.Text,
+    maxEntries :: Lude.Maybe Lude.Int,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedPrefixList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mplStateMessage' - The state message.
---
--- * 'mplState' - The state of the prefix list.
---
--- * 'mplPrefixListARN' - The Amazon Resource Name (ARN) for the prefix list.
---
--- * 'mplAddressFamily' - The IP address version.
---
--- * 'mplOwnerId' - The ID of the owner of the prefix list.
---
--- * 'mplPrefixListId' - The ID of the prefix list.
---
--- * 'mplVersion' - The version of the prefix list.
---
--- * 'mplPrefixListName' - The name of the prefix list.
---
--- * 'mplMaxEntries' - The maximum number of entries for the prefix list.
---
--- * 'mplTags' - The tags for the prefix list.
-managedPrefixList ::
+-- * 'addressFamily' - The IP address version.
+-- * 'maxEntries' - The maximum number of entries for the prefix list.
+-- * 'ownerId' - The ID of the owner of the prefix list.
+-- * 'prefixListARN' - The Amazon Resource Name (ARN) for the prefix list.
+-- * 'prefixListId' - The ID of the prefix list.
+-- * 'prefixListName' - The name of the prefix list.
+-- * 'state' - The state of the prefix list.
+-- * 'stateMessage' - The state message.
+-- * 'tags' - The tags for the prefix list.
+-- * 'version' - The version of the prefix list.
+mkManagedPrefixList ::
   ManagedPrefixList
-managedPrefixList =
+mkManagedPrefixList =
   ManagedPrefixList'
-    { _mplStateMessage = Nothing,
-      _mplState = Nothing,
-      _mplPrefixListARN = Nothing,
-      _mplAddressFamily = Nothing,
-      _mplOwnerId = Nothing,
-      _mplPrefixListId = Nothing,
-      _mplVersion = Nothing,
-      _mplPrefixListName = Nothing,
-      _mplMaxEntries = Nothing,
-      _mplTags = Nothing
+    { stateMessage = Lude.Nothing,
+      state = Lude.Nothing,
+      prefixListARN = Lude.Nothing,
+      addressFamily = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      prefixListId = Lude.Nothing,
+      version = Lude.Nothing,
+      prefixListName = Lude.Nothing,
+      maxEntries = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The state message.
-mplStateMessage :: Lens' ManagedPrefixList (Maybe Text)
-mplStateMessage = lens _mplStateMessage (\s a -> s {_mplStateMessage = a})
+--
+-- /Note:/ Consider using 'stateMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplStateMessage :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplStateMessage = Lens.lens (stateMessage :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {stateMessage = a} :: ManagedPrefixList)
+{-# DEPRECATED mplStateMessage "Use generic-lens or generic-optics with 'stateMessage' instead." #-}
 
 -- | The state of the prefix list.
-mplState :: Lens' ManagedPrefixList (Maybe PrefixListState)
-mplState = lens _mplState (\s a -> s {_mplState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplState :: Lens.Lens' ManagedPrefixList (Lude.Maybe PrefixListState)
+mplState = Lens.lens (state :: ManagedPrefixList -> Lude.Maybe PrefixListState) (\s a -> s {state = a} :: ManagedPrefixList)
+{-# DEPRECATED mplState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the prefix list.
-mplPrefixListARN :: Lens' ManagedPrefixList (Maybe Text)
-mplPrefixListARN = lens _mplPrefixListARN (\s a -> s {_mplPrefixListARN = a})
+--
+-- /Note:/ Consider using 'prefixListARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplPrefixListARN :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplPrefixListARN = Lens.lens (prefixListARN :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListARN = a} :: ManagedPrefixList)
+{-# DEPRECATED mplPrefixListARN "Use generic-lens or generic-optics with 'prefixListARN' instead." #-}
 
 -- | The IP address version.
-mplAddressFamily :: Lens' ManagedPrefixList (Maybe Text)
-mplAddressFamily = lens _mplAddressFamily (\s a -> s {_mplAddressFamily = a})
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplAddressFamily :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplAddressFamily = Lens.lens (addressFamily :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {addressFamily = a} :: ManagedPrefixList)
+{-# DEPRECATED mplAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
 -- | The ID of the owner of the prefix list.
-mplOwnerId :: Lens' ManagedPrefixList (Maybe Text)
-mplOwnerId = lens _mplOwnerId (\s a -> s {_mplOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplOwnerId :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplOwnerId = Lens.lens (ownerId :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: ManagedPrefixList)
+{-# DEPRECATED mplOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ID of the prefix list.
-mplPrefixListId :: Lens' ManagedPrefixList (Maybe Text)
-mplPrefixListId = lens _mplPrefixListId (\s a -> s {_mplPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplPrefixListId :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplPrefixListId = Lens.lens (prefixListId :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: ManagedPrefixList)
+{-# DEPRECATED mplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | The version of the prefix list.
-mplVersion :: Lens' ManagedPrefixList (Maybe Integer)
-mplVersion = lens _mplVersion (\s a -> s {_mplVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplVersion :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Integer)
+mplVersion = Lens.lens (version :: ManagedPrefixList -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: ManagedPrefixList)
+{-# DEPRECATED mplVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the prefix list.
-mplPrefixListName :: Lens' ManagedPrefixList (Maybe Text)
-mplPrefixListName = lens _mplPrefixListName (\s a -> s {_mplPrefixListName = a})
+--
+-- /Note:/ Consider using 'prefixListName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplPrefixListName :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Text)
+mplPrefixListName = Lens.lens (prefixListName :: ManagedPrefixList -> Lude.Maybe Lude.Text) (\s a -> s {prefixListName = a} :: ManagedPrefixList)
+{-# DEPRECATED mplPrefixListName "Use generic-lens or generic-optics with 'prefixListName' instead." #-}
 
 -- | The maximum number of entries for the prefix list.
-mplMaxEntries :: Lens' ManagedPrefixList (Maybe Int)
-mplMaxEntries = lens _mplMaxEntries (\s a -> s {_mplMaxEntries = a})
+--
+-- /Note:/ Consider using 'maxEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplMaxEntries :: Lens.Lens' ManagedPrefixList (Lude.Maybe Lude.Int)
+mplMaxEntries = Lens.lens (maxEntries :: ManagedPrefixList -> Lude.Maybe Lude.Int) (\s a -> s {maxEntries = a} :: ManagedPrefixList)
+{-# DEPRECATED mplMaxEntries "Use generic-lens or generic-optics with 'maxEntries' instead." #-}
 
 -- | The tags for the prefix list.
-mplTags :: Lens' ManagedPrefixList [Tag]
-mplTags = lens _mplTags (\s a -> s {_mplTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mplTags :: Lens.Lens' ManagedPrefixList (Lude.Maybe [Tag])
+mplTags = Lens.lens (tags :: ManagedPrefixList -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ManagedPrefixList)
+{-# DEPRECATED mplTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML ManagedPrefixList where
+instance Lude.FromXML ManagedPrefixList where
   parseXML x =
     ManagedPrefixList'
-      <$> (x .@? "stateMessage")
-      <*> (x .@? "state")
-      <*> (x .@? "prefixListArn")
-      <*> (x .@? "addressFamily")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "prefixListId")
-      <*> (x .@? "version")
-      <*> (x .@? "prefixListName")
-      <*> (x .@? "maxEntries")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable ManagedPrefixList
-
-instance NFData ManagedPrefixList
+      Lude.<$> (x Lude..@? "stateMessage")
+      Lude.<*> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "prefixListArn")
+      Lude.<*> (x Lude..@? "addressFamily")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "prefixListId")
+      Lude.<*> (x Lude..@? "version")
+      Lude.<*> (x Lude..@? "prefixListName")
+      Lude.<*> (x Lude..@? "maxEntries")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.FaultRootCause where
+module Network.AWS.XRay.Types.FaultRootCause
+  ( FaultRootCause (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFaultRootCause,
+
+    -- * Lenses
+    frcClientImpacting,
+    frcServices,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.FaultRootCauseService
 
 -- | The root cause information for a trace summary fault.
 --
---
---
--- /See:/ 'faultRootCause' smart constructor.
+-- /See:/ 'mkFaultRootCause' smart constructor.
 data FaultRootCause = FaultRootCause'
-  { _frcClientImpacting ::
-      !(Maybe Bool),
-    _frcServices :: !(Maybe [FaultRootCauseService])
+  { clientImpacting ::
+      Lude.Maybe Lude.Bool,
+    services :: Lude.Maybe [FaultRootCauseService]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultRootCause' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'frcClientImpacting' - A flag that denotes that the root cause impacts the trace client.
---
--- * 'frcServices' - A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
-faultRootCause ::
+-- * 'clientImpacting' - A flag that denotes that the root cause impacts the trace client.
+-- * 'services' - A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
+mkFaultRootCause ::
   FaultRootCause
-faultRootCause =
+mkFaultRootCause =
   FaultRootCause'
-    { _frcClientImpacting = Nothing,
-      _frcServices = Nothing
+    { clientImpacting = Lude.Nothing,
+      services = Lude.Nothing
     }
 
 -- | A flag that denotes that the root cause impacts the trace client.
-frcClientImpacting :: Lens' FaultRootCause (Maybe Bool)
-frcClientImpacting = lens _frcClientImpacting (\s a -> s {_frcClientImpacting = a})
+--
+-- /Note:/ Consider using 'clientImpacting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frcClientImpacting :: Lens.Lens' FaultRootCause (Lude.Maybe Lude.Bool)
+frcClientImpacting = Lens.lens (clientImpacting :: FaultRootCause -> Lude.Maybe Lude.Bool) (\s a -> s {clientImpacting = a} :: FaultRootCause)
+{-# DEPRECATED frcClientImpacting "Use generic-lens or generic-optics with 'clientImpacting' instead." #-}
 
 -- | A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
-frcServices :: Lens' FaultRootCause [FaultRootCauseService]
-frcServices = lens _frcServices (\s a -> s {_frcServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frcServices :: Lens.Lens' FaultRootCause (Lude.Maybe [FaultRootCauseService])
+frcServices = Lens.lens (services :: FaultRootCause -> Lude.Maybe [FaultRootCauseService]) (\s a -> s {services = a} :: FaultRootCause)
+{-# DEPRECATED frcServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance FromJSON FaultRootCause where
+instance Lude.FromJSON FaultRootCause where
   parseJSON =
-    withObject
+    Lude.withObject
       "FaultRootCause"
       ( \x ->
           FaultRootCause'
-            <$> (x .:? "ClientImpacting") <*> (x .:? "Services" .!= mempty)
+            Lude.<$> (x Lude..:? "ClientImpacting")
+            Lude.<*> (x Lude..:? "Services" Lude..!= Lude.mempty)
       )
-
-instance Hashable FaultRootCause
-
-instance NFData FaultRootCause

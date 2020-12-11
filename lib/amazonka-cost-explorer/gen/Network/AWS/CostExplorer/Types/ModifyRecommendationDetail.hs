@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ModifyRecommendationDetail where
+module Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
+  ( ModifyRecommendationDetail (..),
+
+    -- * Smart constructor
+    mkModifyRecommendationDetail,
+
+    -- * Lenses
+    mrdTargetInstances,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.TargetInstance
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on the modification recommendation.
 --
---
---
--- /See:/ 'modifyRecommendationDetail' smart constructor.
+-- /See:/ 'mkModifyRecommendationDetail' smart constructor.
 newtype ModifyRecommendationDetail = ModifyRecommendationDetail'
-  { _mrdTargetInstances ::
-      Maybe [TargetInstance]
+  { targetInstances ::
+      Lude.Maybe [TargetInstance]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyRecommendationDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrdTargetInstances' - Identifies whether this instance type is the AWS default recommendation.
-modifyRecommendationDetail ::
+-- * 'targetInstances' - Identifies whether this instance type is the AWS default recommendation.
+mkModifyRecommendationDetail ::
   ModifyRecommendationDetail
-modifyRecommendationDetail =
-  ModifyRecommendationDetail' {_mrdTargetInstances = Nothing}
+mkModifyRecommendationDetail =
+  ModifyRecommendationDetail' {targetInstances = Lude.Nothing}
 
 -- | Identifies whether this instance type is the AWS default recommendation.
-mrdTargetInstances :: Lens' ModifyRecommendationDetail [TargetInstance]
-mrdTargetInstances = lens _mrdTargetInstances (\s a -> s {_mrdTargetInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrdTargetInstances :: Lens.Lens' ModifyRecommendationDetail (Lude.Maybe [TargetInstance])
+mrdTargetInstances = Lens.lens (targetInstances :: ModifyRecommendationDetail -> Lude.Maybe [TargetInstance]) (\s a -> s {targetInstances = a} :: ModifyRecommendationDetail)
+{-# DEPRECATED mrdTargetInstances "Use generic-lens or generic-optics with 'targetInstances' instead." #-}
 
-instance FromJSON ModifyRecommendationDetail where
+instance Lude.FromJSON ModifyRecommendationDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModifyRecommendationDetail"
       ( \x ->
           ModifyRecommendationDetail'
-            <$> (x .:? "TargetInstances" .!= mempty)
+            Lude.<$> (x Lude..:? "TargetInstances" Lude..!= Lude.mempty)
       )
-
-instance Hashable ModifyRecommendationDetail
-
-instance NFData ModifyRecommendationDetail

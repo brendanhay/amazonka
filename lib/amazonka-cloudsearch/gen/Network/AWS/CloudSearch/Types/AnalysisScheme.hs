@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.AnalysisScheme where
+module Network.AWS.CloudSearch.Types.AnalysisScheme
+  ( AnalysisScheme (..),
+
+    -- * Smart constructor
+    mkAnalysisScheme,
+
+    -- * Lenses
+    asAnalysisOptions,
+    asAnalysisSchemeName,
+    asAnalysisSchemeLanguage,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.AnalysisOptions
 import Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: @Synonyms@ , @Stopwords@ , @StemmingDictionary@ , @JapaneseTokenizationDictionary@ and @AlgorithmicStemming@ .
 --
---
---
--- /See:/ 'analysisScheme' smart constructor.
+-- /See:/ 'mkAnalysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
-  { _asAnalysisOptions ::
-      !(Maybe AnalysisOptions),
-    _asAnalysisSchemeName :: !Text,
-    _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
+  { analysisOptions ::
+      Lude.Maybe AnalysisOptions,
+    analysisSchemeName :: Lude.Text,
+    analysisSchemeLanguage :: AnalysisSchemeLanguage
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalysisScheme' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asAnalysisOptions' - Undocumented member.
---
--- * 'asAnalysisSchemeName' - Undocumented member.
---
--- * 'asAnalysisSchemeLanguage' - Undocumented member.
-analysisScheme ::
-  -- | 'asAnalysisSchemeName'
-  Text ->
-  -- | 'asAnalysisSchemeLanguage'
+-- * 'analysisOptions' - Undocumented field.
+-- * 'analysisSchemeLanguage' - Undocumented field.
+-- * 'analysisSchemeName' - Undocumented field.
+mkAnalysisScheme ::
+  -- | 'analysisSchemeName'
+  Lude.Text ->
+  -- | 'analysisSchemeLanguage'
   AnalysisSchemeLanguage ->
   AnalysisScheme
-analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
+mkAnalysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
   AnalysisScheme'
-    { _asAnalysisOptions = Nothing,
-      _asAnalysisSchemeName = pAnalysisSchemeName_,
-      _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
+    { analysisOptions = Lude.Nothing,
+      analysisSchemeName = pAnalysisSchemeName_,
+      analysisSchemeLanguage = pAnalysisSchemeLanguage_
     }
 
--- | Undocumented member.
-asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
-asAnalysisOptions = lens _asAnalysisOptions (\s a -> s {_asAnalysisOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'analysisOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAnalysisOptions :: Lens.Lens' AnalysisScheme (Lude.Maybe AnalysisOptions)
+asAnalysisOptions = Lens.lens (analysisOptions :: AnalysisScheme -> Lude.Maybe AnalysisOptions) (\s a -> s {analysisOptions = a} :: AnalysisScheme)
+{-# DEPRECATED asAnalysisOptions "Use generic-lens or generic-optics with 'analysisOptions' instead." #-}
 
--- | Undocumented member.
-asAnalysisSchemeName :: Lens' AnalysisScheme Text
-asAnalysisSchemeName = lens _asAnalysisSchemeName (\s a -> s {_asAnalysisSchemeName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'analysisSchemeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAnalysisSchemeName :: Lens.Lens' AnalysisScheme Lude.Text
+asAnalysisSchemeName = Lens.lens (analysisSchemeName :: AnalysisScheme -> Lude.Text) (\s a -> s {analysisSchemeName = a} :: AnalysisScheme)
+{-# DEPRECATED asAnalysisSchemeName "Use generic-lens or generic-optics with 'analysisSchemeName' instead." #-}
 
--- | Undocumented member.
-asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
-asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\s a -> s {_asAnalysisSchemeLanguage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'analysisSchemeLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAnalysisSchemeLanguage :: Lens.Lens' AnalysisScheme AnalysisSchemeLanguage
+asAnalysisSchemeLanguage = Lens.lens (analysisSchemeLanguage :: AnalysisScheme -> AnalysisSchemeLanguage) (\s a -> s {analysisSchemeLanguage = a} :: AnalysisScheme)
+{-# DEPRECATED asAnalysisSchemeLanguage "Use generic-lens or generic-optics with 'analysisSchemeLanguage' instead." #-}
 
-instance FromXML AnalysisScheme where
+instance Lude.FromXML AnalysisScheme where
   parseXML x =
     AnalysisScheme'
-      <$> (x .@? "AnalysisOptions")
-      <*> (x .@ "AnalysisSchemeName")
-      <*> (x .@ "AnalysisSchemeLanguage")
+      Lude.<$> (x Lude..@? "AnalysisOptions")
+      Lude.<*> (x Lude..@ "AnalysisSchemeName")
+      Lude.<*> (x Lude..@ "AnalysisSchemeLanguage")
 
-instance Hashable AnalysisScheme
-
-instance NFData AnalysisScheme
-
-instance ToQuery AnalysisScheme where
+instance Lude.ToQuery AnalysisScheme where
   toQuery AnalysisScheme' {..} =
-    mconcat
-      [ "AnalysisOptions" =: _asAnalysisOptions,
-        "AnalysisSchemeName" =: _asAnalysisSchemeName,
-        "AnalysisSchemeLanguage" =: _asAnalysisSchemeLanguage
+    Lude.mconcat
+      [ "AnalysisOptions" Lude.=: analysisOptions,
+        "AnalysisSchemeName" Lude.=: analysisSchemeName,
+        "AnalysisSchemeLanguage" Lude.=: analysisSchemeLanguage
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ImscStylePassthrough where
+module Network.AWS.MediaConvert.Types.ImscStylePassthrough
+  ( ImscStylePassthrough
+      ( ImscStylePassthrough',
+        ISPDisabled,
+        ISPEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
-data ImscStylePassthrough
-  = ISPDisabled
-  | ISPEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImscStylePassthrough = ImscStylePassthrough' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImscStylePassthrough where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ISPDisabled
-      "enabled" -> pure ISPEnabled
-      e ->
-        fromTextError $
-          "Failure parsing ImscStylePassthrough from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ISPDisabled :: ImscStylePassthrough
+pattern ISPDisabled = ImscStylePassthrough' "DISABLED"
 
-instance ToText ImscStylePassthrough where
-  toText = \case
-    ISPDisabled -> "DISABLED"
-    ISPEnabled -> "ENABLED"
+pattern ISPEnabled :: ImscStylePassthrough
+pattern ISPEnabled = ImscStylePassthrough' "ENABLED"
 
-instance Hashable ImscStylePassthrough
-
-instance NFData ImscStylePassthrough
-
-instance ToByteString ImscStylePassthrough
-
-instance ToQuery ImscStylePassthrough
-
-instance ToHeader ImscStylePassthrough
-
-instance ToJSON ImscStylePassthrough where
-  toJSON = toJSONText
-
-instance FromJSON ImscStylePassthrough where
-  parseJSON = parseJSONText "ImscStylePassthrough"
+{-# COMPLETE
+  ISPDisabled,
+  ISPEnabled,
+  ImscStylePassthrough'
+  #-}

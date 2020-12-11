@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem where
+module Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
+  ( OrganizationEventDetailsErrorItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationEventDetailsErrorItem,
+
+    -- * Lenses
+    oedeiAwsAccountId,
+    oedeiEventARN,
+    oedeiErrorName,
+    oedeiErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
 --
---
---
--- /See:/ 'organizationEventDetailsErrorItem' smart constructor.
+-- /See:/ 'mkOrganizationEventDetailsErrorItem' smart constructor.
 data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
-  { _oedeiAwsAccountId ::
-      !(Maybe Text),
-    _oedeiEventARN ::
-      !(Maybe Text),
-    _oedeiErrorName ::
-      !(Maybe Text),
-    _oedeiErrorMessage ::
-      !(Maybe Text)
+  { awsAccountId ::
+      Lude.Maybe Lude.Text,
+    eventARN ::
+      Lude.Maybe Lude.Text,
+    errorName ::
+      Lude.Maybe Lude.Text,
+    errorMessage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationEventDetailsErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oedeiAwsAccountId' - Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
---
--- * 'oedeiEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- * 'oedeiErrorName' - The name of the error.
---
--- * 'oedeiErrorMessage' - A message that describes the error.
-organizationEventDetailsErrorItem ::
+-- * 'awsAccountId' - Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
+-- * 'errorMessage' - A message that describes the error.
+-- * 'errorName' - The name of the error.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+mkOrganizationEventDetailsErrorItem ::
   OrganizationEventDetailsErrorItem
-organizationEventDetailsErrorItem =
+mkOrganizationEventDetailsErrorItem =
   OrganizationEventDetailsErrorItem'
-    { _oedeiAwsAccountId = Nothing,
-      _oedeiEventARN = Nothing,
-      _oedeiErrorName = Nothing,
-      _oedeiErrorMessage = Nothing
+    { awsAccountId = Lude.Nothing,
+      eventARN = Lude.Nothing,
+      errorName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
-oedeiAwsAccountId :: Lens' OrganizationEventDetailsErrorItem (Maybe Text)
-oedeiAwsAccountId = lens _oedeiAwsAccountId (\s a -> s {_oedeiAwsAccountId = a})
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oedeiAwsAccountId :: Lens.Lens' OrganizationEventDetailsErrorItem (Lude.Maybe Lude.Text)
+oedeiAwsAccountId = Lens.lens (awsAccountId :: OrganizationEventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: OrganizationEventDetailsErrorItem)
+{-# DEPRECATED oedeiAwsAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-oedeiEventARN :: Lens' OrganizationEventDetailsErrorItem (Maybe Text)
-oedeiEventARN = lens _oedeiEventARN (\s a -> s {_oedeiEventARN = a})
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oedeiEventARN :: Lens.Lens' OrganizationEventDetailsErrorItem (Lude.Maybe Lude.Text)
+oedeiEventARN = Lens.lens (eventARN :: OrganizationEventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: OrganizationEventDetailsErrorItem)
+{-# DEPRECATED oedeiEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 -- | The name of the error.
-oedeiErrorName :: Lens' OrganizationEventDetailsErrorItem (Maybe Text)
-oedeiErrorName = lens _oedeiErrorName (\s a -> s {_oedeiErrorName = a})
+--
+-- /Note:/ Consider using 'errorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oedeiErrorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Lude.Maybe Lude.Text)
+oedeiErrorName = Lens.lens (errorName :: OrganizationEventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
+{-# DEPRECATED oedeiErrorName "Use generic-lens or generic-optics with 'errorName' instead." #-}
 
 -- | A message that describes the error.
-oedeiErrorMessage :: Lens' OrganizationEventDetailsErrorItem (Maybe Text)
-oedeiErrorMessage = lens _oedeiErrorMessage (\s a -> s {_oedeiErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oedeiErrorMessage :: Lens.Lens' OrganizationEventDetailsErrorItem (Lude.Maybe Lude.Text)
+oedeiErrorMessage = Lens.lens (errorMessage :: OrganizationEventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationEventDetailsErrorItem)
+{-# DEPRECATED oedeiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON OrganizationEventDetailsErrorItem where
+instance Lude.FromJSON OrganizationEventDetailsErrorItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationEventDetailsErrorItem"
       ( \x ->
           OrganizationEventDetailsErrorItem'
-            <$> (x .:? "awsAccountId")
-            <*> (x .:? "eventArn")
-            <*> (x .:? "errorName")
-            <*> (x .:? "errorMessage")
+            Lude.<$> (x Lude..:? "awsAccountId")
+            Lude.<*> (x Lude..:? "eventArn")
+            Lude.<*> (x Lude..:? "errorName")
+            Lude.<*> (x Lude..:? "errorMessage")
       )
-
-instance Hashable OrganizationEventDetailsErrorItem
-
-instance NFData OrganizationEventDetailsErrorItem

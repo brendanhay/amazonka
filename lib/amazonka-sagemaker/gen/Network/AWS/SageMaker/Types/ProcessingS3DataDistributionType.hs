@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType where
+module Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType
+  ( ProcessingS3DataDistributionType
+      ( ProcessingS3DataDistributionType',
+        PSDDTFullyReplicated,
+        PSDDTShardedByS3Key
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProcessingS3DataDistributionType
-  = PSDDTFullyReplicated
-  | PSDDTShardedByS3Key
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProcessingS3DataDistributionType = ProcessingS3DataDistributionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProcessingS3DataDistributionType where
-  parser =
-    takeLowerText >>= \case
-      "fullyreplicated" -> pure PSDDTFullyReplicated
-      "shardedbys3key" -> pure PSDDTShardedByS3Key
-      e ->
-        fromTextError $
-          "Failure parsing ProcessingS3DataDistributionType from value: '" <> e
-            <> "'. Accepted values: fullyreplicated, shardedbys3key"
+pattern PSDDTFullyReplicated :: ProcessingS3DataDistributionType
+pattern PSDDTFullyReplicated = ProcessingS3DataDistributionType' "FullyReplicated"
 
-instance ToText ProcessingS3DataDistributionType where
-  toText = \case
-    PSDDTFullyReplicated -> "FullyReplicated"
-    PSDDTShardedByS3Key -> "ShardedByS3Key"
+pattern PSDDTShardedByS3Key :: ProcessingS3DataDistributionType
+pattern PSDDTShardedByS3Key = ProcessingS3DataDistributionType' "ShardedByS3Key"
 
-instance Hashable ProcessingS3DataDistributionType
-
-instance NFData ProcessingS3DataDistributionType
-
-instance ToByteString ProcessingS3DataDistributionType
-
-instance ToQuery ProcessingS3DataDistributionType
-
-instance ToHeader ProcessingS3DataDistributionType
-
-instance ToJSON ProcessingS3DataDistributionType where
-  toJSON = toJSONText
-
-instance FromJSON ProcessingS3DataDistributionType where
-  parseJSON = parseJSONText "ProcessingS3DataDistributionType"
+{-# COMPLETE
+  PSDDTFullyReplicated,
+  PSDDTShardedByS3Key,
+  ProcessingS3DataDistributionType'
+  #-}

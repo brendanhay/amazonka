@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,156 +7,242 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.CostTypes where
+module Network.AWS.Budgets.Types.CostTypes
+  ( CostTypes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCostTypes,
+
+    -- * Lenses
+    ctUseAmortized,
+    ctIncludeRecurring,
+    ctUseBlended,
+    ctIncludeSupport,
+    ctIncludeDiscount,
+    ctIncludeSubscription,
+    ctIncludeRefund,
+    ctIncludeUpfront,
+    ctIncludeOtherSubscription,
+    ctIncludeTax,
+    ctIncludeCredit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The types of cost that are included in a @COST@ budget, such as tax and subscriptions.
 --
---
 -- @USAGE@ , @RI_UTILIZATION@ , @RI_COVERAGE@ , @SAVINGS_PLANS_UTILIZATION@ , and @SAVINGS_PLANS_COVERAGE@ budgets do not have @CostTypes@ .
 --
---
--- /See:/ 'costTypes' smart constructor.
+-- /See:/ 'mkCostTypes' smart constructor.
 data CostTypes = CostTypes'
-  { _ctUseAmortized :: !(Maybe Bool),
-    _ctIncludeRecurring :: !(Maybe Bool),
-    _ctUseBlended :: !(Maybe Bool),
-    _ctIncludeSupport :: !(Maybe Bool),
-    _ctIncludeDiscount :: !(Maybe Bool),
-    _ctIncludeSubscription :: !(Maybe Bool),
-    _ctIncludeRefund :: !(Maybe Bool),
-    _ctIncludeUpfront :: !(Maybe Bool),
-    _ctIncludeOtherSubscription :: !(Maybe Bool),
-    _ctIncludeTax :: !(Maybe Bool),
-    _ctIncludeCredit :: !(Maybe Bool)
+  { useAmortized :: Lude.Maybe Lude.Bool,
+    includeRecurring :: Lude.Maybe Lude.Bool,
+    useBlended :: Lude.Maybe Lude.Bool,
+    includeSupport :: Lude.Maybe Lude.Bool,
+    includeDiscount :: Lude.Maybe Lude.Bool,
+    includeSubscription :: Lude.Maybe Lude.Bool,
+    includeRefund :: Lude.Maybe Lude.Bool,
+    includeUpfront :: Lude.Maybe Lude.Bool,
+    includeOtherSubscription :: Lude.Maybe Lude.Bool,
+    includeTax :: Lude.Maybe Lude.Bool,
+    includeCredit :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'includeCredit' - Specifies whether a budget includes credits.
 --
--- * 'ctUseAmortized' - Specifies whether a budget uses the amortized rate. The default value is @false@ .
+-- The default value is @true@ .
+-- * 'includeDiscount' - Specifies whether a budget includes discounts.
 --
--- * 'ctIncludeRecurring' - Specifies whether a budget includes recurring fees such as monthly RI fees. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeOtherSubscription' - Specifies whether a budget includes non-RI subscription costs.
 --
--- * 'ctUseBlended' - Specifies whether a budget uses a blended rate. The default value is @false@ .
+-- The default value is @true@ .
+-- * 'includeRecurring' - Specifies whether a budget includes recurring fees such as monthly RI fees.
 --
--- * 'ctIncludeSupport' - Specifies whether a budget includes support subscription fees. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeRefund' - Specifies whether a budget includes refunds.
 --
--- * 'ctIncludeDiscount' - Specifies whether a budget includes discounts. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeSubscription' - Specifies whether a budget includes subscriptions.
 --
--- * 'ctIncludeSubscription' - Specifies whether a budget includes subscriptions. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeSupport' - Specifies whether a budget includes support subscription fees.
 --
--- * 'ctIncludeRefund' - Specifies whether a budget includes refunds. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeTax' - Specifies whether a budget includes taxes.
 --
--- * 'ctIncludeUpfront' - Specifies whether a budget includes upfront RI costs. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'includeUpfront' - Specifies whether a budget includes upfront RI costs.
 --
--- * 'ctIncludeOtherSubscription' - Specifies whether a budget includes non-RI subscription costs. The default value is @true@ .
+-- The default value is @true@ .
+-- * 'useAmortized' - Specifies whether a budget uses the amortized rate.
 --
--- * 'ctIncludeTax' - Specifies whether a budget includes taxes. The default value is @true@ .
+-- The default value is @false@ .
+-- * 'useBlended' - Specifies whether a budget uses a blended rate.
 --
--- * 'ctIncludeCredit' - Specifies whether a budget includes credits. The default value is @true@ .
-costTypes ::
+-- The default value is @false@ .
+mkCostTypes ::
   CostTypes
-costTypes =
+mkCostTypes =
   CostTypes'
-    { _ctUseAmortized = Nothing,
-      _ctIncludeRecurring = Nothing,
-      _ctUseBlended = Nothing,
-      _ctIncludeSupport = Nothing,
-      _ctIncludeDiscount = Nothing,
-      _ctIncludeSubscription = Nothing,
-      _ctIncludeRefund = Nothing,
-      _ctIncludeUpfront = Nothing,
-      _ctIncludeOtherSubscription = Nothing,
-      _ctIncludeTax = Nothing,
-      _ctIncludeCredit = Nothing
+    { useAmortized = Lude.Nothing,
+      includeRecurring = Lude.Nothing,
+      useBlended = Lude.Nothing,
+      includeSupport = Lude.Nothing,
+      includeDiscount = Lude.Nothing,
+      includeSubscription = Lude.Nothing,
+      includeRefund = Lude.Nothing,
+      includeUpfront = Lude.Nothing,
+      includeOtherSubscription = Lude.Nothing,
+      includeTax = Lude.Nothing,
+      includeCredit = Lude.Nothing
     }
 
--- | Specifies whether a budget uses the amortized rate. The default value is @false@ .
-ctUseAmortized :: Lens' CostTypes (Maybe Bool)
-ctUseAmortized = lens _ctUseAmortized (\s a -> s {_ctUseAmortized = a})
+-- | Specifies whether a budget uses the amortized rate.
+--
+-- The default value is @false@ .
+--
+-- /Note:/ Consider using 'useAmortized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctUseAmortized :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctUseAmortized = Lens.lens (useAmortized :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {useAmortized = a} :: CostTypes)
+{-# DEPRECATED ctUseAmortized "Use generic-lens or generic-optics with 'useAmortized' instead." #-}
 
--- | Specifies whether a budget includes recurring fees such as monthly RI fees. The default value is @true@ .
-ctIncludeRecurring :: Lens' CostTypes (Maybe Bool)
-ctIncludeRecurring = lens _ctIncludeRecurring (\s a -> s {_ctIncludeRecurring = a})
+-- | Specifies whether a budget includes recurring fees such as monthly RI fees.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeRecurring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeRecurring :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeRecurring = Lens.lens (includeRecurring :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeRecurring = a} :: CostTypes)
+{-# DEPRECATED ctIncludeRecurring "Use generic-lens or generic-optics with 'includeRecurring' instead." #-}
 
--- | Specifies whether a budget uses a blended rate. The default value is @false@ .
-ctUseBlended :: Lens' CostTypes (Maybe Bool)
-ctUseBlended = lens _ctUseBlended (\s a -> s {_ctUseBlended = a})
+-- | Specifies whether a budget uses a blended rate.
+--
+-- The default value is @false@ .
+--
+-- /Note:/ Consider using 'useBlended' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctUseBlended :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctUseBlended = Lens.lens (useBlended :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {useBlended = a} :: CostTypes)
+{-# DEPRECATED ctUseBlended "Use generic-lens or generic-optics with 'useBlended' instead." #-}
 
--- | Specifies whether a budget includes support subscription fees. The default value is @true@ .
-ctIncludeSupport :: Lens' CostTypes (Maybe Bool)
-ctIncludeSupport = lens _ctIncludeSupport (\s a -> s {_ctIncludeSupport = a})
+-- | Specifies whether a budget includes support subscription fees.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeSupport :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeSupport = Lens.lens (includeSupport :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeSupport = a} :: CostTypes)
+{-# DEPRECATED ctIncludeSupport "Use generic-lens or generic-optics with 'includeSupport' instead." #-}
 
--- | Specifies whether a budget includes discounts. The default value is @true@ .
-ctIncludeDiscount :: Lens' CostTypes (Maybe Bool)
-ctIncludeDiscount = lens _ctIncludeDiscount (\s a -> s {_ctIncludeDiscount = a})
+-- | Specifies whether a budget includes discounts.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeDiscount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeDiscount :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeDiscount = Lens.lens (includeDiscount :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeDiscount = a} :: CostTypes)
+{-# DEPRECATED ctIncludeDiscount "Use generic-lens or generic-optics with 'includeDiscount' instead." #-}
 
--- | Specifies whether a budget includes subscriptions. The default value is @true@ .
-ctIncludeSubscription :: Lens' CostTypes (Maybe Bool)
-ctIncludeSubscription = lens _ctIncludeSubscription (\s a -> s {_ctIncludeSubscription = a})
+-- | Specifies whether a budget includes subscriptions.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeSubscription :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeSubscription = Lens.lens (includeSubscription :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeSubscription = a} :: CostTypes)
+{-# DEPRECATED ctIncludeSubscription "Use generic-lens or generic-optics with 'includeSubscription' instead." #-}
 
--- | Specifies whether a budget includes refunds. The default value is @true@ .
-ctIncludeRefund :: Lens' CostTypes (Maybe Bool)
-ctIncludeRefund = lens _ctIncludeRefund (\s a -> s {_ctIncludeRefund = a})
+-- | Specifies whether a budget includes refunds.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeRefund' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeRefund :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeRefund = Lens.lens (includeRefund :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeRefund = a} :: CostTypes)
+{-# DEPRECATED ctIncludeRefund "Use generic-lens or generic-optics with 'includeRefund' instead." #-}
 
--- | Specifies whether a budget includes upfront RI costs. The default value is @true@ .
-ctIncludeUpfront :: Lens' CostTypes (Maybe Bool)
-ctIncludeUpfront = lens _ctIncludeUpfront (\s a -> s {_ctIncludeUpfront = a})
+-- | Specifies whether a budget includes upfront RI costs.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeUpfront' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeUpfront :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeUpfront = Lens.lens (includeUpfront :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeUpfront = a} :: CostTypes)
+{-# DEPRECATED ctIncludeUpfront "Use generic-lens or generic-optics with 'includeUpfront' instead." #-}
 
--- | Specifies whether a budget includes non-RI subscription costs. The default value is @true@ .
-ctIncludeOtherSubscription :: Lens' CostTypes (Maybe Bool)
-ctIncludeOtherSubscription = lens _ctIncludeOtherSubscription (\s a -> s {_ctIncludeOtherSubscription = a})
+-- | Specifies whether a budget includes non-RI subscription costs.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeOtherSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeOtherSubscription :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeOtherSubscription = Lens.lens (includeOtherSubscription :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeOtherSubscription = a} :: CostTypes)
+{-# DEPRECATED ctIncludeOtherSubscription "Use generic-lens or generic-optics with 'includeOtherSubscription' instead." #-}
 
--- | Specifies whether a budget includes taxes. The default value is @true@ .
-ctIncludeTax :: Lens' CostTypes (Maybe Bool)
-ctIncludeTax = lens _ctIncludeTax (\s a -> s {_ctIncludeTax = a})
+-- | Specifies whether a budget includes taxes.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeTax' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeTax :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeTax = Lens.lens (includeTax :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeTax = a} :: CostTypes)
+{-# DEPRECATED ctIncludeTax "Use generic-lens or generic-optics with 'includeTax' instead." #-}
 
--- | Specifies whether a budget includes credits. The default value is @true@ .
-ctIncludeCredit :: Lens' CostTypes (Maybe Bool)
-ctIncludeCredit = lens _ctIncludeCredit (\s a -> s {_ctIncludeCredit = a})
+-- | Specifies whether a budget includes credits.
+--
+-- The default value is @true@ .
+--
+-- /Note:/ Consider using 'includeCredit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctIncludeCredit :: Lens.Lens' CostTypes (Lude.Maybe Lude.Bool)
+ctIncludeCredit = Lens.lens (includeCredit :: CostTypes -> Lude.Maybe Lude.Bool) (\s a -> s {includeCredit = a} :: CostTypes)
+{-# DEPRECATED ctIncludeCredit "Use generic-lens or generic-optics with 'includeCredit' instead." #-}
 
-instance FromJSON CostTypes where
+instance Lude.FromJSON CostTypes where
   parseJSON =
-    withObject
+    Lude.withObject
       "CostTypes"
       ( \x ->
           CostTypes'
-            <$> (x .:? "UseAmortized")
-            <*> (x .:? "IncludeRecurring")
-            <*> (x .:? "UseBlended")
-            <*> (x .:? "IncludeSupport")
-            <*> (x .:? "IncludeDiscount")
-            <*> (x .:? "IncludeSubscription")
-            <*> (x .:? "IncludeRefund")
-            <*> (x .:? "IncludeUpfront")
-            <*> (x .:? "IncludeOtherSubscription")
-            <*> (x .:? "IncludeTax")
-            <*> (x .:? "IncludeCredit")
+            Lude.<$> (x Lude..:? "UseAmortized")
+            Lude.<*> (x Lude..:? "IncludeRecurring")
+            Lude.<*> (x Lude..:? "UseBlended")
+            Lude.<*> (x Lude..:? "IncludeSupport")
+            Lude.<*> (x Lude..:? "IncludeDiscount")
+            Lude.<*> (x Lude..:? "IncludeSubscription")
+            Lude.<*> (x Lude..:? "IncludeRefund")
+            Lude.<*> (x Lude..:? "IncludeUpfront")
+            Lude.<*> (x Lude..:? "IncludeOtherSubscription")
+            Lude.<*> (x Lude..:? "IncludeTax")
+            Lude.<*> (x Lude..:? "IncludeCredit")
       )
 
-instance Hashable CostTypes
-
-instance NFData CostTypes
-
-instance ToJSON CostTypes where
+instance Lude.ToJSON CostTypes where
   toJSON CostTypes' {..} =
-    object
-      ( catMaybes
-          [ ("UseAmortized" .=) <$> _ctUseAmortized,
-            ("IncludeRecurring" .=) <$> _ctIncludeRecurring,
-            ("UseBlended" .=) <$> _ctUseBlended,
-            ("IncludeSupport" .=) <$> _ctIncludeSupport,
-            ("IncludeDiscount" .=) <$> _ctIncludeDiscount,
-            ("IncludeSubscription" .=) <$> _ctIncludeSubscription,
-            ("IncludeRefund" .=) <$> _ctIncludeRefund,
-            ("IncludeUpfront" .=) <$> _ctIncludeUpfront,
-            ("IncludeOtherSubscription" .=) <$> _ctIncludeOtherSubscription,
-            ("IncludeTax" .=) <$> _ctIncludeTax,
-            ("IncludeCredit" .=) <$> _ctIncludeCredit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UseAmortized" Lude..=) Lude.<$> useAmortized,
+            ("IncludeRecurring" Lude..=) Lude.<$> includeRecurring,
+            ("UseBlended" Lude..=) Lude.<$> useBlended,
+            ("IncludeSupport" Lude..=) Lude.<$> includeSupport,
+            ("IncludeDiscount" Lude..=) Lude.<$> includeDiscount,
+            ("IncludeSubscription" Lude..=) Lude.<$> includeSubscription,
+            ("IncludeRefund" Lude..=) Lude.<$> includeRefund,
+            ("IncludeUpfront" Lude..=) Lude.<$> includeUpfront,
+            ("IncludeOtherSubscription" Lude..=)
+              Lude.<$> includeOtherSubscription,
+            ("IncludeTax" Lude..=) Lude.<$> includeTax,
+            ("IncludeCredit" Lude..=) Lude.<$> includeCredit
           ]
       )

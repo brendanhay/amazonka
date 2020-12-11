@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue where
+module Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue
+  ( Phase1DHGroupNumbersRequestListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhase1DHGroupNumbersRequestListValue,
+
+    -- * Lenses
+    pdhgnrlvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
 --
---
---
--- /See:/ 'phase1DHGroupNumbersRequestListValue' smart constructor.
+-- /See:/ 'mkPhase1DHGroupNumbersRequestListValue' smart constructor.
 newtype Phase1DHGroupNumbersRequestListValue = Phase1DHGroupNumbersRequestListValue'
-  { _pdhgnrlvValue ::
-      Maybe Int
+  { value ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1DHGroupNumbersRequestListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdhgnrlvValue' - The Diffie-Hellmann group number.
-phase1DHGroupNumbersRequestListValue ::
+-- * 'value' - The Diffie-Hellmann group number.
+mkPhase1DHGroupNumbersRequestListValue ::
   Phase1DHGroupNumbersRequestListValue
-phase1DHGroupNumbersRequestListValue =
-  Phase1DHGroupNumbersRequestListValue' {_pdhgnrlvValue = Nothing}
+mkPhase1DHGroupNumbersRequestListValue =
+  Phase1DHGroupNumbersRequestListValue' {value = Lude.Nothing}
 
 -- | The Diffie-Hellmann group number.
-pdhgnrlvValue :: Lens' Phase1DHGroupNumbersRequestListValue (Maybe Int)
-pdhgnrlvValue = lens _pdhgnrlvValue (\s a -> s {_pdhgnrlvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdhgnrlvValue :: Lens.Lens' Phase1DHGroupNumbersRequestListValue (Lude.Maybe Lude.Int)
+pdhgnrlvValue = Lens.lens (value :: Phase1DHGroupNumbersRequestListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase1DHGroupNumbersRequestListValue)
+{-# DEPRECATED pdhgnrlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable Phase1DHGroupNumbersRequestListValue
-
-instance NFData Phase1DHGroupNumbersRequestListValue
-
-instance ToQuery Phase1DHGroupNumbersRequestListValue where
+instance Lude.ToQuery Phase1DHGroupNumbersRequestListValue where
   toQuery Phase1DHGroupNumbersRequestListValue' {..} =
-    mconcat ["Value" =: _pdhgnrlvValue]
+    Lude.mconcat ["Value" Lude.=: value]

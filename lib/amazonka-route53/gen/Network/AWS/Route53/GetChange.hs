@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,113 +17,124 @@
 --
 --     * @PENDING@ indicates that the changes in this request have not propagated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
 --
+--
 --     * @INSYNC@ indicates that the changes have propagated to all Route 53 DNS servers.
 module Network.AWS.Route53.GetChange
-  ( -- * Creating a Request
-    getChange,
-    GetChange,
+  ( -- * Creating a request
+    GetChange (..),
+    mkGetChange,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcId,
 
-    -- * Destructuring the Response
-    getChangeResponse,
-    GetChangeResponse,
+    -- * Destructuring the response
+    GetChangeResponse (..),
+    mkGetChangeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsResponseStatus,
     gcrsChangeInfo,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | The input for a GetChange request.
 --
---
---
--- /See:/ 'getChange' smart constructor.
-newtype GetChange = GetChange' {_gcId :: ResourceId}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetChange' smart constructor.
+newtype GetChange = GetChange' {id :: ResourceId}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcId' - The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
-getChange ::
-  -- | 'gcId'
+-- * 'id' - The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
+mkGetChange ::
+  -- | 'id'
   ResourceId ->
   GetChange
-getChange pId_ = GetChange' {_gcId = pId_}
+mkGetChange pId_ = GetChange' {id = pId_}
 
 -- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
-gcId :: Lens' GetChange ResourceId
-gcId = lens _gcId (\s a -> s {_gcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcId :: Lens.Lens' GetChange ResourceId
+gcId = Lens.lens (id :: GetChange -> ResourceId) (\s a -> s {id = a} :: GetChange)
+{-# DEPRECATED gcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetChange where
+instance Lude.AWSRequest GetChange where
   type Rs GetChange = GetChangeResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
-          GetChangeResponse' <$> (pure (fromEnum s)) <*> (x .@ "ChangeInfo")
+          GetChangeResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "ChangeInfo")
       )
 
-instance Hashable GetChange
+instance Lude.ToHeaders GetChange where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetChange
+instance Lude.ToPath GetChange where
+  toPath GetChange' {..} =
+    Lude.mconcat ["/2013-04-01/change/", Lude.toBS id]
 
-instance ToHeaders GetChange where
-  toHeaders = const mempty
-
-instance ToPath GetChange where
-  toPath GetChange' {..} = mconcat ["/2013-04-01/change/", toBS _gcId]
-
-instance ToQuery GetChange where
-  toQuery = const mempty
+instance Lude.ToQuery GetChange where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the @ChangeInfo@ element.
 --
---
---
--- /See:/ 'getChangeResponse' smart constructor.
+-- /See:/ 'mkGetChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-  { _gcrsResponseStatus ::
-      !Int,
-    _gcrsChangeInfo :: !ChangeInfo
+  { responseStatus ::
+      Lude.Int,
+    changeInfo :: ChangeInfo
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsResponseStatus' - -- | The response status code.
---
--- * 'gcrsChangeInfo' - A complex type that contains information about the specified change batch.
-getChangeResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
-  -- | 'gcrsChangeInfo'
+-- * 'changeInfo' - A complex type that contains information about the specified change batch.
+-- * 'responseStatus' - The response status code.
+mkGetChangeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'changeInfo'
   ChangeInfo ->
   GetChangeResponse
-getChangeResponse pResponseStatus_ pChangeInfo_ =
+mkGetChangeResponse pResponseStatus_ pChangeInfo_ =
   GetChangeResponse'
-    { _gcrsResponseStatus = pResponseStatus_,
-      _gcrsChangeInfo = pChangeInfo_
+    { responseStatus = pResponseStatus_,
+      changeInfo = pChangeInfo_
     }
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetChangeResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetChangeResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetChangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChangeResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains information about the specified change batch.
-gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
-gcrsChangeInfo = lens _gcrsChangeInfo (\s a -> s {_gcrsChangeInfo = a})
-
-instance NFData GetChangeResponse
+--
+-- /Note:/ Consider using 'changeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsChangeInfo :: Lens.Lens' GetChangeResponse ChangeInfo
+gcrsChangeInfo = Lens.lens (changeInfo :: GetChangeResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: GetChangeResponse)
+{-# DEPRECATED gcrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,174 @@
 --
 -- Returns information about all of your database snapshots in Amazon Lightsail.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
-  ( -- * Creating a Request
-    getRelationalDatabaseSnapshots,
-    GetRelationalDatabaseSnapshots,
+  ( -- * Creating a request
+    GetRelationalDatabaseSnapshots (..),
+    mkGetRelationalDatabaseSnapshots,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdsPageToken,
 
-    -- * Destructuring the Response
-    getRelationalDatabaseSnapshotsResponse,
-    GetRelationalDatabaseSnapshotsResponse,
+    -- * Destructuring the response
+    GetRelationalDatabaseSnapshotsResponse (..),
+    mkGetRelationalDatabaseSnapshotsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdsrsNextPageToken,
     grdsrsRelationalDatabaseSnapshots,
     grdsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabaseSnapshots' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseSnapshots' smart constructor.
 newtype GetRelationalDatabaseSnapshots = GetRelationalDatabaseSnapshots'
-  { _grdsPageToken ::
-      Maybe Text
+  { pageToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseSnapshots' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdsPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabaseSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getRelationalDatabaseSnapshots ::
+-- To get a page token, perform an initial @GetRelationalDatabaseSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetRelationalDatabaseSnapshots ::
   GetRelationalDatabaseSnapshots
-getRelationalDatabaseSnapshots =
-  GetRelationalDatabaseSnapshots' {_grdsPageToken = Nothing}
+mkGetRelationalDatabaseSnapshots =
+  GetRelationalDatabaseSnapshots' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabaseSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-grdsPageToken :: Lens' GetRelationalDatabaseSnapshots (Maybe Text)
-grdsPageToken = lens _grdsPageToken (\s a -> s {_grdsPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetRelationalDatabaseSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsPageToken :: Lens.Lens' GetRelationalDatabaseSnapshots (Lude.Maybe Lude.Text)
+grdsPageToken = Lens.lens (pageToken :: GetRelationalDatabaseSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetRelationalDatabaseSnapshots)
+{-# DEPRECATED grdsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetRelationalDatabaseSnapshots where
+instance Page.AWSPager GetRelationalDatabaseSnapshots where
   page rq rs
-    | stop (rs ^. grdsrsNextPageToken) = Nothing
-    | stop (rs ^. grdsrsRelationalDatabaseSnapshots) = Nothing
-    | otherwise =
-      Just $ rq & grdsPageToken .~ rs ^. grdsrsNextPageToken
+    | Page.stop (rs Lens.^. grdsrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grdsrsRelationalDatabaseSnapshots) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grdsPageToken Lens..~ rs Lens.^. grdsrsNextPageToken
 
-instance AWSRequest GetRelationalDatabaseSnapshots where
+instance Lude.AWSRequest GetRelationalDatabaseSnapshots where
   type
     Rs GetRelationalDatabaseSnapshots =
       GetRelationalDatabaseSnapshotsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseSnapshotsResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "relationalDatabaseSnapshots" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "relationalDatabaseSnapshots" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabaseSnapshots
-
-instance NFData GetRelationalDatabaseSnapshots
-
-instance ToHeaders GetRelationalDatabaseSnapshots where
+instance Lude.ToHeaders GetRelationalDatabaseSnapshots where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.GetRelationalDatabaseSnapshots" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseSnapshots" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabaseSnapshots where
+instance Lude.ToJSON GetRelationalDatabaseSnapshots where
   toJSON GetRelationalDatabaseSnapshots' {..} =
-    object (catMaybes [("pageToken" .=) <$> _grdsPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetRelationalDatabaseSnapshots where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabaseSnapshots where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabaseSnapshots where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabaseSnapshots where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabaseSnapshotsResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseSnapshotsResponse' smart constructor.
 data GetRelationalDatabaseSnapshotsResponse = GetRelationalDatabaseSnapshotsResponse'
-  { _grdsrsNextPageToken ::
-      !(Maybe Text),
-    _grdsrsRelationalDatabaseSnapshots ::
-      !( Maybe
-           [RelationalDatabaseSnapshot]
-       ),
-    _grdsrsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    relationalDatabaseSnapshots ::
+      Lude.Maybe
+        [RelationalDatabaseSnapshot],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseSnapshotsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdsrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabaseSnapshots@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'grdsrsRelationalDatabaseSnapshots' - An object describing the result of your get relational database snapshots request.
---
--- * 'grdsrsResponseStatus' - -- | The response status code.
-getRelationalDatabaseSnapshotsResponse ::
-  -- | 'grdsrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabaseSnapshots@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'relationalDatabaseSnapshots' - An object describing the result of your get relational database snapshots request.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabaseSnapshotsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabaseSnapshotsResponse
-getRelationalDatabaseSnapshotsResponse pResponseStatus_ =
+mkGetRelationalDatabaseSnapshotsResponse pResponseStatus_ =
   GetRelationalDatabaseSnapshotsResponse'
-    { _grdsrsNextPageToken =
-        Nothing,
-      _grdsrsRelationalDatabaseSnapshots = Nothing,
-      _grdsrsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Lude.Nothing,
+      relationalDatabaseSnapshots = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabaseSnapshots@ request and specify the next page token using the @pageToken@ parameter.
-grdsrsNextPageToken :: Lens' GetRelationalDatabaseSnapshotsResponse (Maybe Text)
-grdsrsNextPageToken = lens _grdsrsNextPageToken (\s a -> s {_grdsrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabaseSnapshots@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsrsNextPageToken :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Lude.Maybe Lude.Text)
+grdsrsNextPageToken = Lens.lens (nextPageToken :: GetRelationalDatabaseSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRelationalDatabaseSnapshotsResponse)
+{-# DEPRECATED grdsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An object describing the result of your get relational database snapshots request.
-grdsrsRelationalDatabaseSnapshots :: Lens' GetRelationalDatabaseSnapshotsResponse [RelationalDatabaseSnapshot]
-grdsrsRelationalDatabaseSnapshots = lens _grdsrsRelationalDatabaseSnapshots (\s a -> s {_grdsrsRelationalDatabaseSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'relationalDatabaseSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsrsRelationalDatabaseSnapshots :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse (Lude.Maybe [RelationalDatabaseSnapshot])
+grdsrsRelationalDatabaseSnapshots = Lens.lens (relationalDatabaseSnapshots :: GetRelationalDatabaseSnapshotsResponse -> Lude.Maybe [RelationalDatabaseSnapshot]) (\s a -> s {relationalDatabaseSnapshots = a} :: GetRelationalDatabaseSnapshotsResponse)
+{-# DEPRECATED grdsrsRelationalDatabaseSnapshots "Use generic-lens or generic-optics with 'relationalDatabaseSnapshots' instead." #-}
 
--- | -- | The response status code.
-grdsrsResponseStatus :: Lens' GetRelationalDatabaseSnapshotsResponse Int
-grdsrsResponseStatus = lens _grdsrsResponseStatus (\s a -> s {_grdsrsResponseStatus = a})
-
-instance NFData GetRelationalDatabaseSnapshotsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsrsResponseStatus :: Lens.Lens' GetRelationalDatabaseSnapshotsResponse Lude.Int
+grdsrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseSnapshotsResponse)
+{-# DEPRECATED grdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

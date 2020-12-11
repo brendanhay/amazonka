@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceTypeForTagging where
+module Network.AWS.SSM.Types.ResourceTypeForTagging
+  ( ResourceTypeForTagging
+      ( ResourceTypeForTagging',
+        RTFTDocument,
+        RTFTMaintenanceWindow,
+        RTFTManagedInstance,
+        RTFTOpsItem,
+        RTFTParameter,
+        RTFTPatchBaseline
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceTypeForTagging
-  = RTFTDocument
-  | RTFTMaintenanceWindow
-  | RTFTManagedInstance
-  | RTFTOpsItem
-  | RTFTParameter
-  | RTFTPatchBaseline
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceTypeForTagging = ResourceTypeForTagging' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceTypeForTagging where
-  parser =
-    takeLowerText >>= \case
-      "document" -> pure RTFTDocument
-      "maintenancewindow" -> pure RTFTMaintenanceWindow
-      "managedinstance" -> pure RTFTManagedInstance
-      "opsitem" -> pure RTFTOpsItem
-      "parameter" -> pure RTFTParameter
-      "patchbaseline" -> pure RTFTPatchBaseline
-      e ->
-        fromTextError $
-          "Failure parsing ResourceTypeForTagging from value: '" <> e
-            <> "'. Accepted values: document, maintenancewindow, managedinstance, opsitem, parameter, patchbaseline"
+pattern RTFTDocument :: ResourceTypeForTagging
+pattern RTFTDocument = ResourceTypeForTagging' "Document"
 
-instance ToText ResourceTypeForTagging where
-  toText = \case
-    RTFTDocument -> "Document"
-    RTFTMaintenanceWindow -> "MaintenanceWindow"
-    RTFTManagedInstance -> "ManagedInstance"
-    RTFTOpsItem -> "OpsItem"
-    RTFTParameter -> "Parameter"
-    RTFTPatchBaseline -> "PatchBaseline"
+pattern RTFTMaintenanceWindow :: ResourceTypeForTagging
+pattern RTFTMaintenanceWindow = ResourceTypeForTagging' "MaintenanceWindow"
 
-instance Hashable ResourceTypeForTagging
+pattern RTFTManagedInstance :: ResourceTypeForTagging
+pattern RTFTManagedInstance = ResourceTypeForTagging' "ManagedInstance"
 
-instance NFData ResourceTypeForTagging
+pattern RTFTOpsItem :: ResourceTypeForTagging
+pattern RTFTOpsItem = ResourceTypeForTagging' "OpsItem"
 
-instance ToByteString ResourceTypeForTagging
+pattern RTFTParameter :: ResourceTypeForTagging
+pattern RTFTParameter = ResourceTypeForTagging' "Parameter"
 
-instance ToQuery ResourceTypeForTagging
+pattern RTFTPatchBaseline :: ResourceTypeForTagging
+pattern RTFTPatchBaseline = ResourceTypeForTagging' "PatchBaseline"
 
-instance ToHeader ResourceTypeForTagging
-
-instance ToJSON ResourceTypeForTagging where
-  toJSON = toJSONText
+{-# COMPLETE
+  RTFTDocument,
+  RTFTMaintenanceWindow,
+  RTFTManagedInstance,
+  RTFTOpsItem,
+  RTFTParameter,
+  RTFTPatchBaseline,
+  ResourceTypeForTagging'
+  #-}

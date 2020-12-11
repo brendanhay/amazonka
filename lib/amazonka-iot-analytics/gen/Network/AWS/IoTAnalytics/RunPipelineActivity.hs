@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Simulates the results of running a pipeline activity on a message payload.
 module Network.AWS.IoTAnalytics.RunPipelineActivity
-  ( -- * Creating a Request
-    runPipelineActivity,
-    RunPipelineActivity,
+  ( -- * Creating a request
+    RunPipelineActivity (..),
+    mkRunPipelineActivity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpaPipelineActivity,
     rpaPayloads,
 
-    -- * Destructuring the Response
-    runPipelineActivityResponse,
-    RunPipelineActivityResponse,
+    -- * Destructuring the response
+    RunPipelineActivityResponse (..),
+    mkRunPipelineActivityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rparsLogResult,
     rparsPayloads,
     rparsResponseStatus,
@@ -39,118 +34,137 @@ module Network.AWS.IoTAnalytics.RunPipelineActivity
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'runPipelineActivity' smart constructor.
+-- | /See:/ 'mkRunPipelineActivity' smart constructor.
 data RunPipelineActivity = RunPipelineActivity'
-  { _rpaPipelineActivity ::
-      !PipelineActivity,
-    _rpaPayloads :: !(List1 Base64)
+  { pipelineActivity ::
+      PipelineActivity,
+    payloads :: Lude.NonEmpty Lude.Base64
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunPipelineActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpaPipelineActivity' - The pipeline activity that is run. This must not be a channel activity or a datastore activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a lambda activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
---
--- * 'rpaPayloads' - The sample message payloads on which the pipeline activity is run.
-runPipelineActivity ::
-  -- | 'rpaPipelineActivity'
+-- * 'payloads' - The sample message payloads on which the pipeline activity is run.
+-- * 'pipelineActivity' - The pipeline activity that is run. This must not be a channel activity or a datastore activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a lambda activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
+mkRunPipelineActivity ::
+  -- | 'pipelineActivity'
   PipelineActivity ->
-  -- | 'rpaPayloads'
-  NonEmpty ByteString ->
+  -- | 'payloads'
+  Lude.NonEmpty Lude.Base64 ->
   RunPipelineActivity
-runPipelineActivity pPipelineActivity_ pPayloads_ =
+mkRunPipelineActivity pPipelineActivity_ pPayloads_ =
   RunPipelineActivity'
-    { _rpaPipelineActivity = pPipelineActivity_,
-      _rpaPayloads = _List1 # pPayloads_
+    { pipelineActivity = pPipelineActivity_,
+      payloads = pPayloads_
     }
 
 -- | The pipeline activity that is run. This must not be a channel activity or a datastore activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a lambda activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
-rpaPipelineActivity :: Lens' RunPipelineActivity PipelineActivity
-rpaPipelineActivity = lens _rpaPipelineActivity (\s a -> s {_rpaPipelineActivity = a})
+--
+-- /Note:/ Consider using 'pipelineActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpaPipelineActivity :: Lens.Lens' RunPipelineActivity PipelineActivity
+rpaPipelineActivity = Lens.lens (pipelineActivity :: RunPipelineActivity -> PipelineActivity) (\s a -> s {pipelineActivity = a} :: RunPipelineActivity)
+{-# DEPRECATED rpaPipelineActivity "Use generic-lens or generic-optics with 'pipelineActivity' instead." #-}
 
 -- | The sample message payloads on which the pipeline activity is run.
-rpaPayloads :: Lens' RunPipelineActivity (NonEmpty ByteString)
-rpaPayloads = lens _rpaPayloads (\s a -> s {_rpaPayloads = a}) . _List1
+--
+-- /Note:/ Consider using 'payloads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpaPayloads :: Lens.Lens' RunPipelineActivity (Lude.NonEmpty Lude.Base64)
+rpaPayloads = Lens.lens (payloads :: RunPipelineActivity -> Lude.NonEmpty Lude.Base64) (\s a -> s {payloads = a} :: RunPipelineActivity)
+{-# DEPRECATED rpaPayloads "Use generic-lens or generic-optics with 'payloads' instead." #-}
 
-instance AWSRequest RunPipelineActivity where
+instance Lude.AWSRequest RunPipelineActivity where
   type Rs RunPipelineActivity = RunPipelineActivityResponse
-  request = postJSON ioTAnalytics
+  request = Req.postJSON ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RunPipelineActivityResponse'
-            <$> (x .?> "logResult") <*> (x .?> "payloads") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "logResult")
+            Lude.<*> (x Lude..?> "payloads")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RunPipelineActivity
+instance Lude.ToHeaders RunPipelineActivity where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RunPipelineActivity
-
-instance ToHeaders RunPipelineActivity where
-  toHeaders = const mempty
-
-instance ToJSON RunPipelineActivity where
+instance Lude.ToJSON RunPipelineActivity where
   toJSON RunPipelineActivity' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineActivity" .= _rpaPipelineActivity),
-            Just ("payloads" .= _rpaPayloads)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineActivity" Lude..= pipelineActivity),
+            Lude.Just ("payloads" Lude..= payloads)
           ]
       )
 
-instance ToPath RunPipelineActivity where
-  toPath = const "/pipelineactivities/run"
+instance Lude.ToPath RunPipelineActivity where
+  toPath = Lude.const "/pipelineactivities/run"
 
-instance ToQuery RunPipelineActivity where
-  toQuery = const mempty
+instance Lude.ToQuery RunPipelineActivity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'runPipelineActivityResponse' smart constructor.
+-- | /See:/ 'mkRunPipelineActivityResponse' smart constructor.
 data RunPipelineActivityResponse = RunPipelineActivityResponse'
-  { _rparsLogResult ::
-      !(Maybe Text),
-    _rparsPayloads ::
-      !(Maybe (List1 Base64)),
-    _rparsResponseStatus :: !Int
+  { logResult ::
+      Lude.Maybe Lude.Text,
+    payloads ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Base64),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunPipelineActivityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rparsLogResult' - In case the pipeline activity fails, the log message that is generated.
---
--- * 'rparsPayloads' - The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
---
--- * 'rparsResponseStatus' - -- | The response status code.
-runPipelineActivityResponse ::
-  -- | 'rparsResponseStatus'
-  Int ->
+-- * 'logResult' - In case the pipeline activity fails, the log message that is generated.
+-- * 'payloads' - The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
+-- * 'responseStatus' - The response status code.
+mkRunPipelineActivityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RunPipelineActivityResponse
-runPipelineActivityResponse pResponseStatus_ =
+mkRunPipelineActivityResponse pResponseStatus_ =
   RunPipelineActivityResponse'
-    { _rparsLogResult = Nothing,
-      _rparsPayloads = Nothing,
-      _rparsResponseStatus = pResponseStatus_
+    { logResult = Lude.Nothing,
+      payloads = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | In case the pipeline activity fails, the log message that is generated.
-rparsLogResult :: Lens' RunPipelineActivityResponse (Maybe Text)
-rparsLogResult = lens _rparsLogResult (\s a -> s {_rparsLogResult = a})
+--
+-- /Note:/ Consider using 'logResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rparsLogResult :: Lens.Lens' RunPipelineActivityResponse (Lude.Maybe Lude.Text)
+rparsLogResult = Lens.lens (logResult :: RunPipelineActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {logResult = a} :: RunPipelineActivityResponse)
+{-# DEPRECATED rparsLogResult "Use generic-lens or generic-optics with 'logResult' instead." #-}
 
 -- | The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
-rparsPayloads :: Lens' RunPipelineActivityResponse (Maybe (NonEmpty ByteString))
-rparsPayloads = lens _rparsPayloads (\s a -> s {_rparsPayloads = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'payloads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rparsPayloads :: Lens.Lens' RunPipelineActivityResponse (Lude.Maybe (Lude.NonEmpty Lude.Base64))
+rparsPayloads = Lens.lens (payloads :: RunPipelineActivityResponse -> Lude.Maybe (Lude.NonEmpty Lude.Base64)) (\s a -> s {payloads = a} :: RunPipelineActivityResponse)
+{-# DEPRECATED rparsPayloads "Use generic-lens or generic-optics with 'payloads' instead." #-}
 
--- | -- | The response status code.
-rparsResponseStatus :: Lens' RunPipelineActivityResponse Int
-rparsResponseStatus = lens _rparsResponseStatus (\s a -> s {_rparsResponseStatus = a})
-
-instance NFData RunPipelineActivityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rparsResponseStatus :: Lens.Lens' RunPipelineActivityResponse Lude.Int
+rparsResponseStatus = Lens.lens (responseStatus :: RunPipelineActivityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RunPipelineActivityResponse)
+{-# DEPRECATED rparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

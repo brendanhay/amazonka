@@ -13,21 +13,18 @@
 --
 -- Amazon S3 Glacier (Glacier) is a storage solution for "cold data."
 --
---
 -- Glacier is an extremely low-cost storage service that provides secure, durable, and easy-to-use storage for data backup and archival. With Glacier, customers can store their data cost effectively for months, years, or decades. Glacier also enables customers to offload the administrative burdens of operating and scaling storage to AWS, so they don't have to worry about capacity planning, hardware provisioning, data replication, hardware failure and recovery, or time-consuming hardware migrations.
---
 -- Glacier is a great storage choice when low storage cost is paramount and your data is rarely retrieved. If your application requires fast or frequent access to your data, consider using Amazon S3. For more information, see <http://aws.amazon.com/s3/ Amazon Simple Storage Service (Amazon S3)> .
---
 -- You can store any kind of data in any format. There is no maximum limit on the total amount of data you can store in Glacier.
---
 -- If you are a first-time user of Glacier, we recommend that you begin by reading the following sections in the /Amazon S3 Glacier Developer Guide/ :
 --
 --     * <https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html What is Amazon S3 Glacier> - This section of the Developer Guide describes the underlying data model, the operations it supports, and the AWS SDKs that you can use to interact with the service.
 --
+--
 --     * <https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html Getting Started with Amazon S3 Glacier> - The Getting Started section walks you through the process of creating a vault, uploading archives, creating jobs to download archives, retrieving the job output, and deleting archives.
 module Network.AWS.Glacier
-  ( -- * Service Configuration
-    glacier,
+  ( -- * Service configuration
+    glacierService,
 
     -- * Errors
     -- $errors
@@ -36,10 +33,10 @@ module Network.AWS.Glacier
     -- $waiters
 
     -- ** VaultNotExists
-    vaultNotExists,
+    mkVaultNotExists,
 
     -- ** VaultExists
-    vaultExists,
+    mkVaultExists,
 
     -- * Operations
     -- $operations
@@ -176,15 +173,15 @@ module Network.AWS.Glacier
     Type (..),
 
     -- ** ArchiveCreationOutput
-    ArchiveCreationOutput,
-    archiveCreationOutput,
+    ArchiveCreationOutput (..),
+    mkArchiveCreationOutput,
     acoArchiveId,
     acoChecksum,
     acoLocation,
 
     -- ** CSVInput
-    CSVInput,
-    csvInput,
+    CSVInput (..),
+    mkCSVInput,
     ciQuoteCharacter,
     ciRecordDelimiter,
     ciFileHeaderInfo,
@@ -193,8 +190,8 @@ module Network.AWS.Glacier
     ciFieldDelimiter,
 
     -- ** CSVOutput
-    CSVOutput,
-    csvOutput,
+    CSVOutput (..),
+    mkCSVOutput,
     coQuoteCharacter,
     coQuoteFields,
     coRecordDelimiter,
@@ -202,19 +199,19 @@ module Network.AWS.Glacier
     coFieldDelimiter,
 
     -- ** DataRetrievalPolicy
-    DataRetrievalPolicy,
-    dataRetrievalPolicy,
+    DataRetrievalPolicy (..),
+    mkDataRetrievalPolicy,
     drpRules,
 
     -- ** DataRetrievalRule
-    DataRetrievalRule,
-    dataRetrievalRule,
+    DataRetrievalRule (..),
+    mkDataRetrievalRule,
     drrStrategy,
     drrBytesPerHour,
 
     -- ** DescribeVaultOutput
-    DescribeVaultOutput,
-    describeVaultOutput,
+    DescribeVaultOutput (..),
+    mkDescribeVaultOutput,
     dvoVaultName,
     dvoSizeInBytes,
     dvoLastInventoryDate,
@@ -223,15 +220,15 @@ module Network.AWS.Glacier
     dvoNumberOfArchives,
 
     -- ** Encryption
-    Encryption,
-    encryption,
+    Encryption (..),
+    mkEncryption,
     eEncryptionType,
     eKMSKeyId,
     eKMSContext,
 
     -- ** GlacierJobDescription
-    GlacierJobDescription,
-    glacierJobDescription,
+    GlacierJobDescription (..),
+    mkGlacierJobDescription,
     gjdSHA256TreeHash,
     gjdArchiveId,
     gjdSelectParameters,
@@ -255,14 +252,14 @@ module Network.AWS.Glacier
     gjdStatusCode,
 
     -- ** Grant
-    Grant,
-    grant,
+    Grant (..),
+    mkGrant,
     gPermission,
     gGrantee,
 
     -- ** Grantee
-    Grantee,
-    grantee,
+    Grantee (..),
+    mkGrantee,
     gURI,
     gEmailAddress,
     gDisplayName,
@@ -270,13 +267,13 @@ module Network.AWS.Glacier
     gType,
 
     -- ** InputSerialization
-    InputSerialization,
-    inputSerialization,
+    InputSerialization (..),
+    mkInputSerialization,
     isCsv,
 
     -- ** InventoryRetrievalJobDescription
-    InventoryRetrievalJobDescription,
-    inventoryRetrievalJobDescription,
+    InventoryRetrievalJobDescription (..),
+    mkInventoryRetrievalJobDescription,
     irjdFormat,
     irjdEndDate,
     irjdStartDate,
@@ -284,16 +281,16 @@ module Network.AWS.Glacier
     irjdLimit,
 
     -- ** InventoryRetrievalJobInput
-    InventoryRetrievalJobInput,
-    inventoryRetrievalJobInput,
+    InventoryRetrievalJobInput (..),
+    mkInventoryRetrievalJobInput,
     irjiEndDate,
     irjiStartDate,
     irjiMarker,
     irjiLimit,
 
     -- ** JobParameters
-    JobParameters,
-    jobParameters,
+    JobParameters (..),
+    mkJobParameters,
     jpArchiveId,
     jpSelectParameters,
     jpFormat,
@@ -306,31 +303,31 @@ module Network.AWS.Glacier
     jpDescription,
 
     -- ** OutputLocation
-    OutputLocation,
-    outputLocation,
+    OutputLocation (..),
+    mkOutputLocation,
     olS3,
 
     -- ** OutputSerialization
-    OutputSerialization,
-    outputSerialization,
+    OutputSerialization (..),
+    mkOutputSerialization,
     osCsv,
 
     -- ** PartListElement
-    PartListElement,
-    partListElement,
+    PartListElement (..),
+    mkPartListElement,
     pleSHA256TreeHash,
     pleRangeInBytes,
 
     -- ** ProvisionedCapacityDescription
-    ProvisionedCapacityDescription,
-    provisionedCapacityDescription,
+    ProvisionedCapacityDescription (..),
+    mkProvisionedCapacityDescription,
     pcdCapacityId,
     pcdStartDate,
     pcdExpirationDate,
 
     -- ** S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slCannedACL,
     slPrefix,
     slBucketName,
@@ -341,16 +338,16 @@ module Network.AWS.Glacier
     slTagging,
 
     -- ** SelectParameters
-    SelectParameters,
-    selectParameters,
+    SelectParameters (..),
+    mkSelectParameters,
     spExpressionType,
     spOutputSerialization,
     spExpression,
     spInputSerialization,
 
     -- ** UploadListElement
-    UploadListElement,
-    uploadListElement,
+    UploadListElement (..),
+    mkUploadListElement,
     uleMultipartUploadId,
     ulePartSizeInBytes,
     uleArchiveDescription,
@@ -358,20 +355,31 @@ module Network.AWS.Glacier
     uleCreationDate,
 
     -- ** VaultAccessPolicy
-    VaultAccessPolicy,
-    vaultAccessPolicy,
+    VaultAccessPolicy (..),
+    mkVaultAccessPolicy,
     vapPolicy,
 
     -- ** VaultLockPolicy
-    VaultLockPolicy,
-    vaultLockPolicy,
+    VaultLockPolicy (..),
+    mkVaultLockPolicy,
     vlpPolicy,
 
     -- ** VaultNotificationConfig
-    VaultNotificationConfig,
-    vaultNotificationConfig,
+    VaultNotificationConfig (..),
+    mkVaultNotificationConfig,
     vncSNSTopic,
     vncEvents,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -410,6 +418,7 @@ import Network.AWS.Glacier.Types
 import Network.AWS.Glacier.UploadArchive
 import Network.AWS.Glacier.UploadMultipartPart
 import Network.AWS.Glacier.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

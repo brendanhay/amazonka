@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,167 @@
 --
 -- Deletes a subscriber.
 --
---
 -- /Important:/ Deleting the last subscriber to a notification also deletes the notification.
 module Network.AWS.Budgets.DeleteSubscriber
-  ( -- * Creating a Request
-    deleteSubscriber,
-    DeleteSubscriber,
+  ( -- * Creating a request
+    DeleteSubscriber (..),
+    mkDeleteSubscriber,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsAccountId,
     dsBudgetName,
     dsNotification,
     dsSubscriber,
 
-    -- * Destructuring the Response
-    deleteSubscriberResponse,
-    DeleteSubscriberResponse,
+    -- * Destructuring the response
+    DeleteSubscriberResponse (..),
+    mkDeleteSubscriberResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request of DeleteSubscriber
 --
---
---
--- /See:/ 'deleteSubscriber' smart constructor.
+-- /See:/ 'mkDeleteSubscriber' smart constructor.
 data DeleteSubscriber = DeleteSubscriber'
-  { _dsAccountId :: !Text,
-    _dsBudgetName :: !Text,
-    _dsNotification :: !Notification,
-    _dsSubscriber :: !Subscriber
+  { accountId :: Lude.Text,
+    budgetName :: Lude.Text,
+    notification :: Notification,
+    subscriber :: Subscriber
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriber' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsAccountId' - The @accountId@ that is associated with the budget whose subscriber you want to delete.
---
--- * 'dsBudgetName' - The name of the budget whose subscriber you want to delete.
---
--- * 'dsNotification' - The notification whose subscriber you want to delete.
---
--- * 'dsSubscriber' - The subscriber that you want to delete.
-deleteSubscriber ::
-  -- | 'dsAccountId'
-  Text ->
-  -- | 'dsBudgetName'
-  Text ->
-  -- | 'dsNotification'
+-- * 'accountId' - The @accountId@ that is associated with the budget whose subscriber you want to delete.
+-- * 'budgetName' - The name of the budget whose subscriber you want to delete.
+-- * 'notification' - The notification whose subscriber you want to delete.
+-- * 'subscriber' - The subscriber that you want to delete.
+mkDeleteSubscriber ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
+  -- | 'notification'
   Notification ->
-  -- | 'dsSubscriber'
+  -- | 'subscriber'
   Subscriber ->
   DeleteSubscriber
-deleteSubscriber
+mkDeleteSubscriber
   pAccountId_
   pBudgetName_
   pNotification_
   pSubscriber_ =
     DeleteSubscriber'
-      { _dsAccountId = pAccountId_,
-        _dsBudgetName = pBudgetName_,
-        _dsNotification = pNotification_,
-        _dsSubscriber = pSubscriber_
+      { accountId = pAccountId_,
+        budgetName = pBudgetName_,
+        notification = pNotification_,
+        subscriber = pSubscriber_
       }
 
 -- | The @accountId@ that is associated with the budget whose subscriber you want to delete.
-dsAccountId :: Lens' DeleteSubscriber Text
-dsAccountId = lens _dsAccountId (\s a -> s {_dsAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsAccountId :: Lens.Lens' DeleteSubscriber Lude.Text
+dsAccountId = Lens.lens (accountId :: DeleteSubscriber -> Lude.Text) (\s a -> s {accountId = a} :: DeleteSubscriber)
+{-# DEPRECATED dsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget whose subscriber you want to delete.
-dsBudgetName :: Lens' DeleteSubscriber Text
-dsBudgetName = lens _dsBudgetName (\s a -> s {_dsBudgetName = a})
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsBudgetName :: Lens.Lens' DeleteSubscriber Lude.Text
+dsBudgetName = Lens.lens (budgetName :: DeleteSubscriber -> Lude.Text) (\s a -> s {budgetName = a} :: DeleteSubscriber)
+{-# DEPRECATED dsBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | The notification whose subscriber you want to delete.
-dsNotification :: Lens' DeleteSubscriber Notification
-dsNotification = lens _dsNotification (\s a -> s {_dsNotification = a})
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNotification :: Lens.Lens' DeleteSubscriber Notification
+dsNotification = Lens.lens (notification :: DeleteSubscriber -> Notification) (\s a -> s {notification = a} :: DeleteSubscriber)
+{-# DEPRECATED dsNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | The subscriber that you want to delete.
-dsSubscriber :: Lens' DeleteSubscriber Subscriber
-dsSubscriber = lens _dsSubscriber (\s a -> s {_dsSubscriber = a})
+--
+-- /Note:/ Consider using 'subscriber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSubscriber :: Lens.Lens' DeleteSubscriber Subscriber
+dsSubscriber = Lens.lens (subscriber :: DeleteSubscriber -> Subscriber) (\s a -> s {subscriber = a} :: DeleteSubscriber)
+{-# DEPRECATED dsSubscriber "Use generic-lens or generic-optics with 'subscriber' instead." #-}
 
-instance AWSRequest DeleteSubscriber where
+instance Lude.AWSRequest DeleteSubscriber where
   type Rs DeleteSubscriber = DeleteSubscriberResponse
-  request = postJSON budgets
+  request = Req.postJSON budgetsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteSubscriberResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteSubscriberResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteSubscriber
-
-instance NFData DeleteSubscriber
-
-instance ToHeaders DeleteSubscriber where
+instance Lude.ToHeaders DeleteSubscriber where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSBudgetServiceGateway.DeleteSubscriber" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSBudgetServiceGateway.DeleteSubscriber" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSubscriber where
+instance Lude.ToJSON DeleteSubscriber where
   toJSON DeleteSubscriber' {..} =
-    object
-      ( catMaybes
-          [ Just ("AccountId" .= _dsAccountId),
-            Just ("BudgetName" .= _dsBudgetName),
-            Just ("Notification" .= _dsNotification),
-            Just ("Subscriber" .= _dsSubscriber)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName),
+            Lude.Just ("Notification" Lude..= notification),
+            Lude.Just ("Subscriber" Lude..= subscriber)
           ]
       )
 
-instance ToPath DeleteSubscriber where
-  toPath = const "/"
+instance Lude.ToPath DeleteSubscriber where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSubscriber where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSubscriber where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response of DeleteSubscriber
 --
---
---
--- /See:/ 'deleteSubscriberResponse' smart constructor.
+-- /See:/ 'mkDeleteSubscriberResponse' smart constructor.
 newtype DeleteSubscriberResponse = DeleteSubscriberResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriberResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteSubscriberResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSubscriberResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSubscriberResponse
-deleteSubscriberResponse pResponseStatus_ =
-  DeleteSubscriberResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteSubscriberResponse pResponseStatus_ =
+  DeleteSubscriberResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteSubscriberResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteSubscriberResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteSubscriberResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSubscriberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSubscriberResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

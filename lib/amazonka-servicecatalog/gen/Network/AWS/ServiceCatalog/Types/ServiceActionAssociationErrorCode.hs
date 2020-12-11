@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode where
+module Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+  ( ServiceActionAssociationErrorCode
+      ( ServiceActionAssociationErrorCode',
+        DuplicateResource,
+        InternalFailure,
+        LimitExceeded,
+        ResourceNotFound,
+        Throttling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceActionAssociationErrorCode
-  = DuplicateResource
-  | InternalFailure
-  | LimitExceeded
-  | ResourceNotFound
-  | Throttling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceActionAssociationErrorCode = ServiceActionAssociationErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceActionAssociationErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "duplicate_resource" -> pure DuplicateResource
-      "internal_failure" -> pure InternalFailure
-      "limit_exceeded" -> pure LimitExceeded
-      "resource_not_found" -> pure ResourceNotFound
-      "throttling" -> pure Throttling
-      e ->
-        fromTextError $
-          "Failure parsing ServiceActionAssociationErrorCode from value: '" <> e
-            <> "'. Accepted values: duplicate_resource, internal_failure, limit_exceeded, resource_not_found, throttling"
+pattern DuplicateResource :: ServiceActionAssociationErrorCode
+pattern DuplicateResource = ServiceActionAssociationErrorCode' "DUPLICATE_RESOURCE"
 
-instance ToText ServiceActionAssociationErrorCode where
-  toText = \case
-    DuplicateResource -> "DUPLICATE_RESOURCE"
-    InternalFailure -> "INTERNAL_FAILURE"
-    LimitExceeded -> "LIMIT_EXCEEDED"
-    ResourceNotFound -> "RESOURCE_NOT_FOUND"
-    Throttling -> "THROTTLING"
+pattern InternalFailure :: ServiceActionAssociationErrorCode
+pattern InternalFailure = ServiceActionAssociationErrorCode' "INTERNAL_FAILURE"
 
-instance Hashable ServiceActionAssociationErrorCode
+pattern LimitExceeded :: ServiceActionAssociationErrorCode
+pattern LimitExceeded = ServiceActionAssociationErrorCode' "LIMIT_EXCEEDED"
 
-instance NFData ServiceActionAssociationErrorCode
+pattern ResourceNotFound :: ServiceActionAssociationErrorCode
+pattern ResourceNotFound = ServiceActionAssociationErrorCode' "RESOURCE_NOT_FOUND"
 
-instance ToByteString ServiceActionAssociationErrorCode
+pattern Throttling :: ServiceActionAssociationErrorCode
+pattern Throttling = ServiceActionAssociationErrorCode' "THROTTLING"
 
-instance ToQuery ServiceActionAssociationErrorCode
-
-instance ToHeader ServiceActionAssociationErrorCode
-
-instance FromJSON ServiceActionAssociationErrorCode where
-  parseJSON = parseJSONText "ServiceActionAssociationErrorCode"
+{-# COMPLETE
+  DuplicateResource,
+  InternalFailure,
+  LimitExceeded,
+  ResourceNotFound,
+  Throttling,
+  ServiceActionAssociationErrorCode'
+  #-}

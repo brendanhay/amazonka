@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AfdSignaling where
+module Network.AWS.MediaLive.Types.AfdSignaling
+  ( AfdSignaling
+      ( AfdSignaling',
+        ASAuto,
+        ASFixed,
+        ASNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Afd Signaling
-data AfdSignaling
-  = ASAuto
-  | ASFixed
-  | ASNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AfdSignaling = AfdSignaling' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AfdSignaling where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure ASAuto
-      "fixed" -> pure ASFixed
-      "none" -> pure ASNone
-      e ->
-        fromTextError $
-          "Failure parsing AfdSignaling from value: '" <> e
-            <> "'. Accepted values: auto, fixed, none"
+pattern ASAuto :: AfdSignaling
+pattern ASAuto = AfdSignaling' "AUTO"
 
-instance ToText AfdSignaling where
-  toText = \case
-    ASAuto -> "AUTO"
-    ASFixed -> "FIXED"
-    ASNone -> "NONE"
+pattern ASFixed :: AfdSignaling
+pattern ASFixed = AfdSignaling' "FIXED"
 
-instance Hashable AfdSignaling
+pattern ASNone :: AfdSignaling
+pattern ASNone = AfdSignaling' "NONE"
 
-instance NFData AfdSignaling
-
-instance ToByteString AfdSignaling
-
-instance ToQuery AfdSignaling
-
-instance ToHeader AfdSignaling
-
-instance ToJSON AfdSignaling where
-  toJSON = toJSONText
-
-instance FromJSON AfdSignaling where
-  parseJSON = parseJSONText "AfdSignaling"
+{-# COMPLETE
+  ASAuto,
+  ASFixed,
+  ASNone,
+  AfdSignaling'
+  #-}

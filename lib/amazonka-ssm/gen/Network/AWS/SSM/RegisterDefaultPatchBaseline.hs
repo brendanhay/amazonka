@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,137 @@
 --
 -- Defines the default patch baseline for the relevant operating system.
 --
---
 -- To reset the AWS predefined patch baseline as the default, specify the full patch baseline ARN as the baseline ID value. For example, for CentOS, specify @arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed@ instead of @pb-0574b43a65ea646ed@ .
 module Network.AWS.SSM.RegisterDefaultPatchBaseline
-  ( -- * Creating a Request
-    registerDefaultPatchBaseline,
-    RegisterDefaultPatchBaseline,
+  ( -- * Creating a request
+    RegisterDefaultPatchBaseline (..),
+    mkRegisterDefaultPatchBaseline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdpbBaselineId,
 
-    -- * Destructuring the Response
-    registerDefaultPatchBaselineResponse,
-    RegisterDefaultPatchBaselineResponse,
+    -- * Destructuring the response
+    RegisterDefaultPatchBaselineResponse (..),
+    mkRegisterDefaultPatchBaselineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdpbrsBaselineId,
     rdpbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'registerDefaultPatchBaseline' smart constructor.
+-- | /See:/ 'mkRegisterDefaultPatchBaseline' smart constructor.
 newtype RegisterDefaultPatchBaseline = RegisterDefaultPatchBaseline'
-  { _rdpbBaselineId ::
-      Text
+  { baselineId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDefaultPatchBaseline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdpbBaselineId' - The ID of the patch baseline that should be the default patch baseline.
-registerDefaultPatchBaseline ::
-  -- | 'rdpbBaselineId'
-  Text ->
+-- * 'baselineId' - The ID of the patch baseline that should be the default patch baseline.
+mkRegisterDefaultPatchBaseline ::
+  -- | 'baselineId'
+  Lude.Text ->
   RegisterDefaultPatchBaseline
-registerDefaultPatchBaseline pBaselineId_ =
-  RegisterDefaultPatchBaseline' {_rdpbBaselineId = pBaselineId_}
+mkRegisterDefaultPatchBaseline pBaselineId_ =
+  RegisterDefaultPatchBaseline' {baselineId = pBaselineId_}
 
 -- | The ID of the patch baseline that should be the default patch baseline.
-rdpbBaselineId :: Lens' RegisterDefaultPatchBaseline Text
-rdpbBaselineId = lens _rdpbBaselineId (\s a -> s {_rdpbBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpbBaselineId :: Lens.Lens' RegisterDefaultPatchBaseline Lude.Text
+rdpbBaselineId = Lens.lens (baselineId :: RegisterDefaultPatchBaseline -> Lude.Text) (\s a -> s {baselineId = a} :: RegisterDefaultPatchBaseline)
+{-# DEPRECATED rdpbBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
-instance AWSRequest RegisterDefaultPatchBaseline where
+instance Lude.AWSRequest RegisterDefaultPatchBaseline where
   type
     Rs RegisterDefaultPatchBaseline =
       RegisterDefaultPatchBaselineResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterDefaultPatchBaselineResponse'
-            <$> (x .?> "BaselineId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BaselineId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterDefaultPatchBaseline
-
-instance NFData RegisterDefaultPatchBaseline
-
-instance ToHeaders RegisterDefaultPatchBaseline where
+instance Lude.ToHeaders RegisterDefaultPatchBaseline where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.RegisterDefaultPatchBaseline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.RegisterDefaultPatchBaseline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterDefaultPatchBaseline where
+instance Lude.ToJSON RegisterDefaultPatchBaseline where
   toJSON RegisterDefaultPatchBaseline' {..} =
-    object (catMaybes [Just ("BaselineId" .= _rdpbBaselineId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BaselineId" Lude..= baselineId)])
 
-instance ToPath RegisterDefaultPatchBaseline where
-  toPath = const "/"
+instance Lude.ToPath RegisterDefaultPatchBaseline where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterDefaultPatchBaseline where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterDefaultPatchBaseline where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerDefaultPatchBaselineResponse' smart constructor.
+-- | /See:/ 'mkRegisterDefaultPatchBaselineResponse' smart constructor.
 data RegisterDefaultPatchBaselineResponse = RegisterDefaultPatchBaselineResponse'
-  { _rdpbrsBaselineId ::
-      !(Maybe Text),
-    _rdpbrsResponseStatus ::
-      !Int
+  { baselineId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDefaultPatchBaselineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdpbrsBaselineId' - The ID of the default patch baseline.
---
--- * 'rdpbrsResponseStatus' - -- | The response status code.
-registerDefaultPatchBaselineResponse ::
-  -- | 'rdpbrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the default patch baseline.
+-- * 'responseStatus' - The response status code.
+mkRegisterDefaultPatchBaselineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterDefaultPatchBaselineResponse
-registerDefaultPatchBaselineResponse pResponseStatus_ =
+mkRegisterDefaultPatchBaselineResponse pResponseStatus_ =
   RegisterDefaultPatchBaselineResponse'
-    { _rdpbrsBaselineId =
-        Nothing,
-      _rdpbrsResponseStatus = pResponseStatus_
+    { baselineId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the default patch baseline.
-rdpbrsBaselineId :: Lens' RegisterDefaultPatchBaselineResponse (Maybe Text)
-rdpbrsBaselineId = lens _rdpbrsBaselineId (\s a -> s {_rdpbrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpbrsBaselineId :: Lens.Lens' RegisterDefaultPatchBaselineResponse (Lude.Maybe Lude.Text)
+rdpbrsBaselineId = Lens.lens (baselineId :: RegisterDefaultPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: RegisterDefaultPatchBaselineResponse)
+{-# DEPRECATED rdpbrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
--- | -- | The response status code.
-rdpbrsResponseStatus :: Lens' RegisterDefaultPatchBaselineResponse Int
-rdpbrsResponseStatus = lens _rdpbrsResponseStatus (\s a -> s {_rdpbrsResponseStatus = a})
-
-instance NFData RegisterDefaultPatchBaselineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpbrsResponseStatus :: Lens.Lens' RegisterDefaultPatchBaselineResponse Lude.Int
+rdpbrsResponseStatus = Lens.lens (responseStatus :: RegisterDefaultPatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterDefaultPatchBaselineResponse)
+{-# DEPRECATED rdpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

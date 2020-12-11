@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ResizeClusterMessage where
+module Network.AWS.Redshift.Types.ResizeClusterMessage
+  ( ResizeClusterMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResizeClusterMessage,
+
+    -- * Lenses
+    rcmNumberOfNodes,
+    rcmClassic,
+    rcmClusterType,
+    rcmNodeType,
+    rcmClusterIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resize cluster operation. For example, a scheduled action to run the @ResizeCluster@ API operation.
 --
---
---
--- /See:/ 'resizeClusterMessage' smart constructor.
+-- /See:/ 'mkResizeClusterMessage' smart constructor.
 data ResizeClusterMessage = ResizeClusterMessage'
-  { _rcmNumberOfNodes ::
-      !(Maybe Int),
-    _rcmClassic :: !(Maybe Bool),
-    _rcmClusterType :: !(Maybe Text),
-    _rcmNodeType :: !(Maybe Text),
-    _rcmClusterIdentifier :: !Text
+  { numberOfNodes ::
+      Lude.Maybe Lude.Int,
+    classic :: Lude.Maybe Lude.Bool,
+    clusterType :: Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text,
+    clusterIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResizeClusterMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcmNumberOfNodes' - The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
---
--- * 'rcmClassic' - A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
---
--- * 'rcmClusterType' - The new cluster type for the specified cluster.
---
--- * 'rcmNodeType' - The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
---
--- * 'rcmClusterIdentifier' - The unique identifier for the cluster to resize.
-resizeClusterMessage ::
-  -- | 'rcmClusterIdentifier'
-  Text ->
+-- * 'classic' - A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
+-- * 'clusterIdentifier' - The unique identifier for the cluster to resize.
+-- * 'clusterType' - The new cluster type for the specified cluster.
+-- * 'nodeType' - The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
+-- * 'numberOfNodes' - The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
+mkResizeClusterMessage ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   ResizeClusterMessage
-resizeClusterMessage pClusterIdentifier_ =
+mkResizeClusterMessage pClusterIdentifier_ =
   ResizeClusterMessage'
-    { _rcmNumberOfNodes = Nothing,
-      _rcmClassic = Nothing,
-      _rcmClusterType = Nothing,
-      _rcmNodeType = Nothing,
-      _rcmClusterIdentifier = pClusterIdentifier_
+    { numberOfNodes = Lude.Nothing,
+      classic = Lude.Nothing,
+      clusterType = Lude.Nothing,
+      nodeType = Lude.Nothing,
+      clusterIdentifier = pClusterIdentifier_
     }
 
 -- | The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
-rcmNumberOfNodes :: Lens' ResizeClusterMessage (Maybe Int)
-rcmNumberOfNodes = lens _rcmNumberOfNodes (\s a -> s {_rcmNumberOfNodes = a})
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcmNumberOfNodes :: Lens.Lens' ResizeClusterMessage (Lude.Maybe Lude.Int)
+rcmNumberOfNodes = Lens.lens (numberOfNodes :: ResizeClusterMessage -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: ResizeClusterMessage)
+{-# DEPRECATED rcmNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
 
 -- | A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
-rcmClassic :: Lens' ResizeClusterMessage (Maybe Bool)
-rcmClassic = lens _rcmClassic (\s a -> s {_rcmClassic = a})
+--
+-- /Note:/ Consider using 'classic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcmClassic :: Lens.Lens' ResizeClusterMessage (Lude.Maybe Lude.Bool)
+rcmClassic = Lens.lens (classic :: ResizeClusterMessage -> Lude.Maybe Lude.Bool) (\s a -> s {classic = a} :: ResizeClusterMessage)
+{-# DEPRECATED rcmClassic "Use generic-lens or generic-optics with 'classic' instead." #-}
 
 -- | The new cluster type for the specified cluster.
-rcmClusterType :: Lens' ResizeClusterMessage (Maybe Text)
-rcmClusterType = lens _rcmClusterType (\s a -> s {_rcmClusterType = a})
+--
+-- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcmClusterType :: Lens.Lens' ResizeClusterMessage (Lude.Maybe Lude.Text)
+rcmClusterType = Lens.lens (clusterType :: ResizeClusterMessage -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: ResizeClusterMessage)
+{-# DEPRECATED rcmClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
 
 -- | The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
-rcmNodeType :: Lens' ResizeClusterMessage (Maybe Text)
-rcmNodeType = lens _rcmNodeType (\s a -> s {_rcmNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcmNodeType :: Lens.Lens' ResizeClusterMessage (Lude.Maybe Lude.Text)
+rcmNodeType = Lens.lens (nodeType :: ResizeClusterMessage -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ResizeClusterMessage)
+{-# DEPRECATED rcmNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The unique identifier for the cluster to resize.
-rcmClusterIdentifier :: Lens' ResizeClusterMessage Text
-rcmClusterIdentifier = lens _rcmClusterIdentifier (\s a -> s {_rcmClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcmClusterIdentifier :: Lens.Lens' ResizeClusterMessage Lude.Text
+rcmClusterIdentifier = Lens.lens (clusterIdentifier :: ResizeClusterMessage -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResizeClusterMessage)
+{-# DEPRECATED rcmClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance FromXML ResizeClusterMessage where
+instance Lude.FromXML ResizeClusterMessage where
   parseXML x =
     ResizeClusterMessage'
-      <$> (x .@? "NumberOfNodes")
-      <*> (x .@? "Classic")
-      <*> (x .@? "ClusterType")
-      <*> (x .@? "NodeType")
-      <*> (x .@ "ClusterIdentifier")
+      Lude.<$> (x Lude..@? "NumberOfNodes")
+      Lude.<*> (x Lude..@? "Classic")
+      Lude.<*> (x Lude..@? "ClusterType")
+      Lude.<*> (x Lude..@? "NodeType")
+      Lude.<*> (x Lude..@ "ClusterIdentifier")
 
-instance Hashable ResizeClusterMessage
-
-instance NFData ResizeClusterMessage
-
-instance ToQuery ResizeClusterMessage where
+instance Lude.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =
-    mconcat
-      [ "NumberOfNodes" =: _rcmNumberOfNodes,
-        "Classic" =: _rcmClassic,
-        "ClusterType" =: _rcmClusterType,
-        "NodeType" =: _rcmNodeType,
-        "ClusterIdentifier" =: _rcmClusterIdentifier
+    Lude.mconcat
+      [ "NumberOfNodes" Lude.=: numberOfNodes,
+        "Classic" Lude.=: classic,
+        "ClusterType" Lude.=: clusterType,
+        "NodeType" Lude.=: nodeType,
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]

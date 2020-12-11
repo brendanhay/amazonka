@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.LogsConfigStatusType where
+module Network.AWS.CodeBuild.Types.LogsConfigStatusType
+  ( LogsConfigStatusType
+      ( LogsConfigStatusType',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogsConfigStatusType
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogsConfigStatusType = LogsConfigStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogsConfigStatusType where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing LogsConfigStatusType from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: LogsConfigStatusType
+pattern Disabled = LogsConfigStatusType' "DISABLED"
 
-instance ToText LogsConfigStatusType where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: LogsConfigStatusType
+pattern Enabled = LogsConfigStatusType' "ENABLED"
 
-instance Hashable LogsConfigStatusType
-
-instance NFData LogsConfigStatusType
-
-instance ToByteString LogsConfigStatusType
-
-instance ToQuery LogsConfigStatusType
-
-instance ToHeader LogsConfigStatusType
-
-instance ToJSON LogsConfigStatusType where
-  toJSON = toJSONText
-
-instance FromJSON LogsConfigStatusType where
-  parseJSON = parseJSONText "LogsConfigStatusType"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  LogsConfigStatusType'
+  #-}

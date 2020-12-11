@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RouteTableAssociationStateCode where
+module Network.AWS.EC2.Types.RouteTableAssociationStateCode
+  ( RouteTableAssociationStateCode
+      ( RouteTableAssociationStateCode',
+        RTASCAssociated,
+        RTASCAssociating,
+        RTASCDisassociated,
+        RTASCDisassociating,
+        RTASCFailed
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RouteTableAssociationStateCode
-  = RTASCAssociated
-  | RTASCAssociating
-  | RTASCDisassociated
-  | RTASCDisassociating
-  | RTASCFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RouteTableAssociationStateCode = RouteTableAssociationStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RouteTableAssociationStateCode where
-  parser =
-    takeLowerText >>= \case
-      "associated" -> pure RTASCAssociated
-      "associating" -> pure RTASCAssociating
-      "disassociated" -> pure RTASCDisassociated
-      "disassociating" -> pure RTASCDisassociating
-      "failed" -> pure RTASCFailed
-      e ->
-        fromTextError $
-          "Failure parsing RouteTableAssociationStateCode from value: '" <> e
-            <> "'. Accepted values: associated, associating, disassociated, disassociating, failed"
+pattern RTASCAssociated :: RouteTableAssociationStateCode
+pattern RTASCAssociated = RouteTableAssociationStateCode' "associated"
 
-instance ToText RouteTableAssociationStateCode where
-  toText = \case
-    RTASCAssociated -> "associated"
-    RTASCAssociating -> "associating"
-    RTASCDisassociated -> "disassociated"
-    RTASCDisassociating -> "disassociating"
-    RTASCFailed -> "failed"
+pattern RTASCAssociating :: RouteTableAssociationStateCode
+pattern RTASCAssociating = RouteTableAssociationStateCode' "associating"
 
-instance Hashable RouteTableAssociationStateCode
+pattern RTASCDisassociated :: RouteTableAssociationStateCode
+pattern RTASCDisassociated = RouteTableAssociationStateCode' "disassociated"
 
-instance NFData RouteTableAssociationStateCode
+pattern RTASCDisassociating :: RouteTableAssociationStateCode
+pattern RTASCDisassociating = RouteTableAssociationStateCode' "disassociating"
 
-instance ToByteString RouteTableAssociationStateCode
+pattern RTASCFailed :: RouteTableAssociationStateCode
+pattern RTASCFailed = RouteTableAssociationStateCode' "failed"
 
-instance ToQuery RouteTableAssociationStateCode
-
-instance ToHeader RouteTableAssociationStateCode
-
-instance FromXML RouteTableAssociationStateCode where
-  parseXML = parseXMLText "RouteTableAssociationStateCode"
+{-# COMPLETE
+  RTASCAssociated,
+  RTASCAssociating,
+  RTASCDisassociated,
+  RTASCDisassociating,
+  RTASCFailed,
+  RouteTableAssociationStateCode'
+  #-}

@@ -15,8 +15,8 @@
 --
 -- Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry for your Docker or Open Container Initiative (OCI) images. Amazon ECR supports private repositories with resource-based permissions using IAM so that specific users or Amazon EC2 instances can access repositories and images.
 module Network.AWS.ECR
-  ( -- * Service Configuration
-    ecr,
+  ( -- * Service configuration
+    ecrService,
 
     -- * Errors
     -- $errors
@@ -25,10 +25,10 @@ module Network.AWS.ECR
     -- $waiters
 
     -- ** LifecyclePolicyPreviewComplete
-    lifecyclePolicyPreviewComplete,
+    mkLifecyclePolicyPreviewComplete,
 
     -- ** ImageScanComplete
-    imageScanComplete,
+    mkImageScanComplete,
 
     -- * Operations
     -- $operations
@@ -153,32 +153,32 @@ module Network.AWS.ECR
     TagStatus (..),
 
     -- ** Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aKey,
 
     -- ** AuthorizationData
-    AuthorizationData,
-    authorizationData,
+    AuthorizationData (..),
+    mkAuthorizationData,
     adExpiresAt,
     adProxyEndpoint,
     adAuthorizationToken,
 
     -- ** DescribeImagesFilter
-    DescribeImagesFilter,
-    describeImagesFilter,
+    DescribeImagesFilter (..),
+    mkDescribeImagesFilter,
     difTagStatus,
 
     -- ** EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecKmsKey,
     ecEncryptionType,
 
     -- ** Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iRegistryId,
     iImageManifestMediaType,
     iImageId,
@@ -186,8 +186,8 @@ module Network.AWS.ECR
     iImageManifest,
 
     -- ** ImageDetail
-    ImageDetail,
-    imageDetail,
+    ImageDetail (..),
+    mkImageDetail,
     idRegistryId,
     idImageTags,
     idImageScanStatus,
@@ -200,21 +200,21 @@ module Network.AWS.ECR
     idRepositoryName,
 
     -- ** ImageFailure
-    ImageFailure,
-    imageFailure,
+    ImageFailure (..),
+    mkImageFailure,
     ifFailureReason,
     ifFailureCode,
     ifImageId,
 
     -- ** ImageIdentifier
-    ImageIdentifier,
-    imageIdentifier,
+    ImageIdentifier (..),
+    mkImageIdentifier,
     iiImageDigest,
     iiImageTag,
 
     -- ** ImageScanFinding
-    ImageScanFinding,
-    imageScanFinding,
+    ImageScanFinding (..),
+    mkImageScanFinding,
     isfSeverity,
     isfUri,
     isfName,
@@ -222,54 +222,54 @@ module Network.AWS.ECR
     isfDescription,
 
     -- ** ImageScanFindings
-    ImageScanFindings,
-    imageScanFindings,
+    ImageScanFindings (..),
+    mkImageScanFindings,
     isfImageScanCompletedAt,
     isfFindings,
     isfFindingSeverityCounts,
     isfVulnerabilitySourceUpdatedAt,
 
     -- ** ImageScanFindingsSummary
-    ImageScanFindingsSummary,
-    imageScanFindingsSummary,
+    ImageScanFindingsSummary (..),
+    mkImageScanFindingsSummary,
     isfsImageScanCompletedAt,
     isfsFindingSeverityCounts,
     isfsVulnerabilitySourceUpdatedAt,
 
     -- ** ImageScanStatus
-    ImageScanStatus,
-    imageScanStatus,
+    ImageScanStatus (..),
+    mkImageScanStatus,
     issStatus,
     issDescription,
 
     -- ** ImageScanningConfiguration
-    ImageScanningConfiguration,
-    imageScanningConfiguration,
+    ImageScanningConfiguration (..),
+    mkImageScanningConfiguration,
     iscScanOnPush,
 
     -- ** Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lMediaType,
     lLayerDigest,
     lLayerSize,
     lLayerAvailability,
 
     -- ** LayerFailure
-    LayerFailure,
-    layerFailure,
+    LayerFailure (..),
+    mkLayerFailure,
     lfFailureReason,
     lfFailureCode,
     lfLayerDigest,
 
     -- ** LifecyclePolicyPreviewFilter
-    LifecyclePolicyPreviewFilter,
-    lifecyclePolicyPreviewFilter,
+    LifecyclePolicyPreviewFilter (..),
+    mkLifecyclePolicyPreviewFilter,
     lppfTagStatus,
 
     -- ** LifecyclePolicyPreviewResult
-    LifecyclePolicyPreviewResult,
-    lifecyclePolicyPreviewResult,
+    LifecyclePolicyPreviewResult (..),
+    mkLifecyclePolicyPreviewResult,
     lpprImageTags,
     lpprAction,
     lpprImageDigest,
@@ -277,23 +277,23 @@ module Network.AWS.ECR
     lpprAppliedRulePriority,
 
     -- ** LifecyclePolicyPreviewSummary
-    LifecyclePolicyPreviewSummary,
-    lifecyclePolicyPreviewSummary,
+    LifecyclePolicyPreviewSummary (..),
+    mkLifecyclePolicyPreviewSummary,
     lppsExpiringImageTotalCount,
 
     -- ** LifecyclePolicyRuleAction
-    LifecyclePolicyRuleAction,
-    lifecyclePolicyRuleAction,
+    LifecyclePolicyRuleAction (..),
+    mkLifecyclePolicyRuleAction,
     lpraType,
 
     -- ** ListImagesFilter
-    ListImagesFilter,
-    listImagesFilter,
+    ListImagesFilter (..),
+    mkListImagesFilter,
     lifTagStatus,
 
     -- ** Repository
-    Repository,
-    repository,
+    Repository (..),
+    mkRepository,
     rRepositoryARN,
     rCreatedAt,
     rRegistryId,
@@ -304,10 +304,21 @@ module Network.AWS.ECR
     rImageTagMutability,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -342,6 +353,7 @@ import Network.AWS.ECR.Types
 import Network.AWS.ECR.UntagResource
 import Network.AWS.ECR.UploadLayerPart
 import Network.AWS.ECR.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

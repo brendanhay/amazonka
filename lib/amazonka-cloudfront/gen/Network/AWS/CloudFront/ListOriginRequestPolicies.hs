@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,168 @@
 --
 -- Gets a list of origin request policies.
 --
---
 -- You can optionally apply a filter to return only the managed policies created by AWS, or only the custom policies created in your AWS account.
---
 -- You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the @NextMarker@ value from the current response as the @Marker@ value in the subsequent request.
 module Network.AWS.CloudFront.ListOriginRequestPolicies
-  ( -- * Creating a Request
-    listOriginRequestPolicies,
-    ListOriginRequestPolicies,
+  ( -- * Creating a request
+    ListOriginRequestPolicies (..),
+    mkListOriginRequestPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lorpMarker,
     lorpMaxItems,
     lorpType,
 
-    -- * Destructuring the Response
-    listOriginRequestPoliciesResponse,
-    ListOriginRequestPoliciesResponse,
+    -- * Destructuring the response
+    ListOriginRequestPoliciesResponse (..),
+    mkListOriginRequestPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lorprsOriginRequestPolicyList,
     lorprsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOriginRequestPolicies' smart constructor.
+-- | /See:/ 'mkListOriginRequestPolicies' smart constructor.
 data ListOriginRequestPolicies = ListOriginRequestPolicies'
-  { _lorpMarker ::
-      !(Maybe Text),
-    _lorpMaxItems :: !(Maybe Text),
-    _lorpType ::
-      !(Maybe OriginRequestPolicyType)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text,
+    type' ::
+      Lude.Maybe OriginRequestPolicyType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginRequestPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this field when paginating results to indicate where to begin in your list of origin request policies. The response includes origin request policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+-- * 'maxItems' - The maximum number of origin request policies that you want in the response.
+-- * 'type'' - A filter to return only the specified kinds of origin request policies. Valid values are:
 --
--- * 'lorpMarker' - Use this field when paginating results to indicate where to begin in your list of origin request policies. The response includes origin request policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
--- * 'lorpMaxItems' - The maximum number of origin request policies that you want in the response.
+--     * @managed@ – Returns only the managed policies created by AWS.
 --
--- * 'lorpType' - A filter to return only the specified kinds of origin request policies. Valid values are:     * @managed@ – Returns only the managed policies created by AWS.     * @custom@ – Returns only the custom policies created in your AWS account.
-listOriginRequestPolicies ::
+--
+--     * @custom@ – Returns only the custom policies created in your AWS account.
+mkListOriginRequestPolicies ::
   ListOriginRequestPolicies
-listOriginRequestPolicies =
+mkListOriginRequestPolicies =
   ListOriginRequestPolicies'
-    { _lorpMarker = Nothing,
-      _lorpMaxItems = Nothing,
-      _lorpType = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | Use this field when paginating results to indicate where to begin in your list of origin request policies. The response includes origin request policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-lorpMarker :: Lens' ListOriginRequestPolicies (Maybe Text)
-lorpMarker = lens _lorpMarker (\s a -> s {_lorpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorpMarker :: Lens.Lens' ListOriginRequestPolicies (Lude.Maybe Lude.Text)
+lorpMarker = Lens.lens (marker :: ListOriginRequestPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListOriginRequestPolicies)
+{-# DEPRECATED lorpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of origin request policies that you want in the response.
-lorpMaxItems :: Lens' ListOriginRequestPolicies (Maybe Text)
-lorpMaxItems = lens _lorpMaxItems (\s a -> s {_lorpMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorpMaxItems :: Lens.Lens' ListOriginRequestPolicies (Lude.Maybe Lude.Text)
+lorpMaxItems = Lens.lens (maxItems :: ListOriginRequestPolicies -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListOriginRequestPolicies)
+{-# DEPRECATED lorpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | A filter to return only the specified kinds of origin request policies. Valid values are:     * @managed@ – Returns only the managed policies created by AWS.     * @custom@ – Returns only the custom policies created in your AWS account.
-lorpType :: Lens' ListOriginRequestPolicies (Maybe OriginRequestPolicyType)
-lorpType = lens _lorpType (\s a -> s {_lorpType = a})
+-- | A filter to return only the specified kinds of origin request policies. Valid values are:
+--
+--
+--     * @managed@ – Returns only the managed policies created by AWS.
+--
+--
+--     * @custom@ – Returns only the custom policies created in your AWS account.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorpType :: Lens.Lens' ListOriginRequestPolicies (Lude.Maybe OriginRequestPolicyType)
+lorpType = Lens.lens (type' :: ListOriginRequestPolicies -> Lude.Maybe OriginRequestPolicyType) (\s a -> s {type' = a} :: ListOriginRequestPolicies)
+{-# DEPRECATED lorpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest ListOriginRequestPolicies where
+instance Lude.AWSRequest ListOriginRequestPolicies where
   type
     Rs ListOriginRequestPolicies =
       ListOriginRequestPoliciesResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListOriginRequestPoliciesResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOriginRequestPolicies
+instance Lude.ToHeaders ListOriginRequestPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListOriginRequestPolicies
+instance Lude.ToPath ListOriginRequestPolicies where
+  toPath = Lude.const "/2020-05-31/origin-request-policy"
 
-instance ToHeaders ListOriginRequestPolicies where
-  toHeaders = const mempty
-
-instance ToPath ListOriginRequestPolicies where
-  toPath = const "/2020-05-31/origin-request-policy"
-
-instance ToQuery ListOriginRequestPolicies where
+instance Lude.ToQuery ListOriginRequestPolicies where
   toQuery ListOriginRequestPolicies' {..} =
-    mconcat
-      [ "Marker" =: _lorpMarker,
-        "MaxItems" =: _lorpMaxItems,
-        "Type" =: _lorpType
+    Lude.mconcat
+      [ "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "Type" Lude.=: type'
       ]
 
--- | /See:/ 'listOriginRequestPoliciesResponse' smart constructor.
+-- | /See:/ 'mkListOriginRequestPoliciesResponse' smart constructor.
 data ListOriginRequestPoliciesResponse = ListOriginRequestPoliciesResponse'
-  { _lorprsOriginRequestPolicyList ::
-      !( Maybe
-           OriginRequestPolicyList
-       ),
-    _lorprsResponseStatus ::
-      !Int
+  { originRequestPolicyList ::
+      Lude.Maybe
+        OriginRequestPolicyList,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginRequestPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lorprsOriginRequestPolicyList' - A list of origin request policies.
---
--- * 'lorprsResponseStatus' - -- | The response status code.
-listOriginRequestPoliciesResponse ::
-  -- | 'lorprsResponseStatus'
-  Int ->
+-- * 'originRequestPolicyList' - A list of origin request policies.
+-- * 'responseStatus' - The response status code.
+mkListOriginRequestPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOriginRequestPoliciesResponse
-listOriginRequestPoliciesResponse pResponseStatus_ =
+mkListOriginRequestPoliciesResponse pResponseStatus_ =
   ListOriginRequestPoliciesResponse'
-    { _lorprsOriginRequestPolicyList =
-        Nothing,
-      _lorprsResponseStatus = pResponseStatus_
+    { originRequestPolicyList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of origin request policies.
-lorprsOriginRequestPolicyList :: Lens' ListOriginRequestPoliciesResponse (Maybe OriginRequestPolicyList)
-lorprsOriginRequestPolicyList = lens _lorprsOriginRequestPolicyList (\s a -> s {_lorprsOriginRequestPolicyList = a})
+--
+-- /Note:/ Consider using 'originRequestPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorprsOriginRequestPolicyList :: Lens.Lens' ListOriginRequestPoliciesResponse (Lude.Maybe OriginRequestPolicyList)
+lorprsOriginRequestPolicyList = Lens.lens (originRequestPolicyList :: ListOriginRequestPoliciesResponse -> Lude.Maybe OriginRequestPolicyList) (\s a -> s {originRequestPolicyList = a} :: ListOriginRequestPoliciesResponse)
+{-# DEPRECATED lorprsOriginRequestPolicyList "Use generic-lens or generic-optics with 'originRequestPolicyList' instead." #-}
 
--- | -- | The response status code.
-lorprsResponseStatus :: Lens' ListOriginRequestPoliciesResponse Int
-lorprsResponseStatus = lens _lorprsResponseStatus (\s a -> s {_lorprsResponseStatus = a})
-
-instance NFData ListOriginRequestPoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorprsResponseStatus :: Lens.Lens' ListOriginRequestPoliciesResponse Lude.Int
+lorprsResponseStatus = Lens.lens (responseStatus :: ListOriginRequestPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOriginRequestPoliciesResponse)
+{-# DEPRECATED lorprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

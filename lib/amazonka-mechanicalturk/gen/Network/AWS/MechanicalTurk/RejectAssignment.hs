@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,141 @@
 --
 -- The @RejectAssignment@ operation rejects the results of a completed assignment.
 --
---
 -- You can include an optional feedback message with the rejection, which the Worker can see in the Status section of the web site. When you include a feedback message with the rejection, it helps the Worker understand why the assignment was rejected, and can improve the quality of the results the Worker submits in the future.
---
 -- Only the Requester who created the HIT can reject an assignment for the HIT.
 module Network.AWS.MechanicalTurk.RejectAssignment
-  ( -- * Creating a Request
-    rejectAssignment,
-    RejectAssignment,
+  ( -- * Creating a request
+    RejectAssignment (..),
+    mkRejectAssignment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     raAssignmentId,
     raRequesterFeedback,
 
-    -- * Destructuring the Response
-    rejectAssignmentResponse,
-    RejectAssignmentResponse,
+    -- * Destructuring the response
+    RejectAssignmentResponse (..),
+    mkRejectAssignmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectAssignment' smart constructor.
+-- | /See:/ 'mkRejectAssignment' smart constructor.
 data RejectAssignment = RejectAssignment'
-  { _raAssignmentId :: !Text,
-    _raRequesterFeedback :: !Text
+  { assignmentId ::
+      Lude.Text,
+    requesterFeedback :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectAssignment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raAssignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
---
--- * 'raRequesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
-rejectAssignment ::
-  -- | 'raAssignmentId'
-  Text ->
-  -- | 'raRequesterFeedback'
-  Text ->
+-- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+-- * 'requesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
+mkRejectAssignment ::
+  -- | 'assignmentId'
+  Lude.Text ->
+  -- | 'requesterFeedback'
+  Lude.Text ->
   RejectAssignment
-rejectAssignment pAssignmentId_ pRequesterFeedback_ =
+mkRejectAssignment pAssignmentId_ pRequesterFeedback_ =
   RejectAssignment'
-    { _raAssignmentId = pAssignmentId_,
-      _raRequesterFeedback = pRequesterFeedback_
+    { assignmentId = pAssignmentId_,
+      requesterFeedback = pRequesterFeedback_
     }
 
 -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
-raAssignmentId :: Lens' RejectAssignment Text
-raAssignmentId = lens _raAssignmentId (\s a -> s {_raAssignmentId = a})
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAssignmentId :: Lens.Lens' RejectAssignment Lude.Text
+raAssignmentId = Lens.lens (assignmentId :: RejectAssignment -> Lude.Text) (\s a -> s {assignmentId = a} :: RejectAssignment)
+{-# DEPRECATED raAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
-raRequesterFeedback :: Lens' RejectAssignment Text
-raRequesterFeedback = lens _raRequesterFeedback (\s a -> s {_raRequesterFeedback = a})
+--
+-- /Note:/ Consider using 'requesterFeedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raRequesterFeedback :: Lens.Lens' RejectAssignment Lude.Text
+raRequesterFeedback = Lens.lens (requesterFeedback :: RejectAssignment -> Lude.Text) (\s a -> s {requesterFeedback = a} :: RejectAssignment)
+{-# DEPRECATED raRequesterFeedback "Use generic-lens or generic-optics with 'requesterFeedback' instead." #-}
 
-instance AWSRequest RejectAssignment where
+instance Lude.AWSRequest RejectAssignment where
   type Rs RejectAssignment = RejectAssignmentResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> RejectAssignmentResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RejectAssignmentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RejectAssignment
-
-instance NFData RejectAssignment
-
-instance ToHeaders RejectAssignment where
+instance Lude.ToHeaders RejectAssignment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.RejectAssignment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.RejectAssignment" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RejectAssignment where
+instance Lude.ToJSON RejectAssignment where
   toJSON RejectAssignment' {..} =
-    object
-      ( catMaybes
-          [ Just ("AssignmentId" .= _raAssignmentId),
-            Just ("RequesterFeedback" .= _raRequesterFeedback)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AssignmentId" Lude..= assignmentId),
+            Lude.Just ("RequesterFeedback" Lude..= requesterFeedback)
           ]
       )
 
-instance ToPath RejectAssignment where
-  toPath = const "/"
+instance Lude.ToPath RejectAssignment where
+  toPath = Lude.const "/"
 
-instance ToQuery RejectAssignment where
-  toQuery = const mempty
+instance Lude.ToQuery RejectAssignment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rejectAssignmentResponse' smart constructor.
+-- | /See:/ 'mkRejectAssignmentResponse' smart constructor.
 newtype RejectAssignmentResponse = RejectAssignmentResponse'
-  { _rarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectAssignmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rarsResponseStatus' - -- | The response status code.
-rejectAssignmentResponse ::
-  -- | 'rarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRejectAssignmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectAssignmentResponse
-rejectAssignmentResponse pResponseStatus_ =
-  RejectAssignmentResponse' {_rarsResponseStatus = pResponseStatus_}
+mkRejectAssignmentResponse pResponseStatus_ =
+  RejectAssignmentResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rarsResponseStatus :: Lens' RejectAssignmentResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\s a -> s {_rarsResponseStatus = a})
-
-instance NFData RejectAssignmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsResponseStatus :: Lens.Lens' RejectAssignmentResponse Lude.Int
+rarsResponseStatus = Lens.lens (responseStatus :: RejectAssignmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectAssignmentResponse)
+{-# DEPRECATED rarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

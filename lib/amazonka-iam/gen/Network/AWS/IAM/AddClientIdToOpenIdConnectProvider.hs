@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,113 @@
 --
 -- Adds a new client ID (also known as audience) to the list of client IDs already registered for the specified IAM OpenID Connect (OIDC) provider resource.
 --
---
 -- This operation is idempotent; it does not fail or return an error if you add an existing client ID to the provider.
 module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
-  ( -- * Creating a Request
-    addClientIdToOpenIdConnectProvider,
-    AddClientIdToOpenIdConnectProvider,
+  ( -- * Creating a request
+    AddClientIdToOpenIdConnectProvider (..),
+    mkAddClientIdToOpenIdConnectProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acitoicpOpenIdConnectProviderARN,
     acitoicpClientId,
 
-    -- * Destructuring the Response
-    addClientIdToOpenIdConnectProviderResponse,
-    AddClientIdToOpenIdConnectProviderResponse,
+    -- * Destructuring the response
+    AddClientIdToOpenIdConnectProviderResponse (..),
+    mkAddClientIdToOpenIdConnectProviderResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addClientIdToOpenIdConnectProvider' smart constructor.
+-- | /See:/ 'mkAddClientIdToOpenIdConnectProvider' smart constructor.
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
-  { _acitoicpOpenIdConnectProviderARN ::
-      !Text,
-    _acitoicpClientId ::
-      !Text
+  { openIdConnectProviderARN ::
+      Lude.Text,
+    clientId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acitoicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
---
--- * 'acitoicpClientId' - The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
-addClientIdToOpenIdConnectProvider ::
-  -- | 'acitoicpOpenIdConnectProviderARN'
-  Text ->
-  -- | 'acitoicpClientId'
-  Text ->
+-- * 'clientId' - The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
+-- * 'openIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
+mkAddClientIdToOpenIdConnectProvider ::
+  -- | 'openIdConnectProviderARN'
+  Lude.Text ->
+  -- | 'clientId'
+  Lude.Text ->
   AddClientIdToOpenIdConnectProvider
-addClientIdToOpenIdConnectProvider
+mkAddClientIdToOpenIdConnectProvider
   pOpenIdConnectProviderARN_
   pClientId_ =
     AddClientIdToOpenIdConnectProvider'
-      { _acitoicpOpenIdConnectProviderARN =
+      { openIdConnectProviderARN =
           pOpenIdConnectProviderARN_,
-        _acitoicpClientId = pClientId_
+        clientId = pClientId_
       }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
-acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\s a -> s {_acitoicpOpenIdConnectProviderARN = a})
+--
+-- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acitoicpOpenIdConnectProviderARN :: Lens.Lens' AddClientIdToOpenIdConnectProvider Lude.Text
+acitoicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: AddClientIdToOpenIdConnectProvider -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: AddClientIdToOpenIdConnectProvider)
+{-# DEPRECATED acitoicpOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
-acitoicpClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicpClientId = lens _acitoicpClientId (\s a -> s {_acitoicpClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acitoicpClientId :: Lens.Lens' AddClientIdToOpenIdConnectProvider Lude.Text
+acitoicpClientId = Lens.lens (clientId :: AddClientIdToOpenIdConnectProvider -> Lude.Text) (\s a -> s {clientId = a} :: AddClientIdToOpenIdConnectProvider)
+{-# DEPRECATED acitoicpClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
-instance AWSRequest AddClientIdToOpenIdConnectProvider where
+instance Lude.AWSRequest AddClientIdToOpenIdConnectProvider where
   type
     Rs AddClientIdToOpenIdConnectProvider =
       AddClientIdToOpenIdConnectProviderResponse
-  request = postQuery iam
-  response = receiveNull AddClientIdToOpenIdConnectProviderResponse'
+  request = Req.postQuery iamService
+  response =
+    Res.receiveNull AddClientIdToOpenIdConnectProviderResponse'
 
-instance Hashable AddClientIdToOpenIdConnectProvider
+instance Lude.ToHeaders AddClientIdToOpenIdConnectProvider where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddClientIdToOpenIdConnectProvider
+instance Lude.ToPath AddClientIdToOpenIdConnectProvider where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddClientIdToOpenIdConnectProvider where
-  toHeaders = const mempty
-
-instance ToPath AddClientIdToOpenIdConnectProvider where
-  toPath = const "/"
-
-instance ToQuery AddClientIdToOpenIdConnectProvider where
+instance Lude.ToQuery AddClientIdToOpenIdConnectProvider where
   toQuery AddClientIdToOpenIdConnectProvider' {..} =
-    mconcat
-      [ "Action" =: ("AddClientIDToOpenIDConnectProvider" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "OpenIDConnectProviderArn" =: _acitoicpOpenIdConnectProviderARN,
-        "ClientID" =: _acitoicpClientId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AddClientIDToOpenIDConnectProvider" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN,
+        "ClientID" Lude.=: clientId
       ]
 
--- | /See:/ 'addClientIdToOpenIdConnectProviderResponse' smart constructor.
+-- | /See:/ 'mkAddClientIdToOpenIdConnectProviderResponse' smart constructor.
 data AddClientIdToOpenIdConnectProviderResponse = AddClientIdToOpenIdConnectProviderResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProviderResponse' with the minimum fields required to make a request.
-addClientIdToOpenIdConnectProviderResponse ::
+mkAddClientIdToOpenIdConnectProviderResponse ::
   AddClientIdToOpenIdConnectProviderResponse
-addClientIdToOpenIdConnectProviderResponse =
+mkAddClientIdToOpenIdConnectProviderResponse =
   AddClientIdToOpenIdConnectProviderResponse'
-
-instance NFData AddClientIdToOpenIdConnectProviderResponse

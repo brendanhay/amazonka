@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Types.CodeSource where
+module Network.AWS.CodeStar.Types.CodeSource
+  ( CodeSource (..),
+
+    -- * Smart constructor
+    mkCodeSource,
+
+    -- * Lenses
+    csS3,
+  )
+where
 
 import Network.AWS.CodeStar.Types.S3Location
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
 --
---
---
--- /See:/ 'codeSource' smart constructor.
-newtype CodeSource = CodeSource' {_csS3 :: S3Location}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCodeSource' smart constructor.
+newtype CodeSource = CodeSource' {s3 :: S3Location}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csS3' - Information about the Amazon S3 location where the source code files provided with the project request are stored.
-codeSource ::
-  -- | 'csS3'
+-- * 's3' - Information about the Amazon S3 location where the source code files provided with the project request are stored.
+mkCodeSource ::
+  -- | 's3'
   S3Location ->
   CodeSource
-codeSource pS3_ = CodeSource' {_csS3 = pS3_}
+mkCodeSource pS3_ = CodeSource' {s3 = pS3_}
 
 -- | Information about the Amazon S3 location where the source code files provided with the project request are stored.
-csS3 :: Lens' CodeSource S3Location
-csS3 = lens _csS3 (\s a -> s {_csS3 = a})
+--
+-- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csS3 :: Lens.Lens' CodeSource S3Location
+csS3 = Lens.lens (s3 :: CodeSource -> S3Location) (\s a -> s {s3 = a} :: CodeSource)
+{-# DEPRECATED csS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
-instance Hashable CodeSource
-
-instance NFData CodeSource
-
-instance ToJSON CodeSource where
-  toJSON CodeSource' {..} = object (catMaybes [Just ("s3" .= _csS3)])
+instance Lude.ToJSON CodeSource where
+  toJSON CodeSource' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("s3" Lude..= s3)])

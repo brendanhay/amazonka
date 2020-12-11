@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentIdentifier where
+module Network.AWS.SSM.Types.DocumentIdentifier
+  ( DocumentIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentIdentifier,
+
+    -- * Lenses
+    diDocumentType,
+    diVersionName,
+    diSchemaVersion,
+    diTargetType,
+    diOwner,
+    diPlatformTypes,
+    diDocumentFormat,
+    diName,
+    diDocumentVersion,
+    diRequires,
+    diTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.DocumentFormat
 import Network.AWS.SSM.Types.DocumentRequires
 import Network.AWS.SSM.Types.DocumentType
@@ -25,130 +38,153 @@ import Network.AWS.SSM.Types.Tag
 
 -- | Describes the name of a Systems Manager document.
 --
---
---
--- /See:/ 'documentIdentifier' smart constructor.
+-- /See:/ 'mkDocumentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
-  { _diDocumentType ::
-      !(Maybe DocumentType),
-    _diVersionName :: !(Maybe Text),
-    _diSchemaVersion :: !(Maybe Text),
-    _diTargetType :: !(Maybe Text),
-    _diOwner :: !(Maybe Text),
-    _diPlatformTypes :: !(Maybe [PlatformType]),
-    _diDocumentFormat :: !(Maybe DocumentFormat),
-    _diName :: !(Maybe Text),
-    _diDocumentVersion :: !(Maybe Text),
-    _diRequires :: !(Maybe (List1 DocumentRequires)),
-    _diTags :: !(Maybe [Tag])
+  { documentType ::
+      Lude.Maybe DocumentType,
+    versionName :: Lude.Maybe Lude.Text,
+    schemaVersion :: Lude.Maybe Lude.Text,
+    targetType :: Lude.Maybe Lude.Text,
+    owner :: Lude.Maybe Lude.Text,
+    platformTypes :: Lude.Maybe [PlatformType],
+    documentFormat :: Lude.Maybe DocumentFormat,
+    name :: Lude.Maybe Lude.Text,
+    documentVersion :: Lude.Maybe Lude.Text,
+    requires ::
+      Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diDocumentType' - The document type.
---
--- * 'diVersionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
---
--- * 'diSchemaVersion' - The schema version.
---
--- * 'diTargetType' - The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
---
--- * 'diOwner' - The AWS user account that created the document.
---
--- * 'diPlatformTypes' - The operating system platform.
---
--- * 'diDocumentFormat' - The document format, either JSON or YAML.
---
--- * 'diName' - The name of the Systems Manager document.
---
--- * 'diDocumentVersion' - The document version.
---
--- * 'diRequires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
---
--- * 'diTags' - The tags, or metadata, that have been applied to the document.
-documentIdentifier ::
+-- * 'documentFormat' - The document format, either JSON or YAML.
+-- * 'documentType' - The document type.
+-- * 'documentVersion' - The document version.
+-- * 'name' - The name of the Systems Manager document.
+-- * 'owner' - The AWS user account that created the document.
+-- * 'platformTypes' - The operating system platform.
+-- * 'requires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
+-- * 'schemaVersion' - The schema version.
+-- * 'tags' - The tags, or metadata, that have been applied to the document.
+-- * 'targetType' - The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
+-- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+mkDocumentIdentifier ::
   DocumentIdentifier
-documentIdentifier =
+mkDocumentIdentifier =
   DocumentIdentifier'
-    { _diDocumentType = Nothing,
-      _diVersionName = Nothing,
-      _diSchemaVersion = Nothing,
-      _diTargetType = Nothing,
-      _diOwner = Nothing,
-      _diPlatformTypes = Nothing,
-      _diDocumentFormat = Nothing,
-      _diName = Nothing,
-      _diDocumentVersion = Nothing,
-      _diRequires = Nothing,
-      _diTags = Nothing
+    { documentType = Lude.Nothing,
+      versionName = Lude.Nothing,
+      schemaVersion = Lude.Nothing,
+      targetType = Lude.Nothing,
+      owner = Lude.Nothing,
+      platformTypes = Lude.Nothing,
+      documentFormat = Lude.Nothing,
+      name = Lude.Nothing,
+      documentVersion = Lude.Nothing,
+      requires = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The document type.
-diDocumentType :: Lens' DocumentIdentifier (Maybe DocumentType)
-diDocumentType = lens _diDocumentType (\s a -> s {_diDocumentType = a})
+--
+-- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDocumentType :: Lens.Lens' DocumentIdentifier (Lude.Maybe DocumentType)
+diDocumentType = Lens.lens (documentType :: DocumentIdentifier -> Lude.Maybe DocumentType) (\s a -> s {documentType = a} :: DocumentIdentifier)
+{-# DEPRECATED diDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
 
 -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-diVersionName :: Lens' DocumentIdentifier (Maybe Text)
-diVersionName = lens _diVersionName (\s a -> s {_diVersionName = a})
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diVersionName :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diVersionName = Lens.lens (versionName :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: DocumentIdentifier)
+{-# DEPRECATED diVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | The schema version.
-diSchemaVersion :: Lens' DocumentIdentifier (Maybe Text)
-diSchemaVersion = lens _diSchemaVersion (\s a -> s {_diSchemaVersion = a})
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diSchemaVersion :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diSchemaVersion = Lens.lens (schemaVersion :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersion = a} :: DocumentIdentifier)
+{-# DEPRECATED diSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
-diTargetType :: Lens' DocumentIdentifier (Maybe Text)
-diTargetType = lens _diTargetType (\s a -> s {_diTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTargetType :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diTargetType = Lens.lens (targetType :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: DocumentIdentifier)
+{-# DEPRECATED diTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | The AWS user account that created the document.
-diOwner :: Lens' DocumentIdentifier (Maybe Text)
-diOwner = lens _diOwner (\s a -> s {_diOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diOwner :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diOwner = Lens.lens (owner :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: DocumentIdentifier)
+{-# DEPRECATED diOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The operating system platform.
-diPlatformTypes :: Lens' DocumentIdentifier [PlatformType]
-diPlatformTypes = lens _diPlatformTypes (\s a -> s {_diPlatformTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'platformTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPlatformTypes :: Lens.Lens' DocumentIdentifier (Lude.Maybe [PlatformType])
+diPlatformTypes = Lens.lens (platformTypes :: DocumentIdentifier -> Lude.Maybe [PlatformType]) (\s a -> s {platformTypes = a} :: DocumentIdentifier)
+{-# DEPRECATED diPlatformTypes "Use generic-lens or generic-optics with 'platformTypes' instead." #-}
 
 -- | The document format, either JSON or YAML.
-diDocumentFormat :: Lens' DocumentIdentifier (Maybe DocumentFormat)
-diDocumentFormat = lens _diDocumentFormat (\s a -> s {_diDocumentFormat = a})
+--
+-- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDocumentFormat :: Lens.Lens' DocumentIdentifier (Lude.Maybe DocumentFormat)
+diDocumentFormat = Lens.lens (documentFormat :: DocumentIdentifier -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: DocumentIdentifier)
+{-# DEPRECATED diDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
 -- | The name of the Systems Manager document.
-diName :: Lens' DocumentIdentifier (Maybe Text)
-diName = lens _diName (\s a -> s {_diName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diName = Lens.lens (name :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentIdentifier)
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The document version.
-diDocumentVersion :: Lens' DocumentIdentifier (Maybe Text)
-diDocumentVersion = lens _diDocumentVersion (\s a -> s {_diDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDocumentVersion :: Lens.Lens' DocumentIdentifier (Lude.Maybe Lude.Text)
+diDocumentVersion = Lens.lens (documentVersion :: DocumentIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: DocumentIdentifier)
+{-# DEPRECATED diDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
-diRequires :: Lens' DocumentIdentifier (Maybe (NonEmpty DocumentRequires))
-diRequires = lens _diRequires (\s a -> s {_diRequires = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'requires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diRequires :: Lens.Lens' DocumentIdentifier (Lude.Maybe (Lude.NonEmpty DocumentRequires))
+diRequires = Lens.lens (requires :: DocumentIdentifier -> Lude.Maybe (Lude.NonEmpty DocumentRequires)) (\s a -> s {requires = a} :: DocumentIdentifier)
+{-# DEPRECATED diRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
 
 -- | The tags, or metadata, that have been applied to the document.
-diTags :: Lens' DocumentIdentifier [Tag]
-diTags = lens _diTags (\s a -> s {_diTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTags :: Lens.Lens' DocumentIdentifier (Lude.Maybe [Tag])
+diTags = Lens.lens (tags :: DocumentIdentifier -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DocumentIdentifier)
+{-# DEPRECATED diTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON DocumentIdentifier where
+instance Lude.FromJSON DocumentIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "DocumentIdentifier"
       ( \x ->
           DocumentIdentifier'
-            <$> (x .:? "DocumentType")
-            <*> (x .:? "VersionName")
-            <*> (x .:? "SchemaVersion")
-            <*> (x .:? "TargetType")
-            <*> (x .:? "Owner")
-            <*> (x .:? "PlatformTypes" .!= mempty)
-            <*> (x .:? "DocumentFormat")
-            <*> (x .:? "Name")
-            <*> (x .:? "DocumentVersion")
-            <*> (x .:? "Requires")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "DocumentType")
+            Lude.<*> (x Lude..:? "VersionName")
+            Lude.<*> (x Lude..:? "SchemaVersion")
+            Lude.<*> (x Lude..:? "TargetType")
+            Lude.<*> (x Lude..:? "Owner")
+            Lude.<*> (x Lude..:? "PlatformTypes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DocumentFormat")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "DocumentVersion")
+            Lude.<*> (x Lude..:? "Requires")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable DocumentIdentifier
-
-instance NFData DocumentIdentifier

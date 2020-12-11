@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.PipelineMetadata where
+module Network.AWS.CodePipeline.Types.PipelineMetadata
+  ( PipelineMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPipelineMetadata,
+
+    -- * Lenses
+    pmCreated,
+    pmPipelineARN,
+    pmUpdated,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a pipeline.
 --
---
---
--- /See:/ 'pipelineMetadata' smart constructor.
+-- /See:/ 'mkPipelineMetadata' smart constructor.
 data PipelineMetadata = PipelineMetadata'
-  { _pmCreated ::
-      !(Maybe POSIX),
-    _pmPipelineARN :: !(Maybe Text),
-    _pmUpdated :: !(Maybe POSIX)
+  { created ::
+      Lude.Maybe Lude.Timestamp,
+    pipelineARN :: Lude.Maybe Lude.Text,
+    updated :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmCreated' - The date and time the pipeline was created, in timestamp format.
---
--- * 'pmPipelineARN' - The Amazon Resource Name (ARN) of the pipeline.
---
--- * 'pmUpdated' - The date and time the pipeline was last updated, in timestamp format.
-pipelineMetadata ::
+-- * 'created' - The date and time the pipeline was created, in timestamp format.
+-- * 'pipelineARN' - The Amazon Resource Name (ARN) of the pipeline.
+-- * 'updated' - The date and time the pipeline was last updated, in timestamp format.
+mkPipelineMetadata ::
   PipelineMetadata
-pipelineMetadata =
+mkPipelineMetadata =
   PipelineMetadata'
-    { _pmCreated = Nothing,
-      _pmPipelineARN = Nothing,
-      _pmUpdated = Nothing
+    { created = Lude.Nothing,
+      pipelineARN = Lude.Nothing,
+      updated = Lude.Nothing
     }
 
 -- | The date and time the pipeline was created, in timestamp format.
-pmCreated :: Lens' PipelineMetadata (Maybe UTCTime)
-pmCreated = lens _pmCreated (\s a -> s {_pmCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmCreated :: Lens.Lens' PipelineMetadata (Lude.Maybe Lude.Timestamp)
+pmCreated = Lens.lens (created :: PipelineMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: PipelineMetadata)
+{-# DEPRECATED pmCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the pipeline.
-pmPipelineARN :: Lens' PipelineMetadata (Maybe Text)
-pmPipelineARN = lens _pmPipelineARN (\s a -> s {_pmPipelineARN = a})
+--
+-- /Note:/ Consider using 'pipelineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmPipelineARN :: Lens.Lens' PipelineMetadata (Lude.Maybe Lude.Text)
+pmPipelineARN = Lens.lens (pipelineARN :: PipelineMetadata -> Lude.Maybe Lude.Text) (\s a -> s {pipelineARN = a} :: PipelineMetadata)
+{-# DEPRECATED pmPipelineARN "Use generic-lens or generic-optics with 'pipelineARN' instead." #-}
 
 -- | The date and time the pipeline was last updated, in timestamp format.
-pmUpdated :: Lens' PipelineMetadata (Maybe UTCTime)
-pmUpdated = lens _pmUpdated (\s a -> s {_pmUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmUpdated :: Lens.Lens' PipelineMetadata (Lude.Maybe Lude.Timestamp)
+pmUpdated = Lens.lens (updated :: PipelineMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {updated = a} :: PipelineMetadata)
+{-# DEPRECATED pmUpdated "Use generic-lens or generic-optics with 'updated' instead." #-}
 
-instance FromJSON PipelineMetadata where
+instance Lude.FromJSON PipelineMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "PipelineMetadata"
       ( \x ->
           PipelineMetadata'
-            <$> (x .:? "created") <*> (x .:? "pipelineArn") <*> (x .:? "updated")
+            Lude.<$> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "pipelineArn")
+            Lude.<*> (x Lude..:? "updated")
       )
-
-instance Hashable PipelineMetadata
-
-instance NFData PipelineMetadata

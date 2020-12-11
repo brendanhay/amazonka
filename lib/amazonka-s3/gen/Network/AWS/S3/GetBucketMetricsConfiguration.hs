@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,169 @@
 --
 -- Gets a metrics configuration (specified by the metrics configuration ID) from the bucket. Note that this doesn't include the daily storage metrics.
 --
---
 -- To use this operation, you must have permissions to perform the @s3:GetMetricsConfiguration@ action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- For information about CloudWatch request metrics for Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch> .
---
 -- The following operations are related to @GetBucketMetricsConfiguration@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html PutBucketMetricsConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html DeleteBucketMetricsConfiguration>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch>
 module Network.AWS.S3.GetBucketMetricsConfiguration
-  ( -- * Creating a Request
-    getBucketMetricsConfiguration,
-    GetBucketMetricsConfiguration,
+  ( -- * Creating a request
+    GetBucketMetricsConfiguration (..),
+    mkGetBucketMetricsConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbmcExpectedBucketOwner,
     gbmcBucket,
     gbmcId,
 
-    -- * Destructuring the Response
-    getBucketMetricsConfigurationResponse,
-    GetBucketMetricsConfigurationResponse,
+    -- * Destructuring the response
+    GetBucketMetricsConfigurationResponse (..),
+    mkGetBucketMetricsConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbmcrsMetricsConfiguration,
     gbmcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getBucketMetricsConfiguration' smart constructor.
+-- | /See:/ 'mkGetBucketMetricsConfiguration' smart constructor.
 data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
-  { _gbmcExpectedBucketOwner ::
-      !(Maybe Text),
-    _gbmcBucket :: !BucketName,
-    _gbmcId :: !Text
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbmcExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gbmcBucket' - The name of the bucket containing the metrics configuration to retrieve.
---
--- * 'gbmcId' - The ID used to identify the metrics configuration.
-getBucketMetricsConfiguration ::
-  -- | 'gbmcBucket'
+-- * 'bucket' - The name of the bucket containing the metrics configuration to retrieve.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'id' - The ID used to identify the metrics configuration.
+mkGetBucketMetricsConfiguration ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'gbmcId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   GetBucketMetricsConfiguration
-getBucketMetricsConfiguration pBucket_ pId_ =
+mkGetBucketMetricsConfiguration pBucket_ pId_ =
   GetBucketMetricsConfiguration'
-    { _gbmcExpectedBucketOwner =
-        Nothing,
-      _gbmcBucket = pBucket_,
-      _gbmcId = pId_
+    { expectedBucketOwner =
+        Lude.Nothing,
+      bucket = pBucket_,
+      id = pId_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gbmcExpectedBucketOwner :: Lens' GetBucketMetricsConfiguration (Maybe Text)
-gbmcExpectedBucketOwner = lens _gbmcExpectedBucketOwner (\s a -> s {_gbmcExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmcExpectedBucketOwner :: Lens.Lens' GetBucketMetricsConfiguration (Lude.Maybe Lude.Text)
+gbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketMetricsConfiguration)
+{-# DEPRECATED gbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket containing the metrics configuration to retrieve.
-gbmcBucket :: Lens' GetBucketMetricsConfiguration BucketName
-gbmcBucket = lens _gbmcBucket (\s a -> s {_gbmcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmcBucket :: Lens.Lens' GetBucketMetricsConfiguration BucketName
+gbmcBucket = Lens.lens (bucket :: GetBucketMetricsConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketMetricsConfiguration)
+{-# DEPRECATED gbmcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the metrics configuration.
-gbmcId :: Lens' GetBucketMetricsConfiguration Text
-gbmcId = lens _gbmcId (\s a -> s {_gbmcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmcId :: Lens.Lens' GetBucketMetricsConfiguration Lude.Text
+gbmcId = Lens.lens (id :: GetBucketMetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketMetricsConfiguration)
+{-# DEPRECATED gbmcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetBucketMetricsConfiguration where
+instance Lude.AWSRequest GetBucketMetricsConfiguration where
   type
     Rs GetBucketMetricsConfiguration =
       GetBucketMetricsConfigurationResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetBucketMetricsConfigurationResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBucketMetricsConfiguration
-
-instance NFData GetBucketMetricsConfiguration
-
-instance ToHeaders GetBucketMetricsConfiguration where
+instance Lude.ToHeaders GetBucketMetricsConfiguration where
   toHeaders GetBucketMetricsConfiguration' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _gbmcExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath GetBucketMetricsConfiguration where
+instance Lude.ToPath GetBucketMetricsConfiguration where
   toPath GetBucketMetricsConfiguration' {..} =
-    mconcat ["/", toBS _gbmcBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery GetBucketMetricsConfiguration where
+instance Lude.ToQuery GetBucketMetricsConfiguration where
   toQuery GetBucketMetricsConfiguration' {..} =
-    mconcat ["id" =: _gbmcId, "metrics"]
+    Lude.mconcat ["id" Lude.=: id, "metrics"]
 
--- | /See:/ 'getBucketMetricsConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetBucketMetricsConfigurationResponse' smart constructor.
 data GetBucketMetricsConfigurationResponse = GetBucketMetricsConfigurationResponse'
-  { _gbmcrsMetricsConfiguration ::
-      !( Maybe
-           MetricsConfiguration
-       ),
-    _gbmcrsResponseStatus ::
-      !Int
+  { metricsConfiguration ::
+      Lude.Maybe
+        MetricsConfiguration,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbmcrsMetricsConfiguration' - Specifies the metrics configuration.
---
--- * 'gbmcrsResponseStatus' - -- | The response status code.
-getBucketMetricsConfigurationResponse ::
-  -- | 'gbmcrsResponseStatus'
-  Int ->
+-- * 'metricsConfiguration' - Specifies the metrics configuration.
+-- * 'responseStatus' - The response status code.
+mkGetBucketMetricsConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBucketMetricsConfigurationResponse
-getBucketMetricsConfigurationResponse pResponseStatus_ =
+mkGetBucketMetricsConfigurationResponse pResponseStatus_ =
   GetBucketMetricsConfigurationResponse'
-    { _gbmcrsMetricsConfiguration =
-        Nothing,
-      _gbmcrsResponseStatus = pResponseStatus_
+    { metricsConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Specifies the metrics configuration.
-gbmcrsMetricsConfiguration :: Lens' GetBucketMetricsConfigurationResponse (Maybe MetricsConfiguration)
-gbmcrsMetricsConfiguration = lens _gbmcrsMetricsConfiguration (\s a -> s {_gbmcrsMetricsConfiguration = a})
+--
+-- /Note:/ Consider using 'metricsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmcrsMetricsConfiguration :: Lens.Lens' GetBucketMetricsConfigurationResponse (Lude.Maybe MetricsConfiguration)
+gbmcrsMetricsConfiguration = Lens.lens (metricsConfiguration :: GetBucketMetricsConfigurationResponse -> Lude.Maybe MetricsConfiguration) (\s a -> s {metricsConfiguration = a} :: GetBucketMetricsConfigurationResponse)
+{-# DEPRECATED gbmcrsMetricsConfiguration "Use generic-lens or generic-optics with 'metricsConfiguration' instead." #-}
 
--- | -- | The response status code.
-gbmcrsResponseStatus :: Lens' GetBucketMetricsConfigurationResponse Int
-gbmcrsResponseStatus = lens _gbmcrsResponseStatus (\s a -> s {_gbmcrsResponseStatus = a})
-
-instance NFData GetBucketMetricsConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmcrsResponseStatus :: Lens.Lens' GetBucketMetricsConfigurationResponse Lude.Int
+gbmcrsResponseStatus = Lens.lens (responseStatus :: GetBucketMetricsConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketMetricsConfigurationResponse)
+{-# DEPRECATED gbmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

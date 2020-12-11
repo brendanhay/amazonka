@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes where
+module Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes
+  ( LambdaFunctionStartedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaFunctionStartedEventAttributes,
+
+    -- * Lenses
+    lfseaScheduledEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @LambdaFunctionStarted@ event. It isn't set for other event types.
 --
---
---
--- /See:/ 'lambdaFunctionStartedEventAttributes' smart constructor.
+-- /See:/ 'mkLambdaFunctionStartedEventAttributes' smart constructor.
 newtype LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes'
-  { _lfseaScheduledEventId ::
-      Integer
+  { scheduledEventId ::
+      Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionStartedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfseaScheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-lambdaFunctionStartedEventAttributes ::
-  -- | 'lfseaScheduledEventId'
-  Integer ->
+-- * 'scheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+mkLambdaFunctionStartedEventAttributes ::
+  -- | 'scheduledEventId'
+  Lude.Integer ->
   LambdaFunctionStartedEventAttributes
-lambdaFunctionStartedEventAttributes pScheduledEventId_ =
+mkLambdaFunctionStartedEventAttributes pScheduledEventId_ =
   LambdaFunctionStartedEventAttributes'
-    { _lfseaScheduledEventId =
+    { scheduledEventId =
         pScheduledEventId_
     }
 
 -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-lfseaScheduledEventId :: Lens' LambdaFunctionStartedEventAttributes Integer
-lfseaScheduledEventId = lens _lfseaScheduledEventId (\s a -> s {_lfseaScheduledEventId = a})
+--
+-- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfseaScheduledEventId :: Lens.Lens' LambdaFunctionStartedEventAttributes Lude.Integer
+lfseaScheduledEventId = Lens.lens (scheduledEventId :: LambdaFunctionStartedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: LambdaFunctionStartedEventAttributes)
+{-# DEPRECATED lfseaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
-instance FromJSON LambdaFunctionStartedEventAttributes where
+instance Lude.FromJSON LambdaFunctionStartedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "LambdaFunctionStartedEventAttributes"
       ( \x ->
           LambdaFunctionStartedEventAttributes'
-            <$> (x .: "scheduledEventId")
+            Lude.<$> (x Lude..: "scheduledEventId")
       )
-
-instance Hashable LambdaFunctionStartedEventAttributes
-
-instance NFData LambdaFunctionStartedEventAttributes

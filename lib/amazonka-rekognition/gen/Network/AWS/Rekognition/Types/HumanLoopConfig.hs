@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.HumanLoopConfig where
+module Network.AWS.Rekognition.Types.HumanLoopConfig
+  ( HumanLoopConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHumanLoopConfig,
+
+    -- * Lenses
+    hlcDataAttributes,
+    hlcHumanLoopName,
+    hlcFlowDefinitionARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.HumanLoopDataAttributes
 
 -- | Sets up the flow definition the image will be sent to if one of the conditions is met. You can also set certain attributes of the image before review.
 --
---
---
--- /See:/ 'humanLoopConfig' smart constructor.
+-- /See:/ 'mkHumanLoopConfig' smart constructor.
 data HumanLoopConfig = HumanLoopConfig'
-  { _hlcDataAttributes ::
-      !(Maybe HumanLoopDataAttributes),
-    _hlcHumanLoopName :: !Text,
-    _hlcFlowDefinitionARN :: !Text
+  { dataAttributes ::
+      Lude.Maybe HumanLoopDataAttributes,
+    humanLoopName :: Lude.Text,
+    flowDefinitionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hlcDataAttributes' - Sets attributes of the input data.
---
--- * 'hlcHumanLoopName' - The name of the human review used for this image. This should be kept unique within a region.
---
--- * 'hlcFlowDefinitionARN' - The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html CreateFlowDefinition> Operation.
-humanLoopConfig ::
-  -- | 'hlcHumanLoopName'
-  Text ->
-  -- | 'hlcFlowDefinitionARN'
-  Text ->
+-- * 'dataAttributes' - Sets attributes of the input data.
+-- * 'flowDefinitionARN' - The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html CreateFlowDefinition> Operation.
+-- * 'humanLoopName' - The name of the human review used for this image. This should be kept unique within a region.
+mkHumanLoopConfig ::
+  -- | 'humanLoopName'
+  Lude.Text ->
+  -- | 'flowDefinitionARN'
+  Lude.Text ->
   HumanLoopConfig
-humanLoopConfig pHumanLoopName_ pFlowDefinitionARN_ =
+mkHumanLoopConfig pHumanLoopName_ pFlowDefinitionARN_ =
   HumanLoopConfig'
-    { _hlcDataAttributes = Nothing,
-      _hlcHumanLoopName = pHumanLoopName_,
-      _hlcFlowDefinitionARN = pFlowDefinitionARN_
+    { dataAttributes = Lude.Nothing,
+      humanLoopName = pHumanLoopName_,
+      flowDefinitionARN = pFlowDefinitionARN_
     }
 
 -- | Sets attributes of the input data.
-hlcDataAttributes :: Lens' HumanLoopConfig (Maybe HumanLoopDataAttributes)
-hlcDataAttributes = lens _hlcDataAttributes (\s a -> s {_hlcDataAttributes = a})
+--
+-- /Note:/ Consider using 'dataAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcDataAttributes :: Lens.Lens' HumanLoopConfig (Lude.Maybe HumanLoopDataAttributes)
+hlcDataAttributes = Lens.lens (dataAttributes :: HumanLoopConfig -> Lude.Maybe HumanLoopDataAttributes) (\s a -> s {dataAttributes = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcDataAttributes "Use generic-lens or generic-optics with 'dataAttributes' instead." #-}
 
 -- | The name of the human review used for this image. This should be kept unique within a region.
-hlcHumanLoopName :: Lens' HumanLoopConfig Text
-hlcHumanLoopName = lens _hlcHumanLoopName (\s a -> s {_hlcHumanLoopName = a})
+--
+-- /Note:/ Consider using 'humanLoopName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcHumanLoopName :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcHumanLoopName = Lens.lens (humanLoopName :: HumanLoopConfig -> Lude.Text) (\s a -> s {humanLoopName = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcHumanLoopName "Use generic-lens or generic-optics with 'humanLoopName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html CreateFlowDefinition> Operation.
-hlcFlowDefinitionARN :: Lens' HumanLoopConfig Text
-hlcFlowDefinitionARN = lens _hlcFlowDefinitionARN (\s a -> s {_hlcFlowDefinitionARN = a})
+--
+-- /Note:/ Consider using 'flowDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcFlowDefinitionARN :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcFlowDefinitionARN = Lens.lens (flowDefinitionARN :: HumanLoopConfig -> Lude.Text) (\s a -> s {flowDefinitionARN = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcFlowDefinitionARN "Use generic-lens or generic-optics with 'flowDefinitionARN' instead." #-}
 
-instance Hashable HumanLoopConfig
-
-instance NFData HumanLoopConfig
-
-instance ToJSON HumanLoopConfig where
+instance Lude.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
-    object
-      ( catMaybes
-          [ ("DataAttributes" .=) <$> _hlcDataAttributes,
-            Just ("HumanLoopName" .= _hlcHumanLoopName),
-            Just ("FlowDefinitionArn" .= _hlcFlowDefinitionARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DataAttributes" Lude..=) Lude.<$> dataAttributes,
+            Lude.Just ("HumanLoopName" Lude..= humanLoopName),
+            Lude.Just ("FlowDefinitionArn" Lude..= flowDefinitionARN)
           ]
       )

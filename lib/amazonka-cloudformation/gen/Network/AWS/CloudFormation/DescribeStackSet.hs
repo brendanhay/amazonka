@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,124 @@
 --
 -- Returns the description of the specified stack set.
 module Network.AWS.CloudFormation.DescribeStackSet
-  ( -- * Creating a Request
-    describeStackSet,
-    DescribeStackSet,
+  ( -- * Creating a request
+    DescribeStackSet (..),
+    mkDescribeStackSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desStackSetName,
 
-    -- * Destructuring the Response
-    describeStackSetResponse,
-    DescribeStackSetResponse,
+    -- * Destructuring the response
+    DescribeStackSetResponse (..),
+    mkDescribeStackSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsStackSet,
     desrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStackSet' smart constructor.
+-- | /See:/ 'mkDescribeStackSet' smart constructor.
 newtype DescribeStackSet = DescribeStackSet'
-  { _desStackSetName ::
-      Text
+  { stackSetName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desStackSetName' - The name or unique ID of the stack set whose description you want.
-describeStackSet ::
-  -- | 'desStackSetName'
-  Text ->
+-- * 'stackSetName' - The name or unique ID of the stack set whose description you want.
+mkDescribeStackSet ::
+  -- | 'stackSetName'
+  Lude.Text ->
   DescribeStackSet
-describeStackSet pStackSetName_ =
-  DescribeStackSet' {_desStackSetName = pStackSetName_}
+mkDescribeStackSet pStackSetName_ =
+  DescribeStackSet' {stackSetName = pStackSetName_}
 
 -- | The name or unique ID of the stack set whose description you want.
-desStackSetName :: Lens' DescribeStackSet Text
-desStackSetName = lens _desStackSetName (\s a -> s {_desStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desStackSetName :: Lens.Lens' DescribeStackSet Lude.Text
+desStackSetName = Lens.lens (stackSetName :: DescribeStackSet -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSet)
+{-# DEPRECATED desStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
-instance AWSRequest DescribeStackSet where
+instance Lude.AWSRequest DescribeStackSet where
   type Rs DescribeStackSet = DescribeStackSetResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeStackSetResult"
       ( \s h x ->
           DescribeStackSetResponse'
-            <$> (x .@? "StackSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "StackSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackSet
+instance Lude.ToHeaders DescribeStackSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStackSet
+instance Lude.ToPath DescribeStackSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeStackSet where
-  toHeaders = const mempty
-
-instance ToPath DescribeStackSet where
-  toPath = const "/"
-
-instance ToQuery DescribeStackSet where
+instance Lude.ToQuery DescribeStackSet where
   toQuery DescribeStackSet' {..} =
-    mconcat
-      [ "Action" =: ("DescribeStackSet" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackSetName" =: _desStackSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeStackSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackSetName" Lude.=: stackSetName
       ]
 
--- | /See:/ 'describeStackSetResponse' smart constructor.
+-- | /See:/ 'mkDescribeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
-  { _desrsStackSet ::
-      !(Maybe StackSet),
-    _desrsResponseStatus :: !Int
+  { stackSet ::
+      Lude.Maybe StackSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsStackSet' - The specified stack set.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeStackSetResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stackSet' - The specified stack set.
+mkDescribeStackSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackSetResponse
-describeStackSetResponse pResponseStatus_ =
+mkDescribeStackSetResponse pResponseStatus_ =
   DescribeStackSetResponse'
-    { _desrsStackSet = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { stackSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The specified stack set.
-desrsStackSet :: Lens' DescribeStackSetResponse (Maybe StackSet)
-desrsStackSet = lens _desrsStackSet (\s a -> s {_desrsStackSet = a})
+--
+-- /Note:/ Consider using 'stackSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsStackSet :: Lens.Lens' DescribeStackSetResponse (Lude.Maybe StackSet)
+desrsStackSet = Lens.lens (stackSet :: DescribeStackSetResponse -> Lude.Maybe StackSet) (\s a -> s {stackSet = a} :: DescribeStackSetResponse)
+{-# DEPRECATED desrsStackSet "Use generic-lens or generic-optics with 'stackSet' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeStackSetResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeStackSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeStackSetResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeStackSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSetResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

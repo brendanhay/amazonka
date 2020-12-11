@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates an Amazon Lightsail content delivery network (CDN) distribution.
 --
---
 -- A distribution is a globally distributed network of caching servers that improve the performance of your website or web application hosted on a Lightsail instance. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions Content delivery networks in Amazon Lightsail> .
 module Network.AWS.Lightsail.CreateDistribution
-  ( -- * Creating a Request
-    createDistribution,
-    CreateDistribution,
+  ( -- * Creating a request
+    CreateDistribution (..),
+    mkCreateDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdCacheBehaviorSettings,
     cdCacheBehaviors,
     cdTags,
@@ -35,191 +29,232 @@ module Network.AWS.Lightsail.CreateDistribution
     cdDefaultCacheBehavior,
     cdBundleId,
 
-    -- * Destructuring the Response
-    createDistributionResponse,
-    CreateDistributionResponse,
+    -- * Destructuring the response
+    CreateDistributionResponse (..),
+    mkCreateDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crersDistribution,
     crersOperation,
     crersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDistribution' smart constructor.
+-- | /See:/ 'mkCreateDistribution' smart constructor.
 data CreateDistribution = CreateDistribution'
-  { _cdCacheBehaviorSettings ::
-      !(Maybe CacheSettings),
-    _cdCacheBehaviors :: !(Maybe [CacheBehaviorPerPath]),
-    _cdTags :: !(Maybe [Tag]),
-    _cdDistributionName :: !Text,
-    _cdOrigin :: !InputOrigin,
-    _cdDefaultCacheBehavior :: !CacheBehavior,
-    _cdBundleId :: !Text
+  { cacheBehaviorSettings ::
+      Lude.Maybe CacheSettings,
+    cacheBehaviors :: Lude.Maybe [CacheBehaviorPerPath],
+    tags :: Lude.Maybe [Tag],
+    distributionName :: Lude.Text,
+    origin :: InputOrigin,
+    defaultCacheBehavior :: CacheBehavior,
+    bundleId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bundleId' - The bundle ID to use for the distribution.
 --
--- * 'cdCacheBehaviorSettings' - An object that describes the cache behavior settings for the distribution.
+-- A distribution bundle describes the specifications of your distribution, such as the monthly cost and monthly network transfer quota.
+-- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
+-- * 'cacheBehaviorSettings' - An object that describes the cache behavior settings for the distribution.
+-- * 'cacheBehaviors' - An array of objects that describe the per-path cache behavior for the distribution.
+-- * 'defaultCacheBehavior' - An object that describes the default cache behavior for the distribution.
+-- * 'distributionName' - The name for the distribution.
+-- * 'origin' - An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
 --
--- * 'cdCacheBehaviors' - An array of objects that describe the per-path cache behavior for the distribution.
+-- The distribution pulls, caches, and serves content from the origin.
+-- * 'tags' - The tag keys and optional values to add to the distribution during create.
 --
--- * 'cdTags' - The tag keys and optional values to add to the distribution during create. Use the @TagResource@ action to tag a resource after it's created.
---
--- * 'cdDistributionName' - The name for the distribution.
---
--- * 'cdOrigin' - An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer. The distribution pulls, caches, and serves content from the origin.
---
--- * 'cdDefaultCacheBehavior' - An object that describes the default cache behavior for the distribution.
---
--- * 'cdBundleId' - The bundle ID to use for the distribution. A distribution bundle describes the specifications of your distribution, such as the monthly cost and monthly network transfer quota. Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
-createDistribution ::
-  -- | 'cdDistributionName'
-  Text ->
-  -- | 'cdOrigin'
+-- Use the @TagResource@ action to tag a resource after it's created.
+mkCreateDistribution ::
+  -- | 'distributionName'
+  Lude.Text ->
+  -- | 'origin'
   InputOrigin ->
-  -- | 'cdDefaultCacheBehavior'
+  -- | 'defaultCacheBehavior'
   CacheBehavior ->
-  -- | 'cdBundleId'
-  Text ->
+  -- | 'bundleId'
+  Lude.Text ->
   CreateDistribution
-createDistribution
+mkCreateDistribution
   pDistributionName_
   pOrigin_
   pDefaultCacheBehavior_
   pBundleId_ =
     CreateDistribution'
-      { _cdCacheBehaviorSettings = Nothing,
-        _cdCacheBehaviors = Nothing,
-        _cdTags = Nothing,
-        _cdDistributionName = pDistributionName_,
-        _cdOrigin = pOrigin_,
-        _cdDefaultCacheBehavior = pDefaultCacheBehavior_,
-        _cdBundleId = pBundleId_
+      { cacheBehaviorSettings = Lude.Nothing,
+        cacheBehaviors = Lude.Nothing,
+        tags = Lude.Nothing,
+        distributionName = pDistributionName_,
+        origin = pOrigin_,
+        defaultCacheBehavior = pDefaultCacheBehavior_,
+        bundleId = pBundleId_
       }
 
 -- | An object that describes the cache behavior settings for the distribution.
-cdCacheBehaviorSettings :: Lens' CreateDistribution (Maybe CacheSettings)
-cdCacheBehaviorSettings = lens _cdCacheBehaviorSettings (\s a -> s {_cdCacheBehaviorSettings = a})
+--
+-- /Note:/ Consider using 'cacheBehaviorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCacheBehaviorSettings :: Lens.Lens' CreateDistribution (Lude.Maybe CacheSettings)
+cdCacheBehaviorSettings = Lens.lens (cacheBehaviorSettings :: CreateDistribution -> Lude.Maybe CacheSettings) (\s a -> s {cacheBehaviorSettings = a} :: CreateDistribution)
+{-# DEPRECATED cdCacheBehaviorSettings "Use generic-lens or generic-optics with 'cacheBehaviorSettings' instead." #-}
 
 -- | An array of objects that describe the per-path cache behavior for the distribution.
-cdCacheBehaviors :: Lens' CreateDistribution [CacheBehaviorPerPath]
-cdCacheBehaviors = lens _cdCacheBehaviors (\s a -> s {_cdCacheBehaviors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheBehaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCacheBehaviors :: Lens.Lens' CreateDistribution (Lude.Maybe [CacheBehaviorPerPath])
+cdCacheBehaviors = Lens.lens (cacheBehaviors :: CreateDistribution -> Lude.Maybe [CacheBehaviorPerPath]) (\s a -> s {cacheBehaviors = a} :: CreateDistribution)
+{-# DEPRECATED cdCacheBehaviors "Use generic-lens or generic-optics with 'cacheBehaviors' instead." #-}
 
--- | The tag keys and optional values to add to the distribution during create. Use the @TagResource@ action to tag a resource after it's created.
-cdTags :: Lens' CreateDistribution [Tag]
-cdTags = lens _cdTags (\s a -> s {_cdTags = a}) . _Default . _Coerce
+-- | The tag keys and optional values to add to the distribution during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDistribution (Lude.Maybe [Tag])
+cdTags = Lens.lens (tags :: CreateDistribution -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDistribution)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the distribution.
-cdDistributionName :: Lens' CreateDistribution Text
-cdDistributionName = lens _cdDistributionName (\s a -> s {_cdDistributionName = a})
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDistributionName :: Lens.Lens' CreateDistribution Lude.Text
+cdDistributionName = Lens.lens (distributionName :: CreateDistribution -> Lude.Text) (\s a -> s {distributionName = a} :: CreateDistribution)
+{-# DEPRECATED cdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
--- | An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer. The distribution pulls, caches, and serves content from the origin.
-cdOrigin :: Lens' CreateDistribution InputOrigin
-cdOrigin = lens _cdOrigin (\s a -> s {_cdOrigin = a})
+-- | An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
+--
+-- The distribution pulls, caches, and serves content from the origin.
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdOrigin :: Lens.Lens' CreateDistribution InputOrigin
+cdOrigin = Lens.lens (origin :: CreateDistribution -> InputOrigin) (\s a -> s {origin = a} :: CreateDistribution)
+{-# DEPRECATED cdOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
 -- | An object that describes the default cache behavior for the distribution.
-cdDefaultCacheBehavior :: Lens' CreateDistribution CacheBehavior
-cdDefaultCacheBehavior = lens _cdDefaultCacheBehavior (\s a -> s {_cdDefaultCacheBehavior = a})
+--
+-- /Note:/ Consider using 'defaultCacheBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDefaultCacheBehavior :: Lens.Lens' CreateDistribution CacheBehavior
+cdDefaultCacheBehavior = Lens.lens (defaultCacheBehavior :: CreateDistribution -> CacheBehavior) (\s a -> s {defaultCacheBehavior = a} :: CreateDistribution)
+{-# DEPRECATED cdDefaultCacheBehavior "Use generic-lens or generic-optics with 'defaultCacheBehavior' instead." #-}
 
--- | The bundle ID to use for the distribution. A distribution bundle describes the specifications of your distribution, such as the monthly cost and monthly network transfer quota. Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
-cdBundleId :: Lens' CreateDistribution Text
-cdBundleId = lens _cdBundleId (\s a -> s {_cdBundleId = a})
+-- | The bundle ID to use for the distribution.
+--
+-- A distribution bundle describes the specifications of your distribution, such as the monthly cost and monthly network transfer quota.
+-- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdBundleId :: Lens.Lens' CreateDistribution Lude.Text
+cdBundleId = Lens.lens (bundleId :: CreateDistribution -> Lude.Text) (\s a -> s {bundleId = a} :: CreateDistribution)
+{-# DEPRECATED cdBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
-instance AWSRequest CreateDistribution where
+instance Lude.AWSRequest CreateDistribution where
   type Rs CreateDistribution = CreateDistributionResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDistributionResponse'
-            <$> (x .?> "distribution")
-            <*> (x .?> "operation")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "distribution")
+            Lude.<*> (x Lude..?> "operation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDistribution
-
-instance NFData CreateDistribution
-
-instance ToHeaders CreateDistribution where
+instance Lude.ToHeaders CreateDistribution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.CreateDistribution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.CreateDistribution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDistribution where
+instance Lude.ToJSON CreateDistribution where
   toJSON CreateDistribution' {..} =
-    object
-      ( catMaybes
-          [ ("cacheBehaviorSettings" .=) <$> _cdCacheBehaviorSettings,
-            ("cacheBehaviors" .=) <$> _cdCacheBehaviors,
-            ("tags" .=) <$> _cdTags,
-            Just ("distributionName" .= _cdDistributionName),
-            Just ("origin" .= _cdOrigin),
-            Just ("defaultCacheBehavior" .= _cdDefaultCacheBehavior),
-            Just ("bundleId" .= _cdBundleId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cacheBehaviorSettings" Lude..=) Lude.<$> cacheBehaviorSettings,
+            ("cacheBehaviors" Lude..=) Lude.<$> cacheBehaviors,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("distributionName" Lude..= distributionName),
+            Lude.Just ("origin" Lude..= origin),
+            Lude.Just ("defaultCacheBehavior" Lude..= defaultCacheBehavior),
+            Lude.Just ("bundleId" Lude..= bundleId)
           ]
       )
 
-instance ToPath CreateDistribution where
-  toPath = const "/"
+instance Lude.ToPath CreateDistribution where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDistribution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDistributionResponse' smart constructor.
+-- | /See:/ 'mkCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-  { _crersDistribution ::
-      !(Maybe LightsailDistribution),
-    _crersOperation :: !(Maybe Operation),
-    _crersResponseStatus :: !Int
+  { distribution ::
+      Lude.Maybe LightsailDistribution,
+    operation :: Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crersDistribution' - An object that describes the distribution created.
---
--- * 'crersOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'crersResponseStatus' - -- | The response status code.
-createDistributionResponse ::
-  -- | 'crersResponseStatus'
-  Int ->
+-- * 'distribution' - An object that describes the distribution created.
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCreateDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDistributionResponse
-createDistributionResponse pResponseStatus_ =
+mkCreateDistributionResponse pResponseStatus_ =
   CreateDistributionResponse'
-    { _crersDistribution = Nothing,
-      _crersOperation = Nothing,
-      _crersResponseStatus = pResponseStatus_
+    { distribution = Lude.Nothing,
+      operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes the distribution created.
-crersDistribution :: Lens' CreateDistributionResponse (Maybe LightsailDistribution)
-crersDistribution = lens _crersDistribution (\s a -> s {_crersDistribution = a})
+--
+-- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersDistribution :: Lens.Lens' CreateDistributionResponse (Lude.Maybe LightsailDistribution)
+crersDistribution = Lens.lens (distribution :: CreateDistributionResponse -> Lude.Maybe LightsailDistribution) (\s a -> s {distribution = a} :: CreateDistributionResponse)
+{-# DEPRECATED crersDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-crersOperation :: Lens' CreateDistributionResponse (Maybe Operation)
-crersOperation = lens _crersOperation (\s a -> s {_crersOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersOperation :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Operation)
+crersOperation = Lens.lens (operation :: CreateDistributionResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDistributionResponse)
+{-# DEPRECATED crersOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-crersResponseStatus :: Lens' CreateDistributionResponse Int
-crersResponseStatus = lens _crersResponseStatus (\s a -> s {_crersResponseStatus = a})
-
-instance NFData CreateDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersResponseStatus :: Lens.Lens' CreateDistributionResponse Lude.Int
+crersResponseStatus = Lens.lens (responseStatus :: CreateDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDistributionResponse)
+{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

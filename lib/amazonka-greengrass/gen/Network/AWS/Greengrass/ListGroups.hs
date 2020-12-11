@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +16,19 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListGroups
-  ( -- * Creating a Request
-    listGroups,
-    ListGroups,
+  ( -- * Creating a request
+    ListGroups (..),
+    mkListGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgNextToken,
     lgMaxResults,
 
-    -- * Destructuring the Response
-    listGroupsResponse,
-    ListGroupsResponse,
+    -- * Destructuring the response
+    ListGroupsResponse (..),
+    mkListGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsGroups,
     lgrsNextToken,
     lgrsResponseStatus,
@@ -41,115 +36,136 @@ module Network.AWS.Greengrass.ListGroups
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroups' smart constructor.
+-- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { _lgNextToken :: !(Maybe Text),
-    _lgMaxResults :: !(Maybe Text)
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lgMaxResults' - The maximum number of results to be returned per request.
-listGroups ::
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListGroups ::
   ListGroups
-listGroups =
-  ListGroups' {_lgNextToken = Nothing, _lgMaxResults = Nothing}
+mkListGroups =
+  ListGroups' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\s a -> s {_lgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgNextToken :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgNextToken = Lens.lens (nextToken :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroups)
+{-# DEPRECATED lgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lgMaxResults :: Lens' ListGroups (Maybe Text)
-lgMaxResults = lens _lgMaxResults (\s a -> s {_lgMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMaxResults :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgMaxResults = Lens.lens (maxResults :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListGroups)
+{-# DEPRECATED lgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListGroups where
+instance Page.AWSPager ListGroups where
   page rq rs
-    | stop (rs ^. lgrsNextToken) = Nothing
-    | stop (rs ^. lgrsGroups) = Nothing
-    | otherwise = Just $ rq & lgNextToken .~ rs ^. lgrsNextToken
+    | Page.stop (rs Lens.^. lgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgrsGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgNextToken Lens..~ rs Lens.^. lgrsNextToken
 
-instance AWSRequest ListGroups where
+instance Lude.AWSRequest ListGroups where
   type Rs ListGroups = ListGroupsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            <$> (x .?> "Groups" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Groups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroups
-
-instance NFData ListGroups
-
-instance ToHeaders ListGroups where
+instance Lude.ToHeaders ListGroups where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListGroups where
-  toPath = const "/greengrass/groups"
+instance Lude.ToPath ListGroups where
+  toPath = Lude.const "/greengrass/groups"
 
-instance ToQuery ListGroups where
+instance Lude.ToQuery ListGroups where
   toQuery ListGroups' {..} =
-    mconcat
-      ["NextToken" =: _lgNextToken, "MaxResults" =: _lgMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listGroupsResponse' smart constructor.
+-- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { _lgrsGroups ::
-      !(Maybe [GroupInformation]),
-    _lgrsNextToken :: !(Maybe Text),
-    _lgrsResponseStatus :: !Int
+  { groups ::
+      Lude.Maybe [GroupInformation],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsGroups' - Information about a group.
---
--- * 'lgrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGroupsResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'groups' - Information about a group.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupsResponse
-listGroupsResponse pResponseStatus_ =
+mkListGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-    { _lgrsGroups = Nothing,
-      _lgrsNextToken = Nothing,
-      _lgrsResponseStatus = pResponseStatus_
+    { groups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a group.
-lgrsGroups :: Lens' ListGroupsResponse [GroupInformation]
-lgrsGroups = lens _lgrsGroups (\s a -> s {_lgrsGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGroups :: Lens.Lens' ListGroupsResponse (Lude.Maybe [GroupInformation])
+lgrsGroups = Lens.lens (groups :: ListGroupsResponse -> Lude.Maybe [GroupInformation]) (\s a -> s {groups = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\s a -> s {_lgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsNextToken :: Lens.Lens' ListGroupsResponse (Lude.Maybe Lude.Text)
+lgrsNextToken = Lens.lens (nextToken :: ListGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
-
-instance NFData ListGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGroupsResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

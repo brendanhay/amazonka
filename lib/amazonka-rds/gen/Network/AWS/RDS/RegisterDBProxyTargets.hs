@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,170 @@
 --
 -- Associate one or more @DBProxyTarget@ data structures with a @DBProxyTargetGroup@ .
 module Network.AWS.RDS.RegisterDBProxyTargets
-  ( -- * Creating a Request
-    registerDBProxyTargets,
-    RegisterDBProxyTargets,
+  ( -- * Creating a request
+    RegisterDBProxyTargets (..),
+    mkRegisterDBProxyTargets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdptDBClusterIdentifiers,
     rdptDBInstanceIdentifiers,
     rdptTargetGroupName,
     rdptDBProxyName,
 
-    -- * Destructuring the Response
-    registerDBProxyTargetsResponse,
-    RegisterDBProxyTargetsResponse,
+    -- * Destructuring the response
+    RegisterDBProxyTargetsResponse (..),
+    mkRegisterDBProxyTargetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdptrsDBProxyTargets,
     rdptrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerDBProxyTargets' smart constructor.
+-- | /See:/ 'mkRegisterDBProxyTargets' smart constructor.
 data RegisterDBProxyTargets = RegisterDBProxyTargets'
-  { _rdptDBClusterIdentifiers ::
-      !(Maybe [Text]),
-    _rdptDBInstanceIdentifiers :: !(Maybe [Text]),
-    _rdptTargetGroupName :: !(Maybe Text),
-    _rdptDBProxyName :: !Text
+  { dbClusterIdentifiers ::
+      Lude.Maybe [Lude.Text],
+    dbInstanceIdentifiers ::
+      Lude.Maybe [Lude.Text],
+    targetGroupName :: Lude.Maybe Lude.Text,
+    dbProxyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDBProxyTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdptDBClusterIdentifiers' - One or more DB cluster identifiers.
---
--- * 'rdptDBInstanceIdentifiers' - One or more DB instance identifiers.
---
--- * 'rdptTargetGroupName' - The identifier of the @DBProxyTargetGroup@ .
---
--- * 'rdptDBProxyName' - The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
-registerDBProxyTargets ::
-  -- | 'rdptDBProxyName'
-  Text ->
+-- * 'dbClusterIdentifiers' - One or more DB cluster identifiers.
+-- * 'dbInstanceIdentifiers' - One or more DB instance identifiers.
+-- * 'dbProxyName' - The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
+-- * 'targetGroupName' - The identifier of the @DBProxyTargetGroup@ .
+mkRegisterDBProxyTargets ::
+  -- | 'dbProxyName'
+  Lude.Text ->
   RegisterDBProxyTargets
-registerDBProxyTargets pDBProxyName_ =
+mkRegisterDBProxyTargets pDBProxyName_ =
   RegisterDBProxyTargets'
-    { _rdptDBClusterIdentifiers = Nothing,
-      _rdptDBInstanceIdentifiers = Nothing,
-      _rdptTargetGroupName = Nothing,
-      _rdptDBProxyName = pDBProxyName_
+    { dbClusterIdentifiers = Lude.Nothing,
+      dbInstanceIdentifiers = Lude.Nothing,
+      targetGroupName = Lude.Nothing,
+      dbProxyName = pDBProxyName_
     }
 
 -- | One or more DB cluster identifiers.
-rdptDBClusterIdentifiers :: Lens' RegisterDBProxyTargets [Text]
-rdptDBClusterIdentifiers = lens _rdptDBClusterIdentifiers (\s a -> s {_rdptDBClusterIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbClusterIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptDBClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Lude.Maybe [Lude.Text])
+rdptDBClusterIdentifiers = Lens.lens (dbClusterIdentifiers :: RegisterDBProxyTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets)
+{-# DEPRECATED rdptDBClusterIdentifiers "Use generic-lens or generic-optics with 'dbClusterIdentifiers' instead." #-}
 
 -- | One or more DB instance identifiers.
-rdptDBInstanceIdentifiers :: Lens' RegisterDBProxyTargets [Text]
-rdptDBInstanceIdentifiers = lens _rdptDBInstanceIdentifiers (\s a -> s {_rdptDBInstanceIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbInstanceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptDBInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Lude.Maybe [Lude.Text])
+rdptDBInstanceIdentifiers = Lens.lens (dbInstanceIdentifiers :: RegisterDBProxyTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {dbInstanceIdentifiers = a} :: RegisterDBProxyTargets)
+{-# DEPRECATED rdptDBInstanceIdentifiers "Use generic-lens or generic-optics with 'dbInstanceIdentifiers' instead." #-}
 
 -- | The identifier of the @DBProxyTargetGroup@ .
-rdptTargetGroupName :: Lens' RegisterDBProxyTargets (Maybe Text)
-rdptTargetGroupName = lens _rdptTargetGroupName (\s a -> s {_rdptTargetGroupName = a})
+--
+-- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptTargetGroupName :: Lens.Lens' RegisterDBProxyTargets (Lude.Maybe Lude.Text)
+rdptTargetGroupName = Lens.lens (targetGroupName :: RegisterDBProxyTargets -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupName = a} :: RegisterDBProxyTargets)
+{-# DEPRECATED rdptTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
 
 -- | The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
-rdptDBProxyName :: Lens' RegisterDBProxyTargets Text
-rdptDBProxyName = lens _rdptDBProxyName (\s a -> s {_rdptDBProxyName = a})
+--
+-- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptDBProxyName :: Lens.Lens' RegisterDBProxyTargets Lude.Text
+rdptDBProxyName = Lens.lens (dbProxyName :: RegisterDBProxyTargets -> Lude.Text) (\s a -> s {dbProxyName = a} :: RegisterDBProxyTargets)
+{-# DEPRECATED rdptDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
 
-instance AWSRequest RegisterDBProxyTargets where
+instance Lude.AWSRequest RegisterDBProxyTargets where
   type Rs RegisterDBProxyTargets = RegisterDBProxyTargetsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RegisterDBProxyTargetsResult"
       ( \s h x ->
           RegisterDBProxyTargetsResponse'
-            <$> (x .@? "DBProxyTargets" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "DBProxyTargets" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterDBProxyTargets
+instance Lude.ToHeaders RegisterDBProxyTargets where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RegisterDBProxyTargets
+instance Lude.ToPath RegisterDBProxyTargets where
+  toPath = Lude.const "/"
 
-instance ToHeaders RegisterDBProxyTargets where
-  toHeaders = const mempty
-
-instance ToPath RegisterDBProxyTargets where
-  toPath = const "/"
-
-instance ToQuery RegisterDBProxyTargets where
+instance Lude.ToQuery RegisterDBProxyTargets where
   toQuery RegisterDBProxyTargets' {..} =
-    mconcat
-      [ "Action" =: ("RegisterDBProxyTargets" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("RegisterDBProxyTargets" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "DBClusterIdentifiers"
-          =: toQuery (toQueryList "member" <$> _rdptDBClusterIdentifiers),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> dbClusterIdentifiers),
         "DBInstanceIdentifiers"
-          =: toQuery (toQueryList "member" <$> _rdptDBInstanceIdentifiers),
-        "TargetGroupName" =: _rdptTargetGroupName,
-        "DBProxyName" =: _rdptDBProxyName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> dbInstanceIdentifiers),
+        "TargetGroupName" Lude.=: targetGroupName,
+        "DBProxyName" Lude.=: dbProxyName
       ]
 
--- | /See:/ 'registerDBProxyTargetsResponse' smart constructor.
+-- | /See:/ 'mkRegisterDBProxyTargetsResponse' smart constructor.
 data RegisterDBProxyTargetsResponse = RegisterDBProxyTargetsResponse'
-  { _rdptrsDBProxyTargets ::
-      !(Maybe [DBProxyTarget]),
-    _rdptrsResponseStatus :: !Int
+  { dbProxyTargets ::
+      Lude.Maybe [DBProxyTarget],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDBProxyTargetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdptrsDBProxyTargets' - One or more @DBProxyTarget@ objects that are created when you register targets with a target group.
---
--- * 'rdptrsResponseStatus' - -- | The response status code.
-registerDBProxyTargetsResponse ::
-  -- | 'rdptrsResponseStatus'
-  Int ->
+-- * 'dbProxyTargets' - One or more @DBProxyTarget@ objects that are created when you register targets with a target group.
+-- * 'responseStatus' - The response status code.
+mkRegisterDBProxyTargetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterDBProxyTargetsResponse
-registerDBProxyTargetsResponse pResponseStatus_ =
+mkRegisterDBProxyTargetsResponse pResponseStatus_ =
   RegisterDBProxyTargetsResponse'
-    { _rdptrsDBProxyTargets = Nothing,
-      _rdptrsResponseStatus = pResponseStatus_
+    { dbProxyTargets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | One or more @DBProxyTarget@ objects that are created when you register targets with a target group.
-rdptrsDBProxyTargets :: Lens' RegisterDBProxyTargetsResponse [DBProxyTarget]
-rdptrsDBProxyTargets = lens _rdptrsDBProxyTargets (\s a -> s {_rdptrsDBProxyTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbProxyTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptrsDBProxyTargets :: Lens.Lens' RegisterDBProxyTargetsResponse (Lude.Maybe [DBProxyTarget])
+rdptrsDBProxyTargets = Lens.lens (dbProxyTargets :: RegisterDBProxyTargetsResponse -> Lude.Maybe [DBProxyTarget]) (\s a -> s {dbProxyTargets = a} :: RegisterDBProxyTargetsResponse)
+{-# DEPRECATED rdptrsDBProxyTargets "Use generic-lens or generic-optics with 'dbProxyTargets' instead." #-}
 
--- | -- | The response status code.
-rdptrsResponseStatus :: Lens' RegisterDBProxyTargetsResponse Int
-rdptrsResponseStatus = lens _rdptrsResponseStatus (\s a -> s {_rdptrsResponseStatus = a})
-
-instance NFData RegisterDBProxyTargetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdptrsResponseStatus :: Lens.Lens' RegisterDBProxyTargetsResponse Lude.Int
+rdptrsResponseStatus = Lens.lens (responseStatus :: RegisterDBProxyTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterDBProxyTargetsResponse)
+{-# DEPRECATED rdptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

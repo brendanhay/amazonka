@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,171 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.SkillDetails where
+module Network.AWS.AlexaBusiness.Types.SkillDetails
+  ( SkillDetails (..),
+
+    -- * Smart constructor
+    mkSkillDetails,
+
+    -- * Lenses
+    sdSkillTypes,
+    sdProductDescription,
+    sdInvocationPhrase,
+    sdDeveloperInfo,
+    sdEndUserLicenseAgreement,
+    sdGenericKeywords,
+    sdReviews,
+    sdReleaseDate,
+    sdNewInThisVersionBulletPoints,
+    sdBulletPoints,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.DeveloperInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Granular information about the skill.
 --
---
---
--- /See:/ 'skillDetails' smart constructor.
+-- /See:/ 'mkSkillDetails' smart constructor.
 data SkillDetails = SkillDetails'
-  { _sdSkillTypes :: !(Maybe [Text]),
-    _sdProductDescription :: !(Maybe Text),
-    _sdInvocationPhrase :: !(Maybe Text),
-    _sdDeveloperInfo :: !(Maybe DeveloperInfo),
-    _sdEndUserLicenseAgreement :: !(Maybe Text),
-    _sdGenericKeywords :: !(Maybe [Text]),
-    _sdReviews :: !(Maybe (Map Text (Text))),
-    _sdReleaseDate :: !(Maybe Text),
-    _sdNewInThisVersionBulletPoints :: !(Maybe [Text]),
-    _sdBulletPoints :: !(Maybe [Text])
+  { skillTypes ::
+      Lude.Maybe [Lude.Text],
+    productDescription :: Lude.Maybe Lude.Text,
+    invocationPhrase :: Lude.Maybe Lude.Text,
+    developerInfo :: Lude.Maybe DeveloperInfo,
+    endUserLicenseAgreement :: Lude.Maybe Lude.Text,
+    genericKeywords :: Lude.Maybe [Lude.Text],
+    reviews :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    releaseDate :: Lude.Maybe Lude.Text,
+    newInThisVersionBulletPoints :: Lude.Maybe [Lude.Text],
+    bulletPoints :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkillDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bulletPoints' - The details about what the skill supports organized as bullet points.
+-- * 'developerInfo' - The details about the developer that published the skill.
+-- * 'endUserLicenseAgreement' - The URL of the end user license agreement.
+-- * 'genericKeywords' - The generic keywords associated with the skill that can be used to find a skill.
+-- * 'invocationPhrase' - The phrase used to trigger the skill.
+-- * 'newInThisVersionBulletPoints' - The updates added in bullet points.
+-- * 'productDescription' - The description of the product.
+-- * 'releaseDate' - The date when the skill was released.
+-- * 'reviews' - /This member has been deprecated./
 --
--- * 'sdSkillTypes' - The types of skills.
---
--- * 'sdProductDescription' - The description of the product.
---
--- * 'sdInvocationPhrase' - The phrase used to trigger the skill.
---
--- * 'sdDeveloperInfo' - The details about the developer that published the skill.
---
--- * 'sdEndUserLicenseAgreement' - The URL of the end user license agreement.
---
--- * 'sdGenericKeywords' - The generic keywords associated with the skill that can be used to find a skill.
---
--- * 'sdReviews' - /This member has been deprecated./  The list of reviews for the skill, including Key and Value pair.
---
--- * 'sdReleaseDate' - The date when the skill was released.
---
--- * 'sdNewInThisVersionBulletPoints' - The updates added in bullet points.
---
--- * 'sdBulletPoints' - The details about what the skill supports organized as bullet points.
-skillDetails ::
+-- The list of reviews for the skill, including Key and Value pair.
+-- * 'skillTypes' - The types of skills.
+mkSkillDetails ::
   SkillDetails
-skillDetails =
+mkSkillDetails =
   SkillDetails'
-    { _sdSkillTypes = Nothing,
-      _sdProductDescription = Nothing,
-      _sdInvocationPhrase = Nothing,
-      _sdDeveloperInfo = Nothing,
-      _sdEndUserLicenseAgreement = Nothing,
-      _sdGenericKeywords = Nothing,
-      _sdReviews = Nothing,
-      _sdReleaseDate = Nothing,
-      _sdNewInThisVersionBulletPoints = Nothing,
-      _sdBulletPoints = Nothing
+    { skillTypes = Lude.Nothing,
+      productDescription = Lude.Nothing,
+      invocationPhrase = Lude.Nothing,
+      developerInfo = Lude.Nothing,
+      endUserLicenseAgreement = Lude.Nothing,
+      genericKeywords = Lude.Nothing,
+      reviews = Lude.Nothing,
+      releaseDate = Lude.Nothing,
+      newInThisVersionBulletPoints = Lude.Nothing,
+      bulletPoints = Lude.Nothing
     }
 
 -- | The types of skills.
-sdSkillTypes :: Lens' SkillDetails [Text]
-sdSkillTypes = lens _sdSkillTypes (\s a -> s {_sdSkillTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'skillTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSkillTypes :: Lens.Lens' SkillDetails (Lude.Maybe [Lude.Text])
+sdSkillTypes = Lens.lens (skillTypes :: SkillDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {skillTypes = a} :: SkillDetails)
+{-# DEPRECATED sdSkillTypes "Use generic-lens or generic-optics with 'skillTypes' instead." #-}
 
 -- | The description of the product.
-sdProductDescription :: Lens' SkillDetails (Maybe Text)
-sdProductDescription = lens _sdProductDescription (\s a -> s {_sdProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdProductDescription :: Lens.Lens' SkillDetails (Lude.Maybe Lude.Text)
+sdProductDescription = Lens.lens (productDescription :: SkillDetails -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: SkillDetails)
+{-# DEPRECATED sdProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The phrase used to trigger the skill.
-sdInvocationPhrase :: Lens' SkillDetails (Maybe Text)
-sdInvocationPhrase = lens _sdInvocationPhrase (\s a -> s {_sdInvocationPhrase = a})
+--
+-- /Note:/ Consider using 'invocationPhrase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdInvocationPhrase :: Lens.Lens' SkillDetails (Lude.Maybe Lude.Text)
+sdInvocationPhrase = Lens.lens (invocationPhrase :: SkillDetails -> Lude.Maybe Lude.Text) (\s a -> s {invocationPhrase = a} :: SkillDetails)
+{-# DEPRECATED sdInvocationPhrase "Use generic-lens or generic-optics with 'invocationPhrase' instead." #-}
 
 -- | The details about the developer that published the skill.
-sdDeveloperInfo :: Lens' SkillDetails (Maybe DeveloperInfo)
-sdDeveloperInfo = lens _sdDeveloperInfo (\s a -> s {_sdDeveloperInfo = a})
+--
+-- /Note:/ Consider using 'developerInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDeveloperInfo :: Lens.Lens' SkillDetails (Lude.Maybe DeveloperInfo)
+sdDeveloperInfo = Lens.lens (developerInfo :: SkillDetails -> Lude.Maybe DeveloperInfo) (\s a -> s {developerInfo = a} :: SkillDetails)
+{-# DEPRECATED sdDeveloperInfo "Use generic-lens or generic-optics with 'developerInfo' instead." #-}
 
 -- | The URL of the end user license agreement.
-sdEndUserLicenseAgreement :: Lens' SkillDetails (Maybe Text)
-sdEndUserLicenseAgreement = lens _sdEndUserLicenseAgreement (\s a -> s {_sdEndUserLicenseAgreement = a})
+--
+-- /Note:/ Consider using 'endUserLicenseAgreement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdEndUserLicenseAgreement :: Lens.Lens' SkillDetails (Lude.Maybe Lude.Text)
+sdEndUserLicenseAgreement = Lens.lens (endUserLicenseAgreement :: SkillDetails -> Lude.Maybe Lude.Text) (\s a -> s {endUserLicenseAgreement = a} :: SkillDetails)
+{-# DEPRECATED sdEndUserLicenseAgreement "Use generic-lens or generic-optics with 'endUserLicenseAgreement' instead." #-}
 
 -- | The generic keywords associated with the skill that can be used to find a skill.
-sdGenericKeywords :: Lens' SkillDetails [Text]
-sdGenericKeywords = lens _sdGenericKeywords (\s a -> s {_sdGenericKeywords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'genericKeywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdGenericKeywords :: Lens.Lens' SkillDetails (Lude.Maybe [Lude.Text])
+sdGenericKeywords = Lens.lens (genericKeywords :: SkillDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {genericKeywords = a} :: SkillDetails)
+{-# DEPRECATED sdGenericKeywords "Use generic-lens or generic-optics with 'genericKeywords' instead." #-}
 
--- | /This member has been deprecated./  The list of reviews for the skill, including Key and Value pair.
-sdReviews :: Lens' SkillDetails (HashMap Text (Text))
-sdReviews = lens _sdReviews (\s a -> s {_sdReviews = a}) . _Default . _Map
+-- | /This member has been deprecated./
+--
+-- The list of reviews for the skill, including Key and Value pair.
+--
+-- /Note:/ Consider using 'reviews' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdReviews :: Lens.Lens' SkillDetails (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sdReviews = Lens.lens (reviews :: SkillDetails -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {reviews = a} :: SkillDetails)
+{-# DEPRECATED sdReviews "Use generic-lens or generic-optics with 'reviews' instead." #-}
 
 -- | The date when the skill was released.
-sdReleaseDate :: Lens' SkillDetails (Maybe Text)
-sdReleaseDate = lens _sdReleaseDate (\s a -> s {_sdReleaseDate = a})
+--
+-- /Note:/ Consider using 'releaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdReleaseDate :: Lens.Lens' SkillDetails (Lude.Maybe Lude.Text)
+sdReleaseDate = Lens.lens (releaseDate :: SkillDetails -> Lude.Maybe Lude.Text) (\s a -> s {releaseDate = a} :: SkillDetails)
+{-# DEPRECATED sdReleaseDate "Use generic-lens or generic-optics with 'releaseDate' instead." #-}
 
 -- | The updates added in bullet points.
-sdNewInThisVersionBulletPoints :: Lens' SkillDetails [Text]
-sdNewInThisVersionBulletPoints = lens _sdNewInThisVersionBulletPoints (\s a -> s {_sdNewInThisVersionBulletPoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'newInThisVersionBulletPoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdNewInThisVersionBulletPoints :: Lens.Lens' SkillDetails (Lude.Maybe [Lude.Text])
+sdNewInThisVersionBulletPoints = Lens.lens (newInThisVersionBulletPoints :: SkillDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {newInThisVersionBulletPoints = a} :: SkillDetails)
+{-# DEPRECATED sdNewInThisVersionBulletPoints "Use generic-lens or generic-optics with 'newInThisVersionBulletPoints' instead." #-}
 
 -- | The details about what the skill supports organized as bullet points.
-sdBulletPoints :: Lens' SkillDetails [Text]
-sdBulletPoints = lens _sdBulletPoints (\s a -> s {_sdBulletPoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bulletPoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdBulletPoints :: Lens.Lens' SkillDetails (Lude.Maybe [Lude.Text])
+sdBulletPoints = Lens.lens (bulletPoints :: SkillDetails -> Lude.Maybe [Lude.Text]) (\s a -> s {bulletPoints = a} :: SkillDetails)
+{-# DEPRECATED sdBulletPoints "Use generic-lens or generic-optics with 'bulletPoints' instead." #-}
 
-instance FromJSON SkillDetails where
+instance Lude.FromJSON SkillDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "SkillDetails"
       ( \x ->
           SkillDetails'
-            <$> (x .:? "SkillTypes" .!= mempty)
-            <*> (x .:? "ProductDescription")
-            <*> (x .:? "InvocationPhrase")
-            <*> (x .:? "DeveloperInfo")
-            <*> (x .:? "EndUserLicenseAgreement")
-            <*> (x .:? "GenericKeywords" .!= mempty)
-            <*> (x .:? "Reviews" .!= mempty)
-            <*> (x .:? "ReleaseDate")
-            <*> (x .:? "NewInThisVersionBulletPoints" .!= mempty)
-            <*> (x .:? "BulletPoints" .!= mempty)
+            Lude.<$> (x Lude..:? "SkillTypes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ProductDescription")
+            Lude.<*> (x Lude..:? "InvocationPhrase")
+            Lude.<*> (x Lude..:? "DeveloperInfo")
+            Lude.<*> (x Lude..:? "EndUserLicenseAgreement")
+            Lude.<*> (x Lude..:? "GenericKeywords" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Reviews" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ReleaseDate")
+            Lude.<*> (x Lude..:? "NewInThisVersionBulletPoints" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "BulletPoints" Lude..!= Lude.mempty)
       )
-
-instance Hashable SkillDetails
-
-instance NFData SkillDetails

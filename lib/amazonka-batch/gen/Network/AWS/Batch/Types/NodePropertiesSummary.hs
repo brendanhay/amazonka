@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.NodePropertiesSummary where
+module Network.AWS.Batch.Types.NodePropertiesSummary
+  ( NodePropertiesSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNodePropertiesSummary,
+
+    -- * Lenses
+    npsNumNodes,
+    npsNodeIndex,
+    npsIsMainNode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the properties of a node that is associated with a multi-node parallel job.
 --
---
---
--- /See:/ 'nodePropertiesSummary' smart constructor.
+-- /See:/ 'mkNodePropertiesSummary' smart constructor.
 data NodePropertiesSummary = NodePropertiesSummary'
-  { _npsNumNodes ::
-      !(Maybe Int),
-    _npsNodeIndex :: !(Maybe Int),
-    _npsIsMainNode :: !(Maybe Bool)
+  { numNodes ::
+      Lude.Maybe Lude.Int,
+    nodeIndex :: Lude.Maybe Lude.Int,
+    isMainNode :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodePropertiesSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'npsNumNodes' - The number of nodes associated with a multi-node parallel job.
---
--- * 'npsNodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
---
--- * 'npsIsMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
-nodePropertiesSummary ::
+-- * 'isMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
+-- * 'nodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+-- * 'numNodes' - The number of nodes associated with a multi-node parallel job.
+mkNodePropertiesSummary ::
   NodePropertiesSummary
-nodePropertiesSummary =
+mkNodePropertiesSummary =
   NodePropertiesSummary'
-    { _npsNumNodes = Nothing,
-      _npsNodeIndex = Nothing,
-      _npsIsMainNode = Nothing
+    { numNodes = Lude.Nothing,
+      nodeIndex = Lude.Nothing,
+      isMainNode = Lude.Nothing
     }
 
 -- | The number of nodes associated with a multi-node parallel job.
-npsNumNodes :: Lens' NodePropertiesSummary (Maybe Int)
-npsNumNodes = lens _npsNumNodes (\s a -> s {_npsNumNodes = a})
+--
+-- /Note:/ Consider using 'numNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npsNumNodes :: Lens.Lens' NodePropertiesSummary (Lude.Maybe Lude.Int)
+npsNumNodes = Lens.lens (numNodes :: NodePropertiesSummary -> Lude.Maybe Lude.Int) (\s a -> s {numNodes = a} :: NodePropertiesSummary)
+{-# DEPRECATED npsNumNodes "Use generic-lens or generic-optics with 'numNodes' instead." #-}
 
 -- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
-npsNodeIndex :: Lens' NodePropertiesSummary (Maybe Int)
-npsNodeIndex = lens _npsNodeIndex (\s a -> s {_npsNodeIndex = a})
+--
+-- /Note:/ Consider using 'nodeIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npsNodeIndex :: Lens.Lens' NodePropertiesSummary (Lude.Maybe Lude.Int)
+npsNodeIndex = Lens.lens (nodeIndex :: NodePropertiesSummary -> Lude.Maybe Lude.Int) (\s a -> s {nodeIndex = a} :: NodePropertiesSummary)
+{-# DEPRECATED npsNodeIndex "Use generic-lens or generic-optics with 'nodeIndex' instead." #-}
 
 -- | Specifies whether the current node is the main node for a multi-node parallel job.
-npsIsMainNode :: Lens' NodePropertiesSummary (Maybe Bool)
-npsIsMainNode = lens _npsIsMainNode (\s a -> s {_npsIsMainNode = a})
+--
+-- /Note:/ Consider using 'isMainNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npsIsMainNode :: Lens.Lens' NodePropertiesSummary (Lude.Maybe Lude.Bool)
+npsIsMainNode = Lens.lens (isMainNode :: NodePropertiesSummary -> Lude.Maybe Lude.Bool) (\s a -> s {isMainNode = a} :: NodePropertiesSummary)
+{-# DEPRECATED npsIsMainNode "Use generic-lens or generic-optics with 'isMainNode' instead." #-}
 
-instance FromJSON NodePropertiesSummary where
+instance Lude.FromJSON NodePropertiesSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "NodePropertiesSummary"
       ( \x ->
           NodePropertiesSummary'
-            <$> (x .:? "numNodes")
-            <*> (x .:? "nodeIndex")
-            <*> (x .:? "isMainNode")
+            Lude.<$> (x Lude..:? "numNodes")
+            Lude.<*> (x Lude..:? "nodeIndex")
+            Lude.<*> (x Lude..:? "isMainNode")
       )
-
-instance Hashable NodePropertiesSummary
-
-instance NFData NodePropertiesSummary

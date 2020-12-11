@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,113 @@
 --
 -- Removes a concurrent execution limit from a function.
 module Network.AWS.Lambda.DeleteFunctionConcurrency
-  ( -- * Creating a Request
-    deleteFunctionConcurrency,
-    DeleteFunctionConcurrency,
+  ( -- * Creating a request
+    DeleteFunctionConcurrency (..),
+    mkDeleteFunctionConcurrency,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfcFunctionName,
 
-    -- * Destructuring the Response
-    deleteFunctionConcurrencyResponse,
-    DeleteFunctionConcurrencyResponse,
+    -- * Destructuring the response
+    DeleteFunctionConcurrencyResponse (..),
+    mkDeleteFunctionConcurrencyResponse,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFunctionConcurrency' smart constructor.
+-- | /See:/ 'mkDeleteFunctionConcurrency' smart constructor.
 newtype DeleteFunctionConcurrency = DeleteFunctionConcurrency'
-  { _dfcFunctionName ::
-      Text
+  { functionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFunctionConcurrency' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'dfcFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-deleteFunctionConcurrency ::
-  -- | 'dfcFunctionName'
-  Text ->
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+mkDeleteFunctionConcurrency ::
+  -- | 'functionName'
+  Lude.Text ->
   DeleteFunctionConcurrency
-deleteFunctionConcurrency pFunctionName_ =
-  DeleteFunctionConcurrency' {_dfcFunctionName = pFunctionName_}
+mkDeleteFunctionConcurrency pFunctionName_ =
+  DeleteFunctionConcurrency' {functionName = pFunctionName_}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-dfcFunctionName :: Lens' DeleteFunctionConcurrency Text
-dfcFunctionName = lens _dfcFunctionName (\s a -> s {_dfcFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcFunctionName :: Lens.Lens' DeleteFunctionConcurrency Lude.Text
+dfcFunctionName = Lens.lens (functionName :: DeleteFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: DeleteFunctionConcurrency)
+{-# DEPRECATED dfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest DeleteFunctionConcurrency where
+instance Lude.AWSRequest DeleteFunctionConcurrency where
   type
     Rs DeleteFunctionConcurrency =
       DeleteFunctionConcurrencyResponse
-  request = delete lambda
-  response = receiveNull DeleteFunctionConcurrencyResponse'
+  request = Req.delete lambdaService
+  response = Res.receiveNull DeleteFunctionConcurrencyResponse'
 
-instance Hashable DeleteFunctionConcurrency
+instance Lude.ToHeaders DeleteFunctionConcurrency where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteFunctionConcurrency
-
-instance ToHeaders DeleteFunctionConcurrency where
-  toHeaders = const mempty
-
-instance ToPath DeleteFunctionConcurrency where
+instance Lude.ToPath DeleteFunctionConcurrency where
   toPath DeleteFunctionConcurrency' {..} =
-    mconcat
-      ["/2017-10-31/functions/", toBS _dfcFunctionName, "/concurrency"]
+    Lude.mconcat
+      ["/2017-10-31/functions/", Lude.toBS functionName, "/concurrency"]
 
-instance ToQuery DeleteFunctionConcurrency where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFunctionConcurrency where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFunctionConcurrencyResponse' smart constructor.
+-- | /See:/ 'mkDeleteFunctionConcurrencyResponse' smart constructor.
 data DeleteFunctionConcurrencyResponse = DeleteFunctionConcurrencyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFunctionConcurrencyResponse' with the minimum fields required to make a request.
-deleteFunctionConcurrencyResponse ::
+mkDeleteFunctionConcurrencyResponse ::
   DeleteFunctionConcurrencyResponse
-deleteFunctionConcurrencyResponse =
+mkDeleteFunctionConcurrencyResponse =
   DeleteFunctionConcurrencyResponse'
-
-instance NFData DeleteFunctionConcurrencyResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,144 @@
 --
 -- Adds additional user attributes to the user pool schema.
 module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
-  ( -- * Creating a Request
-    addCustomAttributes,
-    AddCustomAttributes,
+  ( -- * Creating a request
+    AddCustomAttributes (..),
+    mkAddCustomAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acaUserPoolId,
     acaCustomAttributes,
 
-    -- * Destructuring the Response
-    addCustomAttributesResponse,
-    AddCustomAttributesResponse,
+    -- * Destructuring the response
+    AddCustomAttributesResponse (..),
+    mkAddCustomAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acarsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to add custom attributes.
 --
---
---
--- /See:/ 'addCustomAttributes' smart constructor.
+-- /See:/ 'mkAddCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
-  { _acaUserPoolId ::
-      !Text,
-    _acaCustomAttributes ::
-      !(List1 SchemaAttributeType)
+  { userPoolId ::
+      Lude.Text,
+    customAttributes ::
+      Lude.NonEmpty SchemaAttributeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddCustomAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acaUserPoolId' - The user pool ID for the user pool where you want to add custom attributes.
---
--- * 'acaCustomAttributes' - An array of custom attributes, such as Mutable and Name.
-addCustomAttributes ::
-  -- | 'acaUserPoolId'
-  Text ->
-  -- | 'acaCustomAttributes'
-  NonEmpty SchemaAttributeType ->
+-- * 'customAttributes' - An array of custom attributes, such as Mutable and Name.
+-- * 'userPoolId' - The user pool ID for the user pool where you want to add custom attributes.
+mkAddCustomAttributes ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'customAttributes'
+  Lude.NonEmpty SchemaAttributeType ->
   AddCustomAttributes
-addCustomAttributes pUserPoolId_ pCustomAttributes_ =
+mkAddCustomAttributes pUserPoolId_ pCustomAttributes_ =
   AddCustomAttributes'
-    { _acaUserPoolId = pUserPoolId_,
-      _acaCustomAttributes = _List1 # pCustomAttributes_
+    { userPoolId = pUserPoolId_,
+      customAttributes = pCustomAttributes_
     }
 
 -- | The user pool ID for the user pool where you want to add custom attributes.
-acaUserPoolId :: Lens' AddCustomAttributes Text
-acaUserPoolId = lens _acaUserPoolId (\s a -> s {_acaUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaUserPoolId :: Lens.Lens' AddCustomAttributes Lude.Text
+acaUserPoolId = Lens.lens (userPoolId :: AddCustomAttributes -> Lude.Text) (\s a -> s {userPoolId = a} :: AddCustomAttributes)
+{-# DEPRECATED acaUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | An array of custom attributes, such as Mutable and Name.
-acaCustomAttributes :: Lens' AddCustomAttributes (NonEmpty SchemaAttributeType)
-acaCustomAttributes = lens _acaCustomAttributes (\s a -> s {_acaCustomAttributes = a}) . _List1
+--
+-- /Note:/ Consider using 'customAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaCustomAttributes :: Lens.Lens' AddCustomAttributes (Lude.NonEmpty SchemaAttributeType)
+acaCustomAttributes = Lens.lens (customAttributes :: AddCustomAttributes -> Lude.NonEmpty SchemaAttributeType) (\s a -> s {customAttributes = a} :: AddCustomAttributes)
+{-# DEPRECATED acaCustomAttributes "Use generic-lens or generic-optics with 'customAttributes' instead." #-}
 
-instance AWSRequest AddCustomAttributes where
+instance Lude.AWSRequest AddCustomAttributes where
   type Rs AddCustomAttributes = AddCustomAttributesResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
-      (\s h x -> AddCustomAttributesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AddCustomAttributesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AddCustomAttributes
-
-instance NFData AddCustomAttributes
-
-instance ToHeaders AddCustomAttributes where
+instance Lude.ToHeaders AddCustomAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AddCustomAttributes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AddCustomAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddCustomAttributes where
+instance Lude.ToJSON AddCustomAttributes where
   toJSON AddCustomAttributes' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _acaUserPoolId),
-            Just ("CustomAttributes" .= _acaCustomAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("CustomAttributes" Lude..= customAttributes)
           ]
       )
 
-instance ToPath AddCustomAttributes where
-  toPath = const "/"
+instance Lude.ToPath AddCustomAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery AddCustomAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery AddCustomAttributes where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to add custom attributes.
 --
---
---
--- /See:/ 'addCustomAttributesResponse' smart constructor.
+-- /See:/ 'mkAddCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
-  { _acarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddCustomAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acarsResponseStatus' - -- | The response status code.
-addCustomAttributesResponse ::
-  -- | 'acarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddCustomAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddCustomAttributesResponse
-addCustomAttributesResponse pResponseStatus_ =
-  AddCustomAttributesResponse'
-    { _acarsResponseStatus =
-        pResponseStatus_
-    }
+mkAddCustomAttributesResponse pResponseStatus_ =
+  AddCustomAttributesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-acarsResponseStatus :: Lens' AddCustomAttributesResponse Int
-acarsResponseStatus = lens _acarsResponseStatus (\s a -> s {_acarsResponseStatus = a})
-
-instance NFData AddCustomAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acarsResponseStatus :: Lens.Lens' AddCustomAttributesResponse Lude.Int
+acarsResponseStatus = Lens.lens (responseStatus :: AddCustomAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddCustomAttributesResponse)
+{-# DEPRECATED acarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

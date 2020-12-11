@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,105 @@
 --
 -- Removes metadata tags from an Amazon RDS resource.
 --
---
 -- For an overview on tagging an Amazon RDS resource, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.RemoveTagsFromResource
-  ( -- * Creating a Request
-    removeTagsFromResource,
-    RemoveTagsFromResource,
+  ( -- * Creating a request
+    RemoveTagsFromResource (..),
+    mkRemoveTagsFromResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtfrResourceName,
     rtfrTagKeys,
 
-    -- * Destructuring the Response
-    removeTagsFromResourceResponse,
-    RemoveTagsFromResourceResponse,
+    -- * Destructuring the response
+    RemoveTagsFromResourceResponse (..),
+    mkRemoveTagsFromResourceResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'removeTagsFromResource' smart constructor.
+-- /See:/ 'mkRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceName ::
-      !Text,
-    _rtfrTagKeys :: ![Text]
+  { resourceName ::
+      Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfrResourceName' - The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide./
---
--- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
-removeTagsFromResource ::
-  -- | 'rtfrResourceName'
-  Text ->
+-- * 'resourceName' - The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide./
+-- * 'tagKeys' - The tag key (name) of the tag to be removed.
+mkRemoveTagsFromResource ::
+  -- | 'resourceName'
+  Lude.Text ->
   RemoveTagsFromResource
-removeTagsFromResource pResourceName_ =
+mkRemoveTagsFromResource pResourceName_ =
   RemoveTagsFromResource'
-    { _rtfrResourceName = pResourceName_,
-      _rtfrTagKeys = mempty
+    { resourceName = pResourceName_,
+      tagKeys = Lude.mempty
     }
 
 -- | The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide./
-rtfrResourceName :: Lens' RemoveTagsFromResource Text
-rtfrResourceName = lens _rtfrResourceName (\s a -> s {_rtfrResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrResourceName :: Lens.Lens' RemoveTagsFromResource Lude.Text
+rtfrResourceName = Lens.lens (resourceName :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceName = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The tag key (name) of the tag to be removed.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\s a -> s {_rtfrTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrTagKeys :: Lens.Lens' RemoveTagsFromResource [Lude.Text]
+rtfrTagKeys = Lens.lens (tagKeys :: RemoveTagsFromResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest RemoveTagsFromResource where
+instance Lude.AWSRequest RemoveTagsFromResource where
   type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
-  request = postQuery rds
-  response = receiveNull RemoveTagsFromResourceResponse'
+  request = Req.postQuery rdsService
+  response = Res.receiveNull RemoveTagsFromResourceResponse'
 
-instance Hashable RemoveTagsFromResource
+instance Lude.ToHeaders RemoveTagsFromResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemoveTagsFromResource
+instance Lude.ToPath RemoveTagsFromResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders RemoveTagsFromResource where
-  toHeaders = const mempty
-
-instance ToPath RemoveTagsFromResource where
-  toPath = const "/"
-
-instance ToQuery RemoveTagsFromResource where
+instance Lude.ToQuery RemoveTagsFromResource where
   toQuery RemoveTagsFromResource' {..} =
-    mconcat
-      [ "Action" =: ("RemoveTagsFromResource" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "ResourceName" =: _rtfrResourceName,
-        "TagKeys" =: toQueryList "member" _rtfrTagKeys
+    Lude.mconcat
+      [ "Action" Lude.=: ("RemoveTagsFromResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "ResourceName" Lude.=: resourceName,
+        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys
       ]
 
--- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
+-- | /See:/ 'mkRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
-removeTagsFromResourceResponse ::
+mkRemoveTagsFromResourceResponse ::
   RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-
-instance NFData RemoveTagsFromResourceResponse
+mkRemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'

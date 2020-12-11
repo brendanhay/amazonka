@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,172 @@
 --
 -- Describes the association for the specified target or instance. If you created the association by using the @Targets@ parameter, then you must retrieve the association by using the association ID. If you created the association by specifying an instance ID and a Systems Manager document, then you retrieve the association by specifying the document name and the instance ID.
 module Network.AWS.SSM.DescribeAssociation
-  ( -- * Creating a Request
-    describeAssociation,
-    DescribeAssociation,
+  ( -- * Creating a request
+    DescribeAssociation (..),
+    mkDescribeAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daAssociationId,
     daInstanceId,
     daName,
     daAssociationVersion,
 
-    -- * Destructuring the Response
-    describeAssociationResponse,
-    DescribeAssociationResponse,
+    -- * Destructuring the response
+    DescribeAssociationResponse (..),
+    mkDescribeAssociationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daarsAssociationDescription,
     daarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeAssociation' smart constructor.
+-- | /See:/ 'mkDescribeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-  { _daAssociationId ::
-      !(Maybe Text),
-    _daInstanceId :: !(Maybe Text),
-    _daName :: !(Maybe Text),
-    _daAssociationVersion :: !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    associationVersion :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daAssociationId' - The association ID for which you want information.
---
--- * 'daInstanceId' - The instance ID.
---
--- * 'daName' - The name of the Systems Manager document.
---
--- * 'daAssociationVersion' - Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use 'ListAssociations' . To get a list of versions for a specific association, use 'ListAssociationVersions' .
-describeAssociation ::
+-- * 'associationId' - The association ID for which you want information.
+-- * 'associationVersion' - Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use 'ListAssociations' . To get a list of versions for a specific association, use 'ListAssociationVersions' .
+-- * 'instanceId' - The instance ID.
+-- * 'name' - The name of the Systems Manager document.
+mkDescribeAssociation ::
   DescribeAssociation
-describeAssociation =
+mkDescribeAssociation =
   DescribeAssociation'
-    { _daAssociationId = Nothing,
-      _daInstanceId = Nothing,
-      _daName = Nothing,
-      _daAssociationVersion = Nothing
+    { associationId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      name = Lude.Nothing,
+      associationVersion = Lude.Nothing
     }
 
 -- | The association ID for which you want information.
-daAssociationId :: Lens' DescribeAssociation (Maybe Text)
-daAssociationId = lens _daAssociationId (\s a -> s {_daAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAssociationId :: Lens.Lens' DescribeAssociation (Lude.Maybe Lude.Text)
+daAssociationId = Lens.lens (associationId :: DescribeAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DescribeAssociation)
+{-# DEPRECATED daAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The instance ID.
-daInstanceId :: Lens' DescribeAssociation (Maybe Text)
-daInstanceId = lens _daInstanceId (\s a -> s {_daInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daInstanceId :: Lens.Lens' DescribeAssociation (Lude.Maybe Lude.Text)
+daInstanceId = Lens.lens (instanceId :: DescribeAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DescribeAssociation)
+{-# DEPRECATED daInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the Systems Manager document.
-daName :: Lens' DescribeAssociation (Maybe Text)
-daName = lens _daName (\s a -> s {_daName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daName :: Lens.Lens' DescribeAssociation (Lude.Maybe Lude.Text)
+daName = Lens.lens (name :: DescribeAssociation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeAssociation)
+{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use 'ListAssociations' . To get a list of versions for a specific association, use 'ListAssociationVersions' .
-daAssociationVersion :: Lens' DescribeAssociation (Maybe Text)
-daAssociationVersion = lens _daAssociationVersion (\s a -> s {_daAssociationVersion = a})
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAssociationVersion :: Lens.Lens' DescribeAssociation (Lude.Maybe Lude.Text)
+daAssociationVersion = Lens.lens (associationVersion :: DescribeAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: DescribeAssociation)
+{-# DEPRECATED daAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
-instance AWSRequest DescribeAssociation where
+instance Lude.AWSRequest DescribeAssociation where
   type Rs DescribeAssociation = DescribeAssociationResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAssociationResponse'
-            <$> (x .?> "AssociationDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociationDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAssociation
-
-instance NFData DescribeAssociation
-
-instance ToHeaders DescribeAssociation where
+instance Lude.ToHeaders DescribeAssociation where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DescribeAssociation" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DescribeAssociation" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAssociation where
+instance Lude.ToJSON DescribeAssociation where
   toJSON DescribeAssociation' {..} =
-    object
-      ( catMaybes
-          [ ("AssociationId" .=) <$> _daAssociationId,
-            ("InstanceId" .=) <$> _daInstanceId,
-            ("Name" .=) <$> _daName,
-            ("AssociationVersion" .=) <$> _daAssociationVersion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AssociationId" Lude..=) Lude.<$> associationId,
+            ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("Name" Lude..=) Lude.<$> name,
+            ("AssociationVersion" Lude..=) Lude.<$> associationVersion
           ]
       )
 
-instance ToPath DescribeAssociation where
-  toPath = const "/"
+instance Lude.ToPath DescribeAssociation where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAssociation where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAssociation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAssociationResponse' smart constructor.
+-- | /See:/ 'mkDescribeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
-  { _daarsAssociationDescription ::
-      !(Maybe AssociationDescription),
-    _daarsResponseStatus :: !Int
+  { associationDescription ::
+      Lude.Maybe AssociationDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssociationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daarsAssociationDescription' - Information about the association.
---
--- * 'daarsResponseStatus' - -- | The response status code.
-describeAssociationResponse ::
-  -- | 'daarsResponseStatus'
-  Int ->
+-- * 'associationDescription' - Information about the association.
+-- * 'responseStatus' - The response status code.
+mkDescribeAssociationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAssociationResponse
-describeAssociationResponse pResponseStatus_ =
+mkDescribeAssociationResponse pResponseStatus_ =
   DescribeAssociationResponse'
-    { _daarsAssociationDescription =
-        Nothing,
-      _daarsResponseStatus = pResponseStatus_
+    { associationDescription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
-daarsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
-daarsAssociationDescription = lens _daarsAssociationDescription (\s a -> s {_daarsAssociationDescription = a})
+--
+-- /Note:/ Consider using 'associationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daarsAssociationDescription :: Lens.Lens' DescribeAssociationResponse (Lude.Maybe AssociationDescription)
+daarsAssociationDescription = Lens.lens (associationDescription :: DescribeAssociationResponse -> Lude.Maybe AssociationDescription) (\s a -> s {associationDescription = a} :: DescribeAssociationResponse)
+{-# DEPRECATED daarsAssociationDescription "Use generic-lens or generic-optics with 'associationDescription' instead." #-}
 
--- | -- | The response status code.
-daarsResponseStatus :: Lens' DescribeAssociationResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\s a -> s {_daarsResponseStatus = a})
-
-instance NFData DescribeAssociationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daarsResponseStatus :: Lens.Lens' DescribeAssociationResponse Lude.Int
+daarsResponseStatus = Lens.lens (responseStatus :: DescribeAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssociationResponse)
+{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

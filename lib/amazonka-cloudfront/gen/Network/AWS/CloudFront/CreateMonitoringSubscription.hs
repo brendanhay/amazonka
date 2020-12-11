@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,154 @@
 --
 -- Enables additional CloudWatch metrics for the specified CloudFront distribution. The additional metrics incur an additional cost.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional Viewing additional CloudFront distribution metrics> in the /Amazon CloudFront Developer Guide/ .
 module Network.AWS.CloudFront.CreateMonitoringSubscription
-  ( -- * Creating a Request
-    createMonitoringSubscription,
-    CreateMonitoringSubscription,
+  ( -- * Creating a request
+    CreateMonitoringSubscription (..),
+    mkCreateMonitoringSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmsMonitoringSubscription,
     cmsDistributionId,
 
-    -- * Destructuring the Response
-    createMonitoringSubscriptionResponse,
-    CreateMonitoringSubscriptionResponse,
+    -- * Destructuring the response
+    CreateMonitoringSubscriptionResponse (..),
+    mkCreateMonitoringSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmsrsMonitoringSubscription,
     cmsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createMonitoringSubscription' smart constructor.
+-- | /See:/ 'mkCreateMonitoringSubscription' smart constructor.
 data CreateMonitoringSubscription = CreateMonitoringSubscription'
-  { _cmsMonitoringSubscription ::
-      !MonitoringSubscription,
-    _cmsDistributionId :: !Text
+  { monitoringSubscription ::
+      MonitoringSubscription,
+    distributionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMonitoringSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmsMonitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
---
--- * 'cmsDistributionId' - The ID of the distribution that you are enabling metrics for.
-createMonitoringSubscription ::
-  -- | 'cmsMonitoringSubscription'
+-- * 'distributionId' - The ID of the distribution that you are enabling metrics for.
+-- * 'monitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+mkCreateMonitoringSubscription ::
+  -- | 'monitoringSubscription'
   MonitoringSubscription ->
-  -- | 'cmsDistributionId'
-  Text ->
+  -- | 'distributionId'
+  Lude.Text ->
   CreateMonitoringSubscription
-createMonitoringSubscription
+mkCreateMonitoringSubscription
   pMonitoringSubscription_
   pDistributionId_ =
     CreateMonitoringSubscription'
-      { _cmsMonitoringSubscription =
+      { monitoringSubscription =
           pMonitoringSubscription_,
-        _cmsDistributionId = pDistributionId_
+        distributionId = pDistributionId_
       }
 
 -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-cmsMonitoringSubscription :: Lens' CreateMonitoringSubscription MonitoringSubscription
-cmsMonitoringSubscription = lens _cmsMonitoringSubscription (\s a -> s {_cmsMonitoringSubscription = a})
+--
+-- /Note:/ Consider using 'monitoringSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsMonitoringSubscription :: Lens.Lens' CreateMonitoringSubscription MonitoringSubscription
+cmsMonitoringSubscription = Lens.lens (monitoringSubscription :: CreateMonitoringSubscription -> MonitoringSubscription) (\s a -> s {monitoringSubscription = a} :: CreateMonitoringSubscription)
+{-# DEPRECATED cmsMonitoringSubscription "Use generic-lens or generic-optics with 'monitoringSubscription' instead." #-}
 
 -- | The ID of the distribution that you are enabling metrics for.
-cmsDistributionId :: Lens' CreateMonitoringSubscription Text
-cmsDistributionId = lens _cmsDistributionId (\s a -> s {_cmsDistributionId = a})
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsDistributionId :: Lens.Lens' CreateMonitoringSubscription Lude.Text
+cmsDistributionId = Lens.lens (distributionId :: CreateMonitoringSubscription -> Lude.Text) (\s a -> s {distributionId = a} :: CreateMonitoringSubscription)
+{-# DEPRECATED cmsDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
-instance AWSRequest CreateMonitoringSubscription where
+instance Lude.AWSRequest CreateMonitoringSubscription where
   type
     Rs CreateMonitoringSubscription =
       CreateMonitoringSubscriptionResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateMonitoringSubscriptionResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMonitoringSubscription
-
-instance NFData CreateMonitoringSubscription
-
-instance ToElement CreateMonitoringSubscription where
+instance Lude.ToElement CreateMonitoringSubscription where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}MonitoringSubscription"
-      . _cmsMonitoringSubscription
+      Lude.. monitoringSubscription
 
-instance ToHeaders CreateMonitoringSubscription where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateMonitoringSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateMonitoringSubscription where
+instance Lude.ToPath CreateMonitoringSubscription where
   toPath CreateMonitoringSubscription' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/distributions/",
-        toBS _cmsDistributionId,
+        Lude.toBS distributionId,
         "/monitoring-subscription"
       ]
 
-instance ToQuery CreateMonitoringSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery CreateMonitoringSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createMonitoringSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateMonitoringSubscriptionResponse' smart constructor.
 data CreateMonitoringSubscriptionResponse = CreateMonitoringSubscriptionResponse'
-  { _cmsrsMonitoringSubscription ::
-      !( Maybe
-           MonitoringSubscription
-       ),
-    _cmsrsResponseStatus ::
-      !Int
+  { monitoringSubscription ::
+      Lude.Maybe
+        MonitoringSubscription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMonitoringSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmsrsMonitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
---
--- * 'cmsrsResponseStatus' - -- | The response status code.
-createMonitoringSubscriptionResponse ::
-  -- | 'cmsrsResponseStatus'
-  Int ->
+-- * 'monitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+-- * 'responseStatus' - The response status code.
+mkCreateMonitoringSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMonitoringSubscriptionResponse
-createMonitoringSubscriptionResponse pResponseStatus_ =
+mkCreateMonitoringSubscriptionResponse pResponseStatus_ =
   CreateMonitoringSubscriptionResponse'
-    { _cmsrsMonitoringSubscription =
-        Nothing,
-      _cmsrsResponseStatus = pResponseStatus_
+    { monitoringSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-cmsrsMonitoringSubscription :: Lens' CreateMonitoringSubscriptionResponse (Maybe MonitoringSubscription)
-cmsrsMonitoringSubscription = lens _cmsrsMonitoringSubscription (\s a -> s {_cmsrsMonitoringSubscription = a})
+--
+-- /Note:/ Consider using 'monitoringSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsrsMonitoringSubscription :: Lens.Lens' CreateMonitoringSubscriptionResponse (Lude.Maybe MonitoringSubscription)
+cmsrsMonitoringSubscription = Lens.lens (monitoringSubscription :: CreateMonitoringSubscriptionResponse -> Lude.Maybe MonitoringSubscription) (\s a -> s {monitoringSubscription = a} :: CreateMonitoringSubscriptionResponse)
+{-# DEPRECATED cmsrsMonitoringSubscription "Use generic-lens or generic-optics with 'monitoringSubscription' instead." #-}
 
--- | -- | The response status code.
-cmsrsResponseStatus :: Lens' CreateMonitoringSubscriptionResponse Int
-cmsrsResponseStatus = lens _cmsrsResponseStatus (\s a -> s {_cmsrsResponseStatus = a})
-
-instance NFData CreateMonitoringSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsrsResponseStatus :: Lens.Lens' CreateMonitoringSubscriptionResponse Lude.Int
+cmsrsResponseStatus = Lens.lens (responseStatus :: CreateMonitoringSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMonitoringSubscriptionResponse)
+{-# DEPRECATED cmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

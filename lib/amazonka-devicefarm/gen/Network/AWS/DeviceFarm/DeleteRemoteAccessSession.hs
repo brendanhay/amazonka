@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,128 @@
 --
 -- Deletes a completed remote access session and its results.
 module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
-  ( -- * Creating a Request
-    deleteRemoteAccessSession,
-    DeleteRemoteAccessSession,
+  ( -- * Creating a request
+    DeleteRemoteAccessSession (..),
+    mkDeleteRemoteAccessSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drasArn,
 
-    -- * Destructuring the Response
-    deleteRemoteAccessSessionResponse,
-    DeleteRemoteAccessSessionResponse,
+    -- * Destructuring the response
+    DeleteRemoteAccessSessionResponse (..),
+    mkDeleteRemoteAccessSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drasrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to delete the specified remote access session.
 --
---
---
--- /See:/ 'deleteRemoteAccessSession' smart constructor.
+-- /See:/ 'mkDeleteRemoteAccessSession' smart constructor.
 newtype DeleteRemoteAccessSession = DeleteRemoteAccessSession'
-  { _drasArn ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemoteAccessSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drasArn' - The Amazon Resource Name (ARN) of the session for which you want to delete remote access.
-deleteRemoteAccessSession ::
-  -- | 'drasArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the session for which you want to delete remote access.
+mkDeleteRemoteAccessSession ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteRemoteAccessSession
-deleteRemoteAccessSession pArn_ =
-  DeleteRemoteAccessSession' {_drasArn = pArn_}
+mkDeleteRemoteAccessSession pArn_ =
+  DeleteRemoteAccessSession' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the session for which you want to delete remote access.
-drasArn :: Lens' DeleteRemoteAccessSession Text
-drasArn = lens _drasArn (\s a -> s {_drasArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drasArn :: Lens.Lens' DeleteRemoteAccessSession Lude.Text
+drasArn = Lens.lens (arn :: DeleteRemoteAccessSession -> Lude.Text) (\s a -> s {arn = a} :: DeleteRemoteAccessSession)
+{-# DEPRECATED drasArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteRemoteAccessSession where
+instance Lude.AWSRequest DeleteRemoteAccessSession where
   type
     Rs DeleteRemoteAccessSession =
       DeleteRemoteAccessSessionResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteRemoteAccessSessionResponse' <$> (pure (fromEnum s))
+          DeleteRemoteAccessSessionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRemoteAccessSession
-
-instance NFData DeleteRemoteAccessSession
-
-instance ToHeaders DeleteRemoteAccessSession where
+instance Lude.ToHeaders DeleteRemoteAccessSession where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.DeleteRemoteAccessSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DeviceFarm_20150623.DeleteRemoteAccessSession" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRemoteAccessSession where
+instance Lude.ToJSON DeleteRemoteAccessSession where
   toJSON DeleteRemoteAccessSession' {..} =
-    object (catMaybes [Just ("arn" .= _drasArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteRemoteAccessSession where
-  toPath = const "/"
+instance Lude.ToPath DeleteRemoteAccessSession where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRemoteAccessSession where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRemoteAccessSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response from the server when a request is made to delete the remote access session.
 --
---
---
--- /See:/ 'deleteRemoteAccessSessionResponse' smart constructor.
+-- /See:/ 'mkDeleteRemoteAccessSessionResponse' smart constructor.
 newtype DeleteRemoteAccessSessionResponse = DeleteRemoteAccessSessionResponse'
-  { _drasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drasrsResponseStatus' - -- | The response status code.
-deleteRemoteAccessSessionResponse ::
-  -- | 'drasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteRemoteAccessSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRemoteAccessSessionResponse
-deleteRemoteAccessSessionResponse pResponseStatus_ =
+mkDeleteRemoteAccessSessionResponse pResponseStatus_ =
   DeleteRemoteAccessSessionResponse'
-    { _drasrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-drasrsResponseStatus :: Lens' DeleteRemoteAccessSessionResponse Int
-drasrsResponseStatus = lens _drasrsResponseStatus (\s a -> s {_drasrsResponseStatus = a})
-
-instance NFData DeleteRemoteAccessSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drasrsResponseStatus :: Lens.Lens' DeleteRemoteAccessSessionResponse Lude.Int
+drasrsResponseStatus = Lens.lens (responseStatus :: DeleteRemoteAccessSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRemoteAccessSessionResponse)
+{-# DEPRECATED drasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

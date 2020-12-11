@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.ModelStatus where
+module Network.AWS.Comprehend.Types.ModelStatus
+  ( ModelStatus
+      ( ModelStatus',
+        MSDeleting,
+        MSInError,
+        MSStopRequested,
+        MSStopped,
+        MSSubmitted,
+        MSTrained,
+        MSTraining
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ModelStatus
-  = MSDeleting
-  | MSInError
-  | MSStopRequested
-  | MSStopped
-  | MSSubmitted
-  | MSTrained
-  | MSTraining
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ModelStatus = ModelStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ModelStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure MSDeleting
-      "in_error" -> pure MSInError
-      "stop_requested" -> pure MSStopRequested
-      "stopped" -> pure MSStopped
-      "submitted" -> pure MSSubmitted
-      "trained" -> pure MSTrained
-      "training" -> pure MSTraining
-      e ->
-        fromTextError $
-          "Failure parsing ModelStatus from value: '" <> e
-            <> "'. Accepted values: deleting, in_error, stop_requested, stopped, submitted, trained, training"
+pattern MSDeleting :: ModelStatus
+pattern MSDeleting = ModelStatus' "DELETING"
 
-instance ToText ModelStatus where
-  toText = \case
-    MSDeleting -> "DELETING"
-    MSInError -> "IN_ERROR"
-    MSStopRequested -> "STOP_REQUESTED"
-    MSStopped -> "STOPPED"
-    MSSubmitted -> "SUBMITTED"
-    MSTrained -> "TRAINED"
-    MSTraining -> "TRAINING"
+pattern MSInError :: ModelStatus
+pattern MSInError = ModelStatus' "IN_ERROR"
 
-instance Hashable ModelStatus
+pattern MSStopRequested :: ModelStatus
+pattern MSStopRequested = ModelStatus' "STOP_REQUESTED"
 
-instance NFData ModelStatus
+pattern MSStopped :: ModelStatus
+pattern MSStopped = ModelStatus' "STOPPED"
 
-instance ToByteString ModelStatus
+pattern MSSubmitted :: ModelStatus
+pattern MSSubmitted = ModelStatus' "SUBMITTED"
 
-instance ToQuery ModelStatus
+pattern MSTrained :: ModelStatus
+pattern MSTrained = ModelStatus' "TRAINED"
 
-instance ToHeader ModelStatus
+pattern MSTraining :: ModelStatus
+pattern MSTraining = ModelStatus' "TRAINING"
 
-instance ToJSON ModelStatus where
-  toJSON = toJSONText
-
-instance FromJSON ModelStatus where
-  parseJSON = parseJSONText "ModelStatus"
+{-# COMPLETE
+  MSDeleting,
+  MSInError,
+  MSStopRequested,
+  MSStopped,
+  MSSubmitted,
+  MSTrained,
+  MSTraining,
+  ModelStatus'
+  #-}

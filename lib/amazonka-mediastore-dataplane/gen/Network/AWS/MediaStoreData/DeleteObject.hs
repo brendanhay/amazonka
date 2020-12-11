@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,100 @@
 --
 -- Deletes an object at the specified path.
 module Network.AWS.MediaStoreData.DeleteObject
-  ( -- * Creating a Request
-    deleteObject,
-    DeleteObject,
+  ( -- * Creating a request
+    DeleteObject (..),
+    mkDeleteObject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doPath,
 
-    -- * Destructuring the Response
-    deleteObjectResponse,
-    DeleteObjectResponse,
+    -- * Destructuring the response
+    DeleteObjectResponse (..),
+    mkDeleteObjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteObject' smart constructor.
-newtype DeleteObject = DeleteObject' {_doPath :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteObject' smart constructor.
+newtype DeleteObject = DeleteObject' {path :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doPath' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-deleteObject ::
-  -- | 'doPath'
-  Text ->
+-- * 'path' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
+mkDeleteObject ::
+  -- | 'path'
+  Lude.Text ->
   DeleteObject
-deleteObject pPath_ = DeleteObject' {_doPath = pPath_}
+mkDeleteObject pPath_ = DeleteObject' {path = pPath_}
 
 -- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-doPath :: Lens' DeleteObject Text
-doPath = lens _doPath (\s a -> s {_doPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doPath :: Lens.Lens' DeleteObject Lude.Text
+doPath = Lens.lens (path :: DeleteObject -> Lude.Text) (\s a -> s {path = a} :: DeleteObject)
+{-# DEPRECATED doPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance AWSRequest DeleteObject where
+instance Lude.AWSRequest DeleteObject where
   type Rs DeleteObject = DeleteObjectResponse
-  request = delete mediaStoreData
+  request = Req.delete mediaStoreDataService
   response =
-    receiveEmpty
-      (\s h x -> DeleteObjectResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteObjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteObject
+instance Lude.ToHeaders DeleteObject where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteObject
+instance Lude.ToPath DeleteObject where
+  toPath DeleteObject' {..} = Lude.mconcat ["/", Lude.toBS path]
 
-instance ToHeaders DeleteObject where
-  toHeaders = const mempty
+instance Lude.ToQuery DeleteObject where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DeleteObject where
-  toPath DeleteObject' {..} = mconcat ["/", toBS _doPath]
-
-instance ToQuery DeleteObject where
-  toQuery = const mempty
-
--- | /See:/ 'deleteObjectResponse' smart constructor.
+-- | /See:/ 'mkDeleteObjectResponse' smart constructor.
 newtype DeleteObjectResponse = DeleteObjectResponse'
-  { _dorsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorsResponseStatus' - -- | The response status code.
-deleteObjectResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteObjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteObjectResponse
-deleteObjectResponse pResponseStatus_ =
-  DeleteObjectResponse' {_dorsResponseStatus = pResponseStatus_}
+mkDeleteObjectResponse pResponseStatus_ =
+  DeleteObjectResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DeleteObjectResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
-
-instance NFData DeleteObjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DeleteObjectResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DeleteObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteObjectResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

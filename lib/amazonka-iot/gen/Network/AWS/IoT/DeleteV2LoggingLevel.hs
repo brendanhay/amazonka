@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,99 @@
 --
 -- Deletes a logging level.
 module Network.AWS.IoT.DeleteV2LoggingLevel
-  ( -- * Creating a Request
-    deleteV2LoggingLevel,
-    DeleteV2LoggingLevel,
+  ( -- * Creating a request
+    DeleteV2LoggingLevel (..),
+    mkDeleteV2LoggingLevel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvllTargetType,
     dvllTargetName,
 
-    -- * Destructuring the Response
-    deleteV2LoggingLevelResponse,
-    DeleteV2LoggingLevelResponse,
+    -- * Destructuring the response
+    DeleteV2LoggingLevelResponse (..),
+    mkDeleteV2LoggingLevelResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteV2LoggingLevel' smart constructor.
+-- | /See:/ 'mkDeleteV2LoggingLevel' smart constructor.
 data DeleteV2LoggingLevel = DeleteV2LoggingLevel'
-  { _dvllTargetType ::
-      !LogTargetType,
-    _dvllTargetName :: !Text
+  { targetType ::
+      LogTargetType,
+    targetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteV2LoggingLevel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvllTargetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
---
--- * 'dvllTargetName' - The name of the resource for which you are configuring logging.
-deleteV2LoggingLevel ::
-  -- | 'dvllTargetType'
+-- * 'targetName' - The name of the resource for which you are configuring logging.
+-- * 'targetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
+mkDeleteV2LoggingLevel ::
+  -- | 'targetType'
   LogTargetType ->
-  -- | 'dvllTargetName'
-  Text ->
+  -- | 'targetName'
+  Lude.Text ->
   DeleteV2LoggingLevel
-deleteV2LoggingLevel pTargetType_ pTargetName_ =
+mkDeleteV2LoggingLevel pTargetType_ pTargetName_ =
   DeleteV2LoggingLevel'
-    { _dvllTargetType = pTargetType_,
-      _dvllTargetName = pTargetName_
+    { targetType = pTargetType_,
+      targetName = pTargetName_
     }
 
 -- | The type of resource for which you are configuring logging. Must be @THING_Group@ .
-dvllTargetType :: Lens' DeleteV2LoggingLevel LogTargetType
-dvllTargetType = lens _dvllTargetType (\s a -> s {_dvllTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvllTargetType :: Lens.Lens' DeleteV2LoggingLevel LogTargetType
+dvllTargetType = Lens.lens (targetType :: DeleteV2LoggingLevel -> LogTargetType) (\s a -> s {targetType = a} :: DeleteV2LoggingLevel)
+{-# DEPRECATED dvllTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | The name of the resource for which you are configuring logging.
-dvllTargetName :: Lens' DeleteV2LoggingLevel Text
-dvllTargetName = lens _dvllTargetName (\s a -> s {_dvllTargetName = a})
+--
+-- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvllTargetName :: Lens.Lens' DeleteV2LoggingLevel Lude.Text
+dvllTargetName = Lens.lens (targetName :: DeleteV2LoggingLevel -> Lude.Text) (\s a -> s {targetName = a} :: DeleteV2LoggingLevel)
+{-# DEPRECATED dvllTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
-instance AWSRequest DeleteV2LoggingLevel where
+instance Lude.AWSRequest DeleteV2LoggingLevel where
   type Rs DeleteV2LoggingLevel = DeleteV2LoggingLevelResponse
-  request = delete ioT
-  response = receiveNull DeleteV2LoggingLevelResponse'
+  request = Req.delete ioTService
+  response = Res.receiveNull DeleteV2LoggingLevelResponse'
 
-instance Hashable DeleteV2LoggingLevel
+instance Lude.ToHeaders DeleteV2LoggingLevel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteV2LoggingLevel
+instance Lude.ToPath DeleteV2LoggingLevel where
+  toPath = Lude.const "/v2LoggingLevel"
 
-instance ToHeaders DeleteV2LoggingLevel where
-  toHeaders = const mempty
-
-instance ToPath DeleteV2LoggingLevel where
-  toPath = const "/v2LoggingLevel"
-
-instance ToQuery DeleteV2LoggingLevel where
+instance Lude.ToQuery DeleteV2LoggingLevel where
   toQuery DeleteV2LoggingLevel' {..} =
-    mconcat
-      ["targetType" =: _dvllTargetType, "targetName" =: _dvllTargetName]
+    Lude.mconcat
+      ["targetType" Lude.=: targetType, "targetName" Lude.=: targetName]
 
--- | /See:/ 'deleteV2LoggingLevelResponse' smart constructor.
+-- | /See:/ 'mkDeleteV2LoggingLevelResponse' smart constructor.
 data DeleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteV2LoggingLevelResponse' with the minimum fields required to make a request.
-deleteV2LoggingLevelResponse ::
+mkDeleteV2LoggingLevelResponse ::
   DeleteV2LoggingLevelResponse
-deleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
-
-instance NFData DeleteV2LoggingLevelResponse
+mkDeleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'

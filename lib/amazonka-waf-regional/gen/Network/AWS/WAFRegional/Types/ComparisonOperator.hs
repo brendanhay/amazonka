@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.ComparisonOperator where
+module Network.AWS.WAFRegional.Types.ComparisonOperator
+  ( ComparisonOperator
+      ( ComparisonOperator',
+        EQ,
+        GE,
+        GT,
+        LE,
+        LT,
+        NE
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComparisonOperator
-  = EQ'
-  | GE
-  | GT'
-  | LE
-  | LT'
-  | NE
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComparisonOperator = ComparisonOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComparisonOperator where
-  parser =
-    takeLowerText >>= \case
-      "eq" -> pure EQ'
-      "ge" -> pure GE
-      "gt" -> pure GT'
-      "le" -> pure LE
-      "lt" -> pure LT'
-      "ne" -> pure NE
-      e ->
-        fromTextError $
-          "Failure parsing ComparisonOperator from value: '" <> e
-            <> "'. Accepted values: eq, ge, gt, le, lt, ne"
+pattern EQ :: ComparisonOperator
+pattern EQ = ComparisonOperator' "EQ"
 
-instance ToText ComparisonOperator where
-  toText = \case
-    EQ' -> "EQ"
-    GE -> "GE"
-    GT' -> "GT"
-    LE -> "LE"
-    LT' -> "LT"
-    NE -> "NE"
+pattern GE :: ComparisonOperator
+pattern GE = ComparisonOperator' "GE"
 
-instance Hashable ComparisonOperator
+pattern GT :: ComparisonOperator
+pattern GT = ComparisonOperator' "GT"
 
-instance NFData ComparisonOperator
+pattern LE :: ComparisonOperator
+pattern LE = ComparisonOperator' "LE"
 
-instance ToByteString ComparisonOperator
+pattern LT :: ComparisonOperator
+pattern LT = ComparisonOperator' "LT"
 
-instance ToQuery ComparisonOperator
+pattern NE :: ComparisonOperator
+pattern NE = ComparisonOperator' "NE"
 
-instance ToHeader ComparisonOperator
-
-instance ToJSON ComparisonOperator where
-  toJSON = toJSONText
-
-instance FromJSON ComparisonOperator where
-  parseJSON = parseJSONText "ComparisonOperator"
+{-# COMPLETE
+  EQ,
+  GE,
+  GT,
+  LE,
+  LT,
+  NE,
+  ComparisonOperator'
+  #-}

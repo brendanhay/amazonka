@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.BinaryColumnStatisticsData where
+module Network.AWS.Glue.Types.BinaryColumnStatisticsData
+  ( BinaryColumnStatisticsData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBinaryColumnStatisticsData,
+
+    -- * Lenses
+    bcsdMaximumLength,
+    bcsdAverageLength,
+    bcsdNumberOfNulls,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines column statistics supported for bit sequence data values.
 --
---
---
--- /See:/ 'binaryColumnStatisticsData' smart constructor.
+-- /See:/ 'mkBinaryColumnStatisticsData' smart constructor.
 data BinaryColumnStatisticsData = BinaryColumnStatisticsData'
-  { _bcsdMaximumLength ::
-      !Nat,
-    _bcsdAverageLength :: !Double,
-    _bcsdNumberOfNulls :: !Nat
+  { maximumLength ::
+      Lude.Natural,
+    averageLength :: Lude.Double,
+    numberOfNulls :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BinaryColumnStatisticsData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bcsdMaximumLength' - The size of the longest bit sequence in the column.
---
--- * 'bcsdAverageLength' - The average bit sequence length in the column.
---
--- * 'bcsdNumberOfNulls' - The number of null values in the column.
-binaryColumnStatisticsData ::
-  -- | 'bcsdMaximumLength'
-  Natural ->
-  -- | 'bcsdAverageLength'
-  Double ->
-  -- | 'bcsdNumberOfNulls'
-  Natural ->
+-- * 'averageLength' - The average bit sequence length in the column.
+-- * 'maximumLength' - The size of the longest bit sequence in the column.
+-- * 'numberOfNulls' - The number of null values in the column.
+mkBinaryColumnStatisticsData ::
+  -- | 'maximumLength'
+  Lude.Natural ->
+  -- | 'averageLength'
+  Lude.Double ->
+  -- | 'numberOfNulls'
+  Lude.Natural ->
   BinaryColumnStatisticsData
-binaryColumnStatisticsData
+mkBinaryColumnStatisticsData
   pMaximumLength_
   pAverageLength_
   pNumberOfNulls_ =
     BinaryColumnStatisticsData'
-      { _bcsdMaximumLength =
-          _Nat # pMaximumLength_,
-        _bcsdAverageLength = pAverageLength_,
-        _bcsdNumberOfNulls = _Nat # pNumberOfNulls_
+      { maximumLength = pMaximumLength_,
+        averageLength = pAverageLength_,
+        numberOfNulls = pNumberOfNulls_
       }
 
 -- | The size of the longest bit sequence in the column.
-bcsdMaximumLength :: Lens' BinaryColumnStatisticsData Natural
-bcsdMaximumLength = lens _bcsdMaximumLength (\s a -> s {_bcsdMaximumLength = a}) . _Nat
+--
+-- /Note:/ Consider using 'maximumLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcsdMaximumLength :: Lens.Lens' BinaryColumnStatisticsData Lude.Natural
+bcsdMaximumLength = Lens.lens (maximumLength :: BinaryColumnStatisticsData -> Lude.Natural) (\s a -> s {maximumLength = a} :: BinaryColumnStatisticsData)
+{-# DEPRECATED bcsdMaximumLength "Use generic-lens or generic-optics with 'maximumLength' instead." #-}
 
 -- | The average bit sequence length in the column.
-bcsdAverageLength :: Lens' BinaryColumnStatisticsData Double
-bcsdAverageLength = lens _bcsdAverageLength (\s a -> s {_bcsdAverageLength = a})
+--
+-- /Note:/ Consider using 'averageLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcsdAverageLength :: Lens.Lens' BinaryColumnStatisticsData Lude.Double
+bcsdAverageLength = Lens.lens (averageLength :: BinaryColumnStatisticsData -> Lude.Double) (\s a -> s {averageLength = a} :: BinaryColumnStatisticsData)
+{-# DEPRECATED bcsdAverageLength "Use generic-lens or generic-optics with 'averageLength' instead." #-}
 
 -- | The number of null values in the column.
-bcsdNumberOfNulls :: Lens' BinaryColumnStatisticsData Natural
-bcsdNumberOfNulls = lens _bcsdNumberOfNulls (\s a -> s {_bcsdNumberOfNulls = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcsdNumberOfNulls :: Lens.Lens' BinaryColumnStatisticsData Lude.Natural
+bcsdNumberOfNulls = Lens.lens (numberOfNulls :: BinaryColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: BinaryColumnStatisticsData)
+{-# DEPRECATED bcsdNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
-instance FromJSON BinaryColumnStatisticsData where
+instance Lude.FromJSON BinaryColumnStatisticsData where
   parseJSON =
-    withObject
+    Lude.withObject
       "BinaryColumnStatisticsData"
       ( \x ->
           BinaryColumnStatisticsData'
-            <$> (x .: "MaximumLength")
-            <*> (x .: "AverageLength")
-            <*> (x .: "NumberOfNulls")
+            Lude.<$> (x Lude..: "MaximumLength")
+            Lude.<*> (x Lude..: "AverageLength")
+            Lude.<*> (x Lude..: "NumberOfNulls")
       )
 
-instance Hashable BinaryColumnStatisticsData
-
-instance NFData BinaryColumnStatisticsData
-
-instance ToJSON BinaryColumnStatisticsData where
+instance Lude.ToJSON BinaryColumnStatisticsData where
   toJSON BinaryColumnStatisticsData' {..} =
-    object
-      ( catMaybes
-          [ Just ("MaximumLength" .= _bcsdMaximumLength),
-            Just ("AverageLength" .= _bcsdAverageLength),
-            Just ("NumberOfNulls" .= _bcsdNumberOfNulls)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("MaximumLength" Lude..= maximumLength),
+            Lude.Just ("AverageLength" Lude..= averageLength),
+            Lude.Just ("NumberOfNulls" Lude..= numberOfNulls)
           ]
       )

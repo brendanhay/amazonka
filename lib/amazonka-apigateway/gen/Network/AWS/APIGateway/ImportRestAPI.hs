@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- A feature of the API Gateway control service for creating a new API from an external API definition file.
 module Network.AWS.APIGateway.ImportRestAPI
-  ( -- * Creating a Request
-    importRestAPI,
-    ImportRestAPI,
+  ( -- * Creating a request
+    ImportRestAPI (..),
+    mkImportRestAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     iraFailOnWarnings,
     iraParameters,
     iraBody,
 
-    -- * Destructuring the Response
-    restAPI,
-    RestAPI,
+    -- * Destructuring the response
+    RestAPI (..),
+    mkRestAPI,
 
-    -- * Response Lenses
+    -- ** Response lenses
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -50,80 +45,98 @@ module Network.AWS.APIGateway.ImportRestAPI
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A POST request to import an API to API Gateway using an input of an API definition file.
 --
---
---
--- /See:/ 'importRestAPI' smart constructor.
+-- /See:/ 'mkImportRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
-  { _iraFailOnWarnings ::
-      !(Maybe Bool),
-    _iraParameters :: !(Maybe (Map Text (Text))),
-    _iraBody :: !ByteString
+  { failOnWarnings ::
+      Lude.Maybe Lude.Bool,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    body :: Lude.ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportRestAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'body' - [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+-- * 'failOnWarnings' - A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
+-- * 'parameters' - A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.
 --
--- * 'iraFailOnWarnings' - A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
---
--- * 'iraParameters' - A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values. To exclude 'DocumentationParts' from the import, set @parameters@ as @ignore=documentation@ . To configure the endpoint type, set @parameters@ as @endpointConfigurationTypes=EDGE@ , @endpointConfigurationTypes=REGIONAL@ , or @endpointConfigurationTypes=PRIVATE@ . The default endpoint type is @EDGE@ . To handle imported @basepath@ , set @parameters@ as @basepath=ignore@ , @basepath=prepend@ or @basepath=split@ . For example, the AWS CLI command to exclude documentation from the imported API is: @@aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ @ The AWS CLI command to set the regional endpoint on the imported API is: @@aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'@ @
---
--- * 'iraBody' - [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-importRestAPI ::
-  -- | 'iraBody'
-  ByteString ->
+-- To exclude 'DocumentationParts' from the import, set @parameters@ as @ignore=documentation@ .
+-- To configure the endpoint type, set @parameters@ as @endpointConfigurationTypes=EDGE@ , @endpointConfigurationTypes=REGIONAL@ , or @endpointConfigurationTypes=PRIVATE@ . The default endpoint type is @EDGE@ .
+-- To handle imported @basepath@ , set @parameters@ as @basepath=ignore@ , @basepath=prepend@ or @basepath=split@ .
+-- For example, the AWS CLI command to exclude documentation from the imported API is:
+-- @@aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ @ The AWS CLI command to set the regional endpoint on the imported API is:
+-- @@aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'@ @
+mkImportRestAPI ::
+  -- | 'body'
+  Lude.ByteString ->
   ImportRestAPI
-importRestAPI pBody_ =
+mkImportRestAPI pBody_ =
   ImportRestAPI'
-    { _iraFailOnWarnings = Nothing,
-      _iraParameters = Nothing,
-      _iraBody = pBody_
+    { failOnWarnings = Lude.Nothing,
+      parameters = Lude.Nothing,
+      body = pBody_
     }
 
 -- | A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
-iraFailOnWarnings :: Lens' ImportRestAPI (Maybe Bool)
-iraFailOnWarnings = lens _iraFailOnWarnings (\s a -> s {_iraFailOnWarnings = a})
+--
+-- /Note:/ Consider using 'failOnWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iraFailOnWarnings :: Lens.Lens' ImportRestAPI (Lude.Maybe Lude.Bool)
+iraFailOnWarnings = Lens.lens (failOnWarnings :: ImportRestAPI -> Lude.Maybe Lude.Bool) (\s a -> s {failOnWarnings = a} :: ImportRestAPI)
+{-# DEPRECATED iraFailOnWarnings "Use generic-lens or generic-optics with 'failOnWarnings' instead." #-}
 
--- | A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values. To exclude 'DocumentationParts' from the import, set @parameters@ as @ignore=documentation@ . To configure the endpoint type, set @parameters@ as @endpointConfigurationTypes=EDGE@ , @endpointConfigurationTypes=REGIONAL@ , or @endpointConfigurationTypes=PRIVATE@ . The default endpoint type is @EDGE@ . To handle imported @basepath@ , set @parameters@ as @basepath=ignore@ , @basepath=prepend@ or @basepath=split@ . For example, the AWS CLI command to exclude documentation from the imported API is: @@aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ @ The AWS CLI command to set the regional endpoint on the imported API is: @@aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'@ @
-iraParameters :: Lens' ImportRestAPI (HashMap Text (Text))
-iraParameters = lens _iraParameters (\s a -> s {_iraParameters = a}) . _Default . _Map
+-- | A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.
+--
+-- To exclude 'DocumentationParts' from the import, set @parameters@ as @ignore=documentation@ .
+-- To configure the endpoint type, set @parameters@ as @endpointConfigurationTypes=EDGE@ , @endpointConfigurationTypes=REGIONAL@ , or @endpointConfigurationTypes=PRIVATE@ . The default endpoint type is @EDGE@ .
+-- To handle imported @basepath@ , set @parameters@ as @basepath=ignore@ , @basepath=prepend@ or @basepath=split@ .
+-- For example, the AWS CLI command to exclude documentation from the imported API is:
+-- @@aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ @ The AWS CLI command to set the regional endpoint on the imported API is:
+-- @@aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'@ @
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iraParameters :: Lens.Lens' ImportRestAPI (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iraParameters = Lens.lens (parameters :: ImportRestAPI -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: ImportRestAPI)
+{-# DEPRECATED iraParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
-iraBody :: Lens' ImportRestAPI ByteString
-iraBody = lens _iraBody (\s a -> s {_iraBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iraBody :: Lens.Lens' ImportRestAPI Lude.ByteString
+iraBody = Lens.lens (body :: ImportRestAPI -> Lude.ByteString) (\s a -> s {body = a} :: ImportRestAPI)
+{-# DEPRECATED iraBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance AWSRequest ImportRestAPI where
+instance Lude.AWSRequest ImportRestAPI where
   type Rs ImportRestAPI = RestAPI
-  request = postBody apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postBody apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable ImportRestAPI
+instance Lude.ToBody ImportRestAPI where
+  toBody = Lude.toBody Lude.. body
 
-instance NFData ImportRestAPI
-
-instance ToBody ImportRestAPI where
-  toBody = toBody . _iraBody
-
-instance ToHeaders ImportRestAPI where
+instance Lude.ToHeaders ImportRestAPI where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath ImportRestAPI where
-  toPath = const "/restapis"
+instance Lude.ToPath ImportRestAPI where
+  toPath = Lude.const "/restapis"
 
-instance ToQuery ImportRestAPI where
+instance Lude.ToQuery ImportRestAPI where
   toQuery ImportRestAPI' {..} =
-    mconcat
-      [ "failonwarnings" =: _iraFailOnWarnings,
+    Lude.mconcat
+      [ "failonwarnings" Lude.=: failOnWarnings,
         "parameters"
-          =: toQuery (toQueryMap "entry" "key" "value" <$> _iraParameters),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryMap "entry" "key" "value" Lude.<$> parameters),
         "mode=import"
       ]

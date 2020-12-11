@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointConfigSortKey where
+module Network.AWS.SageMaker.Types.EndpointConfigSortKey
+  ( EndpointConfigSortKey
+      ( EndpointConfigSortKey',
+        ECSKCreationTime,
+        ECSKName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EndpointConfigSortKey
-  = ECSKCreationTime
-  | ECSKName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EndpointConfigSortKey = EndpointConfigSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EndpointConfigSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure ECSKCreationTime
-      "name" -> pure ECSKName
-      e ->
-        fromTextError $
-          "Failure parsing EndpointConfigSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, name"
+pattern ECSKCreationTime :: EndpointConfigSortKey
+pattern ECSKCreationTime = EndpointConfigSortKey' "CreationTime"
 
-instance ToText EndpointConfigSortKey where
-  toText = \case
-    ECSKCreationTime -> "CreationTime"
-    ECSKName -> "Name"
+pattern ECSKName :: EndpointConfigSortKey
+pattern ECSKName = EndpointConfigSortKey' "Name"
 
-instance Hashable EndpointConfigSortKey
-
-instance NFData EndpointConfigSortKey
-
-instance ToByteString EndpointConfigSortKey
-
-instance ToQuery EndpointConfigSortKey
-
-instance ToHeader EndpointConfigSortKey
-
-instance ToJSON EndpointConfigSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  ECSKCreationTime,
+  ECSKName,
+  EndpointConfigSortKey'
+  #-}

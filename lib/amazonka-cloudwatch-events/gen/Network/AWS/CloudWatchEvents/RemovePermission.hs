@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,122 @@
 --
 -- Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to revoke by the @StatementId@ value that you associated with the account when you granted it permission with @PutPermission@ . You can find the @StatementId@ by using 'DescribeEventBus' .
 module Network.AWS.CloudWatchEvents.RemovePermission
-  ( -- * Creating a Request
-    removePermission,
-    RemovePermission,
+  ( -- * Creating a request
+    RemovePermission (..),
+    mkRemovePermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpEventBusName,
     rpRemoveAllPermissions,
     rpStatementId,
 
-    -- * Destructuring the Response
-    removePermissionResponse,
-    RemovePermissionResponse,
+    -- * Destructuring the response
+    RemovePermissionResponse (..),
+    mkRemovePermissionResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removePermission' smart constructor.
+-- | /See:/ 'mkRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpEventBusName ::
-      !(Maybe Text),
-    _rpRemoveAllPermissions :: !(Maybe Bool),
-    _rpStatementId :: !(Maybe Text)
+  { eventBusName ::
+      Lude.Maybe Lude.Text,
+    removeAllPermissions :: Lude.Maybe Lude.Bool,
+    statementId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpEventBusName' - The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
---
--- * 'rpRemoveAllPermissions' - Specifies whether to remove all permissions.
---
--- * 'rpStatementId' - The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
-removePermission ::
+-- * 'eventBusName' - The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
+-- * 'removeAllPermissions' - Specifies whether to remove all permissions.
+-- * 'statementId' - The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
+mkRemovePermission ::
   RemovePermission
-removePermission =
+mkRemovePermission =
   RemovePermission'
-    { _rpEventBusName = Nothing,
-      _rpRemoveAllPermissions = Nothing,
-      _rpStatementId = Nothing
+    { eventBusName = Lude.Nothing,
+      removeAllPermissions = Lude.Nothing,
+      statementId = Lude.Nothing
     }
 
 -- | The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
-rpEventBusName :: Lens' RemovePermission (Maybe Text)
-rpEventBusName = lens _rpEventBusName (\s a -> s {_rpEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpEventBusName :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
+rpEventBusName = Lens.lens (eventBusName :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: RemovePermission)
+{-# DEPRECATED rpEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | Specifies whether to remove all permissions.
-rpRemoveAllPermissions :: Lens' RemovePermission (Maybe Bool)
-rpRemoveAllPermissions = lens _rpRemoveAllPermissions (\s a -> s {_rpRemoveAllPermissions = a})
+--
+-- /Note:/ Consider using 'removeAllPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpRemoveAllPermissions :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Bool)
+rpRemoveAllPermissions = Lens.lens (removeAllPermissions :: RemovePermission -> Lude.Maybe Lude.Bool) (\s a -> s {removeAllPermissions = a} :: RemovePermission)
+{-# DEPRECATED rpRemoveAllPermissions "Use generic-lens or generic-optics with 'removeAllPermissions' instead." #-}
 
 -- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
-rpStatementId :: Lens' RemovePermission (Maybe Text)
-rpStatementId = lens _rpStatementId (\s a -> s {_rpStatementId = a})
+--
+-- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpStatementId :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
+rpStatementId = Lens.lens (statementId :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {statementId = a} :: RemovePermission)
+{-# DEPRECATED rpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
 
-instance AWSRequest RemovePermission where
+instance Lude.AWSRequest RemovePermission where
   type Rs RemovePermission = RemovePermissionResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull RemovePermissionResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
-
-instance NFData RemovePermission
-
-instance ToHeaders RemovePermission where
+instance Lude.ToHeaders RemovePermission where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.RemovePermission" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.RemovePermission" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RemovePermission where
+instance Lude.ToJSON RemovePermission where
   toJSON RemovePermission' {..} =
-    object
-      ( catMaybes
-          [ ("EventBusName" .=) <$> _rpEventBusName,
-            ("RemoveAllPermissions" .=) <$> _rpRemoveAllPermissions,
-            ("StatementId" .=) <$> _rpStatementId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            ("RemoveAllPermissions" Lude..=) Lude.<$> removeAllPermissions,
+            ("StatementId" Lude..=) Lude.<$> statementId
           ]
       )
 
-instance ToPath RemovePermission where
-  toPath = const "/"
+instance Lude.ToPath RemovePermission where
+  toPath = Lude.const "/"
 
-instance ToQuery RemovePermission where
-  toQuery = const mempty
+instance Lude.ToQuery RemovePermission where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removePermissionResponse' smart constructor.
+-- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
-removePermissionResponse ::
+mkRemovePermissionResponse ::
   RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse'
-
-instance NFData RemovePermissionResponse
+mkRemovePermissionResponse = RemovePermissionResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns a list of publishing destinations associated with the specified @dectectorId@ .
 module Network.AWS.GuardDuty.ListPublishingDestinations
-  ( -- * Creating a Request
-    listPublishingDestinations,
-    ListPublishingDestinations,
+  ( -- * Creating a request
+    ListPublishingDestinations (..),
+    mkListPublishingDestinations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpdNextToken,
     lpdMaxResults,
     lpdDetectorId,
 
-    -- * Destructuring the Response
-    listPublishingDestinationsResponse,
-    ListPublishingDestinationsResponse,
+    -- * Destructuring the response
+    ListPublishingDestinationsResponse (..),
+    mkListPublishingDestinationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpdrsNextToken,
     lpdrsResponseStatus,
     lpdrsDestinations,
@@ -40,128 +35,148 @@ module Network.AWS.GuardDuty.ListPublishingDestinations
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPublishingDestinations' smart constructor.
+-- | /See:/ 'mkListPublishingDestinations' smart constructor.
 data ListPublishingDestinations = ListPublishingDestinations'
-  { _lpdNextToken ::
-      !(Maybe Text),
-    _lpdMaxResults :: !(Maybe Nat),
-    _lpdDetectorId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    detectorId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublishingDestinations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpdNextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
---
--- * 'lpdMaxResults' - The maximum number of results to return in the response.
---
--- * 'lpdDetectorId' - The ID of the detector to retrieve publishing destinations for.
-listPublishingDestinations ::
-  -- | 'lpdDetectorId'
-  Text ->
+-- * 'detectorId' - The ID of the detector to retrieve publishing destinations for.
+-- * 'maxResults' - The maximum number of results to return in the response.
+-- * 'nextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
+mkListPublishingDestinations ::
+  -- | 'detectorId'
+  Lude.Text ->
   ListPublishingDestinations
-listPublishingDestinations pDetectorId_ =
+mkListPublishingDestinations pDetectorId_ =
   ListPublishingDestinations'
-    { _lpdNextToken = Nothing,
-      _lpdMaxResults = Nothing,
-      _lpdDetectorId = pDetectorId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      detectorId = pDetectorId_
     }
 
 -- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
-lpdNextToken :: Lens' ListPublishingDestinations (Maybe Text)
-lpdNextToken = lens _lpdNextToken (\s a -> s {_lpdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdNextToken :: Lens.Lens' ListPublishingDestinations (Lude.Maybe Lude.Text)
+lpdNextToken = Lens.lens (nextToken :: ListPublishingDestinations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPublishingDestinations)
+{-# DEPRECATED lpdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in the response.
-lpdMaxResults :: Lens' ListPublishingDestinations (Maybe Natural)
-lpdMaxResults = lens _lpdMaxResults (\s a -> s {_lpdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdMaxResults :: Lens.Lens' ListPublishingDestinations (Lude.Maybe Lude.Natural)
+lpdMaxResults = Lens.lens (maxResults :: ListPublishingDestinations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPublishingDestinations)
+{-# DEPRECATED lpdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the detector to retrieve publishing destinations for.
-lpdDetectorId :: Lens' ListPublishingDestinations Text
-lpdDetectorId = lens _lpdDetectorId (\s a -> s {_lpdDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdDetectorId :: Lens.Lens' ListPublishingDestinations Lude.Text
+lpdDetectorId = Lens.lens (detectorId :: ListPublishingDestinations -> Lude.Text) (\s a -> s {detectorId = a} :: ListPublishingDestinations)
+{-# DEPRECATED lpdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance AWSRequest ListPublishingDestinations where
+instance Lude.AWSRequest ListPublishingDestinations where
   type
     Rs ListPublishingDestinations =
       ListPublishingDestinationsResponse
-  request = get guardDuty
+  request = Req.get guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPublishingDestinationsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "destinations" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListPublishingDestinations
-
-instance NFData ListPublishingDestinations
-
-instance ToHeaders ListPublishingDestinations where
+instance Lude.ToHeaders ListPublishingDestinations where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListPublishingDestinations where
+instance Lude.ToPath ListPublishingDestinations where
   toPath ListPublishingDestinations' {..} =
-    mconcat
-      ["/detector/", toBS _lpdDetectorId, "/publishingDestination"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/publishingDestination"]
 
-instance ToQuery ListPublishingDestinations where
+instance Lude.ToQuery ListPublishingDestinations where
   toQuery ListPublishingDestinations' {..} =
-    mconcat
-      ["nextToken" =: _lpdNextToken, "maxResults" =: _lpdMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listPublishingDestinationsResponse' smart constructor.
+-- | /See:/ 'mkListPublishingDestinationsResponse' smart constructor.
 data ListPublishingDestinationsResponse = ListPublishingDestinationsResponse'
-  { _lpdrsNextToken ::
-      !(Maybe Text),
-    _lpdrsResponseStatus ::
-      !Int,
-    _lpdrsDestinations ::
-      ![Destination]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    destinations ::
+      [Destination]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublishingDestinationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpdrsNextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
---
--- * 'lpdrsResponseStatus' - -- | The response status code.
---
--- * 'lpdrsDestinations' - A @Destinations@ object that includes information about each publishing destination returned.
-listPublishingDestinationsResponse ::
-  -- | 'lpdrsResponseStatus'
-  Int ->
+-- * 'destinations' - A @Destinations@ object that includes information about each publishing destination returned.
+-- * 'nextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
+-- * 'responseStatus' - The response status code.
+mkListPublishingDestinationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPublishingDestinationsResponse
-listPublishingDestinationsResponse pResponseStatus_ =
+mkListPublishingDestinationsResponse pResponseStatus_ =
   ListPublishingDestinationsResponse'
-    { _lpdrsNextToken = Nothing,
-      _lpdrsResponseStatus = pResponseStatus_,
-      _lpdrsDestinations = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      destinations = Lude.mempty
     }
 
 -- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
-lpdrsNextToken :: Lens' ListPublishingDestinationsResponse (Maybe Text)
-lpdrsNextToken = lens _lpdrsNextToken (\s a -> s {_lpdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdrsNextToken :: Lens.Lens' ListPublishingDestinationsResponse (Lude.Maybe Lude.Text)
+lpdrsNextToken = Lens.lens (nextToken :: ListPublishingDestinationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPublishingDestinationsResponse)
+{-# DEPRECATED lpdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lpdrsResponseStatus :: Lens' ListPublishingDestinationsResponse Int
-lpdrsResponseStatus = lens _lpdrsResponseStatus (\s a -> s {_lpdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdrsResponseStatus :: Lens.Lens' ListPublishingDestinationsResponse Lude.Int
+lpdrsResponseStatus = Lens.lens (responseStatus :: ListPublishingDestinationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPublishingDestinationsResponse)
+{-# DEPRECATED lpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A @Destinations@ object that includes information about each publishing destination returned.
-lpdrsDestinations :: Lens' ListPublishingDestinationsResponse [Destination]
-lpdrsDestinations = lens _lpdrsDestinations (\s a -> s {_lpdrsDestinations = a}) . _Coerce
-
-instance NFData ListPublishingDestinationsResponse
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdrsDestinations :: Lens.Lens' ListPublishingDestinationsResponse [Destination]
+lpdrsDestinations = Lens.lens (destinations :: ListPublishingDestinationsResponse -> [Destination]) (\s a -> s {destinations = a} :: ListPublishingDestinationsResponse)
+{-# DEPRECATED lpdrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}

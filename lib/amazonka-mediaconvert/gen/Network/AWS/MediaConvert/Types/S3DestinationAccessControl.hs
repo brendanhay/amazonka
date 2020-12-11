@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.S3DestinationAccessControl where
+module Network.AWS.MediaConvert.Types.S3DestinationAccessControl
+  ( S3DestinationAccessControl (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkS3DestinationAccessControl,
+
+    -- * Lenses
+    sdacCannedACL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.S3ObjectCannedACL
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
 --
--- /See:/ 's3DestinationAccessControl' smart constructor.
+-- /See:/ 'mkS3DestinationAccessControl' smart constructor.
 newtype S3DestinationAccessControl = S3DestinationAccessControl'
-  { _sdacCannedACL ::
-      Maybe S3ObjectCannedACL
+  { cannedACL ::
+      Lude.Maybe S3ObjectCannedACL
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3DestinationAccessControl' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdacCannedACL' - Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
-s3DestinationAccessControl ::
+-- * 'cannedACL' - Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
+mkS3DestinationAccessControl ::
   S3DestinationAccessControl
-s3DestinationAccessControl =
-  S3DestinationAccessControl' {_sdacCannedACL = Nothing}
+mkS3DestinationAccessControl =
+  S3DestinationAccessControl' {cannedACL = Lude.Nothing}
 
 -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
-sdacCannedACL :: Lens' S3DestinationAccessControl (Maybe S3ObjectCannedACL)
-sdacCannedACL = lens _sdacCannedACL (\s a -> s {_sdacCannedACL = a})
+--
+-- /Note:/ Consider using 'cannedACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdacCannedACL :: Lens.Lens' S3DestinationAccessControl (Lude.Maybe S3ObjectCannedACL)
+sdacCannedACL = Lens.lens (cannedACL :: S3DestinationAccessControl -> Lude.Maybe S3ObjectCannedACL) (\s a -> s {cannedACL = a} :: S3DestinationAccessControl)
+{-# DEPRECATED sdacCannedACL "Use generic-lens or generic-optics with 'cannedACL' instead." #-}
 
-instance FromJSON S3DestinationAccessControl where
+instance Lude.FromJSON S3DestinationAccessControl where
   parseJSON =
-    withObject
+    Lude.withObject
       "S3DestinationAccessControl"
-      (\x -> S3DestinationAccessControl' <$> (x .:? "cannedAcl"))
+      ( \x ->
+          S3DestinationAccessControl' Lude.<$> (x Lude..:? "cannedAcl")
+      )
 
-instance Hashable S3DestinationAccessControl
-
-instance NFData S3DestinationAccessControl
-
-instance ToJSON S3DestinationAccessControl where
+instance Lude.ToJSON S3DestinationAccessControl where
   toJSON S3DestinationAccessControl' {..} =
-    object (catMaybes [("cannedAcl" .=) <$> _sdacCannedACL])
+    Lude.object
+      (Lude.catMaybes [("cannedAcl" Lude..=) Lude.<$> cannedACL])

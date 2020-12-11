@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AWSJobPresignedURLConfig where
+module Network.AWS.IoT.Types.AWSJobPresignedURLConfig
+  ( AWSJobPresignedURLConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAWSJobPresignedURLConfig,
+
+    -- * Lenses
+    ajpucExpiresInSec,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
 --
---
---
--- /See:/ 'awsJobPresignedURLConfig' smart constructor.
+-- /See:/ 'mkAWSJobPresignedURLConfig' smart constructor.
 newtype AWSJobPresignedURLConfig = AWSJobPresignedURLConfig'
-  { _ajpucExpiresInSec ::
-      Maybe Integer
+  { expiresInSec ::
+      Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobPresignedURLConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ajpucExpiresInSec' - How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.
-awsJobPresignedURLConfig ::
+-- * 'expiresInSec' - How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.
+mkAWSJobPresignedURLConfig ::
   AWSJobPresignedURLConfig
-awsJobPresignedURLConfig =
-  AWSJobPresignedURLConfig' {_ajpucExpiresInSec = Nothing}
+mkAWSJobPresignedURLConfig =
+  AWSJobPresignedURLConfig' {expiresInSec = Lude.Nothing}
 
 -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.
-ajpucExpiresInSec :: Lens' AWSJobPresignedURLConfig (Maybe Integer)
-ajpucExpiresInSec = lens _ajpucExpiresInSec (\s a -> s {_ajpucExpiresInSec = a})
+--
+-- /Note:/ Consider using 'expiresInSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajpucExpiresInSec :: Lens.Lens' AWSJobPresignedURLConfig (Lude.Maybe Lude.Integer)
+ajpucExpiresInSec = Lens.lens (expiresInSec :: AWSJobPresignedURLConfig -> Lude.Maybe Lude.Integer) (\s a -> s {expiresInSec = a} :: AWSJobPresignedURLConfig)
+{-# DEPRECATED ajpucExpiresInSec "Use generic-lens or generic-optics with 'expiresInSec' instead." #-}
 
-instance FromJSON AWSJobPresignedURLConfig where
+instance Lude.FromJSON AWSJobPresignedURLConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSJobPresignedURLConfig"
-      (\x -> AWSJobPresignedURLConfig' <$> (x .:? "expiresInSec"))
+      ( \x ->
+          AWSJobPresignedURLConfig' Lude.<$> (x Lude..:? "expiresInSec")
+      )
 
-instance Hashable AWSJobPresignedURLConfig
-
-instance NFData AWSJobPresignedURLConfig
-
-instance ToJSON AWSJobPresignedURLConfig where
+instance Lude.ToJSON AWSJobPresignedURLConfig where
   toJSON AWSJobPresignedURLConfig' {..} =
-    object (catMaybes [("expiresInSec" .=) <$> _ajpucExpiresInSec])
+    Lude.object
+      (Lude.catMaybes [("expiresInSec" Lude..=) Lude.<$> expiresInSec])

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,99 @@
 --
 -- Attaches a policy to the specified target.
 module Network.AWS.IoT.AttachPolicy
-  ( -- * Creating a Request
-    attachPolicy,
-    AttachPolicy,
+  ( -- * Creating a request
+    AttachPolicy (..),
+    mkAttachPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apPolicyName,
     apTarget,
 
-    -- * Destructuring the Response
-    attachPolicyResponse,
-    AttachPolicyResponse,
+    -- * Destructuring the response
+    AttachPolicyResponse (..),
+    mkAttachPolicyResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachPolicy' smart constructor.
+-- | /See:/ 'mkAttachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-  { _apPolicyName :: !Text,
-    _apTarget :: !Text
+  { policyName :: Lude.Text,
+    target :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apPolicyName' - The name of the policy to attach.
---
--- * 'apTarget' - The <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity> to which the policy is attached.
-attachPolicy ::
-  -- | 'apPolicyName'
-  Text ->
-  -- | 'apTarget'
-  Text ->
+-- * 'policyName' - The name of the policy to attach.
+-- * 'target' - The <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity> to which the policy is attached.
+mkAttachPolicy ::
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'target'
+  Lude.Text ->
   AttachPolicy
-attachPolicy pPolicyName_ pTarget_ =
-  AttachPolicy' {_apPolicyName = pPolicyName_, _apTarget = pTarget_}
+mkAttachPolicy pPolicyName_ pTarget_ =
+  AttachPolicy' {policyName = pPolicyName_, target = pTarget_}
 
 -- | The name of the policy to attach.
-apPolicyName :: Lens' AttachPolicy Text
-apPolicyName = lens _apPolicyName (\s a -> s {_apPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPolicyName :: Lens.Lens' AttachPolicy Lude.Text
+apPolicyName = Lens.lens (policyName :: AttachPolicy -> Lude.Text) (\s a -> s {policyName = a} :: AttachPolicy)
+{-# DEPRECATED apPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity> to which the policy is attached.
-apTarget :: Lens' AttachPolicy Text
-apTarget = lens _apTarget (\s a -> s {_apTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apTarget :: Lens.Lens' AttachPolicy Lude.Text
+apTarget = Lens.lens (target :: AttachPolicy -> Lude.Text) (\s a -> s {target = a} :: AttachPolicy)
+{-# DEPRECATED apTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance AWSRequest AttachPolicy where
+instance Lude.AWSRequest AttachPolicy where
   type Rs AttachPolicy = AttachPolicyResponse
-  request = putJSON ioT
-  response = receiveNull AttachPolicyResponse'
+  request = Req.putJSON ioTService
+  response = Res.receiveNull AttachPolicyResponse'
 
-instance Hashable AttachPolicy
+instance Lude.ToHeaders AttachPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachPolicy
-
-instance ToHeaders AttachPolicy where
-  toHeaders = const mempty
-
-instance ToJSON AttachPolicy where
+instance Lude.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
-    object (catMaybes [Just ("target" .= _apTarget)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("target" Lude..= target)])
 
-instance ToPath AttachPolicy where
+instance Lude.ToPath AttachPolicy where
   toPath AttachPolicy' {..} =
-    mconcat ["/target-policies/", toBS _apPolicyName]
+    Lude.mconcat ["/target-policies/", Lude.toBS policyName]
 
-instance ToQuery AttachPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery AttachPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachPolicyResponse' smart constructor.
+-- | /See:/ 'mkAttachPolicyResponse' smart constructor.
 data AttachPolicyResponse = AttachPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachPolicyResponse' with the minimum fields required to make a request.
-attachPolicyResponse ::
+mkAttachPolicyResponse ::
   AttachPolicyResponse
-attachPolicyResponse = AttachPolicyResponse'
-
-instance NFData AttachPolicyResponse
+mkAttachPolicyResponse = AttachPolicyResponse'

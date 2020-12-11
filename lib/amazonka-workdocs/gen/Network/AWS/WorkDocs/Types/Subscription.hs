@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.Subscription where
+module Network.AWS.WorkDocs.Types.Subscription
+  ( Subscription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubscription,
+
+    -- * Lenses
+    sProtocol,
+    sEndPoint,
+    sSubscriptionId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.Types.SubscriptionProtocolType
 
 -- | Describes a subscription.
 --
---
---
--- /See:/ 'subscription' smart constructor.
+-- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { _sProtocol ::
-      !(Maybe SubscriptionProtocolType),
-    _sEndPoint :: !(Maybe Text),
-    _sSubscriptionId :: !(Maybe Text)
+  { protocol ::
+      Lude.Maybe SubscriptionProtocolType,
+    endPoint :: Lude.Maybe Lude.Text,
+    subscriptionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sProtocol' - The protocol of the subscription.
---
--- * 'sEndPoint' - The endpoint of the subscription.
---
--- * 'sSubscriptionId' - The ID of the subscription.
-subscription ::
+-- * 'endPoint' - The endpoint of the subscription.
+-- * 'protocol' - The protocol of the subscription.
+-- * 'subscriptionId' - The ID of the subscription.
+mkSubscription ::
   Subscription
-subscription =
+mkSubscription =
   Subscription'
-    { _sProtocol = Nothing,
-      _sEndPoint = Nothing,
-      _sSubscriptionId = Nothing
+    { protocol = Lude.Nothing,
+      endPoint = Lude.Nothing,
+      subscriptionId = Lude.Nothing
     }
 
 -- | The protocol of the subscription.
-sProtocol :: Lens' Subscription (Maybe SubscriptionProtocolType)
-sProtocol = lens _sProtocol (\s a -> s {_sProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sProtocol :: Lens.Lens' Subscription (Lude.Maybe SubscriptionProtocolType)
+sProtocol = Lens.lens (protocol :: Subscription -> Lude.Maybe SubscriptionProtocolType) (\s a -> s {protocol = a} :: Subscription)
+{-# DEPRECATED sProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The endpoint of the subscription.
-sEndPoint :: Lens' Subscription (Maybe Text)
-sEndPoint = lens _sEndPoint (\s a -> s {_sEndPoint = a})
+--
+-- /Note:/ Consider using 'endPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEndPoint :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
+sEndPoint = Lens.lens (endPoint :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {endPoint = a} :: Subscription)
+{-# DEPRECATED sEndPoint "Use generic-lens or generic-optics with 'endPoint' instead." #-}
 
 -- | The ID of the subscription.
-sSubscriptionId :: Lens' Subscription (Maybe Text)
-sSubscriptionId = lens _sSubscriptionId (\s a -> s {_sSubscriptionId = a})
+--
+-- /Note:/ Consider using 'subscriptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubscriptionId :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
+sSubscriptionId = Lens.lens (subscriptionId :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionId = a} :: Subscription)
+{-# DEPRECATED sSubscriptionId "Use generic-lens or generic-optics with 'subscriptionId' instead." #-}
 
-instance FromJSON Subscription where
+instance Lude.FromJSON Subscription where
   parseJSON =
-    withObject
+    Lude.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            <$> (x .:? "Protocol")
-            <*> (x .:? "EndPoint")
-            <*> (x .:? "SubscriptionId")
+            Lude.<$> (x Lude..:? "Protocol")
+            Lude.<*> (x Lude..:? "EndPoint")
+            Lude.<*> (x Lude..:? "SubscriptionId")
       )
-
-instance Hashable Subscription
-
-instance NFData Subscription

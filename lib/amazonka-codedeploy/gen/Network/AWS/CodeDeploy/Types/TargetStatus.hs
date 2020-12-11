@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TargetStatus where
+module Network.AWS.CodeDeploy.Types.TargetStatus
+  ( TargetStatus
+      ( TargetStatus',
+        TSFailed,
+        TSInProgress,
+        TSPending,
+        TSReady,
+        TSSkipped,
+        TSSucceeded,
+        TSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetStatus
-  = TSFailed
-  | TSInProgress
-  | TSPending
-  | TSReady
-  | TSSkipped
-  | TSSucceeded
-  | TSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetStatus = TargetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure TSFailed
-      "inprogress" -> pure TSInProgress
-      "pending" -> pure TSPending
-      "ready" -> pure TSReady
-      "skipped" -> pure TSSkipped
-      "succeeded" -> pure TSSucceeded
-      "unknown" -> pure TSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing TargetStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, pending, ready, skipped, succeeded, unknown"
+pattern TSFailed :: TargetStatus
+pattern TSFailed = TargetStatus' "Failed"
 
-instance ToText TargetStatus where
-  toText = \case
-    TSFailed -> "Failed"
-    TSInProgress -> "InProgress"
-    TSPending -> "Pending"
-    TSReady -> "Ready"
-    TSSkipped -> "Skipped"
-    TSSucceeded -> "Succeeded"
-    TSUnknown -> "Unknown"
+pattern TSInProgress :: TargetStatus
+pattern TSInProgress = TargetStatus' "InProgress"
 
-instance Hashable TargetStatus
+pattern TSPending :: TargetStatus
+pattern TSPending = TargetStatus' "Pending"
 
-instance NFData TargetStatus
+pattern TSReady :: TargetStatus
+pattern TSReady = TargetStatus' "Ready"
 
-instance ToByteString TargetStatus
+pattern TSSkipped :: TargetStatus
+pattern TSSkipped = TargetStatus' "Skipped"
 
-instance ToQuery TargetStatus
+pattern TSSucceeded :: TargetStatus
+pattern TSSucceeded = TargetStatus' "Succeeded"
 
-instance ToHeader TargetStatus
+pattern TSUnknown :: TargetStatus
+pattern TSUnknown = TargetStatus' "Unknown"
 
-instance FromJSON TargetStatus where
-  parseJSON = parseJSONText "TargetStatus"
+{-# COMPLETE
+  TSFailed,
+  TSInProgress,
+  TSPending,
+  TSReady,
+  TSSkipped,
+  TSSucceeded,
+  TSUnknown,
+  TargetStatus'
+  #-}

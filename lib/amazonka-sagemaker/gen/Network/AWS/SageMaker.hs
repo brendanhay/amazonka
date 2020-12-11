@@ -13,15 +13,15 @@
 --
 -- Provides APIs for creating and managing Amazon SageMaker resources.
 --
---
 -- Other Resources:
 --
 --     * <https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user Amazon SageMaker Developer Guide>
 --
+--
 --     * <https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html Amazon Augmented AI Runtime API Reference>
 module Network.AWS.SageMaker
-  ( -- * Service Configuration
-    sageMaker,
+  ( -- * Service configuration
+    sageMakerService,
 
     -- * Errors
     -- $errors
@@ -30,28 +30,28 @@ module Network.AWS.SageMaker
     -- $waiters
 
     -- ** NotebookInstanceDeleted
-    notebookInstanceDeleted,
+    mkNotebookInstanceDeleted,
 
     -- ** EndpointDeleted
-    endpointDeleted,
+    mkEndpointDeleted,
 
     -- ** EndpointInService
-    endpointInService,
+    mkEndpointInService,
 
     -- ** TransformJobCompletedOrStopped
-    transformJobCompletedOrStopped,
+    mkTransformJobCompletedOrStopped,
 
     -- ** NotebookInstanceInService
-    notebookInstanceInService,
+    mkNotebookInstanceInService,
 
     -- ** ProcessingJobCompletedOrStopped
-    processingJobCompletedOrStopped,
+    mkProcessingJobCompletedOrStopped,
 
     -- ** TrainingJobCompletedOrStopped
-    trainingJobCompletedOrStopped,
+    mkTrainingJobCompletedOrStopped,
 
     -- ** NotebookInstanceStopped
-    notebookInstanceStopped,
+    mkNotebookInstanceStopped,
 
     -- * Operations
     -- $operations
@@ -875,8 +875,8 @@ module Network.AWS.SageMaker
     VariantPropertyType (..),
 
     -- ** AlgorithmSpecification
-    AlgorithmSpecification,
-    algorithmSpecification,
+    AlgorithmSpecification (..),
+    mkAlgorithmSpecification,
     asEnableSageMakerMetricsTimeSeries,
     asAlgorithmName,
     asTrainingImage,
@@ -884,21 +884,21 @@ module Network.AWS.SageMaker
     asTrainingInputMode,
 
     -- ** AlgorithmStatusDetails
-    AlgorithmStatusDetails,
-    algorithmStatusDetails,
+    AlgorithmStatusDetails (..),
+    mkAlgorithmStatusDetails,
     asdImageScanStatuses,
     asdValidationStatuses,
 
     -- ** AlgorithmStatusItem
-    AlgorithmStatusItem,
-    algorithmStatusItem,
+    AlgorithmStatusItem (..),
+    mkAlgorithmStatusItem,
     asiFailureReason,
     asiName,
     asiStatus,
 
     -- ** AlgorithmSummary
-    AlgorithmSummary,
-    algorithmSummary,
+    AlgorithmSummary (..),
+    mkAlgorithmSummary,
     aAlgorithmDescription,
     aAlgorithmName,
     aAlgorithmARN,
@@ -906,26 +906,26 @@ module Network.AWS.SageMaker
     aAlgorithmStatus,
 
     -- ** AlgorithmValidationProfile
-    AlgorithmValidationProfile,
-    algorithmValidationProfile,
+    AlgorithmValidationProfile (..),
+    mkAlgorithmValidationProfile,
     avpTransformJobDefinition,
     avpProfileName,
     avpTrainingJobDefinition,
 
     -- ** AlgorithmValidationSpecification
-    AlgorithmValidationSpecification,
-    algorithmValidationSpecification,
+    AlgorithmValidationSpecification (..),
+    mkAlgorithmValidationSpecification,
     avsValidationRole,
     avsValidationProfiles,
 
     -- ** AnnotationConsolidationConfig
-    AnnotationConsolidationConfig,
-    annotationConsolidationConfig,
+    AnnotationConsolidationConfig (..),
+    mkAnnotationConsolidationConfig,
     accAnnotationConsolidationLambdaARN,
 
     -- ** AppDetails
-    AppDetails,
-    appDetails,
+    AppDetails (..),
+    mkAppDetails,
     adCreationTime,
     adStatus,
     adUserProfileName,
@@ -934,8 +934,8 @@ module Network.AWS.SageMaker
     adAppType,
 
     -- ** AppImageConfigDetails
-    AppImageConfigDetails,
-    appImageConfigDetails,
+    AppImageConfigDetails (..),
+    mkAppImageConfigDetails,
     aicdCreationTime,
     aicdAppImageConfigName,
     aicdLastModifiedTime,
@@ -943,15 +943,15 @@ module Network.AWS.SageMaker
     aicdAppImageConfigARN,
 
     -- ** AppSpecification
-    AppSpecification,
-    appSpecification,
+    AppSpecification (..),
+    mkAppSpecification,
     asContainerArguments,
     asContainerEntrypoint,
     asImageURI,
 
     -- ** AutoMLCandidate
-    AutoMLCandidate,
-    autoMLCandidate,
+    AutoMLCandidate (..),
+    mkAutoMLCandidate,
     amlcFailureReason,
     amlcInferenceContainers,
     amlcEndTime,
@@ -964,58 +964,58 @@ module Network.AWS.SageMaker
     amlcLastModifiedTime,
 
     -- ** AutoMLCandidateStep
-    AutoMLCandidateStep,
-    autoMLCandidateStep,
+    AutoMLCandidateStep (..),
+    mkAutoMLCandidateStep,
     amlcsCandidateStepType,
     amlcsCandidateStepARN,
     amlcsCandidateStepName,
 
     -- ** AutoMLChannel
-    AutoMLChannel,
-    autoMLChannel,
+    AutoMLChannel (..),
+    mkAutoMLChannel,
     amlcCompressionType,
     amlcDataSource,
     amlcTargetAttributeName,
 
     -- ** AutoMLContainerDefinition
-    AutoMLContainerDefinition,
-    autoMLContainerDefinition,
+    AutoMLContainerDefinition (..),
+    mkAutoMLContainerDefinition,
     amlcdEnvironment,
     amlcdImage,
     amlcdModelDataURL,
 
     -- ** AutoMLDataSource
-    AutoMLDataSource,
-    autoMLDataSource,
+    AutoMLDataSource (..),
+    mkAutoMLDataSource,
     amldsS3DataSource,
 
     -- ** AutoMLJobArtifacts
-    AutoMLJobArtifacts,
-    autoMLJobArtifacts,
+    AutoMLJobArtifacts (..),
+    mkAutoMLJobArtifacts,
     amljaCandidateDefinitionNotebookLocation,
     amljaDataExplorationNotebookLocation,
 
     -- ** AutoMLJobCompletionCriteria
-    AutoMLJobCompletionCriteria,
-    autoMLJobCompletionCriteria,
+    AutoMLJobCompletionCriteria (..),
+    mkAutoMLJobCompletionCriteria,
     amljccMaxCandidates,
     amljccMaxRuntimePerTrainingJobInSeconds,
     amljccMaxAutoMLJobRuntimeInSeconds,
 
     -- ** AutoMLJobConfig
-    AutoMLJobConfig,
-    autoMLJobConfig,
+    AutoMLJobConfig (..),
+    mkAutoMLJobConfig,
     amljcSecurityConfig,
     amljcCompletionCriteria,
 
     -- ** AutoMLJobObjective
-    AutoMLJobObjective,
-    autoMLJobObjective,
+    AutoMLJobObjective (..),
+    mkAutoMLJobObjective,
     amljoMetricName,
 
     -- ** AutoMLJobSummary
-    AutoMLJobSummary,
-    autoMLJobSummary,
+    AutoMLJobSummary (..),
+    mkAutoMLJobSummary,
     amljsFailureReason,
     amljsEndTime,
     amljsAutoMLJobName,
@@ -1026,49 +1026,49 @@ module Network.AWS.SageMaker
     amljsLastModifiedTime,
 
     -- ** AutoMLOutputDataConfig
-    AutoMLOutputDataConfig,
-    autoMLOutputDataConfig,
+    AutoMLOutputDataConfig (..),
+    mkAutoMLOutputDataConfig,
     amlodcKMSKeyId,
     amlodcS3OutputPath,
 
     -- ** AutoMLS3DataSource
-    AutoMLS3DataSource,
-    autoMLS3DataSource,
+    AutoMLS3DataSource (..),
+    mkAutoMLS3DataSource,
     amlsdsS3DataType,
     amlsdsS3URI,
 
     -- ** AutoMLSecurityConfig
-    AutoMLSecurityConfig,
-    autoMLSecurityConfig,
+    AutoMLSecurityConfig (..),
+    mkAutoMLSecurityConfig,
     amlscVPCConfig,
     amlscVolumeKMSKeyId,
     amlscEnableInterContainerTrafficEncryption,
 
     -- ** CaptureContentTypeHeader
-    CaptureContentTypeHeader,
-    captureContentTypeHeader,
+    CaptureContentTypeHeader (..),
+    mkCaptureContentTypeHeader,
     ccthCSVContentTypes,
     ccthJSONContentTypes,
 
     -- ** CaptureOption
-    CaptureOption,
-    captureOption,
+    CaptureOption (..),
+    mkCaptureOption,
     coCaptureMode,
 
     -- ** CategoricalParameterRange
-    CategoricalParameterRange,
-    categoricalParameterRange,
+    CategoricalParameterRange (..),
+    mkCategoricalParameterRange,
     cprName,
     cprValues,
 
     -- ** CategoricalParameterRangeSpecification
-    CategoricalParameterRangeSpecification,
-    categoricalParameterRangeSpecification,
+    CategoricalParameterRangeSpecification (..),
+    mkCategoricalParameterRangeSpecification,
     cprsValues,
 
     -- ** Channel
-    Channel,
-    channel,
+    Channel (..),
+    mkChannel,
     cShuffleConfig,
     cRecordWrapperType,
     cInputMode,
@@ -1078,8 +1078,8 @@ module Network.AWS.SageMaker
     cDataSource,
 
     -- ** ChannelSpecification
-    ChannelSpecification,
-    channelSpecification,
+    ChannelSpecification (..),
+    mkChannelSpecification,
     csSupportedCompressionTypes,
     csIsRequired,
     csDescription,
@@ -1088,14 +1088,14 @@ module Network.AWS.SageMaker
     csSupportedInputModes,
 
     -- ** CheckpointConfig
-    CheckpointConfig,
-    checkpointConfig,
+    CheckpointConfig (..),
+    mkCheckpointConfig,
     ccLocalPath,
     ccS3URI,
 
     -- ** CodeRepositorySummary
-    CodeRepositorySummary,
-    codeRepositorySummary,
+    CodeRepositorySummary (..),
+    mkCodeRepositorySummary,
     crsGitConfig,
     crsCodeRepositoryName,
     crsCodeRepositoryARN,
@@ -1103,27 +1103,27 @@ module Network.AWS.SageMaker
     crsLastModifiedTime,
 
     -- ** CognitoConfig
-    CognitoConfig,
-    cognitoConfig,
+    CognitoConfig (..),
+    mkCognitoConfig,
     ccUserPool,
     ccClientId,
 
     -- ** CognitoMemberDefinition
-    CognitoMemberDefinition,
-    cognitoMemberDefinition,
+    CognitoMemberDefinition (..),
+    mkCognitoMemberDefinition,
     cmdUserPool,
     cmdUserGroup,
     cmdClientId,
 
     -- ** CollectionConfiguration
-    CollectionConfiguration,
-    collectionConfiguration,
+    CollectionConfiguration (..),
+    mkCollectionConfiguration,
     ccCollectionParameters,
     ccCollectionName,
 
     -- ** CompilationJobSummary
-    CompilationJobSummary,
-    compilationJobSummary,
+    CompilationJobSummary (..),
+    mkCompilationJobSummary,
     cjsCompilationStartTime,
     cjsCompilationTargetPlatformAccelerator,
     cjsCompilationTargetDevice,
@@ -1137,8 +1137,8 @@ module Network.AWS.SageMaker
     cjsCompilationJobStatus,
 
     -- ** ContainerDefinition
-    ContainerDefinition,
-    containerDefinition,
+    ContainerDefinition (..),
+    mkContainerDefinition,
     cdModelDataURL,
     cdImage,
     cdModelPackageName,
@@ -1148,29 +1148,29 @@ module Network.AWS.SageMaker
     cdContainerHostname,
 
     -- ** ContinuousParameterRange
-    ContinuousParameterRange,
-    continuousParameterRange,
+    ContinuousParameterRange (..),
+    mkContinuousParameterRange,
     cScalingType,
     cName,
     cMinValue,
     cMaxValue,
 
     -- ** ContinuousParameterRangeSpecification
-    ContinuousParameterRangeSpecification,
-    continuousParameterRangeSpecification,
+    ContinuousParameterRangeSpecification (..),
+    mkContinuousParameterRangeSpecification,
     cprsMinValue,
     cprsMaxValue,
 
     -- ** CustomImage
-    CustomImage,
-    customImage,
+    CustomImage (..),
+    mkCustomImage,
     ciImageVersionNumber,
     ciImageName,
     ciAppImageConfigName,
 
     -- ** DataCaptureConfig
-    DataCaptureConfig,
-    dataCaptureConfig,
+    DataCaptureConfig (..),
+    mkDataCaptureConfig,
     dccCaptureContentTypeHeader,
     dccKMSKeyId,
     dccEnableCapture,
@@ -1179,8 +1179,8 @@ module Network.AWS.SageMaker
     dccCaptureOptions,
 
     -- ** DataCaptureConfigSummary
-    DataCaptureConfigSummary,
-    dataCaptureConfigSummary,
+    DataCaptureConfigSummary (..),
+    mkDataCaptureConfigSummary,
     dccsEnableCapture,
     dccsCaptureStatus,
     dccsCurrentSamplingPercentage,
@@ -1188,29 +1188,29 @@ module Network.AWS.SageMaker
     dccsKMSKeyId,
 
     -- ** DataProcessing
-    DataProcessing,
-    dataProcessing,
+    DataProcessing (..),
+    mkDataProcessing,
     dpOutputFilter,
     dpJoinSource,
     dpInputFilter,
 
     -- ** DataSource
-    DataSource,
-    dataSource,
+    DataSource (..),
+    mkDataSource,
     dsS3DataSource,
     dsFileSystemDataSource,
 
     -- ** DebugHookConfig
-    DebugHookConfig,
-    debugHookConfig,
+    DebugHookConfig (..),
+    mkDebugHookConfig,
     dhcLocalPath,
     dhcCollectionConfigurations,
     dhcHookParameters,
     dhcS3OutputPath,
 
     -- ** DebugRuleConfiguration
-    DebugRuleConfiguration,
-    debugRuleConfiguration,
+    DebugRuleConfiguration (..),
+    mkDebugRuleConfiguration,
     drcRuleParameters,
     drcS3OutputPath,
     drcLocalPath,
@@ -1220,8 +1220,8 @@ module Network.AWS.SageMaker
     drcRuleEvaluatorImage,
 
     -- ** DebugRuleEvaluationStatus
-    DebugRuleEvaluationStatus,
-    debugRuleEvaluationStatus,
+    DebugRuleEvaluationStatus (..),
+    mkDebugRuleEvaluationStatus,
     dresLastModifiedTime,
     dresStatusDetails,
     dresRuleEvaluationStatus,
@@ -1229,22 +1229,22 @@ module Network.AWS.SageMaker
     dresRuleConfigurationName,
 
     -- ** DeployedImage
-    DeployedImage,
-    deployedImage,
+    DeployedImage (..),
+    mkDeployedImage,
     diResolvedImage,
     diSpecifiedImage,
     diResolutionTime,
 
     -- ** DesiredWeightAndCapacity
-    DesiredWeightAndCapacity,
-    desiredWeightAndCapacity,
+    DesiredWeightAndCapacity (..),
+    mkDesiredWeightAndCapacity,
     dwacDesiredInstanceCount,
     dwacDesiredWeight,
     dwacVariantName,
 
     -- ** DomainDetails
-    DomainDetails,
-    domainDetails,
+    DomainDetails (..),
+    mkDomainDetails,
     ddCreationTime,
     ddStatus,
     ddDomainARN,
@@ -1254,23 +1254,23 @@ module Network.AWS.SageMaker
     ddDomainId,
 
     -- ** EndpointConfigSummary
-    EndpointConfigSummary,
-    endpointConfigSummary,
+    EndpointConfigSummary (..),
+    mkEndpointConfigSummary,
     ecsEndpointConfigName,
     ecsEndpointConfigARN,
     ecsCreationTime,
 
     -- ** EndpointInput
-    EndpointInput,
-    endpointInput,
+    EndpointInput (..),
+    mkEndpointInput,
     eiS3DataDistributionType,
     eiS3InputMode,
     eiEndpointName,
     eiLocalPath,
 
     -- ** EndpointSummary
-    EndpointSummary,
-    endpointSummary,
+    EndpointSummary (..),
+    mkEndpointSummary,
     esEndpointName,
     esEndpointARN,
     esCreationTime,
@@ -1278,8 +1278,8 @@ module Network.AWS.SageMaker
     esEndpointStatus,
 
     -- ** Experiment
-    Experiment,
-    experiment,
+    Experiment (..),
+    mkExperiment,
     eCreationTime,
     eCreatedBy,
     eLastModifiedTime,
@@ -1292,21 +1292,21 @@ module Network.AWS.SageMaker
     eTags,
 
     -- ** ExperimentConfig
-    ExperimentConfig,
-    experimentConfig,
+    ExperimentConfig (..),
+    mkExperimentConfig,
     ecTrialComponentDisplayName,
     ecExperimentName,
     ecTrialName,
 
     -- ** ExperimentSource
-    ExperimentSource,
-    experimentSource,
+    ExperimentSource (..),
+    mkExperimentSource,
     esSourceType,
     esSourceARN,
 
     -- ** ExperimentSummary
-    ExperimentSummary,
-    experimentSummary,
+    ExperimentSummary (..),
+    mkExperimentSummary,
     expCreationTime,
     expLastModifiedTime,
     expExperimentName,
@@ -1315,50 +1315,50 @@ module Network.AWS.SageMaker
     expDisplayName,
 
     -- ** FileSystemConfig
-    FileSystemConfig,
-    fileSystemConfig,
+    FileSystemConfig (..),
+    mkFileSystemConfig,
     fscDefaultGid,
     fscMountPath,
     fscDefaultUid,
 
     -- ** FileSystemDataSource
-    FileSystemDataSource,
-    fileSystemDataSource,
+    FileSystemDataSource (..),
+    mkFileSystemDataSource,
     fsdsFileSystemId,
     fsdsFileSystemAccessMode,
     fsdsFileSystemType,
     fsdsDirectoryPath,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fOperator,
     fValue,
     fName,
 
     -- ** FinalAutoMLJobObjectiveMetric
-    FinalAutoMLJobObjectiveMetric,
-    finalAutoMLJobObjectiveMetric,
+    FinalAutoMLJobObjectiveMetric (..),
+    mkFinalAutoMLJobObjectiveMetric,
     famljomType,
     famljomMetricName,
     famljomValue,
 
     -- ** FinalHyperParameterTuningJobObjectiveMetric
-    FinalHyperParameterTuningJobObjectiveMetric,
-    finalHyperParameterTuningJobObjectiveMetric,
+    FinalHyperParameterTuningJobObjectiveMetric (..),
+    mkFinalHyperParameterTuningJobObjectiveMetric,
     fhptjomType,
     fhptjomMetricName,
     fhptjomValue,
 
     -- ** FlowDefinitionOutputConfig
-    FlowDefinitionOutputConfig,
-    flowDefinitionOutputConfig,
+    FlowDefinitionOutputConfig (..),
+    mkFlowDefinitionOutputConfig,
     fdocKMSKeyId,
     fdocS3OutputPath,
 
     -- ** FlowDefinitionSummary
-    FlowDefinitionSummary,
-    flowDefinitionSummary,
+    FlowDefinitionSummary (..),
+    mkFlowDefinitionSummary,
     fdsFailureReason,
     fdsFlowDefinitionName,
     fdsFlowDefinitionARN,
@@ -1366,30 +1366,30 @@ module Network.AWS.SageMaker
     fdsCreationTime,
 
     -- ** GitConfig
-    GitConfig,
-    gitConfig,
+    GitConfig (..),
+    mkGitConfig,
     gcBranch,
     gcSecretARN,
     gcRepositoryURL,
 
     -- ** GitConfigForUpdate
-    GitConfigForUpdate,
-    gitConfigForUpdate,
+    GitConfigForUpdate (..),
+    mkGitConfigForUpdate,
     gcfuSecretARN,
 
     -- ** HumanLoopActivationConditionsConfig
-    HumanLoopActivationConditionsConfig,
-    humanLoopActivationConditionsConfig,
+    HumanLoopActivationConditionsConfig (..),
+    mkHumanLoopActivationConditionsConfig,
     hlaccHumanLoopActivationConditions,
 
     -- ** HumanLoopActivationConfig
-    HumanLoopActivationConfig,
-    humanLoopActivationConfig,
+    HumanLoopActivationConfig (..),
+    mkHumanLoopActivationConfig,
     hlacHumanLoopActivationConditionsConfig,
 
     -- ** HumanLoopConfig
-    HumanLoopConfig,
-    humanLoopConfig,
+    HumanLoopConfig (..),
+    mkHumanLoopConfig,
     hlcTaskKeywords,
     hlcPublicWorkforceTaskPrice,
     hlcTaskTimeLimitInSeconds,
@@ -1401,13 +1401,13 @@ module Network.AWS.SageMaker
     hlcTaskCount,
 
     -- ** HumanLoopRequestSource
-    HumanLoopRequestSource,
-    humanLoopRequestSource,
+    HumanLoopRequestSource (..),
+    mkHumanLoopRequestSource,
     hlrsAWSManagedHumanLoopRequestSource,
 
     -- ** HumanTaskConfig
-    HumanTaskConfig,
-    humanTaskConfig,
+    HumanTaskConfig (..),
+    mkHumanTaskConfig,
     htcTaskKeywords,
     htcPublicWorkforceTaskPrice,
     htcTaskAvailabilityLifetimeInSeconds,
@@ -1422,23 +1422,23 @@ module Network.AWS.SageMaker
     htcAnnotationConsolidationConfig,
 
     -- ** HumanTaskUiSummary
-    HumanTaskUiSummary,
-    humanTaskUiSummary,
+    HumanTaskUiSummary (..),
+    mkHumanTaskUiSummary,
     htusHumanTaskUiName,
     htusHumanTaskUiARN,
     htusCreationTime,
 
     -- ** HyperParameterAlgorithmSpecification
-    HyperParameterAlgorithmSpecification,
-    hyperParameterAlgorithmSpecification,
+    HyperParameterAlgorithmSpecification (..),
+    mkHyperParameterAlgorithmSpecification,
     hpasAlgorithmName,
     hpasTrainingImage,
     hpasMetricDefinitions,
     hpasTrainingInputMode,
 
     -- ** HyperParameterSpecification
-    HyperParameterSpecification,
-    hyperParameterSpecification,
+    HyperParameterSpecification (..),
+    mkHyperParameterSpecification,
     hpsIsTunable,
     hpsRange,
     hpsDefaultValue,
@@ -1448,8 +1448,8 @@ module Network.AWS.SageMaker
     hpsType,
 
     -- ** HyperParameterTrainingJobDefinition
-    HyperParameterTrainingJobDefinition,
-    hyperParameterTrainingJobDefinition,
+    HyperParameterTrainingJobDefinition (..),
+    mkHyperParameterTrainingJobDefinition,
     hptjdTuningObjective,
     hptjdCheckpointConfig,
     hptjdHyperParameterRanges,
@@ -1467,8 +1467,8 @@ module Network.AWS.SageMaker
     hptjdStoppingCondition,
 
     -- ** HyperParameterTrainingJobSummary
-    HyperParameterTrainingJobSummary,
-    hyperParameterTrainingJobSummary,
+    HyperParameterTrainingJobSummary (..),
+    mkHyperParameterTrainingJobSummary,
     hptjsFailureReason,
     hptjsTuningJobName,
     hptjsTrainingEndTime,
@@ -1483,8 +1483,8 @@ module Network.AWS.SageMaker
     hptjsTunedHyperParameters,
 
     -- ** HyperParameterTuningJobConfig
-    HyperParameterTuningJobConfig,
-    hyperParameterTuningJobConfig,
+    HyperParameterTuningJobConfig (..),
+    mkHyperParameterTuningJobConfig,
     hptjcTuningJobCompletionCriteria,
     hptjcParameterRanges,
     hptjcHyperParameterTuningJobObjective,
@@ -1493,14 +1493,14 @@ module Network.AWS.SageMaker
     hptjcResourceLimits,
 
     -- ** HyperParameterTuningJobObjective
-    HyperParameterTuningJobObjective,
-    hyperParameterTuningJobObjective,
+    HyperParameterTuningJobObjective (..),
+    mkHyperParameterTuningJobObjective,
     hptjoType,
     hptjoMetricName,
 
     -- ** HyperParameterTuningJobSummary
-    HyperParameterTuningJobSummary,
-    hyperParameterTuningJobSummary,
+    HyperParameterTuningJobSummary (..),
+    mkHyperParameterTuningJobSummary,
     hResourceLimits,
     hLastModifiedTime,
     hHyperParameterTuningEndTime,
@@ -1513,14 +1513,14 @@ module Network.AWS.SageMaker
     hObjectiveStatusCounters,
 
     -- ** HyperParameterTuningJobWarmStartConfig
-    HyperParameterTuningJobWarmStartConfig,
-    hyperParameterTuningJobWarmStartConfig,
+    HyperParameterTuningJobWarmStartConfig (..),
+    mkHyperParameterTuningJobWarmStartConfig,
     hptjwscParentHyperParameterTuningJobs,
     hptjwscWarmStartType,
 
     -- ** Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iFailureReason,
     iDisplayName,
     iDescription,
@@ -1531,13 +1531,13 @@ module Network.AWS.SageMaker
     iLastModifiedTime,
 
     -- ** ImageConfig
-    ImageConfig,
-    imageConfig,
+    ImageConfig (..),
+    mkImageConfig,
     icRepositoryAccessMode,
 
     -- ** ImageVersion
-    ImageVersion,
-    imageVersion,
+    ImageVersion (..),
+    mkImageVersion,
     ivFailureReason,
     ivCreationTime,
     ivImageARN,
@@ -1547,8 +1547,8 @@ module Network.AWS.SageMaker
     ivVersion,
 
     -- ** InferenceSpecification
-    InferenceSpecification,
-    inferenceSpecification,
+    InferenceSpecification (..),
+    mkInferenceSpecification,
     isContainers,
     isSupportedTransformInstanceTypes,
     isSupportedRealtimeInferenceInstanceTypes,
@@ -1556,52 +1556,52 @@ module Network.AWS.SageMaker
     isSupportedResponseMIMETypes,
 
     -- ** InputConfig
-    InputConfig,
-    inputConfig,
+    InputConfig (..),
+    mkInputConfig,
     icS3URI,
     icDataInputConfig,
     icFramework,
 
     -- ** IntegerParameterRange
-    IntegerParameterRange,
-    integerParameterRange,
+    IntegerParameterRange (..),
+    mkIntegerParameterRange,
     iprScalingType,
     iprName,
     iprMinValue,
     iprMaxValue,
 
     -- ** IntegerParameterRangeSpecification
-    IntegerParameterRangeSpecification,
-    integerParameterRangeSpecification,
+    IntegerParameterRangeSpecification (..),
+    mkIntegerParameterRangeSpecification,
     iprsMinValue,
     iprsMaxValue,
 
     -- ** JupyterServerAppSettings
-    JupyterServerAppSettings,
-    jupyterServerAppSettings,
+    JupyterServerAppSettings (..),
+    mkJupyterServerAppSettings,
     jsasDefaultResourceSpec,
 
     -- ** KernelGatewayAppSettings
-    KernelGatewayAppSettings,
-    kernelGatewayAppSettings,
+    KernelGatewayAppSettings (..),
+    mkKernelGatewayAppSettings,
     kgasDefaultResourceSpec,
     kgasCustomImages,
 
     -- ** KernelGatewayImageConfig
-    KernelGatewayImageConfig,
-    kernelGatewayImageConfig,
+    KernelGatewayImageConfig (..),
+    mkKernelGatewayImageConfig,
     kgicFileSystemConfig,
     kgicKernelSpecs,
 
     -- ** KernelSpec
-    KernelSpec,
-    kernelSpec,
+    KernelSpec (..),
+    mkKernelSpec,
     ksDisplayName,
     ksName,
 
     -- ** LabelCounters
-    LabelCounters,
-    labelCounters,
+    LabelCounters (..),
+    mkLabelCounters,
     lcMachineLabeled,
     lcTotalLabeled,
     lcFailedNonRetryableError,
@@ -1609,33 +1609,33 @@ module Network.AWS.SageMaker
     lcHumanLabeled,
 
     -- ** LabelCountersForWorkteam
-    LabelCountersForWorkteam,
-    labelCountersForWorkteam,
+    LabelCountersForWorkteam (..),
+    mkLabelCountersForWorkteam,
     lcfwPendingHuman,
     lcfwTotal,
     lcfwHumanLabeled,
 
     -- ** LabelingJobAlgorithmsConfig
-    LabelingJobAlgorithmsConfig,
-    labelingJobAlgorithmsConfig,
+    LabelingJobAlgorithmsConfig (..),
+    mkLabelingJobAlgorithmsConfig,
     ljacLabelingJobResourceConfig,
     ljacInitialActiveLearningModelARN,
     ljacLabelingJobAlgorithmSpecificationARN,
 
     -- ** LabelingJobDataAttributes
-    LabelingJobDataAttributes,
-    labelingJobDataAttributes,
+    LabelingJobDataAttributes (..),
+    mkLabelingJobDataAttributes,
     ljdaContentClassifiers,
 
     -- ** LabelingJobDataSource
-    LabelingJobDataSource,
-    labelingJobDataSource,
+    LabelingJobDataSource (..),
+    mkLabelingJobDataSource,
     ljdsS3DataSource,
     ljdsSNSDataSource,
 
     -- ** LabelingJobForWorkteamSummary
-    LabelingJobForWorkteamSummary,
-    labelingJobForWorkteamSummary,
+    LabelingJobForWorkteamSummary (..),
+    mkLabelingJobForWorkteamSummary,
     ljfwsNumberOfHumanWorkersPerDataObject,
     ljfwsLabelCounters,
     ljfwsLabelingJobName,
@@ -1644,48 +1644,48 @@ module Network.AWS.SageMaker
     ljfwsCreationTime,
 
     -- ** LabelingJobInputConfig
-    LabelingJobInputConfig,
-    labelingJobInputConfig,
+    LabelingJobInputConfig (..),
+    mkLabelingJobInputConfig,
     ljicDataAttributes,
     ljicDataSource,
 
     -- ** LabelingJobOutput
-    LabelingJobOutput,
-    labelingJobOutput,
+    LabelingJobOutput (..),
+    mkLabelingJobOutput,
     ljoFinalActiveLearningModelARN,
     ljoOutputDatasetS3URI,
 
     -- ** LabelingJobOutputConfig
-    LabelingJobOutputConfig,
-    labelingJobOutputConfig,
+    LabelingJobOutputConfig (..),
+    mkLabelingJobOutputConfig,
     ljocSNSTopicARN,
     ljocKMSKeyId,
     ljocS3OutputPath,
 
     -- ** LabelingJobResourceConfig
-    LabelingJobResourceConfig,
-    labelingJobResourceConfig,
+    LabelingJobResourceConfig (..),
+    mkLabelingJobResourceConfig,
     ljrcVolumeKMSKeyId,
 
     -- ** LabelingJobS3DataSource
-    LabelingJobS3DataSource,
-    labelingJobS3DataSource,
+    LabelingJobS3DataSource (..),
+    mkLabelingJobS3DataSource,
     ljsdsManifestS3URI,
 
     -- ** LabelingJobSNSDataSource
-    LabelingJobSNSDataSource,
-    labelingJobSNSDataSource,
+    LabelingJobSNSDataSource (..),
+    mkLabelingJobSNSDataSource,
     ljsdsSNSTopicARN,
 
     -- ** LabelingJobStoppingConditions
-    LabelingJobStoppingConditions,
-    labelingJobStoppingConditions,
+    LabelingJobStoppingConditions (..),
+    mkLabelingJobStoppingConditions,
     ljscMaxHumanLabeledObjectCount,
     ljscMaxPercentageOfInputDatasetLabeled,
 
     -- ** LabelingJobSummary
-    LabelingJobSummary,
-    labelingJobSummary,
+    LabelingJobSummary (..),
+    mkLabelingJobSummary,
     ljsFailureReason,
     ljsAnnotationConsolidationLambdaARN,
     ljsInputConfig,
@@ -1700,38 +1700,38 @@ module Network.AWS.SageMaker
     ljsPreHumanTaskLambdaARN,
 
     -- ** MemberDefinition
-    MemberDefinition,
-    memberDefinition,
+    MemberDefinition (..),
+    mkMemberDefinition,
     mdOidcMemberDefinition,
     mdCognitoMemberDefinition,
 
     -- ** MetricData
-    MetricData,
-    metricData,
+    MetricData (..),
+    mkMetricData,
     mdMetricName,
     mdValue,
     mdTimestamp,
 
     -- ** MetricDefinition
-    MetricDefinition,
-    metricDefinition,
+    MetricDefinition (..),
+    mkMetricDefinition,
     mdName,
     mdRegex,
 
     -- ** ModelArtifacts
-    ModelArtifacts,
-    modelArtifacts,
+    ModelArtifacts (..),
+    mkModelArtifacts,
     maS3ModelArtifacts,
 
     -- ** ModelClientConfig
-    ModelClientConfig,
-    modelClientConfig,
+    ModelClientConfig (..),
+    mkModelClientConfig,
     mccInvocationsTimeoutInSeconds,
     mccInvocationsMaxRetries,
 
     -- ** ModelPackageContainerDefinition
-    ModelPackageContainerDefinition,
-    modelPackageContainerDefinition,
+    ModelPackageContainerDefinition (..),
+    mkModelPackageContainerDefinition,
     mpcdModelDataURL,
     mpcdImageDigest,
     mpcdContainerHostname,
@@ -1739,21 +1739,21 @@ module Network.AWS.SageMaker
     mpcdImage,
 
     -- ** ModelPackageStatusDetails
-    ModelPackageStatusDetails,
-    modelPackageStatusDetails,
+    ModelPackageStatusDetails (..),
+    mkModelPackageStatusDetails,
     mpsdImageScanStatuses,
     mpsdValidationStatuses,
 
     -- ** ModelPackageStatusItem
-    ModelPackageStatusItem,
-    modelPackageStatusItem,
+    ModelPackageStatusItem (..),
+    mkModelPackageStatusItem,
     mpsiFailureReason,
     mpsiName,
     mpsiStatus,
 
     -- ** ModelPackageSummary
-    ModelPackageSummary,
-    modelPackageSummary,
+    ModelPackageSummary (..),
+    mkModelPackageSummary,
     mpsModelPackageDescription,
     mpsModelPackageName,
     mpsModelPackageARN,
@@ -1761,27 +1761,27 @@ module Network.AWS.SageMaker
     mpsModelPackageStatus,
 
     -- ** ModelPackageValidationProfile
-    ModelPackageValidationProfile,
-    modelPackageValidationProfile,
+    ModelPackageValidationProfile (..),
+    mkModelPackageValidationProfile,
     mpvpProfileName,
     mpvpTransformJobDefinition,
 
     -- ** ModelPackageValidationSpecification
-    ModelPackageValidationSpecification,
-    modelPackageValidationSpecification,
+    ModelPackageValidationSpecification (..),
+    mkModelPackageValidationSpecification,
     mpvsValidationRole,
     mpvsValidationProfiles,
 
     -- ** ModelSummary
-    ModelSummary,
-    modelSummary,
+    ModelSummary (..),
+    mkModelSummary,
     msModelName,
     msModelARN,
     msCreationTime,
 
     -- ** MonitoringAppSpecification
-    MonitoringAppSpecification,
-    monitoringAppSpecification,
+    MonitoringAppSpecification (..),
+    mkMonitoringAppSpecification,
     masContainerArguments,
     masRecordPreprocessorSourceURI,
     masContainerEntrypoint,
@@ -1789,27 +1789,27 @@ module Network.AWS.SageMaker
     masImageURI,
 
     -- ** MonitoringBaselineConfig
-    MonitoringBaselineConfig,
-    monitoringBaselineConfig,
+    MonitoringBaselineConfig (..),
+    mkMonitoringBaselineConfig,
     mbcConstraintsResource,
     mbcStatisticsResource,
 
     -- ** MonitoringClusterConfig
-    MonitoringClusterConfig,
-    monitoringClusterConfig,
+    MonitoringClusterConfig (..),
+    mkMonitoringClusterConfig,
     mccVolumeKMSKeyId,
     mccInstanceCount,
     mccInstanceType,
     mccVolumeSizeInGB,
 
     -- ** MonitoringConstraintsResource
-    MonitoringConstraintsResource,
-    monitoringConstraintsResource,
+    MonitoringConstraintsResource (..),
+    mkMonitoringConstraintsResource,
     mcrS3URI,
 
     -- ** MonitoringExecutionSummary
-    MonitoringExecutionSummary,
-    monitoringExecutionSummary,
+    MonitoringExecutionSummary (..),
+    mkMonitoringExecutionSummary,
     mesFailureReason,
     mesEndpointName,
     mesProcessingJobARN,
@@ -1820,13 +1820,13 @@ module Network.AWS.SageMaker
     mesMonitoringExecutionStatus,
 
     -- ** MonitoringInput
-    MonitoringInput,
-    monitoringInput,
+    MonitoringInput (..),
+    mkMonitoringInput,
     miEndpointInput,
 
     -- ** MonitoringJobDefinition
-    MonitoringJobDefinition,
-    monitoringJobDefinition,
+    MonitoringJobDefinition (..),
+    mkMonitoringJobDefinition,
     mjdEnvironment,
     mjdStoppingCondition,
     mjdNetworkConfig,
@@ -1838,37 +1838,37 @@ module Network.AWS.SageMaker
     mjdRoleARN,
 
     -- ** MonitoringOutput
-    MonitoringOutput,
-    monitoringOutput,
+    MonitoringOutput (..),
+    mkMonitoringOutput,
     moS3Output,
 
     -- ** MonitoringOutputConfig
-    MonitoringOutputConfig,
-    monitoringOutputConfig,
+    MonitoringOutputConfig (..),
+    mkMonitoringOutputConfig,
     mocKMSKeyId,
     mocMonitoringOutputs,
 
     -- ** MonitoringResources
-    MonitoringResources,
-    monitoringResources,
+    MonitoringResources (..),
+    mkMonitoringResources,
     mrClusterConfig,
 
     -- ** MonitoringS3Output
-    MonitoringS3Output,
-    monitoringS3Output,
+    MonitoringS3Output (..),
+    mkMonitoringS3Output,
     msoS3UploadMode,
     msoS3URI,
     msoLocalPath,
 
     -- ** MonitoringScheduleConfig
-    MonitoringScheduleConfig,
-    monitoringScheduleConfig,
+    MonitoringScheduleConfig (..),
+    mkMonitoringScheduleConfig,
     mscScheduleConfig,
     mscMonitoringJobDefinition,
 
     -- ** MonitoringScheduleSummary
-    MonitoringScheduleSummary,
-    monitoringScheduleSummary,
+    MonitoringScheduleSummary (..),
+    mkMonitoringScheduleSummary,
     mssEndpointName,
     mssMonitoringScheduleName,
     mssMonitoringScheduleARN,
@@ -1877,44 +1877,44 @@ module Network.AWS.SageMaker
     mssMonitoringScheduleStatus,
 
     -- ** MonitoringStatisticsResource
-    MonitoringStatisticsResource,
-    monitoringStatisticsResource,
+    MonitoringStatisticsResource (..),
+    mkMonitoringStatisticsResource,
     msrS3URI,
 
     -- ** MonitoringStoppingCondition
-    MonitoringStoppingCondition,
-    monitoringStoppingCondition,
+    MonitoringStoppingCondition (..),
+    mkMonitoringStoppingCondition,
     mscMaxRuntimeInSeconds,
 
     -- ** NestedFilters
-    NestedFilters,
-    nestedFilters,
+    NestedFilters (..),
+    mkNestedFilters,
     nfNestedPropertyName,
     nfFilters,
 
     -- ** NetworkConfig
-    NetworkConfig,
-    networkConfig,
+    NetworkConfig (..),
+    mkNetworkConfig,
     ncEnableNetworkIsolation,
     ncVPCConfig,
     ncEnableInterContainerTrafficEncryption,
 
     -- ** NotebookInstanceLifecycleConfigSummary
-    NotebookInstanceLifecycleConfigSummary,
-    notebookInstanceLifecycleConfigSummary,
+    NotebookInstanceLifecycleConfigSummary (..),
+    mkNotebookInstanceLifecycleConfigSummary,
     nilcsCreationTime,
     nilcsLastModifiedTime,
     nilcsNotebookInstanceLifecycleConfigName,
     nilcsNotebookInstanceLifecycleConfigARN,
 
     -- ** NotebookInstanceLifecycleHook
-    NotebookInstanceLifecycleHook,
-    notebookInstanceLifecycleHook,
+    NotebookInstanceLifecycleHook (..),
+    mkNotebookInstanceLifecycleHook,
     nilhContent,
 
     -- ** NotebookInstanceSummary
-    NotebookInstanceSummary,
-    notebookInstanceSummary,
+    NotebookInstanceSummary (..),
+    mkNotebookInstanceSummary,
     nisCreationTime,
     nisAdditionalCodeRepositories,
     nisURL,
@@ -1927,20 +1927,20 @@ module Network.AWS.SageMaker
     nisNotebookInstanceARN,
 
     -- ** NotificationConfiguration
-    NotificationConfiguration,
-    notificationConfiguration,
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
     ncNotificationTopicARN,
 
     -- ** ObjectiveStatusCounters
-    ObjectiveStatusCounters,
-    objectiveStatusCounters,
+    ObjectiveStatusCounters (..),
+    mkObjectiveStatusCounters,
     oscPending,
     oscSucceeded,
     oscFailed,
 
     -- ** OidcConfig
-    OidcConfig,
-    oidcConfig,
+    OidcConfig (..),
+    mkOidcConfig,
     ocClientId,
     ocClientSecret,
     ocIssuer,
@@ -1951,8 +1951,8 @@ module Network.AWS.SageMaker
     ocJwksURI,
 
     -- ** OidcConfigForResponse
-    OidcConfigForResponse,
-    oidcConfigForResponse,
+    OidcConfigForResponse (..),
+    mkOidcConfigForResponse,
     ocfClientId,
     ocfJwksURI,
     ocfUserInfoEndpoint,
@@ -1962,66 +1962,66 @@ module Network.AWS.SageMaker
     ocfLogoutEndpoint,
 
     -- ** OidcMemberDefinition
-    OidcMemberDefinition,
-    oidcMemberDefinition,
+    OidcMemberDefinition (..),
+    mkOidcMemberDefinition,
     omdGroups,
 
     -- ** OutputConfig
-    OutputConfig,
-    outputConfig,
+    OutputConfig (..),
+    mkOutputConfig,
     ocTargetPlatform,
     ocCompilerOptions,
     ocTargetDevice,
     ocS3OutputLocation,
 
     -- ** OutputDataConfig
-    OutputDataConfig,
-    outputDataConfig,
+    OutputDataConfig (..),
+    mkOutputDataConfig,
     odcKMSKeyId,
     odcS3OutputPath,
 
     -- ** ParameterRange
-    ParameterRange,
-    parameterRange,
+    ParameterRange (..),
+    mkParameterRange,
     prCategoricalParameterRangeSpecification,
     prIntegerParameterRangeSpecification,
     prContinuousParameterRangeSpecification,
 
     -- ** ParameterRanges
-    ParameterRanges,
-    parameterRanges,
+    ParameterRanges (..),
+    mkParameterRanges,
     prCategoricalParameterRanges,
     prIntegerParameterRanges,
     prContinuousParameterRanges,
 
     -- ** Parent
-    Parent,
-    parent,
+    Parent (..),
+    mkParent,
     pExperimentName,
     pTrialName,
 
     -- ** ParentHyperParameterTuningJob
-    ParentHyperParameterTuningJob,
-    parentHyperParameterTuningJob,
+    ParentHyperParameterTuningJob (..),
+    mkParentHyperParameterTuningJob,
     phptjHyperParameterTuningJobName,
 
     -- ** ProcessingClusterConfig
-    ProcessingClusterConfig,
-    processingClusterConfig,
+    ProcessingClusterConfig (..),
+    mkProcessingClusterConfig,
     pccVolumeKMSKeyId,
     pccInstanceCount,
     pccInstanceType,
     pccVolumeSizeInGB,
 
     -- ** ProcessingInput
-    ProcessingInput,
-    processingInput,
+    ProcessingInput (..),
+    mkProcessingInput,
     piInputName,
     piS3Input,
 
     -- ** ProcessingJob
-    ProcessingJob,
-    processingJob,
+    ProcessingJob (..),
+    mkProcessingJob,
     pjCreationTime,
     pjFailureReason,
     pjMonitoringScheduleARN,
@@ -2046,8 +2046,8 @@ module Network.AWS.SageMaker
     pjRoleARN,
 
     -- ** ProcessingJobSummary
-    ProcessingJobSummary,
-    processingJobSummary,
+    ProcessingJobSummary (..),
+    mkProcessingJobSummary,
     pjsFailureReason,
     pjsLastModifiedTime,
     pjsExitMessage,
@@ -2058,25 +2058,25 @@ module Network.AWS.SageMaker
     pjsProcessingJobStatus,
 
     -- ** ProcessingOutput
-    ProcessingOutput,
-    processingOutput,
+    ProcessingOutput (..),
+    mkProcessingOutput,
     poOutputName,
     poS3Output,
 
     -- ** ProcessingOutputConfig
-    ProcessingOutputConfig,
-    processingOutputConfig,
+    ProcessingOutputConfig (..),
+    mkProcessingOutputConfig,
     pocKMSKeyId,
     pocOutputs,
 
     -- ** ProcessingResources
-    ProcessingResources,
-    processingResources,
+    ProcessingResources (..),
+    mkProcessingResources,
     prClusterConfig,
 
     -- ** ProcessingS3Input
-    ProcessingS3Input,
-    processingS3Input,
+    ProcessingS3Input (..),
+    mkProcessingS3Input,
     psiS3DataDistributionType,
     psiS3CompressionType,
     psiS3URI,
@@ -2085,20 +2085,20 @@ module Network.AWS.SageMaker
     psiS3InputMode,
 
     -- ** ProcessingS3Output
-    ProcessingS3Output,
-    processingS3Output,
+    ProcessingS3Output (..),
+    mkProcessingS3Output,
     psoS3URI,
     psoLocalPath,
     psoS3UploadMode,
 
     -- ** ProcessingStoppingCondition
-    ProcessingStoppingCondition,
-    processingStoppingCondition,
+    ProcessingStoppingCondition (..),
+    mkProcessingStoppingCondition,
     pscMaxRuntimeInSeconds,
 
     -- ** ProductionVariant
-    ProductionVariant,
-    productionVariant,
+    ProductionVariant (..),
+    mkProductionVariant,
     pvAcceleratorType,
     pvInitialVariantWeight,
     pvVariantName,
@@ -2107,8 +2107,8 @@ module Network.AWS.SageMaker
     pvInstanceType,
 
     -- ** ProductionVariantSummary
-    ProductionVariantSummary,
-    productionVariantSummary,
+    ProductionVariantSummary (..),
+    mkProductionVariantSummary,
     pvsDesiredInstanceCount,
     pvsDesiredWeight,
     pvsCurrentWeight,
@@ -2117,138 +2117,138 @@ module Network.AWS.SageMaker
     pvsVariantName,
 
     -- ** PropertyNameQuery
-    PropertyNameQuery,
-    propertyNameQuery,
+    PropertyNameQuery (..),
+    mkPropertyNameQuery,
     pnqPropertyNameHint,
 
     -- ** PropertyNameSuggestion
-    PropertyNameSuggestion,
-    propertyNameSuggestion,
+    PropertyNameSuggestion (..),
+    mkPropertyNameSuggestion,
     pnsPropertyName,
 
     -- ** PublicWorkforceTaskPrice
-    PublicWorkforceTaskPrice,
-    publicWorkforceTaskPrice,
+    PublicWorkforceTaskPrice (..),
+    mkPublicWorkforceTaskPrice,
     pwtpAmountInUsd,
 
     -- ** RenderableTask
-    RenderableTask,
-    renderableTask,
+    RenderableTask (..),
+    mkRenderableTask,
     rtInput,
 
     -- ** RenderingError
-    RenderingError,
-    renderingError,
+    RenderingError (..),
+    mkRenderingError,
     reCode,
     reMessage,
 
     -- ** ResolvedAttributes
-    ResolvedAttributes,
-    resolvedAttributes,
+    ResolvedAttributes (..),
+    mkResolvedAttributes,
     raProblemType,
     raAutoMLJobObjective,
     raCompletionCriteria,
 
     -- ** ResourceConfig
-    ResourceConfig,
-    resourceConfig,
+    ResourceConfig (..),
+    mkResourceConfig,
     rcVolumeKMSKeyId,
     rcInstanceType,
     rcInstanceCount,
     rcVolumeSizeInGB,
 
     -- ** ResourceLimits
-    ResourceLimits,
-    resourceLimits,
+    ResourceLimits (..),
+    mkResourceLimits,
     rlMaxNumberOfTrainingJobs,
     rlMaxParallelTrainingJobs,
 
     -- ** ResourceSpec
-    ResourceSpec,
-    resourceSpec,
+    ResourceSpec (..),
+    mkResourceSpec,
     rsInstanceType,
     rsSageMakerImageARN,
     rsSageMakerImageVersionARN,
 
     -- ** RetentionPolicy
-    RetentionPolicy,
-    retentionPolicy,
+    RetentionPolicy (..),
+    mkRetentionPolicy,
     rpHomeEfsFileSystem,
 
     -- ** S3DataSource
-    S3DataSource,
-    s3DataSource,
+    S3DataSource (..),
+    mkS3DataSource,
     sdsS3DataDistributionType,
     sdsAttributeNames,
     sdsS3DataType,
     sdsS3URI,
 
     -- ** ScheduleConfig
-    ScheduleConfig,
-    scheduleConfig,
+    ScheduleConfig (..),
+    mkScheduleConfig,
     scScheduleExpression,
 
     -- ** SearchExpression
-    SearchExpression,
-    searchExpression,
+    SearchExpression (..),
+    mkSearchExpression,
     seSubExpressions,
     seOperator,
     seFilters,
     seNestedFilters,
 
     -- ** SearchRecord
-    SearchRecord,
-    searchRecord,
+    SearchRecord (..),
+    mkSearchRecord,
     srTrainingJob,
     srTrial,
     srTrialComponent,
     srExperiment,
 
     -- ** SecondaryStatusTransition
-    SecondaryStatusTransition,
-    secondaryStatusTransition,
+    SecondaryStatusTransition (..),
+    mkSecondaryStatusTransition,
     sstStatusMessage,
     sstEndTime,
     sstStatus,
     sstStartTime,
 
     -- ** SharingSettings
-    SharingSettings,
-    sharingSettings,
+    SharingSettings (..),
+    mkSharingSettings,
     ssS3KMSKeyId,
     ssS3OutputPath,
     ssNotebookOutputOption,
 
     -- ** ShuffleConfig
-    ShuffleConfig,
-    shuffleConfig,
+    ShuffleConfig (..),
+    mkShuffleConfig,
     scSeed,
 
     -- ** SourceAlgorithm
-    SourceAlgorithm,
-    sourceAlgorithm,
+    SourceAlgorithm (..),
+    mkSourceAlgorithm,
     saModelDataURL,
     saAlgorithmName,
 
     -- ** SourceAlgorithmSpecification
-    SourceAlgorithmSpecification,
-    sourceAlgorithmSpecification,
+    SourceAlgorithmSpecification (..),
+    mkSourceAlgorithmSpecification,
     sasSourceAlgorithms,
 
     -- ** SourceIPConfig
-    SourceIPConfig,
-    sourceIPConfig,
+    SourceIPConfig (..),
+    mkSourceIPConfig,
     sicCidrs,
 
     -- ** StoppingCondition
-    StoppingCondition,
-    stoppingCondition,
+    StoppingCondition (..),
+    mkStoppingCondition,
     scMaxWaitTimeInSeconds,
     scMaxRuntimeInSeconds,
 
     -- ** SubscribedWorkteam
-    SubscribedWorkteam,
-    subscribedWorkteam,
+    SubscribedWorkteam (..),
+    mkSubscribedWorkteam,
     swMarketplaceTitle,
     swSellerName,
     swListingId,
@@ -2256,37 +2256,37 @@ module Network.AWS.SageMaker
     swWorkteamARN,
 
     -- ** SuggestionQuery
-    SuggestionQuery,
-    suggestionQuery,
+    SuggestionQuery (..),
+    mkSuggestionQuery,
     sqPropertyNameQuery,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TargetPlatform
-    TargetPlatform,
-    targetPlatform,
+    TargetPlatform (..),
+    mkTargetPlatform,
     tpAccelerator,
     tpOS,
     tpArch,
 
     -- ** TensorBoardAppSettings
-    TensorBoardAppSettings,
-    tensorBoardAppSettings,
+    TensorBoardAppSettings (..),
+    mkTensorBoardAppSettings,
     tbasDefaultResourceSpec,
 
     -- ** TensorBoardOutputConfig
-    TensorBoardOutputConfig,
-    tensorBoardOutputConfig,
+    TensorBoardOutputConfig (..),
+    mkTensorBoardOutputConfig,
     tbocLocalPath,
     tbocS3OutputPath,
 
     -- ** TrainingJob
-    TrainingJob,
-    trainingJob,
+    TrainingJob (..),
+    mkTrainingJob,
     tjCreationTime,
     tjLabelingJobARN,
     tjFailureReason,
@@ -2324,8 +2324,8 @@ module Network.AWS.SageMaker
     tjRoleARN,
 
     -- ** TrainingJobDefinition
-    TrainingJobDefinition,
-    trainingJobDefinition,
+    TrainingJobDefinition (..),
+    mkTrainingJobDefinition,
     tjdHyperParameters,
     tjdTrainingInputMode,
     tjdInputDataConfig,
@@ -2334,8 +2334,8 @@ module Network.AWS.SageMaker
     tjdStoppingCondition,
 
     -- ** TrainingJobStatusCounters
-    TrainingJobStatusCounters,
-    trainingJobStatusCounters,
+    TrainingJobStatusCounters (..),
+    mkTrainingJobStatusCounters,
     tjscStopped,
     tjscRetryableError,
     tjscInProgress,
@@ -2343,8 +2343,8 @@ module Network.AWS.SageMaker
     tjscCompleted,
 
     -- ** TrainingJobSummary
-    TrainingJobSummary,
-    trainingJobSummary,
+    TrainingJobSummary (..),
+    mkTrainingJobSummary,
     tjsjTrainingEndTime,
     tjsjLastModifiedTime,
     tjsjTrainingJobName,
@@ -2353,8 +2353,8 @@ module Network.AWS.SageMaker
     tjsjTrainingJobStatus,
 
     -- ** TrainingSpecification
-    TrainingSpecification,
-    trainingSpecification,
+    TrainingSpecification (..),
+    mkTrainingSpecification,
     tsTrainingImageDigest,
     tsSupportsDistributedTraining,
     tsSupportedHyperParameters,
@@ -2365,21 +2365,21 @@ module Network.AWS.SageMaker
     tsTrainingChannels,
 
     -- ** TransformDataSource
-    TransformDataSource,
-    transformDataSource,
+    TransformDataSource (..),
+    mkTransformDataSource,
     tdsS3DataSource,
 
     -- ** TransformInput
-    TransformInput,
-    transformInput,
+    TransformInput (..),
+    mkTransformInput,
     tiSplitType,
     tiCompressionType,
     tiContentType,
     tiDataSource,
 
     -- ** TransformJob
-    TransformJob,
-    transformJob,
+    TransformJob (..),
+    mkTransformJob,
     traCreationTime,
     traLabelingJobARN,
     traTransformJobName,
@@ -2403,8 +2403,8 @@ module Network.AWS.SageMaker
     traTags,
 
     -- ** TransformJobDefinition
-    TransformJobDefinition,
-    transformJobDefinition,
+    TransformJobDefinition (..),
+    mkTransformJobDefinition,
     tjdBatchStrategy,
     tjdMaxPayloadInMB,
     tjdEnvironment,
@@ -2414,8 +2414,8 @@ module Network.AWS.SageMaker
     tjdTransformResources,
 
     -- ** TransformJobSummary
-    TransformJobSummary,
-    transformJobSummary,
+    TransformJobSummary (..),
+    mkTransformJobSummary,
     tjsFailureReason,
     tjsLastModifiedTime,
     tjsTransformEndTime,
@@ -2425,29 +2425,29 @@ module Network.AWS.SageMaker
     tjsTransformJobStatus,
 
     -- ** TransformOutput
-    TransformOutput,
-    transformOutput,
+    TransformOutput (..),
+    mkTransformOutput,
     toAssembleWith,
     toAccept,
     toKMSKeyId,
     toS3OutputPath,
 
     -- ** TransformResources
-    TransformResources,
-    transformResources,
+    TransformResources (..),
+    mkTransformResources,
     trVolumeKMSKeyId,
     trInstanceType,
     trInstanceCount,
 
     -- ** TransformS3DataSource
-    TransformS3DataSource,
-    transformS3DataSource,
+    TransformS3DataSource (..),
+    mkTransformS3DataSource,
     tsdsS3DataType,
     tsdsS3URI,
 
     -- ** Trial
-    Trial,
-    trial,
+    Trial (..),
+    mkTrial,
     tCreationTime,
     tTrialComponentSummaries,
     tTrialARN,
@@ -2461,8 +2461,8 @@ module Network.AWS.SageMaker
     tTags,
 
     -- ** TrialComponent
-    TrialComponent,
-    trialComponent,
+    TrialComponent (..),
+    mkTrialComponent,
     tcCreationTime,
     tcStatus,
     tcSourceDetail,
@@ -2483,14 +2483,14 @@ module Network.AWS.SageMaker
     tcTags,
 
     -- ** TrialComponentArtifact
-    TrialComponentArtifact,
-    trialComponentArtifact,
+    TrialComponentArtifact (..),
+    mkTrialComponentArtifact,
     tcaMediaType,
     tcaValue,
 
     -- ** TrialComponentMetricSummary
-    TrialComponentMetricSummary,
-    trialComponentMetricSummary,
+    TrialComponentMetricSummary (..),
+    mkTrialComponentMetricSummary,
     tcmsMax,
     tcmsSourceARN,
     tcmsAvg,
@@ -2502,14 +2502,14 @@ module Network.AWS.SageMaker
     tcmsTimeStamp,
 
     -- ** TrialComponentParameterValue
-    TrialComponentParameterValue,
-    trialComponentParameterValue,
+    TrialComponentParameterValue (..),
+    mkTrialComponentParameterValue,
     tcpvNumberValue,
     tcpvStringValue,
 
     -- ** TrialComponentSimpleSummary
-    TrialComponentSimpleSummary,
-    trialComponentSimpleSummary,
+    TrialComponentSimpleSummary (..),
+    mkTrialComponentSimpleSummary,
     tcssCreationTime,
     tcssCreatedBy,
     tcssTrialComponentName,
@@ -2517,28 +2517,28 @@ module Network.AWS.SageMaker
     tcssTrialComponentSource,
 
     -- ** TrialComponentSource
-    TrialComponentSource,
-    trialComponentSource,
+    TrialComponentSource (..),
+    mkTrialComponentSource,
     tcsSourceType,
     tcsSourceARN,
 
     -- ** TrialComponentSourceDetail
-    TrialComponentSourceDetail,
-    trialComponentSourceDetail,
+    TrialComponentSourceDetail (..),
+    mkTrialComponentSourceDetail,
     tcsdTrainingJob,
     tcsdSourceARN,
     tcsdProcessingJob,
     tcsdTransformJob,
 
     -- ** TrialComponentStatus
-    TrialComponentStatus,
-    trialComponentStatus,
+    TrialComponentStatus (..),
+    mkTrialComponentStatus,
     tcsPrimaryStatus,
     tcsMessage,
 
     -- ** TrialComponentSummary
-    TrialComponentSummary,
-    trialComponentSummary,
+    TrialComponentSummary (..),
+    mkTrialComponentSummary,
     tcsCreationTime,
     tcsStatus,
     tcsStartTime,
@@ -2552,14 +2552,14 @@ module Network.AWS.SageMaker
     tcsTrialComponentSource,
 
     -- ** TrialSource
-    TrialSource,
-    trialSource,
+    TrialSource (..),
+    mkTrialSource,
     tsSourceType,
     tsSourceARN,
 
     -- ** TrialSummary
-    TrialSummary,
-    trialSummary,
+    TrialSummary (..),
+    mkTrialSummary,
     tsCreationTime,
     tsTrialARN,
     tsLastModifiedTime,
@@ -2568,44 +2568,44 @@ module Network.AWS.SageMaker
     tsTrialName,
 
     -- ** TuningJobCompletionCriteria
-    TuningJobCompletionCriteria,
-    tuningJobCompletionCriteria,
+    TuningJobCompletionCriteria (..),
+    mkTuningJobCompletionCriteria,
     tjccTargetObjectiveMetricValue,
 
     -- ** USD
-    USD,
-    uSD,
+    USD (..),
+    mkUSD,
     usdCents,
     usdDollars,
     usdTenthFractionsOfACent,
 
     -- ** UiConfig
-    UiConfig,
-    uiConfig,
+    UiConfig (..),
+    mkUiConfig,
     ucUiTemplateS3URI,
     ucHumanTaskUiARN,
 
     -- ** UiTemplate
-    UiTemplate,
-    uiTemplate,
+    UiTemplate (..),
+    mkUiTemplate,
     utContent,
 
     -- ** UiTemplateInfo
-    UiTemplateInfo,
-    uiTemplateInfo,
+    UiTemplateInfo (..),
+    mkUiTemplateInfo,
     utiURL,
     utiContentSha256,
 
     -- ** UserContext
-    UserContext,
-    userContext,
+    UserContext (..),
+    mkUserContext,
     ucUserProfileName,
     ucUserProfileARN,
     ucDomainId,
 
     -- ** UserProfileDetails
-    UserProfileDetails,
-    userProfileDetails,
+    UserProfileDetails (..),
+    mkUserProfileDetails,
     updCreationTime,
     updStatus,
     updUserProfileName,
@@ -2613,8 +2613,8 @@ module Network.AWS.SageMaker
     updDomainId,
 
     -- ** UserSettings
-    UserSettings,
-    userSettings,
+    UserSettings (..),
+    mkUserSettings,
     usTensorBoardAppSettings,
     usKernelGatewayAppSettings,
     usSecurityGroups,
@@ -2623,19 +2623,19 @@ module Network.AWS.SageMaker
     usExecutionRole,
 
     -- ** VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vcSecurityGroupIds,
     vcSubnets,
 
     -- ** VariantProperty
-    VariantProperty,
-    variantProperty,
+    VariantProperty (..),
+    mkVariantProperty,
     vpVariantPropertyType,
 
     -- ** Workforce
-    Workforce,
-    workforce,
+    Workforce (..),
+    mkWorkforce,
     wSubDomain,
     wCreateDate,
     wSourceIPConfig,
@@ -2646,8 +2646,8 @@ module Network.AWS.SageMaker
     wWorkforceARN,
 
     -- ** Workteam
-    Workteam,
-    workteam,
+    Workteam (..),
+    mkWorkteam,
     worSubDomain,
     worProductListingIds,
     worNotificationConfiguration,
@@ -2658,9 +2658,21 @@ module Network.AWS.SageMaker
     worMemberDefinitions,
     worWorkteamARN,
     worDescription,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.AddTags
 import Network.AWS.SageMaker.AssociateTrialComponent
 import Network.AWS.SageMaker.CreateAlgorithm

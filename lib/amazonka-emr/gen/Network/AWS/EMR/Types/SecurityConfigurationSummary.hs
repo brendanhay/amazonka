@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.SecurityConfigurationSummary where
+module Network.AWS.EMR.Types.SecurityConfigurationSummary
+  ( SecurityConfigurationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSecurityConfigurationSummary,
+
+    -- * Lenses
+    scsName,
+    scsCreationDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The creation date and time, and name, of a security configuration.
 --
---
---
--- /See:/ 'securityConfigurationSummary' smart constructor.
+-- /See:/ 'mkSecurityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-  { _scsName ::
-      !(Maybe Text),
-    _scsCreationDateTime ::
-      !(Maybe POSIX)
+  { name ::
+      Lude.Maybe Lude.Text,
+    creationDateTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityConfigurationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scsName' - The name of the security configuration.
---
--- * 'scsCreationDateTime' - The date and time the security configuration was created.
-securityConfigurationSummary ::
+-- * 'creationDateTime' - The date and time the security configuration was created.
+-- * 'name' - The name of the security configuration.
+mkSecurityConfigurationSummary ::
   SecurityConfigurationSummary
-securityConfigurationSummary =
+mkSecurityConfigurationSummary =
   SecurityConfigurationSummary'
-    { _scsName = Nothing,
-      _scsCreationDateTime = Nothing
+    { name = Lude.Nothing,
+      creationDateTime = Lude.Nothing
     }
 
 -- | The name of the security configuration.
-scsName :: Lens' SecurityConfigurationSummary (Maybe Text)
-scsName = lens _scsName (\s a -> s {_scsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsName :: Lens.Lens' SecurityConfigurationSummary (Lude.Maybe Lude.Text)
+scsName = Lens.lens (name :: SecurityConfigurationSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SecurityConfigurationSummary)
+{-# DEPRECATED scsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date and time the security configuration was created.
-scsCreationDateTime :: Lens' SecurityConfigurationSummary (Maybe UTCTime)
-scsCreationDateTime = lens _scsCreationDateTime (\s a -> s {_scsCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsCreationDateTime :: Lens.Lens' SecurityConfigurationSummary (Lude.Maybe Lude.Timestamp)
+scsCreationDateTime = Lens.lens (creationDateTime :: SecurityConfigurationSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: SecurityConfigurationSummary)
+{-# DEPRECATED scsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
-instance FromJSON SecurityConfigurationSummary where
+instance Lude.FromJSON SecurityConfigurationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SecurityConfigurationSummary"
       ( \x ->
           SecurityConfigurationSummary'
-            <$> (x .:? "Name") <*> (x .:? "CreationDateTime")
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "CreationDateTime")
       )
-
-instance Hashable SecurityConfigurationSummary
-
-instance NFData SecurityConfigurationSummary

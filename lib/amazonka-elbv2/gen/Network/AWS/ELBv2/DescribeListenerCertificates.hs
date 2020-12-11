@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,25 @@
 --
 -- Describes the default certificate and the certificate list for the specified HTTPS or TLS listener.
 --
---
 -- If the default certificate is also in the certificate list, it appears twice in the results (once with @IsDefault@ set to true and once with @IsDefault@ set to false).
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates SSL certificates> in the /Application Load Balancers Guide/ or <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate Server certificates> in the /Network Load Balancers Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeListenerCertificates
-  ( -- * Creating a Request
-    describeListenerCertificates,
-    DescribeListenerCertificates,
+  ( -- * Creating a request
+    DescribeListenerCertificates (..),
+    mkDescribeListenerCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlcMarker,
     dlcPageSize,
     dlcListenerARN,
 
-    -- * Destructuring the Response
-    describeListenerCertificatesResponse,
-    DescribeListenerCertificatesResponse,
+    -- * Destructuring the response
+    DescribeListenerCertificatesResponse (..),
+    mkDescribeListenerCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlcrsCertificates,
     dlcrsNextMarker,
     dlcrsResponseStatus,
@@ -48,138 +40,163 @@ module Network.AWS.ELBv2.DescribeListenerCertificates
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeListenerCertificates' smart constructor.
+-- | /See:/ 'mkDescribeListenerCertificates' smart constructor.
 data DescribeListenerCertificates = DescribeListenerCertificates'
-  { _dlcMarker ::
-      !(Maybe Text),
-    _dlcPageSize :: !(Maybe Nat),
-    _dlcListenerARN :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    pageSize ::
+      Lude.Maybe Lude.Natural,
+    listenerARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListenerCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcMarker' - The marker for the next set of results. (You received this marker from a previous call.)
---
--- * 'dlcPageSize' - The maximum number of results to return with this call.
---
--- * 'dlcListenerARN' - The Amazon Resource Names (ARN) of the listener.
-describeListenerCertificates ::
-  -- | 'dlcListenerARN'
-  Text ->
+-- * 'listenerARN' - The Amazon Resource Names (ARN) of the listener.
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'pageSize' - The maximum number of results to return with this call.
+mkDescribeListenerCertificates ::
+  -- | 'listenerARN'
+  Lude.Text ->
   DescribeListenerCertificates
-describeListenerCertificates pListenerARN_ =
+mkDescribeListenerCertificates pListenerARN_ =
   DescribeListenerCertificates'
-    { _dlcMarker = Nothing,
-      _dlcPageSize = Nothing,
-      _dlcListenerARN = pListenerARN_
+    { marker = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      listenerARN = pListenerARN_
     }
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
-dlcMarker :: Lens' DescribeListenerCertificates (Maybe Text)
-dlcMarker = lens _dlcMarker (\s a -> s {_dlcMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcMarker :: Lens.Lens' DescribeListenerCertificates (Lude.Maybe Lude.Text)
+dlcMarker = Lens.lens (marker :: DescribeListenerCertificates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeListenerCertificates)
+{-# DEPRECATED dlcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of results to return with this call.
-dlcPageSize :: Lens' DescribeListenerCertificates (Maybe Natural)
-dlcPageSize = lens _dlcPageSize (\s a -> s {_dlcPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcPageSize :: Lens.Lens' DescribeListenerCertificates (Lude.Maybe Lude.Natural)
+dlcPageSize = Lens.lens (pageSize :: DescribeListenerCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeListenerCertificates)
+{-# DEPRECATED dlcPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The Amazon Resource Names (ARN) of the listener.
-dlcListenerARN :: Lens' DescribeListenerCertificates Text
-dlcListenerARN = lens _dlcListenerARN (\s a -> s {_dlcListenerARN = a})
+--
+-- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcListenerARN :: Lens.Lens' DescribeListenerCertificates Lude.Text
+dlcListenerARN = Lens.lens (listenerARN :: DescribeListenerCertificates -> Lude.Text) (\s a -> s {listenerARN = a} :: DescribeListenerCertificates)
+{-# DEPRECATED dlcListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
 
-instance AWSPager DescribeListenerCertificates where
+instance Page.AWSPager DescribeListenerCertificates where
   page rq rs
-    | stop (rs ^. dlcrsNextMarker) = Nothing
-    | stop (rs ^. dlcrsCertificates) = Nothing
-    | otherwise = Just $ rq & dlcMarker .~ rs ^. dlcrsNextMarker
+    | Page.stop (rs Lens.^. dlcrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlcrsCertificates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dlcMarker Lens..~ rs Lens.^. dlcrsNextMarker
 
-instance AWSRequest DescribeListenerCertificates where
+instance Lude.AWSRequest DescribeListenerCertificates where
   type
     Rs DescribeListenerCertificates =
       DescribeListenerCertificatesResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeListenerCertificatesResult"
       ( \s h x ->
           DescribeListenerCertificatesResponse'
-            <$> (x .@? "Certificates" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Certificates" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeListenerCertificates
+instance Lude.ToHeaders DescribeListenerCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeListenerCertificates
+instance Lude.ToPath DescribeListenerCertificates where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeListenerCertificates where
-  toHeaders = const mempty
-
-instance ToPath DescribeListenerCertificates where
-  toPath = const "/"
-
-instance ToQuery DescribeListenerCertificates where
+instance Lude.ToQuery DescribeListenerCertificates where
   toQuery DescribeListenerCertificates' {..} =
-    mconcat
-      [ "Action" =: ("DescribeListenerCertificates" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Marker" =: _dlcMarker,
-        "PageSize" =: _dlcPageSize,
-        "ListenerArn" =: _dlcListenerARN
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeListenerCertificates" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "PageSize" Lude.=: pageSize,
+        "ListenerArn" Lude.=: listenerARN
       ]
 
--- | /See:/ 'describeListenerCertificatesResponse' smart constructor.
+-- | /See:/ 'mkDescribeListenerCertificatesResponse' smart constructor.
 data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse'
-  { _dlcrsCertificates ::
-      !( Maybe
-           [Certificate]
-       ),
-    _dlcrsNextMarker ::
-      !(Maybe Text),
-    _dlcrsResponseStatus ::
-      !Int
+  { certificates ::
+      Lude.Maybe
+        [Certificate],
+    nextMarker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListenerCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcrsCertificates' - Information about the certificates.
---
--- * 'dlcrsNextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
---
--- * 'dlcrsResponseStatus' - -- | The response status code.
-describeListenerCertificatesResponse ::
-  -- | 'dlcrsResponseStatus'
-  Int ->
+-- * 'certificates' - Information about the certificates.
+-- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+-- * 'responseStatus' - The response status code.
+mkDescribeListenerCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeListenerCertificatesResponse
-describeListenerCertificatesResponse pResponseStatus_ =
+mkDescribeListenerCertificatesResponse pResponseStatus_ =
   DescribeListenerCertificatesResponse'
-    { _dlcrsCertificates =
-        Nothing,
-      _dlcrsNextMarker = Nothing,
-      _dlcrsResponseStatus = pResponseStatus_
+    { certificates =
+        Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the certificates.
-dlcrsCertificates :: Lens' DescribeListenerCertificatesResponse [Certificate]
-dlcrsCertificates = lens _dlcrsCertificates (\s a -> s {_dlcrsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsCertificates :: Lens.Lens' DescribeListenerCertificatesResponse (Lude.Maybe [Certificate])
+dlcrsCertificates = Lens.lens (certificates :: DescribeListenerCertificatesResponse -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: DescribeListenerCertificatesResponse)
+{-# DEPRECATED dlcrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
-dlcrsNextMarker :: Lens' DescribeListenerCertificatesResponse (Maybe Text)
-dlcrsNextMarker = lens _dlcrsNextMarker (\s a -> s {_dlcrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsNextMarker :: Lens.Lens' DescribeListenerCertificatesResponse (Lude.Maybe Lude.Text)
+dlcrsNextMarker = Lens.lens (nextMarker :: DescribeListenerCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeListenerCertificatesResponse)
+{-# DEPRECATED dlcrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-dlcrsResponseStatus :: Lens' DescribeListenerCertificatesResponse Int
-dlcrsResponseStatus = lens _dlcrsResponseStatus (\s a -> s {_dlcrsResponseStatus = a})
-
-instance NFData DescribeListenerCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsResponseStatus :: Lens.Lens' DescribeListenerCertificatesResponse Lude.Int
+dlcrsResponseStatus = Lens.lens (responseStatus :: DescribeListenerCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeListenerCertificatesResponse)
+{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

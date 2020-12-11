@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus where
+module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
+  ( ApplicationVersionStatus
+      ( ApplicationVersionStatus',
+        AVSBuilding,
+        AVSFailed,
+        AVSProcessed,
+        AVSProcessing,
+        AVSUnprocessed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApplicationVersionStatus
-  = AVSBuilding
-  | AVSFailed
-  | AVSProcessed
-  | AVSProcessing
-  | AVSUnprocessed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApplicationVersionStatus = ApplicationVersionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApplicationVersionStatus where
-  parser =
-    takeLowerText >>= \case
-      "building" -> pure AVSBuilding
-      "failed" -> pure AVSFailed
-      "processed" -> pure AVSProcessed
-      "processing" -> pure AVSProcessing
-      "unprocessed" -> pure AVSUnprocessed
-      e ->
-        fromTextError $
-          "Failure parsing ApplicationVersionStatus from value: '" <> e
-            <> "'. Accepted values: building, failed, processed, processing, unprocessed"
+pattern AVSBuilding :: ApplicationVersionStatus
+pattern AVSBuilding = ApplicationVersionStatus' "Building"
 
-instance ToText ApplicationVersionStatus where
-  toText = \case
-    AVSBuilding -> "Building"
-    AVSFailed -> "Failed"
-    AVSProcessed -> "Processed"
-    AVSProcessing -> "Processing"
-    AVSUnprocessed -> "Unprocessed"
+pattern AVSFailed :: ApplicationVersionStatus
+pattern AVSFailed = ApplicationVersionStatus' "Failed"
 
-instance Hashable ApplicationVersionStatus
+pattern AVSProcessed :: ApplicationVersionStatus
+pattern AVSProcessed = ApplicationVersionStatus' "Processed"
 
-instance NFData ApplicationVersionStatus
+pattern AVSProcessing :: ApplicationVersionStatus
+pattern AVSProcessing = ApplicationVersionStatus' "Processing"
 
-instance ToByteString ApplicationVersionStatus
+pattern AVSUnprocessed :: ApplicationVersionStatus
+pattern AVSUnprocessed = ApplicationVersionStatus' "Unprocessed"
 
-instance ToQuery ApplicationVersionStatus
-
-instance ToHeader ApplicationVersionStatus
-
-instance FromXML ApplicationVersionStatus where
-  parseXML = parseXMLText "ApplicationVersionStatus"
+{-# COMPLETE
+  AVSBuilding,
+  AVSFailed,
+  AVSProcessed,
+  AVSProcessing,
+  AVSUnprocessed,
+  ApplicationVersionStatus'
+  #-}

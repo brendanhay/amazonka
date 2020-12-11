@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.ItemSelection where
+module Network.AWS.CloudFront.Types.ItemSelection
+  ( ItemSelection
+      ( ItemSelection',
+        ISAll,
+        ISNone,
+        ISWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ItemSelection
-  = ISAll
-  | ISNone
-  | ISWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ItemSelection = ItemSelection' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ItemSelection where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure ISAll
-      "none" -> pure ISNone
-      "whitelist" -> pure ISWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing ItemSelection from value: '" <> e
-            <> "'. Accepted values: all, none, whitelist"
+pattern ISAll :: ItemSelection
+pattern ISAll = ItemSelection' "all"
 
-instance ToText ItemSelection where
-  toText = \case
-    ISAll -> "all"
-    ISNone -> "none"
-    ISWhitelist -> "whitelist"
+pattern ISNone :: ItemSelection
+pattern ISNone = ItemSelection' "none"
 
-instance Hashable ItemSelection
+pattern ISWhitelist :: ItemSelection
+pattern ISWhitelist = ItemSelection' "whitelist"
 
-instance NFData ItemSelection
-
-instance ToByteString ItemSelection
-
-instance ToQuery ItemSelection
-
-instance ToHeader ItemSelection
-
-instance FromXML ItemSelection where
-  parseXML = parseXMLText "ItemSelection"
-
-instance ToXML ItemSelection where
-  toXML = toXMLText
+{-# COMPLETE
+  ISAll,
+  ISNone,
+  ISWhitelist,
+  ItemSelection'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.LayerFailure where
+module Network.AWS.ECR.Types.LayerFailure
+  ( LayerFailure (..),
+
+    -- * Smart constructor
+    mkLayerFailure,
+
+    -- * Lenses
+    lfFailureReason,
+    lfFailureCode,
+    lfLayerDigest,
+  )
+where
 
 import Network.AWS.ECR.Types.LayerFailureCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing an Amazon ECR image layer failure.
 --
---
---
--- /See:/ 'layerFailure' smart constructor.
+-- /See:/ 'mkLayerFailure' smart constructor.
 data LayerFailure = LayerFailure'
-  { _lfFailureReason ::
-      !(Maybe Text),
-    _lfFailureCode :: !(Maybe LayerFailureCode),
-    _lfLayerDigest :: !(Maybe Text)
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    failureCode :: Lude.Maybe LayerFailureCode,
+    layerDigest :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LayerFailure' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfFailureReason' - The reason for the failure.
---
--- * 'lfFailureCode' - The failure code associated with the failure.
---
--- * 'lfLayerDigest' - The layer digest associated with the failure.
-layerFailure ::
+-- * 'failureCode' - The failure code associated with the failure.
+-- * 'failureReason' - The reason for the failure.
+-- * 'layerDigest' - The layer digest associated with the failure.
+mkLayerFailure ::
   LayerFailure
-layerFailure =
+mkLayerFailure =
   LayerFailure'
-    { _lfFailureReason = Nothing,
-      _lfFailureCode = Nothing,
-      _lfLayerDigest = Nothing
+    { failureReason = Lude.Nothing,
+      failureCode = Lude.Nothing,
+      layerDigest = Lude.Nothing
     }
 
 -- | The reason for the failure.
-lfFailureReason :: Lens' LayerFailure (Maybe Text)
-lfFailureReason = lens _lfFailureReason (\s a -> s {_lfFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfFailureReason :: Lens.Lens' LayerFailure (Lude.Maybe Lude.Text)
+lfFailureReason = Lens.lens (failureReason :: LayerFailure -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: LayerFailure)
+{-# DEPRECATED lfFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The failure code associated with the failure.
-lfFailureCode :: Lens' LayerFailure (Maybe LayerFailureCode)
-lfFailureCode = lens _lfFailureCode (\s a -> s {_lfFailureCode = a})
+--
+-- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfFailureCode :: Lens.Lens' LayerFailure (Lude.Maybe LayerFailureCode)
+lfFailureCode = Lens.lens (failureCode :: LayerFailure -> Lude.Maybe LayerFailureCode) (\s a -> s {failureCode = a} :: LayerFailure)
+{-# DEPRECATED lfFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | The layer digest associated with the failure.
-lfLayerDigest :: Lens' LayerFailure (Maybe Text)
-lfLayerDigest = lens _lfLayerDigest (\s a -> s {_lfLayerDigest = a})
+--
+-- /Note:/ Consider using 'layerDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfLayerDigest :: Lens.Lens' LayerFailure (Lude.Maybe Lude.Text)
+lfLayerDigest = Lens.lens (layerDigest :: LayerFailure -> Lude.Maybe Lude.Text) (\s a -> s {layerDigest = a} :: LayerFailure)
+{-# DEPRECATED lfLayerDigest "Use generic-lens or generic-optics with 'layerDigest' instead." #-}
 
-instance FromJSON LayerFailure where
+instance Lude.FromJSON LayerFailure where
   parseJSON =
-    withObject
+    Lude.withObject
       "LayerFailure"
       ( \x ->
           LayerFailure'
-            <$> (x .:? "failureReason")
-            <*> (x .:? "failureCode")
-            <*> (x .:? "layerDigest")
+            Lude.<$> (x Lude..:? "failureReason")
+            Lude.<*> (x Lude..:? "failureCode")
+            Lude.<*> (x Lude..:? "layerDigest")
       )
-
-instance Hashable LayerFailure
-
-instance NFData LayerFailure

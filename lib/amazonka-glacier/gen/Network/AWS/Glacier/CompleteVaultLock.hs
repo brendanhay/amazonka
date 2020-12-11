@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,125 @@
 --
 -- This operation completes the vault locking process by transitioning the vault lock from the @InProgress@ state to the @Locked@ state, which causes the vault lock policy to become unchangeable. A vault lock is put into the @InProgress@ state by calling 'InitiateVaultLock' . You can obtain the state of the vault lock by calling 'GetVaultLock' . For more information about the vault locking process, <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock> .
 --
---
 -- This operation is idempotent. This request is always successful if the vault lock is in the @Locked@ state and the provided lock ID matches the lock ID originally used to lock the vault.
---
 -- If an invalid lock ID is passed in the request when the vault lock is in the @Locked@ state, the operation returns an @AccessDeniedException@ error. If an invalid lock ID is passed in the request when the vault lock is in the @InProgress@ state, the operation throws an @InvalidParameter@ error.
 module Network.AWS.Glacier.CompleteVaultLock
-  ( -- * Creating a Request
-    completeVaultLock,
-    CompleteVaultLock,
+  ( -- * Creating a request
+    CompleteVaultLock (..),
+    mkCompleteVaultLock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvlAccountId,
     cvlVaultName,
     cvlLockId,
 
-    -- * Destructuring the Response
-    completeVaultLockResponse,
-    CompleteVaultLockResponse,
+    -- * Destructuring the response
+    CompleteVaultLockResponse (..),
+    mkCompleteVaultLockResponse,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input values for @CompleteVaultLock@ .
 --
---
---
--- /See:/ 'completeVaultLock' smart constructor.
+-- /See:/ 'mkCompleteVaultLock' smart constructor.
 data CompleteVaultLock = CompleteVaultLock'
-  { _cvlAccountId :: !Text,
-    _cvlVaultName :: !Text,
-    _cvlLockId :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text,
+    lockId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteVaultLock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- * 'cvlVaultName' - The name of the vault.
---
--- * 'cvlLockId' - The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
-completeVaultLock ::
-  -- | 'cvlAccountId'
-  Text ->
-  -- | 'cvlVaultName'
-  Text ->
-  -- | 'cvlLockId'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+-- * 'lockId' - The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
+-- * 'vaultName' - The name of the vault.
+mkCompleteVaultLock ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
+  -- | 'lockId'
+  Lude.Text ->
   CompleteVaultLock
-completeVaultLock pAccountId_ pVaultName_ pLockId_ =
+mkCompleteVaultLock pAccountId_ pVaultName_ pLockId_ =
   CompleteVaultLock'
-    { _cvlAccountId = pAccountId_,
-      _cvlVaultName = pVaultName_,
-      _cvlLockId = pLockId_
+    { accountId = pAccountId_,
+      vaultName = pVaultName_,
+      lockId = pLockId_
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-cvlAccountId :: Lens' CompleteVaultLock Text
-cvlAccountId = lens _cvlAccountId (\s a -> s {_cvlAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvlAccountId :: Lens.Lens' CompleteVaultLock Lude.Text
+cvlAccountId = Lens.lens (accountId :: CompleteVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: CompleteVaultLock)
+{-# DEPRECATED cvlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-cvlVaultName :: Lens' CompleteVaultLock Text
-cvlVaultName = lens _cvlVaultName (\s a -> s {_cvlVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvlVaultName :: Lens.Lens' CompleteVaultLock Lude.Text
+cvlVaultName = Lens.lens (vaultName :: CompleteVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: CompleteVaultLock)
+{-# DEPRECATED cvlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @lockId@ value is the lock ID obtained from a 'InitiateVaultLock' request.
-cvlLockId :: Lens' CompleteVaultLock Text
-cvlLockId = lens _cvlLockId (\s a -> s {_cvlLockId = a})
+--
+-- /Note:/ Consider using 'lockId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvlLockId :: Lens.Lens' CompleteVaultLock Lude.Text
+cvlLockId = Lens.lens (lockId :: CompleteVaultLock -> Lude.Text) (\s a -> s {lockId = a} :: CompleteVaultLock)
+{-# DEPRECATED cvlLockId "Use generic-lens or generic-optics with 'lockId' instead." #-}
 
-instance AWSRequest CompleteVaultLock where
+instance Lude.AWSRequest CompleteVaultLock where
   type Rs CompleteVaultLock = CompleteVaultLockResponse
-  request = postJSON glacier
-  response = receiveNull CompleteVaultLockResponse'
+  request = Req.postJSON glacierService
+  response = Res.receiveNull CompleteVaultLockResponse'
 
-instance Hashable CompleteVaultLock
+instance Lude.ToHeaders CompleteVaultLock where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CompleteVaultLock
+instance Lude.ToJSON CompleteVaultLock where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders CompleteVaultLock where
-  toHeaders = const mempty
-
-instance ToJSON CompleteVaultLock where
-  toJSON = const (Object mempty)
-
-instance ToPath CompleteVaultLock where
+instance Lude.ToPath CompleteVaultLock where
   toPath CompleteVaultLock' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _cvlAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _cvlVaultName,
+        Lude.toBS vaultName,
         "/lock-policy/",
-        toBS _cvlLockId
+        Lude.toBS lockId
       ]
 
-instance ToQuery CompleteVaultLock where
-  toQuery = const mempty
+instance Lude.ToQuery CompleteVaultLock where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'completeVaultLockResponse' smart constructor.
+-- | /See:/ 'mkCompleteVaultLockResponse' smart constructor.
 data CompleteVaultLockResponse = CompleteVaultLockResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteVaultLockResponse' with the minimum fields required to make a request.
-completeVaultLockResponse ::
+mkCompleteVaultLockResponse ::
   CompleteVaultLockResponse
-completeVaultLockResponse = CompleteVaultLockResponse'
-
-instance NFData CompleteVaultLockResponse
+mkCompleteVaultLockResponse = CompleteVaultLockResponse'

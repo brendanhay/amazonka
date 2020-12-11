@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings where
+module Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
+  ( Scte35ReturnToNetworkScheduleActionSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScte35ReturnToNetworkScheduleActionSettings,
+
+    -- * Lenses
+    srtnsasSpliceEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for a SCTE-35 return_to_network message.
 --
--- /See:/ 'scte35ReturnToNetworkScheduleActionSettings' smart constructor.
+-- /See:/ 'mkScte35ReturnToNetworkScheduleActionSettings' smart constructor.
 newtype Scte35ReturnToNetworkScheduleActionSettings = Scte35ReturnToNetworkScheduleActionSettings'
-  { _srtnsasSpliceEventId ::
-      Nat
+  { spliceEventId ::
+      Lude.Natural
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'Scte35ReturnToNetworkScheduleActionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srtnsasSpliceEventId' - The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-scte35ReturnToNetworkScheduleActionSettings ::
-  -- | 'srtnsasSpliceEventId'
-  Natural ->
+-- * 'spliceEventId' - The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+mkScte35ReturnToNetworkScheduleActionSettings ::
+  -- | 'spliceEventId'
+  Lude.Natural ->
   Scte35ReturnToNetworkScheduleActionSettings
-scte35ReturnToNetworkScheduleActionSettings pSpliceEventId_ =
+mkScte35ReturnToNetworkScheduleActionSettings pSpliceEventId_ =
   Scte35ReturnToNetworkScheduleActionSettings'
-    { _srtnsasSpliceEventId =
-        _Nat # pSpliceEventId_
+    { spliceEventId =
+        pSpliceEventId_
     }
 
 -- | The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-srtnsasSpliceEventId :: Lens' Scte35ReturnToNetworkScheduleActionSettings Natural
-srtnsasSpliceEventId = lens _srtnsasSpliceEventId (\s a -> s {_srtnsasSpliceEventId = a}) . _Nat
+--
+-- /Note:/ Consider using 'spliceEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtnsasSpliceEventId :: Lens.Lens' Scte35ReturnToNetworkScheduleActionSettings Lude.Natural
+srtnsasSpliceEventId = Lens.lens (spliceEventId :: Scte35ReturnToNetworkScheduleActionSettings -> Lude.Natural) (\s a -> s {spliceEventId = a} :: Scte35ReturnToNetworkScheduleActionSettings)
+{-# DEPRECATED srtnsasSpliceEventId "Use generic-lens or generic-optics with 'spliceEventId' instead." #-}
 
-instance FromJSON Scte35ReturnToNetworkScheduleActionSettings where
+instance Lude.FromJSON Scte35ReturnToNetworkScheduleActionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35ReturnToNetworkScheduleActionSettings"
       ( \x ->
           Scte35ReturnToNetworkScheduleActionSettings'
-            <$> (x .: "spliceEventId")
+            Lude.<$> (x Lude..: "spliceEventId")
       )
 
-instance Hashable Scte35ReturnToNetworkScheduleActionSettings
-
-instance NFData Scte35ReturnToNetworkScheduleActionSettings
-
-instance ToJSON Scte35ReturnToNetworkScheduleActionSettings where
+instance Lude.ToJSON Scte35ReturnToNetworkScheduleActionSettings where
   toJSON Scte35ReturnToNetworkScheduleActionSettings' {..} =
-    object
-      (catMaybes [Just ("spliceEventId" .= _srtnsasSpliceEventId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("spliceEventId" Lude..= spliceEventId)]
+      )

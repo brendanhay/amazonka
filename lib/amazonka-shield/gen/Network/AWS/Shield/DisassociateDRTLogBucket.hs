@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,123 @@
 --
 -- Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.
 --
---
 -- To make a @DisassociateDRTLogBucket@ request, you must be subscribed to the <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan> or the <https://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan> . However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a @DisassociateDRTLogBucket@ request to remove this access.
 module Network.AWS.Shield.DisassociateDRTLogBucket
-  ( -- * Creating a Request
-    disassociateDRTLogBucket,
-    DisassociateDRTLogBucket,
+  ( -- * Creating a request
+    DisassociateDRTLogBucket (..),
+    mkDisassociateDRTLogBucket,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddrtlbLogBucket,
 
-    -- * Destructuring the Response
-    disassociateDRTLogBucketResponse,
-    DisassociateDRTLogBucketResponse,
+    -- * Destructuring the response
+    DisassociateDRTLogBucketResponse (..),
+    mkDisassociateDRTLogBucketResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrtlbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'disassociateDRTLogBucket' smart constructor.
+-- | /See:/ 'mkDisassociateDRTLogBucket' smart constructor.
 newtype DisassociateDRTLogBucket = DisassociateDRTLogBucket'
-  { _ddrtlbLogBucket ::
-      Text
+  { logBucket ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDRTLogBucket' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrtlbLogBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
-disassociateDRTLogBucket ::
-  -- | 'ddrtlbLogBucket'
-  Text ->
+-- * 'logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
+mkDisassociateDRTLogBucket ::
+  -- | 'logBucket'
+  Lude.Text ->
   DisassociateDRTLogBucket
-disassociateDRTLogBucket pLogBucket_ =
-  DisassociateDRTLogBucket' {_ddrtlbLogBucket = pLogBucket_}
+mkDisassociateDRTLogBucket pLogBucket_ =
+  DisassociateDRTLogBucket' {logBucket = pLogBucket_}
 
 -- | The Amazon S3 bucket that contains your AWS WAF logs.
-ddrtlbLogBucket :: Lens' DisassociateDRTLogBucket Text
-ddrtlbLogBucket = lens _ddrtlbLogBucket (\s a -> s {_ddrtlbLogBucket = a})
+--
+-- /Note:/ Consider using 'logBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrtlbLogBucket :: Lens.Lens' DisassociateDRTLogBucket Lude.Text
+ddrtlbLogBucket = Lens.lens (logBucket :: DisassociateDRTLogBucket -> Lude.Text) (\s a -> s {logBucket = a} :: DisassociateDRTLogBucket)
+{-# DEPRECATED ddrtlbLogBucket "Use generic-lens or generic-optics with 'logBucket' instead." #-}
 
-instance AWSRequest DisassociateDRTLogBucket where
+instance Lude.AWSRequest DisassociateDRTLogBucket where
   type Rs DisassociateDRTLogBucket = DisassociateDRTLogBucketResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateDRTLogBucketResponse' <$> (pure (fromEnum s))
+          DisassociateDRTLogBucketResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateDRTLogBucket
-
-instance NFData DisassociateDRTLogBucket
-
-instance ToHeaders DisassociateDRTLogBucket where
+instance Lude.ToHeaders DisassociateDRTLogBucket where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DisassociateDRTLogBucket" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.DisassociateDRTLogBucket" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateDRTLogBucket where
+instance Lude.ToJSON DisassociateDRTLogBucket where
   toJSON DisassociateDRTLogBucket' {..} =
-    object (catMaybes [Just ("LogBucket" .= _ddrtlbLogBucket)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("LogBucket" Lude..= logBucket)])
 
-instance ToPath DisassociateDRTLogBucket where
-  toPath = const "/"
+instance Lude.ToPath DisassociateDRTLogBucket where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateDRTLogBucket where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateDRTLogBucket where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateDRTLogBucketResponse' smart constructor.
+-- | /See:/ 'mkDisassociateDRTLogBucketResponse' smart constructor.
 newtype DisassociateDRTLogBucketResponse = DisassociateDRTLogBucketResponse'
-  { _ddrtlbrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDRTLogBucketResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrtlbrsResponseStatus' - -- | The response status code.
-disassociateDRTLogBucketResponse ::
-  -- | 'ddrtlbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateDRTLogBucketResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateDRTLogBucketResponse
-disassociateDRTLogBucketResponse pResponseStatus_ =
+mkDisassociateDRTLogBucketResponse pResponseStatus_ =
   DisassociateDRTLogBucketResponse'
-    { _ddrtlbrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddrtlbrsResponseStatus :: Lens' DisassociateDRTLogBucketResponse Int
-ddrtlbrsResponseStatus = lens _ddrtlbrsResponseStatus (\s a -> s {_ddrtlbrsResponseStatus = a})
-
-instance NFData DisassociateDRTLogBucketResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrtlbrsResponseStatus :: Lens.Lens' DisassociateDRTLogBucketResponse Lude.Int
+ddrtlbrsResponseStatus = Lens.lens (responseStatus :: DisassociateDRTLogBucketResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDRTLogBucketResponse)
+{-# DEPRECATED ddrtlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

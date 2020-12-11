@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.DeletionTaskFailureReasonType where
+module Network.AWS.IAM.Types.DeletionTaskFailureReasonType
+  ( DeletionTaskFailureReasonType (..),
+
+    -- * Smart constructor
+    mkDeletionTaskFailureReasonType,
+
+    -- * Lenses
+    dtfrtRoleUsageList,
+    dtfrtReason,
+  )
+where
 
 import Network.AWS.IAM.Types.RoleUsageType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The reason that the service-linked role deletion failed.
 --
---
 -- This data type is used as a response element in the 'GetServiceLinkedRoleDeletionStatus' operation.
 --
---
--- /See:/ 'deletionTaskFailureReasonType' smart constructor.
+-- /See:/ 'mkDeletionTaskFailureReasonType' smart constructor.
 data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
-  { _dtfrtRoleUsageList ::
-      !(Maybe [RoleUsageType]),
-    _dtfrtReason :: !(Maybe Text)
+  { roleUsageList ::
+      Lude.Maybe [RoleUsageType],
+    reason :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletionTaskFailureReasonType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfrtRoleUsageList' - A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.
---
--- * 'dtfrtReason' - A short description of the reason that the service-linked role deletion failed.
-deletionTaskFailureReasonType ::
+-- * 'reason' - A short description of the reason that the service-linked role deletion failed.
+-- * 'roleUsageList' - A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.
+mkDeletionTaskFailureReasonType ::
   DeletionTaskFailureReasonType
-deletionTaskFailureReasonType =
+mkDeletionTaskFailureReasonType =
   DeletionTaskFailureReasonType'
-    { _dtfrtRoleUsageList = Nothing,
-      _dtfrtReason = Nothing
+    { roleUsageList = Lude.Nothing,
+      reason = Lude.Nothing
     }
 
 -- | A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.
-dtfrtRoleUsageList :: Lens' DeletionTaskFailureReasonType [RoleUsageType]
-dtfrtRoleUsageList = lens _dtfrtRoleUsageList (\s a -> s {_dtfrtRoleUsageList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'roleUsageList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfrtRoleUsageList :: Lens.Lens' DeletionTaskFailureReasonType (Lude.Maybe [RoleUsageType])
+dtfrtRoleUsageList = Lens.lens (roleUsageList :: DeletionTaskFailureReasonType -> Lude.Maybe [RoleUsageType]) (\s a -> s {roleUsageList = a} :: DeletionTaskFailureReasonType)
+{-# DEPRECATED dtfrtRoleUsageList "Use generic-lens or generic-optics with 'roleUsageList' instead." #-}
 
 -- | A short description of the reason that the service-linked role deletion failed.
-dtfrtReason :: Lens' DeletionTaskFailureReasonType (Maybe Text)
-dtfrtReason = lens _dtfrtReason (\s a -> s {_dtfrtReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfrtReason :: Lens.Lens' DeletionTaskFailureReasonType (Lude.Maybe Lude.Text)
+dtfrtReason = Lens.lens (reason :: DeletionTaskFailureReasonType -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: DeletionTaskFailureReasonType)
+{-# DEPRECATED dtfrtReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance FromXML DeletionTaskFailureReasonType where
+instance Lude.FromXML DeletionTaskFailureReasonType where
   parseXML x =
     DeletionTaskFailureReasonType'
-      <$> (x .@? "RoleUsageList" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Reason")
-
-instance Hashable DeletionTaskFailureReasonType
-
-instance NFData DeletionTaskFailureReasonType
+      Lude.<$> ( x Lude..@? "RoleUsageList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Reason")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.Cluster where
+module Network.AWS.CloudHSMv2.Types.Cluster
+  ( Cluster (..),
+
+    -- * Smart constructor
+    mkCluster,
+
+    -- * Lenses
+    cPreCoPassword,
+    cStateMessage,
+    cState,
+    cSubnetMapping,
+    cBackupRetentionPolicy,
+    cHSMs,
+    cVPCId,
+    cTagList,
+    cSourceBackupId,
+    cCertificates,
+    cSecurityGroup,
+    cClusterId,
+    cCreateTimestamp,
+    cBackupPolicy,
+    cHSMType,
+  )
+where
 
 import Network.AWS.CloudHSMv2.Types.BackupPolicy
 import Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy
@@ -21,170 +38,200 @@ import Network.AWS.CloudHSMv2.Types.Certificates
 import Network.AWS.CloudHSMv2.Types.ClusterState
 import Network.AWS.CloudHSMv2.Types.HSM
 import Network.AWS.CloudHSMv2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an AWS CloudHSM cluster.
 --
---
---
--- /See:/ 'cluster' smart constructor.
+-- /See:/ 'mkCluster' smart constructor.
 data Cluster = Cluster'
-  { _cPreCoPassword :: !(Maybe Text),
-    _cStateMessage :: !(Maybe Text),
-    _cState :: !(Maybe ClusterState),
-    _cSubnetMapping :: !(Maybe (Map Text (Text))),
-    _cBackupRetentionPolicy :: !(Maybe BackupRetentionPolicy),
-    _cHSMs :: !(Maybe [HSM]),
-    _cVPCId :: !(Maybe Text),
-    _cTagList :: !(Maybe [Tag]),
-    _cSourceBackupId :: !(Maybe Text),
-    _cCertificates :: !(Maybe Certificates),
-    _cSecurityGroup :: !(Maybe Text),
-    _cClusterId :: !(Maybe Text),
-    _cCreateTimestamp :: !(Maybe POSIX),
-    _cBackupPolicy :: !(Maybe BackupPolicy),
-    _cHSMType :: !(Maybe Text)
+  { preCoPassword :: Lude.Maybe Lude.Text,
+    stateMessage :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe ClusterState,
+    subnetMapping :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    backupRetentionPolicy :: Lude.Maybe BackupRetentionPolicy,
+    hsms :: Lude.Maybe [HSM],
+    vpcId :: Lude.Maybe Lude.Text,
+    tagList :: Lude.Maybe [Tag],
+    sourceBackupId :: Lude.Maybe Lude.Text,
+    certificates :: Lude.Maybe Certificates,
+    securityGroup :: Lude.Maybe Lude.Text,
+    clusterId :: Lude.Maybe Lude.Text,
+    createTimestamp :: Lude.Maybe Lude.Timestamp,
+    backupPolicy :: Lude.Maybe BackupPolicy,
+    hsmType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cPreCoPassword' - The default password for the cluster's Pre-Crypto Officer (PRECO) user.
---
--- * 'cStateMessage' - A description of the cluster's state.
---
--- * 'cState' - The cluster's state.
---
--- * 'cSubnetMapping' - A map from availability zone to the cluster’s subnet in that availability zone.
---
--- * 'cBackupRetentionPolicy' - A policy that defines how the service retains backups.
---
--- * 'cHSMs' - Contains information about the HSMs in the cluster.
---
--- * 'cVPCId' - The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
---
--- * 'cTagList' - The list of tags for the cluster.
---
--- * 'cSourceBackupId' - The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
---
--- * 'cCertificates' - Contains one or more certificates or a certificate signing request (CSR).
---
--- * 'cSecurityGroup' - The identifier (ID) of the cluster's security group.
---
--- * 'cClusterId' - The cluster's identifier (ID).
---
--- * 'cCreateTimestamp' - The date and time when the cluster was created.
---
--- * 'cBackupPolicy' - The cluster's backup policy.
---
--- * 'cHSMType' - The type of HSM that the cluster contains.
-cluster ::
+-- * 'backupPolicy' - The cluster's backup policy.
+-- * 'backupRetentionPolicy' - A policy that defines how the service retains backups.
+-- * 'certificates' - Contains one or more certificates or a certificate signing request (CSR).
+-- * 'clusterId' - The cluster's identifier (ID).
+-- * 'createTimestamp' - The date and time when the cluster was created.
+-- * 'hsmType' - The type of HSM that the cluster contains.
+-- * 'hsms' - Contains information about the HSMs in the cluster.
+-- * 'preCoPassword' - The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+-- * 'securityGroup' - The identifier (ID) of the cluster's security group.
+-- * 'sourceBackupId' - The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
+-- * 'state' - The cluster's state.
+-- * 'stateMessage' - A description of the cluster's state.
+-- * 'subnetMapping' - A map from availability zone to the cluster’s subnet in that availability zone.
+-- * 'tagList' - The list of tags for the cluster.
+-- * 'vpcId' - The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
+mkCluster ::
   Cluster
-cluster =
+mkCluster =
   Cluster'
-    { _cPreCoPassword = Nothing,
-      _cStateMessage = Nothing,
-      _cState = Nothing,
-      _cSubnetMapping = Nothing,
-      _cBackupRetentionPolicy = Nothing,
-      _cHSMs = Nothing,
-      _cVPCId = Nothing,
-      _cTagList = Nothing,
-      _cSourceBackupId = Nothing,
-      _cCertificates = Nothing,
-      _cSecurityGroup = Nothing,
-      _cClusterId = Nothing,
-      _cCreateTimestamp = Nothing,
-      _cBackupPolicy = Nothing,
-      _cHSMType = Nothing
+    { preCoPassword = Lude.Nothing,
+      stateMessage = Lude.Nothing,
+      state = Lude.Nothing,
+      subnetMapping = Lude.Nothing,
+      backupRetentionPolicy = Lude.Nothing,
+      hsms = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      tagList = Lude.Nothing,
+      sourceBackupId = Lude.Nothing,
+      certificates = Lude.Nothing,
+      securityGroup = Lude.Nothing,
+      clusterId = Lude.Nothing,
+      createTimestamp = Lude.Nothing,
+      backupPolicy = Lude.Nothing,
+      hsmType = Lude.Nothing
     }
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO) user.
-cPreCoPassword :: Lens' Cluster (Maybe Text)
-cPreCoPassword = lens _cPreCoPassword (\s a -> s {_cPreCoPassword = a})
+--
+-- /Note:/ Consider using 'preCoPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPreCoPassword :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cPreCoPassword = Lens.lens (preCoPassword :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {preCoPassword = a} :: Cluster)
+{-# DEPRECATED cPreCoPassword "Use generic-lens or generic-optics with 'preCoPassword' instead." #-}
 
 -- | A description of the cluster's state.
-cStateMessage :: Lens' Cluster (Maybe Text)
-cStateMessage = lens _cStateMessage (\s a -> s {_cStateMessage = a})
+--
+-- /Note:/ Consider using 'stateMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStateMessage :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cStateMessage = Lens.lens (stateMessage :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {stateMessage = a} :: Cluster)
+{-# DEPRECATED cStateMessage "Use generic-lens or generic-optics with 'stateMessage' instead." #-}
 
 -- | The cluster's state.
-cState :: Lens' Cluster (Maybe ClusterState)
-cState = lens _cState (\s a -> s {_cState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cState :: Lens.Lens' Cluster (Lude.Maybe ClusterState)
+cState = Lens.lens (state :: Cluster -> Lude.Maybe ClusterState) (\s a -> s {state = a} :: Cluster)
+{-# DEPRECATED cState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A map from availability zone to the cluster’s subnet in that availability zone.
-cSubnetMapping :: Lens' Cluster (HashMap Text (Text))
-cSubnetMapping = lens _cSubnetMapping (\s a -> s {_cSubnetMapping = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'subnetMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSubnetMapping :: Lens.Lens' Cluster (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cSubnetMapping = Lens.lens (subnetMapping :: Cluster -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {subnetMapping = a} :: Cluster)
+{-# DEPRECATED cSubnetMapping "Use generic-lens or generic-optics with 'subnetMapping' instead." #-}
 
 -- | A policy that defines how the service retains backups.
-cBackupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
-cBackupRetentionPolicy = lens _cBackupRetentionPolicy (\s a -> s {_cBackupRetentionPolicy = a})
+--
+-- /Note:/ Consider using 'backupRetentionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cBackupRetentionPolicy :: Lens.Lens' Cluster (Lude.Maybe BackupRetentionPolicy)
+cBackupRetentionPolicy = Lens.lens (backupRetentionPolicy :: Cluster -> Lude.Maybe BackupRetentionPolicy) (\s a -> s {backupRetentionPolicy = a} :: Cluster)
+{-# DEPRECATED cBackupRetentionPolicy "Use generic-lens or generic-optics with 'backupRetentionPolicy' instead." #-}
 
 -- | Contains information about the HSMs in the cluster.
-cHSMs :: Lens' Cluster [HSM]
-cHSMs = lens _cHSMs (\s a -> s {_cHSMs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hsms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHSMs :: Lens.Lens' Cluster (Lude.Maybe [HSM])
+cHSMs = Lens.lens (hsms :: Cluster -> Lude.Maybe [HSM]) (\s a -> s {hsms = a} :: Cluster)
+{-# DEPRECATED cHSMs "Use generic-lens or generic-optics with 'hsms' instead." #-}
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
-cVPCId :: Lens' Cluster (Maybe Text)
-cVPCId = lens _cVPCId (\s a -> s {_cVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVPCId :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cVPCId = Lens.lens (vpcId :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: Cluster)
+{-# DEPRECATED cVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The list of tags for the cluster.
-cTagList :: Lens' Cluster [Tag]
-cTagList = lens _cTagList (\s a -> s {_cTagList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTagList :: Lens.Lens' Cluster (Lude.Maybe [Tag])
+cTagList = Lens.lens (tagList :: Cluster -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: Cluster)
+{-# DEPRECATED cTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
-cSourceBackupId :: Lens' Cluster (Maybe Text)
-cSourceBackupId = lens _cSourceBackupId (\s a -> s {_cSourceBackupId = a})
+--
+-- /Note:/ Consider using 'sourceBackupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSourceBackupId :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cSourceBackupId = Lens.lens (sourceBackupId :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {sourceBackupId = a} :: Cluster)
+{-# DEPRECATED cSourceBackupId "Use generic-lens or generic-optics with 'sourceBackupId' instead." #-}
 
 -- | Contains one or more certificates or a certificate signing request (CSR).
-cCertificates :: Lens' Cluster (Maybe Certificates)
-cCertificates = lens _cCertificates (\s a -> s {_cCertificates = a})
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificates :: Lens.Lens' Cluster (Lude.Maybe Certificates)
+cCertificates = Lens.lens (certificates :: Cluster -> Lude.Maybe Certificates) (\s a -> s {certificates = a} :: Cluster)
+{-# DEPRECATED cCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
 -- | The identifier (ID) of the cluster's security group.
-cSecurityGroup :: Lens' Cluster (Maybe Text)
-cSecurityGroup = lens _cSecurityGroup (\s a -> s {_cSecurityGroup = a})
+--
+-- /Note:/ Consider using 'securityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSecurityGroup :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cSecurityGroup = Lens.lens (securityGroup :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {securityGroup = a} :: Cluster)
+{-# DEPRECATED cSecurityGroup "Use generic-lens or generic-optics with 'securityGroup' instead." #-}
 
 -- | The cluster's identifier (ID).
-cClusterId :: Lens' Cluster (Maybe Text)
-cClusterId = lens _cClusterId (\s a -> s {_cClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterId :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cClusterId = Lens.lens (clusterId :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: Cluster)
+{-# DEPRECATED cClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The date and time when the cluster was created.
-cCreateTimestamp :: Lens' Cluster (Maybe UTCTime)
-cCreateTimestamp = lens _cCreateTimestamp (\s a -> s {_cCreateTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreateTimestamp :: Lens.Lens' Cluster (Lude.Maybe Lude.Timestamp)
+cCreateTimestamp = Lens.lens (createTimestamp :: Cluster -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTimestamp = a} :: Cluster)
+{-# DEPRECATED cCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
 
 -- | The cluster's backup policy.
-cBackupPolicy :: Lens' Cluster (Maybe BackupPolicy)
-cBackupPolicy = lens _cBackupPolicy (\s a -> s {_cBackupPolicy = a})
+--
+-- /Note:/ Consider using 'backupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cBackupPolicy :: Lens.Lens' Cluster (Lude.Maybe BackupPolicy)
+cBackupPolicy = Lens.lens (backupPolicy :: Cluster -> Lude.Maybe BackupPolicy) (\s a -> s {backupPolicy = a} :: Cluster)
+{-# DEPRECATED cBackupPolicy "Use generic-lens or generic-optics with 'backupPolicy' instead." #-}
 
 -- | The type of HSM that the cluster contains.
-cHSMType :: Lens' Cluster (Maybe Text)
-cHSMType = lens _cHSMType (\s a -> s {_cHSMType = a})
+--
+-- /Note:/ Consider using 'hsmType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHSMType :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cHSMType = Lens.lens (hsmType :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {hsmType = a} :: Cluster)
+{-# DEPRECATED cHSMType "Use generic-lens or generic-optics with 'hsmType' instead." #-}
 
-instance FromJSON Cluster where
+instance Lude.FromJSON Cluster where
   parseJSON =
-    withObject
+    Lude.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            <$> (x .:? "PreCoPassword")
-            <*> (x .:? "StateMessage")
-            <*> (x .:? "State")
-            <*> (x .:? "SubnetMapping" .!= mempty)
-            <*> (x .:? "BackupRetentionPolicy")
-            <*> (x .:? "Hsms" .!= mempty)
-            <*> (x .:? "VpcId")
-            <*> (x .:? "TagList" .!= mempty)
-            <*> (x .:? "SourceBackupId")
-            <*> (x .:? "Certificates")
-            <*> (x .:? "SecurityGroup")
-            <*> (x .:? "ClusterId")
-            <*> (x .:? "CreateTimestamp")
-            <*> (x .:? "BackupPolicy")
-            <*> (x .:? "HsmType")
+            Lude.<$> (x Lude..:? "PreCoPassword")
+            Lude.<*> (x Lude..:? "StateMessage")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "SubnetMapping" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "BackupRetentionPolicy")
+            Lude.<*> (x Lude..:? "Hsms" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "VpcId")
+            Lude.<*> (x Lude..:? "TagList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SourceBackupId")
+            Lude.<*> (x Lude..:? "Certificates")
+            Lude.<*> (x Lude..:? "SecurityGroup")
+            Lude.<*> (x Lude..:? "ClusterId")
+            Lude.<*> (x Lude..:? "CreateTimestamp")
+            Lude.<*> (x Lude..:? "BackupPolicy")
+            Lude.<*> (x Lude..:? "HsmType")
       )
-
-instance Hashable Cluster
-
-instance NFData Cluster

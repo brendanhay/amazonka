@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionTypeSettings where
+module Network.AWS.CodePipeline.Types.ActionTypeSettings
+  ( ActionTypeSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActionTypeSettings,
+
+    -- * Lenses
+    atsThirdPartyConfigurationURL,
+    atsExecutionURLTemplate,
+    atsRevisionURLTemplate,
+    atsEntityURLTemplate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the settings for an action type.
 --
---
---
--- /See:/ 'actionTypeSettings' smart constructor.
+-- /See:/ 'mkActionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
-  { _atsThirdPartyConfigurationURL ::
-      !(Maybe Text),
-    _atsExecutionURLTemplate :: !(Maybe Text),
-    _atsRevisionURLTemplate :: !(Maybe Text),
-    _atsEntityURLTemplate :: !(Maybe Text)
+  { thirdPartyConfigurationURL ::
+      Lude.Maybe Lude.Text,
+    executionURLTemplate :: Lude.Maybe Lude.Text,
+    revisionURLTemplate :: Lude.Maybe Lude.Text,
+    entityURLTemplate :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionTypeSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atsThirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
---
--- * 'atsExecutionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
---
--- * 'atsRevisionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
---
--- * 'atsEntityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
-actionTypeSettings ::
+-- * 'entityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
+-- * 'executionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
+-- * 'revisionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+-- * 'thirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+mkActionTypeSettings ::
   ActionTypeSettings
-actionTypeSettings =
+mkActionTypeSettings =
   ActionTypeSettings'
-    { _atsThirdPartyConfigurationURL = Nothing,
-      _atsExecutionURLTemplate = Nothing,
-      _atsRevisionURLTemplate = Nothing,
-      _atsEntityURLTemplate = Nothing
+    { thirdPartyConfigurationURL = Lude.Nothing,
+      executionURLTemplate = Lude.Nothing,
+      revisionURLTemplate = Lude.Nothing,
+      entityURLTemplate = Lude.Nothing
     }
 
 -- | The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-atsThirdPartyConfigurationURL :: Lens' ActionTypeSettings (Maybe Text)
-atsThirdPartyConfigurationURL = lens _atsThirdPartyConfigurationURL (\s a -> s {_atsThirdPartyConfigurationURL = a})
+--
+-- /Note:/ Consider using 'thirdPartyConfigurationURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsThirdPartyConfigurationURL :: Lens.Lens' ActionTypeSettings (Lude.Maybe Lude.Text)
+atsThirdPartyConfigurationURL = Lens.lens (thirdPartyConfigurationURL :: ActionTypeSettings -> Lude.Maybe Lude.Text) (\s a -> s {thirdPartyConfigurationURL = a} :: ActionTypeSettings)
+{-# DEPRECATED atsThirdPartyConfigurationURL "Use generic-lens or generic-optics with 'thirdPartyConfigurationURL' instead." #-}
 
 -- | The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
-atsExecutionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
-atsExecutionURLTemplate = lens _atsExecutionURLTemplate (\s a -> s {_atsExecutionURLTemplate = a})
+--
+-- /Note:/ Consider using 'executionURLTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsExecutionURLTemplate :: Lens.Lens' ActionTypeSettings (Lude.Maybe Lude.Text)
+atsExecutionURLTemplate = Lens.lens (executionURLTemplate :: ActionTypeSettings -> Lude.Maybe Lude.Text) (\s a -> s {executionURLTemplate = a} :: ActionTypeSettings)
+{-# DEPRECATED atsExecutionURLTemplate "Use generic-lens or generic-optics with 'executionURLTemplate' instead." #-}
 
 -- | The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-atsRevisionURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
-atsRevisionURLTemplate = lens _atsRevisionURLTemplate (\s a -> s {_atsRevisionURLTemplate = a})
+--
+-- /Note:/ Consider using 'revisionURLTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsRevisionURLTemplate :: Lens.Lens' ActionTypeSettings (Lude.Maybe Lude.Text)
+atsRevisionURLTemplate = Lens.lens (revisionURLTemplate :: ActionTypeSettings -> Lude.Maybe Lude.Text) (\s a -> s {revisionURLTemplate = a} :: ActionTypeSettings)
+{-# DEPRECATED atsRevisionURLTemplate "Use generic-lens or generic-optics with 'revisionURLTemplate' instead." #-}
 
 -- | The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
-atsEntityURLTemplate :: Lens' ActionTypeSettings (Maybe Text)
-atsEntityURLTemplate = lens _atsEntityURLTemplate (\s a -> s {_atsEntityURLTemplate = a})
+--
+-- /Note:/ Consider using 'entityURLTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsEntityURLTemplate :: Lens.Lens' ActionTypeSettings (Lude.Maybe Lude.Text)
+atsEntityURLTemplate = Lens.lens (entityURLTemplate :: ActionTypeSettings -> Lude.Maybe Lude.Text) (\s a -> s {entityURLTemplate = a} :: ActionTypeSettings)
+{-# DEPRECATED atsEntityURLTemplate "Use generic-lens or generic-optics with 'entityURLTemplate' instead." #-}
 
-instance FromJSON ActionTypeSettings where
+instance Lude.FromJSON ActionTypeSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionTypeSettings"
       ( \x ->
           ActionTypeSettings'
-            <$> (x .:? "thirdPartyConfigurationUrl")
-            <*> (x .:? "executionUrlTemplate")
-            <*> (x .:? "revisionUrlTemplate")
-            <*> (x .:? "entityUrlTemplate")
+            Lude.<$> (x Lude..:? "thirdPartyConfigurationUrl")
+            Lude.<*> (x Lude..:? "executionUrlTemplate")
+            Lude.<*> (x Lude..:? "revisionUrlTemplate")
+            Lude.<*> (x Lude..:? "entityUrlTemplate")
       )
 
-instance Hashable ActionTypeSettings
-
-instance NFData ActionTypeSettings
-
-instance ToJSON ActionTypeSettings where
+instance Lude.ToJSON ActionTypeSettings where
   toJSON ActionTypeSettings' {..} =
-    object
-      ( catMaybes
-          [ ("thirdPartyConfigurationUrl" .=)
-              <$> _atsThirdPartyConfigurationURL,
-            ("executionUrlTemplate" .=) <$> _atsExecutionURLTemplate,
-            ("revisionUrlTemplate" .=) <$> _atsRevisionURLTemplate,
-            ("entityUrlTemplate" .=) <$> _atsEntityURLTemplate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thirdPartyConfigurationUrl" Lude..=)
+              Lude.<$> thirdPartyConfigurationURL,
+            ("executionUrlTemplate" Lude..=) Lude.<$> executionURLTemplate,
+            ("revisionUrlTemplate" Lude..=) Lude.<$> revisionURLTemplate,
+            ("entityUrlTemplate" Lude..=) Lude.<$> entityURLTemplate
           ]
       )

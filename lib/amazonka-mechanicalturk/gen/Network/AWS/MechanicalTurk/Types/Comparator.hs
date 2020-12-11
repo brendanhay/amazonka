@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.Comparator where
+module Network.AWS.MechanicalTurk.Types.Comparator
+  ( Comparator
+      ( Comparator',
+        DoesNotExist,
+        EqualTo,
+        Exists,
+        GreaterThan,
+        GreaterThanOrEqualTo,
+        IN,
+        LessThan,
+        LessThanOrEqualTo,
+        NotEqualTo,
+        NotIn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Comparator
-  = DoesNotExist
-  | EqualTo
-  | Exists
-  | GreaterThan
-  | GreaterThanOrEqualTo
-  | IN
-  | LessThan
-  | LessThanOrEqualTo
-  | NotEqualTo
-  | NotIn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Comparator = Comparator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Comparator where
-  parser =
-    takeLowerText >>= \case
-      "doesnotexist" -> pure DoesNotExist
-      "equalto" -> pure EqualTo
-      "exists" -> pure Exists
-      "greaterthan" -> pure GreaterThan
-      "greaterthanorequalto" -> pure GreaterThanOrEqualTo
-      "in" -> pure IN
-      "lessthan" -> pure LessThan
-      "lessthanorequalto" -> pure LessThanOrEqualTo
-      "notequalto" -> pure NotEqualTo
-      "notin" -> pure NotIn
-      e ->
-        fromTextError $
-          "Failure parsing Comparator from value: '" <> e
-            <> "'. Accepted values: doesnotexist, equalto, exists, greaterthan, greaterthanorequalto, in, lessthan, lessthanorequalto, notequalto, notin"
+pattern DoesNotExist :: Comparator
+pattern DoesNotExist = Comparator' "DoesNotExist"
 
-instance ToText Comparator where
-  toText = \case
-    DoesNotExist -> "DoesNotExist"
-    EqualTo -> "EqualTo"
-    Exists -> "Exists"
-    GreaterThan -> "GreaterThan"
-    GreaterThanOrEqualTo -> "GreaterThanOrEqualTo"
-    IN -> "In"
-    LessThan -> "LessThan"
-    LessThanOrEqualTo -> "LessThanOrEqualTo"
-    NotEqualTo -> "NotEqualTo"
-    NotIn -> "NotIn"
+pattern EqualTo :: Comparator
+pattern EqualTo = Comparator' "EqualTo"
 
-instance Hashable Comparator
+pattern Exists :: Comparator
+pattern Exists = Comparator' "Exists"
 
-instance NFData Comparator
+pattern GreaterThan :: Comparator
+pattern GreaterThan = Comparator' "GreaterThan"
 
-instance ToByteString Comparator
+pattern GreaterThanOrEqualTo :: Comparator
+pattern GreaterThanOrEqualTo = Comparator' "GreaterThanOrEqualTo"
 
-instance ToQuery Comparator
+pattern IN :: Comparator
+pattern IN = Comparator' "In"
 
-instance ToHeader Comparator
+pattern LessThan :: Comparator
+pattern LessThan = Comparator' "LessThan"
 
-instance ToJSON Comparator where
-  toJSON = toJSONText
+pattern LessThanOrEqualTo :: Comparator
+pattern LessThanOrEqualTo = Comparator' "LessThanOrEqualTo"
 
-instance FromJSON Comparator where
-  parseJSON = parseJSONText "Comparator"
+pattern NotEqualTo :: Comparator
+pattern NotEqualTo = Comparator' "NotEqualTo"
+
+pattern NotIn :: Comparator
+pattern NotIn = Comparator' "NotIn"
+
+{-# COMPLETE
+  DoesNotExist,
+  EqualTo,
+  Exists,
+  GreaterThan,
+  GreaterThanOrEqualTo,
+  IN,
+  LessThan,
+  LessThanOrEqualTo,
+  NotEqualTo,
+  NotIn,
+  Comparator'
+  #-}

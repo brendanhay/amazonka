@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,130 @@
 --
 -- Returns the 'RuleGroup' that is specified by the @RuleGroupId@ that you included in the @GetRuleGroup@ request.
 --
---
 -- To view the rules in a rule group, use 'ListActivatedRulesInRuleGroup' .
 module Network.AWS.WAFRegional.GetRuleGroup
-  ( -- * Creating a Request
-    getRuleGroup,
-    GetRuleGroup,
+  ( -- * Creating a request
+    GetRuleGroup (..),
+    mkGetRuleGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grgRuleGroupId,
 
-    -- * Destructuring the Response
-    getRuleGroupResponse,
-    GetRuleGroupResponse,
+    -- * Destructuring the response
+    GetRuleGroupResponse (..),
+    mkGetRuleGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grgrsRuleGroup,
     grgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getRuleGroup' smart constructor.
-newtype GetRuleGroup = GetRuleGroup' {_grgRuleGroupId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetRuleGroup' smart constructor.
+newtype GetRuleGroup = GetRuleGroup' {ruleGroupId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRuleGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grgRuleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to get. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-getRuleGroup ::
-  -- | 'grgRuleGroupId'
-  Text ->
+-- * 'ruleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to get. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+mkGetRuleGroup ::
+  -- | 'ruleGroupId'
+  Lude.Text ->
   GetRuleGroup
-getRuleGroup pRuleGroupId_ =
-  GetRuleGroup' {_grgRuleGroupId = pRuleGroupId_}
+mkGetRuleGroup pRuleGroupId_ =
+  GetRuleGroup' {ruleGroupId = pRuleGroupId_}
 
 -- | The @RuleGroupId@ of the 'RuleGroup' that you want to get. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-grgRuleGroupId :: Lens' GetRuleGroup Text
-grgRuleGroupId = lens _grgRuleGroupId (\s a -> s {_grgRuleGroupId = a})
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgRuleGroupId :: Lens.Lens' GetRuleGroup Lude.Text
+grgRuleGroupId = Lens.lens (ruleGroupId :: GetRuleGroup -> Lude.Text) (\s a -> s {ruleGroupId = a} :: GetRuleGroup)
+{-# DEPRECATED grgRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
 
-instance AWSRequest GetRuleGroup where
+instance Lude.AWSRequest GetRuleGroup where
   type Rs GetRuleGroup = GetRuleGroupResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRuleGroupResponse'
-            <$> (x .?> "RuleGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RuleGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRuleGroup
-
-instance NFData GetRuleGroup
-
-instance ToHeaders GetRuleGroup where
+instance Lude.ToHeaders GetRuleGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetRuleGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.GetRuleGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRuleGroup where
+instance Lude.ToJSON GetRuleGroup where
   toJSON GetRuleGroup' {..} =
-    object (catMaybes [Just ("RuleGroupId" .= _grgRuleGroupId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RuleGroupId" Lude..= ruleGroupId)])
 
-instance ToPath GetRuleGroup where
-  toPath = const "/"
+instance Lude.ToPath GetRuleGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRuleGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetRuleGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRuleGroupResponse' smart constructor.
+-- | /See:/ 'mkGetRuleGroupResponse' smart constructor.
 data GetRuleGroupResponse = GetRuleGroupResponse'
-  { _grgrsRuleGroup ::
-      !(Maybe RuleGroup),
-    _grgrsResponseStatus :: !Int
+  { ruleGroup ::
+      Lude.Maybe RuleGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRuleGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grgrsRuleGroup' - Information about the 'RuleGroup' that you specified in the @GetRuleGroup@ request.
---
--- * 'grgrsResponseStatus' - -- | The response status code.
-getRuleGroupResponse ::
-  -- | 'grgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'ruleGroup' - Information about the 'RuleGroup' that you specified in the @GetRuleGroup@ request.
+mkGetRuleGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRuleGroupResponse
-getRuleGroupResponse pResponseStatus_ =
+mkGetRuleGroupResponse pResponseStatus_ =
   GetRuleGroupResponse'
-    { _grgrsRuleGroup = Nothing,
-      _grgrsResponseStatus = pResponseStatus_
+    { ruleGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the 'RuleGroup' that you specified in the @GetRuleGroup@ request.
-grgrsRuleGroup :: Lens' GetRuleGroupResponse (Maybe RuleGroup)
-grgrsRuleGroup = lens _grgrsRuleGroup (\s a -> s {_grgrsRuleGroup = a})
+--
+-- /Note:/ Consider using 'ruleGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgrsRuleGroup :: Lens.Lens' GetRuleGroupResponse (Lude.Maybe RuleGroup)
+grgrsRuleGroup = Lens.lens (ruleGroup :: GetRuleGroupResponse -> Lude.Maybe RuleGroup) (\s a -> s {ruleGroup = a} :: GetRuleGroupResponse)
+{-# DEPRECATED grgrsRuleGroup "Use generic-lens or generic-optics with 'ruleGroup' instead." #-}
 
--- | -- | The response status code.
-grgrsResponseStatus :: Lens' GetRuleGroupResponse Int
-grgrsResponseStatus = lens _grgrsResponseStatus (\s a -> s {_grgrsResponseStatus = a})
-
-instance NFData GetRuleGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgrsResponseStatus :: Lens.Lens' GetRuleGroupResponse Lude.Int
+grgrsResponseStatus = Lens.lens (responseStatus :: GetRuleGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRuleGroupResponse)
+{-# DEPRECATED grgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

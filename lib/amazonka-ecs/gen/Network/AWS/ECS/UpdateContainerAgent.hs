@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,153 @@
 --
 -- Updates the Amazon ECS container agent on a specified container instance. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with the Amazon ECS-optimized AMI or another operating system.
 --
---
 -- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon Linux with the @ecs-init@ service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon Elastic Container Service Developer Guide/ .
 module Network.AWS.ECS.UpdateContainerAgent
-  ( -- * Creating a Request
-    updateContainerAgent,
-    UpdateContainerAgent,
+  ( -- * Creating a request
+    UpdateContainerAgent (..),
+    mkUpdateContainerAgent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucaCluster,
     ucaContainerInstance,
 
-    -- * Destructuring the Response
-    updateContainerAgentResponse,
-    UpdateContainerAgentResponse,
+    -- * Destructuring the response
+    UpdateContainerAgentResponse (..),
+    mkUpdateContainerAgentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucarsContainerInstance,
     ucarsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateContainerAgent' smart constructor.
+-- | /See:/ 'mkUpdateContainerAgent' smart constructor.
 data UpdateContainerAgent = UpdateContainerAgent'
-  { _ucaCluster ::
-      !(Maybe Text),
-    _ucaContainerInstance :: !Text
+  { cluster ::
+      Lude.Maybe Lude.Text,
+    containerInstance :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerAgent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucaCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
---
--- * 'ucaContainerInstance' - The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
-updateContainerAgent ::
-  -- | 'ucaContainerInstance'
-  Text ->
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
+-- * 'containerInstance' - The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
+mkUpdateContainerAgent ::
+  -- | 'containerInstance'
+  Lude.Text ->
   UpdateContainerAgent
-updateContainerAgent pContainerInstance_ =
+mkUpdateContainerAgent pContainerInstance_ =
   UpdateContainerAgent'
-    { _ucaCluster = Nothing,
-      _ucaContainerInstance = pContainerInstance_
+    { cluster = Lude.Nothing,
+      containerInstance = pContainerInstance_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
-ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
-ucaCluster = lens _ucaCluster (\s a -> s {_ucaCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaCluster :: Lens.Lens' UpdateContainerAgent (Lude.Maybe Lude.Text)
+ucaCluster = Lens.lens (cluster :: UpdateContainerAgent -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: UpdateContainerAgent)
+{-# DEPRECATED ucaCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
-ucaContainerInstance :: Lens' UpdateContainerAgent Text
-ucaContainerInstance = lens _ucaContainerInstance (\s a -> s {_ucaContainerInstance = a})
+--
+-- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaContainerInstance :: Lens.Lens' UpdateContainerAgent Lude.Text
+ucaContainerInstance = Lens.lens (containerInstance :: UpdateContainerAgent -> Lude.Text) (\s a -> s {containerInstance = a} :: UpdateContainerAgent)
+{-# DEPRECATED ucaContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
-instance AWSRequest UpdateContainerAgent where
+instance Lude.AWSRequest UpdateContainerAgent where
   type Rs UpdateContainerAgent = UpdateContainerAgentResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateContainerAgentResponse'
-            <$> (x .?> "containerInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "containerInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateContainerAgent
-
-instance NFData UpdateContainerAgent
-
-instance ToHeaders UpdateContainerAgent where
+instance Lude.ToHeaders UpdateContainerAgent where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateContainerAgent where
+instance Lude.ToJSON UpdateContainerAgent where
   toJSON UpdateContainerAgent' {..} =
-    object
-      ( catMaybes
-          [ ("cluster" .=) <$> _ucaCluster,
-            Just ("containerInstance" .= _ucaContainerInstance)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("containerInstance" Lude..= containerInstance)
           ]
       )
 
-instance ToPath UpdateContainerAgent where
-  toPath = const "/"
+instance Lude.ToPath UpdateContainerAgent where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateContainerAgent where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateContainerAgent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateContainerAgentResponse' smart constructor.
+-- | /See:/ 'mkUpdateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-  { _ucarsContainerInstance ::
-      !(Maybe ContainerInstance),
-    _ucarsResponseStatus :: !Int
+  { containerInstance ::
+      Lude.Maybe ContainerInstance,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucarsContainerInstance' - The container instance for which the container agent was updated.
---
--- * 'ucarsResponseStatus' - -- | The response status code.
-updateContainerAgentResponse ::
-  -- | 'ucarsResponseStatus'
-  Int ->
+-- * 'containerInstance' - The container instance for which the container agent was updated.
+-- * 'responseStatus' - The response status code.
+mkUpdateContainerAgentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateContainerAgentResponse
-updateContainerAgentResponse pResponseStatus_ =
+mkUpdateContainerAgentResponse pResponseStatus_ =
   UpdateContainerAgentResponse'
-    { _ucarsContainerInstance = Nothing,
-      _ucarsResponseStatus = pResponseStatus_
+    { containerInstance = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The container instance for which the container agent was updated.
-ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
-ucarsContainerInstance = lens _ucarsContainerInstance (\s a -> s {_ucarsContainerInstance = a})
+--
+-- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucarsContainerInstance :: Lens.Lens' UpdateContainerAgentResponse (Lude.Maybe ContainerInstance)
+ucarsContainerInstance = Lens.lens (containerInstance :: UpdateContainerAgentResponse -> Lude.Maybe ContainerInstance) (\s a -> s {containerInstance = a} :: UpdateContainerAgentResponse)
+{-# DEPRECATED ucarsContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
--- | -- | The response status code.
-ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
-ucarsResponseStatus = lens _ucarsResponseStatus (\s a -> s {_ucarsResponseStatus = a})
-
-instance NFData UpdateContainerAgentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucarsResponseStatus :: Lens.Lens' UpdateContainerAgentResponse Lude.Int
+ucarsResponseStatus = Lens.lens (responseStatus :: UpdateContainerAgentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContainerAgentResponse)
+{-# DEPRECATED ucarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

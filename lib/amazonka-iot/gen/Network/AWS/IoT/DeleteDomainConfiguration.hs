@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,115 @@
 --
 -- Deletes the specified domain configuration.
 module Network.AWS.IoT.DeleteDomainConfiguration
-  ( -- * Creating a Request
-    deleteDomainConfiguration,
-    DeleteDomainConfiguration,
+  ( -- * Creating a request
+    DeleteDomainConfiguration (..),
+    mkDeleteDomainConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDomainConfigurationName,
 
-    -- * Destructuring the Response
-    deleteDomainConfigurationResponse,
-    DeleteDomainConfigurationResponse,
+    -- * Destructuring the response
+    DeleteDomainConfigurationResponse (..),
+    mkDeleteDomainConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcdrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDomainConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteDomainConfiguration' smart constructor.
 newtype DeleteDomainConfiguration = DeleteDomainConfiguration'
-  { _dDomainConfigurationName ::
-      Text
+  { domainConfigurationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDomainConfigurationName' - The name of the domain configuration to be deleted.
-deleteDomainConfiguration ::
-  -- | 'dDomainConfigurationName'
-  Text ->
+-- * 'domainConfigurationName' - The name of the domain configuration to be deleted.
+mkDeleteDomainConfiguration ::
+  -- | 'domainConfigurationName'
+  Lude.Text ->
   DeleteDomainConfiguration
-deleteDomainConfiguration pDomainConfigurationName_ =
+mkDeleteDomainConfiguration pDomainConfigurationName_ =
   DeleteDomainConfiguration'
-    { _dDomainConfigurationName =
+    { domainConfigurationName =
         pDomainConfigurationName_
     }
 
 -- | The name of the domain configuration to be deleted.
-dDomainConfigurationName :: Lens' DeleteDomainConfiguration Text
-dDomainConfigurationName = lens _dDomainConfigurationName (\s a -> s {_dDomainConfigurationName = a})
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDomainConfigurationName :: Lens.Lens' DeleteDomainConfiguration Lude.Text
+dDomainConfigurationName = Lens.lens (domainConfigurationName :: DeleteDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: DeleteDomainConfiguration)
+{-# DEPRECATED dDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
-instance AWSRequest DeleteDomainConfiguration where
+instance Lude.AWSRequest DeleteDomainConfiguration where
   type
     Rs DeleteDomainConfiguration =
       DeleteDomainConfigurationResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteDomainConfigurationResponse' <$> (pure (fromEnum s))
+          DeleteDomainConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDomainConfiguration
+instance Lude.ToHeaders DeleteDomainConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDomainConfiguration
-
-instance ToHeaders DeleteDomainConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DeleteDomainConfiguration where
+instance Lude.ToPath DeleteDomainConfiguration where
   toPath DeleteDomainConfiguration' {..} =
-    mconcat
-      ["/domainConfigurations/", toBS _dDomainConfigurationName]
+    Lude.mconcat
+      ["/domainConfigurations/", Lude.toBS domainConfigurationName]
 
-instance ToQuery DeleteDomainConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDomainConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDomainConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteDomainConfigurationResponse' smart constructor.
 newtype DeleteDomainConfigurationResponse = DeleteDomainConfigurationResponse'
-  { _ddcdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcdrsResponseStatus' - -- | The response status code.
-deleteDomainConfigurationResponse ::
-  -- | 'ddcdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDomainConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDomainConfigurationResponse
-deleteDomainConfigurationResponse pResponseStatus_ =
+mkDeleteDomainConfigurationResponse pResponseStatus_ =
   DeleteDomainConfigurationResponse'
-    { _ddcdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddcdrsResponseStatus :: Lens' DeleteDomainConfigurationResponse Int
-ddcdrsResponseStatus = lens _ddcdrsResponseStatus (\s a -> s {_ddcdrsResponseStatus = a})
-
-instance NFData DeleteDomainConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcdrsResponseStatus :: Lens.Lens' DeleteDomainConfigurationResponse Lude.Int
+ddcdrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainConfigurationResponse)
+{-# DEPRECATED ddcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

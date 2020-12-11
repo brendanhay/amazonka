@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum where
+module Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+  ( RedirectActionStatusCodeEnum
+      ( RedirectActionStatusCodeEnum',
+        HTTP301,
+        HTTP302
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RedirectActionStatusCodeEnum
-  = HTTP301
-  | HTTP302
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RedirectActionStatusCodeEnum = RedirectActionStatusCodeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RedirectActionStatusCodeEnum where
-  parser =
-    takeLowerText >>= \case
-      "http_301" -> pure HTTP301
-      "http_302" -> pure HTTP302
-      e ->
-        fromTextError $
-          "Failure parsing RedirectActionStatusCodeEnum from value: '" <> e
-            <> "'. Accepted values: http_301, http_302"
+pattern HTTP301 :: RedirectActionStatusCodeEnum
+pattern HTTP301 = RedirectActionStatusCodeEnum' "HTTP_301"
 
-instance ToText RedirectActionStatusCodeEnum where
-  toText = \case
-    HTTP301 -> "HTTP_301"
-    HTTP302 -> "HTTP_302"
+pattern HTTP302 :: RedirectActionStatusCodeEnum
+pattern HTTP302 = RedirectActionStatusCodeEnum' "HTTP_302"
 
-instance Hashable RedirectActionStatusCodeEnum
-
-instance NFData RedirectActionStatusCodeEnum
-
-instance ToByteString RedirectActionStatusCodeEnum
-
-instance ToQuery RedirectActionStatusCodeEnum
-
-instance ToHeader RedirectActionStatusCodeEnum
-
-instance FromXML RedirectActionStatusCodeEnum where
-  parseXML = parseXMLText "RedirectActionStatusCodeEnum"
+{-# COMPLETE
+  HTTP301,
+  HTTP302,
+  RedirectActionStatusCodeEnum'
+  #-}

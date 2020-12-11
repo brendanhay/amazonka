@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingOutput where
+module Network.AWS.SageMaker.Types.ProcessingOutput
+  ( ProcessingOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingOutput,
+
+    -- * Lenses
+    poOutputName,
+    poS3Output,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingS3Output
 
 -- | Describes the results of a processing job.
 --
---
---
--- /See:/ 'processingOutput' smart constructor.
+-- /See:/ 'mkProcessingOutput' smart constructor.
 data ProcessingOutput = ProcessingOutput'
-  { _poOutputName :: !Text,
-    _poS3Output :: !ProcessingS3Output
+  { outputName :: Lude.Text,
+    s3Output :: ProcessingS3Output
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'poOutputName' - The name for the processing job output.
---
--- * 'poS3Output' - Configuration for processing job outputs in Amazon S3.
-processingOutput ::
-  -- | 'poOutputName'
-  Text ->
-  -- | 'poS3Output'
+-- * 'outputName' - The name for the processing job output.
+-- * 's3Output' - Configuration for processing job outputs in Amazon S3.
+mkProcessingOutput ::
+  -- | 'outputName'
+  Lude.Text ->
+  -- | 's3Output'
   ProcessingS3Output ->
   ProcessingOutput
-processingOutput pOutputName_ pS3Output_ =
+mkProcessingOutput pOutputName_ pS3Output_ =
   ProcessingOutput'
-    { _poOutputName = pOutputName_,
-      _poS3Output = pS3Output_
+    { outputName = pOutputName_,
+      s3Output = pS3Output_
     }
 
 -- | The name for the processing job output.
-poOutputName :: Lens' ProcessingOutput Text
-poOutputName = lens _poOutputName (\s a -> s {_poOutputName = a})
+--
+-- /Note:/ Consider using 'outputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poOutputName :: Lens.Lens' ProcessingOutput Lude.Text
+poOutputName = Lens.lens (outputName :: ProcessingOutput -> Lude.Text) (\s a -> s {outputName = a} :: ProcessingOutput)
+{-# DEPRECATED poOutputName "Use generic-lens or generic-optics with 'outputName' instead." #-}
 
 -- | Configuration for processing job outputs in Amazon S3.
-poS3Output :: Lens' ProcessingOutput ProcessingS3Output
-poS3Output = lens _poS3Output (\s a -> s {_poS3Output = a})
+--
+-- /Note:/ Consider using 's3Output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poS3Output :: Lens.Lens' ProcessingOutput ProcessingS3Output
+poS3Output = Lens.lens (s3Output :: ProcessingOutput -> ProcessingS3Output) (\s a -> s {s3Output = a} :: ProcessingOutput)
+{-# DEPRECATED poS3Output "Use generic-lens or generic-optics with 's3Output' instead." #-}
 
-instance FromJSON ProcessingOutput where
+instance Lude.FromJSON ProcessingOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingOutput"
       ( \x ->
-          ProcessingOutput' <$> (x .: "OutputName") <*> (x .: "S3Output")
+          ProcessingOutput'
+            Lude.<$> (x Lude..: "OutputName") Lude.<*> (x Lude..: "S3Output")
       )
 
-instance Hashable ProcessingOutput
-
-instance NFData ProcessingOutput
-
-instance ToJSON ProcessingOutput where
+instance Lude.ToJSON ProcessingOutput where
   toJSON ProcessingOutput' {..} =
-    object
-      ( catMaybes
-          [ Just ("OutputName" .= _poOutputName),
-            Just ("S3Output" .= _poS3Output)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OutputName" Lude..= outputName),
+            Lude.Just ("S3Output" Lude..= s3Output)
           ]
       )

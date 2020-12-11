@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,138 +7,218 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters where
+module Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+  ( HlsManifestCreateOrUpdateParameters (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsManifestCreateOrUpdateParameters,
+
+    -- * Lenses
+    hmcoupAdsOnDeliveryRestrictions,
+    hmcoupManifestName,
+    hmcoupPlaylistType,
+    hmcoupProgramDateTimeIntervalSeconds,
+    hmcoupAdMarkers,
+    hmcoupIncludeIframeOnlyStream,
+    hmcoupAdTriggers,
+    hmcoupPlaylistWindowSeconds,
+    hmcoupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.AdMarkers
 import Network.AWS.MediaPackage.Types.AdTriggersElement
 import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
 import Network.AWS.MediaPackage.Types.PlaylistType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A HTTP Live Streaming (HLS) manifest configuration.
 --
--- /See:/ 'hlsManifestCreateOrUpdateParameters' smart constructor.
+-- /See:/ 'mkHlsManifestCreateOrUpdateParameters' smart constructor.
 data HlsManifestCreateOrUpdateParameters = HlsManifestCreateOrUpdateParameters'
-  { _hmcoupAdsOnDeliveryRestrictions ::
-      !( Maybe
-           AdsOnDeliveryRestrictions
-       ),
-    _hmcoupManifestName ::
-      !(Maybe Text),
-    _hmcoupPlaylistType ::
-      !( Maybe
-           PlaylistType
-       ),
-    _hmcoupProgramDateTimeIntervalSeconds ::
-      !(Maybe Int),
-    _hmcoupAdMarkers ::
-      !(Maybe AdMarkers),
-    _hmcoupIncludeIframeOnlyStream ::
-      !(Maybe Bool),
-    _hmcoupAdTriggers ::
-      !( Maybe
-           [AdTriggersElement]
-       ),
-    _hmcoupPlaylistWindowSeconds ::
-      !(Maybe Int),
-    _hmcoupId :: !Text
+  { adsOnDeliveryRestrictions ::
+      Lude.Maybe
+        AdsOnDeliveryRestrictions,
+    manifestName ::
+      Lude.Maybe
+        Lude.Text,
+    playlistType ::
+      Lude.Maybe
+        PlaylistType,
+    programDateTimeIntervalSeconds ::
+      Lude.Maybe Lude.Int,
+    adMarkers ::
+      Lude.Maybe
+        AdMarkers,
+    includeIframeOnlyStream ::
+      Lude.Maybe
+        Lude.Bool,
+    adTriggers ::
+      Lude.Maybe
+        [AdTriggersElement],
+    playlistWindowSeconds ::
+      Lude.Maybe Lude.Int,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsManifestCreateOrUpdateParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'adMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint.
 --
--- * 'hmcoupAdsOnDeliveryRestrictions' - Undocumented member.
+-- "NONE" will omit all SCTE-35 ad markers from the output.
+-- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+-- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+-- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+-- messages in the input source.
+-- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+-- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+-- that is greater than 0.
+-- * 'adTriggers' - Undocumented field.
+-- * 'adsOnDeliveryRestrictions' - Undocumented field.
+-- * 'id' - The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+-- * 'includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
+-- * 'manifestName' - An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+-- * 'playlistType' - The HTTP Live Streaming (HLS) playlist type.
 --
--- * 'hmcoupManifestName' - An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+-- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+-- entry will be included in the media playlist.
+-- * 'playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+-- * 'programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
 --
--- * 'hmcoupPlaylistType' - The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
---
--- * 'hmcoupProgramDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
---
--- * 'hmcoupAdMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events  in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value  that is greater than 0.
---
--- * 'hmcoupIncludeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
---
--- * 'hmcoupAdTriggers' - Undocumented member.
---
--- * 'hmcoupPlaylistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
---
--- * 'hmcoupId' - The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
-hlsManifestCreateOrUpdateParameters ::
-  -- | 'hmcoupId'
-  Text ->
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content.
+-- If the interval is not specified, or set to 0, then
+-- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+-- ID3Timed Metadata messages will be generated. Note that irrespective
+-- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+-- it will be passed through to HLS output.
+mkHlsManifestCreateOrUpdateParameters ::
+  -- | 'id'
+  Lude.Text ->
   HlsManifestCreateOrUpdateParameters
-hlsManifestCreateOrUpdateParameters pId_ =
+mkHlsManifestCreateOrUpdateParameters pId_ =
   HlsManifestCreateOrUpdateParameters'
-    { _hmcoupAdsOnDeliveryRestrictions =
-        Nothing,
-      _hmcoupManifestName = Nothing,
-      _hmcoupPlaylistType = Nothing,
-      _hmcoupProgramDateTimeIntervalSeconds = Nothing,
-      _hmcoupAdMarkers = Nothing,
-      _hmcoupIncludeIframeOnlyStream = Nothing,
-      _hmcoupAdTriggers = Nothing,
-      _hmcoupPlaylistWindowSeconds = Nothing,
-      _hmcoupId = pId_
+    { adsOnDeliveryRestrictions =
+        Lude.Nothing,
+      manifestName = Lude.Nothing,
+      playlistType = Lude.Nothing,
+      programDateTimeIntervalSeconds = Lude.Nothing,
+      adMarkers = Lude.Nothing,
+      includeIframeOnlyStream = Lude.Nothing,
+      adTriggers = Lude.Nothing,
+      playlistWindowSeconds = Lude.Nothing,
+      id = pId_
     }
 
--- | Undocumented member.
-hmcoupAdsOnDeliveryRestrictions :: Lens' HlsManifestCreateOrUpdateParameters (Maybe AdsOnDeliveryRestrictions)
-hmcoupAdsOnDeliveryRestrictions = lens _hmcoupAdsOnDeliveryRestrictions (\s a -> s {_hmcoupAdsOnDeliveryRestrictions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'adsOnDeliveryRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupAdsOnDeliveryRestrictions :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe AdsOnDeliveryRestrictions)
+hmcoupAdsOnDeliveryRestrictions = Lens.lens (adsOnDeliveryRestrictions :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe AdsOnDeliveryRestrictions) (\s a -> s {adsOnDeliveryRestrictions = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupAdsOnDeliveryRestrictions "Use generic-lens or generic-optics with 'adsOnDeliveryRestrictions' instead." #-}
 
 -- | An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
-hmcoupManifestName :: Lens' HlsManifestCreateOrUpdateParameters (Maybe Text)
-hmcoupManifestName = lens _hmcoupManifestName (\s a -> s {_hmcoupManifestName = a})
+--
+-- /Note:/ Consider using 'manifestName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupManifestName :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe Lude.Text)
+hmcoupManifestName = Lens.lens (manifestName :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe Lude.Text) (\s a -> s {manifestName = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupManifestName "Use generic-lens or generic-optics with 'manifestName' instead." #-}
 
--- | The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-hmcoupPlaylistType :: Lens' HlsManifestCreateOrUpdateParameters (Maybe PlaylistType)
-hmcoupPlaylistType = lens _hmcoupPlaylistType (\s a -> s {_hmcoupPlaylistType = a})
+-- | The HTTP Live Streaming (HLS) playlist type.
+--
+-- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+-- entry will be included in the media playlist.
+--
+-- /Note:/ Consider using 'playlistType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupPlaylistType :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe PlaylistType)
+hmcoupPlaylistType = Lens.lens (playlistType :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe PlaylistType) (\s a -> s {playlistType = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupPlaylistType "Use generic-lens or generic-optics with 'playlistType' instead." #-}
 
--- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
-hmcoupProgramDateTimeIntervalSeconds :: Lens' HlsManifestCreateOrUpdateParameters (Maybe Int)
-hmcoupProgramDateTimeIntervalSeconds = lens _hmcoupProgramDateTimeIntervalSeconds (\s a -> s {_hmcoupProgramDateTimeIntervalSeconds = a})
+-- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+--
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content.
+-- If the interval is not specified, or set to 0, then
+-- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+-- ID3Timed Metadata messages will be generated. Note that irrespective
+-- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+-- it will be passed through to HLS output.
+--
+-- /Note:/ Consider using 'programDateTimeIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupProgramDateTimeIntervalSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe Lude.Int)
+hmcoupProgramDateTimeIntervalSeconds = Lens.lens (programDateTimeIntervalSeconds :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe Lude.Int) (\s a -> s {programDateTimeIntervalSeconds = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupProgramDateTimeIntervalSeconds "Use generic-lens or generic-optics with 'programDateTimeIntervalSeconds' instead." #-}
 
--- | This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events  in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value  that is greater than 0.
-hmcoupAdMarkers :: Lens' HlsManifestCreateOrUpdateParameters (Maybe AdMarkers)
-hmcoupAdMarkers = lens _hmcoupAdMarkers (\s a -> s {_hmcoupAdMarkers = a})
+-- | This setting controls how ad markers are included in the packaged OriginEndpoint.
+--
+-- "NONE" will omit all SCTE-35 ad markers from the output.
+-- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+-- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+-- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+-- messages in the input source.
+-- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+-- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+-- that is greater than 0.
+--
+-- /Note:/ Consider using 'adMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupAdMarkers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe AdMarkers)
+hmcoupAdMarkers = Lens.lens (adMarkers :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe AdMarkers) (\s a -> s {adMarkers = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupAdMarkers "Use generic-lens or generic-optics with 'adMarkers' instead." #-}
 
 -- | When enabled, an I-Frame only stream will be included in the output.
-hmcoupIncludeIframeOnlyStream :: Lens' HlsManifestCreateOrUpdateParameters (Maybe Bool)
-hmcoupIncludeIframeOnlyStream = lens _hmcoupIncludeIframeOnlyStream (\s a -> s {_hmcoupIncludeIframeOnlyStream = a})
+--
+-- /Note:/ Consider using 'includeIframeOnlyStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupIncludeIframeOnlyStream :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe Lude.Bool)
+hmcoupIncludeIframeOnlyStream = Lens.lens (includeIframeOnlyStream :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe Lude.Bool) (\s a -> s {includeIframeOnlyStream = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupIncludeIframeOnlyStream "Use generic-lens or generic-optics with 'includeIframeOnlyStream' instead." #-}
 
--- | Undocumented member.
-hmcoupAdTriggers :: Lens' HlsManifestCreateOrUpdateParameters [AdTriggersElement]
-hmcoupAdTriggers = lens _hmcoupAdTriggers (\s a -> s {_hmcoupAdTriggers = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'adTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupAdTriggers :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe [AdTriggersElement])
+hmcoupAdTriggers = Lens.lens (adTriggers :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe [AdTriggersElement]) (\s a -> s {adTriggers = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupAdTriggers "Use generic-lens or generic-optics with 'adTriggers' instead." #-}
 
 -- | Time window (in seconds) contained in each parent manifest.
-hmcoupPlaylistWindowSeconds :: Lens' HlsManifestCreateOrUpdateParameters (Maybe Int)
-hmcoupPlaylistWindowSeconds = lens _hmcoupPlaylistWindowSeconds (\s a -> s {_hmcoupPlaylistWindowSeconds = a})
+--
+-- /Note:/ Consider using 'playlistWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupPlaylistWindowSeconds :: Lens.Lens' HlsManifestCreateOrUpdateParameters (Lude.Maybe Lude.Int)
+hmcoupPlaylistWindowSeconds = Lens.lens (playlistWindowSeconds :: HlsManifestCreateOrUpdateParameters -> Lude.Maybe Lude.Int) (\s a -> s {playlistWindowSeconds = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupPlaylistWindowSeconds "Use generic-lens or generic-optics with 'playlistWindowSeconds' instead." #-}
 
 -- | The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
-hmcoupId :: Lens' HlsManifestCreateOrUpdateParameters Text
-hmcoupId = lens _hmcoupId (\s a -> s {_hmcoupId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmcoupId :: Lens.Lens' HlsManifestCreateOrUpdateParameters Lude.Text
+hmcoupId = Lens.lens (id :: HlsManifestCreateOrUpdateParameters -> Lude.Text) (\s a -> s {id = a} :: HlsManifestCreateOrUpdateParameters)
+{-# DEPRECATED hmcoupId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Hashable HlsManifestCreateOrUpdateParameters
-
-instance NFData HlsManifestCreateOrUpdateParameters
-
-instance ToJSON HlsManifestCreateOrUpdateParameters where
+instance Lude.ToJSON HlsManifestCreateOrUpdateParameters where
   toJSON HlsManifestCreateOrUpdateParameters' {..} =
-    object
-      ( catMaybes
-          [ ("adsOnDeliveryRestrictions" .=)
-              <$> _hmcoupAdsOnDeliveryRestrictions,
-            ("manifestName" .=) <$> _hmcoupManifestName,
-            ("playlistType" .=) <$> _hmcoupPlaylistType,
-            ("programDateTimeIntervalSeconds" .=)
-              <$> _hmcoupProgramDateTimeIntervalSeconds,
-            ("adMarkers" .=) <$> _hmcoupAdMarkers,
-            ("includeIframeOnlyStream" .=) <$> _hmcoupIncludeIframeOnlyStream,
-            ("adTriggers" .=) <$> _hmcoupAdTriggers,
-            ("playlistWindowSeconds" .=) <$> _hmcoupPlaylistWindowSeconds,
-            Just ("id" .= _hmcoupId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("adsOnDeliveryRestrictions" Lude..=)
+              Lude.<$> adsOnDeliveryRestrictions,
+            ("manifestName" Lude..=) Lude.<$> manifestName,
+            ("playlistType" Lude..=) Lude.<$> playlistType,
+            ("programDateTimeIntervalSeconds" Lude..=)
+              Lude.<$> programDateTimeIntervalSeconds,
+            ("adMarkers" Lude..=) Lude.<$> adMarkers,
+            ("includeIframeOnlyStream" Lude..=)
+              Lude.<$> includeIframeOnlyStream,
+            ("adTriggers" Lude..=) Lude.<$> adTriggers,
+            ("playlistWindowSeconds" Lude..=) Lude.<$> playlistWindowSeconds,
+            Lude.Just ("id" Lude..= id)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,168 @@
 --
 -- Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter.
 --
---
 -- If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas.
 module Network.AWS.SDB.GetAttributes
-  ( -- * Creating a Request
-    getAttributes,
-    GetAttributes,
+  ( -- * Creating a request
+    GetAttributes (..),
+    mkGetAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaConsistentRead,
     gaAttributeNames,
     gaDomainName,
     gaItemName,
 
-    -- * Destructuring the Response
-    getAttributesResponse,
-    GetAttributesResponse,
+    -- * Destructuring the response
+    GetAttributesResponse (..),
+    mkGetAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsAttributes,
     garsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'getAttributes' smart constructor.
+-- | /See:/ 'mkGetAttributes' smart constructor.
 data GetAttributes = GetAttributes'
-  { _gaConsistentRead ::
-      !(Maybe Bool),
-    _gaAttributeNames :: !(Maybe [Text]),
-    _gaDomainName :: !Text,
-    _gaItemName :: !Text
+  { consistentRead ::
+      Lude.Maybe Lude.Bool,
+    attributeNames :: Lude.Maybe [Lude.Text],
+    domainName :: Lude.Text,
+    itemName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaConsistentRead' - @true@
---
--- * 'gaAttributeNames' - The names of the attributes.
---
--- * 'gaDomainName' - The name of the domain in which to perform the operation.
---
--- * 'gaItemName' - The name of the item.
-getAttributes ::
-  -- | 'gaDomainName'
-  Text ->
-  -- | 'gaItemName'
-  Text ->
+-- * 'attributeNames' - The names of the attributes.
+-- * 'consistentRead' - @true@
+-- * 'domainName' - The name of the domain in which to perform the operation.
+-- * 'itemName' - The name of the item.
+mkGetAttributes ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'itemName'
+  Lude.Text ->
   GetAttributes
-getAttributes pDomainName_ pItemName_ =
+mkGetAttributes pDomainName_ pItemName_ =
   GetAttributes'
-    { _gaConsistentRead = Nothing,
-      _gaAttributeNames = Nothing,
-      _gaDomainName = pDomainName_,
-      _gaItemName = pItemName_
+    { consistentRead = Lude.Nothing,
+      attributeNames = Lude.Nothing,
+      domainName = pDomainName_,
+      itemName = pItemName_
     }
 
 -- | @true@
-gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
-gaConsistentRead = lens _gaConsistentRead (\s a -> s {_gaConsistentRead = a})
+--
+-- /Note:/ Consider using 'consistentRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaConsistentRead :: Lens.Lens' GetAttributes (Lude.Maybe Lude.Bool)
+gaConsistentRead = Lens.lens (consistentRead :: GetAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: GetAttributes)
+{-# DEPRECATED gaConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
 -- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames = lens _gaAttributeNames (\s a -> s {_gaAttributeNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaAttributeNames :: Lens.Lens' GetAttributes (Lude.Maybe [Lude.Text])
+gaAttributeNames = Lens.lens (attributeNames :: GetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeNames = a} :: GetAttributes)
+{-# DEPRECATED gaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | The name of the domain in which to perform the operation.
-gaDomainName :: Lens' GetAttributes Text
-gaDomainName = lens _gaDomainName (\s a -> s {_gaDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaDomainName :: Lens.Lens' GetAttributes Lude.Text
+gaDomainName = Lens.lens (domainName :: GetAttributes -> Lude.Text) (\s a -> s {domainName = a} :: GetAttributes)
+{-# DEPRECATED gaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The name of the item.
-gaItemName :: Lens' GetAttributes Text
-gaItemName = lens _gaItemName (\s a -> s {_gaItemName = a})
+--
+-- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaItemName :: Lens.Lens' GetAttributes Lude.Text
+gaItemName = Lens.lens (itemName :: GetAttributes -> Lude.Text) (\s a -> s {itemName = a} :: GetAttributes)
+{-# DEPRECATED gaItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
 
-instance AWSRequest GetAttributes where
+instance Lude.AWSRequest GetAttributes where
   type Rs GetAttributes = GetAttributesResponse
-  request = postQuery sdb
+  request = Req.postQuery sdbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetAttributesResult"
       ( \s h x ->
           GetAttributesResponse'
-            <$> (may (parseXMLList "Attribute") x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "Attribute") x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAttributes
+instance Lude.ToHeaders GetAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAttributes
+instance Lude.ToPath GetAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetAttributes where
-  toHeaders = const mempty
-
-instance ToPath GetAttributes where
-  toPath = const "/"
-
-instance ToQuery GetAttributes where
+instance Lude.ToQuery GetAttributes where
   toQuery GetAttributes' {..} =
-    mconcat
-      [ "Action" =: ("GetAttributes" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "ConsistentRead" =: _gaConsistentRead,
-        toQuery (toQueryList "AttributeName" <$> _gaAttributeNames),
-        "DomainName" =: _gaDomainName,
-        "ItemName" =: _gaItemName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "ConsistentRead" Lude.=: consistentRead,
+        Lude.toQuery
+          (Lude.toQueryList "AttributeName" Lude.<$> attributeNames),
+        "DomainName" Lude.=: domainName,
+        "ItemName" Lude.=: itemName
       ]
 
--- | /See:/ 'getAttributesResponse' smart constructor.
+-- | /See:/ 'mkGetAttributesResponse' smart constructor.
 data GetAttributesResponse = GetAttributesResponse'
-  { _garsAttributes ::
-      !(Maybe [Attribute]),
-    _garsResponseStatus :: !Int
+  { attributes ::
+      Lude.Maybe [Attribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsAttributes' - The list of attributes returned by the operation.
---
--- * 'garsResponseStatus' - -- | The response status code.
-getAttributesResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
+-- * 'attributes' - The list of attributes returned by the operation.
+-- * 'responseStatus' - The response status code.
+mkGetAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAttributesResponse
-getAttributesResponse pResponseStatus_ =
+mkGetAttributesResponse pResponseStatus_ =
   GetAttributesResponse'
-    { _garsAttributes = Nothing,
-      _garsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of attributes returned by the operation.
-garsAttributes :: Lens' GetAttributesResponse [Attribute]
-garsAttributes = lens _garsAttributes (\s a -> s {_garsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsAttributes :: Lens.Lens' GetAttributesResponse (Lude.Maybe [Attribute])
+garsAttributes = Lens.lens (attributes :: GetAttributesResponse -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: GetAttributesResponse)
+{-# DEPRECATED garsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAttributesResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
-
-instance NFData GetAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetAttributesResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAttributesResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

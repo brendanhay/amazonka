@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationExecutionStatus where
+module Network.AWS.SSM.Types.AutomationExecutionStatus
+  ( AutomationExecutionStatus
+      ( AutomationExecutionStatus',
+        AESCancelled,
+        AESCancelling,
+        AESFailed,
+        AESInProgress,
+        AESPending,
+        AESSuccess,
+        AESTimedOut,
+        AESWaiting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutomationExecutionStatus
-  = AESCancelled
-  | AESCancelling
-  | AESFailed
-  | AESInProgress
-  | AESPending
-  | AESSuccess
-  | AESTimedOut
-  | AESWaiting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutomationExecutionStatus = AutomationExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutomationExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure AESCancelled
-      "cancelling" -> pure AESCancelling
-      "failed" -> pure AESFailed
-      "inprogress" -> pure AESInProgress
-      "pending" -> pure AESPending
-      "success" -> pure AESSuccess
-      "timedout" -> pure AESTimedOut
-      "waiting" -> pure AESWaiting
-      e ->
-        fromTextError $
-          "Failure parsing AutomationExecutionStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout, waiting"
+pattern AESCancelled :: AutomationExecutionStatus
+pattern AESCancelled = AutomationExecutionStatus' "Cancelled"
 
-instance ToText AutomationExecutionStatus where
-  toText = \case
-    AESCancelled -> "Cancelled"
-    AESCancelling -> "Cancelling"
-    AESFailed -> "Failed"
-    AESInProgress -> "InProgress"
-    AESPending -> "Pending"
-    AESSuccess -> "Success"
-    AESTimedOut -> "TimedOut"
-    AESWaiting -> "Waiting"
+pattern AESCancelling :: AutomationExecutionStatus
+pattern AESCancelling = AutomationExecutionStatus' "Cancelling"
 
-instance Hashable AutomationExecutionStatus
+pattern AESFailed :: AutomationExecutionStatus
+pattern AESFailed = AutomationExecutionStatus' "Failed"
 
-instance NFData AutomationExecutionStatus
+pattern AESInProgress :: AutomationExecutionStatus
+pattern AESInProgress = AutomationExecutionStatus' "InProgress"
 
-instance ToByteString AutomationExecutionStatus
+pattern AESPending :: AutomationExecutionStatus
+pattern AESPending = AutomationExecutionStatus' "Pending"
 
-instance ToQuery AutomationExecutionStatus
+pattern AESSuccess :: AutomationExecutionStatus
+pattern AESSuccess = AutomationExecutionStatus' "Success"
 
-instance ToHeader AutomationExecutionStatus
+pattern AESTimedOut :: AutomationExecutionStatus
+pattern AESTimedOut = AutomationExecutionStatus' "TimedOut"
 
-instance FromJSON AutomationExecutionStatus where
-  parseJSON = parseJSONText "AutomationExecutionStatus"
+pattern AESWaiting :: AutomationExecutionStatus
+pattern AESWaiting = AutomationExecutionStatus' "Waiting"
+
+{-# COMPLETE
+  AESCancelled,
+  AESCancelling,
+  AESFailed,
+  AESInProgress,
+  AESPending,
+  AESSuccess,
+  AESTimedOut,
+  AESWaiting,
+  AutomationExecutionStatus'
+  #-}

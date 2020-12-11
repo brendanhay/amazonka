@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TimeRangeType where
+module Network.AWS.XRay.Types.TimeRangeType
+  ( TimeRangeType
+      ( TimeRangeType',
+        Event,
+        TraceId
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TimeRangeType
-  = Event
-  | TraceId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimeRangeType = TimeRangeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimeRangeType where
-  parser =
-    takeLowerText >>= \case
-      "event" -> pure Event
-      "traceid" -> pure TraceId
-      e ->
-        fromTextError $
-          "Failure parsing TimeRangeType from value: '" <> e
-            <> "'. Accepted values: event, traceid"
+pattern Event :: TimeRangeType
+pattern Event = TimeRangeType' "Event"
 
-instance ToText TimeRangeType where
-  toText = \case
-    Event -> "Event"
-    TraceId -> "TraceId"
+pattern TraceId :: TimeRangeType
+pattern TraceId = TimeRangeType' "TraceId"
 
-instance Hashable TimeRangeType
-
-instance NFData TimeRangeType
-
-instance ToByteString TimeRangeType
-
-instance ToQuery TimeRangeType
-
-instance ToHeader TimeRangeType
-
-instance ToJSON TimeRangeType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Event,
+  TraceId,
+  TimeRangeType'
+  #-}

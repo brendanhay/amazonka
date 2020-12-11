@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,133 @@
 --
 -- Enables EBS encryption by default for your account in the current Region.
 --
---
 -- After you enable encryption by default, the EBS volumes that you create are are always encrypted, either using the default CMK or the CMK that you specified when you created each volume. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
---
 -- You can specify the default CMK for encryption by default using 'ModifyEbsDefaultKmsKeyId' or 'ResetEbsDefaultKmsKeyId' .
---
 -- Enabling encryption by default has no effect on the encryption status of your existing volumes.
---
 -- After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types> .
 module Network.AWS.EC2.EnableEBSEncryptionByDefault
-  ( -- * Creating a Request
-    enableEBSEncryptionByDefault,
-    EnableEBSEncryptionByDefault,
+  ( -- * Creating a request
+    EnableEBSEncryptionByDefault (..),
+    mkEnableEBSEncryptionByDefault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eeebdDryRun,
 
-    -- * Destructuring the Response
-    enableEBSEncryptionByDefaultResponse,
-    EnableEBSEncryptionByDefaultResponse,
+    -- * Destructuring the response
+    EnableEBSEncryptionByDefaultResponse (..),
+    mkEnableEBSEncryptionByDefaultResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eeebdrsEBSEncryptionByDefault,
     eeebdrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableEBSEncryptionByDefault' smart constructor.
+-- | /See:/ 'mkEnableEBSEncryptionByDefault' smart constructor.
 newtype EnableEBSEncryptionByDefault = EnableEBSEncryptionByDefault'
-  { _eeebdDryRun ::
-      Maybe Bool
+  { dryRun ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableEBSEncryptionByDefault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eeebdDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-enableEBSEncryptionByDefault ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkEnableEBSEncryptionByDefault ::
   EnableEBSEncryptionByDefault
-enableEBSEncryptionByDefault =
-  EnableEBSEncryptionByDefault' {_eeebdDryRun = Nothing}
+mkEnableEBSEncryptionByDefault =
+  EnableEBSEncryptionByDefault' {dryRun = Lude.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-eeebdDryRun :: Lens' EnableEBSEncryptionByDefault (Maybe Bool)
-eeebdDryRun = lens _eeebdDryRun (\s a -> s {_eeebdDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeebdDryRun :: Lens.Lens' EnableEBSEncryptionByDefault (Lude.Maybe Lude.Bool)
+eeebdDryRun = Lens.lens (dryRun :: EnableEBSEncryptionByDefault -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableEBSEncryptionByDefault)
+{-# DEPRECATED eeebdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest EnableEBSEncryptionByDefault where
+instance Lude.AWSRequest EnableEBSEncryptionByDefault where
   type
     Rs EnableEBSEncryptionByDefault =
       EnableEBSEncryptionByDefaultResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           EnableEBSEncryptionByDefaultResponse'
-            <$> (x .@? "ebsEncryptionByDefault") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ebsEncryptionByDefault")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableEBSEncryptionByDefault
+instance Lude.ToHeaders EnableEBSEncryptionByDefault where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EnableEBSEncryptionByDefault
+instance Lude.ToPath EnableEBSEncryptionByDefault where
+  toPath = Lude.const "/"
 
-instance ToHeaders EnableEBSEncryptionByDefault where
-  toHeaders = const mempty
-
-instance ToPath EnableEBSEncryptionByDefault where
-  toPath = const "/"
-
-instance ToQuery EnableEBSEncryptionByDefault where
+instance Lude.ToQuery EnableEBSEncryptionByDefault where
   toQuery EnableEBSEncryptionByDefault' {..} =
-    mconcat
-      [ "Action" =: ("EnableEbsEncryptionByDefault" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _eeebdDryRun
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("EnableEbsEncryptionByDefault" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'enableEBSEncryptionByDefaultResponse' smart constructor.
+-- | /See:/ 'mkEnableEBSEncryptionByDefaultResponse' smart constructor.
 data EnableEBSEncryptionByDefaultResponse = EnableEBSEncryptionByDefaultResponse'
-  { _eeebdrsEBSEncryptionByDefault ::
-      !(Maybe Bool),
-    _eeebdrsResponseStatus ::
-      !Int
+  { ebsEncryptionByDefault ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableEBSEncryptionByDefaultResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eeebdrsEBSEncryptionByDefault' - The updated status of encryption by default.
---
--- * 'eeebdrsResponseStatus' - -- | The response status code.
-enableEBSEncryptionByDefaultResponse ::
-  -- | 'eeebdrsResponseStatus'
-  Int ->
+-- * 'ebsEncryptionByDefault' - The updated status of encryption by default.
+-- * 'responseStatus' - The response status code.
+mkEnableEBSEncryptionByDefaultResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableEBSEncryptionByDefaultResponse
-enableEBSEncryptionByDefaultResponse pResponseStatus_ =
+mkEnableEBSEncryptionByDefaultResponse pResponseStatus_ =
   EnableEBSEncryptionByDefaultResponse'
-    { _eeebdrsEBSEncryptionByDefault =
-        Nothing,
-      _eeebdrsResponseStatus = pResponseStatus_
+    { ebsEncryptionByDefault =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated status of encryption by default.
-eeebdrsEBSEncryptionByDefault :: Lens' EnableEBSEncryptionByDefaultResponse (Maybe Bool)
-eeebdrsEBSEncryptionByDefault = lens _eeebdrsEBSEncryptionByDefault (\s a -> s {_eeebdrsEBSEncryptionByDefault = a})
+--
+-- /Note:/ Consider using 'ebsEncryptionByDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeebdrsEBSEncryptionByDefault :: Lens.Lens' EnableEBSEncryptionByDefaultResponse (Lude.Maybe Lude.Bool)
+eeebdrsEBSEncryptionByDefault = Lens.lens (ebsEncryptionByDefault :: EnableEBSEncryptionByDefaultResponse -> Lude.Maybe Lude.Bool) (\s a -> s {ebsEncryptionByDefault = a} :: EnableEBSEncryptionByDefaultResponse)
+{-# DEPRECATED eeebdrsEBSEncryptionByDefault "Use generic-lens or generic-optics with 'ebsEncryptionByDefault' instead." #-}
 
--- | -- | The response status code.
-eeebdrsResponseStatus :: Lens' EnableEBSEncryptionByDefaultResponse Int
-eeebdrsResponseStatus = lens _eeebdrsResponseStatus (\s a -> s {_eeebdrsResponseStatus = a})
-
-instance NFData EnableEBSEncryptionByDefaultResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeebdrsResponseStatus :: Lens.Lens' EnableEBSEncryptionByDefaultResponse Lude.Int
+eeebdrsResponseStatus = Lens.lens (responseStatus :: EnableEBSEncryptionByDefaultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableEBSEncryptionByDefaultResponse)
+{-# DEPRECATED eeebdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,151 @@
 --
 -- Grants RDP access to a Windows instance for a specified time period.
 module Network.AWS.OpsWorks.GrantAccess
-  ( -- * Creating a Request
-    grantAccess,
-    GrantAccess,
+  ( -- * Creating a request
+    GrantAccess (..),
+    mkGrantAccess,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaValidForInMinutes,
     gaInstanceId,
 
-    -- * Destructuring the Response
-    grantAccessResponse,
-    GrantAccessResponse,
+    -- * Destructuring the response
+    GrantAccessResponse (..),
+    mkGrantAccessResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsTemporaryCredential,
     garsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'grantAccess' smart constructor.
+-- | /See:/ 'mkGrantAccess' smart constructor.
 data GrantAccess = GrantAccess'
-  { _gaValidForInMinutes ::
-      !(Maybe Nat),
-    _gaInstanceId :: !Text
+  { validForInMinutes ::
+      Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantAccess' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
---
--- * 'gaInstanceId' - The instance's AWS OpsWorks Stacks ID.
-grantAccess ::
-  -- | 'gaInstanceId'
-  Text ->
+-- * 'instanceId' - The instance's AWS OpsWorks Stacks ID.
+-- * 'validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
+mkGrantAccess ::
+  -- | 'instanceId'
+  Lude.Text ->
   GrantAccess
-grantAccess pInstanceId_ =
+mkGrantAccess pInstanceId_ =
   GrantAccess'
-    { _gaValidForInMinutes = Nothing,
-      _gaInstanceId = pInstanceId_
+    { validForInMinutes = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
-gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
-gaValidForInMinutes = lens _gaValidForInMinutes (\s a -> s {_gaValidForInMinutes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaValidForInMinutes :: Lens.Lens' GrantAccess (Lude.Maybe Lude.Natural)
+gaValidForInMinutes = Lens.lens (validForInMinutes :: GrantAccess -> Lude.Maybe Lude.Natural) (\s a -> s {validForInMinutes = a} :: GrantAccess)
+{-# DEPRECATED gaValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
 -- | The instance's AWS OpsWorks Stacks ID.
-gaInstanceId :: Lens' GrantAccess Text
-gaInstanceId = lens _gaInstanceId (\s a -> s {_gaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaInstanceId :: Lens.Lens' GrantAccess Lude.Text
+gaInstanceId = Lens.lens (instanceId :: GrantAccess -> Lude.Text) (\s a -> s {instanceId = a} :: GrantAccess)
+{-# DEPRECATED gaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest GrantAccess where
+instance Lude.AWSRequest GrantAccess where
   type Rs GrantAccess = GrantAccessResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GrantAccessResponse'
-            <$> (x .?> "TemporaryCredential") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TemporaryCredential")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GrantAccess
-
-instance NFData GrantAccess
-
-instance ToHeaders GrantAccess where
+instance Lude.ToHeaders GrantAccess where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.GrantAccess" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.GrantAccess" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GrantAccess where
+instance Lude.ToJSON GrantAccess where
   toJSON GrantAccess' {..} =
-    object
-      ( catMaybes
-          [ ("ValidForInMinutes" .=) <$> _gaValidForInMinutes,
-            Just ("InstanceId" .= _gaInstanceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ValidForInMinutes" Lude..=) Lude.<$> validForInMinutes,
+            Lude.Just ("InstanceId" Lude..= instanceId)
           ]
       )
 
-instance ToPath GrantAccess where
-  toPath = const "/"
+instance Lude.ToPath GrantAccess where
+  toPath = Lude.const "/"
 
-instance ToQuery GrantAccess where
-  toQuery = const mempty
+instance Lude.ToQuery GrantAccess where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @GrantAccess@ request.
 --
---
---
--- /See:/ 'grantAccessResponse' smart constructor.
+-- /See:/ 'mkGrantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
-  { _garsTemporaryCredential ::
-      !(Maybe TemporaryCredential),
-    _garsResponseStatus :: !Int
+  { temporaryCredential ::
+      Lude.Maybe TemporaryCredential,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsTemporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
---
--- * 'garsResponseStatus' - -- | The response status code.
-grantAccessResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'temporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
+mkGrantAccessResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GrantAccessResponse
-grantAccessResponse pResponseStatus_ =
+mkGrantAccessResponse pResponseStatus_ =
   GrantAccessResponse'
-    { _garsTemporaryCredential = Nothing,
-      _garsResponseStatus = pResponseStatus_
+    { temporaryCredential = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
-garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
-garsTemporaryCredential = lens _garsTemporaryCredential (\s a -> s {_garsTemporaryCredential = a})
+--
+-- /Note:/ Consider using 'temporaryCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsTemporaryCredential :: Lens.Lens' GrantAccessResponse (Lude.Maybe TemporaryCredential)
+garsTemporaryCredential = Lens.lens (temporaryCredential :: GrantAccessResponse -> Lude.Maybe TemporaryCredential) (\s a -> s {temporaryCredential = a} :: GrantAccessResponse)
+{-# DEPRECATED garsTemporaryCredential "Use generic-lens or generic-optics with 'temporaryCredential' instead." #-}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GrantAccessResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
-
-instance NFData GrantAccessResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GrantAccessResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GrantAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GrantAccessResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

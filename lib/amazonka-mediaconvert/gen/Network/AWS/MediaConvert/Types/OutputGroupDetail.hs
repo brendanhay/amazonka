@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputGroupDetail where
+module Network.AWS.MediaConvert.Types.OutputGroupDetail
+  ( OutputGroupDetail (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOutputGroupDetail,
+
+    -- * Lenses
+    ogdOutputDetails,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputDetail
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the output groups specified in the job settings.
 --
--- /See:/ 'outputGroupDetail' smart constructor.
+-- /See:/ 'mkOutputGroupDetail' smart constructor.
 newtype OutputGroupDetail = OutputGroupDetail'
-  { _ogdOutputDetails ::
-      Maybe [OutputDetail]
+  { outputDetails ::
+      Lude.Maybe [OutputDetail]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroupDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogdOutputDetails' - Details about the output
-outputGroupDetail ::
+-- * 'outputDetails' - Details about the output
+mkOutputGroupDetail ::
   OutputGroupDetail
-outputGroupDetail = OutputGroupDetail' {_ogdOutputDetails = Nothing}
+mkOutputGroupDetail =
+  OutputGroupDetail' {outputDetails = Lude.Nothing}
 
 -- | Details about the output
-ogdOutputDetails :: Lens' OutputGroupDetail [OutputDetail]
-ogdOutputDetails = lens _ogdOutputDetails (\s a -> s {_ogdOutputDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogdOutputDetails :: Lens.Lens' OutputGroupDetail (Lude.Maybe [OutputDetail])
+ogdOutputDetails = Lens.lens (outputDetails :: OutputGroupDetail -> Lude.Maybe [OutputDetail]) (\s a -> s {outputDetails = a} :: OutputGroupDetail)
+{-# DEPRECATED ogdOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
-instance FromJSON OutputGroupDetail where
+instance Lude.FromJSON OutputGroupDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputGroupDetail"
-      (\x -> OutputGroupDetail' <$> (x .:? "outputDetails" .!= mempty))
-
-instance Hashable OutputGroupDetail
-
-instance NFData OutputGroupDetail
+      ( \x ->
+          OutputGroupDetail'
+            Lude.<$> (x Lude..:? "outputDetails" Lude..!= Lude.mempty)
+      )

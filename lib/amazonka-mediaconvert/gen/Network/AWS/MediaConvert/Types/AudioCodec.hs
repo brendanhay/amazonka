@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioCodec where
+module Network.AWS.MediaConvert.Types.AudioCodec
+  ( AudioCodec
+      ( AudioCodec',
+        ACAC3,
+        ACAac,
+        ACAiff,
+        ACEAC3,
+        ACEAC3Atmos,
+        ACMP2,
+        ACMP3,
+        ACOpus,
+        ACPassthrough,
+        ACVorbis,
+        ACWav
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Type of Audio codec.
-data AudioCodec
-  = ACAC3
-  | ACAac
-  | ACAiff
-  | ACEAC3
-  | ACEAC3Atmos
-  | ACMP2
-  | ACMP3
-  | ACOpus
-  | ACPassthrough
-  | ACVorbis
-  | ACWav
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioCodec = AudioCodec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioCodec where
-  parser =
-    takeLowerText >>= \case
-      "ac3" -> pure ACAC3
-      "aac" -> pure ACAac
-      "aiff" -> pure ACAiff
-      "eac3" -> pure ACEAC3
-      "eac3_atmos" -> pure ACEAC3Atmos
-      "mp2" -> pure ACMP2
-      "mp3" -> pure ACMP3
-      "opus" -> pure ACOpus
-      "passthrough" -> pure ACPassthrough
-      "vorbis" -> pure ACVorbis
-      "wav" -> pure ACWav
-      e ->
-        fromTextError $
-          "Failure parsing AudioCodec from value: '" <> e
-            <> "'. Accepted values: ac3, aac, aiff, eac3, eac3_atmos, mp2, mp3, opus, passthrough, vorbis, wav"
+pattern ACAC3 :: AudioCodec
+pattern ACAC3 = AudioCodec' "AC3"
 
-instance ToText AudioCodec where
-  toText = \case
-    ACAC3 -> "AC3"
-    ACAac -> "AAC"
-    ACAiff -> "AIFF"
-    ACEAC3 -> "EAC3"
-    ACEAC3Atmos -> "EAC3_ATMOS"
-    ACMP2 -> "MP2"
-    ACMP3 -> "MP3"
-    ACOpus -> "OPUS"
-    ACPassthrough -> "PASSTHROUGH"
-    ACVorbis -> "VORBIS"
-    ACWav -> "WAV"
+pattern ACAac :: AudioCodec
+pattern ACAac = AudioCodec' "AAC"
 
-instance Hashable AudioCodec
+pattern ACAiff :: AudioCodec
+pattern ACAiff = AudioCodec' "AIFF"
 
-instance NFData AudioCodec
+pattern ACEAC3 :: AudioCodec
+pattern ACEAC3 = AudioCodec' "EAC3"
 
-instance ToByteString AudioCodec
+pattern ACEAC3Atmos :: AudioCodec
+pattern ACEAC3Atmos = AudioCodec' "EAC3_ATMOS"
 
-instance ToQuery AudioCodec
+pattern ACMP2 :: AudioCodec
+pattern ACMP2 = AudioCodec' "MP2"
 
-instance ToHeader AudioCodec
+pattern ACMP3 :: AudioCodec
+pattern ACMP3 = AudioCodec' "MP3"
 
-instance ToJSON AudioCodec where
-  toJSON = toJSONText
+pattern ACOpus :: AudioCodec
+pattern ACOpus = AudioCodec' "OPUS"
 
-instance FromJSON AudioCodec where
-  parseJSON = parseJSONText "AudioCodec"
+pattern ACPassthrough :: AudioCodec
+pattern ACPassthrough = AudioCodec' "PASSTHROUGH"
+
+pattern ACVorbis :: AudioCodec
+pattern ACVorbis = AudioCodec' "VORBIS"
+
+pattern ACWav :: AudioCodec
+pattern ACWav = AudioCodec' "WAV"
+
+{-# COMPLETE
+  ACAC3,
+  ACAac,
+  ACAiff,
+  ACEAC3,
+  ACEAC3Atmos,
+  ACMP2,
+  ACMP3,
+  ACOpus,
+  ACPassthrough,
+  ACVorbis,
+  ACWav,
+  AudioCodec'
+  #-}

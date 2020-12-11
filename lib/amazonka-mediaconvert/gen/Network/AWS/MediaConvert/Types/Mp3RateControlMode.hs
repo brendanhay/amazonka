@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp3RateControlMode where
+module Network.AWS.MediaConvert.Types.Mp3RateControlMode
+  ( Mp3RateControlMode
+      ( Mp3RateControlMode',
+        MCbr,
+        MVbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
-data Mp3RateControlMode
-  = MCbr
-  | MVbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mp3RateControlMode = Mp3RateControlMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mp3RateControlMode where
-  parser =
-    takeLowerText >>= \case
-      "cbr" -> pure MCbr
-      "vbr" -> pure MVbr
-      e ->
-        fromTextError $
-          "Failure parsing Mp3RateControlMode from value: '" <> e
-            <> "'. Accepted values: cbr, vbr"
+pattern MCbr :: Mp3RateControlMode
+pattern MCbr = Mp3RateControlMode' "CBR"
 
-instance ToText Mp3RateControlMode where
-  toText = \case
-    MCbr -> "CBR"
-    MVbr -> "VBR"
+pattern MVbr :: Mp3RateControlMode
+pattern MVbr = Mp3RateControlMode' "VBR"
 
-instance Hashable Mp3RateControlMode
-
-instance NFData Mp3RateControlMode
-
-instance ToByteString Mp3RateControlMode
-
-instance ToQuery Mp3RateControlMode
-
-instance ToHeader Mp3RateControlMode
-
-instance ToJSON Mp3RateControlMode where
-  toJSON = toJSONText
-
-instance FromJSON Mp3RateControlMode where
-  parseJSON = parseJSONText "Mp3RateControlMode"
+{-# COMPLETE
+  MCbr,
+  MVbr,
+  Mp3RateControlMode'
+  #-}

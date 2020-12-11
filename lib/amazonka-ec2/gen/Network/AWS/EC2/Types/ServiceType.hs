@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ServiceType where
+module Network.AWS.EC2.Types.ServiceType
+  ( ServiceType
+      ( ServiceType',
+        Gateway,
+        GatewayLoadBalancer,
+        Interface
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceType
-  = Gateway
-  | GatewayLoadBalancer
-  | Interface
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceType = ServiceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceType where
-  parser =
-    takeLowerText >>= \case
-      "gateway" -> pure Gateway
-      "gatewayloadbalancer" -> pure GatewayLoadBalancer
-      "interface" -> pure Interface
-      e ->
-        fromTextError $
-          "Failure parsing ServiceType from value: '" <> e
-            <> "'. Accepted values: gateway, gatewayloadbalancer, interface"
+pattern Gateway :: ServiceType
+pattern Gateway = ServiceType' "Gateway"
 
-instance ToText ServiceType where
-  toText = \case
-    Gateway -> "Gateway"
-    GatewayLoadBalancer -> "GatewayLoadBalancer"
-    Interface -> "Interface"
+pattern GatewayLoadBalancer :: ServiceType
+pattern GatewayLoadBalancer = ServiceType' "GatewayLoadBalancer"
 
-instance Hashable ServiceType
+pattern Interface :: ServiceType
+pattern Interface = ServiceType' "Interface"
 
-instance NFData ServiceType
-
-instance ToByteString ServiceType
-
-instance ToQuery ServiceType
-
-instance ToHeader ServiceType
-
-instance FromXML ServiceType where
-  parseXML = parseXMLText "ServiceType"
+{-# COMPLETE
+  Gateway,
+  GatewayLoadBalancer,
+  Interface,
+  ServiceType'
+  #-}

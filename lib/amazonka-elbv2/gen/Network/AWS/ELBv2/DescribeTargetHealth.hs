@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,144 @@
 --
 -- Describes the health of the specified targets or all of your targets.
 module Network.AWS.ELBv2.DescribeTargetHealth
-  ( -- * Creating a Request
-    describeTargetHealth,
-    DescribeTargetHealth,
+  ( -- * Creating a request
+    DescribeTargetHealth (..),
+    mkDescribeTargetHealth,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dthTargets,
     dthTargetGroupARN,
 
-    -- * Destructuring the Response
-    describeTargetHealthResponse,
-    DescribeTargetHealthResponse,
+    -- * Destructuring the response
+    DescribeTargetHealthResponse (..),
+    mkDescribeTargetHealthResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dthrsTargetHealthDescriptions,
     dthrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTargetHealth' smart constructor.
+-- | /See:/ 'mkDescribeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
-  { _dthTargets ::
-      !(Maybe [TargetDescription]),
-    _dthTargetGroupARN :: !Text
+  { targets ::
+      Lude.Maybe [TargetDescription],
+    targetGroupARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTargetHealth' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dthTargets' - The targets.
---
--- * 'dthTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-describeTargetHealth ::
-  -- | 'dthTargetGroupARN'
-  Text ->
+-- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- * 'targets' - The targets.
+mkDescribeTargetHealth ::
+  -- | 'targetGroupARN'
+  Lude.Text ->
   DescribeTargetHealth
-describeTargetHealth pTargetGroupARN_ =
+mkDescribeTargetHealth pTargetGroupARN_ =
   DescribeTargetHealth'
-    { _dthTargets = Nothing,
-      _dthTargetGroupARN = pTargetGroupARN_
+    { targets = Lude.Nothing,
+      targetGroupARN = pTargetGroupARN_
     }
 
 -- | The targets.
-dthTargets :: Lens' DescribeTargetHealth [TargetDescription]
-dthTargets = lens _dthTargets (\s a -> s {_dthTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dthTargets :: Lens.Lens' DescribeTargetHealth (Lude.Maybe [TargetDescription])
+dthTargets = Lens.lens (targets :: DescribeTargetHealth -> Lude.Maybe [TargetDescription]) (\s a -> s {targets = a} :: DescribeTargetHealth)
+{-# DEPRECATED dthTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the target group.
-dthTargetGroupARN :: Lens' DescribeTargetHealth Text
-dthTargetGroupARN = lens _dthTargetGroupARN (\s a -> s {_dthTargetGroupARN = a})
+--
+-- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dthTargetGroupARN :: Lens.Lens' DescribeTargetHealth Lude.Text
+dthTargetGroupARN = Lens.lens (targetGroupARN :: DescribeTargetHealth -> Lude.Text) (\s a -> s {targetGroupARN = a} :: DescribeTargetHealth)
+{-# DEPRECATED dthTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
 
-instance AWSRequest DescribeTargetHealth where
+instance Lude.AWSRequest DescribeTargetHealth where
   type Rs DescribeTargetHealth = DescribeTargetHealthResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeTargetHealthResult"
       ( \s h x ->
           DescribeTargetHealthResponse'
-            <$> ( x .@? "TargetHealthDescriptions" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "TargetHealthDescriptions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTargetHealth
+instance Lude.ToHeaders DescribeTargetHealth where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeTargetHealth
+instance Lude.ToPath DescribeTargetHealth where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeTargetHealth where
-  toHeaders = const mempty
-
-instance ToPath DescribeTargetHealth where
-  toPath = const "/"
-
-instance ToQuery DescribeTargetHealth where
+instance Lude.ToQuery DescribeTargetHealth where
   toQuery DescribeTargetHealth' {..} =
-    mconcat
-      [ "Action" =: ("DescribeTargetHealth" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Targets" =: toQuery (toQueryList "member" <$> _dthTargets),
-        "TargetGroupArn" =: _dthTargetGroupARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeTargetHealth" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Targets"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> targets),
+        "TargetGroupArn" Lude.=: targetGroupARN
       ]
 
--- | /See:/ 'describeTargetHealthResponse' smart constructor.
+-- | /See:/ 'mkDescribeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
-  { _dthrsTargetHealthDescriptions ::
-      !( Maybe
-           [TargetHealthDescription]
-       ),
-    _dthrsResponseStatus :: !Int
+  { targetHealthDescriptions ::
+      Lude.Maybe
+        [TargetHealthDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTargetHealthResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dthrsTargetHealthDescriptions' - Information about the health of the targets.
---
--- * 'dthrsResponseStatus' - -- | The response status code.
-describeTargetHealthResponse ::
-  -- | 'dthrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'targetHealthDescriptions' - Information about the health of the targets.
+mkDescribeTargetHealthResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTargetHealthResponse
-describeTargetHealthResponse pResponseStatus_ =
+mkDescribeTargetHealthResponse pResponseStatus_ =
   DescribeTargetHealthResponse'
-    { _dthrsTargetHealthDescriptions =
-        Nothing,
-      _dthrsResponseStatus = pResponseStatus_
+    { targetHealthDescriptions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the health of the targets.
-dthrsTargetHealthDescriptions :: Lens' DescribeTargetHealthResponse [TargetHealthDescription]
-dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\s a -> s {_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetHealthDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dthrsTargetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Lude.Maybe [TargetHealthDescription])
+dthrsTargetHealthDescriptions = Lens.lens (targetHealthDescriptions :: DescribeTargetHealthResponse -> Lude.Maybe [TargetHealthDescription]) (\s a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse)
+{-# DEPRECATED dthrsTargetHealthDescriptions "Use generic-lens or generic-optics with 'targetHealthDescriptions' instead." #-}
 
--- | -- | The response status code.
-dthrsResponseStatus :: Lens' DescribeTargetHealthResponse Int
-dthrsResponseStatus = lens _dthrsResponseStatus (\s a -> s {_dthrsResponseStatus = a})
-
-instance NFData DescribeTargetHealthResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dthrsResponseStatus :: Lens.Lens' DescribeTargetHealthResponse Lude.Int
+dthrsResponseStatus = Lens.lens (responseStatus :: DescribeTargetHealthResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTargetHealthResponse)
+{-# DEPRECATED dthrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

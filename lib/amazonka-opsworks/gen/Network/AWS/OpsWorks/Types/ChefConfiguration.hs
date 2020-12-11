@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.ChefConfiguration where
+module Network.AWS.OpsWorks.Types.ChefConfiguration
+  ( ChefConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChefConfiguration,
+
+    -- * Lenses
+    ccBerkshelfVersion,
+    ccManageBerkshelf,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Chef configuration.
 --
---
---
--- /See:/ 'chefConfiguration' smart constructor.
+-- /See:/ 'mkChefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
-  { _ccBerkshelfVersion ::
-      !(Maybe Text),
-    _ccManageBerkshelf :: !(Maybe Bool)
+  { berkshelfVersion ::
+      Lude.Maybe Lude.Text,
+    manageBerkshelf :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChefConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccBerkshelfVersion' - The Berkshelf version.
---
--- * 'ccManageBerkshelf' - Whether to enable Berkshelf.
-chefConfiguration ::
+-- * 'berkshelfVersion' - The Berkshelf version.
+-- * 'manageBerkshelf' - Whether to enable Berkshelf.
+mkChefConfiguration ::
   ChefConfiguration
-chefConfiguration =
+mkChefConfiguration =
   ChefConfiguration'
-    { _ccBerkshelfVersion = Nothing,
-      _ccManageBerkshelf = Nothing
+    { berkshelfVersion = Lude.Nothing,
+      manageBerkshelf = Lude.Nothing
     }
 
 -- | The Berkshelf version.
-ccBerkshelfVersion :: Lens' ChefConfiguration (Maybe Text)
-ccBerkshelfVersion = lens _ccBerkshelfVersion (\s a -> s {_ccBerkshelfVersion = a})
+--
+-- /Note:/ Consider using 'berkshelfVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBerkshelfVersion :: Lens.Lens' ChefConfiguration (Lude.Maybe Lude.Text)
+ccBerkshelfVersion = Lens.lens (berkshelfVersion :: ChefConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {berkshelfVersion = a} :: ChefConfiguration)
+{-# DEPRECATED ccBerkshelfVersion "Use generic-lens or generic-optics with 'berkshelfVersion' instead." #-}
 
 -- | Whether to enable Berkshelf.
-ccManageBerkshelf :: Lens' ChefConfiguration (Maybe Bool)
-ccManageBerkshelf = lens _ccManageBerkshelf (\s a -> s {_ccManageBerkshelf = a})
+--
+-- /Note:/ Consider using 'manageBerkshelf' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccManageBerkshelf :: Lens.Lens' ChefConfiguration (Lude.Maybe Lude.Bool)
+ccManageBerkshelf = Lens.lens (manageBerkshelf :: ChefConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {manageBerkshelf = a} :: ChefConfiguration)
+{-# DEPRECATED ccManageBerkshelf "Use generic-lens or generic-optics with 'manageBerkshelf' instead." #-}
 
-instance FromJSON ChefConfiguration where
+instance Lude.FromJSON ChefConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChefConfiguration"
       ( \x ->
           ChefConfiguration'
-            <$> (x .:? "BerkshelfVersion") <*> (x .:? "ManageBerkshelf")
+            Lude.<$> (x Lude..:? "BerkshelfVersion")
+            Lude.<*> (x Lude..:? "ManageBerkshelf")
       )
 
-instance Hashable ChefConfiguration
-
-instance NFData ChefConfiguration
-
-instance ToJSON ChefConfiguration where
+instance Lude.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("BerkshelfVersion" .=) <$> _ccBerkshelfVersion,
-            ("ManageBerkshelf" .=) <$> _ccManageBerkshelf
+    Lude.object
+      ( Lude.catMaybes
+          [ ("BerkshelfVersion" Lude..=) Lude.<$> berkshelfVersion,
+            ("ManageBerkshelf" Lude..=) Lude.<$> manageBerkshelf
           ]
       )

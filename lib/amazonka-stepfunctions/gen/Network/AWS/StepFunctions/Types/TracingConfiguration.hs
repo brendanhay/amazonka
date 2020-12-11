@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TracingConfiguration where
+module Network.AWS.StepFunctions.Types.TracingConfiguration
+  ( TracingConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTracingConfiguration,
+
+    -- * Lenses
+    tcEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is @false@
 --
---
---
--- /See:/ 'tracingConfiguration' smart constructor.
+-- /See:/ 'mkTracingConfiguration' smart constructor.
 newtype TracingConfiguration = TracingConfiguration'
-  { _tcEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TracingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcEnabled' - When set to @true@ , AWS X-Ray tracing is enabled.
-tracingConfiguration ::
+-- * 'enabled' - When set to @true@ , AWS X-Ray tracing is enabled.
+mkTracingConfiguration ::
   TracingConfiguration
-tracingConfiguration = TracingConfiguration' {_tcEnabled = Nothing}
+mkTracingConfiguration =
+  TracingConfiguration' {enabled = Lude.Nothing}
 
 -- | When set to @true@ , AWS X-Ray tracing is enabled.
-tcEnabled :: Lens' TracingConfiguration (Maybe Bool)
-tcEnabled = lens _tcEnabled (\s a -> s {_tcEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcEnabled :: Lens.Lens' TracingConfiguration (Lude.Maybe Lude.Bool)
+tcEnabled = Lens.lens (enabled :: TracingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: TracingConfiguration)
+{-# DEPRECATED tcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromJSON TracingConfiguration where
+instance Lude.FromJSON TracingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "TracingConfiguration"
-      (\x -> TracingConfiguration' <$> (x .:? "enabled"))
+      (\x -> TracingConfiguration' Lude.<$> (x Lude..:? "enabled"))
 
-instance Hashable TracingConfiguration
-
-instance NFData TracingConfiguration
-
-instance ToJSON TracingConfiguration where
+instance Lude.ToJSON TracingConfiguration where
   toJSON TracingConfiguration' {..} =
-    object (catMaybes [("enabled" .=) <$> _tcEnabled])
+    Lude.object
+      (Lude.catMaybes [("enabled" Lude..=) Lude.<$> enabled])

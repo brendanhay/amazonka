@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.Location where
+module Network.AWS.CodeCommit.Types.Location
+  ( Location (..),
+
+    -- * Smart constructor
+    mkLocation,
+
+    -- * Lenses
+    lRelativeFileVersion,
+    lFilePath,
+    lFilePosition,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the location of a change or comment in the comparison between two commits or a pull request.
 --
---
---
--- /See:/ 'location' smart constructor.
+-- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
-  { _lRelativeFileVersion ::
-      !(Maybe RelativeFileVersionEnum),
-    _lFilePath :: !(Maybe Text),
-    _lFilePosition :: !(Maybe Integer)
+  { relativeFileVersion ::
+      Lude.Maybe RelativeFileVersionEnum,
+    filePath :: Lude.Maybe Lude.Text,
+    filePosition :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lRelativeFileVersion' - In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
---
--- * 'lFilePath' - The name of the file being compared, including its extension and subdirectory, if any.
---
--- * 'lFilePosition' - The position of a change in a compared file, in line number format.
-location ::
+-- * 'filePath' - The name of the file being compared, including its extension and subdirectory, if any.
+-- * 'filePosition' - The position of a change in a compared file, in line number format.
+-- * 'relativeFileVersion' - In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
+mkLocation ::
   Location
-location =
+mkLocation =
   Location'
-    { _lRelativeFileVersion = Nothing,
-      _lFilePath = Nothing,
-      _lFilePosition = Nothing
+    { relativeFileVersion = Lude.Nothing,
+      filePath = Lude.Nothing,
+      filePosition = Lude.Nothing
     }
 
 -- | In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
-lRelativeFileVersion :: Lens' Location (Maybe RelativeFileVersionEnum)
-lRelativeFileVersion = lens _lRelativeFileVersion (\s a -> s {_lRelativeFileVersion = a})
+--
+-- /Note:/ Consider using 'relativeFileVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lRelativeFileVersion :: Lens.Lens' Location (Lude.Maybe RelativeFileVersionEnum)
+lRelativeFileVersion = Lens.lens (relativeFileVersion :: Location -> Lude.Maybe RelativeFileVersionEnum) (\s a -> s {relativeFileVersion = a} :: Location)
+{-# DEPRECATED lRelativeFileVersion "Use generic-lens or generic-optics with 'relativeFileVersion' instead." #-}
 
 -- | The name of the file being compared, including its extension and subdirectory, if any.
-lFilePath :: Lens' Location (Maybe Text)
-lFilePath = lens _lFilePath (\s a -> s {_lFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lFilePath :: Lens.Lens' Location (Lude.Maybe Lude.Text)
+lFilePath = Lens.lens (filePath :: Location -> Lude.Maybe Lude.Text) (\s a -> s {filePath = a} :: Location)
+{-# DEPRECATED lFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | The position of a change in a compared file, in line number format.
-lFilePosition :: Lens' Location (Maybe Integer)
-lFilePosition = lens _lFilePosition (\s a -> s {_lFilePosition = a})
+--
+-- /Note:/ Consider using 'filePosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lFilePosition :: Lens.Lens' Location (Lude.Maybe Lude.Integer)
+lFilePosition = Lens.lens (filePosition :: Location -> Lude.Maybe Lude.Integer) (\s a -> s {filePosition = a} :: Location)
+{-# DEPRECATED lFilePosition "Use generic-lens or generic-optics with 'filePosition' instead." #-}
 
-instance FromJSON Location where
+instance Lude.FromJSON Location where
   parseJSON =
-    withObject
+    Lude.withObject
       "Location"
       ( \x ->
           Location'
-            <$> (x .:? "relativeFileVersion")
-            <*> (x .:? "filePath")
-            <*> (x .:? "filePosition")
+            Lude.<$> (x Lude..:? "relativeFileVersion")
+            Lude.<*> (x Lude..:? "filePath")
+            Lude.<*> (x Lude..:? "filePosition")
       )
 
-instance Hashable Location
-
-instance NFData Location
-
-instance ToJSON Location where
+instance Lude.ToJSON Location where
   toJSON Location' {..} =
-    object
-      ( catMaybes
-          [ ("relativeFileVersion" .=) <$> _lRelativeFileVersion,
-            ("filePath" .=) <$> _lFilePath,
-            ("filePosition" .=) <$> _lFilePosition
+    Lude.object
+      ( Lude.catMaybes
+          [ ("relativeFileVersion" Lude..=) Lude.<$> relativeFileVersion,
+            ("filePath" Lude..=) Lude.<$> filePath,
+            ("filePosition" Lude..=) Lude.<$> filePosition
           ]
       )

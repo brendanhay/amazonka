@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Returns a list of organization conformance packs.
 --
---
 -- Only a master account and a delegated administrator account can call this API. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
 module Network.AWS.Config.DescribeOrganizationConformancePacks
-  ( -- * Creating a Request
-    describeOrganizationConformancePacks,
-    DescribeOrganizationConformancePacks,
+  ( -- * Creating a request
+    DescribeOrganizationConformancePacks (..),
+    mkDescribeOrganizationConformancePacks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     docpNextToken,
     docpLimit,
     docpOrganizationConformancePackNames,
 
-    -- * Destructuring the Response
-    describeOrganizationConformancePacksResponse,
-    DescribeOrganizationConformancePacksResponse,
+    -- * Destructuring the response
+    DescribeOrganizationConformancePacksResponse (..),
+    mkDescribeOrganizationConformancePacksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     docprsOrganizationConformancePacks,
     docprsNextToken,
     docprsResponseStatus,
@@ -43,152 +37,165 @@ module Network.AWS.Config.DescribeOrganizationConformancePacks
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeOrganizationConformancePacks' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationConformancePacks' smart constructor.
 data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks'
-  { _docpNextToken ::
-      !(Maybe Text),
-    _docpLimit ::
-      !(Maybe Nat),
-    _docpOrganizationConformancePackNames ::
-      !(Maybe [Text])
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    organizationConformancePackNames ::
+      Lude.Maybe
+        [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePacks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docpNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'docpLimit' - The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
---
--- * 'docpOrganizationConformancePackNames' - The name that you assign to an organization conformance pack.
-describeOrganizationConformancePacks ::
+-- * 'limit' - The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConformancePackNames' - The name that you assign to an organization conformance pack.
+mkDescribeOrganizationConformancePacks ::
   DescribeOrganizationConformancePacks
-describeOrganizationConformancePacks =
+mkDescribeOrganizationConformancePacks =
   DescribeOrganizationConformancePacks'
-    { _docpNextToken = Nothing,
-      _docpLimit = Nothing,
-      _docpOrganizationConformancePackNames = Nothing
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      organizationConformancePackNames = Lude.Nothing
     }
 
 -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-docpNextToken :: Lens' DescribeOrganizationConformancePacks (Maybe Text)
-docpNextToken = lens _docpNextToken (\s a -> s {_docpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docpNextToken :: Lens.Lens' DescribeOrganizationConformancePacks (Lude.Maybe Lude.Text)
+docpNextToken = Lens.lens (nextToken :: DescribeOrganizationConformancePacks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOrganizationConformancePacks)
+{-# DEPRECATED docpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
-docpLimit :: Lens' DescribeOrganizationConformancePacks (Maybe Natural)
-docpLimit = lens _docpLimit (\s a -> s {_docpLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docpLimit :: Lens.Lens' DescribeOrganizationConformancePacks (Lude.Maybe Lude.Natural)
+docpLimit = Lens.lens (limit :: DescribeOrganizationConformancePacks -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeOrganizationConformancePacks)
+{-# DEPRECATED docpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name that you assign to an organization conformance pack.
-docpOrganizationConformancePackNames :: Lens' DescribeOrganizationConformancePacks [Text]
-docpOrganizationConformancePackNames = lens _docpOrganizationConformancePackNames (\s a -> s {_docpOrganizationConformancePackNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'organizationConformancePackNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docpOrganizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePacks (Lude.Maybe [Lude.Text])
+docpOrganizationConformancePackNames = Lens.lens (organizationConformancePackNames :: DescribeOrganizationConformancePacks -> Lude.Maybe [Lude.Text]) (\s a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks)
+{-# DEPRECATED docpOrganizationConformancePackNames "Use generic-lens or generic-optics with 'organizationConformancePackNames' instead." #-}
 
-instance AWSRequest DescribeOrganizationConformancePacks where
+instance Lude.AWSRequest DescribeOrganizationConformancePacks where
   type
     Rs DescribeOrganizationConformancePacks =
       DescribeOrganizationConformancePacksResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrganizationConformancePacksResponse'
-            <$> (x .?> "OrganizationConformancePacks" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OrganizationConformancePacks" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrganizationConformancePacks
-
-instance NFData DescribeOrganizationConformancePacks
-
-instance ToHeaders DescribeOrganizationConformancePacks where
+instance Lude.ToHeaders DescribeOrganizationConformancePacks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeOrganizationConformancePacks" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeOrganizationConformancePacks" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOrganizationConformancePacks where
+instance Lude.ToJSON DescribeOrganizationConformancePacks where
   toJSON DescribeOrganizationConformancePacks' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _docpNextToken,
-            ("Limit" .=) <$> _docpLimit,
-            ("OrganizationConformancePackNames" .=)
-              <$> _docpOrganizationConformancePackNames
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("OrganizationConformancePackNames" Lude..=)
+              Lude.<$> organizationConformancePackNames
           ]
       )
 
-instance ToPath DescribeOrganizationConformancePacks where
-  toPath = const "/"
+instance Lude.ToPath DescribeOrganizationConformancePacks where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOrganizationConformancePacks where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrganizationConformancePacks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeOrganizationConformancePacksResponse' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationConformancePacksResponse' smart constructor.
 data DescribeOrganizationConformancePacksResponse = DescribeOrganizationConformancePacksResponse'
-  { _docprsOrganizationConformancePacks ::
-      !( Maybe
-           [OrganizationConformancePack]
-       ),
-    _docprsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _docprsResponseStatus ::
-      !Int
+  { organizationConformancePacks ::
+      Lude.Maybe
+        [OrganizationConformancePack],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePacksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docprsOrganizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.
---
--- * 'docprsNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'docprsResponseStatus' - -- | The response status code.
-describeOrganizationConformancePacksResponse ::
-  -- | 'docprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrganizationConformancePacksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrganizationConformancePacksResponse
-describeOrganizationConformancePacksResponse pResponseStatus_ =
+mkDescribeOrganizationConformancePacksResponse pResponseStatus_ =
   DescribeOrganizationConformancePacksResponse'
-    { _docprsOrganizationConformancePacks =
-        Nothing,
-      _docprsNextToken = Nothing,
-      _docprsResponseStatus = pResponseStatus_
+    { organizationConformancePacks =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of OrganizationConformancePacks objects.
-docprsOrganizationConformancePacks :: Lens' DescribeOrganizationConformancePacksResponse [OrganizationConformancePack]
-docprsOrganizationConformancePacks = lens _docprsOrganizationConformancePacks (\s a -> s {_docprsOrganizationConformancePacks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'organizationConformancePacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docprsOrganizationConformancePacks :: Lens.Lens' DescribeOrganizationConformancePacksResponse (Lude.Maybe [OrganizationConformancePack])
+docprsOrganizationConformancePacks = Lens.lens (organizationConformancePacks :: DescribeOrganizationConformancePacksResponse -> Lude.Maybe [OrganizationConformancePack]) (\s a -> s {organizationConformancePacks = a} :: DescribeOrganizationConformancePacksResponse)
+{-# DEPRECATED docprsOrganizationConformancePacks "Use generic-lens or generic-optics with 'organizationConformancePacks' instead." #-}
 
 -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-docprsNextToken :: Lens' DescribeOrganizationConformancePacksResponse (Maybe Text)
-docprsNextToken = lens _docprsNextToken (\s a -> s {_docprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docprsNextToken :: Lens.Lens' DescribeOrganizationConformancePacksResponse (Lude.Maybe Lude.Text)
+docprsNextToken = Lens.lens (nextToken :: DescribeOrganizationConformancePacksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOrganizationConformancePacksResponse)
+{-# DEPRECATED docprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-docprsResponseStatus :: Lens' DescribeOrganizationConformancePacksResponse Int
-docprsResponseStatus = lens _docprsResponseStatus (\s a -> s {_docprsResponseStatus = a})
-
-instance NFData DescribeOrganizationConformancePacksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docprsResponseStatus :: Lens.Lens' DescribeOrganizationConformancePacksResponse Lude.Int
+docprsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationConformancePacksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationConformancePacksResponse)
+{-# DEPRECATED docprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,111 @@
 --
 -- Deletes the access key pair associated with the specified IAM user.
 --
---
 -- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 module Network.AWS.IAM.DeleteAccessKey
-  ( -- * Creating a Request
-    deleteAccessKey,
-    DeleteAccessKey,
+  ( -- * Creating a request
+    DeleteAccessKey (..),
+    mkDeleteAccessKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dakUserName,
     dakAccessKeyId,
 
-    -- * Destructuring the Response
-    deleteAccessKeyResponse,
-    DeleteAccessKeyResponse,
+    -- * Destructuring the response
+    DeleteAccessKeyResponse (..),
+    mkDeleteAccessKeyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAccessKey' smart constructor.
+-- | /See:/ 'mkDeleteAccessKey' smart constructor.
 data DeleteAccessKey = DeleteAccessKey'
-  { _dakUserName ::
-      !(Maybe Text),
-    _dakAccessKeyId :: !AccessKey
+  { userName ::
+      Lude.Maybe Lude.Text,
+    accessKeyId :: AccessKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessKeyId' - The access key ID for the access key ID and secret access key you want to delete.
 --
--- * 'dakUserName' - The name of the user whose access key pair you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'userName' - The name of the user whose access key pair you want to delete.
 --
--- * 'dakAccessKeyId' - The access key ID for the access key ID and secret access key you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-deleteAccessKey ::
-  -- | 'dakAccessKeyId'
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDeleteAccessKey ::
+  -- | 'accessKeyId'
   AccessKey ->
   DeleteAccessKey
-deleteAccessKey pAccessKeyId_ =
+mkDeleteAccessKey pAccessKeyId_ =
   DeleteAccessKey'
-    { _dakUserName = Nothing,
-      _dakAccessKeyId = pAccessKeyId_
+    { userName = Lude.Nothing,
+      accessKeyId = pAccessKeyId_
     }
 
--- | The name of the user whose access key pair you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dakUserName :: Lens' DeleteAccessKey (Maybe Text)
-dakUserName = lens _dakUserName (\s a -> s {_dakUserName = a})
+-- | The name of the user whose access key pair you want to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakUserName :: Lens.Lens' DeleteAccessKey (Lude.Maybe Lude.Text)
+dakUserName = Lens.lens (userName :: DeleteAccessKey -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: DeleteAccessKey)
+{-# DEPRECATED dakUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The access key ID for the access key ID and secret access key you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-dakAccessKeyId :: Lens' DeleteAccessKey AccessKey
-dakAccessKeyId = lens _dakAccessKeyId (\s a -> s {_dakAccessKeyId = a})
+-- | The access key ID for the access key ID and secret access key you want to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+--
+-- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakAccessKeyId :: Lens.Lens' DeleteAccessKey AccessKey
+dakAccessKeyId = Lens.lens (accessKeyId :: DeleteAccessKey -> AccessKey) (\s a -> s {accessKeyId = a} :: DeleteAccessKey)
+{-# DEPRECATED dakAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance AWSRequest DeleteAccessKey where
+instance Lude.AWSRequest DeleteAccessKey where
   type Rs DeleteAccessKey = DeleteAccessKeyResponse
-  request = postQuery iam
-  response = receiveNull DeleteAccessKeyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteAccessKeyResponse'
 
-instance Hashable DeleteAccessKey
+instance Lude.ToHeaders DeleteAccessKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAccessKey
+instance Lude.ToPath DeleteAccessKey where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteAccessKey where
-  toHeaders = const mempty
-
-instance ToPath DeleteAccessKey where
-  toPath = const "/"
-
-instance ToQuery DeleteAccessKey where
+instance Lude.ToQuery DeleteAccessKey where
   toQuery DeleteAccessKey' {..} =
-    mconcat
-      [ "Action" =: ("DeleteAccessKey" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _dakUserName,
-        "AccessKeyId" =: _dakAccessKeyId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteAccessKey" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "AccessKeyId" Lude.=: accessKeyId
       ]
 
--- | /See:/ 'deleteAccessKeyResponse' smart constructor.
+-- | /See:/ 'mkDeleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessKeyResponse' with the minimum fields required to make a request.
-deleteAccessKeyResponse ::
+mkDeleteAccessKeyResponse ::
   DeleteAccessKeyResponse
-deleteAccessKeyResponse = DeleteAccessKeyResponse'
-
-instance NFData DeleteAccessKeyResponse
+mkDeleteAccessKeyResponse = DeleteAccessKeyResponse'

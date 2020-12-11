@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaDeviceMemoryInfo where
+module Network.AWS.EC2.Types.FpgaDeviceMemoryInfo
+  ( FpgaDeviceMemoryInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFpgaDeviceMemoryInfo,
+
+    -- * Lenses
+    fdmiSizeInMiB,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
 --
---
---
--- /See:/ 'fpgaDeviceMemoryInfo' smart constructor.
+-- /See:/ 'mkFpgaDeviceMemoryInfo' smart constructor.
 newtype FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
-  { _fdmiSizeInMiB ::
-      Maybe Int
+  { sizeInMiB ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaDeviceMemoryInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdmiSizeInMiB' - The size of the memory available to the FPGA accelerator, in MiB.
-fpgaDeviceMemoryInfo ::
+-- * 'sizeInMiB' - The size of the memory available to the FPGA accelerator, in MiB.
+mkFpgaDeviceMemoryInfo ::
   FpgaDeviceMemoryInfo
-fpgaDeviceMemoryInfo =
-  FpgaDeviceMemoryInfo' {_fdmiSizeInMiB = Nothing}
+mkFpgaDeviceMemoryInfo =
+  FpgaDeviceMemoryInfo' {sizeInMiB = Lude.Nothing}
 
 -- | The size of the memory available to the FPGA accelerator, in MiB.
-fdmiSizeInMiB :: Lens' FpgaDeviceMemoryInfo (Maybe Int)
-fdmiSizeInMiB = lens _fdmiSizeInMiB (\s a -> s {_fdmiSizeInMiB = a})
+--
+-- /Note:/ Consider using 'sizeInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdmiSizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Lude.Maybe Lude.Int)
+fdmiSizeInMiB = Lens.lens (sizeInMiB :: FpgaDeviceMemoryInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInMiB = a} :: FpgaDeviceMemoryInfo)
+{-# DEPRECATED fdmiSizeInMiB "Use generic-lens or generic-optics with 'sizeInMiB' instead." #-}
 
-instance FromXML FpgaDeviceMemoryInfo where
-  parseXML x = FpgaDeviceMemoryInfo' <$> (x .@? "sizeInMiB")
-
-instance Hashable FpgaDeviceMemoryInfo
-
-instance NFData FpgaDeviceMemoryInfo
+instance Lude.FromXML FpgaDeviceMemoryInfo where
+  parseXML x =
+    FpgaDeviceMemoryInfo' Lude.<$> (x Lude..@? "sizeInMiB")

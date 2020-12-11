@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,167 @@
 --
 -- Lists the domains.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListDomains
-  ( -- * Creating a Request
-    listDomains,
-    ListDomains,
+  ( -- * Creating a request
+    ListDomains (..),
+    mkListDomains,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldNextToken,
     ldMaxResults,
 
-    -- * Destructuring the Response
-    listDomainsResponse,
-    ListDomainsResponse,
+    -- * Destructuring the response
+    ListDomainsResponse (..),
+    mkListDomainsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsNextToken,
     ldrsDomains,
     ldrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listDomains' smart constructor.
+-- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { _ldNextToken :: !(Maybe Text),
-    _ldMaxResults :: !(Maybe Nat)
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldNextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
---
--- * 'ldMaxResults' - Returns a list up to a specified limit.
-listDomains ::
+-- * 'maxResults' - Returns a list up to a specified limit.
+-- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+mkListDomains ::
   ListDomains
-listDomains =
-  ListDomains' {_ldNextToken = Nothing, _ldMaxResults = Nothing}
+mkListDomains =
+  ListDomains' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
 
 -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-ldNextToken :: Lens' ListDomains (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDomains (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDomains -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomains)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns a list up to a specified limit.
-ldMaxResults :: Lens' ListDomains (Maybe Natural)
-ldMaxResults = lens _ldMaxResults (\s a -> s {_ldMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDomains (Lude.Maybe Lude.Natural)
+ldMaxResults = Lens.lens (maxResults :: ListDomains -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDomains)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDomains where
+instance Page.AWSPager ListDomains where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDomains) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDomains) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDomains where
+instance Lude.AWSRequest ListDomains where
   type Rs ListDomains = ListDomainsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Domains" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Domains" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDomains
-
-instance NFData ListDomains
-
-instance ToHeaders ListDomains where
+instance Lude.ToHeaders ListDomains where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListDomains" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListDomains" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDomains where
+instance Lude.ToJSON ListDomains where
   toJSON ListDomains' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ldNextToken,
-            ("MaxResults" .=) <$> _ldMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListDomains where
-  toPath = const "/"
+instance Lude.ToPath ListDomains where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDomains where
-  toQuery = const mempty
+instance Lude.ToQuery ListDomains where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDomainsResponse' smart constructor.
+-- | /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { _ldrsNextToken ::
-      !(Maybe Text),
-    _ldrsDomains :: !(Maybe [DomainDetails]),
-    _ldrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    domains :: Lude.Maybe [DomainDetails],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsNextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
---
--- * 'ldrsDomains' - The list of domains.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDomainsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'domains' - The list of domains.
+-- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+-- * 'responseStatus' - The response status code.
+mkListDomainsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDomainsResponse
-listDomainsResponse pResponseStatus_ =
+mkListDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
-    { _ldrsNextToken = Nothing,
-      _ldrsDomains = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      domains = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDomainsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of domains.
-ldrsDomains :: Lens' ListDomainsResponse [DomainDetails]
-ldrsDomains = lens _ldrsDomains (\s a -> s {_ldrsDomains = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDomains :: Lens.Lens' ListDomainsResponse (Lude.Maybe [DomainDetails])
+ldrsDomains = Lens.lens (domains :: ListDomainsResponse -> Lude.Maybe [DomainDetails]) (\s a -> s {domains = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDomainsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDomainsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

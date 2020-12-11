@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,137 @@
 --
 -- Enables the specified user as an administrator. Works on any user.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminEnableUser
-  ( -- * Creating a Request
-    adminEnableUser,
-    AdminEnableUser,
+  ( -- * Creating a request
+    AdminEnableUser (..),
+    mkAdminEnableUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aeuUserPoolId,
     aeuUsername,
 
-    -- * Destructuring the Response
-    adminEnableUserResponse,
-    AdminEnableUserResponse,
+    -- * Destructuring the response
+    AdminEnableUserResponse (..),
+    mkAdminEnableUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aeursResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request that enables the user as an administrator.
 --
---
---
--- /See:/ 'adminEnableUser' smart constructor.
+-- /See:/ 'mkAdminEnableUser' smart constructor.
 data AdminEnableUser = AdminEnableUser'
-  { _aeuUserPoolId :: !Text,
-    _aeuUsername :: !(Sensitive Text)
+  { userPoolId :: Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminEnableUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeuUserPoolId' - The user pool ID for the user pool where you want to enable the user.
---
--- * 'aeuUsername' - The user name of the user you wish to enable.
-adminEnableUser ::
-  -- | 'aeuUserPoolId'
-  Text ->
-  -- | 'aeuUsername'
-  Text ->
+-- * 'userPoolId' - The user pool ID for the user pool where you want to enable the user.
+-- * 'username' - The user name of the user you wish to enable.
+mkAdminEnableUser ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminEnableUser
-adminEnableUser pUserPoolId_ pUsername_ =
+mkAdminEnableUser pUserPoolId_ pUsername_ =
   AdminEnableUser'
-    { _aeuUserPoolId = pUserPoolId_,
-      _aeuUsername = _Sensitive # pUsername_
+    { userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to enable the user.
-aeuUserPoolId :: Lens' AdminEnableUser Text
-aeuUserPoolId = lens _aeuUserPoolId (\s a -> s {_aeuUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeuUserPoolId :: Lens.Lens' AdminEnableUser Lude.Text
+aeuUserPoolId = Lens.lens (userPoolId :: AdminEnableUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminEnableUser)
+{-# DEPRECATED aeuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user you wish to enable.
-aeuUsername :: Lens' AdminEnableUser Text
-aeuUsername = lens _aeuUsername (\s a -> s {_aeuUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeuUsername :: Lens.Lens' AdminEnableUser (Lude.Sensitive Lude.Text)
+aeuUsername = Lens.lens (username :: AdminEnableUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminEnableUser)
+{-# DEPRECATED aeuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminEnableUser where
+instance Lude.AWSRequest AdminEnableUser where
   type Rs AdminEnableUser = AdminEnableUserResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
-      (\s h x -> AdminEnableUserResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AdminEnableUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AdminEnableUser
-
-instance NFData AdminEnableUser
-
-instance ToHeaders AdminEnableUser where
+instance Lude.ToHeaders AdminEnableUser where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminEnableUser where
+instance Lude.ToJSON AdminEnableUser where
   toJSON AdminEnableUser' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _aeuUserPoolId),
-            Just ("Username" .= _aeuUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminEnableUser where
-  toPath = const "/"
+instance Lude.ToPath AdminEnableUser where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminEnableUser where
-  toQuery = const mempty
+instance Lude.ToQuery AdminEnableUser where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to enable a user as an administrator.
 --
---
---
--- /See:/ 'adminEnableUserResponse' smart constructor.
+-- /See:/ 'mkAdminEnableUserResponse' smart constructor.
 newtype AdminEnableUserResponse = AdminEnableUserResponse'
-  { _aeursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminEnableUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeursResponseStatus' - -- | The response status code.
-adminEnableUserResponse ::
-  -- | 'aeursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAdminEnableUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminEnableUserResponse
-adminEnableUserResponse pResponseStatus_ =
-  AdminEnableUserResponse' {_aeursResponseStatus = pResponseStatus_}
+mkAdminEnableUserResponse pResponseStatus_ =
+  AdminEnableUserResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-aeursResponseStatus :: Lens' AdminEnableUserResponse Int
-aeursResponseStatus = lens _aeursResponseStatus (\s a -> s {_aeursResponseStatus = a})
-
-instance NFData AdminEnableUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeursResponseStatus :: Lens.Lens' AdminEnableUserResponse Lude.Int
+aeursResponseStatus = Lens.lens (responseStatus :: AdminEnableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminEnableUserResponse)
+{-# DEPRECATED aeursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

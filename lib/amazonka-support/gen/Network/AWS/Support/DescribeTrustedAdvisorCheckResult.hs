@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,179 @@
 --
 -- Returns the results of the AWS Trusted Advisor check that has the specified check ID. You can get the check IDs by calling the 'DescribeTrustedAdvisorChecks' operation.
 --
---
 -- The response contains a 'TrustedAdvisorCheckResult' object, which contains these three objects:
 --
 --     * 'TrustedAdvisorCategorySpecificSummary'
 --
+--
 --     * 'TrustedAdvisorResourceDetail'
 --
---     * 'TrustedAdvisorResourcesSummary'
 --
+--     * 'TrustedAdvisorResourcesSummary'
 --
 --
 -- In addition, the response contains these fields:
 --
 --     * __status__ - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
+--
 --     * __timestamp__ - The time of the last refresh of the check.
+--
 --
 --     * __checkId__ - The unique identifier for the check.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-  ( -- * Creating a Request
-    describeTrustedAdvisorCheckResult,
-    DescribeTrustedAdvisorCheckResult,
+  ( -- * Creating a request
+    DescribeTrustedAdvisorCheckResult (..),
+    mkDescribeTrustedAdvisorCheckResult,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtacrLanguage,
     dtacrCheckId,
 
-    -- * Destructuring the Response
-    describeTrustedAdvisorCheckResultResponse,
-    DescribeTrustedAdvisorCheckResultResponse,
+    -- * Destructuring the response
+    DescribeTrustedAdvisorCheckResultResponse (..),
+    mkDescribeTrustedAdvisorCheckResultResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtacrrsResult,
     dtacrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Support.Types
 
 -- |
 --
---
---
--- /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
+-- /See:/ 'mkDescribeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-  { _dtacrLanguage ::
-      !(Maybe Text),
-    _dtacrCheckId :: !Text
+  { language ::
+      Lude.Maybe Lude.Text,
+    checkId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtacrLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
---
--- * 'dtacrCheckId' - The unique identifier for the Trusted Advisor check.
-describeTrustedAdvisorCheckResult ::
-  -- | 'dtacrCheckId'
-  Text ->
+-- * 'checkId' - The unique identifier for the Trusted Advisor check.
+-- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+mkDescribeTrustedAdvisorCheckResult ::
+  -- | 'checkId'
+  Lude.Text ->
   DescribeTrustedAdvisorCheckResult
-describeTrustedAdvisorCheckResult pCheckId_ =
+mkDescribeTrustedAdvisorCheckResult pCheckId_ =
   DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage = Nothing,
-      _dtacrCheckId = pCheckId_
+    { language = Lude.Nothing,
+      checkId = pCheckId_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrLanguage = lens _dtacrLanguage (\s a -> s {_dtacrLanguage = a})
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrLanguage :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Lude.Maybe Lude.Text)
+dtacrLanguage = Lens.lens (language :: DescribeTrustedAdvisorCheckResult -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeTrustedAdvisorCheckResult)
+{-# DEPRECATED dtacrLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The unique identifier for the Trusted Advisor check.
-dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
-dtacrCheckId = lens _dtacrCheckId (\s a -> s {_dtacrCheckId = a})
+--
+-- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrCheckId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Lude.Text
+dtacrCheckId = Lens.lens (checkId :: DescribeTrustedAdvisorCheckResult -> Lude.Text) (\s a -> s {checkId = a} :: DescribeTrustedAdvisorCheckResult)
+{-# DEPRECATED dtacrCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
 
-instance AWSRequest DescribeTrustedAdvisorCheckResult where
+instance Lude.AWSRequest DescribeTrustedAdvisorCheckResult where
   type
     Rs DescribeTrustedAdvisorCheckResult =
       DescribeTrustedAdvisorCheckResultResponse
-  request = postJSON support
+  request = Req.postJSON supportService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckResultResponse'
-            <$> (x .?> "result") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "result") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTrustedAdvisorCheckResult
-
-instance NFData DescribeTrustedAdvisorCheckResult
-
-instance ToHeaders DescribeTrustedAdvisorCheckResult where
+instance Lude.ToHeaders DescribeTrustedAdvisorCheckResult where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTrustedAdvisorCheckResult where
+instance Lude.ToJSON DescribeTrustedAdvisorCheckResult where
   toJSON DescribeTrustedAdvisorCheckResult' {..} =
-    object
-      ( catMaybes
-          [ ("language" .=) <$> _dtacrLanguage,
-            Just ("checkId" .= _dtacrCheckId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("language" Lude..=) Lude.<$> language,
+            Lude.Just ("checkId" Lude..= checkId)
           ]
       )
 
-instance ToPath DescribeTrustedAdvisorCheckResult where
-  toPath = const "/"
+instance Lude.ToPath DescribeTrustedAdvisorCheckResult where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTrustedAdvisorCheckResult where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTrustedAdvisorCheckResult where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of the Trusted Advisor check returned by the 'DescribeTrustedAdvisorCheckResult' operation.
 --
---
---
--- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
+-- /See:/ 'mkDescribeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-  { _dtacrrsResult ::
-      !( Maybe
-           TrustedAdvisorCheckResult
-       ),
-    _dtacrrsResponseStatus ::
-      !Int
+  { result ::
+      Lude.Maybe
+        TrustedAdvisorCheckResult,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtacrrsResult' - The detailed results of the Trusted Advisor check.
---
--- * 'dtacrrsResponseStatus' - -- | The response status code.
-describeTrustedAdvisorCheckResultResponse ::
-  -- | 'dtacrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'result' - The detailed results of the Trusted Advisor check.
+mkDescribeTrustedAdvisorCheckResultResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTrustedAdvisorCheckResultResponse
-describeTrustedAdvisorCheckResultResponse pResponseStatus_ =
+mkDescribeTrustedAdvisorCheckResultResponse pResponseStatus_ =
   DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrsResult =
-        Nothing,
-      _dtacrrsResponseStatus = pResponseStatus_
+    { result = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The detailed results of the Trusted Advisor check.
-dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
-dtacrrsResult = lens _dtacrrsResult (\s a -> s {_dtacrrsResult = a})
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrrsResult :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse (Lude.Maybe TrustedAdvisorCheckResult)
+dtacrrsResult = Lens.lens (result :: DescribeTrustedAdvisorCheckResultResponse -> Lude.Maybe TrustedAdvisorCheckResult) (\s a -> s {result = a} :: DescribeTrustedAdvisorCheckResultResponse)
+{-# DEPRECATED dtacrrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
--- | -- | The response status code.
-dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\s a -> s {_dtacrrsResponseStatus = a})
-
-instance NFData DescribeTrustedAdvisorCheckResultResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrrsResponseStatus :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse Lude.Int
+dtacrrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustedAdvisorCheckResultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustedAdvisorCheckResultResponse)
+{-# DEPRECATED dtacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

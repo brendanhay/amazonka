@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,152 @@
 --
 -- Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the <https://aws.amazon.com/documentation/iam/ AWS Identity and Access Management User Guide> .
 --
---
 -- For this release of the REST API, you can create only one policy for a container. If you enter @PutContainerPolicy@ twice, the second command modifies the existing policy.
 module Network.AWS.MediaStore.PutContainerPolicy
-  ( -- * Creating a Request
-    putContainerPolicy,
-    PutContainerPolicy,
+  ( -- * Creating a request
+    PutContainerPolicy (..),
+    mkPutContainerPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pContainerName,
     pPolicy,
 
-    -- * Destructuring the Response
-    putContainerPolicyResponse,
-    PutContainerPolicyResponse,
+    -- * Destructuring the response
+    PutContainerPolicyResponse (..),
+    mkPutContainerPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putContainerPolicy' smart constructor.
+-- | /See:/ 'mkPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'
-  { _pContainerName ::
-      !Text,
-    _pPolicy :: !Text
+  { containerName ::
+      Lude.Text,
+    policy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutContainerPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'containerName' - The name of the container.
+-- * 'policy' - The contents of the policy, which includes the following:
 --
--- * 'pContainerName' - The name of the container.
 --
--- * 'pPolicy' - The contents of the policy, which includes the following:      * One @Version@ tag     * One @Statement@ tag that contains the standard tags for the policy.
-putContainerPolicy ::
-  -- | 'pContainerName'
-  Text ->
-  -- | 'pPolicy'
-  Text ->
+--     * One @Version@ tag
+--
+--
+--     * One @Statement@ tag that contains the standard tags for the policy.
+mkPutContainerPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
+  -- | 'policy'
+  Lude.Text ->
   PutContainerPolicy
-putContainerPolicy pContainerName_ pPolicy_ =
+mkPutContainerPolicy pContainerName_ pPolicy_ =
   PutContainerPolicy'
-    { _pContainerName = pContainerName_,
-      _pPolicy = pPolicy_
+    { containerName = pContainerName_,
+      policy = pPolicy_
     }
 
 -- | The name of the container.
-pContainerName :: Lens' PutContainerPolicy Text
-pContainerName = lens _pContainerName (\s a -> s {_pContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pContainerName :: Lens.Lens' PutContainerPolicy Lude.Text
+pContainerName = Lens.lens (containerName :: PutContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: PutContainerPolicy)
+{-# DEPRECATED pContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
--- | The contents of the policy, which includes the following:      * One @Version@ tag     * One @Statement@ tag that contains the standard tags for the policy.
-pPolicy :: Lens' PutContainerPolicy Text
-pPolicy = lens _pPolicy (\s a -> s {_pPolicy = a})
+-- | The contents of the policy, which includes the following:
+--
+--
+--     * One @Version@ tag
+--
+--
+--     * One @Statement@ tag that contains the standard tags for the policy.
+--
+--
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPolicy :: Lens.Lens' PutContainerPolicy Lude.Text
+pPolicy = Lens.lens (policy :: PutContainerPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutContainerPolicy)
+{-# DEPRECATED pPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance AWSRequest PutContainerPolicy where
+instance Lude.AWSRequest PutContainerPolicy where
   type Rs PutContainerPolicy = PutContainerPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> PutContainerPolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutContainerPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutContainerPolicy
-
-instance NFData PutContainerPolicy
-
-instance ToHeaders PutContainerPolicy where
+instance Lude.ToHeaders PutContainerPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.PutContainerPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.PutContainerPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutContainerPolicy where
+instance Lude.ToJSON PutContainerPolicy where
   toJSON PutContainerPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ContainerName" .= _pContainerName),
-            Just ("Policy" .= _pPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ContainerName" Lude..= containerName),
+            Lude.Just ("Policy" Lude..= policy)
           ]
       )
 
-instance ToPath PutContainerPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutContainerPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutContainerPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutContainerPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putContainerPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutContainerPolicyResponse' smart constructor.
 newtype PutContainerPolicyResponse = PutContainerPolicyResponse'
-  { _pcprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutContainerPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcprsResponseStatus' - -- | The response status code.
-putContainerPolicyResponse ::
-  -- | 'pcprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutContainerPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutContainerPolicyResponse
-putContainerPolicyResponse pResponseStatus_ =
-  PutContainerPolicyResponse'
-    { _pcprsResponseStatus =
-        pResponseStatus_
-    }
+mkPutContainerPolicyResponse pResponseStatus_ =
+  PutContainerPolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-pcprsResponseStatus :: Lens' PutContainerPolicyResponse Int
-pcprsResponseStatus = lens _pcprsResponseStatus (\s a -> s {_pcprsResponseStatus = a})
-
-instance NFData PutContainerPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcprsResponseStatus :: Lens.Lens' PutContainerPolicyResponse Lude.Int
+pcprsResponseStatus = Lens.lens (responseStatus :: PutContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutContainerPolicyResponse)
+{-# DEPRECATED pcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

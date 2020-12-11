@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.Spend where
+module Network.AWS.Budgets.Types.Spend
+  ( Spend (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSpend,
+
+    -- * Lenses
+    sAmount,
+    sUnit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The amount of cost or usage that is measured for a budget.
---
 --
 -- For example, a @Spend@ for @3 GB@ of S3 usage would have the following parameters:
 --
 --     * An @Amount@ of @3@
 --
+--
 --     * A @unit@ of @GB@
 --
 --
 --
---
--- /See:/ 'spend' smart constructor.
-data Spend = Spend' {_sAmount :: !Text, _sUnit :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkSpend' smart constructor.
+data Spend = Spend' {amount :: Lude.Text, unit :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Spend' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sAmount' - The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
---
--- * 'sUnit' - The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
-spend ::
-  -- | 'sAmount'
-  Text ->
-  -- | 'sUnit'
-  Text ->
+-- * 'amount' - The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
+-- * 'unit' - The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+mkSpend ::
+  -- | 'amount'
+  Lude.Text ->
+  -- | 'unit'
+  Lude.Text ->
   Spend
-spend pAmount_ pUnit_ =
-  Spend' {_sAmount = pAmount_, _sUnit = pUnit_}
+mkSpend pAmount_ pUnit_ = Spend' {amount = pAmount_, unit = pUnit_}
 
 -- | The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
-sAmount :: Lens' Spend Text
-sAmount = lens _sAmount (\s a -> s {_sAmount = a})
+--
+-- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAmount :: Lens.Lens' Spend Lude.Text
+sAmount = Lens.lens (amount :: Spend -> Lude.Text) (\s a -> s {amount = a} :: Spend)
+{-# DEPRECATED sAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
-sUnit :: Lens' Spend Text
-sUnit = lens _sUnit (\s a -> s {_sUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sUnit :: Lens.Lens' Spend Lude.Text
+sUnit = Lens.lens (unit :: Spend -> Lude.Text) (\s a -> s {unit = a} :: Spend)
+{-# DEPRECATED sUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance FromJSON Spend where
+instance Lude.FromJSON Spend where
   parseJSON =
-    withObject
+    Lude.withObject
       "Spend"
-      (\x -> Spend' <$> (x .: "Amount") <*> (x .: "Unit"))
+      ( \x ->
+          Spend' Lude.<$> (x Lude..: "Amount") Lude.<*> (x Lude..: "Unit")
+      )
 
-instance Hashable Spend
-
-instance NFData Spend
-
-instance ToJSON Spend where
+instance Lude.ToJSON Spend where
   toJSON Spend' {..} =
-    object
-      (catMaybes [Just ("Amount" .= _sAmount), Just ("Unit" .= _sUnit)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Amount" Lude..= amount),
+            Lude.Just ("Unit" Lude..= unit)
+          ]
+      )

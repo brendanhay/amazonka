@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse where
+module Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
+  ( BatchGetObjectAttributesResponse (..),
+
+    -- * Smart constructor
+    mkBatchGetObjectAttributesResponse,
+
+    -- * Lenses
+    bgoaAttributes,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'GetObjectAttributes' response operation.
 --
---
---
--- /See:/ 'batchGetObjectAttributesResponse' smart constructor.
+-- /See:/ 'mkBatchGetObjectAttributesResponse' smart constructor.
 newtype BatchGetObjectAttributesResponse = BatchGetObjectAttributesResponse'
-  { _bgoaAttributes ::
-      Maybe
+  { attributes ::
+      Lude.Maybe
         [AttributeKeyAndValue]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgoaAttributes' - The attribute values that are associated with an object.
-batchGetObjectAttributesResponse ::
+-- * 'attributes' - The attribute values that are associated with an object.
+mkBatchGetObjectAttributesResponse ::
   BatchGetObjectAttributesResponse
-batchGetObjectAttributesResponse =
-  BatchGetObjectAttributesResponse' {_bgoaAttributes = Nothing}
+mkBatchGetObjectAttributesResponse =
+  BatchGetObjectAttributesResponse' {attributes = Lude.Nothing}
 
 -- | The attribute values that are associated with an object.
-bgoaAttributes :: Lens' BatchGetObjectAttributesResponse [AttributeKeyAndValue]
-bgoaAttributes = lens _bgoaAttributes (\s a -> s {_bgoaAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgoaAttributes :: Lens.Lens' BatchGetObjectAttributesResponse (Lude.Maybe [AttributeKeyAndValue])
+bgoaAttributes = Lens.lens (attributes :: BatchGetObjectAttributesResponse -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {attributes = a} :: BatchGetObjectAttributesResponse)
+{-# DEPRECATED bgoaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromJSON BatchGetObjectAttributesResponse where
+instance Lude.FromJSON BatchGetObjectAttributesResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchGetObjectAttributesResponse"
       ( \x ->
           BatchGetObjectAttributesResponse'
-            <$> (x .:? "Attributes" .!= mempty)
+            Lude.<$> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
       )
-
-instance Hashable BatchGetObjectAttributesResponse
-
-instance NFData BatchGetObjectAttributesResponse

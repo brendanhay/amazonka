@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Types.Resource where
+module Network.AWS.CodeStar.Types.Resource
+  ( Resource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResource,
+
+    -- * Lenses
+    rId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a resource for a project.
 --
---
---
--- /See:/ 'resource' smart constructor.
-newtype Resource = Resource' {_rId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkResource' smart constructor.
+newtype Resource = Resource' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rId' - The Amazon Resource Name (ARN) of the resource.
-resource ::
-  -- | 'rId'
-  Text ->
+-- * 'id' - The Amazon Resource Name (ARN) of the resource.
+mkResource ::
+  -- | 'id'
+  Lude.Text ->
   Resource
-resource pId_ = Resource' {_rId = pId_}
+mkResource pId_ = Resource' {id = pId_}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-rId :: Lens' Resource Text
-rId = lens _rId (\s a -> s {_rId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rId :: Lens.Lens' Resource Lude.Text
+rId = Lens.lens (id :: Resource -> Lude.Text) (\s a -> s {id = a} :: Resource)
+{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON Resource where
+instance Lude.FromJSON Resource where
   parseJSON =
-    withObject "Resource" (\x -> Resource' <$> (x .: "id"))
-
-instance Hashable Resource
-
-instance NFData Resource
+    Lude.withObject
+      "Resource"
+      (\x -> Resource' Lude.<$> (x Lude..: "id"))

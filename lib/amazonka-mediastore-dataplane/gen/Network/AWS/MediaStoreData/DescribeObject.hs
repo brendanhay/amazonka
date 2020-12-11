@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the headers for an object at the specified path.
 module Network.AWS.MediaStoreData.DescribeObject
-  ( -- * Creating a Request
-    describeObject,
-    DescribeObject,
+  ( -- * Creating a request
+    DescribeObject (..),
+    mkDescribeObject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dPath,
 
-    -- * Destructuring the Response
-    describeObjectResponse,
-    DescribeObjectResponse,
+    -- * Destructuring the response
+    DescribeObjectResponse (..),
+    mkDescribeObjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsETag,
     drsContentLength,
     drsCacheControl,
@@ -40,122 +35,146 @@ module Network.AWS.MediaStoreData.DescribeObject
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeObject' smart constructor.
-newtype DescribeObject = DescribeObject' {_dPath :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeObject' smart constructor.
+newtype DescribeObject = DescribeObject' {path :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dPath' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-describeObject ::
-  -- | 'dPath'
-  Text ->
+-- * 'path' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
+mkDescribeObject ::
+  -- | 'path'
+  Lude.Text ->
   DescribeObject
-describeObject pPath_ = DescribeObject' {_dPath = pPath_}
+mkDescribeObject pPath_ = DescribeObject' {path = pPath_}
 
 -- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-dPath :: Lens' DescribeObject Text
-dPath = lens _dPath (\s a -> s {_dPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPath :: Lens.Lens' DescribeObject Lude.Text
+dPath = Lens.lens (path :: DescribeObject -> Lude.Text) (\s a -> s {path = a} :: DescribeObject)
+{-# DEPRECATED dPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance AWSRequest DescribeObject where
+instance Lude.AWSRequest DescribeObject where
   type Rs DescribeObject = DescribeObjectResponse
-  request = head' mediaStoreData
+  request = Req.head' mediaStoreDataService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DescribeObjectResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Content-Length")
-            <*> (h .#? "Cache-Control")
-            <*> (h .#? "Last-Modified")
-            <*> (h .#? "Content-Type")
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Content-Length")
+            Lude.<*> (h Lude..#? "Cache-Control")
+            Lude.<*> (h Lude..#? "Last-Modified")
+            Lude.<*> (h Lude..#? "Content-Type")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeObject
+instance Lude.ToHeaders DescribeObject where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeObject
+instance Lude.ToPath DescribeObject where
+  toPath DescribeObject' {..} = Lude.mconcat ["/", Lude.toBS path]
 
-instance ToHeaders DescribeObject where
-  toHeaders = const mempty
+instance Lude.ToQuery DescribeObject where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DescribeObject where
-  toPath DescribeObject' {..} = mconcat ["/", toBS _dPath]
-
-instance ToQuery DescribeObject where
-  toQuery = const mempty
-
--- | /See:/ 'describeObjectResponse' smart constructor.
+-- | /See:/ 'mkDescribeObjectResponse' smart constructor.
 data DescribeObjectResponse = DescribeObjectResponse'
-  { _drsETag ::
-      !(Maybe Text),
-    _drsContentLength :: !(Maybe Nat),
-    _drsCacheControl :: !(Maybe Text),
-    _drsLastModified :: !(Maybe POSIX),
-    _drsContentType :: !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    contentLength :: Lude.Maybe Lude.Natural,
+    cacheControl :: Lude.Maybe Lude.Text,
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    contentType :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheControl' - An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
 --
--- * 'drsETag' - The ETag that represents a unique instance of the object.
---
--- * 'drsContentLength' - The length of the object in bytes.
---
--- * 'drsCacheControl' - An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> . Headers with a custom user-defined value are also accepted.
---
--- * 'drsLastModified' - The date and time that the object was last modified.
---
--- * 'drsContentType' - The content type of the object.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeObjectResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- Headers with a custom user-defined value are also accepted.
+-- * 'contentLength' - The length of the object in bytes.
+-- * 'contentType' - The content type of the object.
+-- * 'eTag' - The ETag that represents a unique instance of the object.
+-- * 'lastModified' - The date and time that the object was last modified.
+-- * 'responseStatus' - The response status code.
+mkDescribeObjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeObjectResponse
-describeObjectResponse pResponseStatus_ =
+mkDescribeObjectResponse pResponseStatus_ =
   DescribeObjectResponse'
-    { _drsETag = Nothing,
-      _drsContentLength = Nothing,
-      _drsCacheControl = Nothing,
-      _drsLastModified = Nothing,
-      _drsContentType = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      contentLength = Lude.Nothing,
+      cacheControl = Lude.Nothing,
+      lastModified = Lude.Nothing,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ETag that represents a unique instance of the object.
-drsETag :: Lens' DescribeObjectResponse (Maybe Text)
-drsETag = lens _drsETag (\s a -> s {_drsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsETag :: Lens.Lens' DescribeObjectResponse (Lude.Maybe Lude.Text)
+drsETag = Lens.lens (eTag :: DescribeObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The length of the object in bytes.
-drsContentLength :: Lens' DescribeObjectResponse (Maybe Natural)
-drsContentLength = lens _drsContentLength (\s a -> s {_drsContentLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsContentLength :: Lens.Lens' DescribeObjectResponse (Lude.Maybe Lude.Natural)
+drsContentLength = Lens.lens (contentLength :: DescribeObjectResponse -> Lude.Maybe Lude.Natural) (\s a -> s {contentLength = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
 
--- | An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> . Headers with a custom user-defined value are also accepted.
-drsCacheControl :: Lens' DescribeObjectResponse (Maybe Text)
-drsCacheControl = lens _drsCacheControl (\s a -> s {_drsCacheControl = a})
+-- | An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+--
+-- Headers with a custom user-defined value are also accepted.
+--
+-- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCacheControl :: Lens.Lens' DescribeObjectResponse (Lude.Maybe Lude.Text)
+drsCacheControl = Lens.lens (cacheControl :: DescribeObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {cacheControl = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
 
 -- | The date and time that the object was last modified.
-drsLastModified :: Lens' DescribeObjectResponse (Maybe UTCTime)
-drsLastModified = lens _drsLastModified (\s a -> s {_drsLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsLastModified :: Lens.Lens' DescribeObjectResponse (Lude.Maybe Lude.Timestamp)
+drsLastModified = Lens.lens (lastModified :: DescribeObjectResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The content type of the object.
-drsContentType :: Lens' DescribeObjectResponse (Maybe Text)
-drsContentType = lens _drsContentType (\s a -> s {_drsContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsContentType :: Lens.Lens' DescribeObjectResponse (Lude.Maybe Lude.Text)
+drsContentType = Lens.lens (contentType :: DescribeObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeObjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeObjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeObjectResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeObjectResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

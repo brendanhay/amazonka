@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Attachment where
+module Network.AWS.ECS.Types.Attachment
+  ( Attachment (..),
+
+    -- * Smart constructor
+    mkAttachment,
+
+    -- * Lenses
+    aStatus,
+    aDetails,
+    aId,
+    aType,
+  )
+where
 
 import Network.AWS.ECS.Types.KeyValuePair
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing a container instance or task attachment.
 --
---
---
--- /See:/ 'attachment' smart constructor.
+-- /See:/ 'mkAttachment' smart constructor.
 data Attachment = Attachment'
-  { _aStatus :: !(Maybe Text),
-    _aDetails :: !(Maybe [KeyValuePair]),
-    _aId :: !(Maybe Text),
-    _aType :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    details :: Lude.Maybe [KeyValuePair],
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aStatus' - The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
---
--- * 'aDetails' - Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
---
--- * 'aId' - The unique identifier for the attachment.
---
--- * 'aType' - The type of the attachment, such as @ElasticNetworkInterface@ .
-attachment ::
+-- * 'details' - Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
+-- * 'id' - The unique identifier for the attachment.
+-- * 'status' - The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
+-- * 'type'' - The type of the attachment, such as @ElasticNetworkInterface@ .
+mkAttachment ::
   Attachment
-attachment =
+mkAttachment =
   Attachment'
-    { _aStatus = Nothing,
-      _aDetails = Nothing,
-      _aId = Nothing,
-      _aType = Nothing
+    { status = Lude.Nothing,
+      details = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
-aStatus :: Lens' Attachment (Maybe Text)
-aStatus = lens _aStatus (\s a -> s {_aStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStatus :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
+aStatus = Lens.lens (status :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Attachment)
+{-# DEPRECATED aStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
-aDetails :: Lens' Attachment [KeyValuePair]
-aDetails = lens _aDetails (\s a -> s {_aDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDetails :: Lens.Lens' Attachment (Lude.Maybe [KeyValuePair])
+aDetails = Lens.lens (details :: Attachment -> Lude.Maybe [KeyValuePair]) (\s a -> s {details = a} :: Attachment)
+{-# DEPRECATED aDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The unique identifier for the attachment.
-aId :: Lens' Attachment (Maybe Text)
-aId = lens _aId (\s a -> s {_aId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aId :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
+aId = Lens.lens (id :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Attachment)
+{-# DEPRECATED aId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of the attachment, such as @ElasticNetworkInterface@ .
-aType :: Lens' Attachment (Maybe Text)
-aType = lens _aType (\s a -> s {_aType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aType :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
+aType = Lens.lens (type' :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Attachment)
+{-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Attachment where
+instance Lude.FromJSON Attachment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            <$> (x .:? "status")
-            <*> (x .:? "details" .!= mempty)
-            <*> (x .:? "id")
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "details" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable Attachment
-
-instance NFData Attachment

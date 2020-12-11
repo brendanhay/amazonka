@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus where
+module Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
+  ( ElasticsearchDomainStatus (..),
+
+    -- * Smart constructor
+    mkElasticsearchDomainStatus,
+
+    -- * Lenses
+    edsEBSOptions,
+    edsNodeToNodeEncryptionOptions,
+    edsAccessPolicies,
+    edsServiceSoftwareOptions,
+    edsLogPublishingOptions,
+    edsAdvancedSecurityOptions,
+    edsCreated,
+    edsSnapshotOptions,
+    edsCognitoOptions,
+    edsEncryptionAtRestOptions,
+    edsDeleted,
+    edsVPCOptions,
+    edsEndpoints,
+    edsDomainEndpointOptions,
+    edsProcessing,
+    edsEndpoint,
+    edsUpgradeProcessing,
+    edsAdvancedOptions,
+    edsElasticsearchVersion,
+    edsDomainId,
+    edsDomainName,
+    edsARN,
+    edsElasticsearchClusterConfig,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
 import Network.AWS.ElasticSearch.Types.CognitoOptions
@@ -27,273 +52,320 @@ import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
 import Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
 import Network.AWS.ElasticSearch.Types.SnapshotOptions
 import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current status of an Elasticsearch domain.
 --
---
---
--- /See:/ 'elasticsearchDomainStatus' smart constructor.
+-- /See:/ 'mkElasticsearchDomainStatus' smart constructor.
 data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
-  { _edsEBSOptions ::
-      !(Maybe EBSOptions),
-    _edsNodeToNodeEncryptionOptions ::
-      !(Maybe NodeToNodeEncryptionOptions),
-    _edsAccessPolicies :: !(Maybe Text),
-    _edsServiceSoftwareOptions ::
-      !(Maybe ServiceSoftwareOptions),
-    _edsLogPublishingOptions ::
-      !( Maybe
-           ( Map
-               LogType
-               (LogPublishingOption)
-           )
-       ),
-    _edsAdvancedSecurityOptions ::
-      !(Maybe AdvancedSecurityOptions),
-    _edsCreated :: !(Maybe Bool),
-    _edsSnapshotOptions ::
-      !(Maybe SnapshotOptions),
-    _edsCognitoOptions ::
-      !(Maybe CognitoOptions),
-    _edsEncryptionAtRestOptions ::
-      !(Maybe EncryptionAtRestOptions),
-    _edsDeleted :: !(Maybe Bool),
-    _edsVPCOptions ::
-      !(Maybe VPCDerivedInfo),
-    _edsEndpoints ::
-      !(Maybe (Map Text (Text))),
-    _edsDomainEndpointOptions ::
-      !(Maybe DomainEndpointOptions),
-    _edsProcessing :: !(Maybe Bool),
-    _edsEndpoint :: !(Maybe Text),
-    _edsUpgradeProcessing :: !(Maybe Bool),
-    _edsAdvancedOptions ::
-      !(Maybe (Map Text (Text))),
-    _edsElasticsearchVersion ::
-      !(Maybe Text),
-    _edsDomainId :: !Text,
-    _edsDomainName :: !Text,
-    _edsARN :: !Text,
-    _edsElasticsearchClusterConfig ::
-      !ElasticsearchClusterConfig
+  { ebsOptions ::
+      Lude.Maybe EBSOptions,
+    nodeToNodeEncryptionOptions ::
+      Lude.Maybe NodeToNodeEncryptionOptions,
+    accessPolicies :: Lude.Maybe Lude.Text,
+    serviceSoftwareOptions ::
+      Lude.Maybe ServiceSoftwareOptions,
+    logPublishingOptions ::
+      Lude.Maybe
+        ( Lude.HashMap
+            LogType
+            (LogPublishingOption)
+        ),
+    advancedSecurityOptions ::
+      Lude.Maybe AdvancedSecurityOptions,
+    created :: Lude.Maybe Lude.Bool,
+    snapshotOptions ::
+      Lude.Maybe SnapshotOptions,
+    cognitoOptions ::
+      Lude.Maybe CognitoOptions,
+    encryptionAtRestOptions ::
+      Lude.Maybe EncryptionAtRestOptions,
+    deleted :: Lude.Maybe Lude.Bool,
+    vpcOptions :: Lude.Maybe VPCDerivedInfo,
+    endpoints ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    domainEndpointOptions ::
+      Lude.Maybe DomainEndpointOptions,
+    processing :: Lude.Maybe Lude.Bool,
+    endpoint :: Lude.Maybe Lude.Text,
+    upgradeProcessing ::
+      Lude.Maybe Lude.Bool,
+    advancedOptions ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    elasticsearchVersion ::
+      Lude.Maybe Lude.Text,
+    domainId :: Lude.Text,
+    domainName :: Lude.Text,
+    arn :: Lude.Text,
+    elasticsearchClusterConfig ::
+      ElasticsearchClusterConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDomainStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edsEBSOptions' - The @EBSOptions@ for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
---
--- * 'edsNodeToNodeEncryptionOptions' - Specifies the status of the @NodeToNodeEncryptionOptions@ .
---
--- * 'edsAccessPolicies' - IAM access policy as a JSON-formatted string.
---
--- * 'edsServiceSoftwareOptions' - The current status of the Elasticsearch domain's service software.
---
--- * 'edsLogPublishingOptions' - Log publishing options for the given domain.
---
--- * 'edsAdvancedSecurityOptions' - The current status of the Elasticsearch domain's advanced security options.
---
--- * 'edsCreated' - The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
---
--- * 'edsSnapshotOptions' - Specifies the status of the @SnapshotOptions@
---
--- * 'edsCognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
---
--- * 'edsEncryptionAtRestOptions' - Specifies the status of the @EncryptionAtRestOptions@ .
---
--- * 'edsDeleted' - The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
---
--- * 'edsVPCOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
---
--- * 'edsEndpoints' - Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
---
--- * 'edsDomainEndpointOptions' - The current status of the Elasticsearch domain's endpoint options.
---
--- * 'edsProcessing' - The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
---
--- * 'edsEndpoint' - The Elasticsearch domain endpoint that you use to submit index and search requests.
---
--- * 'edsUpgradeProcessing' - The status of an Elasticsearch domain version upgrade. @True@ if Amazon Elasticsearch Service is undergoing a version upgrade. @False@ if the configuration is active.
---
--- * 'edsAdvancedOptions' - Specifies the status of the @AdvancedOptions@
---
--- * 'edsElasticsearchVersion' - Undocumented member.
---
--- * 'edsDomainId' - The unique identifier for the specified Elasticsearch domain.
---
--- * 'edsDomainName' - The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
---
--- * 'edsARN' - The Amazon resource name (ARN) of an Elasticsearch domain. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities> in /Using AWS Identity and Access Management/ for more information.
---
--- * 'edsElasticsearchClusterConfig' - The type and number of instances in the domain cluster.
-elasticsearchDomainStatus ::
-  -- | 'edsDomainId'
-  Text ->
-  -- | 'edsDomainName'
-  Text ->
-  -- | 'edsARN'
-  Text ->
-  -- | 'edsElasticsearchClusterConfig'
+-- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
+-- * 'advancedOptions' - Specifies the status of the @AdvancedOptions@
+-- * 'advancedSecurityOptions' - The current status of the Elasticsearch domain's advanced security options.
+-- * 'arn' - The Amazon resource name (ARN) of an Elasticsearch domain. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities> in /Using AWS Identity and Access Management/ for more information.
+-- * 'cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+-- * 'created' - The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
+-- * 'deleted' - The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
+-- * 'domainEndpointOptions' - The current status of the Elasticsearch domain's endpoint options.
+-- * 'domainId' - The unique identifier for the specified Elasticsearch domain.
+-- * 'domainName' - The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+-- * 'ebsOptions' - The @EBSOptions@ for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
+-- * 'elasticsearchClusterConfig' - The type and number of instances in the domain cluster.
+-- * 'elasticsearchVersion' - Undocumented field.
+-- * 'encryptionAtRestOptions' - Specifies the status of the @EncryptionAtRestOptions@ .
+-- * 'endpoint' - The Elasticsearch domain endpoint that you use to submit index and search requests.
+-- * 'endpoints' - Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
+-- * 'logPublishingOptions' - Log publishing options for the given domain.
+-- * 'nodeToNodeEncryptionOptions' - Specifies the status of the @NodeToNodeEncryptionOptions@ .
+-- * 'processing' - The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
+-- * 'serviceSoftwareOptions' - The current status of the Elasticsearch domain's service software.
+-- * 'snapshotOptions' - Specifies the status of the @SnapshotOptions@
+-- * 'upgradeProcessing' - The status of an Elasticsearch domain version upgrade. @True@ if Amazon Elasticsearch Service is undergoing a version upgrade. @False@ if the configuration is active.
+-- * 'vpcOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+mkElasticsearchDomainStatus ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'elasticsearchClusterConfig'
   ElasticsearchClusterConfig ->
   ElasticsearchDomainStatus
-elasticsearchDomainStatus
+mkElasticsearchDomainStatus
   pDomainId_
   pDomainName_
   pARN_
   pElasticsearchClusterConfig_ =
     ElasticsearchDomainStatus'
-      { _edsEBSOptions = Nothing,
-        _edsNodeToNodeEncryptionOptions = Nothing,
-        _edsAccessPolicies = Nothing,
-        _edsServiceSoftwareOptions = Nothing,
-        _edsLogPublishingOptions = Nothing,
-        _edsAdvancedSecurityOptions = Nothing,
-        _edsCreated = Nothing,
-        _edsSnapshotOptions = Nothing,
-        _edsCognitoOptions = Nothing,
-        _edsEncryptionAtRestOptions = Nothing,
-        _edsDeleted = Nothing,
-        _edsVPCOptions = Nothing,
-        _edsEndpoints = Nothing,
-        _edsDomainEndpointOptions = Nothing,
-        _edsProcessing = Nothing,
-        _edsEndpoint = Nothing,
-        _edsUpgradeProcessing = Nothing,
-        _edsAdvancedOptions = Nothing,
-        _edsElasticsearchVersion = Nothing,
-        _edsDomainId = pDomainId_,
-        _edsDomainName = pDomainName_,
-        _edsARN = pARN_,
-        _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
+      { ebsOptions = Lude.Nothing,
+        nodeToNodeEncryptionOptions = Lude.Nothing,
+        accessPolicies = Lude.Nothing,
+        serviceSoftwareOptions = Lude.Nothing,
+        logPublishingOptions = Lude.Nothing,
+        advancedSecurityOptions = Lude.Nothing,
+        created = Lude.Nothing,
+        snapshotOptions = Lude.Nothing,
+        cognitoOptions = Lude.Nothing,
+        encryptionAtRestOptions = Lude.Nothing,
+        deleted = Lude.Nothing,
+        vpcOptions = Lude.Nothing,
+        endpoints = Lude.Nothing,
+        domainEndpointOptions = Lude.Nothing,
+        processing = Lude.Nothing,
+        endpoint = Lude.Nothing,
+        upgradeProcessing = Lude.Nothing,
+        advancedOptions = Lude.Nothing,
+        elasticsearchVersion = Lude.Nothing,
+        domainId = pDomainId_,
+        domainName = pDomainName_,
+        arn = pARN_,
+        elasticsearchClusterConfig = pElasticsearchClusterConfig_
       }
 
 -- | The @EBSOptions@ for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
-edsEBSOptions :: Lens' ElasticsearchDomainStatus (Maybe EBSOptions)
-edsEBSOptions = lens _edsEBSOptions (\s a -> s {_edsEBSOptions = a})
+--
+-- /Note:/ Consider using 'ebsOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsEBSOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe EBSOptions)
+edsEBSOptions = Lens.lens (ebsOptions :: ElasticsearchDomainStatus -> Lude.Maybe EBSOptions) (\s a -> s {ebsOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsEBSOptions "Use generic-lens or generic-optics with 'ebsOptions' instead." #-}
 
 -- | Specifies the status of the @NodeToNodeEncryptionOptions@ .
-edsNodeToNodeEncryptionOptions :: Lens' ElasticsearchDomainStatus (Maybe NodeToNodeEncryptionOptions)
-edsNodeToNodeEncryptionOptions = lens _edsNodeToNodeEncryptionOptions (\s a -> s {_edsNodeToNodeEncryptionOptions = a})
+--
+-- /Note:/ Consider using 'nodeToNodeEncryptionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsNodeToNodeEncryptionOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe NodeToNodeEncryptionOptions)
+edsNodeToNodeEncryptionOptions = Lens.lens (nodeToNodeEncryptionOptions :: ElasticsearchDomainStatus -> Lude.Maybe NodeToNodeEncryptionOptions) (\s a -> s {nodeToNodeEncryptionOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsNodeToNodeEncryptionOptions "Use generic-lens or generic-optics with 'nodeToNodeEncryptionOptions' instead." #-}
 
 -- | IAM access policy as a JSON-formatted string.
-edsAccessPolicies :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsAccessPolicies = lens _edsAccessPolicies (\s a -> s {_edsAccessPolicies = a})
+--
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsAccessPolicies :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Text)
+edsAccessPolicies = Lens.lens (accessPolicies :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Text) (\s a -> s {accessPolicies = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
 
 -- | The current status of the Elasticsearch domain's service software.
-edsServiceSoftwareOptions :: Lens' ElasticsearchDomainStatus (Maybe ServiceSoftwareOptions)
-edsServiceSoftwareOptions = lens _edsServiceSoftwareOptions (\s a -> s {_edsServiceSoftwareOptions = a})
+--
+-- /Note:/ Consider using 'serviceSoftwareOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsServiceSoftwareOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe ServiceSoftwareOptions)
+edsServiceSoftwareOptions = Lens.lens (serviceSoftwareOptions :: ElasticsearchDomainStatus -> Lude.Maybe ServiceSoftwareOptions) (\s a -> s {serviceSoftwareOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsServiceSoftwareOptions "Use generic-lens or generic-optics with 'serviceSoftwareOptions' instead." #-}
 
 -- | Log publishing options for the given domain.
-edsLogPublishingOptions :: Lens' ElasticsearchDomainStatus (HashMap LogType (LogPublishingOption))
-edsLogPublishingOptions = lens _edsLogPublishingOptions (\s a -> s {_edsLogPublishingOptions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'logPublishingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsLogPublishingOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)))
+edsLogPublishingOptions = Lens.lens (logPublishingOptions :: ElasticsearchDomainStatus -> Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))) (\s a -> s {logPublishingOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsLogPublishingOptions "Use generic-lens or generic-optics with 'logPublishingOptions' instead." #-}
 
 -- | The current status of the Elasticsearch domain's advanced security options.
-edsAdvancedSecurityOptions :: Lens' ElasticsearchDomainStatus (Maybe AdvancedSecurityOptions)
-edsAdvancedSecurityOptions = lens _edsAdvancedSecurityOptions (\s a -> s {_edsAdvancedSecurityOptions = a})
+--
+-- /Note:/ Consider using 'advancedSecurityOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsAdvancedSecurityOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe AdvancedSecurityOptions)
+edsAdvancedSecurityOptions = Lens.lens (advancedSecurityOptions :: ElasticsearchDomainStatus -> Lude.Maybe AdvancedSecurityOptions) (\s a -> s {advancedSecurityOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsAdvancedSecurityOptions "Use generic-lens or generic-optics with 'advancedSecurityOptions' instead." #-}
 
 -- | The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
-edsCreated :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsCreated = lens _edsCreated (\s a -> s {_edsCreated = a})
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsCreated :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Bool)
+edsCreated = Lens.lens (created :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {created = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | Specifies the status of the @SnapshotOptions@
-edsSnapshotOptions :: Lens' ElasticsearchDomainStatus (Maybe SnapshotOptions)
-edsSnapshotOptions = lens _edsSnapshotOptions (\s a -> s {_edsSnapshotOptions = a})
+--
+-- /Note:/ Consider using 'snapshotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsSnapshotOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe SnapshotOptions)
+edsSnapshotOptions = Lens.lens (snapshotOptions :: ElasticsearchDomainStatus -> Lude.Maybe SnapshotOptions) (\s a -> s {snapshotOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsSnapshotOptions "Use generic-lens or generic-optics with 'snapshotOptions' instead." #-}
 
 -- | The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
-edsCognitoOptions :: Lens' ElasticsearchDomainStatus (Maybe CognitoOptions)
-edsCognitoOptions = lens _edsCognitoOptions (\s a -> s {_edsCognitoOptions = a})
+--
+-- /Note:/ Consider using 'cognitoOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsCognitoOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe CognitoOptions)
+edsCognitoOptions = Lens.lens (cognitoOptions :: ElasticsearchDomainStatus -> Lude.Maybe CognitoOptions) (\s a -> s {cognitoOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsCognitoOptions "Use generic-lens or generic-optics with 'cognitoOptions' instead." #-}
 
 -- | Specifies the status of the @EncryptionAtRestOptions@ .
-edsEncryptionAtRestOptions :: Lens' ElasticsearchDomainStatus (Maybe EncryptionAtRestOptions)
-edsEncryptionAtRestOptions = lens _edsEncryptionAtRestOptions (\s a -> s {_edsEncryptionAtRestOptions = a})
+--
+-- /Note:/ Consider using 'encryptionAtRestOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsEncryptionAtRestOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe EncryptionAtRestOptions)
+edsEncryptionAtRestOptions = Lens.lens (encryptionAtRestOptions :: ElasticsearchDomainStatus -> Lude.Maybe EncryptionAtRestOptions) (\s a -> s {encryptionAtRestOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsEncryptionAtRestOptions "Use generic-lens or generic-optics with 'encryptionAtRestOptions' instead." #-}
 
 -- | The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
-edsDeleted :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsDeleted = lens _edsDeleted (\s a -> s {_edsDeleted = a})
+--
+-- /Note:/ Consider using 'deleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsDeleted :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Bool)
+edsDeleted = Lens.lens (deleted :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {deleted = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsDeleted "Use generic-lens or generic-optics with 'deleted' instead." #-}
 
 -- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
-edsVPCOptions :: Lens' ElasticsearchDomainStatus (Maybe VPCDerivedInfo)
-edsVPCOptions = lens _edsVPCOptions (\s a -> s {_edsVPCOptions = a})
+--
+-- /Note:/ Consider using 'vpcOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsVPCOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe VPCDerivedInfo)
+edsVPCOptions = Lens.lens (vpcOptions :: ElasticsearchDomainStatus -> Lude.Maybe VPCDerivedInfo) (\s a -> s {vpcOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsVPCOptions "Use generic-lens or generic-optics with 'vpcOptions' instead." #-}
 
 -- | Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
-edsEndpoints :: Lens' ElasticsearchDomainStatus (HashMap Text (Text))
-edsEndpoints = lens _edsEndpoints (\s a -> s {_edsEndpoints = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsEndpoints :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+edsEndpoints = Lens.lens (endpoints :: ElasticsearchDomainStatus -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {endpoints = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
 
 -- | The current status of the Elasticsearch domain's endpoint options.
-edsDomainEndpointOptions :: Lens' ElasticsearchDomainStatus (Maybe DomainEndpointOptions)
-edsDomainEndpointOptions = lens _edsDomainEndpointOptions (\s a -> s {_edsDomainEndpointOptions = a})
+--
+-- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsDomainEndpointOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe DomainEndpointOptions)
+edsDomainEndpointOptions = Lens.lens (domainEndpointOptions :: ElasticsearchDomainStatus -> Lude.Maybe DomainEndpointOptions) (\s a -> s {domainEndpointOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
 
 -- | The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
-edsProcessing :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsProcessing = lens _edsProcessing (\s a -> s {_edsProcessing = a})
+--
+-- /Note:/ Consider using 'processing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsProcessing :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Bool)
+edsProcessing = Lens.lens (processing :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {processing = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsProcessing "Use generic-lens or generic-optics with 'processing' instead." #-}
 
 -- | The Elasticsearch domain endpoint that you use to submit index and search requests.
-edsEndpoint :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsEndpoint = lens _edsEndpoint (\s a -> s {_edsEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsEndpoint :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Text)
+edsEndpoint = Lens.lens (endpoint :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The status of an Elasticsearch domain version upgrade. @True@ if Amazon Elasticsearch Service is undergoing a version upgrade. @False@ if the configuration is active.
-edsUpgradeProcessing :: Lens' ElasticsearchDomainStatus (Maybe Bool)
-edsUpgradeProcessing = lens _edsUpgradeProcessing (\s a -> s {_edsUpgradeProcessing = a})
+--
+-- /Note:/ Consider using 'upgradeProcessing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsUpgradeProcessing :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Bool)
+edsUpgradeProcessing = Lens.lens (upgradeProcessing :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {upgradeProcessing = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsUpgradeProcessing "Use generic-lens or generic-optics with 'upgradeProcessing' instead." #-}
 
 -- | Specifies the status of the @AdvancedOptions@
-edsAdvancedOptions :: Lens' ElasticsearchDomainStatus (HashMap Text (Text))
-edsAdvancedOptions = lens _edsAdvancedOptions (\s a -> s {_edsAdvancedOptions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'advancedOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsAdvancedOptions :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+edsAdvancedOptions = Lens.lens (advancedOptions :: ElasticsearchDomainStatus -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {advancedOptions = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsAdvancedOptions "Use generic-lens or generic-optics with 'advancedOptions' instead." #-}
 
--- | Undocumented member.
-edsElasticsearchVersion :: Lens' ElasticsearchDomainStatus (Maybe Text)
-edsElasticsearchVersion = lens _edsElasticsearchVersion (\s a -> s {_edsElasticsearchVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'elasticsearchVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsElasticsearchVersion :: Lens.Lens' ElasticsearchDomainStatus (Lude.Maybe Lude.Text)
+edsElasticsearchVersion = Lens.lens (elasticsearchVersion :: ElasticsearchDomainStatus -> Lude.Maybe Lude.Text) (\s a -> s {elasticsearchVersion = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsElasticsearchVersion "Use generic-lens or generic-optics with 'elasticsearchVersion' instead." #-}
 
 -- | The unique identifier for the specified Elasticsearch domain.
-edsDomainId :: Lens' ElasticsearchDomainStatus Text
-edsDomainId = lens _edsDomainId (\s a -> s {_edsDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsDomainId :: Lens.Lens' ElasticsearchDomainStatus Lude.Text
+edsDomainId = Lens.lens (domainId :: ElasticsearchDomainStatus -> Lude.Text) (\s a -> s {domainId = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-edsDomainName :: Lens' ElasticsearchDomainStatus Text
-edsDomainName = lens _edsDomainName (\s a -> s {_edsDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsDomainName :: Lens.Lens' ElasticsearchDomainStatus Lude.Text
+edsDomainName = Lens.lens (domainName :: ElasticsearchDomainStatus -> Lude.Text) (\s a -> s {domainName = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The Amazon resource name (ARN) of an Elasticsearch domain. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html Identifiers for IAM Entities> in /Using AWS Identity and Access Management/ for more information.
-edsARN :: Lens' ElasticsearchDomainStatus Text
-edsARN = lens _edsARN (\s a -> s {_edsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsARN :: Lens.Lens' ElasticsearchDomainStatus Lude.Text
+edsARN = Lens.lens (arn :: ElasticsearchDomainStatus -> Lude.Text) (\s a -> s {arn = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The type and number of instances in the domain cluster.
-edsElasticsearchClusterConfig :: Lens' ElasticsearchDomainStatus ElasticsearchClusterConfig
-edsElasticsearchClusterConfig = lens _edsElasticsearchClusterConfig (\s a -> s {_edsElasticsearchClusterConfig = a})
+--
+-- /Note:/ Consider using 'elasticsearchClusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edsElasticsearchClusterConfig :: Lens.Lens' ElasticsearchDomainStatus ElasticsearchClusterConfig
+edsElasticsearchClusterConfig = Lens.lens (elasticsearchClusterConfig :: ElasticsearchDomainStatus -> ElasticsearchClusterConfig) (\s a -> s {elasticsearchClusterConfig = a} :: ElasticsearchDomainStatus)
+{-# DEPRECATED edsElasticsearchClusterConfig "Use generic-lens or generic-optics with 'elasticsearchClusterConfig' instead." #-}
 
-instance FromJSON ElasticsearchDomainStatus where
+instance Lude.FromJSON ElasticsearchDomainStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElasticsearchDomainStatus"
       ( \x ->
           ElasticsearchDomainStatus'
-            <$> (x .:? "EBSOptions")
-            <*> (x .:? "NodeToNodeEncryptionOptions")
-            <*> (x .:? "AccessPolicies")
-            <*> (x .:? "ServiceSoftwareOptions")
-            <*> (x .:? "LogPublishingOptions" .!= mempty)
-            <*> (x .:? "AdvancedSecurityOptions")
-            <*> (x .:? "Created")
-            <*> (x .:? "SnapshotOptions")
-            <*> (x .:? "CognitoOptions")
-            <*> (x .:? "EncryptionAtRestOptions")
-            <*> (x .:? "Deleted")
-            <*> (x .:? "VPCOptions")
-            <*> (x .:? "Endpoints" .!= mempty)
-            <*> (x .:? "DomainEndpointOptions")
-            <*> (x .:? "Processing")
-            <*> (x .:? "Endpoint")
-            <*> (x .:? "UpgradeProcessing")
-            <*> (x .:? "AdvancedOptions" .!= mempty)
-            <*> (x .:? "ElasticsearchVersion")
-            <*> (x .: "DomainId")
-            <*> (x .: "DomainName")
-            <*> (x .: "ARN")
-            <*> (x .: "ElasticsearchClusterConfig")
+            Lude.<$> (x Lude..:? "EBSOptions")
+            Lude.<*> (x Lude..:? "NodeToNodeEncryptionOptions")
+            Lude.<*> (x Lude..:? "AccessPolicies")
+            Lude.<*> (x Lude..:? "ServiceSoftwareOptions")
+            Lude.<*> (x Lude..:? "LogPublishingOptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AdvancedSecurityOptions")
+            Lude.<*> (x Lude..:? "Created")
+            Lude.<*> (x Lude..:? "SnapshotOptions")
+            Lude.<*> (x Lude..:? "CognitoOptions")
+            Lude.<*> (x Lude..:? "EncryptionAtRestOptions")
+            Lude.<*> (x Lude..:? "Deleted")
+            Lude.<*> (x Lude..:? "VPCOptions")
+            Lude.<*> (x Lude..:? "Endpoints" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DomainEndpointOptions")
+            Lude.<*> (x Lude..:? "Processing")
+            Lude.<*> (x Lude..:? "Endpoint")
+            Lude.<*> (x Lude..:? "UpgradeProcessing")
+            Lude.<*> (x Lude..:? "AdvancedOptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ElasticsearchVersion")
+            Lude.<*> (x Lude..: "DomainId")
+            Lude.<*> (x Lude..: "DomainName")
+            Lude.<*> (x Lude..: "ARN")
+            Lude.<*> (x Lude..: "ElasticsearchClusterConfig")
       )
-
-instance Hashable ElasticsearchDomainStatus
-
-instance NFData ElasticsearchDomainStatus

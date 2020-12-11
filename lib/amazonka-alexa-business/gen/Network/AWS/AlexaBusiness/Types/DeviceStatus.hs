@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceStatus where
+module Network.AWS.AlexaBusiness.Types.DeviceStatus
+  ( DeviceStatus
+      ( DeviceStatus',
+        Deregistered,
+        Failed,
+        Pending,
+        Ready,
+        WasOffline
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceStatus
-  = Deregistered
-  | Failed
-  | Pending
-  | Ready
-  | WasOffline
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceStatus = DeviceStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceStatus where
-  parser =
-    takeLowerText >>= \case
-      "deregistered" -> pure Deregistered
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "ready" -> pure Ready
-      "was_offline" -> pure WasOffline
-      e ->
-        fromTextError $
-          "Failure parsing DeviceStatus from value: '" <> e
-            <> "'. Accepted values: deregistered, failed, pending, ready, was_offline"
+pattern Deregistered :: DeviceStatus
+pattern Deregistered = DeviceStatus' "DEREGISTERED"
 
-instance ToText DeviceStatus where
-  toText = \case
-    Deregistered -> "DEREGISTERED"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Ready -> "READY"
-    WasOffline -> "WAS_OFFLINE"
+pattern Failed :: DeviceStatus
+pattern Failed = DeviceStatus' "FAILED"
 
-instance Hashable DeviceStatus
+pattern Pending :: DeviceStatus
+pattern Pending = DeviceStatus' "PENDING"
 
-instance NFData DeviceStatus
+pattern Ready :: DeviceStatus
+pattern Ready = DeviceStatus' "READY"
 
-instance ToByteString DeviceStatus
+pattern WasOffline :: DeviceStatus
+pattern WasOffline = DeviceStatus' "WAS_OFFLINE"
 
-instance ToQuery DeviceStatus
-
-instance ToHeader DeviceStatus
-
-instance FromJSON DeviceStatus where
-  parseJSON = parseJSONText "DeviceStatus"
+{-# COMPLETE
+  Deregistered,
+  Failed,
+  Pending,
+  Ready,
+  WasOffline,
+  DeviceStatus'
+  #-}

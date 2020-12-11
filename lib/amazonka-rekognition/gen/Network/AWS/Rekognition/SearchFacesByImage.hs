@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,33 +14,28 @@
 --
 -- For a given input image, first detects the largest face in the image, and then searches the specified collection for matching faces. The operation compares the features of the input face with faces in the specified collection.
 --
---
 -- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
---
 -- The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a @similarity@ indicating how similar the face is to the input face. In the response, the operation also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition used for the input image.
---
 -- For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer Guide.
---
 -- The @QualityFilter@ input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use @QualityFilter@ to set the quality bar for filtering by specifying @LOW@ , @MEDIUM@ , or @HIGH@ . If you do not want to filter detected faces, specify @NONE@ . The default value is @NONE@ .
---
 -- This operation requires permissions to perform the @rekognition:SearchFacesByImage@ action.
 module Network.AWS.Rekognition.SearchFacesByImage
-  ( -- * Creating a Request
-    searchFacesByImage,
-    SearchFacesByImage,
+  ( -- * Creating a request
+    SearchFacesByImage (..),
+    mkSearchFacesByImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sfbiQualityFilter,
     sfbiFaceMatchThreshold,
     sfbiMaxFaces,
     sfbiCollectionId,
     sfbiImage,
 
-    -- * Destructuring the Response
-    searchFacesByImageResponse,
-    SearchFacesByImageResponse,
+    -- * Destructuring the response
+    SearchFacesByImageResponse (..),
+    mkSearchFacesByImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sfbirsFaceMatches,
     sfbirsFaceModelVersion,
     sfbirsSearchedFaceBoundingBox,
@@ -54,175 +44,210 @@ module Network.AWS.Rekognition.SearchFacesByImage
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchFacesByImage' smart constructor.
+-- | /See:/ 'mkSearchFacesByImage' smart constructor.
 data SearchFacesByImage = SearchFacesByImage'
-  { _sfbiQualityFilter ::
-      !(Maybe QualityFilter),
-    _sfbiFaceMatchThreshold :: !(Maybe Double),
-    _sfbiMaxFaces :: !(Maybe Nat),
-    _sfbiCollectionId :: !Text,
-    _sfbiImage :: !Image
+  { qualityFilter ::
+      Lude.Maybe QualityFilter,
+    faceMatchThreshold :: Lude.Maybe Lude.Double,
+    maxFaces :: Lude.Maybe Lude.Natural,
+    collectionId :: Lude.Text,
+    image :: Image
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchFacesByImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'collectionId' - ID of the collection to search.
+-- * 'faceMatchThreshold' - (Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
+-- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
--- * 'sfbiQualityFilter' - A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed. The default value is @NONE@ .  To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- * 'maxFaces' - Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
+-- * 'qualityFilter' - A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed. The default value is @NONE@ .
 --
--- * 'sfbiFaceMatchThreshold' - (Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
---
--- * 'sfbiMaxFaces' - Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
---
--- * 'sfbiCollectionId' - ID of the collection to search.
---
--- * 'sfbiImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-searchFacesByImage ::
-  -- | 'sfbiCollectionId'
-  Text ->
-  -- | 'sfbiImage'
+-- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
+mkSearchFacesByImage ::
+  -- | 'collectionId'
+  Lude.Text ->
+  -- | 'image'
   Image ->
   SearchFacesByImage
-searchFacesByImage pCollectionId_ pImage_ =
+mkSearchFacesByImage pCollectionId_ pImage_ =
   SearchFacesByImage'
-    { _sfbiQualityFilter = Nothing,
-      _sfbiFaceMatchThreshold = Nothing,
-      _sfbiMaxFaces = Nothing,
-      _sfbiCollectionId = pCollectionId_,
-      _sfbiImage = pImage_
+    { qualityFilter = Lude.Nothing,
+      faceMatchThreshold = Lude.Nothing,
+      maxFaces = Lude.Nothing,
+      collectionId = pCollectionId_,
+      image = pImage_
     }
 
--- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed. The default value is @NONE@ .  To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
-sfbiQualityFilter :: Lens' SearchFacesByImage (Maybe QualityFilter)
-sfbiQualityFilter = lens _sfbiQualityFilter (\s a -> s {_sfbiQualityFilter = a})
+-- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed. The default value is @NONE@ .
+--
+-- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
+--
+-- /Note:/ Consider using 'qualityFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbiQualityFilter :: Lens.Lens' SearchFacesByImage (Lude.Maybe QualityFilter)
+sfbiQualityFilter = Lens.lens (qualityFilter :: SearchFacesByImage -> Lude.Maybe QualityFilter) (\s a -> s {qualityFilter = a} :: SearchFacesByImage)
+{-# DEPRECATED sfbiQualityFilter "Use generic-lens or generic-optics with 'qualityFilter' instead." #-}
 
 -- | (Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
-sfbiFaceMatchThreshold :: Lens' SearchFacesByImage (Maybe Double)
-sfbiFaceMatchThreshold = lens _sfbiFaceMatchThreshold (\s a -> s {_sfbiFaceMatchThreshold = a})
+--
+-- /Note:/ Consider using 'faceMatchThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbiFaceMatchThreshold :: Lens.Lens' SearchFacesByImage (Lude.Maybe Lude.Double)
+sfbiFaceMatchThreshold = Lens.lens (faceMatchThreshold :: SearchFacesByImage -> Lude.Maybe Lude.Double) (\s a -> s {faceMatchThreshold = a} :: SearchFacesByImage)
+{-# DEPRECATED sfbiFaceMatchThreshold "Use generic-lens or generic-optics with 'faceMatchThreshold' instead." #-}
 
 -- | Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
-sfbiMaxFaces :: Lens' SearchFacesByImage (Maybe Natural)
-sfbiMaxFaces = lens _sfbiMaxFaces (\s a -> s {_sfbiMaxFaces = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbiMaxFaces :: Lens.Lens' SearchFacesByImage (Lude.Maybe Lude.Natural)
+sfbiMaxFaces = Lens.lens (maxFaces :: SearchFacesByImage -> Lude.Maybe Lude.Natural) (\s a -> s {maxFaces = a} :: SearchFacesByImage)
+{-# DEPRECATED sfbiMaxFaces "Use generic-lens or generic-optics with 'maxFaces' instead." #-}
 
 -- | ID of the collection to search.
-sfbiCollectionId :: Lens' SearchFacesByImage Text
-sfbiCollectionId = lens _sfbiCollectionId (\s a -> s {_sfbiCollectionId = a})
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbiCollectionId :: Lens.Lens' SearchFacesByImage Lude.Text
+sfbiCollectionId = Lens.lens (collectionId :: SearchFacesByImage -> Lude.Text) (\s a -> s {collectionId = a} :: SearchFacesByImage)
+{-# DEPRECATED sfbiCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-sfbiImage :: Lens' SearchFacesByImage Image
-sfbiImage = lens _sfbiImage (\s a -> s {_sfbiImage = a})
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+--
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbiImage :: Lens.Lens' SearchFacesByImage Image
+sfbiImage = Lens.lens (image :: SearchFacesByImage -> Image) (\s a -> s {image = a} :: SearchFacesByImage)
+{-# DEPRECATED sfbiImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
-instance AWSRequest SearchFacesByImage where
+instance Lude.AWSRequest SearchFacesByImage where
   type Rs SearchFacesByImage = SearchFacesByImageResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchFacesByImageResponse'
-            <$> (x .?> "FaceMatches" .!@ mempty)
-            <*> (x .?> "FaceModelVersion")
-            <*> (x .?> "SearchedFaceBoundingBox")
-            <*> (x .?> "SearchedFaceConfidence")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FaceMatches" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "FaceModelVersion")
+            Lude.<*> (x Lude..?> "SearchedFaceBoundingBox")
+            Lude.<*> (x Lude..?> "SearchedFaceConfidence")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchFacesByImage
-
-instance NFData SearchFacesByImage
-
-instance ToHeaders SearchFacesByImage where
+instance Lude.ToHeaders SearchFacesByImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.SearchFacesByImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.SearchFacesByImage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchFacesByImage where
+instance Lude.ToJSON SearchFacesByImage where
   toJSON SearchFacesByImage' {..} =
-    object
-      ( catMaybes
-          [ ("QualityFilter" .=) <$> _sfbiQualityFilter,
-            ("FaceMatchThreshold" .=) <$> _sfbiFaceMatchThreshold,
-            ("MaxFaces" .=) <$> _sfbiMaxFaces,
-            Just ("CollectionId" .= _sfbiCollectionId),
-            Just ("Image" .= _sfbiImage)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("QualityFilter" Lude..=) Lude.<$> qualityFilter,
+            ("FaceMatchThreshold" Lude..=) Lude.<$> faceMatchThreshold,
+            ("MaxFaces" Lude..=) Lude.<$> maxFaces,
+            Lude.Just ("CollectionId" Lude..= collectionId),
+            Lude.Just ("Image" Lude..= image)
           ]
       )
 
-instance ToPath SearchFacesByImage where
-  toPath = const "/"
+instance Lude.ToPath SearchFacesByImage where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchFacesByImage where
-  toQuery = const mempty
+instance Lude.ToQuery SearchFacesByImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchFacesByImageResponse' smart constructor.
+-- | /See:/ 'mkSearchFacesByImageResponse' smart constructor.
 data SearchFacesByImageResponse = SearchFacesByImageResponse'
-  { _sfbirsFaceMatches ::
-      !(Maybe [FaceMatch]),
-    _sfbirsFaceModelVersion ::
-      !(Maybe Text),
-    _sfbirsSearchedFaceBoundingBox ::
-      !(Maybe BoundingBox),
-    _sfbirsSearchedFaceConfidence ::
-      !(Maybe Double),
-    _sfbirsResponseStatus :: !Int
+  { faceMatches ::
+      Lude.Maybe [FaceMatch],
+    faceModelVersion ::
+      Lude.Maybe Lude.Text,
+    searchedFaceBoundingBox ::
+      Lude.Maybe BoundingBox,
+    searchedFaceConfidence ::
+      Lude.Maybe Lude.Double,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchFacesByImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfbirsFaceMatches' - An array of faces that match the input face, along with the confidence in the match.
---
--- * 'sfbirsFaceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
---
--- * 'sfbirsSearchedFaceBoundingBox' - The bounding box around the face in the input image that Amazon Rekognition used for the search.
---
--- * 'sfbirsSearchedFaceConfidence' - The level of confidence that the @searchedFaceBoundingBox@ , contains a face.
---
--- * 'sfbirsResponseStatus' - -- | The response status code.
-searchFacesByImageResponse ::
-  -- | 'sfbirsResponseStatus'
-  Int ->
+-- * 'faceMatches' - An array of faces that match the input face, along with the confidence in the match.
+-- * 'faceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
+-- * 'responseStatus' - The response status code.
+-- * 'searchedFaceBoundingBox' - The bounding box around the face in the input image that Amazon Rekognition used for the search.
+-- * 'searchedFaceConfidence' - The level of confidence that the @searchedFaceBoundingBox@ , contains a face.
+mkSearchFacesByImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchFacesByImageResponse
-searchFacesByImageResponse pResponseStatus_ =
+mkSearchFacesByImageResponse pResponseStatus_ =
   SearchFacesByImageResponse'
-    { _sfbirsFaceMatches = Nothing,
-      _sfbirsFaceModelVersion = Nothing,
-      _sfbirsSearchedFaceBoundingBox = Nothing,
-      _sfbirsSearchedFaceConfidence = Nothing,
-      _sfbirsResponseStatus = pResponseStatus_
+    { faceMatches = Lude.Nothing,
+      faceModelVersion = Lude.Nothing,
+      searchedFaceBoundingBox = Lude.Nothing,
+      searchedFaceConfidence = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of faces that match the input face, along with the confidence in the match.
-sfbirsFaceMatches :: Lens' SearchFacesByImageResponse [FaceMatch]
-sfbirsFaceMatches = lens _sfbirsFaceMatches (\s a -> s {_sfbirsFaceMatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'faceMatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbirsFaceMatches :: Lens.Lens' SearchFacesByImageResponse (Lude.Maybe [FaceMatch])
+sfbirsFaceMatches = Lens.lens (faceMatches :: SearchFacesByImageResponse -> Lude.Maybe [FaceMatch]) (\s a -> s {faceMatches = a} :: SearchFacesByImageResponse)
+{-# DEPRECATED sfbirsFaceMatches "Use generic-lens or generic-optics with 'faceMatches' instead." #-}
 
 -- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
-sfbirsFaceModelVersion :: Lens' SearchFacesByImageResponse (Maybe Text)
-sfbirsFaceModelVersion = lens _sfbirsFaceModelVersion (\s a -> s {_sfbirsFaceModelVersion = a})
+--
+-- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbirsFaceModelVersion :: Lens.Lens' SearchFacesByImageResponse (Lude.Maybe Lude.Text)
+sfbirsFaceModelVersion = Lens.lens (faceModelVersion :: SearchFacesByImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: SearchFacesByImageResponse)
+{-# DEPRECATED sfbirsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | The bounding box around the face in the input image that Amazon Rekognition used for the search.
-sfbirsSearchedFaceBoundingBox :: Lens' SearchFacesByImageResponse (Maybe BoundingBox)
-sfbirsSearchedFaceBoundingBox = lens _sfbirsSearchedFaceBoundingBox (\s a -> s {_sfbirsSearchedFaceBoundingBox = a})
+--
+-- /Note:/ Consider using 'searchedFaceBoundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbirsSearchedFaceBoundingBox :: Lens.Lens' SearchFacesByImageResponse (Lude.Maybe BoundingBox)
+sfbirsSearchedFaceBoundingBox = Lens.lens (searchedFaceBoundingBox :: SearchFacesByImageResponse -> Lude.Maybe BoundingBox) (\s a -> s {searchedFaceBoundingBox = a} :: SearchFacesByImageResponse)
+{-# DEPRECATED sfbirsSearchedFaceBoundingBox "Use generic-lens or generic-optics with 'searchedFaceBoundingBox' instead." #-}
 
 -- | The level of confidence that the @searchedFaceBoundingBox@ , contains a face.
-sfbirsSearchedFaceConfidence :: Lens' SearchFacesByImageResponse (Maybe Double)
-sfbirsSearchedFaceConfidence = lens _sfbirsSearchedFaceConfidence (\s a -> s {_sfbirsSearchedFaceConfidence = a})
+--
+-- /Note:/ Consider using 'searchedFaceConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbirsSearchedFaceConfidence :: Lens.Lens' SearchFacesByImageResponse (Lude.Maybe Lude.Double)
+sfbirsSearchedFaceConfidence = Lens.lens (searchedFaceConfidence :: SearchFacesByImageResponse -> Lude.Maybe Lude.Double) (\s a -> s {searchedFaceConfidence = a} :: SearchFacesByImageResponse)
+{-# DEPRECATED sfbirsSearchedFaceConfidence "Use generic-lens or generic-optics with 'searchedFaceConfidence' instead." #-}
 
--- | -- | The response status code.
-sfbirsResponseStatus :: Lens' SearchFacesByImageResponse Int
-sfbirsResponseStatus = lens _sfbirsResponseStatus (\s a -> s {_sfbirsResponseStatus = a})
-
-instance NFData SearchFacesByImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfbirsResponseStatus :: Lens.Lens' SearchFacesByImageResponse Lude.Int
+sfbirsResponseStatus = Lens.lens (responseStatus :: SearchFacesByImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchFacesByImageResponse)
+{-# DEPRECATED sfbirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

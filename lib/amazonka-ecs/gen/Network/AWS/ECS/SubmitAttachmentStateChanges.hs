@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,155 @@
 --
 -- Sent to acknowledge that an attachment changed states.
 module Network.AWS.ECS.SubmitAttachmentStateChanges
-  ( -- * Creating a Request
-    submitAttachmentStateChanges,
-    SubmitAttachmentStateChanges,
+  ( -- * Creating a request
+    SubmitAttachmentStateChanges (..),
+    mkSubmitAttachmentStateChanges,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sascCluster,
     sascAttachments,
 
-    -- * Destructuring the Response
-    submitAttachmentStateChangesResponse,
-    SubmitAttachmentStateChangesResponse,
+    -- * Destructuring the response
+    SubmitAttachmentStateChangesResponse (..),
+    mkSubmitAttachmentStateChangesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sascrsAcknowledgment,
     sascrsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'submitAttachmentStateChanges' smart constructor.
+-- | /See:/ 'mkSubmitAttachmentStateChanges' smart constructor.
 data SubmitAttachmentStateChanges = SubmitAttachmentStateChanges'
-  { _sascCluster ::
-      !(Maybe Text),
-    _sascAttachments ::
-      ![AttachmentStateChange]
+  { cluster ::
+      Lude.Maybe Lude.Text,
+    attachments ::
+      [AttachmentStateChange]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitAttachmentStateChanges' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sascCluster' - The short name or full ARN of the cluster that hosts the container instance the attachment belongs to.
---
--- * 'sascAttachments' - Any attachments associated with the state change request.
-submitAttachmentStateChanges ::
+-- * 'attachments' - Any attachments associated with the state change request.
+-- * 'cluster' - The short name or full ARN of the cluster that hosts the container instance the attachment belongs to.
+mkSubmitAttachmentStateChanges ::
   SubmitAttachmentStateChanges
-submitAttachmentStateChanges =
+mkSubmitAttachmentStateChanges =
   SubmitAttachmentStateChanges'
-    { _sascCluster = Nothing,
-      _sascAttachments = mempty
+    { cluster = Lude.Nothing,
+      attachments = Lude.mempty
     }
 
 -- | The short name or full ARN of the cluster that hosts the container instance the attachment belongs to.
-sascCluster :: Lens' SubmitAttachmentStateChanges (Maybe Text)
-sascCluster = lens _sascCluster (\s a -> s {_sascCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sascCluster :: Lens.Lens' SubmitAttachmentStateChanges (Lude.Maybe Lude.Text)
+sascCluster = Lens.lens (cluster :: SubmitAttachmentStateChanges -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: SubmitAttachmentStateChanges)
+{-# DEPRECATED sascCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Any attachments associated with the state change request.
-sascAttachments :: Lens' SubmitAttachmentStateChanges [AttachmentStateChange]
-sascAttachments = lens _sascAttachments (\s a -> s {_sascAttachments = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sascAttachments :: Lens.Lens' SubmitAttachmentStateChanges [AttachmentStateChange]
+sascAttachments = Lens.lens (attachments :: SubmitAttachmentStateChanges -> [AttachmentStateChange]) (\s a -> s {attachments = a} :: SubmitAttachmentStateChanges)
+{-# DEPRECATED sascAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
-instance AWSRequest SubmitAttachmentStateChanges where
+instance Lude.AWSRequest SubmitAttachmentStateChanges where
   type
     Rs SubmitAttachmentStateChanges =
       SubmitAttachmentStateChangesResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SubmitAttachmentStateChangesResponse'
-            <$> (x .?> "acknowledgment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "acknowledgment")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SubmitAttachmentStateChanges
-
-instance NFData SubmitAttachmentStateChanges
-
-instance ToHeaders SubmitAttachmentStateChanges where
+instance Lude.ToHeaders SubmitAttachmentStateChanges where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SubmitAttachmentStateChanges where
+instance Lude.ToJSON SubmitAttachmentStateChanges where
   toJSON SubmitAttachmentStateChanges' {..} =
-    object
-      ( catMaybes
-          [ ("cluster" .=) <$> _sascCluster,
-            Just ("attachments" .= _sascAttachments)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("attachments" Lude..= attachments)
           ]
       )
 
-instance ToPath SubmitAttachmentStateChanges where
-  toPath = const "/"
+instance Lude.ToPath SubmitAttachmentStateChanges where
+  toPath = Lude.const "/"
 
-instance ToQuery SubmitAttachmentStateChanges where
-  toQuery = const mempty
+instance Lude.ToQuery SubmitAttachmentStateChanges where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'submitAttachmentStateChangesResponse' smart constructor.
+-- | /See:/ 'mkSubmitAttachmentStateChangesResponse' smart constructor.
 data SubmitAttachmentStateChangesResponse = SubmitAttachmentStateChangesResponse'
-  { _sascrsAcknowledgment ::
-      !(Maybe Text),
-    _sascrsResponseStatus ::
-      !Int
+  { acknowledgment ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitAttachmentStateChangesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sascrsAcknowledgment' - Acknowledgement of the state change.
---
--- * 'sascrsResponseStatus' - -- | The response status code.
-submitAttachmentStateChangesResponse ::
-  -- | 'sascrsResponseStatus'
-  Int ->
+-- * 'acknowledgment' - Acknowledgement of the state change.
+-- * 'responseStatus' - The response status code.
+mkSubmitAttachmentStateChangesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SubmitAttachmentStateChangesResponse
-submitAttachmentStateChangesResponse pResponseStatus_ =
+mkSubmitAttachmentStateChangesResponse pResponseStatus_ =
   SubmitAttachmentStateChangesResponse'
-    { _sascrsAcknowledgment =
-        Nothing,
-      _sascrsResponseStatus = pResponseStatus_
+    { acknowledgment =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Acknowledgement of the state change.
-sascrsAcknowledgment :: Lens' SubmitAttachmentStateChangesResponse (Maybe Text)
-sascrsAcknowledgment = lens _sascrsAcknowledgment (\s a -> s {_sascrsAcknowledgment = a})
+--
+-- /Note:/ Consider using 'acknowledgment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sascrsAcknowledgment :: Lens.Lens' SubmitAttachmentStateChangesResponse (Lude.Maybe Lude.Text)
+sascrsAcknowledgment = Lens.lens (acknowledgment :: SubmitAttachmentStateChangesResponse -> Lude.Maybe Lude.Text) (\s a -> s {acknowledgment = a} :: SubmitAttachmentStateChangesResponse)
+{-# DEPRECATED sascrsAcknowledgment "Use generic-lens or generic-optics with 'acknowledgment' instead." #-}
 
--- | -- | The response status code.
-sascrsResponseStatus :: Lens' SubmitAttachmentStateChangesResponse Int
-sascrsResponseStatus = lens _sascrsResponseStatus (\s a -> s {_sascrsResponseStatus = a})
-
-instance NFData SubmitAttachmentStateChangesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sascrsResponseStatus :: Lens.Lens' SubmitAttachmentStateChangesResponse Lude.Int
+sascrsResponseStatus = Lens.lens (responseStatus :: SubmitAttachmentStateChangesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubmitAttachmentStateChangesResponse)
+{-# DEPRECATED sascrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

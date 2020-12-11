@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.HostHeaderConditionConfig where
+module Network.AWS.ELBv2.Types.HostHeaderConditionConfig
+  ( HostHeaderConditionConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHostHeaderConditionConfig,
+
+    -- * Lenses
+    hhccValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a host header condition.
 --
---
---
--- /See:/ 'hostHeaderConditionConfig' smart constructor.
+-- /See:/ 'mkHostHeaderConditionConfig' smart constructor.
 newtype HostHeaderConditionConfig = HostHeaderConditionConfig'
-  { _hhccValues ::
-      Maybe [Text]
+  { values ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostHeaderConditionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'values' - One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 --
--- * 'hhccValues' - One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
-hostHeaderConditionConfig ::
+-- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+mkHostHeaderConditionConfig ::
   HostHeaderConditionConfig
-hostHeaderConditionConfig =
-  HostHeaderConditionConfig' {_hhccValues = Nothing}
+mkHostHeaderConditionConfig =
+  HostHeaderConditionConfig' {values = Lude.Nothing}
 
--- | One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
-hhccValues :: Lens' HostHeaderConditionConfig [Text]
-hhccValues = lens _hhccValues (\s a -> s {_hhccValues = a}) . _Default . _Coerce
+-- | One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+--
+-- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hhccValues :: Lens.Lens' HostHeaderConditionConfig (Lude.Maybe [Lude.Text])
+hhccValues = Lens.lens (values :: HostHeaderConditionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: HostHeaderConditionConfig)
+{-# DEPRECATED hhccValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromXML HostHeaderConditionConfig where
+instance Lude.FromXML HostHeaderConditionConfig where
   parseXML x =
     HostHeaderConditionConfig'
-      <$> (x .@? "Values" .!@ mempty >>= may (parseXMLList "member"))
+      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
 
-instance Hashable HostHeaderConditionConfig
-
-instance NFData HostHeaderConditionConfig
-
-instance ToQuery HostHeaderConditionConfig where
+instance Lude.ToQuery HostHeaderConditionConfig where
   toQuery HostHeaderConditionConfig' {..} =
-    mconcat
-      ["Values" =: toQuery (toQueryList "member" <$> _hhccValues)]
+    Lude.mconcat
+      [ "Values"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values)
+      ]

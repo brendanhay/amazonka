@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,146 @@
 --
 -- Replaces the contents of a comment.
 module Network.AWS.CodeCommit.UpdateComment
-  ( -- * Creating a Request
-    updateComment,
-    UpdateComment,
+  ( -- * Creating a request
+    UpdateComment (..),
+    mkUpdateComment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucCommentId,
     ucContent,
 
-    -- * Destructuring the Response
-    updateCommentResponse,
-    UpdateCommentResponse,
+    -- * Destructuring the response
+    UpdateCommentResponse (..),
+    mkUpdateCommentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucrsComment,
     ucrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateComment' smart constructor.
+-- | /See:/ 'mkUpdateComment' smart constructor.
 data UpdateComment = UpdateComment'
-  { _ucCommentId :: !Text,
-    _ucContent :: !Text
+  { commentId :: Lude.Text,
+    content :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateComment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucCommentId' - The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
---
--- * 'ucContent' - The updated content to replace the existing content of the comment.
-updateComment ::
-  -- | 'ucCommentId'
-  Text ->
-  -- | 'ucContent'
-  Text ->
+-- * 'commentId' - The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+-- * 'content' - The updated content to replace the existing content of the comment.
+mkUpdateComment ::
+  -- | 'commentId'
+  Lude.Text ->
+  -- | 'content'
+  Lude.Text ->
   UpdateComment
-updateComment pCommentId_ pContent_ =
-  UpdateComment'
-    { _ucCommentId = pCommentId_,
-      _ucContent = pContent_
-    }
+mkUpdateComment pCommentId_ pContent_ =
+  UpdateComment' {commentId = pCommentId_, content = pContent_}
 
 -- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-ucCommentId :: Lens' UpdateComment Text
-ucCommentId = lens _ucCommentId (\s a -> s {_ucCommentId = a})
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCommentId :: Lens.Lens' UpdateComment Lude.Text
+ucCommentId = Lens.lens (commentId :: UpdateComment -> Lude.Text) (\s a -> s {commentId = a} :: UpdateComment)
+{-# DEPRECATED ucCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
 -- | The updated content to replace the existing content of the comment.
-ucContent :: Lens' UpdateComment Text
-ucContent = lens _ucContent (\s a -> s {_ucContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucContent :: Lens.Lens' UpdateComment Lude.Text
+ucContent = Lens.lens (content :: UpdateComment -> Lude.Text) (\s a -> s {content = a} :: UpdateComment)
+{-# DEPRECATED ucContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance AWSRequest UpdateComment where
+instance Lude.AWSRequest UpdateComment where
   type Rs UpdateComment = UpdateCommentResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateCommentResponse'
-            <$> (x .?> "comment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateComment
-
-instance NFData UpdateComment
-
-instance ToHeaders UpdateComment where
+instance Lude.ToHeaders UpdateComment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.UpdateComment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.UpdateComment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateComment where
+instance Lude.ToJSON UpdateComment where
   toJSON UpdateComment' {..} =
-    object
-      ( catMaybes
-          [ Just ("commentId" .= _ucCommentId),
-            Just ("content" .= _ucContent)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("commentId" Lude..= commentId),
+            Lude.Just ("content" Lude..= content)
           ]
       )
 
-instance ToPath UpdateComment where
-  toPath = const "/"
+instance Lude.ToPath UpdateComment where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateComment where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateComment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateCommentResponse' smart constructor.
+-- | /See:/ 'mkUpdateCommentResponse' smart constructor.
 data UpdateCommentResponse = UpdateCommentResponse'
-  { _ucrsComment ::
-      !(Maybe Comment),
-    _ucrsResponseStatus :: !Int
+  { comment ::
+      Lude.Maybe Comment,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCommentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsComment' - Information about the updated comment.
---
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateCommentResponse ::
-  -- | 'ucrsResponseStatus'
-  Int ->
+-- * 'comment' - Information about the updated comment.
+-- * 'responseStatus' - The response status code.
+mkUpdateCommentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateCommentResponse
-updateCommentResponse pResponseStatus_ =
+mkUpdateCommentResponse pResponseStatus_ =
   UpdateCommentResponse'
-    { _ucrsComment = Nothing,
-      _ucrsResponseStatus = pResponseStatus_
+    { comment = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the updated comment.
-ucrsComment :: Lens' UpdateCommentResponse (Maybe Comment)
-ucrsComment = lens _ucrsComment (\s a -> s {_ucrsComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsComment :: Lens.Lens' UpdateCommentResponse (Lude.Maybe Comment)
+ucrsComment = Lens.lens (comment :: UpdateCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: UpdateCommentResponse)
+{-# DEPRECATED ucrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateCommentResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\s a -> s {_ucrsResponseStatus = a})
-
-instance NFData UpdateCommentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsResponseStatus :: Lens.Lens' UpdateCommentResponse Lude.Int
+ucrsResponseStatus = Lens.lens (responseStatus :: UpdateCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCommentResponse)
+{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

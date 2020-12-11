@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,152 @@
 --
 -- Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.
 --
---
 -- Use 'DescribeIamInstanceProfileAssociations' to get the association ID.
 module Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
-  ( -- * Creating a Request
-    replaceIAMInstanceProfileAssociation,
-    ReplaceIAMInstanceProfileAssociation,
+  ( -- * Creating a request
+    ReplaceIAMInstanceProfileAssociation (..),
+    mkReplaceIAMInstanceProfileAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riapaIAMInstanceProfile,
     riapaAssociationId,
 
-    -- * Destructuring the Response
-    replaceIAMInstanceProfileAssociationResponse,
-    ReplaceIAMInstanceProfileAssociationResponse,
+    -- * Destructuring the response
+    ReplaceIAMInstanceProfileAssociationResponse (..),
+    mkReplaceIAMInstanceProfileAssociationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     riaparsIAMInstanceProfileAssociation,
     riaparsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'replaceIAMInstanceProfileAssociation' smart constructor.
+-- | /See:/ 'mkReplaceIAMInstanceProfileAssociation' smart constructor.
 data ReplaceIAMInstanceProfileAssociation = ReplaceIAMInstanceProfileAssociation'
-  { _riapaIAMInstanceProfile ::
-      !IAMInstanceProfileSpecification,
-    _riapaAssociationId ::
-      !Text
+  { iamInstanceProfile ::
+      IAMInstanceProfileSpecification,
+    associationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riapaIAMInstanceProfile' - The IAM instance profile.
---
--- * 'riapaAssociationId' - The ID of the existing IAM instance profile association.
-replaceIAMInstanceProfileAssociation ::
-  -- | 'riapaIAMInstanceProfile'
+-- * 'associationId' - The ID of the existing IAM instance profile association.
+-- * 'iamInstanceProfile' - The IAM instance profile.
+mkReplaceIAMInstanceProfileAssociation ::
+  -- | 'iamInstanceProfile'
   IAMInstanceProfileSpecification ->
-  -- | 'riapaAssociationId'
-  Text ->
+  -- | 'associationId'
+  Lude.Text ->
   ReplaceIAMInstanceProfileAssociation
-replaceIAMInstanceProfileAssociation
+mkReplaceIAMInstanceProfileAssociation
   pIAMInstanceProfile_
   pAssociationId_ =
     ReplaceIAMInstanceProfileAssociation'
-      { _riapaIAMInstanceProfile =
+      { iamInstanceProfile =
           pIAMInstanceProfile_,
-        _riapaAssociationId = pAssociationId_
+        associationId = pAssociationId_
       }
 
 -- | The IAM instance profile.
-riapaIAMInstanceProfile :: Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
-riapaIAMInstanceProfile = lens _riapaIAMInstanceProfile (\s a -> s {_riapaIAMInstanceProfile = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riapaIAMInstanceProfile :: Lens.Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
+riapaIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ReplaceIAMInstanceProfileAssociation -> IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: ReplaceIAMInstanceProfileAssociation)
+{-# DEPRECATED riapaIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the existing IAM instance profile association.
-riapaAssociationId :: Lens' ReplaceIAMInstanceProfileAssociation Text
-riapaAssociationId = lens _riapaAssociationId (\s a -> s {_riapaAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riapaAssociationId :: Lens.Lens' ReplaceIAMInstanceProfileAssociation Lude.Text
+riapaAssociationId = Lens.lens (associationId :: ReplaceIAMInstanceProfileAssociation -> Lude.Text) (\s a -> s {associationId = a} :: ReplaceIAMInstanceProfileAssociation)
+{-# DEPRECATED riapaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
-instance AWSRequest ReplaceIAMInstanceProfileAssociation where
+instance Lude.AWSRequest ReplaceIAMInstanceProfileAssociation where
   type
     Rs ReplaceIAMInstanceProfileAssociation =
       ReplaceIAMInstanceProfileAssociationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ReplaceIAMInstanceProfileAssociationResponse'
-            <$> (x .@? "iamInstanceProfileAssociation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "iamInstanceProfileAssociation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ReplaceIAMInstanceProfileAssociation
+instance Lude.ToHeaders ReplaceIAMInstanceProfileAssociation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReplaceIAMInstanceProfileAssociation
+instance Lude.ToPath ReplaceIAMInstanceProfileAssociation where
+  toPath = Lude.const "/"
 
-instance ToHeaders ReplaceIAMInstanceProfileAssociation where
-  toHeaders = const mempty
-
-instance ToPath ReplaceIAMInstanceProfileAssociation where
-  toPath = const "/"
-
-instance ToQuery ReplaceIAMInstanceProfileAssociation where
+instance Lude.ToQuery ReplaceIAMInstanceProfileAssociation where
   toQuery ReplaceIAMInstanceProfileAssociation' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("ReplaceIamInstanceProfileAssociation" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "IamInstanceProfile" =: _riapaIAMInstanceProfile,
-        "AssociationId" =: _riapaAssociationId
+          Lude.=: ("ReplaceIamInstanceProfileAssociation" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "IamInstanceProfile" Lude.=: iamInstanceProfile,
+        "AssociationId" Lude.=: associationId
       ]
 
--- | /See:/ 'replaceIAMInstanceProfileAssociationResponse' smart constructor.
+-- | /See:/ 'mkReplaceIAMInstanceProfileAssociationResponse' smart constructor.
 data ReplaceIAMInstanceProfileAssociationResponse = ReplaceIAMInstanceProfileAssociationResponse'
-  { _riaparsIAMInstanceProfileAssociation ::
-      !( Maybe
-           IAMInstanceProfileAssociation
-       ),
-    _riaparsResponseStatus ::
-      !Int
+  { iamInstanceProfileAssociation ::
+      Lude.Maybe
+        IAMInstanceProfileAssociation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riaparsIAMInstanceProfileAssociation' - Information about the IAM instance profile association.
---
--- * 'riaparsResponseStatus' - -- | The response status code.
-replaceIAMInstanceProfileAssociationResponse ::
-  -- | 'riaparsResponseStatus'
-  Int ->
+-- * 'iamInstanceProfileAssociation' - Information about the IAM instance profile association.
+-- * 'responseStatus' - The response status code.
+mkReplaceIAMInstanceProfileAssociationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ReplaceIAMInstanceProfileAssociationResponse
-replaceIAMInstanceProfileAssociationResponse pResponseStatus_ =
+mkReplaceIAMInstanceProfileAssociationResponse pResponseStatus_ =
   ReplaceIAMInstanceProfileAssociationResponse'
-    { _riaparsIAMInstanceProfileAssociation =
-        Nothing,
-      _riaparsResponseStatus = pResponseStatus_
+    { iamInstanceProfileAssociation =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the IAM instance profile association.
-riaparsIAMInstanceProfileAssociation :: Lens' ReplaceIAMInstanceProfileAssociationResponse (Maybe IAMInstanceProfileAssociation)
-riaparsIAMInstanceProfileAssociation = lens _riaparsIAMInstanceProfileAssociation (\s a -> s {_riaparsIAMInstanceProfileAssociation = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfileAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaparsIAMInstanceProfileAssociation :: Lens.Lens' ReplaceIAMInstanceProfileAssociationResponse (Lude.Maybe IAMInstanceProfileAssociation)
+riaparsIAMInstanceProfileAssociation = Lens.lens (iamInstanceProfileAssociation :: ReplaceIAMInstanceProfileAssociationResponse -> Lude.Maybe IAMInstanceProfileAssociation) (\s a -> s {iamInstanceProfileAssociation = a} :: ReplaceIAMInstanceProfileAssociationResponse)
+{-# DEPRECATED riaparsIAMInstanceProfileAssociation "Use generic-lens or generic-optics with 'iamInstanceProfileAssociation' instead." #-}
 
--- | -- | The response status code.
-riaparsResponseStatus :: Lens' ReplaceIAMInstanceProfileAssociationResponse Int
-riaparsResponseStatus = lens _riaparsResponseStatus (\s a -> s {_riaparsResponseStatus = a})
-
-instance NFData ReplaceIAMInstanceProfileAssociationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaparsResponseStatus :: Lens.Lens' ReplaceIAMInstanceProfileAssociationResponse Lude.Int
+riaparsResponseStatus = Lens.lens (responseStatus :: ReplaceIAMInstanceProfileAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReplaceIAMInstanceProfileAssociationResponse)
+{-# DEPRECATED riaparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

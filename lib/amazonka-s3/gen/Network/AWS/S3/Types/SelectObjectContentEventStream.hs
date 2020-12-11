@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,23 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SelectObjectContentEventStream where
+module Network.AWS.S3.Types.SelectObjectContentEventStream
+  ( SelectObjectContentEventStream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSelectObjectContentEventStream,
+
+    -- * Lenses
+    socesProgress,
+    socesRecords,
+    socesCont,
+    socesStats,
+    socesEnd,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ContinuationEvent
 import Network.AWS.S3.Types.EndEvent
@@ -26,76 +33,85 @@ import Network.AWS.S3.Types.StatsEvent
 
 -- | The container for selecting objects from a content event stream.
 --
---
---
--- /See:/ 'selectObjectContentEventStream' smart constructor.
+-- /See:/ 'mkSelectObjectContentEventStream' smart constructor.
 data SelectObjectContentEventStream = SelectObjectContentEventStream'
-  { _socesProgress ::
-      !(Maybe ProgressEvent),
-    _socesRecords ::
-      !(Maybe RecordsEvent),
-    _socesCont ::
-      !(Maybe ContinuationEvent),
-    _socesStats ::
-      !(Maybe StatsEvent),
-    _socesEnd ::
-      !(Maybe EndEvent)
+  { progress ::
+      Lude.Maybe ProgressEvent,
+    records ::
+      Lude.Maybe RecordsEvent,
+    cont ::
+      Lude.Maybe ContinuationEvent,
+    stats ::
+      Lude.Maybe StatsEvent,
+    end :: Lude.Maybe EndEvent
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectObjectContentEventStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'socesProgress' - The Progress Event.
---
--- * 'socesRecords' - The Records Event.
---
--- * 'socesCont' - The Continuation Event.
---
--- * 'socesStats' - The Stats Event.
---
--- * 'socesEnd' - The End Event.
-selectObjectContentEventStream ::
+-- * 'cont' - The Continuation Event.
+-- * 'end' - The End Event.
+-- * 'progress' - The Progress Event.
+-- * 'records' - The Records Event.
+-- * 'stats' - The Stats Event.
+mkSelectObjectContentEventStream ::
   SelectObjectContentEventStream
-selectObjectContentEventStream =
+mkSelectObjectContentEventStream =
   SelectObjectContentEventStream'
-    { _socesProgress = Nothing,
-      _socesRecords = Nothing,
-      _socesCont = Nothing,
-      _socesStats = Nothing,
-      _socesEnd = Nothing
+    { progress = Lude.Nothing,
+      records = Lude.Nothing,
+      cont = Lude.Nothing,
+      stats = Lude.Nothing,
+      end = Lude.Nothing
     }
 
 -- | The Progress Event.
-socesProgress :: Lens' SelectObjectContentEventStream (Maybe ProgressEvent)
-socesProgress = lens _socesProgress (\s a -> s {_socesProgress = a})
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socesProgress :: Lens.Lens' SelectObjectContentEventStream (Lude.Maybe ProgressEvent)
+socesProgress = Lens.lens (progress :: SelectObjectContentEventStream -> Lude.Maybe ProgressEvent) (\s a -> s {progress = a} :: SelectObjectContentEventStream)
+{-# DEPRECATED socesProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The Records Event.
-socesRecords :: Lens' SelectObjectContentEventStream (Maybe RecordsEvent)
-socesRecords = lens _socesRecords (\s a -> s {_socesRecords = a})
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socesRecords :: Lens.Lens' SelectObjectContentEventStream (Lude.Maybe RecordsEvent)
+socesRecords = Lens.lens (records :: SelectObjectContentEventStream -> Lude.Maybe RecordsEvent) (\s a -> s {records = a} :: SelectObjectContentEventStream)
+{-# DEPRECATED socesRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
 -- | The Continuation Event.
-socesCont :: Lens' SelectObjectContentEventStream (Maybe ContinuationEvent)
-socesCont = lens _socesCont (\s a -> s {_socesCont = a})
+--
+-- /Note:/ Consider using 'cont' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socesCont :: Lens.Lens' SelectObjectContentEventStream (Lude.Maybe ContinuationEvent)
+socesCont = Lens.lens (cont :: SelectObjectContentEventStream -> Lude.Maybe ContinuationEvent) (\s a -> s {cont = a} :: SelectObjectContentEventStream)
+{-# DEPRECATED socesCont "Use generic-lens or generic-optics with 'cont' instead." #-}
 
 -- | The Stats Event.
-socesStats :: Lens' SelectObjectContentEventStream (Maybe StatsEvent)
-socesStats = lens _socesStats (\s a -> s {_socesStats = a})
+--
+-- /Note:/ Consider using 'stats' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socesStats :: Lens.Lens' SelectObjectContentEventStream (Lude.Maybe StatsEvent)
+socesStats = Lens.lens (stats :: SelectObjectContentEventStream -> Lude.Maybe StatsEvent) (\s a -> s {stats = a} :: SelectObjectContentEventStream)
+{-# DEPRECATED socesStats "Use generic-lens or generic-optics with 'stats' instead." #-}
 
 -- | The End Event.
-socesEnd :: Lens' SelectObjectContentEventStream (Maybe EndEvent)
-socesEnd = lens _socesEnd (\s a -> s {_socesEnd = a})
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socesEnd :: Lens.Lens' SelectObjectContentEventStream (Lude.Maybe EndEvent)
+socesEnd = Lens.lens (end :: SelectObjectContentEventStream -> Lude.Maybe EndEvent) (\s a -> s {end = a} :: SelectObjectContentEventStream)
+{-# DEPRECATED socesEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance FromXML SelectObjectContentEventStream where
+instance Lude.FromXML SelectObjectContentEventStream where
   parseXML x =
     SelectObjectContentEventStream'
-      <$> (x .@? "Progress")
-      <*> (x .@? "Records")
-      <*> (x .@? "Cont")
-      <*> (x .@? "Stats")
-      <*> (x .@? "End")
-
-instance Hashable SelectObjectContentEventStream
-
-instance NFData SelectObjectContentEventStream
+      Lude.<$> (x Lude..@? "Progress")
+      Lude.<*> (x Lude..@? "Records")
+      Lude.<*> (x Lude..@? "Cont")
+      Lude.<*> (x Lude..@? "Stats")
+      Lude.<*> (x Lude..@? "End")

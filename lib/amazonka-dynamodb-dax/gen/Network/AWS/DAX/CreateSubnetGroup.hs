@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,160 @@
 --
 -- Creates a new subnet group.
 module Network.AWS.DAX.CreateSubnetGroup
-  ( -- * Creating a Request
-    createSubnetGroup,
-    CreateSubnetGroup,
+  ( -- * Creating a request
+    CreateSubnetGroup (..),
+    mkCreateSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csgDescription,
     csgSubnetGroupName,
     csgSubnetIds,
 
-    -- * Destructuring the Response
-    createSubnetGroupResponse,
-    CreateSubnetGroupResponse,
+    -- * Destructuring the response
+    CreateSubnetGroupResponse (..),
+    mkCreateSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csgrsSubnetGroup,
     csgrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSubnetGroup' smart constructor.
+-- | /See:/ 'mkCreateSubnetGroup' smart constructor.
 data CreateSubnetGroup = CreateSubnetGroup'
-  { _csgDescription ::
-      !(Maybe Text),
-    _csgSubnetGroupName :: !Text,
-    _csgSubnetIds :: ![Text]
+  { description ::
+      Lude.Maybe Lude.Text,
+    subnetGroupName :: Lude.Text,
+    subnetIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csgDescription' - A description for the subnet group
---
--- * 'csgSubnetGroupName' - A name for the subnet group. This value is stored as a lowercase string.
---
--- * 'csgSubnetIds' - A list of VPC subnet IDs for the subnet group.
-createSubnetGroup ::
-  -- | 'csgSubnetGroupName'
-  Text ->
+-- * 'description' - A description for the subnet group
+-- * 'subnetGroupName' - A name for the subnet group. This value is stored as a lowercase string.
+-- * 'subnetIds' - A list of VPC subnet IDs for the subnet group.
+mkCreateSubnetGroup ::
+  -- | 'subnetGroupName'
+  Lude.Text ->
   CreateSubnetGroup
-createSubnetGroup pSubnetGroupName_ =
+mkCreateSubnetGroup pSubnetGroupName_ =
   CreateSubnetGroup'
-    { _csgDescription = Nothing,
-      _csgSubnetGroupName = pSubnetGroupName_,
-      _csgSubnetIds = mempty
+    { description = Lude.Nothing,
+      subnetGroupName = pSubnetGroupName_,
+      subnetIds = Lude.mempty
     }
 
 -- | A description for the subnet group
-csgDescription :: Lens' CreateSubnetGroup (Maybe Text)
-csgDescription = lens _csgDescription (\s a -> s {_csgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgDescription :: Lens.Lens' CreateSubnetGroup (Lude.Maybe Lude.Text)
+csgDescription = Lens.lens (description :: CreateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSubnetGroup)
+{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A name for the subnet group. This value is stored as a lowercase string.
-csgSubnetGroupName :: Lens' CreateSubnetGroup Text
-csgSubnetGroupName = lens _csgSubnetGroupName (\s a -> s {_csgSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnetGroupName :: Lens.Lens' CreateSubnetGroup Lude.Text
+csgSubnetGroupName = Lens.lens (subnetGroupName :: CreateSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: CreateSubnetGroup)
+{-# DEPRECATED csgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
 -- | A list of VPC subnet IDs for the subnet group.
-csgSubnetIds :: Lens' CreateSubnetGroup [Text]
-csgSubnetIds = lens _csgSubnetIds (\s a -> s {_csgSubnetIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnetIds :: Lens.Lens' CreateSubnetGroup [Lude.Text]
+csgSubnetIds = Lens.lens (subnetIds :: CreateSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateSubnetGroup)
+{-# DEPRECATED csgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance AWSRequest CreateSubnetGroup where
+instance Lude.AWSRequest CreateSubnetGroup where
   type Rs CreateSubnetGroup = CreateSubnetGroupResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSubnetGroupResponse'
-            <$> (x .?> "SubnetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SubnetGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSubnetGroup
-
-instance NFData CreateSubnetGroup
-
-instance ToHeaders CreateSubnetGroup where
+instance Lude.ToHeaders CreateSubnetGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.CreateSubnetGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.CreateSubnetGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateSubnetGroup where
+instance Lude.ToJSON CreateSubnetGroup where
   toJSON CreateSubnetGroup' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _csgDescription,
-            Just ("SubnetGroupName" .= _csgSubnetGroupName),
-            Just ("SubnetIds" .= _csgSubnetIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("SubnetGroupName" Lude..= subnetGroupName),
+            Lude.Just ("SubnetIds" Lude..= subnetIds)
           ]
       )
 
-instance ToPath CreateSubnetGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateSubnetGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSubnetGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSubnetGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateSubnetGroupResponse' smart constructor.
 data CreateSubnetGroupResponse = CreateSubnetGroupResponse'
-  { _csgrsSubnetGroup ::
-      !(Maybe SubnetGroup),
-    _csgrsResponseStatus :: !Int
+  { subnetGroup ::
+      Lude.Maybe SubnetGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csgrsSubnetGroup' - Represents the output of a /CreateSubnetGroup/ operation.
---
--- * 'csgrsResponseStatus' - -- | The response status code.
-createSubnetGroupResponse ::
-  -- | 'csgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'subnetGroup' - Represents the output of a /CreateSubnetGroup/ operation.
+mkCreateSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSubnetGroupResponse
-createSubnetGroupResponse pResponseStatus_ =
+mkCreateSubnetGroupResponse pResponseStatus_ =
   CreateSubnetGroupResponse'
-    { _csgrsSubnetGroup = Nothing,
-      _csgrsResponseStatus = pResponseStatus_
+    { subnetGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Represents the output of a /CreateSubnetGroup/ operation.
-csgrsSubnetGroup :: Lens' CreateSubnetGroupResponse (Maybe SubnetGroup)
-csgrsSubnetGroup = lens _csgrsSubnetGroup (\s a -> s {_csgrsSubnetGroup = a})
+--
+-- /Note:/ Consider using 'subnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgrsSubnetGroup :: Lens.Lens' CreateSubnetGroupResponse (Lude.Maybe SubnetGroup)
+csgrsSubnetGroup = Lens.lens (subnetGroup :: CreateSubnetGroupResponse -> Lude.Maybe SubnetGroup) (\s a -> s {subnetGroup = a} :: CreateSubnetGroupResponse)
+{-# DEPRECATED csgrsSubnetGroup "Use generic-lens or generic-optics with 'subnetGroup' instead." #-}
 
--- | -- | The response status code.
-csgrsResponseStatus :: Lens' CreateSubnetGroupResponse Int
-csgrsResponseStatus = lens _csgrsResponseStatus (\s a -> s {_csgrsResponseStatus = a})
-
-instance NFData CreateSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgrsResponseStatus :: Lens.Lens' CreateSubnetGroupResponse Lude.Int
+csgrsResponseStatus = Lens.lens (responseStatus :: CreateSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubnetGroupResponse)
+{-# DEPRECATED csgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

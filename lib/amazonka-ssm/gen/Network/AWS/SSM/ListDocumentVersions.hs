@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,188 @@
 --
 -- List all versions for a document.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListDocumentVersions
-  ( -- * Creating a Request
-    listDocumentVersions,
-    ListDocumentVersions,
+  ( -- * Creating a request
+    ListDocumentVersions (..),
+    mkListDocumentVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldvNextToken,
     ldvMaxResults,
     ldvName,
 
-    -- * Destructuring the Response
-    listDocumentVersionsResponse,
-    ListDocumentVersionsResponse,
+    -- * Destructuring the response
+    ListDocumentVersionsResponse (..),
+    mkListDocumentVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldvrsDocumentVersions,
     ldvrsNextToken,
     ldvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'listDocumentVersions' smart constructor.
+-- | /See:/ 'mkListDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-  { _ldvNextToken ::
-      !(Maybe Text),
-    _ldvMaxResults :: !(Maybe Nat),
-    _ldvName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldvNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'ldvMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- * 'ldvName' - The name of the document. You can specify an Amazon Resource Name (ARN).
-listDocumentVersions ::
-  -- | 'ldvName'
-  Text ->
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'name' - The name of the document. You can specify an Amazon Resource Name (ARN).
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkListDocumentVersions ::
+  -- | 'name'
+  Lude.Text ->
   ListDocumentVersions
-listDocumentVersions pName_ =
+mkListDocumentVersions pName_ =
   ListDocumentVersions'
-    { _ldvNextToken = Nothing,
-      _ldvMaxResults = Nothing,
-      _ldvName = pName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      name = pName_
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-ldvNextToken :: Lens' ListDocumentVersions (Maybe Text)
-ldvNextToken = lens _ldvNextToken (\s a -> s {_ldvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvNextToken :: Lens.Lens' ListDocumentVersions (Lude.Maybe Lude.Text)
+ldvNextToken = Lens.lens (nextToken :: ListDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentVersions)
+{-# DEPRECATED ldvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-ldvMaxResults :: Lens' ListDocumentVersions (Maybe Natural)
-ldvMaxResults = lens _ldvMaxResults (\s a -> s {_ldvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvMaxResults :: Lens.Lens' ListDocumentVersions (Lude.Maybe Lude.Natural)
+ldvMaxResults = Lens.lens (maxResults :: ListDocumentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocumentVersions)
+{-# DEPRECATED ldvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the document. You can specify an Amazon Resource Name (ARN).
-ldvName :: Lens' ListDocumentVersions Text
-ldvName = lens _ldvName (\s a -> s {_ldvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvName :: Lens.Lens' ListDocumentVersions Lude.Text
+ldvName = Lens.lens (name :: ListDocumentVersions -> Lude.Text) (\s a -> s {name = a} :: ListDocumentVersions)
+{-# DEPRECATED ldvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSPager ListDocumentVersions where
+instance Page.AWSPager ListDocumentVersions where
   page rq rs
-    | stop (rs ^. ldvrsNextToken) = Nothing
-    | stop (rs ^. ldvrsDocumentVersions) = Nothing
-    | otherwise = Just $ rq & ldvNextToken .~ rs ^. ldvrsNextToken
+    | Page.stop (rs Lens.^. ldvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldvrsDocumentVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldvNextToken Lens..~ rs Lens.^. ldvrsNextToken
 
-instance AWSRequest ListDocumentVersions where
+instance Lude.AWSRequest ListDocumentVersions where
   type Rs ListDocumentVersions = ListDocumentVersionsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDocumentVersionsResponse'
-            <$> (x .?> "DocumentVersions")
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DocumentVersions")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDocumentVersions
-
-instance NFData ListDocumentVersions
-
-instance ToHeaders ListDocumentVersions where
+instance Lude.ToHeaders ListDocumentVersions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.ListDocumentVersions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.ListDocumentVersions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDocumentVersions where
+instance Lude.ToJSON ListDocumentVersions where
   toJSON ListDocumentVersions' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ldvNextToken,
-            ("MaxResults" .=) <$> _ldvMaxResults,
-            Just ("Name" .= _ldvName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath ListDocumentVersions where
-  toPath = const "/"
+instance Lude.ToPath ListDocumentVersions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDocumentVersions where
-  toQuery = const mempty
+instance Lude.ToQuery ListDocumentVersions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDocumentVersionsResponse' smart constructor.
+-- | /See:/ 'mkListDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { _ldvrsDocumentVersions ::
-      !( Maybe
-           (List1 DocumentVersionInfo)
-       ),
-    _ldvrsNextToken :: !(Maybe Text),
-    _ldvrsResponseStatus :: !Int
+  { documentVersions ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            DocumentVersionInfo
+        ),
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldvrsDocumentVersions' - The document versions.
---
--- * 'ldvrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'ldvrsResponseStatus' - -- | The response status code.
-listDocumentVersionsResponse ::
-  -- | 'ldvrsResponseStatus'
-  Int ->
+-- * 'documentVersions' - The document versions.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkListDocumentVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDocumentVersionsResponse
-listDocumentVersionsResponse pResponseStatus_ =
+mkListDocumentVersionsResponse pResponseStatus_ =
   ListDocumentVersionsResponse'
-    { _ldvrsDocumentVersions = Nothing,
-      _ldvrsNextToken = Nothing,
-      _ldvrsResponseStatus = pResponseStatus_
+    { documentVersions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The document versions.
-ldvrsDocumentVersions :: Lens' ListDocumentVersionsResponse (Maybe (NonEmpty DocumentVersionInfo))
-ldvrsDocumentVersions = lens _ldvrsDocumentVersions (\s a -> s {_ldvrsDocumentVersions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'documentVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvrsDocumentVersions :: Lens.Lens' ListDocumentVersionsResponse (Lude.Maybe (Lude.NonEmpty DocumentVersionInfo))
+ldvrsDocumentVersions = Lens.lens (documentVersions :: ListDocumentVersionsResponse -> Lude.Maybe (Lude.NonEmpty DocumentVersionInfo)) (\s a -> s {documentVersions = a} :: ListDocumentVersionsResponse)
+{-# DEPRECATED ldvrsDocumentVersions "Use generic-lens or generic-optics with 'documentVersions' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-ldvrsNextToken :: Lens' ListDocumentVersionsResponse (Maybe Text)
-ldvrsNextToken = lens _ldvrsNextToken (\s a -> s {_ldvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvrsNextToken :: Lens.Lens' ListDocumentVersionsResponse (Lude.Maybe Lude.Text)
+ldvrsNextToken = Lens.lens (nextToken :: ListDocumentVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentVersionsResponse)
+{-# DEPRECATED ldvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldvrsResponseStatus :: Lens' ListDocumentVersionsResponse Int
-ldvrsResponseStatus = lens _ldvrsResponseStatus (\s a -> s {_ldvrsResponseStatus = a})
-
-instance NFData ListDocumentVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvrsResponseStatus :: Lens.Lens' ListDocumentVersionsResponse Lude.Int
+ldvrsResponseStatus = Lens.lens (responseStatus :: ListDocumentVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDocumentVersionsResponse)
+{-# DEPRECATED ldvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

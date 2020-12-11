@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,129 @@
 --
 -- Gets information about a run.
 module Network.AWS.DeviceFarm.GetRun
-  ( -- * Creating a Request
-    getRun,
-    GetRun,
+  ( -- * Creating a request
+    GetRun (..),
+    mkGetRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grArn,
 
-    -- * Destructuring the Response
-    getRunResponse,
-    GetRunResponse,
+    -- * Destructuring the response
+    GetRunResponse (..),
+    mkGetRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsRun,
     grrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the get run operation.
 --
---
---
--- /See:/ 'getRun' smart constructor.
-newtype GetRun = GetRun' {_grArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetRun' smart constructor.
+newtype GetRun = GetRun' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grArn' - The run's ARN.
-getRun ::
-  -- | 'grArn'
-  Text ->
+-- * 'arn' - The run's ARN.
+mkGetRun ::
+  -- | 'arn'
+  Lude.Text ->
   GetRun
-getRun pArn_ = GetRun' {_grArn = pArn_}
+mkGetRun pArn_ = GetRun' {arn = pArn_}
 
 -- | The run's ARN.
-grArn :: Lens' GetRun Text
-grArn = lens _grArn (\s a -> s {_grArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grArn :: Lens.Lens' GetRun Lude.Text
+grArn = Lens.lens (arn :: GetRun -> Lude.Text) (\s a -> s {arn = a} :: GetRun)
+{-# DEPRECATED grArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetRun where
+instance Lude.AWSRequest GetRun where
   type Rs GetRun = GetRunResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetRunResponse' <$> (x .?> "run") <*> (pure (fromEnum s))
+          GetRunResponse'
+            Lude.<$> (x Lude..?> "run") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRun
-
-instance NFData GetRun
-
-instance ToHeaders GetRun where
+instance Lude.ToHeaders GetRun where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.GetRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.GetRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRun where
-  toJSON GetRun' {..} = object (catMaybes [Just ("arn" .= _grArn)])
+instance Lude.ToJSON GetRun where
+  toJSON GetRun' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetRun where
-  toPath = const "/"
+instance Lude.ToPath GetRun where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRun where
-  toQuery = const mempty
+instance Lude.ToQuery GetRun where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a get run request.
 --
---
---
--- /See:/ 'getRunResponse' smart constructor.
+-- /See:/ 'mkGetRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
-  { _grrsRun :: !(Maybe Run),
-    _grrsResponseStatus :: !Int
+  { run :: Lude.Maybe Run,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsRun' - The run to get results from.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-getRunResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'run' - The run to get results from.
+mkGetRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRunResponse
-getRunResponse pResponseStatus_ =
+mkGetRunResponse pResponseStatus_ =
   GetRunResponse'
-    { _grrsRun = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { run = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The run to get results from.
-grrsRun :: Lens' GetRunResponse (Maybe Run)
-grrsRun = lens _grrsRun (\s a -> s {_grrsRun = a})
+--
+-- /Note:/ Consider using 'run' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRun :: Lens.Lens' GetRunResponse (Lude.Maybe Run)
+grrsRun = Lens.lens (run :: GetRunResponse -> Lude.Maybe Run) (\s a -> s {run = a} :: GetRunResponse)
+{-# DEPRECATED grrsRun "Use generic-lens or generic-optics with 'run' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRunResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GetRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetRunResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRunResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails where
+module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
+  ( MapStateStartedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMapStateStartedEventDetails,
+
+    -- * Lenses
+    mssedLength,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about a Map state that was started.
 --
---
---
--- /See:/ 'mapStateStartedEventDetails' smart constructor.
+-- /See:/ 'mkMapStateStartedEventDetails' smart constructor.
 newtype MapStateStartedEventDetails = MapStateStartedEventDetails'
-  { _mssedLength ::
-      Maybe Nat
+  { length ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MapStateStartedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mssedLength' - The size of the array for Map state iterations.
-mapStateStartedEventDetails ::
+-- * 'length' - The size of the array for Map state iterations.
+mkMapStateStartedEventDetails ::
   MapStateStartedEventDetails
-mapStateStartedEventDetails =
-  MapStateStartedEventDetails' {_mssedLength = Nothing}
+mkMapStateStartedEventDetails =
+  MapStateStartedEventDetails' {length = Lude.Nothing}
 
 -- | The size of the array for Map state iterations.
-mssedLength :: Lens' MapStateStartedEventDetails (Maybe Natural)
-mssedLength = lens _mssedLength (\s a -> s {_mssedLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'length' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssedLength :: Lens.Lens' MapStateStartedEventDetails (Lude.Maybe Lude.Natural)
+mssedLength = Lens.lens (length :: MapStateStartedEventDetails -> Lude.Maybe Lude.Natural) (\s a -> s {length = a} :: MapStateStartedEventDetails)
+{-# DEPRECATED mssedLength "Use generic-lens or generic-optics with 'length' instead." #-}
 
-instance FromJSON MapStateStartedEventDetails where
+instance Lude.FromJSON MapStateStartedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "MapStateStartedEventDetails"
-      (\x -> MapStateStartedEventDetails' <$> (x .:? "length"))
-
-instance Hashable MapStateStartedEventDetails
-
-instance NFData MapStateStartedEventDetails
+      ( \x ->
+          MapStateStartedEventDetails' Lude.<$> (x Lude..:? "length")
+      )

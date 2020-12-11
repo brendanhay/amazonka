@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.AgentUpdateStatus where
+module Network.AWS.ECS.Types.AgentUpdateStatus
+  ( AgentUpdateStatus
+      ( AgentUpdateStatus',
+        AUSFailed,
+        AUSPending,
+        AUSStaged,
+        AUSStaging,
+        AUSUpdated,
+        AUSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AgentUpdateStatus
-  = AUSFailed
-  | AUSPending
-  | AUSStaged
-  | AUSStaging
-  | AUSUpdated
-  | AUSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AgentUpdateStatus = AgentUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AgentUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure AUSFailed
-      "pending" -> pure AUSPending
-      "staged" -> pure AUSStaged
-      "staging" -> pure AUSStaging
-      "updated" -> pure AUSUpdated
-      "updating" -> pure AUSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing AgentUpdateStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending, staged, staging, updated, updating"
+pattern AUSFailed :: AgentUpdateStatus
+pattern AUSFailed = AgentUpdateStatus' "FAILED"
 
-instance ToText AgentUpdateStatus where
-  toText = \case
-    AUSFailed -> "FAILED"
-    AUSPending -> "PENDING"
-    AUSStaged -> "STAGED"
-    AUSStaging -> "STAGING"
-    AUSUpdated -> "UPDATED"
-    AUSUpdating -> "UPDATING"
+pattern AUSPending :: AgentUpdateStatus
+pattern AUSPending = AgentUpdateStatus' "PENDING"
 
-instance Hashable AgentUpdateStatus
+pattern AUSStaged :: AgentUpdateStatus
+pattern AUSStaged = AgentUpdateStatus' "STAGED"
 
-instance NFData AgentUpdateStatus
+pattern AUSStaging :: AgentUpdateStatus
+pattern AUSStaging = AgentUpdateStatus' "STAGING"
 
-instance ToByteString AgentUpdateStatus
+pattern AUSUpdated :: AgentUpdateStatus
+pattern AUSUpdated = AgentUpdateStatus' "UPDATED"
 
-instance ToQuery AgentUpdateStatus
+pattern AUSUpdating :: AgentUpdateStatus
+pattern AUSUpdating = AgentUpdateStatus' "UPDATING"
 
-instance ToHeader AgentUpdateStatus
-
-instance FromJSON AgentUpdateStatus where
-  parseJSON = parseJSONText "AgentUpdateStatus"
+{-# COMPLETE
+  AUSFailed,
+  AUSPending,
+  AUSStaged,
+  AUSStaging,
+  AUSUpdated,
+  AUSUpdating,
+  AgentUpdateStatus'
+  #-}

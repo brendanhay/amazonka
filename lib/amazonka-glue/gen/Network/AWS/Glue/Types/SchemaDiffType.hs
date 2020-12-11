@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaDiffType where
+module Network.AWS.Glue.Types.SchemaDiffType
+  ( SchemaDiffType
+      ( SchemaDiffType',
+        SyntaxDiff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SchemaDiffType = SyntaxDiff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchemaDiffType = SchemaDiffType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchemaDiffType where
-  parser =
-    takeLowerText >>= \case
-      "syntax_diff" -> pure SyntaxDiff
-      e ->
-        fromTextError $
-          "Failure parsing SchemaDiffType from value: '" <> e
-            <> "'. Accepted values: syntax_diff"
+pattern SyntaxDiff :: SchemaDiffType
+pattern SyntaxDiff = SchemaDiffType' "SYNTAX_DIFF"
 
-instance ToText SchemaDiffType where
-  toText = \case
-    SyntaxDiff -> "SYNTAX_DIFF"
-
-instance Hashable SchemaDiffType
-
-instance NFData SchemaDiffType
-
-instance ToByteString SchemaDiffType
-
-instance ToQuery SchemaDiffType
-
-instance ToHeader SchemaDiffType
-
-instance ToJSON SchemaDiffType where
-  toJSON = toJSONText
+{-# COMPLETE
+  SyntaxDiff,
+  SchemaDiffType'
+  #-}

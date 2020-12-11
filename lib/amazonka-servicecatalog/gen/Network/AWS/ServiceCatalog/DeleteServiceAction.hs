@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,156 @@
 --
 -- Deletes a self-service action.
 module Network.AWS.ServiceCatalog.DeleteServiceAction
-  ( -- * Creating a Request
-    deleteServiceAction,
-    DeleteServiceAction,
+  ( -- * Creating a request
+    DeleteServiceAction (..),
+    mkDeleteServiceAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsasAcceptLanguage,
     dsasId,
 
-    -- * Destructuring the Response
-    deleteServiceActionResponse,
-    DeleteServiceActionResponse,
+    -- * Destructuring the response
+    DeleteServiceActionResponse (..),
+    mkDeleteServiceActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'deleteServiceAction' smart constructor.
+-- | /See:/ 'mkDeleteServiceAction' smart constructor.
 data DeleteServiceAction = DeleteServiceAction'
-  { _dsasAcceptLanguage ::
-      !(Maybe Text),
-    _dsasId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'dsasAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dsasId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-deleteServiceAction ::
-  -- | 'dsasId'
-  Text ->
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'id' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+mkDeleteServiceAction ::
+  -- | 'id'
+  Lude.Text ->
   DeleteServiceAction
-deleteServiceAction pId_ =
-  DeleteServiceAction'
-    { _dsasAcceptLanguage = Nothing,
-      _dsasId = pId_
-    }
+mkDeleteServiceAction pId_ =
+  DeleteServiceAction' {acceptLanguage = Lude.Nothing, id = pId_}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dsasAcceptLanguage :: Lens' DeleteServiceAction (Maybe Text)
-dsasAcceptLanguage = lens _dsasAcceptLanguage (\s a -> s {_dsasAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasAcceptLanguage :: Lens.Lens' DeleteServiceAction (Lude.Maybe Lude.Text)
+dsasAcceptLanguage = Lens.lens (acceptLanguage :: DeleteServiceAction -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteServiceAction)
+{-# DEPRECATED dsasAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-dsasId :: Lens' DeleteServiceAction Text
-dsasId = lens _dsasId (\s a -> s {_dsasId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasId :: Lens.Lens' DeleteServiceAction Lude.Text
+dsasId = Lens.lens (id :: DeleteServiceAction -> Lude.Text) (\s a -> s {id = a} :: DeleteServiceAction)
+{-# DEPRECATED dsasId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteServiceAction where
+instance Lude.AWSRequest DeleteServiceAction where
   type Rs DeleteServiceAction = DeleteServiceActionResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
-      (\s h x -> DeleteServiceActionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteServiceActionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteServiceAction
-
-instance NFData DeleteServiceAction
-
-instance ToHeaders DeleteServiceAction where
+instance Lude.ToHeaders DeleteServiceAction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.DeleteServiceAction" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteServiceAction where
+instance Lude.ToJSON DeleteServiceAction where
   toJSON DeleteServiceAction' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _dsasAcceptLanguage,
-            Just ("Id" .= _dsasId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath DeleteServiceAction where
-  toPath = const "/"
+instance Lude.ToPath DeleteServiceAction where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteServiceAction where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteServiceAction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteServiceActionResponse' smart constructor.
+-- | /See:/ 'mkDeleteServiceActionResponse' smart constructor.
 newtype DeleteServiceActionResponse = DeleteServiceActionResponse'
-  { _dsasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsasrsResponseStatus' - -- | The response status code.
-deleteServiceActionResponse ::
-  -- | 'dsasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteServiceActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteServiceActionResponse
-deleteServiceActionResponse pResponseStatus_ =
-  DeleteServiceActionResponse'
-    { _dsasrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteServiceActionResponse pResponseStatus_ =
+  DeleteServiceActionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsasrsResponseStatus :: Lens' DeleteServiceActionResponse Int
-dsasrsResponseStatus = lens _dsasrsResponseStatus (\s a -> s {_dsasrsResponseStatus = a})
-
-instance NFData DeleteServiceActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasrsResponseStatus :: Lens.Lens' DeleteServiceActionResponse Lude.Int
+dsasrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceActionResponse)
+{-# DEPRECATED dsasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

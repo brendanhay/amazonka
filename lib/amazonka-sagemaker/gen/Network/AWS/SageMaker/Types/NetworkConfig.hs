@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NetworkConfig where
+module Network.AWS.SageMaker.Types.NetworkConfig
+  ( NetworkConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkConfig,
+
+    -- * Lenses
+    ncEnableNetworkIsolation,
+    ncVPCConfig,
+    ncEnableInterContainerTrafficEncryption,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.VPCConfig
 
 -- | Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 --
---
---
--- /See:/ 'networkConfig' smart constructor.
+-- /See:/ 'mkNetworkConfig' smart constructor.
 data NetworkConfig = NetworkConfig'
-  { _ncEnableNetworkIsolation ::
-      !(Maybe Bool),
-    _ncVPCConfig :: !(Maybe VPCConfig),
-    _ncEnableInterContainerTrafficEncryption :: !(Maybe Bool)
+  { enableNetworkIsolation ::
+      Lude.Maybe Lude.Bool,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncEnableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
---
--- * 'ncVPCConfig' - Undocumented member.
---
--- * 'ncEnableInterContainerTrafficEncryption' - Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-networkConfig ::
+-- * 'enableInterContainerTrafficEncryption' - Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+-- * 'enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+-- * 'vpcConfig' - Undocumented field.
+mkNetworkConfig ::
   NetworkConfig
-networkConfig =
+mkNetworkConfig =
   NetworkConfig'
-    { _ncEnableNetworkIsolation = Nothing,
-      _ncVPCConfig = Nothing,
-      _ncEnableInterContainerTrafficEncryption = Nothing
+    { enableNetworkIsolation = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      enableInterContainerTrafficEncryption = Lude.Nothing
     }
 
 -- | Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-ncEnableNetworkIsolation :: Lens' NetworkConfig (Maybe Bool)
-ncEnableNetworkIsolation = lens _ncEnableNetworkIsolation (\s a -> s {_ncEnableNetworkIsolation = a})
+--
+-- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncEnableNetworkIsolation :: Lens.Lens' NetworkConfig (Lude.Maybe Lude.Bool)
+ncEnableNetworkIsolation = Lens.lens (enableNetworkIsolation :: NetworkConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enableNetworkIsolation = a} :: NetworkConfig)
+{-# DEPRECATED ncEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
 
--- | Undocumented member.
-ncVPCConfig :: Lens' NetworkConfig (Maybe VPCConfig)
-ncVPCConfig = lens _ncVPCConfig (\s a -> s {_ncVPCConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncVPCConfig :: Lens.Lens' NetworkConfig (Lude.Maybe VPCConfig)
+ncVPCConfig = Lens.lens (vpcConfig :: NetworkConfig -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: NetworkConfig)
+{-# DEPRECATED ncVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-ncEnableInterContainerTrafficEncryption :: Lens' NetworkConfig (Maybe Bool)
-ncEnableInterContainerTrafficEncryption = lens _ncEnableInterContainerTrafficEncryption (\s a -> s {_ncEnableInterContainerTrafficEncryption = a})
+--
+-- /Note:/ Consider using 'enableInterContainerTrafficEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncEnableInterContainerTrafficEncryption :: Lens.Lens' NetworkConfig (Lude.Maybe Lude.Bool)
+ncEnableInterContainerTrafficEncryption = Lens.lens (enableInterContainerTrafficEncryption :: NetworkConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enableInterContainerTrafficEncryption = a} :: NetworkConfig)
+{-# DEPRECATED ncEnableInterContainerTrafficEncryption "Use generic-lens or generic-optics with 'enableInterContainerTrafficEncryption' instead." #-}
 
-instance FromJSON NetworkConfig where
+instance Lude.FromJSON NetworkConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkConfig"
       ( \x ->
           NetworkConfig'
-            <$> (x .:? "EnableNetworkIsolation")
-            <*> (x .:? "VpcConfig")
-            <*> (x .:? "EnableInterContainerTrafficEncryption")
+            Lude.<$> (x Lude..:? "EnableNetworkIsolation")
+            Lude.<*> (x Lude..:? "VpcConfig")
+            Lude.<*> (x Lude..:? "EnableInterContainerTrafficEncryption")
       )
 
-instance Hashable NetworkConfig
-
-instance NFData NetworkConfig
-
-instance ToJSON NetworkConfig where
+instance Lude.ToJSON NetworkConfig where
   toJSON NetworkConfig' {..} =
-    object
-      ( catMaybes
-          [ ("EnableNetworkIsolation" .=) <$> _ncEnableNetworkIsolation,
-            ("VpcConfig" .=) <$> _ncVPCConfig,
-            ("EnableInterContainerTrafficEncryption" .=)
-              <$> _ncEnableInterContainerTrafficEncryption
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EnableNetworkIsolation" Lude..=)
+              Lude.<$> enableNetworkIsolation,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("EnableInterContainerTrafficEncryption" Lude..=)
+              Lude.<$> enableInterContainerTrafficEncryption
           ]
       )

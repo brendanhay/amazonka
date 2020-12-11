@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.CloudWatchDashboard where
+module Network.AWS.ServiceCatalog.Types.CloudWatchDashboard
+  ( CloudWatchDashboard (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchDashboard,
+
+    -- * Lenses
+    cwdName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a CloudWatch dashboard.
 --
---
---
--- /See:/ 'cloudWatchDashboard' smart constructor.
+-- /See:/ 'mkCloudWatchDashboard' smart constructor.
 newtype CloudWatchDashboard = CloudWatchDashboard'
-  { _cwdName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchDashboard' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwdName' - The name of the CloudWatch dashboard.
-cloudWatchDashboard ::
+-- * 'name' - The name of the CloudWatch dashboard.
+mkCloudWatchDashboard ::
   CloudWatchDashboard
-cloudWatchDashboard = CloudWatchDashboard' {_cwdName = Nothing}
+mkCloudWatchDashboard = CloudWatchDashboard' {name = Lude.Nothing}
 
 -- | The name of the CloudWatch dashboard.
-cwdName :: Lens' CloudWatchDashboard (Maybe Text)
-cwdName = lens _cwdName (\s a -> s {_cwdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwdName :: Lens.Lens' CloudWatchDashboard (Lude.Maybe Lude.Text)
+cwdName = Lens.lens (name :: CloudWatchDashboard -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CloudWatchDashboard)
+{-# DEPRECATED cwdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON CloudWatchDashboard where
+instance Lude.FromJSON CloudWatchDashboard where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchDashboard"
-      (\x -> CloudWatchDashboard' <$> (x .:? "Name"))
-
-instance Hashable CloudWatchDashboard
-
-instance NFData CloudWatchDashboard
+      (\x -> CloudWatchDashboard' Lude.<$> (x Lude..:? "Name"))

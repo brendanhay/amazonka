@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.TriggeringDataset where
+module Network.AWS.IoTAnalytics.Types.TriggeringDataset
+  ( TriggeringDataset (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTriggeringDataset,
+
+    -- * Lenses
+    tdName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the dataset whose content generation triggers the new dataset content generation.
 --
---
---
--- /See:/ 'triggeringDataset' smart constructor.
-newtype TriggeringDataset = TriggeringDataset' {_tdName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTriggeringDataset' smart constructor.
+newtype TriggeringDataset = TriggeringDataset' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TriggeringDataset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdName' - The name of the dataset whose content generation triggers the new dataset content generation.
-triggeringDataset ::
-  -- | 'tdName'
-  Text ->
+-- * 'name' - The name of the dataset whose content generation triggers the new dataset content generation.
+mkTriggeringDataset ::
+  -- | 'name'
+  Lude.Text ->
   TriggeringDataset
-triggeringDataset pName_ = TriggeringDataset' {_tdName = pName_}
+mkTriggeringDataset pName_ = TriggeringDataset' {name = pName_}
 
 -- | The name of the dataset whose content generation triggers the new dataset content generation.
-tdName :: Lens' TriggeringDataset Text
-tdName = lens _tdName (\s a -> s {_tdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdName :: Lens.Lens' TriggeringDataset Lude.Text
+tdName = Lens.lens (name :: TriggeringDataset -> Lude.Text) (\s a -> s {name = a} :: TriggeringDataset)
+{-# DEPRECATED tdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON TriggeringDataset where
+instance Lude.FromJSON TriggeringDataset where
   parseJSON =
-    withObject
+    Lude.withObject
       "TriggeringDataset"
-      (\x -> TriggeringDataset' <$> (x .: "name"))
+      (\x -> TriggeringDataset' Lude.<$> (x Lude..: "name"))
 
-instance Hashable TriggeringDataset
-
-instance NFData TriggeringDataset
-
-instance ToJSON TriggeringDataset where
+instance Lude.ToJSON TriggeringDataset where
   toJSON TriggeringDataset' {..} =
-    object (catMaybes [Just ("name" .= _tdName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])

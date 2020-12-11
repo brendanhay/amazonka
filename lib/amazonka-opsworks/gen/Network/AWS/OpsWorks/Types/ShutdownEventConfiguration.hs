@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.ShutdownEventConfiguration where
+module Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
+  ( ShutdownEventConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkShutdownEventConfiguration,
+
+    -- * Lenses
+    secExecutionTimeout,
+    secDelayUntilElbConnectionsDrained,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Shutdown event configuration.
 --
---
---
--- /See:/ 'shutdownEventConfiguration' smart constructor.
+-- /See:/ 'mkShutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-  { _secExecutionTimeout ::
-      !(Maybe Int),
-    _secDelayUntilElbConnectionsDrained ::
-      !(Maybe Bool)
+  { executionTimeout ::
+      Lude.Maybe Lude.Int,
+    delayUntilElbConnectionsDrained ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShutdownEventConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'secExecutionTimeout' - The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
---
--- * 'secDelayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
-shutdownEventConfiguration ::
+-- * 'delayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
+-- * 'executionTimeout' - The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
+mkShutdownEventConfiguration ::
   ShutdownEventConfiguration
-shutdownEventConfiguration =
+mkShutdownEventConfiguration =
   ShutdownEventConfiguration'
-    { _secExecutionTimeout = Nothing,
-      _secDelayUntilElbConnectionsDrained = Nothing
+    { executionTimeout = Lude.Nothing,
+      delayUntilElbConnectionsDrained = Lude.Nothing
     }
 
 -- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
-secExecutionTimeout :: Lens' ShutdownEventConfiguration (Maybe Int)
-secExecutionTimeout = lens _secExecutionTimeout (\s a -> s {_secExecutionTimeout = a})
+--
+-- /Note:/ Consider using 'executionTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+secExecutionTimeout :: Lens.Lens' ShutdownEventConfiguration (Lude.Maybe Lude.Int)
+secExecutionTimeout = Lens.lens (executionTimeout :: ShutdownEventConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {executionTimeout = a} :: ShutdownEventConfiguration)
+{-# DEPRECATED secExecutionTimeout "Use generic-lens or generic-optics with 'executionTimeout' instead." #-}
 
 -- | Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
-secDelayUntilElbConnectionsDrained :: Lens' ShutdownEventConfiguration (Maybe Bool)
-secDelayUntilElbConnectionsDrained = lens _secDelayUntilElbConnectionsDrained (\s a -> s {_secDelayUntilElbConnectionsDrained = a})
+--
+-- /Note:/ Consider using 'delayUntilElbConnectionsDrained' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+secDelayUntilElbConnectionsDrained :: Lens.Lens' ShutdownEventConfiguration (Lude.Maybe Lude.Bool)
+secDelayUntilElbConnectionsDrained = Lens.lens (delayUntilElbConnectionsDrained :: ShutdownEventConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {delayUntilElbConnectionsDrained = a} :: ShutdownEventConfiguration)
+{-# DEPRECATED secDelayUntilElbConnectionsDrained "Use generic-lens or generic-optics with 'delayUntilElbConnectionsDrained' instead." #-}
 
-instance FromJSON ShutdownEventConfiguration where
+instance Lude.FromJSON ShutdownEventConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ShutdownEventConfiguration"
       ( \x ->
           ShutdownEventConfiguration'
-            <$> (x .:? "ExecutionTimeout")
-            <*> (x .:? "DelayUntilElbConnectionsDrained")
+            Lude.<$> (x Lude..:? "ExecutionTimeout")
+            Lude.<*> (x Lude..:? "DelayUntilElbConnectionsDrained")
       )
 
-instance Hashable ShutdownEventConfiguration
-
-instance NFData ShutdownEventConfiguration
-
-instance ToJSON ShutdownEventConfiguration where
+instance Lude.ToJSON ShutdownEventConfiguration where
   toJSON ShutdownEventConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("ExecutionTimeout" .=) <$> _secExecutionTimeout,
-            ("DelayUntilElbConnectionsDrained" .=)
-              <$> _secDelayUntilElbConnectionsDrained
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ExecutionTimeout" Lude..=) Lude.<$> executionTimeout,
+            ("DelayUntilElbConnectionsDrained" Lude..=)
+              Lude.<$> delayUntilElbConnectionsDrained
           ]
       )

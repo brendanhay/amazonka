@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ForwardValues where
+module Network.AWS.Lightsail.Types.ForwardValues
+  ( ForwardValues
+      ( ForwardValues',
+        FVAll,
+        FVAllowList,
+        FVNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ForwardValues
-  = FVAll
-  | FVAllowList
-  | FVNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ForwardValues = ForwardValues' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ForwardValues where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure FVAll
-      "allow-list" -> pure FVAllowList
-      "none" -> pure FVNone
-      e ->
-        fromTextError $
-          "Failure parsing ForwardValues from value: '" <> e
-            <> "'. Accepted values: all, allow-list, none"
+pattern FVAll :: ForwardValues
+pattern FVAll = ForwardValues' "all"
 
-instance ToText ForwardValues where
-  toText = \case
-    FVAll -> "all"
-    FVAllowList -> "allow-list"
-    FVNone -> "none"
+pattern FVAllowList :: ForwardValues
+pattern FVAllowList = ForwardValues' "allow-list"
 
-instance Hashable ForwardValues
+pattern FVNone :: ForwardValues
+pattern FVNone = ForwardValues' "none"
 
-instance NFData ForwardValues
-
-instance ToByteString ForwardValues
-
-instance ToQuery ForwardValues
-
-instance ToHeader ForwardValues
-
-instance ToJSON ForwardValues where
-  toJSON = toJSONText
-
-instance FromJSON ForwardValues where
-  parseJSON = parseJSONText "ForwardValues"
+{-# COMPLETE
+  FVAll,
+  FVAllowList,
+  FVNone,
+  ForwardValues'
+  #-}

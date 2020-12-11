@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,120 @@
 --
 -- Deletes the specified connection alias. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces> .
 --
---
 -- /Important:/ __If you will no longer be using a fully qualified domain name (FQDN) as the registration code for your WorkSpaces users, you must take certain precautions to prevent potential security issues.__ For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations Security Considerations if You Stop Using Cross-Region Redirection> .
 module Network.AWS.WorkSpaces.DeleteConnectionAlias
-  ( -- * Creating a Request
-    deleteConnectionAlias,
-    DeleteConnectionAlias,
+  ( -- * Creating a request
+    DeleteConnectionAlias (..),
+    mkDeleteConnectionAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAliasId,
 
-    -- * Destructuring the Response
-    deleteConnectionAliasResponse,
-    DeleteConnectionAliasResponse,
+    -- * Destructuring the response
+    DeleteConnectionAliasResponse (..),
+    mkDeleteConnectionAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'deleteConnectionAlias' smart constructor.
+-- | /See:/ 'mkDeleteConnectionAlias' smart constructor.
 newtype DeleteConnectionAlias = DeleteConnectionAlias'
-  { _dAliasId ::
-      Text
+  { aliasId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAliasId' - The identifier of the connection alias to delete.
-deleteConnectionAlias ::
-  -- | 'dAliasId'
-  Text ->
+-- * 'aliasId' - The identifier of the connection alias to delete.
+mkDeleteConnectionAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   DeleteConnectionAlias
-deleteConnectionAlias pAliasId_ =
-  DeleteConnectionAlias' {_dAliasId = pAliasId_}
+mkDeleteConnectionAlias pAliasId_ =
+  DeleteConnectionAlias' {aliasId = pAliasId_}
 
 -- | The identifier of the connection alias to delete.
-dAliasId :: Lens' DeleteConnectionAlias Text
-dAliasId = lens _dAliasId (\s a -> s {_dAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAliasId :: Lens.Lens' DeleteConnectionAlias Lude.Text
+dAliasId = Lens.lens (aliasId :: DeleteConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteConnectionAlias)
+{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest DeleteConnectionAlias where
+instance Lude.AWSRequest DeleteConnectionAlias where
   type Rs DeleteConnectionAlias = DeleteConnectionAliasResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> DeleteConnectionAliasResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteConnectionAliasResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteConnectionAlias
-
-instance NFData DeleteConnectionAlias
-
-instance ToHeaders DeleteConnectionAlias where
+instance Lude.ToHeaders DeleteConnectionAlias where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DeleteConnectionAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DeleteConnectionAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteConnectionAlias where
+instance Lude.ToJSON DeleteConnectionAlias where
   toJSON DeleteConnectionAlias' {..} =
-    object (catMaybes [Just ("AliasId" .= _dAliasId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
 
-instance ToPath DeleteConnectionAlias where
-  toPath = const "/"
+instance Lude.ToPath DeleteConnectionAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteConnectionAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConnectionAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteConnectionAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteConnectionAliasResponse' smart constructor.
 newtype DeleteConnectionAliasResponse = DeleteConnectionAliasResponse'
-  { _dcarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcarsResponseStatus' - -- | The response status code.
-deleteConnectionAliasResponse ::
-  -- | 'dcarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteConnectionAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteConnectionAliasResponse
-deleteConnectionAliasResponse pResponseStatus_ =
-  DeleteConnectionAliasResponse'
-    { _dcarsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteConnectionAliasResponse pResponseStatus_ =
+  DeleteConnectionAliasResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dcarsResponseStatus :: Lens' DeleteConnectionAliasResponse Int
-dcarsResponseStatus = lens _dcarsResponseStatus (\s a -> s {_dcarsResponseStatus = a})
-
-instance NFData DeleteConnectionAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsResponseStatus :: Lens.Lens' DeleteConnectionAliasResponse Lude.Int
+dcarsResponseStatus = Lens.lens (responseStatus :: DeleteConnectionAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConnectionAliasResponse)
+{-# DEPRECATED dcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,108 @@
 --
 -- Deletes the specified rule.
 --
---
 -- You can't delete the default rule.
 module Network.AWS.ELBv2.DeleteRule
-  ( -- * Creating a Request
-    deleteRule,
-    DeleteRule,
+  ( -- * Creating a request
+    DeleteRule (..),
+    mkDeleteRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drRuleARN,
 
-    -- * Destructuring the Response
-    deleteRuleResponse,
-    DeleteRuleResponse,
+    -- * Destructuring the response
+    DeleteRuleResponse (..),
+    mkDeleteRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRule' smart constructor.
-newtype DeleteRule = DeleteRule' {_drRuleARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteRule' smart constructor.
+newtype DeleteRule = DeleteRule' {ruleARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drRuleARN' - The Amazon Resource Name (ARN) of the rule.
-deleteRule ::
-  -- | 'drRuleARN'
-  Text ->
+-- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
+mkDeleteRule ::
+  -- | 'ruleARN'
+  Lude.Text ->
   DeleteRule
-deleteRule pRuleARN_ = DeleteRule' {_drRuleARN = pRuleARN_}
+mkDeleteRule pRuleARN_ = DeleteRule' {ruleARN = pRuleARN_}
 
 -- | The Amazon Resource Name (ARN) of the rule.
-drRuleARN :: Lens' DeleteRule Text
-drRuleARN = lens _drRuleARN (\s a -> s {_drRuleARN = a})
+--
+-- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drRuleARN :: Lens.Lens' DeleteRule Lude.Text
+drRuleARN = Lens.lens (ruleARN :: DeleteRule -> Lude.Text) (\s a -> s {ruleARN = a} :: DeleteRule)
+{-# DEPRECATED drRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
-instance AWSRequest DeleteRule where
+instance Lude.AWSRequest DeleteRule where
   type Rs DeleteRule = DeleteRuleResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteRuleResult"
-      (\s h x -> DeleteRuleResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteRuleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteRule
+instance Lude.ToHeaders DeleteRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteRule
+instance Lude.ToPath DeleteRule where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteRule where
-  toHeaders = const mempty
-
-instance ToPath DeleteRule where
-  toPath = const "/"
-
-instance ToQuery DeleteRule where
+instance Lude.ToQuery DeleteRule where
   toQuery DeleteRule' {..} =
-    mconcat
-      [ "Action" =: ("DeleteRule" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "RuleArn" =: _drRuleARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteRule" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "RuleArn" Lude.=: ruleARN
       ]
 
--- | /See:/ 'deleteRuleResponse' smart constructor.
+-- | /See:/ 'mkDeleteRuleResponse' smart constructor.
 newtype DeleteRuleResponse = DeleteRuleResponse'
-  { _drrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsResponseStatus' - -- | The response status code.
-deleteRuleResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRuleResponse
-deleteRuleResponse pResponseStatus_ =
-  DeleteRuleResponse' {_drrsResponseStatus = pResponseStatus_}
+mkDeleteRuleResponse pResponseStatus_ =
+  DeleteRuleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DeleteRuleResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DeleteRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DeleteRuleResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DeleteRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRuleResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

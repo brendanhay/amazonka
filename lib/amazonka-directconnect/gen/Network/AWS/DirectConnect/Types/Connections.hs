@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.Connections where
+module Network.AWS.DirectConnect.Types.Connections
+  ( Connections (..),
+
+    -- * Smart constructor
+    mkConnections,
+
+    -- * Lenses
+    cConnections,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.Connection
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'connections' smart constructor.
+-- | /See:/ 'mkConnections' smart constructor.
 newtype Connections = Connections'
-  { _cConnections ::
-      Maybe [Connection]
+  { connections ::
+      Lude.Maybe [Connection]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Connections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cConnections' - The connections.
-connections ::
+-- * 'connections' - The connections.
+mkConnections ::
   Connections
-connections = Connections' {_cConnections = Nothing}
+mkConnections = Connections' {connections = Lude.Nothing}
 
 -- | The connections.
-cConnections :: Lens' Connections [Connection]
-cConnections = lens _cConnections (\s a -> s {_cConnections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConnections :: Lens.Lens' Connections (Lude.Maybe [Connection])
+cConnections = Lens.lens (connections :: Connections -> Lude.Maybe [Connection]) (\s a -> s {connections = a} :: Connections)
+{-# DEPRECATED cConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
-instance FromJSON Connections where
+instance Lude.FromJSON Connections where
   parseJSON =
-    withObject
+    Lude.withObject
       "Connections"
-      (\x -> Connections' <$> (x .:? "connections" .!= mempty))
-
-instance Hashable Connections
-
-instance NFData Connections
+      ( \x ->
+          Connections'
+            Lude.<$> (x Lude..:? "connections" Lude..!= Lude.mempty)
+      )

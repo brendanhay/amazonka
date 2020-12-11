@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseEvent where
+module Network.AWS.Lightsail.Types.RelationalDatabaseEvent
+  ( RelationalDatabaseEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRelationalDatabaseEvent,
+
+    -- * Lenses
+    rdeCreatedAt,
+    rdeEventCategories,
+    rdeResource,
+    rdeMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an event for a database.
 --
---
---
--- /See:/ 'relationalDatabaseEvent' smart constructor.
+-- /See:/ 'mkRelationalDatabaseEvent' smart constructor.
 data RelationalDatabaseEvent = RelationalDatabaseEvent'
-  { _rdeCreatedAt ::
-      !(Maybe POSIX),
-    _rdeEventCategories :: !(Maybe [Text]),
-    _rdeResource :: !(Maybe Text),
-    _rdeMessage :: !(Maybe Text)
+  { createdAt ::
+      Lude.Maybe Lude.Timestamp,
+    eventCategories :: Lude.Maybe [Lude.Text],
+    resource :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdeCreatedAt' - The timestamp when the database event was created.
---
--- * 'rdeEventCategories' - The category that the database event belongs to.
---
--- * 'rdeResource' - The database that the database event relates to.
---
--- * 'rdeMessage' - The message of the database event.
-relationalDatabaseEvent ::
+-- * 'createdAt' - The timestamp when the database event was created.
+-- * 'eventCategories' - The category that the database event belongs to.
+-- * 'message' - The message of the database event.
+-- * 'resource' - The database that the database event relates to.
+mkRelationalDatabaseEvent ::
   RelationalDatabaseEvent
-relationalDatabaseEvent =
+mkRelationalDatabaseEvent =
   RelationalDatabaseEvent'
-    { _rdeCreatedAt = Nothing,
-      _rdeEventCategories = Nothing,
-      _rdeResource = Nothing,
-      _rdeMessage = Nothing
+    { createdAt = Lude.Nothing,
+      eventCategories = Lude.Nothing,
+      resource = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The timestamp when the database event was created.
-rdeCreatedAt :: Lens' RelationalDatabaseEvent (Maybe UTCTime)
-rdeCreatedAt = lens _rdeCreatedAt (\s a -> s {_rdeCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeCreatedAt :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Timestamp)
+rdeCreatedAt = Lens.lens (createdAt :: RelationalDatabaseEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: RelationalDatabaseEvent)
+{-# DEPRECATED rdeCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The category that the database event belongs to.
-rdeEventCategories :: Lens' RelationalDatabaseEvent [Text]
-rdeEventCategories = lens _rdeEventCategories (\s a -> s {_rdeEventCategories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeEventCategories :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe [Lude.Text])
+rdeEventCategories = Lens.lens (eventCategories :: RelationalDatabaseEvent -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: RelationalDatabaseEvent)
+{-# DEPRECATED rdeEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | The database that the database event relates to.
-rdeResource :: Lens' RelationalDatabaseEvent (Maybe Text)
-rdeResource = lens _rdeResource (\s a -> s {_rdeResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeResource :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Text)
+rdeResource = Lens.lens (resource :: RelationalDatabaseEvent -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: RelationalDatabaseEvent)
+{-# DEPRECATED rdeResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | The message of the database event.
-rdeMessage :: Lens' RelationalDatabaseEvent (Maybe Text)
-rdeMessage = lens _rdeMessage (\s a -> s {_rdeMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeMessage :: Lens.Lens' RelationalDatabaseEvent (Lude.Maybe Lude.Text)
+rdeMessage = Lens.lens (message :: RelationalDatabaseEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: RelationalDatabaseEvent)
+{-# DEPRECATED rdeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON RelationalDatabaseEvent where
+instance Lude.FromJSON RelationalDatabaseEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseEvent"
       ( \x ->
           RelationalDatabaseEvent'
-            <$> (x .:? "createdAt")
-            <*> (x .:? "eventCategories" .!= mempty)
-            <*> (x .:? "resource")
-            <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "eventCategories" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "resource")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable RelationalDatabaseEvent
-
-instance NFData RelationalDatabaseEvent

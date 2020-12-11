@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ProresCodecProfile where
+module Network.AWS.MediaConvert.Types.ProresCodecProfile
+  ( ProresCodecProfile
+      ( ProresCodecProfile',
+        AppleProres422,
+        AppleProres422Hq,
+        AppleProres422LT,
+        AppleProres422Proxy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Profile (ProResCodecProfile) to specifiy the type of Apple ProRes codec to use for this output.
-data ProresCodecProfile
-  = AppleProres422
-  | AppleProres422Hq
-  | AppleProres422LT
-  | AppleProres422Proxy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProresCodecProfile = ProresCodecProfile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProresCodecProfile where
-  parser =
-    takeLowerText >>= \case
-      "apple_prores_422" -> pure AppleProres422
-      "apple_prores_422_hq" -> pure AppleProres422Hq
-      "apple_prores_422_lt" -> pure AppleProres422LT
-      "apple_prores_422_proxy" -> pure AppleProres422Proxy
-      e ->
-        fromTextError $
-          "Failure parsing ProresCodecProfile from value: '" <> e
-            <> "'. Accepted values: apple_prores_422, apple_prores_422_hq, apple_prores_422_lt, apple_prores_422_proxy"
+pattern AppleProres422 :: ProresCodecProfile
+pattern AppleProres422 = ProresCodecProfile' "APPLE_PRORES_422"
 
-instance ToText ProresCodecProfile where
-  toText = \case
-    AppleProres422 -> "APPLE_PRORES_422"
-    AppleProres422Hq -> "APPLE_PRORES_422_HQ"
-    AppleProres422LT -> "APPLE_PRORES_422_LT"
-    AppleProres422Proxy -> "APPLE_PRORES_422_PROXY"
+pattern AppleProres422Hq :: ProresCodecProfile
+pattern AppleProres422Hq = ProresCodecProfile' "APPLE_PRORES_422_HQ"
 
-instance Hashable ProresCodecProfile
+pattern AppleProres422LT :: ProresCodecProfile
+pattern AppleProres422LT = ProresCodecProfile' "APPLE_PRORES_422_LT"
 
-instance NFData ProresCodecProfile
+pattern AppleProres422Proxy :: ProresCodecProfile
+pattern AppleProres422Proxy = ProresCodecProfile' "APPLE_PRORES_422_PROXY"
 
-instance ToByteString ProresCodecProfile
-
-instance ToQuery ProresCodecProfile
-
-instance ToHeader ProresCodecProfile
-
-instance ToJSON ProresCodecProfile where
-  toJSON = toJSONText
-
-instance FromJSON ProresCodecProfile where
-  parseJSON = parseJSONText "ProresCodecProfile"
+{-# COMPLETE
+  AppleProres422,
+  AppleProres422Hq,
+  AppleProres422LT,
+  AppleProres422Proxy,
+  ProresCodecProfile'
+  #-}

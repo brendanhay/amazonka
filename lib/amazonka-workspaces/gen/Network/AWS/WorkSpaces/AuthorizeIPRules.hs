@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,132 @@
 --
 -- Adds one or more rules to the specified IP access control group.
 --
---
 -- This action gives users permission to access their WorkSpaces from the CIDR address ranges specified in the rules.
 module Network.AWS.WorkSpaces.AuthorizeIPRules
-  ( -- * Creating a Request
-    authorizeIPRules,
-    AuthorizeIPRules,
+  ( -- * Creating a request
+    AuthorizeIPRules (..),
+    mkAuthorizeIPRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     airGroupId,
     airUserRules,
 
-    -- * Destructuring the Response
-    authorizeIPRulesResponse,
-    AuthorizeIPRulesResponse,
+    -- * Destructuring the response
+    AuthorizeIPRulesResponse (..),
+    mkAuthorizeIPRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     airrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'authorizeIPRules' smart constructor.
+-- | /See:/ 'mkAuthorizeIPRules' smart constructor.
 data AuthorizeIPRules = AuthorizeIPRules'
-  { _airGroupId :: !Text,
-    _airUserRules :: ![IPRuleItem]
+  { groupId :: Lude.Text,
+    userRules :: [IPRuleItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeIPRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'airGroupId' - The identifier of the group.
---
--- * 'airUserRules' - The rules to add to the group.
-authorizeIPRules ::
-  -- | 'airGroupId'
-  Text ->
+-- * 'groupId' - The identifier of the group.
+-- * 'userRules' - The rules to add to the group.
+mkAuthorizeIPRules ::
+  -- | 'groupId'
+  Lude.Text ->
   AuthorizeIPRules
-authorizeIPRules pGroupId_ =
-  AuthorizeIPRules'
-    { _airGroupId = pGroupId_,
-      _airUserRules = mempty
-    }
+mkAuthorizeIPRules pGroupId_ =
+  AuthorizeIPRules' {groupId = pGroupId_, userRules = Lude.mempty}
 
 -- | The identifier of the group.
-airGroupId :: Lens' AuthorizeIPRules Text
-airGroupId = lens _airGroupId (\s a -> s {_airGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airGroupId :: Lens.Lens' AuthorizeIPRules Lude.Text
+airGroupId = Lens.lens (groupId :: AuthorizeIPRules -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeIPRules)
+{-# DEPRECATED airGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The rules to add to the group.
-airUserRules :: Lens' AuthorizeIPRules [IPRuleItem]
-airUserRules = lens _airUserRules (\s a -> s {_airUserRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'userRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airUserRules :: Lens.Lens' AuthorizeIPRules [IPRuleItem]
+airUserRules = Lens.lens (userRules :: AuthorizeIPRules -> [IPRuleItem]) (\s a -> s {userRules = a} :: AuthorizeIPRules)
+{-# DEPRECATED airUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
-instance AWSRequest AuthorizeIPRules where
+instance Lude.AWSRequest AuthorizeIPRules where
   type Rs AuthorizeIPRules = AuthorizeIPRulesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> AuthorizeIPRulesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AuthorizeIPRulesResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AuthorizeIPRules
-
-instance NFData AuthorizeIPRules
-
-instance ToHeaders AuthorizeIPRules where
+instance Lude.ToHeaders AuthorizeIPRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.AuthorizeIpRules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.AuthorizeIpRules" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AuthorizeIPRules where
+instance Lude.ToJSON AuthorizeIPRules where
   toJSON AuthorizeIPRules' {..} =
-    object
-      ( catMaybes
-          [ Just ("GroupId" .= _airGroupId),
-            Just ("UserRules" .= _airUserRules)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GroupId" Lude..= groupId),
+            Lude.Just ("UserRules" Lude..= userRules)
           ]
       )
 
-instance ToPath AuthorizeIPRules where
-  toPath = const "/"
+instance Lude.ToPath AuthorizeIPRules where
+  toPath = Lude.const "/"
 
-instance ToQuery AuthorizeIPRules where
-  toQuery = const mempty
+instance Lude.ToQuery AuthorizeIPRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'authorizeIPRulesResponse' smart constructor.
+-- | /See:/ 'mkAuthorizeIPRulesResponse' smart constructor.
 newtype AuthorizeIPRulesResponse = AuthorizeIPRulesResponse'
-  { _airrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeIPRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'airrsResponseStatus' - -- | The response status code.
-authorizeIPRulesResponse ::
-  -- | 'airrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAuthorizeIPRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AuthorizeIPRulesResponse
-authorizeIPRulesResponse pResponseStatus_ =
-  AuthorizeIPRulesResponse'
-    { _airrsResponseStatus =
-        pResponseStatus_
-    }
+mkAuthorizeIPRulesResponse pResponseStatus_ =
+  AuthorizeIPRulesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-airrsResponseStatus :: Lens' AuthorizeIPRulesResponse Int
-airrsResponseStatus = lens _airrsResponseStatus (\s a -> s {_airrsResponseStatus = a})
-
-instance NFData AuthorizeIPRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airrsResponseStatus :: Lens.Lens' AuthorizeIPRulesResponse Lude.Int
+airrsResponseStatus = Lens.lens (responseStatus :: AuthorizeIPRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AuthorizeIPRulesResponse)
+{-# DEPRECATED airrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

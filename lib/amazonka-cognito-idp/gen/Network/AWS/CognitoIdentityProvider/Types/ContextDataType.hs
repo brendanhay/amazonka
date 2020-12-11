@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ContextDataType where
+module Network.AWS.CognitoIdentityProvider.Types.ContextDataType
+  ( ContextDataType (..),
+
+    -- * Smart constructor
+    mkContextDataType,
+
+    -- * Lenses
+    cdtEncodedData,
+    cdtIPAddress,
+    cdtServerName,
+    cdtServerPath,
+    cdtHTTPHeaders,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.HTTPHeader
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
---
---
--- /See:/ 'contextDataType' smart constructor.
+-- /See:/ 'mkContextDataType' smart constructor.
 data ContextDataType = ContextDataType'
-  { _cdtEncodedData ::
-      !(Maybe Text),
-    _cdtIPAddress :: !Text,
-    _cdtServerName :: !Text,
-    _cdtServerPath :: !Text,
-    _cdtHTTPHeaders :: ![HTTPHeader]
+  { encodedData ::
+      Lude.Maybe Lude.Text,
+    ipAddress :: Lude.Text,
+    serverName :: Lude.Text,
+    serverPath :: Lude.Text,
+    hTTPHeaders :: [HTTPHeader]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContextDataType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdtEncodedData' - Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library.
---
--- * 'cdtIPAddress' - Source IP address of your user.
---
--- * 'cdtServerName' - Your server endpoint where this API is invoked.
---
--- * 'cdtServerPath' - Your server path where this API is invoked.
---
--- * 'cdtHTTPHeaders' - HttpHeaders received on your server in same order.
-contextDataType ::
-  -- | 'cdtIPAddress'
-  Text ->
-  -- | 'cdtServerName'
-  Text ->
-  -- | 'cdtServerPath'
-  Text ->
+-- * 'encodedData' - Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library.
+-- * 'hTTPHeaders' - HttpHeaders received on your server in same order.
+-- * 'ipAddress' - Source IP address of your user.
+-- * 'serverName' - Your server endpoint where this API is invoked.
+-- * 'serverPath' - Your server path where this API is invoked.
+mkContextDataType ::
+  -- | 'ipAddress'
+  Lude.Text ->
+  -- | 'serverName'
+  Lude.Text ->
+  -- | 'serverPath'
+  Lude.Text ->
   ContextDataType
-contextDataType pIPAddress_ pServerName_ pServerPath_ =
+mkContextDataType pIPAddress_ pServerName_ pServerPath_ =
   ContextDataType'
-    { _cdtEncodedData = Nothing,
-      _cdtIPAddress = pIPAddress_,
-      _cdtServerName = pServerName_,
-      _cdtServerPath = pServerPath_,
-      _cdtHTTPHeaders = mempty
+    { encodedData = Lude.Nothing,
+      ipAddress = pIPAddress_,
+      serverName = pServerName_,
+      serverPath = pServerPath_,
+      hTTPHeaders = Lude.mempty
     }
 
 -- | Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library.
-cdtEncodedData :: Lens' ContextDataType (Maybe Text)
-cdtEncodedData = lens _cdtEncodedData (\s a -> s {_cdtEncodedData = a})
+--
+-- /Note:/ Consider using 'encodedData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtEncodedData :: Lens.Lens' ContextDataType (Lude.Maybe Lude.Text)
+cdtEncodedData = Lens.lens (encodedData :: ContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {encodedData = a} :: ContextDataType)
+{-# DEPRECATED cdtEncodedData "Use generic-lens or generic-optics with 'encodedData' instead." #-}
 
 -- | Source IP address of your user.
-cdtIPAddress :: Lens' ContextDataType Text
-cdtIPAddress = lens _cdtIPAddress (\s a -> s {_cdtIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtIPAddress :: Lens.Lens' ContextDataType Lude.Text
+cdtIPAddress = Lens.lens (ipAddress :: ContextDataType -> Lude.Text) (\s a -> s {ipAddress = a} :: ContextDataType)
+{-# DEPRECATED cdtIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | Your server endpoint where this API is invoked.
-cdtServerName :: Lens' ContextDataType Text
-cdtServerName = lens _cdtServerName (\s a -> s {_cdtServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtServerName :: Lens.Lens' ContextDataType Lude.Text
+cdtServerName = Lens.lens (serverName :: ContextDataType -> Lude.Text) (\s a -> s {serverName = a} :: ContextDataType)
+{-# DEPRECATED cdtServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Your server path where this API is invoked.
-cdtServerPath :: Lens' ContextDataType Text
-cdtServerPath = lens _cdtServerPath (\s a -> s {_cdtServerPath = a})
+--
+-- /Note:/ Consider using 'serverPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtServerPath :: Lens.Lens' ContextDataType Lude.Text
+cdtServerPath = Lens.lens (serverPath :: ContextDataType -> Lude.Text) (\s a -> s {serverPath = a} :: ContextDataType)
+{-# DEPRECATED cdtServerPath "Use generic-lens or generic-optics with 'serverPath' instead." #-}
 
 -- | HttpHeaders received on your server in same order.
-cdtHTTPHeaders :: Lens' ContextDataType [HTTPHeader]
-cdtHTTPHeaders = lens _cdtHTTPHeaders (\s a -> s {_cdtHTTPHeaders = a}) . _Coerce
+--
+-- /Note:/ Consider using 'hTTPHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtHTTPHeaders :: Lens.Lens' ContextDataType [HTTPHeader]
+cdtHTTPHeaders = Lens.lens (hTTPHeaders :: ContextDataType -> [HTTPHeader]) (\s a -> s {hTTPHeaders = a} :: ContextDataType)
+{-# DEPRECATED cdtHTTPHeaders "Use generic-lens or generic-optics with 'hTTPHeaders' instead." #-}
 
-instance Hashable ContextDataType
-
-instance NFData ContextDataType
-
-instance ToJSON ContextDataType where
+instance Lude.ToJSON ContextDataType where
   toJSON ContextDataType' {..} =
-    object
-      ( catMaybes
-          [ ("EncodedData" .=) <$> _cdtEncodedData,
-            Just ("IpAddress" .= _cdtIPAddress),
-            Just ("ServerName" .= _cdtServerName),
-            Just ("ServerPath" .= _cdtServerPath),
-            Just ("HttpHeaders" .= _cdtHTTPHeaders)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EncodedData" Lude..=) Lude.<$> encodedData,
+            Lude.Just ("IpAddress" Lude..= ipAddress),
+            Lude.Just ("ServerName" Lude..= serverName),
+            Lude.Just ("ServerPath" Lude..= serverPath),
+            Lude.Just ("HttpHeaders" Lude..= hTTPHeaders)
           ]
       )

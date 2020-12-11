@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,163 @@
 --
 -- Sends a signal to an Automation execution to change the current behavior or status of the execution.
 module Network.AWS.SSM.SendAutomationSignal
-  ( -- * Creating a Request
-    sendAutomationSignal,
-    SendAutomationSignal,
+  ( -- * Creating a request
+    SendAutomationSignal (..),
+    mkSendAutomationSignal,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sasPayload,
     sasAutomationExecutionId,
     sasSignalType,
 
-    -- * Destructuring the Response
-    sendAutomationSignalResponse,
-    SendAutomationSignalResponse,
+    -- * Destructuring the response
+    SendAutomationSignalResponse (..),
+    mkSendAutomationSignalResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'sendAutomationSignal' smart constructor.
+-- | /See:/ 'mkSendAutomationSignal' smart constructor.
 data SendAutomationSignal = SendAutomationSignal'
-  { _sasPayload ::
-      !(Maybe (Map Text ([Text]))),
-    _sasAutomationExecutionId :: !Text,
-    _sasSignalType :: !SignalType
+  { payload ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    automationExecutionId :: Lude.Text,
+    signalType :: SignalType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAutomationSignal' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'automationExecutionId' - The unique identifier for an existing Automation execution that you want to send the signal to.
+-- * 'payload' - The data sent with the signal. The data schema depends on the type of signal used in the request.
 --
--- * 'sasPayload' - The data sent with the signal. The data schema depends on the type of signal used in the request. For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example: @Comment="Looks good"@  For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example: @StepName="step1"@  For the @StopStep@ signal type, you must send the step execution ID as the payload. For example: @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
---
--- * 'sasAutomationExecutionId' - The unique identifier for an existing Automation execution that you want to send the signal to.
---
--- * 'sasSignalType' - The type of signal to send to an Automation execution.
-sendAutomationSignal ::
-  -- | 'sasAutomationExecutionId'
-  Text ->
-  -- | 'sasSignalType'
+-- For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example:
+-- @Comment="Looks good"@
+-- For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example:
+-- @StepName="step1"@
+-- For the @StopStep@ signal type, you must send the step execution ID as the payload. For example:
+-- @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
+-- * 'signalType' - The type of signal to send to an Automation execution.
+mkSendAutomationSignal ::
+  -- | 'automationExecutionId'
+  Lude.Text ->
+  -- | 'signalType'
   SignalType ->
   SendAutomationSignal
-sendAutomationSignal pAutomationExecutionId_ pSignalType_ =
+mkSendAutomationSignal pAutomationExecutionId_ pSignalType_ =
   SendAutomationSignal'
-    { _sasPayload = Nothing,
-      _sasAutomationExecutionId = pAutomationExecutionId_,
-      _sasSignalType = pSignalType_
+    { payload = Lude.Nothing,
+      automationExecutionId = pAutomationExecutionId_,
+      signalType = pSignalType_
     }
 
--- | The data sent with the signal. The data schema depends on the type of signal used in the request. For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example: @Comment="Looks good"@  For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example: @StepName="step1"@  For the @StopStep@ signal type, you must send the step execution ID as the payload. For example: @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
-sasPayload :: Lens' SendAutomationSignal (HashMap Text ([Text]))
-sasPayload = lens _sasPayload (\s a -> s {_sasPayload = a}) . _Default . _Map
+-- | The data sent with the signal. The data schema depends on the type of signal used in the request.
+--
+-- For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example:
+-- @Comment="Looks good"@
+-- For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example:
+-- @StepName="step1"@
+-- For the @StopStep@ signal type, you must send the step execution ID as the payload. For example:
+-- @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasPayload :: Lens.Lens' SendAutomationSignal (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+sasPayload = Lens.lens (payload :: SendAutomationSignal -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {payload = a} :: SendAutomationSignal)
+{-# DEPRECATED sasPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The unique identifier for an existing Automation execution that you want to send the signal to.
-sasAutomationExecutionId :: Lens' SendAutomationSignal Text
-sasAutomationExecutionId = lens _sasAutomationExecutionId (\s a -> s {_sasAutomationExecutionId = a})
+--
+-- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasAutomationExecutionId :: Lens.Lens' SendAutomationSignal Lude.Text
+sasAutomationExecutionId = Lens.lens (automationExecutionId :: SendAutomationSignal -> Lude.Text) (\s a -> s {automationExecutionId = a} :: SendAutomationSignal)
+{-# DEPRECATED sasAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
 
 -- | The type of signal to send to an Automation execution.
-sasSignalType :: Lens' SendAutomationSignal SignalType
-sasSignalType = lens _sasSignalType (\s a -> s {_sasSignalType = a})
+--
+-- /Note:/ Consider using 'signalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasSignalType :: Lens.Lens' SendAutomationSignal SignalType
+sasSignalType = Lens.lens (signalType :: SendAutomationSignal -> SignalType) (\s a -> s {signalType = a} :: SendAutomationSignal)
+{-# DEPRECATED sasSignalType "Use generic-lens or generic-optics with 'signalType' instead." #-}
 
-instance AWSRequest SendAutomationSignal where
+instance Lude.AWSRequest SendAutomationSignal where
   type Rs SendAutomationSignal = SendAutomationSignalResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
-      (\s h x -> SendAutomationSignalResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          SendAutomationSignalResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable SendAutomationSignal
-
-instance NFData SendAutomationSignal
-
-instance ToHeaders SendAutomationSignal where
+instance Lude.ToHeaders SendAutomationSignal where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.SendAutomationSignal" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.SendAutomationSignal" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SendAutomationSignal where
+instance Lude.ToJSON SendAutomationSignal where
   toJSON SendAutomationSignal' {..} =
-    object
-      ( catMaybes
-          [ ("Payload" .=) <$> _sasPayload,
-            Just ("AutomationExecutionId" .= _sasAutomationExecutionId),
-            Just ("SignalType" .= _sasSignalType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Payload" Lude..=) Lude.<$> payload,
+            Lude.Just ("AutomationExecutionId" Lude..= automationExecutionId),
+            Lude.Just ("SignalType" Lude..= signalType)
           ]
       )
 
-instance ToPath SendAutomationSignal where
-  toPath = const "/"
+instance Lude.ToPath SendAutomationSignal where
+  toPath = Lude.const "/"
 
-instance ToQuery SendAutomationSignal where
-  toQuery = const mempty
+instance Lude.ToQuery SendAutomationSignal where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'sendAutomationSignalResponse' smart constructor.
+-- | /See:/ 'mkSendAutomationSignalResponse' smart constructor.
 newtype SendAutomationSignalResponse = SendAutomationSignalResponse'
-  { _sasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAutomationSignalResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sasrsResponseStatus' - -- | The response status code.
-sendAutomationSignalResponse ::
-  -- | 'sasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSendAutomationSignalResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SendAutomationSignalResponse
-sendAutomationSignalResponse pResponseStatus_ =
-  SendAutomationSignalResponse'
-    { _sasrsResponseStatus =
-        pResponseStatus_
-    }
+mkSendAutomationSignalResponse pResponseStatus_ =
+  SendAutomationSignalResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-sasrsResponseStatus :: Lens' SendAutomationSignalResponse Int
-sasrsResponseStatus = lens _sasrsResponseStatus (\s a -> s {_sasrsResponseStatus = a})
-
-instance NFData SendAutomationSignalResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasrsResponseStatus :: Lens.Lens' SendAutomationSignalResponse Lude.Int
+sasrsResponseStatus = Lens.lens (responseStatus :: SendAutomationSignalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendAutomationSignalResponse)
+{-# DEPRECATED sasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

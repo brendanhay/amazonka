@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,129 @@
 --
 -- Gets a list of key groups.
 --
---
 -- You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the @NextMarker@ value from the current response as the @Marker@ value in the subsequent request.
 module Network.AWS.CloudFront.ListKeyGroups
-  ( -- * Creating a Request
-    listKeyGroups,
-    ListKeyGroups,
+  ( -- * Creating a request
+    ListKeyGroups (..),
+    mkListKeyGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lkgMarker,
     lkgMaxItems,
 
-    -- * Destructuring the Response
-    listKeyGroupsResponse,
-    ListKeyGroupsResponse,
+    -- * Destructuring the response
+    ListKeyGroupsResponse (..),
+    mkListKeyGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lkgrsKeyGroupList,
     lkgrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listKeyGroups' smart constructor.
+-- | /See:/ 'mkListKeyGroups' smart constructor.
 data ListKeyGroups = ListKeyGroups'
-  { _lkgMarker :: !(Maybe Text),
-    _lkgMaxItems :: !(Maybe Text)
+  { marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lkgMarker' - Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
---
--- * 'lkgMaxItems' - The maximum number of key groups that you want in the response.
-listKeyGroups ::
+-- * 'marker' - Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+-- * 'maxItems' - The maximum number of key groups that you want in the response.
+mkListKeyGroups ::
   ListKeyGroups
-listKeyGroups =
-  ListKeyGroups' {_lkgMarker = Nothing, _lkgMaxItems = Nothing}
+mkListKeyGroups =
+  ListKeyGroups' {marker = Lude.Nothing, maxItems = Lude.Nothing}
 
 -- | Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-lkgMarker :: Lens' ListKeyGroups (Maybe Text)
-lkgMarker = lens _lkgMarker (\s a -> s {_lkgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkgMarker :: Lens.Lens' ListKeyGroups (Lude.Maybe Lude.Text)
+lkgMarker = Lens.lens (marker :: ListKeyGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeyGroups)
+{-# DEPRECATED lkgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of key groups that you want in the response.
-lkgMaxItems :: Lens' ListKeyGroups (Maybe Text)
-lkgMaxItems = lens _lkgMaxItems (\s a -> s {_lkgMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkgMaxItems :: Lens.Lens' ListKeyGroups (Lude.Maybe Lude.Text)
+lkgMaxItems = Lens.lens (maxItems :: ListKeyGroups -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListKeyGroups)
+{-# DEPRECATED lkgMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSRequest ListKeyGroups where
+instance Lude.AWSRequest ListKeyGroups where
   type Rs ListKeyGroups = ListKeyGroupsResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
-          ListKeyGroupsResponse' <$> (parseXML x) <*> (pure (fromEnum s))
+          ListKeyGroupsResponse'
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListKeyGroups
+instance Lude.ToHeaders ListKeyGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListKeyGroups
+instance Lude.ToPath ListKeyGroups where
+  toPath = Lude.const "/2020-05-31/key-group"
 
-instance ToHeaders ListKeyGroups where
-  toHeaders = const mempty
-
-instance ToPath ListKeyGroups where
-  toPath = const "/2020-05-31/key-group"
-
-instance ToQuery ListKeyGroups where
+instance Lude.ToQuery ListKeyGroups where
   toQuery ListKeyGroups' {..} =
-    mconcat ["Marker" =: _lkgMarker, "MaxItems" =: _lkgMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
--- | /See:/ 'listKeyGroupsResponse' smart constructor.
+-- | /See:/ 'mkListKeyGroupsResponse' smart constructor.
 data ListKeyGroupsResponse = ListKeyGroupsResponse'
-  { _lkgrsKeyGroupList ::
-      !(Maybe KeyGroupList),
-    _lkgrsResponseStatus :: !Int
+  { keyGroupList ::
+      Lude.Maybe KeyGroupList,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lkgrsKeyGroupList' - A list of key groups.
---
--- * 'lkgrsResponseStatus' - -- | The response status code.
-listKeyGroupsResponse ::
-  -- | 'lkgrsResponseStatus'
-  Int ->
+-- * 'keyGroupList' - A list of key groups.
+-- * 'responseStatus' - The response status code.
+mkListKeyGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListKeyGroupsResponse
-listKeyGroupsResponse pResponseStatus_ =
+mkListKeyGroupsResponse pResponseStatus_ =
   ListKeyGroupsResponse'
-    { _lkgrsKeyGroupList = Nothing,
-      _lkgrsResponseStatus = pResponseStatus_
+    { keyGroupList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of key groups.
-lkgrsKeyGroupList :: Lens' ListKeyGroupsResponse (Maybe KeyGroupList)
-lkgrsKeyGroupList = lens _lkgrsKeyGroupList (\s a -> s {_lkgrsKeyGroupList = a})
+--
+-- /Note:/ Consider using 'keyGroupList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkgrsKeyGroupList :: Lens.Lens' ListKeyGroupsResponse (Lude.Maybe KeyGroupList)
+lkgrsKeyGroupList = Lens.lens (keyGroupList :: ListKeyGroupsResponse -> Lude.Maybe KeyGroupList) (\s a -> s {keyGroupList = a} :: ListKeyGroupsResponse)
+{-# DEPRECATED lkgrsKeyGroupList "Use generic-lens or generic-optics with 'keyGroupList' instead." #-}
 
--- | -- | The response status code.
-lkgrsResponseStatus :: Lens' ListKeyGroupsResponse Int
-lkgrsResponseStatus = lens _lkgrsResponseStatus (\s a -> s {_lkgrsResponseStatus = a})
-
-instance NFData ListKeyGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkgrsResponseStatus :: Lens.Lens' ListKeyGroupsResponse Lude.Int
+lkgrsResponseStatus = Lens.lens (responseStatus :: ListKeyGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListKeyGroupsResponse)
+{-# DEPRECATED lkgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

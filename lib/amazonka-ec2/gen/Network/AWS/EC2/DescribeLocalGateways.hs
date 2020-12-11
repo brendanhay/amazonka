@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes one or more local gateways. By default, all local gateways are described. Alternatively, you can filter the results.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeLocalGateways
-  ( -- * Creating a Request
-    describeLocalGateways,
-    DescribeLocalGateways,
+  ( -- * Creating a request
+    DescribeLocalGateways (..),
+    mkDescribeLocalGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlgFilters,
     dlgNextToken,
     dlgLocalGatewayIds,
     dlgDryRun,
     dlgMaxResults,
 
-    -- * Destructuring the Response
-    describeLocalGatewaysResponse,
-    DescribeLocalGatewaysResponse,
+    -- * Destructuring the response
+    DescribeLocalGatewaysResponse (..),
+    mkDescribeLocalGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlgrsLocalGateways,
     dlgrsNextToken,
     dlgrsResponseStatus,
@@ -46,147 +39,215 @@ module Network.AWS.EC2.DescribeLocalGateways
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLocalGateways' smart constructor.
+-- | /See:/ 'mkDescribeLocalGateways' smart constructor.
 data DescribeLocalGateways = DescribeLocalGateways'
-  { _dlgFilters ::
-      !(Maybe [Filter]),
-    _dlgNextToken :: !(Maybe Text),
-    _dlgLocalGatewayIds :: !(Maybe [Text]),
-    _dlgDryRun :: !(Maybe Bool),
-    _dlgMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken :: Lude.Maybe Lude.Text,
+    localGatewayIds :: Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
+-- * 'localGatewayIds' - One or more filters.
 --
--- * 'dlgFilters' - One or more filters.
 --
--- * 'dlgNextToken' - The token for the next page of results.
+--     * @local-gateway-id@ - The ID of a local gateway.
 --
--- * 'dlgLocalGatewayIds' - One or more filters.     * @local-gateway-id@ - The ID of a local gateway.     * @local-gateway-route-table-id@ - The ID of the local gateway route table.     * @local-gateway-route-table-virtual-interface-group-association-id@ - The ID of the association.     * @local-gateway-route-table-virtual-interface-group-id@ - The ID of the virtual interface group.     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.     * @state@ - The state of the association.
 --
--- * 'dlgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @local-gateway-route-table-id@ - The ID of the local gateway route table.
 --
--- * 'dlgMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeLocalGateways ::
+--
+--     * @local-gateway-route-table-virtual-interface-group-association-id@ - The ID of the association.
+--
+--
+--     * @local-gateway-route-table-virtual-interface-group-id@ - The ID of the virtual interface group.
+--
+--
+--     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+--
+--     * @state@ - The state of the association.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+mkDescribeLocalGateways ::
   DescribeLocalGateways
-describeLocalGateways =
+mkDescribeLocalGateways =
   DescribeLocalGateways'
-    { _dlgFilters = Nothing,
-      _dlgNextToken = Nothing,
-      _dlgLocalGatewayIds = Nothing,
-      _dlgDryRun = Nothing,
-      _dlgMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      localGatewayIds = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | One or more filters.
-dlgFilters :: Lens' DescribeLocalGateways [Filter]
-dlgFilters = lens _dlgFilters (\s a -> s {_dlgFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgFilters :: Lens.Lens' DescribeLocalGateways (Lude.Maybe [Filter])
+dlgFilters = Lens.lens (filters :: DescribeLocalGateways -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeLocalGateways)
+{-# DEPRECATED dlgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next page of results.
-dlgNextToken :: Lens' DescribeLocalGateways (Maybe Text)
-dlgNextToken = lens _dlgNextToken (\s a -> s {_dlgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgNextToken :: Lens.Lens' DescribeLocalGateways (Lude.Maybe Lude.Text)
+dlgNextToken = Lens.lens (nextToken :: DescribeLocalGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGateways)
+{-# DEPRECATED dlgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | One or more filters.     * @local-gateway-id@ - The ID of a local gateway.     * @local-gateway-route-table-id@ - The ID of the local gateway route table.     * @local-gateway-route-table-virtual-interface-group-association-id@ - The ID of the association.     * @local-gateway-route-table-virtual-interface-group-id@ - The ID of the virtual interface group.     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.     * @state@ - The state of the association.
-dlgLocalGatewayIds :: Lens' DescribeLocalGateways [Text]
-dlgLocalGatewayIds = lens _dlgLocalGatewayIds (\s a -> s {_dlgLocalGatewayIds = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @local-gateway-id@ - The ID of a local gateway.
+--
+--
+--     * @local-gateway-route-table-id@ - The ID of the local gateway route table.
+--
+--
+--     * @local-gateway-route-table-virtual-interface-group-association-id@ - The ID of the association.
+--
+--
+--     * @local-gateway-route-table-virtual-interface-group-id@ - The ID of the virtual interface group.
+--
+--
+--     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+--
+--     * @state@ - The state of the association.
+--
+--
+--
+-- /Note:/ Consider using 'localGatewayIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgLocalGatewayIds :: Lens.Lens' DescribeLocalGateways (Lude.Maybe [Lude.Text])
+dlgLocalGatewayIds = Lens.lens (localGatewayIds :: DescribeLocalGateways -> Lude.Maybe [Lude.Text]) (\s a -> s {localGatewayIds = a} :: DescribeLocalGateways)
+{-# DEPRECATED dlgLocalGatewayIds "Use generic-lens or generic-optics with 'localGatewayIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dlgDryRun :: Lens' DescribeLocalGateways (Maybe Bool)
-dlgDryRun = lens _dlgDryRun (\s a -> s {_dlgDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgDryRun :: Lens.Lens' DescribeLocalGateways (Lude.Maybe Lude.Bool)
+dlgDryRun = Lens.lens (dryRun :: DescribeLocalGateways -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeLocalGateways)
+{-# DEPRECATED dlgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dlgMaxResults :: Lens' DescribeLocalGateways (Maybe Natural)
-dlgMaxResults = lens _dlgMaxResults (\s a -> s {_dlgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgMaxResults :: Lens.Lens' DescribeLocalGateways (Lude.Maybe Lude.Natural)
+dlgMaxResults = Lens.lens (maxResults :: DescribeLocalGateways -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeLocalGateways)
+{-# DEPRECATED dlgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeLocalGateways where
+instance Page.AWSPager DescribeLocalGateways where
   page rq rs
-    | stop (rs ^. dlgrsNextToken) = Nothing
-    | stop (rs ^. dlgrsLocalGateways) = Nothing
-    | otherwise = Just $ rq & dlgNextToken .~ rs ^. dlgrsNextToken
+    | Page.stop (rs Lens.^. dlgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlgrsLocalGateways) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dlgNextToken Lens..~ rs Lens.^. dlgrsNextToken
 
-instance AWSRequest DescribeLocalGateways where
+instance Lude.AWSRequest DescribeLocalGateways where
   type Rs DescribeLocalGateways = DescribeLocalGatewaysResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeLocalGatewaysResponse'
-            <$> (x .@? "localGatewaySet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "localGatewaySet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLocalGateways
+instance Lude.ToHeaders DescribeLocalGateways where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLocalGateways
+instance Lude.ToPath DescribeLocalGateways where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLocalGateways where
-  toHeaders = const mempty
-
-instance ToPath DescribeLocalGateways where
-  toPath = const "/"
-
-instance ToQuery DescribeLocalGateways where
+instance Lude.ToQuery DescribeLocalGateways where
   toQuery DescribeLocalGateways' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLocalGateways" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dlgFilters),
-        "NextToken" =: _dlgNextToken,
-        toQuery (toQueryList "LocalGatewayId" <$> _dlgLocalGatewayIds),
-        "DryRun" =: _dlgDryRun,
-        "MaxResults" =: _dlgMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeLocalGateways" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery
+          (Lude.toQueryList "LocalGatewayId" Lude.<$> localGatewayIds),
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeLocalGatewaysResponse' smart constructor.
+-- | /See:/ 'mkDescribeLocalGatewaysResponse' smart constructor.
 data DescribeLocalGatewaysResponse = DescribeLocalGatewaysResponse'
-  { _dlgrsLocalGateways ::
-      !(Maybe [LocalGateway]),
-    _dlgrsNextToken ::
-      !(Maybe Text),
-    _dlgrsResponseStatus :: !Int
+  { localGateways ::
+      Lude.Maybe [LocalGateway],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlgrsLocalGateways' - Information about the local gateways.
---
--- * 'dlgrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dlgrsResponseStatus' - -- | The response status code.
-describeLocalGatewaysResponse ::
-  -- | 'dlgrsResponseStatus'
-  Int ->
+-- * 'localGateways' - Information about the local gateways.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeLocalGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLocalGatewaysResponse
-describeLocalGatewaysResponse pResponseStatus_ =
+mkDescribeLocalGatewaysResponse pResponseStatus_ =
   DescribeLocalGatewaysResponse'
-    { _dlgrsLocalGateways = Nothing,
-      _dlgrsNextToken = Nothing,
-      _dlgrsResponseStatus = pResponseStatus_
+    { localGateways = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the local gateways.
-dlgrsLocalGateways :: Lens' DescribeLocalGatewaysResponse [LocalGateway]
-dlgrsLocalGateways = lens _dlgrsLocalGateways (\s a -> s {_dlgrsLocalGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'localGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrsLocalGateways :: Lens.Lens' DescribeLocalGatewaysResponse (Lude.Maybe [LocalGateway])
+dlgrsLocalGateways = Lens.lens (localGateways :: DescribeLocalGatewaysResponse -> Lude.Maybe [LocalGateway]) (\s a -> s {localGateways = a} :: DescribeLocalGatewaysResponse)
+{-# DEPRECATED dlgrsLocalGateways "Use generic-lens or generic-optics with 'localGateways' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dlgrsNextToken :: Lens' DescribeLocalGatewaysResponse (Maybe Text)
-dlgrsNextToken = lens _dlgrsNextToken (\s a -> s {_dlgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrsNextToken :: Lens.Lens' DescribeLocalGatewaysResponse (Lude.Maybe Lude.Text)
+dlgrsNextToken = Lens.lens (nextToken :: DescribeLocalGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGatewaysResponse)
+{-# DEPRECATED dlgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dlgrsResponseStatus :: Lens' DescribeLocalGatewaysResponse Int
-dlgrsResponseStatus = lens _dlgrsResponseStatus (\s a -> s {_dlgrsResponseStatus = a})
-
-instance NFData DescribeLocalGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrsResponseStatus :: Lens.Lens' DescribeLocalGatewaysResponse Lude.Int
+dlgrsResponseStatus = Lens.lens (responseStatus :: DescribeLocalGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocalGatewaysResponse)
+{-# DEPRECATED dlgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

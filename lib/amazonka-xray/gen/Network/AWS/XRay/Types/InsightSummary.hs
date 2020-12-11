@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightSummary where
+module Network.AWS.XRay.Types.InsightSummary
+  ( InsightSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInsightSummary,
+
+    -- * Lenses
+    isSummary,
+    isState,
+    isStartTime,
+    isInsightId,
+    isCategories,
+    isRootCauseServiceRequestImpactStatistics,
+    isTopAnomalousServices,
+    isRootCauseServiceId,
+    isClientRequestImpactStatistics,
+    isEndTime,
+    isGroupARN,
+    isGroupName,
+    isLastUpdateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.AnomalousService
 import Network.AWS.XRay.Types.InsightCategory
 import Network.AWS.XRay.Types.InsightState
@@ -25,149 +40,176 @@ import Network.AWS.XRay.Types.ServiceId
 
 -- | Information that describes an insight.
 --
---
---
--- /See:/ 'insightSummary' smart constructor.
+-- /See:/ 'mkInsightSummary' smart constructor.
 data InsightSummary = InsightSummary'
-  { _isSummary :: !(Maybe Text),
-    _isState :: !(Maybe InsightState),
-    _isStartTime :: !(Maybe POSIX),
-    _isInsightId :: !(Maybe Text),
-    _isCategories :: !(Maybe [InsightCategory]),
-    _isRootCauseServiceRequestImpactStatistics ::
-      !(Maybe RequestImpactStatistics),
-    _isTopAnomalousServices :: !(Maybe [AnomalousService]),
-    _isRootCauseServiceId :: !(Maybe ServiceId),
-    _isClientRequestImpactStatistics ::
-      !(Maybe RequestImpactStatistics),
-    _isEndTime :: !(Maybe POSIX),
-    _isGroupARN :: !(Maybe Text),
-    _isGroupName :: !(Maybe Text),
-    _isLastUpdateTime :: !(Maybe POSIX)
+  { summary ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe InsightState,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    insightId :: Lude.Maybe Lude.Text,
+    categories :: Lude.Maybe [InsightCategory],
+    rootCauseServiceRequestImpactStatistics ::
+      Lude.Maybe RequestImpactStatistics,
+    topAnomalousServices :: Lude.Maybe [AnomalousService],
+    rootCauseServiceId :: Lude.Maybe ServiceId,
+    clientRequestImpactStatistics ::
+      Lude.Maybe RequestImpactStatistics,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isSummary' - A brief description of the insight.
---
--- * 'isState' - The current state of the insight.
---
--- * 'isStartTime' - The time, in Unix seconds, at which the insight began.
---
--- * 'isInsightId' - The insights unique identifier.
---
--- * 'isCategories' - Categories The categories that label and describe the type of insight.
---
--- * 'isRootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
---
--- * 'isTopAnomalousServices' - The service within the insight that is most impacted by the incident.
---
--- * 'isRootCauseServiceId' - Undocumented member.
---
--- * 'isClientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
---
--- * 'isEndTime' - The time, in Unix seconds, at which the insight ended.
---
--- * 'isGroupARN' - The Amazon Resource Name (ARN) of the group that the insight belongs to.
---
--- * 'isGroupName' - The name of the group that the insight belongs to.
---
--- * 'isLastUpdateTime' - The time, in Unix seconds, that the insight was last updated.
-insightSummary ::
+-- * 'categories' - Categories The categories that label and describe the type of insight.
+-- * 'clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'endTime' - The time, in Unix seconds, at which the insight ended.
+-- * 'groupARN' - The Amazon Resource Name (ARN) of the group that the insight belongs to.
+-- * 'groupName' - The name of the group that the insight belongs to.
+-- * 'insightId' - The insights unique identifier.
+-- * 'lastUpdateTime' - The time, in Unix seconds, that the insight was last updated.
+-- * 'rootCauseServiceId' - Undocumented field.
+-- * 'rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'startTime' - The time, in Unix seconds, at which the insight began.
+-- * 'state' - The current state of the insight.
+-- * 'summary' - A brief description of the insight.
+-- * 'topAnomalousServices' - The service within the insight that is most impacted by the incident.
+mkInsightSummary ::
   InsightSummary
-insightSummary =
+mkInsightSummary =
   InsightSummary'
-    { _isSummary = Nothing,
-      _isState = Nothing,
-      _isStartTime = Nothing,
-      _isInsightId = Nothing,
-      _isCategories = Nothing,
-      _isRootCauseServiceRequestImpactStatistics = Nothing,
-      _isTopAnomalousServices = Nothing,
-      _isRootCauseServiceId = Nothing,
-      _isClientRequestImpactStatistics = Nothing,
-      _isEndTime = Nothing,
-      _isGroupARN = Nothing,
-      _isGroupName = Nothing,
-      _isLastUpdateTime = Nothing
+    { summary = Lude.Nothing,
+      state = Lude.Nothing,
+      startTime = Lude.Nothing,
+      insightId = Lude.Nothing,
+      categories = Lude.Nothing,
+      rootCauseServiceRequestImpactStatistics = Lude.Nothing,
+      topAnomalousServices = Lude.Nothing,
+      rootCauseServiceId = Lude.Nothing,
+      clientRequestImpactStatistics = Lude.Nothing,
+      endTime = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing,
+      lastUpdateTime = Lude.Nothing
     }
 
 -- | A brief description of the insight.
-isSummary :: Lens' InsightSummary (Maybe Text)
-isSummary = lens _isSummary (\s a -> s {_isSummary = a})
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isSummary :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Text)
+isSummary = Lens.lens (summary :: InsightSummary -> Lude.Maybe Lude.Text) (\s a -> s {summary = a} :: InsightSummary)
+{-# DEPRECATED isSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
 
 -- | The current state of the insight.
-isState :: Lens' InsightSummary (Maybe InsightState)
-isState = lens _isState (\s a -> s {_isState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isState :: Lens.Lens' InsightSummary (Lude.Maybe InsightState)
+isState = Lens.lens (state :: InsightSummary -> Lude.Maybe InsightState) (\s a -> s {state = a} :: InsightSummary)
+{-# DEPRECATED isState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The time, in Unix seconds, at which the insight began.
-isStartTime :: Lens' InsightSummary (Maybe UTCTime)
-isStartTime = lens _isStartTime (\s a -> s {_isStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isStartTime :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Timestamp)
+isStartTime = Lens.lens (startTime :: InsightSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: InsightSummary)
+{-# DEPRECATED isStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The insights unique identifier.
-isInsightId :: Lens' InsightSummary (Maybe Text)
-isInsightId = lens _isInsightId (\s a -> s {_isInsightId = a})
+--
+-- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isInsightId :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Text)
+isInsightId = Lens.lens (insightId :: InsightSummary -> Lude.Maybe Lude.Text) (\s a -> s {insightId = a} :: InsightSummary)
+{-# DEPRECATED isInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
 
 -- | Categories The categories that label and describe the type of insight.
-isCategories :: Lens' InsightSummary [InsightCategory]
-isCategories = lens _isCategories (\s a -> s {_isCategories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'categories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isCategories :: Lens.Lens' InsightSummary (Lude.Maybe [InsightCategory])
+isCategories = Lens.lens (categories :: InsightSummary -> Lude.Maybe [InsightCategory]) (\s a -> s {categories = a} :: InsightSummary)
+{-# DEPRECATED isCategories "Use generic-lens or generic-optics with 'categories' instead." #-}
 
 -- | The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
-isRootCauseServiceRequestImpactStatistics :: Lens' InsightSummary (Maybe RequestImpactStatistics)
-isRootCauseServiceRequestImpactStatistics = lens _isRootCauseServiceRequestImpactStatistics (\s a -> s {_isRootCauseServiceRequestImpactStatistics = a})
+--
+-- /Note:/ Consider using 'rootCauseServiceRequestImpactStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isRootCauseServiceRequestImpactStatistics :: Lens.Lens' InsightSummary (Lude.Maybe RequestImpactStatistics)
+isRootCauseServiceRequestImpactStatistics = Lens.lens (rootCauseServiceRequestImpactStatistics :: InsightSummary -> Lude.Maybe RequestImpactStatistics) (\s a -> s {rootCauseServiceRequestImpactStatistics = a} :: InsightSummary)
+{-# DEPRECATED isRootCauseServiceRequestImpactStatistics "Use generic-lens or generic-optics with 'rootCauseServiceRequestImpactStatistics' instead." #-}
 
 -- | The service within the insight that is most impacted by the incident.
-isTopAnomalousServices :: Lens' InsightSummary [AnomalousService]
-isTopAnomalousServices = lens _isTopAnomalousServices (\s a -> s {_isTopAnomalousServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'topAnomalousServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isTopAnomalousServices :: Lens.Lens' InsightSummary (Lude.Maybe [AnomalousService])
+isTopAnomalousServices = Lens.lens (topAnomalousServices :: InsightSummary -> Lude.Maybe [AnomalousService]) (\s a -> s {topAnomalousServices = a} :: InsightSummary)
+{-# DEPRECATED isTopAnomalousServices "Use generic-lens or generic-optics with 'topAnomalousServices' instead." #-}
 
--- | Undocumented member.
-isRootCauseServiceId :: Lens' InsightSummary (Maybe ServiceId)
-isRootCauseServiceId = lens _isRootCauseServiceId (\s a -> s {_isRootCauseServiceId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rootCauseServiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isRootCauseServiceId :: Lens.Lens' InsightSummary (Lude.Maybe ServiceId)
+isRootCauseServiceId = Lens.lens (rootCauseServiceId :: InsightSummary -> Lude.Maybe ServiceId) (\s a -> s {rootCauseServiceId = a} :: InsightSummary)
+{-# DEPRECATED isRootCauseServiceId "Use generic-lens or generic-optics with 'rootCauseServiceId' instead." #-}
 
 -- | The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
-isClientRequestImpactStatistics :: Lens' InsightSummary (Maybe RequestImpactStatistics)
-isClientRequestImpactStatistics = lens _isClientRequestImpactStatistics (\s a -> s {_isClientRequestImpactStatistics = a})
+--
+-- /Note:/ Consider using 'clientRequestImpactStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isClientRequestImpactStatistics :: Lens.Lens' InsightSummary (Lude.Maybe RequestImpactStatistics)
+isClientRequestImpactStatistics = Lens.lens (clientRequestImpactStatistics :: InsightSummary -> Lude.Maybe RequestImpactStatistics) (\s a -> s {clientRequestImpactStatistics = a} :: InsightSummary)
+{-# DEPRECATED isClientRequestImpactStatistics "Use generic-lens or generic-optics with 'clientRequestImpactStatistics' instead." #-}
 
 -- | The time, in Unix seconds, at which the insight ended.
-isEndTime :: Lens' InsightSummary (Maybe UTCTime)
-isEndTime = lens _isEndTime (\s a -> s {_isEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isEndTime :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Timestamp)
+isEndTime = Lens.lens (endTime :: InsightSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: InsightSummary)
+{-# DEPRECATED isEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
-isGroupARN :: Lens' InsightSummary (Maybe Text)
-isGroupARN = lens _isGroupARN (\s a -> s {_isGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isGroupARN :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Text)
+isGroupARN = Lens.lens (groupARN :: InsightSummary -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: InsightSummary)
+{-# DEPRECATED isGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The name of the group that the insight belongs to.
-isGroupName :: Lens' InsightSummary (Maybe Text)
-isGroupName = lens _isGroupName (\s a -> s {_isGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isGroupName :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Text)
+isGroupName = Lens.lens (groupName :: InsightSummary -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: InsightSummary)
+{-# DEPRECATED isGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The time, in Unix seconds, that the insight was last updated.
-isLastUpdateTime :: Lens' InsightSummary (Maybe UTCTime)
-isLastUpdateTime = lens _isLastUpdateTime (\s a -> s {_isLastUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isLastUpdateTime :: Lens.Lens' InsightSummary (Lude.Maybe Lude.Timestamp)
+isLastUpdateTime = Lens.lens (lastUpdateTime :: InsightSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: InsightSummary)
+{-# DEPRECATED isLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance FromJSON InsightSummary where
+instance Lude.FromJSON InsightSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "InsightSummary"
       ( \x ->
           InsightSummary'
-            <$> (x .:? "Summary")
-            <*> (x .:? "State")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "InsightId")
-            <*> (x .:? "Categories" .!= mempty)
-            <*> (x .:? "RootCauseServiceRequestImpactStatistics")
-            <*> (x .:? "TopAnomalousServices" .!= mempty)
-            <*> (x .:? "RootCauseServiceId")
-            <*> (x .:? "ClientRequestImpactStatistics")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "GroupARN")
-            <*> (x .:? "GroupName")
-            <*> (x .:? "LastUpdateTime")
+            Lude.<$> (x Lude..:? "Summary")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "InsightId")
+            Lude.<*> (x Lude..:? "Categories" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RootCauseServiceRequestImpactStatistics")
+            Lude.<*> (x Lude..:? "TopAnomalousServices" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RootCauseServiceId")
+            Lude.<*> (x Lude..:? "ClientRequestImpactStatistics")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "GroupARN")
+            Lude.<*> (x Lude..:? "GroupName")
+            Lude.<*> (x Lude..:? "LastUpdateTime")
       )
-
-instance Hashable InsightSummary
-
-instance NFData InsightSummary

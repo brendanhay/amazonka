@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FleetStatus where
+module Network.AWS.GameLift.Types.FleetStatus
+  ( FleetStatus
+      ( FleetStatus',
+        FSActivating,
+        FSActive,
+        FSBuilding,
+        FSDeleting,
+        FSDownloading,
+        FSError,
+        FSNew,
+        FSTerminated,
+        FSValidating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetStatus
-  = FSActivating
-  | FSActive
-  | FSBuilding
-  | FSDeleting
-  | FSDownloading
-  | FSError'
-  | FSNew
-  | FSTerminated
-  | FSValidating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetStatus = FleetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetStatus where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure FSActivating
-      "active" -> pure FSActive
-      "building" -> pure FSBuilding
-      "deleting" -> pure FSDeleting
-      "downloading" -> pure FSDownloading
-      "error" -> pure FSError'
-      "new" -> pure FSNew
-      "terminated" -> pure FSTerminated
-      "validating" -> pure FSValidating
-      e ->
-        fromTextError $
-          "Failure parsing FleetStatus from value: '" <> e
-            <> "'. Accepted values: activating, active, building, deleting, downloading, error, new, terminated, validating"
+pattern FSActivating :: FleetStatus
+pattern FSActivating = FleetStatus' "ACTIVATING"
 
-instance ToText FleetStatus where
-  toText = \case
-    FSActivating -> "ACTIVATING"
-    FSActive -> "ACTIVE"
-    FSBuilding -> "BUILDING"
-    FSDeleting -> "DELETING"
-    FSDownloading -> "DOWNLOADING"
-    FSError' -> "ERROR"
-    FSNew -> "NEW"
-    FSTerminated -> "TERMINATED"
-    FSValidating -> "VALIDATING"
+pattern FSActive :: FleetStatus
+pattern FSActive = FleetStatus' "ACTIVE"
 
-instance Hashable FleetStatus
+pattern FSBuilding :: FleetStatus
+pattern FSBuilding = FleetStatus' "BUILDING"
 
-instance NFData FleetStatus
+pattern FSDeleting :: FleetStatus
+pattern FSDeleting = FleetStatus' "DELETING"
 
-instance ToByteString FleetStatus
+pattern FSDownloading :: FleetStatus
+pattern FSDownloading = FleetStatus' "DOWNLOADING"
 
-instance ToQuery FleetStatus
+pattern FSError :: FleetStatus
+pattern FSError = FleetStatus' "ERROR"
 
-instance ToHeader FleetStatus
+pattern FSNew :: FleetStatus
+pattern FSNew = FleetStatus' "NEW"
 
-instance FromJSON FleetStatus where
-  parseJSON = parseJSONText "FleetStatus"
+pattern FSTerminated :: FleetStatus
+pattern FSTerminated = FleetStatus' "TERMINATED"
+
+pattern FSValidating :: FleetStatus
+pattern FSValidating = FleetStatus' "VALIDATING"
+
+{-# COMPLETE
+  FSActivating,
+  FSActive,
+  FSBuilding,
+  FSDeleting,
+  FSDownloading,
+  FSError,
+  FSNew,
+  FSTerminated,
+  FSValidating,
+  FleetStatus'
+  #-}

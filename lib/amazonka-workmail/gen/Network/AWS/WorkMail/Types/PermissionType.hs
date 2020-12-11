@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.PermissionType where
+module Network.AWS.WorkMail.Types.PermissionType
+  ( PermissionType
+      ( PermissionType',
+        FullAccess,
+        SendAs,
+        SendOnBehalf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PermissionType
-  = FullAccess
-  | SendAs
-  | SendOnBehalf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PermissionType = PermissionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PermissionType where
-  parser =
-    takeLowerText >>= \case
-      "full_access" -> pure FullAccess
-      "send_as" -> pure SendAs
-      "send_on_behalf" -> pure SendOnBehalf
-      e ->
-        fromTextError $
-          "Failure parsing PermissionType from value: '" <> e
-            <> "'. Accepted values: full_access, send_as, send_on_behalf"
+pattern FullAccess :: PermissionType
+pattern FullAccess = PermissionType' "FULL_ACCESS"
 
-instance ToText PermissionType where
-  toText = \case
-    FullAccess -> "FULL_ACCESS"
-    SendAs -> "SEND_AS"
-    SendOnBehalf -> "SEND_ON_BEHALF"
+pattern SendAs :: PermissionType
+pattern SendAs = PermissionType' "SEND_AS"
 
-instance Hashable PermissionType
+pattern SendOnBehalf :: PermissionType
+pattern SendOnBehalf = PermissionType' "SEND_ON_BEHALF"
 
-instance NFData PermissionType
-
-instance ToByteString PermissionType
-
-instance ToQuery PermissionType
-
-instance ToHeader PermissionType
-
-instance ToJSON PermissionType where
-  toJSON = toJSONText
-
-instance FromJSON PermissionType where
-  parseJSON = parseJSONText "PermissionType"
+{-# COMPLETE
+  FullAccess,
+  SendAs,
+  SendOnBehalf,
+  PermissionType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,104 @@
 --
 -- Cancels an audit that is in progress. The audit can be either scheduled or on-demand. If the audit is not in progress, an "InvalidRequestException" occurs.
 module Network.AWS.IoT.CancelAuditTask
-  ( -- * Creating a Request
-    cancelAuditTask,
-    CancelAuditTask,
+  ( -- * Creating a request
+    CancelAuditTask (..),
+    mkCancelAuditTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     catTaskId,
 
-    -- * Destructuring the Response
-    cancelAuditTaskResponse,
-    CancelAuditTaskResponse,
+    -- * Destructuring the response
+    CancelAuditTaskResponse (..),
+    mkCancelAuditTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     catrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelAuditTask' smart constructor.
-newtype CancelAuditTask = CancelAuditTask' {_catTaskId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCancelAuditTask' smart constructor.
+newtype CancelAuditTask = CancelAuditTask' {taskId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelAuditTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'catTaskId' - The ID of the audit you want to cancel. You can only cancel an audit that is "IN_PROGRESS".
-cancelAuditTask ::
-  -- | 'catTaskId'
-  Text ->
+-- * 'taskId' - The ID of the audit you want to cancel. You can only cancel an audit that is "IN_PROGRESS".
+mkCancelAuditTask ::
+  -- | 'taskId'
+  Lude.Text ->
   CancelAuditTask
-cancelAuditTask pTaskId_ = CancelAuditTask' {_catTaskId = pTaskId_}
+mkCancelAuditTask pTaskId_ = CancelAuditTask' {taskId = pTaskId_}
 
 -- | The ID of the audit you want to cancel. You can only cancel an audit that is "IN_PROGRESS".
-catTaskId :: Lens' CancelAuditTask Text
-catTaskId = lens _catTaskId (\s a -> s {_catTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catTaskId :: Lens.Lens' CancelAuditTask Lude.Text
+catTaskId = Lens.lens (taskId :: CancelAuditTask -> Lude.Text) (\s a -> s {taskId = a} :: CancelAuditTask)
+{-# DEPRECATED catTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance AWSRequest CancelAuditTask where
+instance Lude.AWSRequest CancelAuditTask where
   type Rs CancelAuditTask = CancelAuditTaskResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
-      (\s h x -> CancelAuditTaskResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CancelAuditTaskResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CancelAuditTask
+instance Lude.ToHeaders CancelAuditTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelAuditTask
+instance Lude.ToJSON CancelAuditTask where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders CancelAuditTask where
-  toHeaders = const mempty
-
-instance ToJSON CancelAuditTask where
-  toJSON = const (Object mempty)
-
-instance ToPath CancelAuditTask where
+instance Lude.ToPath CancelAuditTask where
   toPath CancelAuditTask' {..} =
-    mconcat ["/audit/tasks/", toBS _catTaskId, "/cancel"]
+    Lude.mconcat ["/audit/tasks/", Lude.toBS taskId, "/cancel"]
 
-instance ToQuery CancelAuditTask where
-  toQuery = const mempty
+instance Lude.ToQuery CancelAuditTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelAuditTaskResponse' smart constructor.
+-- | /See:/ 'mkCancelAuditTaskResponse' smart constructor.
 newtype CancelAuditTaskResponse = CancelAuditTaskResponse'
-  { _catrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelAuditTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'catrsResponseStatus' - -- | The response status code.
-cancelAuditTaskResponse ::
-  -- | 'catrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelAuditTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelAuditTaskResponse
-cancelAuditTaskResponse pResponseStatus_ =
-  CancelAuditTaskResponse' {_catrsResponseStatus = pResponseStatus_}
+mkCancelAuditTaskResponse pResponseStatus_ =
+  CancelAuditTaskResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-catrsResponseStatus :: Lens' CancelAuditTaskResponse Int
-catrsResponseStatus = lens _catrsResponseStatus (\s a -> s {_catrsResponseStatus = a})
-
-instance NFData CancelAuditTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catrsResponseStatus :: Lens.Lens' CancelAuditTaskResponse Lude.Int
+catrsResponseStatus = Lens.lens (responseStatus :: CancelAuditTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelAuditTaskResponse)
+{-# DEPRECATED catrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScalingPlans.Types
-  ( -- * Service Configuration
-    autoScalingPlans,
+  ( -- * Service configuration
+    autoScalingPlansService,
 
     -- * Errors
 
@@ -52,14 +50,14 @@ module Network.AWS.AutoScalingPlans.Types
     ServiceNamespace (..),
 
     -- * ApplicationSource
-    ApplicationSource,
-    applicationSource,
+    ApplicationSource (..),
+    mkApplicationSource,
     asTagFilters,
     asCloudFormationStackARN,
 
     -- * CustomizedLoadMetricSpecification
-    CustomizedLoadMetricSpecification,
-    customizedLoadMetricSpecification,
+    CustomizedLoadMetricSpecification (..),
+    mkCustomizedLoadMetricSpecification,
     clmsDimensions,
     clmsUnit,
     clmsMetricName,
@@ -67,8 +65,8 @@ module Network.AWS.AutoScalingPlans.Types
     clmsStatistic,
 
     -- * CustomizedScalingMetricSpecification
-    CustomizedScalingMetricSpecification,
-    customizedScalingMetricSpecification,
+    CustomizedScalingMetricSpecification (..),
+    mkCustomizedScalingMetricSpecification,
     csmsDimensions,
     csmsUnit,
     csmsMetricName,
@@ -76,32 +74,32 @@ module Network.AWS.AutoScalingPlans.Types
     csmsStatistic,
 
     -- * Datapoint
-    Datapoint,
-    datapoint,
+    Datapoint (..),
+    mkDatapoint,
     dValue,
     dTimestamp,
 
     -- * MetricDimension
-    MetricDimension,
-    metricDimension,
+    MetricDimension (..),
+    mkMetricDimension,
     mdName,
     mdValue,
 
     -- * PredefinedLoadMetricSpecification
-    PredefinedLoadMetricSpecification,
-    predefinedLoadMetricSpecification,
+    PredefinedLoadMetricSpecification (..),
+    mkPredefinedLoadMetricSpecification,
     plmsResourceLabel,
     plmsPredefinedLoadMetricType,
 
     -- * PredefinedScalingMetricSpecification
-    PredefinedScalingMetricSpecification,
-    predefinedScalingMetricSpecification,
+    PredefinedScalingMetricSpecification (..),
+    mkPredefinedScalingMetricSpecification,
     psmsResourceLabel,
     psmsPredefinedScalingMetricType,
 
     -- * ScalingInstruction
-    ScalingInstruction,
-    scalingInstruction,
+    ScalingInstruction (..),
+    mkScalingInstruction,
     siScheduledActionBufferTime,
     siPredictiveScalingMaxCapacityBuffer,
     siScalingPolicyUpdateBehavior,
@@ -118,8 +116,8 @@ module Network.AWS.AutoScalingPlans.Types
     siTargetTrackingConfigurations,
 
     -- * ScalingPlan
-    ScalingPlan,
-    scalingPlan,
+    ScalingPlan (..),
+    mkScalingPlan,
     spCreationTime,
     spStatusStartTime,
     spStatusMessage,
@@ -130,8 +128,8 @@ module Network.AWS.AutoScalingPlans.Types
     spStatusCode,
 
     -- * ScalingPlanResource
-    ScalingPlanResource,
-    scalingPlanResource,
+    ScalingPlanResource (..),
+    mkScalingPlanResource,
     sprScalingStatusMessage,
     sprScalingPolicies,
     sprScalingPlanName,
@@ -142,21 +140,21 @@ module Network.AWS.AutoScalingPlans.Types
     sprScalingStatusCode,
 
     -- * ScalingPolicy
-    ScalingPolicy,
-    scalingPolicy,
+    ScalingPolicy (..),
+    mkScalingPolicy,
     spTargetTrackingConfiguration,
     spPolicyName,
     spPolicyType,
 
     -- * TagFilter
-    TagFilter,
-    tagFilter,
+    TagFilter (..),
+    mkTagFilter,
     tfValues,
     tfKey,
 
     -- * TargetTrackingConfiguration
-    TargetTrackingConfiguration,
-    targetTrackingConfiguration,
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
     ttcEstimatedInstanceWarmup,
     ttcPredefinedScalingMetricSpecification,
     ttcScaleInCooldown,
@@ -192,48 +190,60 @@ import Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
 import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
 import Network.AWS.AutoScalingPlans.Types.TagFilter
 import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2018-01-06@ of the Amazon Auto Scaling Plans SDK configuration.
-autoScalingPlans :: Service
-autoScalingPlans =
-  Service
-    { _svcAbbrev = "AutoScalingPlans",
-      _svcSigner = v4,
-      _svcPrefix = "autoscaling-plans",
-      _svcVersion = "2018-01-06",
-      _svcEndpoint = defaultEndpoint autoScalingPlans,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "AutoScalingPlans",
-      _svcRetry = retry
+autoScalingPlansService :: Lude.Service
+autoScalingPlansService =
+  Lude.Service
+    { Lude._svcAbbrev = "AutoScalingPlans",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "autoscaling-plans",
+      Lude._svcVersion = "2018-01-06",
+      Lude._svcEndpoint = Lude.defaultEndpoint autoScalingPlansService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "AutoScalingPlans",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

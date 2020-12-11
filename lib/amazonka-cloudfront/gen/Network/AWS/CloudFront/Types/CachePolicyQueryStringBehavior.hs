@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior where
+module Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
+  ( CachePolicyQueryStringBehavior
+      ( CachePolicyQueryStringBehavior',
+        CPQSBAll,
+        CPQSBAllExcept,
+        CPQSBNone,
+        CPQSBWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CachePolicyQueryStringBehavior
-  = CPQSBAll
-  | CPQSBAllExcept
-  | CPQSBNone
-  | CPQSBWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CachePolicyQueryStringBehavior = CachePolicyQueryStringBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CachePolicyQueryStringBehavior where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure CPQSBAll
-      "allexcept" -> pure CPQSBAllExcept
-      "none" -> pure CPQSBNone
-      "whitelist" -> pure CPQSBWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing CachePolicyQueryStringBehavior from value: '" <> e
-            <> "'. Accepted values: all, allexcept, none, whitelist"
+pattern CPQSBAll :: CachePolicyQueryStringBehavior
+pattern CPQSBAll = CachePolicyQueryStringBehavior' "all"
 
-instance ToText CachePolicyQueryStringBehavior where
-  toText = \case
-    CPQSBAll -> "all"
-    CPQSBAllExcept -> "allExcept"
-    CPQSBNone -> "none"
-    CPQSBWhitelist -> "whitelist"
+pattern CPQSBAllExcept :: CachePolicyQueryStringBehavior
+pattern CPQSBAllExcept = CachePolicyQueryStringBehavior' "allExcept"
 
-instance Hashable CachePolicyQueryStringBehavior
+pattern CPQSBNone :: CachePolicyQueryStringBehavior
+pattern CPQSBNone = CachePolicyQueryStringBehavior' "none"
 
-instance NFData CachePolicyQueryStringBehavior
+pattern CPQSBWhitelist :: CachePolicyQueryStringBehavior
+pattern CPQSBWhitelist = CachePolicyQueryStringBehavior' "whitelist"
 
-instance ToByteString CachePolicyQueryStringBehavior
-
-instance ToQuery CachePolicyQueryStringBehavior
-
-instance ToHeader CachePolicyQueryStringBehavior
-
-instance FromXML CachePolicyQueryStringBehavior where
-  parseXML = parseXMLText "CachePolicyQueryStringBehavior"
-
-instance ToXML CachePolicyQueryStringBehavior where
-  toXML = toXMLText
+{-# COMPLETE
+  CPQSBAll,
+  CPQSBAllExcept,
+  CPQSBNone,
+  CPQSBWhitelist,
+  CachePolicyQueryStringBehavior'
+  #-}

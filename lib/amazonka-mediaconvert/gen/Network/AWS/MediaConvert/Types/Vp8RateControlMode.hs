@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp8RateControlMode where
+module Network.AWS.MediaConvert.Types.Vp8RateControlMode
+  ( Vp8RateControlMode
+      ( Vp8RateControlMode',
+        VRCMVbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | With the VP8 codec, you can use only the variable bitrate (VBR) rate control mode.
-data Vp8RateControlMode = VRCMVbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Vp8RateControlMode = Vp8RateControlMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Vp8RateControlMode where
-  parser =
-    takeLowerText >>= \case
-      "vbr" -> pure VRCMVbr
-      e ->
-        fromTextError $
-          "Failure parsing Vp8RateControlMode from value: '" <> e
-            <> "'. Accepted values: vbr"
+pattern VRCMVbr :: Vp8RateControlMode
+pattern VRCMVbr = Vp8RateControlMode' "VBR"
 
-instance ToText Vp8RateControlMode where
-  toText = \case
-    VRCMVbr -> "VBR"
-
-instance Hashable Vp8RateControlMode
-
-instance NFData Vp8RateControlMode
-
-instance ToByteString Vp8RateControlMode
-
-instance ToQuery Vp8RateControlMode
-
-instance ToHeader Vp8RateControlMode
-
-instance ToJSON Vp8RateControlMode where
-  toJSON = toJSONText
-
-instance FromJSON Vp8RateControlMode where
-  parseJSON = parseJSONText "Vp8RateControlMode"
+{-# COMPLETE
+  VRCMVbr,
+  Vp8RateControlMode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ComplianceType where
+module Network.AWS.Config.Types.ComplianceType
+  ( ComplianceType
+      ( ComplianceType',
+        Compliant,
+        InsufficientData,
+        NonCompliant,
+        NotApplicable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComplianceType
-  = Compliant
-  | InsufficientData
-  | NonCompliant
-  | NotApplicable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComplianceType = ComplianceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComplianceType where
-  parser =
-    takeLowerText >>= \case
-      "compliant" -> pure Compliant
-      "insufficient_data" -> pure InsufficientData
-      "non_compliant" -> pure NonCompliant
-      "not_applicable" -> pure NotApplicable
-      e ->
-        fromTextError $
-          "Failure parsing ComplianceType from value: '" <> e
-            <> "'. Accepted values: compliant, insufficient_data, non_compliant, not_applicable"
+pattern Compliant :: ComplianceType
+pattern Compliant = ComplianceType' "COMPLIANT"
 
-instance ToText ComplianceType where
-  toText = \case
-    Compliant -> "COMPLIANT"
-    InsufficientData -> "INSUFFICIENT_DATA"
-    NonCompliant -> "NON_COMPLIANT"
-    NotApplicable -> "NOT_APPLICABLE"
+pattern InsufficientData :: ComplianceType
+pattern InsufficientData = ComplianceType' "INSUFFICIENT_DATA"
 
-instance Hashable ComplianceType
+pattern NonCompliant :: ComplianceType
+pattern NonCompliant = ComplianceType' "NON_COMPLIANT"
 
-instance NFData ComplianceType
+pattern NotApplicable :: ComplianceType
+pattern NotApplicable = ComplianceType' "NOT_APPLICABLE"
 
-instance ToByteString ComplianceType
-
-instance ToQuery ComplianceType
-
-instance ToHeader ComplianceType
-
-instance ToJSON ComplianceType where
-  toJSON = toJSONText
-
-instance FromJSON ComplianceType where
-  parseJSON = parseJSONText "ComplianceType"
+{-# COMPLETE
+  Compliant,
+  InsufficientData,
+  NonCompliant,
+  NotApplicable,
+  ComplianceType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,109 @@
 --
 -- Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.UpdateTemplate
-  ( -- * Creating a Request
-    updateTemplate,
-    UpdateTemplate,
+  ( -- * Creating a request
+    UpdateTemplate (..),
+    mkUpdateTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utTemplate,
 
-    -- * Destructuring the Response
-    updateTemplateResponse,
-    UpdateTemplateResponse,
+    -- * Destructuring the response
+    UpdateTemplateResponse (..),
+    mkUpdateTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'updateTemplate' smart constructor.
-newtype UpdateTemplate = UpdateTemplate' {_utTemplate :: Template}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkUpdateTemplate' smart constructor.
+newtype UpdateTemplate = UpdateTemplate' {template :: Template}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utTemplate' - Undocumented member.
-updateTemplate ::
-  -- | 'utTemplate'
+-- * 'template' - Undocumented field.
+mkUpdateTemplate ::
+  -- | 'template'
   Template ->
   UpdateTemplate
-updateTemplate pTemplate_ =
-  UpdateTemplate' {_utTemplate = pTemplate_}
+mkUpdateTemplate pTemplate_ =
+  UpdateTemplate' {template = pTemplate_}
 
--- | Undocumented member.
-utTemplate :: Lens' UpdateTemplate Template
-utTemplate = lens _utTemplate (\s a -> s {_utTemplate = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTemplate :: Lens.Lens' UpdateTemplate Template
+utTemplate = Lens.lens (template :: UpdateTemplate -> Template) (\s a -> s {template = a} :: UpdateTemplate)
+{-# DEPRECATED utTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
-instance AWSRequest UpdateTemplate where
+instance Lude.AWSRequest UpdateTemplate where
   type Rs UpdateTemplate = UpdateTemplateResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateTemplateResult"
-      (\s h x -> UpdateTemplateResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          UpdateTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateTemplate
+instance Lude.ToHeaders UpdateTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateTemplate
+instance Lude.ToPath UpdateTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateTemplate where
-  toHeaders = const mempty
-
-instance ToPath UpdateTemplate where
-  toPath = const "/"
-
-instance ToQuery UpdateTemplate where
+instance Lude.ToQuery UpdateTemplate where
   toQuery UpdateTemplate' {..} =
-    mconcat
-      [ "Action" =: ("UpdateTemplate" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Template" =: _utTemplate
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Template" Lude.=: template
       ]
 
--- | /See:/ 'updateTemplateResponse' smart constructor.
+-- | /See:/ 'mkUpdateTemplateResponse' smart constructor.
 newtype UpdateTemplateResponse = UpdateTemplateResponse'
-  { _utrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utrsResponseStatus' - -- | The response status code.
-updateTemplateResponse ::
-  -- | 'utrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTemplateResponse
-updateTemplateResponse pResponseStatus_ =
-  UpdateTemplateResponse' {_utrsResponseStatus = pResponseStatus_}
+mkUpdateTemplateResponse pResponseStatus_ =
+  UpdateTemplateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-utrsResponseStatus :: Lens' UpdateTemplateResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\s a -> s {_utrsResponseStatus = a})
-
-instance NFData UpdateTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrsResponseStatus :: Lens.Lens' UpdateTemplateResponse Lude.Int
+utrsResponseStatus = Lens.lens (responseStatus :: UpdateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTemplateResponse)
+{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

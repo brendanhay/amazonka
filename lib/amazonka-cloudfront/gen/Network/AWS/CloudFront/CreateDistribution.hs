@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery. Send a @POST@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
 --
---
 -- /Important:/ When you update a distribution, there are more required fields than when you create a distribution. When you update your distribution by using <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html UpdateDistribution> , follow the steps included in the documentation to get the current configuration and then make your updates. This helps to make sure that you include all of the required fields. To view a summary, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html Required Fields for Create Distribution and Update Distribution> in the /Amazon CloudFront Developer Guide/ .
 module Network.AWS.CloudFront.CreateDistribution
-  ( -- * Creating a Request
-    createDistribution,
-    CreateDistribution,
+  ( -- * Creating a request
+    CreateDistribution (..),
+    mkCreateDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdDistributionConfig,
 
-    -- * Destructuring the Response
-    createDistributionResponse,
-    CreateDistributionResponse,
+    -- * Destructuring the response
+    CreateDistributionResponse (..),
+    mkCreateDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsETag,
     cdrsDistribution,
     cdrsLocation,
@@ -42,122 +36,122 @@ module Network.AWS.CloudFront.CreateDistribution
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to create a new distribution.
 --
---
---
--- /See:/ 'createDistribution' smart constructor.
+-- /See:/ 'mkCreateDistribution' smart constructor.
 newtype CreateDistribution = CreateDistribution'
-  { _cdDistributionConfig ::
+  { distributionConfig ::
       DistributionConfig
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdDistributionConfig' - The distribution's configuration information.
-createDistribution ::
-  -- | 'cdDistributionConfig'
+-- * 'distributionConfig' - The distribution's configuration information.
+mkCreateDistribution ::
+  -- | 'distributionConfig'
   DistributionConfig ->
   CreateDistribution
-createDistribution pDistributionConfig_ =
-  CreateDistribution' {_cdDistributionConfig = pDistributionConfig_}
+mkCreateDistribution pDistributionConfig_ =
+  CreateDistribution' {distributionConfig = pDistributionConfig_}
 
 -- | The distribution's configuration information.
-cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
-cdDistributionConfig = lens _cdDistributionConfig (\s a -> s {_cdDistributionConfig = a})
+--
+-- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDistributionConfig :: Lens.Lens' CreateDistribution DistributionConfig
+cdDistributionConfig = Lens.lens (distributionConfig :: CreateDistribution -> DistributionConfig) (\s a -> s {distributionConfig = a} :: CreateDistribution)
+{-# DEPRECATED cdDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
-instance AWSRequest CreateDistribution where
+instance Lude.AWSRequest CreateDistribution where
   type Rs CreateDistribution = CreateDistributionResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateDistributionResponse'
-            <$> (h .#? "ETag")
-            <*> (parseXML x)
-            <*> (h .#? "Location")
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDistribution
-
-instance NFData CreateDistribution
-
-instance ToElement CreateDistribution where
+instance Lude.ToElement CreateDistribution where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
-      . _cdDistributionConfig
+      Lude.. distributionConfig
 
-instance ToHeaders CreateDistribution where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateDistribution where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateDistribution where
-  toPath = const "/2020-05-31/distribution"
+instance Lude.ToPath CreateDistribution where
+  toPath = Lude.const "/2020-05-31/distribution"
 
-instance ToQuery CreateDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDistribution where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createDistributionResponse' smart constructor.
+-- /See:/ 'mkCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-  { _cdrsETag ::
-      !(Maybe Text),
-    _cdrsDistribution ::
-      !(Maybe Distribution),
-    _cdrsLocation :: !(Maybe Text),
-    _cdrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    distribution ::
+      Lude.Maybe Distribution,
+    location :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsETag' - The current version of the distribution created.
---
--- * 'cdrsDistribution' - The distribution's information.
---
--- * 'cdrsLocation' - The fully qualified URI of the new distribution resource just created.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDistributionResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'distribution' - The distribution's information.
+-- * 'eTag' - The current version of the distribution created.
+-- * 'location' - The fully qualified URI of the new distribution resource just created.
+-- * 'responseStatus' - The response status code.
+mkCreateDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDistributionResponse
-createDistributionResponse pResponseStatus_ =
+mkCreateDistributionResponse pResponseStatus_ =
   CreateDistributionResponse'
-    { _cdrsETag = Nothing,
-      _cdrsDistribution = Nothing,
-      _cdrsLocation = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      distribution = Lude.Nothing,
+      location = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the distribution created.
-cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsETag = lens _cdrsETag (\s a -> s {_cdrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsETag :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Lude.Text)
+cdrsETag = Lens.lens (eTag :: CreateDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateDistributionResponse)
+{-# DEPRECATED cdrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's information.
-cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdrsDistribution = lens _cdrsDistribution (\s a -> s {_cdrsDistribution = a})
+--
+-- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsDistribution :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Distribution)
+cdrsDistribution = Lens.lens (distribution :: CreateDistributionResponse -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: CreateDistributionResponse)
+{-# DEPRECATED cdrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
 
 -- | The fully qualified URI of the new distribution resource just created.
-cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdrsLocation = lens _cdrsLocation (\s a -> s {_cdrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsLocation :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Lude.Text)
+cdrsLocation = Lens.lens (location :: CreateDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateDistributionResponse)
+{-# DEPRECATED cdrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDistributionResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData CreateDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDistributionResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDistributionResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

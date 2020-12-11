@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerType where
+module Network.AWS.SMS.Types.ServerType
+  ( ServerType
+      ( ServerType',
+        VirtualMachine
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServerType = VirtualMachine
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerType = ServerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerType where
-  parser =
-    takeLowerText >>= \case
-      "virtual_machine" -> pure VirtualMachine
-      e ->
-        fromTextError $
-          "Failure parsing ServerType from value: '" <> e
-            <> "'. Accepted values: virtual_machine"
+pattern VirtualMachine :: ServerType
+pattern VirtualMachine = ServerType' "VIRTUAL_MACHINE"
 
-instance ToText ServerType where
-  toText = \case
-    VirtualMachine -> "VIRTUAL_MACHINE"
-
-instance Hashable ServerType
-
-instance NFData ServerType
-
-instance ToByteString ServerType
-
-instance ToQuery ServerType
-
-instance ToHeader ServerType
-
-instance ToJSON ServerType where
-  toJSON = toJSONText
-
-instance FromJSON ServerType where
-  parseJSON = parseJSONText "ServerType"
+{-# COMPLETE
+  VirtualMachine,
+  ServerType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepCancellationOption where
+module Network.AWS.EMR.Types.StepCancellationOption
+  ( StepCancellationOption
+      ( StepCancellationOption',
+        SendInterrupt,
+        TerminateProcess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StepCancellationOption
-  = SendInterrupt
-  | TerminateProcess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StepCancellationOption = StepCancellationOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StepCancellationOption where
-  parser =
-    takeLowerText >>= \case
-      "send_interrupt" -> pure SendInterrupt
-      "terminate_process" -> pure TerminateProcess
-      e ->
-        fromTextError $
-          "Failure parsing StepCancellationOption from value: '" <> e
-            <> "'. Accepted values: send_interrupt, terminate_process"
+pattern SendInterrupt :: StepCancellationOption
+pattern SendInterrupt = StepCancellationOption' "SEND_INTERRUPT"
 
-instance ToText StepCancellationOption where
-  toText = \case
-    SendInterrupt -> "SEND_INTERRUPT"
-    TerminateProcess -> "TERMINATE_PROCESS"
+pattern TerminateProcess :: StepCancellationOption
+pattern TerminateProcess = StepCancellationOption' "TERMINATE_PROCESS"
 
-instance Hashable StepCancellationOption
-
-instance NFData StepCancellationOption
-
-instance ToByteString StepCancellationOption
-
-instance ToQuery StepCancellationOption
-
-instance ToHeader StepCancellationOption
-
-instance ToJSON StepCancellationOption where
-  toJSON = toJSONText
+{-# COMPLETE
+  SendInterrupt,
+  TerminateProcess,
+  StepCancellationOption'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.GlueTable where
+module Network.AWS.Glue.Types.GlueTable
+  ( GlueTable (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGlueTable,
+
+    -- * Lenses
+    gtCatalogId,
+    gtConnectionName,
+    gtDatabaseName,
+    gtTableName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The database and table in the AWS Glue Data Catalog that is used for input or output data.
 --
---
---
--- /See:/ 'glueTable' smart constructor.
+-- /See:/ 'mkGlueTable' smart constructor.
 data GlueTable = GlueTable'
-  { _gtCatalogId :: !(Maybe Text),
-    _gtConnectionName :: !(Maybe Text),
-    _gtDatabaseName :: !Text,
-    _gtTableName :: !Text
+  { catalogId :: Lude.Maybe Lude.Text,
+    connectionName :: Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlueTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtCatalogId' - A unique identifier for the AWS Glue Data Catalog.
---
--- * 'gtConnectionName' - The name of the connection to the AWS Glue Data Catalog.
---
--- * 'gtDatabaseName' - A database name in the AWS Glue Data Catalog.
---
--- * 'gtTableName' - A table name in the AWS Glue Data Catalog.
-glueTable ::
-  -- | 'gtDatabaseName'
-  Text ->
-  -- | 'gtTableName'
-  Text ->
+-- * 'catalogId' - A unique identifier for the AWS Glue Data Catalog.
+-- * 'connectionName' - The name of the connection to the AWS Glue Data Catalog.
+-- * 'databaseName' - A database name in the AWS Glue Data Catalog.
+-- * 'tableName' - A table name in the AWS Glue Data Catalog.
+mkGlueTable ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   GlueTable
-glueTable pDatabaseName_ pTableName_ =
+mkGlueTable pDatabaseName_ pTableName_ =
   GlueTable'
-    { _gtCatalogId = Nothing,
-      _gtConnectionName = Nothing,
-      _gtDatabaseName = pDatabaseName_,
-      _gtTableName = pTableName_
+    { catalogId = Lude.Nothing,
+      connectionName = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
 
 -- | A unique identifier for the AWS Glue Data Catalog.
-gtCatalogId :: Lens' GlueTable (Maybe Text)
-gtCatalogId = lens _gtCatalogId (\s a -> s {_gtCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtCatalogId :: Lens.Lens' GlueTable (Lude.Maybe Lude.Text)
+gtCatalogId = Lens.lens (catalogId :: GlueTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GlueTable)
+{-# DEPRECATED gtCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the connection to the AWS Glue Data Catalog.
-gtConnectionName :: Lens' GlueTable (Maybe Text)
-gtConnectionName = lens _gtConnectionName (\s a -> s {_gtConnectionName = a})
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtConnectionName :: Lens.Lens' GlueTable (Lude.Maybe Lude.Text)
+gtConnectionName = Lens.lens (connectionName :: GlueTable -> Lude.Maybe Lude.Text) (\s a -> s {connectionName = a} :: GlueTable)
+{-# DEPRECATED gtConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | A database name in the AWS Glue Data Catalog.
-gtDatabaseName :: Lens' GlueTable Text
-gtDatabaseName = lens _gtDatabaseName (\s a -> s {_gtDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtDatabaseName :: Lens.Lens' GlueTable Lude.Text
+gtDatabaseName = Lens.lens (databaseName :: GlueTable -> Lude.Text) (\s a -> s {databaseName = a} :: GlueTable)
+{-# DEPRECATED gtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | A table name in the AWS Glue Data Catalog.
-gtTableName :: Lens' GlueTable Text
-gtTableName = lens _gtTableName (\s a -> s {_gtTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtTableName :: Lens.Lens' GlueTable Lude.Text
+gtTableName = Lens.lens (tableName :: GlueTable -> Lude.Text) (\s a -> s {tableName = a} :: GlueTable)
+{-# DEPRECATED gtTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON GlueTable where
+instance Lude.FromJSON GlueTable where
   parseJSON =
-    withObject
+    Lude.withObject
       "GlueTable"
       ( \x ->
           GlueTable'
-            <$> (x .:? "CatalogId")
-            <*> (x .:? "ConnectionName")
-            <*> (x .: "DatabaseName")
-            <*> (x .: "TableName")
+            Lude.<$> (x Lude..:? "CatalogId")
+            Lude.<*> (x Lude..:? "ConnectionName")
+            Lude.<*> (x Lude..: "DatabaseName")
+            Lude.<*> (x Lude..: "TableName")
       )
 
-instance Hashable GlueTable
-
-instance NFData GlueTable
-
-instance ToJSON GlueTable where
+instance Lude.ToJSON GlueTable where
   toJSON GlueTable' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gtCatalogId,
-            ("ConnectionName" .=) <$> _gtConnectionName,
-            Just ("DatabaseName" .= _gtDatabaseName),
-            Just ("TableName" .= _gtTableName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("ConnectionName" Lude..=) Lude.<$> connectionName,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )

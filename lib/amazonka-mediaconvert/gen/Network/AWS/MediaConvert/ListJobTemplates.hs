@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,171 +16,198 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaConvert.ListJobTemplates
-  ( -- * Creating a Request
-    listJobTemplates,
-    ListJobTemplates,
+  ( -- * Creating a request
+    ListJobTemplates (..),
+    mkListJobTemplates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljtCategory,
     ljtListBy,
     ljtNextToken,
     ljtOrder,
     ljtMaxResults,
 
-    -- * Destructuring the Response
-    listJobTemplatesResponse,
-    ListJobTemplatesResponse,
+    -- * Destructuring the response
+    ListJobTemplatesResponse (..),
+    mkListJobTemplatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljtrsJobTemplates,
     ljtrsNextToken,
     ljtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listJobTemplates' smart constructor.
+-- | /See:/ 'mkListJobTemplates' smart constructor.
 data ListJobTemplates = ListJobTemplates'
-  { _ljtCategory ::
-      !(Maybe Text),
-    _ljtListBy :: !(Maybe JobTemplateListBy),
-    _ljtNextToken :: !(Maybe Text),
-    _ljtOrder :: !(Maybe Order),
-    _ljtMaxResults :: !(Maybe Nat)
+  { category ::
+      Lude.Maybe Lude.Text,
+    listBy :: Lude.Maybe JobTemplateListBy,
+    nextToken :: Lude.Maybe Lude.Text,
+    order :: Lude.Maybe Order,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobTemplates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljtCategory' - Optionally, specify a job template category to limit responses to only job templates from that category.
---
--- * 'ljtListBy' - Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
---
--- * 'ljtNextToken' - Use this string, provided with the response to a previous request, to request the next batch of job templates.
---
--- * 'ljtOrder' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
---
--- * 'ljtMaxResults' - Optional. Number of job templates, up to twenty, that will be returned at one time.
-listJobTemplates ::
+-- * 'category' - Optionally, specify a job template category to limit responses to only job templates from that category.
+-- * 'listBy' - Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
+-- * 'maxResults' - Optional. Number of job templates, up to twenty, that will be returned at one time.
+-- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of job templates.
+-- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+mkListJobTemplates ::
   ListJobTemplates
-listJobTemplates =
+mkListJobTemplates =
   ListJobTemplates'
-    { _ljtCategory = Nothing,
-      _ljtListBy = Nothing,
-      _ljtNextToken = Nothing,
-      _ljtOrder = Nothing,
-      _ljtMaxResults = Nothing
+    { category = Lude.Nothing,
+      listBy = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      order = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Optionally, specify a job template category to limit responses to only job templates from that category.
-ljtCategory :: Lens' ListJobTemplates (Maybe Text)
-ljtCategory = lens _ljtCategory (\s a -> s {_ljtCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtCategory :: Lens.Lens' ListJobTemplates (Lude.Maybe Lude.Text)
+ljtCategory = Lens.lens (category :: ListJobTemplates -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: ListJobTemplates)
+{-# DEPRECATED ljtCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
-ljtListBy :: Lens' ListJobTemplates (Maybe JobTemplateListBy)
-ljtListBy = lens _ljtListBy (\s a -> s {_ljtListBy = a})
+--
+-- /Note:/ Consider using 'listBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtListBy :: Lens.Lens' ListJobTemplates (Lude.Maybe JobTemplateListBy)
+ljtListBy = Lens.lens (listBy :: ListJobTemplates -> Lude.Maybe JobTemplateListBy) (\s a -> s {listBy = a} :: ListJobTemplates)
+{-# DEPRECATED ljtListBy "Use generic-lens or generic-optics with 'listBy' instead." #-}
 
 -- | Use this string, provided with the response to a previous request, to request the next batch of job templates.
-ljtNextToken :: Lens' ListJobTemplates (Maybe Text)
-ljtNextToken = lens _ljtNextToken (\s a -> s {_ljtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtNextToken :: Lens.Lens' ListJobTemplates (Lude.Maybe Lude.Text)
+ljtNextToken = Lens.lens (nextToken :: ListJobTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobTemplates)
+{-# DEPRECATED ljtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-ljtOrder :: Lens' ListJobTemplates (Maybe Order)
-ljtOrder = lens _ljtOrder (\s a -> s {_ljtOrder = a})
+--
+-- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtOrder :: Lens.Lens' ListJobTemplates (Lude.Maybe Order)
+ljtOrder = Lens.lens (order :: ListJobTemplates -> Lude.Maybe Order) (\s a -> s {order = a} :: ListJobTemplates)
+{-# DEPRECATED ljtOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
 -- | Optional. Number of job templates, up to twenty, that will be returned at one time.
-ljtMaxResults :: Lens' ListJobTemplates (Maybe Natural)
-ljtMaxResults = lens _ljtMaxResults (\s a -> s {_ljtMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtMaxResults :: Lens.Lens' ListJobTemplates (Lude.Maybe Lude.Natural)
+ljtMaxResults = Lens.lens (maxResults :: ListJobTemplates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobTemplates)
+{-# DEPRECATED ljtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListJobTemplates where
+instance Page.AWSPager ListJobTemplates where
   page rq rs
-    | stop (rs ^. ljtrsNextToken) = Nothing
-    | stop (rs ^. ljtrsJobTemplates) = Nothing
-    | otherwise = Just $ rq & ljtNextToken .~ rs ^. ljtrsNextToken
+    | Page.stop (rs Lens.^. ljtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ljtrsJobTemplates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ljtNextToken Lens..~ rs Lens.^. ljtrsNextToken
 
-instance AWSRequest ListJobTemplates where
+instance Lude.AWSRequest ListJobTemplates where
   type Rs ListJobTemplates = ListJobTemplatesResponse
-  request = get mediaConvert
+  request = Req.get mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJobTemplatesResponse'
-            <$> (x .?> "jobTemplates" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobTemplates" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListJobTemplates
-
-instance NFData ListJobTemplates
-
-instance ToHeaders ListJobTemplates where
+instance Lude.ToHeaders ListJobTemplates where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListJobTemplates where
-  toPath = const "/2017-08-29/jobTemplates"
+instance Lude.ToPath ListJobTemplates where
+  toPath = Lude.const "/2017-08-29/jobTemplates"
 
-instance ToQuery ListJobTemplates where
+instance Lude.ToQuery ListJobTemplates where
   toQuery ListJobTemplates' {..} =
-    mconcat
-      [ "category" =: _ljtCategory,
-        "listBy" =: _ljtListBy,
-        "nextToken" =: _ljtNextToken,
-        "order" =: _ljtOrder,
-        "maxResults" =: _ljtMaxResults
+    Lude.mconcat
+      [ "category" Lude.=: category,
+        "listBy" Lude.=: listBy,
+        "nextToken" Lude.=: nextToken,
+        "order" Lude.=: order,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listJobTemplatesResponse' smart constructor.
+-- | /See:/ 'mkListJobTemplatesResponse' smart constructor.
 data ListJobTemplatesResponse = ListJobTemplatesResponse'
-  { _ljtrsJobTemplates ::
-      !(Maybe [JobTemplate]),
-    _ljtrsNextToken :: !(Maybe Text),
-    _ljtrsResponseStatus :: !Int
+  { jobTemplates ::
+      Lude.Maybe [JobTemplate],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobTemplatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljtrsJobTemplates' - List of Job templates.
---
--- * 'ljtrsNextToken' - Use this string to request the next batch of job templates.
---
--- * 'ljtrsResponseStatus' - -- | The response status code.
-listJobTemplatesResponse ::
-  -- | 'ljtrsResponseStatus'
-  Int ->
+-- * 'jobTemplates' - List of Job templates.
+-- * 'nextToken' - Use this string to request the next batch of job templates.
+-- * 'responseStatus' - The response status code.
+mkListJobTemplatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListJobTemplatesResponse
-listJobTemplatesResponse pResponseStatus_ =
+mkListJobTemplatesResponse pResponseStatus_ =
   ListJobTemplatesResponse'
-    { _ljtrsJobTemplates = Nothing,
-      _ljtrsNextToken = Nothing,
-      _ljtrsResponseStatus = pResponseStatus_
+    { jobTemplates = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of Job templates.
-ljtrsJobTemplates :: Lens' ListJobTemplatesResponse [JobTemplate]
-ljtrsJobTemplates = lens _ljtrsJobTemplates (\s a -> s {_ljtrsJobTemplates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobTemplates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtrsJobTemplates :: Lens.Lens' ListJobTemplatesResponse (Lude.Maybe [JobTemplate])
+ljtrsJobTemplates = Lens.lens (jobTemplates :: ListJobTemplatesResponse -> Lude.Maybe [JobTemplate]) (\s a -> s {jobTemplates = a} :: ListJobTemplatesResponse)
+{-# DEPRECATED ljtrsJobTemplates "Use generic-lens or generic-optics with 'jobTemplates' instead." #-}
 
 -- | Use this string to request the next batch of job templates.
-ljtrsNextToken :: Lens' ListJobTemplatesResponse (Maybe Text)
-ljtrsNextToken = lens _ljtrsNextToken (\s a -> s {_ljtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtrsNextToken :: Lens.Lens' ListJobTemplatesResponse (Lude.Maybe Lude.Text)
+ljtrsNextToken = Lens.lens (nextToken :: ListJobTemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobTemplatesResponse)
+{-# DEPRECATED ljtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ljtrsResponseStatus :: Lens' ListJobTemplatesResponse Int
-ljtrsResponseStatus = lens _ljtrsResponseStatus (\s a -> s {_ljtrsResponseStatus = a})
-
-instance NFData ListJobTemplatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljtrsResponseStatus :: Lens.Lens' ListJobTemplatesResponse Lude.Int
+ljtrsResponseStatus = Lens.lens (responseStatus :: ListJobTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobTemplatesResponse)
+{-# DEPRECATED ljtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

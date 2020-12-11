@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.InstallationMediaFailureCause where
+module Network.AWS.RDS.Types.InstallationMediaFailureCause
+  ( InstallationMediaFailureCause (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstallationMediaFailureCause,
+
+    -- * Lenses
+    imfcMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the cause of an installation media failure. Installation media is used for a DB engine that requires an on-premises customer provided license, such as Microsoft SQL Server.
 --
---
---
--- /See:/ 'installationMediaFailureCause' smart constructor.
+-- /See:/ 'mkInstallationMediaFailureCause' smart constructor.
 newtype InstallationMediaFailureCause = InstallationMediaFailureCause'
-  { _imfcMessage ::
-      Maybe Text
+  { message ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstallationMediaFailureCause' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imfcMessage' - The reason that an installation media import failed.
-installationMediaFailureCause ::
+-- * 'message' - The reason that an installation media import failed.
+mkInstallationMediaFailureCause ::
   InstallationMediaFailureCause
-installationMediaFailureCause =
-  InstallationMediaFailureCause' {_imfcMessage = Nothing}
+mkInstallationMediaFailureCause =
+  InstallationMediaFailureCause' {message = Lude.Nothing}
 
 -- | The reason that an installation media import failed.
-imfcMessage :: Lens' InstallationMediaFailureCause (Maybe Text)
-imfcMessage = lens _imfcMessage (\s a -> s {_imfcMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imfcMessage :: Lens.Lens' InstallationMediaFailureCause (Lude.Maybe Lude.Text)
+imfcMessage = Lens.lens (message :: InstallationMediaFailureCause -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InstallationMediaFailureCause)
+{-# DEPRECATED imfcMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML InstallationMediaFailureCause where
-  parseXML x = InstallationMediaFailureCause' <$> (x .@? "Message")
-
-instance Hashable InstallationMediaFailureCause
-
-instance NFData InstallationMediaFailureCause
+instance Lude.FromXML InstallationMediaFailureCause where
+  parseXML x =
+    InstallationMediaFailureCause' Lude.<$> (x Lude..@? "Message")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,142 @@
 --
 -- Updates the runtime configuration of a thing.
 module Network.AWS.Greengrass.UpdateThingRuntimeConfiguration
-  ( -- * Creating a Request
-    updateThingRuntimeConfiguration,
-    UpdateThingRuntimeConfiguration,
+  ( -- * Creating a request
+    UpdateThingRuntimeConfiguration (..),
+    mkUpdateThingRuntimeConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utrcTelemetryConfiguration,
     utrcThingName,
 
-    -- * Destructuring the Response
-    updateThingRuntimeConfigurationResponse,
-    UpdateThingRuntimeConfigurationResponse,
+    -- * Destructuring the response
+    UpdateThingRuntimeConfigurationResponse (..),
+    mkUpdateThingRuntimeConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utrcrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateThingRuntimeConfiguration' smart constructor.
+-- | /See:/ 'mkUpdateThingRuntimeConfiguration' smart constructor.
 data UpdateThingRuntimeConfiguration = UpdateThingRuntimeConfiguration'
-  { _utrcTelemetryConfiguration ::
-      !( Maybe
-           TelemetryConfigurationUpdate
-       ),
-    _utrcThingName :: !Text
+  { telemetryConfiguration ::
+      Lude.Maybe
+        TelemetryConfigurationUpdate,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingRuntimeConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utrcTelemetryConfiguration' - Configuration for telemetry service.
---
--- * 'utrcThingName' - The thing name.
-updateThingRuntimeConfiguration ::
-  -- | 'utrcThingName'
-  Text ->
+-- * 'telemetryConfiguration' - Configuration for telemetry service.
+-- * 'thingName' - The thing name.
+mkUpdateThingRuntimeConfiguration ::
+  -- | 'thingName'
+  Lude.Text ->
   UpdateThingRuntimeConfiguration
-updateThingRuntimeConfiguration pThingName_ =
+mkUpdateThingRuntimeConfiguration pThingName_ =
   UpdateThingRuntimeConfiguration'
-    { _utrcTelemetryConfiguration =
-        Nothing,
-      _utrcThingName = pThingName_
+    { telemetryConfiguration =
+        Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | Configuration for telemetry service.
-utrcTelemetryConfiguration :: Lens' UpdateThingRuntimeConfiguration (Maybe TelemetryConfigurationUpdate)
-utrcTelemetryConfiguration = lens _utrcTelemetryConfiguration (\s a -> s {_utrcTelemetryConfiguration = a})
+--
+-- /Note:/ Consider using 'telemetryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrcTelemetryConfiguration :: Lens.Lens' UpdateThingRuntimeConfiguration (Lude.Maybe TelemetryConfigurationUpdate)
+utrcTelemetryConfiguration = Lens.lens (telemetryConfiguration :: UpdateThingRuntimeConfiguration -> Lude.Maybe TelemetryConfigurationUpdate) (\s a -> s {telemetryConfiguration = a} :: UpdateThingRuntimeConfiguration)
+{-# DEPRECATED utrcTelemetryConfiguration "Use generic-lens or generic-optics with 'telemetryConfiguration' instead." #-}
 
 -- | The thing name.
-utrcThingName :: Lens' UpdateThingRuntimeConfiguration Text
-utrcThingName = lens _utrcThingName (\s a -> s {_utrcThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrcThingName :: Lens.Lens' UpdateThingRuntimeConfiguration Lude.Text
+utrcThingName = Lens.lens (thingName :: UpdateThingRuntimeConfiguration -> Lude.Text) (\s a -> s {thingName = a} :: UpdateThingRuntimeConfiguration)
+{-# DEPRECATED utrcThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest UpdateThingRuntimeConfiguration where
+instance Lude.AWSRequest UpdateThingRuntimeConfiguration where
   type
     Rs UpdateThingRuntimeConfiguration =
       UpdateThingRuntimeConfigurationResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateThingRuntimeConfigurationResponse' <$> (pure (fromEnum s))
+          UpdateThingRuntimeConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateThingRuntimeConfiguration
-
-instance NFData UpdateThingRuntimeConfiguration
-
-instance ToHeaders UpdateThingRuntimeConfiguration where
+instance Lude.ToHeaders UpdateThingRuntimeConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateThingRuntimeConfiguration where
+instance Lude.ToJSON UpdateThingRuntimeConfiguration where
   toJSON UpdateThingRuntimeConfiguration' {..} =
-    object
-      ( catMaybes
-          [("TelemetryConfiguration" .=) <$> _utrcTelemetryConfiguration]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TelemetryConfiguration" Lude..=)
+              Lude.<$> telemetryConfiguration
+          ]
       )
 
-instance ToPath UpdateThingRuntimeConfiguration where
+instance Lude.ToPath UpdateThingRuntimeConfiguration where
   toPath UpdateThingRuntimeConfiguration' {..} =
-    mconcat
-      ["/greengrass/things/", toBS _utrcThingName, "/runtimeconfig"]
+    Lude.mconcat
+      ["/greengrass/things/", Lude.toBS thingName, "/runtimeconfig"]
 
-instance ToQuery UpdateThingRuntimeConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateThingRuntimeConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateThingRuntimeConfigurationResponse' smart constructor.
+-- | /See:/ 'mkUpdateThingRuntimeConfigurationResponse' smart constructor.
 newtype UpdateThingRuntimeConfigurationResponse = UpdateThingRuntimeConfigurationResponse'
-  { _utrcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingRuntimeConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utrcrsResponseStatus' - -- | The response status code.
-updateThingRuntimeConfigurationResponse ::
-  -- | 'utrcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateThingRuntimeConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateThingRuntimeConfigurationResponse
-updateThingRuntimeConfigurationResponse pResponseStatus_ =
+mkUpdateThingRuntimeConfigurationResponse pResponseStatus_ =
   UpdateThingRuntimeConfigurationResponse'
-    { _utrcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-utrcrsResponseStatus :: Lens' UpdateThingRuntimeConfigurationResponse Int
-utrcrsResponseStatus = lens _utrcrsResponseStatus (\s a -> s {_utrcrsResponseStatus = a})
-
-instance NFData UpdateThingRuntimeConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrcrsResponseStatus :: Lens.Lens' UpdateThingRuntimeConfigurationResponse Lude.Int
+utrcrsResponseStatus = Lens.lens (responseStatus :: UpdateThingRuntimeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingRuntimeConfigurationResponse)
+{-# DEPRECATED utrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

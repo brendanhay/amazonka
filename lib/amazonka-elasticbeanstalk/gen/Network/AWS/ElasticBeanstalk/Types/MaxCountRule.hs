@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.MaxCountRule where
+module Network.AWS.ElasticBeanstalk.Types.MaxCountRule
+  ( MaxCountRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaxCountRule,
+
+    -- * Lenses
+    mcrMaxCount,
+    mcrDeleteSourceFromS3,
+    mcrEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A lifecycle rule that deletes the oldest application version when the maximum count is exceeded.
 --
---
---
--- /See:/ 'maxCountRule' smart constructor.
+-- /See:/ 'mkMaxCountRule' smart constructor.
 data MaxCountRule = MaxCountRule'
-  { _mcrMaxCount :: !(Maybe Int),
-    _mcrDeleteSourceFromS3 :: !(Maybe Bool),
-    _mcrEnabled :: !Bool
+  { maxCount :: Lude.Maybe Lude.Int,
+    deleteSourceFromS3 :: Lude.Maybe Lude.Bool,
+    enabled :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaxCountRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcrMaxCount' - Specify the maximum number of application versions to retain.
---
--- * 'mcrDeleteSourceFromS3' - Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
---
--- * 'mcrEnabled' - Specify @true@ to apply the rule, or @false@ to disable it.
-maxCountRule ::
-  -- | 'mcrEnabled'
-  Bool ->
+-- * 'deleteSourceFromS3' - Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+-- * 'enabled' - Specify @true@ to apply the rule, or @false@ to disable it.
+-- * 'maxCount' - Specify the maximum number of application versions to retain.
+mkMaxCountRule ::
+  -- | 'enabled'
+  Lude.Bool ->
   MaxCountRule
-maxCountRule pEnabled_ =
+mkMaxCountRule pEnabled_ =
   MaxCountRule'
-    { _mcrMaxCount = Nothing,
-      _mcrDeleteSourceFromS3 = Nothing,
-      _mcrEnabled = pEnabled_
+    { maxCount = Lude.Nothing,
+      deleteSourceFromS3 = Lude.Nothing,
+      enabled = pEnabled_
     }
 
 -- | Specify the maximum number of application versions to retain.
-mcrMaxCount :: Lens' MaxCountRule (Maybe Int)
-mcrMaxCount = lens _mcrMaxCount (\s a -> s {_mcrMaxCount = a})
+--
+-- /Note:/ Consider using 'maxCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrMaxCount :: Lens.Lens' MaxCountRule (Lude.Maybe Lude.Int)
+mcrMaxCount = Lens.lens (maxCount :: MaxCountRule -> Lude.Maybe Lude.Int) (\s a -> s {maxCount = a} :: MaxCountRule)
+{-# DEPRECATED mcrMaxCount "Use generic-lens or generic-optics with 'maxCount' instead." #-}
 
 -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
-mcrDeleteSourceFromS3 :: Lens' MaxCountRule (Maybe Bool)
-mcrDeleteSourceFromS3 = lens _mcrDeleteSourceFromS3 (\s a -> s {_mcrDeleteSourceFromS3 = a})
+--
+-- /Note:/ Consider using 'deleteSourceFromS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrDeleteSourceFromS3 :: Lens.Lens' MaxCountRule (Lude.Maybe Lude.Bool)
+mcrDeleteSourceFromS3 = Lens.lens (deleteSourceFromS3 :: MaxCountRule -> Lude.Maybe Lude.Bool) (\s a -> s {deleteSourceFromS3 = a} :: MaxCountRule)
+{-# DEPRECATED mcrDeleteSourceFromS3 "Use generic-lens or generic-optics with 'deleteSourceFromS3' instead." #-}
 
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
-mcrEnabled :: Lens' MaxCountRule Bool
-mcrEnabled = lens _mcrEnabled (\s a -> s {_mcrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrEnabled :: Lens.Lens' MaxCountRule Lude.Bool
+mcrEnabled = Lens.lens (enabled :: MaxCountRule -> Lude.Bool) (\s a -> s {enabled = a} :: MaxCountRule)
+{-# DEPRECATED mcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromXML MaxCountRule where
+instance Lude.FromXML MaxCountRule where
   parseXML x =
     MaxCountRule'
-      <$> (x .@? "MaxCount")
-      <*> (x .@? "DeleteSourceFromS3")
-      <*> (x .@ "Enabled")
+      Lude.<$> (x Lude..@? "MaxCount")
+      Lude.<*> (x Lude..@? "DeleteSourceFromS3")
+      Lude.<*> (x Lude..@ "Enabled")
 
-instance Hashable MaxCountRule
-
-instance NFData MaxCountRule
-
-instance ToQuery MaxCountRule where
+instance Lude.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =
-    mconcat
-      [ "MaxCount" =: _mcrMaxCount,
-        "DeleteSourceFromS3" =: _mcrDeleteSourceFromS3,
-        "Enabled" =: _mcrEnabled
+    Lude.mconcat
+      [ "MaxCount" Lude.=: maxCount,
+        "DeleteSourceFromS3" Lude.=: deleteSourceFromS3,
+        "Enabled" Lude.=: enabled
       ]

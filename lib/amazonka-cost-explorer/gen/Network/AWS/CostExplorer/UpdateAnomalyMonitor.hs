@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,152 @@
 --
 -- Updates an existing cost anomaly monitor. The changes made are applied going forward, and does not change anomalies detected in the past.
 module Network.AWS.CostExplorer.UpdateAnomalyMonitor
-  ( -- * Creating a Request
-    updateAnomalyMonitor,
-    UpdateAnomalyMonitor,
+  ( -- * Creating a request
+    UpdateAnomalyMonitor (..),
+    mkUpdateAnomalyMonitor,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uamMonitorName,
     uamMonitorARN,
 
-    -- * Destructuring the Response
-    updateAnomalyMonitorResponse,
-    UpdateAnomalyMonitorResponse,
+    -- * Destructuring the response
+    UpdateAnomalyMonitorResponse (..),
+    mkUpdateAnomalyMonitorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uamrsResponseStatus,
     uamrsMonitorARN,
   )
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAnomalyMonitor' smart constructor.
+-- | /See:/ 'mkUpdateAnomalyMonitor' smart constructor.
 data UpdateAnomalyMonitor = UpdateAnomalyMonitor'
-  { _uamMonitorName ::
-      !(Maybe Text),
-    _uamMonitorARN :: !Text
+  { monitorName ::
+      Lude.Maybe Lude.Text,
+    monitorARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAnomalyMonitor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uamMonitorName' - The new name for the cost anomaly monitor.
---
--- * 'uamMonitorARN' - Cost anomaly monitor Amazon Resource Names (ARNs).
-updateAnomalyMonitor ::
-  -- | 'uamMonitorARN'
-  Text ->
+-- * 'monitorARN' - Cost anomaly monitor Amazon Resource Names (ARNs).
+-- * 'monitorName' - The new name for the cost anomaly monitor.
+mkUpdateAnomalyMonitor ::
+  -- | 'monitorARN'
+  Lude.Text ->
   UpdateAnomalyMonitor
-updateAnomalyMonitor pMonitorARN_ =
+mkUpdateAnomalyMonitor pMonitorARN_ =
   UpdateAnomalyMonitor'
-    { _uamMonitorName = Nothing,
-      _uamMonitorARN = pMonitorARN_
+    { monitorName = Lude.Nothing,
+      monitorARN = pMonitorARN_
     }
 
 -- | The new name for the cost anomaly monitor.
-uamMonitorName :: Lens' UpdateAnomalyMonitor (Maybe Text)
-uamMonitorName = lens _uamMonitorName (\s a -> s {_uamMonitorName = a})
+--
+-- /Note:/ Consider using 'monitorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uamMonitorName :: Lens.Lens' UpdateAnomalyMonitor (Lude.Maybe Lude.Text)
+uamMonitorName = Lens.lens (monitorName :: UpdateAnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {monitorName = a} :: UpdateAnomalyMonitor)
+{-# DEPRECATED uamMonitorName "Use generic-lens or generic-optics with 'monitorName' instead." #-}
 
 -- | Cost anomaly monitor Amazon Resource Names (ARNs).
-uamMonitorARN :: Lens' UpdateAnomalyMonitor Text
-uamMonitorARN = lens _uamMonitorARN (\s a -> s {_uamMonitorARN = a})
+--
+-- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uamMonitorARN :: Lens.Lens' UpdateAnomalyMonitor Lude.Text
+uamMonitorARN = Lens.lens (monitorARN :: UpdateAnomalyMonitor -> Lude.Text) (\s a -> s {monitorARN = a} :: UpdateAnomalyMonitor)
+{-# DEPRECATED uamMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
 
-instance AWSRequest UpdateAnomalyMonitor where
+instance Lude.AWSRequest UpdateAnomalyMonitor where
   type Rs UpdateAnomalyMonitor = UpdateAnomalyMonitorResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAnomalyMonitorResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "MonitorArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "MonitorArn")
       )
 
-instance Hashable UpdateAnomalyMonitor
-
-instance NFData UpdateAnomalyMonitor
-
-instance ToHeaders UpdateAnomalyMonitor where
+instance Lude.ToHeaders UpdateAnomalyMonitor where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.UpdateAnomalyMonitor" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.UpdateAnomalyMonitor" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAnomalyMonitor where
+instance Lude.ToJSON UpdateAnomalyMonitor where
   toJSON UpdateAnomalyMonitor' {..} =
-    object
-      ( catMaybes
-          [ ("MonitorName" .=) <$> _uamMonitorName,
-            Just ("MonitorArn" .= _uamMonitorARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MonitorName" Lude..=) Lude.<$> monitorName,
+            Lude.Just ("MonitorArn" Lude..= monitorARN)
           ]
       )
 
-instance ToPath UpdateAnomalyMonitor where
-  toPath = const "/"
+instance Lude.ToPath UpdateAnomalyMonitor where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAnomalyMonitor where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAnomalyMonitor where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAnomalyMonitorResponse' smart constructor.
+-- | /See:/ 'mkUpdateAnomalyMonitorResponse' smart constructor.
 data UpdateAnomalyMonitorResponse = UpdateAnomalyMonitorResponse'
-  { _uamrsResponseStatus ::
-      !Int,
-    _uamrsMonitorARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    monitorARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAnomalyMonitorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uamrsResponseStatus' - -- | The response status code.
---
--- * 'uamrsMonitorARN' - A cost anomaly monitor ARN.
-updateAnomalyMonitorResponse ::
-  -- | 'uamrsResponseStatus'
-  Int ->
-  -- | 'uamrsMonitorARN'
-  Text ->
+-- * 'monitorARN' - A cost anomaly monitor ARN.
+-- * 'responseStatus' - The response status code.
+mkUpdateAnomalyMonitorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'monitorARN'
+  Lude.Text ->
   UpdateAnomalyMonitorResponse
-updateAnomalyMonitorResponse pResponseStatus_ pMonitorARN_ =
+mkUpdateAnomalyMonitorResponse pResponseStatus_ pMonitorARN_ =
   UpdateAnomalyMonitorResponse'
-    { _uamrsResponseStatus =
-        pResponseStatus_,
-      _uamrsMonitorARN = pMonitorARN_
+    { responseStatus = pResponseStatus_,
+      monitorARN = pMonitorARN_
     }
 
--- | -- | The response status code.
-uamrsResponseStatus :: Lens' UpdateAnomalyMonitorResponse Int
-uamrsResponseStatus = lens _uamrsResponseStatus (\s a -> s {_uamrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uamrsResponseStatus :: Lens.Lens' UpdateAnomalyMonitorResponse Lude.Int
+uamrsResponseStatus = Lens.lens (responseStatus :: UpdateAnomalyMonitorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAnomalyMonitorResponse)
+{-# DEPRECATED uamrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A cost anomaly monitor ARN.
-uamrsMonitorARN :: Lens' UpdateAnomalyMonitorResponse Text
-uamrsMonitorARN = lens _uamrsMonitorARN (\s a -> s {_uamrsMonitorARN = a})
-
-instance NFData UpdateAnomalyMonitorResponse
+--
+-- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uamrsMonitorARN :: Lens.Lens' UpdateAnomalyMonitorResponse Lude.Text
+uamrsMonitorARN = Lens.lens (monitorARN :: UpdateAnomalyMonitorResponse -> Lude.Text) (\s a -> s {monitorARN = a} :: UpdateAnomalyMonitorResponse)
+{-# DEPRECATED uamrsMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PlacementGroupStrategy where
+module Network.AWS.EC2.Types.PlacementGroupStrategy
+  ( PlacementGroupStrategy
+      ( PlacementGroupStrategy',
+        PGSCluster,
+        PGSPartition,
+        PGSSpread
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlacementGroupStrategy
-  = PGSCluster
-  | PGSPartition
-  | PGSSpread
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlacementGroupStrategy = PlacementGroupStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlacementGroupStrategy where
-  parser =
-    takeLowerText >>= \case
-      "cluster" -> pure PGSCluster
-      "partition" -> pure PGSPartition
-      "spread" -> pure PGSSpread
-      e ->
-        fromTextError $
-          "Failure parsing PlacementGroupStrategy from value: '" <> e
-            <> "'. Accepted values: cluster, partition, spread"
+pattern PGSCluster :: PlacementGroupStrategy
+pattern PGSCluster = PlacementGroupStrategy' "cluster"
 
-instance ToText PlacementGroupStrategy where
-  toText = \case
-    PGSCluster -> "cluster"
-    PGSPartition -> "partition"
-    PGSSpread -> "spread"
+pattern PGSPartition :: PlacementGroupStrategy
+pattern PGSPartition = PlacementGroupStrategy' "partition"
 
-instance Hashable PlacementGroupStrategy
+pattern PGSSpread :: PlacementGroupStrategy
+pattern PGSSpread = PlacementGroupStrategy' "spread"
 
-instance NFData PlacementGroupStrategy
-
-instance ToByteString PlacementGroupStrategy
-
-instance ToQuery PlacementGroupStrategy
-
-instance ToHeader PlacementGroupStrategy
-
-instance FromXML PlacementGroupStrategy where
-  parseXML = parseXMLText "PlacementGroupStrategy"
+{-# COMPLETE
+  PGSCluster,
+  PGSPartition,
+  PGSSpread,
+  PlacementGroupStrategy'
+  #-}

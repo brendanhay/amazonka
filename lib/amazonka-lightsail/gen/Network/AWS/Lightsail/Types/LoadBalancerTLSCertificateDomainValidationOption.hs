@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainValidationOption where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainValidationOption
+  ( LoadBalancerTLSCertificateDomainValidationOption (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkLoadBalancerTLSCertificateDomainValidationOption,
+
+    -- * Lenses
+    lbtcdvoDomainName,
+    lbtcdvoValidationStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the domain names on an SSL/TLS certificate that you will use to validate domain ownership.
 --
---
---
--- /See:/ 'loadBalancerTLSCertificateDomainValidationOption' smart constructor.
+-- /See:/ 'mkLoadBalancerTLSCertificateDomainValidationOption' smart constructor.
 data LoadBalancerTLSCertificateDomainValidationOption = LoadBalancerTLSCertificateDomainValidationOption'
-  { _lbtcdvoDomainName ::
-      !( Maybe
-           Text
-       ),
-    _lbtcdvoValidationStatus ::
-      !( Maybe
-           LoadBalancerTLSCertificateDomainStatus
-       )
+  { domainName ::
+      Lude.Maybe
+        Lude.Text,
+    validationStatus ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateDomainStatus
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcdvoDomainName' - The fully qualified domain name in the certificate request.
---
--- * 'lbtcdvoValidationStatus' - The status of the domain validation. Valid values are listed below.
-loadBalancerTLSCertificateDomainValidationOption ::
+-- * 'domainName' - The fully qualified domain name in the certificate request.
+-- * 'validationStatus' - The status of the domain validation. Valid values are listed below.
+mkLoadBalancerTLSCertificateDomainValidationOption ::
   LoadBalancerTLSCertificateDomainValidationOption
-loadBalancerTLSCertificateDomainValidationOption =
+mkLoadBalancerTLSCertificateDomainValidationOption =
   LoadBalancerTLSCertificateDomainValidationOption'
-    { _lbtcdvoDomainName =
-        Nothing,
-      _lbtcdvoValidationStatus = Nothing
+    { domainName =
+        Lude.Nothing,
+      validationStatus = Lude.Nothing
     }
 
 -- | The fully qualified domain name in the certificate request.
-lbtcdvoDomainName :: Lens' LoadBalancerTLSCertificateDomainValidationOption (Maybe Text)
-lbtcdvoDomainName = lens _lbtcdvoDomainName (\s a -> s {_lbtcdvoDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvoDomainName :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationOption (Lude.Maybe Lude.Text)
+lbtcdvoDomainName = Lens.lens (domainName :: LoadBalancerTLSCertificateDomainValidationOption -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: LoadBalancerTLSCertificateDomainValidationOption)
+{-# DEPRECATED lbtcdvoDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The status of the domain validation. Valid values are listed below.
-lbtcdvoValidationStatus :: Lens' LoadBalancerTLSCertificateDomainValidationOption (Maybe LoadBalancerTLSCertificateDomainStatus)
-lbtcdvoValidationStatus = lens _lbtcdvoValidationStatus (\s a -> s {_lbtcdvoValidationStatus = a})
+--
+-- /Note:/ Consider using 'validationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcdvoValidationStatus :: Lens.Lens' LoadBalancerTLSCertificateDomainValidationOption (Lude.Maybe LoadBalancerTLSCertificateDomainStatus)
+lbtcdvoValidationStatus = Lens.lens (validationStatus :: LoadBalancerTLSCertificateDomainValidationOption -> Lude.Maybe LoadBalancerTLSCertificateDomainStatus) (\s a -> s {validationStatus = a} :: LoadBalancerTLSCertificateDomainValidationOption)
+{-# DEPRECATED lbtcdvoValidationStatus "Use generic-lens or generic-optics with 'validationStatus' instead." #-}
 
-instance FromJSON LoadBalancerTLSCertificateDomainValidationOption where
+instance
+  Lude.FromJSON
+    LoadBalancerTLSCertificateDomainValidationOption
+  where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoadBalancerTLSCertificateDomainValidationOption"
       ( \x ->
           LoadBalancerTLSCertificateDomainValidationOption'
-            <$> (x .:? "domainName") <*> (x .:? "validationStatus")
+            Lude.<$> (x Lude..:? "domainName") Lude.<*> (x Lude..:? "validationStatus")
       )
-
-instance Hashable LoadBalancerTLSCertificateDomainValidationOption
-
-instance NFData LoadBalancerTLSCertificateDomainValidationOption

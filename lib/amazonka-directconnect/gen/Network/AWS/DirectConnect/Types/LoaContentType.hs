@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.LoaContentType where
+module Network.AWS.DirectConnect.Types.LoaContentType
+  ( LoaContentType
+      ( LoaContentType',
+        ApplicationPdf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoaContentType = ApplicationPdf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoaContentType = LoaContentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoaContentType where
-  parser =
-    takeLowerText >>= \case
-      "application/pdf" -> pure ApplicationPdf
-      e ->
-        fromTextError $
-          "Failure parsing LoaContentType from value: '" <> e
-            <> "'. Accepted values: application/pdf"
+pattern ApplicationPdf :: LoaContentType
+pattern ApplicationPdf = LoaContentType' "application/pdf"
 
-instance ToText LoaContentType where
-  toText = \case
-    ApplicationPdf -> "application/pdf"
-
-instance Hashable LoaContentType
-
-instance NFData LoaContentType
-
-instance ToByteString LoaContentType
-
-instance ToQuery LoaContentType
-
-instance ToHeader LoaContentType
-
-instance ToJSON LoaContentType where
-  toJSON = toJSONText
-
-instance FromJSON LoaContentType where
-  parseJSON = parseJSONText "LoaContentType"
+{-# COMPLETE
+  ApplicationPdf,
+  LoaContentType'
+  #-}

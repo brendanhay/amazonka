@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,152 @@
 --
 -- Creates a message template for messages that are sent through the email channel.
 module Network.AWS.Pinpoint.CreateEmailTemplate
-  ( -- * Creating a Request
-    createEmailTemplate,
-    CreateEmailTemplate,
+  ( -- * Creating a request
+    CreateEmailTemplate (..),
+    mkCreateEmailTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cetTemplateName,
     cetEmailTemplateRequest,
 
-    -- * Destructuring the Response
-    createEmailTemplateResponse,
-    CreateEmailTemplateResponse,
+    -- * Destructuring the response
+    CreateEmailTemplateResponse (..),
+    mkCreateEmailTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cetrsResponseStatus,
     cetrsCreateTemplateMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createEmailTemplate' smart constructor.
+-- | /See:/ 'mkCreateEmailTemplate' smart constructor.
 data CreateEmailTemplate = CreateEmailTemplate'
-  { _cetTemplateName ::
-      !Text,
-    _cetEmailTemplateRequest :: !EmailTemplateRequest
+  { templateName ::
+      Lude.Text,
+    emailTemplateRequest :: EmailTemplateRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEmailTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cetTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
---
--- * 'cetEmailTemplateRequest' - Undocumented member.
-createEmailTemplate ::
-  -- | 'cetTemplateName'
-  Text ->
-  -- | 'cetEmailTemplateRequest'
+-- * 'emailTemplateRequest' - Undocumented field.
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+mkCreateEmailTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'emailTemplateRequest'
   EmailTemplateRequest ->
   CreateEmailTemplate
-createEmailTemplate pTemplateName_ pEmailTemplateRequest_ =
+mkCreateEmailTemplate pTemplateName_ pEmailTemplateRequest_ =
   CreateEmailTemplate'
-    { _cetTemplateName = pTemplateName_,
-      _cetEmailTemplateRequest = pEmailTemplateRequest_
+    { templateName = pTemplateName_,
+      emailTemplateRequest = pEmailTemplateRequest_
     }
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-cetTemplateName :: Lens' CreateEmailTemplate Text
-cetTemplateName = lens _cetTemplateName (\s a -> s {_cetTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetTemplateName :: Lens.Lens' CreateEmailTemplate Lude.Text
+cetTemplateName = Lens.lens (templateName :: CreateEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateEmailTemplate)
+{-# DEPRECATED cetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
--- | Undocumented member.
-cetEmailTemplateRequest :: Lens' CreateEmailTemplate EmailTemplateRequest
-cetEmailTemplateRequest = lens _cetEmailTemplateRequest (\s a -> s {_cetEmailTemplateRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'emailTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetEmailTemplateRequest :: Lens.Lens' CreateEmailTemplate EmailTemplateRequest
+cetEmailTemplateRequest = Lens.lens (emailTemplateRequest :: CreateEmailTemplate -> EmailTemplateRequest) (\s a -> s {emailTemplateRequest = a} :: CreateEmailTemplate)
+{-# DEPRECATED cetEmailTemplateRequest "Use generic-lens or generic-optics with 'emailTemplateRequest' instead." #-}
 
-instance AWSRequest CreateEmailTemplate where
+instance Lude.AWSRequest CreateEmailTemplate where
   type Rs CreateEmailTemplate = CreateEmailTemplateResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateEmailTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable CreateEmailTemplate
-
-instance NFData CreateEmailTemplate
-
-instance ToHeaders CreateEmailTemplate where
+instance Lude.ToHeaders CreateEmailTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateEmailTemplate where
+instance Lude.ToJSON CreateEmailTemplate where
   toJSON CreateEmailTemplate' {..} =
-    object
-      ( catMaybes
-          [Just ("EmailTemplateRequest" .= _cetEmailTemplateRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EmailTemplateRequest" Lude..= emailTemplateRequest)]
       )
 
-instance ToPath CreateEmailTemplate where
+instance Lude.ToPath CreateEmailTemplate where
   toPath CreateEmailTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _cetTemplateName, "/email"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/email"]
 
-instance ToQuery CreateEmailTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery CreateEmailTemplate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createEmailTemplateResponse' smart constructor.
+-- | /See:/ 'mkCreateEmailTemplateResponse' smart constructor.
 data CreateEmailTemplateResponse = CreateEmailTemplateResponse'
-  { _cetrsResponseStatus ::
-      !Int,
-    _cetrsCreateTemplateMessageBody ::
-      !CreateTemplateMessageBody
+  { responseStatus ::
+      Lude.Int,
+    createTemplateMessageBody ::
+      CreateTemplateMessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEmailTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cetrsResponseStatus' - -- | The response status code.
---
--- * 'cetrsCreateTemplateMessageBody' - Undocumented member.
-createEmailTemplateResponse ::
-  -- | 'cetrsResponseStatus'
-  Int ->
-  -- | 'cetrsCreateTemplateMessageBody'
+-- * 'createTemplateMessageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateEmailTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
   CreateEmailTemplateResponse
-createEmailTemplateResponse
+mkCreateEmailTemplateResponse
   pResponseStatus_
   pCreateTemplateMessageBody_ =
     CreateEmailTemplateResponse'
-      { _cetrsResponseStatus =
-          pResponseStatus_,
-        _cetrsCreateTemplateMessageBody = pCreateTemplateMessageBody_
+      { responseStatus = pResponseStatus_,
+        createTemplateMessageBody = pCreateTemplateMessageBody_
       }
 
--- | -- | The response status code.
-cetrsResponseStatus :: Lens' CreateEmailTemplateResponse Int
-cetrsResponseStatus = lens _cetrsResponseStatus (\s a -> s {_cetrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetrsResponseStatus :: Lens.Lens' CreateEmailTemplateResponse Lude.Int
+cetrsResponseStatus = Lens.lens (responseStatus :: CreateEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEmailTemplateResponse)
+{-# DEPRECATED cetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-cetrsCreateTemplateMessageBody :: Lens' CreateEmailTemplateResponse CreateTemplateMessageBody
-cetrsCreateTemplateMessageBody = lens _cetrsCreateTemplateMessageBody (\s a -> s {_cetrsCreateTemplateMessageBody = a})
-
-instance NFData CreateEmailTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'createTemplateMessageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetrsCreateTemplateMessageBody :: Lens.Lens' CreateEmailTemplateResponse CreateTemplateMessageBody
+cetrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreateEmailTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreateEmailTemplateResponse)
+{-# DEPRECATED cetrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}

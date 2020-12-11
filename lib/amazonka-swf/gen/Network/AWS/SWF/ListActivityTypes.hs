@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,29 +14,27 @@
 --
 -- Returns information about all activities registered in the specified domain that match the specified name and registration status. The result includes information like creation date, current status of the activity, etc. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextPageToken@ returned by the initial call.
 --
---
 -- __Access Control__
---
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
+--
 --     * Use an @Action@ element to allow or deny permission to call this action.
+--
 --
 --     * You cannot use an IAM policy to constrain this action's parameters.
 --
 --
---
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.ListActivityTypes
-  ( -- * Creating a Request
-    listActivityTypes,
-    ListActivityTypes,
+  ( -- * Creating a request
+    ListActivityTypes (..),
+    mkListActivityTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     latNextPageToken,
     latReverseOrder,
     latName,
@@ -49,186 +42,219 @@ module Network.AWS.SWF.ListActivityTypes
     latDomain,
     latRegistrationStatus,
 
-    -- * Destructuring the Response
-    listActivityTypesResponse,
-    ListActivityTypesResponse,
+    -- * Destructuring the response
+    ListActivityTypesResponse (..),
+    mkListActivityTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     latrsNextPageToken,
     latrsResponseStatus,
     latrsTypeInfos,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SWF.Types
 
--- | /See:/ 'listActivityTypes' smart constructor.
+-- | /See:/ 'mkListActivityTypes' smart constructor.
 data ListActivityTypes = ListActivityTypes'
-  { _latNextPageToken ::
-      !(Maybe Text),
-    _latReverseOrder :: !(Maybe Bool),
-    _latName :: !(Maybe Text),
-    _latMaximumPageSize :: !(Maybe Nat),
-    _latDomain :: !Text,
-    _latRegistrationStatus :: !RegistrationStatus
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    maximumPageSize :: Lude.Maybe Lude.Natural,
+    domain :: Lude.Text,
+    registrationStatus :: RegistrationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivityTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'domain' - The name of the domain in which the activity types have been registered.
+-- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+-- * 'name' - If specified, only lists the activity types that have this name.
+-- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
--- * 'latNextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".  The configured @maximumPageSize@ determines how many results can be returned in a single call.
---
--- * 'latReverseOrder' - When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the activity types.
---
--- * 'latName' - If specified, only lists the activity types that have this name.
---
--- * 'latMaximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- * 'latDomain' - The name of the domain in which the activity types have been registered.
---
--- * 'latRegistrationStatus' - Specifies the registration status of the activity types to list.
-listActivityTypes ::
-  -- | 'latDomain'
-  Text ->
-  -- | 'latRegistrationStatus'
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- * 'registrationStatus' - Specifies the registration status of the activity types to list.
+-- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the activity types.
+mkListActivityTypes ::
+  -- | 'domain'
+  Lude.Text ->
+  -- | 'registrationStatus'
   RegistrationStatus ->
   ListActivityTypes
-listActivityTypes pDomain_ pRegistrationStatus_ =
+mkListActivityTypes pDomain_ pRegistrationStatus_ =
   ListActivityTypes'
-    { _latNextPageToken = Nothing,
-      _latReverseOrder = Nothing,
-      _latName = Nothing,
-      _latMaximumPageSize = Nothing,
-      _latDomain = pDomain_,
-      _latRegistrationStatus = pRegistrationStatus_
+    { nextPageToken = Lude.Nothing,
+      reverseOrder = Lude.Nothing,
+      name = Lude.Nothing,
+      maximumPageSize = Lude.Nothing,
+      domain = pDomain_,
+      registrationStatus = pRegistrationStatus_
     }
 
--- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".  The configured @maximumPageSize@ determines how many results can be returned in a single call.
-latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
-latNextPageToken = lens _latNextPageToken (\s a -> s {_latNextPageToken = a})
+-- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+--
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latNextPageToken :: Lens.Lens' ListActivityTypes (Lude.Maybe Lude.Text)
+latNextPageToken = Lens.lens (nextPageToken :: ListActivityTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListActivityTypes)
+{-# DEPRECATED latNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the activity types.
-latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
-latReverseOrder = lens _latReverseOrder (\s a -> s {_latReverseOrder = a})
+--
+-- /Note:/ Consider using 'reverseOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latReverseOrder :: Lens.Lens' ListActivityTypes (Lude.Maybe Lude.Bool)
+latReverseOrder = Lens.lens (reverseOrder :: ListActivityTypes -> Lude.Maybe Lude.Bool) (\s a -> s {reverseOrder = a} :: ListActivityTypes)
+{-# DEPRECATED latReverseOrder "Use generic-lens or generic-optics with 'reverseOrder' instead." #-}
 
 -- | If specified, only lists the activity types that have this name.
-latName :: Lens' ListActivityTypes (Maybe Text)
-latName = lens _latName (\s a -> s {_latName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latName :: Lens.Lens' ListActivityTypes (Lude.Maybe Lude.Text)
+latName = Lens.lens (name :: ListActivityTypes -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ListActivityTypes)
+{-# DEPRECATED latName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
-latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
-latMaximumPageSize = lens _latMaximumPageSize (\s a -> s {_latMaximumPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latMaximumPageSize :: Lens.Lens' ListActivityTypes (Lude.Maybe Lude.Natural)
+latMaximumPageSize = Lens.lens (maximumPageSize :: ListActivityTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListActivityTypes)
+{-# DEPRECATED latMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
 -- | The name of the domain in which the activity types have been registered.
-latDomain :: Lens' ListActivityTypes Text
-latDomain = lens _latDomain (\s a -> s {_latDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latDomain :: Lens.Lens' ListActivityTypes Lude.Text
+latDomain = Lens.lens (domain :: ListActivityTypes -> Lude.Text) (\s a -> s {domain = a} :: ListActivityTypes)
+{-# DEPRECATED latDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | Specifies the registration status of the activity types to list.
-latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
-latRegistrationStatus = lens _latRegistrationStatus (\s a -> s {_latRegistrationStatus = a})
+--
+-- /Note:/ Consider using 'registrationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latRegistrationStatus :: Lens.Lens' ListActivityTypes RegistrationStatus
+latRegistrationStatus = Lens.lens (registrationStatus :: ListActivityTypes -> RegistrationStatus) (\s a -> s {registrationStatus = a} :: ListActivityTypes)
+{-# DEPRECATED latRegistrationStatus "Use generic-lens or generic-optics with 'registrationStatus' instead." #-}
 
-instance AWSPager ListActivityTypes where
+instance Page.AWSPager ListActivityTypes where
   page rq rs
-    | stop (rs ^. latrsNextPageToken) = Nothing
-    | stop (rs ^. latrsTypeInfos) = Nothing
-    | otherwise =
-      Just $ rq & latNextPageToken .~ rs ^. latrsNextPageToken
+    | Page.stop (rs Lens.^. latrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. latrsTypeInfos) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& latNextPageToken Lens..~ rs Lens.^. latrsNextPageToken
 
-instance AWSRequest ListActivityTypes where
+instance Lude.AWSRequest ListActivityTypes where
   type Rs ListActivityTypes = ListActivityTypesResponse
-  request = postJSON swf
+  request = Req.postJSON swfService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListActivityTypesResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "typeInfos" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "typeInfos" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListActivityTypes
-
-instance NFData ListActivityTypes
-
-instance ToHeaders ListActivityTypes where
+instance Lude.ToHeaders ListActivityTypes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SimpleWorkflowService.ListActivityTypes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("SimpleWorkflowService.ListActivityTypes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListActivityTypes where
+instance Lude.ToJSON ListActivityTypes where
   toJSON ListActivityTypes' {..} =
-    object
-      ( catMaybes
-          [ ("nextPageToken" .=) <$> _latNextPageToken,
-            ("reverseOrder" .=) <$> _latReverseOrder,
-            ("name" .=) <$> _latName,
-            ("maximumPageSize" .=) <$> _latMaximumPageSize,
-            Just ("domain" .= _latDomain),
-            Just ("registrationStatus" .= _latRegistrationStatus)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
+            ("name" Lude..=) Lude.<$> name,
+            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
+            Lude.Just ("domain" Lude..= domain),
+            Lude.Just ("registrationStatus" Lude..= registrationStatus)
           ]
       )
 
-instance ToPath ListActivityTypes where
-  toPath = const "/"
+instance Lude.ToPath ListActivityTypes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListActivityTypes where
-  toQuery = const mempty
+instance Lude.ToQuery ListActivityTypes where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains a paginated list of activity type information structures.
 --
---
---
--- /See:/ 'listActivityTypesResponse' smart constructor.
+-- /See:/ 'mkListActivityTypesResponse' smart constructor.
 data ListActivityTypesResponse = ListActivityTypesResponse'
-  { _latrsNextPageToken ::
-      !(Maybe Text),
-    _latrsResponseStatus :: !Int,
-    _latrsTypeInfos :: ![ActivityTypeInfo]
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    typeInfos :: [ActivityTypeInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivityTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
--- * 'latrsNextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
---
--- * 'latrsResponseStatus' - -- | The response status code.
---
--- * 'latrsTypeInfos' - List of activity type information.
-listActivityTypesResponse ::
-  -- | 'latrsResponseStatus'
-  Int ->
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- * 'responseStatus' - The response status code.
+-- * 'typeInfos' - List of activity type information.
+mkListActivityTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListActivityTypesResponse
-listActivityTypesResponse pResponseStatus_ =
+mkListActivityTypesResponse pResponseStatus_ =
   ListActivityTypesResponse'
-    { _latrsNextPageToken = Nothing,
-      _latrsResponseStatus = pResponseStatus_,
-      _latrsTypeInfos = mempty
+    { nextPageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      typeInfos = Lude.mempty
     }
 
--- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
-latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
-latrsNextPageToken = lens _latrsNextPageToken (\s a -> s {_latrsNextPageToken = a})
+-- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+--
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsNextPageToken :: Lens.Lens' ListActivityTypesResponse (Lude.Maybe Lude.Text)
+latrsNextPageToken = Lens.lens (nextPageToken :: ListActivityTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListActivityTypesResponse)
+{-# DEPRECATED latrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | -- | The response status code.
-latrsResponseStatus :: Lens' ListActivityTypesResponse Int
-latrsResponseStatus = lens _latrsResponseStatus (\s a -> s {_latrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsResponseStatus :: Lens.Lens' ListActivityTypesResponse Lude.Int
+latrsResponseStatus = Lens.lens (responseStatus :: ListActivityTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActivityTypesResponse)
+{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | List of activity type information.
-latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
-latrsTypeInfos = lens _latrsTypeInfos (\s a -> s {_latrsTypeInfos = a}) . _Coerce
-
-instance NFData ListActivityTypesResponse
+--
+-- /Note:/ Consider using 'typeInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsTypeInfos :: Lens.Lens' ListActivityTypesResponse [ActivityTypeInfo]
+latrsTypeInfos = Lens.lens (typeInfos :: ListActivityTypesResponse -> [ActivityTypeInfo]) (\s a -> s {typeInfos = a} :: ListActivityTypesResponse)
+{-# DEPRECATED latrsTypeInfos "Use generic-lens or generic-optics with 'typeInfos' instead." #-}

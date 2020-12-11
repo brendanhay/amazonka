@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,137 @@
 --
 -- Retrieves a @DataSource@ object.
 module Network.AWS.AppSync.GetDataSource
-  ( -- * Creating a Request
-    getDataSource,
-    GetDataSource,
+  ( -- * Creating a request
+    GetDataSource (..),
+    mkGetDataSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdsApiId,
     gdsName,
 
-    -- * Destructuring the Response
-    getDataSourceResponse,
-    GetDataSourceResponse,
+    -- * Destructuring the response
+    GetDataSourceResponse (..),
+    mkGetDataSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdsrsDataSource,
     gdsrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDataSource' smart constructor.
+-- | /See:/ 'mkGetDataSource' smart constructor.
 data GetDataSource = GetDataSource'
-  { _gdsApiId :: !Text,
-    _gdsName :: !Text
+  { apiId :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsApiId' - The API ID.
---
--- * 'gdsName' - The name of the data source.
-getDataSource ::
-  -- | 'gdsApiId'
-  Text ->
-  -- | 'gdsName'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'name' - The name of the data source.
+mkGetDataSource ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetDataSource
-getDataSource pApiId_ pName_ =
-  GetDataSource' {_gdsApiId = pApiId_, _gdsName = pName_}
+mkGetDataSource pApiId_ pName_ =
+  GetDataSource' {apiId = pApiId_, name = pName_}
 
 -- | The API ID.
-gdsApiId :: Lens' GetDataSource Text
-gdsApiId = lens _gdsApiId (\s a -> s {_gdsApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsApiId :: Lens.Lens' GetDataSource Lude.Text
+gdsApiId = Lens.lens (apiId :: GetDataSource -> Lude.Text) (\s a -> s {apiId = a} :: GetDataSource)
+{-# DEPRECATED gdsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The name of the data source.
-gdsName :: Lens' GetDataSource Text
-gdsName = lens _gdsName (\s a -> s {_gdsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsName :: Lens.Lens' GetDataSource Lude.Text
+gdsName = Lens.lens (name :: GetDataSource -> Lude.Text) (\s a -> s {name = a} :: GetDataSource)
+{-# DEPRECATED gdsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetDataSource where
+instance Lude.AWSRequest GetDataSource where
   type Rs GetDataSource = GetDataSourceResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDataSourceResponse'
-            <$> (x .?> "dataSource") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "dataSource") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDataSource
-
-instance NFData GetDataSource
-
-instance ToHeaders GetDataSource where
+instance Lude.ToHeaders GetDataSource where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetDataSource where
+instance Lude.ToPath GetDataSource where
   toPath GetDataSource' {..} =
-    mconcat
-      ["/v1/apis/", toBS _gdsApiId, "/datasources/", toBS _gdsName]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/datasources/", Lude.toBS name]
 
-instance ToQuery GetDataSource where
-  toQuery = const mempty
+instance Lude.ToQuery GetDataSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDataSourceResponse' smart constructor.
+-- | /See:/ 'mkGetDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-  { _gdsrsDataSource ::
-      !(Maybe DataSource),
-    _gdsrsResponseStatus :: !Int
+  { dataSource ::
+      Lude.Maybe DataSource,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsrsDataSource' - The @DataSource@ object.
---
--- * 'gdsrsResponseStatus' - -- | The response status code.
-getDataSourceResponse ::
-  -- | 'gdsrsResponseStatus'
-  Int ->
+-- * 'dataSource' - The @DataSource@ object.
+-- * 'responseStatus' - The response status code.
+mkGetDataSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDataSourceResponse
-getDataSourceResponse pResponseStatus_ =
+mkGetDataSourceResponse pResponseStatus_ =
   GetDataSourceResponse'
-    { _gdsrsDataSource = Nothing,
-      _gdsrsResponseStatus = pResponseStatus_
+    { dataSource = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @DataSource@ object.
-gdsrsDataSource :: Lens' GetDataSourceResponse (Maybe DataSource)
-gdsrsDataSource = lens _gdsrsDataSource (\s a -> s {_gdsrsDataSource = a})
+--
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrsDataSource :: Lens.Lens' GetDataSourceResponse (Lude.Maybe DataSource)
+gdsrsDataSource = Lens.lens (dataSource :: GetDataSourceResponse -> Lude.Maybe DataSource) (\s a -> s {dataSource = a} :: GetDataSourceResponse)
+{-# DEPRECATED gdsrsDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
--- | -- | The response status code.
-gdsrsResponseStatus :: Lens' GetDataSourceResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\s a -> s {_gdsrsResponseStatus = a})
-
-instance NFData GetDataSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrsResponseStatus :: Lens.Lens' GetDataSourceResponse Lude.Int
+gdsrsResponseStatus = Lens.lens (responseStatus :: GetDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDataSourceResponse)
+{-# DEPRECATED gdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

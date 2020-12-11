@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.StartTimerFailedCause where
+module Network.AWS.SWF.Types.StartTimerFailedCause
+  ( StartTimerFailedCause
+      ( StartTimerFailedCause',
+        STFCOpenTimersLimitExceeded,
+        STFCOperationNotPermitted,
+        STFCTimerCreationRateExceeded,
+        STFCTimerIdAlreadyInUse
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StartTimerFailedCause
-  = STFCOpenTimersLimitExceeded
-  | STFCOperationNotPermitted
-  | STFCTimerCreationRateExceeded
-  | STFCTimerIdAlreadyInUse
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StartTimerFailedCause = StartTimerFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StartTimerFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "open_timers_limit_exceeded" -> pure STFCOpenTimersLimitExceeded
-      "operation_not_permitted" -> pure STFCOperationNotPermitted
-      "timer_creation_rate_exceeded" -> pure STFCTimerCreationRateExceeded
-      "timer_id_already_in_use" -> pure STFCTimerIdAlreadyInUse
-      e ->
-        fromTextError $
-          "Failure parsing StartTimerFailedCause from value: '" <> e
-            <> "'. Accepted values: open_timers_limit_exceeded, operation_not_permitted, timer_creation_rate_exceeded, timer_id_already_in_use"
+pattern STFCOpenTimersLimitExceeded :: StartTimerFailedCause
+pattern STFCOpenTimersLimitExceeded = StartTimerFailedCause' "OPEN_TIMERS_LIMIT_EXCEEDED"
 
-instance ToText StartTimerFailedCause where
-  toText = \case
-    STFCOpenTimersLimitExceeded -> "OPEN_TIMERS_LIMIT_EXCEEDED"
-    STFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    STFCTimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
-    STFCTimerIdAlreadyInUse -> "TIMER_ID_ALREADY_IN_USE"
+pattern STFCOperationNotPermitted :: StartTimerFailedCause
+pattern STFCOperationNotPermitted = StartTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance Hashable StartTimerFailedCause
+pattern STFCTimerCreationRateExceeded :: StartTimerFailedCause
+pattern STFCTimerCreationRateExceeded = StartTimerFailedCause' "TIMER_CREATION_RATE_EXCEEDED"
 
-instance NFData StartTimerFailedCause
+pattern STFCTimerIdAlreadyInUse :: StartTimerFailedCause
+pattern STFCTimerIdAlreadyInUse = StartTimerFailedCause' "TIMER_ID_ALREADY_IN_USE"
 
-instance ToByteString StartTimerFailedCause
-
-instance ToQuery StartTimerFailedCause
-
-instance ToHeader StartTimerFailedCause
-
-instance FromJSON StartTimerFailedCause where
-  parseJSON = parseJSONText "StartTimerFailedCause"
+{-# COMPLETE
+  STFCOpenTimersLimitExceeded,
+  STFCOperationNotPermitted,
+  STFCTimerCreationRateExceeded,
+  STFCTimerIdAlreadyInUse,
+  StartTimerFailedCause'
+  #-}

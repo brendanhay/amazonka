@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings where
+module Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
+  ( PauseStateScheduleActionSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPauseStateScheduleActionSettings,
+
+    -- * Lenses
+    pssasPipelines,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelinePauseStateSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for the action to set pause state of a channel.
 --
--- /See:/ 'pauseStateScheduleActionSettings' smart constructor.
+-- /See:/ 'mkPauseStateScheduleActionSettings' smart constructor.
 newtype PauseStateScheduleActionSettings = PauseStateScheduleActionSettings'
-  { _pssasPipelines ::
-      Maybe
+  { pipelines ::
+      Lude.Maybe
         [PipelinePauseStateSettings]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PauseStateScheduleActionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pssasPipelines' - Undocumented member.
-pauseStateScheduleActionSettings ::
+-- * 'pipelines' - Undocumented field.
+mkPauseStateScheduleActionSettings ::
   PauseStateScheduleActionSettings
-pauseStateScheduleActionSettings =
-  PauseStateScheduleActionSettings' {_pssasPipelines = Nothing}
+mkPauseStateScheduleActionSettings =
+  PauseStateScheduleActionSettings' {pipelines = Lude.Nothing}
 
--- | Undocumented member.
-pssasPipelines :: Lens' PauseStateScheduleActionSettings [PipelinePauseStateSettings]
-pssasPipelines = lens _pssasPipelines (\s a -> s {_pssasPipelines = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'pipelines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pssasPipelines :: Lens.Lens' PauseStateScheduleActionSettings (Lude.Maybe [PipelinePauseStateSettings])
+pssasPipelines = Lens.lens (pipelines :: PauseStateScheduleActionSettings -> Lude.Maybe [PipelinePauseStateSettings]) (\s a -> s {pipelines = a} :: PauseStateScheduleActionSettings)
+{-# DEPRECATED pssasPipelines "Use generic-lens or generic-optics with 'pipelines' instead." #-}
 
-instance FromJSON PauseStateScheduleActionSettings where
+instance Lude.FromJSON PauseStateScheduleActionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "PauseStateScheduleActionSettings"
       ( \x ->
           PauseStateScheduleActionSettings'
-            <$> (x .:? "pipelines" .!= mempty)
+            Lude.<$> (x Lude..:? "pipelines" Lude..!= Lude.mempty)
       )
 
-instance Hashable PauseStateScheduleActionSettings
-
-instance NFData PauseStateScheduleActionSettings
-
-instance ToJSON PauseStateScheduleActionSettings where
+instance Lude.ToJSON PauseStateScheduleActionSettings where
   toJSON PauseStateScheduleActionSettings' {..} =
-    object (catMaybes [("pipelines" .=) <$> _pssasPipelines])
+    Lude.object
+      (Lude.catMaybes [("pipelines" Lude..=) Lude.<$> pipelines])

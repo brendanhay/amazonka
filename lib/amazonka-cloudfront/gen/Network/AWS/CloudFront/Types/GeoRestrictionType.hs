@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.GeoRestrictionType where
+module Network.AWS.CloudFront.Types.GeoRestrictionType
+  ( GeoRestrictionType
+      ( GeoRestrictionType',
+        GRTBlacklist,
+        GRTNone,
+        GRTWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GeoRestrictionType
-  = GRTBlacklist
-  | GRTNone
-  | GRTWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GeoRestrictionType = GeoRestrictionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GeoRestrictionType where
-  parser =
-    takeLowerText >>= \case
-      "blacklist" -> pure GRTBlacklist
-      "none" -> pure GRTNone
-      "whitelist" -> pure GRTWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing GeoRestrictionType from value: '" <> e
-            <> "'. Accepted values: blacklist, none, whitelist"
+pattern GRTBlacklist :: GeoRestrictionType
+pattern GRTBlacklist = GeoRestrictionType' "blacklist"
 
-instance ToText GeoRestrictionType where
-  toText = \case
-    GRTBlacklist -> "blacklist"
-    GRTNone -> "none"
-    GRTWhitelist -> "whitelist"
+pattern GRTNone :: GeoRestrictionType
+pattern GRTNone = GeoRestrictionType' "none"
 
-instance Hashable GeoRestrictionType
+pattern GRTWhitelist :: GeoRestrictionType
+pattern GRTWhitelist = GeoRestrictionType' "whitelist"
 
-instance NFData GeoRestrictionType
-
-instance ToByteString GeoRestrictionType
-
-instance ToQuery GeoRestrictionType
-
-instance ToHeader GeoRestrictionType
-
-instance FromXML GeoRestrictionType where
-  parseXML = parseXMLText "GeoRestrictionType"
-
-instance ToXML GeoRestrictionType where
-  toXML = toXMLText
+{-# COMPLETE
+  GRTBlacklist,
+  GRTNone,
+  GRTWhitelist,
+  GeoRestrictionType'
+  #-}

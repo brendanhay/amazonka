@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest where
+module Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
+  ( HlsIFrameOnlyManifest
+      ( HlsIFrameOnlyManifest',
+        HIFOMExclude,
+        HIFOMInclude
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
-data HlsIFrameOnlyManifest
-  = HIFOMExclude
-  | HIFOMInclude
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsIFrameOnlyManifest = HlsIFrameOnlyManifest' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsIFrameOnlyManifest where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure HIFOMExclude
-      "include" -> pure HIFOMInclude
-      e ->
-        fromTextError $
-          "Failure parsing HlsIFrameOnlyManifest from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern HIFOMExclude :: HlsIFrameOnlyManifest
+pattern HIFOMExclude = HlsIFrameOnlyManifest' "EXCLUDE"
 
-instance ToText HlsIFrameOnlyManifest where
-  toText = \case
-    HIFOMExclude -> "EXCLUDE"
-    HIFOMInclude -> "INCLUDE"
+pattern HIFOMInclude :: HlsIFrameOnlyManifest
+pattern HIFOMInclude = HlsIFrameOnlyManifest' "INCLUDE"
 
-instance Hashable HlsIFrameOnlyManifest
-
-instance NFData HlsIFrameOnlyManifest
-
-instance ToByteString HlsIFrameOnlyManifest
-
-instance ToQuery HlsIFrameOnlyManifest
-
-instance ToHeader HlsIFrameOnlyManifest
-
-instance ToJSON HlsIFrameOnlyManifest where
-  toJSON = toJSONText
-
-instance FromJSON HlsIFrameOnlyManifest where
-  parseJSON = parseJSONText "HlsIFrameOnlyManifest"
+{-# COMPLETE
+  HIFOMExclude,
+  HIFOMInclude,
+  HlsIFrameOnlyManifest'
+  #-}

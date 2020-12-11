@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse where
+module Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
+  ( BatchWriteOperationResponse (..),
+
+    -- * Smart constructor
+    mkBatchWriteOperationResponse,
+
+    -- * Lenses
+    bwoDeleteObject,
+    bwoDetachFromIndex,
+    bwoRemoveFacetFromObject,
+    bwoAttachObject,
+    bwoCreateObject,
+    bwoAttachTypedLink,
+    bwoDetachPolicy,
+    bwoCreateIndex,
+    bwoDetachObject,
+    bwoAddFacetToObject,
+    bwoDetachTypedLink,
+    bwoUpdateObjectAttributes,
+    bwoAttachPolicy,
+    bwoUpdateLinkAttributes,
+    bwoAttachToIndex,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
 import Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
@@ -30,199 +47,229 @@ import Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
 import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
 import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
 import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a @BatchWrite@ response operation.
 --
---
---
--- /See:/ 'batchWriteOperationResponse' smart constructor.
+-- /See:/ 'mkBatchWriteOperationResponse' smart constructor.
 data BatchWriteOperationResponse = BatchWriteOperationResponse'
-  { _bwoDeleteObject ::
-      !(Maybe BatchDeleteObjectResponse),
-    _bwoDetachFromIndex ::
-      !( Maybe
-           BatchDetachFromIndexResponse
-       ),
-    _bwoRemoveFacetFromObject ::
-      !( Maybe
-           BatchRemoveFacetFromObjectResponse
-       ),
-    _bwoAttachObject ::
-      !(Maybe BatchAttachObjectResponse),
-    _bwoCreateObject ::
-      !(Maybe BatchCreateObjectResponse),
-    _bwoAttachTypedLink ::
-      !( Maybe
-           BatchAttachTypedLinkResponse
-       ),
-    _bwoDetachPolicy ::
-      !(Maybe BatchDetachPolicyResponse),
-    _bwoCreateIndex ::
-      !(Maybe BatchCreateIndexResponse),
-    _bwoDetachObject ::
-      !(Maybe BatchDetachObjectResponse),
-    _bwoAddFacetToObject ::
-      !( Maybe
-           BatchAddFacetToObjectResponse
-       ),
-    _bwoDetachTypedLink ::
-      !( Maybe
-           BatchDetachTypedLinkResponse
-       ),
-    _bwoUpdateObjectAttributes ::
-      !( Maybe
-           BatchUpdateObjectAttributesResponse
-       ),
-    _bwoAttachPolicy ::
-      !(Maybe BatchAttachPolicyResponse),
-    _bwoUpdateLinkAttributes ::
-      !( Maybe
-           BatchUpdateLinkAttributesResponse
-       ),
-    _bwoAttachToIndex ::
-      !(Maybe BatchAttachToIndexResponse)
+  { deleteObject ::
+      Lude.Maybe
+        BatchDeleteObjectResponse,
+    detachFromIndex ::
+      Lude.Maybe
+        BatchDetachFromIndexResponse,
+    removeFacetFromObject ::
+      Lude.Maybe
+        BatchRemoveFacetFromObjectResponse,
+    attachObject ::
+      Lude.Maybe
+        BatchAttachObjectResponse,
+    createObject ::
+      Lude.Maybe
+        BatchCreateObjectResponse,
+    attachTypedLink ::
+      Lude.Maybe
+        BatchAttachTypedLinkResponse,
+    detachPolicy ::
+      Lude.Maybe
+        BatchDetachPolicyResponse,
+    createIndex ::
+      Lude.Maybe BatchCreateIndexResponse,
+    detachObject ::
+      Lude.Maybe
+        BatchDetachObjectResponse,
+    addFacetToObject ::
+      Lude.Maybe
+        BatchAddFacetToObjectResponse,
+    detachTypedLink ::
+      Lude.Maybe
+        BatchDetachTypedLinkResponse,
+    updateObjectAttributes ::
+      Lude.Maybe
+        BatchUpdateObjectAttributesResponse,
+    attachPolicy ::
+      Lude.Maybe
+        BatchAttachPolicyResponse,
+    updateLinkAttributes ::
+      Lude.Maybe
+        BatchUpdateLinkAttributesResponse,
+    attachToIndex ::
+      Lude.Maybe
+        BatchAttachToIndexResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchWriteOperationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bwoDeleteObject' - Deletes an object in a 'Directory' .
---
--- * 'bwoDetachFromIndex' - Detaches the specified object from the specified index.
---
--- * 'bwoRemoveFacetFromObject' - The result of a batch remove facet from object operation.
---
--- * 'bwoAttachObject' - Attaches an object to a 'Directory' .
---
--- * 'bwoCreateObject' - Creates an object in a 'Directory' .
---
--- * 'bwoAttachTypedLink' - Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- * 'bwoDetachPolicy' - Detaches a policy from a 'Directory' .
---
--- * 'bwoCreateIndex' - Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
---
--- * 'bwoDetachObject' - Detaches an object from a 'Directory' .
---
--- * 'bwoAddFacetToObject' - The result of an add facet to object batch operation.
---
--- * 'bwoDetachTypedLink' - Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- * 'bwoUpdateObjectAttributes' - Updates a given object’s attributes.
---
--- * 'bwoAttachPolicy' - Attaches a policy object to a regular object. An object can have a limited number of attached policies.
---
--- * 'bwoUpdateLinkAttributes' - Represents the output of a @BatchWrite@ response operation.
---
--- * 'bwoAttachToIndex' - Attaches the specified object to the specified index.
-batchWriteOperationResponse ::
+-- * 'addFacetToObject' - The result of an add facet to object batch operation.
+-- * 'attachObject' - Attaches an object to a 'Directory' .
+-- * 'attachPolicy' - Attaches a policy object to a regular object. An object can have a limited number of attached policies.
+-- * 'attachToIndex' - Attaches the specified object to the specified index.
+-- * 'attachTypedLink' - Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'createIndex' - Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
+-- * 'createObject' - Creates an object in a 'Directory' .
+-- * 'deleteObject' - Deletes an object in a 'Directory' .
+-- * 'detachFromIndex' - Detaches the specified object from the specified index.
+-- * 'detachObject' - Detaches an object from a 'Directory' .
+-- * 'detachPolicy' - Detaches a policy from a 'Directory' .
+-- * 'detachTypedLink' - Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'removeFacetFromObject' - The result of a batch remove facet from object operation.
+-- * 'updateLinkAttributes' - Represents the output of a @BatchWrite@ response operation.
+-- * 'updateObjectAttributes' - Updates a given object’s attributes.
+mkBatchWriteOperationResponse ::
   BatchWriteOperationResponse
-batchWriteOperationResponse =
+mkBatchWriteOperationResponse =
   BatchWriteOperationResponse'
-    { _bwoDeleteObject = Nothing,
-      _bwoDetachFromIndex = Nothing,
-      _bwoRemoveFacetFromObject = Nothing,
-      _bwoAttachObject = Nothing,
-      _bwoCreateObject = Nothing,
-      _bwoAttachTypedLink = Nothing,
-      _bwoDetachPolicy = Nothing,
-      _bwoCreateIndex = Nothing,
-      _bwoDetachObject = Nothing,
-      _bwoAddFacetToObject = Nothing,
-      _bwoDetachTypedLink = Nothing,
-      _bwoUpdateObjectAttributes = Nothing,
-      _bwoAttachPolicy = Nothing,
-      _bwoUpdateLinkAttributes = Nothing,
-      _bwoAttachToIndex = Nothing
+    { deleteObject = Lude.Nothing,
+      detachFromIndex = Lude.Nothing,
+      removeFacetFromObject = Lude.Nothing,
+      attachObject = Lude.Nothing,
+      createObject = Lude.Nothing,
+      attachTypedLink = Lude.Nothing,
+      detachPolicy = Lude.Nothing,
+      createIndex = Lude.Nothing,
+      detachObject = Lude.Nothing,
+      addFacetToObject = Lude.Nothing,
+      detachTypedLink = Lude.Nothing,
+      updateObjectAttributes = Lude.Nothing,
+      attachPolicy = Lude.Nothing,
+      updateLinkAttributes = Lude.Nothing,
+      attachToIndex = Lude.Nothing
     }
 
 -- | Deletes an object in a 'Directory' .
-bwoDeleteObject :: Lens' BatchWriteOperationResponse (Maybe BatchDeleteObjectResponse)
-bwoDeleteObject = lens _bwoDeleteObject (\s a -> s {_bwoDeleteObject = a})
+--
+-- /Note:/ Consider using 'deleteObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoDeleteObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchDeleteObjectResponse)
+bwoDeleteObject = Lens.lens (deleteObject :: BatchWriteOperationResponse -> Lude.Maybe BatchDeleteObjectResponse) (\s a -> s {deleteObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoDeleteObject "Use generic-lens or generic-optics with 'deleteObject' instead." #-}
 
 -- | Detaches the specified object from the specified index.
-bwoDetachFromIndex :: Lens' BatchWriteOperationResponse (Maybe BatchDetachFromIndexResponse)
-bwoDetachFromIndex = lens _bwoDetachFromIndex (\s a -> s {_bwoDetachFromIndex = a})
+--
+-- /Note:/ Consider using 'detachFromIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoDetachFromIndex :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchDetachFromIndexResponse)
+bwoDetachFromIndex = Lens.lens (detachFromIndex :: BatchWriteOperationResponse -> Lude.Maybe BatchDetachFromIndexResponse) (\s a -> s {detachFromIndex = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoDetachFromIndex "Use generic-lens or generic-optics with 'detachFromIndex' instead." #-}
 
 -- | The result of a batch remove facet from object operation.
-bwoRemoveFacetFromObject :: Lens' BatchWriteOperationResponse (Maybe BatchRemoveFacetFromObjectResponse)
-bwoRemoveFacetFromObject = lens _bwoRemoveFacetFromObject (\s a -> s {_bwoRemoveFacetFromObject = a})
+--
+-- /Note:/ Consider using 'removeFacetFromObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoRemoveFacetFromObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchRemoveFacetFromObjectResponse)
+bwoRemoveFacetFromObject = Lens.lens (removeFacetFromObject :: BatchWriteOperationResponse -> Lude.Maybe BatchRemoveFacetFromObjectResponse) (\s a -> s {removeFacetFromObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoRemoveFacetFromObject "Use generic-lens or generic-optics with 'removeFacetFromObject' instead." #-}
 
 -- | Attaches an object to a 'Directory' .
-bwoAttachObject :: Lens' BatchWriteOperationResponse (Maybe BatchAttachObjectResponse)
-bwoAttachObject = lens _bwoAttachObject (\s a -> s {_bwoAttachObject = a})
+--
+-- /Note:/ Consider using 'attachObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoAttachObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchAttachObjectResponse)
+bwoAttachObject = Lens.lens (attachObject :: BatchWriteOperationResponse -> Lude.Maybe BatchAttachObjectResponse) (\s a -> s {attachObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoAttachObject "Use generic-lens or generic-optics with 'attachObject' instead." #-}
 
 -- | Creates an object in a 'Directory' .
-bwoCreateObject :: Lens' BatchWriteOperationResponse (Maybe BatchCreateObjectResponse)
-bwoCreateObject = lens _bwoCreateObject (\s a -> s {_bwoCreateObject = a})
+--
+-- /Note:/ Consider using 'createObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoCreateObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchCreateObjectResponse)
+bwoCreateObject = Lens.lens (createObject :: BatchWriteOperationResponse -> Lude.Maybe BatchCreateObjectResponse) (\s a -> s {createObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoCreateObject "Use generic-lens or generic-optics with 'createObject' instead." #-}
 
 -- | Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-bwoAttachTypedLink :: Lens' BatchWriteOperationResponse (Maybe BatchAttachTypedLinkResponse)
-bwoAttachTypedLink = lens _bwoAttachTypedLink (\s a -> s {_bwoAttachTypedLink = a})
+--
+-- /Note:/ Consider using 'attachTypedLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoAttachTypedLink :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchAttachTypedLinkResponse)
+bwoAttachTypedLink = Lens.lens (attachTypedLink :: BatchWriteOperationResponse -> Lude.Maybe BatchAttachTypedLinkResponse) (\s a -> s {attachTypedLink = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoAttachTypedLink "Use generic-lens or generic-optics with 'attachTypedLink' instead." #-}
 
 -- | Detaches a policy from a 'Directory' .
-bwoDetachPolicy :: Lens' BatchWriteOperationResponse (Maybe BatchDetachPolicyResponse)
-bwoDetachPolicy = lens _bwoDetachPolicy (\s a -> s {_bwoDetachPolicy = a})
+--
+-- /Note:/ Consider using 'detachPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoDetachPolicy :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchDetachPolicyResponse)
+bwoDetachPolicy = Lens.lens (detachPolicy :: BatchWriteOperationResponse -> Lude.Maybe BatchDetachPolicyResponse) (\s a -> s {detachPolicy = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoDetachPolicy "Use generic-lens or generic-optics with 'detachPolicy' instead." #-}
 
 -- | Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
-bwoCreateIndex :: Lens' BatchWriteOperationResponse (Maybe BatchCreateIndexResponse)
-bwoCreateIndex = lens _bwoCreateIndex (\s a -> s {_bwoCreateIndex = a})
+--
+-- /Note:/ Consider using 'createIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoCreateIndex :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchCreateIndexResponse)
+bwoCreateIndex = Lens.lens (createIndex :: BatchWriteOperationResponse -> Lude.Maybe BatchCreateIndexResponse) (\s a -> s {createIndex = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoCreateIndex "Use generic-lens or generic-optics with 'createIndex' instead." #-}
 
 -- | Detaches an object from a 'Directory' .
-bwoDetachObject :: Lens' BatchWriteOperationResponse (Maybe BatchDetachObjectResponse)
-bwoDetachObject = lens _bwoDetachObject (\s a -> s {_bwoDetachObject = a})
+--
+-- /Note:/ Consider using 'detachObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoDetachObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchDetachObjectResponse)
+bwoDetachObject = Lens.lens (detachObject :: BatchWriteOperationResponse -> Lude.Maybe BatchDetachObjectResponse) (\s a -> s {detachObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoDetachObject "Use generic-lens or generic-optics with 'detachObject' instead." #-}
 
 -- | The result of an add facet to object batch operation.
-bwoAddFacetToObject :: Lens' BatchWriteOperationResponse (Maybe BatchAddFacetToObjectResponse)
-bwoAddFacetToObject = lens _bwoAddFacetToObject (\s a -> s {_bwoAddFacetToObject = a})
+--
+-- /Note:/ Consider using 'addFacetToObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoAddFacetToObject :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchAddFacetToObjectResponse)
+bwoAddFacetToObject = Lens.lens (addFacetToObject :: BatchWriteOperationResponse -> Lude.Maybe BatchAddFacetToObjectResponse) (\s a -> s {addFacetToObject = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoAddFacetToObject "Use generic-lens or generic-optics with 'addFacetToObject' instead." #-}
 
 -- | Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-bwoDetachTypedLink :: Lens' BatchWriteOperationResponse (Maybe BatchDetachTypedLinkResponse)
-bwoDetachTypedLink = lens _bwoDetachTypedLink (\s a -> s {_bwoDetachTypedLink = a})
+--
+-- /Note:/ Consider using 'detachTypedLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoDetachTypedLink :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchDetachTypedLinkResponse)
+bwoDetachTypedLink = Lens.lens (detachTypedLink :: BatchWriteOperationResponse -> Lude.Maybe BatchDetachTypedLinkResponse) (\s a -> s {detachTypedLink = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoDetachTypedLink "Use generic-lens or generic-optics with 'detachTypedLink' instead." #-}
 
 -- | Updates a given object’s attributes.
-bwoUpdateObjectAttributes :: Lens' BatchWriteOperationResponse (Maybe BatchUpdateObjectAttributesResponse)
-bwoUpdateObjectAttributes = lens _bwoUpdateObjectAttributes (\s a -> s {_bwoUpdateObjectAttributes = a})
+--
+-- /Note:/ Consider using 'updateObjectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoUpdateObjectAttributes :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchUpdateObjectAttributesResponse)
+bwoUpdateObjectAttributes = Lens.lens (updateObjectAttributes :: BatchWriteOperationResponse -> Lude.Maybe BatchUpdateObjectAttributesResponse) (\s a -> s {updateObjectAttributes = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoUpdateObjectAttributes "Use generic-lens or generic-optics with 'updateObjectAttributes' instead." #-}
 
 -- | Attaches a policy object to a regular object. An object can have a limited number of attached policies.
-bwoAttachPolicy :: Lens' BatchWriteOperationResponse (Maybe BatchAttachPolicyResponse)
-bwoAttachPolicy = lens _bwoAttachPolicy (\s a -> s {_bwoAttachPolicy = a})
+--
+-- /Note:/ Consider using 'attachPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoAttachPolicy :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchAttachPolicyResponse)
+bwoAttachPolicy = Lens.lens (attachPolicy :: BatchWriteOperationResponse -> Lude.Maybe BatchAttachPolicyResponse) (\s a -> s {attachPolicy = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoAttachPolicy "Use generic-lens or generic-optics with 'attachPolicy' instead." #-}
 
 -- | Represents the output of a @BatchWrite@ response operation.
-bwoUpdateLinkAttributes :: Lens' BatchWriteOperationResponse (Maybe BatchUpdateLinkAttributesResponse)
-bwoUpdateLinkAttributes = lens _bwoUpdateLinkAttributes (\s a -> s {_bwoUpdateLinkAttributes = a})
+--
+-- /Note:/ Consider using 'updateLinkAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoUpdateLinkAttributes :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchUpdateLinkAttributesResponse)
+bwoUpdateLinkAttributes = Lens.lens (updateLinkAttributes :: BatchWriteOperationResponse -> Lude.Maybe BatchUpdateLinkAttributesResponse) (\s a -> s {updateLinkAttributes = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoUpdateLinkAttributes "Use generic-lens or generic-optics with 'updateLinkAttributes' instead." #-}
 
 -- | Attaches the specified object to the specified index.
-bwoAttachToIndex :: Lens' BatchWriteOperationResponse (Maybe BatchAttachToIndexResponse)
-bwoAttachToIndex = lens _bwoAttachToIndex (\s a -> s {_bwoAttachToIndex = a})
+--
+-- /Note:/ Consider using 'attachToIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwoAttachToIndex :: Lens.Lens' BatchWriteOperationResponse (Lude.Maybe BatchAttachToIndexResponse)
+bwoAttachToIndex = Lens.lens (attachToIndex :: BatchWriteOperationResponse -> Lude.Maybe BatchAttachToIndexResponse) (\s a -> s {attachToIndex = a} :: BatchWriteOperationResponse)
+{-# DEPRECATED bwoAttachToIndex "Use generic-lens or generic-optics with 'attachToIndex' instead." #-}
 
-instance FromJSON BatchWriteOperationResponse where
+instance Lude.FromJSON BatchWriteOperationResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchWriteOperationResponse"
       ( \x ->
           BatchWriteOperationResponse'
-            <$> (x .:? "DeleteObject")
-            <*> (x .:? "DetachFromIndex")
-            <*> (x .:? "RemoveFacetFromObject")
-            <*> (x .:? "AttachObject")
-            <*> (x .:? "CreateObject")
-            <*> (x .:? "AttachTypedLink")
-            <*> (x .:? "DetachPolicy")
-            <*> (x .:? "CreateIndex")
-            <*> (x .:? "DetachObject")
-            <*> (x .:? "AddFacetToObject")
-            <*> (x .:? "DetachTypedLink")
-            <*> (x .:? "UpdateObjectAttributes")
-            <*> (x .:? "AttachPolicy")
-            <*> (x .:? "UpdateLinkAttributes")
-            <*> (x .:? "AttachToIndex")
+            Lude.<$> (x Lude..:? "DeleteObject")
+            Lude.<*> (x Lude..:? "DetachFromIndex")
+            Lude.<*> (x Lude..:? "RemoveFacetFromObject")
+            Lude.<*> (x Lude..:? "AttachObject")
+            Lude.<*> (x Lude..:? "CreateObject")
+            Lude.<*> (x Lude..:? "AttachTypedLink")
+            Lude.<*> (x Lude..:? "DetachPolicy")
+            Lude.<*> (x Lude..:? "CreateIndex")
+            Lude.<*> (x Lude..:? "DetachObject")
+            Lude.<*> (x Lude..:? "AddFacetToObject")
+            Lude.<*> (x Lude..:? "DetachTypedLink")
+            Lude.<*> (x Lude..:? "UpdateObjectAttributes")
+            Lude.<*> (x Lude..:? "AttachPolicy")
+            Lude.<*> (x Lude..:? "UpdateLinkAttributes")
+            Lude.<*> (x Lude..:? "AttachToIndex")
       )
-
-instance Hashable BatchWriteOperationResponse
-
-instance NFData BatchWriteOperationResponse

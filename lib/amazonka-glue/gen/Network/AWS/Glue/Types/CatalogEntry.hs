@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CatalogEntry where
+module Network.AWS.Glue.Types.CatalogEntry
+  ( CatalogEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCatalogEntry,
+
+    -- * Lenses
+    ceDatabaseName,
+    ceTableName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a table definition in the AWS Glue Data Catalog.
 --
---
---
--- /See:/ 'catalogEntry' smart constructor.
+-- /See:/ 'mkCatalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'
-  { _ceDatabaseName :: !Text,
-    _ceTableName :: !Text
+  { databaseName :: Lude.Text,
+    tableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CatalogEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ceDatabaseName' - The database in which the table metadata resides.
---
--- * 'ceTableName' - The name of the table in question.
-catalogEntry ::
-  -- | 'ceDatabaseName'
-  Text ->
-  -- | 'ceTableName'
-  Text ->
+-- * 'databaseName' - The database in which the table metadata resides.
+-- * 'tableName' - The name of the table in question.
+mkCatalogEntry ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   CatalogEntry
-catalogEntry pDatabaseName_ pTableName_ =
+mkCatalogEntry pDatabaseName_ pTableName_ =
   CatalogEntry'
-    { _ceDatabaseName = pDatabaseName_,
-      _ceTableName = pTableName_
+    { databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
 
 -- | The database in which the table metadata resides.
-ceDatabaseName :: Lens' CatalogEntry Text
-ceDatabaseName = lens _ceDatabaseName (\s a -> s {_ceDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceDatabaseName :: Lens.Lens' CatalogEntry Lude.Text
+ceDatabaseName = Lens.lens (databaseName :: CatalogEntry -> Lude.Text) (\s a -> s {databaseName = a} :: CatalogEntry)
+{-# DEPRECATED ceDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table in question.
-ceTableName :: Lens' CatalogEntry Text
-ceTableName = lens _ceTableName (\s a -> s {_ceTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceTableName :: Lens.Lens' CatalogEntry Lude.Text
+ceTableName = Lens.lens (tableName :: CatalogEntry -> Lude.Text) (\s a -> s {tableName = a} :: CatalogEntry)
+{-# DEPRECATED ceTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Hashable CatalogEntry
-
-instance NFData CatalogEntry
-
-instance ToJSON CatalogEntry where
+instance Lude.ToJSON CatalogEntry where
   toJSON CatalogEntry' {..} =
-    object
-      ( catMaybes
-          [ Just ("DatabaseName" .= _ceDatabaseName),
-            Just ("TableName" .= _ceTableName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )

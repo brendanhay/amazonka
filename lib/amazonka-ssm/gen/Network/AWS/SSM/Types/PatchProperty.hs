@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchProperty where
+module Network.AWS.SSM.Types.PatchProperty
+  ( PatchProperty
+      ( PatchProperty',
+        PPClassification,
+        PPMsrcSeverity,
+        PPPriority,
+        PPProduct,
+        PPProductFamily,
+        PPSeverity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchProperty
-  = PPClassification
-  | PPMsrcSeverity
-  | PPPriority
-  | PPProduct
-  | PPProductFamily
-  | PPSeverity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchProperty = PatchProperty' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchProperty where
-  parser =
-    takeLowerText >>= \case
-      "classification" -> pure PPClassification
-      "msrc_severity" -> pure PPMsrcSeverity
-      "priority" -> pure PPPriority
-      "product" -> pure PPProduct
-      "product_family" -> pure PPProductFamily
-      "severity" -> pure PPSeverity
-      e ->
-        fromTextError $
-          "Failure parsing PatchProperty from value: '" <> e
-            <> "'. Accepted values: classification, msrc_severity, priority, product, product_family, severity"
+pattern PPClassification :: PatchProperty
+pattern PPClassification = PatchProperty' "CLASSIFICATION"
 
-instance ToText PatchProperty where
-  toText = \case
-    PPClassification -> "CLASSIFICATION"
-    PPMsrcSeverity -> "MSRC_SEVERITY"
-    PPPriority -> "PRIORITY"
-    PPProduct -> "PRODUCT"
-    PPProductFamily -> "PRODUCT_FAMILY"
-    PPSeverity -> "SEVERITY"
+pattern PPMsrcSeverity :: PatchProperty
+pattern PPMsrcSeverity = PatchProperty' "MSRC_SEVERITY"
 
-instance Hashable PatchProperty
+pattern PPPriority :: PatchProperty
+pattern PPPriority = PatchProperty' "PRIORITY"
 
-instance NFData PatchProperty
+pattern PPProduct :: PatchProperty
+pattern PPProduct = PatchProperty' "PRODUCT"
 
-instance ToByteString PatchProperty
+pattern PPProductFamily :: PatchProperty
+pattern PPProductFamily = PatchProperty' "PRODUCT_FAMILY"
 
-instance ToQuery PatchProperty
+pattern PPSeverity :: PatchProperty
+pattern PPSeverity = PatchProperty' "SEVERITY"
 
-instance ToHeader PatchProperty
-
-instance ToJSON PatchProperty where
-  toJSON = toJSONText
+{-# COMPLETE
+  PPClassification,
+  PPMsrcSeverity,
+  PPPriority,
+  PPProduct,
+  PPProductFamily,
+  PPSeverity,
+  PatchProperty'
+  #-}

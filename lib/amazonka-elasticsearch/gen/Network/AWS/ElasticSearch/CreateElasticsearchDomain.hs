@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new Elasticsearch domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
 module Network.AWS.ElasticSearch.CreateElasticsearchDomain
-  ( -- * Creating a Request
-    createElasticsearchDomain,
-    CreateElasticsearchDomain,
+  ( -- * Creating a request
+    CreateElasticsearchDomain (..),
+    mkCreateElasticsearchDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cedEBSOptions,
     cedNodeToNodeEncryptionOptions,
     cedAccessPolicies,
@@ -39,252 +34,283 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     cedElasticsearchVersion,
     cedDomainName,
 
-    -- * Destructuring the Response
-    createElasticsearchDomainResponse,
-    CreateElasticsearchDomainResponse,
+    -- * Destructuring the response
+    CreateElasticsearchDomainResponse (..),
+    mkCreateElasticsearchDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cedrsDomainStatus,
     cedrsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createElasticsearchDomain' smart constructor.
+-- | /See:/ 'mkCreateElasticsearchDomain' smart constructor.
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
-  { _cedEBSOptions ::
-      !(Maybe EBSOptions),
-    _cedNodeToNodeEncryptionOptions ::
-      !(Maybe NodeToNodeEncryptionOptions),
-    _cedAccessPolicies :: !(Maybe Text),
-    _cedLogPublishingOptions ::
-      !( Maybe
-           ( Map
-               LogType
-               (LogPublishingOption)
-           )
-       ),
-    _cedAdvancedSecurityOptions ::
-      !(Maybe AdvancedSecurityOptionsInput),
-    _cedElasticsearchClusterConfig ::
-      !(Maybe ElasticsearchClusterConfig),
-    _cedSnapshotOptions ::
-      !(Maybe SnapshotOptions),
-    _cedCognitoOptions ::
-      !(Maybe CognitoOptions),
-    _cedEncryptionAtRestOptions ::
-      !(Maybe EncryptionAtRestOptions),
-    _cedVPCOptions :: !(Maybe VPCOptions),
-    _cedDomainEndpointOptions ::
-      !(Maybe DomainEndpointOptions),
-    _cedAdvancedOptions ::
-      !(Maybe (Map Text (Text))),
-    _cedElasticsearchVersion ::
-      !(Maybe Text),
-    _cedDomainName :: !Text
+  { ebsOptions ::
+      Lude.Maybe EBSOptions,
+    nodeToNodeEncryptionOptions ::
+      Lude.Maybe NodeToNodeEncryptionOptions,
+    accessPolicies :: Lude.Maybe Lude.Text,
+    logPublishingOptions ::
+      Lude.Maybe
+        ( Lude.HashMap
+            LogType
+            (LogPublishingOption)
+        ),
+    advancedSecurityOptions ::
+      Lude.Maybe AdvancedSecurityOptionsInput,
+    elasticsearchClusterConfig ::
+      Lude.Maybe ElasticsearchClusterConfig,
+    snapshotOptions ::
+      Lude.Maybe SnapshotOptions,
+    cognitoOptions ::
+      Lude.Maybe CognitoOptions,
+    encryptionAtRestOptions ::
+      Lude.Maybe EncryptionAtRestOptions,
+    vpcOptions :: Lude.Maybe VPCOptions,
+    domainEndpointOptions ::
+      Lude.Maybe DomainEndpointOptions,
+    advancedOptions ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    elasticsearchVersion ::
+      Lude.Maybe Lude.Text,
+    domainName :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateElasticsearchDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cedEBSOptions' - Options to enable, disable and specify the type and size of EBS storage volumes.
---
--- * 'cedNodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
---
--- * 'cedAccessPolicies' - IAM access policy as a JSON-formatted string.
---
--- * 'cedLogPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
---
--- * 'cedAdvancedSecurityOptions' - Specifies advanced security options.
---
--- * 'cedElasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
---
--- * 'cedSnapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
---
--- * 'cedCognitoOptions' - Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
---
--- * 'cedEncryptionAtRestOptions' - Specifies the Encryption At Rest Options.
---
--- * 'cedVPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
---
--- * 'cedDomainEndpointOptions' - Options to specify configuration that will be applied to the domain endpoint.
---
--- * 'cedAdvancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
---
--- * 'cedElasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
---
--- * 'cedDomainName' - The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-createElasticsearchDomain ::
-  -- | 'cedDomainName'
-  Text ->
+-- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
+-- * 'advancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- * 'advancedSecurityOptions' - Specifies advanced security options.
+-- * 'cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+-- * 'domainEndpointOptions' - Options to specify configuration that will be applied to the domain endpoint.
+-- * 'domainName' - The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+-- * 'ebsOptions' - Options to enable, disable and specify the type and size of EBS storage volumes.
+-- * 'elasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
+-- * 'elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
+-- * 'encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
+-- * 'logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+-- * 'nodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
+-- * 'snapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
+-- * 'vpcOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+mkCreateElasticsearchDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   CreateElasticsearchDomain
-createElasticsearchDomain pDomainName_ =
+mkCreateElasticsearchDomain pDomainName_ =
   CreateElasticsearchDomain'
-    { _cedEBSOptions = Nothing,
-      _cedNodeToNodeEncryptionOptions = Nothing,
-      _cedAccessPolicies = Nothing,
-      _cedLogPublishingOptions = Nothing,
-      _cedAdvancedSecurityOptions = Nothing,
-      _cedElasticsearchClusterConfig = Nothing,
-      _cedSnapshotOptions = Nothing,
-      _cedCognitoOptions = Nothing,
-      _cedEncryptionAtRestOptions = Nothing,
-      _cedVPCOptions = Nothing,
-      _cedDomainEndpointOptions = Nothing,
-      _cedAdvancedOptions = Nothing,
-      _cedElasticsearchVersion = Nothing,
-      _cedDomainName = pDomainName_
+    { ebsOptions = Lude.Nothing,
+      nodeToNodeEncryptionOptions = Lude.Nothing,
+      accessPolicies = Lude.Nothing,
+      logPublishingOptions = Lude.Nothing,
+      advancedSecurityOptions = Lude.Nothing,
+      elasticsearchClusterConfig = Lude.Nothing,
+      snapshotOptions = Lude.Nothing,
+      cognitoOptions = Lude.Nothing,
+      encryptionAtRestOptions = Lude.Nothing,
+      vpcOptions = Lude.Nothing,
+      domainEndpointOptions = Lude.Nothing,
+      advancedOptions = Lude.Nothing,
+      elasticsearchVersion = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | Options to enable, disable and specify the type and size of EBS storage volumes.
-cedEBSOptions :: Lens' CreateElasticsearchDomain (Maybe EBSOptions)
-cedEBSOptions = lens _cedEBSOptions (\s a -> s {_cedEBSOptions = a})
+--
+-- /Note:/ Consider using 'ebsOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedEBSOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe EBSOptions)
+cedEBSOptions = Lens.lens (ebsOptions :: CreateElasticsearchDomain -> Lude.Maybe EBSOptions) (\s a -> s {ebsOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedEBSOptions "Use generic-lens or generic-optics with 'ebsOptions' instead." #-}
 
 -- | Specifies the NodeToNodeEncryptionOptions.
-cedNodeToNodeEncryptionOptions :: Lens' CreateElasticsearchDomain (Maybe NodeToNodeEncryptionOptions)
-cedNodeToNodeEncryptionOptions = lens _cedNodeToNodeEncryptionOptions (\s a -> s {_cedNodeToNodeEncryptionOptions = a})
+--
+-- /Note:/ Consider using 'nodeToNodeEncryptionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedNodeToNodeEncryptionOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe NodeToNodeEncryptionOptions)
+cedNodeToNodeEncryptionOptions = Lens.lens (nodeToNodeEncryptionOptions :: CreateElasticsearchDomain -> Lude.Maybe NodeToNodeEncryptionOptions) (\s a -> s {nodeToNodeEncryptionOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedNodeToNodeEncryptionOptions "Use generic-lens or generic-optics with 'nodeToNodeEncryptionOptions' instead." #-}
 
 -- | IAM access policy as a JSON-formatted string.
-cedAccessPolicies :: Lens' CreateElasticsearchDomain (Maybe Text)
-cedAccessPolicies = lens _cedAccessPolicies (\s a -> s {_cedAccessPolicies = a})
+--
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedAccessPolicies :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe Lude.Text)
+cedAccessPolicies = Lens.lens (accessPolicies :: CreateElasticsearchDomain -> Lude.Maybe Lude.Text) (\s a -> s {accessPolicies = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
 
 -- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
-cedLogPublishingOptions :: Lens' CreateElasticsearchDomain (HashMap LogType (LogPublishingOption))
-cedLogPublishingOptions = lens _cedLogPublishingOptions (\s a -> s {_cedLogPublishingOptions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'logPublishingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedLogPublishingOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)))
+cedLogPublishingOptions = Lens.lens (logPublishingOptions :: CreateElasticsearchDomain -> Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))) (\s a -> s {logPublishingOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedLogPublishingOptions "Use generic-lens or generic-optics with 'logPublishingOptions' instead." #-}
 
 -- | Specifies advanced security options.
-cedAdvancedSecurityOptions :: Lens' CreateElasticsearchDomain (Maybe AdvancedSecurityOptionsInput)
-cedAdvancedSecurityOptions = lens _cedAdvancedSecurityOptions (\s a -> s {_cedAdvancedSecurityOptions = a})
+--
+-- /Note:/ Consider using 'advancedSecurityOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedAdvancedSecurityOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe AdvancedSecurityOptionsInput)
+cedAdvancedSecurityOptions = Lens.lens (advancedSecurityOptions :: CreateElasticsearchDomain -> Lude.Maybe AdvancedSecurityOptionsInput) (\s a -> s {advancedSecurityOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedAdvancedSecurityOptions "Use generic-lens or generic-optics with 'advancedSecurityOptions' instead." #-}
 
 -- | Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
-cedElasticsearchClusterConfig :: Lens' CreateElasticsearchDomain (Maybe ElasticsearchClusterConfig)
-cedElasticsearchClusterConfig = lens _cedElasticsearchClusterConfig (\s a -> s {_cedElasticsearchClusterConfig = a})
+--
+-- /Note:/ Consider using 'elasticsearchClusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedElasticsearchClusterConfig :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe ElasticsearchClusterConfig)
+cedElasticsearchClusterConfig = Lens.lens (elasticsearchClusterConfig :: CreateElasticsearchDomain -> Lude.Maybe ElasticsearchClusterConfig) (\s a -> s {elasticsearchClusterConfig = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedElasticsearchClusterConfig "Use generic-lens or generic-optics with 'elasticsearchClusterConfig' instead." #-}
 
 -- | Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
-cedSnapshotOptions :: Lens' CreateElasticsearchDomain (Maybe SnapshotOptions)
-cedSnapshotOptions = lens _cedSnapshotOptions (\s a -> s {_cedSnapshotOptions = a})
+--
+-- /Note:/ Consider using 'snapshotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedSnapshotOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe SnapshotOptions)
+cedSnapshotOptions = Lens.lens (snapshotOptions :: CreateElasticsearchDomain -> Lude.Maybe SnapshotOptions) (\s a -> s {snapshotOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedSnapshotOptions "Use generic-lens or generic-optics with 'snapshotOptions' instead." #-}
 
 -- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
-cedCognitoOptions :: Lens' CreateElasticsearchDomain (Maybe CognitoOptions)
-cedCognitoOptions = lens _cedCognitoOptions (\s a -> s {_cedCognitoOptions = a})
+--
+-- /Note:/ Consider using 'cognitoOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedCognitoOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe CognitoOptions)
+cedCognitoOptions = Lens.lens (cognitoOptions :: CreateElasticsearchDomain -> Lude.Maybe CognitoOptions) (\s a -> s {cognitoOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedCognitoOptions "Use generic-lens or generic-optics with 'cognitoOptions' instead." #-}
 
 -- | Specifies the Encryption At Rest Options.
-cedEncryptionAtRestOptions :: Lens' CreateElasticsearchDomain (Maybe EncryptionAtRestOptions)
-cedEncryptionAtRestOptions = lens _cedEncryptionAtRestOptions (\s a -> s {_cedEncryptionAtRestOptions = a})
+--
+-- /Note:/ Consider using 'encryptionAtRestOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedEncryptionAtRestOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe EncryptionAtRestOptions)
+cedEncryptionAtRestOptions = Lens.lens (encryptionAtRestOptions :: CreateElasticsearchDomain -> Lude.Maybe EncryptionAtRestOptions) (\s a -> s {encryptionAtRestOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedEncryptionAtRestOptions "Use generic-lens or generic-optics with 'encryptionAtRestOptions' instead." #-}
 
 -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
-cedVPCOptions :: Lens' CreateElasticsearchDomain (Maybe VPCOptions)
-cedVPCOptions = lens _cedVPCOptions (\s a -> s {_cedVPCOptions = a})
+--
+-- /Note:/ Consider using 'vpcOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedVPCOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe VPCOptions)
+cedVPCOptions = Lens.lens (vpcOptions :: CreateElasticsearchDomain -> Lude.Maybe VPCOptions) (\s a -> s {vpcOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedVPCOptions "Use generic-lens or generic-optics with 'vpcOptions' instead." #-}
 
 -- | Options to specify configuration that will be applied to the domain endpoint.
-cedDomainEndpointOptions :: Lens' CreateElasticsearchDomain (Maybe DomainEndpointOptions)
-cedDomainEndpointOptions = lens _cedDomainEndpointOptions (\s a -> s {_cedDomainEndpointOptions = a})
+--
+-- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedDomainEndpointOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe DomainEndpointOptions)
+cedDomainEndpointOptions = Lens.lens (domainEndpointOptions :: CreateElasticsearchDomain -> Lude.Maybe DomainEndpointOptions) (\s a -> s {domainEndpointOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
 
 -- | Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
-cedAdvancedOptions :: Lens' CreateElasticsearchDomain (HashMap Text (Text))
-cedAdvancedOptions = lens _cedAdvancedOptions (\s a -> s {_cedAdvancedOptions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'advancedOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedAdvancedOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cedAdvancedOptions = Lens.lens (advancedOptions :: CreateElasticsearchDomain -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {advancedOptions = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedAdvancedOptions "Use generic-lens or generic-optics with 'advancedOptions' instead." #-}
 
 -- | String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
-cedElasticsearchVersion :: Lens' CreateElasticsearchDomain (Maybe Text)
-cedElasticsearchVersion = lens _cedElasticsearchVersion (\s a -> s {_cedElasticsearchVersion = a})
+--
+-- /Note:/ Consider using 'elasticsearchVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedElasticsearchVersion :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe Lude.Text)
+cedElasticsearchVersion = Lens.lens (elasticsearchVersion :: CreateElasticsearchDomain -> Lude.Maybe Lude.Text) (\s a -> s {elasticsearchVersion = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedElasticsearchVersion "Use generic-lens or generic-optics with 'elasticsearchVersion' instead." #-}
 
 -- | The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-cedDomainName :: Lens' CreateElasticsearchDomain Text
-cedDomainName = lens _cedDomainName (\s a -> s {_cedDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedDomainName :: Lens.Lens' CreateElasticsearchDomain Lude.Text
+cedDomainName = Lens.lens (domainName :: CreateElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest CreateElasticsearchDomain where
+instance Lude.AWSRequest CreateElasticsearchDomain where
   type
     Rs CreateElasticsearchDomain =
       CreateElasticsearchDomainResponse
-  request = postJSON elasticSearch
+  request = Req.postJSON elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateElasticsearchDomainResponse'
-            <$> (x .?> "DomainStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateElasticsearchDomain
+instance Lude.ToHeaders CreateElasticsearchDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateElasticsearchDomain
-
-instance ToHeaders CreateElasticsearchDomain where
-  toHeaders = const mempty
-
-instance ToJSON CreateElasticsearchDomain where
+instance Lude.ToJSON CreateElasticsearchDomain where
   toJSON CreateElasticsearchDomain' {..} =
-    object
-      ( catMaybes
-          [ ("EBSOptions" .=) <$> _cedEBSOptions,
-            ("NodeToNodeEncryptionOptions" .=)
-              <$> _cedNodeToNodeEncryptionOptions,
-            ("AccessPolicies" .=) <$> _cedAccessPolicies,
-            ("LogPublishingOptions" .=) <$> _cedLogPublishingOptions,
-            ("AdvancedSecurityOptions" .=) <$> _cedAdvancedSecurityOptions,
-            ("ElasticsearchClusterConfig" .=)
-              <$> _cedElasticsearchClusterConfig,
-            ("SnapshotOptions" .=) <$> _cedSnapshotOptions,
-            ("CognitoOptions" .=) <$> _cedCognitoOptions,
-            ("EncryptionAtRestOptions" .=) <$> _cedEncryptionAtRestOptions,
-            ("VPCOptions" .=) <$> _cedVPCOptions,
-            ("DomainEndpointOptions" .=) <$> _cedDomainEndpointOptions,
-            ("AdvancedOptions" .=) <$> _cedAdvancedOptions,
-            ("ElasticsearchVersion" .=) <$> _cedElasticsearchVersion,
-            Just ("DomainName" .= _cedDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EBSOptions" Lude..=) Lude.<$> ebsOptions,
+            ("NodeToNodeEncryptionOptions" Lude..=)
+              Lude.<$> nodeToNodeEncryptionOptions,
+            ("AccessPolicies" Lude..=) Lude.<$> accessPolicies,
+            ("LogPublishingOptions" Lude..=) Lude.<$> logPublishingOptions,
+            ("AdvancedSecurityOptions" Lude..=)
+              Lude.<$> advancedSecurityOptions,
+            ("ElasticsearchClusterConfig" Lude..=)
+              Lude.<$> elasticsearchClusterConfig,
+            ("SnapshotOptions" Lude..=) Lude.<$> snapshotOptions,
+            ("CognitoOptions" Lude..=) Lude.<$> cognitoOptions,
+            ("EncryptionAtRestOptions" Lude..=)
+              Lude.<$> encryptionAtRestOptions,
+            ("VPCOptions" Lude..=) Lude.<$> vpcOptions,
+            ("DomainEndpointOptions" Lude..=) Lude.<$> domainEndpointOptions,
+            ("AdvancedOptions" Lude..=) Lude.<$> advancedOptions,
+            ("ElasticsearchVersion" Lude..=) Lude.<$> elasticsearchVersion,
+            Lude.Just ("DomainName" Lude..= domainName)
           ]
       )
 
-instance ToPath CreateElasticsearchDomain where
-  toPath = const "/2015-01-01/es/domain"
+instance Lude.ToPath CreateElasticsearchDomain where
+  toPath = Lude.const "/2015-01-01/es/domain"
 
-instance ToQuery CreateElasticsearchDomain where
-  toQuery = const mempty
+instance Lude.ToQuery CreateElasticsearchDomain where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @CreateElasticsearchDomain@ operation. Contains the status of the newly created Elasticsearch domain.
 --
---
---
--- /See:/ 'createElasticsearchDomainResponse' smart constructor.
+-- /See:/ 'mkCreateElasticsearchDomainResponse' smart constructor.
 data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
-  { _cedrsDomainStatus ::
-      !( Maybe
-           ElasticsearchDomainStatus
-       ),
-    _cedrsResponseStatus ::
-      !Int
+  { domainStatus ::
+      Lude.Maybe
+        ElasticsearchDomainStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cedrsDomainStatus' - The status of the newly created Elasticsearch domain.
---
--- * 'cedrsResponseStatus' - -- | The response status code.
-createElasticsearchDomainResponse ::
-  -- | 'cedrsResponseStatus'
-  Int ->
+-- * 'domainStatus' - The status of the newly created Elasticsearch domain.
+-- * 'responseStatus' - The response status code.
+mkCreateElasticsearchDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateElasticsearchDomainResponse
-createElasticsearchDomainResponse pResponseStatus_ =
+mkCreateElasticsearchDomainResponse pResponseStatus_ =
   CreateElasticsearchDomainResponse'
-    { _cedrsDomainStatus = Nothing,
-      _cedrsResponseStatus = pResponseStatus_
+    { domainStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the newly created Elasticsearch domain.
-cedrsDomainStatus :: Lens' CreateElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
-cedrsDomainStatus = lens _cedrsDomainStatus (\s a -> s {_cedrsDomainStatus = a})
+--
+-- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedrsDomainStatus :: Lens.Lens' CreateElasticsearchDomainResponse (Lude.Maybe ElasticsearchDomainStatus)
+cedrsDomainStatus = Lens.lens (domainStatus :: CreateElasticsearchDomainResponse -> Lude.Maybe ElasticsearchDomainStatus) (\s a -> s {domainStatus = a} :: CreateElasticsearchDomainResponse)
+{-# DEPRECATED cedrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
--- | -- | The response status code.
-cedrsResponseStatus :: Lens' CreateElasticsearchDomainResponse Int
-cedrsResponseStatus = lens _cedrsResponseStatus (\s a -> s {_cedrsResponseStatus = a})
-
-instance NFData CreateElasticsearchDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedrsResponseStatus :: Lens.Lens' CreateElasticsearchDomainResponse Lude.Int
+cedrsResponseStatus = Lens.lens (responseStatus :: CreateElasticsearchDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateElasticsearchDomainResponse)
+{-# DEPRECATED cedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

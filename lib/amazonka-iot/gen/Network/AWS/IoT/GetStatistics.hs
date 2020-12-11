@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,164 @@
 --
 -- Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type @String@ , only the count statistic is returned.
 module Network.AWS.IoT.GetStatistics
-  ( -- * Creating a Request
-    getStatistics,
-    GetStatistics,
+  ( -- * Creating a request
+    GetStatistics (..),
+    mkGetStatistics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsQueryVersion,
     gsAggregationField,
     gsIndexName,
     gsQueryString,
 
-    -- * Destructuring the Response
-    getStatisticsResponse,
-    GetStatisticsResponse,
+    -- * Destructuring the response
+    GetStatisticsResponse (..),
+    mkGetStatisticsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrsStatistics,
     gsrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getStatistics' smart constructor.
+-- | /See:/ 'mkGetStatistics' smart constructor.
 data GetStatistics = GetStatistics'
-  { _gsQueryVersion ::
-      !(Maybe Text),
-    _gsAggregationField :: !(Maybe Text),
-    _gsIndexName :: !(Maybe Text),
-    _gsQueryString :: !Text
+  { queryVersion ::
+      Lude.Maybe Lude.Text,
+    aggregationField :: Lude.Maybe Lude.Text,
+    indexName :: Lude.Maybe Lude.Text,
+    queryString :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsQueryVersion' - The version of the query used to search.
---
--- * 'gsAggregationField' - The aggregation field name.
---
--- * 'gsIndexName' - The name of the index to search. The default value is @AWS_Things@ .
---
--- * 'gsQueryString' - The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
-getStatistics ::
-  -- | 'gsQueryString'
-  Text ->
+-- * 'aggregationField' - The aggregation field name.
+-- * 'indexName' - The name of the index to search. The default value is @AWS_Things@ .
+-- * 'queryString' - The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
+-- * 'queryVersion' - The version of the query used to search.
+mkGetStatistics ::
+  -- | 'queryString'
+  Lude.Text ->
   GetStatistics
-getStatistics pQueryString_ =
+mkGetStatistics pQueryString_ =
   GetStatistics'
-    { _gsQueryVersion = Nothing,
-      _gsAggregationField = Nothing,
-      _gsIndexName = Nothing,
-      _gsQueryString = pQueryString_
+    { queryVersion = Lude.Nothing,
+      aggregationField = Lude.Nothing,
+      indexName = Lude.Nothing,
+      queryString = pQueryString_
     }
 
 -- | The version of the query used to search.
-gsQueryVersion :: Lens' GetStatistics (Maybe Text)
-gsQueryVersion = lens _gsQueryVersion (\s a -> s {_gsQueryVersion = a})
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsQueryVersion :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
+gsQueryVersion = Lens.lens (queryVersion :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: GetStatistics)
+{-# DEPRECATED gsQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
 -- | The aggregation field name.
-gsAggregationField :: Lens' GetStatistics (Maybe Text)
-gsAggregationField = lens _gsAggregationField (\s a -> s {_gsAggregationField = a})
+--
+-- /Note:/ Consider using 'aggregationField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsAggregationField :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
+gsAggregationField = Lens.lens (aggregationField :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {aggregationField = a} :: GetStatistics)
+{-# DEPRECATED gsAggregationField "Use generic-lens or generic-optics with 'aggregationField' instead." #-}
 
 -- | The name of the index to search. The default value is @AWS_Things@ .
-gsIndexName :: Lens' GetStatistics (Maybe Text)
-gsIndexName = lens _gsIndexName (\s a -> s {_gsIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsIndexName :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
+gsIndexName = Lens.lens (indexName :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetStatistics)
+{-# DEPRECATED gsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
-gsQueryString :: Lens' GetStatistics Text
-gsQueryString = lens _gsQueryString (\s a -> s {_gsQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsQueryString :: Lens.Lens' GetStatistics Lude.Text
+gsQueryString = Lens.lens (queryString :: GetStatistics -> Lude.Text) (\s a -> s {queryString = a} :: GetStatistics)
+{-# DEPRECATED gsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
-instance AWSRequest GetStatistics where
+instance Lude.AWSRequest GetStatistics where
   type Rs GetStatistics = GetStatisticsResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetStatisticsResponse'
-            <$> (x .?> "statistics") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "statistics") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetStatistics
+instance Lude.ToHeaders GetStatistics where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetStatistics
-
-instance ToHeaders GetStatistics where
-  toHeaders = const mempty
-
-instance ToJSON GetStatistics where
+instance Lude.ToJSON GetStatistics where
   toJSON GetStatistics' {..} =
-    object
-      ( catMaybes
-          [ ("queryVersion" .=) <$> _gsQueryVersion,
-            ("aggregationField" .=) <$> _gsAggregationField,
-            ("indexName" .=) <$> _gsIndexName,
-            Just ("queryString" .= _gsQueryString)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
+            ("aggregationField" Lude..=) Lude.<$> aggregationField,
+            ("indexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("queryString" Lude..= queryString)
           ]
       )
 
-instance ToPath GetStatistics where
-  toPath = const "/indices/statistics"
+instance Lude.ToPath GetStatistics where
+  toPath = Lude.const "/indices/statistics"
 
-instance ToQuery GetStatistics where
-  toQuery = const mempty
+instance Lude.ToQuery GetStatistics where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getStatisticsResponse' smart constructor.
+-- | /See:/ 'mkGetStatisticsResponse' smart constructor.
 data GetStatisticsResponse = GetStatisticsResponse'
-  { _gsrsStatistics ::
-      !(Maybe Statistics),
-    _gsrsResponseStatus :: !Int
+  { statistics ::
+      Lude.Maybe Statistics,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatisticsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrsStatistics' - The statistics returned by the Fleet Indexing service based on the query and aggregation field.
---
--- * 'gsrsResponseStatus' - -- | The response status code.
-getStatisticsResponse ::
-  -- | 'gsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'statistics' - The statistics returned by the Fleet Indexing service based on the query and aggregation field.
+mkGetStatisticsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetStatisticsResponse
-getStatisticsResponse pResponseStatus_ =
+mkGetStatisticsResponse pResponseStatus_ =
   GetStatisticsResponse'
-    { _gsrsStatistics = Nothing,
-      _gsrsResponseStatus = pResponseStatus_
+    { statistics = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The statistics returned by the Fleet Indexing service based on the query and aggregation field.
-gsrsStatistics :: Lens' GetStatisticsResponse (Maybe Statistics)
-gsrsStatistics = lens _gsrsStatistics (\s a -> s {_gsrsStatistics = a})
+--
+-- /Note:/ Consider using 'statistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsStatistics :: Lens.Lens' GetStatisticsResponse (Lude.Maybe Statistics)
+gsrsStatistics = Lens.lens (statistics :: GetStatisticsResponse -> Lude.Maybe Statistics) (\s a -> s {statistics = a} :: GetStatisticsResponse)
+{-# DEPRECATED gsrsStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
 
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetStatisticsResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\s a -> s {_gsrsResponseStatus = a})
-
-instance NFData GetStatisticsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetStatisticsResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStatisticsResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

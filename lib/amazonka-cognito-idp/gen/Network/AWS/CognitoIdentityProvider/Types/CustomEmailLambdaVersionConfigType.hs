@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType where
+module Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
+  ( CustomEmailLambdaVersionConfigType (..),
+
+    -- * Smart constructor
+    mkCustomEmailLambdaVersionConfigType,
+
+    -- * Lenses
+    celvctLambdaVersion,
+    celvctLambdaARN,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A custom email sender Lambda configuration type.
 --
---
---
--- /See:/ 'customEmailLambdaVersionConfigType' smart constructor.
+-- /See:/ 'mkCustomEmailLambdaVersionConfigType' smart constructor.
 data CustomEmailLambdaVersionConfigType = CustomEmailLambdaVersionConfigType'
-  { _celvctLambdaVersion ::
-      !CustomEmailSenderLambdaVersionType,
-    _celvctLambdaARN ::
-      !Text
+  { lambdaVersion ::
+      CustomEmailSenderLambdaVersionType,
+    lambdaARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomEmailLambdaVersionConfigType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'celvctLambdaVersion' - The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
---
--- * 'celvctLambdaARN' - The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-customEmailLambdaVersionConfigType ::
-  -- | 'celvctLambdaVersion'
+-- * 'lambdaARN' - The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+-- * 'lambdaVersion' - The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
+mkCustomEmailLambdaVersionConfigType ::
+  -- | 'lambdaVersion'
   CustomEmailSenderLambdaVersionType ->
-  -- | 'celvctLambdaARN'
-  Text ->
+  -- | 'lambdaARN'
+  Lude.Text ->
   CustomEmailLambdaVersionConfigType
-customEmailLambdaVersionConfigType pLambdaVersion_ pLambdaARN_ =
+mkCustomEmailLambdaVersionConfigType pLambdaVersion_ pLambdaARN_ =
   CustomEmailLambdaVersionConfigType'
-    { _celvctLambdaVersion =
+    { lambdaVersion =
         pLambdaVersion_,
-      _celvctLambdaARN = pLambdaARN_
+      lambdaARN = pLambdaARN_
     }
 
 -- | The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is @V1_0@ .
-celvctLambdaVersion :: Lens' CustomEmailLambdaVersionConfigType CustomEmailSenderLambdaVersionType
-celvctLambdaVersion = lens _celvctLambdaVersion (\s a -> s {_celvctLambdaVersion = a})
+--
+-- /Note:/ Consider using 'lambdaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+celvctLambdaVersion :: Lens.Lens' CustomEmailLambdaVersionConfigType CustomEmailSenderLambdaVersionType
+celvctLambdaVersion = Lens.lens (lambdaVersion :: CustomEmailLambdaVersionConfigType -> CustomEmailSenderLambdaVersionType) (\s a -> s {lambdaVersion = a} :: CustomEmailLambdaVersionConfigType)
+{-# DEPRECATED celvctLambdaVersion "Use generic-lens or generic-optics with 'lambdaVersion' instead." #-}
 
 -- | The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-celvctLambdaARN :: Lens' CustomEmailLambdaVersionConfigType Text
-celvctLambdaARN = lens _celvctLambdaARN (\s a -> s {_celvctLambdaARN = a})
+--
+-- /Note:/ Consider using 'lambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+celvctLambdaARN :: Lens.Lens' CustomEmailLambdaVersionConfigType Lude.Text
+celvctLambdaARN = Lens.lens (lambdaARN :: CustomEmailLambdaVersionConfigType -> Lude.Text) (\s a -> s {lambdaARN = a} :: CustomEmailLambdaVersionConfigType)
+{-# DEPRECATED celvctLambdaARN "Use generic-lens or generic-optics with 'lambdaARN' instead." #-}
 
-instance FromJSON CustomEmailLambdaVersionConfigType where
+instance Lude.FromJSON CustomEmailLambdaVersionConfigType where
   parseJSON =
-    withObject
+    Lude.withObject
       "CustomEmailLambdaVersionConfigType"
       ( \x ->
           CustomEmailLambdaVersionConfigType'
-            <$> (x .: "LambdaVersion") <*> (x .: "LambdaArn")
+            Lude.<$> (x Lude..: "LambdaVersion") Lude.<*> (x Lude..: "LambdaArn")
       )
 
-instance Hashable CustomEmailLambdaVersionConfigType
-
-instance NFData CustomEmailLambdaVersionConfigType
-
-instance ToJSON CustomEmailLambdaVersionConfigType where
+instance Lude.ToJSON CustomEmailLambdaVersionConfigType where
   toJSON CustomEmailLambdaVersionConfigType' {..} =
-    object
-      ( catMaybes
-          [ Just ("LambdaVersion" .= _celvctLambdaVersion),
-            Just ("LambdaArn" .= _celvctLambdaARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("LambdaVersion" Lude..= lambdaVersion),
+            Lude.Just ("LambdaArn" Lude..= lambdaARN)
           ]
       )

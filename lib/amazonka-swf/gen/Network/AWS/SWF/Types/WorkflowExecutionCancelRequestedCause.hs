@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause where
+module Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause
+  ( WorkflowExecutionCancelRequestedCause
+      ( WorkflowExecutionCancelRequestedCause',
+        ChildPolicyApplied
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkflowExecutionCancelRequestedCause = ChildPolicyApplied
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkflowExecutionCancelRequestedCause = WorkflowExecutionCancelRequestedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkflowExecutionCancelRequestedCause where
-  parser =
-    takeLowerText >>= \case
-      "child_policy_applied" -> pure ChildPolicyApplied
-      e ->
-        fromTextError $
-          "Failure parsing WorkflowExecutionCancelRequestedCause from value: '" <> e
-            <> "'. Accepted values: child_policy_applied"
+pattern ChildPolicyApplied :: WorkflowExecutionCancelRequestedCause
+pattern ChildPolicyApplied = WorkflowExecutionCancelRequestedCause' "CHILD_POLICY_APPLIED"
 
-instance ToText WorkflowExecutionCancelRequestedCause where
-  toText = \case
-    ChildPolicyApplied -> "CHILD_POLICY_APPLIED"
-
-instance Hashable WorkflowExecutionCancelRequestedCause
-
-instance NFData WorkflowExecutionCancelRequestedCause
-
-instance ToByteString WorkflowExecutionCancelRequestedCause
-
-instance ToQuery WorkflowExecutionCancelRequestedCause
-
-instance ToHeader WorkflowExecutionCancelRequestedCause
-
-instance FromJSON WorkflowExecutionCancelRequestedCause where
-  parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
+{-# COMPLETE
+  ChildPolicyApplied,
+  WorkflowExecutionCancelRequestedCause'
+  #-}

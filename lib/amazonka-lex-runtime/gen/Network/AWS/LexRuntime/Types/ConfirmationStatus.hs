@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ConfirmationStatus where
+module Network.AWS.LexRuntime.Types.ConfirmationStatus
+  ( ConfirmationStatus
+      ( ConfirmationStatus',
+        Confirmed,
+        Denied,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfirmationStatus
-  = Confirmed
-  | Denied
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfirmationStatus = ConfirmationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfirmationStatus where
-  parser =
-    takeLowerText >>= \case
-      "confirmed" -> pure Confirmed
-      "denied" -> pure Denied
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing ConfirmationStatus from value: '" <> e
-            <> "'. Accepted values: confirmed, denied, none"
+pattern Confirmed :: ConfirmationStatus
+pattern Confirmed = ConfirmationStatus' "Confirmed"
 
-instance ToText ConfirmationStatus where
-  toText = \case
-    Confirmed -> "Confirmed"
-    Denied -> "Denied"
-    None -> "None"
+pattern Denied :: ConfirmationStatus
+pattern Denied = ConfirmationStatus' "Denied"
 
-instance Hashable ConfirmationStatus
+pattern None :: ConfirmationStatus
+pattern None = ConfirmationStatus' "None"
 
-instance NFData ConfirmationStatus
-
-instance ToByteString ConfirmationStatus
-
-instance ToQuery ConfirmationStatus
-
-instance ToHeader ConfirmationStatus
-
-instance ToJSON ConfirmationStatus where
-  toJSON = toJSONText
-
-instance FromJSON ConfirmationStatus where
-  parseJSON = parseJSONText "ConfirmationStatus"
+{-# COMPLETE
+  Confirmed,
+  Denied,
+  None,
+  ConfirmationStatus'
+  #-}

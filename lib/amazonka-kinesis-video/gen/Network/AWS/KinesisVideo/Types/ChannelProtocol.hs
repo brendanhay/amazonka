@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types.ChannelProtocol where
+module Network.AWS.KinesisVideo.Types.ChannelProtocol
+  ( ChannelProtocol
+      ( ChannelProtocol',
+        HTTPS,
+        Wss
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChannelProtocol
-  = HTTPS
-  | Wss
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChannelProtocol = ChannelProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChannelProtocol where
-  parser =
-    takeLowerText >>= \case
-      "https" -> pure HTTPS
-      "wss" -> pure Wss
-      e ->
-        fromTextError $
-          "Failure parsing ChannelProtocol from value: '" <> e
-            <> "'. Accepted values: https, wss"
+pattern HTTPS :: ChannelProtocol
+pattern HTTPS = ChannelProtocol' "HTTPS"
 
-instance ToText ChannelProtocol where
-  toText = \case
-    HTTPS -> "HTTPS"
-    Wss -> "WSS"
+pattern Wss :: ChannelProtocol
+pattern Wss = ChannelProtocol' "WSS"
 
-instance Hashable ChannelProtocol
-
-instance NFData ChannelProtocol
-
-instance ToByteString ChannelProtocol
-
-instance ToQuery ChannelProtocol
-
-instance ToHeader ChannelProtocol
-
-instance ToJSON ChannelProtocol where
-  toJSON = toJSONText
-
-instance FromJSON ChannelProtocol where
-  parseJSON = parseJSONText "ChannelProtocol"
+{-# COMPLETE
+  HTTPS,
+  Wss,
+  ChannelProtocol'
+  #-}

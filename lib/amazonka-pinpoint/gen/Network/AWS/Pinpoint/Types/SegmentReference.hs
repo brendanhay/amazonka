@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SegmentReference where
+module Network.AWS.Pinpoint.Types.SegmentReference
+  ( SegmentReference (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSegmentReference,
+
+    -- * Lenses
+    srVersion,
+    srId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the segment identifier and version of a segment.
 --
---
---
--- /See:/ 'segmentReference' smart constructor.
+-- /See:/ 'mkSegmentReference' smart constructor.
 data SegmentReference = SegmentReference'
-  { _srVersion ::
-      !(Maybe Int),
-    _srId :: !Text
+  { version ::
+      Lude.Maybe Lude.Int,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentReference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srVersion' - The version number of the segment.
---
--- * 'srId' - The unique identifier for the segment.
-segmentReference ::
-  -- | 'srId'
-  Text ->
+-- * 'id' - The unique identifier for the segment.
+-- * 'version' - The version number of the segment.
+mkSegmentReference ::
+  -- | 'id'
+  Lude.Text ->
   SegmentReference
-segmentReference pId_ =
-  SegmentReference' {_srVersion = Nothing, _srId = pId_}
+mkSegmentReference pId_ =
+  SegmentReference' {version = Lude.Nothing, id = pId_}
 
 -- | The version number of the segment.
-srVersion :: Lens' SegmentReference (Maybe Int)
-srVersion = lens _srVersion (\s a -> s {_srVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srVersion :: Lens.Lens' SegmentReference (Lude.Maybe Lude.Int)
+srVersion = Lens.lens (version :: SegmentReference -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: SegmentReference)
+{-# DEPRECATED srVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The unique identifier for the segment.
-srId :: Lens' SegmentReference Text
-srId = lens _srId (\s a -> s {_srId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srId :: Lens.Lens' SegmentReference Lude.Text
+srId = Lens.lens (id :: SegmentReference -> Lude.Text) (\s a -> s {id = a} :: SegmentReference)
+{-# DEPRECATED srId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON SegmentReference where
+instance Lude.FromJSON SegmentReference where
   parseJSON =
-    withObject
+    Lude.withObject
       "SegmentReference"
-      (\x -> SegmentReference' <$> (x .:? "Version") <*> (x .: "Id"))
+      ( \x ->
+          SegmentReference'
+            Lude.<$> (x Lude..:? "Version") Lude.<*> (x Lude..: "Id")
+      )
 
-instance Hashable SegmentReference
-
-instance NFData SegmentReference
-
-instance ToJSON SegmentReference where
+instance Lude.ToJSON SegmentReference where
   toJSON SegmentReference' {..} =
-    object
-      (catMaybes [("Version" .=) <$> _srVersion, Just ("Id" .= _srId)])
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Version" Lude..=) Lude.<$> version,
+            Lude.Just ("Id" Lude..= id)
+          ]
+      )

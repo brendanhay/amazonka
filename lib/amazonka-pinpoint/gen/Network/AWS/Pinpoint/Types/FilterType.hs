@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.FilterType where
+module Network.AWS.Pinpoint.Types.FilterType
+  ( FilterType
+      ( FilterType',
+        Endpoint,
+        System
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FilterType
-  = Endpoint
-  | System
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FilterType = FilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FilterType where
-  parser =
-    takeLowerText >>= \case
-      "endpoint" -> pure Endpoint
-      "system" -> pure System
-      e ->
-        fromTextError $
-          "Failure parsing FilterType from value: '" <> e
-            <> "'. Accepted values: endpoint, system"
+pattern Endpoint :: FilterType
+pattern Endpoint = FilterType' "ENDPOINT"
 
-instance ToText FilterType where
-  toText = \case
-    Endpoint -> "ENDPOINT"
-    System -> "SYSTEM"
+pattern System :: FilterType
+pattern System = FilterType' "SYSTEM"
 
-instance Hashable FilterType
-
-instance NFData FilterType
-
-instance ToByteString FilterType
-
-instance ToQuery FilterType
-
-instance ToHeader FilterType
-
-instance ToJSON FilterType where
-  toJSON = toJSONText
-
-instance FromJSON FilterType where
-  parseJSON = parseJSONText "FilterType"
+{-# COMPLETE
+  Endpoint,
+  System,
+  FilterType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamStatus where
+module Network.AWS.Firehose.Types.DeliveryStreamStatus
+  ( DeliveryStreamStatus
+      ( DeliveryStreamStatus',
+        Active,
+        Creating,
+        CreatingFailed,
+        Deleting,
+        DeletingFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStreamStatus
-  = Active
-  | Creating
-  | CreatingFailed
-  | Deleting
-  | DeletingFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStreamStatus = DeliveryStreamStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStreamStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "creating_failed" -> pure CreatingFailed
-      "deleting" -> pure Deleting
-      "deleting_failed" -> pure DeletingFailed
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStreamStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, creating_failed, deleting, deleting_failed"
+pattern Active :: DeliveryStreamStatus
+pattern Active = DeliveryStreamStatus' "ACTIVE"
 
-instance ToText DeliveryStreamStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    CreatingFailed -> "CREATING_FAILED"
-    Deleting -> "DELETING"
-    DeletingFailed -> "DELETING_FAILED"
+pattern Creating :: DeliveryStreamStatus
+pattern Creating = DeliveryStreamStatus' "CREATING"
 
-instance Hashable DeliveryStreamStatus
+pattern CreatingFailed :: DeliveryStreamStatus
+pattern CreatingFailed = DeliveryStreamStatus' "CREATING_FAILED"
 
-instance NFData DeliveryStreamStatus
+pattern Deleting :: DeliveryStreamStatus
+pattern Deleting = DeliveryStreamStatus' "DELETING"
 
-instance ToByteString DeliveryStreamStatus
+pattern DeletingFailed :: DeliveryStreamStatus
+pattern DeletingFailed = DeliveryStreamStatus' "DELETING_FAILED"
 
-instance ToQuery DeliveryStreamStatus
-
-instance ToHeader DeliveryStreamStatus
-
-instance FromJSON DeliveryStreamStatus where
-  parseJSON = parseJSONText "DeliveryStreamStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  CreatingFailed,
+  Deleting,
+  DeletingFailed,
+  DeliveryStreamStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,194 @@
 --
 -- Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.
 module Network.AWS.Pinpoint.RemoveAttributes
-  ( -- * Creating a Request
-    removeAttributes,
-    RemoveAttributes,
+  ( -- * Creating a request
+    RemoveAttributes (..),
+    mkRemoveAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     raAttributeType,
     raApplicationId,
     raUpdateAttributesRequest,
 
-    -- * Destructuring the Response
-    removeAttributesResponse,
-    RemoveAttributesResponse,
+    -- * Destructuring the response
+    RemoveAttributesResponse (..),
+    mkRemoveAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rarsResponseStatus,
     rarsAttributesResource,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeAttributes' smart constructor.
+-- | /See:/ 'mkRemoveAttributes' smart constructor.
 data RemoveAttributes = RemoveAttributes'
-  { _raAttributeType ::
-      !Text,
-    _raApplicationId :: !Text,
-    _raUpdateAttributesRequest :: !UpdateAttributesRequest
+  { attributeType ::
+      Lude.Text,
+    applicationId :: Lude.Text,
+    updateAttributesRequest :: UpdateAttributesRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'attributeType' - The type of attribute or attributes to remove. Valid values are:
 --
--- * 'raAttributeType' - The type of attribute or attributes to remove. Valid values are:     * endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
 --
--- * 'raApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--     * endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.
 --
--- * 'raUpdateAttributesRequest' - Undocumented member.
-removeAttributes ::
-  -- | 'raAttributeType'
-  Text ->
-  -- | 'raApplicationId'
-  Text ->
-  -- | 'raUpdateAttributesRequest'
+--
+--     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.
+--
+--
+--     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
+--
+--
+-- * 'updateAttributesRequest' - Undocumented field.
+mkRemoveAttributes ::
+  -- | 'attributeType'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'updateAttributesRequest'
   UpdateAttributesRequest ->
   RemoveAttributes
-removeAttributes
+mkRemoveAttributes
   pAttributeType_
   pApplicationId_
   pUpdateAttributesRequest_ =
     RemoveAttributes'
-      { _raAttributeType = pAttributeType_,
-        _raApplicationId = pApplicationId_,
-        _raUpdateAttributesRequest = pUpdateAttributesRequest_
+      { attributeType = pAttributeType_,
+        applicationId = pApplicationId_,
+        updateAttributesRequest = pUpdateAttributesRequest_
       }
 
--- | The type of attribute or attributes to remove. Valid values are:     * endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
-raAttributeType :: Lens' RemoveAttributes Text
-raAttributeType = lens _raAttributeType (\s a -> s {_raAttributeType = a})
+-- | The type of attribute or attributes to remove. Valid values are:
+--
+--
+--     * endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.
+--
+--
+--     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.
+--
+--
+--     * endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.
+--
+--
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAttributeType :: Lens.Lens' RemoveAttributes Lude.Text
+raAttributeType = Lens.lens (attributeType :: RemoveAttributes -> Lude.Text) (\s a -> s {attributeType = a} :: RemoveAttributes)
+{-# DEPRECATED raAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-raApplicationId :: Lens' RemoveAttributes Text
-raApplicationId = lens _raApplicationId (\s a -> s {_raApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raApplicationId :: Lens.Lens' RemoveAttributes Lude.Text
+raApplicationId = Lens.lens (applicationId :: RemoveAttributes -> Lude.Text) (\s a -> s {applicationId = a} :: RemoveAttributes)
+{-# DEPRECATED raApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-raUpdateAttributesRequest :: Lens' RemoveAttributes UpdateAttributesRequest
-raUpdateAttributesRequest = lens _raUpdateAttributesRequest (\s a -> s {_raUpdateAttributesRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'updateAttributesRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raUpdateAttributesRequest :: Lens.Lens' RemoveAttributes UpdateAttributesRequest
+raUpdateAttributesRequest = Lens.lens (updateAttributesRequest :: RemoveAttributes -> UpdateAttributesRequest) (\s a -> s {updateAttributesRequest = a} :: RemoveAttributes)
+{-# DEPRECATED raUpdateAttributesRequest "Use generic-lens or generic-optics with 'updateAttributesRequest' instead." #-}
 
-instance AWSRequest RemoveAttributes where
+instance Lude.AWSRequest RemoveAttributes where
   type Rs RemoveAttributes = RemoveAttributesResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RemoveAttributesResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable RemoveAttributes
-
-instance NFData RemoveAttributes
-
-instance ToHeaders RemoveAttributes where
+instance Lude.ToHeaders RemoveAttributes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON RemoveAttributes where
+instance Lude.ToJSON RemoveAttributes where
   toJSON RemoveAttributes' {..} =
-    object
-      ( catMaybes
-          [Just ("UpdateAttributesRequest" .= _raUpdateAttributesRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("UpdateAttributesRequest" Lude..= updateAttributesRequest)
+          ]
       )
 
-instance ToPath RemoveAttributes where
+instance Lude.ToPath RemoveAttributes where
   toPath RemoveAttributes' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _raApplicationId,
+        Lude.toBS applicationId,
         "/attributes/",
-        toBS _raAttributeType
+        Lude.toBS attributeType
       ]
 
-instance ToQuery RemoveAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeAttributesResponse' smart constructor.
+-- | /See:/ 'mkRemoveAttributesResponse' smart constructor.
 data RemoveAttributesResponse = RemoveAttributesResponse'
-  { _rarsResponseStatus ::
-      !Int,
-    _rarsAttributesResource ::
-      !AttributesResource
+  { responseStatus ::
+      Lude.Int,
+    attributesResource :: AttributesResource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rarsResponseStatus' - -- | The response status code.
---
--- * 'rarsAttributesResource' - Undocumented member.
-removeAttributesResponse ::
-  -- | 'rarsResponseStatus'
-  Int ->
-  -- | 'rarsAttributesResource'
+-- * 'attributesResource' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRemoveAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'attributesResource'
   AttributesResource ->
   RemoveAttributesResponse
-removeAttributesResponse pResponseStatus_ pAttributesResource_ =
+mkRemoveAttributesResponse pResponseStatus_ pAttributesResource_ =
   RemoveAttributesResponse'
-    { _rarsResponseStatus = pResponseStatus_,
-      _rarsAttributesResource = pAttributesResource_
+    { responseStatus = pResponseStatus_,
+      attributesResource = pAttributesResource_
     }
 
--- | -- | The response status code.
-rarsResponseStatus :: Lens' RemoveAttributesResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\s a -> s {_rarsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsResponseStatus :: Lens.Lens' RemoveAttributesResponse Lude.Int
+rarsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAttributesResponse)
+{-# DEPRECATED rarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-rarsAttributesResource :: Lens' RemoveAttributesResponse AttributesResource
-rarsAttributesResource = lens _rarsAttributesResource (\s a -> s {_rarsAttributesResource = a})
-
-instance NFData RemoveAttributesResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'attributesResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsAttributesResource :: Lens.Lens' RemoveAttributesResponse AttributesResource
+rarsAttributesResource = Lens.lens (attributesResource :: RemoveAttributesResponse -> AttributesResource) (\s a -> s {attributesResource = a} :: RemoveAttributesResponse)
+{-# DEPRECATED rarsAttributesResource "Use generic-lens or generic-optics with 'attributesResource' instead." #-}

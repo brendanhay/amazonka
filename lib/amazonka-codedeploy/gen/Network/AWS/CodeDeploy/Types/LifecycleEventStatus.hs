@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.LifecycleEventStatus where
+module Network.AWS.CodeDeploy.Types.LifecycleEventStatus
+  ( LifecycleEventStatus
+      ( LifecycleEventStatus',
+        LESFailed,
+        LESInProgress,
+        LESPending,
+        LESSkipped,
+        LESSucceeded,
+        LESUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LifecycleEventStatus
-  = LESFailed
-  | LESInProgress
-  | LESPending
-  | LESSkipped
-  | LESSucceeded
-  | LESUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LifecycleEventStatus = LifecycleEventStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LifecycleEventStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure LESFailed
-      "inprogress" -> pure LESInProgress
-      "pending" -> pure LESPending
-      "skipped" -> pure LESSkipped
-      "succeeded" -> pure LESSucceeded
-      "unknown" -> pure LESUnknown
-      e ->
-        fromTextError $
-          "Failure parsing LifecycleEventStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
+pattern LESFailed :: LifecycleEventStatus
+pattern LESFailed = LifecycleEventStatus' "Failed"
 
-instance ToText LifecycleEventStatus where
-  toText = \case
-    LESFailed -> "Failed"
-    LESInProgress -> "InProgress"
-    LESPending -> "Pending"
-    LESSkipped -> "Skipped"
-    LESSucceeded -> "Succeeded"
-    LESUnknown -> "Unknown"
+pattern LESInProgress :: LifecycleEventStatus
+pattern LESInProgress = LifecycleEventStatus' "InProgress"
 
-instance Hashable LifecycleEventStatus
+pattern LESPending :: LifecycleEventStatus
+pattern LESPending = LifecycleEventStatus' "Pending"
 
-instance NFData LifecycleEventStatus
+pattern LESSkipped :: LifecycleEventStatus
+pattern LESSkipped = LifecycleEventStatus' "Skipped"
 
-instance ToByteString LifecycleEventStatus
+pattern LESSucceeded :: LifecycleEventStatus
+pattern LESSucceeded = LifecycleEventStatus' "Succeeded"
 
-instance ToQuery LifecycleEventStatus
+pattern LESUnknown :: LifecycleEventStatus
+pattern LESUnknown = LifecycleEventStatus' "Unknown"
 
-instance ToHeader LifecycleEventStatus
-
-instance ToJSON LifecycleEventStatus where
-  toJSON = toJSONText
-
-instance FromJSON LifecycleEventStatus where
-  parseJSON = parseJSONText "LifecycleEventStatus"
+{-# COMPLETE
+  LESFailed,
+  LESInProgress,
+  LESPending,
+  LESSkipped,
+  LESSucceeded,
+  LESUnknown,
+  LifecycleEventStatus'
+  #-}

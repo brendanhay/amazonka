@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.OpenIdConnectConfig where
+module Network.AWS.AppSync.Types.OpenIdConnectConfig
+  ( OpenIdConnectConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpenIdConnectConfig,
+
+    -- * Lenses
+    oiccAuthTTL,
+    oiccClientId,
+    oiccIatTTL,
+    oiccIssuer,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an OpenID Connect configuration.
 --
---
---
--- /See:/ 'openIdConnectConfig' smart constructor.
+-- /See:/ 'mkOpenIdConnectConfig' smart constructor.
 data OpenIdConnectConfig = OpenIdConnectConfig'
-  { _oiccAuthTTL ::
-      !(Maybe Integer),
-    _oiccClientId :: !(Maybe Text),
-    _oiccIatTTL :: !(Maybe Integer),
-    _oiccIssuer :: !Text
+  { authTTL ::
+      Lude.Maybe Lude.Integer,
+    clientId :: Lude.Maybe Lude.Text,
+    iatTTL :: Lude.Maybe Lude.Integer,
+    issuer :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpenIdConnectConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oiccAuthTTL' - The number of milliseconds a token is valid after being authenticated.
---
--- * 'oiccClientId' - The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
---
--- * 'oiccIatTTL' - The number of milliseconds a token is valid after being issued to a user.
---
--- * 'oiccIssuer' - The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
-openIdConnectConfig ::
-  -- | 'oiccIssuer'
-  Text ->
+-- * 'authTTL' - The number of milliseconds a token is valid after being authenticated.
+-- * 'clientId' - The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+-- * 'iatTTL' - The number of milliseconds a token is valid after being issued to a user.
+-- * 'issuer' - The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
+mkOpenIdConnectConfig ::
+  -- | 'issuer'
+  Lude.Text ->
   OpenIdConnectConfig
-openIdConnectConfig pIssuer_ =
+mkOpenIdConnectConfig pIssuer_ =
   OpenIdConnectConfig'
-    { _oiccAuthTTL = Nothing,
-      _oiccClientId = Nothing,
-      _oiccIatTTL = Nothing,
-      _oiccIssuer = pIssuer_
+    { authTTL = Lude.Nothing,
+      clientId = Lude.Nothing,
+      iatTTL = Lude.Nothing,
+      issuer = pIssuer_
     }
 
 -- | The number of milliseconds a token is valid after being authenticated.
-oiccAuthTTL :: Lens' OpenIdConnectConfig (Maybe Integer)
-oiccAuthTTL = lens _oiccAuthTTL (\s a -> s {_oiccAuthTTL = a})
+--
+-- /Note:/ Consider using 'authTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiccAuthTTL :: Lens.Lens' OpenIdConnectConfig (Lude.Maybe Lude.Integer)
+oiccAuthTTL = Lens.lens (authTTL :: OpenIdConnectConfig -> Lude.Maybe Lude.Integer) (\s a -> s {authTTL = a} :: OpenIdConnectConfig)
+{-# DEPRECATED oiccAuthTTL "Use generic-lens or generic-optics with 'authTTL' instead." #-}
 
 -- | The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-oiccClientId :: Lens' OpenIdConnectConfig (Maybe Text)
-oiccClientId = lens _oiccClientId (\s a -> s {_oiccClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiccClientId :: Lens.Lens' OpenIdConnectConfig (Lude.Maybe Lude.Text)
+oiccClientId = Lens.lens (clientId :: OpenIdConnectConfig -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: OpenIdConnectConfig)
+{-# DEPRECATED oiccClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The number of milliseconds a token is valid after being issued to a user.
-oiccIatTTL :: Lens' OpenIdConnectConfig (Maybe Integer)
-oiccIatTTL = lens _oiccIatTTL (\s a -> s {_oiccIatTTL = a})
+--
+-- /Note:/ Consider using 'iatTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiccIatTTL :: Lens.Lens' OpenIdConnectConfig (Lude.Maybe Lude.Integer)
+oiccIatTTL = Lens.lens (iatTTL :: OpenIdConnectConfig -> Lude.Maybe Lude.Integer) (\s a -> s {iatTTL = a} :: OpenIdConnectConfig)
+{-# DEPRECATED oiccIatTTL "Use generic-lens or generic-optics with 'iatTTL' instead." #-}
 
 -- | The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
-oiccIssuer :: Lens' OpenIdConnectConfig Text
-oiccIssuer = lens _oiccIssuer (\s a -> s {_oiccIssuer = a})
+--
+-- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiccIssuer :: Lens.Lens' OpenIdConnectConfig Lude.Text
+oiccIssuer = Lens.lens (issuer :: OpenIdConnectConfig -> Lude.Text) (\s a -> s {issuer = a} :: OpenIdConnectConfig)
+{-# DEPRECATED oiccIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
 
-instance FromJSON OpenIdConnectConfig where
+instance Lude.FromJSON OpenIdConnectConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "OpenIdConnectConfig"
       ( \x ->
           OpenIdConnectConfig'
-            <$> (x .:? "authTTL")
-            <*> (x .:? "clientId")
-            <*> (x .:? "iatTTL")
-            <*> (x .: "issuer")
+            Lude.<$> (x Lude..:? "authTTL")
+            Lude.<*> (x Lude..:? "clientId")
+            Lude.<*> (x Lude..:? "iatTTL")
+            Lude.<*> (x Lude..: "issuer")
       )
 
-instance Hashable OpenIdConnectConfig
-
-instance NFData OpenIdConnectConfig
-
-instance ToJSON OpenIdConnectConfig where
+instance Lude.ToJSON OpenIdConnectConfig where
   toJSON OpenIdConnectConfig' {..} =
-    object
-      ( catMaybes
-          [ ("authTTL" .=) <$> _oiccAuthTTL,
-            ("clientId" .=) <$> _oiccClientId,
-            ("iatTTL" .=) <$> _oiccIatTTL,
-            Just ("issuer" .= _oiccIssuer)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("authTTL" Lude..=) Lude.<$> authTTL,
+            ("clientId" Lude..=) Lude.<$> clientId,
+            ("iatTTL" Lude..=) Lude.<$> iatTTL,
+            Lude.Just ("issuer" Lude..= issuer)
           ]
       )

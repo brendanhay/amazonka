@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.File where
+module Network.AWS.CodeCommit.Types.File
+  ( File (..),
+
+    -- * Smart constructor
+    mkFile,
+
+    -- * Lenses
+    fAbsolutePath,
+    fFileMode,
+    fBlobId,
+    fRelativePath,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about a file in a repository.
 --
---
---
--- /See:/ 'file' smart constructor.
+-- /See:/ 'mkFile' smart constructor.
 data File = File'
-  { _fAbsolutePath :: !(Maybe Text),
-    _fFileMode :: !(Maybe FileModeTypeEnum),
-    _fBlobId :: !(Maybe Text),
-    _fRelativePath :: !(Maybe Text)
+  { absolutePath :: Lude.Maybe Lude.Text,
+    fileMode :: Lude.Maybe FileModeTypeEnum,
+    blobId :: Lude.Maybe Lude.Text,
+    relativePath :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'File' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fAbsolutePath' - The fully qualified path to the file in the repository.
---
--- * 'fFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
---
--- * 'fBlobId' - The blob ID that contains the file information.
---
--- * 'fRelativePath' - The relative path of the file from the folder where the query originated.
-file ::
+-- * 'absolutePath' - The fully qualified path to the file in the repository.
+-- * 'blobId' - The blob ID that contains the file information.
+-- * 'fileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+-- * 'relativePath' - The relative path of the file from the folder where the query originated.
+mkFile ::
   File
-file =
+mkFile =
   File'
-    { _fAbsolutePath = Nothing,
-      _fFileMode = Nothing,
-      _fBlobId = Nothing,
-      _fRelativePath = Nothing
+    { absolutePath = Lude.Nothing,
+      fileMode = Lude.Nothing,
+      blobId = Lude.Nothing,
+      relativePath = Lude.Nothing
     }
 
 -- | The fully qualified path to the file in the repository.
-fAbsolutePath :: Lens' File (Maybe Text)
-fAbsolutePath = lens _fAbsolutePath (\s a -> s {_fAbsolutePath = a})
+--
+-- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fAbsolutePath :: Lens.Lens' File (Lude.Maybe Lude.Text)
+fAbsolutePath = Lens.lens (absolutePath :: File -> Lude.Maybe Lude.Text) (\s a -> s {absolutePath = a} :: File)
+{-# DEPRECATED fAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
 
 -- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
-fFileMode :: Lens' File (Maybe FileModeTypeEnum)
-fFileMode = lens _fFileMode (\s a -> s {_fFileMode = a})
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFileMode :: Lens.Lens' File (Lude.Maybe FileModeTypeEnum)
+fFileMode = Lens.lens (fileMode :: File -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: File)
+{-# DEPRECATED fFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The blob ID that contains the file information.
-fBlobId :: Lens' File (Maybe Text)
-fBlobId = lens _fBlobId (\s a -> s {_fBlobId = a})
+--
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fBlobId :: Lens.Lens' File (Lude.Maybe Lude.Text)
+fBlobId = Lens.lens (blobId :: File -> Lude.Maybe Lude.Text) (\s a -> s {blobId = a} :: File)
+{-# DEPRECATED fBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
 
 -- | The relative path of the file from the folder where the query originated.
-fRelativePath :: Lens' File (Maybe Text)
-fRelativePath = lens _fRelativePath (\s a -> s {_fRelativePath = a})
+--
+-- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fRelativePath :: Lens.Lens' File (Lude.Maybe Lude.Text)
+fRelativePath = Lens.lens (relativePath :: File -> Lude.Maybe Lude.Text) (\s a -> s {relativePath = a} :: File)
+{-# DEPRECATED fRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
 
-instance FromJSON File where
+instance Lude.FromJSON File where
   parseJSON =
-    withObject
+    Lude.withObject
       "File"
       ( \x ->
           File'
-            <$> (x .:? "absolutePath")
-            <*> (x .:? "fileMode")
-            <*> (x .:? "blobId")
-            <*> (x .:? "relativePath")
+            Lude.<$> (x Lude..:? "absolutePath")
+            Lude.<*> (x Lude..:? "fileMode")
+            Lude.<*> (x Lude..:? "blobId")
+            Lude.<*> (x Lude..:? "relativePath")
       )
-
-instance Hashable File
-
-instance NFData File

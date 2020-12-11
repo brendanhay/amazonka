@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ExecutionTimeFilter where
+module Network.AWS.SWF.Types.ExecutionTimeFilter
+  ( ExecutionTimeFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExecutionTimeFilter,
+
+    -- * Lenses
+    etfLatestDate,
+    etfOldestDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <https://en.wikipedia.org/wiki/Unix_time Unix Time format> . For example: @"oldestDate": 1325376070.@
 --
---
---
--- /See:/ 'executionTimeFilter' smart constructor.
+-- /See:/ 'mkExecutionTimeFilter' smart constructor.
 data ExecutionTimeFilter = ExecutionTimeFilter'
-  { _etfLatestDate ::
-      !(Maybe POSIX),
-    _etfOldestDate :: !POSIX
+  { latestDate ::
+      Lude.Maybe Lude.Timestamp,
+    oldestDate :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionTimeFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etfLatestDate' - Specifies the latest start or close date and time to return.
---
--- * 'etfOldestDate' - Specifies the oldest start or close date and time to return.
-executionTimeFilter ::
-  -- | 'etfOldestDate'
-  UTCTime ->
+-- * 'latestDate' - Specifies the latest start or close date and time to return.
+-- * 'oldestDate' - Specifies the oldest start or close date and time to return.
+mkExecutionTimeFilter ::
+  -- | 'oldestDate'
+  Lude.Timestamp ->
   ExecutionTimeFilter
-executionTimeFilter pOldestDate_ =
+mkExecutionTimeFilter pOldestDate_ =
   ExecutionTimeFilter'
-    { _etfLatestDate = Nothing,
-      _etfOldestDate = _Time # pOldestDate_
+    { latestDate = Lude.Nothing,
+      oldestDate = pOldestDate_
     }
 
 -- | Specifies the latest start or close date and time to return.
-etfLatestDate :: Lens' ExecutionTimeFilter (Maybe UTCTime)
-etfLatestDate = lens _etfLatestDate (\s a -> s {_etfLatestDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etfLatestDate :: Lens.Lens' ExecutionTimeFilter (Lude.Maybe Lude.Timestamp)
+etfLatestDate = Lens.lens (latestDate :: ExecutionTimeFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestDate = a} :: ExecutionTimeFilter)
+{-# DEPRECATED etfLatestDate "Use generic-lens or generic-optics with 'latestDate' instead." #-}
 
 -- | Specifies the oldest start or close date and time to return.
-etfOldestDate :: Lens' ExecutionTimeFilter UTCTime
-etfOldestDate = lens _etfOldestDate (\s a -> s {_etfOldestDate = a}) . _Time
+--
+-- /Note:/ Consider using 'oldestDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etfOldestDate :: Lens.Lens' ExecutionTimeFilter Lude.Timestamp
+etfOldestDate = Lens.lens (oldestDate :: ExecutionTimeFilter -> Lude.Timestamp) (\s a -> s {oldestDate = a} :: ExecutionTimeFilter)
+{-# DEPRECATED etfOldestDate "Use generic-lens or generic-optics with 'oldestDate' instead." #-}
 
-instance Hashable ExecutionTimeFilter
-
-instance NFData ExecutionTimeFilter
-
-instance ToJSON ExecutionTimeFilter where
+instance Lude.ToJSON ExecutionTimeFilter where
   toJSON ExecutionTimeFilter' {..} =
-    object
-      ( catMaybes
-          [ ("latestDate" .=) <$> _etfLatestDate,
-            Just ("oldestDate" .= _etfOldestDate)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("latestDate" Lude..=) Lude.<$> latestDate,
+            Lude.Just ("oldestDate" Lude..= oldestDate)
           ]
       )

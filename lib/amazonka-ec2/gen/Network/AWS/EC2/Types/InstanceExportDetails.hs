@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceExportDetails where
+module Network.AWS.EC2.Types.InstanceExportDetails
+  ( InstanceExportDetails (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceExportDetails,
+
+    -- * Lenses
+    iedTargetEnvironment,
+    iedInstanceId,
+  )
+where
+
 import Network.AWS.EC2.Types.ExportEnvironment
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an instance to export.
 --
---
---
--- /See:/ 'instanceExportDetails' smart constructor.
+-- /See:/ 'mkInstanceExportDetails' smart constructor.
 data InstanceExportDetails = InstanceExportDetails'
-  { _iedTargetEnvironment ::
-      !(Maybe ExportEnvironment),
-    _iedInstanceId :: !(Maybe Text)
+  { targetEnvironment ::
+      Lude.Maybe ExportEnvironment,
+    instanceId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceExportDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iedTargetEnvironment' - The target virtualization environment.
---
--- * 'iedInstanceId' - The ID of the resource being exported.
-instanceExportDetails ::
+-- * 'instanceId' - The ID of the resource being exported.
+-- * 'targetEnvironment' - The target virtualization environment.
+mkInstanceExportDetails ::
   InstanceExportDetails
-instanceExportDetails =
+mkInstanceExportDetails =
   InstanceExportDetails'
-    { _iedTargetEnvironment = Nothing,
-      _iedInstanceId = Nothing
+    { targetEnvironment = Lude.Nothing,
+      instanceId = Lude.Nothing
     }
 
 -- | The target virtualization environment.
-iedTargetEnvironment :: Lens' InstanceExportDetails (Maybe ExportEnvironment)
-iedTargetEnvironment = lens _iedTargetEnvironment (\s a -> s {_iedTargetEnvironment = a})
+--
+-- /Note:/ Consider using 'targetEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iedTargetEnvironment :: Lens.Lens' InstanceExportDetails (Lude.Maybe ExportEnvironment)
+iedTargetEnvironment = Lens.lens (targetEnvironment :: InstanceExportDetails -> Lude.Maybe ExportEnvironment) (\s a -> s {targetEnvironment = a} :: InstanceExportDetails)
+{-# DEPRECATED iedTargetEnvironment "Use generic-lens or generic-optics with 'targetEnvironment' instead." #-}
 
 -- | The ID of the resource being exported.
-iedInstanceId :: Lens' InstanceExportDetails (Maybe Text)
-iedInstanceId = lens _iedInstanceId (\s a -> s {_iedInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iedInstanceId :: Lens.Lens' InstanceExportDetails (Lude.Maybe Lude.Text)
+iedInstanceId = Lens.lens (instanceId :: InstanceExportDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceExportDetails)
+{-# DEPRECATED iedInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance FromXML InstanceExportDetails where
+instance Lude.FromXML InstanceExportDetails where
   parseXML x =
     InstanceExportDetails'
-      <$> (x .@? "targetEnvironment") <*> (x .@? "instanceId")
-
-instance Hashable InstanceExportDetails
-
-instance NFData InstanceExportDetails
+      Lude.<$> (x Lude..@? "targetEnvironment") Lude.<*> (x Lude..@? "instanceId")

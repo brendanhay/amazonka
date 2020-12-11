@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RouteState where
+module Network.AWS.EC2.Types.RouteState
+  ( RouteState
+      ( RouteState',
+        RActive,
+        RBlackhole
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RouteState
-  = RActive
-  | RBlackhole
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RouteState = RouteState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RouteState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RActive
-      "blackhole" -> pure RBlackhole
-      e ->
-        fromTextError $
-          "Failure parsing RouteState from value: '" <> e
-            <> "'. Accepted values: active, blackhole"
+pattern RActive :: RouteState
+pattern RActive = RouteState' "active"
 
-instance ToText RouteState where
-  toText = \case
-    RActive -> "active"
-    RBlackhole -> "blackhole"
+pattern RBlackhole :: RouteState
+pattern RBlackhole = RouteState' "blackhole"
 
-instance Hashable RouteState
-
-instance NFData RouteState
-
-instance ToByteString RouteState
-
-instance ToQuery RouteState
-
-instance ToHeader RouteState
-
-instance FromXML RouteState where
-  parseXML = parseXMLText "RouteState"
+{-# COMPLETE
+  RActive,
+  RBlackhole,
+  RouteState'
+  #-}

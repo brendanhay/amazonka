@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JQState where
+module Network.AWS.Batch.Types.JQState
+  ( JQState
+      ( JQState',
+        JQSDisabled,
+        JQSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JQState
-  = JQSDisabled
-  | JQSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JQState = JQState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JQState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure JQSDisabled
-      "enabled" -> pure JQSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing JQState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern JQSDisabled :: JQState
+pattern JQSDisabled = JQState' "DISABLED"
 
-instance ToText JQState where
-  toText = \case
-    JQSDisabled -> "DISABLED"
-    JQSEnabled -> "ENABLED"
+pattern JQSEnabled :: JQState
+pattern JQSEnabled = JQState' "ENABLED"
 
-instance Hashable JQState
-
-instance NFData JQState
-
-instance ToByteString JQState
-
-instance ToQuery JQState
-
-instance ToHeader JQState
-
-instance ToJSON JQState where
-  toJSON = toJSONText
-
-instance FromJSON JQState where
-  parseJSON = parseJSONText "JQState"
+{-# COMPLETE
+  JQSDisabled,
+  JQSEnabled,
+  JQState'
+  #-}

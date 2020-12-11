@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,163 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayVPCAttachment where
+module Network.AWS.EC2.Types.TransitGatewayVPCAttachment
+  ( TransitGatewayVPCAttachment (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayVPCAttachment,
+
+    -- * Lenses
+    tgvaCreationTime,
+    tgvaState,
+    tgvaSubnetIds,
+    tgvaVPCId,
+    tgvaTransitGatewayId,
+    tgvaOptions,
+    tgvaTransitGatewayAttachmentId,
+    tgvaTags,
+    tgvaVPCOwnerId,
+  )
+where
+
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayAttachmentState
 import Network.AWS.EC2.Types.TransitGatewayVPCAttachmentOptions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a VPC attachment.
 --
---
---
--- /See:/ 'transitGatewayVPCAttachment' smart constructor.
+-- /See:/ 'mkTransitGatewayVPCAttachment' smart constructor.
 data TransitGatewayVPCAttachment = TransitGatewayVPCAttachment'
-  { _tgvaCreationTime ::
-      !(Maybe ISO8601),
-    _tgvaState ::
-      !( Maybe
-           TransitGatewayAttachmentState
-       ),
-    _tgvaSubnetIds :: !(Maybe [Text]),
-    _tgvaVPCId :: !(Maybe Text),
-    _tgvaTransitGatewayId ::
-      !(Maybe Text),
-    _tgvaOptions ::
-      !( Maybe
-           TransitGatewayVPCAttachmentOptions
-       ),
-    _tgvaTransitGatewayAttachmentId ::
-      !(Maybe Text),
-    _tgvaTags :: !(Maybe [Tag]),
-    _tgvaVPCOwnerId :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.ISO8601,
+    state ::
+      Lude.Maybe
+        TransitGatewayAttachmentState,
+    subnetIds :: Lude.Maybe [Lude.Text],
+    vpcId :: Lude.Maybe Lude.Text,
+    transitGatewayId ::
+      Lude.Maybe Lude.Text,
+    options ::
+      Lude.Maybe
+        TransitGatewayVPCAttachmentOptions,
+    transitGatewayAttachmentId ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    vpcOwnerId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgvaCreationTime' - The creation time.
---
--- * 'tgvaState' - The state of the VPC attachment. Note that the @initiating@ state has been deprecated.
---
--- * 'tgvaSubnetIds' - The IDs of the subnets.
---
--- * 'tgvaVPCId' - The ID of the VPC.
---
--- * 'tgvaTransitGatewayId' - The ID of the transit gateway.
---
--- * 'tgvaOptions' - The VPC attachment options.
---
--- * 'tgvaTransitGatewayAttachmentId' - The ID of the attachment.
---
--- * 'tgvaTags' - The tags for the VPC attachment.
---
--- * 'tgvaVPCOwnerId' - The ID of the AWS account that owns the VPC.
-transitGatewayVPCAttachment ::
+-- * 'creationTime' - The creation time.
+-- * 'options' - The VPC attachment options.
+-- * 'state' - The state of the VPC attachment. Note that the @initiating@ state has been deprecated.
+-- * 'subnetIds' - The IDs of the subnets.
+-- * 'tags' - The tags for the VPC attachment.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'vpcId' - The ID of the VPC.
+-- * 'vpcOwnerId' - The ID of the AWS account that owns the VPC.
+mkTransitGatewayVPCAttachment ::
   TransitGatewayVPCAttachment
-transitGatewayVPCAttachment =
+mkTransitGatewayVPCAttachment =
   TransitGatewayVPCAttachment'
-    { _tgvaCreationTime = Nothing,
-      _tgvaState = Nothing,
-      _tgvaSubnetIds = Nothing,
-      _tgvaVPCId = Nothing,
-      _tgvaTransitGatewayId = Nothing,
-      _tgvaOptions = Nothing,
-      _tgvaTransitGatewayAttachmentId = Nothing,
-      _tgvaTags = Nothing,
-      _tgvaVPCOwnerId = Nothing
+    { creationTime = Lude.Nothing,
+      state = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      transitGatewayId = Lude.Nothing,
+      options = Lude.Nothing,
+      transitGatewayAttachmentId = Lude.Nothing,
+      tags = Lude.Nothing,
+      vpcOwnerId = Lude.Nothing
     }
 
 -- | The creation time.
-tgvaCreationTime :: Lens' TransitGatewayVPCAttachment (Maybe UTCTime)
-tgvaCreationTime = lens _tgvaCreationTime (\s a -> s {_tgvaCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaCreationTime :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe Lude.ISO8601)
+tgvaCreationTime = Lens.lens (creationTime :: TransitGatewayVPCAttachment -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the VPC attachment. Note that the @initiating@ state has been deprecated.
-tgvaState :: Lens' TransitGatewayVPCAttachment (Maybe TransitGatewayAttachmentState)
-tgvaState = lens _tgvaState (\s a -> s {_tgvaState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaState :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe TransitGatewayAttachmentState)
+tgvaState = Lens.lens (state :: TransitGatewayVPCAttachment -> Lude.Maybe TransitGatewayAttachmentState) (\s a -> s {state = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The IDs of the subnets.
-tgvaSubnetIds :: Lens' TransitGatewayVPCAttachment [Text]
-tgvaSubnetIds = lens _tgvaSubnetIds (\s a -> s {_tgvaSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaSubnetIds :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe [Lude.Text])
+tgvaSubnetIds = Lens.lens (subnetIds :: TransitGatewayVPCAttachment -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The ID of the VPC.
-tgvaVPCId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
-tgvaVPCId = lens _tgvaVPCId (\s a -> s {_tgvaVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaVPCId :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe Lude.Text)
+tgvaVPCId = Lens.lens (vpcId :: TransitGatewayVPCAttachment -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The ID of the transit gateway.
-tgvaTransitGatewayId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
-tgvaTransitGatewayId = lens _tgvaTransitGatewayId (\s a -> s {_tgvaTransitGatewayId = a})
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaTransitGatewayId :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe Lude.Text)
+tgvaTransitGatewayId = Lens.lens (transitGatewayId :: TransitGatewayVPCAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The VPC attachment options.
-tgvaOptions :: Lens' TransitGatewayVPCAttachment (Maybe TransitGatewayVPCAttachmentOptions)
-tgvaOptions = lens _tgvaOptions (\s a -> s {_tgvaOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaOptions :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe TransitGatewayVPCAttachmentOptions)
+tgvaOptions = Lens.lens (options :: TransitGatewayVPCAttachment -> Lude.Maybe TransitGatewayVPCAttachmentOptions) (\s a -> s {options = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The ID of the attachment.
-tgvaTransitGatewayAttachmentId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
-tgvaTransitGatewayAttachmentId = lens _tgvaTransitGatewayAttachmentId (\s a -> s {_tgvaTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe Lude.Text)
+tgvaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayVPCAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 -- | The tags for the VPC attachment.
-tgvaTags :: Lens' TransitGatewayVPCAttachment [Tag]
-tgvaTags = lens _tgvaTags (\s a -> s {_tgvaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaTags :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe [Tag])
+tgvaTags = Lens.lens (tags :: TransitGatewayVPCAttachment -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the AWS account that owns the VPC.
-tgvaVPCOwnerId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
-tgvaVPCOwnerId = lens _tgvaVPCOwnerId (\s a -> s {_tgvaVPCOwnerId = a})
+--
+-- /Note:/ Consider using 'vpcOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgvaVPCOwnerId :: Lens.Lens' TransitGatewayVPCAttachment (Lude.Maybe Lude.Text)
+tgvaVPCOwnerId = Lens.lens (vpcOwnerId :: TransitGatewayVPCAttachment -> Lude.Maybe Lude.Text) (\s a -> s {vpcOwnerId = a} :: TransitGatewayVPCAttachment)
+{-# DEPRECATED tgvaVPCOwnerId "Use generic-lens or generic-optics with 'vpcOwnerId' instead." #-}
 
-instance FromXML TransitGatewayVPCAttachment where
+instance Lude.FromXML TransitGatewayVPCAttachment where
   parseXML x =
     TransitGatewayVPCAttachment'
-      <$> (x .@? "creationTime")
-      <*> (x .@? "state")
-      <*> (x .@? "subnetIds" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "vpcId")
-      <*> (x .@? "transitGatewayId")
-      <*> (x .@? "options")
-      <*> (x .@? "transitGatewayAttachmentId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "vpcOwnerId")
-
-instance Hashable TransitGatewayVPCAttachment
-
-instance NFData TransitGatewayVPCAttachment
+      Lude.<$> (x Lude..@? "creationTime")
+      Lude.<*> (x Lude..@? "state")
+      Lude.<*> ( x Lude..@? "subnetIds" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "vpcId")
+      Lude.<*> (x Lude..@? "transitGatewayId")
+      Lude.<*> (x Lude..@? "options")
+      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "vpcOwnerId")

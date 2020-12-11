@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType where
+module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
+  ( AccountTakeoverEventActionType
+      ( AccountTakeoverEventActionType',
+        ATEATBlock,
+        ATEATMFAIfConfigured,
+        ATEATMFARequired,
+        ATEATNoAction
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccountTakeoverEventActionType
-  = ATEATBlock
-  | ATEATMFAIfConfigured
-  | ATEATMFARequired
-  | ATEATNoAction
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountTakeoverEventActionType = AccountTakeoverEventActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountTakeoverEventActionType where
-  parser =
-    takeLowerText >>= \case
-      "block" -> pure ATEATBlock
-      "mfa_if_configured" -> pure ATEATMFAIfConfigured
-      "mfa_required" -> pure ATEATMFARequired
-      "no_action" -> pure ATEATNoAction
-      e ->
-        fromTextError $
-          "Failure parsing AccountTakeoverEventActionType from value: '" <> e
-            <> "'. Accepted values: block, mfa_if_configured, mfa_required, no_action"
+pattern ATEATBlock :: AccountTakeoverEventActionType
+pattern ATEATBlock = AccountTakeoverEventActionType' "BLOCK"
 
-instance ToText AccountTakeoverEventActionType where
-  toText = \case
-    ATEATBlock -> "BLOCK"
-    ATEATMFAIfConfigured -> "MFA_IF_CONFIGURED"
-    ATEATMFARequired -> "MFA_REQUIRED"
-    ATEATNoAction -> "NO_ACTION"
+pattern ATEATMFAIfConfigured :: AccountTakeoverEventActionType
+pattern ATEATMFAIfConfigured = AccountTakeoverEventActionType' "MFA_IF_CONFIGURED"
 
-instance Hashable AccountTakeoverEventActionType
+pattern ATEATMFARequired :: AccountTakeoverEventActionType
+pattern ATEATMFARequired = AccountTakeoverEventActionType' "MFA_REQUIRED"
 
-instance NFData AccountTakeoverEventActionType
+pattern ATEATNoAction :: AccountTakeoverEventActionType
+pattern ATEATNoAction = AccountTakeoverEventActionType' "NO_ACTION"
 
-instance ToByteString AccountTakeoverEventActionType
-
-instance ToQuery AccountTakeoverEventActionType
-
-instance ToHeader AccountTakeoverEventActionType
-
-instance ToJSON AccountTakeoverEventActionType where
-  toJSON = toJSONText
-
-instance FromJSON AccountTakeoverEventActionType where
-  parseJSON = parseJSONText "AccountTakeoverEventActionType"
+{-# COMPLETE
+  ATEATBlock,
+  ATEATMFAIfConfigured,
+  ATEATMFARequired,
+  ATEATNoAction,
+  AccountTakeoverEventActionType'
+  #-}

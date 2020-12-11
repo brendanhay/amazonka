@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.MergeHunk where
+module Network.AWS.CodeCommit.Types.MergeHunk
+  ( MergeHunk (..),
+
+    -- * Smart constructor
+    mkMergeHunk,
+
+    -- * Lenses
+    mhDestination,
+    mhBase,
+    mhIsConflict,
+    mhSource,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.MergeHunkDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about merge hunks in a merge or pull request operation.
 --
---
---
--- /See:/ 'mergeHunk' smart constructor.
+-- /See:/ 'mkMergeHunk' smart constructor.
 data MergeHunk = MergeHunk'
-  { _mhDestination ::
-      !(Maybe MergeHunkDetail),
-    _mhBase :: !(Maybe MergeHunkDetail),
-    _mhIsConflict :: !(Maybe Bool),
-    _mhSource :: !(Maybe MergeHunkDetail)
+  { destination ::
+      Lude.Maybe MergeHunkDetail,
+    base :: Lude.Maybe MergeHunkDetail,
+    isConflict :: Lude.Maybe Lude.Bool,
+    source :: Lude.Maybe MergeHunkDetail
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeHunk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mhDestination' - Information about the merge hunk in the destination of a merge or pull request.
---
--- * 'mhBase' - Information about the merge hunk in the base of a merge or pull request.
---
--- * 'mhIsConflict' - A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.
---
--- * 'mhSource' - Information about the merge hunk in the source of a merge or pull request.
-mergeHunk ::
+-- * 'base' - Information about the merge hunk in the base of a merge or pull request.
+-- * 'destination' - Information about the merge hunk in the destination of a merge or pull request.
+-- * 'isConflict' - A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.
+-- * 'source' - Information about the merge hunk in the source of a merge or pull request.
+mkMergeHunk ::
   MergeHunk
-mergeHunk =
+mkMergeHunk =
   MergeHunk'
-    { _mhDestination = Nothing,
-      _mhBase = Nothing,
-      _mhIsConflict = Nothing,
-      _mhSource = Nothing
+    { destination = Lude.Nothing,
+      base = Lude.Nothing,
+      isConflict = Lude.Nothing,
+      source = Lude.Nothing
     }
 
 -- | Information about the merge hunk in the destination of a merge or pull request.
-mhDestination :: Lens' MergeHunk (Maybe MergeHunkDetail)
-mhDestination = lens _mhDestination (\s a -> s {_mhDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhDestination :: Lens.Lens' MergeHunk (Lude.Maybe MergeHunkDetail)
+mhDestination = Lens.lens (destination :: MergeHunk -> Lude.Maybe MergeHunkDetail) (\s a -> s {destination = a} :: MergeHunk)
+{-# DEPRECATED mhDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Information about the merge hunk in the base of a merge or pull request.
-mhBase :: Lens' MergeHunk (Maybe MergeHunkDetail)
-mhBase = lens _mhBase (\s a -> s {_mhBase = a})
+--
+-- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhBase :: Lens.Lens' MergeHunk (Lude.Maybe MergeHunkDetail)
+mhBase = Lens.lens (base :: MergeHunk -> Lude.Maybe MergeHunkDetail) (\s a -> s {base = a} :: MergeHunk)
+{-# DEPRECATED mhBase "Use generic-lens or generic-optics with 'base' instead." #-}
 
 -- | A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.
-mhIsConflict :: Lens' MergeHunk (Maybe Bool)
-mhIsConflict = lens _mhIsConflict (\s a -> s {_mhIsConflict = a})
+--
+-- /Note:/ Consider using 'isConflict' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhIsConflict :: Lens.Lens' MergeHunk (Lude.Maybe Lude.Bool)
+mhIsConflict = Lens.lens (isConflict :: MergeHunk -> Lude.Maybe Lude.Bool) (\s a -> s {isConflict = a} :: MergeHunk)
+{-# DEPRECATED mhIsConflict "Use generic-lens or generic-optics with 'isConflict' instead." #-}
 
 -- | Information about the merge hunk in the source of a merge or pull request.
-mhSource :: Lens' MergeHunk (Maybe MergeHunkDetail)
-mhSource = lens _mhSource (\s a -> s {_mhSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhSource :: Lens.Lens' MergeHunk (Lude.Maybe MergeHunkDetail)
+mhSource = Lens.lens (source :: MergeHunk -> Lude.Maybe MergeHunkDetail) (\s a -> s {source = a} :: MergeHunk)
+{-# DEPRECATED mhSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance FromJSON MergeHunk where
+instance Lude.FromJSON MergeHunk where
   parseJSON =
-    withObject
+    Lude.withObject
       "MergeHunk"
       ( \x ->
           MergeHunk'
-            <$> (x .:? "destination")
-            <*> (x .:? "base")
-            <*> (x .:? "isConflict")
-            <*> (x .:? "source")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "base")
+            Lude.<*> (x Lude..:? "isConflict")
+            Lude.<*> (x Lude..:? "source")
       )
-
-instance Hashable MergeHunk
-
-instance NFData MergeHunk

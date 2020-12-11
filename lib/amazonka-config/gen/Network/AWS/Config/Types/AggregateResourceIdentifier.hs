@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.AggregateResourceIdentifier where
+module Network.AWS.Config.Types.AggregateResourceIdentifier
+  ( AggregateResourceIdentifier (..),
+
+    -- * Smart constructor
+    mkAggregateResourceIdentifier,
+
+    -- * Lenses
+    ariResourceName,
+    ariSourceAccountId,
+    ariSourceRegion,
+    ariResourceId,
+    ariResourceType,
+  )
+where
 
 import Network.AWS.Config.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details that identify a resource that is collected by AWS Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.
 --
---
---
--- /See:/ 'aggregateResourceIdentifier' smart constructor.
+-- /See:/ 'mkAggregateResourceIdentifier' smart constructor.
 data AggregateResourceIdentifier = AggregateResourceIdentifier'
-  { _ariResourceName ::
-      !(Maybe Text),
-    _ariSourceAccountId :: !Text,
-    _ariSourceRegion :: !Text,
-    _ariResourceId :: !Text,
-    _ariResourceType :: !ResourceType
+  { resourceName ::
+      Lude.Maybe Lude.Text,
+    sourceAccountId :: Lude.Text,
+    sourceRegion :: Lude.Text,
+    resourceId :: Lude.Text,
+    resourceType :: ResourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregateResourceIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ariResourceName' - The name of the AWS resource.
---
--- * 'ariSourceAccountId' - The 12-digit account ID of the source account.
---
--- * 'ariSourceRegion' - The source region where data is aggregated.
---
--- * 'ariResourceId' - The ID of the AWS resource.
---
--- * 'ariResourceType' - The type of the AWS resource.
-aggregateResourceIdentifier ::
-  -- | 'ariSourceAccountId'
-  Text ->
-  -- | 'ariSourceRegion'
-  Text ->
-  -- | 'ariResourceId'
-  Text ->
-  -- | 'ariResourceType'
+-- * 'resourceId' - The ID of the AWS resource.
+-- * 'resourceName' - The name of the AWS resource.
+-- * 'resourceType' - The type of the AWS resource.
+-- * 'sourceAccountId' - The 12-digit account ID of the source account.
+-- * 'sourceRegion' - The source region where data is aggregated.
+mkAggregateResourceIdentifier ::
+  -- | 'sourceAccountId'
+  Lude.Text ->
+  -- | 'sourceRegion'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'resourceType'
   ResourceType ->
   AggregateResourceIdentifier
-aggregateResourceIdentifier
+mkAggregateResourceIdentifier
   pSourceAccountId_
   pSourceRegion_
   pResourceId_
   pResourceType_ =
     AggregateResourceIdentifier'
-      { _ariResourceName = Nothing,
-        _ariSourceAccountId = pSourceAccountId_,
-        _ariSourceRegion = pSourceRegion_,
-        _ariResourceId = pResourceId_,
-        _ariResourceType = pResourceType_
+      { resourceName = Lude.Nothing,
+        sourceAccountId = pSourceAccountId_,
+        sourceRegion = pSourceRegion_,
+        resourceId = pResourceId_,
+        resourceType = pResourceType_
       }
 
 -- | The name of the AWS resource.
-ariResourceName :: Lens' AggregateResourceIdentifier (Maybe Text)
-ariResourceName = lens _ariResourceName (\s a -> s {_ariResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ariResourceName :: Lens.Lens' AggregateResourceIdentifier (Lude.Maybe Lude.Text)
+ariResourceName = Lens.lens (resourceName :: AggregateResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: AggregateResourceIdentifier)
+{-# DEPRECATED ariResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The 12-digit account ID of the source account.
-ariSourceAccountId :: Lens' AggregateResourceIdentifier Text
-ariSourceAccountId = lens _ariSourceAccountId (\s a -> s {_ariSourceAccountId = a})
+--
+-- /Note:/ Consider using 'sourceAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ariSourceAccountId :: Lens.Lens' AggregateResourceIdentifier Lude.Text
+ariSourceAccountId = Lens.lens (sourceAccountId :: AggregateResourceIdentifier -> Lude.Text) (\s a -> s {sourceAccountId = a} :: AggregateResourceIdentifier)
+{-# DEPRECATED ariSourceAccountId "Use generic-lens or generic-optics with 'sourceAccountId' instead." #-}
 
 -- | The source region where data is aggregated.
-ariSourceRegion :: Lens' AggregateResourceIdentifier Text
-ariSourceRegion = lens _ariSourceRegion (\s a -> s {_ariSourceRegion = a})
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ariSourceRegion :: Lens.Lens' AggregateResourceIdentifier Lude.Text
+ariSourceRegion = Lens.lens (sourceRegion :: AggregateResourceIdentifier -> Lude.Text) (\s a -> s {sourceRegion = a} :: AggregateResourceIdentifier)
+{-# DEPRECATED ariSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
 -- | The ID of the AWS resource.
-ariResourceId :: Lens' AggregateResourceIdentifier Text
-ariResourceId = lens _ariResourceId (\s a -> s {_ariResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ariResourceId :: Lens.Lens' AggregateResourceIdentifier Lude.Text
+ariResourceId = Lens.lens (resourceId :: AggregateResourceIdentifier -> Lude.Text) (\s a -> s {resourceId = a} :: AggregateResourceIdentifier)
+{-# DEPRECATED ariResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the AWS resource.
-ariResourceType :: Lens' AggregateResourceIdentifier ResourceType
-ariResourceType = lens _ariResourceType (\s a -> s {_ariResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ariResourceType :: Lens.Lens' AggregateResourceIdentifier ResourceType
+ariResourceType = Lens.lens (resourceType :: AggregateResourceIdentifier -> ResourceType) (\s a -> s {resourceType = a} :: AggregateResourceIdentifier)
+{-# DEPRECATED ariResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance FromJSON AggregateResourceIdentifier where
+instance Lude.FromJSON AggregateResourceIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "AggregateResourceIdentifier"
       ( \x ->
           AggregateResourceIdentifier'
-            <$> (x .:? "ResourceName")
-            <*> (x .: "SourceAccountId")
-            <*> (x .: "SourceRegion")
-            <*> (x .: "ResourceId")
-            <*> (x .: "ResourceType")
+            Lude.<$> (x Lude..:? "ResourceName")
+            Lude.<*> (x Lude..: "SourceAccountId")
+            Lude.<*> (x Lude..: "SourceRegion")
+            Lude.<*> (x Lude..: "ResourceId")
+            Lude.<*> (x Lude..: "ResourceType")
       )
 
-instance Hashable AggregateResourceIdentifier
-
-instance NFData AggregateResourceIdentifier
-
-instance ToJSON AggregateResourceIdentifier where
+instance Lude.ToJSON AggregateResourceIdentifier where
   toJSON AggregateResourceIdentifier' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceName" .=) <$> _ariResourceName,
-            Just ("SourceAccountId" .= _ariSourceAccountId),
-            Just ("SourceRegion" .= _ariSourceRegion),
-            Just ("ResourceId" .= _ariResourceId),
-            Just ("ResourceType" .= _ariResourceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceName" Lude..=) Lude.<$> resourceName,
+            Lude.Just ("SourceAccountId" Lude..= sourceAccountId),
+            Lude.Just ("SourceRegion" Lude..= sourceRegion),
+            Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType)
           ]
       )

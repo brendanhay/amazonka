@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafAdditionalManifest where
+module Network.AWS.MediaConvert.Types.CmafAdditionalManifest
+  ( CmafAdditionalManifest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCmafAdditionalManifest,
+
+    -- * Lenses
+    camManifestNameModifier,
+    camSelectedOutputs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the details for each pair of HLS and DASH additional manifests that you want the service to generate for this CMAF output group. Each pair of manifests can reference a different subset of outputs in the group.
 --
--- /See:/ 'cmafAdditionalManifest' smart constructor.
+-- /See:/ 'mkCmafAdditionalManifest' smart constructor.
 data CmafAdditionalManifest = CmafAdditionalManifest'
-  { _camManifestNameModifier ::
-      !(Maybe Text),
-    _camSelectedOutputs :: !(Maybe [Text])
+  { manifestNameModifier ::
+      Lude.Maybe Lude.Text,
+    selectedOutputs :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafAdditionalManifest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'camManifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your HLS group is film-name.m3u8. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.m3u8. For HLS output groups, specify a manifestNameModifier that is different from the nameModifier of the output. The service uses the output name modifier to create unique names for the individual variant manifests.
---
--- * 'camSelectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
-cmafAdditionalManifest ::
+-- * 'manifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your HLS group is film-name.m3u8. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.m3u8. For HLS output groups, specify a manifestNameModifier that is different from the nameModifier of the output. The service uses the output name modifier to create unique names for the individual variant manifests.
+-- * 'selectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
+mkCmafAdditionalManifest ::
   CmafAdditionalManifest
-cmafAdditionalManifest =
+mkCmafAdditionalManifest =
   CmafAdditionalManifest'
-    { _camManifestNameModifier = Nothing,
-      _camSelectedOutputs = Nothing
+    { manifestNameModifier = Lude.Nothing,
+      selectedOutputs = Lude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your HLS group is film-name.m3u8. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.m3u8. For HLS output groups, specify a manifestNameModifier that is different from the nameModifier of the output. The service uses the output name modifier to create unique names for the individual variant manifests.
-camManifestNameModifier :: Lens' CmafAdditionalManifest (Maybe Text)
-camManifestNameModifier = lens _camManifestNameModifier (\s a -> s {_camManifestNameModifier = a})
+--
+-- /Note:/ Consider using 'manifestNameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camManifestNameModifier :: Lens.Lens' CmafAdditionalManifest (Lude.Maybe Lude.Text)
+camManifestNameModifier = Lens.lens (manifestNameModifier :: CmafAdditionalManifest -> Lude.Maybe Lude.Text) (\s a -> s {manifestNameModifier = a} :: CmafAdditionalManifest)
+{-# DEPRECATED camManifestNameModifier "Use generic-lens or generic-optics with 'manifestNameModifier' instead." #-}
 
 -- | Specify the outputs that you want this additional top-level manifest to reference.
-camSelectedOutputs :: Lens' CmafAdditionalManifest [Text]
-camSelectedOutputs = lens _camSelectedOutputs (\s a -> s {_camSelectedOutputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'selectedOutputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camSelectedOutputs :: Lens.Lens' CmafAdditionalManifest (Lude.Maybe [Lude.Text])
+camSelectedOutputs = Lens.lens (selectedOutputs :: CmafAdditionalManifest -> Lude.Maybe [Lude.Text]) (\s a -> s {selectedOutputs = a} :: CmafAdditionalManifest)
+{-# DEPRECATED camSelectedOutputs "Use generic-lens or generic-optics with 'selectedOutputs' instead." #-}
 
-instance FromJSON CmafAdditionalManifest where
+instance Lude.FromJSON CmafAdditionalManifest where
   parseJSON =
-    withObject
+    Lude.withObject
       "CmafAdditionalManifest"
       ( \x ->
           CmafAdditionalManifest'
-            <$> (x .:? "manifestNameModifier")
-            <*> (x .:? "selectedOutputs" .!= mempty)
+            Lude.<$> (x Lude..:? "manifestNameModifier")
+            Lude.<*> (x Lude..:? "selectedOutputs" Lude..!= Lude.mempty)
       )
 
-instance Hashable CmafAdditionalManifest
-
-instance NFData CmafAdditionalManifest
-
-instance ToJSON CmafAdditionalManifest where
+instance Lude.ToJSON CmafAdditionalManifest where
   toJSON CmafAdditionalManifest' {..} =
-    object
-      ( catMaybes
-          [ ("manifestNameModifier" .=) <$> _camManifestNameModifier,
-            ("selectedOutputs" .=) <$> _camSelectedOutputs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("manifestNameModifier" Lude..=) Lude.<$> manifestNameModifier,
+            ("selectedOutputs" Lude..=) Lude.<$> selectedOutputs
           ]
       )

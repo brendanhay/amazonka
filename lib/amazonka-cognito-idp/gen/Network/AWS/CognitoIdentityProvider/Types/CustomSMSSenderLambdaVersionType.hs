@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType where
+module Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
+  ( CustomSMSSenderLambdaVersionType
+      ( CustomSMSSenderLambdaVersionType',
+        V10
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CustomSMSSenderLambdaVersionType = V10
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CustomSMSSenderLambdaVersionType = CustomSMSSenderLambdaVersionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CustomSMSSenderLambdaVersionType where
-  parser =
-    takeLowerText >>= \case
-      "v1_0" -> pure V10
-      e ->
-        fromTextError $
-          "Failure parsing CustomSMSSenderLambdaVersionType from value: '" <> e
-            <> "'. Accepted values: v1_0"
+pattern V10 :: CustomSMSSenderLambdaVersionType
+pattern V10 = CustomSMSSenderLambdaVersionType' "V1_0"
 
-instance ToText CustomSMSSenderLambdaVersionType where
-  toText = \case
-    V10 -> "V1_0"
-
-instance Hashable CustomSMSSenderLambdaVersionType
-
-instance NFData CustomSMSSenderLambdaVersionType
-
-instance ToByteString CustomSMSSenderLambdaVersionType
-
-instance ToQuery CustomSMSSenderLambdaVersionType
-
-instance ToHeader CustomSMSSenderLambdaVersionType
-
-instance ToJSON CustomSMSSenderLambdaVersionType where
-  toJSON = toJSONText
-
-instance FromJSON CustomSMSSenderLambdaVersionType where
-  parseJSON = parseJSONText "CustomSMSSenderLambdaVersionType"
+{-# COMPLETE
+  V10,
+  CustomSMSSenderLambdaVersionType'
+  #-}

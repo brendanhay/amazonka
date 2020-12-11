@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthorizerConfig where
+module Network.AWS.IoT.Types.AuthorizerConfig
+  ( AuthorizerConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAuthorizerConfig,
+
+    -- * Lenses
+    acAllowAuthorizerOverride,
+    acDefaultAuthorizerName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that specifies the authorization service for a domain.
 --
---
---
--- /See:/ 'authorizerConfig' smart constructor.
+-- /See:/ 'mkAuthorizerConfig' smart constructor.
 data AuthorizerConfig = AuthorizerConfig'
-  { _acAllowAuthorizerOverride ::
-      !(Maybe Bool),
-    _acDefaultAuthorizerName :: !(Maybe Text)
+  { allowAuthorizerOverride ::
+      Lude.Maybe Lude.Bool,
+    defaultAuthorizerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizerConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acAllowAuthorizerOverride' - A Boolean that specifies whether the domain configuration's authorization service can be overridden.
---
--- * 'acDefaultAuthorizerName' - The name of the authorization service for a domain configuration.
-authorizerConfig ::
+-- * 'allowAuthorizerOverride' - A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+-- * 'defaultAuthorizerName' - The name of the authorization service for a domain configuration.
+mkAuthorizerConfig ::
   AuthorizerConfig
-authorizerConfig =
+mkAuthorizerConfig =
   AuthorizerConfig'
-    { _acAllowAuthorizerOverride = Nothing,
-      _acDefaultAuthorizerName = Nothing
+    { allowAuthorizerOverride = Lude.Nothing,
+      defaultAuthorizerName = Lude.Nothing
     }
 
 -- | A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-acAllowAuthorizerOverride :: Lens' AuthorizerConfig (Maybe Bool)
-acAllowAuthorizerOverride = lens _acAllowAuthorizerOverride (\s a -> s {_acAllowAuthorizerOverride = a})
+--
+-- /Note:/ Consider using 'allowAuthorizerOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAllowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Lude.Maybe Lude.Bool)
+acAllowAuthorizerOverride = Lens.lens (allowAuthorizerOverride :: AuthorizerConfig -> Lude.Maybe Lude.Bool) (\s a -> s {allowAuthorizerOverride = a} :: AuthorizerConfig)
+{-# DEPRECATED acAllowAuthorizerOverride "Use generic-lens or generic-optics with 'allowAuthorizerOverride' instead." #-}
 
 -- | The name of the authorization service for a domain configuration.
-acDefaultAuthorizerName :: Lens' AuthorizerConfig (Maybe Text)
-acDefaultAuthorizerName = lens _acDefaultAuthorizerName (\s a -> s {_acDefaultAuthorizerName = a})
+--
+-- /Note:/ Consider using 'defaultAuthorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acDefaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Lude.Maybe Lude.Text)
+acDefaultAuthorizerName = Lens.lens (defaultAuthorizerName :: AuthorizerConfig -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthorizerName = a} :: AuthorizerConfig)
+{-# DEPRECATED acDefaultAuthorizerName "Use generic-lens or generic-optics with 'defaultAuthorizerName' instead." #-}
 
-instance FromJSON AuthorizerConfig where
+instance Lude.FromJSON AuthorizerConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthorizerConfig"
       ( \x ->
           AuthorizerConfig'
-            <$> (x .:? "allowAuthorizerOverride")
-            <*> (x .:? "defaultAuthorizerName")
+            Lude.<$> (x Lude..:? "allowAuthorizerOverride")
+            Lude.<*> (x Lude..:? "defaultAuthorizerName")
       )
 
-instance Hashable AuthorizerConfig
-
-instance NFData AuthorizerConfig
-
-instance ToJSON AuthorizerConfig where
+instance Lude.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =
-    object
-      ( catMaybes
-          [ ("allowAuthorizerOverride" .=) <$> _acAllowAuthorizerOverride,
-            ("defaultAuthorizerName" .=) <$> _acDefaultAuthorizerName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("allowAuthorizerOverride" Lude..=)
+              Lude.<$> allowAuthorizerOverride,
+            ("defaultAuthorizerName" Lude..=) Lude.<$> defaultAuthorizerName
           ]
       )

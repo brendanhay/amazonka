@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,212 +7,293 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ExportDescription where
+module Network.AWS.DynamoDB.Types.ExportDescription
+  ( ExportDescription (..),
+
+    -- * Smart constructor
+    mkExportDescription,
+
+    -- * Lenses
+    edS3BucketOwner,
+    edExportFormat,
+    edS3SseKMSKeyId,
+    edClientToken,
+    edStartTime,
+    edFailureCode,
+    edExportStatus,
+    edFailureMessage,
+    edTableARN,
+    edBilledSizeBytes,
+    edExportARN,
+    edExportTime,
+    edS3SseAlgorithm,
+    edEndTime,
+    edS3Prefix,
+    edExportManifest,
+    edTableId,
+    edItemCount,
+    edS3Bucket,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ExportFormat
 import Network.AWS.DynamoDB.Types.ExportStatus
 import Network.AWS.DynamoDB.Types.S3SseAlgorithm
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the properties of the exported table.
 --
---
---
--- /See:/ 'exportDescription' smart constructor.
+-- /See:/ 'mkExportDescription' smart constructor.
 data ExportDescription = ExportDescription'
-  { _edS3BucketOwner ::
-      !(Maybe Text),
-    _edExportFormat :: !(Maybe ExportFormat),
-    _edS3SseKMSKeyId :: !(Maybe Text),
-    _edClientToken :: !(Maybe Text),
-    _edStartTime :: !(Maybe POSIX),
-    _edFailureCode :: !(Maybe Text),
-    _edExportStatus :: !(Maybe ExportStatus),
-    _edFailureMessage :: !(Maybe Text),
-    _edTableARN :: !(Maybe Text),
-    _edBilledSizeBytes :: !(Maybe Nat),
-    _edExportARN :: !(Maybe Text),
-    _edExportTime :: !(Maybe POSIX),
-    _edS3SseAlgorithm :: !(Maybe S3SseAlgorithm),
-    _edEndTime :: !(Maybe POSIX),
-    _edS3Prefix :: !(Maybe Text),
-    _edExportManifest :: !(Maybe Text),
-    _edTableId :: !(Maybe Text),
-    _edItemCount :: !(Maybe Nat),
-    _edS3Bucket :: !(Maybe Text)
+  { s3BucketOwner ::
+      Lude.Maybe Lude.Text,
+    exportFormat :: Lude.Maybe ExportFormat,
+    s3SseKMSKeyId :: Lude.Maybe Lude.Text,
+    clientToken :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    failureCode :: Lude.Maybe Lude.Text,
+    exportStatus :: Lude.Maybe ExportStatus,
+    failureMessage :: Lude.Maybe Lude.Text,
+    tableARN :: Lude.Maybe Lude.Text,
+    billedSizeBytes :: Lude.Maybe Lude.Natural,
+    exportARN :: Lude.Maybe Lude.Text,
+    exportTime :: Lude.Maybe Lude.Timestamp,
+    s3SseAlgorithm :: Lude.Maybe S3SseAlgorithm,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    s3Prefix :: Lude.Maybe Lude.Text,
+    exportManifest :: Lude.Maybe Lude.Text,
+    tableId :: Lude.Maybe Lude.Text,
+    itemCount :: Lude.Maybe Lude.Natural,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'billedSizeBytes' - The billable size of the table export.
+-- * 'clientToken' - The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
+-- * 'endTime' - The time at which the export task completed.
+-- * 'exportARN' - The Amazon Resource Name (ARN) of the table export.
+-- * 'exportFormat' - The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+-- * 'exportManifest' - The name of the manifest file for the export task.
+-- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+-- * 'exportTime' - Point in time from which table data was exported.
+-- * 'failureCode' - Status code for the result of the failed export.
+-- * 'failureMessage' - Export failure reason description.
+-- * 'itemCount' - The number of items exported.
+-- * 's3Bucket' - The name of the Amazon S3 bucket containing the export.
+-- * 's3BucketOwner' - The ID of the AWS account that owns the bucket containing the export.
+-- * 's3Prefix' - The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
+-- * 's3SseAlgorithm' - Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:
 --
--- * 'edS3BucketOwner' - The ID of the AWS account that owns the bucket containing the export.
 --
--- * 'edExportFormat' - The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+--     * @AES256@ - server-side encryption with Amazon S3 managed keys
 --
--- * 'edS3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
 --
--- * 'edClientToken' - The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
+--     * @KMS@ - server-side encryption with AWS KMS managed keys
 --
--- * 'edStartTime' - The time at which the export task began.
 --
--- * 'edFailureCode' - Status code for the result of the failed export.
---
--- * 'edExportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
---
--- * 'edFailureMessage' - Export failure reason description.
---
--- * 'edTableARN' - The Amazon Resource Name (ARN) of the table that was exported.
---
--- * 'edBilledSizeBytes' - The billable size of the table export.
---
--- * 'edExportARN' - The Amazon Resource Name (ARN) of the table export.
---
--- * 'edExportTime' - Point in time from which table data was exported.
---
--- * 'edS3SseAlgorithm' - Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:     * @AES256@ - server-side encryption with Amazon S3 managed keys     * @KMS@ - server-side encryption with AWS KMS managed keys
---
--- * 'edEndTime' - The time at which the export task completed.
---
--- * 'edS3Prefix' - The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
---
--- * 'edExportManifest' - The name of the manifest file for the export task.
---
--- * 'edTableId' - Unique ID of the table that was exported.
---
--- * 'edItemCount' - The number of items exported.
---
--- * 'edS3Bucket' - The name of the Amazon S3 bucket containing the export.
-exportDescription ::
+-- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
+-- * 'startTime' - The time at which the export task began.
+-- * 'tableARN' - The Amazon Resource Name (ARN) of the table that was exported.
+-- * 'tableId' - Unique ID of the table that was exported.
+mkExportDescription ::
   ExportDescription
-exportDescription =
+mkExportDescription =
   ExportDescription'
-    { _edS3BucketOwner = Nothing,
-      _edExportFormat = Nothing,
-      _edS3SseKMSKeyId = Nothing,
-      _edClientToken = Nothing,
-      _edStartTime = Nothing,
-      _edFailureCode = Nothing,
-      _edExportStatus = Nothing,
-      _edFailureMessage = Nothing,
-      _edTableARN = Nothing,
-      _edBilledSizeBytes = Nothing,
-      _edExportARN = Nothing,
-      _edExportTime = Nothing,
-      _edS3SseAlgorithm = Nothing,
-      _edEndTime = Nothing,
-      _edS3Prefix = Nothing,
-      _edExportManifest = Nothing,
-      _edTableId = Nothing,
-      _edItemCount = Nothing,
-      _edS3Bucket = Nothing
+    { s3BucketOwner = Lude.Nothing,
+      exportFormat = Lude.Nothing,
+      s3SseKMSKeyId = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      startTime = Lude.Nothing,
+      failureCode = Lude.Nothing,
+      exportStatus = Lude.Nothing,
+      failureMessage = Lude.Nothing,
+      tableARN = Lude.Nothing,
+      billedSizeBytes = Lude.Nothing,
+      exportARN = Lude.Nothing,
+      exportTime = Lude.Nothing,
+      s3SseAlgorithm = Lude.Nothing,
+      endTime = Lude.Nothing,
+      s3Prefix = Lude.Nothing,
+      exportManifest = Lude.Nothing,
+      tableId = Lude.Nothing,
+      itemCount = Lude.Nothing,
+      s3Bucket = Lude.Nothing
     }
 
 -- | The ID of the AWS account that owns the bucket containing the export.
-edS3BucketOwner :: Lens' ExportDescription (Maybe Text)
-edS3BucketOwner = lens _edS3BucketOwner (\s a -> s {_edS3BucketOwner = a})
+--
+-- /Note:/ Consider using 's3BucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edS3BucketOwner :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edS3BucketOwner = Lens.lens (s3BucketOwner :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketOwner = a} :: ExportDescription)
+{-# DEPRECATED edS3BucketOwner "Use generic-lens or generic-optics with 's3BucketOwner' instead." #-}
 
 -- | The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
-edExportFormat :: Lens' ExportDescription (Maybe ExportFormat)
-edExportFormat = lens _edExportFormat (\s a -> s {_edExportFormat = a})
+--
+-- /Note:/ Consider using 'exportFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edExportFormat :: Lens.Lens' ExportDescription (Lude.Maybe ExportFormat)
+edExportFormat = Lens.lens (exportFormat :: ExportDescription -> Lude.Maybe ExportFormat) (\s a -> s {exportFormat = a} :: ExportDescription)
+{-# DEPRECATED edExportFormat "Use generic-lens or generic-optics with 'exportFormat' instead." #-}
 
 -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
-edS3SseKMSKeyId :: Lens' ExportDescription (Maybe Text)
-edS3SseKMSKeyId = lens _edS3SseKMSKeyId (\s a -> s {_edS3SseKMSKeyId = a})
+--
+-- /Note:/ Consider using 's3SseKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edS3SseKMSKeyId :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edS3SseKMSKeyId = Lens.lens (s3SseKMSKeyId :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {s3SseKMSKeyId = a} :: ExportDescription)
+{-# DEPRECATED edS3SseKMSKeyId "Use generic-lens or generic-optics with 's3SseKMSKeyId' instead." #-}
 
 -- | The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
-edClientToken :: Lens' ExportDescription (Maybe Text)
-edClientToken = lens _edClientToken (\s a -> s {_edClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edClientToken :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edClientToken = Lens.lens (clientToken :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ExportDescription)
+{-# DEPRECATED edClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The time at which the export task began.
-edStartTime :: Lens' ExportDescription (Maybe UTCTime)
-edStartTime = lens _edStartTime (\s a -> s {_edStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edStartTime :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Timestamp)
+edStartTime = Lens.lens (startTime :: ExportDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: ExportDescription)
+{-# DEPRECATED edStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Status code for the result of the failed export.
-edFailureCode :: Lens' ExportDescription (Maybe Text)
-edFailureCode = lens _edFailureCode (\s a -> s {_edFailureCode = a})
+--
+-- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edFailureCode :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edFailureCode = Lens.lens (failureCode :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {failureCode = a} :: ExportDescription)
+{-# DEPRECATED edFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
-edExportStatus :: Lens' ExportDescription (Maybe ExportStatus)
-edExportStatus = lens _edExportStatus (\s a -> s {_edExportStatus = a})
+--
+-- /Note:/ Consider using 'exportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edExportStatus :: Lens.Lens' ExportDescription (Lude.Maybe ExportStatus)
+edExportStatus = Lens.lens (exportStatus :: ExportDescription -> Lude.Maybe ExportStatus) (\s a -> s {exportStatus = a} :: ExportDescription)
+{-# DEPRECATED edExportStatus "Use generic-lens or generic-optics with 'exportStatus' instead." #-}
 
 -- | Export failure reason description.
-edFailureMessage :: Lens' ExportDescription (Maybe Text)
-edFailureMessage = lens _edFailureMessage (\s a -> s {_edFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edFailureMessage :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edFailureMessage = Lens.lens (failureMessage :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: ExportDescription)
+{-# DEPRECATED edFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the table that was exported.
-edTableARN :: Lens' ExportDescription (Maybe Text)
-edTableARN = lens _edTableARN (\s a -> s {_edTableARN = a})
+--
+-- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edTableARN :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edTableARN = Lens.lens (tableARN :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableARN = a} :: ExportDescription)
+{-# DEPRECATED edTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
 
 -- | The billable size of the table export.
-edBilledSizeBytes :: Lens' ExportDescription (Maybe Natural)
-edBilledSizeBytes = lens _edBilledSizeBytes (\s a -> s {_edBilledSizeBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'billedSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edBilledSizeBytes :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Natural)
+edBilledSizeBytes = Lens.lens (billedSizeBytes :: ExportDescription -> Lude.Maybe Lude.Natural) (\s a -> s {billedSizeBytes = a} :: ExportDescription)
+{-# DEPRECATED edBilledSizeBytes "Use generic-lens or generic-optics with 'billedSizeBytes' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the table export.
-edExportARN :: Lens' ExportDescription (Maybe Text)
-edExportARN = lens _edExportARN (\s a -> s {_edExportARN = a})
+--
+-- /Note:/ Consider using 'exportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edExportARN :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edExportARN = Lens.lens (exportARN :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {exportARN = a} :: ExportDescription)
+{-# DEPRECATED edExportARN "Use generic-lens or generic-optics with 'exportARN' instead." #-}
 
 -- | Point in time from which table data was exported.
-edExportTime :: Lens' ExportDescription (Maybe UTCTime)
-edExportTime = lens _edExportTime (\s a -> s {_edExportTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'exportTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edExportTime :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Timestamp)
+edExportTime = Lens.lens (exportTime :: ExportDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {exportTime = a} :: ExportDescription)
+{-# DEPRECATED edExportTime "Use generic-lens or generic-optics with 'exportTime' instead." #-}
 
--- | Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:     * @AES256@ - server-side encryption with Amazon S3 managed keys     * @KMS@ - server-side encryption with AWS KMS managed keys
-edS3SseAlgorithm :: Lens' ExportDescription (Maybe S3SseAlgorithm)
-edS3SseAlgorithm = lens _edS3SseAlgorithm (\s a -> s {_edS3SseAlgorithm = a})
+-- | Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:
+--
+--
+--     * @AES256@ - server-side encryption with Amazon S3 managed keys
+--
+--
+--     * @KMS@ - server-side encryption with AWS KMS managed keys
+--
+--
+--
+-- /Note:/ Consider using 's3SseAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edS3SseAlgorithm :: Lens.Lens' ExportDescription (Lude.Maybe S3SseAlgorithm)
+edS3SseAlgorithm = Lens.lens (s3SseAlgorithm :: ExportDescription -> Lude.Maybe S3SseAlgorithm) (\s a -> s {s3SseAlgorithm = a} :: ExportDescription)
+{-# DEPRECATED edS3SseAlgorithm "Use generic-lens or generic-optics with 's3SseAlgorithm' instead." #-}
 
 -- | The time at which the export task completed.
-edEndTime :: Lens' ExportDescription (Maybe UTCTime)
-edEndTime = lens _edEndTime (\s a -> s {_edEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEndTime :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Timestamp)
+edEndTime = Lens.lens (endTime :: ExportDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: ExportDescription)
+{-# DEPRECATED edEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
-edS3Prefix :: Lens' ExportDescription (Maybe Text)
-edS3Prefix = lens _edS3Prefix (\s a -> s {_edS3Prefix = a})
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edS3Prefix :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edS3Prefix = Lens.lens (s3Prefix :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportDescription)
+{-# DEPRECATED edS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | The name of the manifest file for the export task.
-edExportManifest :: Lens' ExportDescription (Maybe Text)
-edExportManifest = lens _edExportManifest (\s a -> s {_edExportManifest = a})
+--
+-- /Note:/ Consider using 'exportManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edExportManifest :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edExportManifest = Lens.lens (exportManifest :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {exportManifest = a} :: ExportDescription)
+{-# DEPRECATED edExportManifest "Use generic-lens or generic-optics with 'exportManifest' instead." #-}
 
 -- | Unique ID of the table that was exported.
-edTableId :: Lens' ExportDescription (Maybe Text)
-edTableId = lens _edTableId (\s a -> s {_edTableId = a})
+--
+-- /Note:/ Consider using 'tableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edTableId :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edTableId = Lens.lens (tableId :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableId = a} :: ExportDescription)
+{-# DEPRECATED edTableId "Use generic-lens or generic-optics with 'tableId' instead." #-}
 
 -- | The number of items exported.
-edItemCount :: Lens' ExportDescription (Maybe Natural)
-edItemCount = lens _edItemCount (\s a -> s {_edItemCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edItemCount :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Natural)
+edItemCount = Lens.lens (itemCount :: ExportDescription -> Lude.Maybe Lude.Natural) (\s a -> s {itemCount = a} :: ExportDescription)
+{-# DEPRECATED edItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
 
 -- | The name of the Amazon S3 bucket containing the export.
-edS3Bucket :: Lens' ExportDescription (Maybe Text)
-edS3Bucket = lens _edS3Bucket (\s a -> s {_edS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edS3Bucket :: Lens.Lens' ExportDescription (Lude.Maybe Lude.Text)
+edS3Bucket = Lens.lens (s3Bucket :: ExportDescription -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: ExportDescription)
+{-# DEPRECATED edS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance FromJSON ExportDescription where
+instance Lude.FromJSON ExportDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportDescription"
       ( \x ->
           ExportDescription'
-            <$> (x .:? "S3BucketOwner")
-            <*> (x .:? "ExportFormat")
-            <*> (x .:? "S3SseKmsKeyId")
-            <*> (x .:? "ClientToken")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "FailureCode")
-            <*> (x .:? "ExportStatus")
-            <*> (x .:? "FailureMessage")
-            <*> (x .:? "TableArn")
-            <*> (x .:? "BilledSizeBytes")
-            <*> (x .:? "ExportArn")
-            <*> (x .:? "ExportTime")
-            <*> (x .:? "S3SseAlgorithm")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "S3Prefix")
-            <*> (x .:? "ExportManifest")
-            <*> (x .:? "TableId")
-            <*> (x .:? "ItemCount")
-            <*> (x .:? "S3Bucket")
+            Lude.<$> (x Lude..:? "S3BucketOwner")
+            Lude.<*> (x Lude..:? "ExportFormat")
+            Lude.<*> (x Lude..:? "S3SseKmsKeyId")
+            Lude.<*> (x Lude..:? "ClientToken")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "FailureCode")
+            Lude.<*> (x Lude..:? "ExportStatus")
+            Lude.<*> (x Lude..:? "FailureMessage")
+            Lude.<*> (x Lude..:? "TableArn")
+            Lude.<*> (x Lude..:? "BilledSizeBytes")
+            Lude.<*> (x Lude..:? "ExportArn")
+            Lude.<*> (x Lude..:? "ExportTime")
+            Lude.<*> (x Lude..:? "S3SseAlgorithm")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "S3Prefix")
+            Lude.<*> (x Lude..:? "ExportManifest")
+            Lude.<*> (x Lude..:? "TableId")
+            Lude.<*> (x Lude..:? "ItemCount")
+            Lude.<*> (x Lude..:? "S3Bucket")
       )
-
-instance Hashable ExportDescription
-
-instance NFData ExportDescription

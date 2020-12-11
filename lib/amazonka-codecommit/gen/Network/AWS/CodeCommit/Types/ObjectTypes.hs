@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ObjectTypes where
+module Network.AWS.CodeCommit.Types.ObjectTypes
+  ( ObjectTypes (..),
+
+    -- * Smart constructor
+    mkObjectTypes,
+
+    -- * Lenses
+    otDestination,
+    otBase,
+    otSource,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.ObjectTypeEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the type of an object in a merge operation.
 --
---
---
--- /See:/ 'objectTypes' smart constructor.
+-- /See:/ 'mkObjectTypes' smart constructor.
 data ObjectTypes = ObjectTypes'
-  { _otDestination ::
-      !(Maybe ObjectTypeEnum),
-    _otBase :: !(Maybe ObjectTypeEnum),
-    _otSource :: !(Maybe ObjectTypeEnum)
+  { destination ::
+      Lude.Maybe ObjectTypeEnum,
+    base :: Lude.Maybe ObjectTypeEnum,
+    source :: Lude.Maybe ObjectTypeEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'otDestination' - The type of the object in the destination branch.
---
--- * 'otBase' - The type of the object in the base commit of the merge.
---
--- * 'otSource' - The type of the object in the source branch.
-objectTypes ::
+-- * 'base' - The type of the object in the base commit of the merge.
+-- * 'destination' - The type of the object in the destination branch.
+-- * 'source' - The type of the object in the source branch.
+mkObjectTypes ::
   ObjectTypes
-objectTypes =
+mkObjectTypes =
   ObjectTypes'
-    { _otDestination = Nothing,
-      _otBase = Nothing,
-      _otSource = Nothing
+    { destination = Lude.Nothing,
+      base = Lude.Nothing,
+      source = Lude.Nothing
     }
 
 -- | The type of the object in the destination branch.
-otDestination :: Lens' ObjectTypes (Maybe ObjectTypeEnum)
-otDestination = lens _otDestination (\s a -> s {_otDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otDestination :: Lens.Lens' ObjectTypes (Lude.Maybe ObjectTypeEnum)
+otDestination = Lens.lens (destination :: ObjectTypes -> Lude.Maybe ObjectTypeEnum) (\s a -> s {destination = a} :: ObjectTypes)
+{-# DEPRECATED otDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The type of the object in the base commit of the merge.
-otBase :: Lens' ObjectTypes (Maybe ObjectTypeEnum)
-otBase = lens _otBase (\s a -> s {_otBase = a})
+--
+-- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otBase :: Lens.Lens' ObjectTypes (Lude.Maybe ObjectTypeEnum)
+otBase = Lens.lens (base :: ObjectTypes -> Lude.Maybe ObjectTypeEnum) (\s a -> s {base = a} :: ObjectTypes)
+{-# DEPRECATED otBase "Use generic-lens or generic-optics with 'base' instead." #-}
 
 -- | The type of the object in the source branch.
-otSource :: Lens' ObjectTypes (Maybe ObjectTypeEnum)
-otSource = lens _otSource (\s a -> s {_otSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otSource :: Lens.Lens' ObjectTypes (Lude.Maybe ObjectTypeEnum)
+otSource = Lens.lens (source :: ObjectTypes -> Lude.Maybe ObjectTypeEnum) (\s a -> s {source = a} :: ObjectTypes)
+{-# DEPRECATED otSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance FromJSON ObjectTypes where
+instance Lude.FromJSON ObjectTypes where
   parseJSON =
-    withObject
+    Lude.withObject
       "ObjectTypes"
       ( \x ->
           ObjectTypes'
-            <$> (x .:? "destination") <*> (x .:? "base") <*> (x .:? "source")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "base")
+            Lude.<*> (x Lude..:? "source")
       )
-
-instance Hashable ObjectTypes
-
-instance NFData ObjectTypes

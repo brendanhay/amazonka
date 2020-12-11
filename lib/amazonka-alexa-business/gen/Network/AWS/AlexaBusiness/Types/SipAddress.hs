@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.SipAddress where
+module Network.AWS.AlexaBusiness.Types.SipAddress
+  ( SipAddress (..),
+
+    -- * Smart constructor
+    mkSipAddress,
+
+    -- * Lenses
+    saURI,
+    saType,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.SipType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The SIP address for the contact containing the URI and SIP address type.
 --
---
---
--- /See:/ 'sipAddress' smart constructor.
+-- /See:/ 'mkSipAddress' smart constructor.
 data SipAddress = SipAddress'
-  { _saURI :: !(Sensitive Text),
-    _saType :: !(Sensitive SipType)
+  { uri :: Lude.Sensitive Lude.Text,
+    type' :: SipType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SipAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saURI' - The URI for the SIP address.
---
--- * 'saType' - The type of the SIP address.
-sipAddress ::
-  -- | 'saURI'
-  Text ->
-  -- | 'saType'
+-- * 'type'' - The type of the SIP address.
+-- * 'uri' - The URI for the SIP address.
+mkSipAddress ::
+  -- | 'uri'
+  Lude.Sensitive Lude.Text ->
+  -- | 'type''
   SipType ->
   SipAddress
-sipAddress pURI_ pType_ =
-  SipAddress'
-    { _saURI = _Sensitive # pURI_,
-      _saType = _Sensitive # pType_
-    }
+mkSipAddress pURI_ pType_ =
+  SipAddress' {uri = pURI_, type' = pType_}
 
 -- | The URI for the SIP address.
-saURI :: Lens' SipAddress Text
-saURI = lens _saURI (\s a -> s {_saURI = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saURI :: Lens.Lens' SipAddress (Lude.Sensitive Lude.Text)
+saURI = Lens.lens (uri :: SipAddress -> Lude.Sensitive Lude.Text) (\s a -> s {uri = a} :: SipAddress)
+{-# DEPRECATED saURI "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | The type of the SIP address.
-saType :: Lens' SipAddress SipType
-saType = lens _saType (\s a -> s {_saType = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saType :: Lens.Lens' SipAddress SipType
+saType = Lens.lens (type' :: SipAddress -> SipType) (\s a -> s {type' = a} :: SipAddress)
+{-# DEPRECATED saType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON SipAddress where
+instance Lude.FromJSON SipAddress where
   parseJSON =
-    withObject
+    Lude.withObject
       "SipAddress"
-      (\x -> SipAddress' <$> (x .: "Uri") <*> (x .: "Type"))
+      ( \x ->
+          SipAddress' Lude.<$> (x Lude..: "Uri") Lude.<*> (x Lude..: "Type")
+      )
 
-instance Hashable SipAddress
-
-instance NFData SipAddress
-
-instance ToJSON SipAddress where
+instance Lude.ToJSON SipAddress where
   toJSON SipAddress' {..} =
-    object
-      (catMaybes [Just ("Uri" .= _saURI), Just ("Type" .= _saType)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Uri" Lude..= uri), Lude.Just ("Type" Lude..= type')]
+      )

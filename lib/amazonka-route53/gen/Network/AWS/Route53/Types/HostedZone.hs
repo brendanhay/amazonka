@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,127 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.HostedZone where
+module Network.AWS.Route53.Types.HostedZone
+  ( HostedZone (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHostedZone,
+
+    -- * Lenses
+    hzLinkedService,
+    hzConfig,
+    hzResourceRecordSetCount,
+    hzId,
+    hzName,
+    hzCallerReference,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneConfig
 import Network.AWS.Route53.Types.LinkedService
 
 -- | A complex type that contains general information about the hosted zone.
 --
---
---
--- /See:/ 'hostedZone' smart constructor.
+-- /See:/ 'mkHostedZone' smart constructor.
 data HostedZone = HostedZone'
-  { _hzLinkedService ::
-      !(Maybe LinkedService),
-    _hzConfig :: !(Maybe HostedZoneConfig),
-    _hzResourceRecordSetCount :: !(Maybe Integer),
-    _hzId :: !ResourceId,
-    _hzName :: !Text,
-    _hzCallerReference :: !Text
+  { linkedService ::
+      Lude.Maybe LinkedService,
+    config :: Lude.Maybe HostedZoneConfig,
+    resourceRecordSetCount :: Lude.Maybe Lude.Integer,
+    id :: ResourceId,
+    name :: Lude.Text,
+    callerReference :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostedZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'callerReference' - The value that you specified for @CallerReference@ when you created the hosted zone.
+-- * 'config' - A complex type that includes the @Comment@ and @PrivateZone@ elements. If you omitted the @HostedZoneConfig@ and @Comment@ elements from the request, the @Config@ and @Comment@ elements don't appear in the response.
+-- * 'id' - The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+-- * 'linkedService' - If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53.
+-- * 'name' - The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.
 --
--- * 'hzLinkedService' - If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53.
---
--- * 'hzConfig' - A complex type that includes the @Comment@ and @PrivateZone@ elements. If you omitted the @HostedZoneConfig@ and @Comment@ elements from the request, the @Config@ and @Comment@ elements don't appear in the response.
---
--- * 'hzResourceRecordSetCount' - The number of resource record sets in the hosted zone.
---
--- * 'hzId' - The ID that Amazon Route 53 assigned to the hosted zone when you created it.
---
--- * 'hzName' - The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar. For information about how to specify characters other than @a-z@ , @0-9@ , and @-@ (hyphen) and how to specify internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone> .
---
--- * 'hzCallerReference' - The value that you specified for @CallerReference@ when you created the hosted zone.
-hostedZone ::
-  -- | 'hzId'
+-- For information about how to specify characters other than @a-z@ , @0-9@ , and @-@ (hyphen) and how to specify internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone> .
+-- * 'resourceRecordSetCount' - The number of resource record sets in the hosted zone.
+mkHostedZone ::
+  -- | 'id'
   ResourceId ->
-  -- | 'hzName'
-  Text ->
-  -- | 'hzCallerReference'
-  Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'callerReference'
+  Lude.Text ->
   HostedZone
-hostedZone pId_ pName_ pCallerReference_ =
+mkHostedZone pId_ pName_ pCallerReference_ =
   HostedZone'
-    { _hzLinkedService = Nothing,
-      _hzConfig = Nothing,
-      _hzResourceRecordSetCount = Nothing,
-      _hzId = pId_,
-      _hzName = pName_,
-      _hzCallerReference = pCallerReference_
+    { linkedService = Lude.Nothing,
+      config = Lude.Nothing,
+      resourceRecordSetCount = Lude.Nothing,
+      id = pId_,
+      name = pName_,
+      callerReference = pCallerReference_
     }
 
 -- | If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53.
-hzLinkedService :: Lens' HostedZone (Maybe LinkedService)
-hzLinkedService = lens _hzLinkedService (\s a -> s {_hzLinkedService = a})
+--
+-- /Note:/ Consider using 'linkedService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzLinkedService :: Lens.Lens' HostedZone (Lude.Maybe LinkedService)
+hzLinkedService = Lens.lens (linkedService :: HostedZone -> Lude.Maybe LinkedService) (\s a -> s {linkedService = a} :: HostedZone)
+{-# DEPRECATED hzLinkedService "Use generic-lens or generic-optics with 'linkedService' instead." #-}
 
 -- | A complex type that includes the @Comment@ and @PrivateZone@ elements. If you omitted the @HostedZoneConfig@ and @Comment@ elements from the request, the @Config@ and @Comment@ elements don't appear in the response.
-hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
-hzConfig = lens _hzConfig (\s a -> s {_hzConfig = a})
+--
+-- /Note:/ Consider using 'config' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzConfig :: Lens.Lens' HostedZone (Lude.Maybe HostedZoneConfig)
+hzConfig = Lens.lens (config :: HostedZone -> Lude.Maybe HostedZoneConfig) (\s a -> s {config = a} :: HostedZone)
+{-# DEPRECATED hzConfig "Use generic-lens or generic-optics with 'config' instead." #-}
 
 -- | The number of resource record sets in the hosted zone.
-hzResourceRecordSetCount :: Lens' HostedZone (Maybe Integer)
-hzResourceRecordSetCount = lens _hzResourceRecordSetCount (\s a -> s {_hzResourceRecordSetCount = a})
+--
+-- /Note:/ Consider using 'resourceRecordSetCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzResourceRecordSetCount :: Lens.Lens' HostedZone (Lude.Maybe Lude.Integer)
+hzResourceRecordSetCount = Lens.lens (resourceRecordSetCount :: HostedZone -> Lude.Maybe Lude.Integer) (\s a -> s {resourceRecordSetCount = a} :: HostedZone)
+{-# DEPRECATED hzResourceRecordSetCount "Use generic-lens or generic-optics with 'resourceRecordSetCount' instead." #-}
 
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
-hzId :: Lens' HostedZone ResourceId
-hzId = lens _hzId (\s a -> s {_hzId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzId :: Lens.Lens' HostedZone ResourceId
+hzId = Lens.lens (id :: HostedZone -> ResourceId) (\s a -> s {id = a} :: HostedZone)
+{-# DEPRECATED hzId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar. For information about how to specify characters other than @a-z@ , @0-9@ , and @-@ (hyphen) and how to specify internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone> .
-hzName :: Lens' HostedZone Text
-hzName = lens _hzName (\s a -> s {_hzName = a})
+-- | The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.
+--
+-- For information about how to specify characters other than @a-z@ , @0-9@ , and @-@ (hyphen) and how to specify internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone> .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzName :: Lens.Lens' HostedZone Lude.Text
+hzName = Lens.lens (name :: HostedZone -> Lude.Text) (\s a -> s {name = a} :: HostedZone)
+{-# DEPRECATED hzName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value that you specified for @CallerReference@ when you created the hosted zone.
-hzCallerReference :: Lens' HostedZone Text
-hzCallerReference = lens _hzCallerReference (\s a -> s {_hzCallerReference = a})
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzCallerReference :: Lens.Lens' HostedZone Lude.Text
+hzCallerReference = Lens.lens (callerReference :: HostedZone -> Lude.Text) (\s a -> s {callerReference = a} :: HostedZone)
+{-# DEPRECATED hzCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance FromXML HostedZone where
+instance Lude.FromXML HostedZone where
   parseXML x =
     HostedZone'
-      <$> (x .@? "LinkedService")
-      <*> (x .@? "Config")
-      <*> (x .@? "ResourceRecordSetCount")
-      <*> (x .@ "Id")
-      <*> (x .@ "Name")
-      <*> (x .@ "CallerReference")
-
-instance Hashable HostedZone
-
-instance NFData HostedZone
+      Lude.<$> (x Lude..@? "LinkedService")
+      Lude.<*> (x Lude..@? "Config")
+      Lude.<*> (x Lude..@? "ResourceRecordSetCount")
+      Lude.<*> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "Name")
+      Lude.<*> (x Lude..@ "CallerReference")

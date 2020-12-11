@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentDefaultVersionDescription where
+module Network.AWS.SSM.Types.DocumentDefaultVersionDescription
+  ( DocumentDefaultVersionDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentDefaultVersionDescription,
+
+    -- * Lenses
+    ddvdDefaultVersionName,
+    ddvdDefaultVersion,
+    ddvdName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A default version of a document.
 --
---
---
--- /See:/ 'documentDefaultVersionDescription' smart constructor.
+-- /See:/ 'mkDocumentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
-  { _ddvdDefaultVersionName ::
-      !(Maybe Text),
-    _ddvdDefaultVersion ::
-      !(Maybe Text),
-    _ddvdName ::
-      !(Maybe Text)
+  { defaultVersionName ::
+      Lude.Maybe Lude.Text,
+    defaultVersion ::
+      Lude.Maybe Lude.Text,
+    name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentDefaultVersionDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddvdDefaultVersionName' - The default version of the artifact associated with the document.
---
--- * 'ddvdDefaultVersion' - The default version of the document.
---
--- * 'ddvdName' - The name of the document.
-documentDefaultVersionDescription ::
+-- * 'defaultVersion' - The default version of the document.
+-- * 'defaultVersionName' - The default version of the artifact associated with the document.
+-- * 'name' - The name of the document.
+mkDocumentDefaultVersionDescription ::
   DocumentDefaultVersionDescription
-documentDefaultVersionDescription =
+mkDocumentDefaultVersionDescription =
   DocumentDefaultVersionDescription'
-    { _ddvdDefaultVersionName =
-        Nothing,
-      _ddvdDefaultVersion = Nothing,
-      _ddvdName = Nothing
+    { defaultVersionName =
+        Lude.Nothing,
+      defaultVersion = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The default version of the artifact associated with the document.
-ddvdDefaultVersionName :: Lens' DocumentDefaultVersionDescription (Maybe Text)
-ddvdDefaultVersionName = lens _ddvdDefaultVersionName (\s a -> s {_ddvdDefaultVersionName = a})
+--
+-- /Note:/ Consider using 'defaultVersionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvdDefaultVersionName :: Lens.Lens' DocumentDefaultVersionDescription (Lude.Maybe Lude.Text)
+ddvdDefaultVersionName = Lens.lens (defaultVersionName :: DocumentDefaultVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersionName = a} :: DocumentDefaultVersionDescription)
+{-# DEPRECATED ddvdDefaultVersionName "Use generic-lens or generic-optics with 'defaultVersionName' instead." #-}
 
 -- | The default version of the document.
-ddvdDefaultVersion :: Lens' DocumentDefaultVersionDescription (Maybe Text)
-ddvdDefaultVersion = lens _ddvdDefaultVersion (\s a -> s {_ddvdDefaultVersion = a})
+--
+-- /Note:/ Consider using 'defaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvdDefaultVersion :: Lens.Lens' DocumentDefaultVersionDescription (Lude.Maybe Lude.Text)
+ddvdDefaultVersion = Lens.lens (defaultVersion :: DocumentDefaultVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersion = a} :: DocumentDefaultVersionDescription)
+{-# DEPRECATED ddvdDefaultVersion "Use generic-lens or generic-optics with 'defaultVersion' instead." #-}
 
 -- | The name of the document.
-ddvdName :: Lens' DocumentDefaultVersionDescription (Maybe Text)
-ddvdName = lens _ddvdName (\s a -> s {_ddvdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvdName :: Lens.Lens' DocumentDefaultVersionDescription (Lude.Maybe Lude.Text)
+ddvdName = Lens.lens (name :: DocumentDefaultVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentDefaultVersionDescription)
+{-# DEPRECATED ddvdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON DocumentDefaultVersionDescription where
+instance Lude.FromJSON DocumentDefaultVersionDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "DocumentDefaultVersionDescription"
       ( \x ->
           DocumentDefaultVersionDescription'
-            <$> (x .:? "DefaultVersionName")
-            <*> (x .:? "DefaultVersion")
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "DefaultVersionName")
+            Lude.<*> (x Lude..:? "DefaultVersion")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable DocumentDefaultVersionDescription
-
-instance NFData DocumentDefaultVersionDescription

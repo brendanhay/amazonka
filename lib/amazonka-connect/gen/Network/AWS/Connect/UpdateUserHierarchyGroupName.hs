@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,133 @@
 --
 -- Updates the name of the user hierarchy group.
 module Network.AWS.Connect.UpdateUserHierarchyGroupName
-  ( -- * Creating a Request
-    updateUserHierarchyGroupName,
-    UpdateUserHierarchyGroupName,
+  ( -- * Creating a request
+    UpdateUserHierarchyGroupName (..),
+    mkUpdateUserHierarchyGroupName,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuhgnName,
     uuhgnHierarchyGroupId,
     uuhgnInstanceId,
 
-    -- * Destructuring the Response
-    updateUserHierarchyGroupNameResponse,
-    UpdateUserHierarchyGroupNameResponse,
+    -- * Destructuring the response
+    UpdateUserHierarchyGroupNameResponse (..),
+    mkUpdateUserHierarchyGroupNameResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateUserHierarchyGroupName' smart constructor.
+-- | /See:/ 'mkUpdateUserHierarchyGroupName' smart constructor.
 data UpdateUserHierarchyGroupName = UpdateUserHierarchyGroupName'
-  { _uuhgnName ::
-      !Text,
-    _uuhgnHierarchyGroupId :: !Text,
-    _uuhgnInstanceId :: !Text
+  { name ::
+      Lude.Text,
+    hierarchyGroupId :: Lude.Text,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserHierarchyGroupName' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuhgnName' - The name of the hierarchy group. Must not be more than 100 characters.
---
--- * 'uuhgnHierarchyGroupId' - The identifier of the hierarchy group.
---
--- * 'uuhgnInstanceId' - The identifier of the Amazon Connect instance.
-updateUserHierarchyGroupName ::
-  -- | 'uuhgnName'
-  Text ->
-  -- | 'uuhgnHierarchyGroupId'
-  Text ->
-  -- | 'uuhgnInstanceId'
-  Text ->
+-- * 'hierarchyGroupId' - The identifier of the hierarchy group.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'name' - The name of the hierarchy group. Must not be more than 100 characters.
+mkUpdateUserHierarchyGroupName ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'hierarchyGroupId'
+  Lude.Text ->
+  -- | 'instanceId'
+  Lude.Text ->
   UpdateUserHierarchyGroupName
-updateUserHierarchyGroupName pName_ pHierarchyGroupId_ pInstanceId_ =
-  UpdateUserHierarchyGroupName'
-    { _uuhgnName = pName_,
-      _uuhgnHierarchyGroupId = pHierarchyGroupId_,
-      _uuhgnInstanceId = pInstanceId_
-    }
+mkUpdateUserHierarchyGroupName
+  pName_
+  pHierarchyGroupId_
+  pInstanceId_ =
+    UpdateUserHierarchyGroupName'
+      { name = pName_,
+        hierarchyGroupId = pHierarchyGroupId_,
+        instanceId = pInstanceId_
+      }
 
 -- | The name of the hierarchy group. Must not be more than 100 characters.
-uuhgnName :: Lens' UpdateUserHierarchyGroupName Text
-uuhgnName = lens _uuhgnName (\s a -> s {_uuhgnName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuhgnName :: Lens.Lens' UpdateUserHierarchyGroupName Lude.Text
+uuhgnName = Lens.lens (name :: UpdateUserHierarchyGroupName -> Lude.Text) (\s a -> s {name = a} :: UpdateUserHierarchyGroupName)
+{-# DEPRECATED uuhgnName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the hierarchy group.
-uuhgnHierarchyGroupId :: Lens' UpdateUserHierarchyGroupName Text
-uuhgnHierarchyGroupId = lens _uuhgnHierarchyGroupId (\s a -> s {_uuhgnHierarchyGroupId = a})
+--
+-- /Note:/ Consider using 'hierarchyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuhgnHierarchyGroupId :: Lens.Lens' UpdateUserHierarchyGroupName Lude.Text
+uuhgnHierarchyGroupId = Lens.lens (hierarchyGroupId :: UpdateUserHierarchyGroupName -> Lude.Text) (\s a -> s {hierarchyGroupId = a} :: UpdateUserHierarchyGroupName)
+{-# DEPRECATED uuhgnHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-uuhgnInstanceId :: Lens' UpdateUserHierarchyGroupName Text
-uuhgnInstanceId = lens _uuhgnInstanceId (\s a -> s {_uuhgnInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuhgnInstanceId :: Lens.Lens' UpdateUserHierarchyGroupName Lude.Text
+uuhgnInstanceId = Lens.lens (instanceId :: UpdateUserHierarchyGroupName -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserHierarchyGroupName)
+{-# DEPRECATED uuhgnInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest UpdateUserHierarchyGroupName where
+instance Lude.AWSRequest UpdateUserHierarchyGroupName where
   type
     Rs UpdateUserHierarchyGroupName =
       UpdateUserHierarchyGroupNameResponse
-  request = postJSON connect
-  response = receiveNull UpdateUserHierarchyGroupNameResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateUserHierarchyGroupNameResponse'
 
-instance Hashable UpdateUserHierarchyGroupName
-
-instance NFData UpdateUserHierarchyGroupName
-
-instance ToHeaders UpdateUserHierarchyGroupName where
+instance Lude.ToHeaders UpdateUserHierarchyGroupName where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateUserHierarchyGroupName where
+instance Lude.ToJSON UpdateUserHierarchyGroupName where
   toJSON UpdateUserHierarchyGroupName' {..} =
-    object (catMaybes [Just ("Name" .= _uuhgnName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath UpdateUserHierarchyGroupName where
+instance Lude.ToPath UpdateUserHierarchyGroupName where
   toPath UpdateUserHierarchyGroupName' {..} =
-    mconcat
+    Lude.mconcat
       [ "/user-hierarchy-groups/",
-        toBS _uuhgnInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _uuhgnHierarchyGroupId,
+        Lude.toBS hierarchyGroupId,
         "/name"
       ]
 
-instance ToQuery UpdateUserHierarchyGroupName where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserHierarchyGroupName where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserHierarchyGroupNameResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserHierarchyGroupNameResponse' smart constructor.
 data UpdateUserHierarchyGroupNameResponse = UpdateUserHierarchyGroupNameResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserHierarchyGroupNameResponse' with the minimum fields required to make a request.
-updateUserHierarchyGroupNameResponse ::
+mkUpdateUserHierarchyGroupNameResponse ::
   UpdateUserHierarchyGroupNameResponse
-updateUserHierarchyGroupNameResponse =
+mkUpdateUserHierarchyGroupNameResponse =
   UpdateUserHierarchyGroupNameResponse'
-
-instance NFData UpdateUserHierarchyGroupNameResponse

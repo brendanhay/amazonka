@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,171 @@
 --
 -- Creates an anomaly detection model for a CloudWatch metric. You can use the model to display a band of expected normal values when the metric is graphed.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html CloudWatch Anomaly Detection> .
 module Network.AWS.CloudWatch.PutAnomalyDetector
-  ( -- * Creating a Request
-    putAnomalyDetector,
-    PutAnomalyDetector,
+  ( -- * Creating a request
+    PutAnomalyDetector (..),
+    mkPutAnomalyDetector,
 
-    -- * Request Lenses
+    -- ** Request lenses
     padConfiguration,
     padDimensions,
     padNamespace,
     padMetricName,
     padStat,
 
-    -- * Destructuring the Response
-    putAnomalyDetectorResponse,
-    PutAnomalyDetectorResponse,
+    -- * Destructuring the response
+    PutAnomalyDetectorResponse (..),
+    mkPutAnomalyDetectorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     padrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putAnomalyDetector' smart constructor.
+-- | /See:/ 'mkPutAnomalyDetector' smart constructor.
 data PutAnomalyDetector = PutAnomalyDetector'
-  { _padConfiguration ::
-      !(Maybe AnomalyDetectorConfiguration),
-    _padDimensions :: !(Maybe [Dimension]),
-    _padNamespace :: !Text,
-    _padMetricName :: !Text,
-    _padStat :: !Text
+  { configuration ::
+      Lude.Maybe AnomalyDetectorConfiguration,
+    dimensions :: Lude.Maybe [Dimension],
+    namespace :: Lude.Text,
+    metricName :: Lude.Text,
+    stat :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAnomalyDetector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configuration' - The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model. You can specify as many as 10 time ranges.
 --
--- * 'padConfiguration' - The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model. You can specify as many as 10 time ranges. The configuration can also include the time zone to use for the metric.
---
--- * 'padDimensions' - The metric dimensions to create the anomaly detection model for.
---
--- * 'padNamespace' - The namespace of the metric to create the anomaly detection model for.
---
--- * 'padMetricName' - The name of the metric to create the anomaly detection model for.
---
--- * 'padStat' - The statistic to use for the metric and the anomaly detection model.
-putAnomalyDetector ::
-  -- | 'padNamespace'
-  Text ->
-  -- | 'padMetricName'
-  Text ->
-  -- | 'padStat'
-  Text ->
+-- The configuration can also include the time zone to use for the metric.
+-- * 'dimensions' - The metric dimensions to create the anomaly detection model for.
+-- * 'metricName' - The name of the metric to create the anomaly detection model for.
+-- * 'namespace' - The namespace of the metric to create the anomaly detection model for.
+-- * 'stat' - The statistic to use for the metric and the anomaly detection model.
+mkPutAnomalyDetector ::
+  -- | 'namespace'
+  Lude.Text ->
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'stat'
+  Lude.Text ->
   PutAnomalyDetector
-putAnomalyDetector pNamespace_ pMetricName_ pStat_ =
+mkPutAnomalyDetector pNamespace_ pMetricName_ pStat_ =
   PutAnomalyDetector'
-    { _padConfiguration = Nothing,
-      _padDimensions = Nothing,
-      _padNamespace = pNamespace_,
-      _padMetricName = pMetricName_,
-      _padStat = pStat_
+    { configuration = Lude.Nothing,
+      dimensions = Lude.Nothing,
+      namespace = pNamespace_,
+      metricName = pMetricName_,
+      stat = pStat_
     }
 
--- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model. You can specify as many as 10 time ranges. The configuration can also include the time zone to use for the metric.
-padConfiguration :: Lens' PutAnomalyDetector (Maybe AnomalyDetectorConfiguration)
-padConfiguration = lens _padConfiguration (\s a -> s {_padConfiguration = a})
+-- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model. You can specify as many as 10 time ranges.
+--
+-- The configuration can also include the time zone to use for the metric.
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padConfiguration :: Lens.Lens' PutAnomalyDetector (Lude.Maybe AnomalyDetectorConfiguration)
+padConfiguration = Lens.lens (configuration :: PutAnomalyDetector -> Lude.Maybe AnomalyDetectorConfiguration) (\s a -> s {configuration = a} :: PutAnomalyDetector)
+{-# DEPRECATED padConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | The metric dimensions to create the anomaly detection model for.
-padDimensions :: Lens' PutAnomalyDetector [Dimension]
-padDimensions = lens _padDimensions (\s a -> s {_padDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padDimensions :: Lens.Lens' PutAnomalyDetector (Lude.Maybe [Dimension])
+padDimensions = Lens.lens (dimensions :: PutAnomalyDetector -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: PutAnomalyDetector)
+{-# DEPRECATED padDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The namespace of the metric to create the anomaly detection model for.
-padNamespace :: Lens' PutAnomalyDetector Text
-padNamespace = lens _padNamespace (\s a -> s {_padNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padNamespace :: Lens.Lens' PutAnomalyDetector Lude.Text
+padNamespace = Lens.lens (namespace :: PutAnomalyDetector -> Lude.Text) (\s a -> s {namespace = a} :: PutAnomalyDetector)
+{-# DEPRECATED padNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The name of the metric to create the anomaly detection model for.
-padMetricName :: Lens' PutAnomalyDetector Text
-padMetricName = lens _padMetricName (\s a -> s {_padMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padMetricName :: Lens.Lens' PutAnomalyDetector Lude.Text
+padMetricName = Lens.lens (metricName :: PutAnomalyDetector -> Lude.Text) (\s a -> s {metricName = a} :: PutAnomalyDetector)
+{-# DEPRECATED padMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The statistic to use for the metric and the anomaly detection model.
-padStat :: Lens' PutAnomalyDetector Text
-padStat = lens _padStat (\s a -> s {_padStat = a})
+--
+-- /Note:/ Consider using 'stat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padStat :: Lens.Lens' PutAnomalyDetector Lude.Text
+padStat = Lens.lens (stat :: PutAnomalyDetector -> Lude.Text) (\s a -> s {stat = a} :: PutAnomalyDetector)
+{-# DEPRECATED padStat "Use generic-lens or generic-optics with 'stat' instead." #-}
 
-instance AWSRequest PutAnomalyDetector where
+instance Lude.AWSRequest PutAnomalyDetector where
   type Rs PutAnomalyDetector = PutAnomalyDetectorResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PutAnomalyDetectorResult"
-      (\s h x -> PutAnomalyDetectorResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          PutAnomalyDetectorResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutAnomalyDetector
+instance Lude.ToHeaders PutAnomalyDetector where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutAnomalyDetector
+instance Lude.ToPath PutAnomalyDetector where
+  toPath = Lude.const "/"
 
-instance ToHeaders PutAnomalyDetector where
-  toHeaders = const mempty
-
-instance ToPath PutAnomalyDetector where
-  toPath = const "/"
-
-instance ToQuery PutAnomalyDetector where
+instance Lude.ToQuery PutAnomalyDetector where
   toQuery PutAnomalyDetector' {..} =
-    mconcat
-      [ "Action" =: ("PutAnomalyDetector" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "Configuration" =: _padConfiguration,
-        "Dimensions" =: toQuery (toQueryList "member" <$> _padDimensions),
-        "Namespace" =: _padNamespace,
-        "MetricName" =: _padMetricName,
-        "Stat" =: _padStat
+    Lude.mconcat
+      [ "Action" Lude.=: ("PutAnomalyDetector" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "Configuration" Lude.=: configuration,
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
+        "Namespace" Lude.=: namespace,
+        "MetricName" Lude.=: metricName,
+        "Stat" Lude.=: stat
       ]
 
--- | /See:/ 'putAnomalyDetectorResponse' smart constructor.
+-- | /See:/ 'mkPutAnomalyDetectorResponse' smart constructor.
 newtype PutAnomalyDetectorResponse = PutAnomalyDetectorResponse'
-  { _padrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAnomalyDetectorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'padrsResponseStatus' - -- | The response status code.
-putAnomalyDetectorResponse ::
-  -- | 'padrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutAnomalyDetectorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAnomalyDetectorResponse
-putAnomalyDetectorResponse pResponseStatus_ =
-  PutAnomalyDetectorResponse'
-    { _padrsResponseStatus =
-        pResponseStatus_
-    }
+mkPutAnomalyDetectorResponse pResponseStatus_ =
+  PutAnomalyDetectorResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-padrsResponseStatus :: Lens' PutAnomalyDetectorResponse Int
-padrsResponseStatus = lens _padrsResponseStatus (\s a -> s {_padrsResponseStatus = a})
-
-instance NFData PutAnomalyDetectorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padrsResponseStatus :: Lens.Lens' PutAnomalyDetectorResponse Lude.Int
+padrsResponseStatus = Lens.lens (responseStatus :: PutAnomalyDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAnomalyDetectorResponse)
+{-# DEPRECATED padrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

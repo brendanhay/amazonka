@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,103 @@
 --
 -- Deletes a version of an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> . Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.
 module Network.AWS.Lambda.DeleteLayerVersion
-  ( -- * Creating a Request
-    deleteLayerVersion,
-    DeleteLayerVersion,
+  ( -- * Creating a request
+    DeleteLayerVersion (..),
+    mkDeleteLayerVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlvLayerName,
     dlvVersionNumber,
 
-    -- * Destructuring the Response
-    deleteLayerVersionResponse,
-    DeleteLayerVersionResponse,
+    -- * Destructuring the response
+    DeleteLayerVersionResponse (..),
+    mkDeleteLayerVersionResponse,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLayerVersion' smart constructor.
+-- | /See:/ 'mkDeleteLayerVersion' smart constructor.
 data DeleteLayerVersion = DeleteLayerVersion'
-  { _dlvLayerName ::
-      !Text,
-    _dlvVersionNumber :: !Integer
+  { layerName ::
+      Lude.Text,
+    versionNumber :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLayerVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlvLayerName' - The name or Amazon Resource Name (ARN) of the layer.
---
--- * 'dlvVersionNumber' - The version number.
-deleteLayerVersion ::
-  -- | 'dlvLayerName'
-  Text ->
-  -- | 'dlvVersionNumber'
-  Integer ->
+-- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
+-- * 'versionNumber' - The version number.
+mkDeleteLayerVersion ::
+  -- | 'layerName'
+  Lude.Text ->
+  -- | 'versionNumber'
+  Lude.Integer ->
   DeleteLayerVersion
-deleteLayerVersion pLayerName_ pVersionNumber_ =
+mkDeleteLayerVersion pLayerName_ pVersionNumber_ =
   DeleteLayerVersion'
-    { _dlvLayerName = pLayerName_,
-      _dlvVersionNumber = pVersionNumber_
+    { layerName = pLayerName_,
+      versionNumber = pVersionNumber_
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-dlvLayerName :: Lens' DeleteLayerVersion Text
-dlvLayerName = lens _dlvLayerName (\s a -> s {_dlvLayerName = a})
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlvLayerName :: Lens.Lens' DeleteLayerVersion Lude.Text
+dlvLayerName = Lens.lens (layerName :: DeleteLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: DeleteLayerVersion)
+{-# DEPRECATED dlvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The version number.
-dlvVersionNumber :: Lens' DeleteLayerVersion Integer
-dlvVersionNumber = lens _dlvVersionNumber (\s a -> s {_dlvVersionNumber = a})
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlvVersionNumber :: Lens.Lens' DeleteLayerVersion Lude.Integer
+dlvVersionNumber = Lens.lens (versionNumber :: DeleteLayerVersion -> Lude.Integer) (\s a -> s {versionNumber = a} :: DeleteLayerVersion)
+{-# DEPRECATED dlvVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
-instance AWSRequest DeleteLayerVersion where
+instance Lude.AWSRequest DeleteLayerVersion where
   type Rs DeleteLayerVersion = DeleteLayerVersionResponse
-  request = delete lambda
-  response = receiveNull DeleteLayerVersionResponse'
+  request = Req.delete lambdaService
+  response = Res.receiveNull DeleteLayerVersionResponse'
 
-instance Hashable DeleteLayerVersion
+instance Lude.ToHeaders DeleteLayerVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLayerVersion
-
-instance ToHeaders DeleteLayerVersion where
-  toHeaders = const mempty
-
-instance ToPath DeleteLayerVersion where
+instance Lude.ToPath DeleteLayerVersion where
   toPath DeleteLayerVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2018-10-31/layers/",
-        toBS _dlvLayerName,
+        Lude.toBS layerName,
         "/versions/",
-        toBS _dlvVersionNumber
+        Lude.toBS versionNumber
       ]
 
-instance ToQuery DeleteLayerVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLayerVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLayerVersionResponse' smart constructor.
+-- | /See:/ 'mkDeleteLayerVersionResponse' smart constructor.
 data DeleteLayerVersionResponse = DeleteLayerVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLayerVersionResponse' with the minimum fields required to make a request.
-deleteLayerVersionResponse ::
+mkDeleteLayerVersionResponse ::
   DeleteLayerVersionResponse
-deleteLayerVersionResponse = DeleteLayerVersionResponse'
-
-instance NFData DeleteLayerVersionResponse
+mkDeleteLayerVersionResponse = DeleteLayerVersionResponse'

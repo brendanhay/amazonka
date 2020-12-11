@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.CloseStatus where
+module Network.AWS.SWF.Types.CloseStatus
+  ( CloseStatus
+      ( CloseStatus',
+        Canceled,
+        Completed,
+        ContinuedAsNew,
+        Failed,
+        Terminated,
+        TimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CloseStatus
-  = Canceled
-  | Completed
-  | ContinuedAsNew
-  | Failed
-  | Terminated
-  | TimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CloseStatus = CloseStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CloseStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure Canceled
-      "completed" -> pure Completed
-      "continued_as_new" -> pure ContinuedAsNew
-      "failed" -> pure Failed
-      "terminated" -> pure Terminated
-      "timed_out" -> pure TimedOut
-      e ->
-        fromTextError $
-          "Failure parsing CloseStatus from value: '" <> e
-            <> "'. Accepted values: canceled, completed, continued_as_new, failed, terminated, timed_out"
+pattern Canceled :: CloseStatus
+pattern Canceled = CloseStatus' "CANCELED"
 
-instance ToText CloseStatus where
-  toText = \case
-    Canceled -> "CANCELED"
-    Completed -> "COMPLETED"
-    ContinuedAsNew -> "CONTINUED_AS_NEW"
-    Failed -> "FAILED"
-    Terminated -> "TERMINATED"
-    TimedOut -> "TIMED_OUT"
+pattern Completed :: CloseStatus
+pattern Completed = CloseStatus' "COMPLETED"
 
-instance Hashable CloseStatus
+pattern ContinuedAsNew :: CloseStatus
+pattern ContinuedAsNew = CloseStatus' "CONTINUED_AS_NEW"
 
-instance NFData CloseStatus
+pattern Failed :: CloseStatus
+pattern Failed = CloseStatus' "FAILED"
 
-instance ToByteString CloseStatus
+pattern Terminated :: CloseStatus
+pattern Terminated = CloseStatus' "TERMINATED"
 
-instance ToQuery CloseStatus
+pattern TimedOut :: CloseStatus
+pattern TimedOut = CloseStatus' "TIMED_OUT"
 
-instance ToHeader CloseStatus
-
-instance ToJSON CloseStatus where
-  toJSON = toJSONText
-
-instance FromJSON CloseStatus where
-  parseJSON = parseJSONText "CloseStatus"
+{-# COMPLETE
+  Canceled,
+  Completed,
+  ContinuedAsNew,
+  Failed,
+  Terminated,
+  TimedOut,
+  CloseStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes where
+module Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes
+  ( ActivityTaskCompletedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivityTaskCompletedEventAttributes,
+
+    -- * Lenses
+    atceaResult,
+    atceaScheduledEventId,
+    atceaStartedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @ActivityTaskCompleted@ event.
 --
---
---
--- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
+-- /See:/ 'mkActivityTaskCompletedEventAttributes' smart constructor.
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'
-  { _atceaResult ::
-      !(Maybe Text),
-    _atceaScheduledEventId ::
-      !Integer,
-    _atceaStartedEventId ::
-      !Integer
+  { result ::
+      Lude.Maybe
+        Lude.Text,
+    scheduledEventId ::
+      Lude.Integer,
+    startedEventId ::
+      Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityTaskCompletedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atceaResult' - The results of the activity task.
---
--- * 'atceaScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- * 'atceaStartedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-activityTaskCompletedEventAttributes ::
-  -- | 'atceaScheduledEventId'
-  Integer ->
-  -- | 'atceaStartedEventId'
-  Integer ->
+-- * 'result' - The results of the activity task.
+-- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'startedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+mkActivityTaskCompletedEventAttributes ::
+  -- | 'scheduledEventId'
+  Lude.Integer ->
+  -- | 'startedEventId'
+  Lude.Integer ->
   ActivityTaskCompletedEventAttributes
-activityTaskCompletedEventAttributes
+mkActivityTaskCompletedEventAttributes
   pScheduledEventId_
   pStartedEventId_ =
     ActivityTaskCompletedEventAttributes'
-      { _atceaResult = Nothing,
-        _atceaScheduledEventId = pScheduledEventId_,
-        _atceaStartedEventId = pStartedEventId_
+      { result = Lude.Nothing,
+        scheduledEventId = pScheduledEventId_,
+        startedEventId = pStartedEventId_
       }
 
 -- | The results of the activity task.
-atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
-atceaResult = lens _atceaResult (\s a -> s {_atceaResult = a})
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atceaResult :: Lens.Lens' ActivityTaskCompletedEventAttributes (Lude.Maybe Lude.Text)
+atceaResult = Lens.lens (result :: ActivityTaskCompletedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {result = a} :: ActivityTaskCompletedEventAttributes)
+{-# DEPRECATED atceaResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
-atceaScheduledEventId = lens _atceaScheduledEventId (\s a -> s {_atceaScheduledEventId = a})
+--
+-- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atceaScheduledEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Lude.Integer
+atceaScheduledEventId = Lens.lens (scheduledEventId :: ActivityTaskCompletedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: ActivityTaskCompletedEventAttributes)
+{-# DEPRECATED atceaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
-atceaStartedEventId = lens _atceaStartedEventId (\s a -> s {_atceaStartedEventId = a})
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atceaStartedEventId :: Lens.Lens' ActivityTaskCompletedEventAttributes Lude.Integer
+atceaStartedEventId = Lens.lens (startedEventId :: ActivityTaskCompletedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ActivityTaskCompletedEventAttributes)
+{-# DEPRECATED atceaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance FromJSON ActivityTaskCompletedEventAttributes where
+instance Lude.FromJSON ActivityTaskCompletedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActivityTaskCompletedEventAttributes"
       ( \x ->
           ActivityTaskCompletedEventAttributes'
-            <$> (x .:? "result")
-            <*> (x .: "scheduledEventId")
-            <*> (x .: "startedEventId")
+            Lude.<$> (x Lude..:? "result")
+            Lude.<*> (x Lude..: "scheduledEventId")
+            Lude.<*> (x Lude..: "startedEventId")
       )
-
-instance Hashable ActivityTaskCompletedEventAttributes
-
-instance NFData ActivityTaskCompletedEventAttributes

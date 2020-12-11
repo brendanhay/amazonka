@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.Operator where
+module Network.AWS.SageMaker.Types.Operator
+  ( Operator
+      ( Operator',
+        Contains,
+        Equals,
+        Exists,
+        GreaterThan,
+        GreaterThanOrEqualTo,
+        IN,
+        LessThan,
+        LessThanOrEqualTo,
+        NotEquals,
+        NotExists
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Operator
-  = Contains
-  | Equals
-  | Exists
-  | GreaterThan
-  | GreaterThanOrEqualTo
-  | IN
-  | LessThan
-  | LessThanOrEqualTo
-  | NotEquals
-  | NotExists
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Operator = Operator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Operator where
-  parser =
-    takeLowerText >>= \case
-      "contains" -> pure Contains
-      "equals" -> pure Equals
-      "exists" -> pure Exists
-      "greaterthan" -> pure GreaterThan
-      "greaterthanorequalto" -> pure GreaterThanOrEqualTo
-      "in" -> pure IN
-      "lessthan" -> pure LessThan
-      "lessthanorequalto" -> pure LessThanOrEqualTo
-      "notequals" -> pure NotEquals
-      "notexists" -> pure NotExists
-      e ->
-        fromTextError $
-          "Failure parsing Operator from value: '" <> e
-            <> "'. Accepted values: contains, equals, exists, greaterthan, greaterthanorequalto, in, lessthan, lessthanorequalto, notequals, notexists"
+pattern Contains :: Operator
+pattern Contains = Operator' "Contains"
 
-instance ToText Operator where
-  toText = \case
-    Contains -> "Contains"
-    Equals -> "Equals"
-    Exists -> "Exists"
-    GreaterThan -> "GreaterThan"
-    GreaterThanOrEqualTo -> "GreaterThanOrEqualTo"
-    IN -> "In"
-    LessThan -> "LessThan"
-    LessThanOrEqualTo -> "LessThanOrEqualTo"
-    NotEquals -> "NotEquals"
-    NotExists -> "NotExists"
+pattern Equals :: Operator
+pattern Equals = Operator' "Equals"
 
-instance Hashable Operator
+pattern Exists :: Operator
+pattern Exists = Operator' "Exists"
 
-instance NFData Operator
+pattern GreaterThan :: Operator
+pattern GreaterThan = Operator' "GreaterThan"
 
-instance ToByteString Operator
+pattern GreaterThanOrEqualTo :: Operator
+pattern GreaterThanOrEqualTo = Operator' "GreaterThanOrEqualTo"
 
-instance ToQuery Operator
+pattern IN :: Operator
+pattern IN = Operator' "In"
 
-instance ToHeader Operator
+pattern LessThan :: Operator
+pattern LessThan = Operator' "LessThan"
 
-instance ToJSON Operator where
-  toJSON = toJSONText
+pattern LessThanOrEqualTo :: Operator
+pattern LessThanOrEqualTo = Operator' "LessThanOrEqualTo"
+
+pattern NotEquals :: Operator
+pattern NotEquals = Operator' "NotEquals"
+
+pattern NotExists :: Operator
+pattern NotExists = Operator' "NotExists"
+
+{-# COMPLETE
+  Contains,
+  Equals,
+  Exists,
+  GreaterThan,
+  GreaterThanOrEqualTo,
+  IN,
+  LessThan,
+  LessThanOrEqualTo,
+  NotEquals,
+  NotExists,
+  Operator'
+  #-}

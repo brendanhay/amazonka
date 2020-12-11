@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl where
+module Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl
+  ( EbuTtDDestinationStyleControl
+      ( EbuTtDDestinationStyleControl',
+        ETDDSCExclude,
+        ETDDSCInclude
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ebu Tt DDestination Style Control
-data EbuTtDDestinationStyleControl
-  = ETDDSCExclude
-  | ETDDSCInclude
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EbuTtDDestinationStyleControl = EbuTtDDestinationStyleControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EbuTtDDestinationStyleControl where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure ETDDSCExclude
-      "include" -> pure ETDDSCInclude
-      e ->
-        fromTextError $
-          "Failure parsing EbuTtDDestinationStyleControl from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern ETDDSCExclude :: EbuTtDDestinationStyleControl
+pattern ETDDSCExclude = EbuTtDDestinationStyleControl' "EXCLUDE"
 
-instance ToText EbuTtDDestinationStyleControl where
-  toText = \case
-    ETDDSCExclude -> "EXCLUDE"
-    ETDDSCInclude -> "INCLUDE"
+pattern ETDDSCInclude :: EbuTtDDestinationStyleControl
+pattern ETDDSCInclude = EbuTtDDestinationStyleControl' "INCLUDE"
 
-instance Hashable EbuTtDDestinationStyleControl
-
-instance NFData EbuTtDDestinationStyleControl
-
-instance ToByteString EbuTtDDestinationStyleControl
-
-instance ToQuery EbuTtDDestinationStyleControl
-
-instance ToHeader EbuTtDDestinationStyleControl
-
-instance ToJSON EbuTtDDestinationStyleControl where
-  toJSON = toJSONText
-
-instance FromJSON EbuTtDDestinationStyleControl where
-  parseJSON = parseJSONText "EbuTtDDestinationStyleControl"
+{-# COMPLETE
+  ETDDSCExclude,
+  ETDDSCInclude,
+  EbuTtDDestinationStyleControl'
+  #-}

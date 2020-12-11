@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Timing where
+module Network.AWS.MediaConvert.Types.Timing
+  ( Timing (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTiming,
+
+    -- * Lenses
+    tStartTime,
+    tFinishTime,
+    tSubmitTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
 --
--- /See:/ 'timing' smart constructor.
+-- /See:/ 'mkTiming' smart constructor.
 data Timing = Timing'
-  { _tStartTime :: !(Maybe POSIX),
-    _tFinishTime :: !(Maybe POSIX),
-    _tSubmitTime :: !(Maybe POSIX)
+  { startTime :: Lude.Maybe Lude.Timestamp,
+    finishTime :: Lude.Maybe Lude.Timestamp,
+    submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Timing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tStartTime' - The time, in Unix epoch format, that transcoding for the job began.
---
--- * 'tFinishTime' - The time, in Unix epoch format, that the transcoding job finished
---
--- * 'tSubmitTime' - The time, in Unix epoch format, that you submitted the job.
-timing ::
+-- * 'finishTime' - The time, in Unix epoch format, that the transcoding job finished
+-- * 'startTime' - The time, in Unix epoch format, that transcoding for the job began.
+-- * 'submitTime' - The time, in Unix epoch format, that you submitted the job.
+mkTiming ::
   Timing
-timing =
+mkTiming =
   Timing'
-    { _tStartTime = Nothing,
-      _tFinishTime = Nothing,
-      _tSubmitTime = Nothing
+    { startTime = Lude.Nothing,
+      finishTime = Lude.Nothing,
+      submitTime = Lude.Nothing
     }
 
 -- | The time, in Unix epoch format, that transcoding for the job began.
-tStartTime :: Lens' Timing (Maybe UTCTime)
-tStartTime = lens _tStartTime (\s a -> s {_tStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStartTime :: Lens.Lens' Timing (Lude.Maybe Lude.Timestamp)
+tStartTime = Lens.lens (startTime :: Timing -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: Timing)
+{-# DEPRECATED tStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The time, in Unix epoch format, that the transcoding job finished
-tFinishTime :: Lens' Timing (Maybe UTCTime)
-tFinishTime = lens _tFinishTime (\s a -> s {_tFinishTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'finishTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tFinishTime :: Lens.Lens' Timing (Lude.Maybe Lude.Timestamp)
+tFinishTime = Lens.lens (finishTime :: Timing -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishTime = a} :: Timing)
+{-# DEPRECATED tFinishTime "Use generic-lens or generic-optics with 'finishTime' instead." #-}
 
 -- | The time, in Unix epoch format, that you submitted the job.
-tSubmitTime :: Lens' Timing (Maybe UTCTime)
-tSubmitTime = lens _tSubmitTime (\s a -> s {_tSubmitTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSubmitTime :: Lens.Lens' Timing (Lude.Maybe Lude.Timestamp)
+tSubmitTime = Lens.lens (submitTime :: Timing -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: Timing)
+{-# DEPRECATED tSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
 
-instance FromJSON Timing where
+instance Lude.FromJSON Timing where
   parseJSON =
-    withObject
+    Lude.withObject
       "Timing"
       ( \x ->
           Timing'
-            <$> (x .:? "startTime")
-            <*> (x .:? "finishTime")
-            <*> (x .:? "submitTime")
+            Lude.<$> (x Lude..:? "startTime")
+            Lude.<*> (x Lude..:? "finishTime")
+            Lude.<*> (x Lude..:? "submitTime")
       )
-
-instance Hashable Timing
-
-instance NFData Timing

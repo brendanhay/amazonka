@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,186 @@
 --
 -- Returns the current, previous, or pending versions of the master user password for a Lightsail database.
 --
---
 -- The @GetRelationalDatabaseMasterUserPassword@ operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName.
 module Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword
-  ( -- * Creating a Request
-    getRelationalDatabaseMasterUserPassword,
-    GetRelationalDatabaseMasterUserPassword,
+  ( -- * Creating a request
+    GetRelationalDatabaseMasterUserPassword (..),
+    mkGetRelationalDatabaseMasterUserPassword,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdmupPasswordVersion,
     grdmupRelationalDatabaseName,
 
-    -- * Destructuring the Response
-    getRelationalDatabaseMasterUserPasswordResponse,
-    GetRelationalDatabaseMasterUserPasswordResponse,
+    -- * Destructuring the response
+    GetRelationalDatabaseMasterUserPasswordResponse (..),
+    mkGetRelationalDatabaseMasterUserPasswordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdmuprsMasterUserPassword,
     grdmuprsCreatedAt,
     grdmuprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabaseMasterUserPassword' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseMasterUserPassword' smart constructor.
 data GetRelationalDatabaseMasterUserPassword = GetRelationalDatabaseMasterUserPassword'
-  { _grdmupPasswordVersion ::
-      !( Maybe
-           RelationalDatabasePasswordVersion
-       ),
-    _grdmupRelationalDatabaseName ::
-      !Text
+  { passwordVersion ::
+      Lude.Maybe
+        RelationalDatabasePasswordVersion,
+    relationalDatabaseName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseMasterUserPassword' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'passwordVersion' - The password version to return.
 --
--- * 'grdmupPasswordVersion' - The password version to return. Specifying @CURRENT@ or @PREVIOUS@ returns the current or previous passwords respectively. Specifying @PENDING@ returns the newest version of the password that will rotate to @CURRENT@ . After the @PENDING@ password rotates to @CURRENT@ , the @PENDING@ password is no longer available. Default: @CURRENT@
---
--- * 'grdmupRelationalDatabaseName' - The name of your database for which to get the master user password.
-getRelationalDatabaseMasterUserPassword ::
-  -- | 'grdmupRelationalDatabaseName'
-  Text ->
+-- Specifying @CURRENT@ or @PREVIOUS@ returns the current or previous passwords respectively. Specifying @PENDING@ returns the newest version of the password that will rotate to @CURRENT@ . After the @PENDING@ password rotates to @CURRENT@ , the @PENDING@ password is no longer available.
+-- Default: @CURRENT@
+-- * 'relationalDatabaseName' - The name of your database for which to get the master user password.
+mkGetRelationalDatabaseMasterUserPassword ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   GetRelationalDatabaseMasterUserPassword
-getRelationalDatabaseMasterUserPassword pRelationalDatabaseName_ =
+mkGetRelationalDatabaseMasterUserPassword pRelationalDatabaseName_ =
   GetRelationalDatabaseMasterUserPassword'
-    { _grdmupPasswordVersion =
-        Nothing,
-      _grdmupRelationalDatabaseName =
-        pRelationalDatabaseName_
+    { passwordVersion =
+        Lude.Nothing,
+      relationalDatabaseName = pRelationalDatabaseName_
     }
 
--- | The password version to return. Specifying @CURRENT@ or @PREVIOUS@ returns the current or previous passwords respectively. Specifying @PENDING@ returns the newest version of the password that will rotate to @CURRENT@ . After the @PENDING@ password rotates to @CURRENT@ , the @PENDING@ password is no longer available. Default: @CURRENT@
-grdmupPasswordVersion :: Lens' GetRelationalDatabaseMasterUserPassword (Maybe RelationalDatabasePasswordVersion)
-grdmupPasswordVersion = lens _grdmupPasswordVersion (\s a -> s {_grdmupPasswordVersion = a})
+-- | The password version to return.
+--
+-- Specifying @CURRENT@ or @PREVIOUS@ returns the current or previous passwords respectively. Specifying @PENDING@ returns the newest version of the password that will rotate to @CURRENT@ . After the @PENDING@ password rotates to @CURRENT@ , the @PENDING@ password is no longer available.
+-- Default: @CURRENT@
+--
+-- /Note:/ Consider using 'passwordVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmupPasswordVersion :: Lens.Lens' GetRelationalDatabaseMasterUserPassword (Lude.Maybe RelationalDatabasePasswordVersion)
+grdmupPasswordVersion = Lens.lens (passwordVersion :: GetRelationalDatabaseMasterUserPassword -> Lude.Maybe RelationalDatabasePasswordVersion) (\s a -> s {passwordVersion = a} :: GetRelationalDatabaseMasterUserPassword)
+{-# DEPRECATED grdmupPasswordVersion "Use generic-lens or generic-optics with 'passwordVersion' instead." #-}
 
 -- | The name of your database for which to get the master user password.
-grdmupRelationalDatabaseName :: Lens' GetRelationalDatabaseMasterUserPassword Text
-grdmupRelationalDatabaseName = lens _grdmupRelationalDatabaseName (\s a -> s {_grdmupRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmupRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseMasterUserPassword Lude.Text
+grdmupRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseMasterUserPassword -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseMasterUserPassword)
+{-# DEPRECATED grdmupRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance AWSRequest GetRelationalDatabaseMasterUserPassword where
+instance Lude.AWSRequest GetRelationalDatabaseMasterUserPassword where
   type
     Rs GetRelationalDatabaseMasterUserPassword =
       GetRelationalDatabaseMasterUserPasswordResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseMasterUserPasswordResponse'
-            <$> (x .?> "masterUserPassword")
-            <*> (x .?> "createdAt")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "masterUserPassword")
+            Lude.<*> (x Lude..?> "createdAt")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabaseMasterUserPassword
-
-instance NFData GetRelationalDatabaseMasterUserPassword
-
-instance ToHeaders GetRelationalDatabaseMasterUserPassword where
+instance Lude.ToHeaders GetRelationalDatabaseMasterUserPassword where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabaseMasterUserPassword where
+instance Lude.ToJSON GetRelationalDatabaseMasterUserPassword where
   toJSON GetRelationalDatabaseMasterUserPassword' {..} =
-    object
-      ( catMaybes
-          [ ("passwordVersion" .=) <$> _grdmupPasswordVersion,
-            Just ("relationalDatabaseName" .= _grdmupRelationalDatabaseName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("passwordVersion" Lude..=) Lude.<$> passwordVersion,
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
           ]
       )
 
-instance ToPath GetRelationalDatabaseMasterUserPassword where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabaseMasterUserPassword where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabaseMasterUserPassword where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabaseMasterUserPassword where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabaseMasterUserPasswordResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseMasterUserPasswordResponse' smart constructor.
 data GetRelationalDatabaseMasterUserPasswordResponse = GetRelationalDatabaseMasterUserPasswordResponse'
-  { _grdmuprsMasterUserPassword ::
-      !( Maybe
-           ( Sensitive
-               Text
-           )
-       ),
-    _grdmuprsCreatedAt ::
-      !( Maybe
-           POSIX
-       ),
-    _grdmuprsResponseStatus ::
-      !Int
+  { masterUserPassword ::
+      Lude.Maybe
+        ( Lude.Sensitive
+            Lude.Text
+        ),
+    createdAt ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetRelationalDatabaseMasterUserPasswordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdmuprsMasterUserPassword' - The master user password for the @password version@ specified.
---
--- * 'grdmuprsCreatedAt' - The timestamp when the specified version of the master user password was created.
---
--- * 'grdmuprsResponseStatus' - -- | The response status code.
-getRelationalDatabaseMasterUserPasswordResponse ::
-  -- | 'grdmuprsResponseStatus'
-  Int ->
+-- * 'createdAt' - The timestamp when the specified version of the master user password was created.
+-- * 'masterUserPassword' - The master user password for the @password version@ specified.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabaseMasterUserPasswordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabaseMasterUserPasswordResponse
-getRelationalDatabaseMasterUserPasswordResponse pResponseStatus_ =
+mkGetRelationalDatabaseMasterUserPasswordResponse pResponseStatus_ =
   GetRelationalDatabaseMasterUserPasswordResponse'
-    { _grdmuprsMasterUserPassword =
-        Nothing,
-      _grdmuprsCreatedAt = Nothing,
-      _grdmuprsResponseStatus = pResponseStatus_
+    { masterUserPassword =
+        Lude.Nothing,
+      createdAt = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The master user password for the @password version@ specified.
-grdmuprsMasterUserPassword :: Lens' GetRelationalDatabaseMasterUserPasswordResponse (Maybe Text)
-grdmuprsMasterUserPassword = lens _grdmuprsMasterUserPassword (\s a -> s {_grdmuprsMasterUserPassword = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmuprsMasterUserPassword :: Lens.Lens' GetRelationalDatabaseMasterUserPasswordResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+grdmuprsMasterUserPassword = Lens.lens (masterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterUserPassword = a} :: GetRelationalDatabaseMasterUserPasswordResponse)
+{-# DEPRECATED grdmuprsMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
 -- | The timestamp when the specified version of the master user password was created.
-grdmuprsCreatedAt :: Lens' GetRelationalDatabaseMasterUserPasswordResponse (Maybe UTCTime)
-grdmuprsCreatedAt = lens _grdmuprsCreatedAt (\s a -> s {_grdmuprsCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmuprsCreatedAt :: Lens.Lens' GetRelationalDatabaseMasterUserPasswordResponse (Lude.Maybe Lude.Timestamp)
+grdmuprsCreatedAt = Lens.lens (createdAt :: GetRelationalDatabaseMasterUserPasswordResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: GetRelationalDatabaseMasterUserPasswordResponse)
+{-# DEPRECATED grdmuprsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
--- | -- | The response status code.
-grdmuprsResponseStatus :: Lens' GetRelationalDatabaseMasterUserPasswordResponse Int
-grdmuprsResponseStatus = lens _grdmuprsResponseStatus (\s a -> s {_grdmuprsResponseStatus = a})
-
-instance NFData GetRelationalDatabaseMasterUserPasswordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmuprsResponseStatus :: Lens.Lens' GetRelationalDatabaseMasterUserPasswordResponse Lude.Int
+grdmuprsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseMasterUserPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseMasterUserPasswordResponse)
+{-# DEPRECATED grdmuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

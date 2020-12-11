@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,153 @@
 --
 -- Registers a certificate for secured LDAP connection.
 module Network.AWS.DirectoryService.RegisterCertificate
-  ( -- * Creating a Request
-    registerCertificate,
-    RegisterCertificate,
+  ( -- * Creating a request
+    RegisterCertificate (..),
+    mkRegisterCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcDirectoryId,
     rcCertificateData,
 
-    -- * Destructuring the Response
-    registerCertificateResponse,
-    RegisterCertificateResponse,
+    -- * Destructuring the response
+    RegisterCertificateResponse (..),
+    mkRegisterCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcrsCertificateId,
     rcrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerCertificate' smart constructor.
+-- | /See:/ 'mkRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { _rcDirectoryId ::
-      !Text,
-    _rcCertificateData :: !Text
+  { directoryId ::
+      Lude.Text,
+    certificateData :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcDirectoryId' - The identifier of the directory.
---
--- * 'rcCertificateData' - The certificate PEM string that needs to be registered.
-registerCertificate ::
-  -- | 'rcDirectoryId'
-  Text ->
-  -- | 'rcCertificateData'
-  Text ->
+-- * 'certificateData' - The certificate PEM string that needs to be registered.
+-- * 'directoryId' - The identifier of the directory.
+mkRegisterCertificate ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'certificateData'
+  Lude.Text ->
   RegisterCertificate
-registerCertificate pDirectoryId_ pCertificateData_ =
+mkRegisterCertificate pDirectoryId_ pCertificateData_ =
   RegisterCertificate'
-    { _rcDirectoryId = pDirectoryId_,
-      _rcCertificateData = pCertificateData_
+    { directoryId = pDirectoryId_,
+      certificateData = pCertificateData_
     }
 
 -- | The identifier of the directory.
-rcDirectoryId :: Lens' RegisterCertificate Text
-rcDirectoryId = lens _rcDirectoryId (\s a -> s {_rcDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcDirectoryId :: Lens.Lens' RegisterCertificate Lude.Text
+rcDirectoryId = Lens.lens (directoryId :: RegisterCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: RegisterCertificate)
+{-# DEPRECATED rcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The certificate PEM string that needs to be registered.
-rcCertificateData :: Lens' RegisterCertificate Text
-rcCertificateData = lens _rcCertificateData (\s a -> s {_rcCertificateData = a})
+--
+-- /Note:/ Consider using 'certificateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCertificateData :: Lens.Lens' RegisterCertificate Lude.Text
+rcCertificateData = Lens.lens (certificateData :: RegisterCertificate -> Lude.Text) (\s a -> s {certificateData = a} :: RegisterCertificate)
+{-# DEPRECATED rcCertificateData "Use generic-lens or generic-optics with 'certificateData' instead." #-}
 
-instance AWSRequest RegisterCertificate where
+instance Lude.AWSRequest RegisterCertificate where
   type Rs RegisterCertificate = RegisterCertificateResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterCertificateResponse'
-            <$> (x .?> "CertificateId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CertificateId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterCertificate
-
-instance NFData RegisterCertificate
-
-instance ToHeaders RegisterCertificate where
+instance Lude.ToHeaders RegisterCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.RegisterCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.RegisterCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterCertificate where
+instance Lude.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _rcDirectoryId),
-            Just ("CertificateData" .= _rcCertificateData)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("CertificateData" Lude..= certificateData)
           ]
       )
 
-instance ToPath RegisterCertificate where
-  toPath = const "/"
+instance Lude.ToPath RegisterCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerCertificateResponse' smart constructor.
+-- | /See:/ 'mkRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
-  { _rcrsCertificateId ::
-      !(Maybe Text),
-    _rcrsResponseStatus :: !Int
+  { certificateId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcrsCertificateId' - The identifier of the certificate.
---
--- * 'rcrsResponseStatus' - -- | The response status code.
-registerCertificateResponse ::
-  -- | 'rcrsResponseStatus'
-  Int ->
+-- * 'certificateId' - The identifier of the certificate.
+-- * 'responseStatus' - The response status code.
+mkRegisterCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterCertificateResponse
-registerCertificateResponse pResponseStatus_ =
+mkRegisterCertificateResponse pResponseStatus_ =
   RegisterCertificateResponse'
-    { _rcrsCertificateId = Nothing,
-      _rcrsResponseStatus = pResponseStatus_
+    { certificateId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the certificate.
-rcrsCertificateId :: Lens' RegisterCertificateResponse (Maybe Text)
-rcrsCertificateId = lens _rcrsCertificateId (\s a -> s {_rcrsCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsCertificateId :: Lens.Lens' RegisterCertificateResponse (Lude.Maybe Lude.Text)
+rcrsCertificateId = Lens.lens (certificateId :: RegisterCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: RegisterCertificateResponse)
+{-# DEPRECATED rcrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' RegisterCertificateResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\s a -> s {_rcrsResponseStatus = a})
-
-instance NFData RegisterCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsResponseStatus :: Lens.Lens' RegisterCertificateResponse Lude.Int
+rcrsResponseStatus = Lens.lens (responseStatus :: RegisterCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterCertificateResponse)
+{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,177 +14,197 @@
 --
 -- Gets the effects of an organization's access control rules as they apply to a specified IPv4 address, access protocol action, or user ID.
 module Network.AWS.WorkMail.GetAccessControlEffect
-  ( -- * Creating a Request
-    getAccessControlEffect,
-    GetAccessControlEffect,
+  ( -- * Creating a request
+    GetAccessControlEffect (..),
+    mkGetAccessControlEffect,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaceOrganizationId,
     gaceIPAddress,
     gaceAction,
     gaceUserId,
 
-    -- * Destructuring the Response
-    getAccessControlEffectResponse,
-    GetAccessControlEffectResponse,
+    -- * Destructuring the response
+    GetAccessControlEffectResponse (..),
+    mkGetAccessControlEffectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gacersEffect,
     gacersMatchedRules,
     gacersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'getAccessControlEffect' smart constructor.
+-- | /See:/ 'mkGetAccessControlEffect' smart constructor.
 data GetAccessControlEffect = GetAccessControlEffect'
-  { _gaceOrganizationId ::
-      !Text,
-    _gaceIPAddress :: !Text,
-    _gaceAction :: !Text,
-    _gaceUserId :: !Text
+  { organizationId ::
+      Lude.Text,
+    ipAddress :: Lude.Text,
+    action :: Lude.Text,
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessControlEffect' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaceOrganizationId' - The identifier for the organization.
---
--- * 'gaceIPAddress' - The IPv4 address.
---
--- * 'gaceAction' - The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
---
--- * 'gaceUserId' - The user ID.
-getAccessControlEffect ::
-  -- | 'gaceOrganizationId'
-  Text ->
-  -- | 'gaceIPAddress'
-  Text ->
-  -- | 'gaceAction'
-  Text ->
-  -- | 'gaceUserId'
-  Text ->
+-- * 'action' - The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'ipAddress' - The IPv4 address.
+-- * 'organizationId' - The identifier for the organization.
+-- * 'userId' - The user ID.
+mkGetAccessControlEffect ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'ipAddress'
+  Lude.Text ->
+  -- | 'action'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   GetAccessControlEffect
-getAccessControlEffect
+mkGetAccessControlEffect
   pOrganizationId_
   pIPAddress_
   pAction_
   pUserId_ =
     GetAccessControlEffect'
-      { _gaceOrganizationId = pOrganizationId_,
-        _gaceIPAddress = pIPAddress_,
-        _gaceAction = pAction_,
-        _gaceUserId = pUserId_
+      { organizationId = pOrganizationId_,
+        ipAddress = pIPAddress_,
+        action = pAction_,
+        userId = pUserId_
       }
 
 -- | The identifier for the organization.
-gaceOrganizationId :: Lens' GetAccessControlEffect Text
-gaceOrganizationId = lens _gaceOrganizationId (\s a -> s {_gaceOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaceOrganizationId :: Lens.Lens' GetAccessControlEffect Lude.Text
+gaceOrganizationId = Lens.lens (organizationId :: GetAccessControlEffect -> Lude.Text) (\s a -> s {organizationId = a} :: GetAccessControlEffect)
+{-# DEPRECATED gaceOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The IPv4 address.
-gaceIPAddress :: Lens' GetAccessControlEffect Text
-gaceIPAddress = lens _gaceIPAddress (\s a -> s {_gaceIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaceIPAddress :: Lens.Lens' GetAccessControlEffect Lude.Text
+gaceIPAddress = Lens.lens (ipAddress :: GetAccessControlEffect -> Lude.Text) (\s a -> s {ipAddress = a} :: GetAccessControlEffect)
+{-# DEPRECATED gaceIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
-gaceAction :: Lens' GetAccessControlEffect Text
-gaceAction = lens _gaceAction (\s a -> s {_gaceAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaceAction :: Lens.Lens' GetAccessControlEffect Lude.Text
+gaceAction = Lens.lens (action :: GetAccessControlEffect -> Lude.Text) (\s a -> s {action = a} :: GetAccessControlEffect)
+{-# DEPRECATED gaceAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The user ID.
-gaceUserId :: Lens' GetAccessControlEffect Text
-gaceUserId = lens _gaceUserId (\s a -> s {_gaceUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaceUserId :: Lens.Lens' GetAccessControlEffect Lude.Text
+gaceUserId = Lens.lens (userId :: GetAccessControlEffect -> Lude.Text) (\s a -> s {userId = a} :: GetAccessControlEffect)
+{-# DEPRECATED gaceUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest GetAccessControlEffect where
+instance Lude.AWSRequest GetAccessControlEffect where
   type Rs GetAccessControlEffect = GetAccessControlEffectResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAccessControlEffectResponse'
-            <$> (x .?> "Effect")
-            <*> (x .?> "MatchedRules" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Effect")
+            Lude.<*> (x Lude..?> "MatchedRules" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccessControlEffect
-
-instance NFData GetAccessControlEffect
-
-instance ToHeaders GetAccessControlEffect where
+instance Lude.ToHeaders GetAccessControlEffect where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.GetAccessControlEffect" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.GetAccessControlEffect" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAccessControlEffect where
+instance Lude.ToJSON GetAccessControlEffect where
   toJSON GetAccessControlEffect' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _gaceOrganizationId),
-            Just ("IpAddress" .= _gaceIPAddress),
-            Just ("Action" .= _gaceAction),
-            Just ("UserId" .= _gaceUserId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("IpAddress" Lude..= ipAddress),
+            Lude.Just ("Action" Lude..= action),
+            Lude.Just ("UserId" Lude..= userId)
           ]
       )
 
-instance ToPath GetAccessControlEffect where
-  toPath = const "/"
+instance Lude.ToPath GetAccessControlEffect where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAccessControlEffect where
-  toQuery = const mempty
+instance Lude.ToQuery GetAccessControlEffect where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAccessControlEffectResponse' smart constructor.
+-- | /See:/ 'mkGetAccessControlEffectResponse' smart constructor.
 data GetAccessControlEffectResponse = GetAccessControlEffectResponse'
-  { _gacersEffect ::
-      !( Maybe
-           AccessControlRuleEffect
-       ),
-    _gacersMatchedRules ::
-      !(Maybe [Text]),
-    _gacersResponseStatus :: !Int
+  { effect ::
+      Lude.Maybe
+        AccessControlRuleEffect,
+    matchedRules ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessControlEffectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacersEffect' - The rule effect.
---
--- * 'gacersMatchedRules' - The rules that match the given parameters, resulting in an effect.
---
--- * 'gacersResponseStatus' - -- | The response status code.
-getAccessControlEffectResponse ::
-  -- | 'gacersResponseStatus'
-  Int ->
+-- * 'effect' - The rule effect.
+-- * 'matchedRules' - The rules that match the given parameters, resulting in an effect.
+-- * 'responseStatus' - The response status code.
+mkGetAccessControlEffectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccessControlEffectResponse
-getAccessControlEffectResponse pResponseStatus_ =
+mkGetAccessControlEffectResponse pResponseStatus_ =
   GetAccessControlEffectResponse'
-    { _gacersEffect = Nothing,
-      _gacersMatchedRules = Nothing,
-      _gacersResponseStatus = pResponseStatus_
+    { effect = Lude.Nothing,
+      matchedRules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The rule effect.
-gacersEffect :: Lens' GetAccessControlEffectResponse (Maybe AccessControlRuleEffect)
-gacersEffect = lens _gacersEffect (\s a -> s {_gacersEffect = a})
+--
+-- /Note:/ Consider using 'effect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacersEffect :: Lens.Lens' GetAccessControlEffectResponse (Lude.Maybe AccessControlRuleEffect)
+gacersEffect = Lens.lens (effect :: GetAccessControlEffectResponse -> Lude.Maybe AccessControlRuleEffect) (\s a -> s {effect = a} :: GetAccessControlEffectResponse)
+{-# DEPRECATED gacersEffect "Use generic-lens or generic-optics with 'effect' instead." #-}
 
 -- | The rules that match the given parameters, resulting in an effect.
-gacersMatchedRules :: Lens' GetAccessControlEffectResponse [Text]
-gacersMatchedRules = lens _gacersMatchedRules (\s a -> s {_gacersMatchedRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'matchedRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacersMatchedRules :: Lens.Lens' GetAccessControlEffectResponse (Lude.Maybe [Lude.Text])
+gacersMatchedRules = Lens.lens (matchedRules :: GetAccessControlEffectResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {matchedRules = a} :: GetAccessControlEffectResponse)
+{-# DEPRECATED gacersMatchedRules "Use generic-lens or generic-optics with 'matchedRules' instead." #-}
 
--- | -- | The response status code.
-gacersResponseStatus :: Lens' GetAccessControlEffectResponse Int
-gacersResponseStatus = lens _gacersResponseStatus (\s a -> s {_gacersResponseStatus = a})
-
-instance NFData GetAccessControlEffectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacersResponseStatus :: Lens.Lens' GetAccessControlEffectResponse Lude.Int
+gacersResponseStatus = Lens.lens (responseStatus :: GetAccessControlEffectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccessControlEffectResponse)
+{-# DEPRECATED gacersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

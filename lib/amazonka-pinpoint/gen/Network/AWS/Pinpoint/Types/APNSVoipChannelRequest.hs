@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSVoipChannelRequest where
+module Network.AWS.Pinpoint.Types.APNSVoipChannelRequest
+  ( APNSVoipChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSVoipChannelRequest,
+
+    -- * Lenses
+    avcrTokenKey,
+    avcrPrivateKey,
+    avcrEnabled,
+    avcrTeamId,
+    avcrBundleId,
+    avcrDefaultAuthenticationMethod,
+    avcrCertificate,
+    avcrTokenKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.
 --
---
---
--- /See:/ 'apnsVoipChannelRequest' smart constructor.
+-- /See:/ 'mkAPNSVoipChannelRequest' smart constructor.
 data APNSVoipChannelRequest = APNSVoipChannelRequest'
-  { _avcrTokenKey ::
-      !(Maybe Text),
-    _avcrPrivateKey :: !(Maybe Text),
-    _avcrEnabled :: !(Maybe Bool),
-    _avcrTeamId :: !(Maybe Text),
-    _avcrBundleId :: !(Maybe Text),
-    _avcrDefaultAuthenticationMethod ::
-      !(Maybe Text),
-    _avcrCertificate :: !(Maybe Text),
-    _avcrTokenKeyId :: !(Maybe Text)
+  { tokenKey ::
+      Lude.Maybe Lude.Text,
+    privateKey :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    teamId :: Lude.Maybe Lude.Text,
+    bundleId :: Lude.Maybe Lude.Text,
+    defaultAuthenticationMethod ::
+      Lude.Maybe Lude.Text,
+    certificate :: Lude.Maybe Lude.Text,
+    tokenKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSVoipChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avcrTokenKey' - The authentication key to use for APNs tokens.
---
--- * 'avcrPrivateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
---
--- * 'avcrEnabled' - Specifies whether to enable the APNs VoIP channel for the application.
---
--- * 'avcrTeamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
---
--- * 'avcrBundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
---
--- * 'avcrDefaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
---
--- * 'avcrCertificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
---
--- * 'avcrTokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-apnsVoipChannelRequest ::
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
+-- * 'enabled' - Specifies whether to enable the APNs VoIP channel for the application.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
+mkAPNSVoipChannelRequest ::
   APNSVoipChannelRequest
-apnsVoipChannelRequest =
+mkAPNSVoipChannelRequest =
   APNSVoipChannelRequest'
-    { _avcrTokenKey = Nothing,
-      _avcrPrivateKey = Nothing,
-      _avcrEnabled = Nothing,
-      _avcrTeamId = Nothing,
-      _avcrBundleId = Nothing,
-      _avcrDefaultAuthenticationMethod = Nothing,
-      _avcrCertificate = Nothing,
-      _avcrTokenKeyId = Nothing
+    { tokenKey = Lude.Nothing,
+      privateKey = Lude.Nothing,
+      enabled = Lude.Nothing,
+      teamId = Lude.Nothing,
+      bundleId = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      certificate = Lude.Nothing,
+      tokenKeyId = Lude.Nothing
     }
 
 -- | The authentication key to use for APNs tokens.
-avcrTokenKey :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrTokenKey = lens _avcrTokenKey (\s a -> s {_avcrTokenKey = a})
+--
+-- /Note:/ Consider using 'tokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrTokenKey :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrTokenKey = Lens.lens (tokenKey :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKey = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrTokenKey "Use generic-lens or generic-optics with 'tokenKey' instead." #-}
 
 -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
-avcrPrivateKey :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrPrivateKey = lens _avcrPrivateKey (\s a -> s {_avcrPrivateKey = a})
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrPrivateKey :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrPrivateKey = Lens.lens (privateKey :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {privateKey = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | Specifies whether to enable the APNs VoIP channel for the application.
-avcrEnabled :: Lens' APNSVoipChannelRequest (Maybe Bool)
-avcrEnabled = lens _avcrEnabled (\s a -> s {_avcrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrEnabled :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Bool)
+avcrEnabled = Lens.lens (enabled :: APNSVoipChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
-avcrTeamId :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrTeamId = lens _avcrTeamId (\s a -> s {_avcrTeamId = a})
+--
+-- /Note:/ Consider using 'teamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrTeamId :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrTeamId = Lens.lens (teamId :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {teamId = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrTeamId "Use generic-lens or generic-optics with 'teamId' instead." #-}
 
 -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
-avcrBundleId :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrBundleId = lens _avcrBundleId (\s a -> s {_avcrBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrBundleId :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrBundleId = Lens.lens (bundleId :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
-avcrDefaultAuthenticationMethod :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrDefaultAuthenticationMethod = lens _avcrDefaultAuthenticationMethod (\s a -> s {_avcrDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrDefaultAuthenticationMethod :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
-avcrCertificate :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrCertificate = lens _avcrCertificate (\s a -> s {_avcrCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrCertificate :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrCertificate = Lens.lens (certificate :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-avcrTokenKeyId :: Lens' APNSVoipChannelRequest (Maybe Text)
-avcrTokenKeyId = lens _avcrTokenKeyId (\s a -> s {_avcrTokenKeyId = a})
+--
+-- /Note:/ Consider using 'tokenKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcrTokenKeyId :: Lens.Lens' APNSVoipChannelRequest (Lude.Maybe Lude.Text)
+avcrTokenKeyId = Lens.lens (tokenKeyId :: APNSVoipChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyId = a} :: APNSVoipChannelRequest)
+{-# DEPRECATED avcrTokenKeyId "Use generic-lens or generic-optics with 'tokenKeyId' instead." #-}
 
-instance Hashable APNSVoipChannelRequest
-
-instance NFData APNSVoipChannelRequest
-
-instance ToJSON APNSVoipChannelRequest where
+instance Lude.ToJSON APNSVoipChannelRequest where
   toJSON APNSVoipChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("TokenKey" .=) <$> _avcrTokenKey,
-            ("PrivateKey" .=) <$> _avcrPrivateKey,
-            ("Enabled" .=) <$> _avcrEnabled,
-            ("TeamId" .=) <$> _avcrTeamId,
-            ("BundleId" .=) <$> _avcrBundleId,
-            ("DefaultAuthenticationMethod" .=)
-              <$> _avcrDefaultAuthenticationMethod,
-            ("Certificate" .=) <$> _avcrCertificate,
-            ("TokenKeyId" .=) <$> _avcrTokenKeyId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TokenKey" Lude..=) Lude.<$> tokenKey,
+            ("PrivateKey" Lude..=) Lude.<$> privateKey,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("TeamId" Lude..=) Lude.<$> teamId,
+            ("BundleId" Lude..=) Lude.<$> bundleId,
+            ("DefaultAuthenticationMethod" Lude..=)
+              Lude.<$> defaultAuthenticationMethod,
+            ("Certificate" Lude..=) Lude.<$> certificate,
+            ("TokenKeyId" Lude..=) Lude.<$> tokenKeyId
           ]
       )

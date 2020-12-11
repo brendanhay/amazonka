@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Lists the tags for the specified log group.
 module Network.AWS.CloudWatchLogs.ListTagsLogGroup
-  ( -- * Creating a Request
-    listTagsLogGroup,
-    ListTagsLogGroup,
+  ( -- * Creating a request
+    ListTagsLogGroup (..),
+    mkListTagsLogGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltlgLogGroupName,
 
-    -- * Destructuring the Response
-    listTagsLogGroupResponse,
-    ListTagsLogGroupResponse,
+    -- * Destructuring the response
+    ListTagsLogGroupResponse (..),
+    mkListTagsLogGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltlgrsTags,
     ltlgrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsLogGroup' smart constructor.
+-- | /See:/ 'mkListTagsLogGroup' smart constructor.
 newtype ListTagsLogGroup = ListTagsLogGroup'
-  { _ltlgLogGroupName ::
-      Text
+  { logGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsLogGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltlgLogGroupName' - The name of the log group.
-listTagsLogGroup ::
-  -- | 'ltlgLogGroupName'
-  Text ->
+-- * 'logGroupName' - The name of the log group.
+mkListTagsLogGroup ::
+  -- | 'logGroupName'
+  Lude.Text ->
   ListTagsLogGroup
-listTagsLogGroup pLogGroupName_ =
-  ListTagsLogGroup' {_ltlgLogGroupName = pLogGroupName_}
+mkListTagsLogGroup pLogGroupName_ =
+  ListTagsLogGroup' {logGroupName = pLogGroupName_}
 
 -- | The name of the log group.
-ltlgLogGroupName :: Lens' ListTagsLogGroup Text
-ltlgLogGroupName = lens _ltlgLogGroupName (\s a -> s {_ltlgLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlgLogGroupName :: Lens.Lens' ListTagsLogGroup Lude.Text
+ltlgLogGroupName = Lens.lens (logGroupName :: ListTagsLogGroup -> Lude.Text) (\s a -> s {logGroupName = a} :: ListTagsLogGroup)
+{-# DEPRECATED ltlgLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance AWSRequest ListTagsLogGroup where
+instance Lude.AWSRequest ListTagsLogGroup where
   type Rs ListTagsLogGroup = ListTagsLogGroupResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsLogGroupResponse'
-            <$> (x .?> "tags" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsLogGroup
-
-instance NFData ListTagsLogGroup
-
-instance ToHeaders ListTagsLogGroup where
+instance Lude.ToHeaders ListTagsLogGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.ListTagsLogGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.ListTagsLogGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTagsLogGroup where
+instance Lude.ToJSON ListTagsLogGroup where
   toJSON ListTagsLogGroup' {..} =
-    object (catMaybes [Just ("logGroupName" .= _ltlgLogGroupName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("logGroupName" Lude..= logGroupName)])
 
-instance ToPath ListTagsLogGroup where
-  toPath = const "/"
+instance Lude.ToPath ListTagsLogGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTagsLogGroup where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsLogGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsLogGroupResponse' smart constructor.
+-- | /See:/ 'mkListTagsLogGroupResponse' smart constructor.
 data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
-  { _ltlgrsTags ::
-      !(Maybe (Map Text (Text))),
-    _ltlgrsResponseStatus :: !Int
+  { tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsLogGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltlgrsTags' - The tags for the log group.
---
--- * 'ltlgrsResponseStatus' - -- | The response status code.
-listTagsLogGroupResponse ::
-  -- | 'ltlgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags for the log group.
+mkListTagsLogGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsLogGroupResponse
-listTagsLogGroupResponse pResponseStatus_ =
+mkListTagsLogGroupResponse pResponseStatus_ =
   ListTagsLogGroupResponse'
-    { _ltlgrsTags = Nothing,
-      _ltlgrsResponseStatus = pResponseStatus_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The tags for the log group.
-ltlgrsTags :: Lens' ListTagsLogGroupResponse (HashMap Text (Text))
-ltlgrsTags = lens _ltlgrsTags (\s a -> s {_ltlgrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlgrsTags :: Lens.Lens' ListTagsLogGroupResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltlgrsTags = Lens.lens (tags :: ListTagsLogGroupResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsLogGroupResponse)
+{-# DEPRECATED ltlgrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltlgrsResponseStatus :: Lens' ListTagsLogGroupResponse Int
-ltlgrsResponseStatus = lens _ltlgrsResponseStatus (\s a -> s {_ltlgrsResponseStatus = a})
-
-instance NFData ListTagsLogGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlgrsResponseStatus :: Lens.Lens' ListTagsLogGroupResponse Lude.Int
+ltlgrsResponseStatus = Lens.lens (responseStatus :: ListTagsLogGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsLogGroupResponse)
+{-# DEPRECATED ltlgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

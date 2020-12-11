@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets information about one or more repositories.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListRepositories
-  ( -- * Creating a Request
-    listRepositories,
-    ListRepositories,
+  ( -- * Creating a request
+    ListRepositories (..),
+    mkListRepositories,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrNextToken,
     lrOrder,
     lrSortBy,
 
-    -- * Destructuring the Response
-    listRepositoriesResponse,
-    ListRepositoriesResponse,
+    -- * Destructuring the response
+    ListRepositoriesResponse (..),
+    mkListRepositoriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrrsRepositories,
     lrrsNextToken,
     lrrsResponseStatus,
@@ -44,146 +37,164 @@ module Network.AWS.CodeCommit.ListRepositories
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a list repositories operation.
 --
---
---
--- /See:/ 'listRepositories' smart constructor.
+-- /See:/ 'mkListRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { _lrNextToken ::
-      !(Maybe Text),
-    _lrOrder :: !(Maybe OrderEnum),
-    _lrSortBy :: !(Maybe SortByEnum)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    order :: Lude.Maybe OrderEnum,
+    sortBy :: Lude.Maybe SortByEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositories' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
---
--- * 'lrOrder' - The order in which to sort the results of a list repositories operation.
---
--- * 'lrSortBy' - The criteria used to sort the results of a list repositories operation.
-listRepositories ::
+-- * 'nextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
+-- * 'order' - The order in which to sort the results of a list repositories operation.
+-- * 'sortBy' - The criteria used to sort the results of a list repositories operation.
+mkListRepositories ::
   ListRepositories
-listRepositories =
+mkListRepositories =
   ListRepositories'
-    { _lrNextToken = Nothing,
-      _lrOrder = Nothing,
-      _lrSortBy = Nothing
+    { nextToken = Lude.Nothing,
+      order = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
-lrNextToken :: Lens' ListRepositories (Maybe Text)
-lrNextToken = lens _lrNextToken (\s a -> s {_lrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListRepositories (Lude.Maybe Lude.Text)
+lrNextToken = Lens.lens (nextToken :: ListRepositories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRepositories)
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The order in which to sort the results of a list repositories operation.
-lrOrder :: Lens' ListRepositories (Maybe OrderEnum)
-lrOrder = lens _lrOrder (\s a -> s {_lrOrder = a})
+--
+-- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrOrder :: Lens.Lens' ListRepositories (Lude.Maybe OrderEnum)
+lrOrder = Lens.lens (order :: ListRepositories -> Lude.Maybe OrderEnum) (\s a -> s {order = a} :: ListRepositories)
+{-# DEPRECATED lrOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
 -- | The criteria used to sort the results of a list repositories operation.
-lrSortBy :: Lens' ListRepositories (Maybe SortByEnum)
-lrSortBy = lens _lrSortBy (\s a -> s {_lrSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrSortBy :: Lens.Lens' ListRepositories (Lude.Maybe SortByEnum)
+lrSortBy = Lens.lens (sortBy :: ListRepositories -> Lude.Maybe SortByEnum) (\s a -> s {sortBy = a} :: ListRepositories)
+{-# DEPRECATED lrSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListRepositories where
+instance Page.AWSPager ListRepositories where
   page rq rs
-    | stop (rs ^. lrrsNextToken) = Nothing
-    | stop (rs ^. lrrsRepositories) = Nothing
-    | otherwise = Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrrsRepositories) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrNextToken Lens..~ rs Lens.^. lrrsNextToken
 
-instance AWSRequest ListRepositories where
+instance Lude.AWSRequest ListRepositories where
   type Rs ListRepositories = ListRepositoriesResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRepositoriesResponse'
-            <$> (x .?> "repositories" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "repositories" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRepositories
-
-instance NFData ListRepositories
-
-instance ToHeaders ListRepositories where
+instance Lude.ToHeaders ListRepositories where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.ListRepositories" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.ListRepositories" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRepositories where
+instance Lude.ToJSON ListRepositories where
   toJSON ListRepositories' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lrNextToken,
-            ("order" .=) <$> _lrOrder,
-            ("sortBy" .=) <$> _lrSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("order" Lude..=) Lude.<$> order,
+            ("sortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListRepositories where
-  toPath = const "/"
+instance Lude.ToPath ListRepositories where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRepositories where
-  toQuery = const mempty
+instance Lude.ToQuery ListRepositories where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a list repositories operation.
 --
---
---
--- /See:/ 'listRepositoriesResponse' smart constructor.
+-- /See:/ 'mkListRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-  { _lrrsRepositories ::
-      !(Maybe [RepositoryNameIdPair]),
-    _lrrsNextToken :: !(Maybe Text),
-    _lrrsResponseStatus :: !Int
+  { repositories ::
+      Lude.Maybe [RepositoryNameIdPair],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsRepositories' - Lists the repositories called by the list repositories operation.
---
--- * 'lrrsNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listRepositoriesResponse ::
-  -- | 'lrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
+-- * 'repositories' - Lists the repositories called by the list repositories operation.
+-- * 'responseStatus' - The response status code.
+mkListRepositoriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRepositoriesResponse
-listRepositoriesResponse pResponseStatus_ =
+mkListRepositoriesResponse pResponseStatus_ =
   ListRepositoriesResponse'
-    { _lrrsRepositories = Nothing,
-      _lrrsNextToken = Nothing,
-      _lrrsResponseStatus = pResponseStatus_
+    { repositories = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Lists the repositories called by the list repositories operation.
-lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
-lrrsRepositories = lens _lrrsRepositories (\s a -> s {_lrrsRepositories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'repositories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsRepositories :: Lens.Lens' ListRepositoriesResponse (Lude.Maybe [RepositoryNameIdPair])
+lrrsRepositories = Lens.lens (repositories :: ListRepositoriesResponse -> Lude.Maybe [RepositoryNameIdPair]) (\s a -> s {repositories = a} :: ListRepositoriesResponse)
+{-# DEPRECATED lrrsRepositories "Use generic-lens or generic-optics with 'repositories' instead." #-}
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
-lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\s a -> s {_lrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsNextToken :: Lens.Lens' ListRepositoriesResponse (Lude.Maybe Lude.Text)
+lrrsNextToken = Lens.lens (nextToken :: ListRepositoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRepositoriesResponse)
+{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\s a -> s {_lrrsResponseStatus = a})
-
-instance NFData ListRepositoriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsResponseStatus :: Lens.Lens' ListRepositoriesResponse Lude.Int
+lrrsResponseStatus = Lens.lens (responseStatus :: ListRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRepositoriesResponse)
+{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

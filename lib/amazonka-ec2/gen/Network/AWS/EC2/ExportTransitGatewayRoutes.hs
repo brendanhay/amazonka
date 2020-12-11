@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,230 @@
 --
 -- Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.
 --
---
 -- The routes are saved to the specified bucket in a JSON file. For more information, see <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables Export Route Tables to Amazon S3> in /Transit Gateways/ .
 module Network.AWS.EC2.ExportTransitGatewayRoutes
-  ( -- * Creating a Request
-    exportTransitGatewayRoutes,
-    ExportTransitGatewayRoutes,
+  ( -- * Creating a request
+    ExportTransitGatewayRoutes (..),
+    mkExportTransitGatewayRoutes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     etgrFilters,
     etgrDryRun,
     etgrTransitGatewayRouteTableId,
     etgrS3Bucket,
 
-    -- * Destructuring the Response
-    exportTransitGatewayRoutesResponse,
-    ExportTransitGatewayRoutesResponse,
+    -- * Destructuring the response
+    ExportTransitGatewayRoutesResponse (..),
+    mkExportTransitGatewayRoutesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     etgrrsS3Location,
     etgrrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'exportTransitGatewayRoutes' smart constructor.
+-- | /See:/ 'mkExportTransitGatewayRoutes' smart constructor.
 data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
-  { _etgrFilters ::
-      !(Maybe [Filter]),
-    _etgrDryRun :: !(Maybe Bool),
-    _etgrTransitGatewayRouteTableId ::
-      !Text,
-    _etgrS3Bucket :: !Text
+  { filters ::
+      Lude.Maybe [Filter],
+    dryRun :: Lude.Maybe Lude.Bool,
+    transitGatewayRouteTableId ::
+      Lude.Text,
+    s3Bucket :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTransitGatewayRoutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. The possible values are:
 --
--- * 'etgrFilters' - One or more filters. The possible values are:     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.     * @attachment.resource-id@ - The resource id of the transit gateway attachment.     * @route-search.exact-match@ - The exact match of the specified filter.     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.     * @state@ - The state of the route (@active@ | @blackhole@ ).     * @transit-gateway-route-destination-cidr-block@ - The CIDR range.     * @type@ - The type of route (@propagated@ | @static@ ).
 --
--- * 'etgrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
 --
--- * 'etgrTransitGatewayRouteTableId' - The ID of the route table.
 --
--- * 'etgrS3Bucket' - The name of the S3 bucket.
-exportTransitGatewayRoutes ::
-  -- | 'etgrTransitGatewayRouteTableId'
-  Text ->
-  -- | 'etgrS3Bucket'
-  Text ->
+--     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+--
+--
+--     * @route-search.exact-match@ - The exact match of the specified filter.
+--
+--
+--     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+--
+--
+--     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+--
+--
+--     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+--
+--
+--     * @state@ - The state of the route (@active@ | @blackhole@ ).
+--
+--
+--     * @transit-gateway-route-destination-cidr-block@ - The CIDR range.
+--
+--
+--     * @type@ - The type of route (@propagated@ | @static@ ).
+--
+--
+-- * 's3Bucket' - The name of the S3 bucket.
+-- * 'transitGatewayRouteTableId' - The ID of the route table.
+mkExportTransitGatewayRoutes ::
+  -- | 'transitGatewayRouteTableId'
+  Lude.Text ->
+  -- | 's3Bucket'
+  Lude.Text ->
   ExportTransitGatewayRoutes
-exportTransitGatewayRoutes pTransitGatewayRouteTableId_ pS3Bucket_ =
-  ExportTransitGatewayRoutes'
-    { _etgrFilters = Nothing,
-      _etgrDryRun = Nothing,
-      _etgrTransitGatewayRouteTableId = pTransitGatewayRouteTableId_,
-      _etgrS3Bucket = pS3Bucket_
-    }
+mkExportTransitGatewayRoutes
+  pTransitGatewayRouteTableId_
+  pS3Bucket_ =
+    ExportTransitGatewayRoutes'
+      { filters = Lude.Nothing,
+        dryRun = Lude.Nothing,
+        transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
+        s3Bucket = pS3Bucket_
+      }
 
--- | One or more filters. The possible values are:     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.     * @attachment.resource-id@ - The resource id of the transit gateway attachment.     * @route-search.exact-match@ - The exact match of the specified filter.     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.     * @state@ - The state of the route (@active@ | @blackhole@ ).     * @transit-gateway-route-destination-cidr-block@ - The CIDR range.     * @type@ - The type of route (@propagated@ | @static@ ).
-etgrFilters :: Lens' ExportTransitGatewayRoutes [Filter]
-etgrFilters = lens _etgrFilters (\s a -> s {_etgrFilters = a}) . _Default . _Coerce
+-- | One or more filters. The possible values are:
+--
+--
+--     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+--
+--
+--     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+--
+--
+--     * @route-search.exact-match@ - The exact match of the specified filter.
+--
+--
+--     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+--
+--
+--     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+--
+--
+--     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+--
+--
+--     * @state@ - The state of the route (@active@ | @blackhole@ ).
+--
+--
+--     * @transit-gateway-route-destination-cidr-block@ - The CIDR range.
+--
+--
+--     * @type@ - The type of route (@propagated@ | @static@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrFilters :: Lens.Lens' ExportTransitGatewayRoutes (Lude.Maybe [Filter])
+etgrFilters = Lens.lens (filters :: ExportTransitGatewayRoutes -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-etgrDryRun :: Lens' ExportTransitGatewayRoutes (Maybe Bool)
-etgrDryRun = lens _etgrDryRun (\s a -> s {_etgrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrDryRun :: Lens.Lens' ExportTransitGatewayRoutes (Lude.Maybe Lude.Bool)
+etgrDryRun = Lens.lens (dryRun :: ExportTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the route table.
-etgrTransitGatewayRouteTableId :: Lens' ExportTransitGatewayRoutes Text
-etgrTransitGatewayRouteTableId = lens _etgrTransitGatewayRouteTableId (\s a -> s {_etgrTransitGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrTransitGatewayRouteTableId :: Lens.Lens' ExportTransitGatewayRoutes Lude.Text
+etgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: ExportTransitGatewayRoutes -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | The name of the S3 bucket.
-etgrS3Bucket :: Lens' ExportTransitGatewayRoutes Text
-etgrS3Bucket = lens _etgrS3Bucket (\s a -> s {_etgrS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrS3Bucket :: Lens.Lens' ExportTransitGatewayRoutes Lude.Text
+etgrS3Bucket = Lens.lens (s3Bucket :: ExportTransitGatewayRoutes -> Lude.Text) (\s a -> s {s3Bucket = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance AWSRequest ExportTransitGatewayRoutes where
+instance Lude.AWSRequest ExportTransitGatewayRoutes where
   type
     Rs ExportTransitGatewayRoutes =
       ExportTransitGatewayRoutesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ExportTransitGatewayRoutesResponse'
-            <$> (x .@? "s3Location") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "s3Location") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ExportTransitGatewayRoutes
+instance Lude.ToHeaders ExportTransitGatewayRoutes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ExportTransitGatewayRoutes
+instance Lude.ToPath ExportTransitGatewayRoutes where
+  toPath = Lude.const "/"
 
-instance ToHeaders ExportTransitGatewayRoutes where
-  toHeaders = const mempty
-
-instance ToPath ExportTransitGatewayRoutes where
-  toPath = const "/"
-
-instance ToQuery ExportTransitGatewayRoutes where
+instance Lude.ToQuery ExportTransitGatewayRoutes where
   toQuery ExportTransitGatewayRoutes' {..} =
-    mconcat
-      [ "Action" =: ("ExportTransitGatewayRoutes" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _etgrFilters),
-        "DryRun" =: _etgrDryRun,
-        "TransitGatewayRouteTableId" =: _etgrTransitGatewayRouteTableId,
-        "S3Bucket" =: _etgrS3Bucket
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ExportTransitGatewayRoutes" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "DryRun" Lude.=: dryRun,
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
+        "S3Bucket" Lude.=: s3Bucket
       ]
 
--- | /See:/ 'exportTransitGatewayRoutesResponse' smart constructor.
+-- | /See:/ 'mkExportTransitGatewayRoutesResponse' smart constructor.
 data ExportTransitGatewayRoutesResponse = ExportTransitGatewayRoutesResponse'
-  { _etgrrsS3Location ::
-      !(Maybe Text),
-    _etgrrsResponseStatus ::
-      !Int
+  { s3Location ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTransitGatewayRoutesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etgrrsS3Location' - The URL of the exported file in Amazon S3. For example, s3:///bucket_name/ /VPCTransitGateway/TransitGatewayRouteTables//file_name/ .
---
--- * 'etgrrsResponseStatus' - -- | The response status code.
-exportTransitGatewayRoutesResponse ::
-  -- | 'etgrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 's3Location' - The URL of the exported file in Amazon S3. For example, s3:///bucket_name/ /VPCTransitGateway/TransitGatewayRouteTables//file_name/ .
+mkExportTransitGatewayRoutesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ExportTransitGatewayRoutesResponse
-exportTransitGatewayRoutesResponse pResponseStatus_ =
+mkExportTransitGatewayRoutesResponse pResponseStatus_ =
   ExportTransitGatewayRoutesResponse'
-    { _etgrrsS3Location = Nothing,
-      _etgrrsResponseStatus = pResponseStatus_
+    { s3Location = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The URL of the exported file in Amazon S3. For example, s3:///bucket_name/ /VPCTransitGateway/TransitGatewayRouteTables//file_name/ .
-etgrrsS3Location :: Lens' ExportTransitGatewayRoutesResponse (Maybe Text)
-etgrrsS3Location = lens _etgrrsS3Location (\s a -> s {_etgrrsS3Location = a})
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrrsS3Location :: Lens.Lens' ExportTransitGatewayRoutesResponse (Lude.Maybe Lude.Text)
+etgrrsS3Location = Lens.lens (s3Location :: ExportTransitGatewayRoutesResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Location = a} :: ExportTransitGatewayRoutesResponse)
+{-# DEPRECATED etgrrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
--- | -- | The response status code.
-etgrrsResponseStatus :: Lens' ExportTransitGatewayRoutesResponse Int
-etgrrsResponseStatus = lens _etgrrsResponseStatus (\s a -> s {_etgrrsResponseStatus = a})
-
-instance NFData ExportTransitGatewayRoutesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrrsResponseStatus :: Lens.Lens' ExportTransitGatewayRoutesResponse Lude.Int
+etgrrsResponseStatus = Lens.lens (responseStatus :: ExportTransitGatewayRoutesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportTransitGatewayRoutesResponse)
+{-# DEPRECATED etgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.PropertyPredicate where
+module Network.AWS.Glue.Types.PropertyPredicate
+  ( PropertyPredicate (..),
+
+    -- * Smart constructor
+    mkPropertyPredicate,
+
+    -- * Lenses
+    ppValue,
+    ppKey,
+    ppComparator,
+  )
+where
 
 import Network.AWS.Glue.Types.Comparator
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines a property predicate.
 --
---
---
--- /See:/ 'propertyPredicate' smart constructor.
+-- /See:/ 'mkPropertyPredicate' smart constructor.
 data PropertyPredicate = PropertyPredicate'
-  { _ppValue ::
-      !(Maybe Text),
-    _ppKey :: !(Maybe Text),
-    _ppComparator :: !(Maybe Comparator)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text,
+    comparator :: Lude.Maybe Comparator
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PropertyPredicate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppValue' - The value of the property.
---
--- * 'ppKey' - The key of the property.
---
--- * 'ppComparator' - The comparator used to compare this property to others.
-propertyPredicate ::
+-- * 'comparator' - The comparator used to compare this property to others.
+-- * 'key' - The key of the property.
+-- * 'value' - The value of the property.
+mkPropertyPredicate ::
   PropertyPredicate
-propertyPredicate =
+mkPropertyPredicate =
   PropertyPredicate'
-    { _ppValue = Nothing,
-      _ppKey = Nothing,
-      _ppComparator = Nothing
+    { value = Lude.Nothing,
+      key = Lude.Nothing,
+      comparator = Lude.Nothing
     }
 
 -- | The value of the property.
-ppValue :: Lens' PropertyPredicate (Maybe Text)
-ppValue = lens _ppValue (\s a -> s {_ppValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' PropertyPredicate (Lude.Maybe Lude.Text)
+ppValue = Lens.lens (value :: PropertyPredicate -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: PropertyPredicate)
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key of the property.
-ppKey :: Lens' PropertyPredicate (Maybe Text)
-ppKey = lens _ppKey (\s a -> s {_ppKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppKey :: Lens.Lens' PropertyPredicate (Lude.Maybe Lude.Text)
+ppKey = Lens.lens (key :: PropertyPredicate -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: PropertyPredicate)
+{-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The comparator used to compare this property to others.
-ppComparator :: Lens' PropertyPredicate (Maybe Comparator)
-ppComparator = lens _ppComparator (\s a -> s {_ppComparator = a})
+--
+-- /Note:/ Consider using 'comparator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppComparator :: Lens.Lens' PropertyPredicate (Lude.Maybe Comparator)
+ppComparator = Lens.lens (comparator :: PropertyPredicate -> Lude.Maybe Comparator) (\s a -> s {comparator = a} :: PropertyPredicate)
+{-# DEPRECATED ppComparator "Use generic-lens or generic-optics with 'comparator' instead." #-}
 
-instance Hashable PropertyPredicate
-
-instance NFData PropertyPredicate
-
-instance ToJSON PropertyPredicate where
+instance Lude.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =
-    object
-      ( catMaybes
-          [ ("Value" .=) <$> _ppValue,
-            ("Key" .=) <$> _ppKey,
-            ("Comparator" .=) <$> _ppComparator
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Value" Lude..=) Lude.<$> value,
+            ("Key" Lude..=) Lude.<$> key,
+            ("Comparator" Lude..=) Lude.<$> comparator
           ]
       )

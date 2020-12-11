@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,120 @@
 --
 -- Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies. These settings apply to step scaling policies and simple scaling policies; they do not apply to target tracking scaling policies.
 --
---
 -- The following adjustment types are supported:
 --
 --     * ChangeInCapacity
 --
+--
 --     * ExactCapacity
+--
 --
 --     * PercentChangeInCapacity
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
-  ( -- * Creating a Request
-    describeAdjustmentTypes,
-    DescribeAdjustmentTypes,
+  ( -- * Creating a request
+    DescribeAdjustmentTypes (..),
+    mkDescribeAdjustmentTypes,
 
-    -- * Destructuring the Response
-    describeAdjustmentTypesResponse,
-    DescribeAdjustmentTypesResponse,
+    -- * Destructuring the response
+    DescribeAdjustmentTypesResponse (..),
+    mkDescribeAdjustmentTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     datrsAdjustmentTypes,
     datrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAdjustmentTypes' smart constructor.
+-- | /See:/ 'mkDescribeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAdjustmentTypes' with the minimum fields required to make a request.
-describeAdjustmentTypes ::
+mkDescribeAdjustmentTypes ::
   DescribeAdjustmentTypes
-describeAdjustmentTypes = DescribeAdjustmentTypes'
+mkDescribeAdjustmentTypes = DescribeAdjustmentTypes'
 
-instance AWSRequest DescribeAdjustmentTypes where
+instance Lude.AWSRequest DescribeAdjustmentTypes where
   type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeAdjustmentTypesResult"
       ( \s h x ->
           DescribeAdjustmentTypesResponse'
-            <$> ( x .@? "AdjustmentTypes" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "AdjustmentTypes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAdjustmentTypes
+instance Lude.ToHeaders DescribeAdjustmentTypes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAdjustmentTypes
+instance Lude.ToPath DescribeAdjustmentTypes where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeAdjustmentTypes where
-  toHeaders = const mempty
-
-instance ToPath DescribeAdjustmentTypes where
-  toPath = const "/"
-
-instance ToQuery DescribeAdjustmentTypes where
+instance Lude.ToQuery DescribeAdjustmentTypes where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DescribeAdjustmentTypes" :: ByteString),
-            "Version" =: ("2011-01-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("DescribeAdjustmentTypes" :: Lude.ByteString),
+            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'describeAdjustmentTypesResponse' smart constructor.
+-- | /See:/ 'mkDescribeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
-  { _datrsAdjustmentTypes ::
-      !(Maybe [AdjustmentType]),
-    _datrsResponseStatus ::
-      !Int
+  { adjustmentTypes ::
+      Lude.Maybe [AdjustmentType],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAdjustmentTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'datrsAdjustmentTypes' - The policy adjustment types.
---
--- * 'datrsResponseStatus' - -- | The response status code.
-describeAdjustmentTypesResponse ::
-  -- | 'datrsResponseStatus'
-  Int ->
+-- * 'adjustmentTypes' - The policy adjustment types.
+-- * 'responseStatus' - The response status code.
+mkDescribeAdjustmentTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse pResponseStatus_ =
+mkDescribeAdjustmentTypesResponse pResponseStatus_ =
   DescribeAdjustmentTypesResponse'
-    { _datrsAdjustmentTypes = Nothing,
-      _datrsResponseStatus = pResponseStatus_
+    { adjustmentTypes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The policy adjustment types.
-datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
-datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\s a -> s {_datrsAdjustmentTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'adjustmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsAdjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Lude.Maybe [AdjustmentType])
+datrsAdjustmentTypes = Lens.lens (adjustmentTypes :: DescribeAdjustmentTypesResponse -> Lude.Maybe [AdjustmentType]) (\s a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse)
+{-# DEPRECATED datrsAdjustmentTypes "Use generic-lens or generic-optics with 'adjustmentTypes' instead." #-}
 
--- | -- | The response status code.
-datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
-datrsResponseStatus = lens _datrsResponseStatus (\s a -> s {_datrsResponseStatus = a})
-
-instance NFData DescribeAdjustmentTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsResponseStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Lude.Int
+datrsResponseStatus = Lens.lens (responseStatus :: DescribeAdjustmentTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAdjustmentTypesResponse)
+{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

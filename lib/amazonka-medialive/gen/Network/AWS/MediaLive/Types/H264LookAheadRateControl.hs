@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264LookAheadRateControl where
+module Network.AWS.MediaLive.Types.H264LookAheadRateControl
+  ( H264LookAheadRateControl
+      ( H264LookAheadRateControl',
+        HLARCHigh,
+        HLARCLow,
+        HLARCMedium
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Look Ahead Rate Control
-data H264LookAheadRateControl
-  = HLARCHigh
-  | HLARCLow
-  | HLARCMedium
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264LookAheadRateControl = H264LookAheadRateControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264LookAheadRateControl where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure HLARCHigh
-      "low" -> pure HLARCLow
-      "medium" -> pure HLARCMedium
-      e ->
-        fromTextError $
-          "Failure parsing H264LookAheadRateControl from value: '" <> e
-            <> "'. Accepted values: high, low, medium"
+pattern HLARCHigh :: H264LookAheadRateControl
+pattern HLARCHigh = H264LookAheadRateControl' "HIGH"
 
-instance ToText H264LookAheadRateControl where
-  toText = \case
-    HLARCHigh -> "HIGH"
-    HLARCLow -> "LOW"
-    HLARCMedium -> "MEDIUM"
+pattern HLARCLow :: H264LookAheadRateControl
+pattern HLARCLow = H264LookAheadRateControl' "LOW"
 
-instance Hashable H264LookAheadRateControl
+pattern HLARCMedium :: H264LookAheadRateControl
+pattern HLARCMedium = H264LookAheadRateControl' "MEDIUM"
 
-instance NFData H264LookAheadRateControl
-
-instance ToByteString H264LookAheadRateControl
-
-instance ToQuery H264LookAheadRateControl
-
-instance ToHeader H264LookAheadRateControl
-
-instance ToJSON H264LookAheadRateControl where
-  toJSON = toJSONText
-
-instance FromJSON H264LookAheadRateControl where
-  parseJSON = parseJSONText "H264LookAheadRateControl"
+{-# COMPLETE
+  HLARCHigh,
+  HLARCLow,
+  HLARCMedium,
+  H264LookAheadRateControl'
+  #-}

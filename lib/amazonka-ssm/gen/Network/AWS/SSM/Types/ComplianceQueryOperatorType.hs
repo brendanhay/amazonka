@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ComplianceQueryOperatorType where
+module Network.AWS.SSM.Types.ComplianceQueryOperatorType
+  ( ComplianceQueryOperatorType
+      ( ComplianceQueryOperatorType',
+        CQOTBeginWith,
+        CQOTEqual,
+        CQOTGreaterThan,
+        CQOTLessThan,
+        CQOTNotEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComplianceQueryOperatorType
-  = CQOTBeginWith
-  | CQOTEqual
-  | CQOTGreaterThan
-  | CQOTLessThan
-  | CQOTNotEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComplianceQueryOperatorType = ComplianceQueryOperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComplianceQueryOperatorType where
-  parser =
-    takeLowerText >>= \case
-      "begin_with" -> pure CQOTBeginWith
-      "equal" -> pure CQOTEqual
-      "greater_than" -> pure CQOTGreaterThan
-      "less_than" -> pure CQOTLessThan
-      "not_equal" -> pure CQOTNotEqual
-      e ->
-        fromTextError $
-          "Failure parsing ComplianceQueryOperatorType from value: '" <> e
-            <> "'. Accepted values: begin_with, equal, greater_than, less_than, not_equal"
+pattern CQOTBeginWith :: ComplianceQueryOperatorType
+pattern CQOTBeginWith = ComplianceQueryOperatorType' "BEGIN_WITH"
 
-instance ToText ComplianceQueryOperatorType where
-  toText = \case
-    CQOTBeginWith -> "BEGIN_WITH"
-    CQOTEqual -> "EQUAL"
-    CQOTGreaterThan -> "GREATER_THAN"
-    CQOTLessThan -> "LESS_THAN"
-    CQOTNotEqual -> "NOT_EQUAL"
+pattern CQOTEqual :: ComplianceQueryOperatorType
+pattern CQOTEqual = ComplianceQueryOperatorType' "EQUAL"
 
-instance Hashable ComplianceQueryOperatorType
+pattern CQOTGreaterThan :: ComplianceQueryOperatorType
+pattern CQOTGreaterThan = ComplianceQueryOperatorType' "GREATER_THAN"
 
-instance NFData ComplianceQueryOperatorType
+pattern CQOTLessThan :: ComplianceQueryOperatorType
+pattern CQOTLessThan = ComplianceQueryOperatorType' "LESS_THAN"
 
-instance ToByteString ComplianceQueryOperatorType
+pattern CQOTNotEqual :: ComplianceQueryOperatorType
+pattern CQOTNotEqual = ComplianceQueryOperatorType' "NOT_EQUAL"
 
-instance ToQuery ComplianceQueryOperatorType
-
-instance ToHeader ComplianceQueryOperatorType
-
-instance ToJSON ComplianceQueryOperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  CQOTBeginWith,
+  CQOTEqual,
+  CQOTGreaterThan,
+  CQOTLessThan,
+  CQOTNotEqual,
+  ComplianceQueryOperatorType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the header information for the .csv file to be used as input for the user import job.
 module Network.AWS.CognitoIdentityProvider.GetCSVHeader
-  ( -- * Creating a Request
-    getCSVHeader,
-    GetCSVHeader,
+  ( -- * Creating a request
+    GetCSVHeader (..),
+    mkGetCSVHeader,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gchUserPoolId,
 
-    -- * Destructuring the Response
-    getCSVHeaderResponse,
-    GetCSVHeaderResponse,
+    -- * Destructuring the response
+    GetCSVHeaderResponse (..),
+    mkGetCSVHeaderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gchrsUserPoolId,
     gchrsCSVHeader,
     gchrsResponseStatus,
@@ -38,114 +33,128 @@ module Network.AWS.CognitoIdentityProvider.GetCSVHeader
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to get the header information for the .csv file for the user import job.
 --
---
---
--- /See:/ 'getCSVHeader' smart constructor.
-newtype GetCSVHeader = GetCSVHeader' {_gchUserPoolId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetCSVHeader' smart constructor.
+newtype GetCSVHeader = GetCSVHeader' {userPoolId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCSVHeader' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gchUserPoolId' - The user pool ID for the user pool that the users are to be imported into.
-getCSVHeader ::
-  -- | 'gchUserPoolId'
-  Text ->
+-- * 'userPoolId' - The user pool ID for the user pool that the users are to be imported into.
+mkGetCSVHeader ::
+  -- | 'userPoolId'
+  Lude.Text ->
   GetCSVHeader
-getCSVHeader pUserPoolId_ =
-  GetCSVHeader' {_gchUserPoolId = pUserPoolId_}
+mkGetCSVHeader pUserPoolId_ =
+  GetCSVHeader' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool that the users are to be imported into.
-gchUserPoolId :: Lens' GetCSVHeader Text
-gchUserPoolId = lens _gchUserPoolId (\s a -> s {_gchUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gchUserPoolId :: Lens.Lens' GetCSVHeader Lude.Text
+gchUserPoolId = Lens.lens (userPoolId :: GetCSVHeader -> Lude.Text) (\s a -> s {userPoolId = a} :: GetCSVHeader)
+{-# DEPRECATED gchUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest GetCSVHeader where
+instance Lude.AWSRequest GetCSVHeader where
   type Rs GetCSVHeader = GetCSVHeaderResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCSVHeaderResponse'
-            <$> (x .?> "UserPoolId")
-            <*> (x .?> "CSVHeader" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserPoolId")
+            Lude.<*> (x Lude..?> "CSVHeader" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCSVHeader
-
-instance NFData GetCSVHeader
-
-instance ToHeaders GetCSVHeader where
+instance Lude.ToHeaders GetCSVHeader where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.GetCSVHeader" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.GetCSVHeader" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCSVHeader where
+instance Lude.ToJSON GetCSVHeader where
   toJSON GetCSVHeader' {..} =
-    object (catMaybes [Just ("UserPoolId" .= _gchUserPoolId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("UserPoolId" Lude..= userPoolId)])
 
-instance ToPath GetCSVHeader where
-  toPath = const "/"
+instance Lude.ToPath GetCSVHeader where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCSVHeader where
-  toQuery = const mempty
+instance Lude.ToQuery GetCSVHeader where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server to the request to get the header information for the .csv file for the user import job.
 --
---
---
--- /See:/ 'getCSVHeaderResponse' smart constructor.
+-- /See:/ 'mkGetCSVHeaderResponse' smart constructor.
 data GetCSVHeaderResponse = GetCSVHeaderResponse'
-  { _gchrsUserPoolId ::
-      !(Maybe Text),
-    _gchrsCSVHeader :: !(Maybe [Text]),
-    _gchrsResponseStatus :: !Int
+  { userPoolId ::
+      Lude.Maybe Lude.Text,
+    csvHeader :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCSVHeaderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gchrsUserPoolId' - The user pool ID for the user pool that the users are to be imported into.
---
--- * 'gchrsCSVHeader' - The header information for the .csv file for the user import job.
---
--- * 'gchrsResponseStatus' - -- | The response status code.
-getCSVHeaderResponse ::
-  -- | 'gchrsResponseStatus'
-  Int ->
+-- * 'csvHeader' - The header information for the .csv file for the user import job.
+-- * 'responseStatus' - The response status code.
+-- * 'userPoolId' - The user pool ID for the user pool that the users are to be imported into.
+mkGetCSVHeaderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCSVHeaderResponse
-getCSVHeaderResponse pResponseStatus_ =
+mkGetCSVHeaderResponse pResponseStatus_ =
   GetCSVHeaderResponse'
-    { _gchrsUserPoolId = Nothing,
-      _gchrsCSVHeader = Nothing,
-      _gchrsResponseStatus = pResponseStatus_
+    { userPoolId = Lude.Nothing,
+      csvHeader = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user pool ID for the user pool that the users are to be imported into.
-gchrsUserPoolId :: Lens' GetCSVHeaderResponse (Maybe Text)
-gchrsUserPoolId = lens _gchrsUserPoolId (\s a -> s {_gchrsUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gchrsUserPoolId :: Lens.Lens' GetCSVHeaderResponse (Lude.Maybe Lude.Text)
+gchrsUserPoolId = Lens.lens (userPoolId :: GetCSVHeaderResponse -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: GetCSVHeaderResponse)
+{-# DEPRECATED gchrsUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The header information for the .csv file for the user import job.
-gchrsCSVHeader :: Lens' GetCSVHeaderResponse [Text]
-gchrsCSVHeader = lens _gchrsCSVHeader (\s a -> s {_gchrsCSVHeader = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'csvHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gchrsCSVHeader :: Lens.Lens' GetCSVHeaderResponse (Lude.Maybe [Lude.Text])
+gchrsCSVHeader = Lens.lens (csvHeader :: GetCSVHeaderResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {csvHeader = a} :: GetCSVHeaderResponse)
+{-# DEPRECATED gchrsCSVHeader "Use generic-lens or generic-optics with 'csvHeader' instead." #-}
 
--- | -- | The response status code.
-gchrsResponseStatus :: Lens' GetCSVHeaderResponse Int
-gchrsResponseStatus = lens _gchrsResponseStatus (\s a -> s {_gchrsResponseStatus = a})
-
-instance NFData GetCSVHeaderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gchrsResponseStatus :: Lens.Lens' GetCSVHeaderResponse Lude.Int
+gchrsResponseStatus = Lens.lens (responseStatus :: GetCSVHeaderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCSVHeaderResponse)
+{-# DEPRECATED gchrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

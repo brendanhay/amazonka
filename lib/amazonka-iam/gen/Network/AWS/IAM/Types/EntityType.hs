@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.EntityType where
+module Network.AWS.IAM.Types.EntityType
+  ( EntityType
+      ( EntityType',
+        ETAWSManagedPolicy,
+        ETGroup,
+        ETLocalManagedPolicy,
+        ETRole,
+        ETUser
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EntityType
-  = ETAWSManagedPolicy
-  | ETGroup
-  | ETLocalManagedPolicy
-  | ETRole
-  | ETUser
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EntityType = EntityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EntityType where
-  parser =
-    takeLowerText >>= \case
-      "awsmanagedpolicy" -> pure ETAWSManagedPolicy
-      "group" -> pure ETGroup
-      "localmanagedpolicy" -> pure ETLocalManagedPolicy
-      "role" -> pure ETRole
-      "user" -> pure ETUser
-      e ->
-        fromTextError $
-          "Failure parsing EntityType from value: '" <> e
-            <> "'. Accepted values: awsmanagedpolicy, group, localmanagedpolicy, role, user"
+pattern ETAWSManagedPolicy :: EntityType
+pattern ETAWSManagedPolicy = EntityType' "AWSManagedPolicy"
 
-instance ToText EntityType where
-  toText = \case
-    ETAWSManagedPolicy -> "AWSManagedPolicy"
-    ETGroup -> "Group"
-    ETLocalManagedPolicy -> "LocalManagedPolicy"
-    ETRole -> "Role"
-    ETUser -> "User"
+pattern ETGroup :: EntityType
+pattern ETGroup = EntityType' "Group"
 
-instance Hashable EntityType
+pattern ETLocalManagedPolicy :: EntityType
+pattern ETLocalManagedPolicy = EntityType' "LocalManagedPolicy"
 
-instance NFData EntityType
+pattern ETRole :: EntityType
+pattern ETRole = EntityType' "Role"
 
-instance ToByteString EntityType
+pattern ETUser :: EntityType
+pattern ETUser = EntityType' "User"
 
-instance ToQuery EntityType
-
-instance ToHeader EntityType
+{-# COMPLETE
+  ETAWSManagedPolicy,
+  ETGroup,
+  ETLocalManagedPolicy,
+  ETRole,
+  ETUser,
+  EntityType'
+  #-}

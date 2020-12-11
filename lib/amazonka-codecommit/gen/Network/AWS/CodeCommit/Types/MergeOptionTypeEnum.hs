@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.MergeOptionTypeEnum where
+module Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
+  ( MergeOptionTypeEnum
+      ( MergeOptionTypeEnum',
+        FastForwardMerge,
+        SquashMerge,
+        ThreeWayMerge
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MergeOptionTypeEnum
-  = FastForwardMerge
-  | SquashMerge
-  | ThreeWayMerge
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MergeOptionTypeEnum = MergeOptionTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MergeOptionTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "fast_forward_merge" -> pure FastForwardMerge
-      "squash_merge" -> pure SquashMerge
-      "three_way_merge" -> pure ThreeWayMerge
-      e ->
-        fromTextError $
-          "Failure parsing MergeOptionTypeEnum from value: '" <> e
-            <> "'. Accepted values: fast_forward_merge, squash_merge, three_way_merge"
+pattern FastForwardMerge :: MergeOptionTypeEnum
+pattern FastForwardMerge = MergeOptionTypeEnum' "FAST_FORWARD_MERGE"
 
-instance ToText MergeOptionTypeEnum where
-  toText = \case
-    FastForwardMerge -> "FAST_FORWARD_MERGE"
-    SquashMerge -> "SQUASH_MERGE"
-    ThreeWayMerge -> "THREE_WAY_MERGE"
+pattern SquashMerge :: MergeOptionTypeEnum
+pattern SquashMerge = MergeOptionTypeEnum' "SQUASH_MERGE"
 
-instance Hashable MergeOptionTypeEnum
+pattern ThreeWayMerge :: MergeOptionTypeEnum
+pattern ThreeWayMerge = MergeOptionTypeEnum' "THREE_WAY_MERGE"
 
-instance NFData MergeOptionTypeEnum
-
-instance ToByteString MergeOptionTypeEnum
-
-instance ToQuery MergeOptionTypeEnum
-
-instance ToHeader MergeOptionTypeEnum
-
-instance ToJSON MergeOptionTypeEnum where
-  toJSON = toJSONText
-
-instance FromJSON MergeOptionTypeEnum where
-  parseJSON = parseJSONText "MergeOptionTypeEnum"
+{-# COMPLETE
+  FastForwardMerge,
+  SquashMerge,
+  ThreeWayMerge,
+  MergeOptionTypeEnum'
+  #-}

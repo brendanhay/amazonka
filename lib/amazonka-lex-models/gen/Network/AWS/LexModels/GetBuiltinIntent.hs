@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns information about a built-in intent.
 --
---
 -- This operation requires permission for the @lex:GetBuiltinIntent@ action.
 module Network.AWS.LexModels.GetBuiltinIntent
-  ( -- * Creating a Request
-    getBuiltinIntent,
-    GetBuiltinIntent,
+  ( -- * Creating a request
+    GetBuiltinIntent (..),
+    mkGetBuiltinIntent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbiSignature,
 
-    -- * Destructuring the Response
-    getBuiltinIntentResponse,
-    GetBuiltinIntentResponse,
+    -- * Destructuring the response
+    GetBuiltinIntentResponse (..),
+    mkGetBuiltinIntentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbirsSignature,
     gbirsSlots,
     gbirsSupportedLocales,
@@ -41,112 +35,131 @@ module Network.AWS.LexModels.GetBuiltinIntent
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBuiltinIntent' smart constructor.
-newtype GetBuiltinIntent = GetBuiltinIntent' {_gbiSignature :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetBuiltinIntent' smart constructor.
+newtype GetBuiltinIntent = GetBuiltinIntent'
+  { signature ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBuiltinIntent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbiSignature' - The unique identifier for a built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-getBuiltinIntent ::
-  -- | 'gbiSignature'
-  Text ->
+-- * 'signature' - The unique identifier for a built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+mkGetBuiltinIntent ::
+  -- | 'signature'
+  Lude.Text ->
   GetBuiltinIntent
-getBuiltinIntent pSignature_ =
-  GetBuiltinIntent' {_gbiSignature = pSignature_}
+mkGetBuiltinIntent pSignature_ =
+  GetBuiltinIntent' {signature = pSignature_}
 
 -- | The unique identifier for a built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-gbiSignature :: Lens' GetBuiltinIntent Text
-gbiSignature = lens _gbiSignature (\s a -> s {_gbiSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbiSignature :: Lens.Lens' GetBuiltinIntent Lude.Text
+gbiSignature = Lens.lens (signature :: GetBuiltinIntent -> Lude.Text) (\s a -> s {signature = a} :: GetBuiltinIntent)
+{-# DEPRECATED gbiSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
-instance AWSRequest GetBuiltinIntent where
+instance Lude.AWSRequest GetBuiltinIntent where
   type Rs GetBuiltinIntent = GetBuiltinIntentResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBuiltinIntentResponse'
-            <$> (x .?> "signature")
-            <*> (x .?> "slots" .!@ mempty)
-            <*> (x .?> "supportedLocales" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "signature")
+            Lude.<*> (x Lude..?> "slots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "supportedLocales" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBuiltinIntent
-
-instance NFData GetBuiltinIntent
-
-instance ToHeaders GetBuiltinIntent where
+instance Lude.ToHeaders GetBuiltinIntent where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetBuiltinIntent where
+instance Lude.ToPath GetBuiltinIntent where
   toPath GetBuiltinIntent' {..} =
-    mconcat ["/builtins/intents/", toBS _gbiSignature]
+    Lude.mconcat ["/builtins/intents/", Lude.toBS signature]
 
-instance ToQuery GetBuiltinIntent where
-  toQuery = const mempty
+instance Lude.ToQuery GetBuiltinIntent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBuiltinIntentResponse' smart constructor.
+-- | /See:/ 'mkGetBuiltinIntentResponse' smart constructor.
 data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
-  { _gbirsSignature ::
-      !(Maybe Text),
-    _gbirsSlots ::
-      !(Maybe [BuiltinIntentSlot]),
-    _gbirsSupportedLocales ::
-      !(Maybe [Locale]),
-    _gbirsResponseStatus :: !Int
+  { signature ::
+      Lude.Maybe Lude.Text,
+    slots :: Lude.Maybe [BuiltinIntentSlot],
+    supportedLocales :: Lude.Maybe [Locale],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBuiltinIntentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbirsSignature' - The unique identifier for a built-in intent.
---
--- * 'gbirsSlots' - An array of @BuiltinIntentSlot@ objects, one entry for each slot type in the intent.
---
--- * 'gbirsSupportedLocales' - A list of locales that the intent supports.
---
--- * 'gbirsResponseStatus' - -- | The response status code.
-getBuiltinIntentResponse ::
-  -- | 'gbirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'signature' - The unique identifier for a built-in intent.
+-- * 'slots' - An array of @BuiltinIntentSlot@ objects, one entry for each slot type in the intent.
+-- * 'supportedLocales' - A list of locales that the intent supports.
+mkGetBuiltinIntentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBuiltinIntentResponse
-getBuiltinIntentResponse pResponseStatus_ =
+mkGetBuiltinIntentResponse pResponseStatus_ =
   GetBuiltinIntentResponse'
-    { _gbirsSignature = Nothing,
-      _gbirsSlots = Nothing,
-      _gbirsSupportedLocales = Nothing,
-      _gbirsResponseStatus = pResponseStatus_
+    { signature = Lude.Nothing,
+      slots = Lude.Nothing,
+      supportedLocales = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier for a built-in intent.
-gbirsSignature :: Lens' GetBuiltinIntentResponse (Maybe Text)
-gbirsSignature = lens _gbirsSignature (\s a -> s {_gbirsSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbirsSignature :: Lens.Lens' GetBuiltinIntentResponse (Lude.Maybe Lude.Text)
+gbirsSignature = Lens.lens (signature :: GetBuiltinIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: GetBuiltinIntentResponse)
+{-# DEPRECATED gbirsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in the intent.
-gbirsSlots :: Lens' GetBuiltinIntentResponse [BuiltinIntentSlot]
-gbirsSlots = lens _gbirsSlots (\s a -> s {_gbirsSlots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbirsSlots :: Lens.Lens' GetBuiltinIntentResponse (Lude.Maybe [BuiltinIntentSlot])
+gbirsSlots = Lens.lens (slots :: GetBuiltinIntentResponse -> Lude.Maybe [BuiltinIntentSlot]) (\s a -> s {slots = a} :: GetBuiltinIntentResponse)
+{-# DEPRECATED gbirsSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | A list of locales that the intent supports.
-gbirsSupportedLocales :: Lens' GetBuiltinIntentResponse [Locale]
-gbirsSupportedLocales = lens _gbirsSupportedLocales (\s a -> s {_gbirsSupportedLocales = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedLocales' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbirsSupportedLocales :: Lens.Lens' GetBuiltinIntentResponse (Lude.Maybe [Locale])
+gbirsSupportedLocales = Lens.lens (supportedLocales :: GetBuiltinIntentResponse -> Lude.Maybe [Locale]) (\s a -> s {supportedLocales = a} :: GetBuiltinIntentResponse)
+{-# DEPRECATED gbirsSupportedLocales "Use generic-lens or generic-optics with 'supportedLocales' instead." #-}
 
--- | -- | The response status code.
-gbirsResponseStatus :: Lens' GetBuiltinIntentResponse Int
-gbirsResponseStatus = lens _gbirsResponseStatus (\s a -> s {_gbirsResponseStatus = a})
-
-instance NFData GetBuiltinIntentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbirsResponseStatus :: Lens.Lens' GetBuiltinIntentResponse Lude.Int
+gbirsResponseStatus = Lens.lens (responseStatus :: GetBuiltinIntentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBuiltinIntentResponse)
+{-# DEPRECATED gbirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

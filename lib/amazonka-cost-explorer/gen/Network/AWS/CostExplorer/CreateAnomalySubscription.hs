@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,147 @@
 --
 -- Adds a subscription to a cost anomaly detection monitor. You can use each subscription to define subscribers with email or SNS notifications. Email subscribers can set a dollar threshold and a time frequency for receiving notifications.
 module Network.AWS.CostExplorer.CreateAnomalySubscription
-  ( -- * Creating a Request
-    createAnomalySubscription,
-    CreateAnomalySubscription,
+  ( -- * Creating a request
+    CreateAnomalySubscription (..),
+    mkCreateAnomalySubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     casAnomalySubscription,
 
-    -- * Destructuring the Response
-    createAnomalySubscriptionResponse,
-    CreateAnomalySubscriptionResponse,
+    -- * Destructuring the response
+    CreateAnomalySubscriptionResponse (..),
+    mkCreateAnomalySubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     casrsResponseStatus,
     casrsSubscriptionARN,
   )
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createAnomalySubscription' smart constructor.
+-- | /See:/ 'mkCreateAnomalySubscription' smart constructor.
 newtype CreateAnomalySubscription = CreateAnomalySubscription'
-  { _casAnomalySubscription ::
+  { anomalySubscription ::
       AnomalySubscription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAnomalySubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'casAnomalySubscription' - The cost anomaly subscription object that you want to create.
-createAnomalySubscription ::
-  -- | 'casAnomalySubscription'
+-- * 'anomalySubscription' - The cost anomaly subscription object that you want to create.
+mkCreateAnomalySubscription ::
+  -- | 'anomalySubscription'
   AnomalySubscription ->
   CreateAnomalySubscription
-createAnomalySubscription pAnomalySubscription_ =
+mkCreateAnomalySubscription pAnomalySubscription_ =
   CreateAnomalySubscription'
-    { _casAnomalySubscription =
+    { anomalySubscription =
         pAnomalySubscription_
     }
 
 -- | The cost anomaly subscription object that you want to create.
-casAnomalySubscription :: Lens' CreateAnomalySubscription AnomalySubscription
-casAnomalySubscription = lens _casAnomalySubscription (\s a -> s {_casAnomalySubscription = a})
+--
+-- /Note:/ Consider using 'anomalySubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casAnomalySubscription :: Lens.Lens' CreateAnomalySubscription AnomalySubscription
+casAnomalySubscription = Lens.lens (anomalySubscription :: CreateAnomalySubscription -> AnomalySubscription) (\s a -> s {anomalySubscription = a} :: CreateAnomalySubscription)
+{-# DEPRECATED casAnomalySubscription "Use generic-lens or generic-optics with 'anomalySubscription' instead." #-}
 
-instance AWSRequest CreateAnomalySubscription where
+instance Lude.AWSRequest CreateAnomalySubscription where
   type
     Rs CreateAnomalySubscription =
       CreateAnomalySubscriptionResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAnomalySubscriptionResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "SubscriptionArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "SubscriptionArn")
       )
 
-instance Hashable CreateAnomalySubscription
-
-instance NFData CreateAnomalySubscription
-
-instance ToHeaders CreateAnomalySubscription where
+instance Lude.ToHeaders CreateAnomalySubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAnomalySubscription where
+instance Lude.ToJSON CreateAnomalySubscription where
   toJSON CreateAnomalySubscription' {..} =
-    object
-      ( catMaybes
-          [Just ("AnomalySubscription" .= _casAnomalySubscription)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AnomalySubscription" Lude..= anomalySubscription)]
       )
 
-instance ToPath CreateAnomalySubscription where
-  toPath = const "/"
+instance Lude.ToPath CreateAnomalySubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAnomalySubscription where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAnomalySubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAnomalySubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateAnomalySubscriptionResponse' smart constructor.
 data CreateAnomalySubscriptionResponse = CreateAnomalySubscriptionResponse'
-  { _casrsResponseStatus ::
-      !Int,
-    _casrsSubscriptionARN ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    subscriptionARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAnomalySubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'casrsResponseStatus' - -- | The response status code.
---
--- * 'casrsSubscriptionARN' - The unique identifier of your newly created cost anomaly subscription.
-createAnomalySubscriptionResponse ::
-  -- | 'casrsResponseStatus'
-  Int ->
-  -- | 'casrsSubscriptionARN'
-  Text ->
+-- * 'responseStatus' - The response status code.
+-- * 'subscriptionARN' - The unique identifier of your newly created cost anomaly subscription.
+mkCreateAnomalySubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'subscriptionARN'
+  Lude.Text ->
   CreateAnomalySubscriptionResponse
-createAnomalySubscriptionResponse
+mkCreateAnomalySubscriptionResponse
   pResponseStatus_
   pSubscriptionARN_ =
     CreateAnomalySubscriptionResponse'
-      { _casrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _casrsSubscriptionARN = pSubscriptionARN_
+        subscriptionARN = pSubscriptionARN_
       }
 
--- | -- | The response status code.
-casrsResponseStatus :: Lens' CreateAnomalySubscriptionResponse Int
-casrsResponseStatus = lens _casrsResponseStatus (\s a -> s {_casrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casrsResponseStatus :: Lens.Lens' CreateAnomalySubscriptionResponse Lude.Int
+casrsResponseStatus = Lens.lens (responseStatus :: CreateAnomalySubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAnomalySubscriptionResponse)
+{-# DEPRECATED casrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The unique identifier of your newly created cost anomaly subscription.
-casrsSubscriptionARN :: Lens' CreateAnomalySubscriptionResponse Text
-casrsSubscriptionARN = lens _casrsSubscriptionARN (\s a -> s {_casrsSubscriptionARN = a})
-
-instance NFData CreateAnomalySubscriptionResponse
+--
+-- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casrsSubscriptionARN :: Lens.Lens' CreateAnomalySubscriptionResponse Lude.Text
+casrsSubscriptionARN = Lens.lens (subscriptionARN :: CreateAnomalySubscriptionResponse -> Lude.Text) (\s a -> s {subscriptionARN = a} :: CreateAnomalySubscriptionResponse)
+{-# DEPRECATED casrsSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceMarketOptionsRequest where
+module Network.AWS.EC2.Types.InstanceMarketOptionsRequest
+  ( InstanceMarketOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceMarketOptionsRequest,
+
+    -- * Lenses
+    imorMarketType,
+    imorSpotOptions,
+  )
+where
+
 import Network.AWS.EC2.Types.MarketType
 import Network.AWS.EC2.Types.SpotMarketOptions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the market (purchasing) option for the instances.
 --
---
---
--- /See:/ 'instanceMarketOptionsRequest' smart constructor.
+-- /See:/ 'mkInstanceMarketOptionsRequest' smart constructor.
 data InstanceMarketOptionsRequest = InstanceMarketOptionsRequest'
-  { _imorMarketType ::
-      !(Maybe MarketType),
-    _imorSpotOptions ::
-      !(Maybe SpotMarketOptions)
+  { marketType ::
+      Lude.Maybe MarketType,
+    spotOptions ::
+      Lude.Maybe SpotMarketOptions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceMarketOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imorMarketType' - The market type.
---
--- * 'imorSpotOptions' - The options for Spot Instances.
-instanceMarketOptionsRequest ::
+-- * 'marketType' - The market type.
+-- * 'spotOptions' - The options for Spot Instances.
+mkInstanceMarketOptionsRequest ::
   InstanceMarketOptionsRequest
-instanceMarketOptionsRequest =
+mkInstanceMarketOptionsRequest =
   InstanceMarketOptionsRequest'
-    { _imorMarketType = Nothing,
-      _imorSpotOptions = Nothing
+    { marketType = Lude.Nothing,
+      spotOptions = Lude.Nothing
     }
 
 -- | The market type.
-imorMarketType :: Lens' InstanceMarketOptionsRequest (Maybe MarketType)
-imorMarketType = lens _imorMarketType (\s a -> s {_imorMarketType = a})
+--
+-- /Note:/ Consider using 'marketType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imorMarketType :: Lens.Lens' InstanceMarketOptionsRequest (Lude.Maybe MarketType)
+imorMarketType = Lens.lens (marketType :: InstanceMarketOptionsRequest -> Lude.Maybe MarketType) (\s a -> s {marketType = a} :: InstanceMarketOptionsRequest)
+{-# DEPRECATED imorMarketType "Use generic-lens or generic-optics with 'marketType' instead." #-}
 
 -- | The options for Spot Instances.
-imorSpotOptions :: Lens' InstanceMarketOptionsRequest (Maybe SpotMarketOptions)
-imorSpotOptions = lens _imorSpotOptions (\s a -> s {_imorSpotOptions = a})
+--
+-- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imorSpotOptions :: Lens.Lens' InstanceMarketOptionsRequest (Lude.Maybe SpotMarketOptions)
+imorSpotOptions = Lens.lens (spotOptions :: InstanceMarketOptionsRequest -> Lude.Maybe SpotMarketOptions) (\s a -> s {spotOptions = a} :: InstanceMarketOptionsRequest)
+{-# DEPRECATED imorSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
 
-instance Hashable InstanceMarketOptionsRequest
-
-instance NFData InstanceMarketOptionsRequest
-
-instance ToQuery InstanceMarketOptionsRequest where
+instance Lude.ToQuery InstanceMarketOptionsRequest where
   toQuery InstanceMarketOptionsRequest' {..} =
-    mconcat
-      [ "MarketType" =: _imorMarketType,
-        "SpotOptions" =: _imorSpotOptions
+    Lude.mconcat
+      [ "MarketType" Lude.=: marketType,
+        "SpotOptions" Lude.=: spotOptions
       ]

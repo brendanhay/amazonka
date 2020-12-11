@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ResourceDefinitionVersion where
+module Network.AWS.Greengrass.Types.ResourceDefinitionVersion
+  ( ResourceDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkResourceDefinitionVersion,
+
+    -- * Lenses
+    rdvResources,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Resource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a resource definition version.
 --
--- /See:/ 'resourceDefinitionVersion' smart constructor.
+-- /See:/ 'mkResourceDefinitionVersion' smart constructor.
 newtype ResourceDefinitionVersion = ResourceDefinitionVersion'
-  { _rdvResources ::
-      Maybe [Resource]
+  { resources ::
+      Lude.Maybe [Resource]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdvResources' - A list of resources.
-resourceDefinitionVersion ::
+-- * 'resources' - A list of resources.
+mkResourceDefinitionVersion ::
   ResourceDefinitionVersion
-resourceDefinitionVersion =
-  ResourceDefinitionVersion' {_rdvResources = Nothing}
+mkResourceDefinitionVersion =
+  ResourceDefinitionVersion' {resources = Lude.Nothing}
 
 -- | A list of resources.
-rdvResources :: Lens' ResourceDefinitionVersion [Resource]
-rdvResources = lens _rdvResources (\s a -> s {_rdvResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdvResources :: Lens.Lens' ResourceDefinitionVersion (Lude.Maybe [Resource])
+rdvResources = Lens.lens (resources :: ResourceDefinitionVersion -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: ResourceDefinitionVersion)
+{-# DEPRECATED rdvResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
-instance FromJSON ResourceDefinitionVersion where
+instance Lude.FromJSON ResourceDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDefinitionVersion"
       ( \x ->
-          ResourceDefinitionVersion' <$> (x .:? "Resources" .!= mempty)
+          ResourceDefinitionVersion'
+            Lude.<$> (x Lude..:? "Resources" Lude..!= Lude.mempty)
       )
 
-instance Hashable ResourceDefinitionVersion
-
-instance NFData ResourceDefinitionVersion
-
-instance ToJSON ResourceDefinitionVersion where
+instance Lude.ToJSON ResourceDefinitionVersion where
   toJSON ResourceDefinitionVersion' {..} =
-    object (catMaybes [("Resources" .=) <$> _rdvResources])
+    Lude.object
+      (Lude.catMaybes [("Resources" Lude..=) Lude.<$> resources])

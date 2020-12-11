@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,178 +14,200 @@
 --
 -- Lists the delegates associated with a resource. Users and groups can be resource delegates and answer requests on behalf of the resource.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkMail.ListResourceDelegates
-  ( -- * Creating a Request
-    listResourceDelegates,
-    ListResourceDelegates,
+  ( -- * Creating a request
+    ListResourceDelegates (..),
+    mkListResourceDelegates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrdNextToken,
     lrdMaxResults,
     lrdOrganizationId,
     lrdResourceId,
 
-    -- * Destructuring the Response
-    listResourceDelegatesResponse,
-    ListResourceDelegatesResponse,
+    -- * Destructuring the response
+    ListResourceDelegatesResponse (..),
+    mkListResourceDelegatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrdrsDelegates,
     lrdrsNextToken,
     lrdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'listResourceDelegates' smart constructor.
+-- | /See:/ 'mkListResourceDelegates' smart constructor.
 data ListResourceDelegates = ListResourceDelegates'
-  { _lrdNextToken ::
-      !(Maybe Text),
-    _lrdMaxResults :: !(Maybe Nat),
-    _lrdOrganizationId :: !Text,
-    _lrdResourceId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    organizationId :: Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDelegates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrdNextToken' - The token used to paginate through the delegates associated with a resource.
---
--- * 'lrdMaxResults' - The number of maximum results in a page.
---
--- * 'lrdOrganizationId' - The identifier for the organization that contains the resource for which delegates are listed.
---
--- * 'lrdResourceId' - The identifier for the resource whose delegates are listed.
-listResourceDelegates ::
-  -- | 'lrdOrganizationId'
-  Text ->
-  -- | 'lrdResourceId'
-  Text ->
+-- * 'maxResults' - The number of maximum results in a page.
+-- * 'nextToken' - The token used to paginate through the delegates associated with a resource.
+-- * 'organizationId' - The identifier for the organization that contains the resource for which delegates are listed.
+-- * 'resourceId' - The identifier for the resource whose delegates are listed.
+mkListResourceDelegates ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   ListResourceDelegates
-listResourceDelegates pOrganizationId_ pResourceId_ =
+mkListResourceDelegates pOrganizationId_ pResourceId_ =
   ListResourceDelegates'
-    { _lrdNextToken = Nothing,
-      _lrdMaxResults = Nothing,
-      _lrdOrganizationId = pOrganizationId_,
-      _lrdResourceId = pResourceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      organizationId = pOrganizationId_,
+      resourceId = pResourceId_
     }
 
 -- | The token used to paginate through the delegates associated with a resource.
-lrdNextToken :: Lens' ListResourceDelegates (Maybe Text)
-lrdNextToken = lens _lrdNextToken (\s a -> s {_lrdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdNextToken :: Lens.Lens' ListResourceDelegates (Lude.Maybe Lude.Text)
+lrdNextToken = Lens.lens (nextToken :: ListResourceDelegates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResourceDelegates)
+{-# DEPRECATED lrdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of maximum results in a page.
-lrdMaxResults :: Lens' ListResourceDelegates (Maybe Natural)
-lrdMaxResults = lens _lrdMaxResults (\s a -> s {_lrdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdMaxResults :: Lens.Lens' ListResourceDelegates (Lude.Maybe Lude.Natural)
+lrdMaxResults = Lens.lens (maxResults :: ListResourceDelegates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResourceDelegates)
+{-# DEPRECATED lrdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier for the organization that contains the resource for which delegates are listed.
-lrdOrganizationId :: Lens' ListResourceDelegates Text
-lrdOrganizationId = lens _lrdOrganizationId (\s a -> s {_lrdOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdOrganizationId :: Lens.Lens' ListResourceDelegates Lude.Text
+lrdOrganizationId = Lens.lens (organizationId :: ListResourceDelegates -> Lude.Text) (\s a -> s {organizationId = a} :: ListResourceDelegates)
+{-# DEPRECATED lrdOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the resource whose delegates are listed.
-lrdResourceId :: Lens' ListResourceDelegates Text
-lrdResourceId = lens _lrdResourceId (\s a -> s {_lrdResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdResourceId :: Lens.Lens' ListResourceDelegates Lude.Text
+lrdResourceId = Lens.lens (resourceId :: ListResourceDelegates -> Lude.Text) (\s a -> s {resourceId = a} :: ListResourceDelegates)
+{-# DEPRECATED lrdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSPager ListResourceDelegates where
+instance Page.AWSPager ListResourceDelegates where
   page rq rs
-    | stop (rs ^. lrdrsNextToken) = Nothing
-    | stop (rs ^. lrdrsDelegates) = Nothing
-    | otherwise = Just $ rq & lrdNextToken .~ rs ^. lrdrsNextToken
+    | Page.stop (rs Lens.^. lrdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrdrsDelegates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrdNextToken Lens..~ rs Lens.^. lrdrsNextToken
 
-instance AWSRequest ListResourceDelegates where
+instance Lude.AWSRequest ListResourceDelegates where
   type Rs ListResourceDelegates = ListResourceDelegatesResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListResourceDelegatesResponse'
-            <$> (x .?> "Delegates" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Delegates" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListResourceDelegates
-
-instance NFData ListResourceDelegates
-
-instance ToHeaders ListResourceDelegates where
+instance Lude.ToHeaders ListResourceDelegates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.ListResourceDelegates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.ListResourceDelegates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListResourceDelegates where
+instance Lude.ToJSON ListResourceDelegates where
   toJSON ListResourceDelegates' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lrdNextToken,
-            ("MaxResults" .=) <$> _lrdMaxResults,
-            Just ("OrganizationId" .= _lrdOrganizationId),
-            Just ("ResourceId" .= _lrdResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath ListResourceDelegates where
-  toPath = const "/"
+instance Lude.ToPath ListResourceDelegates where
+  toPath = Lude.const "/"
 
-instance ToQuery ListResourceDelegates where
-  toQuery = const mempty
+instance Lude.ToQuery ListResourceDelegates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listResourceDelegatesResponse' smart constructor.
+-- | /See:/ 'mkListResourceDelegatesResponse' smart constructor.
 data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
-  { _lrdrsDelegates ::
-      !(Maybe [Delegate]),
-    _lrdrsNextToken ::
-      !(Maybe Text),
-    _lrdrsResponseStatus :: !Int
+  { delegates ::
+      Lude.Maybe [Delegate],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDelegatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrdrsDelegates' - One page of the resource's delegates.
---
--- * 'lrdrsNextToken' - The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
---
--- * 'lrdrsResponseStatus' - -- | The response status code.
-listResourceDelegatesResponse ::
-  -- | 'lrdrsResponseStatus'
-  Int ->
+-- * 'delegates' - One page of the resource's delegates.
+-- * 'nextToken' - The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+-- * 'responseStatus' - The response status code.
+mkListResourceDelegatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResourceDelegatesResponse
-listResourceDelegatesResponse pResponseStatus_ =
+mkListResourceDelegatesResponse pResponseStatus_ =
   ListResourceDelegatesResponse'
-    { _lrdrsDelegates = Nothing,
-      _lrdrsNextToken = Nothing,
-      _lrdrsResponseStatus = pResponseStatus_
+    { delegates = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | One page of the resource's delegates.
-lrdrsDelegates :: Lens' ListResourceDelegatesResponse [Delegate]
-lrdrsDelegates = lens _lrdrsDelegates (\s a -> s {_lrdrsDelegates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'delegates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdrsDelegates :: Lens.Lens' ListResourceDelegatesResponse (Lude.Maybe [Delegate])
+lrdrsDelegates = Lens.lens (delegates :: ListResourceDelegatesResponse -> Lude.Maybe [Delegate]) (\s a -> s {delegates = a} :: ListResourceDelegatesResponse)
+{-# DEPRECATED lrdrsDelegates "Use generic-lens or generic-optics with 'delegates' instead." #-}
 
 -- | The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
-lrdrsNextToken :: Lens' ListResourceDelegatesResponse (Maybe Text)
-lrdrsNextToken = lens _lrdrsNextToken (\s a -> s {_lrdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdrsNextToken :: Lens.Lens' ListResourceDelegatesResponse (Lude.Maybe Lude.Text)
+lrdrsNextToken = Lens.lens (nextToken :: ListResourceDelegatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResourceDelegatesResponse)
+{-# DEPRECATED lrdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrdrsResponseStatus :: Lens' ListResourceDelegatesResponse Int
-lrdrsResponseStatus = lens _lrdrsResponseStatus (\s a -> s {_lrdrsResponseStatus = a})
-
-instance NFData ListResourceDelegatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdrsResponseStatus :: Lens.Lens' ListResourceDelegatesResponse Lude.Int
+lrdrsResponseStatus = Lens.lens (responseStatus :: ListResourceDelegatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourceDelegatesResponse)
+{-# DEPRECATED lrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

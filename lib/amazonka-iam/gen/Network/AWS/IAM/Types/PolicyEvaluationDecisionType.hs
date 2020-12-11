@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.PolicyEvaluationDecisionType where
+module Network.AWS.IAM.Types.PolicyEvaluationDecisionType
+  ( PolicyEvaluationDecisionType
+      ( PolicyEvaluationDecisionType',
+        Allowed,
+        ExplicitDeny,
+        ImplicitDeny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyEvaluationDecisionType
-  = Allowed
-  | ExplicitDeny
-  | ImplicitDeny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyEvaluationDecisionType = PolicyEvaluationDecisionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyEvaluationDecisionType where
-  parser =
-    takeLowerText >>= \case
-      "allowed" -> pure Allowed
-      "explicitdeny" -> pure ExplicitDeny
-      "implicitdeny" -> pure ImplicitDeny
-      e ->
-        fromTextError $
-          "Failure parsing PolicyEvaluationDecisionType from value: '" <> e
-            <> "'. Accepted values: allowed, explicitdeny, implicitdeny"
+pattern Allowed :: PolicyEvaluationDecisionType
+pattern Allowed = PolicyEvaluationDecisionType' "allowed"
 
-instance ToText PolicyEvaluationDecisionType where
-  toText = \case
-    Allowed -> "allowed"
-    ExplicitDeny -> "explicitDeny"
-    ImplicitDeny -> "implicitDeny"
+pattern ExplicitDeny :: PolicyEvaluationDecisionType
+pattern ExplicitDeny = PolicyEvaluationDecisionType' "explicitDeny"
 
-instance Hashable PolicyEvaluationDecisionType
+pattern ImplicitDeny :: PolicyEvaluationDecisionType
+pattern ImplicitDeny = PolicyEvaluationDecisionType' "implicitDeny"
 
-instance NFData PolicyEvaluationDecisionType
-
-instance ToByteString PolicyEvaluationDecisionType
-
-instance ToQuery PolicyEvaluationDecisionType
-
-instance ToHeader PolicyEvaluationDecisionType
-
-instance FromXML PolicyEvaluationDecisionType where
-  parseXML = parseXMLText "PolicyEvaluationDecisionType"
+{-# COMPLETE
+  Allowed,
+  ExplicitDeny,
+  ImplicitDeny,
+  PolicyEvaluationDecisionType'
+  #-}

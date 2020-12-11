@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.
 module Network.AWS.IoT.RegisterCACertificate
-  ( -- * Creating a Request
-    registerCACertificate,
-    RegisterCACertificate,
+  ( -- * Creating a request
+    RegisterCACertificate (..),
+    mkRegisterCACertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcacSetAsActive,
     rcacAllowAutoRegistration,
     rcacRegistrationConfig,
@@ -31,11 +26,11 @@ module Network.AWS.IoT.RegisterCACertificate
     rcacCaCertificate,
     rcacVerificationCertificate,
 
-    -- * Destructuring the Response
-    registerCACertificateResponse,
-    RegisterCACertificateResponse,
+    -- * Destructuring the response
+    RegisterCACertificateResponse (..),
+    mkRegisterCACertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcacrsCertificateARN,
     rcacrsCertificateId,
     rcacrsResponseStatus,
@@ -43,167 +38,188 @@ module Network.AWS.IoT.RegisterCACertificate
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input to the RegisterCACertificate operation.
 --
---
---
--- /See:/ 'registerCACertificate' smart constructor.
+-- /See:/ 'mkRegisterCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
-  { _rcacSetAsActive ::
-      !(Maybe Bool),
-    _rcacAllowAutoRegistration :: !(Maybe Bool),
-    _rcacRegistrationConfig ::
-      !(Maybe RegistrationConfig),
-    _rcacTags :: !(Maybe [Tag]),
-    _rcacCaCertificate :: !Text,
-    _rcacVerificationCertificate :: !Text
+  { setAsActive ::
+      Lude.Maybe Lude.Bool,
+    allowAutoRegistration :: Lude.Maybe Lude.Bool,
+    registrationConfig ::
+      Lude.Maybe RegistrationConfig,
+    tags :: Lude.Maybe [Tag],
+    caCertificate :: Lude.Text,
+    verificationCertificate :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCACertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcacSetAsActive' - A boolean value that specifies if the CA certificate is set to active.
---
--- * 'rcacAllowAutoRegistration' - Allows this CA certificate to be used for auto registration of device certificates.
---
--- * 'rcacRegistrationConfig' - Information about the registration configuration.
---
--- * 'rcacTags' - Metadata which can be used to manage the CA certificate.
---
--- * 'rcacCaCertificate' - The CA certificate.
---
--- * 'rcacVerificationCertificate' - The private key verification certificate.
-registerCACertificate ::
-  -- | 'rcacCaCertificate'
-  Text ->
-  -- | 'rcacVerificationCertificate'
-  Text ->
+-- * 'allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device certificates.
+-- * 'caCertificate' - The CA certificate.
+-- * 'registrationConfig' - Information about the registration configuration.
+-- * 'setAsActive' - A boolean value that specifies if the CA certificate is set to active.
+-- * 'tags' - Metadata which can be used to manage the CA certificate.
+-- * 'verificationCertificate' - The private key verification certificate.
+mkRegisterCACertificate ::
+  -- | 'caCertificate'
+  Lude.Text ->
+  -- | 'verificationCertificate'
+  Lude.Text ->
   RegisterCACertificate
-registerCACertificate pCaCertificate_ pVerificationCertificate_ =
+mkRegisterCACertificate pCaCertificate_ pVerificationCertificate_ =
   RegisterCACertificate'
-    { _rcacSetAsActive = Nothing,
-      _rcacAllowAutoRegistration = Nothing,
-      _rcacRegistrationConfig = Nothing,
-      _rcacTags = Nothing,
-      _rcacCaCertificate = pCaCertificate_,
-      _rcacVerificationCertificate = pVerificationCertificate_
+    { setAsActive = Lude.Nothing,
+      allowAutoRegistration = Lude.Nothing,
+      registrationConfig = Lude.Nothing,
+      tags = Lude.Nothing,
+      caCertificate = pCaCertificate_,
+      verificationCertificate = pVerificationCertificate_
     }
 
 -- | A boolean value that specifies if the CA certificate is set to active.
-rcacSetAsActive :: Lens' RegisterCACertificate (Maybe Bool)
-rcacSetAsActive = lens _rcacSetAsActive (\s a -> s {_rcacSetAsActive = a})
+--
+-- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacSetAsActive :: Lens.Lens' RegisterCACertificate (Lude.Maybe Lude.Bool)
+rcacSetAsActive = Lens.lens (setAsActive :: RegisterCACertificate -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
 -- | Allows this CA certificate to be used for auto registration of device certificates.
-rcacAllowAutoRegistration :: Lens' RegisterCACertificate (Maybe Bool)
-rcacAllowAutoRegistration = lens _rcacAllowAutoRegistration (\s a -> s {_rcacAllowAutoRegistration = a})
+--
+-- /Note:/ Consider using 'allowAutoRegistration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacAllowAutoRegistration :: Lens.Lens' RegisterCACertificate (Lude.Maybe Lude.Bool)
+rcacAllowAutoRegistration = Lens.lens (allowAutoRegistration :: RegisterCACertificate -> Lude.Maybe Lude.Bool) (\s a -> s {allowAutoRegistration = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacAllowAutoRegistration "Use generic-lens or generic-optics with 'allowAutoRegistration' instead." #-}
 
 -- | Information about the registration configuration.
-rcacRegistrationConfig :: Lens' RegisterCACertificate (Maybe RegistrationConfig)
-rcacRegistrationConfig = lens _rcacRegistrationConfig (\s a -> s {_rcacRegistrationConfig = a})
+--
+-- /Note:/ Consider using 'registrationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacRegistrationConfig :: Lens.Lens' RegisterCACertificate (Lude.Maybe RegistrationConfig)
+rcacRegistrationConfig = Lens.lens (registrationConfig :: RegisterCACertificate -> Lude.Maybe RegistrationConfig) (\s a -> s {registrationConfig = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacRegistrationConfig "Use generic-lens or generic-optics with 'registrationConfig' instead." #-}
 
 -- | Metadata which can be used to manage the CA certificate.
-rcacTags :: Lens' RegisterCACertificate [Tag]
-rcacTags = lens _rcacTags (\s a -> s {_rcacTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacTags :: Lens.Lens' RegisterCACertificate (Lude.Maybe [Tag])
+rcacTags = Lens.lens (tags :: RegisterCACertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The CA certificate.
-rcacCaCertificate :: Lens' RegisterCACertificate Text
-rcacCaCertificate = lens _rcacCaCertificate (\s a -> s {_rcacCaCertificate = a})
+--
+-- /Note:/ Consider using 'caCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacCaCertificate :: Lens.Lens' RegisterCACertificate Lude.Text
+rcacCaCertificate = Lens.lens (caCertificate :: RegisterCACertificate -> Lude.Text) (\s a -> s {caCertificate = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacCaCertificate "Use generic-lens or generic-optics with 'caCertificate' instead." #-}
 
 -- | The private key verification certificate.
-rcacVerificationCertificate :: Lens' RegisterCACertificate Text
-rcacVerificationCertificate = lens _rcacVerificationCertificate (\s a -> s {_rcacVerificationCertificate = a})
+--
+-- /Note:/ Consider using 'verificationCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacVerificationCertificate :: Lens.Lens' RegisterCACertificate Lude.Text
+rcacVerificationCertificate = Lens.lens (verificationCertificate :: RegisterCACertificate -> Lude.Text) (\s a -> s {verificationCertificate = a} :: RegisterCACertificate)
+{-# DEPRECATED rcacVerificationCertificate "Use generic-lens or generic-optics with 'verificationCertificate' instead." #-}
 
-instance AWSRequest RegisterCACertificate where
+instance Lude.AWSRequest RegisterCACertificate where
   type Rs RegisterCACertificate = RegisterCACertificateResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterCACertificateResponse'
-            <$> (x .?> "certificateArn")
-            <*> (x .?> "certificateId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "certificateArn")
+            Lude.<*> (x Lude..?> "certificateId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterCACertificate
+instance Lude.ToHeaders RegisterCACertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RegisterCACertificate
-
-instance ToHeaders RegisterCACertificate where
-  toHeaders = const mempty
-
-instance ToJSON RegisterCACertificate where
+instance Lude.ToJSON RegisterCACertificate where
   toJSON RegisterCACertificate' {..} =
-    object
-      ( catMaybes
-          [ ("registrationConfig" .=) <$> _rcacRegistrationConfig,
-            ("tags" .=) <$> _rcacTags,
-            Just ("caCertificate" .= _rcacCaCertificate),
-            Just ("verificationCertificate" .= _rcacVerificationCertificate)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registrationConfig" Lude..=) Lude.<$> registrationConfig,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("caCertificate" Lude..= caCertificate),
+            Lude.Just
+              ("verificationCertificate" Lude..= verificationCertificate)
           ]
       )
 
-instance ToPath RegisterCACertificate where
-  toPath = const "/cacertificate"
+instance Lude.ToPath RegisterCACertificate where
+  toPath = Lude.const "/cacertificate"
 
-instance ToQuery RegisterCACertificate where
+instance Lude.ToQuery RegisterCACertificate where
   toQuery RegisterCACertificate' {..} =
-    mconcat
-      [ "setAsActive" =: _rcacSetAsActive,
-        "allowAutoRegistration" =: _rcacAllowAutoRegistration
+    Lude.mconcat
+      [ "setAsActive" Lude.=: setAsActive,
+        "allowAutoRegistration" Lude.=: allowAutoRegistration
       ]
 
 -- | The output from the RegisterCACertificateResponse operation.
 --
---
---
--- /See:/ 'registerCACertificateResponse' smart constructor.
+-- /See:/ 'mkRegisterCACertificateResponse' smart constructor.
 data RegisterCACertificateResponse = RegisterCACertificateResponse'
-  { _rcacrsCertificateARN ::
-      !(Maybe Text),
-    _rcacrsCertificateId ::
-      !(Maybe Text),
-    _rcacrsResponseStatus :: !Int
+  { certificateARN ::
+      Lude.Maybe Lude.Text,
+    certificateId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCACertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcacrsCertificateARN' - The CA certificate ARN.
---
--- * 'rcacrsCertificateId' - The CA certificate identifier.
---
--- * 'rcacrsResponseStatus' - -- | The response status code.
-registerCACertificateResponse ::
-  -- | 'rcacrsResponseStatus'
-  Int ->
+-- * 'certificateARN' - The CA certificate ARN.
+-- * 'certificateId' - The CA certificate identifier.
+-- * 'responseStatus' - The response status code.
+mkRegisterCACertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterCACertificateResponse
-registerCACertificateResponse pResponseStatus_ =
+mkRegisterCACertificateResponse pResponseStatus_ =
   RegisterCACertificateResponse'
-    { _rcacrsCertificateARN = Nothing,
-      _rcacrsCertificateId = Nothing,
-      _rcacrsResponseStatus = pResponseStatus_
+    { certificateARN = Lude.Nothing,
+      certificateId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The CA certificate ARN.
-rcacrsCertificateARN :: Lens' RegisterCACertificateResponse (Maybe Text)
-rcacrsCertificateARN = lens _rcacrsCertificateARN (\s a -> s {_rcacrsCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacrsCertificateARN :: Lens.Lens' RegisterCACertificateResponse (Lude.Maybe Lude.Text)
+rcacrsCertificateARN = Lens.lens (certificateARN :: RegisterCACertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: RegisterCACertificateResponse)
+{-# DEPRECATED rcacrsCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The CA certificate identifier.
-rcacrsCertificateId :: Lens' RegisterCACertificateResponse (Maybe Text)
-rcacrsCertificateId = lens _rcacrsCertificateId (\s a -> s {_rcacrsCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacrsCertificateId :: Lens.Lens' RegisterCACertificateResponse (Lude.Maybe Lude.Text)
+rcacrsCertificateId = Lens.lens (certificateId :: RegisterCACertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: RegisterCACertificateResponse)
+{-# DEPRECATED rcacrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
--- | -- | The response status code.
-rcacrsResponseStatus :: Lens' RegisterCACertificateResponse Int
-rcacrsResponseStatus = lens _rcacrsResponseStatus (\s a -> s {_rcacrsResponseStatus = a})
-
-instance NFData RegisterCACertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcacrsResponseStatus :: Lens.Lens' RegisterCACertificateResponse Lude.Int
+rcacrsResponseStatus = Lens.lens (responseStatus :: RegisterCACertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterCACertificateResponse)
+{-# DEPRECATED rcacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

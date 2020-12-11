@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RegionName where
+module Network.AWS.Lightsail.Types.RegionName
+  ( RegionName
+      ( RegionName',
+        ApNortheast1,
+        ApNortheast2,
+        ApSouth1,
+        ApSoutheast1,
+        ApSoutheast2,
+        CaCentral1,
+        EuCentral1,
+        EuWest1,
+        EuWest2,
+        EuWest3,
+        UsEast1,
+        UsEast2,
+        UsWest1,
+        UsWest2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RegionName
-  = ApNortheast1
-  | ApNortheast2
-  | ApSouth1
-  | ApSoutheast1
-  | ApSoutheast2
-  | CaCentral1
-  | EuCentral1
-  | EuWest1
-  | EuWest2
-  | EuWest3
-  | UsEast1
-  | UsEast2
-  | UsWest1
-  | UsWest2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RegionName = RegionName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RegionName where
-  parser =
-    takeLowerText >>= \case
-      "ap-northeast-1" -> pure ApNortheast1
-      "ap-northeast-2" -> pure ApNortheast2
-      "ap-south-1" -> pure ApSouth1
-      "ap-southeast-1" -> pure ApSoutheast1
-      "ap-southeast-2" -> pure ApSoutheast2
-      "ca-central-1" -> pure CaCentral1
-      "eu-central-1" -> pure EuCentral1
-      "eu-west-1" -> pure EuWest1
-      "eu-west-2" -> pure EuWest2
-      "eu-west-3" -> pure EuWest3
-      "us-east-1" -> pure UsEast1
-      "us-east-2" -> pure UsEast2
-      "us-west-1" -> pure UsWest1
-      "us-west-2" -> pure UsWest2
-      e ->
-        fromTextError $
-          "Failure parsing RegionName from value: '" <> e
-            <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2"
+pattern ApNortheast1 :: RegionName
+pattern ApNortheast1 = RegionName' "ap-northeast-1"
 
-instance ToText RegionName where
-  toText = \case
-    ApNortheast1 -> "ap-northeast-1"
-    ApNortheast2 -> "ap-northeast-2"
-    ApSouth1 -> "ap-south-1"
-    ApSoutheast1 -> "ap-southeast-1"
-    ApSoutheast2 -> "ap-southeast-2"
-    CaCentral1 -> "ca-central-1"
-    EuCentral1 -> "eu-central-1"
-    EuWest1 -> "eu-west-1"
-    EuWest2 -> "eu-west-2"
-    EuWest3 -> "eu-west-3"
-    UsEast1 -> "us-east-1"
-    UsEast2 -> "us-east-2"
-    UsWest1 -> "us-west-1"
-    UsWest2 -> "us-west-2"
+pattern ApNortheast2 :: RegionName
+pattern ApNortheast2 = RegionName' "ap-northeast-2"
 
-instance Hashable RegionName
+pattern ApSouth1 :: RegionName
+pattern ApSouth1 = RegionName' "ap-south-1"
 
-instance NFData RegionName
+pattern ApSoutheast1 :: RegionName
+pattern ApSoutheast1 = RegionName' "ap-southeast-1"
 
-instance ToByteString RegionName
+pattern ApSoutheast2 :: RegionName
+pattern ApSoutheast2 = RegionName' "ap-southeast-2"
 
-instance ToQuery RegionName
+pattern CaCentral1 :: RegionName
+pattern CaCentral1 = RegionName' "ca-central-1"
 
-instance ToHeader RegionName
+pattern EuCentral1 :: RegionName
+pattern EuCentral1 = RegionName' "eu-central-1"
 
-instance ToJSON RegionName where
-  toJSON = toJSONText
+pattern EuWest1 :: RegionName
+pattern EuWest1 = RegionName' "eu-west-1"
 
-instance FromJSON RegionName where
-  parseJSON = parseJSONText "RegionName"
+pattern EuWest2 :: RegionName
+pattern EuWest2 = RegionName' "eu-west-2"
+
+pattern EuWest3 :: RegionName
+pattern EuWest3 = RegionName' "eu-west-3"
+
+pattern UsEast1 :: RegionName
+pattern UsEast1 = RegionName' "us-east-1"
+
+pattern UsEast2 :: RegionName
+pattern UsEast2 = RegionName' "us-east-2"
+
+pattern UsWest1 :: RegionName
+pattern UsWest1 = RegionName' "us-west-1"
+
+pattern UsWest2 :: RegionName
+pattern UsWest2 = RegionName' "us-west-2"
+
+{-# COMPLETE
+  ApNortheast1,
+  ApNortheast2,
+  ApSouth1,
+  ApSoutheast1,
+  ApSoutheast2,
+  CaCentral1,
+  EuCentral1,
+  EuWest1,
+  EuWest2,
+  EuWest3,
+  UsEast1,
+  UsEast2,
+  UsWest1,
+  UsWest2,
+  RegionName'
+  #-}

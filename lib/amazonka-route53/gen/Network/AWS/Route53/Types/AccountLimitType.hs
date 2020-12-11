@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.AccountLimitType where
+module Network.AWS.Route53.Types.AccountLimitType
+  ( AccountLimitType
+      ( AccountLimitType',
+        MaxHealthChecksByOwner,
+        MaxHostedZonesByOwner,
+        MaxReusableDelegationSetsByOwner,
+        MaxTrafficPoliciesByOwner,
+        MaxTrafficPolicyInstancesByOwner
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data AccountLimitType
-  = MaxHealthChecksByOwner
-  | MaxHostedZonesByOwner
-  | MaxReusableDelegationSetsByOwner
-  | MaxTrafficPoliciesByOwner
-  | MaxTrafficPolicyInstancesByOwner
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountLimitType = AccountLimitType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountLimitType where
-  parser =
-    takeLowerText >>= \case
-      "max_health_checks_by_owner" -> pure MaxHealthChecksByOwner
-      "max_hosted_zones_by_owner" -> pure MaxHostedZonesByOwner
-      "max_reusable_delegation_sets_by_owner" -> pure MaxReusableDelegationSetsByOwner
-      "max_traffic_policies_by_owner" -> pure MaxTrafficPoliciesByOwner
-      "max_traffic_policy_instances_by_owner" -> pure MaxTrafficPolicyInstancesByOwner
-      e ->
-        fromTextError $
-          "Failure parsing AccountLimitType from value: '" <> e
-            <> "'. Accepted values: max_health_checks_by_owner, max_hosted_zones_by_owner, max_reusable_delegation_sets_by_owner, max_traffic_policies_by_owner, max_traffic_policy_instances_by_owner"
+pattern MaxHealthChecksByOwner :: AccountLimitType
+pattern MaxHealthChecksByOwner = AccountLimitType' "MAX_HEALTH_CHECKS_BY_OWNER"
 
-instance ToText AccountLimitType where
-  toText = \case
-    MaxHealthChecksByOwner -> "MAX_HEALTH_CHECKS_BY_OWNER"
-    MaxHostedZonesByOwner -> "MAX_HOSTED_ZONES_BY_OWNER"
-    MaxReusableDelegationSetsByOwner -> "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
-    MaxTrafficPoliciesByOwner -> "MAX_TRAFFIC_POLICIES_BY_OWNER"
-    MaxTrafficPolicyInstancesByOwner -> "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+pattern MaxHostedZonesByOwner :: AccountLimitType
+pattern MaxHostedZonesByOwner = AccountLimitType' "MAX_HOSTED_ZONES_BY_OWNER"
 
-instance Hashable AccountLimitType
+pattern MaxReusableDelegationSetsByOwner :: AccountLimitType
+pattern MaxReusableDelegationSetsByOwner = AccountLimitType' "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
 
-instance NFData AccountLimitType
+pattern MaxTrafficPoliciesByOwner :: AccountLimitType
+pattern MaxTrafficPoliciesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICIES_BY_OWNER"
 
-instance ToByteString AccountLimitType
+pattern MaxTrafficPolicyInstancesByOwner :: AccountLimitType
+pattern MaxTrafficPolicyInstancesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
 
-instance ToQuery AccountLimitType
-
-instance ToHeader AccountLimitType
-
-instance FromXML AccountLimitType where
-  parseXML = parseXMLText "AccountLimitType"
-
-instance ToXML AccountLimitType where
-  toXML = toXMLText
+{-# COMPLETE
+  MaxHealthChecksByOwner,
+  MaxHostedZonesByOwner,
+  MaxReusableDelegationSetsByOwner,
+  MaxTrafficPoliciesByOwner,
+  MaxTrafficPolicyInstancesByOwner,
+  AccountLimitType'
+  #-}

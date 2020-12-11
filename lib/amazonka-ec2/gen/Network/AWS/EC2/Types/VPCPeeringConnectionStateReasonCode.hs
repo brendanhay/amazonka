@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCPeeringConnectionStateReasonCode where
+module Network.AWS.EC2.Types.VPCPeeringConnectionStateReasonCode
+  ( VPCPeeringConnectionStateReasonCode
+      ( VPCPeeringConnectionStateReasonCode',
+        VPCSRCActive,
+        VPCSRCDeleted,
+        VPCSRCDeleting,
+        VPCSRCExpired,
+        VPCSRCFailed,
+        VPCSRCInitiatingRequest,
+        VPCSRCPendingAcceptance,
+        VPCSRCProvisioning,
+        VPCSRCRejected
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPCPeeringConnectionStateReasonCode
-  = VPCSRCActive
-  | VPCSRCDeleted
-  | VPCSRCDeleting
-  | VPCSRCExpired
-  | VPCSRCFailed
-  | VPCSRCInitiatingRequest
-  | VPCSRCPendingAcceptance
-  | VPCSRCProvisioning
-  | VPCSRCRejected
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPCPeeringConnectionStateReasonCode = VPCPeeringConnectionStateReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPCPeeringConnectionStateReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure VPCSRCActive
-      "deleted" -> pure VPCSRCDeleted
-      "deleting" -> pure VPCSRCDeleting
-      "expired" -> pure VPCSRCExpired
-      "failed" -> pure VPCSRCFailed
-      "initiating-request" -> pure VPCSRCInitiatingRequest
-      "pending-acceptance" -> pure VPCSRCPendingAcceptance
-      "provisioning" -> pure VPCSRCProvisioning
-      "rejected" -> pure VPCSRCRejected
-      e ->
-        fromTextError $
-          "Failure parsing VPCPeeringConnectionStateReasonCode from value: '" <> e
-            <> "'. Accepted values: active, deleted, deleting, expired, failed, initiating-request, pending-acceptance, provisioning, rejected"
+pattern VPCSRCActive :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCActive = VPCPeeringConnectionStateReasonCode' "active"
 
-instance ToText VPCPeeringConnectionStateReasonCode where
-  toText = \case
-    VPCSRCActive -> "active"
-    VPCSRCDeleted -> "deleted"
-    VPCSRCDeleting -> "deleting"
-    VPCSRCExpired -> "expired"
-    VPCSRCFailed -> "failed"
-    VPCSRCInitiatingRequest -> "initiating-request"
-    VPCSRCPendingAcceptance -> "pending-acceptance"
-    VPCSRCProvisioning -> "provisioning"
-    VPCSRCRejected -> "rejected"
+pattern VPCSRCDeleted :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCDeleted = VPCPeeringConnectionStateReasonCode' "deleted"
 
-instance Hashable VPCPeeringConnectionStateReasonCode
+pattern VPCSRCDeleting :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCDeleting = VPCPeeringConnectionStateReasonCode' "deleting"
 
-instance NFData VPCPeeringConnectionStateReasonCode
+pattern VPCSRCExpired :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCExpired = VPCPeeringConnectionStateReasonCode' "expired"
 
-instance ToByteString VPCPeeringConnectionStateReasonCode
+pattern VPCSRCFailed :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCFailed = VPCPeeringConnectionStateReasonCode' "failed"
 
-instance ToQuery VPCPeeringConnectionStateReasonCode
+pattern VPCSRCInitiatingRequest :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCInitiatingRequest = VPCPeeringConnectionStateReasonCode' "initiating-request"
 
-instance ToHeader VPCPeeringConnectionStateReasonCode
+pattern VPCSRCPendingAcceptance :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCPendingAcceptance = VPCPeeringConnectionStateReasonCode' "pending-acceptance"
 
-instance FromXML VPCPeeringConnectionStateReasonCode where
-  parseXML = parseXMLText "VPCPeeringConnectionStateReasonCode"
+pattern VPCSRCProvisioning :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCProvisioning = VPCPeeringConnectionStateReasonCode' "provisioning"
+
+pattern VPCSRCRejected :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCRejected = VPCPeeringConnectionStateReasonCode' "rejected"
+
+{-# COMPLETE
+  VPCSRCActive,
+  VPCSRCDeleted,
+  VPCSRCDeleting,
+  VPCSRCExpired,
+  VPCSRCFailed,
+  VPCSRCInitiatingRequest,
+  VPCSRCPendingAcceptance,
+  VPCSRCProvisioning,
+  VPCSRCRejected,
+  VPCPeeringConnectionStateReasonCode'
+  #-}

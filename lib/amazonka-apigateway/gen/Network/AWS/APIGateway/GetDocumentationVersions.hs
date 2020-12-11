@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDocumentationVersions
-  ( -- * Creating a Request
-    getDocumentationVersions,
-    GetDocumentationVersions,
+  ( -- * Creating a request
+    GetDocumentationVersions (..),
+    mkGetDocumentationVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdvLimit,
     gdvPosition,
     gdvRestAPIId,
 
-    -- * Destructuring the Response
-    getDocumentationVersionsResponse,
-    GetDocumentationVersionsResponse,
+    -- * Destructuring the response
+    GetDocumentationVersionsResponse (..),
+    mkGetDocumentationVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdvrsItems,
     gdvrsPosition,
     gdvrsResponseStatus,
@@ -42,142 +37,161 @@ module Network.AWS.APIGateway.GetDocumentationVersions
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Gets the documentation versions of an API.
 --
---
---
--- /See:/ 'getDocumentationVersions' smart constructor.
+-- /See:/ 'mkGetDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-  { _gdvLimit ::
-      !(Maybe Int),
-    _gdvPosition :: !(Maybe Text),
-    _gdvRestAPIId :: !Text
+  { limit ::
+      Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdvLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gdvPosition' - The current pagination position in the paged result set.
---
--- * 'gdvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getDocumentationVersions ::
-  -- | 'gdvRestAPIId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetDocumentationVersions ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetDocumentationVersions
-getDocumentationVersions pRestAPIId_ =
+mkGetDocumentationVersions pRestAPIId_ =
   GetDocumentationVersions'
-    { _gdvLimit = Nothing,
-      _gdvPosition = Nothing,
-      _gdvRestAPIId = pRestAPIId_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gdvLimit :: Lens' GetDocumentationVersions (Maybe Int)
-gdvLimit = lens _gdvLimit (\s a -> s {_gdvLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvLimit :: Lens.Lens' GetDocumentationVersions (Lude.Maybe Lude.Int)
+gdvLimit = Lens.lens (limit :: GetDocumentationVersions -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetDocumentationVersions)
+{-# DEPRECATED gdvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gdvPosition :: Lens' GetDocumentationVersions (Maybe Text)
-gdvPosition = lens _gdvPosition (\s a -> s {_gdvPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvPosition :: Lens.Lens' GetDocumentationVersions (Lude.Maybe Lude.Text)
+gdvPosition = Lens.lens (position :: GetDocumentationVersions -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationVersions)
+{-# DEPRECATED gdvPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gdvRestAPIId :: Lens' GetDocumentationVersions Text
-gdvRestAPIId = lens _gdvRestAPIId (\s a -> s {_gdvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvRestAPIId :: Lens.Lens' GetDocumentationVersions Lude.Text
+gdvRestAPIId = Lens.lens (restAPIId :: GetDocumentationVersions -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationVersions)
+{-# DEPRECATED gdvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSPager GetDocumentationVersions where
+instance Page.AWSPager GetDocumentationVersions where
   page rq rs
-    | stop (rs ^. gdvrsPosition) = Nothing
-    | stop (rs ^. gdvrsItems) = Nothing
-    | otherwise = Just $ rq & gdvPosition .~ rs ^. gdvrsPosition
+    | Page.stop (rs Lens.^. gdvrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdvrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gdvPosition Lens..~ rs Lens.^. gdvrsPosition
 
-instance AWSRequest GetDocumentationVersions where
+instance Lude.AWSRequest GetDocumentationVersions where
   type Rs GetDocumentationVersions = GetDocumentationVersionsResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDocumentationVersionsResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDocumentationVersions
-
-instance NFData GetDocumentationVersions
-
-instance ToHeaders GetDocumentationVersions where
+instance Lude.ToHeaders GetDocumentationVersions where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetDocumentationVersions where
+instance Lude.ToPath GetDocumentationVersions where
   toPath GetDocumentationVersions' {..} =
-    mconcat
-      ["/restapis/", toBS _gdvRestAPIId, "/documentation/versions"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/documentation/versions"]
 
-instance ToQuery GetDocumentationVersions where
+instance Lude.ToQuery GetDocumentationVersions where
   toQuery GetDocumentationVersions' {..} =
-    mconcat ["limit" =: _gdvLimit, "position" =: _gdvPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | The collection of documentation snapshots of an API.
 --
---
 -- Use the 'DocumentationVersions' to manage documentation snapshots associated with various API stages.
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' , 'DocumentationVersion'
 --
--- /See:/ 'getDocumentationVersionsResponse' smart constructor.
+-- /See:/ 'mkGetDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-  { _gdvrsItems ::
-      !( Maybe
-           [DocumentationVersion]
-       ),
-    _gdvrsPosition ::
-      !(Maybe Text),
-    _gdvrsResponseStatus ::
-      !Int
+  { items ::
+      Lude.Maybe
+        [DocumentationVersion],
+    position ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdvrsItems' - The current page of elements from this collection.
---
--- * 'gdvrsPosition' - Undocumented member.
---
--- * 'gdvrsResponseStatus' - -- | The response status code.
-getDocumentationVersionsResponse ::
-  -- | 'gdvrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetDocumentationVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDocumentationVersionsResponse
-getDocumentationVersionsResponse pResponseStatus_ =
+mkGetDocumentationVersionsResponse pResponseStatus_ =
   GetDocumentationVersionsResponse'
-    { _gdvrsItems = Nothing,
-      _gdvrsPosition = Nothing,
-      _gdvrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gdvrsItems :: Lens' GetDocumentationVersionsResponse [DocumentationVersion]
-gdvrsItems = lens _gdvrsItems (\s a -> s {_gdvrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvrsItems :: Lens.Lens' GetDocumentationVersionsResponse (Lude.Maybe [DocumentationVersion])
+gdvrsItems = Lens.lens (items :: GetDocumentationVersionsResponse -> Lude.Maybe [DocumentationVersion]) (\s a -> s {items = a} :: GetDocumentationVersionsResponse)
+{-# DEPRECATED gdvrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gdvrsPosition :: Lens' GetDocumentationVersionsResponse (Maybe Text)
-gdvrsPosition = lens _gdvrsPosition (\s a -> s {_gdvrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvrsPosition :: Lens.Lens' GetDocumentationVersionsResponse (Lude.Maybe Lude.Text)
+gdvrsPosition = Lens.lens (position :: GetDocumentationVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationVersionsResponse)
+{-# DEPRECATED gdvrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gdvrsResponseStatus :: Lens' GetDocumentationVersionsResponse Int
-gdvrsResponseStatus = lens _gdvrsResponseStatus (\s a -> s {_gdvrsResponseStatus = a})
-
-instance NFData GetDocumentationVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvrsResponseStatus :: Lens.Lens' GetDocumentationVersionsResponse Lude.Int
+gdvrsResponseStatus = Lens.lens (responseStatus :: GetDocumentationVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDocumentationVersionsResponse)
+{-# DEPRECATED gdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionCategory where
+module Network.AWS.CodePipeline.Types.ActionCategory
+  ( ActionCategory
+      ( ActionCategory',
+        Approval,
+        Build,
+        Deploy,
+        Invoke,
+        Source,
+        Test
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionCategory
-  = Approval
-  | Build
-  | Deploy
-  | Invoke
-  | Source
-  | Test
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionCategory = ActionCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionCategory where
-  parser =
-    takeLowerText >>= \case
-      "approval" -> pure Approval
-      "build" -> pure Build
-      "deploy" -> pure Deploy
-      "invoke" -> pure Invoke
-      "source" -> pure Source
-      "test" -> pure Test
-      e ->
-        fromTextError $
-          "Failure parsing ActionCategory from value: '" <> e
-            <> "'. Accepted values: approval, build, deploy, invoke, source, test"
+pattern Approval :: ActionCategory
+pattern Approval = ActionCategory' "Approval"
 
-instance ToText ActionCategory where
-  toText = \case
-    Approval -> "Approval"
-    Build -> "Build"
-    Deploy -> "Deploy"
-    Invoke -> "Invoke"
-    Source -> "Source"
-    Test -> "Test"
+pattern Build :: ActionCategory
+pattern Build = ActionCategory' "Build"
 
-instance Hashable ActionCategory
+pattern Deploy :: ActionCategory
+pattern Deploy = ActionCategory' "Deploy"
 
-instance NFData ActionCategory
+pattern Invoke :: ActionCategory
+pattern Invoke = ActionCategory' "Invoke"
 
-instance ToByteString ActionCategory
+pattern Source :: ActionCategory
+pattern Source = ActionCategory' "Source"
 
-instance ToQuery ActionCategory
+pattern Test :: ActionCategory
+pattern Test = ActionCategory' "Test"
 
-instance ToHeader ActionCategory
-
-instance ToJSON ActionCategory where
-  toJSON = toJSONText
-
-instance FromJSON ActionCategory where
-  parseJSON = parseJSONText "ActionCategory"
+{-# COMPLETE
+  Approval,
+  Build,
+  Deploy,
+  Invoke,
+  Source,
+  Test,
+  ActionCategory'
+  #-}

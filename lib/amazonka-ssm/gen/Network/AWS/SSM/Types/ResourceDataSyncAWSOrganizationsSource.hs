@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource where
+module Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
+  ( ResourceDataSyncAWSOrganizationsSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceDataSyncAWSOrganizationsSource,
+
+    -- * Lenses
+    rdsaosOrganizationalUnits,
+    rdsaosOrganizationSourceType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
 
 -- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS Organization is not present, from multiple AWS Regions.
 --
---
---
--- /See:/ 'resourceDataSyncAWSOrganizationsSource' smart constructor.
+-- /See:/ 'mkResourceDataSyncAWSOrganizationsSource' smart constructor.
 data ResourceDataSyncAWSOrganizationsSource = ResourceDataSyncAWSOrganizationsSource'
-  { _rdsaosOrganizationalUnits ::
-      !( Maybe
-           ( List1
-               ResourceDataSyncOrganizationalUnit
-           )
-       ),
-    _rdsaosOrganizationSourceType ::
-      !Text
+  { organizationalUnits ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ResourceDataSyncOrganizationalUnit
+        ),
+    organizationSourceType ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncAWSOrganizationsSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdsaosOrganizationalUnits' - The AWS Organizations organization units included in the sync.
---
--- * 'rdsaosOrganizationSourceType' - If an AWS Organization is present, this is either @OrganizationalUnits@ or @EntireOrganization@ . For @OrganizationalUnits@ , the data is aggregated from a set of organization units. For @EntireOrganization@ , the data is aggregated from the entire AWS Organization.
-resourceDataSyncAWSOrganizationsSource ::
-  -- | 'rdsaosOrganizationSourceType'
-  Text ->
+-- * 'organizationSourceType' - If an AWS Organization is present, this is either @OrganizationalUnits@ or @EntireOrganization@ . For @OrganizationalUnits@ , the data is aggregated from a set of organization units. For @EntireOrganization@ , the data is aggregated from the entire AWS Organization.
+-- * 'organizationalUnits' - The AWS Organizations organization units included in the sync.
+mkResourceDataSyncAWSOrganizationsSource ::
+  -- | 'organizationSourceType'
+  Lude.Text ->
   ResourceDataSyncAWSOrganizationsSource
-resourceDataSyncAWSOrganizationsSource pOrganizationSourceType_ =
+mkResourceDataSyncAWSOrganizationsSource pOrganizationSourceType_ =
   ResourceDataSyncAWSOrganizationsSource'
-    { _rdsaosOrganizationalUnits =
-        Nothing,
-      _rdsaosOrganizationSourceType =
-        pOrganizationSourceType_
+    { organizationalUnits =
+        Lude.Nothing,
+      organizationSourceType = pOrganizationSourceType_
     }
 
 -- | The AWS Organizations organization units included in the sync.
-rdsaosOrganizationalUnits :: Lens' ResourceDataSyncAWSOrganizationsSource (Maybe (NonEmpty ResourceDataSyncOrganizationalUnit))
-rdsaosOrganizationalUnits = lens _rdsaosOrganizationalUnits (\s a -> s {_rdsaosOrganizationalUnits = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'organizationalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsaosOrganizationalUnits :: Lens.Lens' ResourceDataSyncAWSOrganizationsSource (Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit))
+rdsaosOrganizationalUnits = Lens.lens (organizationalUnits :: ResourceDataSyncAWSOrganizationsSource -> Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit)) (\s a -> s {organizationalUnits = a} :: ResourceDataSyncAWSOrganizationsSource)
+{-# DEPRECATED rdsaosOrganizationalUnits "Use generic-lens or generic-optics with 'organizationalUnits' instead." #-}
 
 -- | If an AWS Organization is present, this is either @OrganizationalUnits@ or @EntireOrganization@ . For @OrganizationalUnits@ , the data is aggregated from a set of organization units. For @EntireOrganization@ , the data is aggregated from the entire AWS Organization.
-rdsaosOrganizationSourceType :: Lens' ResourceDataSyncAWSOrganizationsSource Text
-rdsaosOrganizationSourceType = lens _rdsaosOrganizationSourceType (\s a -> s {_rdsaosOrganizationSourceType = a})
+--
+-- /Note:/ Consider using 'organizationSourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsaosOrganizationSourceType :: Lens.Lens' ResourceDataSyncAWSOrganizationsSource Lude.Text
+rdsaosOrganizationSourceType = Lens.lens (organizationSourceType :: ResourceDataSyncAWSOrganizationsSource -> Lude.Text) (\s a -> s {organizationSourceType = a} :: ResourceDataSyncAWSOrganizationsSource)
+{-# DEPRECATED rdsaosOrganizationSourceType "Use generic-lens or generic-optics with 'organizationSourceType' instead." #-}
 
-instance FromJSON ResourceDataSyncAWSOrganizationsSource where
+instance Lude.FromJSON ResourceDataSyncAWSOrganizationsSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDataSyncAWSOrganizationsSource"
       ( \x ->
           ResourceDataSyncAWSOrganizationsSource'
-            <$> (x .:? "OrganizationalUnits") <*> (x .: "OrganizationSourceType")
+            Lude.<$> (x Lude..:? "OrganizationalUnits")
+            Lude.<*> (x Lude..: "OrganizationSourceType")
       )
 
-instance Hashable ResourceDataSyncAWSOrganizationsSource
-
-instance NFData ResourceDataSyncAWSOrganizationsSource
-
-instance ToJSON ResourceDataSyncAWSOrganizationsSource where
+instance Lude.ToJSON ResourceDataSyncAWSOrganizationsSource where
   toJSON ResourceDataSyncAWSOrganizationsSource' {..} =
-    object
-      ( catMaybes
-          [ ("OrganizationalUnits" .=) <$> _rdsaosOrganizationalUnits,
-            Just ("OrganizationSourceType" .= _rdsaosOrganizationSourceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OrganizationalUnits" Lude..=) Lude.<$> organizationalUnits,
+            Lude.Just
+              ("OrganizationSourceType" Lude..= organizationSourceType)
           ]
       )

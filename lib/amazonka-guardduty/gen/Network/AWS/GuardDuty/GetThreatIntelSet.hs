@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
 module Network.AWS.GuardDuty.GetThreatIntelSet
-  ( -- * Creating a Request
-    getThreatIntelSet,
-    GetThreatIntelSet,
+  ( -- * Creating a request
+    GetThreatIntelSet (..),
+    mkGetThreatIntelSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtisDetectorId,
     gtisThreatIntelSetId,
 
-    -- * Destructuring the Response
-    getThreatIntelSetResponse,
-    GetThreatIntelSetResponse,
+    -- * Destructuring the response
+    GetThreatIntelSetResponse (..),
+    mkGetThreatIntelSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtisrsTags,
     gtisrsResponseStatus,
     gtisrsName,
@@ -42,160 +37,185 @@ module Network.AWS.GuardDuty.GetThreatIntelSet
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getThreatIntelSet' smart constructor.
+-- | /See:/ 'mkGetThreatIntelSet' smart constructor.
 data GetThreatIntelSet = GetThreatIntelSet'
-  { _gtisDetectorId ::
-      !Text,
-    _gtisThreatIntelSetId :: !Text
+  { detectorId ::
+      Lude.Text,
+    threatIntelSetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThreatIntelSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtisDetectorId' - The unique ID of the detector that the threatIntelSet is associated with.
---
--- * 'gtisThreatIntelSetId' - The unique ID of the threatIntelSet that you want to get.
-getThreatIntelSet ::
-  -- | 'gtisDetectorId'
-  Text ->
-  -- | 'gtisThreatIntelSetId'
-  Text ->
+-- * 'detectorId' - The unique ID of the detector that the threatIntelSet is associated with.
+-- * 'threatIntelSetId' - The unique ID of the threatIntelSet that you want to get.
+mkGetThreatIntelSet ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'threatIntelSetId'
+  Lude.Text ->
   GetThreatIntelSet
-getThreatIntelSet pDetectorId_ pThreatIntelSetId_ =
+mkGetThreatIntelSet pDetectorId_ pThreatIntelSetId_ =
   GetThreatIntelSet'
-    { _gtisDetectorId = pDetectorId_,
-      _gtisThreatIntelSetId = pThreatIntelSetId_
+    { detectorId = pDetectorId_,
+      threatIntelSetId = pThreatIntelSetId_
     }
 
 -- | The unique ID of the detector that the threatIntelSet is associated with.
-gtisDetectorId :: Lens' GetThreatIntelSet Text
-gtisDetectorId = lens _gtisDetectorId (\s a -> s {_gtisDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisDetectorId :: Lens.Lens' GetThreatIntelSet Lude.Text
+gtisDetectorId = Lens.lens (detectorId :: GetThreatIntelSet -> Lude.Text) (\s a -> s {detectorId = a} :: GetThreatIntelSet)
+{-# DEPRECATED gtisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The unique ID of the threatIntelSet that you want to get.
-gtisThreatIntelSetId :: Lens' GetThreatIntelSet Text
-gtisThreatIntelSetId = lens _gtisThreatIntelSetId (\s a -> s {_gtisThreatIntelSetId = a})
+--
+-- /Note:/ Consider using 'threatIntelSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisThreatIntelSetId :: Lens.Lens' GetThreatIntelSet Lude.Text
+gtisThreatIntelSetId = Lens.lens (threatIntelSetId :: GetThreatIntelSet -> Lude.Text) (\s a -> s {threatIntelSetId = a} :: GetThreatIntelSet)
+{-# DEPRECATED gtisThreatIntelSetId "Use generic-lens or generic-optics with 'threatIntelSetId' instead." #-}
 
-instance AWSRequest GetThreatIntelSet where
+instance Lude.AWSRequest GetThreatIntelSet where
   type Rs GetThreatIntelSet = GetThreatIntelSetResponse
-  request = get guardDuty
+  request = Req.get guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetThreatIntelSetResponse'
-            <$> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
-            <*> (x .:> "name")
-            <*> (x .:> "format")
-            <*> (x .:> "location")
-            <*> (x .:> "status")
+            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "name")
+            Lude.<*> (x Lude..:> "format")
+            Lude.<*> (x Lude..:> "location")
+            Lude.<*> (x Lude..:> "status")
       )
 
-instance Hashable GetThreatIntelSet
-
-instance NFData GetThreatIntelSet
-
-instance ToHeaders GetThreatIntelSet where
+instance Lude.ToHeaders GetThreatIntelSet where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetThreatIntelSet where
+instance Lude.ToPath GetThreatIntelSet where
   toPath GetThreatIntelSet' {..} =
-    mconcat
+    Lude.mconcat
       [ "/detector/",
-        toBS _gtisDetectorId,
+        Lude.toBS detectorId,
         "/threatintelset/",
-        toBS _gtisThreatIntelSetId
+        Lude.toBS threatIntelSetId
       ]
 
-instance ToQuery GetThreatIntelSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetThreatIntelSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getThreatIntelSetResponse' smart constructor.
+-- | /See:/ 'mkGetThreatIntelSetResponse' smart constructor.
 data GetThreatIntelSetResponse = GetThreatIntelSetResponse'
-  { _gtisrsTags ::
-      !(Maybe (Map Text (Text))),
-    _gtisrsResponseStatus :: !Int,
-    _gtisrsName :: !Text,
-    _gtisrsFormat :: !ThreatIntelSetFormat,
-    _gtisrsLocation :: !Text,
-    _gtisrsStatus :: !ThreatIntelSetStatus
+  { tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int,
+    name :: Lude.Text,
+    format :: ThreatIntelSetFormat,
+    location :: Lude.Text,
+    status :: ThreatIntelSetStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThreatIntelSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtisrsTags' - The tags of the threat list resource.
---
--- * 'gtisrsResponseStatus' - -- | The response status code.
---
--- * 'gtisrsName' - A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
---
--- * 'gtisrsFormat' - The format of the threatIntelSet.
---
--- * 'gtisrsLocation' - The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
---
--- * 'gtisrsStatus' - The status of threatIntelSet file uploaded.
-getThreatIntelSetResponse ::
-  -- | 'gtisrsResponseStatus'
-  Int ->
-  -- | 'gtisrsName'
-  Text ->
-  -- | 'gtisrsFormat'
+-- * 'format' - The format of the threatIntelSet.
+-- * 'location' - The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+-- * 'name' - A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of threatIntelSet file uploaded.
+-- * 'tags' - The tags of the threat list resource.
+mkGetThreatIntelSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'format'
   ThreatIntelSetFormat ->
-  -- | 'gtisrsLocation'
-  Text ->
-  -- | 'gtisrsStatus'
+  -- | 'location'
+  Lude.Text ->
+  -- | 'status'
   ThreatIntelSetStatus ->
   GetThreatIntelSetResponse
-getThreatIntelSetResponse
+mkGetThreatIntelSetResponse
   pResponseStatus_
   pName_
   pFormat_
   pLocation_
   pStatus_ =
     GetThreatIntelSetResponse'
-      { _gtisrsTags = Nothing,
-        _gtisrsResponseStatus = pResponseStatus_,
-        _gtisrsName = pName_,
-        _gtisrsFormat = pFormat_,
-        _gtisrsLocation = pLocation_,
-        _gtisrsStatus = pStatus_
+      { tags = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        name = pName_,
+        format = pFormat_,
+        location = pLocation_,
+        status = pStatus_
       }
 
 -- | The tags of the threat list resource.
-gtisrsTags :: Lens' GetThreatIntelSetResponse (HashMap Text (Text))
-gtisrsTags = lens _gtisrsTags (\s a -> s {_gtisrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsTags :: Lens.Lens' GetThreatIntelSetResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gtisrsTags = Lens.lens (tags :: GetThreatIntelSetResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-gtisrsResponseStatus :: Lens' GetThreatIntelSetResponse Int
-gtisrsResponseStatus = lens _gtisrsResponseStatus (\s a -> s {_gtisrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsResponseStatus :: Lens.Lens' GetThreatIntelSetResponse Lude.Int
+gtisrsResponseStatus = Lens.lens (responseStatus :: GetThreatIntelSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
-gtisrsName :: Lens' GetThreatIntelSetResponse Text
-gtisrsName = lens _gtisrsName (\s a -> s {_gtisrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsName :: Lens.Lens' GetThreatIntelSetResponse Lude.Text
+gtisrsName = Lens.lens (name :: GetThreatIntelSetResponse -> Lude.Text) (\s a -> s {name = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The format of the threatIntelSet.
-gtisrsFormat :: Lens' GetThreatIntelSetResponse ThreatIntelSetFormat
-gtisrsFormat = lens _gtisrsFormat (\s a -> s {_gtisrsFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsFormat :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetFormat
+gtisrsFormat = Lens.lens (format :: GetThreatIntelSetResponse -> ThreatIntelSetFormat) (\s a -> s {format = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The URI of the file that contains the ThreatIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
-gtisrsLocation :: Lens' GetThreatIntelSetResponse Text
-gtisrsLocation = lens _gtisrsLocation (\s a -> s {_gtisrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsLocation :: Lens.Lens' GetThreatIntelSetResponse Lude.Text
+gtisrsLocation = Lens.lens (location :: GetThreatIntelSetResponse -> Lude.Text) (\s a -> s {location = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The status of threatIntelSet file uploaded.
-gtisrsStatus :: Lens' GetThreatIntelSetResponse ThreatIntelSetStatus
-gtisrsStatus = lens _gtisrsStatus (\s a -> s {_gtisrsStatus = a})
-
-instance NFData GetThreatIntelSetResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtisrsStatus :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetStatus
+gtisrsStatus = Lens.lens (status :: GetThreatIntelSetResponse -> ThreatIntelSetStatus) (\s a -> s {status = a} :: GetThreatIntelSetResponse)
+{-# DEPRECATED gtisrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

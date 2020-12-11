@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Retrieves all of the fields and values of a single log event. All fields are retrieved, even if the original query that produced the @logRecordPointer@ retrieved only a subset of fields. Fields are returned as field name/field value pairs.
 --
---
 -- The full unparsed log event is returned within @@message@ .
 module Network.AWS.CloudWatchLogs.GetLogRecord
-  ( -- * Creating a Request
-    getLogRecord,
-    GetLogRecord,
+  ( -- * Creating a request
+    GetLogRecord (..),
+    mkGetLogRecord,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glrLogRecordPointer,
 
-    -- * Destructuring the Response
-    getLogRecordResponse,
-    GetLogRecordResponse,
+    -- * Destructuring the response
+    GetLogRecordResponse (..),
+    mkGetLogRecordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glrrsLogRecord,
     glrrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLogRecord' smart constructor.
-newtype GetLogRecord = GetLogRecord' {_glrLogRecordPointer :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetLogRecord' smart constructor.
+newtype GetLogRecord = GetLogRecord' {logRecordPointer :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glrLogRecordPointer' - The pointer corresponding to the log event record you want to retrieve. You get this from the response of a @GetQueryResults@ operation. In that response, the value of the @@ptr@ field for a log event is the value to use as @logRecordPointer@ to retrieve that complete log event record.
-getLogRecord ::
-  -- | 'glrLogRecordPointer'
-  Text ->
+-- * 'logRecordPointer' - The pointer corresponding to the log event record you want to retrieve. You get this from the response of a @GetQueryResults@ operation. In that response, the value of the @@ptr@ field for a log event is the value to use as @logRecordPointer@ to retrieve that complete log event record.
+mkGetLogRecord ::
+  -- | 'logRecordPointer'
+  Lude.Text ->
   GetLogRecord
-getLogRecord pLogRecordPointer_ =
-  GetLogRecord' {_glrLogRecordPointer = pLogRecordPointer_}
+mkGetLogRecord pLogRecordPointer_ =
+  GetLogRecord' {logRecordPointer = pLogRecordPointer_}
 
 -- | The pointer corresponding to the log event record you want to retrieve. You get this from the response of a @GetQueryResults@ operation. In that response, the value of the @@ptr@ field for a log event is the value to use as @logRecordPointer@ to retrieve that complete log event record.
-glrLogRecordPointer :: Lens' GetLogRecord Text
-glrLogRecordPointer = lens _glrLogRecordPointer (\s a -> s {_glrLogRecordPointer = a})
+--
+-- /Note:/ Consider using 'logRecordPointer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glrLogRecordPointer :: Lens.Lens' GetLogRecord Lude.Text
+glrLogRecordPointer = Lens.lens (logRecordPointer :: GetLogRecord -> Lude.Text) (\s a -> s {logRecordPointer = a} :: GetLogRecord)
+{-# DEPRECATED glrLogRecordPointer "Use generic-lens or generic-optics with 'logRecordPointer' instead." #-}
 
-instance AWSRequest GetLogRecord where
+instance Lude.AWSRequest GetLogRecord where
   type Rs GetLogRecord = GetLogRecordResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLogRecordResponse'
-            <$> (x .?> "logRecord" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "logRecord" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLogRecord
-
-instance NFData GetLogRecord
-
-instance ToHeaders GetLogRecord where
+instance Lude.ToHeaders GetLogRecord where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.GetLogRecord" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.GetLogRecord" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetLogRecord where
+instance Lude.ToJSON GetLogRecord where
   toJSON GetLogRecord' {..} =
-    object
-      (catMaybes [Just ("logRecordPointer" .= _glrLogRecordPointer)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("logRecordPointer" Lude..= logRecordPointer)]
+      )
 
-instance ToPath GetLogRecord where
-  toPath = const "/"
+instance Lude.ToPath GetLogRecord where
+  toPath = Lude.const "/"
 
-instance ToQuery GetLogRecord where
-  toQuery = const mempty
+instance Lude.ToQuery GetLogRecord where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLogRecordResponse' smart constructor.
+-- | /See:/ 'mkGetLogRecordResponse' smart constructor.
 data GetLogRecordResponse = GetLogRecordResponse'
-  { _glrrsLogRecord ::
-      !(Maybe (Map Text (Text))),
-    _glrrsResponseStatus :: !Int
+  { logRecord ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogRecordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glrrsLogRecord' - The requested log event, as a JSON string.
---
--- * 'glrrsResponseStatus' - -- | The response status code.
-getLogRecordResponse ::
-  -- | 'glrrsResponseStatus'
-  Int ->
+-- * 'logRecord' - The requested log event, as a JSON string.
+-- * 'responseStatus' - The response status code.
+mkGetLogRecordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLogRecordResponse
-getLogRecordResponse pResponseStatus_ =
+mkGetLogRecordResponse pResponseStatus_ =
   GetLogRecordResponse'
-    { _glrrsLogRecord = Nothing,
-      _glrrsResponseStatus = pResponseStatus_
+    { logRecord = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The requested log event, as a JSON string.
-glrrsLogRecord :: Lens' GetLogRecordResponse (HashMap Text (Text))
-glrrsLogRecord = lens _glrrsLogRecord (\s a -> s {_glrrsLogRecord = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'logRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glrrsLogRecord :: Lens.Lens' GetLogRecordResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+glrrsLogRecord = Lens.lens (logRecord :: GetLogRecordResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {logRecord = a} :: GetLogRecordResponse)
+{-# DEPRECATED glrrsLogRecord "Use generic-lens or generic-optics with 'logRecord' instead." #-}
 
--- | -- | The response status code.
-glrrsResponseStatus :: Lens' GetLogRecordResponse Int
-glrrsResponseStatus = lens _glrrsResponseStatus (\s a -> s {_glrrsResponseStatus = a})
-
-instance NFData GetLogRecordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glrrsResponseStatus :: Lens.Lens' GetLogRecordResponse Lude.Int
+glrrsResponseStatus = Lens.lens (responseStatus :: GetLogRecordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLogRecordResponse)
+{-# DEPRECATED glrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

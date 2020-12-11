@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,134 @@
 --
 -- Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.
 --
---
 -- Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an @Environment@ tag key to both identity pools. The value of this key might be @Test@ for one identity pool and @Production@ for the other.
---
 -- Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.
---
 -- You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.
 module Network.AWS.CognitoIdentity.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResourceARN,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     trrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceARN :: !Text,
-    _trTags :: !(Map Text (Text))
+  { resourceARN :: Lude.Text,
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trResourceARN' - The Amazon Resource Name (ARN) of the identity pool to assign the tags to.
---
--- * 'trTags' - The tags to assign to the identity pool.
-tagResource ::
-  -- | 'trResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the identity pool to assign the tags to.
+-- * 'tags' - The tags to assign to the identity pool.
+mkTagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   TagResource
-tagResource pResourceARN_ =
-  TagResource' {_trResourceARN = pResourceARN_, _trTags = mempty}
+mkTagResource pResourceARN_ =
+  TagResource' {resourceARN = pResourceARN_, tags = Lude.mempty}
 
 -- | The Amazon Resource Name (ARN) of the identity pool to assign the tags to.
-trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\s a -> s {_trResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tags to assign to the identity pool.
-trTags :: Lens' TagResource (HashMap Text (Text))
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource (Lude.HashMap Lude.Text (Lude.Text))
+trTags = Lens.lens (tags :: TagResource -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON cognitoIdentity
+  request = Req.postJSON cognitoIdentityService
   response =
-    receiveEmpty
-      (\s h x -> TagResourceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
+instance Lude.ToHeaders TagResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.TagResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.TagResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TagResource where
+instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
-    object
-      ( catMaybes
-          [Just ("ResourceArn" .= _trResourceARN), Just ("Tags" .= _trTags)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
+            Lude.Just ("Tags" Lude..= tags)
+          ]
       )
 
-instance ToPath TagResource where
-  toPath = const "/"
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/"
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse ::
-  -- | 'trrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkTagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+mkTagResourceResponse pResponseStatus_ =
+  TagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\s a -> s {_trrsResponseStatus = a})
-
-instance NFData TagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
+trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
+{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

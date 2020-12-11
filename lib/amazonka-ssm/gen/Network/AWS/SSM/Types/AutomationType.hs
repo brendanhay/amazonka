@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationType where
+module Network.AWS.SSM.Types.AutomationType
+  ( AutomationType
+      ( AutomationType',
+        CrossAccount,
+        Local
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutomationType
-  = CrossAccount
-  | Local
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutomationType = AutomationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutomationType where
-  parser =
-    takeLowerText >>= \case
-      "crossaccount" -> pure CrossAccount
-      "local" -> pure Local
-      e ->
-        fromTextError $
-          "Failure parsing AutomationType from value: '" <> e
-            <> "'. Accepted values: crossaccount, local"
+pattern CrossAccount :: AutomationType
+pattern CrossAccount = AutomationType' "CrossAccount"
 
-instance ToText AutomationType where
-  toText = \case
-    CrossAccount -> "CrossAccount"
-    Local -> "Local"
+pattern Local :: AutomationType
+pattern Local = AutomationType' "Local"
 
-instance Hashable AutomationType
-
-instance NFData AutomationType
-
-instance ToByteString AutomationType
-
-instance ToQuery AutomationType
-
-instance ToHeader AutomationType
-
-instance FromJSON AutomationType where
-  parseJSON = parseJSONText "AutomationType"
+{-# COMPLETE
+  CrossAccount,
+  Local,
+  AutomationType'
+  #-}

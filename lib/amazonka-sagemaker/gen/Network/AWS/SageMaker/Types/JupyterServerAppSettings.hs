@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.JupyterServerAppSettings where
+module Network.AWS.SageMaker.Types.JupyterServerAppSettings
+  ( JupyterServerAppSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJupyterServerAppSettings,
+
+    -- * Lenses
+    jsasDefaultResourceSpec,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ResourceSpec
 
 -- | The JupyterServer app settings.
 --
---
---
--- /See:/ 'jupyterServerAppSettings' smart constructor.
+-- /See:/ 'mkJupyterServerAppSettings' smart constructor.
 newtype JupyterServerAppSettings = JupyterServerAppSettings'
-  { _jsasDefaultResourceSpec ::
-      Maybe ResourceSpec
+  { defaultResourceSpec ::
+      Lude.Maybe ResourceSpec
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JupyterServerAppSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jsasDefaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
-jupyterServerAppSettings ::
+-- * 'defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+mkJupyterServerAppSettings ::
   JupyterServerAppSettings
-jupyterServerAppSettings =
-  JupyterServerAppSettings' {_jsasDefaultResourceSpec = Nothing}
+mkJupyterServerAppSettings =
+  JupyterServerAppSettings' {defaultResourceSpec = Lude.Nothing}
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
-jsasDefaultResourceSpec :: Lens' JupyterServerAppSettings (Maybe ResourceSpec)
-jsasDefaultResourceSpec = lens _jsasDefaultResourceSpec (\s a -> s {_jsasDefaultResourceSpec = a})
+--
+-- /Note:/ Consider using 'defaultResourceSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsasDefaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Lude.Maybe ResourceSpec)
+jsasDefaultResourceSpec = Lens.lens (defaultResourceSpec :: JupyterServerAppSettings -> Lude.Maybe ResourceSpec) (\s a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
+{-# DEPRECATED jsasDefaultResourceSpec "Use generic-lens or generic-optics with 'defaultResourceSpec' instead." #-}
 
-instance FromJSON JupyterServerAppSettings where
+instance Lude.FromJSON JupyterServerAppSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "JupyterServerAppSettings"
       ( \x ->
-          JupyterServerAppSettings' <$> (x .:? "DefaultResourceSpec")
+          JupyterServerAppSettings'
+            Lude.<$> (x Lude..:? "DefaultResourceSpec")
       )
 
-instance Hashable JupyterServerAppSettings
-
-instance NFData JupyterServerAppSettings
-
-instance ToJSON JupyterServerAppSettings where
+instance Lude.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =
-    object
-      ( catMaybes
-          [("DefaultResourceSpec" .=) <$> _jsasDefaultResourceSpec]
+    Lude.object
+      ( Lude.catMaybes
+          [("DefaultResourceSpec" Lude..=) Lude.<$> defaultResourceSpec]
       )

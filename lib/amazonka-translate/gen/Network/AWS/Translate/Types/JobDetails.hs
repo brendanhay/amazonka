@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.JobDetails where
+module Network.AWS.Translate.Types.JobDetails
+  ( JobDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobDetails,
+
+    -- * Lenses
+    jdTranslatedDocumentsCount,
+    jdDocumentsWithErrorsCount,
+    jdInputDocumentsCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The number of documents successfully and unsuccessfully processed during a translation job.
 --
---
---
--- /See:/ 'jobDetails' smart constructor.
+-- /See:/ 'mkJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { _jdTranslatedDocumentsCount ::
-      !(Maybe Int),
-    _jdDocumentsWithErrorsCount :: !(Maybe Int),
-    _jdInputDocumentsCount :: !(Maybe Int)
+  { translatedDocumentsCount ::
+      Lude.Maybe Lude.Int,
+    documentsWithErrorsCount :: Lude.Maybe Lude.Int,
+    inputDocumentsCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jdTranslatedDocumentsCount' - The number of documents successfully processed during a translation job.
---
--- * 'jdDocumentsWithErrorsCount' - The number of documents that could not be processed during a translation job.
---
--- * 'jdInputDocumentsCount' - The number of documents used as input in a translation job.
-jobDetails ::
+-- * 'documentsWithErrorsCount' - The number of documents that could not be processed during a translation job.
+-- * 'inputDocumentsCount' - The number of documents used as input in a translation job.
+-- * 'translatedDocumentsCount' - The number of documents successfully processed during a translation job.
+mkJobDetails ::
   JobDetails
-jobDetails =
+mkJobDetails =
   JobDetails'
-    { _jdTranslatedDocumentsCount = Nothing,
-      _jdDocumentsWithErrorsCount = Nothing,
-      _jdInputDocumentsCount = Nothing
+    { translatedDocumentsCount = Lude.Nothing,
+      documentsWithErrorsCount = Lude.Nothing,
+      inputDocumentsCount = Lude.Nothing
     }
 
 -- | The number of documents successfully processed during a translation job.
-jdTranslatedDocumentsCount :: Lens' JobDetails (Maybe Int)
-jdTranslatedDocumentsCount = lens _jdTranslatedDocumentsCount (\s a -> s {_jdTranslatedDocumentsCount = a})
+--
+-- /Note:/ Consider using 'translatedDocumentsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdTranslatedDocumentsCount :: Lens.Lens' JobDetails (Lude.Maybe Lude.Int)
+jdTranslatedDocumentsCount = Lens.lens (translatedDocumentsCount :: JobDetails -> Lude.Maybe Lude.Int) (\s a -> s {translatedDocumentsCount = a} :: JobDetails)
+{-# DEPRECATED jdTranslatedDocumentsCount "Use generic-lens or generic-optics with 'translatedDocumentsCount' instead." #-}
 
 -- | The number of documents that could not be processed during a translation job.
-jdDocumentsWithErrorsCount :: Lens' JobDetails (Maybe Int)
-jdDocumentsWithErrorsCount = lens _jdDocumentsWithErrorsCount (\s a -> s {_jdDocumentsWithErrorsCount = a})
+--
+-- /Note:/ Consider using 'documentsWithErrorsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdDocumentsWithErrorsCount :: Lens.Lens' JobDetails (Lude.Maybe Lude.Int)
+jdDocumentsWithErrorsCount = Lens.lens (documentsWithErrorsCount :: JobDetails -> Lude.Maybe Lude.Int) (\s a -> s {documentsWithErrorsCount = a} :: JobDetails)
+{-# DEPRECATED jdDocumentsWithErrorsCount "Use generic-lens or generic-optics with 'documentsWithErrorsCount' instead." #-}
 
 -- | The number of documents used as input in a translation job.
-jdInputDocumentsCount :: Lens' JobDetails (Maybe Int)
-jdInputDocumentsCount = lens _jdInputDocumentsCount (\s a -> s {_jdInputDocumentsCount = a})
+--
+-- /Note:/ Consider using 'inputDocumentsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdInputDocumentsCount :: Lens.Lens' JobDetails (Lude.Maybe Lude.Int)
+jdInputDocumentsCount = Lens.lens (inputDocumentsCount :: JobDetails -> Lude.Maybe Lude.Int) (\s a -> s {inputDocumentsCount = a} :: JobDetails)
+{-# DEPRECATED jdInputDocumentsCount "Use generic-lens or generic-optics with 'inputDocumentsCount' instead." #-}
 
-instance FromJSON JobDetails where
+instance Lude.FromJSON JobDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobDetails"
       ( \x ->
           JobDetails'
-            <$> (x .:? "TranslatedDocumentsCount")
-            <*> (x .:? "DocumentsWithErrorsCount")
-            <*> (x .:? "InputDocumentsCount")
+            Lude.<$> (x Lude..:? "TranslatedDocumentsCount")
+            Lude.<*> (x Lude..:? "DocumentsWithErrorsCount")
+            Lude.<*> (x Lude..:? "InputDocumentsCount")
       )
-
-instance Hashable JobDetails
-
-instance NFData JobDetails

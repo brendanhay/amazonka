@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets information about tests in a given test suite.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListTests
-  ( -- * Creating a Request
-    listTests,
-    ListTests,
+  ( -- * Creating a request
+    ListTests (..),
+    mkListTests,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltArn,
 
-    -- * Destructuring the Response
-    listTestsResponse,
-    ListTestsResponse,
+    -- * Destructuring the response
+    ListTestsResponse (..),
+    mkListTestsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTests,
     ltrsNextToken,
     ltrsResponseStatus,
@@ -43,132 +36,151 @@ module Network.AWS.DeviceFarm.ListTests
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list tests operation.
 --
---
---
--- /See:/ 'listTests' smart constructor.
+-- /See:/ 'mkListTests' smart constructor.
 data ListTests = ListTests'
-  { _ltNextToken :: !(Maybe Text),
-    _ltArn :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTests' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'ltArn' - The test suite's Amazon Resource Name (ARN).
-listTests ::
-  -- | 'ltArn'
-  Text ->
+-- * 'arn' - The test suite's Amazon Resource Name (ARN).
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListTests ::
+  -- | 'arn'
+  Lude.Text ->
   ListTests
-listTests pArn_ =
-  ListTests' {_ltNextToken = Nothing, _ltArn = pArn_}
+mkListTests pArn_ =
+  ListTests' {nextToken = Lude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ltNextToken :: Lens' ListTests (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTests (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTests)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The test suite's Amazon Resource Name (ARN).
-ltArn :: Lens' ListTests Text
-ltArn = lens _ltArn (\s a -> s {_ltArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltArn :: Lens.Lens' ListTests Lude.Text
+ltArn = Lens.lens (arn :: ListTests -> Lude.Text) (\s a -> s {arn = a} :: ListTests)
+{-# DEPRECATED ltArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListTests where
+instance Page.AWSPager ListTests where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTests) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTests) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTests where
+instance Lude.AWSRequest ListTests where
   type Rs ListTests = ListTestsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTestsResponse'
-            <$> (x .?> "tests" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tests" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTests
-
-instance NFData ListTests
-
-instance ToHeaders ListTests where
+instance Lude.ToHeaders ListTests where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.ListTests" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.ListTests" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTests where
+instance Lude.ToJSON ListTests where
   toJSON ListTests' {..} =
-    object
-      ( catMaybes
-          [("nextToken" .=) <$> _ltNextToken, Just ("arn" .= _ltArn)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("arn" Lude..= arn)
+          ]
       )
 
-instance ToPath ListTests where
-  toPath = const "/"
+instance Lude.ToPath ListTests where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTests where
-  toQuery = const mempty
+instance Lude.ToQuery ListTests where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list tests request.
 --
---
---
--- /See:/ 'listTestsResponse' smart constructor.
+-- /See:/ 'mkListTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
-  { _ltrsTests ::
-      !(Maybe [Test]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { tests ::
+      Lude.Maybe [Test],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTests' - Information about the tests.
---
--- * 'ltrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTestsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'tests' - Information about the tests.
+mkListTestsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTestsResponse
-listTestsResponse pResponseStatus_ =
+mkListTestsResponse pResponseStatus_ =
   ListTestsResponse'
-    { _ltrsTests = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { tests = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the tests.
-ltrsTests :: Lens' ListTestsResponse [Test]
-ltrsTests = lens _ltrsTests (\s a -> s {_ltrsTests = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTests :: Lens.Lens' ListTestsResponse (Lude.Maybe [Test])
+ltrsTests = Lens.lens (tests :: ListTestsResponse -> Lude.Maybe [Test]) (\s a -> s {tests = a} :: ListTestsResponse)
+{-# DEPRECATED ltrsTests "Use generic-lens or generic-optics with 'tests' instead." #-}
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTestsResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTestsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestsResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTestsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTestsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTestsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

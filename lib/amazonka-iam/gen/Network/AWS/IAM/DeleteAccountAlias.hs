@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,91 @@
 --
 -- Deletes the specified AWS account alias. For information about using an AWS account alias, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/ .
 module Network.AWS.IAM.DeleteAccountAlias
-  ( -- * Creating a Request
-    deleteAccountAlias,
-    DeleteAccountAlias,
+  ( -- * Creating a request
+    DeleteAccountAlias (..),
+    mkDeleteAccountAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daaAccountAlias,
 
-    -- * Destructuring the Response
-    deleteAccountAliasResponse,
-    DeleteAccountAliasResponse,
+    -- * Destructuring the response
+    DeleteAccountAliasResponse (..),
+    mkDeleteAccountAliasResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAccountAlias' smart constructor.
+-- | /See:/ 'mkDeleteAccountAlias' smart constructor.
 newtype DeleteAccountAlias = DeleteAccountAlias'
-  { _daaAccountAlias ::
-      Text
+  { accountAlias ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountAlias' - The name of the account alias to delete.
 --
--- * 'daaAccountAlias' - The name of the account alias to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
-deleteAccountAlias ::
-  -- | 'daaAccountAlias'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+mkDeleteAccountAlias ::
+  -- | 'accountAlias'
+  Lude.Text ->
   DeleteAccountAlias
-deleteAccountAlias pAccountAlias_ =
-  DeleteAccountAlias' {_daaAccountAlias = pAccountAlias_}
+mkDeleteAccountAlias pAccountAlias_ =
+  DeleteAccountAlias' {accountAlias = pAccountAlias_}
 
--- | The name of the account alias to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
-daaAccountAlias :: Lens' DeleteAccountAlias Text
-daaAccountAlias = lens _daaAccountAlias (\s a -> s {_daaAccountAlias = a})
+-- | The name of the account alias to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+--
+-- /Note:/ Consider using 'accountAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaAccountAlias :: Lens.Lens' DeleteAccountAlias Lude.Text
+daaAccountAlias = Lens.lens (accountAlias :: DeleteAccountAlias -> Lude.Text) (\s a -> s {accountAlias = a} :: DeleteAccountAlias)
+{-# DEPRECATED daaAccountAlias "Use generic-lens or generic-optics with 'accountAlias' instead." #-}
 
-instance AWSRequest DeleteAccountAlias where
+instance Lude.AWSRequest DeleteAccountAlias where
   type Rs DeleteAccountAlias = DeleteAccountAliasResponse
-  request = postQuery iam
-  response = receiveNull DeleteAccountAliasResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteAccountAliasResponse'
 
-instance Hashable DeleteAccountAlias
+instance Lude.ToHeaders DeleteAccountAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAccountAlias
+instance Lude.ToPath DeleteAccountAlias where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteAccountAlias where
-  toHeaders = const mempty
-
-instance ToPath DeleteAccountAlias where
-  toPath = const "/"
-
-instance ToQuery DeleteAccountAlias where
+instance Lude.ToQuery DeleteAccountAlias where
   toQuery DeleteAccountAlias' {..} =
-    mconcat
-      [ "Action" =: ("DeleteAccountAlias" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "AccountAlias" =: _daaAccountAlias
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteAccountAlias" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "AccountAlias" Lude.=: accountAlias
       ]
 
--- | /See:/ 'deleteAccountAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountAliasResponse' with the minimum fields required to make a request.
-deleteAccountAliasResponse ::
+mkDeleteAccountAliasResponse ::
   DeleteAccountAliasResponse
-deleteAccountAliasResponse = DeleteAccountAliasResponse'
-
-instance NFData DeleteAccountAliasResponse
+mkDeleteAccountAliasResponse = DeleteAccountAliasResponse'

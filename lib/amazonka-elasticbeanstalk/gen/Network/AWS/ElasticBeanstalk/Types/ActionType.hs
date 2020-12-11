@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ActionType where
+module Network.AWS.ElasticBeanstalk.Types.ActionType
+  ( ActionType
+      ( ActionType',
+        InstanceRefresh,
+        PlatformUpdate,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionType
-  = InstanceRefresh
-  | PlatformUpdate
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionType = ActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionType where
-  parser =
-    takeLowerText >>= \case
-      "instancerefresh" -> pure InstanceRefresh
-      "platformupdate" -> pure PlatformUpdate
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing ActionType from value: '" <> e
-            <> "'. Accepted values: instancerefresh, platformupdate, unknown"
+pattern InstanceRefresh :: ActionType
+pattern InstanceRefresh = ActionType' "InstanceRefresh"
 
-instance ToText ActionType where
-  toText = \case
-    InstanceRefresh -> "InstanceRefresh"
-    PlatformUpdate -> "PlatformUpdate"
-    Unknown -> "Unknown"
+pattern PlatformUpdate :: ActionType
+pattern PlatformUpdate = ActionType' "PlatformUpdate"
 
-instance Hashable ActionType
+pattern Unknown :: ActionType
+pattern Unknown = ActionType' "Unknown"
 
-instance NFData ActionType
-
-instance ToByteString ActionType
-
-instance ToQuery ActionType
-
-instance ToHeader ActionType
-
-instance FromXML ActionType where
-  parseXML = parseXMLText "ActionType"
+{-# COMPLETE
+  InstanceRefresh,
+  PlatformUpdate,
+  Unknown,
+  ActionType'
+  #-}

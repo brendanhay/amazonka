@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Disables an add-on for an Amazon Lightsail resource. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DisableAddOn
-  ( -- * Creating a Request
-    disableAddOn,
-    DisableAddOn,
+  ( -- * Creating a request
+    DisableAddOn (..),
+    mkDisableAddOn,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daoAddOnType,
     daoResourceName,
 
-    -- * Destructuring the Response
-    disableAddOnResponse,
-    DisableAddOnResponse,
+    -- * Destructuring the response
+    DisableAddOnResponse (..),
+    mkDisableAddOnResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daorsOperations,
     daorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableAddOn' smart constructor.
+-- | /See:/ 'mkDisableAddOn' smart constructor.
 data DisableAddOn = DisableAddOn'
-  { _daoAddOnType :: !AddOnType,
-    _daoResourceName :: !Text
+  { addOnType :: AddOnType,
+    resourceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAddOn' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daoAddOnType' - The add-on type to disable.
---
--- * 'daoResourceName' - The name of the source resource for which to disable the add-on.
-disableAddOn ::
-  -- | 'daoAddOnType'
+-- * 'addOnType' - The add-on type to disable.
+-- * 'resourceName' - The name of the source resource for which to disable the add-on.
+mkDisableAddOn ::
+  -- | 'addOnType'
   AddOnType ->
-  -- | 'daoResourceName'
-  Text ->
+  -- | 'resourceName'
+  Lude.Text ->
   DisableAddOn
-disableAddOn pAddOnType_ pResourceName_ =
+mkDisableAddOn pAddOnType_ pResourceName_ =
   DisableAddOn'
-    { _daoAddOnType = pAddOnType_,
-      _daoResourceName = pResourceName_
+    { addOnType = pAddOnType_,
+      resourceName = pResourceName_
     }
 
 -- | The add-on type to disable.
-daoAddOnType :: Lens' DisableAddOn AddOnType
-daoAddOnType = lens _daoAddOnType (\s a -> s {_daoAddOnType = a})
+--
+-- /Note:/ Consider using 'addOnType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoAddOnType :: Lens.Lens' DisableAddOn AddOnType
+daoAddOnType = Lens.lens (addOnType :: DisableAddOn -> AddOnType) (\s a -> s {addOnType = a} :: DisableAddOn)
+{-# DEPRECATED daoAddOnType "Use generic-lens or generic-optics with 'addOnType' instead." #-}
 
 -- | The name of the source resource for which to disable the add-on.
-daoResourceName :: Lens' DisableAddOn Text
-daoResourceName = lens _daoResourceName (\s a -> s {_daoResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoResourceName :: Lens.Lens' DisableAddOn Lude.Text
+daoResourceName = Lens.lens (resourceName :: DisableAddOn -> Lude.Text) (\s a -> s {resourceName = a} :: DisableAddOn)
+{-# DEPRECATED daoResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
-instance AWSRequest DisableAddOn where
+instance Lude.AWSRequest DisableAddOn where
   type Rs DisableAddOn = DisableAddOnResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisableAddOnResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableAddOn
-
-instance NFData DisableAddOn
-
-instance ToHeaders DisableAddOn where
+instance Lude.ToHeaders DisableAddOn where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DisableAddOn" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DisableAddOn" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableAddOn where
+instance Lude.ToJSON DisableAddOn where
   toJSON DisableAddOn' {..} =
-    object
-      ( catMaybes
-          [ Just ("addOnType" .= _daoAddOnType),
-            Just ("resourceName" .= _daoResourceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("addOnType" Lude..= addOnType),
+            Lude.Just ("resourceName" Lude..= resourceName)
           ]
       )
 
-instance ToPath DisableAddOn where
-  toPath = const "/"
+instance Lude.ToPath DisableAddOn where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableAddOn where
-  toQuery = const mempty
+instance Lude.ToQuery DisableAddOn where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableAddOnResponse' smart constructor.
+-- | /See:/ 'mkDisableAddOnResponse' smart constructor.
 data DisableAddOnResponse = DisableAddOnResponse'
-  { _daorsOperations ::
-      !(Maybe [Operation]),
-    _daorsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAddOnResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daorsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'daorsResponseStatus' - -- | The response status code.
-disableAddOnResponse ::
-  -- | 'daorsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDisableAddOnResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableAddOnResponse
-disableAddOnResponse pResponseStatus_ =
+mkDisableAddOnResponse pResponseStatus_ =
   DisableAddOnResponse'
-    { _daorsOperations = Nothing,
-      _daorsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-daorsOperations :: Lens' DisableAddOnResponse [Operation]
-daorsOperations = lens _daorsOperations (\s a -> s {_daorsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daorsOperations :: Lens.Lens' DisableAddOnResponse (Lude.Maybe [Operation])
+daorsOperations = Lens.lens (operations :: DisableAddOnResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DisableAddOnResponse)
+{-# DEPRECATED daorsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-daorsResponseStatus :: Lens' DisableAddOnResponse Int
-daorsResponseStatus = lens _daorsResponseStatus (\s a -> s {_daorsResponseStatus = a})
-
-instance NFData DisableAddOnResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daorsResponseStatus :: Lens.Lens' DisableAddOnResponse Lude.Int
+daorsResponseStatus = Lens.lens (responseStatus :: DisableAddOnResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableAddOnResponse)
+{-# DEPRECATED daorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

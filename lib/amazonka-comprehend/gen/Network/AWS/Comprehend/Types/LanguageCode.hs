@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.LanguageCode where
+module Network.AWS.Comprehend.Types.LanguageCode
+  ( LanguageCode
+      ( LanguageCode',
+        AR,
+        DE,
+        EN,
+        ES,
+        FR,
+        HI,
+        IT,
+        JA,
+        KO,
+        PT,
+        ZH,
+        ZhTw
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LanguageCode
-  = AR
-  | DE
-  | EN
-  | ES
-  | FR
-  | HI
-  | IT
-  | JA
-  | KO
-  | PT
-  | ZH
-  | ZhTw
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LanguageCode = LanguageCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LanguageCode where
-  parser =
-    takeLowerText >>= \case
-      "ar" -> pure AR
-      "de" -> pure DE
-      "en" -> pure EN
-      "es" -> pure ES
-      "fr" -> pure FR
-      "hi" -> pure HI
-      "it" -> pure IT
-      "ja" -> pure JA
-      "ko" -> pure KO
-      "pt" -> pure PT
-      "zh" -> pure ZH
-      "zh-tw" -> pure ZhTw
-      e ->
-        fromTextError $
-          "Failure parsing LanguageCode from value: '" <> e
-            <> "'. Accepted values: ar, de, en, es, fr, hi, it, ja, ko, pt, zh, zh-tw"
+pattern AR :: LanguageCode
+pattern AR = LanguageCode' "ar"
 
-instance ToText LanguageCode where
-  toText = \case
-    AR -> "ar"
-    DE -> "de"
-    EN -> "en"
-    ES -> "es"
-    FR -> "fr"
-    HI -> "hi"
-    IT -> "it"
-    JA -> "ja"
-    KO -> "ko"
-    PT -> "pt"
-    ZH -> "zh"
-    ZhTw -> "zh-TW"
+pattern DE :: LanguageCode
+pattern DE = LanguageCode' "de"
 
-instance Hashable LanguageCode
+pattern EN :: LanguageCode
+pattern EN = LanguageCode' "en"
 
-instance NFData LanguageCode
+pattern ES :: LanguageCode
+pattern ES = LanguageCode' "es"
 
-instance ToByteString LanguageCode
+pattern FR :: LanguageCode
+pattern FR = LanguageCode' "fr"
 
-instance ToQuery LanguageCode
+pattern HI :: LanguageCode
+pattern HI = LanguageCode' "hi"
 
-instance ToHeader LanguageCode
+pattern IT :: LanguageCode
+pattern IT = LanguageCode' "it"
 
-instance ToJSON LanguageCode where
-  toJSON = toJSONText
+pattern JA :: LanguageCode
+pattern JA = LanguageCode' "ja"
 
-instance FromJSON LanguageCode where
-  parseJSON = parseJSONText "LanguageCode"
+pattern KO :: LanguageCode
+pattern KO = LanguageCode' "ko"
+
+pattern PT :: LanguageCode
+pattern PT = LanguageCode' "pt"
+
+pattern ZH :: LanguageCode
+pattern ZH = LanguageCode' "zh"
+
+pattern ZhTw :: LanguageCode
+pattern ZhTw = LanguageCode' "zh-TW"
+
+{-# COMPLETE
+  AR,
+  DE,
+  EN,
+  ES,
+  FR,
+  HI,
+  IT,
+  JA,
+  KO,
+  PT,
+  ZH,
+  ZhTw,
+  LanguageCode'
+  #-}

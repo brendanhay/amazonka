@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.OutputFormatConfiguration where
+module Network.AWS.Firehose.Types.OutputFormatConfiguration
+  ( OutputFormatConfiguration (..),
+
+    -- * Smart constructor
+    mkOutputFormatConfiguration,
+
+    -- * Lenses
+    ofcSerializer,
+  )
+where
 
 import Network.AWS.Firehose.Types.Serializer
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if @Enabled@ is set to true.
 --
---
---
--- /See:/ 'outputFormatConfiguration' smart constructor.
+-- /See:/ 'mkOutputFormatConfiguration' smart constructor.
 newtype OutputFormatConfiguration = OutputFormatConfiguration'
-  { _ofcSerializer ::
-      Maybe Serializer
+  { serializer ::
+      Lude.Maybe Serializer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputFormatConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ofcSerializer' - Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
-outputFormatConfiguration ::
+-- * 'serializer' - Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+mkOutputFormatConfiguration ::
   OutputFormatConfiguration
-outputFormatConfiguration =
-  OutputFormatConfiguration' {_ofcSerializer = Nothing}
+mkOutputFormatConfiguration =
+  OutputFormatConfiguration' {serializer = Lude.Nothing}
 
 -- | Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
-ofcSerializer :: Lens' OutputFormatConfiguration (Maybe Serializer)
-ofcSerializer = lens _ofcSerializer (\s a -> s {_ofcSerializer = a})
+--
+-- /Note:/ Consider using 'serializer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofcSerializer :: Lens.Lens' OutputFormatConfiguration (Lude.Maybe Serializer)
+ofcSerializer = Lens.lens (serializer :: OutputFormatConfiguration -> Lude.Maybe Serializer) (\s a -> s {serializer = a} :: OutputFormatConfiguration)
+{-# DEPRECATED ofcSerializer "Use generic-lens or generic-optics with 'serializer' instead." #-}
 
-instance FromJSON OutputFormatConfiguration where
+instance Lude.FromJSON OutputFormatConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputFormatConfiguration"
-      (\x -> OutputFormatConfiguration' <$> (x .:? "Serializer"))
+      ( \x ->
+          OutputFormatConfiguration' Lude.<$> (x Lude..:? "Serializer")
+      )
 
-instance Hashable OutputFormatConfiguration
-
-instance NFData OutputFormatConfiguration
-
-instance ToJSON OutputFormatConfiguration where
+instance Lude.ToJSON OutputFormatConfiguration where
   toJSON OutputFormatConfiguration' {..} =
-    object (catMaybes [("Serializer" .=) <$> _ofcSerializer])
+    Lude.object
+      (Lude.catMaybes [("Serializer" Lude..=) Lude.<$> serializer])

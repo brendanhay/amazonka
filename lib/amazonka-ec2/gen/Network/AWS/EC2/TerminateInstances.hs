@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,148 @@
 --
 -- Shuts down the specified instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
 --
---
 -- If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.
---
 -- Terminated instances remain visible after termination (for approximately one hour).
---
 -- By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
---
 -- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the @DeleteOnTermination@ block device mapping parameter set to @true@ are automatically deleted. For more information about the differences between stopping and terminating instances, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance lifecycle> in the /Amazon Elastic Compute Cloud User Guide/ .
---
 -- For more information about troubleshooting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting terminating your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.TerminateInstances
-  ( -- * Creating a Request
-    terminateInstances,
-    TerminateInstances,
+  ( -- * Creating a request
+    TerminateInstances (..),
+    mkTerminateInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tiDryRun,
     tiInstanceIds,
 
-    -- * Destructuring the Response
-    terminateInstancesResponse,
-    TerminateInstancesResponse,
+    -- * Destructuring the response
+    TerminateInstancesResponse (..),
+    mkTerminateInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tirsTerminatingInstances,
     tirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'terminateInstances' smart constructor.
+-- | /See:/ 'mkTerminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
-  { _tiDryRun ::
-      !(Maybe Bool),
-    _tiInstanceIds :: ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    instanceIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceIds' - The IDs of the instances.
 --
--- * 'tiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'tiInstanceIds' - The IDs of the instances. Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
-terminateInstances ::
+-- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
+mkTerminateInstances ::
   TerminateInstances
-terminateInstances =
-  TerminateInstances' {_tiDryRun = Nothing, _tiInstanceIds = mempty}
+mkTerminateInstances =
+  TerminateInstances'
+    { dryRun = Lude.Nothing,
+      instanceIds = Lude.mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-tiDryRun :: Lens' TerminateInstances (Maybe Bool)
-tiDryRun = lens _tiDryRun (\s a -> s {_tiDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiDryRun :: Lens.Lens' TerminateInstances (Lude.Maybe Lude.Bool)
+tiDryRun = Lens.lens (dryRun :: TerminateInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateInstances)
+{-# DEPRECATED tiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The IDs of the instances. Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
-tiInstanceIds :: Lens' TerminateInstances [Text]
-tiInstanceIds = lens _tiInstanceIds (\s a -> s {_tiInstanceIds = a}) . _Coerce
+-- | The IDs of the instances.
+--
+-- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiInstanceIds :: Lens.Lens' TerminateInstances [Lude.Text]
+tiInstanceIds = Lens.lens (instanceIds :: TerminateInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: TerminateInstances)
+{-# DEPRECATED tiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance AWSRequest TerminateInstances where
+instance Lude.AWSRequest TerminateInstances where
   type Rs TerminateInstances = TerminateInstancesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           TerminateInstancesResponse'
-            <$> (x .@? "instancesSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "instancesSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TerminateInstances
+instance Lude.ToHeaders TerminateInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TerminateInstances
+instance Lude.ToPath TerminateInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders TerminateInstances where
-  toHeaders = const mempty
-
-instance ToPath TerminateInstances where
-  toPath = const "/"
-
-instance ToQuery TerminateInstances where
+instance Lude.ToQuery TerminateInstances where
   toQuery TerminateInstances' {..} =
-    mconcat
-      [ "Action" =: ("TerminateInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _tiDryRun,
-        toQueryList "InstanceId" _tiInstanceIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("TerminateInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "InstanceId" instanceIds
       ]
 
--- | /See:/ 'terminateInstancesResponse' smart constructor.
+-- | /See:/ 'mkTerminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
-  { _tirsTerminatingInstances ::
-      !(Maybe [InstanceStateChange]),
-    _tirsResponseStatus :: !Int
+  { terminatingInstances ::
+      Lude.Maybe [InstanceStateChange],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tirsTerminatingInstances' - Information about the terminated instances.
---
--- * 'tirsResponseStatus' - -- | The response status code.
-terminateInstancesResponse ::
-  -- | 'tirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'terminatingInstances' - Information about the terminated instances.
+mkTerminateInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TerminateInstancesResponse
-terminateInstancesResponse pResponseStatus_ =
+mkTerminateInstancesResponse pResponseStatus_ =
   TerminateInstancesResponse'
-    { _tirsTerminatingInstances = Nothing,
-      _tirsResponseStatus = pResponseStatus_
+    { terminatingInstances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the terminated instances.
-tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirsTerminatingInstances = lens _tirsTerminatingInstances (\s a -> s {_tirsTerminatingInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'terminatingInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tirsTerminatingInstances :: Lens.Lens' TerminateInstancesResponse (Lude.Maybe [InstanceStateChange])
+tirsTerminatingInstances = Lens.lens (terminatingInstances :: TerminateInstancesResponse -> Lude.Maybe [InstanceStateChange]) (\s a -> s {terminatingInstances = a} :: TerminateInstancesResponse)
+{-# DEPRECATED tirsTerminatingInstances "Use generic-lens or generic-optics with 'terminatingInstances' instead." #-}
 
--- | -- | The response status code.
-tirsResponseStatus :: Lens' TerminateInstancesResponse Int
-tirsResponseStatus = lens _tirsResponseStatus (\s a -> s {_tirsResponseStatus = a})
-
-instance NFData TerminateInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tirsResponseStatus :: Lens.Lens' TerminateInstancesResponse Lude.Int
+tirsResponseStatus = Lens.lens (responseStatus :: TerminateInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateInstancesResponse)
+{-# DEPRECATED tirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

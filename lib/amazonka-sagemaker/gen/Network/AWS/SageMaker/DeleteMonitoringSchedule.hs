@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,103 @@
 --
 -- Deletes a monitoring schedule. Also stops the schedule had not already been stopped. This does not delete the job execution history of the monitoring schedule.
 module Network.AWS.SageMaker.DeleteMonitoringSchedule
-  ( -- * Creating a Request
-    deleteMonitoringSchedule,
-    DeleteMonitoringSchedule,
+  ( -- * Creating a request
+    DeleteMonitoringSchedule (..),
+    mkDeleteMonitoringSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dMonitoringScheduleName,
 
-    -- * Destructuring the Response
-    deleteMonitoringScheduleResponse,
-    DeleteMonitoringScheduleResponse,
+    -- * Destructuring the response
+    DeleteMonitoringScheduleResponse (..),
+    mkDeleteMonitoringScheduleResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteMonitoringSchedule' smart constructor.
+-- | /See:/ 'mkDeleteMonitoringSchedule' smart constructor.
 newtype DeleteMonitoringSchedule = DeleteMonitoringSchedule'
-  { _dMonitoringScheduleName ::
-      Text
+  { monitoringScheduleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMonitoringSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dMonitoringScheduleName' - The name of the monitoring schedule to delete.
-deleteMonitoringSchedule ::
-  -- | 'dMonitoringScheduleName'
-  Text ->
+-- * 'monitoringScheduleName' - The name of the monitoring schedule to delete.
+mkDeleteMonitoringSchedule ::
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
   DeleteMonitoringSchedule
-deleteMonitoringSchedule pMonitoringScheduleName_ =
+mkDeleteMonitoringSchedule pMonitoringScheduleName_ =
   DeleteMonitoringSchedule'
-    { _dMonitoringScheduleName =
+    { monitoringScheduleName =
         pMonitoringScheduleName_
     }
 
 -- | The name of the monitoring schedule to delete.
-dMonitoringScheduleName :: Lens' DeleteMonitoringSchedule Text
-dMonitoringScheduleName = lens _dMonitoringScheduleName (\s a -> s {_dMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMonitoringScheduleName :: Lens.Lens' DeleteMonitoringSchedule Lude.Text
+dMonitoringScheduleName = Lens.lens (monitoringScheduleName :: DeleteMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: DeleteMonitoringSchedule)
+{-# DEPRECATED dMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance AWSRequest DeleteMonitoringSchedule where
+instance Lude.AWSRequest DeleteMonitoringSchedule where
   type Rs DeleteMonitoringSchedule = DeleteMonitoringScheduleResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteMonitoringScheduleResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteMonitoringScheduleResponse'
 
-instance Hashable DeleteMonitoringSchedule
-
-instance NFData DeleteMonitoringSchedule
-
-instance ToHeaders DeleteMonitoringSchedule where
+instance Lude.ToHeaders DeleteMonitoringSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DeleteMonitoringSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DeleteMonitoringSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteMonitoringSchedule where
+instance Lude.ToJSON DeleteMonitoringSchedule where
   toJSON DeleteMonitoringSchedule' {..} =
-    object
-      ( catMaybes
-          [Just ("MonitoringScheduleName" .= _dMonitoringScheduleName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
+          ]
       )
 
-instance ToPath DeleteMonitoringSchedule where
-  toPath = const "/"
+instance Lude.ToPath DeleteMonitoringSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteMonitoringSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteMonitoringSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteMonitoringScheduleResponse' smart constructor.
+-- | /See:/ 'mkDeleteMonitoringScheduleResponse' smart constructor.
 data DeleteMonitoringScheduleResponse = DeleteMonitoringScheduleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMonitoringScheduleResponse' with the minimum fields required to make a request.
-deleteMonitoringScheduleResponse ::
+mkDeleteMonitoringScheduleResponse ::
   DeleteMonitoringScheduleResponse
-deleteMonitoringScheduleResponse =
+mkDeleteMonitoringScheduleResponse =
   DeleteMonitoringScheduleResponse'
-
-instance NFData DeleteMonitoringScheduleResponse

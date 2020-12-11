@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.PersonMatch where
+module Network.AWS.Rekognition.Types.PersonMatch
+  ( PersonMatch (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPersonMatch,
+
+    -- * Lenses
+    pmFaceMatches,
+    pmPerson,
+    pmTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.FaceMatch
 import Network.AWS.Rekognition.Types.PersonDetail
 
 -- | Information about a person whose face matches a face(s) in an Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection ('FaceMatch' ), information about the person ('PersonDetail' ), and the time stamp for when the person was detected in a video. An array of @PersonMatch@ objects is returned by 'GetFaceSearch' .
 --
---
---
--- /See:/ 'personMatch' smart constructor.
+-- /See:/ 'mkPersonMatch' smart constructor.
 data PersonMatch = PersonMatch'
-  { _pmFaceMatches ::
-      !(Maybe [FaceMatch]),
-    _pmPerson :: !(Maybe PersonDetail),
-    _pmTimestamp :: !(Maybe Integer)
+  { faceMatches ::
+      Lude.Maybe [FaceMatch],
+    person :: Lude.Maybe PersonDetail,
+    timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PersonMatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmFaceMatches' - Information about the faces in the input collection that match the face of a person in the video.
---
--- * 'pmPerson' - Information about the matched person.
---
--- * 'pmTimestamp' - The time, in milliseconds from the beginning of the video, that the person was matched in the video.
-personMatch ::
+-- * 'faceMatches' - Information about the faces in the input collection that match the face of a person in the video.
+-- * 'person' - Information about the matched person.
+-- * 'timestamp' - The time, in milliseconds from the beginning of the video, that the person was matched in the video.
+mkPersonMatch ::
   PersonMatch
-personMatch =
+mkPersonMatch =
   PersonMatch'
-    { _pmFaceMatches = Nothing,
-      _pmPerson = Nothing,
-      _pmTimestamp = Nothing
+    { faceMatches = Lude.Nothing,
+      person = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | Information about the faces in the input collection that match the face of a person in the video.
-pmFaceMatches :: Lens' PersonMatch [FaceMatch]
-pmFaceMatches = lens _pmFaceMatches (\s a -> s {_pmFaceMatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'faceMatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmFaceMatches :: Lens.Lens' PersonMatch (Lude.Maybe [FaceMatch])
+pmFaceMatches = Lens.lens (faceMatches :: PersonMatch -> Lude.Maybe [FaceMatch]) (\s a -> s {faceMatches = a} :: PersonMatch)
+{-# DEPRECATED pmFaceMatches "Use generic-lens or generic-optics with 'faceMatches' instead." #-}
 
 -- | Information about the matched person.
-pmPerson :: Lens' PersonMatch (Maybe PersonDetail)
-pmPerson = lens _pmPerson (\s a -> s {_pmPerson = a})
+--
+-- /Note:/ Consider using 'person' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmPerson :: Lens.Lens' PersonMatch (Lude.Maybe PersonDetail)
+pmPerson = Lens.lens (person :: PersonMatch -> Lude.Maybe PersonDetail) (\s a -> s {person = a} :: PersonMatch)
+{-# DEPRECATED pmPerson "Use generic-lens or generic-optics with 'person' instead." #-}
 
 -- | The time, in milliseconds from the beginning of the video, that the person was matched in the video.
-pmTimestamp :: Lens' PersonMatch (Maybe Integer)
-pmTimestamp = lens _pmTimestamp (\s a -> s {_pmTimestamp = a})
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmTimestamp :: Lens.Lens' PersonMatch (Lude.Maybe Lude.Integer)
+pmTimestamp = Lens.lens (timestamp :: PersonMatch -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: PersonMatch)
+{-# DEPRECATED pmTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON PersonMatch where
+instance Lude.FromJSON PersonMatch where
   parseJSON =
-    withObject
+    Lude.withObject
       "PersonMatch"
       ( \x ->
           PersonMatch'
-            <$> (x .:? "FaceMatches" .!= mempty)
-            <*> (x .:? "Person")
-            <*> (x .:? "Timestamp")
+            Lude.<$> (x Lude..:? "FaceMatches" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Person")
+            Lude.<*> (x Lude..:? "Timestamp")
       )
-
-instance Hashable PersonMatch
-
-instance NFData PersonMatch

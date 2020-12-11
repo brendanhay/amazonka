@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.StepExecutionFilter where
+module Network.AWS.SSM.Types.StepExecutionFilter
+  ( StepExecutionFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStepExecutionFilter,
+
+    -- * Lenses
+    sefKey,
+    sefValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.StepExecutionFilterKey
 
 -- | A filter to limit the amount of step execution information returned by the call.
 --
---
---
--- /See:/ 'stepExecutionFilter' smart constructor.
+-- /See:/ 'mkStepExecutionFilter' smart constructor.
 data StepExecutionFilter = StepExecutionFilter'
-  { _sefKey ::
-      !StepExecutionFilterKey,
-    _sefValues :: !(List1 Text)
+  { key ::
+      StepExecutionFilterKey,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepExecutionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sefKey' - One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
---
--- * 'sefValues' - The values of the filter key.
-stepExecutionFilter ::
-  -- | 'sefKey'
+-- * 'key' - One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
+-- * 'values' - The values of the filter key.
+mkStepExecutionFilter ::
+  -- | 'key'
   StepExecutionFilterKey ->
-  -- | 'sefValues'
-  NonEmpty Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   StepExecutionFilter
-stepExecutionFilter pKey_ pValues_ =
-  StepExecutionFilter'
-    { _sefKey = pKey_,
-      _sefValues = _List1 # pValues_
-    }
+mkStepExecutionFilter pKey_ pValues_ =
+  StepExecutionFilter' {key = pKey_, values = pValues_}
 
 -- | One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
-sefKey :: Lens' StepExecutionFilter StepExecutionFilterKey
-sefKey = lens _sefKey (\s a -> s {_sefKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sefKey :: Lens.Lens' StepExecutionFilter StepExecutionFilterKey
+sefKey = Lens.lens (key :: StepExecutionFilter -> StepExecutionFilterKey) (\s a -> s {key = a} :: StepExecutionFilter)
+{-# DEPRECATED sefKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The values of the filter key.
-sefValues :: Lens' StepExecutionFilter (NonEmpty Text)
-sefValues = lens _sefValues (\s a -> s {_sefValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sefValues :: Lens.Lens' StepExecutionFilter (Lude.NonEmpty Lude.Text)
+sefValues = Lens.lens (values :: StepExecutionFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: StepExecutionFilter)
+{-# DEPRECATED sefValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable StepExecutionFilter
-
-instance NFData StepExecutionFilter
-
-instance ToJSON StepExecutionFilter where
+instance Lude.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("Key" .= _sefKey), Just ("Values" .= _sefValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
+          ]
       )

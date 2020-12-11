@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.Tag where
+module Network.AWS.AutoScaling.Types.Tag
+  ( Tag (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTag,
+
+    -- * Lenses
+    tKey,
+    tResourceId,
+    tResourceType,
+    tPropagateAtLaunch,
+    tValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a tag for an Auto Scaling group.
 --
---
---
--- /See:/ 'tag' smart constructor.
+-- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { _tagKey :: !Text,
-    _tagResourceId :: !Text,
-    _tagResourceType :: !Text,
-    _tagPropagateAtLaunch :: !Bool,
-    _tagValue :: !Text
+  { key :: Lude.Text,
+    resourceId :: Lude.Text,
+    resourceType :: Lude.Text,
+    propagateAtLaunch :: Lude.Bool,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagKey' - The tag key.
---
--- * 'tagResourceId' - The name of the group.
---
--- * 'tagResourceType' - The type of resource. The only supported value is @auto-scaling-group@ .
---
--- * 'tagPropagateAtLaunch' - Determines whether the tag is added to new instances as they are launched in the group.
---
--- * 'tagValue' - The tag value.
-tag ::
-  -- | 'tagKey'
-  Text ->
-  -- | 'tagResourceId'
-  Text ->
-  -- | 'tagResourceType'
-  Text ->
-  -- | 'tagPropagateAtLaunch'
-  Bool ->
-  -- | 'tagValue'
-  Text ->
+-- * 'key' - The tag key.
+-- * 'propagateAtLaunch' - Determines whether the tag is added to new instances as they are launched in the group.
+-- * 'resourceId' - The name of the group.
+-- * 'resourceType' - The type of resource. The only supported value is @auto-scaling-group@ .
+-- * 'value' - The tag value.
+mkTag ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'propagateAtLaunch'
+  Lude.Bool ->
+  -- | 'value'
+  Lude.Text ->
   Tag
-tag pKey_ pResourceId_ pResourceType_ pPropagateAtLaunch_ pValue_ =
+mkTag pKey_ pResourceId_ pResourceType_ pPropagateAtLaunch_ pValue_ =
   Tag'
-    { _tagKey = pKey_,
-      _tagResourceId = pResourceId_,
-      _tagResourceType = pResourceType_,
-      _tagPropagateAtLaunch = pPropagateAtLaunch_,
-      _tagValue = pValue_
+    { key = pKey_,
+      resourceId = pResourceId_,
+      resourceType = pResourceType_,
+      propagateAtLaunch = pPropagateAtLaunch_,
+      value = pValue_
     }
 
 -- | The tag key.
-tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\s a -> s {_tagKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The name of the group.
-tagResourceId :: Lens' Tag Text
-tagResourceId = lens _tagResourceId (\s a -> s {_tagResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tResourceId :: Lens.Lens' Tag Lude.Text
+tResourceId = Lens.lens (resourceId :: Tag -> Lude.Text) (\s a -> s {resourceId = a} :: Tag)
+{-# DEPRECATED tResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of resource. The only supported value is @auto-scaling-group@ .
-tagResourceType :: Lens' Tag Text
-tagResourceType = lens _tagResourceType (\s a -> s {_tagResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tResourceType :: Lens.Lens' Tag Lude.Text
+tResourceType = Lens.lens (resourceType :: Tag -> Lude.Text) (\s a -> s {resourceType = a} :: Tag)
+{-# DEPRECATED tResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Determines whether the tag is added to new instances as they are launched in the group.
-tagPropagateAtLaunch :: Lens' Tag Bool
-tagPropagateAtLaunch = lens _tagPropagateAtLaunch (\s a -> s {_tagPropagateAtLaunch = a})
+--
+-- /Note:/ Consider using 'propagateAtLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tPropagateAtLaunch :: Lens.Lens' Tag Lude.Bool
+tPropagateAtLaunch = Lens.lens (propagateAtLaunch :: Tag -> Lude.Bool) (\s a -> s {propagateAtLaunch = a} :: Tag)
+{-# DEPRECATED tPropagateAtLaunch "Use generic-lens or generic-optics with 'propagateAtLaunch' instead." #-}
 
 -- | The tag value.
-tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\s a -> s {_tagValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Lude.Text
+tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable Tag
-
-instance NFData Tag
-
-instance ToQuery Tag where
+instance Lude.ToQuery Tag where
   toQuery Tag' {..} =
-    mconcat
-      [ "Key" =: _tagKey,
-        "ResourceId" =: _tagResourceId,
-        "ResourceType" =: _tagResourceType,
-        "PropagateAtLaunch" =: _tagPropagateAtLaunch,
-        "Value" =: _tagValue
+    Lude.mconcat
+      [ "Key" Lude.=: key,
+        "ResourceId" Lude.=: resourceId,
+        "ResourceType" Lude.=: resourceType,
+        "PropagateAtLaunch" Lude.=: propagateAtLaunch,
+        "Value" Lude.=: value
       ]

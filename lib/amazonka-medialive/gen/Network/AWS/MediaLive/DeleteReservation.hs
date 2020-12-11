@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Delete an expired reservation.
 module Network.AWS.MediaLive.DeleteReservation
-  ( -- * Creating a Request
-    deleteReservation,
-    DeleteReservation,
+  ( -- * Creating a request
+    DeleteReservation (..),
+    mkDeleteReservation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dReservationId,
 
-    -- * Destructuring the Response
-    deleteReservationResponse,
-    DeleteReservationResponse,
+    -- * Destructuring the response
+    DeleteReservationResponse (..),
+    mkDeleteReservationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsState,
     drrsResourceSpecification,
     drrsCurrencyCode,
@@ -53,258 +48,306 @@ module Network.AWS.MediaLive.DeleteReservation
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DeleteReservationRequest
 --
--- /See:/ 'deleteReservation' smart constructor.
+-- /See:/ 'mkDeleteReservation' smart constructor.
 newtype DeleteReservation = DeleteReservation'
-  { _dReservationId ::
-      Text
+  { reservationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReservation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dReservationId' - Unique reservation ID, e.g. '1234567'
-deleteReservation ::
-  -- | 'dReservationId'
-  Text ->
+-- * 'reservationId' - Unique reservation ID, e.g. '1234567'
+mkDeleteReservation ::
+  -- | 'reservationId'
+  Lude.Text ->
   DeleteReservation
-deleteReservation pReservationId_ =
-  DeleteReservation' {_dReservationId = pReservationId_}
+mkDeleteReservation pReservationId_ =
+  DeleteReservation' {reservationId = pReservationId_}
 
 -- | Unique reservation ID, e.g. '1234567'
-dReservationId :: Lens' DeleteReservation Text
-dReservationId = lens _dReservationId (\s a -> s {_dReservationId = a})
+--
+-- /Note:/ Consider using 'reservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dReservationId :: Lens.Lens' DeleteReservation Lude.Text
+dReservationId = Lens.lens (reservationId :: DeleteReservation -> Lude.Text) (\s a -> s {reservationId = a} :: DeleteReservation)
+{-# DEPRECATED dReservationId "Use generic-lens or generic-optics with 'reservationId' instead." #-}
 
-instance AWSRequest DeleteReservation where
+instance Lude.AWSRequest DeleteReservation where
   type Rs DeleteReservation = DeleteReservationResponse
-  request = delete mediaLive
+  request = Req.delete mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteReservationResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "resourceSpecification")
-            <*> (x .?> "currencyCode")
-            <*> (x .?> "arn")
-            <*> (x .?> "start")
-            <*> (x .?> "count")
-            <*> (x .?> "end")
-            <*> (x .?> "name")
-            <*> (x .?> "reservationId")
-            <*> (x .?> "offeringId")
-            <*> (x .?> "region")
-            <*> (x .?> "offeringType")
-            <*> (x .?> "usagePrice")
-            <*> (x .?> "fixedPrice")
-            <*> (x .?> "durationUnits")
-            <*> (x .?> "offeringDescription")
-            <*> (x .?> "duration")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "resourceSpecification")
+            Lude.<*> (x Lude..?> "currencyCode")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "start")
+            Lude.<*> (x Lude..?> "count")
+            Lude.<*> (x Lude..?> "end")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "reservationId")
+            Lude.<*> (x Lude..?> "offeringId")
+            Lude.<*> (x Lude..?> "region")
+            Lude.<*> (x Lude..?> "offeringType")
+            Lude.<*> (x Lude..?> "usagePrice")
+            Lude.<*> (x Lude..?> "fixedPrice")
+            Lude.<*> (x Lude..?> "durationUnits")
+            Lude.<*> (x Lude..?> "offeringDescription")
+            Lude.<*> (x Lude..?> "duration")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteReservation
-
-instance NFData DeleteReservation
-
-instance ToHeaders DeleteReservation where
+instance Lude.ToHeaders DeleteReservation where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteReservation where
+instance Lude.ToPath DeleteReservation where
   toPath DeleteReservation' {..} =
-    mconcat ["/prod/reservations/", toBS _dReservationId]
+    Lude.mconcat ["/prod/reservations/", Lude.toBS reservationId]
 
-instance ToQuery DeleteReservation where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReservation where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteReservationResponse
 --
--- /See:/ 'deleteReservationResponse' smart constructor.
+-- /See:/ 'mkDeleteReservationResponse' smart constructor.
 data DeleteReservationResponse = DeleteReservationResponse'
-  { _drrsState ::
-      !(Maybe ReservationState),
-    _drrsResourceSpecification ::
-      !( Maybe
-           ReservationResourceSpecification
-       ),
-    _drrsCurrencyCode :: !(Maybe Text),
-    _drrsARN :: !(Maybe Text),
-    _drrsStart :: !(Maybe Text),
-    _drrsCount :: !(Maybe Int),
-    _drrsEnd :: !(Maybe Text),
-    _drrsName :: !(Maybe Text),
-    _drrsReservationId :: !(Maybe Text),
-    _drrsOfferingId :: !(Maybe Text),
-    _drrsRegion :: !(Maybe Text),
-    _drrsOfferingType ::
-      !(Maybe OfferingType),
-    _drrsUsagePrice :: !(Maybe Double),
-    _drrsFixedPrice :: !(Maybe Double),
-    _drrsDurationUnits ::
-      !(Maybe OfferingDurationUnits),
-    _drrsOfferingDescription ::
-      !(Maybe Text),
-    _drrsDuration :: !(Maybe Int),
-    _drrsTags :: !(Maybe (Map Text (Text))),
-    _drrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe ReservationState,
+    resourceSpecification ::
+      Lude.Maybe
+        ReservationResourceSpecification,
+    currencyCode :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    start :: Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Int,
+    end :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    reservationId :: Lude.Maybe Lude.Text,
+    offeringId :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    offeringType :: Lude.Maybe OfferingType,
+    usagePrice :: Lude.Maybe Lude.Double,
+    fixedPrice :: Lude.Maybe Lude.Double,
+    durationUnits ::
+      Lude.Maybe OfferingDurationUnits,
+    offeringDescription ::
+      Lude.Maybe Lude.Text,
+    duration :: Lude.Maybe Lude.Int,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReservationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsState' - Current state of reservation, e.g. 'ACTIVE'
---
--- * 'drrsResourceSpecification' - Resource configuration details
---
--- * 'drrsCurrencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
---
--- * 'drrsARN' - Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
---
--- * 'drrsStart' - Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
---
--- * 'drrsCount' - Number of reserved resources
---
--- * 'drrsEnd' - Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
---
--- * 'drrsName' - User specified reservation name
---
--- * 'drrsReservationId' - Unique reservation ID, e.g. '1234567'
---
--- * 'drrsOfferingId' - Unique offering ID, e.g. '87654321'
---
--- * 'drrsRegion' - AWS region, e.g. 'us-west-2'
---
--- * 'drrsOfferingType' - Offering type, e.g. 'NO_UPFRONT'
---
--- * 'drrsUsagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
---
--- * 'drrsFixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
---
--- * 'drrsDurationUnits' - Units for duration, e.g. 'MONTHS'
---
--- * 'drrsOfferingDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
---
--- * 'drrsDuration' - Lease duration, e.g. '12'
---
--- * 'drrsTags' - A collection of key-value pairs
---
--- * 'drrsResponseStatus' - -- | The response status code.
-deleteReservationResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'arn' - Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+-- * 'count' - Number of reserved resources
+-- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+-- * 'duration' - Lease duration, e.g. '12'
+-- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
+-- * 'end' - Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+-- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+-- * 'name' - User specified reservation name
+-- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+-- * 'offeringId' - Unique offering ID, e.g. '87654321'
+-- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
+-- * 'region' - AWS region, e.g. 'us-west-2'
+-- * 'reservationId' - Unique reservation ID, e.g. '1234567'
+-- * 'resourceSpecification' - Resource configuration details
+-- * 'responseStatus' - The response status code.
+-- * 'start' - Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+-- * 'state' - Current state of reservation, e.g. 'ACTIVE'
+-- * 'tags' - A collection of key-value pairs
+-- * 'usagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
+mkDeleteReservationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReservationResponse
-deleteReservationResponse pResponseStatus_ =
+mkDeleteReservationResponse pResponseStatus_ =
   DeleteReservationResponse'
-    { _drrsState = Nothing,
-      _drrsResourceSpecification = Nothing,
-      _drrsCurrencyCode = Nothing,
-      _drrsARN = Nothing,
-      _drrsStart = Nothing,
-      _drrsCount = Nothing,
-      _drrsEnd = Nothing,
-      _drrsName = Nothing,
-      _drrsReservationId = Nothing,
-      _drrsOfferingId = Nothing,
-      _drrsRegion = Nothing,
-      _drrsOfferingType = Nothing,
-      _drrsUsagePrice = Nothing,
-      _drrsFixedPrice = Nothing,
-      _drrsDurationUnits = Nothing,
-      _drrsOfferingDescription = Nothing,
-      _drrsDuration = Nothing,
-      _drrsTags = Nothing,
-      _drrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      resourceSpecification = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      arn = Lude.Nothing,
+      start = Lude.Nothing,
+      count = Lude.Nothing,
+      end = Lude.Nothing,
+      name = Lude.Nothing,
+      reservationId = Lude.Nothing,
+      offeringId = Lude.Nothing,
+      region = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      durationUnits = Lude.Nothing,
+      offeringDescription = Lude.Nothing,
+      duration = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Current state of reservation, e.g. 'ACTIVE'
-drrsState :: Lens' DeleteReservationResponse (Maybe ReservationState)
-drrsState = lens _drrsState (\s a -> s {_drrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsState :: Lens.Lens' DeleteReservationResponse (Lude.Maybe ReservationState)
+drrsState = Lens.lens (state :: DeleteReservationResponse -> Lude.Maybe ReservationState) (\s a -> s {state = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Resource configuration details
-drrsResourceSpecification :: Lens' DeleteReservationResponse (Maybe ReservationResourceSpecification)
-drrsResourceSpecification = lens _drrsResourceSpecification (\s a -> s {_drrsResourceSpecification = a})
+--
+-- /Note:/ Consider using 'resourceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResourceSpecification :: Lens.Lens' DeleteReservationResponse (Lude.Maybe ReservationResourceSpecification)
+drrsResourceSpecification = Lens.lens (resourceSpecification :: DeleteReservationResponse -> Lude.Maybe ReservationResourceSpecification) (\s a -> s {resourceSpecification = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsResourceSpecification "Use generic-lens or generic-optics with 'resourceSpecification' instead." #-}
 
 -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-drrsCurrencyCode :: Lens' DeleteReservationResponse (Maybe Text)
-drrsCurrencyCode = lens _drrsCurrencyCode (\s a -> s {_drrsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsCurrencyCode :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsCurrencyCode = Lens.lens (currencyCode :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-drrsARN :: Lens' DeleteReservationResponse (Maybe Text)
-drrsARN = lens _drrsARN (\s a -> s {_drrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsARN :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsARN = Lens.lens (arn :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-drrsStart :: Lens' DeleteReservationResponse (Maybe Text)
-drrsStart = lens _drrsStart (\s a -> s {_drrsStart = a})
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsStart :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsStart = Lens.lens (start :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {start = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | Number of reserved resources
-drrsCount :: Lens' DeleteReservationResponse (Maybe Int)
-drrsCount = lens _drrsCount (\s a -> s {_drrsCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsCount :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Int)
+drrsCount = Lens.lens (count :: DeleteReservationResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-drrsEnd :: Lens' DeleteReservationResponse (Maybe Text)
-drrsEnd = lens _drrsEnd (\s a -> s {_drrsEnd = a})
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsEnd :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsEnd = Lens.lens (end :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {end = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
 -- | User specified reservation name
-drrsName :: Lens' DeleteReservationResponse (Maybe Text)
-drrsName = lens _drrsName (\s a -> s {_drrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsName :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsName = Lens.lens (name :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Unique reservation ID, e.g. '1234567'
-drrsReservationId :: Lens' DeleteReservationResponse (Maybe Text)
-drrsReservationId = lens _drrsReservationId (\s a -> s {_drrsReservationId = a})
+--
+-- /Note:/ Consider using 'reservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsReservationId :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsReservationId = Lens.lens (reservationId :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {reservationId = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsReservationId "Use generic-lens or generic-optics with 'reservationId' instead." #-}
 
 -- | Unique offering ID, e.g. '87654321'
-drrsOfferingId :: Lens' DeleteReservationResponse (Maybe Text)
-drrsOfferingId = lens _drrsOfferingId (\s a -> s {_drrsOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsOfferingId :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsOfferingId = Lens.lens (offeringId :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | AWS region, e.g. 'us-west-2'
-drrsRegion :: Lens' DeleteReservationResponse (Maybe Text)
-drrsRegion = lens _drrsRegion (\s a -> s {_drrsRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRegion :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsRegion = Lens.lens (region :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | Offering type, e.g. 'NO_UPFRONT'
-drrsOfferingType :: Lens' DeleteReservationResponse (Maybe OfferingType)
-drrsOfferingType = lens _drrsOfferingType (\s a -> s {_drrsOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsOfferingType :: Lens.Lens' DeleteReservationResponse (Lude.Maybe OfferingType)
+drrsOfferingType = Lens.lens (offeringType :: DeleteReservationResponse -> Lude.Maybe OfferingType) (\s a -> s {offeringType = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | Recurring usage charge for each reserved resource, e.g. '157.0'
-drrsUsagePrice :: Lens' DeleteReservationResponse (Maybe Double)
-drrsUsagePrice = lens _drrsUsagePrice (\s a -> s {_drrsUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsUsagePrice :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Double)
+drrsUsagePrice = Lens.lens (usagePrice :: DeleteReservationResponse -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-drrsFixedPrice :: Lens' DeleteReservationResponse (Maybe Double)
-drrsFixedPrice = lens _drrsFixedPrice (\s a -> s {_drrsFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsFixedPrice :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Double)
+drrsFixedPrice = Lens.lens (fixedPrice :: DeleteReservationResponse -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | Units for duration, e.g. 'MONTHS'
-drrsDurationUnits :: Lens' DeleteReservationResponse (Maybe OfferingDurationUnits)
-drrsDurationUnits = lens _drrsDurationUnits (\s a -> s {_drrsDurationUnits = a})
+--
+-- /Note:/ Consider using 'durationUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsDurationUnits :: Lens.Lens' DeleteReservationResponse (Lude.Maybe OfferingDurationUnits)
+drrsDurationUnits = Lens.lens (durationUnits :: DeleteReservationResponse -> Lude.Maybe OfferingDurationUnits) (\s a -> s {durationUnits = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsDurationUnits "Use generic-lens or generic-optics with 'durationUnits' instead." #-}
 
 -- | Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-drrsOfferingDescription :: Lens' DeleteReservationResponse (Maybe Text)
-drrsOfferingDescription = lens _drrsOfferingDescription (\s a -> s {_drrsOfferingDescription = a})
+--
+-- /Note:/ Consider using 'offeringDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsOfferingDescription :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Text)
+drrsOfferingDescription = Lens.lens (offeringDescription :: DeleteReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {offeringDescription = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsOfferingDescription "Use generic-lens or generic-optics with 'offeringDescription' instead." #-}
 
 -- | Lease duration, e.g. '12'
-drrsDuration :: Lens' DeleteReservationResponse (Maybe Int)
-drrsDuration = lens _drrsDuration (\s a -> s {_drrsDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsDuration :: Lens.Lens' DeleteReservationResponse (Lude.Maybe Lude.Int)
+drrsDuration = Lens.lens (duration :: DeleteReservationResponse -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | A collection of key-value pairs
-drrsTags :: Lens' DeleteReservationResponse (HashMap Text (Text))
-drrsTags = lens _drrsTags (\s a -> s {_drrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsTags :: Lens.Lens' DeleteReservationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+drrsTags = Lens.lens (tags :: DeleteReservationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DeleteReservationResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DeleteReservationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DeleteReservationResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DeleteReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReservationResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

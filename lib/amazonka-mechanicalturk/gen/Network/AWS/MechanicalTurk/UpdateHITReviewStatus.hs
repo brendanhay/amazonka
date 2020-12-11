@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,148 @@
 --
 -- The @UpdateHITReviewStatus@ operation updates the status of a HIT. If the status is Reviewable, this operation can update the status to Reviewing, or it can revert a Reviewing HIT back to the Reviewable status.
 module Network.AWS.MechanicalTurk.UpdateHITReviewStatus
-  ( -- * Creating a Request
-    updateHITReviewStatus,
-    UpdateHITReviewStatus,
+  ( -- * Creating a request
+    UpdateHITReviewStatus (..),
+    mkUpdateHITReviewStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uhitrsRevert,
     uhitrsHITId,
 
-    -- * Destructuring the Response
-    updateHITReviewStatusResponse,
-    UpdateHITReviewStatusResponse,
+    -- * Destructuring the response
+    UpdateHITReviewStatusResponse (..),
+    mkUpdateHITReviewStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uhitrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateHITReviewStatus' smart constructor.
+-- | /See:/ 'mkUpdateHITReviewStatus' smart constructor.
 data UpdateHITReviewStatus = UpdateHITReviewStatus'
-  { _uhitrsRevert ::
-      !(Maybe Bool),
-    _uhitrsHITId :: !Text
+  { revert ::
+      Lude.Maybe Lude.Bool,
+    hITId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITReviewStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'hITId' - The ID of the HIT to update.
+-- * 'revert' - Specifies how to update the HIT status. Default is @False@ .
 --
--- * 'uhitrsRevert' - Specifies how to update the HIT status. Default is @False@ .      * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@      * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
 --
--- * 'uhitrsHITId' - The ID of the HIT to update.
-updateHITReviewStatus ::
-  -- | 'uhitrsHITId'
-  Text ->
+--     * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@
+--
+--
+--     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
+mkUpdateHITReviewStatus ::
+  -- | 'hITId'
+  Lude.Text ->
   UpdateHITReviewStatus
-updateHITReviewStatus pHITId_ =
-  UpdateHITReviewStatus'
-    { _uhitrsRevert = Nothing,
-      _uhitrsHITId = pHITId_
-    }
+mkUpdateHITReviewStatus pHITId_ =
+  UpdateHITReviewStatus' {revert = Lude.Nothing, hITId = pHITId_}
 
--- | Specifies how to update the HIT status. Default is @False@ .      * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@      * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
-uhitrsRevert :: Lens' UpdateHITReviewStatus (Maybe Bool)
-uhitrsRevert = lens _uhitrsRevert (\s a -> s {_uhitrsRevert = a})
+-- | Specifies how to update the HIT status. Default is @False@ .
+--
+--
+--     * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@
+--
+--
+--     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
+--
+--
+--
+-- /Note:/ Consider using 'revert' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhitrsRevert :: Lens.Lens' UpdateHITReviewStatus (Lude.Maybe Lude.Bool)
+uhitrsRevert = Lens.lens (revert :: UpdateHITReviewStatus -> Lude.Maybe Lude.Bool) (\s a -> s {revert = a} :: UpdateHITReviewStatus)
+{-# DEPRECATED uhitrsRevert "Use generic-lens or generic-optics with 'revert' instead." #-}
 
 -- | The ID of the HIT to update.
-uhitrsHITId :: Lens' UpdateHITReviewStatus Text
-uhitrsHITId = lens _uhitrsHITId (\s a -> s {_uhitrsHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhitrsHITId :: Lens.Lens' UpdateHITReviewStatus Lude.Text
+uhitrsHITId = Lens.lens (hITId :: UpdateHITReviewStatus -> Lude.Text) (\s a -> s {hITId = a} :: UpdateHITReviewStatus)
+{-# DEPRECATED uhitrsHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance AWSRequest UpdateHITReviewStatus where
+instance Lude.AWSRequest UpdateHITReviewStatus where
   type Rs UpdateHITReviewStatus = UpdateHITReviewStatusResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> UpdateHITReviewStatusResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateHITReviewStatusResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateHITReviewStatus
-
-instance NFData UpdateHITReviewStatus
-
-instance ToHeaders UpdateHITReviewStatus where
+instance Lude.ToHeaders UpdateHITReviewStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateHITReviewStatus where
+instance Lude.ToJSON UpdateHITReviewStatus where
   toJSON UpdateHITReviewStatus' {..} =
-    object
-      ( catMaybes
-          [("Revert" .=) <$> _uhitrsRevert, Just ("HITId" .= _uhitrsHITId)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Revert" Lude..=) Lude.<$> revert,
+            Lude.Just ("HITId" Lude..= hITId)
+          ]
       )
 
-instance ToPath UpdateHITReviewStatus where
-  toPath = const "/"
+instance Lude.ToPath UpdateHITReviewStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateHITReviewStatus where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateHITReviewStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateHITReviewStatusResponse' smart constructor.
+-- | /See:/ 'mkUpdateHITReviewStatusResponse' smart constructor.
 newtype UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
-  { _uhitrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITReviewStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uhitrsrsResponseStatus' - -- | The response status code.
-updateHITReviewStatusResponse ::
-  -- | 'uhitrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateHITReviewStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateHITReviewStatusResponse
-updateHITReviewStatusResponse pResponseStatus_ =
-  UpdateHITReviewStatusResponse'
-    { _uhitrsrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateHITReviewStatusResponse pResponseStatus_ =
+  UpdateHITReviewStatusResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uhitrsrsResponseStatus :: Lens' UpdateHITReviewStatusResponse Int
-uhitrsrsResponseStatus = lens _uhitrsrsResponseStatus (\s a -> s {_uhitrsrsResponseStatus = a})
-
-instance NFData UpdateHITReviewStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhitrsrsResponseStatus :: Lens.Lens' UpdateHITReviewStatusResponse Lude.Int
+uhitrsrsResponseStatus = Lens.lens (responseStatus :: UpdateHITReviewStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateHITReviewStatusResponse)
+{-# DEPRECATED uhitrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

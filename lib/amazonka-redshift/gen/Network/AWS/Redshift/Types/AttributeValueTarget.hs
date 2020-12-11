@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.AttributeValueTarget where
+module Network.AWS.Redshift.Types.AttributeValueTarget
+  ( AttributeValueTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributeValueTarget,
+
+    -- * Lenses
+    avtAttributeValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes an attribute value.
 --
---
---
--- /See:/ 'attributeValueTarget' smart constructor.
+-- /See:/ 'mkAttributeValueTarget' smart constructor.
 newtype AttributeValueTarget = AttributeValueTarget'
-  { _avtAttributeValue ::
-      Maybe Text
+  { attributeValue ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeValueTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avtAttributeValue' - The value of the attribute.
-attributeValueTarget ::
+-- * 'attributeValue' - The value of the attribute.
+mkAttributeValueTarget ::
   AttributeValueTarget
-attributeValueTarget =
-  AttributeValueTarget' {_avtAttributeValue = Nothing}
+mkAttributeValueTarget =
+  AttributeValueTarget' {attributeValue = Lude.Nothing}
 
 -- | The value of the attribute.
-avtAttributeValue :: Lens' AttributeValueTarget (Maybe Text)
-avtAttributeValue = lens _avtAttributeValue (\s a -> s {_avtAttributeValue = a})
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avtAttributeValue :: Lens.Lens' AttributeValueTarget (Lude.Maybe Lude.Text)
+avtAttributeValue = Lens.lens (attributeValue :: AttributeValueTarget -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: AttributeValueTarget)
+{-# DEPRECATED avtAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
-instance FromXML AttributeValueTarget where
-  parseXML x = AttributeValueTarget' <$> (x .@? "AttributeValue")
-
-instance Hashable AttributeValueTarget
-
-instance NFData AttributeValueTarget
+instance Lude.FromXML AttributeValueTarget where
+  parseXML x =
+    AttributeValueTarget' Lude.<$> (x Lude..@? "AttributeValue")

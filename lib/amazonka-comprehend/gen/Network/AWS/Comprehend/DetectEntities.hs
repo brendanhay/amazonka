@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,167 @@
 --
 -- Inspects text for named entities, and returns information about them. For more information, about named entities, see 'how-entities' .
 module Network.AWS.Comprehend.DetectEntities
-  ( -- * Creating a Request
-    detectEntities,
-    DetectEntities,
+  ( -- * Creating a request
+    DetectEntities (..),
+    mkDetectEntities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dLanguageCode,
     dEndpointARN,
     dText,
 
-    -- * Destructuring the Response
-    detectEntitiesResponse,
-    DetectEntitiesResponse,
+    -- * Destructuring the response
+    DetectEntitiesResponse (..),
+    mkDetectEntitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deersEntities,
     deersResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectEntities' smart constructor.
+-- | /See:/ 'mkDetectEntities' smart constructor.
 data DetectEntities = DetectEntities'
-  { _dLanguageCode ::
-      !(Maybe LanguageCode),
-    _dEndpointARN :: !(Maybe Text),
-    _dText :: !(Sensitive Text)
+  { languageCode ::
+      Lude.Maybe LanguageCode,
+    endpointARN :: Lude.Maybe Lude.Text,
+    text :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectEntities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'endpointARN' - The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.
 --
--- * 'dLanguageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language. If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.
+-- If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.
+-- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
 --
--- * 'dEndpointARN' - The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend. If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.
---
--- * 'dText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-detectEntities ::
-  -- | 'dText'
-  Text ->
+-- If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.
+-- * 'text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+mkDetectEntities ::
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
   DetectEntities
-detectEntities pText_ =
+mkDetectEntities pText_ =
   DetectEntities'
-    { _dLanguageCode = Nothing,
-      _dEndpointARN = Nothing,
-      _dText = _Sensitive # pText_
+    { languageCode = Lude.Nothing,
+      endpointARN = Lude.Nothing,
+      text = pText_
     }
 
--- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language. If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.
-dLanguageCode :: Lens' DetectEntities (Maybe LanguageCode)
-dLanguageCode = lens _dLanguageCode (\s a -> s {_dLanguageCode = a})
+-- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+--
+-- If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLanguageCode :: Lens.Lens' DetectEntities (Lude.Maybe LanguageCode)
+dLanguageCode = Lens.lens (languageCode :: DetectEntities -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: DetectEntities)
+{-# DEPRECATED dLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
--- | The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend. If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.
-dEndpointARN :: Lens' DetectEntities (Maybe Text)
-dEndpointARN = lens _dEndpointARN (\s a -> s {_dEndpointARN = a})
+-- | The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.
+--
+-- If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEndpointARN :: Lens.Lens' DetectEntities (Lude.Maybe Lude.Text)
+dEndpointARN = Lens.lens (endpointARN :: DetectEntities -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: DetectEntities)
+{-# DEPRECATED dEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-dText :: Lens' DetectEntities Text
-dText = lens _dText (\s a -> s {_dText = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dText :: Lens.Lens' DetectEntities (Lude.Sensitive Lude.Text)
+dText = Lens.lens (text :: DetectEntities -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectEntities)
+{-# DEPRECATED dText "Use generic-lens or generic-optics with 'text' instead." #-}
 
-instance AWSRequest DetectEntities where
+instance Lude.AWSRequest DetectEntities where
   type Rs DetectEntities = DetectEntitiesResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetectEntitiesResponse'
-            <$> (x .?> "Entities" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Entities" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetectEntities
-
-instance NFData DetectEntities
-
-instance ToHeaders DetectEntities where
+instance Lude.ToHeaders DetectEntities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DetectEntities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.DetectEntities" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetectEntities where
+instance Lude.ToJSON DetectEntities where
   toJSON DetectEntities' {..} =
-    object
-      ( catMaybes
-          [ ("LanguageCode" .=) <$> _dLanguageCode,
-            ("EndpointArn" .=) <$> _dEndpointARN,
-            Just ("Text" .= _dText)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LanguageCode" Lude..=) Lude.<$> languageCode,
+            ("EndpointArn" Lude..=) Lude.<$> endpointARN,
+            Lude.Just ("Text" Lude..= text)
           ]
       )
 
-instance ToPath DetectEntities where
-  toPath = const "/"
+instance Lude.ToPath DetectEntities where
+  toPath = Lude.const "/"
 
-instance ToQuery DetectEntities where
-  toQuery = const mempty
+instance Lude.ToQuery DetectEntities where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detectEntitiesResponse' smart constructor.
+-- | /See:/ 'mkDetectEntitiesResponse' smart constructor.
 data DetectEntitiesResponse = DetectEntitiesResponse'
-  { _deersEntities ::
-      !(Maybe [Entity]),
-    _deersResponseStatus :: !Int
+  { entities ::
+      Lude.Maybe [Entity],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectEntitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'entities' - A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.
 --
--- * 'deersEntities' - A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.  If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see 'how-entities' .
---
--- * 'deersResponseStatus' - -- | The response status code.
-detectEntitiesResponse ::
-  -- | 'deersResponseStatus'
-  Int ->
+-- If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see 'how-entities' .
+-- * 'responseStatus' - The response status code.
+mkDetectEntitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetectEntitiesResponse
-detectEntitiesResponse pResponseStatus_ =
+mkDetectEntitiesResponse pResponseStatus_ =
   DetectEntitiesResponse'
-    { _deersEntities = Nothing,
-      _deersResponseStatus = pResponseStatus_
+    { entities = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.  If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see 'how-entities' .
-deersEntities :: Lens' DetectEntitiesResponse [Entity]
-deersEntities = lens _deersEntities (\s a -> s {_deersEntities = a}) . _Default . _Coerce
+-- | A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.
+--
+-- If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see 'how-entities' .
+--
+-- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersEntities :: Lens.Lens' DetectEntitiesResponse (Lude.Maybe [Entity])
+deersEntities = Lens.lens (entities :: DetectEntitiesResponse -> Lude.Maybe [Entity]) (\s a -> s {entities = a} :: DetectEntitiesResponse)
+{-# DEPRECATED deersEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
--- | -- | The response status code.
-deersResponseStatus :: Lens' DetectEntitiesResponse Int
-deersResponseStatus = lens _deersResponseStatus (\s a -> s {_deersResponseStatus = a})
-
-instance NFData DetectEntitiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersResponseStatus :: Lens.Lens' DetectEntitiesResponse Lude.Int
+deersResponseStatus = Lens.lens (responseStatus :: DetectEntitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectEntitiesResponse)
+{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

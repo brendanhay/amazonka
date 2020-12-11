@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,25 @@
 --
 -- Updates the description, compatibility setting, or version checkpoint for a schema set.
 --
---
 -- For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for @Compatibility@ is provided, the @VersionNumber@ (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.
---
 -- If the value for the @VersionNumber@ (checkpoint) is provided, @Compatibility@ is optional and this can be used to set/reset a checkpoint for the schema.
---
 -- This update will happen only if the schema is in the AVAILABLE state.
 module Network.AWS.Glue.UpdateSchema
-  ( -- * Creating a Request
-    updateSchema,
-    UpdateSchema,
+  ( -- * Creating a request
+    UpdateSchema (..),
+    mkUpdateSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usSchemaVersionNumber,
     usDescription,
     usCompatibility,
     usSchemaId,
 
-    -- * Destructuring the Response
-    updateSchemaResponse,
-    UpdateSchemaResponse,
+    -- * Destructuring the response
+    UpdateSchemaResponse (..),
+    mkUpdateSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usrsRegistryName,
     usrsSchemaName,
     usrsSchemaARN,
@@ -49,150 +41,190 @@ module Network.AWS.Glue.UpdateSchema
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSchema' smart constructor.
+-- | /See:/ 'mkUpdateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
-  { _usSchemaVersionNumber ::
-      !(Maybe SchemaVersionNumber),
-    _usDescription :: !(Maybe Text),
-    _usCompatibility :: !(Maybe Compatibility),
-    _usSchemaId :: !SchemaId
+  { schemaVersionNumber ::
+      Lude.Maybe SchemaVersionNumber,
+    description :: Lude.Maybe Lude.Text,
+    compatibility :: Lude.Maybe Compatibility,
+    schemaId :: SchemaId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'compatibility' - The new compatibility setting for the schema.
+-- * 'description' - The new description for the schema.
+-- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
--- * 'usSchemaVersionNumber' - Version number required for check pointing. One of @VersionNumber@ or @Compatibility@ has to be provided.
 --
--- * 'usDescription' - The new description for the schema.
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
 --
--- * 'usCompatibility' - The new compatibility setting for the schema.
 --
--- * 'usSchemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
-updateSchema ::
-  -- | 'usSchemaId'
+--     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+-- * 'schemaVersionNumber' - Version number required for check pointing. One of @VersionNumber@ or @Compatibility@ has to be provided.
+mkUpdateSchema ::
+  -- | 'schemaId'
   SchemaId ->
   UpdateSchema
-updateSchema pSchemaId_ =
+mkUpdateSchema pSchemaId_ =
   UpdateSchema'
-    { _usSchemaVersionNumber = Nothing,
-      _usDescription = Nothing,
-      _usCompatibility = Nothing,
-      _usSchemaId = pSchemaId_
+    { schemaVersionNumber = Lude.Nothing,
+      description = Lude.Nothing,
+      compatibility = Lude.Nothing,
+      schemaId = pSchemaId_
     }
 
 -- | Version number required for check pointing. One of @VersionNumber@ or @Compatibility@ has to be provided.
-usSchemaVersionNumber :: Lens' UpdateSchema (Maybe SchemaVersionNumber)
-usSchemaVersionNumber = lens _usSchemaVersionNumber (\s a -> s {_usSchemaVersionNumber = a})
+--
+-- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSchemaVersionNumber :: Lens.Lens' UpdateSchema (Lude.Maybe SchemaVersionNumber)
+usSchemaVersionNumber = Lens.lens (schemaVersionNumber :: UpdateSchema -> Lude.Maybe SchemaVersionNumber) (\s a -> s {schemaVersionNumber = a} :: UpdateSchema)
+{-# DEPRECATED usSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
 -- | The new description for the schema.
-usDescription :: Lens' UpdateSchema (Maybe Text)
-usDescription = lens _usDescription (\s a -> s {_usDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usDescription :: Lens.Lens' UpdateSchema (Lude.Maybe Lude.Text)
+usDescription = Lens.lens (description :: UpdateSchema -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateSchema)
+{-# DEPRECATED usDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The new compatibility setting for the schema.
-usCompatibility :: Lens' UpdateSchema (Maybe Compatibility)
-usCompatibility = lens _usCompatibility (\s a -> s {_usCompatibility = a})
+--
+-- /Note:/ Consider using 'compatibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usCompatibility :: Lens.Lens' UpdateSchema (Lude.Maybe Compatibility)
+usCompatibility = Lens.lens (compatibility :: UpdateSchema -> Lude.Maybe Compatibility) (\s a -> s {compatibility = a} :: UpdateSchema)
+{-# DEPRECATED usCompatibility "Use generic-lens or generic-optics with 'compatibility' instead." #-}
 
--- | This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
-usSchemaId :: Lens' UpdateSchema SchemaId
-usSchemaId = lens _usSchemaId (\s a -> s {_usSchemaId = a})
+-- | This is a wrapper structure to contain schema identity fields. The structure contains:
+--
+--
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+--
+--
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSchemaId :: Lens.Lens' UpdateSchema SchemaId
+usSchemaId = Lens.lens (schemaId :: UpdateSchema -> SchemaId) (\s a -> s {schemaId = a} :: UpdateSchema)
+{-# DEPRECATED usSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
-instance AWSRequest UpdateSchema where
+instance Lude.AWSRequest UpdateSchema where
   type Rs UpdateSchema = UpdateSchemaResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            <$> (x .?> "RegistryName")
-            <*> (x .?> "SchemaName")
-            <*> (x .?> "SchemaArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "SchemaName")
+            Lude.<*> (x Lude..?> "SchemaArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSchema
-
-instance NFData UpdateSchema
-
-instance ToHeaders UpdateSchema where
+instance Lude.ToHeaders UpdateSchema where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateSchema" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdateSchema" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateSchema where
+instance Lude.ToJSON UpdateSchema where
   toJSON UpdateSchema' {..} =
-    object
-      ( catMaybes
-          [ ("SchemaVersionNumber" .=) <$> _usSchemaVersionNumber,
-            ("Description" .=) <$> _usDescription,
-            ("Compatibility" .=) <$> _usCompatibility,
-            Just ("SchemaId" .= _usSchemaId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Compatibility" Lude..=) Lude.<$> compatibility,
+            Lude.Just ("SchemaId" Lude..= schemaId)
           ]
       )
 
-instance ToPath UpdateSchema where
-  toPath = const "/"
+instance Lude.ToPath UpdateSchema where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateSchema where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSchemaResponse' smart constructor.
+-- | /See:/ 'mkUpdateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
-  { _usrsRegistryName ::
-      !(Maybe Text),
-    _usrsSchemaName :: !(Maybe Text),
-    _usrsSchemaARN :: !(Maybe Text),
-    _usrsResponseStatus :: !Int
+  { registryName ::
+      Lude.Maybe Lude.Text,
+    schemaName :: Lude.Maybe Lude.Text,
+    schemaARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usrsRegistryName' - The name of the registry that contains the schema.
---
--- * 'usrsSchemaName' - The name of the schema.
---
--- * 'usrsSchemaARN' - The Amazon Resource Name (ARN) of the schema.
---
--- * 'usrsResponseStatus' - -- | The response status code.
-updateSchemaResponse ::
-  -- | 'usrsResponseStatus'
-  Int ->
+-- * 'registryName' - The name of the registry that contains the schema.
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'schemaName' - The name of the schema.
+mkUpdateSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSchemaResponse
-updateSchemaResponse pResponseStatus_ =
+mkUpdateSchemaResponse pResponseStatus_ =
   UpdateSchemaResponse'
-    { _usrsRegistryName = Nothing,
-      _usrsSchemaName = Nothing,
-      _usrsSchemaARN = Nothing,
-      _usrsResponseStatus = pResponseStatus_
+    { registryName = Lude.Nothing,
+      schemaName = Lude.Nothing,
+      schemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the registry that contains the schema.
-usrsRegistryName :: Lens' UpdateSchemaResponse (Maybe Text)
-usrsRegistryName = lens _usrsRegistryName (\s a -> s {_usrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsRegistryName :: Lens.Lens' UpdateSchemaResponse (Lude.Maybe Lude.Text)
+usrsRegistryName = Lens.lens (registryName :: UpdateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: UpdateSchemaResponse)
+{-# DEPRECATED usrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The name of the schema.
-usrsSchemaName :: Lens' UpdateSchemaResponse (Maybe Text)
-usrsSchemaName = lens _usrsSchemaName (\s a -> s {_usrsSchemaName = a})
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsSchemaName :: Lens.Lens' UpdateSchemaResponse (Lude.Maybe Lude.Text)
+usrsSchemaName = Lens.lens (schemaName :: UpdateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: UpdateSchemaResponse)
+{-# DEPRECATED usrsSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the schema.
-usrsSchemaARN :: Lens' UpdateSchemaResponse (Maybe Text)
-usrsSchemaARN = lens _usrsSchemaARN (\s a -> s {_usrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsSchemaARN :: Lens.Lens' UpdateSchemaResponse (Lude.Maybe Lude.Text)
+usrsSchemaARN = Lens.lens (schemaARN :: UpdateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: UpdateSchemaResponse)
+{-# DEPRECATED usrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateSchemaResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\s a -> s {_usrsResponseStatus = a})
-
-instance NFData UpdateSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsResponseStatus :: Lens.Lens' UpdateSchemaResponse Lude.Int
+usrsResponseStatus = Lens.lens (responseStatus :: UpdateSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSchemaResponse)
+{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

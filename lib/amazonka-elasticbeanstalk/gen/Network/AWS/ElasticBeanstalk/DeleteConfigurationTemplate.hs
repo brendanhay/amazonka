@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,109 @@
 --
 -- Deletes the specified configuration template.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-  ( -- * Creating a Request
-    deleteConfigurationTemplate,
-    DeleteConfigurationTemplate,
+  ( -- * Creating a request
+    DeleteConfigurationTemplate (..),
+    mkDeleteConfigurationTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dctApplicationName,
     dctTemplateName,
 
-    -- * Destructuring the Response
-    deleteConfigurationTemplateResponse,
-    DeleteConfigurationTemplateResponse,
+    -- * Destructuring the response
+    DeleteConfigurationTemplateResponse (..),
+    mkDeleteConfigurationTemplateResponse,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to delete a configuration template.
 --
---
---
--- /See:/ 'deleteConfigurationTemplate' smart constructor.
+-- /See:/ 'mkDeleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-  { _dctApplicationName ::
-      !Text,
-    _dctTemplateName :: !Text
+  { applicationName ::
+      Lude.Text,
+    templateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dctApplicationName' - The name of the application to delete the configuration template from.
---
--- * 'dctTemplateName' - The name of the configuration template to delete.
-deleteConfigurationTemplate ::
-  -- | 'dctApplicationName'
-  Text ->
-  -- | 'dctTemplateName'
-  Text ->
+-- * 'applicationName' - The name of the application to delete the configuration template from.
+-- * 'templateName' - The name of the configuration template to delete.
+mkDeleteConfigurationTemplate ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'templateName'
+  Lude.Text ->
   DeleteConfigurationTemplate
-deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
+mkDeleteConfigurationTemplate pApplicationName_ pTemplateName_ =
   DeleteConfigurationTemplate'
-    { _dctApplicationName =
-        pApplicationName_,
-      _dctTemplateName = pTemplateName_
+    { applicationName = pApplicationName_,
+      templateName = pTemplateName_
     }
 
 -- | The name of the application to delete the configuration template from.
-dctApplicationName :: Lens' DeleteConfigurationTemplate Text
-dctApplicationName = lens _dctApplicationName (\s a -> s {_dctApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctApplicationName :: Lens.Lens' DeleteConfigurationTemplate Lude.Text
+dctApplicationName = Lens.lens (applicationName :: DeleteConfigurationTemplate -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteConfigurationTemplate)
+{-# DEPRECATED dctApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of the configuration template to delete.
-dctTemplateName :: Lens' DeleteConfigurationTemplate Text
-dctTemplateName = lens _dctTemplateName (\s a -> s {_dctTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctTemplateName :: Lens.Lens' DeleteConfigurationTemplate Lude.Text
+dctTemplateName = Lens.lens (templateName :: DeleteConfigurationTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteConfigurationTemplate)
+{-# DEPRECATED dctTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest DeleteConfigurationTemplate where
+instance Lude.AWSRequest DeleteConfigurationTemplate where
   type
     Rs DeleteConfigurationTemplate =
       DeleteConfigurationTemplateResponse
-  request = postQuery elasticBeanstalk
-  response = receiveNull DeleteConfigurationTemplateResponse'
+  request = Req.postQuery elasticBeanstalkService
+  response = Res.receiveNull DeleteConfigurationTemplateResponse'
 
-instance Hashable DeleteConfigurationTemplate
+instance Lude.ToHeaders DeleteConfigurationTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteConfigurationTemplate
+instance Lude.ToPath DeleteConfigurationTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteConfigurationTemplate where
-  toHeaders = const mempty
-
-instance ToPath DeleteConfigurationTemplate where
-  toPath = const "/"
-
-instance ToQuery DeleteConfigurationTemplate where
+instance Lude.ToQuery DeleteConfigurationTemplate where
   toQuery DeleteConfigurationTemplate' {..} =
-    mconcat
-      [ "Action" =: ("DeleteConfigurationTemplate" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ApplicationName" =: _dctApplicationName,
-        "TemplateName" =: _dctTemplateName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteConfigurationTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ApplicationName" Lude.=: applicationName,
+        "TemplateName" Lude.=: templateName
       ]
 
--- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
+-- | /See:/ 'mkDeleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationTemplateResponse' with the minimum fields required to make a request.
-deleteConfigurationTemplateResponse ::
+mkDeleteConfigurationTemplateResponse ::
   DeleteConfigurationTemplateResponse
-deleteConfigurationTemplateResponse =
+mkDeleteConfigurationTemplateResponse =
   DeleteConfigurationTemplateResponse'
-
-instance NFData DeleteConfigurationTemplateResponse

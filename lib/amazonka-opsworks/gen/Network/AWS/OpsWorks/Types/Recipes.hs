@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Recipes where
+module Network.AWS.OpsWorks.Types.Recipes
+  ( Recipes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecipes,
+
+    -- * Lenses
+    rSetup,
+    rShutdown,
+    rUndeploy,
+    rConfigure,
+    rDeploy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
 --
---
 -- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository's phpapp2 folder.
 --
---
--- /See:/ 'recipes' smart constructor.
+-- /See:/ 'mkRecipes' smart constructor.
 data Recipes = Recipes'
-  { _rSetup :: !(Maybe [Text]),
-    _rShutdown :: !(Maybe [Text]),
-    _rUndeploy :: !(Maybe [Text]),
-    _rConfigure :: !(Maybe [Text]),
-    _rDeploy :: !(Maybe [Text])
+  { setup :: Lude.Maybe [Lude.Text],
+    shutdown :: Lude.Maybe [Lude.Text],
+    undeploy :: Lude.Maybe [Lude.Text],
+    configure :: Lude.Maybe [Lude.Text],
+    deploy :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Recipes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rSetup' - An array of custom recipe names to be run following a @setup@ event.
---
--- * 'rShutdown' - An array of custom recipe names to be run following a @shutdown@ event.
---
--- * 'rUndeploy' - An array of custom recipe names to be run following a @undeploy@ event.
---
--- * 'rConfigure' - An array of custom recipe names to be run following a @configure@ event.
---
--- * 'rDeploy' - An array of custom recipe names to be run following a @deploy@ event.
-recipes ::
+-- * 'configure' - An array of custom recipe names to be run following a @configure@ event.
+-- * 'deploy' - An array of custom recipe names to be run following a @deploy@ event.
+-- * 'setup' - An array of custom recipe names to be run following a @setup@ event.
+-- * 'shutdown' - An array of custom recipe names to be run following a @shutdown@ event.
+-- * 'undeploy' - An array of custom recipe names to be run following a @undeploy@ event.
+mkRecipes ::
   Recipes
-recipes =
+mkRecipes =
   Recipes'
-    { _rSetup = Nothing,
-      _rShutdown = Nothing,
-      _rUndeploy = Nothing,
-      _rConfigure = Nothing,
-      _rDeploy = Nothing
+    { setup = Lude.Nothing,
+      shutdown = Lude.Nothing,
+      undeploy = Lude.Nothing,
+      configure = Lude.Nothing,
+      deploy = Lude.Nothing
     }
 
 -- | An array of custom recipe names to be run following a @setup@ event.
-rSetup :: Lens' Recipes [Text]
-rSetup = lens _rSetup (\s a -> s {_rSetup = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'setup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSetup :: Lens.Lens' Recipes (Lude.Maybe [Lude.Text])
+rSetup = Lens.lens (setup :: Recipes -> Lude.Maybe [Lude.Text]) (\s a -> s {setup = a} :: Recipes)
+{-# DEPRECATED rSetup "Use generic-lens or generic-optics with 'setup' instead." #-}
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
-rShutdown :: Lens' Recipes [Text]
-rShutdown = lens _rShutdown (\s a -> s {_rShutdown = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'shutdown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rShutdown :: Lens.Lens' Recipes (Lude.Maybe [Lude.Text])
+rShutdown = Lens.lens (shutdown :: Recipes -> Lude.Maybe [Lude.Text]) (\s a -> s {shutdown = a} :: Recipes)
+{-# DEPRECATED rShutdown "Use generic-lens or generic-optics with 'shutdown' instead." #-}
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
-rUndeploy :: Lens' Recipes [Text]
-rUndeploy = lens _rUndeploy (\s a -> s {_rUndeploy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'undeploy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rUndeploy :: Lens.Lens' Recipes (Lude.Maybe [Lude.Text])
+rUndeploy = Lens.lens (undeploy :: Recipes -> Lude.Maybe [Lude.Text]) (\s a -> s {undeploy = a} :: Recipes)
+{-# DEPRECATED rUndeploy "Use generic-lens or generic-optics with 'undeploy' instead." #-}
 
 -- | An array of custom recipe names to be run following a @configure@ event.
-rConfigure :: Lens' Recipes [Text]
-rConfigure = lens _rConfigure (\s a -> s {_rConfigure = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rConfigure :: Lens.Lens' Recipes (Lude.Maybe [Lude.Text])
+rConfigure = Lens.lens (configure :: Recipes -> Lude.Maybe [Lude.Text]) (\s a -> s {configure = a} :: Recipes)
+{-# DEPRECATED rConfigure "Use generic-lens or generic-optics with 'configure' instead." #-}
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
-rDeploy :: Lens' Recipes [Text]
-rDeploy = lens _rDeploy (\s a -> s {_rDeploy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deploy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDeploy :: Lens.Lens' Recipes (Lude.Maybe [Lude.Text])
+rDeploy = Lens.lens (deploy :: Recipes -> Lude.Maybe [Lude.Text]) (\s a -> s {deploy = a} :: Recipes)
+{-# DEPRECATED rDeploy "Use generic-lens or generic-optics with 'deploy' instead." #-}
 
-instance FromJSON Recipes where
+instance Lude.FromJSON Recipes where
   parseJSON =
-    withObject
+    Lude.withObject
       "Recipes"
       ( \x ->
           Recipes'
-            <$> (x .:? "Setup" .!= mempty)
-            <*> (x .:? "Shutdown" .!= mempty)
-            <*> (x .:? "Undeploy" .!= mempty)
-            <*> (x .:? "Configure" .!= mempty)
-            <*> (x .:? "Deploy" .!= mempty)
+            Lude.<$> (x Lude..:? "Setup" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Shutdown" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Undeploy" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Configure" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Deploy" Lude..!= Lude.mempty)
       )
 
-instance Hashable Recipes
-
-instance NFData Recipes
-
-instance ToJSON Recipes where
+instance Lude.ToJSON Recipes where
   toJSON Recipes' {..} =
-    object
-      ( catMaybes
-          [ ("Setup" .=) <$> _rSetup,
-            ("Shutdown" .=) <$> _rShutdown,
-            ("Undeploy" .=) <$> _rUndeploy,
-            ("Configure" .=) <$> _rConfigure,
-            ("Deploy" .=) <$> _rDeploy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Setup" Lude..=) Lude.<$> setup,
+            ("Shutdown" Lude..=) Lude.<$> shutdown,
+            ("Undeploy" Lude..=) Lude.<$> undeploy,
+            ("Configure" Lude..=) Lude.<$> configure,
+            ("Deploy" Lude..=) Lude.<$> deploy
           ]
       )

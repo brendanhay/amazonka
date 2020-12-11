@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts an asynchronous job to transcribe speech to text.
 module Network.AWS.Transcribe.StartTranscriptionJob
-  ( -- * Creating a Request
-    startTranscriptionJob,
-    StartTranscriptionJob,
+  ( -- * Creating a request
+    StartTranscriptionJob (..),
+    mkStartTranscriptionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stjContentRedaction,
     stjLanguageCode,
     stjLanguageOptions,
@@ -39,237 +34,337 @@ module Network.AWS.Transcribe.StartTranscriptionJob
     stjTranscriptionJobName,
     stjMedia,
 
-    -- * Destructuring the Response
-    startTranscriptionJobResponse,
-    StartTranscriptionJobResponse,
+    -- * Destructuring the response
+    StartTranscriptionJobResponse (..),
+    mkStartTranscriptionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stjrsTranscriptionJob,
     stjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'startTranscriptionJob' smart constructor.
+-- | /See:/ 'mkStartTranscriptionJob' smart constructor.
 data StartTranscriptionJob = StartTranscriptionJob'
-  { _stjContentRedaction ::
-      !(Maybe ContentRedaction),
-    _stjLanguageCode :: !(Maybe LanguageCode),
-    _stjLanguageOptions ::
-      !(Maybe (List1 LanguageCode)),
-    _stjSettings :: !(Maybe Settings),
-    _stjOutputBucketName :: !(Maybe Text),
-    _stjMediaFormat :: !(Maybe MediaFormat),
-    _stjOutputEncryptionKMSKeyId :: !(Maybe Text),
-    _stjModelSettings :: !(Maybe ModelSettings),
-    _stjJobExecutionSettings ::
-      !(Maybe JobExecutionSettings),
-    _stjOutputKey :: !(Maybe Text),
-    _stjIdentifyLanguage :: !(Maybe Bool),
-    _stjMediaSampleRateHertz :: !(Maybe Nat),
-    _stjTranscriptionJobName :: !Text,
-    _stjMedia :: !Media
+  { contentRedaction ::
+      Lude.Maybe ContentRedaction,
+    languageCode :: Lude.Maybe LanguageCode,
+    languageOptions ::
+      Lude.Maybe (Lude.NonEmpty LanguageCode),
+    settings :: Lude.Maybe Settings,
+    outputBucketName :: Lude.Maybe Lude.Text,
+    mediaFormat :: Lude.Maybe MediaFormat,
+    outputEncryptionKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    modelSettings :: Lude.Maybe ModelSettings,
+    jobExecutionSettings ::
+      Lude.Maybe JobExecutionSettings,
+    outputKey :: Lude.Maybe Lude.Text,
+    identifyLanguage :: Lude.Maybe Lude.Bool,
+    mediaSampleRateHertz :: Lude.Maybe Lude.Natural,
+    transcriptionJobName :: Lude.Text,
+    media :: Media
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTranscriptionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'contentRedaction' - An object that contains the request parameters for content redaction.
+-- * 'identifyLanguage' - Set this field to @true@ to enable automatic language identification. Automatic language identification is disabled by default. You receive a @BadRequestException@ error if you enter a value for a @LanguageCode@ .
+-- * 'jobExecutionSettings' - Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.
+-- * 'languageCode' - The language code for the language used in the input media file.
+-- * 'languageOptions' - An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.
+-- * 'media' - An object that describes the input media for a transcription job.
+-- * 'mediaFormat' - The format of the input media file.
+-- * 'mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 --
--- * 'stjContentRedaction' - An object that contains the request parameters for content redaction.
+-- If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the @MediaSampleRateHertz@ field blank and let Amazon Transcribe determine the sample rate.
+-- * 'modelSettings' - Choose the custom language model you use for your transcription job in this parameter.
+-- * 'outputBucketName' - The location where the transcription is stored.
 --
--- * 'stjLanguageCode' - The language code for the language used in the input media file.
+-- If you set the @OutputBucketName@ , Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. If you enable content redaction, the redacted transcript appears in @RedactedTranscriptFileUri@ . If you enable content redaction and choose to output an unredacted transcript, that transcript's location still appears in the @TranscriptFileUri@ . The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles> .
+-- You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the @OutputEncryptionKMSKeyId@ parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.
+-- If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
+-- * 'outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the @StartTranscriptionJob@ operation must have permission to use the specified KMS key.
 --
--- * 'stjLanguageOptions' - An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.
+-- You can use either of the following to identify a KMS key in the current account:
 --
--- * 'stjSettings' - A @Settings@ object that provides optional settings for a transcription job.
+--     * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 --
--- * 'stjOutputBucketName' - The location where the transcription is stored. If you set the @OutputBucketName@ , Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. If you enable content redaction, the redacted transcript appears in @RedactedTranscriptFileUri@ . If you enable content redaction and choose to output an unredacted transcript, that transcript's location still appears in the @TranscriptFileUri@ . The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles> . You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the @OutputEncryptionKMSKeyId@ parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
 --
--- * 'stjMediaFormat' - The format of the input media file.
+--     * KMS Key Alias: "alias/ExampleAlias"
 --
--- * 'stjOutputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the @StartTranscriptionJob@ operation must have permission to use the specified KMS key. You can use either of the following to identify a KMS key in the current account:     * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"     * KMS Key Alias: "alias/ExampleAlias" You can use either of the following to identify a KMS key in the current account or another account:     * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"     * ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias" If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3).  If you specify a KMS key to encrypt your output, you must also specify an output location in the @OutputBucketName@ parameter.
 --
--- * 'stjModelSettings' - Choose the custom language model you use for your transcription job in this parameter.
+-- You can use either of the following to identify a KMS key in the current account or another account:
 --
--- * 'stjJobExecutionSettings' - Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.
+--     * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"
 --
--- * 'stjOutputKey' - You can specify a location in an Amazon S3 bucket to store the output of your transcription job. If you don't specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json". You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json". If you specify an output key, you must also specify an S3 bucket in the @OutputBucketName@ parameter.
 --
--- * 'stjIdentifyLanguage' - Set this field to @true@ to enable automatic language identification. Automatic language identification is disabled by default. You receive a @BadRequestException@ error if you enter a value for a @LanguageCode@ .
+--     * ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"
 --
--- * 'stjMediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.  If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the @MediaSampleRateHertz@ field blank and let Amazon Transcribe determine the sample rate.
 --
--- * 'stjTranscriptionJobName' - The name of the job. You can't use the strings "@.@ " or "@..@ " by themselves as the job name. The name must also be unique within an AWS account. If you try to create a transcription job with the same name as a previous transcription job, you get a @ConflictException@ error.
+-- If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3).
+-- If you specify a KMS key to encrypt your output, you must also specify an output location in the @OutputBucketName@ parameter.
+-- * 'outputKey' - You can specify a location in an Amazon S3 bucket to store the output of your transcription job.
 --
--- * 'stjMedia' - An object that describes the input media for a transcription job.
-startTranscriptionJob ::
-  -- | 'stjTranscriptionJobName'
-  Text ->
-  -- | 'stjMedia'
+-- If you don't specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".
+-- You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json".
+-- If you specify an output key, you must also specify an S3 bucket in the @OutputBucketName@ parameter.
+-- * 'settings' - A @Settings@ object that provides optional settings for a transcription job.
+-- * 'transcriptionJobName' - The name of the job. You can't use the strings "@.@ " or "@..@ " by themselves as the job name. The name must also be unique within an AWS account. If you try to create a transcription job with the same name as a previous transcription job, you get a @ConflictException@ error.
+mkStartTranscriptionJob ::
+  -- | 'transcriptionJobName'
+  Lude.Text ->
+  -- | 'media'
   Media ->
   StartTranscriptionJob
-startTranscriptionJob pTranscriptionJobName_ pMedia_ =
+mkStartTranscriptionJob pTranscriptionJobName_ pMedia_ =
   StartTranscriptionJob'
-    { _stjContentRedaction = Nothing,
-      _stjLanguageCode = Nothing,
-      _stjLanguageOptions = Nothing,
-      _stjSettings = Nothing,
-      _stjOutputBucketName = Nothing,
-      _stjMediaFormat = Nothing,
-      _stjOutputEncryptionKMSKeyId = Nothing,
-      _stjModelSettings = Nothing,
-      _stjJobExecutionSettings = Nothing,
-      _stjOutputKey = Nothing,
-      _stjIdentifyLanguage = Nothing,
-      _stjMediaSampleRateHertz = Nothing,
-      _stjTranscriptionJobName = pTranscriptionJobName_,
-      _stjMedia = pMedia_
+    { contentRedaction = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      languageOptions = Lude.Nothing,
+      settings = Lude.Nothing,
+      outputBucketName = Lude.Nothing,
+      mediaFormat = Lude.Nothing,
+      outputEncryptionKMSKeyId = Lude.Nothing,
+      modelSettings = Lude.Nothing,
+      jobExecutionSettings = Lude.Nothing,
+      outputKey = Lude.Nothing,
+      identifyLanguage = Lude.Nothing,
+      mediaSampleRateHertz = Lude.Nothing,
+      transcriptionJobName = pTranscriptionJobName_,
+      media = pMedia_
     }
 
 -- | An object that contains the request parameters for content redaction.
-stjContentRedaction :: Lens' StartTranscriptionJob (Maybe ContentRedaction)
-stjContentRedaction = lens _stjContentRedaction (\s a -> s {_stjContentRedaction = a})
+--
+-- /Note:/ Consider using 'contentRedaction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjContentRedaction :: Lens.Lens' StartTranscriptionJob (Lude.Maybe ContentRedaction)
+stjContentRedaction = Lens.lens (contentRedaction :: StartTranscriptionJob -> Lude.Maybe ContentRedaction) (\s a -> s {contentRedaction = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjContentRedaction "Use generic-lens or generic-optics with 'contentRedaction' instead." #-}
 
 -- | The language code for the language used in the input media file.
-stjLanguageCode :: Lens' StartTranscriptionJob (Maybe LanguageCode)
-stjLanguageCode = lens _stjLanguageCode (\s a -> s {_stjLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjLanguageCode :: Lens.Lens' StartTranscriptionJob (Lude.Maybe LanguageCode)
+stjLanguageCode = Lens.lens (languageCode :: StartTranscriptionJob -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.
-stjLanguageOptions :: Lens' StartTranscriptionJob (Maybe (NonEmpty LanguageCode))
-stjLanguageOptions = lens _stjLanguageOptions (\s a -> s {_stjLanguageOptions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'languageOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjLanguageOptions :: Lens.Lens' StartTranscriptionJob (Lude.Maybe (Lude.NonEmpty LanguageCode))
+stjLanguageOptions = Lens.lens (languageOptions :: StartTranscriptionJob -> Lude.Maybe (Lude.NonEmpty LanguageCode)) (\s a -> s {languageOptions = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjLanguageOptions "Use generic-lens or generic-optics with 'languageOptions' instead." #-}
 
 -- | A @Settings@ object that provides optional settings for a transcription job.
-stjSettings :: Lens' StartTranscriptionJob (Maybe Settings)
-stjSettings = lens _stjSettings (\s a -> s {_stjSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjSettings :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Settings)
+stjSettings = Lens.lens (settings :: StartTranscriptionJob -> Lude.Maybe Settings) (\s a -> s {settings = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
--- | The location where the transcription is stored. If you set the @OutputBucketName@ , Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. If you enable content redaction, the redacted transcript appears in @RedactedTranscriptFileUri@ . If you enable content redaction and choose to output an unredacted transcript, that transcript's location still appears in the @TranscriptFileUri@ . The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles> . You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the @OutputEncryptionKMSKeyId@ parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
-stjOutputBucketName :: Lens' StartTranscriptionJob (Maybe Text)
-stjOutputBucketName = lens _stjOutputBucketName (\s a -> s {_stjOutputBucketName = a})
+-- | The location where the transcription is stored.
+--
+-- If you set the @OutputBucketName@ , Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. If you enable content redaction, the redacted transcript appears in @RedactedTranscriptFileUri@ . If you enable content redaction and choose to output an unredacted transcript, that transcript's location still appears in the @TranscriptFileUri@ . The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles> .
+-- You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the @OutputEncryptionKMSKeyId@ parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.
+-- If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
+--
+-- /Note:/ Consider using 'outputBucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjOutputBucketName :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Lude.Text)
+stjOutputBucketName = Lens.lens (outputBucketName :: StartTranscriptionJob -> Lude.Maybe Lude.Text) (\s a -> s {outputBucketName = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjOutputBucketName "Use generic-lens or generic-optics with 'outputBucketName' instead." #-}
 
 -- | The format of the input media file.
-stjMediaFormat :: Lens' StartTranscriptionJob (Maybe MediaFormat)
-stjMediaFormat = lens _stjMediaFormat (\s a -> s {_stjMediaFormat = a})
+--
+-- /Note:/ Consider using 'mediaFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjMediaFormat :: Lens.Lens' StartTranscriptionJob (Lude.Maybe MediaFormat)
+stjMediaFormat = Lens.lens (mediaFormat :: StartTranscriptionJob -> Lude.Maybe MediaFormat) (\s a -> s {mediaFormat = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjMediaFormat "Use generic-lens or generic-optics with 'mediaFormat' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the @StartTranscriptionJob@ operation must have permission to use the specified KMS key. You can use either of the following to identify a KMS key in the current account:     * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"     * KMS Key Alias: "alias/ExampleAlias" You can use either of the following to identify a KMS key in the current account or another account:     * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"     * ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias" If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3).  If you specify a KMS key to encrypt your output, you must also specify an output location in the @OutputBucketName@ parameter.
-stjOutputEncryptionKMSKeyId :: Lens' StartTranscriptionJob (Maybe Text)
-stjOutputEncryptionKMSKeyId = lens _stjOutputEncryptionKMSKeyId (\s a -> s {_stjOutputEncryptionKMSKeyId = a})
+-- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the @StartTranscriptionJob@ operation must have permission to use the specified KMS key.
+--
+-- You can use either of the following to identify a KMS key in the current account:
+--
+--     * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
+--
+--
+--     * KMS Key Alias: "alias/ExampleAlias"
+--
+--
+-- You can use either of the following to identify a KMS key in the current account or another account:
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+--
+--
+--     * ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"
+--
+--
+-- If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3).
+-- If you specify a KMS key to encrypt your output, you must also specify an output location in the @OutputBucketName@ parameter.
+--
+-- /Note:/ Consider using 'outputEncryptionKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjOutputEncryptionKMSKeyId :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Lude.Text)
+stjOutputEncryptionKMSKeyId = Lens.lens (outputEncryptionKMSKeyId :: StartTranscriptionJob -> Lude.Maybe Lude.Text) (\s a -> s {outputEncryptionKMSKeyId = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjOutputEncryptionKMSKeyId "Use generic-lens or generic-optics with 'outputEncryptionKMSKeyId' instead." #-}
 
 -- | Choose the custom language model you use for your transcription job in this parameter.
-stjModelSettings :: Lens' StartTranscriptionJob (Maybe ModelSettings)
-stjModelSettings = lens _stjModelSettings (\s a -> s {_stjModelSettings = a})
+--
+-- /Note:/ Consider using 'modelSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjModelSettings :: Lens.Lens' StartTranscriptionJob (Lude.Maybe ModelSettings)
+stjModelSettings = Lens.lens (modelSettings :: StartTranscriptionJob -> Lude.Maybe ModelSettings) (\s a -> s {modelSettings = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjModelSettings "Use generic-lens or generic-optics with 'modelSettings' instead." #-}
 
 -- | Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.
-stjJobExecutionSettings :: Lens' StartTranscriptionJob (Maybe JobExecutionSettings)
-stjJobExecutionSettings = lens _stjJobExecutionSettings (\s a -> s {_stjJobExecutionSettings = a})
+--
+-- /Note:/ Consider using 'jobExecutionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjJobExecutionSettings :: Lens.Lens' StartTranscriptionJob (Lude.Maybe JobExecutionSettings)
+stjJobExecutionSettings = Lens.lens (jobExecutionSettings :: StartTranscriptionJob -> Lude.Maybe JobExecutionSettings) (\s a -> s {jobExecutionSettings = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjJobExecutionSettings "Use generic-lens or generic-optics with 'jobExecutionSettings' instead." #-}
 
--- | You can specify a location in an Amazon S3 bucket to store the output of your transcription job. If you don't specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json". You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json". If you specify an output key, you must also specify an S3 bucket in the @OutputBucketName@ parameter.
-stjOutputKey :: Lens' StartTranscriptionJob (Maybe Text)
-stjOutputKey = lens _stjOutputKey (\s a -> s {_stjOutputKey = a})
+-- | You can specify a location in an Amazon S3 bucket to store the output of your transcription job.
+--
+-- If you don't specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".
+-- You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json".
+-- If you specify an output key, you must also specify an S3 bucket in the @OutputBucketName@ parameter.
+--
+-- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjOutputKey :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Lude.Text)
+stjOutputKey = Lens.lens (outputKey :: StartTranscriptionJob -> Lude.Maybe Lude.Text) (\s a -> s {outputKey = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
 
 -- | Set this field to @true@ to enable automatic language identification. Automatic language identification is disabled by default. You receive a @BadRequestException@ error if you enter a value for a @LanguageCode@ .
-stjIdentifyLanguage :: Lens' StartTranscriptionJob (Maybe Bool)
-stjIdentifyLanguage = lens _stjIdentifyLanguage (\s a -> s {_stjIdentifyLanguage = a})
+--
+-- /Note:/ Consider using 'identifyLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjIdentifyLanguage :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Lude.Bool)
+stjIdentifyLanguage = Lens.lens (identifyLanguage :: StartTranscriptionJob -> Lude.Maybe Lude.Bool) (\s a -> s {identifyLanguage = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjIdentifyLanguage "Use generic-lens or generic-optics with 'identifyLanguage' instead." #-}
 
--- | The sample rate, in Hertz, of the audio track in the input media file.  If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the @MediaSampleRateHertz@ field blank and let Amazon Transcribe determine the sample rate.
-stjMediaSampleRateHertz :: Lens' StartTranscriptionJob (Maybe Natural)
-stjMediaSampleRateHertz = lens _stjMediaSampleRateHertz (\s a -> s {_stjMediaSampleRateHertz = a}) . mapping _Nat
+-- | The sample rate, in Hertz, of the audio track in the input media file.
+--
+-- If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the @MediaSampleRateHertz@ field blank and let Amazon Transcribe determine the sample rate.
+--
+-- /Note:/ Consider using 'mediaSampleRateHertz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjMediaSampleRateHertz :: Lens.Lens' StartTranscriptionJob (Lude.Maybe Lude.Natural)
+stjMediaSampleRateHertz = Lens.lens (mediaSampleRateHertz :: StartTranscriptionJob -> Lude.Maybe Lude.Natural) (\s a -> s {mediaSampleRateHertz = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjMediaSampleRateHertz "Use generic-lens or generic-optics with 'mediaSampleRateHertz' instead." #-}
 
 -- | The name of the job. You can't use the strings "@.@ " or "@..@ " by themselves as the job name. The name must also be unique within an AWS account. If you try to create a transcription job with the same name as a previous transcription job, you get a @ConflictException@ error.
-stjTranscriptionJobName :: Lens' StartTranscriptionJob Text
-stjTranscriptionJobName = lens _stjTranscriptionJobName (\s a -> s {_stjTranscriptionJobName = a})
+--
+-- /Note:/ Consider using 'transcriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjTranscriptionJobName :: Lens.Lens' StartTranscriptionJob Lude.Text
+stjTranscriptionJobName = Lens.lens (transcriptionJobName :: StartTranscriptionJob -> Lude.Text) (\s a -> s {transcriptionJobName = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjTranscriptionJobName "Use generic-lens or generic-optics with 'transcriptionJobName' instead." #-}
 
 -- | An object that describes the input media for a transcription job.
-stjMedia :: Lens' StartTranscriptionJob Media
-stjMedia = lens _stjMedia (\s a -> s {_stjMedia = a})
+--
+-- /Note:/ Consider using 'media' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjMedia :: Lens.Lens' StartTranscriptionJob Media
+stjMedia = Lens.lens (media :: StartTranscriptionJob -> Media) (\s a -> s {media = a} :: StartTranscriptionJob)
+{-# DEPRECATED stjMedia "Use generic-lens or generic-optics with 'media' instead." #-}
 
-instance AWSRequest StartTranscriptionJob where
+instance Lude.AWSRequest StartTranscriptionJob where
   type Rs StartTranscriptionJob = StartTranscriptionJobResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartTranscriptionJobResponse'
-            <$> (x .?> "TranscriptionJob") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TranscriptionJob")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartTranscriptionJob
-
-instance NFData StartTranscriptionJob
-
-instance ToHeaders StartTranscriptionJob where
+instance Lude.ToHeaders StartTranscriptionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.StartTranscriptionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.StartTranscriptionJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartTranscriptionJob where
+instance Lude.ToJSON StartTranscriptionJob where
   toJSON StartTranscriptionJob' {..} =
-    object
-      ( catMaybes
-          [ ("ContentRedaction" .=) <$> _stjContentRedaction,
-            ("LanguageCode" .=) <$> _stjLanguageCode,
-            ("LanguageOptions" .=) <$> _stjLanguageOptions,
-            ("Settings" .=) <$> _stjSettings,
-            ("OutputBucketName" .=) <$> _stjOutputBucketName,
-            ("MediaFormat" .=) <$> _stjMediaFormat,
-            ("OutputEncryptionKMSKeyId" .=) <$> _stjOutputEncryptionKMSKeyId,
-            ("ModelSettings" .=) <$> _stjModelSettings,
-            ("JobExecutionSettings" .=) <$> _stjJobExecutionSettings,
-            ("OutputKey" .=) <$> _stjOutputKey,
-            ("IdentifyLanguage" .=) <$> _stjIdentifyLanguage,
-            ("MediaSampleRateHertz" .=) <$> _stjMediaSampleRateHertz,
-            Just ("TranscriptionJobName" .= _stjTranscriptionJobName),
-            Just ("Media" .= _stjMedia)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ContentRedaction" Lude..=) Lude.<$> contentRedaction,
+            ("LanguageCode" Lude..=) Lude.<$> languageCode,
+            ("LanguageOptions" Lude..=) Lude.<$> languageOptions,
+            ("Settings" Lude..=) Lude.<$> settings,
+            ("OutputBucketName" Lude..=) Lude.<$> outputBucketName,
+            ("MediaFormat" Lude..=) Lude.<$> mediaFormat,
+            ("OutputEncryptionKMSKeyId" Lude..=)
+              Lude.<$> outputEncryptionKMSKeyId,
+            ("ModelSettings" Lude..=) Lude.<$> modelSettings,
+            ("JobExecutionSettings" Lude..=) Lude.<$> jobExecutionSettings,
+            ("OutputKey" Lude..=) Lude.<$> outputKey,
+            ("IdentifyLanguage" Lude..=) Lude.<$> identifyLanguage,
+            ("MediaSampleRateHertz" Lude..=) Lude.<$> mediaSampleRateHertz,
+            Lude.Just ("TranscriptionJobName" Lude..= transcriptionJobName),
+            Lude.Just ("Media" Lude..= media)
           ]
       )
 
-instance ToPath StartTranscriptionJob where
-  toPath = const "/"
+instance Lude.ToPath StartTranscriptionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StartTranscriptionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StartTranscriptionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startTranscriptionJobResponse' smart constructor.
+-- | /See:/ 'mkStartTranscriptionJobResponse' smart constructor.
 data StartTranscriptionJobResponse = StartTranscriptionJobResponse'
-  { _stjrsTranscriptionJob ::
-      !(Maybe TranscriptionJob),
-    _stjrsResponseStatus :: !Int
+  { transcriptionJob ::
+      Lude.Maybe TranscriptionJob,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTranscriptionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stjrsTranscriptionJob' - An object containing details of the asynchronous transcription job.
---
--- * 'stjrsResponseStatus' - -- | The response status code.
-startTranscriptionJobResponse ::
-  -- | 'stjrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transcriptionJob' - An object containing details of the asynchronous transcription job.
+mkStartTranscriptionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartTranscriptionJobResponse
-startTranscriptionJobResponse pResponseStatus_ =
+mkStartTranscriptionJobResponse pResponseStatus_ =
   StartTranscriptionJobResponse'
-    { _stjrsTranscriptionJob = Nothing,
-      _stjrsResponseStatus = pResponseStatus_
+    { transcriptionJob = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object containing details of the asynchronous transcription job.
-stjrsTranscriptionJob :: Lens' StartTranscriptionJobResponse (Maybe TranscriptionJob)
-stjrsTranscriptionJob = lens _stjrsTranscriptionJob (\s a -> s {_stjrsTranscriptionJob = a})
+--
+-- /Note:/ Consider using 'transcriptionJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjrsTranscriptionJob :: Lens.Lens' StartTranscriptionJobResponse (Lude.Maybe TranscriptionJob)
+stjrsTranscriptionJob = Lens.lens (transcriptionJob :: StartTranscriptionJobResponse -> Lude.Maybe TranscriptionJob) (\s a -> s {transcriptionJob = a} :: StartTranscriptionJobResponse)
+{-# DEPRECATED stjrsTranscriptionJob "Use generic-lens or generic-optics with 'transcriptionJob' instead." #-}
 
--- | -- | The response status code.
-stjrsResponseStatus :: Lens' StartTranscriptionJobResponse Int
-stjrsResponseStatus = lens _stjrsResponseStatus (\s a -> s {_stjrsResponseStatus = a})
-
-instance NFData StartTranscriptionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjrsResponseStatus :: Lens.Lens' StartTranscriptionJobResponse Lude.Int
+stjrsResponseStatus = Lens.lens (responseStatus :: StartTranscriptionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTranscriptionJobResponse)
+{-# DEPRECATED stjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

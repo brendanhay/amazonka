@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,155 @@
 --
 -- Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any AWS Region after it is created. The virtual interfaces and virtual private gateways that are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to connect to a VPC in any Region, regardless of the Region in which the virtual interfaces are located, and pass traffic between them.
 module Network.AWS.DirectConnect.CreateDirectConnectGateway
-  ( -- * Creating a Request
-    createDirectConnectGateway,
-    CreateDirectConnectGateway,
+  ( -- * Creating a request
+    CreateDirectConnectGateway (..),
+    mkCreateDirectConnectGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcgAmazonSideASN,
     cdcgDirectConnectGatewayName,
 
-    -- * Destructuring the Response
-    createDirectConnectGatewayResponse,
-    CreateDirectConnectGatewayResponse,
+    -- * Destructuring the response
+    CreateDirectConnectGatewayResponse (..),
+    mkCreateDirectConnectGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcgrsDirectConnectGateway,
     cdcgrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDirectConnectGateway' smart constructor.
+-- | /See:/ 'mkCreateDirectConnectGateway' smart constructor.
 data CreateDirectConnectGateway = CreateDirectConnectGateway'
-  { _cdcgAmazonSideASN ::
-      !(Maybe Integer),
-    _cdcgDirectConnectGatewayName ::
-      !Text
+  { amazonSideASN ::
+      Lude.Maybe Lude.Integer,
+    directConnectGatewayName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectConnectGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcgAmazonSideASN' - The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
---
--- * 'cdcgDirectConnectGatewayName' - The name of the Direct Connect gateway.
-createDirectConnectGateway ::
-  -- | 'cdcgDirectConnectGatewayName'
-  Text ->
+-- * 'amazonSideASN' - The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
+-- * 'directConnectGatewayName' - The name of the Direct Connect gateway.
+mkCreateDirectConnectGateway ::
+  -- | 'directConnectGatewayName'
+  Lude.Text ->
   CreateDirectConnectGateway
-createDirectConnectGateway pDirectConnectGatewayName_ =
+mkCreateDirectConnectGateway pDirectConnectGatewayName_ =
   CreateDirectConnectGateway'
-    { _cdcgAmazonSideASN = Nothing,
-      _cdcgDirectConnectGatewayName = pDirectConnectGatewayName_
+    { amazonSideASN = Lude.Nothing,
+      directConnectGatewayName = pDirectConnectGatewayName_
     }
 
 -- | The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
-cdcgAmazonSideASN :: Lens' CreateDirectConnectGateway (Maybe Integer)
-cdcgAmazonSideASN = lens _cdcgAmazonSideASN (\s a -> s {_cdcgAmazonSideASN = a})
+--
+-- /Note:/ Consider using 'amazonSideASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcgAmazonSideASN :: Lens.Lens' CreateDirectConnectGateway (Lude.Maybe Lude.Integer)
+cdcgAmazonSideASN = Lens.lens (amazonSideASN :: CreateDirectConnectGateway -> Lude.Maybe Lude.Integer) (\s a -> s {amazonSideASN = a} :: CreateDirectConnectGateway)
+{-# DEPRECATED cdcgAmazonSideASN "Use generic-lens or generic-optics with 'amazonSideASN' instead." #-}
 
 -- | The name of the Direct Connect gateway.
-cdcgDirectConnectGatewayName :: Lens' CreateDirectConnectGateway Text
-cdcgDirectConnectGatewayName = lens _cdcgDirectConnectGatewayName (\s a -> s {_cdcgDirectConnectGatewayName = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcgDirectConnectGatewayName :: Lens.Lens' CreateDirectConnectGateway Lude.Text
+cdcgDirectConnectGatewayName = Lens.lens (directConnectGatewayName :: CreateDirectConnectGateway -> Lude.Text) (\s a -> s {directConnectGatewayName = a} :: CreateDirectConnectGateway)
+{-# DEPRECATED cdcgDirectConnectGatewayName "Use generic-lens or generic-optics with 'directConnectGatewayName' instead." #-}
 
-instance AWSRequest CreateDirectConnectGateway where
+instance Lude.AWSRequest CreateDirectConnectGateway where
   type
     Rs CreateDirectConnectGateway =
       CreateDirectConnectGatewayResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDirectConnectGatewayResponse'
-            <$> (x .?> "directConnectGateway") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "directConnectGateway")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDirectConnectGateway
-
-instance NFData CreateDirectConnectGateway
-
-instance ToHeaders CreateDirectConnectGateway where
+instance Lude.ToHeaders CreateDirectConnectGateway where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.CreateDirectConnectGateway" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.CreateDirectConnectGateway" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDirectConnectGateway where
+instance Lude.ToJSON CreateDirectConnectGateway where
   toJSON CreateDirectConnectGateway' {..} =
-    object
-      ( catMaybes
-          [ ("amazonSideAsn" .=) <$> _cdcgAmazonSideASN,
-            Just
-              ("directConnectGatewayName" .= _cdcgDirectConnectGatewayName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("amazonSideAsn" Lude..=) Lude.<$> amazonSideASN,
+            Lude.Just
+              ("directConnectGatewayName" Lude..= directConnectGatewayName)
           ]
       )
 
-instance ToPath CreateDirectConnectGateway where
-  toPath = const "/"
+instance Lude.ToPath CreateDirectConnectGateway where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDirectConnectGateway where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDirectConnectGateway where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDirectConnectGatewayResponse' smart constructor.
+-- | /See:/ 'mkCreateDirectConnectGatewayResponse' smart constructor.
 data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
-  { _cdcgrsDirectConnectGateway ::
-      !( Maybe
-           DirectConnectGateway
-       ),
-    _cdcgrsResponseStatus ::
-      !Int
+  { directConnectGateway ::
+      Lude.Maybe
+        DirectConnectGateway,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectConnectGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcgrsDirectConnectGateway' - The Direct Connect gateway.
---
--- * 'cdcgrsResponseStatus' - -- | The response status code.
-createDirectConnectGatewayResponse ::
-  -- | 'cdcgrsResponseStatus'
-  Int ->
+-- * 'directConnectGateway' - The Direct Connect gateway.
+-- * 'responseStatus' - The response status code.
+mkCreateDirectConnectGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDirectConnectGatewayResponse
-createDirectConnectGatewayResponse pResponseStatus_ =
+mkCreateDirectConnectGatewayResponse pResponseStatus_ =
   CreateDirectConnectGatewayResponse'
-    { _cdcgrsDirectConnectGateway =
-        Nothing,
-      _cdcgrsResponseStatus = pResponseStatus_
+    { directConnectGateway =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Direct Connect gateway.
-cdcgrsDirectConnectGateway :: Lens' CreateDirectConnectGatewayResponse (Maybe DirectConnectGateway)
-cdcgrsDirectConnectGateway = lens _cdcgrsDirectConnectGateway (\s a -> s {_cdcgrsDirectConnectGateway = a})
+--
+-- /Note:/ Consider using 'directConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcgrsDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayResponse (Lude.Maybe DirectConnectGateway)
+cdcgrsDirectConnectGateway = Lens.lens (directConnectGateway :: CreateDirectConnectGatewayResponse -> Lude.Maybe DirectConnectGateway) (\s a -> s {directConnectGateway = a} :: CreateDirectConnectGatewayResponse)
+{-# DEPRECATED cdcgrsDirectConnectGateway "Use generic-lens or generic-optics with 'directConnectGateway' instead." #-}
 
--- | -- | The response status code.
-cdcgrsResponseStatus :: Lens' CreateDirectConnectGatewayResponse Int
-cdcgrsResponseStatus = lens _cdcgrsResponseStatus (\s a -> s {_cdcgrsResponseStatus = a})
-
-instance NFData CreateDirectConnectGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcgrsResponseStatus :: Lens.Lens' CreateDirectConnectGatewayResponse Lude.Int
+cdcgrsResponseStatus = Lens.lens (responseStatus :: CreateDirectConnectGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectConnectGatewayResponse)
+{-# DEPRECATED cdcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

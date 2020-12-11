@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the settings of a data set.
 module Network.AWS.IoTAnalytics.UpdateDataset
-  ( -- * Creating a Request
-    updateDataset,
-    UpdateDataset,
+  ( -- * Creating a request
+    UpdateDataset (..),
+    mkUpdateDataset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udVersioningConfiguration,
     udTriggers,
     udRetentionPeriod,
@@ -32,133 +27,154 @@ module Network.AWS.IoTAnalytics.UpdateDataset
     udDatasetName,
     udActions,
 
-    -- * Destructuring the Response
-    updateDatasetResponse,
-    UpdateDatasetResponse,
+    -- * Destructuring the response
+    UpdateDatasetResponse (..),
+    mkUpdateDatasetResponse,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDataset' smart constructor.
+-- | /See:/ 'mkUpdateDataset' smart constructor.
 data UpdateDataset = UpdateDataset'
-  { _udVersioningConfiguration ::
-      !(Maybe VersioningConfiguration),
-    _udTriggers :: !(Maybe [DatasetTrigger]),
-    _udRetentionPeriod :: !(Maybe RetentionPeriod),
-    _udLateDataRules :: !(Maybe (List1 LateDataRule)),
-    _udContentDeliveryRules ::
-      !(Maybe [DatasetContentDeliveryRule]),
-    _udDatasetName :: !Text,
-    _udActions :: !(List1 DatasetAction)
+  { versioningConfiguration ::
+      Lude.Maybe VersioningConfiguration,
+    triggers :: Lude.Maybe [DatasetTrigger],
+    retentionPeriod :: Lude.Maybe RetentionPeriod,
+    lateDataRules :: Lude.Maybe (Lude.NonEmpty LateDataRule),
+    contentDeliveryRules :: Lude.Maybe [DatasetContentDeliveryRule],
+    datasetName :: Lude.Text,
+    actions :: Lude.NonEmpty DatasetAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udVersioningConfiguration' - Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
---
--- * 'udTriggers' - A list of @DatasetTrigger@ objects. The list can be empty or can contain up to five @DatasetTrigger@ objects.
---
--- * 'udRetentionPeriod' - How long, in days, dataset contents are kept for the dataset.
---
--- * 'udLateDataRules' - A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
---
--- * 'udContentDeliveryRules' - When dataset contents are created, they are delivered to destinations specified here.
---
--- * 'udDatasetName' - The name of the data set to update.
---
--- * 'udActions' - A list of @DatasetAction@ objects.
-updateDataset ::
-  -- | 'udDatasetName'
-  Text ->
-  -- | 'udActions'
-  NonEmpty DatasetAction ->
+-- * 'actions' - A list of @DatasetAction@ objects.
+-- * 'contentDeliveryRules' - When dataset contents are created, they are delivered to destinations specified here.
+-- * 'datasetName' - The name of the data set to update.
+-- * 'lateDataRules' - A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+-- * 'retentionPeriod' - How long, in days, dataset contents are kept for the dataset.
+-- * 'triggers' - A list of @DatasetTrigger@ objects. The list can be empty or can contain up to five @DatasetTrigger@ objects.
+-- * 'versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+mkUpdateDataset ::
+  -- | 'datasetName'
+  Lude.Text ->
+  -- | 'actions'
+  Lude.NonEmpty DatasetAction ->
   UpdateDataset
-updateDataset pDatasetName_ pActions_ =
+mkUpdateDataset pDatasetName_ pActions_ =
   UpdateDataset'
-    { _udVersioningConfiguration = Nothing,
-      _udTriggers = Nothing,
-      _udRetentionPeriod = Nothing,
-      _udLateDataRules = Nothing,
-      _udContentDeliveryRules = Nothing,
-      _udDatasetName = pDatasetName_,
-      _udActions = _List1 # pActions_
+    { versioningConfiguration = Lude.Nothing,
+      triggers = Lude.Nothing,
+      retentionPeriod = Lude.Nothing,
+      lateDataRules = Lude.Nothing,
+      contentDeliveryRules = Lude.Nothing,
+      datasetName = pDatasetName_,
+      actions = pActions_
     }
 
 -- | Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
-udVersioningConfiguration :: Lens' UpdateDataset (Maybe VersioningConfiguration)
-udVersioningConfiguration = lens _udVersioningConfiguration (\s a -> s {_udVersioningConfiguration = a})
+--
+-- /Note:/ Consider using 'versioningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udVersioningConfiguration :: Lens.Lens' UpdateDataset (Lude.Maybe VersioningConfiguration)
+udVersioningConfiguration = Lens.lens (versioningConfiguration :: UpdateDataset -> Lude.Maybe VersioningConfiguration) (\s a -> s {versioningConfiguration = a} :: UpdateDataset)
+{-# DEPRECATED udVersioningConfiguration "Use generic-lens or generic-optics with 'versioningConfiguration' instead." #-}
 
 -- | A list of @DatasetTrigger@ objects. The list can be empty or can contain up to five @DatasetTrigger@ objects.
-udTriggers :: Lens' UpdateDataset [DatasetTrigger]
-udTriggers = lens _udTriggers (\s a -> s {_udTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udTriggers :: Lens.Lens' UpdateDataset (Lude.Maybe [DatasetTrigger])
+udTriggers = Lens.lens (triggers :: UpdateDataset -> Lude.Maybe [DatasetTrigger]) (\s a -> s {triggers = a} :: UpdateDataset)
+{-# DEPRECATED udTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
 
 -- | How long, in days, dataset contents are kept for the dataset.
-udRetentionPeriod :: Lens' UpdateDataset (Maybe RetentionPeriod)
-udRetentionPeriod = lens _udRetentionPeriod (\s a -> s {_udRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udRetentionPeriod :: Lens.Lens' UpdateDataset (Lude.Maybe RetentionPeriod)
+udRetentionPeriod = Lens.lens (retentionPeriod :: UpdateDataset -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: UpdateDataset)
+{-# DEPRECATED udRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
-udLateDataRules :: Lens' UpdateDataset (Maybe (NonEmpty LateDataRule))
-udLateDataRules = lens _udLateDataRules (\s a -> s {_udLateDataRules = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'lateDataRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udLateDataRules :: Lens.Lens' UpdateDataset (Lude.Maybe (Lude.NonEmpty LateDataRule))
+udLateDataRules = Lens.lens (lateDataRules :: UpdateDataset -> Lude.Maybe (Lude.NonEmpty LateDataRule)) (\s a -> s {lateDataRules = a} :: UpdateDataset)
+{-# DEPRECATED udLateDataRules "Use generic-lens or generic-optics with 'lateDataRules' instead." #-}
 
 -- | When dataset contents are created, they are delivered to destinations specified here.
-udContentDeliveryRules :: Lens' UpdateDataset [DatasetContentDeliveryRule]
-udContentDeliveryRules = lens _udContentDeliveryRules (\s a -> s {_udContentDeliveryRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contentDeliveryRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udContentDeliveryRules :: Lens.Lens' UpdateDataset (Lude.Maybe [DatasetContentDeliveryRule])
+udContentDeliveryRules = Lens.lens (contentDeliveryRules :: UpdateDataset -> Lude.Maybe [DatasetContentDeliveryRule]) (\s a -> s {contentDeliveryRules = a} :: UpdateDataset)
+{-# DEPRECATED udContentDeliveryRules "Use generic-lens or generic-optics with 'contentDeliveryRules' instead." #-}
 
 -- | The name of the data set to update.
-udDatasetName :: Lens' UpdateDataset Text
-udDatasetName = lens _udDatasetName (\s a -> s {_udDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDatasetName :: Lens.Lens' UpdateDataset Lude.Text
+udDatasetName = Lens.lens (datasetName :: UpdateDataset -> Lude.Text) (\s a -> s {datasetName = a} :: UpdateDataset)
+{-# DEPRECATED udDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | A list of @DatasetAction@ objects.
-udActions :: Lens' UpdateDataset (NonEmpty DatasetAction)
-udActions = lens _udActions (\s a -> s {_udActions = a}) . _List1
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udActions :: Lens.Lens' UpdateDataset (Lude.NonEmpty DatasetAction)
+udActions = Lens.lens (actions :: UpdateDataset -> Lude.NonEmpty DatasetAction) (\s a -> s {actions = a} :: UpdateDataset)
+{-# DEPRECATED udActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
-instance AWSRequest UpdateDataset where
+instance Lude.AWSRequest UpdateDataset where
   type Rs UpdateDataset = UpdateDatasetResponse
-  request = putJSON ioTAnalytics
-  response = receiveNull UpdateDatasetResponse'
+  request = Req.putJSON ioTAnalyticsService
+  response = Res.receiveNull UpdateDatasetResponse'
 
-instance Hashable UpdateDataset
+instance Lude.ToHeaders UpdateDataset where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateDataset
-
-instance ToHeaders UpdateDataset where
-  toHeaders = const mempty
-
-instance ToJSON UpdateDataset where
+instance Lude.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
-    object
-      ( catMaybes
-          [ ("versioningConfiguration" .=) <$> _udVersioningConfiguration,
-            ("triggers" .=) <$> _udTriggers,
-            ("retentionPeriod" .=) <$> _udRetentionPeriod,
-            ("lateDataRules" .=) <$> _udLateDataRules,
-            ("contentDeliveryRules" .=) <$> _udContentDeliveryRules,
-            Just ("actions" .= _udActions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("versioningConfiguration" Lude..=)
+              Lude.<$> versioningConfiguration,
+            ("triggers" Lude..=) Lude.<$> triggers,
+            ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
+            ("lateDataRules" Lude..=) Lude.<$> lateDataRules,
+            ("contentDeliveryRules" Lude..=) Lude.<$> contentDeliveryRules,
+            Lude.Just ("actions" Lude..= actions)
           ]
       )
 
-instance ToPath UpdateDataset where
+instance Lude.ToPath UpdateDataset where
   toPath UpdateDataset' {..} =
-    mconcat ["/datasets/", toBS _udDatasetName]
+    Lude.mconcat ["/datasets/", Lude.toBS datasetName]
 
-instance ToQuery UpdateDataset where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDataset where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDatasetResponse' smart constructor.
+-- | /See:/ 'mkUpdateDatasetResponse' smart constructor.
 data UpdateDatasetResponse = UpdateDatasetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDatasetResponse' with the minimum fields required to make a request.
-updateDatasetResponse ::
+mkUpdateDatasetResponse ::
   UpdateDatasetResponse
-updateDatasetResponse = UpdateDatasetResponse'
-
-instance NFData UpdateDatasetResponse
+mkUpdateDatasetResponse = UpdateDatasetResponse'

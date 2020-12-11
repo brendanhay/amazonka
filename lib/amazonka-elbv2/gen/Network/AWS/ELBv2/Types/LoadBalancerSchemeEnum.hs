@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum where
+module Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
+  ( LoadBalancerSchemeEnum
+      ( LoadBalancerSchemeEnum',
+        Internal,
+        InternetFacing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerSchemeEnum
-  = Internal
-  | InternetFacing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerSchemeEnum = LoadBalancerSchemeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerSchemeEnum where
-  parser =
-    takeLowerText >>= \case
-      "internal" -> pure Internal
-      "internet-facing" -> pure InternetFacing
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerSchemeEnum from value: '" <> e
-            <> "'. Accepted values: internal, internet-facing"
+pattern Internal :: LoadBalancerSchemeEnum
+pattern Internal = LoadBalancerSchemeEnum' "internal"
 
-instance ToText LoadBalancerSchemeEnum where
-  toText = \case
-    Internal -> "internal"
-    InternetFacing -> "internet-facing"
+pattern InternetFacing :: LoadBalancerSchemeEnum
+pattern InternetFacing = LoadBalancerSchemeEnum' "internet-facing"
 
-instance Hashable LoadBalancerSchemeEnum
-
-instance NFData LoadBalancerSchemeEnum
-
-instance ToByteString LoadBalancerSchemeEnum
-
-instance ToQuery LoadBalancerSchemeEnum
-
-instance ToHeader LoadBalancerSchemeEnum
-
-instance FromXML LoadBalancerSchemeEnum where
-  parseXML = parseXMLText "LoadBalancerSchemeEnum"
+{-# COMPLETE
+  Internal,
+  InternetFacing,
+  LoadBalancerSchemeEnum'
+  #-}

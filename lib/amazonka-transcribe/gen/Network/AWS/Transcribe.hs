@@ -13,8 +13,8 @@
 --
 -- Operations and objects for transcribing speech to text.
 module Network.AWS.Transcribe
-  ( -- * Service Configuration
-    transcribe,
+  ( -- * Service configuration
+    transcribeService,
 
     -- * Errors
     -- $errors
@@ -148,27 +148,27 @@ module Network.AWS.Transcribe
     VocabularyState (..),
 
     -- ** ContentRedaction
-    ContentRedaction,
-    contentRedaction,
+    ContentRedaction (..),
+    mkContentRedaction,
     crRedactionType,
     crRedactionOutput,
 
     -- ** InputDataConfig
-    InputDataConfig,
-    inputDataConfig,
+    InputDataConfig (..),
+    mkInputDataConfig,
     idcTuningDataS3URI,
     idcS3URI,
     idcDataAccessRoleARN,
 
     -- ** JobExecutionSettings
-    JobExecutionSettings,
-    jobExecutionSettings,
+    JobExecutionSettings (..),
+    mkJobExecutionSettings,
     jesDataAccessRoleARN,
     jesAllowDeferredExecution,
 
     -- ** LanguageModel
-    LanguageModel,
-    languageModel,
+    LanguageModel (..),
+    mkLanguageModel,
     lmFailureReason,
     lmLanguageCode,
     lmModelName,
@@ -180,18 +180,18 @@ module Network.AWS.Transcribe
     lmCreateTime,
 
     -- ** Media
-    Media,
-    media,
+    Media (..),
+    mkMedia,
     mMediaFileURI,
 
     -- ** MedicalTranscript
-    MedicalTranscript,
-    medicalTranscript,
+    MedicalTranscript (..),
+    mkMedicalTranscript,
     mtTranscriptFileURI,
 
     -- ** MedicalTranscriptionJob
-    MedicalTranscriptionJob,
-    medicalTranscriptionJob,
+    MedicalTranscriptionJob (..),
+    mkMedicalTranscriptionJob,
     mtjCreationTime,
     mtjSpecialty,
     mtjFailureReason,
@@ -208,8 +208,8 @@ module Network.AWS.Transcribe
     mtjMediaSampleRateHertz,
 
     -- ** MedicalTranscriptionJobSummary
-    MedicalTranscriptionJobSummary,
-    medicalTranscriptionJobSummary,
+    MedicalTranscriptionJobSummary (..),
+    mkMedicalTranscriptionJobSummary,
     mtjsCreationTime,
     mtjsSpecialty,
     mtjsFailureReason,
@@ -222,8 +222,8 @@ module Network.AWS.Transcribe
     mtjsType,
 
     -- ** MedicalTranscriptionSetting
-    MedicalTranscriptionSetting,
-    medicalTranscriptionSetting,
+    MedicalTranscriptionSetting (..),
+    mkMedicalTranscriptionSetting,
     mtsVocabularyName,
     mtsMaxAlternatives,
     mtsChannelIdentification,
@@ -232,13 +232,13 @@ module Network.AWS.Transcribe
     mtsShowSpeakerLabels,
 
     -- ** ModelSettings
-    ModelSettings,
-    modelSettings,
+    ModelSettings (..),
+    mkModelSettings,
     msLanguageModelName,
 
     -- ** Settings
-    Settings,
-    settings,
+    Settings (..),
+    mkSettings,
     sVocabularyName,
     sMaxAlternatives,
     sChannelIdentification,
@@ -249,14 +249,14 @@ module Network.AWS.Transcribe
     sVocabularyFilterMethod,
 
     -- ** Transcript
-    Transcript,
-    transcript,
+    Transcript (..),
+    mkTranscript,
     tRedactedTranscriptFileURI,
     tTranscriptFileURI,
 
     -- ** TranscriptionJob
-    TranscriptionJob,
-    transcriptionJob,
+    TranscriptionJob (..),
+    mkTranscriptionJob,
     tjCreationTime,
     tjFailureReason,
     tjContentRedaction,
@@ -277,8 +277,8 @@ module Network.AWS.Transcribe
     tjMediaSampleRateHertz,
 
     -- ** TranscriptionJobSummary
-    TranscriptionJobSummary,
-    transcriptionJobSummary,
+    TranscriptionJobSummary (..),
+    mkTranscriptionJobSummary,
     tjsCreationTime,
     tjsFailureReason,
     tjsContentRedaction,
@@ -293,22 +293,34 @@ module Network.AWS.Transcribe
     tjsIdentifyLanguage,
 
     -- ** VocabularyFilterInfo
-    VocabularyFilterInfo,
-    vocabularyFilterInfo,
+    VocabularyFilterInfo (..),
+    mkVocabularyFilterInfo,
     vfiLanguageCode,
     vfiLastModifiedTime,
     vfiVocabularyFilterName,
 
     -- ** VocabularyInfo
-    VocabularyInfo,
-    vocabularyInfo,
+    VocabularyInfo (..),
+    mkVocabularyInfo,
     viLanguageCode,
     viVocabularyName,
     viLastModifiedTime,
     viVocabularyState,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Transcribe.CreateLanguageModel
 import Network.AWS.Transcribe.CreateMedicalVocabulary
 import Network.AWS.Transcribe.CreateVocabulary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.DocumentThumbnailType where
+module Network.AWS.WorkDocs.Types.DocumentThumbnailType
+  ( DocumentThumbnailType
+      ( DocumentThumbnailType',
+        Large,
+        Small,
+        SmallHq
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentThumbnailType
-  = Large
-  | Small
-  | SmallHq
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentThumbnailType = DocumentThumbnailType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentThumbnailType where
-  parser =
-    takeLowerText >>= \case
-      "large" -> pure Large
-      "small" -> pure Small
-      "small_hq" -> pure SmallHq
-      e ->
-        fromTextError $
-          "Failure parsing DocumentThumbnailType from value: '" <> e
-            <> "'. Accepted values: large, small, small_hq"
+pattern Large :: DocumentThumbnailType
+pattern Large = DocumentThumbnailType' "LARGE"
 
-instance ToText DocumentThumbnailType where
-  toText = \case
-    Large -> "LARGE"
-    Small -> "SMALL"
-    SmallHq -> "SMALL_HQ"
+pattern Small :: DocumentThumbnailType
+pattern Small = DocumentThumbnailType' "SMALL"
 
-instance Hashable DocumentThumbnailType
+pattern SmallHq :: DocumentThumbnailType
+pattern SmallHq = DocumentThumbnailType' "SMALL_HQ"
 
-instance NFData DocumentThumbnailType
-
-instance ToByteString DocumentThumbnailType
-
-instance ToQuery DocumentThumbnailType
-
-instance ToHeader DocumentThumbnailType
-
-instance FromJSON DocumentThumbnailType where
-  parseJSON = parseJSONText "DocumentThumbnailType"
+{-# COMPLETE
+  Large,
+  Small,
+  SmallHq,
+  DocumentThumbnailType'
+  #-}

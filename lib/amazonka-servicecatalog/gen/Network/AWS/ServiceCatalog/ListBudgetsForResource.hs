@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,210 @@
 --
 -- Lists all the budgets associated to the specified resource.
 module Network.AWS.ServiceCatalog.ListBudgetsForResource
-  ( -- * Creating a Request
-    listBudgetsForResource,
-    ListBudgetsForResource,
+  ( -- * Creating a request
+    ListBudgetsForResource (..),
+    mkListBudgetsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbfrAcceptLanguage,
     lbfrPageToken,
     lbfrPageSize,
     lbfrResourceId,
 
-    -- * Destructuring the Response
-    listBudgetsForResourceResponse,
-    ListBudgetsForResourceResponse,
+    -- * Destructuring the response
+    ListBudgetsForResourceResponse (..),
+    mkListBudgetsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbfrrsNextPageToken,
     lbfrrsBudgets,
     lbfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listBudgetsForResource' smart constructor.
+-- | /See:/ 'mkListBudgetsForResource' smart constructor.
 data ListBudgetsForResource = ListBudgetsForResource'
-  { _lbfrAcceptLanguage ::
-      !(Maybe Text),
-    _lbfrPageToken :: !(Maybe Text),
-    _lbfrPageSize :: !(Maybe Nat),
-    _lbfrResourceId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBudgetsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'lbfrAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lbfrPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'lbfrPageSize' - The maximum number of items to return with this call.
 --
--- * 'lbfrResourceId' - The resource identifier.
-listBudgetsForResource ::
-  -- | 'lbfrResourceId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'resourceId' - The resource identifier.
+mkListBudgetsForResource ::
+  -- | 'resourceId'
+  Lude.Text ->
   ListBudgetsForResource
-listBudgetsForResource pResourceId_ =
+mkListBudgetsForResource pResourceId_ =
   ListBudgetsForResource'
-    { _lbfrAcceptLanguage = Nothing,
-      _lbfrPageToken = Nothing,
-      _lbfrPageSize = Nothing,
-      _lbfrResourceId = pResourceId_
+    { acceptLanguage = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      resourceId = pResourceId_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lbfrAcceptLanguage :: Lens' ListBudgetsForResource (Maybe Text)
-lbfrAcceptLanguage = lens _lbfrAcceptLanguage (\s a -> s {_lbfrAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrAcceptLanguage :: Lens.Lens' ListBudgetsForResource (Lude.Maybe Lude.Text)
+lbfrAcceptLanguage = Lens.lens (acceptLanguage :: ListBudgetsForResource -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListBudgetsForResource)
+{-# DEPRECATED lbfrAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lbfrPageToken :: Lens' ListBudgetsForResource (Maybe Text)
-lbfrPageToken = lens _lbfrPageToken (\s a -> s {_lbfrPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrPageToken :: Lens.Lens' ListBudgetsForResource (Lude.Maybe Lude.Text)
+lbfrPageToken = Lens.lens (pageToken :: ListBudgetsForResource -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListBudgetsForResource)
+{-# DEPRECATED lbfrPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-lbfrPageSize :: Lens' ListBudgetsForResource (Maybe Natural)
-lbfrPageSize = lens _lbfrPageSize (\s a -> s {_lbfrPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrPageSize :: Lens.Lens' ListBudgetsForResource (Lude.Maybe Lude.Natural)
+lbfrPageSize = Lens.lens (pageSize :: ListBudgetsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListBudgetsForResource)
+{-# DEPRECATED lbfrPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The resource identifier.
-lbfrResourceId :: Lens' ListBudgetsForResource Text
-lbfrResourceId = lens _lbfrResourceId (\s a -> s {_lbfrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrResourceId :: Lens.Lens' ListBudgetsForResource Lude.Text
+lbfrResourceId = Lens.lens (resourceId :: ListBudgetsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListBudgetsForResource)
+{-# DEPRECATED lbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest ListBudgetsForResource where
+instance Lude.AWSRequest ListBudgetsForResource where
   type Rs ListBudgetsForResource = ListBudgetsForResourceResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBudgetsForResourceResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "Budgets" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "Budgets" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBudgetsForResource
-
-instance NFData ListBudgetsForResource
-
-instance ToHeaders ListBudgetsForResource where
+instance Lude.ToHeaders ListBudgetsForResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListBudgetsForResource where
+instance Lude.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _lbfrAcceptLanguage,
-            ("PageToken" .=) <$> _lbfrPageToken,
-            ("PageSize" .=) <$> _lbfrPageSize,
-            Just ("ResourceId" .= _lbfrResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath ListBudgetsForResource where
-  toPath = const "/"
+instance Lude.ToPath ListBudgetsForResource where
+  toPath = Lude.const "/"
 
-instance ToQuery ListBudgetsForResource where
-  toQuery = const mempty
+instance Lude.ToQuery ListBudgetsForResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listBudgetsForResourceResponse' smart constructor.
+-- | /See:/ 'mkListBudgetsForResourceResponse' smart constructor.
 data ListBudgetsForResourceResponse = ListBudgetsForResourceResponse'
-  { _lbfrrsNextPageToken ::
-      !(Maybe Text),
-    _lbfrrsBudgets ::
-      !(Maybe [BudgetDetail]),
-    _lbfrrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    budgets ::
+      Lude.Maybe [BudgetDetail],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBudgetsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbfrrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'lbfrrsBudgets' - Information about the associated budgets.
---
--- * 'lbfrrsResponseStatus' - -- | The response status code.
-listBudgetsForResourceResponse ::
-  -- | 'lbfrrsResponseStatus'
-  Int ->
+-- * 'budgets' - Information about the associated budgets.
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'responseStatus' - The response status code.
+mkListBudgetsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBudgetsForResourceResponse
-listBudgetsForResourceResponse pResponseStatus_ =
+mkListBudgetsForResourceResponse pResponseStatus_ =
   ListBudgetsForResourceResponse'
-    { _lbfrrsNextPageToken = Nothing,
-      _lbfrrsBudgets = Nothing,
-      _lbfrrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      budgets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lbfrrsNextPageToken :: Lens' ListBudgetsForResourceResponse (Maybe Text)
-lbfrrsNextPageToken = lens _lbfrrsNextPageToken (\s a -> s {_lbfrrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrrsNextPageToken :: Lens.Lens' ListBudgetsForResourceResponse (Lude.Maybe Lude.Text)
+lbfrrsNextPageToken = Lens.lens (nextPageToken :: ListBudgetsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListBudgetsForResourceResponse)
+{-# DEPRECATED lbfrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the associated budgets.
-lbfrrsBudgets :: Lens' ListBudgetsForResourceResponse [BudgetDetail]
-lbfrrsBudgets = lens _lbfrrsBudgets (\s a -> s {_lbfrrsBudgets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'budgets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrrsBudgets :: Lens.Lens' ListBudgetsForResourceResponse (Lude.Maybe [BudgetDetail])
+lbfrrsBudgets = Lens.lens (budgets :: ListBudgetsForResourceResponse -> Lude.Maybe [BudgetDetail]) (\s a -> s {budgets = a} :: ListBudgetsForResourceResponse)
+{-# DEPRECATED lbfrrsBudgets "Use generic-lens or generic-optics with 'budgets' instead." #-}
 
--- | -- | The response status code.
-lbfrrsResponseStatus :: Lens' ListBudgetsForResourceResponse Int
-lbfrrsResponseStatus = lens _lbfrrsResponseStatus (\s a -> s {_lbfrrsResponseStatus = a})
-
-instance NFData ListBudgetsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrrsResponseStatus :: Lens.Lens' ListBudgetsForResourceResponse Lude.Int
+lbfrrsResponseStatus = Lens.lens (responseStatus :: ListBudgetsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBudgetsForResourceResponse)
+{-# DEPRECATED lbfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

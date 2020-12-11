@@ -28,43 +28,43 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetShippingLabel $
---             getShippingLabel
+--             mkGetShippingLabel
 --
 --         , requestCreateJob $
---             createJob
+--             mkCreateJob
 --
 --         , requestListJobs $
---             listJobs
+--             mkListJobs
 --
 --         , requestUpdateJob $
---             updateJob
+--             mkUpdateJob
 --
 --         , requestGetStatus $
---             getStatus
+--             mkGetStatus
 --
 --         , requestCancelJob $
---             cancelJob
+--             mkCancelJob
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetShippingLabel $
---             getShippingLabelResponse
+--             mkGetShippingLabelResponse
 --
 --         , responseCreateJob $
---             createJobResponse
+--             mkCreateJobResponse
 --
 --         , responseListJobs $
---             listJobsResponse
+--             mkListJobsResponse
 --
 --         , responseUpdateJob $
---             updateJobResponse
+--             mkUpdateJobResponse
 --
 --         , responseGetStatus $
---             getStatusResponse
+--             mkGetStatusResponse
 --
 --         , responseCancelJob $
---             cancelJobResponse
+--             mkCancelJobResponse
 --
 --           ]
 --     ]
@@ -114,7 +114,7 @@ responseGetShippingLabel =
   res
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy GetShippingLabel)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -122,7 +122,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy CreateJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -130,7 +130,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
@@ -138,7 +138,7 @@ responseUpdateJob =
   res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy UpdateJob)
 
 responseGetStatus :: GetStatusResponse -> TestTree
@@ -146,7 +146,7 @@ responseGetStatus =
   res
     "GetStatusResponse"
     "fixture/GetStatusResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy GetStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -154,5 +154,5 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    importExport
+    importExportService
     (Proxy :: Proxy CancelJob)

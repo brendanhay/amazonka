@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.WakeWord where
+module Network.AWS.AlexaBusiness.Types.WakeWord
+  ( WakeWord
+      ( WakeWord',
+        Alexa,
+        Amazon,
+        Computer,
+        Echo
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WakeWord
-  = Alexa
-  | Amazon
-  | Computer
-  | Echo
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WakeWord = WakeWord' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WakeWord where
-  parser =
-    takeLowerText >>= \case
-      "alexa" -> pure Alexa
-      "amazon" -> pure Amazon
-      "computer" -> pure Computer
-      "echo" -> pure Echo
-      e ->
-        fromTextError $
-          "Failure parsing WakeWord from value: '" <> e
-            <> "'. Accepted values: alexa, amazon, computer, echo"
+pattern Alexa :: WakeWord
+pattern Alexa = WakeWord' "ALEXA"
 
-instance ToText WakeWord where
-  toText = \case
-    Alexa -> "ALEXA"
-    Amazon -> "AMAZON"
-    Computer -> "COMPUTER"
-    Echo -> "ECHO"
+pattern Amazon :: WakeWord
+pattern Amazon = WakeWord' "AMAZON"
 
-instance Hashable WakeWord
+pattern Computer :: WakeWord
+pattern Computer = WakeWord' "COMPUTER"
 
-instance NFData WakeWord
+pattern Echo :: WakeWord
+pattern Echo = WakeWord' "ECHO"
 
-instance ToByteString WakeWord
-
-instance ToQuery WakeWord
-
-instance ToHeader WakeWord
-
-instance ToJSON WakeWord where
-  toJSON = toJSONText
-
-instance FromJSON WakeWord where
-  parseJSON = parseJSONText "WakeWord"
+{-# COMPLETE
+  Alexa,
+  Amazon,
+  Computer,
+  Echo,
+  WakeWord'
+  #-}

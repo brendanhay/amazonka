@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,148 @@
 --
 -- Sends you notification through CloudWatch Events when all files written to your file share have been uploaded to Amazon S3.
 --
---
 -- AWS Storage Gateway can send a notification through Amazon CloudWatch Events when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to send the notification through event targets such as Amazon SNS or AWS Lambda function. This operation is only supported for file gateways.
---
 -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification Getting file upload notification> in the /AWS Storage Gateway User Guide/ .
 module Network.AWS.StorageGateway.NotifyWhenUploaded
-  ( -- * Creating a Request
-    notifyWhenUploaded,
-    NotifyWhenUploaded,
+  ( -- * Creating a request
+    NotifyWhenUploaded (..),
+    mkNotifyWhenUploaded,
 
-    -- * Request Lenses
+    -- ** Request lenses
     nwuFileShareARN,
 
-    -- * Destructuring the Response
-    notifyWhenUploadedResponse,
-    NotifyWhenUploadedResponse,
+    -- * Destructuring the response
+    NotifyWhenUploadedResponse (..),
+    mkNotifyWhenUploadedResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     nwursFileShareARN,
     nwursNotificationId,
     nwursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'notifyWhenUploaded' smart constructor.
+-- | /See:/ 'mkNotifyWhenUploaded' smart constructor.
 newtype NotifyWhenUploaded = NotifyWhenUploaded'
-  { _nwuFileShareARN ::
-      Text
+  { fileShareARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyWhenUploaded' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nwuFileShareARN' - Undocumented member.
-notifyWhenUploaded ::
-  -- | 'nwuFileShareARN'
-  Text ->
+-- * 'fileShareARN' - Undocumented field.
+mkNotifyWhenUploaded ::
+  -- | 'fileShareARN'
+  Lude.Text ->
   NotifyWhenUploaded
-notifyWhenUploaded pFileShareARN_ =
-  NotifyWhenUploaded' {_nwuFileShareARN = pFileShareARN_}
+mkNotifyWhenUploaded pFileShareARN_ =
+  NotifyWhenUploaded' {fileShareARN = pFileShareARN_}
 
--- | Undocumented member.
-nwuFileShareARN :: Lens' NotifyWhenUploaded Text
-nwuFileShareARN = lens _nwuFileShareARN (\s a -> s {_nwuFileShareARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nwuFileShareARN :: Lens.Lens' NotifyWhenUploaded Lude.Text
+nwuFileShareARN = Lens.lens (fileShareARN :: NotifyWhenUploaded -> Lude.Text) (\s a -> s {fileShareARN = a} :: NotifyWhenUploaded)
+{-# DEPRECATED nwuFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
-instance AWSRequest NotifyWhenUploaded where
+instance Lude.AWSRequest NotifyWhenUploaded where
   type Rs NotifyWhenUploaded = NotifyWhenUploadedResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           NotifyWhenUploadedResponse'
-            <$> (x .?> "FileShareARN")
-            <*> (x .?> "NotificationId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FileShareARN")
+            Lude.<*> (x Lude..?> "NotificationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable NotifyWhenUploaded
-
-instance NFData NotifyWhenUploaded
-
-instance ToHeaders NotifyWhenUploaded where
+instance Lude.ToHeaders NotifyWhenUploaded where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.NotifyWhenUploaded" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.NotifyWhenUploaded" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON NotifyWhenUploaded where
+instance Lude.ToJSON NotifyWhenUploaded where
   toJSON NotifyWhenUploaded' {..} =
-    object (catMaybes [Just ("FileShareARN" .= _nwuFileShareARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("FileShareARN" Lude..= fileShareARN)])
 
-instance ToPath NotifyWhenUploaded where
-  toPath = const "/"
+instance Lude.ToPath NotifyWhenUploaded where
+  toPath = Lude.const "/"
 
-instance ToQuery NotifyWhenUploaded where
-  toQuery = const mempty
+instance Lude.ToQuery NotifyWhenUploaded where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'notifyWhenUploadedResponse' smart constructor.
+-- | /See:/ 'mkNotifyWhenUploadedResponse' smart constructor.
 data NotifyWhenUploadedResponse = NotifyWhenUploadedResponse'
-  { _nwursFileShareARN ::
-      !(Maybe Text),
-    _nwursNotificationId :: !(Maybe Text),
-    _nwursResponseStatus :: !Int
+  { fileShareARN ::
+      Lude.Maybe Lude.Text,
+    notificationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyWhenUploadedResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nwursFileShareARN' - Undocumented member.
---
--- * 'nwursNotificationId' - Undocumented member.
---
--- * 'nwursResponseStatus' - -- | The response status code.
-notifyWhenUploadedResponse ::
-  -- | 'nwursResponseStatus'
-  Int ->
+-- * 'fileShareARN' - Undocumented field.
+-- * 'notificationId' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkNotifyWhenUploadedResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   NotifyWhenUploadedResponse
-notifyWhenUploadedResponse pResponseStatus_ =
+mkNotifyWhenUploadedResponse pResponseStatus_ =
   NotifyWhenUploadedResponse'
-    { _nwursFileShareARN = Nothing,
-      _nwursNotificationId = Nothing,
-      _nwursResponseStatus = pResponseStatus_
+    { fileShareARN = Lude.Nothing,
+      notificationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-nwursFileShareARN :: Lens' NotifyWhenUploadedResponse (Maybe Text)
-nwursFileShareARN = lens _nwursFileShareARN (\s a -> s {_nwursFileShareARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nwursFileShareARN :: Lens.Lens' NotifyWhenUploadedResponse (Lude.Maybe Lude.Text)
+nwursFileShareARN = Lens.lens (fileShareARN :: NotifyWhenUploadedResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: NotifyWhenUploadedResponse)
+{-# DEPRECATED nwursFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | Undocumented member.
-nwursNotificationId :: Lens' NotifyWhenUploadedResponse (Maybe Text)
-nwursNotificationId = lens _nwursNotificationId (\s a -> s {_nwursNotificationId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nwursNotificationId :: Lens.Lens' NotifyWhenUploadedResponse (Lude.Maybe Lude.Text)
+nwursNotificationId = Lens.lens (notificationId :: NotifyWhenUploadedResponse -> Lude.Maybe Lude.Text) (\s a -> s {notificationId = a} :: NotifyWhenUploadedResponse)
+{-# DEPRECATED nwursNotificationId "Use generic-lens or generic-optics with 'notificationId' instead." #-}
 
--- | -- | The response status code.
-nwursResponseStatus :: Lens' NotifyWhenUploadedResponse Int
-nwursResponseStatus = lens _nwursResponseStatus (\s a -> s {_nwursResponseStatus = a})
-
-instance NFData NotifyWhenUploadedResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nwursResponseStatus :: Lens.Lens' NotifyWhenUploadedResponse Lude.Int
+nwursResponseStatus = Lens.lens (responseStatus :: NotifyWhenUploadedResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: NotifyWhenUploadedResponse)
+{-# DEPRECATED nwursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDestination where
+module Network.AWS.MediaLive.Types.InputDestination
+  ( InputDestination (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputDestination,
+
+    -- * Lenses
+    idURL,
+    idIP,
+    idVPC,
+    idPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDestinationVPC
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The settings for a PUSH type input.
 --
--- /See:/ 'inputDestination' smart constructor.
+-- /See:/ 'mkInputDestination' smart constructor.
 data InputDestination = InputDestination'
-  { _idURL :: !(Maybe Text),
-    _idIP :: !(Maybe Text),
-    _idVPC :: !(Maybe InputDestinationVPC),
-    _idPort :: !(Maybe Text)
+  { url ::
+      Lude.Maybe Lude.Text,
+    ip :: Lude.Maybe Lude.Text,
+    vpc :: Lude.Maybe InputDestinationVPC,
+    port :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ip' - The system-generated static IP address of endpoint.
 --
--- * 'idURL' - This represents the endpoint that the customer stream will be pushed to.
+-- It remains fixed for the lifetime of the input.
+-- * 'port' - The port number for the input.
+-- * 'url' - This represents the endpoint that the customer stream will be
 --
--- * 'idIP' - The system-generated static IP address of endpoint. It remains fixed for the lifetime of the input.
---
--- * 'idVPC' - Undocumented member.
---
--- * 'idPort' - The port number for the input.
-inputDestination ::
+-- pushed to.
+-- * 'vpc' - Undocumented field.
+mkInputDestination ::
   InputDestination
-inputDestination =
+mkInputDestination =
   InputDestination'
-    { _idURL = Nothing,
-      _idIP = Nothing,
-      _idVPC = Nothing,
-      _idPort = Nothing
+    { url = Lude.Nothing,
+      ip = Lude.Nothing,
+      vpc = Lude.Nothing,
+      port = Lude.Nothing
     }
 
--- | This represents the endpoint that the customer stream will be pushed to.
-idURL :: Lens' InputDestination (Maybe Text)
-idURL = lens _idURL (\s a -> s {_idURL = a})
+-- | This represents the endpoint that the customer stream will be
+--
+-- pushed to.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idURL :: Lens.Lens' InputDestination (Lude.Maybe Lude.Text)
+idURL = Lens.lens (url :: InputDestination -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: InputDestination)
+{-# DEPRECATED idURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | The system-generated static IP address of endpoint. It remains fixed for the lifetime of the input.
-idIP :: Lens' InputDestination (Maybe Text)
-idIP = lens _idIP (\s a -> s {_idIP = a})
+-- | The system-generated static IP address of endpoint.
+--
+-- It remains fixed for the lifetime of the input.
+--
+-- /Note:/ Consider using 'ip' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idIP :: Lens.Lens' InputDestination (Lude.Maybe Lude.Text)
+idIP = Lens.lens (ip :: InputDestination -> Lude.Maybe Lude.Text) (\s a -> s {ip = a} :: InputDestination)
+{-# DEPRECATED idIP "Use generic-lens or generic-optics with 'ip' instead." #-}
 
--- | Undocumented member.
-idVPC :: Lens' InputDestination (Maybe InputDestinationVPC)
-idVPC = lens _idVPC (\s a -> s {_idVPC = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idVPC :: Lens.Lens' InputDestination (Lude.Maybe InputDestinationVPC)
+idVPC = Lens.lens (vpc :: InputDestination -> Lude.Maybe InputDestinationVPC) (\s a -> s {vpc = a} :: InputDestination)
+{-# DEPRECATED idVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
 -- | The port number for the input.
-idPort :: Lens' InputDestination (Maybe Text)
-idPort = lens _idPort (\s a -> s {_idPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idPort :: Lens.Lens' InputDestination (Lude.Maybe Lude.Text)
+idPort = Lens.lens (port :: InputDestination -> Lude.Maybe Lude.Text) (\s a -> s {port = a} :: InputDestination)
+{-# DEPRECATED idPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON InputDestination where
+instance Lude.FromJSON InputDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputDestination"
       ( \x ->
           InputDestination'
-            <$> (x .:? "url")
-            <*> (x .:? "ip")
-            <*> (x .:? "vpc")
-            <*> (x .:? "port")
+            Lude.<$> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "ip")
+            Lude.<*> (x Lude..:? "vpc")
+            Lude.<*> (x Lude..:? "port")
       )
-
-instance Hashable InputDestination
-
-instance NFData InputDestination

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns a list of resource metadata for a given list of crawler names. After calling the @ListCrawlers@ operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
 module Network.AWS.Glue.BatchGetCrawlers
-  ( -- * Creating a Request
-    batchGetCrawlers,
-    BatchGetCrawlers,
+  ( -- * Creating a request
+    BatchGetCrawlers (..),
+    mkBatchGetCrawlers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgcCrawlerNames,
 
-    -- * Destructuring the Response
-    batchGetCrawlersResponse,
-    BatchGetCrawlersResponse,
+    -- * Destructuring the response
+    BatchGetCrawlersResponse (..),
+    mkBatchGetCrawlersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgcrsCrawlersNotFound,
     bgcrsCrawlers,
     bgcrsResponseStatus,
@@ -38,105 +33,122 @@ module Network.AWS.Glue.BatchGetCrawlers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetCrawlers' smart constructor.
+-- | /See:/ 'mkBatchGetCrawlers' smart constructor.
 newtype BatchGetCrawlers = BatchGetCrawlers'
-  { _bgcCrawlerNames ::
-      [Text]
+  { crawlerNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetCrawlers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgcCrawlerNames' - A list of crawler names, which might be the names returned from the @ListCrawlers@ operation.
-batchGetCrawlers ::
+-- * 'crawlerNames' - A list of crawler names, which might be the names returned from the @ListCrawlers@ operation.
+mkBatchGetCrawlers ::
   BatchGetCrawlers
-batchGetCrawlers = BatchGetCrawlers' {_bgcCrawlerNames = mempty}
+mkBatchGetCrawlers = BatchGetCrawlers' {crawlerNames = Lude.mempty}
 
 -- | A list of crawler names, which might be the names returned from the @ListCrawlers@ operation.
-bgcCrawlerNames :: Lens' BatchGetCrawlers [Text]
-bgcCrawlerNames = lens _bgcCrawlerNames (\s a -> s {_bgcCrawlerNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'crawlerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgcCrawlerNames :: Lens.Lens' BatchGetCrawlers [Lude.Text]
+bgcCrawlerNames = Lens.lens (crawlerNames :: BatchGetCrawlers -> [Lude.Text]) (\s a -> s {crawlerNames = a} :: BatchGetCrawlers)
+{-# DEPRECATED bgcCrawlerNames "Use generic-lens or generic-optics with 'crawlerNames' instead." #-}
 
-instance AWSRequest BatchGetCrawlers where
+instance Lude.AWSRequest BatchGetCrawlers where
   type Rs BatchGetCrawlers = BatchGetCrawlersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetCrawlersResponse'
-            <$> (x .?> "CrawlersNotFound" .!@ mempty)
-            <*> (x .?> "Crawlers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CrawlersNotFound" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Crawlers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetCrawlers
-
-instance NFData BatchGetCrawlers
-
-instance ToHeaders BatchGetCrawlers where
+instance Lude.ToHeaders BatchGetCrawlers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.BatchGetCrawlers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.BatchGetCrawlers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetCrawlers where
+instance Lude.ToJSON BatchGetCrawlers where
   toJSON BatchGetCrawlers' {..} =
-    object (catMaybes [Just ("CrawlerNames" .= _bgcCrawlerNames)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("CrawlerNames" Lude..= crawlerNames)])
 
-instance ToPath BatchGetCrawlers where
-  toPath = const "/"
+instance Lude.ToPath BatchGetCrawlers where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetCrawlers where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetCrawlers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetCrawlersResponse' smart constructor.
+-- | /See:/ 'mkBatchGetCrawlersResponse' smart constructor.
 data BatchGetCrawlersResponse = BatchGetCrawlersResponse'
-  { _bgcrsCrawlersNotFound ::
-      !(Maybe [Text]),
-    _bgcrsCrawlers :: !(Maybe [Crawler]),
-    _bgcrsResponseStatus :: !Int
+  { crawlersNotFound ::
+      Lude.Maybe [Lude.Text],
+    crawlers :: Lude.Maybe [Crawler],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetCrawlersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgcrsCrawlersNotFound' - A list of names of crawlers that were not found.
---
--- * 'bgcrsCrawlers' - A list of crawler definitions.
---
--- * 'bgcrsResponseStatus' - -- | The response status code.
-batchGetCrawlersResponse ::
-  -- | 'bgcrsResponseStatus'
-  Int ->
+-- * 'crawlers' - A list of crawler definitions.
+-- * 'crawlersNotFound' - A list of names of crawlers that were not found.
+-- * 'responseStatus' - The response status code.
+mkBatchGetCrawlersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetCrawlersResponse
-batchGetCrawlersResponse pResponseStatus_ =
+mkBatchGetCrawlersResponse pResponseStatus_ =
   BatchGetCrawlersResponse'
-    { _bgcrsCrawlersNotFound = Nothing,
-      _bgcrsCrawlers = Nothing,
-      _bgcrsResponseStatus = pResponseStatus_
+    { crawlersNotFound = Lude.Nothing,
+      crawlers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of names of crawlers that were not found.
-bgcrsCrawlersNotFound :: Lens' BatchGetCrawlersResponse [Text]
-bgcrsCrawlersNotFound = lens _bgcrsCrawlersNotFound (\s a -> s {_bgcrsCrawlersNotFound = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'crawlersNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgcrsCrawlersNotFound :: Lens.Lens' BatchGetCrawlersResponse (Lude.Maybe [Lude.Text])
+bgcrsCrawlersNotFound = Lens.lens (crawlersNotFound :: BatchGetCrawlersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {crawlersNotFound = a} :: BatchGetCrawlersResponse)
+{-# DEPRECATED bgcrsCrawlersNotFound "Use generic-lens or generic-optics with 'crawlersNotFound' instead." #-}
 
 -- | A list of crawler definitions.
-bgcrsCrawlers :: Lens' BatchGetCrawlersResponse [Crawler]
-bgcrsCrawlers = lens _bgcrsCrawlers (\s a -> s {_bgcrsCrawlers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'crawlers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgcrsCrawlers :: Lens.Lens' BatchGetCrawlersResponse (Lude.Maybe [Crawler])
+bgcrsCrawlers = Lens.lens (crawlers :: BatchGetCrawlersResponse -> Lude.Maybe [Crawler]) (\s a -> s {crawlers = a} :: BatchGetCrawlersResponse)
+{-# DEPRECATED bgcrsCrawlers "Use generic-lens or generic-optics with 'crawlers' instead." #-}
 
--- | -- | The response status code.
-bgcrsResponseStatus :: Lens' BatchGetCrawlersResponse Int
-bgcrsResponseStatus = lens _bgcrsResponseStatus (\s a -> s {_bgcrsResponseStatus = a})
-
-instance NFData BatchGetCrawlersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgcrsResponseStatus :: Lens.Lens' BatchGetCrawlersResponse Lude.Int
+bgcrsResponseStatus = Lens.lens (responseStatus :: BatchGetCrawlersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetCrawlersResponse)
+{-# DEPRECATED bgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

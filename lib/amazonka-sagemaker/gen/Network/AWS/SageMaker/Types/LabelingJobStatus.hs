@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobStatus where
+module Network.AWS.SageMaker.Types.LabelingJobStatus
+  ( LabelingJobStatus
+      ( LabelingJobStatus',
+        LJSCompleted,
+        LJSFailed,
+        LJSInProgress,
+        LJSInitializing,
+        LJSStopped,
+        LJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LabelingJobStatus
-  = LJSCompleted
-  | LJSFailed
-  | LJSInProgress
-  | LJSInitializing
-  | LJSStopped
-  | LJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LabelingJobStatus = LabelingJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LabelingJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure LJSCompleted
-      "failed" -> pure LJSFailed
-      "inprogress" -> pure LJSInProgress
-      "initializing" -> pure LJSInitializing
-      "stopped" -> pure LJSStopped
-      "stopping" -> pure LJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing LabelingJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, initializing, stopped, stopping"
+pattern LJSCompleted :: LabelingJobStatus
+pattern LJSCompleted = LabelingJobStatus' "Completed"
 
-instance ToText LabelingJobStatus where
-  toText = \case
-    LJSCompleted -> "Completed"
-    LJSFailed -> "Failed"
-    LJSInProgress -> "InProgress"
-    LJSInitializing -> "Initializing"
-    LJSStopped -> "Stopped"
-    LJSStopping -> "Stopping"
+pattern LJSFailed :: LabelingJobStatus
+pattern LJSFailed = LabelingJobStatus' "Failed"
 
-instance Hashable LabelingJobStatus
+pattern LJSInProgress :: LabelingJobStatus
+pattern LJSInProgress = LabelingJobStatus' "InProgress"
 
-instance NFData LabelingJobStatus
+pattern LJSInitializing :: LabelingJobStatus
+pattern LJSInitializing = LabelingJobStatus' "Initializing"
 
-instance ToByteString LabelingJobStatus
+pattern LJSStopped :: LabelingJobStatus
+pattern LJSStopped = LabelingJobStatus' "Stopped"
 
-instance ToQuery LabelingJobStatus
+pattern LJSStopping :: LabelingJobStatus
+pattern LJSStopping = LabelingJobStatus' "Stopping"
 
-instance ToHeader LabelingJobStatus
-
-instance ToJSON LabelingJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON LabelingJobStatus where
-  parseJSON = parseJSONText "LabelingJobStatus"
+{-# COMPLETE
+  LJSCompleted,
+  LJSFailed,
+  LJSInProgress,
+  LJSInitializing,
+  LJSStopped,
+  LJSStopping,
+  LabelingJobStatus'
+  #-}

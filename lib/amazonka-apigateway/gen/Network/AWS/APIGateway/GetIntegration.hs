@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Get the integration settings.
 module Network.AWS.APIGateway.GetIntegration
-  ( -- * Creating a Request
-    getIntegration,
-    GetIntegration,
+  ( -- * Creating a request
+    GetIntegration (..),
+    mkGetIntegration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giRestAPIId,
     giResourceId,
     giHttpMethod,
 
-    -- * Destructuring the Response
-    integration,
-    Integration,
+    -- * Destructuring the response
+    Integration (..),
+    mkIntegration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iHttpMethod,
     iRequestTemplates,
     iCredentials,
@@ -52,83 +47,92 @@ module Network.AWS.APIGateway.GetIntegration
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to get the integration configuration.
 --
---
---
--- /See:/ 'getIntegration' smart constructor.
+-- /See:/ 'mkGetIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-  { _giRestAPIId :: !Text,
-    _giResourceId :: !Text,
-    _giHttpMethod :: !Text
+  { restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntegration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'giResourceId' - [Required] Specifies a get integration request's resource identifier
---
--- * 'giHttpMethod' - [Required] Specifies a get integration request's HTTP method.
-getIntegration ::
-  -- | 'giRestAPIId'
-  Text ->
-  -- | 'giResourceId'
-  Text ->
-  -- | 'giHttpMethod'
-  Text ->
+-- * 'httpMethod' - [Required] Specifies a get integration request's HTTP method.
+-- * 'resourceId' - [Required] Specifies a get integration request's resource identifier
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetIntegration ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
   GetIntegration
-getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkGetIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
   GetIntegration'
-    { _giRestAPIId = pRestAPIId_,
-      _giResourceId = pResourceId_,
-      _giHttpMethod = pHttpMethod_
+    { restAPIId = pRestAPIId_,
+      resourceId = pResourceId_,
+      httpMethod = pHttpMethod_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-giRestAPIId :: Lens' GetIntegration Text
-giRestAPIId = lens _giRestAPIId (\s a -> s {_giRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giRestAPIId :: Lens.Lens' GetIntegration Lude.Text
+giRestAPIId = Lens.lens (restAPIId :: GetIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegration)
+{-# DEPRECATED giRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a get integration request's resource identifier
-giResourceId :: Lens' GetIntegration Text
-giResourceId = lens _giResourceId (\s a -> s {_giResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giResourceId :: Lens.Lens' GetIntegration Lude.Text
+giResourceId = Lens.lens (resourceId :: GetIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegration)
+{-# DEPRECATED giResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a get integration request's HTTP method.
-giHttpMethod :: Lens' GetIntegration Text
-giHttpMethod = lens _giHttpMethod (\s a -> s {_giHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giHttpMethod :: Lens.Lens' GetIntegration Lude.Text
+giHttpMethod = Lens.lens (httpMethod :: GetIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegration)
+{-# DEPRECATED giHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
-instance AWSRequest GetIntegration where
+instance Lude.AWSRequest GetIntegration where
   type Rs GetIntegration = Integration
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetIntegration
-
-instance NFData GetIntegration
-
-instance ToHeaders GetIntegration where
+instance Lude.ToHeaders GetIntegration where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetIntegration where
+instance Lude.ToPath GetIntegration where
   toPath GetIntegration' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _giRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _giResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _giHttpMethod,
+        Lude.toBS httpMethod,
         "/integration"
       ]
 
-instance ToQuery GetIntegration where
-  toQuery = const mempty
+instance Lude.ToQuery GetIntegration where
+  toQuery = Lude.const Lude.mempty

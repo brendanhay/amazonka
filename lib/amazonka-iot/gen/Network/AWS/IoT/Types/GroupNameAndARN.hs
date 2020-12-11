@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.GroupNameAndARN where
+module Network.AWS.IoT.Types.GroupNameAndARN
+  ( GroupNameAndARN (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupNameAndARN,
+
+    -- * Lenses
+    gnaaGroupARN,
+    gnaaGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The name and ARN of a group.
 --
---
---
--- /See:/ 'groupNameAndARN' smart constructor.
+-- /See:/ 'mkGroupNameAndARN' smart constructor.
 data GroupNameAndARN = GroupNameAndARN'
-  { _gnaaGroupARN ::
-      !(Maybe Text),
-    _gnaaGroupName :: !(Maybe Text)
+  { groupARN ::
+      Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupNameAndARN' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gnaaGroupARN' - The group ARN.
---
--- * 'gnaaGroupName' - The group name.
-groupNameAndARN ::
+-- * 'groupARN' - The group ARN.
+-- * 'groupName' - The group name.
+mkGroupNameAndARN ::
   GroupNameAndARN
-groupNameAndARN =
+mkGroupNameAndARN =
   GroupNameAndARN'
-    { _gnaaGroupARN = Nothing,
-      _gnaaGroupName = Nothing
+    { groupARN = Lude.Nothing,
+      groupName = Lude.Nothing
     }
 
 -- | The group ARN.
-gnaaGroupARN :: Lens' GroupNameAndARN (Maybe Text)
-gnaaGroupARN = lens _gnaaGroupARN (\s a -> s {_gnaaGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnaaGroupARN :: Lens.Lens' GroupNameAndARN (Lude.Maybe Lude.Text)
+gnaaGroupARN = Lens.lens (groupARN :: GroupNameAndARN -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GroupNameAndARN)
+{-# DEPRECATED gnaaGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The group name.
-gnaaGroupName :: Lens' GroupNameAndARN (Maybe Text)
-gnaaGroupName = lens _gnaaGroupName (\s a -> s {_gnaaGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnaaGroupName :: Lens.Lens' GroupNameAndARN (Lude.Maybe Lude.Text)
+gnaaGroupName = Lens.lens (groupName :: GroupNameAndARN -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupNameAndARN)
+{-# DEPRECATED gnaaGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance FromJSON GroupNameAndARN where
+instance Lude.FromJSON GroupNameAndARN where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupNameAndARN"
       ( \x ->
-          GroupNameAndARN' <$> (x .:? "groupArn") <*> (x .:? "groupName")
+          GroupNameAndARN'
+            Lude.<$> (x Lude..:? "groupArn") Lude.<*> (x Lude..:? "groupName")
       )
-
-instance Hashable GroupNameAndARN
-
-instance NFData GroupNameAndARN

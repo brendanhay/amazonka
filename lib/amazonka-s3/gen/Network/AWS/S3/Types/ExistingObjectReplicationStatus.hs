@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ExistingObjectReplicationStatus where
+module Network.AWS.S3.Types.ExistingObjectReplicationStatus
+  ( ExistingObjectReplicationStatus
+      ( ExistingObjectReplicationStatus',
+        EORSDisabled,
+        EORSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ExistingObjectReplicationStatus
-  = EORSDisabled
-  | EORSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExistingObjectReplicationStatus = ExistingObjectReplicationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExistingObjectReplicationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure EORSDisabled
-      "enabled" -> pure EORSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing ExistingObjectReplicationStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern EORSDisabled :: ExistingObjectReplicationStatus
+pattern EORSDisabled = ExistingObjectReplicationStatus' "Disabled"
 
-instance ToText ExistingObjectReplicationStatus where
-  toText = \case
-    EORSDisabled -> "Disabled"
-    EORSEnabled -> "Enabled"
+pattern EORSEnabled :: ExistingObjectReplicationStatus
+pattern EORSEnabled = ExistingObjectReplicationStatus' "Enabled"
 
-instance Hashable ExistingObjectReplicationStatus
-
-instance NFData ExistingObjectReplicationStatus
-
-instance ToByteString ExistingObjectReplicationStatus
-
-instance ToQuery ExistingObjectReplicationStatus
-
-instance ToHeader ExistingObjectReplicationStatus
-
-instance FromXML ExistingObjectReplicationStatus where
-  parseXML = parseXMLText "ExistingObjectReplicationStatus"
-
-instance ToXML ExistingObjectReplicationStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  EORSDisabled,
+  EORSEnabled,
+  ExistingObjectReplicationStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.OutputConfig where
+module Network.AWS.Rekognition.Types.OutputConfig
+  ( OutputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputConfig,
+
+    -- * Lenses
+    ocS3KeyPrefix,
+    ocS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The S3 bucket and folder location where training output is placed.
 --
---
---
--- /See:/ 'outputConfig' smart constructor.
+-- /See:/ 'mkOutputConfig' smart constructor.
 data OutputConfig = OutputConfig'
-  { _ocS3KeyPrefix :: !(Maybe Text),
-    _ocS3Bucket :: !(Maybe Text)
+  { s3KeyPrefix ::
+      Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocS3KeyPrefix' - The prefix applied to the training output files.
---
--- * 'ocS3Bucket' - The S3 bucket where training output is placed.
-outputConfig ::
+-- * 's3Bucket' - The S3 bucket where training output is placed.
+-- * 's3KeyPrefix' - The prefix applied to the training output files.
+mkOutputConfig ::
   OutputConfig
-outputConfig =
-  OutputConfig' {_ocS3KeyPrefix = Nothing, _ocS3Bucket = Nothing}
+mkOutputConfig =
+  OutputConfig'
+    { s3KeyPrefix = Lude.Nothing,
+      s3Bucket = Lude.Nothing
+    }
 
 -- | The prefix applied to the training output files.
-ocS3KeyPrefix :: Lens' OutputConfig (Maybe Text)
-ocS3KeyPrefix = lens _ocS3KeyPrefix (\s a -> s {_ocS3KeyPrefix = a})
+--
+-- /Note:/ Consider using 's3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocS3KeyPrefix :: Lens.Lens' OutputConfig (Lude.Maybe Lude.Text)
+ocS3KeyPrefix = Lens.lens (s3KeyPrefix :: OutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: OutputConfig)
+{-# DEPRECATED ocS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
 -- | The S3 bucket where training output is placed.
-ocS3Bucket :: Lens' OutputConfig (Maybe Text)
-ocS3Bucket = lens _ocS3Bucket (\s a -> s {_ocS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocS3Bucket :: Lens.Lens' OutputConfig (Lude.Maybe Lude.Text)
+ocS3Bucket = Lens.lens (s3Bucket :: OutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: OutputConfig)
+{-# DEPRECATED ocS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance FromJSON OutputConfig where
+instance Lude.FromJSON OutputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputConfig"
       ( \x ->
-          OutputConfig' <$> (x .:? "S3KeyPrefix") <*> (x .:? "S3Bucket")
+          OutputConfig'
+            Lude.<$> (x Lude..:? "S3KeyPrefix") Lude.<*> (x Lude..:? "S3Bucket")
       )
 
-instance Hashable OutputConfig
-
-instance NFData OutputConfig
-
-instance ToJSON OutputConfig where
+instance Lude.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("S3KeyPrefix" .=) <$> _ocS3KeyPrefix,
-            ("S3Bucket" .=) <$> _ocS3Bucket
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3KeyPrefix" Lude..=) Lude.<$> s3KeyPrefix,
+            ("S3Bucket" Lude..=) Lude.<$> s3Bucket
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.UploadListElement where
+module Network.AWS.Glacier.Types.UploadListElement
+  ( UploadListElement (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUploadListElement,
+
+    -- * Lenses
+    uleMultipartUploadId,
+    ulePartSizeInBytes,
+    uleArchiveDescription,
+    uleVaultARN,
+    uleCreationDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of in-progress multipart uploads for a vault.
 --
---
---
--- /See:/ 'uploadListElement' smart constructor.
+-- /See:/ 'mkUploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
-  { _uleMultipartUploadId ::
-      !(Maybe Text),
-    _ulePartSizeInBytes :: !(Maybe Integer),
-    _uleArchiveDescription :: !(Maybe Text),
-    _uleVaultARN :: !(Maybe Text),
-    _uleCreationDate :: !(Maybe Text)
+  { multipartUploadId ::
+      Lude.Maybe Lude.Text,
+    partSizeInBytes :: Lude.Maybe Lude.Integer,
+    archiveDescription :: Lude.Maybe Lude.Text,
+    vaultARN :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadListElement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uleMultipartUploadId' - The ID of a multipart upload.
---
--- * 'ulePartSizeInBytes' - The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
---
--- * 'uleArchiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
---
--- * 'uleVaultARN' - The Amazon Resource Name (ARN) of the vault that contains the archive.
---
--- * 'uleCreationDate' - The UTC time at which the multipart upload was initiated.
-uploadListElement ::
+-- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
+-- * 'creationDate' - The UTC time at which the multipart upload was initiated.
+-- * 'multipartUploadId' - The ID of a multipart upload.
+-- * 'partSizeInBytes' - The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
+-- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault that contains the archive.
+mkUploadListElement ::
   UploadListElement
-uploadListElement =
+mkUploadListElement =
   UploadListElement'
-    { _uleMultipartUploadId = Nothing,
-      _ulePartSizeInBytes = Nothing,
-      _uleArchiveDescription = Nothing,
-      _uleVaultARN = Nothing,
-      _uleCreationDate = Nothing
+    { multipartUploadId = Lude.Nothing,
+      partSizeInBytes = Lude.Nothing,
+      archiveDescription = Lude.Nothing,
+      vaultARN = Lude.Nothing,
+      creationDate = Lude.Nothing
     }
 
 -- | The ID of a multipart upload.
-uleMultipartUploadId :: Lens' UploadListElement (Maybe Text)
-uleMultipartUploadId = lens _uleMultipartUploadId (\s a -> s {_uleMultipartUploadId = a})
+--
+-- /Note:/ Consider using 'multipartUploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleMultipartUploadId :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
+uleMultipartUploadId = Lens.lens (multipartUploadId :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {multipartUploadId = a} :: UploadListElement)
+{-# DEPRECATED uleMultipartUploadId "Use generic-lens or generic-optics with 'multipartUploadId' instead." #-}
 
 -- | The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
-ulePartSizeInBytes :: Lens' UploadListElement (Maybe Integer)
-ulePartSizeInBytes = lens _ulePartSizeInBytes (\s a -> s {_ulePartSizeInBytes = a})
+--
+-- /Note:/ Consider using 'partSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulePartSizeInBytes :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Integer)
+ulePartSizeInBytes = Lens.lens (partSizeInBytes :: UploadListElement -> Lude.Maybe Lude.Integer) (\s a -> s {partSizeInBytes = a} :: UploadListElement)
+{-# DEPRECATED ulePartSizeInBytes "Use generic-lens or generic-optics with 'partSizeInBytes' instead." #-}
 
 -- | The description of the archive that was specified in the Initiate Multipart Upload request.
-uleArchiveDescription :: Lens' UploadListElement (Maybe Text)
-uleArchiveDescription = lens _uleArchiveDescription (\s a -> s {_uleArchiveDescription = a})
+--
+-- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleArchiveDescription :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
+uleArchiveDescription = Lens.lens (archiveDescription :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: UploadListElement)
+{-# DEPRECATED uleArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
-uleVaultARN :: Lens' UploadListElement (Maybe Text)
-uleVaultARN = lens _uleVaultARN (\s a -> s {_uleVaultARN = a})
+--
+-- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleVaultARN :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
+uleVaultARN = Lens.lens (vaultARN :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {vaultARN = a} :: UploadListElement)
+{-# DEPRECATED uleVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
 
 -- | The UTC time at which the multipart upload was initiated.
-uleCreationDate :: Lens' UploadListElement (Maybe Text)
-uleCreationDate = lens _uleCreationDate (\s a -> s {_uleCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleCreationDate :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
+uleCreationDate = Lens.lens (creationDate :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: UploadListElement)
+{-# DEPRECATED uleCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance FromJSON UploadListElement where
+instance Lude.FromJSON UploadListElement where
   parseJSON =
-    withObject
+    Lude.withObject
       "UploadListElement"
       ( \x ->
           UploadListElement'
-            <$> (x .:? "MultipartUploadId")
-            <*> (x .:? "PartSizeInBytes")
-            <*> (x .:? "ArchiveDescription")
-            <*> (x .:? "VaultARN")
-            <*> (x .:? "CreationDate")
+            Lude.<$> (x Lude..:? "MultipartUploadId")
+            Lude.<*> (x Lude..:? "PartSizeInBytes")
+            Lude.<*> (x Lude..:? "ArchiveDescription")
+            Lude.<*> (x Lude..:? "VaultARN")
+            Lude.<*> (x Lude..:? "CreationDate")
       )
-
-instance Hashable UploadListElement
-
-instance NFData UploadListElement

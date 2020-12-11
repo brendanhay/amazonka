@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType where
+module Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
+  ( EndOfMeetingReminderType
+      ( EndOfMeetingReminderType',
+        EOMRTAnnouncementTimeCheck,
+        EOMRTAnnouncementVariableTimeLeft,
+        EOMRTChime,
+        EOMRTKnock
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EndOfMeetingReminderType
-  = EOMRTAnnouncementTimeCheck
-  | EOMRTAnnouncementVariableTimeLeft
-  | EOMRTChime
-  | EOMRTKnock
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EndOfMeetingReminderType = EndOfMeetingReminderType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EndOfMeetingReminderType where
-  parser =
-    takeLowerText >>= \case
-      "announcement_time_check" -> pure EOMRTAnnouncementTimeCheck
-      "announcement_variable_time_left" -> pure EOMRTAnnouncementVariableTimeLeft
-      "chime" -> pure EOMRTChime
-      "knock" -> pure EOMRTKnock
-      e ->
-        fromTextError $
-          "Failure parsing EndOfMeetingReminderType from value: '" <> e
-            <> "'. Accepted values: announcement_time_check, announcement_variable_time_left, chime, knock"
+pattern EOMRTAnnouncementTimeCheck :: EndOfMeetingReminderType
+pattern EOMRTAnnouncementTimeCheck = EndOfMeetingReminderType' "ANNOUNCEMENT_TIME_CHECK"
 
-instance ToText EndOfMeetingReminderType where
-  toText = \case
-    EOMRTAnnouncementTimeCheck -> "ANNOUNCEMENT_TIME_CHECK"
-    EOMRTAnnouncementVariableTimeLeft -> "ANNOUNCEMENT_VARIABLE_TIME_LEFT"
-    EOMRTChime -> "CHIME"
-    EOMRTKnock -> "KNOCK"
+pattern EOMRTAnnouncementVariableTimeLeft :: EndOfMeetingReminderType
+pattern EOMRTAnnouncementVariableTimeLeft = EndOfMeetingReminderType' "ANNOUNCEMENT_VARIABLE_TIME_LEFT"
 
-instance Hashable EndOfMeetingReminderType
+pattern EOMRTChime :: EndOfMeetingReminderType
+pattern EOMRTChime = EndOfMeetingReminderType' "CHIME"
 
-instance NFData EndOfMeetingReminderType
+pattern EOMRTKnock :: EndOfMeetingReminderType
+pattern EOMRTKnock = EndOfMeetingReminderType' "KNOCK"
 
-instance ToByteString EndOfMeetingReminderType
-
-instance ToQuery EndOfMeetingReminderType
-
-instance ToHeader EndOfMeetingReminderType
-
-instance ToJSON EndOfMeetingReminderType where
-  toJSON = toJSONText
-
-instance FromJSON EndOfMeetingReminderType where
-  parseJSON = parseJSONText "EndOfMeetingReminderType"
+{-# COMPLETE
+  EOMRTAnnouncementTimeCheck,
+  EOMRTAnnouncementVariableTimeLeft,
+  EOMRTChime,
+  EOMRTKnock,
+  EndOfMeetingReminderType'
+  #-}

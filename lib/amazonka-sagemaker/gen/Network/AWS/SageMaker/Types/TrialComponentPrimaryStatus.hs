@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus where
+module Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
+  ( TrialComponentPrimaryStatus
+      ( TrialComponentPrimaryStatus',
+        TCPSCompleted,
+        TCPSFailed,
+        TCPSInProgress,
+        TCPSStopped,
+        TCPSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrialComponentPrimaryStatus
-  = TCPSCompleted
-  | TCPSFailed
-  | TCPSInProgress
-  | TCPSStopped
-  | TCPSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrialComponentPrimaryStatus = TrialComponentPrimaryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrialComponentPrimaryStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure TCPSCompleted
-      "failed" -> pure TCPSFailed
-      "inprogress" -> pure TCPSInProgress
-      "stopped" -> pure TCPSStopped
-      "stopping" -> pure TCPSStopping
-      e ->
-        fromTextError $
-          "Failure parsing TrialComponentPrimaryStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern TCPSCompleted :: TrialComponentPrimaryStatus
+pattern TCPSCompleted = TrialComponentPrimaryStatus' "Completed"
 
-instance ToText TrialComponentPrimaryStatus where
-  toText = \case
-    TCPSCompleted -> "Completed"
-    TCPSFailed -> "Failed"
-    TCPSInProgress -> "InProgress"
-    TCPSStopped -> "Stopped"
-    TCPSStopping -> "Stopping"
+pattern TCPSFailed :: TrialComponentPrimaryStatus
+pattern TCPSFailed = TrialComponentPrimaryStatus' "Failed"
 
-instance Hashable TrialComponentPrimaryStatus
+pattern TCPSInProgress :: TrialComponentPrimaryStatus
+pattern TCPSInProgress = TrialComponentPrimaryStatus' "InProgress"
 
-instance NFData TrialComponentPrimaryStatus
+pattern TCPSStopped :: TrialComponentPrimaryStatus
+pattern TCPSStopped = TrialComponentPrimaryStatus' "Stopped"
 
-instance ToByteString TrialComponentPrimaryStatus
+pattern TCPSStopping :: TrialComponentPrimaryStatus
+pattern TCPSStopping = TrialComponentPrimaryStatus' "Stopping"
 
-instance ToQuery TrialComponentPrimaryStatus
-
-instance ToHeader TrialComponentPrimaryStatus
-
-instance ToJSON TrialComponentPrimaryStatus where
-  toJSON = toJSONText
-
-instance FromJSON TrialComponentPrimaryStatus where
-  parseJSON = parseJSONText "TrialComponentPrimaryStatus"
+{-# COMPLETE
+  TCPSCompleted,
+  TCPSFailed,
+  TCPSInProgress,
+  TCPSStopped,
+  TCPSStopping,
+  TrialComponentPrimaryStatus'
+  #-}

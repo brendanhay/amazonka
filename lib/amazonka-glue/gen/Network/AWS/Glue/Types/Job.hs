@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,222 +7,356 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Job where
+module Network.AWS.Glue.Types.Job
+  ( Job (..),
+
+    -- * Smart constructor
+    mkJob,
+
+    -- * Lenses
+    jNumberOfWorkers,
+    jCommand,
+    jNotificationProperty,
+    jLastModifiedOn,
+    jConnections,
+    jWorkerType,
+    jSecurityConfiguration,
+    jGlueVersion,
+    jNonOverridableArguments,
+    jRole,
+    jName,
+    jLogURI,
+    jMaxRetries,
+    jExecutionProperty,
+    jAllocatedCapacity,
+    jMaxCapacity,
+    jTimeout,
+    jDefaultArguments,
+    jDescription,
+    jCreatedOn,
+  )
+where
 
 import Network.AWS.Glue.Types.ConnectionsList
 import Network.AWS.Glue.Types.ExecutionProperty
 import Network.AWS.Glue.Types.JobCommand
 import Network.AWS.Glue.Types.NotificationProperty
 import Network.AWS.Glue.Types.WorkerType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a job definition.
 --
---
---
--- /See:/ 'job' smart constructor.
+-- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { _jNumberOfWorkers :: !(Maybe Int),
-    _jCommand :: !(Maybe JobCommand),
-    _jNotificationProperty :: !(Maybe NotificationProperty),
-    _jLastModifiedOn :: !(Maybe POSIX),
-    _jConnections :: !(Maybe ConnectionsList),
-    _jWorkerType :: !(Maybe WorkerType),
-    _jSecurityConfiguration :: !(Maybe Text),
-    _jGlueVersion :: !(Maybe Text),
-    _jNonOverridableArguments :: !(Maybe (Map Text (Text))),
-    _jRole :: !(Maybe Text),
-    _jName :: !(Maybe Text),
-    _jLogURI :: !(Maybe Text),
-    _jMaxRetries :: !(Maybe Int),
-    _jExecutionProperty :: !(Maybe ExecutionProperty),
-    _jAllocatedCapacity :: !(Maybe Int),
-    _jMaxCapacity :: !(Maybe Double),
-    _jTimeout :: !(Maybe Nat),
-    _jDefaultArguments :: !(Maybe (Map Text (Text))),
-    _jDescription :: !(Maybe Text),
-    _jCreatedOn :: !(Maybe POSIX)
+  { numberOfWorkers :: Lude.Maybe Lude.Int,
+    command :: Lude.Maybe JobCommand,
+    notificationProperty :: Lude.Maybe NotificationProperty,
+    lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    connections :: Lude.Maybe ConnectionsList,
+    workerType :: Lude.Maybe WorkerType,
+    securityConfiguration :: Lude.Maybe Lude.Text,
+    glueVersion :: Lude.Maybe Lude.Text,
+    nonOverridableArguments ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    role' :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    logURI :: Lude.Maybe Lude.Text,
+    maxRetries :: Lude.Maybe Lude.Int,
+    executionProperty :: Lude.Maybe ExecutionProperty,
+    allocatedCapacity :: Lude.Maybe Lude.Int,
+    maxCapacity :: Lude.Maybe Lude.Double,
+    timeout :: Lude.Maybe Lude.Natural,
+    defaultArguments ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    description :: Lude.Maybe Lude.Text,
+    createdOn :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.
 --
--- * 'jNumberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs. The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+-- The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
--- * 'jCommand' - The @JobCommand@ that executes this job.
+-- * 'command' - The @JobCommand@ that executes this job.
+-- * 'connections' - The connections used for this job.
+-- * 'createdOn' - The time and date that this job definition was created.
+-- * 'defaultArguments' - The default arguments for this job, specified as name-value pairs.
 --
--- * 'jNotificationProperty' - Specifies configuration properties of a job notification.
+-- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+-- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+-- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
+-- * 'description' - A description of the job.
+-- * 'executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
+-- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
 --
--- * 'jLastModifiedOn' - The last point in time when this job definition was modified.
+-- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+-- Jobs that are created without specifying a Glue version default to Glue 0.9.
+-- * 'lastModifiedOn' - The last point in time when this job definition was modified.
+-- * 'logURI' - This field is reserved for future use.
+-- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
--- * 'jConnections' - The connections used for this job.
+-- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
+-- The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
 --
--- * 'jWorkerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+--     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
 --
--- * 'jSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job.
 --
--- * 'jGlueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.  For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide. Jobs that are created without specifying a Glue version default to Glue 0.9.
+--     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 --
--- * 'jNonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
 --
--- * 'jRole' - The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+-- * 'maxRetries' - The maximum number of times to retry this job after a JobRun fails.
+-- * 'name' - The name you assign to this job definition.
+-- * 'nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
+-- * 'notificationProperty' - Specifies configuration properties of a job notification.
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs.
 --
--- * 'jName' - The name you assign to this job definition.
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+-- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job.
+-- * 'timeout' - The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+-- * 'workerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 --
--- * 'jLogURI' - This field is reserved for future use.
 --
--- * 'jMaxRetries' - The maximum number of times to retry this job after a JobRun fails.
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
 --
--- * 'jExecutionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
 --
--- * 'jAllocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead. The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 --
--- * 'jMaxCapacity' - The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> . Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ . The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 --
--- * 'jTimeout' - The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
---
--- * 'jDefaultArguments' - The default arguments for this job, specified as name-value pairs. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
---
--- * 'jDescription' - A description of the job.
---
--- * 'jCreatedOn' - The time and date that this job definition was created.
-job ::
+--     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+mkJob ::
   Job
-job =
+mkJob =
   Job'
-    { _jNumberOfWorkers = Nothing,
-      _jCommand = Nothing,
-      _jNotificationProperty = Nothing,
-      _jLastModifiedOn = Nothing,
-      _jConnections = Nothing,
-      _jWorkerType = Nothing,
-      _jSecurityConfiguration = Nothing,
-      _jGlueVersion = Nothing,
-      _jNonOverridableArguments = Nothing,
-      _jRole = Nothing,
-      _jName = Nothing,
-      _jLogURI = Nothing,
-      _jMaxRetries = Nothing,
-      _jExecutionProperty = Nothing,
-      _jAllocatedCapacity = Nothing,
-      _jMaxCapacity = Nothing,
-      _jTimeout = Nothing,
-      _jDefaultArguments = Nothing,
-      _jDescription = Nothing,
-      _jCreatedOn = Nothing
+    { numberOfWorkers = Lude.Nothing,
+      command = Lude.Nothing,
+      notificationProperty = Lude.Nothing,
+      lastModifiedOn = Lude.Nothing,
+      connections = Lude.Nothing,
+      workerType = Lude.Nothing,
+      securityConfiguration = Lude.Nothing,
+      glueVersion = Lude.Nothing,
+      nonOverridableArguments = Lude.Nothing,
+      role' = Lude.Nothing,
+      name = Lude.Nothing,
+      logURI = Lude.Nothing,
+      maxRetries = Lude.Nothing,
+      executionProperty = Lude.Nothing,
+      allocatedCapacity = Lude.Nothing,
+      maxCapacity = Lude.Nothing,
+      timeout = Lude.Nothing,
+      defaultArguments = Lude.Nothing,
+      description = Lude.Nothing,
+      createdOn = Lude.Nothing
     }
 
--- | The number of workers of a defined @workerType@ that are allocated when a job runs. The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
-jNumberOfWorkers :: Lens' Job (Maybe Int)
-jNumberOfWorkers = lens _jNumberOfWorkers (\s a -> s {_jNumberOfWorkers = a})
+-- | The number of workers of a defined @workerType@ that are allocated when a job runs.
+--
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+--
+-- /Note:/ Consider using 'numberOfWorkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jNumberOfWorkers :: Lens.Lens' Job (Lude.Maybe Lude.Int)
+jNumberOfWorkers = Lens.lens (numberOfWorkers :: Job -> Lude.Maybe Lude.Int) (\s a -> s {numberOfWorkers = a} :: Job)
+{-# DEPRECATED jNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
 
 -- | The @JobCommand@ that executes this job.
-jCommand :: Lens' Job (Maybe JobCommand)
-jCommand = lens _jCommand (\s a -> s {_jCommand = a})
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jCommand :: Lens.Lens' Job (Lude.Maybe JobCommand)
+jCommand = Lens.lens (command :: Job -> Lude.Maybe JobCommand) (\s a -> s {command = a} :: Job)
+{-# DEPRECATED jCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | Specifies configuration properties of a job notification.
-jNotificationProperty :: Lens' Job (Maybe NotificationProperty)
-jNotificationProperty = lens _jNotificationProperty (\s a -> s {_jNotificationProperty = a})
+--
+-- /Note:/ Consider using 'notificationProperty' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jNotificationProperty :: Lens.Lens' Job (Lude.Maybe NotificationProperty)
+jNotificationProperty = Lens.lens (notificationProperty :: Job -> Lude.Maybe NotificationProperty) (\s a -> s {notificationProperty = a} :: Job)
+{-# DEPRECATED jNotificationProperty "Use generic-lens or generic-optics with 'notificationProperty' instead." #-}
 
 -- | The last point in time when this job definition was modified.
-jLastModifiedOn :: Lens' Job (Maybe UTCTime)
-jLastModifiedOn = lens _jLastModifiedOn (\s a -> s {_jLastModifiedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jLastModifiedOn :: Lens.Lens' Job (Lude.Maybe Lude.Timestamp)
+jLastModifiedOn = Lens.lens (lastModifiedOn :: Job -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedOn = a} :: Job)
+{-# DEPRECATED jLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
 
 -- | The connections used for this job.
-jConnections :: Lens' Job (Maybe ConnectionsList)
-jConnections = lens _jConnections (\s a -> s {_jConnections = a})
+--
+-- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jConnections :: Lens.Lens' Job (Lude.Maybe ConnectionsList)
+jConnections = Lens.lens (connections :: Job -> Lude.Maybe ConnectionsList) (\s a -> s {connections = a} :: Job)
+{-# DEPRECATED jConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
--- | The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-jWorkerType :: Lens' Job (Maybe WorkerType)
-jWorkerType = lens _jWorkerType (\s a -> s {_jWorkerType = a})
+-- | The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+--
+--
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+--
+--
+--     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+--
+--
+--     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+--
+--
+--
+-- /Note:/ Consider using 'workerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jWorkerType :: Lens.Lens' Job (Lude.Maybe WorkerType)
+jWorkerType = Lens.lens (workerType :: Job -> Lude.Maybe WorkerType) (\s a -> s {workerType = a} :: Job)
+{-# DEPRECATED jWorkerType "Use generic-lens or generic-optics with 'workerType' instead." #-}
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this job.
-jSecurityConfiguration :: Lens' Job (Maybe Text)
-jSecurityConfiguration = lens _jSecurityConfiguration (\s a -> s {_jSecurityConfiguration = a})
+--
+-- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jSecurityConfiguration :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jSecurityConfiguration = Lens.lens (securityConfiguration :: Job -> Lude.Maybe Lude.Text) (\s a -> s {securityConfiguration = a} :: Job)
+{-# DEPRECATED jSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
 
--- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.  For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide. Jobs that are created without specifying a Glue version default to Glue 0.9.
-jGlueVersion :: Lens' Job (Maybe Text)
-jGlueVersion = lens _jGlueVersion (\s a -> s {_jGlueVersion = a})
+-- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
+--
+-- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+-- Jobs that are created without specifying a Glue version default to Glue 0.9.
+--
+-- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jGlueVersion :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jGlueVersion = Lens.lens (glueVersion :: Job -> Lude.Maybe Lude.Text) (\s a -> s {glueVersion = a} :: Job)
+{-# DEPRECATED jGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
 
 -- | Non-overridable arguments for this job, specified as name-value pairs.
-jNonOverridableArguments :: Lens' Job (HashMap Text (Text))
-jNonOverridableArguments = lens _jNonOverridableArguments (\s a -> s {_jNonOverridableArguments = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'nonOverridableArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jNonOverridableArguments :: Lens.Lens' Job (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jNonOverridableArguments = Lens.lens (nonOverridableArguments :: Job -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {nonOverridableArguments = a} :: Job)
+{-# DEPRECATED jNonOverridableArguments "Use generic-lens or generic-optics with 'nonOverridableArguments' instead." #-}
 
 -- | The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
-jRole :: Lens' Job (Maybe Text)
-jRole = lens _jRole (\s a -> s {_jRole = a})
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jRole :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jRole = Lens.lens (role' :: Job -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: Job)
+{-# DEPRECATED jRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The name you assign to this job definition.
-jName :: Lens' Job (Maybe Text)
-jName = lens _jName (\s a -> s {_jName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jName :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jName = Lens.lens (name :: Job -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Job)
+{-# DEPRECATED jName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | This field is reserved for future use.
-jLogURI :: Lens' Job (Maybe Text)
-jLogURI = lens _jLogURI (\s a -> s {_jLogURI = a})
+--
+-- /Note:/ Consider using 'logURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jLogURI :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jLogURI = Lens.lens (logURI :: Job -> Lude.Maybe Lude.Text) (\s a -> s {logURI = a} :: Job)
+{-# DEPRECATED jLogURI "Use generic-lens or generic-optics with 'logURI' instead." #-}
 
 -- | The maximum number of times to retry this job after a JobRun fails.
-jMaxRetries :: Lens' Job (Maybe Int)
-jMaxRetries = lens _jMaxRetries (\s a -> s {_jMaxRetries = a})
+--
+-- /Note:/ Consider using 'maxRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jMaxRetries :: Lens.Lens' Job (Lude.Maybe Lude.Int)
+jMaxRetries = Lens.lens (maxRetries :: Job -> Lude.Maybe Lude.Int) (\s a -> s {maxRetries = a} :: Job)
+{-# DEPRECATED jMaxRetries "Use generic-lens or generic-optics with 'maxRetries' instead." #-}
 
 -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
-jExecutionProperty :: Lens' Job (Maybe ExecutionProperty)
-jExecutionProperty = lens _jExecutionProperty (\s a -> s {_jExecutionProperty = a})
+--
+-- /Note:/ Consider using 'executionProperty' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jExecutionProperty :: Lens.Lens' Job (Lude.Maybe ExecutionProperty)
+jExecutionProperty = Lens.lens (executionProperty :: Job -> Lude.Maybe ExecutionProperty) (\s a -> s {executionProperty = a} :: Job)
+{-# DEPRECATED jExecutionProperty "Use generic-lens or generic-optics with 'executionProperty' instead." #-}
 
--- | This field is deprecated. Use @MaxCapacity@ instead. The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
-jAllocatedCapacity :: Lens' Job (Maybe Int)
-jAllocatedCapacity = lens _jAllocatedCapacity (\s a -> s {_jAllocatedCapacity = a})
+-- | This field is deprecated. Use @MaxCapacity@ instead.
+--
+-- The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--
+--
+-- /Note:/ Consider using 'allocatedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jAllocatedCapacity :: Lens.Lens' Job (Lude.Maybe Lude.Int)
+jAllocatedCapacity = Lens.lens (allocatedCapacity :: Job -> Lude.Maybe Lude.Int) (\s a -> s {allocatedCapacity = a} :: Job)
+{-# DEPRECATED jAllocatedCapacity "Use generic-lens or generic-optics with 'allocatedCapacity' instead." #-}
 
--- | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> . Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ . The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-jMaxCapacity :: Lens' Job (Maybe Double)
-jMaxCapacity = lens _jMaxCapacity (\s a -> s {_jMaxCapacity = a})
+-- | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--
+-- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
+-- The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
+--
+--     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+--
+--
+--     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+--
+--
+--
+-- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jMaxCapacity :: Lens.Lens' Job (Lude.Maybe Lude.Double)
+jMaxCapacity = Lens.lens (maxCapacity :: Job -> Lude.Maybe Lude.Double) (\s a -> s {maxCapacity = a} :: Job)
+{-# DEPRECATED jMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
 -- | The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
-jTimeout :: Lens' Job (Maybe Natural)
-jTimeout = lens _jTimeout (\s a -> s {_jTimeout = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jTimeout :: Lens.Lens' Job (Lude.Maybe Lude.Natural)
+jTimeout = Lens.lens (timeout :: Job -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: Job)
+{-# DEPRECATED jTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
--- | The default arguments for this job, specified as name-value pairs. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
-jDefaultArguments :: Lens' Job (HashMap Text (Text))
-jDefaultArguments = lens _jDefaultArguments (\s a -> s {_jDefaultArguments = a}) . _Default . _Map
+-- | The default arguments for this job, specified as name-value pairs.
+--
+-- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+-- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+-- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
+--
+-- /Note:/ Consider using 'defaultArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jDefaultArguments :: Lens.Lens' Job (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jDefaultArguments = Lens.lens (defaultArguments :: Job -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {defaultArguments = a} :: Job)
+{-# DEPRECATED jDefaultArguments "Use generic-lens or generic-optics with 'defaultArguments' instead." #-}
 
 -- | A description of the job.
-jDescription :: Lens' Job (Maybe Text)
-jDescription = lens _jDescription (\s a -> s {_jDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jDescription :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jDescription = Lens.lens (description :: Job -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Job)
+{-# DEPRECATED jDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The time and date that this job definition was created.
-jCreatedOn :: Lens' Job (Maybe UTCTime)
-jCreatedOn = lens _jCreatedOn (\s a -> s {_jCreatedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jCreatedOn :: Lens.Lens' Job (Lude.Maybe Lude.Timestamp)
+jCreatedOn = Lens.lens (createdOn :: Job -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdOn = a} :: Job)
+{-# DEPRECATED jCreatedOn "Use generic-lens or generic-optics with 'createdOn' instead." #-}
 
-instance FromJSON Job where
+instance Lude.FromJSON Job where
   parseJSON =
-    withObject
+    Lude.withObject
       "Job"
       ( \x ->
           Job'
-            <$> (x .:? "NumberOfWorkers")
-            <*> (x .:? "Command")
-            <*> (x .:? "NotificationProperty")
-            <*> (x .:? "LastModifiedOn")
-            <*> (x .:? "Connections")
-            <*> (x .:? "WorkerType")
-            <*> (x .:? "SecurityConfiguration")
-            <*> (x .:? "GlueVersion")
-            <*> (x .:? "NonOverridableArguments" .!= mempty)
-            <*> (x .:? "Role")
-            <*> (x .:? "Name")
-            <*> (x .:? "LogUri")
-            <*> (x .:? "MaxRetries")
-            <*> (x .:? "ExecutionProperty")
-            <*> (x .:? "AllocatedCapacity")
-            <*> (x .:? "MaxCapacity")
-            <*> (x .:? "Timeout")
-            <*> (x .:? "DefaultArguments" .!= mempty)
-            <*> (x .:? "Description")
-            <*> (x .:? "CreatedOn")
+            Lude.<$> (x Lude..:? "NumberOfWorkers")
+            Lude.<*> (x Lude..:? "Command")
+            Lude.<*> (x Lude..:? "NotificationProperty")
+            Lude.<*> (x Lude..:? "LastModifiedOn")
+            Lude.<*> (x Lude..:? "Connections")
+            Lude.<*> (x Lude..:? "WorkerType")
+            Lude.<*> (x Lude..:? "SecurityConfiguration")
+            Lude.<*> (x Lude..:? "GlueVersion")
+            Lude.<*> (x Lude..:? "NonOverridableArguments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Role")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "LogUri")
+            Lude.<*> (x Lude..:? "MaxRetries")
+            Lude.<*> (x Lude..:? "ExecutionProperty")
+            Lude.<*> (x Lude..:? "AllocatedCapacity")
+            Lude.<*> (x Lude..:? "MaxCapacity")
+            Lude.<*> (x Lude..:? "Timeout")
+            Lude.<*> (x Lude..:? "DefaultArguments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "CreatedOn")
       )
-
-instance Hashable Job
-
-instance NFData Job

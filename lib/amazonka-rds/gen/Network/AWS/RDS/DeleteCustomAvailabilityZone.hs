@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,136 @@
 --
 -- Deletes a custom Availability Zone (AZ).
 --
---
 -- A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.
---
 -- For more information about RDS on VMware, see the <https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html /RDS on VMware User Guide./ >
 module Network.AWS.RDS.DeleteCustomAvailabilityZone
-  ( -- * Creating a Request
-    deleteCustomAvailabilityZone,
-    DeleteCustomAvailabilityZone,
+  ( -- * Creating a request
+    DeleteCustomAvailabilityZone (..),
+    mkDeleteCustomAvailabilityZone,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCustomAvailabilityZoneId,
 
-    -- * Destructuring the Response
-    deleteCustomAvailabilityZoneResponse,
-    DeleteCustomAvailabilityZoneResponse,
+    -- * Destructuring the response
+    DeleteCustomAvailabilityZoneResponse (..),
+    mkDeleteCustomAvailabilityZoneResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcazcrsCustomAvailabilityZone,
     dcazcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCustomAvailabilityZone' smart constructor.
+-- | /See:/ 'mkDeleteCustomAvailabilityZone' smart constructor.
 newtype DeleteCustomAvailabilityZone = DeleteCustomAvailabilityZone'
-  { _dCustomAvailabilityZoneId ::
-      Text
+  { customAvailabilityZoneId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomAvailabilityZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dCustomAvailabilityZoneId' - The custom AZ identifier.
-deleteCustomAvailabilityZone ::
-  -- | 'dCustomAvailabilityZoneId'
-  Text ->
+-- * 'customAvailabilityZoneId' - The custom AZ identifier.
+mkDeleteCustomAvailabilityZone ::
+  -- | 'customAvailabilityZoneId'
+  Lude.Text ->
   DeleteCustomAvailabilityZone
-deleteCustomAvailabilityZone pCustomAvailabilityZoneId_ =
+mkDeleteCustomAvailabilityZone pCustomAvailabilityZoneId_ =
   DeleteCustomAvailabilityZone'
-    { _dCustomAvailabilityZoneId =
+    { customAvailabilityZoneId =
         pCustomAvailabilityZoneId_
     }
 
 -- | The custom AZ identifier.
-dCustomAvailabilityZoneId :: Lens' DeleteCustomAvailabilityZone Text
-dCustomAvailabilityZoneId = lens _dCustomAvailabilityZoneId (\s a -> s {_dCustomAvailabilityZoneId = a})
+--
+-- /Note:/ Consider using 'customAvailabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCustomAvailabilityZoneId :: Lens.Lens' DeleteCustomAvailabilityZone Lude.Text
+dCustomAvailabilityZoneId = Lens.lens (customAvailabilityZoneId :: DeleteCustomAvailabilityZone -> Lude.Text) (\s a -> s {customAvailabilityZoneId = a} :: DeleteCustomAvailabilityZone)
+{-# DEPRECATED dCustomAvailabilityZoneId "Use generic-lens or generic-optics with 'customAvailabilityZoneId' instead." #-}
 
-instance AWSRequest DeleteCustomAvailabilityZone where
+instance Lude.AWSRequest DeleteCustomAvailabilityZone where
   type
     Rs DeleteCustomAvailabilityZone =
       DeleteCustomAvailabilityZoneResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteCustomAvailabilityZoneResult"
       ( \s h x ->
           DeleteCustomAvailabilityZoneResponse'
-            <$> (x .@? "CustomAvailabilityZone") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "CustomAvailabilityZone")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCustomAvailabilityZone
+instance Lude.ToHeaders DeleteCustomAvailabilityZone where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCustomAvailabilityZone
+instance Lude.ToPath DeleteCustomAvailabilityZone where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteCustomAvailabilityZone where
-  toHeaders = const mempty
-
-instance ToPath DeleteCustomAvailabilityZone where
-  toPath = const "/"
-
-instance ToQuery DeleteCustomAvailabilityZone where
+instance Lude.ToQuery DeleteCustomAvailabilityZone where
   toQuery DeleteCustomAvailabilityZone' {..} =
-    mconcat
-      [ "Action" =: ("DeleteCustomAvailabilityZone" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "CustomAvailabilityZoneId" =: _dCustomAvailabilityZoneId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteCustomAvailabilityZone" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "CustomAvailabilityZoneId" Lude.=: customAvailabilityZoneId
       ]
 
--- | /See:/ 'deleteCustomAvailabilityZoneResponse' smart constructor.
+-- | /See:/ 'mkDeleteCustomAvailabilityZoneResponse' smart constructor.
 data DeleteCustomAvailabilityZoneResponse = DeleteCustomAvailabilityZoneResponse'
-  { _dcazcrsCustomAvailabilityZone ::
-      !( Maybe
-           CustomAvailabilityZone
-       ),
-    _dcazcrsResponseStatus ::
-      !Int
+  { customAvailabilityZone ::
+      Lude.Maybe
+        CustomAvailabilityZone,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomAvailabilityZoneResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcazcrsCustomAvailabilityZone' - Undocumented member.
---
--- * 'dcazcrsResponseStatus' - -- | The response status code.
-deleteCustomAvailabilityZoneResponse ::
-  -- | 'dcazcrsResponseStatus'
-  Int ->
+-- * 'customAvailabilityZone' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteCustomAvailabilityZoneResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCustomAvailabilityZoneResponse
-deleteCustomAvailabilityZoneResponse pResponseStatus_ =
+mkDeleteCustomAvailabilityZoneResponse pResponseStatus_ =
   DeleteCustomAvailabilityZoneResponse'
-    { _dcazcrsCustomAvailabilityZone =
-        Nothing,
-      _dcazcrsResponseStatus = pResponseStatus_
+    { customAvailabilityZone =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dcazcrsCustomAvailabilityZone :: Lens' DeleteCustomAvailabilityZoneResponse (Maybe CustomAvailabilityZone)
-dcazcrsCustomAvailabilityZone = lens _dcazcrsCustomAvailabilityZone (\s a -> s {_dcazcrsCustomAvailabilityZone = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'customAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazcrsCustomAvailabilityZone :: Lens.Lens' DeleteCustomAvailabilityZoneResponse (Lude.Maybe CustomAvailabilityZone)
+dcazcrsCustomAvailabilityZone = Lens.lens (customAvailabilityZone :: DeleteCustomAvailabilityZoneResponse -> Lude.Maybe CustomAvailabilityZone) (\s a -> s {customAvailabilityZone = a} :: DeleteCustomAvailabilityZoneResponse)
+{-# DEPRECATED dcazcrsCustomAvailabilityZone "Use generic-lens or generic-optics with 'customAvailabilityZone' instead." #-}
 
--- | -- | The response status code.
-dcazcrsResponseStatus :: Lens' DeleteCustomAvailabilityZoneResponse Int
-dcazcrsResponseStatus = lens _dcazcrsResponseStatus (\s a -> s {_dcazcrsResponseStatus = a})
-
-instance NFData DeleteCustomAvailabilityZoneResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazcrsResponseStatus :: Lens.Lens' DeleteCustomAvailabilityZoneResponse Lude.Int
+dcazcrsResponseStatus = Lens.lens (responseStatus :: DeleteCustomAvailabilityZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCustomAvailabilityZoneResponse)
+{-# DEPRECATED dcazcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

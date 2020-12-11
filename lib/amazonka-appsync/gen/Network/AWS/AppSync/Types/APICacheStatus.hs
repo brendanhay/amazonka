@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.APICacheStatus where
+module Network.AWS.AppSync.Types.APICacheStatus
+  ( APICacheStatus
+      ( APICacheStatus',
+        Available,
+        Creating,
+        Deleting,
+        Failed,
+        Modifying
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data APICacheStatus
-  = Available
-  | Creating
-  | Deleting
-  | Failed
-  | Modifying
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype APICacheStatus = APICacheStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText APICacheStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "modifying" -> pure Modifying
-      e ->
-        fromTextError $
-          "Failure parsing APICacheStatus from value: '" <> e
-            <> "'. Accepted values: available, creating, deleting, failed, modifying"
+pattern Available :: APICacheStatus
+pattern Available = APICacheStatus' "AVAILABLE"
 
-instance ToText APICacheStatus where
-  toText = \case
-    Available -> "AVAILABLE"
-    Creating -> "CREATING"
-    Deleting -> "DELETING"
-    Failed -> "FAILED"
-    Modifying -> "MODIFYING"
+pattern Creating :: APICacheStatus
+pattern Creating = APICacheStatus' "CREATING"
 
-instance Hashable APICacheStatus
+pattern Deleting :: APICacheStatus
+pattern Deleting = APICacheStatus' "DELETING"
 
-instance NFData APICacheStatus
+pattern Failed :: APICacheStatus
+pattern Failed = APICacheStatus' "FAILED"
 
-instance ToByteString APICacheStatus
+pattern Modifying :: APICacheStatus
+pattern Modifying = APICacheStatus' "MODIFYING"
 
-instance ToQuery APICacheStatus
-
-instance ToHeader APICacheStatus
-
-instance FromJSON APICacheStatus where
-  parseJSON = parseJSONText "APICacheStatus"
+{-# COMPLETE
+  Available,
+  Creating,
+  Deleting,
+  Failed,
+  Modifying,
+  APICacheStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,28 +7,37 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.EndEvent where
+module Network.AWS.S3.Types.EndEvent
+  ( EndEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndEvent,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an @EndEvent@ .
 --
---
---
--- /See:/ 'endEvent' smart constructor.
+-- /See:/ 'mkEndEvent' smart constructor.
 data EndEvent = EndEvent'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndEvent' with the minimum fields required to make a request.
-endEvent ::
+mkEndEvent ::
   EndEvent
-endEvent = EndEvent'
+mkEndEvent = EndEvent'
 
-instance FromXML EndEvent where
-  parseXML = const (pure EndEvent')
-
-instance Hashable EndEvent
-
-instance NFData EndEvent
+instance Lude.FromXML EndEvent where
+  parseXML = Lude.const (Lude.pure EndEvent')

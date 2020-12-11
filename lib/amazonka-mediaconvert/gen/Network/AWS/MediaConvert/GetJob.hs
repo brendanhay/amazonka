@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,120 @@
 --
 -- Retrieve the JSON for a specific completed transcoding job.
 module Network.AWS.MediaConvert.GetJob
-  ( -- * Creating a Request
-    getJob,
-    GetJob,
+  ( -- * Creating a request
+    GetJob (..),
+    mkGetJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjId,
 
-    -- * Destructuring the Response
-    getJobResponse,
-    GetJobResponse,
+    -- * Destructuring the response
+    GetJobResponse (..),
+    mkGetJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjrsJob,
     gjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getJob' smart constructor.
-newtype GetJob = GetJob' {_gjId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetJob' smart constructor.
+newtype GetJob = GetJob' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjId' - the job ID of the job.
-getJob ::
-  -- | 'gjId'
-  Text ->
+-- * 'id' - the job ID of the job.
+mkGetJob ::
+  -- | 'id'
+  Lude.Text ->
   GetJob
-getJob pId_ = GetJob' {_gjId = pId_}
+mkGetJob pId_ = GetJob' {id = pId_}
 
 -- | the job ID of the job.
-gjId :: Lens' GetJob Text
-gjId = lens _gjId (\s a -> s {_gjId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjId :: Lens.Lens' GetJob Lude.Text
+gjId = Lens.lens (id :: GetJob -> Lude.Text) (\s a -> s {id = a} :: GetJob)
+{-# DEPRECATED gjId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetJob where
+instance Lude.AWSRequest GetJob where
   type Rs GetJob = GetJobResponse
-  request = get mediaConvert
+  request = Req.get mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetJobResponse' <$> (x .?> "job") <*> (pure (fromEnum s))
+          GetJobResponse'
+            Lude.<$> (x Lude..?> "job") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetJob
-
-instance NFData GetJob
-
-instance ToHeaders GetJob where
+instance Lude.ToHeaders GetJob where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetJob where
-  toPath GetJob' {..} = mconcat ["/2017-08-29/jobs/", toBS _gjId]
+instance Lude.ToPath GetJob where
+  toPath GetJob' {..} =
+    Lude.mconcat ["/2017-08-29/jobs/", Lude.toBS id]
 
-instance ToQuery GetJob where
-  toQuery = const mempty
+instance Lude.ToQuery GetJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getJobResponse' smart constructor.
+-- | /See:/ 'mkGetJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
-  { _gjrsJob :: !(Maybe Job),
-    _gjrsResponseStatus :: !Int
+  { job :: Lude.Maybe Job,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjrsJob' - Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
---
--- * 'gjrsResponseStatus' - -- | The response status code.
-getJobResponse ::
-  -- | 'gjrsResponseStatus'
-  Int ->
+-- * 'job' - Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+-- * 'responseStatus' - The response status code.
+mkGetJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetJobResponse
-getJobResponse pResponseStatus_ =
+mkGetJobResponse pResponseStatus_ =
   GetJobResponse'
-    { _gjrsJob = Nothing,
-      _gjrsResponseStatus = pResponseStatus_
+    { job = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-gjrsJob :: Lens' GetJobResponse (Maybe Job)
-gjrsJob = lens _gjrsJob (\s a -> s {_gjrsJob = a})
+--
+-- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrsJob :: Lens.Lens' GetJobResponse (Lude.Maybe Job)
+gjrsJob = Lens.lens (job :: GetJobResponse -> Lude.Maybe Job) (\s a -> s {job = a} :: GetJobResponse)
+{-# DEPRECATED gjrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
 
--- | -- | The response status code.
-gjrsResponseStatus :: Lens' GetJobResponse Int
-gjrsResponseStatus = lens _gjrsResponseStatus (\s a -> s {_gjrsResponseStatus = a})
-
-instance NFData GetJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrsResponseStatus :: Lens.Lens' GetJobResponse Lude.Int
+gjrsResponseStatus = Lens.lens (responseStatus :: GetJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobResponse)
+{-# DEPRECATED gjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

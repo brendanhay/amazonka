@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.FileExistsBehavior where
+module Network.AWS.CodeDeploy.Types.FileExistsBehavior
+  ( FileExistsBehavior
+      ( FileExistsBehavior',
+        Disallow,
+        Overwrite,
+        Retain
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FileExistsBehavior
-  = Disallow
-  | Overwrite
-  | Retain
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FileExistsBehavior = FileExistsBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FileExistsBehavior where
-  parser =
-    takeLowerText >>= \case
-      "disallow" -> pure Disallow
-      "overwrite" -> pure Overwrite
-      "retain" -> pure Retain
-      e ->
-        fromTextError $
-          "Failure parsing FileExistsBehavior from value: '" <> e
-            <> "'. Accepted values: disallow, overwrite, retain"
+pattern Disallow :: FileExistsBehavior
+pattern Disallow = FileExistsBehavior' "DISALLOW"
 
-instance ToText FileExistsBehavior where
-  toText = \case
-    Disallow -> "DISALLOW"
-    Overwrite -> "OVERWRITE"
-    Retain -> "RETAIN"
+pattern Overwrite :: FileExistsBehavior
+pattern Overwrite = FileExistsBehavior' "OVERWRITE"
 
-instance Hashable FileExistsBehavior
+pattern Retain :: FileExistsBehavior
+pattern Retain = FileExistsBehavior' "RETAIN"
 
-instance NFData FileExistsBehavior
-
-instance ToByteString FileExistsBehavior
-
-instance ToQuery FileExistsBehavior
-
-instance ToHeader FileExistsBehavior
-
-instance ToJSON FileExistsBehavior where
-  toJSON = toJSONText
-
-instance FromJSON FileExistsBehavior where
-  parseJSON = parseJSONText "FileExistsBehavior"
+{-# COMPLETE
+  Disallow,
+  Overwrite,
+  Retain,
+  FileExistsBehavior'
+  #-}

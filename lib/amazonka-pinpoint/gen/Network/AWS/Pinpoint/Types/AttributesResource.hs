@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.AttributesResource where
+module Network.AWS.Pinpoint.Types.AttributesResource
+  ( AttributesResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributesResource,
+
+    -- * Lenses
+    arAttributes,
+    arAttributeType,
+    arApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.
 --
---
---
--- /See:/ 'attributesResource' smart constructor.
+-- /See:/ 'mkAttributesResource' smart constructor.
 data AttributesResource = AttributesResource'
-  { _arAttributes ::
-      !(Maybe [Text]),
-    _arAttributeType :: !Text,
-    _arApplicationId :: !Text
+  { attributes ::
+      Lude.Maybe [Lude.Text],
+    attributeType :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributesResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationId' - The unique identifier for the application.
+-- * 'attributeType' - The type of attribute or attributes that were removed from the endpoints. Valid values are:
 --
--- * 'arAttributes' - An array that specifies the names of the attributes that were removed from the endpoints.
 --
--- * 'arAttributeType' - The type of attribute or attributes that were removed from the endpoints. Valid values are:     * endpoint-custom-attributes - Custom attributes that describe endpoints.     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.     * endpoint-user-attributes - Custom attributes that describe users.
+--     * endpoint-custom-attributes - Custom attributes that describe endpoints.
 --
--- * 'arApplicationId' - The unique identifier for the application.
-attributesResource ::
-  -- | 'arAttributeType'
-  Text ->
-  -- | 'arApplicationId'
-  Text ->
+--
+--     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.
+--
+--
+--     * endpoint-user-attributes - Custom attributes that describe users.
+--
+--
+-- * 'attributes' - An array that specifies the names of the attributes that were removed from the endpoints.
+mkAttributesResource ::
+  -- | 'attributeType'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   AttributesResource
-attributesResource pAttributeType_ pApplicationId_ =
+mkAttributesResource pAttributeType_ pApplicationId_ =
   AttributesResource'
-    { _arAttributes = Nothing,
-      _arAttributeType = pAttributeType_,
-      _arApplicationId = pApplicationId_
+    { attributes = Lude.Nothing,
+      attributeType = pAttributeType_,
+      applicationId = pApplicationId_
     }
 
 -- | An array that specifies the names of the attributes that were removed from the endpoints.
-arAttributes :: Lens' AttributesResource [Text]
-arAttributes = lens _arAttributes (\s a -> s {_arAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAttributes :: Lens.Lens' AttributesResource (Lude.Maybe [Lude.Text])
+arAttributes = Lens.lens (attributes :: AttributesResource -> Lude.Maybe [Lude.Text]) (\s a -> s {attributes = a} :: AttributesResource)
+{-# DEPRECATED arAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | The type of attribute or attributes that were removed from the endpoints. Valid values are:     * endpoint-custom-attributes - Custom attributes that describe endpoints.     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.     * endpoint-user-attributes - Custom attributes that describe users.
-arAttributeType :: Lens' AttributesResource Text
-arAttributeType = lens _arAttributeType (\s a -> s {_arAttributeType = a})
+-- | The type of attribute or attributes that were removed from the endpoints. Valid values are:
+--
+--
+--     * endpoint-custom-attributes - Custom attributes that describe endpoints.
+--
+--
+--     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.
+--
+--
+--     * endpoint-user-attributes - Custom attributes that describe users.
+--
+--
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAttributeType :: Lens.Lens' AttributesResource Lude.Text
+arAttributeType = Lens.lens (attributeType :: AttributesResource -> Lude.Text) (\s a -> s {attributeType = a} :: AttributesResource)
+{-# DEPRECATED arAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The unique identifier for the application.
-arApplicationId :: Lens' AttributesResource Text
-arApplicationId = lens _arApplicationId (\s a -> s {_arApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arApplicationId :: Lens.Lens' AttributesResource Lude.Text
+arApplicationId = Lens.lens (applicationId :: AttributesResource -> Lude.Text) (\s a -> s {applicationId = a} :: AttributesResource)
+{-# DEPRECATED arApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON AttributesResource where
+instance Lude.FromJSON AttributesResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributesResource"
       ( \x ->
           AttributesResource'
-            <$> (x .:? "Attributes" .!= mempty)
-            <*> (x .: "AttributeType")
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "AttributeType")
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable AttributesResource
-
-instance NFData AttributesResource

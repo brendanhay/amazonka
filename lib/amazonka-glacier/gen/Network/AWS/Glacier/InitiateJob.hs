@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- This operation initiates a job of the specified type, which can be a select, an archival retrieval, or a vault retrieval. For more information about using this operation, see the documentation for the underlying REST API <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job> .
 module Network.AWS.Glacier.InitiateJob
-  ( -- * Creating a Request
-    initiateJob,
-    InitiateJob,
+  ( -- * Creating a request
+    InitiateJob (..),
+    mkInitiateJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ijJobParameters,
     ijAccountId,
     ijVaultName,
 
-    -- * Destructuring the Response
-    initiateJobResponse,
-    InitiateJobResponse,
+    -- * Destructuring the response
+    InitiateJobResponse (..),
+    mkInitiateJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ijrsJobId,
     ijrsJobOutputPath,
     ijrsLocation,
@@ -41,141 +36,163 @@ module Network.AWS.Glacier.InitiateJob
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Provides options for initiating an Amazon S3 Glacier job.
 --
---
---
--- /See:/ 'initiateJob' smart constructor.
+-- /See:/ 'mkInitiateJob' smart constructor.
 data InitiateJob = InitiateJob'
-  { _ijJobParameters ::
-      !(Maybe JobParameters),
-    _ijAccountId :: !Text,
-    _ijVaultName :: !Text
+  { jobParameters ::
+      Lude.Maybe JobParameters,
+    accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ijJobParameters' - Provides options for specifying job information.
---
--- * 'ijAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'ijVaultName' - The name of the vault.
-initiateJob ::
-  -- | 'ijAccountId'
-  Text ->
-  -- | 'ijVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'jobParameters' - Provides options for specifying job information.
+-- * 'vaultName' - The name of the vault.
+mkInitiateJob ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   InitiateJob
-initiateJob pAccountId_ pVaultName_ =
+mkInitiateJob pAccountId_ pVaultName_ =
   InitiateJob'
-    { _ijJobParameters = Nothing,
-      _ijAccountId = pAccountId_,
-      _ijVaultName = pVaultName_
+    { jobParameters = Lude.Nothing,
+      accountId = pAccountId_,
+      vaultName = pVaultName_
     }
 
 -- | Provides options for specifying job information.
-ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
-ijJobParameters = lens _ijJobParameters (\s a -> s {_ijJobParameters = a})
+--
+-- /Note:/ Consider using 'jobParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijJobParameters :: Lens.Lens' InitiateJob (Lude.Maybe JobParameters)
+ijJobParameters = Lens.lens (jobParameters :: InitiateJob -> Lude.Maybe JobParameters) (\s a -> s {jobParameters = a} :: InitiateJob)
+{-# DEPRECATED ijJobParameters "Use generic-lens or generic-optics with 'jobParameters' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-ijAccountId :: Lens' InitiateJob Text
-ijAccountId = lens _ijAccountId (\s a -> s {_ijAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijAccountId :: Lens.Lens' InitiateJob Lude.Text
+ijAccountId = Lens.lens (accountId :: InitiateJob -> Lude.Text) (\s a -> s {accountId = a} :: InitiateJob)
+{-# DEPRECATED ijAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-ijVaultName :: Lens' InitiateJob Text
-ijVaultName = lens _ijVaultName (\s a -> s {_ijVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijVaultName :: Lens.Lens' InitiateJob Lude.Text
+ijVaultName = Lens.lens (vaultName :: InitiateJob -> Lude.Text) (\s a -> s {vaultName = a} :: InitiateJob)
+{-# DEPRECATED ijVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest InitiateJob where
+instance Lude.AWSRequest InitiateJob where
   type Rs InitiateJob = InitiateJobResponse
-  request = postJSON glacier
+  request = Req.postJSON glacierService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           InitiateJobResponse'
-            <$> (h .#? "x-amz-job-id")
-            <*> (h .#? "x-amz-job-output-path")
-            <*> (h .#? "Location")
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "x-amz-job-id")
+            Lude.<*> (h Lude..#? "x-amz-job-output-path")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InitiateJob
+instance Lude.ToHeaders InitiateJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData InitiateJob
-
-instance ToHeaders InitiateJob where
-  toHeaders = const mempty
-
-instance ToJSON InitiateJob where
+instance Lude.ToJSON InitiateJob where
   toJSON InitiateJob' {..} =
-    object (catMaybes [("jobParameters" .=) <$> _ijJobParameters])
+    Lude.object
+      (Lude.catMaybes [("jobParameters" Lude..=) Lude.<$> jobParameters])
 
-instance ToPath InitiateJob where
+instance Lude.ToPath InitiateJob where
   toPath InitiateJob' {..} =
-    mconcat
-      ["/", toBS _ijAccountId, "/vaults/", toBS _ijVaultName, "/jobs"]
+    Lude.mconcat
+      [ "/",
+        Lude.toBS accountId,
+        "/vaults/",
+        Lude.toBS vaultName,
+        "/jobs"
+      ]
 
-instance ToQuery InitiateJob where
-  toQuery = const mempty
+instance Lude.ToQuery InitiateJob where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'initiateJobResponse' smart constructor.
+-- /See:/ 'mkInitiateJobResponse' smart constructor.
 data InitiateJobResponse = InitiateJobResponse'
-  { _ijrsJobId ::
-      !(Maybe Text),
-    _ijrsJobOutputPath :: !(Maybe Text),
-    _ijrsLocation :: !(Maybe Text),
-    _ijrsResponseStatus :: !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobOutputPath :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ijrsJobId' - The ID of the job.
---
--- * 'ijrsJobOutputPath' - The path to the location of where the select results are stored.
---
--- * 'ijrsLocation' - The relative URI path of the job.
---
--- * 'ijrsResponseStatus' - -- | The response status code.
-initiateJobResponse ::
-  -- | 'ijrsResponseStatus'
-  Int ->
+-- * 'jobId' - The ID of the job.
+-- * 'jobOutputPath' - The path to the location of where the select results are stored.
+-- * 'location' - The relative URI path of the job.
+-- * 'responseStatus' - The response status code.
+mkInitiateJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InitiateJobResponse
-initiateJobResponse pResponseStatus_ =
+mkInitiateJobResponse pResponseStatus_ =
   InitiateJobResponse'
-    { _ijrsJobId = Nothing,
-      _ijrsJobOutputPath = Nothing,
-      _ijrsLocation = Nothing,
-      _ijrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobOutputPath = Lude.Nothing,
+      location = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the job.
-ijrsJobId :: Lens' InitiateJobResponse (Maybe Text)
-ijrsJobId = lens _ijrsJobId (\s a -> s {_ijrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijrsJobId :: Lens.Lens' InitiateJobResponse (Lude.Maybe Lude.Text)
+ijrsJobId = Lens.lens (jobId :: InitiateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: InitiateJobResponse)
+{-# DEPRECATED ijrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The path to the location of where the select results are stored.
-ijrsJobOutputPath :: Lens' InitiateJobResponse (Maybe Text)
-ijrsJobOutputPath = lens _ijrsJobOutputPath (\s a -> s {_ijrsJobOutputPath = a})
+--
+-- /Note:/ Consider using 'jobOutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijrsJobOutputPath :: Lens.Lens' InitiateJobResponse (Lude.Maybe Lude.Text)
+ijrsJobOutputPath = Lens.lens (jobOutputPath :: InitiateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobOutputPath = a} :: InitiateJobResponse)
+{-# DEPRECATED ijrsJobOutputPath "Use generic-lens or generic-optics with 'jobOutputPath' instead." #-}
 
 -- | The relative URI path of the job.
-ijrsLocation :: Lens' InitiateJobResponse (Maybe Text)
-ijrsLocation = lens _ijrsLocation (\s a -> s {_ijrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijrsLocation :: Lens.Lens' InitiateJobResponse (Lude.Maybe Lude.Text)
+ijrsLocation = Lens.lens (location :: InitiateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: InitiateJobResponse)
+{-# DEPRECATED ijrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | -- | The response status code.
-ijrsResponseStatus :: Lens' InitiateJobResponse Int
-ijrsResponseStatus = lens _ijrsResponseStatus (\s a -> s {_ijrsResponseStatus = a})
-
-instance NFData InitiateJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijrsResponseStatus :: Lens.Lens' InitiateJobResponse Lude.Int
+ijrsResponseStatus = Lens.lens (responseStatus :: InitiateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateJobResponse)
+{-# DEPRECATED ijrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

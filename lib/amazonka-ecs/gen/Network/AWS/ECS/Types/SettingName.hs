@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.SettingName where
+module Network.AWS.ECS.Types.SettingName
+  ( SettingName
+      ( SettingName',
+        SNAWSvpcTrunking,
+        SNContainerInsights,
+        SNContainerInstanceLongARNFormat,
+        SNServiceLongARNFormat,
+        SNTaskLongARNFormat
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SettingName
-  = SNAWSvpcTrunking
-  | SNContainerInsights
-  | SNContainerInstanceLongARNFormat
-  | SNServiceLongARNFormat
-  | SNTaskLongARNFormat
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SettingName = SettingName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SettingName where
-  parser =
-    takeLowerText >>= \case
-      "awsvpctrunking" -> pure SNAWSvpcTrunking
-      "containerinsights" -> pure SNContainerInsights
-      "containerinstancelongarnformat" -> pure SNContainerInstanceLongARNFormat
-      "servicelongarnformat" -> pure SNServiceLongARNFormat
-      "tasklongarnformat" -> pure SNTaskLongARNFormat
-      e ->
-        fromTextError $
-          "Failure parsing SettingName from value: '" <> e
-            <> "'. Accepted values: awsvpctrunking, containerinsights, containerinstancelongarnformat, servicelongarnformat, tasklongarnformat"
+pattern SNAWSvpcTrunking :: SettingName
+pattern SNAWSvpcTrunking = SettingName' "awsvpcTrunking"
 
-instance ToText SettingName where
-  toText = \case
-    SNAWSvpcTrunking -> "awsvpcTrunking"
-    SNContainerInsights -> "containerInsights"
-    SNContainerInstanceLongARNFormat -> "containerInstanceLongArnFormat"
-    SNServiceLongARNFormat -> "serviceLongArnFormat"
-    SNTaskLongARNFormat -> "taskLongArnFormat"
+pattern SNContainerInsights :: SettingName
+pattern SNContainerInsights = SettingName' "containerInsights"
 
-instance Hashable SettingName
+pattern SNContainerInstanceLongARNFormat :: SettingName
+pattern SNContainerInstanceLongARNFormat = SettingName' "containerInstanceLongArnFormat"
 
-instance NFData SettingName
+pattern SNServiceLongARNFormat :: SettingName
+pattern SNServiceLongARNFormat = SettingName' "serviceLongArnFormat"
 
-instance ToByteString SettingName
+pattern SNTaskLongARNFormat :: SettingName
+pattern SNTaskLongARNFormat = SettingName' "taskLongArnFormat"
 
-instance ToQuery SettingName
-
-instance ToHeader SettingName
-
-instance ToJSON SettingName where
-  toJSON = toJSONText
-
-instance FromJSON SettingName where
-  parseJSON = parseJSONText "SettingName"
+{-# COMPLETE
+  SNAWSvpcTrunking,
+  SNContainerInsights,
+  SNContainerInstanceLongARNFormat,
+  SNServiceLongARNFormat,
+  SNTaskLongARNFormat,
+  SettingName'
+  #-}

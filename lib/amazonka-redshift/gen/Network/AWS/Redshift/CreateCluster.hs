@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a new cluster with the specified parameters.
 --
---
 -- To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.CreateCluster
-  ( -- * Creating a Request
-    createCluster,
-    CreateCluster,
+  ( -- * Creating a request
+    CreateCluster (..),
+    mkCreateCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccManualSnapshotRetentionPeriod,
     ccEnhancedVPCRouting,
     ccAdditionalInfo,
@@ -58,391 +52,728 @@ module Network.AWS.Redshift.CreateCluster
     ccMasterUsername,
     ccMasterUserPassword,
 
-    -- * Destructuring the Response
-    createClusterResponse,
-    CreateClusterResponse,
+    -- * Destructuring the response
+    CreateClusterResponse (..),
+    mkCreateClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsCluster,
     ccrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createCluster' smart constructor.
+-- /See:/ 'mkCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccManualSnapshotRetentionPeriod ::
-      !(Maybe Int),
-    _ccEnhancedVPCRouting :: !(Maybe Bool),
-    _ccAdditionalInfo :: !(Maybe Text),
-    _ccSnapshotScheduleIdentifier :: !(Maybe Text),
-    _ccPubliclyAccessible :: !(Maybe Bool),
-    _ccMaintenanceTrackName :: !(Maybe Text),
-    _ccHSMConfigurationIdentifier :: !(Maybe Text),
-    _ccClusterSecurityGroups :: !(Maybe [Text]),
-    _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int),
-    _ccEncrypted :: !(Maybe Bool),
-    _ccClusterSubnetGroupName :: !(Maybe Text),
-    _ccHSMClientCertificateIdentifier :: !(Maybe Text),
-    _ccNumberOfNodes :: !(Maybe Int),
-    _ccElasticIP :: !(Maybe Text),
-    _ccPreferredMaintenanceWindow :: !(Maybe Text),
-    _ccKMSKeyId :: !(Maybe Text),
-    _ccAvailabilityZone :: !(Maybe Text),
-    _ccVPCSecurityGroupIds :: !(Maybe [Text]),
-    _ccIAMRoles :: !(Maybe [Text]),
-    _ccClusterType :: !(Maybe Text),
-    _ccClusterVersion :: !(Maybe Text),
-    _ccAllowVersionUpgrade :: !(Maybe Bool),
-    _ccClusterParameterGroupName :: !(Maybe Text),
-    _ccTags :: !(Maybe [Tag]),
-    _ccPort :: !(Maybe Int),
-    _ccDBName :: !(Maybe Text),
-    _ccClusterIdentifier :: !Text,
-    _ccNodeType :: !Text,
-    _ccMasterUsername :: !Text,
-    _ccMasterUserPassword :: !Text
+  { manualSnapshotRetentionPeriod ::
+      Lude.Maybe Lude.Int,
+    enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    additionalInfo :: Lude.Maybe Lude.Text,
+    snapshotScheduleIdentifier :: Lude.Maybe Lude.Text,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    hsmConfigurationIdentifier :: Lude.Maybe Lude.Text,
+    clusterSecurityGroups :: Lude.Maybe [Lude.Text],
+    automatedSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    encrypted :: Lude.Maybe Lude.Bool,
+    clusterSubnetGroupName :: Lude.Maybe Lude.Text,
+    hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text,
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    elasticIP :: Lude.Maybe Lude.Text,
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    iamRoles :: Lude.Maybe [Lude.Text],
+    clusterType :: Lude.Maybe Lude.Text,
+    clusterVersion :: Lude.Maybe Lude.Text,
+    allowVersionUpgrade :: Lude.Maybe Lude.Bool,
+    clusterParameterGroupName :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    port :: Lude.Maybe Lude.Int,
+    dbName :: Lude.Maybe Lude.Text,
+    clusterIdentifier :: Lude.Text,
+    nodeType :: Lude.Text,
+    masterUsername :: Lude.Text,
+    masterUserPassword :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'additionalInfo' - Reserved.
+-- * 'allowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
 --
--- * 'ccManualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
+-- When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster.
+-- Default: @true@
+-- * 'automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .
 --
--- * 'ccEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+-- Default: @1@
+-- Constraints: Must be a value from 0 to 35.
+-- * 'availabilityZone' - The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
 --
--- * 'ccAdditionalInfo' - Reserved.
+-- Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint.
+-- Example: @us-east-2d@
+-- Constraint: The specified Availability Zone must be in the same region as the current endpoint.
+-- * 'clusterIdentifier' - A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
 --
--- * 'ccSnapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+-- Constraints:
 --
--- * 'ccPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
 --
--- * 'ccMaintenanceTrackName' - An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the @current@ track.
 --
--- * 'ccHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+--     * Alphabetic characters must be lowercase.
 --
--- * 'ccClusterSecurityGroups' - A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift.
 --
--- * 'ccAutomatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: @1@  Constraints: Must be a value from 0 to 35.
+--     * First character must be a letter.
 --
--- * 'ccEncrypted' - If @true@ , the data in the cluster is encrypted at rest.  Default: false
 --
--- * 'ccClusterSubnetGroupName' - The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'ccHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 --
--- * 'ccNumberOfNodes' - The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .  For information about determining how many nodes you need, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster. Default: @1@  Constraints: Value must be at least 1 and no more than 100.
+--     * Must be unique for all clusters within an AWS account.
 --
--- * 'ccElasticIP' - The Elastic IP (EIP) address for the cluster. Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
 --
--- * 'ccPreferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
+-- Example: @myexamplecluster@
+-- * 'clusterParameterGroupName' - The name of the parameter group to be associated with this cluster.
 --
--- * 'ccKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+-- Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>
+-- Constraints:
 --
--- * 'ccAvailabilityZone' - The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint. Example: @us-east-2d@  Constraint: The specified Availability Zone must be in the same region as the current endpoint.
+--     * Must be 1 to 255 alphanumeric characters or hyphens.
 --
--- * 'ccVPCSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster.
 --
--- * 'ccIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. A cluster can have up to 10 IAM roles associated with it at any time.
+--     * First character must be a letter.
 --
--- * 'ccClusterType' - The type of the cluster. When cluster type is specified as     * @single-node@ , the __NumberOfNodes__ parameter is not required.     * @multi-node@ , the __NumberOfNodes__ parameter is required. Valid Values: @multi-node@ | @single-node@  Default: @multi-node@
 --
--- * 'ccClusterVersion' - The version of the Amazon Redshift engine software that you want to deploy on the cluster. The version selected runs on all the nodes in the cluster. Constraints: Only version 1.0 is currently available. Example: @1.0@
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'ccAllowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster. Default: @true@
 --
--- * 'ccClusterParameterGroupName' - The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>  Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'clusterSecurityGroups' - A list of security groups to be associated with this cluster.
 --
--- * 'ccTags' - A list of tag instances.
+-- Default: The default cluster security group for Amazon Redshift.
+-- * 'clusterSubnetGroupName' - The name of a cluster subnet group to be associated with this cluster.
 --
--- * 'ccPort' - The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: @5439@  Valid Values: @1150-65535@
+-- If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+-- * 'clusterType' - The type of the cluster. When cluster type is specified as
 --
--- * 'ccDBName' - The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.  Default: @dev@  Constraints:     * Must contain 1 to 64 alphanumeric characters.     * Must contain only lowercase letters.     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
 --
--- * 'ccClusterIdentifier' - A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account. Example: @myexamplecluster@
+--     * @single-node@ , the __NumberOfNodes__ parameter is not required.
 --
--- * 'ccNodeType' - The node type to be provisioned for the cluster. For information about node types, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@ | @ra3.4xlarge@ | @ra3.16xlarge@
 --
--- * 'ccMasterUsername' - The user name associated with the master user account for the cluster that is being created. Constraints:     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .     * First character must be a letter.     * Cannot be a reserved word. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+--     * @multi-node@ , the __NumberOfNodes__ parameter is required.
 --
--- * 'ccMasterUserPassword' - The password associated with the master user account for the cluster that is being created. Constraints:     * Must be between 8 and 64 characters in length.     * Must contain at least one uppercase letter.     * Must contain at least one lowercase letter.     * Must contain one number.     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
-createCluster ::
-  -- | 'ccClusterIdentifier'
-  Text ->
-  -- | 'ccNodeType'
-  Text ->
-  -- | 'ccMasterUsername'
-  Text ->
-  -- | 'ccMasterUserPassword'
-  Text ->
+--
+-- Valid Values: @multi-node@ | @single-node@
+-- Default: @multi-node@
+-- * 'clusterVersion' - The version of the Amazon Redshift engine software that you want to deploy on the cluster.
+--
+-- The version selected runs on all the nodes in the cluster.
+-- Constraints: Only version 1.0 is currently available.
+-- Example: @1.0@
+-- * 'dbName' - The name of the first database to be created when the cluster is created.
+--
+-- To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.
+-- Default: @dev@
+-- Constraints:
+--
+--     * Must contain 1 to 64 alphanumeric characters.
+--
+--
+--     * Must contain only lowercase letters.
+--
+--
+--     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+--
+--
+-- * 'elasticIP' - The Elastic IP (EIP) address for the cluster.
+--
+-- Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
+-- * 'encrypted' - If @true@ , the data in the cluster is encrypted at rest.
+--
+-- Default: false
+-- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+-- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
+-- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+-- * 'iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated with it at any time.
+-- * 'kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+-- * 'maintenanceTrackName' - An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the @current@ track.
+-- * 'manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- * 'masterUserPassword' - The password associated with the master user account for the cluster that is being created.
+--
+-- Constraints:
+--
+--     * Must be between 8 and 64 characters in length.
+--
+--
+--     * Must contain at least one uppercase letter.
+--
+--
+--     * Must contain at least one lowercase letter.
+--
+--
+--     * Must contain one number.
+--
+--
+--     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
+--
+--
+-- * 'masterUsername' - The user name associated with the master user account for the cluster that is being created.
+--
+-- Constraints:
+--
+--     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot be a reserved word. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+--
+--
+-- * 'nodeType' - The node type to be provisioned for the cluster. For information about node types, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .
+--
+-- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@ | @ra3.4xlarge@ | @ra3.16xlarge@
+-- * 'numberOfNodes' - The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .
+--
+-- For information about determining how many nodes you need, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .
+-- If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.
+-- Default: @1@
+-- Constraints: Value must be at least 1 and no more than 100.
+-- * 'port' - The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections.
+-- Default: @5439@
+-- Valid Values: @1150-65535@
+-- * 'preferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur.
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+-- Constraints: Minimum 30-minute window.
+-- * 'publiclyAccessible' - If @true@ , the cluster can be accessed from a public network.
+-- * 'snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+-- * 'tags' - A list of tag instances.
+-- * 'vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+mkCreateCluster ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
+  -- | 'nodeType'
+  Lude.Text ->
+  -- | 'masterUsername'
+  Lude.Text ->
+  -- | 'masterUserPassword'
+  Lude.Text ->
   CreateCluster
-createCluster
+mkCreateCluster
   pClusterIdentifier_
   pNodeType_
   pMasterUsername_
   pMasterUserPassword_ =
     CreateCluster'
-      { _ccManualSnapshotRetentionPeriod = Nothing,
-        _ccEnhancedVPCRouting = Nothing,
-        _ccAdditionalInfo = Nothing,
-        _ccSnapshotScheduleIdentifier = Nothing,
-        _ccPubliclyAccessible = Nothing,
-        _ccMaintenanceTrackName = Nothing,
-        _ccHSMConfigurationIdentifier = Nothing,
-        _ccClusterSecurityGroups = Nothing,
-        _ccAutomatedSnapshotRetentionPeriod = Nothing,
-        _ccEncrypted = Nothing,
-        _ccClusterSubnetGroupName = Nothing,
-        _ccHSMClientCertificateIdentifier = Nothing,
-        _ccNumberOfNodes = Nothing,
-        _ccElasticIP = Nothing,
-        _ccPreferredMaintenanceWindow = Nothing,
-        _ccKMSKeyId = Nothing,
-        _ccAvailabilityZone = Nothing,
-        _ccVPCSecurityGroupIds = Nothing,
-        _ccIAMRoles = Nothing,
-        _ccClusterType = Nothing,
-        _ccClusterVersion = Nothing,
-        _ccAllowVersionUpgrade = Nothing,
-        _ccClusterParameterGroupName = Nothing,
-        _ccTags = Nothing,
-        _ccPort = Nothing,
-        _ccDBName = Nothing,
-        _ccClusterIdentifier = pClusterIdentifier_,
-        _ccNodeType = pNodeType_,
-        _ccMasterUsername = pMasterUsername_,
-        _ccMasterUserPassword = pMasterUserPassword_
+      { manualSnapshotRetentionPeriod = Lude.Nothing,
+        enhancedVPCRouting = Lude.Nothing,
+        additionalInfo = Lude.Nothing,
+        snapshotScheduleIdentifier = Lude.Nothing,
+        publiclyAccessible = Lude.Nothing,
+        maintenanceTrackName = Lude.Nothing,
+        hsmConfigurationIdentifier = Lude.Nothing,
+        clusterSecurityGroups = Lude.Nothing,
+        automatedSnapshotRetentionPeriod = Lude.Nothing,
+        encrypted = Lude.Nothing,
+        clusterSubnetGroupName = Lude.Nothing,
+        hsmClientCertificateIdentifier = Lude.Nothing,
+        numberOfNodes = Lude.Nothing,
+        elasticIP = Lude.Nothing,
+        preferredMaintenanceWindow = Lude.Nothing,
+        kmsKeyId = Lude.Nothing,
+        availabilityZone = Lude.Nothing,
+        vpcSecurityGroupIds = Lude.Nothing,
+        iamRoles = Lude.Nothing,
+        clusterType = Lude.Nothing,
+        clusterVersion = Lude.Nothing,
+        allowVersionUpgrade = Lude.Nothing,
+        clusterParameterGroupName = Lude.Nothing,
+        tags = Lude.Nothing,
+        port = Lude.Nothing,
+        dbName = Lude.Nothing,
+        clusterIdentifier = pClusterIdentifier_,
+        nodeType = pNodeType_,
+        masterUsername = pMasterUsername_,
+        masterUserPassword = pMasterUserPassword_
       }
 
--- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
-ccManualSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
-ccManualSnapshotRetentionPeriod = lens _ccManualSnapshotRetentionPeriod (\s a -> s {_ccManualSnapshotRetentionPeriod = a})
+-- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccManualSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Int)
+ccManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: CreateCluster -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: CreateCluster)
+{-# DEPRECATED ccManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
--- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
-ccEnhancedVPCRouting :: Lens' CreateCluster (Maybe Bool)
-ccEnhancedVPCRouting = lens _ccEnhancedVPCRouting (\s a -> s {_ccEnhancedVPCRouting = a})
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+--
+-- /Note:/ Consider using 'enhancedVPCRouting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEnhancedVPCRouting :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Bool)
+ccEnhancedVPCRouting = Lens.lens (enhancedVPCRouting :: CreateCluster -> Lude.Maybe Lude.Bool) (\s a -> s {enhancedVPCRouting = a} :: CreateCluster)
+{-# DEPRECATED ccEnhancedVPCRouting "Use generic-lens or generic-optics with 'enhancedVPCRouting' instead." #-}
 
 -- | Reserved.
-ccAdditionalInfo :: Lens' CreateCluster (Maybe Text)
-ccAdditionalInfo = lens _ccAdditionalInfo (\s a -> s {_ccAdditionalInfo = a})
+--
+-- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAdditionalInfo :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccAdditionalInfo = Lens.lens (additionalInfo :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {additionalInfo = a} :: CreateCluster)
+{-# DEPRECATED ccAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
 
 -- | A unique identifier for the snapshot schedule.
-ccSnapshotScheduleIdentifier :: Lens' CreateCluster (Maybe Text)
-ccSnapshotScheduleIdentifier = lens _ccSnapshotScheduleIdentifier (\s a -> s {_ccSnapshotScheduleIdentifier = a})
+--
+-- /Note:/ Consider using 'snapshotScheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSnapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccSnapshotScheduleIdentifier = Lens.lens (snapshotScheduleIdentifier :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
+{-# DEPRECATED ccSnapshotScheduleIdentifier "Use generic-lens or generic-optics with 'snapshotScheduleIdentifier' instead." #-}
 
 -- | If @true@ , the cluster can be accessed from a public network.
-ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
-ccPubliclyAccessible = lens _ccPubliclyAccessible (\s a -> s {_ccPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPubliclyAccessible :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Bool)
+ccPubliclyAccessible = Lens.lens (publiclyAccessible :: CreateCluster -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: CreateCluster)
+{-# DEPRECATED ccPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the @current@ track.
-ccMaintenanceTrackName :: Lens' CreateCluster (Maybe Text)
-ccMaintenanceTrackName = lens _ccMaintenanceTrackName (\s a -> s {_ccMaintenanceTrackName = a})
+--
+-- /Note:/ Consider using 'maintenanceTrackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccMaintenanceTrackName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccMaintenanceTrackName = Lens.lens (maintenanceTrackName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {maintenanceTrackName = a} :: CreateCluster)
+{-# DEPRECATED ccMaintenanceTrackName "Use generic-lens or generic-optics with 'maintenanceTrackName' instead." #-}
 
 -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-ccHSMConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\s a -> s {_ccHSMConfigurationIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmConfigurationIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccHSMConfigurationIdentifier :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: CreateCluster)
+{-# DEPRECATED ccHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
 
--- | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift.
-ccClusterSecurityGroups :: Lens' CreateCluster [Text]
-ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\s a -> s {_ccClusterSecurityGroups = a}) . _Default . _Coerce
+-- | A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+--
+-- /Note:/ Consider using 'clusterSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterSecurityGroups :: Lens.Lens' CreateCluster (Lude.Maybe [Lude.Text])
+ccClusterSecurityGroups = Lens.lens (clusterSecurityGroups :: CreateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {clusterSecurityGroups = a} :: CreateCluster)
+{-# DEPRECATED ccClusterSecurityGroups "Use generic-lens or generic-optics with 'clusterSecurityGroups' instead." #-}
 
--- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: @1@  Constraints: Must be a value from 0 to 35.
-ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
-ccAutomatedSnapshotRetentionPeriod = lens _ccAutomatedSnapshotRetentionPeriod (\s a -> s {_ccAutomatedSnapshotRetentionPeriod = a})
+-- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .
+--
+-- Default: @1@
+-- Constraints: Must be a value from 0 to 35.
+--
+-- /Note:/ Consider using 'automatedSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAutomatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Int)
+ccAutomatedSnapshotRetentionPeriod = Lens.lens (automatedSnapshotRetentionPeriod :: CreateCluster -> Lude.Maybe Lude.Int) (\s a -> s {automatedSnapshotRetentionPeriod = a} :: CreateCluster)
+{-# DEPRECATED ccAutomatedSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'automatedSnapshotRetentionPeriod' instead." #-}
 
--- | If @true@ , the data in the cluster is encrypted at rest.  Default: false
-ccEncrypted :: Lens' CreateCluster (Maybe Bool)
-ccEncrypted = lens _ccEncrypted (\s a -> s {_ccEncrypted = a})
+-- | If @true@ , the data in the cluster is encrypted at rest.
+--
+-- Default: false
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEncrypted :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Bool)
+ccEncrypted = Lens.lens (encrypted :: CreateCluster -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: CreateCluster)
+{-# DEPRECATED ccEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
--- | The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\s a -> s {_ccClusterSubnetGroupName = a})
+-- | The name of a cluster subnet group to be associated with this cluster.
+--
+-- If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+--
+-- /Note:/ Consider using 'clusterSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterSubnetGroupName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: CreateCluster)
+{-# DEPRECATED ccClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
-ccHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMClientCertificateIdentifier = lens _ccHSMClientCertificateIdentifier (\s a -> s {_ccHSMClientCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmClientCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccHSMClientCertificateIdentifier :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccHSMClientCertificateIdentifier = Lens.lens (hsmClientCertificateIdentifier :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {hsmClientCertificateIdentifier = a} :: CreateCluster)
+{-# DEPRECATED ccHSMClientCertificateIdentifier "Use generic-lens or generic-optics with 'hsmClientCertificateIdentifier' instead." #-}
 
--- | The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .  For information about determining how many nodes you need, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster. Default: @1@  Constraints: Value must be at least 1 and no more than 100.
-ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
-ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s {_ccNumberOfNodes = a})
+-- | The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .
+--
+-- For information about determining how many nodes you need, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .
+-- If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.
+-- Default: @1@
+-- Constraints: Value must be at least 1 and no more than 100.
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccNumberOfNodes :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Int)
+ccNumberOfNodes = Lens.lens (numberOfNodes :: CreateCluster -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: CreateCluster)
+{-# DEPRECATED ccNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
 
--- | The Elastic IP (EIP) address for the cluster. Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
-ccElasticIP :: Lens' CreateCluster (Maybe Text)
-ccElasticIP = lens _ccElasticIP (\s a -> s {_ccElasticIP = a})
+-- | The Elastic IP (EIP) address for the cluster.
+--
+-- Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccElasticIP :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccElasticIP = Lens.lens (elasticIP :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {elasticIP = a} :: CreateCluster)
+{-# DEPRECATED ccElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
--- | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
-ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
-ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\s a -> s {_ccPreferredMaintenanceWindow = a})
+-- | The weekly time range (in UTC) during which automated cluster maintenance can occur.
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+-- Constraints: Minimum 30-minute window.
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPreferredMaintenanceWindow :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: CreateCluster)
+{-# DEPRECATED ccPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-ccKMSKeyId :: Lens' CreateCluster (Maybe Text)
-ccKMSKeyId = lens _ccKMSKeyId (\s a -> s {_ccKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccKMSKeyId :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccKMSKeyId = Lens.lens (kmsKeyId :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateCluster)
+{-# DEPRECATED ccKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint. Example: @us-east-2d@  Constraint: The specified Availability Zone must be in the same region as the current endpoint.
-ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
-ccAvailabilityZone = lens _ccAvailabilityZone (\s a -> s {_ccAvailabilityZone = a})
+-- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
+--
+-- Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint.
+-- Example: @us-east-2d@
+-- Constraint: The specified Availability Zone must be in the same region as the current endpoint.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAvailabilityZone :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccAvailabilityZone = Lens.lens (availabilityZone :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateCluster)
+{-# DEPRECATED ccAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster.
-ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
-ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\s a -> s {_ccVPCSecurityGroupIds = a}) . _Default . _Coerce
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+--
+-- /Note:/ Consider using 'vpcSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVPCSecurityGroupIds :: Lens.Lens' CreateCluster (Lude.Maybe [Lude.Text])
+ccVPCSecurityGroupIds = Lens.lens (vpcSecurityGroupIds :: CreateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcSecurityGroupIds = a} :: CreateCluster)
+{-# DEPRECATED ccVPCSecurityGroupIds "Use generic-lens or generic-optics with 'vpcSecurityGroupIds' instead." #-}
 
--- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. A cluster can have up to 10 IAM roles associated with it at any time.
-ccIAMRoles :: Lens' CreateCluster [Text]
-ccIAMRoles = lens _ccIAMRoles (\s a -> s {_ccIAMRoles = a}) . _Default . _Coerce
+-- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated with it at any time.
+--
+-- /Note:/ Consider using 'iamRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccIAMRoles :: Lens.Lens' CreateCluster (Lude.Maybe [Lude.Text])
+ccIAMRoles = Lens.lens (iamRoles :: CreateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {iamRoles = a} :: CreateCluster)
+{-# DEPRECATED ccIAMRoles "Use generic-lens or generic-optics with 'iamRoles' instead." #-}
 
--- | The type of the cluster. When cluster type is specified as     * @single-node@ , the __NumberOfNodes__ parameter is not required.     * @multi-node@ , the __NumberOfNodes__ parameter is required. Valid Values: @multi-node@ | @single-node@  Default: @multi-node@
-ccClusterType :: Lens' CreateCluster (Maybe Text)
-ccClusterType = lens _ccClusterType (\s a -> s {_ccClusterType = a})
+-- | The type of the cluster. When cluster type is specified as
+--
+--
+--     * @single-node@ , the __NumberOfNodes__ parameter is not required.
+--
+--
+--     * @multi-node@ , the __NumberOfNodes__ parameter is required.
+--
+--
+-- Valid Values: @multi-node@ | @single-node@
+-- Default: @multi-node@
+--
+-- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterType :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccClusterType = Lens.lens (clusterType :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: CreateCluster)
+{-# DEPRECATED ccClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
 
--- | The version of the Amazon Redshift engine software that you want to deploy on the cluster. The version selected runs on all the nodes in the cluster. Constraints: Only version 1.0 is currently available. Example: @1.0@
-ccClusterVersion :: Lens' CreateCluster (Maybe Text)
-ccClusterVersion = lens _ccClusterVersion (\s a -> s {_ccClusterVersion = a})
+-- | The version of the Amazon Redshift engine software that you want to deploy on the cluster.
+--
+-- The version selected runs on all the nodes in the cluster.
+-- Constraints: Only version 1.0 is currently available.
+-- Example: @1.0@
+--
+-- /Note:/ Consider using 'clusterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterVersion :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccClusterVersion = Lens.lens (clusterVersion :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterVersion = a} :: CreateCluster)
+{-# DEPRECATED ccClusterVersion "Use generic-lens or generic-optics with 'clusterVersion' instead." #-}
 
--- | If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster. Default: @true@
-ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
-ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\s a -> s {_ccAllowVersionUpgrade = a})
+-- | If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
+--
+-- When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster.
+-- Default: @true@
+--
+-- /Note:/ Consider using 'allowVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAllowVersionUpgrade :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Bool)
+ccAllowVersionUpgrade = Lens.lens (allowVersionUpgrade :: CreateCluster -> Lude.Maybe Lude.Bool) (\s a -> s {allowVersionUpgrade = a} :: CreateCluster)
+{-# DEPRECATED ccAllowVersionUpgrade "Use generic-lens or generic-optics with 'allowVersionUpgrade' instead." #-}
 
--- | The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>  Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-ccClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\s a -> s {_ccClusterParameterGroupName = a})
+-- | The name of the parameter group to be associated with this cluster.
+--
+-- Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>
+-- Constraints:
+--
+--     * Must be 1 to 255 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'clusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterParameterGroupName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccClusterParameterGroupName = Lens.lens (clusterParameterGroupName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterParameterGroupName = a} :: CreateCluster)
+{-# DEPRECATED ccClusterParameterGroupName "Use generic-lens or generic-optics with 'clusterParameterGroupName' instead." #-}
 
 -- | A list of tag instances.
-ccTags :: Lens' CreateCluster [Tag]
-ccTags = lens _ccTags (\s a -> s {_ccTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateCluster (Lude.Maybe [Tag])
+ccTags = Lens.lens (tags :: CreateCluster -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCluster)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: @5439@  Valid Values: @1150-65535@
-ccPort :: Lens' CreateCluster (Maybe Int)
-ccPort = lens _ccPort (\s a -> s {_ccPort = a})
+-- | The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections.
+-- Default: @5439@
+-- Valid Values: @1150-65535@
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPort :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Int)
+ccPort = Lens.lens (port :: CreateCluster -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: CreateCluster)
+{-# DEPRECATED ccPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
--- | The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.  Default: @dev@  Constraints:     * Must contain 1 to 64 alphanumeric characters.     * Must contain only lowercase letters.     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
-ccDBName :: Lens' CreateCluster (Maybe Text)
-ccDBName = lens _ccDBName (\s a -> s {_ccDBName = a})
+-- | The name of the first database to be created when the cluster is created.
+--
+-- To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.
+-- Default: @dev@
+-- Constraints:
+--
+--     * Must contain 1 to 64 alphanumeric characters.
+--
+--
+--     * Must contain only lowercase letters.
+--
+--
+--     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+--
+--
+--
+-- /Note:/ Consider using 'dbName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDBName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccDBName = Lens.lens (dbName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {dbName = a} :: CreateCluster)
+{-# DEPRECATED ccDBName "Use generic-lens or generic-optics with 'dbName' instead." #-}
 
--- | A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account. Example: @myexamplecluster@
-ccClusterIdentifier :: Lens' CreateCluster Text
-ccClusterIdentifier = lens _ccClusterIdentifier (\s a -> s {_ccClusterIdentifier = a})
+-- | A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * Alphabetic characters must be lowercase.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--     * Must be unique for all clusters within an AWS account.
+--
+--
+-- Example: @myexamplecluster@
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterIdentifier :: Lens.Lens' CreateCluster Lude.Text
+ccClusterIdentifier = Lens.lens (clusterIdentifier :: CreateCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: CreateCluster)
+{-# DEPRECATED ccClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
--- | The node type to be provisioned for the cluster. For information about node types, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@ | @ra3.4xlarge@ | @ra3.16xlarge@
-ccNodeType :: Lens' CreateCluster Text
-ccNodeType = lens _ccNodeType (\s a -> s {_ccNodeType = a})
+-- | The node type to be provisioned for the cluster. For information about node types, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .
+--
+-- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@ | @ra3.4xlarge@ | @ra3.16xlarge@
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccNodeType :: Lens.Lens' CreateCluster Lude.Text
+ccNodeType = Lens.lens (nodeType :: CreateCluster -> Lude.Text) (\s a -> s {nodeType = a} :: CreateCluster)
+{-# DEPRECATED ccNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
--- | The user name associated with the master user account for the cluster that is being created. Constraints:     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .     * First character must be a letter.     * Cannot be a reserved word. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
-ccMasterUsername :: Lens' CreateCluster Text
-ccMasterUsername = lens _ccMasterUsername (\s a -> s {_ccMasterUsername = a})
+-- | The user name associated with the master user account for the cluster that is being created.
+--
+-- Constraints:
+--
+--     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot be a reserved word. A list of reserved words can be found in <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
+--
+--
+--
+-- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccMasterUsername :: Lens.Lens' CreateCluster Lude.Text
+ccMasterUsername = Lens.lens (masterUsername :: CreateCluster -> Lude.Text) (\s a -> s {masterUsername = a} :: CreateCluster)
+{-# DEPRECATED ccMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
 
--- | The password associated with the master user account for the cluster that is being created. Constraints:     * Must be between 8 and 64 characters in length.     * Must contain at least one uppercase letter.     * Must contain at least one lowercase letter.     * Must contain one number.     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
-ccMasterUserPassword :: Lens' CreateCluster Text
-ccMasterUserPassword = lens _ccMasterUserPassword (\s a -> s {_ccMasterUserPassword = a})
+-- | The password associated with the master user account for the cluster that is being created.
+--
+-- Constraints:
+--
+--     * Must be between 8 and 64 characters in length.
+--
+--
+--     * Must contain at least one uppercase letter.
+--
+--
+--     * Must contain at least one lowercase letter.
+--
+--
+--     * Must contain one number.
+--
+--
+--     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
+--
+--
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccMasterUserPassword :: Lens.Lens' CreateCluster Lude.Text
+ccMasterUserPassword = Lens.lens (masterUserPassword :: CreateCluster -> Lude.Text) (\s a -> s {masterUserPassword = a} :: CreateCluster)
+{-# DEPRECATED ccMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
-instance AWSRequest CreateCluster where
+instance Lude.AWSRequest CreateCluster where
   type Rs CreateCluster = CreateClusterResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateClusterResult"
       ( \s h x ->
           CreateClusterResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCluster
+instance Lude.ToHeaders CreateCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateCluster
+instance Lude.ToPath CreateCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateCluster where
-  toHeaders = const mempty
-
-instance ToPath CreateCluster where
-  toPath = const "/"
-
-instance ToQuery CreateCluster where
+instance Lude.ToQuery CreateCluster where
   toQuery CreateCluster' {..} =
-    mconcat
-      [ "Action" =: ("CreateCluster" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          =: _ccManualSnapshotRetentionPeriod,
-        "EnhancedVpcRouting" =: _ccEnhancedVPCRouting,
-        "AdditionalInfo" =: _ccAdditionalInfo,
-        "SnapshotScheduleIdentifier" =: _ccSnapshotScheduleIdentifier,
-        "PubliclyAccessible" =: _ccPubliclyAccessible,
-        "MaintenanceTrackName" =: _ccMaintenanceTrackName,
-        "HsmConfigurationIdentifier" =: _ccHSMConfigurationIdentifier,
+          Lude.=: manualSnapshotRetentionPeriod,
+        "EnhancedVpcRouting" Lude.=: enhancedVPCRouting,
+        "AdditionalInfo" Lude.=: additionalInfo,
+        "SnapshotScheduleIdentifier" Lude.=: snapshotScheduleIdentifier,
+        "PubliclyAccessible" Lude.=: publiclyAccessible,
+        "MaintenanceTrackName" Lude.=: maintenanceTrackName,
+        "HsmConfigurationIdentifier" Lude.=: hsmConfigurationIdentifier,
         "ClusterSecurityGroups"
-          =: toQuery
-            ( toQueryList "ClusterSecurityGroupName"
-                <$> _ccClusterSecurityGroups
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "ClusterSecurityGroupName"
+                Lude.<$> clusterSecurityGroups
             ),
         "AutomatedSnapshotRetentionPeriod"
-          =: _ccAutomatedSnapshotRetentionPeriod,
-        "Encrypted" =: _ccEncrypted,
-        "ClusterSubnetGroupName" =: _ccClusterSubnetGroupName,
+          Lude.=: automatedSnapshotRetentionPeriod,
+        "Encrypted" Lude.=: encrypted,
+        "ClusterSubnetGroupName" Lude.=: clusterSubnetGroupName,
         "HsmClientCertificateIdentifier"
-          =: _ccHSMClientCertificateIdentifier,
-        "NumberOfNodes" =: _ccNumberOfNodes,
-        "ElasticIp" =: _ccElasticIP,
-        "PreferredMaintenanceWindow" =: _ccPreferredMaintenanceWindow,
-        "KmsKeyId" =: _ccKMSKeyId,
-        "AvailabilityZone" =: _ccAvailabilityZone,
+          Lude.=: hsmClientCertificateIdentifier,
+        "NumberOfNodes" Lude.=: numberOfNodes,
+        "ElasticIp" Lude.=: elasticIP,
+        "PreferredMaintenanceWindow" Lude.=: preferredMaintenanceWindow,
+        "KmsKeyId" Lude.=: kmsKeyId,
+        "AvailabilityZone" Lude.=: availabilityZone,
         "VpcSecurityGroupIds"
-          =: toQuery
-            (toQueryList "VpcSecurityGroupId" <$> _ccVPCSecurityGroupIds),
-        "IamRoles" =: toQuery (toQueryList "IamRoleArn" <$> _ccIAMRoles),
-        "ClusterType" =: _ccClusterType,
-        "ClusterVersion" =: _ccClusterVersion,
-        "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
-        "ClusterParameterGroupName" =: _ccClusterParameterGroupName,
-        "Tags" =: toQuery (toQueryList "Tag" <$> _ccTags),
-        "Port" =: _ccPort,
-        "DBName" =: _ccDBName,
-        "ClusterIdentifier" =: _ccClusterIdentifier,
-        "NodeType" =: _ccNodeType,
-        "MasterUsername" =: _ccMasterUsername,
-        "MasterUserPassword" =: _ccMasterUserPassword
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "VpcSecurityGroupId"
+                Lude.<$> vpcSecurityGroupIds
+            ),
+        "IamRoles"
+          Lude.=: Lude.toQuery (Lude.toQueryList "IamRoleArn" Lude.<$> iamRoles),
+        "ClusterType" Lude.=: clusterType,
+        "ClusterVersion" Lude.=: clusterVersion,
+        "AllowVersionUpgrade" Lude.=: allowVersionUpgrade,
+        "ClusterParameterGroupName" Lude.=: clusterParameterGroupName,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "Port" Lude.=: port,
+        "DBName" Lude.=: dbName,
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "NodeType" Lude.=: nodeType,
+        "MasterUsername" Lude.=: masterUsername,
+        "MasterUserPassword" Lude.=: masterUserPassword
       ]
 
--- | /See:/ 'createClusterResponse' smart constructor.
+-- | /See:/ 'mkCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _ccrsCluster ::
-      !(Maybe Cluster),
-    _ccrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsCluster' - Undocumented member.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createClusterResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateClusterResponse
-createClusterResponse pResponseStatus_ =
+mkCreateClusterResponse pResponseStatus_ =
   CreateClusterResponse'
-    { _ccrsCluster = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrsCluster = lens _ccrsCluster (\s a -> s {_ccrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsCluster :: Lens.Lens' CreateClusterResponse (Lude.Maybe Cluster)
+ccrsCluster = Lens.lens (cluster :: CreateClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: CreateClusterResponse)
+{-# DEPRECATED ccrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateClusterResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClusterResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

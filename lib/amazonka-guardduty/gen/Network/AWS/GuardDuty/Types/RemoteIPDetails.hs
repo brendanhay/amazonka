@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.RemoteIPDetails where
+module Network.AWS.GuardDuty.Types.RemoteIPDetails
+  ( RemoteIPDetails (..),
+
+    -- * Smart constructor
+    mkRemoteIPDetails,
+
+    -- * Lenses
+    ridCountry,
+    ridCity,
+    ridIPAddressV4,
+    ridGeoLocation,
+    ridOrganization,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.City
 import Network.AWS.GuardDuty.Types.Country
 import Network.AWS.GuardDuty.Types.GeoLocation
 import Network.AWS.GuardDuty.Types.Organization
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the remote IP address of the connection.
 --
---
---
--- /See:/ 'remoteIPDetails' smart constructor.
+-- /See:/ 'mkRemoteIPDetails' smart constructor.
 data RemoteIPDetails = RemoteIPDetails'
-  { _ridCountry ::
-      !(Maybe Country),
-    _ridCity :: !(Maybe City),
-    _ridIPAddressV4 :: !(Maybe Text),
-    _ridGeoLocation :: !(Maybe GeoLocation),
-    _ridOrganization :: !(Maybe Organization)
+  { country ::
+      Lude.Maybe Country,
+    city :: Lude.Maybe City,
+    ipAddressV4 :: Lude.Maybe Lude.Text,
+    geoLocation :: Lude.Maybe GeoLocation,
+    organization :: Lude.Maybe Organization
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoteIPDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ridCountry' - The country code of the remote IP address.
---
--- * 'ridCity' - The city information of the remote IP address.
---
--- * 'ridIPAddressV4' - The IPv4 remote address of the connection.
---
--- * 'ridGeoLocation' - The location information of the remote IP address.
---
--- * 'ridOrganization' - The ISP organization information of the remote IP address.
-remoteIPDetails ::
+-- * 'city' - The city information of the remote IP address.
+-- * 'country' - The country code of the remote IP address.
+-- * 'geoLocation' - The location information of the remote IP address.
+-- * 'ipAddressV4' - The IPv4 remote address of the connection.
+-- * 'organization' - The ISP organization information of the remote IP address.
+mkRemoteIPDetails ::
   RemoteIPDetails
-remoteIPDetails =
+mkRemoteIPDetails =
   RemoteIPDetails'
-    { _ridCountry = Nothing,
-      _ridCity = Nothing,
-      _ridIPAddressV4 = Nothing,
-      _ridGeoLocation = Nothing,
-      _ridOrganization = Nothing
+    { country = Lude.Nothing,
+      city = Lude.Nothing,
+      ipAddressV4 = Lude.Nothing,
+      geoLocation = Lude.Nothing,
+      organization = Lude.Nothing
     }
 
 -- | The country code of the remote IP address.
-ridCountry :: Lens' RemoteIPDetails (Maybe Country)
-ridCountry = lens _ridCountry (\s a -> s {_ridCountry = a})
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ridCountry :: Lens.Lens' RemoteIPDetails (Lude.Maybe Country)
+ridCountry = Lens.lens (country :: RemoteIPDetails -> Lude.Maybe Country) (\s a -> s {country = a} :: RemoteIPDetails)
+{-# DEPRECATED ridCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The city information of the remote IP address.
-ridCity :: Lens' RemoteIPDetails (Maybe City)
-ridCity = lens _ridCity (\s a -> s {_ridCity = a})
+--
+-- /Note:/ Consider using 'city' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ridCity :: Lens.Lens' RemoteIPDetails (Lude.Maybe City)
+ridCity = Lens.lens (city :: RemoteIPDetails -> Lude.Maybe City) (\s a -> s {city = a} :: RemoteIPDetails)
+{-# DEPRECATED ridCity "Use generic-lens or generic-optics with 'city' instead." #-}
 
 -- | The IPv4 remote address of the connection.
-ridIPAddressV4 :: Lens' RemoteIPDetails (Maybe Text)
-ridIPAddressV4 = lens _ridIPAddressV4 (\s a -> s {_ridIPAddressV4 = a})
+--
+-- /Note:/ Consider using 'ipAddressV4' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ridIPAddressV4 :: Lens.Lens' RemoteIPDetails (Lude.Maybe Lude.Text)
+ridIPAddressV4 = Lens.lens (ipAddressV4 :: RemoteIPDetails -> Lude.Maybe Lude.Text) (\s a -> s {ipAddressV4 = a} :: RemoteIPDetails)
+{-# DEPRECATED ridIPAddressV4 "Use generic-lens or generic-optics with 'ipAddressV4' instead." #-}
 
 -- | The location information of the remote IP address.
-ridGeoLocation :: Lens' RemoteIPDetails (Maybe GeoLocation)
-ridGeoLocation = lens _ridGeoLocation (\s a -> s {_ridGeoLocation = a})
+--
+-- /Note:/ Consider using 'geoLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ridGeoLocation :: Lens.Lens' RemoteIPDetails (Lude.Maybe GeoLocation)
+ridGeoLocation = Lens.lens (geoLocation :: RemoteIPDetails -> Lude.Maybe GeoLocation) (\s a -> s {geoLocation = a} :: RemoteIPDetails)
+{-# DEPRECATED ridGeoLocation "Use generic-lens or generic-optics with 'geoLocation' instead." #-}
 
 -- | The ISP organization information of the remote IP address.
-ridOrganization :: Lens' RemoteIPDetails (Maybe Organization)
-ridOrganization = lens _ridOrganization (\s a -> s {_ridOrganization = a})
+--
+-- /Note:/ Consider using 'organization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ridOrganization :: Lens.Lens' RemoteIPDetails (Lude.Maybe Organization)
+ridOrganization = Lens.lens (organization :: RemoteIPDetails -> Lude.Maybe Organization) (\s a -> s {organization = a} :: RemoteIPDetails)
+{-# DEPRECATED ridOrganization "Use generic-lens or generic-optics with 'organization' instead." #-}
 
-instance FromJSON RemoteIPDetails where
+instance Lude.FromJSON RemoteIPDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemoteIPDetails"
       ( \x ->
           RemoteIPDetails'
-            <$> (x .:? "country")
-            <*> (x .:? "city")
-            <*> (x .:? "ipAddressV4")
-            <*> (x .:? "geoLocation")
-            <*> (x .:? "organization")
+            Lude.<$> (x Lude..:? "country")
+            Lude.<*> (x Lude..:? "city")
+            Lude.<*> (x Lude..:? "ipAddressV4")
+            Lude.<*> (x Lude..:? "geoLocation")
+            Lude.<*> (x Lude..:? "organization")
       )
-
-instance Hashable RemoteIPDetails
-
-instance NFData RemoteIPDetails

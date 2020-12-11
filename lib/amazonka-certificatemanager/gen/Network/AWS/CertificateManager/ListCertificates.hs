@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only @RSA_2048@ certificates. For more information, see 'Filters' .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CertificateManager.ListCertificates
-  ( -- * Creating a Request
-    listCertificates,
-    ListCertificates,
+  ( -- * Creating a request
+    ListCertificates (..),
+    mkListCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcCertificateStatuses,
     lcNextToken,
     lcIncludes,
     lcMaxItems,
 
-    -- * Destructuring the Response
-    listCertificatesResponse,
-    ListCertificatesResponse,
+    -- * Destructuring the response
+    ListCertificatesResponse (..),
+    mkListCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsCertificateSummaryList,
     lcrsNextToken,
     lcrsResponseStatus,
@@ -45,147 +38,171 @@ module Network.AWS.CertificateManager.ListCertificates
 where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCertificates' smart constructor.
+-- | /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { _lcCertificateStatuses ::
-      !(Maybe [CertificateStatus]),
-    _lcNextToken :: !(Maybe Text),
-    _lcIncludes :: !(Maybe Filters),
-    _lcMaxItems :: !(Maybe Nat)
+  { certificateStatuses ::
+      Lude.Maybe [CertificateStatus],
+    nextToken :: Lude.Maybe Lude.Text,
+    includes :: Lude.Maybe Filters,
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcCertificateStatuses' - Filter the certificate list by status value.
---
--- * 'lcNextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
---
--- * 'lcIncludes' - Filter the certificate list. For more information, see the 'Filters' structure.
---
--- * 'lcMaxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-listCertificates ::
+-- * 'certificateStatuses' - Filter the certificate list by status value.
+-- * 'includes' - Filter the certificate list. For more information, see the 'Filters' structure.
+-- * 'maxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
+-- * 'nextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
+mkListCertificates ::
   ListCertificates
-listCertificates =
+mkListCertificates =
   ListCertificates'
-    { _lcCertificateStatuses = Nothing,
-      _lcNextToken = Nothing,
-      _lcIncludes = Nothing,
-      _lcMaxItems = Nothing
+    { certificateStatuses = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      includes = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | Filter the certificate list by status value.
-lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
-lcCertificateStatuses = lens _lcCertificateStatuses (\s a -> s {_lcCertificateStatuses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificateStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCertificateStatuses :: Lens.Lens' ListCertificates (Lude.Maybe [CertificateStatus])
+lcCertificateStatuses = Lens.lens (certificateStatuses :: ListCertificates -> Lude.Maybe [CertificateStatus]) (\s a -> s {certificateStatuses = a} :: ListCertificates)
+{-# DEPRECATED lcCertificateStatuses "Use generic-lens or generic-optics with 'certificateStatuses' instead." #-}
 
 -- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
-lcNextToken :: Lens' ListCertificates (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s {_lcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Text)
+lcNextToken = Lens.lens (nextToken :: ListCertificates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificates)
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filter the certificate list. For more information, see the 'Filters' structure.
-lcIncludes :: Lens' ListCertificates (Maybe Filters)
-lcIncludes = lens _lcIncludes (\s a -> s {_lcIncludes = a})
+--
+-- /Note:/ Consider using 'includes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcIncludes :: Lens.Lens' ListCertificates (Lude.Maybe Filters)
+lcIncludes = Lens.lens (includes :: ListCertificates -> Lude.Maybe Filters) (\s a -> s {includes = a} :: ListCertificates)
+{-# DEPRECATED lcIncludes "Use generic-lens or generic-optics with 'includes' instead." #-}
 
 -- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-lcMaxItems :: Lens' ListCertificates (Maybe Natural)
-lcMaxItems = lens _lcMaxItems (\s a -> s {_lcMaxItems = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMaxItems :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Natural)
+lcMaxItems = Lens.lens (maxItems :: ListCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListCertificates)
+{-# DEPRECATED lcMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListCertificates where
+instance Page.AWSPager ListCertificates where
   page rq rs
-    | stop (rs ^. lcrsNextToken) = Nothing
-    | stop (rs ^. lcrsCertificateSummaryList) = Nothing
-    | otherwise = Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcrsCertificateSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
 
-instance AWSRequest ListCertificates where
+instance Lude.AWSRequest ListCertificates where
   type Rs ListCertificates = ListCertificatesResponse
-  request = postJSON certificateManager
+  request = Req.postJSON certificateManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            <$> (x .?> "CertificateSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CertificateSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCertificates
-
-instance NFData ListCertificates
-
-instance ToHeaders ListCertificates where
+instance Lude.ToHeaders ListCertificates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CertificateManager.ListCertificates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CertificateManager.ListCertificates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCertificates where
+instance Lude.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
-    object
-      ( catMaybes
-          [ ("CertificateStatuses" .=) <$> _lcCertificateStatuses,
-            ("NextToken" .=) <$> _lcNextToken,
-            ("Includes" .=) <$> _lcIncludes,
-            ("MaxItems" .=) <$> _lcMaxItems
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CertificateStatuses" Lude..=) Lude.<$> certificateStatuses,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Includes" Lude..=) Lude.<$> includes,
+            ("MaxItems" Lude..=) Lude.<$> maxItems
           ]
       )
 
-instance ToPath ListCertificates where
-  toPath = const "/"
+instance Lude.ToPath ListCertificates where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCertificates where
-  toQuery = const mempty
+instance Lude.ToQuery ListCertificates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCertificatesResponse' smart constructor.
+-- | /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { _lcrsCertificateSummaryList ::
-      !(Maybe [CertificateSummary]),
-    _lcrsNextToken :: !(Maybe Text),
-    _lcrsResponseStatus :: !Int
+  { certificateSummaryList ::
+      Lude.Maybe [CertificateSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsCertificateSummaryList' - A list of ACM certificates.
---
--- * 'lcrsNextToken' - When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCertificatesResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'certificateSummaryList' - A list of ACM certificates.
+-- * 'nextToken' - When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+mkListCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCertificatesResponse
-listCertificatesResponse pResponseStatus_ =
+mkListCertificatesResponse pResponseStatus_ =
   ListCertificatesResponse'
-    { _lcrsCertificateSummaryList = Nothing,
-      _lcrsNextToken = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { certificateSummaryList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of ACM certificates.
-lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
-lcrsCertificateSummaryList = lens _lcrsCertificateSummaryList (\s a -> s {_lcrsCertificateSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificateSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCertificateSummaryList :: Lens.Lens' ListCertificatesResponse (Lude.Maybe [CertificateSummary])
+lcrsCertificateSummaryList = Lens.lens (certificateSummaryList :: ListCertificatesResponse -> Lude.Maybe [CertificateSummary]) (\s a -> s {certificateSummaryList = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsCertificateSummaryList "Use generic-lens or generic-optics with 'certificateSummaryList' instead." #-}
 
 -- | When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
-lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\s a -> s {_lcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextToken :: Lens.Lens' ListCertificatesResponse (Lude.Maybe Lude.Text)
+lcrsNextToken = Lens.lens (nextToken :: ListCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCertificatesResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCertificatesResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

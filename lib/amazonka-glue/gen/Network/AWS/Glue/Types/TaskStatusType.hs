@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TaskStatusType where
+module Network.AWS.Glue.Types.TaskStatusType
+  ( TaskStatusType
+      ( TaskStatusType',
+        Failed,
+        Running,
+        Starting,
+        Stopped,
+        Stopping,
+        Succeeded,
+        Timeout
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskStatusType
-  = Failed
-  | Running
-  | Starting
-  | Stopped
-  | Stopping
-  | Succeeded
-  | Timeout
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskStatusType = TaskStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskStatusType where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "starting" -> pure Starting
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      "succeeded" -> pure Succeeded
-      "timeout" -> pure Timeout
-      e ->
-        fromTextError $
-          "Failure parsing TaskStatusType from value: '" <> e
-            <> "'. Accepted values: failed, running, starting, stopped, stopping, succeeded, timeout"
+pattern Failed :: TaskStatusType
+pattern Failed = TaskStatusType' "FAILED"
 
-instance ToText TaskStatusType where
-  toText = \case
-    Failed -> "FAILED"
-    Running -> "RUNNING"
-    Starting -> "STARTING"
-    Stopped -> "STOPPED"
-    Stopping -> "STOPPING"
-    Succeeded -> "SUCCEEDED"
-    Timeout -> "TIMEOUT"
+pattern Running :: TaskStatusType
+pattern Running = TaskStatusType' "RUNNING"
 
-instance Hashable TaskStatusType
+pattern Starting :: TaskStatusType
+pattern Starting = TaskStatusType' "STARTING"
 
-instance NFData TaskStatusType
+pattern Stopped :: TaskStatusType
+pattern Stopped = TaskStatusType' "STOPPED"
 
-instance ToByteString TaskStatusType
+pattern Stopping :: TaskStatusType
+pattern Stopping = TaskStatusType' "STOPPING"
 
-instance ToQuery TaskStatusType
+pattern Succeeded :: TaskStatusType
+pattern Succeeded = TaskStatusType' "SUCCEEDED"
 
-instance ToHeader TaskStatusType
+pattern Timeout :: TaskStatusType
+pattern Timeout = TaskStatusType' "TIMEOUT"
 
-instance ToJSON TaskStatusType where
-  toJSON = toJSONText
-
-instance FromJSON TaskStatusType where
-  parseJSON = parseJSONText "TaskStatusType"
+{-# COMPLETE
+  Failed,
+  Running,
+  Starting,
+  Stopped,
+  Stopping,
+  Succeeded,
+  Timeout,
+  TaskStatusType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthorizerSummary where
+module Network.AWS.IoT.Types.AuthorizerSummary
+  ( AuthorizerSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAuthorizerSummary,
+
+    -- * Lenses
+    asAuthorizerName,
+    asAuthorizerARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorizer summary.
 --
---
---
--- /See:/ 'authorizerSummary' smart constructor.
+-- /See:/ 'mkAuthorizerSummary' smart constructor.
 data AuthorizerSummary = AuthorizerSummary'
-  { _asAuthorizerName ::
-      !(Maybe Text),
-    _asAuthorizerARN :: !(Maybe Text)
+  { authorizerName ::
+      Lude.Maybe Lude.Text,
+    authorizerARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizerSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asAuthorizerName' - The authorizer name.
---
--- * 'asAuthorizerARN' - The authorizer ARN.
-authorizerSummary ::
+-- * 'authorizerARN' - The authorizer ARN.
+-- * 'authorizerName' - The authorizer name.
+mkAuthorizerSummary ::
   AuthorizerSummary
-authorizerSummary =
+mkAuthorizerSummary =
   AuthorizerSummary'
-    { _asAuthorizerName = Nothing,
-      _asAuthorizerARN = Nothing
+    { authorizerName = Lude.Nothing,
+      authorizerARN = Lude.Nothing
     }
 
 -- | The authorizer name.
-asAuthorizerName :: Lens' AuthorizerSummary (Maybe Text)
-asAuthorizerName = lens _asAuthorizerName (\s a -> s {_asAuthorizerName = a})
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAuthorizerName :: Lens.Lens' AuthorizerSummary (Lude.Maybe Lude.Text)
+asAuthorizerName = Lens.lens (authorizerName :: AuthorizerSummary -> Lude.Maybe Lude.Text) (\s a -> s {authorizerName = a} :: AuthorizerSummary)
+{-# DEPRECATED asAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 -- | The authorizer ARN.
-asAuthorizerARN :: Lens' AuthorizerSummary (Maybe Text)
-asAuthorizerARN = lens _asAuthorizerARN (\s a -> s {_asAuthorizerARN = a})
+--
+-- /Note:/ Consider using 'authorizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAuthorizerARN :: Lens.Lens' AuthorizerSummary (Lude.Maybe Lude.Text)
+asAuthorizerARN = Lens.lens (authorizerARN :: AuthorizerSummary -> Lude.Maybe Lude.Text) (\s a -> s {authorizerARN = a} :: AuthorizerSummary)
+{-# DEPRECATED asAuthorizerARN "Use generic-lens or generic-optics with 'authorizerARN' instead." #-}
 
-instance FromJSON AuthorizerSummary where
+instance Lude.FromJSON AuthorizerSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthorizerSummary"
       ( \x ->
           AuthorizerSummary'
-            <$> (x .:? "authorizerName") <*> (x .:? "authorizerArn")
+            Lude.<$> (x Lude..:? "authorizerName")
+            Lude.<*> (x Lude..:? "authorizerArn")
       )
-
-instance Hashable AuthorizerSummary
-
-instance NFData AuthorizerSummary

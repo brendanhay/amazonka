@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.NotificationState where
+module Network.AWS.Budgets.Types.NotificationState
+  ( NotificationState
+      ( NotificationState',
+        Alarm,
+        OK
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotificationState
-  = Alarm
-  | OK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotificationState = NotificationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotificationState where
-  parser =
-    takeLowerText >>= \case
-      "alarm" -> pure Alarm
-      "ok" -> pure OK
-      e ->
-        fromTextError $
-          "Failure parsing NotificationState from value: '" <> e
-            <> "'. Accepted values: alarm, ok"
+pattern Alarm :: NotificationState
+pattern Alarm = NotificationState' "ALARM"
 
-instance ToText NotificationState where
-  toText = \case
-    Alarm -> "ALARM"
-    OK -> "OK"
+pattern OK :: NotificationState
+pattern OK = NotificationState' "OK"
 
-instance Hashable NotificationState
-
-instance NFData NotificationState
-
-instance ToByteString NotificationState
-
-instance ToQuery NotificationState
-
-instance ToHeader NotificationState
-
-instance ToJSON NotificationState where
-  toJSON = toJSONText
-
-instance FromJSON NotificationState where
-  parseJSON = parseJSONText "NotificationState"
+{-# COMPLETE
+  Alarm,
+  OK,
+  NotificationState'
+  #-}

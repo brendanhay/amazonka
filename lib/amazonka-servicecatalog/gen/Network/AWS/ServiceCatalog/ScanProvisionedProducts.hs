@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,224 @@
 --
 -- Lists the provisioned products that are available (not terminated).
 --
---
 -- To use additional filtering, see 'SearchProvisionedProducts' .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ScanProvisionedProducts
-  ( -- * Creating a Request
-    scanProvisionedProducts,
-    ScanProvisionedProducts,
+  ( -- * Creating a request
+    ScanProvisionedProducts (..),
+    mkScanProvisionedProducts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sAcceptLanguage,
     sAccessLevelFilter,
     sPageToken,
     sPageSize,
 
-    -- * Destructuring the Response
-    scanProvisionedProductsResponse,
-    ScanProvisionedProductsResponse,
+    -- * Destructuring the response
+    ScanProvisionedProductsResponse (..),
+    mkScanProvisionedProductsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     spprsNextPageToken,
     spprsProvisionedProducts,
     spprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'scanProvisionedProducts' smart constructor.
+-- | /See:/ 'mkScanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-  { _sAcceptLanguage ::
-      !(Maybe Text),
-    _sAccessLevelFilter ::
-      !(Maybe AccessLevelFilter),
-    _sPageToken :: !(Maybe Text),
-    _sPageSize :: !(Maybe Nat)
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    accessLevelFilter ::
+      Lude.Maybe AccessLevelFilter,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScanProvisionedProducts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'sAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'sAccessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+--     * @en@ - English (default)
 --
--- * 'sPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'sPageSize' - The maximum number of items to return with this call.
-scanProvisionedProducts ::
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+mkScanProvisionedProducts ::
   ScanProvisionedProducts
-scanProvisionedProducts =
+mkScanProvisionedProducts =
   ScanProvisionedProducts'
-    { _sAcceptLanguage = Nothing,
-      _sAccessLevelFilter = Nothing,
-      _sPageToken = Nothing,
-      _sPageSize = Nothing
+    { acceptLanguage = Lude.Nothing,
+      accessLevelFilter = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-sAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
-sAcceptLanguage = lens _sAcceptLanguage (\s a -> s {_sAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAcceptLanguage :: Lens.Lens' ScanProvisionedProducts (Lude.Maybe Lude.Text)
+sAcceptLanguage = Lens.lens (acceptLanguage :: ScanProvisionedProducts -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ScanProvisionedProducts)
+{-# DEPRECATED sAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The access level to use to obtain results. The default is @User@ .
-sAccessLevelFilter :: Lens' ScanProvisionedProducts (Maybe AccessLevelFilter)
-sAccessLevelFilter = lens _sAccessLevelFilter (\s a -> s {_sAccessLevelFilter = a})
+--
+-- /Note:/ Consider using 'accessLevelFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAccessLevelFilter :: Lens.Lens' ScanProvisionedProducts (Lude.Maybe AccessLevelFilter)
+sAccessLevelFilter = Lens.lens (accessLevelFilter :: ScanProvisionedProducts -> Lude.Maybe AccessLevelFilter) (\s a -> s {accessLevelFilter = a} :: ScanProvisionedProducts)
+{-# DEPRECATED sAccessLevelFilter "Use generic-lens or generic-optics with 'accessLevelFilter' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-sPageToken :: Lens' ScanProvisionedProducts (Maybe Text)
-sPageToken = lens _sPageToken (\s a -> s {_sPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPageToken :: Lens.Lens' ScanProvisionedProducts (Lude.Maybe Lude.Text)
+sPageToken = Lens.lens (pageToken :: ScanProvisionedProducts -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ScanProvisionedProducts)
+{-# DEPRECATED sPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-sPageSize :: Lens' ScanProvisionedProducts (Maybe Natural)
-sPageSize = lens _sPageSize (\s a -> s {_sPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPageSize :: Lens.Lens' ScanProvisionedProducts (Lude.Maybe Lude.Natural)
+sPageSize = Lens.lens (pageSize :: ScanProvisionedProducts -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ScanProvisionedProducts)
+{-# DEPRECATED sPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ScanProvisionedProducts where
+instance Page.AWSPager ScanProvisionedProducts where
   page rq rs
-    | stop (rs ^. spprsNextPageToken) = Nothing
-    | stop (rs ^. spprsProvisionedProducts) = Nothing
-    | otherwise = Just $ rq & sPageToken .~ rs ^. spprsNextPageToken
+    | Page.stop (rs Lens.^. spprsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. spprsProvisionedProducts) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& sPageToken Lens..~ rs Lens.^. spprsNextPageToken
 
-instance AWSRequest ScanProvisionedProducts where
+instance Lude.AWSRequest ScanProvisionedProducts where
   type Rs ScanProvisionedProducts = ScanProvisionedProductsResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ScanProvisionedProductsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "ProvisionedProducts" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "ProvisionedProducts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ScanProvisionedProducts
-
-instance NFData ScanProvisionedProducts
-
-instance ToHeaders ScanProvisionedProducts where
+instance Lude.ToHeaders ScanProvisionedProducts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ScanProvisionedProducts" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ScanProvisionedProducts" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ScanProvisionedProducts where
+instance Lude.ToJSON ScanProvisionedProducts where
   toJSON ScanProvisionedProducts' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _sAcceptLanguage,
-            ("AccessLevelFilter" .=) <$> _sAccessLevelFilter,
-            ("PageToken" .=) <$> _sPageToken,
-            ("PageSize" .=) <$> _sPageSize
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("AccessLevelFilter" Lude..=) Lude.<$> accessLevelFilter,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
-instance ToPath ScanProvisionedProducts where
-  toPath = const "/"
+instance Lude.ToPath ScanProvisionedProducts where
+  toPath = Lude.const "/"
 
-instance ToQuery ScanProvisionedProducts where
-  toQuery = const mempty
+instance Lude.ToQuery ScanProvisionedProducts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'scanProvisionedProductsResponse' smart constructor.
+-- | /See:/ 'mkScanProvisionedProductsResponse' smart constructor.
 data ScanProvisionedProductsResponse = ScanProvisionedProductsResponse'
-  { _spprsNextPageToken ::
-      !(Maybe Text),
-    _spprsProvisionedProducts ::
-      !( Maybe
-           [ProvisionedProductDetail]
-       ),
-    _spprsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    provisionedProducts ::
+      Lude.Maybe
+        [ProvisionedProductDetail],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScanProvisionedProductsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'spprsProvisionedProducts' - Information about the provisioned products.
---
--- * 'spprsResponseStatus' - -- | The response status code.
-scanProvisionedProductsResponse ::
-  -- | 'spprsResponseStatus'
-  Int ->
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'provisionedProducts' - Information about the provisioned products.
+-- * 'responseStatus' - The response status code.
+mkScanProvisionedProductsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ScanProvisionedProductsResponse
-scanProvisionedProductsResponse pResponseStatus_ =
+mkScanProvisionedProductsResponse pResponseStatus_ =
   ScanProvisionedProductsResponse'
-    { _spprsNextPageToken = Nothing,
-      _spprsProvisionedProducts = Nothing,
-      _spprsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      provisionedProducts = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-spprsNextPageToken :: Lens' ScanProvisionedProductsResponse (Maybe Text)
-spprsNextPageToken = lens _spprsNextPageToken (\s a -> s {_spprsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsNextPageToken :: Lens.Lens' ScanProvisionedProductsResponse (Lude.Maybe Lude.Text)
+spprsNextPageToken = Lens.lens (nextPageToken :: ScanProvisionedProductsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ScanProvisionedProductsResponse)
+{-# DEPRECATED spprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the provisioned products.
-spprsProvisionedProducts :: Lens' ScanProvisionedProductsResponse [ProvisionedProductDetail]
-spprsProvisionedProducts = lens _spprsProvisionedProducts (\s a -> s {_spprsProvisionedProducts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisionedProducts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsProvisionedProducts :: Lens.Lens' ScanProvisionedProductsResponse (Lude.Maybe [ProvisionedProductDetail])
+spprsProvisionedProducts = Lens.lens (provisionedProducts :: ScanProvisionedProductsResponse -> Lude.Maybe [ProvisionedProductDetail]) (\s a -> s {provisionedProducts = a} :: ScanProvisionedProductsResponse)
+{-# DEPRECATED spprsProvisionedProducts "Use generic-lens or generic-optics with 'provisionedProducts' instead." #-}
 
--- | -- | The response status code.
-spprsResponseStatus :: Lens' ScanProvisionedProductsResponse Int
-spprsResponseStatus = lens _spprsResponseStatus (\s a -> s {_spprsResponseStatus = a})
-
-instance NFData ScanProvisionedProductsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsResponseStatus :: Lens.Lens' ScanProvisionedProductsResponse Lude.Int
+spprsResponseStatus = Lens.lens (responseStatus :: ScanProvisionedProductsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ScanProvisionedProductsResponse)
+{-# DEPRECATED spprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

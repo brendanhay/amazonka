@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Image where
+module Network.AWS.AppStream.Types.Image
+  ( Image (..),
+
+    -- * Smart constructor
+    mkImage,
+
+    -- * Lenses
+    iState,
+    iImagePermissions,
+    iPlatform,
+    iPublicBaseImageReleasedDate,
+    iStateChangeReason,
+    iARN,
+    iCreatedTime,
+    iImageBuilderSupported,
+    iVisibility,
+    iImageBuilderName,
+    iBaseImageARN,
+    iDisplayName,
+    iDescription,
+    iAppstreamAgentVersion,
+    iApplications,
+    iName,
+  )
+where
 
 import Network.AWS.AppStream.Types.Application
 import Network.AWS.AppStream.Types.ImagePermissions
@@ -21,181 +39,213 @@ import Network.AWS.AppStream.Types.ImageState
 import Network.AWS.AppStream.Types.ImageStateChangeReason
 import Network.AWS.AppStream.Types.PlatformType
 import Network.AWS.AppStream.Types.VisibilityType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an image.
 --
---
---
--- /See:/ 'image' smart constructor.
+-- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { _iState :: !(Maybe ImageState),
-    _iImagePermissions :: !(Maybe ImagePermissions),
-    _iPlatform :: !(Maybe PlatformType),
-    _iPublicBaseImageReleasedDate :: !(Maybe POSIX),
-    _iStateChangeReason :: !(Maybe ImageStateChangeReason),
-    _iARN :: !(Maybe Text),
-    _iCreatedTime :: !(Maybe POSIX),
-    _iImageBuilderSupported :: !(Maybe Bool),
-    _iVisibility :: !(Maybe VisibilityType),
-    _iImageBuilderName :: !(Maybe Text),
-    _iBaseImageARN :: !(Maybe Text),
-    _iDisplayName :: !(Maybe Text),
-    _iDescription :: !(Maybe Text),
-    _iAppstreamAgentVersion :: !(Maybe Text),
-    _iApplications :: !(Maybe [Application]),
-    _iName :: !Text
+  { state :: Lude.Maybe ImageState,
+    imagePermissions :: Lude.Maybe ImagePermissions,
+    platform :: Lude.Maybe PlatformType,
+    publicBaseImageReleasedDate :: Lude.Maybe Lude.Timestamp,
+    stateChangeReason :: Lude.Maybe ImageStateChangeReason,
+    arn :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    imageBuilderSupported :: Lude.Maybe Lude.Bool,
+    visibility :: Lude.Maybe VisibilityType,
+    imageBuilderName :: Lude.Maybe Lude.Text,
+    baseImageARN :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    appstreamAgentVersion :: Lude.Maybe Lude.Text,
+    applications :: Lude.Maybe [Application],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iState' - The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
---
--- * 'iImagePermissions' - The permissions to provide to the destination AWS account for the specified image.
---
--- * 'iPlatform' - The operating system platform of the image.
---
--- * 'iPublicBaseImageReleasedDate' - The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
---
--- * 'iStateChangeReason' - The reason why the last state change occurred.
---
--- * 'iARN' - The ARN of the image.
---
--- * 'iCreatedTime' - The time the image was created.
---
--- * 'iImageBuilderSupported' - Indicates whether an image builder can be launched from this image.
---
--- * 'iVisibility' - Indicates whether the image is public or private.
---
--- * 'iImageBuilderName' - The name of the image builder that was used to create the private image. If the image is shared, this value is null.
---
--- * 'iBaseImageARN' - The ARN of the image from which this image was created.
---
--- * 'iDisplayName' - The image name to display.
---
--- * 'iDescription' - The description to display.
---
--- * 'iAppstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are launched from this image.
---
--- * 'iApplications' - The applications associated with the image.
---
--- * 'iName' - The name of the image.
-image ::
-  -- | 'iName'
-  Text ->
+-- * 'applications' - The applications associated with the image.
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are launched from this image.
+-- * 'arn' - The ARN of the image.
+-- * 'baseImageARN' - The ARN of the image from which this image was created.
+-- * 'createdTime' - The time the image was created.
+-- * 'description' - The description to display.
+-- * 'displayName' - The image name to display.
+-- * 'imageBuilderName' - The name of the image builder that was used to create the private image. If the image is shared, this value is null.
+-- * 'imageBuilderSupported' - Indicates whether an image builder can be launched from this image.
+-- * 'imagePermissions' - The permissions to provide to the destination AWS account for the specified image.
+-- * 'name' - The name of the image.
+-- * 'platform' - The operating system platform of the image.
+-- * 'publicBaseImageReleasedDate' - The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
+-- * 'state' - The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
+-- * 'stateChangeReason' - The reason why the last state change occurred.
+-- * 'visibility' - Indicates whether the image is public or private.
+mkImage ::
+  -- | 'name'
+  Lude.Text ->
   Image
-image pName_ =
+mkImage pName_ =
   Image'
-    { _iState = Nothing,
-      _iImagePermissions = Nothing,
-      _iPlatform = Nothing,
-      _iPublicBaseImageReleasedDate = Nothing,
-      _iStateChangeReason = Nothing,
-      _iARN = Nothing,
-      _iCreatedTime = Nothing,
-      _iImageBuilderSupported = Nothing,
-      _iVisibility = Nothing,
-      _iImageBuilderName = Nothing,
-      _iBaseImageARN = Nothing,
-      _iDisplayName = Nothing,
-      _iDescription = Nothing,
-      _iAppstreamAgentVersion = Nothing,
-      _iApplications = Nothing,
-      _iName = pName_
+    { state = Lude.Nothing,
+      imagePermissions = Lude.Nothing,
+      platform = Lude.Nothing,
+      publicBaseImageReleasedDate = Lude.Nothing,
+      stateChangeReason = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      imageBuilderSupported = Lude.Nothing,
+      visibility = Lude.Nothing,
+      imageBuilderName = Lude.Nothing,
+      baseImageARN = Lude.Nothing,
+      displayName = Lude.Nothing,
+      description = Lude.Nothing,
+      appstreamAgentVersion = Lude.Nothing,
+      applications = Lude.Nothing,
+      name = pName_
     }
 
 -- | The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
-iState :: Lens' Image (Maybe ImageState)
-iState = lens _iState (\s a -> s {_iState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iState :: Lens.Lens' Image (Lude.Maybe ImageState)
+iState = Lens.lens (state :: Image -> Lude.Maybe ImageState) (\s a -> s {state = a} :: Image)
+{-# DEPRECATED iState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The permissions to provide to the destination AWS account for the specified image.
-iImagePermissions :: Lens' Image (Maybe ImagePermissions)
-iImagePermissions = lens _iImagePermissions (\s a -> s {_iImagePermissions = a})
+--
+-- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImagePermissions :: Lens.Lens' Image (Lude.Maybe ImagePermissions)
+iImagePermissions = Lens.lens (imagePermissions :: Image -> Lude.Maybe ImagePermissions) (\s a -> s {imagePermissions = a} :: Image)
+{-# DEPRECATED iImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
 
 -- | The operating system platform of the image.
-iPlatform :: Lens' Image (Maybe PlatformType)
-iPlatform = lens _iPlatform (\s a -> s {_iPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPlatform :: Lens.Lens' Image (Lude.Maybe PlatformType)
+iPlatform = Lens.lens (platform :: Image -> Lude.Maybe PlatformType) (\s a -> s {platform = a} :: Image)
+{-# DEPRECATED iPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
-iPublicBaseImageReleasedDate :: Lens' Image (Maybe UTCTime)
-iPublicBaseImageReleasedDate = lens _iPublicBaseImageReleasedDate (\s a -> s {_iPublicBaseImageReleasedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'publicBaseImageReleasedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicBaseImageReleasedDate :: Lens.Lens' Image (Lude.Maybe Lude.Timestamp)
+iPublicBaseImageReleasedDate = Lens.lens (publicBaseImageReleasedDate :: Image -> Lude.Maybe Lude.Timestamp) (\s a -> s {publicBaseImageReleasedDate = a} :: Image)
+{-# DEPRECATED iPublicBaseImageReleasedDate "Use generic-lens or generic-optics with 'publicBaseImageReleasedDate' instead." #-}
 
 -- | The reason why the last state change occurred.
-iStateChangeReason :: Lens' Image (Maybe ImageStateChangeReason)
-iStateChangeReason = lens _iStateChangeReason (\s a -> s {_iStateChangeReason = a})
+--
+-- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStateChangeReason :: Lens.Lens' Image (Lude.Maybe ImageStateChangeReason)
+iStateChangeReason = Lens.lens (stateChangeReason :: Image -> Lude.Maybe ImageStateChangeReason) (\s a -> s {stateChangeReason = a} :: Image)
+{-# DEPRECATED iStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The ARN of the image.
-iARN :: Lens' Image (Maybe Text)
-iARN = lens _iARN (\s a -> s {_iARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iARN :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iARN = Lens.lens (arn :: Image -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Image)
+{-# DEPRECATED iARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time the image was created.
-iCreatedTime :: Lens' Image (Maybe UTCTime)
-iCreatedTime = lens _iCreatedTime (\s a -> s {_iCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCreatedTime :: Lens.Lens' Image (Lude.Maybe Lude.Timestamp)
+iCreatedTime = Lens.lens (createdTime :: Image -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: Image)
+{-# DEPRECATED iCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Indicates whether an image builder can be launched from this image.
-iImageBuilderSupported :: Lens' Image (Maybe Bool)
-iImageBuilderSupported = lens _iImageBuilderSupported (\s a -> s {_iImageBuilderSupported = a})
+--
+-- /Note:/ Consider using 'imageBuilderSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageBuilderSupported :: Lens.Lens' Image (Lude.Maybe Lude.Bool)
+iImageBuilderSupported = Lens.lens (imageBuilderSupported :: Image -> Lude.Maybe Lude.Bool) (\s a -> s {imageBuilderSupported = a} :: Image)
+{-# DEPRECATED iImageBuilderSupported "Use generic-lens or generic-optics with 'imageBuilderSupported' instead." #-}
 
 -- | Indicates whether the image is public or private.
-iVisibility :: Lens' Image (Maybe VisibilityType)
-iVisibility = lens _iVisibility (\s a -> s {_iVisibility = a})
+--
+-- /Note:/ Consider using 'visibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iVisibility :: Lens.Lens' Image (Lude.Maybe VisibilityType)
+iVisibility = Lens.lens (visibility :: Image -> Lude.Maybe VisibilityType) (\s a -> s {visibility = a} :: Image)
+{-# DEPRECATED iVisibility "Use generic-lens or generic-optics with 'visibility' instead." #-}
 
 -- | The name of the image builder that was used to create the private image. If the image is shared, this value is null.
-iImageBuilderName :: Lens' Image (Maybe Text)
-iImageBuilderName = lens _iImageBuilderName (\s a -> s {_iImageBuilderName = a})
+--
+-- /Note:/ Consider using 'imageBuilderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageBuilderName :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iImageBuilderName = Lens.lens (imageBuilderName :: Image -> Lude.Maybe Lude.Text) (\s a -> s {imageBuilderName = a} :: Image)
+{-# DEPRECATED iImageBuilderName "Use generic-lens or generic-optics with 'imageBuilderName' instead." #-}
 
 -- | The ARN of the image from which this image was created.
-iBaseImageARN :: Lens' Image (Maybe Text)
-iBaseImageARN = lens _iBaseImageARN (\s a -> s {_iBaseImageARN = a})
+--
+-- /Note:/ Consider using 'baseImageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iBaseImageARN :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iBaseImageARN = Lens.lens (baseImageARN :: Image -> Lude.Maybe Lude.Text) (\s a -> s {baseImageARN = a} :: Image)
+{-# DEPRECATED iBaseImageARN "Use generic-lens or generic-optics with 'baseImageARN' instead." #-}
 
 -- | The image name to display.
-iDisplayName :: Lens' Image (Maybe Text)
-iDisplayName = lens _iDisplayName (\s a -> s {_iDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iDisplayName :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iDisplayName = Lens.lens (displayName :: Image -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Image)
+{-# DEPRECATED iDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The description to display.
-iDescription :: Lens' Image (Maybe Text)
-iDescription = lens _iDescription (\s a -> s {_iDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iDescription :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iDescription = Lens.lens (description :: Image -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Image)
+{-# DEPRECATED iDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The version of the AppStream 2.0 agent to use for instances that are launched from this image.
-iAppstreamAgentVersion :: Lens' Image (Maybe Text)
-iAppstreamAgentVersion = lens _iAppstreamAgentVersion (\s a -> s {_iAppstreamAgentVersion = a})
+--
+-- /Note:/ Consider using 'appstreamAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAppstreamAgentVersion :: Lens.Lens' Image (Lude.Maybe Lude.Text)
+iAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: Image -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: Image)
+{-# DEPRECATED iAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
 -- | The applications associated with the image.
-iApplications :: Lens' Image [Application]
-iApplications = lens _iApplications (\s a -> s {_iApplications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iApplications :: Lens.Lens' Image (Lude.Maybe [Application])
+iApplications = Lens.lens (applications :: Image -> Lude.Maybe [Application]) (\s a -> s {applications = a} :: Image)
+{-# DEPRECATED iApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
 
 -- | The name of the image.
-iName :: Lens' Image Text
-iName = lens _iName (\s a -> s {_iName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iName :: Lens.Lens' Image Lude.Text
+iName = Lens.lens (name :: Image -> Lude.Text) (\s a -> s {name = a} :: Image)
+{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Image where
+instance Lude.FromJSON Image where
   parseJSON =
-    withObject
+    Lude.withObject
       "Image"
       ( \x ->
           Image'
-            <$> (x .:? "State")
-            <*> (x .:? "ImagePermissions")
-            <*> (x .:? "Platform")
-            <*> (x .:? "PublicBaseImageReleasedDate")
-            <*> (x .:? "StateChangeReason")
-            <*> (x .:? "Arn")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "ImageBuilderSupported")
-            <*> (x .:? "Visibility")
-            <*> (x .:? "ImageBuilderName")
-            <*> (x .:? "BaseImageArn")
-            <*> (x .:? "DisplayName")
-            <*> (x .:? "Description")
-            <*> (x .:? "AppstreamAgentVersion")
-            <*> (x .:? "Applications" .!= mempty)
-            <*> (x .: "Name")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "ImagePermissions")
+            Lude.<*> (x Lude..:? "Platform")
+            Lude.<*> (x Lude..:? "PublicBaseImageReleasedDate")
+            Lude.<*> (x Lude..:? "StateChangeReason")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "ImageBuilderSupported")
+            Lude.<*> (x Lude..:? "Visibility")
+            Lude.<*> (x Lude..:? "ImageBuilderName")
+            Lude.<*> (x Lude..:? "BaseImageArn")
+            Lude.<*> (x Lude..:? "DisplayName")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "AppstreamAgentVersion")
+            Lude.<*> (x Lude..:? "Applications" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable Image
-
-instance NFData Image

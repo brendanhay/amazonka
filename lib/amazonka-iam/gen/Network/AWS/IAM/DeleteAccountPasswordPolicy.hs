@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,65 +14,74 @@
 --
 -- Deletes the password policy for the AWS account. There are no parameters.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
-  ( -- * Creating a Request
-    deleteAccountPasswordPolicy,
-    DeleteAccountPasswordPolicy,
+  ( -- * Creating a request
+    DeleteAccountPasswordPolicy (..),
+    mkDeleteAccountPasswordPolicy,
 
-    -- * Destructuring the Response
-    deleteAccountPasswordPolicyResponse,
-    DeleteAccountPasswordPolicyResponse,
+    -- * Destructuring the response
+    DeleteAccountPasswordPolicyResponse (..),
+    mkDeleteAccountPasswordPolicyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
+-- | /See:/ 'mkDeleteAccountPasswordPolicy' smart constructor.
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
-deleteAccountPasswordPolicy ::
+mkDeleteAccountPasswordPolicy ::
   DeleteAccountPasswordPolicy
-deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
+mkDeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
 
-instance AWSRequest DeleteAccountPasswordPolicy where
+instance Lude.AWSRequest DeleteAccountPasswordPolicy where
   type
     Rs DeleteAccountPasswordPolicy =
       DeleteAccountPasswordPolicyResponse
-  request = postQuery iam
-  response = receiveNull DeleteAccountPasswordPolicyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteAccountPasswordPolicyResponse'
 
-instance Hashable DeleteAccountPasswordPolicy
+instance Lude.ToHeaders DeleteAccountPasswordPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAccountPasswordPolicy
+instance Lude.ToPath DeleteAccountPasswordPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteAccountPasswordPolicy where
-  toHeaders = const mempty
-
-instance ToPath DeleteAccountPasswordPolicy where
-  toPath = const "/"
-
-instance ToQuery DeleteAccountPasswordPolicy where
+instance Lude.ToQuery DeleteAccountPasswordPolicy where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DeleteAccountPasswordPolicy" :: ByteString),
-            "Version" =: ("2010-05-08" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("DeleteAccountPasswordPolicy" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteAccountPasswordPolicyResponse' smart constructor.
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
-deleteAccountPasswordPolicyResponse ::
+mkDeleteAccountPasswordPolicyResponse ::
   DeleteAccountPasswordPolicyResponse
-deleteAccountPasswordPolicyResponse =
+mkDeleteAccountPasswordPolicyResponse =
   DeleteAccountPasswordPolicyResponse'
-
-instance NFData DeleteAccountPasswordPolicyResponse

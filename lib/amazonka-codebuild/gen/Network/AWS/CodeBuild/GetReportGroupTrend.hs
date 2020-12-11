@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Undocumented operation.
 module Network.AWS.CodeBuild.GetReportGroupTrend
-  ( -- * Creating a Request
-    getReportGroupTrend,
-    GetReportGroupTrend,
+  ( -- * Creating a request
+    GetReportGroupTrend (..),
+    mkGetReportGroupTrend,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grgtNumOfReports,
     grgtReportGroupARN,
     grgtTrendField,
 
-    -- * Destructuring the Response
-    getReportGroupTrendResponse,
-    GetReportGroupTrendResponse,
+    -- * Destructuring the response
+    GetReportGroupTrendResponse (..),
+    mkGetReportGroupTrendResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grgtrsRawData,
     grgtrsStats,
     grgtrsResponseStatus,
@@ -40,136 +35,155 @@ module Network.AWS.CodeBuild.GetReportGroupTrend
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getReportGroupTrend' smart constructor.
+-- | /See:/ 'mkGetReportGroupTrend' smart constructor.
 data GetReportGroupTrend = GetReportGroupTrend'
-  { _grgtNumOfReports ::
-      !(Maybe Nat),
-    _grgtReportGroupARN :: !Text,
-    _grgtTrendField :: !ReportGroupTrendFieldType
+  { numOfReports ::
+      Lude.Maybe Lude.Natural,
+    reportGroupARN :: Lude.Text,
+    trendField :: ReportGroupTrendFieldType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReportGroupTrend' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grgtNumOfReports' - Undocumented member.
---
--- * 'grgtReportGroupARN' - Undocumented member.
---
--- * 'grgtTrendField' - Undocumented member.
-getReportGroupTrend ::
-  -- | 'grgtReportGroupARN'
-  Text ->
-  -- | 'grgtTrendField'
+-- * 'numOfReports' - Undocumented field.
+-- * 'reportGroupARN' - Undocumented field.
+-- * 'trendField' - Undocumented field.
+mkGetReportGroupTrend ::
+  -- | 'reportGroupARN'
+  Lude.Text ->
+  -- | 'trendField'
   ReportGroupTrendFieldType ->
   GetReportGroupTrend
-getReportGroupTrend pReportGroupARN_ pTrendField_ =
+mkGetReportGroupTrend pReportGroupARN_ pTrendField_ =
   GetReportGroupTrend'
-    { _grgtNumOfReports = Nothing,
-      _grgtReportGroupARN = pReportGroupARN_,
-      _grgtTrendField = pTrendField_
+    { numOfReports = Lude.Nothing,
+      reportGroupARN = pReportGroupARN_,
+      trendField = pTrendField_
     }
 
--- | Undocumented member.
-grgtNumOfReports :: Lens' GetReportGroupTrend (Maybe Natural)
-grgtNumOfReports = lens _grgtNumOfReports (\s a -> s {_grgtNumOfReports = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'numOfReports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtNumOfReports :: Lens.Lens' GetReportGroupTrend (Lude.Maybe Lude.Natural)
+grgtNumOfReports = Lens.lens (numOfReports :: GetReportGroupTrend -> Lude.Maybe Lude.Natural) (\s a -> s {numOfReports = a} :: GetReportGroupTrend)
+{-# DEPRECATED grgtNumOfReports "Use generic-lens or generic-optics with 'numOfReports' instead." #-}
 
--- | Undocumented member.
-grgtReportGroupARN :: Lens' GetReportGroupTrend Text
-grgtReportGroupARN = lens _grgtReportGroupARN (\s a -> s {_grgtReportGroupARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reportGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtReportGroupARN :: Lens.Lens' GetReportGroupTrend Lude.Text
+grgtReportGroupARN = Lens.lens (reportGroupARN :: GetReportGroupTrend -> Lude.Text) (\s a -> s {reportGroupARN = a} :: GetReportGroupTrend)
+{-# DEPRECATED grgtReportGroupARN "Use generic-lens or generic-optics with 'reportGroupARN' instead." #-}
 
--- | Undocumented member.
-grgtTrendField :: Lens' GetReportGroupTrend ReportGroupTrendFieldType
-grgtTrendField = lens _grgtTrendField (\s a -> s {_grgtTrendField = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'trendField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtTrendField :: Lens.Lens' GetReportGroupTrend ReportGroupTrendFieldType
+grgtTrendField = Lens.lens (trendField :: GetReportGroupTrend -> ReportGroupTrendFieldType) (\s a -> s {trendField = a} :: GetReportGroupTrend)
+{-# DEPRECATED grgtTrendField "Use generic-lens or generic-optics with 'trendField' instead." #-}
 
-instance AWSRequest GetReportGroupTrend where
+instance Lude.AWSRequest GetReportGroupTrend where
   type Rs GetReportGroupTrend = GetReportGroupTrendResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetReportGroupTrendResponse'
-            <$> (x .?> "rawData" .!@ mempty)
-            <*> (x .?> "stats")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "rawData" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "stats")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetReportGroupTrend
-
-instance NFData GetReportGroupTrend
-
-instance ToHeaders GetReportGroupTrend where
+instance Lude.ToHeaders GetReportGroupTrend where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.GetReportGroupTrend" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.GetReportGroupTrend" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetReportGroupTrend where
+instance Lude.ToJSON GetReportGroupTrend where
   toJSON GetReportGroupTrend' {..} =
-    object
-      ( catMaybes
-          [ ("numOfReports" .=) <$> _grgtNumOfReports,
-            Just ("reportGroupArn" .= _grgtReportGroupARN),
-            Just ("trendField" .= _grgtTrendField)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("numOfReports" Lude..=) Lude.<$> numOfReports,
+            Lude.Just ("reportGroupArn" Lude..= reportGroupARN),
+            Lude.Just ("trendField" Lude..= trendField)
           ]
       )
 
-instance ToPath GetReportGroupTrend where
-  toPath = const "/"
+instance Lude.ToPath GetReportGroupTrend where
+  toPath = Lude.const "/"
 
-instance ToQuery GetReportGroupTrend where
-  toQuery = const mempty
+instance Lude.ToQuery GetReportGroupTrend where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getReportGroupTrendResponse' smart constructor.
+-- | /See:/ 'mkGetReportGroupTrendResponse' smart constructor.
 data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
-  { _grgtrsRawData ::
-      !(Maybe [ReportWithRawData]),
-    _grgtrsStats ::
-      !(Maybe ReportGroupTrendStats),
-    _grgtrsResponseStatus :: !Int
+  { rawData ::
+      Lude.Maybe [ReportWithRawData],
+    stats ::
+      Lude.Maybe ReportGroupTrendStats,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReportGroupTrendResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grgtrsRawData' - Undocumented member.
---
--- * 'grgtrsStats' - Undocumented member.
---
--- * 'grgtrsResponseStatus' - -- | The response status code.
-getReportGroupTrendResponse ::
-  -- | 'grgtrsResponseStatus'
-  Int ->
+-- * 'rawData' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'stats' - Undocumented field.
+mkGetReportGroupTrendResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetReportGroupTrendResponse
-getReportGroupTrendResponse pResponseStatus_ =
+mkGetReportGroupTrendResponse pResponseStatus_ =
   GetReportGroupTrendResponse'
-    { _grgtrsRawData = Nothing,
-      _grgtrsStats = Nothing,
-      _grgtrsResponseStatus = pResponseStatus_
+    { rawData = Lude.Nothing,
+      stats = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-grgtrsRawData :: Lens' GetReportGroupTrendResponse [ReportWithRawData]
-grgtrsRawData = lens _grgtrsRawData (\s a -> s {_grgtrsRawData = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rawData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtrsRawData :: Lens.Lens' GetReportGroupTrendResponse (Lude.Maybe [ReportWithRawData])
+grgtrsRawData = Lens.lens (rawData :: GetReportGroupTrendResponse -> Lude.Maybe [ReportWithRawData]) (\s a -> s {rawData = a} :: GetReportGroupTrendResponse)
+{-# DEPRECATED grgtrsRawData "Use generic-lens or generic-optics with 'rawData' instead." #-}
 
--- | Undocumented member.
-grgtrsStats :: Lens' GetReportGroupTrendResponse (Maybe ReportGroupTrendStats)
-grgtrsStats = lens _grgtrsStats (\s a -> s {_grgtrsStats = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'stats' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtrsStats :: Lens.Lens' GetReportGroupTrendResponse (Lude.Maybe ReportGroupTrendStats)
+grgtrsStats = Lens.lens (stats :: GetReportGroupTrendResponse -> Lude.Maybe ReportGroupTrendStats) (\s a -> s {stats = a} :: GetReportGroupTrendResponse)
+{-# DEPRECATED grgtrsStats "Use generic-lens or generic-optics with 'stats' instead." #-}
 
--- | -- | The response status code.
-grgtrsResponseStatus :: Lens' GetReportGroupTrendResponse Int
-grgtrsResponseStatus = lens _grgtrsResponseStatus (\s a -> s {_grgtrsResponseStatus = a})
-
-instance NFData GetReportGroupTrendResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtrsResponseStatus :: Lens.Lens' GetReportGroupTrendResponse Lude.Int
+grgtrsResponseStatus = Lens.lens (responseStatus :: GetReportGroupTrendResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReportGroupTrendResponse)
+{-# DEPRECATED grgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

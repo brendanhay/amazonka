@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,163 @@
 --
 -- Describes the results of specified commands.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeCommands
-  ( -- * Creating a Request
-    describeCommands,
-    DescribeCommands,
+  ( -- * Creating a request
+    DescribeCommands (..),
+    mkDescribeCommands,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcDeploymentId,
     dcInstanceId,
     dcCommandIds,
 
-    -- * Destructuring the Response
-    describeCommandsResponse,
-    DescribeCommandsResponse,
+    -- * Destructuring the response
+    DescribeCommandsResponse (..),
+    mkDescribeCommandsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsCommands,
     dcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCommands' smart constructor.
+-- | /See:/ 'mkDescribeCommands' smart constructor.
 data DescribeCommands = DescribeCommands'
-  { _dcDeploymentId ::
-      !(Maybe Text),
-    _dcInstanceId :: !(Maybe Text),
-    _dcCommandIds :: !(Maybe [Text])
+  { deploymentId ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    commandIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommands' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcDeploymentId' - The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
---
--- * 'dcInstanceId' - The instance ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified instance.
---
--- * 'dcCommandIds' - An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
-describeCommands ::
+-- * 'commandIds' - An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
+-- * 'deploymentId' - The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
+-- * 'instanceId' - The instance ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified instance.
+mkDescribeCommands ::
   DescribeCommands
-describeCommands =
+mkDescribeCommands =
   DescribeCommands'
-    { _dcDeploymentId = Nothing,
-      _dcInstanceId = Nothing,
-      _dcCommandIds = Nothing
+    { deploymentId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      commandIds = Lude.Nothing
     }
 
 -- | The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
-dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
-dcDeploymentId = lens _dcDeploymentId (\s a -> s {_dcDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDeploymentId :: Lens.Lens' DescribeCommands (Lude.Maybe Lude.Text)
+dcDeploymentId = Lens.lens (deploymentId :: DescribeCommands -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: DescribeCommands)
+{-# DEPRECATED dcDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified instance.
-dcInstanceId :: Lens' DescribeCommands (Maybe Text)
-dcInstanceId = lens _dcInstanceId (\s a -> s {_dcInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcInstanceId :: Lens.Lens' DescribeCommands (Lude.Maybe Lude.Text)
+dcInstanceId = Lens.lens (instanceId :: DescribeCommands -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DescribeCommands)
+{-# DEPRECATED dcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
-dcCommandIds :: Lens' DescribeCommands [Text]
-dcCommandIds = lens _dcCommandIds (\s a -> s {_dcCommandIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'commandIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCommandIds :: Lens.Lens' DescribeCommands (Lude.Maybe [Lude.Text])
+dcCommandIds = Lens.lens (commandIds :: DescribeCommands -> Lude.Maybe [Lude.Text]) (\s a -> s {commandIds = a} :: DescribeCommands)
+{-# DEPRECATED dcCommandIds "Use generic-lens or generic-optics with 'commandIds' instead." #-}
 
-instance AWSRequest DescribeCommands where
+instance Lude.AWSRequest DescribeCommands where
   type Rs DescribeCommands = DescribeCommandsResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCommandsResponse'
-            <$> (x .?> "Commands" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Commands" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCommands
-
-instance NFData DescribeCommands
-
-instance ToHeaders DescribeCommands where
+instance Lude.ToHeaders DescribeCommands where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeCommands" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeCommands" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCommands where
+instance Lude.ToJSON DescribeCommands where
   toJSON DescribeCommands' {..} =
-    object
-      ( catMaybes
-          [ ("DeploymentId" .=) <$> _dcDeploymentId,
-            ("InstanceId" .=) <$> _dcInstanceId,
-            ("CommandIds" .=) <$> _dcCommandIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeploymentId" Lude..=) Lude.<$> deploymentId,
+            ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("CommandIds" Lude..=) Lude.<$> commandIds
           ]
       )
 
-instance ToPath DescribeCommands where
-  toPath = const "/"
+instance Lude.ToPath DescribeCommands where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCommands where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCommands where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeCommands@ request.
 --
---
---
--- /See:/ 'describeCommandsResponse' smart constructor.
+-- /See:/ 'mkDescribeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-  { _dcrsCommands ::
-      !(Maybe [Command]),
-    _dcrsResponseStatus :: !Int
+  { commands ::
+      Lude.Maybe [Command],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsCommands' - An array of @Command@ objects that describe each of the specified commands.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeCommandsResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'commands' - An array of @Command@ objects that describe each of the specified commands.
+-- * 'responseStatus' - The response status code.
+mkDescribeCommandsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCommandsResponse
-describeCommandsResponse pResponseStatus_ =
+mkDescribeCommandsResponse pResponseStatus_ =
   DescribeCommandsResponse'
-    { _dcrsCommands = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { commands = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @Command@ objects that describe each of the specified commands.
-dcrsCommands :: Lens' DescribeCommandsResponse [Command]
-dcrsCommands = lens _dcrsCommands (\s a -> s {_dcrsCommands = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'commands' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCommands :: Lens.Lens' DescribeCommandsResponse (Lude.Maybe [Command])
+dcrsCommands = Lens.lens (commands :: DescribeCommandsResponse -> Lude.Maybe [Command]) (\s a -> s {commands = a} :: DescribeCommandsResponse)
+{-# DEPRECATED dcrsCommands "Use generic-lens or generic-optics with 'commands' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeCommandsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeCommandsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeCommandsResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeCommandsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCommandsResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

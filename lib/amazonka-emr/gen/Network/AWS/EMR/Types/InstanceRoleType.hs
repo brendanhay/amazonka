@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceRoleType where
+module Network.AWS.EMR.Types.InstanceRoleType
+  ( InstanceRoleType
+      ( InstanceRoleType',
+        IRTCore,
+        IRTMaster,
+        IRTTask
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceRoleType
-  = IRTCore
-  | IRTMaster
-  | IRTTask
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceRoleType = InstanceRoleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceRoleType where
-  parser =
-    takeLowerText >>= \case
-      "core" -> pure IRTCore
-      "master" -> pure IRTMaster
-      "task" -> pure IRTTask
-      e ->
-        fromTextError $
-          "Failure parsing InstanceRoleType from value: '" <> e
-            <> "'. Accepted values: core, master, task"
+pattern IRTCore :: InstanceRoleType
+pattern IRTCore = InstanceRoleType' "CORE"
 
-instance ToText InstanceRoleType where
-  toText = \case
-    IRTCore -> "CORE"
-    IRTMaster -> "MASTER"
-    IRTTask -> "TASK"
+pattern IRTMaster :: InstanceRoleType
+pattern IRTMaster = InstanceRoleType' "MASTER"
 
-instance Hashable InstanceRoleType
+pattern IRTTask :: InstanceRoleType
+pattern IRTTask = InstanceRoleType' "TASK"
 
-instance NFData InstanceRoleType
-
-instance ToByteString InstanceRoleType
-
-instance ToQuery InstanceRoleType
-
-instance ToHeader InstanceRoleType
-
-instance ToJSON InstanceRoleType where
-  toJSON = toJSONText
-
-instance FromJSON InstanceRoleType where
-  parseJSON = parseJSONText "InstanceRoleType"
+{-# COMPLETE
+  IRTCore,
+  IRTMaster,
+  IRTTask,
+  InstanceRoleType'
+  #-}

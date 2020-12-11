@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsOfflineEncrypted where
+module Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
+  ( HlsOfflineEncrypted
+      ( HlsOfflineEncrypted',
+        HOEDisabled,
+        HOEEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
-data HlsOfflineEncrypted
-  = HOEDisabled
-  | HOEEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsOfflineEncrypted = HlsOfflineEncrypted' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsOfflineEncrypted where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HOEDisabled
-      "enabled" -> pure HOEEnabled
-      e ->
-        fromTextError $
-          "Failure parsing HlsOfflineEncrypted from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HOEDisabled :: HlsOfflineEncrypted
+pattern HOEDisabled = HlsOfflineEncrypted' "DISABLED"
 
-instance ToText HlsOfflineEncrypted where
-  toText = \case
-    HOEDisabled -> "DISABLED"
-    HOEEnabled -> "ENABLED"
+pattern HOEEnabled :: HlsOfflineEncrypted
+pattern HOEEnabled = HlsOfflineEncrypted' "ENABLED"
 
-instance Hashable HlsOfflineEncrypted
-
-instance NFData HlsOfflineEncrypted
-
-instance ToByteString HlsOfflineEncrypted
-
-instance ToQuery HlsOfflineEncrypted
-
-instance ToHeader HlsOfflineEncrypted
-
-instance ToJSON HlsOfflineEncrypted where
-  toJSON = toJSONText
-
-instance FromJSON HlsOfflineEncrypted where
-  parseJSON = parseJSONText "HlsOfflineEncrypted"
+{-# COMPLETE
+  HOEDisabled,
+  HOEEnabled,
+  HlsOfflineEncrypted'
+  #-}

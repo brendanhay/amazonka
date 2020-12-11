@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.Media where
+module Network.AWS.Transcribe.Types.Media
+  ( Media (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMedia,
+
+    -- * Lenses
+    mMediaFileURI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the input media file in a transcription request.
 --
---
---
--- /See:/ 'media' smart constructor.
-newtype Media = Media' {_mMediaFileURI :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMedia' smart constructor.
+newtype Media = Media' {mediaFileURI :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Media' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'mediaFileURI' - The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:
 --
--- * 'mMediaFileURI' - The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: For example: For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
-media ::
+-- For example:
+-- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+mkMedia ::
   Media
-media = Media' {_mMediaFileURI = Nothing}
+mkMedia = Media' {mediaFileURI = Lude.Nothing}
 
--- | The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: For example: For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
-mMediaFileURI :: Lens' Media (Maybe Text)
-mMediaFileURI = lens _mMediaFileURI (\s a -> s {_mMediaFileURI = a})
+-- | The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:
+--
+-- For example:
+-- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+--
+-- /Note:/ Consider using 'mediaFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMediaFileURI :: Lens.Lens' Media (Lude.Maybe Lude.Text)
+mMediaFileURI = Lens.lens (mediaFileURI :: Media -> Lude.Maybe Lude.Text) (\s a -> s {mediaFileURI = a} :: Media)
+{-# DEPRECATED mMediaFileURI "Use generic-lens or generic-optics with 'mediaFileURI' instead." #-}
 
-instance FromJSON Media where
+instance Lude.FromJSON Media where
   parseJSON =
-    withObject "Media" (\x -> Media' <$> (x .:? "MediaFileUri"))
+    Lude.withObject
+      "Media"
+      (\x -> Media' Lude.<$> (x Lude..:? "MediaFileUri"))
 
-instance Hashable Media
-
-instance NFData Media
-
-instance ToJSON Media where
+instance Lude.ToJSON Media where
   toJSON Media' {..} =
-    object (catMaybes [("MediaFileUri" .=) <$> _mMediaFileURI])
+    Lude.object
+      (Lude.catMaybes [("MediaFileUri" Lude..=) Lude.<$> mediaFileURI])

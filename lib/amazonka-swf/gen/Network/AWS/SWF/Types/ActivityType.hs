@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ActivityType where
+module Network.AWS.SWF.Types.ActivityType
+  ( ActivityType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivityType,
+
+    -- * Lenses
+    atName,
+    atVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an activity type.
 --
---
---
--- /See:/ 'activityType' smart constructor.
+-- /See:/ 'mkActivityType' smart constructor.
 data ActivityType = ActivityType'
-  { _atName :: !Text,
-    _atVersion :: !Text
+  { name :: Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atName' - The name of this activity.
---
--- * 'atVersion' - The version of this activity.
-activityType ::
-  -- | 'atName'
-  Text ->
-  -- | 'atVersion'
-  Text ->
+-- * 'name' - The name of this activity.
+-- * 'version' - The version of this activity.
+mkActivityType ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   ActivityType
-activityType pName_ pVersion_ =
-  ActivityType' {_atName = pName_, _atVersion = pVersion_}
+mkActivityType pName_ pVersion_ =
+  ActivityType' {name = pName_, version = pVersion_}
 
 -- | The name of this activity.
-atName :: Lens' ActivityType Text
-atName = lens _atName (\s a -> s {_atName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atName :: Lens.Lens' ActivityType Lude.Text
+atName = Lens.lens (name :: ActivityType -> Lude.Text) (\s a -> s {name = a} :: ActivityType)
+{-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of this activity.
-atVersion :: Lens' ActivityType Text
-atVersion = lens _atVersion (\s a -> s {_atVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atVersion :: Lens.Lens' ActivityType Lude.Text
+atVersion = Lens.lens (version :: ActivityType -> Lude.Text) (\s a -> s {version = a} :: ActivityType)
+{-# DEPRECATED atVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromJSON ActivityType where
+instance Lude.FromJSON ActivityType where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActivityType"
-      (\x -> ActivityType' <$> (x .: "name") <*> (x .: "version"))
+      ( \x ->
+          ActivityType'
+            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "version")
+      )
 
-instance Hashable ActivityType
-
-instance NFData ActivityType
-
-instance ToJSON ActivityType where
+instance Lude.ToJSON ActivityType where
   toJSON ActivityType' {..} =
-    object
-      ( catMaybes
-          [Just ("name" .= _atName), Just ("version" .= _atVersion)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("version" Lude..= version)
+          ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns a list of resource metadata for a given list of trigger names. After calling the @ListTriggers@ operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
 module Network.AWS.Glue.BatchGetTriggers
-  ( -- * Creating a Request
-    batchGetTriggers,
-    BatchGetTriggers,
+  ( -- * Creating a request
+    BatchGetTriggers (..),
+    mkBatchGetTriggers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgtTriggerNames,
 
-    -- * Destructuring the Response
-    batchGetTriggersResponse,
-    BatchGetTriggersResponse,
+    -- * Destructuring the response
+    BatchGetTriggersResponse (..),
+    mkBatchGetTriggersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgtrsTriggersNotFound,
     bgtrsTriggers,
     bgtrsResponseStatus,
@@ -38,105 +33,122 @@ module Network.AWS.Glue.BatchGetTriggers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetTriggers' smart constructor.
+-- | /See:/ 'mkBatchGetTriggers' smart constructor.
 newtype BatchGetTriggers = BatchGetTriggers'
-  { _bgtTriggerNames ::
-      [Text]
+  { triggerNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetTriggers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgtTriggerNames' - A list of trigger names, which may be the names returned from the @ListTriggers@ operation.
-batchGetTriggers ::
+-- * 'triggerNames' - A list of trigger names, which may be the names returned from the @ListTriggers@ operation.
+mkBatchGetTriggers ::
   BatchGetTriggers
-batchGetTriggers = BatchGetTriggers' {_bgtTriggerNames = mempty}
+mkBatchGetTriggers = BatchGetTriggers' {triggerNames = Lude.mempty}
 
 -- | A list of trigger names, which may be the names returned from the @ListTriggers@ operation.
-bgtTriggerNames :: Lens' BatchGetTriggers [Text]
-bgtTriggerNames = lens _bgtTriggerNames (\s a -> s {_bgtTriggerNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'triggerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtTriggerNames :: Lens.Lens' BatchGetTriggers [Lude.Text]
+bgtTriggerNames = Lens.lens (triggerNames :: BatchGetTriggers -> [Lude.Text]) (\s a -> s {triggerNames = a} :: BatchGetTriggers)
+{-# DEPRECATED bgtTriggerNames "Use generic-lens or generic-optics with 'triggerNames' instead." #-}
 
-instance AWSRequest BatchGetTriggers where
+instance Lude.AWSRequest BatchGetTriggers where
   type Rs BatchGetTriggers = BatchGetTriggersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetTriggersResponse'
-            <$> (x .?> "TriggersNotFound" .!@ mempty)
-            <*> (x .?> "Triggers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TriggersNotFound" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Triggers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetTriggers
-
-instance NFData BatchGetTriggers
-
-instance ToHeaders BatchGetTriggers where
+instance Lude.ToHeaders BatchGetTriggers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.BatchGetTriggers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.BatchGetTriggers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetTriggers where
+instance Lude.ToJSON BatchGetTriggers where
   toJSON BatchGetTriggers' {..} =
-    object (catMaybes [Just ("TriggerNames" .= _bgtTriggerNames)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TriggerNames" Lude..= triggerNames)])
 
-instance ToPath BatchGetTriggers where
-  toPath = const "/"
+instance Lude.ToPath BatchGetTriggers where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetTriggers where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetTriggers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetTriggersResponse' smart constructor.
+-- | /See:/ 'mkBatchGetTriggersResponse' smart constructor.
 data BatchGetTriggersResponse = BatchGetTriggersResponse'
-  { _bgtrsTriggersNotFound ::
-      !(Maybe [Text]),
-    _bgtrsTriggers :: !(Maybe [Trigger]),
-    _bgtrsResponseStatus :: !Int
+  { triggersNotFound ::
+      Lude.Maybe [Lude.Text],
+    triggers :: Lude.Maybe [Trigger],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetTriggersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgtrsTriggersNotFound' - A list of names of triggers not found.
---
--- * 'bgtrsTriggers' - A list of trigger definitions.
---
--- * 'bgtrsResponseStatus' - -- | The response status code.
-batchGetTriggersResponse ::
-  -- | 'bgtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'triggers' - A list of trigger definitions.
+-- * 'triggersNotFound' - A list of names of triggers not found.
+mkBatchGetTriggersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetTriggersResponse
-batchGetTriggersResponse pResponseStatus_ =
+mkBatchGetTriggersResponse pResponseStatus_ =
   BatchGetTriggersResponse'
-    { _bgtrsTriggersNotFound = Nothing,
-      _bgtrsTriggers = Nothing,
-      _bgtrsResponseStatus = pResponseStatus_
+    { triggersNotFound = Lude.Nothing,
+      triggers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of names of triggers not found.
-bgtrsTriggersNotFound :: Lens' BatchGetTriggersResponse [Text]
-bgtrsTriggersNotFound = lens _bgtrsTriggersNotFound (\s a -> s {_bgtrsTriggersNotFound = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggersNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsTriggersNotFound :: Lens.Lens' BatchGetTriggersResponse (Lude.Maybe [Lude.Text])
+bgtrsTriggersNotFound = Lens.lens (triggersNotFound :: BatchGetTriggersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {triggersNotFound = a} :: BatchGetTriggersResponse)
+{-# DEPRECATED bgtrsTriggersNotFound "Use generic-lens or generic-optics with 'triggersNotFound' instead." #-}
 
 -- | A list of trigger definitions.
-bgtrsTriggers :: Lens' BatchGetTriggersResponse [Trigger]
-bgtrsTriggers = lens _bgtrsTriggers (\s a -> s {_bgtrsTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsTriggers :: Lens.Lens' BatchGetTriggersResponse (Lude.Maybe [Trigger])
+bgtrsTriggers = Lens.lens (triggers :: BatchGetTriggersResponse -> Lude.Maybe [Trigger]) (\s a -> s {triggers = a} :: BatchGetTriggersResponse)
+{-# DEPRECATED bgtrsTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
 
--- | -- | The response status code.
-bgtrsResponseStatus :: Lens' BatchGetTriggersResponse Int
-bgtrsResponseStatus = lens _bgtrsResponseStatus (\s a -> s {_bgtrsResponseStatus = a})
-
-instance NFData BatchGetTriggersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsResponseStatus :: Lens.Lens' BatchGetTriggersResponse Lude.Int
+bgtrsResponseStatus = Lens.lens (responseStatus :: BatchGetTriggersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetTriggersResponse)
+{-# DEPRECATED bgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

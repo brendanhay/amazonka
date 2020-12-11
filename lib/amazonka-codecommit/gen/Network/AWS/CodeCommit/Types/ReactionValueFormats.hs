@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ReactionValueFormats where
+module Network.AWS.CodeCommit.Types.ReactionValueFormats
+  ( ReactionValueFormats (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReactionValueFormats,
+
+    -- * Lenses
+    rvfEmoji,
+    rvfShortCode,
+    rvfUnicode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.
 --
---
---
--- /See:/ 'reactionValueFormats' smart constructor.
+-- /See:/ 'mkReactionValueFormats' smart constructor.
 data ReactionValueFormats = ReactionValueFormats'
-  { _rvfEmoji ::
-      !(Maybe Text),
-    _rvfShortCode :: !(Maybe Text),
-    _rvfUnicode :: !(Maybe Text)
+  { emoji ::
+      Lude.Maybe Lude.Text,
+    shortCode :: Lude.Maybe Lude.Text,
+    unicode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReactionValueFormats' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvfEmoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.
---
--- * 'rvfShortCode' - The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems.
---
--- * 'rvfUnicode' - The Unicode codepoint for the reaction.
-reactionValueFormats ::
+-- * 'emoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.
+-- * 'shortCode' - The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems.
+-- * 'unicode' - The Unicode codepoint for the reaction.
+mkReactionValueFormats ::
   ReactionValueFormats
-reactionValueFormats =
+mkReactionValueFormats =
   ReactionValueFormats'
-    { _rvfEmoji = Nothing,
-      _rvfShortCode = Nothing,
-      _rvfUnicode = Nothing
+    { emoji = Lude.Nothing,
+      shortCode = Lude.Nothing,
+      unicode = Lude.Nothing
     }
 
 -- | The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.
-rvfEmoji :: Lens' ReactionValueFormats (Maybe Text)
-rvfEmoji = lens _rvfEmoji (\s a -> s {_rvfEmoji = a})
+--
+-- /Note:/ Consider using 'emoji' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvfEmoji :: Lens.Lens' ReactionValueFormats (Lude.Maybe Lude.Text)
+rvfEmoji = Lens.lens (emoji :: ReactionValueFormats -> Lude.Maybe Lude.Text) (\s a -> s {emoji = a} :: ReactionValueFormats)
+{-# DEPRECATED rvfEmoji "Use generic-lens or generic-optics with 'emoji' instead." #-}
 
 -- | The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems.
-rvfShortCode :: Lens' ReactionValueFormats (Maybe Text)
-rvfShortCode = lens _rvfShortCode (\s a -> s {_rvfShortCode = a})
+--
+-- /Note:/ Consider using 'shortCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvfShortCode :: Lens.Lens' ReactionValueFormats (Lude.Maybe Lude.Text)
+rvfShortCode = Lens.lens (shortCode :: ReactionValueFormats -> Lude.Maybe Lude.Text) (\s a -> s {shortCode = a} :: ReactionValueFormats)
+{-# DEPRECATED rvfShortCode "Use generic-lens or generic-optics with 'shortCode' instead." #-}
 
 -- | The Unicode codepoint for the reaction.
-rvfUnicode :: Lens' ReactionValueFormats (Maybe Text)
-rvfUnicode = lens _rvfUnicode (\s a -> s {_rvfUnicode = a})
+--
+-- /Note:/ Consider using 'unicode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvfUnicode :: Lens.Lens' ReactionValueFormats (Lude.Maybe Lude.Text)
+rvfUnicode = Lens.lens (unicode :: ReactionValueFormats -> Lude.Maybe Lude.Text) (\s a -> s {unicode = a} :: ReactionValueFormats)
+{-# DEPRECATED rvfUnicode "Use generic-lens or generic-optics with 'unicode' instead." #-}
 
-instance FromJSON ReactionValueFormats where
+instance Lude.FromJSON ReactionValueFormats where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReactionValueFormats"
       ( \x ->
           ReactionValueFormats'
-            <$> (x .:? "emoji") <*> (x .:? "shortCode") <*> (x .:? "unicode")
+            Lude.<$> (x Lude..:? "emoji")
+            Lude.<*> (x Lude..:? "shortCode")
+            Lude.<*> (x Lude..:? "unicode")
       )
-
-instance Hashable ReactionValueFormats
-
-instance NFData ReactionValueFormats

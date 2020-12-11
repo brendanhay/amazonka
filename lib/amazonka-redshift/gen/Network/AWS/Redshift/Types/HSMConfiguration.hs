@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.HSMConfiguration where
+module Network.AWS.Redshift.Types.HSMConfiguration
+  ( HSMConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHSMConfiguration,
+
+    -- * Lenses
+    hcHSMConfigurationIdentifier,
+    hcHSMPartitionName,
+    hcDescription,
+    hcTags,
+    hcHSMIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
 -- | Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.
 --
---
---
--- /See:/ 'hsmConfiguration' smart constructor.
+-- /See:/ 'mkHSMConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
-  { _hcHSMConfigurationIdentifier ::
-      !(Maybe Text),
-    _hcHSMPartitionName :: !(Maybe Text),
-    _hcDescription :: !(Maybe Text),
-    _hcTags :: !(Maybe [Tag]),
-    _hcHSMIPAddress :: !(Maybe Text)
+  { hsmConfigurationIdentifier ::
+      Lude.Maybe Lude.Text,
+    hsmPartitionName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    hsmIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hcHSMConfigurationIdentifier' - The name of the Amazon Redshift HSM configuration.
---
--- * 'hcHSMPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
---
--- * 'hcDescription' - A text description of the HSM configuration.
---
--- * 'hcTags' - The list of tags for the HSM configuration.
---
--- * 'hcHSMIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
-hsmConfiguration ::
+-- * 'description' - A text description of the HSM configuration.
+-- * 'hsmConfigurationIdentifier' - The name of the Amazon Redshift HSM configuration.
+-- * 'hsmIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
+-- * 'hsmPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+-- * 'tags' - The list of tags for the HSM configuration.
+mkHSMConfiguration ::
   HSMConfiguration
-hsmConfiguration =
+mkHSMConfiguration =
   HSMConfiguration'
-    { _hcHSMConfigurationIdentifier = Nothing,
-      _hcHSMPartitionName = Nothing,
-      _hcDescription = Nothing,
-      _hcTags = Nothing,
-      _hcHSMIPAddress = Nothing
+    { hsmConfigurationIdentifier = Lude.Nothing,
+      hsmPartitionName = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      hsmIPAddress = Lude.Nothing
     }
 
 -- | The name of the Amazon Redshift HSM configuration.
-hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
-hcHSMConfigurationIdentifier = lens _hcHSMConfigurationIdentifier (\s a -> s {_hcHSMConfigurationIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmConfigurationIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcHSMConfigurationIdentifier :: Lens.Lens' HSMConfiguration (Lude.Maybe Lude.Text)
+hcHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: HSMConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: HSMConfiguration)
+{-# DEPRECATED hcHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-hcHSMPartitionName :: Lens' HSMConfiguration (Maybe Text)
-hcHSMPartitionName = lens _hcHSMPartitionName (\s a -> s {_hcHSMPartitionName = a})
+--
+-- /Note:/ Consider using 'hsmPartitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcHSMPartitionName :: Lens.Lens' HSMConfiguration (Lude.Maybe Lude.Text)
+hcHSMPartitionName = Lens.lens (hsmPartitionName :: HSMConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {hsmPartitionName = a} :: HSMConfiguration)
+{-# DEPRECATED hcHSMPartitionName "Use generic-lens or generic-optics with 'hsmPartitionName' instead." #-}
 
 -- | A text description of the HSM configuration.
-hcDescription :: Lens' HSMConfiguration (Maybe Text)
-hcDescription = lens _hcDescription (\s a -> s {_hcDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcDescription :: Lens.Lens' HSMConfiguration (Lude.Maybe Lude.Text)
+hcDescription = Lens.lens (description :: HSMConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: HSMConfiguration)
+{-# DEPRECATED hcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The list of tags for the HSM configuration.
-hcTags :: Lens' HSMConfiguration [Tag]
-hcTags = lens _hcTags (\s a -> s {_hcTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcTags :: Lens.Lens' HSMConfiguration (Lude.Maybe [Tag])
+hcTags = Lens.lens (tags :: HSMConfiguration -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: HSMConfiguration)
+{-# DEPRECATED hcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
-hcHSMIPAddress :: Lens' HSMConfiguration (Maybe Text)
-hcHSMIPAddress = lens _hcHSMIPAddress (\s a -> s {_hcHSMIPAddress = a})
+--
+-- /Note:/ Consider using 'hsmIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcHSMIPAddress :: Lens.Lens' HSMConfiguration (Lude.Maybe Lude.Text)
+hcHSMIPAddress = Lens.lens (hsmIPAddress :: HSMConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {hsmIPAddress = a} :: HSMConfiguration)
+{-# DEPRECATED hcHSMIPAddress "Use generic-lens or generic-optics with 'hsmIPAddress' instead." #-}
 
-instance FromXML HSMConfiguration where
+instance Lude.FromXML HSMConfiguration where
   parseXML x =
     HSMConfiguration'
-      <$> (x .@? "HsmConfigurationIdentifier")
-      <*> (x .@? "HsmPartitionName")
-      <*> (x .@? "Description")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "Tag"))
-      <*> (x .@? "HsmIpAddress")
-
-instance Hashable HSMConfiguration
-
-instance NFData HSMConfiguration
+      Lude.<$> (x Lude..@? "HsmConfigurationIdentifier")
+      Lude.<*> (x Lude..@? "HsmPartitionName")
+      Lude.<*> (x Lude..@? "Description")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
+      Lude.<*> (x Lude..@? "HsmIpAddress")

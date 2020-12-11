@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,122 @@
 --
 -- Creates an application that has one configuration template named @default@ and no application versions.
 module Network.AWS.ElasticBeanstalk.CreateApplication
-  ( -- * Creating a Request
-    createApplication,
-    CreateApplication,
+  ( -- * Creating a request
+    CreateApplication (..),
+    mkCreateApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caResourceLifecycleConfig,
     caDescription,
     caTags,
     caApplicationName,
 
-    -- * Destructuring the Response
-    applicationDescriptionMessage,
-    ApplicationDescriptionMessage,
+    -- * Destructuring the response
+    ApplicationDescriptionMessage (..),
+    mkApplicationDescriptionMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     admApplication,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to create an application.
 --
---
---
--- /See:/ 'createApplication' smart constructor.
+-- /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caResourceLifecycleConfig ::
-      !(Maybe ApplicationResourceLifecycleConfig),
-    _caDescription :: !(Maybe Text),
-    _caTags :: !(Maybe [Tag]),
-    _caApplicationName :: !Text
+  { resourceLifecycleConfig ::
+      Lude.Maybe ApplicationResourceLifecycleConfig,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of the application. Must be unique within your account.
+-- * 'description' - Your description of the application.
+-- * 'resourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+-- * 'tags' - Specifies the tags applied to the application.
 --
--- * 'caResourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
---
--- * 'caDescription' - Your description of the application.
---
--- * 'caTags' - Specifies the tags applied to the application. Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
---
--- * 'caApplicationName' - The name of the application. Must be unique within your account.
-createApplication ::
-  -- | 'caApplicationName'
-  Text ->
+-- Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
+mkCreateApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   CreateApplication
-createApplication pApplicationName_ =
+mkCreateApplication pApplicationName_ =
   CreateApplication'
-    { _caResourceLifecycleConfig = Nothing,
-      _caDescription = Nothing,
-      _caTags = Nothing,
-      _caApplicationName = pApplicationName_
+    { resourceLifecycleConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
-caResourceLifecycleConfig :: Lens' CreateApplication (Maybe ApplicationResourceLifecycleConfig)
-caResourceLifecycleConfig = lens _caResourceLifecycleConfig (\s a -> s {_caResourceLifecycleConfig = a})
+--
+-- /Note:/ Consider using 'resourceLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caResourceLifecycleConfig :: Lens.Lens' CreateApplication (Lude.Maybe ApplicationResourceLifecycleConfig)
+caResourceLifecycleConfig = Lens.lens (resourceLifecycleConfig :: CreateApplication -> Lude.Maybe ApplicationResourceLifecycleConfig) (\s a -> s {resourceLifecycleConfig = a} :: CreateApplication)
+{-# DEPRECATED caResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
 
 -- | Your description of the application.
-caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApplication)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Specifies the tags applied to the application. Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
-caTags :: Lens' CreateApplication [Tag]
-caTags = lens _caTags (\s a -> s {_caTags = a}) . _Default . _Coerce
+-- | Specifies the tags applied to the application.
+--
+-- Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApplication (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplication)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the application. Must be unique within your account.
-caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\s a -> s {_caApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caApplicationName :: Lens.Lens' CreateApplication Lude.Text
+caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
+{-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest CreateApplication where
+instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = ApplicationDescriptionMessage
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateApplicationResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable CreateApplication
+instance Lude.ToHeaders CreateApplication where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateApplication
+instance Lude.ToPath CreateApplication where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateApplication where
-  toHeaders = const mempty
-
-instance ToPath CreateApplication where
-  toPath = const "/"
-
-instance ToQuery CreateApplication where
+instance Lude.ToQuery CreateApplication where
   toQuery CreateApplication' {..} =
-    mconcat
-      [ "Action" =: ("CreateApplication" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ResourceLifecycleConfig" =: _caResourceLifecycleConfig,
-        "Description" =: _caDescription,
-        "Tags" =: toQuery (toQueryList "member" <$> _caTags),
-        "ApplicationName" =: _caApplicationName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateApplication" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ResourceLifecycleConfig" Lude.=: resourceLifecycleConfig,
+        "Description" Lude.=: description,
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "ApplicationName" Lude.=: applicationName
       ]

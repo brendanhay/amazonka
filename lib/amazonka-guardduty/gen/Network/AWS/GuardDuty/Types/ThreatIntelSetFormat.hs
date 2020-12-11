@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.ThreatIntelSetFormat where
+module Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
+  ( ThreatIntelSetFormat
+      ( ThreatIntelSetFormat',
+        TISFAlienVault,
+        TISFFireEye,
+        TISFOtxCSV,
+        TISFProofPoint,
+        TISFStix,
+        TISFTxt
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ThreatIntelSetFormat
-  = TISFAlienVault
-  | TISFFireEye
-  | TISFOtxCSV
-  | TISFProofPoint
-  | TISFStix
-  | TISFTxt
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThreatIntelSetFormat = ThreatIntelSetFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThreatIntelSetFormat where
-  parser =
-    takeLowerText >>= \case
-      "alien_vault" -> pure TISFAlienVault
-      "fire_eye" -> pure TISFFireEye
-      "otx_csv" -> pure TISFOtxCSV
-      "proof_point" -> pure TISFProofPoint
-      "stix" -> pure TISFStix
-      "txt" -> pure TISFTxt
-      e ->
-        fromTextError $
-          "Failure parsing ThreatIntelSetFormat from value: '" <> e
-            <> "'. Accepted values: alien_vault, fire_eye, otx_csv, proof_point, stix, txt"
+pattern TISFAlienVault :: ThreatIntelSetFormat
+pattern TISFAlienVault = ThreatIntelSetFormat' "ALIEN_VAULT"
 
-instance ToText ThreatIntelSetFormat where
-  toText = \case
-    TISFAlienVault -> "ALIEN_VAULT"
-    TISFFireEye -> "FIRE_EYE"
-    TISFOtxCSV -> "OTX_CSV"
-    TISFProofPoint -> "PROOF_POINT"
-    TISFStix -> "STIX"
-    TISFTxt -> "TXT"
+pattern TISFFireEye :: ThreatIntelSetFormat
+pattern TISFFireEye = ThreatIntelSetFormat' "FIRE_EYE"
 
-instance Hashable ThreatIntelSetFormat
+pattern TISFOtxCSV :: ThreatIntelSetFormat
+pattern TISFOtxCSV = ThreatIntelSetFormat' "OTX_CSV"
 
-instance NFData ThreatIntelSetFormat
+pattern TISFProofPoint :: ThreatIntelSetFormat
+pattern TISFProofPoint = ThreatIntelSetFormat' "PROOF_POINT"
 
-instance ToByteString ThreatIntelSetFormat
+pattern TISFStix :: ThreatIntelSetFormat
+pattern TISFStix = ThreatIntelSetFormat' "STIX"
 
-instance ToQuery ThreatIntelSetFormat
+pattern TISFTxt :: ThreatIntelSetFormat
+pattern TISFTxt = ThreatIntelSetFormat' "TXT"
 
-instance ToHeader ThreatIntelSetFormat
-
-instance ToJSON ThreatIntelSetFormat where
-  toJSON = toJSONText
-
-instance FromJSON ThreatIntelSetFormat where
-  parseJSON = parseJSONText "ThreatIntelSetFormat"
+{-# COMPLETE
+  TISFAlienVault,
+  TISFFireEye,
+  TISFOtxCSV,
+  TISFProofPoint,
+  TISFStix,
+  TISFTxt,
+  ThreatIntelSetFormat'
+  #-}

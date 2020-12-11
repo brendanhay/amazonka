@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration where
+module Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
+  ( LaunchTemplateLicenseConfiguration (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateLicenseConfiguration,
+
+    -- * Lenses
+    ltlcLicenseConfigurationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a license configuration.
 --
---
---
--- /See:/ 'launchTemplateLicenseConfiguration' smart constructor.
+-- /See:/ 'mkLaunchTemplateLicenseConfiguration' smart constructor.
 newtype LaunchTemplateLicenseConfiguration = LaunchTemplateLicenseConfiguration'
-  { _ltlcLicenseConfigurationARN ::
-      Maybe Text
+  { licenseConfigurationARN ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateLicenseConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltlcLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
-launchTemplateLicenseConfiguration ::
+-- * 'licenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+mkLaunchTemplateLicenseConfiguration ::
   LaunchTemplateLicenseConfiguration
-launchTemplateLicenseConfiguration =
+mkLaunchTemplateLicenseConfiguration =
   LaunchTemplateLicenseConfiguration'
-    { _ltlcLicenseConfigurationARN =
-        Nothing
+    { licenseConfigurationARN =
+        Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-ltlcLicenseConfigurationARN :: Lens' LaunchTemplateLicenseConfiguration (Maybe Text)
-ltlcLicenseConfigurationARN = lens _ltlcLicenseConfigurationARN (\s a -> s {_ltlcLicenseConfigurationARN = a})
+--
+-- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlcLicenseConfigurationARN :: Lens.Lens' LaunchTemplateLicenseConfiguration (Lude.Maybe Lude.Text)
+ltlcLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: LaunchTemplateLicenseConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: LaunchTemplateLicenseConfiguration)
+{-# DEPRECATED ltlcLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
 
-instance FromXML LaunchTemplateLicenseConfiguration where
+instance Lude.FromXML LaunchTemplateLicenseConfiguration where
   parseXML x =
     LaunchTemplateLicenseConfiguration'
-      <$> (x .@? "licenseConfigurationArn")
-
-instance Hashable LaunchTemplateLicenseConfiguration
-
-instance NFData LaunchTemplateLicenseConfiguration
+      Lude.<$> (x Lude..@? "licenseConfigurationArn")

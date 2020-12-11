@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,89 @@
 --
 -- Deletes an existing option group.
 module Network.AWS.RDS.DeleteOptionGroup
-  ( -- * Creating a Request
-    deleteOptionGroup,
-    DeleteOptionGroup,
+  ( -- * Creating a request
+    DeleteOptionGroup (..),
+    mkDeleteOptionGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dOptionGroupName,
 
-    -- * Destructuring the Response
-    deleteOptionGroupResponse,
-    DeleteOptionGroupResponse,
+    -- * Destructuring the response
+    DeleteOptionGroupResponse (..),
+    mkDeleteOptionGroupResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteOptionGroup' smart constructor.
+-- /See:/ 'mkDeleteOptionGroup' smart constructor.
 newtype DeleteOptionGroup = DeleteOptionGroup'
-  { _dOptionGroupName ::
-      Text
+  { optionGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOptionGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dOptionGroupName' - The name of the option group to be deleted.
-deleteOptionGroup ::
-  -- | 'dOptionGroupName'
-  Text ->
+-- * 'optionGroupName' - The name of the option group to be deleted.
+mkDeleteOptionGroup ::
+  -- | 'optionGroupName'
+  Lude.Text ->
   DeleteOptionGroup
-deleteOptionGroup pOptionGroupName_ =
-  DeleteOptionGroup' {_dOptionGroupName = pOptionGroupName_}
+mkDeleteOptionGroup pOptionGroupName_ =
+  DeleteOptionGroup' {optionGroupName = pOptionGroupName_}
 
 -- | The name of the option group to be deleted.
-dOptionGroupName :: Lens' DeleteOptionGroup Text
-dOptionGroupName = lens _dOptionGroupName (\s a -> s {_dOptionGroupName = a})
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dOptionGroupName :: Lens.Lens' DeleteOptionGroup Lude.Text
+dOptionGroupName = Lens.lens (optionGroupName :: DeleteOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: DeleteOptionGroup)
+{-# DEPRECATED dOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance AWSRequest DeleteOptionGroup where
+instance Lude.AWSRequest DeleteOptionGroup where
   type Rs DeleteOptionGroup = DeleteOptionGroupResponse
-  request = postQuery rds
-  response = receiveNull DeleteOptionGroupResponse'
+  request = Req.postQuery rdsService
+  response = Res.receiveNull DeleteOptionGroupResponse'
 
-instance Hashable DeleteOptionGroup
+instance Lude.ToHeaders DeleteOptionGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteOptionGroup
+instance Lude.ToPath DeleteOptionGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteOptionGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteOptionGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteOptionGroup where
+instance Lude.ToQuery DeleteOptionGroup where
   toQuery DeleteOptionGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteOptionGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "OptionGroupName" =: _dOptionGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteOptionGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "OptionGroupName" Lude.=: optionGroupName
       ]
 
--- | /See:/ 'deleteOptionGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOptionGroupResponse' with the minimum fields required to make a request.
-deleteOptionGroupResponse ::
+mkDeleteOptionGroupResponse ::
   DeleteOptionGroupResponse
-deleteOptionGroupResponse = DeleteOptionGroupResponse'
-
-instance NFData DeleteOptionGroupResponse
+mkDeleteOptionGroupResponse = DeleteOptionGroupResponse'

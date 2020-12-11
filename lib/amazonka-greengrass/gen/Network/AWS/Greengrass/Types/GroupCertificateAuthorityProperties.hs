@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties where
+module Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties
+  ( GroupCertificateAuthorityProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupCertificateAuthorityProperties,
+
+    -- * Lenses
+    gcapGroupCertificateAuthorityARN,
+    gcapGroupCertificateAuthorityId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a certificate authority for a group.
 --
--- /See:/ 'groupCertificateAuthorityProperties' smart constructor.
+-- /See:/ 'mkGroupCertificateAuthorityProperties' smart constructor.
 data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
-  { _gcapGroupCertificateAuthorityARN ::
-      !(Maybe Text),
-    _gcapGroupCertificateAuthorityId ::
-      !(Maybe Text)
+  { groupCertificateAuthorityARN ::
+      Lude.Maybe
+        Lude.Text,
+    groupCertificateAuthorityId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupCertificateAuthorityProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcapGroupCertificateAuthorityARN' - The ARN of the certificate authority for the group.
---
--- * 'gcapGroupCertificateAuthorityId' - The ID of the certificate authority for the group.
-groupCertificateAuthorityProperties ::
+-- * 'groupCertificateAuthorityARN' - The ARN of the certificate authority for the group.
+-- * 'groupCertificateAuthorityId' - The ID of the certificate authority for the group.
+mkGroupCertificateAuthorityProperties ::
   GroupCertificateAuthorityProperties
-groupCertificateAuthorityProperties =
+mkGroupCertificateAuthorityProperties =
   GroupCertificateAuthorityProperties'
-    { _gcapGroupCertificateAuthorityARN =
-        Nothing,
-      _gcapGroupCertificateAuthorityId = Nothing
+    { groupCertificateAuthorityARN =
+        Lude.Nothing,
+      groupCertificateAuthorityId = Lude.Nothing
     }
 
 -- | The ARN of the certificate authority for the group.
-gcapGroupCertificateAuthorityARN :: Lens' GroupCertificateAuthorityProperties (Maybe Text)
-gcapGroupCertificateAuthorityARN = lens _gcapGroupCertificateAuthorityARN (\s a -> s {_gcapGroupCertificateAuthorityARN = a})
+--
+-- /Note:/ Consider using 'groupCertificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcapGroupCertificateAuthorityARN :: Lens.Lens' GroupCertificateAuthorityProperties (Lude.Maybe Lude.Text)
+gcapGroupCertificateAuthorityARN = Lens.lens (groupCertificateAuthorityARN :: GroupCertificateAuthorityProperties -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityARN = a} :: GroupCertificateAuthorityProperties)
+{-# DEPRECATED gcapGroupCertificateAuthorityARN "Use generic-lens or generic-optics with 'groupCertificateAuthorityARN' instead." #-}
 
 -- | The ID of the certificate authority for the group.
-gcapGroupCertificateAuthorityId :: Lens' GroupCertificateAuthorityProperties (Maybe Text)
-gcapGroupCertificateAuthorityId = lens _gcapGroupCertificateAuthorityId (\s a -> s {_gcapGroupCertificateAuthorityId = a})
+--
+-- /Note:/ Consider using 'groupCertificateAuthorityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcapGroupCertificateAuthorityId :: Lens.Lens' GroupCertificateAuthorityProperties (Lude.Maybe Lude.Text)
+gcapGroupCertificateAuthorityId = Lens.lens (groupCertificateAuthorityId :: GroupCertificateAuthorityProperties -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityId = a} :: GroupCertificateAuthorityProperties)
+{-# DEPRECATED gcapGroupCertificateAuthorityId "Use generic-lens or generic-optics with 'groupCertificateAuthorityId' instead." #-}
 
-instance FromJSON GroupCertificateAuthorityProperties where
+instance Lude.FromJSON GroupCertificateAuthorityProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupCertificateAuthorityProperties"
       ( \x ->
           GroupCertificateAuthorityProperties'
-            <$> (x .:? "GroupCertificateAuthorityArn")
-            <*> (x .:? "GroupCertificateAuthorityId")
+            Lude.<$> (x Lude..:? "GroupCertificateAuthorityArn")
+            Lude.<*> (x Lude..:? "GroupCertificateAuthorityId")
       )
-
-instance Hashable GroupCertificateAuthorityProperties
-
-instance NFData GroupCertificateAuthorityProperties

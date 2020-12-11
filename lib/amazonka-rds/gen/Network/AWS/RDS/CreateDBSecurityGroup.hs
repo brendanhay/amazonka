@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,189 @@
 --
 -- Creates a new DB security group. DB security groups control access to a DB instance.
 module Network.AWS.RDS.CreateDBSecurityGroup
-  ( -- * Creating a Request
-    createDBSecurityGroup,
-    CreateDBSecurityGroup,
+  ( -- * Creating a request
+    CreateDBSecurityGroup (..),
+    mkCreateDBSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdsgTags,
     cdsgDBSecurityGroupName,
     cdsgDBSecurityGroupDescription,
 
-    -- * Destructuring the Response
-    createDBSecurityGroupResponse,
-    CreateDBSecurityGroupResponse,
+    -- * Destructuring the response
+    CreateDBSecurityGroupResponse (..),
+    mkCreateDBSecurityGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdbsgrsDBSecurityGroup,
     cdbsgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createDBSecurityGroup' smart constructor.
+-- /See:/ 'mkCreateDBSecurityGroup' smart constructor.
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
-  { _cdsgTags ::
-      !(Maybe [Tag]),
-    _cdsgDBSecurityGroupName :: !Text,
-    _cdsgDBSecurityGroupDescription :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    dbSecurityGroupName :: Lude.Text,
+    dbSecurityGroupDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbSecurityGroupDescription' - The description for the DB security group.
+-- * 'dbSecurityGroupName' - The name for the DB security group. This value is stored as a lowercase string.
 --
--- * 'cdsgTags' - Tags to assign to the DB security group.
+-- Constraints:
 --
--- * 'cdsgDBSecurityGroupName' - The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
+--     * Must be 1 to 255 letters, numbers, or hyphens.
 --
--- * 'cdsgDBSecurityGroupDescription' - The description for the DB security group.
-createDBSecurityGroup ::
-  -- | 'cdsgDBSecurityGroupName'
-  Text ->
-  -- | 'cdsgDBSecurityGroupDescription'
-  Text ->
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--     * Must not be "Default"
+--
+--
+-- Example: @mysecuritygroup@
+-- * 'tags' - Tags to assign to the DB security group.
+mkCreateDBSecurityGroup ::
+  -- | 'dbSecurityGroupName'
+  Lude.Text ->
+  -- | 'dbSecurityGroupDescription'
+  Lude.Text ->
   CreateDBSecurityGroup
-createDBSecurityGroup
+mkCreateDBSecurityGroup
   pDBSecurityGroupName_
   pDBSecurityGroupDescription_ =
     CreateDBSecurityGroup'
-      { _cdsgTags = Nothing,
-        _cdsgDBSecurityGroupName = pDBSecurityGroupName_,
-        _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription_
+      { tags = Lude.Nothing,
+        dbSecurityGroupName = pDBSecurityGroupName_,
+        dbSecurityGroupDescription = pDBSecurityGroupDescription_
       }
 
 -- | Tags to assign to the DB security group.
-cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
-cdsgTags = lens _cdsgTags (\s a -> s {_cdsgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsgTags :: Lens.Lens' CreateDBSecurityGroup (Lude.Maybe [Tag])
+cdsgTags = Lens.lens (tags :: CreateDBSecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBSecurityGroup)
+{-# DEPRECATED cdsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
-cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\s a -> s {_cdsgDBSecurityGroupName = a})
+-- | The name for the DB security group. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--     * Must not be "Default"
+--
+--
+-- Example: @mysecuritygroup@
+--
+-- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsgDBSecurityGroupName :: Lens.Lens' CreateDBSecurityGroup Lude.Text
+cdsgDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: CreateDBSecurityGroup -> Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: CreateDBSecurityGroup)
+{-# DEPRECATED cdsgDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
 
 -- | The description for the DB security group.
-cdsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\s a -> s {_cdsgDBSecurityGroupDescription = a})
+--
+-- /Note:/ Consider using 'dbSecurityGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsgDBSecurityGroupDescription :: Lens.Lens' CreateDBSecurityGroup Lude.Text
+cdsgDBSecurityGroupDescription = Lens.lens (dbSecurityGroupDescription :: CreateDBSecurityGroup -> Lude.Text) (\s a -> s {dbSecurityGroupDescription = a} :: CreateDBSecurityGroup)
+{-# DEPRECATED cdsgDBSecurityGroupDescription "Use generic-lens or generic-optics with 'dbSecurityGroupDescription' instead." #-}
 
-instance AWSRequest CreateDBSecurityGroup where
+instance Lude.AWSRequest CreateDBSecurityGroup where
   type Rs CreateDBSecurityGroup = CreateDBSecurityGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateDBSecurityGroupResult"
       ( \s h x ->
           CreateDBSecurityGroupResponse'
-            <$> (x .@? "DBSecurityGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBSecurityGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDBSecurityGroup
+instance Lude.ToHeaders CreateDBSecurityGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDBSecurityGroup
+instance Lude.ToPath CreateDBSecurityGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateDBSecurityGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateDBSecurityGroup where
-  toPath = const "/"
-
-instance ToQuery CreateDBSecurityGroup where
+instance Lude.ToQuery CreateDBSecurityGroup where
   toQuery CreateDBSecurityGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateDBSecurityGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cdsgTags),
-        "DBSecurityGroupName" =: _cdsgDBSecurityGroupName,
-        "DBSecurityGroupDescription" =: _cdsgDBSecurityGroupDescription
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateDBSecurityGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "DBSecurityGroupName" Lude.=: dbSecurityGroupName,
+        "DBSecurityGroupDescription" Lude.=: dbSecurityGroupDescription
       ]
 
--- | /See:/ 'createDBSecurityGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateDBSecurityGroupResponse' smart constructor.
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
-  { _cdbsgrsDBSecurityGroup ::
-      !(Maybe DBSecurityGroup),
-    _cdbsgrsResponseStatus :: !Int
+  { dbSecurityGroup ::
+      Lude.Maybe DBSecurityGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBSecurityGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdbsgrsDBSecurityGroup' - Undocumented member.
---
--- * 'cdbsgrsResponseStatus' - -- | The response status code.
-createDBSecurityGroupResponse ::
-  -- | 'cdbsgrsResponseStatus'
-  Int ->
+-- * 'dbSecurityGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateDBSecurityGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDBSecurityGroupResponse
-createDBSecurityGroupResponse pResponseStatus_ =
+mkCreateDBSecurityGroupResponse pResponseStatus_ =
   CreateDBSecurityGroupResponse'
-    { _cdbsgrsDBSecurityGroup = Nothing,
-      _cdbsgrsResponseStatus = pResponseStatus_
+    { dbSecurityGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\s a -> s {_cdbsgrsDBSecurityGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbsgrsDBSecurityGroup :: Lens.Lens' CreateDBSecurityGroupResponse (Lude.Maybe DBSecurityGroup)
+cdbsgrsDBSecurityGroup = Lens.lens (dbSecurityGroup :: CreateDBSecurityGroupResponse -> Lude.Maybe DBSecurityGroup) (\s a -> s {dbSecurityGroup = a} :: CreateDBSecurityGroupResponse)
+{-# DEPRECATED cdbsgrsDBSecurityGroup "Use generic-lens or generic-optics with 'dbSecurityGroup' instead." #-}
 
--- | -- | The response status code.
-cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
-cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\s a -> s {_cdbsgrsResponseStatus = a})
-
-instance NFData CreateDBSecurityGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbsgrsResponseStatus :: Lens.Lens' CreateDBSecurityGroupResponse Lude.Int
+cdbsgrsResponseStatus = Lens.lens (responseStatus :: CreateDBSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBSecurityGroupResponse)
+{-# DEPRECATED cdbsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

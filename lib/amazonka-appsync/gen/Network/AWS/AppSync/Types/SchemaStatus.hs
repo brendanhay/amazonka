@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.SchemaStatus where
+module Network.AWS.AppSync.Types.SchemaStatus
+  ( SchemaStatus
+      ( SchemaStatus',
+        SSActive,
+        SSDeleting,
+        SSFailed,
+        SSNotApplicable,
+        SSProcessing,
+        SSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SchemaStatus
-  = SSActive
-  | SSDeleting
-  | SSFailed
-  | SSNotApplicable
-  | SSProcessing
-  | SSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchemaStatus = SchemaStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchemaStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure SSActive
-      "deleting" -> pure SSDeleting
-      "failed" -> pure SSFailed
-      "not_applicable" -> pure SSNotApplicable
-      "processing" -> pure SSProcessing
-      "success" -> pure SSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing SchemaStatus from value: '" <> e
-            <> "'. Accepted values: active, deleting, failed, not_applicable, processing, success"
+pattern SSActive :: SchemaStatus
+pattern SSActive = SchemaStatus' "ACTIVE"
 
-instance ToText SchemaStatus where
-  toText = \case
-    SSActive -> "ACTIVE"
-    SSDeleting -> "DELETING"
-    SSFailed -> "FAILED"
-    SSNotApplicable -> "NOT_APPLICABLE"
-    SSProcessing -> "PROCESSING"
-    SSSuccess -> "SUCCESS"
+pattern SSDeleting :: SchemaStatus
+pattern SSDeleting = SchemaStatus' "DELETING"
 
-instance Hashable SchemaStatus
+pattern SSFailed :: SchemaStatus
+pattern SSFailed = SchemaStatus' "FAILED"
 
-instance NFData SchemaStatus
+pattern SSNotApplicable :: SchemaStatus
+pattern SSNotApplicable = SchemaStatus' "NOT_APPLICABLE"
 
-instance ToByteString SchemaStatus
+pattern SSProcessing :: SchemaStatus
+pattern SSProcessing = SchemaStatus' "PROCESSING"
 
-instance ToQuery SchemaStatus
+pattern SSSuccess :: SchemaStatus
+pattern SSSuccess = SchemaStatus' "SUCCESS"
 
-instance ToHeader SchemaStatus
-
-instance FromJSON SchemaStatus where
-  parseJSON = parseJSONText "SchemaStatus"
+{-# COMPLETE
+  SSActive,
+  SSDeleting,
+  SSFailed,
+  SSNotApplicable,
+  SSProcessing,
+  SSSuccess,
+  SchemaStatus'
+  #-}

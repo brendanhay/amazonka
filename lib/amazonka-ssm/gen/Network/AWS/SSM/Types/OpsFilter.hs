@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsFilter where
+module Network.AWS.SSM.Types.OpsFilter
+  ( OpsFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsFilter,
+
+    -- * Lenses
+    ofType,
+    ofKey,
+    ofValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.OpsFilterOperatorType
 
 -- | A filter for viewing OpsItem summaries.
 --
---
---
--- /See:/ 'opsFilter' smart constructor.
+-- /See:/ 'mkOpsFilter' smart constructor.
 data OpsFilter = OpsFilter'
-  { _ofType ::
-      !(Maybe OpsFilterOperatorType),
-    _ofKey :: !Text,
-    _ofValues :: !(List1 Text)
+  { type' ::
+      Lude.Maybe OpsFilterOperatorType,
+    key :: Lude.Text,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ofType' - The type of filter.
---
--- * 'ofKey' - The name of the filter.
---
--- * 'ofValues' - The filter value.
-opsFilter ::
-  -- | 'ofKey'
-  Text ->
-  -- | 'ofValues'
-  NonEmpty Text ->
+-- * 'key' - The name of the filter.
+-- * 'type'' - The type of filter.
+-- * 'values' - The filter value.
+mkOpsFilter ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   OpsFilter
-opsFilter pKey_ pValues_ =
-  OpsFilter'
-    { _ofType = Nothing,
-      _ofKey = pKey_,
-      _ofValues = _List1 # pValues_
-    }
+mkOpsFilter pKey_ pValues_ =
+  OpsFilter' {type' = Lude.Nothing, key = pKey_, values = pValues_}
 
 -- | The type of filter.
-ofType :: Lens' OpsFilter (Maybe OpsFilterOperatorType)
-ofType = lens _ofType (\s a -> s {_ofType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofType :: Lens.Lens' OpsFilter (Lude.Maybe OpsFilterOperatorType)
+ofType = Lens.lens (type' :: OpsFilter -> Lude.Maybe OpsFilterOperatorType) (\s a -> s {type' = a} :: OpsFilter)
+{-# DEPRECATED ofType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The name of the filter.
-ofKey :: Lens' OpsFilter Text
-ofKey = lens _ofKey (\s a -> s {_ofKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofKey :: Lens.Lens' OpsFilter Lude.Text
+ofKey = Lens.lens (key :: OpsFilter -> Lude.Text) (\s a -> s {key = a} :: OpsFilter)
+{-# DEPRECATED ofKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter value.
-ofValues :: Lens' OpsFilter (NonEmpty Text)
-ofValues = lens _ofValues (\s a -> s {_ofValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofValues :: Lens.Lens' OpsFilter (Lude.NonEmpty Lude.Text)
+ofValues = Lens.lens (values :: OpsFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: OpsFilter)
+{-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable OpsFilter
-
-instance NFData OpsFilter
-
-instance ToJSON OpsFilter where
+instance Lude.ToJSON OpsFilter where
   toJSON OpsFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Type" .=) <$> _ofType,
-            Just ("Key" .= _ofKey),
-            Just ("Values" .= _ofValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Type" Lude..=) Lude.<$> type',
+            Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,97 @@
 --
 -- Deletes a user profile.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeleteUserProfile
-  ( -- * Creating a Request
-    deleteUserProfile,
-    DeleteUserProfile,
+  ( -- * Creating a request
+    DeleteUserProfile (..),
+    mkDeleteUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupIAMUserARN,
 
-    -- * Destructuring the Response
-    deleteUserProfileResponse,
-    DeleteUserProfileResponse,
+    -- * Destructuring the response
+    DeleteUserProfileResponse (..),
+    mkDeleteUserProfileResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserProfile' smart constructor.
+-- | /See:/ 'mkDeleteUserProfile' smart constructor.
 newtype DeleteUserProfile = DeleteUserProfile'
-  { _dupIAMUserARN ::
-      Text
+  { iamUserARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
-deleteUserProfile ::
-  -- | 'dupIAMUserARN'
-  Text ->
+-- * 'iamUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
+mkDeleteUserProfile ::
+  -- | 'iamUserARN'
+  Lude.Text ->
   DeleteUserProfile
-deleteUserProfile pIAMUserARN_ =
-  DeleteUserProfile' {_dupIAMUserARN = pIAMUserARN_}
+mkDeleteUserProfile pIAMUserARN_ =
+  DeleteUserProfile' {iamUserARN = pIAMUserARN_}
 
 -- | The user's IAM ARN. This can also be a federated user's ARN.
-dupIAMUserARN :: Lens' DeleteUserProfile Text
-dupIAMUserARN = lens _dupIAMUserARN (\s a -> s {_dupIAMUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupIAMUserARN :: Lens.Lens' DeleteUserProfile Lude.Text
+dupIAMUserARN = Lens.lens (iamUserARN :: DeleteUserProfile -> Lude.Text) (\s a -> s {iamUserARN = a} :: DeleteUserProfile)
+{-# DEPRECATED dupIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
-instance AWSRequest DeleteUserProfile where
+instance Lude.AWSRequest DeleteUserProfile where
   type Rs DeleteUserProfile = DeleteUserProfileResponse
-  request = postJSON opsWorks
-  response = receiveNull DeleteUserProfileResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeleteUserProfileResponse'
 
-instance Hashable DeleteUserProfile
-
-instance NFData DeleteUserProfile
-
-instance ToHeaders DeleteUserProfile where
+instance Lude.ToHeaders DeleteUserProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeleteUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeleteUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteUserProfile where
+instance Lude.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    object (catMaybes [Just ("IamUserArn" .= _dupIAMUserARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("IamUserArn" Lude..= iamUserARN)])
 
-instance ToPath DeleteUserProfile where
-  toPath = const "/"
+instance Lude.ToPath DeleteUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUserProfileResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
-deleteUserProfileResponse ::
+mkDeleteUserProfileResponse ::
   DeleteUserProfileResponse
-deleteUserProfileResponse = DeleteUserProfileResponse'
-
-instance NFData DeleteUserProfileResponse
+mkDeleteUserProfileResponse = DeleteUserProfileResponse'

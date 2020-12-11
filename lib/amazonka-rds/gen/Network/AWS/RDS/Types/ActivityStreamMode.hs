@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.ActivityStreamMode where
+module Network.AWS.RDS.Types.ActivityStreamMode
+  ( ActivityStreamMode
+      ( ActivityStreamMode',
+        Async,
+        Sync
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActivityStreamMode
-  = Async
-  | Sync
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActivityStreamMode = ActivityStreamMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActivityStreamMode where
-  parser =
-    takeLowerText >>= \case
-      "async" -> pure Async
-      "sync" -> pure Sync
-      e ->
-        fromTextError $
-          "Failure parsing ActivityStreamMode from value: '" <> e
-            <> "'. Accepted values: async, sync"
+pattern Async :: ActivityStreamMode
+pattern Async = ActivityStreamMode' "async"
 
-instance ToText ActivityStreamMode where
-  toText = \case
-    Async -> "async"
-    Sync -> "sync"
+pattern Sync :: ActivityStreamMode
+pattern Sync = ActivityStreamMode' "sync"
 
-instance Hashable ActivityStreamMode
-
-instance NFData ActivityStreamMode
-
-instance ToByteString ActivityStreamMode
-
-instance ToQuery ActivityStreamMode
-
-instance ToHeader ActivityStreamMode
-
-instance FromXML ActivityStreamMode where
-  parseXML = parseXMLText "ActivityStreamMode"
+{-# COMPLETE
+  Async,
+  Sync,
+  ActivityStreamMode'
+  #-}

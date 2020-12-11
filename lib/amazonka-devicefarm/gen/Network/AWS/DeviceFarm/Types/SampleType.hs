@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.SampleType where
+module Network.AWS.DeviceFarm.Types.SampleType
+  ( SampleType
+      ( SampleType',
+        CPU,
+        Memory,
+        NativeAvgDrawtime,
+        NativeFps,
+        NativeFrames,
+        NativeMaxDrawtime,
+        NativeMinDrawtime,
+        OpenglAvgDrawtime,
+        OpenglFps,
+        OpenglFrames,
+        OpenglMaxDrawtime,
+        OpenglMinDrawtime,
+        RX,
+        RxRate,
+        TX,
+        Threads,
+        TxRate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SampleType
-  = CPU
-  | Memory
-  | NativeAvgDrawtime
-  | NativeFps
-  | NativeFrames
-  | NativeMaxDrawtime
-  | NativeMinDrawtime
-  | OpenglAvgDrawtime
-  | OpenglFps
-  | OpenglFrames
-  | OpenglMaxDrawtime
-  | OpenglMinDrawtime
-  | RX
-  | RxRate
-  | TX
-  | Threads
-  | TxRate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SampleType = SampleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SampleType where
-  parser =
-    takeLowerText >>= \case
-      "cpu" -> pure CPU
-      "memory" -> pure Memory
-      "native_avg_drawtime" -> pure NativeAvgDrawtime
-      "native_fps" -> pure NativeFps
-      "native_frames" -> pure NativeFrames
-      "native_max_drawtime" -> pure NativeMaxDrawtime
-      "native_min_drawtime" -> pure NativeMinDrawtime
-      "opengl_avg_drawtime" -> pure OpenglAvgDrawtime
-      "opengl_fps" -> pure OpenglFps
-      "opengl_frames" -> pure OpenglFrames
-      "opengl_max_drawtime" -> pure OpenglMaxDrawtime
-      "opengl_min_drawtime" -> pure OpenglMinDrawtime
-      "rx" -> pure RX
-      "rx_rate" -> pure RxRate
-      "tx" -> pure TX
-      "threads" -> pure Threads
-      "tx_rate" -> pure TxRate
-      e ->
-        fromTextError $
-          "Failure parsing SampleType from value: '" <> e
-            <> "'. Accepted values: cpu, memory, native_avg_drawtime, native_fps, native_frames, native_max_drawtime, native_min_drawtime, opengl_avg_drawtime, opengl_fps, opengl_frames, opengl_max_drawtime, opengl_min_drawtime, rx, rx_rate, tx, threads, tx_rate"
+pattern CPU :: SampleType
+pattern CPU = SampleType' "CPU"
 
-instance ToText SampleType where
-  toText = \case
-    CPU -> "CPU"
-    Memory -> "MEMORY"
-    NativeAvgDrawtime -> "NATIVE_AVG_DRAWTIME"
-    NativeFps -> "NATIVE_FPS"
-    NativeFrames -> "NATIVE_FRAMES"
-    NativeMaxDrawtime -> "NATIVE_MAX_DRAWTIME"
-    NativeMinDrawtime -> "NATIVE_MIN_DRAWTIME"
-    OpenglAvgDrawtime -> "OPENGL_AVG_DRAWTIME"
-    OpenglFps -> "OPENGL_FPS"
-    OpenglFrames -> "OPENGL_FRAMES"
-    OpenglMaxDrawtime -> "OPENGL_MAX_DRAWTIME"
-    OpenglMinDrawtime -> "OPENGL_MIN_DRAWTIME"
-    RX -> "RX"
-    RxRate -> "RX_RATE"
-    TX -> "TX"
-    Threads -> "THREADS"
-    TxRate -> "TX_RATE"
+pattern Memory :: SampleType
+pattern Memory = SampleType' "MEMORY"
 
-instance Hashable SampleType
+pattern NativeAvgDrawtime :: SampleType
+pattern NativeAvgDrawtime = SampleType' "NATIVE_AVG_DRAWTIME"
 
-instance NFData SampleType
+pattern NativeFps :: SampleType
+pattern NativeFps = SampleType' "NATIVE_FPS"
 
-instance ToByteString SampleType
+pattern NativeFrames :: SampleType
+pattern NativeFrames = SampleType' "NATIVE_FRAMES"
 
-instance ToQuery SampleType
+pattern NativeMaxDrawtime :: SampleType
+pattern NativeMaxDrawtime = SampleType' "NATIVE_MAX_DRAWTIME"
 
-instance ToHeader SampleType
+pattern NativeMinDrawtime :: SampleType
+pattern NativeMinDrawtime = SampleType' "NATIVE_MIN_DRAWTIME"
 
-instance FromJSON SampleType where
-  parseJSON = parseJSONText "SampleType"
+pattern OpenglAvgDrawtime :: SampleType
+pattern OpenglAvgDrawtime = SampleType' "OPENGL_AVG_DRAWTIME"
+
+pattern OpenglFps :: SampleType
+pattern OpenglFps = SampleType' "OPENGL_FPS"
+
+pattern OpenglFrames :: SampleType
+pattern OpenglFrames = SampleType' "OPENGL_FRAMES"
+
+pattern OpenglMaxDrawtime :: SampleType
+pattern OpenglMaxDrawtime = SampleType' "OPENGL_MAX_DRAWTIME"
+
+pattern OpenglMinDrawtime :: SampleType
+pattern OpenglMinDrawtime = SampleType' "OPENGL_MIN_DRAWTIME"
+
+pattern RX :: SampleType
+pattern RX = SampleType' "RX"
+
+pattern RxRate :: SampleType
+pattern RxRate = SampleType' "RX_RATE"
+
+pattern TX :: SampleType
+pattern TX = SampleType' "TX"
+
+pattern Threads :: SampleType
+pattern Threads = SampleType' "THREADS"
+
+pattern TxRate :: SampleType
+pattern TxRate = SampleType' "TX_RATE"
+
+{-# COMPLETE
+  CPU,
+  Memory,
+  NativeAvgDrawtime,
+  NativeFps,
+  NativeFrames,
+  NativeMaxDrawtime,
+  NativeMinDrawtime,
+  OpenglAvgDrawtime,
+  OpenglFps,
+  OpenglFrames,
+  OpenglMaxDrawtime,
+  OpenglMinDrawtime,
+  RX,
+  RxRate,
+  TX,
+  Threads,
+  TxRate,
+  SampleType'
+  #-}

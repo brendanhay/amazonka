@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.
 --
---
 -- The target database is created with most of the original configuration, but in a system-selected Availability Zone, with the default security group, the default subnet group, and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored deployment and not a single-AZ deployment.
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
-  ( -- * Creating a Request
-    restoreDBInstanceToPointInTime,
-    RestoreDBInstanceToPointInTime,
+  ( -- * Creating a request
+    RestoreDBInstanceToPointInTime (..),
+    mkRestoreDBInstanceToPointInTime,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rditpitDeletionProtection,
     rditpitUseLatestRestorableTime,
     rditpitPubliclyAccessible,
@@ -60,435 +54,750 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     rditpitDBName,
     rditpitTargetDBInstanceIdentifier,
 
-    -- * Destructuring the Response
-    restoreDBInstanceToPointInTimeResponse,
-    RestoreDBInstanceToPointInTimeResponse,
+    -- * Destructuring the response
+    RestoreDBInstanceToPointInTimeResponse (..),
+    mkRestoreDBInstanceToPointInTimeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rditpitrsDBInstance,
     rditpitrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
+-- /See:/ 'mkRestoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-  { _rditpitDeletionProtection ::
-      !(Maybe Bool),
-    _rditpitUseLatestRestorableTime ::
-      !(Maybe Bool),
-    _rditpitPubliclyAccessible ::
-      !(Maybe Bool),
-    _rditpitAutoMinorVersionUpgrade ::
-      !(Maybe Bool),
-    _rditpitDBSubnetGroupName ::
-      !(Maybe Text),
-    _rditpitRestoreTime ::
-      !(Maybe ISO8601),
-    _rditpitIOPS :: !(Maybe Int),
-    _rditpitDomain ::
-      !(Maybe Text),
-    _rditpitEngine ::
-      !(Maybe Text),
-    _rditpitTDECredentialPassword ::
-      !(Maybe Text),
-    _rditpitSourceDBInstanceIdentifier ::
-      !(Maybe Text),
-    _rditpitProcessorFeatures ::
-      !(Maybe [ProcessorFeature]),
-    _rditpitDBInstanceClass ::
-      !(Maybe Text),
-    _rditpitLicenseModel ::
-      !(Maybe Text),
-    _rditpitMaxAllocatedStorage ::
-      !(Maybe Int),
-    _rditpitDBParameterGroupName ::
-      !(Maybe Text),
-    _rditpitAvailabilityZone ::
-      !(Maybe Text),
-    _rditpitVPCSecurityGroupIds ::
-      !(Maybe [Text]),
-    _rditpitMultiAZ ::
-      !(Maybe Bool),
-    _rditpitSourceDBiResourceId ::
-      !(Maybe Text),
-    _rditpitOptionGroupName ::
-      !(Maybe Text),
-    _rditpitCopyTagsToSnapshot ::
-      !(Maybe Bool),
-    _rditpitTDECredentialARN ::
-      !(Maybe Text),
-    _rditpitDomainIAMRoleName ::
-      !(Maybe Text),
-    _rditpitTags ::
-      !(Maybe [Tag]),
-    _rditpitPort :: !(Maybe Int),
-    _rditpitEnableIAMDatabaseAuthentication ::
-      !(Maybe Bool),
-    _rditpitUseDefaultProcessorFeatures ::
-      !(Maybe Bool),
-    _rditpitStorageType ::
-      !(Maybe Text),
-    _rditpitEnableCloudwatchLogsExports ::
-      !(Maybe [Text]),
-    _rditpitDBName ::
-      !(Maybe Text),
-    _rditpitTargetDBInstanceIdentifier ::
-      !Text
+  { deletionProtection ::
+      Lude.Maybe Lude.Bool,
+    useLatestRestorableTime ::
+      Lude.Maybe Lude.Bool,
+    publiclyAccessible ::
+      Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade ::
+      Lude.Maybe Lude.Bool,
+    dbSubnetGroupName ::
+      Lude.Maybe Lude.Text,
+    restoreTime ::
+      Lude.Maybe Lude.ISO8601,
+    iops :: Lude.Maybe Lude.Int,
+    domain ::
+      Lude.Maybe Lude.Text,
+    engine ::
+      Lude.Maybe Lude.Text,
+    tdeCredentialPassword ::
+      Lude.Maybe Lude.Text,
+    sourceDBInstanceIdentifier ::
+      Lude.Maybe Lude.Text,
+    processorFeatures ::
+      Lude.Maybe [ProcessorFeature],
+    dbInstanceClass ::
+      Lude.Maybe Lude.Text,
+    licenseModel ::
+      Lude.Maybe Lude.Text,
+    maxAllocatedStorage ::
+      Lude.Maybe Lude.Int,
+    dbParameterGroupName ::
+      Lude.Maybe Lude.Text,
+    availabilityZone ::
+      Lude.Maybe Lude.Text,
+    vpcSecurityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    multiAZ ::
+      Lude.Maybe Lude.Bool,
+    sourceDBiResourceId ::
+      Lude.Maybe Lude.Text,
+    optionGroupName ::
+      Lude.Maybe Lude.Text,
+    copyTagsToSnapshot ::
+      Lude.Maybe Lude.Bool,
+    tdeCredentialARN ::
+      Lude.Maybe Lude.Text,
+    domainIAMRoleName ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    port :: Lude.Maybe Lude.Int,
+    enableIAMDatabaseAuthentication ::
+      Lude.Maybe Lude.Bool,
+    useDefaultProcessorFeatures ::
+      Lude.Maybe Lude.Bool,
+    storageType ::
+      Lude.Maybe Lude.Text,
+    enableCloudwatchLogsExports ::
+      Lude.Maybe [Lude.Text],
+    dbName ::
+      Lude.Maybe Lude.Text,
+    targetDBInstanceIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.
+-- * 'availabilityZone' - The Availability Zone (AZ) where the DB instance will be created.
 --
--- * 'rditpitDeletionProtection' - A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- Default: A random, system-chosen Availability Zone.
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+-- Example: @us-east-1a@
+-- * 'copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
+-- * 'dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./
 --
--- * 'rditpitUseLatestRestorableTime' - A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.  Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
+-- Default: The same DBInstanceClass as the original DB instance.
+-- * 'dbName' - The database name for the restored DB instance.
+-- * 'dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
 --
--- * 'rditpitPubliclyAccessible' - A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. For more information, see 'CreateDBInstance' .
+-- If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used.
+-- Constraints:
 --
--- * 'rditpitAutoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.
+--     * If supplied, must match the name of an existing DBParameterGroup.
 --
--- * 'rditpitDBSubnetGroupName' - The DB subnet group name to use for the new instance. Constraints: If supplied, must match the name of an existing DBSubnetGroup. Example: @mySubnetgroup@
 --
--- * 'rditpitRestoreTime' - The date and time to restore from. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled Example: @2009-09-07T23:45:00Z@
+--     * Must be 1 to 255 letters, numbers, or hyphens.
 --
--- * 'rditpitIOPS' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be an integer greater than 1000. __SQL Server__  Setting the IOPS value for the SQL Server database engine isn't supported.
 --
--- * 'rditpitDomain' - Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
+--     * First character must be a letter.
 --
--- * 'rditpitEngine' - The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values:     * @mariadb@      * @mysql@      * @oracle-ee@      * @oracle-se2@      * @oracle-se1@      * @oracle-se@      * @postgres@      * @sqlserver-ee@      * @sqlserver-se@      * @sqlserver-ex@      * @sqlserver-web@
 --
--- * 'rditpitTDECredentialPassword' - The password for the given ARN from the key store in order to access the device.
+--     * Can't end with a hyphen or contain two consecutive hyphens.
 --
--- * 'rditpitSourceDBInstanceIdentifier' - The identifier of the source DB instance from which to restore. Constraints:     * Must match the identifier of an existing DB instance.
 --
--- * 'rditpitProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'dbSubnetGroupName' - The DB subnet group name to use for the new instance.
 --
--- * 'rditpitDBInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./  Default: The same DBInstanceClass as the original DB instance.
+-- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
+-- Example: @mySubnetgroup@
+-- * 'deletionProtection' - A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- * 'domain' - Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 --
--- * 'rditpitLicenseModel' - License model information for the restored DB instance. Default: Same as source. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
+-- * 'domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
+-- * 'enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
+-- * 'enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 --
--- * 'rditpitMaxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+-- For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
+-- * 'engine' - The database engine to use for the new instance.
 --
--- * 'rditpitDBParameterGroupName' - The name of the DB parameter group to associate with this DB instance. If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.
+-- Default: The same as source
+-- Constraint: Must be compatible with the engine of the source
+-- Valid Values:
 --
--- * 'rditpitAvailabilityZone' - The Availability Zone (AZ) where the DB instance will be created. Default: A random, system-chosen Availability Zone. Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment. Example: @us-east-1a@
+--     * @mariadb@
 --
--- * 'rditpitVPCSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance.  Default: The default EC2 VPC security group for the DB subnet group's VPC.
 --
--- * 'rditpitMultiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment. Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+--     * @mysql@
 --
--- * 'rditpitSourceDBiResourceId' - The resource ID of the source DB instance from which to restore.
 --
--- * 'rditpitOptionGroupName' - The name of the option group to be used for the restored DB instance. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+--     * @oracle-ee@
 --
--- * 'rditpitCopyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
 --
--- * 'rditpitTDECredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
+--     * @oracle-se2@
 --
--- * 'rditpitDomainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
 --
--- * 'rditpitTags' - Undocumented member.
+--     * @oracle-se1@
 --
--- * 'rditpitPort' - The port number on which the database accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB instance.
 --
--- * 'rditpitEnableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
+--     * @oracle-se@
 --
--- * 'rditpitUseDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 --
--- * 'rditpitStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+--     * @postgres@
 --
--- * 'rditpitEnableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
 --
--- * 'rditpitDBName' - The database name for the restored DB instance.
+--     * @sqlserver-ee@
 --
--- * 'rditpitTargetDBInstanceIdentifier' - The name of the new DB instance to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
-restoreDBInstanceToPointInTime ::
-  -- | 'rditpitTargetDBInstanceIdentifier'
-  Text ->
+--
+--     * @sqlserver-se@
+--
+--
+--     * @sqlserver-ex@
+--
+--
+--     * @sqlserver-web@
+--
+--
+-- * 'iops' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
+--
+-- Constraints: Must be an integer greater than 1000.
+-- __SQL Server__
+-- Setting the IOPS value for the SQL Server database engine isn't supported.
+-- * 'licenseModel' - License model information for the restored DB instance.
+--
+-- Default: Same as source.
+-- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+-- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+-- * 'multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+-- * 'optionGroupName' - The name of the option group to be used for the restored DB instance.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+-- * 'port' - The port number on which the database accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+-- Default: The same port as the original DB instance.
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
+-- * 'restoreTime' - The date and time to restore from.
+--
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+-- Constraints:
+--
+--     * Must be before the latest restorable time for the DB instance
+--
+--
+--     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
+--
+--
+-- Example: @2009-09-07T23:45:00Z@
+-- * 'sourceDBInstanceIdentifier' - The identifier of the source DB instance from which to restore.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DB instance.
+--
+--
+-- * 'sourceDBiResourceId' - The resource ID of the source DB instance from which to restore.
+-- * 'storageType' - Specifies the storage type to be associated with the DB instance.
+--
+-- Valid values: @standard | gp2 | io1@
+-- If you specify @io1@ , you must also include a value for the @Iops@ parameter.
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+-- * 'tags' - Undocumented field.
+-- * 'targetDBInstanceIdentifier' - The name of the new DB instance to be created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- * 'tdeCredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
+-- * 'tdeCredentialPassword' - The password for the given ARN from the key store in order to access the device.
+-- * 'useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+-- * 'useLatestRestorableTime' - A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+--
+-- Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
+-- * 'vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group's VPC.
+mkRestoreDBInstanceToPointInTime ::
+  -- | 'targetDBInstanceIdentifier'
+  Lude.Text ->
   RestoreDBInstanceToPointInTime
-restoreDBInstanceToPointInTime pTargetDBInstanceIdentifier_ =
+mkRestoreDBInstanceToPointInTime pTargetDBInstanceIdentifier_ =
   RestoreDBInstanceToPointInTime'
-    { _rditpitDeletionProtection =
-        Nothing,
-      _rditpitUseLatestRestorableTime = Nothing,
-      _rditpitPubliclyAccessible = Nothing,
-      _rditpitAutoMinorVersionUpgrade = Nothing,
-      _rditpitDBSubnetGroupName = Nothing,
-      _rditpitRestoreTime = Nothing,
-      _rditpitIOPS = Nothing,
-      _rditpitDomain = Nothing,
-      _rditpitEngine = Nothing,
-      _rditpitTDECredentialPassword = Nothing,
-      _rditpitSourceDBInstanceIdentifier = Nothing,
-      _rditpitProcessorFeatures = Nothing,
-      _rditpitDBInstanceClass = Nothing,
-      _rditpitLicenseModel = Nothing,
-      _rditpitMaxAllocatedStorage = Nothing,
-      _rditpitDBParameterGroupName = Nothing,
-      _rditpitAvailabilityZone = Nothing,
-      _rditpitVPCSecurityGroupIds = Nothing,
-      _rditpitMultiAZ = Nothing,
-      _rditpitSourceDBiResourceId = Nothing,
-      _rditpitOptionGroupName = Nothing,
-      _rditpitCopyTagsToSnapshot = Nothing,
-      _rditpitTDECredentialARN = Nothing,
-      _rditpitDomainIAMRoleName = Nothing,
-      _rditpitTags = Nothing,
-      _rditpitPort = Nothing,
-      _rditpitEnableIAMDatabaseAuthentication = Nothing,
-      _rditpitUseDefaultProcessorFeatures = Nothing,
-      _rditpitStorageType = Nothing,
-      _rditpitEnableCloudwatchLogsExports = Nothing,
-      _rditpitDBName = Nothing,
-      _rditpitTargetDBInstanceIdentifier =
-        pTargetDBInstanceIdentifier_
+    { deletionProtection =
+        Lude.Nothing,
+      useLatestRestorableTime = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      dbSubnetGroupName = Lude.Nothing,
+      restoreTime = Lude.Nothing,
+      iops = Lude.Nothing,
+      domain = Lude.Nothing,
+      engine = Lude.Nothing,
+      tdeCredentialPassword = Lude.Nothing,
+      sourceDBInstanceIdentifier = Lude.Nothing,
+      processorFeatures = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      licenseModel = Lude.Nothing,
+      maxAllocatedStorage = Lude.Nothing,
+      dbParameterGroupName = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      vpcSecurityGroupIds = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      sourceDBiResourceId = Lude.Nothing,
+      optionGroupName = Lude.Nothing,
+      copyTagsToSnapshot = Lude.Nothing,
+      tdeCredentialARN = Lude.Nothing,
+      domainIAMRoleName = Lude.Nothing,
+      tags = Lude.Nothing,
+      port = Lude.Nothing,
+      enableIAMDatabaseAuthentication = Lude.Nothing,
+      useDefaultProcessorFeatures = Lude.Nothing,
+      storageType = Lude.Nothing,
+      enableCloudwatchLogsExports = Lude.Nothing,
+      dbName = Lude.Nothing,
+      targetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
 
 -- | A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
-rditpitDeletionProtection :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitDeletionProtection = lens _rditpitDeletionProtection (\s a -> s {_rditpitDeletionProtection = a})
+--
+-- /Note:/ Consider using 'deletionProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDeletionProtection :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitDeletionProtection = Lens.lens (deletionProtection :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {deletionProtection = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
 
--- | A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.  Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
-rditpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitUseLatestRestorableTime = lens _rditpitUseLatestRestorableTime (\s a -> s {_rditpitUseLatestRestorableTime = a})
+-- | A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+--
+-- Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
+--
+-- /Note:/ Consider using 'useLatestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitUseLatestRestorableTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitUseLatestRestorableTime = Lens.lens (useLatestRestorableTime :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableTime = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitUseLatestRestorableTime "Use generic-lens or generic-optics with 'useLatestRestorableTime' instead." #-}
 
--- | A value that indicates whether the DB instance is publicly accessible. When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. For more information, see 'CreateDBInstance' .
-rditpitPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitPubliclyAccessible = lens _rditpitPubliclyAccessible (\s a -> s {_rditpitPubliclyAccessible = a})
+-- | A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitPubliclyAccessible :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitPubliclyAccessible = Lens.lens (publiclyAccessible :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.
-rditpitAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitAutoMinorVersionUpgrade = lens _rditpitAutoMinorVersionUpgrade (\s a -> s {_rditpitAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitAutoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
--- | The DB subnet group name to use for the new instance. Constraints: If supplied, must match the name of an existing DBSubnetGroup. Example: @mySubnetgroup@
-rditpitDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDBSubnetGroupName = lens _rditpitDBSubnetGroupName (\s a -> s {_rditpitDBSubnetGroupName = a})
+-- | The DB subnet group name to use for the new instance.
+--
+-- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
+-- Example: @mySubnetgroup@
+--
+-- /Note:/ Consider using 'dbSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDBSubnetGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDBSubnetGroupName "Use generic-lens or generic-optics with 'dbSubnetGroupName' instead." #-}
 
--- | The date and time to restore from. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled Example: @2009-09-07T23:45:00Z@
-rditpitRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe UTCTime)
-rditpitRestoreTime = lens _rditpitRestoreTime (\s a -> s {_rditpitRestoreTime = a}) . mapping _Time
+-- | The date and time to restore from.
+--
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+-- Constraints:
+--
+--     * Must be before the latest restorable time for the DB instance
+--
+--
+--     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
+--
+--
+-- Example: @2009-09-07T23:45:00Z@
+--
+-- /Note:/ Consider using 'restoreTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitRestoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.ISO8601)
+rditpitRestoreTime = Lens.lens (restoreTime :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.ISO8601) (\s a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitRestoreTime "Use generic-lens or generic-optics with 'restoreTime' instead." #-}
 
--- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be an integer greater than 1000. __SQL Server__  Setting the IOPS value for the SQL Server database engine isn't supported.
-rditpitIOPS :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
-rditpitIOPS = lens _rditpitIOPS (\s a -> s {_rditpitIOPS = a})
+-- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
+--
+-- Constraints: Must be an integer greater than 1000.
+-- __SQL Server__
+-- Setting the IOPS value for the SQL Server database engine isn't supported.
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitIOPS :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Int)
+rditpitIOPS = Lens.lens (iops :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
--- | Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
-rditpitDomain :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDomain = lens _rditpitDomain (\s a -> s {_rditpitDomain = a})
+-- | Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDomain :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDomain = Lens.lens (domain :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {domain = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
--- | The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values:     * @mariadb@      * @mysql@      * @oracle-ee@      * @oracle-se2@      * @oracle-se1@      * @oracle-se@      * @postgres@      * @sqlserver-ee@      * @sqlserver-se@      * @sqlserver-ex@      * @sqlserver-web@
-rditpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitEngine = lens _rditpitEngine (\s a -> s {_rditpitEngine = a})
+-- | The database engine to use for the new instance.
+--
+-- Default: The same as source
+-- Constraint: Must be compatible with the engine of the source
+-- Valid Values:
+--
+--     * @mariadb@
+--
+--
+--     * @mysql@
+--
+--
+--     * @oracle-ee@
+--
+--
+--     * @oracle-se2@
+--
+--
+--     * @oracle-se1@
+--
+--
+--     * @oracle-se@
+--
+--
+--     * @postgres@
+--
+--
+--     * @sqlserver-ee@
+--
+--
+--     * @sqlserver-se@
+--
+--
+--     * @sqlserver-ex@
+--
+--
+--     * @sqlserver-web@
+--
+--
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitEngine :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitEngine = Lens.lens (engine :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The password for the given ARN from the key store in order to access the device.
-rditpitTDECredentialPassword :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitTDECredentialPassword = lens _rditpitTDECredentialPassword (\s a -> s {_rditpitTDECredentialPassword = a})
+--
+-- /Note:/ Consider using 'tdeCredentialPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitTDECredentialPassword :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitTDECredentialPassword = Lens.lens (tdeCredentialPassword :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {tdeCredentialPassword = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitTDECredentialPassword "Use generic-lens or generic-optics with 'tdeCredentialPassword' instead." #-}
 
--- | The identifier of the source DB instance from which to restore. Constraints:     * Must match the identifier of an existing DB instance.
-rditpitSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitSourceDBInstanceIdentifier = lens _rditpitSourceDBInstanceIdentifier (\s a -> s {_rditpitSourceDBInstanceIdentifier = a})
+-- | The identifier of the source DB instance from which to restore.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DB instance.
+--
+--
+--
+-- /Note:/ Consider using 'sourceDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitSourceDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitSourceDBInstanceIdentifier = Lens.lens (sourceDBInstanceIdentifier :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {sourceDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitSourceDBInstanceIdentifier "Use generic-lens or generic-optics with 'sourceDBInstanceIdentifier' instead." #-}
 
 -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-rditpitProcessorFeatures :: Lens' RestoreDBInstanceToPointInTime [ProcessorFeature]
-rditpitProcessorFeatures = lens _rditpitProcessorFeatures (\s a -> s {_rditpitProcessorFeatures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitProcessorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe [ProcessorFeature])
+rditpitProcessorFeatures = Lens.lens (processorFeatures :: RestoreDBInstanceToPointInTime -> Lude.Maybe [ProcessorFeature]) (\s a -> s {processorFeatures = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitProcessorFeatures "Use generic-lens or generic-optics with 'processorFeatures' instead." #-}
 
--- | The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./  Default: The same DBInstanceClass as the original DB instance.
-rditpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDBInstanceClass = lens _rditpitDBInstanceClass (\s a -> s {_rditpitDBInstanceClass = a})
+-- | The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./
+--
+-- Default: The same DBInstanceClass as the original DB instance.
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDBInstanceClass :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDBInstanceClass = Lens.lens (dbInstanceClass :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
--- | License model information for the restored DB instance. Default: Same as source. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
-rditpitLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitLicenseModel = lens _rditpitLicenseModel (\s a -> s {_rditpitLicenseModel = a})
+-- | License model information for the restored DB instance.
+--
+-- Default: Same as source.
+-- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitLicenseModel :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitLicenseModel = Lens.lens (licenseModel :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
 
 -- | The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
-rditpitMaxAllocatedStorage :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
-rditpitMaxAllocatedStorage = lens _rditpitMaxAllocatedStorage (\s a -> s {_rditpitMaxAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'maxAllocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitMaxAllocatedStorage :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Int)
+rditpitMaxAllocatedStorage = Lens.lens (maxAllocatedStorage :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Int) (\s a -> s {maxAllocatedStorage = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitMaxAllocatedStorage "Use generic-lens or generic-optics with 'maxAllocatedStorage' instead." #-}
 
--- | The name of the DB parameter group to associate with this DB instance. If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.
-rditpitDBParameterGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDBParameterGroupName = lens _rditpitDBParameterGroupName (\s a -> s {_rditpitDBParameterGroupName = a})
+-- | The name of the DB parameter group to associate with this DB instance.
+--
+-- If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used.
+-- Constraints:
+--
+--     * If supplied, must match the name of an existing DBParameterGroup.
+--
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDBParameterGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDBParameterGroupName = Lens.lens (dbParameterGroupName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
--- | The Availability Zone (AZ) where the DB instance will be created. Default: A random, system-chosen Availability Zone. Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment. Example: @us-east-1a@
-rditpitAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitAvailabilityZone = lens _rditpitAvailabilityZone (\s a -> s {_rditpitAvailabilityZone = a})
+-- | The Availability Zone (AZ) where the DB instance will be created.
+--
+-- Default: A random, system-chosen Availability Zone.
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+-- Example: @us-east-1a@
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitAvailabilityZone :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitAvailabilityZone = Lens.lens (availabilityZone :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | A list of EC2 VPC security groups to associate with this DB instance.  Default: The default EC2 VPC security group for the DB subnet group's VPC.
-rditpitVPCSecurityGroupIds :: Lens' RestoreDBInstanceToPointInTime [Text]
-rditpitVPCSecurityGroupIds = lens _rditpitVPCSecurityGroupIds (\s a -> s {_rditpitVPCSecurityGroupIds = a}) . _Default . _Coerce
+-- | A list of EC2 VPC security groups to associate with this DB instance.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group's VPC.
+--
+-- /Note:/ Consider using 'vpcSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitVPCSecurityGroupIds :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe [Lude.Text])
+rditpitVPCSecurityGroupIds = Lens.lens (vpcSecurityGroupIds :: RestoreDBInstanceToPointInTime -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcSecurityGroupIds = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitVPCSecurityGroupIds "Use generic-lens or generic-optics with 'vpcSecurityGroupIds' instead." #-}
 
--- | A value that indicates whether the DB instance is a Multi-AZ deployment. Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
-rditpitMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitMultiAZ = lens _rditpitMultiAZ (\s a -> s {_rditpitMultiAZ = a})
+-- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitMultiAZ :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitMultiAZ = Lens.lens (multiAZ :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | The resource ID of the source DB instance from which to restore.
-rditpitSourceDBiResourceId :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitSourceDBiResourceId = lens _rditpitSourceDBiResourceId (\s a -> s {_rditpitSourceDBiResourceId = a})
+--
+-- /Note:/ Consider using 'sourceDBiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitSourceDBiResourceId :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitSourceDBiResourceId = Lens.lens (sourceDBiResourceId :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {sourceDBiResourceId = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitSourceDBiResourceId "Use generic-lens or generic-optics with 'sourceDBiResourceId' instead." #-}
 
--- | The name of the option group to be used for the restored DB instance. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-rditpitOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitOptionGroupName = lens _rditpitOptionGroupName (\s a -> s {_rditpitOptionGroupName = a})
+-- | The name of the option group to be used for the restored DB instance.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitOptionGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitOptionGroupName = Lens.lens (optionGroupName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
 -- | A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
-rditpitCopyTagsToSnapshot :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitCopyTagsToSnapshot = lens _rditpitCopyTagsToSnapshot (\s a -> s {_rditpitCopyTagsToSnapshot = a})
+--
+-- /Note:/ Consider using 'copyTagsToSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitCopyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitCopyTagsToSnapshot = Lens.lens (copyTagsToSnapshot :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitCopyTagsToSnapshot "Use generic-lens or generic-optics with 'copyTagsToSnapshot' instead." #-}
 
 -- | The ARN from the key store with which to associate the instance for TDE encryption.
-rditpitTDECredentialARN :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitTDECredentialARN = lens _rditpitTDECredentialARN (\s a -> s {_rditpitTDECredentialARN = a})
+--
+-- /Note:/ Consider using 'tdeCredentialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitTDECredentialARN :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitTDECredentialARN = Lens.lens (tdeCredentialARN :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {tdeCredentialARN = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitTDECredentialARN "Use generic-lens or generic-optics with 'tdeCredentialARN' instead." #-}
 
 -- | Specify the name of the IAM role to be used when making API calls to the Directory Service.
-rditpitDomainIAMRoleName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDomainIAMRoleName = lens _rditpitDomainIAMRoleName (\s a -> s {_rditpitDomainIAMRoleName = a})
+--
+-- /Note:/ Consider using 'domainIAMRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDomainIAMRoleName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDomainIAMRoleName = Lens.lens (domainIAMRoleName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {domainIAMRoleName = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDomainIAMRoleName "Use generic-lens or generic-optics with 'domainIAMRoleName' instead." #-}
 
--- | Undocumented member.
-rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
-rditpitTags = lens _rditpitTags (\s a -> s {_rditpitTags = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitTags :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe [Tag])
+rditpitTags = Lens.lens (tags :: RestoreDBInstanceToPointInTime -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The port number on which the database accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB instance.
-rditpitPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
-rditpitPort = lens _rditpitPort (\s a -> s {_rditpitPort = a})
+-- | The port number on which the database accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+-- Default: The same port as the original DB instance.
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitPort :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Int)
+rditpitPort = Lens.lens (port :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
--- | A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled. For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
-rditpitEnableIAMDatabaseAuthentication :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitEnableIAMDatabaseAuthentication = lens _rditpitEnableIAMDatabaseAuthentication (\s a -> s {_rditpitEnableIAMDatabaseAuthentication = a})
+-- | A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+--
+-- For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
+--
+-- /Note:/ Consider using 'enableIAMDatabaseAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitEnableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitEnableIAMDatabaseAuthentication = Lens.lens (enableIAMDatabaseAuthentication :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitEnableIAMDatabaseAuthentication "Use generic-lens or generic-optics with 'enableIAMDatabaseAuthentication' instead." #-}
 
 -- | A value that indicates whether the DB instance class of the DB instance uses its default processor features.
-rditpitUseDefaultProcessorFeatures :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rditpitUseDefaultProcessorFeatures = lens _rditpitUseDefaultProcessorFeatures (\s a -> s {_rditpitUseDefaultProcessorFeatures = a})
+--
+-- /Note:/ Consider using 'useDefaultProcessorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitUseDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Bool)
+rditpitUseDefaultProcessorFeatures = Lens.lens (useDefaultProcessorFeatures :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitUseDefaultProcessorFeatures "Use generic-lens or generic-optics with 'useDefaultProcessorFeatures' instead." #-}
 
--- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-rditpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitStorageType = lens _rditpitStorageType (\s a -> s {_rditpitStorageType = a})
+-- | Specifies the storage type to be associated with the DB instance.
+--
+-- Valid values: @standard | gp2 | io1@
+-- If you specify @io1@ , you must also include a value for the @Iops@ parameter.
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitStorageType :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitStorageType = Lens.lens (storageType :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {storageType = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
 -- | The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
-rditpitEnableCloudwatchLogsExports :: Lens' RestoreDBInstanceToPointInTime [Text]
-rditpitEnableCloudwatchLogsExports = lens _rditpitEnableCloudwatchLogsExports (\s a -> s {_rditpitEnableCloudwatchLogsExports = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'enableCloudwatchLogsExports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitEnableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe [Lude.Text])
+rditpitEnableCloudwatchLogsExports = Lens.lens (enableCloudwatchLogsExports :: RestoreDBInstanceToPointInTime -> Lude.Maybe [Lude.Text]) (\s a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitEnableCloudwatchLogsExports "Use generic-lens or generic-optics with 'enableCloudwatchLogsExports' instead." #-}
 
 -- | The database name for the restored DB instance.
-rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rditpitDBName = lens _rditpitDBName (\s a -> s {_rditpitDBName = a})
+--
+-- /Note:/ Consider using 'dbName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitDBName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text)
+rditpitDBName = Lens.lens (dbName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {dbName = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitDBName "Use generic-lens or generic-optics with 'dbName' instead." #-}
 
--- | The name of the new DB instance to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
-rditpitTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
-rditpitTargetDBInstanceIdentifier = lens _rditpitTargetDBInstanceIdentifier (\s a -> s {_rditpitTargetDBInstanceIdentifier = a})
+-- | The name of the new DB instance to be created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--
+-- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitTargetDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime Lude.Text
+rditpitTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: RestoreDBInstanceToPointInTime -> Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
 
-instance AWSRequest RestoreDBInstanceToPointInTime where
+instance Lude.AWSRequest RestoreDBInstanceToPointInTime where
   type
     Rs RestoreDBInstanceToPointInTime =
       RestoreDBInstanceToPointInTimeResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RestoreDBInstanceToPointInTimeResult"
       ( \s h x ->
           RestoreDBInstanceToPointInTimeResponse'
-            <$> (x .@? "DBInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBInstance") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RestoreDBInstanceToPointInTime
+instance Lude.ToHeaders RestoreDBInstanceToPointInTime where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RestoreDBInstanceToPointInTime
+instance Lude.ToPath RestoreDBInstanceToPointInTime where
+  toPath = Lude.const "/"
 
-instance ToHeaders RestoreDBInstanceToPointInTime where
-  toHeaders = const mempty
-
-instance ToPath RestoreDBInstanceToPointInTime where
-  toPath = const "/"
-
-instance ToQuery RestoreDBInstanceToPointInTime where
+instance Lude.ToQuery RestoreDBInstanceToPointInTime where
   toQuery RestoreDBInstanceToPointInTime' {..} =
-    mconcat
-      [ "Action" =: ("RestoreDBInstanceToPointInTime" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DeletionProtection" =: _rditpitDeletionProtection,
-        "UseLatestRestorableTime" =: _rditpitUseLatestRestorableTime,
-        "PubliclyAccessible" =: _rditpitPubliclyAccessible,
-        "AutoMinorVersionUpgrade" =: _rditpitAutoMinorVersionUpgrade,
-        "DBSubnetGroupName" =: _rditpitDBSubnetGroupName,
-        "RestoreTime" =: _rditpitRestoreTime,
-        "Iops" =: _rditpitIOPS,
-        "Domain" =: _rditpitDomain,
-        "Engine" =: _rditpitEngine,
-        "TdeCredentialPassword" =: _rditpitTDECredentialPassword,
-        "SourceDBInstanceIdentifier" =: _rditpitSourceDBInstanceIdentifier,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("RestoreDBInstanceToPointInTime" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DeletionProtection" Lude.=: deletionProtection,
+        "UseLatestRestorableTime" Lude.=: useLatestRestorableTime,
+        "PubliclyAccessible" Lude.=: publiclyAccessible,
+        "AutoMinorVersionUpgrade" Lude.=: autoMinorVersionUpgrade,
+        "DBSubnetGroupName" Lude.=: dbSubnetGroupName,
+        "RestoreTime" Lude.=: restoreTime,
+        "Iops" Lude.=: iops,
+        "Domain" Lude.=: domain,
+        "Engine" Lude.=: engine,
+        "TdeCredentialPassword" Lude.=: tdeCredentialPassword,
+        "SourceDBInstanceIdentifier" Lude.=: sourceDBInstanceIdentifier,
         "ProcessorFeatures"
-          =: toQuery
-            (toQueryList "ProcessorFeature" <$> _rditpitProcessorFeatures),
-        "DBInstanceClass" =: _rditpitDBInstanceClass,
-        "LicenseModel" =: _rditpitLicenseModel,
-        "MaxAllocatedStorage" =: _rditpitMaxAllocatedStorage,
-        "DBParameterGroupName" =: _rditpitDBParameterGroupName,
-        "AvailabilityZone" =: _rditpitAvailabilityZone,
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "ProcessorFeature" Lude.<$> processorFeatures),
+        "DBInstanceClass" Lude.=: dbInstanceClass,
+        "LicenseModel" Lude.=: licenseModel,
+        "MaxAllocatedStorage" Lude.=: maxAllocatedStorage,
+        "DBParameterGroupName" Lude.=: dbParameterGroupName,
+        "AvailabilityZone" Lude.=: availabilityZone,
         "VpcSecurityGroupIds"
-          =: toQuery
-            (toQueryList "VpcSecurityGroupId" <$> _rditpitVPCSecurityGroupIds),
-        "MultiAZ" =: _rditpitMultiAZ,
-        "SourceDbiResourceId" =: _rditpitSourceDBiResourceId,
-        "OptionGroupName" =: _rditpitOptionGroupName,
-        "CopyTagsToSnapshot" =: _rditpitCopyTagsToSnapshot,
-        "TdeCredentialArn" =: _rditpitTDECredentialARN,
-        "DomainIAMRoleName" =: _rditpitDomainIAMRoleName,
-        "Tags" =: toQuery (toQueryList "Tag" <$> _rditpitTags),
-        "Port" =: _rditpitPort,
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "VpcSecurityGroupId"
+                Lude.<$> vpcSecurityGroupIds
+            ),
+        "MultiAZ" Lude.=: multiAZ,
+        "SourceDbiResourceId" Lude.=: sourceDBiResourceId,
+        "OptionGroupName" Lude.=: optionGroupName,
+        "CopyTagsToSnapshot" Lude.=: copyTagsToSnapshot,
+        "TdeCredentialArn" Lude.=: tdeCredentialARN,
+        "DomainIAMRoleName" Lude.=: domainIAMRoleName,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "Port" Lude.=: port,
         "EnableIAMDatabaseAuthentication"
-          =: _rditpitEnableIAMDatabaseAuthentication,
-        "UseDefaultProcessorFeatures"
-          =: _rditpitUseDefaultProcessorFeatures,
-        "StorageType" =: _rditpitStorageType,
+          Lude.=: enableIAMDatabaseAuthentication,
+        "UseDefaultProcessorFeatures" Lude.=: useDefaultProcessorFeatures,
+        "StorageType" Lude.=: storageType,
         "EnableCloudwatchLogsExports"
-          =: toQuery
-            (toQueryList "member" <$> _rditpitEnableCloudwatchLogsExports),
-        "DBName" =: _rditpitDBName,
-        "TargetDBInstanceIdentifier" =: _rditpitTargetDBInstanceIdentifier
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> enableCloudwatchLogsExports),
+        "DBName" Lude.=: dbName,
+        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier
       ]
 
--- | /See:/ 'restoreDBInstanceToPointInTimeResponse' smart constructor.
+-- | /See:/ 'mkRestoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-  { _rditpitrsDBInstance ::
-      !( Maybe
-           DBInstance
-       ),
-    _rditpitrsResponseStatus ::
-      !Int
+  { dbInstance ::
+      Lude.Maybe
+        DBInstance,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTimeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rditpitrsDBInstance' - Undocumented member.
---
--- * 'rditpitrsResponseStatus' - -- | The response status code.
-restoreDBInstanceToPointInTimeResponse ::
-  -- | 'rditpitrsResponseStatus'
-  Int ->
+-- * 'dbInstance' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRestoreDBInstanceToPointInTimeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse pResponseStatus_ =
+mkRestoreDBInstanceToPointInTimeResponse pResponseStatus_ =
   RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrsDBInstance =
-        Nothing,
-      _rditpitrsResponseStatus = pResponseStatus_
+    { dbInstance =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
-rditpitrsDBInstance = lens _rditpitrsDBInstance (\s a -> s {_rditpitrsDBInstance = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitrsDBInstance :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse (Lude.Maybe DBInstance)
+rditpitrsDBInstance = Lens.lens (dbInstance :: RestoreDBInstanceToPointInTimeResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: RestoreDBInstanceToPointInTimeResponse)
+{-# DEPRECATED rditpitrsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
 
--- | -- | The response status code.
-rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
-rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\s a -> s {_rditpitrsResponseStatus = a})
-
-instance NFData RestoreDBInstanceToPointInTimeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitrsResponseStatus :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse Lude.Int
+rditpitrsResponseStatus = Lens.lens (responseStatus :: RestoreDBInstanceToPointInTimeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreDBInstanceToPointInTimeResponse)
+{-# DEPRECATED rditpitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

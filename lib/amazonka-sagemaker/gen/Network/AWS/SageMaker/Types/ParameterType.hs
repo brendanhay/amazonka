@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ParameterType where
+module Network.AWS.SageMaker.Types.ParameterType
+  ( ParameterType
+      ( ParameterType',
+        PTCategorical,
+        PTContinuous,
+        PTFreeText,
+        PTInteger
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParameterType
-  = PTCategorical
-  | PTContinuous
-  | PTFreeText
-  | PTInteger
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParameterType = ParameterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParameterType where
-  parser =
-    takeLowerText >>= \case
-      "categorical" -> pure PTCategorical
-      "continuous" -> pure PTContinuous
-      "freetext" -> pure PTFreeText
-      "integer" -> pure PTInteger
-      e ->
-        fromTextError $
-          "Failure parsing ParameterType from value: '" <> e
-            <> "'. Accepted values: categorical, continuous, freetext, integer"
+pattern PTCategorical :: ParameterType
+pattern PTCategorical = ParameterType' "Categorical"
 
-instance ToText ParameterType where
-  toText = \case
-    PTCategorical -> "Categorical"
-    PTContinuous -> "Continuous"
-    PTFreeText -> "FreeText"
-    PTInteger -> "Integer"
+pattern PTContinuous :: ParameterType
+pattern PTContinuous = ParameterType' "Continuous"
 
-instance Hashable ParameterType
+pattern PTFreeText :: ParameterType
+pattern PTFreeText = ParameterType' "FreeText"
 
-instance NFData ParameterType
+pattern PTInteger :: ParameterType
+pattern PTInteger = ParameterType' "Integer"
 
-instance ToByteString ParameterType
-
-instance ToQuery ParameterType
-
-instance ToHeader ParameterType
-
-instance ToJSON ParameterType where
-  toJSON = toJSONText
-
-instance FromJSON ParameterType where
-  parseJSON = parseJSONText "ParameterType"
+{-# COMPLETE
+  PTCategorical,
+  PTContinuous,
+  PTFreeText,
+  PTInteger,
+  ParameterType'
+  #-}

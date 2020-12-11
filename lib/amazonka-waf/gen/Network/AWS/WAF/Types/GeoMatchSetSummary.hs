@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.GeoMatchSetSummary where
+module Network.AWS.WAF.Types.GeoMatchSetSummary
+  ( GeoMatchSetSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGeoMatchSetSummary,
+
+    -- * Lenses
+    gmssGeoMatchSetId,
+    gmssName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the identifier and the name of the @GeoMatchSet@ .
 --
---
---
--- /See:/ 'geoMatchSetSummary' smart constructor.
+-- /See:/ 'mkGeoMatchSetSummary' smart constructor.
 data GeoMatchSetSummary = GeoMatchSetSummary'
-  { _gmssGeoMatchSetId ::
-      !Text,
-    _gmssName :: !Text
+  { geoMatchSetId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoMatchSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmssGeoMatchSetId' - The @GeoMatchSetId@ for an 'GeoMatchSet' . You can use @GeoMatchSetId@ in a 'GetGeoMatchSet' request to get detailed information about an 'GeoMatchSet' .
---
--- * 'gmssName' - A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
-geoMatchSetSummary ::
-  -- | 'gmssGeoMatchSetId'
-  Text ->
-  -- | 'gmssName'
-  Text ->
+-- * 'geoMatchSetId' - The @GeoMatchSetId@ for an 'GeoMatchSet' . You can use @GeoMatchSetId@ in a 'GetGeoMatchSet' request to get detailed information about an 'GeoMatchSet' .
+-- * 'name' - A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+mkGeoMatchSetSummary ::
+  -- | 'geoMatchSetId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GeoMatchSetSummary
-geoMatchSetSummary pGeoMatchSetId_ pName_ =
+mkGeoMatchSetSummary pGeoMatchSetId_ pName_ =
   GeoMatchSetSummary'
-    { _gmssGeoMatchSetId = pGeoMatchSetId_,
-      _gmssName = pName_
+    { geoMatchSetId = pGeoMatchSetId_,
+      name = pName_
     }
 
 -- | The @GeoMatchSetId@ for an 'GeoMatchSet' . You can use @GeoMatchSetId@ in a 'GetGeoMatchSet' request to get detailed information about an 'GeoMatchSet' .
-gmssGeoMatchSetId :: Lens' GeoMatchSetSummary Text
-gmssGeoMatchSetId = lens _gmssGeoMatchSetId (\s a -> s {_gmssGeoMatchSetId = a})
+--
+-- /Note:/ Consider using 'geoMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmssGeoMatchSetId :: Lens.Lens' GeoMatchSetSummary Lude.Text
+gmssGeoMatchSetId = Lens.lens (geoMatchSetId :: GeoMatchSetSummary -> Lude.Text) (\s a -> s {geoMatchSetId = a} :: GeoMatchSetSummary)
+{-# DEPRECATED gmssGeoMatchSetId "Use generic-lens or generic-optics with 'geoMatchSetId' instead." #-}
 
 -- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
-gmssName :: Lens' GeoMatchSetSummary Text
-gmssName = lens _gmssName (\s a -> s {_gmssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmssName :: Lens.Lens' GeoMatchSetSummary Lude.Text
+gmssName = Lens.lens (name :: GeoMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: GeoMatchSetSummary)
+{-# DEPRECATED gmssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON GeoMatchSetSummary where
+instance Lude.FromJSON GeoMatchSetSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "GeoMatchSetSummary"
       ( \x ->
-          GeoMatchSetSummary' <$> (x .: "GeoMatchSetId") <*> (x .: "Name")
+          GeoMatchSetSummary'
+            Lude.<$> (x Lude..: "GeoMatchSetId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable GeoMatchSetSummary
-
-instance NFData GeoMatchSetSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentFormat where
+module Network.AWS.SSM.Types.DocumentFormat
+  ( DocumentFormat
+      ( DocumentFormat',
+        JSON,
+        Text,
+        Yaml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentFormat
-  = JSON
-  | Text
-  | Yaml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentFormat = DocumentFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentFormat where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "text" -> pure Text
-      "yaml" -> pure Yaml
-      e ->
-        fromTextError $
-          "Failure parsing DocumentFormat from value: '" <> e
-            <> "'. Accepted values: json, text, yaml"
+pattern JSON :: DocumentFormat
+pattern JSON = DocumentFormat' "JSON"
 
-instance ToText DocumentFormat where
-  toText = \case
-    JSON -> "JSON"
-    Text -> "TEXT"
-    Yaml -> "YAML"
+pattern Text :: DocumentFormat
+pattern Text = DocumentFormat' "TEXT"
 
-instance Hashable DocumentFormat
+pattern Yaml :: DocumentFormat
+pattern Yaml = DocumentFormat' "YAML"
 
-instance NFData DocumentFormat
-
-instance ToByteString DocumentFormat
-
-instance ToQuery DocumentFormat
-
-instance ToHeader DocumentFormat
-
-instance ToJSON DocumentFormat where
-  toJSON = toJSONText
-
-instance FromJSON DocumentFormat where
-  parseJSON = parseJSONText "DocumentFormat"
+{-# COMPLETE
+  JSON,
+  Text,
+  Yaml,
+  DocumentFormat'
+  #-}

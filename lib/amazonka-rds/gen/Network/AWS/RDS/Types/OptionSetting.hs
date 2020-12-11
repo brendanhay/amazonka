@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,129 +7,164 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.OptionSetting where
+module Network.AWS.RDS.Types.OptionSetting
+  ( OptionSetting (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOptionSetting,
+
+    -- * Lenses
+    osIsCollection,
+    osApplyType,
+    osValue,
+    osName,
+    osDefaultValue,
+    osIsModifiable,
+    osDataType,
+    osAllowedValues,
+    osDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Option settings are the actual settings being applied or configured for that option. It is used when you modify an option group or describe option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting called SQLNET.ENCRYPTION_SERVER that can have several different values.
 --
---
---
--- /See:/ 'optionSetting' smart constructor.
+-- /See:/ 'mkOptionSetting' smart constructor.
 data OptionSetting = OptionSetting'
-  { _osIsCollection ::
-      !(Maybe Bool),
-    _osApplyType :: !(Maybe Text),
-    _osValue :: !(Maybe Text),
-    _osName :: !(Maybe Text),
-    _osDefaultValue :: !(Maybe Text),
-    _osIsModifiable :: !(Maybe Bool),
-    _osDataType :: !(Maybe Text),
-    _osAllowedValues :: !(Maybe Text),
-    _osDescription :: !(Maybe Text)
+  { isCollection ::
+      Lude.Maybe Lude.Bool,
+    applyType :: Lude.Maybe Lude.Text,
+    value :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    defaultValue :: Lude.Maybe Lude.Text,
+    isModifiable :: Lude.Maybe Lude.Bool,
+    dataType :: Lude.Maybe Lude.Text,
+    allowedValues :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osIsCollection' - Indicates if the option setting is part of a collection.
---
--- * 'osApplyType' - The DB engine specific parameter type.
---
--- * 'osValue' - The current value of the option setting.
---
--- * 'osName' - The name of the option that has settings that you can set.
---
--- * 'osDefaultValue' - The default value of the option setting.
---
--- * 'osIsModifiable' - A Boolean value that, when true, indicates the option setting can be modified from the default.
---
--- * 'osDataType' - The data type of the option setting.
---
--- * 'osAllowedValues' - The allowed values of the option setting.
---
--- * 'osDescription' - The description of the option setting.
-optionSetting ::
+-- * 'allowedValues' - The allowed values of the option setting.
+-- * 'applyType' - The DB engine specific parameter type.
+-- * 'dataType' - The data type of the option setting.
+-- * 'defaultValue' - The default value of the option setting.
+-- * 'description' - The description of the option setting.
+-- * 'isCollection' - Indicates if the option setting is part of a collection.
+-- * 'isModifiable' - A Boolean value that, when true, indicates the option setting can be modified from the default.
+-- * 'name' - The name of the option that has settings that you can set.
+-- * 'value' - The current value of the option setting.
+mkOptionSetting ::
   OptionSetting
-optionSetting =
+mkOptionSetting =
   OptionSetting'
-    { _osIsCollection = Nothing,
-      _osApplyType = Nothing,
-      _osValue = Nothing,
-      _osName = Nothing,
-      _osDefaultValue = Nothing,
-      _osIsModifiable = Nothing,
-      _osDataType = Nothing,
-      _osAllowedValues = Nothing,
-      _osDescription = Nothing
+    { isCollection = Lude.Nothing,
+      applyType = Lude.Nothing,
+      value = Lude.Nothing,
+      name = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      isModifiable = Lude.Nothing,
+      dataType = Lude.Nothing,
+      allowedValues = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Indicates if the option setting is part of a collection.
-osIsCollection :: Lens' OptionSetting (Maybe Bool)
-osIsCollection = lens _osIsCollection (\s a -> s {_osIsCollection = a})
+--
+-- /Note:/ Consider using 'isCollection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osIsCollection :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Bool)
+osIsCollection = Lens.lens (isCollection :: OptionSetting -> Lude.Maybe Lude.Bool) (\s a -> s {isCollection = a} :: OptionSetting)
+{-# DEPRECATED osIsCollection "Use generic-lens or generic-optics with 'isCollection' instead." #-}
 
 -- | The DB engine specific parameter type.
-osApplyType :: Lens' OptionSetting (Maybe Text)
-osApplyType = lens _osApplyType (\s a -> s {_osApplyType = a})
+--
+-- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osApplyType :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osApplyType = Lens.lens (applyType :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {applyType = a} :: OptionSetting)
+{-# DEPRECATED osApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
 
 -- | The current value of the option setting.
-osValue :: Lens' OptionSetting (Maybe Text)
-osValue = lens _osValue (\s a -> s {_osValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osValue :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osValue = Lens.lens (value :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: OptionSetting)
+{-# DEPRECATED osValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of the option that has settings that you can set.
-osName :: Lens' OptionSetting (Maybe Text)
-osName = lens _osName (\s a -> s {_osName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osName :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osName = Lens.lens (name :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OptionSetting)
+{-# DEPRECATED osName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The default value of the option setting.
-osDefaultValue :: Lens' OptionSetting (Maybe Text)
-osDefaultValue = lens _osDefaultValue (\s a -> s {_osDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osDefaultValue :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osDefaultValue = Lens.lens (defaultValue :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: OptionSetting)
+{-# DEPRECATED osDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | A Boolean value that, when true, indicates the option setting can be modified from the default.
-osIsModifiable :: Lens' OptionSetting (Maybe Bool)
-osIsModifiable = lens _osIsModifiable (\s a -> s {_osIsModifiable = a})
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osIsModifiable :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Bool)
+osIsModifiable = Lens.lens (isModifiable :: OptionSetting -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: OptionSetting)
+{-# DEPRECATED osIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
 
 -- | The data type of the option setting.
-osDataType :: Lens' OptionSetting (Maybe Text)
-osDataType = lens _osDataType (\s a -> s {_osDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osDataType :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osDataType = Lens.lens (dataType :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: OptionSetting)
+{-# DEPRECATED osDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | The allowed values of the option setting.
-osAllowedValues :: Lens' OptionSetting (Maybe Text)
-osAllowedValues = lens _osAllowedValues (\s a -> s {_osAllowedValues = a})
+--
+-- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osAllowedValues :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osAllowedValues = Lens.lens (allowedValues :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: OptionSetting)
+{-# DEPRECATED osAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
 -- | The description of the option setting.
-osDescription :: Lens' OptionSetting (Maybe Text)
-osDescription = lens _osDescription (\s a -> s {_osDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osDescription :: Lens.Lens' OptionSetting (Lude.Maybe Lude.Text)
+osDescription = Lens.lens (description :: OptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OptionSetting)
+{-# DEPRECATED osDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML OptionSetting where
+instance Lude.FromXML OptionSetting where
   parseXML x =
     OptionSetting'
-      <$> (x .@? "IsCollection")
-      <*> (x .@? "ApplyType")
-      <*> (x .@? "Value")
-      <*> (x .@? "Name")
-      <*> (x .@? "DefaultValue")
-      <*> (x .@? "IsModifiable")
-      <*> (x .@? "DataType")
-      <*> (x .@? "AllowedValues")
-      <*> (x .@? "Description")
+      Lude.<$> (x Lude..@? "IsCollection")
+      Lude.<*> (x Lude..@? "ApplyType")
+      Lude.<*> (x Lude..@? "Value")
+      Lude.<*> (x Lude..@? "Name")
+      Lude.<*> (x Lude..@? "DefaultValue")
+      Lude.<*> (x Lude..@? "IsModifiable")
+      Lude.<*> (x Lude..@? "DataType")
+      Lude.<*> (x Lude..@? "AllowedValues")
+      Lude.<*> (x Lude..@? "Description")
 
-instance Hashable OptionSetting
-
-instance NFData OptionSetting
-
-instance ToQuery OptionSetting where
+instance Lude.ToQuery OptionSetting where
   toQuery OptionSetting' {..} =
-    mconcat
-      [ "IsCollection" =: _osIsCollection,
-        "ApplyType" =: _osApplyType,
-        "Value" =: _osValue,
-        "Name" =: _osName,
-        "DefaultValue" =: _osDefaultValue,
-        "IsModifiable" =: _osIsModifiable,
-        "DataType" =: _osDataType,
-        "AllowedValues" =: _osAllowedValues,
-        "Description" =: _osDescription
+    Lude.mconcat
+      [ "IsCollection" Lude.=: isCollection,
+        "ApplyType" Lude.=: applyType,
+        "Value" Lude.=: value,
+        "Name" Lude.=: name,
+        "DefaultValue" Lude.=: defaultValue,
+        "IsModifiable" Lude.=: isModifiable,
+        "DataType" Lude.=: dataType,
+        "AllowedValues" Lude.=: allowedValues,
+        "Description" Lude.=: description
       ]

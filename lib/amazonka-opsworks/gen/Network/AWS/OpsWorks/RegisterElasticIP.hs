@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,150 @@
 --
 -- Registers an Elastic IP address with a specified stack. An address can be registered with only one stack at a time. If the address is already registered, you must first deregister it by calling 'DeregisterElasticIp' . For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.RegisterElasticIP
-  ( -- * Creating a Request
-    registerElasticIP,
-    RegisterElasticIP,
+  ( -- * Creating a request
+    RegisterElasticIP (..),
+    mkRegisterElasticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     reiElasticIP,
     reiStackId,
 
-    -- * Destructuring the Response
-    registerElasticIPResponse,
-    RegisterElasticIPResponse,
+    -- * Destructuring the response
+    RegisterElasticIPResponse (..),
+    mkRegisterElasticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     reirsElasticIP,
     reirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerElasticIP' smart constructor.
+-- | /See:/ 'mkRegisterElasticIP' smart constructor.
 data RegisterElasticIP = RegisterElasticIP'
-  { _reiElasticIP :: !Text,
-    _reiStackId :: !Text
+  { elasticIP :: Lude.Text,
+    stackId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterElasticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reiElasticIP' - The Elastic IP address.
---
--- * 'reiStackId' - The stack ID.
-registerElasticIP ::
-  -- | 'reiElasticIP'
-  Text ->
-  -- | 'reiStackId'
-  Text ->
+-- * 'elasticIP' - The Elastic IP address.
+-- * 'stackId' - The stack ID.
+mkRegisterElasticIP ::
+  -- | 'elasticIP'
+  Lude.Text ->
+  -- | 'stackId'
+  Lude.Text ->
   RegisterElasticIP
-registerElasticIP pElasticIP_ pStackId_ =
-  RegisterElasticIP'
-    { _reiElasticIP = pElasticIP_,
-      _reiStackId = pStackId_
-    }
+mkRegisterElasticIP pElasticIP_ pStackId_ =
+  RegisterElasticIP' {elasticIP = pElasticIP_, stackId = pStackId_}
 
 -- | The Elastic IP address.
-reiElasticIP :: Lens' RegisterElasticIP Text
-reiElasticIP = lens _reiElasticIP (\s a -> s {_reiElasticIP = a})
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reiElasticIP :: Lens.Lens' RegisterElasticIP Lude.Text
+reiElasticIP = Lens.lens (elasticIP :: RegisterElasticIP -> Lude.Text) (\s a -> s {elasticIP = a} :: RegisterElasticIP)
+{-# DEPRECATED reiElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
 -- | The stack ID.
-reiStackId :: Lens' RegisterElasticIP Text
-reiStackId = lens _reiStackId (\s a -> s {_reiStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reiStackId :: Lens.Lens' RegisterElasticIP Lude.Text
+reiStackId = Lens.lens (stackId :: RegisterElasticIP -> Lude.Text) (\s a -> s {stackId = a} :: RegisterElasticIP)
+{-# DEPRECATED reiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest RegisterElasticIP where
+instance Lude.AWSRequest RegisterElasticIP where
   type Rs RegisterElasticIP = RegisterElasticIPResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterElasticIPResponse'
-            <$> (x .?> "ElasticIp") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ElasticIp") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterElasticIP
-
-instance NFData RegisterElasticIP
-
-instance ToHeaders RegisterElasticIP where
+instance Lude.ToHeaders RegisterElasticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.RegisterElasticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.RegisterElasticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterElasticIP where
+instance Lude.ToJSON RegisterElasticIP where
   toJSON RegisterElasticIP' {..} =
-    object
-      ( catMaybes
-          [ Just ("ElasticIp" .= _reiElasticIP),
-            Just ("StackId" .= _reiStackId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ElasticIp" Lude..= elasticIP),
+            Lude.Just ("StackId" Lude..= stackId)
           ]
       )
 
-instance ToPath RegisterElasticIP where
-  toPath = const "/"
+instance Lude.ToPath RegisterElasticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterElasticIP where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterElasticIP where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @RegisterElasticIp@ request.
 --
---
---
--- /See:/ 'registerElasticIPResponse' smart constructor.
+-- /See:/ 'mkRegisterElasticIPResponse' smart constructor.
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
-  { _reirsElasticIP ::
-      !(Maybe Text),
-    _reirsResponseStatus :: !Int
+  { elasticIP ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterElasticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reirsElasticIP' - The Elastic IP address.
---
--- * 'reirsResponseStatus' - -- | The response status code.
-registerElasticIPResponse ::
-  -- | 'reirsResponseStatus'
-  Int ->
+-- * 'elasticIP' - The Elastic IP address.
+-- * 'responseStatus' - The response status code.
+mkRegisterElasticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterElasticIPResponse
-registerElasticIPResponse pResponseStatus_ =
+mkRegisterElasticIPResponse pResponseStatus_ =
   RegisterElasticIPResponse'
-    { _reirsElasticIP = Nothing,
-      _reirsResponseStatus = pResponseStatus_
+    { elasticIP = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Elastic IP address.
-reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
-reirsElasticIP = lens _reirsElasticIP (\s a -> s {_reirsElasticIP = a})
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reirsElasticIP :: Lens.Lens' RegisterElasticIPResponse (Lude.Maybe Lude.Text)
+reirsElasticIP = Lens.lens (elasticIP :: RegisterElasticIPResponse -> Lude.Maybe Lude.Text) (\s a -> s {elasticIP = a} :: RegisterElasticIPResponse)
+{-# DEPRECATED reirsElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
--- | -- | The response status code.
-reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
-reirsResponseStatus = lens _reirsResponseStatus (\s a -> s {_reirsResponseStatus = a})
-
-instance NFData RegisterElasticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reirsResponseStatus :: Lens.Lens' RegisterElasticIPResponse Lude.Int
+reirsResponseStatus = Lens.lens (responseStatus :: RegisterElasticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterElasticIPResponse)
+{-# DEPRECATED reirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

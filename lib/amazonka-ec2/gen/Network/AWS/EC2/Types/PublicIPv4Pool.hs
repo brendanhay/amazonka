@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,132 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PublicIPv4Pool where
+module Network.AWS.EC2.Types.PublicIPv4Pool
+  ( PublicIPv4Pool (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkPublicIPv4Pool,
+
+    -- * Lenses
+    pipTotalAddressCount,
+    pipNetworkBorderGroup,
+    pipTotalAvailableAddressCount,
+    pipPoolAddressRanges,
+    pipPoolId,
+    pipDescription,
+    pipTags,
+  )
+where
+
 import Network.AWS.EC2.Types.PublicIPv4PoolRange
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv4 address pool.
 --
---
---
--- /See:/ 'publicIPv4Pool' smart constructor.
+-- /See:/ 'mkPublicIPv4Pool' smart constructor.
 data PublicIPv4Pool = PublicIPv4Pool'
-  { _pipTotalAddressCount ::
-      !(Maybe Int),
-    _pipNetworkBorderGroup :: !(Maybe Text),
-    _pipTotalAvailableAddressCount :: !(Maybe Int),
-    _pipPoolAddressRanges :: !(Maybe [PublicIPv4PoolRange]),
-    _pipPoolId :: !(Maybe Text),
-    _pipDescription :: !(Maybe Text),
-    _pipTags :: !(Maybe [Tag])
+  { totalAddressCount ::
+      Lude.Maybe Lude.Int,
+    networkBorderGroup :: Lude.Maybe Lude.Text,
+    totalAvailableAddressCount :: Lude.Maybe Lude.Int,
+    poolAddressRanges :: Lude.Maybe [PublicIPv4PoolRange],
+    poolId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicIPv4Pool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pipTotalAddressCount' - The total number of addresses.
---
--- * 'pipNetworkBorderGroup' - The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.
---
--- * 'pipTotalAvailableAddressCount' - The total number of available addresses.
---
--- * 'pipPoolAddressRanges' - The address ranges.
---
--- * 'pipPoolId' - The ID of the address pool.
---
--- * 'pipDescription' - A description of the address pool.
---
--- * 'pipTags' - Any tags for the address pool.
-publicIPv4Pool ::
+-- * 'description' - A description of the address pool.
+-- * 'networkBorderGroup' - The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.
+-- * 'poolAddressRanges' - The address ranges.
+-- * 'poolId' - The ID of the address pool.
+-- * 'tags' - Any tags for the address pool.
+-- * 'totalAddressCount' - The total number of addresses.
+-- * 'totalAvailableAddressCount' - The total number of available addresses.
+mkPublicIPv4Pool ::
   PublicIPv4Pool
-publicIPv4Pool =
+mkPublicIPv4Pool =
   PublicIPv4Pool'
-    { _pipTotalAddressCount = Nothing,
-      _pipNetworkBorderGroup = Nothing,
-      _pipTotalAvailableAddressCount = Nothing,
-      _pipPoolAddressRanges = Nothing,
-      _pipPoolId = Nothing,
-      _pipDescription = Nothing,
-      _pipTags = Nothing
+    { totalAddressCount = Lude.Nothing,
+      networkBorderGroup = Lude.Nothing,
+      totalAvailableAddressCount = Lude.Nothing,
+      poolAddressRanges = Lude.Nothing,
+      poolId = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The total number of addresses.
-pipTotalAddressCount :: Lens' PublicIPv4Pool (Maybe Int)
-pipTotalAddressCount = lens _pipTotalAddressCount (\s a -> s {_pipTotalAddressCount = a})
+--
+-- /Note:/ Consider using 'totalAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipTotalAddressCount :: Lens.Lens' PublicIPv4Pool (Lude.Maybe Lude.Int)
+pipTotalAddressCount = Lens.lens (totalAddressCount :: PublicIPv4Pool -> Lude.Maybe Lude.Int) (\s a -> s {totalAddressCount = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipTotalAddressCount "Use generic-lens or generic-optics with 'totalAddressCount' instead." #-}
 
 -- | The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.
-pipNetworkBorderGroup :: Lens' PublicIPv4Pool (Maybe Text)
-pipNetworkBorderGroup = lens _pipNetworkBorderGroup (\s a -> s {_pipNetworkBorderGroup = a})
+--
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipNetworkBorderGroup :: Lens.Lens' PublicIPv4Pool (Lude.Maybe Lude.Text)
+pipNetworkBorderGroup = Lens.lens (networkBorderGroup :: PublicIPv4Pool -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
 
 -- | The total number of available addresses.
-pipTotalAvailableAddressCount :: Lens' PublicIPv4Pool (Maybe Int)
-pipTotalAvailableAddressCount = lens _pipTotalAvailableAddressCount (\s a -> s {_pipTotalAvailableAddressCount = a})
+--
+-- /Note:/ Consider using 'totalAvailableAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipTotalAvailableAddressCount :: Lens.Lens' PublicIPv4Pool (Lude.Maybe Lude.Int)
+pipTotalAvailableAddressCount = Lens.lens (totalAvailableAddressCount :: PublicIPv4Pool -> Lude.Maybe Lude.Int) (\s a -> s {totalAvailableAddressCount = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipTotalAvailableAddressCount "Use generic-lens or generic-optics with 'totalAvailableAddressCount' instead." #-}
 
 -- | The address ranges.
-pipPoolAddressRanges :: Lens' PublicIPv4Pool [PublicIPv4PoolRange]
-pipPoolAddressRanges = lens _pipPoolAddressRanges (\s a -> s {_pipPoolAddressRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'poolAddressRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipPoolAddressRanges :: Lens.Lens' PublicIPv4Pool (Lude.Maybe [PublicIPv4PoolRange])
+pipPoolAddressRanges = Lens.lens (poolAddressRanges :: PublicIPv4Pool -> Lude.Maybe [PublicIPv4PoolRange]) (\s a -> s {poolAddressRanges = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipPoolAddressRanges "Use generic-lens or generic-optics with 'poolAddressRanges' instead." #-}
 
 -- | The ID of the address pool.
-pipPoolId :: Lens' PublicIPv4Pool (Maybe Text)
-pipPoolId = lens _pipPoolId (\s a -> s {_pipPoolId = a})
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipPoolId :: Lens.Lens' PublicIPv4Pool (Lude.Maybe Lude.Text)
+pipPoolId = Lens.lens (poolId :: PublicIPv4Pool -> Lude.Maybe Lude.Text) (\s a -> s {poolId = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | A description of the address pool.
-pipDescription :: Lens' PublicIPv4Pool (Maybe Text)
-pipDescription = lens _pipDescription (\s a -> s {_pipDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipDescription :: Lens.Lens' PublicIPv4Pool (Lude.Maybe Lude.Text)
+pipDescription = Lens.lens (description :: PublicIPv4Pool -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Any tags for the address pool.
-pipTags :: Lens' PublicIPv4Pool [Tag]
-pipTags = lens _pipTags (\s a -> s {_pipTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipTags :: Lens.Lens' PublicIPv4Pool (Lude.Maybe [Tag])
+pipTags = Lens.lens (tags :: PublicIPv4Pool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PublicIPv4Pool)
+{-# DEPRECATED pipTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML PublicIPv4Pool where
+instance Lude.FromXML PublicIPv4Pool where
   parseXML x =
     PublicIPv4Pool'
-      <$> (x .@? "totalAddressCount")
-      <*> (x .@? "networkBorderGroup")
-      <*> (x .@? "totalAvailableAddressCount")
-      <*> ( x .@? "poolAddressRangeSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "poolId")
-      <*> (x .@? "description")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable PublicIPv4Pool
-
-instance NFData PublicIPv4Pool
+      Lude.<$> (x Lude..@? "totalAddressCount")
+      Lude.<*> (x Lude..@? "networkBorderGroup")
+      Lude.<*> (x Lude..@? "totalAvailableAddressCount")
+      Lude.<*> ( x Lude..@? "poolAddressRangeSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "poolId")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

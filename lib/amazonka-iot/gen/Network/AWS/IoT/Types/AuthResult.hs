@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthResult where
+module Network.AWS.IoT.Types.AuthResult
+  ( AuthResult (..),
+
+    -- * Smart constructor
+    mkAuthResult,
+
+    -- * Lenses
+    arDenied,
+    arAuthDecision,
+    arAllowed,
+    arMissingContextValues,
+    arAuthInfo,
+  )
+where
 
 import Network.AWS.IoT.Types.Allowed
 import Network.AWS.IoT.Types.AuthDecision
 import Network.AWS.IoT.Types.AuthInfo
 import Network.AWS.IoT.Types.Denied
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorizer result.
 --
---
---
--- /See:/ 'authResult' smart constructor.
+-- /See:/ 'mkAuthResult' smart constructor.
 data AuthResult = AuthResult'
-  { _arDenied :: !(Maybe Denied),
-    _arAuthDecision :: !(Maybe AuthDecision),
-    _arAllowed :: !(Maybe Allowed),
-    _arMissingContextValues :: !(Maybe [Text]),
-    _arAuthInfo :: !(Maybe AuthInfo)
+  { denied :: Lude.Maybe Denied,
+    authDecision :: Lude.Maybe AuthDecision,
+    allowed :: Lude.Maybe Allowed,
+    missingContextValues :: Lude.Maybe [Lude.Text],
+    authInfo :: Lude.Maybe AuthInfo
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arDenied' - The policies and statements that denied the specified action.
---
--- * 'arAuthDecision' - The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
---
--- * 'arAllowed' - The policies and statements that allowed the specified action.
---
--- * 'arMissingContextValues' - Contains any missing context values found while evaluating policy.
---
--- * 'arAuthInfo' - Authorization information.
-authResult ::
+-- * 'allowed' - The policies and statements that allowed the specified action.
+-- * 'authDecision' - The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
+-- * 'authInfo' - Authorization information.
+-- * 'denied' - The policies and statements that denied the specified action.
+-- * 'missingContextValues' - Contains any missing context values found while evaluating policy.
+mkAuthResult ::
   AuthResult
-authResult =
+mkAuthResult =
   AuthResult'
-    { _arDenied = Nothing,
-      _arAuthDecision = Nothing,
-      _arAllowed = Nothing,
-      _arMissingContextValues = Nothing,
-      _arAuthInfo = Nothing
+    { denied = Lude.Nothing,
+      authDecision = Lude.Nothing,
+      allowed = Lude.Nothing,
+      missingContextValues = Lude.Nothing,
+      authInfo = Lude.Nothing
     }
 
 -- | The policies and statements that denied the specified action.
-arDenied :: Lens' AuthResult (Maybe Denied)
-arDenied = lens _arDenied (\s a -> s {_arDenied = a})
+--
+-- /Note:/ Consider using 'denied' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDenied :: Lens.Lens' AuthResult (Lude.Maybe Denied)
+arDenied = Lens.lens (denied :: AuthResult -> Lude.Maybe Denied) (\s a -> s {denied = a} :: AuthResult)
+{-# DEPRECATED arDenied "Use generic-lens or generic-optics with 'denied' instead." #-}
 
 -- | The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
-arAuthDecision :: Lens' AuthResult (Maybe AuthDecision)
-arAuthDecision = lens _arAuthDecision (\s a -> s {_arAuthDecision = a})
+--
+-- /Note:/ Consider using 'authDecision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAuthDecision :: Lens.Lens' AuthResult (Lude.Maybe AuthDecision)
+arAuthDecision = Lens.lens (authDecision :: AuthResult -> Lude.Maybe AuthDecision) (\s a -> s {authDecision = a} :: AuthResult)
+{-# DEPRECATED arAuthDecision "Use generic-lens or generic-optics with 'authDecision' instead." #-}
 
 -- | The policies and statements that allowed the specified action.
-arAllowed :: Lens' AuthResult (Maybe Allowed)
-arAllowed = lens _arAllowed (\s a -> s {_arAllowed = a})
+--
+-- /Note:/ Consider using 'allowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAllowed :: Lens.Lens' AuthResult (Lude.Maybe Allowed)
+arAllowed = Lens.lens (allowed :: AuthResult -> Lude.Maybe Allowed) (\s a -> s {allowed = a} :: AuthResult)
+{-# DEPRECATED arAllowed "Use generic-lens or generic-optics with 'allowed' instead." #-}
 
 -- | Contains any missing context values found while evaluating policy.
-arMissingContextValues :: Lens' AuthResult [Text]
-arMissingContextValues = lens _arMissingContextValues (\s a -> s {_arMissingContextValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'missingContextValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arMissingContextValues :: Lens.Lens' AuthResult (Lude.Maybe [Lude.Text])
+arMissingContextValues = Lens.lens (missingContextValues :: AuthResult -> Lude.Maybe [Lude.Text]) (\s a -> s {missingContextValues = a} :: AuthResult)
+{-# DEPRECATED arMissingContextValues "Use generic-lens or generic-optics with 'missingContextValues' instead." #-}
 
 -- | Authorization information.
-arAuthInfo :: Lens' AuthResult (Maybe AuthInfo)
-arAuthInfo = lens _arAuthInfo (\s a -> s {_arAuthInfo = a})
+--
+-- /Note:/ Consider using 'authInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAuthInfo :: Lens.Lens' AuthResult (Lude.Maybe AuthInfo)
+arAuthInfo = Lens.lens (authInfo :: AuthResult -> Lude.Maybe AuthInfo) (\s a -> s {authInfo = a} :: AuthResult)
+{-# DEPRECATED arAuthInfo "Use generic-lens or generic-optics with 'authInfo' instead." #-}
 
-instance FromJSON AuthResult where
+instance Lude.FromJSON AuthResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthResult"
       ( \x ->
           AuthResult'
-            <$> (x .:? "denied")
-            <*> (x .:? "authDecision")
-            <*> (x .:? "allowed")
-            <*> (x .:? "missingContextValues" .!= mempty)
-            <*> (x .:? "authInfo")
+            Lude.<$> (x Lude..:? "denied")
+            Lude.<*> (x Lude..:? "authDecision")
+            Lude.<*> (x Lude..:? "allowed")
+            Lude.<*> (x Lude..:? "missingContextValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "authInfo")
       )
-
-instance Hashable AuthResult
-
-instance NFData AuthResult

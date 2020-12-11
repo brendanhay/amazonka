@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NoiseReducerFilter where
+module Network.AWS.MediaConvert.Types.NoiseReducerFilter
+  ( NoiseReducerFilter
+      ( NoiseReducerFilter',
+        Bilateral,
+        Conserve,
+        Gaussian,
+        Lanczos,
+        Mean,
+        Sharpen,
+        Spatial,
+        Temporal
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
-data NoiseReducerFilter
-  = Bilateral
-  | Conserve
-  | Gaussian
-  | Lanczos
-  | Mean
-  | Sharpen
-  | Spatial
-  | Temporal
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NoiseReducerFilter = NoiseReducerFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NoiseReducerFilter where
-  parser =
-    takeLowerText >>= \case
-      "bilateral" -> pure Bilateral
-      "conserve" -> pure Conserve
-      "gaussian" -> pure Gaussian
-      "lanczos" -> pure Lanczos
-      "mean" -> pure Mean
-      "sharpen" -> pure Sharpen
-      "spatial" -> pure Spatial
-      "temporal" -> pure Temporal
-      e ->
-        fromTextError $
-          "Failure parsing NoiseReducerFilter from value: '" <> e
-            <> "'. Accepted values: bilateral, conserve, gaussian, lanczos, mean, sharpen, spatial, temporal"
+pattern Bilateral :: NoiseReducerFilter
+pattern Bilateral = NoiseReducerFilter' "BILATERAL"
 
-instance ToText NoiseReducerFilter where
-  toText = \case
-    Bilateral -> "BILATERAL"
-    Conserve -> "CONSERVE"
-    Gaussian -> "GAUSSIAN"
-    Lanczos -> "LANCZOS"
-    Mean -> "MEAN"
-    Sharpen -> "SHARPEN"
-    Spatial -> "SPATIAL"
-    Temporal -> "TEMPORAL"
+pattern Conserve :: NoiseReducerFilter
+pattern Conserve = NoiseReducerFilter' "CONSERVE"
 
-instance Hashable NoiseReducerFilter
+pattern Gaussian :: NoiseReducerFilter
+pattern Gaussian = NoiseReducerFilter' "GAUSSIAN"
 
-instance NFData NoiseReducerFilter
+pattern Lanczos :: NoiseReducerFilter
+pattern Lanczos = NoiseReducerFilter' "LANCZOS"
 
-instance ToByteString NoiseReducerFilter
+pattern Mean :: NoiseReducerFilter
+pattern Mean = NoiseReducerFilter' "MEAN"
 
-instance ToQuery NoiseReducerFilter
+pattern Sharpen :: NoiseReducerFilter
+pattern Sharpen = NoiseReducerFilter' "SHARPEN"
 
-instance ToHeader NoiseReducerFilter
+pattern Spatial :: NoiseReducerFilter
+pattern Spatial = NoiseReducerFilter' "SPATIAL"
 
-instance ToJSON NoiseReducerFilter where
-  toJSON = toJSONText
+pattern Temporal :: NoiseReducerFilter
+pattern Temporal = NoiseReducerFilter' "TEMPORAL"
 
-instance FromJSON NoiseReducerFilter where
-  parseJSON = parseJSONText "NoiseReducerFilter"
+{-# COMPLETE
+  Bilateral,
+  Conserve,
+  Gaussian,
+  Lanczos,
+  Mean,
+  Sharpen,
+  Spatial,
+  Temporal,
+  NoiseReducerFilter'
+  #-}

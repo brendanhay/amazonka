@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264DynamicSubGop where
+module Network.AWS.MediaConvert.Types.H264DynamicSubGop
+  ( H264DynamicSubGop
+      ( H264DynamicSubGop',
+        HDSGAdaptive,
+        HDSGStatic
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-data H264DynamicSubGop
-  = HDSGAdaptive
-  | HDSGStatic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264DynamicSubGop = H264DynamicSubGop' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264DynamicSubGop where
-  parser =
-    takeLowerText >>= \case
-      "adaptive" -> pure HDSGAdaptive
-      "static" -> pure HDSGStatic
-      e ->
-        fromTextError $
-          "Failure parsing H264DynamicSubGop from value: '" <> e
-            <> "'. Accepted values: adaptive, static"
+pattern HDSGAdaptive :: H264DynamicSubGop
+pattern HDSGAdaptive = H264DynamicSubGop' "ADAPTIVE"
 
-instance ToText H264DynamicSubGop where
-  toText = \case
-    HDSGAdaptive -> "ADAPTIVE"
-    HDSGStatic -> "STATIC"
+pattern HDSGStatic :: H264DynamicSubGop
+pattern HDSGStatic = H264DynamicSubGop' "STATIC"
 
-instance Hashable H264DynamicSubGop
-
-instance NFData H264DynamicSubGop
-
-instance ToByteString H264DynamicSubGop
-
-instance ToQuery H264DynamicSubGop
-
-instance ToHeader H264DynamicSubGop
-
-instance ToJSON H264DynamicSubGop where
-  toJSON = toJSONText
-
-instance FromJSON H264DynamicSubGop where
-  parseJSON = parseJSONText "H264DynamicSubGop"
+{-# COMPLETE
+  HDSGAdaptive,
+  HDSGStatic,
+  H264DynamicSubGop'
+  #-}

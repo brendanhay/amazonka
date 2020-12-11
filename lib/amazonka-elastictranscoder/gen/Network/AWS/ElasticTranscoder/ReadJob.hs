@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,117 @@
 --
 -- The ReadJob operation returns detailed information about a job.
 module Network.AWS.ElasticTranscoder.ReadJob
-  ( -- * Creating a Request
-    readJob,
-    ReadJob,
+  ( -- * Creating a request
+    ReadJob (..),
+    mkReadJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rjId,
 
-    -- * Destructuring the Response
-    readJobResponse,
-    ReadJobResponse,
+    -- * Destructuring the response
+    ReadJobResponse (..),
+    mkReadJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rjrsResponseStatus,
     rjrsJob,
   )
 where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The @ReadJobRequest@ structure.
 --
---
---
--- /See:/ 'readJob' smart constructor.
-newtype ReadJob = ReadJob' {_rjId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkReadJob' smart constructor.
+newtype ReadJob = ReadJob' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rjId' - The identifier of the job for which you want to get detailed information.
-readJob ::
-  -- | 'rjId'
-  Text ->
+-- * 'id' - The identifier of the job for which you want to get detailed information.
+mkReadJob ::
+  -- | 'id'
+  Lude.Text ->
   ReadJob
-readJob pId_ = ReadJob' {_rjId = pId_}
+mkReadJob pId_ = ReadJob' {id = pId_}
 
 -- | The identifier of the job for which you want to get detailed information.
-rjId :: Lens' ReadJob Text
-rjId = lens _rjId (\s a -> s {_rjId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjId :: Lens.Lens' ReadJob Lude.Text
+rjId = Lens.lens (id :: ReadJob -> Lude.Text) (\s a -> s {id = a} :: ReadJob)
+{-# DEPRECATED rjId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest ReadJob where
+instance Lude.AWSRequest ReadJob where
   type Rs ReadJob = ReadJobResponse
-  request = get elasticTranscoder
+  request = Req.get elasticTranscoderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          ReadJobResponse' <$> (pure (fromEnum s)) <*> (x .:> "Job")
+          ReadJobResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Job")
       )
 
-instance Hashable ReadJob
+instance Lude.ToHeaders ReadJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReadJob
+instance Lude.ToPath ReadJob where
+  toPath ReadJob' {..} =
+    Lude.mconcat ["/2012-09-25/jobs/", Lude.toBS id]
 
-instance ToHeaders ReadJob where
-  toHeaders = const mempty
-
-instance ToPath ReadJob where
-  toPath ReadJob' {..} = mconcat ["/2012-09-25/jobs/", toBS _rjId]
-
-instance ToQuery ReadJob where
-  toQuery = const mempty
+instance Lude.ToQuery ReadJob where
+  toQuery = Lude.const Lude.mempty
 
 -- | The @ReadJobResponse@ structure.
 --
---
---
--- /See:/ 'readJobResponse' smart constructor.
+-- /See:/ 'mkReadJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
-  { _rjrsResponseStatus ::
-      !Int,
-    _rjrsJob :: !Job'
+  { responseStatus :: Lude.Int,
+    job :: Job'
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rjrsResponseStatus' - -- | The response status code.
---
--- * 'rjrsJob' - A section of the response body that provides information about the job.
-readJobResponse ::
-  -- | 'rjrsResponseStatus'
-  Int ->
-  -- | 'rjrsJob'
+-- * 'job' - A section of the response body that provides information about the job.
+-- * 'responseStatus' - The response status code.
+mkReadJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'job'
   Job' ->
   ReadJobResponse
-readJobResponse pResponseStatus_ pJob_ =
-  ReadJobResponse'
-    { _rjrsResponseStatus = pResponseStatus_,
-      _rjrsJob = pJob_
-    }
+mkReadJobResponse pResponseStatus_ pJob_ =
+  ReadJobResponse' {responseStatus = pResponseStatus_, job = pJob_}
 
--- | -- | The response status code.
-rjrsResponseStatus :: Lens' ReadJobResponse Int
-rjrsResponseStatus = lens _rjrsResponseStatus (\s a -> s {_rjrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjrsResponseStatus :: Lens.Lens' ReadJobResponse Lude.Int
+rjrsResponseStatus = Lens.lens (responseStatus :: ReadJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReadJobResponse)
+{-# DEPRECATED rjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A section of the response body that provides information about the job.
-rjrsJob :: Lens' ReadJobResponse Job'
-rjrsJob = lens _rjrsJob (\s a -> s {_rjrsJob = a})
-
-instance NFData ReadJobResponse
+--
+-- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjrsJob :: Lens.Lens' ReadJobResponse Job'
+rjrsJob = Lens.lens (job :: ReadJobResponse -> Job') (\s a -> s {job = a} :: ReadJobResponse)
+{-# DEPRECATED rjrsJob "Use generic-lens or generic-optics with 'job' instead." #-}

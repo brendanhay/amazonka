@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Retrieves the names of facets that exist in a schema.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListFacetNames
-  ( -- * Creating a Request
-    listFacetNames,
-    ListFacetNames,
+  ( -- * Creating a request
+    ListFacetNames (..),
+    mkListFacetNames,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lfnNextToken,
     lfnMaxResults,
     lfnSchemaARN,
 
-    -- * Destructuring the Response
-    listFacetNamesResponse,
-    ListFacetNamesResponse,
+    -- * Destructuring the response
+    ListFacetNamesResponse (..),
+    mkListFacetNamesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lfnrsNextToken,
     lfnrsFacetNames,
     lfnrsResponseStatus,
@@ -44,133 +37,154 @@ module Network.AWS.CloudDirectory.ListFacetNames
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listFacetNames' smart constructor.
+-- | /See:/ 'mkListFacetNames' smart constructor.
 data ListFacetNames = ListFacetNames'
-  { _lfnNextToken ::
-      !(Maybe Text),
-    _lfnMaxResults :: !(Maybe Nat),
-    _lfnSchemaARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    schemaARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetNames' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfnNextToken' - The pagination token.
---
--- * 'lfnMaxResults' - The maximum number of results to retrieve.
---
--- * 'lfnSchemaARN' - The Amazon Resource Name (ARN) to retrieve facet names from.
-listFacetNames ::
-  -- | 'lfnSchemaARN'
-  Text ->
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) to retrieve facet names from.
+mkListFacetNames ::
+  -- | 'schemaARN'
+  Lude.Text ->
   ListFacetNames
-listFacetNames pSchemaARN_ =
+mkListFacetNames pSchemaARN_ =
   ListFacetNames'
-    { _lfnNextToken = Nothing,
-      _lfnMaxResults = Nothing,
-      _lfnSchemaARN = pSchemaARN_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      schemaARN = pSchemaARN_
     }
 
 -- | The pagination token.
-lfnNextToken :: Lens' ListFacetNames (Maybe Text)
-lfnNextToken = lens _lfnNextToken (\s a -> s {_lfnNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnNextToken :: Lens.Lens' ListFacetNames (Lude.Maybe Lude.Text)
+lfnNextToken = Lens.lens (nextToken :: ListFacetNames -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetNames)
+{-# DEPRECATED lfnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to retrieve.
-lfnMaxResults :: Lens' ListFacetNames (Maybe Natural)
-lfnMaxResults = lens _lfnMaxResults (\s a -> s {_lfnMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnMaxResults :: Lens.Lens' ListFacetNames (Lude.Maybe Lude.Natural)
+lfnMaxResults = Lens.lens (maxResults :: ListFacetNames -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetNames)
+{-# DEPRECATED lfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) to retrieve facet names from.
-lfnSchemaARN :: Lens' ListFacetNames Text
-lfnSchemaARN = lens _lfnSchemaARN (\s a -> s {_lfnSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnSchemaARN :: Lens.Lens' ListFacetNames Lude.Text
+lfnSchemaARN = Lens.lens (schemaARN :: ListFacetNames -> Lude.Text) (\s a -> s {schemaARN = a} :: ListFacetNames)
+{-# DEPRECATED lfnSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance AWSPager ListFacetNames where
+instance Page.AWSPager ListFacetNames where
   page rq rs
-    | stop (rs ^. lfnrsNextToken) = Nothing
-    | stop (rs ^. lfnrsFacetNames) = Nothing
-    | otherwise = Just $ rq & lfnNextToken .~ rs ^. lfnrsNextToken
+    | Page.stop (rs Lens.^. lfnrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lfnrsFacetNames) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lfnNextToken Lens..~ rs Lens.^. lfnrsNextToken
 
-instance AWSRequest ListFacetNames where
+instance Lude.AWSRequest ListFacetNames where
   type Rs ListFacetNames = ListFacetNamesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListFacetNamesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "FacetNames" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "FacetNames" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListFacetNames
-
-instance NFData ListFacetNames
-
-instance ToHeaders ListFacetNames where
+instance Lude.ToHeaders ListFacetNames where
   toHeaders ListFacetNames' {..} =
-    mconcat ["x-amz-data-partition" =# _lfnSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON ListFacetNames where
+instance Lude.ToJSON ListFacetNames where
   toJSON ListFacetNames' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lfnNextToken,
-            ("MaxResults" .=) <$> _lfnMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListFacetNames where
-  toPath = const "/amazonclouddirectory/2017-01-11/facet/list"
+instance Lude.ToPath ListFacetNames where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/facet/list"
 
-instance ToQuery ListFacetNames where
-  toQuery = const mempty
+instance Lude.ToQuery ListFacetNames where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listFacetNamesResponse' smart constructor.
+-- | /See:/ 'mkListFacetNamesResponse' smart constructor.
 data ListFacetNamesResponse = ListFacetNamesResponse'
-  { _lfnrsNextToken ::
-      !(Maybe Text),
-    _lfnrsFacetNames :: !(Maybe [Text]),
-    _lfnrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    facetNames :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetNamesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfnrsNextToken' - The pagination token.
---
--- * 'lfnrsFacetNames' - The names of facets that exist within the schema.
---
--- * 'lfnrsResponseStatus' - -- | The response status code.
-listFacetNamesResponse ::
-  -- | 'lfnrsResponseStatus'
-  Int ->
+-- * 'facetNames' - The names of facets that exist within the schema.
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkListFacetNamesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFacetNamesResponse
-listFacetNamesResponse pResponseStatus_ =
+mkListFacetNamesResponse pResponseStatus_ =
   ListFacetNamesResponse'
-    { _lfnrsNextToken = Nothing,
-      _lfnrsFacetNames = Nothing,
-      _lfnrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      facetNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token.
-lfnrsNextToken :: Lens' ListFacetNamesResponse (Maybe Text)
-lfnrsNextToken = lens _lfnrsNextToken (\s a -> s {_lfnrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnrsNextToken :: Lens.Lens' ListFacetNamesResponse (Lude.Maybe Lude.Text)
+lfnrsNextToken = Lens.lens (nextToken :: ListFacetNamesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetNamesResponse)
+{-# DEPRECATED lfnrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of facets that exist within the schema.
-lfnrsFacetNames :: Lens' ListFacetNamesResponse [Text]
-lfnrsFacetNames = lens _lfnrsFacetNames (\s a -> s {_lfnrsFacetNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'facetNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnrsFacetNames :: Lens.Lens' ListFacetNamesResponse (Lude.Maybe [Lude.Text])
+lfnrsFacetNames = Lens.lens (facetNames :: ListFacetNamesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {facetNames = a} :: ListFacetNamesResponse)
+{-# DEPRECATED lfnrsFacetNames "Use generic-lens or generic-optics with 'facetNames' instead." #-}
 
--- | -- | The response status code.
-lfnrsResponseStatus :: Lens' ListFacetNamesResponse Int
-lfnrsResponseStatus = lens _lfnrsResponseStatus (\s a -> s {_lfnrsResponseStatus = a})
-
-instance NFData ListFacetNamesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnrsResponseStatus :: Lens.Lens' ListFacetNamesResponse Lude.Int
+lfnrsResponseStatus = Lens.lens (responseStatus :: ListFacetNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFacetNamesResponse)
+{-# DEPRECATED lfnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

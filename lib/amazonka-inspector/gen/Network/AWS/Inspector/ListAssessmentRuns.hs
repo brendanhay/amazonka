@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Inspector.ListAssessmentRuns
-  ( -- * Creating a Request
-    listAssessmentRuns,
-    ListAssessmentRuns,
+  ( -- * Creating a request
+    ListAssessmentRuns (..),
+    mkListAssessmentRuns,
 
-    -- * Request Lenses
+    -- ** Request lenses
     larNextToken,
     larFilter,
     larAssessmentTemplateARNs,
     larMaxResults,
 
-    -- * Destructuring the Response
-    listAssessmentRunsResponse,
-    ListAssessmentRunsResponse,
+    -- * Destructuring the response
+    ListAssessmentRunsResponse (..),
+    mkListAssessmentRunsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larrsNextToken,
     larrsResponseStatus,
     larrsAssessmentRunARNs,
@@ -45,147 +38,175 @@ module Network.AWS.Inspector.ListAssessmentRuns
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAssessmentRuns' smart constructor.
+-- | /See:/ 'mkListAssessmentRuns' smart constructor.
 data ListAssessmentRuns = ListAssessmentRuns'
-  { _larNextToken ::
-      !(Maybe Text),
-    _larFilter :: !(Maybe AssessmentRunFilter),
-    _larAssessmentTemplateARNs :: !(Maybe [Text]),
-    _larMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe AssessmentRunFilter,
+    assessmentTemplateARNs :: Lude.Maybe [Lude.Text],
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentRuns' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'assessmentTemplateARNs' - The ARNs that specify the assessment templates whose assessment runs you want to list.
+-- * 'filter' - You can use this parameter to specify a subset of data to be included in the action's response.
 --
--- * 'larNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRuns__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- * 'larFilter' - You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
---
--- * 'larAssessmentTemplateARNs' - The ARNs that specify the assessment templates whose assessment runs you want to list.
---
--- * 'larMaxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
-listAssessmentRuns ::
+-- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRuns__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+mkListAssessmentRuns ::
   ListAssessmentRuns
-listAssessmentRuns =
+mkListAssessmentRuns =
   ListAssessmentRuns'
-    { _larNextToken = Nothing,
-      _larFilter = Nothing,
-      _larAssessmentTemplateARNs = Nothing,
-      _larMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      assessmentTemplateARNs = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRuns__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-larNextToken :: Lens' ListAssessmentRuns (Maybe Text)
-larNextToken = lens _larNextToken (\s a -> s {_larNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larNextToken :: Lens.Lens' ListAssessmentRuns (Lude.Maybe Lude.Text)
+larNextToken = Lens.lens (nextToken :: ListAssessmentRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentRuns)
+{-# DEPRECATED larNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
-larFilter :: Lens' ListAssessmentRuns (Maybe AssessmentRunFilter)
-larFilter = lens _larFilter (\s a -> s {_larFilter = a})
+-- | You can use this parameter to specify a subset of data to be included in the action's response.
+--
+-- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larFilter :: Lens.Lens' ListAssessmentRuns (Lude.Maybe AssessmentRunFilter)
+larFilter = Lens.lens (filter :: ListAssessmentRuns -> Lude.Maybe AssessmentRunFilter) (\s a -> s {filter = a} :: ListAssessmentRuns)
+{-# DEPRECATED larFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The ARNs that specify the assessment templates whose assessment runs you want to list.
-larAssessmentTemplateARNs :: Lens' ListAssessmentRuns [Text]
-larAssessmentTemplateARNs = lens _larAssessmentTemplateARNs (\s a -> s {_larAssessmentTemplateARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'assessmentTemplateARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larAssessmentTemplateARNs :: Lens.Lens' ListAssessmentRuns (Lude.Maybe [Lude.Text])
+larAssessmentTemplateARNs = Lens.lens (assessmentTemplateARNs :: ListAssessmentRuns -> Lude.Maybe [Lude.Text]) (\s a -> s {assessmentTemplateARNs = a} :: ListAssessmentRuns)
+{-# DEPRECATED larAssessmentTemplateARNs "Use generic-lens or generic-optics with 'assessmentTemplateARNs' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.
-larMaxResults :: Lens' ListAssessmentRuns (Maybe Int)
-larMaxResults = lens _larMaxResults (\s a -> s {_larMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larMaxResults :: Lens.Lens' ListAssessmentRuns (Lude.Maybe Lude.Int)
+larMaxResults = Lens.lens (maxResults :: ListAssessmentRuns -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssessmentRuns)
+{-# DEPRECATED larMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListAssessmentRuns where
+instance Page.AWSPager ListAssessmentRuns where
   page rq rs
-    | stop (rs ^. larrsNextToken) = Nothing
-    | stop (rs ^. larrsAssessmentRunARNs) = Nothing
-    | otherwise = Just $ rq & larNextToken .~ rs ^. larrsNextToken
+    | Page.stop (rs Lens.^. larrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larrsAssessmentRunARNs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& larNextToken Lens..~ rs Lens.^. larrsNextToken
 
-instance AWSRequest ListAssessmentRuns where
+instance Lude.AWSRequest ListAssessmentRuns where
   type Rs ListAssessmentRuns = ListAssessmentRunsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAssessmentRunsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "assessmentRunArns" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "assessmentRunArns" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListAssessmentRuns
-
-instance NFData ListAssessmentRuns
-
-instance ToHeaders ListAssessmentRuns where
+instance Lude.ToHeaders ListAssessmentRuns where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.ListAssessmentRuns" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.ListAssessmentRuns" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAssessmentRuns where
+instance Lude.ToJSON ListAssessmentRuns where
   toJSON ListAssessmentRuns' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _larNextToken,
-            ("filter" .=) <$> _larFilter,
-            ("assessmentTemplateArns" .=) <$> _larAssessmentTemplateARNs,
-            ("maxResults" .=) <$> _larMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("assessmentTemplateArns" Lude..=) Lude.<$> assessmentTemplateARNs,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListAssessmentRuns where
-  toPath = const "/"
+instance Lude.ToPath ListAssessmentRuns where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAssessmentRuns where
-  toQuery = const mempty
+instance Lude.ToQuery ListAssessmentRuns where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAssessmentRunsResponse' smart constructor.
+-- | /See:/ 'mkListAssessmentRunsResponse' smart constructor.
 data ListAssessmentRunsResponse = ListAssessmentRunsResponse'
-  { _larrsNextToken ::
-      !(Maybe Text),
-    _larrsResponseStatus :: !Int,
-    _larrsAssessmentRunARNs :: ![Text]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    assessmentRunARNs :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentRunsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larrsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
---
--- * 'larrsResponseStatus' - -- | The response status code.
---
--- * 'larrsAssessmentRunARNs' - A list of ARNs that specifies the assessment runs that are returned by the action.
-listAssessmentRunsResponse ::
-  -- | 'larrsResponseStatus'
-  Int ->
+-- * 'assessmentRunARNs' - A list of ARNs that specifies the assessment runs that are returned by the action.
+-- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+-- * 'responseStatus' - The response status code.
+mkListAssessmentRunsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAssessmentRunsResponse
-listAssessmentRunsResponse pResponseStatus_ =
+mkListAssessmentRunsResponse pResponseStatus_ =
   ListAssessmentRunsResponse'
-    { _larrsNextToken = Nothing,
-      _larrsResponseStatus = pResponseStatus_,
-      _larrsAssessmentRunARNs = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      assessmentRunARNs = Lude.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-larrsNextToken :: Lens' ListAssessmentRunsResponse (Maybe Text)
-larrsNextToken = lens _larrsNextToken (\s a -> s {_larrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsNextToken :: Lens.Lens' ListAssessmentRunsResponse (Lude.Maybe Lude.Text)
+larrsNextToken = Lens.lens (nextToken :: ListAssessmentRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentRunsResponse)
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-larrsResponseStatus :: Lens' ListAssessmentRunsResponse Int
-larrsResponseStatus = lens _larrsResponseStatus (\s a -> s {_larrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsResponseStatus :: Lens.Lens' ListAssessmentRunsResponse Lude.Int
+larrsResponseStatus = Lens.lens (responseStatus :: ListAssessmentRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssessmentRunsResponse)
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of ARNs that specifies the assessment runs that are returned by the action.
-larrsAssessmentRunARNs :: Lens' ListAssessmentRunsResponse [Text]
-larrsAssessmentRunARNs = lens _larrsAssessmentRunARNs (\s a -> s {_larrsAssessmentRunARNs = a}) . _Coerce
-
-instance NFData ListAssessmentRunsResponse
+--
+-- /Note:/ Consider using 'assessmentRunARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsAssessmentRunARNs :: Lens.Lens' ListAssessmentRunsResponse [Lude.Text]
+larrsAssessmentRunARNs = Lens.lens (assessmentRunARNs :: ListAssessmentRunsResponse -> [Lude.Text]) (\s a -> s {assessmentRunARNs = a} :: ListAssessmentRunsResponse)
+{-# DEPRECATED larrsAssessmentRunARNs "Use generic-lens or generic-optics with 'assessmentRunARNs' instead." #-}

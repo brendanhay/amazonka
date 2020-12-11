@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,123 @@
 --
 -- Creates a default VPC with a size @/16@ IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html Default VPC and Default Subnets> in the /Amazon Virtual Private Cloud User Guide/ . You cannot specify the components of the default VPC yourself.
 --
---
 -- If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.
---
 -- If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the <http://aws.amazon.com/vpc/faqs/#Default_VPCs Default VPCs FAQ> .
 module Network.AWS.EC2.CreateDefaultVPC
-  ( -- * Creating a Request
-    createDefaultVPC,
-    CreateDefaultVPC,
+  ( -- * Creating a request
+    CreateDefaultVPC (..),
+    mkCreateDefaultVPC,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdvDryRun,
 
-    -- * Destructuring the Response
-    createDefaultVPCResponse,
-    CreateDefaultVPCResponse,
+    -- * Destructuring the response
+    CreateDefaultVPCResponse (..),
+    mkCreateDefaultVPCResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdvrsVPC,
     cdvrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDefaultVPC' smart constructor.
+-- | /See:/ 'mkCreateDefaultVPC' smart constructor.
 newtype CreateDefaultVPC = CreateDefaultVPC'
-  { _cdvDryRun ::
-      Maybe Bool
+  { dryRun ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDefaultVPC' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-createDefaultVPC ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkCreateDefaultVPC ::
   CreateDefaultVPC
-createDefaultVPC = CreateDefaultVPC' {_cdvDryRun = Nothing}
+mkCreateDefaultVPC = CreateDefaultVPC' {dryRun = Lude.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cdvDryRun :: Lens' CreateDefaultVPC (Maybe Bool)
-cdvDryRun = lens _cdvDryRun (\s a -> s {_cdvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvDryRun :: Lens.Lens' CreateDefaultVPC (Lude.Maybe Lude.Bool)
+cdvDryRun = Lens.lens (dryRun :: CreateDefaultVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateDefaultVPC)
+{-# DEPRECATED cdvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest CreateDefaultVPC where
+instance Lude.AWSRequest CreateDefaultVPC where
   type Rs CreateDefaultVPC = CreateDefaultVPCResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateDefaultVPCResponse'
-            <$> (x .@? "vpc") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpc") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDefaultVPC
+instance Lude.ToHeaders CreateDefaultVPC where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDefaultVPC
+instance Lude.ToPath CreateDefaultVPC where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateDefaultVPC where
-  toHeaders = const mempty
-
-instance ToPath CreateDefaultVPC where
-  toPath = const "/"
-
-instance ToQuery CreateDefaultVPC where
+instance Lude.ToQuery CreateDefaultVPC where
   toQuery CreateDefaultVPC' {..} =
-    mconcat
-      [ "Action" =: ("CreateDefaultVpc" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _cdvDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateDefaultVpc" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'createDefaultVPCResponse' smart constructor.
+-- | /See:/ 'mkCreateDefaultVPCResponse' smart constructor.
 data CreateDefaultVPCResponse = CreateDefaultVPCResponse'
-  { _cdvrsVPC ::
-      !(Maybe VPC),
-    _cdvrsResponseStatus :: !Int
+  { vpc ::
+      Lude.Maybe VPC,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDefaultVPCResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdvrsVPC' - Information about the VPC.
---
--- * 'cdvrsResponseStatus' - -- | The response status code.
-createDefaultVPCResponse ::
-  -- | 'cdvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpc' - Information about the VPC.
+mkCreateDefaultVPCResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDefaultVPCResponse
-createDefaultVPCResponse pResponseStatus_ =
+mkCreateDefaultVPCResponse pResponseStatus_ =
   CreateDefaultVPCResponse'
-    { _cdvrsVPC = Nothing,
-      _cdvrsResponseStatus = pResponseStatus_
+    { vpc = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC.
-cdvrsVPC :: Lens' CreateDefaultVPCResponse (Maybe VPC)
-cdvrsVPC = lens _cdvrsVPC (\s a -> s {_cdvrsVPC = a})
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvrsVPC :: Lens.Lens' CreateDefaultVPCResponse (Lude.Maybe VPC)
+cdvrsVPC = Lens.lens (vpc :: CreateDefaultVPCResponse -> Lude.Maybe VPC) (\s a -> s {vpc = a} :: CreateDefaultVPCResponse)
+{-# DEPRECATED cdvrsVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
--- | -- | The response status code.
-cdvrsResponseStatus :: Lens' CreateDefaultVPCResponse Int
-cdvrsResponseStatus = lens _cdvrsResponseStatus (\s a -> s {_cdvrsResponseStatus = a})
-
-instance NFData CreateDefaultVPCResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvrsResponseStatus :: Lens.Lens' CreateDefaultVPCResponse Lude.Int
+cdvrsResponseStatus = Lens.lens (responseStatus :: CreateDefaultVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDefaultVPCResponse)
+{-# DEPRECATED cdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

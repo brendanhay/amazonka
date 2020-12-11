@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,113 +7,139 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.TrustedAdvisorCheckResult where
+module Network.AWS.Support.Types.TrustedAdvisorCheckResult
+  ( TrustedAdvisorCheckResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrustedAdvisorCheckResult,
+
+    -- * Lenses
+    tacrCheckId,
+    tacrTimestamp,
+    tacrStatus,
+    tacrResourcesSummary,
+    tacrCategorySpecificSummary,
+    tacrFlaggedResources,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
 import Network.AWS.Support.Types.TrustedAdvisorResourceDetail
 import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 
 -- | The results of a Trusted Advisor check returned by 'DescribeTrustedAdvisorCheckResult' .
 --
---
---
--- /See:/ 'trustedAdvisorCheckResult' smart constructor.
+-- /See:/ 'mkTrustedAdvisorCheckResult' smart constructor.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
-  { _tacrCheckId ::
-      !Text,
-    _tacrTimestamp :: !Text,
-    _tacrStatus :: !Text,
-    _tacrResourcesSummary ::
-      !TrustedAdvisorResourcesSummary,
-    _tacrCategorySpecificSummary ::
-      !TrustedAdvisorCategorySpecificSummary,
-    _tacrFlaggedResources ::
-      ![TrustedAdvisorResourceDetail]
+  { checkId ::
+      Lude.Text,
+    timestamp :: Lude.Text,
+    status :: Lude.Text,
+    resourcesSummary ::
+      TrustedAdvisorResourcesSummary,
+    categorySpecificSummary ::
+      TrustedAdvisorCategorySpecificSummary,
+    flaggedResources ::
+      [TrustedAdvisorResourceDetail]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tacrCheckId' - The unique identifier for the Trusted Advisor check.
---
--- * 'tacrTimestamp' - The time of the last refresh of the check.
---
--- * 'tacrStatus' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
---
--- * 'tacrResourcesSummary' - Undocumented member.
---
--- * 'tacrCategorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
---
--- * 'tacrFlaggedResources' - The details about each resource listed in the check result.
-trustedAdvisorCheckResult ::
-  -- | 'tacrCheckId'
-  Text ->
-  -- | 'tacrTimestamp'
-  Text ->
-  -- | 'tacrStatus'
-  Text ->
-  -- | 'tacrResourcesSummary'
+-- * 'categorySpecificSummary' - Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
+-- * 'checkId' - The unique identifier for the Trusted Advisor check.
+-- * 'flaggedResources' - The details about each resource listed in the check result.
+-- * 'resourcesSummary' - Undocumented field.
+-- * 'status' - The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
+-- * 'timestamp' - The time of the last refresh of the check.
+mkTrustedAdvisorCheckResult ::
+  -- | 'checkId'
+  Lude.Text ->
+  -- | 'timestamp'
+  Lude.Text ->
+  -- | 'status'
+  Lude.Text ->
+  -- | 'resourcesSummary'
   TrustedAdvisorResourcesSummary ->
-  -- | 'tacrCategorySpecificSummary'
+  -- | 'categorySpecificSummary'
   TrustedAdvisorCategorySpecificSummary ->
   TrustedAdvisorCheckResult
-trustedAdvisorCheckResult
+mkTrustedAdvisorCheckResult
   pCheckId_
   pTimestamp_
   pStatus_
   pResourcesSummary_
   pCategorySpecificSummary_ =
     TrustedAdvisorCheckResult'
-      { _tacrCheckId = pCheckId_,
-        _tacrTimestamp = pTimestamp_,
-        _tacrStatus = pStatus_,
-        _tacrResourcesSummary = pResourcesSummary_,
-        _tacrCategorySpecificSummary = pCategorySpecificSummary_,
-        _tacrFlaggedResources = mempty
+      { checkId = pCheckId_,
+        timestamp = pTimestamp_,
+        status = pStatus_,
+        resourcesSummary = pResourcesSummary_,
+        categorySpecificSummary = pCategorySpecificSummary_,
+        flaggedResources = Lude.mempty
       }
 
 -- | The unique identifier for the Trusted Advisor check.
-tacrCheckId :: Lens' TrustedAdvisorCheckResult Text
-tacrCheckId = lens _tacrCheckId (\s a -> s {_tacrCheckId = a})
+--
+-- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrCheckId :: Lens.Lens' TrustedAdvisorCheckResult Lude.Text
+tacrCheckId = Lens.lens (checkId :: TrustedAdvisorCheckResult -> Lude.Text) (\s a -> s {checkId = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
 
 -- | The time of the last refresh of the check.
-tacrTimestamp :: Lens' TrustedAdvisorCheckResult Text
-tacrTimestamp = lens _tacrTimestamp (\s a -> s {_tacrTimestamp = a})
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrTimestamp :: Lens.Lens' TrustedAdvisorCheckResult Lude.Text
+tacrTimestamp = Lens.lens (timestamp :: TrustedAdvisorCheckResult -> Lude.Text) (\s a -> s {timestamp = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
-tacrStatus :: Lens' TrustedAdvisorCheckResult Text
-tacrStatus = lens _tacrStatus (\s a -> s {_tacrStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrStatus :: Lens.Lens' TrustedAdvisorCheckResult Lude.Text
+tacrStatus = Lens.lens (status :: TrustedAdvisorCheckResult -> Lude.Text) (\s a -> s {status = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Undocumented member.
-tacrResourcesSummary :: Lens' TrustedAdvisorCheckResult TrustedAdvisorResourcesSummary
-tacrResourcesSummary = lens _tacrResourcesSummary (\s a -> s {_tacrResourcesSummary = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourcesSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrResourcesSummary :: Lens.Lens' TrustedAdvisorCheckResult TrustedAdvisorResourcesSummary
+tacrResourcesSummary = Lens.lens (resourcesSummary :: TrustedAdvisorCheckResult -> TrustedAdvisorResourcesSummary) (\s a -> s {resourcesSummary = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrResourcesSummary "Use generic-lens or generic-optics with 'resourcesSummary' instead." #-}
 
 -- | Summary information that relates to the category of the check. Cost Optimizing is the only category that is currently supported.
-tacrCategorySpecificSummary :: Lens' TrustedAdvisorCheckResult TrustedAdvisorCategorySpecificSummary
-tacrCategorySpecificSummary = lens _tacrCategorySpecificSummary (\s a -> s {_tacrCategorySpecificSummary = a})
+--
+-- /Note:/ Consider using 'categorySpecificSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrCategorySpecificSummary :: Lens.Lens' TrustedAdvisorCheckResult TrustedAdvisorCategorySpecificSummary
+tacrCategorySpecificSummary = Lens.lens (categorySpecificSummary :: TrustedAdvisorCheckResult -> TrustedAdvisorCategorySpecificSummary) (\s a -> s {categorySpecificSummary = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrCategorySpecificSummary "Use generic-lens or generic-optics with 'categorySpecificSummary' instead." #-}
 
 -- | The details about each resource listed in the check result.
-tacrFlaggedResources :: Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
-tacrFlaggedResources = lens _tacrFlaggedResources (\s a -> s {_tacrFlaggedResources = a}) . _Coerce
+--
+-- /Note:/ Consider using 'flaggedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrFlaggedResources :: Lens.Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
+tacrFlaggedResources = Lens.lens (flaggedResources :: TrustedAdvisorCheckResult -> [TrustedAdvisorResourceDetail]) (\s a -> s {flaggedResources = a} :: TrustedAdvisorCheckResult)
+{-# DEPRECATED tacrFlaggedResources "Use generic-lens or generic-optics with 'flaggedResources' instead." #-}
 
-instance FromJSON TrustedAdvisorCheckResult where
+instance Lude.FromJSON TrustedAdvisorCheckResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrustedAdvisorCheckResult"
       ( \x ->
           TrustedAdvisorCheckResult'
-            <$> (x .: "checkId")
-            <*> (x .: "timestamp")
-            <*> (x .: "status")
-            <*> (x .: "resourcesSummary")
-            <*> (x .: "categorySpecificSummary")
-            <*> (x .:? "flaggedResources" .!= mempty)
+            Lude.<$> (x Lude..: "checkId")
+            Lude.<*> (x Lude..: "timestamp")
+            Lude.<*> (x Lude..: "status")
+            Lude.<*> (x Lude..: "resourcesSummary")
+            Lude.<*> (x Lude..: "categorySpecificSummary")
+            Lude.<*> (x Lude..:? "flaggedResources" Lude..!= Lude.mempty)
       )
-
-instance Hashable TrustedAdvisorCheckResult
-
-instance NFData TrustedAdvisorCheckResult

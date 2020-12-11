@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription where
+module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
+  ( S3ReferenceDataSourceDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3ReferenceDataSourceDescription,
+
+    -- * Lenses
+    srdsdBucketARN,
+    srdsdFileKey,
+    srdsdReferenceRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the bucket name and object key name that stores the reference data.
 --
---
---
--- /See:/ 's3ReferenceDataSourceDescription' smart constructor.
+-- /See:/ 'mkS3ReferenceDataSourceDescription' smart constructor.
 data S3ReferenceDataSourceDescription = S3ReferenceDataSourceDescription'
-  { _srdsdBucketARN ::
-      !Text,
-    _srdsdFileKey :: !Text,
-    _srdsdReferenceRoleARN ::
-      !Text
+  { bucketARN ::
+      Lude.Text,
+    fileKey :: Lude.Text,
+    referenceRoleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3ReferenceDataSourceDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srdsdBucketARN' - Amazon Resource Name (ARN) of the S3 bucket.
---
--- * 'srdsdFileKey' - Amazon S3 object key name.
---
--- * 'srdsdReferenceRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.
-s3ReferenceDataSourceDescription ::
-  -- | 'srdsdBucketARN'
-  Text ->
-  -- | 'srdsdFileKey'
-  Text ->
-  -- | 'srdsdReferenceRoleARN'
-  Text ->
+-- * 'bucketARN' - Amazon Resource Name (ARN) of the S3 bucket.
+-- * 'fileKey' - Amazon S3 object key name.
+-- * 'referenceRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.
+mkS3ReferenceDataSourceDescription ::
+  -- | 'bucketARN'
+  Lude.Text ->
+  -- | 'fileKey'
+  Lude.Text ->
+  -- | 'referenceRoleARN'
+  Lude.Text ->
   S3ReferenceDataSourceDescription
-s3ReferenceDataSourceDescription
+mkS3ReferenceDataSourceDescription
   pBucketARN_
   pFileKey_
   pReferenceRoleARN_ =
     S3ReferenceDataSourceDescription'
-      { _srdsdBucketARN = pBucketARN_,
-        _srdsdFileKey = pFileKey_,
-        _srdsdReferenceRoleARN = pReferenceRoleARN_
+      { bucketARN = pBucketARN_,
+        fileKey = pFileKey_,
+        referenceRoleARN = pReferenceRoleARN_
       }
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
-srdsdBucketARN :: Lens' S3ReferenceDataSourceDescription Text
-srdsdBucketARN = lens _srdsdBucketARN (\s a -> s {_srdsdBucketARN = a})
+--
+-- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdsdBucketARN :: Lens.Lens' S3ReferenceDataSourceDescription Lude.Text
+srdsdBucketARN = Lens.lens (bucketARN :: S3ReferenceDataSourceDescription -> Lude.Text) (\s a -> s {bucketARN = a} :: S3ReferenceDataSourceDescription)
+{-# DEPRECATED srdsdBucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
 
 -- | Amazon S3 object key name.
-srdsdFileKey :: Lens' S3ReferenceDataSourceDescription Text
-srdsdFileKey = lens _srdsdFileKey (\s a -> s {_srdsdFileKey = a})
+--
+-- /Note:/ Consider using 'fileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdsdFileKey :: Lens.Lens' S3ReferenceDataSourceDescription Lude.Text
+srdsdFileKey = Lens.lens (fileKey :: S3ReferenceDataSourceDescription -> Lude.Text) (\s a -> s {fileKey = a} :: S3ReferenceDataSourceDescription)
+{-# DEPRECATED srdsdFileKey "Use generic-lens or generic-optics with 'fileKey' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.
-srdsdReferenceRoleARN :: Lens' S3ReferenceDataSourceDescription Text
-srdsdReferenceRoleARN = lens _srdsdReferenceRoleARN (\s a -> s {_srdsdReferenceRoleARN = a})
+--
+-- /Note:/ Consider using 'referenceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdsdReferenceRoleARN :: Lens.Lens' S3ReferenceDataSourceDescription Lude.Text
+srdsdReferenceRoleARN = Lens.lens (referenceRoleARN :: S3ReferenceDataSourceDescription -> Lude.Text) (\s a -> s {referenceRoleARN = a} :: S3ReferenceDataSourceDescription)
+{-# DEPRECATED srdsdReferenceRoleARN "Use generic-lens or generic-optics with 'referenceRoleARN' instead." #-}
 
-instance FromJSON S3ReferenceDataSourceDescription where
+instance Lude.FromJSON S3ReferenceDataSourceDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "S3ReferenceDataSourceDescription"
       ( \x ->
           S3ReferenceDataSourceDescription'
-            <$> (x .: "BucketARN")
-            <*> (x .: "FileKey")
-            <*> (x .: "ReferenceRoleARN")
+            Lude.<$> (x Lude..: "BucketARN")
+            Lude.<*> (x Lude..: "FileKey")
+            Lude.<*> (x Lude..: "ReferenceRoleARN")
       )
-
-instance Hashable S3ReferenceDataSourceDescription
-
-instance NFData S3ReferenceDataSourceDescription

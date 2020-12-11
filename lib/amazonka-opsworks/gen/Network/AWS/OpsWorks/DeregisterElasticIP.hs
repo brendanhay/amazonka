@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,97 @@
 --
 -- Deregisters a specified Elastic IP address. The address can then be registered by another stack. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeregisterElasticIP
-  ( -- * Creating a Request
-    deregisterElasticIP,
-    DeregisterElasticIP,
+  ( -- * Creating a request
+    DeregisterElasticIP (..),
+    mkDeregisterElasticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deipElasticIP,
 
-    -- * Destructuring the Response
-    deregisterElasticIPResponse,
-    DeregisterElasticIPResponse,
+    -- * Destructuring the response
+    DeregisterElasticIPResponse (..),
+    mkDeregisterElasticIPResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterElasticIP' smart constructor.
+-- | /See:/ 'mkDeregisterElasticIP' smart constructor.
 newtype DeregisterElasticIP = DeregisterElasticIP'
-  { _deipElasticIP ::
-      Text
+  { elasticIP ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterElasticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deipElasticIP' - The Elastic IP address.
-deregisterElasticIP ::
-  -- | 'deipElasticIP'
-  Text ->
+-- * 'elasticIP' - The Elastic IP address.
+mkDeregisterElasticIP ::
+  -- | 'elasticIP'
+  Lude.Text ->
   DeregisterElasticIP
-deregisterElasticIP pElasticIP_ =
-  DeregisterElasticIP' {_deipElasticIP = pElasticIP_}
+mkDeregisterElasticIP pElasticIP_ =
+  DeregisterElasticIP' {elasticIP = pElasticIP_}
 
 -- | The Elastic IP address.
-deipElasticIP :: Lens' DeregisterElasticIP Text
-deipElasticIP = lens _deipElasticIP (\s a -> s {_deipElasticIP = a})
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deipElasticIP :: Lens.Lens' DeregisterElasticIP Lude.Text
+deipElasticIP = Lens.lens (elasticIP :: DeregisterElasticIP -> Lude.Text) (\s a -> s {elasticIP = a} :: DeregisterElasticIP)
+{-# DEPRECATED deipElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
-instance AWSRequest DeregisterElasticIP where
+instance Lude.AWSRequest DeregisterElasticIP where
   type Rs DeregisterElasticIP = DeregisterElasticIPResponse
-  request = postJSON opsWorks
-  response = receiveNull DeregisterElasticIPResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeregisterElasticIPResponse'
 
-instance Hashable DeregisterElasticIP
-
-instance NFData DeregisterElasticIP
-
-instance ToHeaders DeregisterElasticIP where
+instance Lude.ToHeaders DeregisterElasticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeregisterElasticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeregisterElasticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterElasticIP where
+instance Lude.ToJSON DeregisterElasticIP where
   toJSON DeregisterElasticIP' {..} =
-    object (catMaybes [Just ("ElasticIp" .= _deipElasticIP)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ElasticIp" Lude..= elasticIP)])
 
-instance ToPath DeregisterElasticIP where
-  toPath = const "/"
+instance Lude.ToPath DeregisterElasticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterElasticIP where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterElasticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterElasticIPResponse' smart constructor.
+-- | /See:/ 'mkDeregisterElasticIPResponse' smart constructor.
 data DeregisterElasticIPResponse = DeregisterElasticIPResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterElasticIPResponse' with the minimum fields required to make a request.
-deregisterElasticIPResponse ::
+mkDeregisterElasticIPResponse ::
   DeregisterElasticIPResponse
-deregisterElasticIPResponse = DeregisterElasticIPResponse'
-
-instance NFData DeregisterElasticIPResponse
+mkDeregisterElasticIPResponse = DeregisterElasticIPResponse'

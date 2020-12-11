@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry where
+module Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
+  ( DeleteMessageBatchRequestEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteMessageBatchRequestEntry,
+
+    -- * Lenses
+    dmbreId,
+    dmbreReceiptHandle,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encloses a receipt handle and an identifier for it.
 --
---
---
--- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
+-- /See:/ 'mkDeleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-  { _dmbreId ::
-      !Text,
-    _dmbreReceiptHandle :: !Text
+  { id ::
+      Lude.Text,
+    receiptHandle :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageBatchRequestEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmbreId' - An identifier for this particular receipt handle. This is used to communicate the result.
---
--- * 'dmbreReceiptHandle' - A receipt handle.
-deleteMessageBatchRequestEntry ::
-  -- | 'dmbreId'
-  Text ->
-  -- | 'dmbreReceiptHandle'
-  Text ->
+-- * 'id' - An identifier for this particular receipt handle. This is used to communicate the result.
+-- * 'receiptHandle' - A receipt handle.
+mkDeleteMessageBatchRequestEntry ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'receiptHandle'
+  Lude.Text ->
   DeleteMessageBatchRequestEntry
-deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
+mkDeleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
   DeleteMessageBatchRequestEntry'
-    { _dmbreId = pId_,
-      _dmbreReceiptHandle = pReceiptHandle_
+    { id = pId_,
+      receiptHandle = pReceiptHandle_
     }
 
 -- | An identifier for this particular receipt handle. This is used to communicate the result.
-dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
-dmbreId = lens _dmbreId (\s a -> s {_dmbreId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmbreId :: Lens.Lens' DeleteMessageBatchRequestEntry Lude.Text
+dmbreId = Lens.lens (id :: DeleteMessageBatchRequestEntry -> Lude.Text) (\s a -> s {id = a} :: DeleteMessageBatchRequestEntry)
+{-# DEPRECATED dmbreId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A receipt handle.
-dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
-dmbreReceiptHandle = lens _dmbreReceiptHandle (\s a -> s {_dmbreReceiptHandle = a})
+--
+-- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmbreReceiptHandle :: Lens.Lens' DeleteMessageBatchRequestEntry Lude.Text
+dmbreReceiptHandle = Lens.lens (receiptHandle :: DeleteMessageBatchRequestEntry -> Lude.Text) (\s a -> s {receiptHandle = a} :: DeleteMessageBatchRequestEntry)
+{-# DEPRECATED dmbreReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Hashable DeleteMessageBatchRequestEntry
-
-instance NFData DeleteMessageBatchRequestEntry
-
-instance ToQuery DeleteMessageBatchRequestEntry where
+instance Lude.ToQuery DeleteMessageBatchRequestEntry where
   toQuery DeleteMessageBatchRequestEntry' {..} =
-    mconcat
-      ["Id" =: _dmbreId, "ReceiptHandle" =: _dmbreReceiptHandle]
+    Lude.mconcat
+      ["Id" Lude.=: id, "ReceiptHandle" Lude.=: receiptHandle]

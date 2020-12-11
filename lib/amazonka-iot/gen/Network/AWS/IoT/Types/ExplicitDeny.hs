@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ExplicitDeny where
+module Network.AWS.IoT.Types.ExplicitDeny
+  ( ExplicitDeny (..),
+
+    -- * Smart constructor
+    mkExplicitDeny,
+
+    -- * Lenses
+    edPolicies,
+  )
+where
 
 import Network.AWS.IoT.Types.Policy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information that explicitly denies authorization.
 --
---
---
--- /See:/ 'explicitDeny' smart constructor.
-newtype ExplicitDeny = ExplicitDeny' {_edPolicies :: Maybe [Policy]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkExplicitDeny' smart constructor.
+newtype ExplicitDeny = ExplicitDeny'
+  { policies ::
+      Lude.Maybe [Policy]
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExplicitDeny' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edPolicies' - The policies that denied the authorization.
-explicitDeny ::
+-- * 'policies' - The policies that denied the authorization.
+mkExplicitDeny ::
   ExplicitDeny
-explicitDeny = ExplicitDeny' {_edPolicies = Nothing}
+mkExplicitDeny = ExplicitDeny' {policies = Lude.Nothing}
 
 -- | The policies that denied the authorization.
-edPolicies :: Lens' ExplicitDeny [Policy]
-edPolicies = lens _edPolicies (\s a -> s {_edPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edPolicies :: Lens.Lens' ExplicitDeny (Lude.Maybe [Policy])
+edPolicies = Lens.lens (policies :: ExplicitDeny -> Lude.Maybe [Policy]) (\s a -> s {policies = a} :: ExplicitDeny)
+{-# DEPRECATED edPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance FromJSON ExplicitDeny where
+instance Lude.FromJSON ExplicitDeny where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExplicitDeny"
-      (\x -> ExplicitDeny' <$> (x .:? "policies" .!= mempty))
-
-instance Hashable ExplicitDeny
-
-instance NFData ExplicitDeny
+      ( \x ->
+          ExplicitDeny'
+            Lude.<$> (x Lude..:? "policies" Lude..!= Lude.mempty)
+      )

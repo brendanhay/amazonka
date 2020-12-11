@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductSource where
+module Network.AWS.ServiceCatalog.Types.ProductSource
+  ( ProductSource
+      ( ProductSource',
+        PSAccount
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProductSource = PSAccount
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProductSource = ProductSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProductSource where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure PSAccount
-      e ->
-        fromTextError $
-          "Failure parsing ProductSource from value: '" <> e
-            <> "'. Accepted values: account"
+pattern PSAccount :: ProductSource
+pattern PSAccount = ProductSource' "ACCOUNT"
 
-instance ToText ProductSource where
-  toText = \case
-    PSAccount -> "ACCOUNT"
-
-instance Hashable ProductSource
-
-instance NFData ProductSource
-
-instance ToByteString ProductSource
-
-instance ToQuery ProductSource
-
-instance ToHeader ProductSource
-
-instance ToJSON ProductSource where
-  toJSON = toJSONText
+{-# COMPLETE
+  PSAccount,
+  ProductSource'
+  #-}

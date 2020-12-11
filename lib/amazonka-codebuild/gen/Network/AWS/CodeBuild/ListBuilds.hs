@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets a list of build IDs, with each build ID representing a single build.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListBuilds
-  ( -- * Creating a Request
-    listBuilds,
-    ListBuilds,
+  ( -- * Creating a request
+    ListBuilds (..),
+    mkListBuilds,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbSortOrder,
     lbNextToken,
 
-    -- * Destructuring the Response
-    listBuildsResponse,
-    ListBuildsResponse,
+    -- * Destructuring the response
+    ListBuildsResponse (..),
+    mkListBuildsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbrsIds,
     lbrsNextToken,
     lbrsResponseStatus,
@@ -43,123 +36,160 @@ module Network.AWS.CodeBuild.ListBuilds
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listBuilds' smart constructor.
+-- | /See:/ 'mkListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { _lbSortOrder ::
-      !(Maybe SortOrderType),
-    _lbNextToken :: !(Maybe Text)
+  { sortOrder ::
+      Lude.Maybe SortOrderType,
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuilds' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'sortOrder' - The order to list build IDs. Valid values include:
 --
--- * 'lbSortOrder' - The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
 --
--- * 'lbNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-listBuilds ::
+--     * @ASCENDING@ : List the build IDs in ascending order by build ID.
+--
+--
+--     * @DESCENDING@ : List the build IDs in descending order by build ID.
+mkListBuilds ::
   ListBuilds
-listBuilds =
-  ListBuilds' {_lbSortOrder = Nothing, _lbNextToken = Nothing}
+mkListBuilds =
+  ListBuilds' {sortOrder = Lude.Nothing, nextToken = Lude.Nothing}
 
--- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
-lbSortOrder :: Lens' ListBuilds (Maybe SortOrderType)
-lbSortOrder = lens _lbSortOrder (\s a -> s {_lbSortOrder = a})
+-- | The order to list build IDs. Valid values include:
+--
+--
+--     * @ASCENDING@ : List the build IDs in ascending order by build ID.
+--
+--
+--     * @DESCENDING@ : List the build IDs in descending order by build ID.
+--
+--
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbSortOrder :: Lens.Lens' ListBuilds (Lude.Maybe SortOrderType)
+lbSortOrder = Lens.lens (sortOrder :: ListBuilds -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListBuilds)
+{-# DEPRECATED lbSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lbNextToken :: Lens' ListBuilds (Maybe Text)
-lbNextToken = lens _lbNextToken (\s a -> s {_lbNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbNextToken :: Lens.Lens' ListBuilds (Lude.Maybe Lude.Text)
+lbNextToken = Lens.lens (nextToken :: ListBuilds -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuilds)
+{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListBuilds where
+instance Page.AWSPager ListBuilds where
   page rq rs
-    | stop (rs ^. lbrsNextToken) = Nothing
-    | stop (rs ^. lbrsIds) = Nothing
-    | otherwise = Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
+    | Page.stop (rs Lens.^. lbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbrsIds) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbNextToken Lens..~ rs Lens.^. lbrsNextToken
 
-instance AWSRequest ListBuilds where
+instance Lude.AWSRequest ListBuilds where
   type Rs ListBuilds = ListBuildsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            <$> (x .?> "ids") <*> (x .?> "nextToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ids")
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBuilds
-
-instance NFData ListBuilds
-
-instance ToHeaders ListBuilds where
+instance Lude.ToHeaders ListBuilds where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeBuild_20161006.ListBuilds" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeBuild_20161006.ListBuilds" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListBuilds where
+instance Lude.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
-    object
-      ( catMaybes
-          [ ("sortOrder" .=) <$> _lbSortOrder,
-            ("nextToken" .=) <$> _lbNextToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
-instance ToPath ListBuilds where
-  toPath = const "/"
+instance Lude.ToPath ListBuilds where
+  toPath = Lude.const "/"
 
-instance ToQuery ListBuilds where
-  toQuery = const mempty
+instance Lude.ToQuery ListBuilds where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listBuildsResponse' smart constructor.
+-- | /See:/ 'mkListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { _lbrsIds ::
-      !(Maybe (List1 Text)),
-    _lbrsNextToken :: !(Maybe Text),
-    _lbrsResponseStatus :: !Int
+  { ids ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsIds' - A list of build IDs, with each build ID representing a single build.
---
--- * 'lbrsNextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
---
--- * 'lbrsResponseStatus' - -- | The response status code.
-listBuildsResponse ::
-  -- | 'lbrsResponseStatus'
-  Int ->
+-- * 'ids' - A list of build IDs, with each build ID representing a single build.
+-- * 'nextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+-- * 'responseStatus' - The response status code.
+mkListBuildsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBuildsResponse
-listBuildsResponse pResponseStatus_ =
+mkListBuildsResponse pResponseStatus_ =
   ListBuildsResponse'
-    { _lbrsIds = Nothing,
-      _lbrsNextToken = Nothing,
-      _lbrsResponseStatus = pResponseStatus_
+    { ids = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of build IDs, with each build ID representing a single build.
-lbrsIds :: Lens' ListBuildsResponse (Maybe (NonEmpty Text))
-lbrsIds = lens _lbrsIds (\s a -> s {_lbrsIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsIds :: Lens.Lens' ListBuildsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+lbrsIds = Lens.lens (ids :: ListBuildsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {ids = a} :: ListBuildsResponse)
+{-# DEPRECATED lbrsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-lbrsNextToken :: Lens' ListBuildsResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\s a -> s {_lbrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsNextToken :: Lens.Lens' ListBuildsResponse (Lude.Maybe Lude.Text)
+lbrsNextToken = Lens.lens (nextToken :: ListBuildsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuildsResponse)
+{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lbrsResponseStatus :: Lens' ListBuildsResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\s a -> s {_lbrsResponseStatus = a})
-
-instance NFData ListBuildsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsResponseStatus :: Lens.Lens' ListBuildsResponse Lude.Int
+lbrsResponseStatus = Lens.lens (responseStatus :: ListBuildsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBuildsResponse)
+{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

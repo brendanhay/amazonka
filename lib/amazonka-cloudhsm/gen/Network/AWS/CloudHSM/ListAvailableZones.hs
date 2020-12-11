@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,117 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Lists the Availability Zones that have available AWS CloudHSM capacity.
 module Network.AWS.CloudHSM.ListAvailableZones
-  ( -- * Creating a Request
-    listAvailableZones,
-    ListAvailableZones,
+  ( -- * Creating a request
+    ListAvailableZones (..),
+    mkListAvailableZones,
 
-    -- * Destructuring the Response
-    listAvailableZonesResponse,
-    ListAvailableZonesResponse,
+    -- * Destructuring the response
+    ListAvailableZonesResponse (..),
+    mkListAvailableZonesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lazrsAZList,
     lazrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'ListAvailableZones' action.
 --
---
---
--- /See:/ 'listAvailableZones' smart constructor.
+-- /See:/ 'mkListAvailableZones' smart constructor.
 data ListAvailableZones = ListAvailableZones'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableZones' with the minimum fields required to make a request.
-listAvailableZones ::
+mkListAvailableZones ::
   ListAvailableZones
-listAvailableZones = ListAvailableZones'
+mkListAvailableZones = ListAvailableZones'
 
-instance AWSRequest ListAvailableZones where
+instance Lude.AWSRequest ListAvailableZones where
   type Rs ListAvailableZones = ListAvailableZonesResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAvailableZonesResponse'
-            <$> (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AZList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAvailableZones
-
-instance NFData ListAvailableZones
-
-instance ToHeaders ListAvailableZones where
+instance Lude.ToHeaders ListAvailableZones where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.ListAvailableZones" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.ListAvailableZones" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAvailableZones where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ListAvailableZones where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath ListAvailableZones where
-  toPath = const "/"
+instance Lude.ToPath ListAvailableZones where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAvailableZones where
-  toQuery = const mempty
+instance Lude.ToQuery ListAvailableZones where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAvailableZonesResponse' smart constructor.
+-- | /See:/ 'mkListAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-  { _lazrsAZList ::
-      !(Maybe [Text]),
-    _lazrsResponseStatus :: !Int
+  { aZList ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lazrsAZList' - The list of Availability Zones that have available AWS CloudHSM capacity.
---
--- * 'lazrsResponseStatus' - -- | The response status code.
-listAvailableZonesResponse ::
-  -- | 'lazrsResponseStatus'
-  Int ->
+-- * 'aZList' - The list of Availability Zones that have available AWS CloudHSM capacity.
+-- * 'responseStatus' - The response status code.
+mkListAvailableZonesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAvailableZonesResponse
-listAvailableZonesResponse pResponseStatus_ =
+mkListAvailableZonesResponse pResponseStatus_ =
   ListAvailableZonesResponse'
-    { _lazrsAZList = Nothing,
-      _lazrsResponseStatus = pResponseStatus_
+    { aZList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM capacity.
-lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
-lazrsAZList = lens _lazrsAZList (\s a -> s {_lazrsAZList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aZList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lazrsAZList :: Lens.Lens' ListAvailableZonesResponse (Lude.Maybe [Lude.Text])
+lazrsAZList = Lens.lens (aZList :: ListAvailableZonesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {aZList = a} :: ListAvailableZonesResponse)
+{-# DEPRECATED lazrsAZList "Use generic-lens or generic-optics with 'aZList' instead." #-}
 
--- | -- | The response status code.
-lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
-lazrsResponseStatus = lens _lazrsResponseStatus (\s a -> s {_lazrsResponseStatus = a})
-
-instance NFData ListAvailableZonesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lazrsResponseStatus :: Lens.Lens' ListAvailableZonesResponse Lude.Int
+lazrsResponseStatus = Lens.lens (responseStatus :: ListAvailableZonesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAvailableZonesResponse)
+{-# DEPRECATED lazrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

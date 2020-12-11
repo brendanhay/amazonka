@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthInfo where
+module Network.AWS.IoT.Types.AuthInfo
+  ( AuthInfo (..),
+
+    -- * Smart constructor
+    mkAuthInfo,
+
+    -- * Lenses
+    aiActionType,
+    aiResources,
+  )
+where
 
 import Network.AWS.IoT.Types.ActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A collection of authorization information.
 --
---
---
--- /See:/ 'authInfo' smart constructor.
+-- /See:/ 'mkAuthInfo' smart constructor.
 data AuthInfo = AuthInfo'
-  { _aiActionType :: !(Maybe ActionType),
-    _aiResources :: ![Text]
+  { actionType :: Lude.Maybe ActionType,
+    resources :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiActionType' - The type of action for which the principal is being authorized.
---
--- * 'aiResources' - The resources for which the principal is being authorized to perform the specified action.
-authInfo ::
+-- * 'actionType' - The type of action for which the principal is being authorized.
+-- * 'resources' - The resources for which the principal is being authorized to perform the specified action.
+mkAuthInfo ::
   AuthInfo
-authInfo =
-  AuthInfo' {_aiActionType = Nothing, _aiResources = mempty}
+mkAuthInfo =
+  AuthInfo' {actionType = Lude.Nothing, resources = Lude.mempty}
 
 -- | The type of action for which the principal is being authorized.
-aiActionType :: Lens' AuthInfo (Maybe ActionType)
-aiActionType = lens _aiActionType (\s a -> s {_aiActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiActionType :: Lens.Lens' AuthInfo (Lude.Maybe ActionType)
+aiActionType = Lens.lens (actionType :: AuthInfo -> Lude.Maybe ActionType) (\s a -> s {actionType = a} :: AuthInfo)
+{-# DEPRECATED aiActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
 -- | The resources for which the principal is being authorized to perform the specified action.
-aiResources :: Lens' AuthInfo [Text]
-aiResources = lens _aiResources (\s a -> s {_aiResources = a}) . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiResources :: Lens.Lens' AuthInfo [Lude.Text]
+aiResources = Lens.lens (resources :: AuthInfo -> [Lude.Text]) (\s a -> s {resources = a} :: AuthInfo)
+{-# DEPRECATED aiResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
-instance FromJSON AuthInfo where
+instance Lude.FromJSON AuthInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthInfo"
       ( \x ->
           AuthInfo'
-            <$> (x .:? "actionType") <*> (x .:? "resources" .!= mempty)
+            Lude.<$> (x Lude..:? "actionType")
+            Lude.<*> (x Lude..:? "resources" Lude..!= Lude.mempty)
       )
 
-instance Hashable AuthInfo
-
-instance NFData AuthInfo
-
-instance ToJSON AuthInfo where
+instance Lude.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =
-    object
-      ( catMaybes
-          [ ("actionType" .=) <$> _aiActionType,
-            Just ("resources" .= _aiResources)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("actionType" Lude..=) Lude.<$> actionType,
+            Lude.Just ("resources" Lude..= resources)
           ]
       )

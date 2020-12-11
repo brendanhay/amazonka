@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SupportedPlatform where
+module Network.AWS.Redshift.Types.SupportedPlatform
+  ( SupportedPlatform (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSupportedPlatform,
+
+    -- * Lenses
+    spName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | A list of supported platforms for orderable clusters.
 --
---
---
--- /See:/ 'supportedPlatform' smart constructor.
+-- /See:/ 'mkSupportedPlatform' smart constructor.
 newtype SupportedPlatform = SupportedPlatform'
-  { _spName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportedPlatform' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spName' -
-supportedPlatform ::
+-- * 'name' -
+mkSupportedPlatform ::
   SupportedPlatform
-supportedPlatform = SupportedPlatform' {_spName = Nothing}
+mkSupportedPlatform = SupportedPlatform' {name = Lude.Nothing}
 
 -- |
-spName :: Lens' SupportedPlatform (Maybe Text)
-spName = lens _spName (\s a -> s {_spName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spName :: Lens.Lens' SupportedPlatform (Lude.Maybe Lude.Text)
+spName = Lens.lens (name :: SupportedPlatform -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SupportedPlatform)
+{-# DEPRECATED spName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML SupportedPlatform where
-  parseXML x = SupportedPlatform' <$> (x .@? "Name")
-
-instance Hashable SupportedPlatform
-
-instance NFData SupportedPlatform
+instance Lude.FromXML SupportedPlatform where
+  parseXML x = SupportedPlatform' Lude.<$> (x Lude..@? "Name")

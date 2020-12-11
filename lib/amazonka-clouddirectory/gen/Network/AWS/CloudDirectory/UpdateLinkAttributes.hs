@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,143 @@
 --
 -- Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its @IdentityAttributeOrder@ .
 module Network.AWS.CloudDirectory.UpdateLinkAttributes
-  ( -- * Creating a Request
-    updateLinkAttributes,
-    UpdateLinkAttributes,
+  ( -- * Creating a request
+    UpdateLinkAttributes (..),
+    mkUpdateLinkAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ulaDirectoryARN,
     ulaTypedLinkSpecifier,
     ulaAttributeUpdates,
 
-    -- * Destructuring the Response
-    updateLinkAttributesResponse,
-    UpdateLinkAttributesResponse,
+    -- * Destructuring the response
+    UpdateLinkAttributesResponse (..),
+    mkUpdateLinkAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ularsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateLinkAttributes' smart constructor.
+-- | /See:/ 'mkUpdateLinkAttributes' smart constructor.
 data UpdateLinkAttributes = UpdateLinkAttributes'
-  { _ulaDirectoryARN ::
-      !Text,
-    _ulaTypedLinkSpecifier :: !TypedLinkSpecifier,
-    _ulaAttributeUpdates :: ![LinkAttributeUpdate]
+  { directoryARN ::
+      Lude.Text,
+    typedLinkSpecifier :: TypedLinkSpecifier,
+    attributeUpdates :: [LinkAttributeUpdate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLinkAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ulaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- * 'ulaTypedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
---
--- * 'ulaAttributeUpdates' - The attributes update structure.
-updateLinkAttributes ::
-  -- | 'ulaDirectoryARN'
-  Text ->
-  -- | 'ulaTypedLinkSpecifier'
+-- * 'attributeUpdates' - The attributes update structure.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
+mkUpdateLinkAttributes ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   UpdateLinkAttributes
-updateLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
+mkUpdateLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
   UpdateLinkAttributes'
-    { _ulaDirectoryARN = pDirectoryARN_,
-      _ulaTypedLinkSpecifier = pTypedLinkSpecifier_,
-      _ulaAttributeUpdates = mempty
+    { directoryARN = pDirectoryARN_,
+      typedLinkSpecifier = pTypedLinkSpecifier_,
+      attributeUpdates = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-ulaDirectoryARN :: Lens' UpdateLinkAttributes Text
-ulaDirectoryARN = lens _ulaDirectoryARN (\s a -> s {_ulaDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulaDirectoryARN :: Lens.Lens' UpdateLinkAttributes Lude.Text
+ulaDirectoryARN = Lens.lens (directoryARN :: UpdateLinkAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: UpdateLinkAttributes)
+{-# DEPRECATED ulaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Allows a typed link specifier to be accepted as input.
-ulaTypedLinkSpecifier :: Lens' UpdateLinkAttributes TypedLinkSpecifier
-ulaTypedLinkSpecifier = lens _ulaTypedLinkSpecifier (\s a -> s {_ulaTypedLinkSpecifier = a})
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulaTypedLinkSpecifier :: Lens.Lens' UpdateLinkAttributes TypedLinkSpecifier
+ulaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: UpdateLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: UpdateLinkAttributes)
+{-# DEPRECATED ulaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 -- | The attributes update structure.
-ulaAttributeUpdates :: Lens' UpdateLinkAttributes [LinkAttributeUpdate]
-ulaAttributeUpdates = lens _ulaAttributeUpdates (\s a -> s {_ulaAttributeUpdates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulaAttributeUpdates :: Lens.Lens' UpdateLinkAttributes [LinkAttributeUpdate]
+ulaAttributeUpdates = Lens.lens (attributeUpdates :: UpdateLinkAttributes -> [LinkAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateLinkAttributes)
+{-# DEPRECATED ulaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
-instance AWSRequest UpdateLinkAttributes where
+instance Lude.AWSRequest UpdateLinkAttributes where
   type Rs UpdateLinkAttributes = UpdateLinkAttributesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveEmpty
-      (\s h x -> UpdateLinkAttributesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateLinkAttributesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateLinkAttributes
-
-instance NFData UpdateLinkAttributes
-
-instance ToHeaders UpdateLinkAttributes where
+instance Lude.ToHeaders UpdateLinkAttributes where
   toHeaders UpdateLinkAttributes' {..} =
-    mconcat ["x-amz-data-partition" =# _ulaDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON UpdateLinkAttributes where
+instance Lude.ToJSON UpdateLinkAttributes where
   toJSON UpdateLinkAttributes' {..} =
-    object
-      ( catMaybes
-          [ Just ("TypedLinkSpecifier" .= _ulaTypedLinkSpecifier),
-            Just ("AttributeUpdates" .= _ulaAttributeUpdates)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier),
+            Lude.Just ("AttributeUpdates" Lude..= attributeUpdates)
           ]
       )
 
-instance ToPath UpdateLinkAttributes where
+instance Lude.ToPath UpdateLinkAttributes where
   toPath =
-    const
+    Lude.const
       "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
 
-instance ToQuery UpdateLinkAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateLinkAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateLinkAttributesResponse' smart constructor.
+-- | /See:/ 'mkUpdateLinkAttributesResponse' smart constructor.
 newtype UpdateLinkAttributesResponse = UpdateLinkAttributesResponse'
-  { _ularsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLinkAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ularsResponseStatus' - -- | The response status code.
-updateLinkAttributesResponse ::
-  -- | 'ularsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateLinkAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateLinkAttributesResponse
-updateLinkAttributesResponse pResponseStatus_ =
-  UpdateLinkAttributesResponse'
-    { _ularsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateLinkAttributesResponse pResponseStatus_ =
+  UpdateLinkAttributesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ularsResponseStatus :: Lens' UpdateLinkAttributesResponse Int
-ularsResponseStatus = lens _ularsResponseStatus (\s a -> s {_ularsResponseStatus = a})
-
-instance NFData UpdateLinkAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ularsResponseStatus :: Lens.Lens' UpdateLinkAttributesResponse Lude.Int
+ularsResponseStatus = Lens.lens (responseStatus :: UpdateLinkAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateLinkAttributesResponse)
+{-# DEPRECATED ularsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

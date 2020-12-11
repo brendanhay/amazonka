@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DomainConfigurationStatus where
+module Network.AWS.IoT.Types.DomainConfigurationStatus
+  ( DomainConfigurationStatus
+      ( DomainConfigurationStatus',
+        DCSDisabled,
+        DCSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainConfigurationStatus
-  = DCSDisabled
-  | DCSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainConfigurationStatus = DomainConfigurationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainConfigurationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DCSDisabled
-      "enabled" -> pure DCSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DomainConfigurationStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DCSDisabled :: DomainConfigurationStatus
+pattern DCSDisabled = DomainConfigurationStatus' "DISABLED"
 
-instance ToText DomainConfigurationStatus where
-  toText = \case
-    DCSDisabled -> "DISABLED"
-    DCSEnabled -> "ENABLED"
+pattern DCSEnabled :: DomainConfigurationStatus
+pattern DCSEnabled = DomainConfigurationStatus' "ENABLED"
 
-instance Hashable DomainConfigurationStatus
-
-instance NFData DomainConfigurationStatus
-
-instance ToByteString DomainConfigurationStatus
-
-instance ToQuery DomainConfigurationStatus
-
-instance ToHeader DomainConfigurationStatus
-
-instance ToJSON DomainConfigurationStatus where
-  toJSON = toJSONText
-
-instance FromJSON DomainConfigurationStatus where
-  parseJSON = parseJSONText "DomainConfigurationStatus"
+{-# COMPLETE
+  DCSDisabled,
+  DCSEnabled,
+  DomainConfigurationStatus'
+  #-}

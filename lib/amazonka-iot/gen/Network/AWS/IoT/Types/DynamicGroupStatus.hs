@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DynamicGroupStatus where
+module Network.AWS.IoT.Types.DynamicGroupStatus
+  ( DynamicGroupStatus
+      ( DynamicGroupStatus',
+        DGSActive,
+        DGSBuilding,
+        DGSRebuilding
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DynamicGroupStatus
-  = DGSActive
-  | DGSBuilding
-  | DGSRebuilding
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DynamicGroupStatus = DynamicGroupStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DynamicGroupStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DGSActive
-      "building" -> pure DGSBuilding
-      "rebuilding" -> pure DGSRebuilding
-      e ->
-        fromTextError $
-          "Failure parsing DynamicGroupStatus from value: '" <> e
-            <> "'. Accepted values: active, building, rebuilding"
+pattern DGSActive :: DynamicGroupStatus
+pattern DGSActive = DynamicGroupStatus' "ACTIVE"
 
-instance ToText DynamicGroupStatus where
-  toText = \case
-    DGSActive -> "ACTIVE"
-    DGSBuilding -> "BUILDING"
-    DGSRebuilding -> "REBUILDING"
+pattern DGSBuilding :: DynamicGroupStatus
+pattern DGSBuilding = DynamicGroupStatus' "BUILDING"
 
-instance Hashable DynamicGroupStatus
+pattern DGSRebuilding :: DynamicGroupStatus
+pattern DGSRebuilding = DynamicGroupStatus' "REBUILDING"
 
-instance NFData DynamicGroupStatus
-
-instance ToByteString DynamicGroupStatus
-
-instance ToQuery DynamicGroupStatus
-
-instance ToHeader DynamicGroupStatus
-
-instance FromJSON DynamicGroupStatus where
-  parseJSON = parseJSONText "DynamicGroupStatus"
+{-# COMPLETE
+  DGSActive,
+  DGSBuilding,
+  DGSRebuilding,
+  DynamicGroupStatus'
+  #-}

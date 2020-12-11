@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CertificateValidity where
+module Network.AWS.IoT.Types.CertificateValidity
+  ( CertificateValidity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCertificateValidity,
+
+    -- * Lenses
+    cvNotBefore,
+    cvNotAfter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When the certificate is valid.
 --
---
---
--- /See:/ 'certificateValidity' smart constructor.
+-- /See:/ 'mkCertificateValidity' smart constructor.
 data CertificateValidity = CertificateValidity'
-  { _cvNotBefore ::
-      !(Maybe POSIX),
-    _cvNotAfter :: !(Maybe POSIX)
+  { notBefore ::
+      Lude.Maybe Lude.Timestamp,
+    notAfter :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateValidity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvNotBefore' - The certificate is not valid before this date.
---
--- * 'cvNotAfter' - The certificate is not valid after this date.
-certificateValidity ::
+-- * 'notAfter' - The certificate is not valid after this date.
+-- * 'notBefore' - The certificate is not valid before this date.
+mkCertificateValidity ::
   CertificateValidity
-certificateValidity =
+mkCertificateValidity =
   CertificateValidity'
-    { _cvNotBefore = Nothing,
-      _cvNotAfter = Nothing
+    { notBefore = Lude.Nothing,
+      notAfter = Lude.Nothing
     }
 
 -- | The certificate is not valid before this date.
-cvNotBefore :: Lens' CertificateValidity (Maybe UTCTime)
-cvNotBefore = lens _cvNotBefore (\s a -> s {_cvNotBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvNotBefore :: Lens.Lens' CertificateValidity (Lude.Maybe Lude.Timestamp)
+cvNotBefore = Lens.lens (notBefore :: CertificateValidity -> Lude.Maybe Lude.Timestamp) (\s a -> s {notBefore = a} :: CertificateValidity)
+{-# DEPRECATED cvNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The certificate is not valid after this date.
-cvNotAfter :: Lens' CertificateValidity (Maybe UTCTime)
-cvNotAfter = lens _cvNotAfter (\s a -> s {_cvNotAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvNotAfter :: Lens.Lens' CertificateValidity (Lude.Maybe Lude.Timestamp)
+cvNotAfter = Lens.lens (notAfter :: CertificateValidity -> Lude.Maybe Lude.Timestamp) (\s a -> s {notAfter = a} :: CertificateValidity)
+{-# DEPRECATED cvNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
-instance FromJSON CertificateValidity where
+instance Lude.FromJSON CertificateValidity where
   parseJSON =
-    withObject
+    Lude.withObject
       "CertificateValidity"
       ( \x ->
           CertificateValidity'
-            <$> (x .:? "notBefore") <*> (x .:? "notAfter")
+            Lude.<$> (x Lude..:? "notBefore") Lude.<*> (x Lude..:? "notAfter")
       )
-
-instance Hashable CertificateValidity
-
-instance NFData CertificateValidity

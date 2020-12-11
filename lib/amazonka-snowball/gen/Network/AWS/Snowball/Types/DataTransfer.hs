@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.DataTransfer where
+module Network.AWS.Snowball.Types.DataTransfer
+  ( DataTransfer (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDataTransfer,
+
+    -- * Lenses
+    dtTotalObjects,
+    dtTotalBytes,
+    dtObjectsTransferred,
+    dtBytesTransferred,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 --
---
---
--- /See:/ 'dataTransfer' smart constructor.
+-- /See:/ 'mkDataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
-  { _dtTotalObjects ::
-      !(Maybe Integer),
-    _dtTotalBytes :: !(Maybe Integer),
-    _dtObjectsTransferred :: !(Maybe Integer),
-    _dtBytesTransferred :: !(Maybe Integer)
+  { totalObjects ::
+      Lude.Maybe Lude.Integer,
+    totalBytes :: Lude.Maybe Lude.Integer,
+    objectsTransferred :: Lude.Maybe Lude.Integer,
+    bytesTransferred :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataTransfer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtTotalObjects' - The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
---
--- * 'dtTotalBytes' - The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
---
--- * 'dtObjectsTransferred' - The number of objects transferred between a Snow device and Amazon S3.
---
--- * 'dtBytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
-dataTransfer ::
+-- * 'bytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
+-- * 'objectsTransferred' - The number of objects transferred between a Snow device and Amazon S3.
+-- * 'totalBytes' - The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
+-- * 'totalObjects' - The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
+mkDataTransfer ::
   DataTransfer
-dataTransfer =
+mkDataTransfer =
   DataTransfer'
-    { _dtTotalObjects = Nothing,
-      _dtTotalBytes = Nothing,
-      _dtObjectsTransferred = Nothing,
-      _dtBytesTransferred = Nothing
+    { totalObjects = Lude.Nothing,
+      totalBytes = Lude.Nothing,
+      objectsTransferred = Lude.Nothing,
+      bytesTransferred = Lude.Nothing
     }
 
 -- | The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
-dtTotalObjects :: Lens' DataTransfer (Maybe Integer)
-dtTotalObjects = lens _dtTotalObjects (\s a -> s {_dtTotalObjects = a})
+--
+-- /Note:/ Consider using 'totalObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTotalObjects :: Lens.Lens' DataTransfer (Lude.Maybe Lude.Integer)
+dtTotalObjects = Lens.lens (totalObjects :: DataTransfer -> Lude.Maybe Lude.Integer) (\s a -> s {totalObjects = a} :: DataTransfer)
+{-# DEPRECATED dtTotalObjects "Use generic-lens or generic-optics with 'totalObjects' instead." #-}
 
 -- | The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
-dtTotalBytes :: Lens' DataTransfer (Maybe Integer)
-dtTotalBytes = lens _dtTotalBytes (\s a -> s {_dtTotalBytes = a})
+--
+-- /Note:/ Consider using 'totalBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTotalBytes :: Lens.Lens' DataTransfer (Lude.Maybe Lude.Integer)
+dtTotalBytes = Lens.lens (totalBytes :: DataTransfer -> Lude.Maybe Lude.Integer) (\s a -> s {totalBytes = a} :: DataTransfer)
+{-# DEPRECATED dtTotalBytes "Use generic-lens or generic-optics with 'totalBytes' instead." #-}
 
 -- | The number of objects transferred between a Snow device and Amazon S3.
-dtObjectsTransferred :: Lens' DataTransfer (Maybe Integer)
-dtObjectsTransferred = lens _dtObjectsTransferred (\s a -> s {_dtObjectsTransferred = a})
+--
+-- /Note:/ Consider using 'objectsTransferred' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtObjectsTransferred :: Lens.Lens' DataTransfer (Lude.Maybe Lude.Integer)
+dtObjectsTransferred = Lens.lens (objectsTransferred :: DataTransfer -> Lude.Maybe Lude.Integer) (\s a -> s {objectsTransferred = a} :: DataTransfer)
+{-# DEPRECATED dtObjectsTransferred "Use generic-lens or generic-optics with 'objectsTransferred' instead." #-}
 
 -- | The number of bytes transferred between a Snow device and Amazon S3.
-dtBytesTransferred :: Lens' DataTransfer (Maybe Integer)
-dtBytesTransferred = lens _dtBytesTransferred (\s a -> s {_dtBytesTransferred = a})
+--
+-- /Note:/ Consider using 'bytesTransferred' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtBytesTransferred :: Lens.Lens' DataTransfer (Lude.Maybe Lude.Integer)
+dtBytesTransferred = Lens.lens (bytesTransferred :: DataTransfer -> Lude.Maybe Lude.Integer) (\s a -> s {bytesTransferred = a} :: DataTransfer)
+{-# DEPRECATED dtBytesTransferred "Use generic-lens or generic-optics with 'bytesTransferred' instead." #-}
 
-instance FromJSON DataTransfer where
+instance Lude.FromJSON DataTransfer where
   parseJSON =
-    withObject
+    Lude.withObject
       "DataTransfer"
       ( \x ->
           DataTransfer'
-            <$> (x .:? "TotalObjects")
-            <*> (x .:? "TotalBytes")
-            <*> (x .:? "ObjectsTransferred")
-            <*> (x .:? "BytesTransferred")
+            Lude.<$> (x Lude..:? "TotalObjects")
+            Lude.<*> (x Lude..:? "TotalBytes")
+            Lude.<*> (x Lude..:? "ObjectsTransferred")
+            Lude.<*> (x Lude..:? "BytesTransferred")
       )
-
-instance Hashable DataTransfer
-
-instance NFData DataTransfer

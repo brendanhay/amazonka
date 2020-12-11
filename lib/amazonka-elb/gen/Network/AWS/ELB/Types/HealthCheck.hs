@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,104 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.HealthCheck where
+module Network.AWS.ELB.Types.HealthCheck
+  ( HealthCheck (..),
+
+    -- * Smart constructor
+    mkHealthCheck,
+
+    -- * Lenses
+    hcTarget,
+    hcInterval,
+    hcTimeout,
+    hcUnhealthyThreshold,
+    hcHealthyThreshold,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a health check.
 --
---
---
--- /See:/ 'healthCheck' smart constructor.
+-- /See:/ 'mkHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { _hcTarget :: !Text,
-    _hcInterval :: !Nat,
-    _hcTimeout :: !Nat,
-    _hcUnhealthyThreshold :: !Nat,
-    _hcHealthyThreshold :: !Nat
+  { target :: Lude.Text,
+    interval :: Lude.Natural,
+    timeout :: Lude.Natural,
+    unhealthyThreshold :: Lude.Natural,
+    healthyThreshold :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'healthyThreshold' - The number of consecutive health checks successes required before moving the instance to the @Healthy@ state.
+-- * 'interval' - The approximate interval, in seconds, between health checks of an individual instance.
+-- * 'target' - The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
 --
--- * 'hcTarget' - The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy. SSL is also specified as SSL: port pair, for example, SSL:5000. For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy. The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+-- TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+-- SSL is also specified as SSL: port pair, for example, SSL:5000.
+-- For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+-- The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+-- * 'timeout' - The amount of time, in seconds, during which no response means a failed health check.
 --
--- * 'hcInterval' - The approximate interval, in seconds, between health checks of an individual instance.
---
--- * 'hcTimeout' - The amount of time, in seconds, during which no response means a failed health check. This value must be less than the @Interval@ value.
---
--- * 'hcUnhealthyThreshold' - The number of consecutive health check failures required before moving the instance to the @Unhealthy@ state.
---
--- * 'hcHealthyThreshold' - The number of consecutive health checks successes required before moving the instance to the @Healthy@ state.
-healthCheck ::
-  -- | 'hcTarget'
-  Text ->
-  -- | 'hcInterval'
-  Natural ->
-  -- | 'hcTimeout'
-  Natural ->
-  -- | 'hcUnhealthyThreshold'
-  Natural ->
-  -- | 'hcHealthyThreshold'
-  Natural ->
+-- This value must be less than the @Interval@ value.
+-- * 'unhealthyThreshold' - The number of consecutive health check failures required before moving the instance to the @Unhealthy@ state.
+mkHealthCheck ::
+  -- | 'target'
+  Lude.Text ->
+  -- | 'interval'
+  Lude.Natural ->
+  -- | 'timeout'
+  Lude.Natural ->
+  -- | 'unhealthyThreshold'
+  Lude.Natural ->
+  -- | 'healthyThreshold'
+  Lude.Natural ->
   HealthCheck
-healthCheck
+mkHealthCheck
   pTarget_
   pInterval_
   pTimeout_
   pUnhealthyThreshold_
   pHealthyThreshold_ =
     HealthCheck'
-      { _hcTarget = pTarget_,
-        _hcInterval = _Nat # pInterval_,
-        _hcTimeout = _Nat # pTimeout_,
-        _hcUnhealthyThreshold = _Nat # pUnhealthyThreshold_,
-        _hcHealthyThreshold = _Nat # pHealthyThreshold_
+      { target = pTarget_,
+        interval = pInterval_,
+        timeout = pTimeout_,
+        unhealthyThreshold = pUnhealthyThreshold_,
+        healthyThreshold = pHealthyThreshold_
       }
 
--- | The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy. SSL is also specified as SSL: port pair, for example, SSL:5000. For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy. The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
-hcTarget :: Lens' HealthCheck Text
-hcTarget = lens _hcTarget (\s a -> s {_hcTarget = a})
+-- | The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+--
+-- TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+-- SSL is also specified as SSL: port pair, for example, SSL:5000.
+-- For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+-- The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcTarget :: Lens.Lens' HealthCheck Lude.Text
+hcTarget = Lens.lens (target :: HealthCheck -> Lude.Text) (\s a -> s {target = a} :: HealthCheck)
+{-# DEPRECATED hcTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 -- | The approximate interval, in seconds, between health checks of an individual instance.
-hcInterval :: Lens' HealthCheck Natural
-hcInterval = lens _hcInterval (\s a -> s {_hcInterval = a}) . _Nat
+--
+-- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcInterval :: Lens.Lens' HealthCheck Lude.Natural
+hcInterval = Lens.lens (interval :: HealthCheck -> Lude.Natural) (\s a -> s {interval = a} :: HealthCheck)
+{-# DEPRECATED hcInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
 
--- | The amount of time, in seconds, during which no response means a failed health check. This value must be less than the @Interval@ value.
-hcTimeout :: Lens' HealthCheck Natural
-hcTimeout = lens _hcTimeout (\s a -> s {_hcTimeout = a}) . _Nat
+-- | The amount of time, in seconds, during which no response means a failed health check.
+--
+-- This value must be less than the @Interval@ value.
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcTimeout :: Lens.Lens' HealthCheck Lude.Natural
+hcTimeout = Lens.lens (timeout :: HealthCheck -> Lude.Natural) (\s a -> s {timeout = a} :: HealthCheck)
+{-# DEPRECATED hcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
 -- | The number of consecutive health check failures required before moving the instance to the @Unhealthy@ state.
-hcUnhealthyThreshold :: Lens' HealthCheck Natural
-hcUnhealthyThreshold = lens _hcUnhealthyThreshold (\s a -> s {_hcUnhealthyThreshold = a}) . _Nat
+--
+-- /Note:/ Consider using 'unhealthyThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcUnhealthyThreshold :: Lens.Lens' HealthCheck Lude.Natural
+hcUnhealthyThreshold = Lens.lens (unhealthyThreshold :: HealthCheck -> Lude.Natural) (\s a -> s {unhealthyThreshold = a} :: HealthCheck)
+{-# DEPRECATED hcUnhealthyThreshold "Use generic-lens or generic-optics with 'unhealthyThreshold' instead." #-}
 
 -- | The number of consecutive health checks successes required before moving the instance to the @Healthy@ state.
-hcHealthyThreshold :: Lens' HealthCheck Natural
-hcHealthyThreshold = lens _hcHealthyThreshold (\s a -> s {_hcHealthyThreshold = a}) . _Nat
+--
+-- /Note:/ Consider using 'healthyThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcHealthyThreshold :: Lens.Lens' HealthCheck Lude.Natural
+hcHealthyThreshold = Lens.lens (healthyThreshold :: HealthCheck -> Lude.Natural) (\s a -> s {healthyThreshold = a} :: HealthCheck)
+{-# DEPRECATED hcHealthyThreshold "Use generic-lens or generic-optics with 'healthyThreshold' instead." #-}
 
-instance FromXML HealthCheck where
+instance Lude.FromXML HealthCheck where
   parseXML x =
     HealthCheck'
-      <$> (x .@ "Target")
-      <*> (x .@ "Interval")
-      <*> (x .@ "Timeout")
-      <*> (x .@ "UnhealthyThreshold")
-      <*> (x .@ "HealthyThreshold")
+      Lude.<$> (x Lude..@ "Target")
+      Lude.<*> (x Lude..@ "Interval")
+      Lude.<*> (x Lude..@ "Timeout")
+      Lude.<*> (x Lude..@ "UnhealthyThreshold")
+      Lude.<*> (x Lude..@ "HealthyThreshold")
 
-instance Hashable HealthCheck
-
-instance NFData HealthCheck
-
-instance ToQuery HealthCheck where
+instance Lude.ToQuery HealthCheck where
   toQuery HealthCheck' {..} =
-    mconcat
-      [ "Target" =: _hcTarget,
-        "Interval" =: _hcInterval,
-        "Timeout" =: _hcTimeout,
-        "UnhealthyThreshold" =: _hcUnhealthyThreshold,
-        "HealthyThreshold" =: _hcHealthyThreshold
+    Lude.mconcat
+      [ "Target" Lude.=: target,
+        "Interval" Lude.=: interval,
+        "Timeout" Lude.=: timeout,
+        "UnhealthyThreshold" Lude.=: unhealthyThreshold,
+        "HealthyThreshold" Lude.=: healthyThreshold
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClassicLoadBalancersConfig where
+module Network.AWS.EC2.Types.ClassicLoadBalancersConfig
+  ( ClassicLoadBalancersConfig (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClassicLoadBalancersConfig,
+
+    -- * Lenses
+    clbcClassicLoadBalancers,
+  )
+where
+
 import Network.AWS.EC2.Types.ClassicLoadBalancer
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 --
---
---
--- /See:/ 'classicLoadBalancersConfig' smart constructor.
+-- /See:/ 'mkClassicLoadBalancersConfig' smart constructor.
 newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
-  { _clbcClassicLoadBalancers ::
-      Maybe (List1 ClassicLoadBalancer)
+  { classicLoadBalancers ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ClassicLoadBalancer
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassicLoadBalancersConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clbcClassicLoadBalancers' - One or more Classic Load Balancers.
-classicLoadBalancersConfig ::
+-- * 'classicLoadBalancers' - One or more Classic Load Balancers.
+mkClassicLoadBalancersConfig ::
   ClassicLoadBalancersConfig
-classicLoadBalancersConfig =
-  ClassicLoadBalancersConfig' {_clbcClassicLoadBalancers = Nothing}
+mkClassicLoadBalancersConfig =
+  ClassicLoadBalancersConfig' {classicLoadBalancers = Lude.Nothing}
 
 -- | One or more Classic Load Balancers.
-clbcClassicLoadBalancers :: Lens' ClassicLoadBalancersConfig (Maybe (NonEmpty ClassicLoadBalancer))
-clbcClassicLoadBalancers = lens _clbcClassicLoadBalancers (\s a -> s {_clbcClassicLoadBalancers = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'classicLoadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbcClassicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer))
+clbcClassicLoadBalancers = Lens.lens (classicLoadBalancers :: ClassicLoadBalancersConfig -> Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer)) (\s a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig)
+{-# DEPRECATED clbcClassicLoadBalancers "Use generic-lens or generic-optics with 'classicLoadBalancers' instead." #-}
 
-instance FromXML ClassicLoadBalancersConfig where
+instance Lude.FromXML ClassicLoadBalancersConfig where
   parseXML x =
     ClassicLoadBalancersConfig'
-      <$> ( x .@? "classicLoadBalancers" .!@ mempty
-              >>= may (parseXMLList1 "item")
-          )
+      Lude.<$> ( x Lude..@? "classicLoadBalancers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "item")
+               )
 
-instance Hashable ClassicLoadBalancersConfig
-
-instance NFData ClassicLoadBalancersConfig
-
-instance ToQuery ClassicLoadBalancersConfig where
+instance Lude.ToQuery ClassicLoadBalancersConfig where
   toQuery ClassicLoadBalancersConfig' {..} =
-    mconcat
-      [ toQuery
-          (toQueryList "ClassicLoadBalancers" <$> _clbcClassicLoadBalancers)
+    Lude.mconcat
+      [ Lude.toQuery
+          ( Lude.toQueryList "ClassicLoadBalancers"
+              Lude.<$> classicLoadBalancers
+          )
       ]

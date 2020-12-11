@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AacSpecification where
+module Network.AWS.MediaConvert.Types.AacSpecification
+  ( AacSpecification
+      ( AacSpecification',
+        ASMPEG2,
+        ASMPEG4
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use MPEG-2 AAC instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-data AacSpecification
-  = ASMPEG2
-  | ASMPEG4
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacSpecification = AacSpecification' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacSpecification where
-  parser =
-    takeLowerText >>= \case
-      "mpeg2" -> pure ASMPEG2
-      "mpeg4" -> pure ASMPEG4
-      e ->
-        fromTextError $
-          "Failure parsing AacSpecification from value: '" <> e
-            <> "'. Accepted values: mpeg2, mpeg4"
+pattern ASMPEG2 :: AacSpecification
+pattern ASMPEG2 = AacSpecification' "MPEG2"
 
-instance ToText AacSpecification where
-  toText = \case
-    ASMPEG2 -> "MPEG2"
-    ASMPEG4 -> "MPEG4"
+pattern ASMPEG4 :: AacSpecification
+pattern ASMPEG4 = AacSpecification' "MPEG4"
 
-instance Hashable AacSpecification
-
-instance NFData AacSpecification
-
-instance ToByteString AacSpecification
-
-instance ToQuery AacSpecification
-
-instance ToHeader AacSpecification
-
-instance ToJSON AacSpecification where
-  toJSON = toJSONText
-
-instance FromJSON AacSpecification where
-  parseJSON = parseJSONText "AacSpecification"
+{-# COMPLETE
+  ASMPEG2,
+  ASMPEG4,
+  AacSpecification'
+  #-}

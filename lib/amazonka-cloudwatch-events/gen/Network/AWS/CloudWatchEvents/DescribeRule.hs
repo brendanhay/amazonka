@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Describes the specified rule.
 --
---
 -- DescribeRule does not list the targets of a rule. To see the targets associated with a rule, use 'ListTargetsByRule' .
 module Network.AWS.CloudWatchEvents.DescribeRule
-  ( -- * Creating a Request
-    describeRule,
-    DescribeRule,
+  ( -- * Creating a request
+    DescribeRule (..),
+    mkDescribeRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desEventBusName,
     desName,
 
-    -- * Destructuring the Response
-    describeRuleResponse,
-    DescribeRuleResponse,
+    -- * Destructuring the response
+    DescribeRuleResponse (..),
+    mkDescribeRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsEventPattern,
     drrsState,
     drrsARN,
@@ -50,192 +44,226 @@ module Network.AWS.CloudWatchEvents.DescribeRule
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRule' smart constructor.
+-- | /See:/ 'mkDescribeRule' smart constructor.
 data DescribeRule = DescribeRule'
-  { _desEventBusName ::
-      !(Maybe Text),
-    _desName :: !Text
+  { eventBusName ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desEventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- * 'desName' - The name of the rule.
-describeRule ::
-  -- | 'desName'
-  Text ->
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'name' - The name of the rule.
+mkDescribeRule ::
+  -- | 'name'
+  Lude.Text ->
   DescribeRule
-describeRule pName_ =
-  DescribeRule' {_desEventBusName = Nothing, _desName = pName_}
+mkDescribeRule pName_ =
+  DescribeRule' {eventBusName = Lude.Nothing, name = pName_}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-desEventBusName :: Lens' DescribeRule (Maybe Text)
-desEventBusName = lens _desEventBusName (\s a -> s {_desEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desEventBusName :: Lens.Lens' DescribeRule (Lude.Maybe Lude.Text)
+desEventBusName = Lens.lens (eventBusName :: DescribeRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DescribeRule)
+{-# DEPRECATED desEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
-desName :: Lens' DescribeRule Text
-desName = lens _desName (\s a -> s {_desName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desName :: Lens.Lens' DescribeRule Lude.Text
+desName = Lens.lens (name :: DescribeRule -> Lude.Text) (\s a -> s {name = a} :: DescribeRule)
+{-# DEPRECATED desName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DescribeRule where
+instance Lude.AWSRequest DescribeRule where
   type Rs DescribeRule = DescribeRuleResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRuleResponse'
-            <$> (x .?> "EventPattern")
-            <*> (x .?> "State")
-            <*> (x .?> "Arn")
-            <*> (x .?> "CreatedBy")
-            <*> (x .?> "EventBusName")
-            <*> (x .?> "ScheduleExpression")
-            <*> (x .?> "Name")
-            <*> (x .?> "Description")
-            <*> (x .?> "ManagedBy")
-            <*> (x .?> "RoleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventPattern")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "CreatedBy")
+            Lude.<*> (x Lude..?> "EventBusName")
+            Lude.<*> (x Lude..?> "ScheduleExpression")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "ManagedBy")
+            Lude.<*> (x Lude..?> "RoleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRule
-
-instance NFData DescribeRule
-
-instance ToHeaders DescribeRule where
+instance Lude.ToHeaders DescribeRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DescribeRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DescribeRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRule where
+instance Lude.ToJSON DescribeRule where
   toJSON DescribeRule' {..} =
-    object
-      ( catMaybes
-          [ ("EventBusName" .=) <$> _desEventBusName,
-            Just ("Name" .= _desName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath DescribeRule where
-  toPath = const "/"
+instance Lude.ToPath DescribeRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRule where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRuleResponse' smart constructor.
+-- | /See:/ 'mkDescribeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
-  { _drrsEventPattern ::
-      !(Maybe Text),
-    _drrsState :: !(Maybe RuleState),
-    _drrsARN :: !(Maybe Text),
-    _drrsCreatedBy :: !(Maybe Text),
-    _drrsEventBusName :: !(Maybe Text),
-    _drrsScheduleExpression :: !(Maybe Text),
-    _drrsName :: !(Maybe Text),
-    _drrsDescription :: !(Maybe Text),
-    _drrsManagedBy :: !(Maybe Text),
-    _drrsRoleARN :: !(Maybe Text),
-    _drrsResponseStatus :: !Int
+  { eventPattern ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe RuleState,
+    arn :: Lude.Maybe Lude.Text,
+    createdBy :: Lude.Maybe Lude.Text,
+    eventBusName :: Lude.Maybe Lude.Text,
+    scheduleExpression :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    managedBy :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsEventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
---
--- * 'drrsState' - Specifies whether the rule is enabled or disabled.
---
--- * 'drrsARN' - The Amazon Resource Name (ARN) of the rule.
---
--- * 'drrsCreatedBy' - The account ID of the user that created the rule. If you use @PutRule@ to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for @CreatedBy@ is the account ID as the account that created the rule in the other account.
---
--- * 'drrsEventBusName' - The name of the event bus associated with the rule.
---
--- * 'drrsScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
---
--- * 'drrsName' - The name of the rule.
---
--- * 'drrsDescription' - The description of the rule.
---
--- * 'drrsManagedBy' - If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
---
--- * 'drrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
---
--- * 'drrsResponseStatus' - -- | The response status code.
-describeRuleResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the rule.
+-- * 'createdBy' - The account ID of the user that created the rule. If you use @PutRule@ to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for @CreatedBy@ is the account ID as the account that created the rule in the other account.
+-- * 'description' - The description of the rule.
+-- * 'eventBusName' - The name of the event bus associated with the rule.
+-- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+-- * 'managedBy' - If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
+-- * 'name' - The name of the rule.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+-- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+-- * 'state' - Specifies whether the rule is enabled or disabled.
+mkDescribeRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRuleResponse
-describeRuleResponse pResponseStatus_ =
+mkDescribeRuleResponse pResponseStatus_ =
   DescribeRuleResponse'
-    { _drrsEventPattern = Nothing,
-      _drrsState = Nothing,
-      _drrsARN = Nothing,
-      _drrsCreatedBy = Nothing,
-      _drrsEventBusName = Nothing,
-      _drrsScheduleExpression = Nothing,
-      _drrsName = Nothing,
-      _drrsDescription = Nothing,
-      _drrsManagedBy = Nothing,
-      _drrsRoleARN = Nothing,
-      _drrsResponseStatus = pResponseStatus_
+    { eventPattern = Lude.Nothing,
+      state = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      scheduleExpression = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      managedBy = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
-drrsEventPattern :: Lens' DescribeRuleResponse (Maybe Text)
-drrsEventPattern = lens _drrsEventPattern (\s a -> s {_drrsEventPattern = a})
+--
+-- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsEventPattern :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsEventPattern = Lens.lens (eventPattern :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventPattern = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
 
 -- | Specifies whether the rule is enabled or disabled.
-drrsState :: Lens' DescribeRuleResponse (Maybe RuleState)
-drrsState = lens _drrsState (\s a -> s {_drrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsState :: Lens.Lens' DescribeRuleResponse (Lude.Maybe RuleState)
+drrsState = Lens.lens (state :: DescribeRuleResponse -> Lude.Maybe RuleState) (\s a -> s {state = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the rule.
-drrsARN :: Lens' DescribeRuleResponse (Maybe Text)
-drrsARN = lens _drrsARN (\s a -> s {_drrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsARN :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsARN = Lens.lens (arn :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The account ID of the user that created the rule. If you use @PutRule@ to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for @CreatedBy@ is the account ID as the account that created the rule in the other account.
-drrsCreatedBy :: Lens' DescribeRuleResponse (Maybe Text)
-drrsCreatedBy = lens _drrsCreatedBy (\s a -> s {_drrsCreatedBy = a})
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsCreatedBy :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsCreatedBy = Lens.lens (createdBy :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | The name of the event bus associated with the rule.
-drrsEventBusName :: Lens' DescribeRuleResponse (Maybe Text)
-drrsEventBusName = lens _drrsEventBusName (\s a -> s {_drrsEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsEventBusName :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsEventBusName = Lens.lens (eventBusName :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
-drrsScheduleExpression :: Lens' DescribeRuleResponse (Maybe Text)
-drrsScheduleExpression = lens _drrsScheduleExpression (\s a -> s {_drrsScheduleExpression = a})
+--
+-- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsScheduleExpression :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsScheduleExpression = Lens.lens (scheduleExpression :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
 
 -- | The name of the rule.
-drrsName :: Lens' DescribeRuleResponse (Maybe Text)
-drrsName = lens _drrsName (\s a -> s {_drrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsName :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsName = Lens.lens (name :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the rule.
-drrsDescription :: Lens' DescribeRuleResponse (Maybe Text)
-drrsDescription = lens _drrsDescription (\s a -> s {_drrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsDescription :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsDescription = Lens.lens (description :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
-drrsManagedBy :: Lens' DescribeRuleResponse (Maybe Text)
-drrsManagedBy = lens _drrsManagedBy (\s a -> s {_drrsManagedBy = a})
+--
+-- /Note:/ Consider using 'managedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsManagedBy :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsManagedBy = Lens.lens (managedBy :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {managedBy = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsManagedBy "Use generic-lens or generic-optics with 'managedBy' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-drrsRoleARN :: Lens' DescribeRuleResponse (Maybe Text)
-drrsRoleARN = lens _drrsRoleARN (\s a -> s {_drrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRoleARN :: Lens.Lens' DescribeRuleResponse (Lude.Maybe Lude.Text)
+drrsRoleARN = Lens.lens (roleARN :: DescribeRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DescribeRuleResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DescribeRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DescribeRuleResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DescribeRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRuleResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

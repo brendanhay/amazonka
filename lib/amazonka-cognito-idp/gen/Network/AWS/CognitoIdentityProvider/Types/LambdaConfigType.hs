@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,180 +7,227 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType where
+module Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
+  ( LambdaConfigType (..),
+
+    -- * Smart constructor
+    mkLambdaConfigType,
+
+    -- * Lenses
+    lctPreAuthentication,
+    lctCreateAuthChallenge,
+    lctVerifyAuthChallengeResponse,
+    lctCustomSMSSender,
+    lctPostAuthentication,
+    lctCustomMessage,
+    lctDefineAuthChallenge,
+    lctCustomEmailSender,
+    lctKMSKeyId,
+    lctPostConfirmation,
+    lctPreTokenGeneration,
+    lctUserMigration,
+    lctPreSignUp,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
 import Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the configuration for AWS Lambda triggers.
 --
---
---
--- /See:/ 'lambdaConfigType' smart constructor.
+-- /See:/ 'mkLambdaConfigType' smart constructor.
 data LambdaConfigType = LambdaConfigType'
-  { _lctPreAuthentication ::
-      !(Maybe Text),
-    _lctCreateAuthChallenge :: !(Maybe Text),
-    _lctVerifyAuthChallengeResponse :: !(Maybe Text),
-    _lctCustomSMSSender ::
-      !(Maybe CustomSMSLambdaVersionConfigType),
-    _lctPostAuthentication :: !(Maybe Text),
-    _lctCustomMessage :: !(Maybe Text),
-    _lctDefineAuthChallenge :: !(Maybe Text),
-    _lctCustomEmailSender ::
-      !(Maybe CustomEmailLambdaVersionConfigType),
-    _lctKMSKeyId :: !(Maybe Text),
-    _lctPostConfirmation :: !(Maybe Text),
-    _lctPreTokenGeneration :: !(Maybe Text),
-    _lctUserMigration :: !(Maybe Text),
-    _lctPreSignUp :: !(Maybe Text)
+  { preAuthentication ::
+      Lude.Maybe Lude.Text,
+    createAuthChallenge :: Lude.Maybe Lude.Text,
+    verifyAuthChallengeResponse :: Lude.Maybe Lude.Text,
+    customSMSSender ::
+      Lude.Maybe CustomSMSLambdaVersionConfigType,
+    postAuthentication :: Lude.Maybe Lude.Text,
+    customMessage :: Lude.Maybe Lude.Text,
+    defineAuthChallenge :: Lude.Maybe Lude.Text,
+    customEmailSender ::
+      Lude.Maybe CustomEmailLambdaVersionConfigType,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    postConfirmation :: Lude.Maybe Lude.Text,
+    preTokenGeneration :: Lude.Maybe Lude.Text,
+    userMigration :: Lude.Maybe Lude.Text,
+    preSignUp :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaConfigType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lctPreAuthentication' - A pre-authentication AWS Lambda trigger.
---
--- * 'lctCreateAuthChallenge' - Creates an authentication challenge.
---
--- * 'lctVerifyAuthChallengeResponse' - Verifies the authentication challenge response.
---
--- * 'lctCustomSMSSender' - A custom SMS sender AWS Lambda trigger.
---
--- * 'lctPostAuthentication' - A post-authentication AWS Lambda trigger.
---
--- * 'lctCustomMessage' - A custom Message AWS Lambda trigger.
---
--- * 'lctDefineAuthChallenge' - Defines the authentication challenge.
---
--- * 'lctCustomEmailSender' - A custom email sender AWS Lambda trigger.
---
--- * 'lctKMSKeyId' - The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
---
--- * 'lctPostConfirmation' - A post-confirmation AWS Lambda trigger.
---
--- * 'lctPreTokenGeneration' - A Lambda trigger that is invoked before token generation.
---
--- * 'lctUserMigration' - The user migration Lambda config type.
---
--- * 'lctPreSignUp' - A pre-registration AWS Lambda trigger.
-lambdaConfigType ::
+-- * 'createAuthChallenge' - Creates an authentication challenge.
+-- * 'customEmailSender' - A custom email sender AWS Lambda trigger.
+-- * 'customMessage' - A custom Message AWS Lambda trigger.
+-- * 'customSMSSender' - A custom SMS sender AWS Lambda trigger.
+-- * 'defineAuthChallenge' - Defines the authentication challenge.
+-- * 'kmsKeyId' - The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
+-- * 'postAuthentication' - A post-authentication AWS Lambda trigger.
+-- * 'postConfirmation' - A post-confirmation AWS Lambda trigger.
+-- * 'preAuthentication' - A pre-authentication AWS Lambda trigger.
+-- * 'preSignUp' - A pre-registration AWS Lambda trigger.
+-- * 'preTokenGeneration' - A Lambda trigger that is invoked before token generation.
+-- * 'userMigration' - The user migration Lambda config type.
+-- * 'verifyAuthChallengeResponse' - Verifies the authentication challenge response.
+mkLambdaConfigType ::
   LambdaConfigType
-lambdaConfigType =
+mkLambdaConfigType =
   LambdaConfigType'
-    { _lctPreAuthentication = Nothing,
-      _lctCreateAuthChallenge = Nothing,
-      _lctVerifyAuthChallengeResponse = Nothing,
-      _lctCustomSMSSender = Nothing,
-      _lctPostAuthentication = Nothing,
-      _lctCustomMessage = Nothing,
-      _lctDefineAuthChallenge = Nothing,
-      _lctCustomEmailSender = Nothing,
-      _lctKMSKeyId = Nothing,
-      _lctPostConfirmation = Nothing,
-      _lctPreTokenGeneration = Nothing,
-      _lctUserMigration = Nothing,
-      _lctPreSignUp = Nothing
+    { preAuthentication = Lude.Nothing,
+      createAuthChallenge = Lude.Nothing,
+      verifyAuthChallengeResponse = Lude.Nothing,
+      customSMSSender = Lude.Nothing,
+      postAuthentication = Lude.Nothing,
+      customMessage = Lude.Nothing,
+      defineAuthChallenge = Lude.Nothing,
+      customEmailSender = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      postConfirmation = Lude.Nothing,
+      preTokenGeneration = Lude.Nothing,
+      userMigration = Lude.Nothing,
+      preSignUp = Lude.Nothing
     }
 
 -- | A pre-authentication AWS Lambda trigger.
-lctPreAuthentication :: Lens' LambdaConfigType (Maybe Text)
-lctPreAuthentication = lens _lctPreAuthentication (\s a -> s {_lctPreAuthentication = a})
+--
+-- /Note:/ Consider using 'preAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctPreAuthentication :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctPreAuthentication = Lens.lens (preAuthentication :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {preAuthentication = a} :: LambdaConfigType)
+{-# DEPRECATED lctPreAuthentication "Use generic-lens or generic-optics with 'preAuthentication' instead." #-}
 
 -- | Creates an authentication challenge.
-lctCreateAuthChallenge :: Lens' LambdaConfigType (Maybe Text)
-lctCreateAuthChallenge = lens _lctCreateAuthChallenge (\s a -> s {_lctCreateAuthChallenge = a})
+--
+-- /Note:/ Consider using 'createAuthChallenge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctCreateAuthChallenge :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctCreateAuthChallenge = Lens.lens (createAuthChallenge :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {createAuthChallenge = a} :: LambdaConfigType)
+{-# DEPRECATED lctCreateAuthChallenge "Use generic-lens or generic-optics with 'createAuthChallenge' instead." #-}
 
 -- | Verifies the authentication challenge response.
-lctVerifyAuthChallengeResponse :: Lens' LambdaConfigType (Maybe Text)
-lctVerifyAuthChallengeResponse = lens _lctVerifyAuthChallengeResponse (\s a -> s {_lctVerifyAuthChallengeResponse = a})
+--
+-- /Note:/ Consider using 'verifyAuthChallengeResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctVerifyAuthChallengeResponse :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctVerifyAuthChallengeResponse = Lens.lens (verifyAuthChallengeResponse :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {verifyAuthChallengeResponse = a} :: LambdaConfigType)
+{-# DEPRECATED lctVerifyAuthChallengeResponse "Use generic-lens or generic-optics with 'verifyAuthChallengeResponse' instead." #-}
 
 -- | A custom SMS sender AWS Lambda trigger.
-lctCustomSMSSender :: Lens' LambdaConfigType (Maybe CustomSMSLambdaVersionConfigType)
-lctCustomSMSSender = lens _lctCustomSMSSender (\s a -> s {_lctCustomSMSSender = a})
+--
+-- /Note:/ Consider using 'customSMSSender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctCustomSMSSender :: Lens.Lens' LambdaConfigType (Lude.Maybe CustomSMSLambdaVersionConfigType)
+lctCustomSMSSender = Lens.lens (customSMSSender :: LambdaConfigType -> Lude.Maybe CustomSMSLambdaVersionConfigType) (\s a -> s {customSMSSender = a} :: LambdaConfigType)
+{-# DEPRECATED lctCustomSMSSender "Use generic-lens or generic-optics with 'customSMSSender' instead." #-}
 
 -- | A post-authentication AWS Lambda trigger.
-lctPostAuthentication :: Lens' LambdaConfigType (Maybe Text)
-lctPostAuthentication = lens _lctPostAuthentication (\s a -> s {_lctPostAuthentication = a})
+--
+-- /Note:/ Consider using 'postAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctPostAuthentication :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctPostAuthentication = Lens.lens (postAuthentication :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {postAuthentication = a} :: LambdaConfigType)
+{-# DEPRECATED lctPostAuthentication "Use generic-lens or generic-optics with 'postAuthentication' instead." #-}
 
 -- | A custom Message AWS Lambda trigger.
-lctCustomMessage :: Lens' LambdaConfigType (Maybe Text)
-lctCustomMessage = lens _lctCustomMessage (\s a -> s {_lctCustomMessage = a})
+--
+-- /Note:/ Consider using 'customMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctCustomMessage :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctCustomMessage = Lens.lens (customMessage :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {customMessage = a} :: LambdaConfigType)
+{-# DEPRECATED lctCustomMessage "Use generic-lens or generic-optics with 'customMessage' instead." #-}
 
 -- | Defines the authentication challenge.
-lctDefineAuthChallenge :: Lens' LambdaConfigType (Maybe Text)
-lctDefineAuthChallenge = lens _lctDefineAuthChallenge (\s a -> s {_lctDefineAuthChallenge = a})
+--
+-- /Note:/ Consider using 'defineAuthChallenge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctDefineAuthChallenge :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctDefineAuthChallenge = Lens.lens (defineAuthChallenge :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {defineAuthChallenge = a} :: LambdaConfigType)
+{-# DEPRECATED lctDefineAuthChallenge "Use generic-lens or generic-optics with 'defineAuthChallenge' instead." #-}
 
 -- | A custom email sender AWS Lambda trigger.
-lctCustomEmailSender :: Lens' LambdaConfigType (Maybe CustomEmailLambdaVersionConfigType)
-lctCustomEmailSender = lens _lctCustomEmailSender (\s a -> s {_lctCustomEmailSender = a})
+--
+-- /Note:/ Consider using 'customEmailSender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctCustomEmailSender :: Lens.Lens' LambdaConfigType (Lude.Maybe CustomEmailLambdaVersionConfigType)
+lctCustomEmailSender = Lens.lens (customEmailSender :: LambdaConfigType -> Lude.Maybe CustomEmailLambdaVersionConfigType) (\s a -> s {customEmailSender = a} :: LambdaConfigType)
+{-# DEPRECATED lctCustomEmailSender "Use generic-lens or generic-optics with 'customEmailSender' instead." #-}
 
 -- | The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
-lctKMSKeyId :: Lens' LambdaConfigType (Maybe Text)
-lctKMSKeyId = lens _lctKMSKeyId (\s a -> s {_lctKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctKMSKeyId :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctKMSKeyId = Lens.lens (kmsKeyId :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: LambdaConfigType)
+{-# DEPRECATED lctKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | A post-confirmation AWS Lambda trigger.
-lctPostConfirmation :: Lens' LambdaConfigType (Maybe Text)
-lctPostConfirmation = lens _lctPostConfirmation (\s a -> s {_lctPostConfirmation = a})
+--
+-- /Note:/ Consider using 'postConfirmation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctPostConfirmation :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctPostConfirmation = Lens.lens (postConfirmation :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {postConfirmation = a} :: LambdaConfigType)
+{-# DEPRECATED lctPostConfirmation "Use generic-lens or generic-optics with 'postConfirmation' instead." #-}
 
 -- | A Lambda trigger that is invoked before token generation.
-lctPreTokenGeneration :: Lens' LambdaConfigType (Maybe Text)
-lctPreTokenGeneration = lens _lctPreTokenGeneration (\s a -> s {_lctPreTokenGeneration = a})
+--
+-- /Note:/ Consider using 'preTokenGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctPreTokenGeneration :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctPreTokenGeneration = Lens.lens (preTokenGeneration :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {preTokenGeneration = a} :: LambdaConfigType)
+{-# DEPRECATED lctPreTokenGeneration "Use generic-lens or generic-optics with 'preTokenGeneration' instead." #-}
 
 -- | The user migration Lambda config type.
-lctUserMigration :: Lens' LambdaConfigType (Maybe Text)
-lctUserMigration = lens _lctUserMigration (\s a -> s {_lctUserMigration = a})
+--
+-- /Note:/ Consider using 'userMigration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctUserMigration :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctUserMigration = Lens.lens (userMigration :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {userMigration = a} :: LambdaConfigType)
+{-# DEPRECATED lctUserMigration "Use generic-lens or generic-optics with 'userMigration' instead." #-}
 
 -- | A pre-registration AWS Lambda trigger.
-lctPreSignUp :: Lens' LambdaConfigType (Maybe Text)
-lctPreSignUp = lens _lctPreSignUp (\s a -> s {_lctPreSignUp = a})
+--
+-- /Note:/ Consider using 'preSignUp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lctPreSignUp :: Lens.Lens' LambdaConfigType (Lude.Maybe Lude.Text)
+lctPreSignUp = Lens.lens (preSignUp :: LambdaConfigType -> Lude.Maybe Lude.Text) (\s a -> s {preSignUp = a} :: LambdaConfigType)
+{-# DEPRECATED lctPreSignUp "Use generic-lens or generic-optics with 'preSignUp' instead." #-}
 
-instance FromJSON LambdaConfigType where
+instance Lude.FromJSON LambdaConfigType where
   parseJSON =
-    withObject
+    Lude.withObject
       "LambdaConfigType"
       ( \x ->
           LambdaConfigType'
-            <$> (x .:? "PreAuthentication")
-            <*> (x .:? "CreateAuthChallenge")
-            <*> (x .:? "VerifyAuthChallengeResponse")
-            <*> (x .:? "CustomSMSSender")
-            <*> (x .:? "PostAuthentication")
-            <*> (x .:? "CustomMessage")
-            <*> (x .:? "DefineAuthChallenge")
-            <*> (x .:? "CustomEmailSender")
-            <*> (x .:? "KMSKeyID")
-            <*> (x .:? "PostConfirmation")
-            <*> (x .:? "PreTokenGeneration")
-            <*> (x .:? "UserMigration")
-            <*> (x .:? "PreSignUp")
+            Lude.<$> (x Lude..:? "PreAuthentication")
+            Lude.<*> (x Lude..:? "CreateAuthChallenge")
+            Lude.<*> (x Lude..:? "VerifyAuthChallengeResponse")
+            Lude.<*> (x Lude..:? "CustomSMSSender")
+            Lude.<*> (x Lude..:? "PostAuthentication")
+            Lude.<*> (x Lude..:? "CustomMessage")
+            Lude.<*> (x Lude..:? "DefineAuthChallenge")
+            Lude.<*> (x Lude..:? "CustomEmailSender")
+            Lude.<*> (x Lude..:? "KMSKeyID")
+            Lude.<*> (x Lude..:? "PostConfirmation")
+            Lude.<*> (x Lude..:? "PreTokenGeneration")
+            Lude.<*> (x Lude..:? "UserMigration")
+            Lude.<*> (x Lude..:? "PreSignUp")
       )
 
-instance Hashable LambdaConfigType
-
-instance NFData LambdaConfigType
-
-instance ToJSON LambdaConfigType where
+instance Lude.ToJSON LambdaConfigType where
   toJSON LambdaConfigType' {..} =
-    object
-      ( catMaybes
-          [ ("PreAuthentication" .=) <$> _lctPreAuthentication,
-            ("CreateAuthChallenge" .=) <$> _lctCreateAuthChallenge,
-            ("VerifyAuthChallengeResponse" .=)
-              <$> _lctVerifyAuthChallengeResponse,
-            ("CustomSMSSender" .=) <$> _lctCustomSMSSender,
-            ("PostAuthentication" .=) <$> _lctPostAuthentication,
-            ("CustomMessage" .=) <$> _lctCustomMessage,
-            ("DefineAuthChallenge" .=) <$> _lctDefineAuthChallenge,
-            ("CustomEmailSender" .=) <$> _lctCustomEmailSender,
-            ("KMSKeyID" .=) <$> _lctKMSKeyId,
-            ("PostConfirmation" .=) <$> _lctPostConfirmation,
-            ("PreTokenGeneration" .=) <$> _lctPreTokenGeneration,
-            ("UserMigration" .=) <$> _lctUserMigration,
-            ("PreSignUp" .=) <$> _lctPreSignUp
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PreAuthentication" Lude..=) Lude.<$> preAuthentication,
+            ("CreateAuthChallenge" Lude..=) Lude.<$> createAuthChallenge,
+            ("VerifyAuthChallengeResponse" Lude..=)
+              Lude.<$> verifyAuthChallengeResponse,
+            ("CustomSMSSender" Lude..=) Lude.<$> customSMSSender,
+            ("PostAuthentication" Lude..=) Lude.<$> postAuthentication,
+            ("CustomMessage" Lude..=) Lude.<$> customMessage,
+            ("DefineAuthChallenge" Lude..=) Lude.<$> defineAuthChallenge,
+            ("CustomEmailSender" Lude..=) Lude.<$> customEmailSender,
+            ("KMSKeyID" Lude..=) Lude.<$> kmsKeyId,
+            ("PostConfirmation" Lude..=) Lude.<$> postConfirmation,
+            ("PreTokenGeneration" Lude..=) Lude.<$> preTokenGeneration,
+            ("UserMigration" Lude..=) Lude.<$> userMigration,
+            ("PreSignUp" Lude..=) Lude.<$> preSignUp
           ]
       )

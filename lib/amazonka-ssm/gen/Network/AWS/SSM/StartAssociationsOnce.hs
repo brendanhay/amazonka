@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,120 @@
 --
 -- Use this API action to run an association immediately and only one time. This action can be helpful when troubleshooting associations.
 module Network.AWS.SSM.StartAssociationsOnce
-  ( -- * Creating a Request
-    startAssociationsOnce,
-    StartAssociationsOnce,
+  ( -- * Creating a request
+    StartAssociationsOnce (..),
+    mkStartAssociationsOnce,
 
-    -- * Request Lenses
+    -- ** Request lenses
     saoAssociationIds,
 
-    -- * Destructuring the Response
-    startAssociationsOnceResponse,
-    StartAssociationsOnceResponse,
+    -- * Destructuring the response
+    StartAssociationsOnceResponse (..),
+    mkStartAssociationsOnceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     saorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'startAssociationsOnce' smart constructor.
+-- | /See:/ 'mkStartAssociationsOnce' smart constructor.
 newtype StartAssociationsOnce = StartAssociationsOnce'
-  { _saoAssociationIds ::
-      List1 Text
+  { associationIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAssociationsOnce' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saoAssociationIds' - The association IDs that you want to run immediately and only one time.
-startAssociationsOnce ::
-  -- | 'saoAssociationIds'
-  NonEmpty Text ->
+-- * 'associationIds' - The association IDs that you want to run immediately and only one time.
+mkStartAssociationsOnce ::
+  -- | 'associationIds'
+  Lude.NonEmpty Lude.Text ->
   StartAssociationsOnce
-startAssociationsOnce pAssociationIds_ =
-  StartAssociationsOnce'
-    { _saoAssociationIds =
-        _List1 # pAssociationIds_
-    }
+mkStartAssociationsOnce pAssociationIds_ =
+  StartAssociationsOnce' {associationIds = pAssociationIds_}
 
 -- | The association IDs that you want to run immediately and only one time.
-saoAssociationIds :: Lens' StartAssociationsOnce (NonEmpty Text)
-saoAssociationIds = lens _saoAssociationIds (\s a -> s {_saoAssociationIds = a}) . _List1
+--
+-- /Note:/ Consider using 'associationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saoAssociationIds :: Lens.Lens' StartAssociationsOnce (Lude.NonEmpty Lude.Text)
+saoAssociationIds = Lens.lens (associationIds :: StartAssociationsOnce -> Lude.NonEmpty Lude.Text) (\s a -> s {associationIds = a} :: StartAssociationsOnce)
+{-# DEPRECATED saoAssociationIds "Use generic-lens or generic-optics with 'associationIds' instead." #-}
 
-instance AWSRequest StartAssociationsOnce where
+instance Lude.AWSRequest StartAssociationsOnce where
   type Rs StartAssociationsOnce = StartAssociationsOnceResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
-      (\s h x -> StartAssociationsOnceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StartAssociationsOnceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StartAssociationsOnce
-
-instance NFData StartAssociationsOnce
-
-instance ToHeaders StartAssociationsOnce where
+instance Lude.ToHeaders StartAssociationsOnce where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.StartAssociationsOnce" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.StartAssociationsOnce" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartAssociationsOnce where
+instance Lude.ToJSON StartAssociationsOnce where
   toJSON StartAssociationsOnce' {..} =
-    object
-      (catMaybes [Just ("AssociationIds" .= _saoAssociationIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AssociationIds" Lude..= associationIds)]
+      )
 
-instance ToPath StartAssociationsOnce where
-  toPath = const "/"
+instance Lude.ToPath StartAssociationsOnce where
+  toPath = Lude.const "/"
 
-instance ToQuery StartAssociationsOnce where
-  toQuery = const mempty
+instance Lude.ToQuery StartAssociationsOnce where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startAssociationsOnceResponse' smart constructor.
+-- | /See:/ 'mkStartAssociationsOnceResponse' smart constructor.
 newtype StartAssociationsOnceResponse = StartAssociationsOnceResponse'
-  { _saorsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAssociationsOnceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saorsResponseStatus' - -- | The response status code.
-startAssociationsOnceResponse ::
-  -- | 'saorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartAssociationsOnceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartAssociationsOnceResponse
-startAssociationsOnceResponse pResponseStatus_ =
-  StartAssociationsOnceResponse'
-    { _saorsResponseStatus =
-        pResponseStatus_
-    }
+mkStartAssociationsOnceResponse pResponseStatus_ =
+  StartAssociationsOnceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-saorsResponseStatus :: Lens' StartAssociationsOnceResponse Int
-saorsResponseStatus = lens _saorsResponseStatus (\s a -> s {_saorsResponseStatus = a})
-
-instance NFData StartAssociationsOnceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saorsResponseStatus :: Lens.Lens' StartAssociationsOnceResponse Lude.Int
+saorsResponseStatus = Lens.lens (responseStatus :: StartAssociationsOnceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAssociationsOnceResponse)
+{-# DEPRECATED saorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

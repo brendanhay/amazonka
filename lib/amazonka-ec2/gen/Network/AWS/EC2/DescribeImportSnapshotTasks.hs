@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes your import snapshot tasks.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeImportSnapshotTasks
-  ( -- * Creating a Request
-    describeImportSnapshotTasks,
-    DescribeImportSnapshotTasks,
+  ( -- * Creating a request
+    DescribeImportSnapshotTasks (..),
+    mkDescribeImportSnapshotTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     distFilters,
     distImportTaskIds,
     distNextToken,
     distDryRun,
     distMaxResults,
 
-    -- * Destructuring the Response
-    describeImportSnapshotTasksResponse,
-    DescribeImportSnapshotTasksResponse,
+    -- * Destructuring the response
+    DescribeImportSnapshotTasksResponse (..),
+    mkDescribeImportSnapshotTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     distrsNextToken,
     distrsImportSnapshotTasks,
     distrsResponseStatus,
@@ -46,155 +39,182 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeImportSnapshotTasks' smart constructor.
+-- | /See:/ 'mkDescribeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-  { _distFilters ::
-      !(Maybe [Filter]),
-    _distImportTaskIds ::
-      !(Maybe [Text]),
-    _distNextToken :: !(Maybe Text),
-    _distDryRun :: !(Maybe Bool),
-    _distMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    importTaskIds ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportSnapshotTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'distFilters' - The filters.
---
--- * 'distImportTaskIds' - A list of import snapshot task IDs.
---
--- * 'distNextToken' - A token that indicates the next page of results.
---
--- * 'distDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'distMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-describeImportSnapshotTasks ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - The filters.
+-- * 'importTaskIds' - A list of import snapshot task IDs.
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - A token that indicates the next page of results.
+mkDescribeImportSnapshotTasks ::
   DescribeImportSnapshotTasks
-describeImportSnapshotTasks =
+mkDescribeImportSnapshotTasks =
   DescribeImportSnapshotTasks'
-    { _distFilters = Nothing,
-      _distImportTaskIds = Nothing,
-      _distNextToken = Nothing,
-      _distDryRun = Nothing,
-      _distMaxResults = Nothing
+    { filters = Lude.Nothing,
+      importTaskIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The filters.
-distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
-distFilters = lens _distFilters (\s a -> s {_distFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distFilters :: Lens.Lens' DescribeImportSnapshotTasks (Lude.Maybe [Filter])
+distFilters = Lens.lens (filters :: DescribeImportSnapshotTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeImportSnapshotTasks)
+{-# DEPRECATED distFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | A list of import snapshot task IDs.
-distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
-distImportTaskIds = lens _distImportTaskIds (\s a -> s {_distImportTaskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'importTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distImportTaskIds :: Lens.Lens' DescribeImportSnapshotTasks (Lude.Maybe [Lude.Text])
+distImportTaskIds = Lens.lens (importTaskIds :: DescribeImportSnapshotTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {importTaskIds = a} :: DescribeImportSnapshotTasks)
+{-# DEPRECATED distImportTaskIds "Use generic-lens or generic-optics with 'importTaskIds' instead." #-}
 
 -- | A token that indicates the next page of results.
-distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
-distNextToken = lens _distNextToken (\s a -> s {_distNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distNextToken :: Lens.Lens' DescribeImportSnapshotTasks (Lude.Maybe Lude.Text)
+distNextToken = Lens.lens (nextToken :: DescribeImportSnapshotTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImportSnapshotTasks)
+{-# DEPRECATED distNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
-distDryRun = lens _distDryRun (\s a -> s {_distDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distDryRun :: Lens.Lens' DescribeImportSnapshotTasks (Lude.Maybe Lude.Bool)
+distDryRun = Lens.lens (dryRun :: DescribeImportSnapshotTasks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeImportSnapshotTasks)
+{-# DEPRECATED distDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
-distMaxResults = lens _distMaxResults (\s a -> s {_distMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distMaxResults :: Lens.Lens' DescribeImportSnapshotTasks (Lude.Maybe Lude.Int)
+distMaxResults = Lens.lens (maxResults :: DescribeImportSnapshotTasks -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeImportSnapshotTasks)
+{-# DEPRECATED distMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeImportSnapshotTasks where
+instance Page.AWSPager DescribeImportSnapshotTasks where
   page rq rs
-    | stop (rs ^. distrsNextToken) = Nothing
-    | stop (rs ^. distrsImportSnapshotTasks) = Nothing
-    | otherwise = Just $ rq & distNextToken .~ rs ^. distrsNextToken
+    | Page.stop (rs Lens.^. distrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. distrsImportSnapshotTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& distNextToken Lens..~ rs Lens.^. distrsNextToken
 
-instance AWSRequest DescribeImportSnapshotTasks where
+instance Lude.AWSRequest DescribeImportSnapshotTasks where
   type
     Rs DescribeImportSnapshotTasks =
       DescribeImportSnapshotTasksResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeImportSnapshotTasksResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "importSnapshotTaskSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "importSnapshotTaskSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImportSnapshotTasks
+instance Lude.ToHeaders DescribeImportSnapshotTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeImportSnapshotTasks
+instance Lude.ToPath DescribeImportSnapshotTasks where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeImportSnapshotTasks where
-  toHeaders = const mempty
-
-instance ToPath DescribeImportSnapshotTasks where
-  toPath = const "/"
-
-instance ToQuery DescribeImportSnapshotTasks where
+instance Lude.ToQuery DescribeImportSnapshotTasks where
   toQuery DescribeImportSnapshotTasks' {..} =
-    mconcat
-      [ "Action" =: ("DescribeImportSnapshotTasks" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filters" <$> _distFilters),
-        toQuery (toQueryList "ImportTaskId" <$> _distImportTaskIds),
-        "NextToken" =: _distNextToken,
-        "DryRun" =: _distDryRun,
-        "MaxResults" =: _distMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeImportSnapshotTasks" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filters" Lude.<$> filters),
+        Lude.toQuery
+          (Lude.toQueryList "ImportTaskId" Lude.<$> importTaskIds),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
+-- | /See:/ 'mkDescribeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-  { _distrsNextToken ::
-      !(Maybe Text),
-    _distrsImportSnapshotTasks ::
-      !( Maybe
-           [ImportSnapshotTask]
-       ),
-    _distrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    importSnapshotTasks ::
+      Lude.Maybe
+        [ImportSnapshotTask],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportSnapshotTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'distrsNextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'distrsImportSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
---
--- * 'distrsResponseStatus' - -- | The response status code.
-describeImportSnapshotTasksResponse ::
-  -- | 'distrsResponseStatus'
-  Int ->
+-- * 'importSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
+-- * 'nextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeImportSnapshotTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse pResponseStatus_ =
+mkDescribeImportSnapshotTasksResponse pResponseStatus_ =
   DescribeImportSnapshotTasksResponse'
-    { _distrsNextToken = Nothing,
-      _distrsImportSnapshotTasks = Nothing,
-      _distrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      importSnapshotTasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
-distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
-distrsNextToken = lens _distrsNextToken (\s a -> s {_distrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distrsNextToken :: Lens.Lens' DescribeImportSnapshotTasksResponse (Lude.Maybe Lude.Text)
+distrsNextToken = Lens.lens (nextToken :: DescribeImportSnapshotTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImportSnapshotTasksResponse)
+{-# DEPRECATED distrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
-distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
-distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\s a -> s {_distrsImportSnapshotTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'importSnapshotTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distrsImportSnapshotTasks :: Lens.Lens' DescribeImportSnapshotTasksResponse (Lude.Maybe [ImportSnapshotTask])
+distrsImportSnapshotTasks = Lens.lens (importSnapshotTasks :: DescribeImportSnapshotTasksResponse -> Lude.Maybe [ImportSnapshotTask]) (\s a -> s {importSnapshotTasks = a} :: DescribeImportSnapshotTasksResponse)
+{-# DEPRECATED distrsImportSnapshotTasks "Use generic-lens or generic-optics with 'importSnapshotTasks' instead." #-}
 
--- | -- | The response status code.
-distrsResponseStatus :: Lens' DescribeImportSnapshotTasksResponse Int
-distrsResponseStatus = lens _distrsResponseStatus (\s a -> s {_distrsResponseStatus = a})
-
-instance NFData DescribeImportSnapshotTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+distrsResponseStatus :: Lens.Lens' DescribeImportSnapshotTasksResponse Lude.Int
+distrsResponseStatus = Lens.lens (responseStatus :: DescribeImportSnapshotTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImportSnapshotTasksResponse)
+{-# DEPRECATED distrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

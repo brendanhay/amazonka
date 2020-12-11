@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ErrorStatistics where
+module Network.AWS.XRay.Types.ErrorStatistics
+  ( ErrorStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorStatistics,
+
+    -- * Lenses
+    eOtherCount,
+    eThrottleCount,
+    eTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 --
---
---
--- /See:/ 'errorStatistics' smart constructor.
+-- /See:/ 'mkErrorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
-  { _eOtherCount ::
-      !(Maybe Integer),
-    _eThrottleCount :: !(Maybe Integer),
-    _eTotalCount :: !(Maybe Integer)
+  { otherCount ::
+      Lude.Maybe Lude.Integer,
+    throttleCount :: Lude.Maybe Lude.Integer,
+    totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eOtherCount' - The number of requests that failed with untracked 4xx Client Error status codes.
---
--- * 'eThrottleCount' - The number of requests that failed with a 419 throttling status code.
---
--- * 'eTotalCount' - The total number of requests that failed with a 4xx Client Error status code.
-errorStatistics ::
+-- * 'otherCount' - The number of requests that failed with untracked 4xx Client Error status codes.
+-- * 'throttleCount' - The number of requests that failed with a 419 throttling status code.
+-- * 'totalCount' - The total number of requests that failed with a 4xx Client Error status code.
+mkErrorStatistics ::
   ErrorStatistics
-errorStatistics =
+mkErrorStatistics =
   ErrorStatistics'
-    { _eOtherCount = Nothing,
-      _eThrottleCount = Nothing,
-      _eTotalCount = Nothing
+    { otherCount = Lude.Nothing,
+      throttleCount = Lude.Nothing,
+      totalCount = Lude.Nothing
     }
 
 -- | The number of requests that failed with untracked 4xx Client Error status codes.
-eOtherCount :: Lens' ErrorStatistics (Maybe Integer)
-eOtherCount = lens _eOtherCount (\s a -> s {_eOtherCount = a})
+--
+-- /Note:/ Consider using 'otherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOtherCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
+eOtherCount = Lens.lens (otherCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {otherCount = a} :: ErrorStatistics)
+{-# DEPRECATED eOtherCount "Use generic-lens or generic-optics with 'otherCount' instead." #-}
 
 -- | The number of requests that failed with a 419 throttling status code.
-eThrottleCount :: Lens' ErrorStatistics (Maybe Integer)
-eThrottleCount = lens _eThrottleCount (\s a -> s {_eThrottleCount = a})
+--
+-- /Note:/ Consider using 'throttleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eThrottleCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
+eThrottleCount = Lens.lens (throttleCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {throttleCount = a} :: ErrorStatistics)
+{-# DEPRECATED eThrottleCount "Use generic-lens or generic-optics with 'throttleCount' instead." #-}
 
 -- | The total number of requests that failed with a 4xx Client Error status code.
-eTotalCount :: Lens' ErrorStatistics (Maybe Integer)
-eTotalCount = lens _eTotalCount (\s a -> s {_eTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eTotalCount :: Lens.Lens' ErrorStatistics (Lude.Maybe Lude.Integer)
+eTotalCount = Lens.lens (totalCount :: ErrorStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: ErrorStatistics)
+{-# DEPRECATED eTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance FromJSON ErrorStatistics where
+instance Lude.FromJSON ErrorStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "ErrorStatistics"
       ( \x ->
           ErrorStatistics'
-            <$> (x .:? "OtherCount")
-            <*> (x .:? "ThrottleCount")
-            <*> (x .:? "TotalCount")
+            Lude.<$> (x Lude..:? "OtherCount")
+            Lude.<*> (x Lude..:? "ThrottleCount")
+            Lude.<*> (x Lude..:? "TotalCount")
       )
-
-instance Hashable ErrorStatistics
-
-instance NFData ErrorStatistics

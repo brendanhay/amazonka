@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Language where
+module Network.AWS.Glue.Types.Language
+  ( Language
+      ( Language',
+        Python,
+        Scala
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Language
-  = Python
-  | Scala
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Language = Language' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Language where
-  parser =
-    takeLowerText >>= \case
-      "python" -> pure Python
-      "scala" -> pure Scala
-      e ->
-        fromTextError $
-          "Failure parsing Language from value: '" <> e
-            <> "'. Accepted values: python, scala"
+pattern Python :: Language
+pattern Python = Language' "PYTHON"
 
-instance ToText Language where
-  toText = \case
-    Python -> "PYTHON"
-    Scala -> "SCALA"
+pattern Scala :: Language
+pattern Scala = Language' "SCALA"
 
-instance Hashable Language
-
-instance NFData Language
-
-instance ToByteString Language
-
-instance ToQuery Language
-
-instance ToHeader Language
-
-instance ToJSON Language where
-  toJSON = toJSONText
+{-# COMPLETE
+  Python,
+  Scala,
+  Language'
+  #-}

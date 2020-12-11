@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepSummary where
+module Network.AWS.EMR.Types.StepSummary
+  ( StepSummary (..),
+
+    -- * Smart constructor
+    mkStepSummary,
+
+    -- * Lenses
+    steStatus,
+    steActionOnFailure,
+    steConfig,
+    steName,
+    steId,
+  )
+where
 
 import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.HadoopStepConfig
 import Network.AWS.EMR.Types.StepStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The summary of the cluster step.
 --
---
---
--- /See:/ 'stepSummary' smart constructor.
+-- /See:/ 'mkStepSummary' smart constructor.
 data StepSummary = StepSummary'
-  { _steStatus :: !(Maybe StepStatus),
-    _steActionOnFailure :: !(Maybe ActionOnFailure),
-    _steConfig :: !(Maybe HadoopStepConfig),
-    _steName :: !(Maybe Text),
-    _steId :: !(Maybe Text)
+  { status :: Lude.Maybe StepStatus,
+    actionOnFailure :: Lude.Maybe ActionOnFailure,
+    config :: Lude.Maybe HadoopStepConfig,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'steStatus' - The current execution status details of the cluster step.
---
--- * 'steActionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
---
--- * 'steConfig' - The Hadoop job configuration of the cluster step.
---
--- * 'steName' - The name of the cluster step.
---
--- * 'steId' - The identifier of the cluster step.
-stepSummary ::
+-- * 'actionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+-- * 'config' - The Hadoop job configuration of the cluster step.
+-- * 'id' - The identifier of the cluster step.
+-- * 'name' - The name of the cluster step.
+-- * 'status' - The current execution status details of the cluster step.
+mkStepSummary ::
   StepSummary
-stepSummary =
+mkStepSummary =
   StepSummary'
-    { _steStatus = Nothing,
-      _steActionOnFailure = Nothing,
-      _steConfig = Nothing,
-      _steName = Nothing,
-      _steId = Nothing
+    { status = Lude.Nothing,
+      actionOnFailure = Lude.Nothing,
+      config = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The current execution status details of the cluster step.
-steStatus :: Lens' StepSummary (Maybe StepStatus)
-steStatus = lens _steStatus (\s a -> s {_steStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steStatus :: Lens.Lens' StepSummary (Lude.Maybe StepStatus)
+steStatus = Lens.lens (status :: StepSummary -> Lude.Maybe StepStatus) (\s a -> s {status = a} :: StepSummary)
+{-# DEPRECATED steStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
-steActionOnFailure :: Lens' StepSummary (Maybe ActionOnFailure)
-steActionOnFailure = lens _steActionOnFailure (\s a -> s {_steActionOnFailure = a})
+--
+-- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steActionOnFailure :: Lens.Lens' StepSummary (Lude.Maybe ActionOnFailure)
+steActionOnFailure = Lens.lens (actionOnFailure :: StepSummary -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: StepSummary)
+{-# DEPRECATED steActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
 
 -- | The Hadoop job configuration of the cluster step.
-steConfig :: Lens' StepSummary (Maybe HadoopStepConfig)
-steConfig = lens _steConfig (\s a -> s {_steConfig = a})
+--
+-- /Note:/ Consider using 'config' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steConfig :: Lens.Lens' StepSummary (Lude.Maybe HadoopStepConfig)
+steConfig = Lens.lens (config :: StepSummary -> Lude.Maybe HadoopStepConfig) (\s a -> s {config = a} :: StepSummary)
+{-# DEPRECATED steConfig "Use generic-lens or generic-optics with 'config' instead." #-}
 
 -- | The name of the cluster step.
-steName :: Lens' StepSummary (Maybe Text)
-steName = lens _steName (\s a -> s {_steName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steName :: Lens.Lens' StepSummary (Lude.Maybe Lude.Text)
+steName = Lens.lens (name :: StepSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StepSummary)
+{-# DEPRECATED steName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the cluster step.
-steId :: Lens' StepSummary (Maybe Text)
-steId = lens _steId (\s a -> s {_steId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steId :: Lens.Lens' StepSummary (Lude.Maybe Lude.Text)
+steId = Lens.lens (id :: StepSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: StepSummary)
+{-# DEPRECATED steId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON StepSummary where
+instance Lude.FromJSON StepSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepSummary"
       ( \x ->
           StepSummary'
-            <$> (x .:? "Status")
-            <*> (x .:? "ActionOnFailure")
-            <*> (x .:? "Config")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ActionOnFailure")
+            Lude.<*> (x Lude..:? "Config")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable StepSummary
-
-instance NFData StepSummary

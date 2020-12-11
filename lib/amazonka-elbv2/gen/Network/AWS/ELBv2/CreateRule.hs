@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,182 @@
 --
 -- Creates a rule for the specified listener. The listener must be associated with an Application Load Balancer.
 --
---
 -- Each rule consists of a priority, one or more actions, and one or more conditions. Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, its actions are performed. If the conditions for no rules are met, the actions for the default rule are performed. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules Listener rules> in the /Application Load Balancers Guide/ .
 module Network.AWS.ELBv2.CreateRule
-  ( -- * Creating a Request
-    createRule,
-    CreateRule,
+  ( -- * Creating a request
+    CreateRule (..),
+    mkCreateRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crTags,
     crListenerARN,
     crConditions,
     crPriority,
     crActions,
 
-    -- * Destructuring the Response
-    createRuleResponse,
-    CreateRuleResponse,
+    -- * Destructuring the response
+    CreateRuleResponse (..),
+    mkCreateRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsRules,
     crrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createRule' smart constructor.
+-- | /See:/ 'mkCreateRule' smart constructor.
 data CreateRule = CreateRule'
-  { _crTags :: !(Maybe (List1 Tag)),
-    _crListenerARN :: !Text,
-    _crConditions :: ![RuleCondition],
-    _crPriority :: !Nat,
-    _crActions :: ![Action]
+  { tags ::
+      Lude.Maybe (Lude.NonEmpty Tag),
+    listenerARN :: Lude.Text,
+    conditions :: [RuleCondition],
+    priority :: Lude.Natural,
+    actions :: [Action]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crTags' - The tags to assign to the rule.
---
--- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
---
--- * 'crConditions' - The conditions.
---
--- * 'crPriority' - The rule priority. A listener can't have multiple rules with the same priority.
---
--- * 'crActions' - The actions.
-createRule ::
-  -- | 'crListenerARN'
-  Text ->
-  -- | 'crPriority'
-  Natural ->
+-- * 'actions' - The actions.
+-- * 'conditions' - The conditions.
+-- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- * 'priority' - The rule priority. A listener can't have multiple rules with the same priority.
+-- * 'tags' - The tags to assign to the rule.
+mkCreateRule ::
+  -- | 'listenerARN'
+  Lude.Text ->
+  -- | 'priority'
+  Lude.Natural ->
   CreateRule
-createRule pListenerARN_ pPriority_ =
+mkCreateRule pListenerARN_ pPriority_ =
   CreateRule'
-    { _crTags = Nothing,
-      _crListenerARN = pListenerARN_,
-      _crConditions = mempty,
-      _crPriority = _Nat # pPriority_,
-      _crActions = mempty
+    { tags = Lude.Nothing,
+      listenerARN = pListenerARN_,
+      conditions = Lude.mempty,
+      priority = pPriority_,
+      actions = Lude.mempty
     }
 
 -- | The tags to assign to the rule.
-crTags :: Lens' CreateRule (Maybe (NonEmpty Tag))
-crTags = lens _crTags (\s a -> s {_crTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRule (Lude.Maybe (Lude.NonEmpty Tag))
+crTags = Lens.lens (tags :: CreateRule -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateRule)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the listener.
-crListenerARN :: Lens' CreateRule Text
-crListenerARN = lens _crListenerARN (\s a -> s {_crListenerARN = a})
+--
+-- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crListenerARN :: Lens.Lens' CreateRule Lude.Text
+crListenerARN = Lens.lens (listenerARN :: CreateRule -> Lude.Text) (\s a -> s {listenerARN = a} :: CreateRule)
+{-# DEPRECATED crListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
 
 -- | The conditions.
-crConditions :: Lens' CreateRule [RuleCondition]
-crConditions = lens _crConditions (\s a -> s {_crConditions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'conditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crConditions :: Lens.Lens' CreateRule [RuleCondition]
+crConditions = Lens.lens (conditions :: CreateRule -> [RuleCondition]) (\s a -> s {conditions = a} :: CreateRule)
+{-# DEPRECATED crConditions "Use generic-lens or generic-optics with 'conditions' instead." #-}
 
 -- | The rule priority. A listener can't have multiple rules with the same priority.
-crPriority :: Lens' CreateRule Natural
-crPriority = lens _crPriority (\s a -> s {_crPriority = a}) . _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crPriority :: Lens.Lens' CreateRule Lude.Natural
+crPriority = Lens.lens (priority :: CreateRule -> Lude.Natural) (\s a -> s {priority = a} :: CreateRule)
+{-# DEPRECATED crPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The actions.
-crActions :: Lens' CreateRule [Action]
-crActions = lens _crActions (\s a -> s {_crActions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crActions :: Lens.Lens' CreateRule [Action]
+crActions = Lens.lens (actions :: CreateRule -> [Action]) (\s a -> s {actions = a} :: CreateRule)
+{-# DEPRECATED crActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
-instance AWSRequest CreateRule where
+instance Lude.AWSRequest CreateRule where
   type Rs CreateRule = CreateRuleResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateRuleResult"
       ( \s h x ->
           CreateRuleResponse'
-            <$> (x .@? "Rules" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRule
+instance Lude.ToHeaders CreateRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateRule
+instance Lude.ToPath CreateRule where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateRule where
-  toHeaders = const mempty
-
-instance ToPath CreateRule where
-  toPath = const "/"
-
-instance ToQuery CreateRule where
+instance Lude.ToQuery CreateRule where
   toQuery CreateRule' {..} =
-    mconcat
-      [ "Action" =: ("CreateRule" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Tags" =: toQuery (toQueryList "member" <$> _crTags),
-        "ListenerArn" =: _crListenerARN,
-        "Conditions" =: toQueryList "member" _crConditions,
-        "Priority" =: _crPriority,
-        "Actions" =: toQueryList "member" _crActions
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateRule" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "ListenerArn" Lude.=: listenerARN,
+        "Conditions" Lude.=: Lude.toQueryList "member" conditions,
+        "Priority" Lude.=: priority,
+        "Actions" Lude.=: Lude.toQueryList "member" actions
       ]
 
--- | /See:/ 'createRuleResponse' smart constructor.
+-- | /See:/ 'mkCreateRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-  { _crrsRules ::
-      !(Maybe [Rule]),
-    _crrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [Rule],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsRules' - Information about the rule.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createRuleResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - Information about the rule.
+mkCreateRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRuleResponse
-createRuleResponse pResponseStatus_ =
+mkCreateRuleResponse pResponseStatus_ =
   CreateRuleResponse'
-    { _crrsRules = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the rule.
-crrsRules :: Lens' CreateRuleResponse [Rule]
-crrsRules = lens _crrsRules (\s a -> s {_crrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRules :: Lens.Lens' CreateRuleResponse (Lude.Maybe [Rule])
+crrsRules = Lens.lens (rules :: CreateRuleResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: CreateRuleResponse)
+{-# DEPRECATED crrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRuleResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateRuleResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRuleResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

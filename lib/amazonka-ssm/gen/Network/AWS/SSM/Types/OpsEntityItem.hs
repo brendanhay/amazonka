@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsEntityItem where
+module Network.AWS.SSM.Types.OpsEntityItem
+  ( OpsEntityItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsEntityItem,
+
+    -- * Lenses
+    oeiContent,
+    oeiCaptureTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The OpsItem summaries result item.
 --
---
---
--- /See:/ 'opsEntityItem' smart constructor.
+-- /See:/ 'mkOpsEntityItem' smart constructor.
 data OpsEntityItem = OpsEntityItem'
-  { _oeiContent ::
-      !(Maybe [Map Text (Text)]),
-    _oeiCaptureTime :: !(Maybe Text)
+  { content ::
+      Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    captureTime :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsEntityItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oeiContent' - The detailed data content for an OpsItem summaries result item.
---
--- * 'oeiCaptureTime' - The time OpsItem data was captured.
-opsEntityItem ::
+-- * 'captureTime' - The time OpsItem data was captured.
+-- * 'content' - The detailed data content for an OpsItem summaries result item.
+mkOpsEntityItem ::
   OpsEntityItem
-opsEntityItem =
-  OpsEntityItem' {_oeiContent = Nothing, _oeiCaptureTime = Nothing}
+mkOpsEntityItem =
+  OpsEntityItem'
+    { content = Lude.Nothing,
+      captureTime = Lude.Nothing
+    }
 
 -- | The detailed data content for an OpsItem summaries result item.
-oeiContent :: Lens' OpsEntityItem [HashMap Text (Text)]
-oeiContent = lens _oeiContent (\s a -> s {_oeiContent = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oeiContent :: Lens.Lens' OpsEntityItem (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
+oeiContent = Lens.lens (content :: OpsEntityItem -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {content = a} :: OpsEntityItem)
+{-# DEPRECATED oeiContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The time OpsItem data was captured.
-oeiCaptureTime :: Lens' OpsEntityItem (Maybe Text)
-oeiCaptureTime = lens _oeiCaptureTime (\s a -> s {_oeiCaptureTime = a})
+--
+-- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oeiCaptureTime :: Lens.Lens' OpsEntityItem (Lude.Maybe Lude.Text)
+oeiCaptureTime = Lens.lens (captureTime :: OpsEntityItem -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: OpsEntityItem)
+{-# DEPRECATED oeiCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
 
-instance FromJSON OpsEntityItem where
+instance Lude.FromJSON OpsEntityItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "OpsEntityItem"
       ( \x ->
           OpsEntityItem'
-            <$> (x .:? "Content" .!= mempty) <*> (x .:? "CaptureTime")
+            Lude.<$> (x Lude..:? "Content" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CaptureTime")
       )
-
-instance Hashable OpsEntityItem
-
-instance NFData OpsEntityItem

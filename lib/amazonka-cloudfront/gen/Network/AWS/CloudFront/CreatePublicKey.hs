@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Uploads a public key to CloudFront that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
 module Network.AWS.CloudFront.CreatePublicKey
-  ( -- * Creating a Request
-    createPublicKey,
-    CreatePublicKey,
+  ( -- * Creating a request
+    CreatePublicKey (..),
+    mkCreatePublicKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpkPublicKeyConfig,
 
-    -- * Destructuring the Response
-    createPublicKeyResponse,
-    CreatePublicKeyResponse,
+    -- * Destructuring the response
+    CreatePublicKeyResponse (..),
+    mkCreatePublicKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpkrsETag,
     cpkrsLocation,
     cpkrsPublicKey,
@@ -39,113 +34,129 @@ module Network.AWS.CloudFront.CreatePublicKey
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createPublicKey' smart constructor.
+-- | /See:/ 'mkCreatePublicKey' smart constructor.
 newtype CreatePublicKey = CreatePublicKey'
-  { _cpkPublicKeyConfig ::
+  { publicKeyConfig ::
       PublicKeyConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePublicKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpkPublicKeyConfig' - A CloudFront public key configuration.
-createPublicKey ::
-  -- | 'cpkPublicKeyConfig'
+-- * 'publicKeyConfig' - A CloudFront public key configuration.
+mkCreatePublicKey ::
+  -- | 'publicKeyConfig'
   PublicKeyConfig ->
   CreatePublicKey
-createPublicKey pPublicKeyConfig_ =
-  CreatePublicKey' {_cpkPublicKeyConfig = pPublicKeyConfig_}
+mkCreatePublicKey pPublicKeyConfig_ =
+  CreatePublicKey' {publicKeyConfig = pPublicKeyConfig_}
 
 -- | A CloudFront public key configuration.
-cpkPublicKeyConfig :: Lens' CreatePublicKey PublicKeyConfig
-cpkPublicKeyConfig = lens _cpkPublicKeyConfig (\s a -> s {_cpkPublicKeyConfig = a})
+--
+-- /Note:/ Consider using 'publicKeyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpkPublicKeyConfig :: Lens.Lens' CreatePublicKey PublicKeyConfig
+cpkPublicKeyConfig = Lens.lens (publicKeyConfig :: CreatePublicKey -> PublicKeyConfig) (\s a -> s {publicKeyConfig = a} :: CreatePublicKey)
+{-# DEPRECATED cpkPublicKeyConfig "Use generic-lens or generic-optics with 'publicKeyConfig' instead." #-}
 
-instance AWSRequest CreatePublicKey where
+instance Lude.AWSRequest CreatePublicKey where
   type Rs CreatePublicKey = CreatePublicKeyResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreatePublicKeyResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Location")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePublicKey
-
-instance NFData CreatePublicKey
-
-instance ToElement CreatePublicKey where
+instance Lude.ToElement CreatePublicKey where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}PublicKeyConfig"
-      . _cpkPublicKeyConfig
+      Lude.. publicKeyConfig
 
-instance ToHeaders CreatePublicKey where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreatePublicKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreatePublicKey where
-  toPath = const "/2020-05-31/public-key"
+instance Lude.ToPath CreatePublicKey where
+  toPath = Lude.const "/2020-05-31/public-key"
 
-instance ToQuery CreatePublicKey where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePublicKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPublicKeyResponse' smart constructor.
+-- | /See:/ 'mkCreatePublicKeyResponse' smart constructor.
 data CreatePublicKeyResponse = CreatePublicKeyResponse'
-  { _cpkrsETag ::
-      !(Maybe Text),
-    _cpkrsLocation :: !(Maybe Text),
-    _cpkrsPublicKey :: !(Maybe PublicKey),
-    _cpkrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Lude.Text,
+    publicKey :: Lude.Maybe PublicKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePublicKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpkrsETag' - The identifier for this version of the public key.
---
--- * 'cpkrsLocation' - The URL of the public key.
---
--- * 'cpkrsPublicKey' - The public key.
---
--- * 'cpkrsResponseStatus' - -- | The response status code.
-createPublicKeyResponse ::
-  -- | 'cpkrsResponseStatus'
-  Int ->
+-- * 'eTag' - The identifier for this version of the public key.
+-- * 'location' - The URL of the public key.
+-- * 'publicKey' - The public key.
+-- * 'responseStatus' - The response status code.
+mkCreatePublicKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePublicKeyResponse
-createPublicKeyResponse pResponseStatus_ =
+mkCreatePublicKeyResponse pResponseStatus_ =
   CreatePublicKeyResponse'
-    { _cpkrsETag = Nothing,
-      _cpkrsLocation = Nothing,
-      _cpkrsPublicKey = Nothing,
-      _cpkrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      location = Lude.Nothing,
+      publicKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier for this version of the public key.
-cpkrsETag :: Lens' CreatePublicKeyResponse (Maybe Text)
-cpkrsETag = lens _cpkrsETag (\s a -> s {_cpkrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpkrsETag :: Lens.Lens' CreatePublicKeyResponse (Lude.Maybe Lude.Text)
+cpkrsETag = Lens.lens (eTag :: CreatePublicKeyResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreatePublicKeyResponse)
+{-# DEPRECATED cpkrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The URL of the public key.
-cpkrsLocation :: Lens' CreatePublicKeyResponse (Maybe Text)
-cpkrsLocation = lens _cpkrsLocation (\s a -> s {_cpkrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpkrsLocation :: Lens.Lens' CreatePublicKeyResponse (Lude.Maybe Lude.Text)
+cpkrsLocation = Lens.lens (location :: CreatePublicKeyResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreatePublicKeyResponse)
+{-# DEPRECATED cpkrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The public key.
-cpkrsPublicKey :: Lens' CreatePublicKeyResponse (Maybe PublicKey)
-cpkrsPublicKey = lens _cpkrsPublicKey (\s a -> s {_cpkrsPublicKey = a})
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpkrsPublicKey :: Lens.Lens' CreatePublicKeyResponse (Lude.Maybe PublicKey)
+cpkrsPublicKey = Lens.lens (publicKey :: CreatePublicKeyResponse -> Lude.Maybe PublicKey) (\s a -> s {publicKey = a} :: CreatePublicKeyResponse)
+{-# DEPRECATED cpkrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
--- | -- | The response status code.
-cpkrsResponseStatus :: Lens' CreatePublicKeyResponse Int
-cpkrsResponseStatus = lens _cpkrsResponseStatus (\s a -> s {_cpkrsResponseStatus = a})
-
-instance NFData CreatePublicKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpkrsResponseStatus :: Lens.Lens' CreatePublicKeyResponse Lude.Int
+cpkrsResponseStatus = Lens.lens (responseStatus :: CreatePublicKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePublicKeyResponse)
+{-# DEPRECATED cpkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerGroupReplicationConfiguration where
+module Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
+  ( ServerGroupReplicationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerGroupReplicationConfiguration,
+
+    -- * Lenses
+    sgrcServerGroupId,
+    sgrcServerReplicationConfigurations,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.ServerReplicationConfiguration
 
 -- | Replication configuration for a server group.
 --
---
---
--- /See:/ 'serverGroupReplicationConfiguration' smart constructor.
+-- /See:/ 'mkServerGroupReplicationConfiguration' smart constructor.
 data ServerGroupReplicationConfiguration = ServerGroupReplicationConfiguration'
-  { _sgrcServerGroupId ::
-      !(Maybe Text),
-    _sgrcServerReplicationConfigurations ::
-      !( Maybe
-           [ServerReplicationConfiguration]
-       )
+  { serverGroupId ::
+      Lude.Maybe
+        Lude.Text,
+    serverReplicationConfigurations ::
+      Lude.Maybe
+        [ServerReplicationConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroupReplicationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgrcServerGroupId' - The ID of the server group with which this replication configuration is associated.
---
--- * 'sgrcServerReplicationConfigurations' - The replication configuration for servers in the server group.
-serverGroupReplicationConfiguration ::
+-- * 'serverGroupId' - The ID of the server group with which this replication configuration is associated.
+-- * 'serverReplicationConfigurations' - The replication configuration for servers in the server group.
+mkServerGroupReplicationConfiguration ::
   ServerGroupReplicationConfiguration
-serverGroupReplicationConfiguration =
+mkServerGroupReplicationConfiguration =
   ServerGroupReplicationConfiguration'
-    { _sgrcServerGroupId =
-        Nothing,
-      _sgrcServerReplicationConfigurations = Nothing
+    { serverGroupId =
+        Lude.Nothing,
+      serverReplicationConfigurations = Lude.Nothing
     }
 
 -- | The ID of the server group with which this replication configuration is associated.
-sgrcServerGroupId :: Lens' ServerGroupReplicationConfiguration (Maybe Text)
-sgrcServerGroupId = lens _sgrcServerGroupId (\s a -> s {_sgrcServerGroupId = a})
+--
+-- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrcServerGroupId :: Lens.Lens' ServerGroupReplicationConfiguration (Lude.Maybe Lude.Text)
+sgrcServerGroupId = Lens.lens (serverGroupId :: ServerGroupReplicationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {serverGroupId = a} :: ServerGroupReplicationConfiguration)
+{-# DEPRECATED sgrcServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
 -- | The replication configuration for servers in the server group.
-sgrcServerReplicationConfigurations :: Lens' ServerGroupReplicationConfiguration [ServerReplicationConfiguration]
-sgrcServerReplicationConfigurations = lens _sgrcServerReplicationConfigurations (\s a -> s {_sgrcServerReplicationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverReplicationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrcServerReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Lude.Maybe [ServerReplicationConfiguration])
+sgrcServerReplicationConfigurations = Lens.lens (serverReplicationConfigurations :: ServerGroupReplicationConfiguration -> Lude.Maybe [ServerReplicationConfiguration]) (\s a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration)
+{-# DEPRECATED sgrcServerReplicationConfigurations "Use generic-lens or generic-optics with 'serverReplicationConfigurations' instead." #-}
 
-instance FromJSON ServerGroupReplicationConfiguration where
+instance Lude.FromJSON ServerGroupReplicationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerGroupReplicationConfiguration"
       ( \x ->
           ServerGroupReplicationConfiguration'
-            <$> (x .:? "serverGroupId")
-            <*> (x .:? "serverReplicationConfigurations" .!= mempty)
+            Lude.<$> (x Lude..:? "serverGroupId")
+            Lude.<*> ( x Lude..:? "serverReplicationConfigurations"
+                         Lude..!= Lude.mempty
+                     )
       )
 
-instance Hashable ServerGroupReplicationConfiguration
-
-instance NFData ServerGroupReplicationConfiguration
-
-instance ToJSON ServerGroupReplicationConfiguration where
+instance Lude.ToJSON ServerGroupReplicationConfiguration where
   toJSON ServerGroupReplicationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("serverGroupId" .=) <$> _sgrcServerGroupId,
-            ("serverReplicationConfigurations" .=)
-              <$> _sgrcServerReplicationConfigurations
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serverGroupId" Lude..=) Lude.<$> serverGroupId,
+            ("serverReplicationConfigurations" Lude..=)
+              Lude.<$> serverReplicationConfigurations
           ]
       )

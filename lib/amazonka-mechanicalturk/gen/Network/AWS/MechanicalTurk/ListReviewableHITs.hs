@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- The @ListReviewableHITs@ operation retrieves the HITs with Status equal to Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListReviewableHITs
-  ( -- * Creating a Request
-    listReviewableHITs,
-    ListReviewableHITs,
+  ( -- * Creating a request
+    ListReviewableHITs (..),
+    mkListReviewableHITs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrhitStatus,
     lrhitHITTypeId,
     lrhitNextToken,
     lrhitMaxResults,
 
-    -- * Destructuring the Response
-    listReviewableHITsResponse,
-    ListReviewableHITsResponse,
+    -- * Destructuring the response
+    ListReviewableHITsResponse (..),
+    mkListReviewableHITsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrhitrsNextToken,
     lrhitrsNumResults,
     lrhitrsHITs,
@@ -45,159 +38,185 @@ module Network.AWS.MechanicalTurk.ListReviewableHITs
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listReviewableHITs' smart constructor.
+-- | /See:/ 'mkListReviewableHITs' smart constructor.
 data ListReviewableHITs = ListReviewableHITs'
-  { _lrhitStatus ::
-      !(Maybe ReviewableHITStatus),
-    _lrhitHITTypeId :: !(Maybe Text),
-    _lrhitNextToken :: !(Maybe Text),
-    _lrhitMaxResults :: !(Maybe Nat)
+  { status ::
+      Lude.Maybe ReviewableHITStatus,
+    hITTypeId :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewableHITs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrhitStatus' - Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
---
--- * 'lrhitHITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
---
--- * 'lrhitNextToken' - Pagination Token
---
--- * 'lrhitMaxResults' - Limit the number of results returned.
-listReviewableHITs ::
+-- * 'hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
+-- * 'maxResults' - Limit the number of results returned.
+-- * 'nextToken' - Pagination Token
+-- * 'status' - Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
+mkListReviewableHITs ::
   ListReviewableHITs
-listReviewableHITs =
+mkListReviewableHITs =
   ListReviewableHITs'
-    { _lrhitStatus = Nothing,
-      _lrhitHITTypeId = Nothing,
-      _lrhitNextToken = Nothing,
-      _lrhitMaxResults = Nothing
+    { status = Lude.Nothing,
+      hITTypeId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
-lrhitStatus :: Lens' ListReviewableHITs (Maybe ReviewableHITStatus)
-lrhitStatus = lens _lrhitStatus (\s a -> s {_lrhitStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitStatus :: Lens.Lens' ListReviewableHITs (Lude.Maybe ReviewableHITStatus)
+lrhitStatus = Lens.lens (status :: ListReviewableHITs -> Lude.Maybe ReviewableHITStatus) (\s a -> s {status = a} :: ListReviewableHITs)
+{-# DEPRECATED lrhitStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
-lrhitHITTypeId :: Lens' ListReviewableHITs (Maybe Text)
-lrhitHITTypeId = lens _lrhitHITTypeId (\s a -> s {_lrhitHITTypeId = a})
+--
+-- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitHITTypeId :: Lens.Lens' ListReviewableHITs (Lude.Maybe Lude.Text)
+lrhitHITTypeId = Lens.lens (hITTypeId :: ListReviewableHITs -> Lude.Maybe Lude.Text) (\s a -> s {hITTypeId = a} :: ListReviewableHITs)
+{-# DEPRECATED lrhitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
 
 -- | Pagination Token
-lrhitNextToken :: Lens' ListReviewableHITs (Maybe Text)
-lrhitNextToken = lens _lrhitNextToken (\s a -> s {_lrhitNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitNextToken :: Lens.Lens' ListReviewableHITs (Lude.Maybe Lude.Text)
+lrhitNextToken = Lens.lens (nextToken :: ListReviewableHITs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReviewableHITs)
+{-# DEPRECATED lrhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limit the number of results returned.
-lrhitMaxResults :: Lens' ListReviewableHITs (Maybe Natural)
-lrhitMaxResults = lens _lrhitMaxResults (\s a -> s {_lrhitMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitMaxResults :: Lens.Lens' ListReviewableHITs (Lude.Maybe Lude.Natural)
+lrhitMaxResults = Lens.lens (maxResults :: ListReviewableHITs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReviewableHITs)
+{-# DEPRECATED lrhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListReviewableHITs where
+instance Page.AWSPager ListReviewableHITs where
   page rq rs
-    | stop (rs ^. lrhitrsNextToken) = Nothing
-    | stop (rs ^. lrhitrsHITs) = Nothing
-    | otherwise = Just $ rq & lrhitNextToken .~ rs ^. lrhitrsNextToken
+    | Page.stop (rs Lens.^. lrhitrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrhitrsHITs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrhitNextToken Lens..~ rs Lens.^. lrhitrsNextToken
 
-instance AWSRequest ListReviewableHITs where
+instance Lude.AWSRequest ListReviewableHITs where
   type Rs ListReviewableHITs = ListReviewableHITsResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListReviewableHITsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "NumResults")
-            <*> (x .?> "HITs" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "NumResults")
+            Lude.<*> (x Lude..?> "HITs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListReviewableHITs
-
-instance NFData ListReviewableHITs
-
-instance ToHeaders ListReviewableHITs where
+instance Lude.ToHeaders ListReviewableHITs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListReviewableHITs where
+instance Lude.ToJSON ListReviewableHITs where
   toJSON ListReviewableHITs' {..} =
-    object
-      ( catMaybes
-          [ ("Status" .=) <$> _lrhitStatus,
-            ("HITTypeId" .=) <$> _lrhitHITTypeId,
-            ("NextToken" .=) <$> _lrhitNextToken,
-            ("MaxResults" .=) <$> _lrhitMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Status" Lude..=) Lude.<$> status,
+            ("HITTypeId" Lude..=) Lude.<$> hITTypeId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListReviewableHITs where
-  toPath = const "/"
+instance Lude.ToPath ListReviewableHITs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListReviewableHITs where
-  toQuery = const mempty
+instance Lude.ToQuery ListReviewableHITs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listReviewableHITsResponse' smart constructor.
+-- | /See:/ 'mkListReviewableHITsResponse' smart constructor.
 data ListReviewableHITsResponse = ListReviewableHITsResponse'
-  { _lrhitrsNextToken ::
-      !(Maybe Text),
-    _lrhitrsNumResults :: !(Maybe Int),
-    _lrhitrsHITs :: !(Maybe [HIT]),
-    _lrhitrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    numResults :: Lude.Maybe Lude.Int,
+    hITs :: Lude.Maybe [HIT],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewableHITsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrhitrsNextToken' - Undocumented member.
---
--- * 'lrhitrsNumResults' - The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
---
--- * 'lrhitrsHITs' - The list of HIT elements returned by the query.
---
--- * 'lrhitrsResponseStatus' - -- | The response status code.
-listReviewableHITsResponse ::
-  -- | 'lrhitrsResponseStatus'
-  Int ->
+-- * 'hITs' - The list of HIT elements returned by the query.
+-- * 'nextToken' - Undocumented field.
+-- * 'numResults' - The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+-- * 'responseStatus' - The response status code.
+mkListReviewableHITsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListReviewableHITsResponse
-listReviewableHITsResponse pResponseStatus_ =
+mkListReviewableHITsResponse pResponseStatus_ =
   ListReviewableHITsResponse'
-    { _lrhitrsNextToken = Nothing,
-      _lrhitrsNumResults = Nothing,
-      _lrhitrsHITs = Nothing,
-      _lrhitrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      numResults = Lude.Nothing,
+      hITs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-lrhitrsNextToken :: Lens' ListReviewableHITsResponse (Maybe Text)
-lrhitrsNextToken = lens _lrhitrsNextToken (\s a -> s {_lrhitrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitrsNextToken :: Lens.Lens' ListReviewableHITsResponse (Lude.Maybe Lude.Text)
+lrhitrsNextToken = Lens.lens (nextToken :: ListReviewableHITsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReviewableHITsResponse)
+{-# DEPRECATED lrhitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
-lrhitrsNumResults :: Lens' ListReviewableHITsResponse (Maybe Int)
-lrhitrsNumResults = lens _lrhitrsNumResults (\s a -> s {_lrhitrsNumResults = a})
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitrsNumResults :: Lens.Lens' ListReviewableHITsResponse (Lude.Maybe Lude.Int)
+lrhitrsNumResults = Lens.lens (numResults :: ListReviewableHITsResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListReviewableHITsResponse)
+{-# DEPRECATED lrhitrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The list of HIT elements returned by the query.
-lrhitrsHITs :: Lens' ListReviewableHITsResponse [HIT]
-lrhitrsHITs = lens _lrhitrsHITs (\s a -> s {_lrhitrsHITs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hITs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitrsHITs :: Lens.Lens' ListReviewableHITsResponse (Lude.Maybe [HIT])
+lrhitrsHITs = Lens.lens (hITs :: ListReviewableHITsResponse -> Lude.Maybe [HIT]) (\s a -> s {hITs = a} :: ListReviewableHITsResponse)
+{-# DEPRECATED lrhitrsHITs "Use generic-lens or generic-optics with 'hITs' instead." #-}
 
--- | -- | The response status code.
-lrhitrsResponseStatus :: Lens' ListReviewableHITsResponse Int
-lrhitrsResponseStatus = lens _lrhitrsResponseStatus (\s a -> s {_lrhitrsResponseStatus = a})
-
-instance NFData ListReviewableHITsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhitrsResponseStatus :: Lens.Lens' ListReviewableHITsResponse Lude.Int
+lrhitrsResponseStatus = Lens.lens (responseStatus :: ListReviewableHITsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListReviewableHITsResponse)
+{-# DEPRECATED lrhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

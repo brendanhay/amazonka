@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.TrustState where
+module Network.AWS.DirectoryService.Types.TrustState
+  ( TrustState
+      ( TrustState',
+        TSCreated,
+        TSCreating,
+        TSDeleted,
+        TSDeleting,
+        TSFailed,
+        TSUpdateFailed,
+        TSUpdated,
+        TSUpdating,
+        TSVerified,
+        TSVerifyFailed,
+        TSVerifying
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrustState
-  = TSCreated
-  | TSCreating
-  | TSDeleted
-  | TSDeleting
-  | TSFailed
-  | TSUpdateFailed
-  | TSUpdated
-  | TSUpdating
-  | TSVerified
-  | TSVerifyFailed
-  | TSVerifying
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrustState = TrustState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrustState where
-  parser =
-    takeLowerText >>= \case
-      "created" -> pure TSCreated
-      "creating" -> pure TSCreating
-      "deleted" -> pure TSDeleted
-      "deleting" -> pure TSDeleting
-      "failed" -> pure TSFailed
-      "updatefailed" -> pure TSUpdateFailed
-      "updated" -> pure TSUpdated
-      "updating" -> pure TSUpdating
-      "verified" -> pure TSVerified
-      "verifyfailed" -> pure TSVerifyFailed
-      "verifying" -> pure TSVerifying
-      e ->
-        fromTextError $
-          "Failure parsing TrustState from value: '" <> e
-            <> "'. Accepted values: created, creating, deleted, deleting, failed, updatefailed, updated, updating, verified, verifyfailed, verifying"
+pattern TSCreated :: TrustState
+pattern TSCreated = TrustState' "Created"
 
-instance ToText TrustState where
-  toText = \case
-    TSCreated -> "Created"
-    TSCreating -> "Creating"
-    TSDeleted -> "Deleted"
-    TSDeleting -> "Deleting"
-    TSFailed -> "Failed"
-    TSUpdateFailed -> "UpdateFailed"
-    TSUpdated -> "Updated"
-    TSUpdating -> "Updating"
-    TSVerified -> "Verified"
-    TSVerifyFailed -> "VerifyFailed"
-    TSVerifying -> "Verifying"
+pattern TSCreating :: TrustState
+pattern TSCreating = TrustState' "Creating"
 
-instance Hashable TrustState
+pattern TSDeleted :: TrustState
+pattern TSDeleted = TrustState' "Deleted"
 
-instance NFData TrustState
+pattern TSDeleting :: TrustState
+pattern TSDeleting = TrustState' "Deleting"
 
-instance ToByteString TrustState
+pattern TSFailed :: TrustState
+pattern TSFailed = TrustState' "Failed"
 
-instance ToQuery TrustState
+pattern TSUpdateFailed :: TrustState
+pattern TSUpdateFailed = TrustState' "UpdateFailed"
 
-instance ToHeader TrustState
+pattern TSUpdated :: TrustState
+pattern TSUpdated = TrustState' "Updated"
 
-instance FromJSON TrustState where
-  parseJSON = parseJSONText "TrustState"
+pattern TSUpdating :: TrustState
+pattern TSUpdating = TrustState' "Updating"
+
+pattern TSVerified :: TrustState
+pattern TSVerified = TrustState' "Verified"
+
+pattern TSVerifyFailed :: TrustState
+pattern TSVerifyFailed = TrustState' "VerifyFailed"
+
+pattern TSVerifying :: TrustState
+pattern TSVerifying = TrustState' "Verifying"
+
+{-# COMPLETE
+  TSCreated,
+  TSCreating,
+  TSDeleted,
+  TSDeleting,
+  TSFailed,
+  TSUpdateFailed,
+  TSUpdated,
+  TSUpdating,
+  TSVerified,
+  TSVerifyFailed,
+  TSVerifying,
+  TrustState'
+  #-}

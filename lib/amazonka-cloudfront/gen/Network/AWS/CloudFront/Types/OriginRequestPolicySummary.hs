@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicySummary where
+module Network.AWS.CloudFront.Types.OriginRequestPolicySummary
+  ( OriginRequestPolicySummary (..),
+
+    -- * Smart constructor
+    mkOriginRequestPolicySummary,
+
+    -- * Lenses
+    orpsType,
+    orpsOriginRequestPolicy,
+  )
+where
 
 import Network.AWS.CloudFront.Types.OriginRequestPolicy
 import Network.AWS.CloudFront.Types.OriginRequestPolicyType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains an origin request policy.
 --
---
---
--- /See:/ 'originRequestPolicySummary' smart constructor.
+-- /See:/ 'mkOriginRequestPolicySummary' smart constructor.
 data OriginRequestPolicySummary = OriginRequestPolicySummary'
-  { _orpsType ::
-      !OriginRequestPolicyType,
-    _orpsOriginRequestPolicy ::
-      !OriginRequestPolicy
+  { type' ::
+      OriginRequestPolicyType,
+    originRequestPolicy ::
+      OriginRequestPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginRequestPolicySummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'orpsType' - The type of origin request policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
---
--- * 'orpsOriginRequestPolicy' - The origin request policy.
-originRequestPolicySummary ::
-  -- | 'orpsType'
+-- * 'originRequestPolicy' - The origin request policy.
+-- * 'type'' - The type of origin request policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
+mkOriginRequestPolicySummary ::
+  -- | 'type''
   OriginRequestPolicyType ->
-  -- | 'orpsOriginRequestPolicy'
+  -- | 'originRequestPolicy'
   OriginRequestPolicy ->
   OriginRequestPolicySummary
-originRequestPolicySummary pType_ pOriginRequestPolicy_ =
+mkOriginRequestPolicySummary pType_ pOriginRequestPolicy_ =
   OriginRequestPolicySummary'
-    { _orpsType = pType_,
-      _orpsOriginRequestPolicy = pOriginRequestPolicy_
+    { type' = pType_,
+      originRequestPolicy = pOriginRequestPolicy_
     }
 
 -- | The type of origin request policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
-orpsType :: Lens' OriginRequestPolicySummary OriginRequestPolicyType
-orpsType = lens _orpsType (\s a -> s {_orpsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpsType :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicyType
+orpsType = Lens.lens (type' :: OriginRequestPolicySummary -> OriginRequestPolicyType) (\s a -> s {type' = a} :: OriginRequestPolicySummary)
+{-# DEPRECATED orpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The origin request policy.
-orpsOriginRequestPolicy :: Lens' OriginRequestPolicySummary OriginRequestPolicy
-orpsOriginRequestPolicy = lens _orpsOriginRequestPolicy (\s a -> s {_orpsOriginRequestPolicy = a})
+--
+-- /Note:/ Consider using 'originRequestPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpsOriginRequestPolicy :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicy
+orpsOriginRequestPolicy = Lens.lens (originRequestPolicy :: OriginRequestPolicySummary -> OriginRequestPolicy) (\s a -> s {originRequestPolicy = a} :: OriginRequestPolicySummary)
+{-# DEPRECATED orpsOriginRequestPolicy "Use generic-lens or generic-optics with 'originRequestPolicy' instead." #-}
 
-instance FromXML OriginRequestPolicySummary where
+instance Lude.FromXML OriginRequestPolicySummary where
   parseXML x =
     OriginRequestPolicySummary'
-      <$> (x .@ "Type") <*> (x .@ "OriginRequestPolicy")
-
-instance Hashable OriginRequestPolicySummary
-
-instance NFData OriginRequestPolicySummary
+      Lude.<$> (x Lude..@ "Type") Lude.<*> (x Lude..@ "OriginRequestPolicy")

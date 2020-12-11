@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmoothGroupCertificateMode where
+module Network.AWS.MediaLive.Types.SmoothGroupCertificateMode
+  ( SmoothGroupCertificateMode
+      ( SmoothGroupCertificateMode',
+        SGCMSelfSigned,
+        SGCMVerifyAuthenticity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smooth Group Certificate Mode
-data SmoothGroupCertificateMode
-  = SGCMSelfSigned
-  | SGCMVerifyAuthenticity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SmoothGroupCertificateMode = SmoothGroupCertificateMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SmoothGroupCertificateMode where
-  parser =
-    takeLowerText >>= \case
-      "self_signed" -> pure SGCMSelfSigned
-      "verify_authenticity" -> pure SGCMVerifyAuthenticity
-      e ->
-        fromTextError $
-          "Failure parsing SmoothGroupCertificateMode from value: '" <> e
-            <> "'. Accepted values: self_signed, verify_authenticity"
+pattern SGCMSelfSigned :: SmoothGroupCertificateMode
+pattern SGCMSelfSigned = SmoothGroupCertificateMode' "SELF_SIGNED"
 
-instance ToText SmoothGroupCertificateMode where
-  toText = \case
-    SGCMSelfSigned -> "SELF_SIGNED"
-    SGCMVerifyAuthenticity -> "VERIFY_AUTHENTICITY"
+pattern SGCMVerifyAuthenticity :: SmoothGroupCertificateMode
+pattern SGCMVerifyAuthenticity = SmoothGroupCertificateMode' "VERIFY_AUTHENTICITY"
 
-instance Hashable SmoothGroupCertificateMode
-
-instance NFData SmoothGroupCertificateMode
-
-instance ToByteString SmoothGroupCertificateMode
-
-instance ToQuery SmoothGroupCertificateMode
-
-instance ToHeader SmoothGroupCertificateMode
-
-instance ToJSON SmoothGroupCertificateMode where
-  toJSON = toJSONText
-
-instance FromJSON SmoothGroupCertificateMode where
-  parseJSON = parseJSONText "SmoothGroupCertificateMode"
+{-# COMPLETE
+  SGCMSelfSigned,
+  SGCMVerifyAuthenticity,
+  SmoothGroupCertificateMode'
+  #-}

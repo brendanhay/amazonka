@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.EnablementTypeFilter where
+module Network.AWS.AlexaBusiness.Types.EnablementTypeFilter
+  ( EnablementTypeFilter
+      ( EnablementTypeFilter',
+        ETFEnabled,
+        ETFPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnablementTypeFilter
-  = ETFEnabled
-  | ETFPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnablementTypeFilter = EnablementTypeFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnablementTypeFilter where
-  parser =
-    takeLowerText >>= \case
-      "enabled" -> pure ETFEnabled
-      "pending" -> pure ETFPending
-      e ->
-        fromTextError $
-          "Failure parsing EnablementTypeFilter from value: '" <> e
-            <> "'. Accepted values: enabled, pending"
+pattern ETFEnabled :: EnablementTypeFilter
+pattern ETFEnabled = EnablementTypeFilter' "ENABLED"
 
-instance ToText EnablementTypeFilter where
-  toText = \case
-    ETFEnabled -> "ENABLED"
-    ETFPending -> "PENDING"
+pattern ETFPending :: EnablementTypeFilter
+pattern ETFPending = EnablementTypeFilter' "PENDING"
 
-instance Hashable EnablementTypeFilter
-
-instance NFData EnablementTypeFilter
-
-instance ToByteString EnablementTypeFilter
-
-instance ToQuery EnablementTypeFilter
-
-instance ToHeader EnablementTypeFilter
-
-instance ToJSON EnablementTypeFilter where
-  toJSON = toJSONText
+{-# COMPLETE
+  ETFEnabled,
+  ETFPending,
+  EnablementTypeFilter'
+  #-}

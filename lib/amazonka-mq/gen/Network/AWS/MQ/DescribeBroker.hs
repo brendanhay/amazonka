@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the specified broker.
 module Network.AWS.MQ.DescribeBroker
-  ( -- * Creating a Request
-    describeBroker,
-    DescribeBroker,
+  ( -- * Creating a request
+    DescribeBroker (..),
+    mkDescribeBroker,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desBrokerId,
 
-    -- * Destructuring the Response
-    describeBrokerResponse,
-    DescribeBrokerResponse,
+    -- * Destructuring the response
+    DescribeBrokerResponse (..),
+    mkDescribeBrokerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsBrokerName,
     dbrsEngineVersion,
     dbrsPendingAuthenticationStrategy,
@@ -63,345 +58,415 @@ module Network.AWS.MQ.DescribeBroker
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeBroker' smart constructor.
-newtype DescribeBroker = DescribeBroker' {_desBrokerId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeBroker' smart constructor.
+newtype DescribeBroker = DescribeBroker' {brokerId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBroker' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desBrokerId' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-describeBroker ::
-  -- | 'desBrokerId'
-  Text ->
+-- * 'brokerId' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+mkDescribeBroker ::
+  -- | 'brokerId'
+  Lude.Text ->
   DescribeBroker
-describeBroker pBrokerId_ =
-  DescribeBroker' {_desBrokerId = pBrokerId_}
+mkDescribeBroker pBrokerId_ =
+  DescribeBroker' {brokerId = pBrokerId_}
 
 -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-desBrokerId :: Lens' DescribeBroker Text
-desBrokerId = lens _desBrokerId (\s a -> s {_desBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desBrokerId :: Lens.Lens' DescribeBroker Lude.Text
+desBrokerId = Lens.lens (brokerId :: DescribeBroker -> Lude.Text) (\s a -> s {brokerId = a} :: DescribeBroker)
+{-# DEPRECATED desBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance AWSRequest DescribeBroker where
+instance Lude.AWSRequest DescribeBroker where
   type Rs DescribeBroker = DescribeBrokerResponse
-  request = get mq
+  request = Req.get mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBrokerResponse'
-            <$> (x .?> "brokerName")
-            <*> (x .?> "engineVersion")
-            <*> (x .?> "pendingAuthenticationStrategy")
-            <*> (x .?> "brokerState")
-            <*> (x .?> "publiclyAccessible")
-            <*> (x .?> "autoMinorVersionUpgrade")
-            <*> (x .?> "securityGroups" .!@ mempty)
-            <*> (x .?> "users" .!@ mempty)
-            <*> (x .?> "pendingSecurityGroups" .!@ mempty)
-            <*> (x .?> "subnetIds" .!@ mempty)
-            <*> (x .?> "created")
-            <*> (x .?> "configurations")
-            <*> (x .?> "authenticationStrategy")
-            <*> (x .?> "pendingHostInstanceType")
-            <*> (x .?> "ldapServerMetadata")
-            <*> (x .?> "maintenanceWindowStartTime")
-            <*> (x .?> "logs")
-            <*> (x .?> "encryptionOptions")
-            <*> (x .?> "deploymentMode")
-            <*> (x .?> "pendingEngineVersion")
-            <*> (x .?> "brokerId")
-            <*> (x .?> "pendingLdapServerMetadata")
-            <*> (x .?> "engineType")
-            <*> (x .?> "brokerArn")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (x .?> "brokerInstances" .!@ mempty)
-            <*> (x .?> "hostInstanceType")
-            <*> (x .?> "storageType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "brokerName")
+            Lude.<*> (x Lude..?> "engineVersion")
+            Lude.<*> (x Lude..?> "pendingAuthenticationStrategy")
+            Lude.<*> (x Lude..?> "brokerState")
+            Lude.<*> (x Lude..?> "publiclyAccessible")
+            Lude.<*> (x Lude..?> "autoMinorVersionUpgrade")
+            Lude.<*> (x Lude..?> "securityGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "users" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "pendingSecurityGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "subnetIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "created")
+            Lude.<*> (x Lude..?> "configurations")
+            Lude.<*> (x Lude..?> "authenticationStrategy")
+            Lude.<*> (x Lude..?> "pendingHostInstanceType")
+            Lude.<*> (x Lude..?> "ldapServerMetadata")
+            Lude.<*> (x Lude..?> "maintenanceWindowStartTime")
+            Lude.<*> (x Lude..?> "logs")
+            Lude.<*> (x Lude..?> "encryptionOptions")
+            Lude.<*> (x Lude..?> "deploymentMode")
+            Lude.<*> (x Lude..?> "pendingEngineVersion")
+            Lude.<*> (x Lude..?> "brokerId")
+            Lude.<*> (x Lude..?> "pendingLdapServerMetadata")
+            Lude.<*> (x Lude..?> "engineType")
+            Lude.<*> (x Lude..?> "brokerArn")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "brokerInstances" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "hostInstanceType")
+            Lude.<*> (x Lude..?> "storageType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBroker
-
-instance NFData DescribeBroker
-
-instance ToHeaders DescribeBroker where
+instance Lude.ToHeaders DescribeBroker where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeBroker where
+instance Lude.ToPath DescribeBroker where
   toPath DescribeBroker' {..} =
-    mconcat ["/v1/brokers/", toBS _desBrokerId]
+    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId]
 
-instance ToQuery DescribeBroker where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBroker where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeBrokerResponse' smart constructor.
+-- | /See:/ 'mkDescribeBrokerResponse' smart constructor.
 data DescribeBrokerResponse = DescribeBrokerResponse'
-  { _dbrsBrokerName ::
-      !(Maybe Text),
-    _dbrsEngineVersion :: !(Maybe Text),
-    _dbrsPendingAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _dbrsBrokerState :: !(Maybe BrokerState),
-    _dbrsPubliclyAccessible :: !(Maybe Bool),
-    _dbrsAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _dbrsSecurityGroups :: !(Maybe [Text]),
-    _dbrsUsers :: !(Maybe [UserSummary]),
-    _dbrsPendingSecurityGroups :: !(Maybe [Text]),
-    _dbrsSubnetIds :: !(Maybe [Text]),
-    _dbrsCreated :: !(Maybe POSIX),
-    _dbrsConfigurations ::
-      !(Maybe Configurations),
-    _dbrsAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _dbrsPendingHostInstanceType :: !(Maybe Text),
-    _dbrsLdapServerMetadata ::
-      !(Maybe LdapServerMetadataOutput),
-    _dbrsMaintenanceWindowStartTime ::
-      !(Maybe WeeklyStartTime),
-    _dbrsLogs :: !(Maybe LogsSummary),
-    _dbrsEncryptionOptions ::
-      !(Maybe EncryptionOptions),
-    _dbrsDeploymentMode ::
-      !(Maybe DeploymentMode),
-    _dbrsPendingEngineVersion :: !(Maybe Text),
-    _dbrsBrokerId :: !(Maybe Text),
-    _dbrsPendingLdapServerMetadata ::
-      !(Maybe LdapServerMetadataOutput),
-    _dbrsEngineType :: !(Maybe EngineType),
-    _dbrsBrokerARN :: !(Maybe Text),
-    _dbrsTags :: !(Maybe (Map Text (Text))),
-    _dbrsBrokerInstances ::
-      !(Maybe [BrokerInstance]),
-    _dbrsHostInstanceType :: !(Maybe Text),
-    _dbrsStorageType ::
-      !(Maybe BrokerStorageType),
-    _dbrsResponseStatus :: !Int
+  { brokerName ::
+      Lude.Maybe Lude.Text,
+    engineVersion :: Lude.Maybe Lude.Text,
+    pendingAuthenticationStrategy ::
+      Lude.Maybe AuthenticationStrategy,
+    brokerState :: Lude.Maybe BrokerState,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade ::
+      Lude.Maybe Lude.Bool,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    users :: Lude.Maybe [UserSummary],
+    pendingSecurityGroups ::
+      Lude.Maybe [Lude.Text],
+    subnetIds :: Lude.Maybe [Lude.Text],
+    created :: Lude.Maybe Lude.Timestamp,
+    configurations :: Lude.Maybe Configurations,
+    authenticationStrategy ::
+      Lude.Maybe AuthenticationStrategy,
+    pendingHostInstanceType ::
+      Lude.Maybe Lude.Text,
+    ldapServerMetadata ::
+      Lude.Maybe LdapServerMetadataOutput,
+    maintenanceWindowStartTime ::
+      Lude.Maybe WeeklyStartTime,
+    logs :: Lude.Maybe LogsSummary,
+    encryptionOptions ::
+      Lude.Maybe EncryptionOptions,
+    deploymentMode :: Lude.Maybe DeploymentMode,
+    pendingEngineVersion :: Lude.Maybe Lude.Text,
+    brokerId :: Lude.Maybe Lude.Text,
+    pendingLdapServerMetadata ::
+      Lude.Maybe LdapServerMetadataOutput,
+    engineType :: Lude.Maybe EngineType,
+    brokerARN :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    brokerInstances ::
+      Lude.Maybe [BrokerInstance],
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    storageType :: Lude.Maybe BrokerStorageType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsBrokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
---
--- * 'dbrsEngineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'dbrsPendingAuthenticationStrategy' - The authentication strategy that will be applied when the broker is rebooted.
---
--- * 'dbrsBrokerState' - The status of the broker.
---
--- * 'dbrsPubliclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
---
--- * 'dbrsAutoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
---
--- * 'dbrsSecurityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
---
--- * 'dbrsUsers' - The list of all broker usernames for the specified broker.
---
--- * 'dbrsPendingSecurityGroups' - The list of pending security groups to authorize connections to brokers.
---
--- * 'dbrsSubnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
---
--- * 'dbrsCreated' - The time when the broker was created.
---
--- * 'dbrsConfigurations' - The list of all revisions for the specified configuration.
---
--- * 'dbrsAuthenticationStrategy' - The authentication strategy used to secure the broker.
---
--- * 'dbrsPendingHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
---
--- * 'dbrsLdapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
---
--- * 'dbrsMaintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
---
--- * 'dbrsLogs' - The list of information about logs currently enabled and pending to be deployed for the specified broker.
---
--- * 'dbrsEncryptionOptions' - Encryption options for the broker.
---
--- * 'dbrsDeploymentMode' - Required. The deployment mode of the broker.
---
--- * 'dbrsPendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'dbrsBrokerId' - The unique ID that Amazon MQ generates for the broker.
---
--- * 'dbrsPendingLdapServerMetadata' - The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
---
--- * 'dbrsEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
---
--- * 'dbrsBrokerARN' - The Amazon Resource Name (ARN) of the broker.
---
--- * 'dbrsTags' - The list of all tags associated with this broker.
---
--- * 'dbrsBrokerInstances' - A list of information about allocated brokers.
---
--- * 'dbrsHostInstanceType' - The broker's instance type.
---
--- * 'dbrsStorageType' - The broker's storage type.
---
--- * 'dbrsResponseStatus' - -- | The response status code.
-describeBrokerResponse ::
-  -- | 'dbrsResponseStatus'
-  Int ->
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'brokerInstances' - A list of information about allocated brokers.
+-- * 'brokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+-- * 'brokerState' - The status of the broker.
+-- * 'configurations' - The list of all revisions for the specified configuration.
+-- * 'created' - The time when the broker was created.
+-- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'encryptionOptions' - Encryption options for the broker.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'engineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'hostInstanceType' - The broker's instance type.
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'logs' - The list of information about logs currently enabled and pending to be deployed for the specified broker.
+-- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+-- * 'pendingAuthenticationStrategy' - The authentication strategy that will be applied when the broker is rebooted.
+-- * 'pendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'pendingHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'pendingLdapServerMetadata' - The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
+-- * 'pendingSecurityGroups' - The list of pending security groups to authorize connections to brokers.
+-- * 'publiclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+-- * 'responseStatus' - The response status code.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+-- * 'storageType' - The broker's storage type.
+-- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+-- * 'tags' - The list of all tags associated with this broker.
+-- * 'users' - The list of all broker usernames for the specified broker.
+mkDescribeBrokerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBrokerResponse
-describeBrokerResponse pResponseStatus_ =
+mkDescribeBrokerResponse pResponseStatus_ =
   DescribeBrokerResponse'
-    { _dbrsBrokerName = Nothing,
-      _dbrsEngineVersion = Nothing,
-      _dbrsPendingAuthenticationStrategy = Nothing,
-      _dbrsBrokerState = Nothing,
-      _dbrsPubliclyAccessible = Nothing,
-      _dbrsAutoMinorVersionUpgrade = Nothing,
-      _dbrsSecurityGroups = Nothing,
-      _dbrsUsers = Nothing,
-      _dbrsPendingSecurityGroups = Nothing,
-      _dbrsSubnetIds = Nothing,
-      _dbrsCreated = Nothing,
-      _dbrsConfigurations = Nothing,
-      _dbrsAuthenticationStrategy = Nothing,
-      _dbrsPendingHostInstanceType = Nothing,
-      _dbrsLdapServerMetadata = Nothing,
-      _dbrsMaintenanceWindowStartTime = Nothing,
-      _dbrsLogs = Nothing,
-      _dbrsEncryptionOptions = Nothing,
-      _dbrsDeploymentMode = Nothing,
-      _dbrsPendingEngineVersion = Nothing,
-      _dbrsBrokerId = Nothing,
-      _dbrsPendingLdapServerMetadata = Nothing,
-      _dbrsEngineType = Nothing,
-      _dbrsBrokerARN = Nothing,
-      _dbrsTags = Nothing,
-      _dbrsBrokerInstances = Nothing,
-      _dbrsHostInstanceType = Nothing,
-      _dbrsStorageType = Nothing,
-      _dbrsResponseStatus = pResponseStatus_
+    { brokerName = Lude.Nothing,
+      engineVersion = Lude.Nothing,
+      pendingAuthenticationStrategy = Lude.Nothing,
+      brokerState = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      users = Lude.Nothing,
+      pendingSecurityGroups = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      created = Lude.Nothing,
+      configurations = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      pendingHostInstanceType = Lude.Nothing,
+      ldapServerMetadata = Lude.Nothing,
+      maintenanceWindowStartTime = Lude.Nothing,
+      logs = Lude.Nothing,
+      encryptionOptions = Lude.Nothing,
+      deploymentMode = Lude.Nothing,
+      pendingEngineVersion = Lude.Nothing,
+      brokerId = Lude.Nothing,
+      pendingLdapServerMetadata = Lude.Nothing,
+      engineType = Lude.Nothing,
+      brokerARN = Lude.Nothing,
+      tags = Lude.Nothing,
+      brokerInstances = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      storageType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-dbrsBrokerName :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerName = lens _dbrsBrokerName (\s a -> s {_dbrsBrokerName = a})
+--
+-- /Note:/ Consider using 'brokerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBrokerName :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsBrokerName = Lens.lens (brokerName :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerName = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsBrokerName "Use generic-lens or generic-optics with 'brokerName' instead." #-}
 
 -- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-dbrsEngineVersion :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsEngineVersion = lens _dbrsEngineVersion (\s a -> s {_dbrsEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsEngineVersion :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsEngineVersion = Lens.lens (engineVersion :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The authentication strategy that will be applied when the broker is rebooted.
-dbrsPendingAuthenticationStrategy :: Lens' DescribeBrokerResponse (Maybe AuthenticationStrategy)
-dbrsPendingAuthenticationStrategy = lens _dbrsPendingAuthenticationStrategy (\s a -> s {_dbrsPendingAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'pendingAuthenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPendingAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe AuthenticationStrategy)
+dbrsPendingAuthenticationStrategy = Lens.lens (pendingAuthenticationStrategy :: DescribeBrokerResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {pendingAuthenticationStrategy = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPendingAuthenticationStrategy "Use generic-lens or generic-optics with 'pendingAuthenticationStrategy' instead." #-}
 
 -- | The status of the broker.
-dbrsBrokerState :: Lens' DescribeBrokerResponse (Maybe BrokerState)
-dbrsBrokerState = lens _dbrsBrokerState (\s a -> s {_dbrsBrokerState = a})
+--
+-- /Note:/ Consider using 'brokerState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBrokerState :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe BrokerState)
+dbrsBrokerState = Lens.lens (brokerState :: DescribeBrokerResponse -> Lude.Maybe BrokerState) (\s a -> s {brokerState = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsBrokerState "Use generic-lens or generic-optics with 'brokerState' instead." #-}
 
 -- | Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
-dbrsPubliclyAccessible :: Lens' DescribeBrokerResponse (Maybe Bool)
-dbrsPubliclyAccessible = lens _dbrsPubliclyAccessible (\s a -> s {_dbrsPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPubliclyAccessible :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Bool)
+dbrsPubliclyAccessible = Lens.lens (publiclyAccessible :: DescribeBrokerResponse -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
-dbrsAutoMinorVersionUpgrade :: Lens' DescribeBrokerResponse (Maybe Bool)
-dbrsAutoMinorVersionUpgrade = lens _dbrsAutoMinorVersionUpgrade (\s a -> s {_dbrsAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsAutoMinorVersionUpgrade :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Bool)
+dbrsAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: DescribeBrokerResponse -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-dbrsSecurityGroups :: Lens' DescribeBrokerResponse [Text]
-dbrsSecurityGroups = lens _dbrsSecurityGroups (\s a -> s {_dbrsSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe [Lude.Text])
+dbrsSecurityGroups = Lens.lens (securityGroups :: DescribeBrokerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The list of all broker usernames for the specified broker.
-dbrsUsers :: Lens' DescribeBrokerResponse [UserSummary]
-dbrsUsers = lens _dbrsUsers (\s a -> s {_dbrsUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsUsers :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe [UserSummary])
+dbrsUsers = Lens.lens (users :: DescribeBrokerResponse -> Lude.Maybe [UserSummary]) (\s a -> s {users = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The list of pending security groups to authorize connections to brokers.
-dbrsPendingSecurityGroups :: Lens' DescribeBrokerResponse [Text]
-dbrsPendingSecurityGroups = lens _dbrsPendingSecurityGroups (\s a -> s {_dbrsPendingSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pendingSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPendingSecurityGroups :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe [Lude.Text])
+dbrsPendingSecurityGroups = Lens.lens (pendingSecurityGroups :: DescribeBrokerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {pendingSecurityGroups = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPendingSecurityGroups "Use generic-lens or generic-optics with 'pendingSecurityGroups' instead." #-}
 
 -- | The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
-dbrsSubnetIds :: Lens' DescribeBrokerResponse [Text]
-dbrsSubnetIds = lens _dbrsSubnetIds (\s a -> s {_dbrsSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsSubnetIds :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe [Lude.Text])
+dbrsSubnetIds = Lens.lens (subnetIds :: DescribeBrokerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The time when the broker was created.
-dbrsCreated :: Lens' DescribeBrokerResponse (Maybe UTCTime)
-dbrsCreated = lens _dbrsCreated (\s a -> s {_dbrsCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsCreated :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Timestamp)
+dbrsCreated = Lens.lens (created :: DescribeBrokerResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The list of all revisions for the specified configuration.
-dbrsConfigurations :: Lens' DescribeBrokerResponse (Maybe Configurations)
-dbrsConfigurations = lens _dbrsConfigurations (\s a -> s {_dbrsConfigurations = a})
+--
+-- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsConfigurations :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Configurations)
+dbrsConfigurations = Lens.lens (configurations :: DescribeBrokerResponse -> Lude.Maybe Configurations) (\s a -> s {configurations = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | The authentication strategy used to secure the broker.
-dbrsAuthenticationStrategy :: Lens' DescribeBrokerResponse (Maybe AuthenticationStrategy)
-dbrsAuthenticationStrategy = lens _dbrsAuthenticationStrategy (\s a -> s {_dbrsAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe AuthenticationStrategy)
+dbrsAuthenticationStrategy = Lens.lens (authenticationStrategy :: DescribeBrokerResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
-dbrsPendingHostInstanceType :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsPendingHostInstanceType = lens _dbrsPendingHostInstanceType (\s a -> s {_dbrsPendingHostInstanceType = a})
+--
+-- /Note:/ Consider using 'pendingHostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPendingHostInstanceType :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsPendingHostInstanceType = Lens.lens (pendingHostInstanceType :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {pendingHostInstanceType = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPendingHostInstanceType "Use generic-lens or generic-optics with 'pendingHostInstanceType' instead." #-}
 
 -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-dbrsLdapServerMetadata :: Lens' DescribeBrokerResponse (Maybe LdapServerMetadataOutput)
-dbrsLdapServerMetadata = lens _dbrsLdapServerMetadata (\s a -> s {_dbrsLdapServerMetadata = a})
+--
+-- /Note:/ Consider using 'ldapServerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsLdapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe LdapServerMetadataOutput)
+dbrsLdapServerMetadata = Lens.lens (ldapServerMetadata :: DescribeBrokerResponse -> Lude.Maybe LdapServerMetadataOutput) (\s a -> s {ldapServerMetadata = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsLdapServerMetadata "Use generic-lens or generic-optics with 'ldapServerMetadata' instead." #-}
 
 -- | The parameters that determine the WeeklyStartTime.
-dbrsMaintenanceWindowStartTime :: Lens' DescribeBrokerResponse (Maybe WeeklyStartTime)
-dbrsMaintenanceWindowStartTime = lens _dbrsMaintenanceWindowStartTime (\s a -> s {_dbrsMaintenanceWindowStartTime = a})
+--
+-- /Note:/ Consider using 'maintenanceWindowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsMaintenanceWindowStartTime :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe WeeklyStartTime)
+dbrsMaintenanceWindowStartTime = Lens.lens (maintenanceWindowStartTime :: DescribeBrokerResponse -> Lude.Maybe WeeklyStartTime) (\s a -> s {maintenanceWindowStartTime = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsMaintenanceWindowStartTime "Use generic-lens or generic-optics with 'maintenanceWindowStartTime' instead." #-}
 
 -- | The list of information about logs currently enabled and pending to be deployed for the specified broker.
-dbrsLogs :: Lens' DescribeBrokerResponse (Maybe LogsSummary)
-dbrsLogs = lens _dbrsLogs (\s a -> s {_dbrsLogs = a})
+--
+-- /Note:/ Consider using 'logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsLogs :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe LogsSummary)
+dbrsLogs = Lens.lens (logs :: DescribeBrokerResponse -> Lude.Maybe LogsSummary) (\s a -> s {logs = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsLogs "Use generic-lens or generic-optics with 'logs' instead." #-}
 
 -- | Encryption options for the broker.
-dbrsEncryptionOptions :: Lens' DescribeBrokerResponse (Maybe EncryptionOptions)
-dbrsEncryptionOptions = lens _dbrsEncryptionOptions (\s a -> s {_dbrsEncryptionOptions = a})
+--
+-- /Note:/ Consider using 'encryptionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsEncryptionOptions :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe EncryptionOptions)
+dbrsEncryptionOptions = Lens.lens (encryptionOptions :: DescribeBrokerResponse -> Lude.Maybe EncryptionOptions) (\s a -> s {encryptionOptions = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsEncryptionOptions "Use generic-lens or generic-optics with 'encryptionOptions' instead." #-}
 
 -- | Required. The deployment mode of the broker.
-dbrsDeploymentMode :: Lens' DescribeBrokerResponse (Maybe DeploymentMode)
-dbrsDeploymentMode = lens _dbrsDeploymentMode (\s a -> s {_dbrsDeploymentMode = a})
+--
+-- /Note:/ Consider using 'deploymentMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsDeploymentMode :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe DeploymentMode)
+dbrsDeploymentMode = Lens.lens (deploymentMode :: DescribeBrokerResponse -> Lude.Maybe DeploymentMode) (\s a -> s {deploymentMode = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsDeploymentMode "Use generic-lens or generic-optics with 'deploymentMode' instead." #-}
 
 -- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-dbrsPendingEngineVersion :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsPendingEngineVersion = lens _dbrsPendingEngineVersion (\s a -> s {_dbrsPendingEngineVersion = a})
+--
+-- /Note:/ Consider using 'pendingEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPendingEngineVersion :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsPendingEngineVersion = Lens.lens (pendingEngineVersion :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {pendingEngineVersion = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPendingEngineVersion "Use generic-lens or generic-optics with 'pendingEngineVersion' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-dbrsBrokerId :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerId = lens _dbrsBrokerId (\s a -> s {_dbrsBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBrokerId :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsBrokerId = Lens.lens (brokerId :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
-dbrsPendingLdapServerMetadata :: Lens' DescribeBrokerResponse (Maybe LdapServerMetadataOutput)
-dbrsPendingLdapServerMetadata = lens _dbrsPendingLdapServerMetadata (\s a -> s {_dbrsPendingLdapServerMetadata = a})
+--
+-- /Note:/ Consider using 'pendingLdapServerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsPendingLdapServerMetadata :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe LdapServerMetadataOutput)
+dbrsPendingLdapServerMetadata = Lens.lens (pendingLdapServerMetadata :: DescribeBrokerResponse -> Lude.Maybe LdapServerMetadataOutput) (\s a -> s {pendingLdapServerMetadata = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsPendingLdapServerMetadata "Use generic-lens or generic-optics with 'pendingLdapServerMetadata' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-dbrsEngineType :: Lens' DescribeBrokerResponse (Maybe EngineType)
-dbrsEngineType = lens _dbrsEngineType (\s a -> s {_dbrsEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsEngineType :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe EngineType)
+dbrsEngineType = Lens.lens (engineType :: DescribeBrokerResponse -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the broker.
-dbrsBrokerARN :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsBrokerARN = lens _dbrsBrokerARN (\s a -> s {_dbrsBrokerARN = a})
+--
+-- /Note:/ Consider using 'brokerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBrokerARN :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsBrokerARN = Lens.lens (brokerARN :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerARN = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsBrokerARN "Use generic-lens or generic-optics with 'brokerARN' instead." #-}
 
 -- | The list of all tags associated with this broker.
-dbrsTags :: Lens' DescribeBrokerResponse (HashMap Text (Text))
-dbrsTags = lens _dbrsTags (\s a -> s {_dbrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsTags :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dbrsTags = Lens.lens (tags :: DescribeBrokerResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A list of information about allocated brokers.
-dbrsBrokerInstances :: Lens' DescribeBrokerResponse [BrokerInstance]
-dbrsBrokerInstances = lens _dbrsBrokerInstances (\s a -> s {_dbrsBrokerInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'brokerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBrokerInstances :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe [BrokerInstance])
+dbrsBrokerInstances = Lens.lens (brokerInstances :: DescribeBrokerResponse -> Lude.Maybe [BrokerInstance]) (\s a -> s {brokerInstances = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsBrokerInstances "Use generic-lens or generic-optics with 'brokerInstances' instead." #-}
 
 -- | The broker's instance type.
-dbrsHostInstanceType :: Lens' DescribeBrokerResponse (Maybe Text)
-dbrsHostInstanceType = lens _dbrsHostInstanceType (\s a -> s {_dbrsHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsHostInstanceType :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe Lude.Text)
+dbrsHostInstanceType = Lens.lens (hostInstanceType :: DescribeBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 -- | The broker's storage type.
-dbrsStorageType :: Lens' DescribeBrokerResponse (Maybe BrokerStorageType)
-dbrsStorageType = lens _dbrsStorageType (\s a -> s {_dbrsStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsStorageType :: Lens.Lens' DescribeBrokerResponse (Lude.Maybe BrokerStorageType)
+dbrsStorageType = Lens.lens (storageType :: DescribeBrokerResponse -> Lude.Maybe BrokerStorageType) (\s a -> s {storageType = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DescribeBrokerResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\s a -> s {_dbrsResponseStatus = a})
-
-instance NFData DescribeBrokerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsResponseStatus :: Lens.Lens' DescribeBrokerResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBrokerResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

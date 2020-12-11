@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,139 @@
 --
 -- Gets the device.
 module Network.AWS.CognitoIdentityProvider.GetDevice
-  ( -- * Creating a Request
-    getDevice,
-    GetDevice,
+  ( -- * Creating a request
+    GetDevice (..),
+    mkGetDevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdAccessToken,
     gdDeviceKey,
 
-    -- * Destructuring the Response
-    getDeviceResponse,
-    GetDeviceResponse,
+    -- * Destructuring the response
+    GetDeviceResponse (..),
+    mkGetDeviceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdrsResponseStatus,
     gdrsDevice,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to get the device.
 --
---
---
--- /See:/ 'getDevice' smart constructor.
+-- /See:/ 'mkGetDevice' smart constructor.
 data GetDevice = GetDevice'
-  { _gdAccessToken ::
-      !(Maybe (Sensitive Text)),
-    _gdDeviceKey :: !Text
+  { accessToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    deviceKey :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdAccessToken' - The access token.
---
--- * 'gdDeviceKey' - The device key.
-getDevice ::
-  -- | 'gdDeviceKey'
-  Text ->
+-- * 'accessToken' - The access token.
+-- * 'deviceKey' - The device key.
+mkGetDevice ::
+  -- | 'deviceKey'
+  Lude.Text ->
   GetDevice
-getDevice pDeviceKey_ =
-  GetDevice' {_gdAccessToken = Nothing, _gdDeviceKey = pDeviceKey_}
+mkGetDevice pDeviceKey_ =
+  GetDevice' {accessToken = Lude.Nothing, deviceKey = pDeviceKey_}
 
 -- | The access token.
-gdAccessToken :: Lens' GetDevice (Maybe Text)
-gdAccessToken = lens _gdAccessToken (\s a -> s {_gdAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdAccessToken :: Lens.Lens' GetDevice (Lude.Maybe (Lude.Sensitive Lude.Text))
+gdAccessToken = Lens.lens (accessToken :: GetDevice -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: GetDevice)
+{-# DEPRECATED gdAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The device key.
-gdDeviceKey :: Lens' GetDevice Text
-gdDeviceKey = lens _gdDeviceKey (\s a -> s {_gdDeviceKey = a})
+--
+-- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDeviceKey :: Lens.Lens' GetDevice Lude.Text
+gdDeviceKey = Lens.lens (deviceKey :: GetDevice -> Lude.Text) (\s a -> s {deviceKey = a} :: GetDevice)
+{-# DEPRECATED gdDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
-instance AWSRequest GetDevice where
+instance Lude.AWSRequest GetDevice where
   type Rs GetDevice = GetDeviceResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetDeviceResponse' <$> (pure (fromEnum s)) <*> (x .:> "Device")
+          GetDeviceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Device")
       )
 
-instance Hashable GetDevice
-
-instance NFData GetDevice
-
-instance ToHeaders GetDevice where
+instance Lude.ToHeaders GetDevice where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.GetDevice" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityProviderService.GetDevice" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDevice where
+instance Lude.ToJSON GetDevice where
   toJSON GetDevice' {..} =
-    object
-      ( catMaybes
-          [ ("AccessToken" .=) <$> _gdAccessToken,
-            Just ("DeviceKey" .= _gdDeviceKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessToken" Lude..=) Lude.<$> accessToken,
+            Lude.Just ("DeviceKey" Lude..= deviceKey)
           ]
       )
 
-instance ToPath GetDevice where
-  toPath = const "/"
+instance Lude.ToPath GetDevice where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDevice where
-  toQuery = const mempty
+instance Lude.ToQuery GetDevice where
+  toQuery = Lude.const Lude.mempty
 
 -- | Gets the device response.
 --
---
---
--- /See:/ 'getDeviceResponse' smart constructor.
+-- /See:/ 'mkGetDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-  { _gdrsResponseStatus ::
-      !Int,
-    _gdrsDevice :: !DeviceType
+  { responseStatus ::
+      Lude.Int,
+    device :: DeviceType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdrsResponseStatus' - -- | The response status code.
---
--- * 'gdrsDevice' - The device.
-getDeviceResponse ::
-  -- | 'gdrsResponseStatus'
-  Int ->
-  -- | 'gdrsDevice'
+-- * 'device' - The device.
+-- * 'responseStatus' - The response status code.
+mkGetDeviceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'device'
   DeviceType ->
   GetDeviceResponse
-getDeviceResponse pResponseStatus_ pDevice_ =
+mkGetDeviceResponse pResponseStatus_ pDevice_ =
   GetDeviceResponse'
-    { _gdrsResponseStatus = pResponseStatus_,
-      _gdrsDevice = pDevice_
+    { responseStatus = pResponseStatus_,
+      device = pDevice_
     }
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDeviceResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\s a -> s {_gdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDeviceResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeviceResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The device.
-gdrsDevice :: Lens' GetDeviceResponse DeviceType
-gdrsDevice = lens _gdrsDevice (\s a -> s {_gdrsDevice = a})
-
-instance NFData GetDeviceResponse
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsDevice :: Lens.Lens' GetDeviceResponse DeviceType
+gdrsDevice = Lens.lens (device :: GetDeviceResponse -> DeviceType) (\s a -> s {device = a} :: GetDeviceResponse)
+{-# DEPRECATED gdrsDevice "Use generic-lens or generic-optics with 'device' instead." #-}

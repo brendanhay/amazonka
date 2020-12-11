@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.PortfolioDetail where
+module Network.AWS.ServiceCatalog.Types.PortfolioDetail
+  ( PortfolioDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPortfolioDetail,
+
+    -- * Lenses
+    pdARN,
+    pdCreatedTime,
+    pdId,
+    pdDisplayName,
+    pdDescription,
+    pdProviderName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a portfolio.
 --
---
---
--- /See:/ 'portfolioDetail' smart constructor.
+-- /See:/ 'mkPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-  { _pdARN :: !(Maybe Text),
-    _pdCreatedTime :: !(Maybe POSIX),
-    _pdId :: !(Maybe Text),
-    _pdDisplayName :: !(Maybe Text),
-    _pdDescription :: !(Maybe Text),
-    _pdProviderName :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    id :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortfolioDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdARN' - The ARN assigned to the portfolio.
---
--- * 'pdCreatedTime' - The UTC time stamp of the creation time.
---
--- * 'pdId' - The portfolio identifier.
---
--- * 'pdDisplayName' - The name to use for display purposes.
---
--- * 'pdDescription' - The description of the portfolio.
---
--- * 'pdProviderName' - The name of the portfolio provider.
-portfolioDetail ::
+-- * 'arn' - The ARN assigned to the portfolio.
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'description' - The description of the portfolio.
+-- * 'displayName' - The name to use for display purposes.
+-- * 'id' - The portfolio identifier.
+-- * 'providerName' - The name of the portfolio provider.
+mkPortfolioDetail ::
   PortfolioDetail
-portfolioDetail =
+mkPortfolioDetail =
   PortfolioDetail'
-    { _pdARN = Nothing,
-      _pdCreatedTime = Nothing,
-      _pdId = Nothing,
-      _pdDisplayName = Nothing,
-      _pdDescription = Nothing,
-      _pdProviderName = Nothing
+    { arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      id = Lude.Nothing,
+      displayName = Lude.Nothing,
+      description = Lude.Nothing,
+      providerName = Lude.Nothing
     }
 
 -- | The ARN assigned to the portfolio.
-pdARN :: Lens' PortfolioDetail (Maybe Text)
-pdARN = lens _pdARN (\s a -> s {_pdARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdARN :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Text)
+pdARN = Lens.lens (arn :: PortfolioDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PortfolioDetail)
+{-# DEPRECATED pdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The UTC time stamp of the creation time.
-pdCreatedTime :: Lens' PortfolioDetail (Maybe UTCTime)
-pdCreatedTime = lens _pdCreatedTime (\s a -> s {_pdCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCreatedTime :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Timestamp)
+pdCreatedTime = Lens.lens (createdTime :: PortfolioDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: PortfolioDetail)
+{-# DEPRECATED pdCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The portfolio identifier.
-pdId :: Lens' PortfolioDetail (Maybe Text)
-pdId = lens _pdId (\s a -> s {_pdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdId :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Text)
+pdId = Lens.lens (id :: PortfolioDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PortfolioDetail)
+{-# DEPRECATED pdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The name to use for display purposes.
-pdDisplayName :: Lens' PortfolioDetail (Maybe Text)
-pdDisplayName = lens _pdDisplayName (\s a -> s {_pdDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDisplayName :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Text)
+pdDisplayName = Lens.lens (displayName :: PortfolioDetail -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: PortfolioDetail)
+{-# DEPRECATED pdDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The description of the portfolio.
-pdDescription :: Lens' PortfolioDetail (Maybe Text)
-pdDescription = lens _pdDescription (\s a -> s {_pdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDescription :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Text)
+pdDescription = Lens.lens (description :: PortfolioDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PortfolioDetail)
+{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the portfolio provider.
-pdProviderName :: Lens' PortfolioDetail (Maybe Text)
-pdProviderName = lens _pdProviderName (\s a -> s {_pdProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProviderName :: Lens.Lens' PortfolioDetail (Lude.Maybe Lude.Text)
+pdProviderName = Lens.lens (providerName :: PortfolioDetail -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: PortfolioDetail)
+{-# DEPRECATED pdProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance FromJSON PortfolioDetail where
+instance Lude.FromJSON PortfolioDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "PortfolioDetail"
       ( \x ->
           PortfolioDetail'
-            <$> (x .:? "ARN")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "Id")
-            <*> (x .:? "DisplayName")
-            <*> (x .:? "Description")
-            <*> (x .:? "ProviderName")
+            Lude.<$> (x Lude..:? "ARN")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "DisplayName")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ProviderName")
       )
-
-instance Hashable PortfolioDetail
-
-instance NFData PortfolioDetail

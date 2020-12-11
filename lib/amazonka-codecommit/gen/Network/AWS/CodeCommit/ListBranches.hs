@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets information about one or more branches in a repository.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListBranches
-  ( -- * Creating a Request
-    listBranches,
-    ListBranches,
+  ( -- * Creating a request
+    ListBranches (..),
+    mkListBranches,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbNextToken,
     lbRepositoryName,
 
-    -- * Destructuring the Response
-    listBranchesResponse,
-    ListBranchesResponse,
+    -- * Destructuring the response
+    ListBranchesResponse (..),
+    mkListBranchesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbrsBranches,
     lbrsNextToken,
     lbrsResponseStatus,
@@ -43,138 +36,155 @@ module Network.AWS.CodeCommit.ListBranches
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a list branches operation.
 --
---
---
--- /See:/ 'listBranches' smart constructor.
+-- /See:/ 'mkListBranches' smart constructor.
 data ListBranches = ListBranches'
-  { _lbNextToken :: !(Maybe Text),
-    _lbRepositoryName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBranches' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbNextToken' - An enumeration token that allows the operation to batch the results.
---
--- * 'lbRepositoryName' - The name of the repository that contains the branches.
-listBranches ::
-  -- | 'lbRepositoryName'
-  Text ->
+-- * 'nextToken' - An enumeration token that allows the operation to batch the results.
+-- * 'repositoryName' - The name of the repository that contains the branches.
+mkListBranches ::
+  -- | 'repositoryName'
+  Lude.Text ->
   ListBranches
-listBranches pRepositoryName_ =
+mkListBranches pRepositoryName_ =
   ListBranches'
-    { _lbNextToken = Nothing,
-      _lbRepositoryName = pRepositoryName_
+    { nextToken = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | An enumeration token that allows the operation to batch the results.
-lbNextToken :: Lens' ListBranches (Maybe Text)
-lbNextToken = lens _lbNextToken (\s a -> s {_lbNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbNextToken :: Lens.Lens' ListBranches (Lude.Maybe Lude.Text)
+lbNextToken = Lens.lens (nextToken :: ListBranches -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBranches)
+{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the repository that contains the branches.
-lbRepositoryName :: Lens' ListBranches Text
-lbRepositoryName = lens _lbRepositoryName (\s a -> s {_lbRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbRepositoryName :: Lens.Lens' ListBranches Lude.Text
+lbRepositoryName = Lens.lens (repositoryName :: ListBranches -> Lude.Text) (\s a -> s {repositoryName = a} :: ListBranches)
+{-# DEPRECATED lbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSPager ListBranches where
+instance Page.AWSPager ListBranches where
   page rq rs
-    | stop (rs ^. lbrsNextToken) = Nothing
-    | stop (rs ^. lbrsBranches) = Nothing
-    | otherwise = Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
+    | Page.stop (rs Lens.^. lbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbrsBranches) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbNextToken Lens..~ rs Lens.^. lbrsNextToken
 
-instance AWSRequest ListBranches where
+instance Lude.AWSRequest ListBranches where
   type Rs ListBranches = ListBranchesResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBranchesResponse'
-            <$> (x .?> "branches" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "branches" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBranches
-
-instance NFData ListBranches
-
-instance ToHeaders ListBranches where
+instance Lude.ToHeaders ListBranches where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.ListBranches" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.ListBranches" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListBranches where
+instance Lude.ToJSON ListBranches where
   toJSON ListBranches' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lbNextToken,
-            Just ("repositoryName" .= _lbRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath ListBranches where
-  toPath = const "/"
+instance Lude.ToPath ListBranches where
+  toPath = Lude.const "/"
 
-instance ToQuery ListBranches where
-  toQuery = const mempty
+instance Lude.ToQuery ListBranches where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a list branches operation.
 --
---
---
--- /See:/ 'listBranchesResponse' smart constructor.
+-- /See:/ 'mkListBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-  { _lbrsBranches ::
-      !(Maybe [Text]),
-    _lbrsNextToken :: !(Maybe Text),
-    _lbrsResponseStatus :: !Int
+  { branches ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsBranches' - The list of branch names.
---
--- * 'lbrsNextToken' - An enumeration token that returns the batch of the results.
---
--- * 'lbrsResponseStatus' - -- | The response status code.
-listBranchesResponse ::
-  -- | 'lbrsResponseStatus'
-  Int ->
+-- * 'branches' - The list of branch names.
+-- * 'nextToken' - An enumeration token that returns the batch of the results.
+-- * 'responseStatus' - The response status code.
+mkListBranchesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBranchesResponse
-listBranchesResponse pResponseStatus_ =
+mkListBranchesResponse pResponseStatus_ =
   ListBranchesResponse'
-    { _lbrsBranches = Nothing,
-      _lbrsNextToken = Nothing,
-      _lbrsResponseStatus = pResponseStatus_
+    { branches = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of branch names.
-lbrsBranches :: Lens' ListBranchesResponse [Text]
-lbrsBranches = lens _lbrsBranches (\s a -> s {_lbrsBranches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'branches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsBranches :: Lens.Lens' ListBranchesResponse (Lude.Maybe [Lude.Text])
+lbrsBranches = Lens.lens (branches :: ListBranchesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {branches = a} :: ListBranchesResponse)
+{-# DEPRECATED lbrsBranches "Use generic-lens or generic-optics with 'branches' instead." #-}
 
 -- | An enumeration token that returns the batch of the results.
-lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\s a -> s {_lbrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsNextToken :: Lens.Lens' ListBranchesResponse (Lude.Maybe Lude.Text)
+lbrsNextToken = Lens.lens (nextToken :: ListBranchesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBranchesResponse)
+{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lbrsResponseStatus :: Lens' ListBranchesResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\s a -> s {_lbrsResponseStatus = a})
-
-instance NFData ListBranchesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsResponseStatus :: Lens.Lens' ListBranchesResponse Lude.Int
+lbrsResponseStatus = Lens.lens (responseStatus :: ListBranchesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBranchesResponse)
+{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

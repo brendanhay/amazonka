@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,182 @@
 --
 -- Creates a static route for the specified transit gateway route table.
 module Network.AWS.EC2.CreateTransitGatewayRoute
-  ( -- * Creating a Request
-    createTransitGatewayRoute,
-    CreateTransitGatewayRoute,
+  ( -- * Creating a request
+    CreateTransitGatewayRoute (..),
+    mkCreateTransitGatewayRoute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctgrBlackhole,
     ctgrTransitGatewayAttachmentId,
     ctgrDryRun,
     ctgrDestinationCidrBlock,
     ctgrTransitGatewayRouteTableId,
 
-    -- * Destructuring the Response
-    createTransitGatewayRouteResponse,
-    CreateTransitGatewayRouteResponse,
+    -- * Destructuring the response
+    CreateTransitGatewayRouteResponse (..),
+    mkCreateTransitGatewayRouteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctgrrsRoute,
     ctgrrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTransitGatewayRoute' smart constructor.
+-- | /See:/ 'mkCreateTransitGatewayRoute' smart constructor.
 data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
-  { _ctgrBlackhole ::
-      !(Maybe Bool),
-    _ctgrTransitGatewayAttachmentId ::
-      !(Maybe Text),
-    _ctgrDryRun :: !(Maybe Bool),
-    _ctgrDestinationCidrBlock :: !Text,
-    _ctgrTransitGatewayRouteTableId ::
-      !Text
+  { blackhole ::
+      Lude.Maybe Lude.Bool,
+    transitGatewayAttachmentId ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    destinationCidrBlock :: Lude.Text,
+    transitGatewayRouteTableId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgrBlackhole' - Indicates whether to drop traffic that matches this route.
---
--- * 'ctgrTransitGatewayAttachmentId' - The ID of the attachment.
---
--- * 'ctgrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'ctgrDestinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based on the most specific match.
---
--- * 'ctgrTransitGatewayRouteTableId' - The ID of the transit gateway route table.
-createTransitGatewayRoute ::
-  -- | 'ctgrDestinationCidrBlock'
-  Text ->
-  -- | 'ctgrTransitGatewayRouteTableId'
-  Text ->
+-- * 'blackhole' - Indicates whether to drop traffic that matches this route.
+-- * 'destinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based on the most specific match.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+mkCreateTransitGatewayRoute ::
+  -- | 'destinationCidrBlock'
+  Lude.Text ->
+  -- | 'transitGatewayRouteTableId'
+  Lude.Text ->
   CreateTransitGatewayRoute
-createTransitGatewayRoute
+mkCreateTransitGatewayRoute
   pDestinationCidrBlock_
   pTransitGatewayRouteTableId_ =
     CreateTransitGatewayRoute'
-      { _ctgrBlackhole = Nothing,
-        _ctgrTransitGatewayAttachmentId = Nothing,
-        _ctgrDryRun = Nothing,
-        _ctgrDestinationCidrBlock = pDestinationCidrBlock_,
-        _ctgrTransitGatewayRouteTableId = pTransitGatewayRouteTableId_
+      { blackhole = Lude.Nothing,
+        transitGatewayAttachmentId = Lude.Nothing,
+        dryRun = Lude.Nothing,
+        destinationCidrBlock = pDestinationCidrBlock_,
+        transitGatewayRouteTableId = pTransitGatewayRouteTableId_
       }
 
 -- | Indicates whether to drop traffic that matches this route.
-ctgrBlackhole :: Lens' CreateTransitGatewayRoute (Maybe Bool)
-ctgrBlackhole = lens _ctgrBlackhole (\s a -> s {_ctgrBlackhole = a})
+--
+-- /Note:/ Consider using 'blackhole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrBlackhole :: Lens.Lens' CreateTransitGatewayRoute (Lude.Maybe Lude.Bool)
+ctgrBlackhole = Lens.lens (blackhole :: CreateTransitGatewayRoute -> Lude.Maybe Lude.Bool) (\s a -> s {blackhole = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrBlackhole "Use generic-lens or generic-optics with 'blackhole' instead." #-}
 
 -- | The ID of the attachment.
-ctgrTransitGatewayAttachmentId :: Lens' CreateTransitGatewayRoute (Maybe Text)
-ctgrTransitGatewayAttachmentId = lens _ctgrTransitGatewayAttachmentId (\s a -> s {_ctgrTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrTransitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayRoute (Lude.Maybe Lude.Text)
+ctgrTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: CreateTransitGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ctgrDryRun :: Lens' CreateTransitGatewayRoute (Maybe Bool)
-ctgrDryRun = lens _ctgrDryRun (\s a -> s {_ctgrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrDryRun :: Lens.Lens' CreateTransitGatewayRoute (Lude.Maybe Lude.Bool)
+ctgrDryRun = Lens.lens (dryRun :: CreateTransitGatewayRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
-ctgrDestinationCidrBlock :: Lens' CreateTransitGatewayRoute Text
-ctgrDestinationCidrBlock = lens _ctgrDestinationCidrBlock (\s a -> s {_ctgrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrDestinationCidrBlock :: Lens.Lens' CreateTransitGatewayRoute Lude.Text
+ctgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateTransitGatewayRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
 -- | The ID of the transit gateway route table.
-ctgrTransitGatewayRouteTableId :: Lens' CreateTransitGatewayRoute Text
-ctgrTransitGatewayRouteTableId = lens _ctgrTransitGatewayRouteTableId (\s a -> s {_ctgrTransitGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrTransitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayRoute Lude.Text
+ctgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: CreateTransitGatewayRoute -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
-instance AWSRequest CreateTransitGatewayRoute where
+instance Lude.AWSRequest CreateTransitGatewayRoute where
   type
     Rs CreateTransitGatewayRoute =
       CreateTransitGatewayRouteResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateTransitGatewayRouteResponse'
-            <$> (x .@? "route") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "route") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTransitGatewayRoute
+instance Lude.ToHeaders CreateTransitGatewayRoute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateTransitGatewayRoute
+instance Lude.ToPath CreateTransitGatewayRoute where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateTransitGatewayRoute where
-  toHeaders = const mempty
-
-instance ToPath CreateTransitGatewayRoute where
-  toPath = const "/"
-
-instance ToQuery CreateTransitGatewayRoute where
+instance Lude.ToQuery CreateTransitGatewayRoute where
   toQuery CreateTransitGatewayRoute' {..} =
-    mconcat
-      [ "Action" =: ("CreateTransitGatewayRoute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Blackhole" =: _ctgrBlackhole,
-        "TransitGatewayAttachmentId" =: _ctgrTransitGatewayAttachmentId,
-        "DryRun" =: _ctgrDryRun,
-        "DestinationCidrBlock" =: _ctgrDestinationCidrBlock,
-        "TransitGatewayRouteTableId" =: _ctgrTransitGatewayRouteTableId
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateTransitGatewayRoute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Blackhole" Lude.=: blackhole,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
+        "DryRun" Lude.=: dryRun,
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId
       ]
 
--- | /See:/ 'createTransitGatewayRouteResponse' smart constructor.
+-- | /See:/ 'mkCreateTransitGatewayRouteResponse' smart constructor.
 data CreateTransitGatewayRouteResponse = CreateTransitGatewayRouteResponse'
-  { _ctgrrsRoute ::
-      !( Maybe
-           TransitGatewayRoute
-       ),
-    _ctgrrsResponseStatus ::
-      !Int
+  { route ::
+      Lude.Maybe
+        TransitGatewayRoute,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRouteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgrrsRoute' - Information about the route.
---
--- * 'ctgrrsResponseStatus' - -- | The response status code.
-createTransitGatewayRouteResponse ::
-  -- | 'ctgrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'route' - Information about the route.
+mkCreateTransitGatewayRouteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTransitGatewayRouteResponse
-createTransitGatewayRouteResponse pResponseStatus_ =
+mkCreateTransitGatewayRouteResponse pResponseStatus_ =
   CreateTransitGatewayRouteResponse'
-    { _ctgrrsRoute = Nothing,
-      _ctgrrsResponseStatus = pResponseStatus_
+    { route = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the route.
-ctgrrsRoute :: Lens' CreateTransitGatewayRouteResponse (Maybe TransitGatewayRoute)
-ctgrrsRoute = lens _ctgrrsRoute (\s a -> s {_ctgrrsRoute = a})
+--
+-- /Note:/ Consider using 'route' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrrsRoute :: Lens.Lens' CreateTransitGatewayRouteResponse (Lude.Maybe TransitGatewayRoute)
+ctgrrsRoute = Lens.lens (route :: CreateTransitGatewayRouteResponse -> Lude.Maybe TransitGatewayRoute) (\s a -> s {route = a} :: CreateTransitGatewayRouteResponse)
+{-# DEPRECATED ctgrrsRoute "Use generic-lens or generic-optics with 'route' instead." #-}
 
--- | -- | The response status code.
-ctgrrsResponseStatus :: Lens' CreateTransitGatewayRouteResponse Int
-ctgrrsResponseStatus = lens _ctgrrsResponseStatus (\s a -> s {_ctgrrsResponseStatus = a})
-
-instance NFData CreateTransitGatewayRouteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrrsResponseStatus :: Lens.Lens' CreateTransitGatewayRouteResponse Lude.Int
+ctgrrsResponseStatus = Lens.lens (responseStatus :: CreateTransitGatewayRouteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitGatewayRouteResponse)
+{-# DEPRECATED ctgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

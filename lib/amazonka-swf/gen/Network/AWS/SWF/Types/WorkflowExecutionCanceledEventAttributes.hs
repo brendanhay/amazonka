@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes where
+module Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes
+  ( WorkflowExecutionCanceledEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowExecutionCanceledEventAttributes,
+
+    -- * Lenses
+    wDetails,
+    wDecisionTaskCompletedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @WorkflowExecutionCanceled@ event.
 --
---
---
--- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
+-- /See:/ 'mkWorkflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
-  { _wDetails ::
-      !( Maybe
-           Text
-       ),
-    _wDecisionTaskCompletedEventId ::
-      !Integer
+  { details ::
+      Lude.Maybe
+        Lude.Text,
+    decisionTaskCompletedEventId ::
+      Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionCanceledEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wDetails' - The details of the cancellation.
---
--- * 'wDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-workflowExecutionCanceledEventAttributes ::
-  -- | 'wDecisionTaskCompletedEventId'
-  Integer ->
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'details' - The details of the cancellation.
+mkWorkflowExecutionCanceledEventAttributes ::
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
   WorkflowExecutionCanceledEventAttributes
-workflowExecutionCanceledEventAttributes
+mkWorkflowExecutionCanceledEventAttributes
   pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCanceledEventAttributes'
-      { _wDetails = Nothing,
-        _wDecisionTaskCompletedEventId =
+      { details = Lude.Nothing,
+        decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | The details of the cancellation.
-wDetails :: Lens' WorkflowExecutionCanceledEventAttributes (Maybe Text)
-wDetails = lens _wDetails (\s a -> s {_wDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wDetails :: Lens.Lens' WorkflowExecutionCanceledEventAttributes (Lude.Maybe Lude.Text)
+wDetails = Lens.lens (details :: WorkflowExecutionCanceledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: WorkflowExecutionCanceledEventAttributes)
+{-# DEPRECATED wDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-wDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCanceledEventAttributes Integer
-wDecisionTaskCompletedEventId = lens _wDecisionTaskCompletedEventId (\s a -> s {_wDecisionTaskCompletedEventId = a})
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wDecisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCanceledEventAttributes Lude.Integer
+wDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: WorkflowExecutionCanceledEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionCanceledEventAttributes)
+{-# DEPRECATED wDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
-instance FromJSON WorkflowExecutionCanceledEventAttributes where
+instance Lude.FromJSON WorkflowExecutionCanceledEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowExecutionCanceledEventAttributes"
       ( \x ->
           WorkflowExecutionCanceledEventAttributes'
-            <$> (x .:? "details") <*> (x .: "decisionTaskCompletedEventId")
+            Lude.<$> (x Lude..:? "details")
+            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )
-
-instance Hashable WorkflowExecutionCanceledEventAttributes
-
-instance NFData WorkflowExecutionCanceledEventAttributes

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.IsModifiable where
+module Network.AWS.DAX.Types.IsModifiable
+  ( IsModifiable
+      ( IsModifiable',
+        Conditional,
+        False,
+        True
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IsModifiable
-  = Conditional
-  | False'
-  | True'
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IsModifiable = IsModifiable' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IsModifiable where
-  parser =
-    takeLowerText >>= \case
-      "conditional" -> pure Conditional
-      "false" -> pure False'
-      "true" -> pure True'
-      e ->
-        fromTextError $
-          "Failure parsing IsModifiable from value: '" <> e
-            <> "'. Accepted values: conditional, false, true"
+pattern Conditional :: IsModifiable
+pattern Conditional = IsModifiable' "CONDITIONAL"
 
-instance ToText IsModifiable where
-  toText = \case
-    Conditional -> "CONDITIONAL"
-    False' -> "FALSE"
-    True' -> "TRUE"
+pattern False :: IsModifiable
+pattern False = IsModifiable' "FALSE"
 
-instance Hashable IsModifiable
+pattern True :: IsModifiable
+pattern True = IsModifiable' "TRUE"
 
-instance NFData IsModifiable
-
-instance ToByteString IsModifiable
-
-instance ToQuery IsModifiable
-
-instance ToHeader IsModifiable
-
-instance FromJSON IsModifiable where
-  parseJSON = parseJSONText "IsModifiable"
+{-# COMPLETE
+  Conditional,
+  False,
+  True,
+  IsModifiable'
+  #-}

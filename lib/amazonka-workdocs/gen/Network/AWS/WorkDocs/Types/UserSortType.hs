@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.UserSortType where
+module Network.AWS.WorkDocs.Types.UserSortType
+  ( UserSortType
+      ( UserSortType',
+        FullName,
+        StorageLimit,
+        StorageUsed,
+        UserName,
+        UserStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserSortType
-  = FullName
-  | StorageLimit
-  | StorageUsed
-  | UserName
-  | UserStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserSortType = UserSortType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserSortType where
-  parser =
-    takeLowerText >>= \case
-      "full_name" -> pure FullName
-      "storage_limit" -> pure StorageLimit
-      "storage_used" -> pure StorageUsed
-      "user_name" -> pure UserName
-      "user_status" -> pure UserStatus
-      e ->
-        fromTextError $
-          "Failure parsing UserSortType from value: '" <> e
-            <> "'. Accepted values: full_name, storage_limit, storage_used, user_name, user_status"
+pattern FullName :: UserSortType
+pattern FullName = UserSortType' "FULL_NAME"
 
-instance ToText UserSortType where
-  toText = \case
-    FullName -> "FULL_NAME"
-    StorageLimit -> "STORAGE_LIMIT"
-    StorageUsed -> "STORAGE_USED"
-    UserName -> "USER_NAME"
-    UserStatus -> "USER_STATUS"
+pattern StorageLimit :: UserSortType
+pattern StorageLimit = UserSortType' "STORAGE_LIMIT"
 
-instance Hashable UserSortType
+pattern StorageUsed :: UserSortType
+pattern StorageUsed = UserSortType' "STORAGE_USED"
 
-instance NFData UserSortType
+pattern UserName :: UserSortType
+pattern UserName = UserSortType' "USER_NAME"
 
-instance ToByteString UserSortType
+pattern UserStatus :: UserSortType
+pattern UserStatus = UserSortType' "USER_STATUS"
 
-instance ToQuery UserSortType
-
-instance ToHeader UserSortType
-
-instance ToJSON UserSortType where
-  toJSON = toJSONText
+{-# COMPLETE
+  FullName,
+  StorageLimit,
+  StorageUsed,
+  UserName,
+  UserStatus,
+  UserSortType'
+  #-}

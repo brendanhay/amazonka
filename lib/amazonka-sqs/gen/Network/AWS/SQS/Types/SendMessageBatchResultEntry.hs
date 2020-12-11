@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,128 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.SendMessageBatchResultEntry where
+module Network.AWS.SQS.Types.SendMessageBatchResultEntry
+  ( SendMessageBatchResultEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSendMessageBatchResultEntry,
+
+    -- * Lenses
+    smbreSequenceNumber,
+    smbreMD5OfMessageSystemAttributes,
+    smbreMD5OfMessageAttributes,
+    smbreId,
+    smbreMessageId,
+    smbreMD5OfMessageBody,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encloses a @MessageId@ for a successfully-enqueued message in a @'SendMessageBatch' .@
 --
---
---
--- /See:/ 'sendMessageBatchResultEntry' smart constructor.
+-- /See:/ 'mkSendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-  { _smbreSequenceNumber ::
-      !(Maybe Text),
-    _smbreMD5OfMessageSystemAttributes ::
-      !(Maybe Text),
-    _smbreMD5OfMessageAttributes ::
-      !(Maybe Text),
-    _smbreId :: !Text,
-    _smbreMessageId :: !Text,
-    _smbreMD5OfMessageBody :: !Text
+  { sequenceNumber ::
+      Lude.Maybe Lude.Text,
+    md5OfMessageSystemAttributes ::
+      Lude.Maybe Lude.Text,
+    md5OfMessageAttributes ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Text,
+    messageId :: Lude.Text,
+    md5OfMessageBody :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendMessageBatchResultEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'id' - An identifier for the message in this batch.
+-- * 'md5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'md5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'md5OfMessageSystemAttributes' - An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'messageId' - An identifier for the message.
+-- * 'sequenceNumber' - This parameter applies only to FIFO (first-in-first-out) queues.
 --
--- * 'smbreSequenceNumber' - This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
---
--- * 'smbreMD5OfMessageSystemAttributes' - An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
---
--- * 'smbreMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
---
--- * 'smbreId' - An identifier for the message in this batch.
---
--- * 'smbreMessageId' - An identifier for the message.
---
--- * 'smbreMD5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
-sendMessageBatchResultEntry ::
-  -- | 'smbreId'
-  Text ->
-  -- | 'smbreMessageId'
-  Text ->
-  -- | 'smbreMD5OfMessageBody'
-  Text ->
+-- The large, non-consecutive number that Amazon SQS assigns to each message.
+-- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+mkSendMessageBatchResultEntry ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'messageId'
+  Lude.Text ->
+  -- | 'md5OfMessageBody'
+  Lude.Text ->
   SendMessageBatchResultEntry
-sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
+mkSendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
   SendMessageBatchResultEntry'
-    { _smbreSequenceNumber = Nothing,
-      _smbreMD5OfMessageSystemAttributes = Nothing,
-      _smbreMD5OfMessageAttributes = Nothing,
-      _smbreId = pId_,
-      _smbreMessageId = pMessageId_,
-      _smbreMD5OfMessageBody = pMD5OfMessageBody_
+    { sequenceNumber = Lude.Nothing,
+      md5OfMessageSystemAttributes = Lude.Nothing,
+      md5OfMessageAttributes = Lude.Nothing,
+      id = pId_,
+      messageId = pMessageId_,
+      md5OfMessageBody = pMD5OfMessageBody_
     }
 
--- | This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
-smbreSequenceNumber :: Lens' SendMessageBatchResultEntry (Maybe Text)
-smbreSequenceNumber = lens _smbreSequenceNumber (\s a -> s {_smbreSequenceNumber = a})
+-- | This parameter applies only to FIFO (first-in-first-out) queues.
+--
+-- The large, non-consecutive number that Amazon SQS assigns to each message.
+-- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+--
+-- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreSequenceNumber :: Lens.Lens' SendMessageBatchResultEntry (Lude.Maybe Lude.Text)
+smbreSequenceNumber = Lens.lens (sequenceNumber :: SendMessageBatchResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {sequenceNumber = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
-smbreMD5OfMessageSystemAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
-smbreMD5OfMessageSystemAttributes = lens _smbreMD5OfMessageSystemAttributes (\s a -> s {_smbreMD5OfMessageSystemAttributes = a})
+--
+-- /Note:/ Consider using 'md5OfMessageSystemAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreMD5OfMessageSystemAttributes :: Lens.Lens' SendMessageBatchResultEntry (Lude.Maybe Lude.Text)
+smbreMD5OfMessageSystemAttributes = Lens.lens (md5OfMessageSystemAttributes :: SendMessageBatchResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {md5OfMessageSystemAttributes = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreMD5OfMessageSystemAttributes "Use generic-lens or generic-optics with 'md5OfMessageSystemAttributes' instead." #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
-smbreMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
-smbreMD5OfMessageAttributes = lens _smbreMD5OfMessageAttributes (\s a -> s {_smbreMD5OfMessageAttributes = a})
+--
+-- /Note:/ Consider using 'md5OfMessageAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreMD5OfMessageAttributes :: Lens.Lens' SendMessageBatchResultEntry (Lude.Maybe Lude.Text)
+smbreMD5OfMessageAttributes = Lens.lens (md5OfMessageAttributes :: SendMessageBatchResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {md5OfMessageAttributes = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreMD5OfMessageAttributes "Use generic-lens or generic-optics with 'md5OfMessageAttributes' instead." #-}
 
 -- | An identifier for the message in this batch.
-smbreId :: Lens' SendMessageBatchResultEntry Text
-smbreId = lens _smbreId (\s a -> s {_smbreId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreId :: Lens.Lens' SendMessageBatchResultEntry Lude.Text
+smbreId = Lens.lens (id :: SendMessageBatchResultEntry -> Lude.Text) (\s a -> s {id = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | An identifier for the message.
-smbreMessageId :: Lens' SendMessageBatchResultEntry Text
-smbreMessageId = lens _smbreMessageId (\s a -> s {_smbreMessageId = a})
+--
+-- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreMessageId :: Lens.Lens' SendMessageBatchResultEntry Lude.Text
+smbreMessageId = Lens.lens (messageId :: SendMessageBatchResultEntry -> Lude.Text) (\s a -> s {messageId = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
-smbreMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
-smbreMD5OfMessageBody = lens _smbreMD5OfMessageBody (\s a -> s {_smbreMD5OfMessageBody = a})
+--
+-- /Note:/ Consider using 'md5OfMessageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbreMD5OfMessageBody :: Lens.Lens' SendMessageBatchResultEntry Lude.Text
+smbreMD5OfMessageBody = Lens.lens (md5OfMessageBody :: SendMessageBatchResultEntry -> Lude.Text) (\s a -> s {md5OfMessageBody = a} :: SendMessageBatchResultEntry)
+{-# DEPRECATED smbreMD5OfMessageBody "Use generic-lens or generic-optics with 'md5OfMessageBody' instead." #-}
 
-instance FromXML SendMessageBatchResultEntry where
+instance Lude.FromXML SendMessageBatchResultEntry where
   parseXML x =
     SendMessageBatchResultEntry'
-      <$> (x .@? "SequenceNumber")
-      <*> (x .@? "MD5OfMessageSystemAttributes")
-      <*> (x .@? "MD5OfMessageAttributes")
-      <*> (x .@ "Id")
-      <*> (x .@ "MessageId")
-      <*> (x .@ "MD5OfMessageBody")
-
-instance Hashable SendMessageBatchResultEntry
-
-instance NFData SendMessageBatchResultEntry
+      Lude.<$> (x Lude..@? "SequenceNumber")
+      Lude.<*> (x Lude..@? "MD5OfMessageSystemAttributes")
+      Lude.<*> (x Lude..@? "MD5OfMessageAttributes")
+      Lude.<*> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "MessageId")
+      Lude.<*> (x Lude..@ "MD5OfMessageBody")

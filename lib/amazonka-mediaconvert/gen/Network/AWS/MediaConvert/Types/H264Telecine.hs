@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264Telecine where
+module Network.AWS.MediaConvert.Types.H264Telecine
+  ( H264Telecine
+      ( H264Telecine',
+        HHard,
+        HNone,
+        HSoft
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard or soft telecine to create a smoother picture. Hard telecine (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output with a 23.976 output that signals to the video player device to do the conversion during play back. When you keep the default value, None (NONE), MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
-data H264Telecine
-  = HHard
-  | HNone
-  | HSoft
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264Telecine = H264Telecine' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264Telecine where
-  parser =
-    takeLowerText >>= \case
-      "hard" -> pure HHard
-      "none" -> pure HNone
-      "soft" -> pure HSoft
-      e ->
-        fromTextError $
-          "Failure parsing H264Telecine from value: '" <> e
-            <> "'. Accepted values: hard, none, soft"
+pattern HHard :: H264Telecine
+pattern HHard = H264Telecine' "HARD"
 
-instance ToText H264Telecine where
-  toText = \case
-    HHard -> "HARD"
-    HNone -> "NONE"
-    HSoft -> "SOFT"
+pattern HNone :: H264Telecine
+pattern HNone = H264Telecine' "NONE"
 
-instance Hashable H264Telecine
+pattern HSoft :: H264Telecine
+pattern HSoft = H264Telecine' "SOFT"
 
-instance NFData H264Telecine
-
-instance ToByteString H264Telecine
-
-instance ToQuery H264Telecine
-
-instance ToHeader H264Telecine
-
-instance ToJSON H264Telecine where
-  toJSON = toJSONText
-
-instance FromJSON H264Telecine where
-  parseJSON = parseJSONText "H264Telecine"
+{-# COMPLETE
+  HHard,
+  HNone,
+  HSoft,
+  H264Telecine'
+  #-}

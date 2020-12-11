@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp3Settings where
+module Network.AWS.MediaConvert.Types.Mp3Settings
+  ( Mp3Settings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMp3Settings,
+
+    -- * Lenses
+    mp3Channels,
+    mp3RateControlMode,
+    mp3SampleRate,
+    mp3Bitrate,
+    mp3VbrQuality,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Mp3RateControlMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
 --
--- /See:/ 'mp3Settings' smart constructor.
+-- /See:/ 'mkMp3Settings' smart constructor.
 data Mp3Settings = Mp3Settings'
-  { _mp3Channels :: !(Maybe Nat),
-    _mp3RateControlMode :: !(Maybe Mp3RateControlMode),
-    _mp3SampleRate :: !(Maybe Nat),
-    _mp3Bitrate :: !(Maybe Nat),
-    _mp3VbrQuality :: !(Maybe Nat)
+  { channels ::
+      Lude.Maybe Lude.Natural,
+    rateControlMode :: Lude.Maybe Mp3RateControlMode,
+    sampleRate :: Lude.Maybe Lude.Natural,
+    bitrate :: Lude.Maybe Lude.Natural,
+    vbrQuality :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mp3Settings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mp3Channels' - Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
---
--- * 'mp3RateControlMode' - Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
---
--- * 'mp3SampleRate' - Sample rate in hz.
---
--- * 'mp3Bitrate' - Specify the average bitrate in bits per second.
---
--- * 'mp3VbrQuality' - Required when you set Bitrate control mode (rateControlMode) to VBR. Specify the audio quality of this MP3 output from 0 (highest quality) to 9 (lowest quality).
-mp3Settings ::
+-- * 'bitrate' - Specify the average bitrate in bits per second.
+-- * 'channels' - Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
+-- * 'rateControlMode' - Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
+-- * 'sampleRate' - Sample rate in hz.
+-- * 'vbrQuality' - Required when you set Bitrate control mode (rateControlMode) to VBR. Specify the audio quality of this MP3 output from 0 (highest quality) to 9 (lowest quality).
+mkMp3Settings ::
   Mp3Settings
-mp3Settings =
+mkMp3Settings =
   Mp3Settings'
-    { _mp3Channels = Nothing,
-      _mp3RateControlMode = Nothing,
-      _mp3SampleRate = Nothing,
-      _mp3Bitrate = Nothing,
-      _mp3VbrQuality = Nothing
+    { channels = Lude.Nothing,
+      rateControlMode = Lude.Nothing,
+      sampleRate = Lude.Nothing,
+      bitrate = Lude.Nothing,
+      vbrQuality = Lude.Nothing
     }
 
 -- | Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
-mp3Channels :: Lens' Mp3Settings (Maybe Natural)
-mp3Channels = lens _mp3Channels (\s a -> s {_mp3Channels = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mp3Channels :: Lens.Lens' Mp3Settings (Lude.Maybe Lude.Natural)
+mp3Channels = Lens.lens (channels :: Mp3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {channels = a} :: Mp3Settings)
+{-# DEPRECATED mp3Channels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
 -- | Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
-mp3RateControlMode :: Lens' Mp3Settings (Maybe Mp3RateControlMode)
-mp3RateControlMode = lens _mp3RateControlMode (\s a -> s {_mp3RateControlMode = a})
+--
+-- /Note:/ Consider using 'rateControlMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mp3RateControlMode :: Lens.Lens' Mp3Settings (Lude.Maybe Mp3RateControlMode)
+mp3RateControlMode = Lens.lens (rateControlMode :: Mp3Settings -> Lude.Maybe Mp3RateControlMode) (\s a -> s {rateControlMode = a} :: Mp3Settings)
+{-# DEPRECATED mp3RateControlMode "Use generic-lens or generic-optics with 'rateControlMode' instead." #-}
 
 -- | Sample rate in hz.
-mp3SampleRate :: Lens' Mp3Settings (Maybe Natural)
-mp3SampleRate = lens _mp3SampleRate (\s a -> s {_mp3SampleRate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mp3SampleRate :: Lens.Lens' Mp3Settings (Lude.Maybe Lude.Natural)
+mp3SampleRate = Lens.lens (sampleRate :: Mp3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: Mp3Settings)
+{-# DEPRECATED mp3SampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | Specify the average bitrate in bits per second.
-mp3Bitrate :: Lens' Mp3Settings (Maybe Natural)
-mp3Bitrate = lens _mp3Bitrate (\s a -> s {_mp3Bitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mp3Bitrate :: Lens.Lens' Mp3Settings (Lude.Maybe Lude.Natural)
+mp3Bitrate = Lens.lens (bitrate :: Mp3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {bitrate = a} :: Mp3Settings)
+{-# DEPRECATED mp3Bitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
 -- | Required when you set Bitrate control mode (rateControlMode) to VBR. Specify the audio quality of this MP3 output from 0 (highest quality) to 9 (lowest quality).
-mp3VbrQuality :: Lens' Mp3Settings (Maybe Natural)
-mp3VbrQuality = lens _mp3VbrQuality (\s a -> s {_mp3VbrQuality = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'vbrQuality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mp3VbrQuality :: Lens.Lens' Mp3Settings (Lude.Maybe Lude.Natural)
+mp3VbrQuality = Lens.lens (vbrQuality :: Mp3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {vbrQuality = a} :: Mp3Settings)
+{-# DEPRECATED mp3VbrQuality "Use generic-lens or generic-optics with 'vbrQuality' instead." #-}
 
-instance FromJSON Mp3Settings where
+instance Lude.FromJSON Mp3Settings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mp3Settings"
       ( \x ->
           Mp3Settings'
-            <$> (x .:? "channels")
-            <*> (x .:? "rateControlMode")
-            <*> (x .:? "sampleRate")
-            <*> (x .:? "bitrate")
-            <*> (x .:? "vbrQuality")
+            Lude.<$> (x Lude..:? "channels")
+            Lude.<*> (x Lude..:? "rateControlMode")
+            Lude.<*> (x Lude..:? "sampleRate")
+            Lude.<*> (x Lude..:? "bitrate")
+            Lude.<*> (x Lude..:? "vbrQuality")
       )
 
-instance Hashable Mp3Settings
-
-instance NFData Mp3Settings
-
-instance ToJSON Mp3Settings where
+instance Lude.ToJSON Mp3Settings where
   toJSON Mp3Settings' {..} =
-    object
-      ( catMaybes
-          [ ("channels" .=) <$> _mp3Channels,
-            ("rateControlMode" .=) <$> _mp3RateControlMode,
-            ("sampleRate" .=) <$> _mp3SampleRate,
-            ("bitrate" .=) <$> _mp3Bitrate,
-            ("vbrQuality" .=) <$> _mp3VbrQuality
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channels" Lude..=) Lude.<$> channels,
+            ("rateControlMode" Lude..=) Lude.<$> rateControlMode,
+            ("sampleRate" Lude..=) Lude.<$> sampleRate,
+            ("bitrate" Lude..=) Lude.<$> bitrate,
+            ("vbrQuality" Lude..=) Lude.<$> vbrQuality
           ]
       )

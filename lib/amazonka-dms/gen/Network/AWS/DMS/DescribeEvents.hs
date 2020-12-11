@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications> in the /AWS Database Migration User Guide./
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEvents
-  ( -- * Creating a Request
-    describeEvents,
-    DescribeEvents,
+  ( -- * Creating a request
+    DescribeEvents (..),
+    mkDescribeEvents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deStartTime,
     deSourceType,
     deFilters,
@@ -38,11 +31,11 @@ module Network.AWS.DMS.DescribeEvents
     deEndTime,
     deDuration,
 
-    -- * Destructuring the Response
-    describeEventsResponse,
-    DescribeEventsResponse,
+    -- * Destructuring the response
+    DescribeEventsResponse (..),
+    mkDescribeEventsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deersEvents,
     deersMarker,
     deersResponseStatus,
@@ -50,200 +43,238 @@ module Network.AWS.DMS.DescribeEvents
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeEvents' smart constructor.
+-- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deStartTime ::
-      !(Maybe POSIX),
-    _deSourceType :: !(Maybe SourceType),
-    _deFilters :: !(Maybe [Filter]),
-    _deSourceIdentifier :: !(Maybe Text),
-    _deEventCategories :: !(Maybe [Text]),
-    _deMarker :: !(Maybe Text),
-    _deMaxRecords :: !(Maybe Int),
-    _deEndTime :: !(Maybe POSIX),
-    _deDuration :: !(Maybe Int)
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    sourceType :: Lude.Maybe SourceType,
+    filters :: Lude.Maybe [Filter],
+    sourceIdentifier :: Lude.Maybe Lude.Text,
+    eventCategories :: Lude.Maybe [Lude.Text],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    duration :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'duration' - The duration of the events to be listed.
+-- * 'endTime' - The end time for the events to be listed.
+-- * 'eventCategories' - A list of event categories for the source type that you've chosen.
+-- * 'filters' - Filters applied to events.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'deStartTime' - The start time for the events to be listed.
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'sourceIdentifier' - The identifier of an event source.
+-- * 'sourceType' - The type of AWS DMS resource that generates events.
 --
--- * 'deSourceType' - The type of AWS DMS resource that generates events. Valid values: replication-instance | replication-task
---
--- * 'deFilters' - Filters applied to events.
---
--- * 'deSourceIdentifier' - The identifier of an event source.
---
--- * 'deEventCategories' - A list of event categories for the source type that you've chosen.
---
--- * 'deMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'deEndTime' - The end time for the events to be listed.
---
--- * 'deDuration' - The duration of the events to be listed.
-describeEvents ::
+-- Valid values: replication-instance | replication-task
+-- * 'startTime' - The start time for the events to be listed.
+mkDescribeEvents ::
   DescribeEvents
-describeEvents =
+mkDescribeEvents =
   DescribeEvents'
-    { _deStartTime = Nothing,
-      _deSourceType = Nothing,
-      _deFilters = Nothing,
-      _deSourceIdentifier = Nothing,
-      _deEventCategories = Nothing,
-      _deMarker = Nothing,
-      _deMaxRecords = Nothing,
-      _deEndTime = Nothing,
-      _deDuration = Nothing
+    { startTime = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      filters = Lude.Nothing,
+      sourceIdentifier = Lude.Nothing,
+      eventCategories = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      endTime = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- | The start time for the events to be listed.
-deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s {_deStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
+deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeEvents)
+{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The type of AWS DMS resource that generates events. Valid values: replication-instance | replication-task
-deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\s a -> s {_deSourceType = a})
+-- | The type of AWS DMS resource that generates events.
+--
+-- Valid values: replication-instance | replication-task
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceType :: Lens.Lens' DescribeEvents (Lude.Maybe SourceType)
+deSourceType = Lens.lens (sourceType :: DescribeEvents -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: DescribeEvents)
+{-# DEPRECATED deSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | Filters applied to events.
-deFilters :: Lens' DescribeEvents [Filter]
-deFilters = lens _deFilters (\s a -> s {_deFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deFilters :: Lens.Lens' DescribeEvents (Lude.Maybe [Filter])
+deFilters = Lens.lens (filters :: DescribeEvents -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEvents)
+{-# DEPRECATED deFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The identifier of an event source.
-deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier = lens _deSourceIdentifier (\s a -> s {_deSourceIdentifier = a})
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceIdentifier :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+deSourceIdentifier = Lens.lens (sourceIdentifier :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: DescribeEvents)
+{-# DEPRECATED deSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | A list of event categories for the source type that you've chosen.
-deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories = lens _deEventCategories (\s a -> s {_deEventCategories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEventCategories :: Lens.Lens' DescribeEvents (Lude.Maybe [Lude.Text])
+deEventCategories = Lens.lens (eventCategories :: DescribeEvents -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: DescribeEvents)
+{-# DEPRECATED deEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\s a -> s {_deMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deMarker :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEvents)
+{-# DEPRECATED deMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\s a -> s {_deMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEvents)
+{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The end time for the events to be listed.
-deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s {_deEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
+deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeEvents)
+{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The duration of the events to be listed.
-deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\s a -> s {_deDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDuration :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+deDuration = Lens.lens (duration :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeEvents)
+{-# DEPRECATED deDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance AWSPager DescribeEvents where
+instance Page.AWSPager DescribeEvents where
   page rq rs
-    | stop (rs ^. deersMarker) = Nothing
-    | stop (rs ^. deersEvents) = Nothing
-    | otherwise = Just $ rq & deMarker .~ rs ^. deersMarker
+    | Page.stop (rs Lens.^. deersMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. deersEvents) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& deMarker Lens..~ rs Lens.^. deersMarker
 
-instance AWSRequest DescribeEvents where
+instance Lude.AWSRequest DescribeEvents where
   type Rs DescribeEvents = DescribeEventsResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            <$> (x .?> "Events" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Events" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEvents
-
-instance NFData DescribeEvents
-
-instance ToHeaders DescribeEvents where
+instance Lude.ToHeaders DescribeEvents where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DescribeEvents" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DescribeEvents" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEvents where
+instance Lude.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
-    object
-      ( catMaybes
-          [ ("StartTime" .=) <$> _deStartTime,
-            ("SourceType" .=) <$> _deSourceType,
-            ("Filters" .=) <$> _deFilters,
-            ("SourceIdentifier" .=) <$> _deSourceIdentifier,
-            ("EventCategories" .=) <$> _deEventCategories,
-            ("Marker" .=) <$> _deMarker,
-            ("MaxRecords" .=) <$> _deMaxRecords,
-            ("EndTime" .=) <$> _deEndTime,
-            ("Duration" .=) <$> _deDuration
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StartTime" Lude..=) Lude.<$> startTime,
+            ("SourceType" Lude..=) Lude.<$> sourceType,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("SourceIdentifier" Lude..=) Lude.<$> sourceIdentifier,
+            ("EventCategories" Lude..=) Lude.<$> eventCategories,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
+            ("EndTime" Lude..=) Lude.<$> endTime,
+            ("Duration" Lude..=) Lude.<$> duration
           ]
       )
 
-instance ToPath DescribeEvents where
-  toPath = const "/"
+instance Lude.ToPath DescribeEvents where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEvents where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEvents where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeEventsResponse' smart constructor.
+-- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _deersEvents ::
-      !(Maybe [Event]),
-    _deersMarker :: !(Maybe Text),
-    _deersResponseStatus :: !Int
+  { events ::
+      Lude.Maybe [Event],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deersEvents' - The events described.
---
--- * 'deersMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'deersResponseStatus' - -- | The response status code.
-describeEventsResponse ::
-  -- | 'deersResponseStatus'
-  Int ->
+-- * 'events' - The events described.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeEventsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventsResponse
-describeEventsResponse pResponseStatus_ =
+mkDescribeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-    { _deersEvents = Nothing,
-      _deersMarker = Nothing,
-      _deersResponseStatus = pResponseStatus_
+    { events = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The events described.
-deersEvents :: Lens' DescribeEventsResponse [Event]
-deersEvents = lens _deersEvents (\s a -> s {_deersEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersEvents :: Lens.Lens' DescribeEventsResponse (Lude.Maybe [Event])
+deersEvents = Lens.lens (events :: DescribeEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeEventsResponse)
+{-# DEPRECATED deersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-deersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-deersMarker = lens _deersMarker (\s a -> s {_deersMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersMarker :: Lens.Lens' DescribeEventsResponse (Lude.Maybe Lude.Text)
+deersMarker = Lens.lens (marker :: DescribeEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventsResponse)
+{-# DEPRECATED deersMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-deersResponseStatus :: Lens' DescribeEventsResponse Int
-deersResponseStatus = lens _deersResponseStatus (\s a -> s {_deersResponseStatus = a})
-
-instance NFData DescribeEventsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersResponseStatus :: Lens.Lens' DescribeEventsResponse Lude.Int
+deersResponseStatus = Lens.lens (responseStatus :: DescribeEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsResponse)
+{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

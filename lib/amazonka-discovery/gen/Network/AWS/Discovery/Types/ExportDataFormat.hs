@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ExportDataFormat where
+module Network.AWS.Discovery.Types.ExportDataFormat
+  ( ExportDataFormat
+      ( ExportDataFormat',
+        CSV,
+        Graphml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportDataFormat
-  = CSV
-  | Graphml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportDataFormat = ExportDataFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportDataFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      "graphml" -> pure Graphml
-      e ->
-        fromTextError $
-          "Failure parsing ExportDataFormat from value: '" <> e
-            <> "'. Accepted values: csv, graphml"
+pattern CSV :: ExportDataFormat
+pattern CSV = ExportDataFormat' "CSV"
 
-instance ToText ExportDataFormat where
-  toText = \case
-    CSV -> "CSV"
-    Graphml -> "GRAPHML"
+pattern Graphml :: ExportDataFormat
+pattern Graphml = ExportDataFormat' "GRAPHML"
 
-instance Hashable ExportDataFormat
-
-instance NFData ExportDataFormat
-
-instance ToByteString ExportDataFormat
-
-instance ToQuery ExportDataFormat
-
-instance ToHeader ExportDataFormat
-
-instance ToJSON ExportDataFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  CSV,
+  Graphml,
+  ExportDataFormat'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MessageResponse where
+module Network.AWS.Pinpoint.Types.MessageResponse
+  ( MessageResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMessageResponse,
+
+    -- * Lenses
+    mRequestId,
+    mResult,
+    mEndpointResult,
+    mApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointMessageResult
 import Network.AWS.Pinpoint.Types.MessageResult
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the results of a request to send a message to an endpoint address.
 --
---
---
--- /See:/ 'messageResponse' smart constructor.
+-- /See:/ 'mkMessageResponse' smart constructor.
 data MessageResponse = MessageResponse'
-  { _mRequestId ::
-      !(Maybe Text),
-    _mResult :: !(Maybe (Map Text (MessageResult))),
-    _mEndpointResult ::
-      !(Maybe (Map Text (EndpointMessageResult))),
-    _mApplicationId :: !Text
+  { requestId ::
+      Lude.Maybe Lude.Text,
+    result ::
+      Lude.Maybe (Lude.HashMap Lude.Text (MessageResult)),
+    endpointResult ::
+      Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult)),
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mRequestId' - The identifier for the original request that the message was delivered for.
---
--- * 'mResult' - A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
---
--- * 'mEndpointResult' - A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
---
--- * 'mApplicationId' - The unique identifier for the application that was used to send the message.
-messageResponse ::
-  -- | 'mApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that was used to send the message.
+-- * 'endpointResult' - A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
+-- * 'requestId' - The identifier for the original request that the message was delivered for.
+-- * 'result' - A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
+mkMessageResponse ::
+  -- | 'applicationId'
+  Lude.Text ->
   MessageResponse
-messageResponse pApplicationId_ =
+mkMessageResponse pApplicationId_ =
   MessageResponse'
-    { _mRequestId = Nothing,
-      _mResult = Nothing,
-      _mEndpointResult = Nothing,
-      _mApplicationId = pApplicationId_
+    { requestId = Lude.Nothing,
+      result = Lude.Nothing,
+      endpointResult = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The identifier for the original request that the message was delivered for.
-mRequestId :: Lens' MessageResponse (Maybe Text)
-mRequestId = lens _mRequestId (\s a -> s {_mRequestId = a})
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mRequestId :: Lens.Lens' MessageResponse (Lude.Maybe Lude.Text)
+mRequestId = Lens.lens (requestId :: MessageResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: MessageResponse)
+{-# DEPRECATED mRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
-mResult :: Lens' MessageResponse (HashMap Text (MessageResult))
-mResult = lens _mResult (\s a -> s {_mResult = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mResult :: Lens.Lens' MessageResponse (Lude.Maybe (Lude.HashMap Lude.Text (MessageResult)))
+mResult = Lens.lens (result :: MessageResponse -> Lude.Maybe (Lude.HashMap Lude.Text (MessageResult))) (\s a -> s {result = a} :: MessageResponse)
+{-# DEPRECATED mResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
-mEndpointResult :: Lens' MessageResponse (HashMap Text (EndpointMessageResult))
-mEndpointResult = lens _mEndpointResult (\s a -> s {_mEndpointResult = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'endpointResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mEndpointResult :: Lens.Lens' MessageResponse (Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult)))
+mEndpointResult = Lens.lens (endpointResult :: MessageResponse -> Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult))) (\s a -> s {endpointResult = a} :: MessageResponse)
+{-# DEPRECATED mEndpointResult "Use generic-lens or generic-optics with 'endpointResult' instead." #-}
 
 -- | The unique identifier for the application that was used to send the message.
-mApplicationId :: Lens' MessageResponse Text
-mApplicationId = lens _mApplicationId (\s a -> s {_mApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mApplicationId :: Lens.Lens' MessageResponse Lude.Text
+mApplicationId = Lens.lens (applicationId :: MessageResponse -> Lude.Text) (\s a -> s {applicationId = a} :: MessageResponse)
+{-# DEPRECATED mApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON MessageResponse where
+instance Lude.FromJSON MessageResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "MessageResponse"
       ( \x ->
           MessageResponse'
-            <$> (x .:? "RequestId")
-            <*> (x .:? "Result" .!= mempty)
-            <*> (x .:? "EndpointResult" .!= mempty)
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "RequestId")
+            Lude.<*> (x Lude..:? "Result" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EndpointResult" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable MessageResponse
-
-instance NFData MessageResponse

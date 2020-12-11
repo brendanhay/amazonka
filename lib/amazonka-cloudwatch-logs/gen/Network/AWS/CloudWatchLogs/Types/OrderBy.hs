@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.OrderBy where
+module Network.AWS.CloudWatchLogs.Types.OrderBy
+  ( OrderBy
+      ( OrderBy',
+        LastEventTime,
+        LogStreamName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrderBy
-  = LastEventTime
-  | LogStreamName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrderBy = OrderBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrderBy where
-  parser =
-    takeLowerText >>= \case
-      "lasteventtime" -> pure LastEventTime
-      "logstreamname" -> pure LogStreamName
-      e ->
-        fromTextError $
-          "Failure parsing OrderBy from value: '" <> e
-            <> "'. Accepted values: lasteventtime, logstreamname"
+pattern LastEventTime :: OrderBy
+pattern LastEventTime = OrderBy' "LastEventTime"
 
-instance ToText OrderBy where
-  toText = \case
-    LastEventTime -> "LastEventTime"
-    LogStreamName -> "LogStreamName"
+pattern LogStreamName :: OrderBy
+pattern LogStreamName = OrderBy' "LogStreamName"
 
-instance Hashable OrderBy
-
-instance NFData OrderBy
-
-instance ToByteString OrderBy
-
-instance ToQuery OrderBy
-
-instance ToHeader OrderBy
-
-instance ToJSON OrderBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  LastEventTime,
+  LogStreamName,
+  OrderBy'
+  #-}

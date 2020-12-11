@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Retrieves the names of all crawler resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
 --
---
 -- This operation takes the optional @Tags@ field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.
 module Network.AWS.Glue.ListCrawlers
-  ( -- * Creating a Request
-    listCrawlers,
-    ListCrawlers,
+  ( -- * Creating a request
+    ListCrawlers (..),
+    mkListCrawlers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcNextToken,
     lcMaxResults,
     lcTags,
 
-    -- * Destructuring the Response
-    listCrawlersResponse,
-    ListCrawlersResponse,
+    -- * Destructuring the response
+    ListCrawlersResponse (..),
+    mkListCrawlersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsNextToken,
     lcrsCrawlerNames,
     lcrsResponseStatus,
@@ -43,129 +37,150 @@ module Network.AWS.Glue.ListCrawlers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCrawlers' smart constructor.
+-- | /See:/ 'mkListCrawlers' smart constructor.
 data ListCrawlers = ListCrawlers'
-  { _lcNextToken :: !(Maybe Text),
-    _lcMaxResults :: !(Maybe Nat),
-    _lcTags :: !(Maybe (Map Text (Text)))
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCrawlers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcNextToken' - A continuation token, if this is a continuation request.
---
--- * 'lcMaxResults' - The maximum size of a list to return.
---
--- * 'lcTags' - Specifies to return only these tagged resources.
-listCrawlers ::
+-- * 'maxResults' - The maximum size of a list to return.
+-- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'tags' - Specifies to return only these tagged resources.
+mkListCrawlers ::
   ListCrawlers
-listCrawlers =
+mkListCrawlers =
   ListCrawlers'
-    { _lcNextToken = Nothing,
-      _lcMaxResults = Nothing,
-      _lcTags = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-lcNextToken :: Lens' ListCrawlers (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s {_lcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListCrawlers (Lude.Maybe Lude.Text)
+lcNextToken = Lens.lens (nextToken :: ListCrawlers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCrawlers)
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
-lcMaxResults :: Lens' ListCrawlers (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\s a -> s {_lcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMaxResults :: Lens.Lens' ListCrawlers (Lude.Maybe Lude.Natural)
+lcMaxResults = Lens.lens (maxResults :: ListCrawlers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCrawlers)
+{-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Specifies to return only these tagged resources.
-lcTags :: Lens' ListCrawlers (HashMap Text (Text))
-lcTags = lens _lcTags (\s a -> s {_lcTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcTags :: Lens.Lens' ListCrawlers (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+lcTags = Lens.lens (tags :: ListCrawlers -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListCrawlers)
+{-# DEPRECATED lcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest ListCrawlers where
+instance Lude.AWSRequest ListCrawlers where
   type Rs ListCrawlers = ListCrawlersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCrawlersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "CrawlerNames" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "CrawlerNames" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCrawlers
-
-instance NFData ListCrawlers
-
-instance ToHeaders ListCrawlers where
+instance Lude.ToHeaders ListCrawlers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ListCrawlers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ListCrawlers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCrawlers where
+instance Lude.ToJSON ListCrawlers where
   toJSON ListCrawlers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcNextToken,
-            ("MaxResults" .=) <$> _lcMaxResults,
-            ("Tags" .=) <$> _lcTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath ListCrawlers where
-  toPath = const "/"
+instance Lude.ToPath ListCrawlers where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCrawlers where
-  toQuery = const mempty
+instance Lude.ToQuery ListCrawlers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCrawlersResponse' smart constructor.
+-- | /See:/ 'mkListCrawlersResponse' smart constructor.
 data ListCrawlersResponse = ListCrawlersResponse'
-  { _lcrsNextToken ::
-      !(Maybe Text),
-    _lcrsCrawlerNames :: !(Maybe [Text]),
-    _lcrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    crawlerNames :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCrawlersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsNextToken' - A continuation token, if the returned list does not contain the last metric available.
---
--- * 'lcrsCrawlerNames' - The names of all crawlers in the account, or the crawlers with the specified tags.
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCrawlersResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'crawlerNames' - The names of all crawlers in the account, or the crawlers with the specified tags.
+-- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
+-- * 'responseStatus' - The response status code.
+mkListCrawlersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCrawlersResponse
-listCrawlersResponse pResponseStatus_ =
+mkListCrawlersResponse pResponseStatus_ =
   ListCrawlersResponse'
-    { _lcrsNextToken = Nothing,
-      _lcrsCrawlerNames = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      crawlerNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if the returned list does not contain the last metric available.
-lcrsNextToken :: Lens' ListCrawlersResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\s a -> s {_lcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextToken :: Lens.Lens' ListCrawlersResponse (Lude.Maybe Lude.Text)
+lcrsNextToken = Lens.lens (nextToken :: ListCrawlersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCrawlersResponse)
+{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of all crawlers in the account, or the crawlers with the specified tags.
-lcrsCrawlerNames :: Lens' ListCrawlersResponse [Text]
-lcrsCrawlerNames = lens _lcrsCrawlerNames (\s a -> s {_lcrsCrawlerNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'crawlerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCrawlerNames :: Lens.Lens' ListCrawlersResponse (Lude.Maybe [Lude.Text])
+lcrsCrawlerNames = Lens.lens (crawlerNames :: ListCrawlersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {crawlerNames = a} :: ListCrawlersResponse)
+{-# DEPRECATED lcrsCrawlerNames "Use generic-lens or generic-optics with 'crawlerNames' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCrawlersResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCrawlersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCrawlersResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCrawlersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCrawlersResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

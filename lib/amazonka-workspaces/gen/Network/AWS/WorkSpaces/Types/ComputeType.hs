@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ComputeType where
+module Network.AWS.WorkSpaces.Types.ComputeType
+  ( ComputeType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComputeType,
+
+    -- * Lenses
+    ctName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.Compute
 
 -- | Describes the compute type.
 --
---
---
--- /See:/ 'computeType' smart constructor.
-newtype ComputeType = ComputeType' {_ctName :: Maybe Compute}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkComputeType' smart constructor.
+newtype ComputeType = ComputeType' {name :: Lude.Maybe Compute}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctName' - The compute type.
-computeType ::
+-- * 'name' - The compute type.
+mkComputeType ::
   ComputeType
-computeType = ComputeType' {_ctName = Nothing}
+mkComputeType = ComputeType' {name = Lude.Nothing}
 
 -- | The compute type.
-ctName :: Lens' ComputeType (Maybe Compute)
-ctName = lens _ctName (\s a -> s {_ctName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctName :: Lens.Lens' ComputeType (Lude.Maybe Compute)
+ctName = Lens.lens (name :: ComputeType -> Lude.Maybe Compute) (\s a -> s {name = a} :: ComputeType)
+{-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ComputeType where
+instance Lude.FromJSON ComputeType where
   parseJSON =
-    withObject "ComputeType" (\x -> ComputeType' <$> (x .:? "Name"))
-
-instance Hashable ComputeType
-
-instance NFData ComputeType
+    Lude.withObject
+      "ComputeType"
+      (\x -> ComputeType' Lude.<$> (x Lude..:? "Name"))

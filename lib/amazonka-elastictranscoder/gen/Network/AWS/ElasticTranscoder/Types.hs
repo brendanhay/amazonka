@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,14 +8,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types
-  ( -- * Service Configuration
-    elasticTranscoder,
+  ( -- * Service configuration
+    elasticTranscoderService,
 
     -- * Errors
 
     -- * Artwork
-    Artwork,
-    artwork,
+    Artwork (..),
+    mkArtwork,
     aSizingPolicy,
     aAlbumArtFormat,
     aMaxHeight,
@@ -27,16 +25,16 @@ module Network.AWS.ElasticTranscoder.Types
     aMaxWidth,
 
     -- * AudioCodecOptions
-    AudioCodecOptions,
-    audioCodecOptions,
+    AudioCodecOptions (..),
+    mkAudioCodecOptions,
     acoSigned,
     acoBitDepth,
     acoProfile,
     acoBitOrder,
 
     -- * AudioParameters
-    AudioParameters,
-    audioParameters,
+    AudioParameters (..),
+    mkAudioParameters,
     apChannels,
     apCodec,
     apAudioPackingMode,
@@ -45,15 +43,15 @@ module Network.AWS.ElasticTranscoder.Types
     apCodecOptions,
 
     -- * CaptionFormat
-    CaptionFormat,
-    captionFormat,
+    CaptionFormat (..),
+    mkCaptionFormat,
     cfPattern,
     cfFormat,
     cfEncryption,
 
     -- * CaptionSource
-    CaptionSource,
-    captionSource,
+    CaptionSource (..),
+    mkCaptionSource,
     csTimeOffset,
     csEncryption,
     csKey,
@@ -61,20 +59,20 @@ module Network.AWS.ElasticTranscoder.Types
     csLabel,
 
     -- * Captions
-    Captions,
-    captions,
+    Captions (..),
+    mkCaptions,
     cMergePolicy,
     cCaptionSources,
     cCaptionFormats,
 
     -- * Clip
-    Clip,
-    clip,
+    Clip (..),
+    mkClip,
     cTimeSpan,
 
     -- * CreateJobOutput
-    CreateJobOutput,
-    createJobOutput,
+    CreateJobOutput (..),
+    mkCreateJobOutput,
     cjoThumbnailPattern,
     cjoCaptions,
     cjoPresetId,
@@ -88,8 +86,8 @@ module Network.AWS.ElasticTranscoder.Types
     cjoRotate,
 
     -- * CreateJobPlaylist
-    CreateJobPlaylist,
-    createJobPlaylist,
+    CreateJobPlaylist (..),
+    mkCreateJobPlaylist,
     cjpPlayReadyDrm,
     cjpFormat,
     cjpOutputKeys,
@@ -97,8 +95,8 @@ module Network.AWS.ElasticTranscoder.Types
     cjpHlsContentProtection,
 
     -- * DetectedProperties
-    DetectedProperties,
-    detectedProperties,
+    DetectedProperties (..),
+    mkDetectedProperties,
     dpHeight,
     dpFrameRate,
     dpFileSize,
@@ -106,16 +104,16 @@ module Network.AWS.ElasticTranscoder.Types
     dpDurationMillis,
 
     -- * Encryption
-    Encryption,
-    encryption,
+    Encryption (..),
+    mkEncryption,
     eMode,
     eKeyMD5,
     eKey,
     eInitializationVector,
 
     -- * HlsContentProtection
-    HlsContentProtection,
-    hlsContentProtection,
+    HlsContentProtection (..),
+    mkHlsContentProtection,
     hcpKeyMD5,
     hcpKeyStoragePolicy,
     hcpKey,
@@ -124,14 +122,14 @@ module Network.AWS.ElasticTranscoder.Types
     hcpLicenseAcquisitionURL,
 
     -- * InputCaptions
-    InputCaptions,
-    inputCaptions,
+    InputCaptions (..),
+    mkInputCaptions,
     icMergePolicy,
     icCaptionSources,
 
     -- * Job'
-    Job',
-    job',
+    Job' (..),
+    mkJob',
     jStatus,
     jPipelineId,
     jARN,
@@ -146,14 +144,14 @@ module Network.AWS.ElasticTranscoder.Types
     jTiming,
 
     -- * JobAlbumArt
-    JobAlbumArt,
-    jobAlbumArt,
+    JobAlbumArt (..),
+    mkJobAlbumArt,
     jaaMergePolicy,
     jaaArtwork,
 
     -- * JobInput
-    JobInput,
-    jobInput,
+    JobInput (..),
+    mkJobInput,
     jiFrameRate,
     jiResolution,
     jiAspectRatio,
@@ -166,8 +164,8 @@ module Network.AWS.ElasticTranscoder.Types
     jiInputCaptions,
 
     -- * JobOutput
-    JobOutput,
-    jobOutput,
+    JobOutput (..),
+    mkJobOutput,
     joAppliedColorSpaceConversion,
     joThumbnailPattern,
     joStatus,
@@ -191,30 +189,30 @@ module Network.AWS.ElasticTranscoder.Types
     joRotate,
 
     -- * JobWatermark
-    JobWatermark,
-    jobWatermark,
+    JobWatermark (..),
+    mkJobWatermark,
     jwPresetWatermarkId,
     jwInputKey,
     jwEncryption,
 
     -- * Notifications
-    Notifications,
-    notifications,
+    Notifications (..),
+    mkNotifications,
     nError,
     nWarning,
     nProgressing,
     nCompleted,
 
     -- * Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pAccess,
     pGranteeType,
     pGrantee,
 
     -- * Pipeline
-    Pipeline,
-    pipeline,
+    Pipeline (..),
+    mkPipeline,
     pipStatus,
     pipARN,
     pipInputBucket,
@@ -228,15 +226,15 @@ module Network.AWS.ElasticTranscoder.Types
     pipThumbnailConfig,
 
     -- * PipelineOutputConfig
-    PipelineOutputConfig,
-    pipelineOutputConfig,
+    PipelineOutputConfig (..),
+    mkPipelineOutputConfig,
     pocBucket,
     pocStorageClass,
     pocPermissions,
 
     -- * PlayReadyDrm
-    PlayReadyDrm,
-    playReadyDrm,
+    PlayReadyDrm (..),
+    mkPlayReadyDrm,
     prdKeyId,
     prdFormat,
     prdKeyMD5,
@@ -245,8 +243,8 @@ module Network.AWS.ElasticTranscoder.Types
     prdLicenseAcquisitionURL,
 
     -- * Playlist
-    Playlist,
-    playlist,
+    Playlist (..),
+    mkPlaylist,
     pStatus,
     pPlayReadyDrm,
     pFormat,
@@ -256,8 +254,8 @@ module Network.AWS.ElasticTranscoder.Types
     pHlsContentProtection,
 
     -- * Preset
-    Preset,
-    preset,
+    Preset (..),
+    mkPreset,
     preARN,
     preVideo,
     preThumbnails,
@@ -269,8 +267,8 @@ module Network.AWS.ElasticTranscoder.Types
     preAudio,
 
     -- * PresetWatermark
-    PresetWatermark,
-    presetWatermark,
+    PresetWatermark (..),
+    mkPresetWatermark,
     pwVerticalAlign,
     pwSizingPolicy,
     pwHorizontalOffset,
@@ -283,8 +281,8 @@ module Network.AWS.ElasticTranscoder.Types
     pwTarget,
 
     -- * Thumbnails
-    Thumbnails,
-    thumbnails,
+    Thumbnails (..),
+    mkThumbnails,
     tSizingPolicy,
     tFormat,
     tMaxHeight,
@@ -295,21 +293,21 @@ module Network.AWS.ElasticTranscoder.Types
     tMaxWidth,
 
     -- * TimeSpan
-    TimeSpan,
-    timeSpan,
+    TimeSpan (..),
+    mkTimeSpan,
     tsStartTime,
     tsDuration,
 
     -- * Timing
-    Timing,
-    timing,
+    Timing (..),
+    mkTiming,
     tSubmitTimeMillis,
     tFinishTimeMillis,
     tStartTimeMillis,
 
     -- * VideoParameters
-    VideoParameters,
-    videoParameters,
+    VideoParameters (..),
+    mkVideoParameters,
     vpKeyframesMaxDist,
     vpFrameRate,
     vpSizingPolicy,
@@ -327,8 +325,8 @@ module Network.AWS.ElasticTranscoder.Types
     vpCodecOptions,
 
     -- * Warning
-    Warning,
-    warning,
+    Warning (..),
+    mkWarning,
     wCode,
     wMessage,
   )
@@ -365,48 +363,60 @@ import Network.AWS.ElasticTranscoder.Types.TimeSpan
 import Network.AWS.ElasticTranscoder.Types.Timing
 import Network.AWS.ElasticTranscoder.Types.VideoParameters
 import Network.AWS.ElasticTranscoder.Types.Warning
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-09-25@ of the Amazon Elastic Transcoder SDK configuration.
-elasticTranscoder :: Service
-elasticTranscoder =
-  Service
-    { _svcAbbrev = "ElasticTranscoder",
-      _svcSigner = v4,
-      _svcPrefix = "elastictranscoder",
-      _svcVersion = "2012-09-25",
-      _svcEndpoint = defaultEndpoint elasticTranscoder,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ElasticTranscoder",
-      _svcRetry = retry
+elasticTranscoderService :: Lude.Service
+elasticTranscoderService =
+  Lude.Service
+    { Lude._svcAbbrev = "ElasticTranscoder",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "elastictranscoder",
+      Lude._svcVersion = "2012-09-25",
+      Lude._svcEndpoint = Lude.defaultEndpoint elasticTranscoderService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ElasticTranscoder",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

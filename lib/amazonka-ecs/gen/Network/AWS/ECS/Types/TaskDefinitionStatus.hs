@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinitionStatus where
+module Network.AWS.ECS.Types.TaskDefinitionStatus
+  ( TaskDefinitionStatus
+      ( TaskDefinitionStatus',
+        TDSActive,
+        TDSInactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskDefinitionStatus
-  = TDSActive
-  | TDSInactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskDefinitionStatus = TaskDefinitionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskDefinitionStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure TDSActive
-      "inactive" -> pure TDSInactive
-      e ->
-        fromTextError $
-          "Failure parsing TaskDefinitionStatus from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern TDSActive :: TaskDefinitionStatus
+pattern TDSActive = TaskDefinitionStatus' "ACTIVE"
 
-instance ToText TaskDefinitionStatus where
-  toText = \case
-    TDSActive -> "ACTIVE"
-    TDSInactive -> "INACTIVE"
+pattern TDSInactive :: TaskDefinitionStatus
+pattern TDSInactive = TaskDefinitionStatus' "INACTIVE"
 
-instance Hashable TaskDefinitionStatus
-
-instance NFData TaskDefinitionStatus
-
-instance ToByteString TaskDefinitionStatus
-
-instance ToQuery TaskDefinitionStatus
-
-instance ToHeader TaskDefinitionStatus
-
-instance ToJSON TaskDefinitionStatus where
-  toJSON = toJSONText
-
-instance FromJSON TaskDefinitionStatus where
-  parseJSON = parseJSONText "TaskDefinitionStatus"
+{-# COMPLETE
+  TDSActive,
+  TDSInactive,
+  TaskDefinitionStatus'
+  #-}

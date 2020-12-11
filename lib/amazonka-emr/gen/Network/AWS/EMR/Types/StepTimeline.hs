@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepTimeline where
+module Network.AWS.EMR.Types.StepTimeline
+  ( StepTimeline (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStepTimeline,
+
+    -- * Lenses
+    stCreationDateTime,
+    stEndDateTime,
+    stStartDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The timeline of the cluster step lifecycle.
 --
---
---
--- /See:/ 'stepTimeline' smart constructor.
+-- /See:/ 'mkStepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
-  { _stCreationDateTime ::
-      !(Maybe POSIX),
-    _stEndDateTime :: !(Maybe POSIX),
-    _stStartDateTime :: !(Maybe POSIX)
+  { creationDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    endDateTime :: Lude.Maybe Lude.Timestamp,
+    startDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepTimeline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stCreationDateTime' - The date and time when the cluster step was created.
---
--- * 'stEndDateTime' - The date and time when the cluster step execution completed or failed.
---
--- * 'stStartDateTime' - The date and time when the cluster step execution started.
-stepTimeline ::
+-- * 'creationDateTime' - The date and time when the cluster step was created.
+-- * 'endDateTime' - The date and time when the cluster step execution completed or failed.
+-- * 'startDateTime' - The date and time when the cluster step execution started.
+mkStepTimeline ::
   StepTimeline
-stepTimeline =
+mkStepTimeline =
   StepTimeline'
-    { _stCreationDateTime = Nothing,
-      _stEndDateTime = Nothing,
-      _stStartDateTime = Nothing
+    { creationDateTime = Lude.Nothing,
+      endDateTime = Lude.Nothing,
+      startDateTime = Lude.Nothing
     }
 
 -- | The date and time when the cluster step was created.
-stCreationDateTime :: Lens' StepTimeline (Maybe UTCTime)
-stCreationDateTime = lens _stCreationDateTime (\s a -> s {_stCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stCreationDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
+stCreationDateTime = Lens.lens (creationDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: StepTimeline)
+{-# DEPRECATED stCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the cluster step execution completed or failed.
-stEndDateTime :: Lens' StepTimeline (Maybe UTCTime)
-stEndDateTime = lens _stEndDateTime (\s a -> s {_stEndDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stEndDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
+stEndDateTime = Lens.lens (endDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: StepTimeline)
+{-# DEPRECATED stEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
 -- | The date and time when the cluster step execution started.
-stStartDateTime :: Lens' StepTimeline (Maybe UTCTime)
-stStartDateTime = lens _stStartDateTime (\s a -> s {_stStartDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stStartDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
+stStartDateTime = Lens.lens (startDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {startDateTime = a} :: StepTimeline)
+{-# DEPRECATED stStartDateTime "Use generic-lens or generic-optics with 'startDateTime' instead." #-}
 
-instance FromJSON StepTimeline where
+instance Lude.FromJSON StepTimeline where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepTimeline"
       ( \x ->
           StepTimeline'
-            <$> (x .:? "CreationDateTime")
-            <*> (x .:? "EndDateTime")
-            <*> (x .:? "StartDateTime")
+            Lude.<$> (x Lude..:? "CreationDateTime")
+            Lude.<*> (x Lude..:? "EndDateTime")
+            Lude.<*> (x Lude..:? "StartDateTime")
       )
-
-instance Hashable StepTimeline
-
-instance NFData StepTimeline

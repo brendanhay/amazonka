@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.VersionInformation where
+module Network.AWS.Greengrass.Types.VersionInformation
+  ( VersionInformation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVersionInformation,
+
+    -- * Lenses
+    viARN,
+    viCreationTimestamp,
+    viVersion,
+    viId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a version.
 --
--- /See:/ 'versionInformation' smart constructor.
+-- /See:/ 'mkVersionInformation' smart constructor.
 data VersionInformation = VersionInformation'
-  { _viARN ::
-      !(Maybe Text),
-    _viCreationTimestamp :: !(Maybe Text),
-    _viVersion :: !(Maybe Text),
-    _viId :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersionInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'viARN' - The ARN of the version.
---
--- * 'viCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
--- * 'viVersion' - The ID of the version.
---
--- * 'viId' - The ID of the parent definition that the version is associated with.
-versionInformation ::
+-- * 'arn' - The ARN of the version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'id' - The ID of the parent definition that the version is associated with.
+-- * 'version' - The ID of the version.
+mkVersionInformation ::
   VersionInformation
-versionInformation =
+mkVersionInformation =
   VersionInformation'
-    { _viARN = Nothing,
-      _viCreationTimestamp = Nothing,
-      _viVersion = Nothing,
-      _viId = Nothing
+    { arn = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The ARN of the version.
-viARN :: Lens' VersionInformation (Maybe Text)
-viARN = lens _viARN (\s a -> s {_viARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viARN :: Lens.Lens' VersionInformation (Lude.Maybe Lude.Text)
+viARN = Lens.lens (arn :: VersionInformation -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: VersionInformation)
+{-# DEPRECATED viARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-viCreationTimestamp :: Lens' VersionInformation (Maybe Text)
-viCreationTimestamp = lens _viCreationTimestamp (\s a -> s {_viCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viCreationTimestamp :: Lens.Lens' VersionInformation (Lude.Maybe Lude.Text)
+viCreationTimestamp = Lens.lens (creationTimestamp :: VersionInformation -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: VersionInformation)
+{-# DEPRECATED viCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the version.
-viVersion :: Lens' VersionInformation (Maybe Text)
-viVersion = lens _viVersion (\s a -> s {_viVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVersion :: Lens.Lens' VersionInformation (Lude.Maybe Lude.Text)
+viVersion = Lens.lens (version :: VersionInformation -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: VersionInformation)
+{-# DEPRECATED viVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the parent definition that the version is associated with.
-viId :: Lens' VersionInformation (Maybe Text)
-viId = lens _viId (\s a -> s {_viId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viId :: Lens.Lens' VersionInformation (Lude.Maybe Lude.Text)
+viId = Lens.lens (id :: VersionInformation -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: VersionInformation)
+{-# DEPRECATED viId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON VersionInformation where
+instance Lude.FromJSON VersionInformation where
   parseJSON =
-    withObject
+    Lude.withObject
       "VersionInformation"
       ( \x ->
           VersionInformation'
-            <$> (x .:? "Arn")
-            <*> (x .:? "CreationTimestamp")
-            <*> (x .:? "Version")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreationTimestamp")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable VersionInformation
-
-instance NFData VersionInformation

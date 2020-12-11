@@ -14,33 +14,31 @@
 -- __AWS Storage Gateway Service__
 --
 -- AWS Storage Gateway is the service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and the AWS storage infrastructure. The service enables you to securely upload data to the AWS Cloud for cost effective backup and rapid disaster recovery.
---
 -- Use the following links to get started using the /AWS Storage Gateway Service API Reference/ :
 --
 --     * <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders AWS Storage Gateway required request headers> : Describes the required headers that you must send with every POST request to AWS Storage Gateway.
 --
+--
 --     * <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests Signing requests> : AWS Storage Gateway requires that you authenticate every request you send; this topic describes how sign such a request.
+--
 --
 --     * <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses Error responses> : Provides reference information about AWS Storage Gateway errors.
 --
+--
 --     * <https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html Operations in AWS Storage Gateway> : Contains detailed descriptions of all AWS Storage Gateway operations, their request parameters, response elements, possible errors, and examples of requests and responses.
+--
 --
 --     * <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> : Provides a list of each AWS Region and the endpoints available for use with AWS Storage Gateway.
 --
 --
---
 -- /Important:/ IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway volumes are changing to a longer format. Starting in December 2016, all new volumes and snapshots will be created with a 17-character string. Starting in April 2016, you will be able to use these longer IDs so you can test your systems with the new format. For more information, see <http://aws.amazon.com/ec2/faqs/#longer-ids Longer EC2 and EBS resource IDs> .
---
 -- For example, a volume Amazon Resource Name (ARN) with the longer volume ID format looks like the following:
---
 -- @arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG@ .
---
 -- A snapshot ID with the longer ID format looks like the following: @snap-78e226633445566ee@ .
---
 -- For more information, see <http://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016> .
 module Network.AWS.StorageGateway
-  ( -- * Service Configuration
-    storageGateway,
+  ( -- * Service configuration
+    storageGatewayService,
 
     -- * Errors
     -- $errors
@@ -336,14 +334,14 @@ module Network.AWS.StorageGateway
     TapeStorageClass (..),
 
     -- ** AutomaticTapeCreationPolicyInfo
-    AutomaticTapeCreationPolicyInfo,
-    automaticTapeCreationPolicyInfo,
+    AutomaticTapeCreationPolicyInfo (..),
+    mkAutomaticTapeCreationPolicyInfo,
     atcpiGatewayARN,
     atcpiAutomaticTapeCreationRules,
 
     -- ** AutomaticTapeCreationRule
-    AutomaticTapeCreationRule,
-    automaticTapeCreationRule,
+    AutomaticTapeCreationRule (..),
+    mkAutomaticTapeCreationRule,
     atcrWorm,
     atcrTapeBarcodePrefix,
     atcrPoolId,
@@ -351,8 +349,8 @@ module Network.AWS.StorageGateway
     atcrMinimumNumTapes,
 
     -- ** BandwidthRateLimitInterval
-    BandwidthRateLimitInterval,
-    bandwidthRateLimitInterval,
+    BandwidthRateLimitInterval (..),
+    mkBandwidthRateLimitInterval,
     brliAverageUploadRateLimitInBitsPerSec,
     brliAverageDownloadRateLimitInBitsPerSec,
     brliStartHourOfDay,
@@ -362,13 +360,13 @@ module Network.AWS.StorageGateway
     brliDaysOfWeek,
 
     -- ** CacheAttributes
-    CacheAttributes,
-    cacheAttributes,
+    CacheAttributes (..),
+    mkCacheAttributes,
     caCacheStaleTimeoutInSeconds,
 
     -- ** CachediSCSIVolume
-    CachediSCSIVolume,
-    cachediSCSIVolume,
+    CachediSCSIVolume (..),
+    mkCachediSCSIVolume,
     cscsivVolumeiSCSIAttributes,
     cscsivVolumeStatus,
     cscsivSourceSnapshotId,
@@ -384,24 +382,24 @@ module Network.AWS.StorageGateway
     cscsivTargetName,
 
     -- ** ChapInfo
-    ChapInfo,
-    chapInfo,
+    ChapInfo (..),
+    mkChapInfo,
     ciTargetARN,
     ciSecretToAuthenticateInitiator,
     ciInitiatorName,
     ciSecretToAuthenticateTarget,
 
     -- ** DeviceiSCSIAttributes
-    DeviceiSCSIAttributes,
-    deviceiSCSIAttributes,
+    DeviceiSCSIAttributes (..),
+    mkDeviceiSCSIAttributes,
     dscsiaTargetARN,
     dscsiaChapEnabled,
     dscsiaNetworkInterfaceId,
     dscsiaNetworkInterfacePort,
 
     -- ** Disk
-    Disk,
-    disk,
+    Disk (..),
+    mkDisk,
     dDiskAllocationResource,
     dDiskAllocationType,
     dDiskNode,
@@ -412,8 +410,8 @@ module Network.AWS.StorageGateway
     dDiskAttributeList,
 
     -- ** FileShareInfo
-    FileShareInfo,
-    fileShareInfo,
+    FileShareInfo (..),
+    mkFileShareInfo,
     fsiFileShareStatus,
     fsiGatewayARN,
     fsiFileShareId,
@@ -421,8 +419,8 @@ module Network.AWS.StorageGateway
     fsiFileShareType,
 
     -- ** GatewayInfo
-    GatewayInfo,
-    gatewayInfo,
+    GatewayInfo (..),
+    mkGatewayInfo,
     giEC2InstanceRegion,
     giGatewayARN,
     giEC2InstanceId,
@@ -432,16 +430,16 @@ module Network.AWS.StorageGateway
     giGatewayType,
 
     -- ** NFSFileShareDefaults
-    NFSFileShareDefaults,
-    nFSFileShareDefaults,
+    NFSFileShareDefaults (..),
+    mkNFSFileShareDefaults,
     nfsfsdFileMode,
     nfsfsdOwnerId,
     nfsfsdDirectoryMode,
     nfsfsdGroupId,
 
     -- ** NFSFileShareInfo
-    NFSFileShareInfo,
-    nFSFileShareInfo,
+    NFSFileShareInfo (..),
+    mkNFSFileShareInfo,
     nfsfsiFileShareStatus,
     nfsfsiKMSKey,
     nfsfsiGatewayARN,
@@ -465,15 +463,15 @@ module Network.AWS.StorageGateway
     nfsfsiTags,
 
     -- ** NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niIPv6Address,
     niMACAddress,
     niIPv4Address,
 
     -- ** PoolInfo
-    PoolInfo,
-    poolInfo,
+    PoolInfo (..),
+    mkPoolInfo,
     piRetentionLockType,
     piRetentionLockTimeInDays,
     piPoolName,
@@ -482,8 +480,8 @@ module Network.AWS.StorageGateway
     piPoolARN,
 
     -- ** SMBFileShareInfo
-    SMBFileShareInfo,
-    sMBFileShareInfo,
+    SMBFileShareInfo (..),
+    mkSMBFileShareInfo,
     smbfsiAccessBasedEnumeration,
     smbfsiAdminUserList,
     smbfsiAuditDestinationARN,
@@ -512,8 +510,8 @@ module Network.AWS.StorageGateway
     smbfsiTags,
 
     -- ** StorediSCSIVolume
-    StorediSCSIVolume,
-    storediSCSIVolume,
+    StorediSCSIVolume (..),
+    mkStorediSCSIVolume,
     sscsivVolumeiSCSIAttributes,
     sscsivVolumeStatus,
     sscsivSourceSnapshotId,
@@ -531,14 +529,14 @@ module Network.AWS.StorageGateway
     sscsivTargetName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Tape
-    Tape,
-    tape,
+    Tape (..),
+    mkTape,
     tTapeBarcode,
     tTapeStatus,
     tKMSKey,
@@ -554,8 +552,8 @@ module Network.AWS.StorageGateway
     tRetentionStartDate,
 
     -- ** TapeArchive
-    TapeArchive,
-    tapeArchive,
+    TapeArchive (..),
+    mkTapeArchive,
     taTapeBarcode,
     taTapeStatus,
     taKMSKey,
@@ -571,8 +569,8 @@ module Network.AWS.StorageGateway
     taRetrievedTo,
 
     -- ** TapeInfo
-    TapeInfo,
-    tapeInfo,
+    TapeInfo (..),
+    mkTapeInfo,
     tiTapeBarcode,
     tiTapeStatus,
     tiTapeARN,
@@ -583,16 +581,16 @@ module Network.AWS.StorageGateway
     tiRetentionStartDate,
 
     -- ** TapeRecoveryPointInfo
-    TapeRecoveryPointInfo,
-    tapeRecoveryPointInfo,
+    TapeRecoveryPointInfo (..),
+    mkTapeRecoveryPointInfo,
     trpiTapeStatus,
     trpiTapeRecoveryPointTime,
     trpiTapeARN,
     trpiTapeSizeInBytes,
 
     -- ** VTLDevice
-    VTLDevice,
-    vTLDevice,
+    VTLDevice (..),
+    mkVTLDevice,
     vtldDeviceiSCSIAttributes,
     vtldVTLDeviceVendor,
     vtldVTLDeviceARN,
@@ -600,8 +598,8 @@ module Network.AWS.StorageGateway
     vtldVTLDeviceProductIdentifier,
 
     -- ** VolumeInfo
-    VolumeInfo,
-    volumeInfo,
+    VolumeInfo (..),
+    mkVolumeInfo,
     viGatewayARN,
     viVolumeAttachmentStatus,
     viVolumeARN,
@@ -611,24 +609,36 @@ module Network.AWS.StorageGateway
     viVolumeType,
 
     -- ** VolumeRecoveryPointInfo
-    VolumeRecoveryPointInfo,
-    volumeRecoveryPointInfo,
+    VolumeRecoveryPointInfo (..),
+    mkVolumeRecoveryPointInfo,
     vrpiVolumeRecoveryPointTime,
     vrpiVolumeARN,
     vrpiVolumeSizeInBytes,
     vrpiVolumeUsageInBytes,
 
     -- ** VolumeiSCSIAttributes
-    VolumeiSCSIAttributes,
-    volumeiSCSIAttributes,
+    VolumeiSCSIAttributes (..),
+    mkVolumeiSCSIAttributes,
     vscsiaLunNumber,
     vscsiaTargetARN,
     vscsiaChapEnabled,
     vscsiaNetworkInterfaceId,
     vscsiaNetworkInterfacePort,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StorageGateway.ActivateGateway
 import Network.AWS.StorageGateway.AddCache
 import Network.AWS.StorageGateway.AddTagsToResource

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstanceInformationFilterKey where
+module Network.AWS.SSM.Types.InstanceInformationFilterKey
+  ( InstanceInformationFilterKey
+      ( InstanceInformationFilterKey',
+        ActivationIds,
+        AgentVersion,
+        AssociationStatus,
+        IAMRole,
+        InstanceIds,
+        PingStatus,
+        PlatformTypes,
+        ResourceType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceInformationFilterKey
-  = ActivationIds
-  | AgentVersion
-  | AssociationStatus
-  | IAMRole
-  | InstanceIds
-  | PingStatus
-  | PlatformTypes
-  | ResourceType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceInformationFilterKey = InstanceInformationFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceInformationFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "activationids" -> pure ActivationIds
-      "agentversion" -> pure AgentVersion
-      "associationstatus" -> pure AssociationStatus
-      "iamrole" -> pure IAMRole
-      "instanceids" -> pure InstanceIds
-      "pingstatus" -> pure PingStatus
-      "platformtypes" -> pure PlatformTypes
-      "resourcetype" -> pure ResourceType
-      e ->
-        fromTextError $
-          "Failure parsing InstanceInformationFilterKey from value: '" <> e
-            <> "'. Accepted values: activationids, agentversion, associationstatus, iamrole, instanceids, pingstatus, platformtypes, resourcetype"
+pattern ActivationIds :: InstanceInformationFilterKey
+pattern ActivationIds = InstanceInformationFilterKey' "ActivationIds"
 
-instance ToText InstanceInformationFilterKey where
-  toText = \case
-    ActivationIds -> "ActivationIds"
-    AgentVersion -> "AgentVersion"
-    AssociationStatus -> "AssociationStatus"
-    IAMRole -> "IamRole"
-    InstanceIds -> "InstanceIds"
-    PingStatus -> "PingStatus"
-    PlatformTypes -> "PlatformTypes"
-    ResourceType -> "ResourceType"
+pattern AgentVersion :: InstanceInformationFilterKey
+pattern AgentVersion = InstanceInformationFilterKey' "AgentVersion"
 
-instance Hashable InstanceInformationFilterKey
+pattern AssociationStatus :: InstanceInformationFilterKey
+pattern AssociationStatus = InstanceInformationFilterKey' "AssociationStatus"
 
-instance NFData InstanceInformationFilterKey
+pattern IAMRole :: InstanceInformationFilterKey
+pattern IAMRole = InstanceInformationFilterKey' "IamRole"
 
-instance ToByteString InstanceInformationFilterKey
+pattern InstanceIds :: InstanceInformationFilterKey
+pattern InstanceIds = InstanceInformationFilterKey' "InstanceIds"
 
-instance ToQuery InstanceInformationFilterKey
+pattern PingStatus :: InstanceInformationFilterKey
+pattern PingStatus = InstanceInformationFilterKey' "PingStatus"
 
-instance ToHeader InstanceInformationFilterKey
+pattern PlatformTypes :: InstanceInformationFilterKey
+pattern PlatformTypes = InstanceInformationFilterKey' "PlatformTypes"
 
-instance ToJSON InstanceInformationFilterKey where
-  toJSON = toJSONText
+pattern ResourceType :: InstanceInformationFilterKey
+pattern ResourceType = InstanceInformationFilterKey' "ResourceType"
+
+{-# COMPLETE
+  ActivationIds,
+  AgentVersion,
+  AssociationStatus,
+  IAMRole,
+  InstanceIds,
+  PingStatus,
+  PlatformTypes,
+  ResourceType,
+  InstanceInformationFilterKey'
+  #-}

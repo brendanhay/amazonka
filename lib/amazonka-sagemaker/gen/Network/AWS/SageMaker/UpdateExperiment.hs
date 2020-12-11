@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,161 @@
 --
 -- Adds, updates, or removes the description of an experiment. Updates the display name of an experiment.
 module Network.AWS.SageMaker.UpdateExperiment
-  ( -- * Creating a Request
-    updateExperiment,
-    UpdateExperiment,
+  ( -- * Creating a request
+    UpdateExperiment (..),
+    mkUpdateExperiment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ueDisplayName,
     ueDescription,
     ueExperimentName,
 
-    -- * Destructuring the Response
-    updateExperimentResponse,
-    UpdateExperimentResponse,
+    -- * Destructuring the response
+    UpdateExperimentResponse (..),
+    mkUpdateExperimentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursExperimentARN,
     ursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateExperiment' smart constructor.
+-- | /See:/ 'mkUpdateExperiment' smart constructor.
 data UpdateExperiment = UpdateExperiment'
-  { _ueDisplayName ::
-      !(Maybe Text),
-    _ueDescription :: !(Maybe Text),
-    _ueExperimentName :: !Text
+  { displayName ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    experimentName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExperiment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ueDisplayName' - The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
---
--- * 'ueDescription' - The description of the experiment.
---
--- * 'ueExperimentName' - The name of the experiment to update.
-updateExperiment ::
-  -- | 'ueExperimentName'
-  Text ->
+-- * 'description' - The description of the experiment.
+-- * 'displayName' - The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+-- * 'experimentName' - The name of the experiment to update.
+mkUpdateExperiment ::
+  -- | 'experimentName'
+  Lude.Text ->
   UpdateExperiment
-updateExperiment pExperimentName_ =
+mkUpdateExperiment pExperimentName_ =
   UpdateExperiment'
-    { _ueDisplayName = Nothing,
-      _ueDescription = Nothing,
-      _ueExperimentName = pExperimentName_
+    { displayName = Lude.Nothing,
+      description = Lude.Nothing,
+      experimentName = pExperimentName_
     }
 
 -- | The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
-ueDisplayName :: Lens' UpdateExperiment (Maybe Text)
-ueDisplayName = lens _ueDisplayName (\s a -> s {_ueDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDisplayName :: Lens.Lens' UpdateExperiment (Lude.Maybe Lude.Text)
+ueDisplayName = Lens.lens (displayName :: UpdateExperiment -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdateExperiment)
+{-# DEPRECATED ueDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The description of the experiment.
-ueDescription :: Lens' UpdateExperiment (Maybe Text)
-ueDescription = lens _ueDescription (\s a -> s {_ueDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDescription :: Lens.Lens' UpdateExperiment (Lude.Maybe Lude.Text)
+ueDescription = Lens.lens (description :: UpdateExperiment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateExperiment)
+{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the experiment to update.
-ueExperimentName :: Lens' UpdateExperiment Text
-ueExperimentName = lens _ueExperimentName (\s a -> s {_ueExperimentName = a})
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueExperimentName :: Lens.Lens' UpdateExperiment Lude.Text
+ueExperimentName = Lens.lens (experimentName :: UpdateExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: UpdateExperiment)
+{-# DEPRECATED ueExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
-instance AWSRequest UpdateExperiment where
+instance Lude.AWSRequest UpdateExperiment where
   type Rs UpdateExperiment = UpdateExperimentResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateExperimentResponse'
-            <$> (x .?> "ExperimentArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ExperimentArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateExperiment
-
-instance NFData UpdateExperiment
-
-instance ToHeaders UpdateExperiment where
+instance Lude.ToHeaders UpdateExperiment where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.UpdateExperiment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.UpdateExperiment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateExperiment where
+instance Lude.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
-    object
-      ( catMaybes
-          [ ("DisplayName" .=) <$> _ueDisplayName,
-            ("Description" .=) <$> _ueDescription,
-            Just ("ExperimentName" .= _ueExperimentName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("ExperimentName" Lude..= experimentName)
           ]
       )
 
-instance ToPath UpdateExperiment where
-  toPath = const "/"
+instance Lude.ToPath UpdateExperiment where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateExperiment where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateExperiment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateExperimentResponse' smart constructor.
+-- | /See:/ 'mkUpdateExperimentResponse' smart constructor.
 data UpdateExperimentResponse = UpdateExperimentResponse'
-  { _ursExperimentARN ::
-      !(Maybe Text),
-    _ursResponseStatus :: !Int
+  { experimentARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExperimentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursExperimentARN' - The Amazon Resource Name (ARN) of the experiment.
---
--- * 'ursResponseStatus' - -- | The response status code.
-updateExperimentResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
+-- * 'responseStatus' - The response status code.
+mkUpdateExperimentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateExperimentResponse
-updateExperimentResponse pResponseStatus_ =
+mkUpdateExperimentResponse pResponseStatus_ =
   UpdateExperimentResponse'
-    { _ursExperimentARN = Nothing,
-      _ursResponseStatus = pResponseStatus_
+    { experimentARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment.
-ursExperimentARN :: Lens' UpdateExperimentResponse (Maybe Text)
-ursExperimentARN = lens _ursExperimentARN (\s a -> s {_ursExperimentARN = a})
+--
+-- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursExperimentARN :: Lens.Lens' UpdateExperimentResponse (Lude.Maybe Lude.Text)
+ursExperimentARN = Lens.lens (experimentARN :: UpdateExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: UpdateExperimentResponse)
+{-# DEPRECATED ursExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UpdateExperimentResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UpdateExperimentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UpdateExperimentResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UpdateExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateExperimentResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

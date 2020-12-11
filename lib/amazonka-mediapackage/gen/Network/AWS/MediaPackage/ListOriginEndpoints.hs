@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,151 +16,174 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaPackage.ListOriginEndpoints
-  ( -- * Creating a Request
-    listOriginEndpoints,
-    ListOriginEndpoints,
+  ( -- * Creating a request
+    ListOriginEndpoints (..),
+    mkListOriginEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     loeChannelId,
     loeNextToken,
     loeMaxResults,
 
-    -- * Destructuring the Response
-    listOriginEndpointsResponse,
-    ListOriginEndpointsResponse,
+    -- * Destructuring the response
+    ListOriginEndpointsResponse (..),
+    mkListOriginEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loersOriginEndpoints,
     loersNextToken,
     loersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOriginEndpoints' smart constructor.
+-- | /See:/ 'mkListOriginEndpoints' smart constructor.
 data ListOriginEndpoints = ListOriginEndpoints'
-  { _loeChannelId ::
-      !(Maybe Text),
-    _loeNextToken :: !(Maybe Text),
-    _loeMaxResults :: !(Maybe Nat)
+  { channelId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loeChannelId' - When specified, the request will return only OriginEndpoints associated with the given Channel ID.
---
--- * 'loeNextToken' - A token used to resume pagination from the end of a previous request.
---
--- * 'loeMaxResults' - The upper bound on the number of records to return.
-listOriginEndpoints ::
+-- * 'channelId' - When specified, the request will return only OriginEndpoints associated with the given Channel ID.
+-- * 'maxResults' - The upper bound on the number of records to return.
+-- * 'nextToken' - A token used to resume pagination from the end of a previous request.
+mkListOriginEndpoints ::
   ListOriginEndpoints
-listOriginEndpoints =
+mkListOriginEndpoints =
   ListOriginEndpoints'
-    { _loeChannelId = Nothing,
-      _loeNextToken = Nothing,
-      _loeMaxResults = Nothing
+    { channelId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | When specified, the request will return only OriginEndpoints associated with the given Channel ID.
-loeChannelId :: Lens' ListOriginEndpoints (Maybe Text)
-loeChannelId = lens _loeChannelId (\s a -> s {_loeChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loeChannelId :: Lens.Lens' ListOriginEndpoints (Lude.Maybe Lude.Text)
+loeChannelId = Lens.lens (channelId :: ListOriginEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: ListOriginEndpoints)
+{-# DEPRECATED loeChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | A token used to resume pagination from the end of a previous request.
-loeNextToken :: Lens' ListOriginEndpoints (Maybe Text)
-loeNextToken = lens _loeNextToken (\s a -> s {_loeNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loeNextToken :: Lens.Lens' ListOriginEndpoints (Lude.Maybe Lude.Text)
+loeNextToken = Lens.lens (nextToken :: ListOriginEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOriginEndpoints)
+{-# DEPRECATED loeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The upper bound on the number of records to return.
-loeMaxResults :: Lens' ListOriginEndpoints (Maybe Natural)
-loeMaxResults = lens _loeMaxResults (\s a -> s {_loeMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loeMaxResults :: Lens.Lens' ListOriginEndpoints (Lude.Maybe Lude.Natural)
+loeMaxResults = Lens.lens (maxResults :: ListOriginEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOriginEndpoints)
+{-# DEPRECATED loeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListOriginEndpoints where
+instance Page.AWSPager ListOriginEndpoints where
   page rq rs
-    | stop (rs ^. loersNextToken) = Nothing
-    | stop (rs ^. loersOriginEndpoints) = Nothing
-    | otherwise = Just $ rq & loeNextToken .~ rs ^. loersNextToken
+    | Page.stop (rs Lens.^. loersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. loersOriginEndpoints) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& loeNextToken Lens..~ rs Lens.^. loersNextToken
 
-instance AWSRequest ListOriginEndpoints where
+instance Lude.AWSRequest ListOriginEndpoints where
   type Rs ListOriginEndpoints = ListOriginEndpointsResponse
-  request = get mediaPackage
+  request = Req.get mediaPackageService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListOriginEndpointsResponse'
-            <$> (x .?> "originEndpoints" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "originEndpoints" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOriginEndpoints
-
-instance NFData ListOriginEndpoints
-
-instance ToHeaders ListOriginEndpoints where
+instance Lude.ToHeaders ListOriginEndpoints where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListOriginEndpoints where
-  toPath = const "/origin_endpoints"
+instance Lude.ToPath ListOriginEndpoints where
+  toPath = Lude.const "/origin_endpoints"
 
-instance ToQuery ListOriginEndpoints where
+instance Lude.ToQuery ListOriginEndpoints where
   toQuery ListOriginEndpoints' {..} =
-    mconcat
-      [ "channelId" =: _loeChannelId,
-        "nextToken" =: _loeNextToken,
-        "maxResults" =: _loeMaxResults
+    Lude.mconcat
+      [ "channelId" Lude.=: channelId,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listOriginEndpointsResponse' smart constructor.
+-- | /See:/ 'mkListOriginEndpointsResponse' smart constructor.
 data ListOriginEndpointsResponse = ListOriginEndpointsResponse'
-  { _loersOriginEndpoints ::
-      !(Maybe [OriginEndpoint]),
-    _loersNextToken :: !(Maybe Text),
-    _loersResponseStatus :: !Int
+  { originEndpoints ::
+      Lude.Maybe [OriginEndpoint],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loersOriginEndpoints' - A list of OriginEndpoint records.
---
--- * 'loersNextToken' - A token that can be used to resume pagination from the end of the collection.
---
--- * 'loersResponseStatus' - -- | The response status code.
-listOriginEndpointsResponse ::
-  -- | 'loersResponseStatus'
-  Int ->
+-- * 'nextToken' - A token that can be used to resume pagination from the end of the collection.
+-- * 'originEndpoints' - A list of OriginEndpoint records.
+-- * 'responseStatus' - The response status code.
+mkListOriginEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOriginEndpointsResponse
-listOriginEndpointsResponse pResponseStatus_ =
+mkListOriginEndpointsResponse pResponseStatus_ =
   ListOriginEndpointsResponse'
-    { _loersOriginEndpoints = Nothing,
-      _loersNextToken = Nothing,
-      _loersResponseStatus = pResponseStatus_
+    { originEndpoints = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of OriginEndpoint records.
-loersOriginEndpoints :: Lens' ListOriginEndpointsResponse [OriginEndpoint]
-loersOriginEndpoints = lens _loersOriginEndpoints (\s a -> s {_loersOriginEndpoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'originEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loersOriginEndpoints :: Lens.Lens' ListOriginEndpointsResponse (Lude.Maybe [OriginEndpoint])
+loersOriginEndpoints = Lens.lens (originEndpoints :: ListOriginEndpointsResponse -> Lude.Maybe [OriginEndpoint]) (\s a -> s {originEndpoints = a} :: ListOriginEndpointsResponse)
+{-# DEPRECATED loersOriginEndpoints "Use generic-lens or generic-optics with 'originEndpoints' instead." #-}
 
 -- | A token that can be used to resume pagination from the end of the collection.
-loersNextToken :: Lens' ListOriginEndpointsResponse (Maybe Text)
-loersNextToken = lens _loersNextToken (\s a -> s {_loersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loersNextToken :: Lens.Lens' ListOriginEndpointsResponse (Lude.Maybe Lude.Text)
+loersNextToken = Lens.lens (nextToken :: ListOriginEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOriginEndpointsResponse)
+{-# DEPRECATED loersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-loersResponseStatus :: Lens' ListOriginEndpointsResponse Int
-loersResponseStatus = lens _loersResponseStatus (\s a -> s {_loersResponseStatus = a})
-
-instance NFData ListOriginEndpointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loersResponseStatus :: Lens.Lens' ListOriginEndpointsResponse Lude.Int
+loersResponseStatus = Lens.lens (responseStatus :: ListOriginEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOriginEndpointsResponse)
+{-# DEPRECATED loersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

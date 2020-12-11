@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.SSEStatus where
+module Network.AWS.DAX.Types.SSEStatus
+  ( SSEStatus
+      ( SSEStatus',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SSEStatus
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SSEStatus = SSEStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SSEStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      e ->
-        fromTextError $
-          "Failure parsing SSEStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern Disabled :: SSEStatus
+pattern Disabled = SSEStatus' "DISABLED"
 
-instance ToText SSEStatus where
-  toText = \case
-    Disabled -> "DISABLED"
-    Disabling -> "DISABLING"
-    Enabled -> "ENABLED"
-    Enabling -> "ENABLING"
+pattern Disabling :: SSEStatus
+pattern Disabling = SSEStatus' "DISABLING"
 
-instance Hashable SSEStatus
+pattern Enabled :: SSEStatus
+pattern Enabled = SSEStatus' "ENABLED"
 
-instance NFData SSEStatus
+pattern Enabling :: SSEStatus
+pattern Enabling = SSEStatus' "ENABLING"
 
-instance ToByteString SSEStatus
-
-instance ToQuery SSEStatus
-
-instance ToHeader SSEStatus
-
-instance FromJSON SSEStatus where
-  parseJSON = parseJSONText "SSEStatus"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  SSEStatus'
+  #-}

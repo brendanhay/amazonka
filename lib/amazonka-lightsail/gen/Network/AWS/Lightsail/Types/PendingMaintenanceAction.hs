@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.PendingMaintenanceAction where
+module Network.AWS.Lightsail.Types.PendingMaintenanceAction
+  ( PendingMaintenanceAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingMaintenanceAction,
+
+    -- * Lenses
+    pmaAction,
+    pmaDescription,
+    pmaCurrentApplyDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a pending database maintenance action.
 --
---
---
--- /See:/ 'pendingMaintenanceAction' smart constructor.
+-- /See:/ 'mkPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { _pmaAction ::
-      !(Maybe Text),
-    _pmaDescription :: !(Maybe Text),
-    _pmaCurrentApplyDate :: !(Maybe POSIX)
+  { action ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    currentApplyDate ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingMaintenanceAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmaAction' - The type of pending database maintenance action.
---
--- * 'pmaDescription' - Additional detail about the pending database maintenance action.
---
--- * 'pmaCurrentApplyDate' - The effective date of the pending database maintenance action.
-pendingMaintenanceAction ::
+-- * 'action' - The type of pending database maintenance action.
+-- * 'currentApplyDate' - The effective date of the pending database maintenance action.
+-- * 'description' - Additional detail about the pending database maintenance action.
+mkPendingMaintenanceAction ::
   PendingMaintenanceAction
-pendingMaintenanceAction =
+mkPendingMaintenanceAction =
   PendingMaintenanceAction'
-    { _pmaAction = Nothing,
-      _pmaDescription = Nothing,
-      _pmaCurrentApplyDate = Nothing
+    { action = Lude.Nothing,
+      description = Lude.Nothing,
+      currentApplyDate = Lude.Nothing
     }
 
 -- | The type of pending database maintenance action.
-pmaAction :: Lens' PendingMaintenanceAction (Maybe Text)
-pmaAction = lens _pmaAction (\s a -> s {_pmaAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaAction :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.Text)
+pmaAction = Lens.lens (action :: PendingMaintenanceAction -> Lude.Maybe Lude.Text) (\s a -> s {action = a} :: PendingMaintenanceAction)
+{-# DEPRECATED pmaAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Additional detail about the pending database maintenance action.
-pmaDescription :: Lens' PendingMaintenanceAction (Maybe Text)
-pmaDescription = lens _pmaDescription (\s a -> s {_pmaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaDescription :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.Text)
+pmaDescription = Lens.lens (description :: PendingMaintenanceAction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PendingMaintenanceAction)
+{-# DEPRECATED pmaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The effective date of the pending database maintenance action.
-pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
-pmaCurrentApplyDate = lens _pmaCurrentApplyDate (\s a -> s {_pmaCurrentApplyDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'currentApplyDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaCurrentApplyDate :: Lens.Lens' PendingMaintenanceAction (Lude.Maybe Lude.Timestamp)
+pmaCurrentApplyDate = Lens.lens (currentApplyDate :: PendingMaintenanceAction -> Lude.Maybe Lude.Timestamp) (\s a -> s {currentApplyDate = a} :: PendingMaintenanceAction)
+{-# DEPRECATED pmaCurrentApplyDate "Use generic-lens or generic-optics with 'currentApplyDate' instead." #-}
 
-instance FromJSON PendingMaintenanceAction where
+instance Lude.FromJSON PendingMaintenanceAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "PendingMaintenanceAction"
       ( \x ->
           PendingMaintenanceAction'
-            <$> (x .:? "action")
-            <*> (x .:? "description")
-            <*> (x .:? "currentApplyDate")
+            Lude.<$> (x Lude..:? "action")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "currentApplyDate")
       )
-
-instance Hashable PendingMaintenanceAction
-
-instance NFData PendingMaintenanceAction

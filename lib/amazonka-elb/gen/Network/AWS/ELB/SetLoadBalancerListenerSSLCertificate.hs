@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,162 @@
 --
 -- Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
 --
---
 -- For more information about updating your SSL certificate, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-  ( -- * Creating a Request
-    setLoadBalancerListenerSSLCertificate,
-    SetLoadBalancerListenerSSLCertificate,
+  ( -- * Creating a request
+    SetLoadBalancerListenerSSLCertificate (..),
+    mkSetLoadBalancerListenerSSLCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     slblscLoadBalancerName,
     slblscLoadBalancerPort,
     slblscSSLCertificateId,
 
-    -- * Destructuring the Response
-    setLoadBalancerListenerSSLCertificateResponse,
-    SetLoadBalancerListenerSSLCertificateResponse,
+    -- * Destructuring the response
+    SetLoadBalancerListenerSSLCertificateResponse (..),
+    mkSetLoadBalancerListenerSSLCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     slblscrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.
 --
---
---
--- /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
+-- /See:/ 'mkSetLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
-  { _slblscLoadBalancerName ::
-      !Text,
-    _slblscLoadBalancerPort ::
-      !Int,
-    _slblscSSLCertificateId ::
-      !Text
+  { loadBalancerName ::
+      Lude.Text,
+    loadBalancerPort ::
+      Lude.Int,
+    sslCertificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerListenerSSLCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slblscLoadBalancerName' - The name of the load balancer.
---
--- * 'slblscLoadBalancerPort' - The port that uses the specified SSL certificate.
---
--- * 'slblscSSLCertificateId' - The Amazon Resource Name (ARN) of the SSL certificate.
-setLoadBalancerListenerSSLCertificate ::
-  -- | 'slblscLoadBalancerName'
-  Text ->
-  -- | 'slblscLoadBalancerPort'
-  Int ->
-  -- | 'slblscSSLCertificateId'
-  Text ->
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'loadBalancerPort' - The port that uses the specified SSL certificate.
+-- * 'sslCertificateId' - The Amazon Resource Name (ARN) of the SSL certificate.
+mkSetLoadBalancerListenerSSLCertificate ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'loadBalancerPort'
+  Lude.Int ->
+  -- | 'sslCertificateId'
+  Lude.Text ->
   SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate
+mkSetLoadBalancerListenerSSLCertificate
   pLoadBalancerName_
   pLoadBalancerPort_
   pSSLCertificateId_ =
     SetLoadBalancerListenerSSLCertificate'
-      { _slblscLoadBalancerName =
+      { loadBalancerName =
           pLoadBalancerName_,
-        _slblscLoadBalancerPort = pLoadBalancerPort_,
-        _slblscSSLCertificateId = pSSLCertificateId_
+        loadBalancerPort = pLoadBalancerPort_,
+        sslCertificateId = pSSLCertificateId_
       }
 
 -- | The name of the load balancer.
-slblscLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblscLoadBalancerName = lens _slblscLoadBalancerName (\s a -> s {_slblscLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slblscLoadBalancerName :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Lude.Text
+slblscLoadBalancerName = Lens.lens (loadBalancerName :: SetLoadBalancerListenerSSLCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: SetLoadBalancerListenerSSLCertificate)
+{-# DEPRECATED slblscLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The port that uses the specified SSL certificate.
-slblscLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
-slblscLoadBalancerPort = lens _slblscLoadBalancerPort (\s a -> s {_slblscLoadBalancerPort = a})
+--
+-- /Note:/ Consider using 'loadBalancerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slblscLoadBalancerPort :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Lude.Int
+slblscLoadBalancerPort = Lens.lens (loadBalancerPort :: SetLoadBalancerListenerSSLCertificate -> Lude.Int) (\s a -> s {loadBalancerPort = a} :: SetLoadBalancerListenerSSLCertificate)
+{-# DEPRECATED slblscLoadBalancerPort "Use generic-lens or generic-optics with 'loadBalancerPort' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the SSL certificate.
-slblscSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblscSSLCertificateId = lens _slblscSSLCertificateId (\s a -> s {_slblscSSLCertificateId = a})
+--
+-- /Note:/ Consider using 'sslCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slblscSSLCertificateId :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Lude.Text
+slblscSSLCertificateId = Lens.lens (sslCertificateId :: SetLoadBalancerListenerSSLCertificate -> Lude.Text) (\s a -> s {sslCertificateId = a} :: SetLoadBalancerListenerSSLCertificate)
+{-# DEPRECATED slblscSSLCertificateId "Use generic-lens or generic-optics with 'sslCertificateId' instead." #-}
 
-instance AWSRequest SetLoadBalancerListenerSSLCertificate where
+instance Lude.AWSRequest SetLoadBalancerListenerSSLCertificate where
   type
     Rs SetLoadBalancerListenerSSLCertificate =
       SetLoadBalancerListenerSSLCertificateResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetLoadBalancerListenerSSLCertificateResult"
       ( \s h x ->
           SetLoadBalancerListenerSSLCertificateResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetLoadBalancerListenerSSLCertificate
+instance Lude.ToHeaders SetLoadBalancerListenerSSLCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetLoadBalancerListenerSSLCertificate
+instance Lude.ToPath SetLoadBalancerListenerSSLCertificate where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetLoadBalancerListenerSSLCertificate where
-  toHeaders = const mempty
-
-instance ToPath SetLoadBalancerListenerSSLCertificate where
-  toPath = const "/"
-
-instance ToQuery SetLoadBalancerListenerSSLCertificate where
+instance Lude.ToQuery SetLoadBalancerListenerSSLCertificate where
   toQuery SetLoadBalancerListenerSSLCertificate' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("SetLoadBalancerListenerSSLCertificate" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _slblscLoadBalancerName,
-        "LoadBalancerPort" =: _slblscLoadBalancerPort,
-        "SSLCertificateId" =: _slblscSSLCertificateId
+          Lude.=: ("SetLoadBalancerListenerSSLCertificate" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "LoadBalancerPort" Lude.=: loadBalancerPort,
+        "SSLCertificateId" Lude.=: sslCertificateId
       ]
 
 -- | Contains the output of SetLoadBalancerListenerSSLCertificate.
 --
---
---
--- /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
+-- /See:/ 'mkSetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
-  { _slblscrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'SetLoadBalancerListenerSSLCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slblscrsResponseStatus' - -- | The response status code.
-setLoadBalancerListenerSSLCertificateResponse ::
-  -- | 'slblscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetLoadBalancerListenerSSLCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
+mkSetLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
   SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
-slblscrsResponseStatus = lens _slblscrsResponseStatus (\s a -> s {_slblscrsResponseStatus = a})
-
-instance NFData SetLoadBalancerListenerSSLCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slblscrsResponseStatus :: Lens.Lens' SetLoadBalancerListenerSSLCertificateResponse Lude.Int
+slblscrsResponseStatus = Lens.lens (responseStatus :: SetLoadBalancerListenerSSLCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetLoadBalancerListenerSSLCertificateResponse)
+{-# DEPRECATED slblscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

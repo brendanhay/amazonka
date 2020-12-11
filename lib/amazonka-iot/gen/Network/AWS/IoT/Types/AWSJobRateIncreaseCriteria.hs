@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AWSJobRateIncreaseCriteria where
+module Network.AWS.IoT.Types.AWSJobRateIncreaseCriteria
+  ( AWSJobRateIncreaseCriteria (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAWSJobRateIncreaseCriteria,
+
+    -- * Lenses
+    ajricNumberOfNotifiedThings,
+    ajricNumberOfSucceededThings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The criteria to initiate the increase in rate of rollout for a job.
 --
---
---
--- /See:/ 'awsJobRateIncreaseCriteria' smart constructor.
+-- /See:/ 'mkAWSJobRateIncreaseCriteria' smart constructor.
 data AWSJobRateIncreaseCriteria = AWSJobRateIncreaseCriteria'
-  { _ajricNumberOfNotifiedThings ::
-      !(Maybe Nat),
-    _ajricNumberOfSucceededThings ::
-      !(Maybe Nat)
+  { numberOfNotifiedThings ::
+      Lude.Maybe Lude.Natural,
+    numberOfSucceededThings ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobRateIncreaseCriteria' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ajricNumberOfNotifiedThings' - When this number of things have been notified, it will initiate an increase in the rollout rate.
---
--- * 'ajricNumberOfSucceededThings' - When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
-awsJobRateIncreaseCriteria ::
+-- * 'numberOfNotifiedThings' - When this number of things have been notified, it will initiate an increase in the rollout rate.
+-- * 'numberOfSucceededThings' - When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
+mkAWSJobRateIncreaseCriteria ::
   AWSJobRateIncreaseCriteria
-awsJobRateIncreaseCriteria =
+mkAWSJobRateIncreaseCriteria =
   AWSJobRateIncreaseCriteria'
-    { _ajricNumberOfNotifiedThings =
-        Nothing,
-      _ajricNumberOfSucceededThings = Nothing
+    { numberOfNotifiedThings =
+        Lude.Nothing,
+      numberOfSucceededThings = Lude.Nothing
     }
 
 -- | When this number of things have been notified, it will initiate an increase in the rollout rate.
-ajricNumberOfNotifiedThings :: Lens' AWSJobRateIncreaseCriteria (Maybe Natural)
-ajricNumberOfNotifiedThings = lens _ajricNumberOfNotifiedThings (\s a -> s {_ajricNumberOfNotifiedThings = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfNotifiedThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajricNumberOfNotifiedThings :: Lens.Lens' AWSJobRateIncreaseCriteria (Lude.Maybe Lude.Natural)
+ajricNumberOfNotifiedThings = Lens.lens (numberOfNotifiedThings :: AWSJobRateIncreaseCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfNotifiedThings = a} :: AWSJobRateIncreaseCriteria)
+{-# DEPRECATED ajricNumberOfNotifiedThings "Use generic-lens or generic-optics with 'numberOfNotifiedThings' instead." #-}
 
 -- | When this number of things have succeeded in their job execution, it will initiate an increase in the rollout rate.
-ajricNumberOfSucceededThings :: Lens' AWSJobRateIncreaseCriteria (Maybe Natural)
-ajricNumberOfSucceededThings = lens _ajricNumberOfSucceededThings (\s a -> s {_ajricNumberOfSucceededThings = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfSucceededThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajricNumberOfSucceededThings :: Lens.Lens' AWSJobRateIncreaseCriteria (Lude.Maybe Lude.Natural)
+ajricNumberOfSucceededThings = Lens.lens (numberOfSucceededThings :: AWSJobRateIncreaseCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfSucceededThings = a} :: AWSJobRateIncreaseCriteria)
+{-# DEPRECATED ajricNumberOfSucceededThings "Use generic-lens or generic-optics with 'numberOfSucceededThings' instead." #-}
 
-instance FromJSON AWSJobRateIncreaseCriteria where
+instance Lude.FromJSON AWSJobRateIncreaseCriteria where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSJobRateIncreaseCriteria"
       ( \x ->
           AWSJobRateIncreaseCriteria'
-            <$> (x .:? "numberOfNotifiedThings")
-            <*> (x .:? "numberOfSucceededThings")
+            Lude.<$> (x Lude..:? "numberOfNotifiedThings")
+            Lude.<*> (x Lude..:? "numberOfSucceededThings")
       )
 
-instance Hashable AWSJobRateIncreaseCriteria
-
-instance NFData AWSJobRateIncreaseCriteria
-
-instance ToJSON AWSJobRateIncreaseCriteria where
+instance Lude.ToJSON AWSJobRateIncreaseCriteria where
   toJSON AWSJobRateIncreaseCriteria' {..} =
-    object
-      ( catMaybes
-          [ ("numberOfNotifiedThings" .=) <$> _ajricNumberOfNotifiedThings,
-            ("numberOfSucceededThings" .=) <$> _ajricNumberOfSucceededThings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("numberOfNotifiedThings" Lude..=)
+              Lude.<$> numberOfNotifiedThings,
+            ("numberOfSucceededThings" Lude..=)
+              Lude.<$> numberOfSucceededThings
           ]
       )

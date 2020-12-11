@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,112 +7,172 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.User where
+module Network.AWS.AppStream.Types.User
+  ( User (..),
+
+    -- * Smart constructor
+    mkUser,
+
+    -- * Lenses
+    uStatus,
+    uEnabled,
+    uLastName,
+    uARN,
+    uCreatedTime,
+    uUserName,
+    uFirstName,
+    uAuthenticationType,
+  )
+where
 
 import Network.AWS.AppStream.Types.AuthenticationType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a user in the user pool.
 --
---
---
--- /See:/ 'user' smart constructor.
+-- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { _uStatus :: !(Maybe Text),
-    _uEnabled :: !(Maybe Bool),
-    _uLastName :: !(Maybe (Sensitive Text)),
-    _uARN :: !(Maybe Text),
-    _uCreatedTime :: !(Maybe POSIX),
-    _uUserName :: !(Maybe (Sensitive Text)),
-    _uFirstName :: !(Maybe (Sensitive Text)),
-    _uAuthenticationType :: !AuthenticationType
+  { status :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    lastName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    arn :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    userName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    firstName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    authenticationType :: AuthenticationType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The ARN of the user.
+-- * 'authenticationType' - The authentication type for the user.
+-- * 'createdTime' - The date and time the user was created in the user pool.
+-- * 'enabled' - Specifies whether the user in the user pool is enabled.
+-- * 'firstName' - The first name, or given name, of the user.
+-- * 'lastName' - The last name, or surname, of the user.
+-- * 'status' - The status of the user in the user pool. The status can be one of the following:
 --
--- * 'uStatus' - The status of the user in the user pool. The status can be one of the following:     * UNCONFIRMED – The user is created but not confirmed.     * CONFIRMED – The user is confirmed.     * ARCHIVED – The user is no longer active.     * COMPROMISED – The user is disabled because of a potential security threat.     * UNKNOWN – The user status is not known.
 --
--- * 'uEnabled' - Specifies whether the user in the user pool is enabled.
+--     * UNCONFIRMED – The user is created but not confirmed.
 --
--- * 'uLastName' - The last name, or surname, of the user.
 --
--- * 'uARN' - The ARN of the user.
+--     * CONFIRMED – The user is confirmed.
 --
--- * 'uCreatedTime' - The date and time the user was created in the user pool.
 --
--- * 'uUserName' - The email address of the user.
+--     * ARCHIVED – The user is no longer active.
 --
--- * 'uFirstName' - The first name, or given name, of the user.
 --
--- * 'uAuthenticationType' - The authentication type for the user.
-user ::
-  -- | 'uAuthenticationType'
+--     * COMPROMISED – The user is disabled because of a potential security threat.
+--
+--
+--     * UNKNOWN – The user status is not known.
+--
+--
+-- * 'userName' - The email address of the user.
+mkUser ::
+  -- | 'authenticationType'
   AuthenticationType ->
   User
-user pAuthenticationType_ =
+mkUser pAuthenticationType_ =
   User'
-    { _uStatus = Nothing,
-      _uEnabled = Nothing,
-      _uLastName = Nothing,
-      _uARN = Nothing,
-      _uCreatedTime = Nothing,
-      _uUserName = Nothing,
-      _uFirstName = Nothing,
-      _uAuthenticationType = pAuthenticationType_
+    { status = Lude.Nothing,
+      enabled = Lude.Nothing,
+      lastName = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      userName = Lude.Nothing,
+      firstName = Lude.Nothing,
+      authenticationType = pAuthenticationType_
     }
 
--- | The status of the user in the user pool. The status can be one of the following:     * UNCONFIRMED – The user is created but not confirmed.     * CONFIRMED – The user is confirmed.     * ARCHIVED – The user is no longer active.     * COMPROMISED – The user is disabled because of a potential security threat.     * UNKNOWN – The user status is not known.
-uStatus :: Lens' User (Maybe Text)
-uStatus = lens _uStatus (\s a -> s {_uStatus = a})
+-- | The status of the user in the user pool. The status can be one of the following:
+--
+--
+--     * UNCONFIRMED – The user is created but not confirmed.
+--
+--
+--     * CONFIRMED – The user is confirmed.
+--
+--
+--     * ARCHIVED – The user is no longer active.
+--
+--
+--     * COMPROMISED – The user is disabled because of a potential security threat.
+--
+--
+--     * UNKNOWN – The user status is not known.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uStatus :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uStatus = Lens.lens (status :: User -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: User)
+{-# DEPRECATED uStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies whether the user in the user pool is enabled.
-uEnabled :: Lens' User (Maybe Bool)
-uEnabled = lens _uEnabled (\s a -> s {_uEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uEnabled :: Lens.Lens' User (Lude.Maybe Lude.Bool)
+uEnabled = Lens.lens (enabled :: User -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: User)
+{-# DEPRECATED uEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The last name, or surname, of the user.
-uLastName :: Lens' User (Maybe Text)
-uLastName = lens _uLastName (\s a -> s {_uLastName = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uLastName :: Lens.Lens' User (Lude.Maybe (Lude.Sensitive Lude.Text))
+uLastName = Lens.lens (lastName :: User -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {lastName = a} :: User)
+{-# DEPRECATED uLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The ARN of the user.
-uARN :: Lens' User (Maybe Text)
-uARN = lens _uARN (\s a -> s {_uARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uARN :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uARN = Lens.lens (arn :: User -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: User)
+{-# DEPRECATED uARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time the user was created in the user pool.
-uCreatedTime :: Lens' User (Maybe UTCTime)
-uCreatedTime = lens _uCreatedTime (\s a -> s {_uCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uCreatedTime :: Lens.Lens' User (Lude.Maybe Lude.Timestamp)
+uCreatedTime = Lens.lens (createdTime :: User -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: User)
+{-# DEPRECATED uCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The email address of the user.
-uUserName :: Lens' User (Maybe Text)
-uUserName = lens _uUserName (\s a -> s {_uUserName = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUserName :: Lens.Lens' User (Lude.Maybe (Lude.Sensitive Lude.Text))
+uUserName = Lens.lens (userName :: User -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {userName = a} :: User)
+{-# DEPRECATED uUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The first name, or given name, of the user.
-uFirstName :: Lens' User (Maybe Text)
-uFirstName = lens _uFirstName (\s a -> s {_uFirstName = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uFirstName :: Lens.Lens' User (Lude.Maybe (Lude.Sensitive Lude.Text))
+uFirstName = Lens.lens (firstName :: User -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {firstName = a} :: User)
+{-# DEPRECATED uFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The authentication type for the user.
-uAuthenticationType :: Lens' User AuthenticationType
-uAuthenticationType = lens _uAuthenticationType (\s a -> s {_uAuthenticationType = a})
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uAuthenticationType :: Lens.Lens' User AuthenticationType
+uAuthenticationType = Lens.lens (authenticationType :: User -> AuthenticationType) (\s a -> s {authenticationType = a} :: User)
+{-# DEPRECATED uAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
-instance FromJSON User where
+instance Lude.FromJSON User where
   parseJSON =
-    withObject
+    Lude.withObject
       "User"
       ( \x ->
           User'
-            <$> (x .:? "Status")
-            <*> (x .:? "Enabled")
-            <*> (x .:? "LastName")
-            <*> (x .:? "Arn")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "UserName")
-            <*> (x .:? "FirstName")
-            <*> (x .: "AuthenticationType")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "LastName")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "UserName")
+            Lude.<*> (x Lude..:? "FirstName")
+            Lude.<*> (x Lude..: "AuthenticationType")
       )
-
-instance Hashable User
-
-instance NFData User

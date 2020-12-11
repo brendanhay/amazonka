@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,35 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotInstanceRequest where
+module Network.AWS.EC2.Types.SpotInstanceRequest
+  ( SpotInstanceRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotInstanceRequest,
+
+    -- * Lenses
+    sirInstanceId,
+    sirStatus,
+    sirState,
+    sirActualBlockHourlyPrice,
+    sirBlockDurationMinutes,
+    sirInstanceInterruptionBehavior,
+    sirProductDescription,
+    sirSpotPrice,
+    sirLaunchSpecification,
+    sirAvailabilityZoneGroup,
+    sirLaunchedAvailabilityZone,
+    sirValidUntil,
+    sirLaunchGroup,
+    sirFault,
+    sirSpotInstanceRequestId,
+    sirType,
+    sirValidFrom,
+    sirCreateTime,
+    sirTags,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceInterruptionBehavior
 import Network.AWS.EC2.Types.LaunchSpecification
 import Network.AWS.EC2.Types.RIProductDescription
@@ -24,206 +44,260 @@ import Network.AWS.EC2.Types.SpotInstanceStateFault
 import Network.AWS.EC2.Types.SpotInstanceStatus
 import Network.AWS.EC2.Types.SpotInstanceType
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Spot Instance request.
 --
---
---
--- /See:/ 'spotInstanceRequest' smart constructor.
+-- /See:/ 'mkSpotInstanceRequest' smart constructor.
 data SpotInstanceRequest = SpotInstanceRequest'
-  { _sirInstanceId ::
-      !(Maybe Text),
-    _sirStatus :: !(Maybe SpotInstanceStatus),
-    _sirState :: !(Maybe SpotInstanceState),
-    _sirActualBlockHourlyPrice :: !(Maybe Text),
-    _sirBlockDurationMinutes :: !(Maybe Int),
-    _sirInstanceInterruptionBehavior ::
-      !(Maybe InstanceInterruptionBehavior),
-    _sirProductDescription ::
-      !(Maybe RIProductDescription),
-    _sirSpotPrice :: !(Maybe Text),
-    _sirLaunchSpecification ::
-      !(Maybe LaunchSpecification),
-    _sirAvailabilityZoneGroup :: !(Maybe Text),
-    _sirLaunchedAvailabilityZone :: !(Maybe Text),
-    _sirValidUntil :: !(Maybe ISO8601),
-    _sirLaunchGroup :: !(Maybe Text),
-    _sirFault :: !(Maybe SpotInstanceStateFault),
-    _sirSpotInstanceRequestId :: !(Maybe Text),
-    _sirType :: !(Maybe SpotInstanceType),
-    _sirValidFrom :: !(Maybe ISO8601),
-    _sirCreateTime :: !(Maybe ISO8601),
-    _sirTags :: !(Maybe [Tag])
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe SpotInstanceStatus,
+    state :: Lude.Maybe SpotInstanceState,
+    actualBlockHourlyPrice :: Lude.Maybe Lude.Text,
+    blockDurationMinutes :: Lude.Maybe Lude.Int,
+    instanceInterruptionBehavior ::
+      Lude.Maybe InstanceInterruptionBehavior,
+    productDescription ::
+      Lude.Maybe RIProductDescription,
+    spotPrice :: Lude.Maybe Lude.Text,
+    launchSpecification ::
+      Lude.Maybe LaunchSpecification,
+    availabilityZoneGroup :: Lude.Maybe Lude.Text,
+    launchedAvailabilityZone :: Lude.Maybe Lude.Text,
+    validUntil :: Lude.Maybe Lude.ISO8601,
+    launchGroup :: Lude.Maybe Lude.Text,
+    fault :: Lude.Maybe SpotInstanceStateFault,
+    spotInstanceRequestId :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe SpotInstanceType,
+    validFrom :: Lude.Maybe Lude.ISO8601,
+    createTime :: Lude.Maybe Lude.ISO8601,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotInstanceRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
+-- * 'availabilityZoneGroup' - The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
+-- * 'blockDurationMinutes' - The duration for the Spot Instance, in minutes.
+-- * 'createTime' - The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'fault' - The fault codes for the Spot Instance request, if any.
+-- * 'instanceId' - The instance ID, if an instance has been launched to fulfill the Spot Instance request.
+-- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
+-- * 'launchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
+-- * 'launchSpecification' - Additional information for launching instances.
+-- * 'launchedAvailabilityZone' - The Availability Zone in which the request is launched.
+-- * 'productDescription' - The product description associated with the Spot Instance.
+-- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
+-- * 'spotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance.
+-- * 'state' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'status' - The status code and status message describing the Spot Instance request.
+-- * 'tags' - Any tags assigned to the resource.
+-- * 'type'' - The Spot Instance request type.
+-- * 'validFrom' - The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
+-- * 'validUntil' - The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
--- * 'sirInstanceId' - The instance ID, if an instance has been launched to fulfill the Spot Instance request.
 --
--- * 'sirStatus' - The status code and status message describing the Spot Instance request.
+--     * For a persistent request, the request remains active until the @validUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.
 --
--- * 'sirState' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
--- * 'sirActualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
---
--- * 'sirBlockDurationMinutes' - The duration for the Spot Instance, in minutes.
---
--- * 'sirInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
---
--- * 'sirProductDescription' - The product description associated with the Spot Instance.
---
--- * 'sirSpotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance.
---
--- * 'sirLaunchSpecification' - Additional information for launching instances.
---
--- * 'sirAvailabilityZoneGroup' - The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
---
--- * 'sirLaunchedAvailabilityZone' - The Availability Zone in which the request is launched.
---
--- * 'sirValidUntil' - The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).     * For a persistent request, the request remains active until the @validUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.      * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
---
--- * 'sirLaunchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
---
--- * 'sirFault' - The fault codes for the Spot Instance request, if any.
---
--- * 'sirSpotInstanceRequestId' - The ID of the Spot Instance request.
---
--- * 'sirType' - The Spot Instance request type.
---
--- * 'sirValidFrom' - The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
---
--- * 'sirCreateTime' - The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- * 'sirTags' - Any tags assigned to the resource.
-spotInstanceRequest ::
+--     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
+mkSpotInstanceRequest ::
   SpotInstanceRequest
-spotInstanceRequest =
+mkSpotInstanceRequest =
   SpotInstanceRequest'
-    { _sirInstanceId = Nothing,
-      _sirStatus = Nothing,
-      _sirState = Nothing,
-      _sirActualBlockHourlyPrice = Nothing,
-      _sirBlockDurationMinutes = Nothing,
-      _sirInstanceInterruptionBehavior = Nothing,
-      _sirProductDescription = Nothing,
-      _sirSpotPrice = Nothing,
-      _sirLaunchSpecification = Nothing,
-      _sirAvailabilityZoneGroup = Nothing,
-      _sirLaunchedAvailabilityZone = Nothing,
-      _sirValidUntil = Nothing,
-      _sirLaunchGroup = Nothing,
-      _sirFault = Nothing,
-      _sirSpotInstanceRequestId = Nothing,
-      _sirType = Nothing,
-      _sirValidFrom = Nothing,
-      _sirCreateTime = Nothing,
-      _sirTags = Nothing
+    { instanceId = Lude.Nothing,
+      status = Lude.Nothing,
+      state = Lude.Nothing,
+      actualBlockHourlyPrice = Lude.Nothing,
+      blockDurationMinutes = Lude.Nothing,
+      instanceInterruptionBehavior = Lude.Nothing,
+      productDescription = Lude.Nothing,
+      spotPrice = Lude.Nothing,
+      launchSpecification = Lude.Nothing,
+      availabilityZoneGroup = Lude.Nothing,
+      launchedAvailabilityZone = Lude.Nothing,
+      validUntil = Lude.Nothing,
+      launchGroup = Lude.Nothing,
+      fault = Lude.Nothing,
+      spotInstanceRequestId = Lude.Nothing,
+      type' = Lude.Nothing,
+      validFrom = Lude.Nothing,
+      createTime = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The instance ID, if an instance has been launched to fulfill the Spot Instance request.
-sirInstanceId :: Lens' SpotInstanceRequest (Maybe Text)
-sirInstanceId = lens _sirInstanceId (\s a -> s {_sirInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirInstanceId :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirInstanceId = Lens.lens (instanceId :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The status code and status message describing the Spot Instance request.
-sirStatus :: Lens' SpotInstanceRequest (Maybe SpotInstanceStatus)
-sirStatus = lens _sirStatus (\s a -> s {_sirStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirStatus :: Lens.Lens' SpotInstanceRequest (Lude.Maybe SpotInstanceStatus)
+sirStatus = Lens.lens (status :: SpotInstanceRequest -> Lude.Maybe SpotInstanceStatus) (\s a -> s {status = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
-sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
-sirState = lens _sirState (\s a -> s {_sirState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirState :: Lens.Lens' SpotInstanceRequest (Lude.Maybe SpotInstanceState)
+sirState = Lens.lens (state :: SpotInstanceRequest -> Lude.Maybe SpotInstanceState) (\s a -> s {state = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
-sirActualBlockHourlyPrice :: Lens' SpotInstanceRequest (Maybe Text)
-sirActualBlockHourlyPrice = lens _sirActualBlockHourlyPrice (\s a -> s {_sirActualBlockHourlyPrice = a})
+--
+-- /Note:/ Consider using 'actualBlockHourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirActualBlockHourlyPrice :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirActualBlockHourlyPrice = Lens.lens (actualBlockHourlyPrice :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {actualBlockHourlyPrice = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirActualBlockHourlyPrice "Use generic-lens or generic-optics with 'actualBlockHourlyPrice' instead." #-}
 
 -- | The duration for the Spot Instance, in minutes.
-sirBlockDurationMinutes :: Lens' SpotInstanceRequest (Maybe Int)
-sirBlockDurationMinutes = lens _sirBlockDurationMinutes (\s a -> s {_sirBlockDurationMinutes = a})
+--
+-- /Note:/ Consider using 'blockDurationMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirBlockDurationMinutes :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Int)
+sirBlockDurationMinutes = Lens.lens (blockDurationMinutes :: SpotInstanceRequest -> Lude.Maybe Lude.Int) (\s a -> s {blockDurationMinutes = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirBlockDurationMinutes "Use generic-lens or generic-optics with 'blockDurationMinutes' instead." #-}
 
 -- | The behavior when a Spot Instance is interrupted.
-sirInstanceInterruptionBehavior :: Lens' SpotInstanceRequest (Maybe InstanceInterruptionBehavior)
-sirInstanceInterruptionBehavior = lens _sirInstanceInterruptionBehavior (\s a -> s {_sirInstanceInterruptionBehavior = a})
+--
+-- /Note:/ Consider using 'instanceInterruptionBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirInstanceInterruptionBehavior :: Lens.Lens' SpotInstanceRequest (Lude.Maybe InstanceInterruptionBehavior)
+sirInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: SpotInstanceRequest -> Lude.Maybe InstanceInterruptionBehavior) (\s a -> s {instanceInterruptionBehavior = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirInstanceInterruptionBehavior "Use generic-lens or generic-optics with 'instanceInterruptionBehavior' instead." #-}
 
 -- | The product description associated with the Spot Instance.
-sirProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
-sirProductDescription = lens _sirProductDescription (\s a -> s {_sirProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirProductDescription :: Lens.Lens' SpotInstanceRequest (Lude.Maybe RIProductDescription)
+sirProductDescription = Lens.lens (productDescription :: SpotInstanceRequest -> Lude.Maybe RIProductDescription) (\s a -> s {productDescription = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The maximum price per hour that you are willing to pay for a Spot Instance.
-sirSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
-sirSpotPrice = lens _sirSpotPrice (\s a -> s {_sirSpotPrice = a})
+--
+-- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirSpotPrice :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirSpotPrice = Lens.lens (spotPrice :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
 -- | Additional information for launching instances.
-sirLaunchSpecification :: Lens' SpotInstanceRequest (Maybe LaunchSpecification)
-sirLaunchSpecification = lens _sirLaunchSpecification (\s a -> s {_sirLaunchSpecification = a})
+--
+-- /Note:/ Consider using 'launchSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirLaunchSpecification :: Lens.Lens' SpotInstanceRequest (Lude.Maybe LaunchSpecification)
+sirLaunchSpecification = Lens.lens (launchSpecification :: SpotInstanceRequest -> Lude.Maybe LaunchSpecification) (\s a -> s {launchSpecification = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirLaunchSpecification "Use generic-lens or generic-optics with 'launchSpecification' instead." #-}
 
 -- | The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
-sirAvailabilityZoneGroup :: Lens' SpotInstanceRequest (Maybe Text)
-sirAvailabilityZoneGroup = lens _sirAvailabilityZoneGroup (\s a -> s {_sirAvailabilityZoneGroup = a})
+--
+-- /Note:/ Consider using 'availabilityZoneGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirAvailabilityZoneGroup :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirAvailabilityZoneGroup = Lens.lens (availabilityZoneGroup :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneGroup = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirAvailabilityZoneGroup "Use generic-lens or generic-optics with 'availabilityZoneGroup' instead." #-}
 
 -- | The Availability Zone in which the request is launched.
-sirLaunchedAvailabilityZone :: Lens' SpotInstanceRequest (Maybe Text)
-sirLaunchedAvailabilityZone = lens _sirLaunchedAvailabilityZone (\s a -> s {_sirLaunchedAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'launchedAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirLaunchedAvailabilityZone :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirLaunchedAvailabilityZone = Lens.lens (launchedAvailabilityZone :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {launchedAvailabilityZone = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirLaunchedAvailabilityZone "Use generic-lens or generic-optics with 'launchedAvailabilityZone' instead." #-}
 
--- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).     * For a persistent request, the request remains active until the @validUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.      * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
-sirValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
-sirValidUntil = lens _sirValidUntil (\s a -> s {_sirValidUntil = a}) . mapping _Time
+-- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+--
+--     * For a persistent request, the request remains active until the @validUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.
+--
+--
+--     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
+--
+--
+--
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirValidUntil :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
+sirValidUntil = Lens.lens (validUntil :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
-sirLaunchGroup :: Lens' SpotInstanceRequest (Maybe Text)
-sirLaunchGroup = lens _sirLaunchGroup (\s a -> s {_sirLaunchGroup = a})
+--
+-- /Note:/ Consider using 'launchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirLaunchGroup :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirLaunchGroup = Lens.lens (launchGroup :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {launchGroup = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirLaunchGroup "Use generic-lens or generic-optics with 'launchGroup' instead." #-}
 
 -- | The fault codes for the Spot Instance request, if any.
-sirFault :: Lens' SpotInstanceRequest (Maybe SpotInstanceStateFault)
-sirFault = lens _sirFault (\s a -> s {_sirFault = a})
+--
+-- /Note:/ Consider using 'fault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirFault :: Lens.Lens' SpotInstanceRequest (Lude.Maybe SpotInstanceStateFault)
+sirFault = Lens.lens (fault :: SpotInstanceRequest -> Lude.Maybe SpotInstanceStateFault) (\s a -> s {fault = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirFault "Use generic-lens or generic-optics with 'fault' instead." #-}
 
 -- | The ID of the Spot Instance request.
-sirSpotInstanceRequestId :: Lens' SpotInstanceRequest (Maybe Text)
-sirSpotInstanceRequestId = lens _sirSpotInstanceRequestId (\s a -> s {_sirSpotInstanceRequestId = a})
+--
+-- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirSpotInstanceRequestId :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.Text)
+sirSpotInstanceRequestId = Lens.lens (spotInstanceRequestId :: SpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {spotInstanceRequestId = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
 
 -- | The Spot Instance request type.
-sirType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
-sirType = lens _sirType (\s a -> s {_sirType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirType :: Lens.Lens' SpotInstanceRequest (Lude.Maybe SpotInstanceType)
+sirType = Lens.lens (type' :: SpotInstanceRequest -> Lude.Maybe SpotInstanceType) (\s a -> s {type' = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
-sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
-sirValidFrom = lens _sirValidFrom (\s a -> s {_sirValidFrom = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirValidFrom :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
+sirValidFrom = Lens.lens (validFrom :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-sirCreateTime :: Lens' SpotInstanceRequest (Maybe UTCTime)
-sirCreateTime = lens _sirCreateTime (\s a -> s {_sirCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirCreateTime :: Lens.Lens' SpotInstanceRequest (Lude.Maybe Lude.ISO8601)
+sirCreateTime = Lens.lens (createTime :: SpotInstanceRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | Any tags assigned to the resource.
-sirTags :: Lens' SpotInstanceRequest [Tag]
-sirTags = lens _sirTags (\s a -> s {_sirTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirTags :: Lens.Lens' SpotInstanceRequest (Lude.Maybe [Tag])
+sirTags = Lens.lens (tags :: SpotInstanceRequest -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SpotInstanceRequest)
+{-# DEPRECATED sirTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML SpotInstanceRequest where
+instance Lude.FromXML SpotInstanceRequest where
   parseXML x =
     SpotInstanceRequest'
-      <$> (x .@? "instanceId")
-      <*> (x .@? "status")
-      <*> (x .@? "state")
-      <*> (x .@? "actualBlockHourlyPrice")
-      <*> (x .@? "blockDurationMinutes")
-      <*> (x .@? "instanceInterruptionBehavior")
-      <*> (x .@? "productDescription")
-      <*> (x .@? "spotPrice")
-      <*> (x .@? "launchSpecification")
-      <*> (x .@? "availabilityZoneGroup")
-      <*> (x .@? "launchedAvailabilityZone")
-      <*> (x .@? "validUntil")
-      <*> (x .@? "launchGroup")
-      <*> (x .@? "fault")
-      <*> (x .@? "spotInstanceRequestId")
-      <*> (x .@? "type")
-      <*> (x .@? "validFrom")
-      <*> (x .@? "createTime")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable SpotInstanceRequest
-
-instance NFData SpotInstanceRequest
+      Lude.<$> (x Lude..@? "instanceId")
+      Lude.<*> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "actualBlockHourlyPrice")
+      Lude.<*> (x Lude..@? "blockDurationMinutes")
+      Lude.<*> (x Lude..@? "instanceInterruptionBehavior")
+      Lude.<*> (x Lude..@? "productDescription")
+      Lude.<*> (x Lude..@? "spotPrice")
+      Lude.<*> (x Lude..@? "launchSpecification")
+      Lude.<*> (x Lude..@? "availabilityZoneGroup")
+      Lude.<*> (x Lude..@? "launchedAvailabilityZone")
+      Lude.<*> (x Lude..@? "validUntil")
+      Lude.<*> (x Lude..@? "launchGroup")
+      Lude.<*> (x Lude..@? "fault")
+      Lude.<*> (x Lude..@? "spotInstanceRequestId")
+      Lude.<*> (x Lude..@? "type")
+      Lude.<*> (x Lude..@? "validFrom")
+      Lude.<*> (x Lude..@? "createTime")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

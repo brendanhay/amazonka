@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobInputConfig where
+module Network.AWS.SageMaker.Types.LabelingJobInputConfig
+  ( LabelingJobInputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobInputConfig,
+
+    -- * Lenses
+    ljicDataAttributes,
+    ljicDataSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.LabelingJobDataAttributes
 import Network.AWS.SageMaker.Types.LabelingJobDataSource
 
 -- | Input configuration information for a labeling job.
 --
---
---
--- /See:/ 'labelingJobInputConfig' smart constructor.
+-- /See:/ 'mkLabelingJobInputConfig' smart constructor.
 data LabelingJobInputConfig = LabelingJobInputConfig'
-  { _ljicDataAttributes ::
-      !(Maybe LabelingJobDataAttributes),
-    _ljicDataSource :: !LabelingJobDataSource
+  { dataAttributes ::
+      Lude.Maybe LabelingJobDataAttributes,
+    dataSource :: LabelingJobDataSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobInputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljicDataAttributes' - Attributes of the data specified by the customer.
---
--- * 'ljicDataSource' - The location of the input data.
-labelingJobInputConfig ::
-  -- | 'ljicDataSource'
+-- * 'dataAttributes' - Attributes of the data specified by the customer.
+-- * 'dataSource' - The location of the input data.
+mkLabelingJobInputConfig ::
+  -- | 'dataSource'
   LabelingJobDataSource ->
   LabelingJobInputConfig
-labelingJobInputConfig pDataSource_ =
+mkLabelingJobInputConfig pDataSource_ =
   LabelingJobInputConfig'
-    { _ljicDataAttributes = Nothing,
-      _ljicDataSource = pDataSource_
+    { dataAttributes = Lude.Nothing,
+      dataSource = pDataSource_
     }
 
 -- | Attributes of the data specified by the customer.
-ljicDataAttributes :: Lens' LabelingJobInputConfig (Maybe LabelingJobDataAttributes)
-ljicDataAttributes = lens _ljicDataAttributes (\s a -> s {_ljicDataAttributes = a})
+--
+-- /Note:/ Consider using 'dataAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljicDataAttributes :: Lens.Lens' LabelingJobInputConfig (Lude.Maybe LabelingJobDataAttributes)
+ljicDataAttributes = Lens.lens (dataAttributes :: LabelingJobInputConfig -> Lude.Maybe LabelingJobDataAttributes) (\s a -> s {dataAttributes = a} :: LabelingJobInputConfig)
+{-# DEPRECATED ljicDataAttributes "Use generic-lens or generic-optics with 'dataAttributes' instead." #-}
 
 -- | The location of the input data.
-ljicDataSource :: Lens' LabelingJobInputConfig LabelingJobDataSource
-ljicDataSource = lens _ljicDataSource (\s a -> s {_ljicDataSource = a})
+--
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljicDataSource :: Lens.Lens' LabelingJobInputConfig LabelingJobDataSource
+ljicDataSource = Lens.lens (dataSource :: LabelingJobInputConfig -> LabelingJobDataSource) (\s a -> s {dataSource = a} :: LabelingJobInputConfig)
+{-# DEPRECATED ljicDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
-instance FromJSON LabelingJobInputConfig where
+instance Lude.FromJSON LabelingJobInputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobInputConfig"
       ( \x ->
           LabelingJobInputConfig'
-            <$> (x .:? "DataAttributes") <*> (x .: "DataSource")
+            Lude.<$> (x Lude..:? "DataAttributes") Lude.<*> (x Lude..: "DataSource")
       )
 
-instance Hashable LabelingJobInputConfig
-
-instance NFData LabelingJobInputConfig
-
-instance ToJSON LabelingJobInputConfig where
+instance Lude.ToJSON LabelingJobInputConfig where
   toJSON LabelingJobInputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("DataAttributes" .=) <$> _ljicDataAttributes,
-            Just ("DataSource" .= _ljicDataSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DataAttributes" Lude..=) Lude.<$> dataAttributes,
+            Lude.Just ("DataSource" Lude..= dataSource)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary where
+module Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary
+  ( RightsizingRecommendationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRightsizingRecommendationSummary,
+
+    -- * Lenses
+    rrsSavingsPercentage,
+    rrsSavingsCurrencyCode,
+    rrsTotalRecommendationCount,
+    rrsEstimatedTotalMonthlySavingsAmount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary of rightsizing recommendations
 --
---
---
--- /See:/ 'rightsizingRecommendationSummary' smart constructor.
+-- /See:/ 'mkRightsizingRecommendationSummary' smart constructor.
 data RightsizingRecommendationSummary = RightsizingRecommendationSummary'
-  { _rrsSavingsPercentage ::
-      !(Maybe Text),
-    _rrsSavingsCurrencyCode ::
-      !(Maybe Text),
-    _rrsTotalRecommendationCount ::
-      !(Maybe Text),
-    _rrsEstimatedTotalMonthlySavingsAmount ::
-      !(Maybe Text)
+  { savingsPercentage ::
+      Lude.Maybe Lude.Text,
+    savingsCurrencyCode ::
+      Lude.Maybe Lude.Text,
+    totalRecommendationCount ::
+      Lude.Maybe Lude.Text,
+    estimatedTotalMonthlySavingsAmount ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsSavingsPercentage' - Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
---
--- * 'rrsSavingsCurrencyCode' - The currency code that AWS used to calculate the savings.
---
--- * 'rrsTotalRecommendationCount' - Total number of instance recommendations.
---
--- * 'rrsEstimatedTotalMonthlySavingsAmount' - Estimated total savings resulting from modifications, on a monthly basis.
-rightsizingRecommendationSummary ::
+-- * 'estimatedTotalMonthlySavingsAmount' - Estimated total savings resulting from modifications, on a monthly basis.
+-- * 'savingsCurrencyCode' - The currency code that AWS used to calculate the savings.
+-- * 'savingsPercentage' - Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
+-- * 'totalRecommendationCount' - Total number of instance recommendations.
+mkRightsizingRecommendationSummary ::
   RightsizingRecommendationSummary
-rightsizingRecommendationSummary =
+mkRightsizingRecommendationSummary =
   RightsizingRecommendationSummary'
-    { _rrsSavingsPercentage =
-        Nothing,
-      _rrsSavingsCurrencyCode = Nothing,
-      _rrsTotalRecommendationCount = Nothing,
-      _rrsEstimatedTotalMonthlySavingsAmount = Nothing
+    { savingsPercentage =
+        Lude.Nothing,
+      savingsCurrencyCode = Lude.Nothing,
+      totalRecommendationCount = Lude.Nothing,
+      estimatedTotalMonthlySavingsAmount = Lude.Nothing
     }
 
 -- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
-rrsSavingsPercentage :: Lens' RightsizingRecommendationSummary (Maybe Text)
-rrsSavingsPercentage = lens _rrsSavingsPercentage (\s a -> s {_rrsSavingsPercentage = a})
+--
+-- /Note:/ Consider using 'savingsPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsSavingsPercentage :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
+rrsSavingsPercentage = Lens.lens (savingsPercentage :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {savingsPercentage = a} :: RightsizingRecommendationSummary)
+{-# DEPRECATED rrsSavingsPercentage "Use generic-lens or generic-optics with 'savingsPercentage' instead." #-}
 
 -- | The currency code that AWS used to calculate the savings.
-rrsSavingsCurrencyCode :: Lens' RightsizingRecommendationSummary (Maybe Text)
-rrsSavingsCurrencyCode = lens _rrsSavingsCurrencyCode (\s a -> s {_rrsSavingsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'savingsCurrencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsSavingsCurrencyCode :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
+rrsSavingsCurrencyCode = Lens.lens (savingsCurrencyCode :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {savingsCurrencyCode = a} :: RightsizingRecommendationSummary)
+{-# DEPRECATED rrsSavingsCurrencyCode "Use generic-lens or generic-optics with 'savingsCurrencyCode' instead." #-}
 
 -- | Total number of instance recommendations.
-rrsTotalRecommendationCount :: Lens' RightsizingRecommendationSummary (Maybe Text)
-rrsTotalRecommendationCount = lens _rrsTotalRecommendationCount (\s a -> s {_rrsTotalRecommendationCount = a})
+--
+-- /Note:/ Consider using 'totalRecommendationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsTotalRecommendationCount :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
+rrsTotalRecommendationCount = Lens.lens (totalRecommendationCount :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {totalRecommendationCount = a} :: RightsizingRecommendationSummary)
+{-# DEPRECATED rrsTotalRecommendationCount "Use generic-lens or generic-optics with 'totalRecommendationCount' instead." #-}
 
 -- | Estimated total savings resulting from modifications, on a monthly basis.
-rrsEstimatedTotalMonthlySavingsAmount :: Lens' RightsizingRecommendationSummary (Maybe Text)
-rrsEstimatedTotalMonthlySavingsAmount = lens _rrsEstimatedTotalMonthlySavingsAmount (\s a -> s {_rrsEstimatedTotalMonthlySavingsAmount = a})
+--
+-- /Note:/ Consider using 'estimatedTotalMonthlySavingsAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsEstimatedTotalMonthlySavingsAmount :: Lens.Lens' RightsizingRecommendationSummary (Lude.Maybe Lude.Text)
+rrsEstimatedTotalMonthlySavingsAmount = Lens.lens (estimatedTotalMonthlySavingsAmount :: RightsizingRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedTotalMonthlySavingsAmount = a} :: RightsizingRecommendationSummary)
+{-# DEPRECATED rrsEstimatedTotalMonthlySavingsAmount "Use generic-lens or generic-optics with 'estimatedTotalMonthlySavingsAmount' instead." #-}
 
-instance FromJSON RightsizingRecommendationSummary where
+instance Lude.FromJSON RightsizingRecommendationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "RightsizingRecommendationSummary"
       ( \x ->
           RightsizingRecommendationSummary'
-            <$> (x .:? "SavingsPercentage")
-            <*> (x .:? "SavingsCurrencyCode")
-            <*> (x .:? "TotalRecommendationCount")
-            <*> (x .:? "EstimatedTotalMonthlySavingsAmount")
+            Lude.<$> (x Lude..:? "SavingsPercentage")
+            Lude.<*> (x Lude..:? "SavingsCurrencyCode")
+            Lude.<*> (x Lude..:? "TotalRecommendationCount")
+            Lude.<*> (x Lude..:? "EstimatedTotalMonthlySavingsAmount")
       )
-
-instance Hashable RightsizingRecommendationSummary
-
-instance NFData RightsizingRecommendationSummary

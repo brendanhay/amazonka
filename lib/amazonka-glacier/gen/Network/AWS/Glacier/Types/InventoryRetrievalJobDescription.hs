@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.InventoryRetrievalJobDescription where
+module Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
+  ( InventoryRetrievalJobDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryRetrievalJobDescription,
+
+    -- * Lenses
+    irjdFormat,
+    irjdEndDate,
+    irjdStartDate,
+    irjdMarker,
+    irjdLimit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the options for a range inventory retrieval job.
 --
---
---
--- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
+-- /See:/ 'mkInventoryRetrievalJobDescription' smart constructor.
 data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
-  { _irjdFormat ::
-      !(Maybe Text),
-    _irjdEndDate ::
-      !(Maybe Text),
-    _irjdStartDate ::
-      !(Maybe Text),
-    _irjdMarker ::
-      !(Maybe Text),
-    _irjdLimit ::
-      !(Maybe Text)
+  { format ::
+      Lude.Maybe Lude.Text,
+    endDate ::
+      Lude.Maybe Lude.Text,
+    startDate ::
+      Lude.Maybe Lude.Text,
+    marker ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryRetrievalJobDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irjdFormat' - The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
---
--- * 'irjdEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
---
--- * 'irjdStartDate' - The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
---
--- * 'irjdMarker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
---
--- * 'irjdLimit' - The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
-inventoryRetrievalJobDescription ::
+-- * 'endDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+-- * 'format' - The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
+-- * 'limit' - The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
+-- * 'marker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
+-- * 'startDate' - The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+mkInventoryRetrievalJobDescription ::
   InventoryRetrievalJobDescription
-inventoryRetrievalJobDescription =
+mkInventoryRetrievalJobDescription =
   InventoryRetrievalJobDescription'
-    { _irjdFormat = Nothing,
-      _irjdEndDate = Nothing,
-      _irjdStartDate = Nothing,
-      _irjdMarker = Nothing,
-      _irjdLimit = Nothing
+    { format = Lude.Nothing,
+      endDate = Lude.Nothing,
+      startDate = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
-irjdFormat :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-irjdFormat = lens _irjdFormat (\s a -> s {_irjdFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjdFormat :: Lens.Lens' InventoryRetrievalJobDescription (Lude.Maybe Lude.Text)
+irjdFormat = Lens.lens (format :: InventoryRetrievalJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: InventoryRetrievalJobDescription)
+{-# DEPRECATED irjdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
-irjdEndDate :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-irjdEndDate = lens _irjdEndDate (\s a -> s {_irjdEndDate = a})
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjdEndDate :: Lens.Lens' InventoryRetrievalJobDescription (Lude.Maybe Lude.Text)
+irjdEndDate = Lens.lens (endDate :: InventoryRetrievalJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: InventoryRetrievalJobDescription)
+{-# DEPRECATED irjdEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
-irjdStartDate :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-irjdStartDate = lens _irjdStartDate (\s a -> s {_irjdStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjdStartDate :: Lens.Lens' InventoryRetrievalJobDescription (Lude.Maybe Lude.Text)
+irjdStartDate = Lens.lens (startDate :: InventoryRetrievalJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: InventoryRetrievalJobDescription)
+{-# DEPRECATED irjdStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
-irjdMarker :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-irjdMarker = lens _irjdMarker (\s a -> s {_irjdMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjdMarker :: Lens.Lens' InventoryRetrievalJobDescription (Lude.Maybe Lude.Text)
+irjdMarker = Lens.lens (marker :: InventoryRetrievalJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: InventoryRetrievalJobDescription)
+{-# DEPRECATED irjdMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
-irjdLimit :: Lens' InventoryRetrievalJobDescription (Maybe Text)
-irjdLimit = lens _irjdLimit (\s a -> s {_irjdLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjdLimit :: Lens.Lens' InventoryRetrievalJobDescription (Lude.Maybe Lude.Text)
+irjdLimit = Lens.lens (limit :: InventoryRetrievalJobDescription -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: InventoryRetrievalJobDescription)
+{-# DEPRECATED irjdLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance FromJSON InventoryRetrievalJobDescription where
+instance Lude.FromJSON InventoryRetrievalJobDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryRetrievalJobDescription"
       ( \x ->
           InventoryRetrievalJobDescription'
-            <$> (x .:? "Format")
-            <*> (x .:? "EndDate")
-            <*> (x .:? "StartDate")
-            <*> (x .:? "Marker")
-            <*> (x .:? "Limit")
+            Lude.<$> (x Lude..:? "Format")
+            Lude.<*> (x Lude..:? "EndDate")
+            Lude.<*> (x Lude..:? "StartDate")
+            Lude.<*> (x Lude..:? "Marker")
+            Lude.<*> (x Lude..:? "Limit")
       )
-
-instance Hashable InventoryRetrievalJobDescription
-
-instance NFData InventoryRetrievalJobDescription

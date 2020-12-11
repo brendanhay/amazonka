@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,102 @@
 --
 -- Deletes a deployment configuration.
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
-  ( -- * Creating a Request
-    deleteDeploymentConfig,
-    DeleteDeploymentConfig,
+  ( -- * Creating a request
+    DeleteDeploymentConfig (..),
+    mkDeleteDeploymentConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcDeploymentConfigName,
 
-    -- * Destructuring the Response
-    deleteDeploymentConfigResponse,
-    DeleteDeploymentConfigResponse,
+    -- * Destructuring the response
+    DeleteDeploymentConfigResponse (..),
+    mkDeleteDeploymentConfigResponse,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DeleteDeploymentConfig@ operation.
 --
---
---
--- /See:/ 'deleteDeploymentConfig' smart constructor.
+-- /See:/ 'mkDeleteDeploymentConfig' smart constructor.
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
-  { _ddcDeploymentConfigName ::
-      Text
+  { deploymentConfigName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeploymentConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the IAM user or AWS account.
-deleteDeploymentConfig ::
-  -- | 'ddcDeploymentConfigName'
-  Text ->
+-- * 'deploymentConfigName' - The name of a deployment configuration associated with the IAM user or AWS account.
+mkDeleteDeploymentConfig ::
+  -- | 'deploymentConfigName'
+  Lude.Text ->
   DeleteDeploymentConfig
-deleteDeploymentConfig pDeploymentConfigName_ =
+mkDeleteDeploymentConfig pDeploymentConfigName_ =
   DeleteDeploymentConfig'
-    { _ddcDeploymentConfigName =
+    { deploymentConfigName =
         pDeploymentConfigName_
     }
 
 -- | The name of a deployment configuration associated with the IAM user or AWS account.
-ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
-ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\s a -> s {_ddcDeploymentConfigName = a})
+--
+-- /Note:/ Consider using 'deploymentConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDeploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Lude.Text
+ddcDeploymentConfigName = Lens.lens (deploymentConfigName :: DeleteDeploymentConfig -> Lude.Text) (\s a -> s {deploymentConfigName = a} :: DeleteDeploymentConfig)
+{-# DEPRECATED ddcDeploymentConfigName "Use generic-lens or generic-optics with 'deploymentConfigName' instead." #-}
 
-instance AWSRequest DeleteDeploymentConfig where
+instance Lude.AWSRequest DeleteDeploymentConfig where
   type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse
-  request = postJSON codeDeploy
-  response = receiveNull DeleteDeploymentConfigResponse'
+  request = Req.postJSON codeDeployService
+  response = Res.receiveNull DeleteDeploymentConfigResponse'
 
-instance Hashable DeleteDeploymentConfig
-
-instance NFData DeleteDeploymentConfig
-
-instance ToHeaders DeleteDeploymentConfig where
+instance Lude.ToHeaders DeleteDeploymentConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.DeleteDeploymentConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.DeleteDeploymentConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDeploymentConfig where
+instance Lude.ToJSON DeleteDeploymentConfig where
   toJSON DeleteDeploymentConfig' {..} =
-    object
-      ( catMaybes
-          [Just ("deploymentConfigName" .= _ddcDeploymentConfigName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("deploymentConfigName" Lude..= deploymentConfigName)]
       )
 
-instance ToPath DeleteDeploymentConfig where
-  toPath = const "/"
+instance Lude.ToPath DeleteDeploymentConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDeploymentConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDeploymentConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeploymentConfigResponse' with the minimum fields required to make a request.
-deleteDeploymentConfigResponse ::
+mkDeleteDeploymentConfigResponse ::
   DeleteDeploymentConfigResponse
-deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
-
-instance NFData DeleteDeploymentConfigResponse
+mkDeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'

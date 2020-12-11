@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.LogLevel where
+module Network.AWS.StepFunctions.Types.LogLevel
+  ( LogLevel
+      ( LogLevel',
+        All,
+        Error,
+        Fatal,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogLevel
-  = All
-  | Error'
-  | Fatal
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogLevel = LogLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogLevel where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "error" -> pure Error'
-      "fatal" -> pure Fatal
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing LogLevel from value: '" <> e
-            <> "'. Accepted values: all, error, fatal, off"
+pattern All :: LogLevel
+pattern All = LogLevel' "ALL"
 
-instance ToText LogLevel where
-  toText = \case
-    All -> "ALL"
-    Error' -> "ERROR"
-    Fatal -> "FATAL"
-    Off -> "OFF"
+pattern Error :: LogLevel
+pattern Error = LogLevel' "ERROR"
 
-instance Hashable LogLevel
+pattern Fatal :: LogLevel
+pattern Fatal = LogLevel' "FATAL"
 
-instance NFData LogLevel
+pattern Off :: LogLevel
+pattern Off = LogLevel' "OFF"
 
-instance ToByteString LogLevel
-
-instance ToQuery LogLevel
-
-instance ToHeader LogLevel
-
-instance ToJSON LogLevel where
-  toJSON = toJSONText
-
-instance FromJSON LogLevel where
-  parseJSON = parseJSONText "LogLevel"
+{-# COMPLETE
+  All,
+  Error,
+  Fatal,
+  Off,
+  LogLevel'
+  #-}

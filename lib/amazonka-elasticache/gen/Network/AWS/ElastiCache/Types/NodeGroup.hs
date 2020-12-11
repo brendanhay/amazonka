@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeGroup where
+module Network.AWS.ElastiCache.Types.NodeGroup
+  ( NodeGroup (..),
+
+    -- * Smart constructor
+    mkNodeGroup,
+
+    -- * Lenses
+    ngStatus,
+    ngPrimaryEndpoint,
+    ngSlots,
+    ngNodeGroupMembers,
+    ngNodeGroupId,
+    ngReaderEndpoint,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.Endpoint
 import Network.AWS.ElastiCache.Types.NodeGroupMember
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a collection of cache nodes in a replication group. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.
 --
---
---
--- /See:/ 'nodeGroup' smart constructor.
+-- /See:/ 'mkNodeGroup' smart constructor.
 data NodeGroup = NodeGroup'
-  { _ngStatus :: !(Maybe Text),
-    _ngPrimaryEndpoint :: !(Maybe Endpoint),
-    _ngSlots :: !(Maybe Text),
-    _ngNodeGroupMembers :: !(Maybe [NodeGroupMember]),
-    _ngNodeGroupId :: !(Maybe Text),
-    _ngReaderEndpoint :: !(Maybe Endpoint)
+  { status :: Lude.Maybe Lude.Text,
+    primaryEndpoint :: Lude.Maybe Endpoint,
+    slots :: Lude.Maybe Lude.Text,
+    nodeGroupMembers :: Lude.Maybe [NodeGroupMember],
+    nodeGroupId :: Lude.Maybe Lude.Text,
+    readerEndpoint :: Lude.Maybe Endpoint
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ngStatus' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ .
---
--- * 'ngPrimaryEndpoint' - The endpoint of the primary node in this node group (shard).
---
--- * 'ngSlots' - The keyspace for this node group (shard).
---
--- * 'ngNodeGroupMembers' - A list containing information about individual nodes within the node group (shard).
---
--- * 'ngNodeGroupId' - The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
---
--- * 'ngReaderEndpoint' - The endpoint of the replica nodes in this node group (shard).
-nodeGroup ::
+-- * 'nodeGroupId' - The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
+-- * 'nodeGroupMembers' - A list containing information about individual nodes within the node group (shard).
+-- * 'primaryEndpoint' - The endpoint of the primary node in this node group (shard).
+-- * 'readerEndpoint' - The endpoint of the replica nodes in this node group (shard).
+-- * 'slots' - The keyspace for this node group (shard).
+-- * 'status' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ .
+mkNodeGroup ::
   NodeGroup
-nodeGroup =
+mkNodeGroup =
   NodeGroup'
-    { _ngStatus = Nothing,
-      _ngPrimaryEndpoint = Nothing,
-      _ngSlots = Nothing,
-      _ngNodeGroupMembers = Nothing,
-      _ngNodeGroupId = Nothing,
-      _ngReaderEndpoint = Nothing
+    { status = Lude.Nothing,
+      primaryEndpoint = Lude.Nothing,
+      slots = Lude.Nothing,
+      nodeGroupMembers = Lude.Nothing,
+      nodeGroupId = Lude.Nothing,
+      readerEndpoint = Lude.Nothing
     }
 
 -- | The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ .
-ngStatus :: Lens' NodeGroup (Maybe Text)
-ngStatus = lens _ngStatus (\s a -> s {_ngStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngStatus :: Lens.Lens' NodeGroup (Lude.Maybe Lude.Text)
+ngStatus = Lens.lens (status :: NodeGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: NodeGroup)
+{-# DEPRECATED ngStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The endpoint of the primary node in this node group (shard).
-ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
-ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\s a -> s {_ngPrimaryEndpoint = a})
+--
+-- /Note:/ Consider using 'primaryEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngPrimaryEndpoint :: Lens.Lens' NodeGroup (Lude.Maybe Endpoint)
+ngPrimaryEndpoint = Lens.lens (primaryEndpoint :: NodeGroup -> Lude.Maybe Endpoint) (\s a -> s {primaryEndpoint = a} :: NodeGroup)
+{-# DEPRECATED ngPrimaryEndpoint "Use generic-lens or generic-optics with 'primaryEndpoint' instead." #-}
 
 -- | The keyspace for this node group (shard).
-ngSlots :: Lens' NodeGroup (Maybe Text)
-ngSlots = lens _ngSlots (\s a -> s {_ngSlots = a})
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngSlots :: Lens.Lens' NodeGroup (Lude.Maybe Lude.Text)
+ngSlots = Lens.lens (slots :: NodeGroup -> Lude.Maybe Lude.Text) (\s a -> s {slots = a} :: NodeGroup)
+{-# DEPRECATED ngSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | A list containing information about individual nodes within the node group (shard).
-ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
-ngNodeGroupMembers = lens _ngNodeGroupMembers (\s a -> s {_ngNodeGroupMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeGroupMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngNodeGroupMembers :: Lens.Lens' NodeGroup (Lude.Maybe [NodeGroupMember])
+ngNodeGroupMembers = Lens.lens (nodeGroupMembers :: NodeGroup -> Lude.Maybe [NodeGroupMember]) (\s a -> s {nodeGroupMembers = a} :: NodeGroup)
+{-# DEPRECATED ngNodeGroupMembers "Use generic-lens or generic-optics with 'nodeGroupMembers' instead." #-}
 
 -- | The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
-ngNodeGroupId :: Lens' NodeGroup (Maybe Text)
-ngNodeGroupId = lens _ngNodeGroupId (\s a -> s {_ngNodeGroupId = a})
+--
+-- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngNodeGroupId :: Lens.Lens' NodeGroup (Lude.Maybe Lude.Text)
+ngNodeGroupId = Lens.lens (nodeGroupId :: NodeGroup -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: NodeGroup)
+{-# DEPRECATED ngNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
 
 -- | The endpoint of the replica nodes in this node group (shard).
-ngReaderEndpoint :: Lens' NodeGroup (Maybe Endpoint)
-ngReaderEndpoint = lens _ngReaderEndpoint (\s a -> s {_ngReaderEndpoint = a})
+--
+-- /Note:/ Consider using 'readerEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngReaderEndpoint :: Lens.Lens' NodeGroup (Lude.Maybe Endpoint)
+ngReaderEndpoint = Lens.lens (readerEndpoint :: NodeGroup -> Lude.Maybe Endpoint) (\s a -> s {readerEndpoint = a} :: NodeGroup)
+{-# DEPRECATED ngReaderEndpoint "Use generic-lens or generic-optics with 'readerEndpoint' instead." #-}
 
-instance FromXML NodeGroup where
+instance Lude.FromXML NodeGroup where
   parseXML x =
     NodeGroup'
-      <$> (x .@? "Status")
-      <*> (x .@? "PrimaryEndpoint")
-      <*> (x .@? "Slots")
-      <*> ( x .@? "NodeGroupMembers" .!@ mempty
-              >>= may (parseXMLList "NodeGroupMember")
-          )
-      <*> (x .@? "NodeGroupId")
-      <*> (x .@? "ReaderEndpoint")
-
-instance Hashable NodeGroup
-
-instance NFData NodeGroup
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "PrimaryEndpoint")
+      Lude.<*> (x Lude..@? "Slots")
+      Lude.<*> ( x Lude..@? "NodeGroupMembers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "NodeGroupMember")
+               )
+      Lude.<*> (x Lude..@? "NodeGroupId")
+      Lude.<*> (x Lude..@? "ReaderEndpoint")

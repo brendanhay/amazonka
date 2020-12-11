@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.EBSBlockDevice where
+module Network.AWS.EMR.Types.EBSBlockDevice
+  ( EBSBlockDevice (..),
+
+    -- * Smart constructor
+    mkEBSBlockDevice,
+
+    -- * Lenses
+    ebdDevice,
+    ebdVolumeSpecification,
+  )
+where
 
 import Network.AWS.EMR.Types.VolumeSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration of requested EBS block device associated with the instance group.
 --
---
---
--- /See:/ 'ebsBlockDevice' smart constructor.
+-- /See:/ 'mkEBSBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { _ebdDevice :: !(Maybe Text),
-    _ebdVolumeSpecification :: !(Maybe VolumeSpecification)
+  { device ::
+      Lude.Maybe Lude.Text,
+    volumeSpecification :: Lude.Maybe VolumeSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ebdDevice' - The device name that is exposed to the instance, such as /dev/sdh.
---
--- * 'ebdVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-ebsBlockDevice ::
+-- * 'device' - The device name that is exposed to the instance, such as /dev/sdh.
+-- * 'volumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+mkEBSBlockDevice ::
   EBSBlockDevice
-ebsBlockDevice =
+mkEBSBlockDevice =
   EBSBlockDevice'
-    { _ebdDevice = Nothing,
-      _ebdVolumeSpecification = Nothing
+    { device = Lude.Nothing,
+      volumeSpecification = Lude.Nothing
     }
 
 -- | The device name that is exposed to the instance, such as /dev/sdh.
-ebdDevice :: Lens' EBSBlockDevice (Maybe Text)
-ebdDevice = lens _ebdDevice (\s a -> s {_ebdDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdDevice :: Lens.Lens' EBSBlockDevice (Lude.Maybe Lude.Text)
+ebdDevice = Lens.lens (device :: EBSBlockDevice -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
-ebdVolumeSpecification :: Lens' EBSBlockDevice (Maybe VolumeSpecification)
-ebdVolumeSpecification = lens _ebdVolumeSpecification (\s a -> s {_ebdVolumeSpecification = a})
+--
+-- /Note:/ Consider using 'volumeSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdVolumeSpecification :: Lens.Lens' EBSBlockDevice (Lude.Maybe VolumeSpecification)
+ebdVolumeSpecification = Lens.lens (volumeSpecification :: EBSBlockDevice -> Lude.Maybe VolumeSpecification) (\s a -> s {volumeSpecification = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdVolumeSpecification "Use generic-lens or generic-optics with 'volumeSpecification' instead." #-}
 
-instance FromJSON EBSBlockDevice where
+instance Lude.FromJSON EBSBlockDevice where
   parseJSON =
-    withObject
+    Lude.withObject
       "EBSBlockDevice"
       ( \x ->
           EBSBlockDevice'
-            <$> (x .:? "Device") <*> (x .:? "VolumeSpecification")
+            Lude.<$> (x Lude..:? "Device") Lude.<*> (x Lude..:? "VolumeSpecification")
       )
-
-instance Hashable EBSBlockDevice
-
-instance NFData EBSBlockDevice

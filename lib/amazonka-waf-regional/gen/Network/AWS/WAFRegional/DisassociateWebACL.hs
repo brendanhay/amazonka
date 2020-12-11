@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,133 @@
 --
 -- Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.
 module Network.AWS.WAFRegional.DisassociateWebACL
-  ( -- * Creating a Request
-    disassociateWebACL,
-    DisassociateWebACL,
+  ( -- * Creating a request
+    DisassociateWebACL (..),
+    mkDisassociateWebACL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwaResourceARN,
 
-    -- * Destructuring the Response
-    disassociateWebACLResponse,
-    DisassociateWebACLResponse,
+    -- * Destructuring the response
+    DisassociateWebACLResponse (..),
+    mkDisassociateWebACLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwaclrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'disassociateWebACL' smart constructor.
+-- | /See:/ 'mkDisassociateWebACL' smart constructor.
 newtype DisassociateWebACL = DisassociateWebACL'
-  { _dwaResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateWebACL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.
 --
--- * 'dwaResourceARN' - The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
-disassociateWebACL ::
-  -- | 'dwaResourceARN'
-  Text ->
+-- The ARN should be in one of the following formats:
+--
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+mkDisassociateWebACL ::
+  -- | 'resourceARN'
+  Lude.Text ->
   DisassociateWebACL
-disassociateWebACL pResourceARN_ =
-  DisassociateWebACL' {_dwaResourceARN = pResourceARN_}
+mkDisassociateWebACL pResourceARN_ =
+  DisassociateWebACL' {resourceARN = pResourceARN_}
 
--- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
-dwaResourceARN :: Lens' DisassociateWebACL Text
-dwaResourceARN = lens _dwaResourceARN (\s a -> s {_dwaResourceARN = a})
+-- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.
+--
+-- The ARN should be in one of the following formats:
+--
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+--
+--
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwaResourceARN :: Lens.Lens' DisassociateWebACL Lude.Text
+dwaResourceARN = Lens.lens (resourceARN :: DisassociateWebACL -> Lude.Text) (\s a -> s {resourceARN = a} :: DisassociateWebACL)
+{-# DEPRECATED dwaResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest DisassociateWebACL where
+instance Lude.AWSRequest DisassociateWebACL where
   type Rs DisassociateWebACL = DisassociateWebACLResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveEmpty
-      (\s h x -> DisassociateWebACLResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DisassociateWebACLResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DisassociateWebACL
-
-instance NFData DisassociateWebACL
-
-instance ToHeaders DisassociateWebACL where
+instance Lude.ToHeaders DisassociateWebACL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.DisassociateWebACL" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.DisassociateWebACL" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateWebACL where
+instance Lude.ToJSON DisassociateWebACL where
   toJSON DisassociateWebACL' {..} =
-    object (catMaybes [Just ("ResourceArn" .= _dwaResourceARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
 
-instance ToPath DisassociateWebACL where
-  toPath = const "/"
+instance Lude.ToPath DisassociateWebACL where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateWebACL where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateWebACL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateWebACLResponse' smart constructor.
+-- | /See:/ 'mkDisassociateWebACLResponse' smart constructor.
 newtype DisassociateWebACLResponse = DisassociateWebACLResponse'
-  { _dwaclrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateWebACLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwaclrsResponseStatus' - -- | The response status code.
-disassociateWebACLResponse ::
-  -- | 'dwaclrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateWebACLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateWebACLResponse
-disassociateWebACLResponse pResponseStatus_ =
-  DisassociateWebACLResponse'
-    { _dwaclrsResponseStatus =
-        pResponseStatus_
-    }
+mkDisassociateWebACLResponse pResponseStatus_ =
+  DisassociateWebACLResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dwaclrsResponseStatus :: Lens' DisassociateWebACLResponse Int
-dwaclrsResponseStatus = lens _dwaclrsResponseStatus (\s a -> s {_dwaclrsResponseStatus = a})
-
-instance NFData DisassociateWebACLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwaclrsResponseStatus :: Lens.Lens' DisassociateWebACLResponse Lude.Int
+dwaclrsResponseStatus = Lens.lens (responseStatus :: DisassociateWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateWebACLResponse)
+{-# DEPRECATED dwaclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

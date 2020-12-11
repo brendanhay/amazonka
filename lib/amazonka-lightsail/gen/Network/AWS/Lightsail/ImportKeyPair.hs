@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,149 @@
 --
 -- Imports a public SSH key from a specific key pair.
 module Network.AWS.Lightsail.ImportKeyPair
-  ( -- * Creating a Request
-    importKeyPair,
-    ImportKeyPair,
+  ( -- * Creating a request
+    ImportKeyPair (..),
+    mkImportKeyPair,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ikpKeyPairName,
     ikpPublicKeyBase64,
 
-    -- * Destructuring the Response
-    importKeyPairResponse,
-    ImportKeyPairResponse,
+    -- * Destructuring the response
+    ImportKeyPairResponse (..),
+    mkImportKeyPairResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ikprsOperation,
     ikprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'importKeyPair' smart constructor.
+-- | /See:/ 'mkImportKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
-  { _ikpKeyPairName :: !Text,
-    _ikpPublicKeyBase64 :: !Text
+  { keyPairName :: Lude.Text,
+    publicKeyBase64 :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportKeyPair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ikpKeyPairName' - The name of the key pair for which you want to import the public key.
---
--- * 'ikpPublicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
-importKeyPair ::
-  -- | 'ikpKeyPairName'
-  Text ->
-  -- | 'ikpPublicKeyBase64'
-  Text ->
+-- * 'keyPairName' - The name of the key pair for which you want to import the public key.
+-- * 'publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+mkImportKeyPair ::
+  -- | 'keyPairName'
+  Lude.Text ->
+  -- | 'publicKeyBase64'
+  Lude.Text ->
   ImportKeyPair
-importKeyPair pKeyPairName_ pPublicKeyBase64_ =
+mkImportKeyPair pKeyPairName_ pPublicKeyBase64_ =
   ImportKeyPair'
-    { _ikpKeyPairName = pKeyPairName_,
-      _ikpPublicKeyBase64 = pPublicKeyBase64_
+    { keyPairName = pKeyPairName_,
+      publicKeyBase64 = pPublicKeyBase64_
     }
 
 -- | The name of the key pair for which you want to import the public key.
-ikpKeyPairName :: Lens' ImportKeyPair Text
-ikpKeyPairName = lens _ikpKeyPairName (\s a -> s {_ikpKeyPairName = a})
+--
+-- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikpKeyPairName :: Lens.Lens' ImportKeyPair Lude.Text
+ikpKeyPairName = Lens.lens (keyPairName :: ImportKeyPair -> Lude.Text) (\s a -> s {keyPairName = a} :: ImportKeyPair)
+{-# DEPRECATED ikpKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
-ikpPublicKeyBase64 :: Lens' ImportKeyPair Text
-ikpPublicKeyBase64 = lens _ikpPublicKeyBase64 (\s a -> s {_ikpPublicKeyBase64 = a})
+--
+-- /Note:/ Consider using 'publicKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikpPublicKeyBase64 :: Lens.Lens' ImportKeyPair Lude.Text
+ikpPublicKeyBase64 = Lens.lens (publicKeyBase64 :: ImportKeyPair -> Lude.Text) (\s a -> s {publicKeyBase64 = a} :: ImportKeyPair)
+{-# DEPRECATED ikpPublicKeyBase64 "Use generic-lens or generic-optics with 'publicKeyBase64' instead." #-}
 
-instance AWSRequest ImportKeyPair where
+instance Lude.AWSRequest ImportKeyPair where
   type Rs ImportKeyPair = ImportKeyPairResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ImportKeyPairResponse'
-            <$> (x .?> "operation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ImportKeyPair
-
-instance NFData ImportKeyPair
-
-instance ToHeaders ImportKeyPair where
+instance Lude.ToHeaders ImportKeyPair where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.ImportKeyPair" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.ImportKeyPair" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportKeyPair where
+instance Lude.ToJSON ImportKeyPair where
   toJSON ImportKeyPair' {..} =
-    object
-      ( catMaybes
-          [ Just ("keyPairName" .= _ikpKeyPairName),
-            Just ("publicKeyBase64" .= _ikpPublicKeyBase64)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("keyPairName" Lude..= keyPairName),
+            Lude.Just ("publicKeyBase64" Lude..= publicKeyBase64)
           ]
       )
 
-instance ToPath ImportKeyPair where
-  toPath = const "/"
+instance Lude.ToPath ImportKeyPair where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportKeyPair where
-  toQuery = const mempty
+instance Lude.ToQuery ImportKeyPair where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importKeyPairResponse' smart constructor.
+-- | /See:/ 'mkImportKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-  { _ikprsOperation ::
-      !(Maybe Operation),
-    _ikprsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ikprsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'ikprsResponseStatus' - -- | The response status code.
-importKeyPairResponse ::
-  -- | 'ikprsResponseStatus'
-  Int ->
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkImportKeyPairResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportKeyPairResponse
-importKeyPairResponse pResponseStatus_ =
+mkImportKeyPairResponse pResponseStatus_ =
   ImportKeyPairResponse'
-    { _ikprsOperation = Nothing,
-      _ikprsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-ikprsOperation :: Lens' ImportKeyPairResponse (Maybe Operation)
-ikprsOperation = lens _ikprsOperation (\s a -> s {_ikprsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikprsOperation :: Lens.Lens' ImportKeyPairResponse (Lude.Maybe Operation)
+ikprsOperation = Lens.lens (operation :: ImportKeyPairResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: ImportKeyPairResponse)
+{-# DEPRECATED ikprsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
-ikprsResponseStatus = lens _ikprsResponseStatus (\s a -> s {_ikprsResponseStatus = a})
-
-instance NFData ImportKeyPairResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikprsResponseStatus :: Lens.Lens' ImportKeyPairResponse Lude.Int
+ikprsResponseStatus = Lens.lens (responseStatus :: ImportKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportKeyPairResponse)
+{-# DEPRECATED ikprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,107 @@
 --
 -- Retrieves the number of hosted zones that are associated with the current AWS account.
 module Network.AWS.Route53.GetHostedZoneCount
-  ( -- * Creating a Request
-    getHostedZoneCount,
-    GetHostedZoneCount,
+  ( -- * Creating a request
+    GetHostedZoneCount (..),
+    mkGetHostedZoneCount,
 
-    -- * Destructuring the Response
-    getHostedZoneCountResponse,
-    GetHostedZoneCountResponse,
+    -- * Destructuring the response
+    GetHostedZoneCountResponse (..),
+    mkGetHostedZoneCountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ghzcrsResponseStatus,
     ghzcrsHostedZoneCount,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to retrieve a count of all the hosted zones that are associated with the current AWS account.
 --
---
---
--- /See:/ 'getHostedZoneCount' smart constructor.
+-- /See:/ 'mkGetHostedZoneCount' smart constructor.
 data GetHostedZoneCount = GetHostedZoneCount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
-getHostedZoneCount ::
+mkGetHostedZoneCount ::
   GetHostedZoneCount
-getHostedZoneCount = GetHostedZoneCount'
+mkGetHostedZoneCount = GetHostedZoneCount'
 
-instance AWSRequest GetHostedZoneCount where
+instance Lude.AWSRequest GetHostedZoneCount where
   type Rs GetHostedZoneCount = GetHostedZoneCountResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetHostedZoneCountResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "HostedZoneCount")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "HostedZoneCount")
       )
 
-instance Hashable GetHostedZoneCount
+instance Lude.ToHeaders GetHostedZoneCount where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetHostedZoneCount
+instance Lude.ToPath GetHostedZoneCount where
+  toPath = Lude.const "/2013-04-01/hostedzonecount"
 
-instance ToHeaders GetHostedZoneCount where
-  toHeaders = const mempty
-
-instance ToPath GetHostedZoneCount where
-  toPath = const "/2013-04-01/hostedzonecount"
-
-instance ToQuery GetHostedZoneCount where
-  toQuery = const mempty
+instance Lude.ToQuery GetHostedZoneCount where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the response to a @GetHostedZoneCount@ request.
 --
---
---
--- /See:/ 'getHostedZoneCountResponse' smart constructor.
+-- /See:/ 'mkGetHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-  { _ghzcrsResponseStatus ::
-      !Int,
-    _ghzcrsHostedZoneCount :: !Integer
+  { responseStatus ::
+      Lude.Int,
+    hostedZoneCount :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghzcrsResponseStatus' - -- | The response status code.
---
--- * 'ghzcrsHostedZoneCount' - The total number of public and private hosted zones that are associated with the current AWS account.
-getHostedZoneCountResponse ::
-  -- | 'ghzcrsResponseStatus'
-  Int ->
-  -- | 'ghzcrsHostedZoneCount'
-  Integer ->
+-- * 'hostedZoneCount' - The total number of public and private hosted zones that are associated with the current AWS account.
+-- * 'responseStatus' - The response status code.
+mkGetHostedZoneCountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'hostedZoneCount'
+  Lude.Integer ->
   GetHostedZoneCountResponse
-getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
+mkGetHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
   GetHostedZoneCountResponse'
-    { _ghzcrsResponseStatus =
-        pResponseStatus_,
-      _ghzcrsHostedZoneCount = pHostedZoneCount_
+    { responseStatus = pResponseStatus_,
+      hostedZoneCount = pHostedZoneCount_
     }
 
--- | -- | The response status code.
-ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
-ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\s a -> s {_ghzcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzcrsResponseStatus :: Lens.Lens' GetHostedZoneCountResponse Lude.Int
+ghzcrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneCountResponse)
+{-# DEPRECATED ghzcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The total number of public and private hosted zones that are associated with the current AWS account.
-ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
-ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\s a -> s {_ghzcrsHostedZoneCount = a})
-
-instance NFData GetHostedZoneCountResponse
+--
+-- /Note:/ Consider using 'hostedZoneCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzcrsHostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Lude.Integer
+ghzcrsHostedZoneCount = Lens.lens (hostedZoneCount :: GetHostedZoneCountResponse -> Lude.Integer) (\s a -> s {hostedZoneCount = a} :: GetHostedZoneCountResponse)
+{-# DEPRECATED ghzcrsHostedZoneCount "Use generic-lens or generic-optics with 'hostedZoneCount' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.CloudWatchDimensionConfiguration where
+module Network.AWS.SES.Types.CloudWatchDimensionConfiguration
+  ( CloudWatchDimensionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchDimensionConfiguration,
+
+    -- * Lenses
+    cwdcDimensionName,
+    cwdcDimensionValueSource,
+    cwdcDefaultDimensionValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.DimensionValueSource
 
 -- | Contains the dimension configuration to use when you publish email sending events to Amazon CloudWatch.
 --
---
 -- For information about publishing email sending events to Amazon CloudWatch, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'cloudWatchDimensionConfiguration' smart constructor.
+-- /See:/ 'mkCloudWatchDimensionConfiguration' smart constructor.
 data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
-  { _cwdcDimensionName ::
-      !Text,
-    _cwdcDimensionValueSource ::
-      !DimensionValueSource,
-    _cwdcDefaultDimensionValue ::
-      !Text
+  { dimensionName ::
+      Lude.Text,
+    dimensionValueSource ::
+      DimensionValueSource,
+    defaultDimensionValue ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchDimensionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'defaultDimensionValue' - The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:
 --
--- * 'cwdcDimensionName' - The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
 --
--- * 'cwdcDimensionValueSource' - The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the @SendEmail@ /@SendRawEmail@ API, choose @messageTag@ . If you want Amazon SES to use your own email headers, choose @emailHeader@ .
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
 --
--- * 'cwdcDefaultDimensionValue' - The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
-cloudWatchDimensionConfiguration ::
-  -- | 'cwdcDimensionName'
-  Text ->
-  -- | 'cwdcDimensionValueSource'
+--
+--     * Contain less than 256 characters.
+--
+--
+-- * 'dimensionName' - The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Contain less than 256 characters.
+--
+--
+-- * 'dimensionValueSource' - The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the @SendEmail@ /@SendRawEmail@ API, choose @messageTag@ . If you want Amazon SES to use your own email headers, choose @emailHeader@ .
+mkCloudWatchDimensionConfiguration ::
+  -- | 'dimensionName'
+  Lude.Text ->
+  -- | 'dimensionValueSource'
   DimensionValueSource ->
-  -- | 'cwdcDefaultDimensionValue'
-  Text ->
+  -- | 'defaultDimensionValue'
+  Lude.Text ->
   CloudWatchDimensionConfiguration
-cloudWatchDimensionConfiguration
+mkCloudWatchDimensionConfiguration
   pDimensionName_
   pDimensionValueSource_
   pDefaultDimensionValue_ =
     CloudWatchDimensionConfiguration'
-      { _cwdcDimensionName =
+      { dimensionName =
           pDimensionName_,
-        _cwdcDimensionValueSource = pDimensionValueSource_,
-        _cwdcDefaultDimensionValue = pDefaultDimensionValue_
+        dimensionValueSource = pDimensionValueSource_,
+        defaultDimensionValue = pDefaultDimensionValue_
       }
 
--- | The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
-cwdcDimensionName :: Lens' CloudWatchDimensionConfiguration Text
-cwdcDimensionName = lens _cwdcDimensionName (\s a -> s {_cwdcDimensionName = a})
+-- | The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Contain less than 256 characters.
+--
+--
+--
+-- /Note:/ Consider using 'dimensionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwdcDimensionName :: Lens.Lens' CloudWatchDimensionConfiguration Lude.Text
+cwdcDimensionName = Lens.lens (dimensionName :: CloudWatchDimensionConfiguration -> Lude.Text) (\s a -> s {dimensionName = a} :: CloudWatchDimensionConfiguration)
+{-# DEPRECATED cwdcDimensionName "Use generic-lens or generic-optics with 'dimensionName' instead." #-}
 
 -- | The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the @SendEmail@ /@SendRawEmail@ API, choose @messageTag@ . If you want Amazon SES to use your own email headers, choose @emailHeader@ .
-cwdcDimensionValueSource :: Lens' CloudWatchDimensionConfiguration DimensionValueSource
-cwdcDimensionValueSource = lens _cwdcDimensionValueSource (\s a -> s {_cwdcDimensionValueSource = a})
+--
+-- /Note:/ Consider using 'dimensionValueSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwdcDimensionValueSource :: Lens.Lens' CloudWatchDimensionConfiguration DimensionValueSource
+cwdcDimensionValueSource = Lens.lens (dimensionValueSource :: CloudWatchDimensionConfiguration -> DimensionValueSource) (\s a -> s {dimensionValueSource = a} :: CloudWatchDimensionConfiguration)
+{-# DEPRECATED cwdcDimensionValueSource "Use generic-lens or generic-optics with 'dimensionValueSource' instead." #-}
 
--- | The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
-cwdcDefaultDimensionValue :: Lens' CloudWatchDimensionConfiguration Text
-cwdcDefaultDimensionValue = lens _cwdcDefaultDimensionValue (\s a -> s {_cwdcDefaultDimensionValue = a})
+-- | The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Contain less than 256 characters.
+--
+--
+--
+-- /Note:/ Consider using 'defaultDimensionValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwdcDefaultDimensionValue :: Lens.Lens' CloudWatchDimensionConfiguration Lude.Text
+cwdcDefaultDimensionValue = Lens.lens (defaultDimensionValue :: CloudWatchDimensionConfiguration -> Lude.Text) (\s a -> s {defaultDimensionValue = a} :: CloudWatchDimensionConfiguration)
+{-# DEPRECATED cwdcDefaultDimensionValue "Use generic-lens or generic-optics with 'defaultDimensionValue' instead." #-}
 
-instance FromXML CloudWatchDimensionConfiguration where
+instance Lude.FromXML CloudWatchDimensionConfiguration where
   parseXML x =
     CloudWatchDimensionConfiguration'
-      <$> (x .@ "DimensionName")
-      <*> (x .@ "DimensionValueSource")
-      <*> (x .@ "DefaultDimensionValue")
+      Lude.<$> (x Lude..@ "DimensionName")
+      Lude.<*> (x Lude..@ "DimensionValueSource")
+      Lude.<*> (x Lude..@ "DefaultDimensionValue")
 
-instance Hashable CloudWatchDimensionConfiguration
-
-instance NFData CloudWatchDimensionConfiguration
-
-instance ToQuery CloudWatchDimensionConfiguration where
+instance Lude.ToQuery CloudWatchDimensionConfiguration where
   toQuery CloudWatchDimensionConfiguration' {..} =
-    mconcat
-      [ "DimensionName" =: _cwdcDimensionName,
-        "DimensionValueSource" =: _cwdcDimensionValueSource,
-        "DefaultDimensionValue" =: _cwdcDefaultDimensionValue
+    Lude.mconcat
+      [ "DimensionName" Lude.=: dimensionName,
+        "DimensionValueSource" Lude.=: dimensionValueSource,
+        "DefaultDimensionValue" Lude.=: defaultDimensionValue
       ]

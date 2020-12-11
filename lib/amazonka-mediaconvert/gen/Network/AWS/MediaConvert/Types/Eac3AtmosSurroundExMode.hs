@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode where
+module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
+  ( Eac3AtmosSurroundExMode
+      ( Eac3AtmosSurroundExMode',
+        EASEMDisabled,
+        EASEMEnabled,
+        EASEMNotIndicated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify whether your input audio has an additional center rear surround channel matrix encoded into your left and right surround channels.
-data Eac3AtmosSurroundExMode
-  = EASEMDisabled
-  | EASEMEnabled
-  | EASEMNotIndicated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3AtmosSurroundExMode = Eac3AtmosSurroundExMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3AtmosSurroundExMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure EASEMDisabled
-      "enabled" -> pure EASEMEnabled
-      "not_indicated" -> pure EASEMNotIndicated
-      e ->
-        fromTextError $
-          "Failure parsing Eac3AtmosSurroundExMode from value: '" <> e
-            <> "'. Accepted values: disabled, enabled, not_indicated"
+pattern EASEMDisabled :: Eac3AtmosSurroundExMode
+pattern EASEMDisabled = Eac3AtmosSurroundExMode' "DISABLED"
 
-instance ToText Eac3AtmosSurroundExMode where
-  toText = \case
-    EASEMDisabled -> "DISABLED"
-    EASEMEnabled -> "ENABLED"
-    EASEMNotIndicated -> "NOT_INDICATED"
+pattern EASEMEnabled :: Eac3AtmosSurroundExMode
+pattern EASEMEnabled = Eac3AtmosSurroundExMode' "ENABLED"
 
-instance Hashable Eac3AtmosSurroundExMode
+pattern EASEMNotIndicated :: Eac3AtmosSurroundExMode
+pattern EASEMNotIndicated = Eac3AtmosSurroundExMode' "NOT_INDICATED"
 
-instance NFData Eac3AtmosSurroundExMode
-
-instance ToByteString Eac3AtmosSurroundExMode
-
-instance ToQuery Eac3AtmosSurroundExMode
-
-instance ToHeader Eac3AtmosSurroundExMode
-
-instance ToJSON Eac3AtmosSurroundExMode where
-  toJSON = toJSONText
-
-instance FromJSON Eac3AtmosSurroundExMode where
-  parseJSON = parseJSONText "Eac3AtmosSurroundExMode"
+{-# COMPLETE
+  EASEMDisabled,
+  EASEMEnabled,
+  EASEMNotIndicated,
+  Eac3AtmosSurroundExMode'
+  #-}

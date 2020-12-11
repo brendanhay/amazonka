@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType where
+module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
+  ( CloudFormationStackRecordSourceType
+      ( CloudFormationStackRecordSourceType',
+        ExportSnapshotRecord
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CloudFormationStackRecordSourceType = ExportSnapshotRecord
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CloudFormationStackRecordSourceType = CloudFormationStackRecordSourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CloudFormationStackRecordSourceType where
-  parser =
-    takeLowerText >>= \case
-      "exportsnapshotrecord" -> pure ExportSnapshotRecord
-      e ->
-        fromTextError $
-          "Failure parsing CloudFormationStackRecordSourceType from value: '" <> e
-            <> "'. Accepted values: exportsnapshotrecord"
+pattern ExportSnapshotRecord :: CloudFormationStackRecordSourceType
+pattern ExportSnapshotRecord = CloudFormationStackRecordSourceType' "ExportSnapshotRecord"
 
-instance ToText CloudFormationStackRecordSourceType where
-  toText = \case
-    ExportSnapshotRecord -> "ExportSnapshotRecord"
-
-instance Hashable CloudFormationStackRecordSourceType
-
-instance NFData CloudFormationStackRecordSourceType
-
-instance ToByteString CloudFormationStackRecordSourceType
-
-instance ToQuery CloudFormationStackRecordSourceType
-
-instance ToHeader CloudFormationStackRecordSourceType
-
-instance FromJSON CloudFormationStackRecordSourceType where
-  parseJSON = parseJSONText "CloudFormationStackRecordSourceType"
+{-# COMPLETE
+  ExportSnapshotRecord,
+  CloudFormationStackRecordSourceType'
+  #-}

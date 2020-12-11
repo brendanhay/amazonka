@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,144 @@
 --
 -- Retrieves the Session Manager connection status for an instance to determine whether it is running and ready to receive Session Manager connections.
 module Network.AWS.SSM.GetConnectionStatus
-  ( -- * Creating a Request
-    getConnectionStatus,
-    GetConnectionStatus,
+  ( -- * Creating a request
+    GetConnectionStatus (..),
+    mkGetConnectionStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcsTarget,
 
-    -- * Destructuring the Response
-    getConnectionStatusResponse,
-    GetConnectionStatusResponse,
+    -- * Destructuring the response
+    GetConnectionStatusResponse (..),
+    mkGetConnectionStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcsrsStatus,
     gcsrsTarget,
     gcsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getConnectionStatus' smart constructor.
+-- | /See:/ 'mkGetConnectionStatus' smart constructor.
 newtype GetConnectionStatus = GetConnectionStatus'
-  { _gcsTarget ::
-      Text
+  { target ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsTarget' - The ID of the instance.
-getConnectionStatus ::
-  -- | 'gcsTarget'
-  Text ->
+-- * 'target' - The ID of the instance.
+mkGetConnectionStatus ::
+  -- | 'target'
+  Lude.Text ->
   GetConnectionStatus
-getConnectionStatus pTarget_ =
-  GetConnectionStatus' {_gcsTarget = pTarget_}
+mkGetConnectionStatus pTarget_ =
+  GetConnectionStatus' {target = pTarget_}
 
 -- | The ID of the instance.
-gcsTarget :: Lens' GetConnectionStatus Text
-gcsTarget = lens _gcsTarget (\s a -> s {_gcsTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsTarget :: Lens.Lens' GetConnectionStatus Lude.Text
+gcsTarget = Lens.lens (target :: GetConnectionStatus -> Lude.Text) (\s a -> s {target = a} :: GetConnectionStatus)
+{-# DEPRECATED gcsTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance AWSRequest GetConnectionStatus where
+instance Lude.AWSRequest GetConnectionStatus where
   type Rs GetConnectionStatus = GetConnectionStatusResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConnectionStatusResponse'
-            <$> (x .?> "Status") <*> (x .?> "Target") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "Target")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConnectionStatus
-
-instance NFData GetConnectionStatus
-
-instance ToHeaders GetConnectionStatus where
+instance Lude.ToHeaders GetConnectionStatus where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.GetConnectionStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.GetConnectionStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetConnectionStatus where
+instance Lude.ToJSON GetConnectionStatus where
   toJSON GetConnectionStatus' {..} =
-    object (catMaybes [Just ("Target" .= _gcsTarget)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Target" Lude..= target)])
 
-instance ToPath GetConnectionStatus where
-  toPath = const "/"
+instance Lude.ToPath GetConnectionStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetConnectionStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetConnectionStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConnectionStatusResponse' smart constructor.
+-- | /See:/ 'mkGetConnectionStatusResponse' smart constructor.
 data GetConnectionStatusResponse = GetConnectionStatusResponse'
-  { _gcsrsStatus ::
-      !(Maybe ConnectionStatus),
-    _gcsrsTarget :: !(Maybe Text),
-    _gcsrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe ConnectionStatus,
+    target :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsrsStatus' - The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
---
--- * 'gcsrsTarget' - The ID of the instance to check connection status.
---
--- * 'gcsrsResponseStatus' - -- | The response status code.
-getConnectionStatusResponse ::
-  -- | 'gcsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
+-- * 'target' - The ID of the instance to check connection status.
+mkGetConnectionStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConnectionStatusResponse
-getConnectionStatusResponse pResponseStatus_ =
+mkGetConnectionStatusResponse pResponseStatus_ =
   GetConnectionStatusResponse'
-    { _gcsrsStatus = Nothing,
-      _gcsrsTarget = Nothing,
-      _gcsrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      target = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
-gcsrsStatus :: Lens' GetConnectionStatusResponse (Maybe ConnectionStatus)
-gcsrsStatus = lens _gcsrsStatus (\s a -> s {_gcsrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsStatus :: Lens.Lens' GetConnectionStatusResponse (Lude.Maybe ConnectionStatus)
+gcsrsStatus = Lens.lens (status :: GetConnectionStatusResponse -> Lude.Maybe ConnectionStatus) (\s a -> s {status = a} :: GetConnectionStatusResponse)
+{-# DEPRECATED gcsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the instance to check connection status.
-gcsrsTarget :: Lens' GetConnectionStatusResponse (Maybe Text)
-gcsrsTarget = lens _gcsrsTarget (\s a -> s {_gcsrsTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsTarget :: Lens.Lens' GetConnectionStatusResponse (Lude.Maybe Lude.Text)
+gcsrsTarget = Lens.lens (target :: GetConnectionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {target = a} :: GetConnectionStatusResponse)
+{-# DEPRECATED gcsrsTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
--- | -- | The response status code.
-gcsrsResponseStatus :: Lens' GetConnectionStatusResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\s a -> s {_gcsrsResponseStatus = a})
-
-instance NFData GetConnectionStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsResponseStatus :: Lens.Lens' GetConnectionStatusResponse Lude.Int
+gcsrsResponseStatus = Lens.lens (responseStatus :: GetConnectionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionStatusResponse)
+{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

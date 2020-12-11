@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackLayer where
+module Network.AWS.Shield.Types.AttackLayer
+  ( AttackLayer
+      ( AttackLayer',
+        Application,
+        Network
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AttackLayer
-  = Application
-  | Network
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AttackLayer = AttackLayer' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AttackLayer where
-  parser =
-    takeLowerText >>= \case
-      "application" -> pure Application
-      "network" -> pure Network
-      e ->
-        fromTextError $
-          "Failure parsing AttackLayer from value: '" <> e
-            <> "'. Accepted values: application, network"
+pattern Application :: AttackLayer
+pattern Application = AttackLayer' "APPLICATION"
 
-instance ToText AttackLayer where
-  toText = \case
-    Application -> "APPLICATION"
-    Network -> "NETWORK"
+pattern Network :: AttackLayer
+pattern Network = AttackLayer' "NETWORK"
 
-instance Hashable AttackLayer
-
-instance NFData AttackLayer
-
-instance ToByteString AttackLayer
-
-instance ToQuery AttackLayer
-
-instance ToHeader AttackLayer
-
-instance FromJSON AttackLayer where
-  parseJSON = parseJSONText "AttackLayer"
+{-# COMPLETE
+  Application,
+  Network,
+  AttackLayer'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the API keys for a given API.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListAPIKeys
-  ( -- * Creating a Request
-    listAPIKeys,
-    ListAPIKeys,
+  ( -- * Creating a request
+    ListAPIKeys (..),
+    mkListAPIKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lakNextToken,
     lakMaxResults,
     lakApiId,
 
-    -- * Destructuring the Response
-    listAPIKeysResponse,
-    ListAPIKeysResponse,
+    -- * Destructuring the response
+    ListAPIKeysResponse (..),
+    mkListAPIKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lakrsApiKeys,
     lakrsNextToken,
     lakrsResponseStatus,
@@ -44,129 +37,152 @@ module Network.AWS.AppSync.ListAPIKeys
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAPIKeys' smart constructor.
+-- | /See:/ 'mkListAPIKeys' smart constructor.
 data ListAPIKeys = ListAPIKeys'
-  { _lakNextToken :: !(Maybe Text),
-    _lakMaxResults :: !(Maybe Nat),
-    _lakApiId :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    apiId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAPIKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lakNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lakMaxResults' - The maximum number of results you want the request to return.
---
--- * 'lakApiId' - The API ID.
-listAPIKeys ::
-  -- | 'lakApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListAPIKeys ::
+  -- | 'apiId'
+  Lude.Text ->
   ListAPIKeys
-listAPIKeys pApiId_ =
+mkListAPIKeys pApiId_ =
   ListAPIKeys'
-    { _lakNextToken = Nothing,
-      _lakMaxResults = Nothing,
-      _lakApiId = pApiId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      apiId = pApiId_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lakNextToken :: Lens' ListAPIKeys (Maybe Text)
-lakNextToken = lens _lakNextToken (\s a -> s {_lakNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakNextToken :: Lens.Lens' ListAPIKeys (Lude.Maybe Lude.Text)
+lakNextToken = Lens.lens (nextToken :: ListAPIKeys -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAPIKeys)
+{-# DEPRECATED lakNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-lakMaxResults :: Lens' ListAPIKeys (Maybe Natural)
-lakMaxResults = lens _lakMaxResults (\s a -> s {_lakMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakMaxResults :: Lens.Lens' ListAPIKeys (Lude.Maybe Lude.Natural)
+lakMaxResults = Lens.lens (maxResults :: ListAPIKeys -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAPIKeys)
+{-# DEPRECATED lakMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The API ID.
-lakApiId :: Lens' ListAPIKeys Text
-lakApiId = lens _lakApiId (\s a -> s {_lakApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakApiId :: Lens.Lens' ListAPIKeys Lude.Text
+lakApiId = Lens.lens (apiId :: ListAPIKeys -> Lude.Text) (\s a -> s {apiId = a} :: ListAPIKeys)
+{-# DEPRECATED lakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSPager ListAPIKeys where
+instance Page.AWSPager ListAPIKeys where
   page rq rs
-    | stop (rs ^. lakrsNextToken) = Nothing
-    | stop (rs ^. lakrsApiKeys) = Nothing
-    | otherwise = Just $ rq & lakNextToken .~ rs ^. lakrsNextToken
+    | Page.stop (rs Lens.^. lakrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lakrsApiKeys) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lakNextToken Lens..~ rs Lens.^. lakrsNextToken
 
-instance AWSRequest ListAPIKeys where
+instance Lude.AWSRequest ListAPIKeys where
   type Rs ListAPIKeys = ListAPIKeysResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAPIKeysResponse'
-            <$> (x .?> "apiKeys" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "apiKeys" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAPIKeys
-
-instance NFData ListAPIKeys
-
-instance ToHeaders ListAPIKeys where
+instance Lude.ToHeaders ListAPIKeys where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListAPIKeys where
+instance Lude.ToPath ListAPIKeys where
   toPath ListAPIKeys' {..} =
-    mconcat ["/v1/apis/", toBS _lakApiId, "/apikeys"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/apikeys"]
 
-instance ToQuery ListAPIKeys where
+instance Lude.ToQuery ListAPIKeys where
   toQuery ListAPIKeys' {..} =
-    mconcat
-      ["nextToken" =: _lakNextToken, "maxResults" =: _lakMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listAPIKeysResponse' smart constructor.
+-- | /See:/ 'mkListAPIKeysResponse' smart constructor.
 data ListAPIKeysResponse = ListAPIKeysResponse'
-  { _lakrsApiKeys ::
-      !(Maybe [APIKey]),
-    _lakrsNextToken :: !(Maybe Text),
-    _lakrsResponseStatus :: !Int
+  { apiKeys ::
+      Lude.Maybe [APIKey],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAPIKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lakrsApiKeys' - The @ApiKey@ objects.
---
--- * 'lakrsNextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
---
--- * 'lakrsResponseStatus' - -- | The response status code.
-listAPIKeysResponse ::
-  -- | 'lakrsResponseStatus'
-  Int ->
+-- * 'apiKeys' - The @ApiKey@ objects.
+-- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListAPIKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAPIKeysResponse
-listAPIKeysResponse pResponseStatus_ =
+mkListAPIKeysResponse pResponseStatus_ =
   ListAPIKeysResponse'
-    { _lakrsApiKeys = Nothing,
-      _lakrsNextToken = Nothing,
-      _lakrsResponseStatus = pResponseStatus_
+    { apiKeys = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ApiKey@ objects.
-lakrsApiKeys :: Lens' ListAPIKeysResponse [APIKey]
-lakrsApiKeys = lens _lakrsApiKeys (\s a -> s {_lakrsApiKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'apiKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakrsApiKeys :: Lens.Lens' ListAPIKeysResponse (Lude.Maybe [APIKey])
+lakrsApiKeys = Lens.lens (apiKeys :: ListAPIKeysResponse -> Lude.Maybe [APIKey]) (\s a -> s {apiKeys = a} :: ListAPIKeysResponse)
+{-# DEPRECATED lakrsApiKeys "Use generic-lens or generic-optics with 'apiKeys' instead." #-}
 
 -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-lakrsNextToken :: Lens' ListAPIKeysResponse (Maybe Text)
-lakrsNextToken = lens _lakrsNextToken (\s a -> s {_lakrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakrsNextToken :: Lens.Lens' ListAPIKeysResponse (Lude.Maybe Lude.Text)
+lakrsNextToken = Lens.lens (nextToken :: ListAPIKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAPIKeysResponse)
+{-# DEPRECATED lakrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lakrsResponseStatus :: Lens' ListAPIKeysResponse Int
-lakrsResponseStatus = lens _lakrsResponseStatus (\s a -> s {_lakrsResponseStatus = a})
-
-instance NFData ListAPIKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakrsResponseStatus :: Lens.Lens' ListAPIKeysResponse Lude.Int
+lakrsResponseStatus = Lens.lens (responseStatus :: ListAPIKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAPIKeysResponse)
+{-# DEPRECATED lakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

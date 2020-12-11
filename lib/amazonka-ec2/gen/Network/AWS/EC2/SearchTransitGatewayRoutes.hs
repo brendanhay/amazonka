@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Searches for routes in the specified transit gateway route table.
 module Network.AWS.EC2.SearchTransitGatewayRoutes
-  ( -- * Creating a Request
-    searchTransitGatewayRoutes,
-    SearchTransitGatewayRoutes,
+  ( -- * Creating a request
+    SearchTransitGatewayRoutes (..),
+    mkSearchTransitGatewayRoutes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stgrDryRun,
     stgrMaxResults,
     stgrTransitGatewayRouteTableId,
     stgrFilters,
 
-    -- * Destructuring the Response
-    searchTransitGatewayRoutesResponse,
-    SearchTransitGatewayRoutesResponse,
+    -- * Destructuring the response
+    SearchTransitGatewayRoutesResponse (..),
+    mkSearchTransitGatewayRoutesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stgrrsAdditionalRoutesAvailable,
     stgrrsRoutes,
     stgrrsResponseStatus,
@@ -41,140 +36,226 @@ module Network.AWS.EC2.SearchTransitGatewayRoutes
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchTransitGatewayRoutes' smart constructor.
+-- | /See:/ 'mkSearchTransitGatewayRoutes' smart constructor.
 data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
-  { _stgrDryRun ::
-      !(Maybe Bool),
-    _stgrMaxResults :: !(Maybe Nat),
-    _stgrTransitGatewayRouteTableId ::
-      !Text,
-    _stgrFilters :: ![Filter]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural,
+    transitGatewayRouteTableId ::
+      Lude.Text,
+    filters :: [Filter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayRoutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. The possible values are:
 --
--- * 'stgrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'stgrMaxResults' - The maximum number of routes to return.
+--     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
 --
--- * 'stgrTransitGatewayRouteTableId' - The ID of the transit gateway route table.
 --
--- * 'stgrFilters' - One or more filters. The possible values are:     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.     * @attachment.resource-id@ - The resource id of the transit gateway attachment.     * @attachment.resource-type@ - The attachment resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .     * @prefix-list-id@ - The ID of the prefix list.     * @route-search.exact-match@ - The exact match of the specified filter.     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.     * @state@ - The state of the route (@active@ | @blackhole@ ).     * @type@ - The type of route (@propagated@ | @static@ ).
-searchTransitGatewayRoutes ::
-  -- | 'stgrTransitGatewayRouteTableId'
-  Text ->
+--     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+--
+--
+--     * @attachment.resource-type@ - The attachment resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
+--
+--
+--     * @prefix-list-id@ - The ID of the prefix list.
+--
+--
+--     * @route-search.exact-match@ - The exact match of the specified filter.
+--
+--
+--     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+--
+--
+--     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+--
+--
+--     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+--
+--
+--     * @state@ - The state of the route (@active@ | @blackhole@ ).
+--
+--
+--     * @type@ - The type of route (@propagated@ | @static@ ).
+--
+--
+-- * 'maxResults' - The maximum number of routes to return.
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+mkSearchTransitGatewayRoutes ::
+  -- | 'transitGatewayRouteTableId'
+  Lude.Text ->
   SearchTransitGatewayRoutes
-searchTransitGatewayRoutes pTransitGatewayRouteTableId_ =
+mkSearchTransitGatewayRoutes pTransitGatewayRouteTableId_ =
   SearchTransitGatewayRoutes'
-    { _stgrDryRun = Nothing,
-      _stgrMaxResults = Nothing,
-      _stgrTransitGatewayRouteTableId = pTransitGatewayRouteTableId_,
-      _stgrFilters = mempty
+    { dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
+      filters = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-stgrDryRun :: Lens' SearchTransitGatewayRoutes (Maybe Bool)
-stgrDryRun = lens _stgrDryRun (\s a -> s {_stgrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrDryRun :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Bool)
+stgrDryRun = Lens.lens (dryRun :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of routes to return.
-stgrMaxResults :: Lens' SearchTransitGatewayRoutes (Maybe Natural)
-stgrMaxResults = lens _stgrMaxResults (\s a -> s {_stgrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrMaxResults :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Natural)
+stgrMaxResults = Lens.lens (maxResults :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the transit gateway route table.
-stgrTransitGatewayRouteTableId :: Lens' SearchTransitGatewayRoutes Text
-stgrTransitGatewayRouteTableId = lens _stgrTransitGatewayRouteTableId (\s a -> s {_stgrTransitGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrTransitGatewayRouteTableId :: Lens.Lens' SearchTransitGatewayRoutes Lude.Text
+stgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: SearchTransitGatewayRoutes -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
--- | One or more filters. The possible values are:     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.     * @attachment.resource-id@ - The resource id of the transit gateway attachment.     * @attachment.resource-type@ - The attachment resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .     * @prefix-list-id@ - The ID of the prefix list.     * @route-search.exact-match@ - The exact match of the specified filter.     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.     * @state@ - The state of the route (@active@ | @blackhole@ ).     * @type@ - The type of route (@propagated@ | @static@ ).
-stgrFilters :: Lens' SearchTransitGatewayRoutes [Filter]
-stgrFilters = lens _stgrFilters (\s a -> s {_stgrFilters = a}) . _Coerce
+-- | One or more filters. The possible values are:
+--
+--
+--     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+--
+--
+--     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+--
+--
+--     * @attachment.resource-type@ - The attachment resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
+--
+--
+--     * @prefix-list-id@ - The ID of the prefix list.
+--
+--
+--     * @route-search.exact-match@ - The exact match of the specified filter.
+--
+--
+--     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+--
+--
+--     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+--
+--
+--     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+--
+--
+--     * @state@ - The state of the route (@active@ | @blackhole@ ).
+--
+--
+--     * @type@ - The type of route (@propagated@ | @static@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrFilters :: Lens.Lens' SearchTransitGatewayRoutes [Filter]
+stgrFilters = Lens.lens (filters :: SearchTransitGatewayRoutes -> [Filter]) (\s a -> s {filters = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
-instance AWSRequest SearchTransitGatewayRoutes where
+instance Lude.AWSRequest SearchTransitGatewayRoutes where
   type
     Rs SearchTransitGatewayRoutes =
       SearchTransitGatewayRoutesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           SearchTransitGatewayRoutesResponse'
-            <$> (x .@? "additionalRoutesAvailable")
-            <*> (x .@? "routeSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "additionalRoutesAvailable")
+            Lude.<*> ( x Lude..@? "routeSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchTransitGatewayRoutes
+instance Lude.ToHeaders SearchTransitGatewayRoutes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SearchTransitGatewayRoutes
+instance Lude.ToPath SearchTransitGatewayRoutes where
+  toPath = Lude.const "/"
 
-instance ToHeaders SearchTransitGatewayRoutes where
-  toHeaders = const mempty
-
-instance ToPath SearchTransitGatewayRoutes where
-  toPath = const "/"
-
-instance ToQuery SearchTransitGatewayRoutes where
+instance Lude.ToQuery SearchTransitGatewayRoutes where
   toQuery SearchTransitGatewayRoutes' {..} =
-    mconcat
-      [ "Action" =: ("SearchTransitGatewayRoutes" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _stgrDryRun,
-        "MaxResults" =: _stgrMaxResults,
-        "TransitGatewayRouteTableId" =: _stgrTransitGatewayRouteTableId,
-        toQueryList "Filter" _stgrFilters
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("SearchTransitGatewayRoutes" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
+        Lude.toQueryList "Filter" filters
       ]
 
--- | /See:/ 'searchTransitGatewayRoutesResponse' smart constructor.
+-- | /See:/ 'mkSearchTransitGatewayRoutesResponse' smart constructor.
 data SearchTransitGatewayRoutesResponse = SearchTransitGatewayRoutesResponse'
-  { _stgrrsAdditionalRoutesAvailable ::
-      !(Maybe Bool),
-    _stgrrsRoutes ::
-      !( Maybe
-           [TransitGatewayRoute]
-       ),
-    _stgrrsResponseStatus ::
-      !Int
+  { additionalRoutesAvailable ::
+      Lude.Maybe Lude.Bool,
+    routes ::
+      Lude.Maybe
+        [TransitGatewayRoute],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayRoutesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stgrrsAdditionalRoutesAvailable' - Indicates whether there are additional routes available.
---
--- * 'stgrrsRoutes' - Information about the routes.
---
--- * 'stgrrsResponseStatus' - -- | The response status code.
-searchTransitGatewayRoutesResponse ::
-  -- | 'stgrrsResponseStatus'
-  Int ->
+-- * 'additionalRoutesAvailable' - Indicates whether there are additional routes available.
+-- * 'responseStatus' - The response status code.
+-- * 'routes' - Information about the routes.
+mkSearchTransitGatewayRoutesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchTransitGatewayRoutesResponse
-searchTransitGatewayRoutesResponse pResponseStatus_ =
+mkSearchTransitGatewayRoutesResponse pResponseStatus_ =
   SearchTransitGatewayRoutesResponse'
-    { _stgrrsAdditionalRoutesAvailable =
-        Nothing,
-      _stgrrsRoutes = Nothing,
-      _stgrrsResponseStatus = pResponseStatus_
+    { additionalRoutesAvailable =
+        Lude.Nothing,
+      routes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether there are additional routes available.
-stgrrsAdditionalRoutesAvailable :: Lens' SearchTransitGatewayRoutesResponse (Maybe Bool)
-stgrrsAdditionalRoutesAvailable = lens _stgrrsAdditionalRoutesAvailable (\s a -> s {_stgrrsAdditionalRoutesAvailable = a})
+--
+-- /Note:/ Consider using 'additionalRoutesAvailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrrsAdditionalRoutesAvailable :: Lens.Lens' SearchTransitGatewayRoutesResponse (Lude.Maybe Lude.Bool)
+stgrrsAdditionalRoutesAvailable = Lens.lens (additionalRoutesAvailable :: SearchTransitGatewayRoutesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {additionalRoutesAvailable = a} :: SearchTransitGatewayRoutesResponse)
+{-# DEPRECATED stgrrsAdditionalRoutesAvailable "Use generic-lens or generic-optics with 'additionalRoutesAvailable' instead." #-}
 
 -- | Information about the routes.
-stgrrsRoutes :: Lens' SearchTransitGatewayRoutesResponse [TransitGatewayRoute]
-stgrrsRoutes = lens _stgrrsRoutes (\s a -> s {_stgrrsRoutes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrrsRoutes :: Lens.Lens' SearchTransitGatewayRoutesResponse (Lude.Maybe [TransitGatewayRoute])
+stgrrsRoutes = Lens.lens (routes :: SearchTransitGatewayRoutesResponse -> Lude.Maybe [TransitGatewayRoute]) (\s a -> s {routes = a} :: SearchTransitGatewayRoutesResponse)
+{-# DEPRECATED stgrrsRoutes "Use generic-lens or generic-optics with 'routes' instead." #-}
 
--- | -- | The response status code.
-stgrrsResponseStatus :: Lens' SearchTransitGatewayRoutesResponse Int
-stgrrsResponseStatus = lens _stgrrsResponseStatus (\s a -> s {_stgrrsResponseStatus = a})
-
-instance NFData SearchTransitGatewayRoutesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrrsResponseStatus :: Lens.Lens' SearchTransitGatewayRoutesResponse Lude.Int
+stgrrsResponseStatus = Lens.lens (responseStatus :: SearchTransitGatewayRoutesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchTransitGatewayRoutesResponse)
+{-# DEPRECATED stgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

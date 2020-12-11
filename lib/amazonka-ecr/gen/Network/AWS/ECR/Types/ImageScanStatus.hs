@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageScanStatus where
+module Network.AWS.ECR.Types.ImageScanStatus
+  ( ImageScanStatus (..),
+
+    -- * Smart constructor
+    mkImageScanStatus,
+
+    -- * Lenses
+    issStatus,
+    issDescription,
+  )
+where
 
 import Network.AWS.ECR.Types.ScanStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current status of an image scan.
 --
---
---
--- /See:/ 'imageScanStatus' smart constructor.
+-- /See:/ 'mkImageScanStatus' smart constructor.
 data ImageScanStatus = ImageScanStatus'
-  { _issStatus ::
-      !(Maybe ScanStatus),
-    _issDescription :: !(Maybe Text)
+  { status ::
+      Lude.Maybe ScanStatus,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'issStatus' - The current state of an image scan.
---
--- * 'issDescription' - The description of the image scan status.
-imageScanStatus ::
+-- * 'description' - The description of the image scan status.
+-- * 'status' - The current state of an image scan.
+mkImageScanStatus ::
   ImageScanStatus
-imageScanStatus =
-  ImageScanStatus' {_issStatus = Nothing, _issDescription = Nothing}
+mkImageScanStatus =
+  ImageScanStatus'
+    { status = Lude.Nothing,
+      description = Lude.Nothing
+    }
 
 -- | The current state of an image scan.
-issStatus :: Lens' ImageScanStatus (Maybe ScanStatus)
-issStatus = lens _issStatus (\s a -> s {_issStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issStatus :: Lens.Lens' ImageScanStatus (Lude.Maybe ScanStatus)
+issStatus = Lens.lens (status :: ImageScanStatus -> Lude.Maybe ScanStatus) (\s a -> s {status = a} :: ImageScanStatus)
+{-# DEPRECATED issStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The description of the image scan status.
-issDescription :: Lens' ImageScanStatus (Maybe Text)
-issDescription = lens _issDescription (\s a -> s {_issDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issDescription :: Lens.Lens' ImageScanStatus (Lude.Maybe Lude.Text)
+issDescription = Lens.lens (description :: ImageScanStatus -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImageScanStatus)
+{-# DEPRECATED issDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ImageScanStatus where
+instance Lude.FromJSON ImageScanStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageScanStatus"
       ( \x ->
-          ImageScanStatus' <$> (x .:? "status") <*> (x .:? "description")
+          ImageScanStatus'
+            Lude.<$> (x Lude..:? "status") Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable ImageScanStatus
-
-instance NFData ImageScanStatus

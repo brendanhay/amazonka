@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges where
+module Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges
+  ( NetworkInterfaceAttachmentChanges (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkInterfaceAttachmentChanges,
+
+    -- * Lenses
+    niacDeleteOnTermination,
+    niacAttachmentId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an attachment change.
 --
---
---
--- /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
+-- /See:/ 'mkNetworkInterfaceAttachmentChanges' smart constructor.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
-  { _niacDeleteOnTermination ::
-      !(Maybe Bool),
-    _niacAttachmentId ::
-      !(Maybe Text)
+  { deleteOnTermination ::
+      Lude.Maybe Lude.Bool,
+    attachmentId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfaceAttachmentChanges' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'niacDeleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
---
--- * 'niacAttachmentId' - The ID of the network interface attachment.
-networkInterfaceAttachmentChanges ::
+-- * 'attachmentId' - The ID of the network interface attachment.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+mkNetworkInterfaceAttachmentChanges ::
   NetworkInterfaceAttachmentChanges
-networkInterfaceAttachmentChanges =
+mkNetworkInterfaceAttachmentChanges =
   NetworkInterfaceAttachmentChanges'
-    { _niacDeleteOnTermination =
-        Nothing,
-      _niacAttachmentId = Nothing
+    { deleteOnTermination =
+        Lude.Nothing,
+      attachmentId = Lude.Nothing
     }
 
 -- | Indicates whether the network interface is deleted when the instance is terminated.
-niacDeleteOnTermination :: Lens' NetworkInterfaceAttachmentChanges (Maybe Bool)
-niacDeleteOnTermination = lens _niacDeleteOnTermination (\s a -> s {_niacDeleteOnTermination = a})
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niacDeleteOnTermination :: Lens.Lens' NetworkInterfaceAttachmentChanges (Lude.Maybe Lude.Bool)
+niacDeleteOnTermination = Lens.lens (deleteOnTermination :: NetworkInterfaceAttachmentChanges -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachmentChanges)
+{-# DEPRECATED niacDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The ID of the network interface attachment.
-niacAttachmentId :: Lens' NetworkInterfaceAttachmentChanges (Maybe Text)
-niacAttachmentId = lens _niacAttachmentId (\s a -> s {_niacAttachmentId = a})
+--
+-- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niacAttachmentId :: Lens.Lens' NetworkInterfaceAttachmentChanges (Lude.Maybe Lude.Text)
+niacAttachmentId = Lens.lens (attachmentId :: NetworkInterfaceAttachmentChanges -> Lude.Maybe Lude.Text) (\s a -> s {attachmentId = a} :: NetworkInterfaceAttachmentChanges)
+{-# DEPRECATED niacAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
 
-instance Hashable NetworkInterfaceAttachmentChanges
-
-instance NFData NetworkInterfaceAttachmentChanges
-
-instance ToQuery NetworkInterfaceAttachmentChanges where
+instance Lude.ToQuery NetworkInterfaceAttachmentChanges where
   toQuery NetworkInterfaceAttachmentChanges' {..} =
-    mconcat
-      [ "DeleteOnTermination" =: _niacDeleteOnTermination,
-        "AttachmentId" =: _niacAttachmentId
+    Lude.mconcat
+      [ "DeleteOnTermination" Lude.=: deleteOnTermination,
+        "AttachmentId" Lude.=: attachmentId
       ]

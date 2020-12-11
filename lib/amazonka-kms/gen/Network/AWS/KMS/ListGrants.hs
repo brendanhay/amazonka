@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Gets a list of all grants for the specified customer master key (CMK).
 --
---
 -- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the @KeyId@ parameter.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListGrants
-  ( -- * Creating a Request
-    listGrants,
-    ListGrants,
+  ( -- * Creating a request
+    ListGrants (..),
+    mkListGrants,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgMarker,
     lgLimit,
     lgKeyId,
 
-    -- * Destructuring the Response
-    listGrantsResponse,
-    ListGrantsResponse,
+    -- * Destructuring the response
+    ListGrantsResponse (..),
+    mkListGrantsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgTruncated,
     lgGrants,
     lgNextMarker,
@@ -46,88 +39,125 @@ module Network.AWS.KMS.ListGrants
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGrants' smart constructor.
+-- | /See:/ 'mkListGrants' smart constructor.
 data ListGrants = ListGrants'
-  { _lgMarker :: !(Maybe Text),
-    _lgLimit :: !(Maybe Nat),
-    _lgKeyId :: !Text
+  { marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    keyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGrants' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'keyId' - A unique identifier for the customer master key (CMK).
 --
--- * 'lgMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+-- For example:
 --
--- * 'lgLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- * 'lgKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-listGrants ::
-  -- | 'lgKeyId'
-  Text ->
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+mkListGrants ::
+  -- | 'keyId'
+  Lude.Text ->
   ListGrants
-listGrants pKeyId_ =
+mkListGrants pKeyId_ =
   ListGrants'
-    { _lgMarker = Nothing,
-      _lgLimit = Nothing,
-      _lgKeyId = pKeyId_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      keyId = pKeyId_
     }
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-lgMarker :: Lens' ListGrants (Maybe Text)
-lgMarker = lens _lgMarker (\s a -> s {_lgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMarker :: Lens.Lens' ListGrants (Lude.Maybe Lude.Text)
+lgMarker = Lens.lens (marker :: ListGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGrants)
+{-# DEPRECATED lgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
-lgLimit :: Lens' ListGrants (Maybe Natural)
-lgLimit = lens _lgLimit (\s a -> s {_lgLimit = a}) . mapping _Nat
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgLimit :: Lens.Lens' ListGrants (Lude.Maybe Lude.Natural)
+lgLimit = Lens.lens (limit :: ListGrants -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGrants)
+{-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-lgKeyId :: Lens' ListGrants Text
-lgKeyId = lens _lgKeyId (\s a -> s {_lgKeyId = a})
+-- | A unique identifier for the customer master key (CMK).
+--
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+-- For example:
+--
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgKeyId :: Lens.Lens' ListGrants Lude.Text
+lgKeyId = Lens.lens (keyId :: ListGrants -> Lude.Text) (\s a -> s {keyId = a} :: ListGrants)
+{-# DEPRECATED lgKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance AWSPager ListGrants where
+instance Page.AWSPager ListGrants where
   page rq rs
-    | stop (rs ^. lgTruncated) = Nothing
-    | isNothing (rs ^. lgNextMarker) = Nothing
-    | otherwise = Just $ rq & lgMarker .~ rs ^. lgNextMarker
+    | Page.stop (rs Lens.^. lgTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lgNextMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lgMarker Lens..~ rs Lens.^. lgNextMarker
 
-instance AWSRequest ListGrants where
+instance Lude.AWSRequest ListGrants where
   type Rs ListGrants = ListGrantsResponse
-  request = postJSON kms
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON kmsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable ListGrants
-
-instance NFData ListGrants
-
-instance ToHeaders ListGrants where
+instance Lude.ToHeaders ListGrants where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("TrentService.ListGrants" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("TrentService.ListGrants" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGrants where
+instance Lude.ToJSON ListGrants where
   toJSON ListGrants' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _lgMarker,
-            ("Limit" .=) <$> _lgLimit,
-            Just ("KeyId" .= _lgKeyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("KeyId" Lude..= keyId)
           ]
       )
 
-instance ToPath ListGrants where
-  toPath = const "/"
+instance Lude.ToPath ListGrants where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGrants where
-  toQuery = const mempty
+instance Lude.ToQuery ListGrants where
+  toQuery = Lude.const Lude.mempty

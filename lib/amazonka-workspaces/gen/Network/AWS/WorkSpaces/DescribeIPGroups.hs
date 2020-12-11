@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,183 @@
 --
 -- Describes one or more of your IP access control groups.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeIPGroups
-  ( -- * Creating a Request
-    describeIPGroups,
-    DescribeIPGroups,
+  ( -- * Creating a request
+    DescribeIPGroups (..),
+    mkDescribeIPGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipgGroupIds,
     dipgNextToken,
     dipgMaxResults,
 
-    -- * Destructuring the Response
-    describeIPGroupsResponse,
-    DescribeIPGroupsResponse,
+    -- * Destructuring the response
+    DescribeIPGroupsResponse (..),
+    mkDescribeIPGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     digsrsResult,
     digsrsNextToken,
     digsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeIPGroups' smart constructor.
+-- | /See:/ 'mkDescribeIPGroups' smart constructor.
 data DescribeIPGroups = DescribeIPGroups'
-  { _dipgGroupIds ::
-      !(Maybe [Text]),
-    _dipgNextToken :: !(Maybe Text),
-    _dipgMaxResults :: !(Maybe Nat)
+  { groupIds ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIPGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipgGroupIds' - The identifiers of one or more IP access control groups.
---
--- * 'dipgNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- * 'dipgMaxResults' - The maximum number of items to return.
-describeIPGroups ::
+-- * 'groupIds' - The identifiers of one or more IP access control groups.
+-- * 'maxResults' - The maximum number of items to return.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+mkDescribeIPGroups ::
   DescribeIPGroups
-describeIPGroups =
+mkDescribeIPGroups =
   DescribeIPGroups'
-    { _dipgGroupIds = Nothing,
-      _dipgNextToken = Nothing,
-      _dipgMaxResults = Nothing
+    { groupIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The identifiers of one or more IP access control groups.
-dipgGroupIds :: Lens' DescribeIPGroups [Text]
-dipgGroupIds = lens _dipgGroupIds (\s a -> s {_dipgGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipgGroupIds :: Lens.Lens' DescribeIPGroups (Lude.Maybe [Lude.Text])
+dipgGroupIds = Lens.lens (groupIds :: DescribeIPGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {groupIds = a} :: DescribeIPGroups)
+{-# DEPRECATED dipgGroupIds "Use generic-lens or generic-optics with 'groupIds' instead." #-}
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-dipgNextToken :: Lens' DescribeIPGroups (Maybe Text)
-dipgNextToken = lens _dipgNextToken (\s a -> s {_dipgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipgNextToken :: Lens.Lens' DescribeIPGroups (Lude.Maybe Lude.Text)
+dipgNextToken = Lens.lens (nextToken :: DescribeIPGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeIPGroups)
+{-# DEPRECATED dipgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
-dipgMaxResults :: Lens' DescribeIPGroups (Maybe Natural)
-dipgMaxResults = lens _dipgMaxResults (\s a -> s {_dipgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipgMaxResults :: Lens.Lens' DescribeIPGroups (Lude.Maybe Lude.Natural)
+dipgMaxResults = Lens.lens (maxResults :: DescribeIPGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeIPGroups)
+{-# DEPRECATED dipgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeIPGroups where
+instance Page.AWSPager DescribeIPGroups where
   page rq rs
-    | stop (rs ^. digsrsNextToken) = Nothing
-    | stop (rs ^. digsrsResult) = Nothing
-    | otherwise = Just $ rq & dipgNextToken .~ rs ^. digsrsNextToken
+    | Page.stop (rs Lens.^. digsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. digsrsResult) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dipgNextToken Lens..~ rs Lens.^. digsrsNextToken
 
-instance AWSRequest DescribeIPGroups where
+instance Lude.AWSRequest DescribeIPGroups where
   type Rs DescribeIPGroups = DescribeIPGroupsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeIPGroupsResponse'
-            <$> (x .?> "Result" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Result" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeIPGroups
-
-instance NFData DescribeIPGroups
-
-instance ToHeaders DescribeIPGroups where
+instance Lude.ToHeaders DescribeIPGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DescribeIpGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DescribeIpGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeIPGroups where
+instance Lude.ToJSON DescribeIPGroups where
   toJSON DescribeIPGroups' {..} =
-    object
-      ( catMaybes
-          [ ("GroupIds" .=) <$> _dipgGroupIds,
-            ("NextToken" .=) <$> _dipgNextToken,
-            ("MaxResults" .=) <$> _dipgMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupIds" Lude..=) Lude.<$> groupIds,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeIPGroups where
-  toPath = const "/"
+instance Lude.ToPath DescribeIPGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeIPGroups where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeIPGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeIPGroupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeIPGroupsResponse' smart constructor.
 data DescribeIPGroupsResponse = DescribeIPGroupsResponse'
-  { _digsrsResult ::
-      !(Maybe [WorkspacesIPGroup]),
-    _digsrsNextToken :: !(Maybe Text),
-    _digsrsResponseStatus :: !Int
+  { result ::
+      Lude.Maybe [WorkspacesIPGroup],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIPGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'digsrsResult' - Information about the IP access control groups.
---
--- * 'digsrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'digsrsResponseStatus' - -- | The response status code.
-describeIPGroupsResponse ::
-  -- | 'digsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+-- * 'result' - Information about the IP access control groups.
+mkDescribeIPGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeIPGroupsResponse
-describeIPGroupsResponse pResponseStatus_ =
+mkDescribeIPGroupsResponse pResponseStatus_ =
   DescribeIPGroupsResponse'
-    { _digsrsResult = Nothing,
-      _digsrsNextToken = Nothing,
-      _digsrsResponseStatus = pResponseStatus_
+    { result = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the IP access control groups.
-digsrsResult :: Lens' DescribeIPGroupsResponse [WorkspacesIPGroup]
-digsrsResult = lens _digsrsResult (\s a -> s {_digsrsResult = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digsrsResult :: Lens.Lens' DescribeIPGroupsResponse (Lude.Maybe [WorkspacesIPGroup])
+digsrsResult = Lens.lens (result :: DescribeIPGroupsResponse -> Lude.Maybe [WorkspacesIPGroup]) (\s a -> s {result = a} :: DescribeIPGroupsResponse)
+{-# DEPRECATED digsrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-digsrsNextToken :: Lens' DescribeIPGroupsResponse (Maybe Text)
-digsrsNextToken = lens _digsrsNextToken (\s a -> s {_digsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digsrsNextToken :: Lens.Lens' DescribeIPGroupsResponse (Lude.Maybe Lude.Text)
+digsrsNextToken = Lens.lens (nextToken :: DescribeIPGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeIPGroupsResponse)
+{-# DEPRECATED digsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-digsrsResponseStatus :: Lens' DescribeIPGroupsResponse Int
-digsrsResponseStatus = lens _digsrsResponseStatus (\s a -> s {_digsrsResponseStatus = a})
-
-instance NFData DescribeIPGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digsrsResponseStatus :: Lens.Lens' DescribeIPGroupsResponse Lude.Int
+digsrsResponseStatus = Lens.lens (responseStatus :: DescribeIPGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIPGroupsResponse)
+{-# DEPRECATED digsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

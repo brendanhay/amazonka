@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,153 +7,190 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HumanLoopConfig where
+module Network.AWS.SageMaker.Types.HumanLoopConfig
+  ( HumanLoopConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHumanLoopConfig,
+
+    -- * Lenses
+    hlcTaskKeywords,
+    hlcPublicWorkforceTaskPrice,
+    hlcTaskTimeLimitInSeconds,
+    hlcTaskAvailabilityLifetimeInSeconds,
+    hlcWorkteamARN,
+    hlcHumanTaskUiARN,
+    hlcTaskTitle,
+    hlcTaskDescription,
+    hlcTaskCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice
 
 -- | Describes the work to be performed by human workers.
 --
---
---
--- /See:/ 'humanLoopConfig' smart constructor.
+-- /See:/ 'mkHumanLoopConfig' smart constructor.
 data HumanLoopConfig = HumanLoopConfig'
-  { _hlcTaskKeywords ::
-      !(Maybe (List1 Text)),
-    _hlcPublicWorkforceTaskPrice ::
-      !(Maybe PublicWorkforceTaskPrice),
-    _hlcTaskTimeLimitInSeconds :: !(Maybe Nat),
-    _hlcTaskAvailabilityLifetimeInSeconds :: !(Maybe Nat),
-    _hlcWorkteamARN :: !Text,
-    _hlcHumanTaskUiARN :: !Text,
-    _hlcTaskTitle :: !Text,
-    _hlcTaskDescription :: !Text,
-    _hlcTaskCount :: !Nat
+  { taskKeywords ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    publicWorkforceTaskPrice ::
+      Lude.Maybe PublicWorkforceTaskPrice,
+    taskTimeLimitInSeconds :: Lude.Maybe Lude.Natural,
+    taskAvailabilityLifetimeInSeconds ::
+      Lude.Maybe Lude.Natural,
+    workteamARN :: Lude.Text,
+    humanTaskUiARN :: Lude.Text,
+    taskTitle :: Lude.Text,
+    taskDescription :: Lude.Text,
+    taskCount :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hlcTaskKeywords' - Keywords used to describe the task so that workers can discover the task.
---
--- * 'hlcPublicWorkforceTaskPrice' - Undocumented member.
---
--- * 'hlcTaskTimeLimitInSeconds' - The amount of time that a worker has to complete a task. The default value is 3,600 seconds (1 hour)
---
--- * 'hlcTaskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for review by human workers.
---
--- * 'hlcWorkteamARN' - Amazon Resource Name (ARN) of a team of workers.
---
--- * 'hlcHumanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface.
---
--- * 'hlcTaskTitle' - A title for the human worker task.
---
--- * 'hlcTaskDescription' - A description for the human worker task.
---
--- * 'hlcTaskCount' - The number of distinct workers who will perform the same task on each object. For example, if @TaskCount@ is set to @3@ for an image classification labeling job, three workers will classify each input image. Increasing @TaskCount@ can improve label accuracy.
-humanLoopConfig ::
-  -- | 'hlcWorkteamARN'
-  Text ->
-  -- | 'hlcHumanTaskUiARN'
-  Text ->
-  -- | 'hlcTaskTitle'
-  Text ->
-  -- | 'hlcTaskDescription'
-  Text ->
-  -- | 'hlcTaskCount'
-  Natural ->
+-- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface.
+-- * 'publicWorkforceTaskPrice' - Undocumented field.
+-- * 'taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for review by human workers.
+-- * 'taskCount' - The number of distinct workers who will perform the same task on each object. For example, if @TaskCount@ is set to @3@ for an image classification labeling job, three workers will classify each input image. Increasing @TaskCount@ can improve label accuracy.
+-- * 'taskDescription' - A description for the human worker task.
+-- * 'taskKeywords' - Keywords used to describe the task so that workers can discover the task.
+-- * 'taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task. The default value is 3,600 seconds (1 hour)
+-- * 'taskTitle' - A title for the human worker task.
+-- * 'workteamARN' - Amazon Resource Name (ARN) of a team of workers.
+mkHumanLoopConfig ::
+  -- | 'workteamARN'
+  Lude.Text ->
+  -- | 'humanTaskUiARN'
+  Lude.Text ->
+  -- | 'taskTitle'
+  Lude.Text ->
+  -- | 'taskDescription'
+  Lude.Text ->
+  -- | 'taskCount'
+  Lude.Natural ->
   HumanLoopConfig
-humanLoopConfig
+mkHumanLoopConfig
   pWorkteamARN_
   pHumanTaskUiARN_
   pTaskTitle_
   pTaskDescription_
   pTaskCount_ =
     HumanLoopConfig'
-      { _hlcTaskKeywords = Nothing,
-        _hlcPublicWorkforceTaskPrice = Nothing,
-        _hlcTaskTimeLimitInSeconds = Nothing,
-        _hlcTaskAvailabilityLifetimeInSeconds = Nothing,
-        _hlcWorkteamARN = pWorkteamARN_,
-        _hlcHumanTaskUiARN = pHumanTaskUiARN_,
-        _hlcTaskTitle = pTaskTitle_,
-        _hlcTaskDescription = pTaskDescription_,
-        _hlcTaskCount = _Nat # pTaskCount_
+      { taskKeywords = Lude.Nothing,
+        publicWorkforceTaskPrice = Lude.Nothing,
+        taskTimeLimitInSeconds = Lude.Nothing,
+        taskAvailabilityLifetimeInSeconds = Lude.Nothing,
+        workteamARN = pWorkteamARN_,
+        humanTaskUiARN = pHumanTaskUiARN_,
+        taskTitle = pTaskTitle_,
+        taskDescription = pTaskDescription_,
+        taskCount = pTaskCount_
       }
 
 -- | Keywords used to describe the task so that workers can discover the task.
-hlcTaskKeywords :: Lens' HumanLoopConfig (Maybe (NonEmpty Text))
-hlcTaskKeywords = lens _hlcTaskKeywords (\s a -> s {_hlcTaskKeywords = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'taskKeywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskKeywords :: Lens.Lens' HumanLoopConfig (Lude.Maybe (Lude.NonEmpty Lude.Text))
+hlcTaskKeywords = Lens.lens (taskKeywords :: HumanLoopConfig -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {taskKeywords = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskKeywords "Use generic-lens or generic-optics with 'taskKeywords' instead." #-}
 
--- | Undocumented member.
-hlcPublicWorkforceTaskPrice :: Lens' HumanLoopConfig (Maybe PublicWorkforceTaskPrice)
-hlcPublicWorkforceTaskPrice = lens _hlcPublicWorkforceTaskPrice (\s a -> s {_hlcPublicWorkforceTaskPrice = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'publicWorkforceTaskPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcPublicWorkforceTaskPrice :: Lens.Lens' HumanLoopConfig (Lude.Maybe PublicWorkforceTaskPrice)
+hlcPublicWorkforceTaskPrice = Lens.lens (publicWorkforceTaskPrice :: HumanLoopConfig -> Lude.Maybe PublicWorkforceTaskPrice) (\s a -> s {publicWorkforceTaskPrice = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcPublicWorkforceTaskPrice "Use generic-lens or generic-optics with 'publicWorkforceTaskPrice' instead." #-}
 
 -- | The amount of time that a worker has to complete a task. The default value is 3,600 seconds (1 hour)
-hlcTaskTimeLimitInSeconds :: Lens' HumanLoopConfig (Maybe Natural)
-hlcTaskTimeLimitInSeconds = lens _hlcTaskTimeLimitInSeconds (\s a -> s {_hlcTaskTimeLimitInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'taskTimeLimitInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskTimeLimitInSeconds :: Lens.Lens' HumanLoopConfig (Lude.Maybe Lude.Natural)
+hlcTaskTimeLimitInSeconds = Lens.lens (taskTimeLimitInSeconds :: HumanLoopConfig -> Lude.Maybe Lude.Natural) (\s a -> s {taskTimeLimitInSeconds = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskTimeLimitInSeconds "Use generic-lens or generic-optics with 'taskTimeLimitInSeconds' instead." #-}
 
 -- | The length of time that a task remains available for review by human workers.
-hlcTaskAvailabilityLifetimeInSeconds :: Lens' HumanLoopConfig (Maybe Natural)
-hlcTaskAvailabilityLifetimeInSeconds = lens _hlcTaskAvailabilityLifetimeInSeconds (\s a -> s {_hlcTaskAvailabilityLifetimeInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'taskAvailabilityLifetimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanLoopConfig (Lude.Maybe Lude.Natural)
+hlcTaskAvailabilityLifetimeInSeconds = Lens.lens (taskAvailabilityLifetimeInSeconds :: HumanLoopConfig -> Lude.Maybe Lude.Natural) (\s a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskAvailabilityLifetimeInSeconds "Use generic-lens or generic-optics with 'taskAvailabilityLifetimeInSeconds' instead." #-}
 
 -- | Amazon Resource Name (ARN) of a team of workers.
-hlcWorkteamARN :: Lens' HumanLoopConfig Text
-hlcWorkteamARN = lens _hlcWorkteamARN (\s a -> s {_hlcWorkteamARN = a})
+--
+-- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcWorkteamARN :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcWorkteamARN = Lens.lens (workteamARN :: HumanLoopConfig -> Lude.Text) (\s a -> s {workteamARN = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the human task user interface.
-hlcHumanTaskUiARN :: Lens' HumanLoopConfig Text
-hlcHumanTaskUiARN = lens _hlcHumanTaskUiARN (\s a -> s {_hlcHumanTaskUiARN = a})
+--
+-- /Note:/ Consider using 'humanTaskUiARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcHumanTaskUiARN :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcHumanTaskUiARN = Lens.lens (humanTaskUiARN :: HumanLoopConfig -> Lude.Text) (\s a -> s {humanTaskUiARN = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
 
 -- | A title for the human worker task.
-hlcTaskTitle :: Lens' HumanLoopConfig Text
-hlcTaskTitle = lens _hlcTaskTitle (\s a -> s {_hlcTaskTitle = a})
+--
+-- /Note:/ Consider using 'taskTitle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskTitle :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcTaskTitle = Lens.lens (taskTitle :: HumanLoopConfig -> Lude.Text) (\s a -> s {taskTitle = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskTitle "Use generic-lens or generic-optics with 'taskTitle' instead." #-}
 
 -- | A description for the human worker task.
-hlcTaskDescription :: Lens' HumanLoopConfig Text
-hlcTaskDescription = lens _hlcTaskDescription (\s a -> s {_hlcTaskDescription = a})
+--
+-- /Note:/ Consider using 'taskDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskDescription :: Lens.Lens' HumanLoopConfig Lude.Text
+hlcTaskDescription = Lens.lens (taskDescription :: HumanLoopConfig -> Lude.Text) (\s a -> s {taskDescription = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskDescription "Use generic-lens or generic-optics with 'taskDescription' instead." #-}
 
 -- | The number of distinct workers who will perform the same task on each object. For example, if @TaskCount@ is set to @3@ for an image classification labeling job, three workers will classify each input image. Increasing @TaskCount@ can improve label accuracy.
-hlcTaskCount :: Lens' HumanLoopConfig Natural
-hlcTaskCount = lens _hlcTaskCount (\s a -> s {_hlcTaskCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'taskCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlcTaskCount :: Lens.Lens' HumanLoopConfig Lude.Natural
+hlcTaskCount = Lens.lens (taskCount :: HumanLoopConfig -> Lude.Natural) (\s a -> s {taskCount = a} :: HumanLoopConfig)
+{-# DEPRECATED hlcTaskCount "Use generic-lens or generic-optics with 'taskCount' instead." #-}
 
-instance FromJSON HumanLoopConfig where
+instance Lude.FromJSON HumanLoopConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "HumanLoopConfig"
       ( \x ->
           HumanLoopConfig'
-            <$> (x .:? "TaskKeywords")
-            <*> (x .:? "PublicWorkforceTaskPrice")
-            <*> (x .:? "TaskTimeLimitInSeconds")
-            <*> (x .:? "TaskAvailabilityLifetimeInSeconds")
-            <*> (x .: "WorkteamArn")
-            <*> (x .: "HumanTaskUiArn")
-            <*> (x .: "TaskTitle")
-            <*> (x .: "TaskDescription")
-            <*> (x .: "TaskCount")
+            Lude.<$> (x Lude..:? "TaskKeywords")
+            Lude.<*> (x Lude..:? "PublicWorkforceTaskPrice")
+            Lude.<*> (x Lude..:? "TaskTimeLimitInSeconds")
+            Lude.<*> (x Lude..:? "TaskAvailabilityLifetimeInSeconds")
+            Lude.<*> (x Lude..: "WorkteamArn")
+            Lude.<*> (x Lude..: "HumanTaskUiArn")
+            Lude.<*> (x Lude..: "TaskTitle")
+            Lude.<*> (x Lude..: "TaskDescription")
+            Lude.<*> (x Lude..: "TaskCount")
       )
 
-instance Hashable HumanLoopConfig
-
-instance NFData HumanLoopConfig
-
-instance ToJSON HumanLoopConfig where
+instance Lude.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
-    object
-      ( catMaybes
-          [ ("TaskKeywords" .=) <$> _hlcTaskKeywords,
-            ("PublicWorkforceTaskPrice" .=) <$> _hlcPublicWorkforceTaskPrice,
-            ("TaskTimeLimitInSeconds" .=) <$> _hlcTaskTimeLimitInSeconds,
-            ("TaskAvailabilityLifetimeInSeconds" .=)
-              <$> _hlcTaskAvailabilityLifetimeInSeconds,
-            Just ("WorkteamArn" .= _hlcWorkteamARN),
-            Just ("HumanTaskUiArn" .= _hlcHumanTaskUiARN),
-            Just ("TaskTitle" .= _hlcTaskTitle),
-            Just ("TaskDescription" .= _hlcTaskDescription),
-            Just ("TaskCount" .= _hlcTaskCount)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TaskKeywords" Lude..=) Lude.<$> taskKeywords,
+            ("PublicWorkforceTaskPrice" Lude..=)
+              Lude.<$> publicWorkforceTaskPrice,
+            ("TaskTimeLimitInSeconds" Lude..=) Lude.<$> taskTimeLimitInSeconds,
+            ("TaskAvailabilityLifetimeInSeconds" Lude..=)
+              Lude.<$> taskAvailabilityLifetimeInSeconds,
+            Lude.Just ("WorkteamArn" Lude..= workteamARN),
+            Lude.Just ("HumanTaskUiArn" Lude..= humanTaskUiARN),
+            Lude.Just ("TaskTitle" Lude..= taskTitle),
+            Lude.Just ("TaskDescription" Lude..= taskDescription),
+            Lude.Just ("TaskCount" Lude..= taskCount)
           ]
       )

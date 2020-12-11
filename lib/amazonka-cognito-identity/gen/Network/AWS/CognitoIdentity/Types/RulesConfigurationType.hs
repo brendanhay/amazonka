@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.RulesConfigurationType where
+module Network.AWS.CognitoIdentity.Types.RulesConfigurationType
+  ( RulesConfigurationType (..),
+
+    -- * Smart constructor
+    mkRulesConfigurationType,
+
+    -- * Lenses
+    rctRules,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types.MappingRule
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for rules.
 --
---
---
--- /See:/ 'rulesConfigurationType' smart constructor.
+-- /See:/ 'mkRulesConfigurationType' smart constructor.
 newtype RulesConfigurationType = RulesConfigurationType'
-  { _rctRules ::
-      List1 MappingRule
+  { rules ::
+      Lude.NonEmpty MappingRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RulesConfigurationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'rules' - An array of rules. You can specify up to 25 rules per identity provider.
 --
--- * 'rctRules' - An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-rulesConfigurationType ::
-  -- | 'rctRules'
-  NonEmpty MappingRule ->
+-- Rules are evaluated in order. The first one to match specifies the role.
+mkRulesConfigurationType ::
+  -- | 'rules'
+  Lude.NonEmpty MappingRule ->
   RulesConfigurationType
-rulesConfigurationType pRules_ =
-  RulesConfigurationType' {_rctRules = _List1 # pRules_}
+mkRulesConfigurationType pRules_ =
+  RulesConfigurationType' {rules = pRules_}
 
--- | An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-rctRules :: Lens' RulesConfigurationType (NonEmpty MappingRule)
-rctRules = lens _rctRules (\s a -> s {_rctRules = a}) . _List1
+-- | An array of rules. You can specify up to 25 rules per identity provider.
+--
+-- Rules are evaluated in order. The first one to match specifies the role.
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctRules :: Lens.Lens' RulesConfigurationType (Lude.NonEmpty MappingRule)
+rctRules = Lens.lens (rules :: RulesConfigurationType -> Lude.NonEmpty MappingRule) (\s a -> s {rules = a} :: RulesConfigurationType)
+{-# DEPRECATED rctRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance FromJSON RulesConfigurationType where
+instance Lude.FromJSON RulesConfigurationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "RulesConfigurationType"
-      (\x -> RulesConfigurationType' <$> (x .: "Rules"))
+      (\x -> RulesConfigurationType' Lude.<$> (x Lude..: "Rules"))
 
-instance Hashable RulesConfigurationType
-
-instance NFData RulesConfigurationType
-
-instance ToJSON RulesConfigurationType where
+instance Lude.ToJSON RulesConfigurationType where
   toJSON RulesConfigurationType' {..} =
-    object (catMaybes [Just ("Rules" .= _rctRules)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Rules" Lude..= rules)])

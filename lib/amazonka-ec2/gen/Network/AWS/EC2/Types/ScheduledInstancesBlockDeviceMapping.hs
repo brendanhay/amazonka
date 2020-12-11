@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstancesBlockDeviceMapping where
+module Network.AWS.EC2.Types.ScheduledInstancesBlockDeviceMapping
+  ( ScheduledInstancesBlockDeviceMapping (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkScheduledInstancesBlockDeviceMapping,
+
+    -- * Lenses
+    sibdmVirtualName,
+    sibdmNoDevice,
+    sibdmEBS,
+    sibdmDeviceName,
+  )
+where
+
 import Network.AWS.EC2.Types.ScheduledInstancesEBS
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping for a Scheduled Instance.
 --
---
---
--- /See:/ 'scheduledInstancesBlockDeviceMapping' smart constructor.
+-- /See:/ 'mkScheduledInstancesBlockDeviceMapping' smart constructor.
 data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping'
-  { _sibdmVirtualName ::
-      !(Maybe Text),
-    _sibdmNoDevice ::
-      !(Maybe Text),
-    _sibdmEBS ::
-      !( Maybe
-           ScheduledInstancesEBS
-       ),
-    _sibdmDeviceName ::
-      !(Maybe Text)
+  { virtualName ::
+      Lude.Maybe
+        Lude.Text,
+    noDevice ::
+      Lude.Maybe
+        Lude.Text,
+    ebs ::
+      Lude.Maybe
+        ScheduledInstancesEBS,
+    deviceName ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesBlockDeviceMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'ebs' - Parameters used to set up EBS volumes automatically when the instance is launched.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'virtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 --
--- * 'sibdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
---
--- * 'sibdmNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
---
--- * 'sibdmEBS' - Parameters used to set up EBS volumes automatically when the instance is launched.
---
--- * 'sibdmDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
-scheduledInstancesBlockDeviceMapping ::
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+mkScheduledInstancesBlockDeviceMapping ::
   ScheduledInstancesBlockDeviceMapping
-scheduledInstancesBlockDeviceMapping =
+mkScheduledInstancesBlockDeviceMapping =
   ScheduledInstancesBlockDeviceMapping'
-    { _sibdmVirtualName =
-        Nothing,
-      _sibdmNoDevice = Nothing,
-      _sibdmEBS = Nothing,
-      _sibdmDeviceName = Nothing
+    { virtualName = Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = Lude.Nothing
     }
 
--- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
-sibdmVirtualName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
-sibdmVirtualName = lens _sibdmVirtualName (\s a -> s {_sibdmVirtualName = a})
+-- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+--
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibdmVirtualName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Lude.Maybe Lude.Text)
+sibdmVirtualName = Lens.lens (virtualName :: ScheduledInstancesBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: ScheduledInstancesBlockDeviceMapping)
+{-# DEPRECATED sibdmVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
 -- | Suppresses the specified device included in the block device mapping of the AMI.
-sibdmNoDevice :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
-sibdmNoDevice = lens _sibdmNoDevice (\s a -> s {_sibdmNoDevice = a})
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibdmNoDevice :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Lude.Maybe Lude.Text)
+sibdmNoDevice = Lens.lens (noDevice :: ScheduledInstancesBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {noDevice = a} :: ScheduledInstancesBlockDeviceMapping)
+{-# DEPRECATED sibdmNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
 -- | Parameters used to set up EBS volumes automatically when the instance is launched.
-sibdmEBS :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe ScheduledInstancesEBS)
-sibdmEBS = lens _sibdmEBS (\s a -> s {_sibdmEBS = a})
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibdmEBS :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Lude.Maybe ScheduledInstancesEBS)
+sibdmEBS = Lens.lens (ebs :: ScheduledInstancesBlockDeviceMapping -> Lude.Maybe ScheduledInstancesEBS) (\s a -> s {ebs = a} :: ScheduledInstancesBlockDeviceMapping)
+{-# DEPRECATED sibdmEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
-sibdmDeviceName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
-sibdmDeviceName = lens _sibdmDeviceName (\s a -> s {_sibdmDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibdmDeviceName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Lude.Maybe Lude.Text)
+sibdmDeviceName = Lens.lens (deviceName :: ScheduledInstancesBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: ScheduledInstancesBlockDeviceMapping)
+{-# DEPRECATED sibdmDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance Hashable ScheduledInstancesBlockDeviceMapping
-
-instance NFData ScheduledInstancesBlockDeviceMapping
-
-instance ToQuery ScheduledInstancesBlockDeviceMapping where
+instance Lude.ToQuery ScheduledInstancesBlockDeviceMapping where
   toQuery ScheduledInstancesBlockDeviceMapping' {..} =
-    mconcat
-      [ "VirtualName" =: _sibdmVirtualName,
-        "NoDevice" =: _sibdmNoDevice,
-        "Ebs" =: _sibdmEBS,
-        "DeviceName" =: _sibdmDeviceName
+    Lude.mconcat
+      [ "VirtualName" Lude.=: virtualName,
+        "NoDevice" Lude.=: noDevice,
+        "Ebs" Lude.=: ebs,
+        "DeviceName" Lude.=: deviceName
       ]

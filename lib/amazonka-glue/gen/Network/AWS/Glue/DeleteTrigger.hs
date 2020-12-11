@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,126 @@
 --
 -- Deletes a specified trigger. If the trigger is not found, no exception is thrown.
 module Network.AWS.Glue.DeleteTrigger
-  ( -- * Creating a Request
-    deleteTrigger,
-    DeleteTrigger,
+  ( -- * Creating a request
+    DeleteTrigger (..),
+    mkDeleteTrigger,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dttName,
 
-    -- * Destructuring the Response
-    deleteTriggerResponse,
-    DeleteTriggerResponse,
+    -- * Destructuring the response
+    DeleteTriggerResponse (..),
+    mkDeleteTriggerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsName,
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTrigger' smart constructor.
-newtype DeleteTrigger = DeleteTrigger' {_dttName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteTrigger' smart constructor.
+newtype DeleteTrigger = DeleteTrigger' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrigger' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttName' - The name of the trigger to delete.
-deleteTrigger ::
-  -- | 'dttName'
-  Text ->
+-- * 'name' - The name of the trigger to delete.
+mkDeleteTrigger ::
+  -- | 'name'
+  Lude.Text ->
   DeleteTrigger
-deleteTrigger pName_ = DeleteTrigger' {_dttName = pName_}
+mkDeleteTrigger pName_ = DeleteTrigger' {name = pName_}
 
 -- | The name of the trigger to delete.
-dttName :: Lens' DeleteTrigger Text
-dttName = lens _dttName (\s a -> s {_dttName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttName :: Lens.Lens' DeleteTrigger Lude.Text
+dttName = Lens.lens (name :: DeleteTrigger -> Lude.Text) (\s a -> s {name = a} :: DeleteTrigger)
+{-# DEPRECATED dttName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteTrigger where
+instance Lude.AWSRequest DeleteTrigger where
   type Rs DeleteTrigger = DeleteTriggerResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DeleteTriggerResponse' <$> (x .?> "Name") <*> (pure (fromEnum s))
+          DeleteTriggerResponse'
+            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTrigger
-
-instance NFData DeleteTrigger
-
-instance ToHeaders DeleteTrigger where
+instance Lude.ToHeaders DeleteTrigger where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.DeleteTrigger" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.DeleteTrigger" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteTrigger where
+instance Lude.ToJSON DeleteTrigger where
   toJSON DeleteTrigger' {..} =
-    object (catMaybes [Just ("Name" .= _dttName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteTrigger where
-  toPath = const "/"
+instance Lude.ToPath DeleteTrigger where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteTrigger where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTrigger where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTriggerResponse' smart constructor.
+-- | /See:/ 'mkDeleteTriggerResponse' smart constructor.
 data DeleteTriggerResponse = DeleteTriggerResponse'
-  { _delrsName ::
-      !(Maybe Text),
-    _delrsResponseStatus :: !Int
+  { name ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTriggerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsName' - The name of the trigger that was deleted.
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteTriggerResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'name' - The name of the trigger that was deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteTriggerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTriggerResponse
-deleteTriggerResponse pResponseStatus_ =
+mkDeleteTriggerResponse pResponseStatus_ =
   DeleteTriggerResponse'
-    { _delrsName = Nothing,
-      _delrsResponseStatus = pResponseStatus_
+    { name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the trigger that was deleted.
-delrsName :: Lens' DeleteTriggerResponse (Maybe Text)
-delrsName = lens _delrsName (\s a -> s {_delrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsName :: Lens.Lens' DeleteTriggerResponse (Lude.Maybe Lude.Text)
+delrsName = Lens.lens (name :: DeleteTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteTriggerResponse)
+{-# DEPRECATED delrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteTriggerResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteTriggerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteTriggerResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTriggerResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

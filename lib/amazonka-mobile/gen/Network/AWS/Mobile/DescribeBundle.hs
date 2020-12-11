@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,126 @@
 --
 -- Get the bundle details for the requested bundle id.
 module Network.AWS.Mobile.DescribeBundle
-  ( -- * Creating a Request
-    describeBundle,
-    DescribeBundle,
+  ( -- * Creating a request
+    DescribeBundle (..),
+    mkDescribeBundle,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbBundleId,
 
-    -- * Destructuring the Response
-    describeBundleResponse,
-    DescribeBundleResponse,
+    -- * Destructuring the response
+    DescribeBundleResponse (..),
+    mkDescribeBundleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsDetails,
     dbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request structure to request the details of a specific bundle.
 --
---
---
--- /See:/ 'describeBundle' smart constructor.
-newtype DescribeBundle = DescribeBundle' {_dbBundleId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeBundle' smart constructor.
+newtype DescribeBundle = DescribeBundle' {bundleId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBundle' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbBundleId' - Unique bundle identifier.
-describeBundle ::
-  -- | 'dbBundleId'
-  Text ->
+-- * 'bundleId' - Unique bundle identifier.
+mkDescribeBundle ::
+  -- | 'bundleId'
+  Lude.Text ->
   DescribeBundle
-describeBundle pBundleId_ =
-  DescribeBundle' {_dbBundleId = pBundleId_}
+mkDescribeBundle pBundleId_ =
+  DescribeBundle' {bundleId = pBundleId_}
 
 -- | Unique bundle identifier.
-dbBundleId :: Lens' DescribeBundle Text
-dbBundleId = lens _dbBundleId (\s a -> s {_dbBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbBundleId :: Lens.Lens' DescribeBundle Lude.Text
+dbBundleId = Lens.lens (bundleId :: DescribeBundle -> Lude.Text) (\s a -> s {bundleId = a} :: DescribeBundle)
+{-# DEPRECATED dbBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
-instance AWSRequest DescribeBundle where
+instance Lude.AWSRequest DescribeBundle where
   type Rs DescribeBundle = DescribeBundleResponse
-  request = get mobile
+  request = Req.get mobileService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBundleResponse'
-            <$> (x .?> "details") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "details") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBundle
-
-instance NFData DescribeBundle
-
-instance ToHeaders DescribeBundle where
+instance Lude.ToHeaders DescribeBundle where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeBundle where
+instance Lude.ToPath DescribeBundle where
   toPath DescribeBundle' {..} =
-    mconcat ["/bundles/", toBS _dbBundleId]
+    Lude.mconcat ["/bundles/", Lude.toBS bundleId]
 
-instance ToQuery DescribeBundle where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBundle where
+  toQuery = Lude.const Lude.mempty
 
 -- | Result structure contains the details of the bundle.
 --
---
---
--- /See:/ 'describeBundleResponse' smart constructor.
+-- /See:/ 'mkDescribeBundleResponse' smart constructor.
 data DescribeBundleResponse = DescribeBundleResponse'
-  { _dbrsDetails ::
-      !(Maybe BundleDetails),
-    _dbrsResponseStatus :: !Int
+  { details ::
+      Lude.Maybe BundleDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBundleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsDetails' - The details of the bundle.
---
--- * 'dbrsResponseStatus' - -- | The response status code.
-describeBundleResponse ::
-  -- | 'dbrsResponseStatus'
-  Int ->
+-- * 'details' - The details of the bundle.
+-- * 'responseStatus' - The response status code.
+mkDescribeBundleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBundleResponse
-describeBundleResponse pResponseStatus_ =
+mkDescribeBundleResponse pResponseStatus_ =
   DescribeBundleResponse'
-    { _dbrsDetails = Nothing,
-      _dbrsResponseStatus = pResponseStatus_
+    { details = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the bundle.
-dbrsDetails :: Lens' DescribeBundleResponse (Maybe BundleDetails)
-dbrsDetails = lens _dbrsDetails (\s a -> s {_dbrsDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsDetails :: Lens.Lens' DescribeBundleResponse (Lude.Maybe BundleDetails)
+dbrsDetails = Lens.lens (details :: DescribeBundleResponse -> Lude.Maybe BundleDetails) (\s a -> s {details = a} :: DescribeBundleResponse)
+{-# DEPRECATED dbrsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DescribeBundleResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\s a -> s {_dbrsResponseStatus = a})
-
-instance NFData DescribeBundleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsResponseStatus :: Lens.Lens' DescribeBundleResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBundleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBundleResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

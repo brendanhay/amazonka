@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.HTTPRequest where
+module Network.AWS.WAF.Types.HTTPRequest
+  ( HTTPRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPRequest,
+
+    -- * Lenses
+    httprHTTPVersion,
+    httprCountry,
+    httprURI,
+    httprHeaders,
+    httprMethod,
+    httprClientIP,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAF.Types.HTTPHeader
 
 -- | The response from a 'GetSampledRequests' request includes an @HTTPRequest@ complex type that appears as @Request@ in the response syntax. @HTTPRequest@ contains information about one of the web requests that were returned by @GetSampledRequests@ .
 --
---
---
--- /See:/ 'hTTPRequest' smart constructor.
+-- /See:/ 'mkHTTPRequest' smart constructor.
 data HTTPRequest = HTTPRequest'
-  { _httprHTTPVersion :: !(Maybe Text),
-    _httprCountry :: !(Maybe Text),
-    _httprURI :: !(Maybe Text),
-    _httprHeaders :: !(Maybe [HTTPHeader]),
-    _httprMethod :: !(Maybe Text),
-    _httprClientIP :: !(Maybe Text)
+  { hTTPVersion ::
+      Lude.Maybe Lude.Text,
+    country :: Lude.Maybe Lude.Text,
+    uri :: Lude.Maybe Lude.Text,
+    headers :: Lude.Maybe [HTTPHeader],
+    method :: Lude.Maybe Lude.Text,
+    clientIP :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientIP' - The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:
 --
--- * 'httprHTTPVersion' - The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
 --
--- * 'httprCountry' - The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
+--     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request
 --
--- * 'httprURI' - The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
 --
--- * 'httprHeaders' - A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
+--     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
 --
--- * 'httprMethod' - The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
 --
--- * 'httprClientIP' - The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
-hTTPRequest ::
+-- * 'country' - The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
+-- * 'hTTPVersion' - The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
+-- * 'headers' - A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
+-- * 'method' - The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
+-- * 'uri' - The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
+mkHTTPRequest ::
   HTTPRequest
-hTTPRequest =
+mkHTTPRequest =
   HTTPRequest'
-    { _httprHTTPVersion = Nothing,
-      _httprCountry = Nothing,
-      _httprURI = Nothing,
-      _httprHeaders = Nothing,
-      _httprMethod = Nothing,
-      _httprClientIP = Nothing
+    { hTTPVersion = Lude.Nothing,
+      country = Lude.Nothing,
+      uri = Lude.Nothing,
+      headers = Lude.Nothing,
+      method = Lude.Nothing,
+      clientIP = Lude.Nothing
     }
 
 -- | The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
-httprHTTPVersion :: Lens' HTTPRequest (Maybe Text)
-httprHTTPVersion = lens _httprHTTPVersion (\s a -> s {_httprHTTPVersion = a})
+--
+-- /Note:/ Consider using 'hTTPVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprHTTPVersion :: Lens.Lens' HTTPRequest (Lude.Maybe Lude.Text)
+httprHTTPVersion = Lens.lens (hTTPVersion :: HTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {hTTPVersion = a} :: HTTPRequest)
+{-# DEPRECATED httprHTTPVersion "Use generic-lens or generic-optics with 'hTTPVersion' instead." #-}
 
 -- | The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
-httprCountry :: Lens' HTTPRequest (Maybe Text)
-httprCountry = lens _httprCountry (\s a -> s {_httprCountry = a})
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprCountry :: Lens.Lens' HTTPRequest (Lude.Maybe Lude.Text)
+httprCountry = Lens.lens (country :: HTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {country = a} :: HTTPRequest)
+{-# DEPRECATED httprCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
-httprURI :: Lens' HTTPRequest (Maybe Text)
-httprURI = lens _httprURI (\s a -> s {_httprURI = a})
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprURI :: Lens.Lens' HTTPRequest (Lude.Maybe Lude.Text)
+httprURI = Lens.lens (uri :: HTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {uri = a} :: HTTPRequest)
+{-# DEPRECATED httprURI "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
-httprHeaders :: Lens' HTTPRequest [HTTPHeader]
-httprHeaders = lens _httprHeaders (\s a -> s {_httprHeaders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprHeaders :: Lens.Lens' HTTPRequest (Lude.Maybe [HTTPHeader])
+httprHeaders = Lens.lens (headers :: HTTPRequest -> Lude.Maybe [HTTPHeader]) (\s a -> s {headers = a} :: HTTPRequest)
+{-# DEPRECATED httprHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 -- | The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
-httprMethod :: Lens' HTTPRequest (Maybe Text)
-httprMethod = lens _httprMethod (\s a -> s {_httprMethod = a})
+--
+-- /Note:/ Consider using 'method' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprMethod :: Lens.Lens' HTTPRequest (Lude.Maybe Lude.Text)
+httprMethod = Lens.lens (method :: HTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {method = a} :: HTTPRequest)
+{-# DEPRECATED httprMethod "Use generic-lens or generic-optics with 'method' instead." #-}
 
--- | The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
-httprClientIP :: Lens' HTTPRequest (Maybe Text)
-httprClientIP = lens _httprClientIP (\s a -> s {_httprClientIP = a})
+-- | The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:
+--
+--
+--     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request
+--
+--
+--     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
+--
+--
+--
+-- /Note:/ Consider using 'clientIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprClientIP :: Lens.Lens' HTTPRequest (Lude.Maybe Lude.Text)
+httprClientIP = Lens.lens (clientIP :: HTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientIP = a} :: HTTPRequest)
+{-# DEPRECATED httprClientIP "Use generic-lens or generic-optics with 'clientIP' instead." #-}
 
-instance FromJSON HTTPRequest where
+instance Lude.FromJSON HTTPRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPRequest"
       ( \x ->
           HTTPRequest'
-            <$> (x .:? "HTTPVersion")
-            <*> (x .:? "Country")
-            <*> (x .:? "URI")
-            <*> (x .:? "Headers" .!= mempty)
-            <*> (x .:? "Method")
-            <*> (x .:? "ClientIP")
+            Lude.<$> (x Lude..:? "HTTPVersion")
+            Lude.<*> (x Lude..:? "Country")
+            Lude.<*> (x Lude..:? "URI")
+            Lude.<*> (x Lude..:? "Headers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Method")
+            Lude.<*> (x Lude..:? "ClientIP")
       )
-
-instance Hashable HTTPRequest
-
-instance NFData HTTPRequest

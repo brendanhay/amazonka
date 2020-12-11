@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,148 @@
 --
 -- Attaches one or more target groups to the specified Auto Scaling group.
 --
---
 -- This operation is used with the following load balancer types:
 --
 --     * Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS.
 --
+--
 --     * Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP.
+--
 --
 --     * Gateway Load Balancer - Operates at the network layer (layer 3).
 --
 --
---
 -- To describe the target groups for an Auto Scaling group, call the 'DescribeLoadBalancerTargetGroups' API. To detach the target group from the Auto Scaling group, call the 'DetachLoadBalancerTargetGroups' API.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
-  ( -- * Creating a Request
-    attachLoadBalancerTargetGroups,
-    AttachLoadBalancerTargetGroups,
+  ( -- * Creating a request
+    AttachLoadBalancerTargetGroups (..),
+    mkAttachLoadBalancerTargetGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     albtgAutoScalingGroupName,
     albtgTargetGroupARNs,
 
-    -- * Destructuring the Response
-    attachLoadBalancerTargetGroupsResponse,
-    AttachLoadBalancerTargetGroupsResponse,
+    -- * Destructuring the response
+    AttachLoadBalancerTargetGroupsResponse (..),
+    mkAttachLoadBalancerTargetGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     albtgrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
+-- | /See:/ 'mkAttachLoadBalancerTargetGroups' smart constructor.
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
-  { _albtgAutoScalingGroupName ::
-      !Text,
-    _albtgTargetGroupARNs ::
-      ![Text]
+  { autoScalingGroupName ::
+      Lude.Text,
+    targetGroupARNs ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'albtgAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'albtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups> API operation.
-attachLoadBalancerTargetGroups ::
-  -- | 'albtgAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups> API operation.
+mkAttachLoadBalancerTargetGroups ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   AttachLoadBalancerTargetGroups
-attachLoadBalancerTargetGroups pAutoScalingGroupName_ =
+mkAttachLoadBalancerTargetGroups pAutoScalingGroupName_ =
   AttachLoadBalancerTargetGroups'
-    { _albtgAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _albtgTargetGroupARNs = mempty
+      targetGroupARNs = Lude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-albtgAutoScalingGroupName :: Lens' AttachLoadBalancerTargetGroups Text
-albtgAutoScalingGroupName = lens _albtgAutoScalingGroupName (\s a -> s {_albtgAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albtgAutoScalingGroupName :: Lens.Lens' AttachLoadBalancerTargetGroups Lude.Text
+albtgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AttachLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AttachLoadBalancerTargetGroups)
+{-# DEPRECATED albtgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups> API operation.
-albtgTargetGroupARNs :: Lens' AttachLoadBalancerTargetGroups [Text]
-albtgTargetGroupARNs = lens _albtgTargetGroupARNs (\s a -> s {_albtgTargetGroupARNs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targetGroupARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albtgTargetGroupARNs :: Lens.Lens' AttachLoadBalancerTargetGroups [Lude.Text]
+albtgTargetGroupARNs = Lens.lens (targetGroupARNs :: AttachLoadBalancerTargetGroups -> [Lude.Text]) (\s a -> s {targetGroupARNs = a} :: AttachLoadBalancerTargetGroups)
+{-# DEPRECATED albtgTargetGroupARNs "Use generic-lens or generic-optics with 'targetGroupARNs' instead." #-}
 
-instance AWSRequest AttachLoadBalancerTargetGroups where
+instance Lude.AWSRequest AttachLoadBalancerTargetGroups where
   type
     Rs AttachLoadBalancerTargetGroups =
       AttachLoadBalancerTargetGroupsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AttachLoadBalancerTargetGroupsResult"
       ( \s h x ->
-          AttachLoadBalancerTargetGroupsResponse' <$> (pure (fromEnum s))
+          AttachLoadBalancerTargetGroupsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachLoadBalancerTargetGroups
+instance Lude.ToHeaders AttachLoadBalancerTargetGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachLoadBalancerTargetGroups
+instance Lude.ToPath AttachLoadBalancerTargetGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachLoadBalancerTargetGroups where
-  toHeaders = const mempty
-
-instance ToPath AttachLoadBalancerTargetGroups where
-  toPath = const "/"
-
-instance ToQuery AttachLoadBalancerTargetGroups where
+instance Lude.ToQuery AttachLoadBalancerTargetGroups where
   toQuery AttachLoadBalancerTargetGroups' {..} =
-    mconcat
-      [ "Action" =: ("AttachLoadBalancerTargetGroups" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _albtgAutoScalingGroupName,
-        "TargetGroupARNs" =: toQueryList "member" _albtgTargetGroupARNs
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AttachLoadBalancerTargetGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "TargetGroupARNs"
+          Lude.=: Lude.toQueryList "member" targetGroupARNs
       ]
 
--- | /See:/ 'attachLoadBalancerTargetGroupsResponse' smart constructor.
+-- | /See:/ 'mkAttachLoadBalancerTargetGroupsResponse' smart constructor.
 newtype AttachLoadBalancerTargetGroupsResponse = AttachLoadBalancerTargetGroupsResponse'
-  { _albtgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'albtgrsResponseStatus' - -- | The response status code.
-attachLoadBalancerTargetGroupsResponse ::
-  -- | 'albtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAttachLoadBalancerTargetGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachLoadBalancerTargetGroupsResponse
-attachLoadBalancerTargetGroupsResponse pResponseStatus_ =
+mkAttachLoadBalancerTargetGroupsResponse pResponseStatus_ =
   AttachLoadBalancerTargetGroupsResponse'
-    { _albtgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-albtgrsResponseStatus :: Lens' AttachLoadBalancerTargetGroupsResponse Int
-albtgrsResponseStatus = lens _albtgrsResponseStatus (\s a -> s {_albtgrsResponseStatus = a})
-
-instance NFData AttachLoadBalancerTargetGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albtgrsResponseStatus :: Lens.Lens' AttachLoadBalancerTargetGroupsResponse Lude.Int
+albtgrsResponseStatus = Lens.lens (responseStatus :: AttachLoadBalancerTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachLoadBalancerTargetGroupsResponse)
+{-# DEPRECATED albtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

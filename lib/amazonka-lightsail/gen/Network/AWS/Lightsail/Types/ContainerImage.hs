@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerImage where
+module Network.AWS.Lightsail.Types.ContainerImage
+  ( ContainerImage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContainerImage,
+
+    -- * Lenses
+    ciImage,
+    ciCreatedAt,
+    ciDigest,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a container image that is registered to an Amazon Lightsail container service.
 --
---
---
--- /See:/ 'containerImage' smart constructor.
+-- /See:/ 'mkContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
-  { _ciImage :: !(Maybe Text),
-    _ciCreatedAt :: !(Maybe POSIX),
-    _ciDigest :: !(Maybe Text)
+  { image ::
+      Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    digest :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciImage' - The name of the container image.
---
--- * 'ciCreatedAt' - The timestamp when the container image was created.
---
--- * 'ciDigest' - The digest of the container image.
-containerImage ::
+-- * 'createdAt' - The timestamp when the container image was created.
+-- * 'digest' - The digest of the container image.
+-- * 'image' - The name of the container image.
+mkContainerImage ::
   ContainerImage
-containerImage =
+mkContainerImage =
   ContainerImage'
-    { _ciImage = Nothing,
-      _ciCreatedAt = Nothing,
-      _ciDigest = Nothing
+    { image = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      digest = Lude.Nothing
     }
 
 -- | The name of the container image.
-ciImage :: Lens' ContainerImage (Maybe Text)
-ciImage = lens _ciImage (\s a -> s {_ciImage = a})
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciImage :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Text)
+ciImage = Lens.lens (image :: ContainerImage -> Lude.Maybe Lude.Text) (\s a -> s {image = a} :: ContainerImage)
+{-# DEPRECATED ciImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The timestamp when the container image was created.
-ciCreatedAt :: Lens' ContainerImage (Maybe UTCTime)
-ciCreatedAt = lens _ciCreatedAt (\s a -> s {_ciCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciCreatedAt :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Timestamp)
+ciCreatedAt = Lens.lens (createdAt :: ContainerImage -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerImage)
+{-# DEPRECATED ciCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The digest of the container image.
-ciDigest :: Lens' ContainerImage (Maybe Text)
-ciDigest = lens _ciDigest (\s a -> s {_ciDigest = a})
+--
+-- /Note:/ Consider using 'digest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDigest :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Text)
+ciDigest = Lens.lens (digest :: ContainerImage -> Lude.Maybe Lude.Text) (\s a -> s {digest = a} :: ContainerImage)
+{-# DEPRECATED ciDigest "Use generic-lens or generic-optics with 'digest' instead." #-}
 
-instance FromJSON ContainerImage where
+instance Lude.FromJSON ContainerImage where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerImage"
       ( \x ->
           ContainerImage'
-            <$> (x .:? "image") <*> (x .:? "createdAt") <*> (x .:? "digest")
+            Lude.<$> (x Lude..:? "image")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "digest")
       )
-
-instance Hashable ContainerImage
-
-instance NFData ContainerImage

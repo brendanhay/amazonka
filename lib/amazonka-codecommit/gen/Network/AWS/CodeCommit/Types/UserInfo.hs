@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.UserInfo where
+module Network.AWS.CodeCommit.Types.UserInfo
+  ( UserInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserInfo,
+
+    -- * Lenses
+    uiEmail,
+    uiDate,
+    uiName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the user who made a specified commit.
 --
---
---
--- /See:/ 'userInfo' smart constructor.
+-- /See:/ 'mkUserInfo' smart constructor.
 data UserInfo = UserInfo'
-  { _uiEmail :: !(Maybe Text),
-    _uiDate :: !(Maybe Text),
-    _uiName :: !(Maybe Text)
+  { email :: Lude.Maybe Lude.Text,
+    date :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiEmail' - The email address associated with the user who made the commit, if any.
---
--- * 'uiDate' - The date when the specified commit was commited, in timestamp format with GMT offset.
---
--- * 'uiName' - The name of the user who made the specified commit.
-userInfo ::
+-- * 'date' - The date when the specified commit was commited, in timestamp format with GMT offset.
+-- * 'email' - The email address associated with the user who made the commit, if any.
+-- * 'name' - The name of the user who made the specified commit.
+mkUserInfo ::
   UserInfo
-userInfo =
+mkUserInfo =
   UserInfo'
-    { _uiEmail = Nothing,
-      _uiDate = Nothing,
-      _uiName = Nothing
+    { email = Lude.Nothing,
+      date = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The email address associated with the user who made the commit, if any.
-uiEmail :: Lens' UserInfo (Maybe Text)
-uiEmail = lens _uiEmail (\s a -> s {_uiEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiEmail :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
+uiEmail = Lens.lens (email :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: UserInfo)
+{-# DEPRECATED uiEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The date when the specified commit was commited, in timestamp format with GMT offset.
-uiDate :: Lens' UserInfo (Maybe Text)
-uiDate = lens _uiDate (\s a -> s {_uiDate = a})
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiDate :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
+uiDate = Lens.lens (date :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {date = a} :: UserInfo)
+{-# DEPRECATED uiDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | The name of the user who made the specified commit.
-uiName :: Lens' UserInfo (Maybe Text)
-uiName = lens _uiName (\s a -> s {_uiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiName :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
+uiName = Lens.lens (name :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UserInfo)
+{-# DEPRECATED uiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON UserInfo where
+instance Lude.FromJSON UserInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserInfo"
       ( \x ->
           UserInfo'
-            <$> (x .:? "email") <*> (x .:? "date") <*> (x .:? "name")
+            Lude.<$> (x Lude..:? "email")
+            Lude.<*> (x Lude..:? "date")
+            Lude.<*> (x Lude..:? "name")
       )
-
-instance Hashable UserInfo
-
-instance NFData UserInfo

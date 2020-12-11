@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat where
+module Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
+  ( AuditReportResponseFormat
+      ( AuditReportResponseFormat',
+        CSV,
+        JSON
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditReportResponseFormat
-  = CSV
-  | JSON
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditReportResponseFormat = AuditReportResponseFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditReportResponseFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      "json" -> pure JSON
-      e ->
-        fromTextError $
-          "Failure parsing AuditReportResponseFormat from value: '" <> e
-            <> "'. Accepted values: csv, json"
+pattern CSV :: AuditReportResponseFormat
+pattern CSV = AuditReportResponseFormat' "CSV"
 
-instance ToText AuditReportResponseFormat where
-  toText = \case
-    CSV -> "CSV"
-    JSON -> "JSON"
+pattern JSON :: AuditReportResponseFormat
+pattern JSON = AuditReportResponseFormat' "JSON"
 
-instance Hashable AuditReportResponseFormat
-
-instance NFData AuditReportResponseFormat
-
-instance ToByteString AuditReportResponseFormat
-
-instance ToQuery AuditReportResponseFormat
-
-instance ToHeader AuditReportResponseFormat
-
-instance ToJSON AuditReportResponseFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  CSV,
+  JSON,
+  AuditReportResponseFormat'
+  #-}

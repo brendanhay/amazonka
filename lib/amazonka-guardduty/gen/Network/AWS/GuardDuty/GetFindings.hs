@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,160 @@
 --
 -- Describes Amazon GuardDuty findings specified by finding IDs.
 module Network.AWS.GuardDuty.GetFindings
-  ( -- * Creating a Request
-    getFindings,
-    GetFindings,
+  ( -- * Creating a request
+    GetFindings (..),
+    mkGetFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfSortCriteria,
     gfDetectorId,
     gfFindingIds,
 
-    -- * Destructuring the Response
-    getFindingsResponse,
-    GetFindingsResponse,
+    -- * Destructuring the response
+    GetFindingsResponse (..),
+    mkGetFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsResponseStatus,
     grsFindings,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFindings' smart constructor.
+-- | /See:/ 'mkGetFindings' smart constructor.
 data GetFindings = GetFindings'
-  { _gfSortCriteria ::
-      !(Maybe SortCriteria),
-    _gfDetectorId :: !Text,
-    _gfFindingIds :: ![Text]
+  { sortCriteria ::
+      Lude.Maybe SortCriteria,
+    detectorId :: Lude.Text,
+    findingIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfSortCriteria' - Represents the criteria used for sorting findings.
---
--- * 'gfDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
---
--- * 'gfFindingIds' - The IDs of the findings that you want to retrieve.
-getFindings ::
-  -- | 'gfDetectorId'
-  Text ->
+-- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
+-- * 'findingIds' - The IDs of the findings that you want to retrieve.
+-- * 'sortCriteria' - Represents the criteria used for sorting findings.
+mkGetFindings ::
+  -- | 'detectorId'
+  Lude.Text ->
   GetFindings
-getFindings pDetectorId_ =
+mkGetFindings pDetectorId_ =
   GetFindings'
-    { _gfSortCriteria = Nothing,
-      _gfDetectorId = pDetectorId_,
-      _gfFindingIds = mempty
+    { sortCriteria = Lude.Nothing,
+      detectorId = pDetectorId_,
+      findingIds = Lude.mempty
     }
 
 -- | Represents the criteria used for sorting findings.
-gfSortCriteria :: Lens' GetFindings (Maybe SortCriteria)
-gfSortCriteria = lens _gfSortCriteria (\s a -> s {_gfSortCriteria = a})
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfSortCriteria :: Lens.Lens' GetFindings (Lude.Maybe SortCriteria)
+gfSortCriteria = Lens.lens (sortCriteria :: GetFindings -> Lude.Maybe SortCriteria) (\s a -> s {sortCriteria = a} :: GetFindings)
+{-# DEPRECATED gfSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
-gfDetectorId :: Lens' GetFindings Text
-gfDetectorId = lens _gfDetectorId (\s a -> s {_gfDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfDetectorId :: Lens.Lens' GetFindings Lude.Text
+gfDetectorId = Lens.lens (detectorId :: GetFindings -> Lude.Text) (\s a -> s {detectorId = a} :: GetFindings)
+{-# DEPRECATED gfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The IDs of the findings that you want to retrieve.
-gfFindingIds :: Lens' GetFindings [Text]
-gfFindingIds = lens _gfFindingIds (\s a -> s {_gfFindingIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfFindingIds :: Lens.Lens' GetFindings [Lude.Text]
+gfFindingIds = Lens.lens (findingIds :: GetFindings -> [Lude.Text]) (\s a -> s {findingIds = a} :: GetFindings)
+{-# DEPRECATED gfFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
 
-instance AWSRequest GetFindings where
+instance Lude.AWSRequest GetFindings where
   type Rs GetFindings = GetFindingsResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFindingsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "findings" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "findings" Lude..!@ Lude.mempty)
       )
 
-instance Hashable GetFindings
-
-instance NFData GetFindings
-
-instance ToHeaders GetFindings where
+instance Lude.ToHeaders GetFindings where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON GetFindings where
-  toJSON GetFindings' {..} =
-    object
-      ( catMaybes
-          [ ("sortCriteria" .=) <$> _gfSortCriteria,
-            Just ("findingIds" .= _gfFindingIds)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath GetFindings where
+instance Lude.ToJSON GetFindings where
+  toJSON GetFindings' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sortCriteria" Lude..=) Lude.<$> sortCriteria,
+            Lude.Just ("findingIds" Lude..= findingIds)
+          ]
+      )
+
+instance Lude.ToPath GetFindings where
   toPath GetFindings' {..} =
-    mconcat ["/detector/", toBS _gfDetectorId, "/findings/get"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/findings/get"]
 
-instance ToQuery GetFindings where
-  toQuery = const mempty
+instance Lude.ToQuery GetFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFindingsResponse' smart constructor.
+-- | /See:/ 'mkGetFindingsResponse' smart constructor.
 data GetFindingsResponse = GetFindingsResponse'
-  { _grsResponseStatus ::
-      !Int,
-    _grsFindings :: ![Finding]
+  { responseStatus ::
+      Lude.Int,
+    findings :: [Finding]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsResponseStatus' - -- | The response status code.
---
--- * 'grsFindings' - A list of findings.
-getFindingsResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'findings' - A list of findings.
+-- * 'responseStatus' - The response status code.
+mkGetFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFindingsResponse
-getFindingsResponse pResponseStatus_ =
+mkGetFindingsResponse pResponseStatus_ =
   GetFindingsResponse'
-    { _grsResponseStatus = pResponseStatus_,
-      _grsFindings = mempty
+    { responseStatus = pResponseStatus_,
+      findings = Lude.mempty
     }
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetFindingsResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetFindingsResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFindingsResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of findings.
-grsFindings :: Lens' GetFindingsResponse [Finding]
-grsFindings = lens _grsFindings (\s a -> s {_grsFindings = a}) . _Coerce
-
-instance NFData GetFindingsResponse
+--
+-- /Note:/ Consider using 'findings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsFindings :: Lens.Lens' GetFindingsResponse [Finding]
+grsFindings = Lens.lens (findings :: GetFindingsResponse -> [Finding]) (\s a -> s {findings = a} :: GetFindingsResponse)
+{-# DEPRECATED grsFindings "Use generic-lens or generic-optics with 'findings' instead." #-}

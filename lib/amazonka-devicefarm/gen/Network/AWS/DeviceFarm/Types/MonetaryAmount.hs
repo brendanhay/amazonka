@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.MonetaryAmount where
+module Network.AWS.DeviceFarm.Types.MonetaryAmount
+  ( MonetaryAmount (..),
+
+    -- * Smart constructor
+    mkMonetaryAmount,
+
+    -- * Lenses
+    maAmount,
+    maCurrencyCode,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.CurrencyCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A number that represents the monetary amount for an offering or transaction.
 --
---
---
--- /See:/ 'monetaryAmount' smart constructor.
+-- /See:/ 'mkMonetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
-  { _maAmount :: !(Maybe Double),
-    _maCurrencyCode :: !(Maybe CurrencyCode)
+  { amount ::
+      Lude.Maybe Lude.Double,
+    currencyCode :: Lude.Maybe CurrencyCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonetaryAmount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'maAmount' - The numerical amount of an offering or transaction.
---
--- * 'maCurrencyCode' - The currency code of a monetary amount. For example, @USD@ means U.S. dollars.
-monetaryAmount ::
+-- * 'amount' - The numerical amount of an offering or transaction.
+-- * 'currencyCode' - The currency code of a monetary amount. For example, @USD@ means U.S. dollars.
+mkMonetaryAmount ::
   MonetaryAmount
-monetaryAmount =
-  MonetaryAmount' {_maAmount = Nothing, _maCurrencyCode = Nothing}
+mkMonetaryAmount =
+  MonetaryAmount'
+    { amount = Lude.Nothing,
+      currencyCode = Lude.Nothing
+    }
 
 -- | The numerical amount of an offering or transaction.
-maAmount :: Lens' MonetaryAmount (Maybe Double)
-maAmount = lens _maAmount (\s a -> s {_maAmount = a})
+--
+-- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAmount :: Lens.Lens' MonetaryAmount (Lude.Maybe Lude.Double)
+maAmount = Lens.lens (amount :: MonetaryAmount -> Lude.Maybe Lude.Double) (\s a -> s {amount = a} :: MonetaryAmount)
+{-# DEPRECATED maAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The currency code of a monetary amount. For example, @USD@ means U.S. dollars.
-maCurrencyCode :: Lens' MonetaryAmount (Maybe CurrencyCode)
-maCurrencyCode = lens _maCurrencyCode (\s a -> s {_maCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maCurrencyCode :: Lens.Lens' MonetaryAmount (Lude.Maybe CurrencyCode)
+maCurrencyCode = Lens.lens (currencyCode :: MonetaryAmount -> Lude.Maybe CurrencyCode) (\s a -> s {currencyCode = a} :: MonetaryAmount)
+{-# DEPRECATED maCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
-instance FromJSON MonetaryAmount where
+instance Lude.FromJSON MonetaryAmount where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonetaryAmount"
       ( \x ->
-          MonetaryAmount' <$> (x .:? "amount") <*> (x .:? "currencyCode")
+          MonetaryAmount'
+            Lude.<$> (x Lude..:? "amount") Lude.<*> (x Lude..:? "currencyCode")
       )
-
-instance Hashable MonetaryAmount
-
-instance NFData MonetaryAmount

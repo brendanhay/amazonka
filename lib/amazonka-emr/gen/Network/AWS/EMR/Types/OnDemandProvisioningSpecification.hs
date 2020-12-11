@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.OnDemandProvisioningSpecification where
+module Network.AWS.EMR.Types.OnDemandProvisioningSpecification
+  ( OnDemandProvisioningSpecification (..),
+
+    -- * Smart constructor
+    mkOnDemandProvisioningSpecification,
+
+    -- * Lenses
+    odpsAllocationStrategy,
+  )
+where
 
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 --
---
---
--- /See:/ 'onDemandProvisioningSpecification' smart constructor.
+-- /See:/ 'mkOnDemandProvisioningSpecification' smart constructor.
 newtype OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
-  { _odpsAllocationStrategy ::
+  { allocationStrategy ::
       OnDemandProvisioningAllocationStrategy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnDemandProvisioningSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'odpsAllocationStrategy' - Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
-onDemandProvisioningSpecification ::
-  -- | 'odpsAllocationStrategy'
+-- * 'allocationStrategy' - Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+mkOnDemandProvisioningSpecification ::
+  -- | 'allocationStrategy'
   OnDemandProvisioningAllocationStrategy ->
   OnDemandProvisioningSpecification
-onDemandProvisioningSpecification pAllocationStrategy_ =
+mkOnDemandProvisioningSpecification pAllocationStrategy_ =
   OnDemandProvisioningSpecification'
-    { _odpsAllocationStrategy =
+    { allocationStrategy =
         pAllocationStrategy_
     }
 
 -- | Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
-odpsAllocationStrategy :: Lens' OnDemandProvisioningSpecification OnDemandProvisioningAllocationStrategy
-odpsAllocationStrategy = lens _odpsAllocationStrategy (\s a -> s {_odpsAllocationStrategy = a})
+--
+-- /Note:/ Consider using 'allocationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odpsAllocationStrategy :: Lens.Lens' OnDemandProvisioningSpecification OnDemandProvisioningAllocationStrategy
+odpsAllocationStrategy = Lens.lens (allocationStrategy :: OnDemandProvisioningSpecification -> OnDemandProvisioningAllocationStrategy) (\s a -> s {allocationStrategy = a} :: OnDemandProvisioningSpecification)
+{-# DEPRECATED odpsAllocationStrategy "Use generic-lens or generic-optics with 'allocationStrategy' instead." #-}
 
-instance FromJSON OnDemandProvisioningSpecification where
+instance Lude.FromJSON OnDemandProvisioningSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "OnDemandProvisioningSpecification"
       ( \x ->
-          OnDemandProvisioningSpecification' <$> (x .: "AllocationStrategy")
+          OnDemandProvisioningSpecification'
+            Lude.<$> (x Lude..: "AllocationStrategy")
       )
 
-instance Hashable OnDemandProvisioningSpecification
-
-instance NFData OnDemandProvisioningSpecification
-
-instance ToJSON OnDemandProvisioningSpecification where
+instance Lude.ToJSON OnDemandProvisioningSpecification where
   toJSON OnDemandProvisioningSpecification' {..} =
-    object
-      ( catMaybes
-          [Just ("AllocationStrategy" .= _odpsAllocationStrategy)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("AllocationStrategy" Lude..= allocationStrategy)]
       )

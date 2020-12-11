@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,166 +7,262 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.Interconnect where
+module Network.AWS.DirectConnect.Types.Interconnect
+  ( Interconnect (..),
+
+    -- * Smart constructor
+    mkInterconnect,
+
+    -- * Lenses
+    iLagId,
+    iInterconnectId,
+    iLocation,
+    iInterconnectName,
+    iAwsDevice,
+    iHasLogicalRedundancy,
+    iLoaIssueTime,
+    iBandwidth,
+    iJumboFrameCapable,
+    iInterconnectState,
+    iRegion,
+    iProviderName,
+    iAwsDeviceV2,
+    iTags,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
 import Network.AWS.DirectConnect.Types.InterconnectState
 import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an interconnect.
 --
---
---
--- /See:/ 'interconnect' smart constructor.
+-- /See:/ 'mkInterconnect' smart constructor.
 data Interconnect = Interconnect'
-  { _iLagId :: !(Maybe Text),
-    _iInterconnectId :: !(Maybe Text),
-    _iLocation :: !(Maybe Text),
-    _iInterconnectName :: !(Maybe Text),
-    _iAwsDevice :: !(Maybe Text),
-    _iHasLogicalRedundancy :: !(Maybe HasLogicalRedundancy),
-    _iLoaIssueTime :: !(Maybe POSIX),
-    _iBandwidth :: !(Maybe Text),
-    _iJumboFrameCapable :: !(Maybe Bool),
-    _iInterconnectState :: !(Maybe InterconnectState),
-    _iRegion :: !(Maybe Text),
-    _iProviderName :: !(Maybe Text),
-    _iAwsDeviceV2 :: !(Maybe Text),
-    _iTags :: !(Maybe (List1 Tag))
+  { lagId :: Lude.Maybe Lude.Text,
+    interconnectId :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Lude.Text,
+    interconnectName :: Lude.Maybe Lude.Text,
+    awsDevice :: Lude.Maybe Lude.Text,
+    hasLogicalRedundancy :: Lude.Maybe HasLogicalRedundancy,
+    loaIssueTime :: Lude.Maybe Lude.Timestamp,
+    bandwidth :: Lude.Maybe Lude.Text,
+    jumboFrameCapable :: Lude.Maybe Lude.Bool,
+    interconnectState :: Lude.Maybe InterconnectState,
+    region :: Lude.Maybe Lude.Text,
+    providerName :: Lude.Maybe Lude.Text,
+    awsDeviceV2 :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Interconnect' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'awsDevice' - The Direct Connect endpoint on which the physical connection terminates.
+-- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
+-- * 'bandwidth' - The bandwidth of the connection.
+-- * 'hasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+-- * 'interconnectId' - The ID of the interconnect.
+-- * 'interconnectName' - The name of the interconnect.
+-- * 'interconnectState' - The state of the interconnect. The following are the possible values:
 --
--- * 'iLagId' - The ID of the LAG.
 --
--- * 'iInterconnectId' - The ID of the interconnect.
+--     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
 --
--- * 'iLocation' - The location of the connection.
 --
--- * 'iInterconnectName' - The name of the interconnect.
+--     * @pending@ : The interconnect is approved, and is being initialized.
 --
--- * 'iAwsDevice' - The Direct Connect endpoint on which the physical connection terminates.
 --
--- * 'iHasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+--     * @available@ : The network link is up, and the interconnect is ready for use.
 --
--- * 'iLoaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
 --
--- * 'iBandwidth' - The bandwidth of the connection.
+--     * @down@ : The network link is down.
 --
--- * 'iJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 --
--- * 'iInterconnectState' - The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
+--     * @deleting@ : The interconnect is being deleted.
 --
--- * 'iRegion' - The AWS Region where the connection is located.
 --
--- * 'iProviderName' - The name of the service provider associated with the interconnect.
+--     * @deleted@ : The interconnect is deleted.
 --
--- * 'iAwsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
 --
--- * 'iTags' - The tags associated with the interconnect.
-interconnect ::
+--     * @unknown@ : The state of the interconnect is not available.
+--
+--
+-- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- * 'lagId' - The ID of the LAG.
+-- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
+-- * 'location' - The location of the connection.
+-- * 'providerName' - The name of the service provider associated with the interconnect.
+-- * 'region' - The AWS Region where the connection is located.
+-- * 'tags' - The tags associated with the interconnect.
+mkInterconnect ::
   Interconnect
-interconnect =
+mkInterconnect =
   Interconnect'
-    { _iLagId = Nothing,
-      _iInterconnectId = Nothing,
-      _iLocation = Nothing,
-      _iInterconnectName = Nothing,
-      _iAwsDevice = Nothing,
-      _iHasLogicalRedundancy = Nothing,
-      _iLoaIssueTime = Nothing,
-      _iBandwidth = Nothing,
-      _iJumboFrameCapable = Nothing,
-      _iInterconnectState = Nothing,
-      _iRegion = Nothing,
-      _iProviderName = Nothing,
-      _iAwsDeviceV2 = Nothing,
-      _iTags = Nothing
+    { lagId = Lude.Nothing,
+      interconnectId = Lude.Nothing,
+      location = Lude.Nothing,
+      interconnectName = Lude.Nothing,
+      awsDevice = Lude.Nothing,
+      hasLogicalRedundancy = Lude.Nothing,
+      loaIssueTime = Lude.Nothing,
+      bandwidth = Lude.Nothing,
+      jumboFrameCapable = Lude.Nothing,
+      interconnectState = Lude.Nothing,
+      region = Lude.Nothing,
+      providerName = Lude.Nothing,
+      awsDeviceV2 = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The ID of the LAG.
-iLagId :: Lens' Interconnect (Maybe Text)
-iLagId = lens _iLagId (\s a -> s {_iLagId = a})
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLagId :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iLagId = Lens.lens (lagId :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: Interconnect)
+{-# DEPRECATED iLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
 -- | The ID of the interconnect.
-iInterconnectId :: Lens' Interconnect (Maybe Text)
-iInterconnectId = lens _iInterconnectId (\s a -> s {_iInterconnectId = a})
+--
+-- /Note:/ Consider using 'interconnectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInterconnectId :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iInterconnectId = Lens.lens (interconnectId :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {interconnectId = a} :: Interconnect)
+{-# DEPRECATED iInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
 
 -- | The location of the connection.
-iLocation :: Lens' Interconnect (Maybe Text)
-iLocation = lens _iLocation (\s a -> s {_iLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLocation :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iLocation = Lens.lens (location :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: Interconnect)
+{-# DEPRECATED iLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The name of the interconnect.
-iInterconnectName :: Lens' Interconnect (Maybe Text)
-iInterconnectName = lens _iInterconnectName (\s a -> s {_iInterconnectName = a})
+--
+-- /Note:/ Consider using 'interconnectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInterconnectName :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iInterconnectName = Lens.lens (interconnectName :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {interconnectName = a} :: Interconnect)
+{-# DEPRECATED iInterconnectName "Use generic-lens or generic-optics with 'interconnectName' instead." #-}
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
-iAwsDevice :: Lens' Interconnect (Maybe Text)
-iAwsDevice = lens _iAwsDevice (\s a -> s {_iAwsDevice = a})
+--
+-- /Note:/ Consider using 'awsDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAwsDevice :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iAwsDevice = Lens.lens (awsDevice :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {awsDevice = a} :: Interconnect)
+{-# DEPRECATED iAwsDevice "Use generic-lens or generic-optics with 'awsDevice' instead." #-}
 
 -- | Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
-iHasLogicalRedundancy :: Lens' Interconnect (Maybe HasLogicalRedundancy)
-iHasLogicalRedundancy = lens _iHasLogicalRedundancy (\s a -> s {_iHasLogicalRedundancy = a})
+--
+-- /Note:/ Consider using 'hasLogicalRedundancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iHasLogicalRedundancy :: Lens.Lens' Interconnect (Lude.Maybe HasLogicalRedundancy)
+iHasLogicalRedundancy = Lens.lens (hasLogicalRedundancy :: Interconnect -> Lude.Maybe HasLogicalRedundancy) (\s a -> s {hasLogicalRedundancy = a} :: Interconnect)
+{-# DEPRECATED iHasLogicalRedundancy "Use generic-lens or generic-optics with 'hasLogicalRedundancy' instead." #-}
 
 -- | The time of the most recent call to 'DescribeLoa' for this connection.
-iLoaIssueTime :: Lens' Interconnect (Maybe UTCTime)
-iLoaIssueTime = lens _iLoaIssueTime (\s a -> s {_iLoaIssueTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'loaIssueTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLoaIssueTime :: Lens.Lens' Interconnect (Lude.Maybe Lude.Timestamp)
+iLoaIssueTime = Lens.lens (loaIssueTime :: Interconnect -> Lude.Maybe Lude.Timestamp) (\s a -> s {loaIssueTime = a} :: Interconnect)
+{-# DEPRECATED iLoaIssueTime "Use generic-lens or generic-optics with 'loaIssueTime' instead." #-}
 
 -- | The bandwidth of the connection.
-iBandwidth :: Lens' Interconnect (Maybe Text)
-iBandwidth = lens _iBandwidth (\s a -> s {_iBandwidth = a})
+--
+-- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iBandwidth :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iBandwidth = Lens.lens (bandwidth :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {bandwidth = a} :: Interconnect)
+{-# DEPRECATED iBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
 
 -- | Indicates whether jumbo frames (9001 MTU) are supported.
-iJumboFrameCapable :: Lens' Interconnect (Maybe Bool)
-iJumboFrameCapable = lens _iJumboFrameCapable (\s a -> s {_iJumboFrameCapable = a})
+--
+-- /Note:/ Consider using 'jumboFrameCapable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iJumboFrameCapable :: Lens.Lens' Interconnect (Lude.Maybe Lude.Bool)
+iJumboFrameCapable = Lens.lens (jumboFrameCapable :: Interconnect -> Lude.Maybe Lude.Bool) (\s a -> s {jumboFrameCapable = a} :: Interconnect)
+{-# DEPRECATED iJumboFrameCapable "Use generic-lens or generic-optics with 'jumboFrameCapable' instead." #-}
 
--- | The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
-iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
-iInterconnectState = lens _iInterconnectState (\s a -> s {_iInterconnectState = a})
+-- | The state of the interconnect. The following are the possible values:
+--
+--
+--     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+--
+--
+--     * @pending@ : The interconnect is approved, and is being initialized.
+--
+--
+--     * @available@ : The network link is up, and the interconnect is ready for use.
+--
+--
+--     * @down@ : The network link is down.
+--
+--
+--     * @deleting@ : The interconnect is being deleted.
+--
+--
+--     * @deleted@ : The interconnect is deleted.
+--
+--
+--     * @unknown@ : The state of the interconnect is not available.
+--
+--
+--
+-- /Note:/ Consider using 'interconnectState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInterconnectState :: Lens.Lens' Interconnect (Lude.Maybe InterconnectState)
+iInterconnectState = Lens.lens (interconnectState :: Interconnect -> Lude.Maybe InterconnectState) (\s a -> s {interconnectState = a} :: Interconnect)
+{-# DEPRECATED iInterconnectState "Use generic-lens or generic-optics with 'interconnectState' instead." #-}
 
 -- | The AWS Region where the connection is located.
-iRegion :: Lens' Interconnect (Maybe Text)
-iRegion = lens _iRegion (\s a -> s {_iRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRegion :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iRegion = Lens.lens (region :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: Interconnect)
+{-# DEPRECATED iRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The name of the service provider associated with the interconnect.
-iProviderName :: Lens' Interconnect (Maybe Text)
-iProviderName = lens _iProviderName (\s a -> s {_iProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iProviderName :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iProviderName = Lens.lens (providerName :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: Interconnect)
+{-# DEPRECATED iProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
-iAwsDeviceV2 :: Lens' Interconnect (Maybe Text)
-iAwsDeviceV2 = lens _iAwsDeviceV2 (\s a -> s {_iAwsDeviceV2 = a})
+--
+-- /Note:/ Consider using 'awsDeviceV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAwsDeviceV2 :: Lens.Lens' Interconnect (Lude.Maybe Lude.Text)
+iAwsDeviceV2 = Lens.lens (awsDeviceV2 :: Interconnect -> Lude.Maybe Lude.Text) (\s a -> s {awsDeviceV2 = a} :: Interconnect)
+{-# DEPRECATED iAwsDeviceV2 "Use generic-lens or generic-optics with 'awsDeviceV2' instead." #-}
 
 -- | The tags associated with the interconnect.
-iTags :: Lens' Interconnect (Maybe (NonEmpty Tag))
-iTags = lens _iTags (\s a -> s {_iTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iTags :: Lens.Lens' Interconnect (Lude.Maybe (Lude.NonEmpty Tag))
+iTags = Lens.lens (tags :: Interconnect -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: Interconnect)
+{-# DEPRECATED iTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Interconnect where
+instance Lude.FromJSON Interconnect where
   parseJSON =
-    withObject
+    Lude.withObject
       "Interconnect"
       ( \x ->
           Interconnect'
-            <$> (x .:? "lagId")
-            <*> (x .:? "interconnectId")
-            <*> (x .:? "location")
-            <*> (x .:? "interconnectName")
-            <*> (x .:? "awsDevice")
-            <*> (x .:? "hasLogicalRedundancy")
-            <*> (x .:? "loaIssueTime")
-            <*> (x .:? "bandwidth")
-            <*> (x .:? "jumboFrameCapable")
-            <*> (x .:? "interconnectState")
-            <*> (x .:? "region")
-            <*> (x .:? "providerName")
-            <*> (x .:? "awsDeviceV2")
-            <*> (x .:? "tags")
+            Lude.<$> (x Lude..:? "lagId")
+            Lude.<*> (x Lude..:? "interconnectId")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "interconnectName")
+            Lude.<*> (x Lude..:? "awsDevice")
+            Lude.<*> (x Lude..:? "hasLogicalRedundancy")
+            Lude.<*> (x Lude..:? "loaIssueTime")
+            Lude.<*> (x Lude..:? "bandwidth")
+            Lude.<*> (x Lude..:? "jumboFrameCapable")
+            Lude.<*> (x Lude..:? "interconnectState")
+            Lude.<*> (x Lude..:? "region")
+            Lude.<*> (x Lude..:? "providerName")
+            Lude.<*> (x Lude..:? "awsDeviceV2")
+            Lude.<*> (x Lude..:? "tags")
       )
-
-instance Hashable Interconnect
-
-instance NFData Interconnect

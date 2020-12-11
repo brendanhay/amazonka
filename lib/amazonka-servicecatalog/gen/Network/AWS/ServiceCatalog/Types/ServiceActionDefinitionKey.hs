@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey where
+module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
+  ( ServiceActionDefinitionKey
+      ( ServiceActionDefinitionKey',
+        AssumeRole,
+        Name,
+        Parameters,
+        Version
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceActionDefinitionKey
-  = AssumeRole
-  | Name
-  | Parameters
-  | Version
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceActionDefinitionKey = ServiceActionDefinitionKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceActionDefinitionKey where
-  parser =
-    takeLowerText >>= \case
-      "assumerole" -> pure AssumeRole
-      "name" -> pure Name
-      "parameters" -> pure Parameters
-      "version" -> pure Version
-      e ->
-        fromTextError $
-          "Failure parsing ServiceActionDefinitionKey from value: '" <> e
-            <> "'. Accepted values: assumerole, name, parameters, version"
+pattern AssumeRole :: ServiceActionDefinitionKey
+pattern AssumeRole = ServiceActionDefinitionKey' "AssumeRole"
 
-instance ToText ServiceActionDefinitionKey where
-  toText = \case
-    AssumeRole -> "AssumeRole"
-    Name -> "Name"
-    Parameters -> "Parameters"
-    Version -> "Version"
+pattern Name :: ServiceActionDefinitionKey
+pattern Name = ServiceActionDefinitionKey' "Name"
 
-instance Hashable ServiceActionDefinitionKey
+pattern Parameters :: ServiceActionDefinitionKey
+pattern Parameters = ServiceActionDefinitionKey' "Parameters"
 
-instance NFData ServiceActionDefinitionKey
+pattern Version :: ServiceActionDefinitionKey
+pattern Version = ServiceActionDefinitionKey' "Version"
 
-instance ToByteString ServiceActionDefinitionKey
-
-instance ToQuery ServiceActionDefinitionKey
-
-instance ToHeader ServiceActionDefinitionKey
-
-instance ToJSON ServiceActionDefinitionKey where
-  toJSON = toJSONText
-
-instance FromJSON ServiceActionDefinitionKey where
-  parseJSON = parseJSONText "ServiceActionDefinitionKey"
+{-# COMPLETE
+  AssumeRole,
+  Name,
+  Parameters,
+  Version,
+  ServiceActionDefinitionKey'
+  #-}

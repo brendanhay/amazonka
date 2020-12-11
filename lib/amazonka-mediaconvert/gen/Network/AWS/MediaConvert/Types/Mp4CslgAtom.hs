@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp4CslgAtom where
+module Network.AWS.MediaConvert.Types.Mp4CslgAtom
+  ( Mp4CslgAtom
+      ( Mp4CslgAtom',
+        Mp4Exclude,
+        Mp4Include
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-data Mp4CslgAtom
-  = Mp4Exclude
-  | Mp4Include
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mp4CslgAtom = Mp4CslgAtom' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mp4CslgAtom where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure Mp4Exclude
-      "include" -> pure Mp4Include
-      e ->
-        fromTextError $
-          "Failure parsing Mp4CslgAtom from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern Mp4Exclude :: Mp4CslgAtom
+pattern Mp4Exclude = Mp4CslgAtom' "EXCLUDE"
 
-instance ToText Mp4CslgAtom where
-  toText = \case
-    Mp4Exclude -> "EXCLUDE"
-    Mp4Include -> "INCLUDE"
+pattern Mp4Include :: Mp4CslgAtom
+pattern Mp4Include = Mp4CslgAtom' "INCLUDE"
 
-instance Hashable Mp4CslgAtom
-
-instance NFData Mp4CslgAtom
-
-instance ToByteString Mp4CslgAtom
-
-instance ToQuery Mp4CslgAtom
-
-instance ToHeader Mp4CslgAtom
-
-instance ToJSON Mp4CslgAtom where
-  toJSON = toJSONText
-
-instance FromJSON Mp4CslgAtom where
-  parseJSON = parseJSONText "Mp4CslgAtom"
+{-# COMPLETE
+  Mp4Exclude,
+  Mp4Include,
+  Mp4CslgAtom'
+  #-}

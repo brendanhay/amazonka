@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.HTTPRequestMethodConditionConfig where
+module Network.AWS.ELBv2.Types.HTTPRequestMethodConditionConfig
+  ( HTTPRequestMethodConditionConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPRequestMethodConditionConfig,
+
+    -- * Lenses
+    httprmccValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an HTTP method condition.
 --
---
 -- HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the <https://www.iana.org/assignments/http-methods/http-methods.xhtml HTTP Method Registry> . You can also define custom HTTP methods.
 --
---
--- /See:/ 'hTTPRequestMethodConditionConfig' smart constructor.
+-- /See:/ 'mkHTTPRequestMethodConditionConfig' smart constructor.
 newtype HTTPRequestMethodConditionConfig = HTTPRequestMethodConditionConfig'
-  { _httprmccValues ::
-      Maybe [Text]
+  { values ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPRequestMethodConditionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'values' - The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 --
--- * 'httprmccValues' - The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match. If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
-hTTPRequestMethodConditionConfig ::
+-- If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
+mkHTTPRequestMethodConditionConfig ::
   HTTPRequestMethodConditionConfig
-hTTPRequestMethodConditionConfig =
-  HTTPRequestMethodConditionConfig' {_httprmccValues = Nothing}
+mkHTTPRequestMethodConditionConfig =
+  HTTPRequestMethodConditionConfig' {values = Lude.Nothing}
 
--- | The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match. If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
-httprmccValues :: Lens' HTTPRequestMethodConditionConfig [Text]
-httprmccValues = lens _httprmccValues (\s a -> s {_httprmccValues = a}) . _Default . _Coerce
+-- | The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+--
+-- If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httprmccValues :: Lens.Lens' HTTPRequestMethodConditionConfig (Lude.Maybe [Lude.Text])
+httprmccValues = Lens.lens (values :: HTTPRequestMethodConditionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: HTTPRequestMethodConditionConfig)
+{-# DEPRECATED httprmccValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromXML HTTPRequestMethodConditionConfig where
+instance Lude.FromXML HTTPRequestMethodConditionConfig where
   parseXML x =
     HTTPRequestMethodConditionConfig'
-      <$> (x .@? "Values" .!@ mempty >>= may (parseXMLList "member"))
+      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
 
-instance Hashable HTTPRequestMethodConditionConfig
-
-instance NFData HTTPRequestMethodConditionConfig
-
-instance ToQuery HTTPRequestMethodConditionConfig where
+instance Lude.ToQuery HTTPRequestMethodConditionConfig where
   toQuery HTTPRequestMethodConditionConfig' {..} =
-    mconcat
-      ["Values" =: toQuery (toQueryList "member" <$> _httprmccValues)]
+    Lude.mconcat
+      [ "Values"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values)
+      ]

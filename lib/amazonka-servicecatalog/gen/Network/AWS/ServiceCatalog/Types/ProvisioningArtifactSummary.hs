@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary
+  ( ProvisioningArtifactSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningArtifactSummary,
+
+    -- * Lenses
+    pasProvisioningArtifactMetadata,
+    pasCreatedTime,
+    pasName,
+    pasId,
+    pasDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary information about a provisioning artifact (also known as a version) for a product.
 --
---
---
--- /See:/ 'provisioningArtifactSummary' smart constructor.
+-- /See:/ 'mkProvisioningArtifactSummary' smart constructor.
 data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
-  { _pasProvisioningArtifactMetadata ::
-      !(Maybe (Map Text (Text))),
-    _pasCreatedTime :: !(Maybe POSIX),
-    _pasName :: !(Maybe Text),
-    _pasId :: !(Maybe Text),
-    _pasDescription :: !(Maybe Text)
+  { provisioningArtifactMetadata ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    createdTime ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pasProvisioningArtifactMetadata' - The metadata for the provisioning artifact. This is used with AWS Marketplace products.
---
--- * 'pasCreatedTime' - The UTC time stamp of the creation time.
---
--- * 'pasName' - The name of the provisioning artifact.
---
--- * 'pasId' - The identifier of the provisioning artifact.
---
--- * 'pasDescription' - The description of the provisioning artifact.
-provisioningArtifactSummary ::
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'description' - The description of the provisioning artifact.
+-- * 'id' - The identifier of the provisioning artifact.
+-- * 'name' - The name of the provisioning artifact.
+-- * 'provisioningArtifactMetadata' - The metadata for the provisioning artifact. This is used with AWS Marketplace products.
+mkProvisioningArtifactSummary ::
   ProvisioningArtifactSummary
-provisioningArtifactSummary =
+mkProvisioningArtifactSummary =
   ProvisioningArtifactSummary'
-    { _pasProvisioningArtifactMetadata =
-        Nothing,
-      _pasCreatedTime = Nothing,
-      _pasName = Nothing,
-      _pasId = Nothing,
-      _pasDescription = Nothing
+    { provisioningArtifactMetadata =
+        Lude.Nothing,
+      createdTime = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The metadata for the provisioning artifact. This is used with AWS Marketplace products.
-pasProvisioningArtifactMetadata :: Lens' ProvisioningArtifactSummary (HashMap Text (Text))
-pasProvisioningArtifactMetadata = lens _pasProvisioningArtifactMetadata (\s a -> s {_pasProvisioningArtifactMetadata = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'provisioningArtifactMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasProvisioningArtifactMetadata :: Lens.Lens' ProvisioningArtifactSummary (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+pasProvisioningArtifactMetadata = Lens.lens (provisioningArtifactMetadata :: ProvisioningArtifactSummary -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {provisioningArtifactMetadata = a} :: ProvisioningArtifactSummary)
+{-# DEPRECATED pasProvisioningArtifactMetadata "Use generic-lens or generic-optics with 'provisioningArtifactMetadata' instead." #-}
 
 -- | The UTC time stamp of the creation time.
-pasCreatedTime :: Lens' ProvisioningArtifactSummary (Maybe UTCTime)
-pasCreatedTime = lens _pasCreatedTime (\s a -> s {_pasCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasCreatedTime :: Lens.Lens' ProvisioningArtifactSummary (Lude.Maybe Lude.Timestamp)
+pasCreatedTime = Lens.lens (createdTime :: ProvisioningArtifactSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisioningArtifactSummary)
+{-# DEPRECATED pasCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The name of the provisioning artifact.
-pasName :: Lens' ProvisioningArtifactSummary (Maybe Text)
-pasName = lens _pasName (\s a -> s {_pasName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasName :: Lens.Lens' ProvisioningArtifactSummary (Lude.Maybe Lude.Text)
+pasName = Lens.lens (name :: ProvisioningArtifactSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisioningArtifactSummary)
+{-# DEPRECATED pasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-pasId :: Lens' ProvisioningArtifactSummary (Maybe Text)
-pasId = lens _pasId (\s a -> s {_pasId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasId :: Lens.Lens' ProvisioningArtifactSummary (Lude.Maybe Lude.Text)
+pasId = Lens.lens (id :: ProvisioningArtifactSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProvisioningArtifactSummary)
+{-# DEPRECATED pasId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The description of the provisioning artifact.
-pasDescription :: Lens' ProvisioningArtifactSummary (Maybe Text)
-pasDescription = lens _pasDescription (\s a -> s {_pasDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasDescription :: Lens.Lens' ProvisioningArtifactSummary (Lude.Maybe Lude.Text)
+pasDescription = Lens.lens (description :: ProvisioningArtifactSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactSummary)
+{-# DEPRECATED pasDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ProvisioningArtifactSummary where
+instance Lude.FromJSON ProvisioningArtifactSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningArtifactSummary"
       ( \x ->
           ProvisioningArtifactSummary'
-            <$> (x .:? "ProvisioningArtifactMetadata" .!= mempty)
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "ProvisioningArtifactMetadata" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ProvisioningArtifactSummary
-
-instance NFData ProvisioningArtifactSummary

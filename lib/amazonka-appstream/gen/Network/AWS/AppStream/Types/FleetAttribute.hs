@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.FleetAttribute where
+module Network.AWS.AppStream.Types.FleetAttribute
+  ( FleetAttribute
+      ( FleetAttribute',
+        FADomainJoinInfo,
+        FAIAMRoleARN,
+        FAVPCConfiguration,
+        FAVPCConfigurationSecurityGroupIds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The fleet attribute.
-data FleetAttribute
-  = FADomainJoinInfo
-  | FAIAMRoleARN
-  | FAVPCConfiguration
-  | FAVPCConfigurationSecurityGroupIds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetAttribute = FleetAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetAttribute where
-  parser =
-    takeLowerText >>= \case
-      "domain_join_info" -> pure FADomainJoinInfo
-      "iam_role_arn" -> pure FAIAMRoleARN
-      "vpc_configuration" -> pure FAVPCConfiguration
-      "vpc_configuration_security_group_ids" -> pure FAVPCConfigurationSecurityGroupIds
-      e ->
-        fromTextError $
-          "Failure parsing FleetAttribute from value: '" <> e
-            <> "'. Accepted values: domain_join_info, iam_role_arn, vpc_configuration, vpc_configuration_security_group_ids"
+pattern FADomainJoinInfo :: FleetAttribute
+pattern FADomainJoinInfo = FleetAttribute' "DOMAIN_JOIN_INFO"
 
-instance ToText FleetAttribute where
-  toText = \case
-    FADomainJoinInfo -> "DOMAIN_JOIN_INFO"
-    FAIAMRoleARN -> "IAM_ROLE_ARN"
-    FAVPCConfiguration -> "VPC_CONFIGURATION"
-    FAVPCConfigurationSecurityGroupIds -> "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+pattern FAIAMRoleARN :: FleetAttribute
+pattern FAIAMRoleARN = FleetAttribute' "IAM_ROLE_ARN"
 
-instance Hashable FleetAttribute
+pattern FAVPCConfiguration :: FleetAttribute
+pattern FAVPCConfiguration = FleetAttribute' "VPC_CONFIGURATION"
 
-instance NFData FleetAttribute
+pattern FAVPCConfigurationSecurityGroupIds :: FleetAttribute
+pattern FAVPCConfigurationSecurityGroupIds = FleetAttribute' "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
 
-instance ToByteString FleetAttribute
-
-instance ToQuery FleetAttribute
-
-instance ToHeader FleetAttribute
-
-instance ToJSON FleetAttribute where
-  toJSON = toJSONText
+{-# COMPLETE
+  FADomainJoinInfo,
+  FAIAMRoleARN,
+  FAVPCConfiguration,
+  FAVPCConfigurationSecurityGroupIds,
+  FleetAttribute'
+  #-}

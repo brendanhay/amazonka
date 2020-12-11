@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotAllocationStrategy where
+module Network.AWS.EC2.Types.SpotAllocationStrategy
+  ( SpotAllocationStrategy
+      ( SpotAllocationStrategy',
+        CapacityOptimized,
+        Diversified,
+        LowestPrice
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SpotAllocationStrategy
-  = CapacityOptimized
-  | Diversified
-  | LowestPrice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SpotAllocationStrategy = SpotAllocationStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SpotAllocationStrategy where
-  parser =
-    takeLowerText >>= \case
-      "capacity-optimized" -> pure CapacityOptimized
-      "diversified" -> pure Diversified
-      "lowest-price" -> pure LowestPrice
-      e ->
-        fromTextError $
-          "Failure parsing SpotAllocationStrategy from value: '" <> e
-            <> "'. Accepted values: capacity-optimized, diversified, lowest-price"
+pattern CapacityOptimized :: SpotAllocationStrategy
+pattern CapacityOptimized = SpotAllocationStrategy' "capacity-optimized"
 
-instance ToText SpotAllocationStrategy where
-  toText = \case
-    CapacityOptimized -> "capacity-optimized"
-    Diversified -> "diversified"
-    LowestPrice -> "lowest-price"
+pattern Diversified :: SpotAllocationStrategy
+pattern Diversified = SpotAllocationStrategy' "diversified"
 
-instance Hashable SpotAllocationStrategy
+pattern LowestPrice :: SpotAllocationStrategy
+pattern LowestPrice = SpotAllocationStrategy' "lowest-price"
 
-instance NFData SpotAllocationStrategy
-
-instance ToByteString SpotAllocationStrategy
-
-instance ToQuery SpotAllocationStrategy
-
-instance ToHeader SpotAllocationStrategy
-
-instance FromXML SpotAllocationStrategy where
-  parseXML = parseXMLText "SpotAllocationStrategy"
+{-# COMPLETE
+  CapacityOptimized,
+  Diversified,
+  LowestPrice,
+  SpotAllocationStrategy'
+  #-}

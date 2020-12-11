@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,105 @@
 --
 -- Deletes stored utterances.
 --
---
 -- Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the 'GetUtterancesView' operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.
---
 -- Use the @DeleteUtterances@ operation to manually delete stored utterances for a specific user. When you use the @DeleteUtterances@ operation, utterances stored for improving your bot's ability to respond to user input are deleted immediately. Utterances stored for use with the @GetUtterancesView@ operation are deleted after 15 days.
---
 -- This operation requires permissions for the @lex:DeleteUtterances@ action.
 module Network.AWS.LexModels.DeleteUtterances
-  ( -- * Creating a Request
-    deleteUtterances,
-    DeleteUtterances,
+  ( -- * Creating a request
+    DeleteUtterances (..),
+    mkDeleteUtterances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     duBotName,
     duUserId,
 
-    -- * Destructuring the Response
-    deleteUtterancesResponse,
-    DeleteUtterancesResponse,
+    -- * Destructuring the response
+    DeleteUtterancesResponse (..),
+    mkDeleteUtterancesResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUtterances' smart constructor.
+-- | /See:/ 'mkDeleteUtterances' smart constructor.
 data DeleteUtterances = DeleteUtterances'
-  { _duBotName :: !Text,
-    _duUserId :: !Text
+  { botName :: Lude.Text,
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUtterances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duBotName' - The name of the bot that stored the utterances.
---
--- * 'duUserId' - The unique identifier for the user that made the utterances. This is the user ID that was sent in the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> operation request that contained the utterance.
-deleteUtterances ::
-  -- | 'duBotName'
-  Text ->
-  -- | 'duUserId'
-  Text ->
+-- * 'botName' - The name of the bot that stored the utterances.
+-- * 'userId' - The unique identifier for the user that made the utterances. This is the user ID that was sent in the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> operation request that contained the utterance.
+mkDeleteUtterances ::
+  -- | 'botName'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   DeleteUtterances
-deleteUtterances pBotName_ pUserId_ =
-  DeleteUtterances' {_duBotName = pBotName_, _duUserId = pUserId_}
+mkDeleteUtterances pBotName_ pUserId_ =
+  DeleteUtterances' {botName = pBotName_, userId = pUserId_}
 
 -- | The name of the bot that stored the utterances.
-duBotName :: Lens' DeleteUtterances Text
-duBotName = lens _duBotName (\s a -> s {_duBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duBotName :: Lens.Lens' DeleteUtterances Lude.Text
+duBotName = Lens.lens (botName :: DeleteUtterances -> Lude.Text) (\s a -> s {botName = a} :: DeleteUtterances)
+{-# DEPRECATED duBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The unique identifier for the user that made the utterances. This is the user ID that was sent in the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent> or <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> operation request that contained the utterance.
-duUserId :: Lens' DeleteUtterances Text
-duUserId = lens _duUserId (\s a -> s {_duUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserId :: Lens.Lens' DeleteUtterances Lude.Text
+duUserId = Lens.lens (userId :: DeleteUtterances -> Lude.Text) (\s a -> s {userId = a} :: DeleteUtterances)
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest DeleteUtterances where
+instance Lude.AWSRequest DeleteUtterances where
   type Rs DeleteUtterances = DeleteUtterancesResponse
-  request = delete lexModels
-  response = receiveNull DeleteUtterancesResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteUtterancesResponse'
 
-instance Hashable DeleteUtterances
-
-instance NFData DeleteUtterances
-
-instance ToHeaders DeleteUtterances where
+instance Lude.ToHeaders DeleteUtterances where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteUtterances where
+instance Lude.ToPath DeleteUtterances where
   toPath DeleteUtterances' {..} =
-    mconcat
-      ["/bots/", toBS _duBotName, "/utterances/", toBS _duUserId]
+    Lude.mconcat
+      ["/bots/", Lude.toBS botName, "/utterances/", Lude.toBS userId]
 
-instance ToQuery DeleteUtterances where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUtterances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUtterancesResponse' smart constructor.
+-- | /See:/ 'mkDeleteUtterancesResponse' smart constructor.
 data DeleteUtterancesResponse = DeleteUtterancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUtterancesResponse' with the minimum fields required to make a request.
-deleteUtterancesResponse ::
+mkDeleteUtterancesResponse ::
   DeleteUtterancesResponse
-deleteUtterancesResponse = DeleteUtterancesResponse'
-
-instance NFData DeleteUtterancesResponse
+mkDeleteUtterancesResponse = DeleteUtterancesResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SnapshotCopyGrant where
+module Network.AWS.Redshift.Types.SnapshotCopyGrant
+  ( SnapshotCopyGrant (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSnapshotCopyGrant,
+
+    -- * Lenses
+    scgKMSKeyId,
+    scgSnapshotCopyGrantName,
+    scgTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
 -- | The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
 --
---
 -- For more information about managing snapshot copy grants, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ .
 --
---
--- /See:/ 'snapshotCopyGrant' smart constructor.
+-- /See:/ 'mkSnapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-  { _scgKMSKeyId ::
-      !(Maybe Text),
-    _scgSnapshotCopyGrantName :: !(Maybe Text),
-    _scgTags :: !(Maybe [Tag])
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    snapshotCopyGrantName :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotCopyGrant' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scgKMSKeyId' - The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
---
--- * 'scgSnapshotCopyGrantName' - The name of the snapshot copy grant.
---
--- * 'scgTags' - A list of tag instances.
-snapshotCopyGrant ::
+-- * 'kmsKeyId' - The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
+-- * 'snapshotCopyGrantName' - The name of the snapshot copy grant.
+-- * 'tags' - A list of tag instances.
+mkSnapshotCopyGrant ::
   SnapshotCopyGrant
-snapshotCopyGrant =
+mkSnapshotCopyGrant =
   SnapshotCopyGrant'
-    { _scgKMSKeyId = Nothing,
-      _scgSnapshotCopyGrantName = Nothing,
-      _scgTags = Nothing
+    { kmsKeyId = Lude.Nothing,
+      snapshotCopyGrantName = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
-scgKMSKeyId :: Lens' SnapshotCopyGrant (Maybe Text)
-scgKMSKeyId = lens _scgKMSKeyId (\s a -> s {_scgKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scgKMSKeyId :: Lens.Lens' SnapshotCopyGrant (Lude.Maybe Lude.Text)
+scgKMSKeyId = Lens.lens (kmsKeyId :: SnapshotCopyGrant -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: SnapshotCopyGrant)
+{-# DEPRECATED scgKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The name of the snapshot copy grant.
-scgSnapshotCopyGrantName :: Lens' SnapshotCopyGrant (Maybe Text)
-scgSnapshotCopyGrantName = lens _scgSnapshotCopyGrantName (\s a -> s {_scgSnapshotCopyGrantName = a})
+--
+-- /Note:/ Consider using 'snapshotCopyGrantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scgSnapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Lude.Maybe Lude.Text)
+scgSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: SnapshotCopyGrant -> Lude.Maybe Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: SnapshotCopyGrant)
+{-# DEPRECATED scgSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
 
 -- | A list of tag instances.
-scgTags :: Lens' SnapshotCopyGrant [Tag]
-scgTags = lens _scgTags (\s a -> s {_scgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scgTags :: Lens.Lens' SnapshotCopyGrant (Lude.Maybe [Tag])
+scgTags = Lens.lens (tags :: SnapshotCopyGrant -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SnapshotCopyGrant)
+{-# DEPRECATED scgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML SnapshotCopyGrant where
+instance Lude.FromXML SnapshotCopyGrant where
   parseXML x =
     SnapshotCopyGrant'
-      <$> (x .@? "KmsKeyId")
-      <*> (x .@? "SnapshotCopyGrantName")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "Tag"))
-
-instance Hashable SnapshotCopyGrant
-
-instance NFData SnapshotCopyGrant
+      Lude.<$> (x Lude..@? "KmsKeyId")
+      Lude.<*> (x Lude..@? "SnapshotCopyGrantName")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )

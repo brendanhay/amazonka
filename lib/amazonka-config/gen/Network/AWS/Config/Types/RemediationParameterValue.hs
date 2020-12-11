@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationParameterValue where
+module Network.AWS.Config.Types.RemediationParameterValue
+  ( RemediationParameterValue (..),
+
+    -- * Smart constructor
+    mkRemediationParameterValue,
+
+    -- * Lenses
+    rpvStaticValue,
+    rpvResourceValue,
+  )
+where
 
 import Network.AWS.Config.Types.ResourceValue
 import Network.AWS.Config.Types.StaticValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
 --
---
---
--- /See:/ 'remediationParameterValue' smart constructor.
+-- /See:/ 'mkRemediationParameterValue' smart constructor.
 data RemediationParameterValue = RemediationParameterValue'
-  { _rpvStaticValue ::
-      !(Maybe StaticValue),
-    _rpvResourceValue ::
-      !(Maybe ResourceValue)
+  { staticValue ::
+      Lude.Maybe StaticValue,
+    resourceValue ::
+      Lude.Maybe ResourceValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationParameterValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpvStaticValue' - The value is static and does not change at run-time.
---
--- * 'rpvResourceValue' - The value is dynamic and changes at run-time.
-remediationParameterValue ::
+-- * 'resourceValue' - The value is dynamic and changes at run-time.
+-- * 'staticValue' - The value is static and does not change at run-time.
+mkRemediationParameterValue ::
   RemediationParameterValue
-remediationParameterValue =
+mkRemediationParameterValue =
   RemediationParameterValue'
-    { _rpvStaticValue = Nothing,
-      _rpvResourceValue = Nothing
+    { staticValue = Lude.Nothing,
+      resourceValue = Lude.Nothing
     }
 
 -- | The value is static and does not change at run-time.
-rpvStaticValue :: Lens' RemediationParameterValue (Maybe StaticValue)
-rpvStaticValue = lens _rpvStaticValue (\s a -> s {_rpvStaticValue = a})
+--
+-- /Note:/ Consider using 'staticValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpvStaticValue :: Lens.Lens' RemediationParameterValue (Lude.Maybe StaticValue)
+rpvStaticValue = Lens.lens (staticValue :: RemediationParameterValue -> Lude.Maybe StaticValue) (\s a -> s {staticValue = a} :: RemediationParameterValue)
+{-# DEPRECATED rpvStaticValue "Use generic-lens or generic-optics with 'staticValue' instead." #-}
 
 -- | The value is dynamic and changes at run-time.
-rpvResourceValue :: Lens' RemediationParameterValue (Maybe ResourceValue)
-rpvResourceValue = lens _rpvResourceValue (\s a -> s {_rpvResourceValue = a})
+--
+-- /Note:/ Consider using 'resourceValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpvResourceValue :: Lens.Lens' RemediationParameterValue (Lude.Maybe ResourceValue)
+rpvResourceValue = Lens.lens (resourceValue :: RemediationParameterValue -> Lude.Maybe ResourceValue) (\s a -> s {resourceValue = a} :: RemediationParameterValue)
+{-# DEPRECATED rpvResourceValue "Use generic-lens or generic-optics with 'resourceValue' instead." #-}
 
-instance FromJSON RemediationParameterValue where
+instance Lude.FromJSON RemediationParameterValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemediationParameterValue"
       ( \x ->
           RemediationParameterValue'
-            <$> (x .:? "StaticValue") <*> (x .:? "ResourceValue")
+            Lude.<$> (x Lude..:? "StaticValue") Lude.<*> (x Lude..:? "ResourceValue")
       )
 
-instance Hashable RemediationParameterValue
-
-instance NFData RemediationParameterValue
-
-instance ToJSON RemediationParameterValue where
+instance Lude.ToJSON RemediationParameterValue where
   toJSON RemediationParameterValue' {..} =
-    object
-      ( catMaybes
-          [ ("StaticValue" .=) <$> _rpvStaticValue,
-            ("ResourceValue" .=) <$> _rpvResourceValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StaticValue" Lude..=) Lude.<$> staticValue,
+            ("ResourceValue" Lude..=) Lude.<$> resourceValue
           ]
       )

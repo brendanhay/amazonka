@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.City where
+module Network.AWS.GuardDuty.Types.City
+  ( City (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCity,
+
+    -- * Lenses
+    cCityName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the city associated with the IP address.
 --
---
---
--- /See:/ 'city' smart constructor.
-newtype City = City' {_cCityName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCity' smart constructor.
+newtype City = City' {cityName :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'City' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cCityName' - The city name of the remote IP address.
-city ::
+-- * 'cityName' - The city name of the remote IP address.
+mkCity ::
   City
-city = City' {_cCityName = Nothing}
+mkCity = City' {cityName = Lude.Nothing}
 
 -- | The city name of the remote IP address.
-cCityName :: Lens' City (Maybe Text)
-cCityName = lens _cCityName (\s a -> s {_cCityName = a})
+--
+-- /Note:/ Consider using 'cityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCityName :: Lens.Lens' City (Lude.Maybe Lude.Text)
+cCityName = Lens.lens (cityName :: City -> Lude.Maybe Lude.Text) (\s a -> s {cityName = a} :: City)
+{-# DEPRECATED cCityName "Use generic-lens or generic-optics with 'cityName' instead." #-}
 
-instance FromJSON City where
-  parseJSON = withObject "City" (\x -> City' <$> (x .:? "cityName"))
-
-instance Hashable City
-
-instance NFData City
+instance Lude.FromJSON City where
+  parseJSON =
+    Lude.withObject
+      "City"
+      (\x -> City' Lude.<$> (x Lude..:? "cityName"))

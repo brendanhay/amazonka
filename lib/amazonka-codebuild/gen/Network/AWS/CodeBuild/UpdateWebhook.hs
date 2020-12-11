@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,184 @@
 --
 -- Updates the webhook associated with an AWS CodeBuild build project.
 module Network.AWS.CodeBuild.UpdateWebhook
-  ( -- * Creating a Request
-    updateWebhook,
-    UpdateWebhook,
+  ( -- * Creating a request
+    UpdateWebhook (..),
+    mkUpdateWebhook,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uwBranchFilter,
     uwRotateSecret,
     uwFilterGroups,
     uwBuildType,
     uwProjectName,
 
-    -- * Destructuring the Response
-    updateWebhookResponse,
-    UpdateWebhookResponse,
+    -- * Destructuring the response
+    UpdateWebhookResponse (..),
+    mkUpdateWebhookResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uwrsWebhook,
     uwrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateWebhook' smart constructor.
+-- | /See:/ 'mkUpdateWebhook' smart constructor.
 data UpdateWebhook = UpdateWebhook'
-  { _uwBranchFilter ::
-      !(Maybe Text),
-    _uwRotateSecret :: !(Maybe Bool),
-    _uwFilterGroups :: !(Maybe [[WebhookFilter]]),
-    _uwBuildType :: !(Maybe WebhookBuildType),
-    _uwProjectName :: !Text
+  { branchFilter ::
+      Lude.Maybe Lude.Text,
+    rotateSecret :: Lude.Maybe Lude.Bool,
+    filterGroups :: Lude.Maybe [[WebhookFilter]],
+    buildType :: Lude.Maybe WebhookBuildType,
+    projectName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWebhook' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwBranchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
---
--- * 'uwRotateSecret' - A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository, @rotateSecret@ is ignored.
---
--- * 'uwFilterGroups' - An array of arrays of @WebhookFilter@ objects used to determine if a webhook event can trigger a build. A filter group must contain at least one @EVENT@ @WebhookFilter@ .
---
--- * 'uwBuildType' - Specifies the type of build this webhook will trigger.
---
--- * 'uwProjectName' - The name of the AWS CodeBuild project.
-updateWebhook ::
-  -- | 'uwProjectName'
-  Text ->
+-- * 'branchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
+-- * 'buildType' - Specifies the type of build this webhook will trigger.
+-- * 'filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine if a webhook event can trigger a build. A filter group must contain at least one @EVENT@ @WebhookFilter@ .
+-- * 'projectName' - The name of the AWS CodeBuild project.
+-- * 'rotateSecret' - A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository, @rotateSecret@ is ignored.
+mkUpdateWebhook ::
+  -- | 'projectName'
+  Lude.Text ->
   UpdateWebhook
-updateWebhook pProjectName_ =
+mkUpdateWebhook pProjectName_ =
   UpdateWebhook'
-    { _uwBranchFilter = Nothing,
-      _uwRotateSecret = Nothing,
-      _uwFilterGroups = Nothing,
-      _uwBuildType = Nothing,
-      _uwProjectName = pProjectName_
+    { branchFilter = Lude.Nothing,
+      rotateSecret = Lude.Nothing,
+      filterGroups = Lude.Nothing,
+      buildType = Lude.Nothing,
+      projectName = pProjectName_
     }
 
 -- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
-uwBranchFilter :: Lens' UpdateWebhook (Maybe Text)
-uwBranchFilter = lens _uwBranchFilter (\s a -> s {_uwBranchFilter = a})
+--
+-- /Note:/ Consider using 'branchFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwBranchFilter :: Lens.Lens' UpdateWebhook (Lude.Maybe Lude.Text)
+uwBranchFilter = Lens.lens (branchFilter :: UpdateWebhook -> Lude.Maybe Lude.Text) (\s a -> s {branchFilter = a} :: UpdateWebhook)
+{-# DEPRECATED uwBranchFilter "Use generic-lens or generic-optics with 'branchFilter' instead." #-}
 
 -- | A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository, @rotateSecret@ is ignored.
-uwRotateSecret :: Lens' UpdateWebhook (Maybe Bool)
-uwRotateSecret = lens _uwRotateSecret (\s a -> s {_uwRotateSecret = a})
+--
+-- /Note:/ Consider using 'rotateSecret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwRotateSecret :: Lens.Lens' UpdateWebhook (Lude.Maybe Lude.Bool)
+uwRotateSecret = Lens.lens (rotateSecret :: UpdateWebhook -> Lude.Maybe Lude.Bool) (\s a -> s {rotateSecret = a} :: UpdateWebhook)
+{-# DEPRECATED uwRotateSecret "Use generic-lens or generic-optics with 'rotateSecret' instead." #-}
 
 -- | An array of arrays of @WebhookFilter@ objects used to determine if a webhook event can trigger a build. A filter group must contain at least one @EVENT@ @WebhookFilter@ .
-uwFilterGroups :: Lens' UpdateWebhook [[WebhookFilter]]
-uwFilterGroups = lens _uwFilterGroups (\s a -> s {_uwFilterGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwFilterGroups :: Lens.Lens' UpdateWebhook (Lude.Maybe [[WebhookFilter]])
+uwFilterGroups = Lens.lens (filterGroups :: UpdateWebhook -> Lude.Maybe [[WebhookFilter]]) (\s a -> s {filterGroups = a} :: UpdateWebhook)
+{-# DEPRECATED uwFilterGroups "Use generic-lens or generic-optics with 'filterGroups' instead." #-}
 
 -- | Specifies the type of build this webhook will trigger.
-uwBuildType :: Lens' UpdateWebhook (Maybe WebhookBuildType)
-uwBuildType = lens _uwBuildType (\s a -> s {_uwBuildType = a})
+--
+-- /Note:/ Consider using 'buildType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwBuildType :: Lens.Lens' UpdateWebhook (Lude.Maybe WebhookBuildType)
+uwBuildType = Lens.lens (buildType :: UpdateWebhook -> Lude.Maybe WebhookBuildType) (\s a -> s {buildType = a} :: UpdateWebhook)
+{-# DEPRECATED uwBuildType "Use generic-lens or generic-optics with 'buildType' instead." #-}
 
 -- | The name of the AWS CodeBuild project.
-uwProjectName :: Lens' UpdateWebhook Text
-uwProjectName = lens _uwProjectName (\s a -> s {_uwProjectName = a})
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwProjectName :: Lens.Lens' UpdateWebhook Lude.Text
+uwProjectName = Lens.lens (projectName :: UpdateWebhook -> Lude.Text) (\s a -> s {projectName = a} :: UpdateWebhook)
+{-# DEPRECATED uwProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
-instance AWSRequest UpdateWebhook where
+instance Lude.AWSRequest UpdateWebhook where
   type Rs UpdateWebhook = UpdateWebhookResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateWebhookResponse'
-            <$> (x .?> "webhook") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "webhook") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateWebhook
-
-instance NFData UpdateWebhook
-
-instance ToHeaders UpdateWebhook where
+instance Lude.ToHeaders UpdateWebhook where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.UpdateWebhook" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.UpdateWebhook" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateWebhook where
+instance Lude.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
-    object
-      ( catMaybes
-          [ ("branchFilter" .=) <$> _uwBranchFilter,
-            ("rotateSecret" .=) <$> _uwRotateSecret,
-            ("filterGroups" .=) <$> _uwFilterGroups,
-            ("buildType" .=) <$> _uwBuildType,
-            Just ("projectName" .= _uwProjectName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("branchFilter" Lude..=) Lude.<$> branchFilter,
+            ("rotateSecret" Lude..=) Lude.<$> rotateSecret,
+            ("filterGroups" Lude..=) Lude.<$> filterGroups,
+            ("buildType" Lude..=) Lude.<$> buildType,
+            Lude.Just ("projectName" Lude..= projectName)
           ]
       )
 
-instance ToPath UpdateWebhook where
-  toPath = const "/"
+instance Lude.ToPath UpdateWebhook where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateWebhook where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateWebhook where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateWebhookResponse' smart constructor.
+-- | /See:/ 'mkUpdateWebhookResponse' smart constructor.
 data UpdateWebhookResponse = UpdateWebhookResponse'
-  { _uwrsWebhook ::
-      !(Maybe Webhook),
-    _uwrsResponseStatus :: !Int
+  { webhook ::
+      Lude.Maybe Webhook,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWebhookResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwrsWebhook' - Information about a repository's webhook that is associated with a project in AWS CodeBuild.
---
--- * 'uwrsResponseStatus' - -- | The response status code.
-updateWebhookResponse ::
-  -- | 'uwrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'webhook' - Information about a repository's webhook that is associated with a project in AWS CodeBuild.
+mkUpdateWebhookResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateWebhookResponse
-updateWebhookResponse pResponseStatus_ =
+mkUpdateWebhookResponse pResponseStatus_ =
   UpdateWebhookResponse'
-    { _uwrsWebhook = Nothing,
-      _uwrsResponseStatus = pResponseStatus_
+    { webhook = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a repository's webhook that is associated with a project in AWS CodeBuild.
-uwrsWebhook :: Lens' UpdateWebhookResponse (Maybe Webhook)
-uwrsWebhook = lens _uwrsWebhook (\s a -> s {_uwrsWebhook = a})
+--
+-- /Note:/ Consider using 'webhook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwrsWebhook :: Lens.Lens' UpdateWebhookResponse (Lude.Maybe Webhook)
+uwrsWebhook = Lens.lens (webhook :: UpdateWebhookResponse -> Lude.Maybe Webhook) (\s a -> s {webhook = a} :: UpdateWebhookResponse)
+{-# DEPRECATED uwrsWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
 
--- | -- | The response status code.
-uwrsResponseStatus :: Lens' UpdateWebhookResponse Int
-uwrsResponseStatus = lens _uwrsResponseStatus (\s a -> s {_uwrsResponseStatus = a})
-
-instance NFData UpdateWebhookResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwrsResponseStatus :: Lens.Lens' UpdateWebhookResponse Lude.Int
+uwrsResponseStatus = Lens.lens (responseStatus :: UpdateWebhookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateWebhookResponse)
+{-# DEPRECATED uwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

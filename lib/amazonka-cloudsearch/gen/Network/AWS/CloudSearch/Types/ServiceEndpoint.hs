@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.ServiceEndpoint where
+module Network.AWS.CloudSearch.Types.ServiceEndpoint
+  ( ServiceEndpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceEndpoint,
+
+    -- * Lenses
+    seEndpoint,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The endpoint to which service requests can be submitted.
 --
---
---
--- /See:/ 'serviceEndpoint' smart constructor.
+-- /See:/ 'mkServiceEndpoint' smart constructor.
 newtype ServiceEndpoint = ServiceEndpoint'
-  { _seEndpoint ::
-      Maybe Text
+  { endpoint ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seEndpoint' - Undocumented member.
-serviceEndpoint ::
+-- * 'endpoint' - Undocumented field.
+mkServiceEndpoint ::
   ServiceEndpoint
-serviceEndpoint = ServiceEndpoint' {_seEndpoint = Nothing}
+mkServiceEndpoint = ServiceEndpoint' {endpoint = Lude.Nothing}
 
--- | Undocumented member.
-seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
-seEndpoint = lens _seEndpoint (\s a -> s {_seEndpoint = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seEndpoint :: Lens.Lens' ServiceEndpoint (Lude.Maybe Lude.Text)
+seEndpoint = Lens.lens (endpoint :: ServiceEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: ServiceEndpoint)
+{-# DEPRECATED seEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance FromXML ServiceEndpoint where
-  parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
-
-instance Hashable ServiceEndpoint
-
-instance NFData ServiceEndpoint
+instance Lude.FromXML ServiceEndpoint where
+  parseXML x = ServiceEndpoint' Lude.<$> (x Lude..@? "Endpoint")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.
 module Network.AWS.CognitoIdentityProvider.VerifySoftwareToken
-  ( -- * Creating a Request
-    verifySoftwareToken,
-    VerifySoftwareToken,
+  ( -- * Creating a request
+    VerifySoftwareToken (..),
+    mkVerifySoftwareToken,
 
-    -- * Request Lenses
+    -- ** Request lenses
     vstAccessToken,
     vstFriendlyDeviceName,
     vstSession,
     vstUserCode,
 
-    -- * Destructuring the Response
-    verifySoftwareTokenResponse,
-    VerifySoftwareTokenResponse,
+    -- * Destructuring the response
+    VerifySoftwareTokenResponse (..),
+    mkVerifySoftwareTokenResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     vstrsStatus,
     vstrsSession,
     vstrsResponseStatus,
@@ -41,144 +36,160 @@ module Network.AWS.CognitoIdentityProvider.VerifySoftwareToken
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'verifySoftwareToken' smart constructor.
+-- | /See:/ 'mkVerifySoftwareToken' smart constructor.
 data VerifySoftwareToken = VerifySoftwareToken'
-  { _vstAccessToken ::
-      !(Maybe (Sensitive Text)),
-    _vstFriendlyDeviceName :: !(Maybe Text),
-    _vstSession :: !(Maybe Text),
-    _vstUserCode :: !Text
+  { accessToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    friendlyDeviceName :: Lude.Maybe Lude.Text,
+    session :: Lude.Maybe Lude.Text,
+    userCode :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifySoftwareToken' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vstAccessToken' - The access token.
---
--- * 'vstFriendlyDeviceName' - The friendly device name.
---
--- * 'vstSession' - The session which should be passed both ways in challenge-response calls to the service.
---
--- * 'vstUserCode' - The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
-verifySoftwareToken ::
-  -- | 'vstUserCode'
-  Text ->
+-- * 'accessToken' - The access token.
+-- * 'friendlyDeviceName' - The friendly device name.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
+-- * 'userCode' - The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
+mkVerifySoftwareToken ::
+  -- | 'userCode'
+  Lude.Text ->
   VerifySoftwareToken
-verifySoftwareToken pUserCode_ =
+mkVerifySoftwareToken pUserCode_ =
   VerifySoftwareToken'
-    { _vstAccessToken = Nothing,
-      _vstFriendlyDeviceName = Nothing,
-      _vstSession = Nothing,
-      _vstUserCode = pUserCode_
+    { accessToken = Lude.Nothing,
+      friendlyDeviceName = Lude.Nothing,
+      session = Lude.Nothing,
+      userCode = pUserCode_
     }
 
 -- | The access token.
-vstAccessToken :: Lens' VerifySoftwareToken (Maybe Text)
-vstAccessToken = lens _vstAccessToken (\s a -> s {_vstAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstAccessToken :: Lens.Lens' VerifySoftwareToken (Lude.Maybe (Lude.Sensitive Lude.Text))
+vstAccessToken = Lens.lens (accessToken :: VerifySoftwareToken -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: VerifySoftwareToken)
+{-# DEPRECATED vstAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The friendly device name.
-vstFriendlyDeviceName :: Lens' VerifySoftwareToken (Maybe Text)
-vstFriendlyDeviceName = lens _vstFriendlyDeviceName (\s a -> s {_vstFriendlyDeviceName = a})
+--
+-- /Note:/ Consider using 'friendlyDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstFriendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Lude.Maybe Lude.Text)
+vstFriendlyDeviceName = Lens.lens (friendlyDeviceName :: VerifySoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
+{-# DEPRECATED vstFriendlyDeviceName "Use generic-lens or generic-optics with 'friendlyDeviceName' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service.
-vstSession :: Lens' VerifySoftwareToken (Maybe Text)
-vstSession = lens _vstSession (\s a -> s {_vstSession = a})
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstSession :: Lens.Lens' VerifySoftwareToken (Lude.Maybe Lude.Text)
+vstSession = Lens.lens (session :: VerifySoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: VerifySoftwareToken)
+{-# DEPRECATED vstSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
 -- | The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
-vstUserCode :: Lens' VerifySoftwareToken Text
-vstUserCode = lens _vstUserCode (\s a -> s {_vstUserCode = a})
+--
+-- /Note:/ Consider using 'userCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstUserCode :: Lens.Lens' VerifySoftwareToken Lude.Text
+vstUserCode = Lens.lens (userCode :: VerifySoftwareToken -> Lude.Text) (\s a -> s {userCode = a} :: VerifySoftwareToken)
+{-# DEPRECATED vstUserCode "Use generic-lens or generic-optics with 'userCode' instead." #-}
 
-instance AWSRequest VerifySoftwareToken where
+instance Lude.AWSRequest VerifySoftwareToken where
   type Rs VerifySoftwareToken = VerifySoftwareTokenResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           VerifySoftwareTokenResponse'
-            <$> (x .?> "Status") <*> (x .?> "Session") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "Session")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable VerifySoftwareToken
-
-instance NFData VerifySoftwareToken
-
-instance ToHeaders VerifySoftwareToken where
+instance Lude.ToHeaders VerifySoftwareToken where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.VerifySoftwareToken" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.VerifySoftwareToken" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON VerifySoftwareToken where
+instance Lude.ToJSON VerifySoftwareToken where
   toJSON VerifySoftwareToken' {..} =
-    object
-      ( catMaybes
-          [ ("AccessToken" .=) <$> _vstAccessToken,
-            ("FriendlyDeviceName" .=) <$> _vstFriendlyDeviceName,
-            ("Session" .=) <$> _vstSession,
-            Just ("UserCode" .= _vstUserCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessToken" Lude..=) Lude.<$> accessToken,
+            ("FriendlyDeviceName" Lude..=) Lude.<$> friendlyDeviceName,
+            ("Session" Lude..=) Lude.<$> session,
+            Lude.Just ("UserCode" Lude..= userCode)
           ]
       )
 
-instance ToPath VerifySoftwareToken where
-  toPath = const "/"
+instance Lude.ToPath VerifySoftwareToken where
+  toPath = Lude.const "/"
 
-instance ToQuery VerifySoftwareToken where
-  toQuery = const mempty
+instance Lude.ToQuery VerifySoftwareToken where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'verifySoftwareTokenResponse' smart constructor.
+-- | /See:/ 'mkVerifySoftwareTokenResponse' smart constructor.
 data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
-  { _vstrsStatus ::
-      !( Maybe
-           VerifySoftwareTokenResponseType
-       ),
-    _vstrsSession :: !(Maybe Text),
-    _vstrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe
+        VerifySoftwareTokenResponseType,
+    session :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifySoftwareTokenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vstrsStatus' - The status of the verify software token.
---
--- * 'vstrsSession' - The session which should be passed both ways in challenge-response calls to the service.
---
--- * 'vstrsResponseStatus' - -- | The response status code.
-verifySoftwareTokenResponse ::
-  -- | 'vstrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
+-- * 'status' - The status of the verify software token.
+mkVerifySoftwareTokenResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   VerifySoftwareTokenResponse
-verifySoftwareTokenResponse pResponseStatus_ =
+mkVerifySoftwareTokenResponse pResponseStatus_ =
   VerifySoftwareTokenResponse'
-    { _vstrsStatus = Nothing,
-      _vstrsSession = Nothing,
-      _vstrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      session = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the verify software token.
-vstrsStatus :: Lens' VerifySoftwareTokenResponse (Maybe VerifySoftwareTokenResponseType)
-vstrsStatus = lens _vstrsStatus (\s a -> s {_vstrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstrsStatus :: Lens.Lens' VerifySoftwareTokenResponse (Lude.Maybe VerifySoftwareTokenResponseType)
+vstrsStatus = Lens.lens (status :: VerifySoftwareTokenResponse -> Lude.Maybe VerifySoftwareTokenResponseType) (\s a -> s {status = a} :: VerifySoftwareTokenResponse)
+{-# DEPRECATED vstrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service.
-vstrsSession :: Lens' VerifySoftwareTokenResponse (Maybe Text)
-vstrsSession = lens _vstrsSession (\s a -> s {_vstrsSession = a})
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstrsSession :: Lens.Lens' VerifySoftwareTokenResponse (Lude.Maybe Lude.Text)
+vstrsSession = Lens.lens (session :: VerifySoftwareTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: VerifySoftwareTokenResponse)
+{-# DEPRECATED vstrsSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
--- | -- | The response status code.
-vstrsResponseStatus :: Lens' VerifySoftwareTokenResponse Int
-vstrsResponseStatus = lens _vstrsResponseStatus (\s a -> s {_vstrsResponseStatus = a})
-
-instance NFData VerifySoftwareTokenResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstrsResponseStatus :: Lens.Lens' VerifySoftwareTokenResponse Lude.Int
+vstrsResponseStatus = Lens.lens (responseStatus :: VerifySoftwareTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifySoftwareTokenResponse)
+{-# DEPRECATED vstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264SceneChangeDetect where
+module Network.AWS.MediaLive.Types.H264SceneChangeDetect
+  ( H264SceneChangeDetect
+      ( H264SceneChangeDetect',
+        HDisabled,
+        HEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Scene Change Detect
-data H264SceneChangeDetect
-  = HDisabled
-  | HEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264SceneChangeDetect = H264SceneChangeDetect' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264SceneChangeDetect where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HDisabled
-      "enabled" -> pure HEnabled
-      e ->
-        fromTextError $
-          "Failure parsing H264SceneChangeDetect from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HDisabled :: H264SceneChangeDetect
+pattern HDisabled = H264SceneChangeDetect' "DISABLED"
 
-instance ToText H264SceneChangeDetect where
-  toText = \case
-    HDisabled -> "DISABLED"
-    HEnabled -> "ENABLED"
+pattern HEnabled :: H264SceneChangeDetect
+pattern HEnabled = H264SceneChangeDetect' "ENABLED"
 
-instance Hashable H264SceneChangeDetect
-
-instance NFData H264SceneChangeDetect
-
-instance ToByteString H264SceneChangeDetect
-
-instance ToQuery H264SceneChangeDetect
-
-instance ToHeader H264SceneChangeDetect
-
-instance ToJSON H264SceneChangeDetect where
-  toJSON = toJSONText
-
-instance FromJSON H264SceneChangeDetect where
-  parseJSON = parseJSONText "H264SceneChangeDetect"
+{-# COMPLETE
+  HDisabled,
+  HEnabled,
+  H264SceneChangeDetect'
+  #-}

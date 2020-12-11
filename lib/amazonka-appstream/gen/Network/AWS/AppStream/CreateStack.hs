@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations.
 module Network.AWS.AppStream.CreateStack
-  ( -- * Creating a Request
-    createStack,
-    CreateStack,
+  ( -- * Creating a request
+    CreateStack (..),
+    mkCreateStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csUserSettings,
     csApplicationSettings,
     csFeedbackURL,
@@ -36,205 +31,249 @@ module Network.AWS.AppStream.CreateStack
     csRedirectURL,
     csName,
 
-    -- * Destructuring the Response
-    createStackResponse,
-    CreateStackResponse,
+    -- * Destructuring the response
+    CreateStackResponse (..),
+    mkCreateStackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsStack,
     csrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createStack' smart constructor.
+-- | /See:/ 'mkCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csUserSettings ::
-      !(Maybe (List1 UserSetting)),
-    _csApplicationSettings :: !(Maybe ApplicationSettings),
-    _csFeedbackURL :: !(Maybe Text),
-    _csStorageConnectors :: !(Maybe [StorageConnector]),
-    _csAccessEndpoints :: !(Maybe (List1 AccessEndpoint)),
-    _csDisplayName :: !(Maybe Text),
-    _csEmbedHostDomains :: !(Maybe (List1 Text)),
-    _csDescription :: !(Maybe Text),
-    _csTags :: !(Maybe (Map Text (Text))),
-    _csRedirectURL :: !(Maybe Text),
-    _csName :: !Text
+  { userSettings ::
+      Lude.Maybe (Lude.NonEmpty UserSetting),
+    applicationSettings :: Lude.Maybe ApplicationSettings,
+    feedbackURL :: Lude.Maybe Lude.Text,
+    storageConnectors :: Lude.Maybe [StorageConnector],
+    accessEndpoints :: Lude.Maybe (Lude.NonEmpty AccessEndpoint),
+    displayName :: Lude.Maybe Lude.Text,
+    embedHostDomains :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    redirectURL :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+-- * 'applicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+-- * 'description' - The description to display.
+-- * 'displayName' - The stack name to display.
+-- * 'embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+-- * 'feedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+-- * 'name' - The name of the stack.
+-- * 'redirectURL' - The URL that users are redirected to after their streaming session ends.
+-- * 'storageConnectors' - The storage connectors to enable.
+-- * 'tags' - The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
 --
--- * 'csUserSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
---
--- * 'csApplicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
---
--- * 'csFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
---
--- * 'csStorageConnectors' - The storage connectors to enable.
---
--- * 'csAccessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
---
--- * 'csDisplayName' - The stack name to display.
---
--- * 'csEmbedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
---
--- * 'csDescription' - The description to display.
---
--- * 'csTags' - The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \ - @ For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
---
--- * 'csRedirectURL' - The URL that users are redirected to after their streaming session ends.
---
--- * 'csName' - The name of the stack.
-createStack ::
-  -- | 'csName'
-  Text ->
+-- If you do not specify a value, the value is set to an empty string.
+-- Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+-- _ . : / = + \ - @
+-- For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
+-- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+mkCreateStack ::
+  -- | 'name'
+  Lude.Text ->
   CreateStack
-createStack pName_ =
+mkCreateStack pName_ =
   CreateStack'
-    { _csUserSettings = Nothing,
-      _csApplicationSettings = Nothing,
-      _csFeedbackURL = Nothing,
-      _csStorageConnectors = Nothing,
-      _csAccessEndpoints = Nothing,
-      _csDisplayName = Nothing,
-      _csEmbedHostDomains = Nothing,
-      _csDescription = Nothing,
-      _csTags = Nothing,
-      _csRedirectURL = Nothing,
-      _csName = pName_
+    { userSettings = Lude.Nothing,
+      applicationSettings = Lude.Nothing,
+      feedbackURL = Lude.Nothing,
+      storageConnectors = Lude.Nothing,
+      accessEndpoints = Lude.Nothing,
+      displayName = Lude.Nothing,
+      embedHostDomains = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      redirectURL = Lude.Nothing,
+      name = pName_
     }
 
 -- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
-csUserSettings :: Lens' CreateStack (Maybe (NonEmpty UserSetting))
-csUserSettings = lens _csUserSettings (\s a -> s {_csUserSettings = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csUserSettings :: Lens.Lens' CreateStack (Lude.Maybe (Lude.NonEmpty UserSetting))
+csUserSettings = Lens.lens (userSettings :: CreateStack -> Lude.Maybe (Lude.NonEmpty UserSetting)) (\s a -> s {userSettings = a} :: CreateStack)
+{-# DEPRECATED csUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
 
 -- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
-csApplicationSettings :: Lens' CreateStack (Maybe ApplicationSettings)
-csApplicationSettings = lens _csApplicationSettings (\s a -> s {_csApplicationSettings = a})
+--
+-- /Note:/ Consider using 'applicationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csApplicationSettings :: Lens.Lens' CreateStack (Lude.Maybe ApplicationSettings)
+csApplicationSettings = Lens.lens (applicationSettings :: CreateStack -> Lude.Maybe ApplicationSettings) (\s a -> s {applicationSettings = a} :: CreateStack)
+{-# DEPRECATED csApplicationSettings "Use generic-lens or generic-optics with 'applicationSettings' instead." #-}
 
 -- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
-csFeedbackURL :: Lens' CreateStack (Maybe Text)
-csFeedbackURL = lens _csFeedbackURL (\s a -> s {_csFeedbackURL = a})
+--
+-- /Note:/ Consider using 'feedbackURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csFeedbackURL :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
+csFeedbackURL = Lens.lens (feedbackURL :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {feedbackURL = a} :: CreateStack)
+{-# DEPRECATED csFeedbackURL "Use generic-lens or generic-optics with 'feedbackURL' instead." #-}
 
 -- | The storage connectors to enable.
-csStorageConnectors :: Lens' CreateStack [StorageConnector]
-csStorageConnectors = lens _csStorageConnectors (\s a -> s {_csStorageConnectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'storageConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStorageConnectors :: Lens.Lens' CreateStack (Lude.Maybe [StorageConnector])
+csStorageConnectors = Lens.lens (storageConnectors :: CreateStack -> Lude.Maybe [StorageConnector]) (\s a -> s {storageConnectors = a} :: CreateStack)
+{-# DEPRECATED csStorageConnectors "Use generic-lens or generic-optics with 'storageConnectors' instead." #-}
 
 -- | The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-csAccessEndpoints :: Lens' CreateStack (Maybe (NonEmpty AccessEndpoint))
-csAccessEndpoints = lens _csAccessEndpoints (\s a -> s {_csAccessEndpoints = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'accessEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csAccessEndpoints :: Lens.Lens' CreateStack (Lude.Maybe (Lude.NonEmpty AccessEndpoint))
+csAccessEndpoints = Lens.lens (accessEndpoints :: CreateStack -> Lude.Maybe (Lude.NonEmpty AccessEndpoint)) (\s a -> s {accessEndpoints = a} :: CreateStack)
+{-# DEPRECATED csAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
 
 -- | The stack name to display.
-csDisplayName :: Lens' CreateStack (Maybe Text)
-csDisplayName = lens _csDisplayName (\s a -> s {_csDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDisplayName :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
+csDisplayName = Lens.lens (displayName :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateStack)
+{-# DEPRECATED csDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-csEmbedHostDomains :: Lens' CreateStack (Maybe (NonEmpty Text))
-csEmbedHostDomains = lens _csEmbedHostDomains (\s a -> s {_csEmbedHostDomains = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'embedHostDomains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csEmbedHostDomains :: Lens.Lens' CreateStack (Lude.Maybe (Lude.NonEmpty Lude.Text))
+csEmbedHostDomains = Lens.lens (embedHostDomains :: CreateStack -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {embedHostDomains = a} :: CreateStack)
+{-# DEPRECATED csEmbedHostDomains "Use generic-lens or generic-optics with 'embedHostDomains' instead." #-}
 
 -- | The description to display.
-csDescription :: Lens' CreateStack (Maybe Text)
-csDescription = lens _csDescription (\s a -> s {_csDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDescription :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
+csDescription = Lens.lens (description :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateStack)
+{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \ - @ For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
-csTags :: Lens' CreateStack (HashMap Text (Text))
-csTags = lens _csTags (\s a -> s {_csTags = a}) . _Default . _Map
+-- | The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+--
+-- If you do not specify a value, the value is set to an empty string.
+-- Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+-- _ . : / = + \ - @
+-- For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateStack (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+csTags = Lens.lens (tags :: CreateStack -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateStack)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The URL that users are redirected to after their streaming session ends.
-csRedirectURL :: Lens' CreateStack (Maybe Text)
-csRedirectURL = lens _csRedirectURL (\s a -> s {_csRedirectURL = a})
+--
+-- /Note:/ Consider using 'redirectURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRedirectURL :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
+csRedirectURL = Lens.lens (redirectURL :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {redirectURL = a} :: CreateStack)
+{-# DEPRECATED csRedirectURL "Use generic-lens or generic-optics with 'redirectURL' instead." #-}
 
 -- | The name of the stack.
-csName :: Lens' CreateStack Text
-csName = lens _csName (\s a -> s {_csName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateStack Lude.Text
+csName = Lens.lens (name :: CreateStack -> Lude.Text) (\s a -> s {name = a} :: CreateStack)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateStack where
+instance Lude.AWSRequest CreateStack where
   type Rs CreateStack = CreateStackResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateStackResponse' <$> (x .?> "Stack") <*> (pure (fromEnum s))
+          CreateStackResponse'
+            Lude.<$> (x Lude..?> "Stack") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateStack
-
-instance NFData CreateStack
-
-instance ToHeaders CreateStack where
+instance Lude.ToHeaders CreateStack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.CreateStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.CreateStack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateStack where
+instance Lude.ToJSON CreateStack where
   toJSON CreateStack' {..} =
-    object
-      ( catMaybes
-          [ ("UserSettings" .=) <$> _csUserSettings,
-            ("ApplicationSettings" .=) <$> _csApplicationSettings,
-            ("FeedbackURL" .=) <$> _csFeedbackURL,
-            ("StorageConnectors" .=) <$> _csStorageConnectors,
-            ("AccessEndpoints" .=) <$> _csAccessEndpoints,
-            ("DisplayName" .=) <$> _csDisplayName,
-            ("EmbedHostDomains" .=) <$> _csEmbedHostDomains,
-            ("Description" .=) <$> _csDescription,
-            ("Tags" .=) <$> _csTags,
-            ("RedirectURL" .=) <$> _csRedirectURL,
-            Just ("Name" .= _csName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserSettings" Lude..=) Lude.<$> userSettings,
+            ("ApplicationSettings" Lude..=) Lude.<$> applicationSettings,
+            ("FeedbackURL" Lude..=) Lude.<$> feedbackURL,
+            ("StorageConnectors" Lude..=) Lude.<$> storageConnectors,
+            ("AccessEndpoints" Lude..=) Lude.<$> accessEndpoints,
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("EmbedHostDomains" Lude..=) Lude.<$> embedHostDomains,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("RedirectURL" Lude..=) Lude.<$> redirectURL,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreateStack where
-  toPath = const "/"
+instance Lude.ToPath CreateStack where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateStack where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createStackResponse' smart constructor.
+-- | /See:/ 'mkCreateStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-  { _csrsStack ::
-      !(Maybe Stack),
-    _csrsResponseStatus :: !Int
+  { stack ::
+      Lude.Maybe Stack,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsStack' - Information about the stack.
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createStackResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stack' - Information about the stack.
+mkCreateStackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateStackResponse
-createStackResponse pResponseStatus_ =
+mkCreateStackResponse pResponseStatus_ =
   CreateStackResponse'
-    { _csrsStack = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { stack = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the stack.
-csrsStack :: Lens' CreateStackResponse (Maybe Stack)
-csrsStack = lens _csrsStack (\s a -> s {_csrsStack = a})
+--
+-- /Note:/ Consider using 'stack' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsStack :: Lens.Lens' CreateStackResponse (Lude.Maybe Stack)
+csrsStack = Lens.lens (stack :: CreateStackResponse -> Lude.Maybe Stack) (\s a -> s {stack = a} :: CreateStackResponse)
+{-# DEPRECATED csrsStack "Use generic-lens or generic-optics with 'stack' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateStackResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateStackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateStackResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStackResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

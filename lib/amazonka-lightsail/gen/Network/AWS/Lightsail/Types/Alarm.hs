@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,37 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.Alarm where
+module Network.AWS.Lightsail.Types.Alarm
+  ( Alarm (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAlarm,
+
+    -- * Lenses
+    aState,
+    aTreatMissingData,
+    aResourceType,
+    aArn,
+    aCreatedAt,
+    aLocation,
+    aContactProtocols,
+    aPeriod,
+    aEvaluationPeriods,
+    aMetricName,
+    aComparisonOperator,
+    aName,
+    aThreshold,
+    aDatapointsToAlarm,
+    aSupportCode,
+    aNotificationEnabled,
+    aNotificationTriggers,
+    aStatistic,
+    aUnit,
+    aMonitoredResourceInfo,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.AlarmState
 import Network.AWS.Lightsail.Types.ComparisonOperator
 import Network.AWS.Lightsail.Types.ContactProtocol
@@ -26,216 +48,346 @@ import Network.AWS.Lightsail.Types.MonitoredResourceInfo
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.TreatMissingData
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an alarm.
 --
---
 -- An alarm is a way to monitor your Amazon Lightsail resource metrics. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms Alarms in Amazon Lightsail> .
 --
---
--- /See:/ 'alarm' smart constructor.
+-- /See:/ 'mkAlarm' smart constructor.
 data Alarm = Alarm'
-  { _aState :: !(Maybe AlarmState),
-    _aTreatMissingData :: !(Maybe TreatMissingData),
-    _aResourceType :: !(Maybe ResourceType),
-    _aArn :: !(Maybe Text),
-    _aCreatedAt :: !(Maybe POSIX),
-    _aLocation :: !(Maybe ResourceLocation),
-    _aContactProtocols :: !(Maybe [ContactProtocol]),
-    _aPeriod :: !(Maybe Nat),
-    _aEvaluationPeriods :: !(Maybe Int),
-    _aMetricName :: !(Maybe MetricName),
-    _aComparisonOperator :: !(Maybe ComparisonOperator),
-    _aName :: !(Maybe Text),
-    _aThreshold :: !(Maybe Double),
-    _aDatapointsToAlarm :: !(Maybe Int),
-    _aSupportCode :: !(Maybe Text),
-    _aNotificationEnabled :: !(Maybe Bool),
-    _aNotificationTriggers :: !(Maybe [AlarmState]),
-    _aStatistic :: !(Maybe MetricStatistic),
-    _aUnit :: !(Maybe MetricUnit),
-    _aMonitoredResourceInfo :: !(Maybe MonitoredResourceInfo)
+  { state :: Lude.Maybe AlarmState,
+    treatMissingData :: Lude.Maybe TreatMissingData,
+    resourceType :: Lude.Maybe ResourceType,
+    arn :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    location :: Lude.Maybe ResourceLocation,
+    contactProtocols :: Lude.Maybe [ContactProtocol],
+    period :: Lude.Maybe Lude.Natural,
+    evaluationPeriods :: Lude.Maybe Lude.Int,
+    metricName :: Lude.Maybe MetricName,
+    comparisonOperator :: Lude.Maybe ComparisonOperator,
+    name :: Lude.Maybe Lude.Text,
+    threshold :: Lude.Maybe Lude.Double,
+    datapointsToAlarm :: Lude.Maybe Lude.Int,
+    supportCode :: Lude.Maybe Lude.Text,
+    notificationEnabled :: Lude.Maybe Lude.Bool,
+    notificationTriggers :: Lude.Maybe [AlarmState],
+    statistic :: Lude.Maybe MetricStatistic,
+    unit :: Lude.Maybe MetricUnit,
+    monitoredResourceInfo :: Lude.Maybe MonitoredResourceInfo
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the alarm.
+-- * 'comparisonOperator' - The arithmetic operation used when comparing the specified statistic and threshold.
+-- * 'contactProtocols' - The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
+-- * 'createdAt' - The timestamp when the alarm was created.
+-- * 'datapointsToAlarm' - The number of data points that must not within the specified threshold to trigger the alarm.
+-- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
+-- * 'location' - An object that lists information about the location of the alarm.
+-- * 'metricName' - The name of the metric associated with the alarm.
+-- * 'monitoredResourceInfo' - An object that lists information about the resource monitored by the alarm.
+-- * 'name' - The name of the alarm.
+-- * 'notificationEnabled' - Indicates whether the alarm is enabled.
+-- * 'notificationTriggers' - The alarm states that trigger a notification.
+-- * 'period' - The period, in seconds, over which the statistic is applied.
+-- * 'resourceType' - The Lightsail resource type (e.g., @Alarm@ ).
+-- * 'state' - The current state of the alarm.
 --
--- * 'aState' - The current state of the alarm. An alarm has the following possible states:     * @ALARM@ - The metric is outside of the defined threshold.     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.     * @OK@ - The metric is within the defined threshold.
+-- An alarm has the following possible states:
 --
--- * 'aTreatMissingData' - Specifies how the alarm handles missing data points. An alarm can treat missing data in the following ways:     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.     * @ignore@ - Ignore the missing data. Maintains the current alarm state.     * @missing@ - Missing data is treated as missing.
+--     * @ALARM@ - The metric is outside of the defined threshold.
 --
--- * 'aResourceType' - The Lightsail resource type (e.g., @Alarm@ ).
 --
--- * 'aArn' - The Amazon Resource Name (ARN) of the alarm.
+--     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.
 --
--- * 'aCreatedAt' - The timestamp when the alarm was created.
 --
--- * 'aLocation' - An object that lists information about the location of the alarm.
+--     * @OK@ - The metric is within the defined threshold.
 --
--- * 'aContactProtocols' - The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
 --
--- * 'aPeriod' - The period, in seconds, over which the statistic is applied.
+-- * 'statistic' - The statistic for the metric associated with the alarm.
 --
--- * 'aEvaluationPeriods' - The number of periods over which data is compared to the specified threshold.
+-- The following statistics are available:
 --
--- * 'aMetricName' - The name of the metric associated with the alarm.
+--     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
 --
--- * 'aComparisonOperator' - The arithmetic operation used when comparing the specified statistic and threshold.
 --
--- * 'aName' - The name of the alarm.
+--     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
 --
--- * 'aThreshold' - The value against which the specified statistic is compared.
 --
--- * 'aDatapointsToAlarm' - The number of data points that must not within the specified threshold to trigger the alarm.
+--     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
 --
--- * 'aSupportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
 --
--- * 'aNotificationEnabled' - Indicates whether the alarm is enabled.
+--     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
 --
--- * 'aNotificationTriggers' - The alarm states that trigger a notification.
 --
--- * 'aStatistic' - The statistic for the metric associated with the alarm. The following statistics are available:     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
+--     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
 --
--- * 'aUnit' - The unit of the metric associated with the alarm.
 --
--- * 'aMonitoredResourceInfo' - An object that lists information about the resource monitored by the alarm.
-alarm ::
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
+-- * 'threshold' - The value against which the specified statistic is compared.
+-- * 'treatMissingData' - Specifies how the alarm handles missing data points.
+--
+-- An alarm can treat missing data in the following ways:
+--
+--     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.
+--
+--
+--     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.
+--
+--
+--     * @ignore@ - Ignore the missing data. Maintains the current alarm state.
+--
+--
+--     * @missing@ - Missing data is treated as missing.
+--
+--
+-- * 'unit' - The unit of the metric associated with the alarm.
+mkAlarm ::
   Alarm
-alarm =
+mkAlarm =
   Alarm'
-    { _aState = Nothing,
-      _aTreatMissingData = Nothing,
-      _aResourceType = Nothing,
-      _aArn = Nothing,
-      _aCreatedAt = Nothing,
-      _aLocation = Nothing,
-      _aContactProtocols = Nothing,
-      _aPeriod = Nothing,
-      _aEvaluationPeriods = Nothing,
-      _aMetricName = Nothing,
-      _aComparisonOperator = Nothing,
-      _aName = Nothing,
-      _aThreshold = Nothing,
-      _aDatapointsToAlarm = Nothing,
-      _aSupportCode = Nothing,
-      _aNotificationEnabled = Nothing,
-      _aNotificationTriggers = Nothing,
-      _aStatistic = Nothing,
-      _aUnit = Nothing,
-      _aMonitoredResourceInfo = Nothing
+    { state = Lude.Nothing,
+      treatMissingData = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      location = Lude.Nothing,
+      contactProtocols = Lude.Nothing,
+      period = Lude.Nothing,
+      evaluationPeriods = Lude.Nothing,
+      metricName = Lude.Nothing,
+      comparisonOperator = Lude.Nothing,
+      name = Lude.Nothing,
+      threshold = Lude.Nothing,
+      datapointsToAlarm = Lude.Nothing,
+      supportCode = Lude.Nothing,
+      notificationEnabled = Lude.Nothing,
+      notificationTriggers = Lude.Nothing,
+      statistic = Lude.Nothing,
+      unit = Lude.Nothing,
+      monitoredResourceInfo = Lude.Nothing
     }
 
--- | The current state of the alarm. An alarm has the following possible states:     * @ALARM@ - The metric is outside of the defined threshold.     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.     * @OK@ - The metric is within the defined threshold.
-aState :: Lens' Alarm (Maybe AlarmState)
-aState = lens _aState (\s a -> s {_aState = a})
+-- | The current state of the alarm.
+--
+-- An alarm has the following possible states:
+--
+--     * @ALARM@ - The metric is outside of the defined threshold.
+--
+--
+--     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.
+--
+--
+--     * @OK@ - The metric is within the defined threshold.
+--
+--
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aState :: Lens.Lens' Alarm (Lude.Maybe AlarmState)
+aState = Lens.lens (state :: Alarm -> Lude.Maybe AlarmState) (\s a -> s {state = a} :: Alarm)
+{-# DEPRECATED aState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | Specifies how the alarm handles missing data points. An alarm can treat missing data in the following ways:     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.     * @ignore@ - Ignore the missing data. Maintains the current alarm state.     * @missing@ - Missing data is treated as missing.
-aTreatMissingData :: Lens' Alarm (Maybe TreatMissingData)
-aTreatMissingData = lens _aTreatMissingData (\s a -> s {_aTreatMissingData = a})
+-- | Specifies how the alarm handles missing data points.
+--
+-- An alarm can treat missing data in the following ways:
+--
+--     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.
+--
+--
+--     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.
+--
+--
+--     * @ignore@ - Ignore the missing data. Maintains the current alarm state.
+--
+--
+--     * @missing@ - Missing data is treated as missing.
+--
+--
+--
+-- /Note:/ Consider using 'treatMissingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTreatMissingData :: Lens.Lens' Alarm (Lude.Maybe TreatMissingData)
+aTreatMissingData = Lens.lens (treatMissingData :: Alarm -> Lude.Maybe TreatMissingData) (\s a -> s {treatMissingData = a} :: Alarm)
+{-# DEPRECATED aTreatMissingData "Use generic-lens or generic-optics with 'treatMissingData' instead." #-}
 
 -- | The Lightsail resource type (e.g., @Alarm@ ).
-aResourceType :: Lens' Alarm (Maybe ResourceType)
-aResourceType = lens _aResourceType (\s a -> s {_aResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aResourceType :: Lens.Lens' Alarm (Lude.Maybe ResourceType)
+aResourceType = Lens.lens (resourceType :: Alarm -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: Alarm)
+{-# DEPRECATED aResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-aArn :: Lens' Alarm (Maybe Text)
-aArn = lens _aArn (\s a -> s {_aArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aArn :: Lens.Lens' Alarm (Lude.Maybe Lude.Text)
+aArn = Lens.lens (arn :: Alarm -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Alarm)
+{-# DEPRECATED aArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The timestamp when the alarm was created.
-aCreatedAt :: Lens' Alarm (Maybe UTCTime)
-aCreatedAt = lens _aCreatedAt (\s a -> s {_aCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreatedAt :: Lens.Lens' Alarm (Lude.Maybe Lude.Timestamp)
+aCreatedAt = Lens.lens (createdAt :: Alarm -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Alarm)
+{-# DEPRECATED aCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | An object that lists information about the location of the alarm.
-aLocation :: Lens' Alarm (Maybe ResourceLocation)
-aLocation = lens _aLocation (\s a -> s {_aLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLocation :: Lens.Lens' Alarm (Lude.Maybe ResourceLocation)
+aLocation = Lens.lens (location :: Alarm -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: Alarm)
+{-# DEPRECATED aLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
-aContactProtocols :: Lens' Alarm [ContactProtocol]
-aContactProtocols = lens _aContactProtocols (\s a -> s {_aContactProtocols = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contactProtocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aContactProtocols :: Lens.Lens' Alarm (Lude.Maybe [ContactProtocol])
+aContactProtocols = Lens.lens (contactProtocols :: Alarm -> Lude.Maybe [ContactProtocol]) (\s a -> s {contactProtocols = a} :: Alarm)
+{-# DEPRECATED aContactProtocols "Use generic-lens or generic-optics with 'contactProtocols' instead." #-}
 
 -- | The period, in seconds, over which the statistic is applied.
-aPeriod :: Lens' Alarm (Maybe Natural)
-aPeriod = lens _aPeriod (\s a -> s {_aPeriod = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPeriod :: Lens.Lens' Alarm (Lude.Maybe Lude.Natural)
+aPeriod = Lens.lens (period :: Alarm -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: Alarm)
+{-# DEPRECATED aPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The number of periods over which data is compared to the specified threshold.
-aEvaluationPeriods :: Lens' Alarm (Maybe Int)
-aEvaluationPeriods = lens _aEvaluationPeriods (\s a -> s {_aEvaluationPeriods = a})
+--
+-- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEvaluationPeriods :: Lens.Lens' Alarm (Lude.Maybe Lude.Int)
+aEvaluationPeriods = Lens.lens (evaluationPeriods :: Alarm -> Lude.Maybe Lude.Int) (\s a -> s {evaluationPeriods = a} :: Alarm)
+{-# DEPRECATED aEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
 
 -- | The name of the metric associated with the alarm.
-aMetricName :: Lens' Alarm (Maybe MetricName)
-aMetricName = lens _aMetricName (\s a -> s {_aMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMetricName :: Lens.Lens' Alarm (Lude.Maybe MetricName)
+aMetricName = Lens.lens (metricName :: Alarm -> Lude.Maybe MetricName) (\s a -> s {metricName = a} :: Alarm)
+{-# DEPRECATED aMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The arithmetic operation used when comparing the specified statistic and threshold.
-aComparisonOperator :: Lens' Alarm (Maybe ComparisonOperator)
-aComparisonOperator = lens _aComparisonOperator (\s a -> s {_aComparisonOperator = a})
+--
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aComparisonOperator :: Lens.Lens' Alarm (Lude.Maybe ComparisonOperator)
+aComparisonOperator = Lens.lens (comparisonOperator :: Alarm -> Lude.Maybe ComparisonOperator) (\s a -> s {comparisonOperator = a} :: Alarm)
+{-# DEPRECATED aComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
 -- | The name of the alarm.
-aName :: Lens' Alarm (Maybe Text)
-aName = lens _aName (\s a -> s {_aName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Alarm (Lude.Maybe Lude.Text)
+aName = Lens.lens (name :: Alarm -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Alarm)
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value against which the specified statistic is compared.
-aThreshold :: Lens' Alarm (Maybe Double)
-aThreshold = lens _aThreshold (\s a -> s {_aThreshold = a})
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aThreshold :: Lens.Lens' Alarm (Lude.Maybe Lude.Double)
+aThreshold = Lens.lens (threshold :: Alarm -> Lude.Maybe Lude.Double) (\s a -> s {threshold = a} :: Alarm)
+{-# DEPRECATED aThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
 -- | The number of data points that must not within the specified threshold to trigger the alarm.
-aDatapointsToAlarm :: Lens' Alarm (Maybe Int)
-aDatapointsToAlarm = lens _aDatapointsToAlarm (\s a -> s {_aDatapointsToAlarm = a})
+--
+-- /Note:/ Consider using 'datapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDatapointsToAlarm :: Lens.Lens' Alarm (Lude.Maybe Lude.Int)
+aDatapointsToAlarm = Lens.lens (datapointsToAlarm :: Alarm -> Lude.Maybe Lude.Int) (\s a -> s {datapointsToAlarm = a} :: Alarm)
+{-# DEPRECATED aDatapointsToAlarm "Use generic-lens or generic-optics with 'datapointsToAlarm' instead." #-}
 
 -- | The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
-aSupportCode :: Lens' Alarm (Maybe Text)
-aSupportCode = lens _aSupportCode (\s a -> s {_aSupportCode = a})
+--
+-- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSupportCode :: Lens.Lens' Alarm (Lude.Maybe Lude.Text)
+aSupportCode = Lens.lens (supportCode :: Alarm -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: Alarm)
+{-# DEPRECATED aSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
 -- | Indicates whether the alarm is enabled.
-aNotificationEnabled :: Lens' Alarm (Maybe Bool)
-aNotificationEnabled = lens _aNotificationEnabled (\s a -> s {_aNotificationEnabled = a})
+--
+-- /Note:/ Consider using 'notificationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNotificationEnabled :: Lens.Lens' Alarm (Lude.Maybe Lude.Bool)
+aNotificationEnabled = Lens.lens (notificationEnabled :: Alarm -> Lude.Maybe Lude.Bool) (\s a -> s {notificationEnabled = a} :: Alarm)
+{-# DEPRECATED aNotificationEnabled "Use generic-lens or generic-optics with 'notificationEnabled' instead." #-}
 
 -- | The alarm states that trigger a notification.
-aNotificationTriggers :: Lens' Alarm [AlarmState]
-aNotificationTriggers = lens _aNotificationTriggers (\s a -> s {_aNotificationTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notificationTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNotificationTriggers :: Lens.Lens' Alarm (Lude.Maybe [AlarmState])
+aNotificationTriggers = Lens.lens (notificationTriggers :: Alarm -> Lude.Maybe [AlarmState]) (\s a -> s {notificationTriggers = a} :: Alarm)
+{-# DEPRECATED aNotificationTriggers "Use generic-lens or generic-optics with 'notificationTriggers' instead." #-}
 
--- | The statistic for the metric associated with the alarm. The following statistics are available:     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
-aStatistic :: Lens' Alarm (Maybe MetricStatistic)
-aStatistic = lens _aStatistic (\s a -> s {_aStatistic = a})
+-- | The statistic for the metric associated with the alarm.
+--
+-- The following statistics are available:
+--
+--     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+--
+--
+--     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+--
+--
+--     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+--
+--
+--     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
+--
+--
+--     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
+--
+--
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStatistic :: Lens.Lens' Alarm (Lude.Maybe MetricStatistic)
+aStatistic = Lens.lens (statistic :: Alarm -> Lude.Maybe MetricStatistic) (\s a -> s {statistic = a} :: Alarm)
+{-# DEPRECATED aStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
 -- | The unit of the metric associated with the alarm.
-aUnit :: Lens' Alarm (Maybe MetricUnit)
-aUnit = lens _aUnit (\s a -> s {_aUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aUnit :: Lens.Lens' Alarm (Lude.Maybe MetricUnit)
+aUnit = Lens.lens (unit :: Alarm -> Lude.Maybe MetricUnit) (\s a -> s {unit = a} :: Alarm)
+{-# DEPRECATED aUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | An object that lists information about the resource monitored by the alarm.
-aMonitoredResourceInfo :: Lens' Alarm (Maybe MonitoredResourceInfo)
-aMonitoredResourceInfo = lens _aMonitoredResourceInfo (\s a -> s {_aMonitoredResourceInfo = a})
+--
+-- /Note:/ Consider using 'monitoredResourceInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMonitoredResourceInfo :: Lens.Lens' Alarm (Lude.Maybe MonitoredResourceInfo)
+aMonitoredResourceInfo = Lens.lens (monitoredResourceInfo :: Alarm -> Lude.Maybe MonitoredResourceInfo) (\s a -> s {monitoredResourceInfo = a} :: Alarm)
+{-# DEPRECATED aMonitoredResourceInfo "Use generic-lens or generic-optics with 'monitoredResourceInfo' instead." #-}
 
-instance FromJSON Alarm where
+instance Lude.FromJSON Alarm where
   parseJSON =
-    withObject
+    Lude.withObject
       "Alarm"
       ( \x ->
           Alarm'
-            <$> (x .:? "state")
-            <*> (x .:? "treatMissingData")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "arn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "location")
-            <*> (x .:? "contactProtocols" .!= mempty)
-            <*> (x .:? "period")
-            <*> (x .:? "evaluationPeriods")
-            <*> (x .:? "metricName")
-            <*> (x .:? "comparisonOperator")
-            <*> (x .:? "name")
-            <*> (x .:? "threshold")
-            <*> (x .:? "datapointsToAlarm")
-            <*> (x .:? "supportCode")
-            <*> (x .:? "notificationEnabled")
-            <*> (x .:? "notificationTriggers" .!= mempty)
-            <*> (x .:? "statistic")
-            <*> (x .:? "unit")
-            <*> (x .:? "monitoredResourceInfo")
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "treatMissingData")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "contactProtocols" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "period")
+            Lude.<*> (x Lude..:? "evaluationPeriods")
+            Lude.<*> (x Lude..:? "metricName")
+            Lude.<*> (x Lude..:? "comparisonOperator")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "threshold")
+            Lude.<*> (x Lude..:? "datapointsToAlarm")
+            Lude.<*> (x Lude..:? "supportCode")
+            Lude.<*> (x Lude..:? "notificationEnabled")
+            Lude.<*> (x Lude..:? "notificationTriggers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "statistic")
+            Lude.<*> (x Lude..:? "unit")
+            Lude.<*> (x Lude..:? "monitoredResourceInfo")
       )
-
-instance Hashable Alarm
-
-instance NFData Alarm

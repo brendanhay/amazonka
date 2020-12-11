@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.PackageStatus where
+module Network.AWS.ElasticSearch.Types.PackageStatus
+  ( PackageStatus
+      ( PackageStatus',
+        PSAvailable,
+        PSCopyFailed,
+        PSCopying,
+        PSDeleteFailed,
+        PSDeleted,
+        PSDeleting,
+        PSValidating,
+        PSValidationFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PackageStatus
-  = PSAvailable
-  | PSCopyFailed
-  | PSCopying
-  | PSDeleteFailed
-  | PSDeleted
-  | PSDeleting
-  | PSValidating
-  | PSValidationFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PackageStatus = PackageStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PackageStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure PSAvailable
-      "copy_failed" -> pure PSCopyFailed
-      "copying" -> pure PSCopying
-      "delete_failed" -> pure PSDeleteFailed
-      "deleted" -> pure PSDeleted
-      "deleting" -> pure PSDeleting
-      "validating" -> pure PSValidating
-      "validation_failed" -> pure PSValidationFailed
-      e ->
-        fromTextError $
-          "Failure parsing PackageStatus from value: '" <> e
-            <> "'. Accepted values: available, copy_failed, copying, delete_failed, deleted, deleting, validating, validation_failed"
+pattern PSAvailable :: PackageStatus
+pattern PSAvailable = PackageStatus' "AVAILABLE"
 
-instance ToText PackageStatus where
-  toText = \case
-    PSAvailable -> "AVAILABLE"
-    PSCopyFailed -> "COPY_FAILED"
-    PSCopying -> "COPYING"
-    PSDeleteFailed -> "DELETE_FAILED"
-    PSDeleted -> "DELETED"
-    PSDeleting -> "DELETING"
-    PSValidating -> "VALIDATING"
-    PSValidationFailed -> "VALIDATION_FAILED"
+pattern PSCopyFailed :: PackageStatus
+pattern PSCopyFailed = PackageStatus' "COPY_FAILED"
 
-instance Hashable PackageStatus
+pattern PSCopying :: PackageStatus
+pattern PSCopying = PackageStatus' "COPYING"
 
-instance NFData PackageStatus
+pattern PSDeleteFailed :: PackageStatus
+pattern PSDeleteFailed = PackageStatus' "DELETE_FAILED"
 
-instance ToByteString PackageStatus
+pattern PSDeleted :: PackageStatus
+pattern PSDeleted = PackageStatus' "DELETED"
 
-instance ToQuery PackageStatus
+pattern PSDeleting :: PackageStatus
+pattern PSDeleting = PackageStatus' "DELETING"
 
-instance ToHeader PackageStatus
+pattern PSValidating :: PackageStatus
+pattern PSValidating = PackageStatus' "VALIDATING"
 
-instance FromJSON PackageStatus where
-  parseJSON = parseJSONText "PackageStatus"
+pattern PSValidationFailed :: PackageStatus
+pattern PSValidationFailed = PackageStatus' "VALIDATION_FAILED"
+
+{-# COMPLETE
+  PSAvailable,
+  PSCopyFailed,
+  PSCopying,
+  PSDeleteFailed,
+  PSDeleted,
+  PSDeleting,
+  PSValidating,
+  PSValidationFailed,
+  PackageStatus'
+  #-}

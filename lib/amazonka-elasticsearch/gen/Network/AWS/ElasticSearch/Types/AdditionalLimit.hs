@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.AdditionalLimit where
+module Network.AWS.ElasticSearch.Types.AdditionalLimit
+  ( AdditionalLimit (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAdditionalLimit,
+
+    -- * Lenses
+    alLimitName,
+    alLimitValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
 --
---
---
--- /See:/ 'additionalLimit' smart constructor.
+-- /See:/ 'mkAdditionalLimit' smart constructor.
 data AdditionalLimit = AdditionalLimit'
-  { _alLimitName ::
-      !(Maybe Text),
-    _alLimitValues :: !(Maybe [Text])
+  { limitName ::
+      Lude.Maybe Lude.Text,
+    limitValues :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdditionalLimit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'limitName' - Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.
 --
--- * 'alLimitName' - Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+-- Attributes and their details:
 --
--- * 'alLimitValues' - Value for given @'AdditionalLimit$LimitName' @ .
-additionalLimit ::
+--     * MaximumNumberOfDataNodesSupported
+-- This attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.
+--     * MaximumNumberOfDataNodesWithoutMasterNode
+-- This attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+--
+-- * 'limitValues' - Value for given @'AdditionalLimit$LimitName' @ .
+mkAdditionalLimit ::
   AdditionalLimit
-additionalLimit =
+mkAdditionalLimit =
   AdditionalLimit'
-    { _alLimitName = Nothing,
-      _alLimitValues = Nothing
+    { limitName = Lude.Nothing,
+      limitValues = Lude.Nothing
     }
 
--- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
-alLimitName :: Lens' AdditionalLimit (Maybe Text)
-alLimitName = lens _alLimitName (\s a -> s {_alLimitName = a})
+-- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.
+--
+-- Attributes and their details:
+--
+--     * MaximumNumberOfDataNodesSupported
+-- This attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.
+--     * MaximumNumberOfDataNodesWithoutMasterNode
+-- This attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+--
+--
+-- /Note:/ Consider using 'limitName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alLimitName :: Lens.Lens' AdditionalLimit (Lude.Maybe Lude.Text)
+alLimitName = Lens.lens (limitName :: AdditionalLimit -> Lude.Maybe Lude.Text) (\s a -> s {limitName = a} :: AdditionalLimit)
+{-# DEPRECATED alLimitName "Use generic-lens or generic-optics with 'limitName' instead." #-}
 
 -- | Value for given @'AdditionalLimit$LimitName' @ .
-alLimitValues :: Lens' AdditionalLimit [Text]
-alLimitValues = lens _alLimitValues (\s a -> s {_alLimitValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'limitValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alLimitValues :: Lens.Lens' AdditionalLimit (Lude.Maybe [Lude.Text])
+alLimitValues = Lens.lens (limitValues :: AdditionalLimit -> Lude.Maybe [Lude.Text]) (\s a -> s {limitValues = a} :: AdditionalLimit)
+{-# DEPRECATED alLimitValues "Use generic-lens or generic-optics with 'limitValues' instead." #-}
 
-instance FromJSON AdditionalLimit where
+instance Lude.FromJSON AdditionalLimit where
   parseJSON =
-    withObject
+    Lude.withObject
       "AdditionalLimit"
       ( \x ->
           AdditionalLimit'
-            <$> (x .:? "LimitName") <*> (x .:? "LimitValues" .!= mempty)
+            Lude.<$> (x Lude..:? "LimitName")
+            Lude.<*> (x Lude..:? "LimitValues" Lude..!= Lude.mempty)
       )
-
-instance Hashable AdditionalLimit
-
-instance NFData AdditionalLimit

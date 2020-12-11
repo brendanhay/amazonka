@@ -38,13 +38,33 @@ source-repository head
   location: git://github.com/brendanhay/amazonka.git
   subdir:   lib/amazonka-ec2
 
-library
-  default-language: Haskell2010
-  hs-source-dirs:   src gen
+common base
+  default-language:   Haskell2010
   ghc-options:
-    -Wall -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates -funbox-strict-fields
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates
 
+  default-extensions:
+    NoImplicitPrelude
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DuplicateRecordFields
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    OverloadedStrings
+    PatternSynonyms
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    StrictData
+    TypeFamilies
+
+  build-depends:      base >=4.12 && <5
+
+library
+  import:          base
+  hs-source-dirs:  src gen
   exposed-modules:
     Network.AWS.EC2
     Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
@@ -474,7 +494,6 @@ library
     Network.AWS.EC2.WithdrawByoipCidr
 
   other-modules:
-    Network.AWS.EC2.Internal
     Network.AWS.EC2.Types.AccountAttribute
     Network.AWS.EC2.Types.AccountAttributeName
     Network.AWS.EC2.Types.AccountAttributeValue
@@ -1188,16 +1207,14 @@ library
     Network.AWS.EC2.Types.VPNStaticRouteSource
     Network.AWS.EC2.Types.VPNTunnelOptionsSpecification
 
-  build-depends:
-    , amazonka-core  >=2.0.0.0 && <2.0.0.1
-    , base           >=4.12    && <5
+  build-depends:   amazonka-core ==2.0.0.0.*
 
 test-suite amazonka-ec2-test
-  type:             exitcode-stdio-1.0
-  default-language: Haskell2010
-  hs-source-dirs:   test
-  main-is:          Main.hs
-  ghc-options:      -Wall -threaded
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  ghc-options:    -threaded
 
   -- This section is encoded by the template and any modules added by
   -- hand outside these namespaces will not correctly be added to the
@@ -1211,8 +1228,8 @@ test-suite amazonka-ec2-test
     , amazonka-core         >=2.0.0.0 && <2.0.0.1
     , amazonka-ec2
     , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , base
     , bytestring
+    , case-insensitive
     , tasty
     , tasty-hunit
     , text

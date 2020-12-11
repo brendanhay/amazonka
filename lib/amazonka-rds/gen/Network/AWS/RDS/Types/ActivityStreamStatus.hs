@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.ActivityStreamStatus where
+module Network.AWS.RDS.Types.ActivityStreamStatus
+  ( ActivityStreamStatus
+      ( ActivityStreamStatus',
+        Started,
+        Starting,
+        Stopped,
+        Stopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActivityStreamStatus
-  = Started
-  | Starting
-  | Stopped
-  | Stopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActivityStreamStatus = ActivityStreamStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActivityStreamStatus where
-  parser =
-    takeLowerText >>= \case
-      "started" -> pure Started
-      "starting" -> pure Starting
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      e ->
-        fromTextError $
-          "Failure parsing ActivityStreamStatus from value: '" <> e
-            <> "'. Accepted values: started, starting, stopped, stopping"
+pattern Started :: ActivityStreamStatus
+pattern Started = ActivityStreamStatus' "started"
 
-instance ToText ActivityStreamStatus where
-  toText = \case
-    Started -> "started"
-    Starting -> "starting"
-    Stopped -> "stopped"
-    Stopping -> "stopping"
+pattern Starting :: ActivityStreamStatus
+pattern Starting = ActivityStreamStatus' "starting"
 
-instance Hashable ActivityStreamStatus
+pattern Stopped :: ActivityStreamStatus
+pattern Stopped = ActivityStreamStatus' "stopped"
 
-instance NFData ActivityStreamStatus
+pattern Stopping :: ActivityStreamStatus
+pattern Stopping = ActivityStreamStatus' "stopping"
 
-instance ToByteString ActivityStreamStatus
-
-instance ToQuery ActivityStreamStatus
-
-instance ToHeader ActivityStreamStatus
-
-instance FromXML ActivityStreamStatus where
-  parseXML = parseXMLText "ActivityStreamStatus"
+{-# COMPLETE
+  Started,
+  Starting,
+  Stopped,
+  Stopping,
+  ActivityStreamStatus'
+  #-}

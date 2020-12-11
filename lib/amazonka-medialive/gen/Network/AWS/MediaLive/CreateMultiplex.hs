@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,194 @@
 --
 -- Create a new multiplex.
 module Network.AWS.MediaLive.CreateMultiplex
-  ( -- * Creating a Request
-    createMultiplex,
-    CreateMultiplex,
+  ( -- * Creating a request
+    CreateMultiplex (..),
+    mkCreateMultiplex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmTags,
     cmRequestId,
     cmMultiplexSettings,
     cmAvailabilityZones,
     cmName,
 
-    -- * Destructuring the Response
-    createMultiplexResponse,
-    CreateMultiplexResponse,
+    -- * Destructuring the response
+    CreateMultiplexResponse (..),
+    mkCreateMultiplexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmrsMultiplex,
     cmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to create a multiplex.
 --
--- /See:/ 'createMultiplex' smart constructor.
+-- /See:/ 'mkCreateMultiplex' smart constructor.
 data CreateMultiplex = CreateMultiplex'
-  { _cmTags ::
-      !(Maybe (Map Text (Text))),
-    _cmRequestId :: !Text,
-    _cmMultiplexSettings :: !MultiplexSettings,
-    _cmAvailabilityZones :: ![Text],
-    _cmName :: !Text
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    requestId :: Lude.Text,
+    multiplexSettings :: MultiplexSettings,
+    availabilityZones :: [Lude.Text],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'availabilityZones' - A list of availability zones for the multiplex. You must specify exactly two.
+-- * 'multiplexSettings' - Configuration for a multiplex event.
+-- * 'name' - Name of multiplex.
+-- * 'requestId' - Unique request ID. This prevents retries from creating multiple
 --
--- * 'cmTags' - A collection of key-value pairs.
---
--- * 'cmRequestId' - Unique request ID. This prevents retries from creating multiple resources.
---
--- * 'cmMultiplexSettings' - Configuration for a multiplex event.
---
--- * 'cmAvailabilityZones' - A list of availability zones for the multiplex. You must specify exactly two.
---
--- * 'cmName' - Name of multiplex.
-createMultiplex ::
-  -- | 'cmRequestId'
-  Text ->
-  -- | 'cmMultiplexSettings'
+-- resources.
+-- * 'tags' - A collection of key-value pairs.
+mkCreateMultiplex ::
+  -- | 'requestId'
+  Lude.Text ->
+  -- | 'multiplexSettings'
   MultiplexSettings ->
-  -- | 'cmName'
-  Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateMultiplex
-createMultiplex pRequestId_ pMultiplexSettings_ pName_ =
+mkCreateMultiplex pRequestId_ pMultiplexSettings_ pName_ =
   CreateMultiplex'
-    { _cmTags = Nothing,
-      _cmRequestId = pRequestId_,
-      _cmMultiplexSettings = pMultiplexSettings_,
-      _cmAvailabilityZones = mempty,
-      _cmName = pName_
+    { tags = Lude.Nothing,
+      requestId = pRequestId_,
+      multiplexSettings = pMultiplexSettings_,
+      availabilityZones = Lude.mempty,
+      name = pName_
     }
 
 -- | A collection of key-value pairs.
-cmTags :: Lens' CreateMultiplex (HashMap Text (Text))
-cmTags = lens _cmTags (\s a -> s {_cmTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmTags :: Lens.Lens' CreateMultiplex (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cmTags = Lens.lens (tags :: CreateMultiplex -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateMultiplex)
+{-# DEPRECATED cmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Unique request ID. This prevents retries from creating multiple resources.
-cmRequestId :: Lens' CreateMultiplex Text
-cmRequestId = lens _cmRequestId (\s a -> s {_cmRequestId = a})
+-- | Unique request ID. This prevents retries from creating multiple
+--
+-- resources.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmRequestId :: Lens.Lens' CreateMultiplex Lude.Text
+cmRequestId = Lens.lens (requestId :: CreateMultiplex -> Lude.Text) (\s a -> s {requestId = a} :: CreateMultiplex)
+{-# DEPRECATED cmRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | Configuration for a multiplex event.
-cmMultiplexSettings :: Lens' CreateMultiplex MultiplexSettings
-cmMultiplexSettings = lens _cmMultiplexSettings (\s a -> s {_cmMultiplexSettings = a})
+--
+-- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmMultiplexSettings :: Lens.Lens' CreateMultiplex MultiplexSettings
+cmMultiplexSettings = Lens.lens (multiplexSettings :: CreateMultiplex -> MultiplexSettings) (\s a -> s {multiplexSettings = a} :: CreateMultiplex)
+{-# DEPRECATED cmMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
 -- | A list of availability zones for the multiplex. You must specify exactly two.
-cmAvailabilityZones :: Lens' CreateMultiplex [Text]
-cmAvailabilityZones = lens _cmAvailabilityZones (\s a -> s {_cmAvailabilityZones = a}) . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmAvailabilityZones :: Lens.Lens' CreateMultiplex [Lude.Text]
+cmAvailabilityZones = Lens.lens (availabilityZones :: CreateMultiplex -> [Lude.Text]) (\s a -> s {availabilityZones = a} :: CreateMultiplex)
+{-# DEPRECATED cmAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | Name of multiplex.
-cmName :: Lens' CreateMultiplex Text
-cmName = lens _cmName (\s a -> s {_cmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmName :: Lens.Lens' CreateMultiplex Lude.Text
+cmName = Lens.lens (name :: CreateMultiplex -> Lude.Text) (\s a -> s {name = a} :: CreateMultiplex)
+{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateMultiplex where
+instance Lude.AWSRequest CreateMultiplex where
   type Rs CreateMultiplex = CreateMultiplexResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateMultiplexResponse'
-            <$> (x .?> "multiplex") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "multiplex") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMultiplex
-
-instance NFData CreateMultiplex
-
-instance ToHeaders CreateMultiplex where
+instance Lude.ToHeaders CreateMultiplex where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateMultiplex where
-  toJSON CreateMultiplex' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _cmTags,
-            Just ("requestId" .= _cmRequestId),
-            Just ("multiplexSettings" .= _cmMultiplexSettings),
-            Just ("availabilityZones" .= _cmAvailabilityZones),
-            Just ("name" .= _cmName)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateMultiplex where
-  toPath = const "/prod/multiplexes"
+instance Lude.ToJSON CreateMultiplex where
+  toJSON CreateMultiplex' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("requestId" Lude..= requestId),
+            Lude.Just ("multiplexSettings" Lude..= multiplexSettings),
+            Lude.Just ("availabilityZones" Lude..= availabilityZones),
+            Lude.Just ("name" Lude..= name)
+          ]
+      )
 
-instance ToQuery CreateMultiplex where
-  toQuery = const mempty
+instance Lude.ToPath CreateMultiplex where
+  toPath = Lude.const "/prod/multiplexes"
+
+instance Lude.ToQuery CreateMultiplex where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for CreateMultiplexResponse
 --
--- /See:/ 'createMultiplexResponse' smart constructor.
+-- /See:/ 'mkCreateMultiplexResponse' smart constructor.
 data CreateMultiplexResponse = CreateMultiplexResponse'
-  { _cmrsMultiplex ::
-      !(Maybe Multiplex),
-    _cmrsResponseStatus :: !Int
+  { multiplex ::
+      Lude.Maybe Multiplex,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmrsMultiplex' - The newly created multiplex.
---
--- * 'cmrsResponseStatus' - -- | The response status code.
-createMultiplexResponse ::
-  -- | 'cmrsResponseStatus'
-  Int ->
+-- * 'multiplex' - The newly created multiplex.
+-- * 'responseStatus' - The response status code.
+mkCreateMultiplexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMultiplexResponse
-createMultiplexResponse pResponseStatus_ =
+mkCreateMultiplexResponse pResponseStatus_ =
   CreateMultiplexResponse'
-    { _cmrsMultiplex = Nothing,
-      _cmrsResponseStatus = pResponseStatus_
+    { multiplex = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The newly created multiplex.
-cmrsMultiplex :: Lens' CreateMultiplexResponse (Maybe Multiplex)
-cmrsMultiplex = lens _cmrsMultiplex (\s a -> s {_cmrsMultiplex = a})
+--
+-- /Note:/ Consider using 'multiplex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsMultiplex :: Lens.Lens' CreateMultiplexResponse (Lude.Maybe Multiplex)
+cmrsMultiplex = Lens.lens (multiplex :: CreateMultiplexResponse -> Lude.Maybe Multiplex) (\s a -> s {multiplex = a} :: CreateMultiplexResponse)
+{-# DEPRECATED cmrsMultiplex "Use generic-lens or generic-optics with 'multiplex' instead." #-}
 
--- | -- | The response status code.
-cmrsResponseStatus :: Lens' CreateMultiplexResponse Int
-cmrsResponseStatus = lens _cmrsResponseStatus (\s a -> s {_cmrsResponseStatus = a})
-
-instance NFData CreateMultiplexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsResponseStatus :: Lens.Lens' CreateMultiplexResponse Lude.Int
+cmrsResponseStatus = Lens.lens (responseStatus :: CreateMultiplexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMultiplexResponse)
+{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

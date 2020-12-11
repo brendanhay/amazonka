@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.WebsiteConfiguration where
+module Network.AWS.S3.Types.WebsiteConfiguration
+  ( WebsiteConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWebsiteConfiguration,
+
+    -- * Lenses
+    wcRedirectAllRequestsTo,
+    wcErrorDocument,
+    wcIndexDocument,
+    wcRoutingRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ErrorDocument
 import Network.AWS.S3.Types.IndexDocument
@@ -25,65 +31,77 @@ import Network.AWS.S3.Types.RoutingRule
 
 -- | Specifies website configuration parameters for an Amazon S3 bucket.
 --
---
---
--- /See:/ 'websiteConfiguration' smart constructor.
+-- /See:/ 'mkWebsiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
-  { _wcRedirectAllRequestsTo ::
-      !(Maybe RedirectAllRequestsTo),
-    _wcErrorDocument :: !(Maybe ErrorDocument),
-    _wcIndexDocument :: !(Maybe IndexDocument),
-    _wcRoutingRules :: !(Maybe [RoutingRule])
+  { redirectAllRequestsTo ::
+      Lude.Maybe RedirectAllRequestsTo,
+    errorDocument :: Lude.Maybe ErrorDocument,
+    indexDocument :: Lude.Maybe IndexDocument,
+    routingRules :: Lude.Maybe [RoutingRule]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebsiteConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'errorDocument' - The name of the error document for the website.
+-- * 'indexDocument' - The name of the index document for the website.
+-- * 'redirectAllRequestsTo' - The redirect behavior for every request to this bucket's website endpoint.
 --
--- * 'wcRedirectAllRequestsTo' - The redirect behavior for every request to this bucket's website endpoint. /Important:/ If you specify this property, you can't specify any other property.
---
--- * 'wcErrorDocument' - The name of the error document for the website.
---
--- * 'wcIndexDocument' - The name of the index document for the website.
---
--- * 'wcRoutingRules' - Rules that define when a redirect is applied and the redirect behavior.
-websiteConfiguration ::
+-- /Important:/ If you specify this property, you can't specify any other property.
+-- * 'routingRules' - Rules that define when a redirect is applied and the redirect behavior.
+mkWebsiteConfiguration ::
   WebsiteConfiguration
-websiteConfiguration =
+mkWebsiteConfiguration =
   WebsiteConfiguration'
-    { _wcRedirectAllRequestsTo = Nothing,
-      _wcErrorDocument = Nothing,
-      _wcIndexDocument = Nothing,
-      _wcRoutingRules = Nothing
+    { redirectAllRequestsTo = Lude.Nothing,
+      errorDocument = Lude.Nothing,
+      indexDocument = Lude.Nothing,
+      routingRules = Lude.Nothing
     }
 
--- | The redirect behavior for every request to this bucket's website endpoint. /Important:/ If you specify this property, you can't specify any other property.
-wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
-wcRedirectAllRequestsTo = lens _wcRedirectAllRequestsTo (\s a -> s {_wcRedirectAllRequestsTo = a})
+-- | The redirect behavior for every request to this bucket's website endpoint.
+--
+-- /Important:/ If you specify this property, you can't specify any other property.
+--
+-- /Note:/ Consider using 'redirectAllRequestsTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcRedirectAllRequestsTo :: Lens.Lens' WebsiteConfiguration (Lude.Maybe RedirectAllRequestsTo)
+wcRedirectAllRequestsTo = Lens.lens (redirectAllRequestsTo :: WebsiteConfiguration -> Lude.Maybe RedirectAllRequestsTo) (\s a -> s {redirectAllRequestsTo = a} :: WebsiteConfiguration)
+{-# DEPRECATED wcRedirectAllRequestsTo "Use generic-lens or generic-optics with 'redirectAllRequestsTo' instead." #-}
 
 -- | The name of the error document for the website.
-wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
-wcErrorDocument = lens _wcErrorDocument (\s a -> s {_wcErrorDocument = a})
+--
+-- /Note:/ Consider using 'errorDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcErrorDocument :: Lens.Lens' WebsiteConfiguration (Lude.Maybe ErrorDocument)
+wcErrorDocument = Lens.lens (errorDocument :: WebsiteConfiguration -> Lude.Maybe ErrorDocument) (\s a -> s {errorDocument = a} :: WebsiteConfiguration)
+{-# DEPRECATED wcErrorDocument "Use generic-lens or generic-optics with 'errorDocument' instead." #-}
 
 -- | The name of the index document for the website.
-wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
-wcIndexDocument = lens _wcIndexDocument (\s a -> s {_wcIndexDocument = a})
+--
+-- /Note:/ Consider using 'indexDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcIndexDocument :: Lens.Lens' WebsiteConfiguration (Lude.Maybe IndexDocument)
+wcIndexDocument = Lens.lens (indexDocument :: WebsiteConfiguration -> Lude.Maybe IndexDocument) (\s a -> s {indexDocument = a} :: WebsiteConfiguration)
+{-# DEPRECATED wcIndexDocument "Use generic-lens or generic-optics with 'indexDocument' instead." #-}
 
 -- | Rules that define when a redirect is applied and the redirect behavior.
-wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRules = lens _wcRoutingRules (\s a -> s {_wcRoutingRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routingRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcRoutingRules :: Lens.Lens' WebsiteConfiguration (Lude.Maybe [RoutingRule])
+wcRoutingRules = Lens.lens (routingRules :: WebsiteConfiguration -> Lude.Maybe [RoutingRule]) (\s a -> s {routingRules = a} :: WebsiteConfiguration)
+{-# DEPRECATED wcRoutingRules "Use generic-lens or generic-optics with 'routingRules' instead." #-}
 
-instance Hashable WebsiteConfiguration
-
-instance NFData WebsiteConfiguration
-
-instance ToXML WebsiteConfiguration where
+instance Lude.ToXML WebsiteConfiguration where
   toXML WebsiteConfiguration' {..} =
-    mconcat
-      [ "RedirectAllRequestsTo" @= _wcRedirectAllRequestsTo,
-        "ErrorDocument" @= _wcErrorDocument,
-        "IndexDocument" @= _wcIndexDocument,
+    Lude.mconcat
+      [ "RedirectAllRequestsTo" Lude.@= redirectAllRequestsTo,
+        "ErrorDocument" Lude.@= errorDocument,
+        "IndexDocument" Lude.@= indexDocument,
         "RoutingRules"
-          @= toXML (toXMLList "RoutingRule" <$> _wcRoutingRules)
+          Lude.@= Lude.toXML (Lude.toXMLList "RoutingRule" Lude.<$> routingRules)
       ]

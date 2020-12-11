@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,152 @@
 --
 -- Retrieves information about the status, configuration, and other settings for all the journeys that are associated with an application.
 module Network.AWS.Pinpoint.ListJourneys
-  ( -- * Creating a Request
-    listJourneys,
-    ListJourneys,
+  ( -- * Creating a request
+    ListJourneys (..),
+    mkListJourneys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljToken,
     ljPageSize,
     ljApplicationId,
 
-    -- * Destructuring the Response
-    listJourneysResponse,
-    ListJourneysResponse,
+    -- * Destructuring the response
+    ListJourneysResponse (..),
+    mkListJourneysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljrsResponseStatus,
     ljrsJourneysResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listJourneys' smart constructor.
+-- | /See:/ 'mkListJourneys' smart constructor.
 data ListJourneys = ListJourneys'
-  { _ljToken :: !(Maybe Text),
-    _ljPageSize :: !(Maybe Text),
-    _ljApplicationId :: !Text
+  { token :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJourneys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljToken' - The NextToken string that specifies which page of results to return in a paginated response.
---
--- * 'ljPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'ljApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-listJourneys ::
-  -- | 'ljApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+mkListJourneys ::
+  -- | 'applicationId'
+  Lude.Text ->
   ListJourneys
-listJourneys pApplicationId_ =
+mkListJourneys pApplicationId_ =
   ListJourneys'
-    { _ljToken = Nothing,
-      _ljPageSize = Nothing,
-      _ljApplicationId = pApplicationId_
+    { token = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
-ljToken :: Lens' ListJourneys (Maybe Text)
-ljToken = lens _ljToken (\s a -> s {_ljToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljToken :: Lens.Lens' ListJourneys (Lude.Maybe Lude.Text)
+ljToken = Lens.lens (token :: ListJourneys -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: ListJourneys)
+{-# DEPRECATED ljToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-ljPageSize :: Lens' ListJourneys (Maybe Text)
-ljPageSize = lens _ljPageSize (\s a -> s {_ljPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljPageSize :: Lens.Lens' ListJourneys (Lude.Maybe Lude.Text)
+ljPageSize = Lens.lens (pageSize :: ListJourneys -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: ListJourneys)
+{-# DEPRECATED ljPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-ljApplicationId :: Lens' ListJourneys Text
-ljApplicationId = lens _ljApplicationId (\s a -> s {_ljApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljApplicationId :: Lens.Lens' ListJourneys Lude.Text
+ljApplicationId = Lens.lens (applicationId :: ListJourneys -> Lude.Text) (\s a -> s {applicationId = a} :: ListJourneys)
+{-# DEPRECATED ljApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest ListJourneys where
+instance Lude.AWSRequest ListJourneys where
   type Rs ListJourneys = ListJourneysResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJourneysResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable ListJourneys
-
-instance NFData ListJourneys
-
-instance ToHeaders ListJourneys where
+instance Lude.ToHeaders ListJourneys where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListJourneys where
+instance Lude.ToPath ListJourneys where
   toPath ListJourneys' {..} =
-    mconcat ["/v1/apps/", toBS _ljApplicationId, "/journeys"]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/journeys"]
 
-instance ToQuery ListJourneys where
+instance Lude.ToQuery ListJourneys where
   toQuery ListJourneys' {..} =
-    mconcat ["token" =: _ljToken, "page-size" =: _ljPageSize]
+    Lude.mconcat
+      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'listJourneysResponse' smart constructor.
+-- | /See:/ 'mkListJourneysResponse' smart constructor.
 data ListJourneysResponse = ListJourneysResponse'
-  { _ljrsResponseStatus ::
-      !Int,
-    _ljrsJourneysResponse :: !JourneysResponse
+  { responseStatus ::
+      Lude.Int,
+    journeysResponse :: JourneysResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJourneysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljrsResponseStatus' - -- | The response status code.
---
--- * 'ljrsJourneysResponse' - Undocumented member.
-listJourneysResponse ::
-  -- | 'ljrsResponseStatus'
-  Int ->
-  -- | 'ljrsJourneysResponse'
+-- * 'journeysResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkListJourneysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'journeysResponse'
   JourneysResponse ->
   ListJourneysResponse
-listJourneysResponse pResponseStatus_ pJourneysResponse_ =
+mkListJourneysResponse pResponseStatus_ pJourneysResponse_ =
   ListJourneysResponse'
-    { _ljrsResponseStatus = pResponseStatus_,
-      _ljrsJourneysResponse = pJourneysResponse_
+    { responseStatus = pResponseStatus_,
+      journeysResponse = pJourneysResponse_
     }
 
--- | -- | The response status code.
-ljrsResponseStatus :: Lens' ListJourneysResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\s a -> s {_ljrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsResponseStatus :: Lens.Lens' ListJourneysResponse Lude.Int
+ljrsResponseStatus = Lens.lens (responseStatus :: ListJourneysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJourneysResponse)
+{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ljrsJourneysResponse :: Lens' ListJourneysResponse JourneysResponse
-ljrsJourneysResponse = lens _ljrsJourneysResponse (\s a -> s {_ljrsJourneysResponse = a})
-
-instance NFData ListJourneysResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'journeysResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsJourneysResponse :: Lens.Lens' ListJourneysResponse JourneysResponse
+ljrsJourneysResponse = Lens.lens (journeysResponse :: ListJourneysResponse -> JourneysResponse) (\s a -> s {journeysResponse = a} :: ListJourneysResponse)
+{-# DEPRECATED ljrsJourneysResponse "Use generic-lens or generic-optics with 'journeysResponse' instead." #-}

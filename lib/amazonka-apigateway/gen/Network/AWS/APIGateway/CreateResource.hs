@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a 'Resource' resource.
 module Network.AWS.APIGateway.CreateResource
-  ( -- * Creating a Request
-    createResource,
-    CreateResource,
+  ( -- * Creating a request
+    CreateResource (..),
+    mkCreateResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crRestAPIId,
     crParentId,
     crPathPart,
 
-    -- * Destructuring the Response
-    resource,
-    Resource,
+    -- * Destructuring the response
+    Resource (..),
+    mkResource,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rPathPart,
     rPath,
     rId,
@@ -42,80 +37,94 @@ module Network.AWS.APIGateway.CreateResource
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to create a 'Resource' resource.
 --
---
---
--- /See:/ 'createResource' smart constructor.
+-- /See:/ 'mkCreateResource' smart constructor.
 data CreateResource = CreateResource'
-  { _crRestAPIId :: !Text,
-    _crParentId :: !Text,
-    _crPathPart :: !Text
+  { restAPIId :: Lude.Text,
+    parentId :: Lude.Text,
+    pathPart :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'crParentId' - [Required] The parent resource's identifier.
---
--- * 'crPathPart' - The last path segment for this resource.
-createResource ::
-  -- | 'crRestAPIId'
-  Text ->
-  -- | 'crParentId'
-  Text ->
-  -- | 'crPathPart'
-  Text ->
+-- * 'parentId' - [Required] The parent resource's identifier.
+-- * 'pathPart' - The last path segment for this resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkCreateResource ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'parentId'
+  Lude.Text ->
+  -- | 'pathPart'
+  Lude.Text ->
   CreateResource
-createResource pRestAPIId_ pParentId_ pPathPart_ =
+mkCreateResource pRestAPIId_ pParentId_ pPathPart_ =
   CreateResource'
-    { _crRestAPIId = pRestAPIId_,
-      _crParentId = pParentId_,
-      _crPathPart = pPathPart_
+    { restAPIId = pRestAPIId_,
+      parentId = pParentId_,
+      pathPart = pPathPart_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-crRestAPIId :: Lens' CreateResource Text
-crRestAPIId = lens _crRestAPIId (\s a -> s {_crRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRestAPIId :: Lens.Lens' CreateResource Lude.Text
+crRestAPIId = Lens.lens (restAPIId :: CreateResource -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateResource)
+{-# DEPRECATED crRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The parent resource's identifier.
-crParentId :: Lens' CreateResource Text
-crParentId = lens _crParentId (\s a -> s {_crParentId = a})
+--
+-- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crParentId :: Lens.Lens' CreateResource Lude.Text
+crParentId = Lens.lens (parentId :: CreateResource -> Lude.Text) (\s a -> s {parentId = a} :: CreateResource)
+{-# DEPRECATED crParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
 -- | The last path segment for this resource.
-crPathPart :: Lens' CreateResource Text
-crPathPart = lens _crPathPart (\s a -> s {_crPathPart = a})
+--
+-- /Note:/ Consider using 'pathPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crPathPart :: Lens.Lens' CreateResource Lude.Text
+crPathPart = Lens.lens (pathPart :: CreateResource -> Lude.Text) (\s a -> s {pathPart = a} :: CreateResource)
+{-# DEPRECATED crPathPart "Use generic-lens or generic-optics with 'pathPart' instead." #-}
 
-instance AWSRequest CreateResource where
+instance Lude.AWSRequest CreateResource where
   type Rs CreateResource = Resource
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateResource
-
-instance NFData CreateResource
-
-instance ToHeaders CreateResource where
+instance Lude.ToHeaders CreateResource where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateResource where
+instance Lude.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    object (catMaybes [Just ("pathPart" .= _crPathPart)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("pathPart" Lude..= pathPart)])
 
-instance ToPath CreateResource where
+instance Lude.ToPath CreateResource where
   toPath CreateResource' {..} =
-    mconcat
-      ["/restapis/", toBS _crRestAPIId, "/resources/", toBS _crParentId]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/resources/",
+        Lude.toBS parentId
+      ]
 
-instance ToQuery CreateResource where
-  toQuery = const mempty
+instance Lude.ToQuery CreateResource where
+  toQuery = Lude.const Lude.mempty

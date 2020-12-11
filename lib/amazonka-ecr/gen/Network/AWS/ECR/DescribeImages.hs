@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns metadata about the images in a repository.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ECR.DescribeImages
-  ( -- * Creating a Request
-    describeImages,
-    DescribeImages,
+  ( -- * Creating a request
+    DescribeImages (..),
+    mkDescribeImages,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diRegistryId,
     diImageIds,
     diNextToken,
@@ -35,11 +28,11 @@ module Network.AWS.ECR.DescribeImages
     diMaxResults,
     diRepositoryName,
 
-    -- * Destructuring the Response
-    describeImagesResponse,
-    DescribeImagesResponse,
+    -- * Destructuring the response
+    DescribeImagesResponse (..),
+    mkDescribeImagesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsImageDetails,
     dirsNextToken,
     dirsResponseStatus,
@@ -47,169 +40,197 @@ module Network.AWS.ECR.DescribeImages
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeImages' smart constructor.
+-- | /See:/ 'mkDescribeImages' smart constructor.
 data DescribeImages = DescribeImages'
-  { _diRegistryId ::
-      !(Maybe Text),
-    _diImageIds :: !(Maybe [ImageIdentifier]),
-    _diNextToken :: !(Maybe Text),
-    _diFilter :: !(Maybe DescribeImagesFilter),
-    _diMaxResults :: !(Maybe Nat),
-    _diRepositoryName :: !Text
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    imageIds :: Lude.Maybe [ImageIdentifier],
+    nextToken :: Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe DescribeImagesFilter,
+    maxResults :: Lude.Maybe Lude.Natural,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diRegistryId' - The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
---
--- * 'diImageIds' - The list of image IDs for the requested repository.
---
--- * 'diNextToken' - The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
---
--- * 'diFilter' - The filter key and value with which to filter your @DescribeImages@ results.
---
--- * 'diMaxResults' - The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify images with @imageIds@ .
---
--- * 'diRepositoryName' - The repository that contains the images to describe.
-describeImages ::
-  -- | 'diRepositoryName'
-  Text ->
+-- * 'filter' - The filter key and value with which to filter your @DescribeImages@ results.
+-- * 'imageIds' - The list of image IDs for the requested repository.
+-- * 'maxResults' - The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify images with @imageIds@ .
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The repository that contains the images to describe.
+mkDescribeImages ::
+  -- | 'repositoryName'
+  Lude.Text ->
   DescribeImages
-describeImages pRepositoryName_ =
+mkDescribeImages pRepositoryName_ =
   DescribeImages'
-    { _diRegistryId = Nothing,
-      _diImageIds = Nothing,
-      _diNextToken = Nothing,
-      _diFilter = Nothing,
-      _diMaxResults = Nothing,
-      _diRepositoryName = pRepositoryName_
+    { registryId = Lude.Nothing,
+      imageIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
-diRegistryId :: Lens' DescribeImages (Maybe Text)
-diRegistryId = lens _diRegistryId (\s a -> s {_diRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diRegistryId :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Text)
+diRegistryId = Lens.lens (registryId :: DescribeImages -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DescribeImages)
+{-# DEPRECATED diRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The list of image IDs for the requested repository.
-diImageIds :: Lens' DescribeImages [ImageIdentifier]
-diImageIds = lens _diImageIds (\s a -> s {_diImageIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diImageIds :: Lens.Lens' DescribeImages (Lude.Maybe [ImageIdentifier])
+diImageIds = Lens.lens (imageIds :: DescribeImages -> Lude.Maybe [ImageIdentifier]) (\s a -> s {imageIds = a} :: DescribeImages)
+{-# DEPRECATED diImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
-diNextToken :: Lens' DescribeImages (Maybe Text)
-diNextToken = lens _diNextToken (\s a -> s {_diNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diNextToken :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Text)
+diNextToken = Lens.lens (nextToken :: DescribeImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImages)
+{-# DEPRECATED diNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The filter key and value with which to filter your @DescribeImages@ results.
-diFilter :: Lens' DescribeImages (Maybe DescribeImagesFilter)
-diFilter = lens _diFilter (\s a -> s {_diFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diFilter :: Lens.Lens' DescribeImages (Lude.Maybe DescribeImagesFilter)
+diFilter = Lens.lens (filter :: DescribeImages -> Lude.Maybe DescribeImagesFilter) (\s a -> s {filter = a} :: DescribeImages)
+{-# DEPRECATED diFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of repository results returned by @DescribeImages@ in paginated output. When this parameter is used, @DescribeImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImages@ returns up to 100 results and a @nextToken@ value, if applicable. This option cannot be used when you specify images with @imageIds@ .
-diMaxResults :: Lens' DescribeImages (Maybe Natural)
-diMaxResults = lens _diMaxResults (\s a -> s {_diMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMaxResults :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Natural)
+diMaxResults = Lens.lens (maxResults :: DescribeImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImages)
+{-# DEPRECATED diMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The repository that contains the images to describe.
-diRepositoryName :: Lens' DescribeImages Text
-diRepositoryName = lens _diRepositoryName (\s a -> s {_diRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diRepositoryName :: Lens.Lens' DescribeImages Lude.Text
+diRepositoryName = Lens.lens (repositoryName :: DescribeImages -> Lude.Text) (\s a -> s {repositoryName = a} :: DescribeImages)
+{-# DEPRECATED diRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSPager DescribeImages where
+instance Page.AWSPager DescribeImages where
   page rq rs
-    | stop (rs ^. dirsNextToken) = Nothing
-    | stop (rs ^. dirsImageDetails) = Nothing
-    | otherwise = Just $ rq & diNextToken .~ rs ^. dirsNextToken
+    | Page.stop (rs Lens.^. dirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dirsImageDetails) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& diNextToken Lens..~ rs Lens.^. dirsNextToken
 
-instance AWSRequest DescribeImages where
+instance Lude.AWSRequest DescribeImages where
   type Rs DescribeImages = DescribeImagesResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeImagesResponse'
-            <$> (x .?> "imageDetails" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "imageDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImages
-
-instance NFData DescribeImages
-
-instance ToHeaders DescribeImages where
+instance Lude.ToHeaders DescribeImages where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImages" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImages" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeImages where
+instance Lude.ToJSON DescribeImages where
   toJSON DescribeImages' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _diRegistryId,
-            ("imageIds" .=) <$> _diImageIds,
-            ("nextToken" .=) <$> _diNextToken,
-            ("filter" .=) <$> _diFilter,
-            ("maxResults" .=) <$> _diMaxResults,
-            Just ("repositoryName" .= _diRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            ("imageIds" Lude..=) Lude.<$> imageIds,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath DescribeImages where
-  toPath = const "/"
+instance Lude.ToPath DescribeImages where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeImages where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeImages where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeImagesResponse' smart constructor.
+-- | /See:/ 'mkDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { _dirsImageDetails ::
-      !(Maybe [ImageDetail]),
-    _dirsNextToken :: !(Maybe Text),
-    _dirsResponseStatus :: !Int
+  { imageDetails ::
+      Lude.Maybe [ImageDetail],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsImageDetails' - A list of 'ImageDetail' objects that contain data about the image.
---
--- * 'dirsNextToken' - The @nextToken@ value to include in a future @DescribeImages@ request. When the results of a @DescribeImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-describeImagesResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'imageDetails' - A list of 'ImageDetail' objects that contain data about the image.
+-- * 'nextToken' - The @nextToken@ value to include in a future @DescribeImages@ request. When the results of a @DescribeImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeImagesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImagesResponse
-describeImagesResponse pResponseStatus_ =
+mkDescribeImagesResponse pResponseStatus_ =
   DescribeImagesResponse'
-    { _dirsImageDetails = Nothing,
-      _dirsNextToken = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { imageDetails = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of 'ImageDetail' objects that contain data about the image.
-dirsImageDetails :: Lens' DescribeImagesResponse [ImageDetail]
-dirsImageDetails = lens _dirsImageDetails (\s a -> s {_dirsImageDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'imageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsImageDetails :: Lens.Lens' DescribeImagesResponse (Lude.Maybe [ImageDetail])
+dirsImageDetails = Lens.lens (imageDetails :: DescribeImagesResponse -> Lude.Maybe [ImageDetail]) (\s a -> s {imageDetails = a} :: DescribeImagesResponse)
+{-# DEPRECATED dirsImageDetails "Use generic-lens or generic-optics with 'imageDetails' instead." #-}
 
 -- | The @nextToken@ value to include in a future @DescribeImages@ request. When the results of a @DescribeImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dirsNextToken :: Lens' DescribeImagesResponse (Maybe Text)
-dirsNextToken = lens _dirsNextToken (\s a -> s {_dirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsNextToken :: Lens.Lens' DescribeImagesResponse (Lude.Maybe Lude.Text)
+dirsNextToken = Lens.lens (nextToken :: DescribeImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImagesResponse)
+{-# DEPRECATED dirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DescribeImagesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DescribeImagesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DescribeImagesResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DescribeImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImagesResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

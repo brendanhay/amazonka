@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,151 @@
 --
 -- Associates the specified Systems Manager document with the specified instances or targets.
 --
---
 -- When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.
---
 -- If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.
 module Network.AWS.SSM.CreateAssociationBatch
-  ( -- * Creating a Request
-    createAssociationBatch,
-    CreateAssociationBatch,
+  ( -- * Creating a request
+    CreateAssociationBatch (..),
+    mkCreateAssociationBatch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cabEntries,
 
-    -- * Destructuring the Response
-    createAssociationBatchResponse,
-    CreateAssociationBatchResponse,
+    -- * Destructuring the response
+    CreateAssociationBatchResponse (..),
+    mkCreateAssociationBatchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cabrsSuccessful,
     cabrsFailed,
     cabrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'createAssociationBatch' smart constructor.
+-- | /See:/ 'mkCreateAssociationBatch' smart constructor.
 newtype CreateAssociationBatch = CreateAssociationBatch'
-  { _cabEntries ::
-      List1 CreateAssociationBatchRequestEntry
+  { entries ::
+      Lude.NonEmpty
+        CreateAssociationBatchRequestEntry
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssociationBatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cabEntries' - One or more associations.
-createAssociationBatch ::
-  -- | 'cabEntries'
-  NonEmpty CreateAssociationBatchRequestEntry ->
+-- * 'entries' - One or more associations.
+mkCreateAssociationBatch ::
+  -- | 'entries'
+  Lude.NonEmpty CreateAssociationBatchRequestEntry ->
   CreateAssociationBatch
-createAssociationBatch pEntries_ =
-  CreateAssociationBatch' {_cabEntries = _List1 # pEntries_}
+mkCreateAssociationBatch pEntries_ =
+  CreateAssociationBatch' {entries = pEntries_}
 
 -- | One or more associations.
-cabEntries :: Lens' CreateAssociationBatch (NonEmpty CreateAssociationBatchRequestEntry)
-cabEntries = lens _cabEntries (\s a -> s {_cabEntries = a}) . _List1
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabEntries :: Lens.Lens' CreateAssociationBatch (Lude.NonEmpty CreateAssociationBatchRequestEntry)
+cabEntries = Lens.lens (entries :: CreateAssociationBatch -> Lude.NonEmpty CreateAssociationBatchRequestEntry) (\s a -> s {entries = a} :: CreateAssociationBatch)
+{-# DEPRECATED cabEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
-instance AWSRequest CreateAssociationBatch where
+instance Lude.AWSRequest CreateAssociationBatch where
   type Rs CreateAssociationBatch = CreateAssociationBatchResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAssociationBatchResponse'
-            <$> (x .?> "Successful" .!@ mempty)
-            <*> (x .?> "Failed" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Successful" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Failed" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAssociationBatch
-
-instance NFData CreateAssociationBatch
-
-instance ToHeaders CreateAssociationBatch where
+instance Lude.ToHeaders CreateAssociationBatch where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.CreateAssociationBatch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.CreateAssociationBatch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAssociationBatch where
+instance Lude.ToJSON CreateAssociationBatch where
   toJSON CreateAssociationBatch' {..} =
-    object (catMaybes [Just ("Entries" .= _cabEntries)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Entries" Lude..= entries)])
 
-instance ToPath CreateAssociationBatch where
-  toPath = const "/"
+instance Lude.ToPath CreateAssociationBatch where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAssociationBatch where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAssociationBatch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAssociationBatchResponse' smart constructor.
+-- | /See:/ 'mkCreateAssociationBatchResponse' smart constructor.
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-  { _cabrsSuccessful ::
-      !( Maybe
-           [AssociationDescription]
-       ),
-    _cabrsFailed ::
-      !( Maybe
-           [FailedCreateAssociation]
-       ),
-    _cabrsResponseStatus :: !Int
+  { successful ::
+      Lude.Maybe
+        [AssociationDescription],
+    failed ::
+      Lude.Maybe
+        [FailedCreateAssociation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssociationBatchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cabrsSuccessful' - Information about the associations that succeeded.
---
--- * 'cabrsFailed' - Information about the associations that failed.
---
--- * 'cabrsResponseStatus' - -- | The response status code.
-createAssociationBatchResponse ::
-  -- | 'cabrsResponseStatus'
-  Int ->
+-- * 'failed' - Information about the associations that failed.
+-- * 'responseStatus' - The response status code.
+-- * 'successful' - Information about the associations that succeeded.
+mkCreateAssociationBatchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAssociationBatchResponse
-createAssociationBatchResponse pResponseStatus_ =
+mkCreateAssociationBatchResponse pResponseStatus_ =
   CreateAssociationBatchResponse'
-    { _cabrsSuccessful = Nothing,
-      _cabrsFailed = Nothing,
-      _cabrsResponseStatus = pResponseStatus_
+    { successful = Lude.Nothing,
+      failed = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the associations that succeeded.
-cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
-cabrsSuccessful = lens _cabrsSuccessful (\s a -> s {_cabrsSuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabrsSuccessful :: Lens.Lens' CreateAssociationBatchResponse (Lude.Maybe [AssociationDescription])
+cabrsSuccessful = Lens.lens (successful :: CreateAssociationBatchResponse -> Lude.Maybe [AssociationDescription]) (\s a -> s {successful = a} :: CreateAssociationBatchResponse)
+{-# DEPRECATED cabrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
 -- | Information about the associations that failed.
-cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
-cabrsFailed = lens _cabrsFailed (\s a -> s {_cabrsFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabrsFailed :: Lens.Lens' CreateAssociationBatchResponse (Lude.Maybe [FailedCreateAssociation])
+cabrsFailed = Lens.lens (failed :: CreateAssociationBatchResponse -> Lude.Maybe [FailedCreateAssociation]) (\s a -> s {failed = a} :: CreateAssociationBatchResponse)
+{-# DEPRECATED cabrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
--- | -- | The response status code.
-cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
-cabrsResponseStatus = lens _cabrsResponseStatus (\s a -> s {_cabrsResponseStatus = a})
-
-instance NFData CreateAssociationBatchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabrsResponseStatus :: Lens.Lens' CreateAssociationBatchResponse Lude.Int
+cabrsResponseStatus = Lens.lens (responseStatus :: CreateAssociationBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssociationBatchResponse)
+{-# DEPRECATED cabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

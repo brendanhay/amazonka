@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType where
+module Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
+  ( TimeUnitsType
+      ( TimeUnitsType',
+        Days,
+        Hours,
+        Minutes,
+        Seconds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TimeUnitsType
-  = Days
-  | Hours
-  | Minutes
-  | Seconds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimeUnitsType = TimeUnitsType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimeUnitsType where
-  parser =
-    takeLowerText >>= \case
-      "days" -> pure Days
-      "hours" -> pure Hours
-      "minutes" -> pure Minutes
-      "seconds" -> pure Seconds
-      e ->
-        fromTextError $
-          "Failure parsing TimeUnitsType from value: '" <> e
-            <> "'. Accepted values: days, hours, minutes, seconds"
+pattern Days :: TimeUnitsType
+pattern Days = TimeUnitsType' "days"
 
-instance ToText TimeUnitsType where
-  toText = \case
-    Days -> "days"
-    Hours -> "hours"
-    Minutes -> "minutes"
-    Seconds -> "seconds"
+pattern Hours :: TimeUnitsType
+pattern Hours = TimeUnitsType' "hours"
 
-instance Hashable TimeUnitsType
+pattern Minutes :: TimeUnitsType
+pattern Minutes = TimeUnitsType' "minutes"
 
-instance NFData TimeUnitsType
+pattern Seconds :: TimeUnitsType
+pattern Seconds = TimeUnitsType' "seconds"
 
-instance ToByteString TimeUnitsType
-
-instance ToQuery TimeUnitsType
-
-instance ToHeader TimeUnitsType
-
-instance ToJSON TimeUnitsType where
-  toJSON = toJSONText
-
-instance FromJSON TimeUnitsType where
-  parseJSON = parseJSONText "TimeUnitsType"
+{-# COMPLETE
+  Days,
+  Hours,
+  Minutes,
+  Seconds,
+  TimeUnitsType'
+  #-}

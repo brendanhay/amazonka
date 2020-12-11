@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.KernelSpec where
+module Network.AWS.SageMaker.Types.KernelSpec
+  ( KernelSpec (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKernelSpec,
+
+    -- * Lenses
+    ksDisplayName,
+    ksName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The specification of a Jupyter kernel.
 --
---
---
--- /See:/ 'kernelSpec' smart constructor.
+-- /See:/ 'mkKernelSpec' smart constructor.
 data KernelSpec = KernelSpec'
-  { _ksDisplayName :: !(Maybe Text),
-    _ksName :: !Text
+  { displayName :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KernelSpec' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ksDisplayName' - The display name of the kernel.
---
--- * 'ksName' - The name of the kernel.
-kernelSpec ::
-  -- | 'ksName'
-  Text ->
+-- * 'displayName' - The display name of the kernel.
+-- * 'name' - The name of the kernel.
+mkKernelSpec ::
+  -- | 'name'
+  Lude.Text ->
   KernelSpec
-kernelSpec pName_ =
-  KernelSpec' {_ksDisplayName = Nothing, _ksName = pName_}
+mkKernelSpec pName_ =
+  KernelSpec' {displayName = Lude.Nothing, name = pName_}
 
 -- | The display name of the kernel.
-ksDisplayName :: Lens' KernelSpec (Maybe Text)
-ksDisplayName = lens _ksDisplayName (\s a -> s {_ksDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksDisplayName :: Lens.Lens' KernelSpec (Lude.Maybe Lude.Text)
+ksDisplayName = Lens.lens (displayName :: KernelSpec -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: KernelSpec)
+{-# DEPRECATED ksDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the kernel.
-ksName :: Lens' KernelSpec Text
-ksName = lens _ksName (\s a -> s {_ksName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksName :: Lens.Lens' KernelSpec Lude.Text
+ksName = Lens.lens (name :: KernelSpec -> Lude.Text) (\s a -> s {name = a} :: KernelSpec)
+{-# DEPRECATED ksName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON KernelSpec where
+instance Lude.FromJSON KernelSpec where
   parseJSON =
-    withObject
+    Lude.withObject
       "KernelSpec"
-      (\x -> KernelSpec' <$> (x .:? "DisplayName") <*> (x .: "Name"))
+      ( \x ->
+          KernelSpec'
+            Lude.<$> (x Lude..:? "DisplayName") Lude.<*> (x Lude..: "Name")
+      )
 
-instance Hashable KernelSpec
-
-instance NFData KernelSpec
-
-instance ToJSON KernelSpec where
+instance Lude.ToJSON KernelSpec where
   toJSON KernelSpec' {..} =
-    object
-      ( catMaybes
-          [("DisplayName" .=) <$> _ksDisplayName, Just ("Name" .= _ksName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DisplayName" Lude..=) Lude.<$> displayName,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )

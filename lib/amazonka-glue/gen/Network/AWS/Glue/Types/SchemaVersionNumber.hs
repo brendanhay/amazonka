@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaVersionNumber where
+module Network.AWS.Glue.Types.SchemaVersionNumber
+  ( SchemaVersionNumber (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSchemaVersionNumber,
 
--- | /See:/ 'schemaVersionNumber' smart constructor.
+    -- * Lenses
+    svnVersionNumber,
+    svnLatestVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkSchemaVersionNumber' smart constructor.
 data SchemaVersionNumber = SchemaVersionNumber'
-  { _svnVersionNumber ::
-      !(Maybe Nat),
-    _svnLatestVersion :: !(Maybe Bool)
+  { versionNumber ::
+      Lude.Maybe Lude.Natural,
+    latestVersion :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaVersionNumber' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svnVersionNumber' - Undocumented member.
---
--- * 'svnLatestVersion' - Undocumented member.
-schemaVersionNumber ::
+-- * 'latestVersion' - Undocumented field.
+-- * 'versionNumber' - Undocumented field.
+mkSchemaVersionNumber ::
   SchemaVersionNumber
-schemaVersionNumber =
+mkSchemaVersionNumber =
   SchemaVersionNumber'
-    { _svnVersionNumber = Nothing,
-      _svnLatestVersion = Nothing
+    { versionNumber = Lude.Nothing,
+      latestVersion = Lude.Nothing
     }
 
--- | Undocumented member.
-svnVersionNumber :: Lens' SchemaVersionNumber (Maybe Natural)
-svnVersionNumber = lens _svnVersionNumber (\s a -> s {_svnVersionNumber = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svnVersionNumber :: Lens.Lens' SchemaVersionNumber (Lude.Maybe Lude.Natural)
+svnVersionNumber = Lens.lens (versionNumber :: SchemaVersionNumber -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: SchemaVersionNumber)
+{-# DEPRECATED svnVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
--- | Undocumented member.
-svnLatestVersion :: Lens' SchemaVersionNumber (Maybe Bool)
-svnLatestVersion = lens _svnLatestVersion (\s a -> s {_svnLatestVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svnLatestVersion :: Lens.Lens' SchemaVersionNumber (Lude.Maybe Lude.Bool)
+svnLatestVersion = Lens.lens (latestVersion :: SchemaVersionNumber -> Lude.Maybe Lude.Bool) (\s a -> s {latestVersion = a} :: SchemaVersionNumber)
+{-# DEPRECATED svnLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
-instance Hashable SchemaVersionNumber
-
-instance NFData SchemaVersionNumber
-
-instance ToJSON SchemaVersionNumber where
+instance Lude.ToJSON SchemaVersionNumber where
   toJSON SchemaVersionNumber' {..} =
-    object
-      ( catMaybes
-          [ ("VersionNumber" .=) <$> _svnVersionNumber,
-            ("LatestVersion" .=) <$> _svnLatestVersion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VersionNumber" Lude..=) Lude.<$> versionNumber,
+            ("LatestVersion" Lude..=) Lude.<$> latestVersion
           ]
       )

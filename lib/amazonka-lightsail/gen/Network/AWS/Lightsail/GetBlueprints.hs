@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,181 @@
 --
 -- Returns the list of available instance images, or /blueprints/ . You can use a blueprint to create a new instance already running a specific operating system, as well as a preinstalled app or development stack. The software each instance is running depends on the blueprint image you choose.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetBlueprints
-  ( -- * Creating a Request
-    getBlueprints,
-    GetBlueprints,
+  ( -- * Creating a request
+    GetBlueprints (..),
+    mkGetBlueprints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbIncludeInactive,
     gbPageToken,
 
-    -- * Destructuring the Response
-    getBlueprintsResponse,
-    GetBlueprintsResponse,
+    -- * Destructuring the response
+    GetBlueprintsResponse (..),
+    mkGetBlueprintsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbsrsBlueprints,
     gbsrsNextPageToken,
     gbsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBlueprints' smart constructor.
+-- | /See:/ 'mkGetBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-  { _gbIncludeInactive ::
-      !(Maybe Bool),
-    _gbPageToken :: !(Maybe Text)
+  { includeInactive ::
+      Lude.Maybe Lude.Bool,
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlueprints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'includeInactive' - A Boolean value indicating whether to include inactive results in your request.
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gbIncludeInactive' - A Boolean value indicating whether to include inactive results in your request.
---
--- * 'gbPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getBlueprints ::
+-- To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetBlueprints ::
   GetBlueprints
-getBlueprints =
+mkGetBlueprints =
   GetBlueprints'
-    { _gbIncludeInactive = Nothing,
-      _gbPageToken = Nothing
+    { includeInactive = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
 
 -- | A Boolean value indicating whether to include inactive results in your request.
-gbIncludeInactive :: Lens' GetBlueprints (Maybe Bool)
-gbIncludeInactive = lens _gbIncludeInactive (\s a -> s {_gbIncludeInactive = a})
+--
+-- /Note:/ Consider using 'includeInactive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbIncludeInactive :: Lens.Lens' GetBlueprints (Lude.Maybe Lude.Bool)
+gbIncludeInactive = Lens.lens (includeInactive :: GetBlueprints -> Lude.Maybe Lude.Bool) (\s a -> s {includeInactive = a} :: GetBlueprints)
+{-# DEPRECATED gbIncludeInactive "Use generic-lens or generic-optics with 'includeInactive' instead." #-}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gbPageToken :: Lens' GetBlueprints (Maybe Text)
-gbPageToken = lens _gbPageToken (\s a -> s {_gbPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbPageToken :: Lens.Lens' GetBlueprints (Lude.Maybe Lude.Text)
+gbPageToken = Lens.lens (pageToken :: GetBlueprints -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetBlueprints)
+{-# DEPRECATED gbPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetBlueprints where
+instance Page.AWSPager GetBlueprints where
   page rq rs
-    | stop (rs ^. gbsrsNextPageToken) = Nothing
-    | stop (rs ^. gbsrsBlueprints) = Nothing
-    | otherwise = Just $ rq & gbPageToken .~ rs ^. gbsrsNextPageToken
+    | Page.stop (rs Lens.^. gbsrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gbsrsBlueprints) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gbPageToken Lens..~ rs Lens.^. gbsrsNextPageToken
 
-instance AWSRequest GetBlueprints where
+instance Lude.AWSRequest GetBlueprints where
   type Rs GetBlueprints = GetBlueprintsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBlueprintsResponse'
-            <$> (x .?> "blueprints" .!@ mempty)
-            <*> (x .?> "nextPageToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "blueprints" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextPageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBlueprints
-
-instance NFData GetBlueprints
-
-instance ToHeaders GetBlueprints where
+instance Lude.ToHeaders GetBlueprints where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetBlueprints" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetBlueprints" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetBlueprints where
+instance Lude.ToJSON GetBlueprints where
   toJSON GetBlueprints' {..} =
-    object
-      ( catMaybes
-          [ ("includeInactive" .=) <$> _gbIncludeInactive,
-            ("pageToken" .=) <$> _gbPageToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("includeInactive" Lude..=) Lude.<$> includeInactive,
+            ("pageToken" Lude..=) Lude.<$> pageToken
           ]
       )
 
-instance ToPath GetBlueprints where
-  toPath = const "/"
+instance Lude.ToPath GetBlueprints where
+  toPath = Lude.const "/"
 
-instance ToQuery GetBlueprints where
-  toQuery = const mempty
+instance Lude.ToQuery GetBlueprints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBlueprintsResponse' smart constructor.
+-- | /See:/ 'mkGetBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
-  { _gbsrsBlueprints ::
-      !(Maybe [Blueprint]),
-    _gbsrsNextPageToken :: !(Maybe Text),
-    _gbsrsResponseStatus :: !Int
+  { blueprints ::
+      Lude.Maybe [Blueprint],
+    nextPageToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlueprintsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'blueprints' - An array of key-value pairs that contains information about the available blueprints.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gbsrsBlueprints' - An array of key-value pairs that contains information about the available blueprints.
---
--- * 'gbsrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'gbsrsResponseStatus' - -- | The response status code.
-getBlueprintsResponse ::
-  -- | 'gbsrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetBlueprintsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBlueprintsResponse
-getBlueprintsResponse pResponseStatus_ =
+mkGetBlueprintsResponse pResponseStatus_ =
   GetBlueprintsResponse'
-    { _gbsrsBlueprints = Nothing,
-      _gbsrsNextPageToken = Nothing,
-      _gbsrsResponseStatus = pResponseStatus_
+    { blueprints = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of key-value pairs that contains information about the available blueprints.
-gbsrsBlueprints :: Lens' GetBlueprintsResponse [Blueprint]
-gbsrsBlueprints = lens _gbsrsBlueprints (\s a -> s {_gbsrsBlueprints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blueprints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbsrsBlueprints :: Lens.Lens' GetBlueprintsResponse (Lude.Maybe [Blueprint])
+gbsrsBlueprints = Lens.lens (blueprints :: GetBlueprintsResponse -> Lude.Maybe [Blueprint]) (\s a -> s {blueprints = a} :: GetBlueprintsResponse)
+{-# DEPRECATED gbsrsBlueprints "Use generic-lens or generic-optics with 'blueprints' instead." #-}
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
-gbsrsNextPageToken :: Lens' GetBlueprintsResponse (Maybe Text)
-gbsrsNextPageToken = lens _gbsrsNextPageToken (\s a -> s {_gbsrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbsrsNextPageToken :: Lens.Lens' GetBlueprintsResponse (Lude.Maybe Lude.Text)
+gbsrsNextPageToken = Lens.lens (nextPageToken :: GetBlueprintsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetBlueprintsResponse)
+{-# DEPRECATED gbsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | -- | The response status code.
-gbsrsResponseStatus :: Lens' GetBlueprintsResponse Int
-gbsrsResponseStatus = lens _gbsrsResponseStatus (\s a -> s {_gbsrsResponseStatus = a})
-
-instance NFData GetBlueprintsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbsrsResponseStatus :: Lens.Lens' GetBlueprintsResponse Lude.Int
+gbsrsResponseStatus = Lens.lens (responseStatus :: GetBlueprintsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBlueprintsResponse)
+{-# DEPRECATED gbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

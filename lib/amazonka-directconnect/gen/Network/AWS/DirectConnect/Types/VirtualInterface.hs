@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,260 +7,401 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.VirtualInterface where
+module Network.AWS.DirectConnect.Types.VirtualInterface
+  ( VirtualInterface (..),
+
+    -- * Smart constructor
+    mkVirtualInterface,
+
+    -- * Lenses
+    viBgpPeers,
+    viVirtualGatewayId,
+    viMtu,
+    viRouteFilterPrefixes,
+    viCustomerAddress,
+    viVlan,
+    viLocation,
+    viAmazonAddress,
+    viAddressFamily,
+    viVirtualInterfaceState,
+    viConnectionId,
+    viDirectConnectGatewayId,
+    viAmazonSideASN,
+    viVirtualInterfaceType,
+    viAsn,
+    viAuthKey,
+    viJumboFrameCapable,
+    viCustomerRouterConfig,
+    viOwnerAccount,
+    viRegion,
+    viVirtualInterfaceName,
+    viAwsDeviceV2,
+    viVirtualInterfaceId,
+    viTags,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.BGPPeer
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import Network.AWS.DirectConnect.Types.Tag
 import Network.AWS.DirectConnect.Types.VirtualInterfaceState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a virtual interface.
 --
---
---
--- /See:/ 'virtualInterface' smart constructor.
+-- /See:/ 'mkVirtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-  { _viBgpPeers ::
-      !(Maybe [BGPPeer]),
-    _viVirtualGatewayId :: !(Maybe Text),
-    _viMtu :: !(Maybe Int),
-    _viRouteFilterPrefixes :: !(Maybe [RouteFilterPrefix]),
-    _viCustomerAddress :: !(Maybe Text),
-    _viVlan :: !(Maybe Int),
-    _viLocation :: !(Maybe Text),
-    _viAmazonAddress :: !(Maybe Text),
-    _viAddressFamily :: !(Maybe AddressFamily),
-    _viVirtualInterfaceState ::
-      !(Maybe VirtualInterfaceState),
-    _viConnectionId :: !(Maybe Text),
-    _viDirectConnectGatewayId :: !(Maybe Text),
-    _viAmazonSideASN :: !(Maybe Integer),
-    _viVirtualInterfaceType :: !(Maybe Text),
-    _viAsn :: !(Maybe Int),
-    _viAuthKey :: !(Maybe Text),
-    _viJumboFrameCapable :: !(Maybe Bool),
-    _viCustomerRouterConfig :: !(Maybe Text),
-    _viOwnerAccount :: !(Maybe Text),
-    _viRegion :: !(Maybe Text),
-    _viVirtualInterfaceName :: !(Maybe Text),
-    _viAwsDeviceV2 :: !(Maybe Text),
-    _viVirtualInterfaceId :: !(Maybe Text),
-    _viTags :: !(Maybe (List1 Tag))
+  { bgpPeers ::
+      Lude.Maybe [BGPPeer],
+    virtualGatewayId :: Lude.Maybe Lude.Text,
+    mtu :: Lude.Maybe Lude.Int,
+    routeFilterPrefixes :: Lude.Maybe [RouteFilterPrefix],
+    customerAddress :: Lude.Maybe Lude.Text,
+    vlan :: Lude.Maybe Lude.Int,
+    location :: Lude.Maybe Lude.Text,
+    amazonAddress :: Lude.Maybe Lude.Text,
+    addressFamily :: Lude.Maybe AddressFamily,
+    virtualInterfaceState :: Lude.Maybe VirtualInterfaceState,
+    connectionId :: Lude.Maybe Lude.Text,
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    virtualInterfaceType :: Lude.Maybe Lude.Text,
+    asn :: Lude.Maybe Lude.Int,
+    authKey :: Lude.Maybe Lude.Text,
+    jumboFrameCapable :: Lude.Maybe Lude.Bool,
+    customerRouterConfig :: Lude.Maybe Lude.Text,
+    ownerAccount :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    virtualInterfaceName :: Lude.Maybe Lude.Text,
+    awsDeviceV2 :: Lude.Maybe Lude.Text,
+    virtualInterfaceId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressFamily' - The address family for the BGP peer.
+-- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'viBgpPeers' - The BGP peers configured on this virtual interface.
+-- The valid values are 1-2147483647.
+-- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- * 'awsDeviceV2' - The Direct Connect endpoint on which the virtual interface terminates.
+-- * 'bgpPeers' - The BGP peers configured on this virtual interface.
+-- * 'connectionId' - The ID of the connection.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'customerRouterConfig' - The customer router configuration.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- * 'location' - The location of the connection.
+-- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+-- * 'ownerAccount' - The ID of the AWS account that owns the virtual interface.
+-- * 'region' - The AWS Region where the virtual interface is located.
+-- * 'routeFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+-- * 'tags' - The tags associated with the virtual interface.
+-- * 'virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
+-- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'virtualInterfaceState' - The state of the virtual interface. The following are the possible values:
 --
--- * 'viVirtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
 --
--- * 'viMtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+--     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
 --
--- * 'viRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 --
--- * 'viCustomerAddress' - The IP address assigned to the customer interface.
+--     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
 --
--- * 'viVlan' - The ID of the VLAN.
 --
--- * 'viLocation' - The location of the connection.
+--     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
 --
--- * 'viAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'viAddressFamily' - The address family for the BGP peer.
+--     * @available@ : A virtual interface that is able to forward traffic.
 --
--- * 'viVirtualInterfaceState' - The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 --
--- * 'viConnectionId' - The ID of the connection.
+--     * @down@ : A virtual interface that is BGP down.
 --
--- * 'viDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'viAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
+--     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
 --
--- * 'viVirtualInterfaceType' - The type of virtual interface. The possible values are @private@ and @public@ .
 --
--- * 'viAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
+--     * @deleted@ : A virtual interface that cannot forward traffic.
 --
--- * 'viAuthKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
 --
--- * 'viJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+--     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
 --
--- * 'viCustomerRouterConfig' - The customer router configuration.
 --
--- * 'viOwnerAccount' - The ID of the AWS account that owns the virtual interface.
+--     * @unknown@ : The state of the virtual interface is not available.
 --
--- * 'viRegion' - The AWS Region where the virtual interface is located.
 --
--- * 'viVirtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
---
--- * 'viAwsDeviceV2' - The Direct Connect endpoint on which the virtual interface terminates.
---
--- * 'viVirtualInterfaceId' - The ID of the virtual interface.
---
--- * 'viTags' - The tags associated with the virtual interface.
-virtualInterface ::
+-- * 'virtualInterfaceType' - The type of virtual interface. The possible values are @private@ and @public@ .
+-- * 'vlan' - The ID of the VLAN.
+mkVirtualInterface ::
   VirtualInterface
-virtualInterface =
+mkVirtualInterface =
   VirtualInterface'
-    { _viBgpPeers = Nothing,
-      _viVirtualGatewayId = Nothing,
-      _viMtu = Nothing,
-      _viRouteFilterPrefixes = Nothing,
-      _viCustomerAddress = Nothing,
-      _viVlan = Nothing,
-      _viLocation = Nothing,
-      _viAmazonAddress = Nothing,
-      _viAddressFamily = Nothing,
-      _viVirtualInterfaceState = Nothing,
-      _viConnectionId = Nothing,
-      _viDirectConnectGatewayId = Nothing,
-      _viAmazonSideASN = Nothing,
-      _viVirtualInterfaceType = Nothing,
-      _viAsn = Nothing,
-      _viAuthKey = Nothing,
-      _viJumboFrameCapable = Nothing,
-      _viCustomerRouterConfig = Nothing,
-      _viOwnerAccount = Nothing,
-      _viRegion = Nothing,
-      _viVirtualInterfaceName = Nothing,
-      _viAwsDeviceV2 = Nothing,
-      _viVirtualInterfaceId = Nothing,
-      _viTags = Nothing
+    { bgpPeers = Lude.Nothing,
+      virtualGatewayId = Lude.Nothing,
+      mtu = Lude.Nothing,
+      routeFilterPrefixes = Lude.Nothing,
+      customerAddress = Lude.Nothing,
+      vlan = Lude.Nothing,
+      location = Lude.Nothing,
+      amazonAddress = Lude.Nothing,
+      addressFamily = Lude.Nothing,
+      virtualInterfaceState = Lude.Nothing,
+      connectionId = Lude.Nothing,
+      directConnectGatewayId = Lude.Nothing,
+      amazonSideASN = Lude.Nothing,
+      virtualInterfaceType = Lude.Nothing,
+      asn = Lude.Nothing,
+      authKey = Lude.Nothing,
+      jumboFrameCapable = Lude.Nothing,
+      customerRouterConfig = Lude.Nothing,
+      ownerAccount = Lude.Nothing,
+      region = Lude.Nothing,
+      virtualInterfaceName = Lude.Nothing,
+      awsDeviceV2 = Lude.Nothing,
+      virtualInterfaceId = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The BGP peers configured on this virtual interface.
-viBgpPeers :: Lens' VirtualInterface [BGPPeer]
-viBgpPeers = lens _viBgpPeers (\s a -> s {_viBgpPeers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bgpPeers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viBgpPeers :: Lens.Lens' VirtualInterface (Lude.Maybe [BGPPeer])
+viBgpPeers = Lens.lens (bgpPeers :: VirtualInterface -> Lude.Maybe [BGPPeer]) (\s a -> s {bgpPeers = a} :: VirtualInterface)
+{-# DEPRECATED viBgpPeers "Use generic-lens or generic-optics with 'bgpPeers' instead." #-}
 
 -- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
-viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
-viVirtualGatewayId = lens _viVirtualGatewayId (\s a -> s {_viVirtualGatewayId = a})
+--
+-- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVirtualGatewayId :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viVirtualGatewayId = Lens.lens (virtualGatewayId :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: VirtualInterface)
+{-# DEPRECATED viVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-viMtu :: Lens' VirtualInterface (Maybe Int)
-viMtu = lens _viMtu (\s a -> s {_viMtu = a})
+--
+-- /Note:/ Consider using 'mtu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viMtu :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Int)
+viMtu = Lens.lens (mtu :: VirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {mtu = a} :: VirtualInterface)
+{-# DEPRECATED viMtu "Use generic-lens or generic-optics with 'mtu' instead." #-}
 
 -- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
-viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
-viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\s a -> s {_viRouteFilterPrefixes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routeFilterPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viRouteFilterPrefixes :: Lens.Lens' VirtualInterface (Lude.Maybe [RouteFilterPrefix])
+viRouteFilterPrefixes = Lens.lens (routeFilterPrefixes :: VirtualInterface -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {routeFilterPrefixes = a} :: VirtualInterface)
+{-# DEPRECATED viRouteFilterPrefixes "Use generic-lens or generic-optics with 'routeFilterPrefixes' instead." #-}
 
 -- | The IP address assigned to the customer interface.
-viCustomerAddress :: Lens' VirtualInterface (Maybe Text)
-viCustomerAddress = lens _viCustomerAddress (\s a -> s {_viCustomerAddress = a})
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viCustomerAddress :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viCustomerAddress = Lens.lens (customerAddress :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: VirtualInterface)
+{-# DEPRECATED viCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
 
 -- | The ID of the VLAN.
-viVlan :: Lens' VirtualInterface (Maybe Int)
-viVlan = lens _viVlan (\s a -> s {_viVlan = a})
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVlan :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Int)
+viVlan = Lens.lens (vlan :: VirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {vlan = a} :: VirtualInterface)
+{-# DEPRECATED viVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
 
 -- | The location of the connection.
-viLocation :: Lens' VirtualInterface (Maybe Text)
-viLocation = lens _viLocation (\s a -> s {_viLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viLocation :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viLocation = Lens.lens (location :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: VirtualInterface)
+{-# DEPRECATED viLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The IP address assigned to the Amazon interface.
-viAmazonAddress :: Lens' VirtualInterface (Maybe Text)
-viAmazonAddress = lens _viAmazonAddress (\s a -> s {_viAmazonAddress = a})
+--
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAmazonAddress :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viAmazonAddress = Lens.lens (amazonAddress :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: VirtualInterface)
+{-# DEPRECATED viAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
-viAddressFamily :: Lens' VirtualInterface (Maybe AddressFamily)
-viAddressFamily = lens _viAddressFamily (\s a -> s {_viAddressFamily = a})
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAddressFamily :: Lens.Lens' VirtualInterface (Lude.Maybe AddressFamily)
+viAddressFamily = Lens.lens (addressFamily :: VirtualInterface -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: VirtualInterface)
+{-# DEPRECATED viAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
--- | The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
-viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
-viVirtualInterfaceState = lens _viVirtualInterfaceState (\s a -> s {_viVirtualInterfaceState = a})
+-- | The state of the virtual interface. The following are the possible values:
+--
+--
+--     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+--
+--
+--     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+--
+--
+--     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+--
+--
+--     * @available@ : A virtual interface that is able to forward traffic.
+--
+--
+--     * @down@ : A virtual interface that is BGP down.
+--
+--
+--     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
+--
+--
+--     * @deleted@ : A virtual interface that cannot forward traffic.
+--
+--
+--     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
+--
+--
+--     * @unknown@ : The state of the virtual interface is not available.
+--
+--
+--
+-- /Note:/ Consider using 'virtualInterfaceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVirtualInterfaceState :: Lens.Lens' VirtualInterface (Lude.Maybe VirtualInterfaceState)
+viVirtualInterfaceState = Lens.lens (virtualInterfaceState :: VirtualInterface -> Lude.Maybe VirtualInterfaceState) (\s a -> s {virtualInterfaceState = a} :: VirtualInterface)
+{-# DEPRECATED viVirtualInterfaceState "Use generic-lens or generic-optics with 'virtualInterfaceState' instead." #-}
 
 -- | The ID of the connection.
-viConnectionId :: Lens' VirtualInterface (Maybe Text)
-viConnectionId = lens _viConnectionId (\s a -> s {_viConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viConnectionId :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viConnectionId = Lens.lens (connectionId :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {connectionId = a} :: VirtualInterface)
+{-# DEPRECATED viConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
-viDirectConnectGatewayId :: Lens' VirtualInterface (Maybe Text)
-viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\s a -> s {_viDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viDirectConnectGatewayId :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: VirtualInterface)
+{-# DEPRECATED viDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The autonomous system number (ASN) for the Amazon side of the connection.
-viAmazonSideASN :: Lens' VirtualInterface (Maybe Integer)
-viAmazonSideASN = lens _viAmazonSideASN (\s a -> s {_viAmazonSideASN = a})
+--
+-- /Note:/ Consider using 'amazonSideASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAmazonSideASN :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Integer)
+viAmazonSideASN = Lens.lens (amazonSideASN :: VirtualInterface -> Lude.Maybe Lude.Integer) (\s a -> s {amazonSideASN = a} :: VirtualInterface)
+{-# DEPRECATED viAmazonSideASN "Use generic-lens or generic-optics with 'amazonSideASN' instead." #-}
 
 -- | The type of virtual interface. The possible values are @private@ and @public@ .
-viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceType = lens _viVirtualInterfaceType (\s a -> s {_viVirtualInterfaceType = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVirtualInterfaceType :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viVirtualInterfaceType = Lens.lens (virtualInterfaceType :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceType = a} :: VirtualInterface)
+{-# DEPRECATED viVirtualInterfaceType "Use generic-lens or generic-optics with 'virtualInterfaceType' instead." #-}
 
--- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration. The valid values are 1-2147483647.
-viAsn :: Lens' VirtualInterface (Maybe Int)
-viAsn = lens _viAsn (\s a -> s {_viAsn = a})
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+--
+-- The valid values are 1-2147483647.
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAsn :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Int)
+viAsn = Lens.lens (asn :: VirtualInterface -> Lude.Maybe Lude.Int) (\s a -> s {asn = a} :: VirtualInterface)
+{-# DEPRECATED viAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-viAuthKey :: Lens' VirtualInterface (Maybe Text)
-viAuthKey = lens _viAuthKey (\s a -> s {_viAuthKey = a})
+--
+-- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAuthKey :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viAuthKey = Lens.lens (authKey :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: VirtualInterface)
+{-# DEPRECATED viAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
 
 -- | Indicates whether jumbo frames (9001 MTU) are supported.
-viJumboFrameCapable :: Lens' VirtualInterface (Maybe Bool)
-viJumboFrameCapable = lens _viJumboFrameCapable (\s a -> s {_viJumboFrameCapable = a})
+--
+-- /Note:/ Consider using 'jumboFrameCapable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viJumboFrameCapable :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Bool)
+viJumboFrameCapable = Lens.lens (jumboFrameCapable :: VirtualInterface -> Lude.Maybe Lude.Bool) (\s a -> s {jumboFrameCapable = a} :: VirtualInterface)
+{-# DEPRECATED viJumboFrameCapable "Use generic-lens or generic-optics with 'jumboFrameCapable' instead." #-}
 
 -- | The customer router configuration.
-viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
-viCustomerRouterConfig = lens _viCustomerRouterConfig (\s a -> s {_viCustomerRouterConfig = a})
+--
+-- /Note:/ Consider using 'customerRouterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viCustomerRouterConfig :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viCustomerRouterConfig = Lens.lens (customerRouterConfig :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {customerRouterConfig = a} :: VirtualInterface)
+{-# DEPRECATED viCustomerRouterConfig "Use generic-lens or generic-optics with 'customerRouterConfig' instead." #-}
 
 -- | The ID of the AWS account that owns the virtual interface.
-viOwnerAccount :: Lens' VirtualInterface (Maybe Text)
-viOwnerAccount = lens _viOwnerAccount (\s a -> s {_viOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viOwnerAccount :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viOwnerAccount = Lens.lens (ownerAccount :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: VirtualInterface)
+{-# DEPRECATED viOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | The AWS Region where the virtual interface is located.
-viRegion :: Lens' VirtualInterface (Maybe Text)
-viRegion = lens _viRegion (\s a -> s {_viRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viRegion :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viRegion = Lens.lens (region :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: VirtualInterface)
+{-# DEPRECATED viRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
-viVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceName = lens _viVirtualInterfaceName (\s a -> s {_viVirtualInterfaceName = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVirtualInterfaceName :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viVirtualInterfaceName = Lens.lens (virtualInterfaceName :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceName = a} :: VirtualInterface)
+{-# DEPRECATED viVirtualInterfaceName "Use generic-lens or generic-optics with 'virtualInterfaceName' instead." #-}
 
 -- | The Direct Connect endpoint on which the virtual interface terminates.
-viAwsDeviceV2 :: Lens' VirtualInterface (Maybe Text)
-viAwsDeviceV2 = lens _viAwsDeviceV2 (\s a -> s {_viAwsDeviceV2 = a})
+--
+-- /Note:/ Consider using 'awsDeviceV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAwsDeviceV2 :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viAwsDeviceV2 = Lens.lens (awsDeviceV2 :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {awsDeviceV2 = a} :: VirtualInterface)
+{-# DEPRECATED viAwsDeviceV2 "Use generic-lens or generic-optics with 'awsDeviceV2' instead." #-}
 
 -- | The ID of the virtual interface.
-viVirtualInterfaceId :: Lens' VirtualInterface (Maybe Text)
-viVirtualInterfaceId = lens _viVirtualInterfaceId (\s a -> s {_viVirtualInterfaceId = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVirtualInterfaceId :: Lens.Lens' VirtualInterface (Lude.Maybe Lude.Text)
+viVirtualInterfaceId = Lens.lens (virtualInterfaceId :: VirtualInterface -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: VirtualInterface)
+{-# DEPRECATED viVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 -- | The tags associated with the virtual interface.
-viTags :: Lens' VirtualInterface (Maybe (NonEmpty Tag))
-viTags = lens _viTags (\s a -> s {_viTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viTags :: Lens.Lens' VirtualInterface (Lude.Maybe (Lude.NonEmpty Tag))
+viTags = Lens.lens (tags :: VirtualInterface -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: VirtualInterface)
+{-# DEPRECATED viTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON VirtualInterface where
+instance Lude.FromJSON VirtualInterface where
   parseJSON =
-    withObject
+    Lude.withObject
       "VirtualInterface"
       ( \x ->
           VirtualInterface'
-            <$> (x .:? "bgpPeers" .!= mempty)
-            <*> (x .:? "virtualGatewayId")
-            <*> (x .:? "mtu")
-            <*> (x .:? "routeFilterPrefixes" .!= mempty)
-            <*> (x .:? "customerAddress")
-            <*> (x .:? "vlan")
-            <*> (x .:? "location")
-            <*> (x .:? "amazonAddress")
-            <*> (x .:? "addressFamily")
-            <*> (x .:? "virtualInterfaceState")
-            <*> (x .:? "connectionId")
-            <*> (x .:? "directConnectGatewayId")
-            <*> (x .:? "amazonSideAsn")
-            <*> (x .:? "virtualInterfaceType")
-            <*> (x .:? "asn")
-            <*> (x .:? "authKey")
-            <*> (x .:? "jumboFrameCapable")
-            <*> (x .:? "customerRouterConfig")
-            <*> (x .:? "ownerAccount")
-            <*> (x .:? "region")
-            <*> (x .:? "virtualInterfaceName")
-            <*> (x .:? "awsDeviceV2")
-            <*> (x .:? "virtualInterfaceId")
-            <*> (x .:? "tags")
+            Lude.<$> (x Lude..:? "bgpPeers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "virtualGatewayId")
+            Lude.<*> (x Lude..:? "mtu")
+            Lude.<*> (x Lude..:? "routeFilterPrefixes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "customerAddress")
+            Lude.<*> (x Lude..:? "vlan")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "amazonAddress")
+            Lude.<*> (x Lude..:? "addressFamily")
+            Lude.<*> (x Lude..:? "virtualInterfaceState")
+            Lude.<*> (x Lude..:? "connectionId")
+            Lude.<*> (x Lude..:? "directConnectGatewayId")
+            Lude.<*> (x Lude..:? "amazonSideAsn")
+            Lude.<*> (x Lude..:? "virtualInterfaceType")
+            Lude.<*> (x Lude..:? "asn")
+            Lude.<*> (x Lude..:? "authKey")
+            Lude.<*> (x Lude..:? "jumboFrameCapable")
+            Lude.<*> (x Lude..:? "customerRouterConfig")
+            Lude.<*> (x Lude..:? "ownerAccount")
+            Lude.<*> (x Lude..:? "region")
+            Lude.<*> (x Lude..:? "virtualInterfaceName")
+            Lude.<*> (x Lude..:? "awsDeviceV2")
+            Lude.<*> (x Lude..:? "virtualInterfaceId")
+            Lude.<*> (x Lude..:? "tags")
       )
-
-instance Hashable VirtualInterface
-
-instance NFData VirtualInterface

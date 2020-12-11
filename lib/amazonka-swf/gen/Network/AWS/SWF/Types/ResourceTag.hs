@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ResourceTag where
+module Network.AWS.SWF.Types.ResourceTag
+  ( ResourceTag (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceTag,
+
+    -- * Lenses
+    rtValue,
+    rtKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Tags are key-value pairs that can be associated with Amazon SWF state machines and activities.
 --
---
 -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
 --
---
--- /See:/ 'resourceTag' smart constructor.
+-- /See:/ 'mkResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { _rtValue :: !(Maybe Text),
-    _rtKey :: !Text
+  { value :: Lude.Maybe Lude.Text,
+    key :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtValue' - The value of a tag.
---
--- * 'rtKey' - The key of a tag.
-resourceTag ::
-  -- | 'rtKey'
-  Text ->
+-- * 'key' - The key of a tag.
+-- * 'value' - The value of a tag.
+mkResourceTag ::
+  -- | 'key'
+  Lude.Text ->
   ResourceTag
-resourceTag pKey_ =
-  ResourceTag' {_rtValue = Nothing, _rtKey = pKey_}
+mkResourceTag pKey_ =
+  ResourceTag' {value = Lude.Nothing, key = pKey_}
 
 -- | The value of a tag.
-rtValue :: Lens' ResourceTag (Maybe Text)
-rtValue = lens _rtValue (\s a -> s {_rtValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtValue :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
+rtValue = Lens.lens (value :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ResourceTag)
+{-# DEPRECATED rtValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key of a tag.
-rtKey :: Lens' ResourceTag Text
-rtKey = lens _rtKey (\s a -> s {_rtKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtKey :: Lens.Lens' ResourceTag Lude.Text
+rtKey = Lens.lens (key :: ResourceTag -> Lude.Text) (\s a -> s {key = a} :: ResourceTag)
+{-# DEPRECATED rtKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON ResourceTag where
+instance Lude.FromJSON ResourceTag where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceTag"
-      (\x -> ResourceTag' <$> (x .:? "value") <*> (x .: "key"))
+      ( \x ->
+          ResourceTag'
+            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..: "key")
+      )
 
-instance Hashable ResourceTag
-
-instance NFData ResourceTag
-
-instance ToJSON ResourceTag where
+instance Lude.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
-    object
-      (catMaybes [("value" .=) <$> _rtValue, Just ("key" .= _rtKey)])
+    Lude.object
+      ( Lude.catMaybes
+          [("value" Lude..=) Lude.<$> value, Lude.Just ("key" Lude..= key)]
+      )

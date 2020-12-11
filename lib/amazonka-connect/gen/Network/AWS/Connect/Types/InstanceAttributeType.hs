@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.InstanceAttributeType where
+module Network.AWS.Connect.Types.InstanceAttributeType
+  ( InstanceAttributeType
+      ( InstanceAttributeType',
+        AutoResolveBestVoices,
+        ContactLens,
+        ContactflowLogs,
+        EarlyMedia,
+        InboundCalls,
+        OutboundCalls,
+        UseCustomTtsVoices
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceAttributeType
-  = AutoResolveBestVoices
-  | ContactLens
-  | ContactflowLogs
-  | EarlyMedia
-  | InboundCalls
-  | OutboundCalls
-  | UseCustomTtsVoices
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceAttributeType = InstanceAttributeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceAttributeType where
-  parser =
-    takeLowerText >>= \case
-      "auto_resolve_best_voices" -> pure AutoResolveBestVoices
-      "contact_lens" -> pure ContactLens
-      "contactflow_logs" -> pure ContactflowLogs
-      "early_media" -> pure EarlyMedia
-      "inbound_calls" -> pure InboundCalls
-      "outbound_calls" -> pure OutboundCalls
-      "use_custom_tts_voices" -> pure UseCustomTtsVoices
-      e ->
-        fromTextError $
-          "Failure parsing InstanceAttributeType from value: '" <> e
-            <> "'. Accepted values: auto_resolve_best_voices, contact_lens, contactflow_logs, early_media, inbound_calls, outbound_calls, use_custom_tts_voices"
+pattern AutoResolveBestVoices :: InstanceAttributeType
+pattern AutoResolveBestVoices = InstanceAttributeType' "AUTO_RESOLVE_BEST_VOICES"
 
-instance ToText InstanceAttributeType where
-  toText = \case
-    AutoResolveBestVoices -> "AUTO_RESOLVE_BEST_VOICES"
-    ContactLens -> "CONTACT_LENS"
-    ContactflowLogs -> "CONTACTFLOW_LOGS"
-    EarlyMedia -> "EARLY_MEDIA"
-    InboundCalls -> "INBOUND_CALLS"
-    OutboundCalls -> "OUTBOUND_CALLS"
-    UseCustomTtsVoices -> "USE_CUSTOM_TTS_VOICES"
+pattern ContactLens :: InstanceAttributeType
+pattern ContactLens = InstanceAttributeType' "CONTACT_LENS"
 
-instance Hashable InstanceAttributeType
+pattern ContactflowLogs :: InstanceAttributeType
+pattern ContactflowLogs = InstanceAttributeType' "CONTACTFLOW_LOGS"
 
-instance NFData InstanceAttributeType
+pattern EarlyMedia :: InstanceAttributeType
+pattern EarlyMedia = InstanceAttributeType' "EARLY_MEDIA"
 
-instance ToByteString InstanceAttributeType
+pattern InboundCalls :: InstanceAttributeType
+pattern InboundCalls = InstanceAttributeType' "INBOUND_CALLS"
 
-instance ToQuery InstanceAttributeType
+pattern OutboundCalls :: InstanceAttributeType
+pattern OutboundCalls = InstanceAttributeType' "OUTBOUND_CALLS"
 
-instance ToHeader InstanceAttributeType
+pattern UseCustomTtsVoices :: InstanceAttributeType
+pattern UseCustomTtsVoices = InstanceAttributeType' "USE_CUSTOM_TTS_VOICES"
 
-instance ToJSON InstanceAttributeType where
-  toJSON = toJSONText
-
-instance FromJSON InstanceAttributeType where
-  parseJSON = parseJSONText "InstanceAttributeType"
+{-# COMPLETE
+  AutoResolveBestVoices,
+  ContactLens,
+  ContactflowLogs,
+  EarlyMedia,
+  InboundCalls,
+  OutboundCalls,
+  UseCustomTtsVoices,
+  InstanceAttributeType'
+  #-}

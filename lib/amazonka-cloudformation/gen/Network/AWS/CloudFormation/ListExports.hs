@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists all exported output values in the account and Region in which you call this action. Use this action to see the exported output values that you can import into other stacks. To import values, use the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html @Fn::ImportValue@ > function.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html AWS CloudFormation Export Stack Output Values> .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListExports
-  ( -- * Creating a Request
-    listExports,
-    ListExports,
+  ( -- * Creating a request
+    ListExports (..),
+    mkListExports,
 
-    -- * Request Lenses
+    -- ** Request lenses
     leNextToken,
 
-    -- * Destructuring the Response
-    listExportsResponse,
-    ListExportsResponse,
+    -- * Destructuring the response
+    ListExportsResponse (..),
+    mkListExportsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lersNextToken,
     lersExports,
     lersResponseStatus,
@@ -44,105 +37,127 @@ module Network.AWS.CloudFormation.ListExports
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listExports' smart constructor.
-newtype ListExports = ListExports' {_leNextToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkListExports' smart constructor.
+newtype ListExports = ListExports'
+  { nextToken ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExports' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leNextToken' - A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
-listExports ::
+-- * 'nextToken' - A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
+mkListExports ::
   ListExports
-listExports = ListExports' {_leNextToken = Nothing}
+mkListExports = ListExports' {nextToken = Lude.Nothing}
 
 -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
-leNextToken :: Lens' ListExports (Maybe Text)
-leNextToken = lens _leNextToken (\s a -> s {_leNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListExports (Lude.Maybe Lude.Text)
+leNextToken = Lens.lens (nextToken :: ListExports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExports)
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListExports where
+instance Page.AWSPager ListExports where
   page rq rs
-    | stop (rs ^. lersNextToken) = Nothing
-    | stop (rs ^. lersExports) = Nothing
-    | otherwise = Just $ rq & leNextToken .~ rs ^. lersNextToken
+    | Page.stop (rs Lens.^. lersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lersExports) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& leNextToken Lens..~ rs Lens.^. lersNextToken
 
-instance AWSRequest ListExports where
+instance Lude.AWSRequest ListExports where
   type Rs ListExports = ListExportsResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            <$> (x .@? "NextToken")
-            <*> (x .@? "Exports" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "Exports" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListExports
+instance Lude.ToHeaders ListExports where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListExports
+instance Lude.ToPath ListExports where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListExports where
-  toHeaders = const mempty
-
-instance ToPath ListExports where
-  toPath = const "/"
-
-instance ToQuery ListExports where
+instance Lude.ToQuery ListExports where
   toQuery ListExports' {..} =
-    mconcat
-      [ "Action" =: ("ListExports" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "NextToken" =: _leNextToken
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListExports" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken
       ]
 
--- | /See:/ 'listExportsResponse' smart constructor.
+-- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { _lersNextToken ::
-      !(Maybe Text),
-    _lersExports :: !(Maybe [Export]),
-    _lersResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    exports :: Lude.Maybe [Export],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lersNextToken' - If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
---
--- * 'lersExports' - The output for the 'ListExports' action.
---
--- * 'lersResponseStatus' - -- | The response status code.
-listExportsResponse ::
-  -- | 'lersResponseStatus'
-  Int ->
+-- * 'exports' - The output for the 'ListExports' action.
+-- * 'nextToken' - If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
+-- * 'responseStatus' - The response status code.
+mkListExportsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListExportsResponse
-listExportsResponse pResponseStatus_ =
+mkListExportsResponse pResponseStatus_ =
   ListExportsResponse'
-    { _lersNextToken = Nothing,
-      _lersExports = Nothing,
-      _lersResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      exports = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
-lersNextToken :: Lens' ListExportsResponse (Maybe Text)
-lersNextToken = lens _lersNextToken (\s a -> s {_lersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersNextToken :: Lens.Lens' ListExportsResponse (Lude.Maybe Lude.Text)
+lersNextToken = Lens.lens (nextToken :: ListExportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExportsResponse)
+{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The output for the 'ListExports' action.
-lersExports :: Lens' ListExportsResponse [Export]
-lersExports = lens _lersExports (\s a -> s {_lersExports = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersExports :: Lens.Lens' ListExportsResponse (Lude.Maybe [Export])
+lersExports = Lens.lens (exports :: ListExportsResponse -> Lude.Maybe [Export]) (\s a -> s {exports = a} :: ListExportsResponse)
+{-# DEPRECATED lersExports "Use generic-lens or generic-optics with 'exports' instead." #-}
 
--- | -- | The response status code.
-lersResponseStatus :: Lens' ListExportsResponse Int
-lersResponseStatus = lens _lersResponseStatus (\s a -> s {_lersResponseStatus = a})
-
-instance NFData ListExportsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersResponseStatus :: Lens.Lens' ListExportsResponse Lude.Int
+lersResponseStatus = Lens.lens (responseStatus :: ListExportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExportsResponse)
+{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

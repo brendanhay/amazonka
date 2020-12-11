@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,138 @@
 --
 -- Updates a specified user profile.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UpdateUserProfile
-  ( -- * Creating a Request
-    updateUserProfile,
-    UpdateUserProfile,
+  ( -- * Creating a request
+    UpdateUserProfile (..),
+    mkUpdateUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uupAllowSelfManagement,
     uupSSHPublicKey,
     uupSSHUsername,
     uupIAMUserARN,
 
-    -- * Destructuring the Response
-    updateUserProfileResponse,
-    UpdateUserProfileResponse,
+    -- * Destructuring the response
+    UpdateUserProfileResponse (..),
+    mkUpdateUserProfileResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateUserProfile' smart constructor.
+-- | /See:/ 'mkUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { _uupAllowSelfManagement ::
-      !(Maybe Bool),
-    _uupSSHPublicKey :: !(Maybe Text),
-    _uupSSHUsername :: !(Maybe Text),
-    _uupIAMUserARN :: !Text
+  { allowSelfManagement ::
+      Lude.Maybe Lude.Bool,
+    sshPublicKey :: Lude.Maybe Lude.Text,
+    sshUsername :: Lude.Maybe Lude.Text,
+    iamUserARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uupAllowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
---
--- * 'uupSSHPublicKey' - The user's new SSH public key.
---
--- * 'uupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
---
--- * 'uupIAMUserARN' - The user IAM ARN. This can also be a federated user's ARN.
-updateUserProfile ::
-  -- | 'uupIAMUserARN'
-  Text ->
+-- * 'allowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
+-- * 'iamUserARN' - The user IAM ARN. This can also be a federated user's ARN.
+-- * 'sshPublicKey' - The user's new SSH public key.
+-- * 'sshUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
+mkUpdateUserProfile ::
+  -- | 'iamUserARN'
+  Lude.Text ->
   UpdateUserProfile
-updateUserProfile pIAMUserARN_ =
+mkUpdateUserProfile pIAMUserARN_ =
   UpdateUserProfile'
-    { _uupAllowSelfManagement = Nothing,
-      _uupSSHPublicKey = Nothing,
-      _uupSSHUsername = Nothing,
-      _uupIAMUserARN = pIAMUserARN_
+    { allowSelfManagement = Lude.Nothing,
+      sshPublicKey = Lude.Nothing,
+      sshUsername = Lude.Nothing,
+      iamUserARN = pIAMUserARN_
     }
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
-uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
-uupAllowSelfManagement = lens _uupAllowSelfManagement (\s a -> s {_uupAllowSelfManagement = a})
+--
+-- /Note:/ Consider using 'allowSelfManagement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupAllowSelfManagement :: Lens.Lens' UpdateUserProfile (Lude.Maybe Lude.Bool)
+uupAllowSelfManagement = Lens.lens (allowSelfManagement :: UpdateUserProfile -> Lude.Maybe Lude.Bool) (\s a -> s {allowSelfManagement = a} :: UpdateUserProfile)
+{-# DEPRECATED uupAllowSelfManagement "Use generic-lens or generic-optics with 'allowSelfManagement' instead." #-}
 
 -- | The user's new SSH public key.
-uupSSHPublicKey :: Lens' UpdateUserProfile (Maybe Text)
-uupSSHPublicKey = lens _uupSSHPublicKey (\s a -> s {_uupSSHPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupSSHPublicKey :: Lens.Lens' UpdateUserProfile (Lude.Maybe Lude.Text)
+uupSSHPublicKey = Lens.lens (sshPublicKey :: UpdateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: UpdateUserProfile)
+{-# DEPRECATED uupSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
-uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
-uupSSHUsername = lens _uupSSHUsername (\s a -> s {_uupSSHUsername = a})
+--
+-- /Note:/ Consider using 'sshUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupSSHUsername :: Lens.Lens' UpdateUserProfile (Lude.Maybe Lude.Text)
+uupSSHUsername = Lens.lens (sshUsername :: UpdateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshUsername = a} :: UpdateUserProfile)
+{-# DEPRECATED uupSSHUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
 
 -- | The user IAM ARN. This can also be a federated user's ARN.
-uupIAMUserARN :: Lens' UpdateUserProfile Text
-uupIAMUserARN = lens _uupIAMUserARN (\s a -> s {_uupIAMUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupIAMUserARN :: Lens.Lens' UpdateUserProfile Lude.Text
+uupIAMUserARN = Lens.lens (iamUserARN :: UpdateUserProfile -> Lude.Text) (\s a -> s {iamUserARN = a} :: UpdateUserProfile)
+{-# DEPRECATED uupIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
-instance AWSRequest UpdateUserProfile where
+instance Lude.AWSRequest UpdateUserProfile where
   type Rs UpdateUserProfile = UpdateUserProfileResponse
-  request = postJSON opsWorks
-  response = receiveNull UpdateUserProfileResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull UpdateUserProfileResponse'
 
-instance Hashable UpdateUserProfile
-
-instance NFData UpdateUserProfile
-
-instance ToHeaders UpdateUserProfile where
+instance Lude.ToHeaders UpdateUserProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.UpdateUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.UpdateUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateUserProfile where
+instance Lude.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
-    object
-      ( catMaybes
-          [ ("AllowSelfManagement" .=) <$> _uupAllowSelfManagement,
-            ("SshPublicKey" .=) <$> _uupSSHPublicKey,
-            ("SshUsername" .=) <$> _uupSSHUsername,
-            Just ("IamUserArn" .= _uupIAMUserARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AllowSelfManagement" Lude..=) Lude.<$> allowSelfManagement,
+            ("SshPublicKey" Lude..=) Lude.<$> sshPublicKey,
+            ("SshUsername" Lude..=) Lude.<$> sshUsername,
+            Lude.Just ("IamUserArn" Lude..= iamUserARN)
           ]
       )
 
-instance ToPath UpdateUserProfile where
-  toPath = const "/"
+instance Lude.ToPath UpdateUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserProfileResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
-updateUserProfileResponse ::
+mkUpdateUserProfileResponse ::
   UpdateUserProfileResponse
-updateUserProfileResponse = UpdateUserProfileResponse'
-
-instance NFData UpdateUserProfileResponse
+mkUpdateUserProfileResponse = UpdateUserProfileResponse'

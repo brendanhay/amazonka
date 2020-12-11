@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.InstanceMonitoring where
+module Network.AWS.AutoScaling.Types.InstanceMonitoring
+  ( InstanceMonitoring (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceMonitoring,
+
+    -- * Lenses
+    imEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes whether detailed monitoring is enabled for the Auto Scaling instances.
 --
---
---
--- /See:/ 'instanceMonitoring' smart constructor.
+-- /See:/ 'mkInstanceMonitoring' smart constructor.
 newtype InstanceMonitoring = InstanceMonitoring'
-  { _imEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imEnabled' - If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-instanceMonitoring ::
+-- * 'enabled' - If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+mkInstanceMonitoring ::
   InstanceMonitoring
-instanceMonitoring = InstanceMonitoring' {_imEnabled = Nothing}
+mkInstanceMonitoring = InstanceMonitoring' {enabled = Lude.Nothing}
 
 -- | If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
-imEnabled = lens _imEnabled (\s a -> s {_imEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imEnabled :: Lens.Lens' InstanceMonitoring (Lude.Maybe Lude.Bool)
+imEnabled = Lens.lens (enabled :: InstanceMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: InstanceMonitoring)
+{-# DEPRECATED imEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromXML InstanceMonitoring where
-  parseXML x = InstanceMonitoring' <$> (x .@? "Enabled")
+instance Lude.FromXML InstanceMonitoring where
+  parseXML x = InstanceMonitoring' Lude.<$> (x Lude..@? "Enabled")
 
-instance Hashable InstanceMonitoring
-
-instance NFData InstanceMonitoring
-
-instance ToQuery InstanceMonitoring where
-  toQuery InstanceMonitoring' {..} = mconcat ["Enabled" =: _imEnabled]
+instance Lude.ToQuery InstanceMonitoring where
+  toQuery InstanceMonitoring' {..} =
+    Lude.mconcat ["Enabled" Lude.=: enabled]

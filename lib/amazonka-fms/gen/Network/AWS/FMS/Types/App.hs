@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.App where
+module Network.AWS.FMS.Types.App
+  ( App (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkApp,
+
+    -- * Lenses
+    aAppName,
+    aProtocol,
+    aPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An individual AWS Firewall Manager application.
 --
---
---
--- /See:/ 'app' smart constructor.
+-- /See:/ 'mkApp' smart constructor.
 data App = App'
-  { _appAppName :: !Text,
-    _appProtocol :: !Text,
-    _appPort :: !Nat
+  { appName :: Lude.Text,
+    protocol :: Lude.Text,
+    port :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'App' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'appAppName' - The application's name.
---
--- * 'appProtocol' - The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
---
--- * 'appPort' - The application's port number, for example @80@ .
-app ::
-  -- | 'appAppName'
-  Text ->
-  -- | 'appProtocol'
-  Text ->
-  -- | 'appPort'
-  Natural ->
+-- * 'appName' - The application's name.
+-- * 'port' - The application's port number, for example @80@ .
+-- * 'protocol' - The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
+mkApp ::
+  -- | 'appName'
+  Lude.Text ->
+  -- | 'protocol'
+  Lude.Text ->
+  -- | 'port'
+  Lude.Natural ->
   App
-app pAppName_ pProtocol_ pPort_ =
-  App'
-    { _appAppName = pAppName_,
-      _appProtocol = pProtocol_,
-      _appPort = _Nat # pPort_
-    }
+mkApp pAppName_ pProtocol_ pPort_ =
+  App' {appName = pAppName_, protocol = pProtocol_, port = pPort_}
 
 -- | The application's name.
-appAppName :: Lens' App Text
-appAppName = lens _appAppName (\s a -> s {_appAppName = a})
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAppName :: Lens.Lens' App Lude.Text
+aAppName = Lens.lens (appName :: App -> Lude.Text) (\s a -> s {appName = a} :: App)
+{-# DEPRECATED aAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 -- | The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
-appProtocol :: Lens' App Text
-appProtocol = lens _appProtocol (\s a -> s {_appProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aProtocol :: Lens.Lens' App Lude.Text
+aProtocol = Lens.lens (protocol :: App -> Lude.Text) (\s a -> s {protocol = a} :: App)
+{-# DEPRECATED aProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The application's port number, for example @80@ .
-appPort :: Lens' App Natural
-appPort = lens _appPort (\s a -> s {_appPort = a}) . _Nat
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPort :: Lens.Lens' App Lude.Natural
+aPort = Lens.lens (port :: App -> Lude.Natural) (\s a -> s {port = a} :: App)
+{-# DEPRECATED aPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON App where
+instance Lude.FromJSON App where
   parseJSON =
-    withObject
+    Lude.withObject
       "App"
       ( \x ->
-          App' <$> (x .: "AppName") <*> (x .: "Protocol") <*> (x .: "Port")
+          App'
+            Lude.<$> (x Lude..: "AppName")
+            Lude.<*> (x Lude..: "Protocol")
+            Lude.<*> (x Lude..: "Port")
       )
 
-instance Hashable App
-
-instance NFData App
-
-instance ToJSON App where
+instance Lude.ToJSON App where
   toJSON App' {..} =
-    object
-      ( catMaybes
-          [ Just ("AppName" .= _appAppName),
-            Just ("Protocol" .= _appProtocol),
-            Just ("Port" .= _appPort)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AppName" Lude..= appName),
+            Lude.Just ("Protocol" Lude..= protocol),
+            Lude.Just ("Port" Lude..= port)
           ]
       )

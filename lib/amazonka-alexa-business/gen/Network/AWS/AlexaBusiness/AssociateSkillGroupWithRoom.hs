@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,140 @@
 --
 -- Associates a skill group with a given room. This enables all skills in the associated skill group on all devices in the room.
 module Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
-  ( -- * Creating a Request
-    associateSkillGroupWithRoom,
-    AssociateSkillGroupWithRoom,
+  ( -- * Creating a request
+    AssociateSkillGroupWithRoom (..),
+    mkAssociateSkillGroupWithRoom,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asgwrSkillGroupARN,
     asgwrRoomARN,
 
-    -- * Destructuring the Response
-    associateSkillGroupWithRoomResponse,
-    AssociateSkillGroupWithRoomResponse,
+    -- * Destructuring the response
+    AssociateSkillGroupWithRoomResponse (..),
+    mkAssociateSkillGroupWithRoomResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asgwrrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateSkillGroupWithRoom' smart constructor.
+-- | /See:/ 'mkAssociateSkillGroupWithRoom' smart constructor.
 data AssociateSkillGroupWithRoom = AssociateSkillGroupWithRoom'
-  { _asgwrSkillGroupARN ::
-      !(Maybe Text),
-    _asgwrRoomARN :: !(Maybe Text)
+  { skillGroupARN ::
+      Lude.Maybe Lude.Text,
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillGroupWithRoom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgwrSkillGroupARN' - The ARN of the skill group to associate with a room. Required.
---
--- * 'asgwrRoomARN' - The ARN of the room with which to associate the skill group. Required.
-associateSkillGroupWithRoom ::
+-- * 'roomARN' - The ARN of the room with which to associate the skill group. Required.
+-- * 'skillGroupARN' - The ARN of the skill group to associate with a room. Required.
+mkAssociateSkillGroupWithRoom ::
   AssociateSkillGroupWithRoom
-associateSkillGroupWithRoom =
+mkAssociateSkillGroupWithRoom =
   AssociateSkillGroupWithRoom'
-    { _asgwrSkillGroupARN = Nothing,
-      _asgwrRoomARN = Nothing
+    { skillGroupARN = Lude.Nothing,
+      roomARN = Lude.Nothing
     }
 
 -- | The ARN of the skill group to associate with a room. Required.
-asgwrSkillGroupARN :: Lens' AssociateSkillGroupWithRoom (Maybe Text)
-asgwrSkillGroupARN = lens _asgwrSkillGroupARN (\s a -> s {_asgwrSkillGroupARN = a})
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgwrSkillGroupARN :: Lens.Lens' AssociateSkillGroupWithRoom (Lude.Maybe Lude.Text)
+asgwrSkillGroupARN = Lens.lens (skillGroupARN :: AssociateSkillGroupWithRoom -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: AssociateSkillGroupWithRoom)
+{-# DEPRECATED asgwrSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The ARN of the room with which to associate the skill group. Required.
-asgwrRoomARN :: Lens' AssociateSkillGroupWithRoom (Maybe Text)
-asgwrRoomARN = lens _asgwrRoomARN (\s a -> s {_asgwrRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgwrRoomARN :: Lens.Lens' AssociateSkillGroupWithRoom (Lude.Maybe Lude.Text)
+asgwrRoomARN = Lens.lens (roomARN :: AssociateSkillGroupWithRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: AssociateSkillGroupWithRoom)
+{-# DEPRECATED asgwrRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
-instance AWSRequest AssociateSkillGroupWithRoom where
+instance Lude.AWSRequest AssociateSkillGroupWithRoom where
   type
     Rs AssociateSkillGroupWithRoom =
       AssociateSkillGroupWithRoomResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateSkillGroupWithRoomResponse' <$> (pure (fromEnum s))
+          AssociateSkillGroupWithRoomResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateSkillGroupWithRoom
-
-instance NFData AssociateSkillGroupWithRoom
-
-instance ToHeaders AssociateSkillGroupWithRoom where
+instance Lude.ToHeaders AssociateSkillGroupWithRoom where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.AssociateSkillGroupWithRoom" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.AssociateSkillGroupWithRoom" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateSkillGroupWithRoom where
+instance Lude.ToJSON AssociateSkillGroupWithRoom where
   toJSON AssociateSkillGroupWithRoom' {..} =
-    object
-      ( catMaybes
-          [ ("SkillGroupArn" .=) <$> _asgwrSkillGroupARN,
-            ("RoomArn" .=) <$> _asgwrRoomARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
-instance ToPath AssociateSkillGroupWithRoom where
-  toPath = const "/"
+instance Lude.ToPath AssociateSkillGroupWithRoom where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateSkillGroupWithRoom where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateSkillGroupWithRoom where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateSkillGroupWithRoomResponse' smart constructor.
+-- | /See:/ 'mkAssociateSkillGroupWithRoomResponse' smart constructor.
 newtype AssociateSkillGroupWithRoomResponse = AssociateSkillGroupWithRoomResponse'
-  { _asgwrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillGroupWithRoomResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgwrrsResponseStatus' - -- | The response status code.
-associateSkillGroupWithRoomResponse ::
-  -- | 'asgwrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateSkillGroupWithRoomResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateSkillGroupWithRoomResponse
-associateSkillGroupWithRoomResponse pResponseStatus_ =
+mkAssociateSkillGroupWithRoomResponse pResponseStatus_ =
   AssociateSkillGroupWithRoomResponse'
-    { _asgwrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-asgwrrsResponseStatus :: Lens' AssociateSkillGroupWithRoomResponse Int
-asgwrrsResponseStatus = lens _asgwrrsResponseStatus (\s a -> s {_asgwrrsResponseStatus = a})
-
-instance NFData AssociateSkillGroupWithRoomResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgwrrsResponseStatus :: Lens.Lens' AssociateSkillGroupWithRoomResponse Lude.Int
+asgwrrsResponseStatus = Lens.lens (responseStatus :: AssociateSkillGroupWithRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSkillGroupWithRoomResponse)
+{-# DEPRECATED asgwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

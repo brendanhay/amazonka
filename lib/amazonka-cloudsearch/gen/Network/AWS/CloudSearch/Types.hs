@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearch.Types
-  ( -- * Service Configuration
-    cloudSearch,
+  ( -- * Service configuration
+    cloudSearchService,
 
     -- * Errors
 
@@ -37,14 +35,14 @@ module Network.AWS.CloudSearch.Types
     TLSSecurityPolicy (..),
 
     -- * AccessPoliciesStatus
-    AccessPoliciesStatus,
-    accessPoliciesStatus,
+    AccessPoliciesStatus (..),
+    mkAccessPoliciesStatus,
     apsOptions,
     apsStatus,
 
     -- * AnalysisOptions
-    AnalysisOptions,
-    analysisOptions,
+    AnalysisOptions (..),
+    mkAnalysisOptions,
     aoAlgorithmicStemming,
     aoStopwords,
     aoJapaneseTokenizationDictionary,
@@ -52,27 +50,27 @@ module Network.AWS.CloudSearch.Types
     aoStemmingDictionary,
 
     -- * AnalysisScheme
-    AnalysisScheme,
-    analysisScheme,
+    AnalysisScheme (..),
+    mkAnalysisScheme,
     asAnalysisOptions,
     asAnalysisSchemeName,
     asAnalysisSchemeLanguage,
 
     -- * AnalysisSchemeStatus
-    AnalysisSchemeStatus,
-    analysisSchemeStatus,
+    AnalysisSchemeStatus (..),
+    mkAnalysisSchemeStatus,
     assOptions,
     assStatus,
 
     -- * AvailabilityOptionsStatus
-    AvailabilityOptionsStatus,
-    availabilityOptionsStatus,
+    AvailabilityOptionsStatus (..),
+    mkAvailabilityOptionsStatus,
     aosOptions,
     aosStatus,
 
     -- * DateArrayOptions
-    DateArrayOptions,
-    dateArrayOptions,
+    DateArrayOptions (..),
+    mkDateArrayOptions,
     daosSourceFields,
     daosReturnEnabled,
     daosFacetEnabled,
@@ -80,8 +78,8 @@ module Network.AWS.CloudSearch.Types
     daosDefaultValue,
 
     -- * DateOptions
-    DateOptions,
-    dateOptions,
+    DateOptions (..),
+    mkDateOptions,
     doSourceField,
     doReturnEnabled,
     doFacetEnabled,
@@ -90,27 +88,27 @@ module Network.AWS.CloudSearch.Types
     doDefaultValue,
 
     -- * DocumentSuggesterOptions
-    DocumentSuggesterOptions,
-    documentSuggesterOptions,
+    DocumentSuggesterOptions (..),
+    mkDocumentSuggesterOptions,
     dsoSortExpression,
     dsoFuzzyMatching,
     dsoSourceField,
 
     -- * DomainEndpointOptions
-    DomainEndpointOptions,
-    domainEndpointOptions,
+    DomainEndpointOptions (..),
+    mkDomainEndpointOptions,
     deoEnforceHTTPS,
     deoTLSSecurityPolicy,
 
     -- * DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus,
-    domainEndpointOptionsStatus,
+    DomainEndpointOptionsStatus (..),
+    mkDomainEndpointOptionsStatus,
     deosOptions,
     deosStatus,
 
     -- * DomainStatus
-    DomainStatus,
-    domainStatus,
+    DomainStatus (..),
+    mkDomainStatus,
     dsSearchInstanceCount,
     dsSearchInstanceType,
     dsDocService,
@@ -126,8 +124,8 @@ module Network.AWS.CloudSearch.Types
     dsRequiresIndexDocuments,
 
     -- * DoubleArrayOptions
-    DoubleArrayOptions,
-    doubleArrayOptions,
+    DoubleArrayOptions (..),
+    mkDoubleArrayOptions,
     daoSourceFields,
     daoReturnEnabled,
     daoFacetEnabled,
@@ -135,8 +133,8 @@ module Network.AWS.CloudSearch.Types
     daoDefaultValue,
 
     -- * DoubleOptions
-    DoubleOptions,
-    doubleOptions,
+    DoubleOptions (..),
+    mkDoubleOptions,
     dSourceField,
     dReturnEnabled,
     dFacetEnabled,
@@ -145,20 +143,20 @@ module Network.AWS.CloudSearch.Types
     dDefaultValue,
 
     -- * Expression
-    Expression,
-    expression,
+    Expression (..),
+    mkExpression,
     eExpressionName,
     eExpressionValue,
 
     -- * ExpressionStatus
-    ExpressionStatus,
-    expressionStatus,
+    ExpressionStatus (..),
+    mkExpressionStatus,
     esOptions,
     esStatus,
 
     -- * IndexField
-    IndexField,
-    indexField,
+    IndexField (..),
+    mkIndexField,
     ifDoubleArrayOptions,
     ifDateOptions,
     ifTextArrayOptions,
@@ -174,14 +172,14 @@ module Network.AWS.CloudSearch.Types
     ifIndexFieldType,
 
     -- * IndexFieldStatus
-    IndexFieldStatus,
-    indexFieldStatus,
+    IndexFieldStatus (..),
+    mkIndexFieldStatus,
     ifsOptions,
     ifsStatus,
 
     -- * IntArrayOptions
-    IntArrayOptions,
-    intArrayOptions,
+    IntArrayOptions (..),
+    mkIntArrayOptions,
     iaoSourceFields,
     iaoReturnEnabled,
     iaoFacetEnabled,
@@ -189,8 +187,8 @@ module Network.AWS.CloudSearch.Types
     iaoDefaultValue,
 
     -- * IntOptions
-    IntOptions,
-    intOptions,
+    IntOptions (..),
+    mkIntOptions,
     ioSourceField,
     ioReturnEnabled,
     ioFacetEnabled,
@@ -199,8 +197,8 @@ module Network.AWS.CloudSearch.Types
     ioDefaultValue,
 
     -- * LatLonOptions
-    LatLonOptions,
-    latLonOptions,
+    LatLonOptions (..),
+    mkLatLonOptions,
     lloSourceField,
     lloReturnEnabled,
     lloFacetEnabled,
@@ -209,14 +207,14 @@ module Network.AWS.CloudSearch.Types
     lloDefaultValue,
 
     -- * Limits
-    Limits,
-    limits,
+    Limits (..),
+    mkLimits,
     lMaximumReplicationCount,
     lMaximumPartitionCount,
 
     -- * LiteralArrayOptions
-    LiteralArrayOptions,
-    literalArrayOptions,
+    LiteralArrayOptions (..),
+    mkLiteralArrayOptions,
     laoSourceFields,
     laoReturnEnabled,
     laoFacetEnabled,
@@ -224,8 +222,8 @@ module Network.AWS.CloudSearch.Types
     laoDefaultValue,
 
     -- * LiteralOptions
-    LiteralOptions,
-    literalOptions,
+    LiteralOptions (..),
+    mkLiteralOptions,
     loSourceField,
     loReturnEnabled,
     loFacetEnabled,
@@ -234,8 +232,8 @@ module Network.AWS.CloudSearch.Types
     loDefaultValue,
 
     -- * OptionStatus
-    OptionStatus,
-    optionStatus,
+    OptionStatus (..),
+    mkOptionStatus,
     osPendingDeletion,
     osUpdateVersion,
     osCreationDate,
@@ -243,38 +241,38 @@ module Network.AWS.CloudSearch.Types
     osState,
 
     -- * ScalingParameters
-    ScalingParameters,
-    scalingParameters,
+    ScalingParameters (..),
+    mkScalingParameters,
     spDesiredInstanceType,
     spDesiredReplicationCount,
     spDesiredPartitionCount,
 
     -- * ScalingParametersStatus
-    ScalingParametersStatus,
-    scalingParametersStatus,
+    ScalingParametersStatus (..),
+    mkScalingParametersStatus,
     spsOptions,
     spsStatus,
 
     -- * ServiceEndpoint
-    ServiceEndpoint,
-    serviceEndpoint,
+    ServiceEndpoint (..),
+    mkServiceEndpoint,
     seEndpoint,
 
     -- * Suggester
-    Suggester,
-    suggester,
+    Suggester (..),
+    mkSuggester,
     sSuggesterName,
     sDocumentSuggesterOptions,
 
     -- * SuggesterStatus
-    SuggesterStatus,
-    suggesterStatus,
+    SuggesterStatus (..),
+    mkSuggesterStatus,
     ssOptions,
     ssStatus,
 
     -- * TextArrayOptions
-    TextArrayOptions,
-    textArrayOptions,
+    TextArrayOptions (..),
+    mkTextArrayOptions,
     taoSourceFields,
     taoReturnEnabled,
     taoAnalysisScheme,
@@ -282,8 +280,8 @@ module Network.AWS.CloudSearch.Types
     taoDefaultValue,
 
     -- * TextOptions
-    TextOptions,
-    textOptions,
+    TextOptions (..),
+    mkTextOptions,
     toSourceField,
     toReturnEnabled,
     toAnalysisScheme,
@@ -331,50 +329,64 @@ import Network.AWS.CloudSearch.Types.SuggesterStatus
 import Network.AWS.CloudSearch.Types.TLSSecurityPolicy
 import Network.AWS.CloudSearch.Types.TextArrayOptions
 import Network.AWS.CloudSearch.Types.TextOptions
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch SDK configuration.
-cloudSearch :: Service
-cloudSearch =
-  Service
-    { _svcAbbrev = "CloudSearch",
-      _svcSigner = v4,
-      _svcPrefix = "cloudsearch",
-      _svcVersion = "2013-01-01",
-      _svcEndpoint = defaultEndpoint cloudSearch,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "CloudSearch",
-      _svcRetry = retry
+cloudSearchService :: Lude.Service
+cloudSearchService =
+  Lude.Service
+    { Lude._svcAbbrev = "CloudSearch",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "cloudsearch",
+      Lude._svcVersion = "2013-01-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloudSearchService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "CloudSearch",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
-        Just "request_limit_exceeded"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has
+          (Lude.hasCode "BandwidthLimitExceeded" Lude.. Lude.hasStatus 509)
+          e =
+        Lude.Just "request_limit_exceeded"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

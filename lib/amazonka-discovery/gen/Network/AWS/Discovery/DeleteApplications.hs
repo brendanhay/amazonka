@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,119 @@
 --
 -- Deletes a list of applications and their associations with configuration items.
 module Network.AWS.Discovery.DeleteApplications
-  ( -- * Creating a Request
-    deleteApplications,
-    DeleteApplications,
+  ( -- * Creating a request
+    DeleteApplications (..),
+    mkDeleteApplications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daConfigurationIds,
 
-    -- * Destructuring the Response
-    deleteApplicationsResponse,
-    DeleteApplicationsResponse,
+    -- * Destructuring the response
+    DeleteApplicationsResponse (..),
+    mkDeleteApplicationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsResponseStatus,
   )
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteApplications' smart constructor.
+-- | /See:/ 'mkDeleteApplications' smart constructor.
 newtype DeleteApplications = DeleteApplications'
-  { _daConfigurationIds ::
-      [Text]
+  { configurationIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daConfigurationIds' - Configuration ID of an application to be deleted.
-deleteApplications ::
+-- * 'configurationIds' - Configuration ID of an application to be deleted.
+mkDeleteApplications ::
   DeleteApplications
-deleteApplications =
-  DeleteApplications' {_daConfigurationIds = mempty}
+mkDeleteApplications =
+  DeleteApplications' {configurationIds = Lude.mempty}
 
 -- | Configuration ID of an application to be deleted.
-daConfigurationIds :: Lens' DeleteApplications [Text]
-daConfigurationIds = lens _daConfigurationIds (\s a -> s {_daConfigurationIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daConfigurationIds :: Lens.Lens' DeleteApplications [Lude.Text]
+daConfigurationIds = Lens.lens (configurationIds :: DeleteApplications -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DeleteApplications)
+{-# DEPRECATED daConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
-instance AWSRequest DeleteApplications where
+instance Lude.AWSRequest DeleteApplications where
   type Rs DeleteApplications = DeleteApplicationsResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveEmpty
-      (\s h x -> DeleteApplicationsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteApplicationsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteApplications
-
-instance NFData DeleteApplications
-
-instance ToHeaders DeleteApplications where
+instance Lude.ToHeaders DeleteApplications where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApplications where
+instance Lude.ToJSON DeleteApplications where
   toJSON DeleteApplications' {..} =
-    object
-      (catMaybes [Just ("configurationIds" .= _daConfigurationIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("configurationIds" Lude..= configurationIds)]
+      )
 
-instance ToPath DeleteApplications where
-  toPath = const "/"
+instance Lude.ToPath DeleteApplications where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApplications where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApplications where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteApplicationsResponse' smart constructor.
+-- | /See:/ 'mkDeleteApplicationsResponse' smart constructor.
 newtype DeleteApplicationsResponse = DeleteApplicationsResponse'
-  { _darsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsResponseStatus' - -- | The response status code.
-deleteApplicationsResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteApplicationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteApplicationsResponse
-deleteApplicationsResponse pResponseStatus_ =
-  DeleteApplicationsResponse'
-    { _darsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteApplicationsResponse pResponseStatus_ =
+  DeleteApplicationsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteApplicationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DeleteApplicationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DeleteApplicationsResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApplicationsResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

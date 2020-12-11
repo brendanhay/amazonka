@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,147 @@
 --
 -- Returns the replication configuration of a bucket.
 --
---
 -- For information about replication configuration, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication> in the /Amazon Simple Storage Service Developer Guide/ .
---
 -- This operation requires permissions for the @s3:GetReplicationConfiguration@ action. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and User Policies> .
---
 -- If you include the @Filter@ element in a replication configuration, you must also include the @DeleteMarkerReplication@ and @Priority@ elements. The response also returns those elements.
---
 -- For information about @GetBucketReplication@ errors, see <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList List of replication-related error codes>
---
 -- The following operations are related to @GetBucketReplication@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html PutBucketReplication>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html DeleteBucketReplication>
 module Network.AWS.S3.GetBucketReplication
-  ( -- * Creating a Request
-    getBucketReplication,
-    GetBucketReplication,
+  ( -- * Creating a request
+    GetBucketReplication (..),
+    mkGetBucketReplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbrExpectedBucketOwner,
     gbrBucket,
 
-    -- * Destructuring the Response
-    getBucketReplicationResponse,
-    GetBucketReplicationResponse,
+    -- * Destructuring the response
+    GetBucketReplicationResponse (..),
+    mkGetBucketReplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbrrsReplicationConfiguration,
     gbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getBucketReplication' smart constructor.
+-- | /See:/ 'mkGetBucketReplication' smart constructor.
 data GetBucketReplication = GetBucketReplication'
-  { _gbrExpectedBucketOwner ::
-      !(Maybe Text),
-    _gbrBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbrExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gbrBucket' - The bucket name for which to get the replication information.
-getBucketReplication ::
-  -- | 'gbrBucket'
+-- * 'bucket' - The bucket name for which to get the replication information.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkGetBucketReplication ::
+  -- | 'bucket'
   BucketName ->
   GetBucketReplication
-getBucketReplication pBucket_ =
+mkGetBucketReplication pBucket_ =
   GetBucketReplication'
-    { _gbrExpectedBucketOwner = Nothing,
-      _gbrBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gbrExpectedBucketOwner :: Lens' GetBucketReplication (Maybe Text)
-gbrExpectedBucketOwner = lens _gbrExpectedBucketOwner (\s a -> s {_gbrExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrExpectedBucketOwner :: Lens.Lens' GetBucketReplication (Lude.Maybe Lude.Text)
+gbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketReplication)
+{-# DEPRECATED gbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name for which to get the replication information.
-gbrBucket :: Lens' GetBucketReplication BucketName
-gbrBucket = lens _gbrBucket (\s a -> s {_gbrBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrBucket :: Lens.Lens' GetBucketReplication BucketName
+gbrBucket = Lens.lens (bucket :: GetBucketReplication -> BucketName) (\s a -> s {bucket = a} :: GetBucketReplication)
+{-# DEPRECATED gbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest GetBucketReplication where
+instance Lude.AWSRequest GetBucketReplication where
   type Rs GetBucketReplication = GetBucketReplicationResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetBucketReplicationResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBucketReplication
-
-instance NFData GetBucketReplication
-
-instance ToHeaders GetBucketReplication where
+instance Lude.ToHeaders GetBucketReplication where
   toHeaders GetBucketReplication' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _gbrExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath GetBucketReplication where
-  toPath GetBucketReplication' {..} = mconcat ["/", toBS _gbrBucket]
+instance Lude.ToPath GetBucketReplication where
+  toPath GetBucketReplication' {..} =
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery GetBucketReplication where
-  toQuery = const (mconcat ["replication"])
+instance Lude.ToQuery GetBucketReplication where
+  toQuery = Lude.const (Lude.mconcat ["replication"])
 
--- | /See:/ 'getBucketReplicationResponse' smart constructor.
+-- | /See:/ 'mkGetBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-  { _gbrrsReplicationConfiguration ::
-      !(Maybe ReplicationConfiguration),
-    _gbrrsResponseStatus :: !Int
+  { replicationConfiguration ::
+      Lude.Maybe
+        ReplicationConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketReplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbrrsReplicationConfiguration' - Undocumented member.
---
--- * 'gbrrsResponseStatus' - -- | The response status code.
-getBucketReplicationResponse ::
-  -- | 'gbrrsResponseStatus'
-  Int ->
+-- * 'replicationConfiguration' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetBucketReplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBucketReplicationResponse
-getBucketReplicationResponse pResponseStatus_ =
+mkGetBucketReplicationResponse pResponseStatus_ =
   GetBucketReplicationResponse'
-    { _gbrrsReplicationConfiguration =
-        Nothing,
-      _gbrrsResponseStatus = pResponseStatus_
+    { replicationConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
-gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\s a -> s {_gbrrsReplicationConfiguration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrrsReplicationConfiguration :: Lens.Lens' GetBucketReplicationResponse (Lude.Maybe ReplicationConfiguration)
+gbrrsReplicationConfiguration = Lens.lens (replicationConfiguration :: GetBucketReplicationResponse -> Lude.Maybe ReplicationConfiguration) (\s a -> s {replicationConfiguration = a} :: GetBucketReplicationResponse)
+{-# DEPRECATED gbrrsReplicationConfiguration "Use generic-lens or generic-optics with 'replicationConfiguration' instead." #-}
 
--- | -- | The response status code.
-gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
-gbrrsResponseStatus = lens _gbrrsResponseStatus (\s a -> s {_gbrrsResponseStatus = a})
-
-instance NFData GetBucketReplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrrsResponseStatus :: Lens.Lens' GetBucketReplicationResponse Lude.Int
+gbrrsResponseStatus = Lens.lens (responseStatus :: GetBucketReplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketReplicationResponse)
+{-# DEPRECATED gbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

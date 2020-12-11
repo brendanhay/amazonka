@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Stops an events detection job in progress.
 module Network.AWS.Comprehend.StopEventsDetectionJob
-  ( -- * Creating a Request
-    stopEventsDetectionJob,
-    StopEventsDetectionJob,
+  ( -- * Creating a request
+    StopEventsDetectionJob (..),
+    mkStopEventsDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sedjJobId,
 
-    -- * Destructuring the Response
-    stopEventsDetectionJobResponse,
-    StopEventsDetectionJobResponse,
+    -- * Destructuring the response
+    StopEventsDetectionJobResponse (..),
+    mkStopEventsDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sedjrsJobId,
     sedjrsJobStatus,
     sedjrsResponseStatus,
@@ -38,108 +33,125 @@ module Network.AWS.Comprehend.StopEventsDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopEventsDetectionJob' smart constructor.
+-- | /See:/ 'mkStopEventsDetectionJob' smart constructor.
 newtype StopEventsDetectionJob = StopEventsDetectionJob'
-  { _sedjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEventsDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sedjJobId' - The identifier of the events detection job to stop.
-stopEventsDetectionJob ::
-  -- | 'sedjJobId'
-  Text ->
+-- * 'jobId' - The identifier of the events detection job to stop.
+mkStopEventsDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   StopEventsDetectionJob
-stopEventsDetectionJob pJobId_ =
-  StopEventsDetectionJob' {_sedjJobId = pJobId_}
+mkStopEventsDetectionJob pJobId_ =
+  StopEventsDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the events detection job to stop.
-sedjJobId :: Lens' StopEventsDetectionJob Text
-sedjJobId = lens _sedjJobId (\s a -> s {_sedjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sedjJobId :: Lens.Lens' StopEventsDetectionJob Lude.Text
+sedjJobId = Lens.lens (jobId :: StopEventsDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopEventsDetectionJob)
+{-# DEPRECATED sedjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest StopEventsDetectionJob where
+instance Lude.AWSRequest StopEventsDetectionJob where
   type Rs StopEventsDetectionJob = StopEventsDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopEventsDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopEventsDetectionJob
-
-instance NFData StopEventsDetectionJob
-
-instance ToHeaders StopEventsDetectionJob where
+instance Lude.ToHeaders StopEventsDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StopEventsDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.StopEventsDetectionJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopEventsDetectionJob where
+instance Lude.ToJSON StopEventsDetectionJob where
   toJSON StopEventsDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _sedjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath StopEventsDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StopEventsDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopEventsDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopEventsDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopEventsDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStopEventsDetectionJobResponse' smart constructor.
 data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
-  { _sedjrsJobId ::
-      !(Maybe Text),
-    _sedjrsJobStatus ::
-      !(Maybe JobStatus),
-    _sedjrsResponseStatus :: !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEventsDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sedjrsJobId' - The identifier of the events detection job to stop.
---
--- * 'sedjrsJobStatus' - The status of the events detection job.
---
--- * 'sedjrsResponseStatus' - -- | The response status code.
-stopEventsDetectionJobResponse ::
-  -- | 'sedjrsResponseStatus'
-  Int ->
+-- * 'jobId' - The identifier of the events detection job to stop.
+-- * 'jobStatus' - The status of the events detection job.
+-- * 'responseStatus' - The response status code.
+mkStopEventsDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopEventsDetectionJobResponse
-stopEventsDetectionJobResponse pResponseStatus_ =
+mkStopEventsDetectionJobResponse pResponseStatus_ =
   StopEventsDetectionJobResponse'
-    { _sedjrsJobId = Nothing,
-      _sedjrsJobStatus = Nothing,
-      _sedjrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the events detection job to stop.
-sedjrsJobId :: Lens' StopEventsDetectionJobResponse (Maybe Text)
-sedjrsJobId = lens _sedjrsJobId (\s a -> s {_sedjrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sedjrsJobId :: Lens.Lens' StopEventsDetectionJobResponse (Lude.Maybe Lude.Text)
+sedjrsJobId = Lens.lens (jobId :: StopEventsDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopEventsDetectionJobResponse)
+{-# DEPRECATED sedjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the events detection job.
-sedjrsJobStatus :: Lens' StopEventsDetectionJobResponse (Maybe JobStatus)
-sedjrsJobStatus = lens _sedjrsJobStatus (\s a -> s {_sedjrsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sedjrsJobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Lude.Maybe JobStatus)
+sedjrsJobStatus = Lens.lens (jobStatus :: StopEventsDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopEventsDetectionJobResponse)
+{-# DEPRECATED sedjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-sedjrsResponseStatus :: Lens' StopEventsDetectionJobResponse Int
-sedjrsResponseStatus = lens _sedjrsResponseStatus (\s a -> s {_sedjrsResponseStatus = a})
-
-instance NFData StopEventsDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sedjrsResponseStatus :: Lens.Lens' StopEventsDetectionJobResponse Lude.Int
+sedjrsResponseStatus = Lens.lens (responseStatus :: StopEventsDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopEventsDetectionJobResponse)
+{-# DEPRECATED sedjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

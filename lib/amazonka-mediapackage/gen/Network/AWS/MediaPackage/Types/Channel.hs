@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.Channel where
+module Network.AWS.MediaPackage.Types.Channel
+  ( Channel (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkChannel,
+
+    -- * Lenses
+    cIngressAccessLogs,
+    cHlsIngest,
+    cARN,
+    cId,
+    cDescription,
+    cEgressAccessLogs,
+    cTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.EgressAccessLogs
 import Network.AWS.MediaPackage.Types.HlsIngest
 import Network.AWS.MediaPackage.Types.IngressAccessLogs
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A Channel resource configuration.
 --
--- /See:/ 'channel' smart constructor.
+-- /See:/ 'mkChannel' smart constructor.
 data Channel = Channel'
-  { _cIngressAccessLogs ::
-      !(Maybe IngressAccessLogs),
-    _cHlsIngest :: !(Maybe HlsIngest),
-    _cARN :: !(Maybe Text),
-    _cId :: !(Maybe Text),
-    _cDescription :: !(Maybe Text),
-    _cEgressAccessLogs :: !(Maybe EgressAccessLogs),
-    _cTags :: !(Maybe (Map Text (Text)))
+  { ingressAccessLogs ::
+      Lude.Maybe IngressAccessLogs,
+    hlsIngest :: Lude.Maybe HlsIngest,
+    arn :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Channel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cIngressAccessLogs' - Undocumented member.
---
--- * 'cHlsIngest' - Undocumented member.
---
--- * 'cARN' - The Amazon Resource Name (ARN) assigned to the Channel.
---
--- * 'cId' - The ID of the Channel.
---
--- * 'cDescription' - A short text description of the Channel.
---
--- * 'cEgressAccessLogs' - Undocumented member.
---
--- * 'cTags' - Undocumented member.
-channel ::
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' - Undocumented field.
+-- * 'hlsIngest' - Undocumented field.
+-- * 'id' - The ID of the Channel.
+-- * 'ingressAccessLogs' - Undocumented field.
+-- * 'tags' - Undocumented field.
+mkChannel ::
   Channel
-channel =
+mkChannel =
   Channel'
-    { _cIngressAccessLogs = Nothing,
-      _cHlsIngest = Nothing,
-      _cARN = Nothing,
-      _cId = Nothing,
-      _cDescription = Nothing,
-      _cEgressAccessLogs = Nothing,
-      _cTags = Nothing
+    { ingressAccessLogs = Lude.Nothing,
+      hlsIngest = Lude.Nothing,
+      arn = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      egressAccessLogs = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
--- | Undocumented member.
-cIngressAccessLogs :: Lens' Channel (Maybe IngressAccessLogs)
-cIngressAccessLogs = lens _cIngressAccessLogs (\s a -> s {_cIngressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ingressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIngressAccessLogs :: Lens.Lens' Channel (Lude.Maybe IngressAccessLogs)
+cIngressAccessLogs = Lens.lens (ingressAccessLogs :: Channel -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: Channel)
+{-# DEPRECATED cIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented member.
-cHlsIngest :: Lens' Channel (Maybe HlsIngest)
-cHlsIngest = lens _cHlsIngest (\s a -> s {_cHlsIngest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsIngest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHlsIngest :: Lens.Lens' Channel (Lude.Maybe HlsIngest)
+cHlsIngest = Lens.lens (hlsIngest :: Channel -> Lude.Maybe HlsIngest) (\s a -> s {hlsIngest = a} :: Channel)
+{-# DEPRECATED cHlsIngest "Use generic-lens or generic-optics with 'hlsIngest' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-cARN :: Lens' Channel (Maybe Text)
-cARN = lens _cARN (\s a -> s {_cARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cARN :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
+cARN = Lens.lens (arn :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Channel)
+{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The ID of the Channel.
-cId :: Lens' Channel (Maybe Text)
-cId = lens _cId (\s a -> s {_cId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
+cId = Lens.lens (id :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Channel)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A short text description of the Channel.
-cDescription :: Lens' Channel (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Channel)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-cEgressAccessLogs :: Lens' Channel (Maybe EgressAccessLogs)
-cEgressAccessLogs = lens _cEgressAccessLogs (\s a -> s {_cEgressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEgressAccessLogs :: Lens.Lens' Channel (Lude.Maybe EgressAccessLogs)
+cEgressAccessLogs = Lens.lens (egressAccessLogs :: Channel -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: Channel)
+{-# DEPRECATED cEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
--- | Undocumented member.
-cTags :: Lens' Channel (HashMap Text (Text))
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' Channel (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cTags = Lens.lens (tags :: Channel -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: Channel)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Channel where
+instance Lude.FromJSON Channel where
   parseJSON =
-    withObject
+    Lude.withObject
       "Channel"
       ( \x ->
           Channel'
-            <$> (x .:? "ingressAccessLogs")
-            <*> (x .:? "hlsIngest")
-            <*> (x .:? "arn")
-            <*> (x .:? "id")
-            <*> (x .:? "description")
-            <*> (x .:? "egressAccessLogs")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "ingressAccessLogs")
+            Lude.<*> (x Lude..:? "hlsIngest")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "egressAccessLogs")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable Channel
-
-instance NFData Channel

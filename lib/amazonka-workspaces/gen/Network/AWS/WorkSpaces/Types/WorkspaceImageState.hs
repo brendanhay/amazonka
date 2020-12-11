@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceImageState where
+module Network.AWS.WorkSpaces.Types.WorkspaceImageState
+  ( WorkspaceImageState
+      ( WorkspaceImageState',
+        WISAvailable,
+        WISError,
+        WISPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkspaceImageState
-  = WISAvailable
-  | WISError'
-  | WISPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkspaceImageState = WorkspaceImageState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkspaceImageState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure WISAvailable
-      "error" -> pure WISError'
-      "pending" -> pure WISPending
-      e ->
-        fromTextError $
-          "Failure parsing WorkspaceImageState from value: '" <> e
-            <> "'. Accepted values: available, error, pending"
+pattern WISAvailable :: WorkspaceImageState
+pattern WISAvailable = WorkspaceImageState' "AVAILABLE"
 
-instance ToText WorkspaceImageState where
-  toText = \case
-    WISAvailable -> "AVAILABLE"
-    WISError' -> "ERROR"
-    WISPending -> "PENDING"
+pattern WISError :: WorkspaceImageState
+pattern WISError = WorkspaceImageState' "ERROR"
 
-instance Hashable WorkspaceImageState
+pattern WISPending :: WorkspaceImageState
+pattern WISPending = WorkspaceImageState' "PENDING"
 
-instance NFData WorkspaceImageState
-
-instance ToByteString WorkspaceImageState
-
-instance ToQuery WorkspaceImageState
-
-instance ToHeader WorkspaceImageState
-
-instance FromJSON WorkspaceImageState where
-  parseJSON = parseJSONText "WorkspaceImageState"
+{-# COMPLETE
+  WISAvailable,
+  WISError,
+  WISPending,
+  WorkspaceImageState'
+  #-}

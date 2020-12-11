@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,152 @@
 --
 -- Modifies a subnet attribute. You can only modify one attribute at a time.
 module Network.AWS.EC2.ModifySubnetAttribute
-  ( -- * Creating a Request
-    modifySubnetAttribute,
-    ModifySubnetAttribute,
+  ( -- * Creating a request
+    ModifySubnetAttribute (..),
+    mkModifySubnetAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     msaAssignIPv6AddressOnCreation,
     msaCustomerOwnedIPv4Pool,
     msaMapCustomerOwnedIPOnLaunch,
     msaMapPublicIPOnLaunch,
     msaSubnetId,
 
-    -- * Destructuring the Response
-    modifySubnetAttributeResponse,
-    ModifySubnetAttributeResponse,
+    -- * Destructuring the response
+    ModifySubnetAttributeResponse (..),
+    mkModifySubnetAttributeResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifySubnetAttribute' smart constructor.
+-- | /See:/ 'mkModifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
-  { _msaAssignIPv6AddressOnCreation ::
-      !(Maybe AttributeBooleanValue),
-    _msaCustomerOwnedIPv4Pool :: !(Maybe Text),
-    _msaMapCustomerOwnedIPOnLaunch ::
-      !(Maybe AttributeBooleanValue),
-    _msaMapPublicIPOnLaunch ::
-      !(Maybe AttributeBooleanValue),
-    _msaSubnetId :: !Text
+  { assignIPv6AddressOnCreation ::
+      Lude.Maybe AttributeBooleanValue,
+    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    mapCustomerOwnedIPOnLaunch ::
+      Lude.Maybe AttributeBooleanValue,
+    mapPublicIPOnLaunch ::
+      Lude.Maybe AttributeBooleanValue,
+    subnetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySubnetAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'assignIPv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).
 --
--- * 'msaAssignIPv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).  If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
+-- If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
+-- * 'customerOwnedIPv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
 --
--- * 'msaCustomerOwnedIPv4Pool' - The customer-owned IPv4 address pool associated with the subnet. You must set this value when you specify @true@ for @MapCustomerOwnedIpOnLaunch@ .
+-- You must set this value when you specify @true@ for @MapCustomerOwnedIpOnLaunch@ .
+-- * 'mapCustomerOwnedIPOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.
 --
--- * 'msaMapCustomerOwnedIPOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address. When this value is @true@ , you must specify the customer-owned IP pool using @CustomerOwnedIpv4Pool@ .
---
--- * 'msaMapPublicIPOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.
---
--- * 'msaSubnetId' - The ID of the subnet.
-modifySubnetAttribute ::
-  -- | 'msaSubnetId'
-  Text ->
+-- When this value is @true@ , you must specify the customer-owned IP pool using @CustomerOwnedIpv4Pool@ .
+-- * 'mapPublicIPOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.
+-- * 'subnetId' - The ID of the subnet.
+mkModifySubnetAttribute ::
+  -- | 'subnetId'
+  Lude.Text ->
   ModifySubnetAttribute
-modifySubnetAttribute pSubnetId_ =
+mkModifySubnetAttribute pSubnetId_ =
   ModifySubnetAttribute'
-    { _msaAssignIPv6AddressOnCreation = Nothing,
-      _msaCustomerOwnedIPv4Pool = Nothing,
-      _msaMapCustomerOwnedIPOnLaunch = Nothing,
-      _msaMapPublicIPOnLaunch = Nothing,
-      _msaSubnetId = pSubnetId_
+    { assignIPv6AddressOnCreation =
+        Lude.Nothing,
+      customerOwnedIPv4Pool = Lude.Nothing,
+      mapCustomerOwnedIPOnLaunch = Lude.Nothing,
+      mapPublicIPOnLaunch = Lude.Nothing,
+      subnetId = pSubnetId_
     }
 
--- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).  If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
-msaAssignIPv6AddressOnCreation :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaAssignIPv6AddressOnCreation = lens _msaAssignIPv6AddressOnCreation (\s a -> s {_msaAssignIPv6AddressOnCreation = a})
+-- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).
+--
+-- If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
+--
+-- /Note:/ Consider using 'assignIPv6AddressOnCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaAssignIPv6AddressOnCreation :: Lens.Lens' ModifySubnetAttribute (Lude.Maybe AttributeBooleanValue)
+msaAssignIPv6AddressOnCreation = Lens.lens (assignIPv6AddressOnCreation :: ModifySubnetAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {assignIPv6AddressOnCreation = a} :: ModifySubnetAttribute)
+{-# DEPRECATED msaAssignIPv6AddressOnCreation "Use generic-lens or generic-optics with 'assignIPv6AddressOnCreation' instead." #-}
 
--- | The customer-owned IPv4 address pool associated with the subnet. You must set this value when you specify @true@ for @MapCustomerOwnedIpOnLaunch@ .
-msaCustomerOwnedIPv4Pool :: Lens' ModifySubnetAttribute (Maybe Text)
-msaCustomerOwnedIPv4Pool = lens _msaCustomerOwnedIPv4Pool (\s a -> s {_msaCustomerOwnedIPv4Pool = a})
+-- | The customer-owned IPv4 address pool associated with the subnet.
+--
+-- You must set this value when you specify @true@ for @MapCustomerOwnedIpOnLaunch@ .
+--
+-- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaCustomerOwnedIPv4Pool :: Lens.Lens' ModifySubnetAttribute (Lude.Maybe Lude.Text)
+msaCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: ModifySubnetAttribute -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: ModifySubnetAttribute)
+{-# DEPRECATED msaCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
 
--- | Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address. When this value is @true@ , you must specify the customer-owned IP pool using @CustomerOwnedIpv4Pool@ .
-msaMapCustomerOwnedIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaMapCustomerOwnedIPOnLaunch = lens _msaMapCustomerOwnedIPOnLaunch (\s a -> s {_msaMapCustomerOwnedIPOnLaunch = a})
+-- | Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.
+--
+-- When this value is @true@ , you must specify the customer-owned IP pool using @CustomerOwnedIpv4Pool@ .
+--
+-- /Note:/ Consider using 'mapCustomerOwnedIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaMapCustomerOwnedIPOnLaunch :: Lens.Lens' ModifySubnetAttribute (Lude.Maybe AttributeBooleanValue)
+msaMapCustomerOwnedIPOnLaunch = Lens.lens (mapCustomerOwnedIPOnLaunch :: ModifySubnetAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {mapCustomerOwnedIPOnLaunch = a} :: ModifySubnetAttribute)
+{-# DEPRECATED msaMapCustomerOwnedIPOnLaunch "Use generic-lens or generic-optics with 'mapCustomerOwnedIPOnLaunch' instead." #-}
 
 -- | Specify @true@ to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.
-msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\s a -> s {_msaMapPublicIPOnLaunch = a})
+--
+-- /Note:/ Consider using 'mapPublicIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaMapPublicIPOnLaunch :: Lens.Lens' ModifySubnetAttribute (Lude.Maybe AttributeBooleanValue)
+msaMapPublicIPOnLaunch = Lens.lens (mapPublicIPOnLaunch :: ModifySubnetAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {mapPublicIPOnLaunch = a} :: ModifySubnetAttribute)
+{-# DEPRECATED msaMapPublicIPOnLaunch "Use generic-lens or generic-optics with 'mapPublicIPOnLaunch' instead." #-}
 
 -- | The ID of the subnet.
-msaSubnetId :: Lens' ModifySubnetAttribute Text
-msaSubnetId = lens _msaSubnetId (\s a -> s {_msaSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaSubnetId :: Lens.Lens' ModifySubnetAttribute Lude.Text
+msaSubnetId = Lens.lens (subnetId :: ModifySubnetAttribute -> Lude.Text) (\s a -> s {subnetId = a} :: ModifySubnetAttribute)
+{-# DEPRECATED msaSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance AWSRequest ModifySubnetAttribute where
+instance Lude.AWSRequest ModifySubnetAttribute where
   type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
-  request = postQuery ec2
-  response = receiveNull ModifySubnetAttributeResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ModifySubnetAttributeResponse'
 
-instance Hashable ModifySubnetAttribute
+instance Lude.ToHeaders ModifySubnetAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifySubnetAttribute
+instance Lude.ToPath ModifySubnetAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifySubnetAttribute where
-  toHeaders = const mempty
-
-instance ToPath ModifySubnetAttribute where
-  toPath = const "/"
-
-instance ToQuery ModifySubnetAttribute where
+instance Lude.ToQuery ModifySubnetAttribute where
   toQuery ModifySubnetAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ModifySubnetAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "AssignIpv6AddressOnCreation" =: _msaAssignIPv6AddressOnCreation,
-        "CustomerOwnedIpv4Pool" =: _msaCustomerOwnedIPv4Pool,
-        "MapCustomerOwnedIpOnLaunch" =: _msaMapCustomerOwnedIPOnLaunch,
-        "MapPublicIpOnLaunch" =: _msaMapPublicIPOnLaunch,
-        "SubnetId" =: _msaSubnetId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifySubnetAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "AssignIpv6AddressOnCreation" Lude.=: assignIPv6AddressOnCreation,
+        "CustomerOwnedIpv4Pool" Lude.=: customerOwnedIPv4Pool,
+        "MapCustomerOwnedIpOnLaunch" Lude.=: mapCustomerOwnedIPOnLaunch,
+        "MapPublicIpOnLaunch" Lude.=: mapPublicIPOnLaunch,
+        "SubnetId" Lude.=: subnetId
       ]
 
--- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
+-- | /See:/ 'mkModifySubnetAttributeResponse' smart constructor.
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySubnetAttributeResponse' with the minimum fields required to make a request.
-modifySubnetAttributeResponse ::
+mkModifySubnetAttributeResponse ::
   ModifySubnetAttributeResponse
-modifySubnetAttributeResponse = ModifySubnetAttributeResponse'
-
-instance NFData ModifySubnetAttributeResponse
+mkModifySubnetAttributeResponse = ModifySubnetAttributeResponse'

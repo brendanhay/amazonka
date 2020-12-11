@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Describes the specified collection. You can use @DescribeCollection@ to get information, such as the number of faces indexed into a collection and the version of the model used by the collection for face detection.
 --
---
 -- For more information, see Describing a Collection in the Amazon Rekognition Developer Guide.
 module Network.AWS.Rekognition.DescribeCollection
-  ( -- * Creating a Request
-    describeCollection,
-    DescribeCollection,
+  ( -- * Creating a request
+    DescribeCollection (..),
+    mkDescribeCollection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCollectionId,
 
-    -- * Destructuring the Response
-    describeCollectionResponse,
-    DescribeCollectionResponse,
+    -- * Destructuring the response
+    DescribeCollectionResponse (..),
+    mkDescribeCollectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsFaceModelVersion,
     drsFaceCount,
     drsCreationTimestamp,
@@ -42,129 +36,153 @@ module Network.AWS.Rekognition.DescribeCollection
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCollection' smart constructor.
+-- | /See:/ 'mkDescribeCollection' smart constructor.
 newtype DescribeCollection = DescribeCollection'
-  { _dCollectionId ::
-      Text
+  { collectionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCollection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dCollectionId' - The ID of the collection to describe.
-describeCollection ::
-  -- | 'dCollectionId'
-  Text ->
+-- * 'collectionId' - The ID of the collection to describe.
+mkDescribeCollection ::
+  -- | 'collectionId'
+  Lude.Text ->
   DescribeCollection
-describeCollection pCollectionId_ =
-  DescribeCollection' {_dCollectionId = pCollectionId_}
+mkDescribeCollection pCollectionId_ =
+  DescribeCollection' {collectionId = pCollectionId_}
 
 -- | The ID of the collection to describe.
-dCollectionId :: Lens' DescribeCollection Text
-dCollectionId = lens _dCollectionId (\s a -> s {_dCollectionId = a})
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCollectionId :: Lens.Lens' DescribeCollection Lude.Text
+dCollectionId = Lens.lens (collectionId :: DescribeCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DescribeCollection)
+{-# DEPRECATED dCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
-instance AWSRequest DescribeCollection where
+instance Lude.AWSRequest DescribeCollection where
   type Rs DescribeCollection = DescribeCollectionResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCollectionResponse'
-            <$> (x .?> "FaceModelVersion")
-            <*> (x .?> "FaceCount")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "CollectionARN")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FaceModelVersion")
+            Lude.<*> (x Lude..?> "FaceCount")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "CollectionARN")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCollection
-
-instance NFData DescribeCollection
-
-instance ToHeaders DescribeCollection where
+instance Lude.ToHeaders DescribeCollection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.DescribeCollection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.DescribeCollection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCollection where
+instance Lude.ToJSON DescribeCollection where
   toJSON DescribeCollection' {..} =
-    object (catMaybes [Just ("CollectionId" .= _dCollectionId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("CollectionId" Lude..= collectionId)])
 
-instance ToPath DescribeCollection where
-  toPath = const "/"
+instance Lude.ToPath DescribeCollection where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCollection where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCollection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCollectionResponse' smart constructor.
+-- | /See:/ 'mkDescribeCollectionResponse' smart constructor.
 data DescribeCollectionResponse = DescribeCollectionResponse'
-  { _drsFaceModelVersion ::
-      !(Maybe Text),
-    _drsFaceCount :: !(Maybe Nat),
-    _drsCreationTimestamp ::
-      !(Maybe POSIX),
-    _drsCollectionARN :: !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { faceModelVersion ::
+      Lude.Maybe Lude.Text,
+    faceCount :: Lude.Maybe Lude.Natural,
+    creationTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    collectionARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCollectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'collectionARN' - The Amazon Resource Name (ARN) of the collection.
+-- * 'creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+-- * 'faceCount' - The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
+-- * 'faceModelVersion' - The version of the face model that's used by the collection for face detection.
 --
--- * 'drsFaceModelVersion' - The version of the face model that's used by the collection for face detection. For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
---
--- * 'drsFaceCount' - The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
---
--- * 'drsCreationTimestamp' - The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
---
--- * 'drsCollectionARN' - The Amazon Resource Name (ARN) of the collection.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeCollectionResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
+-- * 'responseStatus' - The response status code.
+mkDescribeCollectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCollectionResponse
-describeCollectionResponse pResponseStatus_ =
+mkDescribeCollectionResponse pResponseStatus_ =
   DescribeCollectionResponse'
-    { _drsFaceModelVersion = Nothing,
-      _drsFaceCount = Nothing,
-      _drsCreationTimestamp = Nothing,
-      _drsCollectionARN = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { faceModelVersion = Lude.Nothing,
+      faceCount = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      collectionARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The version of the face model that's used by the collection for face detection. For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
-drsFaceModelVersion :: Lens' DescribeCollectionResponse (Maybe Text)
-drsFaceModelVersion = lens _drsFaceModelVersion (\s a -> s {_drsFaceModelVersion = a})
+-- | The version of the face model that's used by the collection for face detection.
+--
+-- For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
+--
+-- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsFaceModelVersion :: Lens.Lens' DescribeCollectionResponse (Lude.Maybe Lude.Text)
+drsFaceModelVersion = Lens.lens (faceModelVersion :: DescribeCollectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: DescribeCollectionResponse)
+{-# DEPRECATED drsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
-drsFaceCount :: Lens' DescribeCollectionResponse (Maybe Natural)
-drsFaceCount = lens _drsFaceCount (\s a -> s {_drsFaceCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'faceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsFaceCount :: Lens.Lens' DescribeCollectionResponse (Lude.Maybe Lude.Natural)
+drsFaceCount = Lens.lens (faceCount :: DescribeCollectionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {faceCount = a} :: DescribeCollectionResponse)
+{-# DEPRECATED drsFaceCount "Use generic-lens or generic-optics with 'faceCount' instead." #-}
 
 -- | The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
-drsCreationTimestamp :: Lens' DescribeCollectionResponse (Maybe UTCTime)
-drsCreationTimestamp = lens _drsCreationTimestamp (\s a -> s {_drsCreationTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCreationTimestamp :: Lens.Lens' DescribeCollectionResponse (Lude.Maybe Lude.Timestamp)
+drsCreationTimestamp = Lens.lens (creationTimestamp :: DescribeCollectionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimestamp = a} :: DescribeCollectionResponse)
+{-# DEPRECATED drsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the collection.
-drsCollectionARN :: Lens' DescribeCollectionResponse (Maybe Text)
-drsCollectionARN = lens _drsCollectionARN (\s a -> s {_drsCollectionARN = a})
+--
+-- /Note:/ Consider using 'collectionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCollectionARN :: Lens.Lens' DescribeCollectionResponse (Lude.Maybe Lude.Text)
+drsCollectionARN = Lens.lens (collectionARN :: DescribeCollectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {collectionARN = a} :: DescribeCollectionResponse)
+{-# DEPRECATED drsCollectionARN "Use generic-lens or generic-optics with 'collectionARN' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeCollectionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeCollectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeCollectionResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeCollectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCollectionResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

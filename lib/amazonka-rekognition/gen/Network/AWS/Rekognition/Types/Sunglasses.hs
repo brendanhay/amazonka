@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Sunglasses where
+module Network.AWS.Rekognition.Types.Sunglasses
+  ( Sunglasses (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSunglasses,
+
+    -- * Lenses
+    sValue,
+    sConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
 --
---
---
--- /See:/ 'sunglasses' smart constructor.
+-- /See:/ 'mkSunglasses' smart constructor.
 data Sunglasses = Sunglasses'
-  { _sValue :: !(Maybe Bool),
-    _sConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Sunglasses' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sValue' - Boolean value that indicates whether the face is wearing sunglasses or not.
---
--- * 'sConfidence' - Level of confidence in the determination.
-sunglasses ::
+-- * 'confidence' - Level of confidence in the determination.
+-- * 'value' - Boolean value that indicates whether the face is wearing sunglasses or not.
+mkSunglasses ::
   Sunglasses
-sunglasses = Sunglasses' {_sValue = Nothing, _sConfidence = Nothing}
+mkSunglasses =
+  Sunglasses' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | Boolean value that indicates whether the face is wearing sunglasses or not.
-sValue :: Lens' Sunglasses (Maybe Bool)
-sValue = lens _sValue (\s a -> s {_sValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sValue :: Lens.Lens' Sunglasses (Lude.Maybe Lude.Bool)
+sValue = Lens.lens (value :: Sunglasses -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Sunglasses)
+{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
-sConfidence :: Lens' Sunglasses (Maybe Double)
-sConfidence = lens _sConfidence (\s a -> s {_sConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sConfidence :: Lens.Lens' Sunglasses (Lude.Maybe Lude.Double)
+sConfidence = Lens.lens (confidence :: Sunglasses -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Sunglasses)
+{-# DEPRECATED sConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Sunglasses where
+instance Lude.FromJSON Sunglasses where
   parseJSON =
-    withObject
+    Lude.withObject
       "Sunglasses"
-      (\x -> Sunglasses' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable Sunglasses
-
-instance NFData Sunglasses
+      ( \x ->
+          Sunglasses'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

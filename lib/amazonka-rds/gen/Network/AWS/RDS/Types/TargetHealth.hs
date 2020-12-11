@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.TargetHealth where
+module Network.AWS.RDS.Types.TargetHealth
+  ( TargetHealth (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetHealth,
+
+    -- * Lenses
+    thState,
+    thReason,
+    thDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.TargetHealthReason
 import Network.AWS.RDS.Types.TargetState
 
 -- | Information about the connection health of an RDS Proxy target.
 --
---
---
--- /See:/ 'targetHealth' smart constructor.
+-- /See:/ 'mkTargetHealth' smart constructor.
 data TargetHealth = TargetHealth'
-  { _thState :: !(Maybe TargetState),
-    _thReason :: !(Maybe TargetHealthReason),
-    _thDescription :: !(Maybe Text)
+  { state :: Lude.Maybe TargetState,
+    reason :: Lude.Maybe TargetHealthReason,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetHealth' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
+-- * 'reason' - The reason for the current health @State@ of the RDS Proxy target.
+-- * 'state' - The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:
 --
--- * 'thState' - The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:  @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
---
--- * 'thReason' - The reason for the current health @State@ of the RDS Proxy target.
---
--- * 'thDescription' - A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
-targetHealth ::
+-- @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
+mkTargetHealth ::
   TargetHealth
-targetHealth =
+mkTargetHealth =
   TargetHealth'
-    { _thState = Nothing,
-      _thReason = Nothing,
-      _thDescription = Nothing
+    { state = Lude.Nothing,
+      reason = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:  @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
-thState :: Lens' TargetHealth (Maybe TargetState)
-thState = lens _thState (\s a -> s {_thState = a})
+-- | The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:
+--
+-- @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thState :: Lens.Lens' TargetHealth (Lude.Maybe TargetState)
+thState = Lens.lens (state :: TargetHealth -> Lude.Maybe TargetState) (\s a -> s {state = a} :: TargetHealth)
+{-# DEPRECATED thState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The reason for the current health @State@ of the RDS Proxy target.
-thReason :: Lens' TargetHealth (Maybe TargetHealthReason)
-thReason = lens _thReason (\s a -> s {_thReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thReason :: Lens.Lens' TargetHealth (Lude.Maybe TargetHealthReason)
+thReason = Lens.lens (reason :: TargetHealth -> Lude.Maybe TargetHealthReason) (\s a -> s {reason = a} :: TargetHealth)
+{-# DEPRECATED thReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
-thDescription :: Lens' TargetHealth (Maybe Text)
-thDescription = lens _thDescription (\s a -> s {_thDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thDescription :: Lens.Lens' TargetHealth (Lude.Maybe Lude.Text)
+thDescription = Lens.lens (description :: TargetHealth -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TargetHealth)
+{-# DEPRECATED thDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML TargetHealth where
+instance Lude.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
-      <$> (x .@? "State") <*> (x .@? "Reason") <*> (x .@? "Description")
-
-instance Hashable TargetHealth
-
-instance NFData TargetHealth
+      Lude.<$> (x Lude..@? "State")
+      Lude.<*> (x Lude..@? "Reason")
+      Lude.<*> (x Lude..@? "Description")

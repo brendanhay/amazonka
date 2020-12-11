@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.OwnershipControlsRule where
+module Network.AWS.S3.Types.OwnershipControlsRule
+  ( OwnershipControlsRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOwnershipControlsRule,
+
+    -- * Lenses
+    ocrObjectOwnership,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectOwnership
 
 -- | The container element for an ownership control rule.
 --
---
---
--- /See:/ 'ownershipControlsRule' smart constructor.
+-- /See:/ 'mkOwnershipControlsRule' smart constructor.
 newtype OwnershipControlsRule = OwnershipControlsRule'
-  { _ocrObjectOwnership ::
+  { objectOwnership ::
       ObjectOwnership
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OwnershipControlsRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocrObjectOwnership' - Undocumented member.
-ownershipControlsRule ::
-  -- | 'ocrObjectOwnership'
+-- * 'objectOwnership' - Undocumented field.
+mkOwnershipControlsRule ::
+  -- | 'objectOwnership'
   ObjectOwnership ->
   OwnershipControlsRule
-ownershipControlsRule pObjectOwnership_ =
-  OwnershipControlsRule' {_ocrObjectOwnership = pObjectOwnership_}
+mkOwnershipControlsRule pObjectOwnership_ =
+  OwnershipControlsRule' {objectOwnership = pObjectOwnership_}
 
--- | Undocumented member.
-ocrObjectOwnership :: Lens' OwnershipControlsRule ObjectOwnership
-ocrObjectOwnership = lens _ocrObjectOwnership (\s a -> s {_ocrObjectOwnership = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'objectOwnership' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrObjectOwnership :: Lens.Lens' OwnershipControlsRule ObjectOwnership
+ocrObjectOwnership = Lens.lens (objectOwnership :: OwnershipControlsRule -> ObjectOwnership) (\s a -> s {objectOwnership = a} :: OwnershipControlsRule)
+{-# DEPRECATED ocrObjectOwnership "Use generic-lens or generic-optics with 'objectOwnership' instead." #-}
 
-instance FromXML OwnershipControlsRule where
-  parseXML x = OwnershipControlsRule' <$> (x .@ "ObjectOwnership")
+instance Lude.FromXML OwnershipControlsRule where
+  parseXML x =
+    OwnershipControlsRule' Lude.<$> (x Lude..@ "ObjectOwnership")
 
-instance Hashable OwnershipControlsRule
-
-instance NFData OwnershipControlsRule
-
-instance ToXML OwnershipControlsRule where
+instance Lude.ToXML OwnershipControlsRule where
   toXML OwnershipControlsRule' {..} =
-    mconcat ["ObjectOwnership" @= _ocrObjectOwnership]
+    Lude.mconcat ["ObjectOwnership" Lude.@= objectOwnership]

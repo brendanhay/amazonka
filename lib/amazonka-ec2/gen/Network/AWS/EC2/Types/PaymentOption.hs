@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PaymentOption where
+module Network.AWS.EC2.Types.PaymentOption
+  ( PaymentOption
+      ( PaymentOption',
+        POAllUpfront,
+        PONoUpfront,
+        POPartialUpfront
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PaymentOption
-  = POAllUpfront
-  | PONoUpfront
-  | POPartialUpfront
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PaymentOption = PaymentOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PaymentOption where
-  parser =
-    takeLowerText >>= \case
-      "allupfront" -> pure POAllUpfront
-      "noupfront" -> pure PONoUpfront
-      "partialupfront" -> pure POPartialUpfront
-      e ->
-        fromTextError $
-          "Failure parsing PaymentOption from value: '" <> e
-            <> "'. Accepted values: allupfront, noupfront, partialupfront"
+pattern POAllUpfront :: PaymentOption
+pattern POAllUpfront = PaymentOption' "AllUpfront"
 
-instance ToText PaymentOption where
-  toText = \case
-    POAllUpfront -> "AllUpfront"
-    PONoUpfront -> "NoUpfront"
-    POPartialUpfront -> "PartialUpfront"
+pattern PONoUpfront :: PaymentOption
+pattern PONoUpfront = PaymentOption' "NoUpfront"
 
-instance Hashable PaymentOption
+pattern POPartialUpfront :: PaymentOption
+pattern POPartialUpfront = PaymentOption' "PartialUpfront"
 
-instance NFData PaymentOption
-
-instance ToByteString PaymentOption
-
-instance ToQuery PaymentOption
-
-instance ToHeader PaymentOption
-
-instance FromXML PaymentOption where
-  parseXML = parseXMLText "PaymentOption"
+{-# COMPLETE
+  POAllUpfront,
+  PONoUpfront,
+  POPartialUpfront,
+  PaymentOption'
+  #-}

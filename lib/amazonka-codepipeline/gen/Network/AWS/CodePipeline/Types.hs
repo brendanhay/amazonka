@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types
-  ( -- * Service Configuration
-    codePipeline,
+  ( -- * Service configuration
+    codePipelineService,
 
     -- * Errors
 
@@ -67,20 +65,20 @@ module Network.AWS.CodePipeline.Types
     WebhookAuthenticationType (..),
 
     -- * AWSSessionCredentials
-    AWSSessionCredentials,
-    awsSessionCredentials,
+    AWSSessionCredentials (..),
+    mkAWSSessionCredentials,
     ascAccessKeyId,
     ascSecretAccessKey,
     ascSessionToken,
 
     -- * ActionConfiguration
-    ActionConfiguration,
-    actionConfiguration,
+    ActionConfiguration (..),
+    mkActionConfiguration,
     acConfiguration,
 
     -- * ActionConfigurationProperty
-    ActionConfigurationProperty,
-    actionConfigurationProperty,
+    ActionConfigurationProperty (..),
+    mkActionConfigurationProperty,
     acpQueryable,
     acpType,
     acpDescription,
@@ -90,14 +88,14 @@ module Network.AWS.CodePipeline.Types
     acpSecret,
 
     -- * ActionContext
-    ActionContext,
-    actionContext,
+    ActionContext (..),
+    mkActionContext,
     acName,
     acActionExecutionId,
 
     -- * ActionDeclaration
-    ActionDeclaration,
-    actionDeclaration,
+    ActionDeclaration (..),
+    mkActionDeclaration,
     adOutputArtifacts,
     adNamespace,
     adRunOrder,
@@ -109,8 +107,8 @@ module Network.AWS.CodePipeline.Types
     adActionTypeId,
 
     -- * ActionExecution
-    ActionExecution,
-    actionExecution,
+    ActionExecution (..),
+    mkActionExecution,
     aeLastUpdatedBy,
     aeSummary,
     aeStatus,
@@ -123,8 +121,8 @@ module Network.AWS.CodePipeline.Types
     aeActionExecutionId,
 
     -- * ActionExecutionDetail
-    ActionExecutionDetail,
-    actionExecutionDetail,
+    ActionExecutionDetail (..),
+    mkActionExecutionDetail,
     aedStatus,
     aedStartTime,
     aedPipelineVersion,
@@ -137,13 +135,13 @@ module Network.AWS.CodePipeline.Types
     aedActionExecutionId,
 
     -- * ActionExecutionFilter
-    ActionExecutionFilter,
-    actionExecutionFilter,
+    ActionExecutionFilter (..),
+    mkActionExecutionFilter,
     aefPipelineExecutionId,
 
     -- * ActionExecutionInput
-    ActionExecutionInput,
-    actionExecutionInput,
+    ActionExecutionInput (..),
+    mkActionExecutionInput,
     aeiNamespace,
     aeiResolvedConfiguration,
     aeiRegion,
@@ -153,29 +151,29 @@ module Network.AWS.CodePipeline.Types
     aeiRoleARN,
 
     -- * ActionExecutionOutput
-    ActionExecutionOutput,
-    actionExecutionOutput,
+    ActionExecutionOutput (..),
+    mkActionExecutionOutput,
     aeoOutputVariables,
     aeoOutputArtifacts,
     aeoExecutionResult,
 
     -- * ActionExecutionResult
-    ActionExecutionResult,
-    actionExecutionResult,
+    ActionExecutionResult (..),
+    mkActionExecutionResult,
     aerExternalExecutionURL,
     aerExternalExecutionId,
     aerExternalExecutionSummary,
 
     -- * ActionRevision
-    ActionRevision,
-    actionRevision,
+    ActionRevision (..),
+    mkActionRevision,
     aRevisionId,
     aRevisionChangeId,
     aCreated,
 
     -- * ActionState
-    ActionState,
-    actionState,
+    ActionState (..),
+    mkActionState,
     asRevisionURL,
     asEntityURL,
     asActionName,
@@ -183,8 +181,8 @@ module Network.AWS.CodePipeline.Types
     asLatestExecution,
 
     -- * ActionType
-    ActionType,
-    actionType,
+    ActionType (..),
+    mkActionType,
     atSettings,
     atActionConfigurationProperties,
     atId,
@@ -192,55 +190,55 @@ module Network.AWS.CodePipeline.Types
     atOutputArtifactDetails,
 
     -- * ActionTypeId
-    ActionTypeId,
-    actionTypeId,
+    ActionTypeId (..),
+    mkActionTypeId,
     atiCategory,
     atiOwner,
     atiProvider,
     atiVersion,
 
     -- * ActionTypeSettings
-    ActionTypeSettings,
-    actionTypeSettings,
+    ActionTypeSettings (..),
+    mkActionTypeSettings,
     atsThirdPartyConfigurationURL,
     atsExecutionURLTemplate,
     atsRevisionURLTemplate,
     atsEntityURLTemplate,
 
     -- * ApprovalResult
-    ApprovalResult,
-    approvalResult,
+    ApprovalResult (..),
+    mkApprovalResult,
     arSummary,
     arStatus,
 
     -- * Artifact
-    Artifact,
-    artifact,
+    Artifact (..),
+    mkArtifact,
     artLocation,
     artName,
     artRevision,
 
     -- * ArtifactDetail
-    ArtifactDetail,
-    artifactDetail,
+    ArtifactDetail (..),
+    mkArtifactDetail,
     aName,
     aS3location,
 
     -- * ArtifactDetails
-    ArtifactDetails,
-    artifactDetails,
+    ArtifactDetails (..),
+    mkArtifactDetails,
     adMinimumCount,
     adMaximumCount,
 
     -- * ArtifactLocation
-    ArtifactLocation,
-    artifactLocation,
+    ArtifactLocation (..),
+    mkArtifactLocation,
     alS3Location,
     alType,
 
     -- * ArtifactRevision
-    ArtifactRevision,
-    artifactRevision,
+    ArtifactRevision (..),
+    mkArtifactRevision,
     arRevisionSummary,
     arRevisionURL,
     arCreated,
@@ -249,74 +247,74 @@ module Network.AWS.CodePipeline.Types
     arRevisionChangeIdentifier,
 
     -- * ArtifactStore
-    ArtifactStore,
-    artifactStore,
+    ArtifactStore (..),
+    mkArtifactStore,
     asEncryptionKey,
     asType,
     asLocation,
 
     -- * BlockerDeclaration
-    BlockerDeclaration,
-    blockerDeclaration,
+    BlockerDeclaration (..),
+    mkBlockerDeclaration,
     bdName,
     bdType,
 
     -- * CurrentRevision
-    CurrentRevision,
-    currentRevision,
+    CurrentRevision (..),
+    mkCurrentRevision,
     crRevisionSummary,
     crCreated,
     crRevision,
     crChangeIdentifier,
 
     -- * EncryptionKey
-    EncryptionKey,
-    encryptionKey,
+    EncryptionKey (..),
+    mkEncryptionKey,
     ekId,
     ekType,
 
     -- * ErrorDetails
-    ErrorDetails,
-    errorDetails,
+    ErrorDetails (..),
+    mkErrorDetails,
     edCode,
     edMessage,
 
     -- * ExecutionDetails
-    ExecutionDetails,
-    executionDetails,
+    ExecutionDetails (..),
+    mkExecutionDetails,
     edSummary,
     edExternalExecutionId,
     edPercentComplete,
 
     -- * ExecutionTrigger
-    ExecutionTrigger,
-    executionTrigger,
+    ExecutionTrigger (..),
+    mkExecutionTrigger,
     etTriggerType,
     etTriggerDetail,
 
     -- * FailureDetails
-    FailureDetails,
-    failureDetails,
+    FailureDetails (..),
+    mkFailureDetails,
     fdExternalExecutionId,
     fdType,
     fdMessage,
 
     -- * InputArtifact
-    InputArtifact,
-    inputArtifact,
+    InputArtifact (..),
+    mkInputArtifact,
     iaName,
 
     -- * Job
-    Job,
-    job,
+    Job (..),
+    mkJob,
     jData,
     jAccountId,
     jId,
     jNonce,
 
     -- * JobData
-    JobData,
-    jobData,
+    JobData (..),
+    mkJobData,
     jdContinuationToken,
     jdOutputArtifacts,
     jdArtifactCredentials,
@@ -327,15 +325,15 @@ module Network.AWS.CodePipeline.Types
     jdActionConfiguration,
 
     -- * JobDetails
-    JobDetails,
-    jobDetails,
+    JobDetails (..),
+    mkJobDetails,
     jdData,
     jdAccountId,
     jdId,
 
     -- * ListWebhookItem
-    ListWebhookItem,
-    listWebhookItem,
+    ListWebhookItem (..),
+    mkListWebhookItem,
     lwiArn,
     lwiErrorCode,
     lwiLastTriggered,
@@ -345,13 +343,13 @@ module Network.AWS.CodePipeline.Types
     lwiUrl,
 
     -- * OutputArtifact
-    OutputArtifact,
-    outputArtifact,
+    OutputArtifact (..),
+    mkOutputArtifact,
     oaName,
 
     -- * PipelineContext
-    PipelineContext,
-    pipelineContext,
+    PipelineContext (..),
+    mkPipelineContext,
     pcStage,
     pcPipelineName,
     pcAction,
@@ -359,8 +357,8 @@ module Network.AWS.CodePipeline.Types
     pcPipelineExecutionId,
 
     -- * PipelineDeclaration
-    PipelineDeclaration,
-    pipelineDeclaration,
+    PipelineDeclaration (..),
+    mkPipelineDeclaration,
     pdArtifactStores,
     pdArtifactStore,
     pdVersion,
@@ -369,8 +367,8 @@ module Network.AWS.CodePipeline.Types
     pdStages,
 
     -- * PipelineExecution
-    PipelineExecution,
-    pipelineExecution,
+    PipelineExecution (..),
+    mkPipelineExecution,
     peStatus,
     pePipelineName,
     pePipelineVersion,
@@ -378,8 +376,8 @@ module Network.AWS.CodePipeline.Types
     peArtifactRevisions,
 
     -- * PipelineExecutionSummary
-    PipelineExecutionSummary,
-    pipelineExecutionSummary,
+    PipelineExecutionSummary (..),
+    mkPipelineExecutionSummary,
     pesStatus,
     pesStartTime,
     pesStopTrigger,
@@ -389,61 +387,61 @@ module Network.AWS.CodePipeline.Types
     pesLastUpdateTime,
 
     -- * PipelineMetadata
-    PipelineMetadata,
-    pipelineMetadata,
+    PipelineMetadata (..),
+    mkPipelineMetadata,
     pmCreated,
     pmPipelineARN,
     pmUpdated,
 
     -- * PipelineSummary
-    PipelineSummary,
-    pipelineSummary,
+    PipelineSummary (..),
+    mkPipelineSummary,
     psCreated,
     psName,
     psVersion,
     psUpdated,
 
     -- * S3ArtifactLocation
-    S3ArtifactLocation,
-    s3ArtifactLocation,
+    S3ArtifactLocation (..),
+    mkS3ArtifactLocation,
     salBucketName,
     salObjectKey,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
 
     -- * SourceRevision
-    SourceRevision,
-    sourceRevision,
+    SourceRevision (..),
+    mkSourceRevision,
     srRevisionSummary,
     srRevisionURL,
     srRevisionId,
     srActionName,
 
     -- * StageContext
-    StageContext,
-    stageContext,
+    StageContext (..),
+    mkStageContext,
     scName,
 
     -- * StageDeclaration
-    StageDeclaration,
-    stageDeclaration,
+    StageDeclaration (..),
+    mkStageDeclaration,
     sdBlockers,
     sdName,
     sdActions,
 
     -- * StageExecution
-    StageExecution,
-    stageExecution,
+    StageExecution (..),
+    mkStageExecution,
     sePipelineExecutionId,
     seStatus,
 
     -- * StageState
-    StageState,
-    stageState,
+    StageState (..),
+    mkStageState,
     ssInboundExecution,
     ssInboundTransitionState,
     ssActionStates,
@@ -451,25 +449,25 @@ module Network.AWS.CodePipeline.Types
     ssLatestExecution,
 
     -- * StopExecutionTrigger
-    StopExecutionTrigger,
-    stopExecutionTrigger,
+    StopExecutionTrigger (..),
+    mkStopExecutionTrigger,
     setReason,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * ThirdPartyJob
-    ThirdPartyJob,
-    thirdPartyJob,
+    ThirdPartyJob (..),
+    mkThirdPartyJob,
     tpjClientId,
     tpjJobId,
 
     -- * ThirdPartyJobData
-    ThirdPartyJobData,
-    thirdPartyJobData,
+    ThirdPartyJobData (..),
+    mkThirdPartyJobData,
     tpjdContinuationToken,
     tpjdOutputArtifacts,
     tpjdArtifactCredentials,
@@ -480,29 +478,29 @@ module Network.AWS.CodePipeline.Types
     tpjdActionConfiguration,
 
     -- * ThirdPartyJobDetails
-    ThirdPartyJobDetails,
-    thirdPartyJobDetails,
+    ThirdPartyJobDetails (..),
+    mkThirdPartyJobDetails,
     tpjdData,
     tpjdId,
     tpjdNonce,
 
     -- * TransitionState
-    TransitionState,
-    transitionState,
+    TransitionState (..),
+    mkTransitionState,
     tsEnabled,
     tsDisabledReason,
     tsLastChangedAt,
     tsLastChangedBy,
 
     -- * WebhookAuthConfiguration
-    WebhookAuthConfiguration,
-    webhookAuthConfiguration,
+    WebhookAuthConfiguration (..),
+    mkWebhookAuthConfiguration,
     wacAllowedIPRange,
     wacSecretToken,
 
     -- * WebhookDefinition
-    WebhookDefinition,
-    webhookDefinition,
+    WebhookDefinition (..),
+    mkWebhookDefinition,
     wdName,
     wdTargetPipeline,
     wdTargetAction,
@@ -511,8 +509,8 @@ module Network.AWS.CodePipeline.Types
     wdAuthenticationConfiguration,
 
     -- * WebhookFilterRule
-    WebhookFilterRule,
-    webhookFilterRule,
+    WebhookFilterRule (..),
+    mkWebhookFilterRule,
     wfrMatchEquals,
     wfrJsonPath,
   )
@@ -593,48 +591,60 @@ import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
 import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
 import Network.AWS.CodePipeline.Types.WebhookDefinition
 import Network.AWS.CodePipeline.Types.WebhookFilterRule
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-07-09@ of the Amazon CodePipeline SDK configuration.
-codePipeline :: Service
-codePipeline =
-  Service
-    { _svcAbbrev = "CodePipeline",
-      _svcSigner = v4,
-      _svcPrefix = "codepipeline",
-      _svcVersion = "2015-07-09",
-      _svcEndpoint = defaultEndpoint codePipeline,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CodePipeline",
-      _svcRetry = retry
+codePipelineService :: Lude.Service
+codePipelineService =
+  Lude.Service
+    { Lude._svcAbbrev = "CodePipeline",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "codepipeline",
+      Lude._svcVersion = "2015-07-09",
+      Lude._svcEndpoint = Lude.defaultEndpoint codePipelineService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CodePipeline",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

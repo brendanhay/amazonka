@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,76 +14,86 @@
 --
 -- Deletes an existing 'VpcLink' of a specified identifier.
 module Network.AWS.APIGateway.DeleteVPCLink
-  ( -- * Creating a Request
-    deleteVPCLink,
-    DeleteVPCLink,
+  ( -- * Creating a request
+    DeleteVPCLink (..),
+    mkDeleteVPCLink,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvlVpcLinkId,
 
-    -- * Destructuring the Response
-    deleteVPCLinkResponse,
-    DeleteVPCLinkResponse,
+    -- * Destructuring the response
+    DeleteVPCLinkResponse (..),
+    mkDeleteVPCLinkResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes an existing 'VpcLink' of a specified identifier.
 --
---
---
--- /See:/ 'deleteVPCLink' smart constructor.
-newtype DeleteVPCLink = DeleteVPCLink' {_dvlVpcLinkId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteVPCLink' smart constructor.
+newtype DeleteVPCLink = DeleteVPCLink' {vpcLinkId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvlVpcLinkId' - [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
-deleteVPCLink ::
-  -- | 'dvlVpcLinkId'
-  Text ->
+-- * 'vpcLinkId' - [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
+mkDeleteVPCLink ::
+  -- | 'vpcLinkId'
+  Lude.Text ->
   DeleteVPCLink
-deleteVPCLink pVpcLinkId_ =
-  DeleteVPCLink' {_dvlVpcLinkId = pVpcLinkId_}
+mkDeleteVPCLink pVpcLinkId_ =
+  DeleteVPCLink' {vpcLinkId = pVpcLinkId_}
 
 -- | [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
-dvlVpcLinkId :: Lens' DeleteVPCLink Text
-dvlVpcLinkId = lens _dvlVpcLinkId (\s a -> s {_dvlVpcLinkId = a})
+--
+-- /Note:/ Consider using 'vpcLinkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvlVpcLinkId :: Lens.Lens' DeleteVPCLink Lude.Text
+dvlVpcLinkId = Lens.lens (vpcLinkId :: DeleteVPCLink -> Lude.Text) (\s a -> s {vpcLinkId = a} :: DeleteVPCLink)
+{-# DEPRECATED dvlVpcLinkId "Use generic-lens or generic-optics with 'vpcLinkId' instead." #-}
 
-instance AWSRequest DeleteVPCLink where
+instance Lude.AWSRequest DeleteVPCLink where
   type Rs DeleteVPCLink = DeleteVPCLinkResponse
-  request = delete apiGateway
-  response = receiveNull DeleteVPCLinkResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteVPCLinkResponse'
 
-instance Hashable DeleteVPCLink
-
-instance NFData DeleteVPCLink
-
-instance ToHeaders DeleteVPCLink where
+instance Lude.ToHeaders DeleteVPCLink where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteVPCLink where
+instance Lude.ToPath DeleteVPCLink where
   toPath DeleteVPCLink' {..} =
-    mconcat ["/vpclinks/", toBS _dvlVpcLinkId]
+    Lude.mconcat ["/vpclinks/", Lude.toBS vpcLinkId]
 
-instance ToQuery DeleteVPCLink where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVPCLink where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteVPCLinkResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPCLinkResponse' smart constructor.
 data DeleteVPCLinkResponse = DeleteVPCLinkResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCLinkResponse' with the minimum fields required to make a request.
-deleteVPCLinkResponse ::
+mkDeleteVPCLinkResponse ::
   DeleteVPCLinkResponse
-deleteVPCLinkResponse = DeleteVPCLinkResponse'
-
-instance NFData DeleteVPCLinkResponse
+mkDeleteVPCLinkResponse = DeleteVPCLinkResponse'

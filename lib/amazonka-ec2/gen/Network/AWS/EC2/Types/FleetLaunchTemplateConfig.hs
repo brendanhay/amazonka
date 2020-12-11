@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetLaunchTemplateConfig where
+module Network.AWS.EC2.Types.FleetLaunchTemplateConfig
+  ( FleetLaunchTemplateConfig (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkFleetLaunchTemplateConfig,
+
+    -- * Lenses
+    fltcOverrides,
+    fltcLaunchTemplateSpecification,
+  )
+where
+
 import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
 import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch template and overrides.
 --
---
---
--- /See:/ 'fleetLaunchTemplateConfig' smart constructor.
+-- /See:/ 'mkFleetLaunchTemplateConfig' smart constructor.
 data FleetLaunchTemplateConfig = FleetLaunchTemplateConfig'
-  { _fltcOverrides ::
-      !(Maybe [FleetLaunchTemplateOverrides]),
-    _fltcLaunchTemplateSpecification ::
-      !( Maybe
-           FleetLaunchTemplateSpecification
-       )
+  { overrides ::
+      Lude.Maybe
+        [FleetLaunchTemplateOverrides],
+    launchTemplateSpecification ::
+      Lude.Maybe
+        FleetLaunchTemplateSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetLaunchTemplateConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fltcOverrides' - Any parameters that you specify override the same parameters in the launch template.
---
--- * 'fltcLaunchTemplateSpecification' - The launch template.
-fleetLaunchTemplateConfig ::
+-- * 'launchTemplateSpecification' - The launch template.
+-- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
+mkFleetLaunchTemplateConfig ::
   FleetLaunchTemplateConfig
-fleetLaunchTemplateConfig =
+mkFleetLaunchTemplateConfig =
   FleetLaunchTemplateConfig'
-    { _fltcOverrides = Nothing,
-      _fltcLaunchTemplateSpecification = Nothing
+    { overrides = Lude.Nothing,
+      launchTemplateSpecification = Lude.Nothing
     }
 
 -- | Any parameters that you specify override the same parameters in the launch template.
-fltcOverrides :: Lens' FleetLaunchTemplateConfig [FleetLaunchTemplateOverrides]
-fltcOverrides = lens _fltcOverrides (\s a -> s {_fltcOverrides = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltcOverrides :: Lens.Lens' FleetLaunchTemplateConfig (Lude.Maybe [FleetLaunchTemplateOverrides])
+fltcOverrides = Lens.lens (overrides :: FleetLaunchTemplateConfig -> Lude.Maybe [FleetLaunchTemplateOverrides]) (\s a -> s {overrides = a} :: FleetLaunchTemplateConfig)
+{-# DEPRECATED fltcOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The launch template.
-fltcLaunchTemplateSpecification :: Lens' FleetLaunchTemplateConfig (Maybe FleetLaunchTemplateSpecification)
-fltcLaunchTemplateSpecification = lens _fltcLaunchTemplateSpecification (\s a -> s {_fltcLaunchTemplateSpecification = a})
+--
+-- /Note:/ Consider using 'launchTemplateSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltcLaunchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfig (Lude.Maybe FleetLaunchTemplateSpecification)
+fltcLaunchTemplateSpecification = Lens.lens (launchTemplateSpecification :: FleetLaunchTemplateConfig -> Lude.Maybe FleetLaunchTemplateSpecification) (\s a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfig)
+{-# DEPRECATED fltcLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
 
-instance FromXML FleetLaunchTemplateConfig where
+instance Lude.FromXML FleetLaunchTemplateConfig where
   parseXML x =
     FleetLaunchTemplateConfig'
-      <$> (x .@? "overrides" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "launchTemplateSpecification")
-
-instance Hashable FleetLaunchTemplateConfig
-
-instance NFData FleetLaunchTemplateConfig
+      Lude.<$> ( x Lude..@? "overrides" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "launchTemplateSpecification")

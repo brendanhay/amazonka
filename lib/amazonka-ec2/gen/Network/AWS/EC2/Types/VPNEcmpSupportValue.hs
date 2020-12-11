@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNEcmpSupportValue where
+module Network.AWS.EC2.Types.VPNEcmpSupportValue
+  ( VPNEcmpSupportValue
+      ( VPNEcmpSupportValue',
+        VESVDisable,
+        VESVEnable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPNEcmpSupportValue
-  = VESVDisable
-  | VESVEnable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPNEcmpSupportValue = VPNEcmpSupportValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPNEcmpSupportValue where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure VESVDisable
-      "enable" -> pure VESVEnable
-      e ->
-        fromTextError $
-          "Failure parsing VPNEcmpSupportValue from value: '" <> e
-            <> "'. Accepted values: disable, enable"
+pattern VESVDisable :: VPNEcmpSupportValue
+pattern VESVDisable = VPNEcmpSupportValue' "disable"
 
-instance ToText VPNEcmpSupportValue where
-  toText = \case
-    VESVDisable -> "disable"
-    VESVEnable -> "enable"
+pattern VESVEnable :: VPNEcmpSupportValue
+pattern VESVEnable = VPNEcmpSupportValue' "enable"
 
-instance Hashable VPNEcmpSupportValue
-
-instance NFData VPNEcmpSupportValue
-
-instance ToByteString VPNEcmpSupportValue
-
-instance ToQuery VPNEcmpSupportValue
-
-instance ToHeader VPNEcmpSupportValue
-
-instance FromXML VPNEcmpSupportValue where
-  parseXML = parseXMLText "VPNEcmpSupportValue"
+{-# COMPLETE
+  VESVDisable,
+  VESVEnable,
+  VPNEcmpSupportValue'
+  #-}

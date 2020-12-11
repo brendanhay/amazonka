@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LastError where
+module Network.AWS.EC2.Types.LastError
+  ( LastError (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLastError,
+
+    -- * Lenses
+    leCode,
+    leMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The last error that occurred for a VPC endpoint.
 --
---
---
--- /See:/ 'lastError' smart constructor.
+-- /See:/ 'mkLastError' smart constructor.
 data LastError = LastError'
-  { _leCode :: !(Maybe Text),
-    _leMessage :: !(Maybe Text)
+  { code :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leCode' - The error code for the VPC endpoint error.
---
--- * 'leMessage' - The error message for the VPC endpoint error.
-lastError ::
+-- * 'code' - The error code for the VPC endpoint error.
+-- * 'message' - The error message for the VPC endpoint error.
+mkLastError ::
   LastError
-lastError = LastError' {_leCode = Nothing, _leMessage = Nothing}
+mkLastError =
+  LastError' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The error code for the VPC endpoint error.
-leCode :: Lens' LastError (Maybe Text)
-leCode = lens _leCode (\s a -> s {_leCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leCode :: Lens.Lens' LastError (Lude.Maybe Lude.Text)
+leCode = Lens.lens (code :: LastError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: LastError)
+{-# DEPRECATED leCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message for the VPC endpoint error.
-leMessage :: Lens' LastError (Maybe Text)
-leMessage = lens _leMessage (\s a -> s {_leMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMessage :: Lens.Lens' LastError (Lude.Maybe Lude.Text)
+leMessage = Lens.lens (message :: LastError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: LastError)
+{-# DEPRECATED leMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML LastError where
-  parseXML x = LastError' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable LastError
-
-instance NFData LastError
+instance Lude.FromXML LastError where
+  parseXML x =
+    LastError'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

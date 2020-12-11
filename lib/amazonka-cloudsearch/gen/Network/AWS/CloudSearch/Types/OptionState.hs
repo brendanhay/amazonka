@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.OptionState where
+module Network.AWS.CloudSearch.Types.OptionState
+  ( OptionState
+      ( OptionState',
+        Active,
+        FailedToValidate,
+        Processing,
+        RequiresIndexDocuments
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The state of processing a change to an option. One of:
 --
 --
---     * RequiresIndexDocuments: The option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * Processing: The option's latest value is in the process of being activated.    * Active: The option's latest value is fully deployed.     * FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
-data OptionState
-  = Active
-  | FailedToValidate
-  | Processing
-  | RequiresIndexDocuments
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+--     * RequiresIndexDocuments: The option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.
+--
+--     * Processing: The option's latest value is in the process of being activated.
+--
+--     * Active: The option's latest value is fully deployed.
+--
+--     * FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+newtype OptionState = OptionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OptionState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "failedtovalidate" -> pure FailedToValidate
-      "processing" -> pure Processing
-      "requiresindexdocuments" -> pure RequiresIndexDocuments
-      e ->
-        fromTextError $
-          "Failure parsing OptionState from value: '" <> e
-            <> "'. Accepted values: active, failedtovalidate, processing, requiresindexdocuments"
+pattern Active :: OptionState
+pattern Active = OptionState' "Active"
 
-instance ToText OptionState where
-  toText = \case
-    Active -> "Active"
-    FailedToValidate -> "FailedToValidate"
-    Processing -> "Processing"
-    RequiresIndexDocuments -> "RequiresIndexDocuments"
+pattern FailedToValidate :: OptionState
+pattern FailedToValidate = OptionState' "FailedToValidate"
 
-instance Hashable OptionState
+pattern Processing :: OptionState
+pattern Processing = OptionState' "Processing"
 
-instance NFData OptionState
+pattern RequiresIndexDocuments :: OptionState
+pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
 
-instance ToByteString OptionState
-
-instance ToQuery OptionState
-
-instance ToHeader OptionState
-
-instance FromXML OptionState where
-  parseXML = parseXMLText "OptionState"
+{-# COMPLETE
+  Active,
+  FailedToValidate,
+  Processing,
+  RequiresIndexDocuments,
+  OptionState'
+  #-}

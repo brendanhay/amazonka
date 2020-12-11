@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about a transform job.
 module Network.AWS.SageMaker.DescribeTransformJob
-  ( -- * Creating a Request
-    describeTransformJob,
-    DescribeTransformJob,
+  ( -- * Creating a request
+    DescribeTransformJob (..),
+    mkDescribeTransformJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtjTransformJobName,
 
-    -- * Destructuring the Response
-    describeTransformJobResponse,
-    DescribeTransformJobResponse,
+    -- * Destructuring the response
+    DescribeTransformJobResponse (..),
+    mkDescribeTransformJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtjrsLabelingJobARN,
     dtjrsFailureReason,
     dtjrsModelClientConfig,
@@ -55,196 +50,193 @@ module Network.AWS.SageMaker.DescribeTransformJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeTransformJob' smart constructor.
+-- | /See:/ 'mkDescribeTransformJob' smart constructor.
 newtype DescribeTransformJob = DescribeTransformJob'
-  { _dtjTransformJobName ::
-      Text
+  { transformJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransformJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtjTransformJobName' - The name of the transform job that you want to view details of.
-describeTransformJob ::
-  -- | 'dtjTransformJobName'
-  Text ->
+-- * 'transformJobName' - The name of the transform job that you want to view details of.
+mkDescribeTransformJob ::
+  -- | 'transformJobName'
+  Lude.Text ->
   DescribeTransformJob
-describeTransformJob pTransformJobName_ =
-  DescribeTransformJob' {_dtjTransformJobName = pTransformJobName_}
+mkDescribeTransformJob pTransformJobName_ =
+  DescribeTransformJob' {transformJobName = pTransformJobName_}
 
 -- | The name of the transform job that you want to view details of.
-dtjTransformJobName :: Lens' DescribeTransformJob Text
-dtjTransformJobName = lens _dtjTransformJobName (\s a -> s {_dtjTransformJobName = a})
+--
+-- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjTransformJobName :: Lens.Lens' DescribeTransformJob Lude.Text
+dtjTransformJobName = Lens.lens (transformJobName :: DescribeTransformJob -> Lude.Text) (\s a -> s {transformJobName = a} :: DescribeTransformJob)
+{-# DEPRECATED dtjTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
 
-instance AWSRequest DescribeTransformJob where
+instance Lude.AWSRequest DescribeTransformJob where
   type Rs DescribeTransformJob = DescribeTransformJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTransformJobResponse'
-            <$> (x .?> "LabelingJobArn")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "ModelClientConfig")
-            <*> (x .?> "BatchStrategy")
-            <*> (x .?> "MaxPayloadInMB")
-            <*> (x .?> "Environment" .!@ mempty)
-            <*> (x .?> "ExperimentConfig")
-            <*> (x .?> "TransformEndTime")
-            <*> (x .?> "TransformStartTime")
-            <*> (x .?> "AutoMLJobArn")
-            <*> (x .?> "MaxConcurrentTransforms")
-            <*> (x .?> "TransformOutput")
-            <*> (x .?> "DataProcessing")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "TransformJobName")
-            <*> (x .:> "TransformJobArn")
-            <*> (x .:> "TransformJobStatus")
-            <*> (x .:> "ModelName")
-            <*> (x .:> "TransformInput")
-            <*> (x .:> "TransformResources")
-            <*> (x .:> "CreationTime")
+            Lude.<$> (x Lude..?> "LabelingJobArn")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "ModelClientConfig")
+            Lude.<*> (x Lude..?> "BatchStrategy")
+            Lude.<*> (x Lude..?> "MaxPayloadInMB")
+            Lude.<*> (x Lude..?> "Environment" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ExperimentConfig")
+            Lude.<*> (x Lude..?> "TransformEndTime")
+            Lude.<*> (x Lude..?> "TransformStartTime")
+            Lude.<*> (x Lude..?> "AutoMLJobArn")
+            Lude.<*> (x Lude..?> "MaxConcurrentTransforms")
+            Lude.<*> (x Lude..?> "TransformOutput")
+            Lude.<*> (x Lude..?> "DataProcessing")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "TransformJobName")
+            Lude.<*> (x Lude..:> "TransformJobArn")
+            Lude.<*> (x Lude..:> "TransformJobStatus")
+            Lude.<*> (x Lude..:> "ModelName")
+            Lude.<*> (x Lude..:> "TransformInput")
+            Lude.<*> (x Lude..:> "TransformResources")
+            Lude.<*> (x Lude..:> "CreationTime")
       )
 
-instance Hashable DescribeTransformJob
-
-instance NFData DescribeTransformJob
-
-instance ToHeaders DescribeTransformJob where
+instance Lude.ToHeaders DescribeTransformJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeTransformJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeTransformJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTransformJob where
+instance Lude.ToJSON DescribeTransformJob where
   toJSON DescribeTransformJob' {..} =
-    object
-      (catMaybes [Just ("TransformJobName" .= _dtjTransformJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("TransformJobName" Lude..= transformJobName)]
+      )
 
-instance ToPath DescribeTransformJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeTransformJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTransformJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTransformJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTransformJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeTransformJobResponse' smart constructor.
 data DescribeTransformJobResponse = DescribeTransformJobResponse'
-  { _dtjrsLabelingJobARN ::
-      !(Maybe Text),
-    _dtjrsFailureReason ::
-      !(Maybe Text),
-    _dtjrsModelClientConfig ::
-      !(Maybe ModelClientConfig),
-    _dtjrsBatchStrategy ::
-      !(Maybe BatchStrategy),
-    _dtjrsMaxPayloadInMB ::
-      !(Maybe Nat),
-    _dtjrsEnvironment ::
-      !(Maybe (Map Text (Text))),
-    _dtjrsExperimentConfig ::
-      !(Maybe ExperimentConfig),
-    _dtjrsTransformEndTime ::
-      !(Maybe POSIX),
-    _dtjrsTransformStartTime ::
-      !(Maybe POSIX),
-    _dtjrsAutoMLJobARN ::
-      !(Maybe Text),
-    _dtjrsMaxConcurrentTransforms ::
-      !(Maybe Nat),
-    _dtjrsTransformOutput ::
-      !(Maybe TransformOutput),
-    _dtjrsDataProcessing ::
-      !(Maybe DataProcessing),
-    _dtjrsResponseStatus :: !Int,
-    _dtjrsTransformJobName :: !Text,
-    _dtjrsTransformJobARN :: !Text,
-    _dtjrsTransformJobStatus ::
-      !TransformJobStatus,
-    _dtjrsModelName :: !Text,
-    _dtjrsTransformInput ::
-      !TransformInput,
-    _dtjrsTransformResources ::
-      !TransformResources,
-    _dtjrsCreationTime :: !POSIX
+  { labelingJobARN ::
+      Lude.Maybe Lude.Text,
+    failureReason ::
+      Lude.Maybe Lude.Text,
+    modelClientConfig ::
+      Lude.Maybe ModelClientConfig,
+    batchStrategy ::
+      Lude.Maybe BatchStrategy,
+    maxPayloadInMB ::
+      Lude.Maybe Lude.Natural,
+    environment ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    experimentConfig ::
+      Lude.Maybe ExperimentConfig,
+    transformEndTime ::
+      Lude.Maybe Lude.Timestamp,
+    transformStartTime ::
+      Lude.Maybe Lude.Timestamp,
+    autoMLJobARN ::
+      Lude.Maybe Lude.Text,
+    maxConcurrentTransforms ::
+      Lude.Maybe Lude.Natural,
+    transformOutput ::
+      Lude.Maybe TransformOutput,
+    dataProcessing ::
+      Lude.Maybe DataProcessing,
+    responseStatus :: Lude.Int,
+    transformJobName :: Lude.Text,
+    transformJobARN :: Lude.Text,
+    transformJobStatus ::
+      TransformJobStatus,
+    modelName :: Lude.Text,
+    transformInput :: TransformInput,
+    transformResources ::
+      TransformResources,
+    creationTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransformJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML transform job.
+-- * 'batchStrategy' - Specifies the number of records to include in a mini-batch for an HTTP inference request. A /record/ // is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
 --
--- * 'dtjrsLabelingJobARN' - The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or training job.
---
--- * 'dtjrsFailureReason' - If the transform job failed, @FailureReason@ describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html Log Amazon SageMaker Events with Amazon CloudWatch> .
---
--- * 'dtjrsModelClientConfig' - The timeout and maximum number of retries for processing a transform job invocation.
---
--- * 'dtjrsBatchStrategy' - Specifies the number of records to include in a mini-batch for an HTTP inference request. A /record/ // is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.  To enable the batch strategy, you must set @SplitType@ to @Line@ , @RecordIO@ , or @TFRecord@ .
---
--- * 'dtjrsMaxPayloadInMB' - The maximum payload size, in MB, used in the transform job.
---
--- * 'dtjrsEnvironment' - The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
---
--- * 'dtjrsExperimentConfig' - Undocumented member.
---
--- * 'dtjrsTransformEndTime' - Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
---
--- * 'dtjrsTransformStartTime' - Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
---
--- * 'dtjrsAutoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML transform job.
---
--- * 'dtjrsMaxConcurrentTransforms' - The maximum number of parallel requests on each instance node that can be launched in a transform job. The default value is 1.
---
--- * 'dtjrsTransformOutput' - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
---
--- * 'dtjrsDataProcessing' - Undocumented member.
---
--- * 'dtjrsResponseStatus' - -- | The response status code.
---
--- * 'dtjrsTransformJobName' - The name of the transform job.
---
--- * 'dtjrsTransformJobARN' - The Amazon Resource Name (ARN) of the transform job.
---
--- * 'dtjrsTransformJobStatus' - The status of the transform job. If the transform job failed, the reason is returned in the @FailureReason@ field.
---
--- * 'dtjrsModelName' - The name of the model used in the transform job.
---
--- * 'dtjrsTransformInput' - Describes the dataset to be transformed and the Amazon S3 location where it is stored.
---
--- * 'dtjrsTransformResources' - Describes the resources, including ML instance types and ML instance count, to use for the transform job.
---
--- * 'dtjrsCreationTime' - A timestamp that shows when the transform Job was created.
-describeTransformJobResponse ::
-  -- | 'dtjrsResponseStatus'
-  Int ->
-  -- | 'dtjrsTransformJobName'
-  Text ->
-  -- | 'dtjrsTransformJobARN'
-  Text ->
-  -- | 'dtjrsTransformJobStatus'
+-- To enable the batch strategy, you must set @SplitType@ to @Line@ , @RecordIO@ , or @TFRecord@ .
+-- * 'creationTime' - A timestamp that shows when the transform Job was created.
+-- * 'dataProcessing' - Undocumented field.
+-- * 'environment' - The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+-- * 'experimentConfig' - Undocumented field.
+-- * 'failureReason' - If the transform job failed, @FailureReason@ describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html Log Amazon SageMaker Events with Amazon CloudWatch> .
+-- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or training job.
+-- * 'maxConcurrentTransforms' - The maximum number of parallel requests on each instance node that can be launched in a transform job. The default value is 1.
+-- * 'maxPayloadInMB' - The maximum payload size, in MB, used in the transform job.
+-- * 'modelClientConfig' - The timeout and maximum number of retries for processing a transform job invocation.
+-- * 'modelName' - The name of the model used in the transform job.
+-- * 'responseStatus' - The response status code.
+-- * 'transformEndTime' - Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
+-- * 'transformInput' - Describes the dataset to be transformed and the Amazon S3 location where it is stored.
+-- * 'transformJobARN' - The Amazon Resource Name (ARN) of the transform job.
+-- * 'transformJobName' - The name of the transform job.
+-- * 'transformJobStatus' - The status of the transform job. If the transform job failed, the reason is returned in the @FailureReason@ field.
+-- * 'transformOutput' - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+-- * 'transformResources' - Describes the resources, including ML instance types and ML instance count, to use for the transform job.
+-- * 'transformStartTime' - Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
+mkDescribeTransformJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'transformJobName'
+  Lude.Text ->
+  -- | 'transformJobARN'
+  Lude.Text ->
+  -- | 'transformJobStatus'
   TransformJobStatus ->
-  -- | 'dtjrsModelName'
-  Text ->
-  -- | 'dtjrsTransformInput'
+  -- | 'modelName'
+  Lude.Text ->
+  -- | 'transformInput'
   TransformInput ->
-  -- | 'dtjrsTransformResources'
+  -- | 'transformResources'
   TransformResources ->
-  -- | 'dtjrsCreationTime'
-  UTCTime ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
   DescribeTransformJobResponse
-describeTransformJobResponse
+mkDescribeTransformJobResponse
   pResponseStatus_
   pTransformJobName_
   pTransformJobARN_
@@ -254,111 +246,174 @@ describeTransformJobResponse
   pTransformResources_
   pCreationTime_ =
     DescribeTransformJobResponse'
-      { _dtjrsLabelingJobARN = Nothing,
-        _dtjrsFailureReason = Nothing,
-        _dtjrsModelClientConfig = Nothing,
-        _dtjrsBatchStrategy = Nothing,
-        _dtjrsMaxPayloadInMB = Nothing,
-        _dtjrsEnvironment = Nothing,
-        _dtjrsExperimentConfig = Nothing,
-        _dtjrsTransformEndTime = Nothing,
-        _dtjrsTransformStartTime = Nothing,
-        _dtjrsAutoMLJobARN = Nothing,
-        _dtjrsMaxConcurrentTransforms = Nothing,
-        _dtjrsTransformOutput = Nothing,
-        _dtjrsDataProcessing = Nothing,
-        _dtjrsResponseStatus = pResponseStatus_,
-        _dtjrsTransformJobName = pTransformJobName_,
-        _dtjrsTransformJobARN = pTransformJobARN_,
-        _dtjrsTransformJobStatus = pTransformJobStatus_,
-        _dtjrsModelName = pModelName_,
-        _dtjrsTransformInput = pTransformInput_,
-        _dtjrsTransformResources = pTransformResources_,
-        _dtjrsCreationTime = _Time # pCreationTime_
+      { labelingJobARN = Lude.Nothing,
+        failureReason = Lude.Nothing,
+        modelClientConfig = Lude.Nothing,
+        batchStrategy = Lude.Nothing,
+        maxPayloadInMB = Lude.Nothing,
+        environment = Lude.Nothing,
+        experimentConfig = Lude.Nothing,
+        transformEndTime = Lude.Nothing,
+        transformStartTime = Lude.Nothing,
+        autoMLJobARN = Lude.Nothing,
+        maxConcurrentTransforms = Lude.Nothing,
+        transformOutput = Lude.Nothing,
+        dataProcessing = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        transformJobName = pTransformJobName_,
+        transformJobARN = pTransformJobARN_,
+        transformJobStatus = pTransformJobStatus_,
+        modelName = pModelName_,
+        transformInput = pTransformInput_,
+        transformResources = pTransformResources_,
+        creationTime = pCreationTime_
       }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling job that created the transform or training job.
-dtjrsLabelingJobARN :: Lens' DescribeTransformJobResponse (Maybe Text)
-dtjrsLabelingJobARN = lens _dtjrsLabelingJobARN (\s a -> s {_dtjrsLabelingJobARN = a})
+--
+-- /Note:/ Consider using 'labelingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsLabelingJobARN :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Text)
+dtjrsLabelingJobARN = Lens.lens (labelingJobARN :: DescribeTransformJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {labelingJobARN = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsLabelingJobARN "Use generic-lens or generic-optics with 'labelingJobARN' instead." #-}
 
 -- | If the transform job failed, @FailureReason@ describes why it failed. A transform job creates a log file, which includes error messages, and stores it as an Amazon S3 object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html Log Amazon SageMaker Events with Amazon CloudWatch> .
-dtjrsFailureReason :: Lens' DescribeTransformJobResponse (Maybe Text)
-dtjrsFailureReason = lens _dtjrsFailureReason (\s a -> s {_dtjrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsFailureReason :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Text)
+dtjrsFailureReason = Lens.lens (failureReason :: DescribeTransformJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The timeout and maximum number of retries for processing a transform job invocation.
-dtjrsModelClientConfig :: Lens' DescribeTransformJobResponse (Maybe ModelClientConfig)
-dtjrsModelClientConfig = lens _dtjrsModelClientConfig (\s a -> s {_dtjrsModelClientConfig = a})
+--
+-- /Note:/ Consider using 'modelClientConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsModelClientConfig :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe ModelClientConfig)
+dtjrsModelClientConfig = Lens.lens (modelClientConfig :: DescribeTransformJobResponse -> Lude.Maybe ModelClientConfig) (\s a -> s {modelClientConfig = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsModelClientConfig "Use generic-lens or generic-optics with 'modelClientConfig' instead." #-}
 
--- | Specifies the number of records to include in a mini-batch for an HTTP inference request. A /record/ // is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.  To enable the batch strategy, you must set @SplitType@ to @Line@ , @RecordIO@ , or @TFRecord@ .
-dtjrsBatchStrategy :: Lens' DescribeTransformJobResponse (Maybe BatchStrategy)
-dtjrsBatchStrategy = lens _dtjrsBatchStrategy (\s a -> s {_dtjrsBatchStrategy = a})
+-- | Specifies the number of records to include in a mini-batch for an HTTP inference request. A /record/ // is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
+--
+-- To enable the batch strategy, you must set @SplitType@ to @Line@ , @RecordIO@ , or @TFRecord@ .
+--
+-- /Note:/ Consider using 'batchStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsBatchStrategy :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe BatchStrategy)
+dtjrsBatchStrategy = Lens.lens (batchStrategy :: DescribeTransformJobResponse -> Lude.Maybe BatchStrategy) (\s a -> s {batchStrategy = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsBatchStrategy "Use generic-lens or generic-optics with 'batchStrategy' instead." #-}
 
 -- | The maximum payload size, in MB, used in the transform job.
-dtjrsMaxPayloadInMB :: Lens' DescribeTransformJobResponse (Maybe Natural)
-dtjrsMaxPayloadInMB = lens _dtjrsMaxPayloadInMB (\s a -> s {_dtjrsMaxPayloadInMB = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxPayloadInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsMaxPayloadInMB :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Natural)
+dtjrsMaxPayloadInMB = Lens.lens (maxPayloadInMB :: DescribeTransformJobResponse -> Lude.Maybe Lude.Natural) (\s a -> s {maxPayloadInMB = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsMaxPayloadInMB "Use generic-lens or generic-optics with 'maxPayloadInMB' instead." #-}
 
 -- | The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
-dtjrsEnvironment :: Lens' DescribeTransformJobResponse (HashMap Text (Text))
-dtjrsEnvironment = lens _dtjrsEnvironment (\s a -> s {_dtjrsEnvironment = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsEnvironment :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dtjrsEnvironment = Lens.lens (environment :: DescribeTransformJobResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
--- | Undocumented member.
-dtjrsExperimentConfig :: Lens' DescribeTransformJobResponse (Maybe ExperimentConfig)
-dtjrsExperimentConfig = lens _dtjrsExperimentConfig (\s a -> s {_dtjrsExperimentConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsExperimentConfig :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe ExperimentConfig)
+dtjrsExperimentConfig = Lens.lens (experimentConfig :: DescribeTransformJobResponse -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
 
 -- | Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
-dtjrsTransformEndTime :: Lens' DescribeTransformJobResponse (Maybe UTCTime)
-dtjrsTransformEndTime = lens _dtjrsTransformEndTime (\s a -> s {_dtjrsTransformEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'transformEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformEndTime :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Timestamp)
+dtjrsTransformEndTime = Lens.lens (transformEndTime :: DescribeTransformJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {transformEndTime = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformEndTime "Use generic-lens or generic-optics with 'transformEndTime' instead." #-}
 
 -- | Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
-dtjrsTransformStartTime :: Lens' DescribeTransformJobResponse (Maybe UTCTime)
-dtjrsTransformStartTime = lens _dtjrsTransformStartTime (\s a -> s {_dtjrsTransformStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'transformStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformStartTime :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Timestamp)
+dtjrsTransformStartTime = Lens.lens (transformStartTime :: DescribeTransformJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {transformStartTime = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformStartTime "Use generic-lens or generic-optics with 'transformStartTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AutoML transform job.
-dtjrsAutoMLJobARN :: Lens' DescribeTransformJobResponse (Maybe Text)
-dtjrsAutoMLJobARN = lens _dtjrsAutoMLJobARN (\s a -> s {_dtjrsAutoMLJobARN = a})
+--
+-- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsAutoMLJobARN :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Text)
+dtjrsAutoMLJobARN = Lens.lens (autoMLJobARN :: DescribeTransformJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {autoMLJobARN = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
 
 -- | The maximum number of parallel requests on each instance node that can be launched in a transform job. The default value is 1.
-dtjrsMaxConcurrentTransforms :: Lens' DescribeTransformJobResponse (Maybe Natural)
-dtjrsMaxConcurrentTransforms = lens _dtjrsMaxConcurrentTransforms (\s a -> s {_dtjrsMaxConcurrentTransforms = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxConcurrentTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsMaxConcurrentTransforms :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe Lude.Natural)
+dtjrsMaxConcurrentTransforms = Lens.lens (maxConcurrentTransforms :: DescribeTransformJobResponse -> Lude.Maybe Lude.Natural) (\s a -> s {maxConcurrentTransforms = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsMaxConcurrentTransforms "Use generic-lens or generic-optics with 'maxConcurrentTransforms' instead." #-}
 
 -- | Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
-dtjrsTransformOutput :: Lens' DescribeTransformJobResponse (Maybe TransformOutput)
-dtjrsTransformOutput = lens _dtjrsTransformOutput (\s a -> s {_dtjrsTransformOutput = a})
+--
+-- /Note:/ Consider using 'transformOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformOutput :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe TransformOutput)
+dtjrsTransformOutput = Lens.lens (transformOutput :: DescribeTransformJobResponse -> Lude.Maybe TransformOutput) (\s a -> s {transformOutput = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformOutput "Use generic-lens or generic-optics with 'transformOutput' instead." #-}
 
--- | Undocumented member.
-dtjrsDataProcessing :: Lens' DescribeTransformJobResponse (Maybe DataProcessing)
-dtjrsDataProcessing = lens _dtjrsDataProcessing (\s a -> s {_dtjrsDataProcessing = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dataProcessing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsDataProcessing :: Lens.Lens' DescribeTransformJobResponse (Lude.Maybe DataProcessing)
+dtjrsDataProcessing = Lens.lens (dataProcessing :: DescribeTransformJobResponse -> Lude.Maybe DataProcessing) (\s a -> s {dataProcessing = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsDataProcessing "Use generic-lens or generic-optics with 'dataProcessing' instead." #-}
 
--- | -- | The response status code.
-dtjrsResponseStatus :: Lens' DescribeTransformJobResponse Int
-dtjrsResponseStatus = lens _dtjrsResponseStatus (\s a -> s {_dtjrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsResponseStatus :: Lens.Lens' DescribeTransformJobResponse Lude.Int
+dtjrsResponseStatus = Lens.lens (responseStatus :: DescribeTransformJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the transform job.
-dtjrsTransformJobName :: Lens' DescribeTransformJobResponse Text
-dtjrsTransformJobName = lens _dtjrsTransformJobName (\s a -> s {_dtjrsTransformJobName = a})
+--
+-- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformJobName :: Lens.Lens' DescribeTransformJobResponse Lude.Text
+dtjrsTransformJobName = Lens.lens (transformJobName :: DescribeTransformJobResponse -> Lude.Text) (\s a -> s {transformJobName = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the transform job.
-dtjrsTransformJobARN :: Lens' DescribeTransformJobResponse Text
-dtjrsTransformJobARN = lens _dtjrsTransformJobARN (\s a -> s {_dtjrsTransformJobARN = a})
+--
+-- /Note:/ Consider using 'transformJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformJobARN :: Lens.Lens' DescribeTransformJobResponse Lude.Text
+dtjrsTransformJobARN = Lens.lens (transformJobARN :: DescribeTransformJobResponse -> Lude.Text) (\s a -> s {transformJobARN = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformJobARN "Use generic-lens or generic-optics with 'transformJobARN' instead." #-}
 
 -- | The status of the transform job. If the transform job failed, the reason is returned in the @FailureReason@ field.
-dtjrsTransformJobStatus :: Lens' DescribeTransformJobResponse TransformJobStatus
-dtjrsTransformJobStatus = lens _dtjrsTransformJobStatus (\s a -> s {_dtjrsTransformJobStatus = a})
+--
+-- /Note:/ Consider using 'transformJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformJobStatus :: Lens.Lens' DescribeTransformJobResponse TransformJobStatus
+dtjrsTransformJobStatus = Lens.lens (transformJobStatus :: DescribeTransformJobResponse -> TransformJobStatus) (\s a -> s {transformJobStatus = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformJobStatus "Use generic-lens or generic-optics with 'transformJobStatus' instead." #-}
 
 -- | The name of the model used in the transform job.
-dtjrsModelName :: Lens' DescribeTransformJobResponse Text
-dtjrsModelName = lens _dtjrsModelName (\s a -> s {_dtjrsModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsModelName :: Lens.Lens' DescribeTransformJobResponse Lude.Text
+dtjrsModelName = Lens.lens (modelName :: DescribeTransformJobResponse -> Lude.Text) (\s a -> s {modelName = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | Describes the dataset to be transformed and the Amazon S3 location where it is stored.
-dtjrsTransformInput :: Lens' DescribeTransformJobResponse TransformInput
-dtjrsTransformInput = lens _dtjrsTransformInput (\s a -> s {_dtjrsTransformInput = a})
+--
+-- /Note:/ Consider using 'transformInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformInput :: Lens.Lens' DescribeTransformJobResponse TransformInput
+dtjrsTransformInput = Lens.lens (transformInput :: DescribeTransformJobResponse -> TransformInput) (\s a -> s {transformInput = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformInput "Use generic-lens or generic-optics with 'transformInput' instead." #-}
 
 -- | Describes the resources, including ML instance types and ML instance count, to use for the transform job.
-dtjrsTransformResources :: Lens' DescribeTransformJobResponse TransformResources
-dtjrsTransformResources = lens _dtjrsTransformResources (\s a -> s {_dtjrsTransformResources = a})
+--
+-- /Note:/ Consider using 'transformResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsTransformResources :: Lens.Lens' DescribeTransformJobResponse TransformResources
+dtjrsTransformResources = Lens.lens (transformResources :: DescribeTransformJobResponse -> TransformResources) (\s a -> s {transformResources = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsTransformResources "Use generic-lens or generic-optics with 'transformResources' instead." #-}
 
 -- | A timestamp that shows when the transform Job was created.
-dtjrsCreationTime :: Lens' DescribeTransformJobResponse UTCTime
-dtjrsCreationTime = lens _dtjrsCreationTime (\s a -> s {_dtjrsCreationTime = a}) . _Time
-
-instance NFData DescribeTransformJobResponse
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtjrsCreationTime :: Lens.Lens' DescribeTransformJobResponse Lude.Timestamp
+dtjrsCreationTime = Lens.lens (creationTime :: DescribeTransformJobResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeTransformJobResponse)
+{-# DEPRECATED dtjrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}

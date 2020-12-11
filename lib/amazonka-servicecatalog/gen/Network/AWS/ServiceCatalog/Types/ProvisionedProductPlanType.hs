@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType where
+module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
+  ( ProvisionedProductPlanType
+      ( ProvisionedProductPlanType',
+        Cloudformation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisionedProductPlanType = Cloudformation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisionedProductPlanType = ProvisionedProductPlanType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisionedProductPlanType where
-  parser =
-    takeLowerText >>= \case
-      "cloudformation" -> pure Cloudformation
-      e ->
-        fromTextError $
-          "Failure parsing ProvisionedProductPlanType from value: '" <> e
-            <> "'. Accepted values: cloudformation"
+pattern Cloudformation :: ProvisionedProductPlanType
+pattern Cloudformation = ProvisionedProductPlanType' "CLOUDFORMATION"
 
-instance ToText ProvisionedProductPlanType where
-  toText = \case
-    Cloudformation -> "CLOUDFORMATION"
-
-instance Hashable ProvisionedProductPlanType
-
-instance NFData ProvisionedProductPlanType
-
-instance ToByteString ProvisionedProductPlanType
-
-instance ToQuery ProvisionedProductPlanType
-
-instance ToHeader ProvisionedProductPlanType
-
-instance ToJSON ProvisionedProductPlanType where
-  toJSON = toJSONText
-
-instance FromJSON ProvisionedProductPlanType where
-  parseJSON = parseJSONText "ProvisionedProductPlanType"
+{-# COMPLETE
+  Cloudformation,
+  ProvisionedProductPlanType'
+  #-}

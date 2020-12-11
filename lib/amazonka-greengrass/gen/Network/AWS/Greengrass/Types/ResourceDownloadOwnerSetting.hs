@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting where
+module Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
+  ( ResourceDownloadOwnerSetting (..),
+
+    -- * Smart constructor
+    mkResourceDownloadOwnerSetting,
+
+    -- * Lenses
+    rdosGroupOwner,
+    rdosGroupPermission,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Permission
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The owner setting for downloaded machine learning resources.
 --
--- /See:/ 'resourceDownloadOwnerSetting' smart constructor.
+-- /See:/ 'mkResourceDownloadOwnerSetting' smart constructor.
 data ResourceDownloadOwnerSetting = ResourceDownloadOwnerSetting'
-  { _rdosGroupOwner ::
-      !Text,
-    _rdosGroupPermission ::
-      !Permission
+  { groupOwner ::
+      Lude.Text,
+    groupPermission :: Permission
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDownloadOwnerSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdosGroupOwner' - The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
---
--- * 'rdosGroupPermission' - The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
-resourceDownloadOwnerSetting ::
-  -- | 'rdosGroupOwner'
-  Text ->
-  -- | 'rdosGroupPermission'
+-- * 'groupOwner' - The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
+-- * 'groupPermission' - The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
+mkResourceDownloadOwnerSetting ::
+  -- | 'groupOwner'
+  Lude.Text ->
+  -- | 'groupPermission'
   Permission ->
   ResourceDownloadOwnerSetting
-resourceDownloadOwnerSetting pGroupOwner_ pGroupPermission_ =
+mkResourceDownloadOwnerSetting pGroupOwner_ pGroupPermission_ =
   ResourceDownloadOwnerSetting'
-    { _rdosGroupOwner = pGroupOwner_,
-      _rdosGroupPermission = pGroupPermission_
+    { groupOwner = pGroupOwner_,
+      groupPermission = pGroupPermission_
     }
 
 -- | The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
-rdosGroupOwner :: Lens' ResourceDownloadOwnerSetting Text
-rdosGroupOwner = lens _rdosGroupOwner (\s a -> s {_rdosGroupOwner = a})
+--
+-- /Note:/ Consider using 'groupOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdosGroupOwner :: Lens.Lens' ResourceDownloadOwnerSetting Lude.Text
+rdosGroupOwner = Lens.lens (groupOwner :: ResourceDownloadOwnerSetting -> Lude.Text) (\s a -> s {groupOwner = a} :: ResourceDownloadOwnerSetting)
+{-# DEPRECATED rdosGroupOwner "Use generic-lens or generic-optics with 'groupOwner' instead." #-}
 
 -- | The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
-rdosGroupPermission :: Lens' ResourceDownloadOwnerSetting Permission
-rdosGroupPermission = lens _rdosGroupPermission (\s a -> s {_rdosGroupPermission = a})
+--
+-- /Note:/ Consider using 'groupPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdosGroupPermission :: Lens.Lens' ResourceDownloadOwnerSetting Permission
+rdosGroupPermission = Lens.lens (groupPermission :: ResourceDownloadOwnerSetting -> Permission) (\s a -> s {groupPermission = a} :: ResourceDownloadOwnerSetting)
+{-# DEPRECATED rdosGroupPermission "Use generic-lens or generic-optics with 'groupPermission' instead." #-}
 
-instance FromJSON ResourceDownloadOwnerSetting where
+instance Lude.FromJSON ResourceDownloadOwnerSetting where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDownloadOwnerSetting"
       ( \x ->
           ResourceDownloadOwnerSetting'
-            <$> (x .: "GroupOwner") <*> (x .: "GroupPermission")
+            Lude.<$> (x Lude..: "GroupOwner") Lude.<*> (x Lude..: "GroupPermission")
       )
 
-instance Hashable ResourceDownloadOwnerSetting
-
-instance NFData ResourceDownloadOwnerSetting
-
-instance ToJSON ResourceDownloadOwnerSetting where
+instance Lude.ToJSON ResourceDownloadOwnerSetting where
   toJSON ResourceDownloadOwnerSetting' {..} =
-    object
-      ( catMaybes
-          [ Just ("GroupOwner" .= _rdosGroupOwner),
-            Just ("GroupPermission" .= _rdosGroupPermission)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GroupOwner" Lude..= groupOwner),
+            Lude.Just ("GroupPermission" Lude..= groupPermission)
           ]
       )

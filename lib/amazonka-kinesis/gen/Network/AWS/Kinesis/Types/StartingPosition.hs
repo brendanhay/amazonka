@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.StartingPosition where
+module Network.AWS.Kinesis.Types.StartingPosition
+  ( StartingPosition (..),
+
+    -- * Smart constructor
+    mkStartingPosition,
+
+    -- * Lenses
+    spSequenceNumber,
+    spTimestamp,
+    spType,
+  )
+where
 
 import Network.AWS.Kinesis.Types.ShardIteratorType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- |
 --
---
---
--- /See:/ 'startingPosition' smart constructor.
+-- /See:/ 'mkStartingPosition' smart constructor.
 data StartingPosition = StartingPosition'
-  { _spSequenceNumber ::
-      !(Maybe Text),
-    _spTimestamp :: !(Maybe POSIX),
-    _spType :: !ShardIteratorType
+  { sequenceNumber ::
+      Lude.Maybe Lude.Text,
+    timestamp :: Lude.Maybe Lude.Timestamp,
+    type' :: ShardIteratorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartingPosition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sequenceNumber' - The sequence number of the data record in the shard from which to start streaming. To specify a sequence number, set @StartingPosition@ to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ .
+-- * 'timestamp' - The time stamp of the data record from which to start reading. To specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@ . A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, records will be streamed from the next (later) record. If the time stamp is older than the current trim horizon, records will be streamed from the oldest untrimmed data record (@TRIM_HORIZON@ ).
+-- * 'type'' - You can set the starting position to one of the following values:
 --
--- * 'spSequenceNumber' - The sequence number of the data record in the shard from which to start streaming. To specify a sequence number, set @StartingPosition@ to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ .
---
--- * 'spTimestamp' - The time stamp of the data record from which to start reading. To specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@ . A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, records will be streamed from the next (later) record. If the time stamp is older than the current trim horizon, records will be streamed from the oldest untrimmed data record (@TRIM_HORIZON@ ).
---
--- * 'spType' - You can set the starting position to one of the following values: @AT_SEQUENCE_NUMBER@ : Start streaming from the position denoted by the sequence number specified in the @SequenceNumber@ field. @AFTER_SEQUENCE_NUMBER@ : Start streaming right after the position denoted by the sequence number specified in the @SequenceNumber@ field. @AT_TIMESTAMP@ : Start streaming from the position denoted by the time stamp specified in the @Timestamp@ field. @TRIM_HORIZON@ : Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard. @LATEST@ : Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.
-startingPosition ::
-  -- | 'spType'
+-- @AT_SEQUENCE_NUMBER@ : Start streaming from the position denoted by the sequence number specified in the @SequenceNumber@ field.
+-- @AFTER_SEQUENCE_NUMBER@ : Start streaming right after the position denoted by the sequence number specified in the @SequenceNumber@ field.
+-- @AT_TIMESTAMP@ : Start streaming from the position denoted by the time stamp specified in the @Timestamp@ field.
+-- @TRIM_HORIZON@ : Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard.
+-- @LATEST@ : Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.
+mkStartingPosition ::
+  -- | 'type''
   ShardIteratorType ->
   StartingPosition
-startingPosition pType_ =
+mkStartingPosition pType_ =
   StartingPosition'
-    { _spSequenceNumber = Nothing,
-      _spTimestamp = Nothing,
-      _spType = pType_
+    { sequenceNumber = Lude.Nothing,
+      timestamp = Lude.Nothing,
+      type' = pType_
     }
 
 -- | The sequence number of the data record in the shard from which to start streaming. To specify a sequence number, set @StartingPosition@ to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ .
-spSequenceNumber :: Lens' StartingPosition (Maybe Text)
-spSequenceNumber = lens _spSequenceNumber (\s a -> s {_spSequenceNumber = a})
+--
+-- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spSequenceNumber :: Lens.Lens' StartingPosition (Lude.Maybe Lude.Text)
+spSequenceNumber = Lens.lens (sequenceNumber :: StartingPosition -> Lude.Maybe Lude.Text) (\s a -> s {sequenceNumber = a} :: StartingPosition)
+{-# DEPRECATED spSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The time stamp of the data record from which to start reading. To specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@ . A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, records will be streamed from the next (later) record. If the time stamp is older than the current trim horizon, records will be streamed from the oldest untrimmed data record (@TRIM_HORIZON@ ).
-spTimestamp :: Lens' StartingPosition (Maybe UTCTime)
-spTimestamp = lens _spTimestamp (\s a -> s {_spTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spTimestamp :: Lens.Lens' StartingPosition (Lude.Maybe Lude.Timestamp)
+spTimestamp = Lens.lens (timestamp :: StartingPosition -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: StartingPosition)
+{-# DEPRECATED spTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | You can set the starting position to one of the following values: @AT_SEQUENCE_NUMBER@ : Start streaming from the position denoted by the sequence number specified in the @SequenceNumber@ field. @AFTER_SEQUENCE_NUMBER@ : Start streaming right after the position denoted by the sequence number specified in the @SequenceNumber@ field. @AT_TIMESTAMP@ : Start streaming from the position denoted by the time stamp specified in the @Timestamp@ field. @TRIM_HORIZON@ : Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard. @LATEST@ : Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.
-spType :: Lens' StartingPosition ShardIteratorType
-spType = lens _spType (\s a -> s {_spType = a})
+-- | You can set the starting position to one of the following values:
+--
+-- @AT_SEQUENCE_NUMBER@ : Start streaming from the position denoted by the sequence number specified in the @SequenceNumber@ field.
+-- @AFTER_SEQUENCE_NUMBER@ : Start streaming right after the position denoted by the sequence number specified in the @SequenceNumber@ field.
+-- @AT_TIMESTAMP@ : Start streaming from the position denoted by the time stamp specified in the @Timestamp@ field.
+-- @TRIM_HORIZON@ : Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard.
+-- @LATEST@ : Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spType :: Lens.Lens' StartingPosition ShardIteratorType
+spType = Lens.lens (type' :: StartingPosition -> ShardIteratorType) (\s a -> s {type' = a} :: StartingPosition)
+{-# DEPRECATED spType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable StartingPosition
-
-instance NFData StartingPosition
-
-instance ToJSON StartingPosition where
+instance Lude.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =
-    object
-      ( catMaybes
-          [ ("SequenceNumber" .=) <$> _spSequenceNumber,
-            ("Timestamp" .=) <$> _spTimestamp,
-            Just ("Type" .= _spType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SequenceNumber" Lude..=) Lude.<$> sequenceNumber,
+            ("Timestamp" Lude..=) Lude.<$> timestamp,
+            Lude.Just ("Type" Lude..= type')
           ]
       )

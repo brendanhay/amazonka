@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,169 +14,183 @@
 --
 -- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you'll need to start a new traffic policy.
 module Network.AWS.Route53.CreateTrafficPolicyVersion
-  ( -- * Creating a Request
-    createTrafficPolicyVersion,
-    CreateTrafficPolicyVersion,
+  ( -- * Creating a request
+    CreateTrafficPolicyVersion (..),
+    mkCreateTrafficPolicyVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctpvComment,
     ctpvId,
     ctpvDocument,
 
-    -- * Destructuring the Response
-    createTrafficPolicyVersionResponse,
-    CreateTrafficPolicyVersionResponse,
+    -- * Destructuring the response
+    CreateTrafficPolicyVersionResponse (..),
+    mkCreateTrafficPolicyVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctpvrsResponseStatus,
     ctpvrsTrafficPolicy,
     ctpvrsLocation,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the traffic policy that you want to create a new version for.
 --
---
---
--- /See:/ 'createTrafficPolicyVersion' smart constructor.
+-- /See:/ 'mkCreateTrafficPolicyVersion' smart constructor.
 data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
-  { _ctpvComment ::
-      !(Maybe Text),
-    _ctpvId :: !Text,
-    _ctpvDocument :: !Text
+  { comment ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Text,
+    document :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficPolicyVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctpvComment' - The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
---
--- * 'ctpvId' - The ID of the traffic policy for which you want to create a new version.
---
--- * 'ctpvDocument' - The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy> .
-createTrafficPolicyVersion ::
-  -- | 'ctpvId'
-  Text ->
-  -- | 'ctpvDocument'
-  Text ->
+-- * 'comment' - The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
+-- * 'document' - The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy> .
+-- * 'id' - The ID of the traffic policy for which you want to create a new version.
+mkCreateTrafficPolicyVersion ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'document'
+  Lude.Text ->
   CreateTrafficPolicyVersion
-createTrafficPolicyVersion pId_ pDocument_ =
+mkCreateTrafficPolicyVersion pId_ pDocument_ =
   CreateTrafficPolicyVersion'
-    { _ctpvComment = Nothing,
-      _ctpvId = pId_,
-      _ctpvDocument = pDocument_
+    { comment = Lude.Nothing,
+      id = pId_,
+      document = pDocument_
     }
 
 -- | The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
-ctpvComment :: Lens' CreateTrafficPolicyVersion (Maybe Text)
-ctpvComment = lens _ctpvComment (\s a -> s {_ctpvComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvComment :: Lens.Lens' CreateTrafficPolicyVersion (Lude.Maybe Lude.Text)
+ctpvComment = Lens.lens (comment :: CreateTrafficPolicyVersion -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CreateTrafficPolicyVersion)
+{-# DEPRECATED ctpvComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The ID of the traffic policy for which you want to create a new version.
-ctpvId :: Lens' CreateTrafficPolicyVersion Text
-ctpvId = lens _ctpvId (\s a -> s {_ctpvId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvId :: Lens.Lens' CreateTrafficPolicyVersion Lude.Text
+ctpvId = Lens.lens (id :: CreateTrafficPolicyVersion -> Lude.Text) (\s a -> s {id = a} :: CreateTrafficPolicyVersion)
+{-# DEPRECATED ctpvId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html CreateTrafficPolicy> .
-ctpvDocument :: Lens' CreateTrafficPolicyVersion Text
-ctpvDocument = lens _ctpvDocument (\s a -> s {_ctpvDocument = a})
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvDocument :: Lens.Lens' CreateTrafficPolicyVersion Lude.Text
+ctpvDocument = Lens.lens (document :: CreateTrafficPolicyVersion -> Lude.Text) (\s a -> s {document = a} :: CreateTrafficPolicyVersion)
+{-# DEPRECATED ctpvDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
-instance AWSRequest CreateTrafficPolicyVersion where
+instance Lude.AWSRequest CreateTrafficPolicyVersion where
   type
     Rs CreateTrafficPolicyVersion =
       CreateTrafficPolicyVersionResponse
-  request = postXML route53
+  request = Req.postXML route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateTrafficPolicyVersionResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@ "TrafficPolicy")
-            <*> (h .# "Location")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "TrafficPolicy")
+            Lude.<*> (h Lude..# "Location")
       )
 
-instance Hashable CreateTrafficPolicyVersion
-
-instance NFData CreateTrafficPolicyVersion
-
-instance ToElement CreateTrafficPolicyVersion where
+instance Lude.ToElement CreateTrafficPolicyVersion where
   toElement =
-    mkElement
+    Lude.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyVersionRequest"
 
-instance ToHeaders CreateTrafficPolicyVersion where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateTrafficPolicyVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateTrafficPolicyVersion where
+instance Lude.ToPath CreateTrafficPolicyVersion where
   toPath CreateTrafficPolicyVersion' {..} =
-    mconcat ["/2013-04-01/trafficpolicy/", toBS _ctpvId]
+    Lude.mconcat ["/2013-04-01/trafficpolicy/", Lude.toBS id]
 
-instance ToQuery CreateTrafficPolicyVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTrafficPolicyVersion where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML CreateTrafficPolicyVersion where
+instance Lude.ToXML CreateTrafficPolicyVersion where
   toXML CreateTrafficPolicyVersion' {..} =
-    mconcat ["Comment" @= _ctpvComment, "Document" @= _ctpvDocument]
+    Lude.mconcat
+      ["Comment" Lude.@= comment, "Document" Lude.@= document]
 
 -- | A complex type that contains the response information for the @CreateTrafficPolicyVersion@ request.
 --
---
---
--- /See:/ 'createTrafficPolicyVersionResponse' smart constructor.
+-- /See:/ 'mkCreateTrafficPolicyVersionResponse' smart constructor.
 data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
-  { _ctpvrsResponseStatus ::
-      !Int,
-    _ctpvrsTrafficPolicy ::
-      !TrafficPolicy,
-    _ctpvrsLocation ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    trafficPolicy ::
+      TrafficPolicy,
+    location :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficPolicyVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctpvrsResponseStatus' - -- | The response status code.
---
--- * 'ctpvrsTrafficPolicy' - A complex type that contains settings for the new version of the traffic policy.
---
--- * 'ctpvrsLocation' - A unique URL that represents a new traffic policy version.
-createTrafficPolicyVersionResponse ::
-  -- | 'ctpvrsResponseStatus'
-  Int ->
-  -- | 'ctpvrsTrafficPolicy'
+-- * 'location' - A unique URL that represents a new traffic policy version.
+-- * 'responseStatus' - The response status code.
+-- * 'trafficPolicy' - A complex type that contains settings for the new version of the traffic policy.
+mkCreateTrafficPolicyVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'trafficPolicy'
   TrafficPolicy ->
-  -- | 'ctpvrsLocation'
-  Text ->
+  -- | 'location'
+  Lude.Text ->
   CreateTrafficPolicyVersionResponse
-createTrafficPolicyVersionResponse
+mkCreateTrafficPolicyVersionResponse
   pResponseStatus_
   pTrafficPolicy_
   pLocation_ =
     CreateTrafficPolicyVersionResponse'
-      { _ctpvrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _ctpvrsTrafficPolicy = pTrafficPolicy_,
-        _ctpvrsLocation = pLocation_
+        trafficPolicy = pTrafficPolicy_,
+        location = pLocation_
       }
 
--- | -- | The response status code.
-ctpvrsResponseStatus :: Lens' CreateTrafficPolicyVersionResponse Int
-ctpvrsResponseStatus = lens _ctpvrsResponseStatus (\s a -> s {_ctpvrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvrsResponseStatus :: Lens.Lens' CreateTrafficPolicyVersionResponse Lude.Int
+ctpvrsResponseStatus = Lens.lens (responseStatus :: CreateTrafficPolicyVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrafficPolicyVersionResponse)
+{-# DEPRECATED ctpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains settings for the new version of the traffic policy.
-ctpvrsTrafficPolicy :: Lens' CreateTrafficPolicyVersionResponse TrafficPolicy
-ctpvrsTrafficPolicy = lens _ctpvrsTrafficPolicy (\s a -> s {_ctpvrsTrafficPolicy = a})
+--
+-- /Note:/ Consider using 'trafficPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvrsTrafficPolicy :: Lens.Lens' CreateTrafficPolicyVersionResponse TrafficPolicy
+ctpvrsTrafficPolicy = Lens.lens (trafficPolicy :: CreateTrafficPolicyVersionResponse -> TrafficPolicy) (\s a -> s {trafficPolicy = a} :: CreateTrafficPolicyVersionResponse)
+{-# DEPRECATED ctpvrsTrafficPolicy "Use generic-lens or generic-optics with 'trafficPolicy' instead." #-}
 
 -- | A unique URL that represents a new traffic policy version.
-ctpvrsLocation :: Lens' CreateTrafficPolicyVersionResponse Text
-ctpvrsLocation = lens _ctpvrsLocation (\s a -> s {_ctpvrsLocation = a})
-
-instance NFData CreateTrafficPolicyVersionResponse
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpvrsLocation :: Lens.Lens' CreateTrafficPolicyVersionResponse Lude.Text
+ctpvrsLocation = Lens.lens (location :: CreateTrafficPolicyVersionResponse -> Lude.Text) (\s a -> s {location = a} :: CreateTrafficPolicyVersionResponse)
+{-# DEPRECATED ctpvrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}

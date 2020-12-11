@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifact where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
+  ( ProvisioningArtifact (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningArtifact,
+
+    -- * Lenses
+    paCreatedTime,
+    paName,
+    paId,
+    paGuidance,
+    paDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
 
 -- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
 --
---
---
--- /See:/ 'provisioningArtifact' smart constructor.
+-- /See:/ 'mkProvisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
-  { _paCreatedTime ::
-      !(Maybe POSIX),
-    _paName :: !(Maybe Text),
-    _paId :: !(Maybe Text),
-    _paGuidance ::
-      !(Maybe ProvisioningArtifactGuidance),
-    _paDescription :: !(Maybe Text)
+  { createdTime ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    guidance ::
+      Lude.Maybe ProvisioningArtifactGuidance,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paCreatedTime' - The UTC time stamp of the creation time.
---
--- * 'paName' - The name of the provisioning artifact.
---
--- * 'paId' - The identifier of the provisioning artifact.
---
--- * 'paGuidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
---
--- * 'paDescription' - The description of the provisioning artifact.
-provisioningArtifact ::
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'description' - The description of the provisioning artifact.
+-- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+-- * 'id' - The identifier of the provisioning artifact.
+-- * 'name' - The name of the provisioning artifact.
+mkProvisioningArtifact ::
   ProvisioningArtifact
-provisioningArtifact =
+mkProvisioningArtifact =
   ProvisioningArtifact'
-    { _paCreatedTime = Nothing,
-      _paName = Nothing,
-      _paId = Nothing,
-      _paGuidance = Nothing,
-      _paDescription = Nothing
+    { createdTime = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      guidance = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The UTC time stamp of the creation time.
-paCreatedTime :: Lens' ProvisioningArtifact (Maybe UTCTime)
-paCreatedTime = lens _paCreatedTime (\s a -> s {_paCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paCreatedTime :: Lens.Lens' ProvisioningArtifact (Lude.Maybe Lude.Timestamp)
+paCreatedTime = Lens.lens (createdTime :: ProvisioningArtifact -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisioningArtifact)
+{-# DEPRECATED paCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The name of the provisioning artifact.
-paName :: Lens' ProvisioningArtifact (Maybe Text)
-paName = lens _paName (\s a -> s {_paName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paName :: Lens.Lens' ProvisioningArtifact (Lude.Maybe Lude.Text)
+paName = Lens.lens (name :: ProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisioningArtifact)
+{-# DEPRECATED paName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-paId :: Lens' ProvisioningArtifact (Maybe Text)
-paId = lens _paId (\s a -> s {_paId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paId :: Lens.Lens' ProvisioningArtifact (Lude.Maybe Lude.Text)
+paId = Lens.lens (id :: ProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProvisioningArtifact)
+{-# DEPRECATED paId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-paGuidance :: Lens' ProvisioningArtifact (Maybe ProvisioningArtifactGuidance)
-paGuidance = lens _paGuidance (\s a -> s {_paGuidance = a})
+--
+-- /Note:/ Consider using 'guidance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paGuidance :: Lens.Lens' ProvisioningArtifact (Lude.Maybe ProvisioningArtifactGuidance)
+paGuidance = Lens.lens (guidance :: ProvisioningArtifact -> Lude.Maybe ProvisioningArtifactGuidance) (\s a -> s {guidance = a} :: ProvisioningArtifact)
+{-# DEPRECATED paGuidance "Use generic-lens or generic-optics with 'guidance' instead." #-}
 
 -- | The description of the provisioning artifact.
-paDescription :: Lens' ProvisioningArtifact (Maybe Text)
-paDescription = lens _paDescription (\s a -> s {_paDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paDescription :: Lens.Lens' ProvisioningArtifact (Lude.Maybe Lude.Text)
+paDescription = Lens.lens (description :: ProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifact)
+{-# DEPRECATED paDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ProvisioningArtifact where
+instance Lude.FromJSON ProvisioningArtifact where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningArtifact"
       ( \x ->
           ProvisioningArtifact'
-            <$> (x .:? "CreatedTime")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Guidance")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Guidance")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ProvisioningArtifact
-
-instance NFData ProvisioningArtifact

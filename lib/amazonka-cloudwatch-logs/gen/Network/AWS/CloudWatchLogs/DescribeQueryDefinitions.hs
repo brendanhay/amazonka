@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.
 --
---
 -- You can use the @queryDefinitionNamePrefix@ parameter to limit the results to only the query definitions that have names that start with a certain string.
 module Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
-  ( -- * Creating a Request
-    describeQueryDefinitions,
-    DescribeQueryDefinitions,
+  ( -- * Creating a request
+    DescribeQueryDefinitions (..),
+    mkDescribeQueryDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqdQueryDefinitionNamePrefix,
     dqdNextToken,
     dqdMaxResults,
 
-    -- * Destructuring the Response
-    describeQueryDefinitionsResponse,
-    DescribeQueryDefinitionsResponse,
+    -- * Destructuring the response
+    DescribeQueryDefinitionsResponse (..),
+    mkDescribeQueryDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dqdrsQueryDefinitions,
     dqdrsNextToken,
     dqdrsResponseStatus,
@@ -43,138 +37,156 @@ module Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeQueryDefinitions' smart constructor.
+-- | /See:/ 'mkDescribeQueryDefinitions' smart constructor.
 data DescribeQueryDefinitions = DescribeQueryDefinitions'
-  { _dqdQueryDefinitionNamePrefix ::
-      !(Maybe Text),
-    _dqdNextToken :: !(Maybe Text),
-    _dqdMaxResults :: !(Maybe Nat)
+  { queryDefinitionNamePrefix ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueryDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqdQueryDefinitionNamePrefix' - Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.
---
--- * 'dqdNextToken' - Undocumented member.
---
--- * 'dqdMaxResults' - Limits the number of returned query definitions to the specified number.
-describeQueryDefinitions ::
+-- * 'maxResults' - Limits the number of returned query definitions to the specified number.
+-- * 'nextToken' - Undocumented field.
+-- * 'queryDefinitionNamePrefix' - Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.
+mkDescribeQueryDefinitions ::
   DescribeQueryDefinitions
-describeQueryDefinitions =
+mkDescribeQueryDefinitions =
   DescribeQueryDefinitions'
-    { _dqdQueryDefinitionNamePrefix =
-        Nothing,
-      _dqdNextToken = Nothing,
-      _dqdMaxResults = Nothing
+    { queryDefinitionNamePrefix =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.
-dqdQueryDefinitionNamePrefix :: Lens' DescribeQueryDefinitions (Maybe Text)
-dqdQueryDefinitionNamePrefix = lens _dqdQueryDefinitionNamePrefix (\s a -> s {_dqdQueryDefinitionNamePrefix = a})
+--
+-- /Note:/ Consider using 'queryDefinitionNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdQueryDefinitionNamePrefix :: Lens.Lens' DescribeQueryDefinitions (Lude.Maybe Lude.Text)
+dqdQueryDefinitionNamePrefix = Lens.lens (queryDefinitionNamePrefix :: DescribeQueryDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {queryDefinitionNamePrefix = a} :: DescribeQueryDefinitions)
+{-# DEPRECATED dqdQueryDefinitionNamePrefix "Use generic-lens or generic-optics with 'queryDefinitionNamePrefix' instead." #-}
 
--- | Undocumented member.
-dqdNextToken :: Lens' DescribeQueryDefinitions (Maybe Text)
-dqdNextToken = lens _dqdNextToken (\s a -> s {_dqdNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdNextToken :: Lens.Lens' DescribeQueryDefinitions (Lude.Maybe Lude.Text)
+dqdNextToken = Lens.lens (nextToken :: DescribeQueryDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeQueryDefinitions)
+{-# DEPRECATED dqdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits the number of returned query definitions to the specified number.
-dqdMaxResults :: Lens' DescribeQueryDefinitions (Maybe Natural)
-dqdMaxResults = lens _dqdMaxResults (\s a -> s {_dqdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdMaxResults :: Lens.Lens' DescribeQueryDefinitions (Lude.Maybe Lude.Natural)
+dqdMaxResults = Lens.lens (maxResults :: DescribeQueryDefinitions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeQueryDefinitions)
+{-# DEPRECATED dqdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest DescribeQueryDefinitions where
+instance Lude.AWSRequest DescribeQueryDefinitions where
   type Rs DescribeQueryDefinitions = DescribeQueryDefinitionsResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeQueryDefinitionsResponse'
-            <$> (x .?> "queryDefinitions" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "queryDefinitions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeQueryDefinitions
-
-instance NFData DescribeQueryDefinitions
-
-instance ToHeaders DescribeQueryDefinitions where
+instance Lude.ToHeaders DescribeQueryDefinitions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DescribeQueryDefinitions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DescribeQueryDefinitions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeQueryDefinitions where
+instance Lude.ToJSON DescribeQueryDefinitions where
   toJSON DescribeQueryDefinitions' {..} =
-    object
-      ( catMaybes
-          [ ("queryDefinitionNamePrefix" .=)
-              <$> _dqdQueryDefinitionNamePrefix,
-            ("nextToken" .=) <$> _dqdNextToken,
-            ("maxResults" .=) <$> _dqdMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("queryDefinitionNamePrefix" Lude..=)
+              Lude.<$> queryDefinitionNamePrefix,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeQueryDefinitions where
-  toPath = const "/"
+instance Lude.ToPath DescribeQueryDefinitions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeQueryDefinitions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeQueryDefinitions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeQueryDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeQueryDefinitionsResponse' smart constructor.
 data DescribeQueryDefinitionsResponse = DescribeQueryDefinitionsResponse'
-  { _dqdrsQueryDefinitions ::
-      !( Maybe
-           [QueryDefinition]
-       ),
-    _dqdrsNextToken ::
-      !(Maybe Text),
-    _dqdrsResponseStatus ::
-      !Int
+  { queryDefinitions ::
+      Lude.Maybe
+        [QueryDefinition],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueryDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqdrsQueryDefinitions' - The list of query definitions that match your request.
---
--- * 'dqdrsNextToken' - Undocumented member.
---
--- * 'dqdrsResponseStatus' - -- | The response status code.
-describeQueryDefinitionsResponse ::
-  -- | 'dqdrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Undocumented field.
+-- * 'queryDefinitions' - The list of query definitions that match your request.
+-- * 'responseStatus' - The response status code.
+mkDescribeQueryDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeQueryDefinitionsResponse
-describeQueryDefinitionsResponse pResponseStatus_ =
+mkDescribeQueryDefinitionsResponse pResponseStatus_ =
   DescribeQueryDefinitionsResponse'
-    { _dqdrsQueryDefinitions =
-        Nothing,
-      _dqdrsNextToken = Nothing,
-      _dqdrsResponseStatus = pResponseStatus_
+    { queryDefinitions =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of query definitions that match your request.
-dqdrsQueryDefinitions :: Lens' DescribeQueryDefinitionsResponse [QueryDefinition]
-dqdrsQueryDefinitions = lens _dqdrsQueryDefinitions (\s a -> s {_dqdrsQueryDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queryDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdrsQueryDefinitions :: Lens.Lens' DescribeQueryDefinitionsResponse (Lude.Maybe [QueryDefinition])
+dqdrsQueryDefinitions = Lens.lens (queryDefinitions :: DescribeQueryDefinitionsResponse -> Lude.Maybe [QueryDefinition]) (\s a -> s {queryDefinitions = a} :: DescribeQueryDefinitionsResponse)
+{-# DEPRECATED dqdrsQueryDefinitions "Use generic-lens or generic-optics with 'queryDefinitions' instead." #-}
 
--- | Undocumented member.
-dqdrsNextToken :: Lens' DescribeQueryDefinitionsResponse (Maybe Text)
-dqdrsNextToken = lens _dqdrsNextToken (\s a -> s {_dqdrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdrsNextToken :: Lens.Lens' DescribeQueryDefinitionsResponse (Lude.Maybe Lude.Text)
+dqdrsNextToken = Lens.lens (nextToken :: DescribeQueryDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeQueryDefinitionsResponse)
+{-# DEPRECATED dqdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dqdrsResponseStatus :: Lens' DescribeQueryDefinitionsResponse Int
-dqdrsResponseStatus = lens _dqdrsResponseStatus (\s a -> s {_dqdrsResponseStatus = a})
-
-instance NFData DescribeQueryDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqdrsResponseStatus :: Lens.Lens' DescribeQueryDefinitionsResponse Lude.Int
+dqdrsResponseStatus = Lens.lens (responseStatus :: DescribeQueryDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeQueryDefinitionsResponse)
+{-# DEPRECATED dqdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

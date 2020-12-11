@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.QueryExecutionContext where
+module Network.AWS.Athena.Types.QueryExecutionContext
+  ( QueryExecutionContext (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueryExecutionContext,
+
+    -- * Lenses
+    qecDatabase,
+    qecCatalog,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The database and data catalog context in which the query execution occurs.
 --
---
---
--- /See:/ 'queryExecutionContext' smart constructor.
+-- /See:/ 'mkQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
-  { _qecDatabase ::
-      !(Maybe Text),
-    _qecCatalog :: !(Maybe Text)
+  { database ::
+      Lude.Maybe Lude.Text,
+    catalog :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryExecutionContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qecDatabase' - The name of the database used in the query execution.
---
--- * 'qecCatalog' - The name of the data catalog used in the query execution.
-queryExecutionContext ::
+-- * 'catalog' - The name of the data catalog used in the query execution.
+-- * 'database' - The name of the database used in the query execution.
+mkQueryExecutionContext ::
   QueryExecutionContext
-queryExecutionContext =
+mkQueryExecutionContext =
   QueryExecutionContext'
-    { _qecDatabase = Nothing,
-      _qecCatalog = Nothing
+    { database = Lude.Nothing,
+      catalog = Lude.Nothing
     }
 
 -- | The name of the database used in the query execution.
-qecDatabase :: Lens' QueryExecutionContext (Maybe Text)
-qecDatabase = lens _qecDatabase (\s a -> s {_qecDatabase = a})
+--
+-- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qecDatabase :: Lens.Lens' QueryExecutionContext (Lude.Maybe Lude.Text)
+qecDatabase = Lens.lens (database :: QueryExecutionContext -> Lude.Maybe Lude.Text) (\s a -> s {database = a} :: QueryExecutionContext)
+{-# DEPRECATED qecDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
 -- | The name of the data catalog used in the query execution.
-qecCatalog :: Lens' QueryExecutionContext (Maybe Text)
-qecCatalog = lens _qecCatalog (\s a -> s {_qecCatalog = a})
+--
+-- /Note:/ Consider using 'catalog' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qecCatalog :: Lens.Lens' QueryExecutionContext (Lude.Maybe Lude.Text)
+qecCatalog = Lens.lens (catalog :: QueryExecutionContext -> Lude.Maybe Lude.Text) (\s a -> s {catalog = a} :: QueryExecutionContext)
+{-# DEPRECATED qecCatalog "Use generic-lens or generic-optics with 'catalog' instead." #-}
 
-instance FromJSON QueryExecutionContext where
+instance Lude.FromJSON QueryExecutionContext where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueryExecutionContext"
       ( \x ->
           QueryExecutionContext'
-            <$> (x .:? "Database") <*> (x .:? "Catalog")
+            Lude.<$> (x Lude..:? "Database") Lude.<*> (x Lude..:? "Catalog")
       )
 
-instance Hashable QueryExecutionContext
-
-instance NFData QueryExecutionContext
-
-instance ToJSON QueryExecutionContext where
+instance Lude.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =
-    object
-      ( catMaybes
-          [("Database" .=) <$> _qecDatabase, ("Catalog" .=) <$> _qecCatalog]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Database" Lude..=) Lude.<$> database,
+            ("Catalog" Lude..=) Lude.<$> catalog
+          ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,147 @@
 --
 -- Creates or modifies @OwnershipControls@ for an Amazon S3 bucket. To use this operation, you must have the @s3:PutBucketOwnershipControls@ permission. For more information about Amazon S3 permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy> .
 --
---
 -- For information about Amazon S3 Object Ownership, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html Using Object Ownership> .
---
 -- The following operations are related to @PutBucketOwnershipControls@ :
 --
 --     * 'GetBucketOwnershipControls'
 --
+--
 --     * 'DeleteBucketOwnershipControls'
 module Network.AWS.S3.PutBucketOwnershipControls
-  ( -- * Creating a Request
-    putBucketOwnershipControls,
-    PutBucketOwnershipControls,
+  ( -- * Creating a request
+    PutBucketOwnershipControls (..),
+    mkPutBucketOwnershipControls,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbocContentMD5,
     pbocExpectedBucketOwner,
     pbocBucket,
     pbocOwnershipControls,
 
-    -- * Destructuring the Response
-    putBucketOwnershipControlsResponse,
-    PutBucketOwnershipControlsResponse,
+    -- * Destructuring the response
+    PutBucketOwnershipControlsResponse (..),
+    mkPutBucketOwnershipControlsResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'putBucketOwnershipControls' smart constructor.
+-- | /See:/ 'mkPutBucketOwnershipControls' smart constructor.
 data PutBucketOwnershipControls = PutBucketOwnershipControls'
-  { _pbocContentMD5 ::
-      !(Maybe Text),
-    _pbocExpectedBucketOwner ::
-      !(Maybe Text),
-    _pbocBucket :: !BucketName,
-    _pbocOwnershipControls ::
-      !OwnershipControls
+  { contentMD5 ::
+      Lude.Maybe Lude.Text,
+    expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    ownershipControls ::
+      OwnershipControls
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketOwnershipControls' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to set.
+-- * 'contentMD5' - The MD5 hash of the @OwnershipControls@ request body.
 --
--- * 'pbocContentMD5' - The MD5 hash of the @OwnershipControls@ request body.  For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
---
--- * 'pbocExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'pbocBucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to set.
---
--- * 'pbocOwnershipControls' - The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you want to apply to this Amazon S3 bucket.
-putBucketOwnershipControls ::
-  -- | 'pbocBucket'
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'ownershipControls' - The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you want to apply to this Amazon S3 bucket.
+mkPutBucketOwnershipControls ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'pbocOwnershipControls'
+  -- | 'ownershipControls'
   OwnershipControls ->
   PutBucketOwnershipControls
-putBucketOwnershipControls pBucket_ pOwnershipControls_ =
+mkPutBucketOwnershipControls pBucket_ pOwnershipControls_ =
   PutBucketOwnershipControls'
-    { _pbocContentMD5 = Nothing,
-      _pbocExpectedBucketOwner = Nothing,
-      _pbocBucket = pBucket_,
-      _pbocOwnershipControls = pOwnershipControls_
+    { contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_,
+      ownershipControls = pOwnershipControls_
     }
 
--- | The MD5 hash of the @OwnershipControls@ request body.  For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-pbocContentMD5 :: Lens' PutBucketOwnershipControls (Maybe Text)
-pbocContentMD5 = lens _pbocContentMD5 (\s a -> s {_pbocContentMD5 = a})
+-- | The MD5 hash of the @OwnershipControls@ request body.
+--
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+--
+-- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbocContentMD5 :: Lens.Lens' PutBucketOwnershipControls (Lude.Maybe Lude.Text)
+pbocContentMD5 = Lens.lens (contentMD5 :: PutBucketOwnershipControls -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketOwnershipControls)
+{-# DEPRECATED pbocContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-pbocExpectedBucketOwner :: Lens' PutBucketOwnershipControls (Maybe Text)
-pbocExpectedBucketOwner = lens _pbocExpectedBucketOwner (\s a -> s {_pbocExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbocExpectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Lude.Maybe Lude.Text)
+pbocExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketOwnershipControls -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketOwnershipControls)
+{-# DEPRECATED pbocExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to set.
-pbocBucket :: Lens' PutBucketOwnershipControls BucketName
-pbocBucket = lens _pbocBucket (\s a -> s {_pbocBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbocBucket :: Lens.Lens' PutBucketOwnershipControls BucketName
+pbocBucket = Lens.lens (bucket :: PutBucketOwnershipControls -> BucketName) (\s a -> s {bucket = a} :: PutBucketOwnershipControls)
+{-# DEPRECATED pbocBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you want to apply to this Amazon S3 bucket.
-pbocOwnershipControls :: Lens' PutBucketOwnershipControls OwnershipControls
-pbocOwnershipControls = lens _pbocOwnershipControls (\s a -> s {_pbocOwnershipControls = a})
+--
+-- /Note:/ Consider using 'ownershipControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbocOwnershipControls :: Lens.Lens' PutBucketOwnershipControls OwnershipControls
+pbocOwnershipControls = Lens.lens (ownershipControls :: PutBucketOwnershipControls -> OwnershipControls) (\s a -> s {ownershipControls = a} :: PutBucketOwnershipControls)
+{-# DEPRECATED pbocOwnershipControls "Use generic-lens or generic-optics with 'ownershipControls' instead." #-}
 
-instance AWSRequest PutBucketOwnershipControls where
+instance Lude.AWSRequest PutBucketOwnershipControls where
   type
     Rs PutBucketOwnershipControls =
       PutBucketOwnershipControlsResponse
-  request = putXML s3
-  response = receiveNull PutBucketOwnershipControlsResponse'
+  request = Req.putXML s3Service
+  response = Res.receiveNull PutBucketOwnershipControlsResponse'
 
-instance Hashable PutBucketOwnershipControls
-
-instance NFData PutBucketOwnershipControls
-
-instance ToElement PutBucketOwnershipControls where
+instance Lude.ToElement PutBucketOwnershipControls where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}OwnershipControls"
-      . _pbocOwnershipControls
+      Lude.. ownershipControls
 
-instance ToHeaders PutBucketOwnershipControls where
+instance Lude.ToHeaders PutBucketOwnershipControls where
   toHeaders PutBucketOwnershipControls' {..} =
-    mconcat
-      [ "Content-MD5" =# _pbocContentMD5,
-        "x-amz-expected-bucket-owner" =# _pbocExpectedBucketOwner
+    Lude.mconcat
+      [ "Content-MD5" Lude.=# contentMD5,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath PutBucketOwnershipControls where
+instance Lude.ToPath PutBucketOwnershipControls where
   toPath PutBucketOwnershipControls' {..} =
-    mconcat ["/", toBS _pbocBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery PutBucketOwnershipControls where
-  toQuery = const (mconcat ["ownershipControls"])
+instance Lude.ToQuery PutBucketOwnershipControls where
+  toQuery = Lude.const (Lude.mconcat ["ownershipControls"])
 
--- | /See:/ 'putBucketOwnershipControlsResponse' smart constructor.
+-- | /See:/ 'mkPutBucketOwnershipControlsResponse' smart constructor.
 data PutBucketOwnershipControlsResponse = PutBucketOwnershipControlsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketOwnershipControlsResponse' with the minimum fields required to make a request.
-putBucketOwnershipControlsResponse ::
+mkPutBucketOwnershipControlsResponse ::
   PutBucketOwnershipControlsResponse
-putBucketOwnershipControlsResponse =
+mkPutBucketOwnershipControlsResponse =
   PutBucketOwnershipControlsResponse'
-
-instance NFData PutBucketOwnershipControlsResponse

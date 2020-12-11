@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,135 @@
 --
 -- Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
 --
---
 -- Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway type.
---
 -- /Important:/ After a gateway is disabled, it cannot be enabled.
 module Network.AWS.StorageGateway.DisableGateway
-  ( -- * Creating a Request
-    disableGateway,
-    DisableGateway,
+  ( -- * Creating a request
+    DisableGateway (..),
+    mkDisableGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dGatewayARN,
 
-    -- * Destructuring the Response
-    disableGatewayResponse,
-    DisableGatewayResponse,
+    -- * Destructuring the response
+    DisableGatewayResponse (..),
+    mkDisableGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     disrsGatewayARN,
     disrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | DisableGatewayInput
 --
---
---
--- /See:/ 'disableGateway' smart constructor.
-newtype DisableGateway = DisableGateway' {_dGatewayARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDisableGateway' smart constructor.
+newtype DisableGateway = DisableGateway' {gatewayARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dGatewayARN' - Undocumented member.
-disableGateway ::
-  -- | 'dGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDisableGateway ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DisableGateway
-disableGateway pGatewayARN_ =
-  DisableGateway' {_dGatewayARN = pGatewayARN_}
+mkDisableGateway pGatewayARN_ =
+  DisableGateway' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-dGatewayARN :: Lens' DisableGateway Text
-dGatewayARN = lens _dGatewayARN (\s a -> s {_dGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dGatewayARN :: Lens.Lens' DisableGateway Lude.Text
+dGatewayARN = Lens.lens (gatewayARN :: DisableGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: DisableGateway)
+{-# DEPRECATED dGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DisableGateway where
+instance Lude.AWSRequest DisableGateway where
   type Rs DisableGateway = DisableGatewayResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisableGatewayResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisableGateway
-
-instance NFData DisableGateway
-
-instance ToHeaders DisableGateway where
+instance Lude.ToHeaders DisableGateway where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DisableGateway" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.DisableGateway" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableGateway where
+instance Lude.ToJSON DisableGateway where
   toJSON DisableGateway' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _dGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DisableGateway where
-  toPath = const "/"
+instance Lude.ToPath DisableGateway where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableGateway where
-  toQuery = const mempty
+instance Lude.ToQuery DisableGateway where
+  toQuery = Lude.const Lude.mempty
 
 -- | DisableGatewayOutput
 --
---
---
--- /See:/ 'disableGatewayResponse' smart constructor.
+-- /See:/ 'mkDisableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-  { _disrsGatewayARN ::
-      !(Maybe Text),
-    _disrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disrsGatewayARN' - The unique Amazon Resource Name (ARN) of the disabled gateway.
---
--- * 'disrsResponseStatus' - -- | The response status code.
-disableGatewayResponse ::
-  -- | 'disrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - The unique Amazon Resource Name (ARN) of the disabled gateway.
+-- * 'responseStatus' - The response status code.
+mkDisableGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableGatewayResponse
-disableGatewayResponse pResponseStatus_ =
+mkDisableGatewayResponse pResponseStatus_ =
   DisableGatewayResponse'
-    { _disrsGatewayARN = Nothing,
-      _disrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
-disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-disrsGatewayARN = lens _disrsGatewayARN (\s a -> s {_disrsGatewayARN = a})
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsGatewayARN :: Lens.Lens' DisableGatewayResponse (Lude.Maybe Lude.Text)
+disrsGatewayARN = Lens.lens (gatewayARN :: DisableGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DisableGatewayResponse)
+{-# DEPRECATED disrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-disrsResponseStatus :: Lens' DisableGatewayResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\s a -> s {_disrsResponseStatus = a})
-
-instance NFData DisableGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsResponseStatus :: Lens.Lens' DisableGatewayResponse Lude.Int
+disrsResponseStatus = Lens.lens (responseStatus :: DisableGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableGatewayResponse)
+{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

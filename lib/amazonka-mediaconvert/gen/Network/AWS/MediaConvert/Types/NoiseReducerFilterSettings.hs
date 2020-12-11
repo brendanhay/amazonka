@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings where
+module Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings
+  ( NoiseReducerFilterSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNoiseReducerFilterSettings,
+
+    -- * Lenses
+    nrfsStrength,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for a noise reducer filter
 --
--- /See:/ 'noiseReducerFilterSettings' smart constructor.
+-- /See:/ 'mkNoiseReducerFilterSettings' smart constructor.
 newtype NoiseReducerFilterSettings = NoiseReducerFilterSettings'
-  { _nrfsStrength ::
-      Maybe Nat
+  { strength ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducerFilterSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nrfsStrength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
-noiseReducerFilterSettings ::
+-- * 'strength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
+mkNoiseReducerFilterSettings ::
   NoiseReducerFilterSettings
-noiseReducerFilterSettings =
-  NoiseReducerFilterSettings' {_nrfsStrength = Nothing}
+mkNoiseReducerFilterSettings =
+  NoiseReducerFilterSettings' {strength = Lude.Nothing}
 
 -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
-nrfsStrength :: Lens' NoiseReducerFilterSettings (Maybe Natural)
-nrfsStrength = lens _nrfsStrength (\s a -> s {_nrfsStrength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrfsStrength :: Lens.Lens' NoiseReducerFilterSettings (Lude.Maybe Lude.Natural)
+nrfsStrength = Lens.lens (strength :: NoiseReducerFilterSettings -> Lude.Maybe Lude.Natural) (\s a -> s {strength = a} :: NoiseReducerFilterSettings)
+{-# DEPRECATED nrfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
 
-instance FromJSON NoiseReducerFilterSettings where
+instance Lude.FromJSON NoiseReducerFilterSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "NoiseReducerFilterSettings"
-      (\x -> NoiseReducerFilterSettings' <$> (x .:? "strength"))
+      ( \x ->
+          NoiseReducerFilterSettings' Lude.<$> (x Lude..:? "strength")
+      )
 
-instance Hashable NoiseReducerFilterSettings
-
-instance NFData NoiseReducerFilterSettings
-
-instance ToJSON NoiseReducerFilterSettings where
+instance Lude.ToJSON NoiseReducerFilterSettings where
   toJSON NoiseReducerFilterSettings' {..} =
-    object (catMaybes [("strength" .=) <$> _nrfsStrength])
+    Lude.object
+      (Lude.catMaybes [("strength" Lude..=) Lude.<$> strength])

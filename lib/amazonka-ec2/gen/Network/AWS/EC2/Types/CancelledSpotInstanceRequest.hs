@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CancelledSpotInstanceRequest where
+module Network.AWS.EC2.Types.CancelledSpotInstanceRequest
+  ( CancelledSpotInstanceRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkCancelledSpotInstanceRequest,
+
+    -- * Lenses
+    csirState,
+    csirSpotInstanceRequestId,
+  )
+where
+
 import Network.AWS.EC2.Types.CancelSpotInstanceRequestState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a request to cancel a Spot Instance.
 --
---
---
--- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
+-- /See:/ 'mkCancelledSpotInstanceRequest' smart constructor.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
-  { _csirState ::
-      !( Maybe
-           CancelSpotInstanceRequestState
-       ),
-    _csirSpotInstanceRequestId ::
-      !(Maybe Text)
+  { state ::
+      Lude.Maybe
+        CancelSpotInstanceRequestState,
+    spotInstanceRequestId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelledSpotInstanceRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csirState' - The state of the Spot Instance request.
---
--- * 'csirSpotInstanceRequestId' - The ID of the Spot Instance request.
-cancelledSpotInstanceRequest ::
+-- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
+-- * 'state' - The state of the Spot Instance request.
+mkCancelledSpotInstanceRequest ::
   CancelledSpotInstanceRequest
-cancelledSpotInstanceRequest =
+mkCancelledSpotInstanceRequest =
   CancelledSpotInstanceRequest'
-    { _csirState = Nothing,
-      _csirSpotInstanceRequestId = Nothing
+    { state = Lude.Nothing,
+      spotInstanceRequestId = Lude.Nothing
     }
 
 -- | The state of the Spot Instance request.
-csirState :: Lens' CancelledSpotInstanceRequest (Maybe CancelSpotInstanceRequestState)
-csirState = lens _csirState (\s a -> s {_csirState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirState :: Lens.Lens' CancelledSpotInstanceRequest (Lude.Maybe CancelSpotInstanceRequestState)
+csirState = Lens.lens (state :: CancelledSpotInstanceRequest -> Lude.Maybe CancelSpotInstanceRequestState) (\s a -> s {state = a} :: CancelledSpotInstanceRequest)
+{-# DEPRECATED csirState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the Spot Instance request.
-csirSpotInstanceRequestId :: Lens' CancelledSpotInstanceRequest (Maybe Text)
-csirSpotInstanceRequestId = lens _csirSpotInstanceRequestId (\s a -> s {_csirSpotInstanceRequestId = a})
+--
+-- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirSpotInstanceRequestId :: Lens.Lens' CancelledSpotInstanceRequest (Lude.Maybe Lude.Text)
+csirSpotInstanceRequestId = Lens.lens (spotInstanceRequestId :: CancelledSpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {spotInstanceRequestId = a} :: CancelledSpotInstanceRequest)
+{-# DEPRECATED csirSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
 
-instance FromXML CancelledSpotInstanceRequest where
+instance Lude.FromXML CancelledSpotInstanceRequest where
   parseXML x =
     CancelledSpotInstanceRequest'
-      <$> (x .@? "state") <*> (x .@? "spotInstanceRequestId")
-
-instance Hashable CancelledSpotInstanceRequest
-
-instance NFData CancelledSpotInstanceRequest
+      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "spotInstanceRequestId")

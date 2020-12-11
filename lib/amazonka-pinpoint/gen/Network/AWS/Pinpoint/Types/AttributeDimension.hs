@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.AttributeDimension where
+module Network.AWS.Pinpoint.Types.AttributeDimension
+  ( AttributeDimension (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAttributeDimension,
+
+    -- * Lenses
+    adAttributeType,
+    adValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.AttributeType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies attribute-based criteria for including or excluding endpoints from a segment.
 --
---
---
--- /See:/ 'attributeDimension' smart constructor.
+-- /See:/ 'mkAttributeDimension' smart constructor.
 data AttributeDimension = AttributeDimension'
-  { _adAttributeType ::
-      !(Maybe AttributeType),
-    _adValues :: ![Text]
+  { attributeType ::
+      Lude.Maybe AttributeType,
+    values :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adAttributeType' - The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
---
--- * 'adValues' - The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
-attributeDimension ::
+-- * 'attributeType' - The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
+-- * 'values' - The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
+mkAttributeDimension ::
   AttributeDimension
-attributeDimension =
+mkAttributeDimension =
   AttributeDimension'
-    { _adAttributeType = Nothing,
-      _adValues = mempty
+    { attributeType = Lude.Nothing,
+      values = Lude.mempty
     }
 
 -- | The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
-adAttributeType :: Lens' AttributeDimension (Maybe AttributeType)
-adAttributeType = lens _adAttributeType (\s a -> s {_adAttributeType = a})
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttributeType :: Lens.Lens' AttributeDimension (Lude.Maybe AttributeType)
+adAttributeType = Lens.lens (attributeType :: AttributeDimension -> Lude.Maybe AttributeType) (\s a -> s {attributeType = a} :: AttributeDimension)
+{-# DEPRECATED adAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
-adValues :: Lens' AttributeDimension [Text]
-adValues = lens _adValues (\s a -> s {_adValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adValues :: Lens.Lens' AttributeDimension [Lude.Text]
+adValues = Lens.lens (values :: AttributeDimension -> [Lude.Text]) (\s a -> s {values = a} :: AttributeDimension)
+{-# DEPRECATED adValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromJSON AttributeDimension where
+instance Lude.FromJSON AttributeDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributeDimension"
       ( \x ->
           AttributeDimension'
-            <$> (x .:? "AttributeType") <*> (x .:? "Values" .!= mempty)
+            Lude.<$> (x Lude..:? "AttributeType")
+            Lude.<*> (x Lude..:? "Values" Lude..!= Lude.mempty)
       )
 
-instance Hashable AttributeDimension
-
-instance NFData AttributeDimension
-
-instance ToJSON AttributeDimension where
+instance Lude.ToJSON AttributeDimension where
   toJSON AttributeDimension' {..} =
-    object
-      ( catMaybes
-          [ ("AttributeType" .=) <$> _adAttributeType,
-            Just ("Values" .= _adValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AttributeType" Lude..=) Lude.<$> attributeType,
+            Lude.Just ("Values" Lude..= values)
           ]
       )

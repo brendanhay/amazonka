@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,16 @@
 --
 -- Running @PutPermission@ permits the specified AWS account or AWS organization to put events to the specified /event bus/ . Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these events arriving to an event bus in your account.
 --
---
 -- For another account to send events to your account, that external account must have an EventBridge rule with your account's event bus as a target.
---
 -- To enable multiple AWS accounts to put events to your event bus, run @PutPermission@ once for each of these accounts. Or, if all the accounts are members of the same AWS organization, you can run @PutPermission@ once specifying @Principal@ as "*" and specifying the AWS organization ID in @Condition@ , to grant permissions to all accounts in that organization.
---
 -- If you grant permissions using an organization, then accounts in that organization must specify a @RoleArn@ with proper permissions when they use @PutTarget@ to add your account's event bus as a target. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between AWS Accounts> in the /Amazon EventBridge User Guide/ .
---
 -- The permission policy on the default event bus cannot exceed 10 KB in size.
 module Network.AWS.CloudWatchEvents.PutPermission
-  ( -- * Creating a Request
-    putPermission,
-    PutPermission,
+  ( -- * Creating a request
+    PutPermission (..),
+    mkPutPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ppAction,
     ppEventBusName,
     ppPrincipal,
@@ -40,124 +31,155 @@ module Network.AWS.CloudWatchEvents.PutPermission
     ppStatementId,
     ppCondition,
 
-    -- * Destructuring the Response
-    putPermissionResponse,
-    PutPermissionResponse,
+    -- * Destructuring the response
+    PutPermissionResponse (..),
+    mkPutPermissionResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putPermission' smart constructor.
+-- | /See:/ 'mkPutPermission' smart constructor.
 data PutPermission = PutPermission'
-  { _ppAction :: !(Maybe Text),
-    _ppEventBusName :: !(Maybe Text),
-    _ppPrincipal :: !(Maybe Text),
-    _ppPolicy :: !(Maybe Text),
-    _ppStatementId :: !(Maybe Text),
-    _ppCondition :: !(Maybe Condition)
+  { action :: Lude.Maybe Lude.Text,
+    eventBusName :: Lude.Maybe Lude.Text,
+    principal :: Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Lude.Text,
+    statementId :: Lude.Maybe Lude.Text,
+    condition :: Lude.Maybe Condition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
+-- * 'condition' - This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ .
 --
--- * 'ppAction' - The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
+-- If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization.
+-- The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
+-- * 'eventBusName' - The name of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'policy' - A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
+-- * 'principal' - The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
 --
--- * 'ppEventBusName' - The name of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- * 'ppPrincipal' - The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus. If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
---
--- * 'ppPolicy' - A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
---
--- * 'ppStatementId' - An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
---
--- * 'ppCondition' - This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ . If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization. The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
-putPermission ::
+-- If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
+-- * 'statementId' - An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
+mkPutPermission ::
   PutPermission
-putPermission =
+mkPutPermission =
   PutPermission'
-    { _ppAction = Nothing,
-      _ppEventBusName = Nothing,
-      _ppPrincipal = Nothing,
-      _ppPolicy = Nothing,
-      _ppStatementId = Nothing,
-      _ppCondition = Nothing
+    { action = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      principal = Lude.Nothing,
+      policy = Lude.Nothing,
+      statementId = Lude.Nothing,
+      condition = Lude.Nothing
     }
 
 -- | The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
-ppAction :: Lens' PutPermission (Maybe Text)
-ppAction = lens _ppAction (\s a -> s {_ppAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppAction :: Lens.Lens' PutPermission (Lude.Maybe Lude.Text)
+ppAction = Lens.lens (action :: PutPermission -> Lude.Maybe Lude.Text) (\s a -> s {action = a} :: PutPermission)
+{-# DEPRECATED ppAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The name of the event bus associated with the rule. If you omit this, the default event bus is used.
-ppEventBusName :: Lens' PutPermission (Maybe Text)
-ppEventBusName = lens _ppEventBusName (\s a -> s {_ppEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppEventBusName :: Lens.Lens' PutPermission (Lude.Maybe Lude.Text)
+ppEventBusName = Lens.lens (eventBusName :: PutPermission -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutPermission)
+{-# DEPRECATED ppEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
--- | The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus. If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
-ppPrincipal :: Lens' PutPermission (Maybe Text)
-ppPrincipal = lens _ppPrincipal (\s a -> s {_ppPrincipal = a})
+-- | The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
+--
+-- If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPrincipal :: Lens.Lens' PutPermission (Lude.Maybe Lude.Text)
+ppPrincipal = Lens.lens (principal :: PutPermission -> Lude.Maybe Lude.Text) (\s a -> s {principal = a} :: PutPermission)
+{-# DEPRECATED ppPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 -- | A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
-ppPolicy :: Lens' PutPermission (Maybe Text)
-ppPolicy = lens _ppPolicy (\s a -> s {_ppPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPolicy :: Lens.Lens' PutPermission (Lude.Maybe Lude.Text)
+ppPolicy = Lens.lens (policy :: PutPermission -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: PutPermission)
+{-# DEPRECATED ppPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
-ppStatementId :: Lens' PutPermission (Maybe Text)
-ppStatementId = lens _ppStatementId (\s a -> s {_ppStatementId = a})
+--
+-- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppStatementId :: Lens.Lens' PutPermission (Lude.Maybe Lude.Text)
+ppStatementId = Lens.lens (statementId :: PutPermission -> Lude.Maybe Lude.Text) (\s a -> s {statementId = a} :: PutPermission)
+{-# DEPRECATED ppStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
 
--- | This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ . If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization. The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
-ppCondition :: Lens' PutPermission (Maybe Condition)
-ppCondition = lens _ppCondition (\s a -> s {_ppCondition = a})
+-- | This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ .
+--
+-- If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization.
+-- The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
+--
+-- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppCondition :: Lens.Lens' PutPermission (Lude.Maybe Condition)
+ppCondition = Lens.lens (condition :: PutPermission -> Lude.Maybe Condition) (\s a -> s {condition = a} :: PutPermission)
+{-# DEPRECATED ppCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance AWSRequest PutPermission where
+instance Lude.AWSRequest PutPermission where
   type Rs PutPermission = PutPermissionResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull PutPermissionResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull PutPermissionResponse'
 
-instance Hashable PutPermission
-
-instance NFData PutPermission
-
-instance ToHeaders PutPermission where
+instance Lude.ToHeaders PutPermission where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.PutPermission" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.PutPermission" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutPermission where
+instance Lude.ToJSON PutPermission where
   toJSON PutPermission' {..} =
-    object
-      ( catMaybes
-          [ ("Action" .=) <$> _ppAction,
-            ("EventBusName" .=) <$> _ppEventBusName,
-            ("Principal" .=) <$> _ppPrincipal,
-            ("Policy" .=) <$> _ppPolicy,
-            ("StatementId" .=) <$> _ppStatementId,
-            ("Condition" .=) <$> _ppCondition
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Action" Lude..=) Lude.<$> action,
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            ("Principal" Lude..=) Lude.<$> principal,
+            ("Policy" Lude..=) Lude.<$> policy,
+            ("StatementId" Lude..=) Lude.<$> statementId,
+            ("Condition" Lude..=) Lude.<$> condition
           ]
       )
 
-instance ToPath PutPermission where
-  toPath = const "/"
+instance Lude.ToPath PutPermission where
+  toPath = Lude.const "/"
 
-instance ToQuery PutPermission where
-  toQuery = const mempty
+instance Lude.ToQuery PutPermission where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putPermissionResponse' smart constructor.
+-- | /See:/ 'mkPutPermissionResponse' smart constructor.
 data PutPermissionResponse = PutPermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPermissionResponse' with the minimum fields required to make a request.
-putPermissionResponse ::
+mkPutPermissionResponse ::
   PutPermissionResponse
-putPermissionResponse = PutPermissionResponse'
-
-instance NFData PutPermissionResponse
+mkPutPermissionResponse = PutPermissionResponse'

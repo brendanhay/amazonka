@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.OrientationCorrection where
+module Network.AWS.Rekognition.Types.OrientationCorrection
+  ( OrientationCorrection
+      ( OrientationCorrection',
+        Rotate0,
+        Rotate180,
+        Rotate270,
+        Rotate90
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrientationCorrection
-  = Rotate0
-  | Rotate180
-  | Rotate270
-  | Rotate90
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrientationCorrection = OrientationCorrection' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrientationCorrection where
-  parser =
-    takeLowerText >>= \case
-      "rotate_0" -> pure Rotate0
-      "rotate_180" -> pure Rotate180
-      "rotate_270" -> pure Rotate270
-      "rotate_90" -> pure Rotate90
-      e ->
-        fromTextError $
-          "Failure parsing OrientationCorrection from value: '" <> e
-            <> "'. Accepted values: rotate_0, rotate_180, rotate_270, rotate_90"
+pattern Rotate0 :: OrientationCorrection
+pattern Rotate0 = OrientationCorrection' "ROTATE_0"
 
-instance ToText OrientationCorrection where
-  toText = \case
-    Rotate0 -> "ROTATE_0"
-    Rotate180 -> "ROTATE_180"
-    Rotate270 -> "ROTATE_270"
-    Rotate90 -> "ROTATE_90"
+pattern Rotate180 :: OrientationCorrection
+pattern Rotate180 = OrientationCorrection' "ROTATE_180"
 
-instance Hashable OrientationCorrection
+pattern Rotate270 :: OrientationCorrection
+pattern Rotate270 = OrientationCorrection' "ROTATE_270"
 
-instance NFData OrientationCorrection
+pattern Rotate90 :: OrientationCorrection
+pattern Rotate90 = OrientationCorrection' "ROTATE_90"
 
-instance ToByteString OrientationCorrection
-
-instance ToQuery OrientationCorrection
-
-instance ToHeader OrientationCorrection
-
-instance FromJSON OrientationCorrection where
-  parseJSON = parseJSONText "OrientationCorrection"
+{-# COMPLETE
+  Rotate0,
+  Rotate180,
+  Rotate270,
+  Rotate90,
+  OrientationCorrection'
+  #-}

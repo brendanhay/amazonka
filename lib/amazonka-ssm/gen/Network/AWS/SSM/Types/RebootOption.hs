@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.RebootOption where
+module Network.AWS.SSM.Types.RebootOption
+  ( RebootOption
+      ( RebootOption',
+        NoReboot,
+        RebootIfNeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RebootOption
-  = NoReboot
-  | RebootIfNeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RebootOption = RebootOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RebootOption where
-  parser =
-    takeLowerText >>= \case
-      "noreboot" -> pure NoReboot
-      "rebootifneeded" -> pure RebootIfNeeded
-      e ->
-        fromTextError $
-          "Failure parsing RebootOption from value: '" <> e
-            <> "'. Accepted values: noreboot, rebootifneeded"
+pattern NoReboot :: RebootOption
+pattern NoReboot = RebootOption' "NoReboot"
 
-instance ToText RebootOption where
-  toText = \case
-    NoReboot -> "NoReboot"
-    RebootIfNeeded -> "RebootIfNeeded"
+pattern RebootIfNeeded :: RebootOption
+pattern RebootIfNeeded = RebootOption' "RebootIfNeeded"
 
-instance Hashable RebootOption
-
-instance NFData RebootOption
-
-instance ToByteString RebootOption
-
-instance ToQuery RebootOption
-
-instance ToHeader RebootOption
-
-instance FromJSON RebootOption where
-  parseJSON = parseJSONText "RebootOption"
+{-# COMPLETE
+  NoReboot,
+  RebootIfNeeded,
+  RebootOption'
+  #-}

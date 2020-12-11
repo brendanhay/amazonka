@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Field where
+module Network.AWS.IoT.Types.Field
+  ( Field (..),
+
+    -- * Smart constructor
+    mkField,
+
+    -- * Lenses
+    fName,
+    fType,
+  )
+where
 
 import Network.AWS.IoT.Types.FieldType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the name and data type at a field.
 --
---
---
--- /See:/ 'field' smart constructor.
+-- /See:/ 'mkField' smart constructor.
 data Field = Field'
-  { _fName :: !(Maybe Text),
-    _fType :: !(Maybe FieldType)
+  { name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe FieldType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Field' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fName' - The name of the field.
---
--- * 'fType' - The datatype of the field.
-field ::
+-- * 'name' - The name of the field.
+-- * 'type'' - The datatype of the field.
+mkField ::
   Field
-field = Field' {_fName = Nothing, _fType = Nothing}
+mkField = Field' {name = Lude.Nothing, type' = Lude.Nothing}
 
 -- | The name of the field.
-fName :: Lens' Field (Maybe Text)
-fName = lens _fName (\s a -> s {_fName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Field (Lude.Maybe Lude.Text)
+fName = Lens.lens (name :: Field -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Field)
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The datatype of the field.
-fType :: Lens' Field (Maybe FieldType)
-fType = lens _fType (\s a -> s {_fType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fType :: Lens.Lens' Field (Lude.Maybe FieldType)
+fType = Lens.lens (type' :: Field -> Lude.Maybe FieldType) (\s a -> s {type' = a} :: Field)
+{-# DEPRECATED fType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Field where
+instance Lude.FromJSON Field where
   parseJSON =
-    withObject
+    Lude.withObject
       "Field"
-      (\x -> Field' <$> (x .:? "name") <*> (x .:? "type"))
+      ( \x ->
+          Field' Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "type")
+      )
 
-instance Hashable Field
-
-instance NFData Field
-
-instance ToJSON Field where
+instance Lude.ToJSON Field where
   toJSON Field' {..} =
-    object
-      (catMaybes [("name" .=) <$> _fName, ("type" .=) <$> _fType])
+    Lude.object
+      ( Lude.catMaybes
+          [("name" Lude..=) Lude.<$> name, ("type" Lude..=) Lude.<$> type']
+      )

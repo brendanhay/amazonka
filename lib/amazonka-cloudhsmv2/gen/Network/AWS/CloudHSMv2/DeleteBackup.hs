@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,127 @@
 --
 -- Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days after the DeleteBackup request is made. For more information on restoring a backup, see 'RestoreBackup' .
 module Network.AWS.CloudHSMv2.DeleteBackup
-  ( -- * Creating a Request
-    deleteBackup,
-    DeleteBackup,
+  ( -- * Creating a request
+    DeleteBackup (..),
+    mkDeleteBackup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbBackupId,
 
-    -- * Destructuring the Response
-    deleteBackupResponse,
-    DeleteBackupResponse,
+    -- * Destructuring the response
+    DeleteBackupResponse (..),
+    mkDeleteBackupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsBackup,
     dbrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBackup' smart constructor.
-newtype DeleteBackup = DeleteBackup' {_dbBackupId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteBackup' smart constructor.
+newtype DeleteBackup = DeleteBackup' {backupId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBackup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbBackupId' - The ID of the backup to be deleted. To find the ID of a backup, use the 'DescribeBackups' operation.
-deleteBackup ::
-  -- | 'dbBackupId'
-  Text ->
+-- * 'backupId' - The ID of the backup to be deleted. To find the ID of a backup, use the 'DescribeBackups' operation.
+mkDeleteBackup ::
+  -- | 'backupId'
+  Lude.Text ->
   DeleteBackup
-deleteBackup pBackupId_ = DeleteBackup' {_dbBackupId = pBackupId_}
+mkDeleteBackup pBackupId_ = DeleteBackup' {backupId = pBackupId_}
 
 -- | The ID of the backup to be deleted. To find the ID of a backup, use the 'DescribeBackups' operation.
-dbBackupId :: Lens' DeleteBackup Text
-dbBackupId = lens _dbBackupId (\s a -> s {_dbBackupId = a})
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbBackupId :: Lens.Lens' DeleteBackup Lude.Text
+dbBackupId = Lens.lens (backupId :: DeleteBackup -> Lude.Text) (\s a -> s {backupId = a} :: DeleteBackup)
+{-# DEPRECATED dbBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
-instance AWSRequest DeleteBackup where
+instance Lude.AWSRequest DeleteBackup where
   type Rs DeleteBackup = DeleteBackupResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DeleteBackupResponse' <$> (x .?> "Backup") <*> (pure (fromEnum s))
+          DeleteBackupResponse'
+            Lude.<$> (x Lude..?> "Backup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBackup
-
-instance NFData DeleteBackup
-
-instance ToHeaders DeleteBackup where
+instance Lude.ToHeaders DeleteBackup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("BaldrApiService.DeleteBackup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("BaldrApiService.DeleteBackup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBackup where
+instance Lude.ToJSON DeleteBackup where
   toJSON DeleteBackup' {..} =
-    object (catMaybes [Just ("BackupId" .= _dbBackupId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BackupId" Lude..= backupId)])
 
-instance ToPath DeleteBackup where
-  toPath = const "/"
+instance Lude.ToPath DeleteBackup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBackup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBackup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBackupResponse' smart constructor.
+-- | /See:/ 'mkDeleteBackupResponse' smart constructor.
 data DeleteBackupResponse = DeleteBackupResponse'
-  { _dbrsBackup ::
-      !(Maybe Backup),
-    _dbrsResponseStatus :: !Int
+  { backup ::
+      Lude.Maybe Backup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBackupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsBackup' - Information on the @Backup@ object deleted.
---
--- * 'dbrsResponseStatus' - -- | The response status code.
-deleteBackupResponse ::
-  -- | 'dbrsResponseStatus'
-  Int ->
+-- * 'backup' - Information on the @Backup@ object deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteBackupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBackupResponse
-deleteBackupResponse pResponseStatus_ =
+mkDeleteBackupResponse pResponseStatus_ =
   DeleteBackupResponse'
-    { _dbrsBackup = Nothing,
-      _dbrsResponseStatus = pResponseStatus_
+    { backup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information on the @Backup@ object deleted.
-dbrsBackup :: Lens' DeleteBackupResponse (Maybe Backup)
-dbrsBackup = lens _dbrsBackup (\s a -> s {_dbrsBackup = a})
+--
+-- /Note:/ Consider using 'backup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBackup :: Lens.Lens' DeleteBackupResponse (Lude.Maybe Backup)
+dbrsBackup = Lens.lens (backup :: DeleteBackupResponse -> Lude.Maybe Backup) (\s a -> s {backup = a} :: DeleteBackupResponse)
+{-# DEPRECATED dbrsBackup "Use generic-lens or generic-optics with 'backup' instead." #-}
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DeleteBackupResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\s a -> s {_dbrsResponseStatus = a})
-
-instance NFData DeleteBackupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsResponseStatus :: Lens.Lens' DeleteBackupResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DeleteBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBackupResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

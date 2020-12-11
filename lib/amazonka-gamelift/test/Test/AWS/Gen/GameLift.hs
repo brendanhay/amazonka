@@ -28,547 +28,547 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestStopMatchmaking $
---             stopMatchmaking
+--             mkStopMatchmaking
 --
 --         , requestDescribeGameServerInstances $
---             describeGameServerInstances
+--             mkDescribeGameServerInstances
 --
 --         , requestCreateGameSession $
---             createGameSession
+--             mkCreateGameSession
 --
 --         , requestDeleteScalingPolicy $
---             deleteScalingPolicy
+--             mkDeleteScalingPolicy
 --
 --         , requestPutScalingPolicy $
---             putScalingPolicy
+--             mkPutScalingPolicy
 --
 --         , requestListBuilds $
---             listBuilds
+--             mkListBuilds
 --
 --         , requestDeleteFleet $
---             deleteFleet
+--             mkDeleteFleet
 --
 --         , requestCreateBuild $
---             createBuild
+--             mkCreateBuild
 --
 --         , requestRequestUploadCredentials $
---             requestUploadCredentials
+--             mkRequestUploadCredentials
 --
 --         , requestCreateAlias $
---             createAlias
+--             mkCreateAlias
 --
 --         , requestListGameServers $
---             listGameServers
+--             mkListGameServers
 --
 --         , requestResolveAlias $
---             resolveAlias
+--             mkResolveAlias
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestRegisterGameServer $
---             registerGameServer
+--             mkRegisterGameServer
 --
 --         , requestListAliases $
---             listAliases
+--             mkListAliases
 --
 --         , requestUpdateRuntimeConfiguration $
---             updateRuntimeConfiguration
+--             mkUpdateRuntimeConfiguration
 --
 --         , requestCreateVPCPeeringConnection $
---             createVPCPeeringConnection
+--             mkCreateVPCPeeringConnection
 --
 --         , requestListGameServerGroups $
---             listGameServerGroups
+--             mkListGameServerGroups
 --
 --         , requestCreateGameSessionQueue $
---             createGameSessionQueue
+--             mkCreateGameSessionQueue
 --
 --         , requestSearchGameSessions $
---             searchGameSessions
+--             mkSearchGameSessions
 --
 --         , requestCreateVPCPeeringAuthorization $
---             createVPCPeeringAuthorization
+--             mkCreateVPCPeeringAuthorization
 --
 --         , requestUpdateGameSessionQueue $
---             updateGameSessionQueue
+--             mkUpdateGameSessionQueue
 --
 --         , requestDeleteGameSessionQueue $
---             deleteGameSessionQueue
+--             mkDeleteGameSessionQueue
 --
 --         , requestCreateGameServerGroup $
---             createGameServerGroup
+--             mkCreateGameServerGroup
 --
 --         , requestDeleteVPCPeeringConnection $
---             deleteVPCPeeringConnection
+--             mkDeleteVPCPeeringConnection
 --
 --         , requestStartFleetActions $
---             startFleetActions
+--             mkStartFleetActions
 --
 --         , requestDeregisterGameServer $
---             deregisterGameServer
+--             mkDeregisterGameServer
 --
 --         , requestGetInstanceAccess $
---             getInstanceAccess
+--             mkGetInstanceAccess
 --
 --         , requestDescribeScalingPolicies $
---             describeScalingPolicies
+--             mkDescribeScalingPolicies
 --
 --         , requestDescribeMatchmakingRuleSets $
---             describeMatchmakingRuleSets
+--             mkDescribeMatchmakingRuleSets
 --
 --         , requestDescribeGameSessions $
---             describeGameSessions
+--             mkDescribeGameSessions
 --
 --         , requestDescribeGameServer $
---             describeGameServer
+--             mkDescribeGameServer
 --
 --         , requestUpdateScript $
---             updateScript
+--             mkUpdateScript
 --
 --         , requestDeleteScript $
---             deleteScript
+--             mkDeleteScript
 --
 --         , requestStartGameSessionPlacement $
---             startGameSessionPlacement
+--             mkStartGameSessionPlacement
 --
 --         , requestDescribeFleetUtilization $
---             describeFleetUtilization
+--             mkDescribeFleetUtilization
 --
 --         , requestDescribeRuntimeConfiguration $
---             describeRuntimeConfiguration
+--             mkDescribeRuntimeConfiguration
 --
 --         , requestGetGameSessionLogURL $
---             getGameSessionLogURL
+--             mkGetGameSessionLogURL
 --
 --         , requestDescribeFleetAttributes $
---             describeFleetAttributes
+--             mkDescribeFleetAttributes
 --
 --         , requestDescribeGameSessionPlacement $
---             describeGameSessionPlacement
+--             mkDescribeGameSessionPlacement
 --
 --         , requestDescribeFleetEvents $
---             describeFleetEvents
+--             mkDescribeFleetEvents
 --
 --         , requestStartMatchmaking $
---             startMatchmaking
+--             mkStartMatchmaking
 --
 --         , requestCreateMatchmakingRuleSet $
---             createMatchmakingRuleSet
+--             mkCreateMatchmakingRuleSet
 --
 --         , requestDescribeFleetCapacity $
---             describeFleetCapacity
+--             mkDescribeFleetCapacity
 --
 --         , requestDeleteBuild $
---             deleteBuild
+--             mkDeleteBuild
 --
 --         , requestUpdateBuild $
---             updateBuild
+--             mkUpdateBuild
 --
 --         , requestListFleets $
---             listFleets
+--             mkListFleets
 --
 --         , requestDeleteAlias $
---             deleteAlias
+--             mkDeleteAlias
 --
 --         , requestUpdateAlias $
---             updateAlias
+--             mkUpdateAlias
 --
 --         , requestStartMatchBackfill $
---             startMatchBackfill
+--             mkStartMatchBackfill
 --
 --         , requestDescribeInstances $
---             describeInstances
+--             mkDescribeInstances
 --
 --         , requestDescribeGameSessionDetails $
---             describeGameSessionDetails
+--             mkDescribeGameSessionDetails
 --
 --         , requestDescribeFleetPortSettings $
---             describeFleetPortSettings
+--             mkDescribeFleetPortSettings
 --
 --         , requestDescribeGameSessionQueues $
---             describeGameSessionQueues
+--             mkDescribeGameSessionQueues
 --
 --         , requestDescribeVPCPeeringConnections $
---             describeVPCPeeringConnections
+--             mkDescribeVPCPeeringConnections
 --
 --         , requestDescribeScript $
---             describeScript
+--             mkDescribeScript
 --
 --         , requestCreatePlayerSessions $
---             createPlayerSessions
+--             mkCreatePlayerSessions
 --
 --         , requestDescribeMatchmakingConfigurations $
---             describeMatchmakingConfigurations
+--             mkDescribeMatchmakingConfigurations
 --
 --         , requestDescribeVPCPeeringAuthorizations $
---             describeVPCPeeringAuthorizations
+--             mkDescribeVPCPeeringAuthorizations
 --
 --         , requestUpdateGameServer $
---             updateGameServer
+--             mkUpdateGameServer
 --
 --         , requestCreateFleet $
---             createFleet
+--             mkCreateFleet
 --
 --         , requestDeleteMatchmakingConfiguration $
---             deleteMatchmakingConfiguration
+--             mkDeleteMatchmakingConfiguration
 --
 --         , requestUpdateMatchmakingConfiguration $
---             updateMatchmakingConfiguration
+--             mkUpdateMatchmakingConfiguration
 --
 --         , requestDeleteGameServerGroup $
---             deleteGameServerGroup
+--             mkDeleteGameServerGroup
 --
 --         , requestUpdateGameServerGroup $
---             updateGameServerGroup
+--             mkUpdateGameServerGroup
 --
 --         , requestResumeGameServerGroup $
---             resumeGameServerGroup
+--             mkResumeGameServerGroup
 --
 --         , requestDeleteVPCPeeringAuthorization $
---             deleteVPCPeeringAuthorization
+--             mkDeleteVPCPeeringAuthorization
 --
 --         , requestUpdateFleetAttributes $
---             updateFleetAttributes
+--             mkUpdateFleetAttributes
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestCreateMatchmakingConfiguration $
---             createMatchmakingConfiguration
+--             mkCreateMatchmakingConfiguration
 --
 --         , requestDescribePlayerSessions $
---             describePlayerSessions
+--             mkDescribePlayerSessions
 --
 --         , requestStopFleetActions $
---             stopFleetActions
+--             mkStopFleetActions
 --
 --         , requestDescribeBuild $
---             describeBuild
+--             mkDescribeBuild
 --
 --         , requestUpdateFleetPortSettings $
---             updateFleetPortSettings
+--             mkUpdateFleetPortSettings
 --
 --         , requestUpdateFleetCapacity $
---             updateFleetCapacity
+--             mkUpdateFleetCapacity
 --
 --         , requestCreateScript $
---             createScript
+--             mkCreateScript
 --
 --         , requestAcceptMatch $
---             acceptMatch
+--             mkAcceptMatch
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDescribeAlias $
---             describeAlias
+--             mkDescribeAlias
 --
 --         , requestValidateMatchmakingRuleSet $
---             validateMatchmakingRuleSet
+--             mkValidateMatchmakingRuleSet
 --
 --         , requestListScripts $
---             listScripts
+--             mkListScripts
 --
 --         , requestDescribeEC2InstanceLimits $
---             describeEC2InstanceLimits
+--             mkDescribeEC2InstanceLimits
 --
 --         , requestSuspendGameServerGroup $
---             suspendGameServerGroup
+--             mkSuspendGameServerGroup
 --
 --         , requestDeleteMatchmakingRuleSet $
---             deleteMatchmakingRuleSet
+--             mkDeleteMatchmakingRuleSet
 --
 --         , requestStopGameSessionPlacement $
---             stopGameSessionPlacement
+--             mkStopGameSessionPlacement
 --
 --         , requestClaimGameServer $
---             claimGameServer
+--             mkClaimGameServer
 --
 --         , requestUpdateGameSession $
---             updateGameSession
+--             mkUpdateGameSession
 --
 --         , requestDescribeMatchmaking $
---             describeMatchmaking
+--             mkDescribeMatchmaking
 --
 --         , requestCreatePlayerSession $
---             createPlayerSession
+--             mkCreatePlayerSession
 --
 --         , requestDescribeGameServerGroup $
---             describeGameServerGroup
+--             mkDescribeGameServerGroup
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseStopMatchmaking $
---             stopMatchmakingResponse
+--             mkStopMatchmakingResponse
 --
 --         , responseDescribeGameServerInstances $
---             describeGameServerInstancesResponse
+--             mkDescribeGameServerInstancesResponse
 --
 --         , responseCreateGameSession $
---             createGameSessionResponse
+--             mkCreateGameSessionResponse
 --
 --         , responseDeleteScalingPolicy $
---             deleteScalingPolicyResponse
+--             mkDeleteScalingPolicyResponse
 --
 --         , responsePutScalingPolicy $
---             putScalingPolicyResponse
+--             mkPutScalingPolicyResponse
 --
 --         , responseListBuilds $
---             listBuildsResponse
+--             mkListBuildsResponse
 --
 --         , responseDeleteFleet $
---             deleteFleetResponse
+--             mkDeleteFleetResponse
 --
 --         , responseCreateBuild $
---             createBuildResponse
+--             mkCreateBuildResponse
 --
 --         , responseRequestUploadCredentials $
---             requestUploadCredentialsResponse
+--             mkRequestUploadCredentialsResponse
 --
 --         , responseCreateAlias $
---             createAliasResponse
+--             mkCreateAliasResponse
 --
 --         , responseListGameServers $
---             listGameServersResponse
+--             mkListGameServersResponse
 --
 --         , responseResolveAlias $
---             resolveAliasResponse
+--             mkResolveAliasResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseRegisterGameServer $
---             registerGameServerResponse
+--             mkRegisterGameServerResponse
 --
 --         , responseListAliases $
---             listAliasesResponse
+--             mkListAliasesResponse
 --
 --         , responseUpdateRuntimeConfiguration $
---             updateRuntimeConfigurationResponse
+--             mkUpdateRuntimeConfigurationResponse
 --
 --         , responseCreateVPCPeeringConnection $
---             createVPCPeeringConnectionResponse
+--             mkCreateVPCPeeringConnectionResponse
 --
 --         , responseListGameServerGroups $
---             listGameServerGroupsResponse
+--             mkListGameServerGroupsResponse
 --
 --         , responseCreateGameSessionQueue $
---             createGameSessionQueueResponse
+--             mkCreateGameSessionQueueResponse
 --
 --         , responseSearchGameSessions $
---             searchGameSessionsResponse
+--             mkSearchGameSessionsResponse
 --
 --         , responseCreateVPCPeeringAuthorization $
---             createVPCPeeringAuthorizationResponse
+--             mkCreateVPCPeeringAuthorizationResponse
 --
 --         , responseUpdateGameSessionQueue $
---             updateGameSessionQueueResponse
+--             mkUpdateGameSessionQueueResponse
 --
 --         , responseDeleteGameSessionQueue $
---             deleteGameSessionQueueResponse
+--             mkDeleteGameSessionQueueResponse
 --
 --         , responseCreateGameServerGroup $
---             createGameServerGroupResponse
+--             mkCreateGameServerGroupResponse
 --
 --         , responseDeleteVPCPeeringConnection $
---             deleteVPCPeeringConnectionResponse
+--             mkDeleteVPCPeeringConnectionResponse
 --
 --         , responseStartFleetActions $
---             startFleetActionsResponse
+--             mkStartFleetActionsResponse
 --
 --         , responseDeregisterGameServer $
---             deregisterGameServerResponse
+--             mkDeregisterGameServerResponse
 --
 --         , responseGetInstanceAccess $
---             getInstanceAccessResponse
+--             mkGetInstanceAccessResponse
 --
 --         , responseDescribeScalingPolicies $
---             describeScalingPoliciesResponse
+--             mkDescribeScalingPoliciesResponse
 --
 --         , responseDescribeMatchmakingRuleSets $
---             describeMatchmakingRuleSetsResponse
+--             mkDescribeMatchmakingRuleSetsResponse
 --
 --         , responseDescribeGameSessions $
---             describeGameSessionsResponse
+--             mkDescribeGameSessionsResponse
 --
 --         , responseDescribeGameServer $
---             describeGameServerResponse
+--             mkDescribeGameServerResponse
 --
 --         , responseUpdateScript $
---             updateScriptResponse
+--             mkUpdateScriptResponse
 --
 --         , responseDeleteScript $
---             deleteScriptResponse
+--             mkDeleteScriptResponse
 --
 --         , responseStartGameSessionPlacement $
---             startGameSessionPlacementResponse
+--             mkStartGameSessionPlacementResponse
 --
 --         , responseDescribeFleetUtilization $
---             describeFleetUtilizationResponse
+--             mkDescribeFleetUtilizationResponse
 --
 --         , responseDescribeRuntimeConfiguration $
---             describeRuntimeConfigurationResponse
+--             mkDescribeRuntimeConfigurationResponse
 --
 --         , responseGetGameSessionLogURL $
---             getGameSessionLogURLResponse
+--             mkGetGameSessionLogURLResponse
 --
 --         , responseDescribeFleetAttributes $
---             describeFleetAttributesResponse
+--             mkDescribeFleetAttributesResponse
 --
 --         , responseDescribeGameSessionPlacement $
---             describeGameSessionPlacementResponse
+--             mkDescribeGameSessionPlacementResponse
 --
 --         , responseDescribeFleetEvents $
---             describeFleetEventsResponse
+--             mkDescribeFleetEventsResponse
 --
 --         , responseStartMatchmaking $
---             startMatchmakingResponse
+--             mkStartMatchmakingResponse
 --
 --         , responseCreateMatchmakingRuleSet $
---             createMatchmakingRuleSetResponse
+--             mkCreateMatchmakingRuleSetResponse
 --
 --         , responseDescribeFleetCapacity $
---             describeFleetCapacityResponse
+--             mkDescribeFleetCapacityResponse
 --
 --         , responseDeleteBuild $
---             deleteBuildResponse
+--             mkDeleteBuildResponse
 --
 --         , responseUpdateBuild $
---             updateBuildResponse
+--             mkUpdateBuildResponse
 --
 --         , responseListFleets $
---             listFleetsResponse
+--             mkListFleetsResponse
 --
 --         , responseDeleteAlias $
---             deleteAliasResponse
+--             mkDeleteAliasResponse
 --
 --         , responseUpdateAlias $
---             updateAliasResponse
+--             mkUpdateAliasResponse
 --
 --         , responseStartMatchBackfill $
---             startMatchBackfillResponse
+--             mkStartMatchBackfillResponse
 --
 --         , responseDescribeInstances $
---             describeInstancesResponse
+--             mkDescribeInstancesResponse
 --
 --         , responseDescribeGameSessionDetails $
---             describeGameSessionDetailsResponse
+--             mkDescribeGameSessionDetailsResponse
 --
 --         , responseDescribeFleetPortSettings $
---             describeFleetPortSettingsResponse
+--             mkDescribeFleetPortSettingsResponse
 --
 --         , responseDescribeGameSessionQueues $
---             describeGameSessionQueuesResponse
+--             mkDescribeGameSessionQueuesResponse
 --
 --         , responseDescribeVPCPeeringConnections $
---             describeVPCPeeringConnectionsResponse
+--             mkDescribeVPCPeeringConnectionsResponse
 --
 --         , responseDescribeScript $
---             describeScriptResponse
+--             mkDescribeScriptResponse
 --
 --         , responseCreatePlayerSessions $
---             createPlayerSessionsResponse
+--             mkCreatePlayerSessionsResponse
 --
 --         , responseDescribeMatchmakingConfigurations $
---             describeMatchmakingConfigurationsResponse
+--             mkDescribeMatchmakingConfigurationsResponse
 --
 --         , responseDescribeVPCPeeringAuthorizations $
---             describeVPCPeeringAuthorizationsResponse
+--             mkDescribeVPCPeeringAuthorizationsResponse
 --
 --         , responseUpdateGameServer $
---             updateGameServerResponse
+--             mkUpdateGameServerResponse
 --
 --         , responseCreateFleet $
---             createFleetResponse
+--             mkCreateFleetResponse
 --
 --         , responseDeleteMatchmakingConfiguration $
---             deleteMatchmakingConfigurationResponse
+--             mkDeleteMatchmakingConfigurationResponse
 --
 --         , responseUpdateMatchmakingConfiguration $
---             updateMatchmakingConfigurationResponse
+--             mkUpdateMatchmakingConfigurationResponse
 --
 --         , responseDeleteGameServerGroup $
---             deleteGameServerGroupResponse
+--             mkDeleteGameServerGroupResponse
 --
 --         , responseUpdateGameServerGroup $
---             updateGameServerGroupResponse
+--             mkUpdateGameServerGroupResponse
 --
 --         , responseResumeGameServerGroup $
---             resumeGameServerGroupResponse
+--             mkResumeGameServerGroupResponse
 --
 --         , responseDeleteVPCPeeringAuthorization $
---             deleteVPCPeeringAuthorizationResponse
+--             mkDeleteVPCPeeringAuthorizationResponse
 --
 --         , responseUpdateFleetAttributes $
---             updateFleetAttributesResponse
+--             mkUpdateFleetAttributesResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseCreateMatchmakingConfiguration $
---             createMatchmakingConfigurationResponse
+--             mkCreateMatchmakingConfigurationResponse
 --
 --         , responseDescribePlayerSessions $
---             describePlayerSessionsResponse
+--             mkDescribePlayerSessionsResponse
 --
 --         , responseStopFleetActions $
---             stopFleetActionsResponse
+--             mkStopFleetActionsResponse
 --
 --         , responseDescribeBuild $
---             describeBuildResponse
+--             mkDescribeBuildResponse
 --
 --         , responseUpdateFleetPortSettings $
---             updateFleetPortSettingsResponse
+--             mkUpdateFleetPortSettingsResponse
 --
 --         , responseUpdateFleetCapacity $
---             updateFleetCapacityResponse
+--             mkUpdateFleetCapacityResponse
 --
 --         , responseCreateScript $
---             createScriptResponse
+--             mkCreateScriptResponse
 --
 --         , responseAcceptMatch $
---             acceptMatchResponse
+--             mkAcceptMatchResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDescribeAlias $
---             describeAliasResponse
+--             mkDescribeAliasResponse
 --
 --         , responseValidateMatchmakingRuleSet $
---             validateMatchmakingRuleSetResponse
+--             mkValidateMatchmakingRuleSetResponse
 --
 --         , responseListScripts $
---             listScriptsResponse
+--             mkListScriptsResponse
 --
 --         , responseDescribeEC2InstanceLimits $
---             describeEC2InstanceLimitsResponse
+--             mkDescribeEC2InstanceLimitsResponse
 --
 --         , responseSuspendGameServerGroup $
---             suspendGameServerGroupResponse
+--             mkSuspendGameServerGroupResponse
 --
 --         , responseDeleteMatchmakingRuleSet $
---             deleteMatchmakingRuleSetResponse
+--             mkDeleteMatchmakingRuleSetResponse
 --
 --         , responseStopGameSessionPlacement $
---             stopGameSessionPlacementResponse
+--             mkStopGameSessionPlacementResponse
 --
 --         , responseClaimGameServer $
---             claimGameServerResponse
+--             mkClaimGameServerResponse
 --
 --         , responseUpdateGameSession $
---             updateGameSessionResponse
+--             mkUpdateGameSessionResponse
 --
 --         , responseDescribeMatchmaking $
---             describeMatchmakingResponse
+--             mkDescribeMatchmakingResponse
 --
 --         , responseCreatePlayerSession $
---             createPlayerSessionResponse
+--             mkCreatePlayerSessionResponse
 --
 --         , responseDescribeGameServerGroup $
---             describeGameServerGroupResponse
+--             mkDescribeGameServerGroupResponse
 --
 --           ]
 --     ]
@@ -1122,7 +1122,7 @@ responseStopMatchmaking =
   res
     "StopMatchmakingResponse"
     "fixture/StopMatchmakingResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StopMatchmaking)
 
 responseDescribeGameServerInstances :: DescribeGameServerInstancesResponse -> TestTree
@@ -1130,7 +1130,7 @@ responseDescribeGameServerInstances =
   res
     "DescribeGameServerInstancesResponse"
     "fixture/DescribeGameServerInstancesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameServerInstances)
 
 responseCreateGameSession :: CreateGameSessionResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseCreateGameSession =
   res
     "CreateGameSessionResponse"
     "fixture/CreateGameSessionResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateGameSession)
 
 responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
@@ -1146,7 +1146,7 @@ responseDeleteScalingPolicy =
   res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
@@ -1154,7 +1154,7 @@ responsePutScalingPolicy =
   res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy PutScalingPolicy)
 
 responseListBuilds :: ListBuildsResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseListBuilds =
   res
     "ListBuildsResponse"
     "fixture/ListBuildsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListBuilds)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseDeleteFleet =
   res
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteFleet)
 
 responseCreateBuild :: CreateBuildResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseCreateBuild =
   res
     "CreateBuildResponse"
     "fixture/CreateBuildResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateBuild)
 
 responseRequestUploadCredentials :: RequestUploadCredentialsResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseRequestUploadCredentials =
   res
     "RequestUploadCredentialsResponse"
     "fixture/RequestUploadCredentialsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy RequestUploadCredentials)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
@@ -1194,7 +1194,7 @@ responseCreateAlias =
   res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateAlias)
 
 responseListGameServers :: ListGameServersResponse -> TestTree
@@ -1202,7 +1202,7 @@ responseListGameServers =
   res
     "ListGameServersResponse"
     "fixture/ListGameServersResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListGameServers)
 
 responseResolveAlias :: ResolveAliasResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseResolveAlias =
   res
     "ResolveAliasResponse"
     "fixture/ResolveAliasResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ResolveAlias)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterGameServer :: RegisterGameServerResponse -> TestTree
@@ -1226,7 +1226,7 @@ responseRegisterGameServer =
   res
     "RegisterGameServerResponse"
     "fixture/RegisterGameServerResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy RegisterGameServer)
 
 responseListAliases :: ListAliasesResponse -> TestTree
@@ -1234,7 +1234,7 @@ responseListAliases =
   res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListAliases)
 
 responseUpdateRuntimeConfiguration :: UpdateRuntimeConfigurationResponse -> TestTree
@@ -1242,7 +1242,7 @@ responseUpdateRuntimeConfiguration =
   res
     "UpdateRuntimeConfigurationResponse"
     "fixture/UpdateRuntimeConfigurationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateRuntimeConfiguration)
 
 responseCreateVPCPeeringConnection :: CreateVPCPeeringConnectionResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseCreateVPCPeeringConnection =
   res
     "CreateVPCPeeringConnectionResponse"
     "fixture/CreateVPCPeeringConnectionResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateVPCPeeringConnection)
 
 responseListGameServerGroups :: ListGameServerGroupsResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseListGameServerGroups =
   res
     "ListGameServerGroupsResponse"
     "fixture/ListGameServerGroupsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListGameServerGroups)
 
 responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseCreateGameSessionQueue =
   res
     "CreateGameSessionQueueResponse"
     "fixture/CreateGameSessionQueueResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateGameSessionQueue)
 
 responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
@@ -1274,7 +1274,7 @@ responseSearchGameSessions =
   res
     "SearchGameSessionsResponse"
     "fixture/SearchGameSessionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy SearchGameSessions)
 
 responseCreateVPCPeeringAuthorization :: CreateVPCPeeringAuthorizationResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseCreateVPCPeeringAuthorization =
   res
     "CreateVPCPeeringAuthorizationResponse"
     "fixture/CreateVPCPeeringAuthorizationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateVPCPeeringAuthorization)
 
 responseUpdateGameSessionQueue :: UpdateGameSessionQueueResponse -> TestTree
@@ -1290,7 +1290,7 @@ responseUpdateGameSessionQueue =
   res
     "UpdateGameSessionQueueResponse"
     "fixture/UpdateGameSessionQueueResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateGameSessionQueue)
 
 responseDeleteGameSessionQueue :: DeleteGameSessionQueueResponse -> TestTree
@@ -1298,7 +1298,7 @@ responseDeleteGameSessionQueue =
   res
     "DeleteGameSessionQueueResponse"
     "fixture/DeleteGameSessionQueueResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteGameSessionQueue)
 
 responseCreateGameServerGroup :: CreateGameServerGroupResponse -> TestTree
@@ -1306,7 +1306,7 @@ responseCreateGameServerGroup =
   res
     "CreateGameServerGroupResponse"
     "fixture/CreateGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateGameServerGroup)
 
 responseDeleteVPCPeeringConnection :: DeleteVPCPeeringConnectionResponse -> TestTree
@@ -1314,7 +1314,7 @@ responseDeleteVPCPeeringConnection =
   res
     "DeleteVPCPeeringConnectionResponse"
     "fixture/DeleteVPCPeeringConnectionResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteVPCPeeringConnection)
 
 responseStartFleetActions :: StartFleetActionsResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseStartFleetActions =
   res
     "StartFleetActionsResponse"
     "fixture/StartFleetActionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StartFleetActions)
 
 responseDeregisterGameServer :: DeregisterGameServerResponse -> TestTree
@@ -1330,7 +1330,7 @@ responseDeregisterGameServer =
   res
     "DeregisterGameServerResponse"
     "fixture/DeregisterGameServerResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeregisterGameServer)
 
 responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseGetInstanceAccess =
   res
     "GetInstanceAccessResponse"
     "fixture/GetInstanceAccessResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy GetInstanceAccess)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseDescribeScalingPolicies =
   res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeScalingPolicies)
 
 responseDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSetsResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseDescribeMatchmakingRuleSets =
   res
     "DescribeMatchmakingRuleSetsResponse"
     "fixture/DescribeMatchmakingRuleSetsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeMatchmakingRuleSets)
 
 responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseDescribeGameSessions =
   res
     "DescribeGameSessionsResponse"
     "fixture/DescribeGameSessionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameSessions)
 
 responseDescribeGameServer :: DescribeGameServerResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseDescribeGameServer =
   res
     "DescribeGameServerResponse"
     "fixture/DescribeGameServerResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameServer)
 
 responseUpdateScript :: UpdateScriptResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseUpdateScript =
   res
     "UpdateScriptResponse"
     "fixture/UpdateScriptResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateScript)
 
 responseDeleteScript :: DeleteScriptResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseDeleteScript =
   res
     "DeleteScriptResponse"
     "fixture/DeleteScriptResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteScript)
 
 responseStartGameSessionPlacement :: StartGameSessionPlacementResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseStartGameSessionPlacement =
   res
     "StartGameSessionPlacementResponse"
     "fixture/StartGameSessionPlacementResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StartGameSessionPlacement)
 
 responseDescribeFleetUtilization :: DescribeFleetUtilizationResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseDescribeFleetUtilization =
   res
     "DescribeFleetUtilizationResponse"
     "fixture/DescribeFleetUtilizationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeFleetUtilization)
 
 responseDescribeRuntimeConfiguration :: DescribeRuntimeConfigurationResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseDescribeRuntimeConfiguration =
   res
     "DescribeRuntimeConfigurationResponse"
     "fixture/DescribeRuntimeConfigurationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeRuntimeConfiguration)
 
 responseGetGameSessionLogURL :: GetGameSessionLogURLResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseGetGameSessionLogURL =
   res
     "GetGameSessionLogURLResponse"
     "fixture/GetGameSessionLogURLResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy GetGameSessionLogURL)
 
 responseDescribeFleetAttributes :: DescribeFleetAttributesResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseDescribeFleetAttributes =
   res
     "DescribeFleetAttributesResponse"
     "fixture/DescribeFleetAttributesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeFleetAttributes)
 
 responseDescribeGameSessionPlacement :: DescribeGameSessionPlacementResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseDescribeGameSessionPlacement =
   res
     "DescribeGameSessionPlacementResponse"
     "fixture/DescribeGameSessionPlacementResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameSessionPlacement)
 
 responseDescribeFleetEvents :: DescribeFleetEventsResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseDescribeFleetEvents =
   res
     "DescribeFleetEventsResponse"
     "fixture/DescribeFleetEventsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeFleetEvents)
 
 responseStartMatchmaking :: StartMatchmakingResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseStartMatchmaking =
   res
     "StartMatchmakingResponse"
     "fixture/StartMatchmakingResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StartMatchmaking)
 
 responseCreateMatchmakingRuleSet :: CreateMatchmakingRuleSetResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseCreateMatchmakingRuleSet =
   res
     "CreateMatchmakingRuleSetResponse"
     "fixture/CreateMatchmakingRuleSetResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateMatchmakingRuleSet)
 
 responseDescribeFleetCapacity :: DescribeFleetCapacityResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseDescribeFleetCapacity =
   res
     "DescribeFleetCapacityResponse"
     "fixture/DescribeFleetCapacityResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeFleetCapacity)
 
 responseDeleteBuild :: DeleteBuildResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseDeleteBuild =
   res
     "DeleteBuildResponse"
     "fixture/DeleteBuildResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteBuild)
 
 responseUpdateBuild :: UpdateBuildResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseUpdateBuild =
   res
     "UpdateBuildResponse"
     "fixture/UpdateBuildResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateBuild)
 
 responseListFleets :: ListFleetsResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseListFleets =
   res
     "ListFleetsResponse"
     "fixture/ListFleetsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListFleets)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseDeleteAlias =
   res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteAlias)
 
 responseUpdateAlias :: UpdateAliasResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseUpdateAlias =
   res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateAlias)
 
 responseStartMatchBackfill :: StartMatchBackfillResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseStartMatchBackfill =
   res
     "StartMatchBackfillResponse"
     "fixture/StartMatchBackfillResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StartMatchBackfill)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseDescribeInstances =
   res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeInstances)
 
 responseDescribeGameSessionDetails :: DescribeGameSessionDetailsResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseDescribeGameSessionDetails =
   res
     "DescribeGameSessionDetailsResponse"
     "fixture/DescribeGameSessionDetailsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameSessionDetails)
 
 responseDescribeFleetPortSettings :: DescribeFleetPortSettingsResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseDescribeFleetPortSettings =
   res
     "DescribeFleetPortSettingsResponse"
     "fixture/DescribeFleetPortSettingsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeFleetPortSettings)
 
 responseDescribeGameSessionQueues :: DescribeGameSessionQueuesResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseDescribeGameSessionQueues =
   res
     "DescribeGameSessionQueuesResponse"
     "fixture/DescribeGameSessionQueuesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameSessionQueues)
 
 responseDescribeVPCPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseDescribeVPCPeeringConnections =
   res
     "DescribeVPCPeeringConnectionsResponse"
     "fixture/DescribeVPCPeeringConnectionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeVPCPeeringConnections)
 
 responseDescribeScript :: DescribeScriptResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseDescribeScript =
   res
     "DescribeScriptResponse"
     "fixture/DescribeScriptResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeScript)
 
 responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseCreatePlayerSessions =
   res
     "CreatePlayerSessionsResponse"
     "fixture/CreatePlayerSessionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreatePlayerSessions)
 
 responseDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurationsResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseDescribeMatchmakingConfigurations =
   res
     "DescribeMatchmakingConfigurationsResponse"
     "fixture/DescribeMatchmakingConfigurationsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeMatchmakingConfigurations)
 
 responseDescribeVPCPeeringAuthorizations :: DescribeVPCPeeringAuthorizationsResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseDescribeVPCPeeringAuthorizations =
   res
     "DescribeVPCPeeringAuthorizationsResponse"
     "fixture/DescribeVPCPeeringAuthorizationsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeVPCPeeringAuthorizations)
 
 responseUpdateGameServer :: UpdateGameServerResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseUpdateGameServer =
   res
     "UpdateGameServerResponse"
     "fixture/UpdateGameServerResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateGameServer)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseCreateFleet =
   res
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateFleet)
 
 responseDeleteMatchmakingConfiguration :: DeleteMatchmakingConfigurationResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseDeleteMatchmakingConfiguration =
   res
     "DeleteMatchmakingConfigurationResponse"
     "fixture/DeleteMatchmakingConfigurationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteMatchmakingConfiguration)
 
 responseUpdateMatchmakingConfiguration :: UpdateMatchmakingConfigurationResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseUpdateMatchmakingConfiguration =
   res
     "UpdateMatchmakingConfigurationResponse"
     "fixture/UpdateMatchmakingConfigurationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateMatchmakingConfiguration)
 
 responseDeleteGameServerGroup :: DeleteGameServerGroupResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseDeleteGameServerGroup =
   res
     "DeleteGameServerGroupResponse"
     "fixture/DeleteGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteGameServerGroup)
 
 responseUpdateGameServerGroup :: UpdateGameServerGroupResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseUpdateGameServerGroup =
   res
     "UpdateGameServerGroupResponse"
     "fixture/UpdateGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateGameServerGroup)
 
 responseResumeGameServerGroup :: ResumeGameServerGroupResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseResumeGameServerGroup =
   res
     "ResumeGameServerGroupResponse"
     "fixture/ResumeGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ResumeGameServerGroup)
 
 responseDeleteVPCPeeringAuthorization :: DeleteVPCPeeringAuthorizationResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseDeleteVPCPeeringAuthorization =
   res
     "DeleteVPCPeeringAuthorizationResponse"
     "fixture/DeleteVPCPeeringAuthorizationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteVPCPeeringAuthorization)
 
 responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseUpdateFleetAttributes =
   res
     "UpdateFleetAttributesResponse"
     "fixture/UpdateFleetAttributesResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateFleetAttributes)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy TagResource)
 
 responseCreateMatchmakingConfiguration :: CreateMatchmakingConfigurationResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseCreateMatchmakingConfiguration =
   res
     "CreateMatchmakingConfigurationResponse"
     "fixture/CreateMatchmakingConfigurationResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateMatchmakingConfiguration)
 
 responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseDescribePlayerSessions =
   res
     "DescribePlayerSessionsResponse"
     "fixture/DescribePlayerSessionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribePlayerSessions)
 
 responseStopFleetActions :: StopFleetActionsResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseStopFleetActions =
   res
     "StopFleetActionsResponse"
     "fixture/StopFleetActionsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StopFleetActions)
 
 responseDescribeBuild :: DescribeBuildResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseDescribeBuild =
   res
     "DescribeBuildResponse"
     "fixture/DescribeBuildResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeBuild)
 
 responseUpdateFleetPortSettings :: UpdateFleetPortSettingsResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseUpdateFleetPortSettings =
   res
     "UpdateFleetPortSettingsResponse"
     "fixture/UpdateFleetPortSettingsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateFleetPortSettings)
 
 responseUpdateFleetCapacity :: UpdateFleetCapacityResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseUpdateFleetCapacity =
   res
     "UpdateFleetCapacityResponse"
     "fixture/UpdateFleetCapacityResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateFleetCapacity)
 
 responseCreateScript :: CreateScriptResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseCreateScript =
   res
     "CreateScriptResponse"
     "fixture/CreateScriptResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreateScript)
 
 responseAcceptMatch :: AcceptMatchResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseAcceptMatch =
   res
     "AcceptMatchResponse"
     "fixture/AcceptMatchResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy AcceptMatch)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UntagResource)
 
 responseDescribeAlias :: DescribeAliasResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseDescribeAlias =
   res
     "DescribeAliasResponse"
     "fixture/DescribeAliasResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeAlias)
 
 responseValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSetResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseValidateMatchmakingRuleSet =
   res
     "ValidateMatchmakingRuleSetResponse"
     "fixture/ValidateMatchmakingRuleSetResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ValidateMatchmakingRuleSet)
 
 responseListScripts :: ListScriptsResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseListScripts =
   res
     "ListScriptsResponse"
     "fixture/ListScriptsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ListScripts)
 
 responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseDescribeEC2InstanceLimits =
   res
     "DescribeEC2InstanceLimitsResponse"
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeEC2InstanceLimits)
 
 responseSuspendGameServerGroup :: SuspendGameServerGroupResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseSuspendGameServerGroup =
   res
     "SuspendGameServerGroupResponse"
     "fixture/SuspendGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy SuspendGameServerGroup)
 
 responseDeleteMatchmakingRuleSet :: DeleteMatchmakingRuleSetResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseDeleteMatchmakingRuleSet =
   res
     "DeleteMatchmakingRuleSetResponse"
     "fixture/DeleteMatchmakingRuleSetResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DeleteMatchmakingRuleSet)
 
 responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseStopGameSessionPlacement =
   res
     "StopGameSessionPlacementResponse"
     "fixture/StopGameSessionPlacementResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy StopGameSessionPlacement)
 
 responseClaimGameServer :: ClaimGameServerResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseClaimGameServer =
   res
     "ClaimGameServerResponse"
     "fixture/ClaimGameServerResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy ClaimGameServer)
 
 responseUpdateGameSession :: UpdateGameSessionResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseUpdateGameSession =
   res
     "UpdateGameSessionResponse"
     "fixture/UpdateGameSessionResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy UpdateGameSession)
 
 responseDescribeMatchmaking :: DescribeMatchmakingResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseDescribeMatchmaking =
   res
     "DescribeMatchmakingResponse"
     "fixture/DescribeMatchmakingResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeMatchmaking)
 
 responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseCreatePlayerSession =
   res
     "CreatePlayerSessionResponse"
     "fixture/CreatePlayerSessionResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy CreatePlayerSession)
 
 responseDescribeGameServerGroup :: DescribeGameServerGroupResponse -> TestTree
@@ -1834,5 +1834,5 @@ responseDescribeGameServerGroup =
   res
     "DescribeGameServerGroupResponse"
     "fixture/DescribeGameServerGroupResponse.proto"
-    gameLift
+    gameLiftService
     (Proxy :: Proxy DescribeGameServerGroup)

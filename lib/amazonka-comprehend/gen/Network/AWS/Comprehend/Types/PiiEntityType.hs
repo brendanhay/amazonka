@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,154 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiEntityType where
+module Network.AWS.Comprehend.Types.PiiEntityType
+  ( PiiEntityType
+      ( PiiEntityType',
+        AWSAccessKey,
+        AWSSecretKey,
+        Address,
+        Age,
+        All,
+        BankAccountNumber,
+        BankRouting,
+        CreditDebitCvv,
+        CreditDebitExpiry,
+        CreditDebitNumber,
+        DateTime,
+        DriverId,
+        Email,
+        IPAddress,
+        MACAddress,
+        Name,
+        PassportNumber,
+        Password,
+        Phone,
+        Pin,
+        Ssn,
+        URL,
+        Username
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PiiEntityType
-  = AWSAccessKey
-  | AWSSecretKey
-  | Address
-  | Age
-  | All
-  | BankAccountNumber
-  | BankRouting
-  | CreditDebitCvv
-  | CreditDebitExpiry
-  | CreditDebitNumber
-  | DateTime
-  | DriverId
-  | Email
-  | IPAddress
-  | MACAddress
-  | Name
-  | PassportNumber
-  | Password
-  | Phone
-  | Pin
-  | Ssn
-  | URL
-  | Username
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PiiEntityType = PiiEntityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PiiEntityType where
-  parser =
-    takeLowerText >>= \case
-      "aws_access_key" -> pure AWSAccessKey
-      "aws_secret_key" -> pure AWSSecretKey
-      "address" -> pure Address
-      "age" -> pure Age
-      "all" -> pure All
-      "bank_account_number" -> pure BankAccountNumber
-      "bank_routing" -> pure BankRouting
-      "credit_debit_cvv" -> pure CreditDebitCvv
-      "credit_debit_expiry" -> pure CreditDebitExpiry
-      "credit_debit_number" -> pure CreditDebitNumber
-      "date_time" -> pure DateTime
-      "driver_id" -> pure DriverId
-      "email" -> pure Email
-      "ip_address" -> pure IPAddress
-      "mac_address" -> pure MACAddress
-      "name" -> pure Name
-      "passport_number" -> pure PassportNumber
-      "password" -> pure Password
-      "phone" -> pure Phone
-      "pin" -> pure Pin
-      "ssn" -> pure Ssn
-      "url" -> pure URL
-      "username" -> pure Username
-      e ->
-        fromTextError $
-          "Failure parsing PiiEntityType from value: '" <> e
-            <> "'. Accepted values: aws_access_key, aws_secret_key, address, age, all, bank_account_number, bank_routing, credit_debit_cvv, credit_debit_expiry, credit_debit_number, date_time, driver_id, email, ip_address, mac_address, name, passport_number, password, phone, pin, ssn, url, username"
+pattern AWSAccessKey :: PiiEntityType
+pattern AWSAccessKey = PiiEntityType' "AWS_ACCESS_KEY"
 
-instance ToText PiiEntityType where
-  toText = \case
-    AWSAccessKey -> "AWS_ACCESS_KEY"
-    AWSSecretKey -> "AWS_SECRET_KEY"
-    Address -> "ADDRESS"
-    Age -> "AGE"
-    All -> "ALL"
-    BankAccountNumber -> "BANK_ACCOUNT_NUMBER"
-    BankRouting -> "BANK_ROUTING"
-    CreditDebitCvv -> "CREDIT_DEBIT_CVV"
-    CreditDebitExpiry -> "CREDIT_DEBIT_EXPIRY"
-    CreditDebitNumber -> "CREDIT_DEBIT_NUMBER"
-    DateTime -> "DATE_TIME"
-    DriverId -> "DRIVER_ID"
-    Email -> "EMAIL"
-    IPAddress -> "IP_ADDRESS"
-    MACAddress -> "MAC_ADDRESS"
-    Name -> "NAME"
-    PassportNumber -> "PASSPORT_NUMBER"
-    Password -> "PASSWORD"
-    Phone -> "PHONE"
-    Pin -> "PIN"
-    Ssn -> "SSN"
-    URL -> "URL"
-    Username -> "USERNAME"
+pattern AWSSecretKey :: PiiEntityType
+pattern AWSSecretKey = PiiEntityType' "AWS_SECRET_KEY"
 
-instance Hashable PiiEntityType
+pattern Address :: PiiEntityType
+pattern Address = PiiEntityType' "ADDRESS"
 
-instance NFData PiiEntityType
+pattern Age :: PiiEntityType
+pattern Age = PiiEntityType' "AGE"
 
-instance ToByteString PiiEntityType
+pattern All :: PiiEntityType
+pattern All = PiiEntityType' "ALL"
 
-instance ToQuery PiiEntityType
+pattern BankAccountNumber :: PiiEntityType
+pattern BankAccountNumber = PiiEntityType' "BANK_ACCOUNT_NUMBER"
 
-instance ToHeader PiiEntityType
+pattern BankRouting :: PiiEntityType
+pattern BankRouting = PiiEntityType' "BANK_ROUTING"
 
-instance ToJSON PiiEntityType where
-  toJSON = toJSONText
+pattern CreditDebitCvv :: PiiEntityType
+pattern CreditDebitCvv = PiiEntityType' "CREDIT_DEBIT_CVV"
 
-instance FromJSON PiiEntityType where
-  parseJSON = parseJSONText "PiiEntityType"
+pattern CreditDebitExpiry :: PiiEntityType
+pattern CreditDebitExpiry = PiiEntityType' "CREDIT_DEBIT_EXPIRY"
+
+pattern CreditDebitNumber :: PiiEntityType
+pattern CreditDebitNumber = PiiEntityType' "CREDIT_DEBIT_NUMBER"
+
+pattern DateTime :: PiiEntityType
+pattern DateTime = PiiEntityType' "DATE_TIME"
+
+pattern DriverId :: PiiEntityType
+pattern DriverId = PiiEntityType' "DRIVER_ID"
+
+pattern Email :: PiiEntityType
+pattern Email = PiiEntityType' "EMAIL"
+
+pattern IPAddress :: PiiEntityType
+pattern IPAddress = PiiEntityType' "IP_ADDRESS"
+
+pattern MACAddress :: PiiEntityType
+pattern MACAddress = PiiEntityType' "MAC_ADDRESS"
+
+pattern Name :: PiiEntityType
+pattern Name = PiiEntityType' "NAME"
+
+pattern PassportNumber :: PiiEntityType
+pattern PassportNumber = PiiEntityType' "PASSPORT_NUMBER"
+
+pattern Password :: PiiEntityType
+pattern Password = PiiEntityType' "PASSWORD"
+
+pattern Phone :: PiiEntityType
+pattern Phone = PiiEntityType' "PHONE"
+
+pattern Pin :: PiiEntityType
+pattern Pin = PiiEntityType' "PIN"
+
+pattern Ssn :: PiiEntityType
+pattern Ssn = PiiEntityType' "SSN"
+
+pattern URL :: PiiEntityType
+pattern URL = PiiEntityType' "URL"
+
+pattern Username :: PiiEntityType
+pattern Username = PiiEntityType' "USERNAME"
+
+{-# COMPLETE
+  AWSAccessKey,
+  AWSSecretKey,
+  Address,
+  Age,
+  All,
+  BankAccountNumber,
+  BankRouting,
+  CreditDebitCvv,
+  CreditDebitExpiry,
+  CreditDebitNumber,
+  DateTime,
+  DriverId,
+  Email,
+  IPAddress,
+  MACAddress,
+  Name,
+  PassportNumber,
+  Password,
+  Phone,
+  Pin,
+  Ssn,
+  URL,
+  Username,
+  PiiEntityType'
+  #-}

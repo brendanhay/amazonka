@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.ObjectACL where
+module Network.AWS.StorageGateway.Types.ObjectACL
+  ( ObjectACL
+      ( ObjectACL',
+        AWSExecRead,
+        AuthenticatedRead,
+        BucketOwnerFullControl,
+        BucketOwnerRead,
+        Private,
+        PublicRead,
+        PublicReadWrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
-data ObjectACL
-  = AWSExecRead
-  | AuthenticatedRead
-  | BucketOwnerFullControl
-  | BucketOwnerRead
-  | Private
-  | PublicRead
-  | PublicReadWrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectACL = ObjectACL' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectACL where
-  parser =
-    takeLowerText >>= \case
-      "aws-exec-read" -> pure AWSExecRead
-      "authenticated-read" -> pure AuthenticatedRead
-      "bucket-owner-full-control" -> pure BucketOwnerFullControl
-      "bucket-owner-read" -> pure BucketOwnerRead
-      "private" -> pure Private
-      "public-read" -> pure PublicRead
-      "public-read-write" -> pure PublicReadWrite
-      e ->
-        fromTextError $
-          "Failure parsing ObjectACL from value: '" <> e
-            <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
+pattern AWSExecRead :: ObjectACL
+pattern AWSExecRead = ObjectACL' "aws-exec-read"
 
-instance ToText ObjectACL where
-  toText = \case
-    AWSExecRead -> "aws-exec-read"
-    AuthenticatedRead -> "authenticated-read"
-    BucketOwnerFullControl -> "bucket-owner-full-control"
-    BucketOwnerRead -> "bucket-owner-read"
-    Private -> "private"
-    PublicRead -> "public-read"
-    PublicReadWrite -> "public-read-write"
+pattern AuthenticatedRead :: ObjectACL
+pattern AuthenticatedRead = ObjectACL' "authenticated-read"
 
-instance Hashable ObjectACL
+pattern BucketOwnerFullControl :: ObjectACL
+pattern BucketOwnerFullControl = ObjectACL' "bucket-owner-full-control"
 
-instance NFData ObjectACL
+pattern BucketOwnerRead :: ObjectACL
+pattern BucketOwnerRead = ObjectACL' "bucket-owner-read"
 
-instance ToByteString ObjectACL
+pattern Private :: ObjectACL
+pattern Private = ObjectACL' "private"
 
-instance ToQuery ObjectACL
+pattern PublicRead :: ObjectACL
+pattern PublicRead = ObjectACL' "public-read"
 
-instance ToHeader ObjectACL
+pattern PublicReadWrite :: ObjectACL
+pattern PublicReadWrite = ObjectACL' "public-read-write"
 
-instance ToJSON ObjectACL where
-  toJSON = toJSONText
-
-instance FromJSON ObjectACL where
-  parseJSON = parseJSONText "ObjectACL"
+{-# COMPLETE
+  AWSExecRead,
+  AuthenticatedRead,
+  BucketOwnerFullControl,
+  BucketOwnerRead,
+  Private,
+  PublicRead,
+  PublicReadWrite,
+  ObjectACL'
+  #-}

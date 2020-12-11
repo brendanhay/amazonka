@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AttributeBooleanValue where
+module Network.AWS.EC2.Types.AttributeBooleanValue
+  ( AttributeBooleanValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributeBooleanValue,
+
+    -- * Lenses
+    abvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a value for a resource attribute that is a Boolean value.
 --
---
---
--- /See:/ 'attributeBooleanValue' smart constructor.
+-- /See:/ 'mkAttributeBooleanValue' smart constructor.
 newtype AttributeBooleanValue = AttributeBooleanValue'
-  { _abvValue ::
-      Maybe Bool
+  { value ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeBooleanValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'abvValue' - The attribute value. The valid values are @true@ or @false@ .
-attributeBooleanValue ::
+-- * 'value' - The attribute value. The valid values are @true@ or @false@ .
+mkAttributeBooleanValue ::
   AttributeBooleanValue
-attributeBooleanValue = AttributeBooleanValue' {_abvValue = Nothing}
+mkAttributeBooleanValue =
+  AttributeBooleanValue' {value = Lude.Nothing}
 
 -- | The attribute value. The valid values are @true@ or @false@ .
-abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
-abvValue = lens _abvValue (\s a -> s {_abvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abvValue :: Lens.Lens' AttributeBooleanValue (Lude.Maybe Lude.Bool)
+abvValue = Lens.lens (value :: AttributeBooleanValue -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: AttributeBooleanValue)
+{-# DEPRECATED abvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML AttributeBooleanValue where
-  parseXML x = AttributeBooleanValue' <$> (x .@? "value")
+instance Lude.FromXML AttributeBooleanValue where
+  parseXML x = AttributeBooleanValue' Lude.<$> (x Lude..@? "value")
 
-instance Hashable AttributeBooleanValue
-
-instance NFData AttributeBooleanValue
-
-instance ToQuery AttributeBooleanValue where
-  toQuery AttributeBooleanValue' {..} = mconcat ["Value" =: _abvValue]
+instance Lude.ToQuery AttributeBooleanValue where
+  toQuery AttributeBooleanValue' {..} =
+    Lude.mconcat ["Value" Lude.=: value]

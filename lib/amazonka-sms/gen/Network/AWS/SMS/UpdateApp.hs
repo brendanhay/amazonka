@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the specified application.
 module Network.AWS.SMS.UpdateApp
-  ( -- * Creating a Request
-    updateApp,
-    UpdateApp,
+  ( -- * Creating a request
+    UpdateApp (..),
+    mkUpdateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaRoleName,
     uaAppId,
     uaName,
@@ -31,11 +26,11 @@ module Network.AWS.SMS.UpdateApp
     uaServerGroups,
     uaTags,
 
-    -- * Destructuring the Response
-    updateAppResponse,
-    UpdateAppResponse,
+    -- * Destructuring the response
+    UpdateAppResponse (..),
+    mkUpdateAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uarsAppSummary,
     uarsServerGroups,
     uarsTags,
@@ -43,167 +38,196 @@ module Network.AWS.SMS.UpdateApp
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'updateApp' smart constructor.
+-- | /See:/ 'mkUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { _uaRoleName :: !(Maybe Text),
-    _uaAppId :: !(Maybe Text),
-    _uaName :: !(Maybe Text),
-    _uaDescription :: !(Maybe Text),
-    _uaServerGroups :: !(Maybe [ServerGroup]),
-    _uaTags :: !(Maybe [Tag])
+  { roleName :: Lude.Maybe Lude.Text,
+    appId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    serverGroups :: Lude.Maybe [ServerGroup],
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaRoleName' - The name of the service role in the customer's account used by AWS SMS.
---
--- * 'uaAppId' - The ID of the application.
---
--- * 'uaName' - The new name of the application.
---
--- * 'uaDescription' - The new description of the application.
---
--- * 'uaServerGroups' - The server groups in the application to update.
---
--- * 'uaTags' - The tags to associate with the application.
-updateApp ::
+-- * 'appId' - The ID of the application.
+-- * 'description' - The new description of the application.
+-- * 'name' - The new name of the application.
+-- * 'roleName' - The name of the service role in the customer's account used by AWS SMS.
+-- * 'serverGroups' - The server groups in the application to update.
+-- * 'tags' - The tags to associate with the application.
+mkUpdateApp ::
   UpdateApp
-updateApp =
+mkUpdateApp =
   UpdateApp'
-    { _uaRoleName = Nothing,
-      _uaAppId = Nothing,
-      _uaName = Nothing,
-      _uaDescription = Nothing,
-      _uaServerGroups = Nothing,
-      _uaTags = Nothing
+    { roleName = Lude.Nothing,
+      appId = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      serverGroups = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The name of the service role in the customer's account used by AWS SMS.
-uaRoleName :: Lens' UpdateApp (Maybe Text)
-uaRoleName = lens _uaRoleName (\s a -> s {_uaRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaRoleName :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaRoleName = Lens.lens (roleName :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: UpdateApp)
+{-# DEPRECATED uaRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The ID of the application.
-uaAppId :: Lens' UpdateApp (Maybe Text)
-uaAppId = lens _uaAppId (\s a -> s {_uaAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAppId :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaAppId = Lens.lens (appId :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: UpdateApp)
+{-# DEPRECATED uaAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | The new name of the application.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\s a -> s {_uaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaName :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaName = Lens.lens (name :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateApp)
+{-# DEPRECATED uaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new description of the application.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s {_uaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDescription :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApp)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The server groups in the application to update.
-uaServerGroups :: Lens' UpdateApp [ServerGroup]
-uaServerGroups = lens _uaServerGroups (\s a -> s {_uaServerGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServerGroups :: Lens.Lens' UpdateApp (Lude.Maybe [ServerGroup])
+uaServerGroups = Lens.lens (serverGroups :: UpdateApp -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: UpdateApp)
+{-# DEPRECATED uaServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags to associate with the application.
-uaTags :: Lens' UpdateApp [Tag]
-uaTags = lens _uaTags (\s a -> s {_uaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaTags :: Lens.Lens' UpdateApp (Lude.Maybe [Tag])
+uaTags = Lens.lens (tags :: UpdateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateApp)
+{-# DEPRECATED uaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest UpdateApp where
+instance Lude.AWSRequest UpdateApp where
   type Rs UpdateApp = UpdateAppResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAppResponse'
-            <$> (x .?> "appSummary")
-            <*> (x .?> "serverGroups" .!@ mempty)
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "appSummary")
+            Lude.<*> (x Lude..?> "serverGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateApp
-
-instance NFData UpdateApp
-
-instance ToHeaders UpdateApp where
+instance Lude.ToHeaders UpdateApp where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSServerMigrationService_V2016_10_24.UpdateApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.UpdateApp" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateApp where
+instance Lude.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
-    object
-      ( catMaybes
-          [ ("roleName" .=) <$> _uaRoleName,
-            ("appId" .=) <$> _uaAppId,
-            ("name" .=) <$> _uaName,
-            ("description" .=) <$> _uaDescription,
-            ("serverGroups" .=) <$> _uaServerGroups,
-            ("tags" .=) <$> _uaTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("roleName" Lude..=) Lude.<$> roleName,
+            ("appId" Lude..=) Lude.<$> appId,
+            ("name" Lude..=) Lude.<$> name,
+            ("description" Lude..=) Lude.<$> description,
+            ("serverGroups" Lude..=) Lude.<$> serverGroups,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath UpdateApp where
-  toPath = const "/"
+instance Lude.ToPath UpdateApp where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateApp where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAppResponse' smart constructor.
+-- | /See:/ 'mkUpdateAppResponse' smart constructor.
 data UpdateAppResponse = UpdateAppResponse'
-  { _uarsAppSummary ::
-      !(Maybe AppSummary),
-    _uarsServerGroups :: !(Maybe [ServerGroup]),
-    _uarsTags :: !(Maybe [Tag]),
-    _uarsResponseStatus :: !Int
+  { appSummary ::
+      Lude.Maybe AppSummary,
+    serverGroups :: Lude.Maybe [ServerGroup],
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uarsAppSummary' - A summary description of the application.
---
--- * 'uarsServerGroups' - The updated server groups in the application.
---
--- * 'uarsTags' - The tags associated with the application.
---
--- * 'uarsResponseStatus' - -- | The response status code.
-updateAppResponse ::
-  -- | 'uarsResponseStatus'
-  Int ->
+-- * 'appSummary' - A summary description of the application.
+-- * 'responseStatus' - The response status code.
+-- * 'serverGroups' - The updated server groups in the application.
+-- * 'tags' - The tags associated with the application.
+mkUpdateAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAppResponse
-updateAppResponse pResponseStatus_ =
+mkUpdateAppResponse pResponseStatus_ =
   UpdateAppResponse'
-    { _uarsAppSummary = Nothing,
-      _uarsServerGroups = Nothing,
-      _uarsTags = Nothing,
-      _uarsResponseStatus = pResponseStatus_
+    { appSummary = Lude.Nothing,
+      serverGroups = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A summary description of the application.
-uarsAppSummary :: Lens' UpdateAppResponse (Maybe AppSummary)
-uarsAppSummary = lens _uarsAppSummary (\s a -> s {_uarsAppSummary = a})
+--
+-- /Note:/ Consider using 'appSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsAppSummary :: Lens.Lens' UpdateAppResponse (Lude.Maybe AppSummary)
+uarsAppSummary = Lens.lens (appSummary :: UpdateAppResponse -> Lude.Maybe AppSummary) (\s a -> s {appSummary = a} :: UpdateAppResponse)
+{-# DEPRECATED uarsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
 
 -- | The updated server groups in the application.
-uarsServerGroups :: Lens' UpdateAppResponse [ServerGroup]
-uarsServerGroups = lens _uarsServerGroups (\s a -> s {_uarsServerGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsServerGroups :: Lens.Lens' UpdateAppResponse (Lude.Maybe [ServerGroup])
+uarsServerGroups = Lens.lens (serverGroups :: UpdateAppResponse -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: UpdateAppResponse)
+{-# DEPRECATED uarsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags associated with the application.
-uarsTags :: Lens' UpdateAppResponse [Tag]
-uarsTags = lens _uarsTags (\s a -> s {_uarsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsTags :: Lens.Lens' UpdateAppResponse (Lude.Maybe [Tag])
+uarsTags = Lens.lens (tags :: UpdateAppResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateAppResponse)
+{-# DEPRECATED uarsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-uarsResponseStatus :: Lens' UpdateAppResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\s a -> s {_uarsResponseStatus = a})
-
-instance NFData UpdateAppResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsResponseStatus :: Lens.Lens' UpdateAppResponse Lude.Int
+uarsResponseStatus = Lens.lens (responseStatus :: UpdateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAppResponse)
+{-# DEPRECATED uarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

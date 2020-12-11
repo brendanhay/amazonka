@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription where
+module Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
+  ( CloudWatchLoggingOptionDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchLoggingOptionDescription,
+
+    -- * Lenses
+    cwlodCloudWatchLoggingOptionId,
+    cwlodLogStreamARN,
+    cwlodRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Description of the CloudWatch logging option.
 --
---
---
--- /See:/ 'cloudWatchLoggingOptionDescription' smart constructor.
+-- /See:/ 'mkCloudWatchLoggingOptionDescription' smart constructor.
 data CloudWatchLoggingOptionDescription = CloudWatchLoggingOptionDescription'
-  { _cwlodCloudWatchLoggingOptionId ::
-      !(Maybe Text),
-    _cwlodLogStreamARN ::
-      !Text,
-    _cwlodRoleARN ::
-      !Text
+  { cloudWatchLoggingOptionId ::
+      Lude.Maybe Lude.Text,
+    logStreamARN ::
+      Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchLoggingOptionDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwlodCloudWatchLoggingOptionId' - ID of the CloudWatch logging option description.
---
--- * 'cwlodLogStreamARN' - ARN of the CloudWatch log to receive application messages.
---
--- * 'cwlodRoleARN' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
-cloudWatchLoggingOptionDescription ::
-  -- | 'cwlodLogStreamARN'
-  Text ->
-  -- | 'cwlodRoleARN'
-  Text ->
+-- * 'cloudWatchLoggingOptionId' - ID of the CloudWatch logging option description.
+-- * 'logStreamARN' - ARN of the CloudWatch log to receive application messages.
+-- * 'roleARN' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+mkCloudWatchLoggingOptionDescription ::
+  -- | 'logStreamARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CloudWatchLoggingOptionDescription
-cloudWatchLoggingOptionDescription pLogStreamARN_ pRoleARN_ =
+mkCloudWatchLoggingOptionDescription pLogStreamARN_ pRoleARN_ =
   CloudWatchLoggingOptionDescription'
-    { _cwlodCloudWatchLoggingOptionId =
-        Nothing,
-      _cwlodLogStreamARN = pLogStreamARN_,
-      _cwlodRoleARN = pRoleARN_
+    { cloudWatchLoggingOptionId =
+        Lude.Nothing,
+      logStreamARN = pLogStreamARN_,
+      roleARN = pRoleARN_
     }
 
 -- | ID of the CloudWatch logging option description.
-cwlodCloudWatchLoggingOptionId :: Lens' CloudWatchLoggingOptionDescription (Maybe Text)
-cwlodCloudWatchLoggingOptionId = lens _cwlodCloudWatchLoggingOptionId (\s a -> s {_cwlodCloudWatchLoggingOptionId = a})
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlodCloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionDescription (Lude.Maybe Lude.Text)
+cwlodCloudWatchLoggingOptionId = Lens.lens (cloudWatchLoggingOptionId :: CloudWatchLoggingOptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLoggingOptionId = a} :: CloudWatchLoggingOptionDescription)
+{-# DEPRECATED cwlodCloudWatchLoggingOptionId "Use generic-lens or generic-optics with 'cloudWatchLoggingOptionId' instead." #-}
 
 -- | ARN of the CloudWatch log to receive application messages.
-cwlodLogStreamARN :: Lens' CloudWatchLoggingOptionDescription Text
-cwlodLogStreamARN = lens _cwlodLogStreamARN (\s a -> s {_cwlodLogStreamARN = a})
+--
+-- /Note:/ Consider using 'logStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlodLogStreamARN :: Lens.Lens' CloudWatchLoggingOptionDescription Lude.Text
+cwlodLogStreamARN = Lens.lens (logStreamARN :: CloudWatchLoggingOptionDescription -> Lude.Text) (\s a -> s {logStreamARN = a} :: CloudWatchLoggingOptionDescription)
+{-# DEPRECATED cwlodLogStreamARN "Use generic-lens or generic-optics with 'logStreamARN' instead." #-}
 
 -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
-cwlodRoleARN :: Lens' CloudWatchLoggingOptionDescription Text
-cwlodRoleARN = lens _cwlodRoleARN (\s a -> s {_cwlodRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlodRoleARN :: Lens.Lens' CloudWatchLoggingOptionDescription Lude.Text
+cwlodRoleARN = Lens.lens (roleARN :: CloudWatchLoggingOptionDescription -> Lude.Text) (\s a -> s {roleARN = a} :: CloudWatchLoggingOptionDescription)
+{-# DEPRECATED cwlodRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON CloudWatchLoggingOptionDescription where
+instance Lude.FromJSON CloudWatchLoggingOptionDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchLoggingOptionDescription"
       ( \x ->
           CloudWatchLoggingOptionDescription'
-            <$> (x .:? "CloudWatchLoggingOptionId")
-            <*> (x .: "LogStreamARN")
-            <*> (x .: "RoleARN")
+            Lude.<$> (x Lude..:? "CloudWatchLoggingOptionId")
+            Lude.<*> (x Lude..: "LogStreamARN")
+            Lude.<*> (x Lude..: "RoleARN")
       )
-
-instance Hashable CloudWatchLoggingOptionDescription
-
-instance NFData CloudWatchLoggingOptionDescription

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ListImagesFilter where
+module Network.AWS.ECR.Types.ListImagesFilter
+  ( ListImagesFilter (..),
+
+    -- * Smart constructor
+    mkListImagesFilter,
+
+    -- * Lenses
+    lifTagStatus,
+  )
+where
 
 import Network.AWS.ECR.Types.TagStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing a filter on a 'ListImages' operation.
 --
---
---
--- /See:/ 'listImagesFilter' smart constructor.
+-- /See:/ 'mkListImagesFilter' smart constructor.
 newtype ListImagesFilter = ListImagesFilter'
-  { _lifTagStatus ::
-      Maybe TagStatus
+  { tagStatus ::
+      Lude.Maybe TagStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImagesFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lifTagStatus' - The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
-listImagesFilter ::
+-- * 'tagStatus' - The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
+mkListImagesFilter ::
   ListImagesFilter
-listImagesFilter = ListImagesFilter' {_lifTagStatus = Nothing}
+mkListImagesFilter = ListImagesFilter' {tagStatus = Lude.Nothing}
 
 -- | The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
-lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
-lifTagStatus = lens _lifTagStatus (\s a -> s {_lifTagStatus = a})
+--
+-- /Note:/ Consider using 'tagStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifTagStatus :: Lens.Lens' ListImagesFilter (Lude.Maybe TagStatus)
+lifTagStatus = Lens.lens (tagStatus :: ListImagesFilter -> Lude.Maybe TagStatus) (\s a -> s {tagStatus = a} :: ListImagesFilter)
+{-# DEPRECATED lifTagStatus "Use generic-lens or generic-optics with 'tagStatus' instead." #-}
 
-instance Hashable ListImagesFilter
-
-instance NFData ListImagesFilter
-
-instance ToJSON ListImagesFilter where
+instance Lude.ToJSON ListImagesFilter where
   toJSON ListImagesFilter' {..} =
-    object (catMaybes [("tagStatus" .=) <$> _lifTagStatus])
+    Lude.object
+      (Lude.catMaybes [("tagStatus" Lude..=) Lude.<$> tagStatus])

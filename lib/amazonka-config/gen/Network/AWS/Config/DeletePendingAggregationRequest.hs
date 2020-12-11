@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,123 @@
 --
 -- Deletes pending authorization requests for a specified aggregator account in a specified region.
 module Network.AWS.Config.DeletePendingAggregationRequest
-  ( -- * Creating a Request
-    deletePendingAggregationRequest,
-    DeletePendingAggregationRequest,
+  ( -- * Creating a request
+    DeletePendingAggregationRequest (..),
+    mkDeletePendingAggregationRequest,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dparRequesterAccountId,
     dparRequesterAWSRegion,
 
-    -- * Destructuring the Response
-    deletePendingAggregationRequestResponse,
-    DeletePendingAggregationRequestResponse,
+    -- * Destructuring the response
+    DeletePendingAggregationRequestResponse (..),
+    mkDeletePendingAggregationRequestResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deletePendingAggregationRequest' smart constructor.
+-- | /See:/ 'mkDeletePendingAggregationRequest' smart constructor.
 data DeletePendingAggregationRequest = DeletePendingAggregationRequest'
-  { _dparRequesterAccountId ::
-      !Text,
-    _dparRequesterAWSRegion ::
-      !Text
+  { requesterAccountId ::
+      Lude.Text,
+    requesterAWSRegion ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePendingAggregationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dparRequesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
---
--- * 'dparRequesterAWSRegion' - The region requesting to aggregate data.
-deletePendingAggregationRequest ::
-  -- | 'dparRequesterAccountId'
-  Text ->
-  -- | 'dparRequesterAWSRegion'
-  Text ->
+-- * 'requesterAWSRegion' - The region requesting to aggregate data.
+-- * 'requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
+mkDeletePendingAggregationRequest ::
+  -- | 'requesterAccountId'
+  Lude.Text ->
+  -- | 'requesterAWSRegion'
+  Lude.Text ->
   DeletePendingAggregationRequest
-deletePendingAggregationRequest
+mkDeletePendingAggregationRequest
   pRequesterAccountId_
   pRequesterAWSRegion_ =
     DeletePendingAggregationRequest'
-      { _dparRequesterAccountId =
+      { requesterAccountId =
           pRequesterAccountId_,
-        _dparRequesterAWSRegion = pRequesterAWSRegion_
+        requesterAWSRegion = pRequesterAWSRegion_
       }
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
-dparRequesterAccountId :: Lens' DeletePendingAggregationRequest Text
-dparRequesterAccountId = lens _dparRequesterAccountId (\s a -> s {_dparRequesterAccountId = a})
+--
+-- /Note:/ Consider using 'requesterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparRequesterAccountId :: Lens.Lens' DeletePendingAggregationRequest Lude.Text
+dparRequesterAccountId = Lens.lens (requesterAccountId :: DeletePendingAggregationRequest -> Lude.Text) (\s a -> s {requesterAccountId = a} :: DeletePendingAggregationRequest)
+{-# DEPRECATED dparRequesterAccountId "Use generic-lens or generic-optics with 'requesterAccountId' instead." #-}
 
 -- | The region requesting to aggregate data.
-dparRequesterAWSRegion :: Lens' DeletePendingAggregationRequest Text
-dparRequesterAWSRegion = lens _dparRequesterAWSRegion (\s a -> s {_dparRequesterAWSRegion = a})
+--
+-- /Note:/ Consider using 'requesterAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparRequesterAWSRegion :: Lens.Lens' DeletePendingAggregationRequest Lude.Text
+dparRequesterAWSRegion = Lens.lens (requesterAWSRegion :: DeletePendingAggregationRequest -> Lude.Text) (\s a -> s {requesterAWSRegion = a} :: DeletePendingAggregationRequest)
+{-# DEPRECATED dparRequesterAWSRegion "Use generic-lens or generic-optics with 'requesterAWSRegion' instead." #-}
 
-instance AWSRequest DeletePendingAggregationRequest where
+instance Lude.AWSRequest DeletePendingAggregationRequest where
   type
     Rs DeletePendingAggregationRequest =
       DeletePendingAggregationRequestResponse
-  request = postJSON config
-  response = receiveNull DeletePendingAggregationRequestResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeletePendingAggregationRequestResponse'
 
-instance Hashable DeletePendingAggregationRequest
-
-instance NFData DeletePendingAggregationRequest
-
-instance ToHeaders DeletePendingAggregationRequest where
+instance Lude.ToHeaders DeletePendingAggregationRequest where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DeletePendingAggregationRequest" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeletePendingAggregationRequest where
+instance Lude.ToJSON DeletePendingAggregationRequest where
   toJSON DeletePendingAggregationRequest' {..} =
-    object
-      ( catMaybes
-          [ Just ("RequesterAccountId" .= _dparRequesterAccountId),
-            Just ("RequesterAwsRegion" .= _dparRequesterAWSRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RequesterAccountId" Lude..= requesterAccountId),
+            Lude.Just ("RequesterAwsRegion" Lude..= requesterAWSRegion)
           ]
       )
 
-instance ToPath DeletePendingAggregationRequest where
-  toPath = const "/"
+instance Lude.ToPath DeletePendingAggregationRequest where
+  toPath = Lude.const "/"
 
-instance ToQuery DeletePendingAggregationRequest where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePendingAggregationRequest where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePendingAggregationRequestResponse' smart constructor.
+-- | /See:/ 'mkDeletePendingAggregationRequestResponse' smart constructor.
 data DeletePendingAggregationRequestResponse = DeletePendingAggregationRequestResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePendingAggregationRequestResponse' with the minimum fields required to make a request.
-deletePendingAggregationRequestResponse ::
+mkDeletePendingAggregationRequestResponse ::
   DeletePendingAggregationRequestResponse
-deletePendingAggregationRequestResponse =
+mkDeletePendingAggregationRequestResponse =
   DeletePendingAggregationRequestResponse'
-
-instance NFData DeletePendingAggregationRequestResponse

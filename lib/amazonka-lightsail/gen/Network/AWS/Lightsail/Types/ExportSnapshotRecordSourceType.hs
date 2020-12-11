@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType where
+module Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType
+  ( ExportSnapshotRecordSourceType
+      ( ExportSnapshotRecordSourceType',
+        DiskSnapshot,
+        InstanceSnapshot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportSnapshotRecordSourceType
-  = DiskSnapshot
-  | InstanceSnapshot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportSnapshotRecordSourceType = ExportSnapshotRecordSourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportSnapshotRecordSourceType where
-  parser =
-    takeLowerText >>= \case
-      "disksnapshot" -> pure DiskSnapshot
-      "instancesnapshot" -> pure InstanceSnapshot
-      e ->
-        fromTextError $
-          "Failure parsing ExportSnapshotRecordSourceType from value: '" <> e
-            <> "'. Accepted values: disksnapshot, instancesnapshot"
+pattern DiskSnapshot :: ExportSnapshotRecordSourceType
+pattern DiskSnapshot = ExportSnapshotRecordSourceType' "DiskSnapshot"
 
-instance ToText ExportSnapshotRecordSourceType where
-  toText = \case
-    DiskSnapshot -> "DiskSnapshot"
-    InstanceSnapshot -> "InstanceSnapshot"
+pattern InstanceSnapshot :: ExportSnapshotRecordSourceType
+pattern InstanceSnapshot = ExportSnapshotRecordSourceType' "InstanceSnapshot"
 
-instance Hashable ExportSnapshotRecordSourceType
-
-instance NFData ExportSnapshotRecordSourceType
-
-instance ToByteString ExportSnapshotRecordSourceType
-
-instance ToQuery ExportSnapshotRecordSourceType
-
-instance ToHeader ExportSnapshotRecordSourceType
-
-instance FromJSON ExportSnapshotRecordSourceType where
-  parseJSON = parseJSONText "ExportSnapshotRecordSourceType"
+{-# COMPLETE
+  DiskSnapshot,
+  InstanceSnapshot,
+  ExportSnapshotRecordSourceType'
+  #-}

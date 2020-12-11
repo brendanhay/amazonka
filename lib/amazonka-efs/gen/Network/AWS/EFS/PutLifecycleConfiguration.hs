@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,108 @@
 --
 -- Enables lifecycle management by creating a new @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A @LifecycleConfiguration@ applies to all files in a file system.
 --
---
 -- Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a @LifecycleConfiguration@ object already exists for the specified file system, a @PutLifecycleConfiguration@ call modifies the existing configuration. A @PutLifecycleConfiguration@ call with an empty @LifecyclePolicies@ array in the request body deletes any existing @LifecycleConfiguration@ and disables lifecycle management.
---
 -- In the request, specify the following:
 --
 --     * The ID for the file system for which you are enabling, disabling, or modifying lifecycle management.
 --
+--
 --     * A @LifecyclePolicies@ array of @LifecyclePolicy@ objects that define when files are moved to the IA storage class. The array can contain only one @LifecyclePolicy@ item.
 --
 --
---
 -- This operation requires permissions for the @elasticfilesystem:PutLifecycleConfiguration@ operation.
---
 -- To apply a @LifecycleConfiguration@ object to an encrypted file system, you need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted file system.
 module Network.AWS.EFS.PutLifecycleConfiguration
-  ( -- * Creating a Request
-    putLifecycleConfiguration,
-    PutLifecycleConfiguration,
+  ( -- * Creating a request
+    PutLifecycleConfiguration (..),
+    mkPutLifecycleConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     plcFileSystemId,
     plcLifecyclePolicies,
 
-    -- * Destructuring the Response
-    lifecycleConfigurationDescription,
-    LifecycleConfigurationDescription,
+    -- * Destructuring the response
+    LifecycleConfigurationDescription (..),
+    mkLifecycleConfigurationDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcdLifecyclePolicies,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putLifecycleConfiguration' smart constructor.
+-- | /See:/ 'mkPutLifecycleConfiguration' smart constructor.
 data PutLifecycleConfiguration = PutLifecycleConfiguration'
-  { _plcFileSystemId ::
-      !Text,
-    _plcLifecyclePolicies ::
-      ![LifecyclePolicy]
+  { fileSystemId ::
+      Lude.Text,
+    lifecyclePolicies :: [LifecyclePolicy]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plcFileSystemId' - The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
---
--- * 'plcLifecyclePolicies' - An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
-putLifecycleConfiguration ::
-  -- | 'plcFileSystemId'
-  Text ->
+-- * 'fileSystemId' - The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
+-- * 'lifecyclePolicies' - An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
+mkPutLifecycleConfiguration ::
+  -- | 'fileSystemId'
+  Lude.Text ->
   PutLifecycleConfiguration
-putLifecycleConfiguration pFileSystemId_ =
+mkPutLifecycleConfiguration pFileSystemId_ =
   PutLifecycleConfiguration'
-    { _plcFileSystemId = pFileSystemId_,
-      _plcLifecyclePolicies = mempty
+    { fileSystemId = pFileSystemId_,
+      lifecyclePolicies = Lude.mempty
     }
 
 -- | The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
-plcFileSystemId :: Lens' PutLifecycleConfiguration Text
-plcFileSystemId = lens _plcFileSystemId (\s a -> s {_plcFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plcFileSystemId :: Lens.Lens' PutLifecycleConfiguration Lude.Text
+plcFileSystemId = Lens.lens (fileSystemId :: PutLifecycleConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: PutLifecycleConfiguration)
+{-# DEPRECATED plcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
-plcLifecyclePolicies :: Lens' PutLifecycleConfiguration [LifecyclePolicy]
-plcLifecyclePolicies = lens _plcLifecyclePolicies (\s a -> s {_plcLifecyclePolicies = a}) . _Coerce
+--
+-- /Note:/ Consider using 'lifecyclePolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plcLifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [LifecyclePolicy]
+plcLifecyclePolicies = Lens.lens (lifecyclePolicies :: PutLifecycleConfiguration -> [LifecyclePolicy]) (\s a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration)
+{-# DEPRECATED plcLifecyclePolicies "Use generic-lens or generic-optics with 'lifecyclePolicies' instead." #-}
 
-instance AWSRequest PutLifecycleConfiguration where
+instance Lude.AWSRequest PutLifecycleConfiguration where
   type
     Rs PutLifecycleConfiguration =
       LifecycleConfigurationDescription
-  request = putJSON efs
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.putJSON efsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable PutLifecycleConfiguration
+instance Lude.ToHeaders PutLifecycleConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutLifecycleConfiguration
-
-instance ToHeaders PutLifecycleConfiguration where
-  toHeaders = const mempty
-
-instance ToJSON PutLifecycleConfiguration where
+instance Lude.ToJSON PutLifecycleConfiguration where
   toJSON PutLifecycleConfiguration' {..} =
-    object
-      (catMaybes [Just ("LifecyclePolicies" .= _plcLifecyclePolicies)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("LifecyclePolicies" Lude..= lifecyclePolicies)]
+      )
 
-instance ToPath PutLifecycleConfiguration where
+instance Lude.ToPath PutLifecycleConfiguration where
   toPath PutLifecycleConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-02-01/file-systems/",
-        toBS _plcFileSystemId,
+        Lude.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance ToQuery PutLifecycleConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery PutLifecycleConfiguration where
+  toQuery = Lude.const Lude.mempty

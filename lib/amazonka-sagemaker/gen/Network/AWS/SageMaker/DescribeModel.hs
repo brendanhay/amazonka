@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes a model that you created using the @CreateModel@ API.
 module Network.AWS.SageMaker.DescribeModel
-  ( -- * Creating a Request
-    describeModel,
-    DescribeModel,
+  ( -- * Creating a request
+    DescribeModel (..),
+    mkDescribeModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dModelName,
 
-    -- * Destructuring the Response
-    describeModelResponse,
-    DescribeModelResponse,
+    -- * Destructuring the response
+    DescribeModelResponse (..),
+    mkDescribeModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmrsPrimaryContainer,
     dmrsEnableNetworkIsolation,
     dmrsContainers,
@@ -43,174 +38,202 @@ module Network.AWS.SageMaker.DescribeModel
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeModel' smart constructor.
-newtype DescribeModel = DescribeModel' {_dModelName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeModel' smart constructor.
+newtype DescribeModel = DescribeModel' {modelName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dModelName' - The name of the model.
-describeModel ::
-  -- | 'dModelName'
-  Text ->
+-- * 'modelName' - The name of the model.
+mkDescribeModel ::
+  -- | 'modelName'
+  Lude.Text ->
   DescribeModel
-describeModel pModelName_ =
-  DescribeModel' {_dModelName = pModelName_}
+mkDescribeModel pModelName_ =
+  DescribeModel' {modelName = pModelName_}
 
 -- | The name of the model.
-dModelName :: Lens' DescribeModel Text
-dModelName = lens _dModelName (\s a -> s {_dModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dModelName :: Lens.Lens' DescribeModel Lude.Text
+dModelName = Lens.lens (modelName :: DescribeModel -> Lude.Text) (\s a -> s {modelName = a} :: DescribeModel)
+{-# DEPRECATED dModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest DescribeModel where
+instance Lude.AWSRequest DescribeModel where
   type Rs DescribeModel = DescribeModelResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeModelResponse'
-            <$> (x .?> "PrimaryContainer")
-            <*> (x .?> "EnableNetworkIsolation")
-            <*> (x .?> "Containers" .!@ mempty)
-            <*> (x .?> "VpcConfig")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "ModelName")
-            <*> (x .:> "ExecutionRoleArn")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "ModelArn")
+            Lude.<$> (x Lude..?> "PrimaryContainer")
+            Lude.<*> (x Lude..?> "EnableNetworkIsolation")
+            Lude.<*> (x Lude..?> "Containers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "VpcConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "ModelName")
+            Lude.<*> (x Lude..:> "ExecutionRoleArn")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "ModelArn")
       )
 
-instance Hashable DescribeModel
-
-instance NFData DescribeModel
-
-instance ToHeaders DescribeModel where
+instance Lude.ToHeaders DescribeModel where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeModel where
+instance Lude.ToJSON DescribeModel where
   toJSON DescribeModel' {..} =
-    object (catMaybes [Just ("ModelName" .= _dModelName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ModelName" Lude..= modelName)])
 
-instance ToPath DescribeModel where
-  toPath = const "/"
+instance Lude.ToPath DescribeModel where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeModel where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeModel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeModelResponse' smart constructor.
+-- | /See:/ 'mkDescribeModelResponse' smart constructor.
 data DescribeModelResponse = DescribeModelResponse'
-  { _dmrsPrimaryContainer ::
-      !(Maybe ContainerDefinition),
-    _dmrsEnableNetworkIsolation :: !(Maybe Bool),
-    _dmrsContainers ::
-      !(Maybe [ContainerDefinition]),
-    _dmrsVPCConfig :: !(Maybe VPCConfig),
-    _dmrsResponseStatus :: !Int,
-    _dmrsModelName :: !Text,
-    _dmrsExecutionRoleARN :: !Text,
-    _dmrsCreationTime :: !POSIX,
-    _dmrsModelARN :: !Text
+  { primaryContainer ::
+      Lude.Maybe ContainerDefinition,
+    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
+    containers :: Lude.Maybe [ContainerDefinition],
+    vpcConfig :: Lude.Maybe VPCConfig,
+    responseStatus :: Lude.Int,
+    modelName :: Lude.Text,
+    executionRoleARN :: Lude.Text,
+    creationTime :: Lude.Timestamp,
+    modelARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmrsPrimaryContainer' - The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production.
---
--- * 'dmrsEnableNetworkIsolation' - If @True@ , no inbound or outbound network calls can be made to or from the model container.
---
--- * 'dmrsContainers' - The containers in the inference pipeline.
---
--- * 'dmrsVPCConfig' - A 'VpcConfig' object that specifies the VPC that this model has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
---
--- * 'dmrsResponseStatus' - -- | The response status code.
---
--- * 'dmrsModelName' - Name of the Amazon SageMaker model.
---
--- * 'dmrsExecutionRoleARN' - The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
---
--- * 'dmrsCreationTime' - A timestamp that shows when the model was created.
---
--- * 'dmrsModelARN' - The Amazon Resource Name (ARN) of the model.
-describeModelResponse ::
-  -- | 'dmrsResponseStatus'
-  Int ->
-  -- | 'dmrsModelName'
-  Text ->
-  -- | 'dmrsExecutionRoleARN'
-  Text ->
-  -- | 'dmrsCreationTime'
-  UTCTime ->
-  -- | 'dmrsModelARN'
-  Text ->
+-- * 'containers' - The containers in the inference pipeline.
+-- * 'creationTime' - A timestamp that shows when the model was created.
+-- * 'enableNetworkIsolation' - If @True@ , no inbound or outbound network calls can be made to or from the model container.
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
+-- * 'modelARN' - The Amazon Resource Name (ARN) of the model.
+-- * 'modelName' - Name of the Amazon SageMaker model.
+-- * 'primaryContainer' - The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that this model has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
+mkDescribeModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'modelName'
+  Lude.Text ->
+  -- | 'executionRoleARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'modelARN'
+  Lude.Text ->
   DescribeModelResponse
-describeModelResponse
+mkDescribeModelResponse
   pResponseStatus_
   pModelName_
   pExecutionRoleARN_
   pCreationTime_
   pModelARN_ =
     DescribeModelResponse'
-      { _dmrsPrimaryContainer = Nothing,
-        _dmrsEnableNetworkIsolation = Nothing,
-        _dmrsContainers = Nothing,
-        _dmrsVPCConfig = Nothing,
-        _dmrsResponseStatus = pResponseStatus_,
-        _dmrsModelName = pModelName_,
-        _dmrsExecutionRoleARN = pExecutionRoleARN_,
-        _dmrsCreationTime = _Time # pCreationTime_,
-        _dmrsModelARN = pModelARN_
+      { primaryContainer = Lude.Nothing,
+        enableNetworkIsolation = Lude.Nothing,
+        containers = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        modelName = pModelName_,
+        executionRoleARN = pExecutionRoleARN_,
+        creationTime = pCreationTime_,
+        modelARN = pModelARN_
       }
 
 -- | The location of the primary inference code, associated artifacts, and custom environment map that the inference code uses when it is deployed in production.
-dmrsPrimaryContainer :: Lens' DescribeModelResponse (Maybe ContainerDefinition)
-dmrsPrimaryContainer = lens _dmrsPrimaryContainer (\s a -> s {_dmrsPrimaryContainer = a})
+--
+-- /Note:/ Consider using 'primaryContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsPrimaryContainer :: Lens.Lens' DescribeModelResponse (Lude.Maybe ContainerDefinition)
+dmrsPrimaryContainer = Lens.lens (primaryContainer :: DescribeModelResponse -> Lude.Maybe ContainerDefinition) (\s a -> s {primaryContainer = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsPrimaryContainer "Use generic-lens or generic-optics with 'primaryContainer' instead." #-}
 
 -- | If @True@ , no inbound or outbound network calls can be made to or from the model container.
-dmrsEnableNetworkIsolation :: Lens' DescribeModelResponse (Maybe Bool)
-dmrsEnableNetworkIsolation = lens _dmrsEnableNetworkIsolation (\s a -> s {_dmrsEnableNetworkIsolation = a})
+--
+-- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsEnableNetworkIsolation :: Lens.Lens' DescribeModelResponse (Lude.Maybe Lude.Bool)
+dmrsEnableNetworkIsolation = Lens.lens (enableNetworkIsolation :: DescribeModelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enableNetworkIsolation = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
 
 -- | The containers in the inference pipeline.
-dmrsContainers :: Lens' DescribeModelResponse [ContainerDefinition]
-dmrsContainers = lens _dmrsContainers (\s a -> s {_dmrsContainers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsContainers :: Lens.Lens' DescribeModelResponse (Lude.Maybe [ContainerDefinition])
+dmrsContainers = Lens.lens (containers :: DescribeModelResponse -> Lude.Maybe [ContainerDefinition]) (\s a -> s {containers = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
 -- | A 'VpcConfig' object that specifies the VPC that this model has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
-dmrsVPCConfig :: Lens' DescribeModelResponse (Maybe VPCConfig)
-dmrsVPCConfig = lens _dmrsVPCConfig (\s a -> s {_dmrsVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsVPCConfig :: Lens.Lens' DescribeModelResponse (Lude.Maybe VPCConfig)
+dmrsVPCConfig = Lens.lens (vpcConfig :: DescribeModelResponse -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | -- | The response status code.
-dmrsResponseStatus :: Lens' DescribeModelResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\s a -> s {_dmrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsResponseStatus :: Lens.Lens' DescribeModelResponse Lude.Int
+dmrsResponseStatus = Lens.lens (responseStatus :: DescribeModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Name of the Amazon SageMaker model.
-dmrsModelName :: Lens' DescribeModelResponse Text
-dmrsModelName = lens _dmrsModelName (\s a -> s {_dmrsModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsModelName :: Lens.Lens' DescribeModelResponse Lude.Text
+dmrsModelName = Lens.lens (modelName :: DescribeModelResponse -> Lude.Text) (\s a -> s {modelName = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that you specified for the model.
-dmrsExecutionRoleARN :: Lens' DescribeModelResponse Text
-dmrsExecutionRoleARN = lens _dmrsExecutionRoleARN (\s a -> s {_dmrsExecutionRoleARN = a})
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsExecutionRoleARN :: Lens.Lens' DescribeModelResponse Lude.Text
+dmrsExecutionRoleARN = Lens.lens (executionRoleARN :: DescribeModelResponse -> Lude.Text) (\s a -> s {executionRoleARN = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
 -- | A timestamp that shows when the model was created.
-dmrsCreationTime :: Lens' DescribeModelResponse UTCTime
-dmrsCreationTime = lens _dmrsCreationTime (\s a -> s {_dmrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsCreationTime :: Lens.Lens' DescribeModelResponse Lude.Timestamp
+dmrsCreationTime = Lens.lens (creationTime :: DescribeModelResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the model.
-dmrsModelARN :: Lens' DescribeModelResponse Text
-dmrsModelARN = lens _dmrsModelARN (\s a -> s {_dmrsModelARN = a})
-
-instance NFData DescribeModelResponse
+--
+-- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsModelARN :: Lens.Lens' DescribeModelResponse Lude.Text
+dmrsModelARN = Lens.lens (modelARN :: DescribeModelResponse -> Lude.Text) (\s a -> s {modelARN = a} :: DescribeModelResponse)
+{-# DEPRECATED dmrsModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}

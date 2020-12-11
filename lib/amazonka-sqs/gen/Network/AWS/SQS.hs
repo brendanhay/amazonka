@@ -13,43 +13,46 @@
 --
 -- Welcome to the /Amazon Simple Queue Service API Reference/ .
 --
---
 -- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.
---
 -- For information on the permissions you need to use this API, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html Identity and access management> in the /Amazon Simple Queue Service Developer Guide./
---
 -- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:
 --
 --     * Cryptographically sign your service requests
 --
+--
 --     * Retry requests
 --
---     * Handle error responses
 --
+--     * Handle error responses
 --
 --
 -- __Additional Information__
 --
 --     * <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
 --
+--
 --     * /Amazon Simple Queue Service Developer Guide/
 --
 --     * <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html Making API Requests>
 --
+--
 --     * <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
+--
 --
 --     * <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Amazon SQS Dead-Letter Queues>
 --
 --
 --
+--
 --     * <http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html Amazon SQS in the /AWS CLI Command Reference/ >
+--
 --
 --     * /Amazon Web Services General Reference/
 --
 --     * <https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 module Network.AWS.SQS
-  ( -- * Service Configuration
-    sqs,
+  ( -- * Service configuration
+    sqsService,
 
     -- * Errors
     -- $errors
@@ -132,39 +135,39 @@ module Network.AWS.SQS
     QueueAttributeName (..),
 
     -- ** BatchResultErrorEntry
-    BatchResultErrorEntry,
-    batchResultErrorEntry,
+    BatchResultErrorEntry (..),
+    mkBatchResultErrorEntry,
     breeMessage,
     breeId,
     breeSenderFault,
     breeCode,
 
     -- ** ChangeMessageVisibilityBatchRequestEntry
-    ChangeMessageVisibilityBatchRequestEntry,
-    changeMessageVisibilityBatchRequestEntry,
+    ChangeMessageVisibilityBatchRequestEntry (..),
+    mkChangeMessageVisibilityBatchRequestEntry,
     cVisibilityTimeout,
     cId,
     cReceiptHandle,
 
     -- ** ChangeMessageVisibilityBatchResultEntry
-    ChangeMessageVisibilityBatchResultEntry,
-    changeMessageVisibilityBatchResultEntry,
+    ChangeMessageVisibilityBatchResultEntry (..),
+    mkChangeMessageVisibilityBatchResultEntry,
     cmvbreId,
 
     -- ** DeleteMessageBatchRequestEntry
-    DeleteMessageBatchRequestEntry,
-    deleteMessageBatchRequestEntry,
+    DeleteMessageBatchRequestEntry (..),
+    mkDeleteMessageBatchRequestEntry,
     dmbreId,
     dmbreReceiptHandle,
 
     -- ** DeleteMessageBatchResultEntry
-    DeleteMessageBatchResultEntry,
-    deleteMessageBatchResultEntry,
+    DeleteMessageBatchResultEntry (..),
+    mkDeleteMessageBatchResultEntry,
     dId,
 
     -- ** Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mMessageAttributes,
     mMD5OfBody,
     mBody,
@@ -174,8 +177,8 @@ module Network.AWS.SQS
     mMD5OfMessageAttributes,
 
     -- ** MessageAttributeValue
-    MessageAttributeValue,
-    messageAttributeValue,
+    MessageAttributeValue (..),
+    mkMessageAttributeValue,
     mavBinaryValue,
     mavStringListValues,
     mavStringValue,
@@ -183,8 +186,8 @@ module Network.AWS.SQS
     mavDataType,
 
     -- ** MessageSystemAttributeValue
-    MessageSystemAttributeValue,
-    messageSystemAttributeValue,
+    MessageSystemAttributeValue (..),
+    mkMessageSystemAttributeValue,
     msavBinaryValue,
     msavStringListValues,
     msavStringValue,
@@ -192,8 +195,8 @@ module Network.AWS.SQS
     msavDataType,
 
     -- ** SendMessageBatchRequestEntry
-    SendMessageBatchRequestEntry,
-    sendMessageBatchRequestEntry,
+    SendMessageBatchRequestEntry (..),
+    mkSendMessageBatchRequestEntry,
     sMessageAttributes,
     sDelaySeconds,
     sMessageSystemAttributes,
@@ -203,17 +206,29 @@ module Network.AWS.SQS
     sMessageBody,
 
     -- ** SendMessageBatchResultEntry
-    SendMessageBatchResultEntry,
-    sendMessageBatchResultEntry,
+    SendMessageBatchResultEntry (..),
+    mkSendMessageBatchResultEntry,
     smbreSequenceNumber,
     smbreMD5OfMessageSystemAttributes,
     smbreMD5OfMessageAttributes,
     smbreId,
     smbreMessageId,
     smbreMD5OfMessageBody,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SQS.AddPermission
 import Network.AWS.SQS.ChangeMessageVisibility
 import Network.AWS.SQS.ChangeMessageVisibilityBatch

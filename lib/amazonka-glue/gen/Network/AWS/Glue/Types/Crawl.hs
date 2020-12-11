@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Crawl where
+module Network.AWS.Glue.Types.Crawl
+  ( Crawl (..),
+
+    -- * Smart constructor
+    mkCrawl,
+
+    -- * Lenses
+    craCompletedOn,
+    craState,
+    craStartedOn,
+    craLogStream,
+    craLogGroup,
+    craErrorMessage,
+  )
+where
 
 import Network.AWS.Glue.Types.CrawlState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of a crawl in the workflow.
 --
---
---
--- /See:/ 'crawl' smart constructor.
+-- /See:/ 'mkCrawl' smart constructor.
 data Crawl = Crawl'
-  { _craCompletedOn :: !(Maybe POSIX),
-    _craState :: !(Maybe CrawlState),
-    _craStartedOn :: !(Maybe POSIX),
-    _craLogStream :: !(Maybe Text),
-    _craLogGroup :: !(Maybe Text),
-    _craErrorMessage :: !(Maybe Text)
+  { completedOn :: Lude.Maybe Lude.Timestamp,
+    state :: Lude.Maybe CrawlState,
+    startedOn :: Lude.Maybe Lude.Timestamp,
+    logStream :: Lude.Maybe Lude.Text,
+    logGroup :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Crawl' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'craCompletedOn' - The date and time on which the crawl completed.
---
--- * 'craState' - The state of the crawler.
---
--- * 'craStartedOn' - The date and time on which the crawl started.
---
--- * 'craLogStream' - The log stream associated with the crawl.
---
--- * 'craLogGroup' - The log group associated with the crawl.
---
--- * 'craErrorMessage' - The error message associated with the crawl.
-crawl ::
+-- * 'completedOn' - The date and time on which the crawl completed.
+-- * 'errorMessage' - The error message associated with the crawl.
+-- * 'logGroup' - The log group associated with the crawl.
+-- * 'logStream' - The log stream associated with the crawl.
+-- * 'startedOn' - The date and time on which the crawl started.
+-- * 'state' - The state of the crawler.
+mkCrawl ::
   Crawl
-crawl =
+mkCrawl =
   Crawl'
-    { _craCompletedOn = Nothing,
-      _craState = Nothing,
-      _craStartedOn = Nothing,
-      _craLogStream = Nothing,
-      _craLogGroup = Nothing,
-      _craErrorMessage = Nothing
+    { completedOn = Lude.Nothing,
+      state = Lude.Nothing,
+      startedOn = Lude.Nothing,
+      logStream = Lude.Nothing,
+      logGroup = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The date and time on which the crawl completed.
-craCompletedOn :: Lens' Crawl (Maybe UTCTime)
-craCompletedOn = lens _craCompletedOn (\s a -> s {_craCompletedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craCompletedOn :: Lens.Lens' Crawl (Lude.Maybe Lude.Timestamp)
+craCompletedOn = Lens.lens (completedOn :: Crawl -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedOn = a} :: Crawl)
+{-# DEPRECATED craCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
 
 -- | The state of the crawler.
-craState :: Lens' Crawl (Maybe CrawlState)
-craState = lens _craState (\s a -> s {_craState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craState :: Lens.Lens' Crawl (Lude.Maybe CrawlState)
+craState = Lens.lens (state :: Crawl -> Lude.Maybe CrawlState) (\s a -> s {state = a} :: Crawl)
+{-# DEPRECATED craState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The date and time on which the crawl started.
-craStartedOn :: Lens' Crawl (Maybe UTCTime)
-craStartedOn = lens _craStartedOn (\s a -> s {_craStartedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craStartedOn :: Lens.Lens' Crawl (Lude.Maybe Lude.Timestamp)
+craStartedOn = Lens.lens (startedOn :: Crawl -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedOn = a} :: Crawl)
+{-# DEPRECATED craStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
 
 -- | The log stream associated with the crawl.
-craLogStream :: Lens' Crawl (Maybe Text)
-craLogStream = lens _craLogStream (\s a -> s {_craLogStream = a})
+--
+-- /Note:/ Consider using 'logStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craLogStream :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
+craLogStream = Lens.lens (logStream :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {logStream = a} :: Crawl)
+{-# DEPRECATED craLogStream "Use generic-lens or generic-optics with 'logStream' instead." #-}
 
 -- | The log group associated with the crawl.
-craLogGroup :: Lens' Crawl (Maybe Text)
-craLogGroup = lens _craLogGroup (\s a -> s {_craLogGroup = a})
+--
+-- /Note:/ Consider using 'logGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craLogGroup :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
+craLogGroup = Lens.lens (logGroup :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {logGroup = a} :: Crawl)
+{-# DEPRECATED craLogGroup "Use generic-lens or generic-optics with 'logGroup' instead." #-}
 
 -- | The error message associated with the crawl.
-craErrorMessage :: Lens' Crawl (Maybe Text)
-craErrorMessage = lens _craErrorMessage (\s a -> s {_craErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craErrorMessage :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
+craErrorMessage = Lens.lens (errorMessage :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: Crawl)
+{-# DEPRECATED craErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON Crawl where
+instance Lude.FromJSON Crawl where
   parseJSON =
-    withObject
+    Lude.withObject
       "Crawl"
       ( \x ->
           Crawl'
-            <$> (x .:? "CompletedOn")
-            <*> (x .:? "State")
-            <*> (x .:? "StartedOn")
-            <*> (x .:? "LogStream")
-            <*> (x .:? "LogGroup")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "CompletedOn")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StartedOn")
+            Lude.<*> (x Lude..:? "LogStream")
+            Lude.<*> (x Lude..:? "LogGroup")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable Crawl
-
-instance NFData Crawl

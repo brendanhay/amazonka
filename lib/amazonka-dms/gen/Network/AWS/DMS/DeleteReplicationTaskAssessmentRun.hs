@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,155 @@
 --
 -- Deletes the record of a single premigration assessment run.
 --
---
 -- This operation removes all metadata that AWS DMS maintains about this assessment run. However, the operation leaves untouched all information about this assessment run that is stored in your Amazon S3 bucket.
 module Network.AWS.DMS.DeleteReplicationTaskAssessmentRun
-  ( -- * Creating a Request
-    deleteReplicationTaskAssessmentRun,
-    DeleteReplicationTaskAssessmentRun,
+  ( -- * Creating a request
+    DeleteReplicationTaskAssessmentRun (..),
+    mkDeleteReplicationTaskAssessmentRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drtarReplicationTaskAssessmentRunARN,
 
-    -- * Destructuring the Response
-    deleteReplicationTaskAssessmentRunResponse,
-    DeleteReplicationTaskAssessmentRunResponse,
+    -- * Destructuring the response
+    DeleteReplicationTaskAssessmentRunResponse (..),
+    mkDeleteReplicationTaskAssessmentRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drtarrsReplicationTaskAssessmentRun,
     drtarrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationTaskAssessmentRun' smart constructor.
+-- /See:/ 'mkDeleteReplicationTaskAssessmentRun' smart constructor.
 newtype DeleteReplicationTaskAssessmentRun = DeleteReplicationTaskAssessmentRun'
-  { _drtarReplicationTaskAssessmentRunARN ::
-      Text
+  { replicationTaskAssessmentRunARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationTaskAssessmentRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtarReplicationTaskAssessmentRunARN' - Amazon Resource Name (ARN) of the premigration assessment run to be deleted.
-deleteReplicationTaskAssessmentRun ::
-  -- | 'drtarReplicationTaskAssessmentRunARN'
-  Text ->
+-- * 'replicationTaskAssessmentRunARN' - Amazon Resource Name (ARN) of the premigration assessment run to be deleted.
+mkDeleteReplicationTaskAssessmentRun ::
+  -- | 'replicationTaskAssessmentRunARN'
+  Lude.Text ->
   DeleteReplicationTaskAssessmentRun
-deleteReplicationTaskAssessmentRun
+mkDeleteReplicationTaskAssessmentRun
   pReplicationTaskAssessmentRunARN_ =
     DeleteReplicationTaskAssessmentRun'
-      { _drtarReplicationTaskAssessmentRunARN =
+      { replicationTaskAssessmentRunARN =
           pReplicationTaskAssessmentRunARN_
       }
 
 -- | Amazon Resource Name (ARN) of the premigration assessment run to be deleted.
-drtarReplicationTaskAssessmentRunARN :: Lens' DeleteReplicationTaskAssessmentRun Text
-drtarReplicationTaskAssessmentRunARN = lens _drtarReplicationTaskAssessmentRunARN (\s a -> s {_drtarReplicationTaskAssessmentRunARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarReplicationTaskAssessmentRunARN :: Lens.Lens' DeleteReplicationTaskAssessmentRun Lude.Text
+drtarReplicationTaskAssessmentRunARN = Lens.lens (replicationTaskAssessmentRunARN :: DeleteReplicationTaskAssessmentRun -> Lude.Text) (\s a -> s {replicationTaskAssessmentRunARN = a} :: DeleteReplicationTaskAssessmentRun)
+{-# DEPRECATED drtarReplicationTaskAssessmentRunARN "Use generic-lens or generic-optics with 'replicationTaskAssessmentRunARN' instead." #-}
 
-instance AWSRequest DeleteReplicationTaskAssessmentRun where
+instance Lude.AWSRequest DeleteReplicationTaskAssessmentRun where
   type
     Rs DeleteReplicationTaskAssessmentRun =
       DeleteReplicationTaskAssessmentRunResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteReplicationTaskAssessmentRunResponse'
-            <$> (x .?> "ReplicationTaskAssessmentRun") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTaskAssessmentRun")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteReplicationTaskAssessmentRun
-
-instance NFData DeleteReplicationTaskAssessmentRun
-
-instance ToHeaders DeleteReplicationTaskAssessmentRun where
+instance Lude.ToHeaders DeleteReplicationTaskAssessmentRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteReplicationTaskAssessmentRun where
+instance Lude.ToJSON DeleteReplicationTaskAssessmentRun where
   toJSON DeleteReplicationTaskAssessmentRun' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "ReplicationTaskAssessmentRunArn"
-                  .= _drtarReplicationTaskAssessmentRunARN
+                  Lude..= replicationTaskAssessmentRunARN
               )
           ]
       )
 
-instance ToPath DeleteReplicationTaskAssessmentRun where
-  toPath = const "/"
+instance Lude.ToPath DeleteReplicationTaskAssessmentRun where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteReplicationTaskAssessmentRun where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReplicationTaskAssessmentRun where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationTaskAssessmentRunResponse' smart constructor.
+-- /See:/ 'mkDeleteReplicationTaskAssessmentRunResponse' smart constructor.
 data DeleteReplicationTaskAssessmentRunResponse = DeleteReplicationTaskAssessmentRunResponse'
-  { _drtarrsReplicationTaskAssessmentRun ::
-      !( Maybe
-           ReplicationTaskAssessmentRun
-       ),
-    _drtarrsResponseStatus ::
-      !Int
+  { replicationTaskAssessmentRun ::
+      Lude.Maybe
+        ReplicationTaskAssessmentRun,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationTaskAssessmentRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtarrsReplicationTaskAssessmentRun' - The @ReplicationTaskAssessmentRun@ object for the deleted assessment run.
---
--- * 'drtarrsResponseStatus' - -- | The response status code.
-deleteReplicationTaskAssessmentRunResponse ::
-  -- | 'drtarrsResponseStatus'
-  Int ->
+-- * 'replicationTaskAssessmentRun' - The @ReplicationTaskAssessmentRun@ object for the deleted assessment run.
+-- * 'responseStatus' - The response status code.
+mkDeleteReplicationTaskAssessmentRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReplicationTaskAssessmentRunResponse
-deleteReplicationTaskAssessmentRunResponse pResponseStatus_ =
+mkDeleteReplicationTaskAssessmentRunResponse pResponseStatus_ =
   DeleteReplicationTaskAssessmentRunResponse'
-    { _drtarrsReplicationTaskAssessmentRun =
-        Nothing,
-      _drtarrsResponseStatus = pResponseStatus_
+    { replicationTaskAssessmentRun =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ReplicationTaskAssessmentRun@ object for the deleted assessment run.
-drtarrsReplicationTaskAssessmentRun :: Lens' DeleteReplicationTaskAssessmentRunResponse (Maybe ReplicationTaskAssessmentRun)
-drtarrsReplicationTaskAssessmentRun = lens _drtarrsReplicationTaskAssessmentRun (\s a -> s {_drtarrsReplicationTaskAssessmentRun = a})
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarrsReplicationTaskAssessmentRun :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse (Lude.Maybe ReplicationTaskAssessmentRun)
+drtarrsReplicationTaskAssessmentRun = Lens.lens (replicationTaskAssessmentRun :: DeleteReplicationTaskAssessmentRunResponse -> Lude.Maybe ReplicationTaskAssessmentRun) (\s a -> s {replicationTaskAssessmentRun = a} :: DeleteReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED drtarrsReplicationTaskAssessmentRun "Use generic-lens or generic-optics with 'replicationTaskAssessmentRun' instead." #-}
 
--- | -- | The response status code.
-drtarrsResponseStatus :: Lens' DeleteReplicationTaskAssessmentRunResponse Int
-drtarrsResponseStatus = lens _drtarrsResponseStatus (\s a -> s {_drtarrsResponseStatus = a})
-
-instance NFData DeleteReplicationTaskAssessmentRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarrsResponseStatus :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse Lude.Int
+drtarrsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationTaskAssessmentRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationTaskAssessmentRunResponse)
+{-# DEPRECATED drtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

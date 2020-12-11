@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,183 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.NotebookExecutionSummary where
+module Network.AWS.EMR.Types.NotebookExecutionSummary
+  ( NotebookExecutionSummary (..),
+
+    -- * Smart constructor
+    mkNotebookExecutionSummary,
+
+    -- * Lenses
+    nesStatus,
+    nesEditorId,
+    nesStartTime,
+    nesNotebookExecutionId,
+    nesNotebookExecutionName,
+    nesEndTime,
+  )
+where
 
 import Network.AWS.EMR.Types.NotebookExecutionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- |
 --
---
---
--- /See:/ 'notebookExecutionSummary' smart constructor.
+-- /See:/ 'mkNotebookExecutionSummary' smart constructor.
 data NotebookExecutionSummary = NotebookExecutionSummary'
-  { _nesStatus ::
-      !(Maybe NotebookExecutionStatus),
-    _nesEditorId :: !(Maybe Text),
-    _nesStartTime :: !(Maybe POSIX),
-    _nesNotebookExecutionId :: !(Maybe Text),
-    _nesNotebookExecutionName ::
-      !(Maybe Text),
-    _nesEndTime :: !(Maybe POSIX)
+  { status ::
+      Lude.Maybe NotebookExecutionStatus,
+    editorId :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    notebookExecutionId ::
+      Lude.Maybe Lude.Text,
+    notebookExecutionName ::
+      Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotebookExecutionSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'editorId' - The unique identifier of the editor associated with the notebook execution.
+-- * 'endTime' - The timestamp when notebook execution started.
+-- * 'notebookExecutionId' - The unique identifier of the notebook execution.
+-- * 'notebookExecutionName' - The name of the notebook execution.
+-- * 'startTime' - The timestamp when notebook execution started.
+-- * 'status' - The status of the notebook execution.
 --
--- * 'nesStatus' - The status of the notebook execution.     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.     * @STARTING@ indicates that the execution is starting on the cluster.     * @RUNNING@ indicates that the execution is being processed by the cluster.     * @FINISHING@ indicates that execution processing is in the final stages.     * @FINISHED@ indicates that the execution has completed without error.     * @FAILING@ indicates that the execution is failing and will not finish successfully.     * @FAILED@ indicates that the execution failed.     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
 --
--- * 'nesEditorId' - The unique identifier of the editor associated with the notebook execution.
+--     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
 --
--- * 'nesStartTime' - The timestamp when notebook execution started.
 --
--- * 'nesNotebookExecutionId' - The unique identifier of the notebook execution.
+--     * @STARTING@ indicates that the execution is starting on the cluster.
 --
--- * 'nesNotebookExecutionName' - The name of the notebook execution.
 --
--- * 'nesEndTime' - The timestamp when notebook execution started.
-notebookExecutionSummary ::
+--     * @RUNNING@ indicates that the execution is being processed by the cluster.
+--
+--
+--     * @FINISHING@ indicates that execution processing is in the final stages.
+--
+--
+--     * @FINISHED@ indicates that the execution has completed without error.
+--
+--
+--     * @FAILING@ indicates that the execution is failing and will not finish successfully.
+--
+--
+--     * @FAILED@ indicates that the execution failed.
+--
+--
+--     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
+--
+--
+--     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
+--
+--
+--     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+mkNotebookExecutionSummary ::
   NotebookExecutionSummary
-notebookExecutionSummary =
+mkNotebookExecutionSummary =
   NotebookExecutionSummary'
-    { _nesStatus = Nothing,
-      _nesEditorId = Nothing,
-      _nesStartTime = Nothing,
-      _nesNotebookExecutionId = Nothing,
-      _nesNotebookExecutionName = Nothing,
-      _nesEndTime = Nothing
+    { status = Lude.Nothing,
+      editorId = Lude.Nothing,
+      startTime = Lude.Nothing,
+      notebookExecutionId = Lude.Nothing,
+      notebookExecutionName = Lude.Nothing,
+      endTime = Lude.Nothing
     }
 
--- | The status of the notebook execution.     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.     * @STARTING@ indicates that the execution is starting on the cluster.     * @RUNNING@ indicates that the execution is being processed by the cluster.     * @FINISHING@ indicates that execution processing is in the final stages.     * @FINISHED@ indicates that the execution has completed without error.     * @FAILING@ indicates that the execution is failing and will not finish successfully.     * @FAILED@ indicates that the execution failed.     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
-nesStatus :: Lens' NotebookExecutionSummary (Maybe NotebookExecutionStatus)
-nesStatus = lens _nesStatus (\s a -> s {_nesStatus = a})
+-- | The status of the notebook execution.
+--
+--
+--     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
+--
+--
+--     * @STARTING@ indicates that the execution is starting on the cluster.
+--
+--
+--     * @RUNNING@ indicates that the execution is being processed by the cluster.
+--
+--
+--     * @FINISHING@ indicates that execution processing is in the final stages.
+--
+--
+--     * @FINISHED@ indicates that the execution has completed without error.
+--
+--
+--     * @FAILING@ indicates that the execution is failing and will not finish successfully.
+--
+--
+--     * @FAILED@ indicates that the execution failed.
+--
+--
+--     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
+--
+--
+--     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
+--
+--
+--     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesStatus :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe NotebookExecutionStatus)
+nesStatus = Lens.lens (status :: NotebookExecutionSummary -> Lude.Maybe NotebookExecutionStatus) (\s a -> s {status = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier of the editor associated with the notebook execution.
-nesEditorId :: Lens' NotebookExecutionSummary (Maybe Text)
-nesEditorId = lens _nesEditorId (\s a -> s {_nesEditorId = a})
+--
+-- /Note:/ Consider using 'editorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesEditorId :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe Lude.Text)
+nesEditorId = Lens.lens (editorId :: NotebookExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {editorId = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesEditorId "Use generic-lens or generic-optics with 'editorId' instead." #-}
 
 -- | The timestamp when notebook execution started.
-nesStartTime :: Lens' NotebookExecutionSummary (Maybe UTCTime)
-nesStartTime = lens _nesStartTime (\s a -> s {_nesStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesStartTime :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe Lude.Timestamp)
+nesStartTime = Lens.lens (startTime :: NotebookExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The unique identifier of the notebook execution.
-nesNotebookExecutionId :: Lens' NotebookExecutionSummary (Maybe Text)
-nesNotebookExecutionId = lens _nesNotebookExecutionId (\s a -> s {_nesNotebookExecutionId = a})
+--
+-- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesNotebookExecutionId :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe Lude.Text)
+nesNotebookExecutionId = Lens.lens (notebookExecutionId :: NotebookExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionId = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
 
 -- | The name of the notebook execution.
-nesNotebookExecutionName :: Lens' NotebookExecutionSummary (Maybe Text)
-nesNotebookExecutionName = lens _nesNotebookExecutionName (\s a -> s {_nesNotebookExecutionName = a})
+--
+-- /Note:/ Consider using 'notebookExecutionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesNotebookExecutionName :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe Lude.Text)
+nesNotebookExecutionName = Lens.lens (notebookExecutionName :: NotebookExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionName = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesNotebookExecutionName "Use generic-lens or generic-optics with 'notebookExecutionName' instead." #-}
 
 -- | The timestamp when notebook execution started.
-nesEndTime :: Lens' NotebookExecutionSummary (Maybe UTCTime)
-nesEndTime = lens _nesEndTime (\s a -> s {_nesEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nesEndTime :: Lens.Lens' NotebookExecutionSummary (Lude.Maybe Lude.Timestamp)
+nesEndTime = Lens.lens (endTime :: NotebookExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: NotebookExecutionSummary)
+{-# DEPRECATED nesEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance FromJSON NotebookExecutionSummary where
+instance Lude.FromJSON NotebookExecutionSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "NotebookExecutionSummary"
       ( \x ->
           NotebookExecutionSummary'
-            <$> (x .:? "Status")
-            <*> (x .:? "EditorId")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "NotebookExecutionId")
-            <*> (x .:? "NotebookExecutionName")
-            <*> (x .:? "EndTime")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "EditorId")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "NotebookExecutionId")
+            Lude.<*> (x Lude..:? "NotebookExecutionName")
+            Lude.<*> (x Lude..:? "EndTime")
       )
-
-instance Hashable NotebookExecutionSummary
-
-instance NFData NotebookExecutionSummary

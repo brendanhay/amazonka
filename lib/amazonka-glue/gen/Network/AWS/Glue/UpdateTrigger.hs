@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,146 @@
 --
 -- Updates a trigger definition.
 module Network.AWS.Glue.UpdateTrigger
-  ( -- * Creating a Request
-    updateTrigger,
-    UpdateTrigger,
+  ( -- * Creating a request
+    UpdateTrigger (..),
+    mkUpdateTrigger,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utName,
     utTriggerUpdate,
 
-    -- * Destructuring the Response
-    updateTriggerResponse,
-    UpdateTriggerResponse,
+    -- * Destructuring the response
+    UpdateTriggerResponse (..),
+    mkUpdateTriggerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     updrsTrigger,
     updrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTrigger' smart constructor.
+-- | /See:/ 'mkUpdateTrigger' smart constructor.
 data UpdateTrigger = UpdateTrigger'
-  { _utName :: !Text,
-    _utTriggerUpdate :: !TriggerUpdate
+  { name :: Lude.Text,
+    triggerUpdate :: TriggerUpdate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrigger' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utName' - The name of the trigger to update.
---
--- * 'utTriggerUpdate' - The new values with which to update the trigger.
-updateTrigger ::
-  -- | 'utName'
-  Text ->
-  -- | 'utTriggerUpdate'
+-- * 'name' - The name of the trigger to update.
+-- * 'triggerUpdate' - The new values with which to update the trigger.
+mkUpdateTrigger ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'triggerUpdate'
   TriggerUpdate ->
   UpdateTrigger
-updateTrigger pName_ pTriggerUpdate_ =
-  UpdateTrigger'
-    { _utName = pName_,
-      _utTriggerUpdate = pTriggerUpdate_
-    }
+mkUpdateTrigger pName_ pTriggerUpdate_ =
+  UpdateTrigger' {name = pName_, triggerUpdate = pTriggerUpdate_}
 
 -- | The name of the trigger to update.
-utName :: Lens' UpdateTrigger Text
-utName = lens _utName (\s a -> s {_utName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utName :: Lens.Lens' UpdateTrigger Lude.Text
+utName = Lens.lens (name :: UpdateTrigger -> Lude.Text) (\s a -> s {name = a} :: UpdateTrigger)
+{-# DEPRECATED utName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new values with which to update the trigger.
-utTriggerUpdate :: Lens' UpdateTrigger TriggerUpdate
-utTriggerUpdate = lens _utTriggerUpdate (\s a -> s {_utTriggerUpdate = a})
+--
+-- /Note:/ Consider using 'triggerUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTriggerUpdate :: Lens.Lens' UpdateTrigger TriggerUpdate
+utTriggerUpdate = Lens.lens (triggerUpdate :: UpdateTrigger -> TriggerUpdate) (\s a -> s {triggerUpdate = a} :: UpdateTrigger)
+{-# DEPRECATED utTriggerUpdate "Use generic-lens or generic-optics with 'triggerUpdate' instead." #-}
 
-instance AWSRequest UpdateTrigger where
+instance Lude.AWSRequest UpdateTrigger where
   type Rs UpdateTrigger = UpdateTriggerResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateTriggerResponse'
-            <$> (x .?> "Trigger") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Trigger") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateTrigger
-
-instance NFData UpdateTrigger
-
-instance ToHeaders UpdateTrigger where
+instance Lude.ToHeaders UpdateTrigger where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateTrigger" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdateTrigger" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTrigger where
+instance Lude.ToJSON UpdateTrigger where
   toJSON UpdateTrigger' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _utName),
-            Just ("TriggerUpdate" .= _utTriggerUpdate)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("TriggerUpdate" Lude..= triggerUpdate)
           ]
       )
 
-instance ToPath UpdateTrigger where
-  toPath = const "/"
+instance Lude.ToPath UpdateTrigger where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTrigger where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTrigger where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTriggerResponse' smart constructor.
+-- | /See:/ 'mkUpdateTriggerResponse' smart constructor.
 data UpdateTriggerResponse = UpdateTriggerResponse'
-  { _updrsTrigger ::
-      !(Maybe Trigger),
-    _updrsResponseStatus :: !Int
+  { trigger ::
+      Lude.Maybe Trigger,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTriggerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updrsTrigger' - The resulting trigger definition.
---
--- * 'updrsResponseStatus' - -- | The response status code.
-updateTriggerResponse ::
-  -- | 'updrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trigger' - The resulting trigger definition.
+mkUpdateTriggerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTriggerResponse
-updateTriggerResponse pResponseStatus_ =
+mkUpdateTriggerResponse pResponseStatus_ =
   UpdateTriggerResponse'
-    { _updrsTrigger = Nothing,
-      _updrsResponseStatus = pResponseStatus_
+    { trigger = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The resulting trigger definition.
-updrsTrigger :: Lens' UpdateTriggerResponse (Maybe Trigger)
-updrsTrigger = lens _updrsTrigger (\s a -> s {_updrsTrigger = a})
+--
+-- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsTrigger :: Lens.Lens' UpdateTriggerResponse (Lude.Maybe Trigger)
+updrsTrigger = Lens.lens (trigger :: UpdateTriggerResponse -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: UpdateTriggerResponse)
+{-# DEPRECATED updrsTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
--- | -- | The response status code.
-updrsResponseStatus :: Lens' UpdateTriggerResponse Int
-updrsResponseStatus = lens _updrsResponseStatus (\s a -> s {_updrsResponseStatus = a})
-
-instance NFData UpdateTriggerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsResponseStatus :: Lens.Lens' UpdateTriggerResponse Lude.Int
+updrsResponseStatus = Lens.lens (responseStatus :: UpdateTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTriggerResponse)
+{-# DEPRECATED updrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,109 @@
 --
 -- Removes the specified managed policy from the specified user.
 --
---
 -- A user can also have inline policies embedded with it. To delete an inline policy, use the 'DeleteUserPolicy' API. For information about policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.DetachUserPolicy
-  ( -- * Creating a Request
-    detachUserPolicy,
-    DetachUserPolicy,
+  ( -- * Creating a request
+    DetachUserPolicy (..),
+    mkDetachUserPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dUserName,
     dPolicyARN,
 
-    -- * Destructuring the Response
-    detachUserPolicyResponse,
-    DetachUserPolicyResponse,
+    -- * Destructuring the response
+    DetachUserPolicyResponse (..),
+    mkDetachUserPolicyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachUserPolicy' smart constructor.
+-- | /See:/ 'mkDetachUserPolicy' smart constructor.
 data DetachUserPolicy = DetachUserPolicy'
-  { _dUserName :: !Text,
-    _dPolicyARN :: !Text
+  { userName :: Lude.Text,
+    policyARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachUserPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach.
 --
--- * 'dUserName' - The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'userName' - The name (friendly name, not ARN) of the IAM user to detach the policy from.
 --
--- * 'dPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-detachUserPolicy ::
-  -- | 'dUserName'
-  Text ->
-  -- | 'dPolicyARN'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDetachUserPolicy ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'policyARN'
+  Lude.Text ->
   DetachUserPolicy
-detachUserPolicy pUserName_ pPolicyARN_ =
-  DetachUserPolicy'
-    { _dUserName = pUserName_,
-      _dPolicyARN = pPolicyARN_
-    }
+mkDetachUserPolicy pUserName_ pPolicyARN_ =
+  DetachUserPolicy' {userName = pUserName_, policyARN = pPolicyARN_}
 
--- | The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dUserName :: Lens' DetachUserPolicy Text
-dUserName = lens _dUserName (\s a -> s {_dUserName = a})
+-- | The name (friendly name, not ARN) of the IAM user to detach the policy from.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUserName :: Lens.Lens' DetachUserPolicy Lude.Text
+dUserName = Lens.lens (userName :: DetachUserPolicy -> Lude.Text) (\s a -> s {userName = a} :: DetachUserPolicy)
+{-# DEPRECATED dUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-dPolicyARN :: Lens' DetachUserPolicy Text
-dPolicyARN = lens _dPolicyARN (\s a -> s {_dPolicyARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPolicyARN :: Lens.Lens' DetachUserPolicy Lude.Text
+dPolicyARN = Lens.lens (policyARN :: DetachUserPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: DetachUserPolicy)
+{-# DEPRECATED dPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
-instance AWSRequest DetachUserPolicy where
+instance Lude.AWSRequest DetachUserPolicy where
   type Rs DetachUserPolicy = DetachUserPolicyResponse
-  request = postQuery iam
-  response = receiveNull DetachUserPolicyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DetachUserPolicyResponse'
 
-instance Hashable DetachUserPolicy
+instance Lude.ToHeaders DetachUserPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachUserPolicy
+instance Lude.ToPath DetachUserPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachUserPolicy where
-  toHeaders = const mempty
-
-instance ToPath DetachUserPolicy where
-  toPath = const "/"
-
-instance ToQuery DetachUserPolicy where
+instance Lude.ToQuery DetachUserPolicy where
   toQuery DetachUserPolicy' {..} =
-    mconcat
-      [ "Action" =: ("DetachUserPolicy" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _dUserName,
-        "PolicyArn" =: _dPolicyARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetachUserPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "PolicyArn" Lude.=: policyARN
       ]
 
--- | /See:/ 'detachUserPolicyResponse' smart constructor.
+-- | /See:/ 'mkDetachUserPolicyResponse' smart constructor.
 data DetachUserPolicyResponse = DetachUserPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachUserPolicyResponse' with the minimum fields required to make a request.
-detachUserPolicyResponse ::
+mkDetachUserPolicyResponse ::
   DetachUserPolicyResponse
-detachUserPolicyResponse = DetachUserPolicyResponse'
-
-instance NFData DetachUserPolicyResponse
+mkDetachUserPolicyResponse = DetachUserPolicyResponse'

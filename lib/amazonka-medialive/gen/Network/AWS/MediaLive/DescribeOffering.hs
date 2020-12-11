@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Get details for an offering.
 module Network.AWS.MediaLive.DescribeOffering
-  ( -- * Creating a Request
-    describeOffering,
-    DescribeOffering,
+  ( -- * Creating a request
+    DescribeOffering (..),
+    mkDescribeOffering,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doOfferingId,
 
-    -- * Destructuring the Response
-    describeOfferingResponse,
-    DescribeOfferingResponse,
+    -- * Destructuring the response
+    DescribeOfferingResponse (..),
+    mkDescribeOfferingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsResourceSpecification,
     dorsCurrencyCode,
     dorsARN,
@@ -46,188 +41,226 @@ module Network.AWS.MediaLive.DescribeOffering
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DescribeOfferingRequest
 --
--- /See:/ 'describeOffering' smart constructor.
-newtype DescribeOffering = DescribeOffering' {_doOfferingId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeOffering' smart constructor.
+newtype DescribeOffering = DescribeOffering'
+  { offeringId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doOfferingId' - Unique offering ID, e.g. '87654321'
-describeOffering ::
-  -- | 'doOfferingId'
-  Text ->
+-- * 'offeringId' - Unique offering ID, e.g. '87654321'
+mkDescribeOffering ::
+  -- | 'offeringId'
+  Lude.Text ->
   DescribeOffering
-describeOffering pOfferingId_ =
-  DescribeOffering' {_doOfferingId = pOfferingId_}
+mkDescribeOffering pOfferingId_ =
+  DescribeOffering' {offeringId = pOfferingId_}
 
 -- | Unique offering ID, e.g. '87654321'
-doOfferingId :: Lens' DescribeOffering Text
-doOfferingId = lens _doOfferingId (\s a -> s {_doOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doOfferingId :: Lens.Lens' DescribeOffering Lude.Text
+doOfferingId = Lens.lens (offeringId :: DescribeOffering -> Lude.Text) (\s a -> s {offeringId = a} :: DescribeOffering)
+{-# DEPRECATED doOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
-instance AWSRequest DescribeOffering where
+instance Lude.AWSRequest DescribeOffering where
   type Rs DescribeOffering = DescribeOfferingResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOfferingResponse'
-            <$> (x .?> "resourceSpecification")
-            <*> (x .?> "currencyCode")
-            <*> (x .?> "arn")
-            <*> (x .?> "offeringId")
-            <*> (x .?> "region")
-            <*> (x .?> "offeringType")
-            <*> (x .?> "usagePrice")
-            <*> (x .?> "fixedPrice")
-            <*> (x .?> "durationUnits")
-            <*> (x .?> "offeringDescription")
-            <*> (x .?> "duration")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "resourceSpecification")
+            Lude.<*> (x Lude..?> "currencyCode")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "offeringId")
+            Lude.<*> (x Lude..?> "region")
+            Lude.<*> (x Lude..?> "offeringType")
+            Lude.<*> (x Lude..?> "usagePrice")
+            Lude.<*> (x Lude..?> "fixedPrice")
+            Lude.<*> (x Lude..?> "durationUnits")
+            Lude.<*> (x Lude..?> "offeringDescription")
+            Lude.<*> (x Lude..?> "duration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOffering
-
-instance NFData DescribeOffering
-
-instance ToHeaders DescribeOffering where
+instance Lude.ToHeaders DescribeOffering where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeOffering where
+instance Lude.ToPath DescribeOffering where
   toPath DescribeOffering' {..} =
-    mconcat ["/prod/offerings/", toBS _doOfferingId]
+    Lude.mconcat ["/prod/offerings/", Lude.toBS offeringId]
 
-instance ToQuery DescribeOffering where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOffering where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeOfferingResponse
 --
--- /See:/ 'describeOfferingResponse' smart constructor.
+-- /See:/ 'mkDescribeOfferingResponse' smart constructor.
 data DescribeOfferingResponse = DescribeOfferingResponse'
-  { _dorsResourceSpecification ::
-      !(Maybe ReservationResourceSpecification),
-    _dorsCurrencyCode :: !(Maybe Text),
-    _dorsARN :: !(Maybe Text),
-    _dorsOfferingId :: !(Maybe Text),
-    _dorsRegion :: !(Maybe Text),
-    _dorsOfferingType ::
-      !(Maybe OfferingType),
-    _dorsUsagePrice :: !(Maybe Double),
-    _dorsFixedPrice :: !(Maybe Double),
-    _dorsDurationUnits ::
-      !(Maybe OfferingDurationUnits),
-    _dorsOfferingDescription :: !(Maybe Text),
-    _dorsDuration :: !(Maybe Int),
-    _dorsResponseStatus :: !Int
+  { resourceSpecification ::
+      Lude.Maybe
+        ReservationResourceSpecification,
+    currencyCode :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    offeringId :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    offeringType :: Lude.Maybe OfferingType,
+    usagePrice :: Lude.Maybe Lude.Double,
+    fixedPrice :: Lude.Maybe Lude.Double,
+    durationUnits ::
+      Lude.Maybe OfferingDurationUnits,
+    offeringDescription ::
+      Lude.Maybe Lude.Text,
+    duration :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOfferingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorsResourceSpecification' - Resource configuration details
---
--- * 'dorsCurrencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
---
--- * 'dorsARN' - Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
---
--- * 'dorsOfferingId' - Unique offering ID, e.g. '87654321'
---
--- * 'dorsRegion' - AWS region, e.g. 'us-west-2'
---
--- * 'dorsOfferingType' - Offering type, e.g. 'NO_UPFRONT'
---
--- * 'dorsUsagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
---
--- * 'dorsFixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
---
--- * 'dorsDurationUnits' - Units for duration, e.g. 'MONTHS'
---
--- * 'dorsOfferingDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
---
--- * 'dorsDuration' - Lease duration, e.g. '12'
---
--- * 'dorsResponseStatus' - -- | The response status code.
-describeOfferingResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- * 'arn' - Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+-- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+-- * 'duration' - Lease duration, e.g. '12'
+-- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
+-- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+-- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+-- * 'offeringId' - Unique offering ID, e.g. '87654321'
+-- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
+-- * 'region' - AWS region, e.g. 'us-west-2'
+-- * 'resourceSpecification' - Resource configuration details
+-- * 'responseStatus' - The response status code.
+-- * 'usagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
+mkDescribeOfferingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOfferingResponse
-describeOfferingResponse pResponseStatus_ =
+mkDescribeOfferingResponse pResponseStatus_ =
   DescribeOfferingResponse'
-    { _dorsResourceSpecification = Nothing,
-      _dorsCurrencyCode = Nothing,
-      _dorsARN = Nothing,
-      _dorsOfferingId = Nothing,
-      _dorsRegion = Nothing,
-      _dorsOfferingType = Nothing,
-      _dorsUsagePrice = Nothing,
-      _dorsFixedPrice = Nothing,
-      _dorsDurationUnits = Nothing,
-      _dorsOfferingDescription = Nothing,
-      _dorsDuration = Nothing,
-      _dorsResponseStatus = pResponseStatus_
+    { resourceSpecification = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      arn = Lude.Nothing,
+      offeringId = Lude.Nothing,
+      region = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      durationUnits = Lude.Nothing,
+      offeringDescription = Lude.Nothing,
+      duration = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Resource configuration details
-dorsResourceSpecification :: Lens' DescribeOfferingResponse (Maybe ReservationResourceSpecification)
-dorsResourceSpecification = lens _dorsResourceSpecification (\s a -> s {_dorsResourceSpecification = a})
+--
+-- /Note:/ Consider using 'resourceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResourceSpecification :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe ReservationResourceSpecification)
+dorsResourceSpecification = Lens.lens (resourceSpecification :: DescribeOfferingResponse -> Lude.Maybe ReservationResourceSpecification) (\s a -> s {resourceSpecification = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsResourceSpecification "Use generic-lens or generic-optics with 'resourceSpecification' instead." #-}
 
 -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-dorsCurrencyCode :: Lens' DescribeOfferingResponse (Maybe Text)
-dorsCurrencyCode = lens _dorsCurrencyCode (\s a -> s {_dorsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsCurrencyCode :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Text)
+dorsCurrencyCode = Lens.lens (currencyCode :: DescribeOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
-dorsARN :: Lens' DescribeOfferingResponse (Maybe Text)
-dorsARN = lens _dorsARN (\s a -> s {_dorsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsARN :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Text)
+dorsARN = Lens.lens (arn :: DescribeOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Unique offering ID, e.g. '87654321'
-dorsOfferingId :: Lens' DescribeOfferingResponse (Maybe Text)
-dorsOfferingId = lens _dorsOfferingId (\s a -> s {_dorsOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsOfferingId :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Text)
+dorsOfferingId = Lens.lens (offeringId :: DescribeOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | AWS region, e.g. 'us-west-2'
-dorsRegion :: Lens' DescribeOfferingResponse (Maybe Text)
-dorsRegion = lens _dorsRegion (\s a -> s {_dorsRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsRegion :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Text)
+dorsRegion = Lens.lens (region :: DescribeOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | Offering type, e.g. 'NO_UPFRONT'
-dorsOfferingType :: Lens' DescribeOfferingResponse (Maybe OfferingType)
-dorsOfferingType = lens _dorsOfferingType (\s a -> s {_dorsOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsOfferingType :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe OfferingType)
+dorsOfferingType = Lens.lens (offeringType :: DescribeOfferingResponse -> Lude.Maybe OfferingType) (\s a -> s {offeringType = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | Recurring usage charge for each reserved resource, e.g. '157.0'
-dorsUsagePrice :: Lens' DescribeOfferingResponse (Maybe Double)
-dorsUsagePrice = lens _dorsUsagePrice (\s a -> s {_dorsUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsUsagePrice :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Double)
+dorsUsagePrice = Lens.lens (usagePrice :: DescribeOfferingResponse -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-dorsFixedPrice :: Lens' DescribeOfferingResponse (Maybe Double)
-dorsFixedPrice = lens _dorsFixedPrice (\s a -> s {_dorsFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsFixedPrice :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Double)
+dorsFixedPrice = Lens.lens (fixedPrice :: DescribeOfferingResponse -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | Units for duration, e.g. 'MONTHS'
-dorsDurationUnits :: Lens' DescribeOfferingResponse (Maybe OfferingDurationUnits)
-dorsDurationUnits = lens _dorsDurationUnits (\s a -> s {_dorsDurationUnits = a})
+--
+-- /Note:/ Consider using 'durationUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDurationUnits :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe OfferingDurationUnits)
+dorsDurationUnits = Lens.lens (durationUnits :: DescribeOfferingResponse -> Lude.Maybe OfferingDurationUnits) (\s a -> s {durationUnits = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsDurationUnits "Use generic-lens or generic-optics with 'durationUnits' instead." #-}
 
 -- | Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-dorsOfferingDescription :: Lens' DescribeOfferingResponse (Maybe Text)
-dorsOfferingDescription = lens _dorsOfferingDescription (\s a -> s {_dorsOfferingDescription = a})
+--
+-- /Note:/ Consider using 'offeringDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsOfferingDescription :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Text)
+dorsOfferingDescription = Lens.lens (offeringDescription :: DescribeOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {offeringDescription = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsOfferingDescription "Use generic-lens or generic-optics with 'offeringDescription' instead." #-}
 
 -- | Lease duration, e.g. '12'
-dorsDuration :: Lens' DescribeOfferingResponse (Maybe Int)
-dorsDuration = lens _dorsDuration (\s a -> s {_dorsDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDuration :: Lens.Lens' DescribeOfferingResponse (Lude.Maybe Lude.Int)
+dorsDuration = Lens.lens (duration :: DescribeOfferingResponse -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DescribeOfferingResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
-
-instance NFData DescribeOfferingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DescribeOfferingResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DescribeOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOfferingResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

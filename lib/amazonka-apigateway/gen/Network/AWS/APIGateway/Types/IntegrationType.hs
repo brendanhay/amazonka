@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.IntegrationType where
+module Network.AWS.APIGateway.Types.IntegrationType
+  ( IntegrationType
+      ( IntegrationType',
+        AWS,
+        AWSProxy,
+        HTTP,
+        HTTPProxy,
+        Mock
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The integration type. The valid value is @HTTP@ for integrating an API method with an HTTP backend; @AWS@ with any AWS service endpoints; @MOCK@ for testing without actually invoking the backend; @HTTP_PROXY@ for integrating with the HTTP proxy integration; @AWS_PROXY@ for integrating with the Lambda proxy integration.
-data IntegrationType
-  = AWS
-  | AWSProxy
-  | HTTP
-  | HTTPProxy
-  | Mock
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IntegrationType = IntegrationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IntegrationType where
-  parser =
-    takeLowerText >>= \case
-      "aws" -> pure AWS
-      "aws_proxy" -> pure AWSProxy
-      "http" -> pure HTTP
-      "http_proxy" -> pure HTTPProxy
-      "mock" -> pure Mock
-      e ->
-        fromTextError $
-          "Failure parsing IntegrationType from value: '" <> e
-            <> "'. Accepted values: aws, aws_proxy, http, http_proxy, mock"
+pattern AWS :: IntegrationType
+pattern AWS = IntegrationType' "AWS"
 
-instance ToText IntegrationType where
-  toText = \case
-    AWS -> "AWS"
-    AWSProxy -> "AWS_PROXY"
-    HTTP -> "HTTP"
-    HTTPProxy -> "HTTP_PROXY"
-    Mock -> "MOCK"
+pattern AWSProxy :: IntegrationType
+pattern AWSProxy = IntegrationType' "AWS_PROXY"
 
-instance Hashable IntegrationType
+pattern HTTP :: IntegrationType
+pattern HTTP = IntegrationType' "HTTP"
 
-instance NFData IntegrationType
+pattern HTTPProxy :: IntegrationType
+pattern HTTPProxy = IntegrationType' "HTTP_PROXY"
 
-instance ToByteString IntegrationType
+pattern Mock :: IntegrationType
+pattern Mock = IntegrationType' "MOCK"
 
-instance ToQuery IntegrationType
-
-instance ToHeader IntegrationType
-
-instance ToJSON IntegrationType where
-  toJSON = toJSONText
-
-instance FromJSON IntegrationType where
-  parseJSON = parseJSONText "IntegrationType"
+{-# COMPLETE
+  AWS,
+  AWSProxy,
+  HTTP,
+  HTTPProxy,
+  Mock,
+  IntegrationType'
+  #-}

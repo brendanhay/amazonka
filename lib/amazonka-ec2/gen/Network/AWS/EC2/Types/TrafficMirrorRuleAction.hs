@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficMirrorRuleAction where
+module Network.AWS.EC2.Types.TrafficMirrorRuleAction
+  ( TrafficMirrorRuleAction
+      ( TrafficMirrorRuleAction',
+        Accept,
+        Reject
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficMirrorRuleAction
-  = Accept
-  | Reject
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficMirrorRuleAction = TrafficMirrorRuleAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficMirrorRuleAction where
-  parser =
-    takeLowerText >>= \case
-      "accept" -> pure Accept
-      "reject" -> pure Reject
-      e ->
-        fromTextError $
-          "Failure parsing TrafficMirrorRuleAction from value: '" <> e
-            <> "'. Accepted values: accept, reject"
+pattern Accept :: TrafficMirrorRuleAction
+pattern Accept = TrafficMirrorRuleAction' "accept"
 
-instance ToText TrafficMirrorRuleAction where
-  toText = \case
-    Accept -> "accept"
-    Reject -> "reject"
+pattern Reject :: TrafficMirrorRuleAction
+pattern Reject = TrafficMirrorRuleAction' "reject"
 
-instance Hashable TrafficMirrorRuleAction
-
-instance NFData TrafficMirrorRuleAction
-
-instance ToByteString TrafficMirrorRuleAction
-
-instance ToQuery TrafficMirrorRuleAction
-
-instance ToHeader TrafficMirrorRuleAction
-
-instance FromXML TrafficMirrorRuleAction where
-  parseXML = parseXMLText "TrafficMirrorRuleAction"
+{-# COMPLETE
+  Accept,
+  Reject,
+  TrafficMirrorRuleAction'
+  #-}

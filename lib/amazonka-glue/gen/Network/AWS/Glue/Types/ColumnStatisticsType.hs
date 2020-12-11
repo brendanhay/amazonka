@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ColumnStatisticsType where
+module Network.AWS.Glue.Types.ColumnStatisticsType
+  ( ColumnStatisticsType
+      ( ColumnStatisticsType',
+        Binary,
+        Boolean,
+        Date,
+        Decimal,
+        Double,
+        Long,
+        String
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ColumnStatisticsType
-  = Binary
-  | Boolean
-  | Date
-  | Decimal
-  | Double
-  | Long
-  | String
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ColumnStatisticsType = ColumnStatisticsType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ColumnStatisticsType where
-  parser =
-    takeLowerText >>= \case
-      "binary" -> pure Binary
-      "boolean" -> pure Boolean
-      "date" -> pure Date
-      "decimal" -> pure Decimal
-      "double" -> pure Double
-      "long" -> pure Long
-      "string" -> pure String
-      e ->
-        fromTextError $
-          "Failure parsing ColumnStatisticsType from value: '" <> e
-            <> "'. Accepted values: binary, boolean, date, decimal, double, long, string"
+pattern Binary :: ColumnStatisticsType
+pattern Binary = ColumnStatisticsType' "BINARY"
 
-instance ToText ColumnStatisticsType where
-  toText = \case
-    Binary -> "BINARY"
-    Boolean -> "BOOLEAN"
-    Date -> "DATE"
-    Decimal -> "DECIMAL"
-    Double -> "DOUBLE"
-    Long -> "LONG"
-    String -> "STRING"
+pattern Boolean :: ColumnStatisticsType
+pattern Boolean = ColumnStatisticsType' "BOOLEAN"
 
-instance Hashable ColumnStatisticsType
+pattern Date :: ColumnStatisticsType
+pattern Date = ColumnStatisticsType' "DATE"
 
-instance NFData ColumnStatisticsType
+pattern Decimal :: ColumnStatisticsType
+pattern Decimal = ColumnStatisticsType' "DECIMAL"
 
-instance ToByteString ColumnStatisticsType
+pattern Double :: ColumnStatisticsType
+pattern Double = ColumnStatisticsType' "DOUBLE"
 
-instance ToQuery ColumnStatisticsType
+pattern Long :: ColumnStatisticsType
+pattern Long = ColumnStatisticsType' "LONG"
 
-instance ToHeader ColumnStatisticsType
+pattern String :: ColumnStatisticsType
+pattern String = ColumnStatisticsType' "STRING"
 
-instance ToJSON ColumnStatisticsType where
-  toJSON = toJSONText
-
-instance FromJSON ColumnStatisticsType where
-  parseJSON = parseJSONText "ColumnStatisticsType"
+{-# COMPLETE
+  Binary,
+  Boolean,
+  Date,
+  Decimal,
+  Double,
+  Long,
+  String,
+  ColumnStatisticsType'
+  #-}

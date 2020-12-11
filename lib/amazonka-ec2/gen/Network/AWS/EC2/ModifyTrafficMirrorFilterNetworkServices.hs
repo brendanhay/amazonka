@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,177 +14,185 @@
 --
 -- Allows or restricts mirroring network services.
 --
---
 -- By default, Amazon DNS network services are not eligible for Traffic Mirror. Use @AddNetworkServices@ to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use @RemoveNetworkServices@ to remove the network services from the Traffic Mirror filter.
---
 -- For information about filter rule properties, see <https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html Network Services> in the /Traffic Mirroring User Guide / .
 module Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
-  ( -- * Creating a Request
-    modifyTrafficMirrorFilterNetworkServices,
-    ModifyTrafficMirrorFilterNetworkServices,
+  ( -- * Creating a request
+    ModifyTrafficMirrorFilterNetworkServices (..),
+    mkModifyTrafficMirrorFilterNetworkServices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mtmfnsAddNetworkServices,
     mtmfnsRemoveNetworkServices,
     mtmfnsDryRun,
     mtmfnsTrafficMirrorFilterId,
 
-    -- * Destructuring the Response
-    modifyTrafficMirrorFilterNetworkServicesResponse,
-    ModifyTrafficMirrorFilterNetworkServicesResponse,
+    -- * Destructuring the response
+    ModifyTrafficMirrorFilterNetworkServicesResponse (..),
+    mkModifyTrafficMirrorFilterNetworkServicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mtmfnsrsTrafficMirrorFilter,
     mtmfnsrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyTrafficMirrorFilterNetworkServices' smart constructor.
+-- | /See:/ 'mkModifyTrafficMirrorFilterNetworkServices' smart constructor.
 data ModifyTrafficMirrorFilterNetworkServices = ModifyTrafficMirrorFilterNetworkServices'
-  { _mtmfnsAddNetworkServices ::
-      !( Maybe
-           [TrafficMirrorNetworkService]
-       ),
-    _mtmfnsRemoveNetworkServices ::
-      !( Maybe
-           [TrafficMirrorNetworkService]
-       ),
-    _mtmfnsDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _mtmfnsTrafficMirrorFilterId ::
-      !Text
+  { addNetworkServices ::
+      Lude.Maybe
+        [TrafficMirrorNetworkService],
+    removeNetworkServices ::
+      Lude.Maybe
+        [TrafficMirrorNetworkService],
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    trafficMirrorFilterId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTrafficMirrorFilterNetworkServices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtmfnsAddNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.
---
--- * 'mtmfnsRemoveNetworkServices' - The network service, for example Amazon DNS, that you no longer want to mirror.
---
--- * 'mtmfnsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mtmfnsTrafficMirrorFilterId' - The ID of the Traffic Mirror filter.
-modifyTrafficMirrorFilterNetworkServices ::
-  -- | 'mtmfnsTrafficMirrorFilterId'
-  Text ->
+-- * 'addNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to mirror.
+-- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+mkModifyTrafficMirrorFilterNetworkServices ::
+  -- | 'trafficMirrorFilterId'
+  Lude.Text ->
   ModifyTrafficMirrorFilterNetworkServices
-modifyTrafficMirrorFilterNetworkServices pTrafficMirrorFilterId_ =
+mkModifyTrafficMirrorFilterNetworkServices pTrafficMirrorFilterId_ =
   ModifyTrafficMirrorFilterNetworkServices'
-    { _mtmfnsAddNetworkServices =
-        Nothing,
-      _mtmfnsRemoveNetworkServices = Nothing,
-      _mtmfnsDryRun = Nothing,
-      _mtmfnsTrafficMirrorFilterId =
-        pTrafficMirrorFilterId_
+    { addNetworkServices =
+        Lude.Nothing,
+      removeNetworkServices = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      trafficMirrorFilterId = pTrafficMirrorFilterId_
     }
 
 -- | The network service, for example Amazon DNS, that you want to mirror.
-mtmfnsAddNetworkServices :: Lens' ModifyTrafficMirrorFilterNetworkServices [TrafficMirrorNetworkService]
-mtmfnsAddNetworkServices = lens _mtmfnsAddNetworkServices (\s a -> s {_mtmfnsAddNetworkServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addNetworkServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsAddNetworkServices :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Lude.Maybe [TrafficMirrorNetworkService])
+mtmfnsAddNetworkServices = Lens.lens (addNetworkServices :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Maybe [TrafficMirrorNetworkService]) (\s a -> s {addNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices)
+{-# DEPRECATED mtmfnsAddNetworkServices "Use generic-lens or generic-optics with 'addNetworkServices' instead." #-}
 
 -- | The network service, for example Amazon DNS, that you no longer want to mirror.
-mtmfnsRemoveNetworkServices :: Lens' ModifyTrafficMirrorFilterNetworkServices [TrafficMirrorNetworkService]
-mtmfnsRemoveNetworkServices = lens _mtmfnsRemoveNetworkServices (\s a -> s {_mtmfnsRemoveNetworkServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeNetworkServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsRemoveNetworkServices :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Lude.Maybe [TrafficMirrorNetworkService])
+mtmfnsRemoveNetworkServices = Lens.lens (removeNetworkServices :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Maybe [TrafficMirrorNetworkService]) (\s a -> s {removeNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices)
+{-# DEPRECATED mtmfnsRemoveNetworkServices "Use generic-lens or generic-optics with 'removeNetworkServices' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mtmfnsDryRun :: Lens' ModifyTrafficMirrorFilterNetworkServices (Maybe Bool)
-mtmfnsDryRun = lens _mtmfnsDryRun (\s a -> s {_mtmfnsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsDryRun :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Lude.Maybe Lude.Bool)
+mtmfnsDryRun = Lens.lens (dryRun :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyTrafficMirrorFilterNetworkServices)
+{-# DEPRECATED mtmfnsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Traffic Mirror filter.
-mtmfnsTrafficMirrorFilterId :: Lens' ModifyTrafficMirrorFilterNetworkServices Text
-mtmfnsTrafficMirrorFilterId = lens _mtmfnsTrafficMirrorFilterId (\s a -> s {_mtmfnsTrafficMirrorFilterId = a})
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsTrafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices Lude.Text
+mtmfnsTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: ModifyTrafficMirrorFilterNetworkServices)
+{-# DEPRECATED mtmfnsTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
 
-instance AWSRequest ModifyTrafficMirrorFilterNetworkServices where
+instance Lude.AWSRequest ModifyTrafficMirrorFilterNetworkServices where
   type
     Rs ModifyTrafficMirrorFilterNetworkServices =
       ModifyTrafficMirrorFilterNetworkServicesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyTrafficMirrorFilterNetworkServicesResponse'
-            <$> (x .@? "trafficMirrorFilter") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "trafficMirrorFilter")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyTrafficMirrorFilterNetworkServices
+instance Lude.ToHeaders ModifyTrafficMirrorFilterNetworkServices where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyTrafficMirrorFilterNetworkServices
+instance Lude.ToPath ModifyTrafficMirrorFilterNetworkServices where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyTrafficMirrorFilterNetworkServices where
-  toHeaders = const mempty
-
-instance ToPath ModifyTrafficMirrorFilterNetworkServices where
-  toPath = const "/"
-
-instance ToQuery ModifyTrafficMirrorFilterNetworkServices where
+instance Lude.ToQuery ModifyTrafficMirrorFilterNetworkServices where
   toQuery ModifyTrafficMirrorFilterNetworkServices' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("ModifyTrafficMirrorFilterNetworkServices" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          (toQueryList "AddNetworkService" <$> _mtmfnsAddNetworkServices),
-        toQuery
-          ( toQueryList "RemoveNetworkService"
-              <$> _mtmfnsRemoveNetworkServices
+          Lude.=: ("ModifyTrafficMirrorFilterNetworkServices" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          (Lude.toQueryList "AddNetworkService" Lude.<$> addNetworkServices),
+        Lude.toQuery
+          ( Lude.toQueryList "RemoveNetworkService"
+              Lude.<$> removeNetworkServices
           ),
-        "DryRun" =: _mtmfnsDryRun,
-        "TrafficMirrorFilterId" =: _mtmfnsTrafficMirrorFilterId
+        "DryRun" Lude.=: dryRun,
+        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId
       ]
 
--- | /See:/ 'modifyTrafficMirrorFilterNetworkServicesResponse' smart constructor.
+-- | /See:/ 'mkModifyTrafficMirrorFilterNetworkServicesResponse' smart constructor.
 data ModifyTrafficMirrorFilterNetworkServicesResponse = ModifyTrafficMirrorFilterNetworkServicesResponse'
-  { _mtmfnsrsTrafficMirrorFilter ::
-      !( Maybe
-           TrafficMirrorFilter
-       ),
-    _mtmfnsrsResponseStatus ::
-      !Int
+  { trafficMirrorFilter ::
+      Lude.Maybe
+        TrafficMirrorFilter,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ModifyTrafficMirrorFilterNetworkServicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtmfnsrsTrafficMirrorFilter' - The Traffic Mirror filter that the network service is associated with.
---
--- * 'mtmfnsrsResponseStatus' - -- | The response status code.
-modifyTrafficMirrorFilterNetworkServicesResponse ::
-  -- | 'mtmfnsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trafficMirrorFilter' - The Traffic Mirror filter that the network service is associated with.
+mkModifyTrafficMirrorFilterNetworkServicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyTrafficMirrorFilterNetworkServicesResponse
-modifyTrafficMirrorFilterNetworkServicesResponse pResponseStatus_ =
+mkModifyTrafficMirrorFilterNetworkServicesResponse pResponseStatus_ =
   ModifyTrafficMirrorFilterNetworkServicesResponse'
-    { _mtmfnsrsTrafficMirrorFilter =
-        Nothing,
-      _mtmfnsrsResponseStatus = pResponseStatus_
+    { trafficMirrorFilter =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Traffic Mirror filter that the network service is associated with.
-mtmfnsrsTrafficMirrorFilter :: Lens' ModifyTrafficMirrorFilterNetworkServicesResponse (Maybe TrafficMirrorFilter)
-mtmfnsrsTrafficMirrorFilter = lens _mtmfnsrsTrafficMirrorFilter (\s a -> s {_mtmfnsrsTrafficMirrorFilter = a})
+--
+-- /Note:/ Consider using 'trafficMirrorFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsrsTrafficMirrorFilter :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServicesResponse (Lude.Maybe TrafficMirrorFilter)
+mtmfnsrsTrafficMirrorFilter = Lens.lens (trafficMirrorFilter :: ModifyTrafficMirrorFilterNetworkServicesResponse -> Lude.Maybe TrafficMirrorFilter) (\s a -> s {trafficMirrorFilter = a} :: ModifyTrafficMirrorFilterNetworkServicesResponse)
+{-# DEPRECATED mtmfnsrsTrafficMirrorFilter "Use generic-lens or generic-optics with 'trafficMirrorFilter' instead." #-}
 
--- | -- | The response status code.
-mtmfnsrsResponseStatus :: Lens' ModifyTrafficMirrorFilterNetworkServicesResponse Int
-mtmfnsrsResponseStatus = lens _mtmfnsrsResponseStatus (\s a -> s {_mtmfnsrsResponseStatus = a})
-
-instance NFData ModifyTrafficMirrorFilterNetworkServicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsrsResponseStatus :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServicesResponse Lude.Int
+mtmfnsrsResponseStatus = Lens.lens (responseStatus :: ModifyTrafficMirrorFilterNetworkServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyTrafficMirrorFilterNetworkServicesResponse)
+{-# DEPRECATED mtmfnsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

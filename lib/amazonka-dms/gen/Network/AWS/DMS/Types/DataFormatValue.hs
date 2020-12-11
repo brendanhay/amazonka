@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.DataFormatValue where
+module Network.AWS.DMS.Types.DataFormatValue
+  ( DataFormatValue
+      ( DataFormatValue',
+        CSV,
+        Parquet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DataFormatValue
-  = CSV
-  | Parquet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DataFormatValue = DataFormatValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DataFormatValue where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      "parquet" -> pure Parquet
-      e ->
-        fromTextError $
-          "Failure parsing DataFormatValue from value: '" <> e
-            <> "'. Accepted values: csv, parquet"
+pattern CSV :: DataFormatValue
+pattern CSV = DataFormatValue' "csv"
 
-instance ToText DataFormatValue where
-  toText = \case
-    CSV -> "csv"
-    Parquet -> "parquet"
+pattern Parquet :: DataFormatValue
+pattern Parquet = DataFormatValue' "parquet"
 
-instance Hashable DataFormatValue
-
-instance NFData DataFormatValue
-
-instance ToByteString DataFormatValue
-
-instance ToQuery DataFormatValue
-
-instance ToHeader DataFormatValue
-
-instance ToJSON DataFormatValue where
-  toJSON = toJSONText
-
-instance FromJSON DataFormatValue where
-  parseJSON = parseJSONText "DataFormatValue"
+{-# COMPLETE
+  CSV,
+  Parquet,
+  DataFormatValue'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InternetGatewayAttachment where
+module Network.AWS.EC2.Types.InternetGatewayAttachment
+  ( InternetGatewayAttachment (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInternetGatewayAttachment,
+
+    -- * Lenses
+    igaState,
+    igaVPCId,
+  )
+where
+
 import Network.AWS.EC2.Types.AttachmentStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the attachment of a VPC to an internet gateway or an egress-only internet gateway.
 --
---
---
--- /See:/ 'internetGatewayAttachment' smart constructor.
+-- /See:/ 'mkInternetGatewayAttachment' smart constructor.
 data InternetGatewayAttachment = InternetGatewayAttachment'
-  { _igaState ::
-      !AttachmentStatus,
-    _igaVPCId :: !Text
+  { state ::
+      AttachmentStatus,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InternetGatewayAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'igaState' - The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
---
--- * 'igaVPCId' - The ID of the VPC.
-internetGatewayAttachment ::
-  -- | 'igaState'
+-- * 'state' - The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
+-- * 'vpcId' - The ID of the VPC.
+mkInternetGatewayAttachment ::
+  -- | 'state'
   AttachmentStatus ->
-  -- | 'igaVPCId'
-  Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   InternetGatewayAttachment
-internetGatewayAttachment pState_ pVPCId_ =
-  InternetGatewayAttachment'
-    { _igaState = pState_,
-      _igaVPCId = pVPCId_
-    }
+mkInternetGatewayAttachment pState_ pVPCId_ =
+  InternetGatewayAttachment' {state = pState_, vpcId = pVPCId_}
 
 -- | The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
-igaState :: Lens' InternetGatewayAttachment AttachmentStatus
-igaState = lens _igaState (\s a -> s {_igaState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igaState :: Lens.Lens' InternetGatewayAttachment AttachmentStatus
+igaState = Lens.lens (state :: InternetGatewayAttachment -> AttachmentStatus) (\s a -> s {state = a} :: InternetGatewayAttachment)
+{-# DEPRECATED igaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the VPC.
-igaVPCId :: Lens' InternetGatewayAttachment Text
-igaVPCId = lens _igaVPCId (\s a -> s {_igaVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igaVPCId :: Lens.Lens' InternetGatewayAttachment Lude.Text
+igaVPCId = Lens.lens (vpcId :: InternetGatewayAttachment -> Lude.Text) (\s a -> s {vpcId = a} :: InternetGatewayAttachment)
+{-# DEPRECATED igaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance FromXML InternetGatewayAttachment where
+instance Lude.FromXML InternetGatewayAttachment where
   parseXML x =
-    InternetGatewayAttachment' <$> (x .@ "state") <*> (x .@ "vpcId")
-
-instance Hashable InternetGatewayAttachment
-
-instance NFData InternetGatewayAttachment
+    InternetGatewayAttachment'
+      Lude.<$> (x Lude..@ "state") Lude.<*> (x Lude..@ "vpcId")

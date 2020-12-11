@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration where
+module Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
+  ( ElasticsearchDestinationConfiguration (..),
+
+    -- * Smart constructor
+    mkElasticsearchDestinationConfiguration,
+
+    -- * Lenses
+    edcIndexRotationPeriod,
+    edcTypeName,
+    edcS3BackupMode,
+    edcDomainARN,
+    edcCloudWatchLoggingOptions,
+    edcVPCConfiguration,
+    edcBufferingHints,
+    edcRetryOptions,
+    edcProcessingConfiguration,
+    edcClusterEndpoint,
+    edcRoleARN,
+    edcIndexName,
+    edcS3Configuration,
+  )
+where
 
 import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
@@ -23,188 +38,224 @@ import Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3DestinationConfiguration
 import Network.AWS.Firehose.Types.VPCConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the configuration of a destination in Amazon ES.
 --
---
---
--- /See:/ 'elasticsearchDestinationConfiguration' smart constructor.
+-- /See:/ 'mkElasticsearchDestinationConfiguration' smart constructor.
 data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration'
-  { _edcIndexRotationPeriod ::
-      !( Maybe
-           ElasticsearchIndexRotationPeriod
-       ),
-    _edcTypeName ::
-      !(Maybe Text),
-    _edcS3BackupMode ::
-      !( Maybe
-           ElasticsearchS3BackupMode
-       ),
-    _edcDomainARN ::
-      !(Maybe Text),
-    _edcCloudWatchLoggingOptions ::
-      !( Maybe
-           CloudWatchLoggingOptions
-       ),
-    _edcVPCConfiguration ::
-      !( Maybe
-           VPCConfiguration
-       ),
-    _edcBufferingHints ::
-      !( Maybe
-           ElasticsearchBufferingHints
-       ),
-    _edcRetryOptions ::
-      !( Maybe
-           ElasticsearchRetryOptions
-       ),
-    _edcProcessingConfiguration ::
-      !( Maybe
-           ProcessingConfiguration
-       ),
-    _edcClusterEndpoint ::
-      !(Maybe Text),
-    _edcRoleARN ::
-      !Text,
-    _edcIndexName ::
-      !Text,
-    _edcS3Configuration ::
-      !S3DestinationConfiguration
+  { indexRotationPeriod ::
+      Lude.Maybe
+        ElasticsearchIndexRotationPeriod,
+    typeName ::
+      Lude.Maybe
+        Lude.Text,
+    s3BackupMode ::
+      Lude.Maybe
+        ElasticsearchS3BackupMode,
+    domainARN ::
+      Lude.Maybe
+        Lude.Text,
+    cloudWatchLoggingOptions ::
+      Lude.Maybe
+        CloudWatchLoggingOptions,
+    vpcConfiguration ::
+      Lude.Maybe
+        VPCConfiguration,
+    bufferingHints ::
+      Lude.Maybe
+        ElasticsearchBufferingHints,
+    retryOptions ::
+      Lude.Maybe
+        ElasticsearchRetryOptions,
+    processingConfiguration ::
+      Lude.Maybe
+        ProcessingConfiguration,
+    clusterEndpoint ::
+      Lude.Maybe
+        Lude.Text,
+    roleARN ::
+      Lude.Text,
+    indexName ::
+      Lude.Text,
+    s3Configuration ::
+      S3DestinationConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDestinationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bufferingHints' - The buffering options. If no value is specified, the default values for @ElasticsearchBufferingHints@ are used.
+-- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+-- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
+-- * 'domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'edcIndexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a timestamp to the @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . The default value is @OneDay@ .
+-- Specify either @ClusterEndpoint@ or @DomainARN@ .
+-- * 'indexName' - The Elasticsearch index name.
+-- * 'indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a timestamp to the @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . The default value is @OneDay@ .
+-- * 'processingConfiguration' - The data processing configuration.
+-- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 's3BackupMode' - Defines how documents should be delivered to Amazon S3. When it is set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with @elasticsearch-failed/@ appended to the key prefix. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with @elasticsearch-failed/@ appended to the prefix. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for the Amazon ES Destination> . Default value is @FailedDocumentsOnly@ .
 --
--- * 'edcTypeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time. For Elasticsearch 7.x, don't specify a @TypeName@ .
+-- You can't change this backup mode after you create the delivery stream.
+-- * 's3Configuration' - The configuration for the backup Amazon S3 location.
+-- * 'typeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.
 --
--- * 'edcS3BackupMode' - Defines how documents should be delivered to Amazon S3. When it is set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with @elasticsearch-failed/@ appended to the key prefix. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with @elasticsearch-failed/@ appended to the prefix. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for the Amazon ES Destination> . Default value is @FailedDocumentsOnly@ . You can't change this backup mode after you create the delivery stream.
---
--- * 'edcDomainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . Specify either @ClusterEndpoint@ or @DomainARN@ .
---
--- * 'edcCloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
---
--- * 'edcVPCConfiguration' - The details of the VPC of the Amazon ES destination.
---
--- * 'edcBufferingHints' - The buffering options. If no value is specified, the default values for @ElasticsearchBufferingHints@ are used.
---
--- * 'edcRetryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
---
--- * 'edcProcessingConfiguration' - The data processing configuration.
---
--- * 'edcClusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
---
--- * 'edcRoleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- * 'edcIndexName' - The Elasticsearch index name.
---
--- * 'edcS3Configuration' - The configuration for the backup Amazon S3 location.
-elasticsearchDestinationConfiguration ::
-  -- | 'edcRoleARN'
-  Text ->
-  -- | 'edcIndexName'
-  Text ->
-  -- | 'edcS3Configuration'
+-- For Elasticsearch 7.x, don't specify a @TypeName@ .
+-- * 'vpcConfiguration' - The details of the VPC of the Amazon ES destination.
+mkElasticsearchDestinationConfiguration ::
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'indexName'
+  Lude.Text ->
+  -- | 's3Configuration'
   S3DestinationConfiguration ->
   ElasticsearchDestinationConfiguration
-elasticsearchDestinationConfiguration
+mkElasticsearchDestinationConfiguration
   pRoleARN_
   pIndexName_
   pS3Configuration_ =
     ElasticsearchDestinationConfiguration'
-      { _edcIndexRotationPeriod =
-          Nothing,
-        _edcTypeName = Nothing,
-        _edcS3BackupMode = Nothing,
-        _edcDomainARN = Nothing,
-        _edcCloudWatchLoggingOptions = Nothing,
-        _edcVPCConfiguration = Nothing,
-        _edcBufferingHints = Nothing,
-        _edcRetryOptions = Nothing,
-        _edcProcessingConfiguration = Nothing,
-        _edcClusterEndpoint = Nothing,
-        _edcRoleARN = pRoleARN_,
-        _edcIndexName = pIndexName_,
-        _edcS3Configuration = pS3Configuration_
+      { indexRotationPeriod =
+          Lude.Nothing,
+        typeName = Lude.Nothing,
+        s3BackupMode = Lude.Nothing,
+        domainARN = Lude.Nothing,
+        cloudWatchLoggingOptions = Lude.Nothing,
+        vpcConfiguration = Lude.Nothing,
+        bufferingHints = Lude.Nothing,
+        retryOptions = Lude.Nothing,
+        processingConfiguration = Lude.Nothing,
+        clusterEndpoint = Lude.Nothing,
+        roleARN = pRoleARN_,
+        indexName = pIndexName_,
+        s3Configuration = pS3Configuration_
       }
 
 -- | The Elasticsearch index rotation period. Index rotation appends a timestamp to the @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . The default value is @OneDay@ .
-edcIndexRotationPeriod :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchIndexRotationPeriod)
-edcIndexRotationPeriod = lens _edcIndexRotationPeriod (\s a -> s {_edcIndexRotationPeriod = a})
+--
+-- /Note:/ Consider using 'indexRotationPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcIndexRotationPeriod :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe ElasticsearchIndexRotationPeriod)
+edcIndexRotationPeriod = Lens.lens (indexRotationPeriod :: ElasticsearchDestinationConfiguration -> Lude.Maybe ElasticsearchIndexRotationPeriod) (\s a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcIndexRotationPeriod "Use generic-lens or generic-optics with 'indexRotationPeriod' instead." #-}
 
--- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time. For Elasticsearch 7.x, don't specify a @TypeName@ .
-edcTypeName :: Lens' ElasticsearchDestinationConfiguration (Maybe Text)
-edcTypeName = lens _edcTypeName (\s a -> s {_edcTypeName = a})
+-- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.
+--
+-- For Elasticsearch 7.x, don't specify a @TypeName@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcTypeName :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe Lude.Text)
+edcTypeName = Lens.lens (typeName :: ElasticsearchDestinationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
--- | Defines how documents should be delivered to Amazon S3. When it is set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with @elasticsearch-failed/@ appended to the key prefix. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with @elasticsearch-failed/@ appended to the prefix. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for the Amazon ES Destination> . Default value is @FailedDocumentsOnly@ . You can't change this backup mode after you create the delivery stream.
-edcS3BackupMode :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchS3BackupMode)
-edcS3BackupMode = lens _edcS3BackupMode (\s a -> s {_edcS3BackupMode = a})
+-- | Defines how documents should be delivered to Amazon S3. When it is set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with @elasticsearch-failed/@ appended to the key prefix. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with @elasticsearch-failed/@ appended to the prefix. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup Amazon S3 Backup for the Amazon ES Destination> . Default value is @FailedDocumentsOnly@ .
+--
+-- You can't change this backup mode after you create the delivery stream.
+--
+-- /Note:/ Consider using 's3BackupMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcS3BackupMode :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe ElasticsearchS3BackupMode)
+edcS3BackupMode = Lens.lens (s3BackupMode :: ElasticsearchDestinationConfiguration -> Lude.Maybe ElasticsearchS3BackupMode) (\s a -> s {s3BackupMode = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
 
--- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . Specify either @ClusterEndpoint@ or @DomainARN@ .
-edcDomainARN :: Lens' ElasticsearchDestinationConfiguration (Maybe Text)
-edcDomainARN = lens _edcDomainARN (\s a -> s {_edcDomainARN = a})
+-- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the role specified in __RoleARN__ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- Specify either @ClusterEndpoint@ or @DomainARN@ .
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcDomainARN :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe Lude.Text)
+edcDomainARN = Lens.lens (domainARN :: ElasticsearchDestinationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
 -- | The Amazon CloudWatch logging options for your delivery stream.
-edcCloudWatchLoggingOptions :: Lens' ElasticsearchDestinationConfiguration (Maybe CloudWatchLoggingOptions)
-edcCloudWatchLoggingOptions = lens _edcCloudWatchLoggingOptions (\s a -> s {_edcCloudWatchLoggingOptions = a})
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcCloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe CloudWatchLoggingOptions)
+edcCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: ElasticsearchDestinationConfiguration -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
 
 -- | The details of the VPC of the Amazon ES destination.
-edcVPCConfiguration :: Lens' ElasticsearchDestinationConfiguration (Maybe VPCConfiguration)
-edcVPCConfiguration = lens _edcVPCConfiguration (\s a -> s {_edcVPCConfiguration = a})
+--
+-- /Note:/ Consider using 'vpcConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcVPCConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe VPCConfiguration)
+edcVPCConfiguration = Lens.lens (vpcConfiguration :: ElasticsearchDestinationConfiguration -> Lude.Maybe VPCConfiguration) (\s a -> s {vpcConfiguration = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcVPCConfiguration "Use generic-lens or generic-optics with 'vpcConfiguration' instead." #-}
 
 -- | The buffering options. If no value is specified, the default values for @ElasticsearchBufferingHints@ are used.
-edcBufferingHints :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchBufferingHints)
-edcBufferingHints = lens _edcBufferingHints (\s a -> s {_edcBufferingHints = a})
+--
+-- /Note:/ Consider using 'bufferingHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcBufferingHints :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe ElasticsearchBufferingHints)
+edcBufferingHints = Lens.lens (bufferingHints :: ElasticsearchDestinationConfiguration -> Lude.Maybe ElasticsearchBufferingHints) (\s a -> s {bufferingHints = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcBufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
-edcRetryOptions :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchRetryOptions)
-edcRetryOptions = lens _edcRetryOptions (\s a -> s {_edcRetryOptions = a})
+--
+-- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcRetryOptions :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe ElasticsearchRetryOptions)
+edcRetryOptions = Lens.lens (retryOptions :: ElasticsearchDestinationConfiguration -> Lude.Maybe ElasticsearchRetryOptions) (\s a -> s {retryOptions = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
 
 -- | The data processing configuration.
-edcProcessingConfiguration :: Lens' ElasticsearchDestinationConfiguration (Maybe ProcessingConfiguration)
-edcProcessingConfiguration = lens _edcProcessingConfiguration (\s a -> s {_edcProcessingConfiguration = a})
+--
+-- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcProcessingConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe ProcessingConfiguration)
+edcProcessingConfiguration = Lens.lens (processingConfiguration :: ElasticsearchDestinationConfiguration -> Lude.Maybe ProcessingConfiguration) (\s a -> s {processingConfiguration = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
 
 -- | The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
-edcClusterEndpoint :: Lens' ElasticsearchDestinationConfiguration (Maybe Text)
-edcClusterEndpoint = lens _edcClusterEndpoint (\s a -> s {_edcClusterEndpoint = a})
+--
+-- /Note:/ Consider using 'clusterEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcClusterEndpoint :: Lens.Lens' ElasticsearchDestinationConfiguration (Lude.Maybe Lude.Text)
+edcClusterEndpoint = Lens.lens (clusterEndpoint :: ElasticsearchDestinationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {clusterEndpoint = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcClusterEndpoint "Use generic-lens or generic-optics with 'clusterEndpoint' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-edcRoleARN :: Lens' ElasticsearchDestinationConfiguration Text
-edcRoleARN = lens _edcRoleARN (\s a -> s {_edcRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcRoleARN :: Lens.Lens' ElasticsearchDestinationConfiguration Lude.Text
+edcRoleARN = Lens.lens (roleARN :: ElasticsearchDestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The Elasticsearch index name.
-edcIndexName :: Lens' ElasticsearchDestinationConfiguration Text
-edcIndexName = lens _edcIndexName (\s a -> s {_edcIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcIndexName :: Lens.Lens' ElasticsearchDestinationConfiguration Lude.Text
+edcIndexName = Lens.lens (indexName :: ElasticsearchDestinationConfiguration -> Lude.Text) (\s a -> s {indexName = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The configuration for the backup Amazon S3 location.
-edcS3Configuration :: Lens' ElasticsearchDestinationConfiguration S3DestinationConfiguration
-edcS3Configuration = lens _edcS3Configuration (\s a -> s {_edcS3Configuration = a})
+--
+-- /Note:/ Consider using 's3Configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edcS3Configuration :: Lens.Lens' ElasticsearchDestinationConfiguration S3DestinationConfiguration
+edcS3Configuration = Lens.lens (s3Configuration :: ElasticsearchDestinationConfiguration -> S3DestinationConfiguration) (\s a -> s {s3Configuration = a} :: ElasticsearchDestinationConfiguration)
+{-# DEPRECATED edcS3Configuration "Use generic-lens or generic-optics with 's3Configuration' instead." #-}
 
-instance Hashable ElasticsearchDestinationConfiguration
-
-instance NFData ElasticsearchDestinationConfiguration
-
-instance ToJSON ElasticsearchDestinationConfiguration where
+instance Lude.ToJSON ElasticsearchDestinationConfiguration where
   toJSON ElasticsearchDestinationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("IndexRotationPeriod" .=) <$> _edcIndexRotationPeriod,
-            ("TypeName" .=) <$> _edcTypeName,
-            ("S3BackupMode" .=) <$> _edcS3BackupMode,
-            ("DomainARN" .=) <$> _edcDomainARN,
-            ("CloudWatchLoggingOptions" .=) <$> _edcCloudWatchLoggingOptions,
-            ("VpcConfiguration" .=) <$> _edcVPCConfiguration,
-            ("BufferingHints" .=) <$> _edcBufferingHints,
-            ("RetryOptions" .=) <$> _edcRetryOptions,
-            ("ProcessingConfiguration" .=) <$> _edcProcessingConfiguration,
-            ("ClusterEndpoint" .=) <$> _edcClusterEndpoint,
-            Just ("RoleARN" .= _edcRoleARN),
-            Just ("IndexName" .= _edcIndexName),
-            Just ("S3Configuration" .= _edcS3Configuration)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IndexRotationPeriod" Lude..=) Lude.<$> indexRotationPeriod,
+            ("TypeName" Lude..=) Lude.<$> typeName,
+            ("S3BackupMode" Lude..=) Lude.<$> s3BackupMode,
+            ("DomainARN" Lude..=) Lude.<$> domainARN,
+            ("CloudWatchLoggingOptions" Lude..=)
+              Lude.<$> cloudWatchLoggingOptions,
+            ("VpcConfiguration" Lude..=) Lude.<$> vpcConfiguration,
+            ("BufferingHints" Lude..=) Lude.<$> bufferingHints,
+            ("RetryOptions" Lude..=) Lude.<$> retryOptions,
+            ("ProcessingConfiguration" Lude..=)
+              Lude.<$> processingConfiguration,
+            ("ClusterEndpoint" Lude..=) Lude.<$> clusterEndpoint,
+            Lude.Just ("RoleARN" Lude..= roleARN),
+            Lude.Just ("IndexName" Lude..= indexName),
+            Lude.Just ("S3Configuration" Lude..= s3Configuration)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,158 @@
 --
 -- Describes the specified attribute of the specified Amazon FPGA Image (AFI).
 module Network.AWS.EC2.DescribeFpgaImageAttribute
-  ( -- * Creating a Request
-    describeFpgaImageAttribute,
-    DescribeFpgaImageAttribute,
+  ( -- * Creating a request
+    DescribeFpgaImageAttribute (..),
+    mkDescribeFpgaImageAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfiaDryRun,
     dfiaFpgaImageId,
     dfiaAttribute,
 
-    -- * Destructuring the Response
-    describeFpgaImageAttributeResponse,
-    DescribeFpgaImageAttributeResponse,
+    -- * Destructuring the response
+    DescribeFpgaImageAttributeResponse (..),
+    mkDescribeFpgaImageAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfiarsFpgaImageAttribute,
     dfiarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFpgaImageAttribute' smart constructor.
+-- | /See:/ 'mkDescribeFpgaImageAttribute' smart constructor.
 data DescribeFpgaImageAttribute = DescribeFpgaImageAttribute'
-  { _dfiaDryRun ::
-      !(Maybe Bool),
-    _dfiaFpgaImageId :: !Text,
-    _dfiaAttribute ::
-      !FpgaImageAttributeName
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    fpgaImageId :: Lude.Text,
+    attribute :: FpgaImageAttributeName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFpgaImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfiaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dfiaFpgaImageId' - The ID of the AFI.
---
--- * 'dfiaAttribute' - The AFI attribute.
-describeFpgaImageAttribute ::
-  -- | 'dfiaFpgaImageId'
-  Text ->
-  -- | 'dfiaAttribute'
+-- * 'attribute' - The AFI attribute.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fpgaImageId' - The ID of the AFI.
+mkDescribeFpgaImageAttribute ::
+  -- | 'fpgaImageId'
+  Lude.Text ->
+  -- | 'attribute'
   FpgaImageAttributeName ->
   DescribeFpgaImageAttribute
-describeFpgaImageAttribute pFpgaImageId_ pAttribute_ =
+mkDescribeFpgaImageAttribute pFpgaImageId_ pAttribute_ =
   DescribeFpgaImageAttribute'
-    { _dfiaDryRun = Nothing,
-      _dfiaFpgaImageId = pFpgaImageId_,
-      _dfiaAttribute = pAttribute_
+    { dryRun = Lude.Nothing,
+      fpgaImageId = pFpgaImageId_,
+      attribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dfiaDryRun :: Lens' DescribeFpgaImageAttribute (Maybe Bool)
-dfiaDryRun = lens _dfiaDryRun (\s a -> s {_dfiaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiaDryRun :: Lens.Lens' DescribeFpgaImageAttribute (Lude.Maybe Lude.Bool)
+dfiaDryRun = Lens.lens (dryRun :: DescribeFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFpgaImageAttribute)
+{-# DEPRECATED dfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AFI.
-dfiaFpgaImageId :: Lens' DescribeFpgaImageAttribute Text
-dfiaFpgaImageId = lens _dfiaFpgaImageId (\s a -> s {_dfiaFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiaFpgaImageId :: Lens.Lens' DescribeFpgaImageAttribute Lude.Text
+dfiaFpgaImageId = Lens.lens (fpgaImageId :: DescribeFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: DescribeFpgaImageAttribute)
+{-# DEPRECATED dfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The AFI attribute.
-dfiaAttribute :: Lens' DescribeFpgaImageAttribute FpgaImageAttributeName
-dfiaAttribute = lens _dfiaAttribute (\s a -> s {_dfiaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiaAttribute :: Lens.Lens' DescribeFpgaImageAttribute FpgaImageAttributeName
+dfiaAttribute = Lens.lens (attribute :: DescribeFpgaImageAttribute -> FpgaImageAttributeName) (\s a -> s {attribute = a} :: DescribeFpgaImageAttribute)
+{-# DEPRECATED dfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
-instance AWSRequest DescribeFpgaImageAttribute where
+instance Lude.AWSRequest DescribeFpgaImageAttribute where
   type
     Rs DescribeFpgaImageAttribute =
       DescribeFpgaImageAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeFpgaImageAttributeResponse'
-            <$> (x .@? "fpgaImageAttribute") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "fpgaImageAttribute")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeFpgaImageAttribute
+instance Lude.ToHeaders DescribeFpgaImageAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeFpgaImageAttribute
+instance Lude.ToPath DescribeFpgaImageAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeFpgaImageAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeFpgaImageAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeFpgaImageAttribute where
+instance Lude.ToQuery DescribeFpgaImageAttribute where
   toQuery DescribeFpgaImageAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeFpgaImageAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dfiaDryRun,
-        "FpgaImageId" =: _dfiaFpgaImageId,
-        "Attribute" =: _dfiaAttribute
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeFpgaImageAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "FpgaImageId" Lude.=: fpgaImageId,
+        "Attribute" Lude.=: attribute
       ]
 
--- | /See:/ 'describeFpgaImageAttributeResponse' smart constructor.
+-- | /See:/ 'mkDescribeFpgaImageAttributeResponse' smart constructor.
 data DescribeFpgaImageAttributeResponse = DescribeFpgaImageAttributeResponse'
-  { _dfiarsFpgaImageAttribute ::
-      !( Maybe
-           FpgaImageAttribute
-       ),
-    _dfiarsResponseStatus ::
-      !Int
+  { fpgaImageAttribute ::
+      Lude.Maybe
+        FpgaImageAttribute,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFpgaImageAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfiarsFpgaImageAttribute' - Information about the attribute.
---
--- * 'dfiarsResponseStatus' - -- | The response status code.
-describeFpgaImageAttributeResponse ::
-  -- | 'dfiarsResponseStatus'
-  Int ->
+-- * 'fpgaImageAttribute' - Information about the attribute.
+-- * 'responseStatus' - The response status code.
+mkDescribeFpgaImageAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFpgaImageAttributeResponse
-describeFpgaImageAttributeResponse pResponseStatus_ =
+mkDescribeFpgaImageAttributeResponse pResponseStatus_ =
   DescribeFpgaImageAttributeResponse'
-    { _dfiarsFpgaImageAttribute =
-        Nothing,
-      _dfiarsResponseStatus = pResponseStatus_
+    { fpgaImageAttribute =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the attribute.
-dfiarsFpgaImageAttribute :: Lens' DescribeFpgaImageAttributeResponse (Maybe FpgaImageAttribute)
-dfiarsFpgaImageAttribute = lens _dfiarsFpgaImageAttribute (\s a -> s {_dfiarsFpgaImageAttribute = a})
+--
+-- /Note:/ Consider using 'fpgaImageAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiarsFpgaImageAttribute :: Lens.Lens' DescribeFpgaImageAttributeResponse (Lude.Maybe FpgaImageAttribute)
+dfiarsFpgaImageAttribute = Lens.lens (fpgaImageAttribute :: DescribeFpgaImageAttributeResponse -> Lude.Maybe FpgaImageAttribute) (\s a -> s {fpgaImageAttribute = a} :: DescribeFpgaImageAttributeResponse)
+{-# DEPRECATED dfiarsFpgaImageAttribute "Use generic-lens or generic-optics with 'fpgaImageAttribute' instead." #-}
 
--- | -- | The response status code.
-dfiarsResponseStatus :: Lens' DescribeFpgaImageAttributeResponse Int
-dfiarsResponseStatus = lens _dfiarsResponseStatus (\s a -> s {_dfiarsResponseStatus = a})
-
-instance NFData DescribeFpgaImageAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiarsResponseStatus :: Lens.Lens' DescribeFpgaImageAttributeResponse Lude.Int
+dfiarsResponseStatus = Lens.lens (responseStatus :: DescribeFpgaImageAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFpgaImageAttributeResponse)
+{-# DEPRECATED dfiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

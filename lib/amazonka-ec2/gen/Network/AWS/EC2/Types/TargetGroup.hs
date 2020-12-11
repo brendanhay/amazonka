@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TargetGroup where
+module Network.AWS.EC2.Types.TargetGroup
+  ( TargetGroup (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetGroup,
+
+    -- * Lenses
+    tgARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a load balancer target group.
 --
---
---
--- /See:/ 'targetGroup' smart constructor.
-newtype TargetGroup = TargetGroup' {_tgARN :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTargetGroup' smart constructor.
+newtype TargetGroup = TargetGroup' {arn :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgARN' - The Amazon Resource Name (ARN) of the target group.
-targetGroup ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the target group.
+mkTargetGroup ::
   TargetGroup
-targetGroup = TargetGroup' {_tgARN = Nothing}
+mkTargetGroup = TargetGroup' {arn = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the target group.
-tgARN :: Lens' TargetGroup (Maybe Text)
-tgARN = lens _tgARN (\s a -> s {_tgARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgARN :: Lens.Lens' TargetGroup (Lude.Maybe Lude.Text)
+tgARN = Lens.lens (arn :: TargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TargetGroup)
+{-# DEPRECATED tgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromXML TargetGroup where
-  parseXML x = TargetGroup' <$> (x .@? "arn")
+instance Lude.FromXML TargetGroup where
+  parseXML x = TargetGroup' Lude.<$> (x Lude..@? "arn")
 
-instance Hashable TargetGroup
-
-instance NFData TargetGroup
-
-instance ToQuery TargetGroup where
-  toQuery TargetGroup' {..} = mconcat ["Arn" =: _tgARN]
+instance Lude.ToQuery TargetGroup where
+  toQuery TargetGroup' {..} = Lude.mconcat ["Arn" Lude.=: arn]

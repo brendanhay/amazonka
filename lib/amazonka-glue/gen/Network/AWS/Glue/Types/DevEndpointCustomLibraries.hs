@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DevEndpointCustomLibraries where
+module Network.AWS.Glue.Types.DevEndpointCustomLibraries
+  ( DevEndpointCustomLibraries (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDevEndpointCustomLibraries,
+
+    -- * Lenses
+    declExtraPythonLibsS3Path,
+    declExtraJARsS3Path,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Custom libraries to be loaded into a development endpoint.
 --
---
---
--- /See:/ 'devEndpointCustomLibraries' smart constructor.
+-- /See:/ 'mkDevEndpointCustomLibraries' smart constructor.
 data DevEndpointCustomLibraries = DevEndpointCustomLibraries'
-  { _declExtraPythonLibsS3Path ::
-      !(Maybe Text),
-    _declExtraJARsS3Path :: !(Maybe Text)
+  { extraPythonLibsS3Path ::
+      Lude.Maybe Lude.Text,
+    extraJARsS3Path ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevEndpointCustomLibraries' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'declExtraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
---
--- * 'declExtraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
-devEndpointCustomLibraries ::
+-- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+-- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+mkDevEndpointCustomLibraries ::
   DevEndpointCustomLibraries
-devEndpointCustomLibraries =
+mkDevEndpointCustomLibraries =
   DevEndpointCustomLibraries'
-    { _declExtraPythonLibsS3Path = Nothing,
-      _declExtraJARsS3Path = Nothing
+    { extraPythonLibsS3Path = Lude.Nothing,
+      extraJARsS3Path = Lude.Nothing
     }
 
 -- | The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
-declExtraPythonLibsS3Path :: Lens' DevEndpointCustomLibraries (Maybe Text)
-declExtraPythonLibsS3Path = lens _declExtraPythonLibsS3Path (\s a -> s {_declExtraPythonLibsS3Path = a})
+--
+-- /Note:/ Consider using 'extraPythonLibsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+declExtraPythonLibsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Lude.Maybe Lude.Text)
+declExtraPythonLibsS3Path = Lens.lens (extraPythonLibsS3Path :: DevEndpointCustomLibraries -> Lude.Maybe Lude.Text) (\s a -> s {extraPythonLibsS3Path = a} :: DevEndpointCustomLibraries)
+{-# DEPRECATED declExtraPythonLibsS3Path "Use generic-lens or generic-optics with 'extraPythonLibsS3Path' instead." #-}
 
 -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
-declExtraJARsS3Path :: Lens' DevEndpointCustomLibraries (Maybe Text)
-declExtraJARsS3Path = lens _declExtraJARsS3Path (\s a -> s {_declExtraJARsS3Path = a})
+--
+-- /Note:/ Consider using 'extraJARsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+declExtraJARsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Lude.Maybe Lude.Text)
+declExtraJARsS3Path = Lens.lens (extraJARsS3Path :: DevEndpointCustomLibraries -> Lude.Maybe Lude.Text) (\s a -> s {extraJARsS3Path = a} :: DevEndpointCustomLibraries)
+{-# DEPRECATED declExtraJARsS3Path "Use generic-lens or generic-optics with 'extraJARsS3Path' instead." #-}
 
-instance Hashable DevEndpointCustomLibraries
-
-instance NFData DevEndpointCustomLibraries
-
-instance ToJSON DevEndpointCustomLibraries where
+instance Lude.ToJSON DevEndpointCustomLibraries where
   toJSON DevEndpointCustomLibraries' {..} =
-    object
-      ( catMaybes
-          [ ("ExtraPythonLibsS3Path" .=) <$> _declExtraPythonLibsS3Path,
-            ("ExtraJarsS3Path" .=) <$> _declExtraJARsS3Path
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ExtraPythonLibsS3Path" Lude..=) Lude.<$> extraPythonLibsS3Path,
+            ("ExtraJarsS3Path" Lude..=) Lude.<$> extraJARsS3Path
           ]
       )

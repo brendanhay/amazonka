@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.AdjustmentType where
+module Network.AWS.AutoScaling.Types.AdjustmentType
+  ( AdjustmentType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAdjustmentType,
+
+    -- * Lenses
+    atAdjustmentType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a policy adjustment type.
 --
---
---
--- /See:/ 'adjustmentType' smart constructor.
+-- /See:/ 'mkAdjustmentType' smart constructor.
 newtype AdjustmentType = AdjustmentType'
-  { _atAdjustmentType ::
-      Maybe Text
+  { adjustmentType ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdjustmentType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atAdjustmentType' - The policy adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
-adjustmentType ::
+-- * 'adjustmentType' - The policy adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
+mkAdjustmentType ::
   AdjustmentType
-adjustmentType = AdjustmentType' {_atAdjustmentType = Nothing}
+mkAdjustmentType = AdjustmentType' {adjustmentType = Lude.Nothing}
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
-atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
-atAdjustmentType = lens _atAdjustmentType (\s a -> s {_atAdjustmentType = a})
+--
+-- /Note:/ Consider using 'adjustmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atAdjustmentType :: Lens.Lens' AdjustmentType (Lude.Maybe Lude.Text)
+atAdjustmentType = Lens.lens (adjustmentType :: AdjustmentType -> Lude.Maybe Lude.Text) (\s a -> s {adjustmentType = a} :: AdjustmentType)
+{-# DEPRECATED atAdjustmentType "Use generic-lens or generic-optics with 'adjustmentType' instead." #-}
 
-instance FromXML AdjustmentType where
-  parseXML x = AdjustmentType' <$> (x .@? "AdjustmentType")
-
-instance Hashable AdjustmentType
-
-instance NFData AdjustmentType
+instance Lude.FromXML AdjustmentType where
+  parseXML x = AdjustmentType' Lude.<$> (x Lude..@? "AdjustmentType")

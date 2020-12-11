@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ArtifactPackaging where
+module Network.AWS.CodeBuild.Types.ArtifactPackaging
+  ( ArtifactPackaging
+      ( ArtifactPackaging',
+        None,
+        Zip
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArtifactPackaging
-  = None
-  | Zip
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArtifactPackaging = ArtifactPackaging' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArtifactPackaging where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "zip" -> pure Zip
-      e ->
-        fromTextError $
-          "Failure parsing ArtifactPackaging from value: '" <> e
-            <> "'. Accepted values: none, zip"
+pattern None :: ArtifactPackaging
+pattern None = ArtifactPackaging' "NONE"
 
-instance ToText ArtifactPackaging where
-  toText = \case
-    None -> "NONE"
-    Zip -> "ZIP"
+pattern Zip :: ArtifactPackaging
+pattern Zip = ArtifactPackaging' "ZIP"
 
-instance Hashable ArtifactPackaging
-
-instance NFData ArtifactPackaging
-
-instance ToByteString ArtifactPackaging
-
-instance ToQuery ArtifactPackaging
-
-instance ToHeader ArtifactPackaging
-
-instance ToJSON ArtifactPackaging where
-  toJSON = toJSONText
-
-instance FromJSON ArtifactPackaging where
-  parseJSON = parseJSONText "ArtifactPackaging"
+{-# COMPLETE
+  None,
+  Zip,
+  ArtifactPackaging'
+  #-}

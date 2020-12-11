@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ReportGroupTrendFieldType where
+module Network.AWS.CodeBuild.Types.ReportGroupTrendFieldType
+  ( ReportGroupTrendFieldType
+      ( ReportGroupTrendFieldType',
+        BranchCoverage,
+        BranchesCovered,
+        BranchesMissed,
+        Duration,
+        LineCoverage,
+        LinesCovered,
+        LinesMissed,
+        PassRate,
+        Total
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportGroupTrendFieldType
-  = BranchCoverage
-  | BranchesCovered
-  | BranchesMissed
-  | Duration
-  | LineCoverage
-  | LinesCovered
-  | LinesMissed
-  | PassRate
-  | Total
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportGroupTrendFieldType = ReportGroupTrendFieldType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportGroupTrendFieldType where
-  parser =
-    takeLowerText >>= \case
-      "branch_coverage" -> pure BranchCoverage
-      "branches_covered" -> pure BranchesCovered
-      "branches_missed" -> pure BranchesMissed
-      "duration" -> pure Duration
-      "line_coverage" -> pure LineCoverage
-      "lines_covered" -> pure LinesCovered
-      "lines_missed" -> pure LinesMissed
-      "pass_rate" -> pure PassRate
-      "total" -> pure Total
-      e ->
-        fromTextError $
-          "Failure parsing ReportGroupTrendFieldType from value: '" <> e
-            <> "'. Accepted values: branch_coverage, branches_covered, branches_missed, duration, line_coverage, lines_covered, lines_missed, pass_rate, total"
+pattern BranchCoverage :: ReportGroupTrendFieldType
+pattern BranchCoverage = ReportGroupTrendFieldType' "BRANCH_COVERAGE"
 
-instance ToText ReportGroupTrendFieldType where
-  toText = \case
-    BranchCoverage -> "BRANCH_COVERAGE"
-    BranchesCovered -> "BRANCHES_COVERED"
-    BranchesMissed -> "BRANCHES_MISSED"
-    Duration -> "DURATION"
-    LineCoverage -> "LINE_COVERAGE"
-    LinesCovered -> "LINES_COVERED"
-    LinesMissed -> "LINES_MISSED"
-    PassRate -> "PASS_RATE"
-    Total -> "TOTAL"
+pattern BranchesCovered :: ReportGroupTrendFieldType
+pattern BranchesCovered = ReportGroupTrendFieldType' "BRANCHES_COVERED"
 
-instance Hashable ReportGroupTrendFieldType
+pattern BranchesMissed :: ReportGroupTrendFieldType
+pattern BranchesMissed = ReportGroupTrendFieldType' "BRANCHES_MISSED"
 
-instance NFData ReportGroupTrendFieldType
+pattern Duration :: ReportGroupTrendFieldType
+pattern Duration = ReportGroupTrendFieldType' "DURATION"
 
-instance ToByteString ReportGroupTrendFieldType
+pattern LineCoverage :: ReportGroupTrendFieldType
+pattern LineCoverage = ReportGroupTrendFieldType' "LINE_COVERAGE"
 
-instance ToQuery ReportGroupTrendFieldType
+pattern LinesCovered :: ReportGroupTrendFieldType
+pattern LinesCovered = ReportGroupTrendFieldType' "LINES_COVERED"
 
-instance ToHeader ReportGroupTrendFieldType
+pattern LinesMissed :: ReportGroupTrendFieldType
+pattern LinesMissed = ReportGroupTrendFieldType' "LINES_MISSED"
 
-instance ToJSON ReportGroupTrendFieldType where
-  toJSON = toJSONText
+pattern PassRate :: ReportGroupTrendFieldType
+pattern PassRate = ReportGroupTrendFieldType' "PASS_RATE"
+
+pattern Total :: ReportGroupTrendFieldType
+pattern Total = ReportGroupTrendFieldType' "TOTAL"
+
+{-# COMPLETE
+  BranchCoverage,
+  BranchesCovered,
+  BranchesMissed,
+  Duration,
+  LineCoverage,
+  LinesCovered,
+  LinesMissed,
+  PassRate,
+  Total,
+  ReportGroupTrendFieldType'
+  #-}

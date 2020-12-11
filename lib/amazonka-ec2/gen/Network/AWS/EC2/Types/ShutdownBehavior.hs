@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ShutdownBehavior where
+module Network.AWS.EC2.Types.ShutdownBehavior
+  ( ShutdownBehavior
+      ( ShutdownBehavior',
+        SBStop,
+        SBTerminate
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShutdownBehavior
-  = SBStop
-  | SBTerminate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShutdownBehavior = ShutdownBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShutdownBehavior where
-  parser =
-    takeLowerText >>= \case
-      "stop" -> pure SBStop
-      "terminate" -> pure SBTerminate
-      e ->
-        fromTextError $
-          "Failure parsing ShutdownBehavior from value: '" <> e
-            <> "'. Accepted values: stop, terminate"
+pattern SBStop :: ShutdownBehavior
+pattern SBStop = ShutdownBehavior' "stop"
 
-instance ToText ShutdownBehavior where
-  toText = \case
-    SBStop -> "stop"
-    SBTerminate -> "terminate"
+pattern SBTerminate :: ShutdownBehavior
+pattern SBTerminate = ShutdownBehavior' "terminate"
 
-instance Hashable ShutdownBehavior
-
-instance NFData ShutdownBehavior
-
-instance ToByteString ShutdownBehavior
-
-instance ToQuery ShutdownBehavior
-
-instance ToHeader ShutdownBehavior
-
-instance FromXML ShutdownBehavior where
-  parseXML = parseXMLText "ShutdownBehavior"
+{-# COMPLETE
+  SBStop,
+  SBTerminate,
+  ShutdownBehavior'
+  #-}

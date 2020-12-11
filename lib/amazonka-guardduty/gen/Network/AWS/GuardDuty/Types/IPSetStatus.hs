@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.IPSetStatus where
+module Network.AWS.GuardDuty.Types.IPSetStatus
+  ( IPSetStatus
+      ( IPSetStatus',
+        ISSActivating,
+        ISSActive,
+        ISSDeactivating,
+        ISSDeletePending,
+        ISSDeleted,
+        ISSError,
+        ISSInactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPSetStatus
-  = ISSActivating
-  | ISSActive
-  | ISSDeactivating
-  | ISSDeletePending
-  | ISSDeleted
-  | ISSError'
-  | ISSInactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPSetStatus = IPSetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPSetStatus where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure ISSActivating
-      "active" -> pure ISSActive
-      "deactivating" -> pure ISSDeactivating
-      "delete_pending" -> pure ISSDeletePending
-      "deleted" -> pure ISSDeleted
-      "error" -> pure ISSError'
-      "inactive" -> pure ISSInactive
-      e ->
-        fromTextError $
-          "Failure parsing IPSetStatus from value: '" <> e
-            <> "'. Accepted values: activating, active, deactivating, delete_pending, deleted, error, inactive"
+pattern ISSActivating :: IPSetStatus
+pattern ISSActivating = IPSetStatus' "ACTIVATING"
 
-instance ToText IPSetStatus where
-  toText = \case
-    ISSActivating -> "ACTIVATING"
-    ISSActive -> "ACTIVE"
-    ISSDeactivating -> "DEACTIVATING"
-    ISSDeletePending -> "DELETE_PENDING"
-    ISSDeleted -> "DELETED"
-    ISSError' -> "ERROR"
-    ISSInactive -> "INACTIVE"
+pattern ISSActive :: IPSetStatus
+pattern ISSActive = IPSetStatus' "ACTIVE"
 
-instance Hashable IPSetStatus
+pattern ISSDeactivating :: IPSetStatus
+pattern ISSDeactivating = IPSetStatus' "DEACTIVATING"
 
-instance NFData IPSetStatus
+pattern ISSDeletePending :: IPSetStatus
+pattern ISSDeletePending = IPSetStatus' "DELETE_PENDING"
 
-instance ToByteString IPSetStatus
+pattern ISSDeleted :: IPSetStatus
+pattern ISSDeleted = IPSetStatus' "DELETED"
 
-instance ToQuery IPSetStatus
+pattern ISSError :: IPSetStatus
+pattern ISSError = IPSetStatus' "ERROR"
 
-instance ToHeader IPSetStatus
+pattern ISSInactive :: IPSetStatus
+pattern ISSInactive = IPSetStatus' "INACTIVE"
 
-instance FromJSON IPSetStatus where
-  parseJSON = parseJSONText "IPSetStatus"
+{-# COMPLETE
+  ISSActivating,
+  ISSActive,
+  ISSDeactivating,
+  ISSDeletePending,
+  ISSDeleted,
+  ISSError,
+  ISSInactive,
+  IPSetStatus'
+  #-}

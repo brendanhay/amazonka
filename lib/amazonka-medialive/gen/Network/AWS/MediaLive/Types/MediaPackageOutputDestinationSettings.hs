@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings where
+module Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
+  ( MediaPackageOutputDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMediaPackageOutputDestinationSettings,
+
+    -- * Lenses
+    mpodsChannelId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | MediaPackage Output Destination Settings
 --
--- /See:/ 'mediaPackageOutputDestinationSettings' smart constructor.
+-- /See:/ 'mkMediaPackageOutputDestinationSettings' smart constructor.
 newtype MediaPackageOutputDestinationSettings = MediaPackageOutputDestinationSettings'
-  { _mpodsChannelId ::
-      Maybe Text
+  { channelId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MediaPackageOutputDestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpodsChannelId' - ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
-mediaPackageOutputDestinationSettings ::
+-- * 'channelId' - ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+mkMediaPackageOutputDestinationSettings ::
   MediaPackageOutputDestinationSettings
-mediaPackageOutputDestinationSettings =
-  MediaPackageOutputDestinationSettings' {_mpodsChannelId = Nothing}
+mkMediaPackageOutputDestinationSettings =
+  MediaPackageOutputDestinationSettings' {channelId = Lude.Nothing}
 
 -- | ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
-mpodsChannelId :: Lens' MediaPackageOutputDestinationSettings (Maybe Text)
-mpodsChannelId = lens _mpodsChannelId (\s a -> s {_mpodsChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpodsChannelId :: Lens.Lens' MediaPackageOutputDestinationSettings (Lude.Maybe Lude.Text)
+mpodsChannelId = Lens.lens (channelId :: MediaPackageOutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: MediaPackageOutputDestinationSettings)
+{-# DEPRECATED mpodsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance FromJSON MediaPackageOutputDestinationSettings where
+instance Lude.FromJSON MediaPackageOutputDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MediaPackageOutputDestinationSettings"
       ( \x ->
-          MediaPackageOutputDestinationSettings' <$> (x .:? "channelId")
+          MediaPackageOutputDestinationSettings'
+            Lude.<$> (x Lude..:? "channelId")
       )
 
-instance Hashable MediaPackageOutputDestinationSettings
-
-instance NFData MediaPackageOutputDestinationSettings
-
-instance ToJSON MediaPackageOutputDestinationSettings where
+instance Lude.ToJSON MediaPackageOutputDestinationSettings where
   toJSON MediaPackageOutputDestinationSettings' {..} =
-    object (catMaybes [("channelId" .=) <$> _mpodsChannelId])
+    Lude.object
+      (Lude.catMaybes [("channelId" Lude..=) Lude.<$> channelId])

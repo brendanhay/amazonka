@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.JSONType where
+module Network.AWS.S3.Types.JSONType
+  ( JSONType
+      ( JSONType',
+        Document,
+        Lines
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data JSONType
-  = Document
-  | Lines
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JSONType = JSONType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JSONType where
-  parser =
-    takeLowerText >>= \case
-      "document" -> pure Document
-      "lines" -> pure Lines
-      e ->
-        fromTextError $
-          "Failure parsing JSONType from value: '" <> e
-            <> "'. Accepted values: document, lines"
+pattern Document :: JSONType
+pattern Document = JSONType' "DOCUMENT"
 
-instance ToText JSONType where
-  toText = \case
-    Document -> "DOCUMENT"
-    Lines -> "LINES"
+pattern Lines :: JSONType
+pattern Lines = JSONType' "LINES"
 
-instance Hashable JSONType
-
-instance NFData JSONType
-
-instance ToByteString JSONType
-
-instance ToQuery JSONType
-
-instance ToHeader JSONType
-
-instance ToXML JSONType where
-  toXML = toXMLText
+{-# COMPLETE
+  Document,
+  Lines,
+  JSONType'
+  #-}

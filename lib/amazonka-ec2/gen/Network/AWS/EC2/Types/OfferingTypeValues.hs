@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.OfferingTypeValues where
+module Network.AWS.EC2.Types.OfferingTypeValues
+  ( OfferingTypeValues
+      ( OfferingTypeValues',
+        AllUpfront,
+        HeavyUtilization,
+        LightUtilization,
+        MediumUtilization,
+        NoUpfront,
+        PartialUpfront
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OfferingTypeValues
-  = AllUpfront
-  | HeavyUtilization
-  | LightUtilization
-  | MediumUtilization
-  | NoUpfront
-  | PartialUpfront
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OfferingTypeValues = OfferingTypeValues' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OfferingTypeValues where
-  parser =
-    takeLowerText >>= \case
-      "all upfront" -> pure AllUpfront
-      "heavy utilization" -> pure HeavyUtilization
-      "light utilization" -> pure LightUtilization
-      "medium utilization" -> pure MediumUtilization
-      "no upfront" -> pure NoUpfront
-      "partial upfront" -> pure PartialUpfront
-      e ->
-        fromTextError $
-          "Failure parsing OfferingTypeValues from value: '" <> e
-            <> "'. Accepted values: all upfront, heavy utilization, light utilization, medium utilization, no upfront, partial upfront"
+pattern AllUpfront :: OfferingTypeValues
+pattern AllUpfront = OfferingTypeValues' "All Upfront"
 
-instance ToText OfferingTypeValues where
-  toText = \case
-    AllUpfront -> "All Upfront"
-    HeavyUtilization -> "Heavy Utilization"
-    LightUtilization -> "Light Utilization"
-    MediumUtilization -> "Medium Utilization"
-    NoUpfront -> "No Upfront"
-    PartialUpfront -> "Partial Upfront"
+pattern HeavyUtilization :: OfferingTypeValues
+pattern HeavyUtilization = OfferingTypeValues' "Heavy Utilization"
 
-instance Hashable OfferingTypeValues
+pattern LightUtilization :: OfferingTypeValues
+pattern LightUtilization = OfferingTypeValues' "Light Utilization"
 
-instance NFData OfferingTypeValues
+pattern MediumUtilization :: OfferingTypeValues
+pattern MediumUtilization = OfferingTypeValues' "Medium Utilization"
 
-instance ToByteString OfferingTypeValues
+pattern NoUpfront :: OfferingTypeValues
+pattern NoUpfront = OfferingTypeValues' "No Upfront"
 
-instance ToQuery OfferingTypeValues
+pattern PartialUpfront :: OfferingTypeValues
+pattern PartialUpfront = OfferingTypeValues' "Partial Upfront"
 
-instance ToHeader OfferingTypeValues
-
-instance FromXML OfferingTypeValues where
-  parseXML = parseXMLText "OfferingTypeValues"
+{-# COMPLETE
+  AllUpfront,
+  HeavyUtilization,
+  LightUtilization,
+  MediumUtilization,
+  NoUpfront,
+  PartialUpfront,
+  OfferingTypeValues'
+  #-}

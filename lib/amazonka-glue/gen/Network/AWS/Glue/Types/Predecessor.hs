@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Predecessor where
+module Network.AWS.Glue.Types.Predecessor
+  ( Predecessor (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPredecessor,
+
+    -- * Lenses
+    pJobName,
+    pRunId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A job run that was used in the predicate of a conditional trigger that triggered this job run.
 --
---
---
--- /See:/ 'predecessor' smart constructor.
+-- /See:/ 'mkPredecessor' smart constructor.
 data Predecessor = Predecessor'
-  { _pJobName :: !(Maybe Text),
-    _pRunId :: !(Maybe Text)
+  { jobName :: Lude.Maybe Lude.Text,
+    runId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Predecessor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pJobName' - The name of the job definition used by the predecessor job run.
---
--- * 'pRunId' - The job-run ID of the predecessor job run.
-predecessor ::
+-- * 'jobName' - The name of the job definition used by the predecessor job run.
+-- * 'runId' - The job-run ID of the predecessor job run.
+mkPredecessor ::
   Predecessor
-predecessor = Predecessor' {_pJobName = Nothing, _pRunId = Nothing}
+mkPredecessor =
+  Predecessor' {jobName = Lude.Nothing, runId = Lude.Nothing}
 
 -- | The name of the job definition used by the predecessor job run.
-pJobName :: Lens' Predecessor (Maybe Text)
-pJobName = lens _pJobName (\s a -> s {_pJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pJobName :: Lens.Lens' Predecessor (Lude.Maybe Lude.Text)
+pJobName = Lens.lens (jobName :: Predecessor -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: Predecessor)
+{-# DEPRECATED pJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The job-run ID of the predecessor job run.
-pRunId :: Lens' Predecessor (Maybe Text)
-pRunId = lens _pRunId (\s a -> s {_pRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRunId :: Lens.Lens' Predecessor (Lude.Maybe Lude.Text)
+pRunId = Lens.lens (runId :: Predecessor -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: Predecessor)
+{-# DEPRECATED pRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
-instance FromJSON Predecessor where
+instance Lude.FromJSON Predecessor where
   parseJSON =
-    withObject
+    Lude.withObject
       "Predecessor"
-      (\x -> Predecessor' <$> (x .:? "JobName") <*> (x .:? "RunId"))
-
-instance Hashable Predecessor
-
-instance NFData Predecessor
+      ( \x ->
+          Predecessor'
+            Lude.<$> (x Lude..:? "JobName") Lude.<*> (x Lude..:? "RunId")
+      )

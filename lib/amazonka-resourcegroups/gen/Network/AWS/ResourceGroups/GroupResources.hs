@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,151 @@
 --
 -- Adds the specified resources to the specified group.
 module Network.AWS.ResourceGroups.GroupResources
-  ( -- * Creating a Request
-    groupResources,
-    GroupResources,
+  ( -- * Creating a request
+    GroupResources (..),
+    mkGroupResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grGroup,
     grResourceARNs,
 
-    -- * Destructuring the Response
-    groupResourcesResponse,
-    GroupResourcesResponse,
+    -- * Destructuring the response
+    GroupResourcesResponse (..),
+    mkGroupResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsSucceeded,
     grrsFailed,
     grrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'groupResources' smart constructor.
+-- | /See:/ 'mkGroupResources' smart constructor.
 data GroupResources = GroupResources'
-  { _grGroup :: !Text,
-    _grResourceARNs :: !(List1 Text)
+  { group :: Lude.Text,
+    resourceARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grGroup' - The name or the ARN of the resource group to add resources to.
---
--- * 'grResourceARNs' - The list of ARNs for resources to be added to the group.
-groupResources ::
-  -- | 'grGroup'
-  Text ->
-  -- | 'grResourceARNs'
-  NonEmpty Text ->
+-- * 'group' - The name or the ARN of the resource group to add resources to.
+-- * 'resourceARNs' - The list of ARNs for resources to be added to the group.
+mkGroupResources ::
+  -- | 'group'
+  Lude.Text ->
+  -- | 'resourceARNs'
+  Lude.NonEmpty Lude.Text ->
   GroupResources
-groupResources pGroup_ pResourceARNs_ =
-  GroupResources'
-    { _grGroup = pGroup_,
-      _grResourceARNs = _List1 # pResourceARNs_
-    }
+mkGroupResources pGroup_ pResourceARNs_ =
+  GroupResources' {group = pGroup_, resourceARNs = pResourceARNs_}
 
 -- | The name or the ARN of the resource group to add resources to.
-grGroup :: Lens' GroupResources Text
-grGroup = lens _grGroup (\s a -> s {_grGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grGroup :: Lens.Lens' GroupResources Lude.Text
+grGroup = Lens.lens (group :: GroupResources -> Lude.Text) (\s a -> s {group = a} :: GroupResources)
+{-# DEPRECATED grGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The list of ARNs for resources to be added to the group.
-grResourceARNs :: Lens' GroupResources (NonEmpty Text)
-grResourceARNs = lens _grResourceARNs (\s a -> s {_grResourceARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grResourceARNs :: Lens.Lens' GroupResources (Lude.NonEmpty Lude.Text)
+grResourceARNs = Lens.lens (resourceARNs :: GroupResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNs = a} :: GroupResources)
+{-# DEPRECATED grResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
-instance AWSRequest GroupResources where
+instance Lude.AWSRequest GroupResources where
   type Rs GroupResources = GroupResourcesResponse
-  request = postJSON resourceGroups
+  request = Req.postJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GroupResourcesResponse'
-            <$> (x .?> "Succeeded")
-            <*> (x .?> "Failed" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Succeeded")
+            Lude.<*> (x Lude..?> "Failed" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GroupResources
+instance Lude.ToHeaders GroupResources where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GroupResources
-
-instance ToHeaders GroupResources where
-  toHeaders = const mempty
-
-instance ToJSON GroupResources where
+instance Lude.ToJSON GroupResources where
   toJSON GroupResources' {..} =
-    object
-      ( catMaybes
-          [ Just ("Group" .= _grGroup),
-            Just ("ResourceArns" .= _grResourceARNs)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Group" Lude..= group),
+            Lude.Just ("ResourceArns" Lude..= resourceARNs)
           ]
       )
 
-instance ToPath GroupResources where
-  toPath = const "/group-resources"
+instance Lude.ToPath GroupResources where
+  toPath = Lude.const "/group-resources"
 
-instance ToQuery GroupResources where
-  toQuery = const mempty
+instance Lude.ToQuery GroupResources where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'groupResourcesResponse' smart constructor.
+-- | /See:/ 'mkGroupResourcesResponse' smart constructor.
 data GroupResourcesResponse = GroupResourcesResponse'
-  { _grrsSucceeded ::
-      !(Maybe (List1 Text)),
-    _grrsFailed :: !(Maybe [FailedResource]),
-    _grrsResponseStatus :: !Int
+  { succeeded ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    failed :: Lude.Maybe [FailedResource],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsSucceeded' - The ARNs of the resources that were successfully added to the group by this operation.
---
--- * 'grrsFailed' - The ARNs of the resources that failed to be added to the group by this operation.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-groupResourcesResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'failed' - The ARNs of the resources that failed to be added to the group by this operation.
+-- * 'responseStatus' - The response status code.
+-- * 'succeeded' - The ARNs of the resources that were successfully added to the group by this operation.
+mkGroupResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GroupResourcesResponse
-groupResourcesResponse pResponseStatus_ =
+mkGroupResourcesResponse pResponseStatus_ =
   GroupResourcesResponse'
-    { _grrsSucceeded = Nothing,
-      _grrsFailed = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { succeeded = Lude.Nothing,
+      failed = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARNs of the resources that were successfully added to the group by this operation.
-grrsSucceeded :: Lens' GroupResourcesResponse (Maybe (NonEmpty Text))
-grrsSucceeded = lens _grrsSucceeded (\s a -> s {_grrsSucceeded = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsSucceeded :: Lens.Lens' GroupResourcesResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+grrsSucceeded = Lens.lens (succeeded :: GroupResourcesResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {succeeded = a} :: GroupResourcesResponse)
+{-# DEPRECATED grrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The ARNs of the resources that failed to be added to the group by this operation.
-grrsFailed :: Lens' GroupResourcesResponse [FailedResource]
-grrsFailed = lens _grrsFailed (\s a -> s {_grrsFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsFailed :: Lens.Lens' GroupResourcesResponse (Lude.Maybe [FailedResource])
+grrsFailed = Lens.lens (failed :: GroupResourcesResponse -> Lude.Maybe [FailedResource]) (\s a -> s {failed = a} :: GroupResourcesResponse)
+{-# DEPRECATED grrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GroupResourcesResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GroupResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GroupResourcesResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GroupResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GroupResourcesResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

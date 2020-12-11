@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.ReportStateType where
+module Network.AWS.IAM.Types.ReportStateType
+  ( ReportStateType
+      ( ReportStateType',
+        RSTComplete,
+        RSTInprogress,
+        RSTStarted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportStateType
-  = RSTComplete
-  | RSTInprogress
-  | RSTStarted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportStateType = ReportStateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportStateType where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure RSTComplete
-      "inprogress" -> pure RSTInprogress
-      "started" -> pure RSTStarted
-      e ->
-        fromTextError $
-          "Failure parsing ReportStateType from value: '" <> e
-            <> "'. Accepted values: complete, inprogress, started"
+pattern RSTComplete :: ReportStateType
+pattern RSTComplete = ReportStateType' "COMPLETE"
 
-instance ToText ReportStateType where
-  toText = \case
-    RSTComplete -> "COMPLETE"
-    RSTInprogress -> "INPROGRESS"
-    RSTStarted -> "STARTED"
+pattern RSTInprogress :: ReportStateType
+pattern RSTInprogress = ReportStateType' "INPROGRESS"
 
-instance Hashable ReportStateType
+pattern RSTStarted :: ReportStateType
+pattern RSTStarted = ReportStateType' "STARTED"
 
-instance NFData ReportStateType
-
-instance ToByteString ReportStateType
-
-instance ToQuery ReportStateType
-
-instance ToHeader ReportStateType
-
-instance FromXML ReportStateType where
-  parseXML = parseXMLText "ReportStateType"
+{-# COMPLETE
+  RSTComplete,
+  RSTInprogress,
+  RSTStarted,
+  ReportStateType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportStatus where
+module Network.AWS.AlexaBusiness.Types.BusinessReportStatus
+  ( BusinessReportStatus
+      ( BusinessReportStatus',
+        BRSFailed,
+        BRSRunning,
+        BRSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BusinessReportStatus
-  = BRSFailed
-  | BRSRunning
-  | BRSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BusinessReportStatus = BusinessReportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BusinessReportStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure BRSFailed
-      "running" -> pure BRSRunning
-      "succeeded" -> pure BRSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing BusinessReportStatus from value: '" <> e
-            <> "'. Accepted values: failed, running, succeeded"
+pattern BRSFailed :: BusinessReportStatus
+pattern BRSFailed = BusinessReportStatus' "FAILED"
 
-instance ToText BusinessReportStatus where
-  toText = \case
-    BRSFailed -> "FAILED"
-    BRSRunning -> "RUNNING"
-    BRSSucceeded -> "SUCCEEDED"
+pattern BRSRunning :: BusinessReportStatus
+pattern BRSRunning = BusinessReportStatus' "RUNNING"
 
-instance Hashable BusinessReportStatus
+pattern BRSSucceeded :: BusinessReportStatus
+pattern BRSSucceeded = BusinessReportStatus' "SUCCEEDED"
 
-instance NFData BusinessReportStatus
-
-instance ToByteString BusinessReportStatus
-
-instance ToQuery BusinessReportStatus
-
-instance ToHeader BusinessReportStatus
-
-instance FromJSON BusinessReportStatus where
-  parseJSON = parseJSONText "BusinessReportStatus"
+{-# COMPLETE
+  BRSFailed,
+  BRSRunning,
+  BRSSucceeded,
+  BusinessReportStatus'
+  #-}

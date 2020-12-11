@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EventSeverity where
+module Network.AWS.ElasticBeanstalk.Types.EventSeverity
+  ( EventSeverity
+      ( EventSeverity',
+        LevelDebug,
+        LevelError,
+        LevelFatal,
+        LevelInfo,
+        LevelTrace,
+        LevelWarn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventSeverity
-  = LevelDebug
-  | LevelError'
-  | LevelFatal
-  | LevelInfo
-  | LevelTrace
-  | LevelWarn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventSeverity = EventSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventSeverity where
-  parser =
-    takeLowerText >>= \case
-      "debug" -> pure LevelDebug
-      "error" -> pure LevelError'
-      "fatal" -> pure LevelFatal
-      "info" -> pure LevelInfo
-      "trace" -> pure LevelTrace
-      "warn" -> pure LevelWarn
-      e ->
-        fromTextError $
-          "Failure parsing EventSeverity from value: '" <> e
-            <> "'. Accepted values: debug, error, fatal, info, trace, warn"
+pattern LevelDebug :: EventSeverity
+pattern LevelDebug = EventSeverity' "DEBUG"
 
-instance ToText EventSeverity where
-  toText = \case
-    LevelDebug -> "DEBUG"
-    LevelError' -> "ERROR"
-    LevelFatal -> "FATAL"
-    LevelInfo -> "INFO"
-    LevelTrace -> "TRACE"
-    LevelWarn -> "WARN"
+pattern LevelError :: EventSeverity
+pattern LevelError = EventSeverity' "ERROR"
 
-instance Hashable EventSeverity
+pattern LevelFatal :: EventSeverity
+pattern LevelFatal = EventSeverity' "FATAL"
 
-instance NFData EventSeverity
+pattern LevelInfo :: EventSeverity
+pattern LevelInfo = EventSeverity' "INFO"
 
-instance ToByteString EventSeverity
+pattern LevelTrace :: EventSeverity
+pattern LevelTrace = EventSeverity' "TRACE"
 
-instance ToQuery EventSeverity
+pattern LevelWarn :: EventSeverity
+pattern LevelWarn = EventSeverity' "WARN"
 
-instance ToHeader EventSeverity
-
-instance FromXML EventSeverity where
-  parseXML = parseXMLText "EventSeverity"
+{-# COMPLETE
+  LevelDebug,
+  LevelError,
+  LevelFatal,
+  LevelInfo,
+  LevelTrace,
+  LevelWarn,
+  EventSeverity'
+  #-}

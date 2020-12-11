@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,146 +7,187 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioSelector where
+module Network.AWS.MediaConvert.Types.AudioSelector
+  ( AudioSelector (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioSelector,
+
+    -- * Lenses
+    asTracks,
+    asCustomLanguageCode,
+    asProgramSelection,
+    asLanguageCode,
+    asOffset,
+    asDefaultSelection,
+    asPids,
+    asSelectorType,
+    asExternalAudioFileInput,
+    asRemixSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AudioDefaultSelection
 import Network.AWS.MediaConvert.Types.AudioSelectorType
 import Network.AWS.MediaConvert.Types.LanguageCode
 import Network.AWS.MediaConvert.Types.RemixSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Selector for Audio
 --
--- /See:/ 'audioSelector' smart constructor.
+-- /See:/ 'mkAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
-  { _asTracks :: !(Maybe [Nat]),
-    _asCustomLanguageCode :: !(Maybe Text),
-    _asProgramSelection :: !(Maybe Nat),
-    _asLanguageCode :: !(Maybe LanguageCode),
-    _asOffset :: !(Maybe Int),
-    _asDefaultSelection :: !(Maybe AudioDefaultSelection),
-    _asPids :: !(Maybe [Nat]),
-    _asSelectorType :: !(Maybe AudioSelectorType),
-    _asExternalAudioFileInput :: !(Maybe Text),
-    _asRemixSettings :: !(Maybe RemixSettings)
+  { tracks ::
+      Lude.Maybe [Lude.Natural],
+    customLanguageCode :: Lude.Maybe Lude.Text,
+    programSelection :: Lude.Maybe Lude.Natural,
+    languageCode :: Lude.Maybe LanguageCode,
+    offset :: Lude.Maybe Lude.Int,
+    defaultSelection :: Lude.Maybe AudioDefaultSelection,
+    pids :: Lude.Maybe [Lude.Natural],
+    selectorType :: Lude.Maybe AudioSelectorType,
+    externalAudioFileInput :: Lude.Maybe Lude.Text,
+    remixSettings :: Lude.Maybe RemixSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asTracks' - Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
---
--- * 'asCustomLanguageCode' - Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
---
--- * 'asProgramSelection' - Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
---
--- * 'asLanguageCode' - Selects a specific language code from within an audio source.
---
--- * 'asOffset' - Specifies a time delta in milliseconds to offset the audio from the input video.
---
--- * 'asDefaultSelection' - Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
---
--- * 'asPids' - Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
---
--- * 'asSelectorType' - Specifies the type of the audio selector.
---
--- * 'asExternalAudioFileInput' - Specifies audio data from an external file source.
---
--- * 'asRemixSettings' - Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
-audioSelector ::
+-- * 'customLanguageCode' - Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
+-- * 'defaultSelection' - Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
+-- * 'externalAudioFileInput' - Specifies audio data from an external file source.
+-- * 'languageCode' - Selects a specific language code from within an audio source.
+-- * 'offset' - Specifies a time delta in milliseconds to offset the audio from the input video.
+-- * 'pids' - Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
+-- * 'programSelection' - Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
+-- * 'remixSettings' - Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
+-- * 'selectorType' - Specifies the type of the audio selector.
+-- * 'tracks' - Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+mkAudioSelector ::
   AudioSelector
-audioSelector =
+mkAudioSelector =
   AudioSelector'
-    { _asTracks = Nothing,
-      _asCustomLanguageCode = Nothing,
-      _asProgramSelection = Nothing,
-      _asLanguageCode = Nothing,
-      _asOffset = Nothing,
-      _asDefaultSelection = Nothing,
-      _asPids = Nothing,
-      _asSelectorType = Nothing,
-      _asExternalAudioFileInput = Nothing,
-      _asRemixSettings = Nothing
+    { tracks = Lude.Nothing,
+      customLanguageCode = Lude.Nothing,
+      programSelection = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      offset = Lude.Nothing,
+      defaultSelection = Lude.Nothing,
+      pids = Lude.Nothing,
+      selectorType = Lude.Nothing,
+      externalAudioFileInput = Lude.Nothing,
+      remixSettings = Lude.Nothing
     }
 
 -- | Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
-asTracks :: Lens' AudioSelector [Natural]
-asTracks = lens _asTracks (\s a -> s {_asTracks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tracks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asTracks :: Lens.Lens' AudioSelector (Lude.Maybe [Lude.Natural])
+asTracks = Lens.lens (tracks :: AudioSelector -> Lude.Maybe [Lude.Natural]) (\s a -> s {tracks = a} :: AudioSelector)
+{-# DEPRECATED asTracks "Use generic-lens or generic-optics with 'tracks' instead." #-}
 
 -- | Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
-asCustomLanguageCode :: Lens' AudioSelector (Maybe Text)
-asCustomLanguageCode = lens _asCustomLanguageCode (\s a -> s {_asCustomLanguageCode = a})
+--
+-- /Note:/ Consider using 'customLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCustomLanguageCode :: Lens.Lens' AudioSelector (Lude.Maybe Lude.Text)
+asCustomLanguageCode = Lens.lens (customLanguageCode :: AudioSelector -> Lude.Maybe Lude.Text) (\s a -> s {customLanguageCode = a} :: AudioSelector)
+{-# DEPRECATED asCustomLanguageCode "Use generic-lens or generic-optics with 'customLanguageCode' instead." #-}
 
 -- | Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
-asProgramSelection :: Lens' AudioSelector (Maybe Natural)
-asProgramSelection = lens _asProgramSelection (\s a -> s {_asProgramSelection = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'programSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asProgramSelection :: Lens.Lens' AudioSelector (Lude.Maybe Lude.Natural)
+asProgramSelection = Lens.lens (programSelection :: AudioSelector -> Lude.Maybe Lude.Natural) (\s a -> s {programSelection = a} :: AudioSelector)
+{-# DEPRECATED asProgramSelection "Use generic-lens or generic-optics with 'programSelection' instead." #-}
 
 -- | Selects a specific language code from within an audio source.
-asLanguageCode :: Lens' AudioSelector (Maybe LanguageCode)
-asLanguageCode = lens _asLanguageCode (\s a -> s {_asLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLanguageCode :: Lens.Lens' AudioSelector (Lude.Maybe LanguageCode)
+asLanguageCode = Lens.lens (languageCode :: AudioSelector -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: AudioSelector)
+{-# DEPRECATED asLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Specifies a time delta in milliseconds to offset the audio from the input video.
-asOffset :: Lens' AudioSelector (Maybe Int)
-asOffset = lens _asOffset (\s a -> s {_asOffset = a})
+--
+-- /Note:/ Consider using 'offset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asOffset :: Lens.Lens' AudioSelector (Lude.Maybe Lude.Int)
+asOffset = Lens.lens (offset :: AudioSelector -> Lude.Maybe Lude.Int) (\s a -> s {offset = a} :: AudioSelector)
+{-# DEPRECATED asOffset "Use generic-lens or generic-optics with 'offset' instead." #-}
 
 -- | Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
-asDefaultSelection :: Lens' AudioSelector (Maybe AudioDefaultSelection)
-asDefaultSelection = lens _asDefaultSelection (\s a -> s {_asDefaultSelection = a})
+--
+-- /Note:/ Consider using 'defaultSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asDefaultSelection :: Lens.Lens' AudioSelector (Lude.Maybe AudioDefaultSelection)
+asDefaultSelection = Lens.lens (defaultSelection :: AudioSelector -> Lude.Maybe AudioDefaultSelection) (\s a -> s {defaultSelection = a} :: AudioSelector)
+{-# DEPRECATED asDefaultSelection "Use generic-lens or generic-optics with 'defaultSelection' instead." #-}
 
 -- | Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
-asPids :: Lens' AudioSelector [Natural]
-asPids = lens _asPids (\s a -> s {_asPids = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asPids :: Lens.Lens' AudioSelector (Lude.Maybe [Lude.Natural])
+asPids = Lens.lens (pids :: AudioSelector -> Lude.Maybe [Lude.Natural]) (\s a -> s {pids = a} :: AudioSelector)
+{-# DEPRECATED asPids "Use generic-lens or generic-optics with 'pids' instead." #-}
 
 -- | Specifies the type of the audio selector.
-asSelectorType :: Lens' AudioSelector (Maybe AudioSelectorType)
-asSelectorType = lens _asSelectorType (\s a -> s {_asSelectorType = a})
+--
+-- /Note:/ Consider using 'selectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSelectorType :: Lens.Lens' AudioSelector (Lude.Maybe AudioSelectorType)
+asSelectorType = Lens.lens (selectorType :: AudioSelector -> Lude.Maybe AudioSelectorType) (\s a -> s {selectorType = a} :: AudioSelector)
+{-# DEPRECATED asSelectorType "Use generic-lens or generic-optics with 'selectorType' instead." #-}
 
 -- | Specifies audio data from an external file source.
-asExternalAudioFileInput :: Lens' AudioSelector (Maybe Text)
-asExternalAudioFileInput = lens _asExternalAudioFileInput (\s a -> s {_asExternalAudioFileInput = a})
+--
+-- /Note:/ Consider using 'externalAudioFileInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asExternalAudioFileInput :: Lens.Lens' AudioSelector (Lude.Maybe Lude.Text)
+asExternalAudioFileInput = Lens.lens (externalAudioFileInput :: AudioSelector -> Lude.Maybe Lude.Text) (\s a -> s {externalAudioFileInput = a} :: AudioSelector)
+{-# DEPRECATED asExternalAudioFileInput "Use generic-lens or generic-optics with 'externalAudioFileInput' instead." #-}
 
 -- | Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
-asRemixSettings :: Lens' AudioSelector (Maybe RemixSettings)
-asRemixSettings = lens _asRemixSettings (\s a -> s {_asRemixSettings = a})
+--
+-- /Note:/ Consider using 'remixSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asRemixSettings :: Lens.Lens' AudioSelector (Lude.Maybe RemixSettings)
+asRemixSettings = Lens.lens (remixSettings :: AudioSelector -> Lude.Maybe RemixSettings) (\s a -> s {remixSettings = a} :: AudioSelector)
+{-# DEPRECATED asRemixSettings "Use generic-lens or generic-optics with 'remixSettings' instead." #-}
 
-instance FromJSON AudioSelector where
+instance Lude.FromJSON AudioSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioSelector"
       ( \x ->
           AudioSelector'
-            <$> (x .:? "tracks" .!= mempty)
-            <*> (x .:? "customLanguageCode")
-            <*> (x .:? "programSelection")
-            <*> (x .:? "languageCode")
-            <*> (x .:? "offset")
-            <*> (x .:? "defaultSelection")
-            <*> (x .:? "pids" .!= mempty)
-            <*> (x .:? "selectorType")
-            <*> (x .:? "externalAudioFileInput")
-            <*> (x .:? "remixSettings")
+            Lude.<$> (x Lude..:? "tracks" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "customLanguageCode")
+            Lude.<*> (x Lude..:? "programSelection")
+            Lude.<*> (x Lude..:? "languageCode")
+            Lude.<*> (x Lude..:? "offset")
+            Lude.<*> (x Lude..:? "defaultSelection")
+            Lude.<*> (x Lude..:? "pids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "selectorType")
+            Lude.<*> (x Lude..:? "externalAudioFileInput")
+            Lude.<*> (x Lude..:? "remixSettings")
       )
 
-instance Hashable AudioSelector
-
-instance NFData AudioSelector
-
-instance ToJSON AudioSelector where
+instance Lude.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =
-    object
-      ( catMaybes
-          [ ("tracks" .=) <$> _asTracks,
-            ("customLanguageCode" .=) <$> _asCustomLanguageCode,
-            ("programSelection" .=) <$> _asProgramSelection,
-            ("languageCode" .=) <$> _asLanguageCode,
-            ("offset" .=) <$> _asOffset,
-            ("defaultSelection" .=) <$> _asDefaultSelection,
-            ("pids" .=) <$> _asPids,
-            ("selectorType" .=) <$> _asSelectorType,
-            ("externalAudioFileInput" .=) <$> _asExternalAudioFileInput,
-            ("remixSettings" .=) <$> _asRemixSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tracks" Lude..=) Lude.<$> tracks,
+            ("customLanguageCode" Lude..=) Lude.<$> customLanguageCode,
+            ("programSelection" Lude..=) Lude.<$> programSelection,
+            ("languageCode" Lude..=) Lude.<$> languageCode,
+            ("offset" Lude..=) Lude.<$> offset,
+            ("defaultSelection" Lude..=) Lude.<$> defaultSelection,
+            ("pids" Lude..=) Lude.<$> pids,
+            ("selectorType" Lude..=) Lude.<$> selectorType,
+            ("externalAudioFileInput" Lude..=) Lude.<$> externalAudioFileInput,
+            ("remixSettings" Lude..=) Lude.<$> remixSettings
           ]
       )

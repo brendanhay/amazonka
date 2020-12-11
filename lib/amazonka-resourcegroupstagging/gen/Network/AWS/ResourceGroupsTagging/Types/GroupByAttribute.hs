@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute where
+module Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
+  ( GroupByAttribute
+      ( GroupByAttribute',
+        Region,
+        ResourceType,
+        TargetId
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GroupByAttribute
-  = Region
-  | ResourceType
-  | TargetId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GroupByAttribute = GroupByAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GroupByAttribute where
-  parser =
-    takeLowerText >>= \case
-      "region" -> pure Region
-      "resource_type" -> pure ResourceType
-      "target_id" -> pure TargetId
-      e ->
-        fromTextError $
-          "Failure parsing GroupByAttribute from value: '" <> e
-            <> "'. Accepted values: region, resource_type, target_id"
+pattern Region :: GroupByAttribute
+pattern Region = GroupByAttribute' "REGION"
 
-instance ToText GroupByAttribute where
-  toText = \case
-    Region -> "REGION"
-    ResourceType -> "RESOURCE_TYPE"
-    TargetId -> "TARGET_ID"
+pattern ResourceType :: GroupByAttribute
+pattern ResourceType = GroupByAttribute' "RESOURCE_TYPE"
 
-instance Hashable GroupByAttribute
+pattern TargetId :: GroupByAttribute
+pattern TargetId = GroupByAttribute' "TARGET_ID"
 
-instance NFData GroupByAttribute
-
-instance ToByteString GroupByAttribute
-
-instance ToQuery GroupByAttribute
-
-instance ToHeader GroupByAttribute
-
-instance ToJSON GroupByAttribute where
-  toJSON = toJSONText
+{-# COMPLETE
+  Region,
+  ResourceType,
+  TargetId,
+  GroupByAttribute'
+  #-}

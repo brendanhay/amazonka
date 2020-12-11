@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,135 @@
 --
 -- Disassociates the specified IP access control group from the specified directory.
 module Network.AWS.WorkSpaces.DisassociateIPGroups
-  ( -- * Creating a Request
-    disassociateIPGroups,
-    DisassociateIPGroups,
+  ( -- * Creating a request
+    DisassociateIPGroups (..),
+    mkDisassociateIPGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     digDirectoryId,
     digGroupIds,
 
-    -- * Destructuring the Response
-    disassociateIPGroupsResponse,
-    DisassociateIPGroupsResponse,
+    -- * Destructuring the response
+    DisassociateIPGroupsResponse (..),
+    mkDisassociateIPGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     digrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'disassociateIPGroups' smart constructor.
+-- | /See:/ 'mkDisassociateIPGroups' smart constructor.
 data DisassociateIPGroups = DisassociateIPGroups'
-  { _digDirectoryId ::
-      !Text,
-    _digGroupIds :: ![Text]
+  { directoryId ::
+      Lude.Text,
+    groupIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateIPGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'digDirectoryId' - The identifier of the directory.
---
--- * 'digGroupIds' - The identifiers of one or more IP access control groups.
-disassociateIPGroups ::
-  -- | 'digDirectoryId'
-  Text ->
+-- * 'directoryId' - The identifier of the directory.
+-- * 'groupIds' - The identifiers of one or more IP access control groups.
+mkDisassociateIPGroups ::
+  -- | 'directoryId'
+  Lude.Text ->
   DisassociateIPGroups
-disassociateIPGroups pDirectoryId_ =
+mkDisassociateIPGroups pDirectoryId_ =
   DisassociateIPGroups'
-    { _digDirectoryId = pDirectoryId_,
-      _digGroupIds = mempty
+    { directoryId = pDirectoryId_,
+      groupIds = Lude.mempty
     }
 
 -- | The identifier of the directory.
-digDirectoryId :: Lens' DisassociateIPGroups Text
-digDirectoryId = lens _digDirectoryId (\s a -> s {_digDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digDirectoryId :: Lens.Lens' DisassociateIPGroups Lude.Text
+digDirectoryId = Lens.lens (directoryId :: DisassociateIPGroups -> Lude.Text) (\s a -> s {directoryId = a} :: DisassociateIPGroups)
+{-# DEPRECATED digDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifiers of one or more IP access control groups.
-digGroupIds :: Lens' DisassociateIPGroups [Text]
-digGroupIds = lens _digGroupIds (\s a -> s {_digGroupIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'groupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digGroupIds :: Lens.Lens' DisassociateIPGroups [Lude.Text]
+digGroupIds = Lens.lens (groupIds :: DisassociateIPGroups -> [Lude.Text]) (\s a -> s {groupIds = a} :: DisassociateIPGroups)
+{-# DEPRECATED digGroupIds "Use generic-lens or generic-optics with 'groupIds' instead." #-}
 
-instance AWSRequest DisassociateIPGroups where
+instance Lude.AWSRequest DisassociateIPGroups where
   type Rs DisassociateIPGroups = DisassociateIPGroupsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> DisassociateIPGroupsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DisassociateIPGroupsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DisassociateIPGroups
-
-instance NFData DisassociateIPGroups
-
-instance ToHeaders DisassociateIPGroups where
+instance Lude.ToHeaders DisassociateIPGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DisassociateIpGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DisassociateIpGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateIPGroups where
+instance Lude.ToJSON DisassociateIPGroups where
   toJSON DisassociateIPGroups' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _digDirectoryId),
-            Just ("GroupIds" .= _digGroupIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("GroupIds" Lude..= groupIds)
           ]
       )
 
-instance ToPath DisassociateIPGroups where
-  toPath = const "/"
+instance Lude.ToPath DisassociateIPGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateIPGroups where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateIPGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateIPGroupsResponse' smart constructor.
+-- | /See:/ 'mkDisassociateIPGroupsResponse' smart constructor.
 newtype DisassociateIPGroupsResponse = DisassociateIPGroupsResponse'
-  { _digrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateIPGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'digrsResponseStatus' - -- | The response status code.
-disassociateIPGroupsResponse ::
-  -- | 'digrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateIPGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateIPGroupsResponse
-disassociateIPGroupsResponse pResponseStatus_ =
-  DisassociateIPGroupsResponse'
-    { _digrsResponseStatus =
-        pResponseStatus_
-    }
+mkDisassociateIPGroupsResponse pResponseStatus_ =
+  DisassociateIPGroupsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-digrsResponseStatus :: Lens' DisassociateIPGroupsResponse Int
-digrsResponseStatus = lens _digrsResponseStatus (\s a -> s {_digrsResponseStatus = a})
-
-instance NFData DisassociateIPGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digrsResponseStatus :: Lens.Lens' DisassociateIPGroupsResponse Lude.Int
+digrsResponseStatus = Lens.lens (responseStatus :: DisassociateIPGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateIPGroupsResponse)
+{-# DEPRECATED digrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

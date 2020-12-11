@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionExecutionOutput where
+module Network.AWS.CodePipeline.Types.ActionExecutionOutput
+  ( ActionExecutionOutput (..),
+
+    -- * Smart constructor
+    mkActionExecutionOutput,
+
+    -- * Lenses
+    aeoOutputVariables,
+    aeoOutputArtifacts,
+    aeoExecutionResult,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ActionExecutionResult
 import Network.AWS.CodePipeline.Types.ArtifactDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Output details listed for an action execution, such as the action execution result.
 --
---
---
--- /See:/ 'actionExecutionOutput' smart constructor.
+-- /See:/ 'mkActionExecutionOutput' smart constructor.
 data ActionExecutionOutput = ActionExecutionOutput'
-  { _aeoOutputVariables ::
-      !(Maybe (Map Text (Text))),
-    _aeoOutputArtifacts ::
-      !(Maybe [ArtifactDetail]),
-    _aeoExecutionResult ::
-      !(Maybe ActionExecutionResult)
+  { outputVariables ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    outputArtifacts :: Lude.Maybe [ArtifactDetail],
+    executionResult ::
+      Lude.Maybe ActionExecutionResult
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecutionOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeoOutputVariables' - The outputVariables field shows the key-value pairs that were output as part of that execution.
---
--- * 'aeoOutputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
---
--- * 'aeoExecutionResult' - Execution result information listed in the output details for an action execution.
-actionExecutionOutput ::
+-- * 'executionResult' - Execution result information listed in the output details for an action execution.
+-- * 'outputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
+-- * 'outputVariables' - The outputVariables field shows the key-value pairs that were output as part of that execution.
+mkActionExecutionOutput ::
   ActionExecutionOutput
-actionExecutionOutput =
+mkActionExecutionOutput =
   ActionExecutionOutput'
-    { _aeoOutputVariables = Nothing,
-      _aeoOutputArtifacts = Nothing,
-      _aeoExecutionResult = Nothing
+    { outputVariables = Lude.Nothing,
+      outputArtifacts = Lude.Nothing,
+      executionResult = Lude.Nothing
     }
 
 -- | The outputVariables field shows the key-value pairs that were output as part of that execution.
-aeoOutputVariables :: Lens' ActionExecutionOutput (HashMap Text (Text))
-aeoOutputVariables = lens _aeoOutputVariables (\s a -> s {_aeoOutputVariables = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'outputVariables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeoOutputVariables :: Lens.Lens' ActionExecutionOutput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+aeoOutputVariables = Lens.lens (outputVariables :: ActionExecutionOutput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {outputVariables = a} :: ActionExecutionOutput)
+{-# DEPRECATED aeoOutputVariables "Use generic-lens or generic-optics with 'outputVariables' instead." #-}
 
 -- | Details of output artifacts of the action that correspond to the action execution.
-aeoOutputArtifacts :: Lens' ActionExecutionOutput [ArtifactDetail]
-aeoOutputArtifacts = lens _aeoOutputArtifacts (\s a -> s {_aeoOutputArtifacts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeoOutputArtifacts :: Lens.Lens' ActionExecutionOutput (Lude.Maybe [ArtifactDetail])
+aeoOutputArtifacts = Lens.lens (outputArtifacts :: ActionExecutionOutput -> Lude.Maybe [ArtifactDetail]) (\s a -> s {outputArtifacts = a} :: ActionExecutionOutput)
+{-# DEPRECATED aeoOutputArtifacts "Use generic-lens or generic-optics with 'outputArtifacts' instead." #-}
 
 -- | Execution result information listed in the output details for an action execution.
-aeoExecutionResult :: Lens' ActionExecutionOutput (Maybe ActionExecutionResult)
-aeoExecutionResult = lens _aeoExecutionResult (\s a -> s {_aeoExecutionResult = a})
+--
+-- /Note:/ Consider using 'executionResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeoExecutionResult :: Lens.Lens' ActionExecutionOutput (Lude.Maybe ActionExecutionResult)
+aeoExecutionResult = Lens.lens (executionResult :: ActionExecutionOutput -> Lude.Maybe ActionExecutionResult) (\s a -> s {executionResult = a} :: ActionExecutionOutput)
+{-# DEPRECATED aeoExecutionResult "Use generic-lens or generic-optics with 'executionResult' instead." #-}
 
-instance FromJSON ActionExecutionOutput where
+instance Lude.FromJSON ActionExecutionOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionExecutionOutput"
       ( \x ->
           ActionExecutionOutput'
-            <$> (x .:? "outputVariables" .!= mempty)
-            <*> (x .:? "outputArtifacts" .!= mempty)
-            <*> (x .:? "executionResult")
+            Lude.<$> (x Lude..:? "outputVariables" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "outputArtifacts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "executionResult")
       )
-
-instance Hashable ActionExecutionOutput
-
-instance NFData ActionExecutionOutput

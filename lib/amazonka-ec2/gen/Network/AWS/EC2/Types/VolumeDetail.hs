@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,48 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeDetail where
+module Network.AWS.EC2.Types.VolumeDetail
+  ( VolumeDetail (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeDetail,
+
+    -- * Lenses
+    vdSize,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an EBS volume.
 --
---
---
--- /See:/ 'volumeDetail' smart constructor.
-newtype VolumeDetail = VolumeDetail' {_vdSize :: Integer}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkVolumeDetail' smart constructor.
+newtype VolumeDetail = VolumeDetail' {size :: Lude.Integer}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vdSize' - The size of the volume, in GiB.
-volumeDetail ::
-  -- | 'vdSize'
-  Integer ->
+-- * 'size' - The size of the volume, in GiB.
+mkVolumeDetail ::
+  -- | 'size'
+  Lude.Integer ->
   VolumeDetail
-volumeDetail pSize_ = VolumeDetail' {_vdSize = pSize_}
+mkVolumeDetail pSize_ = VolumeDetail' {size = pSize_}
 
 -- | The size of the volume, in GiB.
-vdSize :: Lens' VolumeDetail Integer
-vdSize = lens _vdSize (\s a -> s {_vdSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdSize :: Lens.Lens' VolumeDetail Lude.Integer
+vdSize = Lens.lens (size :: VolumeDetail -> Lude.Integer) (\s a -> s {size = a} :: VolumeDetail)
+{-# DEPRECATED vdSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance Hashable VolumeDetail
-
-instance NFData VolumeDetail
-
-instance ToQuery VolumeDetail where
-  toQuery VolumeDetail' {..} = mconcat ["Size" =: _vdSize]
+instance Lude.ToQuery VolumeDetail where
+  toQuery VolumeDetail' {..} = Lude.mconcat ["Size" Lude.=: size]

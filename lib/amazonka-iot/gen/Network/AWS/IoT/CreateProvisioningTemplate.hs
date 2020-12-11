@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a fleet provisioning template.
 module Network.AWS.IoT.CreateProvisioningTemplate
-  ( -- * Creating a Request
-    createProvisioningTemplate,
-    CreateProvisioningTemplate,
+  ( -- * Creating a request
+    CreateProvisioningTemplate (..),
+    mkCreateProvisioningTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cptPreProvisioningHook,
     cptEnabled,
     cptDescription,
@@ -32,11 +27,11 @@ module Network.AWS.IoT.CreateProvisioningTemplate
     cptTemplateBody,
     cptProvisioningRoleARN,
 
-    -- * Destructuring the Response
-    createProvisioningTemplateResponse,
-    CreateProvisioningTemplateResponse,
+    -- * Destructuring the response
+    CreateProvisioningTemplateResponse (..),
+    mkCreateProvisioningTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cptrsTemplateName,
     cptrsDefaultVersionId,
     cptrsTemplateARN,
@@ -45,183 +40,211 @@ module Network.AWS.IoT.CreateProvisioningTemplate
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createProvisioningTemplate' smart constructor.
+-- | /See:/ 'mkCreateProvisioningTemplate' smart constructor.
 data CreateProvisioningTemplate = CreateProvisioningTemplate'
-  { _cptPreProvisioningHook ::
-      !(Maybe ProvisioningHook),
-    _cptEnabled :: !(Maybe Bool),
-    _cptDescription :: !(Maybe Text),
-    _cptTags :: !(Maybe [Tag]),
-    _cptTemplateName :: !Text,
-    _cptTemplateBody :: !Text,
-    _cptProvisioningRoleARN :: !Text
+  { preProvisioningHook ::
+      Lude.Maybe ProvisioningHook,
+    enabled :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    templateName :: Lude.Text,
+    templateBody :: Lude.Text,
+    provisioningRoleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cptPreProvisioningHook' - Creates a pre-provisioning hook template.
---
--- * 'cptEnabled' - True to enable the fleet provisioning template, otherwise false.
---
--- * 'cptDescription' - The description of the fleet provisioning template.
---
--- * 'cptTags' - Metadata which can be used to manage the fleet provisioning template.
---
--- * 'cptTemplateName' - The name of the fleet provisioning template.
---
--- * 'cptTemplateBody' - The JSON formatted contents of the fleet provisioning template.
---
--- * 'cptProvisioningRoleARN' - The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-createProvisioningTemplate ::
-  -- | 'cptTemplateName'
-  Text ->
-  -- | 'cptTemplateBody'
-  Text ->
-  -- | 'cptProvisioningRoleARN'
-  Text ->
+-- * 'description' - The description of the fleet provisioning template.
+-- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
+-- * 'preProvisioningHook' - Creates a pre-provisioning hook template.
+-- * 'provisioningRoleARN' - The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+-- * 'tags' - Metadata which can be used to manage the fleet provisioning template.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+mkCreateProvisioningTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateBody'
+  Lude.Text ->
+  -- | 'provisioningRoleARN'
+  Lude.Text ->
   CreateProvisioningTemplate
-createProvisioningTemplate
+mkCreateProvisioningTemplate
   pTemplateName_
   pTemplateBody_
   pProvisioningRoleARN_ =
     CreateProvisioningTemplate'
-      { _cptPreProvisioningHook = Nothing,
-        _cptEnabled = Nothing,
-        _cptDescription = Nothing,
-        _cptTags = Nothing,
-        _cptTemplateName = pTemplateName_,
-        _cptTemplateBody = pTemplateBody_,
-        _cptProvisioningRoleARN = pProvisioningRoleARN_
+      { preProvisioningHook = Lude.Nothing,
+        enabled = Lude.Nothing,
+        description = Lude.Nothing,
+        tags = Lude.Nothing,
+        templateName = pTemplateName_,
+        templateBody = pTemplateBody_,
+        provisioningRoleARN = pProvisioningRoleARN_
       }
 
 -- | Creates a pre-provisioning hook template.
-cptPreProvisioningHook :: Lens' CreateProvisioningTemplate (Maybe ProvisioningHook)
-cptPreProvisioningHook = lens _cptPreProvisioningHook (\s a -> s {_cptPreProvisioningHook = a})
+--
+-- /Note:/ Consider using 'preProvisioningHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptPreProvisioningHook :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe ProvisioningHook)
+cptPreProvisioningHook = Lens.lens (preProvisioningHook :: CreateProvisioningTemplate -> Lude.Maybe ProvisioningHook) (\s a -> s {preProvisioningHook = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptPreProvisioningHook "Use generic-lens or generic-optics with 'preProvisioningHook' instead." #-}
 
 -- | True to enable the fleet provisioning template, otherwise false.
-cptEnabled :: Lens' CreateProvisioningTemplate (Maybe Bool)
-cptEnabled = lens _cptEnabled (\s a -> s {_cptEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptEnabled :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe Lude.Bool)
+cptEnabled = Lens.lens (enabled :: CreateProvisioningTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The description of the fleet provisioning template.
-cptDescription :: Lens' CreateProvisioningTemplate (Maybe Text)
-cptDescription = lens _cptDescription (\s a -> s {_cptDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptDescription :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe Lude.Text)
+cptDescription = Lens.lens (description :: CreateProvisioningTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Metadata which can be used to manage the fleet provisioning template.
-cptTags :: Lens' CreateProvisioningTemplate [Tag]
-cptTags = lens _cptTags (\s a -> s {_cptTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptTags :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe [Tag])
+cptTags = Lens.lens (tags :: CreateProvisioningTemplate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the fleet provisioning template.
-cptTemplateName :: Lens' CreateProvisioningTemplate Text
-cptTemplateName = lens _cptTemplateName (\s a -> s {_cptTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptTemplateName :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptTemplateName = Lens.lens (templateName :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The JSON formatted contents of the fleet provisioning template.
-cptTemplateBody :: Lens' CreateProvisioningTemplate Text
-cptTemplateBody = lens _cptTemplateBody (\s a -> s {_cptTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptTemplateBody :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptTemplateBody = Lens.lens (templateBody :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateBody = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-cptProvisioningRoleARN :: Lens' CreateProvisioningTemplate Text
-cptProvisioningRoleARN = lens _cptProvisioningRoleARN (\s a -> s {_cptProvisioningRoleARN = a})
+--
+-- /Note:/ Consider using 'provisioningRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptProvisioningRoleARN :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptProvisioningRoleARN = Lens.lens (provisioningRoleARN :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {provisioningRoleARN = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptProvisioningRoleARN "Use generic-lens or generic-optics with 'provisioningRoleARN' instead." #-}
 
-instance AWSRequest CreateProvisioningTemplate where
+instance Lude.AWSRequest CreateProvisioningTemplate where
   type
     Rs CreateProvisioningTemplate =
       CreateProvisioningTemplateResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProvisioningTemplateResponse'
-            <$> (x .?> "templateName")
-            <*> (x .?> "defaultVersionId")
-            <*> (x .?> "templateArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "templateName")
+            Lude.<*> (x Lude..?> "defaultVersionId")
+            Lude.<*> (x Lude..?> "templateArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProvisioningTemplate
+instance Lude.ToHeaders CreateProvisioningTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateProvisioningTemplate
-
-instance ToHeaders CreateProvisioningTemplate where
-  toHeaders = const mempty
-
-instance ToJSON CreateProvisioningTemplate where
+instance Lude.ToJSON CreateProvisioningTemplate where
   toJSON CreateProvisioningTemplate' {..} =
-    object
-      ( catMaybes
-          [ ("preProvisioningHook" .=) <$> _cptPreProvisioningHook,
-            ("enabled" .=) <$> _cptEnabled,
-            ("description" .=) <$> _cptDescription,
-            ("tags" .=) <$> _cptTags,
-            Just ("templateName" .= _cptTemplateName),
-            Just ("templateBody" .= _cptTemplateBody),
-            Just ("provisioningRoleArn" .= _cptProvisioningRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("preProvisioningHook" Lude..=) Lude.<$> preProvisioningHook,
+            ("enabled" Lude..=) Lude.<$> enabled,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("templateName" Lude..= templateName),
+            Lude.Just ("templateBody" Lude..= templateBody),
+            Lude.Just ("provisioningRoleArn" Lude..= provisioningRoleARN)
           ]
       )
 
-instance ToPath CreateProvisioningTemplate where
-  toPath = const "/provisioning-templates"
+instance Lude.ToPath CreateProvisioningTemplate where
+  toPath = Lude.const "/provisioning-templates"
 
-instance ToQuery CreateProvisioningTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProvisioningTemplate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProvisioningTemplateResponse' smart constructor.
+-- | /See:/ 'mkCreateProvisioningTemplateResponse' smart constructor.
 data CreateProvisioningTemplateResponse = CreateProvisioningTemplateResponse'
-  { _cptrsTemplateName ::
-      !(Maybe Text),
-    _cptrsDefaultVersionId ::
-      !(Maybe Int),
-    _cptrsTemplateARN ::
-      !(Maybe Text),
-    _cptrsResponseStatus ::
-      !Int
+  { templateName ::
+      Lude.Maybe Lude.Text,
+    defaultVersionId ::
+      Lude.Maybe Lude.Int,
+    templateARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cptrsTemplateName' - The name of the fleet provisioning template.
---
--- * 'cptrsDefaultVersionId' - The default version of the fleet provisioning template.
---
--- * 'cptrsTemplateARN' - The ARN that identifies the provisioning template.
---
--- * 'cptrsResponseStatus' - -- | The response status code.
-createProvisioningTemplateResponse ::
-  -- | 'cptrsResponseStatus'
-  Int ->
+-- * 'defaultVersionId' - The default version of the fleet provisioning template.
+-- * 'responseStatus' - The response status code.
+-- * 'templateARN' - The ARN that identifies the provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+mkCreateProvisioningTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProvisioningTemplateResponse
-createProvisioningTemplateResponse pResponseStatus_ =
+mkCreateProvisioningTemplateResponse pResponseStatus_ =
   CreateProvisioningTemplateResponse'
-    { _cptrsTemplateName = Nothing,
-      _cptrsDefaultVersionId = Nothing,
-      _cptrsTemplateARN = Nothing,
-      _cptrsResponseStatus = pResponseStatus_
+    { templateName = Lude.Nothing,
+      defaultVersionId = Lude.Nothing,
+      templateARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the fleet provisioning template.
-cptrsTemplateName :: Lens' CreateProvisioningTemplateResponse (Maybe Text)
-cptrsTemplateName = lens _cptrsTemplateName (\s a -> s {_cptrsTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptrsTemplateName :: Lens.Lens' CreateProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+cptrsTemplateName = Lens.lens (templateName :: CreateProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplateResponse)
+{-# DEPRECATED cptrsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The default version of the fleet provisioning template.
-cptrsDefaultVersionId :: Lens' CreateProvisioningTemplateResponse (Maybe Int)
-cptrsDefaultVersionId = lens _cptrsDefaultVersionId (\s a -> s {_cptrsDefaultVersionId = a})
+--
+-- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptrsDefaultVersionId :: Lens.Lens' CreateProvisioningTemplateResponse (Lude.Maybe Lude.Int)
+cptrsDefaultVersionId = Lens.lens (defaultVersionId :: CreateProvisioningTemplateResponse -> Lude.Maybe Lude.Int) (\s a -> s {defaultVersionId = a} :: CreateProvisioningTemplateResponse)
+{-# DEPRECATED cptrsDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
 
 -- | The ARN that identifies the provisioning template.
-cptrsTemplateARN :: Lens' CreateProvisioningTemplateResponse (Maybe Text)
-cptrsTemplateARN = lens _cptrsTemplateARN (\s a -> s {_cptrsTemplateARN = a})
+--
+-- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptrsTemplateARN :: Lens.Lens' CreateProvisioningTemplateResponse (Lude.Maybe Lude.Text)
+cptrsTemplateARN = Lens.lens (templateARN :: CreateProvisioningTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: CreateProvisioningTemplateResponse)
+{-# DEPRECATED cptrsTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
 
--- | -- | The response status code.
-cptrsResponseStatus :: Lens' CreateProvisioningTemplateResponse Int
-cptrsResponseStatus = lens _cptrsResponseStatus (\s a -> s {_cptrsResponseStatus = a})
-
-instance NFData CreateProvisioningTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptrsResponseStatus :: Lens.Lens' CreateProvisioningTemplateResponse Lude.Int
+cptrsResponseStatus = Lens.lens (responseStatus :: CreateProvisioningTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProvisioningTemplateResponse)
+{-# DEPRECATED cptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

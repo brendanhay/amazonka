@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,133 @@
 --
 -- Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
 --
---
 -- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID used to sign the request to this API.
 module Network.AWS.IAM.GetUser
-  ( -- * Creating a Request
-    getUser,
-    GetUser,
+  ( -- * Creating a request
+    GetUser (..),
+    mkGetUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     guUserName,
 
-    -- * Destructuring the Response
-    getUserResponse,
-    GetUserResponse,
+    -- * Destructuring the response
+    GetUserResponse (..),
+    mkGetUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gursResponseStatus,
     gursUser,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getUser' smart constructor.
-newtype GetUser = GetUser' {_guUserName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetUser' smart constructor.
+newtype GetUser = GetUser' {userName :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'userName' - The name of the user to get information about.
 --
--- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getUser ::
+-- This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetUser ::
   GetUser
-getUser = GetUser' {_guUserName = Nothing}
+mkGetUser = GetUser' {userName = Lude.Nothing}
 
--- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-guUserName :: Lens' GetUser (Maybe Text)
-guUserName = lens _guUserName (\s a -> s {_guUserName = a})
+-- | The name of the user to get information about.
+--
+-- This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guUserName :: Lens.Lens' GetUser (Lude.Maybe Lude.Text)
+guUserName = Lens.lens (userName :: GetUser -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: GetUser)
+{-# DEPRECATED guUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance AWSRequest GetUser where
+instance Lude.AWSRequest GetUser where
   type Rs GetUser = GetUserResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetUserResult"
       ( \s h x ->
-          GetUserResponse' <$> (pure (fromEnum s)) <*> (x .@ "User")
+          GetUserResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "User")
       )
 
-instance Hashable GetUser
+instance Lude.ToHeaders GetUser where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetUser
+instance Lude.ToPath GetUser where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetUser where
-  toHeaders = const mempty
-
-instance ToPath GetUser where
-  toPath = const "/"
-
-instance ToQuery GetUser where
+instance Lude.ToQuery GetUser where
   toQuery GetUser' {..} =
-    mconcat
-      [ "Action" =: ("GetUser" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _guUserName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetUser" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName
       ]
 
 -- | Contains the response to a successful 'GetUser' request.
 --
---
---
--- /See:/ 'getUserResponse' smart constructor.
+-- /See:/ 'mkGetUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { _gursResponseStatus ::
-      !Int,
-    _gursUser :: !User
+  { responseStatus :: Lude.Int,
+    user :: User
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'user' - A structure containing details about the IAM user.
 --
--- * 'gursResponseStatus' - -- | The response status code.
---
--- * 'gursUser' - A structure containing details about the IAM user. /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate. You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
-getUserResponse ::
-  -- | 'gursResponseStatus'
-  Int ->
-  -- | 'gursUser'
+-- /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
+-- You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
+mkGetUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'user'
   User ->
   GetUserResponse
-getUserResponse pResponseStatus_ pUser_ =
+mkGetUserResponse pResponseStatus_ pUser_ =
   GetUserResponse'
-    { _gursResponseStatus = pResponseStatus_,
-      _gursUser = pUser_
+    { responseStatus = pResponseStatus_,
+      user = pUser_
     }
 
--- | -- | The response status code.
-gursResponseStatus :: Lens' GetUserResponse Int
-gursResponseStatus = lens _gursResponseStatus (\s a -> s {_gursResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursResponseStatus :: Lens.Lens' GetUserResponse Lude.Int
+gursResponseStatus = Lens.lens (responseStatus :: GetUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserResponse)
+{-# DEPRECATED gursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | A structure containing details about the IAM user. /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate. You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
-gursUser :: Lens' GetUserResponse User
-gursUser = lens _gursUser (\s a -> s {_gursUser = a})
-
-instance NFData GetUserResponse
+-- | A structure containing details about the IAM user.
+--
+-- /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
+-- You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursUser :: Lens.Lens' GetUserResponse User
+gursUser = Lens.lens (user :: GetUserResponse -> User) (\s a -> s {user = a} :: GetUserResponse)
+{-# DEPRECATED gursUser "Use generic-lens or generic-optics with 'user' instead." #-}

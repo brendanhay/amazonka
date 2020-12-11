@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets a description of a hyperparameter tuning job.
 module Network.AWS.SageMaker.DescribeHyperParameterTuningJob
-  ( -- * Creating a Request
-    describeHyperParameterTuningJob,
-    DescribeHyperParameterTuningJob,
+  ( -- * Creating a request
+    DescribeHyperParameterTuningJob (..),
+    mkDescribeHyperParameterTuningJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhptjHyperParameterTuningJobName,
 
-    -- * Destructuring the Response
-    describeHyperParameterTuningJobResponse,
-    DescribeHyperParameterTuningJobResponse,
+    -- * Destructuring the response
+    DescribeHyperParameterTuningJobResponse (..),
+    mkDescribeHyperParameterTuningJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhptjrsFailureReason,
     dhptjrsTrainingJobDefinition,
     dhptjrsLastModifiedTime,
@@ -50,205 +45,192 @@ module Network.AWS.SageMaker.DescribeHyperParameterTuningJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeHyperParameterTuningJob' smart constructor.
+-- | /See:/ 'mkDescribeHyperParameterTuningJob' smart constructor.
 newtype DescribeHyperParameterTuningJob = DescribeHyperParameterTuningJob'
-  { _dhptjHyperParameterTuningJobName ::
-      Text
+  { hyperParameterTuningJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHyperParameterTuningJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhptjHyperParameterTuningJobName' - The name of the tuning job.
-describeHyperParameterTuningJob ::
-  -- | 'dhptjHyperParameterTuningJobName'
-  Text ->
+-- * 'hyperParameterTuningJobName' - The name of the tuning job.
+mkDescribeHyperParameterTuningJob ::
+  -- | 'hyperParameterTuningJobName'
+  Lude.Text ->
   DescribeHyperParameterTuningJob
-describeHyperParameterTuningJob pHyperParameterTuningJobName_ =
+mkDescribeHyperParameterTuningJob pHyperParameterTuningJobName_ =
   DescribeHyperParameterTuningJob'
-    { _dhptjHyperParameterTuningJobName =
+    { hyperParameterTuningJobName =
         pHyperParameterTuningJobName_
     }
 
 -- | The name of the tuning job.
-dhptjHyperParameterTuningJobName :: Lens' DescribeHyperParameterTuningJob Text
-dhptjHyperParameterTuningJobName = lens _dhptjHyperParameterTuningJobName (\s a -> s {_dhptjHyperParameterTuningJobName = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjHyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJob Lude.Text
+dhptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: DescribeHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: DescribeHyperParameterTuningJob)
+{-# DEPRECATED dhptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
 
-instance AWSRequest DescribeHyperParameterTuningJob where
+instance Lude.AWSRequest DescribeHyperParameterTuningJob where
   type
     Rs DescribeHyperParameterTuningJob =
       DescribeHyperParameterTuningJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeHyperParameterTuningJobResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "TrainingJobDefinition")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "BestTrainingJob")
-            <*> (x .?> "HyperParameterTuningEndTime")
-            <*> (x .?> "OverallBestTrainingJob")
-            <*> (x .?> "WarmStartConfig")
-            <*> (x .?> "TrainingJobDefinitions")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "HyperParameterTuningJobName")
-            <*> (x .:> "HyperParameterTuningJobArn")
-            <*> (x .:> "HyperParameterTuningJobConfig")
-            <*> (x .:> "HyperParameterTuningJobStatus")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "TrainingJobStatusCounters")
-            <*> (x .:> "ObjectiveStatusCounters")
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "TrainingJobDefinition")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "BestTrainingJob")
+            Lude.<*> (x Lude..?> "HyperParameterTuningEndTime")
+            Lude.<*> (x Lude..?> "OverallBestTrainingJob")
+            Lude.<*> (x Lude..?> "WarmStartConfig")
+            Lude.<*> (x Lude..?> "TrainingJobDefinitions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "HyperParameterTuningJobName")
+            Lude.<*> (x Lude..:> "HyperParameterTuningJobArn")
+            Lude.<*> (x Lude..:> "HyperParameterTuningJobConfig")
+            Lude.<*> (x Lude..:> "HyperParameterTuningJobStatus")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "TrainingJobStatusCounters")
+            Lude.<*> (x Lude..:> "ObjectiveStatusCounters")
       )
 
-instance Hashable DescribeHyperParameterTuningJob
-
-instance NFData DescribeHyperParameterTuningJob
-
-instance ToHeaders DescribeHyperParameterTuningJob where
+instance Lude.ToHeaders DescribeHyperParameterTuningJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeHyperParameterTuningJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeHyperParameterTuningJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeHyperParameterTuningJob where
+instance Lude.ToJSON DescribeHyperParameterTuningJob where
   toJSON DescribeHyperParameterTuningJob' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "HyperParameterTuningJobName"
-                  .= _dhptjHyperParameterTuningJobName
+                  Lude..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance ToPath DescribeHyperParameterTuningJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeHyperParameterTuningJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeHyperParameterTuningJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeHyperParameterTuningJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeHyperParameterTuningJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeHyperParameterTuningJobResponse' smart constructor.
 data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobResponse'
-  { _dhptjrsFailureReason ::
-      !( Maybe
-           Text
-       ),
-    _dhptjrsTrainingJobDefinition ::
-      !( Maybe
-           HyperParameterTrainingJobDefinition
-       ),
-    _dhptjrsLastModifiedTime ::
-      !( Maybe
-           POSIX
-       ),
-    _dhptjrsBestTrainingJob ::
-      !( Maybe
-           HyperParameterTrainingJobSummary
-       ),
-    _dhptjrsHyperParameterTuningEndTime ::
-      !( Maybe
-           POSIX
-       ),
-    _dhptjrsOverallBestTrainingJob ::
-      !( Maybe
-           HyperParameterTrainingJobSummary
-       ),
-    _dhptjrsWarmStartConfig ::
-      !( Maybe
-           HyperParameterTuningJobWarmStartConfig
-       ),
-    _dhptjrsTrainingJobDefinitions ::
-      !( Maybe
-           ( List1
-               HyperParameterTrainingJobDefinition
-           )
-       ),
-    _dhptjrsResponseStatus ::
-      !Int,
-    _dhptjrsHyperParameterTuningJobName ::
-      !Text,
-    _dhptjrsHyperParameterTuningJobARN ::
-      !Text,
-    _dhptjrsHyperParameterTuningJobConfig ::
-      !HyperParameterTuningJobConfig,
-    _dhptjrsHyperParameterTuningJobStatus ::
-      !HyperParameterTuningJobStatus,
-    _dhptjrsCreationTime ::
-      !POSIX,
-    _dhptjrsTrainingJobStatusCounters ::
-      !TrainingJobStatusCounters,
-    _dhptjrsObjectiveStatusCounters ::
-      !ObjectiveStatusCounters
+  { failureReason ::
+      Lude.Maybe
+        Lude.Text,
+    trainingJobDefinition ::
+      Lude.Maybe
+        HyperParameterTrainingJobDefinition,
+    lastModifiedTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    bestTrainingJob ::
+      Lude.Maybe
+        HyperParameterTrainingJobSummary,
+    hyperParameterTuningEndTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    overallBestTrainingJob ::
+      Lude.Maybe
+        HyperParameterTrainingJobSummary,
+    warmStartConfig ::
+      Lude.Maybe
+        HyperParameterTuningJobWarmStartConfig,
+    trainingJobDefinitions ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            HyperParameterTrainingJobDefinition
+        ),
+    responseStatus ::
+      Lude.Int,
+    hyperParameterTuningJobName ::
+      Lude.Text,
+    hyperParameterTuningJobARN ::
+      Lude.Text,
+    hyperParameterTuningJobConfig ::
+      HyperParameterTuningJobConfig,
+    hyperParameterTuningJobStatus ::
+      HyperParameterTuningJobStatus,
+    creationTime ::
+      Lude.Timestamp,
+    trainingJobStatusCounters ::
+      TrainingJobStatusCounters,
+    objectiveStatusCounters ::
+      ObjectiveStatusCounters
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHyperParameterTuningJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhptjrsFailureReason' - If the tuning job failed, the reason it failed.
---
--- * 'dhptjrsTrainingJobDefinition' - The 'HyperParameterTrainingJobDefinition' object that specifies the definition of the training jobs that this tuning job launches.
---
--- * 'dhptjrsLastModifiedTime' - The date and time that the status of the tuning job was modified.
---
--- * 'dhptjrsBestTrainingJob' - A 'TrainingJobSummary' object that describes the training job that completed with the best current 'HyperParameterTuningJobObjective' .
---
--- * 'dhptjrsHyperParameterTuningEndTime' - The date and time that the tuning job ended.
---
--- * 'dhptjrsOverallBestTrainingJob' - If the hyperparameter tuning job is an warm start tuning job with a @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@ , this is the 'TrainingJobSummary' for the training job with the best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for the warm start tuning job.
---
--- * 'dhptjrsWarmStartConfig' - The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
---
--- * 'dhptjrsTrainingJobDefinitions' - A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
---
--- * 'dhptjrsResponseStatus' - -- | The response status code.
---
--- * 'dhptjrsHyperParameterTuningJobName' - The name of the tuning job.
---
--- * 'dhptjrsHyperParameterTuningJobARN' - The Amazon Resource Name (ARN) of the tuning job.
---
--- * 'dhptjrsHyperParameterTuningJobConfig' - The 'HyperParameterTuningJobConfig' object that specifies the configuration of the tuning job.
---
--- * 'dhptjrsHyperParameterTuningJobStatus' - The status of the tuning job: InProgress, Completed, Failed, Stopping, or Stopped.
---
--- * 'dhptjrsCreationTime' - The date and time that the tuning job started.
---
--- * 'dhptjrsTrainingJobStatusCounters' - The 'TrainingJobStatusCounters' object that specifies the number of training jobs, categorized by status, that this tuning job launched.
---
--- * 'dhptjrsObjectiveStatusCounters' - The 'ObjectiveStatusCounters' object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched.
-describeHyperParameterTuningJobResponse ::
-  -- | 'dhptjrsResponseStatus'
-  Int ->
-  -- | 'dhptjrsHyperParameterTuningJobName'
-  Text ->
-  -- | 'dhptjrsHyperParameterTuningJobARN'
-  Text ->
-  -- | 'dhptjrsHyperParameterTuningJobConfig'
+-- * 'bestTrainingJob' - A 'TrainingJobSummary' object that describes the training job that completed with the best current 'HyperParameterTuningJobObjective' .
+-- * 'creationTime' - The date and time that the tuning job started.
+-- * 'failureReason' - If the tuning job failed, the reason it failed.
+-- * 'hyperParameterTuningEndTime' - The date and time that the tuning job ended.
+-- * 'hyperParameterTuningJobARN' - The Amazon Resource Name (ARN) of the tuning job.
+-- * 'hyperParameterTuningJobConfig' - The 'HyperParameterTuningJobConfig' object that specifies the configuration of the tuning job.
+-- * 'hyperParameterTuningJobName' - The name of the tuning job.
+-- * 'hyperParameterTuningJobStatus' - The status of the tuning job: InProgress, Completed, Failed, Stopping, or Stopped.
+-- * 'lastModifiedTime' - The date and time that the status of the tuning job was modified.
+-- * 'objectiveStatusCounters' - The 'ObjectiveStatusCounters' object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched.
+-- * 'overallBestTrainingJob' - If the hyperparameter tuning job is an warm start tuning job with a @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@ , this is the 'TrainingJobSummary' for the training job with the best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for the warm start tuning job.
+-- * 'responseStatus' - The response status code.
+-- * 'trainingJobDefinition' - The 'HyperParameterTrainingJobDefinition' object that specifies the definition of the training jobs that this tuning job launches.
+-- * 'trainingJobDefinitions' - A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
+-- * 'trainingJobStatusCounters' - The 'TrainingJobStatusCounters' object that specifies the number of training jobs, categorized by status, that this tuning job launched.
+-- * 'warmStartConfig' - The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
+mkDescribeHyperParameterTuningJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'hyperParameterTuningJobName'
+  Lude.Text ->
+  -- | 'hyperParameterTuningJobARN'
+  Lude.Text ->
+  -- | 'hyperParameterTuningJobConfig'
   HyperParameterTuningJobConfig ->
-  -- | 'dhptjrsHyperParameterTuningJobStatus'
+  -- | 'hyperParameterTuningJobStatus'
   HyperParameterTuningJobStatus ->
-  -- | 'dhptjrsCreationTime'
-  UTCTime ->
-  -- | 'dhptjrsTrainingJobStatusCounters'
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'trainingJobStatusCounters'
   TrainingJobStatusCounters ->
-  -- | 'dhptjrsObjectiveStatusCounters'
+  -- | 'objectiveStatusCounters'
   ObjectiveStatusCounters ->
   DescribeHyperParameterTuningJobResponse
-describeHyperParameterTuningJobResponse
+mkDescribeHyperParameterTuningJobResponse
   pResponseStatus_
   pHyperParameterTuningJobName_
   pHyperParameterTuningJobARN_
@@ -258,93 +240,138 @@ describeHyperParameterTuningJobResponse
   pTrainingJobStatusCounters_
   pObjectiveStatusCounters_ =
     DescribeHyperParameterTuningJobResponse'
-      { _dhptjrsFailureReason =
-          Nothing,
-        _dhptjrsTrainingJobDefinition = Nothing,
-        _dhptjrsLastModifiedTime = Nothing,
-        _dhptjrsBestTrainingJob = Nothing,
-        _dhptjrsHyperParameterTuningEndTime = Nothing,
-        _dhptjrsOverallBestTrainingJob = Nothing,
-        _dhptjrsWarmStartConfig = Nothing,
-        _dhptjrsTrainingJobDefinitions = Nothing,
-        _dhptjrsResponseStatus = pResponseStatus_,
-        _dhptjrsHyperParameterTuningJobName =
+      { failureReason =
+          Lude.Nothing,
+        trainingJobDefinition = Lude.Nothing,
+        lastModifiedTime = Lude.Nothing,
+        bestTrainingJob = Lude.Nothing,
+        hyperParameterTuningEndTime = Lude.Nothing,
+        overallBestTrainingJob = Lude.Nothing,
+        warmStartConfig = Lude.Nothing,
+        trainingJobDefinitions = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        hyperParameterTuningJobName =
           pHyperParameterTuningJobName_,
-        _dhptjrsHyperParameterTuningJobARN =
+        hyperParameterTuningJobARN =
           pHyperParameterTuningJobARN_,
-        _dhptjrsHyperParameterTuningJobConfig =
+        hyperParameterTuningJobConfig =
           pHyperParameterTuningJobConfig_,
-        _dhptjrsHyperParameterTuningJobStatus =
+        hyperParameterTuningJobStatus =
           pHyperParameterTuningJobStatus_,
-        _dhptjrsCreationTime = _Time # pCreationTime_,
-        _dhptjrsTrainingJobStatusCounters =
+        creationTime = pCreationTime_,
+        trainingJobStatusCounters =
           pTrainingJobStatusCounters_,
-        _dhptjrsObjectiveStatusCounters =
-          pObjectiveStatusCounters_
+        objectiveStatusCounters = pObjectiveStatusCounters_
       }
 
 -- | If the tuning job failed, the reason it failed.
-dhptjrsFailureReason :: Lens' DescribeHyperParameterTuningJobResponse (Maybe Text)
-dhptjrsFailureReason = lens _dhptjrsFailureReason (\s a -> s {_dhptjrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsFailureReason :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe Lude.Text)
+dhptjrsFailureReason = Lens.lens (failureReason :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The 'HyperParameterTrainingJobDefinition' object that specifies the definition of the training jobs that this tuning job launches.
-dhptjrsTrainingJobDefinition :: Lens' DescribeHyperParameterTuningJobResponse (Maybe HyperParameterTrainingJobDefinition)
-dhptjrsTrainingJobDefinition = lens _dhptjrsTrainingJobDefinition (\s a -> s {_dhptjrsTrainingJobDefinition = a})
+--
+-- /Note:/ Consider using 'trainingJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsTrainingJobDefinition :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe HyperParameterTrainingJobDefinition)
+dhptjrsTrainingJobDefinition = Lens.lens (trainingJobDefinition :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe HyperParameterTrainingJobDefinition) (\s a -> s {trainingJobDefinition = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsTrainingJobDefinition "Use generic-lens or generic-optics with 'trainingJobDefinition' instead." #-}
 
 -- | The date and time that the status of the tuning job was modified.
-dhptjrsLastModifiedTime :: Lens' DescribeHyperParameterTuningJobResponse (Maybe UTCTime)
-dhptjrsLastModifiedTime = lens _dhptjrsLastModifiedTime (\s a -> s {_dhptjrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsLastModifiedTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe Lude.Timestamp)
+dhptjrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | A 'TrainingJobSummary' object that describes the training job that completed with the best current 'HyperParameterTuningJobObjective' .
-dhptjrsBestTrainingJob :: Lens' DescribeHyperParameterTuningJobResponse (Maybe HyperParameterTrainingJobSummary)
-dhptjrsBestTrainingJob = lens _dhptjrsBestTrainingJob (\s a -> s {_dhptjrsBestTrainingJob = a})
+--
+-- /Note:/ Consider using 'bestTrainingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsBestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe HyperParameterTrainingJobSummary)
+dhptjrsBestTrainingJob = Lens.lens (bestTrainingJob :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe HyperParameterTrainingJobSummary) (\s a -> s {bestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsBestTrainingJob "Use generic-lens or generic-optics with 'bestTrainingJob' instead." #-}
 
 -- | The date and time that the tuning job ended.
-dhptjrsHyperParameterTuningEndTime :: Lens' DescribeHyperParameterTuningJobResponse (Maybe UTCTime)
-dhptjrsHyperParameterTuningEndTime = lens _dhptjrsHyperParameterTuningEndTime (\s a -> s {_dhptjrsHyperParameterTuningEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'hyperParameterTuningEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsHyperParameterTuningEndTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe Lude.Timestamp)
+dhptjrsHyperParameterTuningEndTime = Lens.lens (hyperParameterTuningEndTime :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {hyperParameterTuningEndTime = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsHyperParameterTuningEndTime "Use generic-lens or generic-optics with 'hyperParameterTuningEndTime' instead." #-}
 
 -- | If the hyperparameter tuning job is an warm start tuning job with a @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@ , this is the 'TrainingJobSummary' for the training job with the best objective metric value of all training jobs launched by this tuning job and all parent jobs specified for the warm start tuning job.
-dhptjrsOverallBestTrainingJob :: Lens' DescribeHyperParameterTuningJobResponse (Maybe HyperParameterTrainingJobSummary)
-dhptjrsOverallBestTrainingJob = lens _dhptjrsOverallBestTrainingJob (\s a -> s {_dhptjrsOverallBestTrainingJob = a})
+--
+-- /Note:/ Consider using 'overallBestTrainingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsOverallBestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe HyperParameterTrainingJobSummary)
+dhptjrsOverallBestTrainingJob = Lens.lens (overallBestTrainingJob :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe HyperParameterTrainingJobSummary) (\s a -> s {overallBestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsOverallBestTrainingJob "Use generic-lens or generic-optics with 'overallBestTrainingJob' instead." #-}
 
 -- | The configuration for starting the hyperparameter parameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
-dhptjrsWarmStartConfig :: Lens' DescribeHyperParameterTuningJobResponse (Maybe HyperParameterTuningJobWarmStartConfig)
-dhptjrsWarmStartConfig = lens _dhptjrsWarmStartConfig (\s a -> s {_dhptjrsWarmStartConfig = a})
+--
+-- /Note:/ Consider using 'warmStartConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsWarmStartConfig :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe HyperParameterTuningJobWarmStartConfig)
+dhptjrsWarmStartConfig = Lens.lens (warmStartConfig :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe HyperParameterTuningJobWarmStartConfig) (\s a -> s {warmStartConfig = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsWarmStartConfig "Use generic-lens or generic-optics with 'warmStartConfig' instead." #-}
 
 -- | A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
-dhptjrsTrainingJobDefinitions :: Lens' DescribeHyperParameterTuningJobResponse (Maybe (NonEmpty HyperParameterTrainingJobDefinition))
-dhptjrsTrainingJobDefinitions = lens _dhptjrsTrainingJobDefinitions (\s a -> s {_dhptjrsTrainingJobDefinitions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'trainingJobDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsTrainingJobDefinitions :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Lude.Maybe (Lude.NonEmpty HyperParameterTrainingJobDefinition))
+dhptjrsTrainingJobDefinitions = Lens.lens (trainingJobDefinitions :: DescribeHyperParameterTuningJobResponse -> Lude.Maybe (Lude.NonEmpty HyperParameterTrainingJobDefinition)) (\s a -> s {trainingJobDefinitions = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsTrainingJobDefinitions "Use generic-lens or generic-optics with 'trainingJobDefinitions' instead." #-}
 
--- | -- | The response status code.
-dhptjrsResponseStatus :: Lens' DescribeHyperParameterTuningJobResponse Int
-dhptjrsResponseStatus = lens _dhptjrsResponseStatus (\s a -> s {_dhptjrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsResponseStatus :: Lens.Lens' DescribeHyperParameterTuningJobResponse Lude.Int
+dhptjrsResponseStatus = Lens.lens (responseStatus :: DescribeHyperParameterTuningJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the tuning job.
-dhptjrsHyperParameterTuningJobName :: Lens' DescribeHyperParameterTuningJobResponse Text
-dhptjrsHyperParameterTuningJobName = lens _dhptjrsHyperParameterTuningJobName (\s a -> s {_dhptjrsHyperParameterTuningJobName = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsHyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJobResponse Lude.Text
+dhptjrsHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: DescribeHyperParameterTuningJobResponse -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the tuning job.
-dhptjrsHyperParameterTuningJobARN :: Lens' DescribeHyperParameterTuningJobResponse Text
-dhptjrsHyperParameterTuningJobARN = lens _dhptjrsHyperParameterTuningJobARN (\s a -> s {_dhptjrsHyperParameterTuningJobARN = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsHyperParameterTuningJobARN :: Lens.Lens' DescribeHyperParameterTuningJobResponse Lude.Text
+dhptjrsHyperParameterTuningJobARN = Lens.lens (hyperParameterTuningJobARN :: DescribeHyperParameterTuningJobResponse -> Lude.Text) (\s a -> s {hyperParameterTuningJobARN = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsHyperParameterTuningJobARN "Use generic-lens or generic-optics with 'hyperParameterTuningJobARN' instead." #-}
 
 -- | The 'HyperParameterTuningJobConfig' object that specifies the configuration of the tuning job.
-dhptjrsHyperParameterTuningJobConfig :: Lens' DescribeHyperParameterTuningJobResponse HyperParameterTuningJobConfig
-dhptjrsHyperParameterTuningJobConfig = lens _dhptjrsHyperParameterTuningJobConfig (\s a -> s {_dhptjrsHyperParameterTuningJobConfig = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsHyperParameterTuningJobConfig :: Lens.Lens' DescribeHyperParameterTuningJobResponse HyperParameterTuningJobConfig
+dhptjrsHyperParameterTuningJobConfig = Lens.lens (hyperParameterTuningJobConfig :: DescribeHyperParameterTuningJobResponse -> HyperParameterTuningJobConfig) (\s a -> s {hyperParameterTuningJobConfig = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsHyperParameterTuningJobConfig "Use generic-lens or generic-optics with 'hyperParameterTuningJobConfig' instead." #-}
 
 -- | The status of the tuning job: InProgress, Completed, Failed, Stopping, or Stopped.
-dhptjrsHyperParameterTuningJobStatus :: Lens' DescribeHyperParameterTuningJobResponse HyperParameterTuningJobStatus
-dhptjrsHyperParameterTuningJobStatus = lens _dhptjrsHyperParameterTuningJobStatus (\s a -> s {_dhptjrsHyperParameterTuningJobStatus = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsHyperParameterTuningJobStatus :: Lens.Lens' DescribeHyperParameterTuningJobResponse HyperParameterTuningJobStatus
+dhptjrsHyperParameterTuningJobStatus = Lens.lens (hyperParameterTuningJobStatus :: DescribeHyperParameterTuningJobResponse -> HyperParameterTuningJobStatus) (\s a -> s {hyperParameterTuningJobStatus = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsHyperParameterTuningJobStatus "Use generic-lens or generic-optics with 'hyperParameterTuningJobStatus' instead." #-}
 
 -- | The date and time that the tuning job started.
-dhptjrsCreationTime :: Lens' DescribeHyperParameterTuningJobResponse UTCTime
-dhptjrsCreationTime = lens _dhptjrsCreationTime (\s a -> s {_dhptjrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsCreationTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse Lude.Timestamp
+dhptjrsCreationTime = Lens.lens (creationTime :: DescribeHyperParameterTuningJobResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The 'TrainingJobStatusCounters' object that specifies the number of training jobs, categorized by status, that this tuning job launched.
-dhptjrsTrainingJobStatusCounters :: Lens' DescribeHyperParameterTuningJobResponse TrainingJobStatusCounters
-dhptjrsTrainingJobStatusCounters = lens _dhptjrsTrainingJobStatusCounters (\s a -> s {_dhptjrsTrainingJobStatusCounters = a})
+--
+-- /Note:/ Consider using 'trainingJobStatusCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsTrainingJobStatusCounters :: Lens.Lens' DescribeHyperParameterTuningJobResponse TrainingJobStatusCounters
+dhptjrsTrainingJobStatusCounters = Lens.lens (trainingJobStatusCounters :: DescribeHyperParameterTuningJobResponse -> TrainingJobStatusCounters) (\s a -> s {trainingJobStatusCounters = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsTrainingJobStatusCounters "Use generic-lens or generic-optics with 'trainingJobStatusCounters' instead." #-}
 
 -- | The 'ObjectiveStatusCounters' object that specifies the number of training jobs, categorized by the status of their final objective metric, that this tuning job launched.
-dhptjrsObjectiveStatusCounters :: Lens' DescribeHyperParameterTuningJobResponse ObjectiveStatusCounters
-dhptjrsObjectiveStatusCounters = lens _dhptjrsObjectiveStatusCounters (\s a -> s {_dhptjrsObjectiveStatusCounters = a})
-
-instance NFData DescribeHyperParameterTuningJobResponse
+--
+-- /Note:/ Consider using 'objectiveStatusCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhptjrsObjectiveStatusCounters :: Lens.Lens' DescribeHyperParameterTuningJobResponse ObjectiveStatusCounters
+dhptjrsObjectiveStatusCounters = Lens.lens (objectiveStatusCounters :: DescribeHyperParameterTuningJobResponse -> ObjectiveStatusCounters) (\s a -> s {objectiveStatusCounters = a} :: DescribeHyperParameterTuningJobResponse)
+{-# DEPRECATED dhptjrsObjectiveStatusCounters "Use generic-lens or generic-optics with 'objectiveStatusCounters' instead." #-}

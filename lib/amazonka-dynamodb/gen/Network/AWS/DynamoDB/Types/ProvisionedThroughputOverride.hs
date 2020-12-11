@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride where
+module Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
+  ( ProvisionedThroughputOverride (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisionedThroughputOverride,
+
+    -- * Lenses
+    ptoReadCapacityUnits,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Replica-specific provisioned throughput settings. If not specified, uses the source table's provisioned throughput settings.
 --
---
---
--- /See:/ 'provisionedThroughputOverride' smart constructor.
+-- /See:/ 'mkProvisionedThroughputOverride' smart constructor.
 newtype ProvisionedThroughputOverride = ProvisionedThroughputOverride'
-  { _ptoReadCapacityUnits ::
-      Maybe Nat
+  { readCapacityUnits ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedThroughputOverride' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptoReadCapacityUnits' - Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.
-provisionedThroughputOverride ::
+-- * 'readCapacityUnits' - Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.
+mkProvisionedThroughputOverride ::
   ProvisionedThroughputOverride
-provisionedThroughputOverride =
-  ProvisionedThroughputOverride' {_ptoReadCapacityUnits = Nothing}
+mkProvisionedThroughputOverride =
+  ProvisionedThroughputOverride' {readCapacityUnits = Lude.Nothing}
 
 -- | Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.
-ptoReadCapacityUnits :: Lens' ProvisionedThroughputOverride (Maybe Natural)
-ptoReadCapacityUnits = lens _ptoReadCapacityUnits (\s a -> s {_ptoReadCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptoReadCapacityUnits :: Lens.Lens' ProvisionedThroughputOverride (Lude.Maybe Lude.Natural)
+ptoReadCapacityUnits = Lens.lens (readCapacityUnits :: ProvisionedThroughputOverride -> Lude.Maybe Lude.Natural) (\s a -> s {readCapacityUnits = a} :: ProvisionedThroughputOverride)
+{-# DEPRECATED ptoReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
 
-instance FromJSON ProvisionedThroughputOverride where
+instance Lude.FromJSON ProvisionedThroughputOverride where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisionedThroughputOverride"
       ( \x ->
-          ProvisionedThroughputOverride' <$> (x .:? "ReadCapacityUnits")
+          ProvisionedThroughputOverride'
+            Lude.<$> (x Lude..:? "ReadCapacityUnits")
       )
 
-instance Hashable ProvisionedThroughputOverride
-
-instance NFData ProvisionedThroughputOverride
-
-instance ToJSON ProvisionedThroughputOverride where
+instance Lude.ToJSON ProvisionedThroughputOverride where
   toJSON ProvisionedThroughputOverride' {..} =
-    object
-      (catMaybes [("ReadCapacityUnits" .=) <$> _ptoReadCapacityUnits])
+    Lude.object
+      ( Lude.catMaybes
+          [("ReadCapacityUnits" Lude..=) Lude.<$> readCapacityUnits]
+      )

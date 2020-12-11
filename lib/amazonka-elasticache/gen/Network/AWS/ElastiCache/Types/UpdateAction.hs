@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.UpdateAction where
+module Network.AWS.ElastiCache.Types.UpdateAction
+  ( UpdateAction (..),
+
+    -- * Smart constructor
+    mkUpdateAction,
+
+    -- * Lenses
+    uaServiceUpdateType,
+    uaSlaMet,
+    uaCacheClusterId,
+    uaServiceUpdateName,
+    uaUpdateActionStatus,
+    uaEngine,
+    uaNodesUpdated,
+    uaUpdateActionStatusModifiedDate,
+    uaServiceUpdateReleaseDate,
+    uaCacheNodeUpdateStatus,
+    uaServiceUpdateSeverity,
+    uaNodeGroupUpdateStatus,
+    uaServiceUpdateRecommendedApplyByDate,
+    uaUpdateActionAvailableDate,
+    uaServiceUpdateStatus,
+    uaEstimatedUpdateTime,
+    uaReplicationGroupId,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
 import Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
@@ -22,189 +41,223 @@ import Network.AWS.ElastiCache.Types.ServiceUpdateStatus
 import Network.AWS.ElastiCache.Types.ServiceUpdateType
 import Network.AWS.ElastiCache.Types.SlaMet
 import Network.AWS.ElastiCache.Types.UpdateActionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the service update for a specific replication group
 --
---
---
--- /See:/ 'updateAction' smart constructor.
+-- /See:/ 'mkUpdateAction' smart constructor.
 data UpdateAction = UpdateAction'
-  { _uaServiceUpdateType ::
-      !(Maybe ServiceUpdateType),
-    _uaSlaMet :: !(Maybe SlaMet),
-    _uaCacheClusterId :: !(Maybe Text),
-    _uaServiceUpdateName :: !(Maybe Text),
-    _uaUpdateActionStatus :: !(Maybe UpdateActionStatus),
-    _uaEngine :: !(Maybe Text),
-    _uaNodesUpdated :: !(Maybe Text),
-    _uaUpdateActionStatusModifiedDate :: !(Maybe ISO8601),
-    _uaServiceUpdateReleaseDate :: !(Maybe ISO8601),
-    _uaCacheNodeUpdateStatus :: !(Maybe [CacheNodeUpdateStatus]),
-    _uaServiceUpdateSeverity :: !(Maybe ServiceUpdateSeverity),
-    _uaNodeGroupUpdateStatus :: !(Maybe [NodeGroupUpdateStatus]),
-    _uaServiceUpdateRecommendedApplyByDate :: !(Maybe ISO8601),
-    _uaUpdateActionAvailableDate :: !(Maybe ISO8601),
-    _uaServiceUpdateStatus :: !(Maybe ServiceUpdateStatus),
-    _uaEstimatedUpdateTime :: !(Maybe Text),
-    _uaReplicationGroupId :: !(Maybe Text)
+  { serviceUpdateType ::
+      Lude.Maybe ServiceUpdateType,
+    slaMet :: Lude.Maybe SlaMet,
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    serviceUpdateName :: Lude.Maybe Lude.Text,
+    updateActionStatus :: Lude.Maybe UpdateActionStatus,
+    engine :: Lude.Maybe Lude.Text,
+    nodesUpdated :: Lude.Maybe Lude.Text,
+    updateActionStatusModifiedDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateReleaseDate :: Lude.Maybe Lude.ISO8601,
+    cacheNodeUpdateStatus :: Lude.Maybe [CacheNodeUpdateStatus],
+    serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
+    nodeGroupUpdateStatus :: Lude.Maybe [NodeGroupUpdateStatus],
+    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.ISO8601,
+    updateActionAvailableDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
+    estimatedUpdateTime :: Lude.Maybe Lude.Text,
+    replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaServiceUpdateType' - Reflects the nature of the service update
---
--- * 'uaSlaMet' - If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the recommended apply-by date.
---
--- * 'uaCacheClusterId' - The ID of the cache cluster
---
--- * 'uaServiceUpdateName' - The unique ID of the service update
---
--- * 'uaUpdateActionStatus' - The status of the update action
---
--- * 'uaEngine' - The Elasticache engine to which the update applies. Either Redis or Memcached
---
--- * 'uaNodesUpdated' - The progress of the service update on the replication group
---
--- * 'uaUpdateActionStatusModifiedDate' - The date when the UpdateActionStatus was last modified
---
--- * 'uaServiceUpdateReleaseDate' - The date the update is first available
---
--- * 'uaCacheNodeUpdateStatus' - The status of the service update on the cache node
---
--- * 'uaServiceUpdateSeverity' - The severity of the service update
---
--- * 'uaNodeGroupUpdateStatus' - The status of the service update on the node group
---
--- * 'uaServiceUpdateRecommendedApplyByDate' - The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
---
--- * 'uaUpdateActionAvailableDate' - The date that the service update is available to a replication group
---
--- * 'uaServiceUpdateStatus' - The status of the service update
---
--- * 'uaEstimatedUpdateTime' - The estimated length of time for the update to complete
---
--- * 'uaReplicationGroupId' - The ID of the replication group
-updateAction ::
+-- * 'cacheClusterId' - The ID of the cache cluster
+-- * 'cacheNodeUpdateStatus' - The status of the service update on the cache node
+-- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
+-- * 'estimatedUpdateTime' - The estimated length of time for the update to complete
+-- * 'nodeGroupUpdateStatus' - The status of the service update on the node group
+-- * 'nodesUpdated' - The progress of the service update on the replication group
+-- * 'replicationGroupId' - The ID of the replication group
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'serviceUpdateRecommendedApplyByDate' - The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
+-- * 'serviceUpdateReleaseDate' - The date the update is first available
+-- * 'serviceUpdateSeverity' - The severity of the service update
+-- * 'serviceUpdateStatus' - The status of the service update
+-- * 'serviceUpdateType' - Reflects the nature of the service update
+-- * 'slaMet' - If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the recommended apply-by date.
+-- * 'updateActionAvailableDate' - The date that the service update is available to a replication group
+-- * 'updateActionStatus' - The status of the update action
+-- * 'updateActionStatusModifiedDate' - The date when the UpdateActionStatus was last modified
+mkUpdateAction ::
   UpdateAction
-updateAction =
+mkUpdateAction =
   UpdateAction'
-    { _uaServiceUpdateType = Nothing,
-      _uaSlaMet = Nothing,
-      _uaCacheClusterId = Nothing,
-      _uaServiceUpdateName = Nothing,
-      _uaUpdateActionStatus = Nothing,
-      _uaEngine = Nothing,
-      _uaNodesUpdated = Nothing,
-      _uaUpdateActionStatusModifiedDate = Nothing,
-      _uaServiceUpdateReleaseDate = Nothing,
-      _uaCacheNodeUpdateStatus = Nothing,
-      _uaServiceUpdateSeverity = Nothing,
-      _uaNodeGroupUpdateStatus = Nothing,
-      _uaServiceUpdateRecommendedApplyByDate = Nothing,
-      _uaUpdateActionAvailableDate = Nothing,
-      _uaServiceUpdateStatus = Nothing,
-      _uaEstimatedUpdateTime = Nothing,
-      _uaReplicationGroupId = Nothing
+    { serviceUpdateType = Lude.Nothing,
+      slaMet = Lude.Nothing,
+      cacheClusterId = Lude.Nothing,
+      serviceUpdateName = Lude.Nothing,
+      updateActionStatus = Lude.Nothing,
+      engine = Lude.Nothing,
+      nodesUpdated = Lude.Nothing,
+      updateActionStatusModifiedDate = Lude.Nothing,
+      serviceUpdateReleaseDate = Lude.Nothing,
+      cacheNodeUpdateStatus = Lude.Nothing,
+      serviceUpdateSeverity = Lude.Nothing,
+      nodeGroupUpdateStatus = Lude.Nothing,
+      serviceUpdateRecommendedApplyByDate = Lude.Nothing,
+      updateActionAvailableDate = Lude.Nothing,
+      serviceUpdateStatus = Lude.Nothing,
+      estimatedUpdateTime = Lude.Nothing,
+      replicationGroupId = Lude.Nothing
     }
 
 -- | Reflects the nature of the service update
-uaServiceUpdateType :: Lens' UpdateAction (Maybe ServiceUpdateType)
-uaServiceUpdateType = lens _uaServiceUpdateType (\s a -> s {_uaServiceUpdateType = a})
+--
+-- /Note:/ Consider using 'serviceUpdateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateType :: Lens.Lens' UpdateAction (Lude.Maybe ServiceUpdateType)
+uaServiceUpdateType = Lens.lens (serviceUpdateType :: UpdateAction -> Lude.Maybe ServiceUpdateType) (\s a -> s {serviceUpdateType = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateType "Use generic-lens or generic-optics with 'serviceUpdateType' instead." #-}
 
 -- | If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the recommended apply-by date.
-uaSlaMet :: Lens' UpdateAction (Maybe SlaMet)
-uaSlaMet = lens _uaSlaMet (\s a -> s {_uaSlaMet = a})
+--
+-- /Note:/ Consider using 'slaMet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaSlaMet :: Lens.Lens' UpdateAction (Lude.Maybe SlaMet)
+uaSlaMet = Lens.lens (slaMet :: UpdateAction -> Lude.Maybe SlaMet) (\s a -> s {slaMet = a} :: UpdateAction)
+{-# DEPRECATED uaSlaMet "Use generic-lens or generic-optics with 'slaMet' instead." #-}
 
 -- | The ID of the cache cluster
-uaCacheClusterId :: Lens' UpdateAction (Maybe Text)
-uaCacheClusterId = lens _uaCacheClusterId (\s a -> s {_uaCacheClusterId = a})
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaCacheClusterId :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaCacheClusterId = Lens.lens (cacheClusterId :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: UpdateAction)
+{-# DEPRECATED uaCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | The unique ID of the service update
-uaServiceUpdateName :: Lens' UpdateAction (Maybe Text)
-uaServiceUpdateName = lens _uaServiceUpdateName (\s a -> s {_uaServiceUpdateName = a})
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateName :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaServiceUpdateName = Lens.lens (serviceUpdateName :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateName = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
 
 -- | The status of the update action
-uaUpdateActionStatus :: Lens' UpdateAction (Maybe UpdateActionStatus)
-uaUpdateActionStatus = lens _uaUpdateActionStatus (\s a -> s {_uaUpdateActionStatus = a})
+--
+-- /Note:/ Consider using 'updateActionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaUpdateActionStatus :: Lens.Lens' UpdateAction (Lude.Maybe UpdateActionStatus)
+uaUpdateActionStatus = Lens.lens (updateActionStatus :: UpdateAction -> Lude.Maybe UpdateActionStatus) (\s a -> s {updateActionStatus = a} :: UpdateAction)
+{-# DEPRECATED uaUpdateActionStatus "Use generic-lens or generic-optics with 'updateActionStatus' instead." #-}
 
 -- | The Elasticache engine to which the update applies. Either Redis or Memcached
-uaEngine :: Lens' UpdateAction (Maybe Text)
-uaEngine = lens _uaEngine (\s a -> s {_uaEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaEngine :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaEngine = Lens.lens (engine :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: UpdateAction)
+{-# DEPRECATED uaEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The progress of the service update on the replication group
-uaNodesUpdated :: Lens' UpdateAction (Maybe Text)
-uaNodesUpdated = lens _uaNodesUpdated (\s a -> s {_uaNodesUpdated = a})
+--
+-- /Note:/ Consider using 'nodesUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaNodesUpdated :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaNodesUpdated = Lens.lens (nodesUpdated :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {nodesUpdated = a} :: UpdateAction)
+{-# DEPRECATED uaNodesUpdated "Use generic-lens or generic-optics with 'nodesUpdated' instead." #-}
 
 -- | The date when the UpdateActionStatus was last modified
-uaUpdateActionStatusModifiedDate :: Lens' UpdateAction (Maybe UTCTime)
-uaUpdateActionStatusModifiedDate = lens _uaUpdateActionStatusModifiedDate (\s a -> s {_uaUpdateActionStatusModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateActionStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaUpdateActionStatusModifiedDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
+uaUpdateActionStatusModifiedDate = Lens.lens (updateActionStatusModifiedDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateActionStatusModifiedDate = a} :: UpdateAction)
+{-# DEPRECATED uaUpdateActionStatusModifiedDate "Use generic-lens or generic-optics with 'updateActionStatusModifiedDate' instead." #-}
 
 -- | The date the update is first available
-uaServiceUpdateReleaseDate :: Lens' UpdateAction (Maybe UTCTime)
-uaServiceUpdateReleaseDate = lens _uaServiceUpdateReleaseDate (\s a -> s {_uaServiceUpdateReleaseDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serviceUpdateReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateReleaseDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
+uaServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateReleaseDate = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateReleaseDate "Use generic-lens or generic-optics with 'serviceUpdateReleaseDate' instead." #-}
 
 -- | The status of the service update on the cache node
-uaCacheNodeUpdateStatus :: Lens' UpdateAction [CacheNodeUpdateStatus]
-uaCacheNodeUpdateStatus = lens _uaCacheNodeUpdateStatus (\s a -> s {_uaCacheNodeUpdateStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheNodeUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaCacheNodeUpdateStatus :: Lens.Lens' UpdateAction (Lude.Maybe [CacheNodeUpdateStatus])
+uaCacheNodeUpdateStatus = Lens.lens (cacheNodeUpdateStatus :: UpdateAction -> Lude.Maybe [CacheNodeUpdateStatus]) (\s a -> s {cacheNodeUpdateStatus = a} :: UpdateAction)
+{-# DEPRECATED uaCacheNodeUpdateStatus "Use generic-lens or generic-optics with 'cacheNodeUpdateStatus' instead." #-}
 
 -- | The severity of the service update
-uaServiceUpdateSeverity :: Lens' UpdateAction (Maybe ServiceUpdateSeverity)
-uaServiceUpdateSeverity = lens _uaServiceUpdateSeverity (\s a -> s {_uaServiceUpdateSeverity = a})
+--
+-- /Note:/ Consider using 'serviceUpdateSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateSeverity :: Lens.Lens' UpdateAction (Lude.Maybe ServiceUpdateSeverity)
+uaServiceUpdateSeverity = Lens.lens (serviceUpdateSeverity :: UpdateAction -> Lude.Maybe ServiceUpdateSeverity) (\s a -> s {serviceUpdateSeverity = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateSeverity "Use generic-lens or generic-optics with 'serviceUpdateSeverity' instead." #-}
 
 -- | The status of the service update on the node group
-uaNodeGroupUpdateStatus :: Lens' UpdateAction [NodeGroupUpdateStatus]
-uaNodeGroupUpdateStatus = lens _uaNodeGroupUpdateStatus (\s a -> s {_uaNodeGroupUpdateStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeGroupUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaNodeGroupUpdateStatus :: Lens.Lens' UpdateAction (Lude.Maybe [NodeGroupUpdateStatus])
+uaNodeGroupUpdateStatus = Lens.lens (nodeGroupUpdateStatus :: UpdateAction -> Lude.Maybe [NodeGroupUpdateStatus]) (\s a -> s {nodeGroupUpdateStatus = a} :: UpdateAction)
+{-# DEPRECATED uaNodeGroupUpdateStatus "Use generic-lens or generic-optics with 'nodeGroupUpdateStatus' instead." #-}
 
 -- | The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
-uaServiceUpdateRecommendedApplyByDate :: Lens' UpdateAction (Maybe UTCTime)
-uaServiceUpdateRecommendedApplyByDate = lens _uaServiceUpdateRecommendedApplyByDate (\s a -> s {_uaServiceUpdateRecommendedApplyByDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serviceUpdateRecommendedApplyByDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
+uaServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateRecommendedApplyByDate "Use generic-lens or generic-optics with 'serviceUpdateRecommendedApplyByDate' instead." #-}
 
 -- | The date that the service update is available to a replication group
-uaUpdateActionAvailableDate :: Lens' UpdateAction (Maybe UTCTime)
-uaUpdateActionAvailableDate = lens _uaUpdateActionAvailableDate (\s a -> s {_uaUpdateActionAvailableDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateActionAvailableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaUpdateActionAvailableDate :: Lens.Lens' UpdateAction (Lude.Maybe Lude.ISO8601)
+uaUpdateActionAvailableDate = Lens.lens (updateActionAvailableDate :: UpdateAction -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateActionAvailableDate = a} :: UpdateAction)
+{-# DEPRECATED uaUpdateActionAvailableDate "Use generic-lens or generic-optics with 'updateActionAvailableDate' instead." #-}
 
 -- | The status of the service update
-uaServiceUpdateStatus :: Lens' UpdateAction (Maybe ServiceUpdateStatus)
-uaServiceUpdateStatus = lens _uaServiceUpdateStatus (\s a -> s {_uaServiceUpdateStatus = a})
+--
+-- /Note:/ Consider using 'serviceUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaServiceUpdateStatus :: Lens.Lens' UpdateAction (Lude.Maybe ServiceUpdateStatus)
+uaServiceUpdateStatus = Lens.lens (serviceUpdateStatus :: UpdateAction -> Lude.Maybe ServiceUpdateStatus) (\s a -> s {serviceUpdateStatus = a} :: UpdateAction)
+{-# DEPRECATED uaServiceUpdateStatus "Use generic-lens or generic-optics with 'serviceUpdateStatus' instead." #-}
 
 -- | The estimated length of time for the update to complete
-uaEstimatedUpdateTime :: Lens' UpdateAction (Maybe Text)
-uaEstimatedUpdateTime = lens _uaEstimatedUpdateTime (\s a -> s {_uaEstimatedUpdateTime = a})
+--
+-- /Note:/ Consider using 'estimatedUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaEstimatedUpdateTime :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaEstimatedUpdateTime = Lens.lens (estimatedUpdateTime :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {estimatedUpdateTime = a} :: UpdateAction)
+{-# DEPRECATED uaEstimatedUpdateTime "Use generic-lens or generic-optics with 'estimatedUpdateTime' instead." #-}
 
 -- | The ID of the replication group
-uaReplicationGroupId :: Lens' UpdateAction (Maybe Text)
-uaReplicationGroupId = lens _uaReplicationGroupId (\s a -> s {_uaReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaReplicationGroupId :: Lens.Lens' UpdateAction (Lude.Maybe Lude.Text)
+uaReplicationGroupId = Lens.lens (replicationGroupId :: UpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: UpdateAction)
+{-# DEPRECATED uaReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance FromXML UpdateAction where
+instance Lude.FromXML UpdateAction where
   parseXML x =
     UpdateAction'
-      <$> (x .@? "ServiceUpdateType")
-      <*> (x .@? "SlaMet")
-      <*> (x .@? "CacheClusterId")
-      <*> (x .@? "ServiceUpdateName")
-      <*> (x .@? "UpdateActionStatus")
-      <*> (x .@? "Engine")
-      <*> (x .@? "NodesUpdated")
-      <*> (x .@? "UpdateActionStatusModifiedDate")
-      <*> (x .@? "ServiceUpdateReleaseDate")
-      <*> ( x .@? "CacheNodeUpdateStatus" .!@ mempty
-              >>= may (parseXMLList "CacheNodeUpdateStatus")
-          )
-      <*> (x .@? "ServiceUpdateSeverity")
-      <*> ( x .@? "NodeGroupUpdateStatus" .!@ mempty
-              >>= may (parseXMLList "NodeGroupUpdateStatus")
-          )
-      <*> (x .@? "ServiceUpdateRecommendedApplyByDate")
-      <*> (x .@? "UpdateActionAvailableDate")
-      <*> (x .@? "ServiceUpdateStatus")
-      <*> (x .@? "EstimatedUpdateTime")
-      <*> (x .@? "ReplicationGroupId")
-
-instance Hashable UpdateAction
-
-instance NFData UpdateAction
+      Lude.<$> (x Lude..@? "ServiceUpdateType")
+      Lude.<*> (x Lude..@? "SlaMet")
+      Lude.<*> (x Lude..@? "CacheClusterId")
+      Lude.<*> (x Lude..@? "ServiceUpdateName")
+      Lude.<*> (x Lude..@? "UpdateActionStatus")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "NodesUpdated")
+      Lude.<*> (x Lude..@? "UpdateActionStatusModifiedDate")
+      Lude.<*> (x Lude..@? "ServiceUpdateReleaseDate")
+      Lude.<*> ( x Lude..@? "CacheNodeUpdateStatus" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "CacheNodeUpdateStatus")
+               )
+      Lude.<*> (x Lude..@? "ServiceUpdateSeverity")
+      Lude.<*> ( x Lude..@? "NodeGroupUpdateStatus" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "NodeGroupUpdateStatus")
+               )
+      Lude.<*> (x Lude..@? "ServiceUpdateRecommendedApplyByDate")
+      Lude.<*> (x Lude..@? "UpdateActionAvailableDate")
+      Lude.<*> (x Lude..@? "ServiceUpdateStatus")
+      Lude.<*> (x Lude..@? "EstimatedUpdateTime")
+      Lude.<*> (x Lude..@? "ReplicationGroupId")

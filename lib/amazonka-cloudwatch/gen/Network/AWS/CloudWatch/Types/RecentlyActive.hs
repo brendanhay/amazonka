@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.RecentlyActive where
+module Network.AWS.CloudWatch.Types.RecentlyActive
+  ( RecentlyActive
+      ( RecentlyActive',
+        PT3H
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecentlyActive = PT3H
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecentlyActive = RecentlyActive' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecentlyActive where
-  parser =
-    takeLowerText >>= \case
-      "pt3h" -> pure PT3H
-      e ->
-        fromTextError $
-          "Failure parsing RecentlyActive from value: '" <> e
-            <> "'. Accepted values: pt3h"
+pattern PT3H :: RecentlyActive
+pattern PT3H = RecentlyActive' "PT3H"
 
-instance ToText RecentlyActive where
-  toText = \case
-    PT3H -> "PT3H"
-
-instance Hashable RecentlyActive
-
-instance NFData RecentlyActive
-
-instance ToByteString RecentlyActive
-
-instance ToQuery RecentlyActive
-
-instance ToHeader RecentlyActive
+{-# COMPLETE
+  PT3H,
+  RecentlyActive'
+  #-}

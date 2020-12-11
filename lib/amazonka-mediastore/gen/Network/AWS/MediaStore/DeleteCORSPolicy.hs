@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,121 @@
 --
 -- Deletes the cross-origin resource sharing (CORS) configuration information that is set for the container.
 --
---
 -- To use this operation, you must have permission to perform the @MediaStore:DeleteCorsPolicy@ action. The container owner has this permission by default and can grant this permission to others.
 module Network.AWS.MediaStore.DeleteCORSPolicy
-  ( -- * Creating a Request
-    deleteCORSPolicy,
-    DeleteCORSPolicy,
+  ( -- * Creating a request
+    DeleteCORSPolicy (..),
+    mkDeleteCORSPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcpContainerName,
 
-    -- * Destructuring the Response
-    deleteCORSPolicyResponse,
-    DeleteCORSPolicyResponse,
+    -- * Destructuring the response
+    DeleteCORSPolicyResponse (..),
+    mkDeleteCORSPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcorsprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCORSPolicy' smart constructor.
+-- | /See:/ 'mkDeleteCORSPolicy' smart constructor.
 newtype DeleteCORSPolicy = DeleteCORSPolicy'
-  { _dcpContainerName ::
-      Text
+  { containerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCORSPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpContainerName' - The name of the container to remove the policy from.
-deleteCORSPolicy ::
-  -- | 'dcpContainerName'
-  Text ->
+-- * 'containerName' - The name of the container to remove the policy from.
+mkDeleteCORSPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
   DeleteCORSPolicy
-deleteCORSPolicy pContainerName_ =
-  DeleteCORSPolicy' {_dcpContainerName = pContainerName_}
+mkDeleteCORSPolicy pContainerName_ =
+  DeleteCORSPolicy' {containerName = pContainerName_}
 
 -- | The name of the container to remove the policy from.
-dcpContainerName :: Lens' DeleteCORSPolicy Text
-dcpContainerName = lens _dcpContainerName (\s a -> s {_dcpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpContainerName :: Lens.Lens' DeleteCORSPolicy Lude.Text
+dcpContainerName = Lens.lens (containerName :: DeleteCORSPolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteCORSPolicy)
+{-# DEPRECATED dcpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance AWSRequest DeleteCORSPolicy where
+instance Lude.AWSRequest DeleteCORSPolicy where
   type Rs DeleteCORSPolicy = DeleteCORSPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> DeleteCORSPolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteCORSPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteCORSPolicy
-
-instance NFData DeleteCORSPolicy
-
-instance ToHeaders DeleteCORSPolicy where
+instance Lude.ToHeaders DeleteCORSPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.DeleteCorsPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.DeleteCorsPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCORSPolicy where
+instance Lude.ToJSON DeleteCORSPolicy where
   toJSON DeleteCORSPolicy' {..} =
-    object (catMaybes [Just ("ContainerName" .= _dcpContainerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ContainerName" Lude..= containerName)]
+      )
 
-instance ToPath DeleteCORSPolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteCORSPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCORSPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCORSPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCORSPolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteCORSPolicyResponse' smart constructor.
 newtype DeleteCORSPolicyResponse = DeleteCORSPolicyResponse'
-  { _dcorsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCORSPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcorsprsResponseStatus' - -- | The response status code.
-deleteCORSPolicyResponse ::
-  -- | 'dcorsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteCORSPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCORSPolicyResponse
-deleteCORSPolicyResponse pResponseStatus_ =
-  DeleteCORSPolicyResponse'
-    { _dcorsprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteCORSPolicyResponse pResponseStatus_ =
+  DeleteCORSPolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dcorsprsResponseStatus :: Lens' DeleteCORSPolicyResponse Int
-dcorsprsResponseStatus = lens _dcorsprsResponseStatus (\s a -> s {_dcorsprsResponseStatus = a})
-
-instance NFData DeleteCORSPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcorsprsResponseStatus :: Lens.Lens' DeleteCORSPolicyResponse Lude.Int
+dcorsprsResponseStatus = Lens.lens (responseStatus :: DeleteCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCORSPolicyResponse)
+{-# DEPRECATED dcorsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

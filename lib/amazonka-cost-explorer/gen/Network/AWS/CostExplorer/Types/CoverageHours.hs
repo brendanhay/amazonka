@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CoverageHours where
+module Network.AWS.CostExplorer.Types.CoverageHours
+  ( CoverageHours (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCoverageHours,
+
+    -- * Lenses
+    chCoverageHoursPercentage,
+    chOnDemandHours,
+    chTotalRunningHours,
+    chReservedHours,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | How long a running instance either used a reservation or was On-Demand.
 --
---
---
--- /See:/ 'coverageHours' smart constructor.
+-- /See:/ 'mkCoverageHours' smart constructor.
 data CoverageHours = CoverageHours'
-  { _chCoverageHoursPercentage ::
-      !(Maybe Text),
-    _chOnDemandHours :: !(Maybe Text),
-    _chTotalRunningHours :: !(Maybe Text),
-    _chReservedHours :: !(Maybe Text)
+  { coverageHoursPercentage ::
+      Lude.Maybe Lude.Text,
+    onDemandHours :: Lude.Maybe Lude.Text,
+    totalRunningHours :: Lude.Maybe Lude.Text,
+    reservedHours :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageHours' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chCoverageHoursPercentage' - The percentage of instance hours that a reservation covered.
---
--- * 'chOnDemandHours' - The number of instance running hours that On-Demand Instances covered.
---
--- * 'chTotalRunningHours' - The total instance usage, in hours.
---
--- * 'chReservedHours' - The number of instance running hours that reservations covered.
-coverageHours ::
+-- * 'coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
+-- * 'onDemandHours' - The number of instance running hours that On-Demand Instances covered.
+-- * 'reservedHours' - The number of instance running hours that reservations covered.
+-- * 'totalRunningHours' - The total instance usage, in hours.
+mkCoverageHours ::
   CoverageHours
-coverageHours =
+mkCoverageHours =
   CoverageHours'
-    { _chCoverageHoursPercentage = Nothing,
-      _chOnDemandHours = Nothing,
-      _chTotalRunningHours = Nothing,
-      _chReservedHours = Nothing
+    { coverageHoursPercentage = Lude.Nothing,
+      onDemandHours = Lude.Nothing,
+      totalRunningHours = Lude.Nothing,
+      reservedHours = Lude.Nothing
     }
 
 -- | The percentage of instance hours that a reservation covered.
-chCoverageHoursPercentage :: Lens' CoverageHours (Maybe Text)
-chCoverageHoursPercentage = lens _chCoverageHoursPercentage (\s a -> s {_chCoverageHoursPercentage = a})
+--
+-- /Note:/ Consider using 'coverageHoursPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chCoverageHoursPercentage :: Lens.Lens' CoverageHours (Lude.Maybe Lude.Text)
+chCoverageHoursPercentage = Lens.lens (coverageHoursPercentage :: CoverageHours -> Lude.Maybe Lude.Text) (\s a -> s {coverageHoursPercentage = a} :: CoverageHours)
+{-# DEPRECATED chCoverageHoursPercentage "Use generic-lens or generic-optics with 'coverageHoursPercentage' instead." #-}
 
 -- | The number of instance running hours that On-Demand Instances covered.
-chOnDemandHours :: Lens' CoverageHours (Maybe Text)
-chOnDemandHours = lens _chOnDemandHours (\s a -> s {_chOnDemandHours = a})
+--
+-- /Note:/ Consider using 'onDemandHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chOnDemandHours :: Lens.Lens' CoverageHours (Lude.Maybe Lude.Text)
+chOnDemandHours = Lens.lens (onDemandHours :: CoverageHours -> Lude.Maybe Lude.Text) (\s a -> s {onDemandHours = a} :: CoverageHours)
+{-# DEPRECATED chOnDemandHours "Use generic-lens or generic-optics with 'onDemandHours' instead." #-}
 
 -- | The total instance usage, in hours.
-chTotalRunningHours :: Lens' CoverageHours (Maybe Text)
-chTotalRunningHours = lens _chTotalRunningHours (\s a -> s {_chTotalRunningHours = a})
+--
+-- /Note:/ Consider using 'totalRunningHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chTotalRunningHours :: Lens.Lens' CoverageHours (Lude.Maybe Lude.Text)
+chTotalRunningHours = Lens.lens (totalRunningHours :: CoverageHours -> Lude.Maybe Lude.Text) (\s a -> s {totalRunningHours = a} :: CoverageHours)
+{-# DEPRECATED chTotalRunningHours "Use generic-lens or generic-optics with 'totalRunningHours' instead." #-}
 
 -- | The number of instance running hours that reservations covered.
-chReservedHours :: Lens' CoverageHours (Maybe Text)
-chReservedHours = lens _chReservedHours (\s a -> s {_chReservedHours = a})
+--
+-- /Note:/ Consider using 'reservedHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chReservedHours :: Lens.Lens' CoverageHours (Lude.Maybe Lude.Text)
+chReservedHours = Lens.lens (reservedHours :: CoverageHours -> Lude.Maybe Lude.Text) (\s a -> s {reservedHours = a} :: CoverageHours)
+{-# DEPRECATED chReservedHours "Use generic-lens or generic-optics with 'reservedHours' instead." #-}
 
-instance FromJSON CoverageHours where
+instance Lude.FromJSON CoverageHours where
   parseJSON =
-    withObject
+    Lude.withObject
       "CoverageHours"
       ( \x ->
           CoverageHours'
-            <$> (x .:? "CoverageHoursPercentage")
-            <*> (x .:? "OnDemandHours")
-            <*> (x .:? "TotalRunningHours")
-            <*> (x .:? "ReservedHours")
+            Lude.<$> (x Lude..:? "CoverageHoursPercentage")
+            Lude.<*> (x Lude..:? "OnDemandHours")
+            Lude.<*> (x Lude..:? "TotalRunningHours")
+            Lude.<*> (x Lude..:? "ReservedHours")
       )
-
-instance Hashable CoverageHours
-
-instance NFData CoverageHours

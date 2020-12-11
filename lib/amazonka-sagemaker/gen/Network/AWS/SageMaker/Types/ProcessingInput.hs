@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingInput where
+module Network.AWS.SageMaker.Types.ProcessingInput
+  ( ProcessingInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingInput,
+
+    -- * Lenses
+    piInputName,
+    piS3Input,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingS3Input
 
 -- | The inputs for a processing job.
 --
---
---
--- /See:/ 'processingInput' smart constructor.
+-- /See:/ 'mkProcessingInput' smart constructor.
 data ProcessingInput = ProcessingInput'
-  { _piInputName :: !Text,
-    _piS3Input :: !ProcessingS3Input
+  { inputName :: Lude.Text,
+    s3Input :: ProcessingS3Input
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piInputName' - The name of the inputs for the processing job.
---
--- * 'piS3Input' - The S3 inputs for the processing job.
-processingInput ::
-  -- | 'piInputName'
-  Text ->
-  -- | 'piS3Input'
+-- * 'inputName' - The name of the inputs for the processing job.
+-- * 's3Input' - The S3 inputs for the processing job.
+mkProcessingInput ::
+  -- | 'inputName'
+  Lude.Text ->
+  -- | 's3Input'
   ProcessingS3Input ->
   ProcessingInput
-processingInput pInputName_ pS3Input_ =
-  ProcessingInput'
-    { _piInputName = pInputName_,
-      _piS3Input = pS3Input_
-    }
+mkProcessingInput pInputName_ pS3Input_ =
+  ProcessingInput' {inputName = pInputName_, s3Input = pS3Input_}
 
 -- | The name of the inputs for the processing job.
-piInputName :: Lens' ProcessingInput Text
-piInputName = lens _piInputName (\s a -> s {_piInputName = a})
+--
+-- /Note:/ Consider using 'inputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piInputName :: Lens.Lens' ProcessingInput Lude.Text
+piInputName = Lens.lens (inputName :: ProcessingInput -> Lude.Text) (\s a -> s {inputName = a} :: ProcessingInput)
+{-# DEPRECATED piInputName "Use generic-lens or generic-optics with 'inputName' instead." #-}
 
 -- | The S3 inputs for the processing job.
-piS3Input :: Lens' ProcessingInput ProcessingS3Input
-piS3Input = lens _piS3Input (\s a -> s {_piS3Input = a})
+--
+-- /Note:/ Consider using 's3Input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piS3Input :: Lens.Lens' ProcessingInput ProcessingS3Input
+piS3Input = Lens.lens (s3Input :: ProcessingInput -> ProcessingS3Input) (\s a -> s {s3Input = a} :: ProcessingInput)
+{-# DEPRECATED piS3Input "Use generic-lens or generic-optics with 's3Input' instead." #-}
 
-instance FromJSON ProcessingInput where
+instance Lude.FromJSON ProcessingInput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingInput"
       ( \x ->
-          ProcessingInput' <$> (x .: "InputName") <*> (x .: "S3Input")
+          ProcessingInput'
+            Lude.<$> (x Lude..: "InputName") Lude.<*> (x Lude..: "S3Input")
       )
 
-instance Hashable ProcessingInput
-
-instance NFData ProcessingInput
-
-instance ToJSON ProcessingInput where
+instance Lude.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =
-    object
-      ( catMaybes
-          [ Just ("InputName" .= _piInputName),
-            Just ("S3Input" .= _piS3Input)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InputName" Lude..= inputName),
+            Lude.Just ("S3Input" Lude..= s3Input)
           ]
       )

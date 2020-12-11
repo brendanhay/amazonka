@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,158 @@
 --
 -- Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.
 --
---
 -- There is a limit on the number of on-demand replications runs that you can request in a 24-hour period.
 module Network.AWS.SMS.StartOnDemandReplicationRun
-  ( -- * Creating a Request
-    startOnDemandReplicationRun,
-    StartOnDemandReplicationRun,
+  ( -- * Creating a request
+    StartOnDemandReplicationRun (..),
+    mkStartOnDemandReplicationRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sodrrDescription,
     sodrrReplicationJobId,
 
-    -- * Destructuring the Response
-    startOnDemandReplicationRunResponse,
-    StartOnDemandReplicationRunResponse,
+    -- * Destructuring the response
+    StartOnDemandReplicationRunResponse (..),
+    mkStartOnDemandReplicationRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sodrrrsReplicationRunId,
     sodrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'startOnDemandReplicationRun' smart constructor.
+-- | /See:/ 'mkStartOnDemandReplicationRun' smart constructor.
 data StartOnDemandReplicationRun = StartOnDemandReplicationRun'
-  { _sodrrDescription ::
-      !(Maybe Text),
-    _sodrrReplicationJobId :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    replicationJobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandReplicationRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodrrDescription' - The description of the replication run.
---
--- * 'sodrrReplicationJobId' - The ID of the replication job.
-startOnDemandReplicationRun ::
-  -- | 'sodrrReplicationJobId'
-  Text ->
+-- * 'description' - The description of the replication run.
+-- * 'replicationJobId' - The ID of the replication job.
+mkStartOnDemandReplicationRun ::
+  -- | 'replicationJobId'
+  Lude.Text ->
   StartOnDemandReplicationRun
-startOnDemandReplicationRun pReplicationJobId_ =
+mkStartOnDemandReplicationRun pReplicationJobId_ =
   StartOnDemandReplicationRun'
-    { _sodrrDescription = Nothing,
-      _sodrrReplicationJobId = pReplicationJobId_
+    { description = Lude.Nothing,
+      replicationJobId = pReplicationJobId_
     }
 
 -- | The description of the replication run.
-sodrrDescription :: Lens' StartOnDemandReplicationRun (Maybe Text)
-sodrrDescription = lens _sodrrDescription (\s a -> s {_sodrrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodrrDescription :: Lens.Lens' StartOnDemandReplicationRun (Lude.Maybe Lude.Text)
+sodrrDescription = Lens.lens (description :: StartOnDemandReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandReplicationRun)
+{-# DEPRECATED sodrrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the replication job.
-sodrrReplicationJobId :: Lens' StartOnDemandReplicationRun Text
-sodrrReplicationJobId = lens _sodrrReplicationJobId (\s a -> s {_sodrrReplicationJobId = a})
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodrrReplicationJobId :: Lens.Lens' StartOnDemandReplicationRun Lude.Text
+sodrrReplicationJobId = Lens.lens (replicationJobId :: StartOnDemandReplicationRun -> Lude.Text) (\s a -> s {replicationJobId = a} :: StartOnDemandReplicationRun)
+{-# DEPRECATED sodrrReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
-instance AWSRequest StartOnDemandReplicationRun where
+instance Lude.AWSRequest StartOnDemandReplicationRun where
   type
     Rs StartOnDemandReplicationRun =
       StartOnDemandReplicationRunResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartOnDemandReplicationRunResponse'
-            <$> (x .?> "replicationRunId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "replicationRunId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartOnDemandReplicationRun
-
-instance NFData StartOnDemandReplicationRun
-
-instance ToHeaders StartOnDemandReplicationRun where
+instance Lude.ToHeaders StartOnDemandReplicationRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartOnDemandReplicationRun where
+instance Lude.ToJSON StartOnDemandReplicationRun where
   toJSON StartOnDemandReplicationRun' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _sodrrDescription,
-            Just ("replicationJobId" .= _sodrrReplicationJobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("replicationJobId" Lude..= replicationJobId)
           ]
       )
 
-instance ToPath StartOnDemandReplicationRun where
-  toPath = const "/"
+instance Lude.ToPath StartOnDemandReplicationRun where
+  toPath = Lude.const "/"
 
-instance ToQuery StartOnDemandReplicationRun where
-  toQuery = const mempty
+instance Lude.ToQuery StartOnDemandReplicationRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startOnDemandReplicationRunResponse' smart constructor.
+-- | /See:/ 'mkStartOnDemandReplicationRunResponse' smart constructor.
 data StartOnDemandReplicationRunResponse = StartOnDemandReplicationRunResponse'
-  { _sodrrrsReplicationRunId ::
-      !(Maybe Text),
-    _sodrrrsResponseStatus ::
-      !Int
+  { replicationRunId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandReplicationRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodrrrsReplicationRunId' - The ID of the replication run.
---
--- * 'sodrrrsResponseStatus' - -- | The response status code.
-startOnDemandReplicationRunResponse ::
-  -- | 'sodrrrsResponseStatus'
-  Int ->
+-- * 'replicationRunId' - The ID of the replication run.
+-- * 'responseStatus' - The response status code.
+mkStartOnDemandReplicationRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartOnDemandReplicationRunResponse
-startOnDemandReplicationRunResponse pResponseStatus_ =
+mkStartOnDemandReplicationRunResponse pResponseStatus_ =
   StartOnDemandReplicationRunResponse'
-    { _sodrrrsReplicationRunId =
-        Nothing,
-      _sodrrrsResponseStatus = pResponseStatus_
+    { replicationRunId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the replication run.
-sodrrrsReplicationRunId :: Lens' StartOnDemandReplicationRunResponse (Maybe Text)
-sodrrrsReplicationRunId = lens _sodrrrsReplicationRunId (\s a -> s {_sodrrrsReplicationRunId = a})
+--
+-- /Note:/ Consider using 'replicationRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodrrrsReplicationRunId :: Lens.Lens' StartOnDemandReplicationRunResponse (Lude.Maybe Lude.Text)
+sodrrrsReplicationRunId = Lens.lens (replicationRunId :: StartOnDemandReplicationRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {replicationRunId = a} :: StartOnDemandReplicationRunResponse)
+{-# DEPRECATED sodrrrsReplicationRunId "Use generic-lens or generic-optics with 'replicationRunId' instead." #-}
 
--- | -- | The response status code.
-sodrrrsResponseStatus :: Lens' StartOnDemandReplicationRunResponse Int
-sodrrrsResponseStatus = lens _sodrrrsResponseStatus (\s a -> s {_sodrrrsResponseStatus = a})
-
-instance NFData StartOnDemandReplicationRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodrrrsResponseStatus :: Lens.Lens' StartOnDemandReplicationRunResponse Lude.Int
+sodrrrsResponseStatus = Lens.lens (responseStatus :: StartOnDemandReplicationRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartOnDemandReplicationRunResponse)
+{-# DEPRECATED sodrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

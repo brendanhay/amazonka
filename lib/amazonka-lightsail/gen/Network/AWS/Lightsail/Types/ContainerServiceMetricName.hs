@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceMetricName where
+module Network.AWS.Lightsail.Types.ContainerServiceMetricName
+  ( ContainerServiceMetricName
+      ( ContainerServiceMetricName',
+        CSMNCPUUtilization,
+        CSMNMemoryUtilization
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerServiceMetricName
-  = CSMNCPUUtilization
-  | CSMNMemoryUtilization
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerServiceMetricName = ContainerServiceMetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerServiceMetricName where
-  parser =
-    takeLowerText >>= \case
-      "cpuutilization" -> pure CSMNCPUUtilization
-      "memoryutilization" -> pure CSMNMemoryUtilization
-      e ->
-        fromTextError $
-          "Failure parsing ContainerServiceMetricName from value: '" <> e
-            <> "'. Accepted values: cpuutilization, memoryutilization"
+pattern CSMNCPUUtilization :: ContainerServiceMetricName
+pattern CSMNCPUUtilization = ContainerServiceMetricName' "CPUUtilization"
 
-instance ToText ContainerServiceMetricName where
-  toText = \case
-    CSMNCPUUtilization -> "CPUUtilization"
-    CSMNMemoryUtilization -> "MemoryUtilization"
+pattern CSMNMemoryUtilization :: ContainerServiceMetricName
+pattern CSMNMemoryUtilization = ContainerServiceMetricName' "MemoryUtilization"
 
-instance Hashable ContainerServiceMetricName
-
-instance NFData ContainerServiceMetricName
-
-instance ToByteString ContainerServiceMetricName
-
-instance ToQuery ContainerServiceMetricName
-
-instance ToHeader ContainerServiceMetricName
-
-instance ToJSON ContainerServiceMetricName where
-  toJSON = toJSONText
-
-instance FromJSON ContainerServiceMetricName where
-  parseJSON = parseJSONText "ContainerServiceMetricName"
+{-# COMPLETE
+  CSMNCPUUtilization,
+  CSMNMemoryUtilization,
+  ContainerServiceMetricName'
+  #-}

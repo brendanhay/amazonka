@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.TaggingDirective where
+module Network.AWS.S3.Types.TaggingDirective
+  ( TaggingDirective
+      ( TaggingDirective',
+        Copy,
+        Replace
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data TaggingDirective
-  = Copy
-  | Replace
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaggingDirective = TaggingDirective' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaggingDirective where
-  parser =
-    takeLowerText >>= \case
-      "copy" -> pure Copy
-      "replace" -> pure Replace
-      e ->
-        fromTextError $
-          "Failure parsing TaggingDirective from value: '" <> e
-            <> "'. Accepted values: copy, replace"
+pattern Copy :: TaggingDirective
+pattern Copy = TaggingDirective' "COPY"
 
-instance ToText TaggingDirective where
-  toText = \case
-    Copy -> "COPY"
-    Replace -> "REPLACE"
+pattern Replace :: TaggingDirective
+pattern Replace = TaggingDirective' "REPLACE"
 
-instance Hashable TaggingDirective
-
-instance NFData TaggingDirective
-
-instance ToByteString TaggingDirective
-
-instance ToQuery TaggingDirective
-
-instance ToHeader TaggingDirective
-
-instance ToXML TaggingDirective where
-  toXML = toXMLText
+{-# COMPLETE
+  Copy,
+  Replace,
+  TaggingDirective'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a fleet provisioning template.
 module Network.AWS.IoT.UpdateProvisioningTemplate
-  ( -- * Creating a Request
-    updateProvisioningTemplate,
-    UpdateProvisioningTemplate,
+  ( -- * Creating a request
+    UpdateProvisioningTemplate (..),
+    mkUpdateProvisioningTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uptPreProvisioningHook,
     uptEnabled,
     uptProvisioningRoleARN,
@@ -32,158 +27,183 @@ module Network.AWS.IoT.UpdateProvisioningTemplate
     uptDescription,
     uptTemplateName,
 
-    -- * Destructuring the Response
-    updateProvisioningTemplateResponse,
-    UpdateProvisioningTemplateResponse,
+    -- * Destructuring the response
+    UpdateProvisioningTemplateResponse (..),
+    mkUpdateProvisioningTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uptrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateProvisioningTemplate' smart constructor.
+-- | /See:/ 'mkUpdateProvisioningTemplate' smart constructor.
 data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
-  { _uptPreProvisioningHook ::
-      !(Maybe ProvisioningHook),
-    _uptEnabled :: !(Maybe Bool),
-    _uptProvisioningRoleARN ::
-      !(Maybe Text),
-    _uptDefaultVersionId :: !(Maybe Int),
-    _uptRemovePreProvisioningHook ::
-      !(Maybe Bool),
-    _uptDescription :: !(Maybe Text),
-    _uptTemplateName :: !Text
+  { preProvisioningHook ::
+      Lude.Maybe ProvisioningHook,
+    enabled :: Lude.Maybe Lude.Bool,
+    provisioningRoleARN ::
+      Lude.Maybe Lude.Text,
+    defaultVersionId ::
+      Lude.Maybe Lude.Int,
+    removePreProvisioningHook ::
+      Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    templateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uptPreProvisioningHook' - Updates the pre-provisioning hook template.
---
--- * 'uptEnabled' - True to enable the fleet provisioning template, otherwise false.
---
--- * 'uptProvisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
---
--- * 'uptDefaultVersionId' - The ID of the default provisioning template version.
---
--- * 'uptRemovePreProvisioningHook' - Removes pre-provisioning hook template.
---
--- * 'uptDescription' - The description of the fleet provisioning template.
---
--- * 'uptTemplateName' - The name of the fleet provisioning template.
-updateProvisioningTemplate ::
-  -- | 'uptTemplateName'
-  Text ->
+-- * 'defaultVersionId' - The ID of the default provisioning template version.
+-- * 'description' - The description of the fleet provisioning template.
+-- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
+-- * 'preProvisioningHook' - Updates the pre-provisioning hook template.
+-- * 'provisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
+-- * 'removePreProvisioningHook' - Removes pre-provisioning hook template.
+-- * 'templateName' - The name of the fleet provisioning template.
+mkUpdateProvisioningTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   UpdateProvisioningTemplate
-updateProvisioningTemplate pTemplateName_ =
+mkUpdateProvisioningTemplate pTemplateName_ =
   UpdateProvisioningTemplate'
-    { _uptPreProvisioningHook = Nothing,
-      _uptEnabled = Nothing,
-      _uptProvisioningRoleARN = Nothing,
-      _uptDefaultVersionId = Nothing,
-      _uptRemovePreProvisioningHook = Nothing,
-      _uptDescription = Nothing,
-      _uptTemplateName = pTemplateName_
+    { preProvisioningHook = Lude.Nothing,
+      enabled = Lude.Nothing,
+      provisioningRoleARN = Lude.Nothing,
+      defaultVersionId = Lude.Nothing,
+      removePreProvisioningHook = Lude.Nothing,
+      description = Lude.Nothing,
+      templateName = pTemplateName_
     }
 
 -- | Updates the pre-provisioning hook template.
-uptPreProvisioningHook :: Lens' UpdateProvisioningTemplate (Maybe ProvisioningHook)
-uptPreProvisioningHook = lens _uptPreProvisioningHook (\s a -> s {_uptPreProvisioningHook = a})
+--
+-- /Note:/ Consider using 'preProvisioningHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptPreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe ProvisioningHook)
+uptPreProvisioningHook = Lens.lens (preProvisioningHook :: UpdateProvisioningTemplate -> Lude.Maybe ProvisioningHook) (\s a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptPreProvisioningHook "Use generic-lens or generic-optics with 'preProvisioningHook' instead." #-}
 
 -- | True to enable the fleet provisioning template, otherwise false.
-uptEnabled :: Lens' UpdateProvisioningTemplate (Maybe Bool)
-uptEnabled = lens _uptEnabled (\s a -> s {_uptEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptEnabled :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Bool)
+uptEnabled = Lens.lens (enabled :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
-uptProvisioningRoleARN :: Lens' UpdateProvisioningTemplate (Maybe Text)
-uptProvisioningRoleARN = lens _uptProvisioningRoleARN (\s a -> s {_uptProvisioningRoleARN = a})
+--
+-- /Note:/ Consider using 'provisioningRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptProvisioningRoleARN :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Text)
+uptProvisioningRoleARN = Lens.lens (provisioningRoleARN :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Text) (\s a -> s {provisioningRoleARN = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptProvisioningRoleARN "Use generic-lens or generic-optics with 'provisioningRoleARN' instead." #-}
 
 -- | The ID of the default provisioning template version.
-uptDefaultVersionId :: Lens' UpdateProvisioningTemplate (Maybe Int)
-uptDefaultVersionId = lens _uptDefaultVersionId (\s a -> s {_uptDefaultVersionId = a})
+--
+-- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptDefaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Int)
+uptDefaultVersionId = Lens.lens (defaultVersionId :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Int) (\s a -> s {defaultVersionId = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
 
 -- | Removes pre-provisioning hook template.
-uptRemovePreProvisioningHook :: Lens' UpdateProvisioningTemplate (Maybe Bool)
-uptRemovePreProvisioningHook = lens _uptRemovePreProvisioningHook (\s a -> s {_uptRemovePreProvisioningHook = a})
+--
+-- /Note:/ Consider using 'removePreProvisioningHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptRemovePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Bool)
+uptRemovePreProvisioningHook = Lens.lens (removePreProvisioningHook :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {removePreProvisioningHook = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptRemovePreProvisioningHook "Use generic-lens or generic-optics with 'removePreProvisioningHook' instead." #-}
 
 -- | The description of the fleet provisioning template.
-uptDescription :: Lens' UpdateProvisioningTemplate (Maybe Text)
-uptDescription = lens _uptDescription (\s a -> s {_uptDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptDescription :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Text)
+uptDescription = Lens.lens (description :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the fleet provisioning template.
-uptTemplateName :: Lens' UpdateProvisioningTemplate Text
-uptTemplateName = lens _uptTemplateName (\s a -> s {_uptTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptTemplateName :: Lens.Lens' UpdateProvisioningTemplate Lude.Text
+uptTemplateName = Lens.lens (templateName :: UpdateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest UpdateProvisioningTemplate where
+instance Lude.AWSRequest UpdateProvisioningTemplate where
   type
     Rs UpdateProvisioningTemplate =
       UpdateProvisioningTemplateResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateProvisioningTemplateResponse' <$> (pure (fromEnum s))
+          UpdateProvisioningTemplateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateProvisioningTemplate
+instance Lude.ToHeaders UpdateProvisioningTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateProvisioningTemplate
-
-instance ToHeaders UpdateProvisioningTemplate where
-  toHeaders = const mempty
-
-instance ToJSON UpdateProvisioningTemplate where
+instance Lude.ToJSON UpdateProvisioningTemplate where
   toJSON UpdateProvisioningTemplate' {..} =
-    object
-      ( catMaybes
-          [ ("preProvisioningHook" .=) <$> _uptPreProvisioningHook,
-            ("enabled" .=) <$> _uptEnabled,
-            ("provisioningRoleArn" .=) <$> _uptProvisioningRoleARN,
-            ("defaultVersionId" .=) <$> _uptDefaultVersionId,
-            ("removePreProvisioningHook" .=) <$> _uptRemovePreProvisioningHook,
-            ("description" .=) <$> _uptDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("preProvisioningHook" Lude..=) Lude.<$> preProvisioningHook,
+            ("enabled" Lude..=) Lude.<$> enabled,
+            ("provisioningRoleArn" Lude..=) Lude.<$> provisioningRoleARN,
+            ("defaultVersionId" Lude..=) Lude.<$> defaultVersionId,
+            ("removePreProvisioningHook" Lude..=)
+              Lude.<$> removePreProvisioningHook,
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
-instance ToPath UpdateProvisioningTemplate where
+instance Lude.ToPath UpdateProvisioningTemplate where
   toPath UpdateProvisioningTemplate' {..} =
-    mconcat ["/provisioning-templates/", toBS _uptTemplateName]
+    Lude.mconcat ["/provisioning-templates/", Lude.toBS templateName]
 
-instance ToQuery UpdateProvisioningTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateProvisioningTemplate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateProvisioningTemplateResponse' smart constructor.
+-- | /See:/ 'mkUpdateProvisioningTemplateResponse' smart constructor.
 newtype UpdateProvisioningTemplateResponse = UpdateProvisioningTemplateResponse'
-  { _uptrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uptrsResponseStatus' - -- | The response status code.
-updateProvisioningTemplateResponse ::
-  -- | 'uptrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateProvisioningTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateProvisioningTemplateResponse
-updateProvisioningTemplateResponse pResponseStatus_ =
+mkUpdateProvisioningTemplateResponse pResponseStatus_ =
   UpdateProvisioningTemplateResponse'
-    { _uptrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uptrsResponseStatus :: Lens' UpdateProvisioningTemplateResponse Int
-uptrsResponseStatus = lens _uptrsResponseStatus (\s a -> s {_uptrsResponseStatus = a})
-
-instance NFData UpdateProvisioningTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptrsResponseStatus :: Lens.Lens' UpdateProvisioningTemplateResponse Lude.Int
+uptrsResponseStatus = Lens.lens (responseStatus :: UpdateProvisioningTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProvisioningTemplateResponse)
+{-# DEPRECATED uptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

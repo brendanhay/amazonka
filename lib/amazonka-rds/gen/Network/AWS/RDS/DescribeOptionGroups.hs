@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Describes the available option groups.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOptionGroups
-  ( -- * Creating a Request
-    describeOptionGroups,
-    DescribeOptionGroups,
+  ( -- * Creating a request
+    DescribeOptionGroups (..),
+    mkDescribeOptionGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dogFilters,
     dogEngineName,
     dogMajorEngineVersion,
@@ -35,179 +28,207 @@ module Network.AWS.RDS.DescribeOptionGroups
     dogMaxRecords,
     dogOptionGroupName,
 
-    -- * Destructuring the Response
-    describeOptionGroupsResponse,
-    DescribeOptionGroupsResponse,
+    -- * Destructuring the response
+    DescribeOptionGroupsResponse (..),
+    mkDescribeOptionGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dogrsMarker,
     dogrsOptionGroupsList,
     dogrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeOptionGroups' smart constructor.
+-- /See:/ 'mkDescribeOptionGroups' smart constructor.
 data DescribeOptionGroups = DescribeOptionGroups'
-  { _dogFilters ::
-      !(Maybe [Filter]),
-    _dogEngineName :: !(Maybe Text),
-    _dogMajorEngineVersion :: !(Maybe Text),
-    _dogMarker :: !(Maybe Text),
-    _dogMaxRecords :: !(Maybe Int),
-    _dogOptionGroupName :: !(Maybe Text)
+  { filters ::
+      Lude.Maybe [Filter],
+    engineName :: Lude.Maybe Lude.Text,
+    majorEngineVersion :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    optionGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOptionGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'engineName' - Filters the list of option groups to only include groups associated with a specific database engine.
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'majorEngineVersion' - Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.
+-- * 'marker' - An optional pagination token provided by a previous DescribeOptionGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
--- * 'dogFilters' - This parameter isn't currently supported.
---
--- * 'dogEngineName' - Filters the list of option groups to only include groups associated with a specific database engine.
---
--- * 'dogMajorEngineVersion' - Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.
---
--- * 'dogMarker' - An optional pagination token provided by a previous DescribeOptionGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dogMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'dogOptionGroupName' - The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
-describeOptionGroups ::
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'optionGroupName' - The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
+mkDescribeOptionGroups ::
   DescribeOptionGroups
-describeOptionGroups =
+mkDescribeOptionGroups =
   DescribeOptionGroups'
-    { _dogFilters = Nothing,
-      _dogEngineName = Nothing,
-      _dogMajorEngineVersion = Nothing,
-      _dogMarker = Nothing,
-      _dogMaxRecords = Nothing,
-      _dogOptionGroupName = Nothing
+    { filters = Lude.Nothing,
+      engineName = Lude.Nothing,
+      majorEngineVersion = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      optionGroupName = Lude.Nothing
     }
 
 -- | This parameter isn't currently supported.
-dogFilters :: Lens' DescribeOptionGroups [Filter]
-dogFilters = lens _dogFilters (\s a -> s {_dogFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogFilters :: Lens.Lens' DescribeOptionGroups (Lude.Maybe [Filter])
+dogFilters = Lens.lens (filters :: DescribeOptionGroups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | Filters the list of option groups to only include groups associated with a specific database engine.
-dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
-dogEngineName = lens _dogEngineName (\s a -> s {_dogEngineName = a})
+--
+-- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogEngineName :: Lens.Lens' DescribeOptionGroups (Lude.Maybe Lude.Text)
+dogEngineName = Lens.lens (engineName :: DescribeOptionGroups -> Lude.Maybe Lude.Text) (\s a -> s {engineName = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 -- | Filters the list of option groups to only include groups associated with a specific database engine version. If specified, then EngineName must also be specified.
-dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
-dogMajorEngineVersion = lens _dogMajorEngineVersion (\s a -> s {_dogMajorEngineVersion = a})
+--
+-- /Note:/ Consider using 'majorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogMajorEngineVersion :: Lens.Lens' DescribeOptionGroups (Lude.Maybe Lude.Text)
+dogMajorEngineVersion = Lens.lens (majorEngineVersion :: DescribeOptionGroups -> Lude.Maybe Lude.Text) (\s a -> s {majorEngineVersion = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogMajorEngineVersion "Use generic-lens or generic-optics with 'majorEngineVersion' instead." #-}
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dogMarker = lens _dogMarker (\s a -> s {_dogMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogMarker :: Lens.Lens' DescribeOptionGroups (Lude.Maybe Lude.Text)
+dogMarker = Lens.lens (marker :: DescribeOptionGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
-dogMaxRecords = lens _dogMaxRecords (\s a -> s {_dogMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogMaxRecords :: Lens.Lens' DescribeOptionGroups (Lude.Maybe Lude.Int)
+dogMaxRecords = Lens.lens (maxRecords :: DescribeOptionGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
-dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
-dogOptionGroupName = lens _dogOptionGroupName (\s a -> s {_dogOptionGroupName = a})
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogOptionGroupName :: Lens.Lens' DescribeOptionGroups (Lude.Maybe Lude.Text)
+dogOptionGroupName = Lens.lens (optionGroupName :: DescribeOptionGroups -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: DescribeOptionGroups)
+{-# DEPRECATED dogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance AWSPager DescribeOptionGroups where
+instance Page.AWSPager DescribeOptionGroups where
   page rq rs
-    | stop (rs ^. dogrsMarker) = Nothing
-    | stop (rs ^. dogrsOptionGroupsList) = Nothing
-    | otherwise = Just $ rq & dogMarker .~ rs ^. dogrsMarker
+    | Page.stop (rs Lens.^. dogrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dogrsOptionGroupsList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dogMarker Lens..~ rs Lens.^. dogrsMarker
 
-instance AWSRequest DescribeOptionGroups where
+instance Lude.AWSRequest DescribeOptionGroups where
   type Rs DescribeOptionGroups = DescribeOptionGroupsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeOptionGroupsResult"
       ( \s h x ->
           DescribeOptionGroupsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "OptionGroupsList" .!@ mempty
-                    >>= may (parseXMLList "OptionGroup")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "OptionGroupsList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "OptionGroup")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOptionGroups
+instance Lude.ToHeaders DescribeOptionGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeOptionGroups
+instance Lude.ToPath DescribeOptionGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeOptionGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeOptionGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeOptionGroups where
+instance Lude.ToQuery DescribeOptionGroups where
   toQuery DescribeOptionGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeOptionGroups" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dogFilters),
-        "EngineName" =: _dogEngineName,
-        "MajorEngineVersion" =: _dogMajorEngineVersion,
-        "Marker" =: _dogMarker,
-        "MaxRecords" =: _dogMaxRecords,
-        "OptionGroupName" =: _dogOptionGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeOptionGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "EngineName" Lude.=: engineName,
+        "MajorEngineVersion" Lude.=: majorEngineVersion,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "OptionGroupName" Lude.=: optionGroupName
       ]
 
 -- | List of option groups.
 --
---
---
--- /See:/ 'describeOptionGroupsResponse' smart constructor.
+-- /See:/ 'mkDescribeOptionGroupsResponse' smart constructor.
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
-  { _dogrsMarker ::
-      !(Maybe Text),
-    _dogrsOptionGroupsList ::
-      !(Maybe [OptionGroup]),
-    _dogrsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    optionGroupsList ::
+      Lude.Maybe [OptionGroup],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOptionGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dogrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dogrsOptionGroupsList' - List of option groups.
---
--- * 'dogrsResponseStatus' - -- | The response status code.
-describeOptionGroupsResponse ::
-  -- | 'dogrsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'optionGroupsList' - List of option groups.
+-- * 'responseStatus' - The response status code.
+mkDescribeOptionGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOptionGroupsResponse
-describeOptionGroupsResponse pResponseStatus_ =
+mkDescribeOptionGroupsResponse pResponseStatus_ =
   DescribeOptionGroupsResponse'
-    { _dogrsMarker = Nothing,
-      _dogrsOptionGroupsList = Nothing,
-      _dogrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      optionGroupsList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dogrsMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
-dogrsMarker = lens _dogrsMarker (\s a -> s {_dogrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogrsMarker :: Lens.Lens' DescribeOptionGroupsResponse (Lude.Maybe Lude.Text)
+dogrsMarker = Lens.lens (marker :: DescribeOptionGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOptionGroupsResponse)
+{-# DEPRECATED dogrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | List of option groups.
-dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
-dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\s a -> s {_dogrsOptionGroupsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionGroupsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogrsOptionGroupsList :: Lens.Lens' DescribeOptionGroupsResponse (Lude.Maybe [OptionGroup])
+dogrsOptionGroupsList = Lens.lens (optionGroupsList :: DescribeOptionGroupsResponse -> Lude.Maybe [OptionGroup]) (\s a -> s {optionGroupsList = a} :: DescribeOptionGroupsResponse)
+{-# DEPRECATED dogrsOptionGroupsList "Use generic-lens or generic-optics with 'optionGroupsList' instead." #-}
 
--- | -- | The response status code.
-dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
-dogrsResponseStatus = lens _dogrsResponseStatus (\s a -> s {_dogrsResponseStatus = a})
-
-instance NFData DescribeOptionGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogrsResponseStatus :: Lens.Lens' DescribeOptionGroupsResponse Lude.Int
+dogrsResponseStatus = Lens.lens (responseStatus :: DescribeOptionGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOptionGroupsResponse)
+{-# DEPRECATED dogrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

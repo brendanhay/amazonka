@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AttachmentHashType where
+module Network.AWS.SSM.Types.AttachmentHashType
+  ( AttachmentHashType
+      ( AttachmentHashType',
+        SHA256
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AttachmentHashType = SHA256
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AttachmentHashType = AttachmentHashType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AttachmentHashType where
-  parser =
-    takeLowerText >>= \case
-      "sha256" -> pure SHA256
-      e ->
-        fromTextError $
-          "Failure parsing AttachmentHashType from value: '" <> e
-            <> "'. Accepted values: sha256"
+pattern SHA256 :: AttachmentHashType
+pattern SHA256 = AttachmentHashType' "Sha256"
 
-instance ToText AttachmentHashType where
-  toText = \case
-    SHA256 -> "Sha256"
-
-instance Hashable AttachmentHashType
-
-instance NFData AttachmentHashType
-
-instance ToByteString AttachmentHashType
-
-instance ToQuery AttachmentHashType
-
-instance ToHeader AttachmentHashType
-
-instance FromJSON AttachmentHashType where
-  parseJSON = parseJSONText "AttachmentHashType"
+{-# COMPLETE
+  SHA256,
+  AttachmentHashType'
+  #-}

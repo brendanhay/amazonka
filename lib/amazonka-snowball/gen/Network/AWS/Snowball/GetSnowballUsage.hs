@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,128 @@
 --
 -- Returns information about the Snow Family service limit for your account, and also the number of Snow devices your account has in use.
 --
---
 -- The default service limit for the number of Snow devices that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
 module Network.AWS.Snowball.GetSnowballUsage
-  ( -- * Creating a Request
-    getSnowballUsage,
-    GetSnowballUsage,
+  ( -- * Creating a request
+    GetSnowballUsage (..),
+    mkGetSnowballUsage,
 
-    -- * Destructuring the Response
-    getSnowballUsageResponse,
-    GetSnowballUsageResponse,
+    -- * Destructuring the response
+    GetSnowballUsageResponse (..),
+    mkGetSnowballUsageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsSnowballsInUse,
     grsSnowballLimit,
     grsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'getSnowballUsage' smart constructor.
+-- | /See:/ 'mkGetSnowballUsage' smart constructor.
 data GetSnowballUsage = GetSnowballUsage'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSnowballUsage' with the minimum fields required to make a request.
-getSnowballUsage ::
+mkGetSnowballUsage ::
   GetSnowballUsage
-getSnowballUsage = GetSnowballUsage'
+mkGetSnowballUsage = GetSnowballUsage'
 
-instance AWSRequest GetSnowballUsage where
+instance Lude.AWSRequest GetSnowballUsage where
   type Rs GetSnowballUsage = GetSnowballUsageResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSnowballUsageResponse'
-            <$> (x .?> "SnowballsInUse")
-            <*> (x .?> "SnowballLimit")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SnowballsInUse")
+            Lude.<*> (x Lude..?> "SnowballLimit")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSnowballUsage
-
-instance NFData GetSnowballUsage
-
-instance ToHeaders GetSnowballUsage where
+instance Lude.ToHeaders GetSnowballUsage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.GetSnowballUsage" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.GetSnowballUsage" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSnowballUsage where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetSnowballUsage where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetSnowballUsage where
-  toPath = const "/"
+instance Lude.ToPath GetSnowballUsage where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSnowballUsage where
-  toQuery = const mempty
+instance Lude.ToQuery GetSnowballUsage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSnowballUsageResponse' smart constructor.
+-- | /See:/ 'mkGetSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
-  { _grsSnowballsInUse ::
-      !(Maybe Int),
-    _grsSnowballLimit :: !(Maybe Int),
-    _grsResponseStatus :: !Int
+  { snowballsInUse ::
+      Lude.Maybe Lude.Int,
+    snowballLimit :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSnowballUsageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsSnowballsInUse' - The number of Snow devices that this account is currently using.
---
--- * 'grsSnowballLimit' - The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
---
--- * 'grsResponseStatus' - -- | The response status code.
-getSnowballUsageResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snowballLimit' - The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
+-- * 'snowballsInUse' - The number of Snow devices that this account is currently using.
+mkGetSnowballUsageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSnowballUsageResponse
-getSnowballUsageResponse pResponseStatus_ =
+mkGetSnowballUsageResponse pResponseStatus_ =
   GetSnowballUsageResponse'
-    { _grsSnowballsInUse = Nothing,
-      _grsSnowballLimit = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { snowballsInUse = Lude.Nothing,
+      snowballLimit = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of Snow devices that this account is currently using.
-grsSnowballsInUse :: Lens' GetSnowballUsageResponse (Maybe Int)
-grsSnowballsInUse = lens _grsSnowballsInUse (\s a -> s {_grsSnowballsInUse = a})
+--
+-- /Note:/ Consider using 'snowballsInUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsSnowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
+grsSnowballsInUse = Lens.lens (snowballsInUse :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED grsSnowballsInUse "Use generic-lens or generic-optics with 'snowballsInUse' instead." #-}
 
 -- | The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
-grsSnowballLimit :: Lens' GetSnowballUsageResponse (Maybe Int)
-grsSnowballLimit = lens _grsSnowballLimit (\s a -> s {_grsSnowballLimit = a})
+--
+-- /Note:/ Consider using 'snowballLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsSnowballLimit :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
+grsSnowballLimit = Lens.lens (snowballLimit :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballLimit = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED grsSnowballLimit "Use generic-lens or generic-optics with 'snowballLimit' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetSnowballUsageResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetSnowballUsageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetSnowballUsageResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetSnowballUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,89 @@
 --
 -- Deletes the specified application.
 module Network.AWS.ServerlessApplicationRepository.DeleteApplication
-  ( -- * Creating a Request
-    deleteApplication,
-    DeleteApplication,
+  ( -- * Creating a request
+    DeleteApplication (..),
+    mkDeleteApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daApplicationId,
 
-    -- * Destructuring the Response
-    deleteApplicationResponse,
-    DeleteApplicationResponse,
+    -- * Destructuring the response
+    DeleteApplicationResponse (..),
+    mkDeleteApplicationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'deleteApplication' smart constructor.
+-- | /See:/ 'mkDeleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
-  { _daApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daApplicationId' - The Amazon Resource Name (ARN) of the application.
-deleteApplication ::
-  -- | 'daApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+mkDeleteApplication ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteApplication
-deleteApplication pApplicationId_ =
-  DeleteApplication' {_daApplicationId = pApplicationId_}
+mkDeleteApplication pApplicationId_ =
+  DeleteApplication' {applicationId = pApplicationId_}
 
 -- | The Amazon Resource Name (ARN) of the application.
-daApplicationId :: Lens' DeleteApplication Text
-daApplicationId = lens _daApplicationId (\s a -> s {_daApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daApplicationId :: Lens.Lens' DeleteApplication Lude.Text
+daApplicationId = Lens.lens (applicationId :: DeleteApplication -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteApplication)
+{-# DEPRECATED daApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteApplication where
+instance Lude.AWSRequest DeleteApplication where
   type Rs DeleteApplication = DeleteApplicationResponse
-  request = delete serverlessApplicationRepository
-  response = receiveNull DeleteApplicationResponse'
+  request = Req.delete serverlessApplicationRepositoryService
+  response = Res.receiveNull DeleteApplicationResponse'
 
-instance Hashable DeleteApplication
-
-instance NFData DeleteApplication
-
-instance ToHeaders DeleteApplication where
+instance Lude.ToHeaders DeleteApplication where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteApplication where
+instance Lude.ToPath DeleteApplication where
   toPath DeleteApplication' {..} =
-    mconcat ["/applications/", toBS _daApplicationId]
+    Lude.mconcat ["/applications/", Lude.toBS applicationId]
 
-instance ToQuery DeleteApplication where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteApplicationResponse' smart constructor.
+-- | /See:/ 'mkDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
-deleteApplicationResponse ::
+mkDeleteApplicationResponse ::
   DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse'
-
-instance NFData DeleteApplicationResponse
+mkDeleteApplicationResponse = DeleteApplicationResponse'

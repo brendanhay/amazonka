@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,113 @@
 --
 -- Delete all schedule actions on a channel.
 module Network.AWS.MediaLive.DeleteSchedule
-  ( -- * Creating a Request
-    deleteSchedule,
-    DeleteSchedule,
+  ( -- * Creating a request
+    DeleteSchedule (..),
+    mkDeleteSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsChannelId,
 
-    -- * Destructuring the Response
-    deleteScheduleResponse,
-    DeleteScheduleResponse,
+    -- * Destructuring the response
+    DeleteScheduleResponse (..),
+    mkDeleteScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DeleteScheduleRequest
 --
--- /See:/ 'deleteSchedule' smart constructor.
-newtype DeleteSchedule = DeleteSchedule' {_dsChannelId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteSchedule' smart constructor.
+newtype DeleteSchedule = DeleteSchedule' {channelId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsChannelId' - Id of the channel whose schedule is being deleted.
-deleteSchedule ::
-  -- | 'dsChannelId'
-  Text ->
+-- * 'channelId' - Id of the channel whose schedule is being deleted.
+mkDeleteSchedule ::
+  -- | 'channelId'
+  Lude.Text ->
   DeleteSchedule
-deleteSchedule pChannelId_ =
-  DeleteSchedule' {_dsChannelId = pChannelId_}
+mkDeleteSchedule pChannelId_ =
+  DeleteSchedule' {channelId = pChannelId_}
 
 -- | Id of the channel whose schedule is being deleted.
-dsChannelId :: Lens' DeleteSchedule Text
-dsChannelId = lens _dsChannelId (\s a -> s {_dsChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsChannelId :: Lens.Lens' DeleteSchedule Lude.Text
+dsChannelId = Lens.lens (channelId :: DeleteSchedule -> Lude.Text) (\s a -> s {channelId = a} :: DeleteSchedule)
+{-# DEPRECATED dsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance AWSRequest DeleteSchedule where
+instance Lude.AWSRequest DeleteSchedule where
   type Rs DeleteSchedule = DeleteScheduleResponse
-  request = delete mediaLive
+  request = Req.delete mediaLiveService
   response =
-    receiveEmpty
-      (\s h x -> DeleteScheduleResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteSchedule
-
-instance NFData DeleteSchedule
-
-instance ToHeaders DeleteSchedule where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteScheduleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteSchedule where
-  toPath DeleteSchedule' {..} =
-    mconcat ["/prod/channels/", toBS _dsChannelId, "/schedule"]
+instance Lude.ToHeaders DeleteSchedule where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
 
-instance ToQuery DeleteSchedule where
-  toQuery = const mempty
+instance Lude.ToPath DeleteSchedule where
+  toPath DeleteSchedule' {..} =
+    Lude.mconcat
+      ["/prod/channels/", Lude.toBS channelId, "/schedule"]
+
+instance Lude.ToQuery DeleteSchedule where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteScheduleResponse
 --
--- /See:/ 'deleteScheduleResponse' smart constructor.
+-- /See:/ 'mkDeleteScheduleResponse' smart constructor.
 newtype DeleteScheduleResponse = DeleteScheduleResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteScheduleResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteScheduleResponse
-deleteScheduleResponse pResponseStatus_ =
-  DeleteScheduleResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteScheduleResponse pResponseStatus_ =
+  DeleteScheduleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteScheduleResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteScheduleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteScheduleResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteScheduleResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.KeyUsageName where
+module Network.AWS.CertificateManager.Types.KeyUsageName
+  ( KeyUsageName
+      ( KeyUsageName',
+        KUNAny,
+        KUNCertificateSigning,
+        KUNCrlSigning,
+        KUNCustom,
+        KUNDataEncipherment,
+        KUNDecipherOnly,
+        KUNDigitalSignature,
+        KUNEncipherOnly,
+        KUNKeyAgreement,
+        KUNKeyEncipherment,
+        KUNNonRepudiation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data KeyUsageName
-  = KUNAny
-  | KUNCertificateSigning
-  | KUNCrlSigning
-  | KUNCustom
-  | KUNDataEncipherment
-  | KUNDecipherOnly
-  | KUNDigitalSignature
-  | KUNEncipherOnly
-  | KUNKeyAgreement
-  | KUNKeyEncipherment
-  | KUNNonRepudiation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype KeyUsageName = KeyUsageName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText KeyUsageName where
-  parser =
-    takeLowerText >>= \case
-      "any" -> pure KUNAny
-      "certificate_signing" -> pure KUNCertificateSigning
-      "crl_signing" -> pure KUNCrlSigning
-      "custom" -> pure KUNCustom
-      "data_encipherment" -> pure KUNDataEncipherment
-      "decipher_only" -> pure KUNDecipherOnly
-      "digital_signature" -> pure KUNDigitalSignature
-      "encipher_only" -> pure KUNEncipherOnly
-      "key_agreement" -> pure KUNKeyAgreement
-      "key_encipherment" -> pure KUNKeyEncipherment
-      "non_repudiation" -> pure KUNNonRepudiation
-      e ->
-        fromTextError $
-          "Failure parsing KeyUsageName from value: '" <> e
-            <> "'. Accepted values: any, certificate_signing, crl_signing, custom, data_encipherment, decipher_only, digital_signature, encipher_only, key_agreement, key_encipherment, non_repudiation"
+pattern KUNAny :: KeyUsageName
+pattern KUNAny = KeyUsageName' "ANY"
 
-instance ToText KeyUsageName where
-  toText = \case
-    KUNAny -> "ANY"
-    KUNCertificateSigning -> "CERTIFICATE_SIGNING"
-    KUNCrlSigning -> "CRL_SIGNING"
-    KUNCustom -> "CUSTOM"
-    KUNDataEncipherment -> "DATA_ENCIPHERMENT"
-    KUNDecipherOnly -> "DECIPHER_ONLY"
-    KUNDigitalSignature -> "DIGITAL_SIGNATURE"
-    KUNEncipherOnly -> "ENCIPHER_ONLY"
-    KUNKeyAgreement -> "KEY_AGREEMENT"
-    KUNKeyEncipherment -> "KEY_ENCIPHERMENT"
-    KUNNonRepudiation -> "NON_REPUDIATION"
+pattern KUNCertificateSigning :: KeyUsageName
+pattern KUNCertificateSigning = KeyUsageName' "CERTIFICATE_SIGNING"
 
-instance Hashable KeyUsageName
+pattern KUNCrlSigning :: KeyUsageName
+pattern KUNCrlSigning = KeyUsageName' "CRL_SIGNING"
 
-instance NFData KeyUsageName
+pattern KUNCustom :: KeyUsageName
+pattern KUNCustom = KeyUsageName' "CUSTOM"
 
-instance ToByteString KeyUsageName
+pattern KUNDataEncipherment :: KeyUsageName
+pattern KUNDataEncipherment = KeyUsageName' "DATA_ENCIPHERMENT"
 
-instance ToQuery KeyUsageName
+pattern KUNDecipherOnly :: KeyUsageName
+pattern KUNDecipherOnly = KeyUsageName' "DECIPHER_ONLY"
 
-instance ToHeader KeyUsageName
+pattern KUNDigitalSignature :: KeyUsageName
+pattern KUNDigitalSignature = KeyUsageName' "DIGITAL_SIGNATURE"
 
-instance ToJSON KeyUsageName where
-  toJSON = toJSONText
+pattern KUNEncipherOnly :: KeyUsageName
+pattern KUNEncipherOnly = KeyUsageName' "ENCIPHER_ONLY"
 
-instance FromJSON KeyUsageName where
-  parseJSON = parseJSONText "KeyUsageName"
+pattern KUNKeyAgreement :: KeyUsageName
+pattern KUNKeyAgreement = KeyUsageName' "KEY_AGREEMENT"
+
+pattern KUNKeyEncipherment :: KeyUsageName
+pattern KUNKeyEncipherment = KeyUsageName' "KEY_ENCIPHERMENT"
+
+pattern KUNNonRepudiation :: KeyUsageName
+pattern KUNNonRepudiation = KeyUsageName' "NON_REPUDIATION"
+
+{-# COMPLETE
+  KUNAny,
+  KUNCertificateSigning,
+  KUNCrlSigning,
+  KUNCustom,
+  KUNDataEncipherment,
+  KUNDecipherOnly,
+  KUNDigitalSignature,
+  KUNEncipherOnly,
+  KUNKeyAgreement,
+  KUNKeyEncipherment,
+  KUNNonRepudiation,
+  KeyUsageName'
+  #-}

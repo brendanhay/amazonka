@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.LayerAvailability where
+module Network.AWS.ECR.Types.LayerAvailability
+  ( LayerAvailability
+      ( LayerAvailability',
+        Available,
+        Unavailable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LayerAvailability
-  = Available
-  | Unavailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LayerAvailability = LayerAvailability' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LayerAvailability where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "unavailable" -> pure Unavailable
-      e ->
-        fromTextError $
-          "Failure parsing LayerAvailability from value: '" <> e
-            <> "'. Accepted values: available, unavailable"
+pattern Available :: LayerAvailability
+pattern Available = LayerAvailability' "AVAILABLE"
 
-instance ToText LayerAvailability where
-  toText = \case
-    Available -> "AVAILABLE"
-    Unavailable -> "UNAVAILABLE"
+pattern Unavailable :: LayerAvailability
+pattern Unavailable = LayerAvailability' "UNAVAILABLE"
 
-instance Hashable LayerAvailability
-
-instance NFData LayerAvailability
-
-instance ToByteString LayerAvailability
-
-instance ToQuery LayerAvailability
-
-instance ToHeader LayerAvailability
-
-instance FromJSON LayerAvailability where
-  parseJSON = parseJSONText "LayerAvailability"
+{-# COMPLETE
+  Available,
+  Unavailable,
+  LayerAvailability'
+  #-}

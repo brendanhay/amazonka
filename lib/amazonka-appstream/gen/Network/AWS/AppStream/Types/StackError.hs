@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.StackError where
+module Network.AWS.AppStream.Types.StackError
+  ( StackError (..),
+
+    -- * Smart constructor
+    mkStackError,
+
+    -- * Lenses
+    seErrorCode,
+    seErrorMessage,
+  )
+where
 
 import Network.AWS.AppStream.Types.StackErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a stack error.
 --
---
---
--- /See:/ 'stackError' smart constructor.
+-- /See:/ 'mkStackError' smart constructor.
 data StackError = StackError'
-  { _seErrorCode ::
-      !(Maybe StackErrorCode),
-    _seErrorMessage :: !(Maybe Text)
+  { errorCode ::
+      Lude.Maybe StackErrorCode,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seErrorCode' - The error code.
---
--- * 'seErrorMessage' - The error message.
-stackError ::
+-- * 'errorCode' - The error code.
+-- * 'errorMessage' - The error message.
+mkStackError ::
   StackError
-stackError =
-  StackError' {_seErrorCode = Nothing, _seErrorMessage = Nothing}
+mkStackError =
+  StackError'
+    { errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
+    }
 
 -- | The error code.
-seErrorCode :: Lens' StackError (Maybe StackErrorCode)
-seErrorCode = lens _seErrorCode (\s a -> s {_seErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seErrorCode :: Lens.Lens' StackError (Lude.Maybe StackErrorCode)
+seErrorCode = Lens.lens (errorCode :: StackError -> Lude.Maybe StackErrorCode) (\s a -> s {errorCode = a} :: StackError)
+{-# DEPRECATED seErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
-seErrorMessage :: Lens' StackError (Maybe Text)
-seErrorMessage = lens _seErrorMessage (\s a -> s {_seErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seErrorMessage :: Lens.Lens' StackError (Lude.Maybe Lude.Text)
+seErrorMessage = Lens.lens (errorMessage :: StackError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: StackError)
+{-# DEPRECATED seErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON StackError where
+instance Lude.FromJSON StackError where
   parseJSON =
-    withObject
+    Lude.withObject
       "StackError"
       ( \x ->
-          StackError' <$> (x .:? "ErrorCode") <*> (x .:? "ErrorMessage")
+          StackError'
+            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable StackError
-
-instance NFData StackError

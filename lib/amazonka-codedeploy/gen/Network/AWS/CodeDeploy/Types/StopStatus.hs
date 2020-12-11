@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.StopStatus where
+module Network.AWS.CodeDeploy.Types.StopStatus
+  ( StopStatus
+      ( StopStatus',
+        SSPending,
+        SSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StopStatus
-  = SSPending
-  | SSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StopStatus = StopStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StopStatus where
-  parser =
-    takeLowerText >>= \case
-      "pending" -> pure SSPending
-      "succeeded" -> pure SSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing StopStatus from value: '" <> e
-            <> "'. Accepted values: pending, succeeded"
+pattern SSPending :: StopStatus
+pattern SSPending = StopStatus' "Pending"
 
-instance ToText StopStatus where
-  toText = \case
-    SSPending -> "Pending"
-    SSSucceeded -> "Succeeded"
+pattern SSSucceeded :: StopStatus
+pattern SSSucceeded = StopStatus' "Succeeded"
 
-instance Hashable StopStatus
-
-instance NFData StopStatus
-
-instance ToByteString StopStatus
-
-instance ToQuery StopStatus
-
-instance ToHeader StopStatus
-
-instance FromJSON StopStatus where
-  parseJSON = parseJSONText "StopStatus"
+{-# COMPLETE
+  SSPending,
+  SSSucceeded,
+  StopStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,162 @@
 --
 -- Deletes a repository. If the repository contains images, you must either delete all images in the repository or use the @force@ option to delete the repository.
 module Network.AWS.ECR.DeleteRepository
-  ( -- * Creating a Request
-    deleteRepository,
-    DeleteRepository,
+  ( -- * Creating a request
+    DeleteRepository (..),
+    mkDeleteRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dForce,
     dRegistryId,
     dRepositoryName,
 
-    -- * Destructuring the Response
-    deleteRepositoryResponse,
-    DeleteRepositoryResponse,
+    -- * Destructuring the response
+    DeleteRepositoryResponse (..),
+    mkDeleteRepositoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsRepository,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRepository' smart constructor.
+-- | /See:/ 'mkDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { _dForce :: !(Maybe Bool),
-    _dRegistryId :: !(Maybe Text),
-    _dRepositoryName :: !Text
+  { force ::
+      Lude.Maybe Lude.Bool,
+    registryId :: Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dForce' - If a repository contains images, forces the deletion.
---
--- * 'dRegistryId' - The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
---
--- * 'dRepositoryName' - The name of the repository to delete.
-deleteRepository ::
-  -- | 'dRepositoryName'
-  Text ->
+-- * 'force' - If a repository contains images, forces the deletion.
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The name of the repository to delete.
+mkDeleteRepository ::
+  -- | 'repositoryName'
+  Lude.Text ->
   DeleteRepository
-deleteRepository pRepositoryName_ =
+mkDeleteRepository pRepositoryName_ =
   DeleteRepository'
-    { _dForce = Nothing,
-      _dRegistryId = Nothing,
-      _dRepositoryName = pRepositoryName_
+    { force = Lude.Nothing,
+      registryId = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | If a repository contains images, forces the deletion.
-dForce :: Lens' DeleteRepository (Maybe Bool)
-dForce = lens _dForce (\s a -> s {_dForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dForce :: Lens.Lens' DeleteRepository (Lude.Maybe Lude.Bool)
+dForce = Lens.lens (force :: DeleteRepository -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteRepository)
+{-# DEPRECATED dForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
-dRegistryId :: Lens' DeleteRepository (Maybe Text)
-dRegistryId = lens _dRegistryId (\s a -> s {_dRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRegistryId :: Lens.Lens' DeleteRepository (Lude.Maybe Lude.Text)
+dRegistryId = Lens.lens (registryId :: DeleteRepository -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DeleteRepository)
+{-# DEPRECATED dRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The name of the repository to delete.
-dRepositoryName :: Lens' DeleteRepository Text
-dRepositoryName = lens _dRepositoryName (\s a -> s {_dRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRepositoryName :: Lens.Lens' DeleteRepository Lude.Text
+dRepositoryName = Lens.lens (repositoryName :: DeleteRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: DeleteRepository)
+{-# DEPRECATED dRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest DeleteRepository where
+instance Lude.AWSRequest DeleteRepository where
   type Rs DeleteRepository = DeleteRepositoryResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteRepositoryResponse'
-            <$> (x .?> "repository") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "repository") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRepository
-
-instance NFData DeleteRepository
-
-instance ToHeaders DeleteRepository where
+instance Lude.ToHeaders DeleteRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRepository" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRepository" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRepository where
+instance Lude.ToJSON DeleteRepository where
   toJSON DeleteRepository' {..} =
-    object
-      ( catMaybes
-          [ ("force" .=) <$> _dForce,
-            ("registryId" .=) <$> _dRegistryId,
-            Just ("repositoryName" .= _dRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("force" Lude..=) Lude.<$> force,
+            ("registryId" Lude..=) Lude.<$> registryId,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath DeleteRepository where
-  toPath = const "/"
+instance Lude.ToPath DeleteRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRepository where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRepository where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRepositoryResponse' smart constructor.
+-- | /See:/ 'mkDeleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-  { _drsRepository ::
-      !(Maybe Repository),
-    _drsResponseStatus :: !Int
+  { repository ::
+      Lude.Maybe Repository,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsRepository' - The repository that was deleted.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteRepositoryResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'repository' - The repository that was deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteRepositoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRepositoryResponse
-deleteRepositoryResponse pResponseStatus_ =
+mkDeleteRepositoryResponse pResponseStatus_ =
   DeleteRepositoryResponse'
-    { _drsRepository = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { repository = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The repository that was deleted.
-drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
-drsRepository = lens _drsRepository (\s a -> s {_drsRepository = a})
+--
+-- /Note:/ Consider using 'repository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsRepository :: Lens.Lens' DeleteRepositoryResponse (Lude.Maybe Repository)
+drsRepository = Lens.lens (repository :: DeleteRepositoryResponse -> Lude.Maybe Repository) (\s a -> s {repository = a} :: DeleteRepositoryResponse)
+{-# DEPRECATED drsRepository "Use generic-lens or generic-optics with 'repository' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteRepositoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteRepositoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteRepositoryResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRepositoryResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

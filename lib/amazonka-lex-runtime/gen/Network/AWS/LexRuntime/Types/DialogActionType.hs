@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.DialogActionType where
+module Network.AWS.LexRuntime.Types.DialogActionType
+  ( DialogActionType
+      ( DialogActionType',
+        DATClose,
+        DATConfirmIntent,
+        DATDelegate,
+        DATElicitIntent,
+        DATElicitSlot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DialogActionType
-  = DATClose
-  | DATConfirmIntent
-  | DATDelegate
-  | DATElicitIntent
-  | DATElicitSlot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DialogActionType = DialogActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DialogActionType where
-  parser =
-    takeLowerText >>= \case
-      "close" -> pure DATClose
-      "confirmintent" -> pure DATConfirmIntent
-      "delegate" -> pure DATDelegate
-      "elicitintent" -> pure DATElicitIntent
-      "elicitslot" -> pure DATElicitSlot
-      e ->
-        fromTextError $
-          "Failure parsing DialogActionType from value: '" <> e
-            <> "'. Accepted values: close, confirmintent, delegate, elicitintent, elicitslot"
+pattern DATClose :: DialogActionType
+pattern DATClose = DialogActionType' "Close"
 
-instance ToText DialogActionType where
-  toText = \case
-    DATClose -> "Close"
-    DATConfirmIntent -> "ConfirmIntent"
-    DATDelegate -> "Delegate"
-    DATElicitIntent -> "ElicitIntent"
-    DATElicitSlot -> "ElicitSlot"
+pattern DATConfirmIntent :: DialogActionType
+pattern DATConfirmIntent = DialogActionType' "ConfirmIntent"
 
-instance Hashable DialogActionType
+pattern DATDelegate :: DialogActionType
+pattern DATDelegate = DialogActionType' "Delegate"
 
-instance NFData DialogActionType
+pattern DATElicitIntent :: DialogActionType
+pattern DATElicitIntent = DialogActionType' "ElicitIntent"
 
-instance ToByteString DialogActionType
+pattern DATElicitSlot :: DialogActionType
+pattern DATElicitSlot = DialogActionType' "ElicitSlot"
 
-instance ToQuery DialogActionType
-
-instance ToHeader DialogActionType
-
-instance ToJSON DialogActionType where
-  toJSON = toJSONText
-
-instance FromJSON DialogActionType where
-  parseJSON = parseJSONText "DialogActionType"
+{-# COMPLETE
+  DATClose,
+  DATConfirmIntent,
+  DATDelegate,
+  DATElicitIntent,
+  DATElicitSlot,
+  DialogActionType'
+  #-}

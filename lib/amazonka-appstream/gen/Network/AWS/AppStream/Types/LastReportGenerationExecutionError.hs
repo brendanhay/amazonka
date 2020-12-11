@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.LastReportGenerationExecutionError where
+module Network.AWS.AppStream.Types.LastReportGenerationExecutionError
+  ( LastReportGenerationExecutionError (..),
+
+    -- * Smart constructor
+    mkLastReportGenerationExecutionError,
+
+    -- * Lenses
+    lrgeeErrorCode,
+    lrgeeErrorMessage,
+  )
+where
 
 import Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the error that is returned when a usage report can't be generated.
 --
---
---
--- /See:/ 'lastReportGenerationExecutionError' smart constructor.
+-- /See:/ 'mkLastReportGenerationExecutionError' smart constructor.
 data LastReportGenerationExecutionError = LastReportGenerationExecutionError'
-  { _lrgeeErrorCode ::
-      !( Maybe
-           UsageReportExecutionErrorCode
-       ),
-    _lrgeeErrorMessage ::
-      !(Maybe Text)
+  { errorCode ::
+      Lude.Maybe
+        UsageReportExecutionErrorCode,
+    errorMessage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastReportGenerationExecutionError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrgeeErrorCode' - The error code for the error that is returned when a usage report can't be generated.
---
--- * 'lrgeeErrorMessage' - The error message for the error that is returned when a usage report can't be generated.
-lastReportGenerationExecutionError ::
+-- * 'errorCode' - The error code for the error that is returned when a usage report can't be generated.
+-- * 'errorMessage' - The error message for the error that is returned when a usage report can't be generated.
+mkLastReportGenerationExecutionError ::
   LastReportGenerationExecutionError
-lastReportGenerationExecutionError =
+mkLastReportGenerationExecutionError =
   LastReportGenerationExecutionError'
-    { _lrgeeErrorCode = Nothing,
-      _lrgeeErrorMessage = Nothing
+    { errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The error code for the error that is returned when a usage report can't be generated.
-lrgeeErrorCode :: Lens' LastReportGenerationExecutionError (Maybe UsageReportExecutionErrorCode)
-lrgeeErrorCode = lens _lrgeeErrorCode (\s a -> s {_lrgeeErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrgeeErrorCode :: Lens.Lens' LastReportGenerationExecutionError (Lude.Maybe UsageReportExecutionErrorCode)
+lrgeeErrorCode = Lens.lens (errorCode :: LastReportGenerationExecutionError -> Lude.Maybe UsageReportExecutionErrorCode) (\s a -> s {errorCode = a} :: LastReportGenerationExecutionError)
+{-# DEPRECATED lrgeeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message for the error that is returned when a usage report can't be generated.
-lrgeeErrorMessage :: Lens' LastReportGenerationExecutionError (Maybe Text)
-lrgeeErrorMessage = lens _lrgeeErrorMessage (\s a -> s {_lrgeeErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrgeeErrorMessage :: Lens.Lens' LastReportGenerationExecutionError (Lude.Maybe Lude.Text)
+lrgeeErrorMessage = Lens.lens (errorMessage :: LastReportGenerationExecutionError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: LastReportGenerationExecutionError)
+{-# DEPRECATED lrgeeErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON LastReportGenerationExecutionError where
+instance Lude.FromJSON LastReportGenerationExecutionError where
   parseJSON =
-    withObject
+    Lude.withObject
       "LastReportGenerationExecutionError"
       ( \x ->
           LastReportGenerationExecutionError'
-            <$> (x .:? "ErrorCode") <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable LastReportGenerationExecutionError
-
-instance NFData LastReportGenerationExecutionError

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- The query search index.
 module Network.AWS.IoT.SearchIndex
-  ( -- * Creating a Request
-    searchIndex,
-    SearchIndex,
+  ( -- * Creating a request
+    SearchIndex (..),
+    mkSearchIndex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     siQueryVersion,
     siNextToken,
     siMaxResults,
     siIndexName,
     siQueryString,
 
-    -- * Destructuring the Response
-    searchIndexResponse,
-    SearchIndexResponse,
+    -- * Destructuring the response
+    SearchIndexResponse (..),
+    mkSearchIndexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sirsThingGroups,
     sirsNextToken,
     sirsThings,
@@ -43,152 +38,177 @@ module Network.AWS.IoT.SearchIndex
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchIndex' smart constructor.
+-- | /See:/ 'mkSearchIndex' smart constructor.
 data SearchIndex = SearchIndex'
-  { _siQueryVersion :: !(Maybe Text),
-    _siNextToken :: !(Maybe Text),
-    _siMaxResults :: !(Maybe Nat),
-    _siIndexName :: !(Maybe Text),
-    _siQueryString :: !Text
+  { queryVersion ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    indexName :: Lude.Maybe Lude.Text,
+    queryString :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siQueryVersion' - The query version.
---
--- * 'siNextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
---
--- * 'siMaxResults' - The maximum number of results to return at one time.
---
--- * 'siIndexName' - The search index name.
---
--- * 'siQueryString' - The search query string.
-searchIndex ::
-  -- | 'siQueryString'
-  Text ->
+-- * 'indexName' - The search index name.
+-- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
+-- * 'queryString' - The search query string.
+-- * 'queryVersion' - The query version.
+mkSearchIndex ::
+  -- | 'queryString'
+  Lude.Text ->
   SearchIndex
-searchIndex pQueryString_ =
+mkSearchIndex pQueryString_ =
   SearchIndex'
-    { _siQueryVersion = Nothing,
-      _siNextToken = Nothing,
-      _siMaxResults = Nothing,
-      _siIndexName = Nothing,
-      _siQueryString = pQueryString_
+    { queryVersion = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      indexName = Lude.Nothing,
+      queryString = pQueryString_
     }
 
 -- | The query version.
-siQueryVersion :: Lens' SearchIndex (Maybe Text)
-siQueryVersion = lens _siQueryVersion (\s a -> s {_siQueryVersion = a})
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siQueryVersion :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Text)
+siQueryVersion = Lens.lens (queryVersion :: SearchIndex -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: SearchIndex)
+{-# DEPRECATED siQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
 -- | The token used to get the next set of results, or @null@ if there are no additional results.
-siNextToken :: Lens' SearchIndex (Maybe Text)
-siNextToken = lens _siNextToken (\s a -> s {_siNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siNextToken :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Text)
+siNextToken = Lens.lens (nextToken :: SearchIndex -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchIndex)
+{-# DEPRECATED siNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
-siMaxResults :: Lens' SearchIndex (Maybe Natural)
-siMaxResults = lens _siMaxResults (\s a -> s {_siMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siMaxResults :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Natural)
+siMaxResults = Lens.lens (maxResults :: SearchIndex -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchIndex)
+{-# DEPRECATED siMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The search index name.
-siIndexName :: Lens' SearchIndex (Maybe Text)
-siIndexName = lens _siIndexName (\s a -> s {_siIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siIndexName :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Text)
+siIndexName = Lens.lens (indexName :: SearchIndex -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: SearchIndex)
+{-# DEPRECATED siIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The search query string.
-siQueryString :: Lens' SearchIndex Text
-siQueryString = lens _siQueryString (\s a -> s {_siQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siQueryString :: Lens.Lens' SearchIndex Lude.Text
+siQueryString = Lens.lens (queryString :: SearchIndex -> Lude.Text) (\s a -> s {queryString = a} :: SearchIndex)
+{-# DEPRECATED siQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
-instance AWSRequest SearchIndex where
+instance Lude.AWSRequest SearchIndex where
   type Rs SearchIndex = SearchIndexResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchIndexResponse'
-            <$> (x .?> "thingGroups" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (x .?> "things" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "thingGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "things" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchIndex
+instance Lude.ToHeaders SearchIndex where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SearchIndex
-
-instance ToHeaders SearchIndex where
-  toHeaders = const mempty
-
-instance ToJSON SearchIndex where
+instance Lude.ToJSON SearchIndex where
   toJSON SearchIndex' {..} =
-    object
-      ( catMaybes
-          [ ("queryVersion" .=) <$> _siQueryVersion,
-            ("nextToken" .=) <$> _siNextToken,
-            ("maxResults" .=) <$> _siMaxResults,
-            ("indexName" .=) <$> _siIndexName,
-            Just ("queryString" .= _siQueryString)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            ("indexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("queryString" Lude..= queryString)
           ]
       )
 
-instance ToPath SearchIndex where
-  toPath = const "/indices/search"
+instance Lude.ToPath SearchIndex where
+  toPath = Lude.const "/indices/search"
 
-instance ToQuery SearchIndex where
-  toQuery = const mempty
+instance Lude.ToQuery SearchIndex where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchIndexResponse' smart constructor.
+-- | /See:/ 'mkSearchIndexResponse' smart constructor.
 data SearchIndexResponse = SearchIndexResponse'
-  { _sirsThingGroups ::
-      !(Maybe [ThingGroupDocument]),
-    _sirsNextToken :: !(Maybe Text),
-    _sirsThings :: !(Maybe [ThingDocument]),
-    _sirsResponseStatus :: !Int
+  { thingGroups ::
+      Lude.Maybe [ThingGroupDocument],
+    nextToken :: Lude.Maybe Lude.Text,
+    things :: Lude.Maybe [ThingDocument],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchIndexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sirsThingGroups' - The thing groups that match the search query.
---
--- * 'sirsNextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
---
--- * 'sirsThings' - The things that match the search query.
---
--- * 'sirsResponseStatus' - -- | The response status code.
-searchIndexResponse ::
-  -- | 'sirsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'thingGroups' - The thing groups that match the search query.
+-- * 'things' - The things that match the search query.
+mkSearchIndexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchIndexResponse
-searchIndexResponse pResponseStatus_ =
+mkSearchIndexResponse pResponseStatus_ =
   SearchIndexResponse'
-    { _sirsThingGroups = Nothing,
-      _sirsNextToken = Nothing,
-      _sirsThings = Nothing,
-      _sirsResponseStatus = pResponseStatus_
+    { thingGroups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      things = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The thing groups that match the search query.
-sirsThingGroups :: Lens' SearchIndexResponse [ThingGroupDocument]
-sirsThingGroups = lens _sirsThingGroups (\s a -> s {_sirsThingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'thingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirsThingGroups :: Lens.Lens' SearchIndexResponse (Lude.Maybe [ThingGroupDocument])
+sirsThingGroups = Lens.lens (thingGroups :: SearchIndexResponse -> Lude.Maybe [ThingGroupDocument]) (\s a -> s {thingGroups = a} :: SearchIndexResponse)
+{-# DEPRECATED sirsThingGroups "Use generic-lens or generic-optics with 'thingGroups' instead." #-}
 
 -- | The token used to get the next set of results, or @null@ if there are no additional results.
-sirsNextToken :: Lens' SearchIndexResponse (Maybe Text)
-sirsNextToken = lens _sirsNextToken (\s a -> s {_sirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirsNextToken :: Lens.Lens' SearchIndexResponse (Lude.Maybe Lude.Text)
+sirsNextToken = Lens.lens (nextToken :: SearchIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchIndexResponse)
+{-# DEPRECATED sirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The things that match the search query.
-sirsThings :: Lens' SearchIndexResponse [ThingDocument]
-sirsThings = lens _sirsThings (\s a -> s {_sirsThings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'things' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirsThings :: Lens.Lens' SearchIndexResponse (Lude.Maybe [ThingDocument])
+sirsThings = Lens.lens (things :: SearchIndexResponse -> Lude.Maybe [ThingDocument]) (\s a -> s {things = a} :: SearchIndexResponse)
+{-# DEPRECATED sirsThings "Use generic-lens or generic-optics with 'things' instead." #-}
 
--- | -- | The response status code.
-sirsResponseStatus :: Lens' SearchIndexResponse Int
-sirsResponseStatus = lens _sirsResponseStatus (\s a -> s {_sirsResponseStatus = a})
-
-instance NFData SearchIndexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirsResponseStatus :: Lens.Lens' SearchIndexResponse Lude.Int
+sirsResponseStatus = Lens.lens (responseStatus :: SearchIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchIndexResponse)
+{-# DEPRECATED sirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

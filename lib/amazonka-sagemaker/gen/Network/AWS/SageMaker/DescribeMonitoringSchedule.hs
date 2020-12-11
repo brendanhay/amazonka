@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes the schedule for a monitoring job.
 module Network.AWS.SageMaker.DescribeMonitoringSchedule
-  ( -- * Creating a Request
-    describeMonitoringSchedule,
-    DescribeMonitoringSchedule,
+  ( -- * Creating a request
+    DescribeMonitoringSchedule (..),
+    mkDescribeMonitoringSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmsMonitoringScheduleName,
 
-    -- * Destructuring the Response
-    describeMonitoringScheduleResponse,
-    DescribeMonitoringScheduleResponse,
+    -- * Destructuring the response
+    DescribeMonitoringScheduleResponse (..),
+    mkDescribeMonitoringScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmsrsFailureReason,
     dmsrsEndpointName,
     dmsrsLastMonitoringExecutionSummary,
@@ -44,153 +39,155 @@ module Network.AWS.SageMaker.DescribeMonitoringSchedule
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeMonitoringSchedule' smart constructor.
+-- | /See:/ 'mkDescribeMonitoringSchedule' smart constructor.
 newtype DescribeMonitoringSchedule = DescribeMonitoringSchedule'
-  { _dmsMonitoringScheduleName ::
-      Text
+  { monitoringScheduleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMonitoringSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmsMonitoringScheduleName' - Name of a previously created monitoring schedule.
-describeMonitoringSchedule ::
-  -- | 'dmsMonitoringScheduleName'
-  Text ->
+-- * 'monitoringScheduleName' - Name of a previously created monitoring schedule.
+mkDescribeMonitoringSchedule ::
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
   DescribeMonitoringSchedule
-describeMonitoringSchedule pMonitoringScheduleName_ =
+mkDescribeMonitoringSchedule pMonitoringScheduleName_ =
   DescribeMonitoringSchedule'
-    { _dmsMonitoringScheduleName =
+    { monitoringScheduleName =
         pMonitoringScheduleName_
     }
 
 -- | Name of a previously created monitoring schedule.
-dmsMonitoringScheduleName :: Lens' DescribeMonitoringSchedule Text
-dmsMonitoringScheduleName = lens _dmsMonitoringScheduleName (\s a -> s {_dmsMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsMonitoringScheduleName :: Lens.Lens' DescribeMonitoringSchedule Lude.Text
+dmsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: DescribeMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: DescribeMonitoringSchedule)
+{-# DEPRECATED dmsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance AWSRequest DescribeMonitoringSchedule where
+instance Lude.AWSRequest DescribeMonitoringSchedule where
   type
     Rs DescribeMonitoringSchedule =
       DescribeMonitoringScheduleResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMonitoringScheduleResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "EndpointName")
-            <*> (x .?> "LastMonitoringExecutionSummary")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "MonitoringScheduleArn")
-            <*> (x .:> "MonitoringScheduleName")
-            <*> (x .:> "MonitoringScheduleStatus")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
-            <*> (x .:> "MonitoringScheduleConfig")
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "EndpointName")
+            Lude.<*> (x Lude..?> "LastMonitoringExecutionSummary")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "MonitoringScheduleArn")
+            Lude.<*> (x Lude..:> "MonitoringScheduleName")
+            Lude.<*> (x Lude..:> "MonitoringScheduleStatus")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
+            Lude.<*> (x Lude..:> "MonitoringScheduleConfig")
       )
 
-instance Hashable DescribeMonitoringSchedule
-
-instance NFData DescribeMonitoringSchedule
-
-instance ToHeaders DescribeMonitoringSchedule where
+instance Lude.ToHeaders DescribeMonitoringSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeMonitoringSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeMonitoringSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMonitoringSchedule where
+instance Lude.ToJSON DescribeMonitoringSchedule where
   toJSON DescribeMonitoringSchedule' {..} =
-    object
-      ( catMaybes
-          [Just ("MonitoringScheduleName" .= _dmsMonitoringScheduleName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
+          ]
       )
 
-instance ToPath DescribeMonitoringSchedule where
-  toPath = const "/"
+instance Lude.ToPath DescribeMonitoringSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMonitoringSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMonitoringSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMonitoringScheduleResponse' smart constructor.
+-- | /See:/ 'mkDescribeMonitoringScheduleResponse' smart constructor.
 data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
-  { _dmsrsFailureReason ::
-      !(Maybe Text),
-    _dmsrsEndpointName ::
-      !(Maybe Text),
-    _dmsrsLastMonitoringExecutionSummary ::
-      !( Maybe
-           MonitoringExecutionSummary
-       ),
-    _dmsrsResponseStatus ::
-      !Int,
-    _dmsrsMonitoringScheduleARN ::
-      !Text,
-    _dmsrsMonitoringScheduleName ::
-      !Text,
-    _dmsrsMonitoringScheduleStatus ::
-      !ScheduleStatus,
-    _dmsrsCreationTime ::
-      !POSIX,
-    _dmsrsLastModifiedTime ::
-      !POSIX,
-    _dmsrsMonitoringScheduleConfig ::
-      !MonitoringScheduleConfig
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    endpointName ::
+      Lude.Maybe Lude.Text,
+    lastMonitoringExecutionSummary ::
+      Lude.Maybe
+        MonitoringExecutionSummary,
+    responseStatus ::
+      Lude.Int,
+    monitoringScheduleARN ::
+      Lude.Text,
+    monitoringScheduleName ::
+      Lude.Text,
+    monitoringScheduleStatus ::
+      ScheduleStatus,
+    creationTime ::
+      Lude.Timestamp,
+    lastModifiedTime ::
+      Lude.Timestamp,
+    monitoringScheduleConfig ::
+      MonitoringScheduleConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMonitoringScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmsrsFailureReason' - A string, up to one KB in size, that contains the reason a monitoring job failed, if it failed.
---
--- * 'dmsrsEndpointName' - The name of the endpoint for the monitoring job.
---
--- * 'dmsrsLastMonitoringExecutionSummary' - Describes metadata on the last execution to run, if there was one.
---
--- * 'dmsrsResponseStatus' - -- | The response status code.
---
--- * 'dmsrsMonitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
---
--- * 'dmsrsMonitoringScheduleName' - Name of the monitoring schedule.
---
--- * 'dmsrsMonitoringScheduleStatus' - The status of an monitoring job.
---
--- * 'dmsrsCreationTime' - The time at which the monitoring job was created.
---
--- * 'dmsrsLastModifiedTime' - The time at which the monitoring job was last modified.
---
--- * 'dmsrsMonitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and defines the monitoring job.
-describeMonitoringScheduleResponse ::
-  -- | 'dmsrsResponseStatus'
-  Int ->
-  -- | 'dmsrsMonitoringScheduleARN'
-  Text ->
-  -- | 'dmsrsMonitoringScheduleName'
-  Text ->
-  -- | 'dmsrsMonitoringScheduleStatus'
+-- * 'creationTime' - The time at which the monitoring job was created.
+-- * 'endpointName' - The name of the endpoint for the monitoring job.
+-- * 'failureReason' - A string, up to one KB in size, that contains the reason a monitoring job failed, if it failed.
+-- * 'lastModifiedTime' - The time at which the monitoring job was last modified.
+-- * 'lastMonitoringExecutionSummary' - Describes metadata on the last execution to run, if there was one.
+-- * 'monitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
+-- * 'monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and defines the monitoring job.
+-- * 'monitoringScheduleName' - Name of the monitoring schedule.
+-- * 'monitoringScheduleStatus' - The status of an monitoring job.
+-- * 'responseStatus' - The response status code.
+mkDescribeMonitoringScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'monitoringScheduleARN'
+  Lude.Text ->
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
+  -- | 'monitoringScheduleStatus'
   ScheduleStatus ->
-  -- | 'dmsrsCreationTime'
-  UTCTime ->
-  -- | 'dmsrsLastModifiedTime'
-  UTCTime ->
-  -- | 'dmsrsMonitoringScheduleConfig'
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'monitoringScheduleConfig'
   MonitoringScheduleConfig ->
   DescribeMonitoringScheduleResponse
-describeMonitoringScheduleResponse
+mkDescribeMonitoringScheduleResponse
   pResponseStatus_
   pMonitoringScheduleARN_
   pMonitoringScheduleName_
@@ -199,57 +196,84 @@ describeMonitoringScheduleResponse
   pLastModifiedTime_
   pMonitoringScheduleConfig_ =
     DescribeMonitoringScheduleResponse'
-      { _dmsrsFailureReason =
-          Nothing,
-        _dmsrsEndpointName = Nothing,
-        _dmsrsLastMonitoringExecutionSummary = Nothing,
-        _dmsrsResponseStatus = pResponseStatus_,
-        _dmsrsMonitoringScheduleARN = pMonitoringScheduleARN_,
-        _dmsrsMonitoringScheduleName = pMonitoringScheduleName_,
-        _dmsrsMonitoringScheduleStatus = pMonitoringScheduleStatus_,
-        _dmsrsCreationTime = _Time # pCreationTime_,
-        _dmsrsLastModifiedTime = _Time # pLastModifiedTime_,
-        _dmsrsMonitoringScheduleConfig = pMonitoringScheduleConfig_
+      { failureReason = Lude.Nothing,
+        endpointName = Lude.Nothing,
+        lastMonitoringExecutionSummary = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        monitoringScheduleARN = pMonitoringScheduleARN_,
+        monitoringScheduleName = pMonitoringScheduleName_,
+        monitoringScheduleStatus = pMonitoringScheduleStatus_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        monitoringScheduleConfig = pMonitoringScheduleConfig_
       }
 
 -- | A string, up to one KB in size, that contains the reason a monitoring job failed, if it failed.
-dmsrsFailureReason :: Lens' DescribeMonitoringScheduleResponse (Maybe Text)
-dmsrsFailureReason = lens _dmsrsFailureReason (\s a -> s {_dmsrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsFailureReason :: Lens.Lens' DescribeMonitoringScheduleResponse (Lude.Maybe Lude.Text)
+dmsrsFailureReason = Lens.lens (failureReason :: DescribeMonitoringScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The name of the endpoint for the monitoring job.
-dmsrsEndpointName :: Lens' DescribeMonitoringScheduleResponse (Maybe Text)
-dmsrsEndpointName = lens _dmsrsEndpointName (\s a -> s {_dmsrsEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsEndpointName :: Lens.Lens' DescribeMonitoringScheduleResponse (Lude.Maybe Lude.Text)
+dmsrsEndpointName = Lens.lens (endpointName :: DescribeMonitoringScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {endpointName = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | Describes metadata on the last execution to run, if there was one.
-dmsrsLastMonitoringExecutionSummary :: Lens' DescribeMonitoringScheduleResponse (Maybe MonitoringExecutionSummary)
-dmsrsLastMonitoringExecutionSummary = lens _dmsrsLastMonitoringExecutionSummary (\s a -> s {_dmsrsLastMonitoringExecutionSummary = a})
+--
+-- /Note:/ Consider using 'lastMonitoringExecutionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsLastMonitoringExecutionSummary :: Lens.Lens' DescribeMonitoringScheduleResponse (Lude.Maybe MonitoringExecutionSummary)
+dmsrsLastMonitoringExecutionSummary = Lens.lens (lastMonitoringExecutionSummary :: DescribeMonitoringScheduleResponse -> Lude.Maybe MonitoringExecutionSummary) (\s a -> s {lastMonitoringExecutionSummary = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsLastMonitoringExecutionSummary "Use generic-lens or generic-optics with 'lastMonitoringExecutionSummary' instead." #-}
 
--- | -- | The response status code.
-dmsrsResponseStatus :: Lens' DescribeMonitoringScheduleResponse Int
-dmsrsResponseStatus = lens _dmsrsResponseStatus (\s a -> s {_dmsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsResponseStatus :: Lens.Lens' DescribeMonitoringScheduleResponse Lude.Int
+dmsrsResponseStatus = Lens.lens (responseStatus :: DescribeMonitoringScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-dmsrsMonitoringScheduleARN :: Lens' DescribeMonitoringScheduleResponse Text
-dmsrsMonitoringScheduleARN = lens _dmsrsMonitoringScheduleARN (\s a -> s {_dmsrsMonitoringScheduleARN = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsMonitoringScheduleARN :: Lens.Lens' DescribeMonitoringScheduleResponse Lude.Text
+dmsrsMonitoringScheduleARN = Lens.lens (monitoringScheduleARN :: DescribeMonitoringScheduleResponse -> Lude.Text) (\s a -> s {monitoringScheduleARN = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsMonitoringScheduleARN "Use generic-lens or generic-optics with 'monitoringScheduleARN' instead." #-}
 
 -- | Name of the monitoring schedule.
-dmsrsMonitoringScheduleName :: Lens' DescribeMonitoringScheduleResponse Text
-dmsrsMonitoringScheduleName = lens _dmsrsMonitoringScheduleName (\s a -> s {_dmsrsMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsMonitoringScheduleName :: Lens.Lens' DescribeMonitoringScheduleResponse Lude.Text
+dmsrsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: DescribeMonitoringScheduleResponse -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
 -- | The status of an monitoring job.
-dmsrsMonitoringScheduleStatus :: Lens' DescribeMonitoringScheduleResponse ScheduleStatus
-dmsrsMonitoringScheduleStatus = lens _dmsrsMonitoringScheduleStatus (\s a -> s {_dmsrsMonitoringScheduleStatus = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsMonitoringScheduleStatus :: Lens.Lens' DescribeMonitoringScheduleResponse ScheduleStatus
+dmsrsMonitoringScheduleStatus = Lens.lens (monitoringScheduleStatus :: DescribeMonitoringScheduleResponse -> ScheduleStatus) (\s a -> s {monitoringScheduleStatus = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsMonitoringScheduleStatus "Use generic-lens or generic-optics with 'monitoringScheduleStatus' instead." #-}
 
 -- | The time at which the monitoring job was created.
-dmsrsCreationTime :: Lens' DescribeMonitoringScheduleResponse UTCTime
-dmsrsCreationTime = lens _dmsrsCreationTime (\s a -> s {_dmsrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsCreationTime :: Lens.Lens' DescribeMonitoringScheduleResponse Lude.Timestamp
+dmsrsCreationTime = Lens.lens (creationTime :: DescribeMonitoringScheduleResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The time at which the monitoring job was last modified.
-dmsrsLastModifiedTime :: Lens' DescribeMonitoringScheduleResponse UTCTime
-dmsrsLastModifiedTime = lens _dmsrsLastModifiedTime (\s a -> s {_dmsrsLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsLastModifiedTime :: Lens.Lens' DescribeMonitoringScheduleResponse Lude.Timestamp
+dmsrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeMonitoringScheduleResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
-dmsrsMonitoringScheduleConfig :: Lens' DescribeMonitoringScheduleResponse MonitoringScheduleConfig
-dmsrsMonitoringScheduleConfig = lens _dmsrsMonitoringScheduleConfig (\s a -> s {_dmsrsMonitoringScheduleConfig = a})
-
-instance NFData DescribeMonitoringScheduleResponse
+--
+-- /Note:/ Consider using 'monitoringScheduleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmsrsMonitoringScheduleConfig :: Lens.Lens' DescribeMonitoringScheduleResponse MonitoringScheduleConfig
+dmsrsMonitoringScheduleConfig = Lens.lens (monitoringScheduleConfig :: DescribeMonitoringScheduleResponse -> MonitoringScheduleConfig) (\s a -> s {monitoringScheduleConfig = a} :: DescribeMonitoringScheduleResponse)
+{-# DEPRECATED dmsrsMonitoringScheduleConfig "Use generic-lens or generic-optics with 'monitoringScheduleConfig' instead." #-}

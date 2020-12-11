@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,255 +7,461 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.ReplicationInstance where
+module Network.AWS.DMS.Types.ReplicationInstance
+  ( ReplicationInstance (..),
+
+    -- * Smart constructor
+    mkReplicationInstance,
+
+    -- * Lenses
+    riEngineVersion,
+    riPubliclyAccessible,
+    riAutoMinorVersionUpgrade,
+    riReplicationInstancePublicIPAddresses,
+    riReplicationSubnetGroup,
+    riInstanceCreateTime,
+    riFreeUntil,
+    riReplicationInstanceStatus,
+    riReplicationInstancePrivateIPAddresses,
+    riPreferredMaintenanceWindow,
+    riReplicationInstancePrivateIPAddress,
+    riKMSKeyId,
+    riAvailabilityZone,
+    riVPCSecurityGroups,
+    riMultiAZ,
+    riSecondaryAvailabilityZone,
+    riReplicationInstanceARN,
+    riAllocatedStorage,
+    riDNSNameServers,
+    riReplicationInstancePublicIPAddress,
+    riReplicationInstanceClass,
+    riReplicationInstanceIdentifier,
+    riPendingModifiedValues,
+  )
+where
 
 import Network.AWS.DMS.Types.ReplicationPendingModifiedValues
 import Network.AWS.DMS.Types.ReplicationSubnetGroup
 import Network.AWS.DMS.Types.VPCSecurityGroupMembership
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information that defines a replication instance.
 --
---
---
--- /See:/ 'replicationInstance' smart constructor.
+-- /See:/ 'mkReplicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
-  { _riEngineVersion ::
-      !(Maybe Text),
-    _riPubliclyAccessible :: !(Maybe Bool),
-    _riAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _riReplicationInstancePublicIPAddresses ::
-      !(Maybe [Text]),
-    _riReplicationSubnetGroup ::
-      !(Maybe ReplicationSubnetGroup),
-    _riInstanceCreateTime :: !(Maybe POSIX),
-    _riFreeUntil :: !(Maybe POSIX),
-    _riReplicationInstanceStatus :: !(Maybe Text),
-    _riReplicationInstancePrivateIPAddresses ::
-      !(Maybe [Text]),
-    _riPreferredMaintenanceWindow :: !(Maybe Text),
-    _riReplicationInstancePrivateIPAddress ::
-      !(Maybe Text),
-    _riKMSKeyId :: !(Maybe Text),
-    _riAvailabilityZone :: !(Maybe Text),
-    _riVPCSecurityGroups ::
-      !(Maybe [VPCSecurityGroupMembership]),
-    _riMultiAZ :: !(Maybe Bool),
-    _riSecondaryAvailabilityZone :: !(Maybe Text),
-    _riReplicationInstanceARN :: !(Maybe Text),
-    _riAllocatedStorage :: !(Maybe Int),
-    _riDNSNameServers :: !(Maybe Text),
-    _riReplicationInstancePublicIPAddress ::
-      !(Maybe Text),
-    _riReplicationInstanceClass :: !(Maybe Text),
-    _riReplicationInstanceIdentifier :: !(Maybe Text),
-    _riPendingModifiedValues ::
-      !(Maybe ReplicationPendingModifiedValues)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    replicationInstancePublicIPAddresses ::
+      Lude.Maybe [Lude.Text],
+    replicationSubnetGroup ::
+      Lude.Maybe ReplicationSubnetGroup,
+    instanceCreateTime :: Lude.Maybe Lude.Timestamp,
+    freeUntil :: Lude.Maybe Lude.Timestamp,
+    replicationInstanceStatus :: Lude.Maybe Lude.Text,
+    replicationInstancePrivateIPAddresses ::
+      Lude.Maybe [Lude.Text],
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    replicationInstancePrivateIPAddress ::
+      Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    vpcSecurityGroups ::
+      Lude.Maybe [VPCSecurityGroupMembership],
+    multiAZ :: Lude.Maybe Lude.Bool,
+    secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    replicationInstanceARN :: Lude.Maybe Lude.Text,
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    dnsNameServers :: Lude.Maybe Lude.Text,
+    replicationInstancePublicIPAddress ::
+      Lude.Maybe Lude.Text,
+    replicationInstanceClass :: Lude.Maybe Lude.Text,
+    replicationInstanceIdentifier ::
+      Lude.Maybe Lude.Text,
+    pendingModifiedValues ::
+      Lude.Maybe ReplicationPendingModifiedValues
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
+-- * 'autoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically applied to the instance.
+-- * 'availabilityZone' - The Availability Zone for the instance.
+-- * 'dnsNameServers' - The DNS name servers supported for the replication instance to access your on-premise source or target database.
+-- * 'engineVersion' - The engine version number of the replication instance.
 --
--- * 'riEngineVersion' - The engine version number of the replication instance. If an engine version number is not specified when a replication instance is created, the default is the latest engine version available. When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
+-- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+-- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
+-- * 'freeUntil' - The expiration date of the free replication instance that is part of the Free DMS program.
+-- * 'instanceCreateTime' - The time the replication instance was created.
+-- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance.
 --
--- * 'riPubliclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
+-- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+-- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+-- * 'pendingModifiedValues' - The pending modification values.
+-- * 'preferredMaintenanceWindow' - The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
+-- * 'publiclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console.
 --
--- * 'riAutoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically applied to the instance.
+-- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+-- * 'replicationInstanceIdentifier' - The replication instance identifier is a required parameter. This parameter is stored as a lowercase string.
 --
--- * 'riReplicationInstancePublicIPAddresses' - One or more public IP addresses for the replication instance.
+-- Constraints:
 --
--- * 'riReplicationSubnetGroup' - The subnet group for the replication instance.
+--     * Must contain 1-63 alphanumeric characters or hyphens.
 --
--- * 'riInstanceCreateTime' - The time the replication instance was created.
 --
--- * 'riFreeUntil' - The expiration date of the free replication instance that is part of the Free DMS program.
+--     * First character must be a letter.
 --
--- * 'riReplicationInstanceStatus' - The status of the replication instance. The possible return values include:     * @"available"@      * @"creating"@      * @"deleted"@      * @"deleting"@      * @"failed"@      * @"modifying"@      * @"upgrading"@      * @"rebooting"@      * @"resetting-master-credentials"@      * @"storage-full"@      * @"incompatible-credentials"@      * @"incompatible-network"@      * @"maintenance"@
 --
--- * 'riReplicationInstancePrivateIPAddresses' - One or more private IP addresses for the replication instance.
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'riPreferredMaintenanceWindow' - The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
 --
--- * 'riReplicationInstancePrivateIPAddress' - The private IP address of the replication instance.
+-- Example: @myrepinstance@
+-- * 'replicationInstancePrivateIPAddress' - The private IP address of the replication instance.
+-- * 'replicationInstancePrivateIPAddresses' - One or more private IP addresses for the replication instance.
+-- * 'replicationInstancePublicIPAddress' - The public IP address of the replication instance.
+-- * 'replicationInstancePublicIPAddresses' - One or more public IP addresses for the replication instance.
+-- * 'replicationInstanceStatus' - The status of the replication instance. The possible return values include:
 --
--- * 'riKMSKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
 --
--- * 'riAvailabilityZone' - The Availability Zone for the instance.
+--     * @"available"@
 --
--- * 'riVPCSecurityGroups' - The VPC security group for the instance.
 --
--- * 'riMultiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+--     * @"creating"@
 --
--- * 'riSecondaryAvailabilityZone' - The Availability Zone of the standby replication instance in a Multi-AZ deployment.
 --
--- * 'riReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+--     * @"deleted"@
 --
--- * 'riAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 --
--- * 'riDNSNameServers' - The DNS name servers supported for the replication instance to access your on-premise source or target database.
+--     * @"deleting"@
 --
--- * 'riReplicationInstancePublicIPAddress' - The public IP address of the replication instance.
 --
--- * 'riReplicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console. For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+--     * @"failed"@
 --
--- * 'riReplicationInstanceIdentifier' - The replication instance identifier is a required parameter. This parameter is stored as a lowercase string. Constraints:     * Must contain 1-63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
 --
--- * 'riPendingModifiedValues' - The pending modification values.
-replicationInstance ::
+--     * @"modifying"@
+--
+--
+--     * @"upgrading"@
+--
+--
+--     * @"rebooting"@
+--
+--
+--     * @"resetting-master-credentials"@
+--
+--
+--     * @"storage-full"@
+--
+--
+--     * @"incompatible-credentials"@
+--
+--
+--     * @"incompatible-network"@
+--
+--
+--     * @"maintenance"@
+--
+--
+-- * 'replicationSubnetGroup' - The subnet group for the replication instance.
+-- * 'secondaryAvailabilityZone' - The Availability Zone of the standby replication instance in a Multi-AZ deployment.
+-- * 'vpcSecurityGroups' - The VPC security group for the instance.
+mkReplicationInstance ::
   ReplicationInstance
-replicationInstance =
+mkReplicationInstance =
   ReplicationInstance'
-    { _riEngineVersion = Nothing,
-      _riPubliclyAccessible = Nothing,
-      _riAutoMinorVersionUpgrade = Nothing,
-      _riReplicationInstancePublicIPAddresses = Nothing,
-      _riReplicationSubnetGroup = Nothing,
-      _riInstanceCreateTime = Nothing,
-      _riFreeUntil = Nothing,
-      _riReplicationInstanceStatus = Nothing,
-      _riReplicationInstancePrivateIPAddresses = Nothing,
-      _riPreferredMaintenanceWindow = Nothing,
-      _riReplicationInstancePrivateIPAddress = Nothing,
-      _riKMSKeyId = Nothing,
-      _riAvailabilityZone = Nothing,
-      _riVPCSecurityGroups = Nothing,
-      _riMultiAZ = Nothing,
-      _riSecondaryAvailabilityZone = Nothing,
-      _riReplicationInstanceARN = Nothing,
-      _riAllocatedStorage = Nothing,
-      _riDNSNameServers = Nothing,
-      _riReplicationInstancePublicIPAddress = Nothing,
-      _riReplicationInstanceClass = Nothing,
-      _riReplicationInstanceIdentifier = Nothing,
-      _riPendingModifiedValues = Nothing
+    { engineVersion = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      replicationInstancePublicIPAddresses = Lude.Nothing,
+      replicationSubnetGroup = Lude.Nothing,
+      instanceCreateTime = Lude.Nothing,
+      freeUntil = Lude.Nothing,
+      replicationInstanceStatus = Lude.Nothing,
+      replicationInstancePrivateIPAddresses = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      replicationInstancePrivateIPAddress = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      vpcSecurityGroups = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      secondaryAvailabilityZone = Lude.Nothing,
+      replicationInstanceARN = Lude.Nothing,
+      allocatedStorage = Lude.Nothing,
+      dnsNameServers = Lude.Nothing,
+      replicationInstancePublicIPAddress = Lude.Nothing,
+      replicationInstanceClass = Lude.Nothing,
+      replicationInstanceIdentifier = Lude.Nothing,
+      pendingModifiedValues = Lude.Nothing
     }
 
--- | The engine version number of the replication instance. If an engine version number is not specified when a replication instance is created, the default is the latest engine version available. When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
-riEngineVersion :: Lens' ReplicationInstance (Maybe Text)
-riEngineVersion = lens _riEngineVersion (\s a -> s {_riEngineVersion = a})
+-- | The engine version number of the replication instance.
+--
+-- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+-- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riEngineVersion :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riEngineVersion = Lens.lens (engineVersion :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: ReplicationInstance)
+{-# DEPRECATED riEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
-riPubliclyAccessible :: Lens' ReplicationInstance (Maybe Bool)
-riPubliclyAccessible = lens _riPubliclyAccessible (\s a -> s {_riPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPubliclyAccessible :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Bool)
+riPubliclyAccessible = Lens.lens (publiclyAccessible :: ReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: ReplicationInstance)
+{-# DEPRECATED riPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | Boolean value indicating if minor version upgrades will be automatically applied to the instance.
-riAutoMinorVersionUpgrade :: Lens' ReplicationInstance (Maybe Bool)
-riAutoMinorVersionUpgrade = lens _riAutoMinorVersionUpgrade (\s a -> s {_riAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riAutoMinorVersionUpgrade :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Bool)
+riAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: ReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: ReplicationInstance)
+{-# DEPRECATED riAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | One or more public IP addresses for the replication instance.
-riReplicationInstancePublicIPAddresses :: Lens' ReplicationInstance [Text]
-riReplicationInstancePublicIPAddresses = lens _riReplicationInstancePublicIPAddresses (\s a -> s {_riReplicationInstancePublicIPAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationInstancePublicIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstancePublicIPAddresses :: Lens.Lens' ReplicationInstance (Lude.Maybe [Lude.Text])
+riReplicationInstancePublicIPAddresses = Lens.lens (replicationInstancePublicIPAddresses :: ReplicationInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {replicationInstancePublicIPAddresses = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstancePublicIPAddresses "Use generic-lens or generic-optics with 'replicationInstancePublicIPAddresses' instead." #-}
 
 -- | The subnet group for the replication instance.
-riReplicationSubnetGroup :: Lens' ReplicationInstance (Maybe ReplicationSubnetGroup)
-riReplicationSubnetGroup = lens _riReplicationSubnetGroup (\s a -> s {_riReplicationSubnetGroup = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationSubnetGroup :: Lens.Lens' ReplicationInstance (Lude.Maybe ReplicationSubnetGroup)
+riReplicationSubnetGroup = Lens.lens (replicationSubnetGroup :: ReplicationInstance -> Lude.Maybe ReplicationSubnetGroup) (\s a -> s {replicationSubnetGroup = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationSubnetGroup "Use generic-lens or generic-optics with 'replicationSubnetGroup' instead." #-}
 
 -- | The time the replication instance was created.
-riInstanceCreateTime :: Lens' ReplicationInstance (Maybe UTCTime)
-riInstanceCreateTime = lens _riInstanceCreateTime (\s a -> s {_riInstanceCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'instanceCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riInstanceCreateTime :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Timestamp)
+riInstanceCreateTime = Lens.lens (instanceCreateTime :: ReplicationInstance -> Lude.Maybe Lude.Timestamp) (\s a -> s {instanceCreateTime = a} :: ReplicationInstance)
+{-# DEPRECATED riInstanceCreateTime "Use generic-lens or generic-optics with 'instanceCreateTime' instead." #-}
 
 -- | The expiration date of the free replication instance that is part of the Free DMS program.
-riFreeUntil :: Lens' ReplicationInstance (Maybe UTCTime)
-riFreeUntil = lens _riFreeUntil (\s a -> s {_riFreeUntil = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'freeUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riFreeUntil :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Timestamp)
+riFreeUntil = Lens.lens (freeUntil :: ReplicationInstance -> Lude.Maybe Lude.Timestamp) (\s a -> s {freeUntil = a} :: ReplicationInstance)
+{-# DEPRECATED riFreeUntil "Use generic-lens or generic-optics with 'freeUntil' instead." #-}
 
--- | The status of the replication instance. The possible return values include:     * @"available"@      * @"creating"@      * @"deleted"@      * @"deleting"@      * @"failed"@      * @"modifying"@      * @"upgrading"@      * @"rebooting"@      * @"resetting-master-credentials"@      * @"storage-full"@      * @"incompatible-credentials"@      * @"incompatible-network"@      * @"maintenance"@
-riReplicationInstanceStatus :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstanceStatus = lens _riReplicationInstanceStatus (\s a -> s {_riReplicationInstanceStatus = a})
+-- | The status of the replication instance. The possible return values include:
+--
+--
+--     * @"available"@
+--
+--
+--     * @"creating"@
+--
+--
+--     * @"deleted"@
+--
+--
+--     * @"deleting"@
+--
+--
+--     * @"failed"@
+--
+--
+--     * @"modifying"@
+--
+--
+--     * @"upgrading"@
+--
+--
+--     * @"rebooting"@
+--
+--
+--     * @"resetting-master-credentials"@
+--
+--
+--     * @"storage-full"@
+--
+--
+--     * @"incompatible-credentials"@
+--
+--
+--     * @"incompatible-network"@
+--
+--
+--     * @"maintenance"@
+--
+--
+--
+-- /Note:/ Consider using 'replicationInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstanceStatus :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstanceStatus = Lens.lens (replicationInstanceStatus :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceStatus = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstanceStatus "Use generic-lens or generic-optics with 'replicationInstanceStatus' instead." #-}
 
 -- | One or more private IP addresses for the replication instance.
-riReplicationInstancePrivateIPAddresses :: Lens' ReplicationInstance [Text]
-riReplicationInstancePrivateIPAddresses = lens _riReplicationInstancePrivateIPAddresses (\s a -> s {_riReplicationInstancePrivateIPAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationInstancePrivateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstancePrivateIPAddresses :: Lens.Lens' ReplicationInstance (Lude.Maybe [Lude.Text])
+riReplicationInstancePrivateIPAddresses = Lens.lens (replicationInstancePrivateIPAddresses :: ReplicationInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {replicationInstancePrivateIPAddresses = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstancePrivateIPAddresses "Use generic-lens or generic-optics with 'replicationInstancePrivateIPAddresses' instead." #-}
 
 -- | The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
-riPreferredMaintenanceWindow :: Lens' ReplicationInstance (Maybe Text)
-riPreferredMaintenanceWindow = lens _riPreferredMaintenanceWindow (\s a -> s {_riPreferredMaintenanceWindow = a})
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPreferredMaintenanceWindow :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: ReplicationInstance)
+{-# DEPRECATED riPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The private IP address of the replication instance.
-riReplicationInstancePrivateIPAddress :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstancePrivateIPAddress = lens _riReplicationInstancePrivateIPAddress (\s a -> s {_riReplicationInstancePrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'replicationInstancePrivateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstancePrivateIPAddress :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstancePrivateIPAddress = Lens.lens (replicationInstancePrivateIPAddress :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstancePrivateIPAddress = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstancePrivateIPAddress "Use generic-lens or generic-optics with 'replicationInstancePrivateIPAddress' instead." #-}
 
--- | An AWS KMS key identifier that is used to encrypt the data on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
-riKMSKeyId :: Lens' ReplicationInstance (Maybe Text)
-riKMSKeyId = lens _riKMSKeyId (\s a -> s {_riKMSKeyId = a})
+-- | An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+--
+-- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+-- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riKMSKeyId :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riKMSKeyId = Lens.lens (kmsKeyId :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ReplicationInstance)
+{-# DEPRECATED riKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The Availability Zone for the instance.
-riAvailabilityZone :: Lens' ReplicationInstance (Maybe Text)
-riAvailabilityZone = lens _riAvailabilityZone (\s a -> s {_riAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riAvailabilityZone :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riAvailabilityZone = Lens.lens (availabilityZone :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ReplicationInstance)
+{-# DEPRECATED riAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The VPC security group for the instance.
-riVPCSecurityGroups :: Lens' ReplicationInstance [VPCSecurityGroupMembership]
-riVPCSecurityGroups = lens _riVPCSecurityGroups (\s a -> s {_riVPCSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riVPCSecurityGroups :: Lens.Lens' ReplicationInstance (Lude.Maybe [VPCSecurityGroupMembership])
+riVPCSecurityGroups = Lens.lens (vpcSecurityGroups :: ReplicationInstance -> Lude.Maybe [VPCSecurityGroupMembership]) (\s a -> s {vpcSecurityGroups = a} :: ReplicationInstance)
+{-# DEPRECATED riVPCSecurityGroups "Use generic-lens or generic-optics with 'vpcSecurityGroups' instead." #-}
 
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
-riMultiAZ :: Lens' ReplicationInstance (Maybe Bool)
-riMultiAZ = lens _riMultiAZ (\s a -> s {_riMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riMultiAZ :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Bool)
+riMultiAZ = Lens.lens (multiAZ :: ReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: ReplicationInstance)
+{-# DEPRECATED riMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | The Availability Zone of the standby replication instance in a Multi-AZ deployment.
-riSecondaryAvailabilityZone :: Lens' ReplicationInstance (Maybe Text)
-riSecondaryAvailabilityZone = lens _riSecondaryAvailabilityZone (\s a -> s {_riSecondaryAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'secondaryAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riSecondaryAvailabilityZone :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riSecondaryAvailabilityZone = Lens.lens (secondaryAvailabilityZone :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {secondaryAvailabilityZone = a} :: ReplicationInstance)
+{-# DEPRECATED riSecondaryAvailabilityZone "Use generic-lens or generic-optics with 'secondaryAvailabilityZone' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-riReplicationInstanceARN :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstanceARN = lens _riReplicationInstanceARN (\s a -> s {_riReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstanceARN :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstanceARN = Lens.lens (replicationInstanceARN :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceARN = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
-riAllocatedStorage :: Lens' ReplicationInstance (Maybe Int)
-riAllocatedStorage = lens _riAllocatedStorage (\s a -> s {_riAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riAllocatedStorage :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Int)
+riAllocatedStorage = Lens.lens (allocatedStorage :: ReplicationInstance -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: ReplicationInstance)
+{-# DEPRECATED riAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | The DNS name servers supported for the replication instance to access your on-premise source or target database.
-riDNSNameServers :: Lens' ReplicationInstance (Maybe Text)
-riDNSNameServers = lens _riDNSNameServers (\s a -> s {_riDNSNameServers = a})
+--
+-- /Note:/ Consider using 'dnsNameServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riDNSNameServers :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riDNSNameServers = Lens.lens (dnsNameServers :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {dnsNameServers = a} :: ReplicationInstance)
+{-# DEPRECATED riDNSNameServers "Use generic-lens or generic-optics with 'dnsNameServers' instead." #-}
 
 -- | The public IP address of the replication instance.
-riReplicationInstancePublicIPAddress :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstancePublicIPAddress = lens _riReplicationInstancePublicIPAddress (\s a -> s {_riReplicationInstancePublicIPAddress = a})
+--
+-- /Note:/ Consider using 'replicationInstancePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstancePublicIPAddress :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstancePublicIPAddress = Lens.lens (replicationInstancePublicIPAddress :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstancePublicIPAddress = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstancePublicIPAddress "Use generic-lens or generic-optics with 'replicationInstancePublicIPAddress' instead." #-}
 
--- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console. For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
-riReplicationInstanceClass :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstanceClass = lens _riReplicationInstanceClass (\s a -> s {_riReplicationInstanceClass = a})
+-- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console.
+--
+-- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+--
+-- /Note:/ Consider using 'replicationInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstanceClass :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstanceClass = Lens.lens (replicationInstanceClass :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceClass = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstanceClass "Use generic-lens or generic-optics with 'replicationInstanceClass' instead." #-}
 
--- | The replication instance identifier is a required parameter. This parameter is stored as a lowercase string. Constraints:     * Must contain 1-63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
-riReplicationInstanceIdentifier :: Lens' ReplicationInstance (Maybe Text)
-riReplicationInstanceIdentifier = lens _riReplicationInstanceIdentifier (\s a -> s {_riReplicationInstanceIdentifier = a})
+-- | The replication instance identifier is a required parameter. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain 1-63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @myrepinstance@
+--
+-- /Note:/ Consider using 'replicationInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riReplicationInstanceIdentifier :: Lens.Lens' ReplicationInstance (Lude.Maybe Lude.Text)
+riReplicationInstanceIdentifier = Lens.lens (replicationInstanceIdentifier :: ReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceIdentifier = a} :: ReplicationInstance)
+{-# DEPRECATED riReplicationInstanceIdentifier "Use generic-lens or generic-optics with 'replicationInstanceIdentifier' instead." #-}
 
 -- | The pending modification values.
-riPendingModifiedValues :: Lens' ReplicationInstance (Maybe ReplicationPendingModifiedValues)
-riPendingModifiedValues = lens _riPendingModifiedValues (\s a -> s {_riPendingModifiedValues = a})
+--
+-- /Note:/ Consider using 'pendingModifiedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPendingModifiedValues :: Lens.Lens' ReplicationInstance (Lude.Maybe ReplicationPendingModifiedValues)
+riPendingModifiedValues = Lens.lens (pendingModifiedValues :: ReplicationInstance -> Lude.Maybe ReplicationPendingModifiedValues) (\s a -> s {pendingModifiedValues = a} :: ReplicationInstance)
+{-# DEPRECATED riPendingModifiedValues "Use generic-lens or generic-optics with 'pendingModifiedValues' instead." #-}
 
-instance FromJSON ReplicationInstance where
+instance Lude.FromJSON ReplicationInstance where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationInstance"
       ( \x ->
           ReplicationInstance'
-            <$> (x .:? "EngineVersion")
-            <*> (x .:? "PubliclyAccessible")
-            <*> (x .:? "AutoMinorVersionUpgrade")
-            <*> (x .:? "ReplicationInstancePublicIpAddresses" .!= mempty)
-            <*> (x .:? "ReplicationSubnetGroup")
-            <*> (x .:? "InstanceCreateTime")
-            <*> (x .:? "FreeUntil")
-            <*> (x .:? "ReplicationInstanceStatus")
-            <*> (x .:? "ReplicationInstancePrivateIpAddresses" .!= mempty)
-            <*> (x .:? "PreferredMaintenanceWindow")
-            <*> (x .:? "ReplicationInstancePrivateIpAddress")
-            <*> (x .:? "KmsKeyId")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "VpcSecurityGroups" .!= mempty)
-            <*> (x .:? "MultiAZ")
-            <*> (x .:? "SecondaryAvailabilityZone")
-            <*> (x .:? "ReplicationInstanceArn")
-            <*> (x .:? "AllocatedStorage")
-            <*> (x .:? "DnsNameServers")
-            <*> (x .:? "ReplicationInstancePublicIpAddress")
-            <*> (x .:? "ReplicationInstanceClass")
-            <*> (x .:? "ReplicationInstanceIdentifier")
-            <*> (x .:? "PendingModifiedValues")
+            Lude.<$> (x Lude..:? "EngineVersion")
+            Lude.<*> (x Lude..:? "PubliclyAccessible")
+            Lude.<*> (x Lude..:? "AutoMinorVersionUpgrade")
+            Lude.<*> ( x Lude..:? "ReplicationInstancePublicIpAddresses"
+                         Lude..!= Lude.mempty
+                     )
+            Lude.<*> (x Lude..:? "ReplicationSubnetGroup")
+            Lude.<*> (x Lude..:? "InstanceCreateTime")
+            Lude.<*> (x Lude..:? "FreeUntil")
+            Lude.<*> (x Lude..:? "ReplicationInstanceStatus")
+            Lude.<*> ( x Lude..:? "ReplicationInstancePrivateIpAddresses"
+                         Lude..!= Lude.mempty
+                     )
+            Lude.<*> (x Lude..:? "PreferredMaintenanceWindow")
+            Lude.<*> (x Lude..:? "ReplicationInstancePrivateIpAddress")
+            Lude.<*> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "VpcSecurityGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MultiAZ")
+            Lude.<*> (x Lude..:? "SecondaryAvailabilityZone")
+            Lude.<*> (x Lude..:? "ReplicationInstanceArn")
+            Lude.<*> (x Lude..:? "AllocatedStorage")
+            Lude.<*> (x Lude..:? "DnsNameServers")
+            Lude.<*> (x Lude..:? "ReplicationInstancePublicIpAddress")
+            Lude.<*> (x Lude..:? "ReplicationInstanceClass")
+            Lude.<*> (x Lude..:? "ReplicationInstanceIdentifier")
+            Lude.<*> (x Lude..:? "PendingModifiedValues")
       )
-
-instance Hashable ReplicationInstance
-
-instance NFData ReplicationInstance

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ParameterType where
+module Network.AWS.SSM.Types.ParameterType
+  ( ParameterType
+      ( ParameterType',
+        PTSecureString,
+        PTString,
+        PTStringList
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParameterType
-  = PTSecureString
-  | PTString
-  | PTStringList
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParameterType = ParameterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParameterType where
-  parser =
-    takeLowerText >>= \case
-      "securestring" -> pure PTSecureString
-      "string" -> pure PTString
-      "stringlist" -> pure PTStringList
-      e ->
-        fromTextError $
-          "Failure parsing ParameterType from value: '" <> e
-            <> "'. Accepted values: securestring, string, stringlist"
+pattern PTSecureString :: ParameterType
+pattern PTSecureString = ParameterType' "SecureString"
 
-instance ToText ParameterType where
-  toText = \case
-    PTSecureString -> "SecureString"
-    PTString -> "String"
-    PTStringList -> "StringList"
+pattern PTString :: ParameterType
+pattern PTString = ParameterType' "String"
 
-instance Hashable ParameterType
+pattern PTStringList :: ParameterType
+pattern PTStringList = ParameterType' "StringList"
 
-instance NFData ParameterType
-
-instance ToByteString ParameterType
-
-instance ToQuery ParameterType
-
-instance ToHeader ParameterType
-
-instance ToJSON ParameterType where
-  toJSON = toJSONText
-
-instance FromJSON ParameterType where
-  parseJSON = parseJSONText "ParameterType"
+{-# COMPLETE
+  PTSecureString,
+  PTString,
+  PTStringList,
+  ParameterType'
+  #-}

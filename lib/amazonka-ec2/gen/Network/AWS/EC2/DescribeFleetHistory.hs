@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Describes the events for the specified EC2 Fleet during the specified time.
 --
---
 -- EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.
 module Network.AWS.EC2.DescribeFleetHistory
-  ( -- * Creating a Request
-    describeFleetHistory,
-    DescribeFleetHistory,
+  ( -- * Creating a request
+    DescribeFleetHistory (..),
+    mkDescribeFleetHistory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfhNextToken,
     dfhEventType,
     dfhDryRun,
@@ -34,11 +28,11 @@ module Network.AWS.EC2.DescribeFleetHistory
     dfhFleetId,
     dfhStartTime,
 
-    -- * Destructuring the Response
-    describeFleetHistoryResponse,
-    DescribeFleetHistoryResponse,
+    -- * Destructuring the response
+    DescribeFleetHistoryResponse (..),
+    mkDescribeFleetHistoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfhrsStartTime,
     dfhrsLastEvaluatedTime,
     dfhrsNextToken,
@@ -49,181 +43,217 @@ module Network.AWS.EC2.DescribeFleetHistory
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFleetHistory' smart constructor.
+-- | /See:/ 'mkDescribeFleetHistory' smart constructor.
 data DescribeFleetHistory = DescribeFleetHistory'
-  { _dfhNextToken ::
-      !(Maybe Text),
-    _dfhEventType :: !(Maybe FleetEventType),
-    _dfhDryRun :: !(Maybe Bool),
-    _dfhMaxResults :: !(Maybe Int),
-    _dfhFleetId :: !Text,
-    _dfhStartTime :: !ISO8601
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    eventType :: Lude.Maybe FleetEventType,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int,
+    fleetId :: Lude.Text,
+    startTime :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfhNextToken' - The token for the next set of results.
---
--- * 'dfhEventType' - The type of events to describe. By default, all events are described.
---
--- * 'dfhDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dfhMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
---
--- * 'dfhFleetId' - The ID of the EC2 Fleet.
---
--- * 'dfhStartTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-describeFleetHistory ::
-  -- | 'dfhFleetId'
-  Text ->
-  -- | 'dfhStartTime'
-  UTCTime ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'eventType' - The type of events to describe. By default, all events are described.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+mkDescribeFleetHistory ::
+  -- | 'fleetId'
+  Lude.Text ->
+  -- | 'startTime'
+  Lude.ISO8601 ->
   DescribeFleetHistory
-describeFleetHistory pFleetId_ pStartTime_ =
+mkDescribeFleetHistory pFleetId_ pStartTime_ =
   DescribeFleetHistory'
-    { _dfhNextToken = Nothing,
-      _dfhEventType = Nothing,
-      _dfhDryRun = Nothing,
-      _dfhMaxResults = Nothing,
-      _dfhFleetId = pFleetId_,
-      _dfhStartTime = _Time # pStartTime_
+    { nextToken = Lude.Nothing,
+      eventType = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      fleetId = pFleetId_,
+      startTime = pStartTime_
     }
 
 -- | The token for the next set of results.
-dfhNextToken :: Lens' DescribeFleetHistory (Maybe Text)
-dfhNextToken = lens _dfhNextToken (\s a -> s {_dfhNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhNextToken :: Lens.Lens' DescribeFleetHistory (Lude.Maybe Lude.Text)
+dfhNextToken = Lens.lens (nextToken :: DescribeFleetHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of events to describe. By default, all events are described.
-dfhEventType :: Lens' DescribeFleetHistory (Maybe FleetEventType)
-dfhEventType = lens _dfhEventType (\s a -> s {_dfhEventType = a})
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhEventType :: Lens.Lens' DescribeFleetHistory (Lude.Maybe FleetEventType)
+dfhEventType = Lens.lens (eventType :: DescribeFleetHistory -> Lude.Maybe FleetEventType) (\s a -> s {eventType = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dfhDryRun :: Lens' DescribeFleetHistory (Maybe Bool)
-dfhDryRun = lens _dfhDryRun (\s a -> s {_dfhDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhDryRun :: Lens.Lens' DescribeFleetHistory (Lude.Maybe Lude.Bool)
+dfhDryRun = Lens.lens (dryRun :: DescribeFleetHistory -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-dfhMaxResults :: Lens' DescribeFleetHistory (Maybe Int)
-dfhMaxResults = lens _dfhMaxResults (\s a -> s {_dfhMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhMaxResults :: Lens.Lens' DescribeFleetHistory (Lude.Maybe Lude.Int)
+dfhMaxResults = Lens.lens (maxResults :: DescribeFleetHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the EC2 Fleet.
-dfhFleetId :: Lens' DescribeFleetHistory Text
-dfhFleetId = lens _dfhFleetId (\s a -> s {_dfhFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhFleetId :: Lens.Lens' DescribeFleetHistory Lude.Text
+dfhFleetId = Lens.lens (fleetId :: DescribeFleetHistory -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-dfhStartTime :: Lens' DescribeFleetHistory UTCTime
-dfhStartTime = lens _dfhStartTime (\s a -> s {_dfhStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhStartTime :: Lens.Lens' DescribeFleetHistory Lude.ISO8601
+dfhStartTime = Lens.lens (startTime :: DescribeFleetHistory -> Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
-instance AWSRequest DescribeFleetHistory where
+instance Lude.AWSRequest DescribeFleetHistory where
   type Rs DescribeFleetHistory = DescribeFleetHistoryResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeFleetHistoryResponse'
-            <$> (x .@? "startTime")
-            <*> (x .@? "lastEvaluatedTime")
-            <*> (x .@? "nextToken")
-            <*> (x .@? "historyRecordSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "fleetId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "startTime")
+            Lude.<*> (x Lude..@? "lastEvaluatedTime")
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "historyRecordSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "fleetId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeFleetHistory
+instance Lude.ToHeaders DescribeFleetHistory where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeFleetHistory
+instance Lude.ToPath DescribeFleetHistory where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeFleetHistory where
-  toHeaders = const mempty
-
-instance ToPath DescribeFleetHistory where
-  toPath = const "/"
-
-instance ToQuery DescribeFleetHistory where
+instance Lude.ToQuery DescribeFleetHistory where
   toQuery DescribeFleetHistory' {..} =
-    mconcat
-      [ "Action" =: ("DescribeFleetHistory" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NextToken" =: _dfhNextToken,
-        "EventType" =: _dfhEventType,
-        "DryRun" =: _dfhDryRun,
-        "MaxResults" =: _dfhMaxResults,
-        "FleetId" =: _dfhFleetId,
-        "StartTime" =: _dfhStartTime
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeFleetHistory" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "EventType" Lude.=: eventType,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        "FleetId" Lude.=: fleetId,
+        "StartTime" Lude.=: startTime
       ]
 
--- | /See:/ 'describeFleetHistoryResponse' smart constructor.
+-- | /See:/ 'mkDescribeFleetHistoryResponse' smart constructor.
 data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
-  { _dfhrsStartTime ::
-      !(Maybe ISO8601),
-    _dfhrsLastEvaluatedTime ::
-      !(Maybe ISO8601),
-    _dfhrsNextToken :: !(Maybe Text),
-    _dfhrsHistoryRecords ::
-      !(Maybe [HistoryRecordEntry]),
-    _dfhrsFleetId :: !(Maybe Text),
-    _dfhrsResponseStatus :: !Int
+  { startTime ::
+      Lude.Maybe Lude.ISO8601,
+    lastEvaluatedTime ::
+      Lude.Maybe Lude.ISO8601,
+    nextToken :: Lude.Maybe Lude.Text,
+    historyRecords ::
+      Lude.Maybe [HistoryRecordEntry],
+    fleetId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetHistoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'fleetId' - The ID of the EC Fleet.
+-- * 'historyRecords' - Information about the events in the history of the EC2 Fleet.
+-- * 'lastEvaluatedTime' - The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
 --
--- * 'dfhrsStartTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- * 'dfhrsLastEvaluatedTime' - The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved. If @nextToken@ indicates that there are more results, this value is not present.
---
--- * 'dfhrsNextToken' - The token for the next set of results.
---
--- * 'dfhrsHistoryRecords' - Information about the events in the history of the EC2 Fleet.
---
--- * 'dfhrsFleetId' - The ID of the EC Fleet.
---
--- * 'dfhrsResponseStatus' - -- | The response status code.
-describeFleetHistoryResponse ::
-  -- | 'dfhrsResponseStatus'
-  Int ->
+-- If @nextToken@ indicates that there are more results, this value is not present.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'responseStatus' - The response status code.
+-- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+mkDescribeFleetHistoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFleetHistoryResponse
-describeFleetHistoryResponse pResponseStatus_ =
+mkDescribeFleetHistoryResponse pResponseStatus_ =
   DescribeFleetHistoryResponse'
-    { _dfhrsStartTime = Nothing,
-      _dfhrsLastEvaluatedTime = Nothing,
-      _dfhrsNextToken = Nothing,
-      _dfhrsHistoryRecords = Nothing,
-      _dfhrsFleetId = Nothing,
-      _dfhrsResponseStatus = pResponseStatus_
+    { startTime = Lude.Nothing,
+      lastEvaluatedTime = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      historyRecords = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-dfhrsStartTime :: Lens' DescribeFleetHistoryResponse (Maybe UTCTime)
-dfhrsStartTime = lens _dfhrsStartTime (\s a -> s {_dfhrsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsStartTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.ISO8601)
+dfhrsStartTime = Lens.lens (startTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved. If @nextToken@ indicates that there are more results, this value is not present.
-dfhrsLastEvaluatedTime :: Lens' DescribeFleetHistoryResponse (Maybe UTCTime)
-dfhrsLastEvaluatedTime = lens _dfhrsLastEvaluatedTime (\s a -> s {_dfhrsLastEvaluatedTime = a}) . mapping _Time
+-- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
+--
+-- If @nextToken@ indicates that there are more results, this value is not present.
+--
+-- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsLastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.ISO8601)
+dfhrsLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
 
 -- | The token for the next set of results.
-dfhrsNextToken :: Lens' DescribeFleetHistoryResponse (Maybe Text)
-dfhrsNextToken = lens _dfhrsNextToken (\s a -> s {_dfhrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsNextToken :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.Text)
+dfhrsNextToken = Lens.lens (nextToken :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the events in the history of the EC2 Fleet.
-dfhrsHistoryRecords :: Lens' DescribeFleetHistoryResponse [HistoryRecordEntry]
-dfhrsHistoryRecords = lens _dfhrsHistoryRecords (\s a -> s {_dfhrsHistoryRecords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'historyRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsHistoryRecords :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe [HistoryRecordEntry])
+dfhrsHistoryRecords = Lens.lens (historyRecords :: DescribeFleetHistoryResponse -> Lude.Maybe [HistoryRecordEntry]) (\s a -> s {historyRecords = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsHistoryRecords "Use generic-lens or generic-optics with 'historyRecords' instead." #-}
 
 -- | The ID of the EC Fleet.
-dfhrsFleetId :: Lens' DescribeFleetHistoryResponse (Maybe Text)
-dfhrsFleetId = lens _dfhrsFleetId (\s a -> s {_dfhrsFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsFleetId :: Lens.Lens' DescribeFleetHistoryResponse (Lude.Maybe Lude.Text)
+dfhrsFleetId = Lens.lens (fleetId :: DescribeFleetHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
--- | -- | The response status code.
-dfhrsResponseStatus :: Lens' DescribeFleetHistoryResponse Int
-dfhrsResponseStatus = lens _dfhrsResponseStatus (\s a -> s {_dfhrsResponseStatus = a})
-
-instance NFData DescribeFleetHistoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhrsResponseStatus :: Lens.Lens' DescribeFleetHistoryResponse Lude.Int
+dfhrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetHistoryResponse)
+{-# DEPRECATED dfhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

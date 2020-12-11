@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ViolationEventType where
+module Network.AWS.IoT.Types.ViolationEventType
+  ( ViolationEventType
+      ( ViolationEventType',
+        AlarmCleared,
+        AlarmInvalidated,
+        InAlarm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ViolationEventType
-  = AlarmCleared
-  | AlarmInvalidated
-  | InAlarm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ViolationEventType = ViolationEventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ViolationEventType where
-  parser =
-    takeLowerText >>= \case
-      "alarm-cleared" -> pure AlarmCleared
-      "alarm-invalidated" -> pure AlarmInvalidated
-      "in-alarm" -> pure InAlarm
-      e ->
-        fromTextError $
-          "Failure parsing ViolationEventType from value: '" <> e
-            <> "'. Accepted values: alarm-cleared, alarm-invalidated, in-alarm"
+pattern AlarmCleared :: ViolationEventType
+pattern AlarmCleared = ViolationEventType' "alarm-cleared"
 
-instance ToText ViolationEventType where
-  toText = \case
-    AlarmCleared -> "alarm-cleared"
-    AlarmInvalidated -> "alarm-invalidated"
-    InAlarm -> "in-alarm"
+pattern AlarmInvalidated :: ViolationEventType
+pattern AlarmInvalidated = ViolationEventType' "alarm-invalidated"
 
-instance Hashable ViolationEventType
+pattern InAlarm :: ViolationEventType
+pattern InAlarm = ViolationEventType' "in-alarm"
 
-instance NFData ViolationEventType
-
-instance ToByteString ViolationEventType
-
-instance ToQuery ViolationEventType
-
-instance ToHeader ViolationEventType
-
-instance FromJSON ViolationEventType where
-  parseJSON = parseJSONText "ViolationEventType"
+{-# COMPLETE
+  AlarmCleared,
+  AlarmInvalidated,
+  InAlarm,
+  ViolationEventType'
+  #-}

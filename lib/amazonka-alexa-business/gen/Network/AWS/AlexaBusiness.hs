@@ -13,8 +13,8 @@
 --
 -- Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization.
 module Network.AWS.AlexaBusiness
-  ( -- * Service Configuration
-    alexaBusiness,
+  ( -- * Service configuration
+    alexaBusinessService,
 
     -- * Errors
     -- $errors
@@ -391,28 +391,28 @@ module Network.AWS.AlexaBusiness
     WakeWord (..),
 
     -- ** AddressBook
-    AddressBook,
-    addressBook,
+    AddressBook (..),
+    mkAddressBook,
     abAddressBookARN,
     abName,
     abDescription,
 
     -- ** AddressBookData
-    AddressBookData,
-    addressBookData,
+    AddressBookData (..),
+    mkAddressBookData,
     abdAddressBookARN,
     abdName,
     abdDescription,
 
     -- ** Audio
-    Audio,
-    audio,
+    Audio (..),
+    mkAudio,
     aLocale,
     aLocation,
 
     -- ** BusinessReport
-    BusinessReport,
-    businessReport,
+    BusinessReport (..),
+    mkBusinessReport,
     brStatus,
     brFailureCode,
     brDeliveryTime,
@@ -420,24 +420,24 @@ module Network.AWS.AlexaBusiness
     brS3Location,
 
     -- ** BusinessReportContentRange
-    BusinessReportContentRange,
-    businessReportContentRange,
+    BusinessReportContentRange (..),
+    mkBusinessReportContentRange,
     brcrInterval,
 
     -- ** BusinessReportRecurrence
-    BusinessReportRecurrence,
-    businessReportRecurrence,
+    BusinessReportRecurrence (..),
+    mkBusinessReportRecurrence,
     brrStartDate,
 
     -- ** BusinessReportS3Location
-    BusinessReportS3Location,
-    businessReportS3Location,
+    BusinessReportS3Location (..),
+    mkBusinessReportS3Location,
     brslPath,
     brslBucketName,
 
     -- ** BusinessReportSchedule
-    BusinessReportSchedule,
-    businessReportSchedule,
+    BusinessReportSchedule (..),
+    mkBusinessReportSchedule,
     brsS3KeyPrefix,
     brsLastBusinessReport,
     brsFormat,
@@ -448,19 +448,19 @@ module Network.AWS.AlexaBusiness
     brsS3BucketName,
 
     -- ** Category
-    Category,
-    category,
+    Category (..),
+    mkCategory,
     cCategoryName,
     cCategoryId,
 
     -- ** ConferencePreference
-    ConferencePreference,
-    conferencePreference,
+    ConferencePreference (..),
+    mkConferencePreference,
     cpDefaultConferenceProviderARN,
 
     -- ** ConferenceProvider
-    ConferenceProvider,
-    conferenceProvider,
+    ConferenceProvider (..),
+    mkConferenceProvider,
     cpMeetingSetting,
     cpARN,
     cpPSTNDialIn,
@@ -469,8 +469,8 @@ module Network.AWS.AlexaBusiness
     cpIPDialIn,
 
     -- ** Contact
-    Contact,
-    contact,
+    Contact (..),
+    mkContact,
     cLastName,
     cContactARN,
     cPhoneNumbers,
@@ -480,8 +480,8 @@ module Network.AWS.AlexaBusiness
     cDisplayName,
 
     -- ** ContactData
-    ContactData,
-    contactData,
+    ContactData (..),
+    mkContactData,
     cdLastName,
     cdContactARN,
     cdPhoneNumbers,
@@ -491,50 +491,50 @@ module Network.AWS.AlexaBusiness
     cdDisplayName,
 
     -- ** Content
-    Content,
-    content,
+    Content (..),
+    mkContent,
     cAudioList,
     cTextList,
     cSsmlList,
 
     -- ** CreateEndOfMeetingReminder
-    CreateEndOfMeetingReminder,
-    createEndOfMeetingReminder,
+    CreateEndOfMeetingReminder (..),
+    mkCreateEndOfMeetingReminder,
     ceomrReminderAtMinutes,
     ceomrReminderType,
     ceomrEnabled,
 
     -- ** CreateInstantBooking
-    CreateInstantBooking,
-    createInstantBooking,
+    CreateInstantBooking (..),
+    mkCreateInstantBooking,
     cibDurationInMinutes,
     cibEnabled,
 
     -- ** CreateMeetingRoomConfiguration
-    CreateMeetingRoomConfiguration,
-    createMeetingRoomConfiguration,
+    CreateMeetingRoomConfiguration (..),
+    mkCreateMeetingRoomConfiguration,
     cmrcInstantBooking,
     cmrcEndOfMeetingReminder,
     cmrcRequireCheckIn,
     cmrcRoomUtilizationMetricsEnabled,
 
     -- ** CreateRequireCheckIn
-    CreateRequireCheckIn,
-    createRequireCheckIn,
+    CreateRequireCheckIn (..),
+    mkCreateRequireCheckIn,
     crciReleaseAfterMinutes,
     crciEnabled,
 
     -- ** DeveloperInfo
-    DeveloperInfo,
-    developerInfo,
+    DeveloperInfo (..),
+    mkDeveloperInfo,
     diEmail,
     diURL,
     diPrivacyPolicy,
     diDeveloperName,
 
     -- ** Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dDeviceStatus,
     dDeviceStatusInfo,
     dDeviceARN,
@@ -547,8 +547,8 @@ module Network.AWS.AlexaBusiness
     dDeviceSerialNumber,
 
     -- ** DeviceData
-    DeviceData,
-    deviceData,
+    DeviceData (..),
+    mkDeviceData,
     ddDeviceStatus,
     ddNetworkProfileName,
     ddDeviceStatusInfo,
@@ -564,48 +564,48 @@ module Network.AWS.AlexaBusiness
     ddDeviceSerialNumber,
 
     -- ** DeviceEvent
-    DeviceEvent,
-    deviceEvent,
+    DeviceEvent (..),
+    mkDeviceEvent,
     deValue,
     deType,
     deTimestamp,
 
     -- ** DeviceNetworkProfileInfo
-    DeviceNetworkProfileInfo,
-    deviceNetworkProfileInfo,
+    DeviceNetworkProfileInfo (..),
+    mkDeviceNetworkProfileInfo,
     dnpiCertificateARN,
     dnpiNetworkProfileARN,
     dnpiCertificateExpirationTime,
 
     -- ** DeviceStatusDetail
-    DeviceStatusDetail,
-    deviceStatusDetail,
+    DeviceStatusDetail (..),
+    mkDeviceStatusDetail,
     dsdFeature,
     dsdCode,
 
     -- ** DeviceStatusInfo
-    DeviceStatusInfo,
-    deviceStatusInfo,
+    DeviceStatusInfo (..),
+    mkDeviceStatusInfo,
     dsiConnectionStatusUpdatedTime,
     dsiDeviceStatusDetails,
     dsiConnectionStatus,
 
     -- ** EndOfMeetingReminder
-    EndOfMeetingReminder,
-    endOfMeetingReminder,
+    EndOfMeetingReminder (..),
+    mkEndOfMeetingReminder,
     eomrEnabled,
     eomrReminderAtMinutes,
     eomrReminderType,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fKey,
     fValues,
 
     -- ** Gateway
-    Gateway,
-    gateway,
+    Gateway (..),
+    mkGateway,
     gARN,
     gName,
     gGatewayGroupARN,
@@ -613,22 +613,22 @@ module Network.AWS.AlexaBusiness
     gDescription,
 
     -- ** GatewayGroup
-    GatewayGroup,
-    gatewayGroup,
+    GatewayGroup (..),
+    mkGatewayGroup,
     ggARN,
     ggName,
     ggDescription,
 
     -- ** GatewayGroupSummary
-    GatewayGroupSummary,
-    gatewayGroupSummary,
+    GatewayGroupSummary (..),
+    mkGatewayGroupSummary,
     ggsARN,
     ggsName,
     ggsDescription,
 
     -- ** GatewaySummary
-    GatewaySummary,
-    gatewaySummary,
+    GatewaySummary (..),
+    mkGatewaySummary,
     gsARN,
     gsName,
     gsGatewayGroupARN,
@@ -636,33 +636,33 @@ module Network.AWS.AlexaBusiness
     gsDescription,
 
     -- ** IPDialIn
-    IPDialIn,
-    ipDialIn,
+    IPDialIn (..),
+    mkIPDialIn,
     idiEndpoint,
     idiCommsProtocol,
 
     -- ** InstantBooking
-    InstantBooking,
-    instantBooking,
+    InstantBooking (..),
+    mkInstantBooking,
     ibEnabled,
     ibDurationInMinutes,
 
     -- ** MeetingRoomConfiguration
-    MeetingRoomConfiguration,
-    meetingRoomConfiguration,
+    MeetingRoomConfiguration (..),
+    mkMeetingRoomConfiguration,
     mrcInstantBooking,
     mrcEndOfMeetingReminder,
     mrcRequireCheckIn,
     mrcRoomUtilizationMetricsEnabled,
 
     -- ** MeetingSetting
-    MeetingSetting,
-    meetingSetting,
+    MeetingSetting (..),
+    mkMeetingSetting,
     msRequirePin,
 
     -- ** NetworkProfile
-    NetworkProfile,
-    networkProfile,
+    NetworkProfile (..),
+    mkNetworkProfile,
     npNetworkProfileName,
     npSsid,
     npNetworkProfileARN,
@@ -675,8 +675,8 @@ module Network.AWS.AlexaBusiness
     npCertificateAuthorityARN,
 
     -- ** NetworkProfileData
-    NetworkProfileData,
-    networkProfileData,
+    NetworkProfileData (..),
+    mkNetworkProfileData,
     npdNetworkProfileName,
     npdSsid,
     npdNetworkProfileARN,
@@ -686,22 +686,22 @@ module Network.AWS.AlexaBusiness
     npdCertificateAuthorityARN,
 
     -- ** PSTNDialIn
-    PSTNDialIn,
-    pSTNDialIn,
+    PSTNDialIn (..),
+    mkPSTNDialIn,
     pstndiCountryCode,
     pstndiPhoneNumber,
     pstndiOneClickIdDelay,
     pstndiOneClickPinDelay,
 
     -- ** PhoneNumber
-    PhoneNumber,
-    phoneNumber,
+    PhoneNumber (..),
+    mkPhoneNumber,
     pnNumber,
     pnType,
 
     -- ** Profile
-    Profile,
-    profile,
+    Profile (..),
+    mkProfile,
     pSetupModeDisabled,
     pPSTNEnabled,
     pAddressBookARN,
@@ -718,8 +718,8 @@ module Network.AWS.AlexaBusiness
     pIsDefault,
 
     -- ** ProfileData
-    ProfileData,
-    profileData,
+    ProfileData (..),
+    mkProfileData,
     pdDistanceUnit,
     pdLocale,
     pdAddress,
@@ -731,14 +731,14 @@ module Network.AWS.AlexaBusiness
     pdIsDefault,
 
     -- ** RequireCheckIn
-    RequireCheckIn,
-    requireCheckIn,
+    RequireCheckIn (..),
+    mkRequireCheckIn,
     rciEnabled,
     rciReleaseAfterMinutes,
 
     -- ** Room
-    Room,
-    room,
+    Room (..),
+    mkRoom,
     rProfileARN,
     rProviderCalendarId,
     rRoomARN,
@@ -746,8 +746,8 @@ module Network.AWS.AlexaBusiness
     rDescription,
 
     -- ** RoomData
-    RoomData,
-    roomData,
+    RoomData (..),
+    mkRoomData,
     rdProfileARN,
     rdProviderCalendarId,
     rdProfileName,
@@ -756,20 +756,20 @@ module Network.AWS.AlexaBusiness
     rdDescription,
 
     -- ** RoomSkillParameter
-    RoomSkillParameter,
-    roomSkillParameter,
+    RoomSkillParameter (..),
+    mkRoomSkillParameter,
     rspParameterKey,
     rspParameterValue,
 
     -- ** SipAddress
-    SipAddress,
-    sipAddress,
+    SipAddress (..),
+    mkSipAddress,
     saURI,
     saType,
 
     -- ** SkillDetails
-    SkillDetails,
-    skillDetails,
+    SkillDetails (..),
+    mkSkillDetails,
     sdSkillTypes,
     sdProductDescription,
     sdInvocationPhrase,
@@ -782,22 +782,22 @@ module Network.AWS.AlexaBusiness
     sdBulletPoints,
 
     -- ** SkillGroup
-    SkillGroup,
-    skillGroup,
+    SkillGroup (..),
+    mkSkillGroup,
     sgSkillGroupARN,
     sgDescription,
     sgSkillGroupName,
 
     -- ** SkillGroupData
-    SkillGroupData,
-    skillGroupData,
+    SkillGroupData (..),
+    mkSkillGroupData,
     sgdSkillGroupARN,
     sgdDescription,
     sgdSkillGroupName,
 
     -- ** SkillSummary
-    SkillSummary,
-    skillSummary,
+    SkillSummary (..),
+    mkSkillSummary,
     ssSkillId,
     ssSupportsLinking,
     ssSkillType,
@@ -805,8 +805,8 @@ module Network.AWS.AlexaBusiness
     ssSkillName,
 
     -- ** SkillsStoreSkill
-    SkillsStoreSkill,
-    skillsStoreSkill,
+    SkillsStoreSkill (..),
+    mkSkillsStoreSkill,
     sssSkillId,
     sssSupportsLinking,
     sssSampleUtterances,
@@ -816,72 +816,83 @@ module Network.AWS.AlexaBusiness
     sssSkillName,
 
     -- ** SmartHomeAppliance
-    SmartHomeAppliance,
-    smartHomeAppliance,
+    SmartHomeAppliance (..),
+    mkSmartHomeAppliance,
     shaFriendlyName,
     shaManufacturerName,
     shaDescription,
 
     -- ** Sort
-    Sort,
-    sort,
+    Sort (..),
+    mkSort,
     sKey,
     sValue,
 
     -- ** Ssml
-    Ssml,
-    ssml,
+    Ssml (..),
+    mkSsml,
     ssmLocale,
     ssmValue,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TextMessage
-    TextMessage,
-    textMessage,
+    TextMessage (..),
+    mkTextMessage,
     tmLocale,
     tmValue,
 
     -- ** UpdateEndOfMeetingReminder
-    UpdateEndOfMeetingReminder,
-    updateEndOfMeetingReminder,
+    UpdateEndOfMeetingReminder (..),
+    mkUpdateEndOfMeetingReminder,
     ueomrEnabled,
     ueomrReminderAtMinutes,
     ueomrReminderType,
 
     -- ** UpdateInstantBooking
-    UpdateInstantBooking,
-    updateInstantBooking,
+    UpdateInstantBooking (..),
+    mkUpdateInstantBooking,
     uibEnabled,
     uibDurationInMinutes,
 
     -- ** UpdateMeetingRoomConfiguration
-    UpdateMeetingRoomConfiguration,
-    updateMeetingRoomConfiguration,
+    UpdateMeetingRoomConfiguration (..),
+    mkUpdateMeetingRoomConfiguration,
     umrcInstantBooking,
     umrcEndOfMeetingReminder,
     umrcRequireCheckIn,
     umrcRoomUtilizationMetricsEnabled,
 
     -- ** UpdateRequireCheckIn
-    UpdateRequireCheckIn,
-    updateRequireCheckIn,
+    UpdateRequireCheckIn (..),
+    mkUpdateRequireCheckIn,
     urciEnabled,
     urciReleaseAfterMinutes,
 
     -- ** UserData
-    UserData,
-    userData,
+    UserData (..),
+    mkUserData,
     udEmail,
     udLastName,
     udEnrollmentId,
     udUserARN,
     udFirstName,
     udEnrollmentStatus,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -980,6 +991,7 @@ import Network.AWS.AlexaBusiness.UpdateProfile
 import Network.AWS.AlexaBusiness.UpdateRoom
 import Network.AWS.AlexaBusiness.UpdateSkillGroup
 import Network.AWS.AlexaBusiness.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

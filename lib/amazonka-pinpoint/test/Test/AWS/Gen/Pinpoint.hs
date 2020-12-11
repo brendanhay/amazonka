@@ -28,679 +28,679 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetGCMChannel $
---             getGCMChannel
+--             mkGetGCMChannel
 --
 --         , requestGetSegmentImportJobs $
---             getSegmentImportJobs
+--             mkGetSegmentImportJobs
 --
 --         , requestSendMessages $
---             sendMessages
+--             mkSendMessages
 --
 --         , requestGetImportJob $
---             getImportJob
+--             mkGetImportJob
 --
 --         , requestDeleteSmsTemplate $
---             deleteSmsTemplate
+--             mkDeleteSmsTemplate
 --
 --         , requestUpdateSmsTemplate $
---             updateSmsTemplate
+--             mkUpdateSmsTemplate
 --
 --         , requestGetAPNSVoipSandboxChannel $
---             getAPNSVoipSandboxChannel
+--             mkGetAPNSVoipSandboxChannel
 --
 --         , requestGetSegmentVersions $
---             getSegmentVersions
+--             mkGetSegmentVersions
 --
 --         , requestDeleteCampaign $
---             deleteCampaign
+--             mkDeleteCampaign
 --
 --         , requestUpdateCampaign $
---             updateCampaign
+--             mkUpdateCampaign
 --
 --         , requestGetSegmentVersion $
---             getSegmentVersion
+--             mkGetSegmentVersion
 --
 --         , requestDeletePushTemplate $
---             deletePushTemplate
+--             mkDeletePushTemplate
 --
 --         , requestUpdatePushTemplate $
---             updatePushTemplate
+--             mkUpdatePushTemplate
 --
 --         , requestCreateExportJob $
---             createExportJob
+--             mkCreateExportJob
 --
 --         , requestCreateSegment $
---             createSegment
+--             mkCreateSegment
 --
 --         , requestCreateRecommenderConfiguration $
---             createRecommenderConfiguration
+--             mkCreateRecommenderConfiguration
 --
 --         , requestCreateVoiceTemplate $
---             createVoiceTemplate
+--             mkCreateVoiceTemplate
 --
 --         , requestUpdateADMChannel $
---             updateADMChannel
+--             mkUpdateADMChannel
 --
 --         , requestDeleteADMChannel $
---             deleteADMChannel
+--             mkDeleteADMChannel
 --
 --         , requestDeleteRecommenderConfiguration $
---             deleteRecommenderConfiguration
+--             mkDeleteRecommenderConfiguration
 --
 --         , requestUpdateRecommenderConfiguration $
---             updateRecommenderConfiguration
+--             mkUpdateRecommenderConfiguration
 --
 --         , requestCreatePushTemplate $
---             createPushTemplate
+--             mkCreatePushTemplate
 --
 --         , requestDeleteEndpoint $
---             deleteEndpoint
+--             mkDeleteEndpoint
 --
 --         , requestUpdateEndpoint $
---             updateEndpoint
+--             mkUpdateEndpoint
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestCreateCampaign $
---             createCampaign
+--             mkCreateCampaign
 --
 --         , requestGetEmailTemplate $
---             getEmailTemplate
+--             mkGetEmailTemplate
 --
 --         , requestGetExportJob $
---             getExportJob
+--             mkGetExportJob
 --
 --         , requestGetEndpoint $
---             getEndpoint
+--             mkGetEndpoint
 --
 --         , requestGetSegment $
---             getSegment
+--             mkGetSegment
 --
 --         , requestGetRecommenderConfiguration $
---             getRecommenderConfiguration
+--             mkGetRecommenderConfiguration
 --
 --         , requestUpdateEndpointsBatch $
---             updateEndpointsBatch
+--             mkUpdateEndpointsBatch
 --
 --         , requestGetADMChannel $
---             getADMChannel
+--             mkGetADMChannel
 --
 --         , requestGetCampaign $
---             getCampaign
+--             mkGetCampaign
 --
 --         , requestGetVoiceTemplate $
---             getVoiceTemplate
+--             mkGetVoiceTemplate
 --
 --         , requestGetPushTemplate $
---             getPushTemplate
+--             mkGetPushTemplate
 --
 --         , requestDeleteUserEndpoints $
---             deleteUserEndpoints
+--             mkDeleteUserEndpoints
 --
 --         , requestCreateEmailTemplate $
---             createEmailTemplate
+--             mkCreateEmailTemplate
 --
 --         , requestDeleteApp $
---             deleteApp
+--             mkDeleteApp
 --
 --         , requestUpdateAPNSVoipSandboxChannel $
---             updateAPNSVoipSandboxChannel
+--             mkUpdateAPNSVoipSandboxChannel
 --
 --         , requestDeleteAPNSVoipSandboxChannel $
---             deleteAPNSVoipSandboxChannel
+--             mkDeleteAPNSVoipSandboxChannel
 --
 --         , requestUpdateGCMChannel $
---             updateGCMChannel
+--             mkUpdateGCMChannel
 --
 --         , requestDeleteGCMChannel $
---             deleteGCMChannel
+--             mkDeleteGCMChannel
 --
 --         , requestGetCampaignActivities $
---             getCampaignActivities
+--             mkGetCampaignActivities
 --
 --         , requestGetJourneyExecutionMetrics $
---             getJourneyExecutionMetrics
+--             mkGetJourneyExecutionMetrics
 --
 --         , requestUpdateJourneyState $
---             updateJourneyState
+--             mkUpdateJourneyState
 --
 --         , requestGetEventStream $
---             getEventStream
+--             mkGetEventStream
 --
 --         , requestGetChannels $
---             getChannels
+--             mkGetChannels
 --
 --         , requestGetJourney $
---             getJourney
+--             mkGetJourney
 --
 --         , requestDeleteEmailChannel $
---             deleteEmailChannel
+--             mkDeleteEmailChannel
 --
 --         , requestUpdateEmailChannel $
---             updateEmailChannel
+--             mkUpdateEmailChannel
 --
 --         , requestGetBaiduChannel $
---             getBaiduChannel
+--             mkGetBaiduChannel
 --
 --         , requestDeleteAPNSChannel $
---             deleteAPNSChannel
+--             mkDeleteAPNSChannel
 --
 --         , requestUpdateAPNSChannel $
---             updateAPNSChannel
+--             mkUpdateAPNSChannel
 --
 --         , requestRemoveAttributes $
---             removeAttributes
+--             mkRemoveAttributes
 --
 --         , requestListTemplates $
---             listTemplates
+--             mkListTemplates
 --
 --         , requestPutEventStream $
---             putEventStream
+--             mkPutEventStream
 --
 --         , requestDeleteEventStream $
---             deleteEventStream
+--             mkDeleteEventStream
 --
 --         , requestGetCampaignVersions $
---             getCampaignVersions
+--             mkGetCampaignVersions
 --
 --         , requestDeleteJourney $
---             deleteJourney
+--             mkDeleteJourney
 --
 --         , requestUpdateJourney $
---             updateJourney
+--             mkUpdateJourney
 --
 --         , requestGetCampaignDateRangeKpi $
---             getCampaignDateRangeKpi
+--             mkGetCampaignDateRangeKpi
 --
 --         , requestGetAPNSChannel $
---             getAPNSChannel
+--             mkGetAPNSChannel
 --
 --         , requestUpdateVoiceChannel $
---             updateVoiceChannel
+--             mkUpdateVoiceChannel
 --
 --         , requestDeleteVoiceChannel $
---             deleteVoiceChannel
+--             mkDeleteVoiceChannel
 --
 --         , requestGetApps $
---             getApps
+--             mkGetApps
 --
 --         , requestGetAPNSSandboxChannel $
---             getAPNSSandboxChannel
+--             mkGetAPNSSandboxChannel
 --
 --         , requestCreateJourney $
---             createJourney
+--             mkCreateJourney
 --
 --         , requestGetUserEndpoints $
---             getUserEndpoints
+--             mkGetUserEndpoints
 --
 --         , requestDeleteVoiceTemplate $
---             deleteVoiceTemplate
+--             mkDeleteVoiceTemplate
 --
 --         , requestUpdateVoiceTemplate $
---             updateVoiceTemplate
+--             mkUpdateVoiceTemplate
 --
 --         , requestGetImportJobs $
---             getImportJobs
+--             mkGetImportJobs
 --
 --         , requestGetJourneyDateRangeKpi $
---             getJourneyDateRangeKpi
+--             mkGetJourneyDateRangeKpi
 --
 --         , requestUpdateTemplateActiveVersion $
---             updateTemplateActiveVersion
+--             mkUpdateTemplateActiveVersion
 --
 --         , requestDeleteSmsChannel $
---             deleteSmsChannel
+--             mkDeleteSmsChannel
 --
 --         , requestUpdateSmsChannel $
---             updateSmsChannel
+--             mkUpdateSmsChannel
 --
 --         , requestGetApp $
---             getApp
+--             mkGetApp
 --
 --         , requestGetCampaignVersion $
---             getCampaignVersion
+--             mkGetCampaignVersion
 --
 --         , requestDeleteSegment $
---             deleteSegment
+--             mkDeleteSegment
 --
 --         , requestUpdateSegment $
---             updateSegment
+--             mkUpdateSegment
 --
 --         , requestGetApplicationDateRangeKpi $
---             getApplicationDateRangeKpi
+--             mkGetApplicationDateRangeKpi
 --
 --         , requestCreateApp $
---             createApp
+--             mkCreateApp
 --
 --         , requestGetSegmentExportJobs $
---             getSegmentExportJobs
+--             mkGetSegmentExportJobs
 --
 --         , requestDeleteEmailTemplate $
---             deleteEmailTemplate
+--             mkDeleteEmailTemplate
 --
 --         , requestUpdateEmailTemplate $
---             updateEmailTemplate
+--             mkUpdateEmailTemplate
 --
 --         , requestGetSmsChannel $
---             getSmsChannel
+--             mkGetSmsChannel
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestDeleteAPNSSandboxChannel $
---             deleteAPNSSandboxChannel
+--             mkDeleteAPNSSandboxChannel
 --
 --         , requestUpdateAPNSSandboxChannel $
---             updateAPNSSandboxChannel
+--             mkUpdateAPNSSandboxChannel
 --
 --         , requestGetCampaigns $
---             getCampaigns
+--             mkGetCampaigns
 --
 --         , requestGetVoiceChannel $
---             getVoiceChannel
+--             mkGetVoiceChannel
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestListTemplateVersions $
---             listTemplateVersions
+--             mkListTemplateVersions
 --
 --         , requestGetSmsTemplate $
---             getSmsTemplate
+--             mkGetSmsTemplate
 --
 --         , requestPutEvents $
---             putEvents
+--             mkPutEvents
 --
 --         , requestUpdateApplicationSettings $
---             updateApplicationSettings
+--             mkUpdateApplicationSettings
 --
 --         , requestGetJourneyExecutionActivityMetrics $
---             getJourneyExecutionActivityMetrics
+--             mkGetJourneyExecutionActivityMetrics
 --
 --         , requestGetSegments $
---             getSegments
+--             mkGetSegments
 --
 --         , requestGetExportJobs $
---             getExportJobs
+--             mkGetExportJobs
 --
 --         , requestCreateImportJob $
---             createImportJob
+--             mkCreateImportJob
 --
 --         , requestGetRecommenderConfigurations $
---             getRecommenderConfigurations
+--             mkGetRecommenderConfigurations
 --
 --         , requestDeleteAPNSVoipChannel $
---             deleteAPNSVoipChannel
+--             mkDeleteAPNSVoipChannel
 --
 --         , requestUpdateAPNSVoipChannel $
---             updateAPNSVoipChannel
+--             mkUpdateAPNSVoipChannel
 --
 --         , requestSendUsersMessages $
---             sendUsersMessages
+--             mkSendUsersMessages
 --
 --         , requestGetApplicationSettings $
---             getApplicationSettings
+--             mkGetApplicationSettings
 --
 --         , requestDeleteBaiduChannel $
---             deleteBaiduChannel
+--             mkDeleteBaiduChannel
 --
 --         , requestUpdateBaiduChannel $
---             updateBaiduChannel
+--             mkUpdateBaiduChannel
 --
 --         , requestCreateSmsTemplate $
---             createSmsTemplate
+--             mkCreateSmsTemplate
 --
 --         , requestPhoneNumberValidate $
---             phoneNumberValidate
+--             mkPhoneNumberValidate
 --
 --         , requestListJourneys $
---             listJourneys
+--             mkListJourneys
 --
 --         , requestGetAPNSVoipChannel $
---             getAPNSVoipChannel
+--             mkGetAPNSVoipChannel
 --
 --         , requestGetEmailChannel $
---             getEmailChannel
+--             mkGetEmailChannel
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetGCMChannel $
---             getGCMChannelResponse
+--             mkGetGCMChannelResponse
 --
 --         , responseGetSegmentImportJobs $
---             getSegmentImportJobsResponse
+--             mkGetSegmentImportJobsResponse
 --
 --         , responseSendMessages $
---             sendMessagesResponse
+--             mkSendMessagesResponse
 --
 --         , responseGetImportJob $
---             getImportJobResponse
+--             mkGetImportJobResponse
 --
 --         , responseDeleteSmsTemplate $
---             deleteSmsTemplateResponse
+--             mkDeleteSmsTemplateResponse
 --
 --         , responseUpdateSmsTemplate $
---             updateSmsTemplateResponse
+--             mkUpdateSmsTemplateResponse
 --
 --         , responseGetAPNSVoipSandboxChannel $
---             getAPNSVoipSandboxChannelResponse
+--             mkGetAPNSVoipSandboxChannelResponse
 --
 --         , responseGetSegmentVersions $
---             getSegmentVersionsResponse
+--             mkGetSegmentVersionsResponse
 --
 --         , responseDeleteCampaign $
---             deleteCampaignResponse
+--             mkDeleteCampaignResponse
 --
 --         , responseUpdateCampaign $
---             updateCampaignResponse
+--             mkUpdateCampaignResponse
 --
 --         , responseGetSegmentVersion $
---             getSegmentVersionResponse
+--             mkGetSegmentVersionResponse
 --
 --         , responseDeletePushTemplate $
---             deletePushTemplateResponse
+--             mkDeletePushTemplateResponse
 --
 --         , responseUpdatePushTemplate $
---             updatePushTemplateResponse
+--             mkUpdatePushTemplateResponse
 --
 --         , responseCreateExportJob $
---             createExportJobResponse
+--             mkCreateExportJobResponse
 --
 --         , responseCreateSegment $
---             createSegmentResponse
+--             mkCreateSegmentResponse
 --
 --         , responseCreateRecommenderConfiguration $
---             createRecommenderConfigurationResponse
+--             mkCreateRecommenderConfigurationResponse
 --
 --         , responseCreateVoiceTemplate $
---             createVoiceTemplateResponse
+--             mkCreateVoiceTemplateResponse
 --
 --         , responseUpdateADMChannel $
---             updateADMChannelResponse
+--             mkUpdateADMChannelResponse
 --
 --         , responseDeleteADMChannel $
---             deleteADMChannelResponse
+--             mkDeleteADMChannelResponse
 --
 --         , responseDeleteRecommenderConfiguration $
---             deleteRecommenderConfigurationResponse
+--             mkDeleteRecommenderConfigurationResponse
 --
 --         , responseUpdateRecommenderConfiguration $
---             updateRecommenderConfigurationResponse
+--             mkUpdateRecommenderConfigurationResponse
 --
 --         , responseCreatePushTemplate $
---             createPushTemplateResponse
+--             mkCreatePushTemplateResponse
 --
 --         , responseDeleteEndpoint $
---             deleteEndpointResponse
+--             mkDeleteEndpointResponse
 --
 --         , responseUpdateEndpoint $
---             updateEndpointResponse
+--             mkUpdateEndpointResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseCreateCampaign $
---             createCampaignResponse
+--             mkCreateCampaignResponse
 --
 --         , responseGetEmailTemplate $
---             getEmailTemplateResponse
+--             mkGetEmailTemplateResponse
 --
 --         , responseGetExportJob $
---             getExportJobResponse
+--             mkGetExportJobResponse
 --
 --         , responseGetEndpoint $
---             getEndpointResponse
+--             mkGetEndpointResponse
 --
 --         , responseGetSegment $
---             getSegmentResponse
+--             mkGetSegmentResponse
 --
 --         , responseGetRecommenderConfiguration $
---             getRecommenderConfigurationResponse
+--             mkGetRecommenderConfigurationResponse
 --
 --         , responseUpdateEndpointsBatch $
---             updateEndpointsBatchResponse
+--             mkUpdateEndpointsBatchResponse
 --
 --         , responseGetADMChannel $
---             getADMChannelResponse
+--             mkGetADMChannelResponse
 --
 --         , responseGetCampaign $
---             getCampaignResponse
+--             mkGetCampaignResponse
 --
 --         , responseGetVoiceTemplate $
---             getVoiceTemplateResponse
+--             mkGetVoiceTemplateResponse
 --
 --         , responseGetPushTemplate $
---             getPushTemplateResponse
+--             mkGetPushTemplateResponse
 --
 --         , responseDeleteUserEndpoints $
---             deleteUserEndpointsResponse
+--             mkDeleteUserEndpointsResponse
 --
 --         , responseCreateEmailTemplate $
---             createEmailTemplateResponse
+--             mkCreateEmailTemplateResponse
 --
 --         , responseDeleteApp $
---             deleteAppResponse
+--             mkDeleteAppResponse
 --
 --         , responseUpdateAPNSVoipSandboxChannel $
---             updateAPNSVoipSandboxChannelResponse
+--             mkUpdateAPNSVoipSandboxChannelResponse
 --
 --         , responseDeleteAPNSVoipSandboxChannel $
---             deleteAPNSVoipSandboxChannelResponse
+--             mkDeleteAPNSVoipSandboxChannelResponse
 --
 --         , responseUpdateGCMChannel $
---             updateGCMChannelResponse
+--             mkUpdateGCMChannelResponse
 --
 --         , responseDeleteGCMChannel $
---             deleteGCMChannelResponse
+--             mkDeleteGCMChannelResponse
 --
 --         , responseGetCampaignActivities $
---             getCampaignActivitiesResponse
+--             mkGetCampaignActivitiesResponse
 --
 --         , responseGetJourneyExecutionMetrics $
---             getJourneyExecutionMetricsResponse
+--             mkGetJourneyExecutionMetricsResponse
 --
 --         , responseUpdateJourneyState $
---             updateJourneyStateResponse
+--             mkUpdateJourneyStateResponse
 --
 --         , responseGetEventStream $
---             getEventStreamResponse
+--             mkGetEventStreamResponse
 --
 --         , responseGetChannels $
---             getChannelsResponse
+--             mkGetChannelsResponse
 --
 --         , responseGetJourney $
---             getJourneyResponse
+--             mkGetJourneyResponse
 --
 --         , responseDeleteEmailChannel $
---             deleteEmailChannelResponse
+--             mkDeleteEmailChannelResponse
 --
 --         , responseUpdateEmailChannel $
---             updateEmailChannelResponse
+--             mkUpdateEmailChannelResponse
 --
 --         , responseGetBaiduChannel $
---             getBaiduChannelResponse
+--             mkGetBaiduChannelResponse
 --
 --         , responseDeleteAPNSChannel $
---             deleteAPNSChannelResponse
+--             mkDeleteAPNSChannelResponse
 --
 --         , responseUpdateAPNSChannel $
---             updateAPNSChannelResponse
+--             mkUpdateAPNSChannelResponse
 --
 --         , responseRemoveAttributes $
---             removeAttributesResponse
+--             mkRemoveAttributesResponse
 --
 --         , responseListTemplates $
---             listTemplatesResponse
+--             mkListTemplatesResponse
 --
 --         , responsePutEventStream $
---             putEventStreamResponse
+--             mkPutEventStreamResponse
 --
 --         , responseDeleteEventStream $
---             deleteEventStreamResponse
+--             mkDeleteEventStreamResponse
 --
 --         , responseGetCampaignVersions $
---             getCampaignVersionsResponse
+--             mkGetCampaignVersionsResponse
 --
 --         , responseDeleteJourney $
---             deleteJourneyResponse
+--             mkDeleteJourneyResponse
 --
 --         , responseUpdateJourney $
---             updateJourneyResponse
+--             mkUpdateJourneyResponse
 --
 --         , responseGetCampaignDateRangeKpi $
---             getCampaignDateRangeKpiResponse
+--             mkGetCampaignDateRangeKpiResponse
 --
 --         , responseGetAPNSChannel $
---             getAPNSChannelResponse
+--             mkGetAPNSChannelResponse
 --
 --         , responseUpdateVoiceChannel $
---             updateVoiceChannelResponse
+--             mkUpdateVoiceChannelResponse
 --
 --         , responseDeleteVoiceChannel $
---             deleteVoiceChannelResponse
+--             mkDeleteVoiceChannelResponse
 --
 --         , responseGetApps $
---             getAppsResponse
+--             mkGetAppsResponse
 --
 --         , responseGetAPNSSandboxChannel $
---             getAPNSSandboxChannelResponse
+--             mkGetAPNSSandboxChannelResponse
 --
 --         , responseCreateJourney $
---             createJourneyResponse
+--             mkCreateJourneyResponse
 --
 --         , responseGetUserEndpoints $
---             getUserEndpointsResponse
+--             mkGetUserEndpointsResponse
 --
 --         , responseDeleteVoiceTemplate $
---             deleteVoiceTemplateResponse
+--             mkDeleteVoiceTemplateResponse
 --
 --         , responseUpdateVoiceTemplate $
---             updateVoiceTemplateResponse
+--             mkUpdateVoiceTemplateResponse
 --
 --         , responseGetImportJobs $
---             getImportJobsResponse
+--             mkGetImportJobsResponse
 --
 --         , responseGetJourneyDateRangeKpi $
---             getJourneyDateRangeKpiResponse
+--             mkGetJourneyDateRangeKpiResponse
 --
 --         , responseUpdateTemplateActiveVersion $
---             updateTemplateActiveVersionResponse
+--             mkUpdateTemplateActiveVersionResponse
 --
 --         , responseDeleteSmsChannel $
---             deleteSmsChannelResponse
+--             mkDeleteSmsChannelResponse
 --
 --         , responseUpdateSmsChannel $
---             updateSmsChannelResponse
+--             mkUpdateSmsChannelResponse
 --
 --         , responseGetApp $
---             getAppResponse
+--             mkGetAppResponse
 --
 --         , responseGetCampaignVersion $
---             getCampaignVersionResponse
+--             mkGetCampaignVersionResponse
 --
 --         , responseDeleteSegment $
---             deleteSegmentResponse
+--             mkDeleteSegmentResponse
 --
 --         , responseUpdateSegment $
---             updateSegmentResponse
+--             mkUpdateSegmentResponse
 --
 --         , responseGetApplicationDateRangeKpi $
---             getApplicationDateRangeKpiResponse
+--             mkGetApplicationDateRangeKpiResponse
 --
 --         , responseCreateApp $
---             createAppResponse
+--             mkCreateAppResponse
 --
 --         , responseGetSegmentExportJobs $
---             getSegmentExportJobsResponse
+--             mkGetSegmentExportJobsResponse
 --
 --         , responseDeleteEmailTemplate $
---             deleteEmailTemplateResponse
+--             mkDeleteEmailTemplateResponse
 --
 --         , responseUpdateEmailTemplate $
---             updateEmailTemplateResponse
+--             mkUpdateEmailTemplateResponse
 --
 --         , responseGetSmsChannel $
---             getSmsChannelResponse
+--             mkGetSmsChannelResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseDeleteAPNSSandboxChannel $
---             deleteAPNSSandboxChannelResponse
+--             mkDeleteAPNSSandboxChannelResponse
 --
 --         , responseUpdateAPNSSandboxChannel $
---             updateAPNSSandboxChannelResponse
+--             mkUpdateAPNSSandboxChannelResponse
 --
 --         , responseGetCampaigns $
---             getCampaignsResponse
+--             mkGetCampaignsResponse
 --
 --         , responseGetVoiceChannel $
---             getVoiceChannelResponse
+--             mkGetVoiceChannelResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseListTemplateVersions $
---             listTemplateVersionsResponse
+--             mkListTemplateVersionsResponse
 --
 --         , responseGetSmsTemplate $
---             getSmsTemplateResponse
+--             mkGetSmsTemplateResponse
 --
 --         , responsePutEvents $
---             putEventsResponse
+--             mkPutEventsResponse
 --
 --         , responseUpdateApplicationSettings $
---             updateApplicationSettingsResponse
+--             mkUpdateApplicationSettingsResponse
 --
 --         , responseGetJourneyExecutionActivityMetrics $
---             getJourneyExecutionActivityMetricsResponse
+--             mkGetJourneyExecutionActivityMetricsResponse
 --
 --         , responseGetSegments $
---             getSegmentsResponse
+--             mkGetSegmentsResponse
 --
 --         , responseGetExportJobs $
---             getExportJobsResponse
+--             mkGetExportJobsResponse
 --
 --         , responseCreateImportJob $
---             createImportJobResponse
+--             mkCreateImportJobResponse
 --
 --         , responseGetRecommenderConfigurations $
---             getRecommenderConfigurationsResponse
+--             mkGetRecommenderConfigurationsResponse
 --
 --         , responseDeleteAPNSVoipChannel $
---             deleteAPNSVoipChannelResponse
+--             mkDeleteAPNSVoipChannelResponse
 --
 --         , responseUpdateAPNSVoipChannel $
---             updateAPNSVoipChannelResponse
+--             mkUpdateAPNSVoipChannelResponse
 --
 --         , responseSendUsersMessages $
---             sendUsersMessagesResponse
+--             mkSendUsersMessagesResponse
 --
 --         , responseGetApplicationSettings $
---             getApplicationSettingsResponse
+--             mkGetApplicationSettingsResponse
 --
 --         , responseDeleteBaiduChannel $
---             deleteBaiduChannelResponse
+--             mkDeleteBaiduChannelResponse
 --
 --         , responseUpdateBaiduChannel $
---             updateBaiduChannelResponse
+--             mkUpdateBaiduChannelResponse
 --
 --         , responseCreateSmsTemplate $
---             createSmsTemplateResponse
+--             mkCreateSmsTemplateResponse
 --
 --         , responsePhoneNumberValidate $
---             phoneNumberValidateResponse
+--             mkPhoneNumberValidateResponse
 --
 --         , responseListJourneys $
---             listJourneysResponse
+--             mkListJourneysResponse
 --
 --         , responseGetAPNSVoipChannel $
---             getAPNSVoipChannelResponse
+--             mkGetAPNSVoipChannelResponse
 --
 --         , responseGetEmailChannel $
---             getEmailChannelResponse
+--             mkGetEmailChannelResponse
 --
 --           ]
 --     ]
@@ -1386,7 +1386,7 @@ responseGetGCMChannel =
   res
     "GetGCMChannelResponse"
     "fixture/GetGCMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetGCMChannel)
 
 responseGetSegmentImportJobs :: GetSegmentImportJobsResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseGetSegmentImportJobs =
   res
     "GetSegmentImportJobsResponse"
     "fixture/GetSegmentImportJobsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegmentImportJobs)
 
 responseSendMessages :: SendMessagesResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseSendMessages =
   res
     "SendMessagesResponse"
     "fixture/SendMessagesResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy SendMessages)
 
 responseGetImportJob :: GetImportJobResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseGetImportJob =
   res
     "GetImportJobResponse"
     "fixture/GetImportJobResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetImportJob)
 
 responseDeleteSmsTemplate :: DeleteSmsTemplateResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseDeleteSmsTemplate =
   res
     "DeleteSmsTemplateResponse"
     "fixture/DeleteSmsTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteSmsTemplate)
 
 responseUpdateSmsTemplate :: UpdateSmsTemplateResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseUpdateSmsTemplate =
   res
     "UpdateSmsTemplateResponse"
     "fixture/UpdateSmsTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateSmsTemplate)
 
 responseGetAPNSVoipSandboxChannel :: GetAPNSVoipSandboxChannelResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseGetAPNSVoipSandboxChannel =
   res
     "GetAPNSVoipSandboxChannelResponse"
     "fixture/GetAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetAPNSVoipSandboxChannel)
 
 responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseGetSegmentVersions =
   res
     "GetSegmentVersionsResponse"
     "fixture/GetSegmentVersionsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegmentVersions)
 
 responseDeleteCampaign :: DeleteCampaignResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseDeleteCampaign =
   res
     "DeleteCampaignResponse"
     "fixture/DeleteCampaignResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteCampaign)
 
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseUpdateCampaign =
   res
     "UpdateCampaignResponse"
     "fixture/UpdateCampaignResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateCampaign)
 
 responseGetSegmentVersion :: GetSegmentVersionResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseGetSegmentVersion =
   res
     "GetSegmentVersionResponse"
     "fixture/GetSegmentVersionResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegmentVersion)
 
 responseDeletePushTemplate :: DeletePushTemplateResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseDeletePushTemplate =
   res
     "DeletePushTemplateResponse"
     "fixture/DeletePushTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeletePushTemplate)
 
 responseUpdatePushTemplate :: UpdatePushTemplateResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseUpdatePushTemplate =
   res
     "UpdatePushTemplateResponse"
     "fixture/UpdatePushTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdatePushTemplate)
 
 responseCreateExportJob :: CreateExportJobResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseCreateExportJob =
   res
     "CreateExportJobResponse"
     "fixture/CreateExportJobResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateExportJob)
 
 responseCreateSegment :: CreateSegmentResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseCreateSegment =
   res
     "CreateSegmentResponse"
     "fixture/CreateSegmentResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateSegment)
 
 responseCreateRecommenderConfiguration :: CreateRecommenderConfigurationResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseCreateRecommenderConfiguration =
   res
     "CreateRecommenderConfigurationResponse"
     "fixture/CreateRecommenderConfigurationResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateRecommenderConfiguration)
 
 responseCreateVoiceTemplate :: CreateVoiceTemplateResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseCreateVoiceTemplate =
   res
     "CreateVoiceTemplateResponse"
     "fixture/CreateVoiceTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateVoiceTemplate)
 
 responseUpdateADMChannel :: UpdateADMChannelResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseUpdateADMChannel =
   res
     "UpdateADMChannelResponse"
     "fixture/UpdateADMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateADMChannel)
 
 responseDeleteADMChannel :: DeleteADMChannelResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseDeleteADMChannel =
   res
     "DeleteADMChannelResponse"
     "fixture/DeleteADMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteADMChannel)
 
 responseDeleteRecommenderConfiguration :: DeleteRecommenderConfigurationResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseDeleteRecommenderConfiguration =
   res
     "DeleteRecommenderConfigurationResponse"
     "fixture/DeleteRecommenderConfigurationResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteRecommenderConfiguration)
 
 responseUpdateRecommenderConfiguration :: UpdateRecommenderConfigurationResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseUpdateRecommenderConfiguration =
   res
     "UpdateRecommenderConfigurationResponse"
     "fixture/UpdateRecommenderConfigurationResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateRecommenderConfiguration)
 
 responseCreatePushTemplate :: CreatePushTemplateResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseCreatePushTemplate =
   res
     "CreatePushTemplateResponse"
     "fixture/CreatePushTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreatePushTemplate)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseUpdateEndpoint =
   res
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseCreateCampaign =
   res
     "CreateCampaignResponse"
     "fixture/CreateCampaignResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateCampaign)
 
 responseGetEmailTemplate :: GetEmailTemplateResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseGetEmailTemplate =
   res
     "GetEmailTemplateResponse"
     "fixture/GetEmailTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetEmailTemplate)
 
 responseGetExportJob :: GetExportJobResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseGetExportJob =
   res
     "GetExportJobResponse"
     "fixture/GetExportJobResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetExportJob)
 
 responseGetEndpoint :: GetEndpointResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseGetEndpoint =
   res
     "GetEndpointResponse"
     "fixture/GetEndpointResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetEndpoint)
 
 responseGetSegment :: GetSegmentResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseGetSegment =
   res
     "GetSegmentResponse"
     "fixture/GetSegmentResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegment)
 
 responseGetRecommenderConfiguration :: GetRecommenderConfigurationResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseGetRecommenderConfiguration =
   res
     "GetRecommenderConfigurationResponse"
     "fixture/GetRecommenderConfigurationResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetRecommenderConfiguration)
 
 responseUpdateEndpointsBatch :: UpdateEndpointsBatchResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseUpdateEndpointsBatch =
   res
     "UpdateEndpointsBatchResponse"
     "fixture/UpdateEndpointsBatchResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateEndpointsBatch)
 
 responseGetADMChannel :: GetADMChannelResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseGetADMChannel =
   res
     "GetADMChannelResponse"
     "fixture/GetADMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetADMChannel)
 
 responseGetCampaign :: GetCampaignResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseGetCampaign =
   res
     "GetCampaignResponse"
     "fixture/GetCampaignResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaign)
 
 responseGetVoiceTemplate :: GetVoiceTemplateResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseGetVoiceTemplate =
   res
     "GetVoiceTemplateResponse"
     "fixture/GetVoiceTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetVoiceTemplate)
 
 responseGetPushTemplate :: GetPushTemplateResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseGetPushTemplate =
   res
     "GetPushTemplateResponse"
     "fixture/GetPushTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetPushTemplate)
 
 responseDeleteUserEndpoints :: DeleteUserEndpointsResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseDeleteUserEndpoints =
   res
     "DeleteUserEndpointsResponse"
     "fixture/DeleteUserEndpointsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteUserEndpoints)
 
 responseCreateEmailTemplate :: CreateEmailTemplateResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseCreateEmailTemplate =
   res
     "CreateEmailTemplateResponse"
     "fixture/CreateEmailTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateEmailTemplate)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseDeleteApp =
   res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteApp)
 
 responseUpdateAPNSVoipSandboxChannel :: UpdateAPNSVoipSandboxChannelResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseUpdateAPNSVoipSandboxChannel =
   res
     "UpdateAPNSVoipSandboxChannelResponse"
     "fixture/UpdateAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateAPNSVoipSandboxChannel)
 
 responseDeleteAPNSVoipSandboxChannel :: DeleteAPNSVoipSandboxChannelResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseDeleteAPNSVoipSandboxChannel =
   res
     "DeleteAPNSVoipSandboxChannelResponse"
     "fixture/DeleteAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteAPNSVoipSandboxChannel)
 
 responseUpdateGCMChannel :: UpdateGCMChannelResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseUpdateGCMChannel =
   res
     "UpdateGCMChannelResponse"
     "fixture/UpdateGCMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateGCMChannel)
 
 responseDeleteGCMChannel :: DeleteGCMChannelResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDeleteGCMChannel =
   res
     "DeleteGCMChannelResponse"
     "fixture/DeleteGCMChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteGCMChannel)
 
 responseGetCampaignActivities :: GetCampaignActivitiesResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseGetCampaignActivities =
   res
     "GetCampaignActivitiesResponse"
     "fixture/GetCampaignActivitiesResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaignActivities)
 
 responseGetJourneyExecutionMetrics :: GetJourneyExecutionMetricsResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseGetJourneyExecutionMetrics =
   res
     "GetJourneyExecutionMetricsResponse"
     "fixture/GetJourneyExecutionMetricsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetJourneyExecutionMetrics)
 
 responseUpdateJourneyState :: UpdateJourneyStateResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseUpdateJourneyState =
   res
     "UpdateJourneyStateResponse"
     "fixture/UpdateJourneyStateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateJourneyState)
 
 responseGetEventStream :: GetEventStreamResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseGetEventStream =
   res
     "GetEventStreamResponse"
     "fixture/GetEventStreamResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetEventStream)
 
 responseGetChannels :: GetChannelsResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseGetChannels =
   res
     "GetChannelsResponse"
     "fixture/GetChannelsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetChannels)
 
 responseGetJourney :: GetJourneyResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseGetJourney =
   res
     "GetJourneyResponse"
     "fixture/GetJourneyResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetJourney)
 
 responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseDeleteEmailChannel =
   res
     "DeleteEmailChannelResponse"
     "fixture/DeleteEmailChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteEmailChannel)
 
 responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseUpdateEmailChannel =
   res
     "UpdateEmailChannelResponse"
     "fixture/UpdateEmailChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateEmailChannel)
 
 responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseGetBaiduChannel =
   res
     "GetBaiduChannelResponse"
     "fixture/GetBaiduChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetBaiduChannel)
 
 responseDeleteAPNSChannel :: DeleteAPNSChannelResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseDeleteAPNSChannel =
   res
     "DeleteAPNSChannelResponse"
     "fixture/DeleteAPNSChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteAPNSChannel)
 
 responseUpdateAPNSChannel :: UpdateAPNSChannelResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseUpdateAPNSChannel =
   res
     "UpdateAPNSChannelResponse"
     "fixture/UpdateAPNSChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateAPNSChannel)
 
 responseRemoveAttributes :: RemoveAttributesResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseRemoveAttributes =
   res
     "RemoveAttributesResponse"
     "fixture/RemoveAttributesResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy RemoveAttributes)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseListTemplates =
   res
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy ListTemplates)
 
 responsePutEventStream :: PutEventStreamResponse -> TestTree
@@ -1834,7 +1834,7 @@ responsePutEventStream =
   res
     "PutEventStreamResponse"
     "fixture/PutEventStreamResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy PutEventStream)
 
 responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
@@ -1842,7 +1842,7 @@ responseDeleteEventStream =
   res
     "DeleteEventStreamResponse"
     "fixture/DeleteEventStreamResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteEventStream)
 
 responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseGetCampaignVersions =
   res
     "GetCampaignVersionsResponse"
     "fixture/GetCampaignVersionsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaignVersions)
 
 responseDeleteJourney :: DeleteJourneyResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseDeleteJourney =
   res
     "DeleteJourneyResponse"
     "fixture/DeleteJourneyResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteJourney)
 
 responseUpdateJourney :: UpdateJourneyResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseUpdateJourney =
   res
     "UpdateJourneyResponse"
     "fixture/UpdateJourneyResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateJourney)
 
 responseGetCampaignDateRangeKpi :: GetCampaignDateRangeKpiResponse -> TestTree
@@ -1874,7 +1874,7 @@ responseGetCampaignDateRangeKpi =
   res
     "GetCampaignDateRangeKpiResponse"
     "fixture/GetCampaignDateRangeKpiResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaignDateRangeKpi)
 
 responseGetAPNSChannel :: GetAPNSChannelResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseGetAPNSChannel =
   res
     "GetAPNSChannelResponse"
     "fixture/GetAPNSChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetAPNSChannel)
 
 responseUpdateVoiceChannel :: UpdateVoiceChannelResponse -> TestTree
@@ -1890,7 +1890,7 @@ responseUpdateVoiceChannel =
   res
     "UpdateVoiceChannelResponse"
     "fixture/UpdateVoiceChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateVoiceChannel)
 
 responseDeleteVoiceChannel :: DeleteVoiceChannelResponse -> TestTree
@@ -1898,7 +1898,7 @@ responseDeleteVoiceChannel =
   res
     "DeleteVoiceChannelResponse"
     "fixture/DeleteVoiceChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteVoiceChannel)
 
 responseGetApps :: GetAppsResponse -> TestTree
@@ -1906,7 +1906,7 @@ responseGetApps =
   res
     "GetAppsResponse"
     "fixture/GetAppsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetApps)
 
 responseGetAPNSSandboxChannel :: GetAPNSSandboxChannelResponse -> TestTree
@@ -1914,7 +1914,7 @@ responseGetAPNSSandboxChannel =
   res
     "GetAPNSSandboxChannelResponse"
     "fixture/GetAPNSSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetAPNSSandboxChannel)
 
 responseCreateJourney :: CreateJourneyResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseCreateJourney =
   res
     "CreateJourneyResponse"
     "fixture/CreateJourneyResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateJourney)
 
 responseGetUserEndpoints :: GetUserEndpointsResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseGetUserEndpoints =
   res
     "GetUserEndpointsResponse"
     "fixture/GetUserEndpointsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetUserEndpoints)
 
 responseDeleteVoiceTemplate :: DeleteVoiceTemplateResponse -> TestTree
@@ -1938,7 +1938,7 @@ responseDeleteVoiceTemplate =
   res
     "DeleteVoiceTemplateResponse"
     "fixture/DeleteVoiceTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteVoiceTemplate)
 
 responseUpdateVoiceTemplate :: UpdateVoiceTemplateResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseUpdateVoiceTemplate =
   res
     "UpdateVoiceTemplateResponse"
     "fixture/UpdateVoiceTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateVoiceTemplate)
 
 responseGetImportJobs :: GetImportJobsResponse -> TestTree
@@ -1954,7 +1954,7 @@ responseGetImportJobs =
   res
     "GetImportJobsResponse"
     "fixture/GetImportJobsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetImportJobs)
 
 responseGetJourneyDateRangeKpi :: GetJourneyDateRangeKpiResponse -> TestTree
@@ -1962,7 +1962,7 @@ responseGetJourneyDateRangeKpi =
   res
     "GetJourneyDateRangeKpiResponse"
     "fixture/GetJourneyDateRangeKpiResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetJourneyDateRangeKpi)
 
 responseUpdateTemplateActiveVersion :: UpdateTemplateActiveVersionResponse -> TestTree
@@ -1970,7 +1970,7 @@ responseUpdateTemplateActiveVersion =
   res
     "UpdateTemplateActiveVersionResponse"
     "fixture/UpdateTemplateActiveVersionResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateTemplateActiveVersion)
 
 responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
@@ -1978,7 +1978,7 @@ responseDeleteSmsChannel =
   res
     "DeleteSmsChannelResponse"
     "fixture/DeleteSmsChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteSmsChannel)
 
 responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
@@ -1986,7 +1986,7 @@ responseUpdateSmsChannel =
   res
     "UpdateSmsChannelResponse"
     "fixture/UpdateSmsChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateSmsChannel)
 
 responseGetApp :: GetAppResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseGetApp =
   res
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetApp)
 
 responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
@@ -2002,7 +2002,7 @@ responseGetCampaignVersion =
   res
     "GetCampaignVersionResponse"
     "fixture/GetCampaignVersionResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaignVersion)
 
 responseDeleteSegment :: DeleteSegmentResponse -> TestTree
@@ -2010,7 +2010,7 @@ responseDeleteSegment =
   res
     "DeleteSegmentResponse"
     "fixture/DeleteSegmentResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteSegment)
 
 responseUpdateSegment :: UpdateSegmentResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseUpdateSegment =
   res
     "UpdateSegmentResponse"
     "fixture/UpdateSegmentResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateSegment)
 
 responseGetApplicationDateRangeKpi :: GetApplicationDateRangeKpiResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseGetApplicationDateRangeKpi =
   res
     "GetApplicationDateRangeKpiResponse"
     "fixture/GetApplicationDateRangeKpiResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetApplicationDateRangeKpi)
 
 responseCreateApp :: CreateAppResponse -> TestTree
@@ -2034,7 +2034,7 @@ responseCreateApp =
   res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateApp)
 
 responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
@@ -2042,7 +2042,7 @@ responseGetSegmentExportJobs =
   res
     "GetSegmentExportJobsResponse"
     "fixture/GetSegmentExportJobsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegmentExportJobs)
 
 responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
@@ -2050,7 +2050,7 @@ responseDeleteEmailTemplate =
   res
     "DeleteEmailTemplateResponse"
     "fixture/DeleteEmailTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteEmailTemplate)
 
 responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
@@ -2058,7 +2058,7 @@ responseUpdateEmailTemplate =
   res
     "UpdateEmailTemplateResponse"
     "fixture/UpdateEmailTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateEmailTemplate)
 
 responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
@@ -2066,7 +2066,7 @@ responseGetSmsChannel =
   res
     "GetSmsChannelResponse"
     "fixture/GetSmsChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSmsChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -2074,7 +2074,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy TagResource)
 
 responseDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannelResponse -> TestTree
@@ -2082,7 +2082,7 @@ responseDeleteAPNSSandboxChannel =
   res
     "DeleteAPNSSandboxChannelResponse"
     "fixture/DeleteAPNSSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteAPNSSandboxChannel)
 
 responseUpdateAPNSSandboxChannel :: UpdateAPNSSandboxChannelResponse -> TestTree
@@ -2090,7 +2090,7 @@ responseUpdateAPNSSandboxChannel =
   res
     "UpdateAPNSSandboxChannelResponse"
     "fixture/UpdateAPNSSandboxChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateAPNSSandboxChannel)
 
 responseGetCampaigns :: GetCampaignsResponse -> TestTree
@@ -2098,7 +2098,7 @@ responseGetCampaigns =
   res
     "GetCampaignsResponse"
     "fixture/GetCampaignsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetCampaigns)
 
 responseGetVoiceChannel :: GetVoiceChannelResponse -> TestTree
@@ -2106,7 +2106,7 @@ responseGetVoiceChannel =
   res
     "GetVoiceChannelResponse"
     "fixture/GetVoiceChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetVoiceChannel)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -2114,7 +2114,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UntagResource)
 
 responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
@@ -2122,7 +2122,7 @@ responseListTemplateVersions =
   res
     "ListTemplateVersionsResponse"
     "fixture/ListTemplateVersionsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy ListTemplateVersions)
 
 responseGetSmsTemplate :: GetSmsTemplateResponse -> TestTree
@@ -2130,7 +2130,7 @@ responseGetSmsTemplate =
   res
     "GetSmsTemplateResponse"
     "fixture/GetSmsTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSmsTemplate)
 
 responsePutEvents :: PutEventsResponse -> TestTree
@@ -2138,7 +2138,7 @@ responsePutEvents =
   res
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy PutEvents)
 
 responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
@@ -2146,7 +2146,7 @@ responseUpdateApplicationSettings =
   res
     "UpdateApplicationSettingsResponse"
     "fixture/UpdateApplicationSettingsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateApplicationSettings)
 
 responseGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetricsResponse -> TestTree
@@ -2154,7 +2154,7 @@ responseGetJourneyExecutionActivityMetrics =
   res
     "GetJourneyExecutionActivityMetricsResponse"
     "fixture/GetJourneyExecutionActivityMetricsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetJourneyExecutionActivityMetrics)
 
 responseGetSegments :: GetSegmentsResponse -> TestTree
@@ -2162,7 +2162,7 @@ responseGetSegments =
   res
     "GetSegmentsResponse"
     "fixture/GetSegmentsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetSegments)
 
 responseGetExportJobs :: GetExportJobsResponse -> TestTree
@@ -2170,7 +2170,7 @@ responseGetExportJobs =
   res
     "GetExportJobsResponse"
     "fixture/GetExportJobsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetExportJobs)
 
 responseCreateImportJob :: CreateImportJobResponse -> TestTree
@@ -2178,7 +2178,7 @@ responseCreateImportJob =
   res
     "CreateImportJobResponse"
     "fixture/CreateImportJobResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateImportJob)
 
 responseGetRecommenderConfigurations :: GetRecommenderConfigurationsResponse -> TestTree
@@ -2186,7 +2186,7 @@ responseGetRecommenderConfigurations =
   res
     "GetRecommenderConfigurationsResponse"
     "fixture/GetRecommenderConfigurationsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetRecommenderConfigurations)
 
 responseDeleteAPNSVoipChannel :: DeleteAPNSVoipChannelResponse -> TestTree
@@ -2194,7 +2194,7 @@ responseDeleteAPNSVoipChannel =
   res
     "DeleteAPNSVoipChannelResponse"
     "fixture/DeleteAPNSVoipChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteAPNSVoipChannel)
 
 responseUpdateAPNSVoipChannel :: UpdateAPNSVoipChannelResponse -> TestTree
@@ -2202,7 +2202,7 @@ responseUpdateAPNSVoipChannel =
   res
     "UpdateAPNSVoipChannelResponse"
     "fixture/UpdateAPNSVoipChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateAPNSVoipChannel)
 
 responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
@@ -2210,7 +2210,7 @@ responseSendUsersMessages =
   res
     "SendUsersMessagesResponse"
     "fixture/SendUsersMessagesResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy SendUsersMessages)
 
 responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
@@ -2218,7 +2218,7 @@ responseGetApplicationSettings =
   res
     "GetApplicationSettingsResponse"
     "fixture/GetApplicationSettingsResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetApplicationSettings)
 
 responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
@@ -2226,7 +2226,7 @@ responseDeleteBaiduChannel =
   res
     "DeleteBaiduChannelResponse"
     "fixture/DeleteBaiduChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy DeleteBaiduChannel)
 
 responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
@@ -2234,7 +2234,7 @@ responseUpdateBaiduChannel =
   res
     "UpdateBaiduChannelResponse"
     "fixture/UpdateBaiduChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy UpdateBaiduChannel)
 
 responseCreateSmsTemplate :: CreateSmsTemplateResponse -> TestTree
@@ -2242,7 +2242,7 @@ responseCreateSmsTemplate =
   res
     "CreateSmsTemplateResponse"
     "fixture/CreateSmsTemplateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy CreateSmsTemplate)
 
 responsePhoneNumberValidate :: PhoneNumberValidateResponse -> TestTree
@@ -2250,7 +2250,7 @@ responsePhoneNumberValidate =
   res
     "PhoneNumberValidateResponse"
     "fixture/PhoneNumberValidateResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy PhoneNumberValidate)
 
 responseListJourneys :: ListJourneysResponse -> TestTree
@@ -2258,7 +2258,7 @@ responseListJourneys =
   res
     "ListJourneysResponse"
     "fixture/ListJourneysResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy ListJourneys)
 
 responseGetAPNSVoipChannel :: GetAPNSVoipChannelResponse -> TestTree
@@ -2266,7 +2266,7 @@ responseGetAPNSVoipChannel =
   res
     "GetAPNSVoipChannelResponse"
     "fixture/GetAPNSVoipChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetAPNSVoipChannel)
 
 responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
@@ -2274,5 +2274,5 @@ responseGetEmailChannel =
   res
     "GetEmailChannelResponse"
     "fixture/GetEmailChannelResponse.proto"
-    pinpoint
+    pinpointService
     (Proxy :: Proxy GetEmailChannel)

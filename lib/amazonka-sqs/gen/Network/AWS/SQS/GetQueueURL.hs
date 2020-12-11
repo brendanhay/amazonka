@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,150 @@
 --
 -- Returns the URL of an existing Amazon SQS queue.
 --
---
 -- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see @'AddPermission' @ or see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue> in the /Amazon Simple Queue Service Developer Guide/ .
 module Network.AWS.SQS.GetQueueURL
-  ( -- * Creating a Request
-    getQueueURL,
-    GetQueueURL,
+  ( -- * Creating a request
+    GetQueueURL (..),
+    mkGetQueueURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gquQueueOwnerAWSAccountId,
     gquQueueName,
 
-    -- * Destructuring the Response
-    getQueueURLResponse,
-    GetQueueURLResponse,
+    -- * Destructuring the response
+    GetQueueURLResponse (..),
+    mkGetQueueURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gqursResponseStatus,
     gqursQueueURL,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'getQueueURL' smart constructor.
+-- /See:/ 'mkGetQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
-  { _gquQueueOwnerAWSAccountId ::
-      !(Maybe Text),
-    _gquQueueName :: !Text
+  { queueOwnerAWSAccountId ::
+      Lude.Maybe Lude.Text,
+    queueName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueueURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'queueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
 --
--- * 'gquQueueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
---
--- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue URLs and names are case-sensitive.
-getQueueURL ::
-  -- | 'gquQueueName'
-  Text ->
+-- Queue URLs and names are case-sensitive.
+-- * 'queueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
+mkGetQueueURL ::
+  -- | 'queueName'
+  Lude.Text ->
   GetQueueURL
-getQueueURL pQueueName_ =
+mkGetQueueURL pQueueName_ =
   GetQueueURL'
-    { _gquQueueOwnerAWSAccountId = Nothing,
-      _gquQueueName = pQueueName_
+    { queueOwnerAWSAccountId = Lude.Nothing,
+      queueName = pQueueName_
     }
 
 -- | The AWS account ID of the account that created the queue.
-gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
-gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\s a -> s {_gquQueueOwnerAWSAccountId = a})
+--
+-- /Note:/ Consider using 'queueOwnerAWSAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gquQueueOwnerAWSAccountId :: Lens.Lens' GetQueueURL (Lude.Maybe Lude.Text)
+gquQueueOwnerAWSAccountId = Lens.lens (queueOwnerAWSAccountId :: GetQueueURL -> Lude.Maybe Lude.Text) (\s a -> s {queueOwnerAWSAccountId = a} :: GetQueueURL)
+{-# DEPRECATED gquQueueOwnerAWSAccountId "Use generic-lens or generic-optics with 'queueOwnerAWSAccountId' instead." #-}
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue URLs and names are case-sensitive.
-gquQueueName :: Lens' GetQueueURL Text
-gquQueueName = lens _gquQueueName (\s a -> s {_gquQueueName = a})
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gquQueueName :: Lens.Lens' GetQueueURL Lude.Text
+gquQueueName = Lens.lens (queueName :: GetQueueURL -> Lude.Text) (\s a -> s {queueName = a} :: GetQueueURL)
+{-# DEPRECATED gquQueueName "Use generic-lens or generic-optics with 'queueName' instead." #-}
 
-instance AWSRequest GetQueueURL where
+instance Lude.AWSRequest GetQueueURL where
   type Rs GetQueueURL = GetQueueURLResponse
-  request = postQuery sqs
+  request = Req.postQuery sqsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetQueueUrlResult"
       ( \s h x ->
-          GetQueueURLResponse' <$> (pure (fromEnum s)) <*> (x .@ "QueueUrl")
+          GetQueueURLResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "QueueUrl")
       )
 
-instance Hashable GetQueueURL
+instance Lude.ToHeaders GetQueueURL where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetQueueURL
+instance Lude.ToPath GetQueueURL where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetQueueURL where
-  toHeaders = const mempty
-
-instance ToPath GetQueueURL where
-  toPath = const "/"
-
-instance ToQuery GetQueueURL where
+instance Lude.ToQuery GetQueueURL where
   toQuery GetQueueURL' {..} =
-    mconcat
-      [ "Action" =: ("GetQueueUrl" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueOwnerAWSAccountId" =: _gquQueueOwnerAWSAccountId,
-        "QueueName" =: _gquQueueName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetQueueUrl" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueOwnerAWSAccountId" Lude.=: queueOwnerAWSAccountId,
+        "QueueName" Lude.=: queueName
       ]
 
 -- | For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html Interpreting Responses> in the /Amazon Simple Queue Service Developer Guide/ .
 --
---
---
--- /See:/ 'getQueueURLResponse' smart constructor.
+-- /See:/ 'mkGetQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
-  { _gqursResponseStatus ::
-      !Int,
-    _gqursQueueURL :: !Text
+  { responseStatus ::
+      Lude.Int,
+    queueURL :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueueURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqursResponseStatus' - -- | The response status code.
---
--- * 'gqursQueueURL' - The URL of the queue.
-getQueueURLResponse ::
-  -- | 'gqursResponseStatus'
-  Int ->
-  -- | 'gqursQueueURL'
-  Text ->
+-- * 'queueURL' - The URL of the queue.
+-- * 'responseStatus' - The response status code.
+mkGetQueueURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'queueURL'
+  Lude.Text ->
   GetQueueURLResponse
-getQueueURLResponse pResponseStatus_ pQueueURL_ =
+mkGetQueueURLResponse pResponseStatus_ pQueueURL_ =
   GetQueueURLResponse'
-    { _gqursResponseStatus = pResponseStatus_,
-      _gqursQueueURL = pQueueURL_
+    { responseStatus = pResponseStatus_,
+      queueURL = pQueueURL_
     }
 
--- | -- | The response status code.
-gqursResponseStatus :: Lens' GetQueueURLResponse Int
-gqursResponseStatus = lens _gqursResponseStatus (\s a -> s {_gqursResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqursResponseStatus :: Lens.Lens' GetQueueURLResponse Lude.Int
+gqursResponseStatus = Lens.lens (responseStatus :: GetQueueURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQueueURLResponse)
+{-# DEPRECATED gqursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The URL of the queue.
-gqursQueueURL :: Lens' GetQueueURLResponse Text
-gqursQueueURL = lens _gqursQueueURL (\s a -> s {_gqursQueueURL = a})
-
-instance NFData GetQueueURLResponse
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqursQueueURL :: Lens.Lens' GetQueueURLResponse Lude.Text
+gqursQueueURL = Lens.lens (queueURL :: GetQueueURLResponse -> Lude.Text) (\s a -> s {queueURL = a} :: GetQueueURLResponse)
+{-# DEPRECATED gqursQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}

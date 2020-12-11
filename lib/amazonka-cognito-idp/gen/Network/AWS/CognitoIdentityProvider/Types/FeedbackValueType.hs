@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType where
+module Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
+  ( FeedbackValueType
+      ( FeedbackValueType',
+        Invalid,
+        Valid
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FeedbackValueType
-  = Invalid
-  | Valid
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FeedbackValueType = FeedbackValueType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FeedbackValueType where
-  parser =
-    takeLowerText >>= \case
-      "invalid" -> pure Invalid
-      "valid" -> pure Valid
-      e ->
-        fromTextError $
-          "Failure parsing FeedbackValueType from value: '" <> e
-            <> "'. Accepted values: invalid, valid"
+pattern Invalid :: FeedbackValueType
+pattern Invalid = FeedbackValueType' "Invalid"
 
-instance ToText FeedbackValueType where
-  toText = \case
-    Invalid -> "Invalid"
-    Valid -> "Valid"
+pattern Valid :: FeedbackValueType
+pattern Valid = FeedbackValueType' "Valid"
 
-instance Hashable FeedbackValueType
-
-instance NFData FeedbackValueType
-
-instance ToByteString FeedbackValueType
-
-instance ToQuery FeedbackValueType
-
-instance ToHeader FeedbackValueType
-
-instance ToJSON FeedbackValueType where
-  toJSON = toJSONText
-
-instance FromJSON FeedbackValueType where
-  parseJSON = parseJSONText "FeedbackValueType"
+{-# COMPLETE
+  Invalid,
+  Valid,
+  FeedbackValueType'
+  #-}

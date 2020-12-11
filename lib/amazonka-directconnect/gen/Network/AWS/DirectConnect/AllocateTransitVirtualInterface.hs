@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,167 +14,183 @@
 --
 -- Provisions a transit virtual interface to be owned by the specified AWS account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.
 --
---
 -- The owner of a connection provisions a transit virtual interface to be owned by the specified AWS account.
---
 -- After you create a transit virtual interface, it must be confirmed by the owner using 'ConfirmTransitVirtualInterface' . Until this step has been completed, the transit virtual interface is in the @requested@ state and is not available to handle traffic.
 module Network.AWS.DirectConnect.AllocateTransitVirtualInterface
-  ( -- * Creating a Request
-    allocateTransitVirtualInterface,
-    AllocateTransitVirtualInterface,
+  ( -- * Creating a request
+    AllocateTransitVirtualInterface (..),
+    mkAllocateTransitVirtualInterface,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atviConnectionId,
     atviOwnerAccount,
     atviNewTransitVirtualInterfaceAllocation,
 
-    -- * Destructuring the Response
-    allocateTransitVirtualInterfaceResponse,
-    AllocateTransitVirtualInterfaceResponse,
+    -- * Destructuring the response
+    AllocateTransitVirtualInterfaceResponse (..),
+    mkAllocateTransitVirtualInterfaceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atvirsVirtualInterface,
     atvirsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'allocateTransitVirtualInterface' smart constructor.
+-- | /See:/ 'mkAllocateTransitVirtualInterface' smart constructor.
 data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
-  { _atviConnectionId ::
-      !Text,
-    _atviOwnerAccount :: !Text,
-    _atviNewTransitVirtualInterfaceAllocation ::
-      !NewTransitVirtualInterfaceAllocation
+  { connectionId ::
+      Lude.Text,
+    ownerAccount :: Lude.Text,
+    newTransitVirtualInterfaceAllocation ::
+      NewTransitVirtualInterfaceAllocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateTransitVirtualInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atviConnectionId' - The ID of the connection on which the transit virtual interface is provisioned.
---
--- * 'atviOwnerAccount' - The ID of the AWS account that owns the transit virtual interface.
---
--- * 'atviNewTransitVirtualInterfaceAllocation' - Information about the transit virtual interface.
-allocateTransitVirtualInterface ::
-  -- | 'atviConnectionId'
-  Text ->
-  -- | 'atviOwnerAccount'
-  Text ->
-  -- | 'atviNewTransitVirtualInterfaceAllocation'
+-- * 'connectionId' - The ID of the connection on which the transit virtual interface is provisioned.
+-- * 'newTransitVirtualInterfaceAllocation' - Information about the transit virtual interface.
+-- * 'ownerAccount' - The ID of the AWS account that owns the transit virtual interface.
+mkAllocateTransitVirtualInterface ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'ownerAccount'
+  Lude.Text ->
+  -- | 'newTransitVirtualInterfaceAllocation'
   NewTransitVirtualInterfaceAllocation ->
   AllocateTransitVirtualInterface
-allocateTransitVirtualInterface
+mkAllocateTransitVirtualInterface
   pConnectionId_
   pOwnerAccount_
   pNewTransitVirtualInterfaceAllocation_ =
     AllocateTransitVirtualInterface'
-      { _atviConnectionId =
-          pConnectionId_,
-        _atviOwnerAccount = pOwnerAccount_,
-        _atviNewTransitVirtualInterfaceAllocation =
+      { connectionId = pConnectionId_,
+        ownerAccount = pOwnerAccount_,
+        newTransitVirtualInterfaceAllocation =
           pNewTransitVirtualInterfaceAllocation_
       }
 
 -- | The ID of the connection on which the transit virtual interface is provisioned.
-atviConnectionId :: Lens' AllocateTransitVirtualInterface Text
-atviConnectionId = lens _atviConnectionId (\s a -> s {_atviConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atviConnectionId :: Lens.Lens' AllocateTransitVirtualInterface Lude.Text
+atviConnectionId = Lens.lens (connectionId :: AllocateTransitVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AllocateTransitVirtualInterface)
+{-# DEPRECATED atviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the AWS account that owns the transit virtual interface.
-atviOwnerAccount :: Lens' AllocateTransitVirtualInterface Text
-atviOwnerAccount = lens _atviOwnerAccount (\s a -> s {_atviOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atviOwnerAccount :: Lens.Lens' AllocateTransitVirtualInterface Lude.Text
+atviOwnerAccount = Lens.lens (ownerAccount :: AllocateTransitVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocateTransitVirtualInterface)
+{-# DEPRECATED atviOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | Information about the transit virtual interface.
-atviNewTransitVirtualInterfaceAllocation :: Lens' AllocateTransitVirtualInterface NewTransitVirtualInterfaceAllocation
-atviNewTransitVirtualInterfaceAllocation = lens _atviNewTransitVirtualInterfaceAllocation (\s a -> s {_atviNewTransitVirtualInterfaceAllocation = a})
+--
+-- /Note:/ Consider using 'newTransitVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atviNewTransitVirtualInterfaceAllocation :: Lens.Lens' AllocateTransitVirtualInterface NewTransitVirtualInterfaceAllocation
+atviNewTransitVirtualInterfaceAllocation = Lens.lens (newTransitVirtualInterfaceAllocation :: AllocateTransitVirtualInterface -> NewTransitVirtualInterfaceAllocation) (\s a -> s {newTransitVirtualInterfaceAllocation = a} :: AllocateTransitVirtualInterface)
+{-# DEPRECATED atviNewTransitVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newTransitVirtualInterfaceAllocation' instead." #-}
 
-instance AWSRequest AllocateTransitVirtualInterface where
+instance Lude.AWSRequest AllocateTransitVirtualInterface where
   type
     Rs AllocateTransitVirtualInterface =
       AllocateTransitVirtualInterfaceResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AllocateTransitVirtualInterfaceResponse'
-            <$> (x .?> "virtualInterface") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "virtualInterface")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AllocateTransitVirtualInterface
-
-instance NFData AllocateTransitVirtualInterface
-
-instance ToHeaders AllocateTransitVirtualInterface where
+instance Lude.ToHeaders AllocateTransitVirtualInterface where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.AllocateTransitVirtualInterface" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.AllocateTransitVirtualInterface" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AllocateTransitVirtualInterface where
+instance Lude.ToJSON AllocateTransitVirtualInterface where
   toJSON AllocateTransitVirtualInterface' {..} =
-    object
-      ( catMaybes
-          [ Just ("connectionId" .= _atviConnectionId),
-            Just ("ownerAccount" .= _atviOwnerAccount),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("ownerAccount" Lude..= ownerAccount),
+            Lude.Just
               ( "newTransitVirtualInterfaceAllocation"
-                  .= _atviNewTransitVirtualInterfaceAllocation
+                  Lude..= newTransitVirtualInterfaceAllocation
               )
           ]
       )
 
-instance ToPath AllocateTransitVirtualInterface where
-  toPath = const "/"
+instance Lude.ToPath AllocateTransitVirtualInterface where
+  toPath = Lude.const "/"
 
-instance ToQuery AllocateTransitVirtualInterface where
-  toQuery = const mempty
+instance Lude.ToQuery AllocateTransitVirtualInterface where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'allocateTransitVirtualInterfaceResponse' smart constructor.
+-- | /See:/ 'mkAllocateTransitVirtualInterfaceResponse' smart constructor.
 data AllocateTransitVirtualInterfaceResponse = AllocateTransitVirtualInterfaceResponse'
-  { _atvirsVirtualInterface ::
-      !( Maybe
-           VirtualInterface
-       ),
-    _atvirsResponseStatus ::
-      !Int
+  { virtualInterface ::
+      Lude.Maybe
+        VirtualInterface,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateTransitVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atvirsVirtualInterface' - Undocumented member.
---
--- * 'atvirsResponseStatus' - -- | The response status code.
-allocateTransitVirtualInterfaceResponse ::
-  -- | 'atvirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'virtualInterface' - Undocumented field.
+mkAllocateTransitVirtualInterfaceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AllocateTransitVirtualInterfaceResponse
-allocateTransitVirtualInterfaceResponse pResponseStatus_ =
+mkAllocateTransitVirtualInterfaceResponse pResponseStatus_ =
   AllocateTransitVirtualInterfaceResponse'
-    { _atvirsVirtualInterface =
-        Nothing,
-      _atvirsResponseStatus = pResponseStatus_
+    { virtualInterface =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-atvirsVirtualInterface :: Lens' AllocateTransitVirtualInterfaceResponse (Maybe VirtualInterface)
-atvirsVirtualInterface = lens _atvirsVirtualInterface (\s a -> s {_atvirsVirtualInterface = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atvirsVirtualInterface :: Lens.Lens' AllocateTransitVirtualInterfaceResponse (Lude.Maybe VirtualInterface)
+atvirsVirtualInterface = Lens.lens (virtualInterface :: AllocateTransitVirtualInterfaceResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: AllocateTransitVirtualInterfaceResponse)
+{-# DEPRECATED atvirsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
 
--- | -- | The response status code.
-atvirsResponseStatus :: Lens' AllocateTransitVirtualInterfaceResponse Int
-atvirsResponseStatus = lens _atvirsResponseStatus (\s a -> s {_atvirsResponseStatus = a})
-
-instance NFData AllocateTransitVirtualInterfaceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atvirsResponseStatus :: Lens.Lens' AllocateTransitVirtualInterfaceResponse Lude.Int
+atvirsResponseStatus = Lens.lens (responseStatus :: AllocateTransitVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AllocateTransitVirtualInterfaceResponse)
+{-# DEPRECATED atvirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,179 +14,215 @@
 --
 -- Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstancePatches
-  ( -- * Creating a Request
-    describeInstancePatches,
-    DescribeInstancePatches,
+  ( -- * Creating a request
+    DescribeInstancePatches (..),
+    mkDescribeInstancePatches,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipFilters,
     dipNextToken,
     dipMaxResults,
     dipInstanceId,
 
-    -- * Destructuring the Response
-    describeInstancePatchesResponse,
-    DescribeInstancePatchesResponse,
+    -- * Destructuring the response
+    DescribeInstancePatchesResponse (..),
+    mkDescribeInstancePatchesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diprsPatches,
     diprsNextToken,
     diprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeInstancePatches' smart constructor.
+-- | /See:/ 'mkDescribeInstancePatches' smart constructor.
 data DescribeInstancePatches = DescribeInstancePatches'
-  { _dipFilters ::
-      !(Maybe [PatchOrchestratorFilter]),
-    _dipNextToken :: !(Maybe Text),
-    _dipMaxResults :: !(Maybe Nat),
-    _dipInstanceId :: !Text
+  { filters ::
+      Lude.Maybe [PatchOrchestratorFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatches' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipFilters' - An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
---
--- * 'dipNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dipMaxResults' - The maximum number of patches to return (per page).
---
--- * 'dipInstanceId' - The ID of the instance whose patch state information should be retrieved.
-describeInstancePatches ::
-  -- | 'dipInstanceId'
-  Text ->
+-- * 'filters' - An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
+-- * 'instanceId' - The ID of the instance whose patch state information should be retrieved.
+-- * 'maxResults' - The maximum number of patches to return (per page).
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeInstancePatches ::
+  -- | 'instanceId'
+  Lude.Text ->
   DescribeInstancePatches
-describeInstancePatches pInstanceId_ =
+mkDescribeInstancePatches pInstanceId_ =
   DescribeInstancePatches'
-    { _dipFilters = Nothing,
-      _dipNextToken = Nothing,
-      _dipMaxResults = Nothing,
-      _dipInstanceId = pInstanceId_
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
-dipFilters :: Lens' DescribeInstancePatches [PatchOrchestratorFilter]
-dipFilters = lens _dipFilters (\s a -> s {_dipFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipFilters :: Lens.Lens' DescribeInstancePatches (Lude.Maybe [PatchOrchestratorFilter])
+dipFilters = Lens.lens (filters :: DescribeInstancePatches -> Lude.Maybe [PatchOrchestratorFilter]) (\s a -> s {filters = a} :: DescribeInstancePatches)
+{-# DEPRECATED dipFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dipNextToken :: Lens' DescribeInstancePatches (Maybe Text)
-dipNextToken = lens _dipNextToken (\s a -> s {_dipNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipNextToken :: Lens.Lens' DescribeInstancePatches (Lude.Maybe Lude.Text)
+dipNextToken = Lens.lens (nextToken :: DescribeInstancePatches -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstancePatches)
+{-# DEPRECATED dipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of patches to return (per page).
-dipMaxResults :: Lens' DescribeInstancePatches (Maybe Natural)
-dipMaxResults = lens _dipMaxResults (\s a -> s {_dipMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipMaxResults :: Lens.Lens' DescribeInstancePatches (Lude.Maybe Lude.Natural)
+dipMaxResults = Lens.lens (maxResults :: DescribeInstancePatches -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstancePatches)
+{-# DEPRECATED dipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the instance whose patch state information should be retrieved.
-dipInstanceId :: Lens' DescribeInstancePatches Text
-dipInstanceId = lens _dipInstanceId (\s a -> s {_dipInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipInstanceId :: Lens.Lens' DescribeInstancePatches Lude.Text
+dipInstanceId = Lens.lens (instanceId :: DescribeInstancePatches -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstancePatches)
+{-# DEPRECATED dipInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager DescribeInstancePatches where
+instance Page.AWSPager DescribeInstancePatches where
   page rq rs
-    | stop (rs ^. diprsNextToken) = Nothing
-    | stop (rs ^. diprsPatches) = Nothing
-    | otherwise = Just $ rq & dipNextToken .~ rs ^. diprsNextToken
+    | Page.stop (rs Lens.^. diprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. diprsPatches) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dipNextToken Lens..~ rs Lens.^. diprsNextToken
 
-instance AWSRequest DescribeInstancePatches where
+instance Lude.AWSRequest DescribeInstancePatches where
   type Rs DescribeInstancePatches = DescribeInstancePatchesResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInstancePatchesResponse'
-            <$> (x .?> "Patches" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Patches" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstancePatches
-
-instance NFData DescribeInstancePatches
-
-instance ToHeaders DescribeInstancePatches where
+instance Lude.ToHeaders DescribeInstancePatches where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribeInstancePatches" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribeInstancePatches" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeInstancePatches where
+instance Lude.ToJSON DescribeInstancePatches where
   toJSON DescribeInstancePatches' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _dipFilters,
-            ("NextToken" .=) <$> _dipNextToken,
-            ("MaxResults" .=) <$> _dipMaxResults,
-            Just ("InstanceId" .= _dipInstanceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("InstanceId" Lude..= instanceId)
           ]
       )
 
-instance ToPath DescribeInstancePatches where
-  toPath = const "/"
+instance Lude.ToPath DescribeInstancePatches where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeInstancePatches where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInstancePatches where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeInstancePatchesResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstancePatchesResponse' smart constructor.
 data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
-  { _diprsPatches ::
-      !( Maybe
-           [PatchComplianceData]
-       ),
-    _diprsNextToken ::
-      !(Maybe Text),
-    _diprsResponseStatus ::
-      !Int
+  { patches ::
+      Lude.Maybe
+        [PatchComplianceData],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'patches' - Each entry in the array is a structure containing:
 --
--- * 'diprsPatches' - Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string, such as "INSTALLED" or "FAILED") InstalledTime (DateTime) InstalledBy (string)
---
--- * 'diprsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'diprsResponseStatus' - -- | The response status code.
-describeInstancePatchesResponse ::
-  -- | 'diprsResponseStatus'
-  Int ->
+-- Title (string)
+-- KBId (string)
+-- Classification (string)
+-- Severity (string)
+-- State (string, such as "INSTALLED" or "FAILED")
+-- InstalledTime (DateTime)
+-- InstalledBy (string)
+-- * 'responseStatus' - The response status code.
+mkDescribeInstancePatchesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstancePatchesResponse
-describeInstancePatchesResponse pResponseStatus_ =
+mkDescribeInstancePatchesResponse pResponseStatus_ =
   DescribeInstancePatchesResponse'
-    { _diprsPatches = Nothing,
-      _diprsNextToken = Nothing,
-      _diprsResponseStatus = pResponseStatus_
+    { patches = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string, such as "INSTALLED" or "FAILED") InstalledTime (DateTime) InstalledBy (string)
-diprsPatches :: Lens' DescribeInstancePatchesResponse [PatchComplianceData]
-diprsPatches = lens _diprsPatches (\s a -> s {_diprsPatches = a}) . _Default . _Coerce
+-- | Each entry in the array is a structure containing:
+--
+-- Title (string)
+-- KBId (string)
+-- Classification (string)
+-- Severity (string)
+-- State (string, such as "INSTALLED" or "FAILED")
+-- InstalledTime (DateTime)
+-- InstalledBy (string)
+--
+-- /Note:/ Consider using 'patches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsPatches :: Lens.Lens' DescribeInstancePatchesResponse (Lude.Maybe [PatchComplianceData])
+diprsPatches = Lens.lens (patches :: DescribeInstancePatchesResponse -> Lude.Maybe [PatchComplianceData]) (\s a -> s {patches = a} :: DescribeInstancePatchesResponse)
+{-# DEPRECATED diprsPatches "Use generic-lens or generic-optics with 'patches' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-diprsNextToken :: Lens' DescribeInstancePatchesResponse (Maybe Text)
-diprsNextToken = lens _diprsNextToken (\s a -> s {_diprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsNextToken :: Lens.Lens' DescribeInstancePatchesResponse (Lude.Maybe Lude.Text)
+diprsNextToken = Lens.lens (nextToken :: DescribeInstancePatchesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstancePatchesResponse)
+{-# DEPRECATED diprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-diprsResponseStatus :: Lens' DescribeInstancePatchesResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\s a -> s {_diprsResponseStatus = a})
-
-instance NFData DescribeInstancePatchesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsResponseStatus :: Lens.Lens' DescribeInstancePatchesResponse Lude.Int
+diprsResponseStatus = Lens.lens (responseStatus :: DescribeInstancePatchesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstancePatchesResponse)
+{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

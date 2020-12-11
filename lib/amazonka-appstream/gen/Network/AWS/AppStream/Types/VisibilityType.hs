@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.VisibilityType where
+module Network.AWS.AppStream.Types.VisibilityType
+  ( VisibilityType
+      ( VisibilityType',
+        Private,
+        Public,
+        Shared
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VisibilityType
-  = Private
-  | Public
-  | Shared
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VisibilityType = VisibilityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VisibilityType where
-  parser =
-    takeLowerText >>= \case
-      "private" -> pure Private
-      "public" -> pure Public
-      "shared" -> pure Shared
-      e ->
-        fromTextError $
-          "Failure parsing VisibilityType from value: '" <> e
-            <> "'. Accepted values: private, public, shared"
+pattern Private :: VisibilityType
+pattern Private = VisibilityType' "PRIVATE"
 
-instance ToText VisibilityType where
-  toText = \case
-    Private -> "PRIVATE"
-    Public -> "PUBLIC"
-    Shared -> "SHARED"
+pattern Public :: VisibilityType
+pattern Public = VisibilityType' "PUBLIC"
 
-instance Hashable VisibilityType
+pattern Shared :: VisibilityType
+pattern Shared = VisibilityType' "SHARED"
 
-instance NFData VisibilityType
-
-instance ToByteString VisibilityType
-
-instance ToQuery VisibilityType
-
-instance ToHeader VisibilityType
-
-instance ToJSON VisibilityType where
-  toJSON = toJSONText
-
-instance FromJSON VisibilityType where
-  parseJSON = parseJSONText "VisibilityType"
+{-# COMPLETE
+  Private,
+  Public,
+  Shared,
+  VisibilityType'
+  #-}

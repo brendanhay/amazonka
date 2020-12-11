@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.ResourcePathComponent where
+module Network.AWS.WorkDocs.Types.ResourcePathComponent
+  ( ResourcePathComponent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourcePathComponent,
+
+    -- * Lenses
+    rpcName,
+    rpcId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the resource path.
 --
---
---
--- /See:/ 'resourcePathComponent' smart constructor.
+-- /See:/ 'mkResourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
-  { _rpcName ::
-      !(Maybe Text),
-    _rpcId :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePathComponent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpcName' - The name of the resource path.
---
--- * 'rpcId' - The ID of the resource path.
-resourcePathComponent ::
+-- * 'id' - The ID of the resource path.
+-- * 'name' - The name of the resource path.
+mkResourcePathComponent ::
   ResourcePathComponent
-resourcePathComponent =
-  ResourcePathComponent' {_rpcName = Nothing, _rpcId = Nothing}
+mkResourcePathComponent =
+  ResourcePathComponent' {name = Lude.Nothing, id = Lude.Nothing}
 
 -- | The name of the resource path.
-rpcName :: Lens' ResourcePathComponent (Maybe Text)
-rpcName = lens _rpcName (\s a -> s {_rpcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpcName :: Lens.Lens' ResourcePathComponent (Lude.Maybe Lude.Text)
+rpcName = Lens.lens (name :: ResourcePathComponent -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourcePathComponent)
+{-# DEPRECATED rpcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the resource path.
-rpcId :: Lens' ResourcePathComponent (Maybe Text)
-rpcId = lens _rpcId (\s a -> s {_rpcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpcId :: Lens.Lens' ResourcePathComponent (Lude.Maybe Lude.Text)
+rpcId = Lens.lens (id :: ResourcePathComponent -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ResourcePathComponent)
+{-# DEPRECATED rpcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON ResourcePathComponent where
+instance Lude.FromJSON ResourcePathComponent where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourcePathComponent"
-      (\x -> ResourcePathComponent' <$> (x .:? "Name") <*> (x .:? "Id"))
-
-instance Hashable ResourcePathComponent
-
-instance NFData ResourcePathComponent
+      ( \x ->
+          ResourcePathComponent'
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Id")
+      )

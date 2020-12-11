@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AddPrefixListEntry where
+module Network.AWS.EC2.Types.AddPrefixListEntry
+  ( AddPrefixListEntry (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAddPrefixListEntry,
+
+    -- * Lenses
+    apleDescription,
+    apleCidr,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An entry for a prefix list.
 --
---
---
--- /See:/ 'addPrefixListEntry' smart constructor.
+-- /See:/ 'mkAddPrefixListEntry' smart constructor.
 data AddPrefixListEntry = AddPrefixListEntry'
-  { _apleDescription ::
-      !(Maybe Text),
-    _apleCidr :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    cidr :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPrefixListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cidr' - The CIDR block.
+-- * 'description' - A description for the entry.
 --
--- * 'apleDescription' - A description for the entry. Constraints: Up to 255 characters in length.
---
--- * 'apleCidr' - The CIDR block.
-addPrefixListEntry ::
-  -- | 'apleCidr'
-  Text ->
+-- Constraints: Up to 255 characters in length.
+mkAddPrefixListEntry ::
+  -- | 'cidr'
+  Lude.Text ->
   AddPrefixListEntry
-addPrefixListEntry pCidr_ =
-  AddPrefixListEntry'
-    { _apleDescription = Nothing,
-      _apleCidr = pCidr_
-    }
+mkAddPrefixListEntry pCidr_ =
+  AddPrefixListEntry' {description = Lude.Nothing, cidr = pCidr_}
 
--- | A description for the entry. Constraints: Up to 255 characters in length.
-apleDescription :: Lens' AddPrefixListEntry (Maybe Text)
-apleDescription = lens _apleDescription (\s a -> s {_apleDescription = a})
+-- | A description for the entry.
+--
+-- Constraints: Up to 255 characters in length.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apleDescription :: Lens.Lens' AddPrefixListEntry (Lude.Maybe Lude.Text)
+apleDescription = Lens.lens (description :: AddPrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AddPrefixListEntry)
+{-# DEPRECATED apleDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The CIDR block.
-apleCidr :: Lens' AddPrefixListEntry Text
-apleCidr = lens _apleCidr (\s a -> s {_apleCidr = a})
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apleCidr :: Lens.Lens' AddPrefixListEntry Lude.Text
+apleCidr = Lens.lens (cidr :: AddPrefixListEntry -> Lude.Text) (\s a -> s {cidr = a} :: AddPrefixListEntry)
+{-# DEPRECATED apleCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
-instance Hashable AddPrefixListEntry
-
-instance NFData AddPrefixListEntry
-
-instance ToQuery AddPrefixListEntry where
+instance Lude.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =
-    mconcat ["Description" =: _apleDescription, "Cidr" =: _apleCidr]
+    Lude.mconcat
+      ["Description" Lude.=: description, "Cidr" Lude.=: cidr]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Application where
+module Network.AWS.AppStream.Types.Application
+  ( Application (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkApplication,
+
+    -- * Lenses
+    appEnabled,
+    appLaunchPath,
+    appLaunchParameters,
+    appName,
+    appDisplayName,
+    appMetadata,
+    appIconURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an application in the application catalog.
 --
---
---
--- /See:/ 'application' smart constructor.
+-- /See:/ 'mkApplication' smart constructor.
 data Application = Application'
-  { _appEnabled :: !(Maybe Bool),
-    _appLaunchPath :: !(Maybe Text),
-    _appLaunchParameters :: !(Maybe Text),
-    _appName :: !(Maybe Text),
-    _appDisplayName :: !(Maybe Text),
-    _appMetadata :: !(Maybe (Map Text (Text))),
-    _appIconURL :: !(Maybe Text)
+  { enabled :: Lude.Maybe Lude.Bool,
+    launchPath :: Lude.Maybe Lude.Text,
+    launchParameters :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    metadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    iconURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Application' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'appEnabled' - If there is a problem, the application can be disabled after image creation.
---
--- * 'appLaunchPath' - The path to the application executable in the instance.
---
--- * 'appLaunchParameters' - The arguments that are passed to the application at launch.
---
--- * 'appName' - The name of the application.
---
--- * 'appDisplayName' - The application name to display.
---
--- * 'appMetadata' - Additional attributes that describe the application.
---
--- * 'appIconURL' - The URL for the application icon. This URL might be time-limited.
-application ::
+-- * 'displayName' - The application name to display.
+-- * 'enabled' - If there is a problem, the application can be disabled after image creation.
+-- * 'iconURL' - The URL for the application icon. This URL might be time-limited.
+-- * 'launchParameters' - The arguments that are passed to the application at launch.
+-- * 'launchPath' - The path to the application executable in the instance.
+-- * 'metadata' - Additional attributes that describe the application.
+-- * 'name' - The name of the application.
+mkApplication ::
   Application
-application =
+mkApplication =
   Application'
-    { _appEnabled = Nothing,
-      _appLaunchPath = Nothing,
-      _appLaunchParameters = Nothing,
-      _appName = Nothing,
-      _appDisplayName = Nothing,
-      _appMetadata = Nothing,
-      _appIconURL = Nothing
+    { enabled = Lude.Nothing,
+      launchPath = Lude.Nothing,
+      launchParameters = Lude.Nothing,
+      name = Lude.Nothing,
+      displayName = Lude.Nothing,
+      metadata = Lude.Nothing,
+      iconURL = Lude.Nothing
     }
 
 -- | If there is a problem, the application can be disabled after image creation.
-appEnabled :: Lens' Application (Maybe Bool)
-appEnabled = lens _appEnabled (\s a -> s {_appEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appEnabled :: Lens.Lens' Application (Lude.Maybe Lude.Bool)
+appEnabled = Lens.lens (enabled :: Application -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: Application)
+{-# DEPRECATED appEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The path to the application executable in the instance.
-appLaunchPath :: Lens' Application (Maybe Text)
-appLaunchPath = lens _appLaunchPath (\s a -> s {_appLaunchPath = a})
+--
+-- /Note:/ Consider using 'launchPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appLaunchPath :: Lens.Lens' Application (Lude.Maybe Lude.Text)
+appLaunchPath = Lens.lens (launchPath :: Application -> Lude.Maybe Lude.Text) (\s a -> s {launchPath = a} :: Application)
+{-# DEPRECATED appLaunchPath "Use generic-lens or generic-optics with 'launchPath' instead." #-}
 
 -- | The arguments that are passed to the application at launch.
-appLaunchParameters :: Lens' Application (Maybe Text)
-appLaunchParameters = lens _appLaunchParameters (\s a -> s {_appLaunchParameters = a})
+--
+-- /Note:/ Consider using 'launchParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appLaunchParameters :: Lens.Lens' Application (Lude.Maybe Lude.Text)
+appLaunchParameters = Lens.lens (launchParameters :: Application -> Lude.Maybe Lude.Text) (\s a -> s {launchParameters = a} :: Application)
+{-# DEPRECATED appLaunchParameters "Use generic-lens or generic-optics with 'launchParameters' instead." #-}
 
 -- | The name of the application.
-appName :: Lens' Application (Maybe Text)
-appName = lens _appName (\s a -> s {_appName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appName :: Lens.Lens' Application (Lude.Maybe Lude.Text)
+appName = Lens.lens (name :: Application -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Application)
+{-# DEPRECATED appName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The application name to display.
-appDisplayName :: Lens' Application (Maybe Text)
-appDisplayName = lens _appDisplayName (\s a -> s {_appDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appDisplayName :: Lens.Lens' Application (Lude.Maybe Lude.Text)
+appDisplayName = Lens.lens (displayName :: Application -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Application)
+{-# DEPRECATED appDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | Additional attributes that describe the application.
-appMetadata :: Lens' Application (HashMap Text (Text))
-appMetadata = lens _appMetadata (\s a -> s {_appMetadata = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appMetadata :: Lens.Lens' Application (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+appMetadata = Lens.lens (metadata :: Application -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {metadata = a} :: Application)
+{-# DEPRECATED appMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
 -- | The URL for the application icon. This URL might be time-limited.
-appIconURL :: Lens' Application (Maybe Text)
-appIconURL = lens _appIconURL (\s a -> s {_appIconURL = a})
+--
+-- /Note:/ Consider using 'iconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appIconURL :: Lens.Lens' Application (Lude.Maybe Lude.Text)
+appIconURL = Lens.lens (iconURL :: Application -> Lude.Maybe Lude.Text) (\s a -> s {iconURL = a} :: Application)
+{-# DEPRECATED appIconURL "Use generic-lens or generic-optics with 'iconURL' instead." #-}
 
-instance FromJSON Application where
+instance Lude.FromJSON Application where
   parseJSON =
-    withObject
+    Lude.withObject
       "Application"
       ( \x ->
           Application'
-            <$> (x .:? "Enabled")
-            <*> (x .:? "LaunchPath")
-            <*> (x .:? "LaunchParameters")
-            <*> (x .:? "Name")
-            <*> (x .:? "DisplayName")
-            <*> (x .:? "Metadata" .!= mempty)
-            <*> (x .:? "IconURL")
+            Lude.<$> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "LaunchPath")
+            Lude.<*> (x Lude..:? "LaunchParameters")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "DisplayName")
+            Lude.<*> (x Lude..:? "Metadata" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "IconURL")
       )
-
-instance Hashable Application
-
-instance NFData Application

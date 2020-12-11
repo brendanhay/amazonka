@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.StatusType where
+module Network.AWS.CodeBuild.Types.StatusType
+  ( StatusType
+      ( StatusType',
+        Failed,
+        Fault,
+        InProgress,
+        Stopped,
+        Succeeded,
+        TimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusType
-  = Failed
-  | Fault
-  | InProgress
-  | Stopped
-  | Succeeded
-  | TimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusType = StatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusType where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "fault" -> pure Fault
-      "in_progress" -> pure InProgress
-      "stopped" -> pure Stopped
-      "succeeded" -> pure Succeeded
-      "timed_out" -> pure TimedOut
-      e ->
-        fromTextError $
-          "Failure parsing StatusType from value: '" <> e
-            <> "'. Accepted values: failed, fault, in_progress, stopped, succeeded, timed_out"
+pattern Failed :: StatusType
+pattern Failed = StatusType' "FAILED"
 
-instance ToText StatusType where
-  toText = \case
-    Failed -> "FAILED"
-    Fault -> "FAULT"
-    InProgress -> "IN_PROGRESS"
-    Stopped -> "STOPPED"
-    Succeeded -> "SUCCEEDED"
-    TimedOut -> "TIMED_OUT"
+pattern Fault :: StatusType
+pattern Fault = StatusType' "FAULT"
 
-instance Hashable StatusType
+pattern InProgress :: StatusType
+pattern InProgress = StatusType' "IN_PROGRESS"
 
-instance NFData StatusType
+pattern Stopped :: StatusType
+pattern Stopped = StatusType' "STOPPED"
 
-instance ToByteString StatusType
+pattern Succeeded :: StatusType
+pattern Succeeded = StatusType' "SUCCEEDED"
 
-instance ToQuery StatusType
+pattern TimedOut :: StatusType
+pattern TimedOut = StatusType' "TIMED_OUT"
 
-instance ToHeader StatusType
-
-instance ToJSON StatusType where
-  toJSON = toJSONText
-
-instance FromJSON StatusType where
-  parseJSON = parseJSONText "StatusType"
+{-# COMPLETE
+  Failed,
+  Fault,
+  InProgress,
+  Stopped,
+  Succeeded,
+  TimedOut,
+  StatusType'
+  #-}

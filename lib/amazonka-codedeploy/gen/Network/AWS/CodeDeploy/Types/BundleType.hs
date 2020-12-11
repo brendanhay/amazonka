@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.BundleType where
+module Network.AWS.CodeDeploy.Types.BundleType
+  ( BundleType
+      ( BundleType',
+        JSON,
+        TAR,
+        TGZ,
+        Yaml,
+        Zip
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BundleType
-  = JSON
-  | TAR
-  | TGZ
-  | Yaml
-  | Zip
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BundleType = BundleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BundleType where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "tar" -> pure TAR
-      "tgz" -> pure TGZ
-      "yaml" -> pure Yaml
-      "zip" -> pure Zip
-      e ->
-        fromTextError $
-          "Failure parsing BundleType from value: '" <> e
-            <> "'. Accepted values: json, tar, tgz, yaml, zip"
+pattern JSON :: BundleType
+pattern JSON = BundleType' "JSON"
 
-instance ToText BundleType where
-  toText = \case
-    JSON -> "JSON"
-    TAR -> "tar"
-    TGZ -> "tgz"
-    Yaml -> "YAML"
-    Zip -> "zip"
+pattern TAR :: BundleType
+pattern TAR = BundleType' "tar"
 
-instance Hashable BundleType
+pattern TGZ :: BundleType
+pattern TGZ = BundleType' "tgz"
 
-instance NFData BundleType
+pattern Yaml :: BundleType
+pattern Yaml = BundleType' "YAML"
 
-instance ToByteString BundleType
+pattern Zip :: BundleType
+pattern Zip = BundleType' "zip"
 
-instance ToQuery BundleType
-
-instance ToHeader BundleType
-
-instance ToJSON BundleType where
-  toJSON = toJSONText
-
-instance FromJSON BundleType where
-  parseJSON = parseJSONText "BundleType"
+{-# COMPLETE
+  JSON,
+  TAR,
+  TGZ,
+  Yaml,
+  Zip,
+  BundleType'
+  #-}

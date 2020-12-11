@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,148 @@
 --
 -- Gets a generated host name for the specified layer, based on the current host name theme.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.GetHostnameSuggestion
-  ( -- * Creating a Request
-    getHostnameSuggestion,
-    GetHostnameSuggestion,
+  ( -- * Creating a request
+    GetHostnameSuggestion (..),
+    mkGetHostnameSuggestion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ghsLayerId,
 
-    -- * Destructuring the Response
-    getHostnameSuggestionResponse,
-    GetHostnameSuggestionResponse,
+    -- * Destructuring the response
+    GetHostnameSuggestionResponse (..),
+    mkGetHostnameSuggestionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ghsrsHostname,
     ghsrsLayerId,
     ghsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getHostnameSuggestion' smart constructor.
+-- | /See:/ 'mkGetHostnameSuggestion' smart constructor.
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
-  { _ghsLayerId ::
-      Text
+  { layerId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostnameSuggestion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghsLayerId' - The layer ID.
-getHostnameSuggestion ::
-  -- | 'ghsLayerId'
-  Text ->
+-- * 'layerId' - The layer ID.
+mkGetHostnameSuggestion ::
+  -- | 'layerId'
+  Lude.Text ->
   GetHostnameSuggestion
-getHostnameSuggestion pLayerId_ =
-  GetHostnameSuggestion' {_ghsLayerId = pLayerId_}
+mkGetHostnameSuggestion pLayerId_ =
+  GetHostnameSuggestion' {layerId = pLayerId_}
 
 -- | The layer ID.
-ghsLayerId :: Lens' GetHostnameSuggestion Text
-ghsLayerId = lens _ghsLayerId (\s a -> s {_ghsLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghsLayerId :: Lens.Lens' GetHostnameSuggestion Lude.Text
+ghsLayerId = Lens.lens (layerId :: GetHostnameSuggestion -> Lude.Text) (\s a -> s {layerId = a} :: GetHostnameSuggestion)
+{-# DEPRECATED ghsLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance AWSRequest GetHostnameSuggestion where
+instance Lude.AWSRequest GetHostnameSuggestion where
   type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetHostnameSuggestionResponse'
-            <$> (x .?> "Hostname") <*> (x .?> "LayerId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Hostname")
+            Lude.<*> (x Lude..?> "LayerId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetHostnameSuggestion
-
-instance NFData GetHostnameSuggestion
-
-instance ToHeaders GetHostnameSuggestion where
+instance Lude.ToHeaders GetHostnameSuggestion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.GetHostnameSuggestion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.GetHostnameSuggestion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetHostnameSuggestion where
+instance Lude.ToJSON GetHostnameSuggestion where
   toJSON GetHostnameSuggestion' {..} =
-    object (catMaybes [Just ("LayerId" .= _ghsLayerId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("LayerId" Lude..= layerId)])
 
-instance ToPath GetHostnameSuggestion where
-  toPath = const "/"
+instance Lude.ToPath GetHostnameSuggestion where
+  toPath = Lude.const "/"
 
-instance ToQuery GetHostnameSuggestion where
-  toQuery = const mempty
+instance Lude.ToQuery GetHostnameSuggestion where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @GetHostnameSuggestion@ request.
 --
---
---
--- /See:/ 'getHostnameSuggestionResponse' smart constructor.
+-- /See:/ 'mkGetHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-  { _ghsrsHostname ::
-      !(Maybe Text),
-    _ghsrsLayerId :: !(Maybe Text),
-    _ghsrsResponseStatus :: !Int
+  { hostname ::
+      Lude.Maybe Lude.Text,
+    layerId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostnameSuggestionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghsrsHostname' - The generated host name.
---
--- * 'ghsrsLayerId' - The layer ID.
---
--- * 'ghsrsResponseStatus' - -- | The response status code.
-getHostnameSuggestionResponse ::
-  -- | 'ghsrsResponseStatus'
-  Int ->
+-- * 'hostname' - The generated host name.
+-- * 'layerId' - The layer ID.
+-- * 'responseStatus' - The response status code.
+mkGetHostnameSuggestionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetHostnameSuggestionResponse
-getHostnameSuggestionResponse pResponseStatus_ =
+mkGetHostnameSuggestionResponse pResponseStatus_ =
   GetHostnameSuggestionResponse'
-    { _ghsrsHostname = Nothing,
-      _ghsrsLayerId = Nothing,
-      _ghsrsResponseStatus = pResponseStatus_
+    { hostname = Lude.Nothing,
+      layerId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The generated host name.
-ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsHostname = lens _ghsrsHostname (\s a -> s {_ghsrsHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghsrsHostname :: Lens.Lens' GetHostnameSuggestionResponse (Lude.Maybe Lude.Text)
+ghsrsHostname = Lens.lens (hostname :: GetHostnameSuggestionResponse -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: GetHostnameSuggestionResponse)
+{-# DEPRECATED ghsrsHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | The layer ID.
-ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrsLayerId = lens _ghsrsLayerId (\s a -> s {_ghsrsLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghsrsLayerId :: Lens.Lens' GetHostnameSuggestionResponse (Lude.Maybe Lude.Text)
+ghsrsLayerId = Lens.lens (layerId :: GetHostnameSuggestionResponse -> Lude.Maybe Lude.Text) (\s a -> s {layerId = a} :: GetHostnameSuggestionResponse)
+{-# DEPRECATED ghsrsLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
--- | -- | The response status code.
-ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
-ghsrsResponseStatus = lens _ghsrsResponseStatus (\s a -> s {_ghsrsResponseStatus = a})
-
-instance NFData GetHostnameSuggestionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghsrsResponseStatus :: Lens.Lens' GetHostnameSuggestionResponse Lude.Int
+ghsrsResponseStatus = Lens.lens (responseStatus :: GetHostnameSuggestionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostnameSuggestionResponse)
+{-# DEPRECATED ghsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

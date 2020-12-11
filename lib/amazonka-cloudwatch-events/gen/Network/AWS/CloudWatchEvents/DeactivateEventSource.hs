@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,97 @@
 --
 -- You can use this operation to temporarily stop receiving events from the specified partner event source. The matching event bus is not deleted.
 --
---
 -- When you deactivate a partner event source, the source goes into PENDING state. If it remains in PENDING state for more than two weeks, it is deleted.
---
 -- To activate a deactivated partner event source, use 'ActivateEventSource' .
 module Network.AWS.CloudWatchEvents.DeactivateEventSource
-  ( -- * Creating a Request
-    deactivateEventSource,
-    DeactivateEventSource,
+  ( -- * Creating a request
+    DeactivateEventSource (..),
+    mkDeactivateEventSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deaName,
 
-    -- * Destructuring the Response
-    deactivateEventSourceResponse,
-    DeactivateEventSourceResponse,
+    -- * Destructuring the response
+    DeactivateEventSourceResponse (..),
+    mkDeactivateEventSourceResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deactivateEventSource' smart constructor.
+-- | /See:/ 'mkDeactivateEventSource' smart constructor.
 newtype DeactivateEventSource = DeactivateEventSource'
-  { _deaName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivateEventSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deaName' - The name of the partner event source to deactivate.
-deactivateEventSource ::
-  -- | 'deaName'
-  Text ->
+-- * 'name' - The name of the partner event source to deactivate.
+mkDeactivateEventSource ::
+  -- | 'name'
+  Lude.Text ->
   DeactivateEventSource
-deactivateEventSource pName_ =
-  DeactivateEventSource' {_deaName = pName_}
+mkDeactivateEventSource pName_ =
+  DeactivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to deactivate.
-deaName :: Lens' DeactivateEventSource Text
-deaName = lens _deaName (\s a -> s {_deaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaName :: Lens.Lens' DeactivateEventSource Lude.Text
+deaName = Lens.lens (name :: DeactivateEventSource -> Lude.Text) (\s a -> s {name = a} :: DeactivateEventSource)
+{-# DEPRECATED deaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeactivateEventSource where
+instance Lude.AWSRequest DeactivateEventSource where
   type Rs DeactivateEventSource = DeactivateEventSourceResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull DeactivateEventSourceResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull DeactivateEventSourceResponse'
 
-instance Hashable DeactivateEventSource
-
-instance NFData DeactivateEventSource
-
-instance ToHeaders DeactivateEventSource where
+instance Lude.ToHeaders DeactivateEventSource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSEvents.DeactivateEventSource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSEvents.DeactivateEventSource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeactivateEventSource where
+instance Lude.ToJSON DeactivateEventSource where
   toJSON DeactivateEventSource' {..} =
-    object (catMaybes [Just ("Name" .= _deaName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeactivateEventSource where
-  toPath = const "/"
+instance Lude.ToPath DeactivateEventSource where
+  toPath = Lude.const "/"
 
-instance ToQuery DeactivateEventSource where
-  toQuery = const mempty
+instance Lude.ToQuery DeactivateEventSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deactivateEventSourceResponse' smart constructor.
+-- | /See:/ 'mkDeactivateEventSourceResponse' smart constructor.
 data DeactivateEventSourceResponse = DeactivateEventSourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivateEventSourceResponse' with the minimum fields required to make a request.
-deactivateEventSourceResponse ::
+mkDeactivateEventSourceResponse ::
   DeactivateEventSourceResponse
-deactivateEventSourceResponse = DeactivateEventSourceResponse'
-
-instance NFData DeactivateEventSourceResponse
+mkDeactivateEventSourceResponse = DeactivateEventSourceResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CodeDeliveryDetailsType where
+module Network.AWS.CognitoIdentityProvider.Types.CodeDeliveryDetailsType
+  ( CodeDeliveryDetailsType (..),
+
+    -- * Smart constructor
+    mkCodeDeliveryDetailsType,
+
+    -- * Lenses
+    cddtDestination,
+    cddtDeliveryMedium,
+    cddtAttributeName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The code delivery details being returned from the server.
 --
---
---
--- /See:/ 'codeDeliveryDetailsType' smart constructor.
+-- /See:/ 'mkCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { _cddtDestination ::
-      !(Maybe Text),
-    _cddtDeliveryMedium ::
-      !(Maybe DeliveryMediumType),
-    _cddtAttributeName :: !(Maybe Text)
+  { destination ::
+      Lude.Maybe Lude.Text,
+    deliveryMedium ::
+      Lude.Maybe DeliveryMediumType,
+    attributeName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeDeliveryDetailsType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cddtDestination' - The destination for the code delivery details.
---
--- * 'cddtDeliveryMedium' - The delivery medium (email message or phone number).
---
--- * 'cddtAttributeName' - The attribute name.
-codeDeliveryDetailsType ::
+-- * 'attributeName' - The attribute name.
+-- * 'deliveryMedium' - The delivery medium (email message or phone number).
+-- * 'destination' - The destination for the code delivery details.
+mkCodeDeliveryDetailsType ::
   CodeDeliveryDetailsType
-codeDeliveryDetailsType =
+mkCodeDeliveryDetailsType =
   CodeDeliveryDetailsType'
-    { _cddtDestination = Nothing,
-      _cddtDeliveryMedium = Nothing,
-      _cddtAttributeName = Nothing
+    { destination = Lude.Nothing,
+      deliveryMedium = Lude.Nothing,
+      attributeName = Lude.Nothing
     }
 
 -- | The destination for the code delivery details.
-cddtDestination :: Lens' CodeDeliveryDetailsType (Maybe Text)
-cddtDestination = lens _cddtDestination (\s a -> s {_cddtDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddtDestination :: Lens.Lens' CodeDeliveryDetailsType (Lude.Maybe Lude.Text)
+cddtDestination = Lens.lens (destination :: CodeDeliveryDetailsType -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: CodeDeliveryDetailsType)
+{-# DEPRECATED cddtDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The delivery medium (email message or phone number).
-cddtDeliveryMedium :: Lens' CodeDeliveryDetailsType (Maybe DeliveryMediumType)
-cddtDeliveryMedium = lens _cddtDeliveryMedium (\s a -> s {_cddtDeliveryMedium = a})
+--
+-- /Note:/ Consider using 'deliveryMedium' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddtDeliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Lude.Maybe DeliveryMediumType)
+cddtDeliveryMedium = Lens.lens (deliveryMedium :: CodeDeliveryDetailsType -> Lude.Maybe DeliveryMediumType) (\s a -> s {deliveryMedium = a} :: CodeDeliveryDetailsType)
+{-# DEPRECATED cddtDeliveryMedium "Use generic-lens or generic-optics with 'deliveryMedium' instead." #-}
 
 -- | The attribute name.
-cddtAttributeName :: Lens' CodeDeliveryDetailsType (Maybe Text)
-cddtAttributeName = lens _cddtAttributeName (\s a -> s {_cddtAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddtAttributeName :: Lens.Lens' CodeDeliveryDetailsType (Lude.Maybe Lude.Text)
+cddtAttributeName = Lens.lens (attributeName :: CodeDeliveryDetailsType -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: CodeDeliveryDetailsType)
+{-# DEPRECATED cddtAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance FromJSON CodeDeliveryDetailsType where
+instance Lude.FromJSON CodeDeliveryDetailsType where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeDeliveryDetailsType"
       ( \x ->
           CodeDeliveryDetailsType'
-            <$> (x .:? "Destination")
-            <*> (x .:? "DeliveryMedium")
-            <*> (x .:? "AttributeName")
+            Lude.<$> (x Lude..:? "Destination")
+            Lude.<*> (x Lude..:? "DeliveryMedium")
+            Lude.<*> (x Lude..:? "AttributeName")
       )
-
-instance Hashable CodeDeliveryDetailsType
-
-instance NFData CodeDeliveryDetailsType

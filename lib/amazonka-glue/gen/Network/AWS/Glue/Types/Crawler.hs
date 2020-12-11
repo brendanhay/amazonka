@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Crawler where
+module Network.AWS.Glue.Types.Crawler
+  ( Crawler (..),
+
+    -- * Smart constructor
+    mkCrawler,
+
+    -- * Lenses
+    ccCreationTime,
+    ccState,
+    ccSchemaChangePolicy,
+    ccLastUpdated,
+    ccSchedule,
+    ccLastCrawl,
+    ccCrawlElapsedTime,
+    ccRecrawlPolicy,
+    ccClassifiers,
+    ccRole,
+    ccName,
+    ccTargets,
+    ccVersion,
+    ccDatabaseName,
+    ccCrawlerSecurityConfiguration,
+    ccLineageConfiguration,
+    ccConfiguration,
+    ccTablePrefix,
+    ccDescription,
+  )
+where
 
 import Network.AWS.Glue.Types.CrawlerState
 import Network.AWS.Glue.Types.CrawlerTargets
@@ -22,206 +43,244 @@ import Network.AWS.Glue.Types.LineageConfiguration
 import Network.AWS.Glue.Types.RecrawlPolicy
 import Network.AWS.Glue.Types.Schedule
 import Network.AWS.Glue.Types.SchemaChangePolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metadata concerning the data source in the AWS Glue Data Catalog.
 --
---
---
--- /See:/ 'crawler' smart constructor.
+-- /See:/ 'mkCrawler' smart constructor.
 data Crawler = Crawler'
-  { _ccCreationTime :: !(Maybe POSIX),
-    _ccState :: !(Maybe CrawlerState),
-    _ccSchemaChangePolicy :: !(Maybe SchemaChangePolicy),
-    _ccLastUpdated :: !(Maybe POSIX),
-    _ccSchedule :: !(Maybe Schedule),
-    _ccLastCrawl :: !(Maybe LastCrawlInfo),
-    _ccCrawlElapsedTime :: !(Maybe Integer),
-    _ccRecrawlPolicy :: !(Maybe RecrawlPolicy),
-    _ccClassifiers :: !(Maybe [Text]),
-    _ccRole :: !(Maybe Text),
-    _ccName :: !(Maybe Text),
-    _ccTargets :: !(Maybe CrawlerTargets),
-    _ccVersion :: !(Maybe Integer),
-    _ccDatabaseName :: !(Maybe Text),
-    _ccCrawlerSecurityConfiguration :: !(Maybe Text),
-    _ccLineageConfiguration :: !(Maybe LineageConfiguration),
-    _ccConfiguration :: !(Maybe Text),
-    _ccTablePrefix :: !(Maybe Text),
-    _ccDescription :: !(Maybe Text)
+  { creationTime :: Lude.Maybe Lude.Timestamp,
+    state :: Lude.Maybe CrawlerState,
+    schemaChangePolicy :: Lude.Maybe SchemaChangePolicy,
+    lastUpdated :: Lude.Maybe Lude.Timestamp,
+    schedule :: Lude.Maybe Schedule,
+    lastCrawl :: Lude.Maybe LastCrawlInfo,
+    crawlElapsedTime :: Lude.Maybe Lude.Integer,
+    recrawlPolicy :: Lude.Maybe RecrawlPolicy,
+    classifiers :: Lude.Maybe [Lude.Text],
+    role' :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    targets :: Lude.Maybe CrawlerTargets,
+    version :: Lude.Maybe Lude.Integer,
+    databaseName :: Lude.Maybe Lude.Text,
+    crawlerSecurityConfiguration :: Lude.Maybe Lude.Text,
+    lineageConfiguration :: Lude.Maybe LineageConfiguration,
+    configuration :: Lude.Maybe Lude.Text,
+    tablePrefix :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Crawler' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccCreationTime' - The time that the crawler was created.
---
--- * 'ccState' - Indicates whether the crawler is running, or whether a run is pending.
---
--- * 'ccSchemaChangePolicy' - The policy that specifies update and delete behaviors for the crawler.
---
--- * 'ccLastUpdated' - The time that the crawler was last updated.
---
--- * 'ccSchedule' - For scheduled crawlers, the schedule when the crawler runs.
---
--- * 'ccLastCrawl' - The status of the last crawl, and potentially error information if an error occurred.
---
--- * 'ccCrawlElapsedTime' - If the crawler is running, contains the total time elapsed since the last crawl began.
---
--- * 'ccRecrawlPolicy' - A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
---
--- * 'ccClassifiers' - A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
---
--- * 'ccRole' - The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
---
--- * 'ccName' - The name of the crawler.
---
--- * 'ccTargets' - A collection of targets to crawl.
---
--- * 'ccVersion' - The version of the crawler.
---
--- * 'ccDatabaseName' - The name of the database in which the crawler's output is stored.
---
--- * 'ccCrawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this crawler.
---
--- * 'ccLineageConfiguration' - A configuration that specifies whether data lineage is enabled for the crawler.
---
--- * 'ccConfiguration' - Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler> .
---
--- * 'ccTablePrefix' - The prefix added to the names of tables that are created.
---
--- * 'ccDescription' - A description of the crawler.
-crawler ::
+-- * 'classifiers' - A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
+-- * 'configuration' - Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler> .
+-- * 'crawlElapsedTime' - If the crawler is running, contains the total time elapsed since the last crawl began.
+-- * 'crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this crawler.
+-- * 'creationTime' - The time that the crawler was created.
+-- * 'databaseName' - The name of the database in which the crawler's output is stored.
+-- * 'description' - A description of the crawler.
+-- * 'lastCrawl' - The status of the last crawl, and potentially error information if an error occurred.
+-- * 'lastUpdated' - The time that the crawler was last updated.
+-- * 'lineageConfiguration' - A configuration that specifies whether data lineage is enabled for the crawler.
+-- * 'name' - The name of the crawler.
+-- * 'recrawlPolicy' - A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
+-- * 'role'' - The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
+-- * 'schedule' - For scheduled crawlers, the schedule when the crawler runs.
+-- * 'schemaChangePolicy' - The policy that specifies update and delete behaviors for the crawler.
+-- * 'state' - Indicates whether the crawler is running, or whether a run is pending.
+-- * 'tablePrefix' - The prefix added to the names of tables that are created.
+-- * 'targets' - A collection of targets to crawl.
+-- * 'version' - The version of the crawler.
+mkCrawler ::
   Crawler
-crawler =
+mkCrawler =
   Crawler'
-    { _ccCreationTime = Nothing,
-      _ccState = Nothing,
-      _ccSchemaChangePolicy = Nothing,
-      _ccLastUpdated = Nothing,
-      _ccSchedule = Nothing,
-      _ccLastCrawl = Nothing,
-      _ccCrawlElapsedTime = Nothing,
-      _ccRecrawlPolicy = Nothing,
-      _ccClassifiers = Nothing,
-      _ccRole = Nothing,
-      _ccName = Nothing,
-      _ccTargets = Nothing,
-      _ccVersion = Nothing,
-      _ccDatabaseName = Nothing,
-      _ccCrawlerSecurityConfiguration = Nothing,
-      _ccLineageConfiguration = Nothing,
-      _ccConfiguration = Nothing,
-      _ccTablePrefix = Nothing,
-      _ccDescription = Nothing
+    { creationTime = Lude.Nothing,
+      state = Lude.Nothing,
+      schemaChangePolicy = Lude.Nothing,
+      lastUpdated = Lude.Nothing,
+      schedule = Lude.Nothing,
+      lastCrawl = Lude.Nothing,
+      crawlElapsedTime = Lude.Nothing,
+      recrawlPolicy = Lude.Nothing,
+      classifiers = Lude.Nothing,
+      role' = Lude.Nothing,
+      name = Lude.Nothing,
+      targets = Lude.Nothing,
+      version = Lude.Nothing,
+      databaseName = Lude.Nothing,
+      crawlerSecurityConfiguration = Lude.Nothing,
+      lineageConfiguration = Lude.Nothing,
+      configuration = Lude.Nothing,
+      tablePrefix = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The time that the crawler was created.
-ccCreationTime :: Lens' Crawler (Maybe UTCTime)
-ccCreationTime = lens _ccCreationTime (\s a -> s {_ccCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCreationTime :: Lens.Lens' Crawler (Lude.Maybe Lude.Timestamp)
+ccCreationTime = Lens.lens (creationTime :: Crawler -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Crawler)
+{-# DEPRECATED ccCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Indicates whether the crawler is running, or whether a run is pending.
-ccState :: Lens' Crawler (Maybe CrawlerState)
-ccState = lens _ccState (\s a -> s {_ccState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccState :: Lens.Lens' Crawler (Lude.Maybe CrawlerState)
+ccState = Lens.lens (state :: Crawler -> Lude.Maybe CrawlerState) (\s a -> s {state = a} :: Crawler)
+{-# DEPRECATED ccState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The policy that specifies update and delete behaviors for the crawler.
-ccSchemaChangePolicy :: Lens' Crawler (Maybe SchemaChangePolicy)
-ccSchemaChangePolicy = lens _ccSchemaChangePolicy (\s a -> s {_ccSchemaChangePolicy = a})
+--
+-- /Note:/ Consider using 'schemaChangePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSchemaChangePolicy :: Lens.Lens' Crawler (Lude.Maybe SchemaChangePolicy)
+ccSchemaChangePolicy = Lens.lens (schemaChangePolicy :: Crawler -> Lude.Maybe SchemaChangePolicy) (\s a -> s {schemaChangePolicy = a} :: Crawler)
+{-# DEPRECATED ccSchemaChangePolicy "Use generic-lens or generic-optics with 'schemaChangePolicy' instead." #-}
 
 -- | The time that the crawler was last updated.
-ccLastUpdated :: Lens' Crawler (Maybe UTCTime)
-ccLastUpdated = lens _ccLastUpdated (\s a -> s {_ccLastUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLastUpdated :: Lens.Lens' Crawler (Lude.Maybe Lude.Timestamp)
+ccLastUpdated = Lens.lens (lastUpdated :: Crawler -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: Crawler)
+{-# DEPRECATED ccLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | For scheduled crawlers, the schedule when the crawler runs.
-ccSchedule :: Lens' Crawler (Maybe Schedule)
-ccSchedule = lens _ccSchedule (\s a -> s {_ccSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSchedule :: Lens.Lens' Crawler (Lude.Maybe Schedule)
+ccSchedule = Lens.lens (schedule :: Crawler -> Lude.Maybe Schedule) (\s a -> s {schedule = a} :: Crawler)
+{-# DEPRECATED ccSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The status of the last crawl, and potentially error information if an error occurred.
-ccLastCrawl :: Lens' Crawler (Maybe LastCrawlInfo)
-ccLastCrawl = lens _ccLastCrawl (\s a -> s {_ccLastCrawl = a})
+--
+-- /Note:/ Consider using 'lastCrawl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLastCrawl :: Lens.Lens' Crawler (Lude.Maybe LastCrawlInfo)
+ccLastCrawl = Lens.lens (lastCrawl :: Crawler -> Lude.Maybe LastCrawlInfo) (\s a -> s {lastCrawl = a} :: Crawler)
+{-# DEPRECATED ccLastCrawl "Use generic-lens or generic-optics with 'lastCrawl' instead." #-}
 
 -- | If the crawler is running, contains the total time elapsed since the last crawl began.
-ccCrawlElapsedTime :: Lens' Crawler (Maybe Integer)
-ccCrawlElapsedTime = lens _ccCrawlElapsedTime (\s a -> s {_ccCrawlElapsedTime = a})
+--
+-- /Note:/ Consider using 'crawlElapsedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCrawlElapsedTime :: Lens.Lens' Crawler (Lude.Maybe Lude.Integer)
+ccCrawlElapsedTime = Lens.lens (crawlElapsedTime :: Crawler -> Lude.Maybe Lude.Integer) (\s a -> s {crawlElapsedTime = a} :: Crawler)
+{-# DEPRECATED ccCrawlElapsedTime "Use generic-lens or generic-optics with 'crawlElapsedTime' instead." #-}
 
 -- | A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
-ccRecrawlPolicy :: Lens' Crawler (Maybe RecrawlPolicy)
-ccRecrawlPolicy = lens _ccRecrawlPolicy (\s a -> s {_ccRecrawlPolicy = a})
+--
+-- /Note:/ Consider using 'recrawlPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRecrawlPolicy :: Lens.Lens' Crawler (Lude.Maybe RecrawlPolicy)
+ccRecrawlPolicy = Lens.lens (recrawlPolicy :: Crawler -> Lude.Maybe RecrawlPolicy) (\s a -> s {recrawlPolicy = a} :: Crawler)
+{-# DEPRECATED ccRecrawlPolicy "Use generic-lens or generic-optics with 'recrawlPolicy' instead." #-}
 
 -- | A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
-ccClassifiers :: Lens' Crawler [Text]
-ccClassifiers = lens _ccClassifiers (\s a -> s {_ccClassifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'classifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClassifiers :: Lens.Lens' Crawler (Lude.Maybe [Lude.Text])
+ccClassifiers = Lens.lens (classifiers :: Crawler -> Lude.Maybe [Lude.Text]) (\s a -> s {classifiers = a} :: Crawler)
+{-# DEPRECATED ccClassifiers "Use generic-lens or generic-optics with 'classifiers' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
-ccRole :: Lens' Crawler (Maybe Text)
-ccRole = lens _ccRole (\s a -> s {_ccRole = a})
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRole :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccRole = Lens.lens (role' :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: Crawler)
+{-# DEPRECATED ccRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The name of the crawler.
-ccName :: Lens' Crawler (Maybe Text)
-ccName = lens _ccName (\s a -> s {_ccName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccName :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccName = Lens.lens (name :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Crawler)
+{-# DEPRECATED ccName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A collection of targets to crawl.
-ccTargets :: Lens' Crawler (Maybe CrawlerTargets)
-ccTargets = lens _ccTargets (\s a -> s {_ccTargets = a})
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTargets :: Lens.Lens' Crawler (Lude.Maybe CrawlerTargets)
+ccTargets = Lens.lens (targets :: Crawler -> Lude.Maybe CrawlerTargets) (\s a -> s {targets = a} :: Crawler)
+{-# DEPRECATED ccTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The version of the crawler.
-ccVersion :: Lens' Crawler (Maybe Integer)
-ccVersion = lens _ccVersion (\s a -> s {_ccVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVersion :: Lens.Lens' Crawler (Lude.Maybe Lude.Integer)
+ccVersion = Lens.lens (version :: Crawler -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: Crawler)
+{-# DEPRECATED ccVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the database in which the crawler's output is stored.
-ccDatabaseName :: Lens' Crawler (Maybe Text)
-ccDatabaseName = lens _ccDatabaseName (\s a -> s {_ccDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDatabaseName :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccDatabaseName = Lens.lens (databaseName :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: Crawler)
+{-# DEPRECATED ccDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the @SecurityConfiguration@ structure to be used by this crawler.
-ccCrawlerSecurityConfiguration :: Lens' Crawler (Maybe Text)
-ccCrawlerSecurityConfiguration = lens _ccCrawlerSecurityConfiguration (\s a -> s {_ccCrawlerSecurityConfiguration = a})
+--
+-- /Note:/ Consider using 'crawlerSecurityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCrawlerSecurityConfiguration :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccCrawlerSecurityConfiguration = Lens.lens (crawlerSecurityConfiguration :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {crawlerSecurityConfiguration = a} :: Crawler)
+{-# DEPRECATED ccCrawlerSecurityConfiguration "Use generic-lens or generic-optics with 'crawlerSecurityConfiguration' instead." #-}
 
 -- | A configuration that specifies whether data lineage is enabled for the crawler.
-ccLineageConfiguration :: Lens' Crawler (Maybe LineageConfiguration)
-ccLineageConfiguration = lens _ccLineageConfiguration (\s a -> s {_ccLineageConfiguration = a})
+--
+-- /Note:/ Consider using 'lineageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLineageConfiguration :: Lens.Lens' Crawler (Lude.Maybe LineageConfiguration)
+ccLineageConfiguration = Lens.lens (lineageConfiguration :: Crawler -> Lude.Maybe LineageConfiguration) (\s a -> s {lineageConfiguration = a} :: Crawler)
+{-# DEPRECATED ccLineageConfiguration "Use generic-lens or generic-optics with 'lineageConfiguration' instead." #-}
 
 -- | Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html Configuring a Crawler> .
-ccConfiguration :: Lens' Crawler (Maybe Text)
-ccConfiguration = lens _ccConfiguration (\s a -> s {_ccConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConfiguration :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccConfiguration = Lens.lens (configuration :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {configuration = a} :: Crawler)
+{-# DEPRECATED ccConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | The prefix added to the names of tables that are created.
-ccTablePrefix :: Lens' Crawler (Maybe Text)
-ccTablePrefix = lens _ccTablePrefix (\s a -> s {_ccTablePrefix = a})
+--
+-- /Note:/ Consider using 'tablePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTablePrefix :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccTablePrefix = Lens.lens (tablePrefix :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {tablePrefix = a} :: Crawler)
+{-# DEPRECATED ccTablePrefix "Use generic-lens or generic-optics with 'tablePrefix' instead." #-}
 
 -- | A description of the crawler.
-ccDescription :: Lens' Crawler (Maybe Text)
-ccDescription = lens _ccDescription (\s a -> s {_ccDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' Crawler (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: Crawler -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Crawler)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON Crawler where
+instance Lude.FromJSON Crawler where
   parseJSON =
-    withObject
+    Lude.withObject
       "Crawler"
       ( \x ->
           Crawler'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "State")
-            <*> (x .:? "SchemaChangePolicy")
-            <*> (x .:? "LastUpdated")
-            <*> (x .:? "Schedule")
-            <*> (x .:? "LastCrawl")
-            <*> (x .:? "CrawlElapsedTime")
-            <*> (x .:? "RecrawlPolicy")
-            <*> (x .:? "Classifiers" .!= mempty)
-            <*> (x .:? "Role")
-            <*> (x .:? "Name")
-            <*> (x .:? "Targets")
-            <*> (x .:? "Version")
-            <*> (x .:? "DatabaseName")
-            <*> (x .:? "CrawlerSecurityConfiguration")
-            <*> (x .:? "LineageConfiguration")
-            <*> (x .:? "Configuration")
-            <*> (x .:? "TablePrefix")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "SchemaChangePolicy")
+            Lude.<*> (x Lude..:? "LastUpdated")
+            Lude.<*> (x Lude..:? "Schedule")
+            Lude.<*> (x Lude..:? "LastCrawl")
+            Lude.<*> (x Lude..:? "CrawlElapsedTime")
+            Lude.<*> (x Lude..:? "RecrawlPolicy")
+            Lude.<*> (x Lude..:? "Classifiers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Role")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Targets")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "DatabaseName")
+            Lude.<*> (x Lude..:? "CrawlerSecurityConfiguration")
+            Lude.<*> (x Lude..:? "LineageConfiguration")
+            Lude.<*> (x Lude..:? "Configuration")
+            Lude.<*> (x Lude..:? "TablePrefix")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable Crawler
-
-instance NFData Crawler

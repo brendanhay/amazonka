@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AWSJobAbortConfig where
+module Network.AWS.IoT.Types.AWSJobAbortConfig
+  ( AWSJobAbortConfig (..),
+
+    -- * Smart constructor
+    mkAWSJobAbortConfig,
+
+    -- * Lenses
+    ajacAbortCriteriaList,
+  )
+where
 
 import Network.AWS.IoT.Types.AWSJobAbortCriteria
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
---
---
--- /See:/ 'awsJobAbortConfig' smart constructor.
+-- /See:/ 'mkAWSJobAbortConfig' smart constructor.
 newtype AWSJobAbortConfig = AWSJobAbortConfig'
-  { _ajacAbortCriteriaList ::
-      List1 AWSJobAbortCriteria
+  { abortCriteriaList ::
+      Lude.NonEmpty AWSJobAbortCriteria
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobAbortConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ajacAbortCriteriaList' - The list of criteria that determine when and how to abort the job.
-awsJobAbortConfig ::
-  -- | 'ajacAbortCriteriaList'
-  NonEmpty AWSJobAbortCriteria ->
+-- * 'abortCriteriaList' - The list of criteria that determine when and how to abort the job.
+mkAWSJobAbortConfig ::
+  -- | 'abortCriteriaList'
+  Lude.NonEmpty AWSJobAbortCriteria ->
   AWSJobAbortConfig
-awsJobAbortConfig pAbortCriteriaList_ =
-  AWSJobAbortConfig'
-    { _ajacAbortCriteriaList =
-        _List1 # pAbortCriteriaList_
-    }
+mkAWSJobAbortConfig pAbortCriteriaList_ =
+  AWSJobAbortConfig' {abortCriteriaList = pAbortCriteriaList_}
 
 -- | The list of criteria that determine when and how to abort the job.
-ajacAbortCriteriaList :: Lens' AWSJobAbortConfig (NonEmpty AWSJobAbortCriteria)
-ajacAbortCriteriaList = lens _ajacAbortCriteriaList (\s a -> s {_ajacAbortCriteriaList = a}) . _List1
+--
+-- /Note:/ Consider using 'abortCriteriaList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajacAbortCriteriaList :: Lens.Lens' AWSJobAbortConfig (Lude.NonEmpty AWSJobAbortCriteria)
+ajacAbortCriteriaList = Lens.lens (abortCriteriaList :: AWSJobAbortConfig -> Lude.NonEmpty AWSJobAbortCriteria) (\s a -> s {abortCriteriaList = a} :: AWSJobAbortConfig)
+{-# DEPRECATED ajacAbortCriteriaList "Use generic-lens or generic-optics with 'abortCriteriaList' instead." #-}
 
-instance Hashable AWSJobAbortConfig
-
-instance NFData AWSJobAbortConfig
-
-instance ToJSON AWSJobAbortConfig where
+instance Lude.ToJSON AWSJobAbortConfig where
   toJSON AWSJobAbortConfig' {..} =
-    object
-      (catMaybes [Just ("abortCriteriaList" .= _ajacAbortCriteriaList)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("abortCriteriaList" Lude..= abortCriteriaList)]
+      )

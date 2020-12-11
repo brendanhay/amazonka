@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Include where
+module Network.AWS.Pinpoint.Types.Include
+  ( Include
+      ( Include',
+        All,
+        Any,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Include
-  = All
-  | Any
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Include = Include' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Include where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "any" -> pure Any
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing Include from value: '" <> e
-            <> "'. Accepted values: all, any, none"
+pattern All :: Include
+pattern All = Include' "ALL"
 
-instance ToText Include where
-  toText = \case
-    All -> "ALL"
-    Any -> "ANY"
-    None -> "NONE"
+pattern Any :: Include
+pattern Any = Include' "ANY"
 
-instance Hashable Include
+pattern None :: Include
+pattern None = Include' "NONE"
 
-instance NFData Include
-
-instance ToByteString Include
-
-instance ToQuery Include
-
-instance ToHeader Include
-
-instance ToJSON Include where
-  toJSON = toJSONText
-
-instance FromJSON Include where
-  parseJSON = parseJSONText "Include"
+{-# COMPLETE
+  All,
+  Any,
+  None,
+  Include'
+  #-}

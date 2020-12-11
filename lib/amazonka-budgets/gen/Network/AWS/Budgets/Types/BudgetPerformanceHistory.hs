@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.BudgetPerformanceHistory where
+module Network.AWS.Budgets.Types.BudgetPerformanceHistory
+  ( BudgetPerformanceHistory (..),
+
+    -- * Smart constructor
+    mkBudgetPerformanceHistory,
+
+    -- * Lenses
+    bphBudgetedAndActualAmountsList,
+    bphTimeUnit,
+    bphBudgetName,
+    bphBudgetType,
+    bphCostTypes,
+    bphCostFilters,
+  )
+where
 
 import Network.AWS.Budgets.Types.BudgetType
 import Network.AWS.Budgets.Types.BudgetedAndActualAmounts
 import Network.AWS.Budgets.Types.CostTypes
 import Network.AWS.Budgets.Types.TimeUnit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A history of the state of a budget at the end of the budget's specified time period.
 --
---
---
--- /See:/ 'budgetPerformanceHistory' smart constructor.
+-- /See:/ 'mkBudgetPerformanceHistory' smart constructor.
 data BudgetPerformanceHistory = BudgetPerformanceHistory'
-  { _bphBudgetedAndActualAmountsList ::
-      !(Maybe [BudgetedAndActualAmounts]),
-    _bphTimeUnit :: !(Maybe TimeUnit),
-    _bphBudgetName :: !(Maybe Text),
-    _bphBudgetType :: !(Maybe BudgetType),
-    _bphCostTypes :: !(Maybe CostTypes),
-    _bphCostFilters ::
-      !(Maybe (Map Text ([Text])))
+  { budgetedAndActualAmountsList ::
+      Lude.Maybe [BudgetedAndActualAmounts],
+    timeUnit :: Lude.Maybe TimeUnit,
+    budgetName :: Lude.Maybe Lude.Text,
+    budgetType :: Lude.Maybe BudgetType,
+    costTypes :: Lude.Maybe CostTypes,
+    costFilters ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BudgetPerformanceHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bphBudgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
---
--- * 'bphTimeUnit' - Undocumented member.
---
--- * 'bphBudgetName' - Undocumented member.
---
--- * 'bphBudgetType' - Undocumented member.
---
--- * 'bphCostTypes' - The history of the cost types for a budget during the specified time period.
---
--- * 'bphCostFilters' - The history of the cost filters for a budget during the specified time period.
-budgetPerformanceHistory ::
+-- * 'budgetName' - Undocumented field.
+-- * 'budgetType' - Undocumented field.
+-- * 'budgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
+-- * 'costFilters' - The history of the cost filters for a budget during the specified time period.
+-- * 'costTypes' - The history of the cost types for a budget during the specified time period.
+-- * 'timeUnit' - Undocumented field.
+mkBudgetPerformanceHistory ::
   BudgetPerformanceHistory
-budgetPerformanceHistory =
+mkBudgetPerformanceHistory =
   BudgetPerformanceHistory'
-    { _bphBudgetedAndActualAmountsList =
-        Nothing,
-      _bphTimeUnit = Nothing,
-      _bphBudgetName = Nothing,
-      _bphBudgetType = Nothing,
-      _bphCostTypes = Nothing,
-      _bphCostFilters = Nothing
+    { budgetedAndActualAmountsList =
+        Lude.Nothing,
+      timeUnit = Lude.Nothing,
+      budgetName = Lude.Nothing,
+      budgetType = Lude.Nothing,
+      costTypes = Lude.Nothing,
+      costFilters = Lude.Nothing
     }
 
 -- | A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
-bphBudgetedAndActualAmountsList :: Lens' BudgetPerformanceHistory [BudgetedAndActualAmounts]
-bphBudgetedAndActualAmountsList = lens _bphBudgetedAndActualAmountsList (\s a -> s {_bphBudgetedAndActualAmountsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'budgetedAndActualAmountsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphBudgetedAndActualAmountsList :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe [BudgetedAndActualAmounts])
+bphBudgetedAndActualAmountsList = Lens.lens (budgetedAndActualAmountsList :: BudgetPerformanceHistory -> Lude.Maybe [BudgetedAndActualAmounts]) (\s a -> s {budgetedAndActualAmountsList = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphBudgetedAndActualAmountsList "Use generic-lens or generic-optics with 'budgetedAndActualAmountsList' instead." #-}
 
--- | Undocumented member.
-bphTimeUnit :: Lens' BudgetPerformanceHistory (Maybe TimeUnit)
-bphTimeUnit = lens _bphTimeUnit (\s a -> s {_bphTimeUnit = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timeUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphTimeUnit :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe TimeUnit)
+bphTimeUnit = Lens.lens (timeUnit :: BudgetPerformanceHistory -> Lude.Maybe TimeUnit) (\s a -> s {timeUnit = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphTimeUnit "Use generic-lens or generic-optics with 'timeUnit' instead." #-}
 
--- | Undocumented member.
-bphBudgetName :: Lens' BudgetPerformanceHistory (Maybe Text)
-bphBudgetName = lens _bphBudgetName (\s a -> s {_bphBudgetName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphBudgetName :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe Lude.Text)
+bphBudgetName = Lens.lens (budgetName :: BudgetPerformanceHistory -> Lude.Maybe Lude.Text) (\s a -> s {budgetName = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | Undocumented member.
-bphBudgetType :: Lens' BudgetPerformanceHistory (Maybe BudgetType)
-bphBudgetType = lens _bphBudgetType (\s a -> s {_bphBudgetType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'budgetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphBudgetType :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe BudgetType)
+bphBudgetType = Lens.lens (budgetType :: BudgetPerformanceHistory -> Lude.Maybe BudgetType) (\s a -> s {budgetType = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphBudgetType "Use generic-lens or generic-optics with 'budgetType' instead." #-}
 
 -- | The history of the cost types for a budget during the specified time period.
-bphCostTypes :: Lens' BudgetPerformanceHistory (Maybe CostTypes)
-bphCostTypes = lens _bphCostTypes (\s a -> s {_bphCostTypes = a})
+--
+-- /Note:/ Consider using 'costTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphCostTypes :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe CostTypes)
+bphCostTypes = Lens.lens (costTypes :: BudgetPerformanceHistory -> Lude.Maybe CostTypes) (\s a -> s {costTypes = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphCostTypes "Use generic-lens or generic-optics with 'costTypes' instead." #-}
 
 -- | The history of the cost filters for a budget during the specified time period.
-bphCostFilters :: Lens' BudgetPerformanceHistory (HashMap Text ([Text]))
-bphCostFilters = lens _bphCostFilters (\s a -> s {_bphCostFilters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'costFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bphCostFilters :: Lens.Lens' BudgetPerformanceHistory (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+bphCostFilters = Lens.lens (costFilters :: BudgetPerformanceHistory -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {costFilters = a} :: BudgetPerformanceHistory)
+{-# DEPRECATED bphCostFilters "Use generic-lens or generic-optics with 'costFilters' instead." #-}
 
-instance FromJSON BudgetPerformanceHistory where
+instance Lude.FromJSON BudgetPerformanceHistory where
   parseJSON =
-    withObject
+    Lude.withObject
       "BudgetPerformanceHistory"
       ( \x ->
           BudgetPerformanceHistory'
-            <$> (x .:? "BudgetedAndActualAmountsList" .!= mempty)
-            <*> (x .:? "TimeUnit")
-            <*> (x .:? "BudgetName")
-            <*> (x .:? "BudgetType")
-            <*> (x .:? "CostTypes")
-            <*> (x .:? "CostFilters" .!= mempty)
+            Lude.<$> (x Lude..:? "BudgetedAndActualAmountsList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TimeUnit")
+            Lude.<*> (x Lude..:? "BudgetName")
+            Lude.<*> (x Lude..:? "BudgetType")
+            Lude.<*> (x Lude..:? "CostTypes")
+            Lude.<*> (x Lude..:? "CostFilters" Lude..!= Lude.mempty)
       )
-
-instance Hashable BudgetPerformanceHistory
-
-instance NFData BudgetPerformanceHistory

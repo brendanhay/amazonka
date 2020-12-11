@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,156 +7,217 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConfigRuleEvaluationStatus where
+module Network.AWS.Config.Types.ConfigRuleEvaluationStatus
+  ( ConfigRuleEvaluationStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConfigRuleEvaluationStatus,
+
+    -- * Lenses
+    cresLastErrorCode,
+    cresLastFailedEvaluationTime,
+    cresFirstActivatedTime,
+    cresLastSuccessfulEvaluationTime,
+    cresLastDeactivatedTime,
+    cresConfigRuleName,
+    cresLastErrorMessage,
+    cresConfigRuleId,
+    cresLastFailedInvocationTime,
+    cresFirstEvaluationStarted,
+    cresLastSuccessfulInvocationTime,
+    cresConfigRuleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status information for your AWS managed Config rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.
 --
---
 -- This action does not return status information about custom AWS Config rules.
 --
---
--- /See:/ 'configRuleEvaluationStatus' smart constructor.
+-- /See:/ 'mkConfigRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
-  { _cresLastErrorCode ::
-      !(Maybe Text),
-    _cresLastFailedEvaluationTime ::
-      !(Maybe POSIX),
-    _cresFirstActivatedTime ::
-      !(Maybe POSIX),
-    _cresLastSuccessfulEvaluationTime ::
-      !(Maybe POSIX),
-    _cresLastDeactivatedTime ::
-      !(Maybe POSIX),
-    _cresConfigRuleName :: !(Maybe Text),
-    _cresLastErrorMessage ::
-      !(Maybe Text),
-    _cresConfigRuleId :: !(Maybe Text),
-    _cresLastFailedInvocationTime ::
-      !(Maybe POSIX),
-    _cresFirstEvaluationStarted ::
-      !(Maybe Bool),
-    _cresLastSuccessfulInvocationTime ::
-      !(Maybe POSIX),
-    _cresConfigRuleARN :: !(Maybe Text)
+  { lastErrorCode ::
+      Lude.Maybe Lude.Text,
+    lastFailedEvaluationTime ::
+      Lude.Maybe Lude.Timestamp,
+    firstActivatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    lastSuccessfulEvaluationTime ::
+      Lude.Maybe Lude.Timestamp,
+    lastDeactivatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    configRuleName ::
+      Lude.Maybe Lude.Text,
+    lastErrorMessage ::
+      Lude.Maybe Lude.Text,
+    configRuleId :: Lude.Maybe Lude.Text,
+    lastFailedInvocationTime ::
+      Lude.Maybe Lude.Timestamp,
+    firstEvaluationStarted ::
+      Lude.Maybe Lude.Bool,
+    lastSuccessfulInvocationTime ::
+      Lude.Maybe Lude.Timestamp,
+    configRuleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
+-- * 'configRuleId' - The ID of the AWS Config rule.
+-- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'firstActivatedTime' - The time that you first activated the AWS Config rule.
+-- * 'firstEvaluationStarted' - Indicates whether AWS Config has evaluated your resources against the rule at least once.
 --
--- * 'cresLastErrorCode' - The error code that AWS Config returned when the rule last failed.
 --
--- * 'cresLastFailedEvaluationTime' - The time that AWS Config last failed to evaluate your AWS resources against the rule.
+--     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.
 --
--- * 'cresFirstActivatedTime' - The time that you first activated the AWS Config rule.
 --
--- * 'cresLastSuccessfulEvaluationTime' - The time that AWS Config last successfully evaluated your AWS resources against the rule.
+--     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
 --
--- * 'cresLastDeactivatedTime' - The time that you last turned off the AWS Config rule.
 --
--- * 'cresConfigRuleName' - The name of the AWS Config rule.
---
--- * 'cresLastErrorMessage' - The error message that AWS Config returned when the rule last failed.
---
--- * 'cresConfigRuleId' - The ID of the AWS Config rule.
---
--- * 'cresLastFailedInvocationTime' - The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
---
--- * 'cresFirstEvaluationStarted' - Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
---
--- * 'cresLastSuccessfulInvocationTime' - The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
---
--- * 'cresConfigRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
-configRuleEvaluationStatus ::
+-- * 'lastDeactivatedTime' - The time that you last turned off the AWS Config rule.
+-- * 'lastErrorCode' - The error code that AWS Config returned when the rule last failed.
+-- * 'lastErrorMessage' - The error message that AWS Config returned when the rule last failed.
+-- * 'lastFailedEvaluationTime' - The time that AWS Config last failed to evaluate your AWS resources against the rule.
+-- * 'lastFailedInvocationTime' - The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
+-- * 'lastSuccessfulEvaluationTime' - The time that AWS Config last successfully evaluated your AWS resources against the rule.
+-- * 'lastSuccessfulInvocationTime' - The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
+mkConfigRuleEvaluationStatus ::
   ConfigRuleEvaluationStatus
-configRuleEvaluationStatus =
+mkConfigRuleEvaluationStatus =
   ConfigRuleEvaluationStatus'
-    { _cresLastErrorCode = Nothing,
-      _cresLastFailedEvaluationTime = Nothing,
-      _cresFirstActivatedTime = Nothing,
-      _cresLastSuccessfulEvaluationTime = Nothing,
-      _cresLastDeactivatedTime = Nothing,
-      _cresConfigRuleName = Nothing,
-      _cresLastErrorMessage = Nothing,
-      _cresConfigRuleId = Nothing,
-      _cresLastFailedInvocationTime = Nothing,
-      _cresFirstEvaluationStarted = Nothing,
-      _cresLastSuccessfulInvocationTime = Nothing,
-      _cresConfigRuleARN = Nothing
+    { lastErrorCode = Lude.Nothing,
+      lastFailedEvaluationTime = Lude.Nothing,
+      firstActivatedTime = Lude.Nothing,
+      lastSuccessfulEvaluationTime = Lude.Nothing,
+      lastDeactivatedTime = Lude.Nothing,
+      configRuleName = Lude.Nothing,
+      lastErrorMessage = Lude.Nothing,
+      configRuleId = Lude.Nothing,
+      lastFailedInvocationTime = Lude.Nothing,
+      firstEvaluationStarted = Lude.Nothing,
+      lastSuccessfulInvocationTime = Lude.Nothing,
+      configRuleARN = Lude.Nothing
     }
 
 -- | The error code that AWS Config returned when the rule last failed.
-cresLastErrorCode :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
-cresLastErrorCode = lens _cresLastErrorCode (\s a -> s {_cresLastErrorCode = a})
+--
+-- /Note:/ Consider using 'lastErrorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastErrorCode :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+cresLastErrorCode = Lens.lens (lastErrorCode :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorCode = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastErrorCode "Use generic-lens or generic-optics with 'lastErrorCode' instead." #-}
 
 -- | The time that AWS Config last failed to evaluate your AWS resources against the rule.
-cresLastFailedEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresLastFailedEvaluationTime = lens _cresLastFailedEvaluationTime (\s a -> s {_cresLastFailedEvaluationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastFailedEvaluationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastFailedEvaluationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresLastFailedEvaluationTime = Lens.lens (lastFailedEvaluationTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastFailedEvaluationTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastFailedEvaluationTime "Use generic-lens or generic-optics with 'lastFailedEvaluationTime' instead." #-}
 
 -- | The time that you first activated the AWS Config rule.
-cresFirstActivatedTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresFirstActivatedTime = lens _cresFirstActivatedTime (\s a -> s {_cresFirstActivatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'firstActivatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresFirstActivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresFirstActivatedTime = Lens.lens (firstActivatedTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {firstActivatedTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresFirstActivatedTime "Use generic-lens or generic-optics with 'firstActivatedTime' instead." #-}
 
 -- | The time that AWS Config last successfully evaluated your AWS resources against the rule.
-cresLastSuccessfulEvaluationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresLastSuccessfulEvaluationTime = lens _cresLastSuccessfulEvaluationTime (\s a -> s {_cresLastSuccessfulEvaluationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastSuccessfulEvaluationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastSuccessfulEvaluationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresLastSuccessfulEvaluationTime = Lens.lens (lastSuccessfulEvaluationTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastSuccessfulEvaluationTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastSuccessfulEvaluationTime "Use generic-lens or generic-optics with 'lastSuccessfulEvaluationTime' instead." #-}
 
 -- | The time that you last turned off the AWS Config rule.
-cresLastDeactivatedTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresLastDeactivatedTime = lens _cresLastDeactivatedTime (\s a -> s {_cresLastDeactivatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastDeactivatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastDeactivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresLastDeactivatedTime = Lens.lens (lastDeactivatedTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastDeactivatedTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastDeactivatedTime "Use generic-lens or generic-optics with 'lastDeactivatedTime' instead." #-}
 
 -- | The name of the AWS Config rule.
-cresConfigRuleName :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
-cresConfigRuleName = lens _cresConfigRuleName (\s a -> s {_cresConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresConfigRuleName :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+cresConfigRuleName = Lens.lens (configRuleName :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {configRuleName = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | The error message that AWS Config returned when the rule last failed.
-cresLastErrorMessage :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
-cresLastErrorMessage = lens _cresLastErrorMessage (\s a -> s {_cresLastErrorMessage = a})
+--
+-- /Note:/ Consider using 'lastErrorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastErrorMessage :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+cresLastErrorMessage = Lens.lens (lastErrorMessage :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorMessage = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastErrorMessage "Use generic-lens or generic-optics with 'lastErrorMessage' instead." #-}
 
 -- | The ID of the AWS Config rule.
-cresConfigRuleId :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
-cresConfigRuleId = lens _cresConfigRuleId (\s a -> s {_cresConfigRuleId = a})
+--
+-- /Note:/ Consider using 'configRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresConfigRuleId :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+cresConfigRuleId = Lens.lens (configRuleId :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {configRuleId = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresConfigRuleId "Use generic-lens or generic-optics with 'configRuleId' instead." #-}
 
 -- | The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
-cresLastFailedInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresLastFailedInvocationTime = lens _cresLastFailedInvocationTime (\s a -> s {_cresLastFailedInvocationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastFailedInvocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastFailedInvocationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresLastFailedInvocationTime = Lens.lens (lastFailedInvocationTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastFailedInvocationTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastFailedInvocationTime "Use generic-lens or generic-optics with 'lastFailedInvocationTime' instead." #-}
 
--- | Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
-cresFirstEvaluationStarted :: Lens' ConfigRuleEvaluationStatus (Maybe Bool)
-cresFirstEvaluationStarted = lens _cresFirstEvaluationStarted (\s a -> s {_cresFirstEvaluationStarted = a})
+-- | Indicates whether AWS Config has evaluated your resources against the rule at least once.
+--
+--
+--     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.
+--
+--
+--     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
+--
+--
+--
+-- /Note:/ Consider using 'firstEvaluationStarted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresFirstEvaluationStarted :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Bool)
+cresFirstEvaluationStarted = Lens.lens (firstEvaluationStarted :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Bool) (\s a -> s {firstEvaluationStarted = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresFirstEvaluationStarted "Use generic-lens or generic-optics with 'firstEvaluationStarted' instead." #-}
 
 -- | The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
-cresLastSuccessfulInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
-cresLastSuccessfulInvocationTime = lens _cresLastSuccessfulInvocationTime (\s a -> s {_cresLastSuccessfulInvocationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastSuccessfulInvocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresLastSuccessfulInvocationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+cresLastSuccessfulInvocationTime = Lens.lens (lastSuccessfulInvocationTime :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastSuccessfulInvocationTime = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresLastSuccessfulInvocationTime "Use generic-lens or generic-optics with 'lastSuccessfulInvocationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Config rule.
-cresConfigRuleARN :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
-cresConfigRuleARN = lens _cresConfigRuleARN (\s a -> s {_cresConfigRuleARN = a})
+--
+-- /Note:/ Consider using 'configRuleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cresConfigRuleARN :: Lens.Lens' ConfigRuleEvaluationStatus (Lude.Maybe Lude.Text)
+cresConfigRuleARN = Lens.lens (configRuleARN :: ConfigRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {configRuleARN = a} :: ConfigRuleEvaluationStatus)
+{-# DEPRECATED cresConfigRuleARN "Use generic-lens or generic-optics with 'configRuleARN' instead." #-}
 
-instance FromJSON ConfigRuleEvaluationStatus where
+instance Lude.FromJSON ConfigRuleEvaluationStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConfigRuleEvaluationStatus"
       ( \x ->
           ConfigRuleEvaluationStatus'
-            <$> (x .:? "LastErrorCode")
-            <*> (x .:? "LastFailedEvaluationTime")
-            <*> (x .:? "FirstActivatedTime")
-            <*> (x .:? "LastSuccessfulEvaluationTime")
-            <*> (x .:? "LastDeactivatedTime")
-            <*> (x .:? "ConfigRuleName")
-            <*> (x .:? "LastErrorMessage")
-            <*> (x .:? "ConfigRuleId")
-            <*> (x .:? "LastFailedInvocationTime")
-            <*> (x .:? "FirstEvaluationStarted")
-            <*> (x .:? "LastSuccessfulInvocationTime")
-            <*> (x .:? "ConfigRuleArn")
+            Lude.<$> (x Lude..:? "LastErrorCode")
+            Lude.<*> (x Lude..:? "LastFailedEvaluationTime")
+            Lude.<*> (x Lude..:? "FirstActivatedTime")
+            Lude.<*> (x Lude..:? "LastSuccessfulEvaluationTime")
+            Lude.<*> (x Lude..:? "LastDeactivatedTime")
+            Lude.<*> (x Lude..:? "ConfigRuleName")
+            Lude.<*> (x Lude..:? "LastErrorMessage")
+            Lude.<*> (x Lude..:? "ConfigRuleId")
+            Lude.<*> (x Lude..:? "LastFailedInvocationTime")
+            Lude.<*> (x Lude..:? "FirstEvaluationStarted")
+            Lude.<*> (x Lude..:? "LastSuccessfulInvocationTime")
+            Lude.<*> (x Lude..:? "ConfigRuleArn")
       )
-
-instance Hashable ConfigRuleEvaluationStatus
-
-instance NFData ConfigRuleEvaluationStatus

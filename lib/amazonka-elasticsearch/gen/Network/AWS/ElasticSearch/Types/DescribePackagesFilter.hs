@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.DescribePackagesFilter where
+module Network.AWS.ElasticSearch.Types.DescribePackagesFilter
+  ( DescribePackagesFilter (..),
+
+    -- * Smart constructor
+    mkDescribePackagesFilter,
+
+    -- * Lenses
+    dpfValue,
+    dpfName,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filter to apply in @DescribePackage@ response.
 --
---
---
--- /See:/ 'describePackagesFilter' smart constructor.
+-- /See:/ 'mkDescribePackagesFilter' smart constructor.
 data DescribePackagesFilter = DescribePackagesFilter'
-  { _dpfValue ::
-      !(Maybe [Text]),
-    _dpfName ::
-      !(Maybe DescribePackagesFilterName)
+  { value ::
+      Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe DescribePackagesFilterName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePackagesFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpfValue' - A list of values for the specified field.
---
--- * 'dpfName' - Any field from @PackageDetails@ .
-describePackagesFilter ::
+-- * 'name' - Any field from @PackageDetails@ .
+-- * 'value' - A list of values for the specified field.
+mkDescribePackagesFilter ::
   DescribePackagesFilter
-describePackagesFilter =
-  DescribePackagesFilter' {_dpfValue = Nothing, _dpfName = Nothing}
+mkDescribePackagesFilter =
+  DescribePackagesFilter'
+    { value = Lude.Nothing,
+      name = Lude.Nothing
+    }
 
 -- | A list of values for the specified field.
-dpfValue :: Lens' DescribePackagesFilter [Text]
-dpfValue = lens _dpfValue (\s a -> s {_dpfValue = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfValue :: Lens.Lens' DescribePackagesFilter (Lude.Maybe [Lude.Text])
+dpfValue = Lens.lens (value :: DescribePackagesFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {value = a} :: DescribePackagesFilter)
+{-# DEPRECATED dpfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Any field from @PackageDetails@ .
-dpfName :: Lens' DescribePackagesFilter (Maybe DescribePackagesFilterName)
-dpfName = lens _dpfName (\s a -> s {_dpfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfName :: Lens.Lens' DescribePackagesFilter (Lude.Maybe DescribePackagesFilterName)
+dpfName = Lens.lens (name :: DescribePackagesFilter -> Lude.Maybe DescribePackagesFilterName) (\s a -> s {name = a} :: DescribePackagesFilter)
+{-# DEPRECATED dpfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable DescribePackagesFilter
-
-instance NFData DescribePackagesFilter
-
-instance ToJSON DescribePackagesFilter where
+instance Lude.ToJSON DescribePackagesFilter where
   toJSON DescribePackagesFilter' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _dpfValue, ("Name" .=) <$> _dpfName])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Name" Lude..=) Lude.<$> name]
+      )

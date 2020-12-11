@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,165 +7,218 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.HostReservation where
+module Network.AWS.EC2.Types.HostReservation
+  ( HostReservation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkHostReservation,
+
+    -- * Lenses
+    hrState,
+    hrInstanceFamily,
+    hrCurrencyCode,
+    hrHostReservationId,
+    hrStart,
+    hrHourlyPrice,
+    hrCount,
+    hrUpfrontPrice,
+    hrEnd,
+    hrHostIdSet,
+    hrOfferingId,
+    hrDuration,
+    hrTags,
+    hrPaymentOption,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.PaymentOption
 import Network.AWS.EC2.Types.ReservationState
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the Dedicated Host Reservation and associated Dedicated Hosts.
 --
---
---
--- /See:/ 'hostReservation' smart constructor.
+-- /See:/ 'mkHostReservation' smart constructor.
 data HostReservation = HostReservation'
-  { _hrState ::
-      !(Maybe ReservationState),
-    _hrInstanceFamily :: !(Maybe Text),
-    _hrCurrencyCode :: !(Maybe CurrencyCodeValues),
-    _hrHostReservationId :: !(Maybe Text),
-    _hrStart :: !(Maybe ISO8601),
-    _hrHourlyPrice :: !(Maybe Text),
-    _hrCount :: !(Maybe Int),
-    _hrUpfrontPrice :: !(Maybe Text),
-    _hrEnd :: !(Maybe ISO8601),
-    _hrHostIdSet :: !(Maybe [Text]),
-    _hrOfferingId :: !(Maybe Text),
-    _hrDuration :: !(Maybe Int),
-    _hrTags :: !(Maybe [Tag]),
-    _hrPaymentOption :: !(Maybe PaymentOption)
+  { state ::
+      Lude.Maybe ReservationState,
+    instanceFamily :: Lude.Maybe Lude.Text,
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    hostReservationId :: Lude.Maybe Lude.Text,
+    start :: Lude.Maybe Lude.ISO8601,
+    hourlyPrice :: Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Int,
+    upfrontPrice :: Lude.Maybe Lude.Text,
+    end :: Lude.Maybe Lude.ISO8601,
+    hostIdSet :: Lude.Maybe [Lude.Text],
+    offeringId :: Lude.Maybe Lude.Text,
+    duration :: Lude.Maybe Lude.Int,
+    tags :: Lude.Maybe [Tag],
+    paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostReservation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hrState' - The state of the reservation.
---
--- * 'hrInstanceFamily' - The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
---
--- * 'hrCurrencyCode' - The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
---
--- * 'hrHostReservationId' - The ID of the reservation that specifies the associated Dedicated Hosts.
---
--- * 'hrStart' - The date and time that the reservation started.
---
--- * 'hrHourlyPrice' - The hourly price of the reservation.
---
--- * 'hrCount' - The number of Dedicated Hosts the reservation is associated with.
---
--- * 'hrUpfrontPrice' - The upfront price of the reservation.
---
--- * 'hrEnd' - The date and time that the reservation ends.
---
--- * 'hrHostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
---
--- * 'hrOfferingId' - The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
---
--- * 'hrDuration' - The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
---
--- * 'hrTags' - Any tags assigned to the Dedicated Host Reservation.
---
--- * 'hrPaymentOption' - The payment option selected for this reservation.
-hostReservation ::
+-- * 'count' - The number of Dedicated Hosts the reservation is associated with.
+-- * 'currencyCode' - The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+-- * 'duration' - The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
+-- * 'end' - The date and time that the reservation ends.
+-- * 'hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
+-- * 'hostReservationId' - The ID of the reservation that specifies the associated Dedicated Hosts.
+-- * 'hourlyPrice' - The hourly price of the reservation.
+-- * 'instanceFamily' - The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
+-- * 'offeringId' - The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
+-- * 'paymentOption' - The payment option selected for this reservation.
+-- * 'start' - The date and time that the reservation started.
+-- * 'state' - The state of the reservation.
+-- * 'tags' - Any tags assigned to the Dedicated Host Reservation.
+-- * 'upfrontPrice' - The upfront price of the reservation.
+mkHostReservation ::
   HostReservation
-hostReservation =
+mkHostReservation =
   HostReservation'
-    { _hrState = Nothing,
-      _hrInstanceFamily = Nothing,
-      _hrCurrencyCode = Nothing,
-      _hrHostReservationId = Nothing,
-      _hrStart = Nothing,
-      _hrHourlyPrice = Nothing,
-      _hrCount = Nothing,
-      _hrUpfrontPrice = Nothing,
-      _hrEnd = Nothing,
-      _hrHostIdSet = Nothing,
-      _hrOfferingId = Nothing,
-      _hrDuration = Nothing,
-      _hrTags = Nothing,
-      _hrPaymentOption = Nothing
+    { state = Lude.Nothing,
+      instanceFamily = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      hostReservationId = Lude.Nothing,
+      start = Lude.Nothing,
+      hourlyPrice = Lude.Nothing,
+      count = Lude.Nothing,
+      upfrontPrice = Lude.Nothing,
+      end = Lude.Nothing,
+      hostIdSet = Lude.Nothing,
+      offeringId = Lude.Nothing,
+      duration = Lude.Nothing,
+      tags = Lude.Nothing,
+      paymentOption = Lude.Nothing
     }
 
 -- | The state of the reservation.
-hrState :: Lens' HostReservation (Maybe ReservationState)
-hrState = lens _hrState (\s a -> s {_hrState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrState :: Lens.Lens' HostReservation (Lude.Maybe ReservationState)
+hrState = Lens.lens (state :: HostReservation -> Lude.Maybe ReservationState) (\s a -> s {state = a} :: HostReservation)
+{-# DEPRECATED hrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
-hrInstanceFamily :: Lens' HostReservation (Maybe Text)
-hrInstanceFamily = lens _hrInstanceFamily (\s a -> s {_hrInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrInstanceFamily :: Lens.Lens' HostReservation (Lude.Maybe Lude.Text)
+hrInstanceFamily = Lens.lens (instanceFamily :: HostReservation -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: HostReservation)
+{-# DEPRECATED hrInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
-hrCurrencyCode :: Lens' HostReservation (Maybe CurrencyCodeValues)
-hrCurrencyCode = lens _hrCurrencyCode (\s a -> s {_hrCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrCurrencyCode :: Lens.Lens' HostReservation (Lude.Maybe CurrencyCodeValues)
+hrCurrencyCode = Lens.lens (currencyCode :: HostReservation -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: HostReservation)
+{-# DEPRECATED hrCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The ID of the reservation that specifies the associated Dedicated Hosts.
-hrHostReservationId :: Lens' HostReservation (Maybe Text)
-hrHostReservationId = lens _hrHostReservationId (\s a -> s {_hrHostReservationId = a})
+--
+-- /Note:/ Consider using 'hostReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrHostReservationId :: Lens.Lens' HostReservation (Lude.Maybe Lude.Text)
+hrHostReservationId = Lens.lens (hostReservationId :: HostReservation -> Lude.Maybe Lude.Text) (\s a -> s {hostReservationId = a} :: HostReservation)
+{-# DEPRECATED hrHostReservationId "Use generic-lens or generic-optics with 'hostReservationId' instead." #-}
 
 -- | The date and time that the reservation started.
-hrStart :: Lens' HostReservation (Maybe UTCTime)
-hrStart = lens _hrStart (\s a -> s {_hrStart = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrStart :: Lens.Lens' HostReservation (Lude.Maybe Lude.ISO8601)
+hrStart = Lens.lens (start :: HostReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {start = a} :: HostReservation)
+{-# DEPRECATED hrStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The hourly price of the reservation.
-hrHourlyPrice :: Lens' HostReservation (Maybe Text)
-hrHourlyPrice = lens _hrHourlyPrice (\s a -> s {_hrHourlyPrice = a})
+--
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrHourlyPrice :: Lens.Lens' HostReservation (Lude.Maybe Lude.Text)
+hrHourlyPrice = Lens.lens (hourlyPrice :: HostReservation -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: HostReservation)
+{-# DEPRECATED hrHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The number of Dedicated Hosts the reservation is associated with.
-hrCount :: Lens' HostReservation (Maybe Int)
-hrCount = lens _hrCount (\s a -> s {_hrCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrCount :: Lens.Lens' HostReservation (Lude.Maybe Lude.Int)
+hrCount = Lens.lens (count :: HostReservation -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: HostReservation)
+{-# DEPRECATED hrCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The upfront price of the reservation.
-hrUpfrontPrice :: Lens' HostReservation (Maybe Text)
-hrUpfrontPrice = lens _hrUpfrontPrice (\s a -> s {_hrUpfrontPrice = a})
+--
+-- /Note:/ Consider using 'upfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrUpfrontPrice :: Lens.Lens' HostReservation (Lude.Maybe Lude.Text)
+hrUpfrontPrice = Lens.lens (upfrontPrice :: HostReservation -> Lude.Maybe Lude.Text) (\s a -> s {upfrontPrice = a} :: HostReservation)
+{-# DEPRECATED hrUpfrontPrice "Use generic-lens or generic-optics with 'upfrontPrice' instead." #-}
 
 -- | The date and time that the reservation ends.
-hrEnd :: Lens' HostReservation (Maybe UTCTime)
-hrEnd = lens _hrEnd (\s a -> s {_hrEnd = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrEnd :: Lens.Lens' HostReservation (Lude.Maybe Lude.ISO8601)
+hrEnd = Lens.lens (end :: HostReservation -> Lude.Maybe Lude.ISO8601) (\s a -> s {end = a} :: HostReservation)
+{-# DEPRECATED hrEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
 -- | The IDs of the Dedicated Hosts associated with the reservation.
-hrHostIdSet :: Lens' HostReservation [Text]
-hrHostIdSet = lens _hrHostIdSet (\s a -> s {_hrHostIdSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hostIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrHostIdSet :: Lens.Lens' HostReservation (Lude.Maybe [Lude.Text])
+hrHostIdSet = Lens.lens (hostIdSet :: HostReservation -> Lude.Maybe [Lude.Text]) (\s a -> s {hostIdSet = a} :: HostReservation)
+{-# DEPRECATED hrHostIdSet "Use generic-lens or generic-optics with 'hostIdSet' instead." #-}
 
 -- | The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
-hrOfferingId :: Lens' HostReservation (Maybe Text)
-hrOfferingId = lens _hrOfferingId (\s a -> s {_hrOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrOfferingId :: Lens.Lens' HostReservation (Lude.Maybe Lude.Text)
+hrOfferingId = Lens.lens (offeringId :: HostReservation -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: HostReservation)
+{-# DEPRECATED hrOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
-hrDuration :: Lens' HostReservation (Maybe Int)
-hrDuration = lens _hrDuration (\s a -> s {_hrDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrDuration :: Lens.Lens' HostReservation (Lude.Maybe Lude.Int)
+hrDuration = Lens.lens (duration :: HostReservation -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: HostReservation)
+{-# DEPRECATED hrDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | Any tags assigned to the Dedicated Host Reservation.
-hrTags :: Lens' HostReservation [Tag]
-hrTags = lens _hrTags (\s a -> s {_hrTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrTags :: Lens.Lens' HostReservation (Lude.Maybe [Tag])
+hrTags = Lens.lens (tags :: HostReservation -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: HostReservation)
+{-# DEPRECATED hrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The payment option selected for this reservation.
-hrPaymentOption :: Lens' HostReservation (Maybe PaymentOption)
-hrPaymentOption = lens _hrPaymentOption (\s a -> s {_hrPaymentOption = a})
+--
+-- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrPaymentOption :: Lens.Lens' HostReservation (Lude.Maybe PaymentOption)
+hrPaymentOption = Lens.lens (paymentOption :: HostReservation -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: HostReservation)
+{-# DEPRECATED hrPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
-instance FromXML HostReservation where
+instance Lude.FromXML HostReservation where
   parseXML x =
     HostReservation'
-      <$> (x .@? "state")
-      <*> (x .@? "instanceFamily")
-      <*> (x .@? "currencyCode")
-      <*> (x .@? "hostReservationId")
-      <*> (x .@? "start")
-      <*> (x .@? "hourlyPrice")
-      <*> (x .@? "count")
-      <*> (x .@? "upfrontPrice")
-      <*> (x .@? "end")
-      <*> (x .@? "hostIdSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "offeringId")
-      <*> (x .@? "duration")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "paymentOption")
-
-instance Hashable HostReservation
-
-instance NFData HostReservation
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "instanceFamily")
+      Lude.<*> (x Lude..@? "currencyCode")
+      Lude.<*> (x Lude..@? "hostReservationId")
+      Lude.<*> (x Lude..@? "start")
+      Lude.<*> (x Lude..@? "hourlyPrice")
+      Lude.<*> (x Lude..@? "count")
+      Lude.<*> (x Lude..@? "upfrontPrice")
+      Lude.<*> (x Lude..@? "end")
+      Lude.<*> ( x Lude..@? "hostIdSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "offeringId")
+      Lude.<*> (x Lude..@? "duration")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "paymentOption")

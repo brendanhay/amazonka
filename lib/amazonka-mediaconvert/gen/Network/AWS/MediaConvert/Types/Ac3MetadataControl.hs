@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Ac3MetadataControl where
+module Network.AWS.MediaConvert.Types.Ac3MetadataControl
+  ( Ac3MetadataControl
+      ( Ac3MetadataControl',
+        AMCFollowInput,
+        AMCUseConfigured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-data Ac3MetadataControl
-  = AMCFollowInput
-  | AMCUseConfigured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Ac3MetadataControl = Ac3MetadataControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Ac3MetadataControl where
-  parser =
-    takeLowerText >>= \case
-      "follow_input" -> pure AMCFollowInput
-      "use_configured" -> pure AMCUseConfigured
-      e ->
-        fromTextError $
-          "Failure parsing Ac3MetadataControl from value: '" <> e
-            <> "'. Accepted values: follow_input, use_configured"
+pattern AMCFollowInput :: Ac3MetadataControl
+pattern AMCFollowInput = Ac3MetadataControl' "FOLLOW_INPUT"
 
-instance ToText Ac3MetadataControl where
-  toText = \case
-    AMCFollowInput -> "FOLLOW_INPUT"
-    AMCUseConfigured -> "USE_CONFIGURED"
+pattern AMCUseConfigured :: Ac3MetadataControl
+pattern AMCUseConfigured = Ac3MetadataControl' "USE_CONFIGURED"
 
-instance Hashable Ac3MetadataControl
-
-instance NFData Ac3MetadataControl
-
-instance ToByteString Ac3MetadataControl
-
-instance ToQuery Ac3MetadataControl
-
-instance ToHeader Ac3MetadataControl
-
-instance ToJSON Ac3MetadataControl where
-  toJSON = toJSONText
-
-instance FromJSON Ac3MetadataControl where
-  parseJSON = parseJSONText "Ac3MetadataControl"
+{-# COMPLETE
+  AMCFollowInput,
+  AMCUseConfigured,
+  Ac3MetadataControl'
+  #-}

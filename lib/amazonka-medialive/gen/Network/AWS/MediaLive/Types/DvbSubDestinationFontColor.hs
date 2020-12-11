@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubDestinationFontColor where
+module Network.AWS.MediaLive.Types.DvbSubDestinationFontColor
+  ( DvbSubDestinationFontColor
+      ( DvbSubDestinationFontColor',
+        DSDFCBlack,
+        DSDFCBlue,
+        DSDFCGreen,
+        DSDFCRed,
+        DSDFCWhite,
+        DSDFCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dvb Sub Destination Font Color
-data DvbSubDestinationFontColor
-  = DSDFCBlack
-  | DSDFCBlue
-  | DSDFCGreen
-  | DSDFCRed
-  | DSDFCWhite
-  | DSDFCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubDestinationFontColor = DvbSubDestinationFontColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubDestinationFontColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure DSDFCBlack
-      "blue" -> pure DSDFCBlue
-      "green" -> pure DSDFCGreen
-      "red" -> pure DSDFCRed
-      "white" -> pure DSDFCWhite
-      "yellow" -> pure DSDFCYellow
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubDestinationFontColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern DSDFCBlack :: DvbSubDestinationFontColor
+pattern DSDFCBlack = DvbSubDestinationFontColor' "BLACK"
 
-instance ToText DvbSubDestinationFontColor where
-  toText = \case
-    DSDFCBlack -> "BLACK"
-    DSDFCBlue -> "BLUE"
-    DSDFCGreen -> "GREEN"
-    DSDFCRed -> "RED"
-    DSDFCWhite -> "WHITE"
-    DSDFCYellow -> "YELLOW"
+pattern DSDFCBlue :: DvbSubDestinationFontColor
+pattern DSDFCBlue = DvbSubDestinationFontColor' "BLUE"
 
-instance Hashable DvbSubDestinationFontColor
+pattern DSDFCGreen :: DvbSubDestinationFontColor
+pattern DSDFCGreen = DvbSubDestinationFontColor' "GREEN"
 
-instance NFData DvbSubDestinationFontColor
+pattern DSDFCRed :: DvbSubDestinationFontColor
+pattern DSDFCRed = DvbSubDestinationFontColor' "RED"
 
-instance ToByteString DvbSubDestinationFontColor
+pattern DSDFCWhite :: DvbSubDestinationFontColor
+pattern DSDFCWhite = DvbSubDestinationFontColor' "WHITE"
 
-instance ToQuery DvbSubDestinationFontColor
+pattern DSDFCYellow :: DvbSubDestinationFontColor
+pattern DSDFCYellow = DvbSubDestinationFontColor' "YELLOW"
 
-instance ToHeader DvbSubDestinationFontColor
-
-instance ToJSON DvbSubDestinationFontColor where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubDestinationFontColor where
-  parseJSON = parseJSONText "DvbSubDestinationFontColor"
+{-# COMPLETE
+  DSDFCBlack,
+  DSDFCBlue,
+  DSDFCGreen,
+  DSDFCRed,
+  DSDFCWhite,
+  DSDFCYellow,
+  DvbSubDestinationFontColor'
+  #-}

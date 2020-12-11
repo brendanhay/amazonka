@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyCookieBehavior where
+module Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
+  ( CachePolicyCookieBehavior
+      ( CachePolicyCookieBehavior',
+        CPCBAll,
+        CPCBAllExcept,
+        CPCBNone,
+        CPCBWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CachePolicyCookieBehavior
-  = CPCBAll
-  | CPCBAllExcept
-  | CPCBNone
-  | CPCBWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CachePolicyCookieBehavior = CachePolicyCookieBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CachePolicyCookieBehavior where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure CPCBAll
-      "allexcept" -> pure CPCBAllExcept
-      "none" -> pure CPCBNone
-      "whitelist" -> pure CPCBWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing CachePolicyCookieBehavior from value: '" <> e
-            <> "'. Accepted values: all, allexcept, none, whitelist"
+pattern CPCBAll :: CachePolicyCookieBehavior
+pattern CPCBAll = CachePolicyCookieBehavior' "all"
 
-instance ToText CachePolicyCookieBehavior where
-  toText = \case
-    CPCBAll -> "all"
-    CPCBAllExcept -> "allExcept"
-    CPCBNone -> "none"
-    CPCBWhitelist -> "whitelist"
+pattern CPCBAllExcept :: CachePolicyCookieBehavior
+pattern CPCBAllExcept = CachePolicyCookieBehavior' "allExcept"
 
-instance Hashable CachePolicyCookieBehavior
+pattern CPCBNone :: CachePolicyCookieBehavior
+pattern CPCBNone = CachePolicyCookieBehavior' "none"
 
-instance NFData CachePolicyCookieBehavior
+pattern CPCBWhitelist :: CachePolicyCookieBehavior
+pattern CPCBWhitelist = CachePolicyCookieBehavior' "whitelist"
 
-instance ToByteString CachePolicyCookieBehavior
-
-instance ToQuery CachePolicyCookieBehavior
-
-instance ToHeader CachePolicyCookieBehavior
-
-instance FromXML CachePolicyCookieBehavior where
-  parseXML = parseXMLText "CachePolicyCookieBehavior"
-
-instance ToXML CachePolicyCookieBehavior where
-  toXML = toXMLText
+{-# COMPLETE
+  CPCBAll,
+  CPCBAllExcept,
+  CPCBNone,
+  CPCBWhitelist,
+  CachePolicyCookieBehavior'
+  #-}

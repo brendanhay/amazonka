@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,124 @@
 --
 -- Adds one or more tags to a signaling channel. A /tag/ is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 module Network.AWS.KinesisVideo.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResourceARN,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     trrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceARN :: !Text,
-    _trTags :: !(List1 Tag)
+  { resourceARN :: Lude.Text,
+    tags :: Lude.NonEmpty Tag
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trResourceARN' - The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.
---
--- * 'trTags' - A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.
-tagResource ::
-  -- | 'trResourceARN'
-  Text ->
-  -- | 'trTags'
-  NonEmpty Tag ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.
+-- * 'tags' - A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.
+mkTagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
+  -- | 'tags'
+  Lude.NonEmpty Tag ->
   TagResource
-tagResource pResourceARN_ pTags_ =
-  TagResource'
-    { _trResourceARN = pResourceARN_,
-      _trTags = _List1 # pTags_
-    }
+mkTagResource pResourceARN_ pTags_ =
+  TagResource' {resourceARN = pResourceARN_, tags = pTags_}
 
 -- | The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.
-trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\s a -> s {_trResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.
-trTags :: Lens' TagResource (NonEmpty Tag)
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource (Lude.NonEmpty Tag)
+trTags = Lens.lens (tags :: TagResource -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveEmpty
-      (\s h x -> TagResourceResponse' <$> (pure (fromEnum s)))
-
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
-  toHeaders = const mempty
-
-instance ToJSON TagResource where
-  toJSON TagResource' {..} =
-    object
-      ( catMaybes
-          [Just ("ResourceARN" .= _trResourceARN), Just ("Tags" .= _trTags)]
+    Res.receiveEmpty
+      ( \s h x ->
+          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath TagResource where
-  toPath = const "/TagResource"
+instance Lude.ToHeaders TagResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToJSON TagResource where
+  toJSON TagResource' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
+            Lude.Just ("Tags" Lude..= tags)
+          ]
+      )
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/TagResource"
+
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse ::
-  -- | 'trrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkTagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+mkTagResourceResponse pResponseStatus_ =
+  TagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\s a -> s {_trrsResponseStatus = a})
-
-instance NFData TagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
+trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
+{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

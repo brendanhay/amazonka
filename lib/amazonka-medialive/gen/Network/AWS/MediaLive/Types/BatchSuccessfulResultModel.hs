@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BatchSuccessfulResultModel where
+module Network.AWS.MediaLive.Types.BatchSuccessfulResultModel
+  ( BatchSuccessfulResultModel (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchSuccessfulResultModel,
+
+    -- * Lenses
+    bsrmState,
+    bsrmARN,
+    bsrmId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details from a successful operation
 --
--- /See:/ 'batchSuccessfulResultModel' smart constructor.
+-- /See:/ 'mkBatchSuccessfulResultModel' smart constructor.
 data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
-  { _bsrmState ::
-      !(Maybe Text),
-    _bsrmARN :: !(Maybe Text),
-    _bsrmId :: !(Maybe Text)
+  { state ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchSuccessfulResultModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsrmState' - Current state of the resource
---
--- * 'bsrmARN' - ARN of the resource
---
--- * 'bsrmId' - ID of the resource
-batchSuccessfulResultModel ::
+-- * 'arn' - ARN of the resource
+-- * 'id' - ID of the resource
+-- * 'state' - Current state of the resource
+mkBatchSuccessfulResultModel ::
   BatchSuccessfulResultModel
-batchSuccessfulResultModel =
+mkBatchSuccessfulResultModel =
   BatchSuccessfulResultModel'
-    { _bsrmState = Nothing,
-      _bsrmARN = Nothing,
-      _bsrmId = Nothing
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | Current state of the resource
-bsrmState :: Lens' BatchSuccessfulResultModel (Maybe Text)
-bsrmState = lens _bsrmState (\s a -> s {_bsrmState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrmState :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
+bsrmState = Lens.lens (state :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: BatchSuccessfulResultModel)
+{-# DEPRECATED bsrmState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | ARN of the resource
-bsrmARN :: Lens' BatchSuccessfulResultModel (Maybe Text)
-bsrmARN = lens _bsrmARN (\s a -> s {_bsrmARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrmARN :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
+bsrmARN = Lens.lens (arn :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: BatchSuccessfulResultModel)
+{-# DEPRECATED bsrmARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | ID of the resource
-bsrmId :: Lens' BatchSuccessfulResultModel (Maybe Text)
-bsrmId = lens _bsrmId (\s a -> s {_bsrmId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrmId :: Lens.Lens' BatchSuccessfulResultModel (Lude.Maybe Lude.Text)
+bsrmId = Lens.lens (id :: BatchSuccessfulResultModel -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: BatchSuccessfulResultModel)
+{-# DEPRECATED bsrmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON BatchSuccessfulResultModel where
+instance Lude.FromJSON BatchSuccessfulResultModel where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchSuccessfulResultModel"
       ( \x ->
           BatchSuccessfulResultModel'
-            <$> (x .:? "state") <*> (x .:? "arn") <*> (x .:? "id")
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "id")
       )
-
-instance Hashable BatchSuccessfulResultModel
-
-instance NFData BatchSuccessfulResultModel

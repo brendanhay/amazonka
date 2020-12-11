@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,138 @@
 --
 -- Creates an empty receipt rule set.
 --
---
 -- For information about setting up receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateReceiptRuleSet
-  ( -- * Creating a Request
-    createReceiptRuleSet,
-    CreateReceiptRuleSet,
+  ( -- * Creating a request
+    CreateReceiptRuleSet (..),
+    mkCreateReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crrsRuleSetName,
 
-    -- * Destructuring the Response
-    createReceiptRuleSetResponse,
-    CreateReceiptRuleSetResponse,
+    -- * Destructuring the response
+    CreateReceiptRuleSetResponse (..),
+    mkCreateReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createReceiptRuleSet' smart constructor.
+-- /See:/ 'mkCreateReceiptRuleSet' smart constructor.
 newtype CreateReceiptRuleSet = CreateReceiptRuleSet'
-  { _crrsRuleSetName ::
-      Text
+  { ruleSetName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ruleSetName' - The name of the rule set to create. The name must:
 --
--- * 'crrsRuleSetName' - The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
-createReceiptRuleSet ::
-  -- | 'crrsRuleSetName'
-  Text ->
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+mkCreateReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Lude.Text ->
   CreateReceiptRuleSet
-createReceiptRuleSet pRuleSetName_ =
-  CreateReceiptRuleSet' {_crrsRuleSetName = pRuleSetName_}
+mkCreateReceiptRuleSet pRuleSetName_ =
+  CreateReceiptRuleSet' {ruleSetName = pRuleSetName_}
 
--- | The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
-crrsRuleSetName :: Lens' CreateReceiptRuleSet Text
-crrsRuleSetName = lens _crrsRuleSetName (\s a -> s {_crrsRuleSetName = a})
+-- | The name of the rule set to create. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+--
+--
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRuleSetName :: Lens.Lens' CreateReceiptRuleSet Lude.Text
+crrsRuleSetName = Lens.lens (ruleSetName :: CreateReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CreateReceiptRuleSet)
+{-# DEPRECATED crrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance AWSRequest CreateReceiptRuleSet where
+instance Lude.AWSRequest CreateReceiptRuleSet where
   type Rs CreateReceiptRuleSet = CreateReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateReceiptRuleSetResult"
-      (\s h x -> CreateReceiptRuleSetResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          CreateReceiptRuleSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateReceiptRuleSet
+instance Lude.ToHeaders CreateReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateReceiptRuleSet
+instance Lude.ToPath CreateReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath CreateReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery CreateReceiptRuleSet where
+instance Lude.ToQuery CreateReceiptRuleSet where
   toQuery CreateReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("CreateReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _crrsRuleSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'createReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkCreateReceiptRuleSetResponse' smart constructor.
 newtype CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
-  { _crrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsrsResponseStatus' - -- | The response status code.
-createReceiptRuleSetResponse ::
-  -- | 'crrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateReceiptRuleSetResponse
-createReceiptRuleSetResponse pResponseStatus_ =
-  CreateReceiptRuleSetResponse'
-    { _crrsrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateReceiptRuleSetResponse pResponseStatus_ =
+  CreateReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-crrsrsResponseStatus :: Lens' CreateReceiptRuleSetResponse Int
-crrsrsResponseStatus = lens _crrsrsResponseStatus (\s a -> s {_crrsrsResponseStatus = a})
-
-instance NFData CreateReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsrsResponseStatus :: Lens.Lens' CreateReceiptRuleSetResponse Lude.Int
+crrsrsResponseStatus = Lens.lens (responseStatus :: CreateReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReceiptRuleSetResponse)
+{-# DEPRECATED crrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

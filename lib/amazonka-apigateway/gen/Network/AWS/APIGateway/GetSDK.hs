@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Generates a client SDK for a 'RestApi' and 'Stage' .
 module Network.AWS.APIGateway.GetSDK
-  ( -- * Creating a Request
-    getSDK,
-    GetSDK,
+  ( -- * Creating a request
+    GetSDK (..),
+    mkGetSDK,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsdkParameters,
     gsdkRestAPIId,
     gsdkStageName,
     gsdkSdkType,
 
-    -- * Destructuring the Response
-    getSDKResponse,
-    GetSDKResponse,
+    -- * Destructuring the response
+    GetSDKResponse (..),
+    mkGetSDKResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsdkrsBody,
     gsdkrsContentDisposition,
     gsdkrsContentType,
@@ -42,158 +37,174 @@ module Network.AWS.APIGateway.GetSDK
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request a new generated client SDK for a 'RestApi' and 'Stage' .
 --
---
---
--- /See:/ 'getSDK' smart constructor.
+-- /See:/ 'mkGetSDK' smart constructor.
 data GetSDK = GetSDK'
-  { _gsdkParameters ::
-      !(Maybe (Map Text (Text))),
-    _gsdkRestAPIId :: !Text,
-    _gsdkStageName :: !Text,
-    _gsdkSdkType :: !Text
+  { parameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    restAPIId :: Lude.Text,
+    stageName :: Lude.Text,
+    sdkType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSDK' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdkParameters' - A string-to-string key-value map of query parameters @sdkType@ -dependent properties of the SDK. For @sdkType@ of @objectivec@ or @swift@ , a parameter named @classPrefix@ is required. For @sdkType@ of @android@ , parameters named @groupId@ , @artifactId@ , @artifactVersion@ , and @invokerPackage@ are required. For @sdkType@ of @java@ , parameters named @serviceName@ and @javaPackageName@ are required.
---
--- * 'gsdkRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gsdkStageName' - [Required] The name of the 'Stage' that the SDK will use.
---
--- * 'gsdkSdkType' - [Required] The language for the generated SDK. Currently @java@ , @javascript@ , @android@ , @objectivec@ (for iOS), @swift@ (for iOS), and @ruby@ are supported.
-getSDK ::
-  -- | 'gsdkRestAPIId'
-  Text ->
-  -- | 'gsdkStageName'
-  Text ->
-  -- | 'gsdkSdkType'
-  Text ->
+-- * 'parameters' - A string-to-string key-value map of query parameters @sdkType@ -dependent properties of the SDK. For @sdkType@ of @objectivec@ or @swift@ , a parameter named @classPrefix@ is required. For @sdkType@ of @android@ , parameters named @groupId@ , @artifactId@ , @artifactVersion@ , and @invokerPackage@ are required. For @sdkType@ of @java@ , parameters named @serviceName@ and @javaPackageName@ are required.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'sdkType' - [Required] The language for the generated SDK. Currently @java@ , @javascript@ , @android@ , @objectivec@ (for iOS), @swift@ (for iOS), and @ruby@ are supported.
+-- * 'stageName' - [Required] The name of the 'Stage' that the SDK will use.
+mkGetSDK ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'sdkType'
+  Lude.Text ->
   GetSDK
-getSDK pRestAPIId_ pStageName_ pSdkType_ =
+mkGetSDK pRestAPIId_ pStageName_ pSdkType_ =
   GetSDK'
-    { _gsdkParameters = Nothing,
-      _gsdkRestAPIId = pRestAPIId_,
-      _gsdkStageName = pStageName_,
-      _gsdkSdkType = pSdkType_
+    { parameters = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      stageName = pStageName_,
+      sdkType = pSdkType_
     }
 
 -- | A string-to-string key-value map of query parameters @sdkType@ -dependent properties of the SDK. For @sdkType@ of @objectivec@ or @swift@ , a parameter named @classPrefix@ is required. For @sdkType@ of @android@ , parameters named @groupId@ , @artifactId@ , @artifactVersion@ , and @invokerPackage@ are required. For @sdkType@ of @java@ , parameters named @serviceName@ and @javaPackageName@ are required.
-gsdkParameters :: Lens' GetSDK (HashMap Text (Text))
-gsdkParameters = lens _gsdkParameters (\s a -> s {_gsdkParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkParameters :: Lens.Lens' GetSDK (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gsdkParameters = Lens.lens (parameters :: GetSDK -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: GetSDK)
+{-# DEPRECATED gsdkParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gsdkRestAPIId :: Lens' GetSDK Text
-gsdkRestAPIId = lens _gsdkRestAPIId (\s a -> s {_gsdkRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkRestAPIId :: Lens.Lens' GetSDK Lude.Text
+gsdkRestAPIId = Lens.lens (restAPIId :: GetSDK -> Lude.Text) (\s a -> s {restAPIId = a} :: GetSDK)
+{-# DEPRECATED gsdkRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' that the SDK will use.
-gsdkStageName :: Lens' GetSDK Text
-gsdkStageName = lens _gsdkStageName (\s a -> s {_gsdkStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkStageName :: Lens.Lens' GetSDK Lude.Text
+gsdkStageName = Lens.lens (stageName :: GetSDK -> Lude.Text) (\s a -> s {stageName = a} :: GetSDK)
+{-# DEPRECATED gsdkStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | [Required] The language for the generated SDK. Currently @java@ , @javascript@ , @android@ , @objectivec@ (for iOS), @swift@ (for iOS), and @ruby@ are supported.
-gsdkSdkType :: Lens' GetSDK Text
-gsdkSdkType = lens _gsdkSdkType (\s a -> s {_gsdkSdkType = a})
+--
+-- /Note:/ Consider using 'sdkType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkSdkType :: Lens.Lens' GetSDK Lude.Text
+gsdkSdkType = Lens.lens (sdkType :: GetSDK -> Lude.Text) (\s a -> s {sdkType = a} :: GetSDK)
+{-# DEPRECATED gsdkSdkType "Use generic-lens or generic-optics with 'sdkType' instead." #-}
 
-instance AWSRequest GetSDK where
+instance Lude.AWSRequest GetSDK where
   type Rs GetSDK = GetSDKResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           GetSDKResponse'
-            <$> (pure (Just x))
-            <*> (h .#? "Content-Disposition")
-            <*> (h .#? "Content-Type")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.Just x))
+            Lude.<*> (h Lude..#? "Content-Disposition")
+            Lude.<*> (h Lude..#? "Content-Type")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSDK
-
-instance NFData GetSDK
-
-instance ToHeaders GetSDK where
+instance Lude.ToHeaders GetSDK where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetSDK where
+instance Lude.ToPath GetSDK where
   toPath GetSDK' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gsdkRestAPIId,
+        Lude.toBS restAPIId,
         "/stages/",
-        toBS _gsdkStageName,
+        Lude.toBS stageName,
         "/sdks/",
-        toBS _gsdkSdkType
+        Lude.toBS sdkType
       ]
 
-instance ToQuery GetSDK where
+instance Lude.ToQuery GetSDK where
   toQuery GetSDK' {..} =
-    mconcat
+    Lude.mconcat
       [ "parameters"
-          =: toQuery (toQueryMap "entry" "key" "value" <$> _gsdkParameters)
+          Lude.=: Lude.toQuery
+            (Lude.toQueryMap "entry" "key" "value" Lude.<$> parameters)
       ]
 
 -- | The binary blob response to 'GetSdk' , which contains the generated SDK.
 --
---
---
--- /See:/ 'getSDKResponse' smart constructor.
+-- /See:/ 'mkGetSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
-  { _gsdkrsBody ::
-      !(Maybe ByteString),
-    _gsdkrsContentDisposition :: !(Maybe Text),
-    _gsdkrsContentType :: !(Maybe Text),
-    _gsdkrsResponseStatus :: !Int
+  { body ::
+      Lude.Maybe Lude.ByteString,
+    contentDisposition :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSDKResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsdkrsBody' - The binary blob response to 'GetSdk' , which contains the generated SDK.
---
--- * 'gsdkrsContentDisposition' - The content-disposition header value in the HTTP response.
---
--- * 'gsdkrsContentType' - The content-type header value in the HTTP response.
---
--- * 'gsdkrsResponseStatus' - -- | The response status code.
-getSDKResponse ::
-  -- | 'gsdkrsResponseStatus'
-  Int ->
+-- * 'body' - The binary blob response to 'GetSdk' , which contains the generated SDK.
+-- * 'contentDisposition' - The content-disposition header value in the HTTP response.
+-- * 'contentType' - The content-type header value in the HTTP response.
+-- * 'responseStatus' - The response status code.
+mkGetSDKResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSDKResponse
-getSDKResponse pResponseStatus_ =
+mkGetSDKResponse pResponseStatus_ =
   GetSDKResponse'
-    { _gsdkrsBody = Nothing,
-      _gsdkrsContentDisposition = Nothing,
-      _gsdkrsContentType = Nothing,
-      _gsdkrsResponseStatus = pResponseStatus_
+    { body = Lude.Nothing,
+      contentDisposition = Lude.Nothing,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The binary blob response to 'GetSdk' , which contains the generated SDK.
-gsdkrsBody :: Lens' GetSDKResponse (Maybe ByteString)
-gsdkrsBody = lens _gsdkrsBody (\s a -> s {_gsdkrsBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkrsBody :: Lens.Lens' GetSDKResponse (Lude.Maybe Lude.ByteString)
+gsdkrsBody = Lens.lens (body :: GetSDKResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {body = a} :: GetSDKResponse)
+{-# DEPRECATED gsdkrsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The content-disposition header value in the HTTP response.
-gsdkrsContentDisposition :: Lens' GetSDKResponse (Maybe Text)
-gsdkrsContentDisposition = lens _gsdkrsContentDisposition (\s a -> s {_gsdkrsContentDisposition = a})
+--
+-- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkrsContentDisposition :: Lens.Lens' GetSDKResponse (Lude.Maybe Lude.Text)
+gsdkrsContentDisposition = Lens.lens (contentDisposition :: GetSDKResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: GetSDKResponse)
+{-# DEPRECATED gsdkrsContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
 
 -- | The content-type header value in the HTTP response.
-gsdkrsContentType :: Lens' GetSDKResponse (Maybe Text)
-gsdkrsContentType = lens _gsdkrsContentType (\s a -> s {_gsdkrsContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkrsContentType :: Lens.Lens' GetSDKResponse (Lude.Maybe Lude.Text)
+gsdkrsContentType = Lens.lens (contentType :: GetSDKResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetSDKResponse)
+{-# DEPRECATED gsdkrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | -- | The response status code.
-gsdkrsResponseStatus :: Lens' GetSDKResponse Int
-gsdkrsResponseStatus = lens _gsdkrsResponseStatus (\s a -> s {_gsdkrsResponseStatus = a})
-
-instance NFData GetSDKResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdkrsResponseStatus :: Lens.Lens' GetSDKResponse Lude.Int
+gsdkrsResponseStatus = Lens.lens (responseStatus :: GetSDKResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSDKResponse)
+{-# DEPRECATED gsdkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

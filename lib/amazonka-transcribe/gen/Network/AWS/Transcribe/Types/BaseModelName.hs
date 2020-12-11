@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.BaseModelName where
+module Network.AWS.Transcribe.Types.BaseModelName
+  ( BaseModelName
+      ( BaseModelName',
+        NarrowBand,
+        WideBand
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BaseModelName
-  = NarrowBand
-  | WideBand
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BaseModelName = BaseModelName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BaseModelName where
-  parser =
-    takeLowerText >>= \case
-      "narrowband" -> pure NarrowBand
-      "wideband" -> pure WideBand
-      e ->
-        fromTextError $
-          "Failure parsing BaseModelName from value: '" <> e
-            <> "'. Accepted values: narrowband, wideband"
+pattern NarrowBand :: BaseModelName
+pattern NarrowBand = BaseModelName' "NarrowBand"
 
-instance ToText BaseModelName where
-  toText = \case
-    NarrowBand -> "NarrowBand"
-    WideBand -> "WideBand"
+pattern WideBand :: BaseModelName
+pattern WideBand = BaseModelName' "WideBand"
 
-instance Hashable BaseModelName
-
-instance NFData BaseModelName
-
-instance ToByteString BaseModelName
-
-instance ToQuery BaseModelName
-
-instance ToHeader BaseModelName
-
-instance ToJSON BaseModelName where
-  toJSON = toJSONText
-
-instance FromJSON BaseModelName where
-  parseJSON = parseJSONText "BaseModelName"
+{-# COMPLETE
+  NarrowBand,
+  WideBand,
+  BaseModelName'
+  #-}

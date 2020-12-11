@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
+  ( HyperParameterTuningJobObjectiveType
+      ( HyperParameterTuningJobObjectiveType',
+        Maximize,
+        Minimize
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HyperParameterTuningJobObjectiveType
-  = Maximize
-  | Minimize
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HyperParameterTuningJobObjectiveType = HyperParameterTuningJobObjectiveType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HyperParameterTuningJobObjectiveType where
-  parser =
-    takeLowerText >>= \case
-      "maximize" -> pure Maximize
-      "minimize" -> pure Minimize
-      e ->
-        fromTextError $
-          "Failure parsing HyperParameterTuningJobObjectiveType from value: '" <> e
-            <> "'. Accepted values: maximize, minimize"
+pattern Maximize :: HyperParameterTuningJobObjectiveType
+pattern Maximize = HyperParameterTuningJobObjectiveType' "Maximize"
 
-instance ToText HyperParameterTuningJobObjectiveType where
-  toText = \case
-    Maximize -> "Maximize"
-    Minimize -> "Minimize"
+pattern Minimize :: HyperParameterTuningJobObjectiveType
+pattern Minimize = HyperParameterTuningJobObjectiveType' "Minimize"
 
-instance Hashable HyperParameterTuningJobObjectiveType
-
-instance NFData HyperParameterTuningJobObjectiveType
-
-instance ToByteString HyperParameterTuningJobObjectiveType
-
-instance ToQuery HyperParameterTuningJobObjectiveType
-
-instance ToHeader HyperParameterTuningJobObjectiveType
-
-instance ToJSON HyperParameterTuningJobObjectiveType where
-  toJSON = toJSONText
-
-instance FromJSON HyperParameterTuningJobObjectiveType where
-  parseJSON = parseJSONText "HyperParameterTuningJobObjectiveType"
+{-# COMPLETE
+  Maximize,
+  Minimize,
+  HyperParameterTuningJobObjectiveType'
+  #-}

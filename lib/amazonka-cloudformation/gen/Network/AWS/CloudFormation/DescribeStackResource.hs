@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,170 @@
 --
 -- Returns a description of the specified resource in the specified stack.
 --
---
 -- For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.
 module Network.AWS.CloudFormation.DescribeStackResource
-  ( -- * Creating a Request
-    describeStackResource,
-    DescribeStackResource,
+  ( -- * Creating a request
+    DescribeStackResource (..),
+    mkDescribeStackResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsrsStackName,
     dsrsLogicalResourceId,
 
-    -- * Destructuring the Response
-    describeStackResourceResponse,
-    DescribeStackResourceResponse,
+    -- * Destructuring the response
+    DescribeStackResourceResponse (..),
+    mkDescribeStackResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrrsStackResourceDetail,
     dsrrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for 'DescribeStackResource' action.
 --
---
---
--- /See:/ 'describeStackResource' smart constructor.
+-- /See:/ 'mkDescribeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-  { _dsrsStackName ::
-      !Text,
-    _dsrsLogicalResourceId :: !Text
+  { stackName ::
+      Lude.Text,
+    logicalResourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'logicalResourceId' - The logical name of the resource as specified in the template.
 --
--- * 'dsrsStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
+-- Default: There is no default value.
+-- * 'stackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- * 'dsrsLogicalResourceId' - The logical name of the resource as specified in the template. Default: There is no default value.
-describeStackResource ::
-  -- | 'dsrsStackName'
-  Text ->
-  -- | 'dsrsLogicalResourceId'
-  Text ->
+--
+--     * Running stacks: You can specify either the stack's name or its unique stack ID.
+--
+--
+--     * Deleted stacks: You must specify the unique stack ID.
+--
+--
+-- Default: There is no default value.
+mkDescribeStackResource ::
+  -- | 'stackName'
+  Lude.Text ->
+  -- | 'logicalResourceId'
+  Lude.Text ->
   DescribeStackResource
-describeStackResource pStackName_ pLogicalResourceId_ =
+mkDescribeStackResource pStackName_ pLogicalResourceId_ =
   DescribeStackResource'
-    { _dsrsStackName = pStackName_,
-      _dsrsLogicalResourceId = pLogicalResourceId_
+    { stackName = pStackName_,
+      logicalResourceId = pLogicalResourceId_
     }
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
-dsrsStackName :: Lens' DescribeStackResource Text
-dsrsStackName = lens _dsrsStackName (\s a -> s {_dsrsStackName = a})
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
+--
+--
+--     * Running stacks: You can specify either the stack's name or its unique stack ID.
+--
+--
+--     * Deleted stacks: You must specify the unique stack ID.
+--
+--
+-- Default: There is no default value.
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsStackName :: Lens.Lens' DescribeStackResource Lude.Text
+dsrsStackName = Lens.lens (stackName :: DescribeStackResource -> Lude.Text) (\s a -> s {stackName = a} :: DescribeStackResource)
+{-# DEPRECATED dsrsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
--- | The logical name of the resource as specified in the template. Default: There is no default value.
-dsrsLogicalResourceId :: Lens' DescribeStackResource Text
-dsrsLogicalResourceId = lens _dsrsLogicalResourceId (\s a -> s {_dsrsLogicalResourceId = a})
+-- | The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsLogicalResourceId :: Lens.Lens' DescribeStackResource Lude.Text
+dsrsLogicalResourceId = Lens.lens (logicalResourceId :: DescribeStackResource -> Lude.Text) (\s a -> s {logicalResourceId = a} :: DescribeStackResource)
+{-# DEPRECATED dsrsLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
 
-instance AWSRequest DescribeStackResource where
+instance Lude.AWSRequest DescribeStackResource where
   type Rs DescribeStackResource = DescribeStackResourceResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeStackResourceResult"
       ( \s h x ->
           DescribeStackResourceResponse'
-            <$> (x .@? "StackResourceDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "StackResourceDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackResource
+instance Lude.ToHeaders DescribeStackResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStackResource
+instance Lude.ToPath DescribeStackResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeStackResource where
-  toHeaders = const mempty
-
-instance ToPath DescribeStackResource where
-  toPath = const "/"
-
-instance ToQuery DescribeStackResource where
+instance Lude.ToQuery DescribeStackResource where
   toQuery DescribeStackResource' {..} =
-    mconcat
-      [ "Action" =: ("DescribeStackResource" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackName" =: _dsrsStackName,
-        "LogicalResourceId" =: _dsrsLogicalResourceId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeStackResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackName" Lude.=: stackName,
+        "LogicalResourceId" Lude.=: logicalResourceId
       ]
 
 -- | The output for a 'DescribeStackResource' action.
 --
---
---
--- /See:/ 'describeStackResourceResponse' smart constructor.
+-- /See:/ 'mkDescribeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-  { _dsrrsStackResourceDetail ::
-      !(Maybe StackResourceDetail),
-    _dsrrsResponseStatus :: !Int
+  { stackResourceDetail ::
+      Lude.Maybe StackResourceDetail,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrrsStackResourceDetail' - A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
---
--- * 'dsrrsResponseStatus' - -- | The response status code.
-describeStackResourceResponse ::
-  -- | 'dsrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stackResourceDetail' - A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
+mkDescribeStackResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackResourceResponse
-describeStackResourceResponse pResponseStatus_ =
+mkDescribeStackResourceResponse pResponseStatus_ =
   DescribeStackResourceResponse'
-    { _dsrrsStackResourceDetail =
-        Nothing,
-      _dsrrsResponseStatus = pResponseStatus_
+    { stackResourceDetail =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
-dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\s a -> s {_dsrrsStackResourceDetail = a})
+--
+-- /Note:/ Consider using 'stackResourceDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsStackResourceDetail :: Lens.Lens' DescribeStackResourceResponse (Lude.Maybe StackResourceDetail)
+dsrrsStackResourceDetail = Lens.lens (stackResourceDetail :: DescribeStackResourceResponse -> Lude.Maybe StackResourceDetail) (\s a -> s {stackResourceDetail = a} :: DescribeStackResourceResponse)
+{-# DEPRECATED dsrrsStackResourceDetail "Use generic-lens or generic-optics with 'stackResourceDetail' instead." #-}
 
--- | -- | The response status code.
-dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
-dsrrsResponseStatus = lens _dsrrsResponseStatus (\s a -> s {_dsrrsResponseStatus = a})
-
-instance NFData DescribeStackResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsResponseStatus :: Lens.Lens' DescribeStackResourceResponse Lude.Int
+dsrrsResponseStatus = Lens.lens (responseStatus :: DescribeStackResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackResourceResponse)
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

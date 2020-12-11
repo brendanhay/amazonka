@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns a list of compliant and noncompliant rules with the number of resources for compliant and noncompliant rules.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
-  ( -- * Creating a Request
-    describeAggregateComplianceByConfigRules,
-    DescribeAggregateComplianceByConfigRules,
+  ( -- * Creating a request
+    DescribeAggregateComplianceByConfigRules (..),
+    mkDescribeAggregateComplianceByConfigRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dacbcrFilters,
     dacbcrNextToken,
     dacbcrLimit,
     dacbcrConfigurationAggregatorName,
 
-    -- * Destructuring the Response
-    describeAggregateComplianceByConfigRulesResponse,
-    DescribeAggregateComplianceByConfigRulesResponse,
+    -- * Destructuring the response
+    DescribeAggregateComplianceByConfigRulesResponse (..),
+    mkDescribeAggregateComplianceByConfigRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dacbcrrsNextToken,
     dacbcrrsAggregateComplianceByConfigRules,
     dacbcrrsResponseStatus,
@@ -45,184 +38,200 @@ module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAggregateComplianceByConfigRules' smart constructor.
+-- | /See:/ 'mkDescribeAggregateComplianceByConfigRules' smart constructor.
 data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByConfigRules'
-  { _dacbcrFilters ::
-      !( Maybe
-           ConfigRuleComplianceFilters
-       ),
-    _dacbcrNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dacbcrLimit ::
-      !( Maybe
-           Nat
-       ),
-    _dacbcrConfigurationAggregatorName ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        ConfigRuleComplianceFilters,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    configurationAggregatorName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregateComplianceByConfigRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacbcrFilters' - Filters the results by ConfigRuleComplianceFilters object.
---
--- * 'dacbcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dacbcrLimit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
---
--- * 'dacbcrConfigurationAggregatorName' - The name of the configuration aggregator.
-describeAggregateComplianceByConfigRules ::
-  -- | 'dacbcrConfigurationAggregatorName'
-  Text ->
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'filters' - Filters the results by ConfigRuleComplianceFilters object.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkDescribeAggregateComplianceByConfigRules ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
   DescribeAggregateComplianceByConfigRules
-describeAggregateComplianceByConfigRules
+mkDescribeAggregateComplianceByConfigRules
   pConfigurationAggregatorName_ =
     DescribeAggregateComplianceByConfigRules'
-      { _dacbcrFilters =
-          Nothing,
-        _dacbcrNextToken = Nothing,
-        _dacbcrLimit = Nothing,
-        _dacbcrConfigurationAggregatorName =
+      { filters = Lude.Nothing,
+        nextToken = Lude.Nothing,
+        limit = Lude.Nothing,
+        configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
 -- | Filters the results by ConfigRuleComplianceFilters object.
-dacbcrFilters :: Lens' DescribeAggregateComplianceByConfigRules (Maybe ConfigRuleComplianceFilters)
-dacbcrFilters = lens _dacbcrFilters (\s a -> s {_dacbcrFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrFilters :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Lude.Maybe ConfigRuleComplianceFilters)
+dacbcrFilters = Lens.lens (filters :: DescribeAggregateComplianceByConfigRules -> Lude.Maybe ConfigRuleComplianceFilters) (\s a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
+{-# DEPRECATED dacbcrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dacbcrNextToken :: Lens' DescribeAggregateComplianceByConfigRules (Maybe Text)
-dacbcrNextToken = lens _dacbcrNextToken (\s a -> s {_dacbcrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrNextToken :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Lude.Maybe Lude.Text)
+dacbcrNextToken = Lens.lens (nextToken :: DescribeAggregateComplianceByConfigRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAggregateComplianceByConfigRules)
+{-# DEPRECATED dacbcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-dacbcrLimit :: Lens' DescribeAggregateComplianceByConfigRules (Maybe Natural)
-dacbcrLimit = lens _dacbcrLimit (\s a -> s {_dacbcrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrLimit :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Lude.Maybe Lude.Natural)
+dacbcrLimit = Lens.lens (limit :: DescribeAggregateComplianceByConfigRules -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeAggregateComplianceByConfigRules)
+{-# DEPRECATED dacbcrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the configuration aggregator.
-dacbcrConfigurationAggregatorName :: Lens' DescribeAggregateComplianceByConfigRules Text
-dacbcrConfigurationAggregatorName = lens _dacbcrConfigurationAggregatorName (\s a -> s {_dacbcrConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrConfigurationAggregatorName :: Lens.Lens' DescribeAggregateComplianceByConfigRules Lude.Text
+dacbcrConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: DescribeAggregateComplianceByConfigRules -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: DescribeAggregateComplianceByConfigRules)
+{-# DEPRECATED dacbcrConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
-instance AWSPager DescribeAggregateComplianceByConfigRules where
+instance Page.AWSPager DescribeAggregateComplianceByConfigRules where
   page rq rs
-    | stop (rs ^. dacbcrrsNextToken) = Nothing
-    | stop (rs ^. dacbcrrsAggregateComplianceByConfigRules) = Nothing
-    | otherwise =
-      Just $ rq & dacbcrNextToken .~ rs ^. dacbcrrsNextToken
+    | Page.stop (rs Lens.^. dacbcrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dacbcrrsAggregateComplianceByConfigRules) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dacbcrNextToken Lens..~ rs Lens.^. dacbcrrsNextToken
 
-instance AWSRequest DescribeAggregateComplianceByConfigRules where
+instance Lude.AWSRequest DescribeAggregateComplianceByConfigRules where
   type
     Rs DescribeAggregateComplianceByConfigRules =
       DescribeAggregateComplianceByConfigRulesResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAggregateComplianceByConfigRulesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "AggregateComplianceByConfigRules" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> ( x Lude..?> "AggregateComplianceByConfigRules"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAggregateComplianceByConfigRules
-
-instance NFData DescribeAggregateComplianceByConfigRules
-
-instance ToHeaders DescribeAggregateComplianceByConfigRules where
+instance Lude.ToHeaders DescribeAggregateComplianceByConfigRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeAggregateComplianceByConfigRules" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeAggregateComplianceByConfigRules" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAggregateComplianceByConfigRules where
+instance Lude.ToJSON DescribeAggregateComplianceByConfigRules where
   toJSON DescribeAggregateComplianceByConfigRules' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _dacbcrFilters,
-            ("NextToken" .=) <$> _dacbcrNextToken,
-            ("Limit" .=) <$> _dacbcrLimit,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _dacbcrConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               )
           ]
       )
 
-instance ToPath DescribeAggregateComplianceByConfigRules where
-  toPath = const "/"
+instance Lude.ToPath DescribeAggregateComplianceByConfigRules where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAggregateComplianceByConfigRules where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAggregateComplianceByConfigRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAggregateComplianceByConfigRulesResponse' smart constructor.
+-- | /See:/ 'mkDescribeAggregateComplianceByConfigRulesResponse' smart constructor.
 data DescribeAggregateComplianceByConfigRulesResponse = DescribeAggregateComplianceByConfigRulesResponse'
-  { _dacbcrrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dacbcrrsAggregateComplianceByConfigRules ::
-      !( Maybe
-           [AggregateComplianceByConfigRule]
-       ),
-    _dacbcrrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    aggregateComplianceByConfigRules ::
+      Lude.Maybe
+        [AggregateComplianceByConfigRule],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeAggregateComplianceByConfigRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacbcrrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dacbcrrsAggregateComplianceByConfigRules' - Returns a list of AggregateComplianceByConfigRule object.
---
--- * 'dacbcrrsResponseStatus' - -- | The response status code.
-describeAggregateComplianceByConfigRulesResponse ::
-  -- | 'dacbcrrsResponseStatus'
-  Int ->
+-- * 'aggregateComplianceByConfigRules' - Returns a list of AggregateComplianceByConfigRule object.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkDescribeAggregateComplianceByConfigRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAggregateComplianceByConfigRulesResponse
-describeAggregateComplianceByConfigRulesResponse pResponseStatus_ =
+mkDescribeAggregateComplianceByConfigRulesResponse pResponseStatus_ =
   DescribeAggregateComplianceByConfigRulesResponse'
-    { _dacbcrrsNextToken =
-        Nothing,
-      _dacbcrrsAggregateComplianceByConfigRules =
-        Nothing,
-      _dacbcrrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      aggregateComplianceByConfigRules =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dacbcrrsNextToken :: Lens' DescribeAggregateComplianceByConfigRulesResponse (Maybe Text)
-dacbcrrsNextToken = lens _dacbcrrsNextToken (\s a -> s {_dacbcrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrrsNextToken :: Lens.Lens' DescribeAggregateComplianceByConfigRulesResponse (Lude.Maybe Lude.Text)
+dacbcrrsNextToken = Lens.lens (nextToken :: DescribeAggregateComplianceByConfigRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAggregateComplianceByConfigRulesResponse)
+{-# DEPRECATED dacbcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns a list of AggregateComplianceByConfigRule object.
-dacbcrrsAggregateComplianceByConfigRules :: Lens' DescribeAggregateComplianceByConfigRulesResponse [AggregateComplianceByConfigRule]
-dacbcrrsAggregateComplianceByConfigRules = lens _dacbcrrsAggregateComplianceByConfigRules (\s a -> s {_dacbcrrsAggregateComplianceByConfigRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aggregateComplianceByConfigRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrrsAggregateComplianceByConfigRules :: Lens.Lens' DescribeAggregateComplianceByConfigRulesResponse (Lude.Maybe [AggregateComplianceByConfigRule])
+dacbcrrsAggregateComplianceByConfigRules = Lens.lens (aggregateComplianceByConfigRules :: DescribeAggregateComplianceByConfigRulesResponse -> Lude.Maybe [AggregateComplianceByConfigRule]) (\s a -> s {aggregateComplianceByConfigRules = a} :: DescribeAggregateComplianceByConfigRulesResponse)
+{-# DEPRECATED dacbcrrsAggregateComplianceByConfigRules "Use generic-lens or generic-optics with 'aggregateComplianceByConfigRules' instead." #-}
 
--- | -- | The response status code.
-dacbcrrsResponseStatus :: Lens' DescribeAggregateComplianceByConfigRulesResponse Int
-dacbcrrsResponseStatus = lens _dacbcrrsResponseStatus (\s a -> s {_dacbcrrsResponseStatus = a})
-
-instance NFData DescribeAggregateComplianceByConfigRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacbcrrsResponseStatus :: Lens.Lens' DescribeAggregateComplianceByConfigRulesResponse Lude.Int
+dacbcrrsResponseStatus = Lens.lens (responseStatus :: DescribeAggregateComplianceByConfigRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAggregateComplianceByConfigRulesResponse)
+{-# DEPRECATED dacbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

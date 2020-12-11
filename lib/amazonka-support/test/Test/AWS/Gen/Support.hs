@@ -28,91 +28,91 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestRefreshTrustedAdvisorCheck $
---             refreshTrustedAdvisorCheck
+--             mkRefreshTrustedAdvisorCheck
 --
 --         , requestDescribeCases $
---             describeCases
+--             mkDescribeCases
 --
 --         , requestDescribeTrustedAdvisorCheckRefreshStatuses $
---             describeTrustedAdvisorCheckRefreshStatuses
+--             mkDescribeTrustedAdvisorCheckRefreshStatuses
 --
 --         , requestDescribeTrustedAdvisorCheckSummaries $
---             describeTrustedAdvisorCheckSummaries
+--             mkDescribeTrustedAdvisorCheckSummaries
 --
 --         , requestCreateCase $
---             createCase
+--             mkCreateCase
 --
 --         , requestResolveCase $
---             resolveCase
+--             mkResolveCase
 --
 --         , requestDescribeSeverityLevels $
---             describeSeverityLevels
+--             mkDescribeSeverityLevels
 --
 --         , requestDescribeTrustedAdvisorChecks $
---             describeTrustedAdvisorChecks
+--             mkDescribeTrustedAdvisorChecks
 --
 --         , requestDescribeAttachment $
---             describeAttachment
+--             mkDescribeAttachment
 --
 --         , requestAddAttachmentsToSet $
---             addAttachmentsToSet
+--             mkAddAttachmentsToSet
 --
 --         , requestDescribeTrustedAdvisorCheckResult $
---             describeTrustedAdvisorCheckResult
+--             mkDescribeTrustedAdvisorCheckResult
 --
 --         , requestDescribeServices $
---             describeServices
+--             mkDescribeServices
 --
 --         , requestDescribeCommunications $
---             describeCommunications
+--             mkDescribeCommunications
 --
 --         , requestAddCommunicationToCase $
---             addCommunicationToCase
+--             mkAddCommunicationToCase
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseRefreshTrustedAdvisorCheck $
---             refreshTrustedAdvisorCheckResponse
+--             mkRefreshTrustedAdvisorCheckResponse
 --
 --         , responseDescribeCases $
---             describeCasesResponse
+--             mkDescribeCasesResponse
 --
 --         , responseDescribeTrustedAdvisorCheckRefreshStatuses $
---             describeTrustedAdvisorCheckRefreshStatusesResponse
+--             mkDescribeTrustedAdvisorCheckRefreshStatusesResponse
 --
 --         , responseDescribeTrustedAdvisorCheckSummaries $
---             describeTrustedAdvisorCheckSummariesResponse
+--             mkDescribeTrustedAdvisorCheckSummariesResponse
 --
 --         , responseCreateCase $
---             createCaseResponse
+--             mkCreateCaseResponse
 --
 --         , responseResolveCase $
---             resolveCaseResponse
+--             mkResolveCaseResponse
 --
 --         , responseDescribeSeverityLevels $
---             describeSeverityLevelsResponse
+--             mkDescribeSeverityLevelsResponse
 --
 --         , responseDescribeTrustedAdvisorChecks $
---             describeTrustedAdvisorChecksResponse
+--             mkDescribeTrustedAdvisorChecksResponse
 --
 --         , responseDescribeAttachment $
---             describeAttachmentResponse
+--             mkDescribeAttachmentResponse
 --
 --         , responseAddAttachmentsToSet $
---             addAttachmentsToSetResponse
+--             mkAddAttachmentsToSetResponse
 --
 --         , responseDescribeTrustedAdvisorCheckResult $
---             describeTrustedAdvisorCheckResultResponse
+--             mkDescribeTrustedAdvisorCheckResultResponse
 --
 --         , responseDescribeServices $
---             describeServicesResponse
+--             mkDescribeServicesResponse
 --
 --         , responseDescribeCommunications $
---             describeCommunicationsResponse
+--             mkDescribeCommunicationsResponse
 --
 --         , responseAddCommunicationToCase $
---             addCommunicationToCaseResponse
+--             mkAddCommunicationToCaseResponse
 --
 --           ]
 --     ]
@@ -210,7 +210,7 @@ responseRefreshTrustedAdvisorCheck =
   res
     "RefreshTrustedAdvisorCheckResponse"
     "fixture/RefreshTrustedAdvisorCheckResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy RefreshTrustedAdvisorCheck)
 
 responseDescribeCases :: DescribeCasesResponse -> TestTree
@@ -218,7 +218,7 @@ responseDescribeCases =
   res
     "DescribeCasesResponse"
     "fixture/DescribeCasesResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeCases)
 
 responseDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
@@ -226,7 +226,7 @@ responseDescribeTrustedAdvisorCheckRefreshStatuses =
   res
     "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
 responseDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
@@ -234,7 +234,7 @@ responseDescribeTrustedAdvisorCheckSummaries =
   res
     "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/DescribeTrustedAdvisorCheckSummariesResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
 
 responseCreateCase :: CreateCaseResponse -> TestTree
@@ -242,7 +242,7 @@ responseCreateCase =
   res
     "CreateCaseResponse"
     "fixture/CreateCaseResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy CreateCase)
 
 responseResolveCase :: ResolveCaseResponse -> TestTree
@@ -250,7 +250,7 @@ responseResolveCase =
   res
     "ResolveCaseResponse"
     "fixture/ResolveCaseResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy ResolveCase)
 
 responseDescribeSeverityLevels :: DescribeSeverityLevelsResponse -> TestTree
@@ -258,7 +258,7 @@ responseDescribeSeverityLevels =
   res
     "DescribeSeverityLevelsResponse"
     "fixture/DescribeSeverityLevelsResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeSeverityLevels)
 
 responseDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecksResponse -> TestTree
@@ -266,7 +266,7 @@ responseDescribeTrustedAdvisorChecks =
   res
     "DescribeTrustedAdvisorChecksResponse"
     "fixture/DescribeTrustedAdvisorChecksResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeTrustedAdvisorChecks)
 
 responseDescribeAttachment :: DescribeAttachmentResponse -> TestTree
@@ -274,7 +274,7 @@ responseDescribeAttachment =
   res
     "DescribeAttachmentResponse"
     "fixture/DescribeAttachmentResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeAttachment)
 
 responseAddAttachmentsToSet :: AddAttachmentsToSetResponse -> TestTree
@@ -282,7 +282,7 @@ responseAddAttachmentsToSet =
   res
     "AddAttachmentsToSetResponse"
     "fixture/AddAttachmentsToSetResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy AddAttachmentsToSet)
 
 responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
@@ -290,7 +290,7 @@ responseDescribeTrustedAdvisorCheckResult =
   res
     "DescribeTrustedAdvisorCheckResultResponse"
     "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
@@ -298,7 +298,7 @@ responseDescribeServices =
   res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeServices)
 
 responseDescribeCommunications :: DescribeCommunicationsResponse -> TestTree
@@ -306,7 +306,7 @@ responseDescribeCommunications =
   res
     "DescribeCommunicationsResponse"
     "fixture/DescribeCommunicationsResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy DescribeCommunications)
 
 responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
@@ -314,5 +314,5 @@ responseAddCommunicationToCase =
   res
     "AddCommunicationToCaseResponse"
     "fixture/AddCommunicationToCaseResponse.proto"
-    support
+    supportService
     (Proxy :: Proxy AddCommunicationToCase)

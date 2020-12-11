@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling @ListThings@ with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThings
-  ( -- * Creating a Request
-    listThings,
-    ListThings,
+  ( -- * Creating a request
+    ListThings (..),
+    mkListThings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltAttributeValue,
     ltThingTypeName,
     ltNextToken,
     ltAttributeName,
     ltMaxResults,
 
-    -- * Destructuring the Response
-    listThingsResponse,
-    ListThingsResponse,
+    -- * Destructuring the response
+    ListThingsResponse (..),
+    mkListThingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsNextToken,
     ltrsThings,
     ltrsResponseStatus,
@@ -46,151 +39,173 @@ module Network.AWS.IoT.ListThings
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the ListThings operation.
 --
---
---
--- /See:/ 'listThings' smart constructor.
+-- /See:/ 'mkListThings' smart constructor.
 data ListThings = ListThings'
-  { _ltAttributeValue :: !(Maybe Text),
-    _ltThingTypeName :: !(Maybe Text),
-    _ltNextToken :: !(Maybe Text),
-    _ltAttributeName :: !(Maybe Text),
-    _ltMaxResults :: !(Maybe Nat)
+  { attributeValue ::
+      Lude.Maybe Lude.Text,
+    thingTypeName :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    attributeName :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltAttributeValue' - The attribute value used to search for things.
---
--- * 'ltThingTypeName' - The name of the thing type used to search for things.
---
--- * 'ltNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'ltAttributeName' - The attribute name used to search for things.
---
--- * 'ltMaxResults' - The maximum number of results to return in this operation.
-listThings ::
+-- * 'attributeName' - The attribute name used to search for things.
+-- * 'attributeValue' - The attribute value used to search for things.
+-- * 'maxResults' - The maximum number of results to return in this operation.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'thingTypeName' - The name of the thing type used to search for things.
+mkListThings ::
   ListThings
-listThings =
+mkListThings =
   ListThings'
-    { _ltAttributeValue = Nothing,
-      _ltThingTypeName = Nothing,
-      _ltNextToken = Nothing,
-      _ltAttributeName = Nothing,
-      _ltMaxResults = Nothing
+    { attributeValue = Lude.Nothing,
+      thingTypeName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      attributeName = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The attribute value used to search for things.
-ltAttributeValue :: Lens' ListThings (Maybe Text)
-ltAttributeValue = lens _ltAttributeValue (\s a -> s {_ltAttributeValue = a})
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltAttributeValue :: Lens.Lens' ListThings (Lude.Maybe Lude.Text)
+ltAttributeValue = Lens.lens (attributeValue :: ListThings -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: ListThings)
+{-# DEPRECATED ltAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the thing type used to search for things.
-ltThingTypeName :: Lens' ListThings (Maybe Text)
-ltThingTypeName = lens _ltThingTypeName (\s a -> s {_ltThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltThingTypeName :: Lens.Lens' ListThings (Lude.Maybe Lude.Text)
+ltThingTypeName = Lens.lens (thingTypeName :: ListThings -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: ListThings)
+{-# DEPRECATED ltThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-ltNextToken :: Lens' ListThings (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListThings (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListThings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThings)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The attribute name used to search for things.
-ltAttributeName :: Lens' ListThings (Maybe Text)
-ltAttributeName = lens _ltAttributeName (\s a -> s {_ltAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltAttributeName :: Lens.Lens' ListThings (Lude.Maybe Lude.Text)
+ltAttributeName = Lens.lens (attributeName :: ListThings -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: ListThings)
+{-# DEPRECATED ltAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The maximum number of results to return in this operation.
-ltMaxResults :: Lens' ListThings (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListThings (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListThings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThings)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListThings where
+instance Page.AWSPager ListThings where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsThings) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsThings) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListThings where
+instance Lude.AWSRequest ListThings where
   type Rs ListThings = ListThingsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListThingsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "things" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "things" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListThings
+instance Lude.ToHeaders ListThings where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListThings
+instance Lude.ToPath ListThings where
+  toPath = Lude.const "/things"
 
-instance ToHeaders ListThings where
-  toHeaders = const mempty
-
-instance ToPath ListThings where
-  toPath = const "/things"
-
-instance ToQuery ListThings where
+instance Lude.ToQuery ListThings where
   toQuery ListThings' {..} =
-    mconcat
-      [ "attributeValue" =: _ltAttributeValue,
-        "thingTypeName" =: _ltThingTypeName,
-        "nextToken" =: _ltNextToken,
-        "attributeName" =: _ltAttributeName,
-        "maxResults" =: _ltMaxResults
+    Lude.mconcat
+      [ "attributeValue" Lude.=: attributeValue,
+        "thingTypeName" Lude.=: thingTypeName,
+        "nextToken" Lude.=: nextToken,
+        "attributeName" Lude.=: attributeName,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | The output from the ListThings operation.
 --
---
---
--- /See:/ 'listThingsResponse' smart constructor.
+-- /See:/ 'mkListThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
-  { _ltrsNextToken ::
-      !(Maybe Text),
-    _ltrsThings :: !(Maybe [ThingAttribute]),
-    _ltrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    things :: Lude.Maybe [ThingAttribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsNextToken' - The token to use to get the next set of results. Will not be returned if operation has returned all results.
---
--- * 'ltrsThings' - The things.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listThingsResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to get the next set of results. Will not be returned if operation has returned all results.
+-- * 'responseStatus' - The response status code.
+-- * 'things' - The things.
+mkListThingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListThingsResponse
-listThingsResponse pResponseStatus_ =
+mkListThingsResponse pResponseStatus_ =
   ListThingsResponse'
-    { _ltrsNextToken = Nothing,
-      _ltrsThings = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      things = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next set of results. Will not be returned if operation has returned all results.
-ltrsNextToken :: Lens' ListThingsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListThingsResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListThingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingsResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The things.
-ltrsThings :: Lens' ListThingsResponse [ThingAttribute]
-ltrsThings = lens _ltrsThings (\s a -> s {_ltrsThings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'things' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsThings :: Lens.Lens' ListThingsResponse (Lude.Maybe [ThingAttribute])
+ltrsThings = Lens.lens (things :: ListThingsResponse -> Lude.Maybe [ThingAttribute]) (\s a -> s {things = a} :: ListThingsResponse)
+{-# DEPRECATED ltrsThings "Use generic-lens or generic-optics with 'things' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListThingsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListThingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListThingsResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListThingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThingsResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

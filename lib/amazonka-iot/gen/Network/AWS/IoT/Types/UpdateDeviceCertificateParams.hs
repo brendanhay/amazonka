@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.UpdateDeviceCertificateParams where
+module Network.AWS.IoT.Types.UpdateDeviceCertificateParams
+  ( UpdateDeviceCertificateParams (..),
+
+    -- * Smart constructor
+    mkUpdateDeviceCertificateParams,
+
+    -- * Lenses
+    udcpAction,
+  )
+where
 
 import Network.AWS.IoT.Types.DeviceCertificateUpdateAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 --
---
---
--- /See:/ 'updateDeviceCertificateParams' smart constructor.
+-- /See:/ 'mkUpdateDeviceCertificateParams' smart constructor.
 newtype UpdateDeviceCertificateParams = UpdateDeviceCertificateParams'
-  { _udcpAction ::
+  { action ::
       DeviceCertificateUpdateAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceCertificateParams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udcpAction' - The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
-updateDeviceCertificateParams ::
-  -- | 'udcpAction'
+-- * 'action' - The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
+mkUpdateDeviceCertificateParams ::
+  -- | 'action'
   DeviceCertificateUpdateAction ->
   UpdateDeviceCertificateParams
-updateDeviceCertificateParams pAction_ =
-  UpdateDeviceCertificateParams' {_udcpAction = pAction_}
+mkUpdateDeviceCertificateParams pAction_ =
+  UpdateDeviceCertificateParams' {action = pAction_}
 
 -- | The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
-udcpAction :: Lens' UpdateDeviceCertificateParams DeviceCertificateUpdateAction
-udcpAction = lens _udcpAction (\s a -> s {_udcpAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcpAction :: Lens.Lens' UpdateDeviceCertificateParams DeviceCertificateUpdateAction
+udcpAction = Lens.lens (action :: UpdateDeviceCertificateParams -> DeviceCertificateUpdateAction) (\s a -> s {action = a} :: UpdateDeviceCertificateParams)
+{-# DEPRECATED udcpAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance FromJSON UpdateDeviceCertificateParams where
+instance Lude.FromJSON UpdateDeviceCertificateParams where
   parseJSON =
-    withObject
+    Lude.withObject
       "UpdateDeviceCertificateParams"
-      (\x -> UpdateDeviceCertificateParams' <$> (x .: "action"))
+      ( \x ->
+          UpdateDeviceCertificateParams' Lude.<$> (x Lude..: "action")
+      )
 
-instance Hashable UpdateDeviceCertificateParams
-
-instance NFData UpdateDeviceCertificateParams
-
-instance ToJSON UpdateDeviceCertificateParams where
+instance Lude.ToJSON UpdateDeviceCertificateParams where
   toJSON UpdateDeviceCertificateParams' {..} =
-    object (catMaybes [Just ("action" .= _udcpAction)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("action" Lude..= action)])

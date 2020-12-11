@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.HTTPHeader where
+module Network.AWS.CognitoIdentityProvider.Types.HTTPHeader
+  ( HTTPHeader (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPHeader,
+
+    -- * Lenses
+    httphHeaderValue,
+    httphHeaderName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The HTTP header.
 --
---
---
--- /See:/ 'hTTPHeader' smart constructor.
+-- /See:/ 'mkHTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-  { _httphHeaderValue :: !(Maybe Text),
-    _httphHeaderName :: !(Maybe Text)
+  { headerValue :: Lude.Maybe Lude.Text,
+    headerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPHeader' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httphHeaderValue' - The header value.
---
--- * 'httphHeaderName' - The header name
-hTTPHeader ::
+-- * 'headerName' - The header name
+-- * 'headerValue' - The header value.
+mkHTTPHeader ::
   HTTPHeader
-hTTPHeader =
+mkHTTPHeader =
   HTTPHeader'
-    { _httphHeaderValue = Nothing,
-      _httphHeaderName = Nothing
+    { headerValue = Lude.Nothing,
+      headerName = Lude.Nothing
     }
 
 -- | The header value.
-httphHeaderValue :: Lens' HTTPHeader (Maybe Text)
-httphHeaderValue = lens _httphHeaderValue (\s a -> s {_httphHeaderValue = a})
+--
+-- /Note:/ Consider using 'headerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httphHeaderValue :: Lens.Lens' HTTPHeader (Lude.Maybe Lude.Text)
+httphHeaderValue = Lens.lens (headerValue :: HTTPHeader -> Lude.Maybe Lude.Text) (\s a -> s {headerValue = a} :: HTTPHeader)
+{-# DEPRECATED httphHeaderValue "Use generic-lens or generic-optics with 'headerValue' instead." #-}
 
 -- | The header name
-httphHeaderName :: Lens' HTTPHeader (Maybe Text)
-httphHeaderName = lens _httphHeaderName (\s a -> s {_httphHeaderName = a})
+--
+-- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httphHeaderName :: Lens.Lens' HTTPHeader (Lude.Maybe Lude.Text)
+httphHeaderName = Lens.lens (headerName :: HTTPHeader -> Lude.Maybe Lude.Text) (\s a -> s {headerName = a} :: HTTPHeader)
+{-# DEPRECATED httphHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
 
-instance Hashable HTTPHeader
-
-instance NFData HTTPHeader
-
-instance ToJSON HTTPHeader where
+instance Lude.ToJSON HTTPHeader where
   toJSON HTTPHeader' {..} =
-    object
-      ( catMaybes
-          [ ("headerValue" .=) <$> _httphHeaderValue,
-            ("headerName" .=) <$> _httphHeaderName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("headerValue" Lude..=) Lude.<$> headerValue,
+            ("headerName" Lude..=) Lude.<$> headerName
           ]
       )

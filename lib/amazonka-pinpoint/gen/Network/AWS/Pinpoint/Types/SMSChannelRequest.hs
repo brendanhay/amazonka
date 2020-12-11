@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SMSChannelRequest where
+module Network.AWS.Pinpoint.Types.SMSChannelRequest
+  ( SMSChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSMSChannelRequest,
+
+    -- * Lenses
+    smscrShortCode,
+    smscrEnabled,
+    smscrSenderId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the SMS channel for an application.
 --
---
---
--- /See:/ 'sMSChannelRequest' smart constructor.
+-- /See:/ 'mkSMSChannelRequest' smart constructor.
 data SMSChannelRequest = SMSChannelRequest'
-  { _smscrShortCode ::
-      !(Maybe Text),
-    _smscrEnabled :: !(Maybe Bool),
-    _smscrSenderId :: !(Maybe Text)
+  { shortCode ::
+      Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    senderId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMSChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smscrShortCode' - The registered short code that you want to use when you send messages through the SMS channel.
---
--- * 'smscrEnabled' - Specifies whether to enable the SMS channel for the application.
---
--- * 'smscrSenderId' - The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
-sMSChannelRequest ::
+-- * 'enabled' - Specifies whether to enable the SMS channel for the application.
+-- * 'senderId' - The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
+-- * 'shortCode' - The registered short code that you want to use when you send messages through the SMS channel.
+mkSMSChannelRequest ::
   SMSChannelRequest
-sMSChannelRequest =
+mkSMSChannelRequest =
   SMSChannelRequest'
-    { _smscrShortCode = Nothing,
-      _smscrEnabled = Nothing,
-      _smscrSenderId = Nothing
+    { shortCode = Lude.Nothing,
+      enabled = Lude.Nothing,
+      senderId = Lude.Nothing
     }
 
 -- | The registered short code that you want to use when you send messages through the SMS channel.
-smscrShortCode :: Lens' SMSChannelRequest (Maybe Text)
-smscrShortCode = lens _smscrShortCode (\s a -> s {_smscrShortCode = a})
+--
+-- /Note:/ Consider using 'shortCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smscrShortCode :: Lens.Lens' SMSChannelRequest (Lude.Maybe Lude.Text)
+smscrShortCode = Lens.lens (shortCode :: SMSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {shortCode = a} :: SMSChannelRequest)
+{-# DEPRECATED smscrShortCode "Use generic-lens or generic-optics with 'shortCode' instead." #-}
 
 -- | Specifies whether to enable the SMS channel for the application.
-smscrEnabled :: Lens' SMSChannelRequest (Maybe Bool)
-smscrEnabled = lens _smscrEnabled (\s a -> s {_smscrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smscrEnabled :: Lens.Lens' SMSChannelRequest (Lude.Maybe Lude.Bool)
+smscrEnabled = Lens.lens (enabled :: SMSChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SMSChannelRequest)
+{-# DEPRECATED smscrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
-smscrSenderId :: Lens' SMSChannelRequest (Maybe Text)
-smscrSenderId = lens _smscrSenderId (\s a -> s {_smscrSenderId = a})
+--
+-- /Note:/ Consider using 'senderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smscrSenderId :: Lens.Lens' SMSChannelRequest (Lude.Maybe Lude.Text)
+smscrSenderId = Lens.lens (senderId :: SMSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {senderId = a} :: SMSChannelRequest)
+{-# DEPRECATED smscrSenderId "Use generic-lens or generic-optics with 'senderId' instead." #-}
 
-instance Hashable SMSChannelRequest
-
-instance NFData SMSChannelRequest
-
-instance ToJSON SMSChannelRequest where
+instance Lude.ToJSON SMSChannelRequest where
   toJSON SMSChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("ShortCode" .=) <$> _smscrShortCode,
-            ("Enabled" .=) <$> _smscrEnabled,
-            ("SenderId" .=) <$> _smscrSenderId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ShortCode" Lude..=) Lude.<$> shortCode,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("SenderId" Lude..=) Lude.<$> senderId
           ]
       )

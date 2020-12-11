@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,31 +14,32 @@
 --
 -- Returns some or all (up to 1,000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK response can contain valid or invalid XML. Be sure to design your application to parse the contents of the response and handle it appropriately.
 --
---
 -- /Important:/ This API has been revised. We recommend that you use the newer version, <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html ListObjectsV2> , when developing applications. For backward compatibility, Amazon S3 continues to support @ListObjects@ .
---
 -- The following operations are related to @ListObjects@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html ListObjectsV2>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html ListBuckets>
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
-  ( -- * Creating a Request
-    listObjects,
-    ListObjects,
+  ( -- * Creating a request
+    ListObjects (..),
+    mkListObjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     loPrefix,
     loEncodingType,
     loRequestPayer,
@@ -53,11 +49,11 @@ module Network.AWS.S3.ListObjects
     loExpectedBucketOwner,
     loBucket,
 
-    -- * Destructuring the Response
-    listObjectsResponse,
-    ListObjectsResponse,
+    -- * Destructuring the response
+    ListObjectsResponse (..),
+    mkListObjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lorsContents,
     lorsPrefix,
     lorsCommonPrefixes,
@@ -72,254 +68,319 @@ module Network.AWS.S3.ListObjects
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'listObjects' smart constructor.
+-- | /See:/ 'mkListObjects' smart constructor.
 data ListObjects = ListObjects'
-  { _loPrefix :: !(Maybe Text),
-    _loEncodingType :: !(Maybe EncodingType),
-    _loRequestPayer :: !(Maybe RequestPayer),
-    _loMarker :: !(Maybe Text),
-    _loMaxKeys :: !(Maybe Int),
-    _loDelimiter :: !(Maybe Delimiter),
-    _loExpectedBucketOwner :: !(Maybe Text),
-    _loBucket :: !BucketName
+  { prefix :: Lude.Maybe Lude.Text,
+    encodingType :: Lude.Maybe EncodingType,
+    requestPayer :: Lude.Maybe RequestPayer,
+    marker :: Lude.Maybe Lude.Text,
+    maxKeys :: Lude.Maybe Lude.Int,
+    delimiter :: Lude.Maybe Delimiter,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The name of the bucket containing the objects.
 --
--- * 'loPrefix' - Limits the response to keys that begin with the specified prefix.
---
--- * 'loEncodingType' - Undocumented member.
---
--- * 'loRequestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
---
--- * 'loMarker' - Specifies the key to start with when listing objects in a bucket.
---
--- * 'loMaxKeys' - Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
---
--- * 'loDelimiter' - A delimiter is a character you use to group keys.
---
--- * 'loExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'loBucket' - The name of the bucket containing the objects. When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-listObjects ::
-  -- | 'loBucket'
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'delimiter' - A delimiter is a character you use to group keys.
+-- * 'encodingType' - Undocumented field.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'marker' - Specifies the key to start with when listing objects in a bucket.
+-- * 'maxKeys' - Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
+-- * 'prefix' - Limits the response to keys that begin with the specified prefix.
+-- * 'requestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
+mkListObjects ::
+  -- | 'bucket'
   BucketName ->
   ListObjects
-listObjects pBucket_ =
+mkListObjects pBucket_ =
   ListObjects'
-    { _loPrefix = Nothing,
-      _loEncodingType = Nothing,
-      _loRequestPayer = Nothing,
-      _loMarker = Nothing,
-      _loMaxKeys = Nothing,
-      _loDelimiter = Nothing,
-      _loExpectedBucketOwner = Nothing,
-      _loBucket = pBucket_
+    { prefix = Lude.Nothing,
+      encodingType = Lude.Nothing,
+      requestPayer = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxKeys = Lude.Nothing,
+      delimiter = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | Limits the response to keys that begin with the specified prefix.
-loPrefix :: Lens' ListObjects (Maybe Text)
-loPrefix = lens _loPrefix (\s a -> s {_loPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loPrefix :: Lens.Lens' ListObjects (Lude.Maybe Lude.Text)
+loPrefix = Lens.lens (prefix :: ListObjects -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListObjects)
+{-# DEPRECATED loPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
--- | Undocumented member.
-loEncodingType :: Lens' ListObjects (Maybe EncodingType)
-loEncodingType = lens _loEncodingType (\s a -> s {_loEncodingType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loEncodingType :: Lens.Lens' ListObjects (Lude.Maybe EncodingType)
+loEncodingType = Lens.lens (encodingType :: ListObjects -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListObjects)
+{-# DEPRECATED loEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
-loRequestPayer :: Lens' ListObjects (Maybe RequestPayer)
-loRequestPayer = lens _loRequestPayer (\s a -> s {_loRequestPayer = a})
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loRequestPayer :: Lens.Lens' ListObjects (Lude.Maybe RequestPayer)
+loRequestPayer = Lens.lens (requestPayer :: ListObjects -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: ListObjects)
+{-# DEPRECATED loRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Specifies the key to start with when listing objects in a bucket.
-loMarker :: Lens' ListObjects (Maybe Text)
-loMarker = lens _loMarker (\s a -> s {_loMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loMarker :: Lens.Lens' ListObjects (Lude.Maybe Lude.Text)
+loMarker = Lens.lens (marker :: ListObjects -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListObjects)
+{-# DEPRECATED loMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
-loMaxKeys :: Lens' ListObjects (Maybe Int)
-loMaxKeys = lens _loMaxKeys (\s a -> s {_loMaxKeys = a})
+--
+-- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loMaxKeys :: Lens.Lens' ListObjects (Lude.Maybe Lude.Int)
+loMaxKeys = Lens.lens (maxKeys :: ListObjects -> Lude.Maybe Lude.Int) (\s a -> s {maxKeys = a} :: ListObjects)
+{-# DEPRECATED loMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
 
 -- | A delimiter is a character you use to group keys.
-loDelimiter :: Lens' ListObjects (Maybe Delimiter)
-loDelimiter = lens _loDelimiter (\s a -> s {_loDelimiter = a})
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loDelimiter :: Lens.Lens' ListObjects (Lude.Maybe Delimiter)
+loDelimiter = Lens.lens (delimiter :: ListObjects -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListObjects)
+{-# DEPRECATED loDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-loExpectedBucketOwner :: Lens' ListObjects (Maybe Text)
-loExpectedBucketOwner = lens _loExpectedBucketOwner (\s a -> s {_loExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loExpectedBucketOwner :: Lens.Lens' ListObjects (Lude.Maybe Lude.Text)
+loExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListObjects -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListObjects)
+{-# DEPRECATED loExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The name of the bucket containing the objects. When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-loBucket :: Lens' ListObjects BucketName
-loBucket = lens _loBucket (\s a -> s {_loBucket = a})
+-- | The name of the bucket containing the objects.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loBucket :: Lens.Lens' ListObjects BucketName
+loBucket = Lens.lens (bucket :: ListObjects -> BucketName) (\s a -> s {bucket = a} :: ListObjects)
+{-# DEPRECATED loBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSPager ListObjects where
+instance Page.AWSPager ListObjects where
   page rq rs
-    | stop (rs ^. lorsIsTruncated) = Nothing
-    | isNothing
+    | Page.stop (rs Lens.^. lorsIsTruncated) = Lude.Nothing
+    | Lude.isNothing
         ( rs
-            ^. choice (^. lorsNextMarker) (^? (lorsContents . _last . oKey))
+            Lens.^. Lude.choice
+              (Lens.^. lorsNextMarker)
+              (Lens.^? (lorsContents Lude.. Lens._last Lude.. oKey))
         ) =
-      Nothing
-    | otherwise =
-      Just $
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
         rq
-          & loMarker
-          .~ rs ^. choice (^. lorsNextMarker) (^? (lorsContents . _last . oKey))
+          Lude.& loMarker
+          Lens..~ rs
+          Lens.^. Lude.choice
+            (Lens.^. lorsNextMarker)
+            (Lens.^? (lorsContents Lude.. Lens._last Lude.. oKey))
 
-instance AWSRequest ListObjects where
+instance Lude.AWSRequest ListObjects where
   type Rs ListObjects = ListObjectsResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListObjectsResponse'
-            <$> (may (parseXMLList "Contents") x)
-            <*> (x .@? "Prefix")
-            <*> (may (parseXMLList "CommonPrefixes") x)
-            <*> (x .@? "EncodingType")
-            <*> (x .@? "Name")
-            <*> (x .@? "Marker")
-            <*> (x .@? "NextMarker")
-            <*> (x .@? "MaxKeys")
-            <*> (x .@? "IsTruncated")
-            <*> (x .@? "Delimiter")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "Contents") x)
+            Lude.<*> (x Lude..@? "Prefix")
+            Lude.<*> (Lude.may (Lude.parseXMLList "CommonPrefixes") x)
+            Lude.<*> (x Lude..@? "EncodingType")
+            Lude.<*> (x Lude..@? "Name")
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "NextMarker")
+            Lude.<*> (x Lude..@? "MaxKeys")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (x Lude..@? "Delimiter")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListObjects
-
-instance NFData ListObjects
-
-instance ToHeaders ListObjects where
+instance Lude.ToHeaders ListObjects where
   toHeaders ListObjects' {..} =
-    mconcat
-      [ "x-amz-request-payer" =# _loRequestPayer,
-        "x-amz-expected-bucket-owner" =# _loExpectedBucketOwner
+    Lude.mconcat
+      [ "x-amz-request-payer" Lude.=# requestPayer,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath ListObjects where
-  toPath ListObjects' {..} = mconcat ["/", toBS _loBucket]
+instance Lude.ToPath ListObjects where
+  toPath ListObjects' {..} = Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery ListObjects where
+instance Lude.ToQuery ListObjects where
   toQuery ListObjects' {..} =
-    mconcat
-      [ "prefix" =: _loPrefix,
-        "encoding-type" =: _loEncodingType,
-        "marker" =: _loMarker,
-        "max-keys" =: _loMaxKeys,
-        "delimiter" =: _loDelimiter
+    Lude.mconcat
+      [ "prefix" Lude.=: prefix,
+        "encoding-type" Lude.=: encodingType,
+        "marker" Lude.=: marker,
+        "max-keys" Lude.=: maxKeys,
+        "delimiter" Lude.=: delimiter
       ]
 
--- | /See:/ 'listObjectsResponse' smart constructor.
+-- | /See:/ 'mkListObjectsResponse' smart constructor.
 data ListObjectsResponse = ListObjectsResponse'
-  { _lorsContents ::
-      !(Maybe [Object]),
-    _lorsPrefix :: !(Maybe Text),
-    _lorsCommonPrefixes :: !(Maybe [CommonPrefix]),
-    _lorsEncodingType :: !(Maybe EncodingType),
-    _lorsName :: !(Maybe BucketName),
-    _lorsMarker :: !(Maybe Text),
-    _lorsNextMarker :: !(Maybe Text),
-    _lorsMaxKeys :: !(Maybe Int),
-    _lorsIsTruncated :: !(Maybe Bool),
-    _lorsDelimiter :: !(Maybe Delimiter),
-    _lorsResponseStatus :: !Int
+  { contents ::
+      Lude.Maybe [Object],
+    prefix :: Lude.Maybe Lude.Text,
+    commonPrefixes :: Lude.Maybe [CommonPrefix],
+    encodingType :: Lude.Maybe EncodingType,
+    name :: Lude.Maybe BucketName,
+    marker :: Lude.Maybe Lude.Text,
+    nextMarker :: Lude.Maybe Lude.Text,
+    maxKeys :: Lude.Maybe Lude.Int,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    delimiter :: Lude.Maybe Delimiter,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'commonPrefixes' - All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.
 --
--- * 'lorsContents' - Metadata about each object returned.
---
--- * 'lorsPrefix' - Keys that begin with the indicated prefix.
---
--- * 'lorsCommonPrefixes' - All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.  A response can contain CommonPrefixes only if you specify a delimiter. CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
---
--- * 'lorsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
---
--- * 'lorsName' - The bucket name.
---
--- * 'lorsMarker' - Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
---
--- * 'lorsNextMarker' - When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
---
--- * 'lorsMaxKeys' - The maximum number of keys returned in the response body.
---
--- * 'lorsIsTruncated' - A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
---
--- * 'lorsDelimiter' - Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
---
--- * 'lorsResponseStatus' - -- | The response status code.
-listObjectsResponse ::
-  -- | 'lorsResponseStatus'
-  Int ->
+-- A response can contain CommonPrefixes only if you specify a delimiter.
+-- CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.
+-- CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
+-- For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
+-- * 'contents' - Metadata about each object returned.
+-- * 'delimiter' - Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
+-- * 'encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
+-- * 'isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
+-- * 'marker' - Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
+-- * 'maxKeys' - The maximum number of keys returned in the response body.
+-- * 'name' - The bucket name.
+-- * 'nextMarker' - When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
+-- * 'prefix' - Keys that begin with the indicated prefix.
+-- * 'responseStatus' - The response status code.
+mkListObjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListObjectsResponse
-listObjectsResponse pResponseStatus_ =
+mkListObjectsResponse pResponseStatus_ =
   ListObjectsResponse'
-    { _lorsContents = Nothing,
-      _lorsPrefix = Nothing,
-      _lorsCommonPrefixes = Nothing,
-      _lorsEncodingType = Nothing,
-      _lorsName = Nothing,
-      _lorsMarker = Nothing,
-      _lorsNextMarker = Nothing,
-      _lorsMaxKeys = Nothing,
-      _lorsIsTruncated = Nothing,
-      _lorsDelimiter = Nothing,
-      _lorsResponseStatus = pResponseStatus_
+    { contents = Lude.Nothing,
+      prefix = Lude.Nothing,
+      commonPrefixes = Lude.Nothing,
+      encodingType = Lude.Nothing,
+      name = Lude.Nothing,
+      marker = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      maxKeys = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      delimiter = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Metadata about each object returned.
-lorsContents :: Lens' ListObjectsResponse [Object]
-lorsContents = lens _lorsContents (\s a -> s {_lorsContents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsContents :: Lens.Lens' ListObjectsResponse (Lude.Maybe [Object])
+lorsContents = Lens.lens (contents :: ListObjectsResponse -> Lude.Maybe [Object]) (\s a -> s {contents = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsContents "Use generic-lens or generic-optics with 'contents' instead." #-}
 
 -- | Keys that begin with the indicated prefix.
-lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
-lorsPrefix = lens _lorsPrefix (\s a -> s {_lorsPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsPrefix :: Lens.Lens' ListObjectsResponse (Lude.Maybe Lude.Text)
+lorsPrefix = Lens.lens (prefix :: ListObjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
--- | All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.  A response can contain CommonPrefixes only if you specify a delimiter. CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
-lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
-lorsCommonPrefixes = lens _lorsCommonPrefixes (\s a -> s {_lorsCommonPrefixes = a}) . _Default . _Coerce
+-- | All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.
+--
+-- A response can contain CommonPrefixes only if you specify a delimiter.
+-- CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.
+-- CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
+-- For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
+--
+-- /Note:/ Consider using 'commonPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsCommonPrefixes :: Lens.Lens' ListObjectsResponse (Lude.Maybe [CommonPrefix])
+lorsCommonPrefixes = Lens.lens (commonPrefixes :: ListObjectsResponse -> Lude.Maybe [CommonPrefix]) (\s a -> s {commonPrefixes = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsCommonPrefixes "Use generic-lens or generic-optics with 'commonPrefixes' instead." #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
-lorsEncodingType = lens _lorsEncodingType (\s a -> s {_lorsEncodingType = a})
+--
+-- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsEncodingType :: Lens.Lens' ListObjectsResponse (Lude.Maybe EncodingType)
+lorsEncodingType = Lens.lens (encodingType :: ListObjectsResponse -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | The bucket name.
-lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
-lorsName = lens _lorsName (\s a -> s {_lorsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsName :: Lens.Lens' ListObjectsResponse (Lude.Maybe BucketName)
+lorsName = Lens.lens (name :: ListObjectsResponse -> Lude.Maybe BucketName) (\s a -> s {name = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
-lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorsMarker = lens _lorsMarker (\s a -> s {_lorsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsMarker :: Lens.Lens' ListObjectsResponse (Lude.Maybe Lude.Text)
+lorsMarker = Lens.lens (marker :: ListObjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
-lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorsNextMarker = lens _lorsNextMarker (\s a -> s {_lorsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsNextMarker :: Lens.Lens' ListObjectsResponse (Lude.Maybe Lude.Text)
+lorsNextMarker = Lens.lens (nextMarker :: ListObjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The maximum number of keys returned in the response body.
-lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
-lorsMaxKeys = lens _lorsMaxKeys (\s a -> s {_lorsMaxKeys = a})
+--
+-- /Note:/ Consider using 'maxKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsMaxKeys :: Lens.Lens' ListObjectsResponse (Lude.Maybe Lude.Int)
+lorsMaxKeys = Lens.lens (maxKeys :: ListObjectsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxKeys = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsMaxKeys "Use generic-lens or generic-optics with 'maxKeys' instead." #-}
 
 -- | A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
-lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
-lorsIsTruncated = lens _lorsIsTruncated (\s a -> s {_lorsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsIsTruncated :: Lens.Lens' ListObjectsResponse (Lude.Maybe Lude.Bool)
+lorsIsTruncated = Lens.lens (isTruncated :: ListObjectsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
-lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
-lorsDelimiter = lens _lorsDelimiter (\s a -> s {_lorsDelimiter = a})
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsDelimiter :: Lens.Lens' ListObjectsResponse (Lude.Maybe Delimiter)
+lorsDelimiter = Lens.lens (delimiter :: ListObjectsResponse -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
--- | -- | The response status code.
-lorsResponseStatus :: Lens' ListObjectsResponse Int
-lorsResponseStatus = lens _lorsResponseStatus (\s a -> s {_lorsResponseStatus = a})
-
-instance NFData ListObjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsResponseStatus :: Lens.Lens' ListObjectsResponse Lude.Int
+lorsResponseStatus = Lens.lens (responseStatus :: ListObjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectsResponse)
+{-# DEPRECATED lorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

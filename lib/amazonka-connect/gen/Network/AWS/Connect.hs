@@ -13,15 +13,12 @@
 --
 -- Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.
 --
---
 -- Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact routing. You can also resolve customer issues more efficiently by putting customers in touch with the right agents.
---
 -- There are limits to the number of Amazon Connect resources that you can create and limits to the number of requests that you can make per second. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html Amazon Connect Service Quotas> in the /Amazon Connect Administrator Guide/ .
---
 -- To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect endpoints, see <https://docs.aws.amazon.com/general/latest/gr/connect_region.html Amazon Connect Endpoints> .
 module Network.AWS.Connect
-  ( -- * Service Configuration
-    connect,
+  ( -- * Service configuration
+    connectService,
 
     -- * Errors
     -- $errors
@@ -317,20 +314,20 @@ module Network.AWS.Connect
     VoiceRecordingTrack (..),
 
     -- ** Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aAttributeType,
 
     -- ** ChatMessage
-    ChatMessage,
-    chatMessage,
+    ChatMessage (..),
+    mkChatMessage,
     cmContentType,
     cmContent,
 
     -- ** ContactFlow
-    ContactFlow,
-    contactFlow,
+    ContactFlow (..),
+    mkContactFlow,
     cfARN,
     cfContent,
     cfName,
@@ -340,60 +337,60 @@ module Network.AWS.Connect
     cfTags,
 
     -- ** ContactFlowSummary
-    ContactFlowSummary,
-    contactFlowSummary,
+    ContactFlowSummary (..),
+    mkContactFlowSummary,
     cfsARN,
     cfsName,
     cfsContactFlowType,
     cfsId,
 
     -- ** Credentials
-    Credentials,
-    credentials,
+    Credentials (..),
+    mkCredentials,
     cAccessTokenExpiration,
     cAccessToken,
     cRefreshToken,
     cRefreshTokenExpiration,
 
     -- ** CurrentMetric
-    CurrentMetric,
-    currentMetric,
+    CurrentMetric (..),
+    mkCurrentMetric,
     cmName,
     cmUnit,
 
     -- ** CurrentMetricData
-    CurrentMetricData,
-    currentMetricData,
+    CurrentMetricData (..),
+    mkCurrentMetricData,
     cmdValue,
     cmdMetric,
 
     -- ** CurrentMetricResult
-    CurrentMetricResult,
-    currentMetricResult,
+    CurrentMetricResult (..),
+    mkCurrentMetricResult,
     cmrCollections,
     cmrDimensions,
 
     -- ** Dimensions
-    Dimensions,
-    dimensions,
+    Dimensions (..),
+    mkDimensions,
     dChannel,
     dQueue,
 
     -- ** EncryptionConfig
-    EncryptionConfig,
-    encryptionConfig,
+    EncryptionConfig (..),
+    mkEncryptionConfig,
     ecEncryptionType,
     ecKeyId,
 
     -- ** Filters
-    Filters,
-    filters,
+    Filters (..),
+    mkFilters,
     fQueues,
     fChannels,
 
     -- ** HierarchyGroup
-    HierarchyGroup,
-    hierarchyGroup,
+    HierarchyGroup (..),
+    mkHierarchyGroup,
     hgARN,
     hgName,
     hgHierarchyPath,
@@ -401,27 +398,27 @@ module Network.AWS.Connect
     hgLevelId,
 
     -- ** HierarchyGroupSummary
-    HierarchyGroupSummary,
-    hierarchyGroupSummary,
+    HierarchyGroupSummary (..),
+    mkHierarchyGroupSummary,
     hgsARN,
     hgsName,
     hgsId,
 
     -- ** HierarchyLevel
-    HierarchyLevel,
-    hierarchyLevel,
+    HierarchyLevel (..),
+    mkHierarchyLevel,
     hlARN,
     hlName,
     hlId,
 
     -- ** HierarchyLevelUpdate
-    HierarchyLevelUpdate,
-    hierarchyLevelUpdate,
+    HierarchyLevelUpdate (..),
+    mkHierarchyLevelUpdate,
     hluName,
 
     -- ** HierarchyPath
-    HierarchyPath,
-    hierarchyPath,
+    HierarchyPath (..),
+    mkHierarchyPath,
     hpLevelFive,
     hpLevelThree,
     hpLevelFour,
@@ -429,8 +426,8 @@ module Network.AWS.Connect
     hpLevelOne,
 
     -- ** HierarchyStructure
-    HierarchyStructure,
-    hierarchyStructure,
+    HierarchyStructure (..),
+    mkHierarchyStructure,
     hsLevelFive,
     hsLevelThree,
     hsLevelFour,
@@ -438,8 +435,8 @@ module Network.AWS.Connect
     hsLevelOne,
 
     -- ** HierarchyStructureUpdate
-    HierarchyStructureUpdate,
-    hierarchyStructureUpdate,
+    HierarchyStructureUpdate (..),
+    mkHierarchyStructureUpdate,
     hsuLevelFive,
     hsuLevelThree,
     hsuLevelFour,
@@ -447,35 +444,35 @@ module Network.AWS.Connect
     hsuLevelOne,
 
     -- ** HistoricalMetric
-    HistoricalMetric,
-    historicalMetric,
+    HistoricalMetric (..),
+    mkHistoricalMetric,
     hmName,
     hmThreshold,
     hmUnit,
     hmStatistic,
 
     -- ** HistoricalMetricData
-    HistoricalMetricData,
-    historicalMetricData,
+    HistoricalMetricData (..),
+    mkHistoricalMetricData,
     hmdValue,
     hmdMetric,
 
     -- ** HistoricalMetricResult
-    HistoricalMetricResult,
-    historicalMetricResult,
+    HistoricalMetricResult (..),
+    mkHistoricalMetricResult,
     hmrCollections,
     hmrDimensions,
 
     -- ** HoursOfOperationSummary
-    HoursOfOperationSummary,
-    hoursOfOperationSummary,
+    HoursOfOperationSummary (..),
+    mkHoursOfOperationSummary,
     hoosARN,
     hoosName,
     hoosId,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iARN,
     iCreatedTime,
     iOutboundCallsEnabled,
@@ -488,13 +485,13 @@ module Network.AWS.Connect
     iServiceRole,
 
     -- ** InstanceStatusReason
-    InstanceStatusReason,
-    instanceStatusReason,
+    InstanceStatusReason (..),
+    mkInstanceStatusReason,
     isrMessage,
 
     -- ** InstanceStorageConfig
-    InstanceStorageConfig,
-    instanceStorageConfig,
+    InstanceStorageConfig (..),
+    mkInstanceStorageConfig,
     iscAssociationId,
     iscKinesisStreamConfig,
     iscKinesisVideoStreamConfig,
@@ -503,8 +500,8 @@ module Network.AWS.Connect
     iscStorageType,
 
     -- ** InstanceSummary
-    InstanceSummary,
-    instanceSummary,
+    InstanceSummary (..),
+    mkInstanceSummary,
     isARN,
     isCreatedTime,
     isOutboundCallsEnabled,
@@ -516,42 +513,42 @@ module Network.AWS.Connect
     isServiceRole,
 
     -- ** KinesisFirehoseConfig
-    KinesisFirehoseConfig,
-    kinesisFirehoseConfig,
+    KinesisFirehoseConfig (..),
+    mkKinesisFirehoseConfig,
     kfcFirehoseARN,
 
     -- ** KinesisStreamConfig
-    KinesisStreamConfig,
-    kinesisStreamConfig,
+    KinesisStreamConfig (..),
+    mkKinesisStreamConfig,
     kscStreamARN,
 
     -- ** KinesisVideoStreamConfig
-    KinesisVideoStreamConfig,
-    kinesisVideoStreamConfig,
+    KinesisVideoStreamConfig (..),
+    mkKinesisVideoStreamConfig,
     kvscPrefix,
     kvscRetentionPeriodHours,
     kvscEncryptionConfig,
 
     -- ** LexBot
-    LexBot,
-    lexBot,
+    LexBot (..),
+    mkLexBot,
     lbLexRegion,
     lbName,
 
     -- ** MediaConcurrency
-    MediaConcurrency,
-    mediaConcurrency,
+    MediaConcurrency (..),
+    mkMediaConcurrency,
     mcChannel,
     mcConcurrency,
 
     -- ** ParticipantDetails
-    ParticipantDetails,
-    participantDetails,
+    ParticipantDetails (..),
+    mkParticipantDetails,
     pdDisplayName,
 
     -- ** PhoneNumberSummary
-    PhoneNumberSummary,
-    phoneNumberSummary,
+    PhoneNumberSummary (..),
+    mkPhoneNumberSummary,
     pnsPhoneNumberType,
     pnsARN,
     pnsPhoneNumber,
@@ -559,29 +556,29 @@ module Network.AWS.Connect
     pnsId,
 
     -- ** PromptSummary
-    PromptSummary,
-    promptSummary,
+    PromptSummary (..),
+    mkPromptSummary,
     psARN,
     psName,
     psId,
 
     -- ** QueueReference
-    QueueReference,
-    queueReference,
+    QueueReference (..),
+    mkQueueReference,
     qrARN,
     qrId,
 
     -- ** QueueSummary
-    QueueSummary,
-    queueSummary,
+    QueueSummary (..),
+    mkQueueSummary,
     qsARN,
     qsName,
     qsId,
     qsQueueType,
 
     -- ** RoutingProfile
-    RoutingProfile,
-    routingProfile,
+    RoutingProfile (..),
+    mkRoutingProfile,
     rpInstanceId,
     rpRoutingProfileARN,
     rpRoutingProfileId,
@@ -592,15 +589,15 @@ module Network.AWS.Connect
     rpTags,
 
     -- ** RoutingProfileQueueConfig
-    RoutingProfileQueueConfig,
-    routingProfileQueueConfig,
+    RoutingProfileQueueConfig (..),
+    mkRoutingProfileQueueConfig,
     rpqcQueueReference,
     rpqcPriority,
     rpqcDelay,
 
     -- ** RoutingProfileQueueConfigSummary
-    RoutingProfileQueueConfigSummary,
-    routingProfileQueueConfigSummary,
+    RoutingProfileQueueConfigSummary (..),
+    mkRoutingProfileQueueConfigSummary,
     rpqcsQueueId,
     rpqcsQueueARN,
     rpqcsQueueName,
@@ -609,48 +606,48 @@ module Network.AWS.Connect
     rpqcsChannel,
 
     -- ** RoutingProfileQueueReference
-    RoutingProfileQueueReference,
-    routingProfileQueueReference,
+    RoutingProfileQueueReference (..),
+    mkRoutingProfileQueueReference,
     rpqrQueueId,
     rpqrChannel,
 
     -- ** RoutingProfileSummary
-    RoutingProfileSummary,
-    routingProfileSummary,
+    RoutingProfileSummary (..),
+    mkRoutingProfileSummary,
     rpsARN,
     rpsName,
     rpsId,
 
     -- ** S3Config
-    S3Config,
-    s3Config,
+    S3Config (..),
+    mkS3Config,
     scEncryptionConfig,
     scBucketName,
     scBucketPrefix,
 
     -- ** SecurityKey
-    SecurityKey,
-    securityKey,
+    SecurityKey (..),
+    mkSecurityKey,
     skCreationTime,
     skAssociationId,
     skKey,
 
     -- ** SecurityProfileSummary
-    SecurityProfileSummary,
-    securityProfileSummary,
+    SecurityProfileSummary (..),
+    mkSecurityProfileSummary,
     spsARN,
     spsName,
     spsId,
 
     -- ** Threshold
-    Threshold,
-    threshold,
+    Threshold (..),
+    mkThreshold,
     tThresholdValue,
     tComparison,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uRoutingProfileId,
     uDirectoryUserId,
     uARN,
@@ -663,31 +660,42 @@ module Network.AWS.Connect
     uTags,
 
     -- ** UserIdentityInfo
-    UserIdentityInfo,
-    userIdentityInfo,
+    UserIdentityInfo (..),
+    mkUserIdentityInfo,
     uiiEmail,
     uiiLastName,
     uiiFirstName,
 
     -- ** UserPhoneConfig
-    UserPhoneConfig,
-    userPhoneConfig,
+    UserPhoneConfig (..),
+    mkUserPhoneConfig,
     upcAutoAccept,
     upcAfterContactWorkTimeLimit,
     upcDeskPhoneNumber,
     upcPhoneType,
 
     -- ** UserSummary
-    UserSummary,
-    userSummary,
+    UserSummary (..),
+    mkUserSummary,
     usARN,
     usUsername,
     usId,
 
     -- ** VoiceRecordingConfiguration
-    VoiceRecordingConfiguration,
-    voiceRecordingConfiguration,
+    VoiceRecordingConfiguration (..),
+    mkVoiceRecordingConfiguration,
     vrcVoiceRecordingTrack,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -768,6 +776,7 @@ import Network.AWS.Connect.UpdateUserPhoneConfig
 import Network.AWS.Connect.UpdateUserRoutingProfile
 import Network.AWS.Connect.UpdateUserSecurityProfiles
 import Network.AWS.Connect.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

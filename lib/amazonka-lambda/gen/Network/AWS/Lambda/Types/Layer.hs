@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.Layer where
+module Network.AWS.Lambda.Types.Layer
+  ( Layer (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLayer,
+
+    -- * Lenses
+    lSigningProfileVersionARN,
+    lARN,
+    lSigningJobARN,
+    lCodeSize,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> .
 --
---
---
--- /See:/ 'layer' smart constructor.
+-- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { _lSigningProfileVersionARN :: !(Maybe Text),
-    _lARN :: !(Maybe Text),
-    _lSigningJobARN :: !(Maybe Text),
-    _lCodeSize :: !(Maybe Integer)
+  { signingProfileVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    signingJobARN :: Lude.Maybe Lude.Text,
+    codeSize :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lSigningProfileVersionARN' - The Amazon Resource Name (ARN) for a signing profile version.
---
--- * 'lARN' - The Amazon Resource Name (ARN) of the function layer.
---
--- * 'lSigningJobARN' - The Amazon Resource Name (ARN) of a signing job.
---
--- * 'lCodeSize' - The size of the layer archive in bytes.
-layer ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the function layer.
+-- * 'codeSize' - The size of the layer archive in bytes.
+-- * 'signingJobARN' - The Amazon Resource Name (ARN) of a signing job.
+-- * 'signingProfileVersionARN' - The Amazon Resource Name (ARN) for a signing profile version.
+mkLayer ::
   Layer
-layer =
+mkLayer =
   Layer'
-    { _lSigningProfileVersionARN = Nothing,
-      _lARN = Nothing,
-      _lSigningJobARN = Nothing,
-      _lCodeSize = Nothing
+    { signingProfileVersionARN = Lude.Nothing,
+      arn = Lude.Nothing,
+      signingJobARN = Lude.Nothing,
+      codeSize = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for a signing profile version.
-lSigningProfileVersionARN :: Lens' Layer (Maybe Text)
-lSigningProfileVersionARN = lens _lSigningProfileVersionARN (\s a -> s {_lSigningProfileVersionARN = a})
+--
+-- /Note:/ Consider using 'signingProfileVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSigningProfileVersionARN :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
+lSigningProfileVersionARN = Lens.lens (signingProfileVersionARN :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {signingProfileVersionARN = a} :: Layer)
+{-# DEPRECATED lSigningProfileVersionARN "Use generic-lens or generic-optics with 'signingProfileVersionARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the function layer.
-lARN :: Lens' Layer (Maybe Text)
-lARN = lens _lARN (\s a -> s {_lARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lARN :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
+lARN = Lens.lens (arn :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Layer)
+{-# DEPRECATED lARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a signing job.
-lSigningJobARN :: Lens' Layer (Maybe Text)
-lSigningJobARN = lens _lSigningJobARN (\s a -> s {_lSigningJobARN = a})
+--
+-- /Note:/ Consider using 'signingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSigningJobARN :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
+lSigningJobARN = Lens.lens (signingJobARN :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {signingJobARN = a} :: Layer)
+{-# DEPRECATED lSigningJobARN "Use generic-lens or generic-optics with 'signingJobARN' instead." #-}
 
 -- | The size of the layer archive in bytes.
-lCodeSize :: Lens' Layer (Maybe Integer)
-lCodeSize = lens _lCodeSize (\s a -> s {_lCodeSize = a})
+--
+-- /Note:/ Consider using 'codeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lCodeSize :: Lens.Lens' Layer (Lude.Maybe Lude.Integer)
+lCodeSize = Lens.lens (codeSize :: Layer -> Lude.Maybe Lude.Integer) (\s a -> s {codeSize = a} :: Layer)
+{-# DEPRECATED lCodeSize "Use generic-lens or generic-optics with 'codeSize' instead." #-}
 
-instance FromJSON Layer where
+instance Lude.FromJSON Layer where
   parseJSON =
-    withObject
+    Lude.withObject
       "Layer"
       ( \x ->
           Layer'
-            <$> (x .:? "SigningProfileVersionArn")
-            <*> (x .:? "Arn")
-            <*> (x .:? "SigningJobArn")
-            <*> (x .:? "CodeSize")
+            Lude.<$> (x Lude..:? "SigningProfileVersionArn")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "SigningJobArn")
+            Lude.<*> (x Lude..:? "CodeSize")
       )
-
-instance Hashable Layer
-
-instance NFData Layer

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,123 @@
 --
 -- Deletes resources linked to an external ID.
 module Network.AWS.CodeDeploy.DeleteResourcesByExternalId
-  ( -- * Creating a Request
-    deleteResourcesByExternalId,
-    DeleteResourcesByExternalId,
+  ( -- * Creating a request
+    DeleteResourcesByExternalId (..),
+    mkDeleteResourcesByExternalId,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drbeiExternalId,
 
-    -- * Destructuring the Response
-    deleteResourcesByExternalIdResponse,
-    DeleteResourcesByExternalIdResponse,
+    -- * Destructuring the response
+    DeleteResourcesByExternalIdResponse (..),
+    mkDeleteResourcesByExternalIdResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drbeirsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteResourcesByExternalId' smart constructor.
+-- | /See:/ 'mkDeleteResourcesByExternalId' smart constructor.
 newtype DeleteResourcesByExternalId = DeleteResourcesByExternalId'
-  { _drbeiExternalId ::
-      Maybe Text
+  { externalId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcesByExternalId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drbeiExternalId' - The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.
-deleteResourcesByExternalId ::
+-- * 'externalId' - The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.
+mkDeleteResourcesByExternalId ::
   DeleteResourcesByExternalId
-deleteResourcesByExternalId =
-  DeleteResourcesByExternalId' {_drbeiExternalId = Nothing}
+mkDeleteResourcesByExternalId =
+  DeleteResourcesByExternalId' {externalId = Lude.Nothing}
 
 -- | The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.
-drbeiExternalId :: Lens' DeleteResourcesByExternalId (Maybe Text)
-drbeiExternalId = lens _drbeiExternalId (\s a -> s {_drbeiExternalId = a})
+--
+-- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbeiExternalId :: Lens.Lens' DeleteResourcesByExternalId (Lude.Maybe Lude.Text)
+drbeiExternalId = Lens.lens (externalId :: DeleteResourcesByExternalId -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: DeleteResourcesByExternalId)
+{-# DEPRECATED drbeiExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
 
-instance AWSRequest DeleteResourcesByExternalId where
+instance Lude.AWSRequest DeleteResourcesByExternalId where
   type
     Rs DeleteResourcesByExternalId =
       DeleteResourcesByExternalIdResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteResourcesByExternalIdResponse' <$> (pure (fromEnum s))
+          DeleteResourcesByExternalIdResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteResourcesByExternalId
-
-instance NFData DeleteResourcesByExternalId
-
-instance ToHeaders DeleteResourcesByExternalId where
+instance Lude.ToHeaders DeleteResourcesByExternalId where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.DeleteResourcesByExternalId" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.DeleteResourcesByExternalId" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteResourcesByExternalId where
+instance Lude.ToJSON DeleteResourcesByExternalId where
   toJSON DeleteResourcesByExternalId' {..} =
-    object (catMaybes [("externalId" .=) <$> _drbeiExternalId])
+    Lude.object
+      (Lude.catMaybes [("externalId" Lude..=) Lude.<$> externalId])
 
-instance ToPath DeleteResourcesByExternalId where
-  toPath = const "/"
+instance Lude.ToPath DeleteResourcesByExternalId where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteResourcesByExternalId where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteResourcesByExternalId where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteResourcesByExternalIdResponse' smart constructor.
+-- | /See:/ 'mkDeleteResourcesByExternalIdResponse' smart constructor.
 newtype DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
-  { _drbeirsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcesByExternalIdResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drbeirsResponseStatus' - -- | The response status code.
-deleteResourcesByExternalIdResponse ::
-  -- | 'drbeirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteResourcesByExternalIdResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteResourcesByExternalIdResponse
-deleteResourcesByExternalIdResponse pResponseStatus_ =
+mkDeleteResourcesByExternalIdResponse pResponseStatus_ =
   DeleteResourcesByExternalIdResponse'
-    { _drbeirsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-drbeirsResponseStatus :: Lens' DeleteResourcesByExternalIdResponse Int
-drbeirsResponseStatus = lens _drbeirsResponseStatus (\s a -> s {_drbeirsResponseStatus = a})
-
-instance NFData DeleteResourcesByExternalIdResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drbeirsResponseStatus :: Lens.Lens' DeleteResourcesByExternalIdResponse Lude.Int
+drbeirsResponseStatus = Lens.lens (responseStatus :: DeleteResourcesByExternalIdResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteResourcesByExternalIdResponse)
+{-# DEPRECATED drbeirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationExecutionFilterKey where
+module Network.AWS.SSM.Types.AssociationExecutionFilterKey
+  ( AssociationExecutionFilterKey
+      ( AssociationExecutionFilterKey',
+        CreatedTime,
+        ExecutionId,
+        Status
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationExecutionFilterKey
-  = CreatedTime
-  | ExecutionId
-  | Status
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationExecutionFilterKey = AssociationExecutionFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationExecutionFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "createdtime" -> pure CreatedTime
-      "executionid" -> pure ExecutionId
-      "status" -> pure Status
-      e ->
-        fromTextError $
-          "Failure parsing AssociationExecutionFilterKey from value: '" <> e
-            <> "'. Accepted values: createdtime, executionid, status"
+pattern CreatedTime :: AssociationExecutionFilterKey
+pattern CreatedTime = AssociationExecutionFilterKey' "CreatedTime"
 
-instance ToText AssociationExecutionFilterKey where
-  toText = \case
-    CreatedTime -> "CreatedTime"
-    ExecutionId -> "ExecutionId"
-    Status -> "Status"
+pattern ExecutionId :: AssociationExecutionFilterKey
+pattern ExecutionId = AssociationExecutionFilterKey' "ExecutionId"
 
-instance Hashable AssociationExecutionFilterKey
+pattern Status :: AssociationExecutionFilterKey
+pattern Status = AssociationExecutionFilterKey' "Status"
 
-instance NFData AssociationExecutionFilterKey
-
-instance ToByteString AssociationExecutionFilterKey
-
-instance ToQuery AssociationExecutionFilterKey
-
-instance ToHeader AssociationExecutionFilterKey
-
-instance ToJSON AssociationExecutionFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  CreatedTime,
+  ExecutionId,
+  Status,
+  AssociationExecutionFilterKey'
+  #-}

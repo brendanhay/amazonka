@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TransformStatusType where
+module Network.AWS.Glue.Types.TransformStatusType
+  ( TransformStatusType
+      ( TransformStatusType',
+        Deleting,
+        NotReady,
+        Ready
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransformStatusType
-  = Deleting
-  | NotReady
-  | Ready
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransformStatusType = TransformStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransformStatusType where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure Deleting
-      "not_ready" -> pure NotReady
-      "ready" -> pure Ready
-      e ->
-        fromTextError $
-          "Failure parsing TransformStatusType from value: '" <> e
-            <> "'. Accepted values: deleting, not_ready, ready"
+pattern Deleting :: TransformStatusType
+pattern Deleting = TransformStatusType' "DELETING"
 
-instance ToText TransformStatusType where
-  toText = \case
-    Deleting -> "DELETING"
-    NotReady -> "NOT_READY"
-    Ready -> "READY"
+pattern NotReady :: TransformStatusType
+pattern NotReady = TransformStatusType' "NOT_READY"
 
-instance Hashable TransformStatusType
+pattern Ready :: TransformStatusType
+pattern Ready = TransformStatusType' "READY"
 
-instance NFData TransformStatusType
-
-instance ToByteString TransformStatusType
-
-instance ToQuery TransformStatusType
-
-instance ToHeader TransformStatusType
-
-instance ToJSON TransformStatusType where
-  toJSON = toJSONText
-
-instance FromJSON TransformStatusType where
-  parseJSON = parseJSONText "TransformStatusType"
+{-# COMPLETE
+  Deleting,
+  NotReady,
+  Ready,
+  TransformStatusType'
+  #-}

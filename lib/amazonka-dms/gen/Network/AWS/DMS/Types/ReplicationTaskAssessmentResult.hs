@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,107 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.ReplicationTaskAssessmentResult where
+module Network.AWS.DMS.Types.ReplicationTaskAssessmentResult
+  ( ReplicationTaskAssessmentResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationTaskAssessmentResult,
+
+    -- * Lenses
+    rAssessmentResults,
+    rAssessmentResultsFile,
+    rReplicationTaskIdentifier,
+    rAssessmentStatus,
+    rS3ObjectURL,
+    rReplicationTaskLastAssessmentDate,
+    rReplicationTaskARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The task assessment report in JSON format.
 --
---
---
--- /See:/ 'replicationTaskAssessmentResult' smart constructor.
+-- /See:/ 'mkReplicationTaskAssessmentResult' smart constructor.
 data ReplicationTaskAssessmentResult = ReplicationTaskAssessmentResult'
-  { _rAssessmentResults ::
-      !(Maybe Text),
-    _rAssessmentResultsFile ::
-      !(Maybe Text),
-    _rReplicationTaskIdentifier ::
-      !(Maybe Text),
-    _rAssessmentStatus ::
-      !(Maybe Text),
-    _rS3ObjectURL ::
-      !(Maybe Text),
-    _rReplicationTaskLastAssessmentDate ::
-      !(Maybe POSIX),
-    _rReplicationTaskARN ::
-      !(Maybe Text)
+  { assessmentResults ::
+      Lude.Maybe Lude.Text,
+    assessmentResultsFile ::
+      Lude.Maybe Lude.Text,
+    replicationTaskIdentifier ::
+      Lude.Maybe Lude.Text,
+    assessmentStatus ::
+      Lude.Maybe Lude.Text,
+    s3ObjectURL ::
+      Lude.Maybe Lude.Text,
+    replicationTaskLastAssessmentDate ::
+      Lude.Maybe Lude.Timestamp,
+    replicationTaskARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTaskAssessmentResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rAssessmentResults' - The task assessment results in JSON format.
---
--- * 'rAssessmentResultsFile' - The file containing the results of the task assessment.
---
--- * 'rReplicationTaskIdentifier' - The replication task identifier of the task on which the task assessment was run.
---
--- * 'rAssessmentStatus' - The status of the task assessment.
---
--- * 'rS3ObjectURL' - The URL of the S3 object containing the task assessment results.
---
--- * 'rReplicationTaskLastAssessmentDate' - The date the task assessment was completed.
---
--- * 'rReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
-replicationTaskAssessmentResult ::
+-- * 'assessmentResults' - The task assessment results in JSON format.
+-- * 'assessmentResultsFile' - The file containing the results of the task assessment.
+-- * 'assessmentStatus' - The status of the task assessment.
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
+-- * 'replicationTaskIdentifier' - The replication task identifier of the task on which the task assessment was run.
+-- * 'replicationTaskLastAssessmentDate' - The date the task assessment was completed.
+-- * 's3ObjectURL' - The URL of the S3 object containing the task assessment results.
+mkReplicationTaskAssessmentResult ::
   ReplicationTaskAssessmentResult
-replicationTaskAssessmentResult =
+mkReplicationTaskAssessmentResult =
   ReplicationTaskAssessmentResult'
-    { _rAssessmentResults = Nothing,
-      _rAssessmentResultsFile = Nothing,
-      _rReplicationTaskIdentifier = Nothing,
-      _rAssessmentStatus = Nothing,
-      _rS3ObjectURL = Nothing,
-      _rReplicationTaskLastAssessmentDate = Nothing,
-      _rReplicationTaskARN = Nothing
+    { assessmentResults =
+        Lude.Nothing,
+      assessmentResultsFile = Lude.Nothing,
+      replicationTaskIdentifier = Lude.Nothing,
+      assessmentStatus = Lude.Nothing,
+      s3ObjectURL = Lude.Nothing,
+      replicationTaskLastAssessmentDate = Lude.Nothing,
+      replicationTaskARN = Lude.Nothing
     }
 
 -- | The task assessment results in JSON format.
-rAssessmentResults :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rAssessmentResults = lens _rAssessmentResults (\s a -> s {_rAssessmentResults = a})
+--
+-- /Note:/ Consider using 'assessmentResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAssessmentResults :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rAssessmentResults = Lens.lens (assessmentResults :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {assessmentResults = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rAssessmentResults "Use generic-lens or generic-optics with 'assessmentResults' instead." #-}
 
 -- | The file containing the results of the task assessment.
-rAssessmentResultsFile :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rAssessmentResultsFile = lens _rAssessmentResultsFile (\s a -> s {_rAssessmentResultsFile = a})
+--
+-- /Note:/ Consider using 'assessmentResultsFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAssessmentResultsFile :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rAssessmentResultsFile = Lens.lens (assessmentResultsFile :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {assessmentResultsFile = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rAssessmentResultsFile "Use generic-lens or generic-optics with 'assessmentResultsFile' instead." #-}
 
 -- | The replication task identifier of the task on which the task assessment was run.
-rReplicationTaskIdentifier :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rReplicationTaskIdentifier = lens _rReplicationTaskIdentifier (\s a -> s {_rReplicationTaskIdentifier = a})
+--
+-- /Note:/ Consider using 'replicationTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReplicationTaskIdentifier :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rReplicationTaskIdentifier = Lens.lens (replicationTaskIdentifier :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskIdentifier = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rReplicationTaskIdentifier "Use generic-lens or generic-optics with 'replicationTaskIdentifier' instead." #-}
 
 -- | The status of the task assessment.
-rAssessmentStatus :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rAssessmentStatus = lens _rAssessmentStatus (\s a -> s {_rAssessmentStatus = a})
+--
+-- /Note:/ Consider using 'assessmentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAssessmentStatus :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rAssessmentStatus = Lens.lens (assessmentStatus :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {assessmentStatus = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rAssessmentStatus "Use generic-lens or generic-optics with 'assessmentStatus' instead." #-}
 
 -- | The URL of the S3 object containing the task assessment results.
-rS3ObjectURL :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rS3ObjectURL = lens _rS3ObjectURL (\s a -> s {_rS3ObjectURL = a})
+--
+-- /Note:/ Consider using 's3ObjectURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rS3ObjectURL :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rS3ObjectURL = Lens.lens (s3ObjectURL :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {s3ObjectURL = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rS3ObjectURL "Use generic-lens or generic-optics with 's3ObjectURL' instead." #-}
 
 -- | The date the task assessment was completed.
-rReplicationTaskLastAssessmentDate :: Lens' ReplicationTaskAssessmentResult (Maybe UTCTime)
-rReplicationTaskLastAssessmentDate = lens _rReplicationTaskLastAssessmentDate (\s a -> s {_rReplicationTaskLastAssessmentDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'replicationTaskLastAssessmentDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReplicationTaskLastAssessmentDate :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Timestamp)
+rReplicationTaskLastAssessmentDate = Lens.lens (replicationTaskLastAssessmentDate :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {replicationTaskLastAssessmentDate = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rReplicationTaskLastAssessmentDate "Use generic-lens or generic-optics with 'replicationTaskLastAssessmentDate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-rReplicationTaskARN :: Lens' ReplicationTaskAssessmentResult (Maybe Text)
-rReplicationTaskARN = lens _rReplicationTaskARN (\s a -> s {_rReplicationTaskARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReplicationTaskARN :: Lens.Lens' ReplicationTaskAssessmentResult (Lude.Maybe Lude.Text)
+rReplicationTaskARN = Lens.lens (replicationTaskARN :: ReplicationTaskAssessmentResult -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskARN = a} :: ReplicationTaskAssessmentResult)
+{-# DEPRECATED rReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
-instance FromJSON ReplicationTaskAssessmentResult where
+instance Lude.FromJSON ReplicationTaskAssessmentResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationTaskAssessmentResult"
       ( \x ->
           ReplicationTaskAssessmentResult'
-            <$> (x .:? "AssessmentResults")
-            <*> (x .:? "AssessmentResultsFile")
-            <*> (x .:? "ReplicationTaskIdentifier")
-            <*> (x .:? "AssessmentStatus")
-            <*> (x .:? "S3ObjectUrl")
-            <*> (x .:? "ReplicationTaskLastAssessmentDate")
-            <*> (x .:? "ReplicationTaskArn")
+            Lude.<$> (x Lude..:? "AssessmentResults")
+            Lude.<*> (x Lude..:? "AssessmentResultsFile")
+            Lude.<*> (x Lude..:? "ReplicationTaskIdentifier")
+            Lude.<*> (x Lude..:? "AssessmentStatus")
+            Lude.<*> (x Lude..:? "S3ObjectUrl")
+            Lude.<*> (x Lude..:? "ReplicationTaskLastAssessmentDate")
+            Lude.<*> (x Lude..:? "ReplicationTaskArn")
       )
-
-instance Hashable ReplicationTaskAssessmentResult
-
-instance NFData ReplicationTaskAssessmentResult

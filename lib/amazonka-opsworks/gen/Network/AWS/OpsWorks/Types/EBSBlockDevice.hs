@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.EBSBlockDevice where
+module Network.AWS.OpsWorks.Types.EBSBlockDevice
+  ( EBSBlockDevice (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEBSBlockDevice,
+
+    -- * Lenses
+    ebdDeleteOnTermination,
+    ebdVolumeSize,
+    ebdIOPS,
+    ebdVolumeType,
+    ebdSnapshotId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.VolumeType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon EBS volume. This data type maps directly to the Amazon EC2 <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> data type.
 --
---
---
--- /See:/ 'ebsBlockDevice' smart constructor.
+-- /See:/ 'mkEBSBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { _ebdDeleteOnTermination ::
-      !(Maybe Bool),
-    _ebdVolumeSize :: !(Maybe Int),
-    _ebdIOPS :: !(Maybe Int),
-    _ebdVolumeType :: !(Maybe VolumeType),
-    _ebdSnapshotId :: !(Maybe Text)
+  { deleteOnTermination ::
+      Lude.Maybe Lude.Bool,
+    volumeSize :: Lude.Maybe Lude.Int,
+    iops :: Lude.Maybe Lude.Int,
+    volumeType :: Lude.Maybe VolumeType,
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deleteOnTermination' - Whether the volume is deleted on instance termination.
+-- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
+-- * 'snapshotId' - The snapshot ID.
+-- * 'volumeSize' - The volume size, in GiB. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
+-- * 'volumeType' - The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes.
 --
--- * 'ebdDeleteOnTermination' - Whether the volume is deleted on instance termination.
---
--- * 'ebdVolumeSize' - The volume size, in GiB. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
---
--- * 'ebdIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
---
--- * 'ebdVolumeType' - The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes. If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
---
--- * 'ebdSnapshotId' - The snapshot ID.
-ebsBlockDevice ::
+-- If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
+mkEBSBlockDevice ::
   EBSBlockDevice
-ebsBlockDevice =
+mkEBSBlockDevice =
   EBSBlockDevice'
-    { _ebdDeleteOnTermination = Nothing,
-      _ebdVolumeSize = Nothing,
-      _ebdIOPS = Nothing,
-      _ebdVolumeType = Nothing,
-      _ebdSnapshotId = Nothing
+    { deleteOnTermination = Lude.Nothing,
+      volumeSize = Lude.Nothing,
+      iops = Lude.Nothing,
+      volumeType = Lude.Nothing,
+      snapshotId = Lude.Nothing
     }
 
 -- | Whether the volume is deleted on instance termination.
-ebdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe Bool)
-ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\s a -> s {_ebdDeleteOnTermination = a})
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdDeleteOnTermination :: Lens.Lens' EBSBlockDevice (Lude.Maybe Lude.Bool)
+ebdDeleteOnTermination = Lens.lens (deleteOnTermination :: EBSBlockDevice -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The volume size, in GiB. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
-ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
-ebdVolumeSize = lens _ebdVolumeSize (\s a -> s {_ebdVolumeSize = a})
+--
+-- /Note:/ Consider using 'volumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdVolumeSize :: Lens.Lens' EBSBlockDevice (Lude.Maybe Lude.Int)
+ebdVolumeSize = Lens.lens (volumeSize :: EBSBlockDevice -> Lude.Maybe Lude.Int) (\s a -> s {volumeSize = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdVolumeSize "Use generic-lens or generic-optics with 'volumeSize' instead." #-}
 
 -- | The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
-ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
-ebdIOPS = lens _ebdIOPS (\s a -> s {_ebdIOPS = a})
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdIOPS :: Lens.Lens' EBSBlockDevice (Lude.Maybe Lude.Int)
+ebdIOPS = Lens.lens (iops :: EBSBlockDevice -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
--- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes. If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
-ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
-ebdVolumeType = lens _ebdVolumeType (\s a -> s {_ebdVolumeType = a})
+-- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes.
+--
+-- If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
+--
+-- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdVolumeType :: Lens.Lens' EBSBlockDevice (Lude.Maybe VolumeType)
+ebdVolumeType = Lens.lens (volumeType :: EBSBlockDevice -> Lude.Maybe VolumeType) (\s a -> s {volumeType = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
 -- | The snapshot ID.
-ebdSnapshotId :: Lens' EBSBlockDevice (Maybe Text)
-ebdSnapshotId = lens _ebdSnapshotId (\s a -> s {_ebdSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebdSnapshotId :: Lens.Lens' EBSBlockDevice (Lude.Maybe Lude.Text)
+ebdSnapshotId = Lens.lens (snapshotId :: EBSBlockDevice -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: EBSBlockDevice)
+{-# DEPRECATED ebdSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance FromJSON EBSBlockDevice where
+instance Lude.FromJSON EBSBlockDevice where
   parseJSON =
-    withObject
+    Lude.withObject
       "EBSBlockDevice"
       ( \x ->
           EBSBlockDevice'
-            <$> (x .:? "DeleteOnTermination")
-            <*> (x .:? "VolumeSize")
-            <*> (x .:? "Iops")
-            <*> (x .:? "VolumeType")
-            <*> (x .:? "SnapshotId")
+            Lude.<$> (x Lude..:? "DeleteOnTermination")
+            Lude.<*> (x Lude..:? "VolumeSize")
+            Lude.<*> (x Lude..:? "Iops")
+            Lude.<*> (x Lude..:? "VolumeType")
+            Lude.<*> (x Lude..:? "SnapshotId")
       )
 
-instance Hashable EBSBlockDevice
-
-instance NFData EBSBlockDevice
-
-instance ToJSON EBSBlockDevice where
+instance Lude.ToJSON EBSBlockDevice where
   toJSON EBSBlockDevice' {..} =
-    object
-      ( catMaybes
-          [ ("DeleteOnTermination" .=) <$> _ebdDeleteOnTermination,
-            ("VolumeSize" .=) <$> _ebdVolumeSize,
-            ("Iops" .=) <$> _ebdIOPS,
-            ("VolumeType" .=) <$> _ebdVolumeType,
-            ("SnapshotId" .=) <$> _ebdSnapshotId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeleteOnTermination" Lude..=) Lude.<$> deleteOnTermination,
+            ("VolumeSize" Lude..=) Lude.<$> volumeSize,
+            ("Iops" Lude..=) Lude.<$> iops,
+            ("VolumeType" Lude..=) Lude.<$> volumeType,
+            ("SnapshotId" Lude..=) Lude.<$> snapshotId
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,122 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.PutAssetPropertyValueEntry where
+module Network.AWS.IoT.Types.PutAssetPropertyValueEntry
+  ( PutAssetPropertyValueEntry (..),
+
+    -- * Smart constructor
+    mkPutAssetPropertyValueEntry,
+
+    -- * Lenses
+    papveEntryId,
+    papvePropertyAlias,
+    papvePropertyId,
+    papveAssetId,
+    papvePropertyValues,
+  )
+where
 
 import Network.AWS.IoT.Types.AssetPropertyValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An asset property value entry containing the following information.
 --
---
---
--- /See:/ 'putAssetPropertyValueEntry' smart constructor.
+-- /See:/ 'mkPutAssetPropertyValueEntry' smart constructor.
 data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
-  { _papveEntryId ::
-      !(Maybe Text),
-    _papvePropertyAlias :: !(Maybe Text),
-    _papvePropertyId :: !(Maybe Text),
-    _papveAssetId :: !(Maybe Text),
-    _papvePropertyValues ::
-      !(List1 AssetPropertyValue)
+  { entryId ::
+      Lude.Maybe Lude.Text,
+    propertyAlias :: Lude.Maybe Lude.Text,
+    propertyId :: Lude.Maybe Lude.Text,
+    assetId :: Lude.Maybe Lude.Text,
+    propertyValues ::
+      Lude.NonEmpty AssetPropertyValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAssetPropertyValueEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'papveEntryId' - Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
---
--- * 'papvePropertyAlias' - The name of the property alias associated with your asset property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
---
--- * 'papvePropertyId' - The ID of the asset's property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
---
--- * 'papveAssetId' - The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
---
--- * 'papvePropertyValues' - A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-putAssetPropertyValueEntry ::
-  -- | 'papvePropertyValues'
-  NonEmpty AssetPropertyValue ->
+-- * 'assetId' - The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
+-- * 'entryId' - Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+-- * 'propertyAlias' - The name of the property alias associated with your asset property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
+-- * 'propertyId' - The ID of the asset's property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
+-- * 'propertyValues' - A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+mkPutAssetPropertyValueEntry ::
+  -- | 'propertyValues'
+  Lude.NonEmpty AssetPropertyValue ->
   PutAssetPropertyValueEntry
-putAssetPropertyValueEntry pPropertyValues_ =
+mkPutAssetPropertyValueEntry pPropertyValues_ =
   PutAssetPropertyValueEntry'
-    { _papveEntryId = Nothing,
-      _papvePropertyAlias = Nothing,
-      _papvePropertyId = Nothing,
-      _papveAssetId = Nothing,
-      _papvePropertyValues = _List1 # pPropertyValues_
+    { entryId = Lude.Nothing,
+      propertyAlias = Lude.Nothing,
+      propertyId = Lude.Nothing,
+      assetId = Lude.Nothing,
+      propertyValues = pPropertyValues_
     }
 
 -- | Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
-papveEntryId :: Lens' PutAssetPropertyValueEntry (Maybe Text)
-papveEntryId = lens _papveEntryId (\s a -> s {_papveEntryId = a})
+--
+-- /Note:/ Consider using 'entryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papveEntryId :: Lens.Lens' PutAssetPropertyValueEntry (Lude.Maybe Lude.Text)
+papveEntryId = Lens.lens (entryId :: PutAssetPropertyValueEntry -> Lude.Maybe Lude.Text) (\s a -> s {entryId = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papveEntryId "Use generic-lens or generic-optics with 'entryId' instead." #-}
 
 -- | The name of the property alias associated with your asset property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
-papvePropertyAlias :: Lens' PutAssetPropertyValueEntry (Maybe Text)
-papvePropertyAlias = lens _papvePropertyAlias (\s a -> s {_papvePropertyAlias = a})
+--
+-- /Note:/ Consider using 'propertyAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papvePropertyAlias :: Lens.Lens' PutAssetPropertyValueEntry (Lude.Maybe Lude.Text)
+papvePropertyAlias = Lens.lens (propertyAlias :: PutAssetPropertyValueEntry -> Lude.Maybe Lude.Text) (\s a -> s {propertyAlias = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papvePropertyAlias "Use generic-lens or generic-optics with 'propertyAlias' instead." #-}
 
 -- | The ID of the asset's property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
-papvePropertyId :: Lens' PutAssetPropertyValueEntry (Maybe Text)
-papvePropertyId = lens _papvePropertyId (\s a -> s {_papvePropertyId = a})
+--
+-- /Note:/ Consider using 'propertyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papvePropertyId :: Lens.Lens' PutAssetPropertyValueEntry (Lude.Maybe Lude.Text)
+papvePropertyId = Lens.lens (propertyId :: PutAssetPropertyValueEntry -> Lude.Maybe Lude.Text) (\s a -> s {propertyId = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papvePropertyId "Use generic-lens or generic-optics with 'propertyId' instead." #-}
 
 -- | The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
-papveAssetId :: Lens' PutAssetPropertyValueEntry (Maybe Text)
-papveAssetId = lens _papveAssetId (\s a -> s {_papveAssetId = a})
+--
+-- /Note:/ Consider using 'assetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papveAssetId :: Lens.Lens' PutAssetPropertyValueEntry (Lude.Maybe Lude.Text)
+papveAssetId = Lens.lens (assetId :: PutAssetPropertyValueEntry -> Lude.Maybe Lude.Text) (\s a -> s {assetId = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papveAssetId "Use generic-lens or generic-optics with 'assetId' instead." #-}
 
 -- | A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-papvePropertyValues :: Lens' PutAssetPropertyValueEntry (NonEmpty AssetPropertyValue)
-papvePropertyValues = lens _papvePropertyValues (\s a -> s {_papvePropertyValues = a}) . _List1
+--
+-- /Note:/ Consider using 'propertyValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papvePropertyValues :: Lens.Lens' PutAssetPropertyValueEntry (Lude.NonEmpty AssetPropertyValue)
+papvePropertyValues = Lens.lens (propertyValues :: PutAssetPropertyValueEntry -> Lude.NonEmpty AssetPropertyValue) (\s a -> s {propertyValues = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papvePropertyValues "Use generic-lens or generic-optics with 'propertyValues' instead." #-}
 
-instance FromJSON PutAssetPropertyValueEntry where
+instance Lude.FromJSON PutAssetPropertyValueEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "PutAssetPropertyValueEntry"
       ( \x ->
           PutAssetPropertyValueEntry'
-            <$> (x .:? "entryId")
-            <*> (x .:? "propertyAlias")
-            <*> (x .:? "propertyId")
-            <*> (x .:? "assetId")
-            <*> (x .: "propertyValues")
+            Lude.<$> (x Lude..:? "entryId")
+            Lude.<*> (x Lude..:? "propertyAlias")
+            Lude.<*> (x Lude..:? "propertyId")
+            Lude.<*> (x Lude..:? "assetId")
+            Lude.<*> (x Lude..: "propertyValues")
       )
 
-instance Hashable PutAssetPropertyValueEntry
-
-instance NFData PutAssetPropertyValueEntry
-
-instance ToJSON PutAssetPropertyValueEntry where
+instance Lude.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
-    object
-      ( catMaybes
-          [ ("entryId" .=) <$> _papveEntryId,
-            ("propertyAlias" .=) <$> _papvePropertyAlias,
-            ("propertyId" .=) <$> _papvePropertyId,
-            ("assetId" .=) <$> _papveAssetId,
-            Just ("propertyValues" .= _papvePropertyValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("entryId" Lude..=) Lude.<$> entryId,
+            ("propertyAlias" Lude..=) Lude.<$> propertyAlias,
+            ("propertyId" Lude..=) Lude.<$> propertyId,
+            ("assetId" Lude..=) Lude.<$> assetId,
+            Lude.Just ("propertyValues" Lude..= propertyValues)
           ]
       )

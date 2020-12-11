@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.HandlerErrorCode where
+module Network.AWS.CloudFormation.Types.HandlerErrorCode
+  ( HandlerErrorCode
+      ( HandlerErrorCode',
+        AccessDenied,
+        AlreadyExists,
+        GeneralServiceException,
+        InternalFailure,
+        InvalidCredentials,
+        InvalidRequest,
+        NetworkFailure,
+        NotFound,
+        NotStabilized,
+        NotUpdatable,
+        ResourceConflict,
+        ServiceInternalError,
+        ServiceLimitExceeded,
+        Throttling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HandlerErrorCode
-  = AccessDenied
-  | AlreadyExists
-  | GeneralServiceException
-  | InternalFailure
-  | InvalidCredentials
-  | InvalidRequest
-  | NetworkFailure
-  | NotFound
-  | NotStabilized
-  | NotUpdatable
-  | ResourceConflict
-  | ServiceInternalError
-  | ServiceLimitExceeded
-  | Throttling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HandlerErrorCode = HandlerErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HandlerErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "accessdenied" -> pure AccessDenied
-      "alreadyexists" -> pure AlreadyExists
-      "generalserviceexception" -> pure GeneralServiceException
-      "internalfailure" -> pure InternalFailure
-      "invalidcredentials" -> pure InvalidCredentials
-      "invalidrequest" -> pure InvalidRequest
-      "networkfailure" -> pure NetworkFailure
-      "notfound" -> pure NotFound
-      "notstabilized" -> pure NotStabilized
-      "notupdatable" -> pure NotUpdatable
-      "resourceconflict" -> pure ResourceConflict
-      "serviceinternalerror" -> pure ServiceInternalError
-      "servicelimitexceeded" -> pure ServiceLimitExceeded
-      "throttling" -> pure Throttling
-      e ->
-        fromTextError $
-          "Failure parsing HandlerErrorCode from value: '" <> e
-            <> "'. Accepted values: accessdenied, alreadyexists, generalserviceexception, internalfailure, invalidcredentials, invalidrequest, networkfailure, notfound, notstabilized, notupdatable, resourceconflict, serviceinternalerror, servicelimitexceeded, throttling"
+pattern AccessDenied :: HandlerErrorCode
+pattern AccessDenied = HandlerErrorCode' "AccessDenied"
 
-instance ToText HandlerErrorCode where
-  toText = \case
-    AccessDenied -> "AccessDenied"
-    AlreadyExists -> "AlreadyExists"
-    GeneralServiceException -> "GeneralServiceException"
-    InternalFailure -> "InternalFailure"
-    InvalidCredentials -> "InvalidCredentials"
-    InvalidRequest -> "InvalidRequest"
-    NetworkFailure -> "NetworkFailure"
-    NotFound -> "NotFound"
-    NotStabilized -> "NotStabilized"
-    NotUpdatable -> "NotUpdatable"
-    ResourceConflict -> "ResourceConflict"
-    ServiceInternalError -> "ServiceInternalError"
-    ServiceLimitExceeded -> "ServiceLimitExceeded"
-    Throttling -> "Throttling"
+pattern AlreadyExists :: HandlerErrorCode
+pattern AlreadyExists = HandlerErrorCode' "AlreadyExists"
 
-instance Hashable HandlerErrorCode
+pattern GeneralServiceException :: HandlerErrorCode
+pattern GeneralServiceException = HandlerErrorCode' "GeneralServiceException"
 
-instance NFData HandlerErrorCode
+pattern InternalFailure :: HandlerErrorCode
+pattern InternalFailure = HandlerErrorCode' "InternalFailure"
 
-instance ToByteString HandlerErrorCode
+pattern InvalidCredentials :: HandlerErrorCode
+pattern InvalidCredentials = HandlerErrorCode' "InvalidCredentials"
 
-instance ToQuery HandlerErrorCode
+pattern InvalidRequest :: HandlerErrorCode
+pattern InvalidRequest = HandlerErrorCode' "InvalidRequest"
 
-instance ToHeader HandlerErrorCode
+pattern NetworkFailure :: HandlerErrorCode
+pattern NetworkFailure = HandlerErrorCode' "NetworkFailure"
+
+pattern NotFound :: HandlerErrorCode
+pattern NotFound = HandlerErrorCode' "NotFound"
+
+pattern NotStabilized :: HandlerErrorCode
+pattern NotStabilized = HandlerErrorCode' "NotStabilized"
+
+pattern NotUpdatable :: HandlerErrorCode
+pattern NotUpdatable = HandlerErrorCode' "NotUpdatable"
+
+pattern ResourceConflict :: HandlerErrorCode
+pattern ResourceConflict = HandlerErrorCode' "ResourceConflict"
+
+pattern ServiceInternalError :: HandlerErrorCode
+pattern ServiceInternalError = HandlerErrorCode' "ServiceInternalError"
+
+pattern ServiceLimitExceeded :: HandlerErrorCode
+pattern ServiceLimitExceeded = HandlerErrorCode' "ServiceLimitExceeded"
+
+pattern Throttling :: HandlerErrorCode
+pattern Throttling = HandlerErrorCode' "Throttling"
+
+{-# COMPLETE
+  AccessDenied,
+  AlreadyExists,
+  GeneralServiceException,
+  InternalFailure,
+  InvalidCredentials,
+  InvalidRequest,
+  NetworkFailure,
+  NotFound,
+  NotStabilized,
+  NotUpdatable,
+  ResourceConflict,
+  ServiceInternalError,
+  ServiceLimitExceeded,
+  Throttling,
+  HandlerErrorCode'
+  #-}

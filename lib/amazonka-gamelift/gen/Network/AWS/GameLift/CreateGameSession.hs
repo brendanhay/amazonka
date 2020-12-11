@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,44 +14,46 @@
 --
 -- Creates a multiplayer game session for players. This operation creates a game session record and assigns an available server process in the specified fleet to host the game session. A fleet must have an @ACTIVE@ status before a game session can be created in it.
 --
---
 -- To create a game session, specify either fleet ID or alias ID and indicate a maximum number of players to allow in the game session. You can also provide a name and game-specific properties for this game session. If successful, a 'GameSession' object is returned containing the game session properties and other settings you specified.
---
 -- __Idempotency tokens.__ You can add a token that uniquely identifies game session requests. This is useful for ensuring that game session requests are idempotent. Multiple requests with the same idempotency token are processed only once; subsequent requests return the original result. All response values are the same with the exception of game session status, which may change.
---
 -- __Resource creation limits.__ If you are creating a game session on a fleet with a resource creation limit policy in force, then you must specify a creator ID. Without this ID, Amazon GameLift has no way to evaluate the policy for this new game session request.
---
 -- __Player acceptance policy.__ By default, newly created game sessions are open to new players. You can restrict new player access by using 'UpdateGameSession' to change the game session's player session creation policy.
---
 -- __Game session logs.__ Logs are retained for all active game sessions for 14 days. To access the logs, call 'GetGameSessionLogUrl' to download the log files.
---
 -- /Available in Amazon GameLift Local./
 --
 --     * 'CreateGameSession'
 --
+--
 --     * 'DescribeGameSessions'
+--
 --
 --     * 'DescribeGameSessionDetails'
 --
+--
 --     * 'SearchGameSessions'
+--
 --
 --     * 'UpdateGameSession'
 --
+--
 --     * 'GetGameSessionLogUrl'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.CreateGameSession
-  ( -- * Creating a Request
-    createGameSession,
-    CreateGameSession,
+  ( -- * Creating a request
+    CreateGameSession (..),
+    mkCreateGameSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cgsIdempotencyToken,
     cgsGameProperties,
     cgsGameSessionId,
@@ -67,196 +64,222 @@ module Network.AWS.GameLift.CreateGameSession
     cgsCreatorId,
     cgsMaximumPlayerSessionCount,
 
-    -- * Destructuring the Response
-    createGameSessionResponse,
-    CreateGameSessionResponse,
+    -- * Destructuring the response
+    CreateGameSessionResponse (..),
+    mkCreateGameSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cgsrsGameSession,
     cgsrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'createGameSession' smart constructor.
+-- /See:/ 'mkCreateGameSession' smart constructor.
 data CreateGameSession = CreateGameSession'
-  { _cgsIdempotencyToken ::
-      !(Maybe Text),
-    _cgsGameProperties :: !(Maybe [GameProperty]),
-    _cgsGameSessionId :: !(Maybe Text),
-    _cgsAliasId :: !(Maybe Text),
-    _cgsName :: !(Maybe Text),
-    _cgsGameSessionData :: !(Maybe Text),
-    _cgsFleetId :: !(Maybe Text),
-    _cgsCreatorId :: !(Maybe Text),
-    _cgsMaximumPlayerSessionCount :: !Nat
+  { idempotencyToken ::
+      Lude.Maybe Lude.Text,
+    gameProperties :: Lude.Maybe [GameProperty],
+    gameSessionId :: Lude.Maybe Lude.Text,
+    aliasId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    gameSessionData :: Lude.Maybe Lude.Text,
+    fleetId :: Lude.Maybe Lude.Text,
+    creatorId :: Lude.Maybe Lude.Text,
+    maximumPlayerSessionCount :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGameSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgsIdempotencyToken' - Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
---
--- * 'cgsGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
---
--- * 'cgsGameSessionId' - /This parameter is no longer preferred. Please use @IdempotencyToken@ instead./ Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .)
---
--- * 'cgsAliasId' - A unique identifier for an alias associated with the fleet to create a game session in. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
---
--- * 'cgsName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
---
--- * 'cgsGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
---
--- * 'cgsFleetId' - A unique identifier for a fleet to create a game session in. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
---
--- * 'cgsCreatorId' - A unique identifier for a player or entity creating the game session. This ID is used to enforce a resource protection policy (if one exists) that limits the number of concurrent active game sessions one player can have.
---
--- * 'cgsMaximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
-createGameSession ::
-  -- | 'cgsMaximumPlayerSessionCount'
-  Natural ->
+-- * 'aliasId' - A unique identifier for an alias associated with the fleet to create a game session in. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
+-- * 'creatorId' - A unique identifier for a player or entity creating the game session. This ID is used to enforce a resource protection policy (if one exists) that limits the number of concurrent active game sessions one player can have.
+-- * 'fleetId' - A unique identifier for a fleet to create a game session in. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
+-- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'gameSessionId' - /This parameter is no longer preferred. Please use @IdempotencyToken@ instead./ Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .)
+-- * 'idempotencyToken' - Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
+-- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
+-- * 'name' - A descriptive label that is associated with a game session. Session names do not need to be unique.
+mkCreateGameSession ::
+  -- | 'maximumPlayerSessionCount'
+  Lude.Natural ->
   CreateGameSession
-createGameSession pMaximumPlayerSessionCount_ =
+mkCreateGameSession pMaximumPlayerSessionCount_ =
   CreateGameSession'
-    { _cgsIdempotencyToken = Nothing,
-      _cgsGameProperties = Nothing,
-      _cgsGameSessionId = Nothing,
-      _cgsAliasId = Nothing,
-      _cgsName = Nothing,
-      _cgsGameSessionData = Nothing,
-      _cgsFleetId = Nothing,
-      _cgsCreatorId = Nothing,
-      _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
+    { idempotencyToken = Lude.Nothing,
+      gameProperties = Lude.Nothing,
+      gameSessionId = Lude.Nothing,
+      aliasId = Lude.Nothing,
+      name = Lude.Nothing,
+      gameSessionData = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      creatorId = Lude.Nothing,
+      maximumPlayerSessionCount = pMaximumPlayerSessionCount_
     }
 
 -- | Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
-cgsIdempotencyToken :: Lens' CreateGameSession (Maybe Text)
-cgsIdempotencyToken = lens _cgsIdempotencyToken (\s a -> s {_cgsIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsIdempotencyToken :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsIdempotencyToken = Lens.lens (idempotencyToken :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateGameSession)
+{-# DEPRECATED cgsIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
-cgsGameProperties :: Lens' CreateGameSession [GameProperty]
-cgsGameProperties = lens _cgsGameProperties (\s a -> s {_cgsGameProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gameProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameProperties :: Lens.Lens' CreateGameSession (Lude.Maybe [GameProperty])
+cgsGameProperties = Lens.lens (gameProperties :: CreateGameSession -> Lude.Maybe [GameProperty]) (\s a -> s {gameProperties = a} :: CreateGameSession)
+{-# DEPRECATED cgsGameProperties "Use generic-lens or generic-optics with 'gameProperties' instead." #-}
 
 -- | /This parameter is no longer preferred. Please use @IdempotencyToken@ instead./ Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .)
-cgsGameSessionId :: Lens' CreateGameSession (Maybe Text)
-cgsGameSessionId = lens _cgsGameSessionId (\s a -> s {_cgsGameSessionId = a})
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameSessionId :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsGameSessionId = Lens.lens (gameSessionId :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionId = a} :: CreateGameSession)
+{-# DEPRECATED cgsGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
 -- | A unique identifier for an alias associated with the fleet to create a game session in. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
-cgsAliasId :: Lens' CreateGameSession (Maybe Text)
-cgsAliasId = lens _cgsAliasId (\s a -> s {_cgsAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsAliasId :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsAliasId = Lens.lens (aliasId :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {aliasId = a} :: CreateGameSession)
+{-# DEPRECATED cgsAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
-cgsName :: Lens' CreateGameSession (Maybe Text)
-cgsName = lens _cgsName (\s a -> s {_cgsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsName :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsName = Lens.lens (name :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateGameSession)
+{-# DEPRECATED cgsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
-cgsGameSessionData :: Lens' CreateGameSession (Maybe Text)
-cgsGameSessionData = lens _cgsGameSessionData (\s a -> s {_cgsGameSessionData = a})
+--
+-- /Note:/ Consider using 'gameSessionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameSessionData :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsGameSessionData = Lens.lens (gameSessionData :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionData = a} :: CreateGameSession)
+{-# DEPRECATED cgsGameSessionData "Use generic-lens or generic-optics with 'gameSessionData' instead." #-}
 
 -- | A unique identifier for a fleet to create a game session in. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
-cgsFleetId :: Lens' CreateGameSession (Maybe Text)
-cgsFleetId = lens _cgsFleetId (\s a -> s {_cgsFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsFleetId :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsFleetId = Lens.lens (fleetId :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: CreateGameSession)
+{-# DEPRECATED cgsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | A unique identifier for a player or entity creating the game session. This ID is used to enforce a resource protection policy (if one exists) that limits the number of concurrent active game sessions one player can have.
-cgsCreatorId :: Lens' CreateGameSession (Maybe Text)
-cgsCreatorId = lens _cgsCreatorId (\s a -> s {_cgsCreatorId = a})
+--
+-- /Note:/ Consider using 'creatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsCreatorId :: Lens.Lens' CreateGameSession (Lude.Maybe Lude.Text)
+cgsCreatorId = Lens.lens (creatorId :: CreateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {creatorId = a} :: CreateGameSession)
+{-# DEPRECATED cgsCreatorId "Use generic-lens or generic-optics with 'creatorId' instead." #-}
 
 -- | The maximum number of players that can be connected simultaneously to the game session.
-cgsMaximumPlayerSessionCount :: Lens' CreateGameSession Natural
-cgsMaximumPlayerSessionCount = lens _cgsMaximumPlayerSessionCount (\s a -> s {_cgsMaximumPlayerSessionCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsMaximumPlayerSessionCount :: Lens.Lens' CreateGameSession Lude.Natural
+cgsMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: CreateGameSession -> Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: CreateGameSession)
+{-# DEPRECATED cgsMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
 
-instance AWSRequest CreateGameSession where
+instance Lude.AWSRequest CreateGameSession where
   type Rs CreateGameSession = CreateGameSessionResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateGameSessionResponse'
-            <$> (x .?> "GameSession") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameSession") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateGameSession
-
-instance NFData CreateGameSession
-
-instance ToHeaders CreateGameSession where
+instance Lude.ToHeaders CreateGameSession where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.CreateGameSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.CreateGameSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateGameSession where
+instance Lude.ToJSON CreateGameSession where
   toJSON CreateGameSession' {..} =
-    object
-      ( catMaybes
-          [ ("IdempotencyToken" .=) <$> _cgsIdempotencyToken,
-            ("GameProperties" .=) <$> _cgsGameProperties,
-            ("GameSessionId" .=) <$> _cgsGameSessionId,
-            ("AliasId" .=) <$> _cgsAliasId,
-            ("Name" .=) <$> _cgsName,
-            ("GameSessionData" .=) <$> _cgsGameSessionData,
-            ("FleetId" .=) <$> _cgsFleetId,
-            ("CreatorId" .=) <$> _cgsCreatorId,
-            Just
-              ("MaximumPlayerSessionCount" .= _cgsMaximumPlayerSessionCount)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IdempotencyToken" Lude..=) Lude.<$> idempotencyToken,
+            ("GameProperties" Lude..=) Lude.<$> gameProperties,
+            ("GameSessionId" Lude..=) Lude.<$> gameSessionId,
+            ("AliasId" Lude..=) Lude.<$> aliasId,
+            ("Name" Lude..=) Lude.<$> name,
+            ("GameSessionData" Lude..=) Lude.<$> gameSessionData,
+            ("FleetId" Lude..=) Lude.<$> fleetId,
+            ("CreatorId" Lude..=) Lude.<$> creatorId,
+            Lude.Just
+              ("MaximumPlayerSessionCount" Lude..= maximumPlayerSessionCount)
           ]
       )
 
-instance ToPath CreateGameSession where
-  toPath = const "/"
+instance Lude.ToPath CreateGameSession where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateGameSession where
-  toQuery = const mempty
+instance Lude.ToQuery CreateGameSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'createGameSessionResponse' smart constructor.
+-- /See:/ 'mkCreateGameSessionResponse' smart constructor.
 data CreateGameSessionResponse = CreateGameSessionResponse'
-  { _cgsrsGameSession ::
-      !(Maybe GameSession),
-    _cgsrsResponseStatus :: !Int
+  { gameSession ::
+      Lude.Maybe GameSession,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGameSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgsrsGameSession' - Object that describes the newly created game session record.
---
--- * 'cgsrsResponseStatus' - -- | The response status code.
-createGameSessionResponse ::
-  -- | 'cgsrsResponseStatus'
-  Int ->
+-- * 'gameSession' - Object that describes the newly created game session record.
+-- * 'responseStatus' - The response status code.
+mkCreateGameSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateGameSessionResponse
-createGameSessionResponse pResponseStatus_ =
+mkCreateGameSessionResponse pResponseStatus_ =
   CreateGameSessionResponse'
-    { _cgsrsGameSession = Nothing,
-      _cgsrsResponseStatus = pResponseStatus_
+    { gameSession = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object that describes the newly created game session record.
-cgsrsGameSession :: Lens' CreateGameSessionResponse (Maybe GameSession)
-cgsrsGameSession = lens _cgsrsGameSession (\s a -> s {_cgsrsGameSession = a})
+--
+-- /Note:/ Consider using 'gameSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsrsGameSession :: Lens.Lens' CreateGameSessionResponse (Lude.Maybe GameSession)
+cgsrsGameSession = Lens.lens (gameSession :: CreateGameSessionResponse -> Lude.Maybe GameSession) (\s a -> s {gameSession = a} :: CreateGameSessionResponse)
+{-# DEPRECATED cgsrsGameSession "Use generic-lens or generic-optics with 'gameSession' instead." #-}
 
--- | -- | The response status code.
-cgsrsResponseStatus :: Lens' CreateGameSessionResponse Int
-cgsrsResponseStatus = lens _cgsrsResponseStatus (\s a -> s {_cgsrsResponseStatus = a})
-
-instance NFData CreateGameSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsrsResponseStatus :: Lens.Lens' CreateGameSessionResponse Lude.Int
+cgsrsResponseStatus = Lens.lens (responseStatus :: CreateGameSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGameSessionResponse)
+{-# DEPRECATED cgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SelectParameters where
+module Network.AWS.S3.Types.SelectParameters
+  ( SelectParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSelectParameters,
+
+    -- * Lenses
+    spInputSerialization,
+    spExpressionType,
+    spExpression,
+    spOutputSerialization,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ExpressionType
 import Network.AWS.S3.Types.InputSerialization
@@ -24,76 +30,84 @@ import Network.AWS.S3.Types.OutputSerialization
 
 -- | Describes the parameters for Select job types.
 --
---
---
--- /See:/ 'selectParameters' smart constructor.
+-- /See:/ 'mkSelectParameters' smart constructor.
 data SelectParameters = SelectParameters'
-  { _spInputSerialization ::
-      !InputSerialization,
-    _spExpressionType :: !ExpressionType,
-    _spExpression :: !Text,
-    _spOutputSerialization :: !OutputSerialization
+  { inputSerialization ::
+      InputSerialization,
+    expressionType :: ExpressionType,
+    expression :: Lude.Text,
+    outputSerialization :: OutputSerialization
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spInputSerialization' - Describes the serialization format of the object.
---
--- * 'spExpressionType' - The type of the provided expression (for example, SQL).
---
--- * 'spExpression' - The expression that is used to query the object.
---
--- * 'spOutputSerialization' - Describes how the results of the Select job are serialized.
-selectParameters ::
-  -- | 'spInputSerialization'
+-- * 'expression' - The expression that is used to query the object.
+-- * 'expressionType' - The type of the provided expression (for example, SQL).
+-- * 'inputSerialization' - Describes the serialization format of the object.
+-- * 'outputSerialization' - Describes how the results of the Select job are serialized.
+mkSelectParameters ::
+  -- | 'inputSerialization'
   InputSerialization ->
-  -- | 'spExpressionType'
+  -- | 'expressionType'
   ExpressionType ->
-  -- | 'spExpression'
-  Text ->
-  -- | 'spOutputSerialization'
+  -- | 'expression'
+  Lude.Text ->
+  -- | 'outputSerialization'
   OutputSerialization ->
   SelectParameters
-selectParameters
+mkSelectParameters
   pInputSerialization_
   pExpressionType_
   pExpression_
   pOutputSerialization_ =
     SelectParameters'
-      { _spInputSerialization = pInputSerialization_,
-        _spExpressionType = pExpressionType_,
-        _spExpression = pExpression_,
-        _spOutputSerialization = pOutputSerialization_
+      { inputSerialization = pInputSerialization_,
+        expressionType = pExpressionType_,
+        expression = pExpression_,
+        outputSerialization = pOutputSerialization_
       }
 
 -- | Describes the serialization format of the object.
-spInputSerialization :: Lens' SelectParameters InputSerialization
-spInputSerialization = lens _spInputSerialization (\s a -> s {_spInputSerialization = a})
+--
+-- /Note:/ Consider using 'inputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spInputSerialization :: Lens.Lens' SelectParameters InputSerialization
+spInputSerialization = Lens.lens (inputSerialization :: SelectParameters -> InputSerialization) (\s a -> s {inputSerialization = a} :: SelectParameters)
+{-# DEPRECATED spInputSerialization "Use generic-lens or generic-optics with 'inputSerialization' instead." #-}
 
 -- | The type of the provided expression (for example, SQL).
-spExpressionType :: Lens' SelectParameters ExpressionType
-spExpressionType = lens _spExpressionType (\s a -> s {_spExpressionType = a})
+--
+-- /Note:/ Consider using 'expressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spExpressionType :: Lens.Lens' SelectParameters ExpressionType
+spExpressionType = Lens.lens (expressionType :: SelectParameters -> ExpressionType) (\s a -> s {expressionType = a} :: SelectParameters)
+{-# DEPRECATED spExpressionType "Use generic-lens or generic-optics with 'expressionType' instead." #-}
 
 -- | The expression that is used to query the object.
-spExpression :: Lens' SelectParameters Text
-spExpression = lens _spExpression (\s a -> s {_spExpression = a})
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spExpression :: Lens.Lens' SelectParameters Lude.Text
+spExpression = Lens.lens (expression :: SelectParameters -> Lude.Text) (\s a -> s {expression = a} :: SelectParameters)
+{-# DEPRECATED spExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | Describes how the results of the Select job are serialized.
-spOutputSerialization :: Lens' SelectParameters OutputSerialization
-spOutputSerialization = lens _spOutputSerialization (\s a -> s {_spOutputSerialization = a})
+--
+-- /Note:/ Consider using 'outputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spOutputSerialization :: Lens.Lens' SelectParameters OutputSerialization
+spOutputSerialization = Lens.lens (outputSerialization :: SelectParameters -> OutputSerialization) (\s a -> s {outputSerialization = a} :: SelectParameters)
+{-# DEPRECATED spOutputSerialization "Use generic-lens or generic-optics with 'outputSerialization' instead." #-}
 
-instance Hashable SelectParameters
-
-instance NFData SelectParameters
-
-instance ToXML SelectParameters where
+instance Lude.ToXML SelectParameters where
   toXML SelectParameters' {..} =
-    mconcat
-      [ "InputSerialization" @= _spInputSerialization,
-        "ExpressionType" @= _spExpressionType,
-        "Expression" @= _spExpression,
-        "OutputSerialization" @= _spOutputSerialization
+    Lude.mconcat
+      [ "InputSerialization" Lude.@= inputSerialization,
+        "ExpressionType" Lude.@= expressionType,
+        "Expression" Lude.@= expression,
+        "OutputSerialization" Lude.@= outputSerialization
       ]

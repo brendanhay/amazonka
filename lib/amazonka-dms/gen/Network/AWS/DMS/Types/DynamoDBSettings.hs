@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.DynamoDBSettings where
+module Network.AWS.DMS.Types.DynamoDBSettings
+  ( DynamoDBSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDynamoDBSettings,
+
+    -- * Lenses
+    ddsServiceAccessRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to define an Amazon DynamoDB target endpoint.
 --
---
---
--- /See:/ 'dynamoDBSettings' smart constructor.
+-- /See:/ 'mkDynamoDBSettings' smart constructor.
 newtype DynamoDBSettings = DynamoDBSettings'
-  { _ddsServiceAccessRoleARN ::
-      Text
+  { serviceAccessRoleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DynamoDBSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsServiceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
-dynamoDBSettings ::
-  -- | 'ddsServiceAccessRoleARN'
-  Text ->
+-- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
+mkDynamoDBSettings ::
+  -- | 'serviceAccessRoleARN'
+  Lude.Text ->
   DynamoDBSettings
-dynamoDBSettings pServiceAccessRoleARN_ =
-  DynamoDBSettings'
-    { _ddsServiceAccessRoleARN =
-        pServiceAccessRoleARN_
-    }
+mkDynamoDBSettings pServiceAccessRoleARN_ =
+  DynamoDBSettings' {serviceAccessRoleARN = pServiceAccessRoleARN_}
 
 -- | The Amazon Resource Name (ARN) used by the service access IAM role.
-ddsServiceAccessRoleARN :: Lens' DynamoDBSettings Text
-ddsServiceAccessRoleARN = lens _ddsServiceAccessRoleARN (\s a -> s {_ddsServiceAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsServiceAccessRoleARN :: Lens.Lens' DynamoDBSettings Lude.Text
+ddsServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: DynamoDBSettings -> Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: DynamoDBSettings)
+{-# DEPRECATED ddsServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
 
-instance FromJSON DynamoDBSettings where
+instance Lude.FromJSON DynamoDBSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "DynamoDBSettings"
-      (\x -> DynamoDBSettings' <$> (x .: "ServiceAccessRoleArn"))
+      ( \x ->
+          DynamoDBSettings' Lude.<$> (x Lude..: "ServiceAccessRoleArn")
+      )
 
-instance Hashable DynamoDBSettings
-
-instance NFData DynamoDBSettings
-
-instance ToJSON DynamoDBSettings where
+instance Lude.ToJSON DynamoDBSettings where
   toJSON DynamoDBSettings' {..} =
-    object
-      ( catMaybes
-          [Just ("ServiceAccessRoleArn" .= _ddsServiceAccessRoleARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ServiceAccessRoleArn" Lude..= serviceAccessRoleARN)]
       )

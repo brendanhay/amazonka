@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Starts deletion of channel. The associated outputs are also deleted.
 module Network.AWS.MediaLive.DeleteChannel
-  ( -- * Creating a Request
-    deleteChannel,
-    DeleteChannel,
+  ( -- * Creating a request
+    DeleteChannel (..),
+    mkDeleteChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcChannelId,
 
-    -- * Destructuring the Response
-    deleteChannelResponse,
-    DeleteChannelResponse,
+    -- * Destructuring the response
+    DeleteChannelResponse (..),
+    mkDeleteChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsState,
     drsLogLevel,
     drsARN,
@@ -51,237 +46,286 @@ module Network.AWS.MediaLive.DeleteChannel
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DeleteChannelRequest
 --
--- /See:/ 'deleteChannel' smart constructor.
-newtype DeleteChannel = DeleteChannel' {_dcChannelId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteChannel' smart constructor.
+newtype DeleteChannel = DeleteChannel' {channelId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcChannelId' - Unique ID of the channel.
-deleteChannel ::
-  -- | 'dcChannelId'
-  Text ->
+-- * 'channelId' - Unique ID of the channel.
+mkDeleteChannel ::
+  -- | 'channelId'
+  Lude.Text ->
   DeleteChannel
-deleteChannel pChannelId_ =
-  DeleteChannel' {_dcChannelId = pChannelId_}
+mkDeleteChannel pChannelId_ =
+  DeleteChannel' {channelId = pChannelId_}
 
 -- | Unique ID of the channel.
-dcChannelId :: Lens' DeleteChannel Text
-dcChannelId = lens _dcChannelId (\s a -> s {_dcChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcChannelId :: Lens.Lens' DeleteChannel Lude.Text
+dcChannelId = Lens.lens (channelId :: DeleteChannel -> Lude.Text) (\s a -> s {channelId = a} :: DeleteChannel)
+{-# DEPRECATED dcChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance AWSRequest DeleteChannel where
+instance Lude.AWSRequest DeleteChannel where
   type Rs DeleteChannel = DeleteChannelResponse
-  request = delete mediaLive
+  request = Req.delete mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteChannelResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "logLevel")
-            <*> (x .?> "arn")
-            <*> (x .?> "pipelinesRunningCount")
-            <*> (x .?> "pipelineDetails" .!@ mempty)
-            <*> (x .?> "inputSpecification")
-            <*> (x .?> "inputAttachments" .!@ mempty)
-            <*> (x .?> "destinations" .!@ mempty)
-            <*> (x .?> "name")
-            <*> (x .?> "cdiInputSpecification")
-            <*> (x .?> "id")
-            <*> (x .?> "channelClass")
-            <*> (x .?> "egressEndpoints" .!@ mempty)
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (x .?> "encoderSettings")
-            <*> (x .?> "roleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "logLevel")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "pipelinesRunningCount")
+            Lude.<*> (x Lude..?> "pipelineDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "inputSpecification")
+            Lude.<*> (x Lude..?> "inputAttachments" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "cdiInputSpecification")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "channelClass")
+            Lude.<*> (x Lude..?> "egressEndpoints" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "encoderSettings")
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteChannel
-
-instance NFData DeleteChannel
-
-instance ToHeaders DeleteChannel where
+instance Lude.ToHeaders DeleteChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteChannel where
+instance Lude.ToPath DeleteChannel where
   toPath DeleteChannel' {..} =
-    mconcat ["/prod/channels/", toBS _dcChannelId]
+    Lude.mconcat ["/prod/channels/", Lude.toBS channelId]
 
-instance ToQuery DeleteChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteChannel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteChannelResponse
 --
--- /See:/ 'deleteChannelResponse' smart constructor.
+-- /See:/ 'mkDeleteChannelResponse' smart constructor.
 data DeleteChannelResponse = DeleteChannelResponse'
-  { _drsState ::
-      !(Maybe ChannelState),
-    _drsLogLevel :: !(Maybe LogLevel),
-    _drsARN :: !(Maybe Text),
-    _drsPipelinesRunningCount :: !(Maybe Int),
-    _drsPipelineDetails ::
-      !(Maybe [PipelineDetail]),
-    _drsInputSpecification ::
-      !(Maybe InputSpecification),
-    _drsInputAttachments ::
-      !(Maybe [InputAttachment]),
-    _drsDestinations ::
-      !(Maybe [OutputDestination]),
-    _drsName :: !(Maybe Text),
-    _drsCdiInputSpecification ::
-      !(Maybe CdiInputSpecification),
-    _drsId :: !(Maybe Text),
-    _drsChannelClass :: !(Maybe ChannelClass),
-    _drsEgressEndpoints ::
-      !(Maybe [ChannelEgressEndpoint]),
-    _drsTags :: !(Maybe (Map Text (Text))),
-    _drsEncoderSettings :: !(Maybe EncoderSettings),
-    _drsRoleARN :: !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe ChannelState,
+    logLevel :: Lude.Maybe LogLevel,
+    arn :: Lude.Maybe Lude.Text,
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    pipelineDetails :: Lude.Maybe [PipelineDetail],
+    inputSpecification ::
+      Lude.Maybe InputSpecification,
+    inputAttachments ::
+      Lude.Maybe [InputAttachment],
+    destinations :: Lude.Maybe [OutputDestination],
+    name :: Lude.Maybe Lude.Text,
+    cdiInputSpecification ::
+      Lude.Maybe CdiInputSpecification,
+    id :: Lude.Maybe Lude.Text,
+    channelClass :: Lude.Maybe ChannelClass,
+    egressEndpoints ::
+      Lude.Maybe [ChannelEgressEndpoint],
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    encoderSettings :: Lude.Maybe EncoderSettings,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The unique arn of the channel.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'destinations' - A list of destinations of the channel. For UDP outputs, there is one
 --
--- * 'drsState' - Undocumented member.
---
--- * 'drsLogLevel' - The log level being written to CloudWatch Logs.
---
--- * 'drsARN' - The unique arn of the channel.
---
--- * 'drsPipelinesRunningCount' - The number of currently healthy pipelines.
---
--- * 'drsPipelineDetails' - Runtime details for the pipelines of a running channel.
---
--- * 'drsInputSpecification' - Specification of network and file inputs for this channel
---
--- * 'drsInputAttachments' - List of input attachments for channel.
---
--- * 'drsDestinations' - A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager.
---
--- * 'drsName' - The name of the channel. (user-mutable)
---
--- * 'drsCdiInputSpecification' - Specification of CDI inputs for this channel
---
--- * 'drsId' - The unique id of the channel.
---
--- * 'drsChannelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
---
--- * 'drsEgressEndpoints' - The endpoints where outgoing connections initiate from
---
--- * 'drsTags' - A collection of key-value pairs.
---
--- * 'drsEncoderSettings' - Undocumented member.
---
--- * 'drsRoleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteChannelResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- destination per output. For other types (HLS, for example), there is
+-- one destination per packager.
+-- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
+-- * 'encoderSettings' - Undocumented field.
+-- * 'id' - The unique id of the channel.
+-- * 'inputAttachments' - List of input attachments for channel.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'logLevel' - The log level being written to CloudWatch Logs.
+-- * 'name' - The name of the channel. (user-mutable)
+-- * 'pipelineDetails' - Runtime details for the pipelines of a running channel.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+-- * 'state' - Undocumented field.
+-- * 'tags' - A collection of key-value pairs.
+mkDeleteChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteChannelResponse
-deleteChannelResponse pResponseStatus_ =
+mkDeleteChannelResponse pResponseStatus_ =
   DeleteChannelResponse'
-    { _drsState = Nothing,
-      _drsLogLevel = Nothing,
-      _drsARN = Nothing,
-      _drsPipelinesRunningCount = Nothing,
-      _drsPipelineDetails = Nothing,
-      _drsInputSpecification = Nothing,
-      _drsInputAttachments = Nothing,
-      _drsDestinations = Nothing,
-      _drsName = Nothing,
-      _drsCdiInputSpecification = Nothing,
-      _drsId = Nothing,
-      _drsChannelClass = Nothing,
-      _drsEgressEndpoints = Nothing,
-      _drsTags = Nothing,
-      _drsEncoderSettings = Nothing,
-      _drsRoleARN = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      logLevel = Lude.Nothing,
+      arn = Lude.Nothing,
+      pipelinesRunningCount = Lude.Nothing,
+      pipelineDetails = Lude.Nothing,
+      inputSpecification = Lude.Nothing,
+      inputAttachments = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      cdiInputSpecification = Lude.Nothing,
+      id = Lude.Nothing,
+      channelClass = Lude.Nothing,
+      egressEndpoints = Lude.Nothing,
+      tags = Lude.Nothing,
+      encoderSettings = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-drsState :: Lens' DeleteChannelResponse (Maybe ChannelState)
-drsState = lens _drsState (\s a -> s {_drsState = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsState :: Lens.Lens' DeleteChannelResponse (Lude.Maybe ChannelState)
+drsState = Lens.lens (state :: DeleteChannelResponse -> Lude.Maybe ChannelState) (\s a -> s {state = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The log level being written to CloudWatch Logs.
-drsLogLevel :: Lens' DeleteChannelResponse (Maybe LogLevel)
-drsLogLevel = lens _drsLogLevel (\s a -> s {_drsLogLevel = a})
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsLogLevel :: Lens.Lens' DeleteChannelResponse (Lude.Maybe LogLevel)
+drsLogLevel = Lens.lens (logLevel :: DeleteChannelResponse -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | The unique arn of the channel.
-drsARN :: Lens' DeleteChannelResponse (Maybe Text)
-drsARN = lens _drsARN (\s a -> s {_drsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsARN :: Lens.Lens' DeleteChannelResponse (Lude.Maybe Lude.Text)
+drsARN = Lens.lens (arn :: DeleteChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of currently healthy pipelines.
-drsPipelinesRunningCount :: Lens' DeleteChannelResponse (Maybe Int)
-drsPipelinesRunningCount = lens _drsPipelinesRunningCount (\s a -> s {_drsPipelinesRunningCount = a})
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsPipelinesRunningCount :: Lens.Lens' DeleteChannelResponse (Lude.Maybe Lude.Int)
+drsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: DeleteChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | Runtime details for the pipelines of a running channel.
-drsPipelineDetails :: Lens' DeleteChannelResponse [PipelineDetail]
-drsPipelineDetails = lens _drsPipelineDetails (\s a -> s {_drsPipelineDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsPipelineDetails :: Lens.Lens' DeleteChannelResponse (Lude.Maybe [PipelineDetail])
+drsPipelineDetails = Lens.lens (pipelineDetails :: DeleteChannelResponse -> Lude.Maybe [PipelineDetail]) (\s a -> s {pipelineDetails = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
 
 -- | Specification of network and file inputs for this channel
-drsInputSpecification :: Lens' DeleteChannelResponse (Maybe InputSpecification)
-drsInputSpecification = lens _drsInputSpecification (\s a -> s {_drsInputSpecification = a})
+--
+-- /Note:/ Consider using 'inputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsInputSpecification :: Lens.Lens' DeleteChannelResponse (Lude.Maybe InputSpecification)
+drsInputSpecification = Lens.lens (inputSpecification :: DeleteChannelResponse -> Lude.Maybe InputSpecification) (\s a -> s {inputSpecification = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
 
 -- | List of input attachments for channel.
-drsInputAttachments :: Lens' DeleteChannelResponse [InputAttachment]
-drsInputAttachments = lens _drsInputAttachments (\s a -> s {_drsInputAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsInputAttachments :: Lens.Lens' DeleteChannelResponse (Lude.Maybe [InputAttachment])
+drsInputAttachments = Lens.lens (inputAttachments :: DeleteChannelResponse -> Lude.Maybe [InputAttachment]) (\s a -> s {inputAttachments = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsInputAttachments "Use generic-lens or generic-optics with 'inputAttachments' instead." #-}
 
--- | A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager.
-drsDestinations :: Lens' DeleteChannelResponse [OutputDestination]
-drsDestinations = lens _drsDestinations (\s a -> s {_drsDestinations = a}) . _Default . _Coerce
+-- | A list of destinations of the channel. For UDP outputs, there is one
+--
+-- destination per output. For other types (HLS, for example), there is
+-- one destination per packager.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDestinations :: Lens.Lens' DeleteChannelResponse (Lude.Maybe [OutputDestination])
+drsDestinations = Lens.lens (destinations :: DeleteChannelResponse -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The name of the channel. (user-mutable)
-drsName :: Lens' DeleteChannelResponse (Maybe Text)
-drsName = lens _drsName (\s a -> s {_drsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsName :: Lens.Lens' DeleteChannelResponse (Lude.Maybe Lude.Text)
+drsName = Lens.lens (name :: DeleteChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specification of CDI inputs for this channel
-drsCdiInputSpecification :: Lens' DeleteChannelResponse (Maybe CdiInputSpecification)
-drsCdiInputSpecification = lens _drsCdiInputSpecification (\s a -> s {_drsCdiInputSpecification = a})
+--
+-- /Note:/ Consider using 'cdiInputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCdiInputSpecification :: Lens.Lens' DeleteChannelResponse (Lude.Maybe CdiInputSpecification)
+drsCdiInputSpecification = Lens.lens (cdiInputSpecification :: DeleteChannelResponse -> Lude.Maybe CdiInputSpecification) (\s a -> s {cdiInputSpecification = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsCdiInputSpecification "Use generic-lens or generic-optics with 'cdiInputSpecification' instead." #-}
 
 -- | The unique id of the channel.
-drsId :: Lens' DeleteChannelResponse (Maybe Text)
-drsId = lens _drsId (\s a -> s {_drsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsId :: Lens.Lens' DeleteChannelResponse (Lude.Maybe Lude.Text)
+drsId = Lens.lens (id :: DeleteChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-drsChannelClass :: Lens' DeleteChannelResponse (Maybe ChannelClass)
-drsChannelClass = lens _drsChannelClass (\s a -> s {_drsChannelClass = a})
+--
+-- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsChannelClass :: Lens.Lens' DeleteChannelResponse (Lude.Maybe ChannelClass)
+drsChannelClass = Lens.lens (channelClass :: DeleteChannelResponse -> Lude.Maybe ChannelClass) (\s a -> s {channelClass = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
 
 -- | The endpoints where outgoing connections initiate from
-drsEgressEndpoints :: Lens' DeleteChannelResponse [ChannelEgressEndpoint]
-drsEgressEndpoints = lens _drsEgressEndpoints (\s a -> s {_drsEgressEndpoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'egressEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsEgressEndpoints :: Lens.Lens' DeleteChannelResponse (Lude.Maybe [ChannelEgressEndpoint])
+drsEgressEndpoints = Lens.lens (egressEndpoints :: DeleteChannelResponse -> Lude.Maybe [ChannelEgressEndpoint]) (\s a -> s {egressEndpoints = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsEgressEndpoints "Use generic-lens or generic-optics with 'egressEndpoints' instead." #-}
 
 -- | A collection of key-value pairs.
-drsTags :: Lens' DeleteChannelResponse (HashMap Text (Text))
-drsTags = lens _drsTags (\s a -> s {_drsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsTags :: Lens.Lens' DeleteChannelResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+drsTags = Lens.lens (tags :: DeleteChannelResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Undocumented member.
-drsEncoderSettings :: Lens' DeleteChannelResponse (Maybe EncoderSettings)
-drsEncoderSettings = lens _drsEncoderSettings (\s a -> s {_drsEncoderSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encoderSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsEncoderSettings :: Lens.Lens' DeleteChannelResponse (Lude.Maybe EncoderSettings)
+drsEncoderSettings = Lens.lens (encoderSettings :: DeleteChannelResponse -> Lude.Maybe EncoderSettings) (\s a -> s {encoderSettings = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsEncoderSettings "Use generic-lens or generic-optics with 'encoderSettings' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-drsRoleARN :: Lens' DeleteChannelResponse (Maybe Text)
-drsRoleARN = lens _drsRoleARN (\s a -> s {_drsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsRoleARN :: Lens.Lens' DeleteChannelResponse (Lude.Maybe Lude.Text)
+drsRoleARN = Lens.lens (roleARN :: DeleteChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteChannelResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteChannelResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

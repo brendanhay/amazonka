@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,135 @@
 --
 -- Assigns the @DELETED@ status to an @MLModel@ , rendering it unusable.
 --
---
 -- After using the @DeleteMLModel@ operation, you can use the @GetMLModel@ operation to verify that the status of the @MLModel@ changed to DELETED.
---
 -- __Caution:__ The result of the @DeleteMLModel@ operation is irreversible.
 module Network.AWS.MachineLearning.DeleteMLModel
-  ( -- * Creating a Request
-    deleteMLModel,
-    DeleteMLModel,
+  ( -- * Creating a request
+    DeleteMLModel (..),
+    mkDeleteMLModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmlmMLModelId,
 
-    -- * Destructuring the Response
-    deleteMLModelResponse,
-    DeleteMLModelResponse,
+    -- * Destructuring the response
+    DeleteMLModelResponse (..),
+    mkDeleteMLModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmlmrsMLModelId,
     dmlmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteMLModel' smart constructor.
-newtype DeleteMLModel = DeleteMLModel' {_dmlmMLModelId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteMLModel' smart constructor.
+newtype DeleteMLModel = DeleteMLModel' {mLModelId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMLModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmlmMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ .
-deleteMLModel ::
-  -- | 'dmlmMLModelId'
-  Text ->
+-- * 'mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ .
+mkDeleteMLModel ::
+  -- | 'mLModelId'
+  Lude.Text ->
   DeleteMLModel
-deleteMLModel pMLModelId_ =
-  DeleteMLModel' {_dmlmMLModelId = pMLModelId_}
+mkDeleteMLModel pMLModelId_ =
+  DeleteMLModel' {mLModelId = pMLModelId_}
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ .
-dmlmMLModelId :: Lens' DeleteMLModel Text
-dmlmMLModelId = lens _dmlmMLModelId (\s a -> s {_dmlmMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmMLModelId :: Lens.Lens' DeleteMLModel Lude.Text
+dmlmMLModelId = Lens.lens (mLModelId :: DeleteMLModel -> Lude.Text) (\s a -> s {mLModelId = a} :: DeleteMLModel)
+{-# DEPRECATED dmlmMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
-instance AWSRequest DeleteMLModel where
+instance Lude.AWSRequest DeleteMLModel where
   type Rs DeleteMLModel = DeleteMLModelResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteMLModelResponse'
-            <$> (x .?> "MLModelId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "MLModelId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteMLModel
-
-instance NFData DeleteMLModel
-
-instance ToHeaders DeleteMLModel where
+instance Lude.ToHeaders DeleteMLModel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.DeleteMLModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.DeleteMLModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteMLModel where
+instance Lude.ToJSON DeleteMLModel where
   toJSON DeleteMLModel' {..} =
-    object (catMaybes [Just ("MLModelId" .= _dmlmMLModelId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("MLModelId" Lude..= mLModelId)])
 
-instance ToPath DeleteMLModel where
-  toPath = const "/"
+instance Lude.ToPath DeleteMLModel where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteMLModel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteMLModel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteMLModel@ operation.
 --
---
 -- You can use the @GetMLModel@ operation and check the value of the @Status@ parameter to see whether an @MLModel@ is marked as @DELETED@ .
 --
---
--- /See:/ 'deleteMLModelResponse' smart constructor.
+-- /See:/ 'mkDeleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
-  { _dmlmrsMLModelId ::
-      !(Maybe Text),
-    _dmlmrsResponseStatus :: !Int
+  { mLModelId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMLModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmlmrsMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
---
--- * 'dmlmrsResponseStatus' - -- | The response status code.
-deleteMLModelResponse ::
-  -- | 'dmlmrsResponseStatus'
-  Int ->
+-- * 'mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteMLModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteMLModelResponse
-deleteMLModelResponse pResponseStatus_ =
+mkDeleteMLModelResponse pResponseStatus_ =
   DeleteMLModelResponse'
-    { _dmlmrsMLModelId = Nothing,
-      _dmlmrsResponseStatus = pResponseStatus_
+    { mLModelId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
-dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
-dmlmrsMLModelId = lens _dmlmrsMLModelId (\s a -> s {_dmlmrsMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmrsMLModelId :: Lens.Lens' DeleteMLModelResponse (Lude.Maybe Lude.Text)
+dmlmrsMLModelId = Lens.lens (mLModelId :: DeleteMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: DeleteMLModelResponse)
+{-# DEPRECATED dmlmrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
--- | -- | The response status code.
-dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
-dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\s a -> s {_dmlmrsResponseStatus = a})
-
-instance NFData DeleteMLModelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmrsResponseStatus :: Lens.Lens' DeleteMLModelResponse Lude.Int
+dmlmrsResponseStatus = Lens.lens (responseStatus :: DeleteMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMLModelResponse)
+{-# DEPRECATED dmlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new room profile with the specified details.
 module Network.AWS.AlexaBusiness.CreateProfile
-  ( -- * Creating a Request
-    createProfile,
-    CreateProfile,
+  ( -- * Creating a request
+    CreateProfile (..),
+    mkCreateProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpSetupModeDisabled,
     cpPSTNEnabled,
     cpLocale,
@@ -38,86 +33,79 @@ module Network.AWS.AlexaBusiness.CreateProfile
     cpTemperatureUnit,
     cpWakeWord,
 
-    -- * Destructuring the Response
-    createProfileResponse,
-    CreateProfileResponse,
+    -- * Destructuring the response
+    CreateProfileResponse (..),
+    mkCreateProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsProfileARN,
     cprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createProfile' smart constructor.
+-- | /See:/ 'mkCreateProfile' smart constructor.
 data CreateProfile = CreateProfile'
-  { _cpSetupModeDisabled ::
-      !(Maybe Bool),
-    _cpPSTNEnabled :: !(Maybe Bool),
-    _cpLocale :: !(Maybe Text),
-    _cpMeetingRoomConfiguration ::
-      !(Maybe CreateMeetingRoomConfiguration),
-    _cpClientRequestToken :: !(Maybe Text),
-    _cpMaxVolumeLimit :: !(Maybe Int),
-    _cpTags :: !(Maybe [Tag]),
-    _cpProfileName :: !Text,
-    _cpTimezone :: !Text,
-    _cpAddress :: !Text,
-    _cpDistanceUnit :: !DistanceUnit,
-    _cpTemperatureUnit :: !TemperatureUnit,
-    _cpWakeWord :: !WakeWord
+  { setupModeDisabled ::
+      Lude.Maybe Lude.Bool,
+    pSTNEnabled :: Lude.Maybe Lude.Bool,
+    locale :: Lude.Maybe Lude.Text,
+    meetingRoomConfiguration ::
+      Lude.Maybe CreateMeetingRoomConfiguration,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    maxVolumeLimit :: Lude.Maybe Lude.Int,
+    tags :: Lude.Maybe [Tag],
+    profileName :: Lude.Text,
+    timezone :: Lude.Text,
+    address :: Lude.Text,
+    distanceUnit :: DistanceUnit,
+    temperatureUnit :: TemperatureUnit,
+    wakeWord :: WakeWord
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpSetupModeDisabled' - Whether room profile setup is enabled.
---
--- * 'cpPSTNEnabled' - Whether PSTN calling is enabled.
---
--- * 'cpLocale' - The locale of the room profile. (This is currently only available to a limited preview audience.)
---
--- * 'cpMeetingRoomConfiguration' - The meeting room settings of a room profile.
---
--- * 'cpClientRequestToken' - The user-specified token that is used during the creation of a profile.
---
--- * 'cpMaxVolumeLimit' - The maximum volume limit for a room profile.
---
--- * 'cpTags' - The tags for the profile.
---
--- * 'cpProfileName' - The name of a room profile.
---
--- * 'cpTimezone' - The time zone used by a room profile.
---
--- * 'cpAddress' - The valid address for the room.
---
--- * 'cpDistanceUnit' - The distance unit to be used by devices in the profile.
---
--- * 'cpTemperatureUnit' - The temperature unit to be used by devices in the profile.
---
--- * 'cpWakeWord' - A wake word for Alexa, Echo, Amazon, or a computer.
-createProfile ::
-  -- | 'cpProfileName'
-  Text ->
-  -- | 'cpTimezone'
-  Text ->
-  -- | 'cpAddress'
-  Text ->
-  -- | 'cpDistanceUnit'
+-- * 'address' - The valid address for the room.
+-- * 'clientRequestToken' - The user-specified token that is used during the creation of a profile.
+-- * 'distanceUnit' - The distance unit to be used by devices in the profile.
+-- * 'locale' - The locale of the room profile. (This is currently only available to a limited preview audience.)
+-- * 'maxVolumeLimit' - The maximum volume limit for a room profile.
+-- * 'meetingRoomConfiguration' - The meeting room settings of a room profile.
+-- * 'pSTNEnabled' - Whether PSTN calling is enabled.
+-- * 'profileName' - The name of a room profile.
+-- * 'setupModeDisabled' - Whether room profile setup is enabled.
+-- * 'tags' - The tags for the profile.
+-- * 'temperatureUnit' - The temperature unit to be used by devices in the profile.
+-- * 'timezone' - The time zone used by a room profile.
+-- * 'wakeWord' - A wake word for Alexa, Echo, Amazon, or a computer.
+mkCreateProfile ::
+  -- | 'profileName'
+  Lude.Text ->
+  -- | 'timezone'
+  Lude.Text ->
+  -- | 'address'
+  Lude.Text ->
+  -- | 'distanceUnit'
   DistanceUnit ->
-  -- | 'cpTemperatureUnit'
+  -- | 'temperatureUnit'
   TemperatureUnit ->
-  -- | 'cpWakeWord'
+  -- | 'wakeWord'
   WakeWord ->
   CreateProfile
-createProfile
+mkCreateProfile
   pProfileName_
   pTimezone_
   pAddress_
@@ -125,154 +113,199 @@ createProfile
   pTemperatureUnit_
   pWakeWord_ =
     CreateProfile'
-      { _cpSetupModeDisabled = Nothing,
-        _cpPSTNEnabled = Nothing,
-        _cpLocale = Nothing,
-        _cpMeetingRoomConfiguration = Nothing,
-        _cpClientRequestToken = Nothing,
-        _cpMaxVolumeLimit = Nothing,
-        _cpTags = Nothing,
-        _cpProfileName = pProfileName_,
-        _cpTimezone = pTimezone_,
-        _cpAddress = pAddress_,
-        _cpDistanceUnit = pDistanceUnit_,
-        _cpTemperatureUnit = pTemperatureUnit_,
-        _cpWakeWord = pWakeWord_
+      { setupModeDisabled = Lude.Nothing,
+        pSTNEnabled = Lude.Nothing,
+        locale = Lude.Nothing,
+        meetingRoomConfiguration = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        maxVolumeLimit = Lude.Nothing,
+        tags = Lude.Nothing,
+        profileName = pProfileName_,
+        timezone = pTimezone_,
+        address = pAddress_,
+        distanceUnit = pDistanceUnit_,
+        temperatureUnit = pTemperatureUnit_,
+        wakeWord = pWakeWord_
       }
 
 -- | Whether room profile setup is enabled.
-cpSetupModeDisabled :: Lens' CreateProfile (Maybe Bool)
-cpSetupModeDisabled = lens _cpSetupModeDisabled (\s a -> s {_cpSetupModeDisabled = a})
+--
+-- /Note:/ Consider using 'setupModeDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSetupModeDisabled :: Lens.Lens' CreateProfile (Lude.Maybe Lude.Bool)
+cpSetupModeDisabled = Lens.lens (setupModeDisabled :: CreateProfile -> Lude.Maybe Lude.Bool) (\s a -> s {setupModeDisabled = a} :: CreateProfile)
+{-# DEPRECATED cpSetupModeDisabled "Use generic-lens or generic-optics with 'setupModeDisabled' instead." #-}
 
 -- | Whether PSTN calling is enabled.
-cpPSTNEnabled :: Lens' CreateProfile (Maybe Bool)
-cpPSTNEnabled = lens _cpPSTNEnabled (\s a -> s {_cpPSTNEnabled = a})
+--
+-- /Note:/ Consider using 'pSTNEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPSTNEnabled :: Lens.Lens' CreateProfile (Lude.Maybe Lude.Bool)
+cpPSTNEnabled = Lens.lens (pSTNEnabled :: CreateProfile -> Lude.Maybe Lude.Bool) (\s a -> s {pSTNEnabled = a} :: CreateProfile)
+{-# DEPRECATED cpPSTNEnabled "Use generic-lens or generic-optics with 'pSTNEnabled' instead." #-}
 
 -- | The locale of the room profile. (This is currently only available to a limited preview audience.)
-cpLocale :: Lens' CreateProfile (Maybe Text)
-cpLocale = lens _cpLocale (\s a -> s {_cpLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpLocale :: Lens.Lens' CreateProfile (Lude.Maybe Lude.Text)
+cpLocale = Lens.lens (locale :: CreateProfile -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: CreateProfile)
+{-# DEPRECATED cpLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The meeting room settings of a room profile.
-cpMeetingRoomConfiguration :: Lens' CreateProfile (Maybe CreateMeetingRoomConfiguration)
-cpMeetingRoomConfiguration = lens _cpMeetingRoomConfiguration (\s a -> s {_cpMeetingRoomConfiguration = a})
+--
+-- /Note:/ Consider using 'meetingRoomConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpMeetingRoomConfiguration :: Lens.Lens' CreateProfile (Lude.Maybe CreateMeetingRoomConfiguration)
+cpMeetingRoomConfiguration = Lens.lens (meetingRoomConfiguration :: CreateProfile -> Lude.Maybe CreateMeetingRoomConfiguration) (\s a -> s {meetingRoomConfiguration = a} :: CreateProfile)
+{-# DEPRECATED cpMeetingRoomConfiguration "Use generic-lens or generic-optics with 'meetingRoomConfiguration' instead." #-}
 
 -- | The user-specified token that is used during the creation of a profile.
-cpClientRequestToken :: Lens' CreateProfile (Maybe Text)
-cpClientRequestToken = lens _cpClientRequestToken (\s a -> s {_cpClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpClientRequestToken :: Lens.Lens' CreateProfile (Lude.Maybe Lude.Text)
+cpClientRequestToken = Lens.lens (clientRequestToken :: CreateProfile -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateProfile)
+{-# DEPRECATED cpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The maximum volume limit for a room profile.
-cpMaxVolumeLimit :: Lens' CreateProfile (Maybe Int)
-cpMaxVolumeLimit = lens _cpMaxVolumeLimit (\s a -> s {_cpMaxVolumeLimit = a})
+--
+-- /Note:/ Consider using 'maxVolumeLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpMaxVolumeLimit :: Lens.Lens' CreateProfile (Lude.Maybe Lude.Int)
+cpMaxVolumeLimit = Lens.lens (maxVolumeLimit :: CreateProfile -> Lude.Maybe Lude.Int) (\s a -> s {maxVolumeLimit = a} :: CreateProfile)
+{-# DEPRECATED cpMaxVolumeLimit "Use generic-lens or generic-optics with 'maxVolumeLimit' instead." #-}
 
 -- | The tags for the profile.
-cpTags :: Lens' CreateProfile [Tag]
-cpTags = lens _cpTags (\s a -> s {_cpTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreateProfile (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreateProfile -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProfile)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of a room profile.
-cpProfileName :: Lens' CreateProfile Text
-cpProfileName = lens _cpProfileName (\s a -> s {_cpProfileName = a})
+--
+-- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpProfileName :: Lens.Lens' CreateProfile Lude.Text
+cpProfileName = Lens.lens (profileName :: CreateProfile -> Lude.Text) (\s a -> s {profileName = a} :: CreateProfile)
+{-# DEPRECATED cpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
 -- | The time zone used by a room profile.
-cpTimezone :: Lens' CreateProfile Text
-cpTimezone = lens _cpTimezone (\s a -> s {_cpTimezone = a})
+--
+-- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTimezone :: Lens.Lens' CreateProfile Lude.Text
+cpTimezone = Lens.lens (timezone :: CreateProfile -> Lude.Text) (\s a -> s {timezone = a} :: CreateProfile)
+{-# DEPRECATED cpTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
 -- | The valid address for the room.
-cpAddress :: Lens' CreateProfile Text
-cpAddress = lens _cpAddress (\s a -> s {_cpAddress = a})
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpAddress :: Lens.Lens' CreateProfile Lude.Text
+cpAddress = Lens.lens (address :: CreateProfile -> Lude.Text) (\s a -> s {address = a} :: CreateProfile)
+{-# DEPRECATED cpAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The distance unit to be used by devices in the profile.
-cpDistanceUnit :: Lens' CreateProfile DistanceUnit
-cpDistanceUnit = lens _cpDistanceUnit (\s a -> s {_cpDistanceUnit = a})
+--
+-- /Note:/ Consider using 'distanceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDistanceUnit :: Lens.Lens' CreateProfile DistanceUnit
+cpDistanceUnit = Lens.lens (distanceUnit :: CreateProfile -> DistanceUnit) (\s a -> s {distanceUnit = a} :: CreateProfile)
+{-# DEPRECATED cpDistanceUnit "Use generic-lens or generic-optics with 'distanceUnit' instead." #-}
 
 -- | The temperature unit to be used by devices in the profile.
-cpTemperatureUnit :: Lens' CreateProfile TemperatureUnit
-cpTemperatureUnit = lens _cpTemperatureUnit (\s a -> s {_cpTemperatureUnit = a})
+--
+-- /Note:/ Consider using 'temperatureUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTemperatureUnit :: Lens.Lens' CreateProfile TemperatureUnit
+cpTemperatureUnit = Lens.lens (temperatureUnit :: CreateProfile -> TemperatureUnit) (\s a -> s {temperatureUnit = a} :: CreateProfile)
+{-# DEPRECATED cpTemperatureUnit "Use generic-lens or generic-optics with 'temperatureUnit' instead." #-}
 
 -- | A wake word for Alexa, Echo, Amazon, or a computer.
-cpWakeWord :: Lens' CreateProfile WakeWord
-cpWakeWord = lens _cpWakeWord (\s a -> s {_cpWakeWord = a})
+--
+-- /Note:/ Consider using 'wakeWord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpWakeWord :: Lens.Lens' CreateProfile WakeWord
+cpWakeWord = Lens.lens (wakeWord :: CreateProfile -> WakeWord) (\s a -> s {wakeWord = a} :: CreateProfile)
+{-# DEPRECATED cpWakeWord "Use generic-lens or generic-optics with 'wakeWord' instead." #-}
 
-instance AWSRequest CreateProfile where
+instance Lude.AWSRequest CreateProfile where
   type Rs CreateProfile = CreateProfileResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProfileResponse'
-            <$> (x .?> "ProfileArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProfileArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProfile
-
-instance NFData CreateProfile
-
-instance ToHeaders CreateProfile where
+instance Lude.ToHeaders CreateProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.CreateProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.CreateProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProfile where
+instance Lude.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
-    object
-      ( catMaybes
-          [ ("SetupModeDisabled" .=) <$> _cpSetupModeDisabled,
-            ("PSTNEnabled" .=) <$> _cpPSTNEnabled,
-            ("Locale" .=) <$> _cpLocale,
-            ("MeetingRoomConfiguration" .=) <$> _cpMeetingRoomConfiguration,
-            ("ClientRequestToken" .=) <$> _cpClientRequestToken,
-            ("MaxVolumeLimit" .=) <$> _cpMaxVolumeLimit,
-            ("Tags" .=) <$> _cpTags,
-            Just ("ProfileName" .= _cpProfileName),
-            Just ("Timezone" .= _cpTimezone),
-            Just ("Address" .= _cpAddress),
-            Just ("DistanceUnit" .= _cpDistanceUnit),
-            Just ("TemperatureUnit" .= _cpTemperatureUnit),
-            Just ("WakeWord" .= _cpWakeWord)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SetupModeDisabled" Lude..=) Lude.<$> setupModeDisabled,
+            ("PSTNEnabled" Lude..=) Lude.<$> pSTNEnabled,
+            ("Locale" Lude..=) Lude.<$> locale,
+            ("MeetingRoomConfiguration" Lude..=)
+              Lude.<$> meetingRoomConfiguration,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("MaxVolumeLimit" Lude..=) Lude.<$> maxVolumeLimit,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ProfileName" Lude..= profileName),
+            Lude.Just ("Timezone" Lude..= timezone),
+            Lude.Just ("Address" Lude..= address),
+            Lude.Just ("DistanceUnit" Lude..= distanceUnit),
+            Lude.Just ("TemperatureUnit" Lude..= temperatureUnit),
+            Lude.Just ("WakeWord" Lude..= wakeWord)
           ]
       )
 
-instance ToPath CreateProfile where
-  toPath = const "/"
+instance Lude.ToPath CreateProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProfile where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProfileResponse' smart constructor.
+-- | /See:/ 'mkCreateProfileResponse' smart constructor.
 data CreateProfileResponse = CreateProfileResponse'
-  { _cprsProfileARN ::
-      !(Maybe Text),
-    _cprsResponseStatus :: !Int
+  { profileARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsProfileARN' - The ARN of the newly created room profile in the response.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createProfileResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'profileARN' - The ARN of the newly created room profile in the response.
+-- * 'responseStatus' - The response status code.
+mkCreateProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProfileResponse
-createProfileResponse pResponseStatus_ =
+mkCreateProfileResponse pResponseStatus_ =
   CreateProfileResponse'
-    { _cprsProfileARN = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { profileARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly created room profile in the response.
-cprsProfileARN :: Lens' CreateProfileResponse (Maybe Text)
-cprsProfileARN = lens _cprsProfileARN (\s a -> s {_cprsProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsProfileARN :: Lens.Lens' CreateProfileResponse (Lude.Maybe Lude.Text)
+cprsProfileARN = Lens.lens (profileARN :: CreateProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: CreateProfileResponse)
+{-# DEPRECATED cprsProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProfileResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreateProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreateProfileResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreateProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProfileResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

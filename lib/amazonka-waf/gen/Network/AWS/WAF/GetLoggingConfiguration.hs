@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- Returns the 'LoggingConfiguration' for the specified web ACL.
 module Network.AWS.WAF.GetLoggingConfiguration
-  ( -- * Creating a Request
-    getLoggingConfiguration,
-    GetLoggingConfiguration,
+  ( -- * Creating a request
+    GetLoggingConfiguration (..),
+    mkGetLoggingConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glcResourceARN,
 
-    -- * Destructuring the Response
-    getLoggingConfigurationResponse,
-    GetLoggingConfigurationResponse,
+    -- * Destructuring the response
+    GetLoggingConfigurationResponse (..),
+    mkGetLoggingConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glcrsLoggingConfiguration,
     glcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'getLoggingConfiguration' smart constructor.
+-- | /See:/ 'mkGetLoggingConfiguration' smart constructor.
 newtype GetLoggingConfiguration = GetLoggingConfiguration'
-  { _glcResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glcResourceARN' - The Amazon Resource Name (ARN) of the web ACL for which you want to get the 'LoggingConfiguration' .
-getLoggingConfiguration ::
-  -- | 'glcResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the web ACL for which you want to get the 'LoggingConfiguration' .
+mkGetLoggingConfiguration ::
+  -- | 'resourceARN'
+  Lude.Text ->
   GetLoggingConfiguration
-getLoggingConfiguration pResourceARN_ =
-  GetLoggingConfiguration' {_glcResourceARN = pResourceARN_}
+mkGetLoggingConfiguration pResourceARN_ =
+  GetLoggingConfiguration' {resourceARN = pResourceARN_}
 
 -- | The Amazon Resource Name (ARN) of the web ACL for which you want to get the 'LoggingConfiguration' .
-glcResourceARN :: Lens' GetLoggingConfiguration Text
-glcResourceARN = lens _glcResourceARN (\s a -> s {_glcResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glcResourceARN :: Lens.Lens' GetLoggingConfiguration Lude.Text
+glcResourceARN = Lens.lens (resourceARN :: GetLoggingConfiguration -> Lude.Text) (\s a -> s {resourceARN = a} :: GetLoggingConfiguration)
+{-# DEPRECATED glcResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest GetLoggingConfiguration where
+instance Lude.AWSRequest GetLoggingConfiguration where
   type Rs GetLoggingConfiguration = GetLoggingConfigurationResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLoggingConfigurationResponse'
-            <$> (x .?> "LoggingConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LoggingConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLoggingConfiguration
-
-instance NFData GetLoggingConfiguration
-
-instance ToHeaders GetLoggingConfiguration where
+instance Lude.ToHeaders GetLoggingConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.GetLoggingConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.GetLoggingConfiguration" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetLoggingConfiguration where
+instance Lude.ToJSON GetLoggingConfiguration where
   toJSON GetLoggingConfiguration' {..} =
-    object (catMaybes [Just ("ResourceArn" .= _glcResourceARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
 
-instance ToPath GetLoggingConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetLoggingConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetLoggingConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetLoggingConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLoggingConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetLoggingConfigurationResponse' smart constructor.
 data GetLoggingConfigurationResponse = GetLoggingConfigurationResponse'
-  { _glcrsLoggingConfiguration ::
-      !( Maybe
-           LoggingConfiguration
-       ),
-    _glcrsResponseStatus ::
-      !Int
+  { loggingConfiguration ::
+      Lude.Maybe
+        LoggingConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glcrsLoggingConfiguration' - The 'LoggingConfiguration' for the specified web ACL.
---
--- * 'glcrsResponseStatus' - -- | The response status code.
-getLoggingConfigurationResponse ::
-  -- | 'glcrsResponseStatus'
-  Int ->
+-- * 'loggingConfiguration' - The 'LoggingConfiguration' for the specified web ACL.
+-- * 'responseStatus' - The response status code.
+mkGetLoggingConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLoggingConfigurationResponse
-getLoggingConfigurationResponse pResponseStatus_ =
+mkGetLoggingConfigurationResponse pResponseStatus_ =
   GetLoggingConfigurationResponse'
-    { _glcrsLoggingConfiguration =
-        Nothing,
-      _glcrsResponseStatus = pResponseStatus_
+    { loggingConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The 'LoggingConfiguration' for the specified web ACL.
-glcrsLoggingConfiguration :: Lens' GetLoggingConfigurationResponse (Maybe LoggingConfiguration)
-glcrsLoggingConfiguration = lens _glcrsLoggingConfiguration (\s a -> s {_glcrsLoggingConfiguration = a})
+--
+-- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glcrsLoggingConfiguration :: Lens.Lens' GetLoggingConfigurationResponse (Lude.Maybe LoggingConfiguration)
+glcrsLoggingConfiguration = Lens.lens (loggingConfiguration :: GetLoggingConfigurationResponse -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: GetLoggingConfigurationResponse)
+{-# DEPRECATED glcrsLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
--- | -- | The response status code.
-glcrsResponseStatus :: Lens' GetLoggingConfigurationResponse Int
-glcrsResponseStatus = lens _glcrsResponseStatus (\s a -> s {_glcrsResponseStatus = a})
-
-instance NFData GetLoggingConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glcrsResponseStatus :: Lens.Lens' GetLoggingConfigurationResponse Lude.Int
+glcrsResponseStatus = Lens.lens (responseStatus :: GetLoggingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoggingConfigurationResponse)
+{-# DEPRECATED glcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

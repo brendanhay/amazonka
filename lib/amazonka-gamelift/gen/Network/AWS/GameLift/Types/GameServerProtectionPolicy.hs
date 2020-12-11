@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerProtectionPolicy where
+module Network.AWS.GameLift.Types.GameServerProtectionPolicy
+  ( GameServerProtectionPolicy
+      ( GameServerProtectionPolicy',
+        FullProtection,
+        NoProtection
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerProtectionPolicy
-  = FullProtection
-  | NoProtection
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerProtectionPolicy = GameServerProtectionPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerProtectionPolicy where
-  parser =
-    takeLowerText >>= \case
-      "full_protection" -> pure FullProtection
-      "no_protection" -> pure NoProtection
-      e ->
-        fromTextError $
-          "Failure parsing GameServerProtectionPolicy from value: '" <> e
-            <> "'. Accepted values: full_protection, no_protection"
+pattern FullProtection :: GameServerProtectionPolicy
+pattern FullProtection = GameServerProtectionPolicy' "FULL_PROTECTION"
 
-instance ToText GameServerProtectionPolicy where
-  toText = \case
-    FullProtection -> "FULL_PROTECTION"
-    NoProtection -> "NO_PROTECTION"
+pattern NoProtection :: GameServerProtectionPolicy
+pattern NoProtection = GameServerProtectionPolicy' "NO_PROTECTION"
 
-instance Hashable GameServerProtectionPolicy
-
-instance NFData GameServerProtectionPolicy
-
-instance ToByteString GameServerProtectionPolicy
-
-instance ToQuery GameServerProtectionPolicy
-
-instance ToHeader GameServerProtectionPolicy
-
-instance ToJSON GameServerProtectionPolicy where
-  toJSON = toJSONText
-
-instance FromJSON GameServerProtectionPolicy where
-  parseJSON = parseJSONText "GameServerProtectionPolicy"
+{-# COMPLETE
+  FullProtection,
+  NoProtection,
+  GameServerProtectionPolicy'
+  #-}

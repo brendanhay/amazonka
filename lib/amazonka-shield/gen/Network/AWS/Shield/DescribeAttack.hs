@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,128 @@
 --
 -- Describes the details of a DDoS attack.
 module Network.AWS.Shield.DescribeAttack
-  ( -- * Creating a Request
-    describeAttack,
-    DescribeAttack,
+  ( -- * Creating a request
+    DescribeAttack (..),
+    mkDescribeAttack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daAttackId,
 
-    -- * Destructuring the Response
-    describeAttackResponse,
-    DescribeAttackResponse,
+    -- * Destructuring the response
+    DescribeAttackResponse (..),
+    mkDescribeAttackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsAttack,
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'describeAttack' smart constructor.
-newtype DescribeAttack = DescribeAttack' {_daAttackId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeAttack' smart constructor.
+newtype DescribeAttack = DescribeAttack' {attackId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daAttackId' - The unique identifier (ID) for the attack that to be described.
-describeAttack ::
-  -- | 'daAttackId'
-  Text ->
+-- * 'attackId' - The unique identifier (ID) for the attack that to be described.
+mkDescribeAttack ::
+  -- | 'attackId'
+  Lude.Text ->
   DescribeAttack
-describeAttack pAttackId_ =
-  DescribeAttack' {_daAttackId = pAttackId_}
+mkDescribeAttack pAttackId_ =
+  DescribeAttack' {attackId = pAttackId_}
 
 -- | The unique identifier (ID) for the attack that to be described.
-daAttackId :: Lens' DescribeAttack Text
-daAttackId = lens _daAttackId (\s a -> s {_daAttackId = a})
+--
+-- /Note:/ Consider using 'attackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAttackId :: Lens.Lens' DescribeAttack Lude.Text
+daAttackId = Lens.lens (attackId :: DescribeAttack -> Lude.Text) (\s a -> s {attackId = a} :: DescribeAttack)
+{-# DEPRECATED daAttackId "Use generic-lens or generic-optics with 'attackId' instead." #-}
 
-instance AWSRequest DescribeAttack where
+instance Lude.AWSRequest DescribeAttack where
   type Rs DescribeAttack = DescribeAttackResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAttackResponse'
-            <$> (x .?> "Attack") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Attack") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAttack
-
-instance NFData DescribeAttack
-
-instance ToHeaders DescribeAttack where
+instance Lude.ToHeaders DescribeAttack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DescribeAttack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.DescribeAttack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAttack where
+instance Lude.ToJSON DescribeAttack where
   toJSON DescribeAttack' {..} =
-    object (catMaybes [Just ("AttackId" .= _daAttackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AttackId" Lude..= attackId)])
 
-instance ToPath DescribeAttack where
-  toPath = const "/"
+instance Lude.ToPath DescribeAttack where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAttack where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAttack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAttackResponse' smart constructor.
+-- | /See:/ 'mkDescribeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
-  { _darsAttack ::
-      !(Maybe AttackDetail),
-    _darsResponseStatus :: !Int
+  { attack ::
+      Lude.Maybe AttackDetail,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsAttack' - The attack that is described.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeAttackResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'attack' - The attack that is described.
+-- * 'responseStatus' - The response status code.
+mkDescribeAttackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAttackResponse
-describeAttackResponse pResponseStatus_ =
+mkDescribeAttackResponse pResponseStatus_ =
   DescribeAttackResponse'
-    { _darsAttack = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { attack = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The attack that is described.
-darsAttack :: Lens' DescribeAttackResponse (Maybe AttackDetail)
-darsAttack = lens _darsAttack (\s a -> s {_darsAttack = a})
+--
+-- /Note:/ Consider using 'attack' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAttack :: Lens.Lens' DescribeAttackResponse (Lude.Maybe AttackDetail)
+darsAttack = Lens.lens (attack :: DescribeAttackResponse -> Lude.Maybe AttackDetail) (\s a -> s {attack = a} :: DescribeAttackResponse)
+{-# DEPRECATED darsAttack "Use generic-lens or generic-optics with 'attack' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAttackResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeAttackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeAttackResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAttackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAttackResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

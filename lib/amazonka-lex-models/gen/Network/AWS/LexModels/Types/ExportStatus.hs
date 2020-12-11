@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.ExportStatus where
+module Network.AWS.LexModels.Types.ExportStatus
+  ( ExportStatus
+      ( ExportStatus',
+        ESFailed,
+        ESInProgress,
+        ESReady
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportStatus
-  = ESFailed
-  | ESInProgress
-  | ESReady
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportStatus = ExportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure ESFailed
-      "in_progress" -> pure ESInProgress
-      "ready" -> pure ESReady
-      e ->
-        fromTextError $
-          "Failure parsing ExportStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, ready"
+pattern ESFailed :: ExportStatus
+pattern ESFailed = ExportStatus' "FAILED"
 
-instance ToText ExportStatus where
-  toText = \case
-    ESFailed -> "FAILED"
-    ESInProgress -> "IN_PROGRESS"
-    ESReady -> "READY"
+pattern ESInProgress :: ExportStatus
+pattern ESInProgress = ExportStatus' "IN_PROGRESS"
 
-instance Hashable ExportStatus
+pattern ESReady :: ExportStatus
+pattern ESReady = ExportStatus' "READY"
 
-instance NFData ExportStatus
-
-instance ToByteString ExportStatus
-
-instance ToQuery ExportStatus
-
-instance ToHeader ExportStatus
-
-instance FromJSON ExportStatus where
-  parseJSON = parseJSONText "ExportStatus"
+{-# COMPLETE
+  ESFailed,
+  ESInProgress,
+  ESReady,
+  ExportStatus'
+  #-}

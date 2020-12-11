@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem where
+module Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem
+  ( UpdateTargetsOperatingSystem
+      ( UpdateTargetsOperatingSystem',
+        AmazonLinux,
+        Openwrt,
+        Raspbian,
+        Ubuntu
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The operating system of the cores which are the targets of an update.
-data UpdateTargetsOperatingSystem
-  = AmazonLinux
-  | Openwrt
-  | Raspbian
-  | Ubuntu
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UpdateTargetsOperatingSystem = UpdateTargetsOperatingSystem' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UpdateTargetsOperatingSystem where
-  parser =
-    takeLowerText >>= \case
-      "amazon_linux" -> pure AmazonLinux
-      "openwrt" -> pure Openwrt
-      "raspbian" -> pure Raspbian
-      "ubuntu" -> pure Ubuntu
-      e ->
-        fromTextError $
-          "Failure parsing UpdateTargetsOperatingSystem from value: '" <> e
-            <> "'. Accepted values: amazon_linux, openwrt, raspbian, ubuntu"
+pattern AmazonLinux :: UpdateTargetsOperatingSystem
+pattern AmazonLinux = UpdateTargetsOperatingSystem' "amazon_linux"
 
-instance ToText UpdateTargetsOperatingSystem where
-  toText = \case
-    AmazonLinux -> "amazon_linux"
-    Openwrt -> "openwrt"
-    Raspbian -> "raspbian"
-    Ubuntu -> "ubuntu"
+pattern Openwrt :: UpdateTargetsOperatingSystem
+pattern Openwrt = UpdateTargetsOperatingSystem' "openwrt"
 
-instance Hashable UpdateTargetsOperatingSystem
+pattern Raspbian :: UpdateTargetsOperatingSystem
+pattern Raspbian = UpdateTargetsOperatingSystem' "raspbian"
 
-instance NFData UpdateTargetsOperatingSystem
+pattern Ubuntu :: UpdateTargetsOperatingSystem
+pattern Ubuntu = UpdateTargetsOperatingSystem' "ubuntu"
 
-instance ToByteString UpdateTargetsOperatingSystem
-
-instance ToQuery UpdateTargetsOperatingSystem
-
-instance ToHeader UpdateTargetsOperatingSystem
-
-instance ToJSON UpdateTargetsOperatingSystem where
-  toJSON = toJSONText
+{-# COMPLETE
+  AmazonLinux,
+  Openwrt,
+  Raspbian,
+  Ubuntu,
+  UpdateTargetsOperatingSystem'
+  #-}

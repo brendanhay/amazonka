@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.AliasRoutingConfiguration where
+module Network.AWS.Lambda.Types.AliasRoutingConfiguration
+  ( AliasRoutingConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAliasRoutingConfiguration,
+
+    -- * Lenses
+    arcAdditionalVersionWeights,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html traffic-shifting> configuration of a Lambda function alias.
 --
---
---
--- /See:/ 'aliasRoutingConfiguration' smart constructor.
+-- /See:/ 'mkAliasRoutingConfiguration' smart constructor.
 newtype AliasRoutingConfiguration = AliasRoutingConfiguration'
-  { _arcAdditionalVersionWeights ::
-      Maybe (Map Text (Double))
+  { additionalVersionWeights ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Double)
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasRoutingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arcAdditionalVersionWeights' - The second version, and the percentage of traffic that's routed to it.
-aliasRoutingConfiguration ::
+-- * 'additionalVersionWeights' - The second version, and the percentage of traffic that's routed to it.
+mkAliasRoutingConfiguration ::
   AliasRoutingConfiguration
-aliasRoutingConfiguration =
+mkAliasRoutingConfiguration =
   AliasRoutingConfiguration'
-    { _arcAdditionalVersionWeights =
-        Nothing
+    { additionalVersionWeights =
+        Lude.Nothing
     }
 
 -- | The second version, and the percentage of traffic that's routed to it.
-arcAdditionalVersionWeights :: Lens' AliasRoutingConfiguration (HashMap Text (Double))
-arcAdditionalVersionWeights = lens _arcAdditionalVersionWeights (\s a -> s {_arcAdditionalVersionWeights = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'additionalVersionWeights' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arcAdditionalVersionWeights :: Lens.Lens' AliasRoutingConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
+arcAdditionalVersionWeights = Lens.lens (additionalVersionWeights :: AliasRoutingConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {additionalVersionWeights = a} :: AliasRoutingConfiguration)
+{-# DEPRECATED arcAdditionalVersionWeights "Use generic-lens or generic-optics with 'additionalVersionWeights' instead." #-}
 
-instance FromJSON AliasRoutingConfiguration where
+instance Lude.FromJSON AliasRoutingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AliasRoutingConfiguration"
       ( \x ->
           AliasRoutingConfiguration'
-            <$> (x .:? "AdditionalVersionWeights" .!= mempty)
+            Lude.<$> (x Lude..:? "AdditionalVersionWeights" Lude..!= Lude.mempty)
       )
 
-instance Hashable AliasRoutingConfiguration
-
-instance NFData AliasRoutingConfiguration
-
-instance ToJSON AliasRoutingConfiguration where
+instance Lude.ToJSON AliasRoutingConfiguration where
   toJSON AliasRoutingConfiguration' {..} =
-    object
-      ( catMaybes
-          [("AdditionalVersionWeights" .=) <$> _arcAdditionalVersionWeights]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AdditionalVersionWeights" Lude..=)
+              Lude.<$> additionalVersionWeights
+          ]
       )

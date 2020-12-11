@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovPaddingControl where
+module Network.AWS.MediaConvert.Types.MovPaddingControl
+  ( MovPaddingControl
+      ( MovPaddingControl',
+        MPCNone,
+        MPCOmneon
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
-data MovPaddingControl
-  = MPCNone
-  | MPCOmneon
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MovPaddingControl = MovPaddingControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MovPaddingControl where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure MPCNone
-      "omneon" -> pure MPCOmneon
-      e ->
-        fromTextError $
-          "Failure parsing MovPaddingControl from value: '" <> e
-            <> "'. Accepted values: none, omneon"
+pattern MPCNone :: MovPaddingControl
+pattern MPCNone = MovPaddingControl' "NONE"
 
-instance ToText MovPaddingControl where
-  toText = \case
-    MPCNone -> "NONE"
-    MPCOmneon -> "OMNEON"
+pattern MPCOmneon :: MovPaddingControl
+pattern MPCOmneon = MovPaddingControl' "OMNEON"
 
-instance Hashable MovPaddingControl
-
-instance NFData MovPaddingControl
-
-instance ToByteString MovPaddingControl
-
-instance ToQuery MovPaddingControl
-
-instance ToHeader MovPaddingControl
-
-instance ToJSON MovPaddingControl where
-  toJSON = toJSONText
-
-instance FromJSON MovPaddingControl where
-  parseJSON = parseJSONText "MovPaddingControl"
+{-# COMPLETE
+  MPCNone,
+  MPCOmneon,
+  MovPaddingControl'
+  #-}

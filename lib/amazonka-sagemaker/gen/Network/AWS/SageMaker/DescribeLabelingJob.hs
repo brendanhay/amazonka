@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a labeling job.
 module Network.AWS.SageMaker.DescribeLabelingJob
-  ( -- * Creating a Request
-    describeLabelingJob,
-    DescribeLabelingJob,
+  ( -- * Creating a request
+    DescribeLabelingJob (..),
+    mkDescribeLabelingJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dljLabelingJobName,
 
-    -- * Destructuring the Response
-    describeLabelingJobResponse,
-    DescribeLabelingJobResponse,
+    -- * Destructuring the response
+    DescribeLabelingJobResponse (..),
+    mkDescribeLabelingJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dljrsFailureReason,
     dljrsLabelingJobAlgorithmsConfig,
     dljrsLabelCategoryConfigS3URI,
@@ -53,194 +48,209 @@ module Network.AWS.SageMaker.DescribeLabelingJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeLabelingJob' smart constructor.
+-- | /See:/ 'mkDescribeLabelingJob' smart constructor.
 newtype DescribeLabelingJob = DescribeLabelingJob'
-  { _dljLabelingJobName ::
-      Text
+  { labelingJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLabelingJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dljLabelingJobName' - The name of the labeling job to return information for.
-describeLabelingJob ::
-  -- | 'dljLabelingJobName'
-  Text ->
+-- * 'labelingJobName' - The name of the labeling job to return information for.
+mkDescribeLabelingJob ::
+  -- | 'labelingJobName'
+  Lude.Text ->
   DescribeLabelingJob
-describeLabelingJob pLabelingJobName_ =
-  DescribeLabelingJob' {_dljLabelingJobName = pLabelingJobName_}
+mkDescribeLabelingJob pLabelingJobName_ =
+  DescribeLabelingJob' {labelingJobName = pLabelingJobName_}
 
 -- | The name of the labeling job to return information for.
-dljLabelingJobName :: Lens' DescribeLabelingJob Text
-dljLabelingJobName = lens _dljLabelingJobName (\s a -> s {_dljLabelingJobName = a})
+--
+-- /Note:/ Consider using 'labelingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljLabelingJobName :: Lens.Lens' DescribeLabelingJob Lude.Text
+dljLabelingJobName = Lens.lens (labelingJobName :: DescribeLabelingJob -> Lude.Text) (\s a -> s {labelingJobName = a} :: DescribeLabelingJob)
+{-# DEPRECATED dljLabelingJobName "Use generic-lens or generic-optics with 'labelingJobName' instead." #-}
 
-instance AWSRequest DescribeLabelingJob where
+instance Lude.AWSRequest DescribeLabelingJob where
   type Rs DescribeLabelingJob = DescribeLabelingJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeLabelingJobResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "LabelingJobAlgorithmsConfig")
-            <*> (x .?> "LabelCategoryConfigS3Uri")
-            <*> (x .?> "StoppingConditions")
-            <*> (x .?> "LabelAttributeName")
-            <*> (x .?> "LabelingJobOutput")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
-            <*> (x .:> "LabelingJobStatus")
-            <*> (x .:> "LabelCounters")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
-            <*> (x .:> "JobReferenceCode")
-            <*> (x .:> "LabelingJobName")
-            <*> (x .:> "LabelingJobArn")
-            <*> (x .:> "InputConfig")
-            <*> (x .:> "OutputConfig")
-            <*> (x .:> "RoleArn")
-            <*> (x .:> "HumanTaskConfig")
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "LabelingJobAlgorithmsConfig")
+            Lude.<*> (x Lude..?> "LabelCategoryConfigS3Uri")
+            Lude.<*> (x Lude..?> "StoppingConditions")
+            Lude.<*> (x Lude..?> "LabelAttributeName")
+            Lude.<*> (x Lude..?> "LabelingJobOutput")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "LabelingJobStatus")
+            Lude.<*> (x Lude..:> "LabelCounters")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
+            Lude.<*> (x Lude..:> "JobReferenceCode")
+            Lude.<*> (x Lude..:> "LabelingJobName")
+            Lude.<*> (x Lude..:> "LabelingJobArn")
+            Lude.<*> (x Lude..:> "InputConfig")
+            Lude.<*> (x Lude..:> "OutputConfig")
+            Lude.<*> (x Lude..:> "RoleArn")
+            Lude.<*> (x Lude..:> "HumanTaskConfig")
       )
 
-instance Hashable DescribeLabelingJob
-
-instance NFData DescribeLabelingJob
-
-instance ToHeaders DescribeLabelingJob where
+instance Lude.ToHeaders DescribeLabelingJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeLabelingJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeLabelingJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeLabelingJob where
+instance Lude.ToJSON DescribeLabelingJob where
   toJSON DescribeLabelingJob' {..} =
-    object
-      (catMaybes [Just ("LabelingJobName" .= _dljLabelingJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("LabelingJobName" Lude..= labelingJobName)]
+      )
 
-instance ToPath DescribeLabelingJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeLabelingJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeLabelingJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeLabelingJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeLabelingJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeLabelingJobResponse' smart constructor.
 data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
-  { _dljrsFailureReason ::
-      !(Maybe Text),
-    _dljrsLabelingJobAlgorithmsConfig ::
-      !( Maybe
-           LabelingJobAlgorithmsConfig
-       ),
-    _dljrsLabelCategoryConfigS3URI ::
-      !(Maybe Text),
-    _dljrsStoppingConditions ::
-      !( Maybe
-           LabelingJobStoppingConditions
-       ),
-    _dljrsLabelAttributeName ::
-      !(Maybe Text),
-    _dljrsLabelingJobOutput ::
-      !(Maybe LabelingJobOutput),
-    _dljrsTags :: !(Maybe [Tag]),
-    _dljrsResponseStatus :: !Int,
-    _dljrsLabelingJobStatus ::
-      !LabelingJobStatus,
-    _dljrsLabelCounters ::
-      !LabelCounters,
-    _dljrsCreationTime :: !POSIX,
-    _dljrsLastModifiedTime :: !POSIX,
-    _dljrsJobReferenceCode :: !Text,
-    _dljrsLabelingJobName :: !Text,
-    _dljrsLabelingJobARN :: !Text,
-    _dljrsInputConfig ::
-      !LabelingJobInputConfig,
-    _dljrsOutputConfig ::
-      !LabelingJobOutputConfig,
-    _dljrsRoleARN :: !Text,
-    _dljrsHumanTaskConfig ::
-      !HumanTaskConfig
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    labelingJobAlgorithmsConfig ::
+      Lude.Maybe
+        LabelingJobAlgorithmsConfig,
+    labelCategoryConfigS3URI ::
+      Lude.Maybe Lude.Text,
+    stoppingConditions ::
+      Lude.Maybe
+        LabelingJobStoppingConditions,
+    labelAttributeName ::
+      Lude.Maybe Lude.Text,
+    labelingJobOutput ::
+      Lude.Maybe LabelingJobOutput,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int,
+    labelingJobStatus ::
+      LabelingJobStatus,
+    labelCounters :: LabelCounters,
+    creationTime :: Lude.Timestamp,
+    lastModifiedTime :: Lude.Timestamp,
+    jobReferenceCode :: Lude.Text,
+    labelingJobName :: Lude.Text,
+    labelingJobARN :: Lude.Text,
+    inputConfig ::
+      LabelingJobInputConfig,
+    outputConfig ::
+      LabelingJobOutputConfig,
+    roleARN :: Lude.Text,
+    humanTaskConfig :: HumanTaskConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLabelingJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - The date and time that the labeling job was created.
+-- * 'failureReason' - If the job failed, the reason that it failed.
+-- * 'humanTaskConfig' - Configuration information required for human workers to complete a labeling task.
+-- * 'inputConfig' - Input configuration information for the labeling job, such as the Amazon S3 location of the data objects and the location of the manifest file that describes the data objects.
+-- * 'jobReferenceCode' - A unique identifier for work done as part of a labeling job.
+-- * 'labelAttributeName' - The attribute used as the label in the output manifest file.
+-- * 'labelCategoryConfigS3URI' - The S3 location of the JSON file that defines the categories used to label data objects. Please note the following label-category limits:
 --
--- * 'dljrsFailureReason' - If the job failed, the reason that it failed.
 --
--- * 'dljrsLabelingJobAlgorithmsConfig' - Configuration information for automated data labeling.
+--     * Semantic segmentation labeling jobs using automated labeling: 20 labels
 --
--- * 'dljrsLabelCategoryConfigS3URI' - The S3 location of the JSON file that defines the categories used to label data objects. Please note the following label-category limits:     * Semantic segmentation labeling jobs using automated labeling: 20 labels     * Box bounding labeling jobs (all): 10 labels The file is a JSON structure in the following format: @{@  @"document-version": "2018-11-28"@  @"labels": [@  @{@  @"label": "/label 1/ "@  @},@  @{@  @"label": "/label 2/ "@  @},@  @...@  @{@  @"label": "/label n/ "@  @}@  @]@  @}@
 --
--- * 'dljrsStoppingConditions' - A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped.
+--     * Box bounding labeling jobs (all): 10 labels
 --
--- * 'dljrsLabelAttributeName' - The attribute used as the label in the output manifest file.
 --
--- * 'dljrsLabelingJobOutput' - The location of the output produced by the labeling job.
---
--- * 'dljrsTags' - An array of key/value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
---
--- * 'dljrsResponseStatus' - -- | The response status code.
---
--- * 'dljrsLabelingJobStatus' - The processing status of the labeling job.
---
--- * 'dljrsLabelCounters' - Provides a breakdown of the number of data objects labeled by humans, the number of objects labeled by machine, the number of objects than couldn't be labeled, and the total number of objects labeled.
---
--- * 'dljrsCreationTime' - The date and time that the labeling job was created.
---
--- * 'dljrsLastModifiedTime' - The date and time that the labeling job was last updated.
---
--- * 'dljrsJobReferenceCode' - A unique identifier for work done as part of a labeling job.
---
--- * 'dljrsLabelingJobName' - The name assigned to the labeling job when it was created.
---
--- * 'dljrsLabelingJobARN' - The Amazon Resource Name (ARN) of the labeling job.
---
--- * 'dljrsInputConfig' - Input configuration information for the labeling job, such as the Amazon S3 location of the data objects and the location of the manifest file that describes the data objects.
---
--- * 'dljrsOutputConfig' - The location of the job's output data and the AWS Key Management Service key ID for the key used to encrypt the output data, if any.
---
--- * 'dljrsRoleARN' - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during data labeling.
---
--- * 'dljrsHumanTaskConfig' - Configuration information required for human workers to complete a labeling task.
-describeLabelingJobResponse ::
-  -- | 'dljrsResponseStatus'
-  Int ->
-  -- | 'dljrsLabelingJobStatus'
+-- The file is a JSON structure in the following format:
+-- @{@
+-- @"document-version": "2018-11-28"@
+-- @"labels": [@
+-- @{@
+-- @"label": "/label 1/ "@
+-- @},@
+-- @{@
+-- @"label": "/label 2/ "@
+-- @},@
+-- @...@
+-- @{@
+-- @"label": "/label n/ "@
+-- @}@
+-- @]@
+-- @}@
+-- * 'labelCounters' - Provides a breakdown of the number of data objects labeled by humans, the number of objects labeled by machine, the number of objects than couldn't be labeled, and the total number of objects labeled.
+-- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the labeling job.
+-- * 'labelingJobAlgorithmsConfig' - Configuration information for automated data labeling.
+-- * 'labelingJobName' - The name assigned to the labeling job when it was created.
+-- * 'labelingJobOutput' - The location of the output produced by the labeling job.
+-- * 'labelingJobStatus' - The processing status of the labeling job.
+-- * 'lastModifiedTime' - The date and time that the labeling job was last updated.
+-- * 'outputConfig' - The location of the job's output data and the AWS Key Management Service key ID for the key used to encrypt the output data, if any.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during data labeling.
+-- * 'stoppingConditions' - A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped.
+-- * 'tags' - An array of key/value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+mkDescribeLabelingJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'labelingJobStatus'
   LabelingJobStatus ->
-  -- | 'dljrsLabelCounters'
+  -- | 'labelCounters'
   LabelCounters ->
-  -- | 'dljrsCreationTime'
-  UTCTime ->
-  -- | 'dljrsLastModifiedTime'
-  UTCTime ->
-  -- | 'dljrsJobReferenceCode'
-  Text ->
-  -- | 'dljrsLabelingJobName'
-  Text ->
-  -- | 'dljrsLabelingJobARN'
-  Text ->
-  -- | 'dljrsInputConfig'
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'jobReferenceCode'
+  Lude.Text ->
+  -- | 'labelingJobName'
+  Lude.Text ->
+  -- | 'labelingJobARN'
+  Lude.Text ->
+  -- | 'inputConfig'
   LabelingJobInputConfig ->
-  -- | 'dljrsOutputConfig'
+  -- | 'outputConfig'
   LabelingJobOutputConfig ->
-  -- | 'dljrsRoleARN'
-  Text ->
-  -- | 'dljrsHumanTaskConfig'
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'humanTaskConfig'
   HumanTaskConfig ->
   DescribeLabelingJobResponse
-describeLabelingJobResponse
+mkDescribeLabelingJobResponse
   pResponseStatus_
   pLabelingJobStatus_
   pLabelCounters_
@@ -254,101 +264,180 @@ describeLabelingJobResponse
   pRoleARN_
   pHumanTaskConfig_ =
     DescribeLabelingJobResponse'
-      { _dljrsFailureReason = Nothing,
-        _dljrsLabelingJobAlgorithmsConfig = Nothing,
-        _dljrsLabelCategoryConfigS3URI = Nothing,
-        _dljrsStoppingConditions = Nothing,
-        _dljrsLabelAttributeName = Nothing,
-        _dljrsLabelingJobOutput = Nothing,
-        _dljrsTags = Nothing,
-        _dljrsResponseStatus = pResponseStatus_,
-        _dljrsLabelingJobStatus = pLabelingJobStatus_,
-        _dljrsLabelCounters = pLabelCounters_,
-        _dljrsCreationTime = _Time # pCreationTime_,
-        _dljrsLastModifiedTime = _Time # pLastModifiedTime_,
-        _dljrsJobReferenceCode = pJobReferenceCode_,
-        _dljrsLabelingJobName = pLabelingJobName_,
-        _dljrsLabelingJobARN = pLabelingJobARN_,
-        _dljrsInputConfig = pInputConfig_,
-        _dljrsOutputConfig = pOutputConfig_,
-        _dljrsRoleARN = pRoleARN_,
-        _dljrsHumanTaskConfig = pHumanTaskConfig_
+      { failureReason = Lude.Nothing,
+        labelingJobAlgorithmsConfig = Lude.Nothing,
+        labelCategoryConfigS3URI = Lude.Nothing,
+        stoppingConditions = Lude.Nothing,
+        labelAttributeName = Lude.Nothing,
+        labelingJobOutput = Lude.Nothing,
+        tags = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        labelingJobStatus = pLabelingJobStatus_,
+        labelCounters = pLabelCounters_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        jobReferenceCode = pJobReferenceCode_,
+        labelingJobName = pLabelingJobName_,
+        labelingJobARN = pLabelingJobARN_,
+        inputConfig = pInputConfig_,
+        outputConfig = pOutputConfig_,
+        roleARN = pRoleARN_,
+        humanTaskConfig = pHumanTaskConfig_
       }
 
 -- | If the job failed, the reason that it failed.
-dljrsFailureReason :: Lens' DescribeLabelingJobResponse (Maybe Text)
-dljrsFailureReason = lens _dljrsFailureReason (\s a -> s {_dljrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsFailureReason :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe Lude.Text)
+dljrsFailureReason = Lens.lens (failureReason :: DescribeLabelingJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Configuration information for automated data labeling.
-dljrsLabelingJobAlgorithmsConfig :: Lens' DescribeLabelingJobResponse (Maybe LabelingJobAlgorithmsConfig)
-dljrsLabelingJobAlgorithmsConfig = lens _dljrsLabelingJobAlgorithmsConfig (\s a -> s {_dljrsLabelingJobAlgorithmsConfig = a})
+--
+-- /Note:/ Consider using 'labelingJobAlgorithmsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelingJobAlgorithmsConfig :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe LabelingJobAlgorithmsConfig)
+dljrsLabelingJobAlgorithmsConfig = Lens.lens (labelingJobAlgorithmsConfig :: DescribeLabelingJobResponse -> Lude.Maybe LabelingJobAlgorithmsConfig) (\s a -> s {labelingJobAlgorithmsConfig = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelingJobAlgorithmsConfig "Use generic-lens or generic-optics with 'labelingJobAlgorithmsConfig' instead." #-}
 
--- | The S3 location of the JSON file that defines the categories used to label data objects. Please note the following label-category limits:     * Semantic segmentation labeling jobs using automated labeling: 20 labels     * Box bounding labeling jobs (all): 10 labels The file is a JSON structure in the following format: @{@  @"document-version": "2018-11-28"@  @"labels": [@  @{@  @"label": "/label 1/ "@  @},@  @{@  @"label": "/label 2/ "@  @},@  @...@  @{@  @"label": "/label n/ "@  @}@  @]@  @}@
-dljrsLabelCategoryConfigS3URI :: Lens' DescribeLabelingJobResponse (Maybe Text)
-dljrsLabelCategoryConfigS3URI = lens _dljrsLabelCategoryConfigS3URI (\s a -> s {_dljrsLabelCategoryConfigS3URI = a})
+-- | The S3 location of the JSON file that defines the categories used to label data objects. Please note the following label-category limits:
+--
+--
+--     * Semantic segmentation labeling jobs using automated labeling: 20 labels
+--
+--
+--     * Box bounding labeling jobs (all): 10 labels
+--
+--
+-- The file is a JSON structure in the following format:
+-- @{@
+-- @"document-version": "2018-11-28"@
+-- @"labels": [@
+-- @{@
+-- @"label": "/label 1/ "@
+-- @},@
+-- @{@
+-- @"label": "/label 2/ "@
+-- @},@
+-- @...@
+-- @{@
+-- @"label": "/label n/ "@
+-- @}@
+-- @]@
+-- @}@
+--
+-- /Note:/ Consider using 'labelCategoryConfigS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelCategoryConfigS3URI :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe Lude.Text)
+dljrsLabelCategoryConfigS3URI = Lens.lens (labelCategoryConfigS3URI :: DescribeLabelingJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {labelCategoryConfigS3URI = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelCategoryConfigS3URI "Use generic-lens or generic-optics with 'labelCategoryConfigS3URI' instead." #-}
 
 -- | A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped.
-dljrsStoppingConditions :: Lens' DescribeLabelingJobResponse (Maybe LabelingJobStoppingConditions)
-dljrsStoppingConditions = lens _dljrsStoppingConditions (\s a -> s {_dljrsStoppingConditions = a})
+--
+-- /Note:/ Consider using 'stoppingConditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsStoppingConditions :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe LabelingJobStoppingConditions)
+dljrsStoppingConditions = Lens.lens (stoppingConditions :: DescribeLabelingJobResponse -> Lude.Maybe LabelingJobStoppingConditions) (\s a -> s {stoppingConditions = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsStoppingConditions "Use generic-lens or generic-optics with 'stoppingConditions' instead." #-}
 
 -- | The attribute used as the label in the output manifest file.
-dljrsLabelAttributeName :: Lens' DescribeLabelingJobResponse (Maybe Text)
-dljrsLabelAttributeName = lens _dljrsLabelAttributeName (\s a -> s {_dljrsLabelAttributeName = a})
+--
+-- /Note:/ Consider using 'labelAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelAttributeName :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe Lude.Text)
+dljrsLabelAttributeName = Lens.lens (labelAttributeName :: DescribeLabelingJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {labelAttributeName = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelAttributeName "Use generic-lens or generic-optics with 'labelAttributeName' instead." #-}
 
 -- | The location of the output produced by the labeling job.
-dljrsLabelingJobOutput :: Lens' DescribeLabelingJobResponse (Maybe LabelingJobOutput)
-dljrsLabelingJobOutput = lens _dljrsLabelingJobOutput (\s a -> s {_dljrsLabelingJobOutput = a})
+--
+-- /Note:/ Consider using 'labelingJobOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelingJobOutput :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe LabelingJobOutput)
+dljrsLabelingJobOutput = Lens.lens (labelingJobOutput :: DescribeLabelingJobResponse -> Lude.Maybe LabelingJobOutput) (\s a -> s {labelingJobOutput = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelingJobOutput "Use generic-lens or generic-optics with 'labelingJobOutput' instead." #-}
 
 -- | An array of key/value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-dljrsTags :: Lens' DescribeLabelingJobResponse [Tag]
-dljrsTags = lens _dljrsTags (\s a -> s {_dljrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsTags :: Lens.Lens' DescribeLabelingJobResponse (Lude.Maybe [Tag])
+dljrsTags = Lens.lens (tags :: DescribeLabelingJobResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-dljrsResponseStatus :: Lens' DescribeLabelingJobResponse Int
-dljrsResponseStatus = lens _dljrsResponseStatus (\s a -> s {_dljrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsResponseStatus :: Lens.Lens' DescribeLabelingJobResponse Lude.Int
+dljrsResponseStatus = Lens.lens (responseStatus :: DescribeLabelingJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The processing status of the labeling job.
-dljrsLabelingJobStatus :: Lens' DescribeLabelingJobResponse LabelingJobStatus
-dljrsLabelingJobStatus = lens _dljrsLabelingJobStatus (\s a -> s {_dljrsLabelingJobStatus = a})
+--
+-- /Note:/ Consider using 'labelingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelingJobStatus :: Lens.Lens' DescribeLabelingJobResponse LabelingJobStatus
+dljrsLabelingJobStatus = Lens.lens (labelingJobStatus :: DescribeLabelingJobResponse -> LabelingJobStatus) (\s a -> s {labelingJobStatus = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelingJobStatus "Use generic-lens or generic-optics with 'labelingJobStatus' instead." #-}
 
 -- | Provides a breakdown of the number of data objects labeled by humans, the number of objects labeled by machine, the number of objects than couldn't be labeled, and the total number of objects labeled.
-dljrsLabelCounters :: Lens' DescribeLabelingJobResponse LabelCounters
-dljrsLabelCounters = lens _dljrsLabelCounters (\s a -> s {_dljrsLabelCounters = a})
+--
+-- /Note:/ Consider using 'labelCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelCounters :: Lens.Lens' DescribeLabelingJobResponse LabelCounters
+dljrsLabelCounters = Lens.lens (labelCounters :: DescribeLabelingJobResponse -> LabelCounters) (\s a -> s {labelCounters = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelCounters "Use generic-lens or generic-optics with 'labelCounters' instead." #-}
 
 -- | The date and time that the labeling job was created.
-dljrsCreationTime :: Lens' DescribeLabelingJobResponse UTCTime
-dljrsCreationTime = lens _dljrsCreationTime (\s a -> s {_dljrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsCreationTime :: Lens.Lens' DescribeLabelingJobResponse Lude.Timestamp
+dljrsCreationTime = Lens.lens (creationTime :: DescribeLabelingJobResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The date and time that the labeling job was last updated.
-dljrsLastModifiedTime :: Lens' DescribeLabelingJobResponse UTCTime
-dljrsLastModifiedTime = lens _dljrsLastModifiedTime (\s a -> s {_dljrsLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLastModifiedTime :: Lens.Lens' DescribeLabelingJobResponse Lude.Timestamp
+dljrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeLabelingJobResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | A unique identifier for work done as part of a labeling job.
-dljrsJobReferenceCode :: Lens' DescribeLabelingJobResponse Text
-dljrsJobReferenceCode = lens _dljrsJobReferenceCode (\s a -> s {_dljrsJobReferenceCode = a})
+--
+-- /Note:/ Consider using 'jobReferenceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsJobReferenceCode :: Lens.Lens' DescribeLabelingJobResponse Lude.Text
+dljrsJobReferenceCode = Lens.lens (jobReferenceCode :: DescribeLabelingJobResponse -> Lude.Text) (\s a -> s {jobReferenceCode = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsJobReferenceCode "Use generic-lens or generic-optics with 'jobReferenceCode' instead." #-}
 
 -- | The name assigned to the labeling job when it was created.
-dljrsLabelingJobName :: Lens' DescribeLabelingJobResponse Text
-dljrsLabelingJobName = lens _dljrsLabelingJobName (\s a -> s {_dljrsLabelingJobName = a})
+--
+-- /Note:/ Consider using 'labelingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelingJobName :: Lens.Lens' DescribeLabelingJobResponse Lude.Text
+dljrsLabelingJobName = Lens.lens (labelingJobName :: DescribeLabelingJobResponse -> Lude.Text) (\s a -> s {labelingJobName = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelingJobName "Use generic-lens or generic-optics with 'labelingJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the labeling job.
-dljrsLabelingJobARN :: Lens' DescribeLabelingJobResponse Text
-dljrsLabelingJobARN = lens _dljrsLabelingJobARN (\s a -> s {_dljrsLabelingJobARN = a})
+--
+-- /Note:/ Consider using 'labelingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsLabelingJobARN :: Lens.Lens' DescribeLabelingJobResponse Lude.Text
+dljrsLabelingJobARN = Lens.lens (labelingJobARN :: DescribeLabelingJobResponse -> Lude.Text) (\s a -> s {labelingJobARN = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsLabelingJobARN "Use generic-lens or generic-optics with 'labelingJobARN' instead." #-}
 
 -- | Input configuration information for the labeling job, such as the Amazon S3 location of the data objects and the location of the manifest file that describes the data objects.
-dljrsInputConfig :: Lens' DescribeLabelingJobResponse LabelingJobInputConfig
-dljrsInputConfig = lens _dljrsInputConfig (\s a -> s {_dljrsInputConfig = a})
+--
+-- /Note:/ Consider using 'inputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsInputConfig :: Lens.Lens' DescribeLabelingJobResponse LabelingJobInputConfig
+dljrsInputConfig = Lens.lens (inputConfig :: DescribeLabelingJobResponse -> LabelingJobInputConfig) (\s a -> s {inputConfig = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsInputConfig "Use generic-lens or generic-optics with 'inputConfig' instead." #-}
 
 -- | The location of the job's output data and the AWS Key Management Service key ID for the key used to encrypt the output data, if any.
-dljrsOutputConfig :: Lens' DescribeLabelingJobResponse LabelingJobOutputConfig
-dljrsOutputConfig = lens _dljrsOutputConfig (\s a -> s {_dljrsOutputConfig = a})
+--
+-- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsOutputConfig :: Lens.Lens' DescribeLabelingJobResponse LabelingJobOutputConfig
+dljrsOutputConfig = Lens.lens (outputConfig :: DescribeLabelingJobResponse -> LabelingJobOutputConfig) (\s a -> s {outputConfig = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during data labeling.
-dljrsRoleARN :: Lens' DescribeLabelingJobResponse Text
-dljrsRoleARN = lens _dljrsRoleARN (\s a -> s {_dljrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsRoleARN :: Lens.Lens' DescribeLabelingJobResponse Lude.Text
+dljrsRoleARN = Lens.lens (roleARN :: DescribeLabelingJobResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Configuration information required for human workers to complete a labeling task.
-dljrsHumanTaskConfig :: Lens' DescribeLabelingJobResponse HumanTaskConfig
-dljrsHumanTaskConfig = lens _dljrsHumanTaskConfig (\s a -> s {_dljrsHumanTaskConfig = a})
-
-instance NFData DescribeLabelingJobResponse
+--
+-- /Note:/ Consider using 'humanTaskConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dljrsHumanTaskConfig :: Lens.Lens' DescribeLabelingJobResponse HumanTaskConfig
+dljrsHumanTaskConfig = Lens.lens (humanTaskConfig :: DescribeLabelingJobResponse -> HumanTaskConfig) (\s a -> s {humanTaskConfig = a} :: DescribeLabelingJobResponse)
+{-# DEPRECATED dljrsHumanTaskConfig "Use generic-lens or generic-optics with 'humanTaskConfig' instead." #-}

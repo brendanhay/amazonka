@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ArtifactDetails where
+module Network.AWS.CodePipeline.Types.ArtifactDetails
+  ( ArtifactDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkArtifactDetails,
+
+    -- * Lenses
+    adMinimumCount,
+    adMaximumCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the details of an artifact.
 --
---
---
--- /See:/ 'artifactDetails' smart constructor.
+-- /See:/ 'mkArtifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
-  { _adMinimumCount :: !Nat,
-    _adMaximumCount :: !Nat
+  { minimumCount ::
+      Lude.Natural,
+    maximumCount :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adMinimumCount' - The minimum number of artifacts allowed for the action type.
---
--- * 'adMaximumCount' - The maximum number of artifacts allowed for the action type.
-artifactDetails ::
-  -- | 'adMinimumCount'
-  Natural ->
-  -- | 'adMaximumCount'
-  Natural ->
+-- * 'maximumCount' - The maximum number of artifacts allowed for the action type.
+-- * 'minimumCount' - The minimum number of artifacts allowed for the action type.
+mkArtifactDetails ::
+  -- | 'minimumCount'
+  Lude.Natural ->
+  -- | 'maximumCount'
+  Lude.Natural ->
   ArtifactDetails
-artifactDetails pMinimumCount_ pMaximumCount_ =
+mkArtifactDetails pMinimumCount_ pMaximumCount_ =
   ArtifactDetails'
-    { _adMinimumCount = _Nat # pMinimumCount_,
-      _adMaximumCount = _Nat # pMaximumCount_
+    { minimumCount = pMinimumCount_,
+      maximumCount = pMaximumCount_
     }
 
 -- | The minimum number of artifacts allowed for the action type.
-adMinimumCount :: Lens' ArtifactDetails Natural
-adMinimumCount = lens _adMinimumCount (\s a -> s {_adMinimumCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'minimumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMinimumCount :: Lens.Lens' ArtifactDetails Lude.Natural
+adMinimumCount = Lens.lens (minimumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {minimumCount = a} :: ArtifactDetails)
+{-# DEPRECATED adMinimumCount "Use generic-lens or generic-optics with 'minimumCount' instead." #-}
 
 -- | The maximum number of artifacts allowed for the action type.
-adMaximumCount :: Lens' ArtifactDetails Natural
-adMaximumCount = lens _adMaximumCount (\s a -> s {_adMaximumCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'maximumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMaximumCount :: Lens.Lens' ArtifactDetails Lude.Natural
+adMaximumCount = Lens.lens (maximumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {maximumCount = a} :: ArtifactDetails)
+{-# DEPRECATED adMaximumCount "Use generic-lens or generic-optics with 'maximumCount' instead." #-}
 
-instance FromJSON ArtifactDetails where
+instance Lude.FromJSON ArtifactDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArtifactDetails"
       ( \x ->
           ArtifactDetails'
-            <$> (x .: "minimumCount") <*> (x .: "maximumCount")
+            Lude.<$> (x Lude..: "minimumCount") Lude.<*> (x Lude..: "maximumCount")
       )
 
-instance Hashable ArtifactDetails
-
-instance NFData ArtifactDetails
-
-instance ToJSON ArtifactDetails where
+instance Lude.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =
-    object
-      ( catMaybes
-          [ Just ("minimumCount" .= _adMinimumCount),
-            Just ("maximumCount" .= _adMaximumCount)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("minimumCount" Lude..= minimumCount),
+            Lude.Just ("maximumCount" Lude..= maximumCount)
           ]
       )

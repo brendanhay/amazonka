@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.PullRequestEvent where
+module Network.AWS.CodeCommit.Types.PullRequestEvent
+  ( PullRequestEvent (..),
+
+    -- * Smart constructor
+    mkPullRequestEvent,
+
+    -- * Lenses
+    prePullRequestMergedStateChangedEventMetadata,
+    prePullRequestCreatedEventMetadata,
+    preApprovalRuleEventMetadata,
+    prePullRequestEventType,
+    prePullRequestStatusChangedEventMetadata,
+    preActorARN,
+    prePullRequestId,
+    preEventDate,
+    preApprovalStateChangedEventMetadata,
+    prePullRequestSourceReferenceUpdatedEventMetadata,
+    preApprovalRuleOverriddenEventMetadata,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
 import Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
@@ -23,142 +36,164 @@ import Network.AWS.CodeCommit.Types.PullRequestEventType
 import Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
 import Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
 import Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about a pull request event.
 --
---
---
--- /See:/ 'pullRequestEvent' smart constructor.
+-- /See:/ 'mkPullRequestEvent' smart constructor.
 data PullRequestEvent = PullRequestEvent'
-  { _prePullRequestMergedStateChangedEventMetadata ::
-      !(Maybe PullRequestMergedStateChangedEventMetadata),
-    _prePullRequestCreatedEventMetadata ::
-      !(Maybe PullRequestCreatedEventMetadata),
-    _preApprovalRuleEventMetadata ::
-      !(Maybe ApprovalRuleEventMetadata),
-    _prePullRequestEventType :: !(Maybe PullRequestEventType),
-    _prePullRequestStatusChangedEventMetadata ::
-      !(Maybe PullRequestStatusChangedEventMetadata),
-    _preActorARN :: !(Maybe Text),
-    _prePullRequestId :: !(Maybe Text),
-    _preEventDate :: !(Maybe POSIX),
-    _preApprovalStateChangedEventMetadata ::
-      !(Maybe ApprovalStateChangedEventMetadata),
-    _prePullRequestSourceReferenceUpdatedEventMetadata ::
-      !(Maybe PullRequestSourceReferenceUpdatedEventMetadata),
-    _preApprovalRuleOverriddenEventMetadata ::
-      !(Maybe ApprovalRuleOverriddenEventMetadata)
+  { pullRequestMergedStateChangedEventMetadata ::
+      Lude.Maybe PullRequestMergedStateChangedEventMetadata,
+    pullRequestCreatedEventMetadata ::
+      Lude.Maybe PullRequestCreatedEventMetadata,
+    approvalRuleEventMetadata ::
+      Lude.Maybe ApprovalRuleEventMetadata,
+    pullRequestEventType :: Lude.Maybe PullRequestEventType,
+    pullRequestStatusChangedEventMetadata ::
+      Lude.Maybe PullRequestStatusChangedEventMetadata,
+    actorARN :: Lude.Maybe Lude.Text,
+    pullRequestId :: Lude.Maybe Lude.Text,
+    eventDate :: Lude.Maybe Lude.Timestamp,
+    approvalStateChangedEventMetadata ::
+      Lude.Maybe ApprovalStateChangedEventMetadata,
+    pullRequestSourceReferenceUpdatedEventMetadata ::
+      Lude.Maybe PullRequestSourceReferenceUpdatedEventMetadata,
+    approvalRuleOverriddenEventMetadata ::
+      Lude.Maybe ApprovalRuleOverriddenEventMetadata
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prePullRequestMergedStateChangedEventMetadata' - Information about the change in mergability state for the pull request event.
---
--- * 'prePullRequestCreatedEventMetadata' - Information about the source and destination branches for the pull request.
---
--- * 'preApprovalRuleEventMetadata' - Information about a pull request event.
---
--- * 'prePullRequestEventType' - The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
---
--- * 'prePullRequestStatusChangedEventMetadata' - Information about the change in status for the pull request event.
---
--- * 'preActorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
---
--- * 'prePullRequestId' - The system-generated ID of the pull request.
---
--- * 'preEventDate' - The day and time of the pull request event, in timestamp format.
---
--- * 'preApprovalStateChangedEventMetadata' - Information about an approval state change for a pull request.
---
--- * 'prePullRequestSourceReferenceUpdatedEventMetadata' - Information about the updated source branch for the pull request event.
---
--- * 'preApprovalRuleOverriddenEventMetadata' - Information about an approval rule override event for a pull request.
-pullRequestEvent ::
+-- * 'actorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
+-- * 'approvalRuleEventMetadata' - Information about a pull request event.
+-- * 'approvalRuleOverriddenEventMetadata' - Information about an approval rule override event for a pull request.
+-- * 'approvalStateChangedEventMetadata' - Information about an approval state change for a pull request.
+-- * 'eventDate' - The day and time of the pull request event, in timestamp format.
+-- * 'pullRequestCreatedEventMetadata' - Information about the source and destination branches for the pull request.
+-- * 'pullRequestEventType' - The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
+-- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'pullRequestMergedStateChangedEventMetadata' - Information about the change in mergability state for the pull request event.
+-- * 'pullRequestSourceReferenceUpdatedEventMetadata' - Information about the updated source branch for the pull request event.
+-- * 'pullRequestStatusChangedEventMetadata' - Information about the change in status for the pull request event.
+mkPullRequestEvent ::
   PullRequestEvent
-pullRequestEvent =
+mkPullRequestEvent =
   PullRequestEvent'
-    { _prePullRequestMergedStateChangedEventMetadata =
-        Nothing,
-      _prePullRequestCreatedEventMetadata = Nothing,
-      _preApprovalRuleEventMetadata = Nothing,
-      _prePullRequestEventType = Nothing,
-      _prePullRequestStatusChangedEventMetadata = Nothing,
-      _preActorARN = Nothing,
-      _prePullRequestId = Nothing,
-      _preEventDate = Nothing,
-      _preApprovalStateChangedEventMetadata = Nothing,
-      _prePullRequestSourceReferenceUpdatedEventMetadata = Nothing,
-      _preApprovalRuleOverriddenEventMetadata = Nothing
+    { pullRequestMergedStateChangedEventMetadata =
+        Lude.Nothing,
+      pullRequestCreatedEventMetadata = Lude.Nothing,
+      approvalRuleEventMetadata = Lude.Nothing,
+      pullRequestEventType = Lude.Nothing,
+      pullRequestStatusChangedEventMetadata = Lude.Nothing,
+      actorARN = Lude.Nothing,
+      pullRequestId = Lude.Nothing,
+      eventDate = Lude.Nothing,
+      approvalStateChangedEventMetadata = Lude.Nothing,
+      pullRequestSourceReferenceUpdatedEventMetadata = Lude.Nothing,
+      approvalRuleOverriddenEventMetadata = Lude.Nothing
     }
 
 -- | Information about the change in mergability state for the pull request event.
-prePullRequestMergedStateChangedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestMergedStateChangedEventMetadata)
-prePullRequestMergedStateChangedEventMetadata = lens _prePullRequestMergedStateChangedEventMetadata (\s a -> s {_prePullRequestMergedStateChangedEventMetadata = a})
+--
+-- /Note:/ Consider using 'pullRequestMergedStateChangedEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestMergedStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe PullRequestMergedStateChangedEventMetadata)
+prePullRequestMergedStateChangedEventMetadata = Lens.lens (pullRequestMergedStateChangedEventMetadata :: PullRequestEvent -> Lude.Maybe PullRequestMergedStateChangedEventMetadata) (\s a -> s {pullRequestMergedStateChangedEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestMergedStateChangedEventMetadata "Use generic-lens or generic-optics with 'pullRequestMergedStateChangedEventMetadata' instead." #-}
 
 -- | Information about the source and destination branches for the pull request.
-prePullRequestCreatedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestCreatedEventMetadata)
-prePullRequestCreatedEventMetadata = lens _prePullRequestCreatedEventMetadata (\s a -> s {_prePullRequestCreatedEventMetadata = a})
+--
+-- /Note:/ Consider using 'pullRequestCreatedEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestCreatedEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe PullRequestCreatedEventMetadata)
+prePullRequestCreatedEventMetadata = Lens.lens (pullRequestCreatedEventMetadata :: PullRequestEvent -> Lude.Maybe PullRequestCreatedEventMetadata) (\s a -> s {pullRequestCreatedEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestCreatedEventMetadata "Use generic-lens or generic-optics with 'pullRequestCreatedEventMetadata' instead." #-}
 
 -- | Information about a pull request event.
-preApprovalRuleEventMetadata :: Lens' PullRequestEvent (Maybe ApprovalRuleEventMetadata)
-preApprovalRuleEventMetadata = lens _preApprovalRuleEventMetadata (\s a -> s {_preApprovalRuleEventMetadata = a})
+--
+-- /Note:/ Consider using 'approvalRuleEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preApprovalRuleEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe ApprovalRuleEventMetadata)
+preApprovalRuleEventMetadata = Lens.lens (approvalRuleEventMetadata :: PullRequestEvent -> Lude.Maybe ApprovalRuleEventMetadata) (\s a -> s {approvalRuleEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED preApprovalRuleEventMetadata "Use generic-lens or generic-optics with 'approvalRuleEventMetadata' instead." #-}
 
 -- | The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
-prePullRequestEventType :: Lens' PullRequestEvent (Maybe PullRequestEventType)
-prePullRequestEventType = lens _prePullRequestEventType (\s a -> s {_prePullRequestEventType = a})
+--
+-- /Note:/ Consider using 'pullRequestEventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestEventType :: Lens.Lens' PullRequestEvent (Lude.Maybe PullRequestEventType)
+prePullRequestEventType = Lens.lens (pullRequestEventType :: PullRequestEvent -> Lude.Maybe PullRequestEventType) (\s a -> s {pullRequestEventType = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestEventType "Use generic-lens or generic-optics with 'pullRequestEventType' instead." #-}
 
 -- | Information about the change in status for the pull request event.
-prePullRequestStatusChangedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestStatusChangedEventMetadata)
-prePullRequestStatusChangedEventMetadata = lens _prePullRequestStatusChangedEventMetadata (\s a -> s {_prePullRequestStatusChangedEventMetadata = a})
+--
+-- /Note:/ Consider using 'pullRequestStatusChangedEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestStatusChangedEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe PullRequestStatusChangedEventMetadata)
+prePullRequestStatusChangedEventMetadata = Lens.lens (pullRequestStatusChangedEventMetadata :: PullRequestEvent -> Lude.Maybe PullRequestStatusChangedEventMetadata) (\s a -> s {pullRequestStatusChangedEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestStatusChangedEventMetadata "Use generic-lens or generic-optics with 'pullRequestStatusChangedEventMetadata' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
-preActorARN :: Lens' PullRequestEvent (Maybe Text)
-preActorARN = lens _preActorARN (\s a -> s {_preActorARN = a})
+--
+-- /Note:/ Consider using 'actorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preActorARN :: Lens.Lens' PullRequestEvent (Lude.Maybe Lude.Text)
+preActorARN = Lens.lens (actorARN :: PullRequestEvent -> Lude.Maybe Lude.Text) (\s a -> s {actorARN = a} :: PullRequestEvent)
+{-# DEPRECATED preActorARN "Use generic-lens or generic-optics with 'actorARN' instead." #-}
 
 -- | The system-generated ID of the pull request.
-prePullRequestId :: Lens' PullRequestEvent (Maybe Text)
-prePullRequestId = lens _prePullRequestId (\s a -> s {_prePullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestId :: Lens.Lens' PullRequestEvent (Lude.Maybe Lude.Text)
+prePullRequestId = Lens.lens (pullRequestId :: PullRequestEvent -> Lude.Maybe Lude.Text) (\s a -> s {pullRequestId = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The day and time of the pull request event, in timestamp format.
-preEventDate :: Lens' PullRequestEvent (Maybe UTCTime)
-preEventDate = lens _preEventDate (\s a -> s {_preEventDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preEventDate :: Lens.Lens' PullRequestEvent (Lude.Maybe Lude.Timestamp)
+preEventDate = Lens.lens (eventDate :: PullRequestEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventDate = a} :: PullRequestEvent)
+{-# DEPRECATED preEventDate "Use generic-lens or generic-optics with 'eventDate' instead." #-}
 
 -- | Information about an approval state change for a pull request.
-preApprovalStateChangedEventMetadata :: Lens' PullRequestEvent (Maybe ApprovalStateChangedEventMetadata)
-preApprovalStateChangedEventMetadata = lens _preApprovalStateChangedEventMetadata (\s a -> s {_preApprovalStateChangedEventMetadata = a})
+--
+-- /Note:/ Consider using 'approvalStateChangedEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preApprovalStateChangedEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe ApprovalStateChangedEventMetadata)
+preApprovalStateChangedEventMetadata = Lens.lens (approvalStateChangedEventMetadata :: PullRequestEvent -> Lude.Maybe ApprovalStateChangedEventMetadata) (\s a -> s {approvalStateChangedEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED preApprovalStateChangedEventMetadata "Use generic-lens or generic-optics with 'approvalStateChangedEventMetadata' instead." #-}
 
 -- | Information about the updated source branch for the pull request event.
-prePullRequestSourceReferenceUpdatedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestSourceReferenceUpdatedEventMetadata)
-prePullRequestSourceReferenceUpdatedEventMetadata = lens _prePullRequestSourceReferenceUpdatedEventMetadata (\s a -> s {_prePullRequestSourceReferenceUpdatedEventMetadata = a})
+--
+-- /Note:/ Consider using 'pullRequestSourceReferenceUpdatedEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prePullRequestSourceReferenceUpdatedEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe PullRequestSourceReferenceUpdatedEventMetadata)
+prePullRequestSourceReferenceUpdatedEventMetadata = Lens.lens (pullRequestSourceReferenceUpdatedEventMetadata :: PullRequestEvent -> Lude.Maybe PullRequestSourceReferenceUpdatedEventMetadata) (\s a -> s {pullRequestSourceReferenceUpdatedEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED prePullRequestSourceReferenceUpdatedEventMetadata "Use generic-lens or generic-optics with 'pullRequestSourceReferenceUpdatedEventMetadata' instead." #-}
 
 -- | Information about an approval rule override event for a pull request.
-preApprovalRuleOverriddenEventMetadata :: Lens' PullRequestEvent (Maybe ApprovalRuleOverriddenEventMetadata)
-preApprovalRuleOverriddenEventMetadata = lens _preApprovalRuleOverriddenEventMetadata (\s a -> s {_preApprovalRuleOverriddenEventMetadata = a})
+--
+-- /Note:/ Consider using 'approvalRuleOverriddenEventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preApprovalRuleOverriddenEventMetadata :: Lens.Lens' PullRequestEvent (Lude.Maybe ApprovalRuleOverriddenEventMetadata)
+preApprovalRuleOverriddenEventMetadata = Lens.lens (approvalRuleOverriddenEventMetadata :: PullRequestEvent -> Lude.Maybe ApprovalRuleOverriddenEventMetadata) (\s a -> s {approvalRuleOverriddenEventMetadata = a} :: PullRequestEvent)
+{-# DEPRECATED preApprovalRuleOverriddenEventMetadata "Use generic-lens or generic-optics with 'approvalRuleOverriddenEventMetadata' instead." #-}
 
-instance FromJSON PullRequestEvent where
+instance Lude.FromJSON PullRequestEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "PullRequestEvent"
       ( \x ->
           PullRequestEvent'
-            <$> (x .:? "pullRequestMergedStateChangedEventMetadata")
-            <*> (x .:? "pullRequestCreatedEventMetadata")
-            <*> (x .:? "approvalRuleEventMetadata")
-            <*> (x .:? "pullRequestEventType")
-            <*> (x .:? "pullRequestStatusChangedEventMetadata")
-            <*> (x .:? "actorArn")
-            <*> (x .:? "pullRequestId")
-            <*> (x .:? "eventDate")
-            <*> (x .:? "approvalStateChangedEventMetadata")
-            <*> (x .:? "pullRequestSourceReferenceUpdatedEventMetadata")
-            <*> (x .:? "approvalRuleOverriddenEventMetadata")
+            Lude.<$> (x Lude..:? "pullRequestMergedStateChangedEventMetadata")
+            Lude.<*> (x Lude..:? "pullRequestCreatedEventMetadata")
+            Lude.<*> (x Lude..:? "approvalRuleEventMetadata")
+            Lude.<*> (x Lude..:? "pullRequestEventType")
+            Lude.<*> (x Lude..:? "pullRequestStatusChangedEventMetadata")
+            Lude.<*> (x Lude..:? "actorArn")
+            Lude.<*> (x Lude..:? "pullRequestId")
+            Lude.<*> (x Lude..:? "eventDate")
+            Lude.<*> (x Lude..:? "approvalStateChangedEventMetadata")
+            Lude.<*> (x Lude..:? "pullRequestSourceReferenceUpdatedEventMetadata")
+            Lude.<*> (x Lude..:? "approvalRuleOverriddenEventMetadata")
       )
-
-instance Hashable PullRequestEvent
-
-instance NFData PullRequestEvent

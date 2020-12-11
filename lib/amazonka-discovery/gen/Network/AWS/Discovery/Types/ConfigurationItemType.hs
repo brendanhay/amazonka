@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ConfigurationItemType where
+module Network.AWS.Discovery.Types.ConfigurationItemType
+  ( ConfigurationItemType
+      ( ConfigurationItemType',
+        Application,
+        Connection,
+        Process,
+        Server
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigurationItemType
-  = Application
-  | Connection
-  | Process
-  | Server
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigurationItemType = ConfigurationItemType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigurationItemType where
-  parser =
-    takeLowerText >>= \case
-      "application" -> pure Application
-      "connection" -> pure Connection
-      "process" -> pure Process
-      "server" -> pure Server
-      e ->
-        fromTextError $
-          "Failure parsing ConfigurationItemType from value: '" <> e
-            <> "'. Accepted values: application, connection, process, server"
+pattern Application :: ConfigurationItemType
+pattern Application = ConfigurationItemType' "APPLICATION"
 
-instance ToText ConfigurationItemType where
-  toText = \case
-    Application -> "APPLICATION"
-    Connection -> "CONNECTION"
-    Process -> "PROCESS"
-    Server -> "SERVER"
+pattern Connection :: ConfigurationItemType
+pattern Connection = ConfigurationItemType' "CONNECTION"
 
-instance Hashable ConfigurationItemType
+pattern Process :: ConfigurationItemType
+pattern Process = ConfigurationItemType' "PROCESS"
 
-instance NFData ConfigurationItemType
+pattern Server :: ConfigurationItemType
+pattern Server = ConfigurationItemType' "SERVER"
 
-instance ToByteString ConfigurationItemType
-
-instance ToQuery ConfigurationItemType
-
-instance ToHeader ConfigurationItemType
-
-instance ToJSON ConfigurationItemType where
-  toJSON = toJSONText
-
-instance FromJSON ConfigurationItemType where
-  parseJSON = parseJSONText "ConfigurationItemType"
+{-# COMPLETE
+  Application,
+  Connection,
+  Process,
+  Server,
+  ConfigurationItemType'
+  #-}

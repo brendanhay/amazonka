@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,151 @@
 --
 -- Deletes an Amazon Lightsail instance.
 --
---
 -- The @delete instance@ operation supports tag-based access control via resource tags applied to the resource identified by @instance name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteInstance
-  ( -- * Creating a Request
-    deleteInstance,
-    DeleteInstance,
+  ( -- * Creating a request
+    DeleteInstance (..),
+    mkDeleteInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diForceDeleteAddOns,
     diInstanceName,
 
-    -- * Destructuring the Response
-    deleteInstanceResponse,
-    DeleteInstanceResponse,
+    -- * Destructuring the response
+    DeleteInstanceResponse (..),
+    mkDeleteInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsOperations,
     dirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteInstance' smart constructor.
+-- | /See:/ 'mkDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
-  { _diForceDeleteAddOns ::
-      !(Maybe Bool),
-    _diInstanceName :: !Text
+  { forceDeleteAddOns ::
+      Lude.Maybe Lude.Bool,
+    instanceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diForceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for the disk.
---
--- * 'diInstanceName' - The name of the instance to delete.
-deleteInstance ::
-  -- | 'diInstanceName'
-  Text ->
+-- * 'forceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for the disk.
+-- * 'instanceName' - The name of the instance to delete.
+mkDeleteInstance ::
+  -- | 'instanceName'
+  Lude.Text ->
   DeleteInstance
-deleteInstance pInstanceName_ =
+mkDeleteInstance pInstanceName_ =
   DeleteInstance'
-    { _diForceDeleteAddOns = Nothing,
-      _diInstanceName = pInstanceName_
+    { forceDeleteAddOns = Lude.Nothing,
+      instanceName = pInstanceName_
     }
 
 -- | A Boolean value to indicate whether to delete the enabled add-ons for the disk.
-diForceDeleteAddOns :: Lens' DeleteInstance (Maybe Bool)
-diForceDeleteAddOns = lens _diForceDeleteAddOns (\s a -> s {_diForceDeleteAddOns = a})
+--
+-- /Note:/ Consider using 'forceDeleteAddOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diForceDeleteAddOns :: Lens.Lens' DeleteInstance (Lude.Maybe Lude.Bool)
+diForceDeleteAddOns = Lens.lens (forceDeleteAddOns :: DeleteInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteAddOns = a} :: DeleteInstance)
+{-# DEPRECATED diForceDeleteAddOns "Use generic-lens or generic-optics with 'forceDeleteAddOns' instead." #-}
 
 -- | The name of the instance to delete.
-diInstanceName :: Lens' DeleteInstance Text
-diInstanceName = lens _diInstanceName (\s a -> s {_diInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diInstanceName :: Lens.Lens' DeleteInstance Lude.Text
+diInstanceName = Lens.lens (instanceName :: DeleteInstance -> Lude.Text) (\s a -> s {instanceName = a} :: DeleteInstance)
+{-# DEPRECATED diInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest DeleteInstance where
+instance Lude.AWSRequest DeleteInstance where
   type Rs DeleteInstance = DeleteInstanceResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteInstanceResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteInstance
-
-instance NFData DeleteInstance
-
-instance ToHeaders DeleteInstance where
+instance Lude.ToHeaders DeleteInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DeleteInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DeleteInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteInstance where
+instance Lude.ToJSON DeleteInstance where
   toJSON DeleteInstance' {..} =
-    object
-      ( catMaybes
-          [ ("forceDeleteAddOns" .=) <$> _diForceDeleteAddOns,
-            Just ("instanceName" .= _diInstanceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("forceDeleteAddOns" Lude..=) Lude.<$> forceDeleteAddOns,
+            Lude.Just ("instanceName" Lude..= instanceName)
           ]
       )
 
-instance ToPath DeleteInstance where
-  toPath = const "/"
+instance Lude.ToPath DeleteInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteInstanceResponse' smart constructor.
+-- | /See:/ 'mkDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
-  { _dirsOperations ::
-      !(Maybe [Operation]),
-    _dirsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-deleteInstanceResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInstanceResponse
-deleteInstanceResponse pResponseStatus_ =
+mkDeleteInstanceResponse pResponseStatus_ =
   DeleteInstanceResponse'
-    { _dirsOperations = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dirsOperations :: Lens' DeleteInstanceResponse [Operation]
-dirsOperations = lens _dirsOperations (\s a -> s {_dirsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsOperations :: Lens.Lens' DeleteInstanceResponse (Lude.Maybe [Operation])
+dirsOperations = Lens.lens (operations :: DeleteInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteInstanceResponse)
+{-# DEPRECATED dirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DeleteInstanceResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DeleteInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DeleteInstanceResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DeleteInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInstanceResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

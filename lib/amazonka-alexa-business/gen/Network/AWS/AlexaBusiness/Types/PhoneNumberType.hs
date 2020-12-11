@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.PhoneNumberType where
+module Network.AWS.AlexaBusiness.Types.PhoneNumberType
+  ( PhoneNumberType
+      ( PhoneNumberType',
+        PNTHome,
+        PNTMobile,
+        PNTWork
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PhoneNumberType
-  = PNTHome
-  | PNTMobile
-  | PNTWork
-  deriving (Eq, Ord, Show, Enum, Bounded, Data, Typeable, Generic)
+newtype PhoneNumberType = PhoneNumberType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
+    )
 
-instance FromText PhoneNumberType where
-  parser =
-    takeLowerText >>= \case
-      "home" -> pure PNTHome
-      "mobile" -> pure PNTMobile
-      "work" -> pure PNTWork
-      e ->
-        fromTextError $
-          "Failure parsing PhoneNumberType from value: '" <> e
-            <> "'. Accepted values: home, mobile, work"
+pattern PNTHome :: PhoneNumberType
+pattern PNTHome = PhoneNumberType' "HOME"
 
-instance ToText PhoneNumberType where
-  toText = \case
-    PNTHome -> "HOME"
-    PNTMobile -> "MOBILE"
-    PNTWork -> "WORK"
+pattern PNTMobile :: PhoneNumberType
+pattern PNTMobile = PhoneNumberType' "MOBILE"
 
-instance Hashable PhoneNumberType
+pattern PNTWork :: PhoneNumberType
+pattern PNTWork = PhoneNumberType' "WORK"
 
-instance NFData PhoneNumberType
-
-instance ToByteString PhoneNumberType
-
-instance ToQuery PhoneNumberType
-
-instance ToHeader PhoneNumberType
-
-instance ToJSON PhoneNumberType where
-  toJSON = toJSONText
-
-instance FromJSON PhoneNumberType where
-  parseJSON = parseJSONText "PhoneNumberType"
+{-# COMPLETE
+  PNTHome,
+  PNTMobile,
+  PNTWork,
+  PhoneNumberType'
+  #-}

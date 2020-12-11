@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,163 @@
 --
 -- Authorizes the specified AWS customer account to restore the specified snapshot.
 --
---
 -- For more information about working with snapshots, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
-  ( -- * Creating a Request
-    authorizeSnapshotAccess,
-    AuthorizeSnapshotAccess,
+  ( -- * Creating a request
+    AuthorizeSnapshotAccess (..),
+    mkAuthorizeSnapshotAccess,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asaSnapshotClusterIdentifier,
     asaSnapshotIdentifier,
     asaAccountWithRestoreAccess,
 
-    -- * Destructuring the Response
-    authorizeSnapshotAccessResponse,
-    AuthorizeSnapshotAccessResponse,
+    -- * Destructuring the response
+    AuthorizeSnapshotAccessResponse (..),
+    mkAuthorizeSnapshotAccessResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asarsSnapshot,
     asarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'authorizeSnapshotAccess' smart constructor.
+-- /See:/ 'mkAuthorizeSnapshotAccess' smart constructor.
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
-  { _asaSnapshotClusterIdentifier ::
-      !(Maybe Text),
-    _asaSnapshotIdentifier :: !Text,
-    _asaAccountWithRestoreAccess :: !Text
+  { snapshotClusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    snapshotIdentifier :: Lude.Text,
+    accountWithRestoreAccess :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSnapshotAccess' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the specified snapshot.
 --
--- * 'asaSnapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- * 'asaSnapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
---
--- * 'asaAccountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the specified snapshot. To share a snapshot with AWS support, specify amazon-redshift-support.
-authorizeSnapshotAccess ::
-  -- | 'asaSnapshotIdentifier'
-  Text ->
-  -- | 'asaAccountWithRestoreAccess'
-  Text ->
+-- To share a snapshot with AWS support, specify amazon-redshift-support.
+-- * 'snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+-- * 'snapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
+mkAuthorizeSnapshotAccess ::
+  -- | 'snapshotIdentifier'
+  Lude.Text ->
+  -- | 'accountWithRestoreAccess'
+  Lude.Text ->
   AuthorizeSnapshotAccess
-authorizeSnapshotAccess
+mkAuthorizeSnapshotAccess
   pSnapshotIdentifier_
   pAccountWithRestoreAccess_ =
     AuthorizeSnapshotAccess'
-      { _asaSnapshotClusterIdentifier = Nothing,
-        _asaSnapshotIdentifier = pSnapshotIdentifier_,
-        _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
+      { snapshotClusterIdentifier =
+          Lude.Nothing,
+        snapshotIdentifier = pSnapshotIdentifier_,
+        accountWithRestoreAccess = pAccountWithRestoreAccess_
       }
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\s a -> s {_asaSnapshotClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asaSnapshotClusterIdentifier :: Lens.Lens' AuthorizeSnapshotAccess (Lude.Maybe Lude.Text)
+asaSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: AuthorizeSnapshotAccess -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: AuthorizeSnapshotAccess)
+{-# DEPRECATED asaSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 -- | The identifier of the snapshot the account is authorized to restore.
-asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
-asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\s a -> s {_asaSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asaSnapshotIdentifier :: Lens.Lens' AuthorizeSnapshotAccess Lude.Text
+asaSnapshotIdentifier = Lens.lens (snapshotIdentifier :: AuthorizeSnapshotAccess -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: AuthorizeSnapshotAccess)
+{-# DEPRECATED asaSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
--- | The identifier of the AWS customer account authorized to restore the specified snapshot. To share a snapshot with AWS support, specify amazon-redshift-support.
-asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
-asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\s a -> s {_asaAccountWithRestoreAccess = a})
+-- | The identifier of the AWS customer account authorized to restore the specified snapshot.
+--
+-- To share a snapshot with AWS support, specify amazon-redshift-support.
+--
+-- /Note:/ Consider using 'accountWithRestoreAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asaAccountWithRestoreAccess :: Lens.Lens' AuthorizeSnapshotAccess Lude.Text
+asaAccountWithRestoreAccess = Lens.lens (accountWithRestoreAccess :: AuthorizeSnapshotAccess -> Lude.Text) (\s a -> s {accountWithRestoreAccess = a} :: AuthorizeSnapshotAccess)
+{-# DEPRECATED asaAccountWithRestoreAccess "Use generic-lens or generic-optics with 'accountWithRestoreAccess' instead." #-}
 
-instance AWSRequest AuthorizeSnapshotAccess where
+instance Lude.AWSRequest AuthorizeSnapshotAccess where
   type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AuthorizeSnapshotAccessResult"
       ( \s h x ->
           AuthorizeSnapshotAccessResponse'
-            <$> (x .@? "Snapshot") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Snapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AuthorizeSnapshotAccess
+instance Lude.ToHeaders AuthorizeSnapshotAccess where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AuthorizeSnapshotAccess
+instance Lude.ToPath AuthorizeSnapshotAccess where
+  toPath = Lude.const "/"
 
-instance ToHeaders AuthorizeSnapshotAccess where
-  toHeaders = const mempty
-
-instance ToPath AuthorizeSnapshotAccess where
-  toPath = const "/"
-
-instance ToQuery AuthorizeSnapshotAccess where
+instance Lude.ToQuery AuthorizeSnapshotAccess where
   toQuery AuthorizeSnapshotAccess' {..} =
-    mconcat
-      [ "Action" =: ("AuthorizeSnapshotAccess" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "SnapshotClusterIdentifier" =: _asaSnapshotClusterIdentifier,
-        "SnapshotIdentifier" =: _asaSnapshotIdentifier,
-        "AccountWithRestoreAccess" =: _asaAccountWithRestoreAccess
+    Lude.mconcat
+      [ "Action" Lude.=: ("AuthorizeSnapshotAccess" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "SnapshotClusterIdentifier" Lude.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
+        "AccountWithRestoreAccess" Lude.=: accountWithRestoreAccess
       ]
 
--- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
+-- | /See:/ 'mkAuthorizeSnapshotAccessResponse' smart constructor.
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-  { _asarsSnapshot ::
-      !(Maybe Snapshot),
-    _asarsResponseStatus ::
-      !Int
+  { snapshot ::
+      Lude.Maybe Snapshot,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSnapshotAccessResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asarsSnapshot' - Undocumented member.
---
--- * 'asarsResponseStatus' - -- | The response status code.
-authorizeSnapshotAccessResponse ::
-  -- | 'asarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snapshot' - Undocumented field.
+mkAuthorizeSnapshotAccessResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse pResponseStatus_ =
+mkAuthorizeSnapshotAccessResponse pResponseStatus_ =
   AuthorizeSnapshotAccessResponse'
-    { _asarsSnapshot = Nothing,
-      _asarsResponseStatus = pResponseStatus_
+    { snapshot = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
-asarsSnapshot = lens _asarsSnapshot (\s a -> s {_asarsSnapshot = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asarsSnapshot :: Lens.Lens' AuthorizeSnapshotAccessResponse (Lude.Maybe Snapshot)
+asarsSnapshot = Lens.lens (snapshot :: AuthorizeSnapshotAccessResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: AuthorizeSnapshotAccessResponse)
+{-# DEPRECATED asarsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
--- | -- | The response status code.
-asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
-asarsResponseStatus = lens _asarsResponseStatus (\s a -> s {_asarsResponseStatus = a})
-
-instance NFData AuthorizeSnapshotAccessResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asarsResponseStatus :: Lens.Lens' AuthorizeSnapshotAccessResponse Lude.Int
+asarsResponseStatus = Lens.lens (responseStatus :: AuthorizeSnapshotAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AuthorizeSnapshotAccessResponse)
+{-# DEPRECATED asarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

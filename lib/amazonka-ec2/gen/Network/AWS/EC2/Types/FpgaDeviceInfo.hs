@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaDeviceInfo where
+module Network.AWS.EC2.Types.FpgaDeviceInfo
+  ( FpgaDeviceInfo (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkFpgaDeviceInfo,
+
+    -- * Lenses
+    fdiMemoryInfo,
+    fdiManufacturer,
+    fdiCount,
+    fdiName,
+  )
+where
+
 import Network.AWS.EC2.Types.FpgaDeviceMemoryInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the FPGA accelerator for the instance type.
 --
---
---
--- /See:/ 'fpgaDeviceInfo' smart constructor.
+-- /See:/ 'mkFpgaDeviceInfo' smart constructor.
 data FpgaDeviceInfo = FpgaDeviceInfo'
-  { _fdiMemoryInfo ::
-      !(Maybe FpgaDeviceMemoryInfo),
-    _fdiManufacturer :: !(Maybe Text),
-    _fdiCount :: !(Maybe Int),
-    _fdiName :: !(Maybe Text)
+  { memoryInfo ::
+      Lude.Maybe FpgaDeviceMemoryInfo,
+    manufacturer :: Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaDeviceInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdiMemoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
---
--- * 'fdiManufacturer' - The manufacturer of the FPGA accelerator.
---
--- * 'fdiCount' - The count of FPGA accelerators for the instance type.
---
--- * 'fdiName' - The name of the FPGA accelerator.
-fpgaDeviceInfo ::
+-- * 'count' - The count of FPGA accelerators for the instance type.
+-- * 'manufacturer' - The manufacturer of the FPGA accelerator.
+-- * 'memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
+-- * 'name' - The name of the FPGA accelerator.
+mkFpgaDeviceInfo ::
   FpgaDeviceInfo
-fpgaDeviceInfo =
+mkFpgaDeviceInfo =
   FpgaDeviceInfo'
-    { _fdiMemoryInfo = Nothing,
-      _fdiManufacturer = Nothing,
-      _fdiCount = Nothing,
-      _fdiName = Nothing
+    { memoryInfo = Lude.Nothing,
+      manufacturer = Lude.Nothing,
+      count = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
-fdiMemoryInfo :: Lens' FpgaDeviceInfo (Maybe FpgaDeviceMemoryInfo)
-fdiMemoryInfo = lens _fdiMemoryInfo (\s a -> s {_fdiMemoryInfo = a})
+--
+-- /Note:/ Consider using 'memoryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdiMemoryInfo :: Lens.Lens' FpgaDeviceInfo (Lude.Maybe FpgaDeviceMemoryInfo)
+fdiMemoryInfo = Lens.lens (memoryInfo :: FpgaDeviceInfo -> Lude.Maybe FpgaDeviceMemoryInfo) (\s a -> s {memoryInfo = a} :: FpgaDeviceInfo)
+{-# DEPRECATED fdiMemoryInfo "Use generic-lens or generic-optics with 'memoryInfo' instead." #-}
 
 -- | The manufacturer of the FPGA accelerator.
-fdiManufacturer :: Lens' FpgaDeviceInfo (Maybe Text)
-fdiManufacturer = lens _fdiManufacturer (\s a -> s {_fdiManufacturer = a})
+--
+-- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdiManufacturer :: Lens.Lens' FpgaDeviceInfo (Lude.Maybe Lude.Text)
+fdiManufacturer = Lens.lens (manufacturer :: FpgaDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {manufacturer = a} :: FpgaDeviceInfo)
+{-# DEPRECATED fdiManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
 
 -- | The count of FPGA accelerators for the instance type.
-fdiCount :: Lens' FpgaDeviceInfo (Maybe Int)
-fdiCount = lens _fdiCount (\s a -> s {_fdiCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdiCount :: Lens.Lens' FpgaDeviceInfo (Lude.Maybe Lude.Int)
+fdiCount = Lens.lens (count :: FpgaDeviceInfo -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: FpgaDeviceInfo)
+{-# DEPRECATED fdiCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The name of the FPGA accelerator.
-fdiName :: Lens' FpgaDeviceInfo (Maybe Text)
-fdiName = lens _fdiName (\s a -> s {_fdiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdiName :: Lens.Lens' FpgaDeviceInfo (Lude.Maybe Lude.Text)
+fdiName = Lens.lens (name :: FpgaDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FpgaDeviceInfo)
+{-# DEPRECATED fdiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML FpgaDeviceInfo where
+instance Lude.FromXML FpgaDeviceInfo where
   parseXML x =
     FpgaDeviceInfo'
-      <$> (x .@? "memoryInfo")
-      <*> (x .@? "manufacturer")
-      <*> (x .@? "count")
-      <*> (x .@? "name")
-
-instance Hashable FpgaDeviceInfo
-
-instance NFData FpgaDeviceInfo
+      Lude.<$> (x Lude..@? "memoryInfo")
+      Lude.<*> (x Lude..@? "manufacturer")
+      Lude.<*> (x Lude..@? "count")
+      Lude.<*> (x Lude..@? "name")

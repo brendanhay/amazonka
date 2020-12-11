@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.Definition where
+module Network.AWS.Budgets.Types.Definition
+  ( Definition (..),
+
+    -- * Smart constructor
+    mkDefinition,
+
+    -- * Lenses
+    dScpActionDefinition,
+    dIAMActionDefinition,
+    dSsmActionDefinition,
+  )
+where
 
 import Network.AWS.Budgets.Types.IAMActionDefinition
 import Network.AWS.Budgets.Types.ScpActionDefinition
 import Network.AWS.Budgets.Types.SsmActionDefinition
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies all of the type-specific parameters.
 --
---
---
--- /See:/ 'definition' smart constructor.
+-- /See:/ 'mkDefinition' smart constructor.
 data Definition = Definition'
-  { _dScpActionDefinition ::
-      !(Maybe ScpActionDefinition),
-    _dIAMActionDefinition :: !(Maybe IAMActionDefinition),
-    _dSsmActionDefinition :: !(Maybe SsmActionDefinition)
+  { scpActionDefinition ::
+      Lude.Maybe ScpActionDefinition,
+    iamActionDefinition :: Lude.Maybe IAMActionDefinition,
+    ssmActionDefinition :: Lude.Maybe SsmActionDefinition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Definition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dScpActionDefinition' - The service control policies (SCPs) action definition details.
---
--- * 'dIAMActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
---
--- * 'dSsmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
-definition ::
+-- * 'iamActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
+-- * 'scpActionDefinition' - The service control policies (SCPs) action definition details.
+-- * 'ssmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
+mkDefinition ::
   Definition
-definition =
+mkDefinition =
   Definition'
-    { _dScpActionDefinition = Nothing,
-      _dIAMActionDefinition = Nothing,
-      _dSsmActionDefinition = Nothing
+    { scpActionDefinition = Lude.Nothing,
+      iamActionDefinition = Lude.Nothing,
+      ssmActionDefinition = Lude.Nothing
     }
 
 -- | The service control policies (SCPs) action definition details.
-dScpActionDefinition :: Lens' Definition (Maybe ScpActionDefinition)
-dScpActionDefinition = lens _dScpActionDefinition (\s a -> s {_dScpActionDefinition = a})
+--
+-- /Note:/ Consider using 'scpActionDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScpActionDefinition :: Lens.Lens' Definition (Lude.Maybe ScpActionDefinition)
+dScpActionDefinition = Lens.lens (scpActionDefinition :: Definition -> Lude.Maybe ScpActionDefinition) (\s a -> s {scpActionDefinition = a} :: Definition)
+{-# DEPRECATED dScpActionDefinition "Use generic-lens or generic-optics with 'scpActionDefinition' instead." #-}
 
 -- | The AWS Identity and Access Management (IAM) action definition details.
-dIAMActionDefinition :: Lens' Definition (Maybe IAMActionDefinition)
-dIAMActionDefinition = lens _dIAMActionDefinition (\s a -> s {_dIAMActionDefinition = a})
+--
+-- /Note:/ Consider using 'iamActionDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dIAMActionDefinition :: Lens.Lens' Definition (Lude.Maybe IAMActionDefinition)
+dIAMActionDefinition = Lens.lens (iamActionDefinition :: Definition -> Lude.Maybe IAMActionDefinition) (\s a -> s {iamActionDefinition = a} :: Definition)
+{-# DEPRECATED dIAMActionDefinition "Use generic-lens or generic-optics with 'iamActionDefinition' instead." #-}
 
 -- | The AWS Systems Manager (SSM) action definition details.
-dSsmActionDefinition :: Lens' Definition (Maybe SsmActionDefinition)
-dSsmActionDefinition = lens _dSsmActionDefinition (\s a -> s {_dSsmActionDefinition = a})
+--
+-- /Note:/ Consider using 'ssmActionDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSsmActionDefinition :: Lens.Lens' Definition (Lude.Maybe SsmActionDefinition)
+dSsmActionDefinition = Lens.lens (ssmActionDefinition :: Definition -> Lude.Maybe SsmActionDefinition) (\s a -> s {ssmActionDefinition = a} :: Definition)
+{-# DEPRECATED dSsmActionDefinition "Use generic-lens or generic-optics with 'ssmActionDefinition' instead." #-}
 
-instance FromJSON Definition where
+instance Lude.FromJSON Definition where
   parseJSON =
-    withObject
+    Lude.withObject
       "Definition"
       ( \x ->
           Definition'
-            <$> (x .:? "ScpActionDefinition")
-            <*> (x .:? "IamActionDefinition")
-            <*> (x .:? "SsmActionDefinition")
+            Lude.<$> (x Lude..:? "ScpActionDefinition")
+            Lude.<*> (x Lude..:? "IamActionDefinition")
+            Lude.<*> (x Lude..:? "SsmActionDefinition")
       )
 
-instance Hashable Definition
-
-instance NFData Definition
-
-instance ToJSON Definition where
+instance Lude.ToJSON Definition where
   toJSON Definition' {..} =
-    object
-      ( catMaybes
-          [ ("ScpActionDefinition" .=) <$> _dScpActionDefinition,
-            ("IamActionDefinition" .=) <$> _dIAMActionDefinition,
-            ("SsmActionDefinition" .=) <$> _dSsmActionDefinition
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ScpActionDefinition" Lude..=) Lude.<$> scpActionDefinition,
+            ("IamActionDefinition" Lude..=) Lude.<$> iamActionDefinition,
+            ("SsmActionDefinition" Lude..=) Lude.<$> ssmActionDefinition
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServerlessApplicationRepository.Types.Status where
+module Network.AWS.ServerlessApplicationRepository.Types.Status
+  ( Status
+      ( Status',
+        Active,
+        Expired,
+        Preparing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Status
-  = Active
-  | Expired
-  | Preparing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Status = Status' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Status where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "expired" -> pure Expired
-      "preparing" -> pure Preparing
-      e ->
-        fromTextError $
-          "Failure parsing Status from value: '" <> e
-            <> "'. Accepted values: active, expired, preparing"
+pattern Active :: Status
+pattern Active = Status' "ACTIVE"
 
-instance ToText Status where
-  toText = \case
-    Active -> "ACTIVE"
-    Expired -> "EXPIRED"
-    Preparing -> "PREPARING"
+pattern Expired :: Status
+pattern Expired = Status' "EXPIRED"
 
-instance Hashable Status
+pattern Preparing :: Status
+pattern Preparing = Status' "PREPARING"
 
-instance NFData Status
-
-instance ToByteString Status
-
-instance ToQuery Status
-
-instance ToHeader Status
-
-instance FromJSON Status where
-  parseJSON = parseJSONText "Status"
+{-# COMPLETE
+  Active,
+  Expired,
+  Preparing,
+  Status'
+  #-}

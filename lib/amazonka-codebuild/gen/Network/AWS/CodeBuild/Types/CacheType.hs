@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CacheType where
+module Network.AWS.CodeBuild.Types.CacheType
+  ( CacheType
+      ( CacheType',
+        CTLocal,
+        CTNoCache,
+        CTS3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CacheType
-  = CTLocal
-  | CTNoCache
-  | CTS3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CacheType = CacheType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CacheType where
-  parser =
-    takeLowerText >>= \case
-      "local" -> pure CTLocal
-      "no_cache" -> pure CTNoCache
-      "s3" -> pure CTS3
-      e ->
-        fromTextError $
-          "Failure parsing CacheType from value: '" <> e
-            <> "'. Accepted values: local, no_cache, s3"
+pattern CTLocal :: CacheType
+pattern CTLocal = CacheType' "LOCAL"
 
-instance ToText CacheType where
-  toText = \case
-    CTLocal -> "LOCAL"
-    CTNoCache -> "NO_CACHE"
-    CTS3 -> "S3"
+pattern CTNoCache :: CacheType
+pattern CTNoCache = CacheType' "NO_CACHE"
 
-instance Hashable CacheType
+pattern CTS3 :: CacheType
+pattern CTS3 = CacheType' "S3"
 
-instance NFData CacheType
-
-instance ToByteString CacheType
-
-instance ToQuery CacheType
-
-instance ToHeader CacheType
-
-instance ToJSON CacheType where
-  toJSON = toJSONText
-
-instance FromJSON CacheType where
-  parseJSON = parseJSONText "CacheType"
+{-# COMPLETE
+  CTLocal,
+  CTNoCache,
+  CTS3,
+  CacheType'
+  #-}

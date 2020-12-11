@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening where
+module Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening
+  ( NoiseFilterPostTemporalSharpening
+      ( NoiseFilterPostTemporalSharpening',
+        NFPTSAuto,
+        NFPTSDisabled,
+        NFPTSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), you can use this setting to apply sharpening. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply filtering, depending on input type and quality. When you set Noise reducer to Temporal, your output bandwidth is reduced. When Post temporal sharpening is also enabled, that bandwidth reduction is smaller.
-data NoiseFilterPostTemporalSharpening
-  = NFPTSAuto
-  | NFPTSDisabled
-  | NFPTSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NoiseFilterPostTemporalSharpening = NoiseFilterPostTemporalSharpening' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NoiseFilterPostTemporalSharpening where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure NFPTSAuto
-      "disabled" -> pure NFPTSDisabled
-      "enabled" -> pure NFPTSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing NoiseFilterPostTemporalSharpening from value: '" <> e
-            <> "'. Accepted values: auto, disabled, enabled"
+pattern NFPTSAuto :: NoiseFilterPostTemporalSharpening
+pattern NFPTSAuto = NoiseFilterPostTemporalSharpening' "AUTO"
 
-instance ToText NoiseFilterPostTemporalSharpening where
-  toText = \case
-    NFPTSAuto -> "AUTO"
-    NFPTSDisabled -> "DISABLED"
-    NFPTSEnabled -> "ENABLED"
+pattern NFPTSDisabled :: NoiseFilterPostTemporalSharpening
+pattern NFPTSDisabled = NoiseFilterPostTemporalSharpening' "DISABLED"
 
-instance Hashable NoiseFilterPostTemporalSharpening
+pattern NFPTSEnabled :: NoiseFilterPostTemporalSharpening
+pattern NFPTSEnabled = NoiseFilterPostTemporalSharpening' "ENABLED"
 
-instance NFData NoiseFilterPostTemporalSharpening
-
-instance ToByteString NoiseFilterPostTemporalSharpening
-
-instance ToQuery NoiseFilterPostTemporalSharpening
-
-instance ToHeader NoiseFilterPostTemporalSharpening
-
-instance ToJSON NoiseFilterPostTemporalSharpening where
-  toJSON = toJSONText
-
-instance FromJSON NoiseFilterPostTemporalSharpening where
-  parseJSON = parseJSONText "NoiseFilterPostTemporalSharpening"
+{-# COMPLETE
+  NFPTSAuto,
+  NFPTSDisabled,
+  NFPTSEnabled,
+  NoiseFilterPostTemporalSharpening'
+  #-}

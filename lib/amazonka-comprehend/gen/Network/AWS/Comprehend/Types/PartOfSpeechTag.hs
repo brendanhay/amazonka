@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PartOfSpeechTag where
+module Network.AWS.Comprehend.Types.PartOfSpeechTag
+  ( PartOfSpeechTag (..),
+
+    -- * Smart constructor
+    mkPartOfSpeechTag,
+
+    -- * Lenses
+    postTag,
+    postScore,
+  )
+where
 
 import Network.AWS.Comprehend.Types.PartOfSpeechTagType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see 'how-syntax' .
 --
---
---
--- /See:/ 'partOfSpeechTag' smart constructor.
+-- /See:/ 'mkPartOfSpeechTag' smart constructor.
 data PartOfSpeechTag = PartOfSpeechTag'
-  { _postTag ::
-      !(Maybe PartOfSpeechTagType),
-    _postScore :: !(Maybe Double)
+  { tag ::
+      Lude.Maybe PartOfSpeechTagType,
+    score :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartOfSpeechTag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'postTag' - Identifies the part of speech that the token represents.
---
--- * 'postScore' - The confidence that Amazon Comprehend has that the part of speech was correctly identified.
-partOfSpeechTag ::
+-- * 'score' - The confidence that Amazon Comprehend has that the part of speech was correctly identified.
+-- * 'tag' - Identifies the part of speech that the token represents.
+mkPartOfSpeechTag ::
   PartOfSpeechTag
-partOfSpeechTag =
-  PartOfSpeechTag' {_postTag = Nothing, _postScore = Nothing}
+mkPartOfSpeechTag =
+  PartOfSpeechTag' {tag = Lude.Nothing, score = Lude.Nothing}
 
 -- | Identifies the part of speech that the token represents.
-postTag :: Lens' PartOfSpeechTag (Maybe PartOfSpeechTagType)
-postTag = lens _postTag (\s a -> s {_postTag = a})
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+postTag :: Lens.Lens' PartOfSpeechTag (Lude.Maybe PartOfSpeechTagType)
+postTag = Lens.lens (tag :: PartOfSpeechTag -> Lude.Maybe PartOfSpeechTagType) (\s a -> s {tag = a} :: PartOfSpeechTag)
+{-# DEPRECATED postTag "Use generic-lens or generic-optics with 'tag' instead." #-}
 
 -- | The confidence that Amazon Comprehend has that the part of speech was correctly identified.
-postScore :: Lens' PartOfSpeechTag (Maybe Double)
-postScore = lens _postScore (\s a -> s {_postScore = a})
+--
+-- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+postScore :: Lens.Lens' PartOfSpeechTag (Lude.Maybe Lude.Double)
+postScore = Lens.lens (score :: PartOfSpeechTag -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: PartOfSpeechTag)
+{-# DEPRECATED postScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
-instance FromJSON PartOfSpeechTag where
+instance Lude.FromJSON PartOfSpeechTag where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartOfSpeechTag"
-      (\x -> PartOfSpeechTag' <$> (x .:? "Tag") <*> (x .:? "Score"))
-
-instance Hashable PartOfSpeechTag
-
-instance NFData PartOfSpeechTag
+      ( \x ->
+          PartOfSpeechTag'
+            Lude.<$> (x Lude..:? "Tag") Lude.<*> (x Lude..:? "Score")
+      )

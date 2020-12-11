@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,153 +7,188 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.CloudWatchAlarmDefinition where
+module Network.AWS.EMR.Types.CloudWatchAlarmDefinition
+  ( CloudWatchAlarmDefinition (..),
+
+    -- * Smart constructor
+    mkCloudWatchAlarmDefinition,
+
+    -- * Lenses
+    cwadEvaluationPeriods,
+    cwadNamespace,
+    cwadDimensions,
+    cwadUnit,
+    cwadStatistic,
+    cwadComparisonOperator,
+    cwadMetricName,
+    cwadPeriod,
+    cwadThreshold,
+  )
+where
 
 import Network.AWS.EMR.Types.ComparisonOperator
 import Network.AWS.EMR.Types.MetricDimension
 import Network.AWS.EMR.Types.Statistic
 import Network.AWS.EMR.Types.Unit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.
 --
---
---
--- /See:/ 'cloudWatchAlarmDefinition' smart constructor.
+-- /See:/ 'mkCloudWatchAlarmDefinition' smart constructor.
 data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
-  { _cwadEvaluationPeriods ::
-      !(Maybe Int),
-    _cwadNamespace :: !(Maybe Text),
-    _cwadDimensions ::
-      !(Maybe [MetricDimension]),
-    _cwadUnit :: !(Maybe Unit),
-    _cwadStatistic :: !(Maybe Statistic),
-    _cwadComparisonOperator ::
-      !ComparisonOperator,
-    _cwadMetricName :: !Text,
-    _cwadPeriod :: !Int,
-    _cwadThreshold :: !Double
+  { evaluationPeriods ::
+      Lude.Maybe Lude.Int,
+    namespace :: Lude.Maybe Lude.Text,
+    dimensions ::
+      Lude.Maybe [MetricDimension],
+    unit :: Lude.Maybe Unit,
+    statistic :: Lude.Maybe Statistic,
+    comparisonOperator ::
+      ComparisonOperator,
+    metricName :: Lude.Text,
+    period :: Lude.Int,
+    threshold :: Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchAlarmDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwadEvaluationPeriods' - The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
---
--- * 'cwadNamespace' - The namespace for the CloudWatch metric. The default is @AWS/ElasticMapReduce@ .
---
--- * 'cwadDimensions' - A CloudWatch metric dimension.
---
--- * 'cwadUnit' - The unit of measure associated with the CloudWatch metric being watched. The value specified for @Unit@ must correspond to the units specified in the CloudWatch metric.
---
--- * 'cwadStatistic' - The statistic to apply to the metric associated with the alarm. The default is @AVERAGE@ .
---
--- * 'cwadComparisonOperator' - Determines how the metric specified by @MetricName@ is compared to the value specified by @Threshold@ .
---
--- * 'cwadMetricName' - The name of the CloudWatch metric that is watched to determine an alarm condition.
---
--- * 'cwadPeriod' - The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify @300@ .
---
--- * 'cwadThreshold' - The value against which the specified statistic is compared.
-cloudWatchAlarmDefinition ::
-  -- | 'cwadComparisonOperator'
+-- * 'comparisonOperator' - Determines how the metric specified by @MetricName@ is compared to the value specified by @Threshold@ .
+-- * 'dimensions' - A CloudWatch metric dimension.
+-- * 'evaluationPeriods' - The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
+-- * 'metricName' - The name of the CloudWatch metric that is watched to determine an alarm condition.
+-- * 'namespace' - The namespace for the CloudWatch metric. The default is @AWS/ElasticMapReduce@ .
+-- * 'period' - The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify @300@ .
+-- * 'statistic' - The statistic to apply to the metric associated with the alarm. The default is @AVERAGE@ .
+-- * 'threshold' - The value against which the specified statistic is compared.
+-- * 'unit' - The unit of measure associated with the CloudWatch metric being watched. The value specified for @Unit@ must correspond to the units specified in the CloudWatch metric.
+mkCloudWatchAlarmDefinition ::
+  -- | 'comparisonOperator'
   ComparisonOperator ->
-  -- | 'cwadMetricName'
-  Text ->
-  -- | 'cwadPeriod'
-  Int ->
-  -- | 'cwadThreshold'
-  Double ->
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'period'
+  Lude.Int ->
+  -- | 'threshold'
+  Lude.Double ->
   CloudWatchAlarmDefinition
-cloudWatchAlarmDefinition
+mkCloudWatchAlarmDefinition
   pComparisonOperator_
   pMetricName_
   pPeriod_
   pThreshold_ =
     CloudWatchAlarmDefinition'
-      { _cwadEvaluationPeriods = Nothing,
-        _cwadNamespace = Nothing,
-        _cwadDimensions = Nothing,
-        _cwadUnit = Nothing,
-        _cwadStatistic = Nothing,
-        _cwadComparisonOperator = pComparisonOperator_,
-        _cwadMetricName = pMetricName_,
-        _cwadPeriod = pPeriod_,
-        _cwadThreshold = pThreshold_
+      { evaluationPeriods = Lude.Nothing,
+        namespace = Lude.Nothing,
+        dimensions = Lude.Nothing,
+        unit = Lude.Nothing,
+        statistic = Lude.Nothing,
+        comparisonOperator = pComparisonOperator_,
+        metricName = pMetricName_,
+        period = pPeriod_,
+        threshold = pThreshold_
       }
 
 -- | The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
-cwadEvaluationPeriods :: Lens' CloudWatchAlarmDefinition (Maybe Int)
-cwadEvaluationPeriods = lens _cwadEvaluationPeriods (\s a -> s {_cwadEvaluationPeriods = a})
+--
+-- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadEvaluationPeriods :: Lens.Lens' CloudWatchAlarmDefinition (Lude.Maybe Lude.Int)
+cwadEvaluationPeriods = Lens.lens (evaluationPeriods :: CloudWatchAlarmDefinition -> Lude.Maybe Lude.Int) (\s a -> s {evaluationPeriods = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
 
 -- | The namespace for the CloudWatch metric. The default is @AWS/ElasticMapReduce@ .
-cwadNamespace :: Lens' CloudWatchAlarmDefinition (Maybe Text)
-cwadNamespace = lens _cwadNamespace (\s a -> s {_cwadNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadNamespace :: Lens.Lens' CloudWatchAlarmDefinition (Lude.Maybe Lude.Text)
+cwadNamespace = Lens.lens (namespace :: CloudWatchAlarmDefinition -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | A CloudWatch metric dimension.
-cwadDimensions :: Lens' CloudWatchAlarmDefinition [MetricDimension]
-cwadDimensions = lens _cwadDimensions (\s a -> s {_cwadDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadDimensions :: Lens.Lens' CloudWatchAlarmDefinition (Lude.Maybe [MetricDimension])
+cwadDimensions = Lens.lens (dimensions :: CloudWatchAlarmDefinition -> Lude.Maybe [MetricDimension]) (\s a -> s {dimensions = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The unit of measure associated with the CloudWatch metric being watched. The value specified for @Unit@ must correspond to the units specified in the CloudWatch metric.
-cwadUnit :: Lens' CloudWatchAlarmDefinition (Maybe Unit)
-cwadUnit = lens _cwadUnit (\s a -> s {_cwadUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadUnit :: Lens.Lens' CloudWatchAlarmDefinition (Lude.Maybe Unit)
+cwadUnit = Lens.lens (unit :: CloudWatchAlarmDefinition -> Lude.Maybe Unit) (\s a -> s {unit = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic to apply to the metric associated with the alarm. The default is @AVERAGE@ .
-cwadStatistic :: Lens' CloudWatchAlarmDefinition (Maybe Statistic)
-cwadStatistic = lens _cwadStatistic (\s a -> s {_cwadStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadStatistic :: Lens.Lens' CloudWatchAlarmDefinition (Lude.Maybe Statistic)
+cwadStatistic = Lens.lens (statistic :: CloudWatchAlarmDefinition -> Lude.Maybe Statistic) (\s a -> s {statistic = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
 -- | Determines how the metric specified by @MetricName@ is compared to the value specified by @Threshold@ .
-cwadComparisonOperator :: Lens' CloudWatchAlarmDefinition ComparisonOperator
-cwadComparisonOperator = lens _cwadComparisonOperator (\s a -> s {_cwadComparisonOperator = a})
+--
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadComparisonOperator :: Lens.Lens' CloudWatchAlarmDefinition ComparisonOperator
+cwadComparisonOperator = Lens.lens (comparisonOperator :: CloudWatchAlarmDefinition -> ComparisonOperator) (\s a -> s {comparisonOperator = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
 -- | The name of the CloudWatch metric that is watched to determine an alarm condition.
-cwadMetricName :: Lens' CloudWatchAlarmDefinition Text
-cwadMetricName = lens _cwadMetricName (\s a -> s {_cwadMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadMetricName :: Lens.Lens' CloudWatchAlarmDefinition Lude.Text
+cwadMetricName = Lens.lens (metricName :: CloudWatchAlarmDefinition -> Lude.Text) (\s a -> s {metricName = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify @300@ .
-cwadPeriod :: Lens' CloudWatchAlarmDefinition Int
-cwadPeriod = lens _cwadPeriod (\s a -> s {_cwadPeriod = a})
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadPeriod :: Lens.Lens' CloudWatchAlarmDefinition Lude.Int
+cwadPeriod = Lens.lens (period :: CloudWatchAlarmDefinition -> Lude.Int) (\s a -> s {period = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The value against which the specified statistic is compared.
-cwadThreshold :: Lens' CloudWatchAlarmDefinition Double
-cwadThreshold = lens _cwadThreshold (\s a -> s {_cwadThreshold = a})
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwadThreshold :: Lens.Lens' CloudWatchAlarmDefinition Lude.Double
+cwadThreshold = Lens.lens (threshold :: CloudWatchAlarmDefinition -> Lude.Double) (\s a -> s {threshold = a} :: CloudWatchAlarmDefinition)
+{-# DEPRECATED cwadThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
-instance FromJSON CloudWatchAlarmDefinition where
+instance Lude.FromJSON CloudWatchAlarmDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchAlarmDefinition"
       ( \x ->
           CloudWatchAlarmDefinition'
-            <$> (x .:? "EvaluationPeriods")
-            <*> (x .:? "Namespace")
-            <*> (x .:? "Dimensions" .!= mempty)
-            <*> (x .:? "Unit")
-            <*> (x .:? "Statistic")
-            <*> (x .: "ComparisonOperator")
-            <*> (x .: "MetricName")
-            <*> (x .: "Period")
-            <*> (x .: "Threshold")
+            Lude.<$> (x Lude..:? "EvaluationPeriods")
+            Lude.<*> (x Lude..:? "Namespace")
+            Lude.<*> (x Lude..:? "Dimensions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Unit")
+            Lude.<*> (x Lude..:? "Statistic")
+            Lude.<*> (x Lude..: "ComparisonOperator")
+            Lude.<*> (x Lude..: "MetricName")
+            Lude.<*> (x Lude..: "Period")
+            Lude.<*> (x Lude..: "Threshold")
       )
 
-instance Hashable CloudWatchAlarmDefinition
-
-instance NFData CloudWatchAlarmDefinition
-
-instance ToJSON CloudWatchAlarmDefinition where
+instance Lude.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("EvaluationPeriods" .=) <$> _cwadEvaluationPeriods,
-            ("Namespace" .=) <$> _cwadNamespace,
-            ("Dimensions" .=) <$> _cwadDimensions,
-            ("Unit" .=) <$> _cwadUnit,
-            ("Statistic" .=) <$> _cwadStatistic,
-            Just ("ComparisonOperator" .= _cwadComparisonOperator),
-            Just ("MetricName" .= _cwadMetricName),
-            Just ("Period" .= _cwadPeriod),
-            Just ("Threshold" .= _cwadThreshold)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EvaluationPeriods" Lude..=) Lude.<$> evaluationPeriods,
+            ("Namespace" Lude..=) Lude.<$> namespace,
+            ("Dimensions" Lude..=) Lude.<$> dimensions,
+            ("Unit" Lude..=) Lude.<$> unit,
+            ("Statistic" Lude..=) Lude.<$> statistic,
+            Lude.Just ("ComparisonOperator" Lude..= comparisonOperator),
+            Lude.Just ("MetricName" Lude..= metricName),
+            Lude.Just ("Period" Lude..= period),
+            Lude.Just ("Threshold" Lude..= threshold)
           ]
       )

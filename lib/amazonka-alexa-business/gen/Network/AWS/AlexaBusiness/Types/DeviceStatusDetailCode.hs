@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode where
+module Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode
+  ( DeviceStatusDetailCode
+      ( DeviceStatusDetailCode',
+        AssociationRejection,
+        AuthenticationFailure,
+        CertificateAuthorityAccessDenied,
+        CertificateIssuingLimitExceeded,
+        CredentialsAccessFailure,
+        DHCPFailure,
+        DNSFailure,
+        DeviceSoftwareUpdateNeeded,
+        DeviceWasOffline,
+        InternetUnavailable,
+        InvalidCertificateAuthority,
+        InvalidPasswordState,
+        NetworkProfileNotFound,
+        PasswordManagerAccessDenied,
+        PasswordNotFound,
+        TLSVersionMismatch,
+        UnknownFailure
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceStatusDetailCode
-  = AssociationRejection
-  | AuthenticationFailure
-  | CertificateAuthorityAccessDenied
-  | CertificateIssuingLimitExceeded
-  | CredentialsAccessFailure
-  | DHCPFailure
-  | DNSFailure
-  | DeviceSoftwareUpdateNeeded
-  | DeviceWasOffline
-  | InternetUnavailable
-  | InvalidCertificateAuthority
-  | InvalidPasswordState
-  | NetworkProfileNotFound
-  | PasswordManagerAccessDenied
-  | PasswordNotFound
-  | TLSVersionMismatch
-  | UnknownFailure
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceStatusDetailCode = DeviceStatusDetailCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceStatusDetailCode where
-  parser =
-    takeLowerText >>= \case
-      "association_rejection" -> pure AssociationRejection
-      "authentication_failure" -> pure AuthenticationFailure
-      "certificate_authority_access_denied" -> pure CertificateAuthorityAccessDenied
-      "certificate_issuing_limit_exceeded" -> pure CertificateIssuingLimitExceeded
-      "credentials_access_failure" -> pure CredentialsAccessFailure
-      "dhcp_failure" -> pure DHCPFailure
-      "dns_failure" -> pure DNSFailure
-      "device_software_update_needed" -> pure DeviceSoftwareUpdateNeeded
-      "device_was_offline" -> pure DeviceWasOffline
-      "internet_unavailable" -> pure InternetUnavailable
-      "invalid_certificate_authority" -> pure InvalidCertificateAuthority
-      "invalid_password_state" -> pure InvalidPasswordState
-      "network_profile_not_found" -> pure NetworkProfileNotFound
-      "password_manager_access_denied" -> pure PasswordManagerAccessDenied
-      "password_not_found" -> pure PasswordNotFound
-      "tls_version_mismatch" -> pure TLSVersionMismatch
-      "unknown_failure" -> pure UnknownFailure
-      e ->
-        fromTextError $
-          "Failure parsing DeviceStatusDetailCode from value: '" <> e
-            <> "'. Accepted values: association_rejection, authentication_failure, certificate_authority_access_denied, certificate_issuing_limit_exceeded, credentials_access_failure, dhcp_failure, dns_failure, device_software_update_needed, device_was_offline, internet_unavailable, invalid_certificate_authority, invalid_password_state, network_profile_not_found, password_manager_access_denied, password_not_found, tls_version_mismatch, unknown_failure"
+pattern AssociationRejection :: DeviceStatusDetailCode
+pattern AssociationRejection = DeviceStatusDetailCode' "ASSOCIATION_REJECTION"
 
-instance ToText DeviceStatusDetailCode where
-  toText = \case
-    AssociationRejection -> "ASSOCIATION_REJECTION"
-    AuthenticationFailure -> "AUTHENTICATION_FAILURE"
-    CertificateAuthorityAccessDenied -> "CERTIFICATE_AUTHORITY_ACCESS_DENIED"
-    CertificateIssuingLimitExceeded -> "CERTIFICATE_ISSUING_LIMIT_EXCEEDED"
-    CredentialsAccessFailure -> "CREDENTIALS_ACCESS_FAILURE"
-    DHCPFailure -> "DHCP_FAILURE"
-    DNSFailure -> "DNS_FAILURE"
-    DeviceSoftwareUpdateNeeded -> "DEVICE_SOFTWARE_UPDATE_NEEDED"
-    DeviceWasOffline -> "DEVICE_WAS_OFFLINE"
-    InternetUnavailable -> "INTERNET_UNAVAILABLE"
-    InvalidCertificateAuthority -> "INVALID_CERTIFICATE_AUTHORITY"
-    InvalidPasswordState -> "INVALID_PASSWORD_STATE"
-    NetworkProfileNotFound -> "NETWORK_PROFILE_NOT_FOUND"
-    PasswordManagerAccessDenied -> "PASSWORD_MANAGER_ACCESS_DENIED"
-    PasswordNotFound -> "PASSWORD_NOT_FOUND"
-    TLSVersionMismatch -> "TLS_VERSION_MISMATCH"
-    UnknownFailure -> "UNKNOWN_FAILURE"
+pattern AuthenticationFailure :: DeviceStatusDetailCode
+pattern AuthenticationFailure = DeviceStatusDetailCode' "AUTHENTICATION_FAILURE"
 
-instance Hashable DeviceStatusDetailCode
+pattern CertificateAuthorityAccessDenied :: DeviceStatusDetailCode
+pattern CertificateAuthorityAccessDenied = DeviceStatusDetailCode' "CERTIFICATE_AUTHORITY_ACCESS_DENIED"
 
-instance NFData DeviceStatusDetailCode
+pattern CertificateIssuingLimitExceeded :: DeviceStatusDetailCode
+pattern CertificateIssuingLimitExceeded = DeviceStatusDetailCode' "CERTIFICATE_ISSUING_LIMIT_EXCEEDED"
 
-instance ToByteString DeviceStatusDetailCode
+pattern CredentialsAccessFailure :: DeviceStatusDetailCode
+pattern CredentialsAccessFailure = DeviceStatusDetailCode' "CREDENTIALS_ACCESS_FAILURE"
 
-instance ToQuery DeviceStatusDetailCode
+pattern DHCPFailure :: DeviceStatusDetailCode
+pattern DHCPFailure = DeviceStatusDetailCode' "DHCP_FAILURE"
 
-instance ToHeader DeviceStatusDetailCode
+pattern DNSFailure :: DeviceStatusDetailCode
+pattern DNSFailure = DeviceStatusDetailCode' "DNS_FAILURE"
 
-instance FromJSON DeviceStatusDetailCode where
-  parseJSON = parseJSONText "DeviceStatusDetailCode"
+pattern DeviceSoftwareUpdateNeeded :: DeviceStatusDetailCode
+pattern DeviceSoftwareUpdateNeeded = DeviceStatusDetailCode' "DEVICE_SOFTWARE_UPDATE_NEEDED"
+
+pattern DeviceWasOffline :: DeviceStatusDetailCode
+pattern DeviceWasOffline = DeviceStatusDetailCode' "DEVICE_WAS_OFFLINE"
+
+pattern InternetUnavailable :: DeviceStatusDetailCode
+pattern InternetUnavailable = DeviceStatusDetailCode' "INTERNET_UNAVAILABLE"
+
+pattern InvalidCertificateAuthority :: DeviceStatusDetailCode
+pattern InvalidCertificateAuthority = DeviceStatusDetailCode' "INVALID_CERTIFICATE_AUTHORITY"
+
+pattern InvalidPasswordState :: DeviceStatusDetailCode
+pattern InvalidPasswordState = DeviceStatusDetailCode' "INVALID_PASSWORD_STATE"
+
+pattern NetworkProfileNotFound :: DeviceStatusDetailCode
+pattern NetworkProfileNotFound = DeviceStatusDetailCode' "NETWORK_PROFILE_NOT_FOUND"
+
+pattern PasswordManagerAccessDenied :: DeviceStatusDetailCode
+pattern PasswordManagerAccessDenied = DeviceStatusDetailCode' "PASSWORD_MANAGER_ACCESS_DENIED"
+
+pattern PasswordNotFound :: DeviceStatusDetailCode
+pattern PasswordNotFound = DeviceStatusDetailCode' "PASSWORD_NOT_FOUND"
+
+pattern TLSVersionMismatch :: DeviceStatusDetailCode
+pattern TLSVersionMismatch = DeviceStatusDetailCode' "TLS_VERSION_MISMATCH"
+
+pattern UnknownFailure :: DeviceStatusDetailCode
+pattern UnknownFailure = DeviceStatusDetailCode' "UNKNOWN_FAILURE"
+
+{-# COMPLETE
+  AssociationRejection,
+  AuthenticationFailure,
+  CertificateAuthorityAccessDenied,
+  CertificateIssuingLimitExceeded,
+  CredentialsAccessFailure,
+  DHCPFailure,
+  DNSFailure,
+  DeviceSoftwareUpdateNeeded,
+  DeviceWasOffline,
+  InternetUnavailable,
+  InvalidCertificateAuthority,
+  InvalidPasswordState,
+  NetworkProfileNotFound,
+  PasswordManagerAccessDenied,
+  PasswordNotFound,
+  TLSVersionMismatch,
+  UnknownFailure,
+  DeviceStatusDetailCode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.StopTimecode where
+module Network.AWS.MediaLive.Types.StopTimecode
+  ( StopTimecode (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkStopTimecode,
+
+    -- * Lenses
+    stLastFrameClippingBehavior,
+    stTimecode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.LastFrameClippingBehavior
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings to identify the end of the clip.
 --
--- /See:/ 'stopTimecode' smart constructor.
+-- /See:/ 'mkStopTimecode' smart constructor.
 data StopTimecode = StopTimecode'
-  { _stLastFrameClippingBehavior ::
-      !(Maybe LastFrameClippingBehavior),
-    _stTimecode :: !(Maybe Text)
+  { lastFrameClippingBehavior ::
+      Lude.Maybe LastFrameClippingBehavior,
+    timecode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTimecode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stLastFrameClippingBehavior' - If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
---
--- * 'stTimecode' - The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-stopTimecode ::
+-- * 'lastFrameClippingBehavior' - If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
+-- * 'timecode' - The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+mkStopTimecode ::
   StopTimecode
-stopTimecode =
+mkStopTimecode =
   StopTimecode'
-    { _stLastFrameClippingBehavior = Nothing,
-      _stTimecode = Nothing
+    { lastFrameClippingBehavior = Lude.Nothing,
+      timecode = Lude.Nothing
     }
 
 -- | If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
-stLastFrameClippingBehavior :: Lens' StopTimecode (Maybe LastFrameClippingBehavior)
-stLastFrameClippingBehavior = lens _stLastFrameClippingBehavior (\s a -> s {_stLastFrameClippingBehavior = a})
+--
+-- /Note:/ Consider using 'lastFrameClippingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stLastFrameClippingBehavior :: Lens.Lens' StopTimecode (Lude.Maybe LastFrameClippingBehavior)
+stLastFrameClippingBehavior = Lens.lens (lastFrameClippingBehavior :: StopTimecode -> Lude.Maybe LastFrameClippingBehavior) (\s a -> s {lastFrameClippingBehavior = a} :: StopTimecode)
+{-# DEPRECATED stLastFrameClippingBehavior "Use generic-lens or generic-optics with 'lastFrameClippingBehavior' instead." #-}
 
 -- | The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-stTimecode :: Lens' StopTimecode (Maybe Text)
-stTimecode = lens _stTimecode (\s a -> s {_stTimecode = a})
+--
+-- /Note:/ Consider using 'timecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stTimecode :: Lens.Lens' StopTimecode (Lude.Maybe Lude.Text)
+stTimecode = Lens.lens (timecode :: StopTimecode -> Lude.Maybe Lude.Text) (\s a -> s {timecode = a} :: StopTimecode)
+{-# DEPRECATED stTimecode "Use generic-lens or generic-optics with 'timecode' instead." #-}
 
-instance FromJSON StopTimecode where
+instance Lude.FromJSON StopTimecode where
   parseJSON =
-    withObject
+    Lude.withObject
       "StopTimecode"
       ( \x ->
           StopTimecode'
-            <$> (x .:? "lastFrameClippingBehavior") <*> (x .:? "timecode")
+            Lude.<$> (x Lude..:? "lastFrameClippingBehavior")
+            Lude.<*> (x Lude..:? "timecode")
       )
 
-instance Hashable StopTimecode
-
-instance NFData StopTimecode
-
-instance ToJSON StopTimecode where
+instance Lude.ToJSON StopTimecode where
   toJSON StopTimecode' {..} =
-    object
-      ( catMaybes
-          [ ("lastFrameClippingBehavior" .=) <$> _stLastFrameClippingBehavior,
-            ("timecode" .=) <$> _stTimecode
+    Lude.object
+      ( Lude.catMaybes
+          [ ("lastFrameClippingBehavior" Lude..=)
+              Lude.<$> lastFrameClippingBehavior,
+            ("timecode" Lude..=) Lude.<$> timecode
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.SubResourceSummary where
+module Network.AWS.Shield.Types.SubResourceSummary
+  ( SubResourceSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubResourceSummary,
+
+    -- * Lenses
+    srsCounters,
+    srsAttackVectors,
+    srsId,
+    srsType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.SubResourceType
 import Network.AWS.Shield.Types.SummarizedAttackVector
 import Network.AWS.Shield.Types.SummarizedCounter
 
 -- | The attack information for the specified SubResource.
 --
---
---
--- /See:/ 'subResourceSummary' smart constructor.
+-- /See:/ 'mkSubResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-  { _srsCounters ::
-      !(Maybe [SummarizedCounter]),
-    _srsAttackVectors ::
-      !(Maybe [SummarizedAttackVector]),
-    _srsId :: !(Maybe Text),
-    _srsType :: !(Maybe SubResourceType)
+  { counters ::
+      Lude.Maybe [SummarizedCounter],
+    attackVectors :: Lude.Maybe [SummarizedAttackVector],
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe SubResourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubResourceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsCounters' - The counters that describe the details of the attack.
---
--- * 'srsAttackVectors' - The list of attack types and associated counters.
---
--- * 'srsId' - The unique identifier (ID) of the @SubResource@ .
---
--- * 'srsType' - The @SubResource@ type.
-subResourceSummary ::
+-- * 'attackVectors' - The list of attack types and associated counters.
+-- * 'counters' - The counters that describe the details of the attack.
+-- * 'id' - The unique identifier (ID) of the @SubResource@ .
+-- * 'type'' - The @SubResource@ type.
+mkSubResourceSummary ::
   SubResourceSummary
-subResourceSummary =
+mkSubResourceSummary =
   SubResourceSummary'
-    { _srsCounters = Nothing,
-      _srsAttackVectors = Nothing,
-      _srsId = Nothing,
-      _srsType = Nothing
+    { counters = Lude.Nothing,
+      attackVectors = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The counters that describe the details of the attack.
-srsCounters :: Lens' SubResourceSummary [SummarizedCounter]
-srsCounters = lens _srsCounters (\s a -> s {_srsCounters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsCounters :: Lens.Lens' SubResourceSummary (Lude.Maybe [SummarizedCounter])
+srsCounters = Lens.lens (counters :: SubResourceSummary -> Lude.Maybe [SummarizedCounter]) (\s a -> s {counters = a} :: SubResourceSummary)
+{-# DEPRECATED srsCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
 
 -- | The list of attack types and associated counters.
-srsAttackVectors :: Lens' SubResourceSummary [SummarizedAttackVector]
-srsAttackVectors = lens _srsAttackVectors (\s a -> s {_srsAttackVectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attackVectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsAttackVectors :: Lens.Lens' SubResourceSummary (Lude.Maybe [SummarizedAttackVector])
+srsAttackVectors = Lens.lens (attackVectors :: SubResourceSummary -> Lude.Maybe [SummarizedAttackVector]) (\s a -> s {attackVectors = a} :: SubResourceSummary)
+{-# DEPRECATED srsAttackVectors "Use generic-lens or generic-optics with 'attackVectors' instead." #-}
 
 -- | The unique identifier (ID) of the @SubResource@ .
-srsId :: Lens' SubResourceSummary (Maybe Text)
-srsId = lens _srsId (\s a -> s {_srsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsId :: Lens.Lens' SubResourceSummary (Lude.Maybe Lude.Text)
+srsId = Lens.lens (id :: SubResourceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: SubResourceSummary)
+{-# DEPRECATED srsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The @SubResource@ type.
-srsType :: Lens' SubResourceSummary (Maybe SubResourceType)
-srsType = lens _srsType (\s a -> s {_srsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsType :: Lens.Lens' SubResourceSummary (Lude.Maybe SubResourceType)
+srsType = Lens.lens (type' :: SubResourceSummary -> Lude.Maybe SubResourceType) (\s a -> s {type' = a} :: SubResourceSummary)
+{-# DEPRECATED srsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON SubResourceSummary where
+instance Lude.FromJSON SubResourceSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SubResourceSummary"
       ( \x ->
           SubResourceSummary'
-            <$> (x .:? "Counters" .!= mempty)
-            <*> (x .:? "AttackVectors" .!= mempty)
-            <*> (x .:? "Id")
-            <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "Counters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AttackVectors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable SubResourceSummary
-
-instance NFData SubResourceSummary

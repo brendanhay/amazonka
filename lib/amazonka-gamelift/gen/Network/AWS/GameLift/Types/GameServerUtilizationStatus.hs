@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerUtilizationStatus where
+module Network.AWS.GameLift.Types.GameServerUtilizationStatus
+  ( GameServerUtilizationStatus
+      ( GameServerUtilizationStatus',
+        Available,
+        Utilized
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerUtilizationStatus
-  = Available
-  | Utilized
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerUtilizationStatus = GameServerUtilizationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerUtilizationStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "utilized" -> pure Utilized
-      e ->
-        fromTextError $
-          "Failure parsing GameServerUtilizationStatus from value: '" <> e
-            <> "'. Accepted values: available, utilized"
+pattern Available :: GameServerUtilizationStatus
+pattern Available = GameServerUtilizationStatus' "AVAILABLE"
 
-instance ToText GameServerUtilizationStatus where
-  toText = \case
-    Available -> "AVAILABLE"
-    Utilized -> "UTILIZED"
+pattern Utilized :: GameServerUtilizationStatus
+pattern Utilized = GameServerUtilizationStatus' "UTILIZED"
 
-instance Hashable GameServerUtilizationStatus
-
-instance NFData GameServerUtilizationStatus
-
-instance ToByteString GameServerUtilizationStatus
-
-instance ToQuery GameServerUtilizationStatus
-
-instance ToHeader GameServerUtilizationStatus
-
-instance ToJSON GameServerUtilizationStatus where
-  toJSON = toJSONText
-
-instance FromJSON GameServerUtilizationStatus where
-  parseJSON = parseJSONText "GameServerUtilizationStatus"
+{-# COMPLETE
+  Available,
+  Utilized,
+  GameServerUtilizationStatus'
+  #-}

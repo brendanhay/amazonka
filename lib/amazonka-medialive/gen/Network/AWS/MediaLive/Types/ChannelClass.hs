@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ChannelClass where
+module Network.AWS.MediaLive.Types.ChannelClass
+  ( ChannelClass
+      ( ChannelClass',
+        CCSinglePipeline,
+        CCStandard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A standard channel has two encoding pipelines and a single pipeline channel only has one.
-data ChannelClass
-  = CCSinglePipeline
-  | CCStandard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChannelClass = ChannelClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChannelClass where
-  parser =
-    takeLowerText >>= \case
-      "single_pipeline" -> pure CCSinglePipeline
-      "standard" -> pure CCStandard
-      e ->
-        fromTextError $
-          "Failure parsing ChannelClass from value: '" <> e
-            <> "'. Accepted values: single_pipeline, standard"
+pattern CCSinglePipeline :: ChannelClass
+pattern CCSinglePipeline = ChannelClass' "SINGLE_PIPELINE"
 
-instance ToText ChannelClass where
-  toText = \case
-    CCSinglePipeline -> "SINGLE_PIPELINE"
-    CCStandard -> "STANDARD"
+pattern CCStandard :: ChannelClass
+pattern CCStandard = ChannelClass' "STANDARD"
 
-instance Hashable ChannelClass
-
-instance NFData ChannelClass
-
-instance ToByteString ChannelClass
-
-instance ToQuery ChannelClass
-
-instance ToHeader ChannelClass
-
-instance ToJSON ChannelClass where
-  toJSON = toJSONText
-
-instance FromJSON ChannelClass where
-  parseJSON = parseJSONText "ChannelClass"
+{-# COMPLETE
+  CCSinglePipeline,
+  CCStandard,
+  ChannelClass'
+  #-}

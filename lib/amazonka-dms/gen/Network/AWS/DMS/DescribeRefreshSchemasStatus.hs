@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,143 @@
 --
 -- Returns the status of the RefreshSchemas operation.
 module Network.AWS.DMS.DescribeRefreshSchemasStatus
-  ( -- * Creating a Request
-    describeRefreshSchemasStatus,
-    DescribeRefreshSchemasStatus,
+  ( -- * Creating a request
+    DescribeRefreshSchemasStatus (..),
+    mkDescribeRefreshSchemasStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drssEndpointARN,
 
-    -- * Destructuring the Response
-    describeRefreshSchemasStatusResponse,
-    DescribeRefreshSchemasStatusResponse,
+    -- * Destructuring the response
+    DescribeRefreshSchemasStatusResponse (..),
+    mkDescribeRefreshSchemasStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drssrsRefreshSchemasStatus,
     drssrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeRefreshSchemasStatus' smart constructor.
+-- /See:/ 'mkDescribeRefreshSchemasStatus' smart constructor.
 newtype DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
-  { _drssEndpointARN ::
-      Text
+  { endpointARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRefreshSchemasStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drssEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-describeRefreshSchemasStatus ::
-  -- | 'drssEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+mkDescribeRefreshSchemasStatus ::
+  -- | 'endpointARN'
+  Lude.Text ->
   DescribeRefreshSchemasStatus
-describeRefreshSchemasStatus pEndpointARN_ =
-  DescribeRefreshSchemasStatus' {_drssEndpointARN = pEndpointARN_}
+mkDescribeRefreshSchemasStatus pEndpointARN_ =
+  DescribeRefreshSchemasStatus' {endpointARN = pEndpointARN_}
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-drssEndpointARN :: Lens' DescribeRefreshSchemasStatus Text
-drssEndpointARN = lens _drssEndpointARN (\s a -> s {_drssEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drssEndpointARN :: Lens.Lens' DescribeRefreshSchemasStatus Lude.Text
+drssEndpointARN = Lens.lens (endpointARN :: DescribeRefreshSchemasStatus -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeRefreshSchemasStatus)
+{-# DEPRECATED drssEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance AWSRequest DescribeRefreshSchemasStatus where
+instance Lude.AWSRequest DescribeRefreshSchemasStatus where
   type
     Rs DescribeRefreshSchemasStatus =
       DescribeRefreshSchemasStatusResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRefreshSchemasStatusResponse'
-            <$> (x .?> "RefreshSchemasStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RefreshSchemasStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRefreshSchemasStatus
-
-instance NFData DescribeRefreshSchemasStatus
-
-instance ToHeaders DescribeRefreshSchemasStatus where
+instance Lude.ToHeaders DescribeRefreshSchemasStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DescribeRefreshSchemasStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DescribeRefreshSchemasStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRefreshSchemasStatus where
+instance Lude.ToJSON DescribeRefreshSchemasStatus where
   toJSON DescribeRefreshSchemasStatus' {..} =
-    object (catMaybes [Just ("EndpointArn" .= _drssEndpointARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("EndpointArn" Lude..= endpointARN)])
 
-instance ToPath DescribeRefreshSchemasStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeRefreshSchemasStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRefreshSchemasStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRefreshSchemasStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeRefreshSchemasStatusResponse' smart constructor.
+-- /See:/ 'mkDescribeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
-  { _drssrsRefreshSchemasStatus ::
-      !( Maybe
-           RefreshSchemasStatus
-       ),
-    _drssrsResponseStatus ::
-      !Int
+  { refreshSchemasStatus ::
+      Lude.Maybe
+        RefreshSchemasStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRefreshSchemasStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drssrsRefreshSchemasStatus' - The status of the schema.
---
--- * 'drssrsResponseStatus' - -- | The response status code.
-describeRefreshSchemasStatusResponse ::
-  -- | 'drssrsResponseStatus'
-  Int ->
+-- * 'refreshSchemasStatus' - The status of the schema.
+-- * 'responseStatus' - The response status code.
+mkDescribeRefreshSchemasStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRefreshSchemasStatusResponse
-describeRefreshSchemasStatusResponse pResponseStatus_ =
+mkDescribeRefreshSchemasStatusResponse pResponseStatus_ =
   DescribeRefreshSchemasStatusResponse'
-    { _drssrsRefreshSchemasStatus =
-        Nothing,
-      _drssrsResponseStatus = pResponseStatus_
+    { refreshSchemasStatus =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the schema.
-drssrsRefreshSchemasStatus :: Lens' DescribeRefreshSchemasStatusResponse (Maybe RefreshSchemasStatus)
-drssrsRefreshSchemasStatus = lens _drssrsRefreshSchemasStatus (\s a -> s {_drssrsRefreshSchemasStatus = a})
+--
+-- /Note:/ Consider using 'refreshSchemasStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drssrsRefreshSchemasStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse (Lude.Maybe RefreshSchemasStatus)
+drssrsRefreshSchemasStatus = Lens.lens (refreshSchemasStatus :: DescribeRefreshSchemasStatusResponse -> Lude.Maybe RefreshSchemasStatus) (\s a -> s {refreshSchemasStatus = a} :: DescribeRefreshSchemasStatusResponse)
+{-# DEPRECATED drssrsRefreshSchemasStatus "Use generic-lens or generic-optics with 'refreshSchemasStatus' instead." #-}
 
--- | -- | The response status code.
-drssrsResponseStatus :: Lens' DescribeRefreshSchemasStatusResponse Int
-drssrsResponseStatus = lens _drssrsResponseStatus (\s a -> s {_drssrsResponseStatus = a})
-
-instance NFData DescribeRefreshSchemasStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drssrsResponseStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse Lude.Int
+drssrsResponseStatus = Lens.lens (responseStatus :: DescribeRefreshSchemasStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRefreshSchemasStatusResponse)
+{-# DEPRECATED drssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,13 +13,11 @@
 --
 -- AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.
 --
---
 -- AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management.
---
 -- AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.
 module Network.AWS.DataPipeline
-  ( -- * Service Configuration
-    dataPipeline,
+  ( -- * Service configuration
+    dataPipelineService,
 
     -- * Errors
     -- $errors
@@ -96,45 +94,45 @@ module Network.AWS.DataPipeline
     TaskStatus (..),
 
     -- ** Field
-    Field,
-    field,
+    Field (..),
+    mkField,
     fRefValue,
     fStringValue,
     fKey,
 
     -- ** InstanceIdentity
-    InstanceIdentity,
-    instanceIdentity,
+    InstanceIdentity (..),
+    mkInstanceIdentity,
     iiSignature,
     iiDocument,
 
     -- ** Operator
-    Operator,
-    operator,
+    Operator (..),
+    mkOperator,
     oValues,
     oType,
 
     -- ** ParameterAttribute
-    ParameterAttribute,
-    parameterAttribute,
+    ParameterAttribute (..),
+    mkParameterAttribute,
     paKey,
     paStringValue,
 
     -- ** ParameterObject
-    ParameterObject,
-    parameterObject,
+    ParameterObject (..),
+    mkParameterObject,
     poId,
     poAttributes,
 
     -- ** ParameterValue
-    ParameterValue,
-    parameterValue,
+    ParameterValue (..),
+    mkParameterValue,
     pvId,
     pvStringValue,
 
     -- ** PipelineDescription
-    PipelineDescription,
-    pipelineDescription,
+    PipelineDescription (..),
+    mkPipelineDescription,
     pdDescription,
     pdTags,
     pdPipelineId,
@@ -142,54 +140,65 @@ module Network.AWS.DataPipeline
     pdFields,
 
     -- ** PipelineIdName
-    PipelineIdName,
-    pipelineIdName,
+    PipelineIdName (..),
+    mkPipelineIdName,
     pinName,
     pinId,
 
     -- ** PipelineObject
-    PipelineObject,
-    pipelineObject,
+    PipelineObject (..),
+    mkPipelineObject,
     pId,
     pName,
     pFields,
 
     -- ** Query
-    Query,
-    query,
+    Query (..),
+    mkQuery,
     qSelectors,
 
     -- ** Selector
-    Selector,
-    selector,
+    Selector (..),
+    mkSelector,
     sOperator,
     sFieldName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TaskObject
-    TaskObject,
-    taskObject,
+    TaskObject (..),
+    mkTaskObject,
     toPipelineId,
     toAttemptId,
     toTaskId,
     toObjects,
 
     -- ** ValidationError
-    ValidationError,
-    validationError,
+    ValidationError (..),
+    mkValidationError,
     veId,
     veErrors,
 
     -- ** ValidationWarning
-    ValidationWarning,
-    validationWarning,
+    ValidationWarning (..),
+    mkValidationWarning,
     vwWarnings,
     vwId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -214,6 +223,7 @@ import Network.AWS.DataPipeline.SetTaskStatus
 import Network.AWS.DataPipeline.Types
 import Network.AWS.DataPipeline.ValidatePipelineDefinition
 import Network.AWS.DataPipeline.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

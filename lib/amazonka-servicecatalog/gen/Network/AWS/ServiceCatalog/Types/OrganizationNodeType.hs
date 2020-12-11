@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.OrganizationNodeType where
+module Network.AWS.ServiceCatalog.Types.OrganizationNodeType
+  ( OrganizationNodeType
+      ( OrganizationNodeType',
+        ONTAccount,
+        ONTOrganization,
+        ONTOrganizationalUnit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrganizationNodeType
-  = ONTAccount
-  | ONTOrganization
-  | ONTOrganizationalUnit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrganizationNodeType = OrganizationNodeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrganizationNodeType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure ONTAccount
-      "organization" -> pure ONTOrganization
-      "organizational_unit" -> pure ONTOrganizationalUnit
-      e ->
-        fromTextError $
-          "Failure parsing OrganizationNodeType from value: '" <> e
-            <> "'. Accepted values: account, organization, organizational_unit"
+pattern ONTAccount :: OrganizationNodeType
+pattern ONTAccount = OrganizationNodeType' "ACCOUNT"
 
-instance ToText OrganizationNodeType where
-  toText = \case
-    ONTAccount -> "ACCOUNT"
-    ONTOrganization -> "ORGANIZATION"
-    ONTOrganizationalUnit -> "ORGANIZATIONAL_UNIT"
+pattern ONTOrganization :: OrganizationNodeType
+pattern ONTOrganization = OrganizationNodeType' "ORGANIZATION"
 
-instance Hashable OrganizationNodeType
+pattern ONTOrganizationalUnit :: OrganizationNodeType
+pattern ONTOrganizationalUnit = OrganizationNodeType' "ORGANIZATIONAL_UNIT"
 
-instance NFData OrganizationNodeType
-
-instance ToByteString OrganizationNodeType
-
-instance ToQuery OrganizationNodeType
-
-instance ToHeader OrganizationNodeType
-
-instance ToJSON OrganizationNodeType where
-  toJSON = toJSONText
-
-instance FromJSON OrganizationNodeType where
-  parseJSON = parseJSONText "OrganizationNodeType"
+{-# COMPLETE
+  ONTAccount,
+  ONTOrganization,
+  ONTOrganizationalUnit,
+  OrganizationNodeType'
+  #-}

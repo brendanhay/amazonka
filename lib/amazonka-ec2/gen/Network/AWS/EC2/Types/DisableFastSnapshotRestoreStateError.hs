@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError where
+module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError
+  ( DisableFastSnapshotRestoreStateError (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDisableFastSnapshotRestoreStateError,
+
+    -- * Lenses
+    dfsrseCode,
+    dfsrseMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an error that occurred when disabling fast snapshot restores.
 --
---
---
--- /See:/ 'disableFastSnapshotRestoreStateError' smart constructor.
+-- /See:/ 'mkDisableFastSnapshotRestoreStateError' smart constructor.
 data DisableFastSnapshotRestoreStateError = DisableFastSnapshotRestoreStateError'
-  { _dfsrseCode ::
-      !(Maybe Text),
-    _dfsrseMessage ::
-      !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        Lude.Text,
+    message ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableFastSnapshotRestoreStateError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfsrseCode' - The error code.
---
--- * 'dfsrseMessage' - The error message.
-disableFastSnapshotRestoreStateError ::
+-- * 'code' - The error code.
+-- * 'message' - The error message.
+mkDisableFastSnapshotRestoreStateError ::
   DisableFastSnapshotRestoreStateError
-disableFastSnapshotRestoreStateError =
+mkDisableFastSnapshotRestoreStateError =
   DisableFastSnapshotRestoreStateError'
-    { _dfsrseCode = Nothing,
-      _dfsrseMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The error code.
-dfsrseCode :: Lens' DisableFastSnapshotRestoreStateError (Maybe Text)
-dfsrseCode = lens _dfsrseCode (\s a -> s {_dfsrseCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrseCode :: Lens.Lens' DisableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
+dfsrseCode = Lens.lens (code :: DisableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: DisableFastSnapshotRestoreStateError)
+{-# DEPRECATED dfsrseCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message.
-dfsrseMessage :: Lens' DisableFastSnapshotRestoreStateError (Maybe Text)
-dfsrseMessage = lens _dfsrseMessage (\s a -> s {_dfsrseMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrseMessage :: Lens.Lens' DisableFastSnapshotRestoreStateError (Lude.Maybe Lude.Text)
+dfsrseMessage = Lens.lens (message :: DisableFastSnapshotRestoreStateError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DisableFastSnapshotRestoreStateError)
+{-# DEPRECATED dfsrseMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML DisableFastSnapshotRestoreStateError where
+instance Lude.FromXML DisableFastSnapshotRestoreStateError where
   parseXML x =
     DisableFastSnapshotRestoreStateError'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable DisableFastSnapshotRestoreStateError
-
-instance NFData DisableFastSnapshotRestoreStateError
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

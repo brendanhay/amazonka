@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoCodecSettings where
+module Network.AWS.MediaLive.Types.VideoCodecSettings
+  ( VideoCodecSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkVideoCodecSettings,
+
+    -- * Lenses
+    vcsFrameCaptureSettings,
+    vcsH265Settings,
+    vcsH264Settings,
+    vcsMpeg2Settings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FrameCaptureSettings
 import Network.AWS.MediaLive.Types.H264Settings
 import Network.AWS.MediaLive.Types.H265Settings
 import Network.AWS.MediaLive.Types.Mpeg2Settings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Codec Settings
 --
--- /See:/ 'videoCodecSettings' smart constructor.
+-- /See:/ 'mkVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
-  { _vcsFrameCaptureSettings ::
-      !(Maybe FrameCaptureSettings),
-    _vcsH265Settings :: !(Maybe H265Settings),
-    _vcsH264Settings :: !(Maybe H264Settings),
-    _vcsMpeg2Settings :: !(Maybe Mpeg2Settings)
+  { frameCaptureSettings ::
+      Lude.Maybe FrameCaptureSettings,
+    h265Settings :: Lude.Maybe H265Settings,
+    h264Settings :: Lude.Maybe H264Settings,
+    mpeg2Settings :: Lude.Maybe Mpeg2Settings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoCodecSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vcsFrameCaptureSettings' - Undocumented member.
---
--- * 'vcsH265Settings' - Undocumented member.
---
--- * 'vcsH264Settings' - Undocumented member.
---
--- * 'vcsMpeg2Settings' - Undocumented member.
-videoCodecSettings ::
+-- * 'frameCaptureSettings' - Undocumented field.
+-- * 'h264Settings' - Undocumented field.
+-- * 'h265Settings' - Undocumented field.
+-- * 'mpeg2Settings' - Undocumented field.
+mkVideoCodecSettings ::
   VideoCodecSettings
-videoCodecSettings =
+mkVideoCodecSettings =
   VideoCodecSettings'
-    { _vcsFrameCaptureSettings = Nothing,
-      _vcsH265Settings = Nothing,
-      _vcsH264Settings = Nothing,
-      _vcsMpeg2Settings = Nothing
+    { frameCaptureSettings = Lude.Nothing,
+      h265Settings = Lude.Nothing,
+      h264Settings = Lude.Nothing,
+      mpeg2Settings = Lude.Nothing
     }
 
--- | Undocumented member.
-vcsFrameCaptureSettings :: Lens' VideoCodecSettings (Maybe FrameCaptureSettings)
-vcsFrameCaptureSettings = lens _vcsFrameCaptureSettings (\s a -> s {_vcsFrameCaptureSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'frameCaptureSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsFrameCaptureSettings :: Lens.Lens' VideoCodecSettings (Lude.Maybe FrameCaptureSettings)
+vcsFrameCaptureSettings = Lens.lens (frameCaptureSettings :: VideoCodecSettings -> Lude.Maybe FrameCaptureSettings) (\s a -> s {frameCaptureSettings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsFrameCaptureSettings "Use generic-lens or generic-optics with 'frameCaptureSettings' instead." #-}
 
--- | Undocumented member.
-vcsH265Settings :: Lens' VideoCodecSettings (Maybe H265Settings)
-vcsH265Settings = lens _vcsH265Settings (\s a -> s {_vcsH265Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'h265Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsH265Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe H265Settings)
+vcsH265Settings = Lens.lens (h265Settings :: VideoCodecSettings -> Lude.Maybe H265Settings) (\s a -> s {h265Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsH265Settings "Use generic-lens or generic-optics with 'h265Settings' instead." #-}
 
--- | Undocumented member.
-vcsH264Settings :: Lens' VideoCodecSettings (Maybe H264Settings)
-vcsH264Settings = lens _vcsH264Settings (\s a -> s {_vcsH264Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'h264Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsH264Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe H264Settings)
+vcsH264Settings = Lens.lens (h264Settings :: VideoCodecSettings -> Lude.Maybe H264Settings) (\s a -> s {h264Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsH264Settings "Use generic-lens or generic-optics with 'h264Settings' instead." #-}
 
--- | Undocumented member.
-vcsMpeg2Settings :: Lens' VideoCodecSettings (Maybe Mpeg2Settings)
-vcsMpeg2Settings = lens _vcsMpeg2Settings (\s a -> s {_vcsMpeg2Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mpeg2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsMpeg2Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Mpeg2Settings)
+vcsMpeg2Settings = Lens.lens (mpeg2Settings :: VideoCodecSettings -> Lude.Maybe Mpeg2Settings) (\s a -> s {mpeg2Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsMpeg2Settings "Use generic-lens or generic-optics with 'mpeg2Settings' instead." #-}
 
-instance FromJSON VideoCodecSettings where
+instance Lude.FromJSON VideoCodecSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "VideoCodecSettings"
       ( \x ->
           VideoCodecSettings'
-            <$> (x .:? "frameCaptureSettings")
-            <*> (x .:? "h265Settings")
-            <*> (x .:? "h264Settings")
-            <*> (x .:? "mpeg2Settings")
+            Lude.<$> (x Lude..:? "frameCaptureSettings")
+            Lude.<*> (x Lude..:? "h265Settings")
+            Lude.<*> (x Lude..:? "h264Settings")
+            Lude.<*> (x Lude..:? "mpeg2Settings")
       )
 
-instance Hashable VideoCodecSettings
-
-instance NFData VideoCodecSettings
-
-instance ToJSON VideoCodecSettings where
+instance Lude.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =
-    object
-      ( catMaybes
-          [ ("frameCaptureSettings" .=) <$> _vcsFrameCaptureSettings,
-            ("h265Settings" .=) <$> _vcsH265Settings,
-            ("h264Settings" .=) <$> _vcsH264Settings,
-            ("mpeg2Settings" .=) <$> _vcsMpeg2Settings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("frameCaptureSettings" Lude..=) Lude.<$> frameCaptureSettings,
+            ("h265Settings" Lude..=) Lude.<$> h265Settings,
+            ("h264Settings" Lude..=) Lude.<$> h264Settings,
+            ("mpeg2Settings" Lude..=) Lude.<$> mpeg2Settings
           ]
       )

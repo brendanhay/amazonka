@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,202 @@
 --
 -- Creates a deployment configuration.
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
-  ( -- * Creating a Request
-    createDeploymentConfig,
-    CreateDeploymentConfig,
+  ( -- * Creating a request
+    CreateDeploymentConfig (..),
+    mkCreateDeploymentConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcComputePlatform,
     cdcMinimumHealthyHosts,
     cdcTrafficRoutingConfig,
     cdcDeploymentConfigName,
 
-    -- * Destructuring the Response
-    createDeploymentConfigResponse,
-    CreateDeploymentConfigResponse,
+    -- * Destructuring the response
+    CreateDeploymentConfigResponse (..),
+    mkCreateDeploymentConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcrsDeploymentConfigId,
     cdcrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @CreateDeploymentConfig@ operation.
 --
---
---
--- /See:/ 'createDeploymentConfig' smart constructor.
+-- /See:/ 'mkCreateDeploymentConfig' smart constructor.
 data CreateDeploymentConfig = CreateDeploymentConfig'
-  { _cdcComputePlatform ::
-      !(Maybe ComputePlatform),
-    _cdcMinimumHealthyHosts ::
-      !(Maybe MinimumHealthyHosts),
-    _cdcTrafficRoutingConfig ::
-      !(Maybe TrafficRoutingConfig),
-    _cdcDeploymentConfigName :: !Text
+  { computePlatform ::
+      Lude.Maybe ComputePlatform,
+    minimumHealthyHosts ::
+      Lude.Maybe MinimumHealthyHosts,
+    trafficRoutingConfig ::
+      Lude.Maybe TrafficRoutingConfig,
+    deploymentConfigName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- * 'deploymentConfigName' - The name of the deployment configuration to create.
+-- * 'minimumHealthyHosts' - The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
 --
--- * 'cdcComputePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- The type parameter takes either of the following values:
 --
--- * 'cdcMinimumHealthyHosts' - The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value. The type parameter takes either of the following values:     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.     * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instances and rounds up fractional instances. The value parameter takes an integer. For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
+--     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.
 --
--- * 'cdcTrafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
 --
--- * 'cdcDeploymentConfigName' - The name of the deployment configuration to create.
-createDeploymentConfig ::
-  -- | 'cdcDeploymentConfigName'
-  Text ->
+--     * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instances and rounds up fractional instances.
+--
+--
+-- The value parameter takes an integer.
+-- For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
+-- * 'trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
+mkCreateDeploymentConfig ::
+  -- | 'deploymentConfigName'
+  Lude.Text ->
   CreateDeploymentConfig
-createDeploymentConfig pDeploymentConfigName_ =
+mkCreateDeploymentConfig pDeploymentConfigName_ =
   CreateDeploymentConfig'
-    { _cdcComputePlatform = Nothing,
-      _cdcMinimumHealthyHosts = Nothing,
-      _cdcTrafficRoutingConfig = Nothing,
-      _cdcDeploymentConfigName = pDeploymentConfigName_
+    { computePlatform = Lude.Nothing,
+      minimumHealthyHosts = Lude.Nothing,
+      trafficRoutingConfig = Lude.Nothing,
+      deploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
-cdcComputePlatform :: Lens' CreateDeploymentConfig (Maybe ComputePlatform)
-cdcComputePlatform = lens _cdcComputePlatform (\s a -> s {_cdcComputePlatform = a})
+--
+-- /Note:/ Consider using 'computePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcComputePlatform :: Lens.Lens' CreateDeploymentConfig (Lude.Maybe ComputePlatform)
+cdcComputePlatform = Lens.lens (computePlatform :: CreateDeploymentConfig -> Lude.Maybe ComputePlatform) (\s a -> s {computePlatform = a} :: CreateDeploymentConfig)
+{-# DEPRECATED cdcComputePlatform "Use generic-lens or generic-optics with 'computePlatform' instead." #-}
 
--- | The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value. The type parameter takes either of the following values:     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.     * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instances and rounds up fractional instances. The value parameter takes an integer. For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
-cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
-cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\s a -> s {_cdcMinimumHealthyHosts = a})
+-- | The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+--
+-- The type parameter takes either of the following values:
+--
+--     * HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.
+--
+--
+--     * FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instances and rounds up fractional instances.
+--
+--
+-- The value parameter takes an integer.
+-- For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
+--
+-- /Note:/ Consider using 'minimumHealthyHosts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcMinimumHealthyHosts :: Lens.Lens' CreateDeploymentConfig (Lude.Maybe MinimumHealthyHosts)
+cdcMinimumHealthyHosts = Lens.lens (minimumHealthyHosts :: CreateDeploymentConfig -> Lude.Maybe MinimumHealthyHosts) (\s a -> s {minimumHealthyHosts = a} :: CreateDeploymentConfig)
+{-# DEPRECATED cdcMinimumHealthyHosts "Use generic-lens or generic-optics with 'minimumHealthyHosts' instead." #-}
 
 -- | The configuration that specifies how the deployment traffic is routed.
-cdcTrafficRoutingConfig :: Lens' CreateDeploymentConfig (Maybe TrafficRoutingConfig)
-cdcTrafficRoutingConfig = lens _cdcTrafficRoutingConfig (\s a -> s {_cdcTrafficRoutingConfig = a})
+--
+-- /Note:/ Consider using 'trafficRoutingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcTrafficRoutingConfig :: Lens.Lens' CreateDeploymentConfig (Lude.Maybe TrafficRoutingConfig)
+cdcTrafficRoutingConfig = Lens.lens (trafficRoutingConfig :: CreateDeploymentConfig -> Lude.Maybe TrafficRoutingConfig) (\s a -> s {trafficRoutingConfig = a} :: CreateDeploymentConfig)
+{-# DEPRECATED cdcTrafficRoutingConfig "Use generic-lens or generic-optics with 'trafficRoutingConfig' instead." #-}
 
 -- | The name of the deployment configuration to create.
-cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
-cdcDeploymentConfigName = lens _cdcDeploymentConfigName (\s a -> s {_cdcDeploymentConfigName = a})
+--
+-- /Note:/ Consider using 'deploymentConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDeploymentConfigName :: Lens.Lens' CreateDeploymentConfig Lude.Text
+cdcDeploymentConfigName = Lens.lens (deploymentConfigName :: CreateDeploymentConfig -> Lude.Text) (\s a -> s {deploymentConfigName = a} :: CreateDeploymentConfig)
+{-# DEPRECATED cdcDeploymentConfigName "Use generic-lens or generic-optics with 'deploymentConfigName' instead." #-}
 
-instance AWSRequest CreateDeploymentConfig where
+instance Lude.AWSRequest CreateDeploymentConfig where
   type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDeploymentConfigResponse'
-            <$> (x .?> "deploymentConfigId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deploymentConfigId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDeploymentConfig
-
-instance NFData CreateDeploymentConfig
-
-instance ToHeaders CreateDeploymentConfig where
+instance Lude.ToHeaders CreateDeploymentConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.CreateDeploymentConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.CreateDeploymentConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDeploymentConfig where
+instance Lude.ToJSON CreateDeploymentConfig where
   toJSON CreateDeploymentConfig' {..} =
-    object
-      ( catMaybes
-          [ ("computePlatform" .=) <$> _cdcComputePlatform,
-            ("minimumHealthyHosts" .=) <$> _cdcMinimumHealthyHosts,
-            ("trafficRoutingConfig" .=) <$> _cdcTrafficRoutingConfig,
-            Just ("deploymentConfigName" .= _cdcDeploymentConfigName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("computePlatform" Lude..=) Lude.<$> computePlatform,
+            ("minimumHealthyHosts" Lude..=) Lude.<$> minimumHealthyHosts,
+            ("trafficRoutingConfig" Lude..=) Lude.<$> trafficRoutingConfig,
+            Lude.Just ("deploymentConfigName" Lude..= deploymentConfigName)
           ]
       )
 
-instance ToPath CreateDeploymentConfig where
-  toPath = const "/"
+instance Lude.ToPath CreateDeploymentConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDeploymentConfig where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDeploymentConfig where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateDeploymentConfig@ operation.
 --
---
---
--- /See:/ 'createDeploymentConfigResponse' smart constructor.
+-- /See:/ 'mkCreateDeploymentConfigResponse' smart constructor.
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
-  { _cdcrsDeploymentConfigId ::
-      !(Maybe Text),
-    _cdcrsResponseStatus :: !Int
+  { deploymentConfigId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcrsDeploymentConfigId' - A unique deployment configuration ID.
---
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDeploymentConfigResponse ::
-  -- | 'cdcrsResponseStatus'
-  Int ->
+-- * 'deploymentConfigId' - A unique deployment configuration ID.
+-- * 'responseStatus' - The response status code.
+mkCreateDeploymentConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDeploymentConfigResponse
-createDeploymentConfigResponse pResponseStatus_ =
+mkCreateDeploymentConfigResponse pResponseStatus_ =
   CreateDeploymentConfigResponse'
-    { _cdcrsDeploymentConfigId =
-        Nothing,
-      _cdcrsResponseStatus = pResponseStatus_
+    { deploymentConfigId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique deployment configuration ID.
-cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
-cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\s a -> s {_cdcrsDeploymentConfigId = a})
+--
+-- /Note:/ Consider using 'deploymentConfigId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsDeploymentConfigId :: Lens.Lens' CreateDeploymentConfigResponse (Lude.Maybe Lude.Text)
+cdcrsDeploymentConfigId = Lens.lens (deploymentConfigId :: CreateDeploymentConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {deploymentConfigId = a} :: CreateDeploymentConfigResponse)
+{-# DEPRECATED cdcrsDeploymentConfigId "Use generic-lens or generic-optics with 'deploymentConfigId' instead." #-}
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDeploymentConfigResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\s a -> s {_cdcrsResponseStatus = a})
-
-instance NFData CreateDeploymentConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsResponseStatus :: Lens.Lens' CreateDeploymentConfigResponse Lude.Int
+cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDeploymentConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDeploymentConfigResponse)
+{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

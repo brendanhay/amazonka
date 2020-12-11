@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,176 @@
 --
 -- The @SendBonus@ operation issues a payment of money from your account to a Worker. This payment happens separately from the reward you pay to the Worker when you approve the Worker's assignment. The SendBonus operation requires the Worker's ID and the assignment ID as parameters to initiate payment of the bonus. You must include a message that explains the reason for the bonus payment, as the Worker may not be expecting the payment. Amazon Mechanical Turk collects a fee for bonus payments, similar to the HIT listing fee. This operation fails if your account does not have enough funds to pay for both the bonus and the fees.
 module Network.AWS.MechanicalTurk.SendBonus
-  ( -- * Creating a Request
-    sendBonus,
-    SendBonus,
+  ( -- * Creating a request
+    SendBonus (..),
+    mkSendBonus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbUniqueRequestToken,
     sbWorkerId,
     sbBonusAmount,
     sbAssignmentId,
     sbReason,
 
-    -- * Destructuring the Response
-    sendBonusResponse,
-    SendBonusResponse,
+    -- * Destructuring the response
+    SendBonusResponse (..),
+    mkSendBonusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'sendBonus' smart constructor.
+-- | /See:/ 'mkSendBonus' smart constructor.
 data SendBonus = SendBonus'
-  { _sbUniqueRequestToken :: !(Maybe Text),
-    _sbWorkerId :: !Text,
-    _sbBonusAmount :: !Text,
-    _sbAssignmentId :: !Text,
-    _sbReason :: !Text
+  { uniqueRequestToken ::
+      Lude.Maybe Lude.Text,
+    workerId :: Lude.Text,
+    bonusAmount :: Lude.Text,
+    assignmentId :: Lude.Text,
+    reason :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBonus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbUniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
---
--- * 'sbWorkerId' - The ID of the Worker being paid the bonus.
---
--- * 'sbBonusAmount' - The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
---
--- * 'sbAssignmentId' - The ID of the assignment for which this bonus is paid.
---
--- * 'sbReason' - A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
-sendBonus ::
-  -- | 'sbWorkerId'
-  Text ->
-  -- | 'sbBonusAmount'
-  Text ->
-  -- | 'sbAssignmentId'
-  Text ->
-  -- | 'sbReason'
-  Text ->
+-- * 'assignmentId' - The ID of the assignment for which this bonus is paid.
+-- * 'bonusAmount' - The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
+-- * 'reason' - A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
+-- * 'uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
+-- * 'workerId' - The ID of the Worker being paid the bonus.
+mkSendBonus ::
+  -- | 'workerId'
+  Lude.Text ->
+  -- | 'bonusAmount'
+  Lude.Text ->
+  -- | 'assignmentId'
+  Lude.Text ->
+  -- | 'reason'
+  Lude.Text ->
   SendBonus
-sendBonus pWorkerId_ pBonusAmount_ pAssignmentId_ pReason_ =
+mkSendBonus pWorkerId_ pBonusAmount_ pAssignmentId_ pReason_ =
   SendBonus'
-    { _sbUniqueRequestToken = Nothing,
-      _sbWorkerId = pWorkerId_,
-      _sbBonusAmount = pBonusAmount_,
-      _sbAssignmentId = pAssignmentId_,
-      _sbReason = pReason_
+    { uniqueRequestToken = Lude.Nothing,
+      workerId = pWorkerId_,
+      bonusAmount = pBonusAmount_,
+      assignmentId = pAssignmentId_,
+      reason = pReason_
     }
 
 -- | A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
-sbUniqueRequestToken :: Lens' SendBonus (Maybe Text)
-sbUniqueRequestToken = lens _sbUniqueRequestToken (\s a -> s {_sbUniqueRequestToken = a})
+--
+-- /Note:/ Consider using 'uniqueRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbUniqueRequestToken :: Lens.Lens' SendBonus (Lude.Maybe Lude.Text)
+sbUniqueRequestToken = Lens.lens (uniqueRequestToken :: SendBonus -> Lude.Maybe Lude.Text) (\s a -> s {uniqueRequestToken = a} :: SendBonus)
+{-# DEPRECATED sbUniqueRequestToken "Use generic-lens or generic-optics with 'uniqueRequestToken' instead." #-}
 
 -- | The ID of the Worker being paid the bonus.
-sbWorkerId :: Lens' SendBonus Text
-sbWorkerId = lens _sbWorkerId (\s a -> s {_sbWorkerId = a})
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbWorkerId :: Lens.Lens' SendBonus Lude.Text
+sbWorkerId = Lens.lens (workerId :: SendBonus -> Lude.Text) (\s a -> s {workerId = a} :: SendBonus)
+{-# DEPRECATED sbWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
 -- | The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
-sbBonusAmount :: Lens' SendBonus Text
-sbBonusAmount = lens _sbBonusAmount (\s a -> s {_sbBonusAmount = a})
+--
+-- /Note:/ Consider using 'bonusAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbBonusAmount :: Lens.Lens' SendBonus Lude.Text
+sbBonusAmount = Lens.lens (bonusAmount :: SendBonus -> Lude.Text) (\s a -> s {bonusAmount = a} :: SendBonus)
+{-# DEPRECATED sbBonusAmount "Use generic-lens or generic-optics with 'bonusAmount' instead." #-}
 
 -- | The ID of the assignment for which this bonus is paid.
-sbAssignmentId :: Lens' SendBonus Text
-sbAssignmentId = lens _sbAssignmentId (\s a -> s {_sbAssignmentId = a})
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbAssignmentId :: Lens.Lens' SendBonus Lude.Text
+sbAssignmentId = Lens.lens (assignmentId :: SendBonus -> Lude.Text) (\s a -> s {assignmentId = a} :: SendBonus)
+{-# DEPRECATED sbAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
-sbReason :: Lens' SendBonus Text
-sbReason = lens _sbReason (\s a -> s {_sbReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbReason :: Lens.Lens' SendBonus Lude.Text
+sbReason = Lens.lens (reason :: SendBonus -> Lude.Text) (\s a -> s {reason = a} :: SendBonus)
+{-# DEPRECATED sbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance AWSRequest SendBonus where
+instance Lude.AWSRequest SendBonus where
   type Rs SendBonus = SendBonusResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> SendBonusResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          SendBonusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable SendBonus
-
-instance NFData SendBonus
-
-instance ToHeaders SendBonus where
+instance Lude.ToHeaders SendBonus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.SendBonus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MTurkRequesterServiceV20170117.SendBonus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SendBonus where
+instance Lude.ToJSON SendBonus where
   toJSON SendBonus' {..} =
-    object
-      ( catMaybes
-          [ ("UniqueRequestToken" .=) <$> _sbUniqueRequestToken,
-            Just ("WorkerId" .= _sbWorkerId),
-            Just ("BonusAmount" .= _sbBonusAmount),
-            Just ("AssignmentId" .= _sbAssignmentId),
-            Just ("Reason" .= _sbReason)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UniqueRequestToken" Lude..=) Lude.<$> uniqueRequestToken,
+            Lude.Just ("WorkerId" Lude..= workerId),
+            Lude.Just ("BonusAmount" Lude..= bonusAmount),
+            Lude.Just ("AssignmentId" Lude..= assignmentId),
+            Lude.Just ("Reason" Lude..= reason)
           ]
       )
 
-instance ToPath SendBonus where
-  toPath = const "/"
+instance Lude.ToPath SendBonus where
+  toPath = Lude.const "/"
 
-instance ToQuery SendBonus where
-  toQuery = const mempty
+instance Lude.ToQuery SendBonus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'sendBonusResponse' smart constructor.
+-- | /See:/ 'mkSendBonusResponse' smart constructor.
 newtype SendBonusResponse = SendBonusResponse'
-  { _sbrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBonusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbrsResponseStatus' - -- | The response status code.
-sendBonusResponse ::
-  -- | 'sbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSendBonusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SendBonusResponse
-sendBonusResponse pResponseStatus_ =
-  SendBonusResponse' {_sbrsResponseStatus = pResponseStatus_}
+mkSendBonusResponse pResponseStatus_ =
+  SendBonusResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-sbrsResponseStatus :: Lens' SendBonusResponse Int
-sbrsResponseStatus = lens _sbrsResponseStatus (\s a -> s {_sbrsResponseStatus = a})
-
-instance NFData SendBonusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbrsResponseStatus :: Lens.Lens' SendBonusResponse Lude.Int
+sbrsResponseStatus = Lens.lens (responseStatus :: SendBonusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendBonusResponse)
+{-# DEPRECATED sbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInAlignment where
+module Network.AWS.MediaLive.Types.BurnInAlignment
+  ( BurnInAlignment
+      ( BurnInAlignment',
+        BIACentered,
+        BIALeft,
+        BIASmart
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Burn In Alignment
-data BurnInAlignment
-  = BIACentered
-  | BIALeft'
-  | BIASmart
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurnInAlignment = BurnInAlignment' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurnInAlignment where
-  parser =
-    takeLowerText >>= \case
-      "centered" -> pure BIACentered
-      "left" -> pure BIALeft'
-      "smart" -> pure BIASmart
-      e ->
-        fromTextError $
-          "Failure parsing BurnInAlignment from value: '" <> e
-            <> "'. Accepted values: centered, left, smart"
+pattern BIACentered :: BurnInAlignment
+pattern BIACentered = BurnInAlignment' "CENTERED"
 
-instance ToText BurnInAlignment where
-  toText = \case
-    BIACentered -> "CENTERED"
-    BIALeft' -> "LEFT"
-    BIASmart -> "SMART"
+pattern BIALeft :: BurnInAlignment
+pattern BIALeft = BurnInAlignment' "LEFT"
 
-instance Hashable BurnInAlignment
+pattern BIASmart :: BurnInAlignment
+pattern BIASmart = BurnInAlignment' "SMART"
 
-instance NFData BurnInAlignment
-
-instance ToByteString BurnInAlignment
-
-instance ToQuery BurnInAlignment
-
-instance ToHeader BurnInAlignment
-
-instance ToJSON BurnInAlignment where
-  toJSON = toJSONText
-
-instance FromJSON BurnInAlignment where
-  parseJSON = parseJSONText "BurnInAlignment"
+{-# COMPLETE
+  BIACentered,
+  BIALeft,
+  BIASmart,
+  BurnInAlignment'
+  #-}

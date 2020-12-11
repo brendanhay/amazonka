@@ -13,8 +13,8 @@
 --
 -- Provides AWS Marketplace business intelligence data on-demand.
 module Network.AWS.MarketplaceAnalytics
-  ( -- * Service Configuration
-    marketplaceAnalytics,
+  ( -- * Service configuration
+    marketplaceAnalyticsService,
 
     -- * Errors
     -- $errors
@@ -38,6 +38,17 @@ module Network.AWS.MarketplaceAnalytics
 
     -- ** SupportDataSetType
     SupportDataSetType (..),
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -45,6 +56,7 @@ import Network.AWS.MarketplaceAnalytics.GenerateDataSet
 import Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 import Network.AWS.MarketplaceAnalytics.Types
 import Network.AWS.MarketplaceAnalytics.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

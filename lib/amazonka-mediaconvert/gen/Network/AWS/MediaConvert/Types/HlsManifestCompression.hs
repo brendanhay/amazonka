@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsManifestCompression where
+module Network.AWS.MediaConvert.Types.HlsManifestCompression
+  ( HlsManifestCompression
+      ( HlsManifestCompression',
+        HMCGzip,
+        HMCNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to GZIP, compresses HLS playlist.
-data HlsManifestCompression
-  = HMCGzip
-  | HMCNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsManifestCompression = HlsManifestCompression' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsManifestCompression where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure HMCGzip
-      "none" -> pure HMCNone
-      e ->
-        fromTextError $
-          "Failure parsing HlsManifestCompression from value: '" <> e
-            <> "'. Accepted values: gzip, none"
+pattern HMCGzip :: HlsManifestCompression
+pattern HMCGzip = HlsManifestCompression' "GZIP"
 
-instance ToText HlsManifestCompression where
-  toText = \case
-    HMCGzip -> "GZIP"
-    HMCNone -> "NONE"
+pattern HMCNone :: HlsManifestCompression
+pattern HMCNone = HlsManifestCompression' "NONE"
 
-instance Hashable HlsManifestCompression
-
-instance NFData HlsManifestCompression
-
-instance ToByteString HlsManifestCompression
-
-instance ToQuery HlsManifestCompression
-
-instance ToHeader HlsManifestCompression
-
-instance ToJSON HlsManifestCompression where
-  toJSON = toJSONText
-
-instance FromJSON HlsManifestCompression where
-  parseJSON = parseJSONText "HlsManifestCompression"
+{-# COMPLETE
+  HMCGzip,
+  HMCNone,
+  HlsManifestCompression'
+  #-}

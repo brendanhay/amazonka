@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,174 @@
 --
 -- Associates an Amazon VPC with a private hosted zone.
 --
---
 -- /Important:/ To perform the association, the VPC and the private hosted zone must already exist. You can't convert a public hosted zone into a private hosted zone.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
-  ( -- * Creating a Request
-    associateVPCWithHostedZone,
-    AssociateVPCWithHostedZone,
+  ( -- * Creating a request
+    AssociateVPCWithHostedZone (..),
+    mkAssociateVPCWithHostedZone,
 
-    -- * Request Lenses
+    -- ** Request lenses
     avwhzComment,
     avwhzHostedZoneId,
     avwhzVPC,
 
-    -- * Destructuring the Response
-    associateVPCWithHostedZoneResponse,
-    AssociateVPCWithHostedZoneResponse,
+    -- * Destructuring the response
+    AssociateVPCWithHostedZoneResponse (..),
+    mkAssociateVPCWithHostedZoneResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     avwhzrsResponseStatus,
     avwhzrsChangeInfo,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to associate a VPC with a private hosted zone.
 --
---
---
--- /See:/ 'associateVPCWithHostedZone' smart constructor.
+-- /See:/ 'mkAssociateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
-  { _avwhzComment ::
-      !(Maybe Text),
-    _avwhzHostedZoneId :: !ResourceId,
-    _avwhzVPC :: !VPC
+  { comment ::
+      Lude.Maybe Lude.Text,
+    hostedZoneId :: ResourceId,
+    vpc :: VPC
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCWithHostedZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'comment' - /Optional:/ A comment about the association request.
+-- * 'hostedZoneId' - The ID of the private hosted zone that you want to associate an Amazon VPC with.
 --
--- * 'avwhzComment' - /Optional:/ A comment about the association request.
---
--- * 'avwhzHostedZoneId' - The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
---
--- * 'avwhzVPC' - A complex type that contains information about the VPC that you want to associate with a private hosted zone.
-associateVPCWithHostedZone ::
-  -- | 'avwhzHostedZoneId'
+-- Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
+-- * 'vpc' - A complex type that contains information about the VPC that you want to associate with a private hosted zone.
+mkAssociateVPCWithHostedZone ::
+  -- | 'hostedZoneId'
   ResourceId ->
-  -- | 'avwhzVPC'
+  -- | 'vpc'
   VPC ->
   AssociateVPCWithHostedZone
-associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
+mkAssociateVPCWithHostedZone pHostedZoneId_ pVPC_ =
   AssociateVPCWithHostedZone'
-    { _avwhzComment = Nothing,
-      _avwhzHostedZoneId = pHostedZoneId_,
-      _avwhzVPC = pVPC_
+    { comment = Lude.Nothing,
+      hostedZoneId = pHostedZoneId_,
+      vpc = pVPC_
     }
 
 -- | /Optional:/ A comment about the association request.
-avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
-avwhzComment = lens _avwhzComment (\s a -> s {_avwhzComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avwhzComment :: Lens.Lens' AssociateVPCWithHostedZone (Lude.Maybe Lude.Text)
+avwhzComment = Lens.lens (comment :: AssociateVPCWithHostedZone -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: AssociateVPCWithHostedZone)
+{-# DEPRECATED avwhzComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
-avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone ResourceId
-avwhzHostedZoneId = lens _avwhzHostedZoneId (\s a -> s {_avwhzHostedZoneId = a})
+-- | The ID of the private hosted zone that you want to associate an Amazon VPC with.
+--
+-- Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avwhzHostedZoneId :: Lens.Lens' AssociateVPCWithHostedZone ResourceId
+avwhzHostedZoneId = Lens.lens (hostedZoneId :: AssociateVPCWithHostedZone -> ResourceId) (\s a -> s {hostedZoneId = a} :: AssociateVPCWithHostedZone)
+{-# DEPRECATED avwhzHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | A complex type that contains information about the VPC that you want to associate with a private hosted zone.
-avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
-avwhzVPC = lens _avwhzVPC (\s a -> s {_avwhzVPC = a})
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avwhzVPC :: Lens.Lens' AssociateVPCWithHostedZone VPC
+avwhzVPC = Lens.lens (vpc :: AssociateVPCWithHostedZone -> VPC) (\s a -> s {vpc = a} :: AssociateVPCWithHostedZone)
+{-# DEPRECATED avwhzVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
-instance AWSRequest AssociateVPCWithHostedZone where
+instance Lude.AWSRequest AssociateVPCWithHostedZone where
   type
     Rs AssociateVPCWithHostedZone =
       AssociateVPCWithHostedZoneResponse
-  request = postXML route53
+  request = Req.postXML route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           AssociateVPCWithHostedZoneResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "ChangeInfo")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "ChangeInfo")
       )
 
-instance Hashable AssociateVPCWithHostedZone
-
-instance NFData AssociateVPCWithHostedZone
-
-instance ToElement AssociateVPCWithHostedZone where
+instance Lude.ToElement AssociateVPCWithHostedZone where
   toElement =
-    mkElement
+    Lude.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}AssociateVPCWithHostedZoneRequest"
 
-instance ToHeaders AssociateVPCWithHostedZone where
-  toHeaders = const mempty
+instance Lude.ToHeaders AssociateVPCWithHostedZone where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath AssociateVPCWithHostedZone where
+instance Lude.ToPath AssociateVPCWithHostedZone where
   toPath AssociateVPCWithHostedZone' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2013-04-01/hostedzone/",
-        toBS _avwhzHostedZoneId,
+        Lude.toBS hostedZoneId,
         "/associatevpc"
       ]
 
-instance ToQuery AssociateVPCWithHostedZone where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateVPCWithHostedZone where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML AssociateVPCWithHostedZone where
+instance Lude.ToXML AssociateVPCWithHostedZone where
   toXML AssociateVPCWithHostedZone' {..} =
-    mconcat ["Comment" @= _avwhzComment, "VPC" @= _avwhzVPC]
+    Lude.mconcat ["Comment" Lude.@= comment, "VPC" Lude.@= vpc]
 
 -- | A complex type that contains the response information for the @AssociateVPCWithHostedZone@ request.
 --
---
---
--- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
+-- /See:/ 'mkAssociateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
-  { _avwhzrsResponseStatus ::
-      !Int,
-    _avwhzrsChangeInfo ::
-      !ChangeInfo
+  { responseStatus ::
+      Lude.Int,
+    changeInfo ::
+      ChangeInfo
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCWithHostedZoneResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avwhzrsResponseStatus' - -- | The response status code.
---
--- * 'avwhzrsChangeInfo' - A complex type that describes the changes made to your hosted zone.
-associateVPCWithHostedZoneResponse ::
-  -- | 'avwhzrsResponseStatus'
-  Int ->
-  -- | 'avwhzrsChangeInfo'
+-- * 'changeInfo' - A complex type that describes the changes made to your hosted zone.
+-- * 'responseStatus' - The response status code.
+mkAssociateVPCWithHostedZoneResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'changeInfo'
   ChangeInfo ->
   AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
+mkAssociateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
   AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _avwhzrsChangeInfo = pChangeInfo_
+      changeInfo = pChangeInfo_
     }
 
--- | -- | The response status code.
-avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
-avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\s a -> s {_avwhzrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avwhzrsResponseStatus :: Lens.Lens' AssociateVPCWithHostedZoneResponse Lude.Int
+avwhzrsResponseStatus = Lens.lens (responseStatus :: AssociateVPCWithHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateVPCWithHostedZoneResponse)
+{-# DEPRECATED avwhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that describes the changes made to your hosted zone.
-avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
-avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\s a -> s {_avwhzrsChangeInfo = a})
-
-instance NFData AssociateVPCWithHostedZoneResponse
+--
+-- /Note:/ Consider using 'changeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avwhzrsChangeInfo :: Lens.Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
+avwhzrsChangeInfo = Lens.lens (changeInfo :: AssociateVPCWithHostedZoneResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: AssociateVPCWithHostedZoneResponse)
+{-# DEPRECATED avwhzrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3DcFilter where
+module Network.AWS.MediaLive.Types.Eac3DcFilter
+  ( Eac3DcFilter
+      ( Eac3DcFilter',
+        EDFDisabled,
+        EDFEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Dc Filter
-data Eac3DcFilter
-  = EDFDisabled
-  | EDFEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3DcFilter = Eac3DcFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3DcFilter where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure EDFDisabled
-      "enabled" -> pure EDFEnabled
-      e ->
-        fromTextError $
-          "Failure parsing Eac3DcFilter from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern EDFDisabled :: Eac3DcFilter
+pattern EDFDisabled = Eac3DcFilter' "DISABLED"
 
-instance ToText Eac3DcFilter where
-  toText = \case
-    EDFDisabled -> "DISABLED"
-    EDFEnabled -> "ENABLED"
+pattern EDFEnabled :: Eac3DcFilter
+pattern EDFEnabled = Eac3DcFilter' "ENABLED"
 
-instance Hashable Eac3DcFilter
-
-instance NFData Eac3DcFilter
-
-instance ToByteString Eac3DcFilter
-
-instance ToQuery Eac3DcFilter
-
-instance ToHeader Eac3DcFilter
-
-instance ToJSON Eac3DcFilter where
-  toJSON = toJSONText
-
-instance FromJSON Eac3DcFilter where
-  parseJSON = parseJSONText "Eac3DcFilter"
+{-# COMPLETE
+  EDFDisabled,
+  EDFEnabled,
+  Eac3DcFilter'
+  #-}

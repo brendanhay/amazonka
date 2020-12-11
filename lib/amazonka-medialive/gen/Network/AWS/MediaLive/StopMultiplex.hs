@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Stops a running multiplex. If the multiplex isn't running, this action has no effect.
 module Network.AWS.MediaLive.StopMultiplex
-  ( -- * Creating a Request
-    stopMultiplex,
-    StopMultiplex,
+  ( -- * Creating a request
+    StopMultiplex (..),
+    mkStopMultiplex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     smMultiplexId,
 
-    -- * Destructuring the Response
-    stopMultiplexResponse,
-    StopMultiplexResponse,
+    -- * Destructuring the response
+    StopMultiplexResponse (..),
+    mkStopMultiplexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     smrsState,
     smrsARN,
     smrsPipelinesRunningCount,
@@ -45,182 +40,216 @@ module Network.AWS.MediaLive.StopMultiplex
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for StopMultiplexRequest
 --
--- /See:/ 'stopMultiplex' smart constructor.
-newtype StopMultiplex = StopMultiplex' {_smMultiplexId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkStopMultiplex' smart constructor.
+newtype StopMultiplex = StopMultiplex' {multiplexId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMultiplex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smMultiplexId' - The ID of the multiplex.
-stopMultiplex ::
-  -- | 'smMultiplexId'
-  Text ->
+-- * 'multiplexId' - The ID of the multiplex.
+mkStopMultiplex ::
+  -- | 'multiplexId'
+  Lude.Text ->
   StopMultiplex
-stopMultiplex pMultiplexId_ =
-  StopMultiplex' {_smMultiplexId = pMultiplexId_}
+mkStopMultiplex pMultiplexId_ =
+  StopMultiplex' {multiplexId = pMultiplexId_}
 
 -- | The ID of the multiplex.
-smMultiplexId :: Lens' StopMultiplex Text
-smMultiplexId = lens _smMultiplexId (\s a -> s {_smMultiplexId = a})
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smMultiplexId :: Lens.Lens' StopMultiplex Lude.Text
+smMultiplexId = Lens.lens (multiplexId :: StopMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: StopMultiplex)
+{-# DEPRECATED smMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
-instance AWSRequest StopMultiplex where
+instance Lude.AWSRequest StopMultiplex where
   type Rs StopMultiplex = StopMultiplexResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopMultiplexResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "arn")
-            <*> (x .?> "pipelinesRunningCount")
-            <*> (x .?> "availabilityZones" .!@ mempty)
-            <*> (x .?> "programCount")
-            <*> (x .?> "destinations" .!@ mempty)
-            <*> (x .?> "name")
-            <*> (x .?> "id")
-            <*> (x .?> "multiplexSettings")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "pipelinesRunningCount")
+            Lude.<*> (x Lude..?> "availabilityZones" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "programCount")
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "multiplexSettings")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopMultiplex
-
-instance NFData StopMultiplex
-
-instance ToHeaders StopMultiplex where
+instance Lude.ToHeaders StopMultiplex where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON StopMultiplex where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON StopMultiplex where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath StopMultiplex where
+instance Lude.ToPath StopMultiplex where
   toPath StopMultiplex' {..} =
-    mconcat ["/prod/multiplexes/", toBS _smMultiplexId, "/stop"]
+    Lude.mconcat
+      ["/prod/multiplexes/", Lude.toBS multiplexId, "/stop"]
 
-instance ToQuery StopMultiplex where
-  toQuery = const mempty
+instance Lude.ToQuery StopMultiplex where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for StopMultiplexResponse
 --
--- /See:/ 'stopMultiplexResponse' smart constructor.
+-- /See:/ 'mkStopMultiplexResponse' smart constructor.
 data StopMultiplexResponse = StopMultiplexResponse'
-  { _smrsState ::
-      !(Maybe MultiplexState),
-    _smrsARN :: !(Maybe Text),
-    _smrsPipelinesRunningCount :: !(Maybe Int),
-    _smrsAvailabilityZones :: !(Maybe [Text]),
-    _smrsProgramCount :: !(Maybe Int),
-    _smrsDestinations ::
-      !(Maybe [MultiplexOutputDestination]),
-    _smrsName :: !(Maybe Text),
-    _smrsId :: !(Maybe Text),
-    _smrsMultiplexSettings ::
-      !(Maybe MultiplexSettings),
-    _smrsTags :: !(Maybe (Map Text (Text))),
-    _smrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe MultiplexState,
+    arn :: Lude.Maybe Lude.Text,
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    programCount :: Lude.Maybe Lude.Int,
+    destinations ::
+      Lude.Maybe [MultiplexOutputDestination],
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    multiplexSettings ::
+      Lude.Maybe MultiplexSettings,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMultiplexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smrsState' - The current state of the multiplex.
---
--- * 'smrsARN' - The unique arn of the multiplex.
---
--- * 'smrsPipelinesRunningCount' - The number of currently healthy pipelines.
---
--- * 'smrsAvailabilityZones' - A list of availability zones for the multiplex.
---
--- * 'smrsProgramCount' - The number of programs in the multiplex.
---
--- * 'smrsDestinations' - A list of the multiplex output destinations.
---
--- * 'smrsName' - The name of the multiplex.
---
--- * 'smrsId' - The unique id of the multiplex.
---
--- * 'smrsMultiplexSettings' - Configuration for a multiplex event.
---
--- * 'smrsTags' - A collection of key-value pairs.
---
--- * 'smrsResponseStatus' - -- | The response status code.
-stopMultiplexResponse ::
-  -- | 'smrsResponseStatus'
-  Int ->
+-- * 'arn' - The unique arn of the multiplex.
+-- * 'availabilityZones' - A list of availability zones for the multiplex.
+-- * 'destinations' - A list of the multiplex output destinations.
+-- * 'id' - The unique id of the multiplex.
+-- * 'multiplexSettings' - Configuration for a multiplex event.
+-- * 'name' - The name of the multiplex.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'programCount' - The number of programs in the multiplex.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The current state of the multiplex.
+-- * 'tags' - A collection of key-value pairs.
+mkStopMultiplexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopMultiplexResponse
-stopMultiplexResponse pResponseStatus_ =
+mkStopMultiplexResponse pResponseStatus_ =
   StopMultiplexResponse'
-    { _smrsState = Nothing,
-      _smrsARN = Nothing,
-      _smrsPipelinesRunningCount = Nothing,
-      _smrsAvailabilityZones = Nothing,
-      _smrsProgramCount = Nothing,
-      _smrsDestinations = Nothing,
-      _smrsName = Nothing,
-      _smrsId = Nothing,
-      _smrsMultiplexSettings = Nothing,
-      _smrsTags = Nothing,
-      _smrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      pipelinesRunningCount = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      programCount = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      multiplexSettings = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the multiplex.
-smrsState :: Lens' StopMultiplexResponse (Maybe MultiplexState)
-smrsState = lens _smrsState (\s a -> s {_smrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsState :: Lens.Lens' StopMultiplexResponse (Lude.Maybe MultiplexState)
+smrsState = Lens.lens (state :: StopMultiplexResponse -> Lude.Maybe MultiplexState) (\s a -> s {state = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The unique arn of the multiplex.
-smrsARN :: Lens' StopMultiplexResponse (Maybe Text)
-smrsARN = lens _smrsARN (\s a -> s {_smrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsARN :: Lens.Lens' StopMultiplexResponse (Lude.Maybe Lude.Text)
+smrsARN = Lens.lens (arn :: StopMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of currently healthy pipelines.
-smrsPipelinesRunningCount :: Lens' StopMultiplexResponse (Maybe Int)
-smrsPipelinesRunningCount = lens _smrsPipelinesRunningCount (\s a -> s {_smrsPipelinesRunningCount = a})
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsPipelinesRunningCount :: Lens.Lens' StopMultiplexResponse (Lude.Maybe Lude.Int)
+smrsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: StopMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | A list of availability zones for the multiplex.
-smrsAvailabilityZones :: Lens' StopMultiplexResponse [Text]
-smrsAvailabilityZones = lens _smrsAvailabilityZones (\s a -> s {_smrsAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsAvailabilityZones :: Lens.Lens' StopMultiplexResponse (Lude.Maybe [Lude.Text])
+smrsAvailabilityZones = Lens.lens (availabilityZones :: StopMultiplexResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The number of programs in the multiplex.
-smrsProgramCount :: Lens' StopMultiplexResponse (Maybe Int)
-smrsProgramCount = lens _smrsProgramCount (\s a -> s {_smrsProgramCount = a})
+--
+-- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsProgramCount :: Lens.Lens' StopMultiplexResponse (Lude.Maybe Lude.Int)
+smrsProgramCount = Lens.lens (programCount :: StopMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {programCount = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
 
 -- | A list of the multiplex output destinations.
-smrsDestinations :: Lens' StopMultiplexResponse [MultiplexOutputDestination]
-smrsDestinations = lens _smrsDestinations (\s a -> s {_smrsDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsDestinations :: Lens.Lens' StopMultiplexResponse (Lude.Maybe [MultiplexOutputDestination])
+smrsDestinations = Lens.lens (destinations :: StopMultiplexResponse -> Lude.Maybe [MultiplexOutputDestination]) (\s a -> s {destinations = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The name of the multiplex.
-smrsName :: Lens' StopMultiplexResponse (Maybe Text)
-smrsName = lens _smrsName (\s a -> s {_smrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsName :: Lens.Lens' StopMultiplexResponse (Lude.Maybe Lude.Text)
+smrsName = Lens.lens (name :: StopMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique id of the multiplex.
-smrsId :: Lens' StopMultiplexResponse (Maybe Text)
-smrsId = lens _smrsId (\s a -> s {_smrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsId :: Lens.Lens' StopMultiplexResponse (Lude.Maybe Lude.Text)
+smrsId = Lens.lens (id :: StopMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Configuration for a multiplex event.
-smrsMultiplexSettings :: Lens' StopMultiplexResponse (Maybe MultiplexSettings)
-smrsMultiplexSettings = lens _smrsMultiplexSettings (\s a -> s {_smrsMultiplexSettings = a})
+--
+-- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsMultiplexSettings :: Lens.Lens' StopMultiplexResponse (Lude.Maybe MultiplexSettings)
+smrsMultiplexSettings = Lens.lens (multiplexSettings :: StopMultiplexResponse -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
 -- | A collection of key-value pairs.
-smrsTags :: Lens' StopMultiplexResponse (HashMap Text (Text))
-smrsTags = lens _smrsTags (\s a -> s {_smrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsTags :: Lens.Lens' StopMultiplexResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+smrsTags = Lens.lens (tags :: StopMultiplexResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-smrsResponseStatus :: Lens' StopMultiplexResponse Int
-smrsResponseStatus = lens _smrsResponseStatus (\s a -> s {_smrsResponseStatus = a})
-
-instance NFData StopMultiplexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsResponseStatus :: Lens.Lens' StopMultiplexResponse Lude.Int
+smrsResponseStatus = Lens.lens (responseStatus :: StopMultiplexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopMultiplexResponse)
+{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

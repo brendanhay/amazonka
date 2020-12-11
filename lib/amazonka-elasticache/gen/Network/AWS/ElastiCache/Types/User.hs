@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,138 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.User where
+module Network.AWS.ElastiCache.Types.User
+  ( User (..),
+
+    -- * Smart constructor
+    mkUser,
+
+    -- * Lenses
+    uStatus,
+    uARN,
+    uUserGroupIds,
+    uAuthentication,
+    uEngine,
+    uUserName,
+    uAccessString,
+    uUserId,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.Authentication
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'user' smart constructor.
+-- | /See:/ 'mkUser' smart constructor.
 data User = User'
-  { _uStatus :: !(Maybe Text),
-    _uARN :: !(Maybe Text),
-    _uUserGroupIds :: !(Maybe [Text]),
-    _uAuthentication :: !(Maybe Authentication),
-    _uEngine :: !(Maybe Text),
-    _uUserName :: !(Maybe Text),
-    _uAccessString :: !(Maybe Text),
-    _uUserId :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    userGroupIds :: Lude.Maybe [Lude.Text],
+    authentication :: Lude.Maybe Authentication,
+    engine :: Lude.Maybe Lude.Text,
+    userName :: Lude.Maybe Lude.Text,
+    accessString :: Lude.Maybe Lude.Text,
+    userId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uStatus' - Indicates the user status. Can be "active", "modifying" or "deleting".
---
--- * 'uARN' - The Amazon Resource Name (ARN) of the user account.
---
--- * 'uUserGroupIds' - Returns a list of the user group IDs the user belongs to.
---
--- * 'uAuthentication' - Denotes whether the user requires a password to authenticate.
---
--- * 'uEngine' - Must be Redis.
---
--- * 'uUserName' - The username of the user.
---
--- * 'uAccessString' - Access permissions string used for this user account.
---
--- * 'uUserId' - The ID of the user.
-user ::
+-- * 'accessString' - Access permissions string used for this user account.
+-- * 'arn' - The Amazon Resource Name (ARN) of the user account.
+-- * 'authentication' - Denotes whether the user requires a password to authenticate.
+-- * 'engine' - Must be Redis.
+-- * 'status' - Indicates the user status. Can be "active", "modifying" or "deleting".
+-- * 'userGroupIds' - Returns a list of the user group IDs the user belongs to.
+-- * 'userId' - The ID of the user.
+-- * 'userName' - The username of the user.
+mkUser ::
   User
-user =
+mkUser =
   User'
-    { _uStatus = Nothing,
-      _uARN = Nothing,
-      _uUserGroupIds = Nothing,
-      _uAuthentication = Nothing,
-      _uEngine = Nothing,
-      _uUserName = Nothing,
-      _uAccessString = Nothing,
-      _uUserId = Nothing
+    { status = Lude.Nothing,
+      arn = Lude.Nothing,
+      userGroupIds = Lude.Nothing,
+      authentication = Lude.Nothing,
+      engine = Lude.Nothing,
+      userName = Lude.Nothing,
+      accessString = Lude.Nothing,
+      userId = Lude.Nothing
     }
 
 -- | Indicates the user status. Can be "active", "modifying" or "deleting".
-uStatus :: Lens' User (Maybe Text)
-uStatus = lens _uStatus (\s a -> s {_uStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uStatus :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uStatus = Lens.lens (status :: User -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: User)
+{-# DEPRECATED uStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user account.
-uARN :: Lens' User (Maybe Text)
-uARN = lens _uARN (\s a -> s {_uARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uARN :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uARN = Lens.lens (arn :: User -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: User)
+{-# DEPRECATED uARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Returns a list of the user group IDs the user belongs to.
-uUserGroupIds :: Lens' User [Text]
-uUserGroupIds = lens _uUserGroupIds (\s a -> s {_uUserGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUserGroupIds :: Lens.Lens' User (Lude.Maybe [Lude.Text])
+uUserGroupIds = Lens.lens (userGroupIds :: User -> Lude.Maybe [Lude.Text]) (\s a -> s {userGroupIds = a} :: User)
+{-# DEPRECATED uUserGroupIds "Use generic-lens or generic-optics with 'userGroupIds' instead." #-}
 
 -- | Denotes whether the user requires a password to authenticate.
-uAuthentication :: Lens' User (Maybe Authentication)
-uAuthentication = lens _uAuthentication (\s a -> s {_uAuthentication = a})
+--
+-- /Note:/ Consider using 'authentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uAuthentication :: Lens.Lens' User (Lude.Maybe Authentication)
+uAuthentication = Lens.lens (authentication :: User -> Lude.Maybe Authentication) (\s a -> s {authentication = a} :: User)
+{-# DEPRECATED uAuthentication "Use generic-lens or generic-optics with 'authentication' instead." #-}
 
 -- | Must be Redis.
-uEngine :: Lens' User (Maybe Text)
-uEngine = lens _uEngine (\s a -> s {_uEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uEngine :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uEngine = Lens.lens (engine :: User -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: User)
+{-# DEPRECATED uEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The username of the user.
-uUserName :: Lens' User (Maybe Text)
-uUserName = lens _uUserName (\s a -> s {_uUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUserName :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uUserName = Lens.lens (userName :: User -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: User)
+{-# DEPRECATED uUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Access permissions string used for this user account.
-uAccessString :: Lens' User (Maybe Text)
-uAccessString = lens _uAccessString (\s a -> s {_uAccessString = a})
+--
+-- /Note:/ Consider using 'accessString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uAccessString :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uAccessString = Lens.lens (accessString :: User -> Lude.Maybe Lude.Text) (\s a -> s {accessString = a} :: User)
+{-# DEPRECATED uAccessString "Use generic-lens or generic-optics with 'accessString' instead." #-}
 
 -- | The ID of the user.
-uUserId :: Lens' User (Maybe Text)
-uUserId = lens _uUserId (\s a -> s {_uUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUserId :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uUserId = Lens.lens (userId :: User -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: User)
+{-# DEPRECATED uUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance FromXML User where
+instance Lude.FromXML User where
   parseXML x =
     User'
-      <$> (x .@? "Status")
-      <*> (x .@? "ARN")
-      <*> (x .@? "UserGroupIds" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Authentication")
-      <*> (x .@? "Engine")
-      <*> (x .@? "UserName")
-      <*> (x .@? "AccessString")
-      <*> (x .@? "UserId")
-
-instance Hashable User
-
-instance NFData User
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "ARN")
+      Lude.<*> ( x Lude..@? "UserGroupIds" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Authentication")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "UserName")
+      Lude.<*> (x Lude..@? "AccessString")
+      Lude.<*> (x Lude..@? "UserId")

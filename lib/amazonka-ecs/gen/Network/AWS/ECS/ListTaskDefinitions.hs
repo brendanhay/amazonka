@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns a list of task definitions that are registered to your account. You can filter the results by family name with the @familyPrefix@ parameter or by status with the @status@ parameter.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitions
-  ( -- * Creating a Request
-    listTaskDefinitions,
-    ListTaskDefinitions,
+  ( -- * Creating a request
+    ListTaskDefinitions (..),
+    mkListTaskDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltdStatus,
     ltdFamilyPrefix,
     ltdNextToken,
     ltdSort,
     ltdMaxResults,
 
-    -- * Destructuring the Response
-    listTaskDefinitionsResponse,
-    ListTaskDefinitionsResponse,
+    -- * Destructuring the response
+    ListTaskDefinitionsResponse (..),
+    mkListTaskDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltdrsTaskDefinitionARNs,
     ltdrsNextToken,
     ltdrsResponseStatus,
@@ -46,158 +39,184 @@ module Network.AWS.ECS.ListTaskDefinitions
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTaskDefinitions' smart constructor.
+-- | /See:/ 'mkListTaskDefinitions' smart constructor.
 data ListTaskDefinitions = ListTaskDefinitions'
-  { _ltdStatus ::
-      !(Maybe TaskDefinitionStatus),
-    _ltdFamilyPrefix :: !(Maybe Text),
-    _ltdNextToken :: !(Maybe Text),
-    _ltdSort :: !(Maybe SortOrder),
-    _ltdMaxResults :: !(Maybe Int)
+  { status ::
+      Lude.Maybe TaskDefinitionStatus,
+    familyPrefix :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    sort :: Lude.Maybe SortOrder,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTaskDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltdStatus' - The task definition status with which to filter the @ListTaskDefinitions@ results. By default, only @ACTIVE@ task definitions are listed. By setting this parameter to @INACTIVE@ , you can view task definitions that are @INACTIVE@ as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
---
--- * 'ltdFamilyPrefix' - The full family name with which to filter the @ListTaskDefinitions@ results. Specifying a @familyPrefix@ limits the listed task definitions to task definition revisions that belong to that family.
---
--- * 'ltdNextToken' - The @nextToken@ value returned from a @ListTaskDefinitions@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
---
--- * 'ltdSort' - The order in which to sort the results. Valid values are @ASC@ and @DESC@ . By default (@ASC@ ), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to @DESC@ reverses the sort order on family name and revision so that the newest task definitions in a family are listed first.
---
--- * 'ltdMaxResults' - The maximum number of task definition results returned by @ListTaskDefinitions@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
-listTaskDefinitions ::
+-- * 'familyPrefix' - The full family name with which to filter the @ListTaskDefinitions@ results. Specifying a @familyPrefix@ limits the listed task definitions to task definition revisions that belong to that family.
+-- * 'maxResults' - The maximum number of task definition results returned by @ListTaskDefinitions@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
+-- * 'nextToken' - The @nextToken@ value returned from a @ListTaskDefinitions@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+-- * 'sort' - The order in which to sort the results. Valid values are @ASC@ and @DESC@ . By default (@ASC@ ), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to @DESC@ reverses the sort order on family name and revision so that the newest task definitions in a family are listed first.
+-- * 'status' - The task definition status with which to filter the @ListTaskDefinitions@ results. By default, only @ACTIVE@ task definitions are listed. By setting this parameter to @INACTIVE@ , you can view task definitions that are @INACTIVE@ as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
+mkListTaskDefinitions ::
   ListTaskDefinitions
-listTaskDefinitions =
+mkListTaskDefinitions =
   ListTaskDefinitions'
-    { _ltdStatus = Nothing,
-      _ltdFamilyPrefix = Nothing,
-      _ltdNextToken = Nothing,
-      _ltdSort = Nothing,
-      _ltdMaxResults = Nothing
+    { status = Lude.Nothing,
+      familyPrefix = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sort = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The task definition status with which to filter the @ListTaskDefinitions@ results. By default, only @ACTIVE@ task definitions are listed. By setting this parameter to @INACTIVE@ , you can view task definitions that are @INACTIVE@ as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
-ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
-ltdStatus = lens _ltdStatus (\s a -> s {_ltdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdStatus :: Lens.Lens' ListTaskDefinitions (Lude.Maybe TaskDefinitionStatus)
+ltdStatus = Lens.lens (status :: ListTaskDefinitions -> Lude.Maybe TaskDefinitionStatus) (\s a -> s {status = a} :: ListTaskDefinitions)
+{-# DEPRECATED ltdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The full family name with which to filter the @ListTaskDefinitions@ results. Specifying a @familyPrefix@ limits the listed task definitions to task definition revisions that belong to that family.
-ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
-ltdFamilyPrefix = lens _ltdFamilyPrefix (\s a -> s {_ltdFamilyPrefix = a})
+--
+-- /Note:/ Consider using 'familyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdFamilyPrefix :: Lens.Lens' ListTaskDefinitions (Lude.Maybe Lude.Text)
+ltdFamilyPrefix = Lens.lens (familyPrefix :: ListTaskDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {familyPrefix = a} :: ListTaskDefinitions)
+{-# DEPRECATED ltdFamilyPrefix "Use generic-lens or generic-optics with 'familyPrefix' instead." #-}
 
 -- | The @nextToken@ value returned from a @ListTaskDefinitions@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
-ltdNextToken :: Lens' ListTaskDefinitions (Maybe Text)
-ltdNextToken = lens _ltdNextToken (\s a -> s {_ltdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdNextToken :: Lens.Lens' ListTaskDefinitions (Lude.Maybe Lude.Text)
+ltdNextToken = Lens.lens (nextToken :: ListTaskDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTaskDefinitions)
+{-# DEPRECATED ltdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The order in which to sort the results. Valid values are @ASC@ and @DESC@ . By default (@ASC@ ), task definitions are listed lexicographically by family name and in ascending numerical order by revision so that the newest task definitions in a family are listed last. Setting this parameter to @DESC@ reverses the sort order on family name and revision so that the newest task definitions in a family are listed first.
-ltdSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
-ltdSort = lens _ltdSort (\s a -> s {_ltdSort = a})
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdSort :: Lens.Lens' ListTaskDefinitions (Lude.Maybe SortOrder)
+ltdSort = Lens.lens (sort :: ListTaskDefinitions -> Lude.Maybe SortOrder) (\s a -> s {sort = a} :: ListTaskDefinitions)
+{-# DEPRECATED ltdSort "Use generic-lens or generic-optics with 'sort' instead." #-}
 
 -- | The maximum number of task definition results returned by @ListTaskDefinitions@ in paginated output. When this parameter is used, @ListTaskDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListTaskDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListTaskDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
-ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
-ltdMaxResults = lens _ltdMaxResults (\s a -> s {_ltdMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdMaxResults :: Lens.Lens' ListTaskDefinitions (Lude.Maybe Lude.Int)
+ltdMaxResults = Lens.lens (maxResults :: ListTaskDefinitions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListTaskDefinitions)
+{-# DEPRECATED ltdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListTaskDefinitions where
+instance Page.AWSPager ListTaskDefinitions where
   page rq rs
-    | stop (rs ^. ltdrsNextToken) = Nothing
-    | stop (rs ^. ltdrsTaskDefinitionARNs) = Nothing
-    | otherwise = Just $ rq & ltdNextToken .~ rs ^. ltdrsNextToken
+    | Page.stop (rs Lens.^. ltdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltdrsTaskDefinitionARNs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltdNextToken Lens..~ rs Lens.^. ltdrsNextToken
 
-instance AWSRequest ListTaskDefinitions where
+instance Lude.AWSRequest ListTaskDefinitions where
   type Rs ListTaskDefinitions = ListTaskDefinitionsResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTaskDefinitionsResponse'
-            <$> (x .?> "taskDefinitionArns" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskDefinitionArns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTaskDefinitions
-
-instance NFData ListTaskDefinitions
-
-instance ToHeaders ListTaskDefinitions where
+instance Lude.ToHeaders ListTaskDefinitions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTaskDefinitions where
+instance Lude.ToJSON ListTaskDefinitions where
   toJSON ListTaskDefinitions' {..} =
-    object
-      ( catMaybes
-          [ ("status" .=) <$> _ltdStatus,
-            ("familyPrefix" .=) <$> _ltdFamilyPrefix,
-            ("nextToken" .=) <$> _ltdNextToken,
-            ("sort" .=) <$> _ltdSort,
-            ("maxResults" .=) <$> _ltdMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("status" Lude..=) Lude.<$> status,
+            ("familyPrefix" Lude..=) Lude.<$> familyPrefix,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("sort" Lude..=) Lude.<$> sort,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListTaskDefinitions where
-  toPath = const "/"
+instance Lude.ToPath ListTaskDefinitions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTaskDefinitions where
-  toQuery = const mempty
+instance Lude.ToQuery ListTaskDefinitions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTaskDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkListTaskDefinitionsResponse' smart constructor.
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
-  { _ltdrsTaskDefinitionARNs ::
-      !(Maybe [Text]),
-    _ltdrsNextToken :: !(Maybe Text),
-    _ltdrsResponseStatus :: !Int
+  { taskDefinitionARNs ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTaskDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltdrsTaskDefinitionARNs' - The list of task definition Amazon Resource Name (ARN) entries for the @ListTaskDefinitions@ request.
---
--- * 'ltdrsNextToken' - The @nextToken@ value to include in a future @ListTaskDefinitions@ request. When the results of a @ListTaskDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'ltdrsResponseStatus' - -- | The response status code.
-listTaskDefinitionsResponse ::
-  -- | 'ltdrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ value to include in a future @ListTaskDefinitions@ request. When the results of a @ListTaskDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'taskDefinitionARNs' - The list of task definition Amazon Resource Name (ARN) entries for the @ListTaskDefinitions@ request.
+mkListTaskDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTaskDefinitionsResponse
-listTaskDefinitionsResponse pResponseStatus_ =
+mkListTaskDefinitionsResponse pResponseStatus_ =
   ListTaskDefinitionsResponse'
-    { _ltdrsTaskDefinitionARNs = Nothing,
-      _ltdrsNextToken = Nothing,
-      _ltdrsResponseStatus = pResponseStatus_
+    { taskDefinitionARNs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the @ListTaskDefinitions@ request.
-ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
-ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\s a -> s {_ltdrsTaskDefinitionARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskDefinitionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdrsTaskDefinitionARNs :: Lens.Lens' ListTaskDefinitionsResponse (Lude.Maybe [Lude.Text])
+ltdrsTaskDefinitionARNs = Lens.lens (taskDefinitionARNs :: ListTaskDefinitionsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {taskDefinitionARNs = a} :: ListTaskDefinitionsResponse)
+{-# DEPRECATED ltdrsTaskDefinitionARNs "Use generic-lens or generic-optics with 'taskDefinitionARNs' instead." #-}
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@ request. When the results of a @ListTaskDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-ltdrsNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
-ltdrsNextToken = lens _ltdrsNextToken (\s a -> s {_ltdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdrsNextToken :: Lens.Lens' ListTaskDefinitionsResponse (Lude.Maybe Lude.Text)
+ltdrsNextToken = Lens.lens (nextToken :: ListTaskDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTaskDefinitionsResponse)
+{-# DEPRECATED ltdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltdrsResponseStatus :: Lens' ListTaskDefinitionsResponse Int
-ltdrsResponseStatus = lens _ltdrsResponseStatus (\s a -> s {_ltdrsResponseStatus = a})
-
-instance NFData ListTaskDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdrsResponseStatus :: Lens.Lens' ListTaskDefinitionsResponse Lude.Int
+ltdrsResponseStatus = Lens.lens (responseStatus :: ListTaskDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTaskDefinitionsResponse)
+{-# DEPRECATED ltdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.MetricsFilter where
+module Network.AWS.S3.Types.MetricsFilter
+  ( MetricsFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricsFilter,
+
+    -- * Lenses
+    mfTag,
+    mfPrefix,
+    mfAnd,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.MetricsAndOperator
 import Network.AWS.S3.Types.Tag
 
 -- | Specifies a metrics configuration filter. The metrics configuration only includes objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
 --
---
---
--- /See:/ 'metricsFilter' smart constructor.
+-- /See:/ 'mkMetricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
-  { _mfTag :: !(Maybe Tag),
-    _mfPrefix :: !(Maybe Text),
-    _mfAnd :: !(Maybe MetricsAndOperator)
+  { tag :: Lude.Maybe Tag,
+    prefix :: Lude.Maybe Lude.Text,
+    and :: Lude.Maybe MetricsAndOperator
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricsFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mfTag' - The tag used when evaluating a metrics filter.
---
--- * 'mfPrefix' - The prefix used when evaluating a metrics filter.
---
--- * 'mfAnd' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
-metricsFilter ::
+-- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+-- * 'prefix' - The prefix used when evaluating a metrics filter.
+-- * 'tag' - The tag used when evaluating a metrics filter.
+mkMetricsFilter ::
   MetricsFilter
-metricsFilter =
+mkMetricsFilter =
   MetricsFilter'
-    { _mfTag = Nothing,
-      _mfPrefix = Nothing,
-      _mfAnd = Nothing
+    { tag = Lude.Nothing,
+      prefix = Lude.Nothing,
+      and = Lude.Nothing
     }
 
 -- | The tag used when evaluating a metrics filter.
-mfTag :: Lens' MetricsFilter (Maybe Tag)
-mfTag = lens _mfTag (\s a -> s {_mfTag = a})
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfTag :: Lens.Lens' MetricsFilter (Lude.Maybe Tag)
+mfTag = Lens.lens (tag :: MetricsFilter -> Lude.Maybe Tag) (\s a -> s {tag = a} :: MetricsFilter)
+{-# DEPRECATED mfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
 
 -- | The prefix used when evaluating a metrics filter.
-mfPrefix :: Lens' MetricsFilter (Maybe Text)
-mfPrefix = lens _mfPrefix (\s a -> s {_mfPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfPrefix :: Lens.Lens' MetricsFilter (Lude.Maybe Lude.Text)
+mfPrefix = Lens.lens (prefix :: MetricsFilter -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: MetricsFilter)
+{-# DEPRECATED mfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
-mfAnd :: Lens' MetricsFilter (Maybe MetricsAndOperator)
-mfAnd = lens _mfAnd (\s a -> s {_mfAnd = a})
+--
+-- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfAnd :: Lens.Lens' MetricsFilter (Lude.Maybe MetricsAndOperator)
+mfAnd = Lens.lens (and :: MetricsFilter -> Lude.Maybe MetricsAndOperator) (\s a -> s {and = a} :: MetricsFilter)
+{-# DEPRECATED mfAnd "Use generic-lens or generic-optics with 'and' instead." #-}
 
-instance FromXML MetricsFilter where
+instance Lude.FromXML MetricsFilter where
   parseXML x =
     MetricsFilter'
-      <$> (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
+      Lude.<$> (x Lude..@? "Tag")
+      Lude.<*> (x Lude..@? "Prefix")
+      Lude.<*> (x Lude..@? "And")
 
-instance Hashable MetricsFilter
-
-instance NFData MetricsFilter
-
-instance ToXML MetricsFilter where
+instance Lude.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =
-    mconcat ["Tag" @= _mfTag, "Prefix" @= _mfPrefix, "And" @= _mfAnd]
+    Lude.mconcat
+      ["Tag" Lude.@= tag, "Prefix" Lude.@= prefix, "And" Lude.@= and]

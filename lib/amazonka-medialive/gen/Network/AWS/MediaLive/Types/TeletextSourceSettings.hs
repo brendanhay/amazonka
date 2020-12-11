@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TeletextSourceSettings where
+module Network.AWS.MediaLive.Types.TeletextSourceSettings
+  ( TeletextSourceSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTeletextSourceSettings,
+
+    -- * Lenses
+    tssPageNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Teletext Source Settings
 --
--- /See:/ 'teletextSourceSettings' smart constructor.
+-- /See:/ 'mkTeletextSourceSettings' smart constructor.
 newtype TeletextSourceSettings = TeletextSourceSettings'
-  { _tssPageNumber ::
-      Maybe Text
+  { pageNumber ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TeletextSourceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tssPageNumber' - Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
-teletextSourceSettings ::
+-- * 'pageNumber' - Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
+mkTeletextSourceSettings ::
   TeletextSourceSettings
-teletextSourceSettings =
-  TeletextSourceSettings' {_tssPageNumber = Nothing}
+mkTeletextSourceSettings =
+  TeletextSourceSettings' {pageNumber = Lude.Nothing}
 
 -- | Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
-tssPageNumber :: Lens' TeletextSourceSettings (Maybe Text)
-tssPageNumber = lens _tssPageNumber (\s a -> s {_tssPageNumber = a})
+--
+-- /Note:/ Consider using 'pageNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tssPageNumber :: Lens.Lens' TeletextSourceSettings (Lude.Maybe Lude.Text)
+tssPageNumber = Lens.lens (pageNumber :: TeletextSourceSettings -> Lude.Maybe Lude.Text) (\s a -> s {pageNumber = a} :: TeletextSourceSettings)
+{-# DEPRECATED tssPageNumber "Use generic-lens or generic-optics with 'pageNumber' instead." #-}
 
-instance FromJSON TeletextSourceSettings where
+instance Lude.FromJSON TeletextSourceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "TeletextSourceSettings"
-      (\x -> TeletextSourceSettings' <$> (x .:? "pageNumber"))
+      (\x -> TeletextSourceSettings' Lude.<$> (x Lude..:? "pageNumber"))
 
-instance Hashable TeletextSourceSettings
-
-instance NFData TeletextSourceSettings
-
-instance ToJSON TeletextSourceSettings where
+instance Lude.ToJSON TeletextSourceSettings where
   toJSON TeletextSourceSettings' {..} =
-    object (catMaybes [("pageNumber" .=) <$> _tssPageNumber])
+    Lude.object
+      (Lude.catMaybes [("pageNumber" Lude..=) Lude.<$> pageNumber])

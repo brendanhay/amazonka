@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams where
+module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
+  ( ReplaceDefaultPolicyVersionParams (..),
+
+    -- * Smart constructor
+    mkReplaceDefaultPolicyVersionParams,
+
+    -- * Lenses
+    rdpvpTemplateName,
+  )
+where
 
 import Network.AWS.IoT.Types.PolicyTemplateName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 --
---
---
--- /See:/ 'replaceDefaultPolicyVersionParams' smart constructor.
+-- /See:/ 'mkReplaceDefaultPolicyVersionParams' smart constructor.
 newtype ReplaceDefaultPolicyVersionParams = ReplaceDefaultPolicyVersionParams'
-  { _rdpvpTemplateName ::
+  { templateName ::
       PolicyTemplateName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceDefaultPolicyVersionParams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdpvpTemplateName' - The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
-replaceDefaultPolicyVersionParams ::
-  -- | 'rdpvpTemplateName'
+-- * 'templateName' - The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
+mkReplaceDefaultPolicyVersionParams ::
+  -- | 'templateName'
   PolicyTemplateName ->
   ReplaceDefaultPolicyVersionParams
-replaceDefaultPolicyVersionParams pTemplateName_ =
-  ReplaceDefaultPolicyVersionParams'
-    { _rdpvpTemplateName =
-        pTemplateName_
-    }
+mkReplaceDefaultPolicyVersionParams pTemplateName_ =
+  ReplaceDefaultPolicyVersionParams' {templateName = pTemplateName_}
 
 -- | The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
-rdpvpTemplateName :: Lens' ReplaceDefaultPolicyVersionParams PolicyTemplateName
-rdpvpTemplateName = lens _rdpvpTemplateName (\s a -> s {_rdpvpTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpvpTemplateName :: Lens.Lens' ReplaceDefaultPolicyVersionParams PolicyTemplateName
+rdpvpTemplateName = Lens.lens (templateName :: ReplaceDefaultPolicyVersionParams -> PolicyTemplateName) (\s a -> s {templateName = a} :: ReplaceDefaultPolicyVersionParams)
+{-# DEPRECATED rdpvpTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance FromJSON ReplaceDefaultPolicyVersionParams where
+instance Lude.FromJSON ReplaceDefaultPolicyVersionParams where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplaceDefaultPolicyVersionParams"
       ( \x ->
-          ReplaceDefaultPolicyVersionParams' <$> (x .: "templateName")
+          ReplaceDefaultPolicyVersionParams'
+            Lude.<$> (x Lude..: "templateName")
       )
 
-instance Hashable ReplaceDefaultPolicyVersionParams
-
-instance NFData ReplaceDefaultPolicyVersionParams
-
-instance ToJSON ReplaceDefaultPolicyVersionParams where
+instance Lude.ToJSON ReplaceDefaultPolicyVersionParams where
   toJSON ReplaceDefaultPolicyVersionParams' {..} =
-    object (catMaybes [Just ("templateName" .= _rdpvpTemplateName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("templateName" Lude..= templateName)])

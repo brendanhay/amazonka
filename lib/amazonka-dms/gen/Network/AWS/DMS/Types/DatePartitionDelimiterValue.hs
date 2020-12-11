@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.DatePartitionDelimiterValue where
+module Network.AWS.DMS.Types.DatePartitionDelimiterValue
+  ( DatePartitionDelimiterValue
+      ( DatePartitionDelimiterValue',
+        DPDVDash,
+        DPDVNone,
+        DPDVSlash,
+        DPDVUnderscore
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DatePartitionDelimiterValue
-  = DPDVDash
-  | DPDVNone
-  | DPDVSlash
-  | DPDVUnderscore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DatePartitionDelimiterValue = DatePartitionDelimiterValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DatePartitionDelimiterValue where
-  parser =
-    takeLowerText >>= \case
-      "dash" -> pure DPDVDash
-      "none" -> pure DPDVNone
-      "slash" -> pure DPDVSlash
-      "underscore" -> pure DPDVUnderscore
-      e ->
-        fromTextError $
-          "Failure parsing DatePartitionDelimiterValue from value: '" <> e
-            <> "'. Accepted values: dash, none, slash, underscore"
+pattern DPDVDash :: DatePartitionDelimiterValue
+pattern DPDVDash = DatePartitionDelimiterValue' "DASH"
 
-instance ToText DatePartitionDelimiterValue where
-  toText = \case
-    DPDVDash -> "DASH"
-    DPDVNone -> "NONE"
-    DPDVSlash -> "SLASH"
-    DPDVUnderscore -> "UNDERSCORE"
+pattern DPDVNone :: DatePartitionDelimiterValue
+pattern DPDVNone = DatePartitionDelimiterValue' "NONE"
 
-instance Hashable DatePartitionDelimiterValue
+pattern DPDVSlash :: DatePartitionDelimiterValue
+pattern DPDVSlash = DatePartitionDelimiterValue' "SLASH"
 
-instance NFData DatePartitionDelimiterValue
+pattern DPDVUnderscore :: DatePartitionDelimiterValue
+pattern DPDVUnderscore = DatePartitionDelimiterValue' "UNDERSCORE"
 
-instance ToByteString DatePartitionDelimiterValue
-
-instance ToQuery DatePartitionDelimiterValue
-
-instance ToHeader DatePartitionDelimiterValue
-
-instance ToJSON DatePartitionDelimiterValue where
-  toJSON = toJSONText
-
-instance FromJSON DatePartitionDelimiterValue where
-  parseJSON = parseJSONText "DatePartitionDelimiterValue"
+{-# COMPLETE
+  DPDVDash,
+  DPDVNone,
+  DPDVSlash,
+  DPDVUnderscore,
+  DatePartitionDelimiterValue'
+  #-}

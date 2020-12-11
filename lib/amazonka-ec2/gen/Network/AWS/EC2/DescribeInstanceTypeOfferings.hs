@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns a list of all instance types offered. The results can be filtered by location (Region or Availability Zone). If no location is specified, the instance types offered in the current Region are returned.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstanceTypeOfferings
-  ( -- * Creating a Request
-    describeInstanceTypeOfferings,
-    DescribeInstanceTypeOfferings,
+  ( -- * Creating a request
+    DescribeInstanceTypeOfferings (..),
+    mkDescribeInstanceTypeOfferings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ditoFilters,
     ditoNextToken,
     ditoLocationType,
     ditoDryRun,
     ditoMaxResults,
 
-    -- * Destructuring the Response
-    describeInstanceTypeOfferingsResponse,
-    DescribeInstanceTypeOfferingsResponse,
+    -- * Destructuring the response
+    DescribeInstanceTypeOfferingsResponse (..),
+    mkDescribeInstanceTypeOfferingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ditorsInstanceTypeOfferings,
     ditorsNextToken,
     ditorsResponseStatus,
@@ -46,156 +39,200 @@ module Network.AWS.EC2.DescribeInstanceTypeOfferings
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeInstanceTypeOfferings' smart constructor.
+-- | /See:/ 'mkDescribeInstanceTypeOfferings' smart constructor.
 data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
-  { _ditoFilters ::
-      !(Maybe [Filter]),
-    _ditoNextToken :: !(Maybe Text),
-    _ditoLocationType ::
-      !(Maybe LocationType),
-    _ditoDryRun :: !(Maybe Bool),
-    _ditoMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    locationType ::
+      Lude.Maybe LocationType,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceTypeOfferings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
--- * 'ditoFilters' - One or more filters. Filter names and values are case-sensitive.     * @location@ - This depends on the location type. For example, if the location type is @region@ (default), the location is the Region code (for example, @us-east-2@ .)     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
 --
--- * 'ditoNextToken' - The token to retrieve the next page of results.
+--     * @location@ - This depends on the location type. For example, if the location type is @region@ (default), the location is the Region code (for example, @us-east-2@ .)
 --
--- * 'ditoLocationType' - The location type.
 --
--- * 'ditoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
 --
--- * 'ditoMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
-describeInstanceTypeOfferings ::
+--
+-- * 'locationType' - The location type.
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
+-- * 'nextToken' - The token to retrieve the next page of results.
+mkDescribeInstanceTypeOfferings ::
   DescribeInstanceTypeOfferings
-describeInstanceTypeOfferings =
+mkDescribeInstanceTypeOfferings =
   DescribeInstanceTypeOfferings'
-    { _ditoFilters = Nothing,
-      _ditoNextToken = Nothing,
-      _ditoLocationType = Nothing,
-      _ditoDryRun = Nothing,
-      _ditoMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      locationType = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters. Filter names and values are case-sensitive.     * @location@ - This depends on the location type. For example, if the location type is @region@ (default), the location is the Region code (for example, @us-east-2@ .)     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
-ditoFilters :: Lens' DescribeInstanceTypeOfferings [Filter]
-ditoFilters = lens _ditoFilters (\s a -> s {_ditoFilters = a}) . _Default . _Coerce
+-- | One or more filters. Filter names and values are case-sensitive.
+--
+--
+--     * @location@ - This depends on the location type. For example, if the location type is @region@ (default), the location is the Region code (for example, @us-east-2@ .)
+--
+--
+--     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditoFilters :: Lens.Lens' DescribeInstanceTypeOfferings (Lude.Maybe [Filter])
+ditoFilters = Lens.lens (filters :: DescribeInstanceTypeOfferings -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInstanceTypeOfferings)
+{-# DEPRECATED ditoFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
-ditoNextToken :: Lens' DescribeInstanceTypeOfferings (Maybe Text)
-ditoNextToken = lens _ditoNextToken (\s a -> s {_ditoNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditoNextToken :: Lens.Lens' DescribeInstanceTypeOfferings (Lude.Maybe Lude.Text)
+ditoNextToken = Lens.lens (nextToken :: DescribeInstanceTypeOfferings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceTypeOfferings)
+{-# DEPRECATED ditoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The location type.
-ditoLocationType :: Lens' DescribeInstanceTypeOfferings (Maybe LocationType)
-ditoLocationType = lens _ditoLocationType (\s a -> s {_ditoLocationType = a})
+--
+-- /Note:/ Consider using 'locationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditoLocationType :: Lens.Lens' DescribeInstanceTypeOfferings (Lude.Maybe LocationType)
+ditoLocationType = Lens.lens (locationType :: DescribeInstanceTypeOfferings -> Lude.Maybe LocationType) (\s a -> s {locationType = a} :: DescribeInstanceTypeOfferings)
+{-# DEPRECATED ditoLocationType "Use generic-lens or generic-optics with 'locationType' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ditoDryRun :: Lens' DescribeInstanceTypeOfferings (Maybe Bool)
-ditoDryRun = lens _ditoDryRun (\s a -> s {_ditoDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditoDryRun :: Lens.Lens' DescribeInstanceTypeOfferings (Lude.Maybe Lude.Bool)
+ditoDryRun = Lens.lens (dryRun :: DescribeInstanceTypeOfferings -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceTypeOfferings)
+{-# DEPRECATED ditoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
-ditoMaxResults :: Lens' DescribeInstanceTypeOfferings (Maybe Natural)
-ditoMaxResults = lens _ditoMaxResults (\s a -> s {_ditoMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditoMaxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Lude.Maybe Lude.Natural)
+ditoMaxResults = Lens.lens (maxResults :: DescribeInstanceTypeOfferings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
+{-# DEPRECATED ditoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeInstanceTypeOfferings where
+instance Page.AWSPager DescribeInstanceTypeOfferings where
   page rq rs
-    | stop (rs ^. ditorsNextToken) = Nothing
-    | stop (rs ^. ditorsInstanceTypeOfferings) = Nothing
-    | otherwise = Just $ rq & ditoNextToken .~ rs ^. ditorsNextToken
+    | Page.stop (rs Lens.^. ditorsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ditorsInstanceTypeOfferings) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ditoNextToken Lens..~ rs Lens.^. ditorsNextToken
 
-instance AWSRequest DescribeInstanceTypeOfferings where
+instance Lude.AWSRequest DescribeInstanceTypeOfferings where
   type
     Rs DescribeInstanceTypeOfferings =
       DescribeInstanceTypeOfferingsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeInstanceTypeOfferingsResponse'
-            <$> ( x .@? "instanceTypeOfferingSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "instanceTypeOfferingSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstanceTypeOfferings
+instance Lude.ToHeaders DescribeInstanceTypeOfferings where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeInstanceTypeOfferings
+instance Lude.ToPath DescribeInstanceTypeOfferings where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeInstanceTypeOfferings where
-  toHeaders = const mempty
-
-instance ToPath DescribeInstanceTypeOfferings where
-  toPath = const "/"
-
-instance ToQuery DescribeInstanceTypeOfferings where
+instance Lude.ToQuery DescribeInstanceTypeOfferings where
   toQuery DescribeInstanceTypeOfferings' {..} =
-    mconcat
-      [ "Action" =: ("DescribeInstanceTypeOfferings" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _ditoFilters),
-        "NextToken" =: _ditoNextToken,
-        "LocationType" =: _ditoLocationType,
-        "DryRun" =: _ditoDryRun,
-        "MaxResults" =: _ditoMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeInstanceTypeOfferings" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "LocationType" Lude.=: locationType,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeInstanceTypeOfferingsResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstanceTypeOfferingsResponse' smart constructor.
 data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsResponse'
-  { _ditorsInstanceTypeOfferings ::
-      !( Maybe
-           [InstanceTypeOffering]
-       ),
-    _ditorsNextToken ::
-      !(Maybe Text),
-    _ditorsResponseStatus ::
-      !Int
+  { instanceTypeOfferings ::
+      Lude.Maybe
+        [InstanceTypeOffering],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceTypeOfferingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ditorsInstanceTypeOfferings' - The instance types offered.
---
--- * 'ditorsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'ditorsResponseStatus' - -- | The response status code.
-describeInstanceTypeOfferingsResponse ::
-  -- | 'ditorsResponseStatus'
-  Int ->
+-- * 'instanceTypeOfferings' - The instance types offered.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeInstanceTypeOfferingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstanceTypeOfferingsResponse
-describeInstanceTypeOfferingsResponse pResponseStatus_ =
+mkDescribeInstanceTypeOfferingsResponse pResponseStatus_ =
   DescribeInstanceTypeOfferingsResponse'
-    { _ditorsInstanceTypeOfferings =
-        Nothing,
-      _ditorsNextToken = Nothing,
-      _ditorsResponseStatus = pResponseStatus_
+    { instanceTypeOfferings =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The instance types offered.
-ditorsInstanceTypeOfferings :: Lens' DescribeInstanceTypeOfferingsResponse [InstanceTypeOffering]
-ditorsInstanceTypeOfferings = lens _ditorsInstanceTypeOfferings (\s a -> s {_ditorsInstanceTypeOfferings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceTypeOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditorsInstanceTypeOfferings :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Lude.Maybe [InstanceTypeOffering])
+ditorsInstanceTypeOfferings = Lens.lens (instanceTypeOfferings :: DescribeInstanceTypeOfferingsResponse -> Lude.Maybe [InstanceTypeOffering]) (\s a -> s {instanceTypeOfferings = a} :: DescribeInstanceTypeOfferingsResponse)
+{-# DEPRECATED ditorsInstanceTypeOfferings "Use generic-lens or generic-optics with 'instanceTypeOfferings' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-ditorsNextToken :: Lens' DescribeInstanceTypeOfferingsResponse (Maybe Text)
-ditorsNextToken = lens _ditorsNextToken (\s a -> s {_ditorsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditorsNextToken :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Lude.Maybe Lude.Text)
+ditorsNextToken = Lens.lens (nextToken :: DescribeInstanceTypeOfferingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceTypeOfferingsResponse)
+{-# DEPRECATED ditorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ditorsResponseStatus :: Lens' DescribeInstanceTypeOfferingsResponse Int
-ditorsResponseStatus = lens _ditorsResponseStatus (\s a -> s {_ditorsResponseStatus = a})
-
-instance NFData DescribeInstanceTypeOfferingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ditorsResponseStatus :: Lens.Lens' DescribeInstanceTypeOfferingsResponse Lude.Int
+ditorsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceTypeOfferingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceTypeOfferingsResponse)
+{-# DEPRECATED ditorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

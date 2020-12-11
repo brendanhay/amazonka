@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,166 @@
 --
 -- Purchases the Scheduled Instances with the specified schedule.
 --
---
 -- Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call 'DescribeScheduledInstanceAvailability' to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call 'RunScheduledInstances' during each scheduled time period.
---
 -- After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
 module Network.AWS.EC2.PurchaseScheduledInstances
-  ( -- * Creating a Request
-    purchaseScheduledInstances,
-    PurchaseScheduledInstances,
+  ( -- * Creating a request
+    PurchaseScheduledInstances (..),
+    mkPurchaseScheduledInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psiClientToken,
     psiDryRun,
     psiPurchaseRequests,
 
-    -- * Destructuring the Response
-    purchaseScheduledInstancesResponse,
-    PurchaseScheduledInstancesResponse,
+    -- * Destructuring the response
+    PurchaseScheduledInstancesResponse (..),
+    mkPurchaseScheduledInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psirsScheduledInstanceSet,
     psirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for PurchaseScheduledInstances.
 --
---
---
--- /See:/ 'purchaseScheduledInstances' smart constructor.
+-- /See:/ 'mkPurchaseScheduledInstances' smart constructor.
 data PurchaseScheduledInstances = PurchaseScheduledInstances'
-  { _psiClientToken ::
-      !(Maybe Text),
-    _psiDryRun :: !(Maybe Bool),
-    _psiPurchaseRequests ::
-      !(List1 PurchaseRequest)
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    purchaseRequests ::
+      Lude.NonEmpty PurchaseRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseScheduledInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psiClientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- * 'psiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'psiPurchaseRequests' - The purchase requests.
-purchaseScheduledInstances ::
-  -- | 'psiPurchaseRequests'
-  NonEmpty PurchaseRequest ->
+-- * 'clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'purchaseRequests' - The purchase requests.
+mkPurchaseScheduledInstances ::
+  -- | 'purchaseRequests'
+  Lude.NonEmpty PurchaseRequest ->
   PurchaseScheduledInstances
-purchaseScheduledInstances pPurchaseRequests_ =
+mkPurchaseScheduledInstances pPurchaseRequests_ =
   PurchaseScheduledInstances'
-    { _psiClientToken = Nothing,
-      _psiDryRun = Nothing,
-      _psiPurchaseRequests = _List1 # pPurchaseRequests_
+    { clientToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      purchaseRequests = pPurchaseRequests_
     }
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
-psiClientToken = lens _psiClientToken (\s a -> s {_psiClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psiClientToken :: Lens.Lens' PurchaseScheduledInstances (Lude.Maybe Lude.Text)
+psiClientToken = Lens.lens (clientToken :: PurchaseScheduledInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: PurchaseScheduledInstances)
+{-# DEPRECATED psiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-psiDryRun :: Lens' PurchaseScheduledInstances (Maybe Bool)
-psiDryRun = lens _psiDryRun (\s a -> s {_psiDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psiDryRun :: Lens.Lens' PurchaseScheduledInstances (Lude.Maybe Lude.Bool)
+psiDryRun = Lens.lens (dryRun :: PurchaseScheduledInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: PurchaseScheduledInstances)
+{-# DEPRECATED psiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The purchase requests.
-psiPurchaseRequests :: Lens' PurchaseScheduledInstances (NonEmpty PurchaseRequest)
-psiPurchaseRequests = lens _psiPurchaseRequests (\s a -> s {_psiPurchaseRequests = a}) . _List1
+--
+-- /Note:/ Consider using 'purchaseRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psiPurchaseRequests :: Lens.Lens' PurchaseScheduledInstances (Lude.NonEmpty PurchaseRequest)
+psiPurchaseRequests = Lens.lens (purchaseRequests :: PurchaseScheduledInstances -> Lude.NonEmpty PurchaseRequest) (\s a -> s {purchaseRequests = a} :: PurchaseScheduledInstances)
+{-# DEPRECATED psiPurchaseRequests "Use generic-lens or generic-optics with 'purchaseRequests' instead." #-}
 
-instance AWSRequest PurchaseScheduledInstances where
+instance Lude.AWSRequest PurchaseScheduledInstances where
   type
     Rs PurchaseScheduledInstances =
       PurchaseScheduledInstancesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           PurchaseScheduledInstancesResponse'
-            <$> ( x .@? "scheduledInstanceSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "scheduledInstanceSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PurchaseScheduledInstances
+instance Lude.ToHeaders PurchaseScheduledInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PurchaseScheduledInstances
+instance Lude.ToPath PurchaseScheduledInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders PurchaseScheduledInstances where
-  toHeaders = const mempty
-
-instance ToPath PurchaseScheduledInstances where
-  toPath = const "/"
-
-instance ToQuery PurchaseScheduledInstances where
+instance Lude.ToQuery PurchaseScheduledInstances where
   toQuery PurchaseScheduledInstances' {..} =
-    mconcat
-      [ "Action" =: ("PurchaseScheduledInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _psiClientToken,
-        "DryRun" =: _psiDryRun,
-        toQueryList "PurchaseRequest" _psiPurchaseRequests
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("PurchaseScheduledInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "PurchaseRequest" purchaseRequests
       ]
 
 -- | Contains the output of PurchaseScheduledInstances.
 --
---
---
--- /See:/ 'purchaseScheduledInstancesResponse' smart constructor.
+-- /See:/ 'mkPurchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
-  { _psirsScheduledInstanceSet ::
-      !( Maybe
-           [ScheduledInstance]
-       ),
-    _psirsResponseStatus ::
-      !Int
+  { scheduledInstanceSet ::
+      Lude.Maybe
+        [ScheduledInstance],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseScheduledInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psirsScheduledInstanceSet' - Information about the Scheduled Instances.
---
--- * 'psirsResponseStatus' - -- | The response status code.
-purchaseScheduledInstancesResponse ::
-  -- | 'psirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'scheduledInstanceSet' - Information about the Scheduled Instances.
+mkPurchaseScheduledInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PurchaseScheduledInstancesResponse
-purchaseScheduledInstancesResponse pResponseStatus_ =
+mkPurchaseScheduledInstancesResponse pResponseStatus_ =
   PurchaseScheduledInstancesResponse'
-    { _psirsScheduledInstanceSet =
-        Nothing,
-      _psirsResponseStatus = pResponseStatus_
+    { scheduledInstanceSet =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the Scheduled Instances.
-psirsScheduledInstanceSet :: Lens' PurchaseScheduledInstancesResponse [ScheduledInstance]
-psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\s a -> s {_psirsScheduledInstanceSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scheduledInstanceSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psirsScheduledInstanceSet :: Lens.Lens' PurchaseScheduledInstancesResponse (Lude.Maybe [ScheduledInstance])
+psirsScheduledInstanceSet = Lens.lens (scheduledInstanceSet :: PurchaseScheduledInstancesResponse -> Lude.Maybe [ScheduledInstance]) (\s a -> s {scheduledInstanceSet = a} :: PurchaseScheduledInstancesResponse)
+{-# DEPRECATED psirsScheduledInstanceSet "Use generic-lens or generic-optics with 'scheduledInstanceSet' instead." #-}
 
--- | -- | The response status code.
-psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
-psirsResponseStatus = lens _psirsResponseStatus (\s a -> s {_psirsResponseStatus = a})
-
-instance NFData PurchaseScheduledInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psirsResponseStatus :: Lens.Lens' PurchaseScheduledInstancesResponse Lude.Int
+psirsResponseStatus = Lens.lens (responseStatus :: PurchaseScheduledInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseScheduledInstancesResponse)
+{-# DEPRECATED psirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

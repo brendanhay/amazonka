@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.EC2AMIResource where
+module Network.AWS.Snowball.Types.EC2AMIResource
+  ( EC2AMIResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEC2AMIResource,
+
+    -- * Lenses
+    earSnowballAMIId,
+    earAMIId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine Image (AMI), including the Amazon EC2 AMI ID and the Snow device AMI ID. Each AMI has these two IDs to simplify identifying the AMI in both the AWS Cloud and on the device.
 --
---
---
--- /See:/ 'ec2AMIResource' smart constructor.
+-- /See:/ 'mkEC2AMIResource' smart constructor.
 data EC2AMIResource = EC2AMIResource'
-  { _earSnowballAMIId ::
-      !(Maybe Text),
-    _earAMIId :: !Text
+  { snowballAMIId ::
+      Lude.Maybe Lude.Text,
+    amiId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2AMIResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'earSnowballAMIId' - The ID of the AMI on the Snow device.
---
--- * 'earAMIId' - The ID of the AMI in Amazon EC2.
-ec2AMIResource ::
-  -- | 'earAMIId'
-  Text ->
+-- * 'amiId' - The ID of the AMI in Amazon EC2.
+-- * 'snowballAMIId' - The ID of the AMI on the Snow device.
+mkEC2AMIResource ::
+  -- | 'amiId'
+  Lude.Text ->
   EC2AMIResource
-ec2AMIResource pAMIId_ =
-  EC2AMIResource' {_earSnowballAMIId = Nothing, _earAMIId = pAMIId_}
+mkEC2AMIResource pAMIId_ =
+  EC2AMIResource' {snowballAMIId = Lude.Nothing, amiId = pAMIId_}
 
 -- | The ID of the AMI on the Snow device.
-earSnowballAMIId :: Lens' EC2AMIResource (Maybe Text)
-earSnowballAMIId = lens _earSnowballAMIId (\s a -> s {_earSnowballAMIId = a})
+--
+-- /Note:/ Consider using 'snowballAMIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+earSnowballAMIId :: Lens.Lens' EC2AMIResource (Lude.Maybe Lude.Text)
+earSnowballAMIId = Lens.lens (snowballAMIId :: EC2AMIResource -> Lude.Maybe Lude.Text) (\s a -> s {snowballAMIId = a} :: EC2AMIResource)
+{-# DEPRECATED earSnowballAMIId "Use generic-lens or generic-optics with 'snowballAMIId' instead." #-}
 
 -- | The ID of the AMI in Amazon EC2.
-earAMIId :: Lens' EC2AMIResource Text
-earAMIId = lens _earAMIId (\s a -> s {_earAMIId = a})
+--
+-- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+earAMIId :: Lens.Lens' EC2AMIResource Lude.Text
+earAMIId = Lens.lens (amiId :: EC2AMIResource -> Lude.Text) (\s a -> s {amiId = a} :: EC2AMIResource)
+{-# DEPRECATED earAMIId "Use generic-lens or generic-optics with 'amiId' instead." #-}
 
-instance FromJSON EC2AMIResource where
+instance Lude.FromJSON EC2AMIResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2AMIResource"
       ( \x ->
-          EC2AMIResource' <$> (x .:? "SnowballAmiId") <*> (x .: "AmiId")
+          EC2AMIResource'
+            Lude.<$> (x Lude..:? "SnowballAmiId") Lude.<*> (x Lude..: "AmiId")
       )
 
-instance Hashable EC2AMIResource
-
-instance NFData EC2AMIResource
-
-instance ToJSON EC2AMIResource where
+instance Lude.ToJSON EC2AMIResource where
   toJSON EC2AMIResource' {..} =
-    object
-      ( catMaybes
-          [ ("SnowballAmiId" .=) <$> _earSnowballAMIId,
-            Just ("AmiId" .= _earAMIId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SnowballAmiId" Lude..=) Lude.<$> snowballAMIId,
+            Lude.Just ("AmiId" Lude..= amiId)
           ]
       )

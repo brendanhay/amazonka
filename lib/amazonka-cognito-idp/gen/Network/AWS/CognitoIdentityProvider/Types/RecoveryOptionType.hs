@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType where
+module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
+  ( RecoveryOptionType (..),
+
+    -- * Smart constructor
+    mkRecoveryOptionType,
+
+    -- * Lenses
+    rotPriority,
+    rotName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A map containing a priority as a key, and recovery method name as a value.
 --
---
---
--- /See:/ 'recoveryOptionType' smart constructor.
+-- /See:/ 'mkRecoveryOptionType' smart constructor.
 data RecoveryOptionType = RecoveryOptionType'
-  { _rotPriority :: !Nat,
-    _rotName :: !RecoveryOptionNameType
+  { priority ::
+      Lude.Natural,
+    name :: RecoveryOptionNameType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecoveryOptionType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rotPriority' - A positive integer specifying priority of a method with 1 being the highest priority.
---
--- * 'rotName' - Specifies the recovery method for a user.
-recoveryOptionType ::
-  -- | 'rotPriority'
-  Natural ->
-  -- | 'rotName'
+-- * 'name' - Specifies the recovery method for a user.
+-- * 'priority' - A positive integer specifying priority of a method with 1 being the highest priority.
+mkRecoveryOptionType ::
+  -- | 'priority'
+  Lude.Natural ->
+  -- | 'name'
   RecoveryOptionNameType ->
   RecoveryOptionType
-recoveryOptionType pPriority_ pName_ =
-  RecoveryOptionType'
-    { _rotPriority = _Nat # pPriority_,
-      _rotName = pName_
-    }
+mkRecoveryOptionType pPriority_ pName_ =
+  RecoveryOptionType' {priority = pPriority_, name = pName_}
 
 -- | A positive integer specifying priority of a method with 1 being the highest priority.
-rotPriority :: Lens' RecoveryOptionType Natural
-rotPriority = lens _rotPriority (\s a -> s {_rotPriority = a}) . _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rotPriority :: Lens.Lens' RecoveryOptionType Lude.Natural
+rotPriority = Lens.lens (priority :: RecoveryOptionType -> Lude.Natural) (\s a -> s {priority = a} :: RecoveryOptionType)
+{-# DEPRECATED rotPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | Specifies the recovery method for a user.
-rotName :: Lens' RecoveryOptionType RecoveryOptionNameType
-rotName = lens _rotName (\s a -> s {_rotName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rotName :: Lens.Lens' RecoveryOptionType RecoveryOptionNameType
+rotName = Lens.lens (name :: RecoveryOptionType -> RecoveryOptionNameType) (\s a -> s {name = a} :: RecoveryOptionType)
+{-# DEPRECATED rotName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON RecoveryOptionType where
+instance Lude.FromJSON RecoveryOptionType where
   parseJSON =
-    withObject
+    Lude.withObject
       "RecoveryOptionType"
       ( \x ->
-          RecoveryOptionType' <$> (x .: "Priority") <*> (x .: "Name")
+          RecoveryOptionType'
+            Lude.<$> (x Lude..: "Priority") Lude.<*> (x Lude..: "Name")
       )
 
-instance Hashable RecoveryOptionType
-
-instance NFData RecoveryOptionType
-
-instance ToJSON RecoveryOptionType where
+instance Lude.ToJSON RecoveryOptionType where
   toJSON RecoveryOptionType' {..} =
-    object
-      ( catMaybes
-          [Just ("Priority" .= _rotPriority), Just ("Name" .= _rotName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Priority" Lude..= priority),
+            Lude.Just ("Name" Lude..= name)
+          ]
       )

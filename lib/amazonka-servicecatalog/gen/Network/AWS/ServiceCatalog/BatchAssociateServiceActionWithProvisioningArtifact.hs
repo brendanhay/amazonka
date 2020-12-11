@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,207 @@
 --
 -- Associates multiple self-service actions with provisioning artifacts.
 module Network.AWS.ServiceCatalog.BatchAssociateServiceActionWithProvisioningArtifact
-  ( -- * Creating a Request
-    batchAssociateServiceActionWithProvisioningArtifact,
-    BatchAssociateServiceActionWithProvisioningArtifact,
+  ( -- * Creating a request
+    BatchAssociateServiceActionWithProvisioningArtifact (..),
+    mkBatchAssociateServiceActionWithProvisioningArtifact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     basawpaAcceptLanguage,
     basawpaServiceActionAssociations,
 
-    -- * Destructuring the Response
-    batchAssociateServiceActionWithProvisioningArtifactResponse,
-    BatchAssociateServiceActionWithProvisioningArtifactResponse,
+    -- * Destructuring the response
+    BatchAssociateServiceActionWithProvisioningArtifactResponse (..),
+    mkBatchAssociateServiceActionWithProvisioningArtifactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     basawparsFailedServiceActionAssociations,
     basawparsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'batchAssociateServiceActionWithProvisioningArtifact' smart constructor.
+-- | /See:/ 'mkBatchAssociateServiceActionWithProvisioningArtifact' smart constructor.
 data BatchAssociateServiceActionWithProvisioningArtifact = BatchAssociateServiceActionWithProvisioningArtifact'
-  { _basawpaAcceptLanguage ::
-      !( Maybe
-           Text
-       ),
-    _basawpaServiceActionAssociations ::
-      !( List1
-           ServiceActionAssociation
-       )
+  { acceptLanguage ::
+      Lude.Maybe
+        Lude.Text,
+    serviceActionAssociations ::
+      Lude.NonEmpty
+        ServiceActionAssociation
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'BatchAssociateServiceActionWithProvisioningArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'basawpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'basawpaServiceActionAssociations' - One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
-batchAssociateServiceActionWithProvisioningArtifact ::
-  -- | 'basawpaServiceActionAssociations'
-  NonEmpty ServiceActionAssociation ->
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'serviceActionAssociations' - One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+mkBatchAssociateServiceActionWithProvisioningArtifact ::
+  -- | 'serviceActionAssociations'
+  Lude.NonEmpty ServiceActionAssociation ->
   BatchAssociateServiceActionWithProvisioningArtifact
-batchAssociateServiceActionWithProvisioningArtifact
+mkBatchAssociateServiceActionWithProvisioningArtifact
   pServiceActionAssociations_ =
     BatchAssociateServiceActionWithProvisioningArtifact'
-      { _basawpaAcceptLanguage =
-          Nothing,
-        _basawpaServiceActionAssociations =
-          _List1 # pServiceActionAssociations_
+      { acceptLanguage =
+          Lude.Nothing,
+        serviceActionAssociations =
+          pServiceActionAssociations_
       }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-basawpaAcceptLanguage :: Lens' BatchAssociateServiceActionWithProvisioningArtifact (Maybe Text)
-basawpaAcceptLanguage = lens _basawpaAcceptLanguage (\s a -> s {_basawpaAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+basawpaAcceptLanguage :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Lude.Maybe Lude.Text)
+basawpaAcceptLanguage = Lens.lens (acceptLanguage :: BatchAssociateServiceActionWithProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: BatchAssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED basawpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
-basawpaServiceActionAssociations :: Lens' BatchAssociateServiceActionWithProvisioningArtifact (NonEmpty ServiceActionAssociation)
-basawpaServiceActionAssociations = lens _basawpaServiceActionAssociations (\s a -> s {_basawpaServiceActionAssociations = a}) . _List1
+--
+-- /Note:/ Consider using 'serviceActionAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+basawpaServiceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifact (Lude.NonEmpty ServiceActionAssociation)
+basawpaServiceActionAssociations = Lens.lens (serviceActionAssociations :: BatchAssociateServiceActionWithProvisioningArtifact -> Lude.NonEmpty ServiceActionAssociation) (\s a -> s {serviceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED basawpaServiceActionAssociations "Use generic-lens or generic-optics with 'serviceActionAssociations' instead." #-}
 
 instance
-  AWSRequest
+  Lude.AWSRequest
     BatchAssociateServiceActionWithProvisioningArtifact
   where
   type
     Rs BatchAssociateServiceActionWithProvisioningArtifact =
       BatchAssociateServiceActionWithProvisioningArtifactResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchAssociateServiceActionWithProvisioningArtifactResponse'
-            <$> (x .?> "FailedServiceActionAssociations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailedServiceActionAssociations" Lude..!@ Lude.mempty)
+              Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance
-  Hashable
-    BatchAssociateServiceActionWithProvisioningArtifact
-
-instance NFData BatchAssociateServiceActionWithProvisioningArtifact
-
-instance
-  ToHeaders
+  Lude.ToHeaders
     BatchAssociateServiceActionWithProvisioningArtifact
   where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
-
-instance ToJSON BatchAssociateServiceActionWithProvisioningArtifact where
-  toJSON BatchAssociateServiceActionWithProvisioningArtifact' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _basawpaAcceptLanguage,
-            Just
-              ( "ServiceActionAssociations"
-                  .= _basawpaServiceActionAssociations
-              )
-          ]
-      )
-
-instance ToPath BatchAssociateServiceActionWithProvisioningArtifact where
-  toPath = const "/"
 
 instance
-  ToQuery
+  Lude.ToJSON
     BatchAssociateServiceActionWithProvisioningArtifact
   where
-  toQuery = const mempty
+  toJSON BatchAssociateServiceActionWithProvisioningArtifact' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just
+              ("ServiceActionAssociations" Lude..= serviceActionAssociations)
+          ]
+      )
 
--- | /See:/ 'batchAssociateServiceActionWithProvisioningArtifactResponse' smart constructor.
+instance
+  Lude.ToPath
+    BatchAssociateServiceActionWithProvisioningArtifact
+  where
+  toPath = Lude.const "/"
+
+instance
+  Lude.ToQuery
+    BatchAssociateServiceActionWithProvisioningArtifact
+  where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkBatchAssociateServiceActionWithProvisioningArtifactResponse' smart constructor.
 data BatchAssociateServiceActionWithProvisioningArtifactResponse = BatchAssociateServiceActionWithProvisioningArtifactResponse'
-  { _basawparsFailedServiceActionAssociations ::
-      !( Maybe
-           [FailedServiceActionAssociation]
-       ),
-    _basawparsResponseStatus ::
-      !Int
+  { failedServiceActionAssociations ::
+      Lude.Maybe
+        [FailedServiceActionAssociation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'BatchAssociateServiceActionWithProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'basawparsFailedServiceActionAssociations' - An object that contains a list of errors, along with information to help you identify the self-service action.
---
--- * 'basawparsResponseStatus' - -- | The response status code.
-batchAssociateServiceActionWithProvisioningArtifactResponse ::
-  -- | 'basawparsResponseStatus'
-  Int ->
+-- * 'failedServiceActionAssociations' - An object that contains a list of errors, along with information to help you identify the self-service action.
+-- * 'responseStatus' - The response status code.
+mkBatchAssociateServiceActionWithProvisioningArtifactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchAssociateServiceActionWithProvisioningArtifactResponse
-batchAssociateServiceActionWithProvisioningArtifactResponse
+mkBatchAssociateServiceActionWithProvisioningArtifactResponse
   pResponseStatus_ =
     BatchAssociateServiceActionWithProvisioningArtifactResponse'
-      { _basawparsFailedServiceActionAssociations =
-          Nothing,
-        _basawparsResponseStatus =
-          pResponseStatus_
+      { failedServiceActionAssociations =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | An object that contains a list of errors, along with information to help you identify the self-service action.
-basawparsFailedServiceActionAssociations :: Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse [FailedServiceActionAssociation]
-basawparsFailedServiceActionAssociations = lens _basawparsFailedServiceActionAssociations (\s a -> s {_basawparsFailedServiceActionAssociations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failedServiceActionAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+basawparsFailedServiceActionAssociations :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse (Lude.Maybe [FailedServiceActionAssociation])
+basawparsFailedServiceActionAssociations = Lens.lens (failedServiceActionAssociations :: BatchAssociateServiceActionWithProvisioningArtifactResponse -> Lude.Maybe [FailedServiceActionAssociation]) (\s a -> s {failedServiceActionAssociations = a} :: BatchAssociateServiceActionWithProvisioningArtifactResponse)
+{-# DEPRECATED basawparsFailedServiceActionAssociations "Use generic-lens or generic-optics with 'failedServiceActionAssociations' instead." #-}
 
--- | -- | The response status code.
-basawparsResponseStatus :: Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse Int
-basawparsResponseStatus = lens _basawparsResponseStatus (\s a -> s {_basawparsResponseStatus = a})
-
-instance
-  NFData
-    BatchAssociateServiceActionWithProvisioningArtifactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+basawparsResponseStatus :: Lens.Lens' BatchAssociateServiceActionWithProvisioningArtifactResponse Lude.Int
+basawparsResponseStatus = Lens.lens (responseStatus :: BatchAssociateServiceActionWithProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchAssociateServiceActionWithProvisioningArtifactResponse)
+{-# DEPRECATED basawparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate where
+module Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate
+  ( ElasticsearchDestinationUpdate (..),
+
+    -- * Smart constructor
+    mkElasticsearchDestinationUpdate,
+
+    -- * Lenses
+    eduIndexRotationPeriod,
+    eduTypeName,
+    eduDomainARN,
+    eduCloudWatchLoggingOptions,
+    eduS3Update,
+    eduBufferingHints,
+    eduRetryOptions,
+    eduProcessingConfiguration,
+    eduRoleARN,
+    eduClusterEndpoint,
+    eduIndexName,
+  )
+where
 
 import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
@@ -21,153 +34,183 @@ import Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
 import Network.AWS.Firehose.Types.ElasticsearchRetryOptions
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3DestinationUpdate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an update for a destination in Amazon ES.
 --
---
---
--- /See:/ 'elasticsearchDestinationUpdate' smart constructor.
+-- /See:/ 'mkElasticsearchDestinationUpdate' smart constructor.
 data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
-  { _eduIndexRotationPeriod ::
-      !( Maybe
-           ElasticsearchIndexRotationPeriod
-       ),
-    _eduTypeName :: !(Maybe Text),
-    _eduDomainARN ::
-      !(Maybe Text),
-    _eduCloudWatchLoggingOptions ::
-      !( Maybe
-           CloudWatchLoggingOptions
-       ),
-    _eduS3Update ::
-      !(Maybe S3DestinationUpdate),
-    _eduBufferingHints ::
-      !( Maybe
-           ElasticsearchBufferingHints
-       ),
-    _eduRetryOptions ::
-      !( Maybe
-           ElasticsearchRetryOptions
-       ),
-    _eduProcessingConfiguration ::
-      !( Maybe
-           ProcessingConfiguration
-       ),
-    _eduRoleARN :: !(Maybe Text),
-    _eduClusterEndpoint ::
-      !(Maybe Text),
-    _eduIndexName ::
-      !(Maybe Text)
+  { indexRotationPeriod ::
+      Lude.Maybe
+        ElasticsearchIndexRotationPeriod,
+    typeName ::
+      Lude.Maybe Lude.Text,
+    domainARN ::
+      Lude.Maybe Lude.Text,
+    cloudWatchLoggingOptions ::
+      Lude.Maybe
+        CloudWatchLoggingOptions,
+    s3Update ::
+      Lude.Maybe
+        S3DestinationUpdate,
+    bufferingHints ::
+      Lude.Maybe
+        ElasticsearchBufferingHints,
+    retryOptions ::
+      Lude.Maybe
+        ElasticsearchRetryOptions,
+    processingConfiguration ::
+      Lude.Maybe
+        ProcessingConfiguration,
+    roleARN ::
+      Lude.Maybe Lude.Text,
+    clusterEndpoint ::
+      Lude.Maybe Lude.Text,
+    indexName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDestinationUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bufferingHints' - The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
+-- * 'cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+-- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
+-- * 'domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'eduIndexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a timestamp to @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . Default value is @OneDay@ .
+-- Specify either @ClusterEndpoint@ or @DomainARN@ .
+-- * 'indexName' - The Elasticsearch index name.
+-- * 'indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a timestamp to @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . Default value is @OneDay@ .
+-- * 'processingConfiguration' - The data processing configuration.
+-- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 's3Update' - The Amazon S3 destination.
+-- * 'typeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime.
 --
--- * 'eduTypeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime. If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
---
--- * 'eduDomainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . Specify either @ClusterEndpoint@ or @DomainARN@ .
---
--- * 'eduCloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
---
--- * 'eduS3Update' - The Amazon S3 destination.
---
--- * 'eduBufferingHints' - The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
---
--- * 'eduRetryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
---
--- * 'eduProcessingConfiguration' - The data processing configuration.
---
--- * 'eduRoleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- * 'eduClusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
---
--- * 'eduIndexName' - The Elasticsearch index name.
-elasticsearchDestinationUpdate ::
+-- If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
+mkElasticsearchDestinationUpdate ::
   ElasticsearchDestinationUpdate
-elasticsearchDestinationUpdate =
+mkElasticsearchDestinationUpdate =
   ElasticsearchDestinationUpdate'
-    { _eduIndexRotationPeriod =
-        Nothing,
-      _eduTypeName = Nothing,
-      _eduDomainARN = Nothing,
-      _eduCloudWatchLoggingOptions = Nothing,
-      _eduS3Update = Nothing,
-      _eduBufferingHints = Nothing,
-      _eduRetryOptions = Nothing,
-      _eduProcessingConfiguration = Nothing,
-      _eduRoleARN = Nothing,
-      _eduClusterEndpoint = Nothing,
-      _eduIndexName = Nothing
+    { indexRotationPeriod =
+        Lude.Nothing,
+      typeName = Lude.Nothing,
+      domainARN = Lude.Nothing,
+      cloudWatchLoggingOptions = Lude.Nothing,
+      s3Update = Lude.Nothing,
+      bufferingHints = Lude.Nothing,
+      retryOptions = Lude.Nothing,
+      processingConfiguration = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      clusterEndpoint = Lude.Nothing,
+      indexName = Lude.Nothing
     }
 
 -- | The Elasticsearch index rotation period. Index rotation appends a timestamp to @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . Default value is @OneDay@ .
-eduIndexRotationPeriod :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchIndexRotationPeriod)
-eduIndexRotationPeriod = lens _eduIndexRotationPeriod (\s a -> s {_eduIndexRotationPeriod = a})
+--
+-- /Note:/ Consider using 'indexRotationPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduIndexRotationPeriod :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe ElasticsearchIndexRotationPeriod)
+eduIndexRotationPeriod = Lens.lens (indexRotationPeriod :: ElasticsearchDestinationUpdate -> Lude.Maybe ElasticsearchIndexRotationPeriod) (\s a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduIndexRotationPeriod "Use generic-lens or generic-optics with 'indexRotationPeriod' instead." #-}
 
--- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime. If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
-eduTypeName :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
-eduTypeName = lens _eduTypeName (\s a -> s {_eduTypeName = a})
+-- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime.
+--
+-- If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduTypeName :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe Lude.Text)
+eduTypeName = Lens.lens (typeName :: ElasticsearchDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
--- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . Specify either @ClusterEndpoint@ or @DomainARN@ .
-eduDomainARN :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
-eduDomainARN = lens _eduDomainARN (\s a -> s {_eduDomainARN = a})
+-- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- Specify either @ClusterEndpoint@ or @DomainARN@ .
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduDomainARN :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe Lude.Text)
+eduDomainARN = Lens.lens (domainARN :: ElasticsearchDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
 -- | The CloudWatch logging options for your delivery stream.
-eduCloudWatchLoggingOptions :: Lens' ElasticsearchDestinationUpdate (Maybe CloudWatchLoggingOptions)
-eduCloudWatchLoggingOptions = lens _eduCloudWatchLoggingOptions (\s a -> s {_eduCloudWatchLoggingOptions = a})
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduCloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe CloudWatchLoggingOptions)
+eduCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: ElasticsearchDestinationUpdate -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
 
 -- | The Amazon S3 destination.
-eduS3Update :: Lens' ElasticsearchDestinationUpdate (Maybe S3DestinationUpdate)
-eduS3Update = lens _eduS3Update (\s a -> s {_eduS3Update = a})
+--
+-- /Note:/ Consider using 's3Update' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduS3Update :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe S3DestinationUpdate)
+eduS3Update = Lens.lens (s3Update :: ElasticsearchDestinationUpdate -> Lude.Maybe S3DestinationUpdate) (\s a -> s {s3Update = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduS3Update "Use generic-lens or generic-optics with 's3Update' instead." #-}
 
 -- | The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
-eduBufferingHints :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchBufferingHints)
-eduBufferingHints = lens _eduBufferingHints (\s a -> s {_eduBufferingHints = a})
+--
+-- /Note:/ Consider using 'bufferingHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduBufferingHints :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe ElasticsearchBufferingHints)
+eduBufferingHints = Lens.lens (bufferingHints :: ElasticsearchDestinationUpdate -> Lude.Maybe ElasticsearchBufferingHints) (\s a -> s {bufferingHints = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduBufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
-eduRetryOptions :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchRetryOptions)
-eduRetryOptions = lens _eduRetryOptions (\s a -> s {_eduRetryOptions = a})
+--
+-- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduRetryOptions :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe ElasticsearchRetryOptions)
+eduRetryOptions = Lens.lens (retryOptions :: ElasticsearchDestinationUpdate -> Lude.Maybe ElasticsearchRetryOptions) (\s a -> s {retryOptions = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
 
 -- | The data processing configuration.
-eduProcessingConfiguration :: Lens' ElasticsearchDestinationUpdate (Maybe ProcessingConfiguration)
-eduProcessingConfiguration = lens _eduProcessingConfiguration (\s a -> s {_eduProcessingConfiguration = a})
+--
+-- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduProcessingConfiguration :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe ProcessingConfiguration)
+eduProcessingConfiguration = Lens.lens (processingConfiguration :: ElasticsearchDestinationUpdate -> Lude.Maybe ProcessingConfiguration) (\s a -> s {processingConfiguration = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-eduRoleARN :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
-eduRoleARN = lens _eduRoleARN (\s a -> s {_eduRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduRoleARN :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe Lude.Text)
+eduRoleARN = Lens.lens (roleARN :: ElasticsearchDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
-eduClusterEndpoint :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
-eduClusterEndpoint = lens _eduClusterEndpoint (\s a -> s {_eduClusterEndpoint = a})
+--
+-- /Note:/ Consider using 'clusterEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduClusterEndpoint :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe Lude.Text)
+eduClusterEndpoint = Lens.lens (clusterEndpoint :: ElasticsearchDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {clusterEndpoint = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduClusterEndpoint "Use generic-lens or generic-optics with 'clusterEndpoint' instead." #-}
 
 -- | The Elasticsearch index name.
-eduIndexName :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
-eduIndexName = lens _eduIndexName (\s a -> s {_eduIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eduIndexName :: Lens.Lens' ElasticsearchDestinationUpdate (Lude.Maybe Lude.Text)
+eduIndexName = Lens.lens (indexName :: ElasticsearchDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: ElasticsearchDestinationUpdate)
+{-# DEPRECATED eduIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Hashable ElasticsearchDestinationUpdate
-
-instance NFData ElasticsearchDestinationUpdate
-
-instance ToJSON ElasticsearchDestinationUpdate where
+instance Lude.ToJSON ElasticsearchDestinationUpdate where
   toJSON ElasticsearchDestinationUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("IndexRotationPeriod" .=) <$> _eduIndexRotationPeriod,
-            ("TypeName" .=) <$> _eduTypeName,
-            ("DomainARN" .=) <$> _eduDomainARN,
-            ("CloudWatchLoggingOptions" .=) <$> _eduCloudWatchLoggingOptions,
-            ("S3Update" .=) <$> _eduS3Update,
-            ("BufferingHints" .=) <$> _eduBufferingHints,
-            ("RetryOptions" .=) <$> _eduRetryOptions,
-            ("ProcessingConfiguration" .=) <$> _eduProcessingConfiguration,
-            ("RoleARN" .=) <$> _eduRoleARN,
-            ("ClusterEndpoint" .=) <$> _eduClusterEndpoint,
-            ("IndexName" .=) <$> _eduIndexName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IndexRotationPeriod" Lude..=) Lude.<$> indexRotationPeriod,
+            ("TypeName" Lude..=) Lude.<$> typeName,
+            ("DomainARN" Lude..=) Lude.<$> domainARN,
+            ("CloudWatchLoggingOptions" Lude..=)
+              Lude.<$> cloudWatchLoggingOptions,
+            ("S3Update" Lude..=) Lude.<$> s3Update,
+            ("BufferingHints" Lude..=) Lude.<$> bufferingHints,
+            ("RetryOptions" Lude..=) Lude.<$> retryOptions,
+            ("ProcessingConfiguration" Lude..=)
+              Lude.<$> processingConfiguration,
+            ("RoleARN" Lude..=) Lude.<$> roleARN,
+            ("ClusterEndpoint" Lude..=) Lude.<$> clusterEndpoint,
+            ("IndexName" Lude..=) Lude.<$> indexName
           ]
       )

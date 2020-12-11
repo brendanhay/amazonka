@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a paginated list of all attribute types for the given instance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListInstanceAttributes
-  ( -- * Creating a Request
-    listInstanceAttributes,
-    ListInstanceAttributes,
+  ( -- * Creating a request
+    ListInstanceAttributes (..),
+    mkListInstanceAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liaNextToken,
     liaMaxResults,
     liaInstanceId,
 
-    -- * Destructuring the Response
-    listInstanceAttributesResponse,
-    ListInstanceAttributesResponse,
+    -- * Destructuring the response
+    ListInstanceAttributesResponse (..),
+    mkListInstanceAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     liarsNextToken,
     liarsAttributes,
     liarsResponseStatus,
@@ -44,131 +37,154 @@ module Network.AWS.Connect.ListInstanceAttributes
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listInstanceAttributes' smart constructor.
+-- | /See:/ 'mkListInstanceAttributes' smart constructor.
 data ListInstanceAttributes = ListInstanceAttributes'
-  { _liaNextToken ::
-      !(Maybe Text),
-    _liaMaxResults :: !(Maybe Nat),
-    _liaInstanceId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liaNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'liaMaxResults' - The maximimum number of results to return per page.
---
--- * 'liaInstanceId' - The identifier of the Amazon Connect instance.
-listInstanceAttributes ::
-  -- | 'liaInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+mkListInstanceAttributes ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListInstanceAttributes
-listInstanceAttributes pInstanceId_ =
+mkListInstanceAttributes pInstanceId_ =
   ListInstanceAttributes'
-    { _liaNextToken = Nothing,
-      _liaMaxResults = Nothing,
-      _liaInstanceId = pInstanceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-liaNextToken :: Lens' ListInstanceAttributes (Maybe Text)
-liaNextToken = lens _liaNextToken (\s a -> s {_liaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liaNextToken :: Lens.Lens' ListInstanceAttributes (Lude.Maybe Lude.Text)
+liaNextToken = Lens.lens (nextToken :: ListInstanceAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceAttributes)
+{-# DEPRECATED liaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
-liaMaxResults :: Lens' ListInstanceAttributes (Maybe Natural)
-liaMaxResults = lens _liaMaxResults (\s a -> s {_liaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liaMaxResults :: Lens.Lens' ListInstanceAttributes (Lude.Maybe Lude.Natural)
+liaMaxResults = Lens.lens (maxResults :: ListInstanceAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstanceAttributes)
+{-# DEPRECATED liaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-liaInstanceId :: Lens' ListInstanceAttributes Text
-liaInstanceId = lens _liaInstanceId (\s a -> s {_liaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liaInstanceId :: Lens.Lens' ListInstanceAttributes Lude.Text
+liaInstanceId = Lens.lens (instanceId :: ListInstanceAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: ListInstanceAttributes)
+{-# DEPRECATED liaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListInstanceAttributes where
+instance Page.AWSPager ListInstanceAttributes where
   page rq rs
-    | stop (rs ^. liarsNextToken) = Nothing
-    | stop (rs ^. liarsAttributes) = Nothing
-    | otherwise = Just $ rq & liaNextToken .~ rs ^. liarsNextToken
+    | Page.stop (rs Lens.^. liarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. liarsAttributes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& liaNextToken Lens..~ rs Lens.^. liarsNextToken
 
-instance AWSRequest ListInstanceAttributes where
+instance Lude.AWSRequest ListInstanceAttributes where
   type Rs ListInstanceAttributes = ListInstanceAttributesResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInstanceAttributesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Attributes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInstanceAttributes
-
-instance NFData ListInstanceAttributes
-
-instance ToHeaders ListInstanceAttributes where
+instance Lude.ToHeaders ListInstanceAttributes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListInstanceAttributes where
+instance Lude.ToPath ListInstanceAttributes where
   toPath ListInstanceAttributes' {..} =
-    mconcat ["/instance/", toBS _liaInstanceId, "/attributes"]
+    Lude.mconcat ["/instance/", Lude.toBS instanceId, "/attributes"]
 
-instance ToQuery ListInstanceAttributes where
+instance Lude.ToQuery ListInstanceAttributes where
   toQuery ListInstanceAttributes' {..} =
-    mconcat
-      ["nextToken" =: _liaNextToken, "maxResults" =: _liaMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listInstanceAttributesResponse' smart constructor.
+-- | /See:/ 'mkListInstanceAttributesResponse' smart constructor.
 data ListInstanceAttributesResponse = ListInstanceAttributesResponse'
-  { _liarsNextToken ::
-      !(Maybe Text),
-    _liarsAttributes ::
-      !(Maybe [Attribute]),
-    _liarsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe [Attribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liarsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'liarsAttributes' - The attribute types.
---
--- * 'liarsResponseStatus' - -- | The response status code.
-listInstanceAttributesResponse ::
-  -- | 'liarsResponseStatus'
-  Int ->
+-- * 'attributes' - The attribute types.
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkListInstanceAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInstanceAttributesResponse
-listInstanceAttributesResponse pResponseStatus_ =
+mkListInstanceAttributesResponse pResponseStatus_ =
   ListInstanceAttributesResponse'
-    { _liarsNextToken = Nothing,
-      _liarsAttributes = Nothing,
-      _liarsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of results.
-liarsNextToken :: Lens' ListInstanceAttributesResponse (Maybe Text)
-liarsNextToken = lens _liarsNextToken (\s a -> s {_liarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liarsNextToken :: Lens.Lens' ListInstanceAttributesResponse (Lude.Maybe Lude.Text)
+liarsNextToken = Lens.lens (nextToken :: ListInstanceAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceAttributesResponse)
+{-# DEPRECATED liarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The attribute types.
-liarsAttributes :: Lens' ListInstanceAttributesResponse [Attribute]
-liarsAttributes = lens _liarsAttributes (\s a -> s {_liarsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liarsAttributes :: Lens.Lens' ListInstanceAttributesResponse (Lude.Maybe [Attribute])
+liarsAttributes = Lens.lens (attributes :: ListInstanceAttributesResponse -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: ListInstanceAttributesResponse)
+{-# DEPRECATED liarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-liarsResponseStatus :: Lens' ListInstanceAttributesResponse Int
-liarsResponseStatus = lens _liarsResponseStatus (\s a -> s {_liarsResponseStatus = a})
-
-instance NFData ListInstanceAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liarsResponseStatus :: Lens.Lens' ListInstanceAttributesResponse Lude.Int
+liarsResponseStatus = Lens.lens (responseStatus :: ListInstanceAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceAttributesResponse)
+{-# DEPRECATED liarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

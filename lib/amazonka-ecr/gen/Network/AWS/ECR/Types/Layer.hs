@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.Layer where
+module Network.AWS.ECR.Types.Layer
+  ( Layer (..),
+
+    -- * Smart constructor
+    mkLayer,
+
+    -- * Lenses
+    lMediaType,
+    lLayerDigest,
+    lLayerSize,
+    lLayerAvailability,
+  )
+where
 
 import Network.AWS.ECR.Types.LayerAvailability
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing an Amazon ECR image layer.
 --
---
---
--- /See:/ 'layer' smart constructor.
+-- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { _lMediaType :: !(Maybe Text),
-    _lLayerDigest :: !(Maybe Text),
-    _lLayerSize :: !(Maybe Integer),
-    _lLayerAvailability :: !(Maybe LayerAvailability)
+  { mediaType :: Lude.Maybe Lude.Text,
+    layerDigest :: Lude.Maybe Lude.Text,
+    layerSize :: Lude.Maybe Lude.Integer,
+    layerAvailability :: Lude.Maybe LayerAvailability
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lMediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
---
--- * 'lLayerDigest' - The @sha256@ digest of the image layer.
---
--- * 'lLayerSize' - The size, in bytes, of the image layer.
---
--- * 'lLayerAvailability' - The availability status of the image layer.
-layer ::
+-- * 'layerAvailability' - The availability status of the image layer.
+-- * 'layerDigest' - The @sha256@ digest of the image layer.
+-- * 'layerSize' - The size, in bytes, of the image layer.
+-- * 'mediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+mkLayer ::
   Layer
-layer =
+mkLayer =
   Layer'
-    { _lMediaType = Nothing,
-      _lLayerDigest = Nothing,
-      _lLayerSize = Nothing,
-      _lLayerAvailability = Nothing
+    { mediaType = Lude.Nothing,
+      layerDigest = Lude.Nothing,
+      layerSize = Lude.Nothing,
+      layerAvailability = Lude.Nothing
     }
 
 -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
-lMediaType :: Lens' Layer (Maybe Text)
-lMediaType = lens _lMediaType (\s a -> s {_lMediaType = a})
+--
+-- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMediaType :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
+lMediaType = Lens.lens (mediaType :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {mediaType = a} :: Layer)
+{-# DEPRECATED lMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
 
 -- | The @sha256@ digest of the image layer.
-lLayerDigest :: Lens' Layer (Maybe Text)
-lLayerDigest = lens _lLayerDigest (\s a -> s {_lLayerDigest = a})
+--
+-- /Note:/ Consider using 'layerDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLayerDigest :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
+lLayerDigest = Lens.lens (layerDigest :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {layerDigest = a} :: Layer)
+{-# DEPRECATED lLayerDigest "Use generic-lens or generic-optics with 'layerDigest' instead." #-}
 
 -- | The size, in bytes, of the image layer.
-lLayerSize :: Lens' Layer (Maybe Integer)
-lLayerSize = lens _lLayerSize (\s a -> s {_lLayerSize = a})
+--
+-- /Note:/ Consider using 'layerSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLayerSize :: Lens.Lens' Layer (Lude.Maybe Lude.Integer)
+lLayerSize = Lens.lens (layerSize :: Layer -> Lude.Maybe Lude.Integer) (\s a -> s {layerSize = a} :: Layer)
+{-# DEPRECATED lLayerSize "Use generic-lens or generic-optics with 'layerSize' instead." #-}
 
 -- | The availability status of the image layer.
-lLayerAvailability :: Lens' Layer (Maybe LayerAvailability)
-lLayerAvailability = lens _lLayerAvailability (\s a -> s {_lLayerAvailability = a})
+--
+-- /Note:/ Consider using 'layerAvailability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLayerAvailability :: Lens.Lens' Layer (Lude.Maybe LayerAvailability)
+lLayerAvailability = Lens.lens (layerAvailability :: Layer -> Lude.Maybe LayerAvailability) (\s a -> s {layerAvailability = a} :: Layer)
+{-# DEPRECATED lLayerAvailability "Use generic-lens or generic-optics with 'layerAvailability' instead." #-}
 
-instance FromJSON Layer where
+instance Lude.FromJSON Layer where
   parseJSON =
-    withObject
+    Lude.withObject
       "Layer"
       ( \x ->
           Layer'
-            <$> (x .:? "mediaType")
-            <*> (x .:? "layerDigest")
-            <*> (x .:? "layerSize")
-            <*> (x .:? "layerAvailability")
+            Lude.<$> (x Lude..:? "mediaType")
+            Lude.<*> (x Lude..:? "layerDigest")
+            Lude.<*> (x Lude..:? "layerSize")
+            Lude.<*> (x Lude..:? "layerAvailability")
       )
-
-instance Hashable Layer
-
-instance NFData Layer

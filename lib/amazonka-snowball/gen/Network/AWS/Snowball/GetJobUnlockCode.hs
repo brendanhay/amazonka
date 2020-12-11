@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,131 @@
 --
 -- Returns the @UnlockCode@ code value for the specified job. A particular @UnlockCode@ value can be accessed for up to 90 days after the associated job has been created.
 --
---
 -- The @UnlockCode@ value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snow device through the Snowball client when the client is started for the first time.
---
 -- As a best practice, we recommend that you don't save a copy of the @UnlockCode@ in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snow device associated with that job.
 module Network.AWS.Snowball.GetJobUnlockCode
-  ( -- * Creating a Request
-    getJobUnlockCode,
-    GetJobUnlockCode,
+  ( -- * Creating a request
+    GetJobUnlockCode (..),
+    mkGetJobUnlockCode,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjucJobId,
 
-    -- * Destructuring the Response
-    getJobUnlockCodeResponse,
-    GetJobUnlockCodeResponse,
+    -- * Destructuring the response
+    GetJobUnlockCodeResponse (..),
+    mkGetJobUnlockCodeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjucrsUnlockCode,
     gjucrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'getJobUnlockCode' smart constructor.
-newtype GetJobUnlockCode = GetJobUnlockCode' {_gjucJobId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetJobUnlockCode' smart constructor.
+newtype GetJobUnlockCode = GetJobUnlockCode' {jobId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobUnlockCode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjucJobId' - The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-getJobUnlockCode ::
-  -- | 'gjucJobId'
-  Text ->
+-- * 'jobId' - The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+mkGetJobUnlockCode ::
+  -- | 'jobId'
+  Lude.Text ->
   GetJobUnlockCode
-getJobUnlockCode pJobId_ = GetJobUnlockCode' {_gjucJobId = pJobId_}
+mkGetJobUnlockCode pJobId_ = GetJobUnlockCode' {jobId = pJobId_}
 
 -- | The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-gjucJobId :: Lens' GetJobUnlockCode Text
-gjucJobId = lens _gjucJobId (\s a -> s {_gjucJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjucJobId :: Lens.Lens' GetJobUnlockCode Lude.Text
+gjucJobId = Lens.lens (jobId :: GetJobUnlockCode -> Lude.Text) (\s a -> s {jobId = a} :: GetJobUnlockCode)
+{-# DEPRECATED gjucJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetJobUnlockCode where
+instance Lude.AWSRequest GetJobUnlockCode where
   type Rs GetJobUnlockCode = GetJobUnlockCodeResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetJobUnlockCodeResponse'
-            <$> (x .?> "UnlockCode") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UnlockCode") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetJobUnlockCode
-
-instance NFData GetJobUnlockCode
-
-instance ToHeaders GetJobUnlockCode where
+instance Lude.ToHeaders GetJobUnlockCode where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.GetJobUnlockCode" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.GetJobUnlockCode" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetJobUnlockCode where
+instance Lude.ToJSON GetJobUnlockCode where
   toJSON GetJobUnlockCode' {..} =
-    object (catMaybes [Just ("JobId" .= _gjucJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath GetJobUnlockCode where
-  toPath = const "/"
+instance Lude.ToPath GetJobUnlockCode where
+  toPath = Lude.const "/"
 
-instance ToQuery GetJobUnlockCode where
-  toQuery = const mempty
+instance Lude.ToQuery GetJobUnlockCode where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getJobUnlockCodeResponse' smart constructor.
+-- | /See:/ 'mkGetJobUnlockCodeResponse' smart constructor.
 data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
-  { _gjucrsUnlockCode ::
-      !(Maybe Text),
-    _gjucrsResponseStatus :: !Int
+  { unlockCode ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobUnlockCodeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjucrsUnlockCode' - The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
---
--- * 'gjucrsResponseStatus' - -- | The response status code.
-getJobUnlockCodeResponse ::
-  -- | 'gjucrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unlockCode' - The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
+mkGetJobUnlockCodeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetJobUnlockCodeResponse
-getJobUnlockCodeResponse pResponseStatus_ =
+mkGetJobUnlockCodeResponse pResponseStatus_ =
   GetJobUnlockCodeResponse'
-    { _gjucrsUnlockCode = Nothing,
-      _gjucrsResponseStatus = pResponseStatus_
+    { unlockCode = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
-gjucrsUnlockCode :: Lens' GetJobUnlockCodeResponse (Maybe Text)
-gjucrsUnlockCode = lens _gjucrsUnlockCode (\s a -> s {_gjucrsUnlockCode = a})
+--
+-- /Note:/ Consider using 'unlockCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjucrsUnlockCode :: Lens.Lens' GetJobUnlockCodeResponse (Lude.Maybe Lude.Text)
+gjucrsUnlockCode = Lens.lens (unlockCode :: GetJobUnlockCodeResponse -> Lude.Maybe Lude.Text) (\s a -> s {unlockCode = a} :: GetJobUnlockCodeResponse)
+{-# DEPRECATED gjucrsUnlockCode "Use generic-lens or generic-optics with 'unlockCode' instead." #-}
 
--- | -- | The response status code.
-gjucrsResponseStatus :: Lens' GetJobUnlockCodeResponse Int
-gjucrsResponseStatus = lens _gjucrsResponseStatus (\s a -> s {_gjucrsResponseStatus = a})
-
-instance NFData GetJobUnlockCodeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjucrsResponseStatus :: Lens.Lens' GetJobUnlockCodeResponse Lude.Int
+gjucrsResponseStatus = Lens.lens (responseStatus :: GetJobUnlockCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobUnlockCodeResponse)
+{-# DEPRECATED gjucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

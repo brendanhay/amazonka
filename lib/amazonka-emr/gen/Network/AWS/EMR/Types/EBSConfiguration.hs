@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.EBSConfiguration where
+module Network.AWS.EMR.Types.EBSConfiguration
+  ( EBSConfiguration (..),
+
+    -- * Smart constructor
+    mkEBSConfiguration,
+
+    -- * Lenses
+    ecEBSOptimized,
+    ecEBSBlockDeviceConfigs,
+  )
+where
 
 import Network.AWS.EMR.Types.EBSBlockDeviceConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon EBS configuration of a cluster instance.
 --
---
---
--- /See:/ 'ebsConfiguration' smart constructor.
+-- /See:/ 'mkEBSConfiguration' smart constructor.
 data EBSConfiguration = EBSConfiguration'
-  { _ecEBSOptimized ::
-      !(Maybe Bool),
-    _ecEBSBlockDeviceConfigs ::
-      !(Maybe [EBSBlockDeviceConfig])
+  { ebsOptimized ::
+      Lude.Maybe Lude.Bool,
+    ebsBlockDeviceConfigs ::
+      Lude.Maybe [EBSBlockDeviceConfig]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecEBSOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
---
--- * 'ecEBSBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster instance.
-ebsConfiguration ::
+-- * 'ebsBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster instance.
+-- * 'ebsOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
+mkEBSConfiguration ::
   EBSConfiguration
-ebsConfiguration =
+mkEBSConfiguration =
   EBSConfiguration'
-    { _ecEBSOptimized = Nothing,
-      _ecEBSBlockDeviceConfigs = Nothing
+    { ebsOptimized = Lude.Nothing,
+      ebsBlockDeviceConfigs = Lude.Nothing
     }
 
 -- | Indicates whether an Amazon EBS volume is EBS-optimized.
-ecEBSOptimized :: Lens' EBSConfiguration (Maybe Bool)
-ecEBSOptimized = lens _ecEBSOptimized (\s a -> s {_ecEBSOptimized = a})
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEBSOptimized :: Lens.Lens' EBSConfiguration (Lude.Maybe Lude.Bool)
+ecEBSOptimized = Lens.lens (ebsOptimized :: EBSConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: EBSConfiguration)
+{-# DEPRECATED ecEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | An array of Amazon EBS volume specifications attached to a cluster instance.
-ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
-ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\s a -> s {_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ebsBlockDeviceConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEBSBlockDeviceConfigs :: Lens.Lens' EBSConfiguration (Lude.Maybe [EBSBlockDeviceConfig])
+ecEBSBlockDeviceConfigs = Lens.lens (ebsBlockDeviceConfigs :: EBSConfiguration -> Lude.Maybe [EBSBlockDeviceConfig]) (\s a -> s {ebsBlockDeviceConfigs = a} :: EBSConfiguration)
+{-# DEPRECATED ecEBSBlockDeviceConfigs "Use generic-lens or generic-optics with 'ebsBlockDeviceConfigs' instead." #-}
 
-instance Hashable EBSConfiguration
-
-instance NFData EBSConfiguration
-
-instance ToJSON EBSConfiguration where
+instance Lude.ToJSON EBSConfiguration where
   toJSON EBSConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("EbsOptimized" .=) <$> _ecEBSOptimized,
-            ("EbsBlockDeviceConfigs" .=) <$> _ecEBSBlockDeviceConfigs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EbsOptimized" Lude..=) Lude.<$> ebsOptimized,
+            ("EbsBlockDeviceConfigs" Lude..=) Lude.<$> ebsBlockDeviceConfigs
           ]
       )

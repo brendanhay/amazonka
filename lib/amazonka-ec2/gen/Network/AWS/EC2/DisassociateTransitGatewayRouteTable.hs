@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,162 @@
 --
 -- Disassociates a resource attachment from a transit gateway route table.
 module Network.AWS.EC2.DisassociateTransitGatewayRouteTable
-  ( -- * Creating a Request
-    disassociateTransitGatewayRouteTable,
-    DisassociateTransitGatewayRouteTable,
+  ( -- * Creating a request
+    DisassociateTransitGatewayRouteTable (..),
+    mkDisassociateTransitGatewayRouteTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgrttDryRun,
     dtgrttTransitGatewayRouteTableId,
     dtgrttTransitGatewayAttachmentId,
 
-    -- * Destructuring the Response
-    disassociateTransitGatewayRouteTableResponse,
-    DisassociateTransitGatewayRouteTableResponse,
+    -- * Destructuring the response
+    DisassociateTransitGatewayRouteTableResponse (..),
+    mkDisassociateTransitGatewayRouteTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgrttrsAssociation,
     dtgrttrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateTransitGatewayRouteTable' smart constructor.
+-- | /See:/ 'mkDisassociateTransitGatewayRouteTable' smart constructor.
 data DisassociateTransitGatewayRouteTable = DisassociateTransitGatewayRouteTable'
-  { _dtgrttDryRun ::
-      !(Maybe Bool),
-    _dtgrttTransitGatewayRouteTableId ::
-      !Text,
-    _dtgrttTransitGatewayAttachmentId ::
-      !Text
+  { dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    transitGatewayRouteTableId ::
+      Lude.Text,
+    transitGatewayAttachmentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTransitGatewayRouteTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgrttDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dtgrttTransitGatewayRouteTableId' - The ID of the transit gateway route table.
---
--- * 'dtgrttTransitGatewayAttachmentId' - The ID of the attachment.
-disassociateTransitGatewayRouteTable ::
-  -- | 'dtgrttTransitGatewayRouteTableId'
-  Text ->
-  -- | 'dtgrttTransitGatewayAttachmentId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+mkDisassociateTransitGatewayRouteTable ::
+  -- | 'transitGatewayRouteTableId'
+  Lude.Text ->
+  -- | 'transitGatewayAttachmentId'
+  Lude.Text ->
   DisassociateTransitGatewayRouteTable
-disassociateTransitGatewayRouteTable
+mkDisassociateTransitGatewayRouteTable
   pTransitGatewayRouteTableId_
   pTransitGatewayAttachmentId_ =
     DisassociateTransitGatewayRouteTable'
-      { _dtgrttDryRun = Nothing,
-        _dtgrttTransitGatewayRouteTableId =
-          pTransitGatewayRouteTableId_,
-        _dtgrttTransitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_
+      { dryRun = Lude.Nothing,
+        transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
+        transitGatewayAttachmentId = pTransitGatewayAttachmentId_
       }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgrttDryRun :: Lens' DisassociateTransitGatewayRouteTable (Maybe Bool)
-dtgrttDryRun = lens _dtgrttDryRun (\s a -> s {_dtgrttDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrttDryRun :: Lens.Lens' DisassociateTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
+dtgrttDryRun = Lens.lens (dryRun :: DisassociateTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateTransitGatewayRouteTable)
+{-# DEPRECATED dtgrttDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway route table.
-dtgrttTransitGatewayRouteTableId :: Lens' DisassociateTransitGatewayRouteTable Text
-dtgrttTransitGatewayRouteTableId = lens _dtgrttTransitGatewayRouteTableId (\s a -> s {_dtgrttTransitGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrttTransitGatewayRouteTableId :: Lens.Lens' DisassociateTransitGatewayRouteTable Lude.Text
+dtgrttTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: DisassociateTransitGatewayRouteTable -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: DisassociateTransitGatewayRouteTable)
+{-# DEPRECATED dtgrttTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | The ID of the attachment.
-dtgrttTransitGatewayAttachmentId :: Lens' DisassociateTransitGatewayRouteTable Text
-dtgrttTransitGatewayAttachmentId = lens _dtgrttTransitGatewayAttachmentId (\s a -> s {_dtgrttTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrttTransitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayRouteTable Lude.Text
+dtgrttTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DisassociateTransitGatewayRouteTable -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DisassociateTransitGatewayRouteTable)
+{-# DEPRECATED dtgrttTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance AWSRequest DisassociateTransitGatewayRouteTable where
+instance Lude.AWSRequest DisassociateTransitGatewayRouteTable where
   type
     Rs DisassociateTransitGatewayRouteTable =
       DisassociateTransitGatewayRouteTableResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DisassociateTransitGatewayRouteTableResponse'
-            <$> (x .@? "association") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "association") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateTransitGatewayRouteTable
+instance Lude.ToHeaders DisassociateTransitGatewayRouteTable where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisassociateTransitGatewayRouteTable
+instance Lude.ToPath DisassociateTransitGatewayRouteTable where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisassociateTransitGatewayRouteTable where
-  toHeaders = const mempty
-
-instance ToPath DisassociateTransitGatewayRouteTable where
-  toPath = const "/"
-
-instance ToQuery DisassociateTransitGatewayRouteTable where
+instance Lude.ToQuery DisassociateTransitGatewayRouteTable where
   toQuery DisassociateTransitGatewayRouteTable' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DisassociateTransitGatewayRouteTable" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dtgrttDryRun,
-        "TransitGatewayRouteTableId" =: _dtgrttTransitGatewayRouteTableId,
-        "TransitGatewayAttachmentId" =: _dtgrttTransitGatewayAttachmentId
+          Lude.=: ("DisassociateTransitGatewayRouteTable" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
       ]
 
--- | /See:/ 'disassociateTransitGatewayRouteTableResponse' smart constructor.
+-- | /See:/ 'mkDisassociateTransitGatewayRouteTableResponse' smart constructor.
 data DisassociateTransitGatewayRouteTableResponse = DisassociateTransitGatewayRouteTableResponse'
-  { _dtgrttrsAssociation ::
-      !( Maybe
-           TransitGatewayAssociation
-       ),
-    _dtgrttrsResponseStatus ::
-      !Int
+  { association ::
+      Lude.Maybe
+        TransitGatewayAssociation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTransitGatewayRouteTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgrttrsAssociation' - Information about the association.
---
--- * 'dtgrttrsResponseStatus' - -- | The response status code.
-disassociateTransitGatewayRouteTableResponse ::
-  -- | 'dtgrttrsResponseStatus'
-  Int ->
+-- * 'association' - Information about the association.
+-- * 'responseStatus' - The response status code.
+mkDisassociateTransitGatewayRouteTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateTransitGatewayRouteTableResponse
-disassociateTransitGatewayRouteTableResponse pResponseStatus_ =
+mkDisassociateTransitGatewayRouteTableResponse pResponseStatus_ =
   DisassociateTransitGatewayRouteTableResponse'
-    { _dtgrttrsAssociation =
-        Nothing,
-      _dtgrttrsResponseStatus = pResponseStatus_
+    { association =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the association.
-dtgrttrsAssociation :: Lens' DisassociateTransitGatewayRouteTableResponse (Maybe TransitGatewayAssociation)
-dtgrttrsAssociation = lens _dtgrttrsAssociation (\s a -> s {_dtgrttrsAssociation = a})
+--
+-- /Note:/ Consider using 'association' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrttrsAssociation :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse (Lude.Maybe TransitGatewayAssociation)
+dtgrttrsAssociation = Lens.lens (association :: DisassociateTransitGatewayRouteTableResponse -> Lude.Maybe TransitGatewayAssociation) (\s a -> s {association = a} :: DisassociateTransitGatewayRouteTableResponse)
+{-# DEPRECATED dtgrttrsAssociation "Use generic-lens or generic-optics with 'association' instead." #-}
 
--- | -- | The response status code.
-dtgrttrsResponseStatus :: Lens' DisassociateTransitGatewayRouteTableResponse Int
-dtgrttrsResponseStatus = lens _dtgrttrsResponseStatus (\s a -> s {_dtgrttrsResponseStatus = a})
-
-instance NFData DisassociateTransitGatewayRouteTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrttrsResponseStatus :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse Lude.Int
+dtgrttrsResponseStatus = Lens.lens (responseStatus :: DisassociateTransitGatewayRouteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateTransitGatewayRouteTableResponse)
+{-# DEPRECATED dtgrttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

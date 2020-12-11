@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputType where
+module Network.AWS.MediaLive.Types.InputType
+  ( InputType
+      ( InputType',
+        AWSCdi,
+        InputDevice,
+        MP4File,
+        Mediaconnect,
+        RtmpPull,
+        RtmpPush,
+        RtpPush,
+        URLPull,
+        UdpPush
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for InputType
-data InputType
-  = AWSCdi
-  | InputDevice
-  | MP4File
-  | Mediaconnect
-  | RtmpPull
-  | RtmpPush
-  | RtpPush
-  | URLPull
-  | UdpPush
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputType = InputType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputType where
-  parser =
-    takeLowerText >>= \case
-      "aws_cdi" -> pure AWSCdi
-      "input_device" -> pure InputDevice
-      "mp4_file" -> pure MP4File
-      "mediaconnect" -> pure Mediaconnect
-      "rtmp_pull" -> pure RtmpPull
-      "rtmp_push" -> pure RtmpPush
-      "rtp_push" -> pure RtpPush
-      "url_pull" -> pure URLPull
-      "udp_push" -> pure UdpPush
-      e ->
-        fromTextError $
-          "Failure parsing InputType from value: '" <> e
-            <> "'. Accepted values: aws_cdi, input_device, mp4_file, mediaconnect, rtmp_pull, rtmp_push, rtp_push, url_pull, udp_push"
+pattern AWSCdi :: InputType
+pattern AWSCdi = InputType' "AWS_CDI"
 
-instance ToText InputType where
-  toText = \case
-    AWSCdi -> "AWS_CDI"
-    InputDevice -> "INPUT_DEVICE"
-    MP4File -> "MP4_FILE"
-    Mediaconnect -> "MEDIACONNECT"
-    RtmpPull -> "RTMP_PULL"
-    RtmpPush -> "RTMP_PUSH"
-    RtpPush -> "RTP_PUSH"
-    URLPull -> "URL_PULL"
-    UdpPush -> "UDP_PUSH"
+pattern InputDevice :: InputType
+pattern InputDevice = InputType' "INPUT_DEVICE"
 
-instance Hashable InputType
+pattern MP4File :: InputType
+pattern MP4File = InputType' "MP4_FILE"
 
-instance NFData InputType
+pattern Mediaconnect :: InputType
+pattern Mediaconnect = InputType' "MEDIACONNECT"
 
-instance ToByteString InputType
+pattern RtmpPull :: InputType
+pattern RtmpPull = InputType' "RTMP_PULL"
 
-instance ToQuery InputType
+pattern RtmpPush :: InputType
+pattern RtmpPush = InputType' "RTMP_PUSH"
 
-instance ToHeader InputType
+pattern RtpPush :: InputType
+pattern RtpPush = InputType' "RTP_PUSH"
 
-instance ToJSON InputType where
-  toJSON = toJSONText
+pattern URLPull :: InputType
+pattern URLPull = InputType' "URL_PULL"
 
-instance FromJSON InputType where
-  parseJSON = parseJSONText "InputType"
+pattern UdpPush :: InputType
+pattern UdpPush = InputType' "UDP_PUSH"
+
+{-# COMPLETE
+  AWSCdi,
+  InputDevice,
+  MP4File,
+  Mediaconnect,
+  RtmpPull,
+  RtmpPush,
+  RtpPush,
+  URLPull,
+  UdpPush,
+  InputType'
+  #-}

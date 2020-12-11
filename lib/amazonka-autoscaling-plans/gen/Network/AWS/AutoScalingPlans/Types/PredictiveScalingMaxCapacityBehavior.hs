@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior where
+module Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
+  ( PredictiveScalingMaxCapacityBehavior
+      ( PredictiveScalingMaxCapacityBehavior',
+        SetForecastCapacityToMaxCapacity,
+        SetMaxCapacityAboveForecastCapacity,
+        SetMaxCapacityToForecastCapacity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PredictiveScalingMaxCapacityBehavior
-  = SetForecastCapacityToMaxCapacity
-  | SetMaxCapacityAboveForecastCapacity
-  | SetMaxCapacityToForecastCapacity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PredictiveScalingMaxCapacityBehavior = PredictiveScalingMaxCapacityBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PredictiveScalingMaxCapacityBehavior where
-  parser =
-    takeLowerText >>= \case
-      "setforecastcapacitytomaxcapacity" -> pure SetForecastCapacityToMaxCapacity
-      "setmaxcapacityaboveforecastcapacity" -> pure SetMaxCapacityAboveForecastCapacity
-      "setmaxcapacitytoforecastcapacity" -> pure SetMaxCapacityToForecastCapacity
-      e ->
-        fromTextError $
-          "Failure parsing PredictiveScalingMaxCapacityBehavior from value: '" <> e
-            <> "'. Accepted values: setforecastcapacitytomaxcapacity, setmaxcapacityaboveforecastcapacity, setmaxcapacitytoforecastcapacity"
+pattern SetForecastCapacityToMaxCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern SetForecastCapacityToMaxCapacity = PredictiveScalingMaxCapacityBehavior' "SetForecastCapacityToMaxCapacity"
 
-instance ToText PredictiveScalingMaxCapacityBehavior where
-  toText = \case
-    SetForecastCapacityToMaxCapacity -> "SetForecastCapacityToMaxCapacity"
-    SetMaxCapacityAboveForecastCapacity -> "SetMaxCapacityAboveForecastCapacity"
-    SetMaxCapacityToForecastCapacity -> "SetMaxCapacityToForecastCapacity"
+pattern SetMaxCapacityAboveForecastCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern SetMaxCapacityAboveForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityAboveForecastCapacity"
 
-instance Hashable PredictiveScalingMaxCapacityBehavior
+pattern SetMaxCapacityToForecastCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern SetMaxCapacityToForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityToForecastCapacity"
 
-instance NFData PredictiveScalingMaxCapacityBehavior
-
-instance ToByteString PredictiveScalingMaxCapacityBehavior
-
-instance ToQuery PredictiveScalingMaxCapacityBehavior
-
-instance ToHeader PredictiveScalingMaxCapacityBehavior
-
-instance ToJSON PredictiveScalingMaxCapacityBehavior where
-  toJSON = toJSONText
-
-instance FromJSON PredictiveScalingMaxCapacityBehavior where
-  parseJSON = parseJSONText "PredictiveScalingMaxCapacityBehavior"
+{-# COMPLETE
+  SetForecastCapacityToMaxCapacity,
+  SetMaxCapacityAboveForecastCapacity,
+  SetMaxCapacityToForecastCapacity,
+  PredictiveScalingMaxCapacityBehavior'
+  #-}

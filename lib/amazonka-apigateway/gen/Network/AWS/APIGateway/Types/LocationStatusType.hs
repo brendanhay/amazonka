@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.LocationStatusType where
+module Network.AWS.APIGateway.Types.LocationStatusType
+  ( LocationStatusType
+      ( LocationStatusType',
+        Documented,
+        Undocumented
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LocationStatusType
-  = Documented
-  | Undocumented
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LocationStatusType = LocationStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LocationStatusType where
-  parser =
-    takeLowerText >>= \case
-      "documented" -> pure Documented
-      "undocumented" -> pure Undocumented
-      e ->
-        fromTextError $
-          "Failure parsing LocationStatusType from value: '" <> e
-            <> "'. Accepted values: documented, undocumented"
+pattern Documented :: LocationStatusType
+pattern Documented = LocationStatusType' "DOCUMENTED"
 
-instance ToText LocationStatusType where
-  toText = \case
-    Documented -> "DOCUMENTED"
-    Undocumented -> "UNDOCUMENTED"
+pattern Undocumented :: LocationStatusType
+pattern Undocumented = LocationStatusType' "UNDOCUMENTED"
 
-instance Hashable LocationStatusType
-
-instance NFData LocationStatusType
-
-instance ToByteString LocationStatusType
-
-instance ToQuery LocationStatusType
-
-instance ToHeader LocationStatusType
-
-instance ToJSON LocationStatusType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Documented,
+  Undocumented,
+  LocationStatusType'
+  #-}

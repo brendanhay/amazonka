@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters where
+module Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters
+  ( MaintenanceWindowTaskInvocationParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceWindowTaskInvocationParameters,
+
+    -- * Lenses
+    mwtipAutomation,
+    mwtipStepFunctions,
+    mwtipRunCommand,
+    mwtipLambda,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
 import Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters
 import Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters
@@ -24,90 +30,93 @@ import Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
 
 -- | The parameters for task execution.
 --
---
---
--- /See:/ 'maintenanceWindowTaskInvocationParameters' smart constructor.
+-- /See:/ 'mkMaintenanceWindowTaskInvocationParameters' smart constructor.
 data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocationParameters'
-  { _mwtipAutomation ::
-      !( Maybe
-           MaintenanceWindowAutomationParameters
-       ),
-    _mwtipStepFunctions ::
-      !( Maybe
-           MaintenanceWindowStepFunctionsParameters
-       ),
-    _mwtipRunCommand ::
-      !( Maybe
-           MaintenanceWindowRunCommandParameters
-       ),
-    _mwtipLambda ::
-      !( Maybe
-           MaintenanceWindowLambdaParameters
-       )
+  { automation ::
+      Lude.Maybe
+        MaintenanceWindowAutomationParameters,
+    stepFunctions ::
+      Lude.Maybe
+        MaintenanceWindowStepFunctionsParameters,
+    runCommand ::
+      Lude.Maybe
+        MaintenanceWindowRunCommandParameters,
+    lambda ::
+      Lude.Maybe
+        MaintenanceWindowLambdaParameters
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowTaskInvocationParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwtipAutomation' - The parameters for an AUTOMATION task type.
---
--- * 'mwtipStepFunctions' - The parameters for a STEP_FUNCTIONS task type.
---
--- * 'mwtipRunCommand' - The parameters for a RUN_COMMAND task type.
---
--- * 'mwtipLambda' - The parameters for a LAMBDA task type.
-maintenanceWindowTaskInvocationParameters ::
+-- * 'automation' - The parameters for an AUTOMATION task type.
+-- * 'lambda' - The parameters for a LAMBDA task type.
+-- * 'runCommand' - The parameters for a RUN_COMMAND task type.
+-- * 'stepFunctions' - The parameters for a STEP_FUNCTIONS task type.
+mkMaintenanceWindowTaskInvocationParameters ::
   MaintenanceWindowTaskInvocationParameters
-maintenanceWindowTaskInvocationParameters =
+mkMaintenanceWindowTaskInvocationParameters =
   MaintenanceWindowTaskInvocationParameters'
-    { _mwtipAutomation =
-        Nothing,
-      _mwtipStepFunctions = Nothing,
-      _mwtipRunCommand = Nothing,
-      _mwtipLambda = Nothing
+    { automation =
+        Lude.Nothing,
+      stepFunctions = Lude.Nothing,
+      runCommand = Lude.Nothing,
+      lambda = Lude.Nothing
     }
 
 -- | The parameters for an AUTOMATION task type.
-mwtipAutomation :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowAutomationParameters)
-mwtipAutomation = lens _mwtipAutomation (\s a -> s {_mwtipAutomation = a})
+--
+-- /Note:/ Consider using 'automation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtipAutomation :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Lude.Maybe MaintenanceWindowAutomationParameters)
+mwtipAutomation = Lens.lens (automation :: MaintenanceWindowTaskInvocationParameters -> Lude.Maybe MaintenanceWindowAutomationParameters) (\s a -> s {automation = a} :: MaintenanceWindowTaskInvocationParameters)
+{-# DEPRECATED mwtipAutomation "Use generic-lens or generic-optics with 'automation' instead." #-}
 
 -- | The parameters for a STEP_FUNCTIONS task type.
-mwtipStepFunctions :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowStepFunctionsParameters)
-mwtipStepFunctions = lens _mwtipStepFunctions (\s a -> s {_mwtipStepFunctions = a})
+--
+-- /Note:/ Consider using 'stepFunctions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtipStepFunctions :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Lude.Maybe MaintenanceWindowStepFunctionsParameters)
+mwtipStepFunctions = Lens.lens (stepFunctions :: MaintenanceWindowTaskInvocationParameters -> Lude.Maybe MaintenanceWindowStepFunctionsParameters) (\s a -> s {stepFunctions = a} :: MaintenanceWindowTaskInvocationParameters)
+{-# DEPRECATED mwtipStepFunctions "Use generic-lens or generic-optics with 'stepFunctions' instead." #-}
 
 -- | The parameters for a RUN_COMMAND task type.
-mwtipRunCommand :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowRunCommandParameters)
-mwtipRunCommand = lens _mwtipRunCommand (\s a -> s {_mwtipRunCommand = a})
+--
+-- /Note:/ Consider using 'runCommand' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtipRunCommand :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Lude.Maybe MaintenanceWindowRunCommandParameters)
+mwtipRunCommand = Lens.lens (runCommand :: MaintenanceWindowTaskInvocationParameters -> Lude.Maybe MaintenanceWindowRunCommandParameters) (\s a -> s {runCommand = a} :: MaintenanceWindowTaskInvocationParameters)
+{-# DEPRECATED mwtipRunCommand "Use generic-lens or generic-optics with 'runCommand' instead." #-}
 
 -- | The parameters for a LAMBDA task type.
-mwtipLambda :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowLambdaParameters)
-mwtipLambda = lens _mwtipLambda (\s a -> s {_mwtipLambda = a})
+--
+-- /Note:/ Consider using 'lambda' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtipLambda :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Lude.Maybe MaintenanceWindowLambdaParameters)
+mwtipLambda = Lens.lens (lambda :: MaintenanceWindowTaskInvocationParameters -> Lude.Maybe MaintenanceWindowLambdaParameters) (\s a -> s {lambda = a} :: MaintenanceWindowTaskInvocationParameters)
+{-# DEPRECATED mwtipLambda "Use generic-lens or generic-optics with 'lambda' instead." #-}
 
-instance FromJSON MaintenanceWindowTaskInvocationParameters where
+instance Lude.FromJSON MaintenanceWindowTaskInvocationParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "MaintenanceWindowTaskInvocationParameters"
       ( \x ->
           MaintenanceWindowTaskInvocationParameters'
-            <$> (x .:? "Automation")
-            <*> (x .:? "StepFunctions")
-            <*> (x .:? "RunCommand")
-            <*> (x .:? "Lambda")
+            Lude.<$> (x Lude..:? "Automation")
+            Lude.<*> (x Lude..:? "StepFunctions")
+            Lude.<*> (x Lude..:? "RunCommand")
+            Lude.<*> (x Lude..:? "Lambda")
       )
 
-instance Hashable MaintenanceWindowTaskInvocationParameters
-
-instance NFData MaintenanceWindowTaskInvocationParameters
-
-instance ToJSON MaintenanceWindowTaskInvocationParameters where
+instance Lude.ToJSON MaintenanceWindowTaskInvocationParameters where
   toJSON MaintenanceWindowTaskInvocationParameters' {..} =
-    object
-      ( catMaybes
-          [ ("Automation" .=) <$> _mwtipAutomation,
-            ("StepFunctions" .=) <$> _mwtipStepFunctions,
-            ("RunCommand" .=) <$> _mwtipRunCommand,
-            ("Lambda" .=) <$> _mwtipLambda
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Automation" Lude..=) Lude.<$> automation,
+            ("StepFunctions" Lude..=) Lude.<$> stepFunctions,
+            ("RunCommand" Lude..=) Lude.<$> runCommand,
+            ("Lambda" Lude..=) Lude.<$> lambda
           ]
       )

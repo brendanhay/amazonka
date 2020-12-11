@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,94 @@
 --
 -- Deletes the 'ClientCertificate' resource.
 module Network.AWS.APIGateway.DeleteClientCertificate
-  ( -- * Creating a Request
-    deleteClientCertificate,
-    DeleteClientCertificate,
+  ( -- * Creating a request
+    DeleteClientCertificate (..),
+    mkDeleteClientCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dccClientCertificateId,
 
-    -- * Destructuring the Response
-    deleteClientCertificateResponse,
-    DeleteClientCertificateResponse,
+    -- * Destructuring the response
+    DeleteClientCertificateResponse (..),
+    mkDeleteClientCertificateResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to delete the 'ClientCertificate' resource.
 --
---
---
--- /See:/ 'deleteClientCertificate' smart constructor.
+-- /See:/ 'mkDeleteClientCertificate' smart constructor.
 newtype DeleteClientCertificate = DeleteClientCertificate'
-  { _dccClientCertificateId ::
-      Text
+  { clientCertificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be deleted.
-deleteClientCertificate ::
-  -- | 'dccClientCertificateId'
-  Text ->
+-- * 'clientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be deleted.
+mkDeleteClientCertificate ::
+  -- | 'clientCertificateId'
+  Lude.Text ->
   DeleteClientCertificate
-deleteClientCertificate pClientCertificateId_ =
+mkDeleteClientCertificate pClientCertificateId_ =
   DeleteClientCertificate'
-    { _dccClientCertificateId =
+    { clientCertificateId =
         pClientCertificateId_
     }
 
 -- | [Required] The identifier of the 'ClientCertificate' resource to be deleted.
-dccClientCertificateId :: Lens' DeleteClientCertificate Text
-dccClientCertificateId = lens _dccClientCertificateId (\s a -> s {_dccClientCertificateId = a})
+--
+-- /Note:/ Consider using 'clientCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccClientCertificateId :: Lens.Lens' DeleteClientCertificate Lude.Text
+dccClientCertificateId = Lens.lens (clientCertificateId :: DeleteClientCertificate -> Lude.Text) (\s a -> s {clientCertificateId = a} :: DeleteClientCertificate)
+{-# DEPRECATED dccClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
 
-instance AWSRequest DeleteClientCertificate where
+instance Lude.AWSRequest DeleteClientCertificate where
   type Rs DeleteClientCertificate = DeleteClientCertificateResponse
-  request = delete apiGateway
-  response = receiveNull DeleteClientCertificateResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteClientCertificateResponse'
 
-instance Hashable DeleteClientCertificate
-
-instance NFData DeleteClientCertificate
-
-instance ToHeaders DeleteClientCertificate where
+instance Lude.ToHeaders DeleteClientCertificate where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteClientCertificate where
+instance Lude.ToPath DeleteClientCertificate where
   toPath DeleteClientCertificate' {..} =
-    mconcat ["/clientcertificates/", toBS _dccClientCertificateId]
+    Lude.mconcat
+      ["/clientcertificates/", Lude.toBS clientCertificateId]
 
-instance ToQuery DeleteClientCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteClientCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteClientCertificateResponse' smart constructor.
+-- | /See:/ 'mkDeleteClientCertificateResponse' smart constructor.
 data DeleteClientCertificateResponse = DeleteClientCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClientCertificateResponse' with the minimum fields required to make a request.
-deleteClientCertificateResponse ::
+mkDeleteClientCertificateResponse ::
   DeleteClientCertificateResponse
-deleteClientCertificateResponse = DeleteClientCertificateResponse'
-
-instance NFData DeleteClientCertificateResponse
+mkDeleteClientCertificateResponse =
+  DeleteClientCertificateResponse'

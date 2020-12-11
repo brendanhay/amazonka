@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,153 @@
 --
 -- Creates a project.
 module Network.AWS.DeviceFarm.CreateProject
-  ( -- * Creating a Request
-    createProject,
-    CreateProject,
+  ( -- * Creating a request
+    CreateProject (..),
+    mkCreateProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpDefaultJobTimeoutMinutes,
     cpName,
 
-    -- * Destructuring the Response
-    createProjectResponse,
-    CreateProjectResponse,
+    -- * Destructuring the response
+    CreateProjectResponse (..),
+    mkCreateProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsProject,
     cprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the create project operation.
 --
---
---
--- /See:/ 'createProject' smart constructor.
+-- /See:/ 'mkCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpDefaultJobTimeoutMinutes ::
-      !(Maybe Int),
-    _cpName :: !Text
+  { defaultJobTimeoutMinutes ::
+      Lude.Maybe Lude.Int,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpDefaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
---
--- * 'cpName' - The project's name.
-createProject ::
-  -- | 'cpName'
-  Text ->
+-- * 'defaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+-- * 'name' - The project's name.
+mkCreateProject ::
+  -- | 'name'
+  Lude.Text ->
   CreateProject
-createProject pName_ =
+mkCreateProject pName_ =
   CreateProject'
-    { _cpDefaultJobTimeoutMinutes = Nothing,
-      _cpName = pName_
+    { defaultJobTimeoutMinutes = Lude.Nothing,
+      name = pName_
     }
 
 -- | Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
-cpDefaultJobTimeoutMinutes :: Lens' CreateProject (Maybe Int)
-cpDefaultJobTimeoutMinutes = lens _cpDefaultJobTimeoutMinutes (\s a -> s {_cpDefaultJobTimeoutMinutes = a})
+--
+-- /Note:/ Consider using 'defaultJobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDefaultJobTimeoutMinutes :: Lens.Lens' CreateProject (Lude.Maybe Lude.Int)
+cpDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: CreateProject -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: CreateProject)
+{-# DEPRECATED cpDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
 
 -- | The project's name.
-cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProject Lude.Text
+cpName = Lens.lens (name :: CreateProject -> Lude.Text) (\s a -> s {name = a} :: CreateProject)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateProject where
+instance Lude.AWSRequest CreateProject where
   type Rs CreateProject = CreateProjectResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            <$> (x .?> "project") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "project") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProject
-
-instance NFData CreateProject
-
-instance ToHeaders CreateProject where
+instance Lude.ToHeaders CreateProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.CreateProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.CreateProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProject where
+instance Lude.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    object
-      ( catMaybes
-          [ ("defaultJobTimeoutMinutes" .=) <$> _cpDefaultJobTimeoutMinutes,
-            Just ("name" .= _cpName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("defaultJobTimeoutMinutes" Lude..=)
+              Lude.<$> defaultJobTimeoutMinutes,
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath CreateProject where
-  toPath = const "/"
+instance Lude.ToPath CreateProject where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProject where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProject where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a create project request.
 --
---
---
--- /See:/ 'createProjectResponse' smart constructor.
+-- /See:/ 'mkCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsProject ::
-      !(Maybe Project),
-    _cprsResponseStatus :: !Int
+  { project ::
+      Lude.Maybe Project,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsProject' - The newly created project.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createProjectResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'project' - The newly created project.
+-- * 'responseStatus' - The response status code.
+mkCreateProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProjectResponse
-createProjectResponse pResponseStatus_ =
+mkCreateProjectResponse pResponseStatus_ =
   CreateProjectResponse'
-    { _cprsProject = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { project = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The newly created project.
-cprsProject :: Lens' CreateProjectResponse (Maybe Project)
-cprsProject = lens _cprsProject (\s a -> s {_cprsProject = a})
+--
+-- /Note:/ Consider using 'project' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsProject :: Lens.Lens' CreateProjectResponse (Lude.Maybe Project)
+cprsProject = Lens.lens (project :: CreateProjectResponse -> Lude.Maybe Project) (\s a -> s {project = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsProject "Use generic-lens or generic-optics with 'project' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreateProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreateProjectResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

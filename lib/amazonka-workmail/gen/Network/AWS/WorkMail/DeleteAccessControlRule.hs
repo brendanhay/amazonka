@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,140 @@
 --
 -- Deletes an access control rule for the specified WorkMail organization.
 module Network.AWS.WorkMail.DeleteAccessControlRule
-  ( -- * Creating a Request
-    deleteAccessControlRule,
-    DeleteAccessControlRule,
+  ( -- * Creating a request
+    DeleteAccessControlRule (..),
+    mkDeleteAccessControlRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dacrOrganizationId,
     dacrName,
 
-    -- * Destructuring the Response
-    deleteAccessControlRuleResponse,
-    DeleteAccessControlRuleResponse,
+    -- * Destructuring the response
+    DeleteAccessControlRuleResponse (..),
+    mkDeleteAccessControlRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dacrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'deleteAccessControlRule' smart constructor.
+-- | /See:/ 'mkDeleteAccessControlRule' smart constructor.
 data DeleteAccessControlRule = DeleteAccessControlRule'
-  { _dacrOrganizationId ::
-      !Text,
-    _dacrName :: !Text
+  { organizationId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessControlRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacrOrganizationId' - The identifier for the organization.
---
--- * 'dacrName' - The name of the access control rule.
-deleteAccessControlRule ::
-  -- | 'dacrOrganizationId'
-  Text ->
-  -- | 'dacrName'
-  Text ->
+-- * 'name' - The name of the access control rule.
+-- * 'organizationId' - The identifier for the organization.
+mkDeleteAccessControlRule ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteAccessControlRule
-deleteAccessControlRule pOrganizationId_ pName_ =
+mkDeleteAccessControlRule pOrganizationId_ pName_ =
   DeleteAccessControlRule'
-    { _dacrOrganizationId = pOrganizationId_,
-      _dacrName = pName_
+    { organizationId = pOrganizationId_,
+      name = pName_
     }
 
 -- | The identifier for the organization.
-dacrOrganizationId :: Lens' DeleteAccessControlRule Text
-dacrOrganizationId = lens _dacrOrganizationId (\s a -> s {_dacrOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrOrganizationId :: Lens.Lens' DeleteAccessControlRule Lude.Text
+dacrOrganizationId = Lens.lens (organizationId :: DeleteAccessControlRule -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteAccessControlRule)
+{-# DEPRECATED dacrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name of the access control rule.
-dacrName :: Lens' DeleteAccessControlRule Text
-dacrName = lens _dacrName (\s a -> s {_dacrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrName :: Lens.Lens' DeleteAccessControlRule Lude.Text
+dacrName = Lens.lens (name :: DeleteAccessControlRule -> Lude.Text) (\s a -> s {name = a} :: DeleteAccessControlRule)
+{-# DEPRECATED dacrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteAccessControlRule where
+instance Lude.AWSRequest DeleteAccessControlRule where
   type Rs DeleteAccessControlRule = DeleteAccessControlRuleResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteAccessControlRuleResponse' <$> (pure (fromEnum s))
+          DeleteAccessControlRuleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteAccessControlRule
-
-instance NFData DeleteAccessControlRule
-
-instance ToHeaders DeleteAccessControlRule where
+instance Lude.ToHeaders DeleteAccessControlRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DeleteAccessControlRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DeleteAccessControlRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAccessControlRule where
+instance Lude.ToJSON DeleteAccessControlRule where
   toJSON DeleteAccessControlRule' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _dacrOrganizationId),
-            Just ("Name" .= _dacrName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath DeleteAccessControlRule where
-  toPath = const "/"
+instance Lude.ToPath DeleteAccessControlRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAccessControlRule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAccessControlRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAccessControlRuleResponse' smart constructor.
+-- | /See:/ 'mkDeleteAccessControlRuleResponse' smart constructor.
 newtype DeleteAccessControlRuleResponse = DeleteAccessControlRuleResponse'
-  { _dacrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessControlRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacrrsResponseStatus' - -- | The response status code.
-deleteAccessControlRuleResponse ::
-  -- | 'dacrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAccessControlRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAccessControlRuleResponse
-deleteAccessControlRuleResponse pResponseStatus_ =
+mkDeleteAccessControlRuleResponse pResponseStatus_ =
   DeleteAccessControlRuleResponse'
-    { _dacrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dacrrsResponseStatus :: Lens' DeleteAccessControlRuleResponse Int
-dacrrsResponseStatus = lens _dacrrsResponseStatus (\s a -> s {_dacrrsResponseStatus = a})
-
-instance NFData DeleteAccessControlRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrrsResponseStatus :: Lens.Lens' DeleteAccessControlRuleResponse Lude.Int
+dacrrsResponseStatus = Lens.lens (responseStatus :: DeleteAccessControlRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAccessControlRuleResponse)
+{-# DEPRECATED dacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

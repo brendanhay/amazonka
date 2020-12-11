@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.LifecycleRuleAndOperator where
+module Network.AWS.S3.Types.LifecycleRuleAndOperator
+  ( LifecycleRuleAndOperator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLifecycleRuleAndOperator,
+
+    -- * Lenses
+    lraoPrefix,
+    lraoTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
 -- | This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
 --
---
---
--- /See:/ 'lifecycleRuleAndOperator' smart constructor.
+-- /See:/ 'mkLifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
-  { _lraoPrefix ::
-      !(Maybe Text),
-    _lraoTags :: !(Maybe [Tag])
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleRuleAndOperator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lraoPrefix' - Prefix identifying one or more objects to which the rule applies.
---
--- * 'lraoTags' - All of these tags must exist in the object's tag set in order for the rule to apply.
-lifecycleRuleAndOperator ::
+-- * 'prefix' - Prefix identifying one or more objects to which the rule applies.
+-- * 'tags' - All of these tags must exist in the object's tag set in order for the rule to apply.
+mkLifecycleRuleAndOperator ::
   LifecycleRuleAndOperator
-lifecycleRuleAndOperator =
+mkLifecycleRuleAndOperator =
   LifecycleRuleAndOperator'
-    { _lraoPrefix = Nothing,
-      _lraoTags = Nothing
+    { prefix = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Prefix identifying one or more objects to which the rule applies.
-lraoPrefix :: Lens' LifecycleRuleAndOperator (Maybe Text)
-lraoPrefix = lens _lraoPrefix (\s a -> s {_lraoPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lraoPrefix :: Lens.Lens' LifecycleRuleAndOperator (Lude.Maybe Lude.Text)
+lraoPrefix = Lens.lens (prefix :: LifecycleRuleAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: LifecycleRuleAndOperator)
+{-# DEPRECATED lraoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | All of these tags must exist in the object's tag set in order for the rule to apply.
-lraoTags :: Lens' LifecycleRuleAndOperator [Tag]
-lraoTags = lens _lraoTags (\s a -> s {_lraoTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lraoTags :: Lens.Lens' LifecycleRuleAndOperator (Lude.Maybe [Tag])
+lraoTags = Lens.lens (tags :: LifecycleRuleAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LifecycleRuleAndOperator)
+{-# DEPRECATED lraoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML LifecycleRuleAndOperator where
+instance Lude.FromXML LifecycleRuleAndOperator where
   parseXML x =
     LifecycleRuleAndOperator'
-      <$> (x .@? "Prefix")
-      <*> (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+      Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
 
-instance Hashable LifecycleRuleAndOperator
-
-instance NFData LifecycleRuleAndOperator
-
-instance ToXML LifecycleRuleAndOperator where
+instance Lude.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =
-    mconcat
-      [ "Prefix" @= _lraoPrefix,
-        "Tag" @= toXML (toXMLList "Tag" <$> _lraoTags)
+    Lude.mconcat
+      [ "Prefix" Lude.@= prefix,
+        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.RecordWrapper where
+module Network.AWS.SageMaker.Types.RecordWrapper
+  ( RecordWrapper
+      ( RecordWrapper',
+        None,
+        RecordIO
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordWrapper
-  = None
-  | RecordIO
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordWrapper = RecordWrapper' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordWrapper where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "recordio" -> pure RecordIO
-      e ->
-        fromTextError $
-          "Failure parsing RecordWrapper from value: '" <> e
-            <> "'. Accepted values: none, recordio"
+pattern None :: RecordWrapper
+pattern None = RecordWrapper' "None"
 
-instance ToText RecordWrapper where
-  toText = \case
-    None -> "None"
-    RecordIO -> "RecordIO"
+pattern RecordIO :: RecordWrapper
+pattern RecordIO = RecordWrapper' "RecordIO"
 
-instance Hashable RecordWrapper
-
-instance NFData RecordWrapper
-
-instance ToByteString RecordWrapper
-
-instance ToQuery RecordWrapper
-
-instance ToHeader RecordWrapper
-
-instance ToJSON RecordWrapper where
-  toJSON = toJSONText
-
-instance FromJSON RecordWrapper where
-  parseJSON = parseJSONText "RecordWrapper"
+{-# COMPLETE
+  None,
+  RecordIO,
+  RecordWrapper'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,185 +14,198 @@
 --
 -- Creates or updates partition statistics of columns.
 --
---
 -- The Identity and Access Management (IAM) permission required for this operation is @UpdatePartition@ .
 module Network.AWS.Glue.UpdateColumnStatisticsForPartition
-  ( -- * Creating a Request
-    updateColumnStatisticsForPartition,
-    UpdateColumnStatisticsForPartition,
+  ( -- * Creating a request
+    UpdateColumnStatisticsForPartition (..),
+    mkUpdateColumnStatisticsForPartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucsfpCatalogId,
     ucsfpDatabaseName,
     ucsfpTableName,
     ucsfpPartitionValues,
     ucsfpColumnStatisticsList,
 
-    -- * Destructuring the Response
-    updateColumnStatisticsForPartitionResponse,
-    UpdateColumnStatisticsForPartitionResponse,
+    -- * Destructuring the response
+    UpdateColumnStatisticsForPartitionResponse (..),
+    mkUpdateColumnStatisticsForPartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucsfprsErrors,
     ucsfprsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateColumnStatisticsForPartition' smart constructor.
+-- | /See:/ 'mkUpdateColumnStatisticsForPartition' smart constructor.
 data UpdateColumnStatisticsForPartition = UpdateColumnStatisticsForPartition'
-  { _ucsfpCatalogId ::
-      !(Maybe Text),
-    _ucsfpDatabaseName ::
-      !Text,
-    _ucsfpTableName ::
-      !Text,
-    _ucsfpPartitionValues ::
-      ![Text],
-    _ucsfpColumnStatisticsList ::
-      ![ColumnStatistics]
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName ::
+      Lude.Text,
+    tableName ::
+      Lude.Text,
+    partitionValues ::
+      [Lude.Text],
+    columnStatisticsList ::
+      [ColumnStatistics]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateColumnStatisticsForPartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsfpCatalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
---
--- * 'ucsfpDatabaseName' - The name of the catalog database where the partitions reside.
---
--- * 'ucsfpTableName' - The name of the partitions' table.
---
--- * 'ucsfpPartitionValues' - A list of partition values identifying the partition.
---
--- * 'ucsfpColumnStatisticsList' - A list of the column statistics.
-updateColumnStatisticsForPartition ::
-  -- | 'ucsfpDatabaseName'
-  Text ->
-  -- | 'ucsfpTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+-- * 'columnStatisticsList' - A list of the column statistics.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'partitionValues' - A list of partition values identifying the partition.
+-- * 'tableName' - The name of the partitions' table.
+mkUpdateColumnStatisticsForPartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   UpdateColumnStatisticsForPartition
-updateColumnStatisticsForPartition pDatabaseName_ pTableName_ =
+mkUpdateColumnStatisticsForPartition pDatabaseName_ pTableName_ =
   UpdateColumnStatisticsForPartition'
-    { _ucsfpCatalogId = Nothing,
-      _ucsfpDatabaseName = pDatabaseName_,
-      _ucsfpTableName = pTableName_,
-      _ucsfpPartitionValues = mempty,
-      _ucsfpColumnStatisticsList = mempty
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionValues = Lude.mempty,
+      columnStatisticsList = Lude.mempty
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
-ucsfpCatalogId :: Lens' UpdateColumnStatisticsForPartition (Maybe Text)
-ucsfpCatalogId = lens _ucsfpCatalogId (\s a -> s {_ucsfpCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfpCatalogId :: Lens.Lens' UpdateColumnStatisticsForPartition (Lude.Maybe Lude.Text)
+ucsfpCatalogId = Lens.lens (catalogId :: UpdateColumnStatisticsForPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateColumnStatisticsForPartition)
+{-# DEPRECATED ucsfpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
-ucsfpDatabaseName :: Lens' UpdateColumnStatisticsForPartition Text
-ucsfpDatabaseName = lens _ucsfpDatabaseName (\s a -> s {_ucsfpDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfpDatabaseName :: Lens.Lens' UpdateColumnStatisticsForPartition Lude.Text
+ucsfpDatabaseName = Lens.lens (databaseName :: UpdateColumnStatisticsForPartition -> Lude.Text) (\s a -> s {databaseName = a} :: UpdateColumnStatisticsForPartition)
+{-# DEPRECATED ucsfpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
-ucsfpTableName :: Lens' UpdateColumnStatisticsForPartition Text
-ucsfpTableName = lens _ucsfpTableName (\s a -> s {_ucsfpTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfpTableName :: Lens.Lens' UpdateColumnStatisticsForPartition Lude.Text
+ucsfpTableName = Lens.lens (tableName :: UpdateColumnStatisticsForPartition -> Lude.Text) (\s a -> s {tableName = a} :: UpdateColumnStatisticsForPartition)
+{-# DEPRECATED ucsfpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | A list of partition values identifying the partition.
-ucsfpPartitionValues :: Lens' UpdateColumnStatisticsForPartition [Text]
-ucsfpPartitionValues = lens _ucsfpPartitionValues (\s a -> s {_ucsfpPartitionValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfpPartitionValues :: Lens.Lens' UpdateColumnStatisticsForPartition [Lude.Text]
+ucsfpPartitionValues = Lens.lens (partitionValues :: UpdateColumnStatisticsForPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: UpdateColumnStatisticsForPartition)
+{-# DEPRECATED ucsfpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
 
 -- | A list of the column statistics.
-ucsfpColumnStatisticsList :: Lens' UpdateColumnStatisticsForPartition [ColumnStatistics]
-ucsfpColumnStatisticsList = lens _ucsfpColumnStatisticsList (\s a -> s {_ucsfpColumnStatisticsList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'columnStatisticsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfpColumnStatisticsList :: Lens.Lens' UpdateColumnStatisticsForPartition [ColumnStatistics]
+ucsfpColumnStatisticsList = Lens.lens (columnStatisticsList :: UpdateColumnStatisticsForPartition -> [ColumnStatistics]) (\s a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForPartition)
+{-# DEPRECATED ucsfpColumnStatisticsList "Use generic-lens or generic-optics with 'columnStatisticsList' instead." #-}
 
-instance AWSRequest UpdateColumnStatisticsForPartition where
+instance Lude.AWSRequest UpdateColumnStatisticsForPartition where
   type
     Rs UpdateColumnStatisticsForPartition =
       UpdateColumnStatisticsForPartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateColumnStatisticsForPartitionResponse'
-            <$> (x .?> "Errors" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateColumnStatisticsForPartition
-
-instance NFData UpdateColumnStatisticsForPartition
-
-instance ToHeaders UpdateColumnStatisticsForPartition where
+instance Lude.ToHeaders UpdateColumnStatisticsForPartition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.UpdateColumnStatisticsForPartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.UpdateColumnStatisticsForPartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateColumnStatisticsForPartition where
+instance Lude.ToJSON UpdateColumnStatisticsForPartition where
   toJSON UpdateColumnStatisticsForPartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _ucsfpCatalogId,
-            Just ("DatabaseName" .= _ucsfpDatabaseName),
-            Just ("TableName" .= _ucsfpTableName),
-            Just ("PartitionValues" .= _ucsfpPartitionValues),
-            Just ("ColumnStatisticsList" .= _ucsfpColumnStatisticsList)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionValues" Lude..= partitionValues),
+            Lude.Just ("ColumnStatisticsList" Lude..= columnStatisticsList)
           ]
       )
 
-instance ToPath UpdateColumnStatisticsForPartition where
-  toPath = const "/"
+instance Lude.ToPath UpdateColumnStatisticsForPartition where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateColumnStatisticsForPartition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateColumnStatisticsForPartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateColumnStatisticsForPartitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateColumnStatisticsForPartitionResponse' smart constructor.
 data UpdateColumnStatisticsForPartitionResponse = UpdateColumnStatisticsForPartitionResponse'
-  { _ucsfprsErrors ::
-      !( Maybe
-           [ColumnStatisticsError]
-       ),
-    _ucsfprsResponseStatus ::
-      !Int
+  { errors ::
+      Lude.Maybe
+        [ColumnStatisticsError],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateColumnStatisticsForPartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsfprsErrors' - Error occurred during updating column statistics data.
---
--- * 'ucsfprsResponseStatus' - -- | The response status code.
-updateColumnStatisticsForPartitionResponse ::
-  -- | 'ucsfprsResponseStatus'
-  Int ->
+-- * 'errors' - Error occurred during updating column statistics data.
+-- * 'responseStatus' - The response status code.
+mkUpdateColumnStatisticsForPartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateColumnStatisticsForPartitionResponse
-updateColumnStatisticsForPartitionResponse pResponseStatus_ =
+mkUpdateColumnStatisticsForPartitionResponse pResponseStatus_ =
   UpdateColumnStatisticsForPartitionResponse'
-    { _ucsfprsErrors =
-        Nothing,
-      _ucsfprsResponseStatus = pResponseStatus_
+    { errors =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Error occurred during updating column statistics data.
-ucsfprsErrors :: Lens' UpdateColumnStatisticsForPartitionResponse [ColumnStatisticsError]
-ucsfprsErrors = lens _ucsfprsErrors (\s a -> s {_ucsfprsErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfprsErrors :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse (Lude.Maybe [ColumnStatisticsError])
+ucsfprsErrors = Lens.lens (errors :: UpdateColumnStatisticsForPartitionResponse -> Lude.Maybe [ColumnStatisticsError]) (\s a -> s {errors = a} :: UpdateColumnStatisticsForPartitionResponse)
+{-# DEPRECATED ucsfprsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
--- | -- | The response status code.
-ucsfprsResponseStatus :: Lens' UpdateColumnStatisticsForPartitionResponse Int
-ucsfprsResponseStatus = lens _ucsfprsResponseStatus (\s a -> s {_ucsfprsResponseStatus = a})
-
-instance NFData UpdateColumnStatisticsForPartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsfprsResponseStatus :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse Lude.Int
+ucsfprsResponseStatus = Lens.lens (responseStatus :: UpdateColumnStatisticsForPartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateColumnStatisticsForPartitionResponse)
+{-# DEPRECATED ucsfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

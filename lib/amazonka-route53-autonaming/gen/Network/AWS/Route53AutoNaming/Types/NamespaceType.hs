@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.NamespaceType where
+module Network.AWS.Route53AutoNaming.Types.NamespaceType
+  ( NamespaceType
+      ( NamespaceType',
+        NTDNSPrivate,
+        NTDNSPublic,
+        NTHTTP
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NamespaceType
-  = NTDNSPrivate
-  | NTDNSPublic
-  | NTHTTP
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NamespaceType = NamespaceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NamespaceType where
-  parser =
-    takeLowerText >>= \case
-      "dns_private" -> pure NTDNSPrivate
-      "dns_public" -> pure NTDNSPublic
-      "http" -> pure NTHTTP
-      e ->
-        fromTextError $
-          "Failure parsing NamespaceType from value: '" <> e
-            <> "'. Accepted values: dns_private, dns_public, http"
+pattern NTDNSPrivate :: NamespaceType
+pattern NTDNSPrivate = NamespaceType' "DNS_PRIVATE"
 
-instance ToText NamespaceType where
-  toText = \case
-    NTDNSPrivate -> "DNS_PRIVATE"
-    NTDNSPublic -> "DNS_PUBLIC"
-    NTHTTP -> "HTTP"
+pattern NTDNSPublic :: NamespaceType
+pattern NTDNSPublic = NamespaceType' "DNS_PUBLIC"
 
-instance Hashable NamespaceType
+pattern NTHTTP :: NamespaceType
+pattern NTHTTP = NamespaceType' "HTTP"
 
-instance NFData NamespaceType
-
-instance ToByteString NamespaceType
-
-instance ToQuery NamespaceType
-
-instance ToHeader NamespaceType
-
-instance FromJSON NamespaceType where
-  parseJSON = parseJSONText "NamespaceType"
+{-# COMPLETE
+  NTDNSPrivate,
+  NTDNSPublic,
+  NTHTTP,
+  NamespaceType'
+  #-}

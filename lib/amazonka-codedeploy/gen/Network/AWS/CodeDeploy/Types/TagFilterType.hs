@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TagFilterType where
+module Network.AWS.CodeDeploy.Types.TagFilterType
+  ( TagFilterType
+      ( TagFilterType',
+        TFTKeyAndValue,
+        TFTKeyOnly,
+        TFTValueOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TagFilterType
-  = TFTKeyAndValue
-  | TFTKeyOnly
-  | TFTValueOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TagFilterType = TagFilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TagFilterType where
-  parser =
-    takeLowerText >>= \case
-      "key_and_value" -> pure TFTKeyAndValue
-      "key_only" -> pure TFTKeyOnly
-      "value_only" -> pure TFTValueOnly
-      e ->
-        fromTextError $
-          "Failure parsing TagFilterType from value: '" <> e
-            <> "'. Accepted values: key_and_value, key_only, value_only"
+pattern TFTKeyAndValue :: TagFilterType
+pattern TFTKeyAndValue = TagFilterType' "KEY_AND_VALUE"
 
-instance ToText TagFilterType where
-  toText = \case
-    TFTKeyAndValue -> "KEY_AND_VALUE"
-    TFTKeyOnly -> "KEY_ONLY"
-    TFTValueOnly -> "VALUE_ONLY"
+pattern TFTKeyOnly :: TagFilterType
+pattern TFTKeyOnly = TagFilterType' "KEY_ONLY"
 
-instance Hashable TagFilterType
+pattern TFTValueOnly :: TagFilterType
+pattern TFTValueOnly = TagFilterType' "VALUE_ONLY"
 
-instance NFData TagFilterType
-
-instance ToByteString TagFilterType
-
-instance ToQuery TagFilterType
-
-instance ToHeader TagFilterType
-
-instance ToJSON TagFilterType where
-  toJSON = toJSONText
-
-instance FromJSON TagFilterType where
-  parseJSON = parseJSONText "TagFilterType"
+{-# COMPLETE
+  TFTKeyAndValue,
+  TFTKeyOnly,
+  TFTValueOnly,
+  TagFilterType'
+  #-}

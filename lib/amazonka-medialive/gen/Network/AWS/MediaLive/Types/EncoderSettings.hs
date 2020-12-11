@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EncoderSettings where
+module Network.AWS.MediaLive.Types.EncoderSettings
+  ( EncoderSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEncoderSettings,
+
+    -- * Lenses
+    esCaptionDescriptions,
+    esAvailConfiguration,
+    esFeatureActivations,
+    esNielsenConfiguration,
+    esAvailBlanking,
+    esGlobalConfiguration,
+    esBlackoutSlate,
+    esVideoDescriptions,
+    esAudioDescriptions,
+    esOutputGroups,
+    esTimecodeConfig,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioDescription
 import Network.AWS.MediaLive.Types.AvailBlanking
 import Network.AWS.MediaLive.Types.AvailConfiguration
@@ -27,152 +40,176 @@ import Network.AWS.MediaLive.Types.NielsenConfiguration
 import Network.AWS.MediaLive.Types.OutputGroup
 import Network.AWS.MediaLive.Types.TimecodeConfig
 import Network.AWS.MediaLive.Types.VideoDescription
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encoder Settings
 --
--- /See:/ 'encoderSettings' smart constructor.
+-- /See:/ 'mkEncoderSettings' smart constructor.
 data EncoderSettings = EncoderSettings'
-  { _esCaptionDescriptions ::
-      !(Maybe [CaptionDescription]),
-    _esAvailConfiguration :: !(Maybe AvailConfiguration),
-    _esFeatureActivations :: !(Maybe FeatureActivations),
-    _esNielsenConfiguration :: !(Maybe NielsenConfiguration),
-    _esAvailBlanking :: !(Maybe AvailBlanking),
-    _esGlobalConfiguration :: !(Maybe GlobalConfiguration),
-    _esBlackoutSlate :: !(Maybe BlackoutSlate),
-    _esVideoDescriptions :: ![VideoDescription],
-    _esAudioDescriptions :: ![AudioDescription],
-    _esOutputGroups :: ![OutputGroup],
-    _esTimecodeConfig :: !TimecodeConfig
+  { captionDescriptions ::
+      Lude.Maybe [CaptionDescription],
+    availConfiguration :: Lude.Maybe AvailConfiguration,
+    featureActivations :: Lude.Maybe FeatureActivations,
+    nielsenConfiguration :: Lude.Maybe NielsenConfiguration,
+    availBlanking :: Lude.Maybe AvailBlanking,
+    globalConfiguration :: Lude.Maybe GlobalConfiguration,
+    blackoutSlate :: Lude.Maybe BlackoutSlate,
+    videoDescriptions :: [VideoDescription],
+    audioDescriptions :: [AudioDescription],
+    outputGroups :: [OutputGroup],
+    timecodeConfig :: TimecodeConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncoderSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esCaptionDescriptions' - Settings for caption decriptions
---
--- * 'esAvailConfiguration' - Event-wide configuration settings for ad avail insertion.
---
--- * 'esFeatureActivations' - Feature Activations
---
--- * 'esNielsenConfiguration' - Nielsen configuration settings.
---
--- * 'esAvailBlanking' - Settings for ad avail blanking.
---
--- * 'esGlobalConfiguration' - Configuration settings that apply to the event as a whole.
---
--- * 'esBlackoutSlate' - Settings for blackout slate.
---
--- * 'esVideoDescriptions' - Undocumented member.
---
--- * 'esAudioDescriptions' - Undocumented member.
---
--- * 'esOutputGroups' - Undocumented member.
---
--- * 'esTimecodeConfig' - Contains settings used to acquire and adjust timecode information from inputs.
-encoderSettings ::
-  -- | 'esTimecodeConfig'
+-- * 'audioDescriptions' - Undocumented field.
+-- * 'availBlanking' - Settings for ad avail blanking.
+-- * 'availConfiguration' - Event-wide configuration settings for ad avail insertion.
+-- * 'blackoutSlate' - Settings for blackout slate.
+-- * 'captionDescriptions' - Settings for caption decriptions
+-- * 'featureActivations' - Feature Activations
+-- * 'globalConfiguration' - Configuration settings that apply to the event as a whole.
+-- * 'nielsenConfiguration' - Nielsen configuration settings.
+-- * 'outputGroups' - Undocumented field.
+-- * 'timecodeConfig' - Contains settings used to acquire and adjust timecode information from inputs.
+-- * 'videoDescriptions' - Undocumented field.
+mkEncoderSettings ::
+  -- | 'timecodeConfig'
   TimecodeConfig ->
   EncoderSettings
-encoderSettings pTimecodeConfig_ =
+mkEncoderSettings pTimecodeConfig_ =
   EncoderSettings'
-    { _esCaptionDescriptions = Nothing,
-      _esAvailConfiguration = Nothing,
-      _esFeatureActivations = Nothing,
-      _esNielsenConfiguration = Nothing,
-      _esAvailBlanking = Nothing,
-      _esGlobalConfiguration = Nothing,
-      _esBlackoutSlate = Nothing,
-      _esVideoDescriptions = mempty,
-      _esAudioDescriptions = mempty,
-      _esOutputGroups = mempty,
-      _esTimecodeConfig = pTimecodeConfig_
+    { captionDescriptions = Lude.Nothing,
+      availConfiguration = Lude.Nothing,
+      featureActivations = Lude.Nothing,
+      nielsenConfiguration = Lude.Nothing,
+      availBlanking = Lude.Nothing,
+      globalConfiguration = Lude.Nothing,
+      blackoutSlate = Lude.Nothing,
+      videoDescriptions = Lude.mempty,
+      audioDescriptions = Lude.mempty,
+      outputGroups = Lude.mempty,
+      timecodeConfig = pTimecodeConfig_
     }
 
 -- | Settings for caption decriptions
-esCaptionDescriptions :: Lens' EncoderSettings [CaptionDescription]
-esCaptionDescriptions = lens _esCaptionDescriptions (\s a -> s {_esCaptionDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'captionDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esCaptionDescriptions :: Lens.Lens' EncoderSettings (Lude.Maybe [CaptionDescription])
+esCaptionDescriptions = Lens.lens (captionDescriptions :: EncoderSettings -> Lude.Maybe [CaptionDescription]) (\s a -> s {captionDescriptions = a} :: EncoderSettings)
+{-# DEPRECATED esCaptionDescriptions "Use generic-lens or generic-optics with 'captionDescriptions' instead." #-}
 
 -- | Event-wide configuration settings for ad avail insertion.
-esAvailConfiguration :: Lens' EncoderSettings (Maybe AvailConfiguration)
-esAvailConfiguration = lens _esAvailConfiguration (\s a -> s {_esAvailConfiguration = a})
+--
+-- /Note:/ Consider using 'availConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esAvailConfiguration :: Lens.Lens' EncoderSettings (Lude.Maybe AvailConfiguration)
+esAvailConfiguration = Lens.lens (availConfiguration :: EncoderSettings -> Lude.Maybe AvailConfiguration) (\s a -> s {availConfiguration = a} :: EncoderSettings)
+{-# DEPRECATED esAvailConfiguration "Use generic-lens or generic-optics with 'availConfiguration' instead." #-}
 
 -- | Feature Activations
-esFeatureActivations :: Lens' EncoderSettings (Maybe FeatureActivations)
-esFeatureActivations = lens _esFeatureActivations (\s a -> s {_esFeatureActivations = a})
+--
+-- /Note:/ Consider using 'featureActivations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esFeatureActivations :: Lens.Lens' EncoderSettings (Lude.Maybe FeatureActivations)
+esFeatureActivations = Lens.lens (featureActivations :: EncoderSettings -> Lude.Maybe FeatureActivations) (\s a -> s {featureActivations = a} :: EncoderSettings)
+{-# DEPRECATED esFeatureActivations "Use generic-lens or generic-optics with 'featureActivations' instead." #-}
 
 -- | Nielsen configuration settings.
-esNielsenConfiguration :: Lens' EncoderSettings (Maybe NielsenConfiguration)
-esNielsenConfiguration = lens _esNielsenConfiguration (\s a -> s {_esNielsenConfiguration = a})
+--
+-- /Note:/ Consider using 'nielsenConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esNielsenConfiguration :: Lens.Lens' EncoderSettings (Lude.Maybe NielsenConfiguration)
+esNielsenConfiguration = Lens.lens (nielsenConfiguration :: EncoderSettings -> Lude.Maybe NielsenConfiguration) (\s a -> s {nielsenConfiguration = a} :: EncoderSettings)
+{-# DEPRECATED esNielsenConfiguration "Use generic-lens or generic-optics with 'nielsenConfiguration' instead." #-}
 
 -- | Settings for ad avail blanking.
-esAvailBlanking :: Lens' EncoderSettings (Maybe AvailBlanking)
-esAvailBlanking = lens _esAvailBlanking (\s a -> s {_esAvailBlanking = a})
+--
+-- /Note:/ Consider using 'availBlanking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esAvailBlanking :: Lens.Lens' EncoderSettings (Lude.Maybe AvailBlanking)
+esAvailBlanking = Lens.lens (availBlanking :: EncoderSettings -> Lude.Maybe AvailBlanking) (\s a -> s {availBlanking = a} :: EncoderSettings)
+{-# DEPRECATED esAvailBlanking "Use generic-lens or generic-optics with 'availBlanking' instead." #-}
 
 -- | Configuration settings that apply to the event as a whole.
-esGlobalConfiguration :: Lens' EncoderSettings (Maybe GlobalConfiguration)
-esGlobalConfiguration = lens _esGlobalConfiguration (\s a -> s {_esGlobalConfiguration = a})
+--
+-- /Note:/ Consider using 'globalConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esGlobalConfiguration :: Lens.Lens' EncoderSettings (Lude.Maybe GlobalConfiguration)
+esGlobalConfiguration = Lens.lens (globalConfiguration :: EncoderSettings -> Lude.Maybe GlobalConfiguration) (\s a -> s {globalConfiguration = a} :: EncoderSettings)
+{-# DEPRECATED esGlobalConfiguration "Use generic-lens or generic-optics with 'globalConfiguration' instead." #-}
 
 -- | Settings for blackout slate.
-esBlackoutSlate :: Lens' EncoderSettings (Maybe BlackoutSlate)
-esBlackoutSlate = lens _esBlackoutSlate (\s a -> s {_esBlackoutSlate = a})
+--
+-- /Note:/ Consider using 'blackoutSlate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esBlackoutSlate :: Lens.Lens' EncoderSettings (Lude.Maybe BlackoutSlate)
+esBlackoutSlate = Lens.lens (blackoutSlate :: EncoderSettings -> Lude.Maybe BlackoutSlate) (\s a -> s {blackoutSlate = a} :: EncoderSettings)
+{-# DEPRECATED esBlackoutSlate "Use generic-lens or generic-optics with 'blackoutSlate' instead." #-}
 
--- | Undocumented member.
-esVideoDescriptions :: Lens' EncoderSettings [VideoDescription]
-esVideoDescriptions = lens _esVideoDescriptions (\s a -> s {_esVideoDescriptions = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'videoDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esVideoDescriptions :: Lens.Lens' EncoderSettings [VideoDescription]
+esVideoDescriptions = Lens.lens (videoDescriptions :: EncoderSettings -> [VideoDescription]) (\s a -> s {videoDescriptions = a} :: EncoderSettings)
+{-# DEPRECATED esVideoDescriptions "Use generic-lens or generic-optics with 'videoDescriptions' instead." #-}
 
--- | Undocumented member.
-esAudioDescriptions :: Lens' EncoderSettings [AudioDescription]
-esAudioDescriptions = lens _esAudioDescriptions (\s a -> s {_esAudioDescriptions = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'audioDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esAudioDescriptions :: Lens.Lens' EncoderSettings [AudioDescription]
+esAudioDescriptions = Lens.lens (audioDescriptions :: EncoderSettings -> [AudioDescription]) (\s a -> s {audioDescriptions = a} :: EncoderSettings)
+{-# DEPRECATED esAudioDescriptions "Use generic-lens or generic-optics with 'audioDescriptions' instead." #-}
 
--- | Undocumented member.
-esOutputGroups :: Lens' EncoderSettings [OutputGroup]
-esOutputGroups = lens _esOutputGroups (\s a -> s {_esOutputGroups = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'outputGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esOutputGroups :: Lens.Lens' EncoderSettings [OutputGroup]
+esOutputGroups = Lens.lens (outputGroups :: EncoderSettings -> [OutputGroup]) (\s a -> s {outputGroups = a} :: EncoderSettings)
+{-# DEPRECATED esOutputGroups "Use generic-lens or generic-optics with 'outputGroups' instead." #-}
 
 -- | Contains settings used to acquire and adjust timecode information from inputs.
-esTimecodeConfig :: Lens' EncoderSettings TimecodeConfig
-esTimecodeConfig = lens _esTimecodeConfig (\s a -> s {_esTimecodeConfig = a})
+--
+-- /Note:/ Consider using 'timecodeConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esTimecodeConfig :: Lens.Lens' EncoderSettings TimecodeConfig
+esTimecodeConfig = Lens.lens (timecodeConfig :: EncoderSettings -> TimecodeConfig) (\s a -> s {timecodeConfig = a} :: EncoderSettings)
+{-# DEPRECATED esTimecodeConfig "Use generic-lens or generic-optics with 'timecodeConfig' instead." #-}
 
-instance FromJSON EncoderSettings where
+instance Lude.FromJSON EncoderSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "EncoderSettings"
       ( \x ->
           EncoderSettings'
-            <$> (x .:? "captionDescriptions" .!= mempty)
-            <*> (x .:? "availConfiguration")
-            <*> (x .:? "featureActivations")
-            <*> (x .:? "nielsenConfiguration")
-            <*> (x .:? "availBlanking")
-            <*> (x .:? "globalConfiguration")
-            <*> (x .:? "blackoutSlate")
-            <*> (x .:? "videoDescriptions" .!= mempty)
-            <*> (x .:? "audioDescriptions" .!= mempty)
-            <*> (x .:? "outputGroups" .!= mempty)
-            <*> (x .: "timecodeConfig")
+            Lude.<$> (x Lude..:? "captionDescriptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "availConfiguration")
+            Lude.<*> (x Lude..:? "featureActivations")
+            Lude.<*> (x Lude..:? "nielsenConfiguration")
+            Lude.<*> (x Lude..:? "availBlanking")
+            Lude.<*> (x Lude..:? "globalConfiguration")
+            Lude.<*> (x Lude..:? "blackoutSlate")
+            Lude.<*> (x Lude..:? "videoDescriptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "audioDescriptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "outputGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "timecodeConfig")
       )
 
-instance Hashable EncoderSettings
-
-instance NFData EncoderSettings
-
-instance ToJSON EncoderSettings where
+instance Lude.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =
-    object
-      ( catMaybes
-          [ ("captionDescriptions" .=) <$> _esCaptionDescriptions,
-            ("availConfiguration" .=) <$> _esAvailConfiguration,
-            ("featureActivations" .=) <$> _esFeatureActivations,
-            ("nielsenConfiguration" .=) <$> _esNielsenConfiguration,
-            ("availBlanking" .=) <$> _esAvailBlanking,
-            ("globalConfiguration" .=) <$> _esGlobalConfiguration,
-            ("blackoutSlate" .=) <$> _esBlackoutSlate,
-            Just ("videoDescriptions" .= _esVideoDescriptions),
-            Just ("audioDescriptions" .= _esAudioDescriptions),
-            Just ("outputGroups" .= _esOutputGroups),
-            Just ("timecodeConfig" .= _esTimecodeConfig)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("captionDescriptions" Lude..=) Lude.<$> captionDescriptions,
+            ("availConfiguration" Lude..=) Lude.<$> availConfiguration,
+            ("featureActivations" Lude..=) Lude.<$> featureActivations,
+            ("nielsenConfiguration" Lude..=) Lude.<$> nielsenConfiguration,
+            ("availBlanking" Lude..=) Lude.<$> availBlanking,
+            ("globalConfiguration" Lude..=) Lude.<$> globalConfiguration,
+            ("blackoutSlate" Lude..=) Lude.<$> blackoutSlate,
+            Lude.Just ("videoDescriptions" Lude..= videoDescriptions),
+            Lude.Just ("audioDescriptions" Lude..= audioDescriptions),
+            Lude.Just ("outputGroups" Lude..= outputGroups),
+            Lude.Just ("timecodeConfig" Lude..= timecodeConfig)
           ]
       )

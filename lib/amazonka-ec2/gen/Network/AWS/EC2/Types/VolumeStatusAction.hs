@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusAction where
+module Network.AWS.EC2.Types.VolumeStatusAction
+  ( VolumeStatusAction (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeStatusAction,
+
+    -- * Lenses
+    vsaEventType,
+    vsaCode,
+    vsaDescription,
+    vsaEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a volume status operation code.
 --
---
---
--- /See:/ 'volumeStatusAction' smart constructor.
+-- /See:/ 'mkVolumeStatusAction' smart constructor.
 data VolumeStatusAction = VolumeStatusAction'
-  { _vsaEventType ::
-      !(Maybe Text),
-    _vsaCode :: !(Maybe Text),
-    _vsaDescription :: !(Maybe Text),
-    _vsaEventId :: !(Maybe Text)
+  { eventType ::
+      Lude.Maybe Lude.Text,
+    code :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    eventId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsaEventType' - The event type associated with this operation.
---
--- * 'vsaCode' - The code identifying the operation, for example, @enable-volume-io@ .
---
--- * 'vsaDescription' - A description of the operation.
---
--- * 'vsaEventId' - The ID of the event associated with this operation.
-volumeStatusAction ::
+-- * 'code' - The code identifying the operation, for example, @enable-volume-io@ .
+-- * 'description' - A description of the operation.
+-- * 'eventId' - The ID of the event associated with this operation.
+-- * 'eventType' - The event type associated with this operation.
+mkVolumeStatusAction ::
   VolumeStatusAction
-volumeStatusAction =
+mkVolumeStatusAction =
   VolumeStatusAction'
-    { _vsaEventType = Nothing,
-      _vsaCode = Nothing,
-      _vsaDescription = Nothing,
-      _vsaEventId = Nothing
+    { eventType = Lude.Nothing,
+      code = Lude.Nothing,
+      description = Lude.Nothing,
+      eventId = Lude.Nothing
     }
 
 -- | The event type associated with this operation.
-vsaEventType :: Lens' VolumeStatusAction (Maybe Text)
-vsaEventType = lens _vsaEventType (\s a -> s {_vsaEventType = a})
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsaEventType :: Lens.Lens' VolumeStatusAction (Lude.Maybe Lude.Text)
+vsaEventType = Lens.lens (eventType :: VolumeStatusAction -> Lude.Maybe Lude.Text) (\s a -> s {eventType = a} :: VolumeStatusAction)
+{-# DEPRECATED vsaEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
 -- | The code identifying the operation, for example, @enable-volume-io@ .
-vsaCode :: Lens' VolumeStatusAction (Maybe Text)
-vsaCode = lens _vsaCode (\s a -> s {_vsaCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsaCode :: Lens.Lens' VolumeStatusAction (Lude.Maybe Lude.Text)
+vsaCode = Lens.lens (code :: VolumeStatusAction -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: VolumeStatusAction)
+{-# DEPRECATED vsaCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A description of the operation.
-vsaDescription :: Lens' VolumeStatusAction (Maybe Text)
-vsaDescription = lens _vsaDescription (\s a -> s {_vsaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsaDescription :: Lens.Lens' VolumeStatusAction (Lude.Maybe Lude.Text)
+vsaDescription = Lens.lens (description :: VolumeStatusAction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: VolumeStatusAction)
+{-# DEPRECATED vsaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the event associated with this operation.
-vsaEventId :: Lens' VolumeStatusAction (Maybe Text)
-vsaEventId = lens _vsaEventId (\s a -> s {_vsaEventId = a})
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsaEventId :: Lens.Lens' VolumeStatusAction (Lude.Maybe Lude.Text)
+vsaEventId = Lens.lens (eventId :: VolumeStatusAction -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: VolumeStatusAction)
+{-# DEPRECATED vsaEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance FromXML VolumeStatusAction where
+instance Lude.FromXML VolumeStatusAction where
   parseXML x =
     VolumeStatusAction'
-      <$> (x .@? "eventType")
-      <*> (x .@? "code")
-      <*> (x .@? "description")
-      <*> (x .@? "eventId")
-
-instance Hashable VolumeStatusAction
-
-instance NFData VolumeStatusAction
+      Lude.<$> (x Lude..@? "eventType")
+      Lude.<*> (x Lude..@? "code")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> (x Lude..@? "eventId")

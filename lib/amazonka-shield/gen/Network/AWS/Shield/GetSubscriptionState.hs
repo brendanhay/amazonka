@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,115 @@
 --
 -- Returns the @SubscriptionState@ , either @Active@ or @Inactive@ .
 module Network.AWS.Shield.GetSubscriptionState
-  ( -- * Creating a Request
-    getSubscriptionState,
-    GetSubscriptionState,
+  ( -- * Creating a request
+    GetSubscriptionState (..),
+    mkGetSubscriptionState,
 
-    -- * Destructuring the Response
-    getSubscriptionStateResponse,
-    GetSubscriptionStateResponse,
+    -- * Destructuring the response
+    GetSubscriptionStateResponse (..),
+    mkGetSubscriptionStateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gssrsResponseStatus,
     gssrsSubscriptionState,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'getSubscriptionState' smart constructor.
+-- | /See:/ 'mkGetSubscriptionState' smart constructor.
 data GetSubscriptionState = GetSubscriptionState'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionState' with the minimum fields required to make a request.
-getSubscriptionState ::
+mkGetSubscriptionState ::
   GetSubscriptionState
-getSubscriptionState = GetSubscriptionState'
+mkGetSubscriptionState = GetSubscriptionState'
 
-instance AWSRequest GetSubscriptionState where
+instance Lude.AWSRequest GetSubscriptionState where
   type Rs GetSubscriptionState = GetSubscriptionStateResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSubscriptionStateResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "SubscriptionState")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "SubscriptionState")
       )
 
-instance Hashable GetSubscriptionState
-
-instance NFData GetSubscriptionState
-
-instance ToHeaders GetSubscriptionState where
+instance Lude.ToHeaders GetSubscriptionState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.GetSubscriptionState" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.GetSubscriptionState" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSubscriptionState where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetSubscriptionState where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetSubscriptionState where
-  toPath = const "/"
+instance Lude.ToPath GetSubscriptionState where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSubscriptionState where
-  toQuery = const mempty
+instance Lude.ToQuery GetSubscriptionState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSubscriptionStateResponse' smart constructor.
+-- | /See:/ 'mkGetSubscriptionStateResponse' smart constructor.
 data GetSubscriptionStateResponse = GetSubscriptionStateResponse'
-  { _gssrsResponseStatus ::
-      !Int,
-    _gssrsSubscriptionState ::
-      !SubscriptionState
+  { responseStatus ::
+      Lude.Int,
+    subscriptionState ::
+      SubscriptionState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionStateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssrsResponseStatus' - -- | The response status code.
---
--- * 'gssrsSubscriptionState' - The status of the subscription.
-getSubscriptionStateResponse ::
-  -- | 'gssrsResponseStatus'
-  Int ->
-  -- | 'gssrsSubscriptionState'
+-- * 'responseStatus' - The response status code.
+-- * 'subscriptionState' - The status of the subscription.
+mkGetSubscriptionStateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'subscriptionState'
   SubscriptionState ->
   GetSubscriptionStateResponse
-getSubscriptionStateResponse pResponseStatus_ pSubscriptionState_ =
+mkGetSubscriptionStateResponse pResponseStatus_ pSubscriptionState_ =
   GetSubscriptionStateResponse'
-    { _gssrsResponseStatus =
-        pResponseStatus_,
-      _gssrsSubscriptionState = pSubscriptionState_
+    { responseStatus = pResponseStatus_,
+      subscriptionState = pSubscriptionState_
     }
 
--- | -- | The response status code.
-gssrsResponseStatus :: Lens' GetSubscriptionStateResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\s a -> s {_gssrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsResponseStatus :: Lens.Lens' GetSubscriptionStateResponse Lude.Int
+gssrsResponseStatus = Lens.lens (responseStatus :: GetSubscriptionStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSubscriptionStateResponse)
+{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the subscription.
-gssrsSubscriptionState :: Lens' GetSubscriptionStateResponse SubscriptionState
-gssrsSubscriptionState = lens _gssrsSubscriptionState (\s a -> s {_gssrsSubscriptionState = a})
-
-instance NFData GetSubscriptionStateResponse
+--
+-- /Note:/ Consider using 'subscriptionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsSubscriptionState :: Lens.Lens' GetSubscriptionStateResponse SubscriptionState
+gssrsSubscriptionState = Lens.lens (subscriptionState :: GetSubscriptionStateResponse -> SubscriptionState) (\s a -> s {subscriptionState = a} :: GetSubscriptionStateResponse)
+{-# DEPRECATED gssrsSubscriptionState "Use generic-lens or generic-optics with 'subscriptionState' instead." #-}

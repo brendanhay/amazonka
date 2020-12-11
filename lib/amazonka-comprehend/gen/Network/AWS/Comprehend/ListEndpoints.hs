@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Gets a list of all existing endpoints that you've created.
 module Network.AWS.Comprehend.ListEndpoints
-  ( -- * Creating a Request
-    listEndpoints,
-    ListEndpoints,
+  ( -- * Creating a request
+    ListEndpoints (..),
+    mkListEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     leNextToken,
     leFilter,
     leMaxResults,
 
-    -- * Destructuring the Response
-    listEndpointsResponse,
-    ListEndpointsResponse,
+    -- * Destructuring the response
+    ListEndpointsResponse (..),
+    mkListEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lersEndpointPropertiesList,
     lersNextToken,
     lersResponseStatus,
@@ -40,130 +35,150 @@ module Network.AWS.Comprehend.ListEndpoints
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listEndpoints' smart constructor.
+-- | /See:/ 'mkListEndpoints' smart constructor.
 data ListEndpoints = ListEndpoints'
-  { _leNextToken :: !(Maybe Text),
-    _leFilter :: !(Maybe EndpointFilter),
-    _leMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe EndpointFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leNextToken' - Identifies the next page of results to return.
---
--- * 'leFilter' - Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
---
--- * 'leMaxResults' - The maximum number of results to return in each page. The default is 100.
-listEndpoints ::
+-- * 'filter' - Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListEndpoints ::
   ListEndpoints
-listEndpoints =
+mkListEndpoints =
   ListEndpoints'
-    { _leNextToken = Nothing,
-      _leFilter = Nothing,
-      _leMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-leNextToken :: Lens' ListEndpoints (Maybe Text)
-leNextToken = lens _leNextToken (\s a -> s {_leNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Text)
+leNextToken = Lens.lens (nextToken :: ListEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpoints)
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
-leFilter :: Lens' ListEndpoints (Maybe EndpointFilter)
-leFilter = lens _leFilter (\s a -> s {_leFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leFilter :: Lens.Lens' ListEndpoints (Lude.Maybe EndpointFilter)
+leFilter = Lens.lens (filter :: ListEndpoints -> Lude.Maybe EndpointFilter) (\s a -> s {filter = a} :: ListEndpoints)
+{-# DEPRECATED leFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-leMaxResults :: Lens' ListEndpoints (Maybe Natural)
-leMaxResults = lens _leMaxResults (\s a -> s {_leMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMaxResults :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Natural)
+leMaxResults = Lens.lens (maxResults :: ListEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEndpoints)
+{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListEndpoints where
+instance Lude.AWSRequest ListEndpoints where
   type Rs ListEndpoints = ListEndpointsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            <$> (x .?> "EndpointPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EndpointPropertiesList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListEndpoints
-
-instance NFData ListEndpoints
-
-instance ToHeaders ListEndpoints where
+instance Lude.ToHeaders ListEndpoints where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListEndpoints" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.ListEndpoints" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListEndpoints where
+instance Lude.ToJSON ListEndpoints where
   toJSON ListEndpoints' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _leNextToken,
-            ("Filter" .=) <$> _leFilter,
-            ("MaxResults" .=) <$> _leMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListEndpoints where
-  toPath = const "/"
+instance Lude.ToPath ListEndpoints where
+  toPath = Lude.const "/"
 
-instance ToQuery ListEndpoints where
-  toQuery = const mempty
+instance Lude.ToQuery ListEndpoints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listEndpointsResponse' smart constructor.
+-- | /See:/ 'mkListEndpointsResponse' smart constructor.
 data ListEndpointsResponse = ListEndpointsResponse'
-  { _lersEndpointPropertiesList ::
-      !(Maybe [EndpointProperties]),
-    _lersNextToken :: !(Maybe Text),
-    _lersResponseStatus :: !Int
+  { endpointPropertiesList ::
+      Lude.Maybe [EndpointProperties],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lersEndpointPropertiesList' - Displays a list of endpoint properties being retrieved by the service in response to the request.
---
--- * 'lersNextToken' - Identifies the next page of results to return.
---
--- * 'lersResponseStatus' - -- | The response status code.
-listEndpointsResponse ::
-  -- | 'lersResponseStatus'
-  Int ->
+-- * 'endpointPropertiesList' - Displays a list of endpoint properties being retrieved by the service in response to the request.
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+mkListEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListEndpointsResponse
-listEndpointsResponse pResponseStatus_ =
+mkListEndpointsResponse pResponseStatus_ =
   ListEndpointsResponse'
-    { _lersEndpointPropertiesList = Nothing,
-      _lersNextToken = Nothing,
-      _lersResponseStatus = pResponseStatus_
+    { endpointPropertiesList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Displays a list of endpoint properties being retrieved by the service in response to the request.
-lersEndpointPropertiesList :: Lens' ListEndpointsResponse [EndpointProperties]
-lersEndpointPropertiesList = lens _lersEndpointPropertiesList (\s a -> s {_lersEndpointPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'endpointPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersEndpointPropertiesList :: Lens.Lens' ListEndpointsResponse (Lude.Maybe [EndpointProperties])
+lersEndpointPropertiesList = Lens.lens (endpointPropertiesList :: ListEndpointsResponse -> Lude.Maybe [EndpointProperties]) (\s a -> s {endpointPropertiesList = a} :: ListEndpointsResponse)
+{-# DEPRECATED lersEndpointPropertiesList "Use generic-lens or generic-optics with 'endpointPropertiesList' instead." #-}
 
 -- | Identifies the next page of results to return.
-lersNextToken :: Lens' ListEndpointsResponse (Maybe Text)
-lersNextToken = lens _lersNextToken (\s a -> s {_lersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersNextToken :: Lens.Lens' ListEndpointsResponse (Lude.Maybe Lude.Text)
+lersNextToken = Lens.lens (nextToken :: ListEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsResponse)
+{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lersResponseStatus :: Lens' ListEndpointsResponse Int
-lersResponseStatus = lens _lersResponseStatus (\s a -> s {_lersResponseStatus = a})
-
-instance NFData ListEndpointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersResponseStatus :: Lens.Lens' ListEndpointsResponse Lude.Int
+lersResponseStatus = Lens.lens (responseStatus :: ListEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointsResponse)
+{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

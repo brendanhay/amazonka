@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Runs deployment or stack commands. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.CreateDeployment
-  ( -- * Creating a Request
-    createDeployment,
-    CreateDeployment,
+  ( -- * Creating a request
+    CreateDeployment (..),
+    mkCreateDeployment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdCustomJSON,
     cdAppId,
     cdInstanceIds,
@@ -35,176 +29,205 @@ module Network.AWS.OpsWorks.CreateDeployment
     cdStackId,
     cdCommand,
 
-    -- * Destructuring the Response
-    createDeploymentResponse,
-    CreateDeploymentResponse,
+    -- * Destructuring the response
+    CreateDeploymentResponse (..),
+    mkCreateDeploymentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsDeploymentId,
     cdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDeployment' smart constructor.
+-- | /See:/ 'mkCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { _cdCustomJSON ::
-      !(Maybe Text),
-    _cdAppId :: !(Maybe Text),
-    _cdInstanceIds :: !(Maybe [Text]),
-    _cdLayerIds :: !(Maybe [Text]),
-    _cdComment :: !(Maybe Text),
-    _cdStackId :: !Text,
-    _cdCommand :: !DeploymentCommand
+  { customJSON ::
+      Lude.Maybe Lude.Text,
+    appId :: Lude.Maybe Lude.Text,
+    instanceIds :: Lude.Maybe [Lude.Text],
+    layerIds :: Lude.Maybe [Lude.Text],
+    comment :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Text,
+    command :: DeploymentCommand
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appId' - The app ID. This parameter is required for app deployments, but not for other deployment commands.
+-- * 'command' - A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
+-- * 'comment' - A user-defined comment.
+-- * 'customJSON' - A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:
 --
--- * 'cdCustomJSON' - A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
---
--- * 'cdAppId' - The app ID. This parameter is required for app deployments, but not for other deployment commands.
---
--- * 'cdInstanceIds' - The instance IDs for the deployment targets.
---
--- * 'cdLayerIds' - The layer IDs for the deployment targets.
---
--- * 'cdComment' - A user-defined comment.
---
--- * 'cdStackId' - The stack ID.
---
--- * 'cdCommand' - A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
-createDeployment ::
-  -- | 'cdStackId'
-  Text ->
-  -- | 'cdCommand'
+-- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+-- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
+-- * 'instanceIds' - The instance IDs for the deployment targets.
+-- * 'layerIds' - The layer IDs for the deployment targets.
+-- * 'stackId' - The stack ID.
+mkCreateDeployment ::
+  -- | 'stackId'
+  Lude.Text ->
+  -- | 'command'
   DeploymentCommand ->
   CreateDeployment
-createDeployment pStackId_ pCommand_ =
+mkCreateDeployment pStackId_ pCommand_ =
   CreateDeployment'
-    { _cdCustomJSON = Nothing,
-      _cdAppId = Nothing,
-      _cdInstanceIds = Nothing,
-      _cdLayerIds = Nothing,
-      _cdComment = Nothing,
-      _cdStackId = pStackId_,
-      _cdCommand = pCommand_
+    { customJSON = Lude.Nothing,
+      appId = Lude.Nothing,
+      instanceIds = Lude.Nothing,
+      layerIds = Lude.Nothing,
+      comment = Lude.Nothing,
+      stackId = pStackId_,
+      command = pCommand_
     }
 
--- | A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
-cdCustomJSON :: Lens' CreateDeployment (Maybe Text)
-cdCustomJSON = lens _cdCustomJSON (\s a -> s {_cdCustomJSON = a})
+-- | A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:
+--
+-- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+-- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
+--
+-- /Note:/ Consider using 'customJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCustomJSON :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
+cdCustomJSON = Lens.lens (customJSON :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {customJSON = a} :: CreateDeployment)
+{-# DEPRECATED cdCustomJSON "Use generic-lens or generic-optics with 'customJSON' instead." #-}
 
 -- | The app ID. This parameter is required for app deployments, but not for other deployment commands.
-cdAppId :: Lens' CreateDeployment (Maybe Text)
-cdAppId = lens _cdAppId (\s a -> s {_cdAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdAppId :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
+cdAppId = Lens.lens (appId :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: CreateDeployment)
+{-# DEPRECATED cdAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | The instance IDs for the deployment targets.
-cdInstanceIds :: Lens' CreateDeployment [Text]
-cdInstanceIds = lens _cdInstanceIds (\s a -> s {_cdInstanceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdInstanceIds :: Lens.Lens' CreateDeployment (Lude.Maybe [Lude.Text])
+cdInstanceIds = Lens.lens (instanceIds :: CreateDeployment -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: CreateDeployment)
+{-# DEPRECATED cdInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The layer IDs for the deployment targets.
-cdLayerIds :: Lens' CreateDeployment [Text]
-cdLayerIds = lens _cdLayerIds (\s a -> s {_cdLayerIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLayerIds :: Lens.Lens' CreateDeployment (Lude.Maybe [Lude.Text])
+cdLayerIds = Lens.lens (layerIds :: CreateDeployment -> Lude.Maybe [Lude.Text]) (\s a -> s {layerIds = a} :: CreateDeployment)
+{-# DEPRECATED cdLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
 -- | A user-defined comment.
-cdComment :: Lens' CreateDeployment (Maybe Text)
-cdComment = lens _cdComment (\s a -> s {_cdComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdComment :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
+cdComment = Lens.lens (comment :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CreateDeployment)
+{-# DEPRECATED cdComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The stack ID.
-cdStackId :: Lens' CreateDeployment Text
-cdStackId = lens _cdStackId (\s a -> s {_cdStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdStackId :: Lens.Lens' CreateDeployment Lude.Text
+cdStackId = Lens.lens (stackId :: CreateDeployment -> Lude.Text) (\s a -> s {stackId = a} :: CreateDeployment)
+{-# DEPRECATED cdStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
-cdCommand :: Lens' CreateDeployment DeploymentCommand
-cdCommand = lens _cdCommand (\s a -> s {_cdCommand = a})
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCommand :: Lens.Lens' CreateDeployment DeploymentCommand
+cdCommand = Lens.lens (command :: CreateDeployment -> DeploymentCommand) (\s a -> s {command = a} :: CreateDeployment)
+{-# DEPRECATED cdCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
-instance AWSRequest CreateDeployment where
+instance Lude.AWSRequest CreateDeployment where
   type Rs CreateDeployment = CreateDeploymentResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            <$> (x .?> "DeploymentId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeploymentId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDeployment
-
-instance NFData CreateDeployment
-
-instance ToHeaders CreateDeployment where
+instance Lude.ToHeaders CreateDeployment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.CreateDeployment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.CreateDeployment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDeployment where
+instance Lude.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    object
-      ( catMaybes
-          [ ("CustomJson" .=) <$> _cdCustomJSON,
-            ("AppId" .=) <$> _cdAppId,
-            ("InstanceIds" .=) <$> _cdInstanceIds,
-            ("LayerIds" .=) <$> _cdLayerIds,
-            ("Comment" .=) <$> _cdComment,
-            Just ("StackId" .= _cdStackId),
-            Just ("Command" .= _cdCommand)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CustomJson" Lude..=) Lude.<$> customJSON,
+            ("AppId" Lude..=) Lude.<$> appId,
+            ("InstanceIds" Lude..=) Lude.<$> instanceIds,
+            ("LayerIds" Lude..=) Lude.<$> layerIds,
+            ("Comment" Lude..=) Lude.<$> comment,
+            Lude.Just ("StackId" Lude..= stackId),
+            Lude.Just ("Command" Lude..= command)
           ]
       )
 
-instance ToPath CreateDeployment where
-  toPath = const "/"
+instance Lude.ToPath CreateDeployment where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDeployment where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDeployment where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @CreateDeployment@ request.
 --
---
---
--- /See:/ 'createDeploymentResponse' smart constructor.
+-- /See:/ 'mkCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { _cdrsDeploymentId ::
-      !(Maybe Text),
-    _cdrsResponseStatus :: !Int
+  { deploymentId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsDeploymentId' - The deployment ID, which can be used with other requests to identify the deployment.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDeploymentResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'deploymentId' - The deployment ID, which can be used with other requests to identify the deployment.
+-- * 'responseStatus' - The response status code.
+mkCreateDeploymentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDeploymentResponse
-createDeploymentResponse pResponseStatus_ =
+mkCreateDeploymentResponse pResponseStatus_ =
   CreateDeploymentResponse'
-    { _cdrsDeploymentId = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { deploymentId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The deployment ID, which can be used with other requests to identify the deployment.
-cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrsDeploymentId = lens _cdrsDeploymentId (\s a -> s {_cdrsDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsDeploymentId :: Lens.Lens' CreateDeploymentResponse (Lude.Maybe Lude.Text)
+cdrsDeploymentId = Lens.lens (deploymentId :: CreateDeploymentResponse -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: CreateDeploymentResponse)
+{-# DEPRECATED cdrsDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData CreateDeploymentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDeploymentResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDeploymentResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

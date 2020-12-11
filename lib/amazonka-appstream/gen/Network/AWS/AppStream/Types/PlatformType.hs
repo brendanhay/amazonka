@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.PlatformType where
+module Network.AWS.AppStream.Types.PlatformType
+  ( PlatformType
+      ( PlatformType',
+        Windows,
+        WindowsServer2016,
+        WindowsServer2019
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlatformType
-  = Windows
-  | WindowsServer2016
-  | WindowsServer2019
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlatformType = PlatformType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlatformType where
-  parser =
-    takeLowerText >>= \case
-      "windows" -> pure Windows
-      "windows_server_2016" -> pure WindowsServer2016
-      "windows_server_2019" -> pure WindowsServer2019
-      e ->
-        fromTextError $
-          "Failure parsing PlatformType from value: '" <> e
-            <> "'. Accepted values: windows, windows_server_2016, windows_server_2019"
+pattern Windows :: PlatformType
+pattern Windows = PlatformType' "WINDOWS"
 
-instance ToText PlatformType where
-  toText = \case
-    Windows -> "WINDOWS"
-    WindowsServer2016 -> "WINDOWS_SERVER_2016"
-    WindowsServer2019 -> "WINDOWS_SERVER_2019"
+pattern WindowsServer2016 :: PlatformType
+pattern WindowsServer2016 = PlatformType' "WINDOWS_SERVER_2016"
 
-instance Hashable PlatformType
+pattern WindowsServer2019 :: PlatformType
+pattern WindowsServer2019 = PlatformType' "WINDOWS_SERVER_2019"
 
-instance NFData PlatformType
-
-instance ToByteString PlatformType
-
-instance ToQuery PlatformType
-
-instance ToHeader PlatformType
-
-instance FromJSON PlatformType where
-  parseJSON = parseJSONText "PlatformType"
+{-# COMPLETE
+  Windows,
+  WindowsServer2016,
+  WindowsServer2019,
+  PlatformType'
+  #-}

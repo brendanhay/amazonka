@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,105 @@
 --
 -- Gets a registration code used to register a CA certificate with AWS IoT.
 module Network.AWS.IoT.GetRegistrationCode
-  ( -- * Creating a Request
-    getRegistrationCode,
-    GetRegistrationCode,
+  ( -- * Creating a request
+    GetRegistrationCode (..),
+    mkGetRegistrationCode,
 
-    -- * Destructuring the Response
-    getRegistrationCodeResponse,
-    GetRegistrationCodeResponse,
+    -- * Destructuring the response
+    GetRegistrationCodeResponse (..),
+    mkGetRegistrationCodeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grcrsRegistrationCode,
     grcrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input to the GetRegistrationCode operation.
 --
---
---
--- /See:/ 'getRegistrationCode' smart constructor.
+-- /See:/ 'mkGetRegistrationCode' smart constructor.
 data GetRegistrationCode = GetRegistrationCode'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistrationCode' with the minimum fields required to make a request.
-getRegistrationCode ::
+mkGetRegistrationCode ::
   GetRegistrationCode
-getRegistrationCode = GetRegistrationCode'
+mkGetRegistrationCode = GetRegistrationCode'
 
-instance AWSRequest GetRegistrationCode where
+instance Lude.AWSRequest GetRegistrationCode where
   type Rs GetRegistrationCode = GetRegistrationCodeResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRegistrationCodeResponse'
-            <$> (x .?> "registrationCode") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "registrationCode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRegistrationCode
+instance Lude.ToHeaders GetRegistrationCode where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetRegistrationCode
+instance Lude.ToPath GetRegistrationCode where
+  toPath = Lude.const "/registrationcode"
 
-instance ToHeaders GetRegistrationCode where
-  toHeaders = const mempty
-
-instance ToPath GetRegistrationCode where
-  toPath = const "/registrationcode"
-
-instance ToQuery GetRegistrationCode where
-  toQuery = const mempty
+instance Lude.ToQuery GetRegistrationCode where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the GetRegistrationCode operation.
 --
---
---
--- /See:/ 'getRegistrationCodeResponse' smart constructor.
+-- /See:/ 'mkGetRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
-  { _grcrsRegistrationCode ::
-      !(Maybe Text),
-    _grcrsResponseStatus :: !Int
+  { registrationCode ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistrationCodeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grcrsRegistrationCode' - The CA certificate registration code.
---
--- * 'grcrsResponseStatus' - -- | The response status code.
-getRegistrationCodeResponse ::
-  -- | 'grcrsResponseStatus'
-  Int ->
+-- * 'registrationCode' - The CA certificate registration code.
+-- * 'responseStatus' - The response status code.
+mkGetRegistrationCodeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRegistrationCodeResponse
-getRegistrationCodeResponse pResponseStatus_ =
+mkGetRegistrationCodeResponse pResponseStatus_ =
   GetRegistrationCodeResponse'
-    { _grcrsRegistrationCode = Nothing,
-      _grcrsResponseStatus = pResponseStatus_
+    { registrationCode = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The CA certificate registration code.
-grcrsRegistrationCode :: Lens' GetRegistrationCodeResponse (Maybe Text)
-grcrsRegistrationCode = lens _grcrsRegistrationCode (\s a -> s {_grcrsRegistrationCode = a})
+--
+-- /Note:/ Consider using 'registrationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsRegistrationCode :: Lens.Lens' GetRegistrationCodeResponse (Lude.Maybe Lude.Text)
+grcrsRegistrationCode = Lens.lens (registrationCode :: GetRegistrationCodeResponse -> Lude.Maybe Lude.Text) (\s a -> s {registrationCode = a} :: GetRegistrationCodeResponse)
+{-# DEPRECATED grcrsRegistrationCode "Use generic-lens or generic-optics with 'registrationCode' instead." #-}
 
--- | -- | The response status code.
-grcrsResponseStatus :: Lens' GetRegistrationCodeResponse Int
-grcrsResponseStatus = lens _grcrsResponseStatus (\s a -> s {_grcrsResponseStatus = a})
-
-instance NFData GetRegistrationCodeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsResponseStatus :: Lens.Lens' GetRegistrationCodeResponse Lude.Int
+grcrsResponseStatus = Lens.lens (responseStatus :: GetRegistrationCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRegistrationCodeResponse)
+{-# DEPRECATED grcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

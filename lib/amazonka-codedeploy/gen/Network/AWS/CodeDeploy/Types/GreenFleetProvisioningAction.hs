@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction where
+module Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
+  ( GreenFleetProvisioningAction
+      ( GreenFleetProvisioningAction',
+        CopyAutoScalingGroup,
+        DiscoverExisting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GreenFleetProvisioningAction
-  = CopyAutoScalingGroup
-  | DiscoverExisting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GreenFleetProvisioningAction = GreenFleetProvisioningAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GreenFleetProvisioningAction where
-  parser =
-    takeLowerText >>= \case
-      "copy_auto_scaling_group" -> pure CopyAutoScalingGroup
-      "discover_existing" -> pure DiscoverExisting
-      e ->
-        fromTextError $
-          "Failure parsing GreenFleetProvisioningAction from value: '" <> e
-            <> "'. Accepted values: copy_auto_scaling_group, discover_existing"
+pattern CopyAutoScalingGroup :: GreenFleetProvisioningAction
+pattern CopyAutoScalingGroup = GreenFleetProvisioningAction' "COPY_AUTO_SCALING_GROUP"
 
-instance ToText GreenFleetProvisioningAction where
-  toText = \case
-    CopyAutoScalingGroup -> "COPY_AUTO_SCALING_GROUP"
-    DiscoverExisting -> "DISCOVER_EXISTING"
+pattern DiscoverExisting :: GreenFleetProvisioningAction
+pattern DiscoverExisting = GreenFleetProvisioningAction' "DISCOVER_EXISTING"
 
-instance Hashable GreenFleetProvisioningAction
-
-instance NFData GreenFleetProvisioningAction
-
-instance ToByteString GreenFleetProvisioningAction
-
-instance ToQuery GreenFleetProvisioningAction
-
-instance ToHeader GreenFleetProvisioningAction
-
-instance ToJSON GreenFleetProvisioningAction where
-  toJSON = toJSONText
-
-instance FromJSON GreenFleetProvisioningAction where
-  parseJSON = parseJSONText "GreenFleetProvisioningAction"
+{-# COMPLETE
+  CopyAutoScalingGroup,
+  DiscoverExisting,
+  GreenFleetProvisioningAction'
+  #-}

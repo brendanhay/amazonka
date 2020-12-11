@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describes a user profile. For more information, see @CreateUserProfile@ .
 module Network.AWS.SageMaker.DescribeUserProfile
-  ( -- * Creating a Request
-    describeUserProfile,
-    DescribeUserProfile,
+  ( -- * Creating a request
+    DescribeUserProfile (..),
+    mkDescribeUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupDomainId,
     dupUserProfileName,
 
-    -- * Destructuring the Response
-    describeUserProfileResponse,
-    DescribeUserProfileResponse,
+    -- * Destructuring the response
+    DescribeUserProfileResponse (..),
+    mkDescribeUserProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     duprsCreationTime,
     duprsUserSettings,
     duprsStatus,
@@ -47,216 +42,252 @@ module Network.AWS.SageMaker.DescribeUserProfile
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeUserProfile' smart constructor.
+-- | /See:/ 'mkDescribeUserProfile' smart constructor.
 data DescribeUserProfile = DescribeUserProfile'
-  { _dupDomainId ::
-      !Text,
-    _dupUserProfileName :: !Text
+  { domainId ::
+      Lude.Text,
+    userProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupDomainId' - The domain ID.
---
--- * 'dupUserProfileName' - The user profile name.
-describeUserProfile ::
-  -- | 'dupDomainId'
-  Text ->
-  -- | 'dupUserProfileName'
-  Text ->
+-- * 'domainId' - The domain ID.
+-- * 'userProfileName' - The user profile name.
+mkDescribeUserProfile ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
   DescribeUserProfile
-describeUserProfile pDomainId_ pUserProfileName_ =
+mkDescribeUserProfile pDomainId_ pUserProfileName_ =
   DescribeUserProfile'
-    { _dupDomainId = pDomainId_,
-      _dupUserProfileName = pUserProfileName_
+    { domainId = pDomainId_,
+      userProfileName = pUserProfileName_
     }
 
 -- | The domain ID.
-dupDomainId :: Lens' DescribeUserProfile Text
-dupDomainId = lens _dupDomainId (\s a -> s {_dupDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupDomainId :: Lens.Lens' DescribeUserProfile Lude.Text
+dupDomainId = Lens.lens (domainId :: DescribeUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DescribeUserProfile)
+{-# DEPRECATED dupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
-dupUserProfileName :: Lens' DescribeUserProfile Text
-dupUserProfileName = lens _dupUserProfileName (\s a -> s {_dupUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupUserProfileName :: Lens.Lens' DescribeUserProfile Lude.Text
+dupUserProfileName = Lens.lens (userProfileName :: DescribeUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DescribeUserProfile)
+{-# DEPRECATED dupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
-instance AWSRequest DescribeUserProfile where
+instance Lude.AWSRequest DescribeUserProfile where
   type Rs DescribeUserProfile = DescribeUserProfileResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "UserSettings")
-            <*> (x .?> "Status")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "SingleSignOnUserValue")
-            <*> (x .?> "UserProfileName")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "HomeEfsFileSystemUid")
-            <*> (x .?> "UserProfileArn")
-            <*> (x .?> "SingleSignOnUserIdentifier")
-            <*> (x .?> "DomainId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "UserSettings")
+            Lude.<*> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "SingleSignOnUserValue")
+            Lude.<*> (x Lude..?> "UserProfileName")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "HomeEfsFileSystemUid")
+            Lude.<*> (x Lude..?> "UserProfileArn")
+            Lude.<*> (x Lude..?> "SingleSignOnUserIdentifier")
+            Lude.<*> (x Lude..?> "DomainId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUserProfile
-
-instance NFData DescribeUserProfile
-
-instance ToHeaders DescribeUserProfile where
+instance Lude.ToHeaders DescribeUserProfile where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUserProfile where
+instance Lude.ToJSON DescribeUserProfile where
   toJSON DescribeUserProfile' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainId" .= _dupDomainId),
-            Just ("UserProfileName" .= _dupUserProfileName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName)
           ]
       )
 
-instance ToPath DescribeUserProfile where
-  toPath = const "/"
+instance Lude.ToPath DescribeUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeUserProfileResponse' smart constructor.
+-- | /See:/ 'mkDescribeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { _duprsCreationTime ::
-      !(Maybe POSIX),
-    _duprsUserSettings ::
-      !(Maybe UserSettings),
-    _duprsStatus ::
-      !(Maybe UserProfileStatus),
-    _duprsFailureReason ::
-      !(Maybe Text),
-    _duprsSingleSignOnUserValue ::
-      !(Maybe Text),
-    _duprsUserProfileName ::
-      !(Maybe Text),
-    _duprsLastModifiedTime ::
-      !(Maybe POSIX),
-    _duprsHomeEfsFileSystemUid ::
-      !(Maybe Text),
-    _duprsUserProfileARN ::
-      !(Maybe Text),
-    _duprsSingleSignOnUserIdentifier ::
-      !(Maybe Text),
-    _duprsDomainId :: !(Maybe Text),
-    _duprsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    userSettings ::
+      Lude.Maybe UserSettings,
+    status ::
+      Lude.Maybe UserProfileStatus,
+    failureReason ::
+      Lude.Maybe Lude.Text,
+    singleSignOnUserValue ::
+      Lude.Maybe Lude.Text,
+    userProfileName ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    homeEfsFileSystemUid ::
+      Lude.Maybe Lude.Text,
+    userProfileARN ::
+      Lude.Maybe Lude.Text,
+    singleSignOnUserIdentifier ::
+      Lude.Maybe Lude.Text,
+    domainId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duprsCreationTime' - The creation time.
---
--- * 'duprsUserSettings' - A collection of settings.
---
--- * 'duprsStatus' - The status.
---
--- * 'duprsFailureReason' - The failure reason.
---
--- * 'duprsSingleSignOnUserValue' - The SSO user value.
---
--- * 'duprsUserProfileName' - The user profile name.
---
--- * 'duprsLastModifiedTime' - The last modified time.
---
--- * 'duprsHomeEfsFileSystemUid' - The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
---
--- * 'duprsUserProfileARN' - The user profile Amazon Resource Name (ARN).
---
--- * 'duprsSingleSignOnUserIdentifier' - The SSO user identifier.
---
--- * 'duprsDomainId' - The ID of the domain that contains the profile.
---
--- * 'duprsResponseStatus' - -- | The response status code.
-describeUserProfileResponse ::
-  -- | 'duprsResponseStatus'
-  Int ->
+-- * 'creationTime' - The creation time.
+-- * 'domainId' - The ID of the domain that contains the profile.
+-- * 'failureReason' - The failure reason.
+-- * 'homeEfsFileSystemUid' - The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'responseStatus' - The response status code.
+-- * 'singleSignOnUserIdentifier' - The SSO user identifier.
+-- * 'singleSignOnUserValue' - The SSO user value.
+-- * 'status' - The status.
+-- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
+-- * 'userProfileName' - The user profile name.
+-- * 'userSettings' - A collection of settings.
+mkDescribeUserProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUserProfileResponse
-describeUserProfileResponse pResponseStatus_ =
+mkDescribeUserProfileResponse pResponseStatus_ =
   DescribeUserProfileResponse'
-    { _duprsCreationTime = Nothing,
-      _duprsUserSettings = Nothing,
-      _duprsStatus = Nothing,
-      _duprsFailureReason = Nothing,
-      _duprsSingleSignOnUserValue = Nothing,
-      _duprsUserProfileName = Nothing,
-      _duprsLastModifiedTime = Nothing,
-      _duprsHomeEfsFileSystemUid = Nothing,
-      _duprsUserProfileARN = Nothing,
-      _duprsSingleSignOnUserIdentifier = Nothing,
-      _duprsDomainId = Nothing,
-      _duprsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      userSettings = Lude.Nothing,
+      status = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      singleSignOnUserValue = Lude.Nothing,
+      userProfileName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      homeEfsFileSystemUid = Lude.Nothing,
+      userProfileARN = Lude.Nothing,
+      singleSignOnUserIdentifier = Lude.Nothing,
+      domainId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The creation time.
-duprsCreationTime :: Lens' DescribeUserProfileResponse (Maybe UTCTime)
-duprsCreationTime = lens _duprsCreationTime (\s a -> s {_duprsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsCreationTime :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Timestamp)
+duprsCreationTime = Lens.lens (creationTime :: DescribeUserProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A collection of settings.
-duprsUserSettings :: Lens' DescribeUserProfileResponse (Maybe UserSettings)
-duprsUserSettings = lens _duprsUserSettings (\s a -> s {_duprsUserSettings = a})
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsUserSettings :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe UserSettings)
+duprsUserSettings = Lens.lens (userSettings :: DescribeUserProfileResponse -> Lude.Maybe UserSettings) (\s a -> s {userSettings = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
 
 -- | The status.
-duprsStatus :: Lens' DescribeUserProfileResponse (Maybe UserProfileStatus)
-duprsStatus = lens _duprsStatus (\s a -> s {_duprsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsStatus :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe UserProfileStatus)
+duprsStatus = Lens.lens (status :: DescribeUserProfileResponse -> Lude.Maybe UserProfileStatus) (\s a -> s {status = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The failure reason.
-duprsFailureReason :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsFailureReason = lens _duprsFailureReason (\s a -> s {_duprsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsFailureReason :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsFailureReason = Lens.lens (failureReason :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The SSO user value.
-duprsSingleSignOnUserValue :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsSingleSignOnUserValue = lens _duprsSingleSignOnUserValue (\s a -> s {_duprsSingleSignOnUserValue = a})
+--
+-- /Note:/ Consider using 'singleSignOnUserValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsSingleSignOnUserValue :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsSingleSignOnUserValue = Lens.lens (singleSignOnUserValue :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {singleSignOnUserValue = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsSingleSignOnUserValue "Use generic-lens or generic-optics with 'singleSignOnUserValue' instead." #-}
 
 -- | The user profile name.
-duprsUserProfileName :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsUserProfileName = lens _duprsUserProfileName (\s a -> s {_duprsUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsUserProfileName :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsUserProfileName = Lens.lens (userProfileName :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileName = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The last modified time.
-duprsLastModifiedTime :: Lens' DescribeUserProfileResponse (Maybe UTCTime)
-duprsLastModifiedTime = lens _duprsLastModifiedTime (\s a -> s {_duprsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsLastModifiedTime :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Timestamp)
+duprsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeUserProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-duprsHomeEfsFileSystemUid :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsHomeEfsFileSystemUid = lens _duprsHomeEfsFileSystemUid (\s a -> s {_duprsHomeEfsFileSystemUid = a})
+--
+-- /Note:/ Consider using 'homeEfsFileSystemUid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsHomeEfsFileSystemUid :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsHomeEfsFileSystemUid = Lens.lens (homeEfsFileSystemUid :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {homeEfsFileSystemUid = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsHomeEfsFileSystemUid "Use generic-lens or generic-optics with 'homeEfsFileSystemUid' instead." #-}
 
 -- | The user profile Amazon Resource Name (ARN).
-duprsUserProfileARN :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsUserProfileARN = lens _duprsUserProfileARN (\s a -> s {_duprsUserProfileARN = a})
+--
+-- /Note:/ Consider using 'userProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsUserProfileARN :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsUserProfileARN = Lens.lens (userProfileARN :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileARN = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsUserProfileARN "Use generic-lens or generic-optics with 'userProfileARN' instead." #-}
 
 -- | The SSO user identifier.
-duprsSingleSignOnUserIdentifier :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsSingleSignOnUserIdentifier = lens _duprsSingleSignOnUserIdentifier (\s a -> s {_duprsSingleSignOnUserIdentifier = a})
+--
+-- /Note:/ Consider using 'singleSignOnUserIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsSingleSignOnUserIdentifier :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsSingleSignOnUserIdentifier = Lens.lens (singleSignOnUserIdentifier :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {singleSignOnUserIdentifier = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsSingleSignOnUserIdentifier "Use generic-lens or generic-optics with 'singleSignOnUserIdentifier' instead." #-}
 
 -- | The ID of the domain that contains the profile.
-duprsDomainId :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsDomainId = lens _duprsDomainId (\s a -> s {_duprsDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsDomainId :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
+duprsDomainId = Lens.lens (domainId :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
--- | -- | The response status code.
-duprsResponseStatus :: Lens' DescribeUserProfileResponse Int
-duprsResponseStatus = lens _duprsResponseStatus (\s a -> s {_duprsResponseStatus = a})
-
-instance NFData DescribeUserProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprsResponseStatus :: Lens.Lens' DescribeUserProfileResponse Lude.Int
+duprsResponseStatus = Lens.lens (responseStatus :: DescribeUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserProfileResponse)
+{-# DEPRECATED duprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

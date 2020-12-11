@@ -28,727 +28,727 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetResource $
---             getResource
+--             mkGetResource
 --
 --         , requestGetDeployments $
---             getDeployments
+--             mkGetDeployments
 --
 --         , requestGetDeployment $
---             getDeployment
+--             mkGetDeployment
 --
 --         , requestGetTags $
---             getTags
+--             mkGetTags
 --
 --         , requestDeleteGatewayResponse $
---             deleteGatewayResponse
+--             mkDeleteGatewayResponse
 --
 --         , requestUpdateGatewayResponse $
---             updateGatewayResponse
+--             mkUpdateGatewayResponse
 --
 --         , requestCreateUsagePlan $
---             createUsagePlan
+--             mkCreateUsagePlan
 --
 --         , requestGetDomainNames $
---             getDomainNames
+--             mkGetDomainNames
 --
 --         , requestGetClientCertificate $
---             getClientCertificate
+--             mkGetClientCertificate
 --
 --         , requestPutGatewayResponse $
---             putGatewayResponse
+--             mkPutGatewayResponse
 --
 --         , requestGetSDKType $
---             getSDKType
+--             mkGetSDKType
 --
 --         , requestGetMethodResponse $
---             getMethodResponse
+--             mkGetMethodResponse
 --
 --         , requestGetModels $
---             getModels
+--             mkGetModels
 --
 --         , requestGetBasePathMapping $
---             getBasePathMapping
+--             mkGetBasePathMapping
 --
 --         , requestGetRequestValidators $
---             getRequestValidators
+--             mkGetRequestValidators
 --
 --         , requestPutMethodResponse $
---             putMethodResponse
+--             mkPutMethodResponse
 --
 --         , requestImportRestAPI $
---             importRestAPI
+--             mkImportRestAPI
 --
 --         , requestDeleteMethodResponse $
---             deleteMethodResponse
+--             mkDeleteMethodResponse
 --
 --         , requestUpdateMethodResponse $
---             updateMethodResponse
+--             mkUpdateMethodResponse
 --
 --         , requestDeleteStage $
---             deleteStage
+--             mkDeleteStage
 --
 --         , requestUpdateStage $
---             updateStage
+--             mkUpdateStage
 --
 --         , requestGetRestAPIs $
---             getRestAPIs
+--             mkGetRestAPIs
 --
 --         , requestGetDocumentationVersions $
---             getDocumentationVersions
+--             mkGetDocumentationVersions
 --
 --         , requestCreateDeployment $
---             createDeployment
+--             mkCreateDeployment
 --
 --         , requestGetVPCLinks $
---             getVPCLinks
+--             mkGetVPCLinks
 --
 --         , requestCreateBasePathMapping $
---             createBasePathMapping
+--             mkCreateBasePathMapping
 --
 --         , requestGetIntegration $
---             getIntegration
+--             mkGetIntegration
 --
 --         , requestGetDocumentationParts $
---             getDocumentationParts
+--             mkGetDocumentationParts
 --
 --         , requestUpdateAccount $
---             updateAccount
+--             mkUpdateAccount
 --
 --         , requestGetUsagePlan $
---             getUsagePlan
+--             mkGetUsagePlan
 --
 --         , requestDeleteDeployment $
---             deleteDeployment
+--             mkDeleteDeployment
 --
 --         , requestUpdateDeployment $
---             updateDeployment
+--             mkUpdateDeployment
 --
 --         , requestGetDocumentationPart $
---             getDocumentationPart
+--             mkGetDocumentationPart
 --
 --         , requestDeleteResource $
---             deleteResource
+--             mkDeleteResource
 --
 --         , requestUpdateResource $
---             updateResource
+--             mkUpdateResource
 --
 --         , requestCreateRequestValidator $
---             createRequestValidator
+--             mkCreateRequestValidator
 --
 --         , requestImportDocumentationParts $
---             importDocumentationParts
+--             mkImportDocumentationParts
 --
 --         , requestGetUsage $
---             getUsage
+--             mkGetUsage
 --
 --         , requestGetVPCLink $
---             getVPCLink
+--             mkGetVPCLink
 --
 --         , requestCreateModel $
---             createModel
+--             mkCreateModel
 --
 --         , requestGetIntegrationResponse $
---             getIntegrationResponse
+--             mkGetIntegrationResponse
 --
 --         , requestCreateDomainName $
---             createDomainName
+--             mkCreateDomainName
 --
 --         , requestFlushStageAuthorizersCache $
---             flushStageAuthorizersCache
+--             mkFlushStageAuthorizersCache
 --
 --         , requestGetGatewayResponses $
---             getGatewayResponses
+--             mkGetGatewayResponses
 --
 --         , requestDeleteModel $
---             deleteModel
+--             mkDeleteModel
 --
 --         , requestUpdateModel $
---             updateModel
+--             mkUpdateModel
 --
 --         , requestGetDocumentationVersion $
---             getDocumentationVersion
+--             mkGetDocumentationVersion
 --
 --         , requestDeleteAPIKey $
---             deleteAPIKey
+--             mkDeleteAPIKey
 --
 --         , requestUpdateAPIKey $
---             updateAPIKey
+--             mkUpdateAPIKey
 --
 --         , requestGetRestAPI $
---             getRestAPI
+--             mkGetRestAPI
 --
 --         , requestGetStages $
---             getStages
+--             mkGetStages
 --
 --         , requestPutRestAPI $
---             putRestAPI
+--             mkPutRestAPI
 --
 --         , requestGetMethod $
---             getMethod
+--             mkGetMethod
 --
 --         , requestGetModel $
---             getModel
+--             mkGetModel
 --
 --         , requestUpdateRestAPI $
---             updateRestAPI
+--             mkUpdateRestAPI
 --
 --         , requestDeleteRestAPI $
---             deleteRestAPI
+--             mkDeleteRestAPI
 --
 --         , requestImportAPIKeys $
---             importAPIKeys
+--             mkImportAPIKeys
 --
 --         , requestCreateDocumentationPart $
---             createDocumentationPart
+--             mkCreateDocumentationPart
 --
 --         , requestTestInvokeMethod $
---             testInvokeMethod
+--             mkTestInvokeMethod
 --
 --         , requestGetRequestValidator $
---             getRequestValidator
+--             mkGetRequestValidator
 --
 --         , requestGetDomainName $
---             getDomainName
+--             mkGetDomainName
 --
 --         , requestCreateVPCLink $
---             createVPCLink
+--             mkCreateVPCLink
 --
 --         , requestDeleteDocumentationPart $
---             deleteDocumentationPart
+--             mkDeleteDocumentationPart
 --
 --         , requestUpdateDocumentationPart $
---             updateDocumentationPart
+--             mkUpdateDocumentationPart
 --
 --         , requestGetAuthorizers $
---             getAuthorizers
+--             mkGetAuthorizers
 --
 --         , requestCreateDocumentationVersion $
---             createDocumentationVersion
+--             mkCreateDocumentationVersion
 --
 --         , requestPutIntegrationResponse $
---             putIntegrationResponse
+--             mkPutIntegrationResponse
 --
 --         , requestGetUsagePlanKeys $
---             getUsagePlanKeys
+--             mkGetUsagePlanKeys
 --
 --         , requestDeleteVPCLink $
---             deleteVPCLink
+--             mkDeleteVPCLink
 --
 --         , requestUpdateVPCLink $
---             updateVPCLink
+--             mkUpdateVPCLink
 --
 --         , requestFlushStageCache $
---             flushStageCache
+--             mkFlushStageCache
 --
 --         , requestCreateRestAPI $
---             createRestAPI
+--             mkCreateRestAPI
 --
 --         , requestDeleteIntegrationResponse $
---             deleteIntegrationResponse
+--             mkDeleteIntegrationResponse
 --
 --         , requestUpdateIntegrationResponse $
---             updateIntegrationResponse
+--             mkUpdateIntegrationResponse
 --
 --         , requestUpdateUsage $
---             updateUsage
+--             mkUpdateUsage
 --
 --         , requestDeleteIntegration $
---             deleteIntegration
+--             mkDeleteIntegration
 --
 --         , requestUpdateIntegration $
---             updateIntegration
+--             mkUpdateIntegration
 --
 --         , requestTestInvokeAuthorizer $
---             testInvokeAuthorizer
+--             mkTestInvokeAuthorizer
 --
 --         , requestGenerateClientCertificate $
---             generateClientCertificate
+--             mkGenerateClientCertificate
 --
 --         , requestGetResources $
---             getResources
+--             mkGetResources
 --
 --         , requestGetUsagePlanKey $
---             getUsagePlanKey
+--             mkGetUsagePlanKey
 --
 --         , requestGetAccount $
---             getAccount
+--             mkGetAccount
 --
 --         , requestPutIntegration $
---             putIntegration
+--             mkPutIntegration
 --
 --         , requestGetAuthorizer $
---             getAuthorizer
+--             mkGetAuthorizer
 --
 --         , requestDeleteUsagePlan $
---             deleteUsagePlan
+--             mkDeleteUsagePlan
 --
 --         , requestUpdateUsagePlan $
---             updateUsagePlan
+--             mkUpdateUsagePlan
 --
 --         , requestGetStage $
---             getStage
+--             mkGetStage
 --
 --         , requestGetExport $
---             getExport
+--             mkGetExport
 --
 --         , requestGetSDK $
---             getSDK
+--             mkGetSDK
 --
 --         , requestGetAPIKeys $
---             getAPIKeys
+--             mkGetAPIKeys
 --
 --         , requestDeleteBasePathMapping $
---             deleteBasePathMapping
+--             mkDeleteBasePathMapping
 --
 --         , requestUpdateBasePathMapping $
---             updateBasePathMapping
+--             mkUpdateBasePathMapping
 --
 --         , requestDeleteClientCertificate $
---             deleteClientCertificate
+--             mkDeleteClientCertificate
 --
 --         , requestUpdateClientCertificate $
---             updateClientCertificate
+--             mkUpdateClientCertificate
 --
 --         , requestGetGatewayResponse $
---             getGatewayResponse
+--             mkGetGatewayResponse
 --
 --         , requestCreateUsagePlanKey $
---             createUsagePlanKey
+--             mkCreateUsagePlanKey
 --
 --         , requestCreateAuthorizer $
---             createAuthorizer
+--             mkCreateAuthorizer
 --
 --         , requestUpdateAuthorizer $
---             updateAuthorizer
+--             mkUpdateAuthorizer
 --
 --         , requestDeleteAuthorizer $
---             deleteAuthorizer
+--             mkDeleteAuthorizer
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestCreateStage $
---             createStage
+--             mkCreateStage
 --
 --         , requestDeleteUsagePlanKey $
---             deleteUsagePlanKey
+--             mkDeleteUsagePlanKey
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestCreateAPIKey $
---             createAPIKey
+--             mkCreateAPIKey
 --
 --         , requestGetUsagePlans $
---             getUsagePlans
+--             mkGetUsagePlans
 --
 --         , requestPutMethod $
---             putMethod
+--             mkPutMethod
 --
 --         , requestUpdateDomainName $
---             updateDomainName
+--             mkUpdateDomainName
 --
 --         , requestDeleteDomainName $
---             deleteDomainName
+--             mkDeleteDomainName
 --
 --         , requestCreateResource $
---             createResource
+--             mkCreateResource
 --
 --         , requestDeleteMethod $
---             deleteMethod
+--             mkDeleteMethod
 --
 --         , requestUpdateMethod $
---             updateMethod
+--             mkUpdateMethod
 --
 --         , requestUpdateRequestValidator $
---             updateRequestValidator
+--             mkUpdateRequestValidator
 --
 --         , requestDeleteRequestValidator $
---             deleteRequestValidator
+--             mkDeleteRequestValidator
 --
 --         , requestGetSDKTypes $
---             getSDKTypes
+--             mkGetSDKTypes
 --
 --         , requestGetClientCertificates $
---             getClientCertificates
+--             mkGetClientCertificates
 --
 --         , requestGetModelTemplate $
---             getModelTemplate
+--             mkGetModelTemplate
 --
 --         , requestUpdateDocumentationVersion $
---             updateDocumentationVersion
+--             mkUpdateDocumentationVersion
 --
 --         , requestDeleteDocumentationVersion $
---             deleteDocumentationVersion
+--             mkDeleteDocumentationVersion
 --
 --         , requestGetBasePathMappings $
---             getBasePathMappings
+--             mkGetBasePathMappings
 --
 --         , requestGetAPIKey $
---             getAPIKey
+--             mkGetAPIKey
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetResource $
---             resource
+--             mkResource
 --
 --         , responseGetDeployments $
---             getDeploymentsResponse
+--             mkGetDeploymentsResponse
 --
 --         , responseGetDeployment $
---             deployment
+--             mkDeployment
 --
 --         , responseGetTags $
---             getTagsResponse
+--             mkGetTagsResponse
 --
 --         , responseDeleteGatewayResponse $
---             deleteGatewayResponseResponse
+--             mkDeleteGatewayResponseResponse
 --
 --         , responseUpdateGatewayResponse $
---             gatewayResponse
+--             mkGatewayResponse
 --
 --         , responseCreateUsagePlan $
---             usagePlan
+--             mkUsagePlan
 --
 --         , responseGetDomainNames $
---             getDomainNamesResponse
+--             mkGetDomainNamesResponse
 --
 --         , responseGetClientCertificate $
---             clientCertificate
+--             mkClientCertificate
 --
 --         , responsePutGatewayResponse $
---             gatewayResponse
+--             mkGatewayResponse
 --
 --         , responseGetSDKType $
---             sdkType
+--             mkSDKType
 --
 --         , responseGetMethodResponse $
---             methodResponse
+--             mkMethodResponse
 --
 --         , responseGetModels $
---             getModelsResponse
+--             mkGetModelsResponse
 --
 --         , responseGetBasePathMapping $
---             basePathMapping
+--             mkBasePathMapping
 --
 --         , responseGetRequestValidators $
---             getRequestValidatorsResponse
+--             mkGetRequestValidatorsResponse
 --
 --         , responsePutMethodResponse $
---             methodResponse
+--             mkMethodResponse
 --
 --         , responseImportRestAPI $
---             restAPI
+--             mkRestAPI
 --
 --         , responseDeleteMethodResponse $
---             deleteMethodResponseResponse
+--             mkDeleteMethodResponseResponse
 --
 --         , responseUpdateMethodResponse $
---             methodResponse
+--             mkMethodResponse
 --
 --         , responseDeleteStage $
---             deleteStageResponse
+--             mkDeleteStageResponse
 --
 --         , responseUpdateStage $
---             stage
+--             mkStage
 --
 --         , responseGetRestAPIs $
---             getRestAPIsResponse
+--             mkGetRestAPIsResponse
 --
 --         , responseGetDocumentationVersions $
---             getDocumentationVersionsResponse
+--             mkGetDocumentationVersionsResponse
 --
 --         , responseCreateDeployment $
---             deployment
+--             mkDeployment
 --
 --         , responseGetVPCLinks $
---             getVPCLinksResponse
+--             mkGetVPCLinksResponse
 --
 --         , responseCreateBasePathMapping $
---             basePathMapping
+--             mkBasePathMapping
 --
 --         , responseGetIntegration $
---             integration
+--             mkIntegration
 --
 --         , responseGetDocumentationParts $
---             getDocumentationPartsResponse
+--             mkGetDocumentationPartsResponse
 --
 --         , responseUpdateAccount $
---             account
+--             mkAccount
 --
 --         , responseGetUsagePlan $
---             usagePlan
+--             mkUsagePlan
 --
 --         , responseDeleteDeployment $
---             deleteDeploymentResponse
+--             mkDeleteDeploymentResponse
 --
 --         , responseUpdateDeployment $
---             deployment
+--             mkDeployment
 --
 --         , responseGetDocumentationPart $
---             documentationPart
+--             mkDocumentationPart
 --
 --         , responseDeleteResource $
---             deleteResourceResponse
+--             mkDeleteResourceResponse
 --
 --         , responseUpdateResource $
---             resource
+--             mkResource
 --
 --         , responseCreateRequestValidator $
---             requestValidator
+--             mkRequestValidator
 --
 --         , responseImportDocumentationParts $
---             importDocumentationPartsResponse
+--             mkImportDocumentationPartsResponse
 --
 --         , responseGetUsage $
---             usage
+--             mkUsage
 --
 --         , responseGetVPCLink $
---             vpcLink
+--             mkVPCLink
 --
 --         , responseCreateModel $
---             model
+--             mkModel
 --
 --         , responseGetIntegrationResponse $
---             integrationResponse
+--             mkIntegrationResponse
 --
 --         , responseCreateDomainName $
---             domainName
+--             mkDomainName
 --
 --         , responseFlushStageAuthorizersCache $
---             flushStageAuthorizersCacheResponse
+--             mkFlushStageAuthorizersCacheResponse
 --
 --         , responseGetGatewayResponses $
---             getGatewayResponsesResponse
+--             mkGetGatewayResponsesResponse
 --
 --         , responseDeleteModel $
---             deleteModelResponse
+--             mkDeleteModelResponse
 --
 --         , responseUpdateModel $
---             model
+--             mkModel
 --
 --         , responseGetDocumentationVersion $
---             documentationVersion
+--             mkDocumentationVersion
 --
 --         , responseDeleteAPIKey $
---             deleteAPIKeyResponse
+--             mkDeleteAPIKeyResponse
 --
 --         , responseUpdateAPIKey $
---             apiKey
+--             mkAPIKey
 --
 --         , responseGetRestAPI $
---             restAPI
+--             mkRestAPI
 --
 --         , responseGetStages $
---             getStagesResponse
+--             mkGetStagesResponse
 --
 --         , responsePutRestAPI $
---             restAPI
+--             mkRestAPI
 --
 --         , responseGetMethod $
---             method
+--             mkMethod
 --
 --         , responseGetModel $
---             model
+--             mkModel
 --
 --         , responseUpdateRestAPI $
---             restAPI
+--             mkRestAPI
 --
 --         , responseDeleteRestAPI $
---             deleteRestAPIResponse
+--             mkDeleteRestAPIResponse
 --
 --         , responseImportAPIKeys $
---             importAPIKeysResponse
+--             mkImportAPIKeysResponse
 --
 --         , responseCreateDocumentationPart $
---             documentationPart
+--             mkDocumentationPart
 --
 --         , responseTestInvokeMethod $
---             testInvokeMethodResponse
+--             mkTestInvokeMethodResponse
 --
 --         , responseGetRequestValidator $
---             requestValidator
+--             mkRequestValidator
 --
 --         , responseGetDomainName $
---             domainName
+--             mkDomainName
 --
 --         , responseCreateVPCLink $
---             vpcLink
+--             mkVPCLink
 --
 --         , responseDeleteDocumentationPart $
---             deleteDocumentationPartResponse
+--             mkDeleteDocumentationPartResponse
 --
 --         , responseUpdateDocumentationPart $
---             documentationPart
+--             mkDocumentationPart
 --
 --         , responseGetAuthorizers $
---             getAuthorizersResponse
+--             mkGetAuthorizersResponse
 --
 --         , responseCreateDocumentationVersion $
---             documentationVersion
+--             mkDocumentationVersion
 --
 --         , responsePutIntegrationResponse $
---             integrationResponse
+--             mkIntegrationResponse
 --
 --         , responseGetUsagePlanKeys $
---             getUsagePlanKeysResponse
+--             mkGetUsagePlanKeysResponse
 --
 --         , responseDeleteVPCLink $
---             deleteVPCLinkResponse
+--             mkDeleteVPCLinkResponse
 --
 --         , responseUpdateVPCLink $
---             vpcLink
+--             mkVPCLink
 --
 --         , responseFlushStageCache $
---             flushStageCacheResponse
+--             mkFlushStageCacheResponse
 --
 --         , responseCreateRestAPI $
---             restAPI
+--             mkRestAPI
 --
 --         , responseDeleteIntegrationResponse $
---             deleteIntegrationResponseResponse
+--             mkDeleteIntegrationResponseResponse
 --
 --         , responseUpdateIntegrationResponse $
---             integrationResponse
+--             mkIntegrationResponse
 --
 --         , responseUpdateUsage $
---             usage
+--             mkUsage
 --
 --         , responseDeleteIntegration $
---             deleteIntegrationResponse'
+--             mkDeleteIntegrationResponse'
 --
 --         , responseUpdateIntegration $
---             integration
+--             mkIntegration
 --
 --         , responseTestInvokeAuthorizer $
---             testInvokeAuthorizerResponse
+--             mkTestInvokeAuthorizerResponse
 --
 --         , responseGenerateClientCertificate $
---             clientCertificate
+--             mkClientCertificate
 --
 --         , responseGetResources $
---             getResourcesResponse
+--             mkGetResourcesResponse
 --
 --         , responseGetUsagePlanKey $
---             usagePlanKey
+--             mkUsagePlanKey
 --
 --         , responseGetAccount $
---             account
+--             mkAccount
 --
 --         , responsePutIntegration $
---             integration
+--             mkIntegration
 --
 --         , responseGetAuthorizer $
---             authorizer
+--             mkAuthorizer
 --
 --         , responseDeleteUsagePlan $
---             deleteUsagePlanResponse
+--             mkDeleteUsagePlanResponse
 --
 --         , responseUpdateUsagePlan $
---             usagePlan
+--             mkUsagePlan
 --
 --         , responseGetStage $
---             stage
+--             mkStage
 --
 --         , responseGetExport $
---             getExportResponse
+--             mkGetExportResponse
 --
 --         , responseGetSDK $
---             getSDKResponse
+--             mkGetSDKResponse
 --
 --         , responseGetAPIKeys $
---             getAPIKeysResponse
+--             mkGetAPIKeysResponse
 --
 --         , responseDeleteBasePathMapping $
---             deleteBasePathMappingResponse
+--             mkDeleteBasePathMappingResponse
 --
 --         , responseUpdateBasePathMapping $
---             basePathMapping
+--             mkBasePathMapping
 --
 --         , responseDeleteClientCertificate $
---             deleteClientCertificateResponse
+--             mkDeleteClientCertificateResponse
 --
 --         , responseUpdateClientCertificate $
---             clientCertificate
+--             mkClientCertificate
 --
 --         , responseGetGatewayResponse $
---             gatewayResponse
+--             mkGatewayResponse
 --
 --         , responseCreateUsagePlanKey $
---             usagePlanKey
+--             mkUsagePlanKey
 --
 --         , responseCreateAuthorizer $
---             authorizer
+--             mkAuthorizer
 --
 --         , responseUpdateAuthorizer $
---             authorizer
+--             mkAuthorizer
 --
 --         , responseDeleteAuthorizer $
---             deleteAuthorizerResponse
+--             mkDeleteAuthorizerResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseCreateStage $
---             stage
+--             mkStage
 --
 --         , responseDeleteUsagePlanKey $
---             deleteUsagePlanKeyResponse
+--             mkDeleteUsagePlanKeyResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseCreateAPIKey $
---             apiKey
+--             mkAPIKey
 --
 --         , responseGetUsagePlans $
---             getUsagePlansResponse
+--             mkGetUsagePlansResponse
 --
 --         , responsePutMethod $
---             method
+--             mkMethod
 --
 --         , responseUpdateDomainName $
---             domainName
+--             mkDomainName
 --
 --         , responseDeleteDomainName $
---             deleteDomainNameResponse
+--             mkDeleteDomainNameResponse
 --
 --         , responseCreateResource $
---             resource
+--             mkResource
 --
 --         , responseDeleteMethod $
---             deleteMethodResponse'
+--             mkDeleteMethodResponse'
 --
 --         , responseUpdateMethod $
---             method
+--             mkMethod
 --
 --         , responseUpdateRequestValidator $
---             requestValidator
+--             mkRequestValidator
 --
 --         , responseDeleteRequestValidator $
---             deleteRequestValidatorResponse
+--             mkDeleteRequestValidatorResponse
 --
 --         , responseGetSDKTypes $
---             getSDKTypesResponse
+--             mkGetSDKTypesResponse
 --
 --         , responseGetClientCertificates $
---             getClientCertificatesResponse
+--             mkGetClientCertificatesResponse
 --
 --         , responseGetModelTemplate $
---             getModelTemplateResponse
+--             mkGetModelTemplateResponse
 --
 --         , responseUpdateDocumentationVersion $
---             documentationVersion
+--             mkDocumentationVersion
 --
 --         , responseDeleteDocumentationVersion $
---             deleteDocumentationVersionResponse
+--             mkDeleteDocumentationVersionResponse
 --
 --         , responseGetBasePathMappings $
---             getBasePathMappingsResponse
+--             mkGetBasePathMappingsResponse
 --
 --         , responseGetAPIKey $
---             apiKey
+--             mkAPIKey
 --
 --           ]
 --     ]
@@ -1482,7 +1482,7 @@ responseGetResource =
   res
     "GetResourceResponse"
     "fixture/GetResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetResource)
 
 responseGetDeployments :: GetDeploymentsResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseGetDeployments =
   res
     "GetDeploymentsResponse"
     "fixture/GetDeploymentsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDeployments)
 
 responseGetDeployment :: Deployment -> TestTree
@@ -1498,7 +1498,7 @@ responseGetDeployment =
   res
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDeployment)
 
 responseGetTags :: GetTagsResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseGetTags =
   res
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetTags)
 
 responseDeleteGatewayResponse :: DeleteGatewayResponseResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseDeleteGatewayResponse =
   res
     "DeleteGatewayResponseResponse"
     "fixture/DeleteGatewayResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteGatewayResponse)
 
 responseUpdateGatewayResponse :: GatewayResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseUpdateGatewayResponse =
   res
     "UpdateGatewayResponseResponse"
     "fixture/UpdateGatewayResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateGatewayResponse)
 
 responseCreateUsagePlan :: UsagePlan -> TestTree
@@ -1530,7 +1530,7 @@ responseCreateUsagePlan =
   res
     "CreateUsagePlanResponse"
     "fixture/CreateUsagePlanResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateUsagePlan)
 
 responseGetDomainNames :: GetDomainNamesResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseGetDomainNames =
   res
     "GetDomainNamesResponse"
     "fixture/GetDomainNamesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDomainNames)
 
 responseGetClientCertificate :: ClientCertificate -> TestTree
@@ -1546,7 +1546,7 @@ responseGetClientCertificate =
   res
     "GetClientCertificateResponse"
     "fixture/GetClientCertificateResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetClientCertificate)
 
 responsePutGatewayResponse :: GatewayResponse -> TestTree
@@ -1554,7 +1554,7 @@ responsePutGatewayResponse =
   res
     "PutGatewayResponseResponse"
     "fixture/PutGatewayResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutGatewayResponse)
 
 responseGetSDKType :: SDKType -> TestTree
@@ -1562,7 +1562,7 @@ responseGetSDKType =
   res
     "GetSDKTypeResponse"
     "fixture/GetSDKTypeResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetSDKType)
 
 responseGetMethodResponse :: MethodResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseGetMethodResponse =
   res
     "GetMethodResponseResponse"
     "fixture/GetMethodResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetMethodResponse)
 
 responseGetModels :: GetModelsResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseGetModels =
   res
     "GetModelsResponse"
     "fixture/GetModelsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetModels)
 
 responseGetBasePathMapping :: BasePathMapping -> TestTree
@@ -1586,7 +1586,7 @@ responseGetBasePathMapping =
   res
     "GetBasePathMappingResponse"
     "fixture/GetBasePathMappingResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetBasePathMapping)
 
 responseGetRequestValidators :: GetRequestValidatorsResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseGetRequestValidators =
   res
     "GetRequestValidatorsResponse"
     "fixture/GetRequestValidatorsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetRequestValidators)
 
 responsePutMethodResponse :: MethodResponse -> TestTree
@@ -1602,7 +1602,7 @@ responsePutMethodResponse =
   res
     "PutMethodResponseResponse"
     "fixture/PutMethodResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutMethodResponse)
 
 responseImportRestAPI :: RestAPI -> TestTree
@@ -1610,7 +1610,7 @@ responseImportRestAPI =
   res
     "ImportRestAPIResponse"
     "fixture/ImportRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy ImportRestAPI)
 
 responseDeleteMethodResponse :: DeleteMethodResponseResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseDeleteMethodResponse =
   res
     "DeleteMethodResponseResponse"
     "fixture/DeleteMethodResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteMethodResponse)
 
 responseUpdateMethodResponse :: MethodResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseUpdateMethodResponse =
   res
     "UpdateMethodResponseResponse"
     "fixture/UpdateMethodResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateMethodResponse)
 
 responseDeleteStage :: DeleteStageResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseDeleteStage =
   res
     "DeleteStageResponse"
     "fixture/DeleteStageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteStage)
 
 responseUpdateStage :: Stage -> TestTree
@@ -1642,7 +1642,7 @@ responseUpdateStage =
   res
     "UpdateStageResponse"
     "fixture/UpdateStageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateStage)
 
 responseGetRestAPIs :: GetRestAPIsResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseGetRestAPIs =
   res
     "GetRestAPIsResponse"
     "fixture/GetRestAPIsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetRestAPIs)
 
 responseGetDocumentationVersions :: GetDocumentationVersionsResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseGetDocumentationVersions =
   res
     "GetDocumentationVersionsResponse"
     "fixture/GetDocumentationVersionsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDocumentationVersions)
 
 responseCreateDeployment :: Deployment -> TestTree
@@ -1666,7 +1666,7 @@ responseCreateDeployment =
   res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateDeployment)
 
 responseGetVPCLinks :: GetVPCLinksResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseGetVPCLinks =
   res
     "GetVPCLinksResponse"
     "fixture/GetVPCLinksResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetVPCLinks)
 
 responseCreateBasePathMapping :: BasePathMapping -> TestTree
@@ -1682,7 +1682,7 @@ responseCreateBasePathMapping =
   res
     "CreateBasePathMappingResponse"
     "fixture/CreateBasePathMappingResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateBasePathMapping)
 
 responseGetIntegration :: Integration -> TestTree
@@ -1690,7 +1690,7 @@ responseGetIntegration =
   res
     "GetIntegrationResponse"
     "fixture/GetIntegrationResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetIntegration)
 
 responseGetDocumentationParts :: GetDocumentationPartsResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseGetDocumentationParts =
   res
     "GetDocumentationPartsResponse"
     "fixture/GetDocumentationPartsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDocumentationParts)
 
 responseUpdateAccount :: Account -> TestTree
@@ -1706,7 +1706,7 @@ responseUpdateAccount =
   res
     "UpdateAccountResponse"
     "fixture/UpdateAccountResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateAccount)
 
 responseGetUsagePlan :: UsagePlan -> TestTree
@@ -1714,7 +1714,7 @@ responseGetUsagePlan =
   res
     "GetUsagePlanResponse"
     "fixture/GetUsagePlanResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetUsagePlan)
 
 responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDeleteDeployment =
   res
     "DeleteDeploymentResponse"
     "fixture/DeleteDeploymentResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteDeployment)
 
 responseUpdateDeployment :: Deployment -> TestTree
@@ -1730,7 +1730,7 @@ responseUpdateDeployment =
   res
     "UpdateDeploymentResponse"
     "fixture/UpdateDeploymentResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateDeployment)
 
 responseGetDocumentationPart :: DocumentationPart -> TestTree
@@ -1738,7 +1738,7 @@ responseGetDocumentationPart =
   res
     "GetDocumentationPartResponse"
     "fixture/GetDocumentationPartResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDocumentationPart)
 
 responseDeleteResource :: DeleteResourceResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseDeleteResource =
   res
     "DeleteResourceResponse"
     "fixture/DeleteResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteResource)
 
 responseUpdateResource :: Resource -> TestTree
@@ -1754,7 +1754,7 @@ responseUpdateResource =
   res
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateResource)
 
 responseCreateRequestValidator :: RequestValidator -> TestTree
@@ -1762,7 +1762,7 @@ responseCreateRequestValidator =
   res
     "CreateRequestValidatorResponse"
     "fixture/CreateRequestValidatorResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateRequestValidator)
 
 responseImportDocumentationParts :: ImportDocumentationPartsResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseImportDocumentationParts =
   res
     "ImportDocumentationPartsResponse"
     "fixture/ImportDocumentationPartsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy ImportDocumentationParts)
 
 responseGetUsage :: Usage -> TestTree
@@ -1778,7 +1778,7 @@ responseGetUsage =
   res
     "GetUsageResponse"
     "fixture/GetUsageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetUsage)
 
 responseGetVPCLink :: VPCLink -> TestTree
@@ -1786,7 +1786,7 @@ responseGetVPCLink =
   res
     "GetVPCLinkResponse"
     "fixture/GetVPCLinkResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetVPCLink)
 
 responseCreateModel :: Model -> TestTree
@@ -1794,7 +1794,7 @@ responseCreateModel =
   res
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateModel)
 
 responseGetIntegrationResponse :: IntegrationResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseGetIntegrationResponse =
   res
     "GetIntegrationResponseResponse"
     "fixture/GetIntegrationResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetIntegrationResponse)
 
 responseCreateDomainName :: DomainName -> TestTree
@@ -1810,7 +1810,7 @@ responseCreateDomainName =
   res
     "CreateDomainNameResponse"
     "fixture/CreateDomainNameResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateDomainName)
 
 responseFlushStageAuthorizersCache :: FlushStageAuthorizersCacheResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseFlushStageAuthorizersCache =
   res
     "FlushStageAuthorizersCacheResponse"
     "fixture/FlushStageAuthorizersCacheResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy FlushStageAuthorizersCache)
 
 responseGetGatewayResponses :: GetGatewayResponsesResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseGetGatewayResponses =
   res
     "GetGatewayResponsesResponse"
     "fixture/GetGatewayResponsesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetGatewayResponses)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseDeleteModel =
   res
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteModel)
 
 responseUpdateModel :: Model -> TestTree
@@ -1842,7 +1842,7 @@ responseUpdateModel =
   res
     "UpdateModelResponse"
     "fixture/UpdateModelResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateModel)
 
 responseGetDocumentationVersion :: DocumentationVersion -> TestTree
@@ -1850,7 +1850,7 @@ responseGetDocumentationVersion =
   res
     "GetDocumentationVersionResponse"
     "fixture/GetDocumentationVersionResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDocumentationVersion)
 
 responseDeleteAPIKey :: DeleteAPIKeyResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseDeleteAPIKey =
   res
     "DeleteAPIKeyResponse"
     "fixture/DeleteAPIKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteAPIKey)
 
 responseUpdateAPIKey :: APIKey -> TestTree
@@ -1866,7 +1866,7 @@ responseUpdateAPIKey =
   res
     "UpdateAPIKeyResponse"
     "fixture/UpdateAPIKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateAPIKey)
 
 responseGetRestAPI :: RestAPI -> TestTree
@@ -1874,7 +1874,7 @@ responseGetRestAPI =
   res
     "GetRestAPIResponse"
     "fixture/GetRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetRestAPI)
 
 responseGetStages :: GetStagesResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseGetStages =
   res
     "GetStagesResponse"
     "fixture/GetStagesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetStages)
 
 responsePutRestAPI :: RestAPI -> TestTree
@@ -1890,7 +1890,7 @@ responsePutRestAPI =
   res
     "PutRestAPIResponse"
     "fixture/PutRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutRestAPI)
 
 responseGetMethod :: Method -> TestTree
@@ -1898,7 +1898,7 @@ responseGetMethod =
   res
     "GetMethodResponse"
     "fixture/GetMethodResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetMethod)
 
 responseGetModel :: Model -> TestTree
@@ -1906,7 +1906,7 @@ responseGetModel =
   res
     "GetModelResponse"
     "fixture/GetModelResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetModel)
 
 responseUpdateRestAPI :: RestAPI -> TestTree
@@ -1914,7 +1914,7 @@ responseUpdateRestAPI =
   res
     "UpdateRestAPIResponse"
     "fixture/UpdateRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateRestAPI)
 
 responseDeleteRestAPI :: DeleteRestAPIResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseDeleteRestAPI =
   res
     "DeleteRestAPIResponse"
     "fixture/DeleteRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteRestAPI)
 
 responseImportAPIKeys :: ImportAPIKeysResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseImportAPIKeys =
   res
     "ImportAPIKeysResponse"
     "fixture/ImportAPIKeysResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy ImportAPIKeys)
 
 responseCreateDocumentationPart :: DocumentationPart -> TestTree
@@ -1938,7 +1938,7 @@ responseCreateDocumentationPart =
   res
     "CreateDocumentationPartResponse"
     "fixture/CreateDocumentationPartResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateDocumentationPart)
 
 responseTestInvokeMethod :: TestInvokeMethodResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseTestInvokeMethod =
   res
     "TestInvokeMethodResponse"
     "fixture/TestInvokeMethodResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy TestInvokeMethod)
 
 responseGetRequestValidator :: RequestValidator -> TestTree
@@ -1954,7 +1954,7 @@ responseGetRequestValidator =
   res
     "GetRequestValidatorResponse"
     "fixture/GetRequestValidatorResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetRequestValidator)
 
 responseGetDomainName :: DomainName -> TestTree
@@ -1962,7 +1962,7 @@ responseGetDomainName =
   res
     "GetDomainNameResponse"
     "fixture/GetDomainNameResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetDomainName)
 
 responseCreateVPCLink :: VPCLink -> TestTree
@@ -1970,7 +1970,7 @@ responseCreateVPCLink =
   res
     "CreateVPCLinkResponse"
     "fixture/CreateVPCLinkResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateVPCLink)
 
 responseDeleteDocumentationPart :: DeleteDocumentationPartResponse -> TestTree
@@ -1978,7 +1978,7 @@ responseDeleteDocumentationPart =
   res
     "DeleteDocumentationPartResponse"
     "fixture/DeleteDocumentationPartResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteDocumentationPart)
 
 responseUpdateDocumentationPart :: DocumentationPart -> TestTree
@@ -1986,7 +1986,7 @@ responseUpdateDocumentationPart =
   res
     "UpdateDocumentationPartResponse"
     "fixture/UpdateDocumentationPartResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateDocumentationPart)
 
 responseGetAuthorizers :: GetAuthorizersResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseGetAuthorizers =
   res
     "GetAuthorizersResponse"
     "fixture/GetAuthorizersResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetAuthorizers)
 
 responseCreateDocumentationVersion :: DocumentationVersion -> TestTree
@@ -2002,7 +2002,7 @@ responseCreateDocumentationVersion =
   res
     "CreateDocumentationVersionResponse"
     "fixture/CreateDocumentationVersionResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateDocumentationVersion)
 
 responsePutIntegrationResponse :: IntegrationResponse -> TestTree
@@ -2010,7 +2010,7 @@ responsePutIntegrationResponse =
   res
     "PutIntegrationResponseResponse"
     "fixture/PutIntegrationResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutIntegrationResponse)
 
 responseGetUsagePlanKeys :: GetUsagePlanKeysResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseGetUsagePlanKeys =
   res
     "GetUsagePlanKeysResponse"
     "fixture/GetUsagePlanKeysResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetUsagePlanKeys)
 
 responseDeleteVPCLink :: DeleteVPCLinkResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseDeleteVPCLink =
   res
     "DeleteVPCLinkResponse"
     "fixture/DeleteVPCLinkResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteVPCLink)
 
 responseUpdateVPCLink :: VPCLink -> TestTree
@@ -2034,7 +2034,7 @@ responseUpdateVPCLink =
   res
     "UpdateVPCLinkResponse"
     "fixture/UpdateVPCLinkResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateVPCLink)
 
 responseFlushStageCache :: FlushStageCacheResponse -> TestTree
@@ -2042,7 +2042,7 @@ responseFlushStageCache =
   res
     "FlushStageCacheResponse"
     "fixture/FlushStageCacheResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy FlushStageCache)
 
 responseCreateRestAPI :: RestAPI -> TestTree
@@ -2050,7 +2050,7 @@ responseCreateRestAPI =
   res
     "CreateRestAPIResponse"
     "fixture/CreateRestAPIResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateRestAPI)
 
 responseDeleteIntegrationResponse :: DeleteIntegrationResponseResponse -> TestTree
@@ -2058,7 +2058,7 @@ responseDeleteIntegrationResponse =
   res
     "DeleteIntegrationResponseResponse"
     "fixture/DeleteIntegrationResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteIntegrationResponse)
 
 responseUpdateIntegrationResponse :: IntegrationResponse -> TestTree
@@ -2066,7 +2066,7 @@ responseUpdateIntegrationResponse =
   res
     "UpdateIntegrationResponseResponse"
     "fixture/UpdateIntegrationResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateIntegrationResponse)
 
 responseUpdateUsage :: Usage -> TestTree
@@ -2074,7 +2074,7 @@ responseUpdateUsage =
   res
     "UpdateUsageResponse"
     "fixture/UpdateUsageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateUsage)
 
 responseDeleteIntegration :: DeleteIntegrationResponse' -> TestTree
@@ -2082,7 +2082,7 @@ responseDeleteIntegration =
   res
     "DeleteIntegrationResponse"
     "fixture/DeleteIntegrationResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteIntegration)
 
 responseUpdateIntegration :: Integration -> TestTree
@@ -2090,7 +2090,7 @@ responseUpdateIntegration =
   res
     "UpdateIntegrationResponse"
     "fixture/UpdateIntegrationResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateIntegration)
 
 responseTestInvokeAuthorizer :: TestInvokeAuthorizerResponse -> TestTree
@@ -2098,7 +2098,7 @@ responseTestInvokeAuthorizer =
   res
     "TestInvokeAuthorizerResponse"
     "fixture/TestInvokeAuthorizerResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy TestInvokeAuthorizer)
 
 responseGenerateClientCertificate :: ClientCertificate -> TestTree
@@ -2106,7 +2106,7 @@ responseGenerateClientCertificate =
   res
     "GenerateClientCertificateResponse"
     "fixture/GenerateClientCertificateResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GenerateClientCertificate)
 
 responseGetResources :: GetResourcesResponse -> TestTree
@@ -2114,7 +2114,7 @@ responseGetResources =
   res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetResources)
 
 responseGetUsagePlanKey :: UsagePlanKey -> TestTree
@@ -2122,7 +2122,7 @@ responseGetUsagePlanKey =
   res
     "GetUsagePlanKeyResponse"
     "fixture/GetUsagePlanKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetUsagePlanKey)
 
 responseGetAccount :: Account -> TestTree
@@ -2130,7 +2130,7 @@ responseGetAccount =
   res
     "GetAccountResponse"
     "fixture/GetAccountResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetAccount)
 
 responsePutIntegration :: Integration -> TestTree
@@ -2138,7 +2138,7 @@ responsePutIntegration =
   res
     "PutIntegrationResponse"
     "fixture/PutIntegrationResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutIntegration)
 
 responseGetAuthorizer :: Authorizer -> TestTree
@@ -2146,7 +2146,7 @@ responseGetAuthorizer =
   res
     "GetAuthorizerResponse"
     "fixture/GetAuthorizerResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetAuthorizer)
 
 responseDeleteUsagePlan :: DeleteUsagePlanResponse -> TestTree
@@ -2154,7 +2154,7 @@ responseDeleteUsagePlan =
   res
     "DeleteUsagePlanResponse"
     "fixture/DeleteUsagePlanResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteUsagePlan)
 
 responseUpdateUsagePlan :: UsagePlan -> TestTree
@@ -2162,7 +2162,7 @@ responseUpdateUsagePlan =
   res
     "UpdateUsagePlanResponse"
     "fixture/UpdateUsagePlanResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateUsagePlan)
 
 responseGetStage :: Stage -> TestTree
@@ -2170,7 +2170,7 @@ responseGetStage =
   res
     "GetStageResponse"
     "fixture/GetStageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetStage)
 
 responseGetExport :: GetExportResponse -> TestTree
@@ -2178,7 +2178,7 @@ responseGetExport =
   res
     "GetExportResponse"
     "fixture/GetExportResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetExport)
 
 responseGetSDK :: GetSDKResponse -> TestTree
@@ -2186,7 +2186,7 @@ responseGetSDK =
   res
     "GetSDKResponse"
     "fixture/GetSDKResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetSDK)
 
 responseGetAPIKeys :: GetAPIKeysResponse -> TestTree
@@ -2194,7 +2194,7 @@ responseGetAPIKeys =
   res
     "GetAPIKeysResponse"
     "fixture/GetAPIKeysResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetAPIKeys)
 
 responseDeleteBasePathMapping :: DeleteBasePathMappingResponse -> TestTree
@@ -2202,7 +2202,7 @@ responseDeleteBasePathMapping =
   res
     "DeleteBasePathMappingResponse"
     "fixture/DeleteBasePathMappingResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteBasePathMapping)
 
 responseUpdateBasePathMapping :: BasePathMapping -> TestTree
@@ -2210,7 +2210,7 @@ responseUpdateBasePathMapping =
   res
     "UpdateBasePathMappingResponse"
     "fixture/UpdateBasePathMappingResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateBasePathMapping)
 
 responseDeleteClientCertificate :: DeleteClientCertificateResponse -> TestTree
@@ -2218,7 +2218,7 @@ responseDeleteClientCertificate =
   res
     "DeleteClientCertificateResponse"
     "fixture/DeleteClientCertificateResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteClientCertificate)
 
 responseUpdateClientCertificate :: ClientCertificate -> TestTree
@@ -2226,7 +2226,7 @@ responseUpdateClientCertificate =
   res
     "UpdateClientCertificateResponse"
     "fixture/UpdateClientCertificateResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateClientCertificate)
 
 responseGetGatewayResponse :: GatewayResponse -> TestTree
@@ -2234,7 +2234,7 @@ responseGetGatewayResponse =
   res
     "GetGatewayResponseResponse"
     "fixture/GetGatewayResponseResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetGatewayResponse)
 
 responseCreateUsagePlanKey :: UsagePlanKey -> TestTree
@@ -2242,7 +2242,7 @@ responseCreateUsagePlanKey =
   res
     "CreateUsagePlanKeyResponse"
     "fixture/CreateUsagePlanKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateUsagePlanKey)
 
 responseCreateAuthorizer :: Authorizer -> TestTree
@@ -2250,7 +2250,7 @@ responseCreateAuthorizer =
   res
     "CreateAuthorizerResponse"
     "fixture/CreateAuthorizerResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateAuthorizer)
 
 responseUpdateAuthorizer :: Authorizer -> TestTree
@@ -2258,7 +2258,7 @@ responseUpdateAuthorizer =
   res
     "UpdateAuthorizerResponse"
     "fixture/UpdateAuthorizerResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateAuthorizer)
 
 responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
@@ -2266,7 +2266,7 @@ responseDeleteAuthorizer =
   res
     "DeleteAuthorizerResponse"
     "fixture/DeleteAuthorizerResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteAuthorizer)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -2274,7 +2274,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy TagResource)
 
 responseCreateStage :: Stage -> TestTree
@@ -2282,7 +2282,7 @@ responseCreateStage =
   res
     "CreateStageResponse"
     "fixture/CreateStageResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateStage)
 
 responseDeleteUsagePlanKey :: DeleteUsagePlanKeyResponse -> TestTree
@@ -2290,7 +2290,7 @@ responseDeleteUsagePlanKey =
   res
     "DeleteUsagePlanKeyResponse"
     "fixture/DeleteUsagePlanKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteUsagePlanKey)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -2298,7 +2298,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UntagResource)
 
 responseCreateAPIKey :: APIKey -> TestTree
@@ -2306,7 +2306,7 @@ responseCreateAPIKey =
   res
     "CreateAPIKeyResponse"
     "fixture/CreateAPIKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateAPIKey)
 
 responseGetUsagePlans :: GetUsagePlansResponse -> TestTree
@@ -2314,7 +2314,7 @@ responseGetUsagePlans =
   res
     "GetUsagePlansResponse"
     "fixture/GetUsagePlansResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetUsagePlans)
 
 responsePutMethod :: Method -> TestTree
@@ -2322,7 +2322,7 @@ responsePutMethod =
   res
     "PutMethodResponse"
     "fixture/PutMethodResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy PutMethod)
 
 responseUpdateDomainName :: DomainName -> TestTree
@@ -2330,7 +2330,7 @@ responseUpdateDomainName =
   res
     "UpdateDomainNameResponse"
     "fixture/UpdateDomainNameResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateDomainName)
 
 responseDeleteDomainName :: DeleteDomainNameResponse -> TestTree
@@ -2338,7 +2338,7 @@ responseDeleteDomainName =
   res
     "DeleteDomainNameResponse"
     "fixture/DeleteDomainNameResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteDomainName)
 
 responseCreateResource :: Resource -> TestTree
@@ -2346,7 +2346,7 @@ responseCreateResource =
   res
     "CreateResourceResponse"
     "fixture/CreateResourceResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy CreateResource)
 
 responseDeleteMethod :: DeleteMethodResponse' -> TestTree
@@ -2354,7 +2354,7 @@ responseDeleteMethod =
   res
     "DeleteMethodResponse"
     "fixture/DeleteMethodResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteMethod)
 
 responseUpdateMethod :: Method -> TestTree
@@ -2362,7 +2362,7 @@ responseUpdateMethod =
   res
     "UpdateMethodResponse"
     "fixture/UpdateMethodResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateMethod)
 
 responseUpdateRequestValidator :: RequestValidator -> TestTree
@@ -2370,7 +2370,7 @@ responseUpdateRequestValidator =
   res
     "UpdateRequestValidatorResponse"
     "fixture/UpdateRequestValidatorResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateRequestValidator)
 
 responseDeleteRequestValidator :: DeleteRequestValidatorResponse -> TestTree
@@ -2378,7 +2378,7 @@ responseDeleteRequestValidator =
   res
     "DeleteRequestValidatorResponse"
     "fixture/DeleteRequestValidatorResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteRequestValidator)
 
 responseGetSDKTypes :: GetSDKTypesResponse -> TestTree
@@ -2386,7 +2386,7 @@ responseGetSDKTypes =
   res
     "GetSDKTypesResponse"
     "fixture/GetSDKTypesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetSDKTypes)
 
 responseGetClientCertificates :: GetClientCertificatesResponse -> TestTree
@@ -2394,7 +2394,7 @@ responseGetClientCertificates =
   res
     "GetClientCertificatesResponse"
     "fixture/GetClientCertificatesResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetClientCertificates)
 
 responseGetModelTemplate :: GetModelTemplateResponse -> TestTree
@@ -2402,7 +2402,7 @@ responseGetModelTemplate =
   res
     "GetModelTemplateResponse"
     "fixture/GetModelTemplateResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetModelTemplate)
 
 responseUpdateDocumentationVersion :: DocumentationVersion -> TestTree
@@ -2410,7 +2410,7 @@ responseUpdateDocumentationVersion =
   res
     "UpdateDocumentationVersionResponse"
     "fixture/UpdateDocumentationVersionResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy UpdateDocumentationVersion)
 
 responseDeleteDocumentationVersion :: DeleteDocumentationVersionResponse -> TestTree
@@ -2418,7 +2418,7 @@ responseDeleteDocumentationVersion =
   res
     "DeleteDocumentationVersionResponse"
     "fixture/DeleteDocumentationVersionResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy DeleteDocumentationVersion)
 
 responseGetBasePathMappings :: GetBasePathMappingsResponse -> TestTree
@@ -2426,7 +2426,7 @@ responseGetBasePathMappings =
   res
     "GetBasePathMappingsResponse"
     "fixture/GetBasePathMappingsResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetBasePathMappings)
 
 responseGetAPIKey :: APIKey -> TestTree
@@ -2434,5 +2434,5 @@ responseGetAPIKey =
   res
     "GetAPIKeyResponse"
     "fixture/GetAPIKeyResponse.proto"
-    apiGateway
+    apiGatewayService
     (Proxy :: Proxy GetAPIKey)

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Lists the AppImageConfigs in your account and their properties. The list can be filtered by creation time or modified time, and whether the AppImageConfig name contains a specified string.
 module Network.AWS.SageMaker.ListAppImageConfigs
-  ( -- * Creating a Request
-    listAppImageConfigs,
-    ListAppImageConfigs,
+  ( -- * Creating a request
+    ListAppImageConfigs (..),
+    mkListAppImageConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laicNameContains,
     laicCreationTimeAfter,
     laicModifiedTimeAfter,
@@ -34,196 +29,228 @@ module Network.AWS.SageMaker.ListAppImageConfigs
     laicMaxResults,
     laicSortBy,
 
-    -- * Destructuring the Response
-    listAppImageConfigsResponse,
-    ListAppImageConfigsResponse,
+    -- * Destructuring the response
+    ListAppImageConfigsResponse (..),
+    mkListAppImageConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     laicrsAppImageConfigs,
     laicrsNextToken,
     laicrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listAppImageConfigs' smart constructor.
+-- | /See:/ 'mkListAppImageConfigs' smart constructor.
 data ListAppImageConfigs = ListAppImageConfigs'
-  { _laicNameContains ::
-      !(Maybe Text),
-    _laicCreationTimeAfter :: !(Maybe POSIX),
-    _laicModifiedTimeAfter :: !(Maybe POSIX),
-    _laicNextToken :: !(Maybe Text),
-    _laicSortOrder :: !(Maybe SortOrder),
-    _laicCreationTimeBefore :: !(Maybe POSIX),
-    _laicModifiedTimeBefore :: !(Maybe POSIX),
-    _laicMaxResults :: !(Maybe Nat),
-    _laicSortBy :: !(Maybe AppImageConfigSortKey)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    modifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    modifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe AppImageConfigSortKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppImageConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laicNameContains' - A filter that returns only AppImageConfigs whose name contains the specified string.
---
--- * 'laicCreationTimeAfter' - A filter that returns only AppImageConfigs created on or after the specified time.
---
--- * 'laicModifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the specified time.
---
--- * 'laicNextToken' - If the previous call to @ListImages@ didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.
---
--- * 'laicSortOrder' - The sort order. The default value is @Descending@ .
---
--- * 'laicCreationTimeBefore' - A filter that returns only AppImageConfigs created on or before the specified time.
---
--- * 'laicModifiedTimeBefore' - A filter that returns only AppImageConfigs modified on or before the specified time.
---
--- * 'laicMaxResults' - The maximum number of AppImageConfigs to return in the response. The default value is 10.
---
--- * 'laicSortBy' - The property used to sort results. The default value is @CreationTime@ .
-listAppImageConfigs ::
+-- * 'creationTimeAfter' - A filter that returns only AppImageConfigs created on or after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only AppImageConfigs created on or before the specified time.
+-- * 'maxResults' - The maximum number of AppImageConfigs to return in the response. The default value is 10.
+-- * 'modifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the specified time.
+-- * 'modifiedTimeBefore' - A filter that returns only AppImageConfigs modified on or before the specified time.
+-- * 'nameContains' - A filter that returns only AppImageConfigs whose name contains the specified string.
+-- * 'nextToken' - If the previous call to @ListImages@ didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.
+-- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
+-- * 'sortOrder' - The sort order. The default value is @Descending@ .
+mkListAppImageConfigs ::
   ListAppImageConfigs
-listAppImageConfigs =
+mkListAppImageConfigs =
   ListAppImageConfigs'
-    { _laicNameContains = Nothing,
-      _laicCreationTimeAfter = Nothing,
-      _laicModifiedTimeAfter = Nothing,
-      _laicNextToken = Nothing,
-      _laicSortOrder = Nothing,
-      _laicCreationTimeBefore = Nothing,
-      _laicModifiedTimeBefore = Nothing,
-      _laicMaxResults = Nothing,
-      _laicSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      modifiedTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      modifiedTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A filter that returns only AppImageConfigs whose name contains the specified string.
-laicNameContains :: Lens' ListAppImageConfigs (Maybe Text)
-laicNameContains = lens _laicNameContains (\s a -> s {_laicNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicNameContains :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Text)
+laicNameContains = Lens.lens (nameContains :: ListAppImageConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only AppImageConfigs created on or after the specified time.
-laicCreationTimeAfter :: Lens' ListAppImageConfigs (Maybe UTCTime)
-laicCreationTimeAfter = lens _laicCreationTimeAfter (\s a -> s {_laicCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicCreationTimeAfter :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Timestamp)
+laicCreationTimeAfter = Lens.lens (creationTimeAfter :: ListAppImageConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A filter that returns only AppImageConfigs modified on or after the specified time.
-laicModifiedTimeAfter :: Lens' ListAppImageConfigs (Maybe UTCTime)
-laicModifiedTimeAfter = lens _laicModifiedTimeAfter (\s a -> s {_laicModifiedTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicModifiedTimeAfter :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Timestamp)
+laicModifiedTimeAfter = Lens.lens (modifiedTimeAfter :: ListAppImageConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedTimeAfter = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicModifiedTimeAfter "Use generic-lens or generic-optics with 'modifiedTimeAfter' instead." #-}
 
 -- | If the previous call to @ListImages@ didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.
-laicNextToken :: Lens' ListAppImageConfigs (Maybe Text)
-laicNextToken = lens _laicNextToken (\s a -> s {_laicNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicNextToken :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Text)
+laicNextToken = Lens.lens (nextToken :: ListAppImageConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order. The default value is @Descending@ .
-laicSortOrder :: Lens' ListAppImageConfigs (Maybe SortOrder)
-laicSortOrder = lens _laicSortOrder (\s a -> s {_laicSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicSortOrder :: Lens.Lens' ListAppImageConfigs (Lude.Maybe SortOrder)
+laicSortOrder = Lens.lens (sortOrder :: ListAppImageConfigs -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only AppImageConfigs created on or before the specified time.
-laicCreationTimeBefore :: Lens' ListAppImageConfigs (Maybe UTCTime)
-laicCreationTimeBefore = lens _laicCreationTimeBefore (\s a -> s {_laicCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicCreationTimeBefore :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Timestamp)
+laicCreationTimeBefore = Lens.lens (creationTimeBefore :: ListAppImageConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | A filter that returns only AppImageConfigs modified on or before the specified time.
-laicModifiedTimeBefore :: Lens' ListAppImageConfigs (Maybe UTCTime)
-laicModifiedTimeBefore = lens _laicModifiedTimeBefore (\s a -> s {_laicModifiedTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicModifiedTimeBefore :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Timestamp)
+laicModifiedTimeBefore = Lens.lens (modifiedTimeBefore :: ListAppImageConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedTimeBefore = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicModifiedTimeBefore "Use generic-lens or generic-optics with 'modifiedTimeBefore' instead." #-}
 
 -- | The maximum number of AppImageConfigs to return in the response. The default value is 10.
-laicMaxResults :: Lens' ListAppImageConfigs (Maybe Natural)
-laicMaxResults = lens _laicMaxResults (\s a -> s {_laicMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicMaxResults :: Lens.Lens' ListAppImageConfigs (Lude.Maybe Lude.Natural)
+laicMaxResults = Lens.lens (maxResults :: ListAppImageConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The property used to sort results. The default value is @CreationTime@ .
-laicSortBy :: Lens' ListAppImageConfigs (Maybe AppImageConfigSortKey)
-laicSortBy = lens _laicSortBy (\s a -> s {_laicSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicSortBy :: Lens.Lens' ListAppImageConfigs (Lude.Maybe AppImageConfigSortKey)
+laicSortBy = Lens.lens (sortBy :: ListAppImageConfigs -> Lude.Maybe AppImageConfigSortKey) (\s a -> s {sortBy = a} :: ListAppImageConfigs)
+{-# DEPRECATED laicSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSRequest ListAppImageConfigs where
+instance Lude.AWSRequest ListAppImageConfigs where
   type Rs ListAppImageConfigs = ListAppImageConfigsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAppImageConfigsResponse'
-            <$> (x .?> "AppImageConfigs" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AppImageConfigs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAppImageConfigs
-
-instance NFData ListAppImageConfigs
-
-instance ToHeaders ListAppImageConfigs where
+instance Lude.ToHeaders ListAppImageConfigs where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListAppImageConfigs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListAppImageConfigs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAppImageConfigs where
+instance Lude.ToJSON ListAppImageConfigs where
   toJSON ListAppImageConfigs' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _laicNameContains,
-            ("CreationTimeAfter" .=) <$> _laicCreationTimeAfter,
-            ("ModifiedTimeAfter" .=) <$> _laicModifiedTimeAfter,
-            ("NextToken" .=) <$> _laicNextToken,
-            ("SortOrder" .=) <$> _laicSortOrder,
-            ("CreationTimeBefore" .=) <$> _laicCreationTimeBefore,
-            ("ModifiedTimeBefore" .=) <$> _laicModifiedTimeBefore,
-            ("MaxResults" .=) <$> _laicMaxResults,
-            ("SortBy" .=) <$> _laicSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("ModifiedTimeAfter" Lude..=) Lude.<$> modifiedTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("ModifiedTimeBefore" Lude..=) Lude.<$> modifiedTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListAppImageConfigs where
-  toPath = const "/"
+instance Lude.ToPath ListAppImageConfigs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAppImageConfigs where
-  toQuery = const mempty
+instance Lude.ToQuery ListAppImageConfigs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAppImageConfigsResponse' smart constructor.
+-- | /See:/ 'mkListAppImageConfigsResponse' smart constructor.
 data ListAppImageConfigsResponse = ListAppImageConfigsResponse'
-  { _laicrsAppImageConfigs ::
-      !(Maybe [AppImageConfigDetails]),
-    _laicrsNextToken :: !(Maybe Text),
-    _laicrsResponseStatus :: !Int
+  { appImageConfigs ::
+      Lude.Maybe [AppImageConfigDetails],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppImageConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laicrsAppImageConfigs' - A list of AppImageConfigs and their properties.
---
--- * 'laicrsNextToken' - A token for getting the next set of AppImageConfigs, if there are any.
---
--- * 'laicrsResponseStatus' - -- | The response status code.
-listAppImageConfigsResponse ::
-  -- | 'laicrsResponseStatus'
-  Int ->
+-- * 'appImageConfigs' - A list of AppImageConfigs and their properties.
+-- * 'nextToken' - A token for getting the next set of AppImageConfigs, if there are any.
+-- * 'responseStatus' - The response status code.
+mkListAppImageConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAppImageConfigsResponse
-listAppImageConfigsResponse pResponseStatus_ =
+mkListAppImageConfigsResponse pResponseStatus_ =
   ListAppImageConfigsResponse'
-    { _laicrsAppImageConfigs = Nothing,
-      _laicrsNextToken = Nothing,
-      _laicrsResponseStatus = pResponseStatus_
+    { appImageConfigs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of AppImageConfigs and their properties.
-laicrsAppImageConfigs :: Lens' ListAppImageConfigsResponse [AppImageConfigDetails]
-laicrsAppImageConfigs = lens _laicrsAppImageConfigs (\s a -> s {_laicrsAppImageConfigs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'appImageConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicrsAppImageConfigs :: Lens.Lens' ListAppImageConfigsResponse (Lude.Maybe [AppImageConfigDetails])
+laicrsAppImageConfigs = Lens.lens (appImageConfigs :: ListAppImageConfigsResponse -> Lude.Maybe [AppImageConfigDetails]) (\s a -> s {appImageConfigs = a} :: ListAppImageConfigsResponse)
+{-# DEPRECATED laicrsAppImageConfigs "Use generic-lens or generic-optics with 'appImageConfigs' instead." #-}
 
 -- | A token for getting the next set of AppImageConfigs, if there are any.
-laicrsNextToken :: Lens' ListAppImageConfigsResponse (Maybe Text)
-laicrsNextToken = lens _laicrsNextToken (\s a -> s {_laicrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicrsNextToken :: Lens.Lens' ListAppImageConfigsResponse (Lude.Maybe Lude.Text)
+laicrsNextToken = Lens.lens (nextToken :: ListAppImageConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAppImageConfigsResponse)
+{-# DEPRECATED laicrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-laicrsResponseStatus :: Lens' ListAppImageConfigsResponse Int
-laicrsResponseStatus = lens _laicrsResponseStatus (\s a -> s {_laicrsResponseStatus = a})
-
-instance NFData ListAppImageConfigsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laicrsResponseStatus :: Lens.Lens' ListAppImageConfigsResponse Lude.Int
+laicrsResponseStatus = Lens.lens (responseStatus :: ListAppImageConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAppImageConfigsResponse)
+{-# DEPRECATED laicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

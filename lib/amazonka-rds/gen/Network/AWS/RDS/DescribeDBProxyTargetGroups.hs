@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,183 +14,217 @@
 --
 -- Returns information about DB proxy target groups, represented by @DBProxyTargetGroup@ data structures.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBProxyTargetGroups
-  ( -- * Creating a Request
-    describeDBProxyTargetGroups,
-    DescribeDBProxyTargetGroups,
+  ( -- * Creating a request
+    DescribeDBProxyTargetGroups (..),
+    mkDescribeDBProxyTargetGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddptgFilters,
     ddptgMarker,
     ddptgMaxRecords,
     ddptgTargetGroupName,
     ddptgDBProxyName,
 
-    -- * Destructuring the Response
-    describeDBProxyTargetGroupsResponse,
-    DescribeDBProxyTargetGroupsResponse,
+    -- * Destructuring the response
+    DescribeDBProxyTargetGroupsResponse (..),
+    mkDescribeDBProxyTargetGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddptgrsMarker,
     ddptgrsTargetGroups,
     ddptgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDBProxyTargetGroups' smart constructor.
+-- | /See:/ 'mkDescribeDBProxyTargetGroups' smart constructor.
 data DescribeDBProxyTargetGroups = DescribeDBProxyTargetGroups'
-  { _ddptgFilters ::
-      !(Maybe [Filter]),
-    _ddptgMarker :: !(Maybe Text),
-    _ddptgMaxRecords :: !(Maybe Nat),
-    _ddptgTargetGroupName ::
-      !(Maybe Text),
-    _ddptgDBProxyName :: !Text
+  { filters ::
+      Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Natural,
+    targetGroupName ::
+      Lude.Maybe Lude.Text,
+    dbProxyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBProxyTargetGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbProxyName' - The identifier of the @DBProxy@ associated with the target group.
+-- * 'filters' - This parameter is not currently supported.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'ddptgFilters' - This parameter is not currently supported.
---
--- * 'ddptgMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddptgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'ddptgTargetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.
---
--- * 'ddptgDBProxyName' - The identifier of the @DBProxy@ associated with the target group.
-describeDBProxyTargetGroups ::
-  -- | 'ddptgDBProxyName'
-  Text ->
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'targetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.
+mkDescribeDBProxyTargetGroups ::
+  -- | 'dbProxyName'
+  Lude.Text ->
   DescribeDBProxyTargetGroups
-describeDBProxyTargetGroups pDBProxyName_ =
+mkDescribeDBProxyTargetGroups pDBProxyName_ =
   DescribeDBProxyTargetGroups'
-    { _ddptgFilters = Nothing,
-      _ddptgMarker = Nothing,
-      _ddptgMaxRecords = Nothing,
-      _ddptgTargetGroupName = Nothing,
-      _ddptgDBProxyName = pDBProxyName_
+    { filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      targetGroupName = Lude.Nothing,
+      dbProxyName = pDBProxyName_
     }
 
 -- | This parameter is not currently supported.
-ddptgFilters :: Lens' DescribeDBProxyTargetGroups [Filter]
-ddptgFilters = lens _ddptgFilters (\s a -> s {_ddptgFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgFilters :: Lens.Lens' DescribeDBProxyTargetGroups (Lude.Maybe [Filter])
+ddptgFilters = Lens.lens (filters :: DescribeDBProxyTargetGroups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBProxyTargetGroups)
+{-# DEPRECATED ddptgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddptgMarker :: Lens' DescribeDBProxyTargetGroups (Maybe Text)
-ddptgMarker = lens _ddptgMarker (\s a -> s {_ddptgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgMarker :: Lens.Lens' DescribeDBProxyTargetGroups (Lude.Maybe Lude.Text)
+ddptgMarker = Lens.lens (marker :: DescribeDBProxyTargetGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBProxyTargetGroups)
+{-# DEPRECATED ddptgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddptgMaxRecords :: Lens' DescribeDBProxyTargetGroups (Maybe Natural)
-ddptgMaxRecords = lens _ddptgMaxRecords (\s a -> s {_ddptgMaxRecords = a}) . mapping _Nat
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgMaxRecords :: Lens.Lens' DescribeDBProxyTargetGroups (Lude.Maybe Lude.Natural)
+ddptgMaxRecords = Lens.lens (maxRecords :: DescribeDBProxyTargetGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeDBProxyTargetGroups)
+{-# DEPRECATED ddptgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The identifier of the @DBProxyTargetGroup@ to describe.
-ddptgTargetGroupName :: Lens' DescribeDBProxyTargetGroups (Maybe Text)
-ddptgTargetGroupName = lens _ddptgTargetGroupName (\s a -> s {_ddptgTargetGroupName = a})
+--
+-- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgTargetGroupName :: Lens.Lens' DescribeDBProxyTargetGroups (Lude.Maybe Lude.Text)
+ddptgTargetGroupName = Lens.lens (targetGroupName :: DescribeDBProxyTargetGroups -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupName = a} :: DescribeDBProxyTargetGroups)
+{-# DEPRECATED ddptgTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
 
 -- | The identifier of the @DBProxy@ associated with the target group.
-ddptgDBProxyName :: Lens' DescribeDBProxyTargetGroups Text
-ddptgDBProxyName = lens _ddptgDBProxyName (\s a -> s {_ddptgDBProxyName = a})
+--
+-- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgDBProxyName :: Lens.Lens' DescribeDBProxyTargetGroups Lude.Text
+ddptgDBProxyName = Lens.lens (dbProxyName :: DescribeDBProxyTargetGroups -> Lude.Text) (\s a -> s {dbProxyName = a} :: DescribeDBProxyTargetGroups)
+{-# DEPRECATED ddptgDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
 
-instance AWSPager DescribeDBProxyTargetGroups where
+instance Page.AWSPager DescribeDBProxyTargetGroups where
   page rq rs
-    | stop (rs ^. ddptgrsMarker) = Nothing
-    | stop (rs ^. ddptgrsTargetGroups) = Nothing
-    | otherwise = Just $ rq & ddptgMarker .~ rs ^. ddptgrsMarker
+    | Page.stop (rs Lens.^. ddptgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddptgrsTargetGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddptgMarker Lens..~ rs Lens.^. ddptgrsMarker
 
-instance AWSRequest DescribeDBProxyTargetGroups where
+instance Lude.AWSRequest DescribeDBProxyTargetGroups where
   type
     Rs DescribeDBProxyTargetGroups =
       DescribeDBProxyTargetGroupsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDBProxyTargetGroupsResult"
       ( \s h x ->
           DescribeDBProxyTargetGroupsResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "TargetGroups" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "TargetGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDBProxyTargetGroups
+instance Lude.ToHeaders DescribeDBProxyTargetGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDBProxyTargetGroups
+instance Lude.ToPath DescribeDBProxyTargetGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDBProxyTargetGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeDBProxyTargetGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeDBProxyTargetGroups where
+instance Lude.ToQuery DescribeDBProxyTargetGroups where
   toQuery DescribeDBProxyTargetGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDBProxyTargetGroups" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Filters" =: toQuery (toQueryList "Filter" <$> _ddptgFilters),
-        "Marker" =: _ddptgMarker,
-        "MaxRecords" =: _ddptgMaxRecords,
-        "TargetGroupName" =: _ddptgTargetGroupName,
-        "DBProxyName" =: _ddptgDBProxyName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeDBProxyTargetGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "TargetGroupName" Lude.=: targetGroupName,
+        "DBProxyName" Lude.=: dbProxyName
       ]
 
--- | /See:/ 'describeDBProxyTargetGroupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeDBProxyTargetGroupsResponse' smart constructor.
 data DescribeDBProxyTargetGroupsResponse = DescribeDBProxyTargetGroupsResponse'
-  { _ddptgrsMarker ::
-      !(Maybe Text),
-    _ddptgrsTargetGroups ::
-      !( Maybe
-           [DBProxyTargetGroup]
-       ),
-    _ddptgrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    targetGroups ::
+      Lude.Maybe
+        [DBProxyTargetGroup],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBProxyTargetGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddptgrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddptgrsTargetGroups' - An arbitrary number of @DBProxyTargetGroup@ objects, containing details of the corresponding target groups.
---
--- * 'ddptgrsResponseStatus' - -- | The response status code.
-describeDBProxyTargetGroupsResponse ::
-  -- | 'ddptgrsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+-- * 'targetGroups' - An arbitrary number of @DBProxyTargetGroup@ objects, containing details of the corresponding target groups.
+mkDescribeDBProxyTargetGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDBProxyTargetGroupsResponse
-describeDBProxyTargetGroupsResponse pResponseStatus_ =
+mkDescribeDBProxyTargetGroupsResponse pResponseStatus_ =
   DescribeDBProxyTargetGroupsResponse'
-    { _ddptgrsMarker = Nothing,
-      _ddptgrsTargetGroups = Nothing,
-      _ddptgrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      targetGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddptgrsMarker :: Lens' DescribeDBProxyTargetGroupsResponse (Maybe Text)
-ddptgrsMarker = lens _ddptgrsMarker (\s a -> s {_ddptgrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgrsMarker :: Lens.Lens' DescribeDBProxyTargetGroupsResponse (Lude.Maybe Lude.Text)
+ddptgrsMarker = Lens.lens (marker :: DescribeDBProxyTargetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBProxyTargetGroupsResponse)
+{-# DEPRECATED ddptgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An arbitrary number of @DBProxyTargetGroup@ objects, containing details of the corresponding target groups.
-ddptgrsTargetGroups :: Lens' DescribeDBProxyTargetGroupsResponse [DBProxyTargetGroup]
-ddptgrsTargetGroups = lens _ddptgrsTargetGroups (\s a -> s {_ddptgrsTargetGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgrsTargetGroups :: Lens.Lens' DescribeDBProxyTargetGroupsResponse (Lude.Maybe [DBProxyTargetGroup])
+ddptgrsTargetGroups = Lens.lens (targetGroups :: DescribeDBProxyTargetGroupsResponse -> Lude.Maybe [DBProxyTargetGroup]) (\s a -> s {targetGroups = a} :: DescribeDBProxyTargetGroupsResponse)
+{-# DEPRECATED ddptgrsTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
--- | -- | The response status code.
-ddptgrsResponseStatus :: Lens' DescribeDBProxyTargetGroupsResponse Int
-ddptgrsResponseStatus = lens _ddptgrsResponseStatus (\s a -> s {_ddptgrsResponseStatus = a})
-
-instance NFData DescribeDBProxyTargetGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddptgrsResponseStatus :: Lens.Lens' DescribeDBProxyTargetGroupsResponse Lude.Int
+ddptgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBProxyTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBProxyTargetGroupsResponse)
+{-# DEPRECATED ddptgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

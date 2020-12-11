@@ -13,13 +13,11 @@
 --
 -- AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them. You can then query the data and run sophisticated analytics on it. AWS IoT Analytics enables advanced data exploration through integration with Jupyter Notebooks and data visualization through integration with Amazon QuickSight.
 --
---
 -- Traditional analytics and business intelligence tools are designed to process structured data. IoT data often comes from devices that record noisy processes (such as temperature, motion, or sound). As a result the data from these devices can have significant gaps, corrupted messages, and false readings that must be cleaned up before analysis can occur. Also, IoT data is often only meaningful in the context of other data from external sources.
---
 -- AWS IoT Analytics automates the steps required to analyze data from IoT devices. AWS IoT Analytics filters, transforms, and enriches IoT data before storing it in a time-series data store for analysis. You can set up the service to collect only the data you need from your devices, apply mathematical transforms to process the data, and enrich the data with device-specific metadata such as device type and location before storing it. Then, you can analyze your data by running queries using the built-in SQL query engine, or perform more complex analytics and machine learning inference. AWS IoT Analytics includes pre-built models for common IoT use cases so you can answer questions like which devices are about to fail or which customers are at risk of abandoning their wearable devices.
 module Network.AWS.IoTAnalytics
-  ( -- * Service Configuration
-    ioTAnalytics,
+  ( -- * Service configuration
+    ioTAnalyticsService,
 
     -- * Errors
     -- $errors
@@ -159,22 +157,22 @@ module Network.AWS.IoTAnalytics
     ReprocessingStatus (..),
 
     -- ** AddAttributesActivity
-    AddAttributesActivity,
-    addAttributesActivity,
+    AddAttributesActivity (..),
+    mkAddAttributesActivity,
     aaaNext,
     aaaName,
     aaaAttributes,
 
     -- ** BatchPutMessageErrorEntry
-    BatchPutMessageErrorEntry,
-    batchPutMessageErrorEntry,
+    BatchPutMessageErrorEntry (..),
+    mkBatchPutMessageErrorEntry,
     bpmeeErrorCode,
     bpmeeErrorMessage,
     bpmeeMessageId,
 
     -- ** Channel
-    Channel,
-    channel,
+    Channel (..),
+    mkChannel,
     cCreationTime,
     cStatus,
     cLastMessageArrivalTime,
@@ -185,32 +183,32 @@ module Network.AWS.IoTAnalytics
     cLastUpdateTime,
 
     -- ** ChannelActivity
-    ChannelActivity,
-    channelActivity,
+    ChannelActivity (..),
+    mkChannelActivity,
     caNext,
     caName,
     caChannelName,
 
     -- ** ChannelStatistics
-    ChannelStatistics,
-    channelStatistics,
+    ChannelStatistics (..),
+    mkChannelStatistics,
     csSize,
 
     -- ** ChannelStorage
-    ChannelStorage,
-    channelStorage,
+    ChannelStorage (..),
+    mkChannelStorage,
     csServiceManagedS3,
     csCustomerManagedS3,
 
     -- ** ChannelStorageSummary
-    ChannelStorageSummary,
-    channelStorageSummary,
+    ChannelStorageSummary (..),
+    mkChannelStorageSummary,
     cssServiceManagedS3,
     cssCustomerManagedS3,
 
     -- ** ChannelSummary
-    ChannelSummary,
-    channelSummary,
+    ChannelSummary (..),
+    mkChannelSummary,
     csCreationTime,
     csStatus,
     csLastMessageArrivalTime,
@@ -219,44 +217,44 @@ module Network.AWS.IoTAnalytics
     csLastUpdateTime,
 
     -- ** ContainerDatasetAction
-    ContainerDatasetAction,
-    containerDatasetAction,
+    ContainerDatasetAction (..),
+    mkContainerDatasetAction,
     cdaVariables,
     cdaImage,
     cdaExecutionRoleARN,
     cdaResourceConfiguration,
 
     -- ** CustomerManagedChannelS3Storage
-    CustomerManagedChannelS3Storage,
-    customerManagedChannelS3Storage,
+    CustomerManagedChannelS3Storage (..),
+    mkCustomerManagedChannelS3Storage,
     cmcssKeyPrefix,
     cmcssBucket,
     cmcssRoleARN,
 
     -- ** CustomerManagedChannelS3StorageSummary
-    CustomerManagedChannelS3StorageSummary,
-    customerManagedChannelS3StorageSummary,
+    CustomerManagedChannelS3StorageSummary (..),
+    mkCustomerManagedChannelS3StorageSummary,
     cmcsssBucket,
     cmcsssKeyPrefix,
     cmcsssRoleARN,
 
     -- ** CustomerManagedDatastoreS3Storage
-    CustomerManagedDatastoreS3Storage,
-    customerManagedDatastoreS3Storage,
+    CustomerManagedDatastoreS3Storage (..),
+    mkCustomerManagedDatastoreS3Storage,
     cmdssKeyPrefix,
     cmdssBucket,
     cmdssRoleARN,
 
     -- ** CustomerManagedDatastoreS3StorageSummary
-    CustomerManagedDatastoreS3StorageSummary,
-    customerManagedDatastoreS3StorageSummary,
+    CustomerManagedDatastoreS3StorageSummary (..),
+    mkCustomerManagedDatastoreS3StorageSummary,
     cmdsssBucket,
     cmdsssKeyPrefix,
     cmdsssRoleARN,
 
     -- ** Dataset
-    Dataset,
-    dataset,
+    Dataset (..),
+    mkDataset,
     dCreationTime,
     dStatus,
     dVersioningConfiguration,
@@ -270,39 +268,39 @@ module Network.AWS.IoTAnalytics
     dLastUpdateTime,
 
     -- ** DatasetAction
-    DatasetAction,
-    datasetAction,
+    DatasetAction (..),
+    mkDatasetAction,
     daQueryAction,
     daActionName,
     daContainerAction,
 
     -- ** DatasetActionSummary
-    DatasetActionSummary,
-    datasetActionSummary,
+    DatasetActionSummary (..),
+    mkDatasetActionSummary,
     dasActionName,
     dasActionType,
 
     -- ** DatasetContentDeliveryDestination
-    DatasetContentDeliveryDestination,
-    datasetContentDeliveryDestination,
+    DatasetContentDeliveryDestination (..),
+    mkDatasetContentDeliveryDestination,
     dcddS3DestinationConfiguration,
     dcddIotEventsDestinationConfiguration,
 
     -- ** DatasetContentDeliveryRule
-    DatasetContentDeliveryRule,
-    datasetContentDeliveryRule,
+    DatasetContentDeliveryRule (..),
+    mkDatasetContentDeliveryRule,
     dcdrEntryName,
     dcdrDestination,
 
     -- ** DatasetContentStatus
-    DatasetContentStatus,
-    datasetContentStatus,
+    DatasetContentStatus (..),
+    mkDatasetContentStatus,
     dcsState,
     dcsReason,
 
     -- ** DatasetContentSummary
-    DatasetContentSummary,
-    datasetContentSummary,
+    DatasetContentSummary (..),
+    mkDatasetContentSummary,
     dcsCreationTime,
     dcsStatus,
     dcsScheduleTime,
@@ -310,19 +308,19 @@ module Network.AWS.IoTAnalytics
     dcsVersion,
 
     -- ** DatasetContentVersionValue
-    DatasetContentVersionValue,
-    datasetContentVersionValue,
+    DatasetContentVersionValue (..),
+    mkDatasetContentVersionValue,
     dcvvDatasetName,
 
     -- ** DatasetEntry
-    DatasetEntry,
-    datasetEntry,
+    DatasetEntry (..),
+    mkDatasetEntry,
     deEntryName,
     deDataURI,
 
     -- ** DatasetSummary
-    DatasetSummary,
-    datasetSummary,
+    DatasetSummary (..),
+    mkDatasetSummary,
     dssCreationTime,
     dssStatus,
     dssActions,
@@ -331,14 +329,14 @@ module Network.AWS.IoTAnalytics
     dssLastUpdateTime,
 
     -- ** DatasetTrigger
-    DatasetTrigger,
-    datasetTrigger,
+    DatasetTrigger (..),
+    mkDatasetTrigger,
     dtDataset,
     dtSchedule,
 
     -- ** Datastore
-    Datastore,
-    datastore,
+    Datastore (..),
+    mkDatastore,
     datCreationTime,
     datStatus,
     datLastMessageArrivalTime,
@@ -349,31 +347,31 @@ module Network.AWS.IoTAnalytics
     datLastUpdateTime,
 
     -- ** DatastoreActivity
-    DatastoreActivity,
-    datastoreActivity,
+    DatastoreActivity (..),
+    mkDatastoreActivity,
     daName,
     daDatastoreName,
 
     -- ** DatastoreStatistics
-    DatastoreStatistics,
-    datastoreStatistics,
+    DatastoreStatistics (..),
+    mkDatastoreStatistics,
     dsSize,
 
     -- ** DatastoreStorage
-    DatastoreStorage,
-    datastoreStorage,
+    DatastoreStorage (..),
+    mkDatastoreStorage,
     dsServiceManagedS3,
     dsCustomerManagedS3,
 
     -- ** DatastoreStorageSummary
-    DatastoreStorageSummary,
-    datastoreStorageSummary,
+    DatastoreStorageSummary (..),
+    mkDatastoreStorageSummary,
     dssServiceManagedS3,
     dssCustomerManagedS3,
 
     -- ** DatastoreSummary
-    DatastoreSummary,
-    datastoreSummary,
+    DatastoreSummary (..),
+    mkDatastoreSummary,
     dsCreationTime,
     dsStatus,
     dsLastMessageArrivalTime,
@@ -382,19 +380,19 @@ module Network.AWS.IoTAnalytics
     dsDatastoreStorage,
 
     -- ** DeltaTime
-    DeltaTime,
-    deltaTime,
+    DeltaTime (..),
+    mkDeltaTime,
     dtOffsetSeconds,
     dtTimeExpression,
 
     -- ** DeltaTimeSessionWindowConfiguration
-    DeltaTimeSessionWindowConfiguration,
-    deltaTimeSessionWindowConfiguration,
+    DeltaTimeSessionWindowConfiguration (..),
+    mkDeltaTimeSessionWindowConfiguration,
     dtswcTimeoutInMinutes,
 
     -- ** DeviceRegistryEnrichActivity
-    DeviceRegistryEnrichActivity,
-    deviceRegistryEnrichActivity,
+    DeviceRegistryEnrichActivity (..),
+    mkDeviceRegistryEnrichActivity,
     dreaNext,
     dreaName,
     dreaAttribute,
@@ -402,8 +400,8 @@ module Network.AWS.IoTAnalytics
     dreaRoleARN,
 
     -- ** DeviceShadowEnrichActivity
-    DeviceShadowEnrichActivity,
-    deviceShadowEnrichActivity,
+    DeviceShadowEnrichActivity (..),
+    mkDeviceShadowEnrichActivity,
     dseaNext,
     dseaName,
     dseaAttribute,
@@ -411,78 +409,78 @@ module Network.AWS.IoTAnalytics
     dseaRoleARN,
 
     -- ** EstimatedResourceSize
-    EstimatedResourceSize,
-    estimatedResourceSize,
+    EstimatedResourceSize (..),
+    mkEstimatedResourceSize,
     ersEstimatedOn,
     ersEstimatedSizeInBytes,
 
     -- ** FilterActivity
-    FilterActivity,
-    filterActivity,
+    FilterActivity (..),
+    mkFilterActivity,
     faNext,
     faName,
     faFilter,
 
     -- ** GlueConfiguration
-    GlueConfiguration,
-    glueConfiguration,
+    GlueConfiguration (..),
+    mkGlueConfiguration,
     gcTableName,
     gcDatabaseName,
 
     -- ** IotEventsDestinationConfiguration
-    IotEventsDestinationConfiguration,
-    iotEventsDestinationConfiguration,
+    IotEventsDestinationConfiguration (..),
+    mkIotEventsDestinationConfiguration,
     iedcInputName,
     iedcRoleARN,
 
     -- ** LambdaActivity
-    LambdaActivity,
-    lambdaActivity,
+    LambdaActivity (..),
+    mkLambdaActivity,
     laNext,
     laName,
     laLambdaName,
     laBatchSize,
 
     -- ** LateDataRule
-    LateDataRule,
-    lateDataRule,
+    LateDataRule (..),
+    mkLateDataRule,
     ldrRuleName,
     ldrRuleConfiguration,
 
     -- ** LateDataRuleConfiguration
-    LateDataRuleConfiguration,
-    lateDataRuleConfiguration,
+    LateDataRuleConfiguration (..),
+    mkLateDataRuleConfiguration,
     ldrcDeltaTimeSessionWindowConfiguration,
 
     -- ** LoggingOptions
-    LoggingOptions,
-    loggingOptions,
+    LoggingOptions (..),
+    mkLoggingOptions,
     loRoleARN,
     loLevel,
     loEnabled,
 
     -- ** MathActivity
-    MathActivity,
-    mathActivity,
+    MathActivity (..),
+    mkMathActivity,
     maNext,
     maName,
     maAttribute,
     maMath,
 
     -- ** Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mMessageId,
     mPayload,
 
     -- ** OutputFileURIValue
-    OutputFileURIValue,
-    outputFileURIValue,
+    OutputFileURIValue (..),
+    mkOutputFileURIValue,
     ofuvFileName,
 
     -- ** Pipeline
-    Pipeline,
-    pipeline,
+    Pipeline (..),
+    mkPipeline,
     pCreationTime,
     pArn,
     pActivities,
@@ -491,8 +489,8 @@ module Network.AWS.IoTAnalytics
     pLastUpdateTime,
 
     -- ** PipelineActivity
-    PipelineActivity,
-    pipelineActivity,
+    PipelineActivity (..),
+    mkPipelineActivity,
     paSelectAttributes,
     paChannel,
     paAddAttributes,
@@ -505,100 +503,100 @@ module Network.AWS.IoTAnalytics
     paMath,
 
     -- ** PipelineSummary
-    PipelineSummary,
-    pipelineSummary,
+    PipelineSummary (..),
+    mkPipelineSummary,
     psCreationTime,
     psPipelineName,
     psReprocessingSummaries,
     psLastUpdateTime,
 
     -- ** QueryFilter
-    QueryFilter,
-    queryFilter,
+    QueryFilter (..),
+    mkQueryFilter,
     qfDeltaTime,
 
     -- ** RemoveAttributesActivity
-    RemoveAttributesActivity,
-    removeAttributesActivity,
+    RemoveAttributesActivity (..),
+    mkRemoveAttributesActivity,
     raaNext,
     raaName,
     raaAttributes,
 
     -- ** ReprocessingSummary
-    ReprocessingSummary,
-    reprocessingSummary,
+    ReprocessingSummary (..),
+    mkReprocessingSummary,
     rsCreationTime,
     rsStatus,
     rsId,
 
     -- ** ResourceConfiguration
-    ResourceConfiguration,
-    resourceConfiguration,
+    ResourceConfiguration (..),
+    mkResourceConfiguration,
     rcComputeType,
     rcVolumeSizeInGB,
 
     -- ** RetentionPeriod
-    RetentionPeriod,
-    retentionPeriod,
+    RetentionPeriod (..),
+    mkRetentionPeriod,
     rpUnlimited,
     rpNumberOfDays,
 
     -- ** S3DestinationConfiguration
-    S3DestinationConfiguration,
-    s3DestinationConfiguration,
+    S3DestinationConfiguration (..),
+    mkS3DestinationConfiguration,
     sdcGlueConfiguration,
     sdcBucket,
     sdcKey,
     sdcRoleARN,
 
     -- ** Schedule
-    Schedule,
-    schedule,
+    Schedule (..),
+    mkSchedule,
     sExpression,
 
     -- ** SelectAttributesActivity
-    SelectAttributesActivity,
-    selectAttributesActivity,
+    SelectAttributesActivity (..),
+    mkSelectAttributesActivity,
     saaNext,
     saaName,
     saaAttributes,
 
     -- ** ServiceManagedChannelS3Storage
-    ServiceManagedChannelS3Storage,
-    serviceManagedChannelS3Storage,
+    ServiceManagedChannelS3Storage (..),
+    mkServiceManagedChannelS3Storage,
 
     -- ** ServiceManagedChannelS3StorageSummary
-    ServiceManagedChannelS3StorageSummary,
-    serviceManagedChannelS3StorageSummary,
+    ServiceManagedChannelS3StorageSummary (..),
+    mkServiceManagedChannelS3StorageSummary,
 
     -- ** ServiceManagedDatastoreS3Storage
-    ServiceManagedDatastoreS3Storage,
-    serviceManagedDatastoreS3Storage,
+    ServiceManagedDatastoreS3Storage (..),
+    mkServiceManagedDatastoreS3Storage,
 
     -- ** ServiceManagedDatastoreS3StorageSummary
-    ServiceManagedDatastoreS3StorageSummary,
-    serviceManagedDatastoreS3StorageSummary,
+    ServiceManagedDatastoreS3StorageSummary (..),
+    mkServiceManagedDatastoreS3StorageSummary,
 
     -- ** SqlQueryDatasetAction
-    SqlQueryDatasetAction,
-    sqlQueryDatasetAction,
+    SqlQueryDatasetAction (..),
+    mkSqlQueryDatasetAction,
     sqdaFilters,
     sqdaSqlQuery,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TriggeringDataset
-    TriggeringDataset,
-    triggeringDataset,
+    TriggeringDataset (..),
+    mkTriggeringDataset,
     tdName,
 
     -- ** Variable
-    Variable,
-    variable,
+    Variable (..),
+    mkVariable,
     vOutputFileURIValue,
     vDoubleValue,
     vStringValue,
@@ -606,10 +604,21 @@ module Network.AWS.IoTAnalytics
     vName,
 
     -- ** VersioningConfiguration
-    VersioningConfiguration,
-    versioningConfiguration,
+    VersioningConfiguration (..),
+    mkVersioningConfiguration,
     vcUnlimited,
     vcMaxVersions,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -649,6 +658,7 @@ import Network.AWS.IoTAnalytics.UpdateDataset
 import Network.AWS.IoTAnalytics.UpdateDatastore
 import Network.AWS.IoTAnalytics.UpdatePipeline
 import Network.AWS.IoTAnalytics.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

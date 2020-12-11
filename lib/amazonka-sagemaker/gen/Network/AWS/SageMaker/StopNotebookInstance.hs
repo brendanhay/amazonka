@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,102 @@
 --
 -- Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume. Amazon SageMaker stops charging you for the ML compute instance when you call @StopNotebookInstance@ .
 --
---
 -- To access data on the ML storage volume for a notebook instance that has been terminated, call the @StartNotebookInstance@ API. @StartNotebookInstance@ launches another ML compute instance, configures it, and attaches the preserved ML storage volume so you can continue your work.
 module Network.AWS.SageMaker.StopNotebookInstance
-  ( -- * Creating a Request
-    stopNotebookInstance,
-    StopNotebookInstance,
+  ( -- * Creating a request
+    StopNotebookInstance (..),
+    mkStopNotebookInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sniNotebookInstanceName,
 
-    -- * Destructuring the Response
-    stopNotebookInstanceResponse,
-    StopNotebookInstanceResponse,
+    -- * Destructuring the response
+    StopNotebookInstanceResponse (..),
+    mkStopNotebookInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopNotebookInstance' smart constructor.
+-- | /See:/ 'mkStopNotebookInstance' smart constructor.
 newtype StopNotebookInstance = StopNotebookInstance'
-  { _sniNotebookInstanceName ::
-      Text
+  { notebookInstanceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopNotebookInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sniNotebookInstanceName' - The name of the notebook instance to terminate.
-stopNotebookInstance ::
-  -- | 'sniNotebookInstanceName'
-  Text ->
+-- * 'notebookInstanceName' - The name of the notebook instance to terminate.
+mkStopNotebookInstance ::
+  -- | 'notebookInstanceName'
+  Lude.Text ->
   StopNotebookInstance
-stopNotebookInstance pNotebookInstanceName_ =
+mkStopNotebookInstance pNotebookInstanceName_ =
   StopNotebookInstance'
-    { _sniNotebookInstanceName =
+    { notebookInstanceName =
         pNotebookInstanceName_
     }
 
 -- | The name of the notebook instance to terminate.
-sniNotebookInstanceName :: Lens' StopNotebookInstance Text
-sniNotebookInstanceName = lens _sniNotebookInstanceName (\s a -> s {_sniNotebookInstanceName = a})
+--
+-- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sniNotebookInstanceName :: Lens.Lens' StopNotebookInstance Lude.Text
+sniNotebookInstanceName = Lens.lens (notebookInstanceName :: StopNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: StopNotebookInstance)
+{-# DEPRECATED sniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
-instance AWSRequest StopNotebookInstance where
+instance Lude.AWSRequest StopNotebookInstance where
   type Rs StopNotebookInstance = StopNotebookInstanceResponse
-  request = postJSON sageMaker
-  response = receiveNull StopNotebookInstanceResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopNotebookInstanceResponse'
 
-instance Hashable StopNotebookInstance
-
-instance NFData StopNotebookInstance
-
-instance ToHeaders StopNotebookInstance where
+instance Lude.ToHeaders StopNotebookInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.StopNotebookInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.StopNotebookInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopNotebookInstance where
+instance Lude.ToJSON StopNotebookInstance where
   toJSON StopNotebookInstance' {..} =
-    object
-      ( catMaybes
-          [Just ("NotebookInstanceName" .= _sniNotebookInstanceName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName)]
       )
 
-instance ToPath StopNotebookInstance where
-  toPath = const "/"
+instance Lude.ToPath StopNotebookInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery StopNotebookInstance where
-  toQuery = const mempty
+instance Lude.ToQuery StopNotebookInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopNotebookInstanceResponse' smart constructor.
+-- | /See:/ 'mkStopNotebookInstanceResponse' smart constructor.
 data StopNotebookInstanceResponse = StopNotebookInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopNotebookInstanceResponse' with the minimum fields required to make a request.
-stopNotebookInstanceResponse ::
+mkStopNotebookInstanceResponse ::
   StopNotebookInstanceResponse
-stopNotebookInstanceResponse = StopNotebookInstanceResponse'
-
-instance NFData StopNotebookInstanceResponse
+mkStopNotebookInstanceResponse = StopNotebookInstanceResponse'

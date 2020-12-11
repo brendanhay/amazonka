@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.UpdateDocumentationVersion
-  ( -- * Creating a Request
-    updateDocumentationVersion,
-    UpdateDocumentationVersion,
+  ( -- * Creating a request
+    UpdateDocumentationVersion (..),
+    mkUpdateDocumentationVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udvPatchOperations,
     udvRestAPIId,
     udvDocumentationVersion,
 
-    -- * Destructuring the Response
-    documentationVersion,
-    DocumentationVersion,
+    -- * Destructuring the response
+    DocumentationVersion (..),
+    mkDocumentationVersion,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvCreatedDate,
     dvVersion,
     dvDescription,
@@ -40,84 +35,95 @@ module Network.AWS.APIGateway.UpdateDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Updates an existing documentation version of an API.
 --
---
---
--- /See:/ 'updateDocumentationVersion' smart constructor.
+-- /See:/ 'mkUpdateDocumentationVersion' smart constructor.
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
-  { _udvPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _udvRestAPIId :: !Text,
-    _udvDocumentationVersion :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    documentationVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udvPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'udvRestAPIId' - [Required] The string identifier of the associated 'RestApi' ..
---
--- * 'udvDocumentationVersion' - [Required] The version identifier of the to-be-updated documentation version.
-updateDocumentationVersion ::
-  -- | 'udvRestAPIId'
-  Text ->
-  -- | 'udvDocumentationVersion'
-  Text ->
+-- * 'documentationVersion' - [Required] The version identifier of the to-be-updated documentation version.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' ..
+mkUpdateDocumentationVersion ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'documentationVersion'
+  Lude.Text ->
   UpdateDocumentationVersion
-updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkUpdateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   UpdateDocumentationVersion'
-    { _udvPatchOperations = Nothing,
-      _udvRestAPIId = pRestAPIId_,
-      _udvDocumentationVersion = pDocumentationVersion_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      documentationVersion = pDocumentationVersion_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-udvPatchOperations :: Lens' UpdateDocumentationVersion [PatchOperation]
-udvPatchOperations = lens _udvPatchOperations (\s a -> s {_udvPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvPatchOperations :: Lens.Lens' UpdateDocumentationVersion (Lude.Maybe [PatchOperation])
+udvPatchOperations = Lens.lens (patchOperations :: UpdateDocumentationVersion -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDocumentationVersion)
+{-# DEPRECATED udvPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' ..
-udvRestAPIId :: Lens' UpdateDocumentationVersion Text
-udvRestAPIId = lens _udvRestAPIId (\s a -> s {_udvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvRestAPIId :: Lens.Lens' UpdateDocumentationVersion Lude.Text
+udvRestAPIId = Lens.lens (restAPIId :: UpdateDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateDocumentationVersion)
+{-# DEPRECATED udvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The version identifier of the to-be-updated documentation version.
-udvDocumentationVersion :: Lens' UpdateDocumentationVersion Text
-udvDocumentationVersion = lens _udvDocumentationVersion (\s a -> s {_udvDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvDocumentationVersion :: Lens.Lens' UpdateDocumentationVersion Lude.Text
+udvDocumentationVersion = Lens.lens (documentationVersion :: UpdateDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: UpdateDocumentationVersion)
+{-# DEPRECATED udvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
-instance AWSRequest UpdateDocumentationVersion where
+instance Lude.AWSRequest UpdateDocumentationVersion where
   type Rs UpdateDocumentationVersion = DocumentationVersion
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateDocumentationVersion
-
-instance NFData UpdateDocumentationVersion
-
-instance ToHeaders UpdateDocumentationVersion where
+instance Lude.ToHeaders UpdateDocumentationVersion where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateDocumentationVersion where
+instance Lude.ToJSON UpdateDocumentationVersion where
   toJSON UpdateDocumentationVersion' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _udvPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateDocumentationVersion where
+instance Lude.ToPath UpdateDocumentationVersion where
   toPath UpdateDocumentationVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _udvRestAPIId,
+        Lude.toBS restAPIId,
         "/documentation/versions/",
-        toBS _udvDocumentationVersion
+        Lude.toBS documentationVersion
       ]
 
-instance ToQuery UpdateDocumentationVersion where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDocumentationVersion where
+  toQuery = Lude.const Lude.mempty

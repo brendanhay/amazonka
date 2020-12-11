@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,158 @@
 --
 -- Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail content delivery network (CDN) distribution.
 module Network.AWS.Lightsail.GetDistributionLatestCacheReset
-  ( -- * Creating a Request
-    getDistributionLatestCacheReset,
-    GetDistributionLatestCacheReset,
+  ( -- * Creating a request
+    GetDistributionLatestCacheReset (..),
+    mkGetDistributionLatestCacheReset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdlcrDistributionName,
 
-    -- * Destructuring the Response
-    getDistributionLatestCacheResetResponse,
-    GetDistributionLatestCacheResetResponse,
+    -- * Destructuring the response
+    GetDistributionLatestCacheResetResponse (..),
+    mkGetDistributionLatestCacheResetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdlcrrsStatus,
     gdlcrrsCreateTime,
     gdlcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDistributionLatestCacheReset' smart constructor.
+-- | /See:/ 'mkGetDistributionLatestCacheReset' smart constructor.
 newtype GetDistributionLatestCacheReset = GetDistributionLatestCacheReset'
-  { _gdlcrDistributionName ::
-      Maybe Text
+  { distributionName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionLatestCacheReset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'distributionName' - The name of the distribution for which to return the timestamp of the last cache reset.
 --
--- * 'gdlcrDistributionName' - The name of the distribution for which to return the timestamp of the last cache reset. Use the @GetDistributions@ action to get a list of distribution names that you can specify. When omitted, the response includes the latest cache reset timestamp of all your distributions.
-getDistributionLatestCacheReset ::
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- When omitted, the response includes the latest cache reset timestamp of all your distributions.
+mkGetDistributionLatestCacheReset ::
   GetDistributionLatestCacheReset
-getDistributionLatestCacheReset =
-  GetDistributionLatestCacheReset'
-    { _gdlcrDistributionName =
-        Nothing
-    }
+mkGetDistributionLatestCacheReset =
+  GetDistributionLatestCacheReset' {distributionName = Lude.Nothing}
 
--- | The name of the distribution for which to return the timestamp of the last cache reset. Use the @GetDistributions@ action to get a list of distribution names that you can specify. When omitted, the response includes the latest cache reset timestamp of all your distributions.
-gdlcrDistributionName :: Lens' GetDistributionLatestCacheReset (Maybe Text)
-gdlcrDistributionName = lens _gdlcrDistributionName (\s a -> s {_gdlcrDistributionName = a})
+-- | The name of the distribution for which to return the timestamp of the last cache reset.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- When omitted, the response includes the latest cache reset timestamp of all your distributions.
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlcrDistributionName :: Lens.Lens' GetDistributionLatestCacheReset (Lude.Maybe Lude.Text)
+gdlcrDistributionName = Lens.lens (distributionName :: GetDistributionLatestCacheReset -> Lude.Maybe Lude.Text) (\s a -> s {distributionName = a} :: GetDistributionLatestCacheReset)
+{-# DEPRECATED gdlcrDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance AWSRequest GetDistributionLatestCacheReset where
+instance Lude.AWSRequest GetDistributionLatestCacheReset where
   type
     Rs GetDistributionLatestCacheReset =
       GetDistributionLatestCacheResetResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDistributionLatestCacheResetResponse'
-            <$> (x .?> "status") <*> (x .?> "createTime") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "createTime")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDistributionLatestCacheReset
-
-instance NFData GetDistributionLatestCacheReset
-
-instance ToHeaders GetDistributionLatestCacheReset where
+instance Lude.ToHeaders GetDistributionLatestCacheReset where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.GetDistributionLatestCacheReset" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetDistributionLatestCacheReset" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDistributionLatestCacheReset where
+instance Lude.ToJSON GetDistributionLatestCacheReset where
   toJSON GetDistributionLatestCacheReset' {..} =
-    object
-      (catMaybes [("distributionName" .=) <$> _gdlcrDistributionName])
+    Lude.object
+      ( Lude.catMaybes
+          [("distributionName" Lude..=) Lude.<$> distributionName]
+      )
 
-instance ToPath GetDistributionLatestCacheReset where
-  toPath = const "/"
+instance Lude.ToPath GetDistributionLatestCacheReset where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDistributionLatestCacheReset where
-  toQuery = const mempty
+instance Lude.ToQuery GetDistributionLatestCacheReset where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDistributionLatestCacheResetResponse' smart constructor.
+-- | /See:/ 'mkGetDistributionLatestCacheResetResponse' smart constructor.
 data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetResponse'
-  { _gdlcrrsStatus ::
-      !( Maybe
-           Text
-       ),
-    _gdlcrrsCreateTime ::
-      !( Maybe
-           POSIX
-       ),
-    _gdlcrrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        Lude.Text,
+    createTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionLatestCacheResetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdlcrrsStatus' - The status of the last cache reset.
---
--- * 'gdlcrrsCreateTime' - The timestamp of the last cache reset (e.g., @1479734909.17@ ) in Unix time format.
---
--- * 'gdlcrrsResponseStatus' - -- | The response status code.
-getDistributionLatestCacheResetResponse ::
-  -- | 'gdlcrrsResponseStatus'
-  Int ->
+-- * 'createTime' - The timestamp of the last cache reset (e.g., @1479734909.17@ ) in Unix time format.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the last cache reset.
+mkGetDistributionLatestCacheResetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDistributionLatestCacheResetResponse
-getDistributionLatestCacheResetResponse pResponseStatus_ =
+mkGetDistributionLatestCacheResetResponse pResponseStatus_ =
   GetDistributionLatestCacheResetResponse'
-    { _gdlcrrsStatus =
-        Nothing,
-      _gdlcrrsCreateTime = Nothing,
-      _gdlcrrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      createTime = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the last cache reset.
-gdlcrrsStatus :: Lens' GetDistributionLatestCacheResetResponse (Maybe Text)
-gdlcrrsStatus = lens _gdlcrrsStatus (\s a -> s {_gdlcrrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlcrrsStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse (Lude.Maybe Lude.Text)
+gdlcrrsStatus = Lens.lens (status :: GetDistributionLatestCacheResetResponse -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: GetDistributionLatestCacheResetResponse)
+{-# DEPRECATED gdlcrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The timestamp of the last cache reset (e.g., @1479734909.17@ ) in Unix time format.
-gdlcrrsCreateTime :: Lens' GetDistributionLatestCacheResetResponse (Maybe UTCTime)
-gdlcrrsCreateTime = lens _gdlcrrsCreateTime (\s a -> s {_gdlcrrsCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlcrrsCreateTime :: Lens.Lens' GetDistributionLatestCacheResetResponse (Lude.Maybe Lude.Timestamp)
+gdlcrrsCreateTime = Lens.lens (createTime :: GetDistributionLatestCacheResetResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: GetDistributionLatestCacheResetResponse)
+{-# DEPRECATED gdlcrrsCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
--- | -- | The response status code.
-gdlcrrsResponseStatus :: Lens' GetDistributionLatestCacheResetResponse Int
-gdlcrrsResponseStatus = lens _gdlcrrsResponseStatus (\s a -> s {_gdlcrrsResponseStatus = a})
-
-instance NFData GetDistributionLatestCacheResetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlcrrsResponseStatus :: Lens.Lens' GetDistributionLatestCacheResetResponse Lude.Int
+gdlcrrsResponseStatus = Lens.lens (responseStatus :: GetDistributionLatestCacheResetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDistributionLatestCacheResetResponse)
+{-# DEPRECATED gdlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

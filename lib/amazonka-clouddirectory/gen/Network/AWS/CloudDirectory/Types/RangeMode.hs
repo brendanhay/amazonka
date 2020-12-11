@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.RangeMode where
+module Network.AWS.CloudDirectory.Types.RangeMode
+  ( RangeMode
+      ( RangeMode',
+        Exclusive,
+        First,
+        Inclusive,
+        Last,
+        LastBeforeMissingValues
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RangeMode
-  = Exclusive
-  | First
-  | Inclusive
-  | Last
-  | LastBeforeMissingValues
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RangeMode = RangeMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RangeMode where
-  parser =
-    takeLowerText >>= \case
-      "exclusive" -> pure Exclusive
-      "first" -> pure First
-      "inclusive" -> pure Inclusive
-      "last" -> pure Last
-      "last_before_missing_values" -> pure LastBeforeMissingValues
-      e ->
-        fromTextError $
-          "Failure parsing RangeMode from value: '" <> e
-            <> "'. Accepted values: exclusive, first, inclusive, last, last_before_missing_values"
+pattern Exclusive :: RangeMode
+pattern Exclusive = RangeMode' "EXCLUSIVE"
 
-instance ToText RangeMode where
-  toText = \case
-    Exclusive -> "EXCLUSIVE"
-    First -> "FIRST"
-    Inclusive -> "INCLUSIVE"
-    Last -> "LAST"
-    LastBeforeMissingValues -> "LAST_BEFORE_MISSING_VALUES"
+pattern First :: RangeMode
+pattern First = RangeMode' "FIRST"
 
-instance Hashable RangeMode
+pattern Inclusive :: RangeMode
+pattern Inclusive = RangeMode' "INCLUSIVE"
 
-instance NFData RangeMode
+pattern Last :: RangeMode
+pattern Last = RangeMode' "LAST"
 
-instance ToByteString RangeMode
+pattern LastBeforeMissingValues :: RangeMode
+pattern LastBeforeMissingValues = RangeMode' "LAST_BEFORE_MISSING_VALUES"
 
-instance ToQuery RangeMode
-
-instance ToHeader RangeMode
-
-instance ToJSON RangeMode where
-  toJSON = toJSONText
+{-# COMPLETE
+  Exclusive,
+  First,
+  Inclusive,
+  Last,
+  LastBeforeMissingValues,
+  RangeMode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType where
+module Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType
+  ( TokenValidityUnitsType (..),
+
+    -- * Smart constructor
+    mkTokenValidityUnitsType,
+
+    -- * Lenses
+    tvutAccessToken,
+    tvutRefreshToken,
+    tvutIdToken,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The data type for TokenValidityUnits that specifics the time measurements for token validity.
 --
---
---
--- /See:/ 'tokenValidityUnitsType' smart constructor.
+-- /See:/ 'mkTokenValidityUnitsType' smart constructor.
 data TokenValidityUnitsType = TokenValidityUnitsType'
-  { _tvutAccessToken ::
-      !(Maybe TimeUnitsType),
-    _tvutRefreshToken :: !(Maybe TimeUnitsType),
-    _tvutIdToken :: !(Maybe TimeUnitsType)
+  { accessToken ::
+      Lude.Maybe TimeUnitsType,
+    refreshToken :: Lude.Maybe TimeUnitsType,
+    idToken :: Lude.Maybe TimeUnitsType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TokenValidityUnitsType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tvutAccessToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
---
--- * 'tvutRefreshToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
---
--- * 'tvutIdToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
-tokenValidityUnitsType ::
+-- * 'accessToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
+-- * 'idToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
+-- * 'refreshToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
+mkTokenValidityUnitsType ::
   TokenValidityUnitsType
-tokenValidityUnitsType =
+mkTokenValidityUnitsType =
   TokenValidityUnitsType'
-    { _tvutAccessToken = Nothing,
-      _tvutRefreshToken = Nothing,
-      _tvutIdToken = Nothing
+    { accessToken = Lude.Nothing,
+      refreshToken = Lude.Nothing,
+      idToken = Lude.Nothing
     }
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
-tvutAccessToken :: Lens' TokenValidityUnitsType (Maybe TimeUnitsType)
-tvutAccessToken = lens _tvutAccessToken (\s a -> s {_tvutAccessToken = a})
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvutAccessToken :: Lens.Lens' TokenValidityUnitsType (Lude.Maybe TimeUnitsType)
+tvutAccessToken = Lens.lens (accessToken :: TokenValidityUnitsType -> Lude.Maybe TimeUnitsType) (\s a -> s {accessToken = a} :: TokenValidityUnitsType)
+{-# DEPRECATED tvutAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
-tvutRefreshToken :: Lens' TokenValidityUnitsType (Maybe TimeUnitsType)
-tvutRefreshToken = lens _tvutRefreshToken (\s a -> s {_tvutRefreshToken = a})
+--
+-- /Note:/ Consider using 'refreshToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvutRefreshToken :: Lens.Lens' TokenValidityUnitsType (Lude.Maybe TimeUnitsType)
+tvutRefreshToken = Lens.lens (refreshToken :: TokenValidityUnitsType -> Lude.Maybe TimeUnitsType) (\s a -> s {refreshToken = a} :: TokenValidityUnitsType)
+{-# DEPRECATED tvutRefreshToken "Use generic-lens or generic-optics with 'refreshToken' instead." #-}
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
-tvutIdToken :: Lens' TokenValidityUnitsType (Maybe TimeUnitsType)
-tvutIdToken = lens _tvutIdToken (\s a -> s {_tvutIdToken = a})
+--
+-- /Note:/ Consider using 'idToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvutIdToken :: Lens.Lens' TokenValidityUnitsType (Lude.Maybe TimeUnitsType)
+tvutIdToken = Lens.lens (idToken :: TokenValidityUnitsType -> Lude.Maybe TimeUnitsType) (\s a -> s {idToken = a} :: TokenValidityUnitsType)
+{-# DEPRECATED tvutIdToken "Use generic-lens or generic-optics with 'idToken' instead." #-}
 
-instance FromJSON TokenValidityUnitsType where
+instance Lude.FromJSON TokenValidityUnitsType where
   parseJSON =
-    withObject
+    Lude.withObject
       "TokenValidityUnitsType"
       ( \x ->
           TokenValidityUnitsType'
-            <$> (x .:? "AccessToken")
-            <*> (x .:? "RefreshToken")
-            <*> (x .:? "IdToken")
+            Lude.<$> (x Lude..:? "AccessToken")
+            Lude.<*> (x Lude..:? "RefreshToken")
+            Lude.<*> (x Lude..:? "IdToken")
       )
 
-instance Hashable TokenValidityUnitsType
-
-instance NFData TokenValidityUnitsType
-
-instance ToJSON TokenValidityUnitsType where
+instance Lude.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =
-    object
-      ( catMaybes
-          [ ("AccessToken" .=) <$> _tvutAccessToken,
-            ("RefreshToken" .=) <$> _tvutRefreshToken,
-            ("IdToken" .=) <$> _tvutIdToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessToken" Lude..=) Lude.<$> accessToken,
+            ("RefreshToken" Lude..=) Lude.<$> refreshToken,
+            ("IdToken" Lude..=) Lude.<$> idToken
           ]
       )

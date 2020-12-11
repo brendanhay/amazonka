@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError where
+module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
+  ( UnsuccessfulInstanceCreditSpecificationItemError (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkUnsuccessfulInstanceCreditSpecificationItemError,
+
+    -- * Lenses
+    uicsieCode,
+    uicsieMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the error for the burstable performance instance whose credit option for CPU usage was not modified.
 --
---
---
--- /See:/ 'unsuccessfulInstanceCreditSpecificationItemError' smart constructor.
+-- /See:/ 'mkUnsuccessfulInstanceCreditSpecificationItemError' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItemError = UnsuccessfulInstanceCreditSpecificationItemError'
-  { _uicsieCode ::
-      !( Maybe
-           UnsuccessfulInstanceCreditSpecificationErrorCode
-       ),
-    _uicsieMessage ::
-      !( Maybe
-           Text
-       )
+  { code ::
+      Lude.Maybe
+        UnsuccessfulInstanceCreditSpecificationErrorCode,
+    message ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UnsuccessfulInstanceCreditSpecificationItemError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uicsieCode' - The error code.
---
--- * 'uicsieMessage' - The applicable error message.
-unsuccessfulInstanceCreditSpecificationItemError ::
+-- * 'code' - The error code.
+-- * 'message' - The applicable error message.
+mkUnsuccessfulInstanceCreditSpecificationItemError ::
   UnsuccessfulInstanceCreditSpecificationItemError
-unsuccessfulInstanceCreditSpecificationItemError =
+mkUnsuccessfulInstanceCreditSpecificationItemError =
   UnsuccessfulInstanceCreditSpecificationItemError'
-    { _uicsieCode =
-        Nothing,
-      _uicsieMessage = Nothing
+    { code =
+        Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The error code.
-uicsieCode :: Lens' UnsuccessfulInstanceCreditSpecificationItemError (Maybe UnsuccessfulInstanceCreditSpecificationErrorCode)
-uicsieCode = lens _uicsieCode (\s a -> s {_uicsieCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicsieCode :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItemError (Lude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode)
+uicsieCode = Lens.lens (code :: UnsuccessfulInstanceCreditSpecificationItemError -> Lude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode) (\s a -> s {code = a} :: UnsuccessfulInstanceCreditSpecificationItemError)
+{-# DEPRECATED uicsieCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The applicable error message.
-uicsieMessage :: Lens' UnsuccessfulInstanceCreditSpecificationItemError (Maybe Text)
-uicsieMessage = lens _uicsieMessage (\s a -> s {_uicsieMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicsieMessage :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItemError (Lude.Maybe Lude.Text)
+uicsieMessage = Lens.lens (message :: UnsuccessfulInstanceCreditSpecificationItemError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UnsuccessfulInstanceCreditSpecificationItemError)
+{-# DEPRECATED uicsieMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML UnsuccessfulInstanceCreditSpecificationItemError where
+instance
+  Lude.FromXML
+    UnsuccessfulInstanceCreditSpecificationItemError
+  where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItemError'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable UnsuccessfulInstanceCreditSpecificationItemError
-
-instance NFData UnsuccessfulInstanceCreditSpecificationItemError
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageScanFindings where
+module Network.AWS.ECR.Types.ImageScanFindings
+  ( ImageScanFindings (..),
+
+    -- * Smart constructor
+    mkImageScanFindings,
+
+    -- * Lenses
+    isfImageScanCompletedAt,
+    isfFindings,
+    isfFindingSeverityCounts,
+    isfVulnerabilitySourceUpdatedAt,
+  )
+where
 
 import Network.AWS.ECR.Types.FindingSeverity
 import Network.AWS.ECR.Types.ImageScanFinding
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of an image scan.
 --
---
---
--- /See:/ 'imageScanFindings' smart constructor.
+-- /See:/ 'mkImageScanFindings' smart constructor.
 data ImageScanFindings = ImageScanFindings'
-  { _isfImageScanCompletedAt ::
-      !(Maybe POSIX),
-    _isfFindings :: !(Maybe [ImageScanFinding]),
-    _isfFindingSeverityCounts ::
-      !(Maybe (Map FindingSeverity (Nat))),
-    _isfVulnerabilitySourceUpdatedAt :: !(Maybe POSIX)
+  { imageScanCompletedAt ::
+      Lude.Maybe Lude.Timestamp,
+    findings :: Lude.Maybe [ImageScanFinding],
+    findingSeverityCounts ::
+      Lude.Maybe
+        (Lude.HashMap FindingSeverity (Lude.Natural)),
+    vulnerabilitySourceUpdatedAt ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isfImageScanCompletedAt' - The time of the last completed image scan.
---
--- * 'isfFindings' - The findings from the image scan.
---
--- * 'isfFindingSeverityCounts' - The image vulnerability counts, sorted by severity.
---
--- * 'isfVulnerabilitySourceUpdatedAt' - The time when the vulnerability data was last scanned.
-imageScanFindings ::
+-- * 'findingSeverityCounts' - The image vulnerability counts, sorted by severity.
+-- * 'findings' - The findings from the image scan.
+-- * 'imageScanCompletedAt' - The time of the last completed image scan.
+-- * 'vulnerabilitySourceUpdatedAt' - The time when the vulnerability data was last scanned.
+mkImageScanFindings ::
   ImageScanFindings
-imageScanFindings =
+mkImageScanFindings =
   ImageScanFindings'
-    { _isfImageScanCompletedAt = Nothing,
-      _isfFindings = Nothing,
-      _isfFindingSeverityCounts = Nothing,
-      _isfVulnerabilitySourceUpdatedAt = Nothing
+    { imageScanCompletedAt = Lude.Nothing,
+      findings = Lude.Nothing,
+      findingSeverityCounts = Lude.Nothing,
+      vulnerabilitySourceUpdatedAt = Lude.Nothing
     }
 
 -- | The time of the last completed image scan.
-isfImageScanCompletedAt :: Lens' ImageScanFindings (Maybe UTCTime)
-isfImageScanCompletedAt = lens _isfImageScanCompletedAt (\s a -> s {_isfImageScanCompletedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'imageScanCompletedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfImageScanCompletedAt :: Lens.Lens' ImageScanFindings (Lude.Maybe Lude.Timestamp)
+isfImageScanCompletedAt = Lens.lens (imageScanCompletedAt :: ImageScanFindings -> Lude.Maybe Lude.Timestamp) (\s a -> s {imageScanCompletedAt = a} :: ImageScanFindings)
+{-# DEPRECATED isfImageScanCompletedAt "Use generic-lens or generic-optics with 'imageScanCompletedAt' instead." #-}
 
 -- | The findings from the image scan.
-isfFindings :: Lens' ImageScanFindings [ImageScanFinding]
-isfFindings = lens _isfFindings (\s a -> s {_isfFindings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'findings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfFindings :: Lens.Lens' ImageScanFindings (Lude.Maybe [ImageScanFinding])
+isfFindings = Lens.lens (findings :: ImageScanFindings -> Lude.Maybe [ImageScanFinding]) (\s a -> s {findings = a} :: ImageScanFindings)
+{-# DEPRECATED isfFindings "Use generic-lens or generic-optics with 'findings' instead." #-}
 
 -- | The image vulnerability counts, sorted by severity.
-isfFindingSeverityCounts :: Lens' ImageScanFindings (HashMap FindingSeverity (Natural))
-isfFindingSeverityCounts = lens _isfFindingSeverityCounts (\s a -> s {_isfFindingSeverityCounts = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'findingSeverityCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfFindingSeverityCounts :: Lens.Lens' ImageScanFindings (Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural)))
+isfFindingSeverityCounts = Lens.lens (findingSeverityCounts :: ImageScanFindings -> Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural))) (\s a -> s {findingSeverityCounts = a} :: ImageScanFindings)
+{-# DEPRECATED isfFindingSeverityCounts "Use generic-lens or generic-optics with 'findingSeverityCounts' instead." #-}
 
 -- | The time when the vulnerability data was last scanned.
-isfVulnerabilitySourceUpdatedAt :: Lens' ImageScanFindings (Maybe UTCTime)
-isfVulnerabilitySourceUpdatedAt = lens _isfVulnerabilitySourceUpdatedAt (\s a -> s {_isfVulnerabilitySourceUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'vulnerabilitySourceUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfVulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindings (Lude.Maybe Lude.Timestamp)
+isfVulnerabilitySourceUpdatedAt = Lens.lens (vulnerabilitySourceUpdatedAt :: ImageScanFindings -> Lude.Maybe Lude.Timestamp) (\s a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindings)
+{-# DEPRECATED isfVulnerabilitySourceUpdatedAt "Use generic-lens or generic-optics with 'vulnerabilitySourceUpdatedAt' instead." #-}
 
-instance FromJSON ImageScanFindings where
+instance Lude.FromJSON ImageScanFindings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageScanFindings"
       ( \x ->
           ImageScanFindings'
-            <$> (x .:? "imageScanCompletedAt")
-            <*> (x .:? "findings" .!= mempty)
-            <*> (x .:? "findingSeverityCounts" .!= mempty)
-            <*> (x .:? "vulnerabilitySourceUpdatedAt")
+            Lude.<$> (x Lude..:? "imageScanCompletedAt")
+            Lude.<*> (x Lude..:? "findings" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "findingSeverityCounts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "vulnerabilitySourceUpdatedAt")
       )
-
-instance Hashable ImageScanFindings
-
-instance NFData ImageScanFindings

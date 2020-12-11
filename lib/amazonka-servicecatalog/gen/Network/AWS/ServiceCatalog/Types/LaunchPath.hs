@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.LaunchPath where
+module Network.AWS.ServiceCatalog.Types.LaunchPath
+  ( LaunchPath (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchPath,
+
+    -- * Lenses
+    lpName,
+    lpId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A launch path object.
 --
---
---
--- /See:/ 'launchPath' smart constructor.
+-- /See:/ 'mkLaunchPath' smart constructor.
 data LaunchPath = LaunchPath'
-  { _lpName :: !(Maybe Text),
-    _lpId :: !(Maybe Text)
+  { name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPath' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpName' - The name of the launch path.
---
--- * 'lpId' - The identifier of the launch path.
-launchPath ::
+-- * 'id' - The identifier of the launch path.
+-- * 'name' - The name of the launch path.
+mkLaunchPath ::
   LaunchPath
-launchPath = LaunchPath' {_lpName = Nothing, _lpId = Nothing}
+mkLaunchPath = LaunchPath' {name = Lude.Nothing, id = Lude.Nothing}
 
 -- | The name of the launch path.
-lpName :: Lens' LaunchPath (Maybe Text)
-lpName = lens _lpName (\s a -> s {_lpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpName :: Lens.Lens' LaunchPath (Lude.Maybe Lude.Text)
+lpName = Lens.lens (name :: LaunchPath -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchPath)
+{-# DEPRECATED lpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the launch path.
-lpId :: Lens' LaunchPath (Maybe Text)
-lpId = lens _lpId (\s a -> s {_lpId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpId :: Lens.Lens' LaunchPath (Lude.Maybe Lude.Text)
+lpId = Lens.lens (id :: LaunchPath -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LaunchPath)
+{-# DEPRECATED lpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON LaunchPath where
+instance Lude.FromJSON LaunchPath where
   parseJSON =
-    withObject
+    Lude.withObject
       "LaunchPath"
-      (\x -> LaunchPath' <$> (x .:? "Name") <*> (x .:? "Id"))
-
-instance Hashable LaunchPath
-
-instance NFData LaunchPath
+      ( \x ->
+          LaunchPath'
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Id")
+      )

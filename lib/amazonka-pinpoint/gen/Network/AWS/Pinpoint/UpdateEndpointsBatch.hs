@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,149 @@
 --
 -- Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.
 module Network.AWS.Pinpoint.UpdateEndpointsBatch
-  ( -- * Creating a Request
-    updateEndpointsBatch,
-    UpdateEndpointsBatch,
+  ( -- * Creating a request
+    UpdateEndpointsBatch (..),
+    mkUpdateEndpointsBatch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uebApplicationId,
     uebEndpointBatchRequest,
 
-    -- * Destructuring the Response
-    updateEndpointsBatchResponse,
-    UpdateEndpointsBatchResponse,
+    -- * Destructuring the response
+    UpdateEndpointsBatchResponse (..),
+    mkUpdateEndpointsBatchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uebrsResponseStatus,
     uebrsMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEndpointsBatch' smart constructor.
+-- | /See:/ 'mkUpdateEndpointsBatch' smart constructor.
 data UpdateEndpointsBatch = UpdateEndpointsBatch'
-  { _uebApplicationId ::
-      !Text,
-    _uebEndpointBatchRequest :: !EndpointBatchRequest
+  { applicationId ::
+      Lude.Text,
+    endpointBatchRequest :: EndpointBatchRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointsBatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uebApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'uebEndpointBatchRequest' - Undocumented member.
-updateEndpointsBatch ::
-  -- | 'uebApplicationId'
-  Text ->
-  -- | 'uebEndpointBatchRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'endpointBatchRequest' - Undocumented field.
+mkUpdateEndpointsBatch ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'endpointBatchRequest'
   EndpointBatchRequest ->
   UpdateEndpointsBatch
-updateEndpointsBatch pApplicationId_ pEndpointBatchRequest_ =
+mkUpdateEndpointsBatch pApplicationId_ pEndpointBatchRequest_ =
   UpdateEndpointsBatch'
-    { _uebApplicationId = pApplicationId_,
-      _uebEndpointBatchRequest = pEndpointBatchRequest_
+    { applicationId = pApplicationId_,
+      endpointBatchRequest = pEndpointBatchRequest_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-uebApplicationId :: Lens' UpdateEndpointsBatch Text
-uebApplicationId = lens _uebApplicationId (\s a -> s {_uebApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uebApplicationId :: Lens.Lens' UpdateEndpointsBatch Lude.Text
+uebApplicationId = Lens.lens (applicationId :: UpdateEndpointsBatch -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateEndpointsBatch)
+{-# DEPRECATED uebApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-uebEndpointBatchRequest :: Lens' UpdateEndpointsBatch EndpointBatchRequest
-uebEndpointBatchRequest = lens _uebEndpointBatchRequest (\s a -> s {_uebEndpointBatchRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpointBatchRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uebEndpointBatchRequest :: Lens.Lens' UpdateEndpointsBatch EndpointBatchRequest
+uebEndpointBatchRequest = Lens.lens (endpointBatchRequest :: UpdateEndpointsBatch -> EndpointBatchRequest) (\s a -> s {endpointBatchRequest = a} :: UpdateEndpointsBatch)
+{-# DEPRECATED uebEndpointBatchRequest "Use generic-lens or generic-optics with 'endpointBatchRequest' instead." #-}
 
-instance AWSRequest UpdateEndpointsBatch where
+instance Lude.AWSRequest UpdateEndpointsBatch where
   type Rs UpdateEndpointsBatch = UpdateEndpointsBatchResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateEndpointsBatchResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateEndpointsBatch
-
-instance NFData UpdateEndpointsBatch
-
-instance ToHeaders UpdateEndpointsBatch where
+instance Lude.ToHeaders UpdateEndpointsBatch where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateEndpointsBatch where
+instance Lude.ToJSON UpdateEndpointsBatch where
   toJSON UpdateEndpointsBatch' {..} =
-    object
-      ( catMaybes
-          [Just ("EndpointBatchRequest" .= _uebEndpointBatchRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EndpointBatchRequest" Lude..= endpointBatchRequest)]
       )
 
-instance ToPath UpdateEndpointsBatch where
+instance Lude.ToPath UpdateEndpointsBatch where
   toPath UpdateEndpointsBatch' {..} =
-    mconcat ["/v1/apps/", toBS _uebApplicationId, "/endpoints"]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/endpoints"]
 
-instance ToQuery UpdateEndpointsBatch where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEndpointsBatch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEndpointsBatchResponse' smart constructor.
+-- | /See:/ 'mkUpdateEndpointsBatchResponse' smart constructor.
 data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
-  { _uebrsResponseStatus ::
-      !Int,
-    _uebrsMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointsBatchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uebrsResponseStatus' - -- | The response status code.
---
--- * 'uebrsMessageBody' - Undocumented member.
-updateEndpointsBatchResponse ::
-  -- | 'uebrsResponseStatus'
-  Int ->
-  -- | 'uebrsMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateEndpointsBatchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   UpdateEndpointsBatchResponse
-updateEndpointsBatchResponse pResponseStatus_ pMessageBody_ =
+mkUpdateEndpointsBatchResponse pResponseStatus_ pMessageBody_ =
   UpdateEndpointsBatchResponse'
-    { _uebrsResponseStatus =
-        pResponseStatus_,
-      _uebrsMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-uebrsResponseStatus :: Lens' UpdateEndpointsBatchResponse Int
-uebrsResponseStatus = lens _uebrsResponseStatus (\s a -> s {_uebrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uebrsResponseStatus :: Lens.Lens' UpdateEndpointsBatchResponse Lude.Int
+uebrsResponseStatus = Lens.lens (responseStatus :: UpdateEndpointsBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointsBatchResponse)
+{-# DEPRECATED uebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-uebrsMessageBody :: Lens' UpdateEndpointsBatchResponse MessageBody
-uebrsMessageBody = lens _uebrsMessageBody (\s a -> s {_uebrsMessageBody = a})
-
-instance NFData UpdateEndpointsBatchResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uebrsMessageBody :: Lens.Lens' UpdateEndpointsBatchResponse MessageBody
+uebrsMessageBody = Lens.lens (messageBody :: UpdateEndpointsBatchResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateEndpointsBatchResponse)
+{-# DEPRECATED uebrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemDataValue where
+module Network.AWS.SSM.Types.OpsItemDataValue
+  ( OpsItemDataValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsItemDataValue,
+
+    -- * Lenses
+    oidvValue,
+    oidvType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.OpsItemDataType
 
 -- | An object that defines the value of the key and its type in the OperationalData map.
 --
---
---
--- /See:/ 'opsItemDataValue' smart constructor.
+-- /See:/ 'mkOpsItemDataValue' smart constructor.
 data OpsItemDataValue = OpsItemDataValue'
-  { _oidvValue ::
-      !(Maybe Text),
-    _oidvType :: !(Maybe OpsItemDataType)
+  { value ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe OpsItemDataType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemDataValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oidvValue' - The value of the OperationalData key.
---
--- * 'oidvType' - The type of key-value pair. Valid types include @SearchableString@ and @String@ .
-opsItemDataValue ::
+-- * 'type'' - The type of key-value pair. Valid types include @SearchableString@ and @String@ .
+-- * 'value' - The value of the OperationalData key.
+mkOpsItemDataValue ::
   OpsItemDataValue
-opsItemDataValue =
-  OpsItemDataValue' {_oidvValue = Nothing, _oidvType = Nothing}
+mkOpsItemDataValue =
+  OpsItemDataValue' {value = Lude.Nothing, type' = Lude.Nothing}
 
 -- | The value of the OperationalData key.
-oidvValue :: Lens' OpsItemDataValue (Maybe Text)
-oidvValue = lens _oidvValue (\s a -> s {_oidvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oidvValue :: Lens.Lens' OpsItemDataValue (Lude.Maybe Lude.Text)
+oidvValue = Lens.lens (value :: OpsItemDataValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: OpsItemDataValue)
+{-# DEPRECATED oidvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of key-value pair. Valid types include @SearchableString@ and @String@ .
-oidvType :: Lens' OpsItemDataValue (Maybe OpsItemDataType)
-oidvType = lens _oidvType (\s a -> s {_oidvType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oidvType :: Lens.Lens' OpsItemDataValue (Lude.Maybe OpsItemDataType)
+oidvType = Lens.lens (type' :: OpsItemDataValue -> Lude.Maybe OpsItemDataType) (\s a -> s {type' = a} :: OpsItemDataValue)
+{-# DEPRECATED oidvType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON OpsItemDataValue where
+instance Lude.FromJSON OpsItemDataValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "OpsItemDataValue"
-      (\x -> OpsItemDataValue' <$> (x .:? "Value") <*> (x .:? "Type"))
+      ( \x ->
+          OpsItemDataValue'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
+      )
 
-instance Hashable OpsItemDataValue
-
-instance NFData OpsItemDataValue
-
-instance ToJSON OpsItemDataValue where
+instance Lude.ToJSON OpsItemDataValue where
   toJSON OpsItemDataValue' {..} =
-    object
-      ( catMaybes
-          [("Value" .=) <$> _oidvValue, ("Type" .=) <$> _oidvType]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Value" Lude..=) Lude.<$> value,
+            ("Type" Lude..=) Lude.<$> type'
+          ]
       )

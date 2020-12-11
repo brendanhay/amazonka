@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.TrustedSigners where
+module Network.AWS.CloudFront.Types.TrustedSigners
+  ( TrustedSigners (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrustedSigners,
+
+    -- * Lenses
+    tsItems,
+    tsEnabled,
+    tsQuantity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of AWS accounts whose public keys CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
---
---
--- /See:/ 'trustedSigners' smart constructor.
+-- /See:/ 'mkTrustedSigners' smart constructor.
 data TrustedSigners = TrustedSigners'
-  { _tsItems :: !(Maybe [Text]),
-    _tsEnabled :: !Bool,
-    _tsQuantity :: !Int
+  { items ::
+      Lude.Maybe [Lude.Text],
+    enabled :: Lude.Bool,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedSigners' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsItems' - A list of AWS account identifiers.
---
--- * 'tsEnabled' - This field is @true@ if any of the AWS accounts have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
---
--- * 'tsQuantity' - The number of AWS accounts in the list.
-trustedSigners ::
-  -- | 'tsEnabled'
-  Bool ->
-  -- | 'tsQuantity'
-  Int ->
+-- * 'enabled' - This field is @true@ if any of the AWS accounts have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
+-- * 'items' - A list of AWS account identifiers.
+-- * 'quantity' - The number of AWS accounts in the list.
+mkTrustedSigners ::
+  -- | 'enabled'
+  Lude.Bool ->
+  -- | 'quantity'
+  Lude.Int ->
   TrustedSigners
-trustedSigners pEnabled_ pQuantity_ =
+mkTrustedSigners pEnabled_ pQuantity_ =
   TrustedSigners'
-    { _tsItems = Nothing,
-      _tsEnabled = pEnabled_,
-      _tsQuantity = pQuantity_
+    { items = Lude.Nothing,
+      enabled = pEnabled_,
+      quantity = pQuantity_
     }
 
 -- | A list of AWS account identifiers.
-tsItems :: Lens' TrustedSigners [Text]
-tsItems = lens _tsItems (\s a -> s {_tsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsItems :: Lens.Lens' TrustedSigners (Lude.Maybe [Lude.Text])
+tsItems = Lens.lens (items :: TrustedSigners -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: TrustedSigners)
+{-# DEPRECATED tsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | This field is @true@ if any of the AWS accounts have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
-tsEnabled :: Lens' TrustedSigners Bool
-tsEnabled = lens _tsEnabled (\s a -> s {_tsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsEnabled :: Lens.Lens' TrustedSigners Lude.Bool
+tsEnabled = Lens.lens (enabled :: TrustedSigners -> Lude.Bool) (\s a -> s {enabled = a} :: TrustedSigners)
+{-# DEPRECATED tsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The number of AWS accounts in the list.
-tsQuantity :: Lens' TrustedSigners Int
-tsQuantity = lens _tsQuantity (\s a -> s {_tsQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsQuantity :: Lens.Lens' TrustedSigners Lude.Int
+tsQuantity = Lens.lens (quantity :: TrustedSigners -> Lude.Int) (\s a -> s {quantity = a} :: TrustedSigners)
+{-# DEPRECATED tsQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML TrustedSigners where
+instance Lude.FromXML TrustedSigners where
   parseXML x =
     TrustedSigners'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "AwsAccountNumber")
-          )
-      <*> (x .@ "Enabled")
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "AwsAccountNumber")
+               )
+      Lude.<*> (x Lude..@ "Enabled")
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable TrustedSigners
-
-instance NFData TrustedSigners
-
-instance ToXML TrustedSigners where
+instance Lude.ToXML TrustedSigners where
   toXML TrustedSigners' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "AwsAccountNumber" <$> _tsItems),
-        "Enabled" @= _tsEnabled,
-        "Quantity" @= _tsQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "AwsAccountNumber" Lude.<$> items),
+        "Enabled" Lude.@= enabled,
+        "Quantity" Lude.@= quantity
       ]

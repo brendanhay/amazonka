@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImportExport.Types.Job where
+module Network.AWS.ImportExport.Types.Job
+  ( Job (..),
+
+    -- * Smart constructor
+    mkJob,
+
+    -- * Lenses
+    jJobType,
+    jJobId,
+    jIsCanceled,
+    jCreationDate,
+  )
+where
 
 import Network.AWS.ImportExport.Types.JobType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Representation of a job returned by the ListJobs operation.
 --
--- /See:/ 'job' smart constructor.
+-- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { _jobJobType :: !JobType,
-    _jobJobId :: !Text,
-    _jobIsCanceled :: !Bool,
-    _jobCreationDate :: !ISO8601
+  { jobType :: JobType,
+    jobId :: Lude.Text,
+    isCanceled :: Lude.Bool,
+    creationDate :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jobJobType' - Undocumented member.
---
--- * 'jobJobId' - Undocumented member.
---
--- * 'jobIsCanceled' - Undocumented member.
---
--- * 'jobCreationDate' - Undocumented member.
-job ::
-  -- | 'jobJobType'
+-- * 'creationDate' - Undocumented field.
+-- * 'isCanceled' - Undocumented field.
+-- * 'jobId' - Undocumented field.
+-- * 'jobType' - Undocumented field.
+mkJob ::
+  -- | 'jobType'
   JobType ->
-  -- | 'jobJobId'
-  Text ->
-  -- | 'jobIsCanceled'
-  Bool ->
-  -- | 'jobCreationDate'
-  UTCTime ->
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'isCanceled'
+  Lude.Bool ->
+  -- | 'creationDate'
+  Lude.ISO8601 ->
   Job
-job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
+mkJob pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
   Job'
-    { _jobJobType = pJobType_,
-      _jobJobId = pJobId_,
-      _jobIsCanceled = pIsCanceled_,
-      _jobCreationDate = _Time # pCreationDate_
+    { jobType = pJobType_,
+      jobId = pJobId_,
+      isCanceled = pIsCanceled_,
+      creationDate = pCreationDate_
     }
 
--- | Undocumented member.
-jobJobType :: Lens' Job JobType
-jobJobType = lens _jobJobType (\s a -> s {_jobJobType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobType :: Lens.Lens' Job JobType
+jJobType = Lens.lens (jobType :: Job -> JobType) (\s a -> s {jobType = a} :: Job)
+{-# DEPRECATED jJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
--- | Undocumented member.
-jobJobId :: Lens' Job Text
-jobJobId = lens _jobJobId (\s a -> s {_jobJobId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobId :: Lens.Lens' Job Lude.Text
+jJobId = Lens.lens (jobId :: Job -> Lude.Text) (\s a -> s {jobId = a} :: Job)
+{-# DEPRECATED jJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | Undocumented member.
-jobIsCanceled :: Lens' Job Bool
-jobIsCanceled = lens _jobIsCanceled (\s a -> s {_jobIsCanceled = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'isCanceled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jIsCanceled :: Lens.Lens' Job Lude.Bool
+jIsCanceled = Lens.lens (isCanceled :: Job -> Lude.Bool) (\s a -> s {isCanceled = a} :: Job)
+{-# DEPRECATED jIsCanceled "Use generic-lens or generic-optics with 'isCanceled' instead." #-}
 
--- | Undocumented member.
-jobCreationDate :: Lens' Job UTCTime
-jobCreationDate = lens _jobCreationDate (\s a -> s {_jobCreationDate = a}) . _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jCreationDate :: Lens.Lens' Job Lude.ISO8601
+jCreationDate = Lens.lens (creationDate :: Job -> Lude.ISO8601) (\s a -> s {creationDate = a} :: Job)
+{-# DEPRECATED jCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance FromXML Job where
+instance Lude.FromXML Job where
   parseXML x =
     Job'
-      <$> (x .@ "JobType")
-      <*> (x .@ "JobId")
-      <*> (x .@ "IsCanceled")
-      <*> (x .@ "CreationDate")
-
-instance Hashable Job
-
-instance NFData Job
+      Lude.<$> (x Lude..@ "JobType")
+      Lude.<*> (x Lude..@ "JobId")
+      Lude.<*> (x Lude..@ "IsCanceled")
+      Lude.<*> (x Lude..@ "CreationDate")

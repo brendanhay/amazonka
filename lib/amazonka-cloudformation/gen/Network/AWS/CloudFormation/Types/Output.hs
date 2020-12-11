@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.Output where
+module Network.AWS.CloudFormation.Types.Output
+  ( Output (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutput,
+
+    -- * Lenses
+    oOutputValue,
+    oOutputKey,
+    oExportName,
+    oDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Output data type.
 --
---
---
--- /See:/ 'output' smart constructor.
+-- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { _oOutputValue :: !(Maybe Text),
-    _oOutputKey :: !(Maybe Text),
-    _oExportName :: !(Maybe Text),
-    _oDescription :: !(Maybe Text)
+  { outputValue :: Lude.Maybe Lude.Text,
+    outputKey :: Lude.Maybe Lude.Text,
+    exportName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Output' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oOutputValue' - The value associated with the output.
---
--- * 'oOutputKey' - The key associated with the output.
---
--- * 'oExportName' - The name of the export associated with the output.
---
--- * 'oDescription' - User defined description associated with the output.
-output ::
+-- * 'description' - User defined description associated with the output.
+-- * 'exportName' - The name of the export associated with the output.
+-- * 'outputKey' - The key associated with the output.
+-- * 'outputValue' - The value associated with the output.
+mkOutput ::
   Output
-output =
+mkOutput =
   Output'
-    { _oOutputValue = Nothing,
-      _oOutputKey = Nothing,
-      _oExportName = Nothing,
-      _oDescription = Nothing
+    { outputValue = Lude.Nothing,
+      outputKey = Lude.Nothing,
+      exportName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The value associated with the output.
-oOutputValue :: Lens' Output (Maybe Text)
-oOutputValue = lens _oOutputValue (\s a -> s {_oOutputValue = a})
+--
+-- /Note:/ Consider using 'outputValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOutputValue :: Lens.Lens' Output (Lude.Maybe Lude.Text)
+oOutputValue = Lens.lens (outputValue :: Output -> Lude.Maybe Lude.Text) (\s a -> s {outputValue = a} :: Output)
+{-# DEPRECATED oOutputValue "Use generic-lens or generic-optics with 'outputValue' instead." #-}
 
 -- | The key associated with the output.
-oOutputKey :: Lens' Output (Maybe Text)
-oOutputKey = lens _oOutputKey (\s a -> s {_oOutputKey = a})
+--
+-- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOutputKey :: Lens.Lens' Output (Lude.Maybe Lude.Text)
+oOutputKey = Lens.lens (outputKey :: Output -> Lude.Maybe Lude.Text) (\s a -> s {outputKey = a} :: Output)
+{-# DEPRECATED oOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
 
 -- | The name of the export associated with the output.
-oExportName :: Lens' Output (Maybe Text)
-oExportName = lens _oExportName (\s a -> s {_oExportName = a})
+--
+-- /Note:/ Consider using 'exportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oExportName :: Lens.Lens' Output (Lude.Maybe Lude.Text)
+oExportName = Lens.lens (exportName :: Output -> Lude.Maybe Lude.Text) (\s a -> s {exportName = a} :: Output)
+{-# DEPRECATED oExportName "Use generic-lens or generic-optics with 'exportName' instead." #-}
 
 -- | User defined description associated with the output.
-oDescription :: Lens' Output (Maybe Text)
-oDescription = lens _oDescription (\s a -> s {_oDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oDescription :: Lens.Lens' Output (Lude.Maybe Lude.Text)
+oDescription = Lens.lens (description :: Output -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Output)
+{-# DEPRECATED oDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML Output where
+instance Lude.FromXML Output where
   parseXML x =
     Output'
-      <$> (x .@? "OutputValue")
-      <*> (x .@? "OutputKey")
-      <*> (x .@? "ExportName")
-      <*> (x .@? "Description")
-
-instance Hashable Output
-
-instance NFData Output
+      Lude.<$> (x Lude..@? "OutputValue")
+      Lude.<*> (x Lude..@? "OutputKey")
+      Lude.<*> (x Lude..@? "ExportName")
+      Lude.<*> (x Lude..@? "Description")

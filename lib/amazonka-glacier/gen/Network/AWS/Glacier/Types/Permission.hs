@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.Permission where
+module Network.AWS.Glacier.Types.Permission
+  ( Permission
+      ( Permission',
+        FullControl,
+        Read,
+        ReadAcp,
+        Write,
+        WriteAcp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Permission
-  = FullControl
-  | Read
-  | ReadAcp
-  | Write
-  | WriteAcp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Permission = Permission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Permission where
-  parser =
-    takeLowerText >>= \case
-      "full_control" -> pure FullControl
-      "read" -> pure Read
-      "read_acp" -> pure ReadAcp
-      "write" -> pure Write
-      "write_acp" -> pure WriteAcp
-      e ->
-        fromTextError $
-          "Failure parsing Permission from value: '" <> e
-            <> "'. Accepted values: full_control, read, read_acp, write, write_acp"
+pattern FullControl :: Permission
+pattern FullControl = Permission' "FULL_CONTROL"
 
-instance ToText Permission where
-  toText = \case
-    FullControl -> "FULL_CONTROL"
-    Read -> "READ"
-    ReadAcp -> "READ_ACP"
-    Write -> "WRITE"
-    WriteAcp -> "WRITE_ACP"
+pattern Read :: Permission
+pattern Read = Permission' "READ"
 
-instance Hashable Permission
+pattern ReadAcp :: Permission
+pattern ReadAcp = Permission' "READ_ACP"
 
-instance NFData Permission
+pattern Write :: Permission
+pattern Write = Permission' "WRITE"
 
-instance ToByteString Permission
+pattern WriteAcp :: Permission
+pattern WriteAcp = Permission' "WRITE_ACP"
 
-instance ToQuery Permission
-
-instance ToHeader Permission
-
-instance ToJSON Permission where
-  toJSON = toJSONText
-
-instance FromJSON Permission where
-  parseJSON = parseJSONText "Permission"
+{-# COMPLETE
+  FullControl,
+  Read,
+  ReadAcp,
+  Write,
+  WriteAcp,
+  Permission'
+  #-}

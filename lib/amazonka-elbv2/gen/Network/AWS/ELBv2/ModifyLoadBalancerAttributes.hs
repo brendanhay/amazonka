@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,150 @@
 --
 -- Modifies the specified attributes of the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 --
---
 -- If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
 module Network.AWS.ELBv2.ModifyLoadBalancerAttributes
-  ( -- * Creating a Request
-    modifyLoadBalancerAttributes,
-    ModifyLoadBalancerAttributes,
+  ( -- * Creating a request
+    ModifyLoadBalancerAttributes (..),
+    mkModifyLoadBalancerAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mlbaLoadBalancerARN,
     mlbaAttributes,
 
-    -- * Destructuring the Response
-    modifyLoadBalancerAttributesResponse,
-    ModifyLoadBalancerAttributesResponse,
+    -- * Destructuring the response
+    ModifyLoadBalancerAttributesResponse (..),
+    mkModifyLoadBalancerAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mlbarsAttributes,
     mlbarsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
+-- | /See:/ 'mkModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { _mlbaLoadBalancerARN ::
-      !Text,
-    _mlbaAttributes ::
-      ![LoadBalancerAttribute]
+  { loadBalancerARN ::
+      Lude.Text,
+    attributes ::
+      [LoadBalancerAttribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mlbaLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
---
--- * 'mlbaAttributes' - The load balancer attributes.
-modifyLoadBalancerAttributes ::
-  -- | 'mlbaLoadBalancerARN'
-  Text ->
+-- * 'attributes' - The load balancer attributes.
+-- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+mkModifyLoadBalancerAttributes ::
+  -- | 'loadBalancerARN'
+  Lude.Text ->
   ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerARN_ =
+mkModifyLoadBalancerAttributes pLoadBalancerARN_ =
   ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerARN =
+    { loadBalancerARN =
         pLoadBalancerARN_,
-      _mlbaAttributes = mempty
+      attributes = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-mlbaLoadBalancerARN :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerARN = lens _mlbaLoadBalancerARN (\s a -> s {_mlbaLoadBalancerARN = a})
+--
+-- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlbaLoadBalancerARN :: Lens.Lens' ModifyLoadBalancerAttributes Lude.Text
+mlbaLoadBalancerARN = Lens.lens (loadBalancerARN :: ModifyLoadBalancerAttributes -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: ModifyLoadBalancerAttributes)
+{-# DEPRECATED mlbaLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 -- | The load balancer attributes.
-mlbaAttributes :: Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
-mlbaAttributes = lens _mlbaAttributes (\s a -> s {_mlbaAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlbaAttributes :: Lens.Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
+mlbaAttributes = Lens.lens (attributes :: ModifyLoadBalancerAttributes -> [LoadBalancerAttribute]) (\s a -> s {attributes = a} :: ModifyLoadBalancerAttributes)
+{-# DEPRECATED mlbaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest ModifyLoadBalancerAttributes where
+instance Lude.AWSRequest ModifyLoadBalancerAttributes where
   type
     Rs ModifyLoadBalancerAttributes =
       ModifyLoadBalancerAttributesResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            <$> (x .@? "Attributes" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyLoadBalancerAttributes
+instance Lude.ToHeaders ModifyLoadBalancerAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyLoadBalancerAttributes
+instance Lude.ToPath ModifyLoadBalancerAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyLoadBalancerAttributes where
-  toHeaders = const mempty
-
-instance ToPath ModifyLoadBalancerAttributes where
-  toPath = const "/"
-
-instance ToQuery ModifyLoadBalancerAttributes where
+instance Lude.ToQuery ModifyLoadBalancerAttributes where
   toQuery ModifyLoadBalancerAttributes' {..} =
-    mconcat
-      [ "Action" =: ("ModifyLoadBalancerAttributes" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "LoadBalancerArn" =: _mlbaLoadBalancerARN,
-        "Attributes" =: toQueryList "member" _mlbaAttributes
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ModifyLoadBalancerAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "LoadBalancerArn" Lude.=: loadBalancerARN,
+        "Attributes" Lude.=: Lude.toQueryList "member" attributes
       ]
 
--- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
+-- | /See:/ 'mkModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { _mlbarsAttributes ::
-      !( Maybe
-           [LoadBalancerAttribute]
-       ),
-    _mlbarsResponseStatus ::
-      !Int
+  { attributes ::
+      Lude.Maybe
+        [LoadBalancerAttribute],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mlbarsAttributes' - Information about the load balancer attributes.
---
--- * 'mlbarsResponseStatus' - -- | The response status code.
-modifyLoadBalancerAttributesResponse ::
-  -- | 'mlbarsResponseStatus'
-  Int ->
+-- * 'attributes' - Information about the load balancer attributes.
+-- * 'responseStatus' - The response status code.
+mkModifyLoadBalancerAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pResponseStatus_ =
+mkModifyLoadBalancerAttributesResponse pResponseStatus_ =
   ModifyLoadBalancerAttributesResponse'
-    { _mlbarsAttributes =
-        Nothing,
-      _mlbarsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the load balancer attributes.
-mlbarsAttributes :: Lens' ModifyLoadBalancerAttributesResponse [LoadBalancerAttribute]
-mlbarsAttributes = lens _mlbarsAttributes (\s a -> s {_mlbarsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlbarsAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Lude.Maybe [LoadBalancerAttribute])
+mlbarsAttributes = Lens.lens (attributes :: ModifyLoadBalancerAttributesResponse -> Lude.Maybe [LoadBalancerAttribute]) (\s a -> s {attributes = a} :: ModifyLoadBalancerAttributesResponse)
+{-# DEPRECATED mlbarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsResponseStatus = lens _mlbarsResponseStatus (\s a -> s {_mlbarsResponseStatus = a})
-
-instance NFData ModifyLoadBalancerAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlbarsResponseStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Lude.Int
+mlbarsResponseStatus = Lens.lens (responseStatus :: ModifyLoadBalancerAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyLoadBalancerAttributesResponse)
+{-# DEPRECATED mlbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

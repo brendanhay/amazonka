@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.UsageResourceResult where
+module Network.AWS.GuardDuty.Types.UsageResourceResult
+  ( UsageResourceResult (..),
+
+    -- * Smart constructor
+    mkUsageResourceResult,
+
+    -- * Lenses
+    urrTotal,
+    urrResource,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.Total
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the sum of usage based on an AWS resource.
 --
---
---
--- /See:/ 'usageResourceResult' smart constructor.
+-- /See:/ 'mkUsageResourceResult' smart constructor.
 data UsageResourceResult = UsageResourceResult'
-  { _urrTotal ::
-      !(Maybe Total),
-    _urrResource :: !(Maybe Text)
+  { total ::
+      Lude.Maybe Total,
+    resource :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageResourceResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrTotal' - Represents the sum total of usage for the specified resource type.
---
--- * 'urrResource' - The AWS resource that generated usage.
-usageResourceResult ::
+-- * 'resource' - The AWS resource that generated usage.
+-- * 'total' - Represents the sum total of usage for the specified resource type.
+mkUsageResourceResult ::
   UsageResourceResult
-usageResourceResult =
-  UsageResourceResult' {_urrTotal = Nothing, _urrResource = Nothing}
+mkUsageResourceResult =
+  UsageResourceResult'
+    { total = Lude.Nothing,
+      resource = Lude.Nothing
+    }
 
 -- | Represents the sum total of usage for the specified resource type.
-urrTotal :: Lens' UsageResourceResult (Maybe Total)
-urrTotal = lens _urrTotal (\s a -> s {_urrTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrTotal :: Lens.Lens' UsageResourceResult (Lude.Maybe Total)
+urrTotal = Lens.lens (total :: UsageResourceResult -> Lude.Maybe Total) (\s a -> s {total = a} :: UsageResourceResult)
+{-# DEPRECATED urrTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The AWS resource that generated usage.
-urrResource :: Lens' UsageResourceResult (Maybe Text)
-urrResource = lens _urrResource (\s a -> s {_urrResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrResource :: Lens.Lens' UsageResourceResult (Lude.Maybe Lude.Text)
+urrResource = Lens.lens (resource :: UsageResourceResult -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: UsageResourceResult)
+{-# DEPRECATED urrResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON UsageResourceResult where
+instance Lude.FromJSON UsageResourceResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageResourceResult"
       ( \x ->
-          UsageResourceResult' <$> (x .:? "total") <*> (x .:? "resource")
+          UsageResourceResult'
+            Lude.<$> (x Lude..:? "total") Lude.<*> (x Lude..:? "resource")
       )
-
-instance Hashable UsageResourceResult
-
-instance NFData UsageResourceResult

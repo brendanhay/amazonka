@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ExportSummary where
+module Network.AWS.DynamoDB.Types.ExportSummary
+  ( ExportSummary (..),
+
+    -- * Smart constructor
+    mkExportSummary,
+
+    -- * Lenses
+    esExportStatus,
+    esExportARN,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ExportStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary information about an export task.
 --
---
---
--- /See:/ 'exportSummary' smart constructor.
+-- /See:/ 'mkExportSummary' smart constructor.
 data ExportSummary = ExportSummary'
-  { _esExportStatus ::
-      !(Maybe ExportStatus),
-    _esExportARN :: !(Maybe Text)
+  { exportStatus ::
+      Lude.Maybe ExportStatus,
+    exportARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esExportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
---
--- * 'esExportARN' - The Amazon Resource Name (ARN) of the export.
-exportSummary ::
+-- * 'exportARN' - The Amazon Resource Name (ARN) of the export.
+-- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+mkExportSummary ::
   ExportSummary
-exportSummary =
-  ExportSummary' {_esExportStatus = Nothing, _esExportARN = Nothing}
+mkExportSummary =
+  ExportSummary'
+    { exportStatus = Lude.Nothing,
+      exportARN = Lude.Nothing
+    }
 
 -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
-esExportStatus :: Lens' ExportSummary (Maybe ExportStatus)
-esExportStatus = lens _esExportStatus (\s a -> s {_esExportStatus = a})
+--
+-- /Note:/ Consider using 'exportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esExportStatus :: Lens.Lens' ExportSummary (Lude.Maybe ExportStatus)
+esExportStatus = Lens.lens (exportStatus :: ExportSummary -> Lude.Maybe ExportStatus) (\s a -> s {exportStatus = a} :: ExportSummary)
+{-# DEPRECATED esExportStatus "Use generic-lens or generic-optics with 'exportStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the export.
-esExportARN :: Lens' ExportSummary (Maybe Text)
-esExportARN = lens _esExportARN (\s a -> s {_esExportARN = a})
+--
+-- /Note:/ Consider using 'exportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esExportARN :: Lens.Lens' ExportSummary (Lude.Maybe Lude.Text)
+esExportARN = Lens.lens (exportARN :: ExportSummary -> Lude.Maybe Lude.Text) (\s a -> s {exportARN = a} :: ExportSummary)
+{-# DEPRECATED esExportARN "Use generic-lens or generic-optics with 'exportARN' instead." #-}
 
-instance FromJSON ExportSummary where
+instance Lude.FromJSON ExportSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportSummary"
       ( \x ->
-          ExportSummary' <$> (x .:? "ExportStatus") <*> (x .:? "ExportArn")
+          ExportSummary'
+            Lude.<$> (x Lude..:? "ExportStatus") Lude.<*> (x Lude..:? "ExportArn")
       )
-
-instance Hashable ExportSummary
-
-instance NFData ExportSummary

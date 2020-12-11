@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.CodeHook where
+module Network.AWS.LexModels.Types.CodeHook
+  ( CodeHook (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeHook,
+
+    -- * Lenses
+    chUri,
+    chMessageVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot..
 --
---
---
--- /See:/ 'codeHook' smart constructor.
+-- /See:/ 'mkCodeHook' smart constructor.
 data CodeHook = CodeHook'
-  { _chUri :: !Text,
-    _chMessageVersion :: !Text
+  { uri :: Lude.Text,
+    messageVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeHook' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chUri' - The Amazon Resource Name (ARN) of the Lambda function.
---
--- * 'chMessageVersion' - The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
-codeHook ::
-  -- | 'chUri'
-  Text ->
-  -- | 'chMessageVersion'
-  Text ->
+-- * 'messageVersion' - The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
+-- * 'uri' - The Amazon Resource Name (ARN) of the Lambda function.
+mkCodeHook ::
+  -- | 'uri'
+  Lude.Text ->
+  -- | 'messageVersion'
+  Lude.Text ->
   CodeHook
-codeHook pUri_ pMessageVersion_ =
-  CodeHook' {_chUri = pUri_, _chMessageVersion = pMessageVersion_}
+mkCodeHook pUri_ pMessageVersion_ =
+  CodeHook' {uri = pUri_, messageVersion = pMessageVersion_}
 
 -- | The Amazon Resource Name (ARN) of the Lambda function.
-chUri :: Lens' CodeHook Text
-chUri = lens _chUri (\s a -> s {_chUri = a})
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chUri :: Lens.Lens' CodeHook Lude.Text
+chUri = Lens.lens (uri :: CodeHook -> Lude.Text) (\s a -> s {uri = a} :: CodeHook)
+{-# DEPRECATED chUri "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
-chMessageVersion :: Lens' CodeHook Text
-chMessageVersion = lens _chMessageVersion (\s a -> s {_chMessageVersion = a})
+--
+-- /Note:/ Consider using 'messageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chMessageVersion :: Lens.Lens' CodeHook Lude.Text
+chMessageVersion = Lens.lens (messageVersion :: CodeHook -> Lude.Text) (\s a -> s {messageVersion = a} :: CodeHook)
+{-# DEPRECATED chMessageVersion "Use generic-lens or generic-optics with 'messageVersion' instead." #-}
 
-instance FromJSON CodeHook where
+instance Lude.FromJSON CodeHook where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeHook"
-      (\x -> CodeHook' <$> (x .: "uri") <*> (x .: "messageVersion"))
+      ( \x ->
+          CodeHook'
+            Lude.<$> (x Lude..: "uri") Lude.<*> (x Lude..: "messageVersion")
+      )
 
-instance Hashable CodeHook
-
-instance NFData CodeHook
-
-instance ToJSON CodeHook where
+instance Lude.ToJSON CodeHook where
   toJSON CodeHook' {..} =
-    object
-      ( catMaybes
-          [ Just ("uri" .= _chUri),
-            Just ("messageVersion" .= _chMessageVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("uri" Lude..= uri),
+            Lude.Just ("messageVersion" Lude..= messageVersion)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.PolicyStatus where
+module Network.AWS.S3.Types.PolicyStatus
+  ( PolicyStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPolicyStatus,
+
+    -- * Lenses
+    psIsPublic,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | The container element for a bucket's policy status.
 --
---
---
--- /See:/ 'policyStatus' smart constructor.
-newtype PolicyStatus = PolicyStatus' {_psIsPublic :: Maybe Bool}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkPolicyStatus' smart constructor.
+newtype PolicyStatus = PolicyStatus'
+  { isPublic ::
+      Lude.Maybe Lude.Bool
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psIsPublic' - The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
-policyStatus ::
+-- * 'isPublic' - The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
+mkPolicyStatus ::
   PolicyStatus
-policyStatus = PolicyStatus' {_psIsPublic = Nothing}
+mkPolicyStatus = PolicyStatus' {isPublic = Lude.Nothing}
 
 -- | The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
-psIsPublic :: Lens' PolicyStatus (Maybe Bool)
-psIsPublic = lens _psIsPublic (\s a -> s {_psIsPublic = a})
+--
+-- /Note:/ Consider using 'isPublic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psIsPublic :: Lens.Lens' PolicyStatus (Lude.Maybe Lude.Bool)
+psIsPublic = Lens.lens (isPublic :: PolicyStatus -> Lude.Maybe Lude.Bool) (\s a -> s {isPublic = a} :: PolicyStatus)
+{-# DEPRECATED psIsPublic "Use generic-lens or generic-optics with 'isPublic' instead." #-}
 
-instance FromXML PolicyStatus where
-  parseXML x = PolicyStatus' <$> (x .@? "IsPublic")
-
-instance Hashable PolicyStatus
-
-instance NFData PolicyStatus
+instance Lude.FromXML PolicyStatus where
+  parseXML x = PolicyStatus' Lude.<$> (x Lude..@? "IsPublic")

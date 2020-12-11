@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ExportTaskS3Location where
+module Network.AWS.EC2.Types.ExportTaskS3Location
+  ( ExportTaskS3Location (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExportTaskS3Location,
+
+    -- * Lenses
+    etslS3Prefix,
+    etslS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the destination for an export image task.
 --
---
---
--- /See:/ 'exportTaskS3Location' smart constructor.
+-- /See:/ 'mkExportTaskS3Location' smart constructor.
 data ExportTaskS3Location = ExportTaskS3Location'
-  { _etslS3Prefix ::
-      !(Maybe Text),
-    _etslS3Bucket :: !(Maybe Text)
+  { s3Prefix ::
+      Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskS3Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etslS3Prefix' - The prefix (logical hierarchy) in the bucket.
---
--- * 'etslS3Bucket' - The destination Amazon S3 bucket.
-exportTaskS3Location ::
+-- * 's3Bucket' - The destination Amazon S3 bucket.
+-- * 's3Prefix' - The prefix (logical hierarchy) in the bucket.
+mkExportTaskS3Location ::
   ExportTaskS3Location
-exportTaskS3Location =
+mkExportTaskS3Location =
   ExportTaskS3Location'
-    { _etslS3Prefix = Nothing,
-      _etslS3Bucket = Nothing
+    { s3Prefix = Lude.Nothing,
+      s3Bucket = Lude.Nothing
     }
 
 -- | The prefix (logical hierarchy) in the bucket.
-etslS3Prefix :: Lens' ExportTaskS3Location (Maybe Text)
-etslS3Prefix = lens _etslS3Prefix (\s a -> s {_etslS3Prefix = a})
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etslS3Prefix :: Lens.Lens' ExportTaskS3Location (Lude.Maybe Lude.Text)
+etslS3Prefix = Lens.lens (s3Prefix :: ExportTaskS3Location -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportTaskS3Location)
+{-# DEPRECATED etslS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | The destination Amazon S3 bucket.
-etslS3Bucket :: Lens' ExportTaskS3Location (Maybe Text)
-etslS3Bucket = lens _etslS3Bucket (\s a -> s {_etslS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etslS3Bucket :: Lens.Lens' ExportTaskS3Location (Lude.Maybe Lude.Text)
+etslS3Bucket = Lens.lens (s3Bucket :: ExportTaskS3Location -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: ExportTaskS3Location)
+{-# DEPRECATED etslS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance FromXML ExportTaskS3Location where
+instance Lude.FromXML ExportTaskS3Location where
   parseXML x =
     ExportTaskS3Location'
-      <$> (x .@? "s3Prefix") <*> (x .@? "s3Bucket")
-
-instance Hashable ExportTaskS3Location
-
-instance NFData ExportTaskS3Location
+      Lude.<$> (x Lude..@? "s3Prefix") Lude.<*> (x Lude..@? "s3Bucket")

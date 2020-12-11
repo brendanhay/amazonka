@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TemporalFilterStrength where
+module Network.AWS.MediaLive.Types.TemporalFilterStrength
+  ( TemporalFilterStrength
+      ( TemporalFilterStrength',
+        Auto,
+        Strength1,
+        Strength10,
+        Strength11,
+        Strength12,
+        Strength13,
+        Strength14,
+        Strength15,
+        Strength16,
+        Strength2,
+        Strength3,
+        Strength4,
+        Strength5,
+        Strength6,
+        Strength7,
+        Strength8,
+        Strength9
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Temporal Filter Strength
-data TemporalFilterStrength
-  = Auto
-  | Strength1
-  | Strength10
-  | Strength11
-  | Strength12
-  | Strength13
-  | Strength14
-  | Strength15
-  | Strength16
-  | Strength2
-  | Strength3
-  | Strength4
-  | Strength5
-  | Strength6
-  | Strength7
-  | Strength8
-  | Strength9
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TemporalFilterStrength = TemporalFilterStrength' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TemporalFilterStrength where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure Auto
-      "strength_1" -> pure Strength1
-      "strength_10" -> pure Strength10
-      "strength_11" -> pure Strength11
-      "strength_12" -> pure Strength12
-      "strength_13" -> pure Strength13
-      "strength_14" -> pure Strength14
-      "strength_15" -> pure Strength15
-      "strength_16" -> pure Strength16
-      "strength_2" -> pure Strength2
-      "strength_3" -> pure Strength3
-      "strength_4" -> pure Strength4
-      "strength_5" -> pure Strength5
-      "strength_6" -> pure Strength6
-      "strength_7" -> pure Strength7
-      "strength_8" -> pure Strength8
-      "strength_9" -> pure Strength9
-      e ->
-        fromTextError $
-          "Failure parsing TemporalFilterStrength from value: '" <> e
-            <> "'. Accepted values: auto, strength_1, strength_10, strength_11, strength_12, strength_13, strength_14, strength_15, strength_16, strength_2, strength_3, strength_4, strength_5, strength_6, strength_7, strength_8, strength_9"
+pattern Auto :: TemporalFilterStrength
+pattern Auto = TemporalFilterStrength' "AUTO"
 
-instance ToText TemporalFilterStrength where
-  toText = \case
-    Auto -> "AUTO"
-    Strength1 -> "STRENGTH_1"
-    Strength10 -> "STRENGTH_10"
-    Strength11 -> "STRENGTH_11"
-    Strength12 -> "STRENGTH_12"
-    Strength13 -> "STRENGTH_13"
-    Strength14 -> "STRENGTH_14"
-    Strength15 -> "STRENGTH_15"
-    Strength16 -> "STRENGTH_16"
-    Strength2 -> "STRENGTH_2"
-    Strength3 -> "STRENGTH_3"
-    Strength4 -> "STRENGTH_4"
-    Strength5 -> "STRENGTH_5"
-    Strength6 -> "STRENGTH_6"
-    Strength7 -> "STRENGTH_7"
-    Strength8 -> "STRENGTH_8"
-    Strength9 -> "STRENGTH_9"
+pattern Strength1 :: TemporalFilterStrength
+pattern Strength1 = TemporalFilterStrength' "STRENGTH_1"
 
-instance Hashable TemporalFilterStrength
+pattern Strength10 :: TemporalFilterStrength
+pattern Strength10 = TemporalFilterStrength' "STRENGTH_10"
 
-instance NFData TemporalFilterStrength
+pattern Strength11 :: TemporalFilterStrength
+pattern Strength11 = TemporalFilterStrength' "STRENGTH_11"
 
-instance ToByteString TemporalFilterStrength
+pattern Strength12 :: TemporalFilterStrength
+pattern Strength12 = TemporalFilterStrength' "STRENGTH_12"
 
-instance ToQuery TemporalFilterStrength
+pattern Strength13 :: TemporalFilterStrength
+pattern Strength13 = TemporalFilterStrength' "STRENGTH_13"
 
-instance ToHeader TemporalFilterStrength
+pattern Strength14 :: TemporalFilterStrength
+pattern Strength14 = TemporalFilterStrength' "STRENGTH_14"
 
-instance ToJSON TemporalFilterStrength where
-  toJSON = toJSONText
+pattern Strength15 :: TemporalFilterStrength
+pattern Strength15 = TemporalFilterStrength' "STRENGTH_15"
 
-instance FromJSON TemporalFilterStrength where
-  parseJSON = parseJSONText "TemporalFilterStrength"
+pattern Strength16 :: TemporalFilterStrength
+pattern Strength16 = TemporalFilterStrength' "STRENGTH_16"
+
+pattern Strength2 :: TemporalFilterStrength
+pattern Strength2 = TemporalFilterStrength' "STRENGTH_2"
+
+pattern Strength3 :: TemporalFilterStrength
+pattern Strength3 = TemporalFilterStrength' "STRENGTH_3"
+
+pattern Strength4 :: TemporalFilterStrength
+pattern Strength4 = TemporalFilterStrength' "STRENGTH_4"
+
+pattern Strength5 :: TemporalFilterStrength
+pattern Strength5 = TemporalFilterStrength' "STRENGTH_5"
+
+pattern Strength6 :: TemporalFilterStrength
+pattern Strength6 = TemporalFilterStrength' "STRENGTH_6"
+
+pattern Strength7 :: TemporalFilterStrength
+pattern Strength7 = TemporalFilterStrength' "STRENGTH_7"
+
+pattern Strength8 :: TemporalFilterStrength
+pattern Strength8 = TemporalFilterStrength' "STRENGTH_8"
+
+pattern Strength9 :: TemporalFilterStrength
+pattern Strength9 = TemporalFilterStrength' "STRENGTH_9"
+
+{-# COMPLETE
+  Auto,
+  Strength1,
+  Strength10,
+  Strength11,
+  Strength12,
+  Strength13,
+  Strength14,
+  Strength15,
+  Strength16,
+  Strength2,
+  Strength3,
+  Strength4,
+  Strength5,
+  Strength6,
+  Strength7,
+  Strength8,
+  Strength9,
+  TemporalFilterStrength'
+  #-}

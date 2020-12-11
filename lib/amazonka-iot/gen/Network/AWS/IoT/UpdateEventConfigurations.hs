@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,119 @@
 --
 -- Updates the event configurations.
 module Network.AWS.IoT.UpdateEventConfigurations
-  ( -- * Creating a Request
-    updateEventConfigurations,
-    UpdateEventConfigurations,
+  ( -- * Creating a request
+    UpdateEventConfigurations (..),
+    mkUpdateEventConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uecEventConfigurations,
 
-    -- * Destructuring the Response
-    updateEventConfigurationsResponse,
-    UpdateEventConfigurationsResponse,
+    -- * Destructuring the response
+    UpdateEventConfigurationsResponse (..),
+    mkUpdateEventConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uecrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEventConfigurations' smart constructor.
+-- | /See:/ 'mkUpdateEventConfigurations' smart constructor.
 newtype UpdateEventConfigurations = UpdateEventConfigurations'
-  { _uecEventConfigurations ::
-      Maybe
-        (Map EventType (Configuration))
+  { eventConfigurations ::
+      Lude.Maybe
+        ( Lude.HashMap
+            EventType
+            (Configuration)
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEventConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uecEventConfigurations' - The new event configuration values.
-updateEventConfigurations ::
+-- * 'eventConfigurations' - The new event configuration values.
+mkUpdateEventConfigurations ::
   UpdateEventConfigurations
-updateEventConfigurations =
-  UpdateEventConfigurations' {_uecEventConfigurations = Nothing}
+mkUpdateEventConfigurations =
+  UpdateEventConfigurations' {eventConfigurations = Lude.Nothing}
 
 -- | The new event configuration values.
-uecEventConfigurations :: Lens' UpdateEventConfigurations (HashMap EventType (Configuration))
-uecEventConfigurations = lens _uecEventConfigurations (\s a -> s {_uecEventConfigurations = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'eventConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uecEventConfigurations :: Lens.Lens' UpdateEventConfigurations (Lude.Maybe (Lude.HashMap EventType (Configuration)))
+uecEventConfigurations = Lens.lens (eventConfigurations :: UpdateEventConfigurations -> Lude.Maybe (Lude.HashMap EventType (Configuration))) (\s a -> s {eventConfigurations = a} :: UpdateEventConfigurations)
+{-# DEPRECATED uecEventConfigurations "Use generic-lens or generic-optics with 'eventConfigurations' instead." #-}
 
-instance AWSRequest UpdateEventConfigurations where
+instance Lude.AWSRequest UpdateEventConfigurations where
   type
     Rs UpdateEventConfigurations =
       UpdateEventConfigurationsResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateEventConfigurationsResponse' <$> (pure (fromEnum s))
+          UpdateEventConfigurationsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateEventConfigurations
+instance Lude.ToHeaders UpdateEventConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateEventConfigurations
-
-instance ToHeaders UpdateEventConfigurations where
-  toHeaders = const mempty
-
-instance ToJSON UpdateEventConfigurations where
+instance Lude.ToJSON UpdateEventConfigurations where
   toJSON UpdateEventConfigurations' {..} =
-    object
-      ( catMaybes
-          [("eventConfigurations" .=) <$> _uecEventConfigurations]
+    Lude.object
+      ( Lude.catMaybes
+          [("eventConfigurations" Lude..=) Lude.<$> eventConfigurations]
       )
 
-instance ToPath UpdateEventConfigurations where
-  toPath = const "/event-configurations"
+instance Lude.ToPath UpdateEventConfigurations where
+  toPath = Lude.const "/event-configurations"
 
-instance ToQuery UpdateEventConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEventConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEventConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkUpdateEventConfigurationsResponse' smart constructor.
 newtype UpdateEventConfigurationsResponse = UpdateEventConfigurationsResponse'
-  { _uecrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEventConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uecrsResponseStatus' - -- | The response status code.
-updateEventConfigurationsResponse ::
-  -- | 'uecrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateEventConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEventConfigurationsResponse
-updateEventConfigurationsResponse pResponseStatus_ =
+mkUpdateEventConfigurationsResponse pResponseStatus_ =
   UpdateEventConfigurationsResponse'
-    { _uecrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uecrsResponseStatus :: Lens' UpdateEventConfigurationsResponse Int
-uecrsResponseStatus = lens _uecrsResponseStatus (\s a -> s {_uecrsResponseStatus = a})
-
-instance NFData UpdateEventConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uecrsResponseStatus :: Lens.Lens' UpdateEventConfigurationsResponse Lude.Int
+uecrsResponseStatus = Lens.lens (responseStatus :: UpdateEventConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEventConfigurationsResponse)
+{-# DEPRECATED uecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

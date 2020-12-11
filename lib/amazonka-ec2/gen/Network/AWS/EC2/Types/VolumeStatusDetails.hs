@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusDetails where
+module Network.AWS.EC2.Types.VolumeStatusDetails
+  ( VolumeStatusDetails (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVolumeStatusDetails,
+
+    -- * Lenses
+    vsdStatus,
+    vsdName,
+  )
+where
+
 import Network.AWS.EC2.Types.VolumeStatusName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a volume status.
 --
---
---
--- /See:/ 'volumeStatusDetails' smart constructor.
+-- /See:/ 'mkVolumeStatusDetails' smart constructor.
 data VolumeStatusDetails = VolumeStatusDetails'
-  { _vsdStatus ::
-      !(Maybe Text),
-    _vsdName :: !(Maybe VolumeStatusName)
+  { status ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe VolumeStatusName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsdStatus' - The intended status of the volume status.
---
--- * 'vsdName' - The name of the volume status.
-volumeStatusDetails ::
+-- * 'name' - The name of the volume status.
+-- * 'status' - The intended status of the volume status.
+mkVolumeStatusDetails ::
   VolumeStatusDetails
-volumeStatusDetails =
-  VolumeStatusDetails' {_vsdStatus = Nothing, _vsdName = Nothing}
+mkVolumeStatusDetails =
+  VolumeStatusDetails' {status = Lude.Nothing, name = Lude.Nothing}
 
 -- | The intended status of the volume status.
-vsdStatus :: Lens' VolumeStatusDetails (Maybe Text)
-vsdStatus = lens _vsdStatus (\s a -> s {_vsdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsdStatus :: Lens.Lens' VolumeStatusDetails (Lude.Maybe Lude.Text)
+vsdStatus = Lens.lens (status :: VolumeStatusDetails -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: VolumeStatusDetails)
+{-# DEPRECATED vsdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the volume status.
-vsdName :: Lens' VolumeStatusDetails (Maybe VolumeStatusName)
-vsdName = lens _vsdName (\s a -> s {_vsdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsdName :: Lens.Lens' VolumeStatusDetails (Lude.Maybe VolumeStatusName)
+vsdName = Lens.lens (name :: VolumeStatusDetails -> Lude.Maybe VolumeStatusName) (\s a -> s {name = a} :: VolumeStatusDetails)
+{-# DEPRECATED vsdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML VolumeStatusDetails where
+instance Lude.FromXML VolumeStatusDetails where
   parseXML x =
-    VolumeStatusDetails' <$> (x .@? "status") <*> (x .@? "name")
-
-instance Hashable VolumeStatusDetails
-
-instance NFData VolumeStatusDetails
+    VolumeStatusDetails'
+      Lude.<$> (x Lude..@? "status") Lude.<*> (x Lude..@? "name")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,161 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MessageConfiguration where
+module Network.AWS.Pinpoint.Types.MessageConfiguration
+  ( MessageConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMessageConfiguration,
+
+    -- * Lenses
+    mcAPNSMessage,
+    mcGCMMessage,
+    mcDefaultMessage,
+    mcCustomMessage,
+    mcADMMessage,
+    mcSMSMessage,
+    mcEmailMessage,
+    mcBaiduMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignCustomMessage
 import Network.AWS.Pinpoint.Types.CampaignEmailMessage
 import Network.AWS.Pinpoint.Types.CampaignSmsMessage
 import Network.AWS.Pinpoint.Types.Message
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the message configuration settings for a campaign.
 --
---
---
--- /See:/ 'messageConfiguration' smart constructor.
+-- /See:/ 'mkMessageConfiguration' smart constructor.
 data MessageConfiguration = MessageConfiguration'
-  { _mcAPNSMessage ::
-      !(Maybe Message),
-    _mcGCMMessage :: !(Maybe Message),
-    _mcDefaultMessage :: !(Maybe Message),
-    _mcCustomMessage ::
-      !(Maybe CampaignCustomMessage),
-    _mcADMMessage :: !(Maybe Message),
-    _mcSMSMessage :: !(Maybe CampaignSmsMessage),
-    _mcEmailMessage :: !(Maybe CampaignEmailMessage),
-    _mcBaiduMessage :: !(Maybe Message)
+  { apnsMessage ::
+      Lude.Maybe Message,
+    gcmMessage :: Lude.Maybe Message,
+    defaultMessage :: Lude.Maybe Message,
+    customMessage :: Lude.Maybe CampaignCustomMessage,
+    aDMMessage :: Lude.Maybe Message,
+    sMSMessage :: Lude.Maybe CampaignSmsMessage,
+    emailMessage :: Lude.Maybe CampaignEmailMessage,
+    baiduMessage :: Lude.Maybe Message
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcAPNSMessage' - The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.
---
--- * 'mcGCMMessage' - The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.
---
--- * 'mcDefaultMessage' - The default message that the campaign sends through all the channels that are configured for the campaign.
---
--- * 'mcCustomMessage' - The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
---
--- * 'mcADMMessage' - The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
---
--- * 'mcSMSMessage' - The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.
---
--- * 'mcEmailMessage' - The message that the campaign sends through the email channel. If specified, this message overrides the default message.
---
--- * 'mcBaiduMessage' - The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
-messageConfiguration ::
+-- * 'aDMMessage' - The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
+-- * 'apnsMessage' - The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.
+-- * 'baiduMessage' - The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
+-- * 'customMessage' - The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
+-- * 'defaultMessage' - The default message that the campaign sends through all the channels that are configured for the campaign.
+-- * 'emailMessage' - The message that the campaign sends through the email channel. If specified, this message overrides the default message.
+-- * 'gcmMessage' - The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.
+-- * 'sMSMessage' - The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.
+mkMessageConfiguration ::
   MessageConfiguration
-messageConfiguration =
+mkMessageConfiguration =
   MessageConfiguration'
-    { _mcAPNSMessage = Nothing,
-      _mcGCMMessage = Nothing,
-      _mcDefaultMessage = Nothing,
-      _mcCustomMessage = Nothing,
-      _mcADMMessage = Nothing,
-      _mcSMSMessage = Nothing,
-      _mcEmailMessage = Nothing,
-      _mcBaiduMessage = Nothing
+    { apnsMessage = Lude.Nothing,
+      gcmMessage = Lude.Nothing,
+      defaultMessage = Lude.Nothing,
+      customMessage = Lude.Nothing,
+      aDMMessage = Lude.Nothing,
+      sMSMessage = Lude.Nothing,
+      emailMessage = Lude.Nothing,
+      baiduMessage = Lude.Nothing
     }
 
 -- | The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.
-mcAPNSMessage :: Lens' MessageConfiguration (Maybe Message)
-mcAPNSMessage = lens _mcAPNSMessage (\s a -> s {_mcAPNSMessage = a})
+--
+-- /Note:/ Consider using 'apnsMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcAPNSMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe Message)
+mcAPNSMessage = Lens.lens (apnsMessage :: MessageConfiguration -> Lude.Maybe Message) (\s a -> s {apnsMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcAPNSMessage "Use generic-lens or generic-optics with 'apnsMessage' instead." #-}
 
 -- | The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.
-mcGCMMessage :: Lens' MessageConfiguration (Maybe Message)
-mcGCMMessage = lens _mcGCMMessage (\s a -> s {_mcGCMMessage = a})
+--
+-- /Note:/ Consider using 'gcmMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcGCMMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe Message)
+mcGCMMessage = Lens.lens (gcmMessage :: MessageConfiguration -> Lude.Maybe Message) (\s a -> s {gcmMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcGCMMessage "Use generic-lens or generic-optics with 'gcmMessage' instead." #-}
 
 -- | The default message that the campaign sends through all the channels that are configured for the campaign.
-mcDefaultMessage :: Lens' MessageConfiguration (Maybe Message)
-mcDefaultMessage = lens _mcDefaultMessage (\s a -> s {_mcDefaultMessage = a})
+--
+-- /Note:/ Consider using 'defaultMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcDefaultMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe Message)
+mcDefaultMessage = Lens.lens (defaultMessage :: MessageConfiguration -> Lude.Maybe Message) (\s a -> s {defaultMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcDefaultMessage "Use generic-lens or generic-optics with 'defaultMessage' instead." #-}
 
 -- | The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
-mcCustomMessage :: Lens' MessageConfiguration (Maybe CampaignCustomMessage)
-mcCustomMessage = lens _mcCustomMessage (\s a -> s {_mcCustomMessage = a})
+--
+-- /Note:/ Consider using 'customMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcCustomMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe CampaignCustomMessage)
+mcCustomMessage = Lens.lens (customMessage :: MessageConfiguration -> Lude.Maybe CampaignCustomMessage) (\s a -> s {customMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcCustomMessage "Use generic-lens or generic-optics with 'customMessage' instead." #-}
 
 -- | The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
-mcADMMessage :: Lens' MessageConfiguration (Maybe Message)
-mcADMMessage = lens _mcADMMessage (\s a -> s {_mcADMMessage = a})
+--
+-- /Note:/ Consider using 'aDMMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcADMMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe Message)
+mcADMMessage = Lens.lens (aDMMessage :: MessageConfiguration -> Lude.Maybe Message) (\s a -> s {aDMMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcADMMessage "Use generic-lens or generic-optics with 'aDMMessage' instead." #-}
 
 -- | The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.
-mcSMSMessage :: Lens' MessageConfiguration (Maybe CampaignSmsMessage)
-mcSMSMessage = lens _mcSMSMessage (\s a -> s {_mcSMSMessage = a})
+--
+-- /Note:/ Consider using 'sMSMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcSMSMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe CampaignSmsMessage)
+mcSMSMessage = Lens.lens (sMSMessage :: MessageConfiguration -> Lude.Maybe CampaignSmsMessage) (\s a -> s {sMSMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcSMSMessage "Use generic-lens or generic-optics with 'sMSMessage' instead." #-}
 
 -- | The message that the campaign sends through the email channel. If specified, this message overrides the default message.
-mcEmailMessage :: Lens' MessageConfiguration (Maybe CampaignEmailMessage)
-mcEmailMessage = lens _mcEmailMessage (\s a -> s {_mcEmailMessage = a})
+--
+-- /Note:/ Consider using 'emailMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcEmailMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe CampaignEmailMessage)
+mcEmailMessage = Lens.lens (emailMessage :: MessageConfiguration -> Lude.Maybe CampaignEmailMessage) (\s a -> s {emailMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcEmailMessage "Use generic-lens or generic-optics with 'emailMessage' instead." #-}
 
 -- | The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
-mcBaiduMessage :: Lens' MessageConfiguration (Maybe Message)
-mcBaiduMessage = lens _mcBaiduMessage (\s a -> s {_mcBaiduMessage = a})
+--
+-- /Note:/ Consider using 'baiduMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcBaiduMessage :: Lens.Lens' MessageConfiguration (Lude.Maybe Message)
+mcBaiduMessage = Lens.lens (baiduMessage :: MessageConfiguration -> Lude.Maybe Message) (\s a -> s {baiduMessage = a} :: MessageConfiguration)
+{-# DEPRECATED mcBaiduMessage "Use generic-lens or generic-optics with 'baiduMessage' instead." #-}
 
-instance FromJSON MessageConfiguration where
+instance Lude.FromJSON MessageConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "MessageConfiguration"
       ( \x ->
           MessageConfiguration'
-            <$> (x .:? "APNSMessage")
-            <*> (x .:? "GCMMessage")
-            <*> (x .:? "DefaultMessage")
-            <*> (x .:? "CustomMessage")
-            <*> (x .:? "ADMMessage")
-            <*> (x .:? "SMSMessage")
-            <*> (x .:? "EmailMessage")
-            <*> (x .:? "BaiduMessage")
+            Lude.<$> (x Lude..:? "APNSMessage")
+            Lude.<*> (x Lude..:? "GCMMessage")
+            Lude.<*> (x Lude..:? "DefaultMessage")
+            Lude.<*> (x Lude..:? "CustomMessage")
+            Lude.<*> (x Lude..:? "ADMMessage")
+            Lude.<*> (x Lude..:? "SMSMessage")
+            Lude.<*> (x Lude..:? "EmailMessage")
+            Lude.<*> (x Lude..:? "BaiduMessage")
       )
 
-instance Hashable MessageConfiguration
-
-instance NFData MessageConfiguration
-
-instance ToJSON MessageConfiguration where
+instance Lude.ToJSON MessageConfiguration where
   toJSON MessageConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("APNSMessage" .=) <$> _mcAPNSMessage,
-            ("GCMMessage" .=) <$> _mcGCMMessage,
-            ("DefaultMessage" .=) <$> _mcDefaultMessage,
-            ("CustomMessage" .=) <$> _mcCustomMessage,
-            ("ADMMessage" .=) <$> _mcADMMessage,
-            ("SMSMessage" .=) <$> _mcSMSMessage,
-            ("EmailMessage" .=) <$> _mcEmailMessage,
-            ("BaiduMessage" .=) <$> _mcBaiduMessage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("APNSMessage" Lude..=) Lude.<$> apnsMessage,
+            ("GCMMessage" Lude..=) Lude.<$> gcmMessage,
+            ("DefaultMessage" Lude..=) Lude.<$> defaultMessage,
+            ("CustomMessage" Lude..=) Lude.<$> customMessage,
+            ("ADMMessage" Lude..=) Lude.<$> aDMMessage,
+            ("SMSMessage" Lude..=) Lude.<$> sMSMessage,
+            ("EmailMessage" Lude..=) Lude.<$> emailMessage,
+            ("BaiduMessage" Lude..=) Lude.<$> baiduMessage
           ]
       )

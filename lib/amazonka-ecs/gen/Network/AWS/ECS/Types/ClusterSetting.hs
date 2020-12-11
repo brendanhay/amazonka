@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ClusterSetting where
+module Network.AWS.ECS.Types.ClusterSetting
+  ( ClusterSetting (..),
+
+    -- * Smart constructor
+    mkClusterSetting,
+
+    -- * Lenses
+    csValue,
+    csName,
+  )
+where
 
 import Network.AWS.ECS.Types.ClusterSettingName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The settings to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster.
 --
---
---
--- /See:/ 'clusterSetting' smart constructor.
+-- /See:/ 'mkClusterSetting' smart constructor.
 data ClusterSetting = ClusterSetting'
-  { _csValue :: !(Maybe Text),
-    _csName :: !(Maybe ClusterSettingName)
+  { value ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe ClusterSettingName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csValue' - The value to set for the cluster setting. The supported values are @enabled@ and @disabled@ . If @enabled@ is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the @containerInsights@ account setting is enabled. If a cluster value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
---
--- * 'csName' - The name of the cluster setting. The only supported value is @containerInsights@ .
-clusterSetting ::
+-- * 'name' - The name of the cluster setting. The only supported value is @containerInsights@ .
+-- * 'value' - The value to set for the cluster setting. The supported values are @enabled@ and @disabled@ . If @enabled@ is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the @containerInsights@ account setting is enabled. If a cluster value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
+mkClusterSetting ::
   ClusterSetting
-clusterSetting =
-  ClusterSetting' {_csValue = Nothing, _csName = Nothing}
+mkClusterSetting =
+  ClusterSetting' {value = Lude.Nothing, name = Lude.Nothing}
 
 -- | The value to set for the cluster setting. The supported values are @enabled@ and @disabled@ . If @enabled@ is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the @containerInsights@ account setting is enabled. If a cluster value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
-csValue :: Lens' ClusterSetting (Maybe Text)
-csValue = lens _csValue (\s a -> s {_csValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csValue :: Lens.Lens' ClusterSetting (Lude.Maybe Lude.Text)
+csValue = Lens.lens (value :: ClusterSetting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ClusterSetting)
+{-# DEPRECATED csValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of the cluster setting. The only supported value is @containerInsights@ .
-csName :: Lens' ClusterSetting (Maybe ClusterSettingName)
-csName = lens _csName (\s a -> s {_csName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' ClusterSetting (Lude.Maybe ClusterSettingName)
+csName = Lens.lens (name :: ClusterSetting -> Lude.Maybe ClusterSettingName) (\s a -> s {name = a} :: ClusterSetting)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ClusterSetting where
+instance Lude.FromJSON ClusterSetting where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClusterSetting"
-      (\x -> ClusterSetting' <$> (x .:? "value") <*> (x .:? "name"))
+      ( \x ->
+          ClusterSetting'
+            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "name")
+      )
 
-instance Hashable ClusterSetting
-
-instance NFData ClusterSetting
-
-instance ToJSON ClusterSetting where
+instance Lude.ToJSON ClusterSetting where
   toJSON ClusterSetting' {..} =
-    object
-      (catMaybes [("value" .=) <$> _csValue, ("name" .=) <$> _csName])
+    Lude.object
+      ( Lude.catMaybes
+          [("value" Lude..=) Lude.<$> value, ("name" Lude..=) Lude.<$> name]
+      )

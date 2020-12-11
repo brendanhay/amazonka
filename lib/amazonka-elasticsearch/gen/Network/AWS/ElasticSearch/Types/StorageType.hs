@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.StorageType where
+module Network.AWS.ElasticSearch.Types.StorageType
+  ( StorageType (..),
+
+    -- * Smart constructor
+    mkStorageType,
+
+    -- * Lenses
+    stStorageTypeLimits,
+    stStorageSubTypeName,
+    stStorageTypeName,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.StorageTypeLimit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | StorageTypes represents the list of storage related types and their attributes that are available for given InstanceType.
 --
---
---
--- /See:/ 'storageType' smart constructor.
+-- /See:/ 'mkStorageType' smart constructor.
 data StorageType = StorageType'
-  { _stStorageTypeLimits ::
-      !(Maybe [StorageTypeLimit]),
-    _stStorageSubTypeName :: !(Maybe Text),
-    _stStorageTypeName :: !(Maybe Text)
+  { storageTypeLimits ::
+      Lude.Maybe [StorageTypeLimit],
+    storageSubTypeName :: Lude.Maybe Lude.Text,
+    storageTypeName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stStorageTypeLimits' - List of limits that are applicable for given storage type.
---
--- * 'stStorageSubTypeName' - Undocumented member.
---
--- * 'stStorageTypeName' - Undocumented member.
-storageType ::
+-- * 'storageSubTypeName' - Undocumented field.
+-- * 'storageTypeLimits' - List of limits that are applicable for given storage type.
+-- * 'storageTypeName' - Undocumented field.
+mkStorageType ::
   StorageType
-storageType =
+mkStorageType =
   StorageType'
-    { _stStorageTypeLimits = Nothing,
-      _stStorageSubTypeName = Nothing,
-      _stStorageTypeName = Nothing
+    { storageTypeLimits = Lude.Nothing,
+      storageSubTypeName = Lude.Nothing,
+      storageTypeName = Lude.Nothing
     }
 
 -- | List of limits that are applicable for given storage type.
-stStorageTypeLimits :: Lens' StorageType [StorageTypeLimit]
-stStorageTypeLimits = lens _stStorageTypeLimits (\s a -> s {_stStorageTypeLimits = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'storageTypeLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stStorageTypeLimits :: Lens.Lens' StorageType (Lude.Maybe [StorageTypeLimit])
+stStorageTypeLimits = Lens.lens (storageTypeLimits :: StorageType -> Lude.Maybe [StorageTypeLimit]) (\s a -> s {storageTypeLimits = a} :: StorageType)
+{-# DEPRECATED stStorageTypeLimits "Use generic-lens or generic-optics with 'storageTypeLimits' instead." #-}
 
--- | Undocumented member.
-stStorageSubTypeName :: Lens' StorageType (Maybe Text)
-stStorageSubTypeName = lens _stStorageSubTypeName (\s a -> s {_stStorageSubTypeName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'storageSubTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stStorageSubTypeName :: Lens.Lens' StorageType (Lude.Maybe Lude.Text)
+stStorageSubTypeName = Lens.lens (storageSubTypeName :: StorageType -> Lude.Maybe Lude.Text) (\s a -> s {storageSubTypeName = a} :: StorageType)
+{-# DEPRECATED stStorageSubTypeName "Use generic-lens or generic-optics with 'storageSubTypeName' instead." #-}
 
--- | Undocumented member.
-stStorageTypeName :: Lens' StorageType (Maybe Text)
-stStorageTypeName = lens _stStorageTypeName (\s a -> s {_stStorageTypeName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'storageTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stStorageTypeName :: Lens.Lens' StorageType (Lude.Maybe Lude.Text)
+stStorageTypeName = Lens.lens (storageTypeName :: StorageType -> Lude.Maybe Lude.Text) (\s a -> s {storageTypeName = a} :: StorageType)
+{-# DEPRECATED stStorageTypeName "Use generic-lens or generic-optics with 'storageTypeName' instead." #-}
 
-instance FromJSON StorageType where
+instance Lude.FromJSON StorageType where
   parseJSON =
-    withObject
+    Lude.withObject
       "StorageType"
       ( \x ->
           StorageType'
-            <$> (x .:? "StorageTypeLimits" .!= mempty)
-            <*> (x .:? "StorageSubTypeName")
-            <*> (x .:? "StorageTypeName")
+            Lude.<$> (x Lude..:? "StorageTypeLimits" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StorageSubTypeName")
+            Lude.<*> (x Lude..:? "StorageTypeName")
       )
-
-instance Hashable StorageType
-
-instance NFData StorageType

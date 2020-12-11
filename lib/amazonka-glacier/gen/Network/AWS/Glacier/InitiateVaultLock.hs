@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,163 +17,173 @@
 --
 --     * Installing a vault lock policy on the specified vault.
 --
+--
 --     * Setting the lock state of vault lock to @InProgress@ .
+--
 --
 --     * Returning a lock ID, which is used to complete the vault locking process.
 --
 --
---
 -- You can set one vault lock policy for each vault and this policy can be up to 20 KB in size. For more information about vault lock policies, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies> .
---
 -- You must complete the vault locking process within 24 hours after the vault lock enters the @InProgress@ state. After the 24 hour window ends, the lock ID expires, the vault automatically exits the @InProgress@ state, and the vault lock policy is removed from the vault. You call 'CompleteVaultLock' to complete the vault locking process by setting the state of the vault lock to @Locked@ .
---
 -- After a vault lock is in the @Locked@ state, you cannot initiate a new vault lock for the vault.
---
 -- You can abort the vault locking process by calling 'AbortVaultLock' . You can get the state of the vault lock by calling 'GetVaultLock' . For more information about the vault locking process, <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock> .
---
 -- If this operation is called when the vault lock is in the @InProgress@ state, the operation returns an @AccessDeniedException@ error. When the vault lock is in the @InProgress@ state you must call 'AbortVaultLock' before you can initiate a new vault lock policy.
 module Network.AWS.Glacier.InitiateVaultLock
-  ( -- * Creating a Request
-    initiateVaultLock,
-    InitiateVaultLock,
+  ( -- * Creating a request
+    InitiateVaultLock (..),
+    mkInitiateVaultLock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ivlPolicy,
     ivlAccountId,
     ivlVaultName,
 
-    -- * Destructuring the Response
-    initiateVaultLockResponse,
-    InitiateVaultLockResponse,
+    -- * Destructuring the response
+    InitiateVaultLockResponse (..),
+    mkInitiateVaultLockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ivlrsLockId,
     ivlrsResponseStatus,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input values for @InitiateVaultLock@ .
 --
---
---
--- /See:/ 'initiateVaultLock' smart constructor.
+-- /See:/ 'mkInitiateVaultLock' smart constructor.
 data InitiateVaultLock = InitiateVaultLock'
-  { _ivlPolicy ::
-      !(Maybe VaultLockPolicy),
-    _ivlAccountId :: !Text,
-    _ivlVaultName :: !Text
+  { policy ::
+      Lude.Maybe VaultLockPolicy,
+    accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateVaultLock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ivlPolicy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
---
--- * 'ivlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- * 'ivlVaultName' - The name of the vault.
-initiateVaultLock ::
-  -- | 'ivlAccountId'
-  Text ->
-  -- | 'ivlVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+-- * 'policy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
+-- * 'vaultName' - The name of the vault.
+mkInitiateVaultLock ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   InitiateVaultLock
-initiateVaultLock pAccountId_ pVaultName_ =
+mkInitiateVaultLock pAccountId_ pVaultName_ =
   InitiateVaultLock'
-    { _ivlPolicy = Nothing,
-      _ivlAccountId = pAccountId_,
-      _ivlVaultName = pVaultName_
+    { policy = Lude.Nothing,
+      accountId = pAccountId_,
+      vaultName = pVaultName_
     }
 
 -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
-ivlPolicy :: Lens' InitiateVaultLock (Maybe VaultLockPolicy)
-ivlPolicy = lens _ivlPolicy (\s a -> s {_ivlPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlPolicy :: Lens.Lens' InitiateVaultLock (Lude.Maybe VaultLockPolicy)
+ivlPolicy = Lens.lens (policy :: InitiateVaultLock -> Lude.Maybe VaultLockPolicy) (\s a -> s {policy = a} :: InitiateVaultLock)
+{-# DEPRECATED ivlPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-ivlAccountId :: Lens' InitiateVaultLock Text
-ivlAccountId = lens _ivlAccountId (\s a -> s {_ivlAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlAccountId :: Lens.Lens' InitiateVaultLock Lude.Text
+ivlAccountId = Lens.lens (accountId :: InitiateVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: InitiateVaultLock)
+{-# DEPRECATED ivlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-ivlVaultName :: Lens' InitiateVaultLock Text
-ivlVaultName = lens _ivlVaultName (\s a -> s {_ivlVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlVaultName :: Lens.Lens' InitiateVaultLock Lude.Text
+ivlVaultName = Lens.lens (vaultName :: InitiateVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: InitiateVaultLock)
+{-# DEPRECATED ivlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest InitiateVaultLock where
+instance Lude.AWSRequest InitiateVaultLock where
   type Rs InitiateVaultLock = InitiateVaultLockResponse
-  request = postJSON glacier
+  request = Req.postJSON glacierService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           InitiateVaultLockResponse'
-            <$> (h .#? "x-amz-lock-id") <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "x-amz-lock-id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InitiateVaultLock
+instance Lude.ToHeaders InitiateVaultLock where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData InitiateVaultLock
-
-instance ToHeaders InitiateVaultLock where
-  toHeaders = const mempty
-
-instance ToJSON InitiateVaultLock where
+instance Lude.ToJSON InitiateVaultLock where
   toJSON InitiateVaultLock' {..} =
-    object (catMaybes [("policy" .=) <$> _ivlPolicy])
+    Lude.object (Lude.catMaybes [("policy" Lude..=) Lude.<$> policy])
 
-instance ToPath InitiateVaultLock where
+instance Lude.ToPath InitiateVaultLock where
   toPath InitiateVaultLock' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _ivlAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _ivlVaultName,
+        Lude.toBS vaultName,
         "/lock-policy"
       ]
 
-instance ToQuery InitiateVaultLock where
-  toQuery = const mempty
+instance Lude.ToQuery InitiateVaultLock where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'initiateVaultLockResponse' smart constructor.
+-- /See:/ 'mkInitiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
-  { _ivlrsLockId ::
-      !(Maybe Text),
-    _ivlrsResponseStatus :: !Int
+  { lockId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateVaultLockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ivlrsLockId' - The lock ID, which is used to complete the vault locking process.
---
--- * 'ivlrsResponseStatus' - -- | The response status code.
-initiateVaultLockResponse ::
-  -- | 'ivlrsResponseStatus'
-  Int ->
+-- * 'lockId' - The lock ID, which is used to complete the vault locking process.
+-- * 'responseStatus' - The response status code.
+mkInitiateVaultLockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InitiateVaultLockResponse
-initiateVaultLockResponse pResponseStatus_ =
+mkInitiateVaultLockResponse pResponseStatus_ =
   InitiateVaultLockResponse'
-    { _ivlrsLockId = Nothing,
-      _ivlrsResponseStatus = pResponseStatus_
+    { lockId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The lock ID, which is used to complete the vault locking process.
-ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
-ivlrsLockId = lens _ivlrsLockId (\s a -> s {_ivlrsLockId = a})
+--
+-- /Note:/ Consider using 'lockId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlrsLockId :: Lens.Lens' InitiateVaultLockResponse (Lude.Maybe Lude.Text)
+ivlrsLockId = Lens.lens (lockId :: InitiateVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {lockId = a} :: InitiateVaultLockResponse)
+{-# DEPRECATED ivlrsLockId "Use generic-lens or generic-optics with 'lockId' instead." #-}
 
--- | -- | The response status code.
-ivlrsResponseStatus :: Lens' InitiateVaultLockResponse Int
-ivlrsResponseStatus = lens _ivlrsResponseStatus (\s a -> s {_ivlrsResponseStatus = a})
-
-instance NFData InitiateVaultLockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlrsResponseStatus :: Lens.Lens' InitiateVaultLockResponse Lude.Int
+ivlrsResponseStatus = Lens.lens (responseStatus :: InitiateVaultLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateVaultLockResponse)
+{-# DEPRECATED ivlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

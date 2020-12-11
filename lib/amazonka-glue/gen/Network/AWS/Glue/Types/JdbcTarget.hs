@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JdbcTarget where
+module Network.AWS.Glue.Types.JdbcTarget
+  ( JdbcTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJdbcTarget,
+
+    -- * Lenses
+    jtPath,
+    jtConnectionName,
+    jtExclusions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a JDBC data store to crawl.
 --
---
---
--- /See:/ 'jdbcTarget' smart constructor.
+-- /See:/ 'mkJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { _jtPath :: !(Maybe Text),
-    _jtConnectionName :: !(Maybe Text),
-    _jtExclusions :: !(Maybe [Text])
+  { path :: Lude.Maybe Lude.Text,
+    connectionName :: Lude.Maybe Lude.Text,
+    exclusions :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JdbcTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jtPath' - The path of the JDBC target.
---
--- * 'jtConnectionName' - The name of the connection to use to connect to the JDBC target.
---
--- * 'jtExclusions' - A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
-jdbcTarget ::
+-- * 'connectionName' - The name of the connection to use to connect to the JDBC target.
+-- * 'exclusions' - A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
+-- * 'path' - The path of the JDBC target.
+mkJdbcTarget ::
   JdbcTarget
-jdbcTarget =
+mkJdbcTarget =
   JdbcTarget'
-    { _jtPath = Nothing,
-      _jtConnectionName = Nothing,
-      _jtExclusions = Nothing
+    { path = Lude.Nothing,
+      connectionName = Lude.Nothing,
+      exclusions = Lude.Nothing
     }
 
 -- | The path of the JDBC target.
-jtPath :: Lens' JdbcTarget (Maybe Text)
-jtPath = lens _jtPath (\s a -> s {_jtPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jtPath :: Lens.Lens' JdbcTarget (Lude.Maybe Lude.Text)
+jtPath = Lens.lens (path :: JdbcTarget -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: JdbcTarget)
+{-# DEPRECATED jtPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The name of the connection to use to connect to the JDBC target.
-jtConnectionName :: Lens' JdbcTarget (Maybe Text)
-jtConnectionName = lens _jtConnectionName (\s a -> s {_jtConnectionName = a})
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jtConnectionName :: Lens.Lens' JdbcTarget (Lude.Maybe Lude.Text)
+jtConnectionName = Lens.lens (connectionName :: JdbcTarget -> Lude.Maybe Lude.Text) (\s a -> s {connectionName = a} :: JdbcTarget)
+{-# DEPRECATED jtConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
-jtExclusions :: Lens' JdbcTarget [Text]
-jtExclusions = lens _jtExclusions (\s a -> s {_jtExclusions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exclusions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jtExclusions :: Lens.Lens' JdbcTarget (Lude.Maybe [Lude.Text])
+jtExclusions = Lens.lens (exclusions :: JdbcTarget -> Lude.Maybe [Lude.Text]) (\s a -> s {exclusions = a} :: JdbcTarget)
+{-# DEPRECATED jtExclusions "Use generic-lens or generic-optics with 'exclusions' instead." #-}
 
-instance FromJSON JdbcTarget where
+instance Lude.FromJSON JdbcTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            <$> (x .:? "Path")
-            <*> (x .:? "ConnectionName")
-            <*> (x .:? "Exclusions" .!= mempty)
+            Lude.<$> (x Lude..:? "Path")
+            Lude.<*> (x Lude..:? "ConnectionName")
+            Lude.<*> (x Lude..:? "Exclusions" Lude..!= Lude.mempty)
       )
 
-instance Hashable JdbcTarget
-
-instance NFData JdbcTarget
-
-instance ToJSON JdbcTarget where
+instance Lude.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
-    object
-      ( catMaybes
-          [ ("Path" .=) <$> _jtPath,
-            ("ConnectionName" .=) <$> _jtConnectionName,
-            ("Exclusions" .=) <$> _jtExclusions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Path" Lude..=) Lude.<$> path,
+            ("ConnectionName" Lude..=) Lude.<$> connectionName,
+            ("Exclusions" Lude..=) Lude.<$> exclusions
           ]
       )

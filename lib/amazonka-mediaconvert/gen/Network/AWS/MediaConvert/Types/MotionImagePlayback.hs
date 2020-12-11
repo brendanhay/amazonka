@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MotionImagePlayback where
+module Network.AWS.MediaConvert.Types.MotionImagePlayback
+  ( MotionImagePlayback
+      ( MotionImagePlayback',
+        Once,
+        Repeat
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify whether your motion graphic overlay repeats on a loop or plays only once.
-data MotionImagePlayback
-  = Once
-  | Repeat
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MotionImagePlayback = MotionImagePlayback' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MotionImagePlayback where
-  parser =
-    takeLowerText >>= \case
-      "once" -> pure Once
-      "repeat" -> pure Repeat
-      e ->
-        fromTextError $
-          "Failure parsing MotionImagePlayback from value: '" <> e
-            <> "'. Accepted values: once, repeat"
+pattern Once :: MotionImagePlayback
+pattern Once = MotionImagePlayback' "ONCE"
 
-instance ToText MotionImagePlayback where
-  toText = \case
-    Once -> "ONCE"
-    Repeat -> "REPEAT"
+pattern Repeat :: MotionImagePlayback
+pattern Repeat = MotionImagePlayback' "REPEAT"
 
-instance Hashable MotionImagePlayback
-
-instance NFData MotionImagePlayback
-
-instance ToByteString MotionImagePlayback
-
-instance ToQuery MotionImagePlayback
-
-instance ToHeader MotionImagePlayback
-
-instance ToJSON MotionImagePlayback where
-  toJSON = toJSONText
-
-instance FromJSON MotionImagePlayback where
-  parseJSON = parseJSONText "MotionImagePlayback"
+{-# COMPLETE
+  Once,
+  Repeat,
+  MotionImagePlayback'
+  #-}

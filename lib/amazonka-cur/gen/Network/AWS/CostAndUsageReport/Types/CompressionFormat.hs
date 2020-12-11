@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.CompressionFormat where
+module Network.AWS.CostAndUsageReport.Types.CompressionFormat
+  ( CompressionFormat
+      ( CompressionFormat',
+        CFGzip,
+        CFParquet,
+        CFZip
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The compression format that AWS uses for the report.
-data CompressionFormat
-  = CFGzip
-  | CFParquet
-  | CFZip
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompressionFormat = CompressionFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompressionFormat where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure CFGzip
-      "parquet" -> pure CFParquet
-      "zip" -> pure CFZip
-      e ->
-        fromTextError $
-          "Failure parsing CompressionFormat from value: '" <> e
-            <> "'. Accepted values: gzip, parquet, zip"
+pattern CFGzip :: CompressionFormat
+pattern CFGzip = CompressionFormat' "GZIP"
 
-instance ToText CompressionFormat where
-  toText = \case
-    CFGzip -> "GZIP"
-    CFParquet -> "Parquet"
-    CFZip -> "ZIP"
+pattern CFParquet :: CompressionFormat
+pattern CFParquet = CompressionFormat' "Parquet"
 
-instance Hashable CompressionFormat
+pattern CFZip :: CompressionFormat
+pattern CFZip = CompressionFormat' "ZIP"
 
-instance NFData CompressionFormat
-
-instance ToByteString CompressionFormat
-
-instance ToQuery CompressionFormat
-
-instance ToHeader CompressionFormat
-
-instance ToJSON CompressionFormat where
-  toJSON = toJSONText
-
-instance FromJSON CompressionFormat where
-  parseJSON = parseJSONText "CompressionFormat"
+{-# COMPLETE
+  CFGzip,
+  CFParquet,
+  CFZip,
+  CompressionFormat'
+  #-}

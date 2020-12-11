@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Produces details about an input
 module Network.AWS.MediaLive.DescribeInput
-  ( -- * Creating a Request
-    describeInput,
-    DescribeInput,
+  ( -- * Creating a request
+    DescribeInput (..),
+    mkDescribeInput,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dInputId,
 
-    -- * Destructuring the Response
-    describeInputResponse,
-    DescribeInputResponse,
+    -- * Destructuring the response
+    DescribeInputResponse (..),
+    mkDescribeInputResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diirsState,
     diirsSecurityGroups,
     diirsARN,
@@ -50,225 +45,274 @@ module Network.AWS.MediaLive.DescribeInput
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DescribeInputRequest
 --
--- /See:/ 'describeInput' smart constructor.
-newtype DescribeInput = DescribeInput' {_dInputId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeInput' smart constructor.
+newtype DescribeInput = DescribeInput' {inputId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dInputId' - Unique ID of the input
-describeInput ::
-  -- | 'dInputId'
-  Text ->
+-- * 'inputId' - Unique ID of the input
+mkDescribeInput ::
+  -- | 'inputId'
+  Lude.Text ->
   DescribeInput
-describeInput pInputId_ = DescribeInput' {_dInputId = pInputId_}
+mkDescribeInput pInputId_ = DescribeInput' {inputId = pInputId_}
 
 -- | Unique ID of the input
-dInputId :: Lens' DescribeInput Text
-dInputId = lens _dInputId (\s a -> s {_dInputId = a})
+--
+-- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dInputId :: Lens.Lens' DescribeInput Lude.Text
+dInputId = Lens.lens (inputId :: DescribeInput -> Lude.Text) (\s a -> s {inputId = a} :: DescribeInput)
+{-# DEPRECATED dInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
 
-instance AWSRequest DescribeInput where
+instance Lude.AWSRequest DescribeInput where
   type Rs DescribeInput = DescribeInputResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInputResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "securityGroups" .!@ mempty)
-            <*> (x .?> "arn")
-            <*> (x .?> "inputDevices" .!@ mempty)
-            <*> (x .?> "sources" .!@ mempty)
-            <*> (x .?> "destinations" .!@ mempty)
-            <*> (x .?> "name")
-            <*> (x .?> "attachedChannels" .!@ mempty)
-            <*> (x .?> "id")
-            <*> (x .?> "inputClass")
-            <*> (x .?> "type")
-            <*> (x .?> "mediaConnectFlows" .!@ mempty)
-            <*> (x .?> "inputSourceType")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (x .?> "roleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "securityGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "inputDevices" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "sources" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "attachedChannels" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "inputClass")
+            Lude.<*> (x Lude..?> "type")
+            Lude.<*> (x Lude..?> "mediaConnectFlows" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "inputSourceType")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInput
-
-instance NFData DescribeInput
-
-instance ToHeaders DescribeInput where
+instance Lude.ToHeaders DescribeInput where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInput where
+instance Lude.ToPath DescribeInput where
   toPath DescribeInput' {..} =
-    mconcat ["/prod/inputs/", toBS _dInputId]
+    Lude.mconcat ["/prod/inputs/", Lude.toBS inputId]
 
-instance ToQuery DescribeInput where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInput where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeInputResponse
 --
--- /See:/ 'describeInputResponse' smart constructor.
+-- /See:/ 'mkDescribeInputResponse' smart constructor.
 data DescribeInputResponse = DescribeInputResponse'
-  { _diirsState ::
-      !(Maybe InputState),
-    _diirsSecurityGroups :: !(Maybe [Text]),
-    _diirsARN :: !(Maybe Text),
-    _diirsInputDevices ::
-      !(Maybe [InputDeviceSettings]),
-    _diirsSources :: !(Maybe [InputSource]),
-    _diirsDestinations ::
-      !(Maybe [InputDestination]),
-    _diirsName :: !(Maybe Text),
-    _diirsAttachedChannels :: !(Maybe [Text]),
-    _diirsId :: !(Maybe Text),
-    _diirsInputClass :: !(Maybe InputClass),
-    _diirsType :: !(Maybe InputType),
-    _diirsMediaConnectFlows ::
-      !(Maybe [MediaConnectFlow]),
-    _diirsInputSourceType ::
-      !(Maybe InputSourceType),
-    _diirsTags :: !(Maybe (Map Text (Text))),
-    _diirsRoleARN :: !(Maybe Text),
-    _diirsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe InputState,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    arn :: Lude.Maybe Lude.Text,
+    inputDevices ::
+      Lude.Maybe [InputDeviceSettings],
+    sources :: Lude.Maybe [InputSource],
+    destinations :: Lude.Maybe [InputDestination],
+    name :: Lude.Maybe Lude.Text,
+    attachedChannels :: Lude.Maybe [Lude.Text],
+    id :: Lude.Maybe Lude.Text,
+    inputClass :: Lude.Maybe InputClass,
+    type' :: Lude.Maybe InputType,
+    mediaConnectFlows ::
+      Lude.Maybe [MediaConnectFlow],
+    inputSourceType :: Lude.Maybe InputSourceType,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Unique ARN of the input (generated, immutable).
+-- * 'attachedChannels' - A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+-- * 'destinations' - A list of the destinations of the input (PUSH-type).
+-- * 'id' - The generated ID of the input (unique for user account, immutable).
+-- * 'inputClass' - STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
 --
--- * 'diirsState' - Undocumented member.
+-- SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+-- * 'inputDevices' - Settings for the input devices.
+-- * 'inputSourceType' - Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
 --
--- * 'diirsSecurityGroups' - A list of IDs for all the Input Security Groups attached to the input.
---
--- * 'diirsARN' - The Unique ARN of the input (generated, immutable).
---
--- * 'diirsInputDevices' - Settings for the input devices.
---
--- * 'diirsSources' - A list of the sources of the input (PULL-type).
---
--- * 'diirsDestinations' - A list of the destinations of the input (PUSH-type).
---
--- * 'diirsName' - The user-assigned name (This is a mutable value).
---
--- * 'diirsAttachedChannels' - A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
---
--- * 'diirsId' - The generated ID of the input (unique for user account, immutable).
---
--- * 'diirsInputClass' - STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
---
--- * 'diirsType' - Undocumented member.
---
--- * 'diirsMediaConnectFlows' - A list of MediaConnect Flows for this input.
---
--- * 'diirsInputSourceType' - Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
---
--- * 'diirsTags' - A collection of key-value pairs.
---
--- * 'diirsRoleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
---
--- * 'diirsResponseStatus' - -- | The response status code.
-describeInputResponse ::
-  -- | 'diirsResponseStatus'
-  Int ->
+-- during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+-- * 'mediaConnectFlows' - A list of MediaConnect Flows for this input.
+-- * 'name' - The user-assigned name (This is a mutable value).
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+-- * 'securityGroups' - A list of IDs for all the Input Security Groups attached to the input.
+-- * 'sources' - A list of the sources of the input (PULL-type).
+-- * 'state' - Undocumented field.
+-- * 'tags' - A collection of key-value pairs.
+-- * 'type'' - Undocumented field.
+mkDescribeInputResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInputResponse
-describeInputResponse pResponseStatus_ =
+mkDescribeInputResponse pResponseStatus_ =
   DescribeInputResponse'
-    { _diirsState = Nothing,
-      _diirsSecurityGroups = Nothing,
-      _diirsARN = Nothing,
-      _diirsInputDevices = Nothing,
-      _diirsSources = Nothing,
-      _diirsDestinations = Nothing,
-      _diirsName = Nothing,
-      _diirsAttachedChannels = Nothing,
-      _diirsId = Nothing,
-      _diirsInputClass = Nothing,
-      _diirsType = Nothing,
-      _diirsMediaConnectFlows = Nothing,
-      _diirsInputSourceType = Nothing,
-      _diirsTags = Nothing,
-      _diirsRoleARN = Nothing,
-      _diirsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      arn = Lude.Nothing,
+      inputDevices = Lude.Nothing,
+      sources = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      attachedChannels = Lude.Nothing,
+      id = Lude.Nothing,
+      inputClass = Lude.Nothing,
+      type' = Lude.Nothing,
+      mediaConnectFlows = Lude.Nothing,
+      inputSourceType = Lude.Nothing,
+      tags = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-diirsState :: Lens' DescribeInputResponse (Maybe InputState)
-diirsState = lens _diirsState (\s a -> s {_diirsState = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsState :: Lens.Lens' DescribeInputResponse (Lude.Maybe InputState)
+diirsState = Lens.lens (state :: DescribeInputResponse -> Lude.Maybe InputState) (\s a -> s {state = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A list of IDs for all the Input Security Groups attached to the input.
-diirsSecurityGroups :: Lens' DescribeInputResponse [Text]
-diirsSecurityGroups = lens _diirsSecurityGroups (\s a -> s {_diirsSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsSecurityGroups :: Lens.Lens' DescribeInputResponse (Lude.Maybe [Lude.Text])
+diirsSecurityGroups = Lens.lens (securityGroups :: DescribeInputResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The Unique ARN of the input (generated, immutable).
-diirsARN :: Lens' DescribeInputResponse (Maybe Text)
-diirsARN = lens _diirsARN (\s a -> s {_diirsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsARN :: Lens.Lens' DescribeInputResponse (Lude.Maybe Lude.Text)
+diirsARN = Lens.lens (arn :: DescribeInputResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Settings for the input devices.
-diirsInputDevices :: Lens' DescribeInputResponse [InputDeviceSettings]
-diirsInputDevices = lens _diirsInputDevices (\s a -> s {_diirsInputDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsInputDevices :: Lens.Lens' DescribeInputResponse (Lude.Maybe [InputDeviceSettings])
+diirsInputDevices = Lens.lens (inputDevices :: DescribeInputResponse -> Lude.Maybe [InputDeviceSettings]) (\s a -> s {inputDevices = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsInputDevices "Use generic-lens or generic-optics with 'inputDevices' instead." #-}
 
 -- | A list of the sources of the input (PULL-type).
-diirsSources :: Lens' DescribeInputResponse [InputSource]
-diirsSources = lens _diirsSources (\s a -> s {_diirsSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsSources :: Lens.Lens' DescribeInputResponse (Lude.Maybe [InputSource])
+diirsSources = Lens.lens (sources :: DescribeInputResponse -> Lude.Maybe [InputSource]) (\s a -> s {sources = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsSources "Use generic-lens or generic-optics with 'sources' instead." #-}
 
 -- | A list of the destinations of the input (PUSH-type).
-diirsDestinations :: Lens' DescribeInputResponse [InputDestination]
-diirsDestinations = lens _diirsDestinations (\s a -> s {_diirsDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsDestinations :: Lens.Lens' DescribeInputResponse (Lude.Maybe [InputDestination])
+diirsDestinations = Lens.lens (destinations :: DescribeInputResponse -> Lude.Maybe [InputDestination]) (\s a -> s {destinations = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The user-assigned name (This is a mutable value).
-diirsName :: Lens' DescribeInputResponse (Maybe Text)
-diirsName = lens _diirsName (\s a -> s {_diirsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsName :: Lens.Lens' DescribeInputResponse (Lude.Maybe Lude.Text)
+diirsName = Lens.lens (name :: DescribeInputResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
-diirsAttachedChannels :: Lens' DescribeInputResponse [Text]
-diirsAttachedChannels = lens _diirsAttachedChannels (\s a -> s {_diirsAttachedChannels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachedChannels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsAttachedChannels :: Lens.Lens' DescribeInputResponse (Lude.Maybe [Lude.Text])
+diirsAttachedChannels = Lens.lens (attachedChannels :: DescribeInputResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {attachedChannels = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsAttachedChannels "Use generic-lens or generic-optics with 'attachedChannels' instead." #-}
 
 -- | The generated ID of the input (unique for user account, immutable).
-diirsId :: Lens' DescribeInputResponse (Maybe Text)
-diirsId = lens _diirsId (\s a -> s {_diirsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsId :: Lens.Lens' DescribeInputResponse (Lude.Maybe Lude.Text)
+diirsId = Lens.lens (id :: DescribeInputResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
-diirsInputClass :: Lens' DescribeInputResponse (Maybe InputClass)
-diirsInputClass = lens _diirsInputClass (\s a -> s {_diirsInputClass = a})
+-- | STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
+--
+-- SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+--
+-- /Note:/ Consider using 'inputClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsInputClass :: Lens.Lens' DescribeInputResponse (Lude.Maybe InputClass)
+diirsInputClass = Lens.lens (inputClass :: DescribeInputResponse -> Lude.Maybe InputClass) (\s a -> s {inputClass = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsInputClass "Use generic-lens or generic-optics with 'inputClass' instead." #-}
 
--- | Undocumented member.
-diirsType :: Lens' DescribeInputResponse (Maybe InputType)
-diirsType = lens _diirsType (\s a -> s {_diirsType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsType :: Lens.Lens' DescribeInputResponse (Lude.Maybe InputType)
+diirsType = Lens.lens (type' :: DescribeInputResponse -> Lude.Maybe InputType) (\s a -> s {type' = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A list of MediaConnect Flows for this input.
-diirsMediaConnectFlows :: Lens' DescribeInputResponse [MediaConnectFlow]
-diirsMediaConnectFlows = lens _diirsMediaConnectFlows (\s a -> s {_diirsMediaConnectFlows = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'mediaConnectFlows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsMediaConnectFlows :: Lens.Lens' DescribeInputResponse (Lude.Maybe [MediaConnectFlow])
+diirsMediaConnectFlows = Lens.lens (mediaConnectFlows :: DescribeInputResponse -> Lude.Maybe [MediaConnectFlow]) (\s a -> s {mediaConnectFlows = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsMediaConnectFlows "Use generic-lens or generic-optics with 'mediaConnectFlows' instead." #-}
 
--- | Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
-diirsInputSourceType :: Lens' DescribeInputResponse (Maybe InputSourceType)
-diirsInputSourceType = lens _diirsInputSourceType (\s a -> s {_diirsInputSourceType = a})
+-- | Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
+--
+-- during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+--
+-- /Note:/ Consider using 'inputSourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsInputSourceType :: Lens.Lens' DescribeInputResponse (Lude.Maybe InputSourceType)
+diirsInputSourceType = Lens.lens (inputSourceType :: DescribeInputResponse -> Lude.Maybe InputSourceType) (\s a -> s {inputSourceType = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsInputSourceType "Use generic-lens or generic-optics with 'inputSourceType' instead." #-}
 
 -- | A collection of key-value pairs.
-diirsTags :: Lens' DescribeInputResponse (HashMap Text (Text))
-diirsTags = lens _diirsTags (\s a -> s {_diirsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsTags :: Lens.Lens' DescribeInputResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+diirsTags = Lens.lens (tags :: DescribeInputResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-diirsRoleARN :: Lens' DescribeInputResponse (Maybe Text)
-diirsRoleARN = lens _diirsRoleARN (\s a -> s {_diirsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsRoleARN :: Lens.Lens' DescribeInputResponse (Lude.Maybe Lude.Text)
+diirsRoleARN = Lens.lens (roleARN :: DescribeInputResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-diirsResponseStatus :: Lens' DescribeInputResponse Int
-diirsResponseStatus = lens _diirsResponseStatus (\s a -> s {_diirsResponseStatus = a})
-
-instance NFData DescribeInputResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsResponseStatus :: Lens.Lens' DescribeInputResponse Lude.Int
+diirsResponseStatus = Lens.lens (responseStatus :: DescribeInputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInputResponse)
+{-# DEPRECATED diirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

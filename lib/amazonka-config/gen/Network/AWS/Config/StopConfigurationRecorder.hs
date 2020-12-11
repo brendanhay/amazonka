@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,109 @@
 --
 -- Stops recording configurations of the AWS resources you have selected to record in your AWS account.
 module Network.AWS.Config.StopConfigurationRecorder
-  ( -- * Creating a Request
-    stopConfigurationRecorder,
-    StopConfigurationRecorder,
+  ( -- * Creating a request
+    StopConfigurationRecorder (..),
+    mkStopConfigurationRecorder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     scrConfigurationRecorderName,
 
-    -- * Destructuring the Response
-    stopConfigurationRecorderResponse,
-    StopConfigurationRecorderResponse,
+    -- * Destructuring the response
+    StopConfigurationRecorderResponse (..),
+    mkStopConfigurationRecorderResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'StopConfigurationRecorder' action.
 --
---
---
--- /See:/ 'stopConfigurationRecorder' smart constructor.
+-- /See:/ 'mkStopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
-  { _scrConfigurationRecorderName ::
-      Text
+  { configurationRecorderName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopConfigurationRecorder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scrConfigurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
-stopConfigurationRecorder ::
-  -- | 'scrConfigurationRecorderName'
-  Text ->
+-- * 'configurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
+mkStopConfigurationRecorder ::
+  -- | 'configurationRecorderName'
+  Lude.Text ->
   StopConfigurationRecorder
-stopConfigurationRecorder pConfigurationRecorderName_ =
+mkStopConfigurationRecorder pConfigurationRecorderName_ =
   StopConfigurationRecorder'
-    { _scrConfigurationRecorderName =
+    { configurationRecorderName =
         pConfigurationRecorderName_
     }
 
 -- | The name of the recorder object that records each configuration change made to the resources.
-scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
-scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\s a -> s {_scrConfigurationRecorderName = a})
+--
+-- /Note:/ Consider using 'configurationRecorderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrConfigurationRecorderName :: Lens.Lens' StopConfigurationRecorder Lude.Text
+scrConfigurationRecorderName = Lens.lens (configurationRecorderName :: StopConfigurationRecorder -> Lude.Text) (\s a -> s {configurationRecorderName = a} :: StopConfigurationRecorder)
+{-# DEPRECATED scrConfigurationRecorderName "Use generic-lens or generic-optics with 'configurationRecorderName' instead." #-}
 
-instance AWSRequest StopConfigurationRecorder where
+instance Lude.AWSRequest StopConfigurationRecorder where
   type
     Rs StopConfigurationRecorder =
       StopConfigurationRecorderResponse
-  request = postJSON config
-  response = receiveNull StopConfigurationRecorderResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull StopConfigurationRecorderResponse'
 
-instance Hashable StopConfigurationRecorder
-
-instance NFData StopConfigurationRecorder
-
-instance ToHeaders StopConfigurationRecorder where
+instance Lude.ToHeaders StopConfigurationRecorder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.StopConfigurationRecorder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.StopConfigurationRecorder" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopConfigurationRecorder where
+instance Lude.ToJSON StopConfigurationRecorder where
   toJSON StopConfigurationRecorder' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("ConfigurationRecorderName" .= _scrConfigurationRecorderName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ConfigurationRecorderName" Lude..= configurationRecorderName)
           ]
       )
 
-instance ToPath StopConfigurationRecorder where
-  toPath = const "/"
+instance Lude.ToPath StopConfigurationRecorder where
+  toPath = Lude.const "/"
 
-instance ToQuery StopConfigurationRecorder where
-  toQuery = const mempty
+instance Lude.ToQuery StopConfigurationRecorder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
+-- | /See:/ 'mkStopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopConfigurationRecorderResponse' with the minimum fields required to make a request.
-stopConfigurationRecorderResponse ::
+mkStopConfigurationRecorderResponse ::
   StopConfigurationRecorderResponse
-stopConfigurationRecorderResponse =
+mkStopConfigurationRecorderResponse =
   StopConfigurationRecorderResponse'
-
-instance NFData StopConfigurationRecorderResponse

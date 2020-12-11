@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.CreateDocumentationPart
-  ( -- * Creating a Request
-    createDocumentationPart,
-    CreateDocumentationPart,
+  ( -- * Creating a request
+    CreateDocumentationPart (..),
+    mkCreateDocumentationPart,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdpRestAPIId,
     cdpLocation,
     cdpProperties,
 
-    -- * Destructuring the Response
-    documentationPart,
-    DocumentationPart,
+    -- * Destructuring the response
+    DocumentationPart (..),
+    mkDocumentationPart,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpLocation,
     dpId,
     dpProperties,
@@ -40,86 +35,95 @@ module Network.AWS.APIGateway.CreateDocumentationPart
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates a new documentation part of a given API.
 --
---
---
--- /See:/ 'createDocumentationPart' smart constructor.
+-- /See:/ 'mkCreateDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
-  { _cdpRestAPIId ::
-      !Text,
-    _cdpLocation :: !DocumentationPartLocation,
-    _cdpProperties :: !Text
+  { restAPIId ::
+      Lude.Text,
+    location :: DocumentationPartLocation,
+    properties :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentationPart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'cdpLocation' - [Required] The location of the targeted API entity of the to-be-created documentation part.
---
--- * 'cdpProperties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
-createDocumentationPart ::
-  -- | 'cdpRestAPIId'
-  Text ->
-  -- | 'cdpLocation'
+-- * 'location' - [Required] The location of the targeted API entity of the to-be-created documentation part.
+-- * 'properties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkCreateDocumentationPart ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'location'
   DocumentationPartLocation ->
-  -- | 'cdpProperties'
-  Text ->
+  -- | 'properties'
+  Lude.Text ->
   CreateDocumentationPart
-createDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
+mkCreateDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
   CreateDocumentationPart'
-    { _cdpRestAPIId = pRestAPIId_,
-      _cdpLocation = pLocation_,
-      _cdpProperties = pProperties_
+    { restAPIId = pRestAPIId_,
+      location = pLocation_,
+      properties = pProperties_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-cdpRestAPIId :: Lens' CreateDocumentationPart Text
-cdpRestAPIId = lens _cdpRestAPIId (\s a -> s {_cdpRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpRestAPIId :: Lens.Lens' CreateDocumentationPart Lude.Text
+cdpRestAPIId = Lens.lens (restAPIId :: CreateDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDocumentationPart)
+{-# DEPRECATED cdpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The location of the targeted API entity of the to-be-created documentation part.
-cdpLocation :: Lens' CreateDocumentationPart DocumentationPartLocation
-cdpLocation = lens _cdpLocation (\s a -> s {_cdpLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpLocation :: Lens.Lens' CreateDocumentationPart DocumentationPartLocation
+cdpLocation = Lens.lens (location :: CreateDocumentationPart -> DocumentationPartLocation) (\s a -> s {location = a} :: CreateDocumentationPart)
+{-# DEPRECATED cdpLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
-cdpProperties :: Lens' CreateDocumentationPart Text
-cdpProperties = lens _cdpProperties (\s a -> s {_cdpProperties = a})
+--
+-- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpProperties :: Lens.Lens' CreateDocumentationPart Lude.Text
+cdpProperties = Lens.lens (properties :: CreateDocumentationPart -> Lude.Text) (\s a -> s {properties = a} :: CreateDocumentationPart)
+{-# DEPRECATED cdpProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance AWSRequest CreateDocumentationPart where
+instance Lude.AWSRequest CreateDocumentationPart where
   type Rs CreateDocumentationPart = DocumentationPart
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateDocumentationPart
-
-instance NFData CreateDocumentationPart
-
-instance ToHeaders CreateDocumentationPart where
+instance Lude.ToHeaders CreateDocumentationPart where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateDocumentationPart where
+instance Lude.ToJSON CreateDocumentationPart where
   toJSON CreateDocumentationPart' {..} =
-    object
-      ( catMaybes
-          [ Just ("location" .= _cdpLocation),
-            Just ("properties" .= _cdpProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("location" Lude..= location),
+            Lude.Just ("properties" Lude..= properties)
           ]
       )
 
-instance ToPath CreateDocumentationPart where
+instance Lude.ToPath CreateDocumentationPart where
   toPath CreateDocumentationPart' {..} =
-    mconcat
-      ["/restapis/", toBS _cdpRestAPIId, "/documentation/parts"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/documentation/parts"]
 
-instance ToQuery CreateDocumentationPart where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDocumentationPart where
+  toQuery = Lude.const Lude.mempty

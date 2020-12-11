@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.LoadBalancerTypeEnum where
+module Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+  ( LoadBalancerTypeEnum
+      ( LoadBalancerTypeEnum',
+        Application,
+        Gateway,
+        Network
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerTypeEnum
-  = Application
-  | Gateway
-  | Network
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerTypeEnum = LoadBalancerTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "application" -> pure Application
-      "gateway" -> pure Gateway
-      "network" -> pure Network
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerTypeEnum from value: '" <> e
-            <> "'. Accepted values: application, gateway, network"
+pattern Application :: LoadBalancerTypeEnum
+pattern Application = LoadBalancerTypeEnum' "application"
 
-instance ToText LoadBalancerTypeEnum where
-  toText = \case
-    Application -> "application"
-    Gateway -> "gateway"
-    Network -> "network"
+pattern Gateway :: LoadBalancerTypeEnum
+pattern Gateway = LoadBalancerTypeEnum' "gateway"
 
-instance Hashable LoadBalancerTypeEnum
+pattern Network :: LoadBalancerTypeEnum
+pattern Network = LoadBalancerTypeEnum' "network"
 
-instance NFData LoadBalancerTypeEnum
-
-instance ToByteString LoadBalancerTypeEnum
-
-instance ToQuery LoadBalancerTypeEnum
-
-instance ToHeader LoadBalancerTypeEnum
-
-instance FromXML LoadBalancerTypeEnum where
-  parseXML = parseXMLText "LoadBalancerTypeEnum"
+{-# COMPLETE
+  Application,
+  Gateway,
+  Network,
+  LoadBalancerTypeEnum'
+  #-}

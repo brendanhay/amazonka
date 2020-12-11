@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest where
+module Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest
+  ( APNSSandboxChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSSandboxChannelRequest,
+
+    -- * Lenses
+    ascrTokenKey,
+    ascrPrivateKey,
+    ascrEnabled,
+    ascrTeamId,
+    ascrBundleId,
+    ascrDefaultAuthenticationMethod,
+    ascrCertificate,
+    ascrTokenKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.
 --
---
---
--- /See:/ 'apnsSandboxChannelRequest' smart constructor.
+-- /See:/ 'mkAPNSSandboxChannelRequest' smart constructor.
 data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
-  { _ascrTokenKey ::
-      !(Maybe Text),
-    _ascrPrivateKey :: !(Maybe Text),
-    _ascrEnabled :: !(Maybe Bool),
-    _ascrTeamId :: !(Maybe Text),
-    _ascrBundleId :: !(Maybe Text),
-    _ascrDefaultAuthenticationMethod ::
-      !(Maybe Text),
-    _ascrCertificate :: !(Maybe Text),
-    _ascrTokenKeyId :: !(Maybe Text)
+  { tokenKey ::
+      Lude.Maybe Lude.Text,
+    privateKey :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    teamId :: Lude.Maybe Lude.Text,
+    bundleId :: Lude.Maybe Lude.Text,
+    defaultAuthenticationMethod ::
+      Lude.Maybe Lude.Text,
+    certificate :: Lude.Maybe Lude.Text,
+    tokenKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSSandboxChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ascrTokenKey' - The authentication key to use for APNs tokens.
---
--- * 'ascrPrivateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
---
--- * 'ascrEnabled' - Specifies whether to enable the APNs sandbox channel for the application.
---
--- * 'ascrTeamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
---
--- * 'ascrBundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
---
--- * 'ascrDefaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment, key or certificate.
---
--- * 'ascrCertificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
---
--- * 'ascrTokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
-apnsSandboxChannelRequest ::
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment, key or certificate.
+-- * 'enabled' - Specifies whether to enable the APNs sandbox channel for the application.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
+mkAPNSSandboxChannelRequest ::
   APNSSandboxChannelRequest
-apnsSandboxChannelRequest =
+mkAPNSSandboxChannelRequest =
   APNSSandboxChannelRequest'
-    { _ascrTokenKey = Nothing,
-      _ascrPrivateKey = Nothing,
-      _ascrEnabled = Nothing,
-      _ascrTeamId = Nothing,
-      _ascrBundleId = Nothing,
-      _ascrDefaultAuthenticationMethod = Nothing,
-      _ascrCertificate = Nothing,
-      _ascrTokenKeyId = Nothing
+    { tokenKey = Lude.Nothing,
+      privateKey = Lude.Nothing,
+      enabled = Lude.Nothing,
+      teamId = Lude.Nothing,
+      bundleId = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      certificate = Lude.Nothing,
+      tokenKeyId = Lude.Nothing
     }
 
 -- | The authentication key to use for APNs tokens.
-ascrTokenKey :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrTokenKey = lens _ascrTokenKey (\s a -> s {_ascrTokenKey = a})
+--
+-- /Note:/ Consider using 'tokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrTokenKey :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrTokenKey = Lens.lens (tokenKey :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKey = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrTokenKey "Use generic-lens or generic-optics with 'tokenKey' instead." #-}
 
 -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
-ascrPrivateKey :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrPrivateKey = lens _ascrPrivateKey (\s a -> s {_ascrPrivateKey = a})
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrPrivateKey :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrPrivateKey = Lens.lens (privateKey :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {privateKey = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | Specifies whether to enable the APNs sandbox channel for the application.
-ascrEnabled :: Lens' APNSSandboxChannelRequest (Maybe Bool)
-ascrEnabled = lens _ascrEnabled (\s a -> s {_ascrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrEnabled :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Bool)
+ascrEnabled = Lens.lens (enabled :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
-ascrTeamId :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrTeamId = lens _ascrTeamId (\s a -> s {_ascrTeamId = a})
+--
+-- /Note:/ Consider using 'teamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrTeamId :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrTeamId = Lens.lens (teamId :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {teamId = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrTeamId "Use generic-lens or generic-optics with 'teamId' instead." #-}
 
 -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
-ascrBundleId :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrBundleId = lens _ascrBundleId (\s a -> s {_ascrBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrBundleId :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrBundleId = Lens.lens (bundleId :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment, key or certificate.
-ascrDefaultAuthenticationMethod :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrDefaultAuthenticationMethod = lens _ascrDefaultAuthenticationMethod (\s a -> s {_ascrDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrDefaultAuthenticationMethod :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
-ascrCertificate :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrCertificate = lens _ascrCertificate (\s a -> s {_ascrCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrCertificate :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrCertificate = Lens.lens (certificate :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
-ascrTokenKeyId :: Lens' APNSSandboxChannelRequest (Maybe Text)
-ascrTokenKeyId = lens _ascrTokenKeyId (\s a -> s {_ascrTokenKeyId = a})
+--
+-- /Note:/ Consider using 'tokenKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascrTokenKeyId :: Lens.Lens' APNSSandboxChannelRequest (Lude.Maybe Lude.Text)
+ascrTokenKeyId = Lens.lens (tokenKeyId :: APNSSandboxChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyId = a} :: APNSSandboxChannelRequest)
+{-# DEPRECATED ascrTokenKeyId "Use generic-lens or generic-optics with 'tokenKeyId' instead." #-}
 
-instance Hashable APNSSandboxChannelRequest
-
-instance NFData APNSSandboxChannelRequest
-
-instance ToJSON APNSSandboxChannelRequest where
+instance Lude.ToJSON APNSSandboxChannelRequest where
   toJSON APNSSandboxChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("TokenKey" .=) <$> _ascrTokenKey,
-            ("PrivateKey" .=) <$> _ascrPrivateKey,
-            ("Enabled" .=) <$> _ascrEnabled,
-            ("TeamId" .=) <$> _ascrTeamId,
-            ("BundleId" .=) <$> _ascrBundleId,
-            ("DefaultAuthenticationMethod" .=)
-              <$> _ascrDefaultAuthenticationMethod,
-            ("Certificate" .=) <$> _ascrCertificate,
-            ("TokenKeyId" .=) <$> _ascrTokenKeyId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TokenKey" Lude..=) Lude.<$> tokenKey,
+            ("PrivateKey" Lude..=) Lude.<$> privateKey,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("TeamId" Lude..=) Lude.<$> teamId,
+            ("BundleId" Lude..=) Lude.<$> bundleId,
+            ("DefaultAuthenticationMethod" Lude..=)
+              Lude.<$> defaultAuthenticationMethod,
+            ("Certificate" Lude..=) Lude.<$> certificate,
+            ("TokenKeyId" Lude..=) Lude.<$> tokenKeyId
           ]
       )

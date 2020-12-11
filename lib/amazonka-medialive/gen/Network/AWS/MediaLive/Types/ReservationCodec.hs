@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ReservationCodec where
+module Network.AWS.MediaLive.Types.ReservationCodec
+  ( ReservationCodec
+      ( ReservationCodec',
+        RCAudio,
+        RCAvc,
+        RCHevc,
+        RCLink,
+        RCMPEG2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Codec, 'MPEG2', 'AVC', 'HEVC', or 'AUDIO'
-data ReservationCodec
-  = RCAudio
-  | RCAvc
-  | RCHevc
-  | RCLink
-  | RCMPEG2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservationCodec = ReservationCodec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservationCodec where
-  parser =
-    takeLowerText >>= \case
-      "audio" -> pure RCAudio
-      "avc" -> pure RCAvc
-      "hevc" -> pure RCHevc
-      "link" -> pure RCLink
-      "mpeg2" -> pure RCMPEG2
-      e ->
-        fromTextError $
-          "Failure parsing ReservationCodec from value: '" <> e
-            <> "'. Accepted values: audio, avc, hevc, link, mpeg2"
+pattern RCAudio :: ReservationCodec
+pattern RCAudio = ReservationCodec' "AUDIO"
 
-instance ToText ReservationCodec where
-  toText = \case
-    RCAudio -> "AUDIO"
-    RCAvc -> "AVC"
-    RCHevc -> "HEVC"
-    RCLink -> "LINK"
-    RCMPEG2 -> "MPEG2"
+pattern RCAvc :: ReservationCodec
+pattern RCAvc = ReservationCodec' "AVC"
 
-instance Hashable ReservationCodec
+pattern RCHevc :: ReservationCodec
+pattern RCHevc = ReservationCodec' "HEVC"
 
-instance NFData ReservationCodec
+pattern RCLink :: ReservationCodec
+pattern RCLink = ReservationCodec' "LINK"
 
-instance ToByteString ReservationCodec
+pattern RCMPEG2 :: ReservationCodec
+pattern RCMPEG2 = ReservationCodec' "MPEG2"
 
-instance ToQuery ReservationCodec
-
-instance ToHeader ReservationCodec
-
-instance FromJSON ReservationCodec where
-  parseJSON = parseJSONText "ReservationCodec"
+{-# COMPLETE
+  RCAudio,
+  RCAvc,
+  RCHevc,
+  RCLink,
+  RCMPEG2,
+  ReservationCodec'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,145 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Expression where
+module Network.AWS.CostExplorer.Types.Expression
+  ( Expression (..),
+
+    -- * Smart constructor
+    mkExpression,
+
+    -- * Lenses
+    eNot,
+    eAnd,
+    eOr,
+    eCostCategories,
+    eDimensions,
+    eTags,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.CostCategoryValues
 import Network.AWS.CostExplorer.Types.DimensionValues
 import Network.AWS.CostExplorer.Types.TagValues
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:
 --
 --
 --     * Simple dimension values - You can set the dimension name and values for the filters that you plan to use. For example, you can filter for @REGION==us-east-1 OR REGION==us-west-1@ . For @GetRightsizingRecommendation@ , the Region is a full name (for example, @REGION==US East (N. Virginia)@ . The @Expression@ example looks like:
---
 -- @{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ] } }@
---
 -- The list of dimension values are OR'd together to retrieve cost or usage data. You can create @Expression@ and @DimensionValues@ objects using either @with*@ methods or @set*@ methods in multiple lines.
 --
+--
 --     * Compound dimension values with logical operations - You can use multiple @Expression@ types and the logical operators @AND/OR/NOT@ to create a list of one or more @Expression@ objects. This allows you to filter on more advanced options. For example, you can filter on @((REGION == us-east-1 OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)@ . The @Expression@ for that looks like this:
---
 -- @{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values": ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values": ["DataTransfer"] }}} ] } @
---
 -- @{ "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE", "Values": [ "DataTransfer" ] } } @
 --
 --
 --
---
--- /See:/ 'expression' smart constructor.
+-- /See:/ 'mkExpression' smart constructor.
 data Expression = Expression'
-  { _eNot :: !(Maybe Expression),
-    _eAnd :: !(Maybe [Expression]),
-    _eOr :: !(Maybe [Expression]),
-    _eCostCategories :: !(Maybe CostCategoryValues),
-    _eDimensions :: !(Maybe DimensionValues),
-    _eTags :: !(Maybe TagValues)
+  { not :: Lude.Maybe Expression,
+    and :: Lude.Maybe [Expression],
+    or :: Lude.Maybe [Expression],
+    costCategories :: Lude.Maybe CostCategoryValues,
+    dimensions :: Lude.Maybe DimensionValues,
+    tags :: Lude.Maybe TagValues
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Expression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eNot' - Return results that don't match a @Dimension@ object.
---
--- * 'eAnd' - Return results that match both @Dimension@ objects.
---
--- * 'eOr' - Return results that match either @Dimension@ object.
---
--- * 'eCostCategories' - The filter based on @CostCategory@ values.
---
--- * 'eDimensions' - The specific @Dimension@ to use for @Expression@ .
---
--- * 'eTags' - The specific @Tag@ to use for @Expression@ .
-expression ::
+-- * 'and' - Return results that match both @Dimension@ objects.
+-- * 'costCategories' - The filter based on @CostCategory@ values.
+-- * 'dimensions' - The specific @Dimension@ to use for @Expression@ .
+-- * 'not' - Return results that don't match a @Dimension@ object.
+-- * 'or' - Return results that match either @Dimension@ object.
+-- * 'tags' - The specific @Tag@ to use for @Expression@ .
+mkExpression ::
   Expression
-expression =
+mkExpression =
   Expression'
-    { _eNot = Nothing,
-      _eAnd = Nothing,
-      _eOr = Nothing,
-      _eCostCategories = Nothing,
-      _eDimensions = Nothing,
-      _eTags = Nothing
+    { not = Lude.Nothing,
+      and = Lude.Nothing,
+      or = Lude.Nothing,
+      costCategories = Lude.Nothing,
+      dimensions = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Return results that don't match a @Dimension@ object.
-eNot :: Lens' Expression (Maybe Expression)
-eNot = lens _eNot (\s a -> s {_eNot = a})
+--
+-- /Note:/ Consider using 'not' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eNot :: Lens.Lens' Expression (Lude.Maybe Expression)
+eNot = Lens.lens (not :: Expression -> Lude.Maybe Expression) (\s a -> s {not = a} :: Expression)
+{-# DEPRECATED eNot "Use generic-lens or generic-optics with 'not' instead." #-}
 
 -- | Return results that match both @Dimension@ objects.
-eAnd :: Lens' Expression [Expression]
-eAnd = lens _eAnd (\s a -> s {_eAnd = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAnd :: Lens.Lens' Expression (Lude.Maybe [Expression])
+eAnd = Lens.lens (and :: Expression -> Lude.Maybe [Expression]) (\s a -> s {and = a} :: Expression)
+{-# DEPRECATED eAnd "Use generic-lens or generic-optics with 'and' instead." #-}
 
 -- | Return results that match either @Dimension@ object.
-eOr :: Lens' Expression [Expression]
-eOr = lens _eOr (\s a -> s {_eOr = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'or' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOr :: Lens.Lens' Expression (Lude.Maybe [Expression])
+eOr = Lens.lens (or :: Expression -> Lude.Maybe [Expression]) (\s a -> s {or = a} :: Expression)
+{-# DEPRECATED eOr "Use generic-lens or generic-optics with 'or' instead." #-}
 
 -- | The filter based on @CostCategory@ values.
-eCostCategories :: Lens' Expression (Maybe CostCategoryValues)
-eCostCategories = lens _eCostCategories (\s a -> s {_eCostCategories = a})
+--
+-- /Note:/ Consider using 'costCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCostCategories :: Lens.Lens' Expression (Lude.Maybe CostCategoryValues)
+eCostCategories = Lens.lens (costCategories :: Expression -> Lude.Maybe CostCategoryValues) (\s a -> s {costCategories = a} :: Expression)
+{-# DEPRECATED eCostCategories "Use generic-lens or generic-optics with 'costCategories' instead." #-}
 
 -- | The specific @Dimension@ to use for @Expression@ .
-eDimensions :: Lens' Expression (Maybe DimensionValues)
-eDimensions = lens _eDimensions (\s a -> s {_eDimensions = a})
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDimensions :: Lens.Lens' Expression (Lude.Maybe DimensionValues)
+eDimensions = Lens.lens (dimensions :: Expression -> Lude.Maybe DimensionValues) (\s a -> s {dimensions = a} :: Expression)
+{-# DEPRECATED eDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The specific @Tag@ to use for @Expression@ .
-eTags :: Lens' Expression (Maybe TagValues)
-eTags = lens _eTags (\s a -> s {_eTags = a})
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eTags :: Lens.Lens' Expression (Lude.Maybe TagValues)
+eTags = Lens.lens (tags :: Expression -> Lude.Maybe TagValues) (\s a -> s {tags = a} :: Expression)
+{-# DEPRECATED eTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Expression where
+instance Lude.FromJSON Expression where
   parseJSON =
-    withObject
+    Lude.withObject
       "Expression"
       ( \x ->
           Expression'
-            <$> (x .:? "Not")
-            <*> (x .:? "And" .!= mempty)
-            <*> (x .:? "Or" .!= mempty)
-            <*> (x .:? "CostCategories")
-            <*> (x .:? "Dimensions")
-            <*> (x .:? "Tags")
+            Lude.<$> (x Lude..:? "Not")
+            Lude.<*> (x Lude..:? "And" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Or" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CostCategories")
+            Lude.<*> (x Lude..:? "Dimensions")
+            Lude.<*> (x Lude..:? "Tags")
       )
 
-instance Hashable Expression
-
-instance NFData Expression
-
-instance ToJSON Expression where
+instance Lude.ToJSON Expression where
   toJSON Expression' {..} =
-    object
-      ( catMaybes
-          [ ("Not" .=) <$> _eNot,
-            ("And" .=) <$> _eAnd,
-            ("Or" .=) <$> _eOr,
-            ("CostCategories" .=) <$> _eCostCategories,
-            ("Dimensions" .=) <$> _eDimensions,
-            ("Tags" .=) <$> _eTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Not" Lude..=) Lude.<$> not,
+            ("And" Lude..=) Lude.<$> and,
+            ("Or" Lude..=) Lude.<$> or,
+            ("CostCategories" Lude..=) Lude.<$> costCategories,
+            ("Dimensions" Lude..=) Lude.<$> dimensions,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )

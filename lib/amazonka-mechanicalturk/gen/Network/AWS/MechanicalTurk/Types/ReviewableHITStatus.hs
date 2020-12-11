@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewableHITStatus where
+module Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
+  ( ReviewableHITStatus
+      ( ReviewableHITStatus',
+        Reviewable,
+        Reviewing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReviewableHITStatus
-  = Reviewable
-  | Reviewing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReviewableHITStatus = ReviewableHITStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReviewableHITStatus where
-  parser =
-    takeLowerText >>= \case
-      "reviewable" -> pure Reviewable
-      "reviewing" -> pure Reviewing
-      e ->
-        fromTextError $
-          "Failure parsing ReviewableHITStatus from value: '" <> e
-            <> "'. Accepted values: reviewable, reviewing"
+pattern Reviewable :: ReviewableHITStatus
+pattern Reviewable = ReviewableHITStatus' "Reviewable"
 
-instance ToText ReviewableHITStatus where
-  toText = \case
-    Reviewable -> "Reviewable"
-    Reviewing -> "Reviewing"
+pattern Reviewing :: ReviewableHITStatus
+pattern Reviewing = ReviewableHITStatus' "Reviewing"
 
-instance Hashable ReviewableHITStatus
-
-instance NFData ReviewableHITStatus
-
-instance ToByteString ReviewableHITStatus
-
-instance ToQuery ReviewableHITStatus
-
-instance ToHeader ReviewableHITStatus
-
-instance ToJSON ReviewableHITStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  Reviewable,
+  Reviewing,
+  ReviewableHITStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,117 @@
 --
 -- Describes the operating systems that are supported by AWS OpsWorks Stacks.
 module Network.AWS.OpsWorks.DescribeOperatingSystems
-  ( -- * Creating a Request
-    describeOperatingSystems,
-    DescribeOperatingSystems,
+  ( -- * Creating a request
+    DescribeOperatingSystems (..),
+    mkDescribeOperatingSystems,
 
-    -- * Destructuring the Response
-    describeOperatingSystemsResponse,
-    DescribeOperatingSystemsResponse,
+    -- * Destructuring the response
+    DescribeOperatingSystemsResponse (..),
+    mkDescribeOperatingSystemsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dosrsOperatingSystems,
     dosrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeOperatingSystems' smart constructor.
+-- | /See:/ 'mkDescribeOperatingSystems' smart constructor.
 data DescribeOperatingSystems = DescribeOperatingSystems'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOperatingSystems' with the minimum fields required to make a request.
-describeOperatingSystems ::
+mkDescribeOperatingSystems ::
   DescribeOperatingSystems
-describeOperatingSystems = DescribeOperatingSystems'
+mkDescribeOperatingSystems = DescribeOperatingSystems'
 
-instance AWSRequest DescribeOperatingSystems where
+instance Lude.AWSRequest DescribeOperatingSystems where
   type Rs DescribeOperatingSystems = DescribeOperatingSystemsResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOperatingSystemsResponse'
-            <$> (x .?> "OperatingSystems" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperatingSystems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOperatingSystems
-
-instance NFData DescribeOperatingSystems
-
-instance ToHeaders DescribeOperatingSystems where
+instance Lude.ToHeaders DescribeOperatingSystems where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeOperatingSystems" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeOperatingSystems" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOperatingSystems where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeOperatingSystems where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeOperatingSystems where
-  toPath = const "/"
+instance Lude.ToPath DescribeOperatingSystems where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOperatingSystems where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOperatingSystems where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a @DescribeOperatingSystems@ request.
 --
---
---
--- /See:/ 'describeOperatingSystemsResponse' smart constructor.
+-- /See:/ 'mkDescribeOperatingSystemsResponse' smart constructor.
 data DescribeOperatingSystemsResponse = DescribeOperatingSystemsResponse'
-  { _dosrsOperatingSystems ::
-      !( Maybe
-           [OperatingSystem]
-       ),
-    _dosrsResponseStatus ::
-      !Int
+  { operatingSystems ::
+      Lude.Maybe
+        [OperatingSystem],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOperatingSystemsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dosrsOperatingSystems' - Contains information in response to a @DescribeOperatingSystems@ request.
---
--- * 'dosrsResponseStatus' - -- | The response status code.
-describeOperatingSystemsResponse ::
-  -- | 'dosrsResponseStatus'
-  Int ->
+-- * 'operatingSystems' - Contains information in response to a @DescribeOperatingSystems@ request.
+-- * 'responseStatus' - The response status code.
+mkDescribeOperatingSystemsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOperatingSystemsResponse
-describeOperatingSystemsResponse pResponseStatus_ =
+mkDescribeOperatingSystemsResponse pResponseStatus_ =
   DescribeOperatingSystemsResponse'
-    { _dosrsOperatingSystems =
-        Nothing,
-      _dosrsResponseStatus = pResponseStatus_
+    { operatingSystems =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains information in response to a @DescribeOperatingSystems@ request.
-dosrsOperatingSystems :: Lens' DescribeOperatingSystemsResponse [OperatingSystem]
-dosrsOperatingSystems = lens _dosrsOperatingSystems (\s a -> s {_dosrsOperatingSystems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operatingSystems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dosrsOperatingSystems :: Lens.Lens' DescribeOperatingSystemsResponse (Lude.Maybe [OperatingSystem])
+dosrsOperatingSystems = Lens.lens (operatingSystems :: DescribeOperatingSystemsResponse -> Lude.Maybe [OperatingSystem]) (\s a -> s {operatingSystems = a} :: DescribeOperatingSystemsResponse)
+{-# DEPRECATED dosrsOperatingSystems "Use generic-lens or generic-optics with 'operatingSystems' instead." #-}
 
--- | -- | The response status code.
-dosrsResponseStatus :: Lens' DescribeOperatingSystemsResponse Int
-dosrsResponseStatus = lens _dosrsResponseStatus (\s a -> s {_dosrsResponseStatus = a})
-
-instance NFData DescribeOperatingSystemsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dosrsResponseStatus :: Lens.Lens' DescribeOperatingSystemsResponse Lude.Int
+dosrsResponseStatus = Lens.lens (responseStatus :: DescribeOperatingSystemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOperatingSystemsResponse)
+{-# DEPRECATED dosrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

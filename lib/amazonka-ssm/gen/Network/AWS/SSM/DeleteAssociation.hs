@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,146 @@
 --
 -- Disassociates the specified Systems Manager document from the specified instance.
 --
---
 -- When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.
 module Network.AWS.SSM.DeleteAssociation
-  ( -- * Creating a Request
-    deleteAssociation,
-    DeleteAssociation,
+  ( -- * Creating a request
+    DeleteAssociation (..),
+    mkDeleteAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daaAssociationId,
     daaInstanceId,
     daaName,
 
-    -- * Destructuring the Response
-    deleteAssociationResponse,
-    DeleteAssociationResponse,
+    -- * Destructuring the response
+    DeleteAssociationResponse (..),
+    mkDeleteAssociationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deleteAssociation' smart constructor.
+-- | /See:/ 'mkDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { _daaAssociationId ::
-      !(Maybe Text),
-    _daaInstanceId :: !(Maybe Text),
-    _daaName :: !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daaAssociationId' - The association ID that you want to delete.
---
--- * 'daaInstanceId' - The ID of the instance.
---
--- * 'daaName' - The name of the Systems Manager document.
-deleteAssociation ::
+-- * 'associationId' - The association ID that you want to delete.
+-- * 'instanceId' - The ID of the instance.
+-- * 'name' - The name of the Systems Manager document.
+mkDeleteAssociation ::
   DeleteAssociation
-deleteAssociation =
+mkDeleteAssociation =
   DeleteAssociation'
-    { _daaAssociationId = Nothing,
-      _daaInstanceId = Nothing,
-      _daaName = Nothing
+    { associationId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The association ID that you want to delete.
-daaAssociationId :: Lens' DeleteAssociation (Maybe Text)
-daaAssociationId = lens _daaAssociationId (\s a -> s {_daaAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaAssociationId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+daaAssociationId = Lens.lens (associationId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DeleteAssociation)
+{-# DEPRECATED daaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The ID of the instance.
-daaInstanceId :: Lens' DeleteAssociation (Maybe Text)
-daaInstanceId = lens _daaInstanceId (\s a -> s {_daaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaInstanceId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+daaInstanceId = Lens.lens (instanceId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DeleteAssociation)
+{-# DEPRECATED daaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the Systems Manager document.
-daaName :: Lens' DeleteAssociation (Maybe Text)
-daaName = lens _daaName (\s a -> s {_daaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaName :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+daaName = Lens.lens (name :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteAssociation)
+{-# DEPRECATED daaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteAssociation where
+instance Lude.AWSRequest DeleteAssociation where
   type Rs DeleteAssociation = DeleteAssociationResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
-      (\s h x -> DeleteAssociationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteAssociationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteAssociation
-
-instance NFData DeleteAssociation
-
-instance ToHeaders DeleteAssociation where
+instance Lude.ToHeaders DeleteAssociation where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DeleteAssociation" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DeleteAssociation" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAssociation where
+instance Lude.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
-    object
-      ( catMaybes
-          [ ("AssociationId" .=) <$> _daaAssociationId,
-            ("InstanceId" .=) <$> _daaInstanceId,
-            ("Name" .=) <$> _daaName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AssociationId" Lude..=) Lude.<$> associationId,
+            ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("Name" Lude..=) Lude.<$> name
           ]
       )
 
-instance ToPath DeleteAssociation where
-  toPath = const "/"
+instance Lude.ToPath DeleteAssociation where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAssociation where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAssociation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAssociationResponse' smart constructor.
+-- | /See:/ 'mkDeleteAssociationResponse' smart constructor.
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteAssociationResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAssociationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAssociationResponse
-deleteAssociationResponse pResponseStatus_ =
-  DeleteAssociationResponse'
-    { _delrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteAssociationResponse pResponseStatus_ =
+  DeleteAssociationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteAssociationResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteAssociationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteAssociationResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAssociationResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

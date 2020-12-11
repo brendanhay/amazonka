@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.OfferingStatus where
+module Network.AWS.DeviceFarm.Types.OfferingStatus
+  ( OfferingStatus (..),
+
+    -- * Smart constructor
+    mkOfferingStatus,
+
+    -- * Lenses
+    osEffectiveOn,
+    osOffering,
+    osQuantity,
+    osType,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.Offering
 import Network.AWS.DeviceFarm.Types.OfferingTransactionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the offering.
 --
---
---
--- /See:/ 'offeringStatus' smart constructor.
+-- /See:/ 'mkOfferingStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
-  { _osEffectiveOn ::
-      !(Maybe POSIX),
-    _osOffering :: !(Maybe Offering),
-    _osQuantity :: !(Maybe Int),
-    _osType :: !(Maybe OfferingTransactionType)
+  { effectiveOn ::
+      Lude.Maybe Lude.Timestamp,
+    offering :: Lude.Maybe Offering,
+    quantity :: Lude.Maybe Lude.Int,
+    type' :: Lude.Maybe OfferingTransactionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OfferingStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osEffectiveOn' - The date on which the offering is effective.
---
--- * 'osOffering' - Represents the metadata of an offering status.
---
--- * 'osQuantity' - The number of available devices in the offering.
---
--- * 'osType' - The type specified for the offering status.
-offeringStatus ::
+-- * 'effectiveOn' - The date on which the offering is effective.
+-- * 'offering' - Represents the metadata of an offering status.
+-- * 'quantity' - The number of available devices in the offering.
+-- * 'type'' - The type specified for the offering status.
+mkOfferingStatus ::
   OfferingStatus
-offeringStatus =
+mkOfferingStatus =
   OfferingStatus'
-    { _osEffectiveOn = Nothing,
-      _osOffering = Nothing,
-      _osQuantity = Nothing,
-      _osType = Nothing
+    { effectiveOn = Lude.Nothing,
+      offering = Lude.Nothing,
+      quantity = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The date on which the offering is effective.
-osEffectiveOn :: Lens' OfferingStatus (Maybe UTCTime)
-osEffectiveOn = lens _osEffectiveOn (\s a -> s {_osEffectiveOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'effectiveOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osEffectiveOn :: Lens.Lens' OfferingStatus (Lude.Maybe Lude.Timestamp)
+osEffectiveOn = Lens.lens (effectiveOn :: OfferingStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {effectiveOn = a} :: OfferingStatus)
+{-# DEPRECATED osEffectiveOn "Use generic-lens or generic-optics with 'effectiveOn' instead." #-}
 
 -- | Represents the metadata of an offering status.
-osOffering :: Lens' OfferingStatus (Maybe Offering)
-osOffering = lens _osOffering (\s a -> s {_osOffering = a})
+--
+-- /Note:/ Consider using 'offering' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osOffering :: Lens.Lens' OfferingStatus (Lude.Maybe Offering)
+osOffering = Lens.lens (offering :: OfferingStatus -> Lude.Maybe Offering) (\s a -> s {offering = a} :: OfferingStatus)
+{-# DEPRECATED osOffering "Use generic-lens or generic-optics with 'offering' instead." #-}
 
 -- | The number of available devices in the offering.
-osQuantity :: Lens' OfferingStatus (Maybe Int)
-osQuantity = lens _osQuantity (\s a -> s {_osQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osQuantity :: Lens.Lens' OfferingStatus (Lude.Maybe Lude.Int)
+osQuantity = Lens.lens (quantity :: OfferingStatus -> Lude.Maybe Lude.Int) (\s a -> s {quantity = a} :: OfferingStatus)
+{-# DEPRECATED osQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The type specified for the offering status.
-osType :: Lens' OfferingStatus (Maybe OfferingTransactionType)
-osType = lens _osType (\s a -> s {_osType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osType :: Lens.Lens' OfferingStatus (Lude.Maybe OfferingTransactionType)
+osType = Lens.lens (type' :: OfferingStatus -> Lude.Maybe OfferingTransactionType) (\s a -> s {type' = a} :: OfferingStatus)
+{-# DEPRECATED osType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON OfferingStatus where
+instance Lude.FromJSON OfferingStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "OfferingStatus"
       ( \x ->
           OfferingStatus'
-            <$> (x .:? "effectiveOn")
-            <*> (x .:? "offering")
-            <*> (x .:? "quantity")
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "effectiveOn")
+            Lude.<*> (x Lude..:? "offering")
+            Lude.<*> (x Lude..:? "quantity")
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable OfferingStatus
-
-instance NFData OfferingStatus

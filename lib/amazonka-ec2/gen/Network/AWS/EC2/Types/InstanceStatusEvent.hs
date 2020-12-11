@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceStatusEvent where
+module Network.AWS.EC2.Types.InstanceStatusEvent
+  ( InstanceStatusEvent (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceStatusEvent,
+
+    -- * Lenses
+    iseNotBefore,
+    iseCode,
+    iseInstanceEventId,
+    iseDescription,
+    iseNotBeforeDeadline,
+    iseNotAfter,
+  )
+where
+
 import Network.AWS.EC2.Types.EventCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a scheduled event for an instance.
 --
---
---
--- /See:/ 'instanceStatusEvent' smart constructor.
+-- /See:/ 'mkInstanceStatusEvent' smart constructor.
 data InstanceStatusEvent = InstanceStatusEvent'
-  { _iseNotBefore ::
-      !(Maybe ISO8601),
-    _iseCode :: !(Maybe EventCode),
-    _iseInstanceEventId :: !(Maybe Text),
-    _iseDescription :: !(Maybe Text),
-    _iseNotBeforeDeadline :: !(Maybe ISO8601),
-    _iseNotAfter :: !(Maybe ISO8601)
+  { notBefore ::
+      Lude.Maybe Lude.ISO8601,
+    code :: Lude.Maybe EventCode,
+    instanceEventId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    notBeforeDeadline :: Lude.Maybe Lude.ISO8601,
+    notAfter :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatusEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'code' - The event code.
+-- * 'description' - A description of the event.
 --
--- * 'iseNotBefore' - The earliest scheduled start time for the event.
---
--- * 'iseCode' - The event code.
---
--- * 'iseInstanceEventId' - The ID of the event.
---
--- * 'iseDescription' - A description of the event. After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
---
--- * 'iseNotBeforeDeadline' - The deadline for starting the event.
---
--- * 'iseNotAfter' - The latest scheduled end time for the event.
-instanceStatusEvent ::
+-- After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
+-- * 'instanceEventId' - The ID of the event.
+-- * 'notAfter' - The latest scheduled end time for the event.
+-- * 'notBefore' - The earliest scheduled start time for the event.
+-- * 'notBeforeDeadline' - The deadline for starting the event.
+mkInstanceStatusEvent ::
   InstanceStatusEvent
-instanceStatusEvent =
+mkInstanceStatusEvent =
   InstanceStatusEvent'
-    { _iseNotBefore = Nothing,
-      _iseCode = Nothing,
-      _iseInstanceEventId = Nothing,
-      _iseDescription = Nothing,
-      _iseNotBeforeDeadline = Nothing,
-      _iseNotAfter = Nothing
+    { notBefore = Lude.Nothing,
+      code = Lude.Nothing,
+      instanceEventId = Lude.Nothing,
+      description = Lude.Nothing,
+      notBeforeDeadline = Lude.Nothing,
+      notAfter = Lude.Nothing
     }
 
 -- | The earliest scheduled start time for the event.
-iseNotBefore :: Lens' InstanceStatusEvent (Maybe UTCTime)
-iseNotBefore = lens _iseNotBefore (\s a -> s {_iseNotBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseNotBefore :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
+iseNotBefore = Lens.lens (notBefore :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notBefore = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The event code.
-iseCode :: Lens' InstanceStatusEvent (Maybe EventCode)
-iseCode = lens _iseCode (\s a -> s {_iseCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseCode :: Lens.Lens' InstanceStatusEvent (Lude.Maybe EventCode)
+iseCode = Lens.lens (code :: InstanceStatusEvent -> Lude.Maybe EventCode) (\s a -> s {code = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The ID of the event.
-iseInstanceEventId :: Lens' InstanceStatusEvent (Maybe Text)
-iseInstanceEventId = lens _iseInstanceEventId (\s a -> s {_iseInstanceEventId = a})
+--
+-- /Note:/ Consider using 'instanceEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseInstanceEventId :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.Text)
+iseInstanceEventId = Lens.lens (instanceEventId :: InstanceStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {instanceEventId = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseInstanceEventId "Use generic-lens or generic-optics with 'instanceEventId' instead." #-}
 
--- | A description of the event. After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
-iseDescription :: Lens' InstanceStatusEvent (Maybe Text)
-iseDescription = lens _iseDescription (\s a -> s {_iseDescription = a})
+-- | A description of the event.
+--
+-- After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseDescription :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.Text)
+iseDescription = Lens.lens (description :: InstanceStatusEvent -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The deadline for starting the event.
-iseNotBeforeDeadline :: Lens' InstanceStatusEvent (Maybe UTCTime)
-iseNotBeforeDeadline = lens _iseNotBeforeDeadline (\s a -> s {_iseNotBeforeDeadline = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notBeforeDeadline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseNotBeforeDeadline :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
+iseNotBeforeDeadline = Lens.lens (notBeforeDeadline :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notBeforeDeadline = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseNotBeforeDeadline "Use generic-lens or generic-optics with 'notBeforeDeadline' instead." #-}
 
 -- | The latest scheduled end time for the event.
-iseNotAfter :: Lens' InstanceStatusEvent (Maybe UTCTime)
-iseNotAfter = lens _iseNotAfter (\s a -> s {_iseNotAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iseNotAfter :: Lens.Lens' InstanceStatusEvent (Lude.Maybe Lude.ISO8601)
+iseNotAfter = Lens.lens (notAfter :: InstanceStatusEvent -> Lude.Maybe Lude.ISO8601) (\s a -> s {notAfter = a} :: InstanceStatusEvent)
+{-# DEPRECATED iseNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
-instance FromXML InstanceStatusEvent where
+instance Lude.FromXML InstanceStatusEvent where
   parseXML x =
     InstanceStatusEvent'
-      <$> (x .@? "notBefore")
-      <*> (x .@? "code")
-      <*> (x .@? "instanceEventId")
-      <*> (x .@? "description")
-      <*> (x .@? "notBeforeDeadline")
-      <*> (x .@? "notAfter")
-
-instance Hashable InstanceStatusEvent
-
-instance NFData InstanceStatusEvent
+      Lude.<$> (x Lude..@? "notBefore")
+      Lude.<*> (x Lude..@? "code")
+      Lude.<*> (x Lude..@? "instanceEventId")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> (x Lude..@? "notBeforeDeadline")
+      Lude.<*> (x Lude..@? "notAfter")

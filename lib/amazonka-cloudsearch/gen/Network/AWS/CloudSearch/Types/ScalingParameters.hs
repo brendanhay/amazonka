@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.ScalingParameters where
+module Network.AWS.CloudSearch.Types.ScalingParameters
+  ( ScalingParameters (..),
+
+    -- * Smart constructor
+    mkScalingParameters,
+
+    -- * Lenses
+    spDesiredInstanceType,
+    spDesiredReplicationCount,
+    spDesiredPartitionCount,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.PartitionInstanceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The desired instance type and desired number of replicas of each index partition.
 --
---
---
--- /See:/ 'scalingParameters' smart constructor.
+-- /See:/ 'mkScalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
-  { _spDesiredInstanceType ::
-      !(Maybe PartitionInstanceType),
-    _spDesiredReplicationCount :: !(Maybe Nat),
-    _spDesiredPartitionCount :: !(Maybe Nat)
+  { desiredInstanceType ::
+      Lude.Maybe PartitionInstanceType,
+    desiredReplicationCount :: Lude.Maybe Lude.Natural,
+    desiredPartitionCount :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spDesiredInstanceType' - The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
---
--- * 'spDesiredReplicationCount' - The number of replicas you want to preconfigure for each index partition.
---
--- * 'spDesiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
-scalingParameters ::
+-- * 'desiredInstanceType' - The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
+-- * 'desiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
+-- * 'desiredReplicationCount' - The number of replicas you want to preconfigure for each index partition.
+mkScalingParameters ::
   ScalingParameters
-scalingParameters =
+mkScalingParameters =
   ScalingParameters'
-    { _spDesiredInstanceType = Nothing,
-      _spDesiredReplicationCount = Nothing,
-      _spDesiredPartitionCount = Nothing
+    { desiredInstanceType = Lude.Nothing,
+      desiredReplicationCount = Lude.Nothing,
+      desiredPartitionCount = Lude.Nothing
     }
 
 -- | The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
-spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
-spDesiredInstanceType = lens _spDesiredInstanceType (\s a -> s {_spDesiredInstanceType = a})
+--
+-- /Note:/ Consider using 'desiredInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spDesiredInstanceType :: Lens.Lens' ScalingParameters (Lude.Maybe PartitionInstanceType)
+spDesiredInstanceType = Lens.lens (desiredInstanceType :: ScalingParameters -> Lude.Maybe PartitionInstanceType) (\s a -> s {desiredInstanceType = a} :: ScalingParameters)
+{-# DEPRECATED spDesiredInstanceType "Use generic-lens or generic-optics with 'desiredInstanceType' instead." #-}
 
 -- | The number of replicas you want to preconfigure for each index partition.
-spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
-spDesiredReplicationCount = lens _spDesiredReplicationCount (\s a -> s {_spDesiredReplicationCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'desiredReplicationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spDesiredReplicationCount :: Lens.Lens' ScalingParameters (Lude.Maybe Lude.Natural)
+spDesiredReplicationCount = Lens.lens (desiredReplicationCount :: ScalingParameters -> Lude.Maybe Lude.Natural) (\s a -> s {desiredReplicationCount = a} :: ScalingParameters)
+{-# DEPRECATED spDesiredReplicationCount "Use generic-lens or generic-optics with 'desiredReplicationCount' instead." #-}
 
 -- | The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
-spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
-spDesiredPartitionCount = lens _spDesiredPartitionCount (\s a -> s {_spDesiredPartitionCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'desiredPartitionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spDesiredPartitionCount :: Lens.Lens' ScalingParameters (Lude.Maybe Lude.Natural)
+spDesiredPartitionCount = Lens.lens (desiredPartitionCount :: ScalingParameters -> Lude.Maybe Lude.Natural) (\s a -> s {desiredPartitionCount = a} :: ScalingParameters)
+{-# DEPRECATED spDesiredPartitionCount "Use generic-lens or generic-optics with 'desiredPartitionCount' instead." #-}
 
-instance FromXML ScalingParameters where
+instance Lude.FromXML ScalingParameters where
   parseXML x =
     ScalingParameters'
-      <$> (x .@? "DesiredInstanceType")
-      <*> (x .@? "DesiredReplicationCount")
-      <*> (x .@? "DesiredPartitionCount")
+      Lude.<$> (x Lude..@? "DesiredInstanceType")
+      Lude.<*> (x Lude..@? "DesiredReplicationCount")
+      Lude.<*> (x Lude..@? "DesiredPartitionCount")
 
-instance Hashable ScalingParameters
-
-instance NFData ScalingParameters
-
-instance ToQuery ScalingParameters where
+instance Lude.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =
-    mconcat
-      [ "DesiredInstanceType" =: _spDesiredInstanceType,
-        "DesiredReplicationCount" =: _spDesiredReplicationCount,
-        "DesiredPartitionCount" =: _spDesiredPartitionCount
+    Lude.mconcat
+      [ "DesiredInstanceType" Lude.=: desiredInstanceType,
+        "DesiredReplicationCount" Lude.=: desiredReplicationCount,
+        "DesiredPartitionCount" Lude.=: desiredPartitionCount
       ]

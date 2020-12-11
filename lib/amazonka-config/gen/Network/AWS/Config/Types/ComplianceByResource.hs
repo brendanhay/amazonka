@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ComplianceByResource where
+module Network.AWS.Config.Types.ComplianceByResource
+  ( ComplianceByResource (..),
+
+    -- * Smart constructor
+    mkComplianceByResource,
+
+    -- * Lenses
+    cbrResourceId,
+    cbrResourceType,
+    cbrCompliance,
+  )
+where
 
 import Network.AWS.Config.Types.Compliance
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether an AWS resource that is evaluated according to one or more AWS Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules.
 --
---
---
--- /See:/ 'complianceByResource' smart constructor.
+-- /See:/ 'mkComplianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-  { _cbrResourceId ::
-      !(Maybe Text),
-    _cbrResourceType :: !(Maybe Text),
-    _cbrCompliance :: !(Maybe Compliance)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    compliance :: Lude.Maybe Compliance
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceByResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbrResourceId' - The ID of the AWS resource that was evaluated.
---
--- * 'cbrResourceType' - The type of the AWS resource that was evaluated.
---
--- * 'cbrCompliance' - Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
-complianceByResource ::
+-- * 'compliance' - Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
+-- * 'resourceId' - The ID of the AWS resource that was evaluated.
+-- * 'resourceType' - The type of the AWS resource that was evaluated.
+mkComplianceByResource ::
   ComplianceByResource
-complianceByResource =
+mkComplianceByResource =
   ComplianceByResource'
-    { _cbrResourceId = Nothing,
-      _cbrResourceType = Nothing,
-      _cbrCompliance = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      compliance = Lude.Nothing
     }
 
 -- | The ID of the AWS resource that was evaluated.
-cbrResourceId :: Lens' ComplianceByResource (Maybe Text)
-cbrResourceId = lens _cbrResourceId (\s a -> s {_cbrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrResourceId :: Lens.Lens' ComplianceByResource (Lude.Maybe Lude.Text)
+cbrResourceId = Lens.lens (resourceId :: ComplianceByResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ComplianceByResource)
+{-# DEPRECATED cbrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the AWS resource that was evaluated.
-cbrResourceType :: Lens' ComplianceByResource (Maybe Text)
-cbrResourceType = lens _cbrResourceType (\s a -> s {_cbrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrResourceType :: Lens.Lens' ComplianceByResource (Lude.Maybe Lude.Text)
+cbrResourceType = Lens.lens (resourceType :: ComplianceByResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ComplianceByResource)
+{-# DEPRECATED cbrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
-cbrCompliance :: Lens' ComplianceByResource (Maybe Compliance)
-cbrCompliance = lens _cbrCompliance (\s a -> s {_cbrCompliance = a})
+--
+-- /Note:/ Consider using 'compliance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrCompliance :: Lens.Lens' ComplianceByResource (Lude.Maybe Compliance)
+cbrCompliance = Lens.lens (compliance :: ComplianceByResource -> Lude.Maybe Compliance) (\s a -> s {compliance = a} :: ComplianceByResource)
+{-# DEPRECATED cbrCompliance "Use generic-lens or generic-optics with 'compliance' instead." #-}
 
-instance FromJSON ComplianceByResource where
+instance Lude.FromJSON ComplianceByResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComplianceByResource"
       ( \x ->
           ComplianceByResource'
-            <$> (x .:? "ResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "Compliance")
+            Lude.<$> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "Compliance")
       )
-
-instance Hashable ComplianceByResource
-
-instance NFData ComplianceByResource

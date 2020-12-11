@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Returns detailed status for each member account within an organization for a given organization conformance pack.
 --
---
 -- Only a master account and a delegated administrator account can call this API. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
 module Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
-  ( -- * Creating a Request
-    getOrganizationConformancePackDetailedStatus,
-    GetOrganizationConformancePackDetailedStatus,
+  ( -- * Creating a request
+    GetOrganizationConformancePackDetailedStatus (..),
+    mkGetOrganizationConformancePackDetailedStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gocpdsFilters,
     gocpdsNextToken,
     gocpdsLimit,
     gocpdsOrganizationConformancePackName,
 
-    -- * Destructuring the Response
-    getOrganizationConformancePackDetailedStatusResponse,
-    GetOrganizationConformancePackDetailedStatusResponse,
+    -- * Destructuring the response
+    GetOrganizationConformancePackDetailedStatusResponse (..),
+    mkGetOrganizationConformancePackDetailedStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gocpdsrsOrganizationConformancePackDetailedStatuses,
     gocpdsrsNextToken,
     gocpdsrsResponseStatus,
@@ -44,186 +38,196 @@ module Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getOrganizationConformancePackDetailedStatus' smart constructor.
+-- | /See:/ 'mkGetOrganizationConformancePackDetailedStatus' smart constructor.
 data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePackDetailedStatus'
-  { _gocpdsFilters ::
-      !( Maybe
-           OrganizationResourceDetailedStatusFilters
-       ),
-    _gocpdsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gocpdsLimit ::
-      !( Maybe
-           Nat
-       ),
-    _gocpdsOrganizationConformancePackName ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        OrganizationResourceDetailedStatusFilters,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    organizationConformancePackName ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConformancePackDetailedStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gocpdsFilters' - An @OrganizationResourceDetailedStatusFilters@ object.
---
--- * 'gocpdsNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gocpdsLimit' - The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
---
--- * 'gocpdsOrganizationConformancePackName' - The name of organization conformance pack for which you want status details for member accounts.
-getOrganizationConformancePackDetailedStatus ::
-  -- | 'gocpdsOrganizationConformancePackName'
-  Text ->
+-- * 'filters' - An @OrganizationResourceDetailedStatusFilters@ object.
+-- * 'limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConformancePackName' - The name of organization conformance pack for which you want status details for member accounts.
+mkGetOrganizationConformancePackDetailedStatus ::
+  -- | 'organizationConformancePackName'
+  Lude.Text ->
   GetOrganizationConformancePackDetailedStatus
-getOrganizationConformancePackDetailedStatus
+mkGetOrganizationConformancePackDetailedStatus
   pOrganizationConformancePackName_ =
     GetOrganizationConformancePackDetailedStatus'
-      { _gocpdsFilters =
-          Nothing,
-        _gocpdsNextToken = Nothing,
-        _gocpdsLimit = Nothing,
-        _gocpdsOrganizationConformancePackName =
+      { filters =
+          Lude.Nothing,
+        nextToken = Lude.Nothing,
+        limit = Lude.Nothing,
+        organizationConformancePackName =
           pOrganizationConformancePackName_
       }
 
 -- | An @OrganizationResourceDetailedStatusFilters@ object.
-gocpdsFilters :: Lens' GetOrganizationConformancePackDetailedStatus (Maybe OrganizationResourceDetailedStatusFilters)
-gocpdsFilters = lens _gocpdsFilters (\s a -> s {_gocpdsFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsFilters :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Lude.Maybe OrganizationResourceDetailedStatusFilters)
+gocpdsFilters = Lens.lens (filters :: GetOrganizationConformancePackDetailedStatus -> Lude.Maybe OrganizationResourceDetailedStatusFilters) (\s a -> s {filters = a} :: GetOrganizationConformancePackDetailedStatus)
+{-# DEPRECATED gocpdsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-gocpdsNextToken :: Lens' GetOrganizationConformancePackDetailedStatus (Maybe Text)
-gocpdsNextToken = lens _gocpdsNextToken (\s a -> s {_gocpdsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Text)
+gocpdsNextToken = Lens.lens (nextToken :: GetOrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatus)
+{-# DEPRECATED gocpdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
-gocpdsLimit :: Lens' GetOrganizationConformancePackDetailedStatus (Maybe Natural)
-gocpdsLimit = lens _gocpdsLimit (\s a -> s {_gocpdsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsLimit :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Natural)
+gocpdsLimit = Lens.lens (limit :: GetOrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetOrganizationConformancePackDetailedStatus)
+{-# DEPRECATED gocpdsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of organization conformance pack for which you want status details for member accounts.
-gocpdsOrganizationConformancePackName :: Lens' GetOrganizationConformancePackDetailedStatus Text
-gocpdsOrganizationConformancePackName = lens _gocpdsOrganizationConformancePackName (\s a -> s {_gocpdsOrganizationConformancePackName = a})
+--
+-- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsOrganizationConformancePackName :: Lens.Lens' GetOrganizationConformancePackDetailedStatus Lude.Text
+gocpdsOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: GetOrganizationConformancePackDetailedStatus -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: GetOrganizationConformancePackDetailedStatus)
+{-# DEPRECATED gocpdsOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
-instance AWSRequest GetOrganizationConformancePackDetailedStatus where
+instance
+  Lude.AWSRequest
+    GetOrganizationConformancePackDetailedStatus
+  where
   type
     Rs GetOrganizationConformancePackDetailedStatus =
       GetOrganizationConformancePackDetailedStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOrganizationConformancePackDetailedStatusResponse'
-            <$> (x .?> "OrganizationConformancePackDetailedStatuses" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "OrganizationConformancePackDetailedStatuses"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOrganizationConformancePackDetailedStatus
-
-instance NFData GetOrganizationConformancePackDetailedStatus
-
-instance ToHeaders GetOrganizationConformancePackDetailedStatus where
+instance
+  Lude.ToHeaders
+    GetOrganizationConformancePackDetailedStatus
+  where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetOrganizationConformancePackDetailedStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetOrganizationConformancePackDetailedStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOrganizationConformancePackDetailedStatus where
+instance Lude.ToJSON GetOrganizationConformancePackDetailedStatus where
   toJSON GetOrganizationConformancePackDetailedStatus' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _gocpdsFilters,
-            ("NextToken" .=) <$> _gocpdsNextToken,
-            ("Limit" .=) <$> _gocpdsLimit,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just
               ( "OrganizationConformancePackName"
-                  .= _gocpdsOrganizationConformancePackName
+                  Lude..= organizationConformancePackName
               )
           ]
       )
 
-instance ToPath GetOrganizationConformancePackDetailedStatus where
-  toPath = const "/"
+instance Lude.ToPath GetOrganizationConformancePackDetailedStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOrganizationConformancePackDetailedStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetOrganizationConformancePackDetailedStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOrganizationConformancePackDetailedStatusResponse' smart constructor.
+-- | /See:/ 'mkGetOrganizationConformancePackDetailedStatusResponse' smart constructor.
 data GetOrganizationConformancePackDetailedStatusResponse = GetOrganizationConformancePackDetailedStatusResponse'
-  { _gocpdsrsOrganizationConformancePackDetailedStatuses ::
-      !( Maybe
-           [OrganizationConformancePackDetailedStatus]
-       ),
-    _gocpdsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gocpdsrsResponseStatus ::
-      !Int
+  { organizationConformancePackDetailedStatuses ::
+      Lude.Maybe
+        [OrganizationConformancePackDetailedStatus],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetOrganizationConformancePackDetailedStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gocpdsrsOrganizationConformancePackDetailedStatuses' - A list of @OrganizationConformancePackDetailedStatus@ objects.
---
--- * 'gocpdsrsNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gocpdsrsResponseStatus' - -- | The response status code.
-getOrganizationConformancePackDetailedStatusResponse ::
-  -- | 'gocpdsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'organizationConformancePackDetailedStatuses' - A list of @OrganizationConformancePackDetailedStatus@ objects.
+-- * 'responseStatus' - The response status code.
+mkGetOrganizationConformancePackDetailedStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOrganizationConformancePackDetailedStatusResponse
-getOrganizationConformancePackDetailedStatusResponse
+mkGetOrganizationConformancePackDetailedStatusResponse
   pResponseStatus_ =
     GetOrganizationConformancePackDetailedStatusResponse'
-      { _gocpdsrsOrganizationConformancePackDetailedStatuses =
-          Nothing,
-        _gocpdsrsNextToken = Nothing,
-        _gocpdsrsResponseStatus =
-          pResponseStatus_
+      { organizationConformancePackDetailedStatuses =
+          Lude.Nothing,
+        nextToken = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | A list of @OrganizationConformancePackDetailedStatus@ objects.
-gocpdsrsOrganizationConformancePackDetailedStatuses :: Lens' GetOrganizationConformancePackDetailedStatusResponse [OrganizationConformancePackDetailedStatus]
-gocpdsrsOrganizationConformancePackDetailedStatuses = lens _gocpdsrsOrganizationConformancePackDetailedStatuses (\s a -> s {_gocpdsrsOrganizationConformancePackDetailedStatuses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'organizationConformancePackDetailedStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsrsOrganizationConformancePackDetailedStatuses :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Lude.Maybe [OrganizationConformancePackDetailedStatus])
+gocpdsrsOrganizationConformancePackDetailedStatuses = Lens.lens (organizationConformancePackDetailedStatuses :: GetOrganizationConformancePackDetailedStatusResponse -> Lude.Maybe [OrganizationConformancePackDetailedStatus]) (\s a -> s {organizationConformancePackDetailedStatuses = a} :: GetOrganizationConformancePackDetailedStatusResponse)
+{-# DEPRECATED gocpdsrsOrganizationConformancePackDetailedStatuses "Use generic-lens or generic-optics with 'organizationConformancePackDetailedStatuses' instead." #-}
 
 -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-gocpdsrsNextToken :: Lens' GetOrganizationConformancePackDetailedStatusResponse (Maybe Text)
-gocpdsrsNextToken = lens _gocpdsrsNextToken (\s a -> s {_gocpdsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsrsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Lude.Maybe Lude.Text)
+gocpdsrsNextToken = Lens.lens (nextToken :: GetOrganizationConformancePackDetailedStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatusResponse)
+{-# DEPRECATED gocpdsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gocpdsrsResponseStatus :: Lens' GetOrganizationConformancePackDetailedStatusResponse Int
-gocpdsrsResponseStatus = lens _gocpdsrsResponseStatus (\s a -> s {_gocpdsrsResponseStatus = a})
-
-instance
-  NFData
-    GetOrganizationConformancePackDetailedStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsrsResponseStatus :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse Lude.Int
+gocpdsrsResponseStatus = Lens.lens (responseStatus :: GetOrganizationConformancePackDetailedStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOrganizationConformancePackDetailedStatusResponse)
+{-# DEPRECATED gocpdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

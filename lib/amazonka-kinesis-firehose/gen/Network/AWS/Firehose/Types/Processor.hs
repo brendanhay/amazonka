@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.Processor where
+module Network.AWS.Firehose.Types.Processor
+  ( Processor (..),
+
+    -- * Smart constructor
+    mkProcessor,
+
+    -- * Lenses
+    pParameters,
+    pType,
+  )
+where
 
 import Network.AWS.Firehose.Types.ProcessorParameter
 import Network.AWS.Firehose.Types.ProcessorType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a data processor.
 --
---
---
--- /See:/ 'processor' smart constructor.
+-- /See:/ 'mkProcessor' smart constructor.
 data Processor = Processor'
-  { _pParameters ::
-      !(Maybe [ProcessorParameter]),
-    _pType :: !ProcessorType
+  { parameters ::
+      Lude.Maybe [ProcessorParameter],
+    type' :: ProcessorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Processor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pParameters' - The processor parameters.
---
--- * 'pType' - The type of processor.
-processor ::
-  -- | 'pType'
+-- * 'parameters' - The processor parameters.
+-- * 'type'' - The type of processor.
+mkProcessor ::
+  -- | 'type''
   ProcessorType ->
   Processor
-processor pType_ =
-  Processor' {_pParameters = Nothing, _pType = pType_}
+mkProcessor pType_ =
+  Processor' {parameters = Lude.Nothing, type' = pType_}
 
 -- | The processor parameters.
-pParameters :: Lens' Processor [ProcessorParameter]
-pParameters = lens _pParameters (\s a -> s {_pParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameters :: Lens.Lens' Processor (Lude.Maybe [ProcessorParameter])
+pParameters = Lens.lens (parameters :: Processor -> Lude.Maybe [ProcessorParameter]) (\s a -> s {parameters = a} :: Processor)
+{-# DEPRECATED pParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The type of processor.
-pType :: Lens' Processor ProcessorType
-pType = lens _pType (\s a -> s {_pType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pType :: Lens.Lens' Processor ProcessorType
+pType = Lens.lens (type' :: Processor -> ProcessorType) (\s a -> s {type' = a} :: Processor)
+{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Processor where
+instance Lude.FromJSON Processor where
   parseJSON =
-    withObject
+    Lude.withObject
       "Processor"
       ( \x ->
-          Processor' <$> (x .:? "Parameters" .!= mempty) <*> (x .: "Type")
+          Processor'
+            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Type")
       )
 
-instance Hashable Processor
-
-instance NFData Processor
-
-instance ToJSON Processor where
+instance Lude.ToJSON Processor where
   toJSON Processor' {..} =
-    object
-      ( catMaybes
-          [("Parameters" .=) <$> _pParameters, Just ("Type" .= _pType)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            Lude.Just ("Type" Lude..= type')
+          ]
       )

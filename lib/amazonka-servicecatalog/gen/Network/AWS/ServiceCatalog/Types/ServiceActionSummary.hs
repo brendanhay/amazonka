@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ServiceActionSummary where
+module Network.AWS.ServiceCatalog.Types.ServiceActionSummary
+  ( ServiceActionSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceActionSummary,
+
+    -- * Lenses
+    sasName,
+    sasId,
+    sasDefinitionType,
+    sasDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 
 -- | Detailed information about the self-service action.
 --
---
---
--- /See:/ 'serviceActionSummary' smart constructor.
+-- /See:/ 'mkServiceActionSummary' smart constructor.
 data ServiceActionSummary = ServiceActionSummary'
-  { _sasName ::
-      !(Maybe Text),
-    _sasId :: !(Maybe Text),
-    _sasDefinitionType ::
-      !(Maybe ServiceActionDefinitionType),
-    _sasDescription :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    definitionType ::
+      Lude.Maybe ServiceActionDefinitionType,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceActionSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sasName' - The self-service action name.
---
--- * 'sasId' - The self-service action identifier.
---
--- * 'sasDefinitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@ .
---
--- * 'sasDescription' - The self-service action description.
-serviceActionSummary ::
+-- * 'definitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@ .
+-- * 'description' - The self-service action description.
+-- * 'id' - The self-service action identifier.
+-- * 'name' - The self-service action name.
+mkServiceActionSummary ::
   ServiceActionSummary
-serviceActionSummary =
+mkServiceActionSummary =
   ServiceActionSummary'
-    { _sasName = Nothing,
-      _sasId = Nothing,
-      _sasDefinitionType = Nothing,
-      _sasDescription = Nothing
+    { name = Lude.Nothing,
+      id = Lude.Nothing,
+      definitionType = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The self-service action name.
-sasName :: Lens' ServiceActionSummary (Maybe Text)
-sasName = lens _sasName (\s a -> s {_sasName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasName :: Lens.Lens' ServiceActionSummary (Lude.Maybe Lude.Text)
+sasName = Lens.lens (name :: ServiceActionSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServiceActionSummary)
+{-# DEPRECATED sasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The self-service action identifier.
-sasId :: Lens' ServiceActionSummary (Maybe Text)
-sasId = lens _sasId (\s a -> s {_sasId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasId :: Lens.Lens' ServiceActionSummary (Lude.Maybe Lude.Text)
+sasId = Lens.lens (id :: ServiceActionSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ServiceActionSummary)
+{-# DEPRECATED sasId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The self-service action definition type. For example, @SSM_AUTOMATION@ .
-sasDefinitionType :: Lens' ServiceActionSummary (Maybe ServiceActionDefinitionType)
-sasDefinitionType = lens _sasDefinitionType (\s a -> s {_sasDefinitionType = a})
+--
+-- /Note:/ Consider using 'definitionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasDefinitionType :: Lens.Lens' ServiceActionSummary (Lude.Maybe ServiceActionDefinitionType)
+sasDefinitionType = Lens.lens (definitionType :: ServiceActionSummary -> Lude.Maybe ServiceActionDefinitionType) (\s a -> s {definitionType = a} :: ServiceActionSummary)
+{-# DEPRECATED sasDefinitionType "Use generic-lens or generic-optics with 'definitionType' instead." #-}
 
 -- | The self-service action description.
-sasDescription :: Lens' ServiceActionSummary (Maybe Text)
-sasDescription = lens _sasDescription (\s a -> s {_sasDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasDescription :: Lens.Lens' ServiceActionSummary (Lude.Maybe Lude.Text)
+sasDescription = Lens.lens (description :: ServiceActionSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ServiceActionSummary)
+{-# DEPRECATED sasDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ServiceActionSummary where
+instance Lude.FromJSON ServiceActionSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceActionSummary"
       ( \x ->
           ServiceActionSummary'
-            <$> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "DefinitionType")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "DefinitionType")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ServiceActionSummary
-
-instance NFData ServiceActionSummary

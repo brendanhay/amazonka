@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,141 @@
 --
 -- This operation adds or updates tags for a specified domain.
 --
---
 -- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
 module Network.AWS.Route53Domains.UpdateTagsForDomain
-  ( -- * Creating a Request
-    updateTagsForDomain,
-    UpdateTagsForDomain,
+  ( -- * Creating a request
+    UpdateTagsForDomain (..),
+    mkUpdateTagsForDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utfdTagsToUpdate,
     utfdDomainName,
 
-    -- * Destructuring the Response
-    updateTagsForDomainResponse,
-    UpdateTagsForDomainResponse,
+    -- * Destructuring the response
+    UpdateTagsForDomainResponse (..),
+    mkUpdateTagsForDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utfdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
---
---
--- /See:/ 'updateTagsForDomain' smart constructor.
+-- /See:/ 'mkUpdateTagsForDomain' smart constructor.
 data UpdateTagsForDomain = UpdateTagsForDomain'
-  { _utfdTagsToUpdate ::
-      !(Maybe [Tag]),
-    _utfdDomainName :: !Text
+  { tagsToUpdate ::
+      Lude.Maybe [Tag],
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utfdTagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
---
--- * 'utfdDomainName' - The domain for which you want to add or update tags.
-updateTagsForDomain ::
-  -- | 'utfdDomainName'
-  Text ->
+-- * 'domainName' - The domain for which you want to add or update tags.
+-- * 'tagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
+mkUpdateTagsForDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   UpdateTagsForDomain
-updateTagsForDomain pDomainName_ =
+mkUpdateTagsForDomain pDomainName_ =
   UpdateTagsForDomain'
-    { _utfdTagsToUpdate = Nothing,
-      _utfdDomainName = pDomainName_
+    { tagsToUpdate = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
-utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
-utfdTagsToUpdate = lens _utfdTagsToUpdate (\s a -> s {_utfdTagsToUpdate = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagsToUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfdTagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Lude.Maybe [Tag])
+utfdTagsToUpdate = Lens.lens (tagsToUpdate :: UpdateTagsForDomain -> Lude.Maybe [Tag]) (\s a -> s {tagsToUpdate = a} :: UpdateTagsForDomain)
+{-# DEPRECATED utfdTagsToUpdate "Use generic-lens or generic-optics with 'tagsToUpdate' instead." #-}
 
 -- | The domain for which you want to add or update tags.
-utfdDomainName :: Lens' UpdateTagsForDomain Text
-utfdDomainName = lens _utfdDomainName (\s a -> s {_utfdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfdDomainName :: Lens.Lens' UpdateTagsForDomain Lude.Text
+utfdDomainName = Lens.lens (domainName :: UpdateTagsForDomain -> Lude.Text) (\s a -> s {domainName = a} :: UpdateTagsForDomain)
+{-# DEPRECATED utfdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest UpdateTagsForDomain where
+instance Lude.AWSRequest UpdateTagsForDomain where
   type Rs UpdateTagsForDomain = UpdateTagsForDomainResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveEmpty
-      (\s h x -> UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateTagsForDomainResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateTagsForDomain
-
-instance NFData UpdateTagsForDomain
-
-instance ToHeaders UpdateTagsForDomain where
+instance Lude.ToHeaders UpdateTagsForDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53Domains_v20140515.UpdateTagsForDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.UpdateTagsForDomain" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTagsForDomain where
+instance Lude.ToJSON UpdateTagsForDomain where
   toJSON UpdateTagsForDomain' {..} =
-    object
-      ( catMaybes
-          [ ("TagsToUpdate" .=) <$> _utfdTagsToUpdate,
-            Just ("DomainName" .= _utfdDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TagsToUpdate" Lude..=) Lude.<$> tagsToUpdate,
+            Lude.Just ("DomainName" Lude..= domainName)
           ]
       )
 
-instance ToPath UpdateTagsForDomain where
-  toPath = const "/"
+instance Lude.ToPath UpdateTagsForDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTagsForDomain where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTagsForDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTagsForDomainResponse' smart constructor.
+-- | /See:/ 'mkUpdateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-  { _utfdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utfdrsResponseStatus' - -- | The response status code.
-updateTagsForDomainResponse ::
-  -- | 'utfdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateTagsForDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTagsForDomainResponse
-updateTagsForDomainResponse pResponseStatus_ =
-  UpdateTagsForDomainResponse'
-    { _utfdrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateTagsForDomainResponse pResponseStatus_ =
+  UpdateTagsForDomainResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
-utfdrsResponseStatus = lens _utfdrsResponseStatus (\s a -> s {_utfdrsResponseStatus = a})
-
-instance NFData UpdateTagsForDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfdrsResponseStatus :: Lens.Lens' UpdateTagsForDomainResponse Lude.Int
+utfdrsResponseStatus = Lens.lens (responseStatus :: UpdateTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTagsForDomainResponse)
+{-# DEPRECATED utfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

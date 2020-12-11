@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,111 @@
 --
 -- Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs that are already in CloudWatch Logs.
 --
---
 -- For more information about DNS query logs, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html CreateQueryLoggingConfig> .
 module Network.AWS.Route53.DeleteQueryLoggingConfig
-  ( -- * Creating a Request
-    deleteQueryLoggingConfig,
-    DeleteQueryLoggingConfig,
+  ( -- * Creating a request
+    DeleteQueryLoggingConfig (..),
+    mkDeleteQueryLoggingConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqlcId,
 
-    -- * Destructuring the Response
-    deleteQueryLoggingConfigResponse,
-    DeleteQueryLoggingConfigResponse,
+    -- * Destructuring the response
+    DeleteQueryLoggingConfigResponse (..),
+    mkDeleteQueryLoggingConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dqlcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
--- | /See:/ 'deleteQueryLoggingConfig' smart constructor.
+-- | /See:/ 'mkDeleteQueryLoggingConfig' smart constructor.
 newtype DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
-  { _dqlcId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryLoggingConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqlcId' - The ID of the configuration that you want to delete.
-deleteQueryLoggingConfig ::
-  -- | 'dqlcId'
-  Text ->
+-- * 'id' - The ID of the configuration that you want to delete.
+mkDeleteQueryLoggingConfig ::
+  -- | 'id'
+  Lude.Text ->
   DeleteQueryLoggingConfig
-deleteQueryLoggingConfig pId_ =
-  DeleteQueryLoggingConfig' {_dqlcId = pId_}
+mkDeleteQueryLoggingConfig pId_ =
+  DeleteQueryLoggingConfig' {id = pId_}
 
 -- | The ID of the configuration that you want to delete.
-dqlcId :: Lens' DeleteQueryLoggingConfig Text
-dqlcId = lens _dqlcId (\s a -> s {_dqlcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqlcId :: Lens.Lens' DeleteQueryLoggingConfig Lude.Text
+dqlcId = Lens.lens (id :: DeleteQueryLoggingConfig -> Lude.Text) (\s a -> s {id = a} :: DeleteQueryLoggingConfig)
+{-# DEPRECATED dqlcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteQueryLoggingConfig where
+instance Lude.AWSRequest DeleteQueryLoggingConfig where
   type Rs DeleteQueryLoggingConfig = DeleteQueryLoggingConfigResponse
-  request = delete route53
+  request = Req.delete route53Service
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteQueryLoggingConfigResponse' <$> (pure (fromEnum s))
+          DeleteQueryLoggingConfigResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteQueryLoggingConfig
+instance Lude.ToHeaders DeleteQueryLoggingConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteQueryLoggingConfig
-
-instance ToHeaders DeleteQueryLoggingConfig where
-  toHeaders = const mempty
-
-instance ToPath DeleteQueryLoggingConfig where
+instance Lude.ToPath DeleteQueryLoggingConfig where
   toPath DeleteQueryLoggingConfig' {..} =
-    mconcat ["/2013-04-01/queryloggingconfig/", toBS _dqlcId]
+    Lude.mconcat ["/2013-04-01/queryloggingconfig/", Lude.toBS id]
 
-instance ToQuery DeleteQueryLoggingConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteQueryLoggingConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteQueryLoggingConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteQueryLoggingConfigResponse' smart constructor.
 newtype DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
-  { _dqlcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryLoggingConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqlcrsResponseStatus' - -- | The response status code.
-deleteQueryLoggingConfigResponse ::
-  -- | 'dqlcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteQueryLoggingConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteQueryLoggingConfigResponse
-deleteQueryLoggingConfigResponse pResponseStatus_ =
+mkDeleteQueryLoggingConfigResponse pResponseStatus_ =
   DeleteQueryLoggingConfigResponse'
-    { _dqlcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dqlcrsResponseStatus :: Lens' DeleteQueryLoggingConfigResponse Int
-dqlcrsResponseStatus = lens _dqlcrsResponseStatus (\s a -> s {_dqlcrsResponseStatus = a})
-
-instance NFData DeleteQueryLoggingConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqlcrsResponseStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Lude.Int
+dqlcrsResponseStatus = Lens.lens (responseStatus :: DeleteQueryLoggingConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQueryLoggingConfigResponse)
+{-# DEPRECATED dqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

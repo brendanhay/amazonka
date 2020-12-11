@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.EncryptionConfiguration where
+module Network.AWS.Glue.Types.EncryptionConfiguration
+  ( EncryptionConfiguration (..),
+
+    -- * Smart constructor
+    mkEncryptionConfiguration,
+
+    -- * Lenses
+    ecS3Encryption,
+    ecJobBookmarksEncryption,
+    ecCloudWatchEncryption,
+  )
+where
 
 import Network.AWS.Glue.Types.CloudWatchEncryption
 import Network.AWS.Glue.Types.JobBookmarksEncryption
 import Network.AWS.Glue.Types.S3Encryption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies an encryption configuration.
 --
---
---
--- /See:/ 'encryptionConfiguration' smart constructor.
+-- /See:/ 'mkEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { _ecS3Encryption ::
-      !(Maybe [S3Encryption]),
-    _ecJobBookmarksEncryption ::
-      !(Maybe JobBookmarksEncryption),
-    _ecCloudWatchEncryption ::
-      !(Maybe CloudWatchEncryption)
+  { s3Encryption ::
+      Lude.Maybe [S3Encryption],
+    jobBookmarksEncryption ::
+      Lude.Maybe JobBookmarksEncryption,
+    cloudWatchEncryption ::
+      Lude.Maybe CloudWatchEncryption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecS3Encryption' - The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
---
--- * 'ecJobBookmarksEncryption' - The encryption configuration for job bookmarks.
---
--- * 'ecCloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
-encryptionConfiguration ::
+-- * 'cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
+-- * 'jobBookmarksEncryption' - The encryption configuration for job bookmarks.
+-- * 's3Encryption' - The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+mkEncryptionConfiguration ::
   EncryptionConfiguration
-encryptionConfiguration =
+mkEncryptionConfiguration =
   EncryptionConfiguration'
-    { _ecS3Encryption = Nothing,
-      _ecJobBookmarksEncryption = Nothing,
-      _ecCloudWatchEncryption = Nothing
+    { s3Encryption = Lude.Nothing,
+      jobBookmarksEncryption = Lude.Nothing,
+      cloudWatchEncryption = Lude.Nothing
     }
 
 -- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
-ecS3Encryption :: Lens' EncryptionConfiguration [S3Encryption]
-ecS3Encryption = lens _ecS3Encryption (\s a -> s {_ecS3Encryption = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 's3Encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecS3Encryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe [S3Encryption])
+ecS3Encryption = Lens.lens (s3Encryption :: EncryptionConfiguration -> Lude.Maybe [S3Encryption]) (\s a -> s {s3Encryption = a} :: EncryptionConfiguration)
+{-# DEPRECATED ecS3Encryption "Use generic-lens or generic-optics with 's3Encryption' instead." #-}
 
 -- | The encryption configuration for job bookmarks.
-ecJobBookmarksEncryption :: Lens' EncryptionConfiguration (Maybe JobBookmarksEncryption)
-ecJobBookmarksEncryption = lens _ecJobBookmarksEncryption (\s a -> s {_ecJobBookmarksEncryption = a})
+--
+-- /Note:/ Consider using 'jobBookmarksEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecJobBookmarksEncryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe JobBookmarksEncryption)
+ecJobBookmarksEncryption = Lens.lens (jobBookmarksEncryption :: EncryptionConfiguration -> Lude.Maybe JobBookmarksEncryption) (\s a -> s {jobBookmarksEncryption = a} :: EncryptionConfiguration)
+{-# DEPRECATED ecJobBookmarksEncryption "Use generic-lens or generic-optics with 'jobBookmarksEncryption' instead." #-}
 
 -- | The encryption configuration for Amazon CloudWatch.
-ecCloudWatchEncryption :: Lens' EncryptionConfiguration (Maybe CloudWatchEncryption)
-ecCloudWatchEncryption = lens _ecCloudWatchEncryption (\s a -> s {_ecCloudWatchEncryption = a})
+--
+-- /Note:/ Consider using 'cloudWatchEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecCloudWatchEncryption :: Lens.Lens' EncryptionConfiguration (Lude.Maybe CloudWatchEncryption)
+ecCloudWatchEncryption = Lens.lens (cloudWatchEncryption :: EncryptionConfiguration -> Lude.Maybe CloudWatchEncryption) (\s a -> s {cloudWatchEncryption = a} :: EncryptionConfiguration)
+{-# DEPRECATED ecCloudWatchEncryption "Use generic-lens or generic-optics with 'cloudWatchEncryption' instead." #-}
 
-instance FromJSON EncryptionConfiguration where
+instance Lude.FromJSON EncryptionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            <$> (x .:? "S3Encryption" .!= mempty)
-            <*> (x .:? "JobBookmarksEncryption")
-            <*> (x .:? "CloudWatchEncryption")
+            Lude.<$> (x Lude..:? "S3Encryption" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "JobBookmarksEncryption")
+            Lude.<*> (x Lude..:? "CloudWatchEncryption")
       )
 
-instance Hashable EncryptionConfiguration
-
-instance NFData EncryptionConfiguration
-
-instance ToJSON EncryptionConfiguration where
+instance Lude.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("S3Encryption" .=) <$> _ecS3Encryption,
-            ("JobBookmarksEncryption" .=) <$> _ecJobBookmarksEncryption,
-            ("CloudWatchEncryption" .=) <$> _ecCloudWatchEncryption
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3Encryption" Lude..=) Lude.<$> s3Encryption,
+            ("JobBookmarksEncryption" Lude..=) Lude.<$> jobBookmarksEncryption,
+            ("CloudWatchEncryption" Lude..=) Lude.<$> cloudWatchEncryption
           ]
       )

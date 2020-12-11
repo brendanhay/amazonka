@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,156 @@
 --
 -- Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
-  ( -- * Creating a Request
-    modifyClusterSubnetGroup,
-    ModifyClusterSubnetGroup,
+  ( -- * Creating a request
+    ModifyClusterSubnetGroup (..),
+    mkModifyClusterSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcsgDescription,
     mcsgClusterSubnetGroupName,
     mcsgSubnetIds,
 
-    -- * Destructuring the Response
-    modifyClusterSubnetGroupResponse,
-    ModifyClusterSubnetGroupResponse,
+    -- * Destructuring the response
+    ModifyClusterSubnetGroupResponse (..),
+    mkModifyClusterSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcsgrsClusterSubnetGroup,
     mcsgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyClusterSubnetGroup' smart constructor.
+-- /See:/ 'mkModifyClusterSubnetGroup' smart constructor.
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
-  { _mcsgDescription ::
-      !(Maybe Text),
-    _mcsgClusterSubnetGroupName :: !Text,
-    _mcsgSubnetIds :: ![Text]
+  { description ::
+      Lude.Maybe Lude.Text,
+    clusterSubnetGroupName :: Lude.Text,
+    subnetIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcsgDescription' - A text description of the subnet group to be modified.
---
--- * 'mcsgClusterSubnetGroupName' - The name of the subnet group to be modified.
---
--- * 'mcsgSubnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
-modifyClusterSubnetGroup ::
-  -- | 'mcsgClusterSubnetGroupName'
-  Text ->
+-- * 'clusterSubnetGroupName' - The name of the subnet group to be modified.
+-- * 'description' - A text description of the subnet group to be modified.
+-- * 'subnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
+mkModifyClusterSubnetGroup ::
+  -- | 'clusterSubnetGroupName'
+  Lude.Text ->
   ModifyClusterSubnetGroup
-modifyClusterSubnetGroup pClusterSubnetGroupName_ =
+mkModifyClusterSubnetGroup pClusterSubnetGroupName_ =
   ModifyClusterSubnetGroup'
-    { _mcsgDescription = Nothing,
-      _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_,
-      _mcsgSubnetIds = mempty
+    { description = Lude.Nothing,
+      clusterSubnetGroupName = pClusterSubnetGroupName_,
+      subnetIds = Lude.mempty
     }
 
 -- | A text description of the subnet group to be modified.
-mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgDescription = lens _mcsgDescription (\s a -> s {_mcsgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgDescription :: Lens.Lens' ModifyClusterSubnetGroup (Lude.Maybe Lude.Text)
+mcsgDescription = Lens.lens (description :: ModifyClusterSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ModifyClusterSubnetGroup)
+{-# DEPRECATED mcsgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the subnet group to be modified.
-mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
-mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\s a -> s {_mcsgClusterSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'clusterSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgClusterSubnetGroupName :: Lens.Lens' ModifyClusterSubnetGroup Lude.Text
+mcsgClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: ModifyClusterSubnetGroup -> Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: ModifyClusterSubnetGroup)
+{-# DEPRECATED mcsgClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
-mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s {_mcsgSubnetIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgSubnetIds :: Lens.Lens' ModifyClusterSubnetGroup [Lude.Text]
+mcsgSubnetIds = Lens.lens (subnetIds :: ModifyClusterSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: ModifyClusterSubnetGroup)
+{-# DEPRECATED mcsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance AWSRequest ModifyClusterSubnetGroup where
+instance Lude.AWSRequest ModifyClusterSubnetGroup where
   type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyClusterSubnetGroupResult"
       ( \s h x ->
           ModifyClusterSubnetGroupResponse'
-            <$> (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ClusterSubnetGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyClusterSubnetGroup
+instance Lude.ToHeaders ModifyClusterSubnetGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyClusterSubnetGroup
+instance Lude.ToPath ModifyClusterSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyClusterSubnetGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyClusterSubnetGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyClusterSubnetGroup where
+instance Lude.ToQuery ModifyClusterSubnetGroup where
   toQuery ModifyClusterSubnetGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyClusterSubnetGroup" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "Description" =: _mcsgDescription,
-        "ClusterSubnetGroupName" =: _mcsgClusterSubnetGroupName,
-        "SubnetIds" =: toQueryList "SubnetIdentifier" _mcsgSubnetIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyClusterSubnetGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "Description" Lude.=: description,
+        "ClusterSubnetGroupName" Lude.=: clusterSubnetGroupName,
+        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds
       ]
 
--- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterSubnetGroupResponse' smart constructor.
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
-  { _mcsgrsClusterSubnetGroup ::
-      !( Maybe
-           ClusterSubnetGroup
-       ),
-    _mcsgrsResponseStatus ::
-      !Int
+  { clusterSubnetGroup ::
+      Lude.Maybe
+        ClusterSubnetGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcsgrsClusterSubnetGroup' - Undocumented member.
---
--- * 'mcsgrsResponseStatus' - -- | The response status code.
-modifyClusterSubnetGroupResponse ::
-  -- | 'mcsgrsResponseStatus'
-  Int ->
+-- * 'clusterSubnetGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyClusterSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterSubnetGroupResponse
-modifyClusterSubnetGroupResponse pResponseStatus_ =
+mkModifyClusterSubnetGroupResponse pResponseStatus_ =
   ModifyClusterSubnetGroupResponse'
-    { _mcsgrsClusterSubnetGroup =
-        Nothing,
-      _mcsgrsResponseStatus = pResponseStatus_
+    { clusterSubnetGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\s a -> s {_mcsgrsClusterSubnetGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'clusterSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgrsClusterSubnetGroup :: Lens.Lens' ModifyClusterSubnetGroupResponse (Lude.Maybe ClusterSubnetGroup)
+mcsgrsClusterSubnetGroup = Lens.lens (clusterSubnetGroup :: ModifyClusterSubnetGroupResponse -> Lude.Maybe ClusterSubnetGroup) (\s a -> s {clusterSubnetGroup = a} :: ModifyClusterSubnetGroupResponse)
+{-# DEPRECATED mcsgrsClusterSubnetGroup "Use generic-lens or generic-optics with 'clusterSubnetGroup' instead." #-}
 
--- | -- | The response status code.
-mcsgrsResponseStatus :: Lens' ModifyClusterSubnetGroupResponse Int
-mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\s a -> s {_mcsgrsResponseStatus = a})
-
-instance NFData ModifyClusterSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgrsResponseStatus :: Lens.Lens' ModifyClusterSubnetGroupResponse Lude.Int
+mcsgrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterSubnetGroupResponse)
+{-# DEPRECATED mcsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

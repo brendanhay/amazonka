@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.ComplianceViolator where
+module Network.AWS.FMS.Types.ComplianceViolator
+  ( ComplianceViolator (..),
+
+    -- * Smart constructor
+    mkComplianceViolator,
+
+    -- * Lenses
+    cvResourceId,
+    cvResourceType,
+    cvViolationReason,
+  )
+where
 
 import Network.AWS.FMS.Types.ViolationReason
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the resource that is not protected by the policy.
 --
---
---
--- /See:/ 'complianceViolator' smart constructor.
+-- /See:/ 'mkComplianceViolator' smart constructor.
 data ComplianceViolator = ComplianceViolator'
-  { _cvResourceId ::
-      !(Maybe Text),
-    _cvResourceType :: !(Maybe Text),
-    _cvViolationReason :: !(Maybe ViolationReason)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    violationReason :: Lude.Maybe ViolationReason
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceViolator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvResourceId' - The resource ID.
---
--- * 'cvResourceType' - The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@ , @AWS::CloudFront::Distribution@ , or @AWS::NetworkFirewall::FirewallPolicy@ .
---
--- * 'cvViolationReason' - The reason that the resource is not protected by the policy.
-complianceViolator ::
+-- * 'resourceId' - The resource ID.
+-- * 'resourceType' - The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@ , @AWS::CloudFront::Distribution@ , or @AWS::NetworkFirewall::FirewallPolicy@ .
+-- * 'violationReason' - The reason that the resource is not protected by the policy.
+mkComplianceViolator ::
   ComplianceViolator
-complianceViolator =
+mkComplianceViolator =
   ComplianceViolator'
-    { _cvResourceId = Nothing,
-      _cvResourceType = Nothing,
-      _cvViolationReason = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      violationReason = Lude.Nothing
     }
 
 -- | The resource ID.
-cvResourceId :: Lens' ComplianceViolator (Maybe Text)
-cvResourceId = lens _cvResourceId (\s a -> s {_cvResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvResourceId :: Lens.Lens' ComplianceViolator (Lude.Maybe Lude.Text)
+cvResourceId = Lens.lens (resourceId :: ComplianceViolator -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ComplianceViolator)
+{-# DEPRECATED cvResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@ , @AWS::CloudFront::Distribution@ , or @AWS::NetworkFirewall::FirewallPolicy@ .
-cvResourceType :: Lens' ComplianceViolator (Maybe Text)
-cvResourceType = lens _cvResourceType (\s a -> s {_cvResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvResourceType :: Lens.Lens' ComplianceViolator (Lude.Maybe Lude.Text)
+cvResourceType = Lens.lens (resourceType :: ComplianceViolator -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ComplianceViolator)
+{-# DEPRECATED cvResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The reason that the resource is not protected by the policy.
-cvViolationReason :: Lens' ComplianceViolator (Maybe ViolationReason)
-cvViolationReason = lens _cvViolationReason (\s a -> s {_cvViolationReason = a})
+--
+-- /Note:/ Consider using 'violationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvViolationReason :: Lens.Lens' ComplianceViolator (Lude.Maybe ViolationReason)
+cvViolationReason = Lens.lens (violationReason :: ComplianceViolator -> Lude.Maybe ViolationReason) (\s a -> s {violationReason = a} :: ComplianceViolator)
+{-# DEPRECATED cvViolationReason "Use generic-lens or generic-optics with 'violationReason' instead." #-}
 
-instance FromJSON ComplianceViolator where
+instance Lude.FromJSON ComplianceViolator where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComplianceViolator"
       ( \x ->
           ComplianceViolator'
-            <$> (x .:? "ResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "ViolationReason")
+            Lude.<$> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "ViolationReason")
       )
-
-instance Hashable ComplianceViolator
-
-instance NFData ComplianceViolator

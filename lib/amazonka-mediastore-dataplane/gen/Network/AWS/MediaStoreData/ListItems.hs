@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,177 @@
 --
 -- Provides a list of metadata entries about folders and objects in the specified folder.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MediaStoreData.ListItems
-  ( -- * Creating a Request
-    listItems,
-    ListItems,
+  ( -- * Creating a request
+    ListItems (..),
+    mkListItems,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liPath,
     liNextToken,
     liMaxResults,
 
-    -- * Destructuring the Response
-    listItemsResponse,
-    ListItemsResponse,
+    -- * Destructuring the response
+    ListItemsResponse (..),
+    mkListItemsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsItems,
     lirsNextToken,
     lirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listItems' smart constructor.
+-- | /See:/ 'mkListItems' smart constructor.
 data ListItems = ListItems'
-  { _liPath :: !(Maybe Text),
-    _liNextToken :: !(Maybe Text),
-    _liMaxResults :: !(Maybe Nat)
+  { path :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListItems' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value.
 --
--- * 'liPath' - The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
+-- If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
+-- * 'nextToken' - The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value.
 --
--- * 'liNextToken' - The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value. Tokens expire after 15 minutes.
---
--- * 'liMaxResults' - The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value. If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
-listItems ::
+-- Tokens expire after 15 minutes.
+-- * 'path' - The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
+mkListItems ::
   ListItems
-listItems =
+mkListItems =
   ListItems'
-    { _liPath = Nothing,
-      _liNextToken = Nothing,
-      _liMaxResults = Nothing
+    { path = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
-liPath :: Lens' ListItems (Maybe Text)
-liPath = lens _liPath (\s a -> s {_liPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liPath :: Lens.Lens' ListItems (Lude.Maybe Lude.Text)
+liPath = Lens.lens (path :: ListItems -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: ListItems)
+{-# DEPRECATED liPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value. Tokens expire after 15 minutes.
-liNextToken :: Lens' ListItems (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s {_liNextToken = a})
+-- | The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value.
+--
+-- Tokens expire after 15 minutes.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListItems (Lude.Maybe Lude.Text)
+liNextToken = Lens.lens (nextToken :: ListItems -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListItems)
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value. If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
-liMaxResults :: Lens' ListItems (Maybe Natural)
-liMaxResults = lens _liMaxResults (\s a -> s {_liMaxResults = a}) . mapping _Nat
+-- | The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value.
+--
+-- If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListItems (Lude.Maybe Lude.Natural)
+liMaxResults = Lens.lens (maxResults :: ListItems -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListItems)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListItems where
+instance Page.AWSPager ListItems where
   page rq rs
-    | stop (rs ^. lirsNextToken) = Nothing
-    | stop (rs ^. lirsItems) = Nothing
-    | otherwise = Just $ rq & liNextToken .~ rs ^. lirsNextToken
+    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
 
-instance AWSRequest ListItems where
+instance Lude.AWSRequest ListItems where
   type Rs ListItems = ListItemsResponse
-  request = get mediaStoreData
+  request = Req.get mediaStoreDataService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListItemsResponse'
-            <$> (x .?> "Items" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Items" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListItems
+instance Lude.ToHeaders ListItems where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListItems
+instance Lude.ToPath ListItems where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListItems where
-  toHeaders = const mempty
-
-instance ToPath ListItems where
-  toPath = const "/"
-
-instance ToQuery ListItems where
+instance Lude.ToQuery ListItems where
   toQuery ListItems' {..} =
-    mconcat
-      [ "Path" =: _liPath,
-        "NextToken" =: _liNextToken,
-        "MaxResults" =: _liMaxResults
+    Lude.mconcat
+      [ "Path" Lude.=: path,
+        "NextToken" Lude.=: nextToken,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listItemsResponse' smart constructor.
+-- | /See:/ 'mkListItemsResponse' smart constructor.
 data ListItemsResponse = ListItemsResponse'
-  { _lirsItems ::
-      !(Maybe [Item]),
-    _lirsNextToken :: !(Maybe Text),
-    _lirsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [Item],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListItemsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsItems' - The metadata entries for the folders and objects at the requested path.
---
--- * 'lirsNextToken' - The token that can be used in a request to view the next set of results. For example, you submit a @ListItems@ request that matches 2,000 items with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value that can be used to fetch the next batch of results.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listItemsResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'items' - The metadata entries for the folders and objects at the requested path.
+-- * 'nextToken' - The token that can be used in a request to view the next set of results. For example, you submit a @ListItems@ request that matches 2,000 items with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value that can be used to fetch the next batch of results.
+-- * 'responseStatus' - The response status code.
+mkListItemsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListItemsResponse
-listItemsResponse pResponseStatus_ =
+mkListItemsResponse pResponseStatus_ =
   ListItemsResponse'
-    { _lirsItems = Nothing,
-      _lirsNextToken = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The metadata entries for the folders and objects at the requested path.
-lirsItems :: Lens' ListItemsResponse [Item]
-lirsItems = lens _lirsItems (\s a -> s {_lirsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsItems :: Lens.Lens' ListItemsResponse (Lude.Maybe [Item])
+lirsItems = Lens.lens (items :: ListItemsResponse -> Lude.Maybe [Item]) (\s a -> s {items = a} :: ListItemsResponse)
+{-# DEPRECATED lirsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The token that can be used in a request to view the next set of results. For example, you submit a @ListItems@ request that matches 2,000 items with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value that can be used to fetch the next batch of results.
-lirsNextToken :: Lens' ListItemsResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s {_lirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsNextToken :: Lens.Lens' ListItemsResponse (Lude.Maybe Lude.Text)
+lirsNextToken = Lens.lens (nextToken :: ListItemsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListItemsResponse)
+{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListItemsResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListItemsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListItemsResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListItemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListItemsResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

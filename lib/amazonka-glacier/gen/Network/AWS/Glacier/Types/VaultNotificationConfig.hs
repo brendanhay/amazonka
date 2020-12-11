@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.VaultNotificationConfig where
+module Network.AWS.Glacier.Types.VaultNotificationConfig
+  ( VaultNotificationConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVaultNotificationConfig,
+
+    -- * Lenses
+    vncSNSTopic,
+    vncEvents,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a vault's notification configuration.
 --
---
---
--- /See:/ 'vaultNotificationConfig' smart constructor.
+-- /See:/ 'mkVaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
-  { _vncSNSTopic ::
-      !(Maybe Text),
-    _vncEvents :: !(Maybe [Text])
+  { snsTopic ::
+      Lude.Maybe Lude.Text,
+    events :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VaultNotificationConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vncSNSTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
---
--- * 'vncEvents' - A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
-vaultNotificationConfig ::
+-- * 'events' - A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
+-- * 'snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
+mkVaultNotificationConfig ::
   VaultNotificationConfig
-vaultNotificationConfig =
+mkVaultNotificationConfig =
   VaultNotificationConfig'
-    { _vncSNSTopic = Nothing,
-      _vncEvents = Nothing
+    { snsTopic = Lude.Nothing,
+      events = Lude.Nothing
     }
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
-vncSNSTopic :: Lens' VaultNotificationConfig (Maybe Text)
-vncSNSTopic = lens _vncSNSTopic (\s a -> s {_vncSNSTopic = a})
+--
+-- /Note:/ Consider using 'snsTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vncSNSTopic :: Lens.Lens' VaultNotificationConfig (Lude.Maybe Lude.Text)
+vncSNSTopic = Lens.lens (snsTopic :: VaultNotificationConfig -> Lude.Maybe Lude.Text) (\s a -> s {snsTopic = a} :: VaultNotificationConfig)
+{-# DEPRECATED vncSNSTopic "Use generic-lens or generic-optics with 'snsTopic' instead." #-}
 
 -- | A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
-vncEvents :: Lens' VaultNotificationConfig [Text]
-vncEvents = lens _vncEvents (\s a -> s {_vncEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vncEvents :: Lens.Lens' VaultNotificationConfig (Lude.Maybe [Lude.Text])
+vncEvents = Lens.lens (events :: VaultNotificationConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {events = a} :: VaultNotificationConfig)
+{-# DEPRECATED vncEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance FromJSON VaultNotificationConfig where
+instance Lude.FromJSON VaultNotificationConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "VaultNotificationConfig"
       ( \x ->
           VaultNotificationConfig'
-            <$> (x .:? "SNSTopic") <*> (x .:? "Events" .!= mempty)
+            Lude.<$> (x Lude..:? "SNSTopic")
+            Lude.<*> (x Lude..:? "Events" Lude..!= Lude.mempty)
       )
 
-instance Hashable VaultNotificationConfig
-
-instance NFData VaultNotificationConfig
-
-instance ToJSON VaultNotificationConfig where
+instance Lude.ToJSON VaultNotificationConfig where
   toJSON VaultNotificationConfig' {..} =
-    object
-      ( catMaybes
-          [("SNSTopic" .=) <$> _vncSNSTopic, ("Events" .=) <$> _vncEvents]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SNSTopic" Lude..=) Lude.<$> snsTopic,
+            ("Events" Lude..=) Lude.<$> events
+          ]
       )

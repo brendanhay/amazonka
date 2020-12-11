@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.
 module Network.AWS.Greengrass.CreateFunctionDefinition
-  ( -- * Creating a Request
-    createFunctionDefinition,
-    CreateFunctionDefinition,
+  ( -- * Creating a request
+    CreateFunctionDefinition (..),
+    mkCreateFunctionDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cfdAmznClientToken,
     cfdInitialVersion,
     cfdName,
     cfdTags,
 
-    -- * Destructuring the Response
-    createFunctionDefinitionResponse,
-    CreateFunctionDefinitionResponse,
+    -- * Destructuring the response
+    CreateFunctionDefinitionResponse (..),
+    mkCreateFunctionDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cfdrsLatestVersionARN,
     cfdrsARN,
     cfdrsName,
@@ -46,189 +41,223 @@ module Network.AWS.Greengrass.CreateFunctionDefinition
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createFunctionDefinition' smart constructor.
+-- | /See:/ 'mkCreateFunctionDefinition' smart constructor.
 data CreateFunctionDefinition = CreateFunctionDefinition'
-  { _cfdAmznClientToken ::
-      !(Maybe Text),
-    _cfdInitialVersion ::
-      !(Maybe FunctionDefinitionVersion),
-    _cfdName :: !(Maybe Text),
-    _cfdTags :: !(Maybe (Map Text (Text)))
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    initialVersion ::
+      Lude.Maybe FunctionDefinitionVersion,
+    name :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunctionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfdAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'cfdInitialVersion' - Information about the initial version of the function definition.
---
--- * 'cfdName' - The name of the function definition.
---
--- * 'cfdTags' - Tag(s) to add to the new resource.
-createFunctionDefinition ::
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'initialVersion' - Information about the initial version of the function definition.
+-- * 'name' - The name of the function definition.
+-- * 'tags' - Tag(s) to add to the new resource.
+mkCreateFunctionDefinition ::
   CreateFunctionDefinition
-createFunctionDefinition =
+mkCreateFunctionDefinition =
   CreateFunctionDefinition'
-    { _cfdAmznClientToken = Nothing,
-      _cfdInitialVersion = Nothing,
-      _cfdName = Nothing,
-      _cfdTags = Nothing
+    { amznClientToken = Lude.Nothing,
+      initialVersion = Lude.Nothing,
+      name = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
-cfdAmznClientToken :: Lens' CreateFunctionDefinition (Maybe Text)
-cfdAmznClientToken = lens _cfdAmznClientToken (\s a -> s {_cfdAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdAmznClientToken :: Lens.Lens' CreateFunctionDefinition (Lude.Maybe Lude.Text)
+cfdAmznClientToken = Lens.lens (amznClientToken :: CreateFunctionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateFunctionDefinition)
+{-# DEPRECATED cfdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Information about the initial version of the function definition.
-cfdInitialVersion :: Lens' CreateFunctionDefinition (Maybe FunctionDefinitionVersion)
-cfdInitialVersion = lens _cfdInitialVersion (\s a -> s {_cfdInitialVersion = a})
+--
+-- /Note:/ Consider using 'initialVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdInitialVersion :: Lens.Lens' CreateFunctionDefinition (Lude.Maybe FunctionDefinitionVersion)
+cfdInitialVersion = Lens.lens (initialVersion :: CreateFunctionDefinition -> Lude.Maybe FunctionDefinitionVersion) (\s a -> s {initialVersion = a} :: CreateFunctionDefinition)
+{-# DEPRECATED cfdInitialVersion "Use generic-lens or generic-optics with 'initialVersion' instead." #-}
 
 -- | The name of the function definition.
-cfdName :: Lens' CreateFunctionDefinition (Maybe Text)
-cfdName = lens _cfdName (\s a -> s {_cfdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdName :: Lens.Lens' CreateFunctionDefinition (Lude.Maybe Lude.Text)
+cfdName = Lens.lens (name :: CreateFunctionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateFunctionDefinition)
+{-# DEPRECATED cfdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) to add to the new resource.
-cfdTags :: Lens' CreateFunctionDefinition (HashMap Text (Text))
-cfdTags = lens _cfdTags (\s a -> s {_cfdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdTags :: Lens.Lens' CreateFunctionDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cfdTags = Lens.lens (tags :: CreateFunctionDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateFunctionDefinition)
+{-# DEPRECATED cfdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateFunctionDefinition where
+instance Lude.AWSRequest CreateFunctionDefinition where
   type Rs CreateFunctionDefinition = CreateFunctionDefinitionResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateFunctionDefinitionResponse'
-            <$> (x .?> "LatestVersionArn")
-            <*> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Id")
-            <*> (x .?> "LatestVersion")
-            <*> (x .?> "LastUpdatedTimestamp")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LatestVersionArn")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateFunctionDefinition
-
-instance NFData CreateFunctionDefinition
-
-instance ToHeaders CreateFunctionDefinition where
+instance Lude.ToHeaders CreateFunctionDefinition where
   toHeaders CreateFunctionDefinition' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _cfdAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateFunctionDefinition where
+instance Lude.ToJSON CreateFunctionDefinition where
   toJSON CreateFunctionDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("InitialVersion" .=) <$> _cfdInitialVersion,
-            ("Name" .=) <$> _cfdName,
-            ("tags" .=) <$> _cfdTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InitialVersion" Lude..=) Lude.<$> initialVersion,
+            ("Name" Lude..=) Lude.<$> name,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateFunctionDefinition where
-  toPath = const "/greengrass/definition/functions"
+instance Lude.ToPath CreateFunctionDefinition where
+  toPath = Lude.const "/greengrass/definition/functions"
 
-instance ToQuery CreateFunctionDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery CreateFunctionDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createFunctionDefinitionResponse' smart constructor.
+-- | /See:/ 'mkCreateFunctionDefinitionResponse' smart constructor.
 data CreateFunctionDefinitionResponse = CreateFunctionDefinitionResponse'
-  { _cfdrsLatestVersionARN ::
-      !(Maybe Text),
-    _cfdrsARN ::
-      !(Maybe Text),
-    _cfdrsName ::
-      !(Maybe Text),
-    _cfdrsCreationTimestamp ::
-      !(Maybe Text),
-    _cfdrsId :: !(Maybe Text),
-    _cfdrsLatestVersion ::
-      !(Maybe Text),
-    _cfdrsLastUpdatedTimestamp ::
-      !(Maybe Text),
-    _cfdrsResponseStatus ::
-      !Int
+  { latestVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn ::
+      Lude.Maybe Lude.Text,
+    name ::
+      Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Text,
+    id ::
+      Lude.Maybe Lude.Text,
+    latestVersion ::
+      Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunctionDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfdrsLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'cfdrsARN' - The ARN of the definition.
---
--- * 'cfdrsName' - The name of the definition.
---
--- * 'cfdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'cfdrsId' - The ID of the definition.
---
--- * 'cfdrsLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'cfdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
---
--- * 'cfdrsResponseStatus' - -- | The response status code.
-createFunctionDefinitionResponse ::
-  -- | 'cfdrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'responseStatus' - The response status code.
+mkCreateFunctionDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateFunctionDefinitionResponse
-createFunctionDefinitionResponse pResponseStatus_ =
+mkCreateFunctionDefinitionResponse pResponseStatus_ =
   CreateFunctionDefinitionResponse'
-    { _cfdrsLatestVersionARN =
-        Nothing,
-      _cfdrsARN = Nothing,
-      _cfdrsName = Nothing,
-      _cfdrsCreationTimestamp = Nothing,
-      _cfdrsId = Nothing,
-      _cfdrsLatestVersion = Nothing,
-      _cfdrsLastUpdatedTimestamp = Nothing,
-      _cfdrsResponseStatus = pResponseStatus_
+    { latestVersionARN =
+        Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the latest version associated with the definition.
-cfdrsLatestVersionARN :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLatestVersionARN = lens _cfdrsLatestVersionARN (\s a -> s {_cfdrsLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsLatestVersionARN :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsLatestVersionARN = Lens.lens (latestVersionARN :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-cfdrsARN :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsARN = lens _cfdrsARN (\s a -> s {_cfdrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsARN :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsARN = Lens.lens (arn :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-cfdrsName :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsName = lens _cfdrsName (\s a -> s {_cfdrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsName :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsName = Lens.lens (name :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-cfdrsCreationTimestamp :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsCreationTimestamp = lens _cfdrsCreationTimestamp (\s a -> s {_cfdrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsCreationTimestamp :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-cfdrsId :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsId = lens _cfdrsId (\s a -> s {_cfdrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsId :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsId = Lens.lens (id :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-cfdrsLatestVersion :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLatestVersion = lens _cfdrsLatestVersion (\s a -> s {_cfdrsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsLatestVersion :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsLatestVersion = Lens.lens (latestVersion :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-cfdrsLastUpdatedTimestamp :: Lens' CreateFunctionDefinitionResponse (Maybe Text)
-cfdrsLastUpdatedTimestamp = lens _cfdrsLastUpdatedTimestamp (\s a -> s {_cfdrsLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsLastUpdatedTimestamp :: Lens.Lens' CreateFunctionDefinitionResponse (Lude.Maybe Lude.Text)
+cfdrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: CreateFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
--- | -- | The response status code.
-cfdrsResponseStatus :: Lens' CreateFunctionDefinitionResponse Int
-cfdrsResponseStatus = lens _cfdrsResponseStatus (\s a -> s {_cfdrsResponseStatus = a})
-
-instance NFData CreateFunctionDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdrsResponseStatus :: Lens.Lens' CreateFunctionDefinitionResponse Lude.Int
+cfdrsResponseStatus = Lens.lens (responseStatus :: CreateFunctionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFunctionDefinitionResponse)
+{-# DEPRECATED cfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

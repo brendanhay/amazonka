@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns details about your AWS Config rules.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRules
-  ( -- * Creating a Request
-    describeConfigRules,
-    DescribeConfigRules,
+  ( -- * Creating a request
+    DescribeConfigRules (..),
+    mkDescribeConfigRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcrConfigRuleNames,
     dcrNextToken,
 
-    -- * Destructuring the Response
-    describeConfigRulesResponse,
-    DescribeConfigRulesResponse,
+    -- * Destructuring the response
+    DescribeConfigRulesResponse (..),
+    mkDescribeConfigRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrrsConfigRules,
     dcrrsNextToken,
     dcrrsResponseStatus,
@@ -43,137 +36,153 @@ module Network.AWS.Config.DescribeConfigRules
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeConfigRules' smart constructor.
+-- /See:/ 'mkDescribeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-  { _dcrConfigRuleNames ::
-      !(Maybe [Text]),
-    _dcrNextToken :: !(Maybe Text)
+  { configRuleNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrConfigRuleNames' - The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
---
--- * 'dcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-describeConfigRules ::
+-- * 'configRuleNames' - The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkDescribeConfigRules ::
   DescribeConfigRules
-describeConfigRules =
+mkDescribeConfigRules =
   DescribeConfigRules'
-    { _dcrConfigRuleNames = Nothing,
-      _dcrNextToken = Nothing
+    { configRuleNames = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
-dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
-dcrConfigRuleNames = lens _dcrConfigRuleNames (\s a -> s {_dcrConfigRuleNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrConfigRuleNames :: Lens.Lens' DescribeConfigRules (Lude.Maybe [Lude.Text])
+dcrConfigRuleNames = Lens.lens (configRuleNames :: DescribeConfigRules -> Lude.Maybe [Lude.Text]) (\s a -> s {configRuleNames = a} :: DescribeConfigRules)
+{-# DEPRECATED dcrConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcrNextToken :: Lens' DescribeConfigRules (Maybe Text)
-dcrNextToken = lens _dcrNextToken (\s a -> s {_dcrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrNextToken :: Lens.Lens' DescribeConfigRules (Lude.Maybe Lude.Text)
+dcrNextToken = Lens.lens (nextToken :: DescribeConfigRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigRules)
+{-# DEPRECATED dcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager DescribeConfigRules where
+instance Page.AWSPager DescribeConfigRules where
   page rq rs
-    | stop (rs ^. dcrrsNextToken) = Nothing
-    | stop (rs ^. dcrrsConfigRules) = Nothing
-    | otherwise = Just $ rq & dcrNextToken .~ rs ^. dcrrsNextToken
+    | Page.stop (rs Lens.^. dcrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcrrsConfigRules) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcrNextToken Lens..~ rs Lens.^. dcrrsNextToken
 
-instance AWSRequest DescribeConfigRules where
+instance Lude.AWSRequest DescribeConfigRules where
   type Rs DescribeConfigRules = DescribeConfigRulesResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigRulesResponse'
-            <$> (x .?> "ConfigRules" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConfigRules" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigRules
-
-instance NFData DescribeConfigRules
-
-instance ToHeaders DescribeConfigRules where
+instance Lude.ToHeaders DescribeConfigRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DescribeConfigRules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DescribeConfigRules" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConfigRules where
+instance Lude.ToJSON DescribeConfigRules where
   toJSON DescribeConfigRules' {..} =
-    object
-      ( catMaybes
-          [ ("ConfigRuleNames" .=) <$> _dcrConfigRuleNames,
-            ("NextToken" .=) <$> _dcrNextToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames,
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
-instance ToPath DescribeConfigRules where
-  toPath = const "/"
+instance Lude.ToPath DescribeConfigRules where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConfigRules where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfigRules where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeConfigRulesResponse' smart constructor.
+-- /See:/ 'mkDescribeConfigRulesResponse' smart constructor.
 data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
-  { _dcrrsConfigRules ::
-      !(Maybe [ConfigRule]),
-    _dcrrsNextToken :: !(Maybe Text),
-    _dcrrsResponseStatus :: !Int
+  { configRules ::
+      Lude.Maybe [ConfigRule],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrrsConfigRules' - The details about your AWS Config rules.
---
--- * 'dcrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'dcrrsResponseStatus' - -- | The response status code.
-describeConfigRulesResponse ::
-  -- | 'dcrrsResponseStatus'
-  Int ->
+-- * 'configRules' - The details about your AWS Config rules.
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkDescribeConfigRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigRulesResponse
-describeConfigRulesResponse pResponseStatus_ =
+mkDescribeConfigRulesResponse pResponseStatus_ =
   DescribeConfigRulesResponse'
-    { _dcrrsConfigRules = Nothing,
-      _dcrrsNextToken = Nothing,
-      _dcrrsResponseStatus = pResponseStatus_
+    { configRules = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details about your AWS Config rules.
-dcrrsConfigRules :: Lens' DescribeConfigRulesResponse [ConfigRule]
-dcrrsConfigRules = lens _dcrrsConfigRules (\s a -> s {_dcrrsConfigRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsConfigRules :: Lens.Lens' DescribeConfigRulesResponse (Lude.Maybe [ConfigRule])
+dcrrsConfigRules = Lens.lens (configRules :: DescribeConfigRulesResponse -> Lude.Maybe [ConfigRule]) (\s a -> s {configRules = a} :: DescribeConfigRulesResponse)
+{-# DEPRECATED dcrrsConfigRules "Use generic-lens or generic-optics with 'configRules' instead." #-}
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-dcrrsNextToken :: Lens' DescribeConfigRulesResponse (Maybe Text)
-dcrrsNextToken = lens _dcrrsNextToken (\s a -> s {_dcrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsNextToken :: Lens.Lens' DescribeConfigRulesResponse (Lude.Maybe Lude.Text)
+dcrrsNextToken = Lens.lens (nextToken :: DescribeConfigRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigRulesResponse)
+{-# DEPRECATED dcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dcrrsResponseStatus :: Lens' DescribeConfigRulesResponse Int
-dcrrsResponseStatus = lens _dcrrsResponseStatus (\s a -> s {_dcrrsResponseStatus = a})
-
-instance NFData DescribeConfigRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsResponseStatus :: Lens.Lens' DescribeConfigRulesResponse Lude.Int
+dcrrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigRulesResponse)
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

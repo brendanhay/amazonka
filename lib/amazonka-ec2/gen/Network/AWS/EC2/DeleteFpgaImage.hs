@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,137 @@
 --
 -- Deletes the specified Amazon FPGA Image (AFI).
 module Network.AWS.EC2.DeleteFpgaImage
-  ( -- * Creating a Request
-    deleteFpgaImage,
-    DeleteFpgaImage,
+  ( -- * Creating a request
+    DeleteFpgaImage (..),
+    mkDeleteFpgaImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfiDryRun,
     dfiFpgaImageId,
 
-    -- * Destructuring the Response
-    deleteFpgaImageResponse,
-    DeleteFpgaImageResponse,
+    -- * Destructuring the response
+    DeleteFpgaImageResponse (..),
+    mkDeleteFpgaImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfifrsReturn,
     dfifrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFpgaImage' smart constructor.
+-- | /See:/ 'mkDeleteFpgaImage' smart constructor.
 data DeleteFpgaImage = DeleteFpgaImage'
-  { _dfiDryRun ::
-      !(Maybe Bool),
-    _dfiFpgaImageId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    fpgaImageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFpgaImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dfiFpgaImageId' - The ID of the AFI.
-deleteFpgaImage ::
-  -- | 'dfiFpgaImageId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fpgaImageId' - The ID of the AFI.
+mkDeleteFpgaImage ::
+  -- | 'fpgaImageId'
+  Lude.Text ->
   DeleteFpgaImage
-deleteFpgaImage pFpgaImageId_ =
+mkDeleteFpgaImage pFpgaImageId_ =
   DeleteFpgaImage'
-    { _dfiDryRun = Nothing,
-      _dfiFpgaImageId = pFpgaImageId_
+    { dryRun = Lude.Nothing,
+      fpgaImageId = pFpgaImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dfiDryRun :: Lens' DeleteFpgaImage (Maybe Bool)
-dfiDryRun = lens _dfiDryRun (\s a -> s {_dfiDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiDryRun :: Lens.Lens' DeleteFpgaImage (Lude.Maybe Lude.Bool)
+dfiDryRun = Lens.lens (dryRun :: DeleteFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFpgaImage)
+{-# DEPRECATED dfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AFI.
-dfiFpgaImageId :: Lens' DeleteFpgaImage Text
-dfiFpgaImageId = lens _dfiFpgaImageId (\s a -> s {_dfiFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiFpgaImageId :: Lens.Lens' DeleteFpgaImage Lude.Text
+dfiFpgaImageId = Lens.lens (fpgaImageId :: DeleteFpgaImage -> Lude.Text) (\s a -> s {fpgaImageId = a} :: DeleteFpgaImage)
+{-# DEPRECATED dfiFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
-instance AWSRequest DeleteFpgaImage where
+instance Lude.AWSRequest DeleteFpgaImage where
   type Rs DeleteFpgaImage = DeleteFpgaImageResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteFpgaImageResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteFpgaImage
+instance Lude.ToHeaders DeleteFpgaImage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteFpgaImage
+instance Lude.ToPath DeleteFpgaImage where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteFpgaImage where
-  toHeaders = const mempty
-
-instance ToPath DeleteFpgaImage where
-  toPath = const "/"
-
-instance ToQuery DeleteFpgaImage where
+instance Lude.ToQuery DeleteFpgaImage where
   toQuery DeleteFpgaImage' {..} =
-    mconcat
-      [ "Action" =: ("DeleteFpgaImage" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dfiDryRun,
-        "FpgaImageId" =: _dfiFpgaImageId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteFpgaImage" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "FpgaImageId" Lude.=: fpgaImageId
       ]
 
--- | /See:/ 'deleteFpgaImageResponse' smart constructor.
+-- | /See:/ 'mkDeleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
-  { _dfifrsReturn ::
-      !(Maybe Bool),
-    _dfifrsResponseStatus :: !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFpgaImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfifrsReturn' - Is @true@ if the request succeeds, and an error otherwise.
---
--- * 'dfifrsResponseStatus' - -- | The response status code.
-deleteFpgaImageResponse ::
-  -- | 'dfifrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+mkDeleteFpgaImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteFpgaImageResponse
-deleteFpgaImageResponse pResponseStatus_ =
+mkDeleteFpgaImageResponse pResponseStatus_ =
   DeleteFpgaImageResponse'
-    { _dfifrsReturn = Nothing,
-      _dfifrsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-dfifrsReturn :: Lens' DeleteFpgaImageResponse (Maybe Bool)
-dfifrsReturn = lens _dfifrsReturn (\s a -> s {_dfifrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifrsReturn :: Lens.Lens' DeleteFpgaImageResponse (Lude.Maybe Lude.Bool)
+dfifrsReturn = Lens.lens (return :: DeleteFpgaImageResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: DeleteFpgaImageResponse)
+{-# DEPRECATED dfifrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-dfifrsResponseStatus :: Lens' DeleteFpgaImageResponse Int
-dfifrsResponseStatus = lens _dfifrsResponseStatus (\s a -> s {_dfifrsResponseStatus = a})
-
-instance NFData DeleteFpgaImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifrsResponseStatus :: Lens.Lens' DeleteFpgaImageResponse Lude.Int
+dfifrsResponseStatus = Lens.lens (responseStatus :: DeleteFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFpgaImageResponse)
+{-# DEPRECATED dfifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

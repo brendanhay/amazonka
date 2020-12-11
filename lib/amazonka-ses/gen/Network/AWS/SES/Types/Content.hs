@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.Content where
+module Network.AWS.SES.Types.Content
+  ( Content (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContent,
+
+    -- * Lenses
+    cCharset,
+    cData,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents textual data, plus an optional character set specification.
 --
---
 -- By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.
 --
---
--- /See:/ 'content' smart constructor.
+-- /See:/ 'mkContent' smart constructor.
 data Content = Content'
-  { _cCharset :: !(Maybe Text),
-    _cData :: !Text
+  { charset :: Lude.Maybe Lude.Text,
+    data' :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Content' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cCharset' - The character set of the content.
---
--- * 'cData' - The textual data of the content.
-content ::
-  -- | 'cData'
-  Text ->
+-- * 'charset' - The character set of the content.
+-- * 'data'' - The textual data of the content.
+mkContent ::
+  -- | 'data''
+  Lude.Text ->
   Content
-content pData_ = Content' {_cCharset = Nothing, _cData = pData_}
+mkContent pData_ = Content' {charset = Lude.Nothing, data' = pData_}
 
 -- | The character set of the content.
-cCharset :: Lens' Content (Maybe Text)
-cCharset = lens _cCharset (\s a -> s {_cCharset = a})
+--
+-- /Note:/ Consider using 'charset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCharset :: Lens.Lens' Content (Lude.Maybe Lude.Text)
+cCharset = Lens.lens (charset :: Content -> Lude.Maybe Lude.Text) (\s a -> s {charset = a} :: Content)
+{-# DEPRECATED cCharset "Use generic-lens or generic-optics with 'charset' instead." #-}
 
 -- | The textual data of the content.
-cData :: Lens' Content Text
-cData = lens _cData (\s a -> s {_cData = a})
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cData :: Lens.Lens' Content Lude.Text
+cData = Lens.lens (data' :: Content -> Lude.Text) (\s a -> s {data' = a} :: Content)
+{-# DEPRECATED cData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance Hashable Content
-
-instance NFData Content
-
-instance ToQuery Content where
+instance Lude.ToQuery Content where
   toQuery Content' {..} =
-    mconcat ["Charset" =: _cCharset, "Data" =: _cData]
+    Lude.mconcat ["Charset" Lude.=: charset, "Data" Lude.=: data']

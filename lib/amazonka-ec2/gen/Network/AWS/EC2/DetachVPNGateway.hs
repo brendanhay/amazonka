@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,119 @@
 --
 -- Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).
 --
---
 -- You must wait for the attachment's state to switch to @detached@ before you can delete the VPC or attach a different VPC to the virtual private gateway.
 module Network.AWS.EC2.DetachVPNGateway
-  ( -- * Creating a Request
-    detachVPNGateway,
-    DetachVPNGateway,
+  ( -- * Creating a request
+    DetachVPNGateway (..),
+    mkDetachVPNGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpngDryRun,
     dvpngVPCId,
     dvpngVPNGatewayId,
 
-    -- * Destructuring the Response
-    detachVPNGatewayResponse,
-    DetachVPNGatewayResponse,
+    -- * Destructuring the response
+    DetachVPNGatewayResponse (..),
+    mkDetachVPNGatewayResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DetachVpnGateway.
 --
---
---
--- /See:/ 'detachVPNGateway' smart constructor.
+-- /See:/ 'mkDetachVPNGateway' smart constructor.
 data DetachVPNGateway = DetachVPNGateway'
-  { _dvpngDryRun ::
-      !(Maybe Bool),
-    _dvpngVPCId :: !Text,
-    _dvpngVPNGatewayId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcId :: Lude.Text,
+    vpnGatewayId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVPNGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpngDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvpngVPCId' - The ID of the VPC.
---
--- * 'dvpngVPNGatewayId' - The ID of the virtual private gateway.
-detachVPNGateway ::
-  -- | 'dvpngVPCId'
-  Text ->
-  -- | 'dvpngVPNGatewayId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcId' - The ID of the VPC.
+-- * 'vpnGatewayId' - The ID of the virtual private gateway.
+mkDetachVPNGateway ::
+  -- | 'vpcId'
+  Lude.Text ->
+  -- | 'vpnGatewayId'
+  Lude.Text ->
   DetachVPNGateway
-detachVPNGateway pVPCId_ pVPNGatewayId_ =
+mkDetachVPNGateway pVPCId_ pVPNGatewayId_ =
   DetachVPNGateway'
-    { _dvpngDryRun = Nothing,
-      _dvpngVPCId = pVPCId_,
-      _dvpngVPNGatewayId = pVPNGatewayId_
+    { dryRun = Lude.Nothing,
+      vpcId = pVPCId_,
+      vpnGatewayId = pVPNGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvpngDryRun :: Lens' DetachVPNGateway (Maybe Bool)
-dvpngDryRun = lens _dvpngDryRun (\s a -> s {_dvpngDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpngDryRun :: Lens.Lens' DetachVPNGateway (Lude.Maybe Lude.Bool)
+dvpngDryRun = Lens.lens (dryRun :: DetachVPNGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachVPNGateway)
+{-# DEPRECATED dvpngDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC.
-dvpngVPCId :: Lens' DetachVPNGateway Text
-dvpngVPCId = lens _dvpngVPCId (\s a -> s {_dvpngVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpngVPCId :: Lens.Lens' DetachVPNGateway Lude.Text
+dvpngVPCId = Lens.lens (vpcId :: DetachVPNGateway -> Lude.Text) (\s a -> s {vpcId = a} :: DetachVPNGateway)
+{-# DEPRECATED dvpngVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The ID of the virtual private gateway.
-dvpngVPNGatewayId :: Lens' DetachVPNGateway Text
-dvpngVPNGatewayId = lens _dvpngVPNGatewayId (\s a -> s {_dvpngVPNGatewayId = a})
+--
+-- /Note:/ Consider using 'vpnGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpngVPNGatewayId :: Lens.Lens' DetachVPNGateway Lude.Text
+dvpngVPNGatewayId = Lens.lens (vpnGatewayId :: DetachVPNGateway -> Lude.Text) (\s a -> s {vpnGatewayId = a} :: DetachVPNGateway)
+{-# DEPRECATED dvpngVPNGatewayId "Use generic-lens or generic-optics with 'vpnGatewayId' instead." #-}
 
-instance AWSRequest DetachVPNGateway where
+instance Lude.AWSRequest DetachVPNGateway where
   type Rs DetachVPNGateway = DetachVPNGatewayResponse
-  request = postQuery ec2
-  response = receiveNull DetachVPNGatewayResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DetachVPNGatewayResponse'
 
-instance Hashable DetachVPNGateway
+instance Lude.ToHeaders DetachVPNGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachVPNGateway
+instance Lude.ToPath DetachVPNGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachVPNGateway where
-  toHeaders = const mempty
-
-instance ToPath DetachVPNGateway where
-  toPath = const "/"
-
-instance ToQuery DetachVPNGateway where
+instance Lude.ToQuery DetachVPNGateway where
   toQuery DetachVPNGateway' {..} =
-    mconcat
-      [ "Action" =: ("DetachVpnGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvpngDryRun,
-        "VpcId" =: _dvpngVPCId,
-        "VpnGatewayId" =: _dvpngVPNGatewayId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetachVpnGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpcId" Lude.=: vpcId,
+        "VpnGatewayId" Lude.=: vpnGatewayId
       ]
 
--- | /See:/ 'detachVPNGatewayResponse' smart constructor.
+-- | /See:/ 'mkDetachVPNGatewayResponse' smart constructor.
 data DetachVPNGatewayResponse = DetachVPNGatewayResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVPNGatewayResponse' with the minimum fields required to make a request.
-detachVPNGatewayResponse ::
+mkDetachVPNGatewayResponse ::
   DetachVPNGatewayResponse
-detachVPNGatewayResponse = DetachVPNGatewayResponse'
-
-instance NFData DetachVPNGatewayResponse
+mkDetachVPNGatewayResponse = DetachVPNGatewayResponse'

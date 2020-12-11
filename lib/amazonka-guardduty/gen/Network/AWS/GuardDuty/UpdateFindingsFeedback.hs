@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,163 @@
 --
 -- Marks the specified GuardDuty findings as useful or not useful.
 module Network.AWS.GuardDuty.UpdateFindingsFeedback
-  ( -- * Creating a Request
-    updateFindingsFeedback,
-    UpdateFindingsFeedback,
+  ( -- * Creating a request
+    UpdateFindingsFeedback (..),
+    mkUpdateFindingsFeedback,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uffComments,
     uffDetectorId,
     uffFindingIds,
     uffFeedback,
 
-    -- * Destructuring the Response
-    updateFindingsFeedbackResponse,
-    UpdateFindingsFeedbackResponse,
+    -- * Destructuring the response
+    UpdateFindingsFeedbackResponse (..),
+    mkUpdateFindingsFeedbackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uffrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFindingsFeedback' smart constructor.
+-- | /See:/ 'mkUpdateFindingsFeedback' smart constructor.
 data UpdateFindingsFeedback = UpdateFindingsFeedback'
-  { _uffComments ::
-      !(Maybe Text),
-    _uffDetectorId :: !Text,
-    _uffFindingIds :: ![Text],
-    _uffFeedback :: !Feedback
+  { comments ::
+      Lude.Maybe Lude.Text,
+    detectorId :: Lude.Text,
+    findingIds :: [Lude.Text],
+    feedback :: Feedback
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFindingsFeedback' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uffComments' - Additional feedback about the GuardDuty findings.
---
--- * 'uffDetectorId' - The ID of the detector associated with the findings to update feedback for.
---
--- * 'uffFindingIds' - The IDs of the findings that you want to mark as useful or not useful.
---
--- * 'uffFeedback' - The feedback for the finding.
-updateFindingsFeedback ::
-  -- | 'uffDetectorId'
-  Text ->
-  -- | 'uffFeedback'
+-- * 'comments' - Additional feedback about the GuardDuty findings.
+-- * 'detectorId' - The ID of the detector associated with the findings to update feedback for.
+-- * 'feedback' - The feedback for the finding.
+-- * 'findingIds' - The IDs of the findings that you want to mark as useful or not useful.
+mkUpdateFindingsFeedback ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'feedback'
   Feedback ->
   UpdateFindingsFeedback
-updateFindingsFeedback pDetectorId_ pFeedback_ =
+mkUpdateFindingsFeedback pDetectorId_ pFeedback_ =
   UpdateFindingsFeedback'
-    { _uffComments = Nothing,
-      _uffDetectorId = pDetectorId_,
-      _uffFindingIds = mempty,
-      _uffFeedback = pFeedback_
+    { comments = Lude.Nothing,
+      detectorId = pDetectorId_,
+      findingIds = Lude.mempty,
+      feedback = pFeedback_
     }
 
 -- | Additional feedback about the GuardDuty findings.
-uffComments :: Lens' UpdateFindingsFeedback (Maybe Text)
-uffComments = lens _uffComments (\s a -> s {_uffComments = a})
+--
+-- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uffComments :: Lens.Lens' UpdateFindingsFeedback (Lude.Maybe Lude.Text)
+uffComments = Lens.lens (comments :: UpdateFindingsFeedback -> Lude.Maybe Lude.Text) (\s a -> s {comments = a} :: UpdateFindingsFeedback)
+{-# DEPRECATED uffComments "Use generic-lens or generic-optics with 'comments' instead." #-}
 
 -- | The ID of the detector associated with the findings to update feedback for.
-uffDetectorId :: Lens' UpdateFindingsFeedback Text
-uffDetectorId = lens _uffDetectorId (\s a -> s {_uffDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uffDetectorId :: Lens.Lens' UpdateFindingsFeedback Lude.Text
+uffDetectorId = Lens.lens (detectorId :: UpdateFindingsFeedback -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateFindingsFeedback)
+{-# DEPRECATED uffDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The IDs of the findings that you want to mark as useful or not useful.
-uffFindingIds :: Lens' UpdateFindingsFeedback [Text]
-uffFindingIds = lens _uffFindingIds (\s a -> s {_uffFindingIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uffFindingIds :: Lens.Lens' UpdateFindingsFeedback [Lude.Text]
+uffFindingIds = Lens.lens (findingIds :: UpdateFindingsFeedback -> [Lude.Text]) (\s a -> s {findingIds = a} :: UpdateFindingsFeedback)
+{-# DEPRECATED uffFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
 
 -- | The feedback for the finding.
-uffFeedback :: Lens' UpdateFindingsFeedback Feedback
-uffFeedback = lens _uffFeedback (\s a -> s {_uffFeedback = a})
+--
+-- /Note:/ Consider using 'feedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uffFeedback :: Lens.Lens' UpdateFindingsFeedback Feedback
+uffFeedback = Lens.lens (feedback :: UpdateFindingsFeedback -> Feedback) (\s a -> s {feedback = a} :: UpdateFindingsFeedback)
+{-# DEPRECATED uffFeedback "Use generic-lens or generic-optics with 'feedback' instead." #-}
 
-instance AWSRequest UpdateFindingsFeedback where
+instance Lude.AWSRequest UpdateFindingsFeedback where
   type Rs UpdateFindingsFeedback = UpdateFindingsFeedbackResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateFindingsFeedbackResponse' <$> (pure (fromEnum s))
+          UpdateFindingsFeedbackResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateFindingsFeedback
-
-instance NFData UpdateFindingsFeedback
-
-instance ToHeaders UpdateFindingsFeedback where
+instance Lude.ToHeaders UpdateFindingsFeedback where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateFindingsFeedback where
-  toJSON UpdateFindingsFeedback' {..} =
-    object
-      ( catMaybes
-          [ ("comments" .=) <$> _uffComments,
-            Just ("findingIds" .= _uffFindingIds),
-            Just ("feedback" .= _uffFeedback)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateFindingsFeedback where
+instance Lude.ToJSON UpdateFindingsFeedback where
+  toJSON UpdateFindingsFeedback' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("comments" Lude..=) Lude.<$> comments,
+            Lude.Just ("findingIds" Lude..= findingIds),
+            Lude.Just ("feedback" Lude..= feedback)
+          ]
+      )
+
+instance Lude.ToPath UpdateFindingsFeedback where
   toPath UpdateFindingsFeedback' {..} =
-    mconcat ["/detector/", toBS _uffDetectorId, "/findings/feedback"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/findings/feedback"]
 
-instance ToQuery UpdateFindingsFeedback where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFindingsFeedback where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFindingsFeedbackResponse' smart constructor.
+-- | /See:/ 'mkUpdateFindingsFeedbackResponse' smart constructor.
 newtype UpdateFindingsFeedbackResponse = UpdateFindingsFeedbackResponse'
-  { _uffrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFindingsFeedbackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uffrsResponseStatus' - -- | The response status code.
-updateFindingsFeedbackResponse ::
-  -- | 'uffrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateFindingsFeedbackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFindingsFeedbackResponse
-updateFindingsFeedbackResponse pResponseStatus_ =
+mkUpdateFindingsFeedbackResponse pResponseStatus_ =
   UpdateFindingsFeedbackResponse'
-    { _uffrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uffrsResponseStatus :: Lens' UpdateFindingsFeedbackResponse Int
-uffrsResponseStatus = lens _uffrsResponseStatus (\s a -> s {_uffrsResponseStatus = a})
-
-instance NFData UpdateFindingsFeedbackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uffrsResponseStatus :: Lens.Lens' UpdateFindingsFeedbackResponse Lude.Int
+uffrsResponseStatus = Lens.lens (responseStatus :: UpdateFindingsFeedbackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFindingsFeedbackResponse)
+{-# DEPRECATED uffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

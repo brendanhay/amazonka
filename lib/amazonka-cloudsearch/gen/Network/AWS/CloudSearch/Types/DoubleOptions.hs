@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.DoubleOptions where
+module Network.AWS.CloudSearch.Types.DoubleOptions
+  ( DoubleOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDoubleOptions,
+
+    -- * Lenses
+    dSourceField,
+    dReturnEnabled,
+    dFacetEnabled,
+    dSearchEnabled,
+    dSortEnabled,
+    dDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for a double-precision 64-bit floating point field. Present if @IndexFieldType@ specifies the field is of type @double@ . All options are enabled by default.
 --
---
---
--- /See:/ 'doubleOptions' smart constructor.
+-- /See:/ 'mkDoubleOptions' smart constructor.
 data DoubleOptions = DoubleOptions'
-  { _dSourceField :: !(Maybe Text),
-    _dReturnEnabled :: !(Maybe Bool),
-    _dFacetEnabled :: !(Maybe Bool),
-    _dSearchEnabled :: !(Maybe Bool),
-    _dSortEnabled :: !(Maybe Bool),
-    _dDefaultValue :: !(Maybe Double)
+  { sourceField ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    sortEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DoubleOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dSourceField' - The name of the source field to map to the field.
---
--- * 'dReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'dFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'dSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'dSortEnabled' - Whether the field can be used to sort the search results.
---
--- * 'dDefaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
-doubleOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sortEnabled' - Whether the field can be used to sort the search results.
+-- * 'sourceField' - The name of the source field to map to the field.
+mkDoubleOptions ::
   DoubleOptions
-doubleOptions =
+mkDoubleOptions =
   DoubleOptions'
-    { _dSourceField = Nothing,
-      _dReturnEnabled = Nothing,
-      _dFacetEnabled = Nothing,
-      _dSearchEnabled = Nothing,
-      _dSortEnabled = Nothing,
-      _dDefaultValue = Nothing
+    { sourceField = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      sortEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
 -- | The name of the source field to map to the field.
-dSourceField :: Lens' DoubleOptions (Maybe Text)
-dSourceField = lens _dSourceField (\s a -> s {_dSourceField = a})
+--
+-- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSourceField :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Text)
+dSourceField = Lens.lens (sourceField :: DoubleOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceField = a} :: DoubleOptions)
+{-# DEPRECATED dSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-dReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
-dReturnEnabled = lens _dReturnEnabled (\s a -> s {_dReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dReturnEnabled :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Bool)
+dReturnEnabled = Lens.lens (returnEnabled :: DoubleOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: DoubleOptions)
+{-# DEPRECATED dReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-dFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
-dFacetEnabled = lens _dFacetEnabled (\s a -> s {_dFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFacetEnabled :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Bool)
+dFacetEnabled = Lens.lens (facetEnabled :: DoubleOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: DoubleOptions)
+{-# DEPRECATED dFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-dSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
-dSearchEnabled = lens _dSearchEnabled (\s a -> s {_dSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSearchEnabled :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Bool)
+dSearchEnabled = Lens.lens (searchEnabled :: DoubleOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: DoubleOptions)
+{-# DEPRECATED dSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | Whether the field can be used to sort the search results.
-dSortEnabled :: Lens' DoubleOptions (Maybe Bool)
-dSortEnabled = lens _dSortEnabled (\s a -> s {_dSortEnabled = a})
+--
+-- /Note:/ Consider using 'sortEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSortEnabled :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Bool)
+dSortEnabled = Lens.lens (sortEnabled :: DoubleOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sortEnabled = a} :: DoubleOptions)
+{-# DEPRECATED dSortEnabled "Use generic-lens or generic-optics with 'sortEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
-dDefaultValue :: Lens' DoubleOptions (Maybe Double)
-dDefaultValue = lens _dDefaultValue (\s a -> s {_dDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDefaultValue :: Lens.Lens' DoubleOptions (Lude.Maybe Lude.Double)
+dDefaultValue = Lens.lens (defaultValue :: DoubleOptions -> Lude.Maybe Lude.Double) (\s a -> s {defaultValue = a} :: DoubleOptions)
+{-# DEPRECATED dDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML DoubleOptions where
+instance Lude.FromXML DoubleOptions where
   parseXML x =
     DoubleOptions'
-      <$> (x .@? "SourceField")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "SortEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceField")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "SortEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable DoubleOptions
-
-instance NFData DoubleOptions
-
-instance ToQuery DoubleOptions where
+instance Lude.ToQuery DoubleOptions where
   toQuery DoubleOptions' {..} =
-    mconcat
-      [ "SourceField" =: _dSourceField,
-        "ReturnEnabled" =: _dReturnEnabled,
-        "FacetEnabled" =: _dFacetEnabled,
-        "SearchEnabled" =: _dSearchEnabled,
-        "SortEnabled" =: _dSortEnabled,
-        "DefaultValue" =: _dDefaultValue
+    Lude.mconcat
+      [ "SourceField" Lude.=: sourceField,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "SortEnabled" Lude.=: sortEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

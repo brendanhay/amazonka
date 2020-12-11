@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Retrieves the summaries of all insights in the specified group matching the provided filter values.
 module Network.AWS.XRay.GetInsightSummaries
-  ( -- * Creating a Request
-    getInsightSummaries,
-    GetInsightSummaries,
+  ( -- * Creating a request
+    GetInsightSummaries (..),
+    mkGetInsightSummaries,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gisStates,
     gisNextToken,
     gisGroupARN,
@@ -32,176 +27,202 @@ module Network.AWS.XRay.GetInsightSummaries
     gisStartTime,
     gisEndTime,
 
-    -- * Destructuring the Response
-    getInsightSummariesResponse,
-    GetInsightSummariesResponse,
+    -- * Destructuring the response
+    GetInsightSummariesResponse (..),
+    mkGetInsightSummariesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gisrsInsightSummaries,
     gisrsNextToken,
     gisrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getInsightSummaries' smart constructor.
+-- | /See:/ 'mkGetInsightSummaries' smart constructor.
 data GetInsightSummaries = GetInsightSummaries'
-  { _gisStates ::
-      !(Maybe [InsightState]),
-    _gisNextToken :: !(Maybe Text),
-    _gisGroupARN :: !(Maybe Text),
-    _gisGroupName :: !(Maybe Text),
-    _gisMaxResults :: !(Maybe Nat),
-    _gisStartTime :: !POSIX,
-    _gisEndTime :: !POSIX
+  { states ::
+      Lude.Maybe [InsightState],
+    nextToken :: Lude.Maybe Lude.Text,
+    groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    startTime :: Lude.Timestamp,
+    endTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSummaries' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisStates' - The list of insight states.
---
--- * 'gisNextToken' - Pagination token.
---
--- * 'gisGroupARN' - The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
---
--- * 'gisGroupName' - The name of the group. Required if the GroupARN isn't provided.
---
--- * 'gisMaxResults' - The maximum number of results to display.
---
--- * 'gisStartTime' - The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
---
--- * 'gisEndTime' - The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
-getInsightSummaries ::
-  -- | 'gisStartTime'
-  UTCTime ->
-  -- | 'gisEndTime'
-  UTCTime ->
+-- * 'endTime' - The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
+-- * 'groupARN' - The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
+-- * 'groupName' - The name of the group. Required if the GroupARN isn't provided.
+-- * 'maxResults' - The maximum number of results to display.
+-- * 'nextToken' - Pagination token.
+-- * 'startTime' - The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
+-- * 'states' - The list of insight states.
+mkGetInsightSummaries ::
+  -- | 'startTime'
+  Lude.Timestamp ->
+  -- | 'endTime'
+  Lude.Timestamp ->
   GetInsightSummaries
-getInsightSummaries pStartTime_ pEndTime_ =
+mkGetInsightSummaries pStartTime_ pEndTime_ =
   GetInsightSummaries'
-    { _gisStates = Nothing,
-      _gisNextToken = Nothing,
-      _gisGroupARN = Nothing,
-      _gisGroupName = Nothing,
-      _gisMaxResults = Nothing,
-      _gisStartTime = _Time # pStartTime_,
-      _gisEndTime = _Time # pEndTime_
+    { states = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      startTime = pStartTime_,
+      endTime = pEndTime_
     }
 
 -- | The list of insight states.
-gisStates :: Lens' GetInsightSummaries [InsightState]
-gisStates = lens _gisStates (\s a -> s {_gisStates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'states' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisStates :: Lens.Lens' GetInsightSummaries (Lude.Maybe [InsightState])
+gisStates = Lens.lens (states :: GetInsightSummaries -> Lude.Maybe [InsightState]) (\s a -> s {states = a} :: GetInsightSummaries)
+{-# DEPRECATED gisStates "Use generic-lens or generic-optics with 'states' instead." #-}
 
 -- | Pagination token.
-gisNextToken :: Lens' GetInsightSummaries (Maybe Text)
-gisNextToken = lens _gisNextToken (\s a -> s {_gisNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisNextToken :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Text)
+gisNextToken = Lens.lens (nextToken :: GetInsightSummaries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightSummaries)
+{-# DEPRECATED gisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
-gisGroupARN :: Lens' GetInsightSummaries (Maybe Text)
-gisGroupARN = lens _gisGroupARN (\s a -> s {_gisGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisGroupARN :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Text)
+gisGroupARN = Lens.lens (groupARN :: GetInsightSummaries -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GetInsightSummaries)
+{-# DEPRECATED gisGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The name of the group. Required if the GroupARN isn't provided.
-gisGroupName :: Lens' GetInsightSummaries (Maybe Text)
-gisGroupName = lens _gisGroupName (\s a -> s {_gisGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisGroupName :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Text)
+gisGroupName = Lens.lens (groupName :: GetInsightSummaries -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetInsightSummaries)
+{-# DEPRECATED gisGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The maximum number of results to display.
-gisMaxResults :: Lens' GetInsightSummaries (Maybe Natural)
-gisMaxResults = lens _gisMaxResults (\s a -> s {_gisMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisMaxResults :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Natural)
+gisMaxResults = Lens.lens (maxResults :: GetInsightSummaries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInsightSummaries)
+{-# DEPRECATED gisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
-gisStartTime :: Lens' GetInsightSummaries UTCTime
-gisStartTime = lens _gisStartTime (\s a -> s {_gisStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisStartTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
+gisStartTime = Lens.lens (startTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInsightSummaries)
+{-# DEPRECATED gisStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
-gisEndTime :: Lens' GetInsightSummaries UTCTime
-gisEndTime = lens _gisEndTime (\s a -> s {_gisEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisEndTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
+gisEndTime = Lens.lens (endTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetInsightSummaries)
+{-# DEPRECATED gisEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSRequest GetInsightSummaries where
+instance Lude.AWSRequest GetInsightSummaries where
   type Rs GetInsightSummaries = GetInsightSummariesResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInsightSummariesResponse'
-            <$> (x .?> "InsightSummaries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InsightSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInsightSummaries
+instance Lude.ToHeaders GetInsightSummaries where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetInsightSummaries
-
-instance ToHeaders GetInsightSummaries where
-  toHeaders = const mempty
-
-instance ToJSON GetInsightSummaries where
+instance Lude.ToJSON GetInsightSummaries where
   toJSON GetInsightSummaries' {..} =
-    object
-      ( catMaybes
-          [ ("States" .=) <$> _gisStates,
-            ("NextToken" .=) <$> _gisNextToken,
-            ("GroupARN" .=) <$> _gisGroupARN,
-            ("GroupName" .=) <$> _gisGroupName,
-            ("MaxResults" .=) <$> _gisMaxResults,
-            Just ("StartTime" .= _gisStartTime),
-            Just ("EndTime" .= _gisEndTime)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("States" Lude..=) Lude.<$> states,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("GroupARN" Lude..=) Lude.<$> groupARN,
+            ("GroupName" Lude..=) Lude.<$> groupName,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("StartTime" Lude..= startTime),
+            Lude.Just ("EndTime" Lude..= endTime)
           ]
       )
 
-instance ToPath GetInsightSummaries where
-  toPath = const "/InsightSummaries"
+instance Lude.ToPath GetInsightSummaries where
+  toPath = Lude.const "/InsightSummaries"
 
-instance ToQuery GetInsightSummaries where
-  toQuery = const mempty
+instance Lude.ToQuery GetInsightSummaries where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInsightSummariesResponse' smart constructor.
+-- | /See:/ 'mkGetInsightSummariesResponse' smart constructor.
 data GetInsightSummariesResponse = GetInsightSummariesResponse'
-  { _gisrsInsightSummaries ::
-      !(Maybe [InsightSummary]),
-    _gisrsNextToken :: !(Maybe Text),
-    _gisrsResponseStatus :: !Int
+  { insightSummaries ::
+      Lude.Maybe [InsightSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSummariesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisrsInsightSummaries' - The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.
---
--- * 'gisrsNextToken' - Pagination token.
---
--- * 'gisrsResponseStatus' - -- | The response status code.
-getInsightSummariesResponse ::
-  -- | 'gisrsResponseStatus'
-  Int ->
+-- * 'insightSummaries' - The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+mkGetInsightSummariesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInsightSummariesResponse
-getInsightSummariesResponse pResponseStatus_ =
+mkGetInsightSummariesResponse pResponseStatus_ =
   GetInsightSummariesResponse'
-    { _gisrsInsightSummaries = Nothing,
-      _gisrsNextToken = Nothing,
-      _gisrsResponseStatus = pResponseStatus_
+    { insightSummaries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.
-gisrsInsightSummaries :: Lens' GetInsightSummariesResponse [InsightSummary]
-gisrsInsightSummaries = lens _gisrsInsightSummaries (\s a -> s {_gisrsInsightSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'insightSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsInsightSummaries :: Lens.Lens' GetInsightSummariesResponse (Lude.Maybe [InsightSummary])
+gisrsInsightSummaries = Lens.lens (insightSummaries :: GetInsightSummariesResponse -> Lude.Maybe [InsightSummary]) (\s a -> s {insightSummaries = a} :: GetInsightSummariesResponse)
+{-# DEPRECATED gisrsInsightSummaries "Use generic-lens or generic-optics with 'insightSummaries' instead." #-}
 
 -- | Pagination token.
-gisrsNextToken :: Lens' GetInsightSummariesResponse (Maybe Text)
-gisrsNextToken = lens _gisrsNextToken (\s a -> s {_gisrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsNextToken :: Lens.Lens' GetInsightSummariesResponse (Lude.Maybe Lude.Text)
+gisrsNextToken = Lens.lens (nextToken :: GetInsightSummariesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightSummariesResponse)
+{-# DEPRECATED gisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetInsightSummariesResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\s a -> s {_gisrsResponseStatus = a})
-
-instance NFData GetInsightSummariesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsResponseStatus :: Lens.Lens' GetInsightSummariesResponse Lude.Int
+gisrsResponseStatus = Lens.lens (responseStatus :: GetInsightSummariesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInsightSummariesResponse)
+{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

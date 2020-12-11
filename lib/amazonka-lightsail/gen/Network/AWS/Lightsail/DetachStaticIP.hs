@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,129 @@
 --
 -- Detaches a static IP from the Amazon Lightsail instance to which it is attached.
 module Network.AWS.Lightsail.DetachStaticIP
-  ( -- * Creating a Request
-    detachStaticIP,
-    DetachStaticIP,
+  ( -- * Creating a request
+    DetachStaticIP (..),
+    mkDetachStaticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsiStaticIPName,
 
-    -- * Destructuring the Response
-    detachStaticIPResponse,
-    DetachStaticIPResponse,
+    -- * Destructuring the response
+    DetachStaticIPResponse (..),
+    mkDetachStaticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsirsOperations,
     dsirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachStaticIP' smart constructor.
-newtype DetachStaticIP = DetachStaticIP' {_dsiStaticIPName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDetachStaticIP' smart constructor.
+newtype DetachStaticIP = DetachStaticIP' {staticIPName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachStaticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsiStaticIPName' - The name of the static IP to detach from the instance.
-detachStaticIP ::
-  -- | 'dsiStaticIPName'
-  Text ->
+-- * 'staticIPName' - The name of the static IP to detach from the instance.
+mkDetachStaticIP ::
+  -- | 'staticIPName'
+  Lude.Text ->
   DetachStaticIP
-detachStaticIP pStaticIPName_ =
-  DetachStaticIP' {_dsiStaticIPName = pStaticIPName_}
+mkDetachStaticIP pStaticIPName_ =
+  DetachStaticIP' {staticIPName = pStaticIPName_}
 
 -- | The name of the static IP to detach from the instance.
-dsiStaticIPName :: Lens' DetachStaticIP Text
-dsiStaticIPName = lens _dsiStaticIPName (\s a -> s {_dsiStaticIPName = a})
+--
+-- /Note:/ Consider using 'staticIPName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiStaticIPName :: Lens.Lens' DetachStaticIP Lude.Text
+dsiStaticIPName = Lens.lens (staticIPName :: DetachStaticIP -> Lude.Text) (\s a -> s {staticIPName = a} :: DetachStaticIP)
+{-# DEPRECATED dsiStaticIPName "Use generic-lens or generic-optics with 'staticIPName' instead." #-}
 
-instance AWSRequest DetachStaticIP where
+instance Lude.AWSRequest DetachStaticIP where
   type Rs DetachStaticIP = DetachStaticIPResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetachStaticIPResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetachStaticIP
-
-instance NFData DetachStaticIP
-
-instance ToHeaders DetachStaticIP where
+instance Lude.ToHeaders DetachStaticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DetachStaticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DetachStaticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetachStaticIP where
+instance Lude.ToJSON DetachStaticIP where
   toJSON DetachStaticIP' {..} =
-    object (catMaybes [Just ("staticIpName" .= _dsiStaticIPName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("staticIpName" Lude..= staticIPName)])
 
-instance ToPath DetachStaticIP where
-  toPath = const "/"
+instance Lude.ToPath DetachStaticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery DetachStaticIP where
-  toQuery = const mempty
+instance Lude.ToQuery DetachStaticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detachStaticIPResponse' smart constructor.
+-- | /See:/ 'mkDetachStaticIPResponse' smart constructor.
 data DetachStaticIPResponse = DetachStaticIPResponse'
-  { _dsirsOperations ::
-      !(Maybe [Operation]),
-    _dsirsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachStaticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsirsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dsirsResponseStatus' - -- | The response status code.
-detachStaticIPResponse ::
-  -- | 'dsirsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDetachStaticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetachStaticIPResponse
-detachStaticIPResponse pResponseStatus_ =
+mkDetachStaticIPResponse pResponseStatus_ =
   DetachStaticIPResponse'
-    { _dsirsOperations = Nothing,
-      _dsirsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dsirsOperations :: Lens' DetachStaticIPResponse [Operation]
-dsirsOperations = lens _dsirsOperations (\s a -> s {_dsirsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsirsOperations :: Lens.Lens' DetachStaticIPResponse (Lude.Maybe [Operation])
+dsirsOperations = Lens.lens (operations :: DetachStaticIPResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DetachStaticIPResponse)
+{-# DEPRECATED dsirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-dsirsResponseStatus :: Lens' DetachStaticIPResponse Int
-dsirsResponseStatus = lens _dsirsResponseStatus (\s a -> s {_dsirsResponseStatus = a})
-
-instance NFData DetachStaticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsirsResponseStatus :: Lens.Lens' DetachStaticIPResponse Lude.Int
+dsirsResponseStatus = Lens.lens (responseStatus :: DetachStaticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachStaticIPResponse)
+{-# DEPRECATED dsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

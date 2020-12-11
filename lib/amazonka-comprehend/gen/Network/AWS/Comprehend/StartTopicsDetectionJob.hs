@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts an asynchronous topic detection job. Use the @DescribeTopicDetectionJob@ operation to track the status of a job.
 module Network.AWS.Comprehend.StartTopicsDetectionJob
-  ( -- * Creating a Request
-    startTopicsDetectionJob,
-    StartTopicsDetectionJob,
+  ( -- * Creating a request
+    StartTopicsDetectionJob (..),
+    mkStartTopicsDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stdjJobName,
     stdjVPCConfig,
     stdjVolumeKMSKeyId,
@@ -33,11 +28,11 @@ module Network.AWS.Comprehend.StartTopicsDetectionJob
     stdjOutputDataConfig,
     stdjDataAccessRoleARN,
 
-    -- * Destructuring the Response
-    startTopicsDetectionJobResponse,
-    StartTopicsDetectionJobResponse,
+    -- * Destructuring the response
+    StartTopicsDetectionJobResponse (..),
+    mkStartTopicsDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stdjrsJobId,
     stdjrsJobStatus,
     stdjrsResponseStatus,
@@ -45,185 +40,259 @@ module Network.AWS.Comprehend.StartTopicsDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startTopicsDetectionJob' smart constructor.
+-- | /See:/ 'mkStartTopicsDetectionJob' smart constructor.
 data StartTopicsDetectionJob = StartTopicsDetectionJob'
-  { _stdjJobName ::
-      !(Maybe Text),
-    _stdjVPCConfig :: !(Maybe VPCConfig),
-    _stdjVolumeKMSKeyId :: !(Maybe Text),
-    _stdjNumberOfTopics :: !(Maybe Nat),
-    _stdjClientRequestToken :: !(Maybe Text),
-    _stdjInputDataConfig :: !InputDataConfig,
-    _stdjOutputDataConfig :: !OutputDataConfig,
-    _stdjDataAccessRoleARN :: !Text
+  { jobName ::
+      Lude.Maybe Lude.Text,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    numberOfTopics :: Lude.Maybe Lude.Natural,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    inputDataConfig :: InputDataConfig,
+    outputDataConfig :: OutputDataConfig,
+    dataAccessRoleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTopicsDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'jobName' - The identifier of the job.
+-- * 'numberOfTopics' - The number of topics to detect.
+-- * 'outputDataConfig' - Specifies where to send the output files. The output is a compressed archive with two files, @topic-terms.csv@ that lists the terms associated with each topic, and @doc-topics.csv@ that lists the documents associated with each topic
+-- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
--- * 'stdjJobName' - The identifier of the job.
 --
--- * 'stdjVPCConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'stdjVolumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'stdjNumberOfTopics' - The number of topics to detect.
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'stdjClientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
 --
--- * 'stdjInputDataConfig' - Specifies the format and location of the input data for the job.
---
--- * 'stdjOutputDataConfig' - Specifies where to send the output files. The output is a compressed archive with two files, @topic-terms.csv@ that lists the terms associated with each topic, and @doc-topics.csv@ that lists the documents associated with each topic
---
--- * 'stdjDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
-startTopicsDetectionJob ::
-  -- | 'stdjInputDataConfig'
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+mkStartTopicsDetectionJob ::
+  -- | 'inputDataConfig'
   InputDataConfig ->
-  -- | 'stdjOutputDataConfig'
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'stdjDataAccessRoleARN'
-  Text ->
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
   StartTopicsDetectionJob
-startTopicsDetectionJob
+mkStartTopicsDetectionJob
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleARN_ =
     StartTopicsDetectionJob'
-      { _stdjJobName = Nothing,
-        _stdjVPCConfig = Nothing,
-        _stdjVolumeKMSKeyId = Nothing,
-        _stdjNumberOfTopics = Nothing,
-        _stdjClientRequestToken = Nothing,
-        _stdjInputDataConfig = pInputDataConfig_,
-        _stdjOutputDataConfig = pOutputDataConfig_,
-        _stdjDataAccessRoleARN = pDataAccessRoleARN_
+      { jobName = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        volumeKMSKeyId = Lude.Nothing,
+        numberOfTopics = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        dataAccessRoleARN = pDataAccessRoleARN_
       }
 
 -- | The identifier of the job.
-stdjJobName :: Lens' StartTopicsDetectionJob (Maybe Text)
-stdjJobName = lens _stdjJobName (\s a -> s {_stdjJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjJobName :: Lens.Lens' StartTopicsDetectionJob (Lude.Maybe Lude.Text)
+stdjJobName = Lens.lens (jobName :: StartTopicsDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-stdjVPCConfig :: Lens' StartTopicsDetectionJob (Maybe VPCConfig)
-stdjVPCConfig = lens _stdjVPCConfig (\s a -> s {_stdjVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjVPCConfig :: Lens.Lens' StartTopicsDetectionJob (Lude.Maybe VPCConfig)
+stdjVPCConfig = Lens.lens (vpcConfig :: StartTopicsDetectionJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-stdjVolumeKMSKeyId :: Lens' StartTopicsDetectionJob (Maybe Text)
-stdjVolumeKMSKeyId = lens _stdjVolumeKMSKeyId (\s a -> s {_stdjVolumeKMSKeyId = a})
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+--
+--
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjVolumeKMSKeyId :: Lens.Lens' StartTopicsDetectionJob (Lude.Maybe Lude.Text)
+stdjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartTopicsDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | The number of topics to detect.
-stdjNumberOfTopics :: Lens' StartTopicsDetectionJob (Maybe Natural)
-stdjNumberOfTopics = lens _stdjNumberOfTopics (\s a -> s {_stdjNumberOfTopics = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfTopics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjNumberOfTopics :: Lens.Lens' StartTopicsDetectionJob (Lude.Maybe Lude.Natural)
+stdjNumberOfTopics = Lens.lens (numberOfTopics :: StartTopicsDetectionJob -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfTopics = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjNumberOfTopics "Use generic-lens or generic-optics with 'numberOfTopics' instead." #-}
 
 -- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
-stdjClientRequestToken :: Lens' StartTopicsDetectionJob (Maybe Text)
-stdjClientRequestToken = lens _stdjClientRequestToken (\s a -> s {_stdjClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjClientRequestToken :: Lens.Lens' StartTopicsDetectionJob (Lude.Maybe Lude.Text)
+stdjClientRequestToken = Lens.lens (clientRequestToken :: StartTopicsDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
-stdjInputDataConfig :: Lens' StartTopicsDetectionJob InputDataConfig
-stdjInputDataConfig = lens _stdjInputDataConfig (\s a -> s {_stdjInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjInputDataConfig :: Lens.Lens' StartTopicsDetectionJob InputDataConfig
+stdjInputDataConfig = Lens.lens (inputDataConfig :: StartTopicsDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Specifies where to send the output files. The output is a compressed archive with two files, @topic-terms.csv@ that lists the terms associated with each topic, and @doc-topics.csv@ that lists the documents associated with each topic
-stdjOutputDataConfig :: Lens' StartTopicsDetectionJob OutputDataConfig
-stdjOutputDataConfig = lens _stdjOutputDataConfig (\s a -> s {_stdjOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjOutputDataConfig :: Lens.Lens' StartTopicsDetectionJob OutputDataConfig
+stdjOutputDataConfig = Lens.lens (outputDataConfig :: StartTopicsDetectionJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
-stdjDataAccessRoleARN :: Lens' StartTopicsDetectionJob Text
-stdjDataAccessRoleARN = lens _stdjDataAccessRoleARN (\s a -> s {_stdjDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjDataAccessRoleARN :: Lens.Lens' StartTopicsDetectionJob Lude.Text
+stdjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartTopicsDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartTopicsDetectionJob)
+{-# DEPRECATED stdjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
-instance AWSRequest StartTopicsDetectionJob where
+instance Lude.AWSRequest StartTopicsDetectionJob where
   type Rs StartTopicsDetectionJob = StartTopicsDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartTopicsDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartTopicsDetectionJob
-
-instance NFData StartTopicsDetectionJob
-
-instance ToHeaders StartTopicsDetectionJob where
+instance Lude.ToHeaders StartTopicsDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StartTopicsDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.StartTopicsDetectionJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartTopicsDetectionJob where
+instance Lude.ToJSON StartTopicsDetectionJob where
   toJSON StartTopicsDetectionJob' {..} =
-    object
-      ( catMaybes
-          [ ("JobName" .=) <$> _stdjJobName,
-            ("VpcConfig" .=) <$> _stdjVPCConfig,
-            ("VolumeKmsKeyId" .=) <$> _stdjVolumeKMSKeyId,
-            ("NumberOfTopics" .=) <$> _stdjNumberOfTopics,
-            ("ClientRequestToken" .=) <$> _stdjClientRequestToken,
-            Just ("InputDataConfig" .= _stdjInputDataConfig),
-            Just ("OutputDataConfig" .= _stdjOutputDataConfig),
-            Just ("DataAccessRoleArn" .= _stdjDataAccessRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobName" Lude..=) Lude.<$> jobName,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+            ("NumberOfTopics" Lude..=) Lude.<$> numberOfTopics,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN)
           ]
       )
 
-instance ToPath StartTopicsDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StartTopicsDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StartTopicsDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StartTopicsDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startTopicsDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStartTopicsDetectionJobResponse' smart constructor.
 data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
-  { _stdjrsJobId ::
-      !(Maybe Text),
-    _stdjrsJobStatus ::
-      !(Maybe JobStatus),
-    _stdjrsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTopicsDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'jobId' - The identifier generated for the job. To get the status of the job, use this identifier with the @DescribeTopicDetectionJob@ operation.
+-- * 'jobStatus' - The status of the job:
 --
--- * 'stdjrsJobId' - The identifier generated for the job. To get the status of the job, use this identifier with the @DescribeTopicDetectionJob@ operation.
 --
--- * 'stdjrsJobStatus' - The status of the job:      * SUBMITTED - The job has been received and is queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. To get details, use the @DescribeTopicDetectionJob@ operation.
+--     * SUBMITTED - The job has been received and is queued for processing.
 --
--- * 'stdjrsResponseStatus' - -- | The response status code.
-startTopicsDetectionJobResponse ::
-  -- | 'stdjrsResponseStatus'
-  Int ->
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. To get details, use the @DescribeTopicDetectionJob@ operation.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkStartTopicsDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartTopicsDetectionJobResponse
-startTopicsDetectionJobResponse pResponseStatus_ =
+mkStartTopicsDetectionJobResponse pResponseStatus_ =
   StartTopicsDetectionJobResponse'
-    { _stdjrsJobId = Nothing,
-      _stdjrsJobStatus = Nothing,
-      _stdjrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier generated for the job. To get the status of the job, use this identifier with the @DescribeTopicDetectionJob@ operation.
-stdjrsJobId :: Lens' StartTopicsDetectionJobResponse (Maybe Text)
-stdjrsJobId = lens _stdjrsJobId (\s a -> s {_stdjrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjrsJobId :: Lens.Lens' StartTopicsDetectionJobResponse (Lude.Maybe Lude.Text)
+stdjrsJobId = Lens.lens (jobId :: StartTopicsDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartTopicsDetectionJobResponse)
+{-# DEPRECATED stdjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | The status of the job:      * SUBMITTED - The job has been received and is queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. To get details, use the @DescribeTopicDetectionJob@ operation.
-stdjrsJobStatus :: Lens' StartTopicsDetectionJobResponse (Maybe JobStatus)
-stdjrsJobStatus = lens _stdjrsJobStatus (\s a -> s {_stdjrsJobStatus = a})
+-- | The status of the job:
+--
+--
+--     * SUBMITTED - The job has been received and is queued for processing.
+--
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. To get details, use the @DescribeTopicDetectionJob@ operation.
+--
+--
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjrsJobStatus :: Lens.Lens' StartTopicsDetectionJobResponse (Lude.Maybe JobStatus)
+stdjrsJobStatus = Lens.lens (jobStatus :: StartTopicsDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartTopicsDetectionJobResponse)
+{-# DEPRECATED stdjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-stdjrsResponseStatus :: Lens' StartTopicsDetectionJobResponse Int
-stdjrsResponseStatus = lens _stdjrsResponseStatus (\s a -> s {_stdjrsResponseStatus = a})
-
-instance NFData StartTopicsDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdjrsResponseStatus :: Lens.Lens' StartTopicsDetectionJobResponse Lude.Int
+stdjrsResponseStatus = Lens.lens (responseStatus :: StartTopicsDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTopicsDetectionJobResponse)
+{-# DEPRECATED stdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

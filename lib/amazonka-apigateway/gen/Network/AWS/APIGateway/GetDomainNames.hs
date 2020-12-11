@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Represents a collection of 'DomainName' resources.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDomainNames
-  ( -- * Creating a Request
-    getDomainNames,
-    GetDomainNames,
+  ( -- * Creating a request
+    GetDomainNames (..),
+    mkGetDomainNames,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdnLimit,
     gdnPosition,
 
-    -- * Destructuring the Response
-    getDomainNamesResponse,
-    GetDomainNamesResponse,
+    -- * Destructuring the response
+    GetDomainNamesResponse (..),
+    mkGetDomainNamesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdnrsItems,
     gdnrsPosition,
     gdnrsResponseStatus,
@@ -43,120 +36,139 @@ module Network.AWS.APIGateway.GetDomainNames
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe a collection of 'DomainName' resources.
 --
---
---
--- /See:/ 'getDomainNames' smart constructor.
+-- /See:/ 'mkGetDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
-  { _gdnLimit :: !(Maybe Int),
-    _gdnPosition :: !(Maybe Text)
+  { limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainNames' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdnLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gdnPosition' - The current pagination position in the paged result set.
-getDomainNames ::
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetDomainNames ::
   GetDomainNames
-getDomainNames =
-  GetDomainNames' {_gdnLimit = Nothing, _gdnPosition = Nothing}
+mkGetDomainNames =
+  GetDomainNames' {limit = Lude.Nothing, position = Lude.Nothing}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gdnLimit :: Lens' GetDomainNames (Maybe Int)
-gdnLimit = lens _gdnLimit (\s a -> s {_gdnLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdnLimit :: Lens.Lens' GetDomainNames (Lude.Maybe Lude.Int)
+gdnLimit = Lens.lens (limit :: GetDomainNames -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetDomainNames)
+{-# DEPRECATED gdnLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gdnPosition :: Lens' GetDomainNames (Maybe Text)
-gdnPosition = lens _gdnPosition (\s a -> s {_gdnPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdnPosition :: Lens.Lens' GetDomainNames (Lude.Maybe Lude.Text)
+gdnPosition = Lens.lens (position :: GetDomainNames -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDomainNames)
+{-# DEPRECATED gdnPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance AWSPager GetDomainNames where
+instance Page.AWSPager GetDomainNames where
   page rq rs
-    | stop (rs ^. gdnrsPosition) = Nothing
-    | stop (rs ^. gdnrsItems) = Nothing
-    | otherwise = Just $ rq & gdnPosition .~ rs ^. gdnrsPosition
+    | Page.stop (rs Lens.^. gdnrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdnrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gdnPosition Lens..~ rs Lens.^. gdnrsPosition
 
-instance AWSRequest GetDomainNames where
+instance Lude.AWSRequest GetDomainNames where
   type Rs GetDomainNames = GetDomainNamesResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDomainNamesResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDomainNames
-
-instance NFData GetDomainNames
-
-instance ToHeaders GetDomainNames where
+instance Lude.ToHeaders GetDomainNames where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetDomainNames where
-  toPath = const "/domainnames"
+instance Lude.ToPath GetDomainNames where
+  toPath = Lude.const "/domainnames"
 
-instance ToQuery GetDomainNames where
+instance Lude.ToQuery GetDomainNames where
   toQuery GetDomainNames' {..} =
-    mconcat ["limit" =: _gdnLimit, "position" =: _gdnPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | Represents a collection of 'DomainName' resources.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
 --
--- /See:/ 'getDomainNamesResponse' smart constructor.
+-- /See:/ 'mkGetDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
-  { _gdnrsItems ::
-      !(Maybe [DomainName]),
-    _gdnrsPosition :: !(Maybe Text),
-    _gdnrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [DomainName],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainNamesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdnrsItems' - The current page of elements from this collection.
---
--- * 'gdnrsPosition' - Undocumented member.
---
--- * 'gdnrsResponseStatus' - -- | The response status code.
-getDomainNamesResponse ::
-  -- | 'gdnrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetDomainNamesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDomainNamesResponse
-getDomainNamesResponse pResponseStatus_ =
+mkGetDomainNamesResponse pResponseStatus_ =
   GetDomainNamesResponse'
-    { _gdnrsItems = Nothing,
-      _gdnrsPosition = Nothing,
-      _gdnrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
-gdnrsItems = lens _gdnrsItems (\s a -> s {_gdnrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdnrsItems :: Lens.Lens' GetDomainNamesResponse (Lude.Maybe [DomainName])
+gdnrsItems = Lens.lens (items :: GetDomainNamesResponse -> Lude.Maybe [DomainName]) (\s a -> s {items = a} :: GetDomainNamesResponse)
+{-# DEPRECATED gdnrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gdnrsPosition :: Lens' GetDomainNamesResponse (Maybe Text)
-gdnrsPosition = lens _gdnrsPosition (\s a -> s {_gdnrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdnrsPosition :: Lens.Lens' GetDomainNamesResponse (Lude.Maybe Lude.Text)
+gdnrsPosition = Lens.lens (position :: GetDomainNamesResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDomainNamesResponse)
+{-# DEPRECATED gdnrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gdnrsResponseStatus :: Lens' GetDomainNamesResponse Int
-gdnrsResponseStatus = lens _gdnrsResponseStatus (\s a -> s {_gdnrsResponseStatus = a})
-
-instance NFData GetDomainNamesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdnrsResponseStatus :: Lens.Lens' GetDomainNamesResponse Lude.Int
+gdnrsResponseStatus = Lens.lens (responseStatus :: GetDomainNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainNamesResponse)
+{-# DEPRECATED gdnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

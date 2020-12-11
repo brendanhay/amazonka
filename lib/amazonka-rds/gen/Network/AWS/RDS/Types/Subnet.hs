@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.Subnet where
+module Network.AWS.RDS.Types.Subnet
+  ( Subnet (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubnet,
+
+    -- * Lenses
+    sSubnetStatus,
+    sSubnetIdentifier,
+    sSubnetAvailabilityZone,
+    sSubnetOutpost,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.AvailabilityZone
 import Network.AWS.RDS.Types.Outpost
 
 -- | This data type is used as a response element for the @DescribeDBSubnetGroups@ operation.
 --
---
---
--- /See:/ 'subnet' smart constructor.
+-- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { _sSubnetStatus :: !(Maybe Text),
-    _sSubnetIdentifier :: !(Maybe Text),
-    _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone),
-    _sSubnetOutpost :: !(Maybe Outpost)
+  { subnetStatus :: Lude.Maybe Lude.Text,
+    subnetIdentifier :: Lude.Maybe Lude.Text,
+    subnetAvailabilityZone :: Lude.Maybe AvailabilityZone,
+    subnetOutpost :: Lude.Maybe Outpost
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'subnetAvailabilityZone' - Undocumented field.
+-- * 'subnetIdentifier' - The identifier of the subnet.
+-- * 'subnetOutpost' - If the subnet is associated with an Outpost, this value specifies the Outpost.
 --
--- * 'sSubnetStatus' - The status of the subnet.
---
--- * 'sSubnetIdentifier' - The identifier of the subnet.
---
--- * 'sSubnetAvailabilityZone' - Undocumented member.
---
--- * 'sSubnetOutpost' - If the subnet is associated with an Outpost, this value specifies the Outpost. For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
-subnet ::
+-- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
+-- * 'subnetStatus' - The status of the subnet.
+mkSubnet ::
   Subnet
-subnet =
+mkSubnet =
   Subnet'
-    { _sSubnetStatus = Nothing,
-      _sSubnetIdentifier = Nothing,
-      _sSubnetAvailabilityZone = Nothing,
-      _sSubnetOutpost = Nothing
+    { subnetStatus = Lude.Nothing,
+      subnetIdentifier = Lude.Nothing,
+      subnetAvailabilityZone = Lude.Nothing,
+      subnetOutpost = Lude.Nothing
     }
 
 -- | The status of the subnet.
-sSubnetStatus :: Lens' Subnet (Maybe Text)
-sSubnetStatus = lens _sSubnetStatus (\s a -> s {_sSubnetStatus = a})
+--
+-- /Note:/ Consider using 'subnetStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetStatus :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sSubnetStatus = Lens.lens (subnetStatus :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetStatus = a} :: Subnet)
+{-# DEPRECATED sSubnetStatus "Use generic-lens or generic-optics with 'subnetStatus' instead." #-}
 
 -- | The identifier of the subnet.
-sSubnetIdentifier :: Lens' Subnet (Maybe Text)
-sSubnetIdentifier = lens _sSubnetIdentifier (\s a -> s {_sSubnetIdentifier = a})
+--
+-- /Note:/ Consider using 'subnetIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetIdentifier :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sSubnetIdentifier = Lens.lens (subnetIdentifier :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetIdentifier = a} :: Subnet)
+{-# DEPRECATED sSubnetIdentifier "Use generic-lens or generic-optics with 'subnetIdentifier' instead." #-}
 
--- | Undocumented member.
-sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\s a -> s {_sSubnetAvailabilityZone = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'subnetAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetAvailabilityZone :: Lens.Lens' Subnet (Lude.Maybe AvailabilityZone)
+sSubnetAvailabilityZone = Lens.lens (subnetAvailabilityZone :: Subnet -> Lude.Maybe AvailabilityZone) (\s a -> s {subnetAvailabilityZone = a} :: Subnet)
+{-# DEPRECATED sSubnetAvailabilityZone "Use generic-lens or generic-optics with 'subnetAvailabilityZone' instead." #-}
 
--- | If the subnet is associated with an Outpost, this value specifies the Outpost. For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
-sSubnetOutpost :: Lens' Subnet (Maybe Outpost)
-sSubnetOutpost = lens _sSubnetOutpost (\s a -> s {_sSubnetOutpost = a})
+-- | If the subnet is associated with an Outpost, this value specifies the Outpost.
+--
+-- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
+--
+-- /Note:/ Consider using 'subnetOutpost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetOutpost :: Lens.Lens' Subnet (Lude.Maybe Outpost)
+sSubnetOutpost = Lens.lens (subnetOutpost :: Subnet -> Lude.Maybe Outpost) (\s a -> s {subnetOutpost = a} :: Subnet)
+{-# DEPRECATED sSubnetOutpost "Use generic-lens or generic-optics with 'subnetOutpost' instead." #-}
 
-instance FromXML Subnet where
+instance Lude.FromXML Subnet where
   parseXML x =
     Subnet'
-      <$> (x .@? "SubnetStatus")
-      <*> (x .@? "SubnetIdentifier")
-      <*> (x .@? "SubnetAvailabilityZone")
-      <*> (x .@? "SubnetOutpost")
-
-instance Hashable Subnet
-
-instance NFData Subnet
+      Lude.<$> (x Lude..@? "SubnetStatus")
+      Lude.<*> (x Lude..@? "SubnetIdentifier")
+      Lude.<*> (x Lude..@? "SubnetAvailabilityZone")
+      Lude.<*> (x Lude..@? "SubnetOutpost")

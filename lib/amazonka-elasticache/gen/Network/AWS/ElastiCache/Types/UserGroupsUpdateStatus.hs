@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus where
+module Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
+  ( UserGroupsUpdateStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserGroupsUpdateStatus,
+
+    -- * Lenses
+    ugusUserGroupIdsToAdd,
+    ugusUserGroupIdsToRemove,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the user group update.
 --
---
---
--- /See:/ 'userGroupsUpdateStatus' smart constructor.
+-- /See:/ 'mkUserGroupsUpdateStatus' smart constructor.
 data UserGroupsUpdateStatus = UserGroupsUpdateStatus'
-  { _ugusUserGroupIdsToAdd ::
-      !(Maybe [Text]),
-    _ugusUserGroupIdsToRemove :: !(Maybe [Text])
+  { userGroupIdsToAdd ::
+      Lude.Maybe [Lude.Text],
+    userGroupIdsToRemove ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserGroupsUpdateStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugusUserGroupIdsToAdd' - The list of user group IDs to add.
---
--- * 'ugusUserGroupIdsToRemove' - The list of user group IDs to remove.
-userGroupsUpdateStatus ::
+-- * 'userGroupIdsToAdd' - The list of user group IDs to add.
+-- * 'userGroupIdsToRemove' - The list of user group IDs to remove.
+mkUserGroupsUpdateStatus ::
   UserGroupsUpdateStatus
-userGroupsUpdateStatus =
+mkUserGroupsUpdateStatus =
   UserGroupsUpdateStatus'
-    { _ugusUserGroupIdsToAdd = Nothing,
-      _ugusUserGroupIdsToRemove = Nothing
+    { userGroupIdsToAdd = Lude.Nothing,
+      userGroupIdsToRemove = Lude.Nothing
     }
 
 -- | The list of user group IDs to add.
-ugusUserGroupIdsToAdd :: Lens' UserGroupsUpdateStatus [Text]
-ugusUserGroupIdsToAdd = lens _ugusUserGroupIdsToAdd (\s a -> s {_ugusUserGroupIdsToAdd = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userGroupIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugusUserGroupIdsToAdd :: Lens.Lens' UserGroupsUpdateStatus (Lude.Maybe [Lude.Text])
+ugusUserGroupIdsToAdd = Lens.lens (userGroupIdsToAdd :: UserGroupsUpdateStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {userGroupIdsToAdd = a} :: UserGroupsUpdateStatus)
+{-# DEPRECATED ugusUserGroupIdsToAdd "Use generic-lens or generic-optics with 'userGroupIdsToAdd' instead." #-}
 
 -- | The list of user group IDs to remove.
-ugusUserGroupIdsToRemove :: Lens' UserGroupsUpdateStatus [Text]
-ugusUserGroupIdsToRemove = lens _ugusUserGroupIdsToRemove (\s a -> s {_ugusUserGroupIdsToRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userGroupIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugusUserGroupIdsToRemove :: Lens.Lens' UserGroupsUpdateStatus (Lude.Maybe [Lude.Text])
+ugusUserGroupIdsToRemove = Lens.lens (userGroupIdsToRemove :: UserGroupsUpdateStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {userGroupIdsToRemove = a} :: UserGroupsUpdateStatus)
+{-# DEPRECATED ugusUserGroupIdsToRemove "Use generic-lens or generic-optics with 'userGroupIdsToRemove' instead." #-}
 
-instance FromXML UserGroupsUpdateStatus where
+instance Lude.FromXML UserGroupsUpdateStatus where
   parseXML x =
     UserGroupsUpdateStatus'
-      <$> ( x .@? "UserGroupIdsToAdd" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> ( x .@? "UserGroupIdsToRemove" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable UserGroupsUpdateStatus
-
-instance NFData UserGroupsUpdateStatus
+      Lude.<$> ( x Lude..@? "UserGroupIdsToAdd" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> ( x Lude..@? "UserGroupIdsToRemove" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

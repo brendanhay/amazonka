@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,154 @@
 --
 -- Set the default version of a document.
 module Network.AWS.SSM.UpdateDocumentDefaultVersion
-  ( -- * Creating a Request
-    updateDocumentDefaultVersion,
-    UpdateDocumentDefaultVersion,
+  ( -- * Creating a request
+    UpdateDocumentDefaultVersion (..),
+    mkUpdateDocumentDefaultVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uddvName,
     uddvDocumentVersion,
 
-    -- * Destructuring the Response
-    updateDocumentDefaultVersionResponse,
-    UpdateDocumentDefaultVersionResponse,
+    -- * Destructuring the response
+    UpdateDocumentDefaultVersionResponse (..),
+    mkUpdateDocumentDefaultVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uddvrsDescription,
     uddvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateDocumentDefaultVersion' smart constructor.
+-- | /See:/ 'mkUpdateDocumentDefaultVersion' smart constructor.
 data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
-  { _uddvName ::
-      !Text,
-    _uddvDocumentVersion :: !Text
+  { name ::
+      Lude.Text,
+    documentVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentDefaultVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uddvName' - The name of a custom document that you want to set as the default version.
---
--- * 'uddvDocumentVersion' - The version of a custom document that you want to set as the default version.
-updateDocumentDefaultVersion ::
-  -- | 'uddvName'
-  Text ->
-  -- | 'uddvDocumentVersion'
-  Text ->
+-- * 'documentVersion' - The version of a custom document that you want to set as the default version.
+-- * 'name' - The name of a custom document that you want to set as the default version.
+mkUpdateDocumentDefaultVersion ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'documentVersion'
+  Lude.Text ->
   UpdateDocumentDefaultVersion
-updateDocumentDefaultVersion pName_ pDocumentVersion_ =
+mkUpdateDocumentDefaultVersion pName_ pDocumentVersion_ =
   UpdateDocumentDefaultVersion'
-    { _uddvName = pName_,
-      _uddvDocumentVersion = pDocumentVersion_
+    { name = pName_,
+      documentVersion = pDocumentVersion_
     }
 
 -- | The name of a custom document that you want to set as the default version.
-uddvName :: Lens' UpdateDocumentDefaultVersion Text
-uddvName = lens _uddvName (\s a -> s {_uddvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddvName :: Lens.Lens' UpdateDocumentDefaultVersion Lude.Text
+uddvName = Lens.lens (name :: UpdateDocumentDefaultVersion -> Lude.Text) (\s a -> s {name = a} :: UpdateDocumentDefaultVersion)
+{-# DEPRECATED uddvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of a custom document that you want to set as the default version.
-uddvDocumentVersion :: Lens' UpdateDocumentDefaultVersion Text
-uddvDocumentVersion = lens _uddvDocumentVersion (\s a -> s {_uddvDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddvDocumentVersion :: Lens.Lens' UpdateDocumentDefaultVersion Lude.Text
+uddvDocumentVersion = Lens.lens (documentVersion :: UpdateDocumentDefaultVersion -> Lude.Text) (\s a -> s {documentVersion = a} :: UpdateDocumentDefaultVersion)
+{-# DEPRECATED uddvDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
-instance AWSRequest UpdateDocumentDefaultVersion where
+instance Lude.AWSRequest UpdateDocumentDefaultVersion where
   type
     Rs UpdateDocumentDefaultVersion =
       UpdateDocumentDefaultVersionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDocumentDefaultVersionResponse'
-            <$> (x .?> "Description") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Description") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDocumentDefaultVersion
-
-instance NFData UpdateDocumentDefaultVersion
-
-instance ToHeaders UpdateDocumentDefaultVersion where
+instance Lude.ToHeaders UpdateDocumentDefaultVersion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.UpdateDocumentDefaultVersion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.UpdateDocumentDefaultVersion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDocumentDefaultVersion where
+instance Lude.ToJSON UpdateDocumentDefaultVersion where
   toJSON UpdateDocumentDefaultVersion' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _uddvName),
-            Just ("DocumentVersion" .= _uddvDocumentVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("DocumentVersion" Lude..= documentVersion)
           ]
       )
 
-instance ToPath UpdateDocumentDefaultVersion where
-  toPath = const "/"
+instance Lude.ToPath UpdateDocumentDefaultVersion where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDocumentDefaultVersion where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDocumentDefaultVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDocumentDefaultVersionResponse' smart constructor.
+-- | /See:/ 'mkUpdateDocumentDefaultVersionResponse' smart constructor.
 data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse'
-  { _uddvrsDescription ::
-      !( Maybe
-           DocumentDefaultVersionDescription
-       ),
-    _uddvrsResponseStatus ::
-      !Int
+  { description ::
+      Lude.Maybe
+        DocumentDefaultVersionDescription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentDefaultVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uddvrsDescription' - The description of a custom document that you want to set as the default version.
---
--- * 'uddvrsResponseStatus' - -- | The response status code.
-updateDocumentDefaultVersionResponse ::
-  -- | 'uddvrsResponseStatus'
-  Int ->
+-- * 'description' - The description of a custom document that you want to set as the default version.
+-- * 'responseStatus' - The response status code.
+mkUpdateDocumentDefaultVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDocumentDefaultVersionResponse
-updateDocumentDefaultVersionResponse pResponseStatus_ =
+mkUpdateDocumentDefaultVersionResponse pResponseStatus_ =
   UpdateDocumentDefaultVersionResponse'
-    { _uddvrsDescription =
-        Nothing,
-      _uddvrsResponseStatus = pResponseStatus_
+    { description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The description of a custom document that you want to set as the default version.
-uddvrsDescription :: Lens' UpdateDocumentDefaultVersionResponse (Maybe DocumentDefaultVersionDescription)
-uddvrsDescription = lens _uddvrsDescription (\s a -> s {_uddvrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddvrsDescription :: Lens.Lens' UpdateDocumentDefaultVersionResponse (Lude.Maybe DocumentDefaultVersionDescription)
+uddvrsDescription = Lens.lens (description :: UpdateDocumentDefaultVersionResponse -> Lude.Maybe DocumentDefaultVersionDescription) (\s a -> s {description = a} :: UpdateDocumentDefaultVersionResponse)
+{-# DEPRECATED uddvrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-uddvrsResponseStatus :: Lens' UpdateDocumentDefaultVersionResponse Int
-uddvrsResponseStatus = lens _uddvrsResponseStatus (\s a -> s {_uddvrsResponseStatus = a})
-
-instance NFData UpdateDocumentDefaultVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddvrsResponseStatus :: Lens.Lens' UpdateDocumentDefaultVersionResponse Lude.Int
+uddvrsResponseStatus = Lens.lens (responseStatus :: UpdateDocumentDefaultVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDocumentDefaultVersionResponse)
+{-# DEPRECATED uddvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

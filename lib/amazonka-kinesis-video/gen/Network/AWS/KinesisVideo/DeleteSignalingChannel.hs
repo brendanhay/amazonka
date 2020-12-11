@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,130 @@
 --
 -- Deletes a specified signaling channel. @DeleteSignalingChannel@ is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.
 module Network.AWS.KinesisVideo.DeleteSignalingChannel
-  ( -- * Creating a Request
-    deleteSignalingChannel,
-    DeleteSignalingChannel,
+  ( -- * Creating a request
+    DeleteSignalingChannel (..),
+    mkDeleteSignalingChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dscCurrentVersion,
     dscChannelARN,
 
-    -- * Destructuring the Response
-    deleteSignalingChannelResponse,
-    DeleteSignalingChannelResponse,
+    -- * Destructuring the response
+    DeleteSignalingChannelResponse (..),
+    mkDeleteSignalingChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dscrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSignalingChannel' smart constructor.
+-- | /See:/ 'mkDeleteSignalingChannel' smart constructor.
 data DeleteSignalingChannel = DeleteSignalingChannel'
-  { _dscCurrentVersion ::
-      !(Maybe Text),
-    _dscChannelARN :: !Text
+  { currentVersion ::
+      Lude.Maybe Lude.Text,
+    channelARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSignalingChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscCurrentVersion' - The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.
---
--- * 'dscChannelARN' - The Amazon Resource Name (ARN) of the signaling channel that you want to delete.
-deleteSignalingChannel ::
-  -- | 'dscChannelARN'
-  Text ->
+-- * 'channelARN' - The Amazon Resource Name (ARN) of the signaling channel that you want to delete.
+-- * 'currentVersion' - The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.
+mkDeleteSignalingChannel ::
+  -- | 'channelARN'
+  Lude.Text ->
   DeleteSignalingChannel
-deleteSignalingChannel pChannelARN_ =
+mkDeleteSignalingChannel pChannelARN_ =
   DeleteSignalingChannel'
-    { _dscCurrentVersion = Nothing,
-      _dscChannelARN = pChannelARN_
+    { currentVersion = Lude.Nothing,
+      channelARN = pChannelARN_
     }
 
 -- | The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.
-dscCurrentVersion :: Lens' DeleteSignalingChannel (Maybe Text)
-dscCurrentVersion = lens _dscCurrentVersion (\s a -> s {_dscCurrentVersion = a})
+--
+-- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscCurrentVersion :: Lens.Lens' DeleteSignalingChannel (Lude.Maybe Lude.Text)
+dscCurrentVersion = Lens.lens (currentVersion :: DeleteSignalingChannel -> Lude.Maybe Lude.Text) (\s a -> s {currentVersion = a} :: DeleteSignalingChannel)
+{-# DEPRECATED dscCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the signaling channel that you want to delete.
-dscChannelARN :: Lens' DeleteSignalingChannel Text
-dscChannelARN = lens _dscChannelARN (\s a -> s {_dscChannelARN = a})
+--
+-- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscChannelARN :: Lens.Lens' DeleteSignalingChannel Lude.Text
+dscChannelARN = Lens.lens (channelARN :: DeleteSignalingChannel -> Lude.Text) (\s a -> s {channelARN = a} :: DeleteSignalingChannel)
+{-# DEPRECATED dscChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
-instance AWSRequest DeleteSignalingChannel where
+instance Lude.AWSRequest DeleteSignalingChannel where
   type Rs DeleteSignalingChannel = DeleteSignalingChannelResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteSignalingChannelResponse' <$> (pure (fromEnum s))
+          DeleteSignalingChannelResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSignalingChannel
+instance Lude.ToHeaders DeleteSignalingChannel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSignalingChannel
-
-instance ToHeaders DeleteSignalingChannel where
-  toHeaders = const mempty
-
-instance ToJSON DeleteSignalingChannel where
+instance Lude.ToJSON DeleteSignalingChannel where
   toJSON DeleteSignalingChannel' {..} =
-    object
-      ( catMaybes
-          [ ("CurrentVersion" .=) <$> _dscCurrentVersion,
-            Just ("ChannelARN" .= _dscChannelARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CurrentVersion" Lude..=) Lude.<$> currentVersion,
+            Lude.Just ("ChannelARN" Lude..= channelARN)
           ]
       )
 
-instance ToPath DeleteSignalingChannel where
-  toPath = const "/deleteSignalingChannel"
+instance Lude.ToPath DeleteSignalingChannel where
+  toPath = Lude.const "/deleteSignalingChannel"
 
-instance ToQuery DeleteSignalingChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSignalingChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSignalingChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteSignalingChannelResponse' smart constructor.
 newtype DeleteSignalingChannelResponse = DeleteSignalingChannelResponse'
-  { _dscrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSignalingChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscrsResponseStatus' - -- | The response status code.
-deleteSignalingChannelResponse ::
-  -- | 'dscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSignalingChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSignalingChannelResponse
-deleteSignalingChannelResponse pResponseStatus_ =
+mkDeleteSignalingChannelResponse pResponseStatus_ =
   DeleteSignalingChannelResponse'
-    { _dscrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dscrsResponseStatus :: Lens' DeleteSignalingChannelResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\s a -> s {_dscrsResponseStatus = a})
-
-instance NFData DeleteSignalingChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscrsResponseStatus :: Lens.Lens' DeleteSignalingChannelResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSignalingChannelResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

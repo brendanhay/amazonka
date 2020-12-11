@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ActionThreshold where
+module Network.AWS.Budgets.Types.ActionThreshold
+  ( ActionThreshold (..),
+
+    -- * Smart constructor
+    mkActionThreshold,
+
+    -- * Lenses
+    atActionThresholdValue,
+    atActionThresholdType,
+  )
+where
 
 import Network.AWS.Budgets.Types.ThresholdType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The trigger threshold of the action.
 --
---
---
--- /See:/ 'actionThreshold' smart constructor.
+-- /See:/ 'mkActionThreshold' smart constructor.
 data ActionThreshold = ActionThreshold'
-  { _atActionThresholdValue ::
-      !Double,
-    _atActionThresholdType :: !ThresholdType
+  { actionThresholdValue ::
+      Lude.Double,
+    actionThresholdType :: ThresholdType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionThreshold' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atActionThresholdValue' - Undocumented member.
---
--- * 'atActionThresholdType' - Undocumented member.
-actionThreshold ::
-  -- | 'atActionThresholdValue'
-  Double ->
-  -- | 'atActionThresholdType'
+-- * 'actionThresholdType' - Undocumented field.
+-- * 'actionThresholdValue' - Undocumented field.
+mkActionThreshold ::
+  -- | 'actionThresholdValue'
+  Lude.Double ->
+  -- | 'actionThresholdType'
   ThresholdType ->
   ActionThreshold
-actionThreshold pActionThresholdValue_ pActionThresholdType_ =
+mkActionThreshold pActionThresholdValue_ pActionThresholdType_ =
   ActionThreshold'
-    { _atActionThresholdValue =
-        pActionThresholdValue_,
-      _atActionThresholdType = pActionThresholdType_
+    { actionThresholdValue = pActionThresholdValue_,
+      actionThresholdType = pActionThresholdType_
     }
 
--- | Undocumented member.
-atActionThresholdValue :: Lens' ActionThreshold Double
-atActionThresholdValue = lens _atActionThresholdValue (\s a -> s {_atActionThresholdValue = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'actionThresholdValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atActionThresholdValue :: Lens.Lens' ActionThreshold Lude.Double
+atActionThresholdValue = Lens.lens (actionThresholdValue :: ActionThreshold -> Lude.Double) (\s a -> s {actionThresholdValue = a} :: ActionThreshold)
+{-# DEPRECATED atActionThresholdValue "Use generic-lens or generic-optics with 'actionThresholdValue' instead." #-}
 
--- | Undocumented member.
-atActionThresholdType :: Lens' ActionThreshold ThresholdType
-atActionThresholdType = lens _atActionThresholdType (\s a -> s {_atActionThresholdType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'actionThresholdType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atActionThresholdType :: Lens.Lens' ActionThreshold ThresholdType
+atActionThresholdType = Lens.lens (actionThresholdType :: ActionThreshold -> ThresholdType) (\s a -> s {actionThresholdType = a} :: ActionThreshold)
+{-# DEPRECATED atActionThresholdType "Use generic-lens or generic-optics with 'actionThresholdType' instead." #-}
 
-instance FromJSON ActionThreshold where
+instance Lude.FromJSON ActionThreshold where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionThreshold"
       ( \x ->
           ActionThreshold'
-            <$> (x .: "ActionThresholdValue") <*> (x .: "ActionThresholdType")
+            Lude.<$> (x Lude..: "ActionThresholdValue")
+            Lude.<*> (x Lude..: "ActionThresholdType")
       )
 
-instance Hashable ActionThreshold
-
-instance NFData ActionThreshold
-
-instance ToJSON ActionThreshold where
+instance Lude.ToJSON ActionThreshold where
   toJSON ActionThreshold' {..} =
-    object
-      ( catMaybes
-          [ Just ("ActionThresholdValue" .= _atActionThresholdValue),
-            Just ("ActionThresholdType" .= _atActionThresholdType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ActionThresholdValue" Lude..= actionThresholdValue),
+            Lude.Just ("ActionThresholdType" Lude..= actionThresholdType)
           ]
       )

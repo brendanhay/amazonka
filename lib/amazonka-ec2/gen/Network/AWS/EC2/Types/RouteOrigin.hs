@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RouteOrigin where
+module Network.AWS.EC2.Types.RouteOrigin
+  ( RouteOrigin
+      ( RouteOrigin',
+        CreateRoute,
+        CreateRouteTable,
+        EnableVGWRoutePropagation
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RouteOrigin
-  = CreateRoute
-  | CreateRouteTable
-  | EnableVGWRoutePropagation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RouteOrigin = RouteOrigin' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RouteOrigin where
-  parser =
-    takeLowerText >>= \case
-      "createroute" -> pure CreateRoute
-      "createroutetable" -> pure CreateRouteTable
-      "enablevgwroutepropagation" -> pure EnableVGWRoutePropagation
-      e ->
-        fromTextError $
-          "Failure parsing RouteOrigin from value: '" <> e
-            <> "'. Accepted values: createroute, createroutetable, enablevgwroutepropagation"
+pattern CreateRoute :: RouteOrigin
+pattern CreateRoute = RouteOrigin' "CreateRoute"
 
-instance ToText RouteOrigin where
-  toText = \case
-    CreateRoute -> "CreateRoute"
-    CreateRouteTable -> "CreateRouteTable"
-    EnableVGWRoutePropagation -> "EnableVgwRoutePropagation"
+pattern CreateRouteTable :: RouteOrigin
+pattern CreateRouteTable = RouteOrigin' "CreateRouteTable"
 
-instance Hashable RouteOrigin
+pattern EnableVGWRoutePropagation :: RouteOrigin
+pattern EnableVGWRoutePropagation = RouteOrigin' "EnableVgwRoutePropagation"
 
-instance NFData RouteOrigin
-
-instance ToByteString RouteOrigin
-
-instance ToQuery RouteOrigin
-
-instance ToHeader RouteOrigin
-
-instance FromXML RouteOrigin where
-  parseXML = parseXMLText "RouteOrigin"
+{-# COMPLETE
+  CreateRoute,
+  CreateRouteTable,
+  EnableVGWRoutePropagation,
+  RouteOrigin'
+  #-}

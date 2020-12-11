@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior where
+module Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior
+  ( OriginRequestPolicyCookieBehavior
+      ( OriginRequestPolicyCookieBehavior',
+        ORPCBAll,
+        ORPCBNone,
+        ORPCBWhitelist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OriginRequestPolicyCookieBehavior
-  = ORPCBAll
-  | ORPCBNone
-  | ORPCBWhitelist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OriginRequestPolicyCookieBehavior = OriginRequestPolicyCookieBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OriginRequestPolicyCookieBehavior where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure ORPCBAll
-      "none" -> pure ORPCBNone
-      "whitelist" -> pure ORPCBWhitelist
-      e ->
-        fromTextError $
-          "Failure parsing OriginRequestPolicyCookieBehavior from value: '" <> e
-            <> "'. Accepted values: all, none, whitelist"
+pattern ORPCBAll :: OriginRequestPolicyCookieBehavior
+pattern ORPCBAll = OriginRequestPolicyCookieBehavior' "all"
 
-instance ToText OriginRequestPolicyCookieBehavior where
-  toText = \case
-    ORPCBAll -> "all"
-    ORPCBNone -> "none"
-    ORPCBWhitelist -> "whitelist"
+pattern ORPCBNone :: OriginRequestPolicyCookieBehavior
+pattern ORPCBNone = OriginRequestPolicyCookieBehavior' "none"
 
-instance Hashable OriginRequestPolicyCookieBehavior
+pattern ORPCBWhitelist :: OriginRequestPolicyCookieBehavior
+pattern ORPCBWhitelist = OriginRequestPolicyCookieBehavior' "whitelist"
 
-instance NFData OriginRequestPolicyCookieBehavior
-
-instance ToByteString OriginRequestPolicyCookieBehavior
-
-instance ToQuery OriginRequestPolicyCookieBehavior
-
-instance ToHeader OriginRequestPolicyCookieBehavior
-
-instance FromXML OriginRequestPolicyCookieBehavior where
-  parseXML = parseXMLText "OriginRequestPolicyCookieBehavior"
-
-instance ToXML OriginRequestPolicyCookieBehavior where
-  toXML = toXMLText
+{-# COMPLETE
+  ORPCBAll,
+  ORPCBNone,
+  ORPCBWhitelist,
+  OriginRequestPolicyCookieBehavior'
+  #-}

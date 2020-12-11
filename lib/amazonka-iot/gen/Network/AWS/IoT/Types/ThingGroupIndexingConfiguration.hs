@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingGroupIndexingConfiguration where
+module Network.AWS.IoT.Types.ThingGroupIndexingConfiguration
+  ( ThingGroupIndexingConfiguration (..),
+
+    -- * Smart constructor
+    mkThingGroupIndexingConfiguration,
+
+    -- * Lenses
+    tgicManagedFields,
+    tgicCustomFields,
+    tgicThingGroupIndexingMode,
+  )
+where
 
 import Network.AWS.IoT.Types.Field
 import Network.AWS.IoT.Types.ThingGroupIndexingMode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Thing group indexing configuration.
 --
---
---
--- /See:/ 'thingGroupIndexingConfiguration' smart constructor.
+-- /See:/ 'mkThingGroupIndexingConfiguration' smart constructor.
 data ThingGroupIndexingConfiguration = ThingGroupIndexingConfiguration'
-  { _tgicManagedFields ::
-      !(Maybe [Field]),
-    _tgicCustomFields ::
-      !(Maybe [Field]),
-    _tgicThingGroupIndexingMode ::
-      !ThingGroupIndexingMode
+  { managedFields ::
+      Lude.Maybe [Field],
+    customFields ::
+      Lude.Maybe [Field],
+    thingGroupIndexingMode ::
+      ThingGroupIndexingMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupIndexingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'customFields' - A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.
 --
--- * 'tgicManagedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
---
--- * 'tgicCustomFields' - A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields. Contains custom field names and their data type.
---
--- * 'tgicThingGroupIndexingMode' - Thing group indexing mode.
-thingGroupIndexingConfiguration ::
-  -- | 'tgicThingGroupIndexingMode'
+-- Contains custom field names and their data type.
+-- * 'managedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
+-- * 'thingGroupIndexingMode' - Thing group indexing mode.
+mkThingGroupIndexingConfiguration ::
+  -- | 'thingGroupIndexingMode'
   ThingGroupIndexingMode ->
   ThingGroupIndexingConfiguration
-thingGroupIndexingConfiguration pThingGroupIndexingMode_ =
+mkThingGroupIndexingConfiguration pThingGroupIndexingMode_ =
   ThingGroupIndexingConfiguration'
-    { _tgicManagedFields = Nothing,
-      _tgicCustomFields = Nothing,
-      _tgicThingGroupIndexingMode = pThingGroupIndexingMode_
+    { managedFields = Lude.Nothing,
+      customFields = Lude.Nothing,
+      thingGroupIndexingMode = pThingGroupIndexingMode_
     }
 
 -- | Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
-tgicManagedFields :: Lens' ThingGroupIndexingConfiguration [Field]
-tgicManagedFields = lens _tgicManagedFields (\s a -> s {_tgicManagedFields = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'managedFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgicManagedFields :: Lens.Lens' ThingGroupIndexingConfiguration (Lude.Maybe [Field])
+tgicManagedFields = Lens.lens (managedFields :: ThingGroupIndexingConfiguration -> Lude.Maybe [Field]) (\s a -> s {managedFields = a} :: ThingGroupIndexingConfiguration)
+{-# DEPRECATED tgicManagedFields "Use generic-lens or generic-optics with 'managedFields' instead." #-}
 
--- | A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields. Contains custom field names and their data type.
-tgicCustomFields :: Lens' ThingGroupIndexingConfiguration [Field]
-tgicCustomFields = lens _tgicCustomFields (\s a -> s {_tgicCustomFields = a}) . _Default . _Coerce
+-- | A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.
+--
+-- Contains custom field names and their data type.
+--
+-- /Note:/ Consider using 'customFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgicCustomFields :: Lens.Lens' ThingGroupIndexingConfiguration (Lude.Maybe [Field])
+tgicCustomFields = Lens.lens (customFields :: ThingGroupIndexingConfiguration -> Lude.Maybe [Field]) (\s a -> s {customFields = a} :: ThingGroupIndexingConfiguration)
+{-# DEPRECATED tgicCustomFields "Use generic-lens or generic-optics with 'customFields' instead." #-}
 
 -- | Thing group indexing mode.
-tgicThingGroupIndexingMode :: Lens' ThingGroupIndexingConfiguration ThingGroupIndexingMode
-tgicThingGroupIndexingMode = lens _tgicThingGroupIndexingMode (\s a -> s {_tgicThingGroupIndexingMode = a})
+--
+-- /Note:/ Consider using 'thingGroupIndexingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgicThingGroupIndexingMode :: Lens.Lens' ThingGroupIndexingConfiguration ThingGroupIndexingMode
+tgicThingGroupIndexingMode = Lens.lens (thingGroupIndexingMode :: ThingGroupIndexingConfiguration -> ThingGroupIndexingMode) (\s a -> s {thingGroupIndexingMode = a} :: ThingGroupIndexingConfiguration)
+{-# DEPRECATED tgicThingGroupIndexingMode "Use generic-lens or generic-optics with 'thingGroupIndexingMode' instead." #-}
 
-instance FromJSON ThingGroupIndexingConfiguration where
+instance Lude.FromJSON ThingGroupIndexingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThingGroupIndexingConfiguration"
       ( \x ->
           ThingGroupIndexingConfiguration'
-            <$> (x .:? "managedFields" .!= mempty)
-            <*> (x .:? "customFields" .!= mempty)
-            <*> (x .: "thingGroupIndexingMode")
+            Lude.<$> (x Lude..:? "managedFields" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "customFields" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "thingGroupIndexingMode")
       )
 
-instance Hashable ThingGroupIndexingConfiguration
-
-instance NFData ThingGroupIndexingConfiguration
-
-instance ToJSON ThingGroupIndexingConfiguration where
+instance Lude.ToJSON ThingGroupIndexingConfiguration where
   toJSON ThingGroupIndexingConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("managedFields" .=) <$> _tgicManagedFields,
-            ("customFields" .=) <$> _tgicCustomFields,
-            Just ("thingGroupIndexingMode" .= _tgicThingGroupIndexingMode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("managedFields" Lude..=) Lude.<$> managedFields,
+            ("customFields" Lude..=) Lude.<$> customFields,
+            Lude.Just
+              ("thingGroupIndexingMode" Lude..= thingGroupIndexingMode)
           ]
       )

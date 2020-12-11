@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexOutputDestination where
+module Network.AWS.MediaLive.Types.MultiplexOutputDestination
+  ( MultiplexOutputDestination (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMultiplexOutputDestination,
+
+    -- * Lenses
+    modMediaConnectSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Multiplex output destination settings
 --
--- /See:/ 'multiplexOutputDestination' smart constructor.
+-- /See:/ 'mkMultiplexOutputDestination' smart constructor.
 newtype MultiplexOutputDestination = MultiplexOutputDestination'
-  { _modMediaConnectSettings ::
-      Maybe
+  { mediaConnectSettings ::
+      Lude.Maybe
         MultiplexMediaConnectOutputDestinationSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexOutputDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'modMediaConnectSettings' - Multiplex MediaConnect output destination settings.
-multiplexOutputDestination ::
+-- * 'mediaConnectSettings' - Multiplex MediaConnect output destination settings.
+mkMultiplexOutputDestination ::
   MultiplexOutputDestination
-multiplexOutputDestination =
-  MultiplexOutputDestination' {_modMediaConnectSettings = Nothing}
+mkMultiplexOutputDestination =
+  MultiplexOutputDestination' {mediaConnectSettings = Lude.Nothing}
 
 -- | Multiplex MediaConnect output destination settings.
-modMediaConnectSettings :: Lens' MultiplexOutputDestination (Maybe MultiplexMediaConnectOutputDestinationSettings)
-modMediaConnectSettings = lens _modMediaConnectSettings (\s a -> s {_modMediaConnectSettings = a})
+--
+-- /Note:/ Consider using 'mediaConnectSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+modMediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Lude.Maybe MultiplexMediaConnectOutputDestinationSettings)
+modMediaConnectSettings = Lens.lens (mediaConnectSettings :: MultiplexOutputDestination -> Lude.Maybe MultiplexMediaConnectOutputDestinationSettings) (\s a -> s {mediaConnectSettings = a} :: MultiplexOutputDestination)
+{-# DEPRECATED modMediaConnectSettings "Use generic-lens or generic-optics with 'mediaConnectSettings' instead." #-}
 
-instance FromJSON MultiplexOutputDestination where
+instance Lude.FromJSON MultiplexOutputDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexOutputDestination"
       ( \x ->
-          MultiplexOutputDestination' <$> (x .:? "mediaConnectSettings")
+          MultiplexOutputDestination'
+            Lude.<$> (x Lude..:? "mediaConnectSettings")
       )
-
-instance Hashable MultiplexOutputDestination
-
-instance NFData MultiplexOutputDestination

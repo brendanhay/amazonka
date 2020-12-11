@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,111 @@
 --
 -- Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must first be registered with the stack by calling 'RegisterVolume' . After you register the volume, you must call 'UpdateVolume' to specify a mount point before calling @AssignVolume@ . For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.AssignVolume
-  ( -- * Creating a Request
-    assignVolume,
-    AssignVolume,
+  ( -- * Creating a request
+    AssignVolume (..),
+    mkAssignVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     avInstanceId,
     avVolumeId,
 
-    -- * Destructuring the Response
-    assignVolumeResponse,
-    AssignVolumeResponse,
+    -- * Destructuring the response
+    AssignVolumeResponse (..),
+    mkAssignVolumeResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'assignVolume' smart constructor.
+-- | /See:/ 'mkAssignVolume' smart constructor.
 data AssignVolume = AssignVolume'
-  { _avInstanceId :: !(Maybe Text),
-    _avVolumeId :: !Text
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    volumeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avInstanceId' - The instance ID.
---
--- * 'avVolumeId' - The volume ID.
-assignVolume ::
-  -- | 'avVolumeId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+-- * 'volumeId' - The volume ID.
+mkAssignVolume ::
+  -- | 'volumeId'
+  Lude.Text ->
   AssignVolume
-assignVolume pVolumeId_ =
-  AssignVolume' {_avInstanceId = Nothing, _avVolumeId = pVolumeId_}
+mkAssignVolume pVolumeId_ =
+  AssignVolume' {instanceId = Lude.Nothing, volumeId = pVolumeId_}
 
 -- | The instance ID.
-avInstanceId :: Lens' AssignVolume (Maybe Text)
-avInstanceId = lens _avInstanceId (\s a -> s {_avInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avInstanceId :: Lens.Lens' AssignVolume (Lude.Maybe Lude.Text)
+avInstanceId = Lens.lens (instanceId :: AssignVolume -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: AssignVolume)
+{-# DEPRECATED avInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The volume ID.
-avVolumeId :: Lens' AssignVolume Text
-avVolumeId = lens _avVolumeId (\s a -> s {_avVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avVolumeId :: Lens.Lens' AssignVolume Lude.Text
+avVolumeId = Lens.lens (volumeId :: AssignVolume -> Lude.Text) (\s a -> s {volumeId = a} :: AssignVolume)
+{-# DEPRECATED avVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest AssignVolume where
+instance Lude.AWSRequest AssignVolume where
   type Rs AssignVolume = AssignVolumeResponse
-  request = postJSON opsWorks
-  response = receiveNull AssignVolumeResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull AssignVolumeResponse'
 
-instance Hashable AssignVolume
-
-instance NFData AssignVolume
-
-instance ToHeaders AssignVolume where
+instance Lude.ToHeaders AssignVolume where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.AssignVolume" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.AssignVolume" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssignVolume where
+instance Lude.ToJSON AssignVolume where
   toJSON AssignVolume' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceId" .=) <$> _avInstanceId,
-            Just ("VolumeId" .= _avVolumeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceId" Lude..=) Lude.<$> instanceId,
+            Lude.Just ("VolumeId" Lude..= volumeId)
           ]
       )
 
-instance ToPath AssignVolume where
-  toPath = const "/"
+instance Lude.ToPath AssignVolume where
+  toPath = Lude.const "/"
 
-instance ToQuery AssignVolume where
-  toQuery = const mempty
+instance Lude.ToQuery AssignVolume where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'assignVolumeResponse' smart constructor.
+-- | /See:/ 'mkAssignVolumeResponse' smart constructor.
 data AssignVolumeResponse = AssignVolumeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignVolumeResponse' with the minimum fields required to make a request.
-assignVolumeResponse ::
+mkAssignVolumeResponse ::
   AssignVolumeResponse
-assignVolumeResponse = AssignVolumeResponse'
-
-instance NFData AssignVolumeResponse
+mkAssignVolumeResponse = AssignVolumeResponse'

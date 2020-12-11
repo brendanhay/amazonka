@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TechnicalCueSegment where
+module Network.AWS.Rekognition.Types.TechnicalCueSegment
+  ( TechnicalCueSegment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTechnicalCueSegment,
+
+    -- * Lenses
+    tcsConfidence,
+    tcsType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.TechnicalCueType
 
 -- | Information about a technical cue segment. For more information, see 'SegmentDetection' .
 --
---
---
--- /See:/ 'technicalCueSegment' smart constructor.
+-- /See:/ 'mkTechnicalCueSegment' smart constructor.
 data TechnicalCueSegment = TechnicalCueSegment'
-  { _tcsConfidence ::
-      !(Maybe Double),
-    _tcsType :: !(Maybe TechnicalCueType)
+  { confidence ::
+      Lude.Maybe Lude.Double,
+    type' :: Lude.Maybe TechnicalCueType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TechnicalCueSegment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcsConfidence' - The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
---
--- * 'tcsType' - The type of the technical cue.
-technicalCueSegment ::
+-- * 'confidence' - The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
+-- * 'type'' - The type of the technical cue.
+mkTechnicalCueSegment ::
   TechnicalCueSegment
-technicalCueSegment =
+mkTechnicalCueSegment =
   TechnicalCueSegment'
-    { _tcsConfidence = Nothing,
-      _tcsType = Nothing
+    { confidence = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
-tcsConfidence :: Lens' TechnicalCueSegment (Maybe Double)
-tcsConfidence = lens _tcsConfidence (\s a -> s {_tcsConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsConfidence :: Lens.Lens' TechnicalCueSegment (Lude.Maybe Lude.Double)
+tcsConfidence = Lens.lens (confidence :: TechnicalCueSegment -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: TechnicalCueSegment)
+{-# DEPRECATED tcsConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | The type of the technical cue.
-tcsType :: Lens' TechnicalCueSegment (Maybe TechnicalCueType)
-tcsType = lens _tcsType (\s a -> s {_tcsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsType :: Lens.Lens' TechnicalCueSegment (Lude.Maybe TechnicalCueType)
+tcsType = Lens.lens (type' :: TechnicalCueSegment -> Lude.Maybe TechnicalCueType) (\s a -> s {type' = a} :: TechnicalCueSegment)
+{-# DEPRECATED tcsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON TechnicalCueSegment where
+instance Lude.FromJSON TechnicalCueSegment where
   parseJSON =
-    withObject
+    Lude.withObject
       "TechnicalCueSegment"
       ( \x ->
-          TechnicalCueSegment' <$> (x .:? "Confidence") <*> (x .:? "Type")
+          TechnicalCueSegment'
+            Lude.<$> (x Lude..:? "Confidence") Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable TechnicalCueSegment
-
-instance NFData TechnicalCueSegment

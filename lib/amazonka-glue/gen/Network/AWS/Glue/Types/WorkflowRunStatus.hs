@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.WorkflowRunStatus where
+module Network.AWS.Glue.Types.WorkflowRunStatus
+  ( WorkflowRunStatus
+      ( WorkflowRunStatus',
+        WRSCompleted,
+        WRSError,
+        WRSRunning,
+        WRSStopped,
+        WRSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkflowRunStatus
-  = WRSCompleted
-  | WRSError'
-  | WRSRunning
-  | WRSStopped
-  | WRSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkflowRunStatus = WorkflowRunStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkflowRunStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure WRSCompleted
-      "error" -> pure WRSError'
-      "running" -> pure WRSRunning
-      "stopped" -> pure WRSStopped
-      "stopping" -> pure WRSStopping
-      e ->
-        fromTextError $
-          "Failure parsing WorkflowRunStatus from value: '" <> e
-            <> "'. Accepted values: completed, error, running, stopped, stopping"
+pattern WRSCompleted :: WorkflowRunStatus
+pattern WRSCompleted = WorkflowRunStatus' "COMPLETED"
 
-instance ToText WorkflowRunStatus where
-  toText = \case
-    WRSCompleted -> "COMPLETED"
-    WRSError' -> "ERROR"
-    WRSRunning -> "RUNNING"
-    WRSStopped -> "STOPPED"
-    WRSStopping -> "STOPPING"
+pattern WRSError :: WorkflowRunStatus
+pattern WRSError = WorkflowRunStatus' "ERROR"
 
-instance Hashable WorkflowRunStatus
+pattern WRSRunning :: WorkflowRunStatus
+pattern WRSRunning = WorkflowRunStatus' "RUNNING"
 
-instance NFData WorkflowRunStatus
+pattern WRSStopped :: WorkflowRunStatus
+pattern WRSStopped = WorkflowRunStatus' "STOPPED"
 
-instance ToByteString WorkflowRunStatus
+pattern WRSStopping :: WorkflowRunStatus
+pattern WRSStopping = WorkflowRunStatus' "STOPPING"
 
-instance ToQuery WorkflowRunStatus
-
-instance ToHeader WorkflowRunStatus
-
-instance FromJSON WorkflowRunStatus where
-  parseJSON = parseJSONText "WorkflowRunStatus"
+{-# COMPLETE
+  WRSCompleted,
+  WRSError,
+  WRSRunning,
+  WRSStopped,
+  WRSStopping,
+  WorkflowRunStatus'
+  #-}

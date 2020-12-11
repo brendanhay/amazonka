@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,125 @@
 --
 -- Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
 module Network.AWS.MediaConvert.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trARN,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     trrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trARN :: !Text,
-    _trTags :: !(Map Text (Text))
+  { arn :: Lude.Text,
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trARN' - The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
---
--- * 'trTags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-tagResource ::
-  -- | 'trARN'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
+-- * 'tags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+mkTagResource ::
+  -- | 'arn'
+  Lude.Text ->
   TagResource
-tagResource pARN_ = TagResource' {_trARN = pARN_, _trTags = mempty}
+mkTagResource pARN_ = TagResource' {arn = pARN_, tags = Lude.mempty}
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
-trARN :: Lens' TagResource Text
-trARN = lens _trARN (\s a -> s {_trARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trARN :: Lens.Lens' TagResource Lude.Text
+trARN = Lens.lens (arn :: TagResource -> Lude.Text) (\s a -> s {arn = a} :: TagResource)
+{-# DEPRECATED trARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-trTags :: Lens' TagResource (HashMap Text (Text))
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource (Lude.HashMap Lude.Text (Lude.Text))
+trTags = Lens.lens (tags :: TagResource -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON mediaConvert
+  request = Req.postJSON mediaConvertService
   response =
-    receiveEmpty
-      (\s h x -> TagResourceResponse' <$> (pure (fromEnum s)))
-
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON TagResource where
+instance Lude.ToHeaders TagResource where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
-    object
-      (catMaybes [Just ("arn" .= _trARN), Just ("tags" .= _trTags)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("arn" Lude..= arn), Lude.Just ("tags" Lude..= tags)]
+      )
 
-instance ToPath TagResource where
-  toPath = const "/2017-08-29/tags"
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/2017-08-29/tags"
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse ::
-  -- | 'trrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkTagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+mkTagResourceResponse pResponseStatus_ =
+  TagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\s a -> s {_trrsResponseStatus = a})
-
-instance NFData TagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
+trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
+{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

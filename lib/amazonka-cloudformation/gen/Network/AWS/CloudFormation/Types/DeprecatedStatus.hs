@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.DeprecatedStatus where
+module Network.AWS.CloudFormation.Types.DeprecatedStatus
+  ( DeprecatedStatus
+      ( DeprecatedStatus',
+        Deprecated,
+        Live
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeprecatedStatus
-  = Deprecated
-  | Live
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeprecatedStatus = DeprecatedStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeprecatedStatus where
-  parser =
-    takeLowerText >>= \case
-      "deprecated" -> pure Deprecated
-      "live" -> pure Live
-      e ->
-        fromTextError $
-          "Failure parsing DeprecatedStatus from value: '" <> e
-            <> "'. Accepted values: deprecated, live"
+pattern Deprecated :: DeprecatedStatus
+pattern Deprecated = DeprecatedStatus' "DEPRECATED"
 
-instance ToText DeprecatedStatus where
-  toText = \case
-    Deprecated -> "DEPRECATED"
-    Live -> "LIVE"
+pattern Live :: DeprecatedStatus
+pattern Live = DeprecatedStatus' "LIVE"
 
-instance Hashable DeprecatedStatus
-
-instance NFData DeprecatedStatus
-
-instance ToByteString DeprecatedStatus
-
-instance ToQuery DeprecatedStatus
-
-instance ToHeader DeprecatedStatus
-
-instance FromXML DeprecatedStatus where
-  parseXML = parseXMLText "DeprecatedStatus"
+{-# COMPLETE
+  Deprecated,
+  Live,
+  DeprecatedStatus'
+  #-}

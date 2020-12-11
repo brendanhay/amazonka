@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationExecutionStatus where
+module Network.AWS.Config.Types.RemediationExecutionStatus
+  ( RemediationExecutionStatus (..),
+
+    -- * Smart constructor
+    mkRemediationExecutionStatus,
+
+    -- * Lenses
+    rState,
+    rLastUpdatedTime,
+    rResourceKey,
+    rStepDetails,
+    rInvocationTime,
+  )
+where
 
 import Network.AWS.Config.Types.RemediationExecutionState
 import Network.AWS.Config.Types.RemediationExecutionStep
 import Network.AWS.Config.Types.ResourceKey
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides details of the current status of the invoked remediation action for that resource.
 --
---
---
--- /See:/ 'remediationExecutionStatus' smart constructor.
+-- /See:/ 'mkRemediationExecutionStatus' smart constructor.
 data RemediationExecutionStatus = RemediationExecutionStatus'
-  { _rState ::
-      !(Maybe RemediationExecutionState),
-    _rLastUpdatedTime :: !(Maybe POSIX),
-    _rResourceKey :: !(Maybe ResourceKey),
-    _rStepDetails ::
-      !(Maybe [RemediationExecutionStep]),
-    _rInvocationTime :: !(Maybe POSIX)
+  { state ::
+      Lude.Maybe RemediationExecutionState,
+    lastUpdatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    resourceKey :: Lude.Maybe ResourceKey,
+    stepDetails ::
+      Lude.Maybe [RemediationExecutionStep],
+    invocationTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationExecutionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rState' - ENUM of the values.
---
--- * 'rLastUpdatedTime' - The time when the remediation execution was last updated.
---
--- * 'rResourceKey' - Undocumented member.
---
--- * 'rStepDetails' - Details of every step.
---
--- * 'rInvocationTime' - Start time when the remediation was executed.
-remediationExecutionStatus ::
+-- * 'invocationTime' - Start time when the remediation was executed.
+-- * 'lastUpdatedTime' - The time when the remediation execution was last updated.
+-- * 'resourceKey' - Undocumented field.
+-- * 'state' - ENUM of the values.
+-- * 'stepDetails' - Details of every step.
+mkRemediationExecutionStatus ::
   RemediationExecutionStatus
-remediationExecutionStatus =
+mkRemediationExecutionStatus =
   RemediationExecutionStatus'
-    { _rState = Nothing,
-      _rLastUpdatedTime = Nothing,
-      _rResourceKey = Nothing,
-      _rStepDetails = Nothing,
-      _rInvocationTime = Nothing
+    { state = Lude.Nothing,
+      lastUpdatedTime = Lude.Nothing,
+      resourceKey = Lude.Nothing,
+      stepDetails = Lude.Nothing,
+      invocationTime = Lude.Nothing
     }
 
 -- | ENUM of the values.
-rState :: Lens' RemediationExecutionStatus (Maybe RemediationExecutionState)
-rState = lens _rState (\s a -> s {_rState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rState :: Lens.Lens' RemediationExecutionStatus (Lude.Maybe RemediationExecutionState)
+rState = Lens.lens (state :: RemediationExecutionStatus -> Lude.Maybe RemediationExecutionState) (\s a -> s {state = a} :: RemediationExecutionStatus)
+{-# DEPRECATED rState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The time when the remediation execution was last updated.
-rLastUpdatedTime :: Lens' RemediationExecutionStatus (Maybe UTCTime)
-rLastUpdatedTime = lens _rLastUpdatedTime (\s a -> s {_rLastUpdatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rLastUpdatedTime :: Lens.Lens' RemediationExecutionStatus (Lude.Maybe Lude.Timestamp)
+rLastUpdatedTime = Lens.lens (lastUpdatedTime :: RemediationExecutionStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: RemediationExecutionStatus)
+{-# DEPRECATED rLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
--- | Undocumented member.
-rResourceKey :: Lens' RemediationExecutionStatus (Maybe ResourceKey)
-rResourceKey = lens _rResourceKey (\s a -> s {_rResourceKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceKey :: Lens.Lens' RemediationExecutionStatus (Lude.Maybe ResourceKey)
+rResourceKey = Lens.lens (resourceKey :: RemediationExecutionStatus -> Lude.Maybe ResourceKey) (\s a -> s {resourceKey = a} :: RemediationExecutionStatus)
+{-# DEPRECATED rResourceKey "Use generic-lens or generic-optics with 'resourceKey' instead." #-}
 
 -- | Details of every step.
-rStepDetails :: Lens' RemediationExecutionStatus [RemediationExecutionStep]
-rStepDetails = lens _rStepDetails (\s a -> s {_rStepDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stepDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rStepDetails :: Lens.Lens' RemediationExecutionStatus (Lude.Maybe [RemediationExecutionStep])
+rStepDetails = Lens.lens (stepDetails :: RemediationExecutionStatus -> Lude.Maybe [RemediationExecutionStep]) (\s a -> s {stepDetails = a} :: RemediationExecutionStatus)
+{-# DEPRECATED rStepDetails "Use generic-lens or generic-optics with 'stepDetails' instead." #-}
 
 -- | Start time when the remediation was executed.
-rInvocationTime :: Lens' RemediationExecutionStatus (Maybe UTCTime)
-rInvocationTime = lens _rInvocationTime (\s a -> s {_rInvocationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'invocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInvocationTime :: Lens.Lens' RemediationExecutionStatus (Lude.Maybe Lude.Timestamp)
+rInvocationTime = Lens.lens (invocationTime :: RemediationExecutionStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {invocationTime = a} :: RemediationExecutionStatus)
+{-# DEPRECATED rInvocationTime "Use generic-lens or generic-optics with 'invocationTime' instead." #-}
 
-instance FromJSON RemediationExecutionStatus where
+instance Lude.FromJSON RemediationExecutionStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemediationExecutionStatus"
       ( \x ->
           RemediationExecutionStatus'
-            <$> (x .:? "State")
-            <*> (x .:? "LastUpdatedTime")
-            <*> (x .:? "ResourceKey")
-            <*> (x .:? "StepDetails" .!= mempty)
-            <*> (x .:? "InvocationTime")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "LastUpdatedTime")
+            Lude.<*> (x Lude..:? "ResourceKey")
+            Lude.<*> (x Lude..:? "StepDetails" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "InvocationTime")
       )
-
-instance Hashable RemediationExecutionStatus
-
-instance NFData RemediationExecutionStatus

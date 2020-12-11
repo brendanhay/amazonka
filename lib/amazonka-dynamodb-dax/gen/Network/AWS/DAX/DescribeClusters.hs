@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,32 +14,27 @@
 --
 -- Returns information about all provisioned DAX clusters if no cluster identifier is specified, or about a specific DAX cluster if a cluster identifier is supplied.
 --
---
 -- If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.
---
 -- If the cluster is in the DELETING state, only cluster level information will be displayed.
---
 -- If nodes are currently being added to the DAX cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the DAX cluster state is /available/ , the cluster is ready for use.
---
 -- If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.DAX.DescribeClusters
-  ( -- * Creating a Request
-    describeClusters,
-    DescribeClusters,
+  ( -- * Creating a request
+    DescribeClusters (..),
+    mkDescribeClusters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcClusterNames,
     dcNextToken,
     dcMaxResults,
 
-    -- * Destructuring the Response
-    describeClustersResponse,
-    DescribeClustersResponse,
+    -- * Destructuring the response
+    DescribeClustersResponse (..),
+    mkDescribeClustersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsNextToken,
     dcrsClusters,
     dcrsResponseStatus,
@@ -52,137 +42,164 @@ module Network.AWS.DAX.DescribeClusters
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeClusters' smart constructor.
+-- | /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { _dcClusterNames ::
-      !(Maybe [Text]),
-    _dcNextToken :: !(Maybe Text),
-    _dcMaxResults :: !(Maybe Int)
+  { clusterNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterNames' - The names of the DAX clusters being described.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
--- * 'dcClusterNames' - The names of the DAX clusters being described.
---
--- * 'dcNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'dcMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-describeClusters ::
+-- The value for @MaxResults@ must be between 20 and 100.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+mkDescribeClusters ::
   DescribeClusters
-describeClusters =
+mkDescribeClusters =
   DescribeClusters'
-    { _dcClusterNames = Nothing,
-      _dcNextToken = Nothing,
-      _dcMaxResults = Nothing
+    { clusterNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The names of the DAX clusters being described.
-dcClusterNames :: Lens' DescribeClusters [Text]
-dcClusterNames = lens _dcClusterNames (\s a -> s {_dcClusterNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'clusterNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcClusterNames :: Lens.Lens' DescribeClusters (Lude.Maybe [Lude.Text])
+dcClusterNames = Lens.lens (clusterNames :: DescribeClusters -> Lude.Maybe [Lude.Text]) (\s a -> s {clusterNames = a} :: DescribeClusters)
+{-# DEPRECATED dcClusterNames "Use generic-lens or generic-optics with 'clusterNames' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-dcNextToken :: Lens' DescribeClusters (Maybe Text)
-dcNextToken = lens _dcNextToken (\s a -> s {_dcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcNextToken :: Lens.Lens' DescribeClusters (Lude.Maybe Lude.Text)
+dcNextToken = Lens.lens (nextToken :: DescribeClusters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClusters)
+{-# DEPRECATED dcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-dcMaxResults :: Lens' DescribeClusters (Maybe Int)
-dcMaxResults = lens _dcMaxResults (\s a -> s {_dcMaxResults = a})
+-- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcMaxResults :: Lens.Lens' DescribeClusters (Lude.Maybe Lude.Int)
+dcMaxResults = Lens.lens (maxResults :: DescribeClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeClusters)
+{-# DEPRECATED dcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeClusters where
+instance Page.AWSPager DescribeClusters where
   page rq rs
-    | stop (rs ^. dcrsNextToken) = Nothing
-    | stop (rs ^. dcrsClusters) = Nothing
-    | otherwise = Just $ rq & dcNextToken .~ rs ^. dcrsNextToken
+    | Page.stop (rs Lens.^. dcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcrsClusters) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcNextToken Lens..~ rs Lens.^. dcrsNextToken
 
-instance AWSRequest DescribeClusters where
+instance Lude.AWSRequest DescribeClusters where
   type Rs DescribeClusters = DescribeClustersResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeClustersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Clusters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Clusters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeClusters
-
-instance NFData DescribeClusters
-
-instance ToHeaders DescribeClusters where
+instance Lude.ToHeaders DescribeClusters where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.DescribeClusters" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.DescribeClusters" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeClusters where
+instance Lude.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
-    object
-      ( catMaybes
-          [ ("ClusterNames" .=) <$> _dcClusterNames,
-            ("NextToken" .=) <$> _dcNextToken,
-            ("MaxResults" .=) <$> _dcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClusterNames" Lude..=) Lude.<$> clusterNames,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeClusters where
-  toPath = const "/"
+instance Lude.ToPath DescribeClusters where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeClusters where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeClusters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeClustersResponse' smart constructor.
+-- | /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { _dcrsNextToken ::
-      !(Maybe Text),
-    _dcrsClusters :: !(Maybe [Cluster]),
-    _dcrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    clusters :: Lude.Maybe [Cluster],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsNextToken' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dcrsClusters' - The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeClustersResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'clusters' - The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
+-- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- * 'responseStatus' - The response status code.
+mkDescribeClustersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeClustersResponse
-describeClustersResponse pResponseStatus_ =
+mkDescribeClustersResponse pResponseStatus_ =
   DescribeClustersResponse'
-    { _dcrsNextToken = Nothing,
-      _dcrsClusters = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      clusters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcrsNextToken :: Lens' DescribeClustersResponse (Maybe Text)
-dcrsNextToken = lens _dcrsNextToken (\s a -> s {_dcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsNextToken :: Lens.Lens' DescribeClustersResponse (Lude.Maybe Lude.Text)
+dcrsNextToken = Lens.lens (nextToken :: DescribeClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClustersResponse)
+{-# DEPRECATED dcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
-dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\s a -> s {_dcrsClusters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsClusters :: Lens.Lens' DescribeClustersResponse (Lude.Maybe [Cluster])
+dcrsClusters = Lens.lens (clusters :: DescribeClustersResponse -> Lude.Maybe [Cluster]) (\s a -> s {clusters = a} :: DescribeClustersResponse)
+{-# DEPRECATED dcrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeClustersResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeClustersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeClustersResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClustersResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

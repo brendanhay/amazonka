@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,123 @@
 --
 -- Removes the connection between the webhook that was created by CodePipeline and the external tool with events to be detected. Currently supported only for webhooks that target an action type of GitHub.
 module Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
-  ( -- * Creating a Request
-    deregisterWebhookWithThirdParty,
-    DeregisterWebhookWithThirdParty,
+  ( -- * Creating a request
+    DeregisterWebhookWithThirdParty (..),
+    mkDeregisterWebhookWithThirdParty,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwwtpWebhookName,
 
-    -- * Destructuring the Response
-    deregisterWebhookWithThirdPartyResponse,
-    DeregisterWebhookWithThirdPartyResponse,
+    -- * Destructuring the response
+    DeregisterWebhookWithThirdPartyResponse (..),
+    mkDeregisterWebhookWithThirdPartyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwwtprsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterWebhookWithThirdParty' smart constructor.
+-- | /See:/ 'mkDeregisterWebhookWithThirdParty' smart constructor.
 newtype DeregisterWebhookWithThirdParty = DeregisterWebhookWithThirdParty'
-  { _dwwtpWebhookName ::
-      Maybe Text
+  { webhookName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterWebhookWithThirdParty' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwwtpWebhookName' - The name of the webhook you want to deregister.
-deregisterWebhookWithThirdParty ::
+-- * 'webhookName' - The name of the webhook you want to deregister.
+mkDeregisterWebhookWithThirdParty ::
   DeregisterWebhookWithThirdParty
-deregisterWebhookWithThirdParty =
-  DeregisterWebhookWithThirdParty' {_dwwtpWebhookName = Nothing}
+mkDeregisterWebhookWithThirdParty =
+  DeregisterWebhookWithThirdParty' {webhookName = Lude.Nothing}
 
 -- | The name of the webhook you want to deregister.
-dwwtpWebhookName :: Lens' DeregisterWebhookWithThirdParty (Maybe Text)
-dwwtpWebhookName = lens _dwwtpWebhookName (\s a -> s {_dwwtpWebhookName = a})
+--
+-- /Note:/ Consider using 'webhookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwwtpWebhookName :: Lens.Lens' DeregisterWebhookWithThirdParty (Lude.Maybe Lude.Text)
+dwwtpWebhookName = Lens.lens (webhookName :: DeregisterWebhookWithThirdParty -> Lude.Maybe Lude.Text) (\s a -> s {webhookName = a} :: DeregisterWebhookWithThirdParty)
+{-# DEPRECATED dwwtpWebhookName "Use generic-lens or generic-optics with 'webhookName' instead." #-}
 
-instance AWSRequest DeregisterWebhookWithThirdParty where
+instance Lude.AWSRequest DeregisterWebhookWithThirdParty where
   type
     Rs DeregisterWebhookWithThirdParty =
       DeregisterWebhookWithThirdPartyResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeregisterWebhookWithThirdPartyResponse' <$> (pure (fromEnum s))
+          DeregisterWebhookWithThirdPartyResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterWebhookWithThirdParty
-
-instance NFData DeregisterWebhookWithThirdParty
-
-instance ToHeaders DeregisterWebhookWithThirdParty where
+instance Lude.ToHeaders DeregisterWebhookWithThirdParty where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodePipeline_20150709.DeregisterWebhookWithThirdParty" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.DeregisterWebhookWithThirdParty" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterWebhookWithThirdParty where
+instance Lude.ToJSON DeregisterWebhookWithThirdParty where
   toJSON DeregisterWebhookWithThirdParty' {..} =
-    object (catMaybes [("webhookName" .=) <$> _dwwtpWebhookName])
+    Lude.object
+      (Lude.catMaybes [("webhookName" Lude..=) Lude.<$> webhookName])
 
-instance ToPath DeregisterWebhookWithThirdParty where
-  toPath = const "/"
+instance Lude.ToPath DeregisterWebhookWithThirdParty where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterWebhookWithThirdParty where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterWebhookWithThirdParty where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterWebhookWithThirdPartyResponse' smart constructor.
+-- | /See:/ 'mkDeregisterWebhookWithThirdPartyResponse' smart constructor.
 newtype DeregisterWebhookWithThirdPartyResponse = DeregisterWebhookWithThirdPartyResponse'
-  { _dwwtprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterWebhookWithThirdPartyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwwtprsResponseStatus' - -- | The response status code.
-deregisterWebhookWithThirdPartyResponse ::
-  -- | 'dwwtprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterWebhookWithThirdPartyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterWebhookWithThirdPartyResponse
-deregisterWebhookWithThirdPartyResponse pResponseStatus_ =
+mkDeregisterWebhookWithThirdPartyResponse pResponseStatus_ =
   DeregisterWebhookWithThirdPartyResponse'
-    { _dwwtprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dwwtprsResponseStatus :: Lens' DeregisterWebhookWithThirdPartyResponse Int
-dwwtprsResponseStatus = lens _dwwtprsResponseStatus (\s a -> s {_dwwtprsResponseStatus = a})
-
-instance NFData DeregisterWebhookWithThirdPartyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwwtprsResponseStatus :: Lens.Lens' DeregisterWebhookWithThirdPartyResponse Lude.Int
+dwwtprsResponseStatus = Lens.lens (responseStatus :: DeregisterWebhookWithThirdPartyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterWebhookWithThirdPartyResponse)
+{-# DEPRECATED dwwtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

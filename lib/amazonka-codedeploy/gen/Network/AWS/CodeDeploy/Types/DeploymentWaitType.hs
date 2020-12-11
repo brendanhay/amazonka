@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentWaitType where
+module Network.AWS.CodeDeploy.Types.DeploymentWaitType
+  ( DeploymentWaitType
+      ( DeploymentWaitType',
+        ReadyWait,
+        TerminationWait
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentWaitType
-  = ReadyWait
-  | TerminationWait
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentWaitType = DeploymentWaitType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentWaitType where
-  parser =
-    takeLowerText >>= \case
-      "ready_wait" -> pure ReadyWait
-      "termination_wait" -> pure TerminationWait
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentWaitType from value: '" <> e
-            <> "'. Accepted values: ready_wait, termination_wait"
+pattern ReadyWait :: DeploymentWaitType
+pattern ReadyWait = DeploymentWaitType' "READY_WAIT"
 
-instance ToText DeploymentWaitType where
-  toText = \case
-    ReadyWait -> "READY_WAIT"
-    TerminationWait -> "TERMINATION_WAIT"
+pattern TerminationWait :: DeploymentWaitType
+pattern TerminationWait = DeploymentWaitType' "TERMINATION_WAIT"
 
-instance Hashable DeploymentWaitType
-
-instance NFData DeploymentWaitType
-
-instance ToByteString DeploymentWaitType
-
-instance ToQuery DeploymentWaitType
-
-instance ToHeader DeploymentWaitType
-
-instance ToJSON DeploymentWaitType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ReadyWait,
+  TerminationWait,
+  DeploymentWaitType'
+  #-}

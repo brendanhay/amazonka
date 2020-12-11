@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the certificates registered in your AWS account.
 --
---
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificates
-  ( -- * Creating a Request
-    listCertificates,
-    ListCertificates,
+  ( -- * Creating a request
+    ListCertificates (..),
+    mkListCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcMarker,
     lcAscendingOrder,
     lcPageSize,
 
-    -- * Destructuring the Response
-    listCertificatesResponse,
-    ListCertificatesResponse,
+    -- * Destructuring the response
+    ListCertificatesResponse (..),
+    mkListCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsCertificates,
     lcrsNextMarker,
     lcrsResponseStatus,
@@ -46,134 +39,151 @@ module Network.AWS.IoT.ListCertificates
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the ListCertificates operation.
 --
---
---
--- /See:/ 'listCertificates' smart constructor.
+-- /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { _lcMarker ::
-      !(Maybe Text),
-    _lcAscendingOrder :: !(Maybe Bool),
-    _lcPageSize :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    ascendingOrder :: Lude.Maybe Lude.Bool,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcMarker' - The marker for the next set of results.
---
--- * 'lcAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
---
--- * 'lcPageSize' - The result page size.
-listCertificates ::
+-- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
+-- * 'marker' - The marker for the next set of results.
+-- * 'pageSize' - The result page size.
+mkListCertificates ::
   ListCertificates
-listCertificates =
+mkListCertificates =
   ListCertificates'
-    { _lcMarker = Nothing,
-      _lcAscendingOrder = Nothing,
-      _lcPageSize = Nothing
+    { marker = Lude.Nothing,
+      ascendingOrder = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
 -- | The marker for the next set of results.
-lcMarker :: Lens' ListCertificates (Maybe Text)
-lcMarker = lens _lcMarker (\s a -> s {_lcMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMarker :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Text)
+lcMarker = Lens.lens (marker :: ListCertificates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListCertificates)
+{-# DEPRECATED lcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
-lcAscendingOrder :: Lens' ListCertificates (Maybe Bool)
-lcAscendingOrder = lens _lcAscendingOrder (\s a -> s {_lcAscendingOrder = a})
+--
+-- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcAscendingOrder :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Bool)
+lcAscendingOrder = Lens.lens (ascendingOrder :: ListCertificates -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListCertificates)
+{-# DEPRECATED lcAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
 
 -- | The result page size.
-lcPageSize :: Lens' ListCertificates (Maybe Natural)
-lcPageSize = lens _lcPageSize (\s a -> s {_lcPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcPageSize :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Natural)
+lcPageSize = Lens.lens (pageSize :: ListCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListCertificates)
+{-# DEPRECATED lcPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ListCertificates where
+instance Page.AWSPager ListCertificates where
   page rq rs
-    | stop (rs ^. lcrsNextMarker) = Nothing
-    | stop (rs ^. lcrsCertificates) = Nothing
-    | otherwise = Just $ rq & lcMarker .~ rs ^. lcrsNextMarker
+    | Page.stop (rs Lens.^. lcrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcrsCertificates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcMarker Lens..~ rs Lens.^. lcrsNextMarker
 
-instance AWSRequest ListCertificates where
+instance Lude.AWSRequest ListCertificates where
   type Rs ListCertificates = ListCertificatesResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            <$> (x .?> "certificates" .!@ mempty)
-            <*> (x .?> "nextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "certificates" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCertificates
+instance Lude.ToHeaders ListCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListCertificates
+instance Lude.ToPath ListCertificates where
+  toPath = Lude.const "/certificates"
 
-instance ToHeaders ListCertificates where
-  toHeaders = const mempty
-
-instance ToPath ListCertificates where
-  toPath = const "/certificates"
-
-instance ToQuery ListCertificates where
+instance Lude.ToQuery ListCertificates where
   toQuery ListCertificates' {..} =
-    mconcat
-      [ "marker" =: _lcMarker,
-        "isAscendingOrder" =: _lcAscendingOrder,
-        "pageSize" =: _lcPageSize
+    Lude.mconcat
+      [ "marker" Lude.=: marker,
+        "isAscendingOrder" Lude.=: ascendingOrder,
+        "pageSize" Lude.=: pageSize
       ]
 
 -- | The output of the ListCertificates operation.
 --
---
---
--- /See:/ 'listCertificatesResponse' smart constructor.
+-- /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { _lcrsCertificates ::
-      !(Maybe [Certificate]),
-    _lcrsNextMarker :: !(Maybe Text),
-    _lcrsResponseStatus :: !Int
+  { certificates ::
+      Lude.Maybe [Certificate],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsCertificates' - The descriptions of the certificates.
---
--- * 'lcrsNextMarker' - The marker for the next set of results, or null if there are no additional results.
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCertificatesResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'certificates' - The descriptions of the certificates.
+-- * 'nextMarker' - The marker for the next set of results, or null if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCertificatesResponse
-listCertificatesResponse pResponseStatus_ =
+mkListCertificatesResponse pResponseStatus_ =
   ListCertificatesResponse'
-    { _lcrsCertificates = Nothing,
-      _lcrsNextMarker = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { certificates = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The descriptions of the certificates.
-lcrsCertificates :: Lens' ListCertificatesResponse [Certificate]
-lcrsCertificates = lens _lcrsCertificates (\s a -> s {_lcrsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCertificates :: Lens.Lens' ListCertificatesResponse (Lude.Maybe [Certificate])
+lcrsCertificates = Lens.lens (certificates :: ListCertificatesResponse -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
 -- | The marker for the next set of results, or null if there are no additional results.
-lcrsNextMarker :: Lens' ListCertificatesResponse (Maybe Text)
-lcrsNextMarker = lens _lcrsNextMarker (\s a -> s {_lcrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextMarker :: Lens.Lens' ListCertificatesResponse (Lude.Maybe Lude.Text)
+lcrsNextMarker = Lens.lens (nextMarker :: ListCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCertificatesResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCertificatesResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

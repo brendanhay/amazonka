@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.HostedZoneSummary where
+module Network.AWS.Route53.Types.HostedZoneSummary
+  ( HostedZoneSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHostedZoneSummary,
+
+    -- * Lenses
+    hzsHostedZoneId,
+    hzsName,
+    hzsOwner,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneOwner
 
 -- | In the response to a @ListHostedZonesByVPC@ request, the @HostedZoneSummaries@ element contains one @HostedZoneSummary@ element for each hosted zone that the specified Amazon VPC is associated with. Each @HostedZoneSummary@ element contains the hosted zone name and ID, and information about who owns the hosted zone.
 --
---
---
--- /See:/ 'hostedZoneSummary' smart constructor.
+-- /See:/ 'mkHostedZoneSummary' smart constructor.
 data HostedZoneSummary = HostedZoneSummary'
-  { _hzsHostedZoneId ::
-      !ResourceId,
-    _hzsName :: !Text,
-    _hzsOwner :: !HostedZoneOwner
+  { hostedZoneId ::
+      ResourceId,
+    name :: Lude.Text,
+    owner :: HostedZoneOwner
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostedZoneSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hzsHostedZoneId' - The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
---
--- * 'hzsName' - The name of the private hosted zone, such as @example.com@ .
---
--- * 'hzsOwner' - The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
-hostedZoneSummary ::
-  -- | 'hzsHostedZoneId'
+-- * 'hostedZoneId' - The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
+-- * 'name' - The name of the private hosted zone, such as @example.com@ .
+-- * 'owner' - The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
+mkHostedZoneSummary ::
+  -- | 'hostedZoneId'
   ResourceId ->
-  -- | 'hzsName'
-  Text ->
-  -- | 'hzsOwner'
+  -- | 'name'
+  Lude.Text ->
+  -- | 'owner'
   HostedZoneOwner ->
   HostedZoneSummary
-hostedZoneSummary pHostedZoneId_ pName_ pOwner_ =
+mkHostedZoneSummary pHostedZoneId_ pName_ pOwner_ =
   HostedZoneSummary'
-    { _hzsHostedZoneId = pHostedZoneId_,
-      _hzsName = pName_,
-      _hzsOwner = pOwner_
+    { hostedZoneId = pHostedZoneId_,
+      name = pName_,
+      owner = pOwner_
     }
 
 -- | The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
-hzsHostedZoneId :: Lens' HostedZoneSummary ResourceId
-hzsHostedZoneId = lens _hzsHostedZoneId (\s a -> s {_hzsHostedZoneId = a})
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzsHostedZoneId :: Lens.Lens' HostedZoneSummary ResourceId
+hzsHostedZoneId = Lens.lens (hostedZoneId :: HostedZoneSummary -> ResourceId) (\s a -> s {hostedZoneId = a} :: HostedZoneSummary)
+{-# DEPRECATED hzsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The name of the private hosted zone, such as @example.com@ .
-hzsName :: Lens' HostedZoneSummary Text
-hzsName = lens _hzsName (\s a -> s {_hzsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzsName :: Lens.Lens' HostedZoneSummary Lude.Text
+hzsName = Lens.lens (name :: HostedZoneSummary -> Lude.Text) (\s a -> s {name = a} :: HostedZoneSummary)
+{-# DEPRECATED hzsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
-hzsOwner :: Lens' HostedZoneSummary HostedZoneOwner
-hzsOwner = lens _hzsOwner (\s a -> s {_hzsOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzsOwner :: Lens.Lens' HostedZoneSummary HostedZoneOwner
+hzsOwner = Lens.lens (owner :: HostedZoneSummary -> HostedZoneOwner) (\s a -> s {owner = a} :: HostedZoneSummary)
+{-# DEPRECATED hzsOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
-instance FromXML HostedZoneSummary where
+instance Lude.FromXML HostedZoneSummary where
   parseXML x =
     HostedZoneSummary'
-      <$> (x .@ "HostedZoneId") <*> (x .@ "Name") <*> (x .@ "Owner")
-
-instance Hashable HostedZoneSummary
-
-instance NFData HostedZoneSummary
+      Lude.<$> (x Lude..@ "HostedZoneId")
+      Lude.<*> (x Lude..@ "Name")
+      Lude.<*> (x Lude..@ "Owner")

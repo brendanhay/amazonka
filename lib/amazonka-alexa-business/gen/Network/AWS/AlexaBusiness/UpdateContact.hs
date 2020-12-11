@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the contact details by the contact ARN.
 module Network.AWS.AlexaBusiness.UpdateContact
-  ( -- * Creating a Request
-    updateContact,
-    UpdateContact,
+  ( -- * Creating a request
+    UpdateContact (..),
+    mkUpdateContact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucLastName,
     ucPhoneNumbers,
     ucPhoneNumber,
@@ -32,155 +27,175 @@ module Network.AWS.AlexaBusiness.UpdateContact
     ucDisplayName,
     ucContactARN,
 
-    -- * Destructuring the Response
-    updateContactResponse,
-    UpdateContactResponse,
+    -- * Destructuring the response
+    UpdateContactResponse (..),
+    mkUpdateContactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateContact' smart constructor.
+-- | /See:/ 'mkUpdateContact' smart constructor.
 data UpdateContact = UpdateContact'
-  { _ucLastName :: !(Maybe Text),
-    _ucPhoneNumbers :: !(Maybe [PhoneNumber]),
-    _ucPhoneNumber :: !(Maybe (Sensitive Text)),
-    _ucSipAddresses :: !(Maybe [SipAddress]),
-    _ucFirstName :: !(Maybe Text),
-    _ucDisplayName :: !(Maybe Text),
-    _ucContactARN :: !Text
+  { lastName ::
+      Lude.Maybe Lude.Text,
+    phoneNumbers :: Lude.Maybe [PhoneNumber],
+    phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sipAddresses :: Lude.Maybe [SipAddress],
+    firstName :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    contactARN :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucLastName' - The updated last name of the contact.
---
--- * 'ucPhoneNumbers' - The list of phone numbers for the contact.
---
--- * 'ucPhoneNumber' - The updated phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
---
--- * 'ucSipAddresses' - The list of SIP addresses for the contact.
---
--- * 'ucFirstName' - The updated first name of the contact.
---
--- * 'ucDisplayName' - The updated display name of the contact.
---
--- * 'ucContactARN' - The ARN of the contact to update.
-updateContact ::
-  -- | 'ucContactARN'
-  Text ->
+-- * 'contactARN' - The ARN of the contact to update.
+-- * 'displayName' - The updated display name of the contact.
+-- * 'firstName' - The updated first name of the contact.
+-- * 'lastName' - The updated last name of the contact.
+-- * 'phoneNumber' - The updated phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+-- * 'phoneNumbers' - The list of phone numbers for the contact.
+-- * 'sipAddresses' - The list of SIP addresses for the contact.
+mkUpdateContact ::
+  -- | 'contactARN'
+  Lude.Text ->
   UpdateContact
-updateContact pContactARN_ =
+mkUpdateContact pContactARN_ =
   UpdateContact'
-    { _ucLastName = Nothing,
-      _ucPhoneNumbers = Nothing,
-      _ucPhoneNumber = Nothing,
-      _ucSipAddresses = Nothing,
-      _ucFirstName = Nothing,
-      _ucDisplayName = Nothing,
-      _ucContactARN = pContactARN_
+    { lastName = Lude.Nothing,
+      phoneNumbers = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      sipAddresses = Lude.Nothing,
+      firstName = Lude.Nothing,
+      displayName = Lude.Nothing,
+      contactARN = pContactARN_
     }
 
 -- | The updated last name of the contact.
-ucLastName :: Lens' UpdateContact (Maybe Text)
-ucLastName = lens _ucLastName (\s a -> s {_ucLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucLastName :: Lens.Lens' UpdateContact (Lude.Maybe Lude.Text)
+ucLastName = Lens.lens (lastName :: UpdateContact -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: UpdateContact)
+{-# DEPRECATED ucLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The list of phone numbers for the contact.
-ucPhoneNumbers :: Lens' UpdateContact [PhoneNumber]
-ucPhoneNumbers = lens _ucPhoneNumbers (\s a -> s {_ucPhoneNumbers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucPhoneNumbers :: Lens.Lens' UpdateContact (Lude.Maybe [PhoneNumber])
+ucPhoneNumbers = Lens.lens (phoneNumbers :: UpdateContact -> Lude.Maybe [PhoneNumber]) (\s a -> s {phoneNumbers = a} :: UpdateContact)
+{-# DEPRECATED ucPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
 
 -- | The updated phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
-ucPhoneNumber :: Lens' UpdateContact (Maybe Text)
-ucPhoneNumber = lens _ucPhoneNumber (\s a -> s {_ucPhoneNumber = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucPhoneNumber :: Lens.Lens' UpdateContact (Lude.Maybe (Lude.Sensitive Lude.Text))
+ucPhoneNumber = Lens.lens (phoneNumber :: UpdateContact -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {phoneNumber = a} :: UpdateContact)
+{-# DEPRECATED ucPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The list of SIP addresses for the contact.
-ucSipAddresses :: Lens' UpdateContact [SipAddress]
-ucSipAddresses = lens _ucSipAddresses (\s a -> s {_ucSipAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sipAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucSipAddresses :: Lens.Lens' UpdateContact (Lude.Maybe [SipAddress])
+ucSipAddresses = Lens.lens (sipAddresses :: UpdateContact -> Lude.Maybe [SipAddress]) (\s a -> s {sipAddresses = a} :: UpdateContact)
+{-# DEPRECATED ucSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
 
 -- | The updated first name of the contact.
-ucFirstName :: Lens' UpdateContact (Maybe Text)
-ucFirstName = lens _ucFirstName (\s a -> s {_ucFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucFirstName :: Lens.Lens' UpdateContact (Lude.Maybe Lude.Text)
+ucFirstName = Lens.lens (firstName :: UpdateContact -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: UpdateContact)
+{-# DEPRECATED ucFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The updated display name of the contact.
-ucDisplayName :: Lens' UpdateContact (Maybe Text)
-ucDisplayName = lens _ucDisplayName (\s a -> s {_ucDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDisplayName :: Lens.Lens' UpdateContact (Lude.Maybe Lude.Text)
+ucDisplayName = Lens.lens (displayName :: UpdateContact -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdateContact)
+{-# DEPRECATED ucDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The ARN of the contact to update.
-ucContactARN :: Lens' UpdateContact Text
-ucContactARN = lens _ucContactARN (\s a -> s {_ucContactARN = a})
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucContactARN :: Lens.Lens' UpdateContact Lude.Text
+ucContactARN = Lens.lens (contactARN :: UpdateContact -> Lude.Text) (\s a -> s {contactARN = a} :: UpdateContact)
+{-# DEPRECATED ucContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
-instance AWSRequest UpdateContact where
+instance Lude.AWSRequest UpdateContact where
   type Rs UpdateContact = UpdateContactResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> UpdateContactResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateContactResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateContact
-
-instance NFData UpdateContact
-
-instance ToHeaders UpdateContact where
+instance Lude.ToHeaders UpdateContact where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.UpdateContact" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.UpdateContact" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateContact where
+instance Lude.ToJSON UpdateContact where
   toJSON UpdateContact' {..} =
-    object
-      ( catMaybes
-          [ ("LastName" .=) <$> _ucLastName,
-            ("PhoneNumbers" .=) <$> _ucPhoneNumbers,
-            ("PhoneNumber" .=) <$> _ucPhoneNumber,
-            ("SipAddresses" .=) <$> _ucSipAddresses,
-            ("FirstName" .=) <$> _ucFirstName,
-            ("DisplayName" .=) <$> _ucDisplayName,
-            Just ("ContactArn" .= _ucContactARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LastName" Lude..=) Lude.<$> lastName,
+            ("PhoneNumbers" Lude..=) Lude.<$> phoneNumbers,
+            ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
+            ("SipAddresses" Lude..=) Lude.<$> sipAddresses,
+            ("FirstName" Lude..=) Lude.<$> firstName,
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            Lude.Just ("ContactArn" Lude..= contactARN)
           ]
       )
 
-instance ToPath UpdateContact where
-  toPath = const "/"
+instance Lude.ToPath UpdateContact where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateContact where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateContact where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateContactResponse' smart constructor.
+-- | /See:/ 'mkUpdateContactResponse' smart constructor.
 newtype UpdateContactResponse = UpdateContactResponse'
-  { _ucrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateContactResponse ::
-  -- | 'ucrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateContactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateContactResponse
-updateContactResponse pResponseStatus_ =
-  UpdateContactResponse' {_ucrsResponseStatus = pResponseStatus_}
+mkUpdateContactResponse pResponseStatus_ =
+  UpdateContactResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateContactResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\s a -> s {_ucrsResponseStatus = a})
-
-instance NFData UpdateContactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrsResponseStatus :: Lens.Lens' UpdateContactResponse Lude.Int
+ucrsResponseStatus = Lens.lens (responseStatus :: UpdateContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContactResponse)
+{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

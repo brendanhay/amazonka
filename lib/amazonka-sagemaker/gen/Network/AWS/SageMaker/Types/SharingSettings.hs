@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SharingSettings where
+module Network.AWS.SageMaker.Types.SharingSettings
+  ( SharingSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSharingSettings,
+
+    -- * Lenses
+    ssS3KMSKeyId,
+    ssS3OutputPath,
+    ssNotebookOutputOption,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.NotebookOutputOption
 
 -- | Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of @DefaultUserSettings@ when the 'CreateDomain' API is called, and as part of @UserSettings@ when the 'CreateUserProfile' API is called.
 --
---
---
--- /See:/ 'sharingSettings' smart constructor.
+-- /See:/ 'mkSharingSettings' smart constructor.
 data SharingSettings = SharingSettings'
-  { _ssS3KMSKeyId ::
-      !(Maybe Text),
-    _ssS3OutputPath :: !(Maybe Text),
-    _ssNotebookOutputOption :: !(Maybe NotebookOutputOption)
+  { s3KMSKeyId ::
+      Lude.Maybe Lude.Text,
+    s3OutputPath :: Lude.Maybe Lude.Text,
+    notebookOutputOption :: Lude.Maybe NotebookOutputOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SharingSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssS3KMSKeyId' - When @NotebookOutputOption@ is @Allowed@ , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
---
--- * 'ssS3OutputPath' - When @NotebookOutputOption@ is @Allowed@ , the Amazon S3 bucket used to save the notebook cell output.
---
--- * 'ssNotebookOutputOption' - Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
-sharingSettings ::
+-- * 'notebookOutputOption' - Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
+-- * 's3KMSKeyId' - When @NotebookOutputOption@ is @Allowed@ , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+-- * 's3OutputPath' - When @NotebookOutputOption@ is @Allowed@ , the Amazon S3 bucket used to save the notebook cell output.
+mkSharingSettings ::
   SharingSettings
-sharingSettings =
+mkSharingSettings =
   SharingSettings'
-    { _ssS3KMSKeyId = Nothing,
-      _ssS3OutputPath = Nothing,
-      _ssNotebookOutputOption = Nothing
+    { s3KMSKeyId = Lude.Nothing,
+      s3OutputPath = Lude.Nothing,
+      notebookOutputOption = Lude.Nothing
     }
 
 -- | When @NotebookOutputOption@ is @Allowed@ , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-ssS3KMSKeyId :: Lens' SharingSettings (Maybe Text)
-ssS3KMSKeyId = lens _ssS3KMSKeyId (\s a -> s {_ssS3KMSKeyId = a})
+--
+-- /Note:/ Consider using 's3KMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssS3KMSKeyId :: Lens.Lens' SharingSettings (Lude.Maybe Lude.Text)
+ssS3KMSKeyId = Lens.lens (s3KMSKeyId :: SharingSettings -> Lude.Maybe Lude.Text) (\s a -> s {s3KMSKeyId = a} :: SharingSettings)
+{-# DEPRECATED ssS3KMSKeyId "Use generic-lens or generic-optics with 's3KMSKeyId' instead." #-}
 
 -- | When @NotebookOutputOption@ is @Allowed@ , the Amazon S3 bucket used to save the notebook cell output.
-ssS3OutputPath :: Lens' SharingSettings (Maybe Text)
-ssS3OutputPath = lens _ssS3OutputPath (\s a -> s {_ssS3OutputPath = a})
+--
+-- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssS3OutputPath :: Lens.Lens' SharingSettings (Lude.Maybe Lude.Text)
+ssS3OutputPath = Lens.lens (s3OutputPath :: SharingSettings -> Lude.Maybe Lude.Text) (\s a -> s {s3OutputPath = a} :: SharingSettings)
+{-# DEPRECATED ssS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
 -- | Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
-ssNotebookOutputOption :: Lens' SharingSettings (Maybe NotebookOutputOption)
-ssNotebookOutputOption = lens _ssNotebookOutputOption (\s a -> s {_ssNotebookOutputOption = a})
+--
+-- /Note:/ Consider using 'notebookOutputOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssNotebookOutputOption :: Lens.Lens' SharingSettings (Lude.Maybe NotebookOutputOption)
+ssNotebookOutputOption = Lens.lens (notebookOutputOption :: SharingSettings -> Lude.Maybe NotebookOutputOption) (\s a -> s {notebookOutputOption = a} :: SharingSettings)
+{-# DEPRECATED ssNotebookOutputOption "Use generic-lens or generic-optics with 'notebookOutputOption' instead." #-}
 
-instance FromJSON SharingSettings where
+instance Lude.FromJSON SharingSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "SharingSettings"
       ( \x ->
           SharingSettings'
-            <$> (x .:? "S3KmsKeyId")
-            <*> (x .:? "S3OutputPath")
-            <*> (x .:? "NotebookOutputOption")
+            Lude.<$> (x Lude..:? "S3KmsKeyId")
+            Lude.<*> (x Lude..:? "S3OutputPath")
+            Lude.<*> (x Lude..:? "NotebookOutputOption")
       )
 
-instance Hashable SharingSettings
-
-instance NFData SharingSettings
-
-instance ToJSON SharingSettings where
+instance Lude.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =
-    object
-      ( catMaybes
-          [ ("S3KmsKeyId" .=) <$> _ssS3KMSKeyId,
-            ("S3OutputPath" .=) <$> _ssS3OutputPath,
-            ("NotebookOutputOption" .=) <$> _ssNotebookOutputOption
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3KmsKeyId" Lude..=) Lude.<$> s3KMSKeyId,
+            ("S3OutputPath" Lude..=) Lude.<$> s3OutputPath,
+            ("NotebookOutputOption" Lude..=) Lude.<$> notebookOutputOption
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.Intent where
+module Network.AWS.LexModels.Types.Intent
+  ( Intent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIntent,
+
+    -- * Lenses
+    iIntentName,
+    iIntentVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies the specific version of an intent.
 --
---
---
--- /See:/ 'intent' smart constructor.
+-- /See:/ 'mkIntent' smart constructor.
 data Intent = Intent'
-  { _iIntentName :: !Text,
-    _iIntentVersion :: !Text
+  { intentName :: Lude.Text,
+    intentVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Intent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iIntentName' - The name of the intent.
---
--- * 'iIntentVersion' - The version of the intent.
-intent ::
-  -- | 'iIntentName'
-  Text ->
-  -- | 'iIntentVersion'
-  Text ->
+-- * 'intentName' - The name of the intent.
+-- * 'intentVersion' - The version of the intent.
+mkIntent ::
+  -- | 'intentName'
+  Lude.Text ->
+  -- | 'intentVersion'
+  Lude.Text ->
   Intent
-intent pIntentName_ pIntentVersion_ =
+mkIntent pIntentName_ pIntentVersion_ =
   Intent'
-    { _iIntentName = pIntentName_,
-      _iIntentVersion = pIntentVersion_
+    { intentName = pIntentName_,
+      intentVersion = pIntentVersion_
     }
 
 -- | The name of the intent.
-iIntentName :: Lens' Intent Text
-iIntentName = lens _iIntentName (\s a -> s {_iIntentName = a})
+--
+-- /Note:/ Consider using 'intentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iIntentName :: Lens.Lens' Intent Lude.Text
+iIntentName = Lens.lens (intentName :: Intent -> Lude.Text) (\s a -> s {intentName = a} :: Intent)
+{-# DEPRECATED iIntentName "Use generic-lens or generic-optics with 'intentName' instead." #-}
 
 -- | The version of the intent.
-iIntentVersion :: Lens' Intent Text
-iIntentVersion = lens _iIntentVersion (\s a -> s {_iIntentVersion = a})
+--
+-- /Note:/ Consider using 'intentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iIntentVersion :: Lens.Lens' Intent Lude.Text
+iIntentVersion = Lens.lens (intentVersion :: Intent -> Lude.Text) (\s a -> s {intentVersion = a} :: Intent)
+{-# DEPRECATED iIntentVersion "Use generic-lens or generic-optics with 'intentVersion' instead." #-}
 
-instance FromJSON Intent where
+instance Lude.FromJSON Intent where
   parseJSON =
-    withObject
+    Lude.withObject
       "Intent"
-      (\x -> Intent' <$> (x .: "intentName") <*> (x .: "intentVersion"))
+      ( \x ->
+          Intent'
+            Lude.<$> (x Lude..: "intentName") Lude.<*> (x Lude..: "intentVersion")
+      )
 
-instance Hashable Intent
-
-instance NFData Intent
-
-instance ToJSON Intent where
+instance Lude.ToJSON Intent where
   toJSON Intent' {..} =
-    object
-      ( catMaybes
-          [ Just ("intentName" .= _iIntentName),
-            Just ("intentVersion" .= _iIntentVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("intentName" Lude..= intentName),
+            Lude.Just ("intentVersion" Lude..= intentVersion)
           ]
       )

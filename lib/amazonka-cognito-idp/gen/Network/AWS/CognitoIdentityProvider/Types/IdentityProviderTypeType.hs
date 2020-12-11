@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType where
+module Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
+  ( IdentityProviderTypeType
+      ( IdentityProviderTypeType',
+        Facebook,
+        Google,
+        LoginWithAmazon,
+        Oidc,
+        Saml,
+        SignInWithApple
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IdentityProviderTypeType
-  = Facebook
-  | Google
-  | LoginWithAmazon
-  | Oidc
-  | Saml
-  | SignInWithApple
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IdentityProviderTypeType = IdentityProviderTypeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IdentityProviderTypeType where
-  parser =
-    takeLowerText >>= \case
-      "facebook" -> pure Facebook
-      "google" -> pure Google
-      "loginwithamazon" -> pure LoginWithAmazon
-      "oidc" -> pure Oidc
-      "saml" -> pure Saml
-      "signinwithapple" -> pure SignInWithApple
-      e ->
-        fromTextError $
-          "Failure parsing IdentityProviderTypeType from value: '" <> e
-            <> "'. Accepted values: facebook, google, loginwithamazon, oidc, saml, signinwithapple"
+pattern Facebook :: IdentityProviderTypeType
+pattern Facebook = IdentityProviderTypeType' "Facebook"
 
-instance ToText IdentityProviderTypeType where
-  toText = \case
-    Facebook -> "Facebook"
-    Google -> "Google"
-    LoginWithAmazon -> "LoginWithAmazon"
-    Oidc -> "OIDC"
-    Saml -> "SAML"
-    SignInWithApple -> "SignInWithApple"
+pattern Google :: IdentityProviderTypeType
+pattern Google = IdentityProviderTypeType' "Google"
 
-instance Hashable IdentityProviderTypeType
+pattern LoginWithAmazon :: IdentityProviderTypeType
+pattern LoginWithAmazon = IdentityProviderTypeType' "LoginWithAmazon"
 
-instance NFData IdentityProviderTypeType
+pattern Oidc :: IdentityProviderTypeType
+pattern Oidc = IdentityProviderTypeType' "OIDC"
 
-instance ToByteString IdentityProviderTypeType
+pattern Saml :: IdentityProviderTypeType
+pattern Saml = IdentityProviderTypeType' "SAML"
 
-instance ToQuery IdentityProviderTypeType
+pattern SignInWithApple :: IdentityProviderTypeType
+pattern SignInWithApple = IdentityProviderTypeType' "SignInWithApple"
 
-instance ToHeader IdentityProviderTypeType
-
-instance ToJSON IdentityProviderTypeType where
-  toJSON = toJSONText
-
-instance FromJSON IdentityProviderTypeType where
-  parseJSON = parseJSONText "IdentityProviderTypeType"
+{-# COMPLETE
+  Facebook,
+  Google,
+  LoginWithAmazon,
+  Oidc,
+  Saml,
+  SignInWithApple,
+  IdentityProviderTypeType'
+  #-}

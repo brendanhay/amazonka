@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,142 @@
 --
 -- Restarts a specific database in Amazon Lightsail.
 --
---
 -- The @reboot relational database@ operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.RebootRelationalDatabase
-  ( -- * Creating a Request
-    rebootRelationalDatabase,
-    RebootRelationalDatabase,
+  ( -- * Creating a request
+    RebootRelationalDatabase (..),
+    mkRebootRelationalDatabase,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rrdRelationalDatabaseName,
 
-    -- * Destructuring the Response
-    rebootRelationalDatabaseResponse,
-    RebootRelationalDatabaseResponse,
+    -- * Destructuring the response
+    RebootRelationalDatabaseResponse (..),
+    mkRebootRelationalDatabaseResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrdrsOperations,
     rrdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootRelationalDatabase' smart constructor.
+-- | /See:/ 'mkRebootRelationalDatabase' smart constructor.
 newtype RebootRelationalDatabase = RebootRelationalDatabase'
-  { _rrdRelationalDatabaseName ::
-      Text
+  { relationalDatabaseName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootRelationalDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrdRelationalDatabaseName' - The name of your database to reboot.
-rebootRelationalDatabase ::
-  -- | 'rrdRelationalDatabaseName'
-  Text ->
+-- * 'relationalDatabaseName' - The name of your database to reboot.
+mkRebootRelationalDatabase ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   RebootRelationalDatabase
-rebootRelationalDatabase pRelationalDatabaseName_ =
+mkRebootRelationalDatabase pRelationalDatabaseName_ =
   RebootRelationalDatabase'
-    { _rrdRelationalDatabaseName =
+    { relationalDatabaseName =
         pRelationalDatabaseName_
     }
 
 -- | The name of your database to reboot.
-rrdRelationalDatabaseName :: Lens' RebootRelationalDatabase Text
-rrdRelationalDatabaseName = lens _rrdRelationalDatabaseName (\s a -> s {_rrdRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdRelationalDatabaseName :: Lens.Lens' RebootRelationalDatabase Lude.Text
+rrdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: RebootRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: RebootRelationalDatabase)
+{-# DEPRECATED rrdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance AWSRequest RebootRelationalDatabase where
+instance Lude.AWSRequest RebootRelationalDatabase where
   type Rs RebootRelationalDatabase = RebootRelationalDatabaseResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RebootRelationalDatabaseResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebootRelationalDatabase
-
-instance NFData RebootRelationalDatabase
-
-instance ToHeaders RebootRelationalDatabase where
+instance Lude.ToHeaders RebootRelationalDatabase where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.RebootRelationalDatabase" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.RebootRelationalDatabase" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RebootRelationalDatabase where
+instance Lude.ToJSON RebootRelationalDatabase where
   toJSON RebootRelationalDatabase' {..} =
-    object
-      ( catMaybes
-          [Just ("relationalDatabaseName" .= _rrdRelationalDatabaseName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
+          ]
       )
 
-instance ToPath RebootRelationalDatabase where
-  toPath = const "/"
+instance Lude.ToPath RebootRelationalDatabase where
+  toPath = Lude.const "/"
 
-instance ToQuery RebootRelationalDatabase where
-  toQuery = const mempty
+instance Lude.ToQuery RebootRelationalDatabase where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rebootRelationalDatabaseResponse' smart constructor.
+-- | /See:/ 'mkRebootRelationalDatabaseResponse' smart constructor.
 data RebootRelationalDatabaseResponse = RebootRelationalDatabaseResponse'
-  { _rrdrsOperations ::
-      !(Maybe [Operation]),
-    _rrdrsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootRelationalDatabaseResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrdrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'rrdrsResponseStatus' - -- | The response status code.
-rebootRelationalDatabaseResponse ::
-  -- | 'rrdrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkRebootRelationalDatabaseResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebootRelationalDatabaseResponse
-rebootRelationalDatabaseResponse pResponseStatus_ =
+mkRebootRelationalDatabaseResponse pResponseStatus_ =
   RebootRelationalDatabaseResponse'
-    { _rrdrsOperations = Nothing,
-      _rrdrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-rrdrsOperations :: Lens' RebootRelationalDatabaseResponse [Operation]
-rrdrsOperations = lens _rrdrsOperations (\s a -> s {_rrdrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdrsOperations :: Lens.Lens' RebootRelationalDatabaseResponse (Lude.Maybe [Operation])
+rrdrsOperations = Lens.lens (operations :: RebootRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: RebootRelationalDatabaseResponse)
+{-# DEPRECATED rrdrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-rrdrsResponseStatus :: Lens' RebootRelationalDatabaseResponse Int
-rrdrsResponseStatus = lens _rrdrsResponseStatus (\s a -> s {_rrdrsResponseStatus = a})
-
-instance NFData RebootRelationalDatabaseResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdrsResponseStatus :: Lens.Lens' RebootRelationalDatabaseResponse Lude.Int
+rrdrsResponseStatus = Lens.lens (responseStatus :: RebootRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootRelationalDatabaseResponse)
+{-# DEPRECATED rrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

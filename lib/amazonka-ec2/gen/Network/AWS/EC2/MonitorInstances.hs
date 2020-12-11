@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,140 @@
 --
 -- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring your instances and volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
---
 -- To disable detailed monitoring, see .
 module Network.AWS.EC2.MonitorInstances
-  ( -- * Creating a Request
-    monitorInstances,
-    MonitorInstances,
+  ( -- * Creating a request
+    MonitorInstances (..),
+    mkMonitorInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     miDryRun,
     miInstanceIds,
 
-    -- * Destructuring the Response
-    monitorInstancesResponse,
-    MonitorInstancesResponse,
+    -- * Destructuring the response
+    MonitorInstancesResponse (..),
+    mkMonitorInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mirsInstanceMonitorings,
     mirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'monitorInstances' smart constructor.
+-- | /See:/ 'mkMonitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
-  { _miDryRun ::
-      !(Maybe Bool),
-    _miInstanceIds :: ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    instanceIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitorInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'miInstanceIds' - The IDs of the instances.
-monitorInstances ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceIds' - The IDs of the instances.
+mkMonitorInstances ::
   MonitorInstances
-monitorInstances =
-  MonitorInstances' {_miDryRun = Nothing, _miInstanceIds = mempty}
+mkMonitorInstances =
+  MonitorInstances'
+    { dryRun = Lude.Nothing,
+      instanceIds = Lude.mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-miDryRun :: Lens' MonitorInstances (Maybe Bool)
-miDryRun = lens _miDryRun (\s a -> s {_miDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miDryRun :: Lens.Lens' MonitorInstances (Lude.Maybe Lude.Bool)
+miDryRun = Lens.lens (dryRun :: MonitorInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: MonitorInstances)
+{-# DEPRECATED miDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the instances.
-miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\s a -> s {_miInstanceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miInstanceIds :: Lens.Lens' MonitorInstances [Lude.Text]
+miInstanceIds = Lens.lens (instanceIds :: MonitorInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: MonitorInstances)
+{-# DEPRECATED miInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance AWSRequest MonitorInstances where
+instance Lude.AWSRequest MonitorInstances where
   type Rs MonitorInstances = MonitorInstancesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           MonitorInstancesResponse'
-            <$> (x .@? "instancesSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "instancesSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable MonitorInstances
+instance Lude.ToHeaders MonitorInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData MonitorInstances
+instance Lude.ToPath MonitorInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders MonitorInstances where
-  toHeaders = const mempty
-
-instance ToPath MonitorInstances where
-  toPath = const "/"
-
-instance ToQuery MonitorInstances where
+instance Lude.ToQuery MonitorInstances where
   toQuery MonitorInstances' {..} =
-    mconcat
-      [ "Action" =: ("MonitorInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _miDryRun,
-        toQueryList "InstanceId" _miInstanceIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("MonitorInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "InstanceId" instanceIds
       ]
 
--- | /See:/ 'monitorInstancesResponse' smart constructor.
+-- | /See:/ 'mkMonitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
-  { _mirsInstanceMonitorings ::
-      !(Maybe [InstanceMonitoring]),
-    _mirsResponseStatus :: !Int
+  { instanceMonitorings ::
+      Lude.Maybe [InstanceMonitoring],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mirsInstanceMonitorings' - The monitoring information.
---
--- * 'mirsResponseStatus' - -- | The response status code.
-monitorInstancesResponse ::
-  -- | 'mirsResponseStatus'
-  Int ->
+-- * 'instanceMonitorings' - The monitoring information.
+-- * 'responseStatus' - The response status code.
+mkMonitorInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   MonitorInstancesResponse
-monitorInstancesResponse pResponseStatus_ =
+mkMonitorInstancesResponse pResponseStatus_ =
   MonitorInstancesResponse'
-    { _mirsInstanceMonitorings = Nothing,
-      _mirsResponseStatus = pResponseStatus_
+    { instanceMonitorings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The monitoring information.
-mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\s a -> s {_mirsInstanceMonitorings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceMonitorings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mirsInstanceMonitorings :: Lens.Lens' MonitorInstancesResponse (Lude.Maybe [InstanceMonitoring])
+mirsInstanceMonitorings = Lens.lens (instanceMonitorings :: MonitorInstancesResponse -> Lude.Maybe [InstanceMonitoring]) (\s a -> s {instanceMonitorings = a} :: MonitorInstancesResponse)
+{-# DEPRECATED mirsInstanceMonitorings "Use generic-lens or generic-optics with 'instanceMonitorings' instead." #-}
 
--- | -- | The response status code.
-mirsResponseStatus :: Lens' MonitorInstancesResponse Int
-mirsResponseStatus = lens _mirsResponseStatus (\s a -> s {_mirsResponseStatus = a})
-
-instance NFData MonitorInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mirsResponseStatus :: Lens.Lens' MonitorInstancesResponse Lude.Int
+mirsResponseStatus = Lens.lens (responseStatus :: MonitorInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MonitorInstancesResponse)
+{-# DEPRECATED mirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

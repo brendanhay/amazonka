@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.HostEnvironment where
+module Network.AWS.StorageGateway.Types.HostEnvironment
+  ( HostEnvironment
+      ( HostEnvironment',
+        EC2,
+        HyperV,
+        Kvm,
+        Other,
+        VMware
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HostEnvironment
-  = EC2
-  | HyperV
-  | Kvm
-  | Other
-  | VMware
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HostEnvironment = HostEnvironment' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HostEnvironment where
-  parser =
-    takeLowerText >>= \case
-      "ec2" -> pure EC2
-      "hyper-v" -> pure HyperV
-      "kvm" -> pure Kvm
-      "other" -> pure Other
-      "vmware" -> pure VMware
-      e ->
-        fromTextError $
-          "Failure parsing HostEnvironment from value: '" <> e
-            <> "'. Accepted values: ec2, hyper-v, kvm, other, vmware"
+pattern EC2 :: HostEnvironment
+pattern EC2 = HostEnvironment' "EC2"
 
-instance ToText HostEnvironment where
-  toText = \case
-    EC2 -> "EC2"
-    HyperV -> "HYPER-V"
-    Kvm -> "KVM"
-    Other -> "OTHER"
-    VMware -> "VMWARE"
+pattern HyperV :: HostEnvironment
+pattern HyperV = HostEnvironment' "HYPER-V"
 
-instance Hashable HostEnvironment
+pattern Kvm :: HostEnvironment
+pattern Kvm = HostEnvironment' "KVM"
 
-instance NFData HostEnvironment
+pattern Other :: HostEnvironment
+pattern Other = HostEnvironment' "OTHER"
 
-instance ToByteString HostEnvironment
+pattern VMware :: HostEnvironment
+pattern VMware = HostEnvironment' "VMWARE"
 
-instance ToQuery HostEnvironment
-
-instance ToHeader HostEnvironment
-
-instance FromJSON HostEnvironment where
-  parseJSON = parseJSONText "HostEnvironment"
+{-# COMPLETE
+  EC2,
+  HyperV,
+  Kvm,
+  Other,
+  VMware,
+  HostEnvironment'
+  #-}

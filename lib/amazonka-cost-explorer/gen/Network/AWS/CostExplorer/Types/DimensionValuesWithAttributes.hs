@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes where
+module Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
+  ( DimensionValuesWithAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDimensionValuesWithAttributes,
+
+    -- * Lenses
+    dvwaValue,
+    dvwaAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata of a specific type that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
 --
---
---
--- /See:/ 'dimensionValuesWithAttributes' smart constructor.
+-- /See:/ 'mkDimensionValuesWithAttributes' smart constructor.
 data DimensionValuesWithAttributes = DimensionValuesWithAttributes'
-  { _dvwaValue ::
-      !(Maybe Text),
-    _dvwaAttributes ::
-      !(Maybe (Map Text (Text)))
+  { value ::
+      Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DimensionValuesWithAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvwaValue' - The value of a dimension with a specific attribute.
---
--- * 'dvwaAttributes' - The attribute that applies to a specific @Dimension@ .
-dimensionValuesWithAttributes ::
+-- * 'attributes' - The attribute that applies to a specific @Dimension@ .
+-- * 'value' - The value of a dimension with a specific attribute.
+mkDimensionValuesWithAttributes ::
   DimensionValuesWithAttributes
-dimensionValuesWithAttributes =
+mkDimensionValuesWithAttributes =
   DimensionValuesWithAttributes'
-    { _dvwaValue = Nothing,
-      _dvwaAttributes = Nothing
+    { value = Lude.Nothing,
+      attributes = Lude.Nothing
     }
 
 -- | The value of a dimension with a specific attribute.
-dvwaValue :: Lens' DimensionValuesWithAttributes (Maybe Text)
-dvwaValue = lens _dvwaValue (\s a -> s {_dvwaValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvwaValue :: Lens.Lens' DimensionValuesWithAttributes (Lude.Maybe Lude.Text)
+dvwaValue = Lens.lens (value :: DimensionValuesWithAttributes -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: DimensionValuesWithAttributes)
+{-# DEPRECATED dvwaValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The attribute that applies to a specific @Dimension@ .
-dvwaAttributes :: Lens' DimensionValuesWithAttributes (HashMap Text (Text))
-dvwaAttributes = lens _dvwaAttributes (\s a -> s {_dvwaAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvwaAttributes :: Lens.Lens' DimensionValuesWithAttributes (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dvwaAttributes = Lens.lens (attributes :: DimensionValuesWithAttributes -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: DimensionValuesWithAttributes)
+{-# DEPRECATED dvwaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromJSON DimensionValuesWithAttributes where
+instance Lude.FromJSON DimensionValuesWithAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "DimensionValuesWithAttributes"
       ( \x ->
           DimensionValuesWithAttributes'
-            <$> (x .:? "Value") <*> (x .:? "Attributes" .!= mempty)
+            Lude.<$> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
       )
-
-instance Hashable DimensionValuesWithAttributes
-
-instance NFData DimensionValuesWithAttributes

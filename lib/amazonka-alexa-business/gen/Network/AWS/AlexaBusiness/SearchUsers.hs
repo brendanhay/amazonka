@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Searches users and lists the ones that meet a set of filter and sort criteria.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.SearchUsers
-  ( -- * Creating a Request
-    searchUsers,
-    SearchUsers,
+  ( -- * Creating a request
+    SearchUsers (..),
+    mkSearchUsers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     suFilters,
     suSortCriteria,
     suNextToken,
     suMaxResults,
 
-    -- * Destructuring the Response
-    searchUsersResponse,
-    SearchUsersResponse,
+    -- * Destructuring the response
+    SearchUsersResponse (..),
+    mkSearchUsersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sursUsers,
     sursNextToken,
     sursTotalCount,
@@ -46,154 +39,181 @@ module Network.AWS.AlexaBusiness.SearchUsers
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchUsers' smart constructor.
+-- | /See:/ 'mkSearchUsers' smart constructor.
 data SearchUsers = SearchUsers'
-  { _suFilters :: !(Maybe [Filter]),
-    _suSortCriteria :: !(Maybe [Sort]),
-    _suNextToken :: !(Maybe Text),
-    _suMaxResults :: !(Maybe Nat)
+  { filters :: Lude.Maybe [Filter],
+    sortCriteria :: Lude.Maybe [Sort],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchUsers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'suFilters' - The filters to use for listing a specific set of users. Required. Supported filter keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
---
--- * 'suSortCriteria' - The sort order to use in listing the filtered set of users. Required. Supported sort keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
---
--- * 'suNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
---
--- * 'suMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
-searchUsers ::
+-- * 'filters' - The filters to use for listing a specific set of users. Required. Supported filter keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
+-- * 'sortCriteria' - The sort order to use in listing the filtered set of users. Required. Supported sort keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
+mkSearchUsers ::
   SearchUsers
-searchUsers =
+mkSearchUsers =
   SearchUsers'
-    { _suFilters = Nothing,
-      _suSortCriteria = Nothing,
-      _suNextToken = Nothing,
-      _suMaxResults = Nothing
+    { filters = Lude.Nothing,
+      sortCriteria = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The filters to use for listing a specific set of users. Required. Supported filter keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
-suFilters :: Lens' SearchUsers [Filter]
-suFilters = lens _suFilters (\s a -> s {_suFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suFilters :: Lens.Lens' SearchUsers (Lude.Maybe [Filter])
+suFilters = Lens.lens (filters :: SearchUsers -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchUsers)
+{-# DEPRECATED suFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The sort order to use in listing the filtered set of users. Required. Supported sort keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.
-suSortCriteria :: Lens' SearchUsers [Sort]
-suSortCriteria = lens _suSortCriteria (\s a -> s {_suSortCriteria = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suSortCriteria :: Lens.Lens' SearchUsers (Lude.Maybe [Sort])
+suSortCriteria = Lens.lens (sortCriteria :: SearchUsers -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchUsers)
+{-# DEPRECATED suSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
-suNextToken :: Lens' SearchUsers (Maybe Text)
-suNextToken = lens _suNextToken (\s a -> s {_suNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suNextToken :: Lens.Lens' SearchUsers (Lude.Maybe Lude.Text)
+suNextToken = Lens.lens (nextToken :: SearchUsers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchUsers)
+{-# DEPRECATED suNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
-suMaxResults :: Lens' SearchUsers (Maybe Natural)
-suMaxResults = lens _suMaxResults (\s a -> s {_suMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suMaxResults :: Lens.Lens' SearchUsers (Lude.Maybe Lude.Natural)
+suMaxResults = Lens.lens (maxResults :: SearchUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchUsers)
+{-# DEPRECATED suMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager SearchUsers where
+instance Page.AWSPager SearchUsers where
   page rq rs
-    | stop (rs ^. sursNextToken) = Nothing
-    | stop (rs ^. sursUsers) = Nothing
-    | otherwise = Just $ rq & suNextToken .~ rs ^. sursNextToken
+    | Page.stop (rs Lens.^. sursNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. sursUsers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& suNextToken Lens..~ rs Lens.^. sursNextToken
 
-instance AWSRequest SearchUsers where
+instance Lude.AWSRequest SearchUsers where
   type Rs SearchUsers = SearchUsersResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchUsersResponse'
-            <$> (x .?> "Users" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "TotalCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Users" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "TotalCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchUsers
-
-instance NFData SearchUsers
-
-instance ToHeaders SearchUsers where
+instance Lude.ToHeaders SearchUsers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.SearchUsers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.SearchUsers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchUsers where
+instance Lude.ToJSON SearchUsers where
   toJSON SearchUsers' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _suFilters,
-            ("SortCriteria" .=) <$> _suSortCriteria,
-            ("NextToken" .=) <$> _suNextToken,
-            ("MaxResults" .=) <$> _suMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath SearchUsers where
-  toPath = const "/"
+instance Lude.ToPath SearchUsers where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchUsers where
-  toQuery = const mempty
+instance Lude.ToQuery SearchUsers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchUsersResponse' smart constructor.
+-- | /See:/ 'mkSearchUsersResponse' smart constructor.
 data SearchUsersResponse = SearchUsersResponse'
-  { _sursUsers ::
-      !(Maybe [UserData]),
-    _sursNextToken :: !(Maybe Text),
-    _sursTotalCount :: !(Maybe Int),
-    _sursResponseStatus :: !Int
+  { users ::
+      Lude.Maybe [UserData],
+    nextToken :: Lude.Maybe Lude.Text,
+    totalCount :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchUsersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sursUsers' - The users that meet the specified set of filter criteria, in sort order.
---
--- * 'sursNextToken' - The token returned to indicate that there is more data available.
---
--- * 'sursTotalCount' - The total number of users returned.
---
--- * 'sursResponseStatus' - -- | The response status code.
-searchUsersResponse ::
-  -- | 'sursResponseStatus'
-  Int ->
+-- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'responseStatus' - The response status code.
+-- * 'totalCount' - The total number of users returned.
+-- * 'users' - The users that meet the specified set of filter criteria, in sort order.
+mkSearchUsersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchUsersResponse
-searchUsersResponse pResponseStatus_ =
+mkSearchUsersResponse pResponseStatus_ =
   SearchUsersResponse'
-    { _sursUsers = Nothing,
-      _sursNextToken = Nothing,
-      _sursTotalCount = Nothing,
-      _sursResponseStatus = pResponseStatus_
+    { users = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      totalCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The users that meet the specified set of filter criteria, in sort order.
-sursUsers :: Lens' SearchUsersResponse [UserData]
-sursUsers = lens _sursUsers (\s a -> s {_sursUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursUsers :: Lens.Lens' SearchUsersResponse (Lude.Maybe [UserData])
+sursUsers = Lens.lens (users :: SearchUsersResponse -> Lude.Maybe [UserData]) (\s a -> s {users = a} :: SearchUsersResponse)
+{-# DEPRECATED sursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The token returned to indicate that there is more data available.
-sursNextToken :: Lens' SearchUsersResponse (Maybe Text)
-sursNextToken = lens _sursNextToken (\s a -> s {_sursNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursNextToken :: Lens.Lens' SearchUsersResponse (Lude.Maybe Lude.Text)
+sursNextToken = Lens.lens (nextToken :: SearchUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchUsersResponse)
+{-# DEPRECATED sursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of users returned.
-sursTotalCount :: Lens' SearchUsersResponse (Maybe Int)
-sursTotalCount = lens _sursTotalCount (\s a -> s {_sursTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursTotalCount :: Lens.Lens' SearchUsersResponse (Lude.Maybe Lude.Int)
+sursTotalCount = Lens.lens (totalCount :: SearchUsersResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchUsersResponse)
+{-# DEPRECATED sursTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
--- | -- | The response status code.
-sursResponseStatus :: Lens' SearchUsersResponse Int
-sursResponseStatus = lens _sursResponseStatus (\s a -> s {_sursResponseStatus = a})
-
-instance NFData SearchUsersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursResponseStatus :: Lens.Lens' SearchUsersResponse Lude.Int
+sursResponseStatus = Lens.lens (responseStatus :: SearchUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchUsersResponse)
+{-# DEPRECATED sursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

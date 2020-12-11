@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingIndexingMode where
+module Network.AWS.IoT.Types.ThingIndexingMode
+  ( ThingIndexingMode
+      ( ThingIndexingMode',
+        TIMOff,
+        TIMRegistry,
+        TIMRegistryAndShadow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ThingIndexingMode
-  = TIMOff
-  | TIMRegistry
-  | TIMRegistryAndShadow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThingIndexingMode = ThingIndexingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThingIndexingMode where
-  parser =
-    takeLowerText >>= \case
-      "off" -> pure TIMOff
-      "registry" -> pure TIMRegistry
-      "registry_and_shadow" -> pure TIMRegistryAndShadow
-      e ->
-        fromTextError $
-          "Failure parsing ThingIndexingMode from value: '" <> e
-            <> "'. Accepted values: off, registry, registry_and_shadow"
+pattern TIMOff :: ThingIndexingMode
+pattern TIMOff = ThingIndexingMode' "OFF"
 
-instance ToText ThingIndexingMode where
-  toText = \case
-    TIMOff -> "OFF"
-    TIMRegistry -> "REGISTRY"
-    TIMRegistryAndShadow -> "REGISTRY_AND_SHADOW"
+pattern TIMRegistry :: ThingIndexingMode
+pattern TIMRegistry = ThingIndexingMode' "REGISTRY"
 
-instance Hashable ThingIndexingMode
+pattern TIMRegistryAndShadow :: ThingIndexingMode
+pattern TIMRegistryAndShadow = ThingIndexingMode' "REGISTRY_AND_SHADOW"
 
-instance NFData ThingIndexingMode
-
-instance ToByteString ThingIndexingMode
-
-instance ToQuery ThingIndexingMode
-
-instance ToHeader ThingIndexingMode
-
-instance ToJSON ThingIndexingMode where
-  toJSON = toJSONText
-
-instance FromJSON ThingIndexingMode where
-  parseJSON = parseJSONText "ThingIndexingMode"
+{-# COMPLETE
+  TIMOff,
+  TIMRegistry,
+  TIMRegistryAndShadow,
+  ThingIndexingMode'
+  #-}

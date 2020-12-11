@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.DescribeLoggingStatus
-  ( -- * Creating a Request
-    describeLoggingStatus,
-    DescribeLoggingStatus,
+  ( -- * Creating a request
+    DescribeLoggingStatus (..),
+    mkDescribeLoggingStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlsClusterIdentifier,
 
-    -- * Destructuring the Response
-    loggingStatus,
-    LoggingStatus,
+    -- * Destructuring the response
+    LoggingStatus (..),
+    mkLoggingStatus,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsLastFailureTime,
     lsLastSuccessfulDeliveryTime,
     lsS3KeyPrefix,
@@ -40,64 +35,67 @@ module Network.AWS.Redshift.DescribeLoggingStatus
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeLoggingStatus' smart constructor.
+-- /See:/ 'mkDescribeLoggingStatus' smart constructor.
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
-  { _dlsClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoggingStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The identifier of the cluster from which to get the logging status.
 --
--- * 'dlsClusterIdentifier' - The identifier of the cluster from which to get the logging status. Example: @examplecluster@
-describeLoggingStatus ::
-  -- | 'dlsClusterIdentifier'
-  Text ->
+-- Example: @examplecluster@
+mkDescribeLoggingStatus ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   DescribeLoggingStatus
-describeLoggingStatus pClusterIdentifier_ =
-  DescribeLoggingStatus'
-    { _dlsClusterIdentifier =
-        pClusterIdentifier_
-    }
+mkDescribeLoggingStatus pClusterIdentifier_ =
+  DescribeLoggingStatus' {clusterIdentifier = pClusterIdentifier_}
 
--- | The identifier of the cluster from which to get the logging status. Example: @examplecluster@
-dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
-dlsClusterIdentifier = lens _dlsClusterIdentifier (\s a -> s {_dlsClusterIdentifier = a})
+-- | The identifier of the cluster from which to get the logging status.
+--
+-- Example: @examplecluster@
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsClusterIdentifier :: Lens.Lens' DescribeLoggingStatus Lude.Text
+dlsClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeLoggingStatus -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeLoggingStatus)
+{-# DEPRECATED dlsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest DescribeLoggingStatus where
+instance Lude.AWSRequest DescribeLoggingStatus where
   type Rs DescribeLoggingStatus = LoggingStatus
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeLoggingStatusResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DescribeLoggingStatus
+instance Lude.ToHeaders DescribeLoggingStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLoggingStatus
+instance Lude.ToPath DescribeLoggingStatus where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLoggingStatus where
-  toHeaders = const mempty
-
-instance ToPath DescribeLoggingStatus where
-  toPath = const "/"
-
-instance ToQuery DescribeLoggingStatus where
+instance Lude.ToQuery DescribeLoggingStatus where
   toQuery DescribeLoggingStatus' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLoggingStatus" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _dlsClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeLoggingStatus" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]

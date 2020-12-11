@@ -14,13 +14,11 @@
 -- __Amazon Elasticsearch Configuration Service__
 --
 -- Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch domains.
---
 -- For sample code that uses the Configuration API, see the <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html Amazon Elasticsearch Service Developer Guide> . The guide also contains <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html sample code for sending signed HTTP requests to the Elasticsearch APIs> .
---
 -- The endpoint for configuration service requests is region-specific: es./region/ .amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions Regions and Endpoints> .
 module Network.AWS.ElasticSearch
-  ( -- * Service Configuration
-    elasticSearch,
+  ( -- * Service configuration
+    elasticSearchService,
 
     -- * Errors
     -- $errors
@@ -199,73 +197,73 @@ module Network.AWS.ElasticSearch
     VolumeType (..),
 
     -- ** AccessPoliciesStatus
-    AccessPoliciesStatus,
-    accessPoliciesStatus,
+    AccessPoliciesStatus (..),
+    mkAccessPoliciesStatus,
     apsOptions,
     apsStatus,
 
     -- ** AdditionalLimit
-    AdditionalLimit,
-    additionalLimit,
+    AdditionalLimit (..),
+    mkAdditionalLimit,
     alLimitName,
     alLimitValues,
 
     -- ** AdvancedOptionsStatus
-    AdvancedOptionsStatus,
-    advancedOptionsStatus,
+    AdvancedOptionsStatus (..),
+    mkAdvancedOptionsStatus,
     aosOptions,
     aosStatus,
 
     -- ** AdvancedSecurityOptions
-    AdvancedSecurityOptions,
-    advancedSecurityOptions,
+    AdvancedSecurityOptions (..),
+    mkAdvancedSecurityOptions,
     asoEnabled,
     asoInternalUserDatabaseEnabled,
     asoSAMLOptions,
 
     -- ** AdvancedSecurityOptionsInput
-    AdvancedSecurityOptionsInput,
-    advancedSecurityOptionsInput,
+    AdvancedSecurityOptionsInput (..),
+    mkAdvancedSecurityOptionsInput,
     asoiEnabled,
     asoiInternalUserDatabaseEnabled,
     asoiMasterUserOptions,
     asoiSAMLOptions,
 
     -- ** AdvancedSecurityOptionsStatus
-    AdvancedSecurityOptionsStatus,
-    advancedSecurityOptionsStatus,
+    AdvancedSecurityOptionsStatus (..),
+    mkAdvancedSecurityOptionsStatus,
     asosOptions,
     asosStatus,
 
     -- ** CognitoOptions
-    CognitoOptions,
-    cognitoOptions,
+    CognitoOptions (..),
+    mkCognitoOptions,
     coIdentityPoolId,
     coEnabled,
     coUserPoolId,
     coRoleARN,
 
     -- ** CognitoOptionsStatus
-    CognitoOptionsStatus,
-    cognitoOptionsStatus,
+    CognitoOptionsStatus (..),
+    mkCognitoOptionsStatus,
     cosOptions,
     cosStatus,
 
     -- ** CompatibleVersionsMap
-    CompatibleVersionsMap,
-    compatibleVersionsMap,
+    CompatibleVersionsMap (..),
+    mkCompatibleVersionsMap,
     cvmSourceVersion,
     cvmTargetVersions,
 
     -- ** DescribePackagesFilter
-    DescribePackagesFilter,
-    describePackagesFilter,
+    DescribePackagesFilter (..),
+    mkDescribePackagesFilter,
     dpfValue,
     dpfName,
 
     -- ** DomainEndpointOptions
-    DomainEndpointOptions,
-    domainEndpointOptions,
+    DomainEndpointOptions (..),
+    mkDomainEndpointOptions,
     deoEnforceHTTPS,
     deoTLSSecurityPolicy,
     deoCustomEndpointEnabled,
@@ -273,26 +271,26 @@ module Network.AWS.ElasticSearch
     deoCustomEndpointCertificateARN,
 
     -- ** DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus,
-    domainEndpointOptionsStatus,
+    DomainEndpointOptionsStatus (..),
+    mkDomainEndpointOptionsStatus,
     deosOptions,
     deosStatus,
 
     -- ** DomainInfo
-    DomainInfo,
-    domainInfo,
+    DomainInfo (..),
+    mkDomainInfo,
     dDomainName,
 
     -- ** DomainInformation
-    DomainInformation,
-    domainInformation,
+    DomainInformation (..),
+    mkDomainInformation,
     diOwnerId,
     diRegion,
     diDomainName,
 
     -- ** DomainPackageDetails
-    DomainPackageDetails,
-    domainPackageDetails,
+    DomainPackageDetails (..),
+    mkDomainPackageDetails,
     dpdLastUpdated,
     dpdPackageId,
     dpdPackageType,
@@ -304,22 +302,22 @@ module Network.AWS.ElasticSearch
     dpdReferencePath,
 
     -- ** EBSOptions
-    EBSOptions,
-    ebsOptions,
+    EBSOptions (..),
+    mkEBSOptions,
     eoVolumeSize,
     eoIOPS,
     eoVolumeType,
     eoEBSEnabled,
 
     -- ** EBSOptionsStatus
-    EBSOptionsStatus,
-    ebsOptionsStatus,
+    EBSOptionsStatus (..),
+    mkEBSOptionsStatus,
     eosOptions,
     eosStatus,
 
     -- ** ElasticsearchClusterConfig
-    ElasticsearchClusterConfig,
-    elasticsearchClusterConfig,
+    ElasticsearchClusterConfig (..),
+    mkElasticsearchClusterConfig,
     eccDedicatedMasterCount,
     eccDedicatedMasterType,
     eccDedicatedMasterEnabled,
@@ -332,14 +330,14 @@ module Network.AWS.ElasticSearch
     eccWarmType,
 
     -- ** ElasticsearchClusterConfigStatus
-    ElasticsearchClusterConfigStatus,
-    elasticsearchClusterConfigStatus,
+    ElasticsearchClusterConfigStatus (..),
+    mkElasticsearchClusterConfigStatus,
     eccsOptions,
     eccsStatus,
 
     -- ** ElasticsearchDomainConfig
-    ElasticsearchDomainConfig,
-    elasticsearchDomainConfig,
+    ElasticsearchDomainConfig (..),
+    mkElasticsearchDomainConfig,
     edcEBSOptions,
     edcNodeToNodeEncryptionOptions,
     edcAccessPolicies,
@@ -355,8 +353,8 @@ module Network.AWS.ElasticSearch
     edcElasticsearchVersion,
 
     -- ** ElasticsearchDomainStatus
-    ElasticsearchDomainStatus,
-    elasticsearchDomainStatus,
+    ElasticsearchDomainStatus (..),
+    mkElasticsearchDomainStatus,
     edsEBSOptions,
     edsNodeToNodeEncryptionOptions,
     edsAccessPolicies,
@@ -382,100 +380,100 @@ module Network.AWS.ElasticSearch
     edsElasticsearchClusterConfig,
 
     -- ** ElasticsearchVersionStatus
-    ElasticsearchVersionStatus,
-    elasticsearchVersionStatus,
+    ElasticsearchVersionStatus (..),
+    mkElasticsearchVersionStatus,
     evsOptions,
     evsStatus,
 
     -- ** EncryptionAtRestOptions
-    EncryptionAtRestOptions,
-    encryptionAtRestOptions,
+    EncryptionAtRestOptions (..),
+    mkEncryptionAtRestOptions,
     earoEnabled,
     earoKMSKeyId,
 
     -- ** EncryptionAtRestOptionsStatus
-    EncryptionAtRestOptionsStatus,
-    encryptionAtRestOptionsStatus,
+    EncryptionAtRestOptionsStatus (..),
+    mkEncryptionAtRestOptionsStatus,
     earosOptions,
     earosStatus,
 
     -- ** ErrorDetails
-    ErrorDetails,
-    errorDetails,
+    ErrorDetails (..),
+    mkErrorDetails,
     edErrorType,
     edErrorMessage,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fValues,
     fName,
 
     -- ** InboundCrossClusterSearchConnection
-    InboundCrossClusterSearchConnection,
-    inboundCrossClusterSearchConnection,
+    InboundCrossClusterSearchConnection (..),
+    mkInboundCrossClusterSearchConnection,
     iccscDestinationDomainInfo,
     iccscCrossClusterSearchConnectionId,
     iccscConnectionStatus,
     iccscSourceDomainInfo,
 
     -- ** InboundCrossClusterSearchConnectionStatus
-    InboundCrossClusterSearchConnectionStatus,
-    inboundCrossClusterSearchConnectionStatus,
+    InboundCrossClusterSearchConnectionStatus (..),
+    mkInboundCrossClusterSearchConnectionStatus,
     iccscsMessage,
     iccscsStatusCode,
 
     -- ** InstanceCountLimits
-    InstanceCountLimits,
-    instanceCountLimits,
+    InstanceCountLimits (..),
+    mkInstanceCountLimits,
     iclMaximumInstanceCount,
     iclMinimumInstanceCount,
 
     -- ** InstanceLimits
-    InstanceLimits,
-    instanceLimits,
+    InstanceLimits (..),
+    mkInstanceLimits,
     ilInstanceCountLimits,
 
     -- ** Limits
-    Limits,
-    limits,
+    Limits (..),
+    mkLimits,
     lInstanceLimits,
     lAdditionalLimits,
     lStorageTypes,
 
     -- ** LogPublishingOption
-    LogPublishingOption,
-    logPublishingOption,
+    LogPublishingOption (..),
+    mkLogPublishingOption,
     lpoEnabled,
     lpoCloudWatchLogsLogGroupARN,
 
     -- ** LogPublishingOptionsStatus
-    LogPublishingOptionsStatus,
-    logPublishingOptionsStatus,
+    LogPublishingOptionsStatus (..),
+    mkLogPublishingOptionsStatus,
     lposStatus,
     lposOptions,
 
     -- ** MasterUserOptions
-    MasterUserOptions,
-    masterUserOptions,
+    MasterUserOptions (..),
+    mkMasterUserOptions,
     muoMasterUserPassword,
     muoMasterUserName,
     muoMasterUserARN,
 
     -- ** NodeToNodeEncryptionOptions
-    NodeToNodeEncryptionOptions,
-    nodeToNodeEncryptionOptions,
+    NodeToNodeEncryptionOptions (..),
+    mkNodeToNodeEncryptionOptions,
     ntneoEnabled,
 
     -- ** NodeToNodeEncryptionOptionsStatus
-    NodeToNodeEncryptionOptionsStatus,
-    nodeToNodeEncryptionOptionsStatus,
+    NodeToNodeEncryptionOptionsStatus (..),
+    mkNodeToNodeEncryptionOptionsStatus,
     ntneosOptions,
     ntneosStatus,
 
     -- ** OptionStatus
-    OptionStatus,
-    optionStatus,
+    OptionStatus (..),
+    mkOptionStatus,
     osPendingDeletion,
     osUpdateVersion,
     osCreationDate,
@@ -483,8 +481,8 @@ module Network.AWS.ElasticSearch
     osState,
 
     -- ** OutboundCrossClusterSearchConnection
-    OutboundCrossClusterSearchConnection,
-    outboundCrossClusterSearchConnection,
+    OutboundCrossClusterSearchConnection (..),
+    mkOutboundCrossClusterSearchConnection,
     occscDestinationDomainInfo,
     occscConnectionAlias,
     occscCrossClusterSearchConnectionId,
@@ -492,14 +490,14 @@ module Network.AWS.ElasticSearch
     occscSourceDomainInfo,
 
     -- ** OutboundCrossClusterSearchConnectionStatus
-    OutboundCrossClusterSearchConnectionStatus,
-    outboundCrossClusterSearchConnectionStatus,
+    OutboundCrossClusterSearchConnectionStatus (..),
+    mkOutboundCrossClusterSearchConnectionStatus,
     occscsMessage,
     occscsStatusCode,
 
     -- ** PackageDetails
-    PackageDetails,
-    packageDetails,
+    PackageDetails (..),
+    mkPackageDetails,
     pdPackageId,
     pdPackageType,
     pdLastUpdatedAt,
@@ -511,27 +509,27 @@ module Network.AWS.ElasticSearch
     pdAvailablePackageVersion,
 
     -- ** PackageSource
-    PackageSource,
-    packageSource,
+    PackageSource (..),
+    mkPackageSource,
     psS3Key,
     psS3BucketName,
 
     -- ** PackageVersionHistory
-    PackageVersionHistory,
-    packageVersionHistory,
+    PackageVersionHistory (..),
+    mkPackageVersionHistory,
     pvhCreatedAt,
     pvhPackageVersion,
     pvhCommitMessage,
 
     -- ** RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- ** ReservedElasticsearchInstance
-    ReservedElasticsearchInstance,
-    reservedElasticsearchInstance,
+    ReservedElasticsearchInstance (..),
+    mkReservedElasticsearchInstance,
     reiState,
     reiCurrencyCode,
     reiStartTime,
@@ -547,8 +545,8 @@ module Network.AWS.ElasticSearch
     reiPaymentOption,
 
     -- ** ReservedElasticsearchInstanceOffering
-    ReservedElasticsearchInstanceOffering,
-    reservedElasticsearchInstanceOffering,
+    ReservedElasticsearchInstanceOffering (..),
+    mkReservedElasticsearchInstanceOffering,
     reioCurrencyCode,
     reioReservedElasticsearchInstanceOfferingId,
     reioElasticsearchInstanceType,
@@ -559,14 +557,14 @@ module Network.AWS.ElasticSearch
     reioPaymentOption,
 
     -- ** SAMLIdp
-    SAMLIdp,
-    sAMLIdp,
+    SAMLIdp (..),
+    mkSAMLIdp,
     samliMetadataContent,
     samliEntityId,
 
     -- ** SAMLOptionsInput
-    SAMLOptionsInput,
-    sAMLOptionsInput,
+    SAMLOptionsInput (..),
+    mkSAMLOptionsInput,
     samloiMasterUserName,
     samloiEnabled,
     samloiIdp,
@@ -576,8 +574,8 @@ module Network.AWS.ElasticSearch
     samloiSubjectKey,
 
     -- ** SAMLOptionsOutput
-    SAMLOptionsOutput,
-    sAMLOptionsOutput,
+    SAMLOptionsOutput (..),
+    mkSAMLOptionsOutput,
     samlooEnabled,
     samlooIdp,
     samlooRolesKey,
@@ -585,8 +583,8 @@ module Network.AWS.ElasticSearch
     samlooSubjectKey,
 
     -- ** ServiceSoftwareOptions
-    ServiceSoftwareOptions,
-    serviceSoftwareOptions,
+    ServiceSoftwareOptions (..),
+    mkServiceSoftwareOptions,
     ssoAutomatedUpdateDate,
     ssoCurrentVersion,
     ssoOptionalDeployment,
@@ -597,75 +595,86 @@ module Network.AWS.ElasticSearch
     ssoNewVersion,
 
     -- ** SnapshotOptions
-    SnapshotOptions,
-    snapshotOptions,
+    SnapshotOptions (..),
+    mkSnapshotOptions,
     soAutomatedSnapshotStartHour,
 
     -- ** SnapshotOptionsStatus
-    SnapshotOptionsStatus,
-    snapshotOptionsStatus,
+    SnapshotOptionsStatus (..),
+    mkSnapshotOptionsStatus,
     sosOptions,
     sosStatus,
 
     -- ** StorageType
-    StorageType,
-    storageType,
+    StorageType (..),
+    mkStorageType,
     stStorageTypeLimits,
     stStorageSubTypeName,
     stStorageTypeName,
 
     -- ** StorageTypeLimit
-    StorageTypeLimit,
-    storageTypeLimit,
+    StorageTypeLimit (..),
+    mkStorageTypeLimit,
     stlLimitName,
     stlLimitValues,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** UpgradeHistory
-    UpgradeHistory,
-    upgradeHistory,
+    UpgradeHistory (..),
+    mkUpgradeHistory,
     uhUpgradeStatus,
     uhStepsList,
     uhUpgradeName,
     uhStartTimestamp,
 
     -- ** UpgradeStepItem
-    UpgradeStepItem,
-    upgradeStepItem,
+    UpgradeStepItem (..),
+    mkUpgradeStepItem,
     usiUpgradeStepStatus,
     usiProgressPercent,
     usiIssues,
     usiUpgradeStep,
 
     -- ** VPCDerivedInfo
-    VPCDerivedInfo,
-    vpcDerivedInfo,
+    VPCDerivedInfo (..),
+    mkVPCDerivedInfo,
     vdiSecurityGroupIds,
     vdiSubnetIds,
     vdiVPCId,
     vdiAvailabilityZones,
 
     -- ** VPCDerivedInfoStatus
-    VPCDerivedInfoStatus,
-    vpcDerivedInfoStatus,
+    VPCDerivedInfoStatus (..),
+    mkVPCDerivedInfoStatus,
     vdisOptions,
     vdisStatus,
 
     -- ** VPCOptions
-    VPCOptions,
-    vpcOptions,
+    VPCOptions (..),
+    mkVPCOptions,
     voSecurityGroupIds,
     voSubnetIds,
 
     -- ** ZoneAwarenessConfig
-    ZoneAwarenessConfig,
-    zoneAwarenessConfig,
+    ZoneAwarenessConfig (..),
+    mkZoneAwarenessConfig,
     zacAvailabilityZoneCount,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -710,6 +719,7 @@ import Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
 import Network.AWS.ElasticSearch.UpdatePackage
 import Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
 import Network.AWS.ElasticSearch.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

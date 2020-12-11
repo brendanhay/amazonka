@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,115 @@
 --
 -- Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.
 module Network.AWS.IoT.CancelAuditMitigationActionsTask
-  ( -- * Creating a Request
-    cancelAuditMitigationActionsTask,
-    CancelAuditMitigationActionsTask,
+  ( -- * Creating a request
+    CancelAuditMitigationActionsTask (..),
+    mkCancelAuditMitigationActionsTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     camatTaskId,
 
-    -- * Destructuring the Response
-    cancelAuditMitigationActionsTaskResponse,
-    CancelAuditMitigationActionsTaskResponse,
+    -- * Destructuring the response
+    CancelAuditMitigationActionsTaskResponse (..),
+    mkCancelAuditMitigationActionsTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     camatrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelAuditMitigationActionsTask' smart constructor.
+-- | /See:/ 'mkCancelAuditMitigationActionsTask' smart constructor.
 newtype CancelAuditMitigationActionsTask = CancelAuditMitigationActionsTask'
-  { _camatTaskId ::
-      Text
+  { taskId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelAuditMitigationActionsTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'camatTaskId' - The unique identifier for the task that you want to cancel.
-cancelAuditMitigationActionsTask ::
-  -- | 'camatTaskId'
-  Text ->
+-- * 'taskId' - The unique identifier for the task that you want to cancel.
+mkCancelAuditMitigationActionsTask ::
+  -- | 'taskId'
+  Lude.Text ->
   CancelAuditMitigationActionsTask
-cancelAuditMitigationActionsTask pTaskId_ =
-  CancelAuditMitigationActionsTask' {_camatTaskId = pTaskId_}
+mkCancelAuditMitigationActionsTask pTaskId_ =
+  CancelAuditMitigationActionsTask' {taskId = pTaskId_}
 
 -- | The unique identifier for the task that you want to cancel.
-camatTaskId :: Lens' CancelAuditMitigationActionsTask Text
-camatTaskId = lens _camatTaskId (\s a -> s {_camatTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camatTaskId :: Lens.Lens' CancelAuditMitigationActionsTask Lude.Text
+camatTaskId = Lens.lens (taskId :: CancelAuditMitigationActionsTask -> Lude.Text) (\s a -> s {taskId = a} :: CancelAuditMitigationActionsTask)
+{-# DEPRECATED camatTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance AWSRequest CancelAuditMitigationActionsTask where
+instance Lude.AWSRequest CancelAuditMitigationActionsTask where
   type
     Rs CancelAuditMitigationActionsTask =
       CancelAuditMitigationActionsTaskResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          CancelAuditMitigationActionsTaskResponse' <$> (pure (fromEnum s))
+          CancelAuditMitigationActionsTaskResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelAuditMitigationActionsTask
+instance Lude.ToHeaders CancelAuditMitigationActionsTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelAuditMitigationActionsTask
+instance Lude.ToJSON CancelAuditMitigationActionsTask where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders CancelAuditMitigationActionsTask where
-  toHeaders = const mempty
-
-instance ToJSON CancelAuditMitigationActionsTask where
-  toJSON = const (Object mempty)
-
-instance ToPath CancelAuditMitigationActionsTask where
+instance Lude.ToPath CancelAuditMitigationActionsTask where
   toPath CancelAuditMitigationActionsTask' {..} =
-    mconcat
-      ["/audit/mitigationactions/tasks/", toBS _camatTaskId, "/cancel"]
+    Lude.mconcat
+      ["/audit/mitigationactions/tasks/", Lude.toBS taskId, "/cancel"]
 
-instance ToQuery CancelAuditMitigationActionsTask where
-  toQuery = const mempty
+instance Lude.ToQuery CancelAuditMitigationActionsTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelAuditMitigationActionsTaskResponse' smart constructor.
+-- | /See:/ 'mkCancelAuditMitigationActionsTaskResponse' smart constructor.
 newtype CancelAuditMitigationActionsTaskResponse = CancelAuditMitigationActionsTaskResponse'
-  { _camatrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelAuditMitigationActionsTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'camatrsResponseStatus' - -- | The response status code.
-cancelAuditMitigationActionsTaskResponse ::
-  -- | 'camatrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelAuditMitigationActionsTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelAuditMitigationActionsTaskResponse
-cancelAuditMitigationActionsTaskResponse pResponseStatus_ =
+mkCancelAuditMitigationActionsTaskResponse pResponseStatus_ =
   CancelAuditMitigationActionsTaskResponse'
-    { _camatrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-camatrsResponseStatus :: Lens' CancelAuditMitigationActionsTaskResponse Int
-camatrsResponseStatus = lens _camatrsResponseStatus (\s a -> s {_camatrsResponseStatus = a})
-
-instance NFData CancelAuditMitigationActionsTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camatrsResponseStatus :: Lens.Lens' CancelAuditMitigationActionsTaskResponse Lude.Int
+camatrsResponseStatus = Lens.lens (responseStatus :: CancelAuditMitigationActionsTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelAuditMitigationActionsTaskResponse)
+{-# DEPRECATED camatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

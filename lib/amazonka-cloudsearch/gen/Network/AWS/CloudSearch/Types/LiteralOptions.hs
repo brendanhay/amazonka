@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.LiteralOptions where
+module Network.AWS.CloudSearch.Types.LiteralOptions
+  ( LiteralOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLiteralOptions,
+
+    -- * Lenses
+    loSourceField,
+    loReturnEnabled,
+    loFacetEnabled,
+    loSearchEnabled,
+    loSortEnabled,
+    loDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for literal field. Present if @IndexFieldType@ specifies the field is of type @literal@ . All options are enabled by default.
 --
---
---
--- /See:/ 'literalOptions' smart constructor.
+-- /See:/ 'mkLiteralOptions' smart constructor.
 data LiteralOptions = LiteralOptions'
-  { _loSourceField ::
-      !(Maybe Text),
-    _loReturnEnabled :: !(Maybe Bool),
-    _loFacetEnabled :: !(Maybe Bool),
-    _loSearchEnabled :: !(Maybe Bool),
-    _loSortEnabled :: !(Maybe Bool),
-    _loDefaultValue :: !(Maybe Text)
+  { sourceField ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    sortEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LiteralOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loSourceField' - Undocumented member.
---
--- * 'loReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'loFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'loSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'loSortEnabled' - Whether the field can be used to sort the search results.
---
--- * 'loDefaultValue' - A value to use for the field if the field isn't specified for a document.
-literalOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sortEnabled' - Whether the field can be used to sort the search results.
+-- * 'sourceField' - Undocumented field.
+mkLiteralOptions ::
   LiteralOptions
-literalOptions =
+mkLiteralOptions =
   LiteralOptions'
-    { _loSourceField = Nothing,
-      _loReturnEnabled = Nothing,
-      _loFacetEnabled = Nothing,
-      _loSearchEnabled = Nothing,
-      _loSortEnabled = Nothing,
-      _loDefaultValue = Nothing
+    { sourceField = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      sortEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
--- | Undocumented member.
-loSourceField :: Lens' LiteralOptions (Maybe Text)
-loSourceField = lens _loSourceField (\s a -> s {_loSourceField = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loSourceField :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Text)
+loSourceField = Lens.lens (sourceField :: LiteralOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceField = a} :: LiteralOptions)
+{-# DEPRECATED loSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-loReturnEnabled :: Lens' LiteralOptions (Maybe Bool)
-loReturnEnabled = lens _loReturnEnabled (\s a -> s {_loReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loReturnEnabled :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Bool)
+loReturnEnabled = Lens.lens (returnEnabled :: LiteralOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: LiteralOptions)
+{-# DEPRECATED loReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-loFacetEnabled :: Lens' LiteralOptions (Maybe Bool)
-loFacetEnabled = lens _loFacetEnabled (\s a -> s {_loFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loFacetEnabled :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Bool)
+loFacetEnabled = Lens.lens (facetEnabled :: LiteralOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: LiteralOptions)
+{-# DEPRECATED loFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-loSearchEnabled :: Lens' LiteralOptions (Maybe Bool)
-loSearchEnabled = lens _loSearchEnabled (\s a -> s {_loSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loSearchEnabled :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Bool)
+loSearchEnabled = Lens.lens (searchEnabled :: LiteralOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: LiteralOptions)
+{-# DEPRECATED loSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | Whether the field can be used to sort the search results.
-loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
-loSortEnabled = lens _loSortEnabled (\s a -> s {_loSortEnabled = a})
+--
+-- /Note:/ Consider using 'sortEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loSortEnabled :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Bool)
+loSortEnabled = Lens.lens (sortEnabled :: LiteralOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sortEnabled = a} :: LiteralOptions)
+{-# DEPRECATED loSortEnabled "Use generic-lens or generic-optics with 'sortEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
-loDefaultValue :: Lens' LiteralOptions (Maybe Text)
-loDefaultValue = lens _loDefaultValue (\s a -> s {_loDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loDefaultValue :: Lens.Lens' LiteralOptions (Lude.Maybe Lude.Text)
+loDefaultValue = Lens.lens (defaultValue :: LiteralOptions -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: LiteralOptions)
+{-# DEPRECATED loDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML LiteralOptions where
+instance Lude.FromXML LiteralOptions where
   parseXML x =
     LiteralOptions'
-      <$> (x .@? "SourceField")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "SortEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceField")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "SortEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable LiteralOptions
-
-instance NFData LiteralOptions
-
-instance ToQuery LiteralOptions where
+instance Lude.ToQuery LiteralOptions where
   toQuery LiteralOptions' {..} =
-    mconcat
-      [ "SourceField" =: _loSourceField,
-        "ReturnEnabled" =: _loReturnEnabled,
-        "FacetEnabled" =: _loFacetEnabled,
-        "SearchEnabled" =: _loSearchEnabled,
-        "SortEnabled" =: _loSortEnabled,
-        "DefaultValue" =: _loDefaultValue
+    Lude.mconcat
+      [ "SourceField" Lude.=: sourceField,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "SortEnabled" Lude.=: sortEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

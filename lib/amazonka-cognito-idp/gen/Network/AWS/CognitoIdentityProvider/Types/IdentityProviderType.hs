@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,113 +7,334 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType where
+module Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType
+  ( IdentityProviderType (..),
+
+    -- * Smart constructor
+    mkIdentityProviderType,
+
+    -- * Lenses
+    iptLastModifiedDate,
+    iptUserPoolId,
+    iptProviderType,
+    iptCreationDate,
+    iptIdpIdentifiers,
+    iptAttributeMapping,
+    iptProviderDetails,
+    iptProviderName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for information about an identity provider.
 --
---
---
--- /See:/ 'identityProviderType' smart constructor.
+-- /See:/ 'mkIdentityProviderType' smart constructor.
 data IdentityProviderType = IdentityProviderType'
-  { _iptLastModifiedDate ::
-      !(Maybe POSIX),
-    _iptUserPoolId :: !(Maybe Text),
-    _iptProviderType ::
-      !(Maybe IdentityProviderTypeType),
-    _iptCreationDate :: !(Maybe POSIX),
-    _iptIdpIdentifiers :: !(Maybe [Text]),
-    _iptAttributeMapping ::
-      !(Maybe (Map Text (Text))),
-    _iptProviderDetails :: !(Maybe (Map Text (Text))),
-    _iptProviderName :: !(Maybe Text)
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    userPoolId :: Lude.Maybe Lude.Text,
+    providerType ::
+      Lude.Maybe IdentityProviderTypeType,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    idpIdentifiers :: Lude.Maybe [Lude.Text],
+    attributeMapping ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    providerDetails ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityProviderType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
+-- * 'creationDate' - The date the identity provider was created.
+-- * 'idpIdentifiers' - A list of identity provider identifiers.
+-- * 'lastModifiedDate' - The date the identity provider was last modified.
+-- * 'providerDetails' - The identity provider details. The following list describes the provider detail keys for each identity provider type.
 --
--- * 'iptLastModifiedDate' - The date the identity provider was last modified.
 --
--- * 'iptUserPoolId' - The user pool ID.
+--     * For Google and Login with Amazon:
 --
--- * 'iptProviderType' - The identity provider type.
+--     * client_id
 --
--- * 'iptCreationDate' - The date the identity provider was created.
 --
--- * 'iptIdpIdentifiers' - A list of identity provider identifiers.
+--     * client_secret
 --
--- * 'iptAttributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
 --
--- * 'iptProviderDetails' - The identity provider details. The following list describes the provider detail keys for each identity provider type.     * For Google and Login with Amazon:     * client_id     * client_secret     * authorize_scopes     * For Facebook:     * client_id     * client_secret     * authorize_scopes     * api_version     * For Sign in with Apple:     * client_id     * team_id     * key_id     * private_key     * authorize_scopes     * For OIDC providers:     * client_id     * client_secret     * attributes_request_method     * oidc_issuer     * authorize_scopes     * authorize_url /if not available from discovery URL specified by oidc_issuer key/      * token_url /if not available from discovery URL specified by oidc_issuer key/      * attributes_url /if not available from discovery URL specified by oidc_issuer key/      * jwks_uri /if not available from discovery URL specified by oidc_issuer key/      * authorize_scopes     * For SAML providers:     * MetadataFile OR MetadataURL     * IDPSignOut /optional/
+--     * authorize_scopes
 --
--- * 'iptProviderName' - The identity provider name.
-identityProviderType ::
+--
+--
+--
+--     * For Facebook:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--     * api_version
+--
+--
+--
+--
+--     * For Sign in with Apple:
+--
+--     * client_id
+--
+--
+--     * team_id
+--
+--
+--     * key_id
+--
+--
+--     * private_key
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For OIDC providers:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * attributes_request_method
+--
+--
+--     * oidc_issuer
+--
+--
+--     * authorize_scopes
+--
+--
+--     * authorize_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * token_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * attributes_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * jwks_uri /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For SAML providers:
+--
+--     * MetadataFile OR MetadataURL
+--
+--
+--     * IDPSignOut /optional/
+--
+--
+--
+--
+-- * 'providerName' - The identity provider name.
+-- * 'providerType' - The identity provider type.
+-- * 'userPoolId' - The user pool ID.
+mkIdentityProviderType ::
   IdentityProviderType
-identityProviderType =
+mkIdentityProviderType =
   IdentityProviderType'
-    { _iptLastModifiedDate = Nothing,
-      _iptUserPoolId = Nothing,
-      _iptProviderType = Nothing,
-      _iptCreationDate = Nothing,
-      _iptIdpIdentifiers = Nothing,
-      _iptAttributeMapping = Nothing,
-      _iptProviderDetails = Nothing,
-      _iptProviderName = Nothing
+    { lastModifiedDate = Lude.Nothing,
+      userPoolId = Lude.Nothing,
+      providerType = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      idpIdentifiers = Lude.Nothing,
+      attributeMapping = Lude.Nothing,
+      providerDetails = Lude.Nothing,
+      providerName = Lude.Nothing
     }
 
 -- | The date the identity provider was last modified.
-iptLastModifiedDate :: Lens' IdentityProviderType (Maybe UTCTime)
-iptLastModifiedDate = lens _iptLastModifiedDate (\s a -> s {_iptLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptLastModifiedDate :: Lens.Lens' IdentityProviderType (Lude.Maybe Lude.Timestamp)
+iptLastModifiedDate = Lens.lens (lastModifiedDate :: IdentityProviderType -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: IdentityProviderType)
+{-# DEPRECATED iptLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The user pool ID.
-iptUserPoolId :: Lens' IdentityProviderType (Maybe Text)
-iptUserPoolId = lens _iptUserPoolId (\s a -> s {_iptUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptUserPoolId :: Lens.Lens' IdentityProviderType (Lude.Maybe Lude.Text)
+iptUserPoolId = Lens.lens (userPoolId :: IdentityProviderType -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: IdentityProviderType)
+{-# DEPRECATED iptUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider type.
-iptProviderType :: Lens' IdentityProviderType (Maybe IdentityProviderTypeType)
-iptProviderType = lens _iptProviderType (\s a -> s {_iptProviderType = a})
+--
+-- /Note:/ Consider using 'providerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptProviderType :: Lens.Lens' IdentityProviderType (Lude.Maybe IdentityProviderTypeType)
+iptProviderType = Lens.lens (providerType :: IdentityProviderType -> Lude.Maybe IdentityProviderTypeType) (\s a -> s {providerType = a} :: IdentityProviderType)
+{-# DEPRECATED iptProviderType "Use generic-lens or generic-optics with 'providerType' instead." #-}
 
 -- | The date the identity provider was created.
-iptCreationDate :: Lens' IdentityProviderType (Maybe UTCTime)
-iptCreationDate = lens _iptCreationDate (\s a -> s {_iptCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptCreationDate :: Lens.Lens' IdentityProviderType (Lude.Maybe Lude.Timestamp)
+iptCreationDate = Lens.lens (creationDate :: IdentityProviderType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: IdentityProviderType)
+{-# DEPRECATED iptCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A list of identity provider identifiers.
-iptIdpIdentifiers :: Lens' IdentityProviderType [Text]
-iptIdpIdentifiers = lens _iptIdpIdentifiers (\s a -> s {_iptIdpIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'idpIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptIdpIdentifiers :: Lens.Lens' IdentityProviderType (Lude.Maybe [Lude.Text])
+iptIdpIdentifiers = Lens.lens (idpIdentifiers :: IdentityProviderType -> Lude.Maybe [Lude.Text]) (\s a -> s {idpIdentifiers = a} :: IdentityProviderType)
+{-# DEPRECATED iptIdpIdentifiers "Use generic-lens or generic-optics with 'idpIdentifiers' instead." #-}
 
 -- | A mapping of identity provider attributes to standard and custom user pool attributes.
-iptAttributeMapping :: Lens' IdentityProviderType (HashMap Text (Text))
-iptAttributeMapping = lens _iptAttributeMapping (\s a -> s {_iptAttributeMapping = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributeMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptAttributeMapping :: Lens.Lens' IdentityProviderType (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iptAttributeMapping = Lens.lens (attributeMapping :: IdentityProviderType -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributeMapping = a} :: IdentityProviderType)
+{-# DEPRECATED iptAttributeMapping "Use generic-lens or generic-optics with 'attributeMapping' instead." #-}
 
--- | The identity provider details. The following list describes the provider detail keys for each identity provider type.     * For Google and Login with Amazon:     * client_id     * client_secret     * authorize_scopes     * For Facebook:     * client_id     * client_secret     * authorize_scopes     * api_version     * For Sign in with Apple:     * client_id     * team_id     * key_id     * private_key     * authorize_scopes     * For OIDC providers:     * client_id     * client_secret     * attributes_request_method     * oidc_issuer     * authorize_scopes     * authorize_url /if not available from discovery URL specified by oidc_issuer key/      * token_url /if not available from discovery URL specified by oidc_issuer key/      * attributes_url /if not available from discovery URL specified by oidc_issuer key/      * jwks_uri /if not available from discovery URL specified by oidc_issuer key/      * authorize_scopes     * For SAML providers:     * MetadataFile OR MetadataURL     * IDPSignOut /optional/
-iptProviderDetails :: Lens' IdentityProviderType (HashMap Text (Text))
-iptProviderDetails = lens _iptProviderDetails (\s a -> s {_iptProviderDetails = a}) . _Default . _Map
+-- | The identity provider details. The following list describes the provider detail keys for each identity provider type.
+--
+--
+--     * For Google and Login with Amazon:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For Facebook:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--     * api_version
+--
+--
+--
+--
+--     * For Sign in with Apple:
+--
+--     * client_id
+--
+--
+--     * team_id
+--
+--
+--     * key_id
+--
+--
+--     * private_key
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For OIDC providers:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * attributes_request_method
+--
+--
+--     * oidc_issuer
+--
+--
+--     * authorize_scopes
+--
+--
+--     * authorize_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * token_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * attributes_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * jwks_uri /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For SAML providers:
+--
+--     * MetadataFile OR MetadataURL
+--
+--
+--     * IDPSignOut /optional/
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'providerDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptProviderDetails :: Lens.Lens' IdentityProviderType (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iptProviderDetails = Lens.lens (providerDetails :: IdentityProviderType -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {providerDetails = a} :: IdentityProviderType)
+{-# DEPRECATED iptProviderDetails "Use generic-lens or generic-optics with 'providerDetails' instead." #-}
 
 -- | The identity provider name.
-iptProviderName :: Lens' IdentityProviderType (Maybe Text)
-iptProviderName = lens _iptProviderName (\s a -> s {_iptProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iptProviderName :: Lens.Lens' IdentityProviderType (Lude.Maybe Lude.Text)
+iptProviderName = Lens.lens (providerName :: IdentityProviderType -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: IdentityProviderType)
+{-# DEPRECATED iptProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance FromJSON IdentityProviderType where
+instance Lude.FromJSON IdentityProviderType where
   parseJSON =
-    withObject
+    Lude.withObject
       "IdentityProviderType"
       ( \x ->
           IdentityProviderType'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "UserPoolId")
-            <*> (x .:? "ProviderType")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "IdpIdentifiers" .!= mempty)
-            <*> (x .:? "AttributeMapping" .!= mempty)
-            <*> (x .:? "ProviderDetails" .!= mempty)
-            <*> (x .:? "ProviderName")
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "UserPoolId")
+            Lude.<*> (x Lude..:? "ProviderType")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "IdpIdentifiers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AttributeMapping" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ProviderDetails" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ProviderName")
       )
-
-instance Hashable IdentityProviderType
-
-instance NFData IdentityProviderType

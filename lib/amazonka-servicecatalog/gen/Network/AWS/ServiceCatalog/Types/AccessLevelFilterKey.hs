@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey where
+module Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
+  ( AccessLevelFilterKey
+      ( AccessLevelFilterKey',
+        Account,
+        Role,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccessLevelFilterKey
-  = Account
-  | Role
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccessLevelFilterKey = AccessLevelFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccessLevelFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      "role" -> pure Role
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing AccessLevelFilterKey from value: '" <> e
-            <> "'. Accepted values: account, role, user"
+pattern Account :: AccessLevelFilterKey
+pattern Account = AccessLevelFilterKey' "Account"
 
-instance ToText AccessLevelFilterKey where
-  toText = \case
-    Account -> "Account"
-    Role -> "Role"
-    User -> "User"
+pattern Role :: AccessLevelFilterKey
+pattern Role = AccessLevelFilterKey' "Role"
 
-instance Hashable AccessLevelFilterKey
+pattern User :: AccessLevelFilterKey
+pattern User = AccessLevelFilterKey' "User"
 
-instance NFData AccessLevelFilterKey
-
-instance ToByteString AccessLevelFilterKey
-
-instance ToQuery AccessLevelFilterKey
-
-instance ToHeader AccessLevelFilterKey
-
-instance ToJSON AccessLevelFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  Account,
+  Role,
+  User,
+  AccessLevelFilterKey'
+  #-}

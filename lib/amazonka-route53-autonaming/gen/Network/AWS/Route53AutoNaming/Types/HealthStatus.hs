@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.HealthStatus where
+module Network.AWS.Route53AutoNaming.Types.HealthStatus
+  ( HealthStatus
+      ( HealthStatus',
+        Healthy,
+        Unhealthy,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HealthStatus
-  = Healthy
-  | Unhealthy
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HealthStatus = HealthStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HealthStatus where
-  parser =
-    takeLowerText >>= \case
-      "healthy" -> pure Healthy
-      "unhealthy" -> pure Unhealthy
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing HealthStatus from value: '" <> e
-            <> "'. Accepted values: healthy, unhealthy, unknown"
+pattern Healthy :: HealthStatus
+pattern Healthy = HealthStatus' "HEALTHY"
 
-instance ToText HealthStatus where
-  toText = \case
-    Healthy -> "HEALTHY"
-    Unhealthy -> "UNHEALTHY"
-    Unknown -> "UNKNOWN"
+pattern Unhealthy :: HealthStatus
+pattern Unhealthy = HealthStatus' "UNHEALTHY"
 
-instance Hashable HealthStatus
+pattern Unknown :: HealthStatus
+pattern Unknown = HealthStatus' "UNKNOWN"
 
-instance NFData HealthStatus
-
-instance ToByteString HealthStatus
-
-instance ToQuery HealthStatus
-
-instance ToHeader HealthStatus
-
-instance FromJSON HealthStatus where
-  parseJSON = parseJSONText "HealthStatus"
+{-# COMPLETE
+  Healthy,
+  Unhealthy,
+  Unknown,
+  HealthStatus'
+  #-}

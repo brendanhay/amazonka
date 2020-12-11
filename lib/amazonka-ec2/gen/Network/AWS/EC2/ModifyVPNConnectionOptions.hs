@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Modifies the connection options for your Site-to-Site VPN connection.
 --
---
 -- When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.
 module Network.AWS.EC2.ModifyVPNConnectionOptions
-  ( -- * Creating a Request
-    modifyVPNConnectionOptions,
-    ModifyVPNConnectionOptions,
+  ( -- * Creating a request
+    ModifyVPNConnectionOptions (..),
+    mkModifyVPNConnectionOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mvcoRemoteIPv4NetworkCidr,
     mvcoLocalIPv4NetworkCidr,
     mvcoRemoteIPv6NetworkCidr,
@@ -34,160 +28,198 @@ module Network.AWS.EC2.ModifyVPNConnectionOptions
     mvcoDryRun,
     mvcoVPNConnectionId,
 
-    -- * Destructuring the Response
-    modifyVPNConnectionOptionsResponse,
-    ModifyVPNConnectionOptionsResponse,
+    -- * Destructuring the response
+    ModifyVPNConnectionOptionsResponse (..),
+    mkModifyVPNConnectionOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mvcorsVPNConnection,
     mvcorsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyVPNConnectionOptions' smart constructor.
+-- | /See:/ 'mkModifyVPNConnectionOptions' smart constructor.
 data ModifyVPNConnectionOptions = ModifyVPNConnectionOptions'
-  { _mvcoRemoteIPv4NetworkCidr ::
-      !(Maybe Text),
-    _mvcoLocalIPv4NetworkCidr ::
-      !(Maybe Text),
-    _mvcoRemoteIPv6NetworkCidr ::
-      !(Maybe Text),
-    _mvcoLocalIPv6NetworkCidr ::
-      !(Maybe Text),
-    _mvcoDryRun :: !(Maybe Bool),
-    _mvcoVPNConnectionId :: !Text
+  { remoteIPv4NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    localIPv4NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    remoteIPv6NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    localIPv6NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    vpnConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnectionOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
--- * 'mvcoRemoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection. Default: @0.0.0.0/0@
+-- Default: @0.0.0.0/0@
+-- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
--- * 'mvcoLocalIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @0.0.0.0/0@
+-- Default: @::/0@
+-- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
 --
--- * 'mvcoRemoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection. Default: @::/0@
+-- Default: @0.0.0.0/0@
+-- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
 --
--- * 'mvcoLocalIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @::/0@
---
--- * 'mvcoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mvcoVPNConnectionId' - The ID of the Site-to-Site VPN connection.
-modifyVPNConnectionOptions ::
-  -- | 'mvcoVPNConnectionId'
-  Text ->
+-- Default: @::/0@
+-- * 'vpnConnectionId' - The ID of the Site-to-Site VPN connection.
+mkModifyVPNConnectionOptions ::
+  -- | 'vpnConnectionId'
+  Lude.Text ->
   ModifyVPNConnectionOptions
-modifyVPNConnectionOptions pVPNConnectionId_ =
+mkModifyVPNConnectionOptions pVPNConnectionId_ =
   ModifyVPNConnectionOptions'
-    { _mvcoRemoteIPv4NetworkCidr = Nothing,
-      _mvcoLocalIPv4NetworkCidr = Nothing,
-      _mvcoRemoteIPv6NetworkCidr = Nothing,
-      _mvcoLocalIPv6NetworkCidr = Nothing,
-      _mvcoDryRun = Nothing,
-      _mvcoVPNConnectionId = pVPNConnectionId_
+    { remoteIPv4NetworkCidr = Lude.Nothing,
+      localIPv4NetworkCidr = Lude.Nothing,
+      remoteIPv6NetworkCidr = Lude.Nothing,
+      localIPv6NetworkCidr = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      vpnConnectionId = pVPNConnectionId_
     }
 
--- | The IPv4 CIDR on the AWS side of the VPN connection. Default: @0.0.0.0/0@
-mvcoRemoteIPv4NetworkCidr :: Lens' ModifyVPNConnectionOptions (Maybe Text)
-mvcoRemoteIPv4NetworkCidr = lens _mvcoRemoteIPv4NetworkCidr (\s a -> s {_mvcoRemoteIPv4NetworkCidr = a})
+-- | The IPv4 CIDR on the AWS side of the VPN connection.
+--
+-- Default: @0.0.0.0/0@
+--
+-- /Note:/ Consider using 'remoteIPv4NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoRemoteIPv4NetworkCidr :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Text)
+mvcoRemoteIPv4NetworkCidr = Lens.lens (remoteIPv4NetworkCidr :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Text) (\s a -> s {remoteIPv4NetworkCidr = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoRemoteIPv4NetworkCidr "Use generic-lens or generic-optics with 'remoteIPv4NetworkCidr' instead." #-}
 
--- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @0.0.0.0/0@
-mvcoLocalIPv4NetworkCidr :: Lens' ModifyVPNConnectionOptions (Maybe Text)
-mvcoLocalIPv4NetworkCidr = lens _mvcoLocalIPv4NetworkCidr (\s a -> s {_mvcoLocalIPv4NetworkCidr = a})
+-- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+--
+-- Default: @0.0.0.0/0@
+--
+-- /Note:/ Consider using 'localIPv4NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoLocalIPv4NetworkCidr :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Text)
+mvcoLocalIPv4NetworkCidr = Lens.lens (localIPv4NetworkCidr :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Text) (\s a -> s {localIPv4NetworkCidr = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoLocalIPv4NetworkCidr "Use generic-lens or generic-optics with 'localIPv4NetworkCidr' instead." #-}
 
--- | The IPv6 CIDR on the AWS side of the VPN connection. Default: @::/0@
-mvcoRemoteIPv6NetworkCidr :: Lens' ModifyVPNConnectionOptions (Maybe Text)
-mvcoRemoteIPv6NetworkCidr = lens _mvcoRemoteIPv6NetworkCidr (\s a -> s {_mvcoRemoteIPv6NetworkCidr = a})
+-- | The IPv6 CIDR on the AWS side of the VPN connection.
+--
+-- Default: @::/0@
+--
+-- /Note:/ Consider using 'remoteIPv6NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoRemoteIPv6NetworkCidr :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Text)
+mvcoRemoteIPv6NetworkCidr = Lens.lens (remoteIPv6NetworkCidr :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Text) (\s a -> s {remoteIPv6NetworkCidr = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoRemoteIPv6NetworkCidr "Use generic-lens or generic-optics with 'remoteIPv6NetworkCidr' instead." #-}
 
--- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @::/0@
-mvcoLocalIPv6NetworkCidr :: Lens' ModifyVPNConnectionOptions (Maybe Text)
-mvcoLocalIPv6NetworkCidr = lens _mvcoLocalIPv6NetworkCidr (\s a -> s {_mvcoLocalIPv6NetworkCidr = a})
+-- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+--
+-- Default: @::/0@
+--
+-- /Note:/ Consider using 'localIPv6NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoLocalIPv6NetworkCidr :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Text)
+mvcoLocalIPv6NetworkCidr = Lens.lens (localIPv6NetworkCidr :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Text) (\s a -> s {localIPv6NetworkCidr = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoLocalIPv6NetworkCidr "Use generic-lens or generic-optics with 'localIPv6NetworkCidr' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mvcoDryRun :: Lens' ModifyVPNConnectionOptions (Maybe Bool)
-mvcoDryRun = lens _mvcoDryRun (\s a -> s {_mvcoDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoDryRun :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Bool)
+mvcoDryRun = Lens.lens (dryRun :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Site-to-Site VPN connection.
-mvcoVPNConnectionId :: Lens' ModifyVPNConnectionOptions Text
-mvcoVPNConnectionId = lens _mvcoVPNConnectionId (\s a -> s {_mvcoVPNConnectionId = a})
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoVPNConnectionId :: Lens.Lens' ModifyVPNConnectionOptions Lude.Text
+mvcoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNConnectionOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
-instance AWSRequest ModifyVPNConnectionOptions where
+instance Lude.AWSRequest ModifyVPNConnectionOptions where
   type
     Rs ModifyVPNConnectionOptions =
       ModifyVPNConnectionOptionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyVPNConnectionOptionsResponse'
-            <$> (x .@? "vpnConnection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpnConnection")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyVPNConnectionOptions
+instance Lude.ToHeaders ModifyVPNConnectionOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyVPNConnectionOptions
+instance Lude.ToPath ModifyVPNConnectionOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyVPNConnectionOptions where
-  toHeaders = const mempty
-
-instance ToPath ModifyVPNConnectionOptions where
-  toPath = const "/"
-
-instance ToQuery ModifyVPNConnectionOptions where
+instance Lude.ToQuery ModifyVPNConnectionOptions where
   toQuery ModifyVPNConnectionOptions' {..} =
-    mconcat
-      [ "Action" =: ("ModifyVpnConnectionOptions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "RemoteIpv4NetworkCidr" =: _mvcoRemoteIPv4NetworkCidr,
-        "LocalIpv4NetworkCidr" =: _mvcoLocalIPv4NetworkCidr,
-        "RemoteIpv6NetworkCidr" =: _mvcoRemoteIPv6NetworkCidr,
-        "LocalIpv6NetworkCidr" =: _mvcoLocalIPv6NetworkCidr,
-        "DryRun" =: _mvcoDryRun,
-        "VpnConnectionId" =: _mvcoVPNConnectionId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ModifyVpnConnectionOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "RemoteIpv4NetworkCidr" Lude.=: remoteIPv4NetworkCidr,
+        "LocalIpv4NetworkCidr" Lude.=: localIPv4NetworkCidr,
+        "RemoteIpv6NetworkCidr" Lude.=: remoteIPv6NetworkCidr,
+        "LocalIpv6NetworkCidr" Lude.=: localIPv6NetworkCidr,
+        "DryRun" Lude.=: dryRun,
+        "VpnConnectionId" Lude.=: vpnConnectionId
       ]
 
--- | /See:/ 'modifyVPNConnectionOptionsResponse' smart constructor.
+-- | /See:/ 'mkModifyVPNConnectionOptionsResponse' smart constructor.
 data ModifyVPNConnectionOptionsResponse = ModifyVPNConnectionOptionsResponse'
-  { _mvcorsVPNConnection ::
-      !( Maybe
-           VPNConnection
-       ),
-    _mvcorsResponseStatus ::
-      !Int
+  { vpnConnection ::
+      Lude.Maybe
+        VPNConnection,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnectionOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvcorsVPNConnection' - Undocumented member.
---
--- * 'mvcorsResponseStatus' - -- | The response status code.
-modifyVPNConnectionOptionsResponse ::
-  -- | 'mvcorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpnConnection' - Undocumented field.
+mkModifyVPNConnectionOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyVPNConnectionOptionsResponse
-modifyVPNConnectionOptionsResponse pResponseStatus_ =
+mkModifyVPNConnectionOptionsResponse pResponseStatus_ =
   ModifyVPNConnectionOptionsResponse'
-    { _mvcorsVPNConnection =
-        Nothing,
-      _mvcorsResponseStatus = pResponseStatus_
+    { vpnConnection = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mvcorsVPNConnection :: Lens' ModifyVPNConnectionOptionsResponse (Maybe VPNConnection)
-mvcorsVPNConnection = lens _mvcorsVPNConnection (\s a -> s {_mvcorsVPNConnection = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpnConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcorsVPNConnection :: Lens.Lens' ModifyVPNConnectionOptionsResponse (Lude.Maybe VPNConnection)
+mvcorsVPNConnection = Lens.lens (vpnConnection :: ModifyVPNConnectionOptionsResponse -> Lude.Maybe VPNConnection) (\s a -> s {vpnConnection = a} :: ModifyVPNConnectionOptionsResponse)
+{-# DEPRECATED mvcorsVPNConnection "Use generic-lens or generic-optics with 'vpnConnection' instead." #-}
 
--- | -- | The response status code.
-mvcorsResponseStatus :: Lens' ModifyVPNConnectionOptionsResponse Int
-mvcorsResponseStatus = lens _mvcorsResponseStatus (\s a -> s {_mvcorsResponseStatus = a})
-
-instance NFData ModifyVPNConnectionOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcorsResponseStatus :: Lens.Lens' ModifyVPNConnectionOptionsResponse Lude.Int
+mvcorsResponseStatus = Lens.lens (responseStatus :: ModifyVPNConnectionOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVPNConnectionOptionsResponse)
+{-# DEPRECATED mvcorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

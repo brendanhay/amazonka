@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.RestoreWindow where
+module Network.AWS.RDS.Types.RestoreWindow
+  ( RestoreWindow (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRestoreWindow,
+
+    -- * Lenses
+    rwLatestTime,
+    rwEarliestTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Earliest and latest time an instance can be restored to:
 --
---
---
--- /See:/ 'restoreWindow' smart constructor.
+-- /See:/ 'mkRestoreWindow' smart constructor.
 data RestoreWindow = RestoreWindow'
-  { _rwLatestTime ::
-      !(Maybe ISO8601),
-    _rwEarliestTime :: !(Maybe ISO8601)
+  { latestTime ::
+      Lude.Maybe Lude.ISO8601,
+    earliestTime :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreWindow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rwLatestTime' - The latest time you can restore an instance to.
---
--- * 'rwEarliestTime' - The earliest time you can restore an instance to.
-restoreWindow ::
+-- * 'earliestTime' - The earliest time you can restore an instance to.
+-- * 'latestTime' - The latest time you can restore an instance to.
+mkRestoreWindow ::
   RestoreWindow
-restoreWindow =
+mkRestoreWindow =
   RestoreWindow'
-    { _rwLatestTime = Nothing,
-      _rwEarliestTime = Nothing
+    { latestTime = Lude.Nothing,
+      earliestTime = Lude.Nothing
     }
 
 -- | The latest time you can restore an instance to.
-rwLatestTime :: Lens' RestoreWindow (Maybe UTCTime)
-rwLatestTime = lens _rwLatestTime (\s a -> s {_rwLatestTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwLatestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.ISO8601)
+rwLatestTime = Lens.lens (latestTime :: RestoreWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestTime = a} :: RestoreWindow)
+{-# DEPRECATED rwLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
 -- | The earliest time you can restore an instance to.
-rwEarliestTime :: Lens' RestoreWindow (Maybe UTCTime)
-rwEarliestTime = lens _rwEarliestTime (\s a -> s {_rwEarliestTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwEarliestTime :: Lens.Lens' RestoreWindow (Lude.Maybe Lude.ISO8601)
+rwEarliestTime = Lens.lens (earliestTime :: RestoreWindow -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestTime = a} :: RestoreWindow)
+{-# DEPRECATED rwEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
-instance FromXML RestoreWindow where
+instance Lude.FromXML RestoreWindow where
   parseXML x =
     RestoreWindow'
-      <$> (x .@? "LatestTime") <*> (x .@? "EarliestTime")
-
-instance Hashable RestoreWindow
-
-instance NFData RestoreWindow
+      Lude.<$> (x Lude..@? "LatestTime") Lude.<*> (x Lude..@? "EarliestTime")

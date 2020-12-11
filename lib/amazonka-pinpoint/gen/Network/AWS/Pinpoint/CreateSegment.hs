@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,148 @@
 --
 -- Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.
 module Network.AWS.Pinpoint.CreateSegment
-  ( -- * Creating a Request
-    createSegment,
-    CreateSegment,
+  ( -- * Creating a request
+    CreateSegment (..),
+    mkCreateSegment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csApplicationId,
     csWriteSegmentRequest,
 
-    -- * Destructuring the Response
-    createSegmentResponse,
-    CreateSegmentResponse,
+    -- * Destructuring the response
+    CreateSegmentResponse (..),
+    mkCreateSegmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsResponseStatus,
     csrsSegmentResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSegment' smart constructor.
+-- | /See:/ 'mkCreateSegment' smart constructor.
 data CreateSegment = CreateSegment'
-  { _csApplicationId :: !Text,
-    _csWriteSegmentRequest :: !WriteSegmentRequest
+  { applicationId :: Lude.Text,
+    writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSegment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'csWriteSegmentRequest' - Undocumented member.
-createSegment ::
-  -- | 'csApplicationId'
-  Text ->
-  -- | 'csWriteSegmentRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'writeSegmentRequest' - Undocumented field.
+mkCreateSegment ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'writeSegmentRequest'
   WriteSegmentRequest ->
   CreateSegment
-createSegment pApplicationId_ pWriteSegmentRequest_ =
+mkCreateSegment pApplicationId_ pWriteSegmentRequest_ =
   CreateSegment'
-    { _csApplicationId = pApplicationId_,
-      _csWriteSegmentRequest = pWriteSegmentRequest_
+    { applicationId = pApplicationId_,
+      writeSegmentRequest = pWriteSegmentRequest_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-csApplicationId :: Lens' CreateSegment Text
-csApplicationId = lens _csApplicationId (\s a -> s {_csApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csApplicationId :: Lens.Lens' CreateSegment Lude.Text
+csApplicationId = Lens.lens (applicationId :: CreateSegment -> Lude.Text) (\s a -> s {applicationId = a} :: CreateSegment)
+{-# DEPRECATED csApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-csWriteSegmentRequest :: Lens' CreateSegment WriteSegmentRequest
-csWriteSegmentRequest = lens _csWriteSegmentRequest (\s a -> s {_csWriteSegmentRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'writeSegmentRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csWriteSegmentRequest :: Lens.Lens' CreateSegment WriteSegmentRequest
+csWriteSegmentRequest = Lens.lens (writeSegmentRequest :: CreateSegment -> WriteSegmentRequest) (\s a -> s {writeSegmentRequest = a} :: CreateSegment)
+{-# DEPRECATED csWriteSegmentRequest "Use generic-lens or generic-optics with 'writeSegmentRequest' instead." #-}
 
-instance AWSRequest CreateSegment where
+instance Lude.AWSRequest CreateSegment where
   type Rs CreateSegment = CreateSegmentResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSegmentResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable CreateSegment
-
-instance NFData CreateSegment
-
-instance ToHeaders CreateSegment where
+instance Lude.ToHeaders CreateSegment where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateSegment where
+instance Lude.ToJSON CreateSegment where
   toJSON CreateSegment' {..} =
-    object
-      ( catMaybes
-          [Just ("WriteSegmentRequest" .= _csWriteSegmentRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("WriteSegmentRequest" Lude..= writeSegmentRequest)]
       )
 
-instance ToPath CreateSegment where
+instance Lude.ToPath CreateSegment where
   toPath CreateSegment' {..} =
-    mconcat ["/v1/apps/", toBS _csApplicationId, "/segments"]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/segments"]
 
-instance ToQuery CreateSegment where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSegment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSegmentResponse' smart constructor.
+-- | /See:/ 'mkCreateSegmentResponse' smart constructor.
 data CreateSegmentResponse = CreateSegmentResponse'
-  { _csrsResponseStatus ::
-      !Int,
-    _csrsSegmentResponse :: !SegmentResponse
+  { responseStatus ::
+      Lude.Int,
+    segmentResponse :: SegmentResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSegmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsResponseStatus' - -- | The response status code.
---
--- * 'csrsSegmentResponse' - Undocumented member.
-createSegmentResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
-  -- | 'csrsSegmentResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'segmentResponse' - Undocumented field.
+mkCreateSegmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'segmentResponse'
   SegmentResponse ->
   CreateSegmentResponse
-createSegmentResponse pResponseStatus_ pSegmentResponse_ =
+mkCreateSegmentResponse pResponseStatus_ pSegmentResponse_ =
   CreateSegmentResponse'
-    { _csrsResponseStatus = pResponseStatus_,
-      _csrsSegmentResponse = pSegmentResponse_
+    { responseStatus = pResponseStatus_,
+      segmentResponse = pSegmentResponse_
     }
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSegmentResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSegmentResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSegmentResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-csrsSegmentResponse :: Lens' CreateSegmentResponse SegmentResponse
-csrsSegmentResponse = lens _csrsSegmentResponse (\s a -> s {_csrsSegmentResponse = a})
-
-instance NFData CreateSegmentResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSegmentResponse :: Lens.Lens' CreateSegmentResponse SegmentResponse
+csrsSegmentResponse = Lens.lens (segmentResponse :: CreateSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: CreateSegmentResponse)
+{-# DEPRECATED csrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}

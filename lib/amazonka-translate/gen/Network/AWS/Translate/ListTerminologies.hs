@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,175 @@
 --
 -- Provides a list of custom terminologies associated with your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Translate.ListTerminologies
-  ( -- * Creating a Request
-    listTerminologies,
-    ListTerminologies,
+  ( -- * Creating a request
+    ListTerminologies (..),
+    mkListTerminologies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxResults,
 
-    -- * Destructuring the Response
-    listTerminologiesResponse,
-    ListTerminologiesResponse,
+    -- * Destructuring the response
+    ListTerminologiesResponse (..),
+    mkListTerminologiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTerminologyPropertiesList,
     ltrsNextToken,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
--- | /See:/ 'listTerminologies' smart constructor.
+-- | /See:/ 'mkListTerminologies' smart constructor.
 data ListTerminologies = ListTerminologies'
-  { _ltNextToken ::
-      !(Maybe Text),
-    _ltMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTerminologies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies.
---
--- * 'ltMaxResults' - The maximum number of custom terminologies returned per list request.
-listTerminologies ::
+-- * 'maxResults' - The maximum number of custom terminologies returned per list request.
+-- * 'nextToken' - If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies.
+mkListTerminologies ::
   ListTerminologies
-listTerminologies =
+mkListTerminologies =
   ListTerminologies'
-    { _ltNextToken = Nothing,
-      _ltMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies.
-ltNextToken :: Lens' ListTerminologies (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTerminologies (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTerminologies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTerminologies)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of custom terminologies returned per list request.
-ltMaxResults :: Lens' ListTerminologies (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTerminologies (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTerminologies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTerminologies)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListTerminologies where
+instance Page.AWSPager ListTerminologies where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTerminologyPropertiesList) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTerminologyPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTerminologies where
+instance Lude.AWSRequest ListTerminologies where
   type Rs ListTerminologies = ListTerminologiesResponse
-  request = postJSON translate
+  request = Req.postJSON translateService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTerminologiesResponse'
-            <$> (x .?> "TerminologyPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TerminologyPropertiesList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTerminologies
-
-instance NFData ListTerminologies
-
-instance ToHeaders ListTerminologies where
+instance Lude.ToHeaders ListTerminologies where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSShineFrontendService_20170701.ListTerminologies" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShineFrontendService_20170701.ListTerminologies" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTerminologies where
+instance Lude.ToJSON ListTerminologies where
   toJSON ListTerminologies' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltNextToken,
-            ("MaxResults" .=) <$> _ltMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListTerminologies where
-  toPath = const "/"
+instance Lude.ToPath ListTerminologies where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTerminologies where
-  toQuery = const mempty
+instance Lude.ToQuery ListTerminologies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTerminologiesResponse' smart constructor.
+-- | /See:/ 'mkListTerminologiesResponse' smart constructor.
 data ListTerminologiesResponse = ListTerminologiesResponse'
-  { _ltrsTerminologyPropertiesList ::
-      !(Maybe [TerminologyProperties]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { terminologyPropertiesList ::
+      Lude.Maybe [TerminologyProperties],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTerminologiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTerminologyPropertiesList' - The properties list of the custom terminologies returned on the list request.
---
--- * 'ltrsNextToken' - If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTerminologiesResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.
+-- * 'responseStatus' - The response status code.
+-- * 'terminologyPropertiesList' - The properties list of the custom terminologies returned on the list request.
+mkListTerminologiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTerminologiesResponse
-listTerminologiesResponse pResponseStatus_ =
+mkListTerminologiesResponse pResponseStatus_ =
   ListTerminologiesResponse'
-    { _ltrsTerminologyPropertiesList =
-        Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { terminologyPropertiesList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The properties list of the custom terminologies returned on the list request.
-ltrsTerminologyPropertiesList :: Lens' ListTerminologiesResponse [TerminologyProperties]
-ltrsTerminologyPropertiesList = lens _ltrsTerminologyPropertiesList (\s a -> s {_ltrsTerminologyPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'terminologyPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTerminologyPropertiesList :: Lens.Lens' ListTerminologiesResponse (Lude.Maybe [TerminologyProperties])
+ltrsTerminologyPropertiesList = Lens.lens (terminologyPropertiesList :: ListTerminologiesResponse -> Lude.Maybe [TerminologyProperties]) (\s a -> s {terminologyPropertiesList = a} :: ListTerminologiesResponse)
+{-# DEPRECATED ltrsTerminologyPropertiesList "Use generic-lens or generic-optics with 'terminologyPropertiesList' instead." #-}
 
 -- | If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.
-ltrsNextToken :: Lens' ListTerminologiesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTerminologiesResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTerminologiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTerminologiesResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTerminologiesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTerminologiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTerminologiesResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTerminologiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTerminologiesResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

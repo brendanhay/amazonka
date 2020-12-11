@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,98 @@
 --
 -- Sets the logging options.
 --
---
 -- NOTE: use of this command is not recommended. Use @SetV2LoggingOptions@ instead.
 module Network.AWS.IoT.SetLoggingOptions
-  ( -- * Creating a Request
-    setLoggingOptions,
-    SetLoggingOptions,
+  ( -- * Creating a request
+    SetLoggingOptions (..),
+    mkSetLoggingOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sloLoggingOptionsPayload,
 
-    -- * Destructuring the Response
-    setLoggingOptionsResponse,
-    SetLoggingOptionsResponse,
+    -- * Destructuring the response
+    SetLoggingOptionsResponse (..),
+    mkSetLoggingOptionsResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the SetLoggingOptions operation.
 --
---
---
--- /See:/ 'setLoggingOptions' smart constructor.
+-- /See:/ 'mkSetLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
-  { _sloLoggingOptionsPayload ::
+  { loggingOptionsPayload ::
       LoggingOptionsPayload
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoggingOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sloLoggingOptionsPayload' - The logging options payload.
-setLoggingOptions ::
-  -- | 'sloLoggingOptionsPayload'
+-- * 'loggingOptionsPayload' - The logging options payload.
+mkSetLoggingOptions ::
+  -- | 'loggingOptionsPayload'
   LoggingOptionsPayload ->
   SetLoggingOptions
-setLoggingOptions pLoggingOptionsPayload_ =
+mkSetLoggingOptions pLoggingOptionsPayload_ =
   SetLoggingOptions'
-    { _sloLoggingOptionsPayload =
+    { loggingOptionsPayload =
         pLoggingOptionsPayload_
     }
 
 -- | The logging options payload.
-sloLoggingOptionsPayload :: Lens' SetLoggingOptions LoggingOptionsPayload
-sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\s a -> s {_sloLoggingOptionsPayload = a})
+--
+-- /Note:/ Consider using 'loggingOptionsPayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sloLoggingOptionsPayload :: Lens.Lens' SetLoggingOptions LoggingOptionsPayload
+sloLoggingOptionsPayload = Lens.lens (loggingOptionsPayload :: SetLoggingOptions -> LoggingOptionsPayload) (\s a -> s {loggingOptionsPayload = a} :: SetLoggingOptions)
+{-# DEPRECATED sloLoggingOptionsPayload "Use generic-lens or generic-optics with 'loggingOptionsPayload' instead." #-}
 
-instance AWSRequest SetLoggingOptions where
+instance Lude.AWSRequest SetLoggingOptions where
   type Rs SetLoggingOptions = SetLoggingOptionsResponse
-  request = postJSON ioT
-  response = receiveNull SetLoggingOptionsResponse'
+  request = Req.postJSON ioTService
+  response = Res.receiveNull SetLoggingOptionsResponse'
 
-instance Hashable SetLoggingOptions
+instance Lude.ToHeaders SetLoggingOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetLoggingOptions
-
-instance ToHeaders SetLoggingOptions where
-  toHeaders = const mempty
-
-instance ToJSON SetLoggingOptions where
+instance Lude.ToJSON SetLoggingOptions where
   toJSON SetLoggingOptions' {..} =
-    object
-      ( catMaybes
-          [Just ("loggingOptionsPayload" .= _sloLoggingOptionsPayload)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("loggingOptionsPayload" Lude..= loggingOptionsPayload)
+          ]
       )
 
-instance ToPath SetLoggingOptions where
-  toPath = const "/loggingOptions"
+instance Lude.ToPath SetLoggingOptions where
+  toPath = Lude.const "/loggingOptions"
 
-instance ToQuery SetLoggingOptions where
-  toQuery = const mempty
+instance Lude.ToQuery SetLoggingOptions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setLoggingOptionsResponse' smart constructor.
+-- | /See:/ 'mkSetLoggingOptionsResponse' smart constructor.
 data SetLoggingOptionsResponse = SetLoggingOptionsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoggingOptionsResponse' with the minimum fields required to make a request.
-setLoggingOptionsResponse ::
+mkSetLoggingOptionsResponse ::
   SetLoggingOptionsResponse
-setLoggingOptionsResponse = SetLoggingOptionsResponse'
-
-instance NFData SetLoggingOptionsResponse
+mkSetLoggingOptionsResponse = SetLoggingOptionsResponse'

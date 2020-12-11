@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceFamilyCreditSpecification where
+module Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
+  ( InstanceFamilyCreditSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceFamilyCreditSpecification,
+
+    -- * Lenses
+    ifcsInstanceFamily,
+    ifcsCPUCredits,
+  )
+where
+
 import Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the default credit option for CPU usage of a burstable performance instance family.
 --
---
---
--- /See:/ 'instanceFamilyCreditSpecification' smart constructor.
+-- /See:/ 'mkInstanceFamilyCreditSpecification' smart constructor.
 data InstanceFamilyCreditSpecification = InstanceFamilyCreditSpecification'
-  { _ifcsInstanceFamily ::
-      !( Maybe
-           UnlimitedSupportedInstanceFamily
-       ),
-    _ifcsCPUCredits ::
-      !(Maybe Text)
+  { instanceFamily ::
+      Lude.Maybe
+        UnlimitedSupportedInstanceFamily,
+    cpuCredits ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceFamilyCreditSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ifcsInstanceFamily' - The instance family.
---
--- * 'ifcsCPUCredits' - The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
-instanceFamilyCreditSpecification ::
+-- * 'cpuCredits' - The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
+-- * 'instanceFamily' - The instance family.
+mkInstanceFamilyCreditSpecification ::
   InstanceFamilyCreditSpecification
-instanceFamilyCreditSpecification =
+mkInstanceFamilyCreditSpecification =
   InstanceFamilyCreditSpecification'
-    { _ifcsInstanceFamily = Nothing,
-      _ifcsCPUCredits = Nothing
+    { instanceFamily = Lude.Nothing,
+      cpuCredits = Lude.Nothing
     }
 
 -- | The instance family.
-ifcsInstanceFamily :: Lens' InstanceFamilyCreditSpecification (Maybe UnlimitedSupportedInstanceFamily)
-ifcsInstanceFamily = lens _ifcsInstanceFamily (\s a -> s {_ifcsInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifcsInstanceFamily :: Lens.Lens' InstanceFamilyCreditSpecification (Lude.Maybe UnlimitedSupportedInstanceFamily)
+ifcsInstanceFamily = Lens.lens (instanceFamily :: InstanceFamilyCreditSpecification -> Lude.Maybe UnlimitedSupportedInstanceFamily) (\s a -> s {instanceFamily = a} :: InstanceFamilyCreditSpecification)
+{-# DEPRECATED ifcsInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
-ifcsCPUCredits :: Lens' InstanceFamilyCreditSpecification (Maybe Text)
-ifcsCPUCredits = lens _ifcsCPUCredits (\s a -> s {_ifcsCPUCredits = a})
+--
+-- /Note:/ Consider using 'cpuCredits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifcsCPUCredits :: Lens.Lens' InstanceFamilyCreditSpecification (Lude.Maybe Lude.Text)
+ifcsCPUCredits = Lens.lens (cpuCredits :: InstanceFamilyCreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {cpuCredits = a} :: InstanceFamilyCreditSpecification)
+{-# DEPRECATED ifcsCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
 
-instance FromXML InstanceFamilyCreditSpecification where
+instance Lude.FromXML InstanceFamilyCreditSpecification where
   parseXML x =
     InstanceFamilyCreditSpecification'
-      <$> (x .@? "instanceFamily") <*> (x .@? "cpuCredits")
-
-instance Hashable InstanceFamilyCreditSpecification
-
-instance NFData InstanceFamilyCreditSpecification
+      Lude.<$> (x Lude..@? "instanceFamily") Lude.<*> (x Lude..@? "cpuCredits")

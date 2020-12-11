@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CookieObject where
+module Network.AWS.Lightsail.Types.CookieObject
+  ( CookieObject (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCookieObject,
+
+    -- * Lenses
+    coCookiesAllowList,
+    coOption,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ForwardValues
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
 --
---
 -- For the cookies that you specify, your distribution caches separate versions of the specified content based on the cookie values in viewer requests.
 --
---
--- /See:/ 'cookieObject' smart constructor.
+-- /See:/ 'mkCookieObject' smart constructor.
 data CookieObject = CookieObject'
-  { _coCookiesAllowList ::
-      !(Maybe [Text]),
-    _coOption :: !(Maybe ForwardValues)
+  { cookiesAllowList ::
+      Lude.Maybe [Lude.Text],
+    option :: Lude.Maybe ForwardValues
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CookieObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coCookiesAllowList' - The specific cookies to forward to your distribution's origin.
---
--- * 'coOption' - Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
-cookieObject ::
+-- * 'cookiesAllowList' - The specific cookies to forward to your distribution's origin.
+-- * 'option' - Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
+mkCookieObject ::
   CookieObject
-cookieObject =
-  CookieObject' {_coCookiesAllowList = Nothing, _coOption = Nothing}
+mkCookieObject =
+  CookieObject'
+    { cookiesAllowList = Lude.Nothing,
+      option = Lude.Nothing
+    }
 
 -- | The specific cookies to forward to your distribution's origin.
-coCookiesAllowList :: Lens' CookieObject [Text]
-coCookiesAllowList = lens _coCookiesAllowList (\s a -> s {_coCookiesAllowList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cookiesAllowList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCookiesAllowList :: Lens.Lens' CookieObject (Lude.Maybe [Lude.Text])
+coCookiesAllowList = Lens.lens (cookiesAllowList :: CookieObject -> Lude.Maybe [Lude.Text]) (\s a -> s {cookiesAllowList = a} :: CookieObject)
+{-# DEPRECATED coCookiesAllowList "Use generic-lens or generic-optics with 'cookiesAllowList' instead." #-}
 
 -- | Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
-coOption :: Lens' CookieObject (Maybe ForwardValues)
-coOption = lens _coOption (\s a -> s {_coOption = a})
+--
+-- /Note:/ Consider using 'option' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coOption :: Lens.Lens' CookieObject (Lude.Maybe ForwardValues)
+coOption = Lens.lens (option :: CookieObject -> Lude.Maybe ForwardValues) (\s a -> s {option = a} :: CookieObject)
+{-# DEPRECATED coOption "Use generic-lens or generic-optics with 'option' instead." #-}
 
-instance FromJSON CookieObject where
+instance Lude.FromJSON CookieObject where
   parseJSON =
-    withObject
+    Lude.withObject
       "CookieObject"
       ( \x ->
           CookieObject'
-            <$> (x .:? "cookiesAllowList" .!= mempty) <*> (x .:? "option")
+            Lude.<$> (x Lude..:? "cookiesAllowList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "option")
       )
 
-instance Hashable CookieObject
-
-instance NFData CookieObject
-
-instance ToJSON CookieObject where
+instance Lude.ToJSON CookieObject where
   toJSON CookieObject' {..} =
-    object
-      ( catMaybes
-          [ ("cookiesAllowList" .=) <$> _coCookiesAllowList,
-            ("option" .=) <$> _coOption
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cookiesAllowList" Lude..=) Lude.<$> cookiesAllowList,
+            ("option" Lude..=) Lude.<$> option
           ]
       )

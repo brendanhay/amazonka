@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,169 @@
 --
 -- Publishes a development schema with a major version and a recommended minor version.
 module Network.AWS.CloudDirectory.PublishSchema
-  ( -- * Creating a Request
-    publishSchema,
-    PublishSchema,
+  ( -- * Creating a request
+    PublishSchema (..),
+    mkPublishSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psMinorVersion,
     psName,
     psDevelopmentSchemaARN,
     psVersion,
 
-    -- * Destructuring the Response
-    publishSchemaResponse,
-    PublishSchemaResponse,
+    -- * Destructuring the response
+    PublishSchemaResponse (..),
+    mkPublishSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psrsPublishedSchemaARN,
     psrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'publishSchema' smart constructor.
+-- | /See:/ 'mkPublishSchema' smart constructor.
 data PublishSchema = PublishSchema'
-  { _psMinorVersion ::
-      !(Maybe Text),
-    _psName :: !(Maybe Text),
-    _psDevelopmentSchemaARN :: !Text,
-    _psVersion :: !Text
+  { minorVersion ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    developmentSchemaARN :: Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublishSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psMinorVersion' - The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.
---
--- * 'psName' - The new name under which the schema will be published. If this is not provided, the development schema is considered.
---
--- * 'psDevelopmentSchemaARN' - The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see 'arns' .
---
--- * 'psVersion' - The major version under which the schema will be published. Schemas have both a major and minor version associated with them.
-publishSchema ::
-  -- | 'psDevelopmentSchemaARN'
-  Text ->
-  -- | 'psVersion'
-  Text ->
+-- * 'developmentSchemaARN' - The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see 'arns' .
+-- * 'minorVersion' - The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.
+-- * 'name' - The new name under which the schema will be published. If this is not provided, the development schema is considered.
+-- * 'version' - The major version under which the schema will be published. Schemas have both a major and minor version associated with them.
+mkPublishSchema ::
+  -- | 'developmentSchemaARN'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   PublishSchema
-publishSchema pDevelopmentSchemaARN_ pVersion_ =
+mkPublishSchema pDevelopmentSchemaARN_ pVersion_ =
   PublishSchema'
-    { _psMinorVersion = Nothing,
-      _psName = Nothing,
-      _psDevelopmentSchemaARN = pDevelopmentSchemaARN_,
-      _psVersion = pVersion_
+    { minorVersion = Lude.Nothing,
+      name = Lude.Nothing,
+      developmentSchemaARN = pDevelopmentSchemaARN_,
+      version = pVersion_
     }
 
 -- | The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.
-psMinorVersion :: Lens' PublishSchema (Maybe Text)
-psMinorVersion = lens _psMinorVersion (\s a -> s {_psMinorVersion = a})
+--
+-- /Note:/ Consider using 'minorVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psMinorVersion :: Lens.Lens' PublishSchema (Lude.Maybe Lude.Text)
+psMinorVersion = Lens.lens (minorVersion :: PublishSchema -> Lude.Maybe Lude.Text) (\s a -> s {minorVersion = a} :: PublishSchema)
+{-# DEPRECATED psMinorVersion "Use generic-lens or generic-optics with 'minorVersion' instead." #-}
 
 -- | The new name under which the schema will be published. If this is not provided, the development schema is considered.
-psName :: Lens' PublishSchema (Maybe Text)
-psName = lens _psName (\s a -> s {_psName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psName :: Lens.Lens' PublishSchema (Lude.Maybe Lude.Text)
+psName = Lens.lens (name :: PublishSchema -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PublishSchema)
+{-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the development schema. For more information, see 'arns' .
-psDevelopmentSchemaARN :: Lens' PublishSchema Text
-psDevelopmentSchemaARN = lens _psDevelopmentSchemaARN (\s a -> s {_psDevelopmentSchemaARN = a})
+--
+-- /Note:/ Consider using 'developmentSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psDevelopmentSchemaARN :: Lens.Lens' PublishSchema Lude.Text
+psDevelopmentSchemaARN = Lens.lens (developmentSchemaARN :: PublishSchema -> Lude.Text) (\s a -> s {developmentSchemaARN = a} :: PublishSchema)
+{-# DEPRECATED psDevelopmentSchemaARN "Use generic-lens or generic-optics with 'developmentSchemaARN' instead." #-}
 
 -- | The major version under which the schema will be published. Schemas have both a major and minor version associated with them.
-psVersion :: Lens' PublishSchema Text
-psVersion = lens _psVersion (\s a -> s {_psVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psVersion :: Lens.Lens' PublishSchema Lude.Text
+psVersion = Lens.lens (version :: PublishSchema -> Lude.Text) (\s a -> s {version = a} :: PublishSchema)
+{-# DEPRECATED psVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance AWSRequest PublishSchema where
+instance Lude.AWSRequest PublishSchema where
   type Rs PublishSchema = PublishSchemaResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PublishSchemaResponse'
-            <$> (x .?> "PublishedSchemaArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PublishedSchemaArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PublishSchema
-
-instance NFData PublishSchema
-
-instance ToHeaders PublishSchema where
+instance Lude.ToHeaders PublishSchema where
   toHeaders PublishSchema' {..} =
-    mconcat ["x-amz-data-partition" =# _psDevelopmentSchemaARN]
+    Lude.mconcat
+      ["x-amz-data-partition" Lude.=# developmentSchemaARN]
 
-instance ToJSON PublishSchema where
+instance Lude.ToJSON PublishSchema where
   toJSON PublishSchema' {..} =
-    object
-      ( catMaybes
-          [ ("MinorVersion" .=) <$> _psMinorVersion,
-            ("Name" .=) <$> _psName,
-            Just ("Version" .= _psVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MinorVersion" Lude..=) Lude.<$> minorVersion,
+            ("Name" Lude..=) Lude.<$> name,
+            Lude.Just ("Version" Lude..= version)
           ]
       )
 
-instance ToPath PublishSchema where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema/publish"
+instance Lude.ToPath PublishSchema where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/schema/publish"
 
-instance ToQuery PublishSchema where
-  toQuery = const mempty
+instance Lude.ToQuery PublishSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'publishSchemaResponse' smart constructor.
+-- | /See:/ 'mkPublishSchemaResponse' smart constructor.
 data PublishSchemaResponse = PublishSchemaResponse'
-  { _psrsPublishedSchemaARN ::
-      !(Maybe Text),
-    _psrsResponseStatus :: !Int
+  { publishedSchemaARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublishSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psrsPublishedSchemaARN' - The ARN that is associated with the published schema. For more information, see 'arns' .
---
--- * 'psrsResponseStatus' - -- | The response status code.
-publishSchemaResponse ::
-  -- | 'psrsResponseStatus'
-  Int ->
+-- * 'publishedSchemaARN' - The ARN that is associated with the published schema. For more information, see 'arns' .
+-- * 'responseStatus' - The response status code.
+mkPublishSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PublishSchemaResponse
-publishSchemaResponse pResponseStatus_ =
+mkPublishSchemaResponse pResponseStatus_ =
   PublishSchemaResponse'
-    { _psrsPublishedSchemaARN = Nothing,
-      _psrsResponseStatus = pResponseStatus_
+    { publishedSchemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN that is associated with the published schema. For more information, see 'arns' .
-psrsPublishedSchemaARN :: Lens' PublishSchemaResponse (Maybe Text)
-psrsPublishedSchemaARN = lens _psrsPublishedSchemaARN (\s a -> s {_psrsPublishedSchemaARN = a})
+--
+-- /Note:/ Consider using 'publishedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsPublishedSchemaARN :: Lens.Lens' PublishSchemaResponse (Lude.Maybe Lude.Text)
+psrsPublishedSchemaARN = Lens.lens (publishedSchemaARN :: PublishSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {publishedSchemaARN = a} :: PublishSchemaResponse)
+{-# DEPRECATED psrsPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
 
--- | -- | The response status code.
-psrsResponseStatus :: Lens' PublishSchemaResponse Int
-psrsResponseStatus = lens _psrsResponseStatus (\s a -> s {_psrsResponseStatus = a})
-
-instance NFData PublishSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsResponseStatus :: Lens.Lens' PublishSchemaResponse Lude.Int
+psrsResponseStatus = Lens.lens (responseStatus :: PublishSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PublishSchemaResponse)
+{-# DEPRECATED psrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

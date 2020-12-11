@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType where
+module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
+  ( CompromisedCredentialsRiskConfigurationType (..),
+
+    -- * Smart constructor
+    mkCompromisedCredentialsRiskConfigurationType,
+
+    -- * Lenses
+    ccrctEventFilter,
+    ccrctActions,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
 import Network.AWS.CognitoIdentityProvider.Types.EventFilterType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The compromised credentials risk configuration type.
 --
---
---
--- /See:/ 'compromisedCredentialsRiskConfigurationType' smart constructor.
+-- /See:/ 'mkCompromisedCredentialsRiskConfigurationType' smart constructor.
 data CompromisedCredentialsRiskConfigurationType = CompromisedCredentialsRiskConfigurationType'
-  { _ccrctEventFilter ::
-      !( Maybe
-           [EventFilterType]
-       ),
-    _ccrctActions ::
-      !CompromisedCredentialsActionsType
+  { eventFilter ::
+      Lude.Maybe
+        [EventFilterType],
+    actions ::
+      CompromisedCredentialsActionsType
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompromisedCredentialsRiskConfigurationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrctEventFilter' - Perform the action for these events. The default is to perform all events if no event filter is specified.
---
--- * 'ccrctActions' - The compromised credentials risk configuration actions.
-compromisedCredentialsRiskConfigurationType ::
-  -- | 'ccrctActions'
+-- * 'actions' - The compromised credentials risk configuration actions.
+-- * 'eventFilter' - Perform the action for these events. The default is to perform all events if no event filter is specified.
+mkCompromisedCredentialsRiskConfigurationType ::
+  -- | 'actions'
   CompromisedCredentialsActionsType ->
   CompromisedCredentialsRiskConfigurationType
-compromisedCredentialsRiskConfigurationType pActions_ =
+mkCompromisedCredentialsRiskConfigurationType pActions_ =
   CompromisedCredentialsRiskConfigurationType'
-    { _ccrctEventFilter =
-        Nothing,
-      _ccrctActions = pActions_
+    { eventFilter =
+        Lude.Nothing,
+      actions = pActions_
     }
 
 -- | Perform the action for these events. The default is to perform all events if no event filter is specified.
-ccrctEventFilter :: Lens' CompromisedCredentialsRiskConfigurationType [EventFilterType]
-ccrctEventFilter = lens _ccrctEventFilter (\s a -> s {_ccrctEventFilter = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrctEventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Lude.Maybe [EventFilterType])
+ccrctEventFilter = Lens.lens (eventFilter :: CompromisedCredentialsRiskConfigurationType -> Lude.Maybe [EventFilterType]) (\s a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType)
+{-# DEPRECATED ccrctEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
 
 -- | The compromised credentials risk configuration actions.
-ccrctActions :: Lens' CompromisedCredentialsRiskConfigurationType CompromisedCredentialsActionsType
-ccrctActions = lens _ccrctActions (\s a -> s {_ccrctActions = a})
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrctActions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType CompromisedCredentialsActionsType
+ccrctActions = Lens.lens (actions :: CompromisedCredentialsRiskConfigurationType -> CompromisedCredentialsActionsType) (\s a -> s {actions = a} :: CompromisedCredentialsRiskConfigurationType)
+{-# DEPRECATED ccrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
-instance FromJSON CompromisedCredentialsRiskConfigurationType where
+instance Lude.FromJSON CompromisedCredentialsRiskConfigurationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "CompromisedCredentialsRiskConfigurationType"
       ( \x ->
           CompromisedCredentialsRiskConfigurationType'
-            <$> (x .:? "EventFilter" .!= mempty) <*> (x .: "Actions")
+            Lude.<$> (x Lude..:? "EventFilter" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Actions")
       )
 
-instance Hashable CompromisedCredentialsRiskConfigurationType
-
-instance NFData CompromisedCredentialsRiskConfigurationType
-
-instance ToJSON CompromisedCredentialsRiskConfigurationType where
+instance Lude.ToJSON CompromisedCredentialsRiskConfigurationType where
   toJSON CompromisedCredentialsRiskConfigurationType' {..} =
-    object
-      ( catMaybes
-          [ ("EventFilter" .=) <$> _ccrctEventFilter,
-            Just ("Actions" .= _ccrctActions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventFilter" Lude..=) Lude.<$> eventFilter,
+            Lude.Just ("Actions" Lude..= actions)
           ]
       )

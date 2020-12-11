@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FastSnapshotRestoreStateCode where
+module Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
+  ( FastSnapshotRestoreStateCode
+      ( FastSnapshotRestoreStateCode',
+        FSRSCDisabled,
+        FSRSCDisabling,
+        FSRSCEnabled,
+        FSRSCEnabling,
+        FSRSCOptimizing
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FastSnapshotRestoreStateCode
-  = FSRSCDisabled
-  | FSRSCDisabling
-  | FSRSCEnabled
-  | FSRSCEnabling
-  | FSRSCOptimizing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FastSnapshotRestoreStateCode = FastSnapshotRestoreStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FastSnapshotRestoreStateCode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure FSRSCDisabled
-      "disabling" -> pure FSRSCDisabling
-      "enabled" -> pure FSRSCEnabled
-      "enabling" -> pure FSRSCEnabling
-      "optimizing" -> pure FSRSCOptimizing
-      e ->
-        fromTextError $
-          "Failure parsing FastSnapshotRestoreStateCode from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling, optimizing"
+pattern FSRSCDisabled :: FastSnapshotRestoreStateCode
+pattern FSRSCDisabled = FastSnapshotRestoreStateCode' "disabled"
 
-instance ToText FastSnapshotRestoreStateCode where
-  toText = \case
-    FSRSCDisabled -> "disabled"
-    FSRSCDisabling -> "disabling"
-    FSRSCEnabled -> "enabled"
-    FSRSCEnabling -> "enabling"
-    FSRSCOptimizing -> "optimizing"
+pattern FSRSCDisabling :: FastSnapshotRestoreStateCode
+pattern FSRSCDisabling = FastSnapshotRestoreStateCode' "disabling"
 
-instance Hashable FastSnapshotRestoreStateCode
+pattern FSRSCEnabled :: FastSnapshotRestoreStateCode
+pattern FSRSCEnabled = FastSnapshotRestoreStateCode' "enabled"
 
-instance NFData FastSnapshotRestoreStateCode
+pattern FSRSCEnabling :: FastSnapshotRestoreStateCode
+pattern FSRSCEnabling = FastSnapshotRestoreStateCode' "enabling"
 
-instance ToByteString FastSnapshotRestoreStateCode
+pattern FSRSCOptimizing :: FastSnapshotRestoreStateCode
+pattern FSRSCOptimizing = FastSnapshotRestoreStateCode' "optimizing"
 
-instance ToQuery FastSnapshotRestoreStateCode
-
-instance ToHeader FastSnapshotRestoreStateCode
-
-instance FromXML FastSnapshotRestoreStateCode where
-  parseXML = parseXMLText "FastSnapshotRestoreStateCode"
+{-# COMPLETE
+  FSRSCDisabled,
+  FSRSCDisabling,
+  FSRSCEnabled,
+  FSRSCEnabling,
+  FSRSCOptimizing,
+  FastSnapshotRestoreStateCode'
+  #-}

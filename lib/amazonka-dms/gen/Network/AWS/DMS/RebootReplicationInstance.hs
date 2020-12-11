@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,157 @@
 --
 -- Reboots a replication instance. Rebooting results in a momentary outage, until the replication instance becomes available again.
 module Network.AWS.DMS.RebootReplicationInstance
-  ( -- * Creating a Request
-    rebootReplicationInstance,
-    RebootReplicationInstance,
+  ( -- * Creating a request
+    RebootReplicationInstance (..),
+    mkRebootReplicationInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rriForceFailover,
     rriReplicationInstanceARN,
 
-    -- * Destructuring the Response
-    rebootReplicationInstanceResponse,
-    RebootReplicationInstanceResponse,
+    -- * Destructuring the response
+    RebootReplicationInstanceResponse (..),
+    mkRebootReplicationInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrirsReplicationInstance,
     rrirsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootReplicationInstance' smart constructor.
+-- | /See:/ 'mkRebootReplicationInstance' smart constructor.
 data RebootReplicationInstance = RebootReplicationInstance'
-  { _rriForceFailover ::
-      !(Maybe Bool),
-    _rriReplicationInstanceARN :: !Text
+  { forceFailover ::
+      Lude.Maybe Lude.Bool,
+    replicationInstanceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootReplicationInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rriForceFailover' - If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
---
--- * 'rriReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
-rebootReplicationInstance ::
-  -- | 'rriReplicationInstanceARN'
-  Text ->
+-- * 'forceFailover' - If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+mkRebootReplicationInstance ::
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
   RebootReplicationInstance
-rebootReplicationInstance pReplicationInstanceARN_ =
+mkRebootReplicationInstance pReplicationInstanceARN_ =
   RebootReplicationInstance'
-    { _rriForceFailover = Nothing,
-      _rriReplicationInstanceARN = pReplicationInstanceARN_
+    { forceFailover = Lude.Nothing,
+      replicationInstanceARN = pReplicationInstanceARN_
     }
 
 -- | If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
-rriForceFailover :: Lens' RebootReplicationInstance (Maybe Bool)
-rriForceFailover = lens _rriForceFailover (\s a -> s {_rriForceFailover = a})
+--
+-- /Note:/ Consider using 'forceFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rriForceFailover :: Lens.Lens' RebootReplicationInstance (Lude.Maybe Lude.Bool)
+rriForceFailover = Lens.lens (forceFailover :: RebootReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceFailover = a} :: RebootReplicationInstance)
+{-# DEPRECATED rriForceFailover "Use generic-lens or generic-optics with 'forceFailover' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-rriReplicationInstanceARN :: Lens' RebootReplicationInstance Text
-rriReplicationInstanceARN = lens _rriReplicationInstanceARN (\s a -> s {_rriReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rriReplicationInstanceARN :: Lens.Lens' RebootReplicationInstance Lude.Text
+rriReplicationInstanceARN = Lens.lens (replicationInstanceARN :: RebootReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: RebootReplicationInstance)
+{-# DEPRECATED rriReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
-instance AWSRequest RebootReplicationInstance where
+instance Lude.AWSRequest RebootReplicationInstance where
   type
     Rs RebootReplicationInstance =
       RebootReplicationInstanceResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RebootReplicationInstanceResponse'
-            <$> (x .?> "ReplicationInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebootReplicationInstance
-
-instance NFData RebootReplicationInstance
-
-instance ToHeaders RebootReplicationInstance where
+instance Lude.ToHeaders RebootReplicationInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.RebootReplicationInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.RebootReplicationInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RebootReplicationInstance where
+instance Lude.ToJSON RebootReplicationInstance where
   toJSON RebootReplicationInstance' {..} =
-    object
-      ( catMaybes
-          [ ("ForceFailover" .=) <$> _rriForceFailover,
-            Just ("ReplicationInstanceArn" .= _rriReplicationInstanceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ForceFailover" Lude..=) Lude.<$> forceFailover,
+            Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
           ]
       )
 
-instance ToPath RebootReplicationInstance where
-  toPath = const "/"
+instance Lude.ToPath RebootReplicationInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RebootReplicationInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RebootReplicationInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rebootReplicationInstanceResponse' smart constructor.
+-- | /See:/ 'mkRebootReplicationInstanceResponse' smart constructor.
 data RebootReplicationInstanceResponse = RebootReplicationInstanceResponse'
-  { _rrirsReplicationInstance ::
-      !( Maybe
-           ReplicationInstance
-       ),
-    _rrirsResponseStatus ::
-      !Int
+  { replicationInstance ::
+      Lude.Maybe
+        ReplicationInstance,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootReplicationInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrirsReplicationInstance' - The replication instance that is being rebooted.
---
--- * 'rrirsResponseStatus' - -- | The response status code.
-rebootReplicationInstanceResponse ::
-  -- | 'rrirsResponseStatus'
-  Int ->
+-- * 'replicationInstance' - The replication instance that is being rebooted.
+-- * 'responseStatus' - The response status code.
+mkRebootReplicationInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebootReplicationInstanceResponse
-rebootReplicationInstanceResponse pResponseStatus_ =
+mkRebootReplicationInstanceResponse pResponseStatus_ =
   RebootReplicationInstanceResponse'
-    { _rrirsReplicationInstance =
-        Nothing,
-      _rrirsResponseStatus = pResponseStatus_
+    { replicationInstance =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication instance that is being rebooted.
-rrirsReplicationInstance :: Lens' RebootReplicationInstanceResponse (Maybe ReplicationInstance)
-rrirsReplicationInstance = lens _rrirsReplicationInstance (\s a -> s {_rrirsReplicationInstance = a})
+--
+-- /Note:/ Consider using 'replicationInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrirsReplicationInstance :: Lens.Lens' RebootReplicationInstanceResponse (Lude.Maybe ReplicationInstance)
+rrirsReplicationInstance = Lens.lens (replicationInstance :: RebootReplicationInstanceResponse -> Lude.Maybe ReplicationInstance) (\s a -> s {replicationInstance = a} :: RebootReplicationInstanceResponse)
+{-# DEPRECATED rrirsReplicationInstance "Use generic-lens or generic-optics with 'replicationInstance' instead." #-}
 
--- | -- | The response status code.
-rrirsResponseStatus :: Lens' RebootReplicationInstanceResponse Int
-rrirsResponseStatus = lens _rrirsResponseStatus (\s a -> s {_rrirsResponseStatus = a})
-
-instance NFData RebootReplicationInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrirsResponseStatus :: Lens.Lens' RebootReplicationInstanceResponse Lude.Int
+rrirsResponseStatus = Lens.lens (responseStatus :: RebootReplicationInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootReplicationInstanceResponse)
+{-# DEPRECATED rrirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

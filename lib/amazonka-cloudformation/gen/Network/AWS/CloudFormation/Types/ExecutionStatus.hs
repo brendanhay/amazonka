@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ExecutionStatus where
+module Network.AWS.CloudFormation.Types.ExecutionStatus
+  ( ExecutionStatus
+      ( ExecutionStatus',
+        Available,
+        ExecuteComplete,
+        ExecuteFailed,
+        ExecuteInProgress,
+        Obsolete,
+        Unavailable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionStatus
-  = Available
-  | ExecuteComplete
-  | ExecuteFailed
-  | ExecuteInProgress
-  | Obsolete
-  | Unavailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionStatus = ExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "execute_complete" -> pure ExecuteComplete
-      "execute_failed" -> pure ExecuteFailed
-      "execute_in_progress" -> pure ExecuteInProgress
-      "obsolete" -> pure Obsolete
-      "unavailable" -> pure Unavailable
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionStatus from value: '" <> e
-            <> "'. Accepted values: available, execute_complete, execute_failed, execute_in_progress, obsolete, unavailable"
+pattern Available :: ExecutionStatus
+pattern Available = ExecutionStatus' "AVAILABLE"
 
-instance ToText ExecutionStatus where
-  toText = \case
-    Available -> "AVAILABLE"
-    ExecuteComplete -> "EXECUTE_COMPLETE"
-    ExecuteFailed -> "EXECUTE_FAILED"
-    ExecuteInProgress -> "EXECUTE_IN_PROGRESS"
-    Obsolete -> "OBSOLETE"
-    Unavailable -> "UNAVAILABLE"
+pattern ExecuteComplete :: ExecutionStatus
+pattern ExecuteComplete = ExecutionStatus' "EXECUTE_COMPLETE"
 
-instance Hashable ExecutionStatus
+pattern ExecuteFailed :: ExecutionStatus
+pattern ExecuteFailed = ExecutionStatus' "EXECUTE_FAILED"
 
-instance NFData ExecutionStatus
+pattern ExecuteInProgress :: ExecutionStatus
+pattern ExecuteInProgress = ExecutionStatus' "EXECUTE_IN_PROGRESS"
 
-instance ToByteString ExecutionStatus
+pattern Obsolete :: ExecutionStatus
+pattern Obsolete = ExecutionStatus' "OBSOLETE"
 
-instance ToQuery ExecutionStatus
+pattern Unavailable :: ExecutionStatus
+pattern Unavailable = ExecutionStatus' "UNAVAILABLE"
 
-instance ToHeader ExecutionStatus
-
-instance FromXML ExecutionStatus where
-  parseXML = parseXMLText "ExecutionStatus"
+{-# COMPLETE
+  Available,
+  ExecuteComplete,
+  ExecuteFailed,
+  ExecuteInProgress,
+  Obsolete,
+  Unavailable,
+  ExecutionStatus'
+  #-}

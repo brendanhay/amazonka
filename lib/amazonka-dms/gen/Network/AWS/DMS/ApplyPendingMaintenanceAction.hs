@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,166 +14,205 @@
 --
 -- Applies a pending maintenance action to a resource (for example, to a replication instance).
 module Network.AWS.DMS.ApplyPendingMaintenanceAction
-  ( -- * Creating a Request
-    applyPendingMaintenanceAction,
-    ApplyPendingMaintenanceAction,
+  ( -- * Creating a request
+    ApplyPendingMaintenanceAction (..),
+    mkApplyPendingMaintenanceAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apmaReplicationInstanceARN,
     apmaApplyAction,
     apmaOptInType,
 
-    -- * Destructuring the Response
-    applyPendingMaintenanceActionResponse,
-    ApplyPendingMaintenanceActionResponse,
+    -- * Destructuring the response
+    ApplyPendingMaintenanceActionResponse (..),
+    mkApplyPendingMaintenanceActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     apmarsResourcePendingMaintenanceActions,
     apmarsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'applyPendingMaintenanceAction' smart constructor.
+-- /See:/ 'mkApplyPendingMaintenanceAction' smart constructor.
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-  { _apmaReplicationInstanceARN ::
-      !Text,
-    _apmaApplyAction :: !Text,
-    _apmaOptInType :: !Text
+  { replicationInstanceARN ::
+      Lude.Text,
+    applyAction :: Lude.Text,
+    optInType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplyPendingMaintenanceAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applyAction' - The pending maintenance action to apply to this resource.
+-- * 'optInType' - A value that specifies the type of opt-in request, or undoes an opt-in request. You can't undo an opt-in request of type @immediate@ .
 --
--- * 'apmaReplicationInstanceARN' - The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance action applies to.
+-- Valid values:
 --
--- * 'apmaApplyAction' - The pending maintenance action to apply to this resource.
+--     * @immediate@ - Apply the maintenance action immediately.
 --
--- * 'apmaOptInType' - A value that specifies the type of opt-in request, or undoes an opt-in request. You can't undo an opt-in request of type @immediate@ . Valid values:     * @immediate@ - Apply the maintenance action immediately.     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
-applyPendingMaintenanceAction ::
-  -- | 'apmaReplicationInstanceARN'
-  Text ->
-  -- | 'apmaApplyAction'
-  Text ->
-  -- | 'apmaOptInType'
-  Text ->
+--
+--     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.
+--
+--
+--     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
+--
+--
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance action applies to.
+mkApplyPendingMaintenanceAction ::
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
+  -- | 'applyAction'
+  Lude.Text ->
+  -- | 'optInType'
+  Lude.Text ->
   ApplyPendingMaintenanceAction
-applyPendingMaintenanceAction
+mkApplyPendingMaintenanceAction
   pReplicationInstanceARN_
   pApplyAction_
   pOptInType_ =
     ApplyPendingMaintenanceAction'
-      { _apmaReplicationInstanceARN =
+      { replicationInstanceARN =
           pReplicationInstanceARN_,
-        _apmaApplyAction = pApplyAction_,
-        _apmaOptInType = pOptInType_
+        applyAction = pApplyAction_,
+        optInType = pOptInType_
       }
 
 -- | The Amazon Resource Name (ARN) of the AWS DMS resource that the pending maintenance action applies to.
-apmaReplicationInstanceARN :: Lens' ApplyPendingMaintenanceAction Text
-apmaReplicationInstanceARN = lens _apmaReplicationInstanceARN (\s a -> s {_apmaReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apmaReplicationInstanceARN :: Lens.Lens' ApplyPendingMaintenanceAction Lude.Text
+apmaReplicationInstanceARN = Lens.lens (replicationInstanceARN :: ApplyPendingMaintenanceAction -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: ApplyPendingMaintenanceAction)
+{-# DEPRECATED apmaReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 -- | The pending maintenance action to apply to this resource.
-apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
-apmaApplyAction = lens _apmaApplyAction (\s a -> s {_apmaApplyAction = a})
+--
+-- /Note:/ Consider using 'applyAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apmaApplyAction :: Lens.Lens' ApplyPendingMaintenanceAction Lude.Text
+apmaApplyAction = Lens.lens (applyAction :: ApplyPendingMaintenanceAction -> Lude.Text) (\s a -> s {applyAction = a} :: ApplyPendingMaintenanceAction)
+{-# DEPRECATED apmaApplyAction "Use generic-lens or generic-optics with 'applyAction' instead." #-}
 
--- | A value that specifies the type of opt-in request, or undoes an opt-in request. You can't undo an opt-in request of type @immediate@ . Valid values:     * @immediate@ - Apply the maintenance action immediately.     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
-apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
-apmaOptInType = lens _apmaOptInType (\s a -> s {_apmaOptInType = a})
+-- | A value that specifies the type of opt-in request, or undoes an opt-in request. You can't undo an opt-in request of type @immediate@ .
+--
+-- Valid values:
+--
+--     * @immediate@ - Apply the maintenance action immediately.
+--
+--
+--     * @next-maintenance@ - Apply the maintenance action during the next maintenance window for the resource.
+--
+--
+--     * @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in requests.
+--
+--
+--
+-- /Note:/ Consider using 'optInType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apmaOptInType :: Lens.Lens' ApplyPendingMaintenanceAction Lude.Text
+apmaOptInType = Lens.lens (optInType :: ApplyPendingMaintenanceAction -> Lude.Text) (\s a -> s {optInType = a} :: ApplyPendingMaintenanceAction)
+{-# DEPRECATED apmaOptInType "Use generic-lens or generic-optics with 'optInType' instead." #-}
 
-instance AWSRequest ApplyPendingMaintenanceAction where
+instance Lude.AWSRequest ApplyPendingMaintenanceAction where
   type
     Rs ApplyPendingMaintenanceAction =
       ApplyPendingMaintenanceActionResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ApplyPendingMaintenanceActionResponse'
-            <$> (x .?> "ResourcePendingMaintenanceActions")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourcePendingMaintenanceActions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ApplyPendingMaintenanceAction
-
-instance NFData ApplyPendingMaintenanceAction
-
-instance ToHeaders ApplyPendingMaintenanceAction where
+instance Lude.ToHeaders ApplyPendingMaintenanceAction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.ApplyPendingMaintenanceAction" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.ApplyPendingMaintenanceAction" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ApplyPendingMaintenanceAction where
+instance Lude.ToJSON ApplyPendingMaintenanceAction where
   toJSON ApplyPendingMaintenanceAction' {..} =
-    object
-      ( catMaybes
-          [ Just ("ReplicationInstanceArn" .= _apmaReplicationInstanceARN),
-            Just ("ApplyAction" .= _apmaApplyAction),
-            Just ("OptInType" .= _apmaOptInType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            Lude.Just ("ApplyAction" Lude..= applyAction),
+            Lude.Just ("OptInType" Lude..= optInType)
           ]
       )
 
-instance ToPath ApplyPendingMaintenanceAction where
-  toPath = const "/"
+instance Lude.ToPath ApplyPendingMaintenanceAction where
+  toPath = Lude.const "/"
 
-instance ToQuery ApplyPendingMaintenanceAction where
-  toQuery = const mempty
+instance Lude.ToQuery ApplyPendingMaintenanceAction where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
+-- /See:/ 'mkApplyPendingMaintenanceActionResponse' smart constructor.
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-  { _apmarsResourcePendingMaintenanceActions ::
-      !( Maybe
-           ResourcePendingMaintenanceActions
-       ),
-    _apmarsResponseStatus ::
-      !Int
+  { resourcePendingMaintenanceActions ::
+      Lude.Maybe
+        ResourcePendingMaintenanceActions,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplyPendingMaintenanceActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apmarsResourcePendingMaintenanceActions' - The AWS DMS resource that the pending maintenance action will be applied to.
---
--- * 'apmarsResponseStatus' - -- | The response status code.
-applyPendingMaintenanceActionResponse ::
-  -- | 'apmarsResponseStatus'
-  Int ->
+-- * 'resourcePendingMaintenanceActions' - The AWS DMS resource that the pending maintenance action will be applied to.
+-- * 'responseStatus' - The response status code.
+mkApplyPendingMaintenanceActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse pResponseStatus_ =
+mkApplyPendingMaintenanceActionResponse pResponseStatus_ =
   ApplyPendingMaintenanceActionResponse'
-    { _apmarsResourcePendingMaintenanceActions =
-        Nothing,
-      _apmarsResponseStatus = pResponseStatus_
+    { resourcePendingMaintenanceActions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS DMS resource that the pending maintenance action will be applied to.
-apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
-apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\s a -> s {_apmarsResourcePendingMaintenanceActions = a})
+--
+-- /Note:/ Consider using 'resourcePendingMaintenanceActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apmarsResourcePendingMaintenanceActions :: Lens.Lens' ApplyPendingMaintenanceActionResponse (Lude.Maybe ResourcePendingMaintenanceActions)
+apmarsResourcePendingMaintenanceActions = Lens.lens (resourcePendingMaintenanceActions :: ApplyPendingMaintenanceActionResponse -> Lude.Maybe ResourcePendingMaintenanceActions) (\s a -> s {resourcePendingMaintenanceActions = a} :: ApplyPendingMaintenanceActionResponse)
+{-# DEPRECATED apmarsResourcePendingMaintenanceActions "Use generic-lens or generic-optics with 'resourcePendingMaintenanceActions' instead." #-}
 
--- | -- | The response status code.
-apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
-apmarsResponseStatus = lens _apmarsResponseStatus (\s a -> s {_apmarsResponseStatus = a})
-
-instance NFData ApplyPendingMaintenanceActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apmarsResponseStatus :: Lens.Lens' ApplyPendingMaintenanceActionResponse Lude.Int
+apmarsResponseStatus = Lens.lens (responseStatus :: ApplyPendingMaintenanceActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApplyPendingMaintenanceActionResponse)
+{-# DEPRECATED apmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

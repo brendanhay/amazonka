@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackStatisticsDataItem where
+module Network.AWS.Shield.Types.AttackStatisticsDataItem
+  ( AttackStatisticsDataItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttackStatisticsDataItem,
+
+    -- * Lenses
+    asdiAttackVolume,
+    asdiAttackCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.AttackVolume
 
 -- | A single attack statistics data record. This is returned by 'DescribeAttackStatistics' along with a time range indicating the time period that the attack statistics apply to.
 --
---
---
--- /See:/ 'attackStatisticsDataItem' smart constructor.
+-- /See:/ 'mkAttackStatisticsDataItem' smart constructor.
 data AttackStatisticsDataItem = AttackStatisticsDataItem'
-  { _asdiAttackVolume ::
-      !(Maybe AttackVolume),
-    _asdiAttackCount :: !Integer
+  { attackVolume ::
+      Lude.Maybe AttackVolume,
+    attackCount :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackStatisticsDataItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asdiAttackVolume' - Information about the volume of attacks during the time period. If the accompanying @AttackCount@ is zero, this setting might be empty.
---
--- * 'asdiAttackCount' - The number of attacks detected during the time period. This is always present, but might be zero.
-attackStatisticsDataItem ::
-  -- | 'asdiAttackCount'
-  Integer ->
+-- * 'attackCount' - The number of attacks detected during the time period. This is always present, but might be zero.
+-- * 'attackVolume' - Information about the volume of attacks during the time period. If the accompanying @AttackCount@ is zero, this setting might be empty.
+mkAttackStatisticsDataItem ::
+  -- | 'attackCount'
+  Lude.Integer ->
   AttackStatisticsDataItem
-attackStatisticsDataItem pAttackCount_ =
+mkAttackStatisticsDataItem pAttackCount_ =
   AttackStatisticsDataItem'
-    { _asdiAttackVolume = Nothing,
-      _asdiAttackCount = pAttackCount_
+    { attackVolume = Lude.Nothing,
+      attackCount = pAttackCount_
     }
 
 -- | Information about the volume of attacks during the time period. If the accompanying @AttackCount@ is zero, this setting might be empty.
-asdiAttackVolume :: Lens' AttackStatisticsDataItem (Maybe AttackVolume)
-asdiAttackVolume = lens _asdiAttackVolume (\s a -> s {_asdiAttackVolume = a})
+--
+-- /Note:/ Consider using 'attackVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdiAttackVolume :: Lens.Lens' AttackStatisticsDataItem (Lude.Maybe AttackVolume)
+asdiAttackVolume = Lens.lens (attackVolume :: AttackStatisticsDataItem -> Lude.Maybe AttackVolume) (\s a -> s {attackVolume = a} :: AttackStatisticsDataItem)
+{-# DEPRECATED asdiAttackVolume "Use generic-lens or generic-optics with 'attackVolume' instead." #-}
 
 -- | The number of attacks detected during the time period. This is always present, but might be zero.
-asdiAttackCount :: Lens' AttackStatisticsDataItem Integer
-asdiAttackCount = lens _asdiAttackCount (\s a -> s {_asdiAttackCount = a})
+--
+-- /Note:/ Consider using 'attackCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdiAttackCount :: Lens.Lens' AttackStatisticsDataItem Lude.Integer
+asdiAttackCount = Lens.lens (attackCount :: AttackStatisticsDataItem -> Lude.Integer) (\s a -> s {attackCount = a} :: AttackStatisticsDataItem)
+{-# DEPRECATED asdiAttackCount "Use generic-lens or generic-optics with 'attackCount' instead." #-}
 
-instance FromJSON AttackStatisticsDataItem where
+instance Lude.FromJSON AttackStatisticsDataItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttackStatisticsDataItem"
       ( \x ->
           AttackStatisticsDataItem'
-            <$> (x .:? "AttackVolume") <*> (x .: "AttackCount")
+            Lude.<$> (x Lude..:? "AttackVolume") Lude.<*> (x Lude..: "AttackCount")
       )
-
-instance Hashable AttackStatisticsDataItem
-
-instance NFData AttackStatisticsDataItem

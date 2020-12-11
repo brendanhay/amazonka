@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,108 @@
 --
 -- Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the management account in the organization.
 --
---
 -- By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
---
 -- Note that a delegated administrator is not authorized to invoke @EnableAWSOrganizationsAccess@ .
 module Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess
-  ( -- * Creating a Request
-    enableAWSOrganizationsAccess,
-    EnableAWSOrganizationsAccess,
+  ( -- * Creating a request
+    EnableAWSOrganizationsAccess (..),
+    mkEnableAWSOrganizationsAccess,
 
-    -- * Destructuring the Response
-    enableAWSOrganizationsAccessResponse,
-    EnableAWSOrganizationsAccessResponse,
+    -- * Destructuring the response
+    EnableAWSOrganizationsAccessResponse (..),
+    mkEnableAWSOrganizationsAccessResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eaoarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'enableAWSOrganizationsAccess' smart constructor.
+-- | /See:/ 'mkEnableAWSOrganizationsAccess' smart constructor.
 data EnableAWSOrganizationsAccess = EnableAWSOrganizationsAccess'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAWSOrganizationsAccess' with the minimum fields required to make a request.
-enableAWSOrganizationsAccess ::
+mkEnableAWSOrganizationsAccess ::
   EnableAWSOrganizationsAccess
-enableAWSOrganizationsAccess = EnableAWSOrganizationsAccess'
+mkEnableAWSOrganizationsAccess = EnableAWSOrganizationsAccess'
 
-instance AWSRequest EnableAWSOrganizationsAccess where
+instance Lude.AWSRequest EnableAWSOrganizationsAccess where
   type
     Rs EnableAWSOrganizationsAccess =
       EnableAWSOrganizationsAccessResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          EnableAWSOrganizationsAccessResponse' <$> (pure (fromEnum s))
+          EnableAWSOrganizationsAccessResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableAWSOrganizationsAccess
-
-instance NFData EnableAWSOrganizationsAccess
-
-instance ToHeaders EnableAWSOrganizationsAccess where
+instance Lude.ToHeaders EnableAWSOrganizationsAccess where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableAWSOrganizationsAccess where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON EnableAWSOrganizationsAccess where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath EnableAWSOrganizationsAccess where
-  toPath = const "/"
+instance Lude.ToPath EnableAWSOrganizationsAccess where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableAWSOrganizationsAccess where
-  toQuery = const mempty
+instance Lude.ToQuery EnableAWSOrganizationsAccess where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableAWSOrganizationsAccessResponse' smart constructor.
+-- | /See:/ 'mkEnableAWSOrganizationsAccessResponse' smart constructor.
 newtype EnableAWSOrganizationsAccessResponse = EnableAWSOrganizationsAccessResponse'
-  { _eaoarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAWSOrganizationsAccessResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eaoarsResponseStatus' - -- | The response status code.
-enableAWSOrganizationsAccessResponse ::
-  -- | 'eaoarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkEnableAWSOrganizationsAccessResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableAWSOrganizationsAccessResponse
-enableAWSOrganizationsAccessResponse pResponseStatus_ =
+mkEnableAWSOrganizationsAccessResponse pResponseStatus_ =
   EnableAWSOrganizationsAccessResponse'
-    { _eaoarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-eaoarsResponseStatus :: Lens' EnableAWSOrganizationsAccessResponse Int
-eaoarsResponseStatus = lens _eaoarsResponseStatus (\s a -> s {_eaoarsResponseStatus = a})
-
-instance NFData EnableAWSOrganizationsAccessResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaoarsResponseStatus :: Lens.Lens' EnableAWSOrganizationsAccessResponse Lude.Int
+eaoarsResponseStatus = Lens.lens (responseStatus :: EnableAWSOrganizationsAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableAWSOrganizationsAccessResponse)
+{-# DEPRECATED eaoarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

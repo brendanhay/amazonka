@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets information about the current 'ApiKey' resource.
 module Network.AWS.APIGateway.GetAPIKey
-  ( -- * Creating a Request
-    getAPIKey,
-    GetAPIKey,
+  ( -- * Creating a request
+    GetAPIKey (..),
+    mkGetAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gakIncludeValue,
     gakApiKey,
 
-    -- * Destructuring the Response
-    apiKey,
-    APIKey,
+    -- * Destructuring the response
+    APIKey (..),
+    mkAPIKey,
 
-    -- * Response Lenses
+    -- ** Response lenses
     akEnabled,
     akValue,
     akCustomerId,
@@ -46,60 +41,68 @@ module Network.AWS.APIGateway.GetAPIKey
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to get information about the current 'ApiKey' resource.
 --
---
---
--- /See:/ 'getAPIKey' smart constructor.
+-- /See:/ 'mkGetAPIKey' smart constructor.
 data GetAPIKey = GetAPIKey'
-  { _gakIncludeValue :: !(Maybe Bool),
-    _gakApiKey :: !Text
+  { includeValue :: Lude.Maybe Lude.Bool,
+    apiKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gakIncludeValue' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
---
--- * 'gakApiKey' - [Required] The identifier of the 'ApiKey' resource.
-getAPIKey ::
-  -- | 'gakApiKey'
-  Text ->
+-- * 'apiKey' - [Required] The identifier of the 'ApiKey' resource.
+-- * 'includeValue' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
+mkGetAPIKey ::
+  -- | 'apiKey'
+  Lude.Text ->
   GetAPIKey
-getAPIKey pApiKey_ =
-  GetAPIKey' {_gakIncludeValue = Nothing, _gakApiKey = pApiKey_}
+mkGetAPIKey pApiKey_ =
+  GetAPIKey' {includeValue = Lude.Nothing, apiKey = pApiKey_}
 
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains the key value.
-gakIncludeValue :: Lens' GetAPIKey (Maybe Bool)
-gakIncludeValue = lens _gakIncludeValue (\s a -> s {_gakIncludeValue = a})
+--
+-- /Note:/ Consider using 'includeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakIncludeValue :: Lens.Lens' GetAPIKey (Lude.Maybe Lude.Bool)
+gakIncludeValue = Lens.lens (includeValue :: GetAPIKey -> Lude.Maybe Lude.Bool) (\s a -> s {includeValue = a} :: GetAPIKey)
+{-# DEPRECATED gakIncludeValue "Use generic-lens or generic-optics with 'includeValue' instead." #-}
 
 -- | [Required] The identifier of the 'ApiKey' resource.
-gakApiKey :: Lens' GetAPIKey Text
-gakApiKey = lens _gakApiKey (\s a -> s {_gakApiKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakApiKey :: Lens.Lens' GetAPIKey Lude.Text
+gakApiKey = Lens.lens (apiKey :: GetAPIKey -> Lude.Text) (\s a -> s {apiKey = a} :: GetAPIKey)
+{-# DEPRECATED gakApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
-instance AWSRequest GetAPIKey where
+instance Lude.AWSRequest GetAPIKey where
   type Rs GetAPIKey = APIKey
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetAPIKey
-
-instance NFData GetAPIKey
-
-instance ToHeaders GetAPIKey where
+instance Lude.ToHeaders GetAPIKey where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetAPIKey where
-  toPath GetAPIKey' {..} = mconcat ["/apikeys/", toBS _gakApiKey]
+instance Lude.ToPath GetAPIKey where
+  toPath GetAPIKey' {..} =
+    Lude.mconcat ["/apikeys/", Lude.toBS apiKey]
 
-instance ToQuery GetAPIKey where
+instance Lude.ToQuery GetAPIKey where
   toQuery GetAPIKey' {..} =
-    mconcat ["includeValue" =: _gakIncludeValue]
+    Lude.mconcat ["includeValue" Lude.=: includeValue]

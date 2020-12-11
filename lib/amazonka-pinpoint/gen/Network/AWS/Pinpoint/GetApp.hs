@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,122 @@
 --
 -- Retrieves information about an application.
 module Network.AWS.Pinpoint.GetApp
-  ( -- * Creating a Request
-    getApp,
-    GetApp,
+  ( -- * Creating a request
+    GetApp (..),
+    mkGetApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaApplicationId,
 
-    -- * Destructuring the Response
-    getAppResponse,
-    GetAppResponse,
+    -- * Destructuring the response
+    GetAppResponse (..),
+    mkGetAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsResponseStatus,
     garsApplicationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getApp' smart constructor.
-newtype GetApp = GetApp' {_gaApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetApp' smart constructor.
+newtype GetApp = GetApp' {applicationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getApp ::
-  -- | 'gaApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetApp ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetApp
-getApp pApplicationId_ =
-  GetApp' {_gaApplicationId = pApplicationId_}
+mkGetApp pApplicationId_ = GetApp' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gaApplicationId :: Lens' GetApp Text
-gaApplicationId = lens _gaApplicationId (\s a -> s {_gaApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaApplicationId :: Lens.Lens' GetApp Lude.Text
+gaApplicationId = Lens.lens (applicationId :: GetApp -> Lude.Text) (\s a -> s {applicationId = a} :: GetApp)
+{-# DEPRECATED gaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetApp where
+instance Lude.AWSRequest GetApp where
   type Rs GetApp = GetAppResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetAppResponse' <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+          GetAppResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetApp
-
-instance NFData GetApp
-
-instance ToHeaders GetApp where
+instance Lude.ToHeaders GetApp where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetApp where
-  toPath GetApp' {..} = mconcat ["/v1/apps/", toBS _gaApplicationId]
+instance Lude.ToPath GetApp where
+  toPath GetApp' {..} =
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId]
 
-instance ToQuery GetApp where
-  toQuery = const mempty
+instance Lude.ToQuery GetApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppResponse' smart constructor.
+-- | /See:/ 'mkGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { _garsResponseStatus :: !Int,
-    _garsApplicationResponse :: !ApplicationResponse
+  { responseStatus :: Lude.Int,
+    applicationResponse :: ApplicationResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsResponseStatus' - -- | The response status code.
---
--- * 'garsApplicationResponse' - Undocumented member.
-getAppResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
-  -- | 'garsApplicationResponse'
+-- * 'applicationResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationResponse'
   ApplicationResponse ->
   GetAppResponse
-getAppResponse pResponseStatus_ pApplicationResponse_ =
+mkGetAppResponse pResponseStatus_ pApplicationResponse_ =
   GetAppResponse'
-    { _garsResponseStatus = pResponseStatus_,
-      _garsApplicationResponse = pApplicationResponse_
+    { responseStatus = pResponseStatus_,
+      applicationResponse = pApplicationResponse_
     }
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAppResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetAppResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-garsApplicationResponse :: Lens' GetAppResponse ApplicationResponse
-garsApplicationResponse = lens _garsApplicationResponse (\s a -> s {_garsApplicationResponse = a})
-
-instance NFData GetAppResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'applicationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsApplicationResponse :: Lens.Lens' GetAppResponse ApplicationResponse
+garsApplicationResponse = Lens.lens (applicationResponse :: GetAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: GetAppResponse)
+{-# DEPRECATED garsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}

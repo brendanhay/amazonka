@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.NamespaceFilter where
+module Network.AWS.Route53AutoNaming.Types.NamespaceFilter
+  ( NamespaceFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNamespaceFilter,
+
+    -- * Lenses
+    nfCondition,
+    nfName,
+    nfValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.FilterCondition
 import Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
 
 -- | A complex type that identifies the namespaces that you want to list. You can choose to list public or private namespaces.
 --
---
---
--- /See:/ 'namespaceFilter' smart constructor.
+-- /See:/ 'mkNamespaceFilter' smart constructor.
 data NamespaceFilter = NamespaceFilter'
-  { _nfCondition ::
-      !(Maybe FilterCondition),
-    _nfName :: !NamespaceFilterName,
-    _nfValues :: ![Text]
+  { condition ::
+      Lude.Maybe FilterCondition,
+    name :: NamespaceFilterName,
+    values :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NamespaceFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'condition' - The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:
 --
--- * 'nfCondition' - The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:     * @EQ@ : When you specify @EQ@ for the condition, you can choose to list only public namespaces or private namespaces, but not both. @EQ@ is the default condition and can be omitted.     * @IN@ : When you specify @IN@ for the condition, you can choose to list public namespaces, private namespaces, or both.      * @BETWEEN@ : Not applicable
 --
--- * 'nfName' - Specify @TYPE@ .
+--     * @EQ@ : When you specify @EQ@ for the condition, you can choose to list only public namespaces or private namespaces, but not both. @EQ@ is the default condition and can be omitted.
 --
--- * 'nfValues' - If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ . If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
-namespaceFilter ::
-  -- | 'nfName'
+--
+--     * @IN@ : When you specify @IN@ for the condition, you can choose to list public namespaces, private namespaces, or both.
+--
+--
+--     * @BETWEEN@ : Not applicable
+--
+--
+-- * 'name' - Specify @TYPE@ .
+-- * 'values' - If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
+--
+-- If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
+mkNamespaceFilter ::
+  -- | 'name'
   NamespaceFilterName ->
   NamespaceFilter
-namespaceFilter pName_ =
+mkNamespaceFilter pName_ =
   NamespaceFilter'
-    { _nfCondition = Nothing,
-      _nfName = pName_,
-      _nfValues = mempty
+    { condition = Lude.Nothing,
+      name = pName_,
+      values = Lude.mempty
     }
 
--- | The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:     * @EQ@ : When you specify @EQ@ for the condition, you can choose to list only public namespaces or private namespaces, but not both. @EQ@ is the default condition and can be omitted.     * @IN@ : When you specify @IN@ for the condition, you can choose to list public namespaces, private namespaces, or both.      * @BETWEEN@ : Not applicable
-nfCondition :: Lens' NamespaceFilter (Maybe FilterCondition)
-nfCondition = lens _nfCondition (\s a -> s {_nfCondition = a})
+-- | The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:
+--
+--
+--     * @EQ@ : When you specify @EQ@ for the condition, you can choose to list only public namespaces or private namespaces, but not both. @EQ@ is the default condition and can be omitted.
+--
+--
+--     * @IN@ : When you specify @IN@ for the condition, you can choose to list public namespaces, private namespaces, or both.
+--
+--
+--     * @BETWEEN@ : Not applicable
+--
+--
+--
+-- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfCondition :: Lens.Lens' NamespaceFilter (Lude.Maybe FilterCondition)
+nfCondition = Lens.lens (condition :: NamespaceFilter -> Lude.Maybe FilterCondition) (\s a -> s {condition = a} :: NamespaceFilter)
+{-# DEPRECATED nfCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
 -- | Specify @TYPE@ .
-nfName :: Lens' NamespaceFilter NamespaceFilterName
-nfName = lens _nfName (\s a -> s {_nfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfName :: Lens.Lens' NamespaceFilter NamespaceFilterName
+nfName = Lens.lens (name :: NamespaceFilter -> NamespaceFilterName) (\s a -> s {name = a} :: NamespaceFilter)
+{-# DEPRECATED nfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ . If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
-nfValues :: Lens' NamespaceFilter [Text]
-nfValues = lens _nfValues (\s a -> s {_nfValues = a}) . _Coerce
+-- | If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
+--
+-- If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfValues :: Lens.Lens' NamespaceFilter [Lude.Text]
+nfValues = Lens.lens (values :: NamespaceFilter -> [Lude.Text]) (\s a -> s {values = a} :: NamespaceFilter)
+{-# DEPRECATED nfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable NamespaceFilter
-
-instance NFData NamespaceFilter
-
-instance ToJSON NamespaceFilter where
+instance Lude.ToJSON NamespaceFilter where
   toJSON NamespaceFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Condition" .=) <$> _nfCondition,
-            Just ("Name" .= _nfName),
-            Just ("Values" .= _nfValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Condition" Lude..=) Lude.<$> condition,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Values" Lude..= values)
           ]
       )

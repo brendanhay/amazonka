@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.NodeProperties where
+module Network.AWS.Batch.Types.NodeProperties
+  ( NodeProperties (..),
+
+    -- * Smart constructor
+    mkNodeProperties,
+
+    -- * Lenses
+    npNumNodes,
+    npMainNode,
+    npNodeRangeProperties,
+  )
+where
 
 import Network.AWS.Batch.Types.NodeRangeProperty
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the node properties of a multi-node parallel job.
 --
---
---
--- /See:/ 'nodeProperties' smart constructor.
+-- /See:/ 'mkNodeProperties' smart constructor.
 data NodeProperties = NodeProperties'
-  { _npNumNodes :: !Int,
-    _npMainNode :: !Int,
-    _npNodeRangeProperties :: ![NodeRangeProperty]
+  { numNodes :: Lude.Int,
+    mainNode :: Lude.Int,
+    nodeRangeProperties :: [NodeRangeProperty]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'npNumNodes' - The number of nodes associated with a multi-node parallel job.
---
--- * 'npMainNode' - Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
---
--- * 'npNodeRangeProperties' - A list of node ranges and their properties associated with a multi-node parallel job.
-nodeProperties ::
-  -- | 'npNumNodes'
-  Int ->
-  -- | 'npMainNode'
-  Int ->
+-- * 'mainNode' - Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+-- * 'nodeRangeProperties' - A list of node ranges and their properties associated with a multi-node parallel job.
+-- * 'numNodes' - The number of nodes associated with a multi-node parallel job.
+mkNodeProperties ::
+  -- | 'numNodes'
+  Lude.Int ->
+  -- | 'mainNode'
+  Lude.Int ->
   NodeProperties
-nodeProperties pNumNodes_ pMainNode_ =
+mkNodeProperties pNumNodes_ pMainNode_ =
   NodeProperties'
-    { _npNumNodes = pNumNodes_,
-      _npMainNode = pMainNode_,
-      _npNodeRangeProperties = mempty
+    { numNodes = pNumNodes_,
+      mainNode = pMainNode_,
+      nodeRangeProperties = Lude.mempty
     }
 
 -- | The number of nodes associated with a multi-node parallel job.
-npNumNodes :: Lens' NodeProperties Int
-npNumNodes = lens _npNumNodes (\s a -> s {_npNumNodes = a})
+--
+-- /Note:/ Consider using 'numNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npNumNodes :: Lens.Lens' NodeProperties Lude.Int
+npNumNodes = Lens.lens (numNodes :: NodeProperties -> Lude.Int) (\s a -> s {numNodes = a} :: NodeProperties)
+{-# DEPRECATED npNumNodes "Use generic-lens or generic-optics with 'numNodes' instead." #-}
 
 -- | Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-npMainNode :: Lens' NodeProperties Int
-npMainNode = lens _npMainNode (\s a -> s {_npMainNode = a})
+--
+-- /Note:/ Consider using 'mainNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npMainNode :: Lens.Lens' NodeProperties Lude.Int
+npMainNode = Lens.lens (mainNode :: NodeProperties -> Lude.Int) (\s a -> s {mainNode = a} :: NodeProperties)
+{-# DEPRECATED npMainNode "Use generic-lens or generic-optics with 'mainNode' instead." #-}
 
 -- | A list of node ranges and their properties associated with a multi-node parallel job.
-npNodeRangeProperties :: Lens' NodeProperties [NodeRangeProperty]
-npNodeRangeProperties = lens _npNodeRangeProperties (\s a -> s {_npNodeRangeProperties = a}) . _Coerce
+--
+-- /Note:/ Consider using 'nodeRangeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npNodeRangeProperties :: Lens.Lens' NodeProperties [NodeRangeProperty]
+npNodeRangeProperties = Lens.lens (nodeRangeProperties :: NodeProperties -> [NodeRangeProperty]) (\s a -> s {nodeRangeProperties = a} :: NodeProperties)
+{-# DEPRECATED npNodeRangeProperties "Use generic-lens or generic-optics with 'nodeRangeProperties' instead." #-}
 
-instance FromJSON NodeProperties where
+instance Lude.FromJSON NodeProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "NodeProperties"
       ( \x ->
           NodeProperties'
-            <$> (x .: "numNodes")
-            <*> (x .: "mainNode")
-            <*> (x .:? "nodeRangeProperties" .!= mempty)
+            Lude.<$> (x Lude..: "numNodes")
+            Lude.<*> (x Lude..: "mainNode")
+            Lude.<*> (x Lude..:? "nodeRangeProperties" Lude..!= Lude.mempty)
       )
 
-instance Hashable NodeProperties
-
-instance NFData NodeProperties
-
-instance ToJSON NodeProperties where
+instance Lude.ToJSON NodeProperties where
   toJSON NodeProperties' {..} =
-    object
-      ( catMaybes
-          [ Just ("numNodes" .= _npNumNodes),
-            Just ("mainNode" .= _npMainNode),
-            Just ("nodeRangeProperties" .= _npNodeRangeProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("numNodes" Lude..= numNodes),
+            Lude.Just ("mainNode" Lude..= mainNode),
+            Lude.Just ("nodeRangeProperties" Lude..= nodeRangeProperties)
           ]
       )

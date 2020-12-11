@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ChannelState where
+module Network.AWS.MediaLive.Types.ChannelState
+  ( ChannelState
+      ( ChannelState',
+        CSCreateFailed,
+        CSCreating,
+        CSDeleted,
+        CSDeleting,
+        CSIdle,
+        CSRecovering,
+        CSRunning,
+        CSStarting,
+        CSStopping,
+        CSUpdateFailed,
+        CSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for ChannelState
-data ChannelState
-  = CSCreateFailed
-  | CSCreating
-  | CSDeleted
-  | CSDeleting
-  | CSIdle
-  | CSRecovering
-  | CSRunning
-  | CSStarting
-  | CSStopping
-  | CSUpdateFailed
-  | CSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChannelState = ChannelState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChannelState where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure CSCreateFailed
-      "creating" -> pure CSCreating
-      "deleted" -> pure CSDeleted
-      "deleting" -> pure CSDeleting
-      "idle" -> pure CSIdle
-      "recovering" -> pure CSRecovering
-      "running" -> pure CSRunning
-      "starting" -> pure CSStarting
-      "stopping" -> pure CSStopping
-      "update_failed" -> pure CSUpdateFailed
-      "updating" -> pure CSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing ChannelState from value: '" <> e
-            <> "'. Accepted values: create_failed, creating, deleted, deleting, idle, recovering, running, starting, stopping, update_failed, updating"
+pattern CSCreateFailed :: ChannelState
+pattern CSCreateFailed = ChannelState' "CREATE_FAILED"
 
-instance ToText ChannelState where
-  toText = \case
-    CSCreateFailed -> "CREATE_FAILED"
-    CSCreating -> "CREATING"
-    CSDeleted -> "DELETED"
-    CSDeleting -> "DELETING"
-    CSIdle -> "IDLE"
-    CSRecovering -> "RECOVERING"
-    CSRunning -> "RUNNING"
-    CSStarting -> "STARTING"
-    CSStopping -> "STOPPING"
-    CSUpdateFailed -> "UPDATE_FAILED"
-    CSUpdating -> "UPDATING"
+pattern CSCreating :: ChannelState
+pattern CSCreating = ChannelState' "CREATING"
 
-instance Hashable ChannelState
+pattern CSDeleted :: ChannelState
+pattern CSDeleted = ChannelState' "DELETED"
 
-instance NFData ChannelState
+pattern CSDeleting :: ChannelState
+pattern CSDeleting = ChannelState' "DELETING"
 
-instance ToByteString ChannelState
+pattern CSIdle :: ChannelState
+pattern CSIdle = ChannelState' "IDLE"
 
-instance ToQuery ChannelState
+pattern CSRecovering :: ChannelState
+pattern CSRecovering = ChannelState' "RECOVERING"
 
-instance ToHeader ChannelState
+pattern CSRunning :: ChannelState
+pattern CSRunning = ChannelState' "RUNNING"
 
-instance FromJSON ChannelState where
-  parseJSON = parseJSONText "ChannelState"
+pattern CSStarting :: ChannelState
+pattern CSStarting = ChannelState' "STARTING"
+
+pattern CSStopping :: ChannelState
+pattern CSStopping = ChannelState' "STOPPING"
+
+pattern CSUpdateFailed :: ChannelState
+pattern CSUpdateFailed = ChannelState' "UPDATE_FAILED"
+
+pattern CSUpdating :: ChannelState
+pattern CSUpdating = ChannelState' "UPDATING"
+
+{-# COMPLETE
+  CSCreateFailed,
+  CSCreating,
+  CSDeleted,
+  CSDeleting,
+  CSIdle,
+  CSRecovering,
+  CSRunning,
+  CSStarting,
+  CSStopping,
+  CSUpdateFailed,
+  CSUpdating,
+  ChannelState'
+  #-}

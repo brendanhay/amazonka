@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,78 @@
 --
 -- Returns the current @LifecycleConfiguration@ object for the specified Amazon EFS file system. EFS lifecycle management uses the @LifecycleConfiguration@ object to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system without a @LifecycleConfiguration@ object, the call returns an empty array in the response.
 --
---
 -- This operation requires permissions for the @elasticfilesystem:DescribeLifecycleConfiguration@ operation.
 module Network.AWS.EFS.DescribeLifecycleConfiguration
-  ( -- * Creating a Request
-    describeLifecycleConfiguration,
-    DescribeLifecycleConfiguration,
+  ( -- * Creating a request
+    DescribeLifecycleConfiguration (..),
+    mkDescribeLifecycleConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlcFileSystemId,
 
-    -- * Destructuring the Response
-    lifecycleConfigurationDescription,
-    LifecycleConfigurationDescription,
+    -- * Destructuring the response
+    LifecycleConfigurationDescription (..),
+    mkLifecycleConfigurationDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcdLifecyclePolicies,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLifecycleConfiguration' smart constructor.
+-- | /See:/ 'mkDescribeLifecycleConfiguration' smart constructor.
 newtype DescribeLifecycleConfiguration = DescribeLifecycleConfiguration'
-  { _dlcFileSystemId ::
-      Text
+  { fileSystemId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLifecycleConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcFileSystemId' - The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
-describeLifecycleConfiguration ::
-  -- | 'dlcFileSystemId'
-  Text ->
+-- * 'fileSystemId' - The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
+mkDescribeLifecycleConfiguration ::
+  -- | 'fileSystemId'
+  Lude.Text ->
   DescribeLifecycleConfiguration
-describeLifecycleConfiguration pFileSystemId_ =
-  DescribeLifecycleConfiguration'
-    { _dlcFileSystemId =
-        pFileSystemId_
-    }
+mkDescribeLifecycleConfiguration pFileSystemId_ =
+  DescribeLifecycleConfiguration' {fileSystemId = pFileSystemId_}
 
 -- | The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
-dlcFileSystemId :: Lens' DescribeLifecycleConfiguration Text
-dlcFileSystemId = lens _dlcFileSystemId (\s a -> s {_dlcFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcFileSystemId :: Lens.Lens' DescribeLifecycleConfiguration Lude.Text
+dlcFileSystemId = Lens.lens (fileSystemId :: DescribeLifecycleConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeLifecycleConfiguration)
+{-# DEPRECATED dlcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance AWSRequest DescribeLifecycleConfiguration where
+instance Lude.AWSRequest DescribeLifecycleConfiguration where
   type
     Rs DescribeLifecycleConfiguration =
       LifecycleConfigurationDescription
-  request = get efs
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get efsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeLifecycleConfiguration
+instance Lude.ToHeaders DescribeLifecycleConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLifecycleConfiguration
-
-instance ToHeaders DescribeLifecycleConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DescribeLifecycleConfiguration where
+instance Lude.ToPath DescribeLifecycleConfiguration where
   toPath DescribeLifecycleConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-02-01/file-systems/",
-        toBS _dlcFileSystemId,
+        Lude.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance ToQuery DescribeLifecycleConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeLifecycleConfiguration where
+  toQuery = Lude.const Lude.mempty

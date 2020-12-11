@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,149 +7,193 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSVoipChannelResponse where
+module Network.AWS.Pinpoint.Types.APNSVoipChannelResponse
+  ( APNSVoipChannelResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSVoipChannelResponse,
+
+    -- * Lenses
+    avcLastModifiedDate,
+    avcEnabled,
+    avcHasTokenKey,
+    avcDefaultAuthenticationMethod,
+    avcIsArchived,
+    avcApplicationId,
+    avcVersion,
+    avcId,
+    avcCreationDate,
+    avcLastModifiedBy,
+    avcHasCredential,
+    avcPlatform,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.
 --
---
---
--- /See:/ 'apnsVoipChannelResponse' smart constructor.
+-- /See:/ 'mkAPNSVoipChannelResponse' smart constructor.
 data APNSVoipChannelResponse = APNSVoipChannelResponse'
-  { _avcLastModifiedDate ::
-      !(Maybe Text),
-    _avcEnabled :: !(Maybe Bool),
-    _avcHasTokenKey :: !(Maybe Bool),
-    _avcDefaultAuthenticationMethod ::
-      !(Maybe Text),
-    _avcIsArchived :: !(Maybe Bool),
-    _avcApplicationId :: !(Maybe Text),
-    _avcVersion :: !(Maybe Int),
-    _avcId :: !(Maybe Text),
-    _avcCreationDate :: !(Maybe Text),
-    _avcLastModifiedBy :: !(Maybe Text),
-    _avcHasCredential :: !(Maybe Bool),
-    _avcPlatform :: !Text
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    hasTokenKey :: Lude.Maybe Lude.Bool,
+    defaultAuthenticationMethod ::
+      Lude.Maybe Lude.Text,
+    isArchived :: Lude.Maybe Lude.Bool,
+    applicationId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Int,
+    id :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    hasCredential :: Lude.Maybe Lude.Bool,
+    platform :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSVoipChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avcLastModifiedDate' - The date and time when the APNs VoIP channel was last modified.
---
--- * 'avcEnabled' - Specifies whether the APNs VoIP channel is enabled for the application.
---
--- * 'avcHasTokenKey' - Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
---
--- * 'avcDefaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with APNs for this channel, key or certificate.
---
--- * 'avcIsArchived' - Specifies whether the APNs VoIP channel is archived.
---
--- * 'avcApplicationId' - The unique identifier for the application that the APNs VoIP channel applies to.
---
--- * 'avcVersion' - The current version of the APNs VoIP channel.
---
--- * 'avcId' - (Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.
---
--- * 'avcCreationDate' - The date and time when the APNs VoIP channel was enabled.
---
--- * 'avcLastModifiedBy' - The user who last modified the APNs VoIP channel.
---
--- * 'avcHasCredential' - (Not used) This property is retained only for backward compatibility.
---
--- * 'avcPlatform' - The type of messaging or notification platform for the channel. For the APNs VoIP channel, this value is APNS_VOIP.
-apnsVoipChannelResponse ::
-  -- | 'avcPlatform'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that the APNs VoIP channel applies to.
+-- * 'creationDate' - The date and time when the APNs VoIP channel was enabled.
+-- * 'defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with APNs for this channel, key or certificate.
+-- * 'enabled' - Specifies whether the APNs VoIP channel is enabled for the application.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- * 'hasTokenKey' - Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+-- * 'id' - (Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.
+-- * 'isArchived' - Specifies whether the APNs VoIP channel is archived.
+-- * 'lastModifiedBy' - The user who last modified the APNs VoIP channel.
+-- * 'lastModifiedDate' - The date and time when the APNs VoIP channel was last modified.
+-- * 'platform' - The type of messaging or notification platform for the channel. For the APNs VoIP channel, this value is APNS_VOIP.
+-- * 'version' - The current version of the APNs VoIP channel.
+mkAPNSVoipChannelResponse ::
+  -- | 'platform'
+  Lude.Text ->
   APNSVoipChannelResponse
-apnsVoipChannelResponse pPlatform_ =
+mkAPNSVoipChannelResponse pPlatform_ =
   APNSVoipChannelResponse'
-    { _avcLastModifiedDate = Nothing,
-      _avcEnabled = Nothing,
-      _avcHasTokenKey = Nothing,
-      _avcDefaultAuthenticationMethod = Nothing,
-      _avcIsArchived = Nothing,
-      _avcApplicationId = Nothing,
-      _avcVersion = Nothing,
-      _avcId = Nothing,
-      _avcCreationDate = Nothing,
-      _avcLastModifiedBy = Nothing,
-      _avcHasCredential = Nothing,
-      _avcPlatform = pPlatform_
+    { lastModifiedDate = Lude.Nothing,
+      enabled = Lude.Nothing,
+      hasTokenKey = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      isArchived = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      hasCredential = Lude.Nothing,
+      platform = pPlatform_
     }
 
 -- | The date and time when the APNs VoIP channel was last modified.
-avcLastModifiedDate :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcLastModifiedDate = lens _avcLastModifiedDate (\s a -> s {_avcLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcLastModifiedDate :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcLastModifiedDate = Lens.lens (lastModifiedDate :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Specifies whether the APNs VoIP channel is enabled for the application.
-avcEnabled :: Lens' APNSVoipChannelResponse (Maybe Bool)
-avcEnabled = lens _avcEnabled (\s a -> s {_avcEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcEnabled :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Bool)
+avcEnabled = Lens.lens (enabled :: APNSVoipChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
-avcHasTokenKey :: Lens' APNSVoipChannelResponse (Maybe Bool)
-avcHasTokenKey = lens _avcHasTokenKey (\s a -> s {_avcHasTokenKey = a})
+--
+-- /Note:/ Consider using 'hasTokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcHasTokenKey :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Bool)
+avcHasTokenKey = Lens.lens (hasTokenKey :: APNSVoipChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasTokenKey = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcHasTokenKey "Use generic-lens or generic-optics with 'hasTokenKey' instead." #-}
 
 -- | The default authentication method that Amazon Pinpoint uses to authenticate with APNs for this channel, key or certificate.
-avcDefaultAuthenticationMethod :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcDefaultAuthenticationMethod = lens _avcDefaultAuthenticationMethod (\s a -> s {_avcDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcDefaultAuthenticationMethod :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | Specifies whether the APNs VoIP channel is archived.
-avcIsArchived :: Lens' APNSVoipChannelResponse (Maybe Bool)
-avcIsArchived = lens _avcIsArchived (\s a -> s {_avcIsArchived = a})
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcIsArchived :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Bool)
+avcIsArchived = Lens.lens (isArchived :: APNSVoipChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
 
 -- | The unique identifier for the application that the APNs VoIP channel applies to.
-avcApplicationId :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcApplicationId = lens _avcApplicationId (\s a -> s {_avcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcApplicationId :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcApplicationId = Lens.lens (applicationId :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The current version of the APNs VoIP channel.
-avcVersion :: Lens' APNSVoipChannelResponse (Maybe Int)
-avcVersion = lens _avcVersion (\s a -> s {_avcVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcVersion :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Int)
+avcVersion = Lens.lens (version :: APNSVoipChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | (Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.
-avcId :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcId = lens _avcId (\s a -> s {_avcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcId :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcId = Lens.lens (id :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time when the APNs VoIP channel was enabled.
-avcCreationDate :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcCreationDate = lens _avcCreationDate (\s a -> s {_avcCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcCreationDate :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcCreationDate = Lens.lens (creationDate :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The user who last modified the APNs VoIP channel.
-avcLastModifiedBy :: Lens' APNSVoipChannelResponse (Maybe Text)
-avcLastModifiedBy = lens _avcLastModifiedBy (\s a -> s {_avcLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcLastModifiedBy :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Text)
+avcLastModifiedBy = Lens.lens (lastModifiedBy :: APNSVoipChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
-avcHasCredential :: Lens' APNSVoipChannelResponse (Maybe Bool)
-avcHasCredential = lens _avcHasCredential (\s a -> s {_avcHasCredential = a})
+--
+-- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcHasCredential :: Lens.Lens' APNSVoipChannelResponse (Lude.Maybe Lude.Bool)
+avcHasCredential = Lens.lens (hasCredential :: APNSVoipChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
 -- | The type of messaging or notification platform for the channel. For the APNs VoIP channel, this value is APNS_VOIP.
-avcPlatform :: Lens' APNSVoipChannelResponse Text
-avcPlatform = lens _avcPlatform (\s a -> s {_avcPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcPlatform :: Lens.Lens' APNSVoipChannelResponse Lude.Text
+avcPlatform = Lens.lens (platform :: APNSVoipChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: APNSVoipChannelResponse)
+{-# DEPRECATED avcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
-instance FromJSON APNSVoipChannelResponse where
+instance Lude.FromJSON APNSVoipChannelResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "APNSVoipChannelResponse"
       ( \x ->
           APNSVoipChannelResponse'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "Enabled")
-            <*> (x .:? "HasTokenKey")
-            <*> (x .:? "DefaultAuthenticationMethod")
-            <*> (x .:? "IsArchived")
-            <*> (x .:? "ApplicationId")
-            <*> (x .:? "Version")
-            <*> (x .:? "Id")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "LastModifiedBy")
-            <*> (x .:? "HasCredential")
-            <*> (x .: "Platform")
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "HasTokenKey")
+            Lude.<*> (x Lude..:? "DefaultAuthenticationMethod")
+            Lude.<*> (x Lude..:? "IsArchived")
+            Lude.<*> (x Lude..:? "ApplicationId")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "LastModifiedBy")
+            Lude.<*> (x Lude..:? "HasCredential")
+            Lude.<*> (x Lude..: "Platform")
       )
-
-instance Hashable APNSVoipChannelResponse
-
-instance NFData APNSVoipChannelResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new OriginEndpoint record.
 module Network.AWS.MediaPackage.CreateOriginEndpoint
-  ( -- * Creating a Request
-    createOriginEndpoint,
-    CreateOriginEndpoint,
+  ( -- * Creating a request
+    CreateOriginEndpoint (..),
+    mkCreateOriginEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     coeWhitelist,
     coeHlsPackage,
     coeManifestName,
@@ -39,11 +34,11 @@ module Network.AWS.MediaPackage.CreateOriginEndpoint
     coeChannelId,
     coeId,
 
-    -- * Destructuring the Response
-    createOriginEndpointResponse,
-    CreateOriginEndpointResponse,
+    -- * Destructuring the response
+    CreateOriginEndpointResponse (..),
+    mkCreateOriginEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     coersWhitelist,
     coersHlsPackage,
     coersARN,
@@ -64,372 +59,483 @@ module Network.AWS.MediaPackage.CreateOriginEndpoint
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Configuration parameters used to create a new OriginEndpoint.
 --
--- /See:/ 'createOriginEndpoint' smart constructor.
+-- /See:/ 'mkCreateOriginEndpoint' smart constructor.
 data CreateOriginEndpoint = CreateOriginEndpoint'
-  { _coeWhitelist ::
-      !(Maybe [Text]),
-    _coeHlsPackage :: !(Maybe HlsPackage),
-    _coeManifestName :: !(Maybe Text),
-    _coeAuthorization :: !(Maybe Authorization),
-    _coeStartoverWindowSeconds :: !(Maybe Int),
-    _coeDashPackage :: !(Maybe DashPackage),
-    _coeMssPackage :: !(Maybe MssPackage),
-    _coeTimeDelaySeconds :: !(Maybe Int),
-    _coeCmafPackage ::
-      !(Maybe CmafPackageCreateOrUpdateParameters),
-    _coeDescription :: !(Maybe Text),
-    _coeTags :: !(Maybe (Map Text (Text))),
-    _coeOrigination :: !(Maybe Origination),
-    _coeChannelId :: !Text,
-    _coeId :: !Text
+  { whitelist ::
+      Lude.Maybe [Lude.Text],
+    hlsPackage :: Lude.Maybe HlsPackage,
+    manifestName :: Lude.Maybe Lude.Text,
+    authorization :: Lude.Maybe Authorization,
+    startoverWindowSeconds :: Lude.Maybe Lude.Int,
+    dashPackage :: Lude.Maybe DashPackage,
+    mssPackage :: Lude.Maybe MssPackage,
+    timeDelaySeconds :: Lude.Maybe Lude.Int,
+    cmafPackage ::
+      Lude.Maybe CmafPackageCreateOrUpdateParameters,
+    description :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    origination :: Lude.Maybe Origination,
+    channelId :: Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOriginEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'authorization' - Undocumented field.
+-- * 'channelId' - The ID of the Channel that the OriginEndpoint will be associated with.
 --
--- * 'coeWhitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+-- This cannot be changed after the OriginEndpoint is created.
+-- * 'cmafPackage' - Undocumented field.
+-- * 'dashPackage' - Undocumented field.
+-- * 'description' - A short text description of the OriginEndpoint.
+-- * 'hlsPackage' - Undocumented field.
+-- * 'id' - The ID of the OriginEndpoint.  The ID must be unique within the region
 --
--- * 'coeHlsPackage' - Undocumented member.
+-- and it cannot be changed after the OriginEndpoint is created.
+-- * 'manifestName' - A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
+-- * 'mssPackage' - Undocumented field.
+-- * 'origination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
 --
--- * 'coeManifestName' - A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
+-- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+-- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+-- * 'startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
 --
--- * 'coeAuthorization' - Undocumented member.
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+-- * 'tags' - Undocumented field.
+-- * 'timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content.
 --
--- * 'coeStartoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
---
--- * 'coeDashPackage' - Undocumented member.
---
--- * 'coeMssPackage' - Undocumented member.
---
--- * 'coeTimeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
---
--- * 'coeCmafPackage' - Undocumented member.
---
--- * 'coeDescription' - A short text description of the OriginEndpoint.
---
--- * 'coeTags' - Undocumented member.
---
--- * 'coeOrigination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
---
--- * 'coeChannelId' - The ID of the Channel that the OriginEndpoint will be associated with. This cannot be changed after the OriginEndpoint is created.
---
--- * 'coeId' - The ID of the OriginEndpoint.  The ID must be unique within the region and it cannot be changed after the OriginEndpoint is created.
-createOriginEndpoint ::
-  -- | 'coeChannelId'
-  Text ->
-  -- | 'coeId'
-  Text ->
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+-- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+mkCreateOriginEndpoint ::
+  -- | 'channelId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   CreateOriginEndpoint
-createOriginEndpoint pChannelId_ pId_ =
+mkCreateOriginEndpoint pChannelId_ pId_ =
   CreateOriginEndpoint'
-    { _coeWhitelist = Nothing,
-      _coeHlsPackage = Nothing,
-      _coeManifestName = Nothing,
-      _coeAuthorization = Nothing,
-      _coeStartoverWindowSeconds = Nothing,
-      _coeDashPackage = Nothing,
-      _coeMssPackage = Nothing,
-      _coeTimeDelaySeconds = Nothing,
-      _coeCmafPackage = Nothing,
-      _coeDescription = Nothing,
-      _coeTags = Nothing,
-      _coeOrigination = Nothing,
-      _coeChannelId = pChannelId_,
-      _coeId = pId_
+    { whitelist = Lude.Nothing,
+      hlsPackage = Lude.Nothing,
+      manifestName = Lude.Nothing,
+      authorization = Lude.Nothing,
+      startoverWindowSeconds = Lude.Nothing,
+      dashPackage = Lude.Nothing,
+      mssPackage = Lude.Nothing,
+      timeDelaySeconds = Lude.Nothing,
+      cmafPackage = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      origination = Lude.Nothing,
+      channelId = pChannelId_,
+      id = pId_
     }
 
 -- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
-coeWhitelist :: Lens' CreateOriginEndpoint [Text]
-coeWhitelist = lens _coeWhitelist (\s a -> s {_coeWhitelist = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'whitelist' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeWhitelist :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe [Lude.Text])
+coeWhitelist = Lens.lens (whitelist :: CreateOriginEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {whitelist = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeWhitelist "Use generic-lens or generic-optics with 'whitelist' instead." #-}
 
--- | Undocumented member.
-coeHlsPackage :: Lens' CreateOriginEndpoint (Maybe HlsPackage)
-coeHlsPackage = lens _coeHlsPackage (\s a -> s {_coeHlsPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeHlsPackage :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe HlsPackage)
+coeHlsPackage = Lens.lens (hlsPackage :: CreateOriginEndpoint -> Lude.Maybe HlsPackage) (\s a -> s {hlsPackage = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeHlsPackage "Use generic-lens or generic-optics with 'hlsPackage' instead." #-}
 
 -- | A short string that will be used as the filename of the OriginEndpoint URL (defaults to "index").
-coeManifestName :: Lens' CreateOriginEndpoint (Maybe Text)
-coeManifestName = lens _coeManifestName (\s a -> s {_coeManifestName = a})
+--
+-- /Note:/ Consider using 'manifestName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeManifestName :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Lude.Text)
+coeManifestName = Lens.lens (manifestName :: CreateOriginEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {manifestName = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeManifestName "Use generic-lens or generic-optics with 'manifestName' instead." #-}
 
--- | Undocumented member.
-coeAuthorization :: Lens' CreateOriginEndpoint (Maybe Authorization)
-coeAuthorization = lens _coeAuthorization (\s a -> s {_coeAuthorization = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'authorization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeAuthorization :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Authorization)
+coeAuthorization = Lens.lens (authorization :: CreateOriginEndpoint -> Lude.Maybe Authorization) (\s a -> s {authorization = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeAuthorization "Use generic-lens or generic-optics with 'authorization' instead." #-}
 
--- | Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
-coeStartoverWindowSeconds :: Lens' CreateOriginEndpoint (Maybe Int)
-coeStartoverWindowSeconds = lens _coeStartoverWindowSeconds (\s a -> s {_coeStartoverWindowSeconds = a})
+-- | Maximum duration (seconds) of content to retain for startover playback.
+--
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+--
+-- /Note:/ Consider using 'startoverWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeStartoverWindowSeconds :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Lude.Int)
+coeStartoverWindowSeconds = Lens.lens (startoverWindowSeconds :: CreateOriginEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {startoverWindowSeconds = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeStartoverWindowSeconds "Use generic-lens or generic-optics with 'startoverWindowSeconds' instead." #-}
 
--- | Undocumented member.
-coeDashPackage :: Lens' CreateOriginEndpoint (Maybe DashPackage)
-coeDashPackage = lens _coeDashPackage (\s a -> s {_coeDashPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dashPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeDashPackage :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe DashPackage)
+coeDashPackage = Lens.lens (dashPackage :: CreateOriginEndpoint -> Lude.Maybe DashPackage) (\s a -> s {dashPackage = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeDashPackage "Use generic-lens or generic-optics with 'dashPackage' instead." #-}
 
--- | Undocumented member.
-coeMssPackage :: Lens' CreateOriginEndpoint (Maybe MssPackage)
-coeMssPackage = lens _coeMssPackage (\s a -> s {_coeMssPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mssPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeMssPackage :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe MssPackage)
+coeMssPackage = Lens.lens (mssPackage :: CreateOriginEndpoint -> Lude.Maybe MssPackage) (\s a -> s {mssPackage = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeMssPackage "Use generic-lens or generic-optics with 'mssPackage' instead." #-}
 
--- | Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
-coeTimeDelaySeconds :: Lens' CreateOriginEndpoint (Maybe Int)
-coeTimeDelaySeconds = lens _coeTimeDelaySeconds (\s a -> s {_coeTimeDelaySeconds = a})
+-- | Amount of delay (seconds) to enforce on the playback of live content.
+--
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+--
+-- /Note:/ Consider using 'timeDelaySeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeTimeDelaySeconds :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Lude.Int)
+coeTimeDelaySeconds = Lens.lens (timeDelaySeconds :: CreateOriginEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {timeDelaySeconds = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeTimeDelaySeconds "Use generic-lens or generic-optics with 'timeDelaySeconds' instead." #-}
 
--- | Undocumented member.
-coeCmafPackage :: Lens' CreateOriginEndpoint (Maybe CmafPackageCreateOrUpdateParameters)
-coeCmafPackage = lens _coeCmafPackage (\s a -> s {_coeCmafPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cmafPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeCmafPackage :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe CmafPackageCreateOrUpdateParameters)
+coeCmafPackage = Lens.lens (cmafPackage :: CreateOriginEndpoint -> Lude.Maybe CmafPackageCreateOrUpdateParameters) (\s a -> s {cmafPackage = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeCmafPackage "Use generic-lens or generic-optics with 'cmafPackage' instead." #-}
 
 -- | A short text description of the OriginEndpoint.
-coeDescription :: Lens' CreateOriginEndpoint (Maybe Text)
-coeDescription = lens _coeDescription (\s a -> s {_coeDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeDescription :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Lude.Text)
+coeDescription = Lens.lens (description :: CreateOriginEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-coeTags :: Lens' CreateOriginEndpoint (HashMap Text (Text))
-coeTags = lens _coeTags (\s a -> s {_coeTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeTags :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+coeTags = Lens.lens (tags :: CreateOriginEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-coeOrigination :: Lens' CreateOriginEndpoint (Maybe Origination)
-coeOrigination = lens _coeOrigination (\s a -> s {_coeOrigination = a})
+-- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+--
+-- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+-- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+--
+-- /Note:/ Consider using 'origination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeOrigination :: Lens.Lens' CreateOriginEndpoint (Lude.Maybe Origination)
+coeOrigination = Lens.lens (origination :: CreateOriginEndpoint -> Lude.Maybe Origination) (\s a -> s {origination = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeOrigination "Use generic-lens or generic-optics with 'origination' instead." #-}
 
--- | The ID of the Channel that the OriginEndpoint will be associated with. This cannot be changed after the OriginEndpoint is created.
-coeChannelId :: Lens' CreateOriginEndpoint Text
-coeChannelId = lens _coeChannelId (\s a -> s {_coeChannelId = a})
+-- | The ID of the Channel that the OriginEndpoint will be associated with.
+--
+-- This cannot be changed after the OriginEndpoint is created.
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeChannelId :: Lens.Lens' CreateOriginEndpoint Lude.Text
+coeChannelId = Lens.lens (channelId :: CreateOriginEndpoint -> Lude.Text) (\s a -> s {channelId = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
--- | The ID of the OriginEndpoint.  The ID must be unique within the region and it cannot be changed after the OriginEndpoint is created.
-coeId :: Lens' CreateOriginEndpoint Text
-coeId = lens _coeId (\s a -> s {_coeId = a})
+-- | The ID of the OriginEndpoint.  The ID must be unique within the region
+--
+-- and it cannot be changed after the OriginEndpoint is created.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coeId :: Lens.Lens' CreateOriginEndpoint Lude.Text
+coeId = Lens.lens (id :: CreateOriginEndpoint -> Lude.Text) (\s a -> s {id = a} :: CreateOriginEndpoint)
+{-# DEPRECATED coeId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest CreateOriginEndpoint where
+instance Lude.AWSRequest CreateOriginEndpoint where
   type Rs CreateOriginEndpoint = CreateOriginEndpointResponse
-  request = postJSON mediaPackage
+  request = Req.postJSON mediaPackageService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateOriginEndpointResponse'
-            <$> (x .?> "whitelist" .!@ mempty)
-            <*> (x .?> "hlsPackage")
-            <*> (x .?> "arn")
-            <*> (x .?> "manifestName")
-            <*> (x .?> "url")
-            <*> (x .?> "authorization")
-            <*> (x .?> "channelId")
-            <*> (x .?> "startoverWindowSeconds")
-            <*> (x .?> "dashPackage")
-            <*> (x .?> "mssPackage")
-            <*> (x .?> "id")
-            <*> (x .?> "timeDelaySeconds")
-            <*> (x .?> "cmafPackage")
-            <*> (x .?> "description")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (x .?> "origination")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "whitelist" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "hlsPackage")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "manifestName")
+            Lude.<*> (x Lude..?> "url")
+            Lude.<*> (x Lude..?> "authorization")
+            Lude.<*> (x Lude..?> "channelId")
+            Lude.<*> (x Lude..?> "startoverWindowSeconds")
+            Lude.<*> (x Lude..?> "dashPackage")
+            Lude.<*> (x Lude..?> "mssPackage")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "timeDelaySeconds")
+            Lude.<*> (x Lude..?> "cmafPackage")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "origination")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateOriginEndpoint
-
-instance NFData CreateOriginEndpoint
-
-instance ToHeaders CreateOriginEndpoint where
+instance Lude.ToHeaders CreateOriginEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateOriginEndpoint where
-  toJSON CreateOriginEndpoint' {..} =
-    object
-      ( catMaybes
-          [ ("whitelist" .=) <$> _coeWhitelist,
-            ("hlsPackage" .=) <$> _coeHlsPackage,
-            ("manifestName" .=) <$> _coeManifestName,
-            ("authorization" .=) <$> _coeAuthorization,
-            ("startoverWindowSeconds" .=) <$> _coeStartoverWindowSeconds,
-            ("dashPackage" .=) <$> _coeDashPackage,
-            ("mssPackage" .=) <$> _coeMssPackage,
-            ("timeDelaySeconds" .=) <$> _coeTimeDelaySeconds,
-            ("cmafPackage" .=) <$> _coeCmafPackage,
-            ("description" .=) <$> _coeDescription,
-            ("tags" .=) <$> _coeTags,
-            ("origination" .=) <$> _coeOrigination,
-            Just ("channelId" .= _coeChannelId),
-            Just ("id" .= _coeId)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateOriginEndpoint where
-  toPath = const "/origin_endpoints"
+instance Lude.ToJSON CreateOriginEndpoint where
+  toJSON CreateOriginEndpoint' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("whitelist" Lude..=) Lude.<$> whitelist,
+            ("hlsPackage" Lude..=) Lude.<$> hlsPackage,
+            ("manifestName" Lude..=) Lude.<$> manifestName,
+            ("authorization" Lude..=) Lude.<$> authorization,
+            ("startoverWindowSeconds" Lude..=) Lude.<$> startoverWindowSeconds,
+            ("dashPackage" Lude..=) Lude.<$> dashPackage,
+            ("mssPackage" Lude..=) Lude.<$> mssPackage,
+            ("timeDelaySeconds" Lude..=) Lude.<$> timeDelaySeconds,
+            ("cmafPackage" Lude..=) Lude.<$> cmafPackage,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            ("origination" Lude..=) Lude.<$> origination,
+            Lude.Just ("channelId" Lude..= channelId),
+            Lude.Just ("id" Lude..= id)
+          ]
+      )
 
-instance ToQuery CreateOriginEndpoint where
-  toQuery = const mempty
+instance Lude.ToPath CreateOriginEndpoint where
+  toPath = Lude.const "/origin_endpoints"
 
--- | /See:/ 'createOriginEndpointResponse' smart constructor.
+instance Lude.ToQuery CreateOriginEndpoint where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateOriginEndpointResponse' smart constructor.
 data CreateOriginEndpointResponse = CreateOriginEndpointResponse'
-  { _coersWhitelist ::
-      !(Maybe [Text]),
-    _coersHlsPackage ::
-      !(Maybe HlsPackage),
-    _coersARN :: !(Maybe Text),
-    _coersManifestName ::
-      !(Maybe Text),
-    _coersURL :: !(Maybe Text),
-    _coersAuthorization ::
-      !(Maybe Authorization),
-    _coersChannelId :: !(Maybe Text),
-    _coersStartoverWindowSeconds ::
-      !(Maybe Int),
-    _coersDashPackage ::
-      !(Maybe DashPackage),
-    _coersMssPackage ::
-      !(Maybe MssPackage),
-    _coersId :: !(Maybe Text),
-    _coersTimeDelaySeconds ::
-      !(Maybe Int),
-    _coersCmafPackage ::
-      !(Maybe CmafPackage),
-    _coersDescription ::
-      !(Maybe Text),
-    _coersTags ::
-      !(Maybe (Map Text (Text))),
-    _coersOrigination ::
-      !(Maybe Origination),
-    _coersResponseStatus :: !Int
+  { whitelist ::
+      Lude.Maybe [Lude.Text],
+    hlsPackage ::
+      Lude.Maybe HlsPackage,
+    arn :: Lude.Maybe Lude.Text,
+    manifestName ::
+      Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    authorization ::
+      Lude.Maybe Authorization,
+    channelId :: Lude.Maybe Lude.Text,
+    startoverWindowSeconds ::
+      Lude.Maybe Lude.Int,
+    dashPackage ::
+      Lude.Maybe DashPackage,
+    mssPackage ::
+      Lude.Maybe MssPackage,
+    id :: Lude.Maybe Lude.Text,
+    timeDelaySeconds ::
+      Lude.Maybe Lude.Int,
+    cmafPackage ::
+      Lude.Maybe CmafPackage,
+    description ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    origination ::
+      Lude.Maybe Origination,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOriginEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+-- * 'authorization' - Undocumented field.
+-- * 'channelId' - The ID of the Channel the OriginEndpoint is associated with.
+-- * 'cmafPackage' - Undocumented field.
+-- * 'dashPackage' - Undocumented field.
+-- * 'description' - A short text description of the OriginEndpoint.
+-- * 'hlsPackage' - Undocumented field.
+-- * 'id' - The ID of the OriginEndpoint.
+-- * 'manifestName' - A short string appended to the end of the OriginEndpoint URL.
+-- * 'mssPackage' - Undocumented field.
+-- * 'origination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
 --
--- * 'coersWhitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+-- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+-- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+-- * 'responseStatus' - The response status code.
+-- * 'startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
 --
--- * 'coersHlsPackage' - Undocumented member.
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+-- * 'tags' - Undocumented field.
+-- * 'timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content.
 --
--- * 'coersARN' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
---
--- * 'coersManifestName' - A short string appended to the end of the OriginEndpoint URL.
---
--- * 'coersURL' - The URL of the packaged OriginEndpoint for consumption.
---
--- * 'coersAuthorization' - Undocumented member.
---
--- * 'coersChannelId' - The ID of the Channel the OriginEndpoint is associated with.
---
--- * 'coersStartoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
---
--- * 'coersDashPackage' - Undocumented member.
---
--- * 'coersMssPackage' - Undocumented member.
---
--- * 'coersId' - The ID of the OriginEndpoint.
---
--- * 'coersTimeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
---
--- * 'coersCmafPackage' - Undocumented member.
---
--- * 'coersDescription' - A short text description of the OriginEndpoint.
---
--- * 'coersTags' - Undocumented member.
---
--- * 'coersOrigination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
---
--- * 'coersResponseStatus' - -- | The response status code.
-createOriginEndpointResponse ::
-  -- | 'coersResponseStatus'
-  Int ->
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+-- * 'url' - The URL of the packaged OriginEndpoint for consumption.
+-- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+mkCreateOriginEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateOriginEndpointResponse
-createOriginEndpointResponse pResponseStatus_ =
+mkCreateOriginEndpointResponse pResponseStatus_ =
   CreateOriginEndpointResponse'
-    { _coersWhitelist = Nothing,
-      _coersHlsPackage = Nothing,
-      _coersARN = Nothing,
-      _coersManifestName = Nothing,
-      _coersURL = Nothing,
-      _coersAuthorization = Nothing,
-      _coersChannelId = Nothing,
-      _coersStartoverWindowSeconds = Nothing,
-      _coersDashPackage = Nothing,
-      _coersMssPackage = Nothing,
-      _coersId = Nothing,
-      _coersTimeDelaySeconds = Nothing,
-      _coersCmafPackage = Nothing,
-      _coersDescription = Nothing,
-      _coersTags = Nothing,
-      _coersOrigination = Nothing,
-      _coersResponseStatus = pResponseStatus_
+    { whitelist = Lude.Nothing,
+      hlsPackage = Lude.Nothing,
+      arn = Lude.Nothing,
+      manifestName = Lude.Nothing,
+      url = Lude.Nothing,
+      authorization = Lude.Nothing,
+      channelId = Lude.Nothing,
+      startoverWindowSeconds = Lude.Nothing,
+      dashPackage = Lude.Nothing,
+      mssPackage = Lude.Nothing,
+      id = Lude.Nothing,
+      timeDelaySeconds = Lude.Nothing,
+      cmafPackage = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      origination = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
-coersWhitelist :: Lens' CreateOriginEndpointResponse [Text]
-coersWhitelist = lens _coersWhitelist (\s a -> s {_coersWhitelist = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'whitelist' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersWhitelist :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe [Lude.Text])
+coersWhitelist = Lens.lens (whitelist :: CreateOriginEndpointResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {whitelist = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersWhitelist "Use generic-lens or generic-optics with 'whitelist' instead." #-}
 
--- | Undocumented member.
-coersHlsPackage :: Lens' CreateOriginEndpointResponse (Maybe HlsPackage)
-coersHlsPackage = lens _coersHlsPackage (\s a -> s {_coersHlsPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersHlsPackage :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe HlsPackage)
+coersHlsPackage = Lens.lens (hlsPackage :: CreateOriginEndpointResponse -> Lude.Maybe HlsPackage) (\s a -> s {hlsPackage = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersHlsPackage "Use generic-lens or generic-optics with 'hlsPackage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-coersARN :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersARN = lens _coersARN (\s a -> s {_coersARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersARN :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersARN = Lens.lens (arn :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A short string appended to the end of the OriginEndpoint URL.
-coersManifestName :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersManifestName = lens _coersManifestName (\s a -> s {_coersManifestName = a})
+--
+-- /Note:/ Consider using 'manifestName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersManifestName :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersManifestName = Lens.lens (manifestName :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {manifestName = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersManifestName "Use generic-lens or generic-optics with 'manifestName' instead." #-}
 
 -- | The URL of the packaged OriginEndpoint for consumption.
-coersURL :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersURL = lens _coersURL (\s a -> s {_coersURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersURL :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersURL = Lens.lens (url :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | Undocumented member.
-coersAuthorization :: Lens' CreateOriginEndpointResponse (Maybe Authorization)
-coersAuthorization = lens _coersAuthorization (\s a -> s {_coersAuthorization = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'authorization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersAuthorization :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Authorization)
+coersAuthorization = Lens.lens (authorization :: CreateOriginEndpointResponse -> Lude.Maybe Authorization) (\s a -> s {authorization = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersAuthorization "Use generic-lens or generic-optics with 'authorization' instead." #-}
 
 -- | The ID of the Channel the OriginEndpoint is associated with.
-coersChannelId :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersChannelId = lens _coersChannelId (\s a -> s {_coersChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersChannelId :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersChannelId = Lens.lens (channelId :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
--- | Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
-coersStartoverWindowSeconds :: Lens' CreateOriginEndpointResponse (Maybe Int)
-coersStartoverWindowSeconds = lens _coersStartoverWindowSeconds (\s a -> s {_coersStartoverWindowSeconds = a})
+-- | Maximum duration (seconds) of content to retain for startover playback.
+--
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+--
+-- /Note:/ Consider using 'startoverWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersStartoverWindowSeconds :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Int)
+coersStartoverWindowSeconds = Lens.lens (startoverWindowSeconds :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Int) (\s a -> s {startoverWindowSeconds = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersStartoverWindowSeconds "Use generic-lens or generic-optics with 'startoverWindowSeconds' instead." #-}
 
--- | Undocumented member.
-coersDashPackage :: Lens' CreateOriginEndpointResponse (Maybe DashPackage)
-coersDashPackage = lens _coersDashPackage (\s a -> s {_coersDashPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dashPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersDashPackage :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe DashPackage)
+coersDashPackage = Lens.lens (dashPackage :: CreateOriginEndpointResponse -> Lude.Maybe DashPackage) (\s a -> s {dashPackage = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersDashPackage "Use generic-lens or generic-optics with 'dashPackage' instead." #-}
 
--- | Undocumented member.
-coersMssPackage :: Lens' CreateOriginEndpointResponse (Maybe MssPackage)
-coersMssPackage = lens _coersMssPackage (\s a -> s {_coersMssPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mssPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersMssPackage :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe MssPackage)
+coersMssPackage = Lens.lens (mssPackage :: CreateOriginEndpointResponse -> Lude.Maybe MssPackage) (\s a -> s {mssPackage = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersMssPackage "Use generic-lens or generic-optics with 'mssPackage' instead." #-}
 
 -- | The ID of the OriginEndpoint.
-coersId :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersId = lens _coersId (\s a -> s {_coersId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersId :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersId = Lens.lens (id :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
-coersTimeDelaySeconds :: Lens' CreateOriginEndpointResponse (Maybe Int)
-coersTimeDelaySeconds = lens _coersTimeDelaySeconds (\s a -> s {_coersTimeDelaySeconds = a})
+-- | Amount of delay (seconds) to enforce on the playback of live content.
+--
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+--
+-- /Note:/ Consider using 'timeDelaySeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersTimeDelaySeconds :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Int)
+coersTimeDelaySeconds = Lens.lens (timeDelaySeconds :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Int) (\s a -> s {timeDelaySeconds = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersTimeDelaySeconds "Use generic-lens or generic-optics with 'timeDelaySeconds' instead." #-}
 
--- | Undocumented member.
-coersCmafPackage :: Lens' CreateOriginEndpointResponse (Maybe CmafPackage)
-coersCmafPackage = lens _coersCmafPackage (\s a -> s {_coersCmafPackage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cmafPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersCmafPackage :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe CmafPackage)
+coersCmafPackage = Lens.lens (cmafPackage :: CreateOriginEndpointResponse -> Lude.Maybe CmafPackage) (\s a -> s {cmafPackage = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersCmafPackage "Use generic-lens or generic-optics with 'cmafPackage' instead." #-}
 
 -- | A short text description of the OriginEndpoint.
-coersDescription :: Lens' CreateOriginEndpointResponse (Maybe Text)
-coersDescription = lens _coersDescription (\s a -> s {_coersDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersDescription :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Lude.Text)
+coersDescription = Lens.lens (description :: CreateOriginEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-coersTags :: Lens' CreateOriginEndpointResponse (HashMap Text (Text))
-coersTags = lens _coersTags (\s a -> s {_coersTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersTags :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+coersTags = Lens.lens (tags :: CreateOriginEndpointResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-coersOrigination :: Lens' CreateOriginEndpointResponse (Maybe Origination)
-coersOrigination = lens _coersOrigination (\s a -> s {_coersOrigination = a})
+-- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+--
+-- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+-- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+--
+-- /Note:/ Consider using 'origination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersOrigination :: Lens.Lens' CreateOriginEndpointResponse (Lude.Maybe Origination)
+coersOrigination = Lens.lens (origination :: CreateOriginEndpointResponse -> Lude.Maybe Origination) (\s a -> s {origination = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersOrigination "Use generic-lens or generic-optics with 'origination' instead." #-}
 
--- | -- | The response status code.
-coersResponseStatus :: Lens' CreateOriginEndpointResponse Int
-coersResponseStatus = lens _coersResponseStatus (\s a -> s {_coersResponseStatus = a})
-
-instance NFData CreateOriginEndpointResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coersResponseStatus :: Lens.Lens' CreateOriginEndpointResponse Lude.Int
+coersResponseStatus = Lens.lens (responseStatus :: CreateOriginEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateOriginEndpointResponse)
+{-# DEPRECATED coersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

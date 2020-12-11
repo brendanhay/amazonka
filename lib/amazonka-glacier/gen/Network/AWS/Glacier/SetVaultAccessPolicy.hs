@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,121 @@
 --
 -- This operation configures an access policy for a vault and will overwrite an existing policy. To configure a vault access policy, send a PUT request to the @access-policy@ subresource of the vault. An access policy is specific to a vault and is also called a vault subresource. You can set one access policy per vault and the policy can be up to 20 KB in size. For more information about vault access policies, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies> .
 module Network.AWS.Glacier.SetVaultAccessPolicy
-  ( -- * Creating a Request
-    setVaultAccessPolicy,
-    SetVaultAccessPolicy,
+  ( -- * Creating a request
+    SetVaultAccessPolicy (..),
+    mkSetVaultAccessPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     svapPolicy,
     svapAccountId,
     svapVaultName,
 
-    -- * Destructuring the Response
-    setVaultAccessPolicyResponse,
-    SetVaultAccessPolicyResponse,
+    -- * Destructuring the response
+    SetVaultAccessPolicyResponse (..),
+    mkSetVaultAccessPolicyResponse,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | SetVaultAccessPolicy input.
 --
---
---
--- /See:/ 'setVaultAccessPolicy' smart constructor.
+-- /See:/ 'mkSetVaultAccessPolicy' smart constructor.
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
-  { _svapPolicy ::
-      !(Maybe VaultAccessPolicy),
-    _svapAccountId :: !Text,
-    _svapVaultName :: !Text
+  { policy ::
+      Lude.Maybe VaultAccessPolicy,
+    accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetVaultAccessPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svapPolicy' - The vault access policy as a JSON string.
---
--- * 'svapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'svapVaultName' - The name of the vault.
-setVaultAccessPolicy ::
-  -- | 'svapAccountId'
-  Text ->
-  -- | 'svapVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'policy' - The vault access policy as a JSON string.
+-- * 'vaultName' - The name of the vault.
+mkSetVaultAccessPolicy ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   SetVaultAccessPolicy
-setVaultAccessPolicy pAccountId_ pVaultName_ =
+mkSetVaultAccessPolicy pAccountId_ pVaultName_ =
   SetVaultAccessPolicy'
-    { _svapPolicy = Nothing,
-      _svapAccountId = pAccountId_,
-      _svapVaultName = pVaultName_
+    { policy = Lude.Nothing,
+      accountId = pAccountId_,
+      vaultName = pVaultName_
     }
 
 -- | The vault access policy as a JSON string.
-svapPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
-svapPolicy = lens _svapPolicy (\s a -> s {_svapPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svapPolicy :: Lens.Lens' SetVaultAccessPolicy (Lude.Maybe VaultAccessPolicy)
+svapPolicy = Lens.lens (policy :: SetVaultAccessPolicy -> Lude.Maybe VaultAccessPolicy) (\s a -> s {policy = a} :: SetVaultAccessPolicy)
+{-# DEPRECATED svapPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-svapAccountId :: Lens' SetVaultAccessPolicy Text
-svapAccountId = lens _svapAccountId (\s a -> s {_svapAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svapAccountId :: Lens.Lens' SetVaultAccessPolicy Lude.Text
+svapAccountId = Lens.lens (accountId :: SetVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: SetVaultAccessPolicy)
+{-# DEPRECATED svapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-svapVaultName :: Lens' SetVaultAccessPolicy Text
-svapVaultName = lens _svapVaultName (\s a -> s {_svapVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svapVaultName :: Lens.Lens' SetVaultAccessPolicy Lude.Text
+svapVaultName = Lens.lens (vaultName :: SetVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: SetVaultAccessPolicy)
+{-# DEPRECATED svapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest SetVaultAccessPolicy where
+instance Lude.AWSRequest SetVaultAccessPolicy where
   type Rs SetVaultAccessPolicy = SetVaultAccessPolicyResponse
-  request = putJSON glacier
-  response = receiveNull SetVaultAccessPolicyResponse'
+  request = Req.putJSON glacierService
+  response = Res.receiveNull SetVaultAccessPolicyResponse'
 
-instance Hashable SetVaultAccessPolicy
+instance Lude.ToHeaders SetVaultAccessPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetVaultAccessPolicy
-
-instance ToHeaders SetVaultAccessPolicy where
-  toHeaders = const mempty
-
-instance ToJSON SetVaultAccessPolicy where
+instance Lude.ToJSON SetVaultAccessPolicy where
   toJSON SetVaultAccessPolicy' {..} =
-    object (catMaybes [("policy" .=) <$> _svapPolicy])
+    Lude.object (Lude.catMaybes [("policy" Lude..=) Lude.<$> policy])
 
-instance ToPath SetVaultAccessPolicy where
+instance Lude.ToPath SetVaultAccessPolicy where
   toPath SetVaultAccessPolicy' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _svapAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _svapVaultName,
+        Lude.toBS vaultName,
         "/access-policy"
       ]
 
-instance ToQuery SetVaultAccessPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery SetVaultAccessPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setVaultAccessPolicyResponse' smart constructor.
+-- | /See:/ 'mkSetVaultAccessPolicyResponse' smart constructor.
 data SetVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetVaultAccessPolicyResponse' with the minimum fields required to make a request.
-setVaultAccessPolicyResponse ::
+mkSetVaultAccessPolicyResponse ::
   SetVaultAccessPolicyResponse
-setVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'
-
-instance NFData SetVaultAccessPolicyResponse
+mkSetVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'

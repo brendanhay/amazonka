@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,136 @@
 --
 -- Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag Clusters> .
 --
---
 -- The following example removes the stack tag with value Prod from a cluster:
 module Network.AWS.EMR.RemoveTags
-  ( -- * Creating a Request
-    removeTags,
-    RemoveTags,
+  ( -- * Creating a request
+    RemoveTags (..),
+    mkRemoveTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtResourceId,
     rtTagKeys,
 
-    -- * Destructuring the Response
-    removeTagsResponse,
-    RemoveTagsResponse,
+    -- * Destructuring the response
+    RemoveTagsResponse (..),
+    mkRemoveTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtrsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
---
---
--- /See:/ 'removeTags' smart constructor.
+-- /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { _rtResourceId :: !Text,
-    _rtTagKeys :: ![Text]
+  { resourceId :: Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtResourceId' - The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
---
--- * 'rtTagKeys' - A list of tag keys to remove from a resource.
-removeTags ::
-  -- | 'rtResourceId'
-  Text ->
+-- * 'resourceId' - The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
+-- * 'tagKeys' - A list of tag keys to remove from a resource.
+mkRemoveTags ::
+  -- | 'resourceId'
+  Lude.Text ->
   RemoveTags
-removeTags pResourceId_ =
-  RemoveTags' {_rtResourceId = pResourceId_, _rtTagKeys = mempty}
+mkRemoveTags pResourceId_ =
+  RemoveTags' {resourceId = pResourceId_, tagKeys = Lude.mempty}
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
-rtResourceId :: Lens' RemoveTags Text
-rtResourceId = lens _rtResourceId (\s a -> s {_rtResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtResourceId :: Lens.Lens' RemoveTags Lude.Text
+rtResourceId = Lens.lens (resourceId :: RemoveTags -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveTags)
+{-# DEPRECATED rtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | A list of tag keys to remove from a resource.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\s a -> s {_rtTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTagKeys :: Lens.Lens' RemoveTags [Lude.Text]
+rtTagKeys = Lens.lens (tagKeys :: RemoveTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTags)
+{-# DEPRECATED rtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest RemoveTags where
+instance Lude.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveEmpty
-      (\s h x -> RemoveTagsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RemoveTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RemoveTags
-
-instance NFData RemoveTags
-
-instance ToHeaders RemoveTags where
+instance Lude.ToHeaders RemoveTags where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("ElasticMapReduce.RemoveTags" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("ElasticMapReduce.RemoveTags" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RemoveTags where
+instance Lude.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceId" .= _rtResourceId),
-            Just ("TagKeys" .= _rtTagKeys)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("TagKeys" Lude..= tagKeys)
           ]
       )
 
-instance ToPath RemoveTags where
-  toPath = const "/"
+instance Lude.ToPath RemoveTags where
+  toPath = Lude.const "/"
 
-instance ToQuery RemoveTags where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveTags where
+  toQuery = Lude.const Lude.mempty
 
 -- | This output indicates the result of removing tags from a resource.
 --
---
---
--- /See:/ 'removeTagsResponse' smart constructor.
+-- /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
-  { _rtrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtrsResponseStatus' - -- | The response status code.
-removeTagsResponse ::
-  -- | 'rtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRemoveTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveTagsResponse
-removeTagsResponse pResponseStatus_ =
-  RemoveTagsResponse' {_rtrsResponseStatus = pResponseStatus_}
+mkRemoveTagsResponse pResponseStatus_ =
+  RemoveTagsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\s a -> s {_rtrsResponseStatus = a})
-
-instance NFData RemoveTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
+rtrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
+{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

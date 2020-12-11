@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.SourceType where
+module Network.AWS.ElastiCache.Types.SourceType
+  ( SourceType
+      ( SourceType',
+        CacheCluster,
+        CacheParameterGroup,
+        CacheSecurityGroup,
+        CacheSubnetGroup,
+        ReplicationGroup,
+        User,
+        UserGroup
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SourceType
-  = CacheCluster
-  | CacheParameterGroup
-  | CacheSecurityGroup
-  | CacheSubnetGroup
-  | ReplicationGroup
-  | User
-  | UserGroup
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceType = SourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceType where
-  parser =
-    takeLowerText >>= \case
-      "cache-cluster" -> pure CacheCluster
-      "cache-parameter-group" -> pure CacheParameterGroup
-      "cache-security-group" -> pure CacheSecurityGroup
-      "cache-subnet-group" -> pure CacheSubnetGroup
-      "replication-group" -> pure ReplicationGroup
-      "user" -> pure User
-      "user-group" -> pure UserGroup
-      e ->
-        fromTextError $
-          "Failure parsing SourceType from value: '" <> e
-            <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group, replication-group, user, user-group"
+pattern CacheCluster :: SourceType
+pattern CacheCluster = SourceType' "cache-cluster"
 
-instance ToText SourceType where
-  toText = \case
-    CacheCluster -> "cache-cluster"
-    CacheParameterGroup -> "cache-parameter-group"
-    CacheSecurityGroup -> "cache-security-group"
-    CacheSubnetGroup -> "cache-subnet-group"
-    ReplicationGroup -> "replication-group"
-    User -> "user"
-    UserGroup -> "user-group"
+pattern CacheParameterGroup :: SourceType
+pattern CacheParameterGroup = SourceType' "cache-parameter-group"
 
-instance Hashable SourceType
+pattern CacheSecurityGroup :: SourceType
+pattern CacheSecurityGroup = SourceType' "cache-security-group"
 
-instance NFData SourceType
+pattern CacheSubnetGroup :: SourceType
+pattern CacheSubnetGroup = SourceType' "cache-subnet-group"
 
-instance ToByteString SourceType
+pattern ReplicationGroup :: SourceType
+pattern ReplicationGroup = SourceType' "replication-group"
 
-instance ToQuery SourceType
+pattern User :: SourceType
+pattern User = SourceType' "user"
 
-instance ToHeader SourceType
+pattern UserGroup :: SourceType
+pattern UserGroup = SourceType' "user-group"
 
-instance FromXML SourceType where
-  parseXML = parseXMLText "SourceType"
+{-# COMPLETE
+  CacheCluster,
+  CacheParameterGroup,
+  CacheSecurityGroup,
+  CacheSubnetGroup,
+  ReplicationGroup,
+  User,
+  UserGroup,
+  SourceType'
+  #-}

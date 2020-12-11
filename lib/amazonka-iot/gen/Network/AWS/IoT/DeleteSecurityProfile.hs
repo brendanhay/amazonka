@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,121 @@
 --
 -- Deletes a Device Defender security profile.
 module Network.AWS.IoT.DeleteSecurityProfile
-  ( -- * Creating a Request
-    deleteSecurityProfile,
-    DeleteSecurityProfile,
+  ( -- * Creating a request
+    DeleteSecurityProfile (..),
+    mkDeleteSecurityProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dspExpectedVersion,
     dspSecurityProfileName,
 
-    -- * Destructuring the Response
-    deleteSecurityProfileResponse,
-    DeleteSecurityProfileResponse,
+    -- * Destructuring the response
+    DeleteSecurityProfileResponse (..),
+    mkDeleteSecurityProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsprsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSecurityProfile' smart constructor.
+-- | /See:/ 'mkDeleteSecurityProfile' smart constructor.
 data DeleteSecurityProfile = DeleteSecurityProfile'
-  { _dspExpectedVersion ::
-      !(Maybe Integer),
-    _dspSecurityProfileName :: !Text
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    securityProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dspExpectedVersion' - The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
---
--- * 'dspSecurityProfileName' - The name of the security profile to be deleted.
-deleteSecurityProfile ::
-  -- | 'dspSecurityProfileName'
-  Text ->
+-- * 'expectedVersion' - The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
+-- * 'securityProfileName' - The name of the security profile to be deleted.
+mkDeleteSecurityProfile ::
+  -- | 'securityProfileName'
+  Lude.Text ->
   DeleteSecurityProfile
-deleteSecurityProfile pSecurityProfileName_ =
+mkDeleteSecurityProfile pSecurityProfileName_ =
   DeleteSecurityProfile'
-    { _dspExpectedVersion = Nothing,
-      _dspSecurityProfileName = pSecurityProfileName_
+    { expectedVersion = Lude.Nothing,
+      securityProfileName = pSecurityProfileName_
     }
 
 -- | The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
-dspExpectedVersion :: Lens' DeleteSecurityProfile (Maybe Integer)
-dspExpectedVersion = lens _dspExpectedVersion (\s a -> s {_dspExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspExpectedVersion :: Lens.Lens' DeleteSecurityProfile (Lude.Maybe Lude.Integer)
+dspExpectedVersion = Lens.lens (expectedVersion :: DeleteSecurityProfile -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: DeleteSecurityProfile)
+{-# DEPRECATED dspExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the security profile to be deleted.
-dspSecurityProfileName :: Lens' DeleteSecurityProfile Text
-dspSecurityProfileName = lens _dspSecurityProfileName (\s a -> s {_dspSecurityProfileName = a})
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspSecurityProfileName :: Lens.Lens' DeleteSecurityProfile Lude.Text
+dspSecurityProfileName = Lens.lens (securityProfileName :: DeleteSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: DeleteSecurityProfile)
+{-# DEPRECATED dspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
-instance AWSRequest DeleteSecurityProfile where
+instance Lude.AWSRequest DeleteSecurityProfile where
   type Rs DeleteSecurityProfile = DeleteSecurityProfileResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteSecurityProfileResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteSecurityProfileResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteSecurityProfile
+instance Lude.ToHeaders DeleteSecurityProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSecurityProfile
-
-instance ToHeaders DeleteSecurityProfile where
-  toHeaders = const mempty
-
-instance ToPath DeleteSecurityProfile where
+instance Lude.ToPath DeleteSecurityProfile where
   toPath DeleteSecurityProfile' {..} =
-    mconcat ["/security-profiles/", toBS _dspSecurityProfileName]
+    Lude.mconcat
+      ["/security-profiles/", Lude.toBS securityProfileName]
 
-instance ToQuery DeleteSecurityProfile where
+instance Lude.ToQuery DeleteSecurityProfile where
   toQuery DeleteSecurityProfile' {..} =
-    mconcat ["expectedVersion" =: _dspExpectedVersion]
+    Lude.mconcat ["expectedVersion" Lude.=: expectedVersion]
 
--- | /See:/ 'deleteSecurityProfileResponse' smart constructor.
+-- | /See:/ 'mkDeleteSecurityProfileResponse' smart constructor.
 newtype DeleteSecurityProfileResponse = DeleteSecurityProfileResponse'
-  { _dsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsprsResponseStatus' - -- | The response status code.
-deleteSecurityProfileResponse ::
-  -- | 'dsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSecurityProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSecurityProfileResponse
-deleteSecurityProfileResponse pResponseStatus_ =
-  DeleteSecurityProfileResponse'
-    { _dsprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteSecurityProfileResponse pResponseStatus_ =
+  DeleteSecurityProfileResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsprsResponseStatus :: Lens' DeleteSecurityProfileResponse Int
-dsprsResponseStatus = lens _dsprsResponseStatus (\s a -> s {_dsprsResponseStatus = a})
-
-instance NFData DeleteSecurityProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprsResponseStatus :: Lens.Lens' DeleteSecurityProfileResponse Lude.Int
+dsprsResponseStatus = Lens.lens (responseStatus :: DeleteSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSecurityProfileResponse)
+{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.GroupDefinitionType where
+module Network.AWS.CostExplorer.Types.GroupDefinitionType
+  ( GroupDefinitionType
+      ( GroupDefinitionType',
+        CostCategory,
+        Dimension,
+        Tag
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GroupDefinitionType
-  = CostCategory
-  | Dimension
-  | Tag
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GroupDefinitionType = GroupDefinitionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GroupDefinitionType where
-  parser =
-    takeLowerText >>= \case
-      "cost_category" -> pure CostCategory
-      "dimension" -> pure Dimension
-      "tag" -> pure Tag
-      e ->
-        fromTextError $
-          "Failure parsing GroupDefinitionType from value: '" <> e
-            <> "'. Accepted values: cost_category, dimension, tag"
+pattern CostCategory :: GroupDefinitionType
+pattern CostCategory = GroupDefinitionType' "COST_CATEGORY"
 
-instance ToText GroupDefinitionType where
-  toText = \case
-    CostCategory -> "COST_CATEGORY"
-    Dimension -> "DIMENSION"
-    Tag -> "TAG"
+pattern Dimension :: GroupDefinitionType
+pattern Dimension = GroupDefinitionType' "DIMENSION"
 
-instance Hashable GroupDefinitionType
+pattern Tag :: GroupDefinitionType
+pattern Tag = GroupDefinitionType' "TAG"
 
-instance NFData GroupDefinitionType
-
-instance ToByteString GroupDefinitionType
-
-instance ToQuery GroupDefinitionType
-
-instance ToHeader GroupDefinitionType
-
-instance ToJSON GroupDefinitionType where
-  toJSON = toJSONText
-
-instance FromJSON GroupDefinitionType where
-  parseJSON = parseJSONText "GroupDefinitionType"
+{-# COMPLETE
+  CostCategory,
+  Dimension,
+  Tag,
+  GroupDefinitionType'
+  #-}

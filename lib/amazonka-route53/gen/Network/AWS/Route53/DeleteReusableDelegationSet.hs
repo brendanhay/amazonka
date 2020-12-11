@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,118 @@
 --
 -- Deletes a reusable delegation set.
 --
---
 -- /Important:/ You can delete a reusable delegation set only if it isn't associated with any hosted zones.
---
 -- To verify that the reusable delegation set is not associated with any hosted zones, submit a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html GetReusableDelegationSet> request and specify the ID of the reusable delegation set that you want to delete.
 module Network.AWS.Route53.DeleteReusableDelegationSet
-  ( -- * Creating a Request
-    deleteReusableDelegationSet,
-    DeleteReusableDelegationSet,
+  ( -- * Creating a request
+    DeleteReusableDelegationSet (..),
+    mkDeleteReusableDelegationSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drdsId,
 
-    -- * Destructuring the Response
-    deleteReusableDelegationSetResponse,
-    DeleteReusableDelegationSetResponse,
+    -- * Destructuring the response
+    DeleteReusableDelegationSetResponse (..),
+    mkDeleteReusableDelegationSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drdsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to delete a reusable delegation set.
 --
---
---
--- /See:/ 'deleteReusableDelegationSet' smart constructor.
+-- /See:/ 'mkDeleteReusableDelegationSet' smart constructor.
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
-  { _drdsId ::
+  { id ::
       ResourceId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReusableDelegationSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdsId' - The ID of the reusable delegation set that you want to delete.
-deleteReusableDelegationSet ::
-  -- | 'drdsId'
+-- * 'id' - The ID of the reusable delegation set that you want to delete.
+mkDeleteReusableDelegationSet ::
+  -- | 'id'
   ResourceId ->
   DeleteReusableDelegationSet
-deleteReusableDelegationSet pId_ =
-  DeleteReusableDelegationSet' {_drdsId = pId_}
+mkDeleteReusableDelegationSet pId_ =
+  DeleteReusableDelegationSet' {id = pId_}
 
 -- | The ID of the reusable delegation set that you want to delete.
-drdsId :: Lens' DeleteReusableDelegationSet ResourceId
-drdsId = lens _drdsId (\s a -> s {_drdsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsId :: Lens.Lens' DeleteReusableDelegationSet ResourceId
+drdsId = Lens.lens (id :: DeleteReusableDelegationSet -> ResourceId) (\s a -> s {id = a} :: DeleteReusableDelegationSet)
+{-# DEPRECATED drdsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteReusableDelegationSet where
+instance Lude.AWSRequest DeleteReusableDelegationSet where
   type
     Rs DeleteReusableDelegationSet =
       DeleteReusableDelegationSetResponse
-  request = delete route53
+  request = Req.delete route53Service
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteReusableDelegationSetResponse' <$> (pure (fromEnum s))
+          DeleteReusableDelegationSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteReusableDelegationSet
+instance Lude.ToHeaders DeleteReusableDelegationSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteReusableDelegationSet
-
-instance ToHeaders DeleteReusableDelegationSet where
-  toHeaders = const mempty
-
-instance ToPath DeleteReusableDelegationSet where
+instance Lude.ToPath DeleteReusableDelegationSet where
   toPath DeleteReusableDelegationSet' {..} =
-    mconcat ["/2013-04-01/delegationset/", toBS _drdsId]
+    Lude.mconcat ["/2013-04-01/delegationset/", Lude.toBS id]
 
-instance ToQuery DeleteReusableDelegationSet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReusableDelegationSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | An empty element.
 --
---
---
--- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
+-- /See:/ 'mkDeleteReusableDelegationSetResponse' smart constructor.
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
-  { _drdsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdsrsResponseStatus' - -- | The response status code.
-deleteReusableDelegationSetResponse ::
-  -- | 'drdsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteReusableDelegationSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReusableDelegationSetResponse
-deleteReusableDelegationSetResponse pResponseStatus_ =
+mkDeleteReusableDelegationSetResponse pResponseStatus_ =
   DeleteReusableDelegationSetResponse'
-    { _drdsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
-drdsrsResponseStatus = lens _drdsrsResponseStatus (\s a -> s {_drdsrsResponseStatus = a})
-
-instance NFData DeleteReusableDelegationSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsrsResponseStatus :: Lens.Lens' DeleteReusableDelegationSetResponse Lude.Int
+drdsrsResponseStatus = Lens.lens (responseStatus :: DeleteReusableDelegationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReusableDelegationSetResponse)
+{-# DEPRECATED drdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

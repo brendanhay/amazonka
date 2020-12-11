@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,131 +7,166 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservedInstancesModification where
+module Network.AWS.EC2.Types.ReservedInstancesModification
+  ( ReservedInstancesModification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkReservedInstancesModification,
+
+    -- * Lenses
+    rimModificationResults,
+    rimStatus,
+    rimClientToken,
+    rimUpdateDate,
+    rimCreateDate,
+    rimEffectiveDate,
+    rimStatusMessage,
+    rimReservedInstancesModificationId,
+    rimReservedInstancesIds,
+  )
+where
+
 import Network.AWS.EC2.Types.ReservedInstancesId
 import Network.AWS.EC2.Types.ReservedInstancesModificationResult
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Reserved Instance modification.
 --
---
---
--- /See:/ 'reservedInstancesModification' smart constructor.
+-- /See:/ 'mkReservedInstancesModification' smart constructor.
 data ReservedInstancesModification = ReservedInstancesModification'
-  { _rimModificationResults ::
-      !( Maybe
-           [ReservedInstancesModificationResult]
-       ),
-    _rimStatus :: !(Maybe Text),
-    _rimClientToken ::
-      !(Maybe Text),
-    _rimUpdateDate ::
-      !(Maybe ISO8601),
-    _rimCreateDate ::
-      !(Maybe ISO8601),
-    _rimEffectiveDate ::
-      !(Maybe ISO8601),
-    _rimStatusMessage ::
-      !(Maybe Text),
-    _rimReservedInstancesModificationId ::
-      !(Maybe Text),
-    _rimReservedInstancesIds ::
-      !(Maybe [ReservedInstancesId])
+  { modificationResults ::
+      Lude.Maybe
+        [ReservedInstancesModificationResult],
+    status :: Lude.Maybe Lude.Text,
+    clientToken ::
+      Lude.Maybe Lude.Text,
+    updateDate ::
+      Lude.Maybe Lude.ISO8601,
+    createDate ::
+      Lude.Maybe Lude.ISO8601,
+    effectiveDate ::
+      Lude.Maybe Lude.ISO8601,
+    statusMessage ::
+      Lude.Maybe Lude.Text,
+    reservedInstancesModificationId ::
+      Lude.Maybe Lude.Text,
+    reservedInstancesIds ::
+      Lude.Maybe
+        [ReservedInstancesId]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesModification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rimModificationResults' - Contains target configurations along with their corresponding new Reserved Instance IDs.
---
--- * 'rimStatus' - The status of the Reserved Instances modification request.
---
--- * 'rimClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- * 'rimUpdateDate' - The time when the modification request was last updated.
---
--- * 'rimCreateDate' - The time when the modification request was created.
---
--- * 'rimEffectiveDate' - The time for the modification to become effective.
---
--- * 'rimStatusMessage' - The reason for the status.
---
--- * 'rimReservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
---
--- * 'rimReservedInstancesIds' - The IDs of one or more Reserved Instances.
-reservedInstancesModification ::
+-- * 'clientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'createDate' - The time when the modification request was created.
+-- * 'effectiveDate' - The time for the modification to become effective.
+-- * 'modificationResults' - Contains target configurations along with their corresponding new Reserved Instance IDs.
+-- * 'reservedInstancesIds' - The IDs of one or more Reserved Instances.
+-- * 'reservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
+-- * 'status' - The status of the Reserved Instances modification request.
+-- * 'statusMessage' - The reason for the status.
+-- * 'updateDate' - The time when the modification request was last updated.
+mkReservedInstancesModification ::
   ReservedInstancesModification
-reservedInstancesModification =
+mkReservedInstancesModification =
   ReservedInstancesModification'
-    { _rimModificationResults = Nothing,
-      _rimStatus = Nothing,
-      _rimClientToken = Nothing,
-      _rimUpdateDate = Nothing,
-      _rimCreateDate = Nothing,
-      _rimEffectiveDate = Nothing,
-      _rimStatusMessage = Nothing,
-      _rimReservedInstancesModificationId = Nothing,
-      _rimReservedInstancesIds = Nothing
+    { modificationResults =
+        Lude.Nothing,
+      status = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      updateDate = Lude.Nothing,
+      createDate = Lude.Nothing,
+      effectiveDate = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      reservedInstancesModificationId = Lude.Nothing,
+      reservedInstancesIds = Lude.Nothing
     }
 
 -- | Contains target configurations along with their corresponding new Reserved Instance IDs.
-rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
-rimModificationResults = lens _rimModificationResults (\s a -> s {_rimModificationResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'modificationResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimModificationResults :: Lens.Lens' ReservedInstancesModification (Lude.Maybe [ReservedInstancesModificationResult])
+rimModificationResults = Lens.lens (modificationResults :: ReservedInstancesModification -> Lude.Maybe [ReservedInstancesModificationResult]) (\s a -> s {modificationResults = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimModificationResults "Use generic-lens or generic-optics with 'modificationResults' instead." #-}
 
 -- | The status of the Reserved Instances modification request.
-rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
-rimStatus = lens _rimStatus (\s a -> s {_rimStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimStatus :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.Text)
+rimStatus = Lens.lens (status :: ReservedInstancesModification -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-rimClientToken :: Lens' ReservedInstancesModification (Maybe Text)
-rimClientToken = lens _rimClientToken (\s a -> s {_rimClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimClientToken :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.Text)
+rimClientToken = Lens.lens (clientToken :: ReservedInstancesModification -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The time when the modification request was last updated.
-rimUpdateDate :: Lens' ReservedInstancesModification (Maybe UTCTime)
-rimUpdateDate = lens _rimUpdateDate (\s a -> s {_rimUpdateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimUpdateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
+rimUpdateDate = Lens.lens (updateDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The time when the modification request was created.
-rimCreateDate :: Lens' ReservedInstancesModification (Maybe UTCTime)
-rimCreateDate = lens _rimCreateDate (\s a -> s {_rimCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimCreateDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
+rimCreateDate = Lens.lens (createDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The time for the modification to become effective.
-rimEffectiveDate :: Lens' ReservedInstancesModification (Maybe UTCTime)
-rimEffectiveDate = lens _rimEffectiveDate (\s a -> s {_rimEffectiveDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimEffectiveDate :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.ISO8601)
+rimEffectiveDate = Lens.lens (effectiveDate :: ReservedInstancesModification -> Lude.Maybe Lude.ISO8601) (\s a -> s {effectiveDate = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
 
 -- | The reason for the status.
-rimStatusMessage :: Lens' ReservedInstancesModification (Maybe Text)
-rimStatusMessage = lens _rimStatusMessage (\s a -> s {_rimStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimStatusMessage :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.Text)
+rimStatusMessage = Lens.lens (statusMessage :: ReservedInstancesModification -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | A unique ID for the Reserved Instance modification.
-rimReservedInstancesModificationId :: Lens' ReservedInstancesModification (Maybe Text)
-rimReservedInstancesModificationId = lens _rimReservedInstancesModificationId (\s a -> s {_rimReservedInstancesModificationId = a})
+--
+-- /Note:/ Consider using 'reservedInstancesModificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimReservedInstancesModificationId :: Lens.Lens' ReservedInstancesModification (Lude.Maybe Lude.Text)
+rimReservedInstancesModificationId = Lens.lens (reservedInstancesModificationId :: ReservedInstancesModification -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesModificationId = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimReservedInstancesModificationId "Use generic-lens or generic-optics with 'reservedInstancesModificationId' instead." #-}
 
 -- | The IDs of one or more Reserved Instances.
-rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
-rimReservedInstancesIds = lens _rimReservedInstancesIds (\s a -> s {_rimReservedInstancesIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reservedInstancesIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rimReservedInstancesIds :: Lens.Lens' ReservedInstancesModification (Lude.Maybe [ReservedInstancesId])
+rimReservedInstancesIds = Lens.lens (reservedInstancesIds :: ReservedInstancesModification -> Lude.Maybe [ReservedInstancesId]) (\s a -> s {reservedInstancesIds = a} :: ReservedInstancesModification)
+{-# DEPRECATED rimReservedInstancesIds "Use generic-lens or generic-optics with 'reservedInstancesIds' instead." #-}
 
-instance FromXML ReservedInstancesModification where
+instance Lude.FromXML ReservedInstancesModification where
   parseXML x =
     ReservedInstancesModification'
-      <$> ( x .@? "modificationResultSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "status")
-      <*> (x .@? "clientToken")
-      <*> (x .@? "updateDate")
-      <*> (x .@? "createDate")
-      <*> (x .@? "effectiveDate")
-      <*> (x .@? "statusMessage")
-      <*> (x .@? "reservedInstancesModificationId")
-      <*> ( x .@? "reservedInstancesSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-
-instance Hashable ReservedInstancesModification
-
-instance NFData ReservedInstancesModification
+      Lude.<$> ( x Lude..@? "modificationResultSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "clientToken")
+      Lude.<*> (x Lude..@? "updateDate")
+      Lude.<*> (x Lude..@? "createDate")
+      Lude.<*> (x Lude..@? "effectiveDate")
+      Lude.<*> (x Lude..@? "statusMessage")
+      Lude.<*> (x Lude..@? "reservedInstancesModificationId")
+      Lude.<*> ( x Lude..@? "reservedInstancesSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

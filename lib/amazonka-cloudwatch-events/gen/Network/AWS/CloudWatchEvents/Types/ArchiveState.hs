@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.ArchiveState where
+module Network.AWS.CloudWatchEvents.Types.ArchiveState
+  ( ArchiveState
+      ( ArchiveState',
+        ASCreateFailed,
+        ASCreating,
+        ASDisabled,
+        ASEnabled,
+        ASUpdateFailed,
+        ASUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArchiveState
-  = ASCreateFailed
-  | ASCreating
-  | ASDisabled
-  | ASEnabled
-  | ASUpdateFailed
-  | ASUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArchiveState = ArchiveState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArchiveState where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure ASCreateFailed
-      "creating" -> pure ASCreating
-      "disabled" -> pure ASDisabled
-      "enabled" -> pure ASEnabled
-      "update_failed" -> pure ASUpdateFailed
-      "updating" -> pure ASUpdating
-      e ->
-        fromTextError $
-          "Failure parsing ArchiveState from value: '" <> e
-            <> "'. Accepted values: create_failed, creating, disabled, enabled, update_failed, updating"
+pattern ASCreateFailed :: ArchiveState
+pattern ASCreateFailed = ArchiveState' "CREATE_FAILED"
 
-instance ToText ArchiveState where
-  toText = \case
-    ASCreateFailed -> "CREATE_FAILED"
-    ASCreating -> "CREATING"
-    ASDisabled -> "DISABLED"
-    ASEnabled -> "ENABLED"
-    ASUpdateFailed -> "UPDATE_FAILED"
-    ASUpdating -> "UPDATING"
+pattern ASCreating :: ArchiveState
+pattern ASCreating = ArchiveState' "CREATING"
 
-instance Hashable ArchiveState
+pattern ASDisabled :: ArchiveState
+pattern ASDisabled = ArchiveState' "DISABLED"
 
-instance NFData ArchiveState
+pattern ASEnabled :: ArchiveState
+pattern ASEnabled = ArchiveState' "ENABLED"
 
-instance ToByteString ArchiveState
+pattern ASUpdateFailed :: ArchiveState
+pattern ASUpdateFailed = ArchiveState' "UPDATE_FAILED"
 
-instance ToQuery ArchiveState
+pattern ASUpdating :: ArchiveState
+pattern ASUpdating = ArchiveState' "UPDATING"
 
-instance ToHeader ArchiveState
-
-instance ToJSON ArchiveState where
-  toJSON = toJSONText
-
-instance FromJSON ArchiveState where
-  parseJSON = parseJSONText "ArchiveState"
+{-# COMPLETE
+  ASCreateFailed,
+  ASCreating,
+  ASDisabled,
+  ASEnabled,
+  ASUpdateFailed,
+  ASUpdating,
+  ArchiveState'
+  #-}

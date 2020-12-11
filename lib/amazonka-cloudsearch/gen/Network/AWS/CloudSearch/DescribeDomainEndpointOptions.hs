@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,149 @@
 --
 -- Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html Configuring Domain Endpoint Options> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DescribeDomainEndpointOptions
-  ( -- * Creating a Request
-    describeDomainEndpointOptions,
-    DescribeDomainEndpointOptions,
+  ( -- * Creating a request
+    DescribeDomainEndpointOptions (..),
+    mkDescribeDomainEndpointOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddeoDeployed,
     ddeoDomainName,
 
-    -- * Destructuring the Response
-    describeDomainEndpointOptionsResponse,
-    DescribeDomainEndpointOptionsResponse,
+    -- * Destructuring the response
+    DescribeDomainEndpointOptionsResponse (..),
+    mkDescribeDomainEndpointOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddeorsDomainEndpointOptions,
     ddeorsResponseStatus,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DescribeDomainEndpointOptions' @ operation. Specify the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to @true@ .
 --
---
---
--- /See:/ 'describeDomainEndpointOptions' smart constructor.
+-- /See:/ 'mkDescribeDomainEndpointOptions' smart constructor.
 data DescribeDomainEndpointOptions = DescribeDomainEndpointOptions'
-  { _ddeoDeployed ::
-      !(Maybe Bool),
-    _ddeoDomainName :: !Text
+  { deployed ::
+      Lude.Maybe Lude.Bool,
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainEndpointOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddeoDeployed' - Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to @false@ .
---
--- * 'ddeoDomainName' - A string that represents the name of a domain.
-describeDomainEndpointOptions ::
-  -- | 'ddeoDomainName'
-  Text ->
+-- * 'deployed' - Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to @false@ .
+-- * 'domainName' - A string that represents the name of a domain.
+mkDescribeDomainEndpointOptions ::
+  -- | 'domainName'
+  Lude.Text ->
   DescribeDomainEndpointOptions
-describeDomainEndpointOptions pDomainName_ =
+mkDescribeDomainEndpointOptions pDomainName_ =
   DescribeDomainEndpointOptions'
-    { _ddeoDeployed = Nothing,
-      _ddeoDomainName = pDomainName_
+    { deployed = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to @false@ .
-ddeoDeployed :: Lens' DescribeDomainEndpointOptions (Maybe Bool)
-ddeoDeployed = lens _ddeoDeployed (\s a -> s {_ddeoDeployed = a})
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddeoDeployed :: Lens.Lens' DescribeDomainEndpointOptions (Lude.Maybe Lude.Bool)
+ddeoDeployed = Lens.lens (deployed :: DescribeDomainEndpointOptions -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeDomainEndpointOptions)
+{-# DEPRECATED ddeoDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
 -- | A string that represents the name of a domain.
-ddeoDomainName :: Lens' DescribeDomainEndpointOptions Text
-ddeoDomainName = lens _ddeoDomainName (\s a -> s {_ddeoDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddeoDomainName :: Lens.Lens' DescribeDomainEndpointOptions Lude.Text
+ddeoDomainName = Lens.lens (domainName :: DescribeDomainEndpointOptions -> Lude.Text) (\s a -> s {domainName = a} :: DescribeDomainEndpointOptions)
+{-# DEPRECATED ddeoDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DescribeDomainEndpointOptions where
+instance Lude.AWSRequest DescribeDomainEndpointOptions where
   type
     Rs DescribeDomainEndpointOptions =
       DescribeDomainEndpointOptionsResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDomainEndpointOptionsResult"
       ( \s h x ->
           DescribeDomainEndpointOptionsResponse'
-            <$> (x .@? "DomainEndpointOptions") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DomainEndpointOptions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDomainEndpointOptions
+instance Lude.ToHeaders DescribeDomainEndpointOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDomainEndpointOptions
+instance Lude.ToPath DescribeDomainEndpointOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDomainEndpointOptions where
-  toHeaders = const mempty
-
-instance ToPath DescribeDomainEndpointOptions where
-  toPath = const "/"
-
-instance ToQuery DescribeDomainEndpointOptions where
+instance Lude.ToQuery DescribeDomainEndpointOptions where
   toQuery DescribeDomainEndpointOptions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDomainEndpointOptions" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "Deployed" =: _ddeoDeployed,
-        "DomainName" =: _ddeoDomainName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeDomainEndpointOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "Deployed" Lude.=: deployed,
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @DescribeDomainEndpointOptions@ request. Contains the status and configuration of a search domain's endpoint options.
 --
---
---
--- /See:/ 'describeDomainEndpointOptionsResponse' smart constructor.
+-- /See:/ 'mkDescribeDomainEndpointOptionsResponse' smart constructor.
 data DescribeDomainEndpointOptionsResponse = DescribeDomainEndpointOptionsResponse'
-  { _ddeorsDomainEndpointOptions ::
-      !( Maybe
-           DomainEndpointOptionsStatus
-       ),
-    _ddeorsResponseStatus ::
-      !Int
+  { domainEndpointOptions ::
+      Lude.Maybe
+        DomainEndpointOptionsStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainEndpointOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddeorsDomainEndpointOptions' - The status and configuration of a search domain's endpoint options.
---
--- * 'ddeorsResponseStatus' - -- | The response status code.
-describeDomainEndpointOptionsResponse ::
-  -- | 'ddeorsResponseStatus'
-  Int ->
+-- * 'domainEndpointOptions' - The status and configuration of a search domain's endpoint options.
+-- * 'responseStatus' - The response status code.
+mkDescribeDomainEndpointOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDomainEndpointOptionsResponse
-describeDomainEndpointOptionsResponse pResponseStatus_ =
+mkDescribeDomainEndpointOptionsResponse pResponseStatus_ =
   DescribeDomainEndpointOptionsResponse'
-    { _ddeorsDomainEndpointOptions =
-        Nothing,
-      _ddeorsResponseStatus = pResponseStatus_
+    { domainEndpointOptions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status and configuration of a search domain's endpoint options.
-ddeorsDomainEndpointOptions :: Lens' DescribeDomainEndpointOptionsResponse (Maybe DomainEndpointOptionsStatus)
-ddeorsDomainEndpointOptions = lens _ddeorsDomainEndpointOptions (\s a -> s {_ddeorsDomainEndpointOptions = a})
+--
+-- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddeorsDomainEndpointOptions :: Lens.Lens' DescribeDomainEndpointOptionsResponse (Lude.Maybe DomainEndpointOptionsStatus)
+ddeorsDomainEndpointOptions = Lens.lens (domainEndpointOptions :: DescribeDomainEndpointOptionsResponse -> Lude.Maybe DomainEndpointOptionsStatus) (\s a -> s {domainEndpointOptions = a} :: DescribeDomainEndpointOptionsResponse)
+{-# DEPRECATED ddeorsDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
 
--- | -- | The response status code.
-ddeorsResponseStatus :: Lens' DescribeDomainEndpointOptionsResponse Int
-ddeorsResponseStatus = lens _ddeorsResponseStatus (\s a -> s {_ddeorsResponseStatus = a})
-
-instance NFData DescribeDomainEndpointOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddeorsResponseStatus :: Lens.Lens' DescribeDomainEndpointOptionsResponse Lude.Int
+ddeorsResponseStatus = Lens.lens (responseStatus :: DescribeDomainEndpointOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainEndpointOptionsResponse)
+{-# DEPRECATED ddeorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

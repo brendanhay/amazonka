@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,137 @@
 --
 -- List all field-level encryption configurations that have been created in CloudFront for this account.
 module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
-  ( -- * Creating a Request
-    listFieldLevelEncryptionConfigs,
-    ListFieldLevelEncryptionConfigs,
+  ( -- * Creating a request
+    ListFieldLevelEncryptionConfigs (..),
+    mkListFieldLevelEncryptionConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lflecMarker,
     lflecMaxItems,
 
-    -- * Destructuring the Response
-    listFieldLevelEncryptionConfigsResponse,
-    ListFieldLevelEncryptionConfigsResponse,
+    -- * Destructuring the response
+    ListFieldLevelEncryptionConfigsResponse (..),
+    mkListFieldLevelEncryptionConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lflecrsFieldLevelEncryptionList,
     lflecrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listFieldLevelEncryptionConfigs' smart constructor.
+-- | /See:/ 'mkListFieldLevelEncryptionConfigs' smart constructor.
 data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'
-  { _lflecMarker ::
-      !(Maybe Text),
-    _lflecMaxItems ::
-      !(Maybe Text)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFieldLevelEncryptionConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lflecMarker' - Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last configuration on that page).
---
--- * 'lflecMaxItems' - The maximum number of field-level encryption configurations you want in the response body.
-listFieldLevelEncryptionConfigs ::
+-- * 'marker' - Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last configuration on that page).
+-- * 'maxItems' - The maximum number of field-level encryption configurations you want in the response body.
+mkListFieldLevelEncryptionConfigs ::
   ListFieldLevelEncryptionConfigs
-listFieldLevelEncryptionConfigs =
+mkListFieldLevelEncryptionConfigs =
   ListFieldLevelEncryptionConfigs'
-    { _lflecMarker = Nothing,
-      _lflecMaxItems = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last configuration on that page).
-lflecMarker :: Lens' ListFieldLevelEncryptionConfigs (Maybe Text)
-lflecMarker = lens _lflecMarker (\s a -> s {_lflecMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lflecMarker :: Lens.Lens' ListFieldLevelEncryptionConfigs (Lude.Maybe Lude.Text)
+lflecMarker = Lens.lens (marker :: ListFieldLevelEncryptionConfigs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFieldLevelEncryptionConfigs)
+{-# DEPRECATED lflecMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of field-level encryption configurations you want in the response body.
-lflecMaxItems :: Lens' ListFieldLevelEncryptionConfigs (Maybe Text)
-lflecMaxItems = lens _lflecMaxItems (\s a -> s {_lflecMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lflecMaxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Lude.Maybe Lude.Text)
+lflecMaxItems = Lens.lens (maxItems :: ListFieldLevelEncryptionConfigs -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListFieldLevelEncryptionConfigs)
+{-# DEPRECATED lflecMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSRequest ListFieldLevelEncryptionConfigs where
+instance Lude.AWSRequest ListFieldLevelEncryptionConfigs where
   type
     Rs ListFieldLevelEncryptionConfigs =
       ListFieldLevelEncryptionConfigsResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListFieldLevelEncryptionConfigsResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListFieldLevelEncryptionConfigs
+instance Lude.ToHeaders ListFieldLevelEncryptionConfigs where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListFieldLevelEncryptionConfigs
+instance Lude.ToPath ListFieldLevelEncryptionConfigs where
+  toPath = Lude.const "/2020-05-31/field-level-encryption"
 
-instance ToHeaders ListFieldLevelEncryptionConfigs where
-  toHeaders = const mempty
-
-instance ToPath ListFieldLevelEncryptionConfigs where
-  toPath = const "/2020-05-31/field-level-encryption"
-
-instance ToQuery ListFieldLevelEncryptionConfigs where
+instance Lude.ToQuery ListFieldLevelEncryptionConfigs where
   toQuery ListFieldLevelEncryptionConfigs' {..} =
-    mconcat ["Marker" =: _lflecMarker, "MaxItems" =: _lflecMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
--- | /See:/ 'listFieldLevelEncryptionConfigsResponse' smart constructor.
+-- | /See:/ 'mkListFieldLevelEncryptionConfigsResponse' smart constructor.
 data ListFieldLevelEncryptionConfigsResponse = ListFieldLevelEncryptionConfigsResponse'
-  { _lflecrsFieldLevelEncryptionList ::
-      !( Maybe
-           FieldLevelEncryptionList
-       ),
-    _lflecrsResponseStatus ::
-      !Int
+  { fieldLevelEncryptionList ::
+      Lude.Maybe
+        FieldLevelEncryptionList,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFieldLevelEncryptionConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lflecrsFieldLevelEncryptionList' - Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.
---
--- * 'lflecrsResponseStatus' - -- | The response status code.
-listFieldLevelEncryptionConfigsResponse ::
-  -- | 'lflecrsResponseStatus'
-  Int ->
+-- * 'fieldLevelEncryptionList' - Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.
+-- * 'responseStatus' - The response status code.
+mkListFieldLevelEncryptionConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFieldLevelEncryptionConfigsResponse
-listFieldLevelEncryptionConfigsResponse pResponseStatus_ =
+mkListFieldLevelEncryptionConfigsResponse pResponseStatus_ =
   ListFieldLevelEncryptionConfigsResponse'
-    { _lflecrsFieldLevelEncryptionList =
-        Nothing,
-      _lflecrsResponseStatus = pResponseStatus_
+    { fieldLevelEncryptionList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.
-lflecrsFieldLevelEncryptionList :: Lens' ListFieldLevelEncryptionConfigsResponse (Maybe FieldLevelEncryptionList)
-lflecrsFieldLevelEncryptionList = lens _lflecrsFieldLevelEncryptionList (\s a -> s {_lflecrsFieldLevelEncryptionList = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lflecrsFieldLevelEncryptionList :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse (Lude.Maybe FieldLevelEncryptionList)
+lflecrsFieldLevelEncryptionList = Lens.lens (fieldLevelEncryptionList :: ListFieldLevelEncryptionConfigsResponse -> Lude.Maybe FieldLevelEncryptionList) (\s a -> s {fieldLevelEncryptionList = a} :: ListFieldLevelEncryptionConfigsResponse)
+{-# DEPRECATED lflecrsFieldLevelEncryptionList "Use generic-lens or generic-optics with 'fieldLevelEncryptionList' instead." #-}
 
--- | -- | The response status code.
-lflecrsResponseStatus :: Lens' ListFieldLevelEncryptionConfigsResponse Int
-lflecrsResponseStatus = lens _lflecrsResponseStatus (\s a -> s {_lflecrsResponseStatus = a})
-
-instance NFData ListFieldLevelEncryptionConfigsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lflecrsResponseStatus :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse Lude.Int
+lflecrsResponseStatus = Lens.lens (responseStatus :: ListFieldLevelEncryptionConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFieldLevelEncryptionConfigsResponse)
+{-# DEPRECATED lflecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

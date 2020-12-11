@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,127 @@
 --
 -- Retrieves information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set.
 module Network.AWS.Route53.GetReusableDelegationSet
-  ( -- * Creating a Request
-    getReusableDelegationSet,
-    GetReusableDelegationSet,
+  ( -- * Creating a request
+    GetReusableDelegationSet (..),
+    mkGetReusableDelegationSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdsId,
 
-    -- * Destructuring the Response
-    getReusableDelegationSetResponse,
-    GetReusableDelegationSetResponse,
+    -- * Destructuring the response
+    GetReusableDelegationSetResponse (..),
+    mkGetReusableDelegationSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdsrsResponseStatus,
     grdsrsDelegationSet,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to get information about a specified reusable delegation set.
 --
---
---
--- /See:/ 'getReusableDelegationSet' smart constructor.
+-- /See:/ 'mkGetReusableDelegationSet' smart constructor.
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
-  { _grdsId ::
+  { id ::
       ResourceId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReusableDelegationSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdsId' - The ID of the reusable delegation set that you want to get a list of name servers for.
-getReusableDelegationSet ::
-  -- | 'grdsId'
+-- * 'id' - The ID of the reusable delegation set that you want to get a list of name servers for.
+mkGetReusableDelegationSet ::
+  -- | 'id'
   ResourceId ->
   GetReusableDelegationSet
-getReusableDelegationSet pId_ =
-  GetReusableDelegationSet' {_grdsId = pId_}
+mkGetReusableDelegationSet pId_ =
+  GetReusableDelegationSet' {id = pId_}
 
 -- | The ID of the reusable delegation set that you want to get a list of name servers for.
-grdsId :: Lens' GetReusableDelegationSet ResourceId
-grdsId = lens _grdsId (\s a -> s {_grdsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsId :: Lens.Lens' GetReusableDelegationSet ResourceId
+grdsId = Lens.lens (id :: GetReusableDelegationSet -> ResourceId) (\s a -> s {id = a} :: GetReusableDelegationSet)
+{-# DEPRECATED grdsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetReusableDelegationSet where
+instance Lude.AWSRequest GetReusableDelegationSet where
   type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetReusableDelegationSetResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "DelegationSet")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "DelegationSet")
       )
 
-instance Hashable GetReusableDelegationSet
+instance Lude.ToHeaders GetReusableDelegationSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetReusableDelegationSet
-
-instance ToHeaders GetReusableDelegationSet where
-  toHeaders = const mempty
-
-instance ToPath GetReusableDelegationSet where
+instance Lude.ToPath GetReusableDelegationSet where
   toPath GetReusableDelegationSet' {..} =
-    mconcat ["/2013-04-01/delegationset/", toBS _grdsId]
+    Lude.mconcat ["/2013-04-01/delegationset/", Lude.toBS id]
 
-instance ToQuery GetReusableDelegationSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetReusableDelegationSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the response to the @GetReusableDelegationSet@ request.
 --
---
---
--- /See:/ 'getReusableDelegationSetResponse' smart constructor.
+-- /See:/ 'mkGetReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-  { _grdsrsResponseStatus ::
-      !Int,
-    _grdsrsDelegationSet ::
-      !DelegationSet
+  { responseStatus ::
+      Lude.Int,
+    delegationSet ::
+      DelegationSet
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdsrsResponseStatus' - -- | The response status code.
---
--- * 'grdsrsDelegationSet' - A complex type that contains information about the reusable delegation set.
-getReusableDelegationSetResponse ::
-  -- | 'grdsrsResponseStatus'
-  Int ->
-  -- | 'grdsrsDelegationSet'
+-- * 'delegationSet' - A complex type that contains information about the reusable delegation set.
+-- * 'responseStatus' - The response status code.
+mkGetReusableDelegationSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'delegationSet'
   DelegationSet ->
   GetReusableDelegationSetResponse
-getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
+mkGetReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
   GetReusableDelegationSetResponse'
-    { _grdsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _grdsrsDelegationSet = pDelegationSet_
+      delegationSet = pDelegationSet_
     }
 
--- | -- | The response status code.
-grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
-grdsrsResponseStatus = lens _grdsrsResponseStatus (\s a -> s {_grdsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsrsResponseStatus :: Lens.Lens' GetReusableDelegationSetResponse Lude.Int
+grdsrsResponseStatus = Lens.lens (responseStatus :: GetReusableDelegationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReusableDelegationSetResponse)
+{-# DEPRECATED grdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains information about the reusable delegation set.
-grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
-grdsrsDelegationSet = lens _grdsrsDelegationSet (\s a -> s {_grdsrsDelegationSet = a})
-
-instance NFData GetReusableDelegationSetResponse
+--
+-- /Note:/ Consider using 'delegationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdsrsDelegationSet :: Lens.Lens' GetReusableDelegationSetResponse DelegationSet
+grdsrsDelegationSet = Lens.lens (delegationSet :: GetReusableDelegationSetResponse -> DelegationSet) (\s a -> s {delegationSet = a} :: GetReusableDelegationSetResponse)
+{-# DEPRECATED grdsrsDelegationSet "Use generic-lens or generic-optics with 'delegationSet' instead." #-}

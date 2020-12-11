@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.StatusCodes where
+module Network.AWS.CloudFront.Types.StatusCodes
+  ( StatusCodes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStatusCodes,
+
+    -- * Lenses
+    scQuantity,
+    scItems,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
 --
---
---
--- /See:/ 'statusCodes' smart constructor.
+-- /See:/ 'mkStatusCodes' smart constructor.
 data StatusCodes = StatusCodes'
-  { _scQuantity :: !Int,
-    _scItems :: !(List1 Int)
+  { quantity :: Lude.Int,
+    items :: Lude.NonEmpty Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scQuantity' - The number of status codes.
---
--- * 'scItems' - The items (status codes) for an origin group.
-statusCodes ::
-  -- | 'scQuantity'
-  Int ->
-  -- | 'scItems'
-  NonEmpty Int ->
+-- * 'items' - The items (status codes) for an origin group.
+-- * 'quantity' - The number of status codes.
+mkStatusCodes ::
+  -- | 'quantity'
+  Lude.Int ->
+  -- | 'items'
+  Lude.NonEmpty Lude.Int ->
   StatusCodes
-statusCodes pQuantity_ pItems_ =
-  StatusCodes'
-    { _scQuantity = pQuantity_,
-      _scItems = _List1 # pItems_
-    }
+mkStatusCodes pQuantity_ pItems_ =
+  StatusCodes' {quantity = pQuantity_, items = pItems_}
 
 -- | The number of status codes.
-scQuantity :: Lens' StatusCodes Int
-scQuantity = lens _scQuantity (\s a -> s {_scQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scQuantity :: Lens.Lens' StatusCodes Lude.Int
+scQuantity = Lens.lens (quantity :: StatusCodes -> Lude.Int) (\s a -> s {quantity = a} :: StatusCodes)
+{-# DEPRECATED scQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The items (status codes) for an origin group.
-scItems :: Lens' StatusCodes (NonEmpty Int)
-scItems = lens _scItems (\s a -> s {_scItems = a}) . _List1
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scItems :: Lens.Lens' StatusCodes (Lude.NonEmpty Lude.Int)
+scItems = Lens.lens (items :: StatusCodes -> Lude.NonEmpty Lude.Int) (\s a -> s {items = a} :: StatusCodes)
+{-# DEPRECATED scItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance FromXML StatusCodes where
+instance Lude.FromXML StatusCodes where
   parseXML x =
     StatusCodes'
-      <$> (x .@ "Quantity")
-      <*> (x .@? "Items" .!@ mempty >>= parseXMLList1 "StatusCode")
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLNonEmpty "StatusCode"
+               )
 
-instance Hashable StatusCodes
-
-instance NFData StatusCodes
-
-instance ToXML StatusCodes where
+instance Lude.ToXML StatusCodes where
   toXML StatusCodes' {..} =
-    mconcat
-      [ "Quantity" @= _scQuantity,
-        "Items" @= toXMLList "StatusCode" _scItems
+    Lude.mconcat
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXMLList "StatusCode" items
       ]

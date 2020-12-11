@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.IPRange where
+module Network.AWS.Redshift.Types.IPRange
+  ( IPRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPRange,
+
+    -- * Lenses
+    irStatus,
+    irCIdRIP,
+    irTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
 -- | Describes an IP range used in a security group.
 --
---
---
--- /See:/ 'ipRange' smart constructor.
+-- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { _irStatus :: !(Maybe Text),
-    _irCIdRIP :: !(Maybe Text),
-    _irTags :: !(Maybe [Tag])
+  { status :: Lude.Maybe Lude.Text,
+    cIdRIP :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irStatus' - The status of the IP range, for example, "authorized".
---
--- * 'irCIdRIP' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
---
--- * 'irTags' - The list of tags for the IP range.
-ipRange ::
+-- * 'cIdRIP' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
+-- * 'status' - The status of the IP range, for example, "authorized".
+-- * 'tags' - The list of tags for the IP range.
+mkIPRange ::
   IPRange
-ipRange =
+mkIPRange =
   IPRange'
-    { _irStatus = Nothing,
-      _irCIdRIP = Nothing,
-      _irTags = Nothing
+    { status = Lude.Nothing,
+      cIdRIP = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The status of the IP range, for example, "authorized".
-irStatus :: Lens' IPRange (Maybe Text)
-irStatus = lens _irStatus (\s a -> s {_irStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irStatus :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
+irStatus = Lens.lens (status :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: IPRange)
+{-# DEPRECATED irStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
-irCIdRIP :: Lens' IPRange (Maybe Text)
-irCIdRIP = lens _irCIdRIP (\s a -> s {_irCIdRIP = a})
+--
+-- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irCIdRIP :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
+irCIdRIP = Lens.lens (cIdRIP :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: IPRange)
+{-# DEPRECATED irCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
 
 -- | The list of tags for the IP range.
-irTags :: Lens' IPRange [Tag]
-irTags = lens _irTags (\s a -> s {_irTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irTags :: Lens.Lens' IPRange (Lude.Maybe [Tag])
+irTags = Lens.lens (tags :: IPRange -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: IPRange)
+{-# DEPRECATED irTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML IPRange where
+instance Lude.FromXML IPRange where
   parseXML x =
     IPRange'
-      <$> (x .@? "Status")
-      <*> (x .@? "CIDRIP")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "Tag"))
-
-instance Hashable IPRange
-
-instance NFData IPRange
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "CIDRIP")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType where
+module Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType
+  ( ChallengeNameType
+      ( ChallengeNameType',
+        CNTAdminNoSrpAuth,
+        CNTCustomChallenge,
+        CNTDevicePasswordVerifier,
+        CNTDeviceSrpAuth,
+        CNTMFASetup,
+        CNTNewPasswordRequired,
+        CNTPasswordVerifier,
+        CNTSelectMFAType,
+        CNTSmsMFA,
+        CNTSoftwareTokenMFA
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChallengeNameType
-  = CNTAdminNoSrpAuth
-  | CNTCustomChallenge
-  | CNTDevicePasswordVerifier
-  | CNTDeviceSrpAuth
-  | CNTMFASetup
-  | CNTNewPasswordRequired
-  | CNTPasswordVerifier
-  | CNTSelectMFAType
-  | CNTSmsMFA
-  | CNTSoftwareTokenMFA
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChallengeNameType = ChallengeNameType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChallengeNameType where
-  parser =
-    takeLowerText >>= \case
-      "admin_no_srp_auth" -> pure CNTAdminNoSrpAuth
-      "custom_challenge" -> pure CNTCustomChallenge
-      "device_password_verifier" -> pure CNTDevicePasswordVerifier
-      "device_srp_auth" -> pure CNTDeviceSrpAuth
-      "mfa_setup" -> pure CNTMFASetup
-      "new_password_required" -> pure CNTNewPasswordRequired
-      "password_verifier" -> pure CNTPasswordVerifier
-      "select_mfa_type" -> pure CNTSelectMFAType
-      "sms_mfa" -> pure CNTSmsMFA
-      "software_token_mfa" -> pure CNTSoftwareTokenMFA
-      e ->
-        fromTextError $
-          "Failure parsing ChallengeNameType from value: '" <> e
-            <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, mfa_setup, new_password_required, password_verifier, select_mfa_type, sms_mfa, software_token_mfa"
+pattern CNTAdminNoSrpAuth :: ChallengeNameType
+pattern CNTAdminNoSrpAuth = ChallengeNameType' "ADMIN_NO_SRP_AUTH"
 
-instance ToText ChallengeNameType where
-  toText = \case
-    CNTAdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
-    CNTCustomChallenge -> "CUSTOM_CHALLENGE"
-    CNTDevicePasswordVerifier -> "DEVICE_PASSWORD_VERIFIER"
-    CNTDeviceSrpAuth -> "DEVICE_SRP_AUTH"
-    CNTMFASetup -> "MFA_SETUP"
-    CNTNewPasswordRequired -> "NEW_PASSWORD_REQUIRED"
-    CNTPasswordVerifier -> "PASSWORD_VERIFIER"
-    CNTSelectMFAType -> "SELECT_MFA_TYPE"
-    CNTSmsMFA -> "SMS_MFA"
-    CNTSoftwareTokenMFA -> "SOFTWARE_TOKEN_MFA"
+pattern CNTCustomChallenge :: ChallengeNameType
+pattern CNTCustomChallenge = ChallengeNameType' "CUSTOM_CHALLENGE"
 
-instance Hashable ChallengeNameType
+pattern CNTDevicePasswordVerifier :: ChallengeNameType
+pattern CNTDevicePasswordVerifier = ChallengeNameType' "DEVICE_PASSWORD_VERIFIER"
 
-instance NFData ChallengeNameType
+pattern CNTDeviceSrpAuth :: ChallengeNameType
+pattern CNTDeviceSrpAuth = ChallengeNameType' "DEVICE_SRP_AUTH"
 
-instance ToByteString ChallengeNameType
+pattern CNTMFASetup :: ChallengeNameType
+pattern CNTMFASetup = ChallengeNameType' "MFA_SETUP"
 
-instance ToQuery ChallengeNameType
+pattern CNTNewPasswordRequired :: ChallengeNameType
+pattern CNTNewPasswordRequired = ChallengeNameType' "NEW_PASSWORD_REQUIRED"
 
-instance ToHeader ChallengeNameType
+pattern CNTPasswordVerifier :: ChallengeNameType
+pattern CNTPasswordVerifier = ChallengeNameType' "PASSWORD_VERIFIER"
 
-instance ToJSON ChallengeNameType where
-  toJSON = toJSONText
+pattern CNTSelectMFAType :: ChallengeNameType
+pattern CNTSelectMFAType = ChallengeNameType' "SELECT_MFA_TYPE"
 
-instance FromJSON ChallengeNameType where
-  parseJSON = parseJSONText "ChallengeNameType"
+pattern CNTSmsMFA :: ChallengeNameType
+pattern CNTSmsMFA = ChallengeNameType' "SMS_MFA"
+
+pattern CNTSoftwareTokenMFA :: ChallengeNameType
+pattern CNTSoftwareTokenMFA = ChallengeNameType' "SOFTWARE_TOKEN_MFA"
+
+{-# COMPLETE
+  CNTAdminNoSrpAuth,
+  CNTCustomChallenge,
+  CNTDevicePasswordVerifier,
+  CNTDeviceSrpAuth,
+  CNTMFASetup,
+  CNTNewPasswordRequired,
+  CNTPasswordVerifier,
+  CNTSelectMFAType,
+  CNTSmsMFA,
+  CNTSoftwareTokenMFA,
+  ChallengeNameType'
+  #-}

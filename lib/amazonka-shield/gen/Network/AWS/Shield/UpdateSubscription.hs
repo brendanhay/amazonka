@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,115 @@
 --
 -- Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.
 module Network.AWS.Shield.UpdateSubscription
-  ( -- * Creating a Request
-    updateSubscription,
-    UpdateSubscription,
+  ( -- * Creating a request
+    UpdateSubscription (..),
+    mkUpdateSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usAutoRenew,
 
-    -- * Destructuring the Response
-    updateSubscriptionResponse,
-    UpdateSubscriptionResponse,
+    -- * Destructuring the response
+    UpdateSubscriptionResponse (..),
+    mkUpdateSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'updateSubscription' smart constructor.
+-- | /See:/ 'mkUpdateSubscription' smart constructor.
 newtype UpdateSubscription = UpdateSubscription'
-  { _usAutoRenew ::
-      Maybe AutoRenew
+  { autoRenew ::
+      Lude.Maybe AutoRenew
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usAutoRenew' - When you initally create a subscription, @AutoRenew@ is set to @ENABLED@ . If @ENABLED@ , the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an @UpdateSubscription@ request. If the @UpdateSubscription@ request does not included a value for @AutoRenew@ , the existing value for @AutoRenew@ remains unchanged.
-updateSubscription ::
+-- * 'autoRenew' - When you initally create a subscription, @AutoRenew@ is set to @ENABLED@ . If @ENABLED@ , the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an @UpdateSubscription@ request. If the @UpdateSubscription@ request does not included a value for @AutoRenew@ , the existing value for @AutoRenew@ remains unchanged.
+mkUpdateSubscription ::
   UpdateSubscription
-updateSubscription = UpdateSubscription' {_usAutoRenew = Nothing}
+mkUpdateSubscription =
+  UpdateSubscription' {autoRenew = Lude.Nothing}
 
 -- | When you initally create a subscription, @AutoRenew@ is set to @ENABLED@ . If @ENABLED@ , the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an @UpdateSubscription@ request. If the @UpdateSubscription@ request does not included a value for @AutoRenew@ , the existing value for @AutoRenew@ remains unchanged.
-usAutoRenew :: Lens' UpdateSubscription (Maybe AutoRenew)
-usAutoRenew = lens _usAutoRenew (\s a -> s {_usAutoRenew = a})
+--
+-- /Note:/ Consider using 'autoRenew' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usAutoRenew :: Lens.Lens' UpdateSubscription (Lude.Maybe AutoRenew)
+usAutoRenew = Lens.lens (autoRenew :: UpdateSubscription -> Lude.Maybe AutoRenew) (\s a -> s {autoRenew = a} :: UpdateSubscription)
+{-# DEPRECATED usAutoRenew "Use generic-lens or generic-optics with 'autoRenew' instead." #-}
 
-instance AWSRequest UpdateSubscription where
+instance Lude.AWSRequest UpdateSubscription where
   type Rs UpdateSubscription = UpdateSubscriptionResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
-      (\s h x -> UpdateSubscriptionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateSubscriptionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateSubscription
-
-instance NFData UpdateSubscription
-
-instance ToHeaders UpdateSubscription where
+instance Lude.ToHeaders UpdateSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.UpdateSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.UpdateSubscription" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateSubscription where
+instance Lude.ToJSON UpdateSubscription where
   toJSON UpdateSubscription' {..} =
-    object (catMaybes [("AutoRenew" .=) <$> _usAutoRenew])
+    Lude.object
+      (Lude.catMaybes [("AutoRenew" Lude..=) Lude.<$> autoRenew])
 
-instance ToPath UpdateSubscription where
-  toPath = const "/"
+instance Lude.ToPath UpdateSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkUpdateSubscriptionResponse' smart constructor.
 newtype UpdateSubscriptionResponse = UpdateSubscriptionResponse'
-  { _usrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usrsResponseStatus' - -- | The response status code.
-updateSubscriptionResponse ::
-  -- | 'usrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSubscriptionResponse
-updateSubscriptionResponse pResponseStatus_ =
-  UpdateSubscriptionResponse'
-    { _usrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateSubscriptionResponse pResponseStatus_ =
+  UpdateSubscriptionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateSubscriptionResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\s a -> s {_usrsResponseStatus = a})
-
-instance NFData UpdateSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsResponseStatus :: Lens.Lens' UpdateSubscriptionResponse Lude.Int
+usrsResponseStatus = Lens.lens (responseStatus :: UpdateSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSubscriptionResponse)
+{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

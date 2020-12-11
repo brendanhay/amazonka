@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.HierarchyLevelUpdate where
+module Network.AWS.Connect.Types.HierarchyLevelUpdate
+  ( HierarchyLevelUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHierarchyLevelUpdate,
+
+    -- * Lenses
+    hluName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the hierarchy level to update.
 --
---
---
--- /See:/ 'hierarchyLevelUpdate' smart constructor.
+-- /See:/ 'mkHierarchyLevelUpdate' smart constructor.
 newtype HierarchyLevelUpdate = HierarchyLevelUpdate'
-  { _hluName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyLevelUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hluName' - The name of the user hierarchy level. Must not be more than 50 characters.
-hierarchyLevelUpdate ::
-  -- | 'hluName'
-  Text ->
+-- * 'name' - The name of the user hierarchy level. Must not be more than 50 characters.
+mkHierarchyLevelUpdate ::
+  -- | 'name'
+  Lude.Text ->
   HierarchyLevelUpdate
-hierarchyLevelUpdate pName_ =
-  HierarchyLevelUpdate' {_hluName = pName_}
+mkHierarchyLevelUpdate pName_ =
+  HierarchyLevelUpdate' {name = pName_}
 
 -- | The name of the user hierarchy level. Must not be more than 50 characters.
-hluName :: Lens' HierarchyLevelUpdate Text
-hluName = lens _hluName (\s a -> s {_hluName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hluName :: Lens.Lens' HierarchyLevelUpdate Lude.Text
+hluName = Lens.lens (name :: HierarchyLevelUpdate -> Lude.Text) (\s a -> s {name = a} :: HierarchyLevelUpdate)
+{-# DEPRECATED hluName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable HierarchyLevelUpdate
-
-instance NFData HierarchyLevelUpdate
-
-instance ToJSON HierarchyLevelUpdate where
+instance Lude.ToJSON HierarchyLevelUpdate where
   toJSON HierarchyLevelUpdate' {..} =
-    object (catMaybes [Just ("Name" .= _hluName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])

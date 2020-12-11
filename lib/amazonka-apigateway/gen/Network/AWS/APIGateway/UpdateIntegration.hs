@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Represents an update integration.
 module Network.AWS.APIGateway.UpdateIntegration
-  ( -- * Creating a Request
-    updateIntegration,
-    UpdateIntegration,
+  ( -- * Creating a request
+    UpdateIntegration (..),
+    mkUpdateIntegration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     updPatchOperations,
     updRestAPIId,
     updResourceId,
     updHttpMethod,
 
-    -- * Destructuring the Response
-    integration,
-    Integration,
+    -- * Destructuring the response
+    Integration (..),
+    mkIntegration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iHttpMethod,
     iRequestTemplates,
     iCredentials,
@@ -53,97 +48,110 @@ module Network.AWS.APIGateway.UpdateIntegration
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents an update integration request.
 --
---
---
--- /See:/ 'updateIntegration' smart constructor.
+-- /See:/ 'mkUpdateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
-  { _updPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _updRestAPIId :: !Text,
-    _updResourceId :: !Text,
-    _updHttpMethod :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIntegration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'updRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'updResourceId' - [Required] Represents an update integration request's resource identifier.
---
--- * 'updHttpMethod' - [Required] Represents an update integration request's HTTP method.
-updateIntegration ::
-  -- | 'updRestAPIId'
-  Text ->
-  -- | 'updResourceId'
-  Text ->
-  -- | 'updHttpMethod'
-  Text ->
+-- * 'httpMethod' - [Required] Represents an update integration request's HTTP method.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'resourceId' - [Required] Represents an update integration request's resource identifier.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateIntegration ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
   UpdateIntegration
-updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkUpdateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
   UpdateIntegration'
-    { _updPatchOperations = Nothing,
-      _updRestAPIId = pRestAPIId_,
-      _updResourceId = pResourceId_,
-      _updHttpMethod = pHttpMethod_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      resourceId = pResourceId_,
+      httpMethod = pHttpMethod_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
-updPatchOperations = lens _updPatchOperations (\s a -> s {_updPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updPatchOperations :: Lens.Lens' UpdateIntegration (Lude.Maybe [PatchOperation])
+updPatchOperations = Lens.lens (patchOperations :: UpdateIntegration -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateIntegration)
+{-# DEPRECATED updPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-updRestAPIId :: Lens' UpdateIntegration Text
-updRestAPIId = lens _updRestAPIId (\s a -> s {_updRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updRestAPIId :: Lens.Lens' UpdateIntegration Lude.Text
+updRestAPIId = Lens.lens (restAPIId :: UpdateIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateIntegration)
+{-# DEPRECATED updRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Represents an update integration request's resource identifier.
-updResourceId :: Lens' UpdateIntegration Text
-updResourceId = lens _updResourceId (\s a -> s {_updResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updResourceId :: Lens.Lens' UpdateIntegration Lude.Text
+updResourceId = Lens.lens (resourceId :: UpdateIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateIntegration)
+{-# DEPRECATED updResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Represents an update integration request's HTTP method.
-updHttpMethod :: Lens' UpdateIntegration Text
-updHttpMethod = lens _updHttpMethod (\s a -> s {_updHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updHttpMethod :: Lens.Lens' UpdateIntegration Lude.Text
+updHttpMethod = Lens.lens (httpMethod :: UpdateIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: UpdateIntegration)
+{-# DEPRECATED updHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
-instance AWSRequest UpdateIntegration where
+instance Lude.AWSRequest UpdateIntegration where
   type Rs UpdateIntegration = Integration
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateIntegration
-
-instance NFData UpdateIntegration
-
-instance ToHeaders UpdateIntegration where
+instance Lude.ToHeaders UpdateIntegration where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateIntegration where
+instance Lude.ToJSON UpdateIntegration where
   toJSON UpdateIntegration' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _updPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateIntegration where
+instance Lude.ToPath UpdateIntegration where
   toPath UpdateIntegration' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _updRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _updResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _updHttpMethod,
+        Lude.toBS httpMethod,
         "/integration"
       ]
 
-instance ToQuery UpdateIntegration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateIntegration where
+  toQuery = Lude.const Lude.mempty

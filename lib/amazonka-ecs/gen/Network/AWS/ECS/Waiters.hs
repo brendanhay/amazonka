@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,80 +10,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Waiters where
+module Network.AWS.ECS.Waiters
+  ( -- * ServicesInactive
+    mkServicesInactive,
+
+    -- * TasksRunning
+    mkTasksRunning,
+
+    -- * TasksStopped
+    mkTasksStopped,
+  )
+where
 
 import Network.AWS.ECS.DescribeServices
 import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.ECS.DescribeServices' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-servicesInactive :: Wait DescribeServices
-servicesInactive =
-  Wait
-    { _waitName = "ServicesInactive",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAny
+mkServicesInactive :: Wait.Wait DescribeServices
+mkServicesInactive =
+  Wait.Wait
+    { Wait._waitName = "ServicesInactive",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAny
             "MISSING"
-            AcceptFailure
-            ( folding (concatOf (dssrsFailures . to toList)) . fReason . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dssrsFailures Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. fReason
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "INACTIVE"
-            AcceptSuccess
-            ( folding (concatOf (dssrsServices . to toList)) . csStatus . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dssrsServices Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. csStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
-tasksRunning :: Wait DescribeTasks
-tasksRunning =
-  Wait
-    { _waitName = "TasksRunning",
-      _waitAttempts = 100,
-      _waitDelay = 6,
-      _waitAcceptors =
-        [ matchAny
+mkTasksRunning :: Wait.Wait DescribeTasks
+mkTasksRunning =
+  Wait.Wait
+    { Wait._waitName = "TasksRunning",
+      Wait._waitAttempts = 100,
+      Wait._waitDelay = 6,
+      Wait._waitAcceptors =
+        [ Wait.matchAny
             "STOPPED"
-            AcceptFailure
-            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dtrsTasks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. tLastStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "MISSING"
-            AcceptFailure
-            ( folding (concatOf (dtrsFailures . to toList)) . fReason . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dtrsFailures Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. fReason
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAll
+          Wait.matchAll
             "RUNNING"
-            AcceptSuccess
-            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dtrsTasks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. tLastStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
-tasksStopped :: Wait DescribeTasks
-tasksStopped =
-  Wait
-    { _waitName = "TasksStopped",
-      _waitAttempts = 100,
-      _waitDelay = 6,
-      _waitAcceptors =
-        [ matchAll
+mkTasksStopped :: Wait.Wait DescribeTasks
+mkTasksStopped =
+  Wait.Wait
+    { Wait._waitName = "TasksStopped",
+      Wait._waitAttempts = 100,
+      Wait._waitDelay = 6,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "STOPPED"
-            AcceptSuccess
-            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dtrsTasks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. tLastStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }

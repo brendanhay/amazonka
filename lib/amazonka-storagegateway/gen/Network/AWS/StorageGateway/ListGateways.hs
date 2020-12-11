@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,38 +14,35 @@
 --
 -- Lists gateways owned by an AWS account in an AWS Region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).
 --
---
 -- By default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.
---
 -- If you have more gateways than are returned in a response (that is, the response returns only a truncated list of your gateways), the response contains a marker that you can specify in your next request to fetch the next page of gateways.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
-  ( -- * Creating a Request
-    listGateways,
-    ListGateways,
+  ( -- * Creating a request
+    ListGateways (..),
+    mkListGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgMarker,
     lgLimit,
 
-    -- * Destructuring the Response
-    listGatewaysResponse,
-    ListGatewaysResponse,
+    -- * Destructuring the response
+    ListGatewaysResponse (..),
+    mkListGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsMarker,
     lgrsGateways,
     lgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing zero or more of the following fields:
@@ -58,122 +50,142 @@ import Network.AWS.StorageGateway.Types
 --
 --     * 'ListGatewaysInput$Limit'
 --
+--
 --     * 'ListGatewaysInput$Marker'
 --
 --
 --
---
--- /See:/ 'listGateways' smart constructor.
+-- /See:/ 'mkListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { _lgMarker :: !(Maybe Text),
-    _lgLimit :: !(Maybe Nat)
+  { marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgMarker' - An opaque string that indicates the position at which to begin the returned list of gateways.
---
--- * 'lgLimit' - Specifies that the list of gateways returned be limited to the specified number of items.
-listGateways ::
+-- * 'limit' - Specifies that the list of gateways returned be limited to the specified number of items.
+-- * 'marker' - An opaque string that indicates the position at which to begin the returned list of gateways.
+mkListGateways ::
   ListGateways
-listGateways =
-  ListGateways' {_lgMarker = Nothing, _lgLimit = Nothing}
+mkListGateways =
+  ListGateways' {marker = Lude.Nothing, limit = Lude.Nothing}
 
 -- | An opaque string that indicates the position at which to begin the returned list of gateways.
-lgMarker :: Lens' ListGateways (Maybe Text)
-lgMarker = lens _lgMarker (\s a -> s {_lgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMarker :: Lens.Lens' ListGateways (Lude.Maybe Lude.Text)
+lgMarker = Lens.lens (marker :: ListGateways -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGateways)
+{-# DEPRECATED lgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the list of gateways returned be limited to the specified number of items.
-lgLimit :: Lens' ListGateways (Maybe Natural)
-lgLimit = lens _lgLimit (\s a -> s {_lgLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgLimit :: Lens.Lens' ListGateways (Lude.Maybe Lude.Natural)
+lgLimit = Lens.lens (limit :: ListGateways -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGateways)
+{-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListGateways where
+instance Page.AWSPager ListGateways where
   page rq rs
-    | stop (rs ^. lgrsMarker) = Nothing
-    | stop (rs ^. lgrsGateways) = Nothing
-    | otherwise = Just $ rq & lgMarker .~ rs ^. lgrsMarker
+    | Page.stop (rs Lens.^. lgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgrsGateways) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lgMarker Lens..~ rs Lens.^. lgrsMarker
 
-instance AWSRequest ListGateways where
+instance Lude.AWSRequest ListGateways where
   type Rs ListGateways = ListGatewaysResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "Gateways" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "Gateways" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGateways
-
-instance NFData ListGateways
-
-instance ToHeaders ListGateways where
+instance Lude.ToHeaders ListGateways where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ListGateways" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ListGateways" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGateways where
+instance Lude.ToJSON ListGateways where
   toJSON ListGateways' {..} =
-    object
-      ( catMaybes
-          [("Marker" .=) <$> _lgMarker, ("Limit" .=) <$> _lgLimit]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
+          ]
       )
 
-instance ToPath ListGateways where
-  toPath = const "/"
+instance Lude.ToPath ListGateways where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGateways where
-  toQuery = const mempty
+instance Lude.ToQuery ListGateways where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGatewaysResponse' smart constructor.
+-- | /See:/ 'mkListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { _lgrsMarker ::
-      !(Maybe Text),
-    _lgrsGateways :: !(Maybe [GatewayInfo]),
-    _lgrsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    gateways :: Lude.Maybe [GatewayInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsMarker' - Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
---
--- * 'lgrsGateways' - An array of 'GatewayInfo' objects.
---
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGatewaysResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'gateways' - An array of 'GatewayInfo' objects.
+-- * 'marker' - Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
+-- * 'responseStatus' - The response status code.
+mkListGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGatewaysResponse
-listGatewaysResponse pResponseStatus_ =
+mkListGatewaysResponse pResponseStatus_ =
   ListGatewaysResponse'
-    { _lgrsMarker = Nothing,
-      _lgrsGateways = Nothing,
-      _lgrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      gateways = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
-lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgrsMarker = lens _lgrsMarker (\s a -> s {_lgrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsMarker :: Lens.Lens' ListGatewaysResponse (Lude.Maybe Lude.Text)
+lgrsMarker = Lens.lens (marker :: ListGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An array of 'GatewayInfo' objects.
-lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrsGateways = lens _lgrsGateways (\s a -> s {_lgrsGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGateways :: Lens.Lens' ListGatewaysResponse (Lude.Maybe [GatewayInfo])
+lgrsGateways = Lens.lens (gateways :: ListGatewaysResponse -> Lude.Maybe [GatewayInfo]) (\s a -> s {gateways = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsGateways "Use generic-lens or generic-optics with 'gateways' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGatewaysResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
-
-instance NFData ListGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGatewaysResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

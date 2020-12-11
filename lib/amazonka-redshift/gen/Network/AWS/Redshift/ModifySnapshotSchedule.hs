@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.
 module Network.AWS.Redshift.ModifySnapshotSchedule
-  ( -- * Creating a Request
-    modifySnapshotSchedule,
-    ModifySnapshotSchedule,
+  ( -- * Creating a request
+    ModifySnapshotSchedule (..),
+    mkModifySnapshotSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mssScheduleIdentifier,
     mssScheduleDefinitions,
 
-    -- * Destructuring the Response
-    snapshotSchedule,
-    SnapshotSchedule,
+    -- * Destructuring the response
+    SnapshotSchedule (..),
+    mkSnapshotSchedule,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ssAssociatedClusters,
     ssNextInvocations,
     ssScheduleDefinitions,
@@ -42,70 +37,76 @@ module Network.AWS.Redshift.ModifySnapshotSchedule
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifySnapshotSchedule' smart constructor.
+-- | /See:/ 'mkModifySnapshotSchedule' smart constructor.
 data ModifySnapshotSchedule = ModifySnapshotSchedule'
-  { _mssScheduleIdentifier ::
-      !Text,
-    _mssScheduleDefinitions :: ![Text]
+  { scheduleIdentifier ::
+      Lude.Text,
+    scheduleDefinitions :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySnapshotSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mssScheduleIdentifier' - A unique alphanumeric identifier of the schedule to modify.
---
--- * 'mssScheduleDefinitions' - An updated list of schedule definitions. A schedule definition is made up of schedule expressions, for example, "cron(30 12 *)" or "rate(12 hours)".
-modifySnapshotSchedule ::
-  -- | 'mssScheduleIdentifier'
-  Text ->
+-- * 'scheduleDefinitions' - An updated list of schedule definitions. A schedule definition is made up of schedule expressions, for example, "cron(30 12 *)" or "rate(12 hours)".
+-- * 'scheduleIdentifier' - A unique alphanumeric identifier of the schedule to modify.
+mkModifySnapshotSchedule ::
+  -- | 'scheduleIdentifier'
+  Lude.Text ->
   ModifySnapshotSchedule
-modifySnapshotSchedule pScheduleIdentifier_ =
+mkModifySnapshotSchedule pScheduleIdentifier_ =
   ModifySnapshotSchedule'
-    { _mssScheduleIdentifier =
+    { scheduleIdentifier =
         pScheduleIdentifier_,
-      _mssScheduleDefinitions = mempty
+      scheduleDefinitions = Lude.mempty
     }
 
 -- | A unique alphanumeric identifier of the schedule to modify.
-mssScheduleIdentifier :: Lens' ModifySnapshotSchedule Text
-mssScheduleIdentifier = lens _mssScheduleIdentifier (\s a -> s {_mssScheduleIdentifier = a})
+--
+-- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssScheduleIdentifier :: Lens.Lens' ModifySnapshotSchedule Lude.Text
+mssScheduleIdentifier = Lens.lens (scheduleIdentifier :: ModifySnapshotSchedule -> Lude.Text) (\s a -> s {scheduleIdentifier = a} :: ModifySnapshotSchedule)
+{-# DEPRECATED mssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
 
 -- | An updated list of schedule definitions. A schedule definition is made up of schedule expressions, for example, "cron(30 12 *)" or "rate(12 hours)".
-mssScheduleDefinitions :: Lens' ModifySnapshotSchedule [Text]
-mssScheduleDefinitions = lens _mssScheduleDefinitions (\s a -> s {_mssScheduleDefinitions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'scheduleDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssScheduleDefinitions :: Lens.Lens' ModifySnapshotSchedule [Lude.Text]
+mssScheduleDefinitions = Lens.lens (scheduleDefinitions :: ModifySnapshotSchedule -> [Lude.Text]) (\s a -> s {scheduleDefinitions = a} :: ModifySnapshotSchedule)
+{-# DEPRECATED mssScheduleDefinitions "Use generic-lens or generic-optics with 'scheduleDefinitions' instead." #-}
 
-instance AWSRequest ModifySnapshotSchedule where
+instance Lude.AWSRequest ModifySnapshotSchedule where
   type Rs ModifySnapshotSchedule = SnapshotSchedule
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifySnapshotScheduleResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ModifySnapshotSchedule
+instance Lude.ToHeaders ModifySnapshotSchedule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifySnapshotSchedule
+instance Lude.ToPath ModifySnapshotSchedule where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifySnapshotSchedule where
-  toHeaders = const mempty
-
-instance ToPath ModifySnapshotSchedule where
-  toPath = const "/"
-
-instance ToQuery ModifySnapshotSchedule where
+instance Lude.ToQuery ModifySnapshotSchedule where
   toQuery ModifySnapshotSchedule' {..} =
-    mconcat
-      [ "Action" =: ("ModifySnapshotSchedule" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ScheduleIdentifier" =: _mssScheduleIdentifier,
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifySnapshotSchedule" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ScheduleIdentifier" Lude.=: scheduleIdentifier,
         "ScheduleDefinitions"
-          =: toQueryList "ScheduleDefinition" _mssScheduleDefinitions
+          Lude.=: Lude.toQueryList "ScheduleDefinition" scheduleDefinitions
       ]

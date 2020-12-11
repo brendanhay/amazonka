@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,127 @@
 --
 -- Deletes the specified rule.
 --
---
 -- Before you can delete the rule, you must remove all targets, using 'RemoveTargets' .
---
 -- When you delete a rule, incoming events might continue to match to the deleted rule. Allow a short period of time for changes to take effect.
---
 -- Managed rules are rules created and managed by another AWS service on your behalf. These rules are created by those other AWS services to support functionality in those services. You can delete these rules using the @Force@ option, but you should do so only if you are sure the other service is not still using that rule.
 module Network.AWS.CloudWatchEvents.DeleteRule
-  ( -- * Creating a Request
-    deleteRule,
-    DeleteRule,
+  ( -- * Creating a request
+    DeleteRule (..),
+    mkDeleteRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drForce,
     drEventBusName,
     drName,
 
-    -- * Destructuring the Response
-    deleteRuleResponse,
-    DeleteRuleResponse,
+    -- * Destructuring the response
+    DeleteRuleResponse (..),
+    mkDeleteRuleResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRule' smart constructor.
+-- | /See:/ 'mkDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { _drForce :: !(Maybe Bool),
-    _drEventBusName :: !(Maybe Text),
-    _drName :: !Text
+  { force :: Lude.Maybe Lude.Bool,
+    eventBusName :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drForce' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
---
--- * 'drEventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- * 'drName' - The name of the rule.
-deleteRule ::
-  -- | 'drName'
-  Text ->
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'force' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+-- * 'name' - The name of the rule.
+mkDeleteRule ::
+  -- | 'name'
+  Lude.Text ->
   DeleteRule
-deleteRule pName_ =
+mkDeleteRule pName_ =
   DeleteRule'
-    { _drForce = Nothing,
-      _drEventBusName = Nothing,
-      _drName = pName_
+    { force = Lude.Nothing,
+      eventBusName = Lude.Nothing,
+      name = pName_
     }
 
 -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
-drForce :: Lens' DeleteRule (Maybe Bool)
-drForce = lens _drForce (\s a -> s {_drForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drForce :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Bool)
+drForce = Lens.lens (force :: DeleteRule -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteRule)
+{-# DEPRECATED drForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-drEventBusName :: Lens' DeleteRule (Maybe Text)
-drEventBusName = lens _drEventBusName (\s a -> s {_drEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drEventBusName :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Text)
+drEventBusName = Lens.lens (eventBusName :: DeleteRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DeleteRule)
+{-# DEPRECATED drEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
-drName :: Lens' DeleteRule Text
-drName = lens _drName (\s a -> s {_drName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drName :: Lens.Lens' DeleteRule Lude.Text
+drName = Lens.lens (name :: DeleteRule -> Lude.Text) (\s a -> s {name = a} :: DeleteRule)
+{-# DEPRECATED drName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteRule where
+instance Lude.AWSRequest DeleteRule where
   type Rs DeleteRule = DeleteRuleResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull DeleteRuleResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull DeleteRuleResponse'
 
-instance Hashable DeleteRule
-
-instance NFData DeleteRule
-
-instance ToHeaders DeleteRule where
+instance Lude.ToHeaders DeleteRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DeleteRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DeleteRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRule where
+instance Lude.ToJSON DeleteRule where
   toJSON DeleteRule' {..} =
-    object
-      ( catMaybes
-          [ ("Force" .=) <$> _drForce,
-            ("EventBusName" .=) <$> _drEventBusName,
-            Just ("Name" .= _drName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Force" Lude..=) Lude.<$> force,
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath DeleteRule where
-  toPath = const "/"
+instance Lude.ToPath DeleteRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRuleResponse' smart constructor.
+-- | /See:/ 'mkDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
-deleteRuleResponse ::
+mkDeleteRuleResponse ::
   DeleteRuleResponse
-deleteRuleResponse = DeleteRuleResponse'
-
-instance NFData DeleteRuleResponse
+mkDeleteRuleResponse = DeleteRuleResponse'

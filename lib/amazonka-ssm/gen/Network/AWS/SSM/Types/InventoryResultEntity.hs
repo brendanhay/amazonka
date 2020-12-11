@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryResultEntity where
+module Network.AWS.SSM.Types.InventoryResultEntity
+  ( InventoryResultEntity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryResultEntity,
+
+    -- * Lenses
+    ireData,
+    ireId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InventoryResultItem
 
 -- | Inventory query results.
 --
---
---
--- /See:/ 'inventoryResultEntity' smart constructor.
+-- /See:/ 'mkInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
-  { _ireData ::
-      !(Maybe (Map Text (InventoryResultItem))),
-    _ireId :: !(Maybe Text)
+  { data' ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (InventoryResultItem)
+        ),
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryResultEntity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ireData' - The data section in the inventory result entity JSON.
---
--- * 'ireId' - ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
-inventoryResultEntity ::
+-- * 'data'' - The data section in the inventory result entity JSON.
+-- * 'id' - ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
+mkInventoryResultEntity ::
   InventoryResultEntity
-inventoryResultEntity =
-  InventoryResultEntity' {_ireData = Nothing, _ireId = Nothing}
+mkInventoryResultEntity =
+  InventoryResultEntity' {data' = Lude.Nothing, id = Lude.Nothing}
 
 -- | The data section in the inventory result entity JSON.
-ireData :: Lens' InventoryResultEntity (HashMap Text (InventoryResultItem))
-ireData = lens _ireData (\s a -> s {_ireData = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ireData :: Lens.Lens' InventoryResultEntity (Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem)))
+ireData = Lens.lens (data' :: InventoryResultEntity -> Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem))) (\s a -> s {data' = a} :: InventoryResultEntity)
+{-# DEPRECATED ireData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
-ireId :: Lens' InventoryResultEntity (Maybe Text)
-ireId = lens _ireId (\s a -> s {_ireId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ireId :: Lens.Lens' InventoryResultEntity (Lude.Maybe Lude.Text)
+ireId = Lens.lens (id :: InventoryResultEntity -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InventoryResultEntity)
+{-# DEPRECATED ireId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON InventoryResultEntity where
+instance Lude.FromJSON InventoryResultEntity where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryResultEntity"
       ( \x ->
           InventoryResultEntity'
-            <$> (x .:? "Data" .!= mempty) <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Data" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable InventoryResultEntity
-
-instance NFData InventoryResultEntity

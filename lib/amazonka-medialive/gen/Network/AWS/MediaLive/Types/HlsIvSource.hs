@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsIvSource where
+module Network.AWS.MediaLive.Types.HlsIvSource
+  ( HlsIvSource
+      ( HlsIvSource',
+        Explicit,
+        FollowsSegmentNumber
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Iv Source
-data HlsIvSource
-  = Explicit
-  | FollowsSegmentNumber
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsIvSource = HlsIvSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsIvSource where
-  parser =
-    takeLowerText >>= \case
-      "explicit" -> pure Explicit
-      "follows_segment_number" -> pure FollowsSegmentNumber
-      e ->
-        fromTextError $
-          "Failure parsing HlsIvSource from value: '" <> e
-            <> "'. Accepted values: explicit, follows_segment_number"
+pattern Explicit :: HlsIvSource
+pattern Explicit = HlsIvSource' "EXPLICIT"
 
-instance ToText HlsIvSource where
-  toText = \case
-    Explicit -> "EXPLICIT"
-    FollowsSegmentNumber -> "FOLLOWS_SEGMENT_NUMBER"
+pattern FollowsSegmentNumber :: HlsIvSource
+pattern FollowsSegmentNumber = HlsIvSource' "FOLLOWS_SEGMENT_NUMBER"
 
-instance Hashable HlsIvSource
-
-instance NFData HlsIvSource
-
-instance ToByteString HlsIvSource
-
-instance ToQuery HlsIvSource
-
-instance ToHeader HlsIvSource
-
-instance ToJSON HlsIvSource where
-  toJSON = toJSONText
-
-instance FromJSON HlsIvSource where
-  parseJSON = parseJSONText "HlsIvSource"
+{-# COMPLETE
+  Explicit,
+  FollowsSegmentNumber,
+  HlsIvSource'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DestinationProperties where
+module Network.AWS.GuardDuty.Types.DestinationProperties
+  ( DestinationProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDestinationProperties,
+
+    -- * Lenses
+    dpKMSKeyARN,
+    dpDestinationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 --
---
---
--- /See:/ 'destinationProperties' smart constructor.
+-- /See:/ 'mkDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
-  { _dpKMSKeyARN ::
-      !(Maybe Text),
-    _dpDestinationARN :: !(Maybe Text)
+  { kmsKeyARN ::
+      Lude.Maybe Lude.Text,
+    destinationARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpKMSKeyARN' - The ARN of the KMS key to use for encryption.
---
--- * 'dpDestinationARN' - The ARN of the resource to publish to.
-destinationProperties ::
+-- * 'destinationARN' - The ARN of the resource to publish to.
+-- * 'kmsKeyARN' - The ARN of the KMS key to use for encryption.
+mkDestinationProperties ::
   DestinationProperties
-destinationProperties =
+mkDestinationProperties =
   DestinationProperties'
-    { _dpKMSKeyARN = Nothing,
-      _dpDestinationARN = Nothing
+    { kmsKeyARN = Lude.Nothing,
+      destinationARN = Lude.Nothing
     }
 
 -- | The ARN of the KMS key to use for encryption.
-dpKMSKeyARN :: Lens' DestinationProperties (Maybe Text)
-dpKMSKeyARN = lens _dpKMSKeyARN (\s a -> s {_dpKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpKMSKeyARN :: Lens.Lens' DestinationProperties (Lude.Maybe Lude.Text)
+dpKMSKeyARN = Lens.lens (kmsKeyARN :: DestinationProperties -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: DestinationProperties)
+{-# DEPRECATED dpKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | The ARN of the resource to publish to.
-dpDestinationARN :: Lens' DestinationProperties (Maybe Text)
-dpDestinationARN = lens _dpDestinationARN (\s a -> s {_dpDestinationARN = a})
+--
+-- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDestinationARN :: Lens.Lens' DestinationProperties (Lude.Maybe Lude.Text)
+dpDestinationARN = Lens.lens (destinationARN :: DestinationProperties -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: DestinationProperties)
+{-# DEPRECATED dpDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
 
-instance FromJSON DestinationProperties where
+instance Lude.FromJSON DestinationProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "DestinationProperties"
       ( \x ->
           DestinationProperties'
-            <$> (x .:? "kmsKeyArn") <*> (x .:? "destinationArn")
+            Lude.<$> (x Lude..:? "kmsKeyArn") Lude.<*> (x Lude..:? "destinationArn")
       )
 
-instance Hashable DestinationProperties
-
-instance NFData DestinationProperties
-
-instance ToJSON DestinationProperties where
+instance Lude.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =
-    object
-      ( catMaybes
-          [ ("kmsKeyArn" .=) <$> _dpKMSKeyARN,
-            ("destinationArn" .=) <$> _dpDestinationARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("kmsKeyArn" Lude..=) Lude.<$> kmsKeyARN,
+            ("destinationArn" Lude..=) Lude.<$> destinationARN
           ]
       )

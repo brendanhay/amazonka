@@ -28,211 +28,211 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeLoadBalancers $
---             describeLoadBalancers
+--             mkDescribeLoadBalancers
 --
 --         , requestDescribeTags $
---             describeTags
+--             mkDescribeTags
 --
 --         , requestDeleteRule $
---             deleteRule
+--             mkDeleteRule
 --
 --         , requestRemoveTags $
---             removeTags
+--             mkRemoveTags
 --
 --         , requestDeleteTargetGroup $
---             deleteTargetGroup
+--             mkDeleteTargetGroup
 --
 --         , requestSetSubnets $
---             setSubnets
+--             mkSetSubnets
 --
 --         , requestCreateRule $
---             createRule
+--             mkCreateRule
 --
 --         , requestDescribeListenerCertificates $
---             describeListenerCertificates
+--             mkDescribeListenerCertificates
 --
 --         , requestSetSecurityGroups $
---             setSecurityGroups
+--             mkSetSecurityGroups
 --
 --         , requestSetRulePriorities $
---             setRulePriorities
+--             mkSetRulePriorities
 --
 --         , requestDescribeTargetGroups $
---             describeTargetGroups
+--             mkDescribeTargetGroups
 --
 --         , requestDescribeRules $
---             describeRules
+--             mkDescribeRules
 --
 --         , requestDeleteLoadBalancer $
---             deleteLoadBalancer
+--             mkDeleteLoadBalancer
 --
 --         , requestRegisterTargets $
---             registerTargets
+--             mkRegisterTargets
 --
 --         , requestModifyListener $
---             modifyListener
+--             mkModifyListener
 --
 --         , requestModifyTargetGroup $
---             modifyTargetGroup
+--             mkModifyTargetGroup
 --
 --         , requestModifyTargetGroupAttributes $
---             modifyTargetGroupAttributes
+--             mkModifyTargetGroupAttributes
 --
 --         , requestDescribeTargetGroupAttributes $
---             describeTargetGroupAttributes
+--             mkDescribeTargetGroupAttributes
 --
 --         , requestDeleteListener $
---             deleteListener
+--             mkDeleteListener
 --
 --         , requestDescribeSSLPolicies $
---             describeSSLPolicies
+--             mkDescribeSSLPolicies
 --
 --         , requestDescribeAccountLimits $
---             describeAccountLimits
+--             mkDescribeAccountLimits
 --
 --         , requestDeregisterTargets $
---             deregisterTargets
+--             mkDeregisterTargets
 --
 --         , requestCreateListener $
---             createListener
+--             mkCreateListener
 --
 --         , requestCreateTargetGroup $
---             createTargetGroup
+--             mkCreateTargetGroup
 --
 --         , requestModifyLoadBalancerAttributes $
---             modifyLoadBalancerAttributes
+--             mkModifyLoadBalancerAttributes
 --
 --         , requestSetIPAddressType $
---             setIPAddressType
+--             mkSetIPAddressType
 --
 --         , requestAddTags $
---             addTags
+--             mkAddTags
 --
 --         , requestDescribeLoadBalancerAttributes $
---             describeLoadBalancerAttributes
+--             mkDescribeLoadBalancerAttributes
 --
 --         , requestDescribeListeners $
---             describeListeners
+--             mkDescribeListeners
 --
 --         , requestDescribeTargetHealth $
---             describeTargetHealth
+--             mkDescribeTargetHealth
 --
 --         , requestCreateLoadBalancer $
---             createLoadBalancer
+--             mkCreateLoadBalancer
 --
 --         , requestRemoveListenerCertificates $
---             removeListenerCertificates
+--             mkRemoveListenerCertificates
 --
 --         , requestModifyRule $
---             modifyRule
+--             mkModifyRule
 --
 --         , requestAddListenerCertificates $
---             addListenerCertificates
+--             mkAddListenerCertificates
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeLoadBalancers $
---             describeLoadBalancersResponse
+--             mkDescribeLoadBalancersResponse
 --
 --         , responseDescribeTags $
---             describeTagsResponse
+--             mkDescribeTagsResponse
 --
 --         , responseDeleteRule $
---             deleteRuleResponse
+--             mkDeleteRuleResponse
 --
 --         , responseRemoveTags $
---             removeTagsResponse
+--             mkRemoveTagsResponse
 --
 --         , responseDeleteTargetGroup $
---             deleteTargetGroupResponse
+--             mkDeleteTargetGroupResponse
 --
 --         , responseSetSubnets $
---             setSubnetsResponse
+--             mkSetSubnetsResponse
 --
 --         , responseCreateRule $
---             createRuleResponse
+--             mkCreateRuleResponse
 --
 --         , responseDescribeListenerCertificates $
---             describeListenerCertificatesResponse
+--             mkDescribeListenerCertificatesResponse
 --
 --         , responseSetSecurityGroups $
---             setSecurityGroupsResponse
+--             mkSetSecurityGroupsResponse
 --
 --         , responseSetRulePriorities $
---             setRulePrioritiesResponse
+--             mkSetRulePrioritiesResponse
 --
 --         , responseDescribeTargetGroups $
---             describeTargetGroupsResponse
+--             mkDescribeTargetGroupsResponse
 --
 --         , responseDescribeRules $
---             describeRulesResponse
+--             mkDescribeRulesResponse
 --
 --         , responseDeleteLoadBalancer $
---             deleteLoadBalancerResponse
+--             mkDeleteLoadBalancerResponse
 --
 --         , responseRegisterTargets $
---             registerTargetsResponse
+--             mkRegisterTargetsResponse
 --
 --         , responseModifyListener $
---             modifyListenerResponse
+--             mkModifyListenerResponse
 --
 --         , responseModifyTargetGroup $
---             modifyTargetGroupResponse
+--             mkModifyTargetGroupResponse
 --
 --         , responseModifyTargetGroupAttributes $
---             modifyTargetGroupAttributesResponse
+--             mkModifyTargetGroupAttributesResponse
 --
 --         , responseDescribeTargetGroupAttributes $
---             describeTargetGroupAttributesResponse
+--             mkDescribeTargetGroupAttributesResponse
 --
 --         , responseDeleteListener $
---             deleteListenerResponse
+--             mkDeleteListenerResponse
 --
 --         , responseDescribeSSLPolicies $
---             describeSSLPoliciesResponse
+--             mkDescribeSSLPoliciesResponse
 --
 --         , responseDescribeAccountLimits $
---             describeAccountLimitsResponse
+--             mkDescribeAccountLimitsResponse
 --
 --         , responseDeregisterTargets $
---             deregisterTargetsResponse
+--             mkDeregisterTargetsResponse
 --
 --         , responseCreateListener $
---             createListenerResponse
+--             mkCreateListenerResponse
 --
 --         , responseCreateTargetGroup $
---             createTargetGroupResponse
+--             mkCreateTargetGroupResponse
 --
 --         , responseModifyLoadBalancerAttributes $
---             modifyLoadBalancerAttributesResponse
+--             mkModifyLoadBalancerAttributesResponse
 --
 --         , responseSetIPAddressType $
---             setIPAddressTypeResponse
+--             mkSetIPAddressTypeResponse
 --
 --         , responseAddTags $
---             addTagsResponse
+--             mkAddTagsResponse
 --
 --         , responseDescribeLoadBalancerAttributes $
---             describeLoadBalancerAttributesResponse
+--             mkDescribeLoadBalancerAttributesResponse
 --
 --         , responseDescribeListeners $
---             describeListenersResponse
+--             mkDescribeListenersResponse
 --
 --         , responseDescribeTargetHealth $
---             describeTargetHealthResponse
+--             mkDescribeTargetHealthResponse
 --
 --         , responseCreateLoadBalancer $
---             createLoadBalancerResponse
+--             mkCreateLoadBalancerResponse
 --
 --         , responseRemoveListenerCertificates $
---             removeListenerCertificatesResponse
+--             mkRemoveListenerCertificatesResponse
 --
 --         , responseModifyRule $
---             modifyRuleResponse
+--             mkModifyRuleResponse
 --
 --         , responseAddListenerCertificates $
---             addListenerCertificatesResponse
+--             mkAddListenerCertificatesResponse
 --
 --           ]
 --     ]
@@ -450,7 +450,7 @@ responseDescribeLoadBalancers =
   res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeTags)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
@@ -466,7 +466,7 @@ responseDeleteRule =
   res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DeleteRule)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -474,7 +474,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy RemoveTags)
 
 responseDeleteTargetGroup :: DeleteTargetGroupResponse -> TestTree
@@ -482,7 +482,7 @@ responseDeleteTargetGroup =
   res
     "DeleteTargetGroupResponse"
     "fixture/DeleteTargetGroupResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DeleteTargetGroup)
 
 responseSetSubnets :: SetSubnetsResponse -> TestTree
@@ -490,7 +490,7 @@ responseSetSubnets =
   res
     "SetSubnetsResponse"
     "fixture/SetSubnetsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy SetSubnets)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
@@ -498,7 +498,7 @@ responseCreateRule =
   res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy CreateRule)
 
 responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
@@ -506,7 +506,7 @@ responseDescribeListenerCertificates =
   res
     "DescribeListenerCertificatesResponse"
     "fixture/DescribeListenerCertificatesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
@@ -514,7 +514,7 @@ responseSetSecurityGroups =
   res
     "SetSecurityGroupsResponse"
     "fixture/SetSecurityGroupsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy SetSecurityGroups)
 
 responseSetRulePriorities :: SetRulePrioritiesResponse -> TestTree
@@ -522,7 +522,7 @@ responseSetRulePriorities =
   res
     "SetRulePrioritiesResponse"
     "fixture/SetRulePrioritiesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy SetRulePriorities)
 
 responseDescribeTargetGroups :: DescribeTargetGroupsResponse -> TestTree
@@ -530,7 +530,7 @@ responseDescribeTargetGroups =
   res
     "DescribeTargetGroupsResponse"
     "fixture/DescribeTargetGroupsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeTargetGroups)
 
 responseDescribeRules :: DescribeRulesResponse -> TestTree
@@ -538,7 +538,7 @@ responseDescribeRules =
   res
     "DescribeRulesResponse"
     "fixture/DescribeRulesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeRules)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
@@ -546,7 +546,7 @@ responseDeleteLoadBalancer =
   res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseRegisterTargets :: RegisterTargetsResponse -> TestTree
@@ -554,7 +554,7 @@ responseRegisterTargets =
   res
     "RegisterTargetsResponse"
     "fixture/RegisterTargetsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy RegisterTargets)
 
 responseModifyListener :: ModifyListenerResponse -> TestTree
@@ -562,7 +562,7 @@ responseModifyListener =
   res
     "ModifyListenerResponse"
     "fixture/ModifyListenerResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy ModifyListener)
 
 responseModifyTargetGroup :: ModifyTargetGroupResponse -> TestTree
@@ -570,7 +570,7 @@ responseModifyTargetGroup =
   res
     "ModifyTargetGroupResponse"
     "fixture/ModifyTargetGroupResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy ModifyTargetGroup)
 
 responseModifyTargetGroupAttributes :: ModifyTargetGroupAttributesResponse -> TestTree
@@ -578,7 +578,7 @@ responseModifyTargetGroupAttributes =
   res
     "ModifyTargetGroupAttributesResponse"
     "fixture/ModifyTargetGroupAttributesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy ModifyTargetGroupAttributes)
 
 responseDescribeTargetGroupAttributes :: DescribeTargetGroupAttributesResponse -> TestTree
@@ -586,7 +586,7 @@ responseDescribeTargetGroupAttributes =
   res
     "DescribeTargetGroupAttributesResponse"
     "fixture/DescribeTargetGroupAttributesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeTargetGroupAttributes)
 
 responseDeleteListener :: DeleteListenerResponse -> TestTree
@@ -594,7 +594,7 @@ responseDeleteListener =
   res
     "DeleteListenerResponse"
     "fixture/DeleteListenerResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DeleteListener)
 
 responseDescribeSSLPolicies :: DescribeSSLPoliciesResponse -> TestTree
@@ -602,7 +602,7 @@ responseDescribeSSLPolicies =
   res
     "DescribeSSLPoliciesResponse"
     "fixture/DescribeSSLPoliciesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeSSLPolicies)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
@@ -610,7 +610,7 @@ responseDescribeAccountLimits =
   res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
@@ -618,7 +618,7 @@ responseDeregisterTargets =
   res
     "DeregisterTargetsResponse"
     "fixture/DeregisterTargetsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DeregisterTargets)
 
 responseCreateListener :: CreateListenerResponse -> TestTree
@@ -626,7 +626,7 @@ responseCreateListener =
   res
     "CreateListenerResponse"
     "fixture/CreateListenerResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy CreateListener)
 
 responseCreateTargetGroup :: CreateTargetGroupResponse -> TestTree
@@ -634,7 +634,7 @@ responseCreateTargetGroup =
   res
     "CreateTargetGroupResponse"
     "fixture/CreateTargetGroupResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy CreateTargetGroup)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
@@ -642,7 +642,7 @@ responseModifyLoadBalancerAttributes =
   res
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
 
 responseSetIPAddressType :: SetIPAddressTypeResponse -> TestTree
@@ -650,7 +650,7 @@ responseSetIPAddressType =
   res
     "SetIPAddressTypeResponse"
     "fixture/SetIPAddressTypeResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy SetIPAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -658,7 +658,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
@@ -666,7 +666,7 @@ responseDescribeLoadBalancerAttributes =
   res
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeLoadBalancerAttributes)
 
 responseDescribeListeners :: DescribeListenersResponse -> TestTree
@@ -674,7 +674,7 @@ responseDescribeListeners =
   res
     "DescribeListenersResponse"
     "fixture/DescribeListenersResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeListeners)
 
 responseDescribeTargetHealth :: DescribeTargetHealthResponse -> TestTree
@@ -682,7 +682,7 @@ responseDescribeTargetHealth =
   res
     "DescribeTargetHealthResponse"
     "fixture/DescribeTargetHealthResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy DescribeTargetHealth)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
@@ -690,7 +690,7 @@ responseCreateLoadBalancer =
   res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
@@ -698,7 +698,7 @@ responseRemoveListenerCertificates =
   res
     "RemoveListenerCertificatesResponse"
     "fixture/RemoveListenerCertificatesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy RemoveListenerCertificates)
 
 responseModifyRule :: ModifyRuleResponse -> TestTree
@@ -706,7 +706,7 @@ responseModifyRule =
   res
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy ModifyRule)
 
 responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
@@ -714,5 +714,5 @@ responseAddListenerCertificates =
   res
     "AddListenerCertificatesResponse"
     "fixture/AddListenerCertificatesResponse.proto"
-    eLBv2
+    eLBv2Service
     (Proxy :: Proxy AddListenerCertificates)

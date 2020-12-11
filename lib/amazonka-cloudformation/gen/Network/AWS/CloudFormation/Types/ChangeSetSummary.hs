@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,144 +7,188 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ChangeSetSummary where
+module Network.AWS.CloudFormation.Types.ChangeSetSummary
+  ( ChangeSetSummary (..),
+
+    -- * Smart constructor
+    mkChangeSetSummary,
+
+    -- * Lenses
+    cCreationTime,
+    cStatus,
+    cParentChangeSetId,
+    cChangeSetName,
+    cExecutionStatus,
+    cChangeSetId,
+    cIncludeNestedStacks,
+    cRootChangeSetId,
+    cStatusReason,
+    cStackId,
+    cDescription,
+    cStackName,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.ChangeSetStatus
 import Network.AWS.CloudFormation.Types.ExecutionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @ChangeSetSummary@ structure describes a change set, its status, and the stack with which it's associated.
 --
---
---
--- /See:/ 'changeSetSummary' smart constructor.
+-- /See:/ 'mkChangeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
-  { _cCreationTime ::
-      !(Maybe ISO8601),
-    _cStatus :: !(Maybe ChangeSetStatus),
-    _cParentChangeSetId :: !(Maybe Text),
-    _cChangeSetName :: !(Maybe Text),
-    _cExecutionStatus :: !(Maybe ExecutionStatus),
-    _cChangeSetId :: !(Maybe Text),
-    _cIncludeNestedStacks :: !(Maybe Bool),
-    _cRootChangeSetId :: !(Maybe Text),
-    _cStatusReason :: !(Maybe Text),
-    _cStackId :: !(Maybe Text),
-    _cDescription :: !(Maybe Text),
-    _cStackName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.ISO8601,
+    status :: Lude.Maybe ChangeSetStatus,
+    parentChangeSetId :: Lude.Maybe Lude.Text,
+    changeSetName :: Lude.Maybe Lude.Text,
+    executionStatus :: Lude.Maybe ExecutionStatus,
+    changeSetId :: Lude.Maybe Lude.Text,
+    includeNestedStacks :: Lude.Maybe Lude.Bool,
+    rootChangeSetId :: Lude.Maybe Lude.Text,
+    statusReason :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    stackName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cCreationTime' - The start time when the change set was created, in UTC.
---
--- * 'cStatus' - The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
---
--- * 'cParentChangeSetId' - The parent change set ID.
---
--- * 'cChangeSetName' - The name of the change set.
---
--- * 'cExecutionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
---
--- * 'cChangeSetId' - The ID of the change set.
---
--- * 'cIncludeNestedStacks' - Specifies the current setting of @IncludeNestedStacks@ for the change set.
---
--- * 'cRootChangeSetId' - The root change set ID.
---
--- * 'cStatusReason' - A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
---
--- * 'cStackId' - The ID of the stack with which the change set is associated.
---
--- * 'cDescription' - Descriptive information about the change set.
---
--- * 'cStackName' - The name of the stack with which the change set is associated.
-changeSetSummary ::
+-- * 'changeSetId' - The ID of the change set.
+-- * 'changeSetName' - The name of the change set.
+-- * 'creationTime' - The start time when the change set was created, in UTC.
+-- * 'description' - Descriptive information about the change set.
+-- * 'executionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
+-- * 'includeNestedStacks' - Specifies the current setting of @IncludeNestedStacks@ for the change set.
+-- * 'parentChangeSetId' - The parent change set ID.
+-- * 'rootChangeSetId' - The root change set ID.
+-- * 'stackId' - The ID of the stack with which the change set is associated.
+-- * 'stackName' - The name of the stack with which the change set is associated.
+-- * 'status' - The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
+-- * 'statusReason' - A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
+mkChangeSetSummary ::
   ChangeSetSummary
-changeSetSummary =
+mkChangeSetSummary =
   ChangeSetSummary'
-    { _cCreationTime = Nothing,
-      _cStatus = Nothing,
-      _cParentChangeSetId = Nothing,
-      _cChangeSetName = Nothing,
-      _cExecutionStatus = Nothing,
-      _cChangeSetId = Nothing,
-      _cIncludeNestedStacks = Nothing,
-      _cRootChangeSetId = Nothing,
-      _cStatusReason = Nothing,
-      _cStackId = Nothing,
-      _cDescription = Nothing,
-      _cStackName = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      parentChangeSetId = Lude.Nothing,
+      changeSetName = Lude.Nothing,
+      executionStatus = Lude.Nothing,
+      changeSetId = Lude.Nothing,
+      includeNestedStacks = Lude.Nothing,
+      rootChangeSetId = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      stackId = Lude.Nothing,
+      description = Lude.Nothing,
+      stackName = Lude.Nothing
     }
 
 -- | The start time when the change set was created, in UTC.
-cCreationTime :: Lens' ChangeSetSummary (Maybe UTCTime)
-cCreationTime = lens _cCreationTime (\s a -> s {_cCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreationTime :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.ISO8601)
+cCreationTime = Lens.lens (creationTime :: ChangeSetSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: ChangeSetSummary)
+{-# DEPRECATED cCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
-cStatus :: Lens' ChangeSetSummary (Maybe ChangeSetStatus)
-cStatus = lens _cStatus (\s a -> s {_cStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' ChangeSetSummary (Lude.Maybe ChangeSetStatus)
+cStatus = Lens.lens (status :: ChangeSetSummary -> Lude.Maybe ChangeSetStatus) (\s a -> s {status = a} :: ChangeSetSummary)
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The parent change set ID.
-cParentChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
-cParentChangeSetId = lens _cParentChangeSetId (\s a -> s {_cParentChangeSetId = a})
+--
+-- /Note:/ Consider using 'parentChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cParentChangeSetId :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cParentChangeSetId = Lens.lens (parentChangeSetId :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {parentChangeSetId = a} :: ChangeSetSummary)
+{-# DEPRECATED cParentChangeSetId "Use generic-lens or generic-optics with 'parentChangeSetId' instead." #-}
 
 -- | The name of the change set.
-cChangeSetName :: Lens' ChangeSetSummary (Maybe Text)
-cChangeSetName = lens _cChangeSetName (\s a -> s {_cChangeSetName = a})
+--
+-- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cChangeSetName :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cChangeSetName = Lens.lens (changeSetName :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {changeSetName = a} :: ChangeSetSummary)
+{-# DEPRECATED cChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
 
 -- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
-cExecutionStatus :: Lens' ChangeSetSummary (Maybe ExecutionStatus)
-cExecutionStatus = lens _cExecutionStatus (\s a -> s {_cExecutionStatus = a})
+--
+-- /Note:/ Consider using 'executionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cExecutionStatus :: Lens.Lens' ChangeSetSummary (Lude.Maybe ExecutionStatus)
+cExecutionStatus = Lens.lens (executionStatus :: ChangeSetSummary -> Lude.Maybe ExecutionStatus) (\s a -> s {executionStatus = a} :: ChangeSetSummary)
+{-# DEPRECATED cExecutionStatus "Use generic-lens or generic-optics with 'executionStatus' instead." #-}
 
 -- | The ID of the change set.
-cChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
-cChangeSetId = lens _cChangeSetId (\s a -> s {_cChangeSetId = a})
+--
+-- /Note:/ Consider using 'changeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cChangeSetId :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cChangeSetId = Lens.lens (changeSetId :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {changeSetId = a} :: ChangeSetSummary)
+{-# DEPRECATED cChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
 
 -- | Specifies the current setting of @IncludeNestedStacks@ for the change set.
-cIncludeNestedStacks :: Lens' ChangeSetSummary (Maybe Bool)
-cIncludeNestedStacks = lens _cIncludeNestedStacks (\s a -> s {_cIncludeNestedStacks = a})
+--
+-- /Note:/ Consider using 'includeNestedStacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIncludeNestedStacks :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Bool)
+cIncludeNestedStacks = Lens.lens (includeNestedStacks :: ChangeSetSummary -> Lude.Maybe Lude.Bool) (\s a -> s {includeNestedStacks = a} :: ChangeSetSummary)
+{-# DEPRECATED cIncludeNestedStacks "Use generic-lens or generic-optics with 'includeNestedStacks' instead." #-}
 
 -- | The root change set ID.
-cRootChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
-cRootChangeSetId = lens _cRootChangeSetId (\s a -> s {_cRootChangeSetId = a})
+--
+-- /Note:/ Consider using 'rootChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRootChangeSetId :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cRootChangeSetId = Lens.lens (rootChangeSetId :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {rootChangeSetId = a} :: ChangeSetSummary)
+{-# DEPRECATED cRootChangeSetId "Use generic-lens or generic-optics with 'rootChangeSetId' instead." #-}
 
 -- | A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
-cStatusReason :: Lens' ChangeSetSummary (Maybe Text)
-cStatusReason = lens _cStatusReason (\s a -> s {_cStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatusReason :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cStatusReason = Lens.lens (statusReason :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: ChangeSetSummary)
+{-# DEPRECATED cStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The ID of the stack with which the change set is associated.
-cStackId :: Lens' ChangeSetSummary (Maybe Text)
-cStackId = lens _cStackId (\s a -> s {_cStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStackId :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cStackId = Lens.lens (stackId :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: ChangeSetSummary)
+{-# DEPRECATED cStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | Descriptive information about the change set.
-cDescription :: Lens' ChangeSetSummary (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ChangeSetSummary)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the stack with which the change set is associated.
-cStackName :: Lens' ChangeSetSummary (Maybe Text)
-cStackName = lens _cStackName (\s a -> s {_cStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStackName :: Lens.Lens' ChangeSetSummary (Lude.Maybe Lude.Text)
+cStackName = Lens.lens (stackName :: ChangeSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: ChangeSetSummary)
+{-# DEPRECATED cStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance FromXML ChangeSetSummary where
+instance Lude.FromXML ChangeSetSummary where
   parseXML x =
     ChangeSetSummary'
-      <$> (x .@? "CreationTime")
-      <*> (x .@? "Status")
-      <*> (x .@? "ParentChangeSetId")
-      <*> (x .@? "ChangeSetName")
-      <*> (x .@? "ExecutionStatus")
-      <*> (x .@? "ChangeSetId")
-      <*> (x .@? "IncludeNestedStacks")
-      <*> (x .@? "RootChangeSetId")
-      <*> (x .@? "StatusReason")
-      <*> (x .@? "StackId")
-      <*> (x .@? "Description")
-      <*> (x .@? "StackName")
-
-instance Hashable ChangeSetSummary
-
-instance NFData ChangeSetSummary
+      Lude.<$> (x Lude..@? "CreationTime")
+      Lude.<*> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "ParentChangeSetId")
+      Lude.<*> (x Lude..@? "ChangeSetName")
+      Lude.<*> (x Lude..@? "ExecutionStatus")
+      Lude.<*> (x Lude..@? "ChangeSetId")
+      Lude.<*> (x Lude..@? "IncludeNestedStacks")
+      Lude.<*> (x Lude..@? "RootChangeSetId")
+      Lude.<*> (x Lude..@? "StatusReason")
+      Lude.<*> (x Lude..@? "StackId")
+      Lude.<*> (x Lude..@? "Description")
+      Lude.<*> (x Lude..@? "StackName")

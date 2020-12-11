@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
 module Network.AWS.RDS.CreateDBClusterEndpoint
-  ( -- * Creating a Request
-    createDBClusterEndpoint,
-    CreateDBClusterEndpoint,
+  ( -- * Creating a request
+    CreateDBClusterEndpoint (..),
+    mkCreateDBClusterEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdceStaticMembers,
     cdceExcludedMembers,
     cdceTags,
@@ -31,11 +26,11 @@ module Network.AWS.RDS.CreateDBClusterEndpoint
     cdceDBClusterEndpointIdentifier,
     cdceEndpointType,
 
-    -- * Destructuring the Response
-    dbClusterEndpoint,
-    DBClusterEndpoint,
+    -- * Destructuring the response
+    DBClusterEndpoint (..),
+    mkDBClusterEndpoint,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dceStatus,
     dceDBClusterIdentifier,
     dceDBClusterEndpointARN,
@@ -49,113 +44,127 @@ module Network.AWS.RDS.CreateDBClusterEndpoint
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDBClusterEndpoint' smart constructor.
+-- | /See:/ 'mkCreateDBClusterEndpoint' smart constructor.
 data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
-  { _cdceStaticMembers ::
-      !(Maybe [Text]),
-    _cdceExcludedMembers :: !(Maybe [Text]),
-    _cdceTags :: !(Maybe [Tag]),
-    _cdceDBClusterIdentifier :: !Text,
-    _cdceDBClusterEndpointIdentifier :: !Text,
-    _cdceEndpointType :: !Text
+  { staticMembers ::
+      Lude.Maybe [Lude.Text],
+    excludedMembers :: Lude.Maybe [Lude.Text],
+    tags :: Lude.Maybe [Tag],
+    dbClusterIdentifier :: Lude.Text,
+    dbClusterEndpointIdentifier :: Lude.Text,
+    endpointType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBClusterEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdceStaticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
---
--- * 'cdceExcludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
---
--- * 'cdceTags' - The tags to be assigned to the Amazon RDS resource.
---
--- * 'cdceDBClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
---
--- * 'cdceDBClusterEndpointIdentifier' - The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
---
--- * 'cdceEndpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
-createDBClusterEndpoint ::
-  -- | 'cdceDBClusterIdentifier'
-  Text ->
-  -- | 'cdceDBClusterEndpointIdentifier'
-  Text ->
-  -- | 'cdceEndpointType'
-  Text ->
+-- * 'dbClusterEndpointIdentifier' - The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+-- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+-- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
+-- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+-- * 'staticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
+-- * 'tags' - The tags to be assigned to the Amazon RDS resource.
+mkCreateDBClusterEndpoint ::
+  -- | 'dbClusterIdentifier'
+  Lude.Text ->
+  -- | 'dbClusterEndpointIdentifier'
+  Lude.Text ->
+  -- | 'endpointType'
+  Lude.Text ->
   CreateDBClusterEndpoint
-createDBClusterEndpoint
+mkCreateDBClusterEndpoint
   pDBClusterIdentifier_
   pDBClusterEndpointIdentifier_
   pEndpointType_ =
     CreateDBClusterEndpoint'
-      { _cdceStaticMembers = Nothing,
-        _cdceExcludedMembers = Nothing,
-        _cdceTags = Nothing,
-        _cdceDBClusterIdentifier = pDBClusterIdentifier_,
-        _cdceDBClusterEndpointIdentifier = pDBClusterEndpointIdentifier_,
-        _cdceEndpointType = pEndpointType_
+      { staticMembers = Lude.Nothing,
+        excludedMembers = Lude.Nothing,
+        tags = Lude.Nothing,
+        dbClusterIdentifier = pDBClusterIdentifier_,
+        dbClusterEndpointIdentifier = pDBClusterEndpointIdentifier_,
+        endpointType = pEndpointType_
       }
 
 -- | List of DB instance identifiers that are part of the custom endpoint group.
-cdceStaticMembers :: Lens' CreateDBClusterEndpoint [Text]
-cdceStaticMembers = lens _cdceStaticMembers (\s a -> s {_cdceStaticMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'staticMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceStaticMembers :: Lens.Lens' CreateDBClusterEndpoint (Lude.Maybe [Lude.Text])
+cdceStaticMembers = Lens.lens (staticMembers :: CreateDBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {staticMembers = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceStaticMembers "Use generic-lens or generic-optics with 'staticMembers' instead." #-}
 
 -- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-cdceExcludedMembers :: Lens' CreateDBClusterEndpoint [Text]
-cdceExcludedMembers = lens _cdceExcludedMembers (\s a -> s {_cdceExcludedMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'excludedMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceExcludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Lude.Maybe [Lude.Text])
+cdceExcludedMembers = Lens.lens (excludedMembers :: CreateDBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedMembers = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceExcludedMembers "Use generic-lens or generic-optics with 'excludedMembers' instead." #-}
 
 -- | The tags to be assigned to the Amazon RDS resource.
-cdceTags :: Lens' CreateDBClusterEndpoint [Tag]
-cdceTags = lens _cdceTags (\s a -> s {_cdceTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceTags :: Lens.Lens' CreateDBClusterEndpoint (Lude.Maybe [Tag])
+cdceTags = Lens.lens (tags :: CreateDBClusterEndpoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
-cdceDBClusterIdentifier :: Lens' CreateDBClusterEndpoint Text
-cdceDBClusterIdentifier = lens _cdceDBClusterIdentifier (\s a -> s {_cdceDBClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceDBClusterIdentifier :: Lens.Lens' CreateDBClusterEndpoint Lude.Text
+cdceDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: CreateDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-cdceDBClusterEndpointIdentifier :: Lens' CreateDBClusterEndpoint Text
-cdceDBClusterEndpointIdentifier = lens _cdceDBClusterEndpointIdentifier (\s a -> s {_cdceDBClusterEndpointIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceDBClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpoint Lude.Text
+cdceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: CreateDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
 
 -- | The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
-cdceEndpointType :: Lens' CreateDBClusterEndpoint Text
-cdceEndpointType = lens _cdceEndpointType (\s a -> s {_cdceEndpointType = a})
+--
+-- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdceEndpointType :: Lens.Lens' CreateDBClusterEndpoint Lude.Text
+cdceEndpointType = Lens.lens (endpointType :: CreateDBClusterEndpoint -> Lude.Text) (\s a -> s {endpointType = a} :: CreateDBClusterEndpoint)
+{-# DEPRECATED cdceEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
 
-instance AWSRequest CreateDBClusterEndpoint where
+instance Lude.AWSRequest CreateDBClusterEndpoint where
   type Rs CreateDBClusterEndpoint = DBClusterEndpoint
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateDBClusterEndpointResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable CreateDBClusterEndpoint
+instance Lude.ToHeaders CreateDBClusterEndpoint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDBClusterEndpoint
+instance Lude.ToPath CreateDBClusterEndpoint where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateDBClusterEndpoint where
-  toHeaders = const mempty
-
-instance ToPath CreateDBClusterEndpoint where
-  toPath = const "/"
-
-instance ToQuery CreateDBClusterEndpoint where
+instance Lude.ToQuery CreateDBClusterEndpoint where
   toQuery CreateDBClusterEndpoint' {..} =
-    mconcat
-      [ "Action" =: ("CreateDBClusterEndpoint" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateDBClusterEndpoint" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "StaticMembers"
-          =: toQuery (toQueryList "member" <$> _cdceStaticMembers),
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> staticMembers),
         "ExcludedMembers"
-          =: toQuery (toQueryList "member" <$> _cdceExcludedMembers),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cdceTags),
-        "DBClusterIdentifier" =: _cdceDBClusterIdentifier,
-        "DBClusterEndpointIdentifier" =: _cdceDBClusterEndpointIdentifier,
-        "EndpointType" =: _cdceEndpointType
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> excludedMembers),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "DBClusterEndpointIdentifier" Lude.=: dbClusterEndpointIdentifier,
+        "EndpointType" Lude.=: endpointType
       ]

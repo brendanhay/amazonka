@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Exports a deployed version of a 'RestApi' in a specified format.
 module Network.AWS.APIGateway.GetExport
-  ( -- * Creating a Request
-    getExport,
-    GetExport,
+  ( -- * Creating a request
+    GetExport (..),
+    mkGetExport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     geParameters,
     geAccepts,
     geRestAPIId,
     geStageName,
     geExportType,
 
-    -- * Destructuring the Response
-    getExportResponse,
-    GetExportResponse,
+    -- * Destructuring the response
+    GetExportResponse (..),
+    mkGetExportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gersBody,
     gersContentDisposition,
     gersContentType,
@@ -43,169 +38,184 @@ module Network.AWS.APIGateway.GetExport
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request a new export of a 'RestApi' for a particular 'Stage' .
 --
---
---
--- /See:/ 'getExport' smart constructor.
+-- /See:/ 'mkGetExport' smart constructor.
 data GetExport = GetExport'
-  { _geParameters ::
-      !(Maybe (Map Text (Text))),
-    _geAccepts :: !(Maybe Text),
-    _geRestAPIId :: !Text,
-    _geStageName :: !Text,
-    _geExportType :: !Text
+  { parameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    accepts :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text,
+    stageName :: Lude.Text,
+    exportType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'geParameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
---
--- * 'geAccepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
---
--- * 'geRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'geStageName' - [Required] The name of the 'Stage' that will be exported.
---
--- * 'geExportType' - [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
-getExport ::
-  -- | 'geRestAPIId'
-  Text ->
-  -- | 'geStageName'
-  Text ->
-  -- | 'geExportType'
-  Text ->
+-- * 'accepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
+-- * 'exportType' - [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+-- * 'parameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name of the 'Stage' that will be exported.
+mkGetExport ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'exportType'
+  Lude.Text ->
   GetExport
-getExport pRestAPIId_ pStageName_ pExportType_ =
+mkGetExport pRestAPIId_ pStageName_ pExportType_ =
   GetExport'
-    { _geParameters = Nothing,
-      _geAccepts = Nothing,
-      _geRestAPIId = pRestAPIId_,
-      _geStageName = pStageName_,
-      _geExportType = pExportType_
+    { parameters = Lude.Nothing,
+      accepts = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      stageName = pStageName_,
+      exportType = pExportType_
     }
 
 -- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
-geParameters :: Lens' GetExport (HashMap Text (Text))
-geParameters = lens _geParameters (\s a -> s {_geParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geParameters :: Lens.Lens' GetExport (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+geParameters = Lens.lens (parameters :: GetExport -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: GetExport)
+{-# DEPRECATED geParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
-geAccepts :: Lens' GetExport (Maybe Text)
-geAccepts = lens _geAccepts (\s a -> s {_geAccepts = a})
+--
+-- /Note:/ Consider using 'accepts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geAccepts :: Lens.Lens' GetExport (Lude.Maybe Lude.Text)
+geAccepts = Lens.lens (accepts :: GetExport -> Lude.Maybe Lude.Text) (\s a -> s {accepts = a} :: GetExport)
+{-# DEPRECATED geAccepts "Use generic-lens or generic-optics with 'accepts' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-geRestAPIId :: Lens' GetExport Text
-geRestAPIId = lens _geRestAPIId (\s a -> s {_geRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geRestAPIId :: Lens.Lens' GetExport Lude.Text
+geRestAPIId = Lens.lens (restAPIId :: GetExport -> Lude.Text) (\s a -> s {restAPIId = a} :: GetExport)
+{-# DEPRECATED geRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' that will be exported.
-geStageName :: Lens' GetExport Text
-geStageName = lens _geStageName (\s a -> s {_geStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geStageName :: Lens.Lens' GetExport Lude.Text
+geStageName = Lens.lens (stageName :: GetExport -> Lude.Text) (\s a -> s {stageName = a} :: GetExport)
+{-# DEPRECATED geStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
-geExportType :: Lens' GetExport Text
-geExportType = lens _geExportType (\s a -> s {_geExportType = a})
+--
+-- /Note:/ Consider using 'exportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geExportType :: Lens.Lens' GetExport Lude.Text
+geExportType = Lens.lens (exportType :: GetExport -> Lude.Text) (\s a -> s {exportType = a} :: GetExport)
+{-# DEPRECATED geExportType "Use generic-lens or generic-optics with 'exportType' instead." #-}
 
-instance AWSRequest GetExport where
+instance Lude.AWSRequest GetExport where
   type Rs GetExport = GetExportResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           GetExportResponse'
-            <$> (pure (Just x))
-            <*> (h .#? "Content-Disposition")
-            <*> (h .#? "Content-Type")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.Just x))
+            Lude.<*> (h Lude..#? "Content-Disposition")
+            Lude.<*> (h Lude..#? "Content-Type")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetExport
-
-instance NFData GetExport
-
-instance ToHeaders GetExport where
+instance Lude.ToHeaders GetExport where
   toHeaders GetExport' {..} =
-    mconcat
-      [ "Accept" =# _geAccepts,
-        "Accept" =# ("application/json" :: ByteString)
+    Lude.mconcat
+      [ "Accept" Lude.=# accepts,
+        "Accept" Lude.=# ("application/json" :: Lude.ByteString)
       ]
 
-instance ToPath GetExport where
+instance Lude.ToPath GetExport where
   toPath GetExport' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _geRestAPIId,
+        Lude.toBS restAPIId,
         "/stages/",
-        toBS _geStageName,
+        Lude.toBS stageName,
         "/exports/",
-        toBS _geExportType
+        Lude.toBS exportType
       ]
 
-instance ToQuery GetExport where
+instance Lude.ToQuery GetExport where
   toQuery GetExport' {..} =
-    mconcat
+    Lude.mconcat
       [ "parameters"
-          =: toQuery (toQueryMap "entry" "key" "value" <$> _geParameters)
+          Lude.=: Lude.toQuery
+            (Lude.toQueryMap "entry" "key" "value" Lude.<$> parameters)
       ]
 
 -- | The binary blob response to 'GetExport' , which contains the generated SDK.
 --
---
---
--- /See:/ 'getExportResponse' smart constructor.
+-- /See:/ 'mkGetExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { _gersBody ::
-      !(Maybe ByteString),
-    _gersContentDisposition :: !(Maybe Text),
-    _gersContentType :: !(Maybe Text),
-    _gersResponseStatus :: !Int
+  { body ::
+      Lude.Maybe Lude.ByteString,
+    contentDisposition :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gersBody' - The binary blob response to 'GetExport' , which contains the export.
---
--- * 'gersContentDisposition' - The content-disposition header value in the HTTP response.
---
--- * 'gersContentType' - The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
---
--- * 'gersResponseStatus' - -- | The response status code.
-getExportResponse ::
-  -- | 'gersResponseStatus'
-  Int ->
+-- * 'body' - The binary blob response to 'GetExport' , which contains the export.
+-- * 'contentDisposition' - The content-disposition header value in the HTTP response.
+-- * 'contentType' - The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
+-- * 'responseStatus' - The response status code.
+mkGetExportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetExportResponse
-getExportResponse pResponseStatus_ =
+mkGetExportResponse pResponseStatus_ =
   GetExportResponse'
-    { _gersBody = Nothing,
-      _gersContentDisposition = Nothing,
-      _gersContentType = Nothing,
-      _gersResponseStatus = pResponseStatus_
+    { body = Lude.Nothing,
+      contentDisposition = Lude.Nothing,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The binary blob response to 'GetExport' , which contains the export.
-gersBody :: Lens' GetExportResponse (Maybe ByteString)
-gersBody = lens _gersBody (\s a -> s {_gersBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersBody :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.ByteString)
+gersBody = Lens.lens (body :: GetExportResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {body = a} :: GetExportResponse)
+{-# DEPRECATED gersBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The content-disposition header value in the HTTP response.
-gersContentDisposition :: Lens' GetExportResponse (Maybe Text)
-gersContentDisposition = lens _gersContentDisposition (\s a -> s {_gersContentDisposition = a})
+--
+-- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersContentDisposition :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersContentDisposition = Lens.lens (contentDisposition :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: GetExportResponse)
+{-# DEPRECATED gersContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
 
 -- | The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
-gersContentType :: Lens' GetExportResponse (Maybe Text)
-gersContentType = lens _gersContentType (\s a -> s {_gersContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersContentType :: Lens.Lens' GetExportResponse (Lude.Maybe Lude.Text)
+gersContentType = Lens.lens (contentType :: GetExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetExportResponse)
+{-# DEPRECATED gersContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | -- | The response status code.
-gersResponseStatus :: Lens' GetExportResponse Int
-gersResponseStatus = lens _gersResponseStatus (\s a -> s {_gersResponseStatus = a})
-
-instance NFData GetExportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersResponseStatus :: Lens.Lens' GetExportResponse Lude.Int
+gersResponseStatus = Lens.lens (responseStatus :: GetExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExportResponse)
+{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

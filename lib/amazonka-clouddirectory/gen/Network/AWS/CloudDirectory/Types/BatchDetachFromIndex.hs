@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDetachFromIndex where
+module Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
+  ( BatchDetachFromIndex (..),
+
+    -- * Smart constructor
+    mkBatchDetachFromIndex,
+
+    -- * Lenses
+    bdfiIndexReference,
+    bdfiTargetReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detaches the specified object from the specified index inside a 'BatchRead' operation. For more information, see 'DetachFromIndex' and 'BatchReadRequest$Operations' .
 --
---
---
--- /See:/ 'batchDetachFromIndex' smart constructor.
+-- /See:/ 'mkBatchDetachFromIndex' smart constructor.
 data BatchDetachFromIndex = BatchDetachFromIndex'
-  { _bdfiIndexReference ::
-      !ObjectReference,
-    _bdfiTargetReference :: !ObjectReference
+  { indexReference ::
+      ObjectReference,
+    targetReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetachFromIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdfiIndexReference' - A reference to the index object.
---
--- * 'bdfiTargetReference' - A reference to the object being detached from the index.
-batchDetachFromIndex ::
-  -- | 'bdfiIndexReference'
+-- * 'indexReference' - A reference to the index object.
+-- * 'targetReference' - A reference to the object being detached from the index.
+mkBatchDetachFromIndex ::
+  -- | 'indexReference'
   ObjectReference ->
-  -- | 'bdfiTargetReference'
+  -- | 'targetReference'
   ObjectReference ->
   BatchDetachFromIndex
-batchDetachFromIndex pIndexReference_ pTargetReference_ =
+mkBatchDetachFromIndex pIndexReference_ pTargetReference_ =
   BatchDetachFromIndex'
-    { _bdfiIndexReference = pIndexReference_,
-      _bdfiTargetReference = pTargetReference_
+    { indexReference = pIndexReference_,
+      targetReference = pTargetReference_
     }
 
 -- | A reference to the index object.
-bdfiIndexReference :: Lens' BatchDetachFromIndex ObjectReference
-bdfiIndexReference = lens _bdfiIndexReference (\s a -> s {_bdfiIndexReference = a})
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdfiIndexReference :: Lens.Lens' BatchDetachFromIndex ObjectReference
+bdfiIndexReference = Lens.lens (indexReference :: BatchDetachFromIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchDetachFromIndex)
+{-# DEPRECATED bdfiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | A reference to the object being detached from the index.
-bdfiTargetReference :: Lens' BatchDetachFromIndex ObjectReference
-bdfiTargetReference = lens _bdfiTargetReference (\s a -> s {_bdfiTargetReference = a})
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdfiTargetReference :: Lens.Lens' BatchDetachFromIndex ObjectReference
+bdfiTargetReference = Lens.lens (targetReference :: BatchDetachFromIndex -> ObjectReference) (\s a -> s {targetReference = a} :: BatchDetachFromIndex)
+{-# DEPRECATED bdfiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
-instance Hashable BatchDetachFromIndex
-
-instance NFData BatchDetachFromIndex
-
-instance ToJSON BatchDetachFromIndex where
+instance Lude.ToJSON BatchDetachFromIndex where
   toJSON BatchDetachFromIndex' {..} =
-    object
-      ( catMaybes
-          [ Just ("IndexReference" .= _bdfiIndexReference),
-            Just ("TargetReference" .= _bdfiTargetReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("IndexReference" Lude..= indexReference),
+            Lude.Just ("TargetReference" Lude..= targetReference)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.TemplateStage where
+module Network.AWS.CloudFormation.Types.TemplateStage
+  ( TemplateStage
+      ( TemplateStage',
+        Original,
+        Processed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TemplateStage
-  = Original
-  | Processed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TemplateStage = TemplateStage' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TemplateStage where
-  parser =
-    takeLowerText >>= \case
-      "original" -> pure Original
-      "processed" -> pure Processed
-      e ->
-        fromTextError $
-          "Failure parsing TemplateStage from value: '" <> e
-            <> "'. Accepted values: original, processed"
+pattern Original :: TemplateStage
+pattern Original = TemplateStage' "Original"
 
-instance ToText TemplateStage where
-  toText = \case
-    Original -> "Original"
-    Processed -> "Processed"
+pattern Processed :: TemplateStage
+pattern Processed = TemplateStage' "Processed"
 
-instance Hashable TemplateStage
-
-instance NFData TemplateStage
-
-instance ToByteString TemplateStage
-
-instance ToQuery TemplateStage
-
-instance ToHeader TemplateStage
-
-instance FromXML TemplateStage where
-  parseXML = parseXMLText "TemplateStage"
+{-# COMPLETE
+  Original,
+  Processed,
+  TemplateStage'
+  #-}

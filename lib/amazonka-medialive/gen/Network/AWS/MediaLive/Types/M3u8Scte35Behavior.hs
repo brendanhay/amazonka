@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M3u8Scte35Behavior where
+module Network.AWS.MediaLive.Types.M3u8Scte35Behavior
+  ( M3u8Scte35Behavior
+      ( M3u8Scte35Behavior',
+        MSBNoPassthrough,
+        MSBPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M3u8 Scte35 Behavior
-data M3u8Scte35Behavior
-  = MSBNoPassthrough
-  | MSBPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M3u8Scte35Behavior = M3u8Scte35Behavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M3u8Scte35Behavior where
-  parser =
-    takeLowerText >>= \case
-      "no_passthrough" -> pure MSBNoPassthrough
-      "passthrough" -> pure MSBPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M3u8Scte35Behavior from value: '" <> e
-            <> "'. Accepted values: no_passthrough, passthrough"
+pattern MSBNoPassthrough :: M3u8Scte35Behavior
+pattern MSBNoPassthrough = M3u8Scte35Behavior' "NO_PASSTHROUGH"
 
-instance ToText M3u8Scte35Behavior where
-  toText = \case
-    MSBNoPassthrough -> "NO_PASSTHROUGH"
-    MSBPassthrough -> "PASSTHROUGH"
+pattern MSBPassthrough :: M3u8Scte35Behavior
+pattern MSBPassthrough = M3u8Scte35Behavior' "PASSTHROUGH"
 
-instance Hashable M3u8Scte35Behavior
-
-instance NFData M3u8Scte35Behavior
-
-instance ToByteString M3u8Scte35Behavior
-
-instance ToQuery M3u8Scte35Behavior
-
-instance ToHeader M3u8Scte35Behavior
-
-instance ToJSON M3u8Scte35Behavior where
-  toJSON = toJSONText
-
-instance FromJSON M3u8Scte35Behavior where
-  parseJSON = parseJSONText "M3u8Scte35Behavior"
+{-# COMPLETE
+  MSBNoPassthrough,
+  MSBPassthrough,
+  M3u8Scte35Behavior'
+  #-}

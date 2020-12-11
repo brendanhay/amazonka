@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.DestinationSchema where
+module Network.AWS.KinesisAnalytics.Types.DestinationSchema
+  ( DestinationSchema (..),
+
+    -- * Smart constructor
+    mkDestinationSchema,
+
+    -- * Lenses
+    dsRecordFormatType,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.RecordFormatType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 --
---
---
--- /See:/ 'destinationSchema' smart constructor.
+-- /See:/ 'mkDestinationSchema' smart constructor.
 newtype DestinationSchema = DestinationSchema'
-  { _dsRecordFormatType ::
+  { recordFormatType ::
       RecordFormatType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsRecordFormatType' - Specifies the format of the records on the output stream.
-destinationSchema ::
-  -- | 'dsRecordFormatType'
+-- * 'recordFormatType' - Specifies the format of the records on the output stream.
+mkDestinationSchema ::
+  -- | 'recordFormatType'
   RecordFormatType ->
   DestinationSchema
-destinationSchema pRecordFormatType_ =
-  DestinationSchema' {_dsRecordFormatType = pRecordFormatType_}
+mkDestinationSchema pRecordFormatType_ =
+  DestinationSchema' {recordFormatType = pRecordFormatType_}
 
 -- | Specifies the format of the records on the output stream.
-dsRecordFormatType :: Lens' DestinationSchema RecordFormatType
-dsRecordFormatType = lens _dsRecordFormatType (\s a -> s {_dsRecordFormatType = a})
+--
+-- /Note:/ Consider using 'recordFormatType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRecordFormatType :: Lens.Lens' DestinationSchema RecordFormatType
+dsRecordFormatType = Lens.lens (recordFormatType :: DestinationSchema -> RecordFormatType) (\s a -> s {recordFormatType = a} :: DestinationSchema)
+{-# DEPRECATED dsRecordFormatType "Use generic-lens or generic-optics with 'recordFormatType' instead." #-}
 
-instance FromJSON DestinationSchema where
+instance Lude.FromJSON DestinationSchema where
   parseJSON =
-    withObject
+    Lude.withObject
       "DestinationSchema"
-      (\x -> DestinationSchema' <$> (x .: "RecordFormatType"))
+      (\x -> DestinationSchema' Lude.<$> (x Lude..: "RecordFormatType"))
 
-instance Hashable DestinationSchema
-
-instance NFData DestinationSchema
-
-instance ToJSON DestinationSchema where
+instance Lude.ToJSON DestinationSchema where
   toJSON DestinationSchema' {..} =
-    object
-      (catMaybes [Just ("RecordFormatType" .= _dsRecordFormatType)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("RecordFormatType" Lude..= recordFormatType)]
+      )

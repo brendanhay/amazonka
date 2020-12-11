@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,156 @@
 --
 -- Controls whether the shares on a gateway are visible in a net view or browse list.
 module Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
-  ( -- * Creating a Request
-    updateSMBFileShareVisibility,
-    UpdateSMBFileShareVisibility,
+  ( -- * Creating a request
+    UpdateSMBFileShareVisibility (..),
+    mkUpdateSMBFileShareVisibility,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usmbfsvGatewayARN,
     usmbfsvFileSharesVisible,
 
-    -- * Destructuring the Response
-    updateSMBFileShareVisibilityResponse,
-    UpdateSMBFileShareVisibilityResponse,
+    -- * Destructuring the response
+    UpdateSMBFileShareVisibilityResponse (..),
+    mkUpdateSMBFileShareVisibilityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usmbfsvrsGatewayARN,
     usmbfsvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'updateSMBFileShareVisibility' smart constructor.
+-- | /See:/ 'mkUpdateSMBFileShareVisibility' smart constructor.
 data UpdateSMBFileShareVisibility = UpdateSMBFileShareVisibility'
-  { _usmbfsvGatewayARN ::
-      !Text,
-    _usmbfsvFileSharesVisible ::
-      !Bool
+  { gatewayARN ::
+      Lude.Text,
+    fileSharesVisible :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShareVisibility' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usmbfsvGatewayARN' - Undocumented member.
---
--- * 'usmbfsvFileSharesVisible' - The shares on this gateway appear when listing shares.
-updateSMBFileShareVisibility ::
-  -- | 'usmbfsvGatewayARN'
-  Text ->
-  -- | 'usmbfsvFileSharesVisible'
-  Bool ->
+-- * 'fileSharesVisible' - The shares on this gateway appear when listing shares.
+-- * 'gatewayARN' - Undocumented field.
+mkUpdateSMBFileShareVisibility ::
+  -- | 'gatewayARN'
+  Lude.Text ->
+  -- | 'fileSharesVisible'
+  Lude.Bool ->
   UpdateSMBFileShareVisibility
-updateSMBFileShareVisibility pGatewayARN_ pFileSharesVisible_ =
+mkUpdateSMBFileShareVisibility pGatewayARN_ pFileSharesVisible_ =
   UpdateSMBFileShareVisibility'
-    { _usmbfsvGatewayARN = pGatewayARN_,
-      _usmbfsvFileSharesVisible = pFileSharesVisible_
+    { gatewayARN = pGatewayARN_,
+      fileSharesVisible = pFileSharesVisible_
     }
 
--- | Undocumented member.
-usmbfsvGatewayARN :: Lens' UpdateSMBFileShareVisibility Text
-usmbfsvGatewayARN = lens _usmbfsvGatewayARN (\s a -> s {_usmbfsvGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsvGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibility Lude.Text
+usmbfsvGatewayARN = Lens.lens (gatewayARN :: UpdateSMBFileShareVisibility -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibility)
+{-# DEPRECATED usmbfsvGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The shares on this gateway appear when listing shares.
-usmbfsvFileSharesVisible :: Lens' UpdateSMBFileShareVisibility Bool
-usmbfsvFileSharesVisible = lens _usmbfsvFileSharesVisible (\s a -> s {_usmbfsvFileSharesVisible = a})
+--
+-- /Note:/ Consider using 'fileSharesVisible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsvFileSharesVisible :: Lens.Lens' UpdateSMBFileShareVisibility Lude.Bool
+usmbfsvFileSharesVisible = Lens.lens (fileSharesVisible :: UpdateSMBFileShareVisibility -> Lude.Bool) (\s a -> s {fileSharesVisible = a} :: UpdateSMBFileShareVisibility)
+{-# DEPRECATED usmbfsvFileSharesVisible "Use generic-lens or generic-optics with 'fileSharesVisible' instead." #-}
 
-instance AWSRequest UpdateSMBFileShareVisibility where
+instance Lude.AWSRequest UpdateSMBFileShareVisibility where
   type
     Rs UpdateSMBFileShareVisibility =
       UpdateSMBFileShareVisibilityResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareVisibilityResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSMBFileShareVisibility
-
-instance NFData UpdateSMBFileShareVisibility
-
-instance ToHeaders UpdateSMBFileShareVisibility where
+instance Lude.ToHeaders UpdateSMBFileShareVisibility where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.UpdateSMBFileShareVisibility" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.UpdateSMBFileShareVisibility" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateSMBFileShareVisibility where
+instance Lude.ToJSON UpdateSMBFileShareVisibility where
   toJSON UpdateSMBFileShareVisibility' {..} =
-    object
-      ( catMaybes
-          [ Just ("GatewayARN" .= _usmbfsvGatewayARN),
-            Just ("FileSharesVisible" .= _usmbfsvFileSharesVisible)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("FileSharesVisible" Lude..= fileSharesVisible)
           ]
       )
 
-instance ToPath UpdateSMBFileShareVisibility where
-  toPath = const "/"
+instance Lude.ToPath UpdateSMBFileShareVisibility where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateSMBFileShareVisibility where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSMBFileShareVisibility where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSMBFileShareVisibilityResponse' smart constructor.
+-- | /See:/ 'mkUpdateSMBFileShareVisibilityResponse' smart constructor.
 data UpdateSMBFileShareVisibilityResponse = UpdateSMBFileShareVisibilityResponse'
-  { _usmbfsvrsGatewayARN ::
-      !(Maybe Text),
-    _usmbfsvrsResponseStatus ::
-      !Int
+  { gatewayARN ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShareVisibilityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usmbfsvrsGatewayARN' - Undocumented member.
---
--- * 'usmbfsvrsResponseStatus' - -- | The response status code.
-updateSMBFileShareVisibilityResponse ::
-  -- | 'usmbfsvrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateSMBFileShareVisibilityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSMBFileShareVisibilityResponse
-updateSMBFileShareVisibilityResponse pResponseStatus_ =
+mkUpdateSMBFileShareVisibilityResponse pResponseStatus_ =
   UpdateSMBFileShareVisibilityResponse'
-    { _usmbfsvrsGatewayARN =
-        Nothing,
-      _usmbfsvrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-usmbfsvrsGatewayARN :: Lens' UpdateSMBFileShareVisibilityResponse (Maybe Text)
-usmbfsvrsGatewayARN = lens _usmbfsvrsGatewayARN (\s a -> s {_usmbfsvrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsvrsGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibilityResponse (Lude.Maybe Lude.Text)
+usmbfsvrsGatewayARN = Lens.lens (gatewayARN :: UpdateSMBFileShareVisibilityResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibilityResponse)
+{-# DEPRECATED usmbfsvrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-usmbfsvrsResponseStatus :: Lens' UpdateSMBFileShareVisibilityResponse Int
-usmbfsvrsResponseStatus = lens _usmbfsvrsResponseStatus (\s a -> s {_usmbfsvrsResponseStatus = a})
-
-instance NFData UpdateSMBFileShareVisibilityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsvrsResponseStatus :: Lens.Lens' UpdateSMBFileShareVisibilityResponse Lude.Int
+usmbfsvrsResponseStatus = Lens.lens (responseStatus :: UpdateSMBFileShareVisibilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSMBFileShareVisibilityResponse)
+{-# DEPRECATED usmbfsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

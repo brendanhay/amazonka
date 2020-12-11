@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,154 @@
 --
 -- Deletes the connection between a replication instance and an endpoint.
 module Network.AWS.DMS.DeleteConnection
-  ( -- * Creating a Request
-    deleteConnection,
-    DeleteConnection,
+  ( -- * Creating a request
+    DeleteConnection (..),
+    mkDeleteConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcEndpointARN,
     dcReplicationInstanceARN,
 
-    -- * Destructuring the Response
-    deleteConnectionResponse,
-    DeleteConnectionResponse,
+    -- * Destructuring the response
+    DeleteConnectionResponse (..),
+    mkDeleteConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsConnection,
     dcrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteConnection' smart constructor.
+-- /See:/ 'mkDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
-  { _dcEndpointARN :: !Text,
-    _dcReplicationInstanceARN :: !Text
+  { endpointARN :: Lude.Text,
+    replicationInstanceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
---
--- * 'dcReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
-deleteConnection ::
-  -- | 'dcEndpointARN'
-  Text ->
-  -- | 'dcReplicationInstanceARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+mkDeleteConnection ::
+  -- | 'endpointARN'
+  Lude.Text ->
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
   DeleteConnection
-deleteConnection pEndpointARN_ pReplicationInstanceARN_ =
+mkDeleteConnection pEndpointARN_ pReplicationInstanceARN_ =
   DeleteConnection'
-    { _dcEndpointARN = pEndpointARN_,
-      _dcReplicationInstanceARN = pReplicationInstanceARN_
+    { endpointARN = pEndpointARN_,
+      replicationInstanceARN = pReplicationInstanceARN_
     }
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-dcEndpointARN :: Lens' DeleteConnection Text
-dcEndpointARN = lens _dcEndpointARN (\s a -> s {_dcEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcEndpointARN :: Lens.Lens' DeleteConnection Lude.Text
+dcEndpointARN = Lens.lens (endpointARN :: DeleteConnection -> Lude.Text) (\s a -> s {endpointARN = a} :: DeleteConnection)
+{-# DEPRECATED dcEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-dcReplicationInstanceARN :: Lens' DeleteConnection Text
-dcReplicationInstanceARN = lens _dcReplicationInstanceARN (\s a -> s {_dcReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcReplicationInstanceARN :: Lens.Lens' DeleteConnection Lude.Text
+dcReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DeleteConnection -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DeleteConnection)
+{-# DEPRECATED dcReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
-instance AWSRequest DeleteConnection where
+instance Lude.AWSRequest DeleteConnection where
   type Rs DeleteConnection = DeleteConnectionResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteConnectionResponse'
-            <$> (x .?> "Connection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Connection") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteConnection
-
-instance NFData DeleteConnection
-
-instance ToHeaders DeleteConnection where
+instance Lude.ToHeaders DeleteConnection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DeleteConnection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DeleteConnection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteConnection where
+instance Lude.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
-    object
-      ( catMaybes
-          [ Just ("EndpointArn" .= _dcEndpointARN),
-            Just ("ReplicationInstanceArn" .= _dcReplicationInstanceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("EndpointArn" Lude..= endpointARN),
+            Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
           ]
       )
 
-instance ToPath DeleteConnection where
-  toPath = const "/"
+instance Lude.ToPath DeleteConnection where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteConnection where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConnection where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteConnectionResponse' smart constructor.
+-- /See:/ 'mkDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
-  { _dcrsConnection ::
-      !(Maybe Connection),
-    _dcrsResponseStatus :: !Int
+  { connection ::
+      Lude.Maybe Connection,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsConnection' - The connection that is being deleted.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-deleteConnectionResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'connection' - The connection that is being deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteConnectionResponse
-deleteConnectionResponse pResponseStatus_ =
+mkDeleteConnectionResponse pResponseStatus_ =
   DeleteConnectionResponse'
-    { _dcrsConnection = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { connection = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The connection that is being deleted.
-dcrsConnection :: Lens' DeleteConnectionResponse (Maybe Connection)
-dcrsConnection = lens _dcrsConnection (\s a -> s {_dcrsConnection = a})
+--
+-- /Note:/ Consider using 'connection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsConnection :: Lens.Lens' DeleteConnectionResponse (Lude.Maybe Connection)
+dcrsConnection = Lens.lens (connection :: DeleteConnectionResponse -> Lude.Maybe Connection) (\s a -> s {connection = a} :: DeleteConnectionResponse)
+{-# DEPRECATED dcrsConnection "Use generic-lens or generic-optics with 'connection' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DeleteConnectionResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DeleteConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DeleteConnectionResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DeleteConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConnectionResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Retrieves properties for an alias. This operation returns all alias metadata and settings. To get an alias's target fleet ID only, use @ResolveAlias@ .
 --
---
 -- To get alias properties, specify the alias ID. If successful, the requested alias record is returned.
 --
 --     * 'CreateAlias'
 --
+--
 --     * 'ListAliases'
+--
 --
 --     * 'DescribeAlias'
 --
+--
 --     * 'UpdateAlias'
+--
 --
 --     * 'DeleteAlias'
 --
+--
 --     * 'ResolveAlias'
 module Network.AWS.GameLift.DescribeAlias
-  ( -- * Creating a Request
-    describeAlias,
-    DescribeAlias,
+  ( -- * Creating a request
+    DescribeAlias (..),
+    mkDescribeAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAliasId,
 
-    -- * Destructuring the Response
-    describeAliasResponse,
-    DescribeAliasResponse,
+    -- * Destructuring the response
+    DescribeAliasResponse (..),
+    mkDescribeAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsAlias,
     darsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeAlias' smart constructor.
-newtype DescribeAlias = DescribeAlias' {_dAliasId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeAlias' smart constructor.
+newtype DescribeAlias = DescribeAlias' {aliasId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAliasId' - The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value.
-describeAlias ::
-  -- | 'dAliasId'
-  Text ->
+-- * 'aliasId' - The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value.
+mkDescribeAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   DescribeAlias
-describeAlias pAliasId_ = DescribeAlias' {_dAliasId = pAliasId_}
+mkDescribeAlias pAliasId_ = DescribeAlias' {aliasId = pAliasId_}
 
 -- | The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value.
-dAliasId :: Lens' DescribeAlias Text
-dAliasId = lens _dAliasId (\s a -> s {_dAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAliasId :: Lens.Lens' DescribeAlias Lude.Text
+dAliasId = Lens.lens (aliasId :: DescribeAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeAlias)
+{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest DescribeAlias where
+instance Lude.AWSRequest DescribeAlias where
   type Rs DescribeAlias = DescribeAliasResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DescribeAliasResponse' <$> (x .?> "Alias") <*> (pure (fromEnum s))
+          DescribeAliasResponse'
+            Lude.<$> (x Lude..?> "Alias") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAlias
-
-instance NFData DescribeAlias
-
-instance ToHeaders DescribeAlias where
+instance Lude.ToHeaders DescribeAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DescribeAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DescribeAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAlias where
+instance Lude.ToJSON DescribeAlias where
   toJSON DescribeAlias' {..} =
-    object (catMaybes [Just ("AliasId" .= _dAliasId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
 
-instance ToPath DescribeAlias where
-  toPath = const "/"
+instance Lude.ToPath DescribeAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAlias where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeAliasResponse' smart constructor.
+-- /See:/ 'mkDescribeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
-  { _darsAlias ::
-      !(Maybe Alias),
-    _darsResponseStatus :: !Int
+  { alias ::
+      Lude.Maybe Alias,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsAlias' - The requested alias resource.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeAliasResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'alias' - The requested alias resource.
+-- * 'responseStatus' - The response status code.
+mkDescribeAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAliasResponse
-describeAliasResponse pResponseStatus_ =
+mkDescribeAliasResponse pResponseStatus_ =
   DescribeAliasResponse'
-    { _darsAlias = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { alias = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The requested alias resource.
-darsAlias :: Lens' DescribeAliasResponse (Maybe Alias)
-darsAlias = lens _darsAlias (\s a -> s {_darsAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAlias :: Lens.Lens' DescribeAliasResponse (Lude.Maybe Alias)
+darsAlias = Lens.lens (alias :: DescribeAliasResponse -> Lude.Maybe Alias) (\s a -> s {alias = a} :: DescribeAliasResponse)
+{-# DEPRECATED darsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAliasResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeAliasResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAliasResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

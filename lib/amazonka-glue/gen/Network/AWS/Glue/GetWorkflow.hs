@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,144 @@
 --
 -- Retrieves resource metadata for a workflow.
 module Network.AWS.Glue.GetWorkflow
-  ( -- * Creating a Request
-    getWorkflow,
-    GetWorkflow,
+  ( -- * Creating a request
+    GetWorkflow (..),
+    mkGetWorkflow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gwIncludeGraph,
     gwName,
 
-    -- * Destructuring the Response
-    getWorkflowResponse,
-    GetWorkflowResponse,
+    -- * Destructuring the response
+    GetWorkflowResponse (..),
+    mkGetWorkflowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gwrsWorkflow,
     gwrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getWorkflow' smart constructor.
+-- | /See:/ 'mkGetWorkflow' smart constructor.
 data GetWorkflow = GetWorkflow'
-  { _gwIncludeGraph :: !(Maybe Bool),
-    _gwName :: !Text
+  { includeGraph ::
+      Lude.Maybe Lude.Bool,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwIncludeGraph' - Specifies whether to include a graph when returning the workflow resource metadata.
---
--- * 'gwName' - The name of the workflow to retrieve.
-getWorkflow ::
-  -- | 'gwName'
-  Text ->
+-- * 'includeGraph' - Specifies whether to include a graph when returning the workflow resource metadata.
+-- * 'name' - The name of the workflow to retrieve.
+mkGetWorkflow ::
+  -- | 'name'
+  Lude.Text ->
   GetWorkflow
-getWorkflow pName_ =
-  GetWorkflow' {_gwIncludeGraph = Nothing, _gwName = pName_}
+mkGetWorkflow pName_ =
+  GetWorkflow' {includeGraph = Lude.Nothing, name = pName_}
 
 -- | Specifies whether to include a graph when returning the workflow resource metadata.
-gwIncludeGraph :: Lens' GetWorkflow (Maybe Bool)
-gwIncludeGraph = lens _gwIncludeGraph (\s a -> s {_gwIncludeGraph = a})
+--
+-- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwIncludeGraph :: Lens.Lens' GetWorkflow (Lude.Maybe Lude.Bool)
+gwIncludeGraph = Lens.lens (includeGraph :: GetWorkflow -> Lude.Maybe Lude.Bool) (\s a -> s {includeGraph = a} :: GetWorkflow)
+{-# DEPRECATED gwIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
 
 -- | The name of the workflow to retrieve.
-gwName :: Lens' GetWorkflow Text
-gwName = lens _gwName (\s a -> s {_gwName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwName :: Lens.Lens' GetWorkflow Lude.Text
+gwName = Lens.lens (name :: GetWorkflow -> Lude.Text) (\s a -> s {name = a} :: GetWorkflow)
+{-# DEPRECATED gwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetWorkflow where
+instance Lude.AWSRequest GetWorkflow where
   type Rs GetWorkflow = GetWorkflowResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            <$> (x .?> "Workflow") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Workflow") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetWorkflow
-
-instance NFData GetWorkflow
-
-instance ToHeaders GetWorkflow where
+instance Lude.ToHeaders GetWorkflow where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetWorkflow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetWorkflow" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetWorkflow where
+instance Lude.ToJSON GetWorkflow where
   toJSON GetWorkflow' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeGraph" .=) <$> _gwIncludeGraph,
-            Just ("Name" .= _gwName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeGraph" Lude..=) Lude.<$> includeGraph,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath GetWorkflow where
-  toPath = const "/"
+instance Lude.ToPath GetWorkflow where
+  toPath = Lude.const "/"
 
-instance ToQuery GetWorkflow where
-  toQuery = const mempty
+instance Lude.ToQuery GetWorkflow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getWorkflowResponse' smart constructor.
+-- | /See:/ 'mkGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
-  { _gwrsWorkflow ::
-      !(Maybe Workflow),
-    _gwrsResponseStatus :: !Int
+  { workflow ::
+      Lude.Maybe Workflow,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwrsWorkflow' - The resource metadata for the workflow.
---
--- * 'gwrsResponseStatus' - -- | The response status code.
-getWorkflowResponse ::
-  -- | 'gwrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'workflow' - The resource metadata for the workflow.
+mkGetWorkflowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetWorkflowResponse
-getWorkflowResponse pResponseStatus_ =
+mkGetWorkflowResponse pResponseStatus_ =
   GetWorkflowResponse'
-    { _gwrsWorkflow = Nothing,
-      _gwrsResponseStatus = pResponseStatus_
+    { workflow = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The resource metadata for the workflow.
-gwrsWorkflow :: Lens' GetWorkflowResponse (Maybe Workflow)
-gwrsWorkflow = lens _gwrsWorkflow (\s a -> s {_gwrsWorkflow = a})
+--
+-- /Note:/ Consider using 'workflow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrsWorkflow :: Lens.Lens' GetWorkflowResponse (Lude.Maybe Workflow)
+gwrsWorkflow = Lens.lens (workflow :: GetWorkflowResponse -> Lude.Maybe Workflow) (\s a -> s {workflow = a} :: GetWorkflowResponse)
+{-# DEPRECATED gwrsWorkflow "Use generic-lens or generic-optics with 'workflow' instead." #-}
 
--- | -- | The response status code.
-gwrsResponseStatus :: Lens' GetWorkflowResponse Int
-gwrsResponseStatus = lens _gwrsResponseStatus (\s a -> s {_gwrsResponseStatus = a})
-
-instance NFData GetWorkflowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrsResponseStatus :: Lens.Lens' GetWorkflowResponse Lude.Int
+gwrsResponseStatus = Lens.lens (responseStatus :: GetWorkflowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkflowResponse)
+{-# DEPRECATED gwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

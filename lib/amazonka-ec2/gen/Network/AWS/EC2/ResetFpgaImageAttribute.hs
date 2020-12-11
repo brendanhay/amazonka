@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,149 @@
 --
 -- Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value. You can only reset the load permission attribute.
 module Network.AWS.EC2.ResetFpgaImageAttribute
-  ( -- * Creating a Request
-    resetFpgaImageAttribute,
-    ResetFpgaImageAttribute,
+  ( -- * Creating a request
+    ResetFpgaImageAttribute (..),
+    mkResetFpgaImageAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rfiaAttribute,
     rfiaDryRun,
     rfiaFpgaImageId,
 
-    -- * Destructuring the Response
-    resetFpgaImageAttributeResponse,
-    ResetFpgaImageAttributeResponse,
+    -- * Destructuring the response
+    ResetFpgaImageAttributeResponse (..),
+    mkResetFpgaImageAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rfiarsReturn,
     rfiarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetFpgaImageAttribute' smart constructor.
+-- | /See:/ 'mkResetFpgaImageAttribute' smart constructor.
 data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
-  { _rfiaAttribute ::
-      !(Maybe ResetFpgaImageAttributeName),
-    _rfiaDryRun :: !(Maybe Bool),
-    _rfiaFpgaImageId :: !Text
+  { attribute ::
+      Lude.Maybe ResetFpgaImageAttributeName,
+    dryRun :: Lude.Maybe Lude.Bool,
+    fpgaImageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetFpgaImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfiaAttribute' - The attribute.
---
--- * 'rfiaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rfiaFpgaImageId' - The ID of the AFI.
-resetFpgaImageAttribute ::
-  -- | 'rfiaFpgaImageId'
-  Text ->
+-- * 'attribute' - The attribute.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fpgaImageId' - The ID of the AFI.
+mkResetFpgaImageAttribute ::
+  -- | 'fpgaImageId'
+  Lude.Text ->
   ResetFpgaImageAttribute
-resetFpgaImageAttribute pFpgaImageId_ =
+mkResetFpgaImageAttribute pFpgaImageId_ =
   ResetFpgaImageAttribute'
-    { _rfiaAttribute = Nothing,
-      _rfiaDryRun = Nothing,
-      _rfiaFpgaImageId = pFpgaImageId_
+    { attribute = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      fpgaImageId = pFpgaImageId_
     }
 
 -- | The attribute.
-rfiaAttribute :: Lens' ResetFpgaImageAttribute (Maybe ResetFpgaImageAttributeName)
-rfiaAttribute = lens _rfiaAttribute (\s a -> s {_rfiaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiaAttribute :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe ResetFpgaImageAttributeName)
+rfiaAttribute = Lens.lens (attribute :: ResetFpgaImageAttribute -> Lude.Maybe ResetFpgaImageAttributeName) (\s a -> s {attribute = a} :: ResetFpgaImageAttribute)
+{-# DEPRECATED rfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rfiaDryRun :: Lens' ResetFpgaImageAttribute (Maybe Bool)
-rfiaDryRun = lens _rfiaDryRun (\s a -> s {_rfiaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiaDryRun :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe Lude.Bool)
+rfiaDryRun = Lens.lens (dryRun :: ResetFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetFpgaImageAttribute)
+{-# DEPRECATED rfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AFI.
-rfiaFpgaImageId :: Lens' ResetFpgaImageAttribute Text
-rfiaFpgaImageId = lens _rfiaFpgaImageId (\s a -> s {_rfiaFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiaFpgaImageId :: Lens.Lens' ResetFpgaImageAttribute Lude.Text
+rfiaFpgaImageId = Lens.lens (fpgaImageId :: ResetFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ResetFpgaImageAttribute)
+{-# DEPRECATED rfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
-instance AWSRequest ResetFpgaImageAttribute where
+instance Lude.AWSRequest ResetFpgaImageAttribute where
   type Rs ResetFpgaImageAttribute = ResetFpgaImageAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ResetFpgaImageAttributeResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetFpgaImageAttribute
+instance Lude.ToHeaders ResetFpgaImageAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResetFpgaImageAttribute
+instance Lude.ToPath ResetFpgaImageAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResetFpgaImageAttribute where
-  toHeaders = const mempty
-
-instance ToPath ResetFpgaImageAttribute where
-  toPath = const "/"
-
-instance ToQuery ResetFpgaImageAttribute where
+instance Lude.ToQuery ResetFpgaImageAttribute where
   toQuery ResetFpgaImageAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ResetFpgaImageAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Attribute" =: _rfiaAttribute,
-        "DryRun" =: _rfiaDryRun,
-        "FpgaImageId" =: _rfiaFpgaImageId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ResetFpgaImageAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Attribute" Lude.=: attribute,
+        "DryRun" Lude.=: dryRun,
+        "FpgaImageId" Lude.=: fpgaImageId
       ]
 
--- | /See:/ 'resetFpgaImageAttributeResponse' smart constructor.
+-- | /See:/ 'mkResetFpgaImageAttributeResponse' smart constructor.
 data ResetFpgaImageAttributeResponse = ResetFpgaImageAttributeResponse'
-  { _rfiarsReturn ::
-      !(Maybe Bool),
-    _rfiarsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetFpgaImageAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfiarsReturn' - Is @true@ if the request succeeds, and an error otherwise.
---
--- * 'rfiarsResponseStatus' - -- | The response status code.
-resetFpgaImageAttributeResponse ::
-  -- | 'rfiarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+mkResetFpgaImageAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetFpgaImageAttributeResponse
-resetFpgaImageAttributeResponse pResponseStatus_ =
+mkResetFpgaImageAttributeResponse pResponseStatus_ =
   ResetFpgaImageAttributeResponse'
-    { _rfiarsReturn = Nothing,
-      _rfiarsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-rfiarsReturn :: Lens' ResetFpgaImageAttributeResponse (Maybe Bool)
-rfiarsReturn = lens _rfiarsReturn (\s a -> s {_rfiarsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiarsReturn :: Lens.Lens' ResetFpgaImageAttributeResponse (Lude.Maybe Lude.Bool)
+rfiarsReturn = Lens.lens (return :: ResetFpgaImageAttributeResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ResetFpgaImageAttributeResponse)
+{-# DEPRECATED rfiarsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-rfiarsResponseStatus :: Lens' ResetFpgaImageAttributeResponse Int
-rfiarsResponseStatus = lens _rfiarsResponseStatus (\s a -> s {_rfiarsResponseStatus = a})
-
-instance NFData ResetFpgaImageAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiarsResponseStatus :: Lens.Lens' ResetFpgaImageAttributeResponse Lude.Int
+rfiarsResponseStatus = Lens.lens (responseStatus :: ResetFpgaImageAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetFpgaImageAttributeResponse)
+{-# DEPRECATED rfiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

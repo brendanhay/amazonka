@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,151 @@
 --
 -- Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.
 --
---
 -- To resume sending messages, you can opt in the number by using the @OptInPhoneNumber@ action.
 module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
-  ( -- * Creating a Request
-    checkIfPhoneNumberIsOptedOut,
-    CheckIfPhoneNumberIsOptedOut,
+  ( -- * Creating a request
+    CheckIfPhoneNumberIsOptedOut (..),
+    mkCheckIfPhoneNumberIsOptedOut,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cipniooPhoneNumber,
 
-    -- * Destructuring the Response
-    checkIfPhoneNumberIsOptedOutResponse,
-    CheckIfPhoneNumberIsOptedOutResponse,
+    -- * Destructuring the response
+    CheckIfPhoneNumberIsOptedOutResponse (..),
+    mkCheckIfPhoneNumberIsOptedOutResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cipnioorsIsOptedOut,
     cipnioorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | The input for the @CheckIfPhoneNumberIsOptedOut@ action.
 --
---
---
--- /See:/ 'checkIfPhoneNumberIsOptedOut' smart constructor.
+-- /See:/ 'mkCheckIfPhoneNumberIsOptedOut' smart constructor.
 newtype CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
-  { _cipniooPhoneNumber ::
-      Text
+  { phoneNumber ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOut' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cipniooPhoneNumber' - The phone number for which you want to check the opt out status.
-checkIfPhoneNumberIsOptedOut ::
-  -- | 'cipniooPhoneNumber'
-  Text ->
+-- * 'phoneNumber' - The phone number for which you want to check the opt out status.
+mkCheckIfPhoneNumberIsOptedOut ::
+  -- | 'phoneNumber'
+  Lude.Text ->
   CheckIfPhoneNumberIsOptedOut
-checkIfPhoneNumberIsOptedOut pPhoneNumber_ =
-  CheckIfPhoneNumberIsOptedOut'
-    { _cipniooPhoneNumber =
-        pPhoneNumber_
-    }
+mkCheckIfPhoneNumberIsOptedOut pPhoneNumber_ =
+  CheckIfPhoneNumberIsOptedOut' {phoneNumber = pPhoneNumber_}
 
 -- | The phone number for which you want to check the opt out status.
-cipniooPhoneNumber :: Lens' CheckIfPhoneNumberIsOptedOut Text
-cipniooPhoneNumber = lens _cipniooPhoneNumber (\s a -> s {_cipniooPhoneNumber = a})
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipniooPhoneNumber :: Lens.Lens' CheckIfPhoneNumberIsOptedOut Lude.Text
+cipniooPhoneNumber = Lens.lens (phoneNumber :: CheckIfPhoneNumberIsOptedOut -> Lude.Text) (\s a -> s {phoneNumber = a} :: CheckIfPhoneNumberIsOptedOut)
+{-# DEPRECATED cipniooPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
-instance AWSRequest CheckIfPhoneNumberIsOptedOut where
+instance Lude.AWSRequest CheckIfPhoneNumberIsOptedOut where
   type
     Rs CheckIfPhoneNumberIsOptedOut =
       CheckIfPhoneNumberIsOptedOutResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CheckIfPhoneNumberIsOptedOutResult"
       ( \s h x ->
           CheckIfPhoneNumberIsOptedOutResponse'
-            <$> (x .@? "isOptedOut") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "isOptedOut") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CheckIfPhoneNumberIsOptedOut
+instance Lude.ToHeaders CheckIfPhoneNumberIsOptedOut where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CheckIfPhoneNumberIsOptedOut
+instance Lude.ToPath CheckIfPhoneNumberIsOptedOut where
+  toPath = Lude.const "/"
 
-instance ToHeaders CheckIfPhoneNumberIsOptedOut where
-  toHeaders = const mempty
-
-instance ToPath CheckIfPhoneNumberIsOptedOut where
-  toPath = const "/"
-
-instance ToQuery CheckIfPhoneNumberIsOptedOut where
+instance Lude.ToQuery CheckIfPhoneNumberIsOptedOut where
   toQuery CheckIfPhoneNumberIsOptedOut' {..} =
-    mconcat
-      [ "Action" =: ("CheckIfPhoneNumberIsOptedOut" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "phoneNumber" =: _cipniooPhoneNumber
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CheckIfPhoneNumberIsOptedOut" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "phoneNumber" Lude.=: phoneNumber
       ]
 
 -- | The response from the @CheckIfPhoneNumberIsOptedOut@ action.
 --
---
---
--- /See:/ 'checkIfPhoneNumberIsOptedOutResponse' smart constructor.
+-- /See:/ 'mkCheckIfPhoneNumberIsOptedOutResponse' smart constructor.
 data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse'
-  { _cipnioorsIsOptedOut ::
-      !(Maybe Bool),
-    _cipnioorsResponseStatus ::
-      !Int
+  { isOptedOut ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOutResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'isOptedOut' - Indicates whether the phone number is opted out:
 --
--- * 'cipnioorsIsOptedOut' - Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
 --
--- * 'cipnioorsResponseStatus' - -- | The response status code.
-checkIfPhoneNumberIsOptedOutResponse ::
-  -- | 'cipnioorsResponseStatus'
-  Int ->
+--     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.
+--
+--
+--     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkCheckIfPhoneNumberIsOptedOutResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CheckIfPhoneNumberIsOptedOutResponse
-checkIfPhoneNumberIsOptedOutResponse pResponseStatus_ =
+mkCheckIfPhoneNumberIsOptedOutResponse pResponseStatus_ =
   CheckIfPhoneNumberIsOptedOutResponse'
-    { _cipnioorsIsOptedOut =
-        Nothing,
-      _cipnioorsResponseStatus = pResponseStatus_
+    { isOptedOut = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
-cipnioorsIsOptedOut :: Lens' CheckIfPhoneNumberIsOptedOutResponse (Maybe Bool)
-cipnioorsIsOptedOut = lens _cipnioorsIsOptedOut (\s a -> s {_cipnioorsIsOptedOut = a})
+-- | Indicates whether the phone number is opted out:
+--
+--
+--     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.
+--
+--
+--     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
+--
+--
+--
+-- /Note:/ Consider using 'isOptedOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipnioorsIsOptedOut :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse (Lude.Maybe Lude.Bool)
+cipnioorsIsOptedOut = Lens.lens (isOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isOptedOut = a} :: CheckIfPhoneNumberIsOptedOutResponse)
+{-# DEPRECATED cipnioorsIsOptedOut "Use generic-lens or generic-optics with 'isOptedOut' instead." #-}
 
--- | -- | The response status code.
-cipnioorsResponseStatus :: Lens' CheckIfPhoneNumberIsOptedOutResponse Int
-cipnioorsResponseStatus = lens _cipnioorsResponseStatus (\s a -> s {_cipnioorsResponseStatus = a})
-
-instance NFData CheckIfPhoneNumberIsOptedOutResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipnioorsResponseStatus :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse Lude.Int
+cipnioorsResponseStatus = Lens.lens (responseStatus :: CheckIfPhoneNumberIsOptedOutResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CheckIfPhoneNumberIsOptedOutResponse)
+{-# DEPRECATED cipnioorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

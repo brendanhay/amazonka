@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor where
+module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
+  ( DvbSubtitleBackgroundColor
+      ( DvbSubtitleBackgroundColor',
+        Black,
+        None,
+        White
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the color of the rectangle behind the captions.
 --
 -- All burn-in and DVB-Sub font settings must match.
-data DvbSubtitleBackgroundColor
-  = Black
-  | None
-  | White
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubtitleBackgroundColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure Black
-      "none" -> pure None
-      "white" -> pure White
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubtitleBackgroundColor from value: '" <> e
-            <> "'. Accepted values: black, none, white"
+pattern Black :: DvbSubtitleBackgroundColor
+pattern Black = DvbSubtitleBackgroundColor' "BLACK"
 
-instance ToText DvbSubtitleBackgroundColor where
-  toText = \case
-    Black -> "BLACK"
-    None -> "NONE"
-    White -> "WHITE"
+pattern None :: DvbSubtitleBackgroundColor
+pattern None = DvbSubtitleBackgroundColor' "NONE"
 
-instance Hashable DvbSubtitleBackgroundColor
+pattern White :: DvbSubtitleBackgroundColor
+pattern White = DvbSubtitleBackgroundColor' "WHITE"
 
-instance NFData DvbSubtitleBackgroundColor
-
-instance ToByteString DvbSubtitleBackgroundColor
-
-instance ToQuery DvbSubtitleBackgroundColor
-
-instance ToHeader DvbSubtitleBackgroundColor
-
-instance ToJSON DvbSubtitleBackgroundColor where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubtitleBackgroundColor where
-  parseJSON = parseJSONText "DvbSubtitleBackgroundColor"
+{-# COMPLETE
+  Black,
+  None,
+  White,
+  DvbSubtitleBackgroundColor'
+  #-}

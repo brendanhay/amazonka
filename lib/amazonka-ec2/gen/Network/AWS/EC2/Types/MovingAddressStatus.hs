@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MovingAddressStatus where
+module Network.AWS.EC2.Types.MovingAddressStatus
+  ( MovingAddressStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkMovingAddressStatus,
+
+    -- * Lenses
+    masMoveStatus,
+    masPublicIP,
+  )
+where
+
 import Network.AWS.EC2.Types.MoveStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of a moving Elastic IP address.
 --
---
---
--- /See:/ 'movingAddressStatus' smart constructor.
+-- /See:/ 'mkMovingAddressStatus' smart constructor.
 data MovingAddressStatus = MovingAddressStatus'
-  { _masMoveStatus ::
-      !(Maybe MoveStatus),
-    _masPublicIP :: !(Maybe Text)
+  { moveStatus ::
+      Lude.Maybe MoveStatus,
+    publicIP :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MovingAddressStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'masMoveStatus' - The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
---
--- * 'masPublicIP' - The Elastic IP address.
-movingAddressStatus ::
+-- * 'moveStatus' - The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
+-- * 'publicIP' - The Elastic IP address.
+mkMovingAddressStatus ::
   MovingAddressStatus
-movingAddressStatus =
+mkMovingAddressStatus =
   MovingAddressStatus'
-    { _masMoveStatus = Nothing,
-      _masPublicIP = Nothing
+    { moveStatus = Lude.Nothing,
+      publicIP = Lude.Nothing
     }
 
 -- | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
-masMoveStatus :: Lens' MovingAddressStatus (Maybe MoveStatus)
-masMoveStatus = lens _masMoveStatus (\s a -> s {_masMoveStatus = a})
+--
+-- /Note:/ Consider using 'moveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masMoveStatus :: Lens.Lens' MovingAddressStatus (Lude.Maybe MoveStatus)
+masMoveStatus = Lens.lens (moveStatus :: MovingAddressStatus -> Lude.Maybe MoveStatus) (\s a -> s {moveStatus = a} :: MovingAddressStatus)
+{-# DEPRECATED masMoveStatus "Use generic-lens or generic-optics with 'moveStatus' instead." #-}
 
 -- | The Elastic IP address.
-masPublicIP :: Lens' MovingAddressStatus (Maybe Text)
-masPublicIP = lens _masPublicIP (\s a -> s {_masPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masPublicIP :: Lens.Lens' MovingAddressStatus (Lude.Maybe Lude.Text)
+masPublicIP = Lens.lens (publicIP :: MovingAddressStatus -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: MovingAddressStatus)
+{-# DEPRECATED masPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
-instance FromXML MovingAddressStatus where
+instance Lude.FromXML MovingAddressStatus where
   parseXML x =
     MovingAddressStatus'
-      <$> (x .@? "moveStatus") <*> (x .@? "publicIp")
-
-instance Hashable MovingAddressStatus
-
-instance NFData MovingAddressStatus
+      Lude.<$> (x Lude..@? "moveStatus") Lude.<*> (x Lude..@? "publicIp")

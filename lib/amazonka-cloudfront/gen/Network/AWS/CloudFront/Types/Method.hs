@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Method where
+module Network.AWS.CloudFront.Types.Method
+  ( Method
+      ( Method',
+        Delete,
+        Get,
+        Head,
+        Options,
+        Patch,
+        Post,
+        Put
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Method
-  = Delete
-  | Get
-  | Head
-  | Options
-  | Patch
-  | Post
-  | Put
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Method = Method' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Method where
-  parser =
-    takeLowerText >>= \case
-      "delete" -> pure Delete
-      "get" -> pure Get
-      "head" -> pure Head
-      "options" -> pure Options
-      "patch" -> pure Patch
-      "post" -> pure Post
-      "put" -> pure Put
-      e ->
-        fromTextError $
-          "Failure parsing Method from value: '" <> e
-            <> "'. Accepted values: delete, get, head, options, patch, post, put"
+pattern Delete :: Method
+pattern Delete = Method' "DELETE"
 
-instance ToText Method where
-  toText = \case
-    Delete -> "DELETE"
-    Get -> "GET"
-    Head -> "HEAD"
-    Options -> "OPTIONS"
-    Patch -> "PATCH"
-    Post -> "POST"
-    Put -> "PUT"
+pattern Get :: Method
+pattern Get = Method' "GET"
 
-instance Hashable Method
+pattern Head :: Method
+pattern Head = Method' "HEAD"
 
-instance NFData Method
+pattern Options :: Method
+pattern Options = Method' "OPTIONS"
 
-instance ToByteString Method
+pattern Patch :: Method
+pattern Patch = Method' "PATCH"
 
-instance ToQuery Method
+pattern Post :: Method
+pattern Post = Method' "POST"
 
-instance ToHeader Method
+pattern Put :: Method
+pattern Put = Method' "PUT"
 
-instance FromXML Method where
-  parseXML = parseXMLText "Method"
-
-instance ToXML Method where
-  toXML = toXMLText
+{-# COMPLETE
+  Delete,
+  Get,
+  Head,
+  Options,
+  Patch,
+  Post,
+  Put,
+  Method'
+  #-}

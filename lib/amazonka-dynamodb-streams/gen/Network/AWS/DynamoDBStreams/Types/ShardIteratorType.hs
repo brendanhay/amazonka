@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.ShardIteratorType where
+module Network.AWS.DynamoDBStreams.Types.ShardIteratorType
+  ( ShardIteratorType
+      ( ShardIteratorType',
+        AfterSequenceNumber,
+        AtSequenceNumber,
+        Latest,
+        TrimHorizon
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShardIteratorType
-  = AfterSequenceNumber
-  | AtSequenceNumber
-  | Latest
-  | TrimHorizon
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShardIteratorType = ShardIteratorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShardIteratorType where
-  parser =
-    takeLowerText >>= \case
-      "after_sequence_number" -> pure AfterSequenceNumber
-      "at_sequence_number" -> pure AtSequenceNumber
-      "latest" -> pure Latest
-      "trim_horizon" -> pure TrimHorizon
-      e ->
-        fromTextError $
-          "Failure parsing ShardIteratorType from value: '" <> e
-            <> "'. Accepted values: after_sequence_number, at_sequence_number, latest, trim_horizon"
+pattern AfterSequenceNumber :: ShardIteratorType
+pattern AfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
 
-instance ToText ShardIteratorType where
-  toText = \case
-    AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
-    AtSequenceNumber -> "AT_SEQUENCE_NUMBER"
-    Latest -> "LATEST"
-    TrimHorizon -> "TRIM_HORIZON"
+pattern AtSequenceNumber :: ShardIteratorType
+pattern AtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
 
-instance Hashable ShardIteratorType
+pattern Latest :: ShardIteratorType
+pattern Latest = ShardIteratorType' "LATEST"
 
-instance NFData ShardIteratorType
+pattern TrimHorizon :: ShardIteratorType
+pattern TrimHorizon = ShardIteratorType' "TRIM_HORIZON"
 
-instance ToByteString ShardIteratorType
-
-instance ToQuery ShardIteratorType
-
-instance ToHeader ShardIteratorType
-
-instance ToJSON ShardIteratorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AfterSequenceNumber,
+  AtSequenceNumber,
+  Latest,
+  TrimHorizon,
+  ShardIteratorType'
+  #-}

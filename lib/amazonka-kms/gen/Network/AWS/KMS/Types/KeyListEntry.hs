@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.KeyListEntry where
+module Network.AWS.KMS.Types.KeyListEntry
+  ( KeyListEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKeyListEntry,
+
+    -- * Lenses
+    kleKeyId,
+    kleKeyARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about each entry in the key list.
 --
---
---
--- /See:/ 'keyListEntry' smart constructor.
+-- /See:/ 'mkKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-  { _kleKeyId :: !(Maybe Text),
-    _kleKeyARN :: !(Maybe Text)
+  { keyId :: Lude.Maybe Lude.Text,
+    keyARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kleKeyId' - Unique identifier of the key.
---
--- * 'kleKeyARN' - ARN of the key.
-keyListEntry ::
+-- * 'keyARN' - ARN of the key.
+-- * 'keyId' - Unique identifier of the key.
+mkKeyListEntry ::
   KeyListEntry
-keyListEntry =
-  KeyListEntry' {_kleKeyId = Nothing, _kleKeyARN = Nothing}
+mkKeyListEntry =
+  KeyListEntry' {keyId = Lude.Nothing, keyARN = Lude.Nothing}
 
 -- | Unique identifier of the key.
-kleKeyId :: Lens' KeyListEntry (Maybe Text)
-kleKeyId = lens _kleKeyId (\s a -> s {_kleKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kleKeyId :: Lens.Lens' KeyListEntry (Lude.Maybe Lude.Text)
+kleKeyId = Lens.lens (keyId :: KeyListEntry -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: KeyListEntry)
+{-# DEPRECATED kleKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | ARN of the key.
-kleKeyARN :: Lens' KeyListEntry (Maybe Text)
-kleKeyARN = lens _kleKeyARN (\s a -> s {_kleKeyARN = a})
+--
+-- /Note:/ Consider using 'keyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kleKeyARN :: Lens.Lens' KeyListEntry (Lude.Maybe Lude.Text)
+kleKeyARN = Lens.lens (keyARN :: KeyListEntry -> Lude.Maybe Lude.Text) (\s a -> s {keyARN = a} :: KeyListEntry)
+{-# DEPRECATED kleKeyARN "Use generic-lens or generic-optics with 'keyARN' instead." #-}
 
-instance FromJSON KeyListEntry where
+instance Lude.FromJSON KeyListEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "KeyListEntry"
-      (\x -> KeyListEntry' <$> (x .:? "KeyId") <*> (x .:? "KeyArn"))
-
-instance Hashable KeyListEntry
-
-instance NFData KeyListEntry
+      ( \x ->
+          KeyListEntry'
+            Lude.<$> (x Lude..:? "KeyId") Lude.<*> (x Lude..:? "KeyArn")
+      )

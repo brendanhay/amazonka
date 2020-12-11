@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,140 @@
 --
 -- Allows the destination domain owner to delete an existing inbound cross-cluster search connection.
 module Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
-  ( -- * Creating a Request
-    deleteInboundCrossClusterSearchConnection,
-    DeleteInboundCrossClusterSearchConnection,
+  ( -- * Creating a request
+    DeleteInboundCrossClusterSearchConnection (..),
+    mkDeleteInboundCrossClusterSearchConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diccscCrossClusterSearchConnectionId,
 
-    -- * Destructuring the Response
-    deleteInboundCrossClusterSearchConnectionResponse,
-    DeleteInboundCrossClusterSearchConnectionResponse,
+    -- * Destructuring the response
+    DeleteInboundCrossClusterSearchConnectionResponse (..),
+    mkDeleteInboundCrossClusterSearchConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diccscirsCrossClusterSearchConnection,
     diccscirsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DeleteInboundCrossClusterSearchConnection' @ operation.
 --
---
---
--- /See:/ 'deleteInboundCrossClusterSearchConnection' smart constructor.
+-- /See:/ 'mkDeleteInboundCrossClusterSearchConnection' smart constructor.
 newtype DeleteInboundCrossClusterSearchConnection = DeleteInboundCrossClusterSearchConnection'
-  { _diccscCrossClusterSearchConnectionId ::
-      Text
+  { crossClusterSearchConnectionId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInboundCrossClusterSearchConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diccscCrossClusterSearchConnectionId' - The id of the inbound connection that you want to permanently delete.
-deleteInboundCrossClusterSearchConnection ::
-  -- | 'diccscCrossClusterSearchConnectionId'
-  Text ->
+-- * 'crossClusterSearchConnectionId' - The id of the inbound connection that you want to permanently delete.
+mkDeleteInboundCrossClusterSearchConnection ::
+  -- | 'crossClusterSearchConnectionId'
+  Lude.Text ->
   DeleteInboundCrossClusterSearchConnection
-deleteInboundCrossClusterSearchConnection
+mkDeleteInboundCrossClusterSearchConnection
   pCrossClusterSearchConnectionId_ =
     DeleteInboundCrossClusterSearchConnection'
-      { _diccscCrossClusterSearchConnectionId =
+      { crossClusterSearchConnectionId =
           pCrossClusterSearchConnectionId_
       }
 
 -- | The id of the inbound connection that you want to permanently delete.
-diccscCrossClusterSearchConnectionId :: Lens' DeleteInboundCrossClusterSearchConnection Text
-diccscCrossClusterSearchConnectionId = lens _diccscCrossClusterSearchConnectionId (\s a -> s {_diccscCrossClusterSearchConnectionId = a})
+--
+-- /Note:/ Consider using 'crossClusterSearchConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diccscCrossClusterSearchConnectionId :: Lens.Lens' DeleteInboundCrossClusterSearchConnection Lude.Text
+diccscCrossClusterSearchConnectionId = Lens.lens (crossClusterSearchConnectionId :: DeleteInboundCrossClusterSearchConnection -> Lude.Text) (\s a -> s {crossClusterSearchConnectionId = a} :: DeleteInboundCrossClusterSearchConnection)
+{-# DEPRECATED diccscCrossClusterSearchConnectionId "Use generic-lens or generic-optics with 'crossClusterSearchConnectionId' instead." #-}
 
-instance AWSRequest DeleteInboundCrossClusterSearchConnection where
+instance Lude.AWSRequest DeleteInboundCrossClusterSearchConnection where
   type
     Rs DeleteInboundCrossClusterSearchConnection =
       DeleteInboundCrossClusterSearchConnectionResponse
-  request = delete elasticSearch
+  request = Req.delete elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteInboundCrossClusterSearchConnectionResponse'
-            <$> (x .?> "CrossClusterSearchConnection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CrossClusterSearchConnection")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteInboundCrossClusterSearchConnection
+instance Lude.ToHeaders DeleteInboundCrossClusterSearchConnection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteInboundCrossClusterSearchConnection
-
-instance ToHeaders DeleteInboundCrossClusterSearchConnection where
-  toHeaders = const mempty
-
-instance ToPath DeleteInboundCrossClusterSearchConnection where
+instance Lude.ToPath DeleteInboundCrossClusterSearchConnection where
   toPath DeleteInboundCrossClusterSearchConnection' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-01-01/es/ccs/inboundConnection/",
-        toBS _diccscCrossClusterSearchConnectionId
+        Lude.toBS crossClusterSearchConnectionId
       ]
 
-instance ToQuery DeleteInboundCrossClusterSearchConnection where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteInboundCrossClusterSearchConnection where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @'DeleteInboundCrossClusterSearchConnection' @ operation. Contains details of deleted inbound connection.
 --
---
---
--- /See:/ 'deleteInboundCrossClusterSearchConnectionResponse' smart constructor.
+-- /See:/ 'mkDeleteInboundCrossClusterSearchConnectionResponse' smart constructor.
 data DeleteInboundCrossClusterSearchConnectionResponse = DeleteInboundCrossClusterSearchConnectionResponse'
-  { _diccscirsCrossClusterSearchConnection ::
-      !( Maybe
-           InboundCrossClusterSearchConnection
-       ),
-    _diccscirsResponseStatus ::
-      !Int
+  { crossClusterSearchConnection ::
+      Lude.Maybe
+        InboundCrossClusterSearchConnection,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeleteInboundCrossClusterSearchConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diccscirsCrossClusterSearchConnection' - Specifies the @'InboundCrossClusterSearchConnection' @ of deleted inbound connection.
---
--- * 'diccscirsResponseStatus' - -- | The response status code.
-deleteInboundCrossClusterSearchConnectionResponse ::
-  -- | 'diccscirsResponseStatus'
-  Int ->
+-- * 'crossClusterSearchConnection' - Specifies the @'InboundCrossClusterSearchConnection' @ of deleted inbound connection.
+-- * 'responseStatus' - The response status code.
+mkDeleteInboundCrossClusterSearchConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInboundCrossClusterSearchConnectionResponse
-deleteInboundCrossClusterSearchConnectionResponse pResponseStatus_ =
-  DeleteInboundCrossClusterSearchConnectionResponse'
-    { _diccscirsCrossClusterSearchConnection =
-        Nothing,
-      _diccscirsResponseStatus = pResponseStatus_
-    }
+mkDeleteInboundCrossClusterSearchConnectionResponse
+  pResponseStatus_ =
+    DeleteInboundCrossClusterSearchConnectionResponse'
+      { crossClusterSearchConnection =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | Specifies the @'InboundCrossClusterSearchConnection' @ of deleted inbound connection.
-diccscirsCrossClusterSearchConnection :: Lens' DeleteInboundCrossClusterSearchConnectionResponse (Maybe InboundCrossClusterSearchConnection)
-diccscirsCrossClusterSearchConnection = lens _diccscirsCrossClusterSearchConnection (\s a -> s {_diccscirsCrossClusterSearchConnection = a})
+--
+-- /Note:/ Consider using 'crossClusterSearchConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diccscirsCrossClusterSearchConnection :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse (Lude.Maybe InboundCrossClusterSearchConnection)
+diccscirsCrossClusterSearchConnection = Lens.lens (crossClusterSearchConnection :: DeleteInboundCrossClusterSearchConnectionResponse -> Lude.Maybe InboundCrossClusterSearchConnection) (\s a -> s {crossClusterSearchConnection = a} :: DeleteInboundCrossClusterSearchConnectionResponse)
+{-# DEPRECATED diccscirsCrossClusterSearchConnection "Use generic-lens or generic-optics with 'crossClusterSearchConnection' instead." #-}
 
--- | -- | The response status code.
-diccscirsResponseStatus :: Lens' DeleteInboundCrossClusterSearchConnectionResponse Int
-diccscirsResponseStatus = lens _diccscirsResponseStatus (\s a -> s {_diccscirsResponseStatus = a})
-
-instance NFData DeleteInboundCrossClusterSearchConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diccscirsResponseStatus :: Lens.Lens' DeleteInboundCrossClusterSearchConnectionResponse Lude.Int
+diccscirsResponseStatus = Lens.lens (responseStatus :: DeleteInboundCrossClusterSearchConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInboundCrossClusterSearchConnectionResponse)
+{-# DEPRECATED diccscirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

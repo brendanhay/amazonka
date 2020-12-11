@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImageAttributeName where
+module Network.AWS.EC2.Types.ImageAttributeName
+  ( ImageAttributeName
+      ( ImageAttributeName',
+        BlockDeviceMapping,
+        Description,
+        Kernel,
+        LaunchPermission,
+        ProductCodes,
+        RAMDisk,
+        SRIOVNetSupport
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageAttributeName
-  = BlockDeviceMapping
-  | Description
-  | Kernel
-  | LaunchPermission
-  | ProductCodes
-  | RAMDisk
-  | SRIOVNetSupport
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageAttributeName = ImageAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "blockdevicemapping" -> pure BlockDeviceMapping
-      "description" -> pure Description
-      "kernel" -> pure Kernel
-      "launchpermission" -> pure LaunchPermission
-      "productcodes" -> pure ProductCodes
-      "ramdisk" -> pure RAMDisk
-      "sriovnetsupport" -> pure SRIOVNetSupport
-      e ->
-        fromTextError $
-          "Failure parsing ImageAttributeName from value: '" <> e
-            <> "'. Accepted values: blockdevicemapping, description, kernel, launchpermission, productcodes, ramdisk, sriovnetsupport"
+pattern BlockDeviceMapping :: ImageAttributeName
+pattern BlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
 
-instance ToText ImageAttributeName where
-  toText = \case
-    BlockDeviceMapping -> "blockDeviceMapping"
-    Description -> "description"
-    Kernel -> "kernel"
-    LaunchPermission -> "launchPermission"
-    ProductCodes -> "productCodes"
-    RAMDisk -> "ramdisk"
-    SRIOVNetSupport -> "sriovNetSupport"
+pattern Description :: ImageAttributeName
+pattern Description = ImageAttributeName' "description"
 
-instance Hashable ImageAttributeName
+pattern Kernel :: ImageAttributeName
+pattern Kernel = ImageAttributeName' "kernel"
 
-instance NFData ImageAttributeName
+pattern LaunchPermission :: ImageAttributeName
+pattern LaunchPermission = ImageAttributeName' "launchPermission"
 
-instance ToByteString ImageAttributeName
+pattern ProductCodes :: ImageAttributeName
+pattern ProductCodes = ImageAttributeName' "productCodes"
 
-instance ToQuery ImageAttributeName
+pattern RAMDisk :: ImageAttributeName
+pattern RAMDisk = ImageAttributeName' "ramdisk"
 
-instance ToHeader ImageAttributeName
+pattern SRIOVNetSupport :: ImageAttributeName
+pattern SRIOVNetSupport = ImageAttributeName' "sriovNetSupport"
+
+{-# COMPLETE
+  BlockDeviceMapping,
+  Description,
+  Kernel,
+  LaunchPermission,
+  ProductCodes,
+  RAMDisk,
+  SRIOVNetSupport,
+  ImageAttributeName'
+  #-}

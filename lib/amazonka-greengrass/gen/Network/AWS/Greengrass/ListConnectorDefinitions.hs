@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +16,19 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListConnectorDefinitions
-  ( -- * Creating a Request
-    listConnectorDefinitions,
-    ListConnectorDefinitions,
+  ( -- * Creating a request
+    ListConnectorDefinitions (..),
+    mkListConnectorDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lNextToken,
     lMaxResults,
 
-    -- * Destructuring the Response
-    listConnectorDefinitionsResponse,
-    ListConnectorDefinitionsResponse,
+    -- * Destructuring the response
+    ListConnectorDefinitionsResponse (..),
+    mkListConnectorDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsNextToken,
     lrsDefinitions,
     lrsResponseStatus,
@@ -41,123 +36,143 @@ module Network.AWS.Greengrass.ListConnectorDefinitions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listConnectorDefinitions' smart constructor.
+-- | /See:/ 'mkListConnectorDefinitions' smart constructor.
 data ListConnectorDefinitions = ListConnectorDefinitions'
-  { _lNextToken ::
-      !(Maybe Text),
-    _lMaxResults :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lMaxResults' - The maximum number of results to be returned per request.
-listConnectorDefinitions ::
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListConnectorDefinitions ::
   ListConnectorDefinitions
-listConnectorDefinitions =
+mkListConnectorDefinitions =
   ListConnectorDefinitions'
-    { _lNextToken = Nothing,
-      _lMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lNextToken :: Lens' ListConnectorDefinitions (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitions)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lMaxResults :: Lens' ListConnectorDefinitions (Maybe Text)
-lMaxResults = lens _lMaxResults (\s a -> s {_lMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
+lMaxResults = Lens.lens (maxResults :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListConnectorDefinitions)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListConnectorDefinitions where
+instance Page.AWSPager ListConnectorDefinitions where
   page rq rs
-    | stop (rs ^. lrsNextToken) = Nothing
-    | stop (rs ^. lrsDefinitions) = Nothing
-    | otherwise = Just $ rq & lNextToken .~ rs ^. lrsNextToken
+    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsDefinitions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
 
-instance AWSRequest ListConnectorDefinitions where
+instance Lude.AWSRequest ListConnectorDefinitions where
   type Rs ListConnectorDefinitions = ListConnectorDefinitionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListConnectorDefinitionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Definitions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Definitions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListConnectorDefinitions
-
-instance NFData ListConnectorDefinitions
-
-instance ToHeaders ListConnectorDefinitions where
+instance Lude.ToHeaders ListConnectorDefinitions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListConnectorDefinitions where
-  toPath = const "/greengrass/definition/connectors"
+instance Lude.ToPath ListConnectorDefinitions where
+  toPath = Lude.const "/greengrass/definition/connectors"
 
-instance ToQuery ListConnectorDefinitions where
+instance Lude.ToQuery ListConnectorDefinitions where
   toQuery ListConnectorDefinitions' {..} =
-    mconcat
-      ["NextToken" =: _lNextToken, "MaxResults" =: _lMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listConnectorDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkListConnectorDefinitionsResponse' smart constructor.
 data ListConnectorDefinitionsResponse = ListConnectorDefinitionsResponse'
-  { _lrsNextToken ::
-      !(Maybe Text),
-    _lrsDefinitions ::
-      !( Maybe
-           [DefinitionInformation]
-       ),
-    _lrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    definitions ::
+      Lude.Maybe
+        [DefinitionInformation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lrsDefinitions' - Information about a definition.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listConnectorDefinitionsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'definitions' - Information about a definition.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListConnectorDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListConnectorDefinitionsResponse
-listConnectorDefinitionsResponse pResponseStatus_ =
+mkListConnectorDefinitionsResponse pResponseStatus_ =
   ListConnectorDefinitionsResponse'
-    { _lrsNextToken = Nothing,
-      _lrsDefinitions = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      definitions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lrsNextToken :: Lens' ListConnectorDefinitionsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListConnectorDefinitionsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListConnectorDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitionsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a definition.
-lrsDefinitions :: Lens' ListConnectorDefinitionsResponse [DefinitionInformation]
-lrsDefinitions = lens _lrsDefinitions (\s a -> s {_lrsDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'definitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsDefinitions :: Lens.Lens' ListConnectorDefinitionsResponse (Lude.Maybe [DefinitionInformation])
+lrsDefinitions = Lens.lens (definitions :: ListConnectorDefinitionsResponse -> Lude.Maybe [DefinitionInformation]) (\s a -> s {definitions = a} :: ListConnectorDefinitionsResponse)
+{-# DEPRECATED lrsDefinitions "Use generic-lens or generic-optics with 'definitions' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListConnectorDefinitionsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListConnectorDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListConnectorDefinitionsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListConnectorDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConnectorDefinitionsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.JobExecutionSettings where
+module Network.AWS.Transcribe.Types.JobExecutionSettings
+  ( JobExecutionSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobExecutionSettings,
+
+    -- * Lenses
+    jesDataAccessRoleARN,
+    jesAllowDeferredExecution,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about when a transcription job should be executed.
 --
---
---
--- /See:/ 'jobExecutionSettings' smart constructor.
+-- /See:/ 'mkJobExecutionSettings' smart constructor.
 data JobExecutionSettings = JobExecutionSettings'
-  { _jesDataAccessRoleARN ::
-      !(Maybe Text),
-    _jesAllowDeferredExecution :: !(Maybe Bool)
+  { dataAccessRoleARN ::
+      Lude.Maybe Lude.Text,
+    allowDeferredExecution :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowDeferredExecution' - Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception.
 --
--- * 'jesDataAccessRoleARN' - The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well. If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+-- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well.
 --
--- * 'jesAllowDeferredExecution' - Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception. If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
-jobExecutionSettings ::
+-- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+mkJobExecutionSettings ::
   JobExecutionSettings
-jobExecutionSettings =
+mkJobExecutionSettings =
   JobExecutionSettings'
-    { _jesDataAccessRoleARN = Nothing,
-      _jesAllowDeferredExecution = Nothing
+    { dataAccessRoleARN = Lude.Nothing,
+      allowDeferredExecution = Lude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well. If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
-jesDataAccessRoleARN :: Lens' JobExecutionSettings (Maybe Text)
-jesDataAccessRoleARN = lens _jesDataAccessRoleARN (\s a -> s {_jesDataAccessRoleARN = a})
+-- | The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well.
+--
+-- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesDataAccessRoleARN :: Lens.Lens' JobExecutionSettings (Lude.Maybe Lude.Text)
+jesDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: JobExecutionSettings -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: JobExecutionSettings)
+{-# DEPRECATED jesDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
--- | Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception. If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
-jesAllowDeferredExecution :: Lens' JobExecutionSettings (Maybe Bool)
-jesAllowDeferredExecution = lens _jesAllowDeferredExecution (\s a -> s {_jesAllowDeferredExecution = a})
+-- | Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception.
+--
+-- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+--
+-- /Note:/ Consider using 'allowDeferredExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesAllowDeferredExecution :: Lens.Lens' JobExecutionSettings (Lude.Maybe Lude.Bool)
+jesAllowDeferredExecution = Lens.lens (allowDeferredExecution :: JobExecutionSettings -> Lude.Maybe Lude.Bool) (\s a -> s {allowDeferredExecution = a} :: JobExecutionSettings)
+{-# DEPRECATED jesAllowDeferredExecution "Use generic-lens or generic-optics with 'allowDeferredExecution' instead." #-}
 
-instance FromJSON JobExecutionSettings where
+instance Lude.FromJSON JobExecutionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobExecutionSettings"
       ( \x ->
           JobExecutionSettings'
-            <$> (x .:? "DataAccessRoleArn") <*> (x .:? "AllowDeferredExecution")
+            Lude.<$> (x Lude..:? "DataAccessRoleArn")
+            Lude.<*> (x Lude..:? "AllowDeferredExecution")
       )
 
-instance Hashable JobExecutionSettings
-
-instance NFData JobExecutionSettings
-
-instance ToJSON JobExecutionSettings where
+instance Lude.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =
-    object
-      ( catMaybes
-          [ ("DataAccessRoleArn" .=) <$> _jesDataAccessRoleARN,
-            ("AllowDeferredExecution" .=) <$> _jesAllowDeferredExecution
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DataAccessRoleArn" Lude..=) Lude.<$> dataAccessRoleARN,
+            ("AllowDeferredExecution" Lude..=)
+              Lude.<$> allowDeferredExecution
           ]
       )

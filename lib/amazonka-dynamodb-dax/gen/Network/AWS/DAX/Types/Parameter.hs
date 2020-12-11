@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,131 +7,169 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Parameter where
+module Network.AWS.DAX.Types.Parameter
+  ( Parameter (..),
+
+    -- * Smart constructor
+    mkParameter,
+
+    -- * Lenses
+    pParameterValue,
+    pParameterType,
+    pSource,
+    pIsModifiable,
+    pDataType,
+    pNodeTypeSpecificValues,
+    pAllowedValues,
+    pParameterName,
+    pDescription,
+    pChangeType,
+  )
+where
 
 import Network.AWS.DAX.Types.ChangeType
 import Network.AWS.DAX.Types.IsModifiable
 import Network.AWS.DAX.Types.NodeTypeSpecificValue
 import Network.AWS.DAX.Types.ParameterType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an individual setting that controls some aspect of DAX behavior.
 --
---
---
--- /See:/ 'parameter' smart constructor.
+-- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { _pParameterValue :: !(Maybe Text),
-    _pParameterType :: !(Maybe ParameterType),
-    _pSource :: !(Maybe Text),
-    _pIsModifiable :: !(Maybe IsModifiable),
-    _pDataType :: !(Maybe Text),
-    _pNodeTypeSpecificValues :: !(Maybe [NodeTypeSpecificValue]),
-    _pAllowedValues :: !(Maybe Text),
-    _pParameterName :: !(Maybe Text),
-    _pDescription :: !(Maybe Text),
-    _pChangeType :: !(Maybe ChangeType)
+  { parameterValue :: Lude.Maybe Lude.Text,
+    parameterType :: Lude.Maybe ParameterType,
+    source :: Lude.Maybe Lude.Text,
+    isModifiable :: Lude.Maybe IsModifiable,
+    dataType :: Lude.Maybe Lude.Text,
+    nodeTypeSpecificValues :: Lude.Maybe [NodeTypeSpecificValue],
+    allowedValues :: Lude.Maybe Lude.Text,
+    parameterName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    changeType :: Lude.Maybe ChangeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pParameterValue' - The value for the parameter.
---
--- * 'pParameterType' - Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
---
--- * 'pSource' - How the parameter is defined. For example, @system@ denotes a system-defined parameter.
---
--- * 'pIsModifiable' - Whether the customer is allowed to modify the parameter.
---
--- * 'pDataType' - The data type of the parameter. For example, @integer@ :
---
--- * 'pNodeTypeSpecificValues' - A list of node types, and specific parameter values for each node.
---
--- * 'pAllowedValues' - A range of values within which the parameter can be set.
---
--- * 'pParameterName' - The name of the parameter.
---
--- * 'pDescription' - A description of the parameter
---
--- * 'pChangeType' - The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
-parameter ::
+-- * 'allowedValues' - A range of values within which the parameter can be set.
+-- * 'changeType' - The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
+-- * 'dataType' - The data type of the parameter. For example, @integer@ :
+-- * 'description' - A description of the parameter
+-- * 'isModifiable' - Whether the customer is allowed to modify the parameter.
+-- * 'nodeTypeSpecificValues' - A list of node types, and specific parameter values for each node.
+-- * 'parameterName' - The name of the parameter.
+-- * 'parameterType' - Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
+-- * 'parameterValue' - The value for the parameter.
+-- * 'source' - How the parameter is defined. For example, @system@ denotes a system-defined parameter.
+mkParameter ::
   Parameter
-parameter =
+mkParameter =
   Parameter'
-    { _pParameterValue = Nothing,
-      _pParameterType = Nothing,
-      _pSource = Nothing,
-      _pIsModifiable = Nothing,
-      _pDataType = Nothing,
-      _pNodeTypeSpecificValues = Nothing,
-      _pAllowedValues = Nothing,
-      _pParameterName = Nothing,
-      _pDescription = Nothing,
-      _pChangeType = Nothing
+    { parameterValue = Lude.Nothing,
+      parameterType = Lude.Nothing,
+      source = Lude.Nothing,
+      isModifiable = Lude.Nothing,
+      dataType = Lude.Nothing,
+      nodeTypeSpecificValues = Lude.Nothing,
+      allowedValues = Lude.Nothing,
+      parameterName = Lude.Nothing,
+      description = Lude.Nothing,
+      changeType = Lude.Nothing
     }
 
 -- | The value for the parameter.
-pParameterValue :: Lens' Parameter (Maybe Text)
-pParameterValue = lens _pParameterValue (\s a -> s {_pParameterValue = a})
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
+{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
 -- | Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
-pParameterType :: Lens' Parameter (Maybe ParameterType)
-pParameterType = lens _pParameterType (\s a -> s {_pParameterType = a})
+--
+-- /Note:/ Consider using 'parameterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterType :: Lens.Lens' Parameter (Lude.Maybe ParameterType)
+pParameterType = Lens.lens (parameterType :: Parameter -> Lude.Maybe ParameterType) (\s a -> s {parameterType = a} :: Parameter)
+{-# DEPRECATED pParameterType "Use generic-lens or generic-optics with 'parameterType' instead." #-}
 
 -- | How the parameter is defined. For example, @system@ denotes a system-defined parameter.
-pSource :: Lens' Parameter (Maybe Text)
-pSource = lens _pSource (\s a -> s {_pSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pSource = Lens.lens (source :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: Parameter)
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | Whether the customer is allowed to modify the parameter.
-pIsModifiable :: Lens' Parameter (Maybe IsModifiable)
-pIsModifiable = lens _pIsModifiable (\s a -> s {_pIsModifiable = a})
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsModifiable :: Lens.Lens' Parameter (Lude.Maybe IsModifiable)
+pIsModifiable = Lens.lens (isModifiable :: Parameter -> Lude.Maybe IsModifiable) (\s a -> s {isModifiable = a} :: Parameter)
+{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
 
 -- | The data type of the parameter. For example, @integer@ :
-pDataType :: Lens' Parameter (Maybe Text)
-pDataType = lens _pDataType (\s a -> s {_pDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
+{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | A list of node types, and specific parameter values for each node.
-pNodeTypeSpecificValues :: Lens' Parameter [NodeTypeSpecificValue]
-pNodeTypeSpecificValues = lens _pNodeTypeSpecificValues (\s a -> s {_pNodeTypeSpecificValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeTypeSpecificValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pNodeTypeSpecificValues :: Lens.Lens' Parameter (Lude.Maybe [NodeTypeSpecificValue])
+pNodeTypeSpecificValues = Lens.lens (nodeTypeSpecificValues :: Parameter -> Lude.Maybe [NodeTypeSpecificValue]) (\s a -> s {nodeTypeSpecificValues = a} :: Parameter)
+{-# DEPRECATED pNodeTypeSpecificValues "Use generic-lens or generic-optics with 'nodeTypeSpecificValues' instead." #-}
 
 -- | A range of values within which the parameter can be set.
-pAllowedValues :: Lens' Parameter (Maybe Text)
-pAllowedValues = lens _pAllowedValues (\s a -> s {_pAllowedValues = a})
+--
+-- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAllowedValues :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pAllowedValues = Lens.lens (allowedValues :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: Parameter)
+{-# DEPRECATED pAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
 -- | The name of the parameter.
-pParameterName :: Lens' Parameter (Maybe Text)
-pParameterName = lens _pParameterName (\s a -> s {_pParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pParameterName = Lens.lens (parameterName :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: Parameter)
+{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | A description of the parameter
-pDescription :: Lens' Parameter (Maybe Text)
-pDescription = lens _pDescription (\s a -> s {_pDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDescription :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pDescription = Lens.lens (description :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Parameter)
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
-pChangeType :: Lens' Parameter (Maybe ChangeType)
-pChangeType = lens _pChangeType (\s a -> s {_pChangeType = a})
+--
+-- /Note:/ Consider using 'changeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pChangeType :: Lens.Lens' Parameter (Lude.Maybe ChangeType)
+pChangeType = Lens.lens (changeType :: Parameter -> Lude.Maybe ChangeType) (\s a -> s {changeType = a} :: Parameter)
+{-# DEPRECATED pChangeType "Use generic-lens or generic-optics with 'changeType' instead." #-}
 
-instance FromJSON Parameter where
+instance Lude.FromJSON Parameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            <$> (x .:? "ParameterValue")
-            <*> (x .:? "ParameterType")
-            <*> (x .:? "Source")
-            <*> (x .:? "IsModifiable")
-            <*> (x .:? "DataType")
-            <*> (x .:? "NodeTypeSpecificValues" .!= mempty)
-            <*> (x .:? "AllowedValues")
-            <*> (x .:? "ParameterName")
-            <*> (x .:? "Description")
-            <*> (x .:? "ChangeType")
+            Lude.<$> (x Lude..:? "ParameterValue")
+            Lude.<*> (x Lude..:? "ParameterType")
+            Lude.<*> (x Lude..:? "Source")
+            Lude.<*> (x Lude..:? "IsModifiable")
+            Lude.<*> (x Lude..:? "DataType")
+            Lude.<*> (x Lude..:? "NodeTypeSpecificValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AllowedValues")
+            Lude.<*> (x Lude..:? "ParameterName")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ChangeType")
       )
-
-instance Hashable Parameter
-
-instance NFData Parameter

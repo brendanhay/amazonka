@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputState where
+module Network.AWS.MediaLive.Types.InputState
+  ( InputState
+      ( InputState',
+        Attached,
+        Creating,
+        Deleted,
+        Deleting,
+        Detached
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for InputState
-data InputState
-  = Attached
-  | Creating
-  | Deleted
-  | Deleting
-  | Detached
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputState = InputState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputState where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure Attached
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "detached" -> pure Detached
-      e ->
-        fromTextError $
-          "Failure parsing InputState from value: '" <> e
-            <> "'. Accepted values: attached, creating, deleted, deleting, detached"
+pattern Attached :: InputState
+pattern Attached = InputState' "ATTACHED"
 
-instance ToText InputState where
-  toText = \case
-    Attached -> "ATTACHED"
-    Creating -> "CREATING"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    Detached -> "DETACHED"
+pattern Creating :: InputState
+pattern Creating = InputState' "CREATING"
 
-instance Hashable InputState
+pattern Deleted :: InputState
+pattern Deleted = InputState' "DELETED"
 
-instance NFData InputState
+pattern Deleting :: InputState
+pattern Deleting = InputState' "DELETING"
 
-instance ToByteString InputState
+pattern Detached :: InputState
+pattern Detached = InputState' "DETACHED"
 
-instance ToQuery InputState
-
-instance ToHeader InputState
-
-instance FromJSON InputState where
-  parseJSON = parseJSONText "InputState"
+{-# COMPLETE
+  Attached,
+  Creating,
+  Deleted,
+  Deleting,
+  Detached,
+  InputState'
+  #-}

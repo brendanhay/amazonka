@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Connector where
+module Network.AWS.Greengrass.Types.Connector
+  ( Connector (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConnector,
+
+    -- * Lenses
+    conParameters,
+    conConnectorARN,
+    conId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a connector. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
 --
--- /See:/ 'connector' smart constructor.
+-- /See:/ 'mkConnector' smart constructor.
 data Connector = Connector'
-  { _conParameters ::
-      !(Maybe (Map Text (Text))),
-    _conConnectorARN :: !Text,
-    _conId :: !Text
+  { parameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    connectorARN :: Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Connector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'conParameters' - The parameters or configuration that the connector uses.
---
--- * 'conConnectorARN' - The ARN of the connector.
---
--- * 'conId' - A descriptive or arbitrary ID for the connector. This value must be unique within the connector definition version. Max length is 128 characters with pattern [a-zA-Z0-9:_-]+.
-connector ::
-  -- | 'conConnectorARN'
-  Text ->
-  -- | 'conId'
-  Text ->
+-- * 'connectorARN' - The ARN of the connector.
+-- * 'id' - A descriptive or arbitrary ID for the connector. This value must be unique within the connector definition version. Max length is 128 characters with pattern [a-zA-Z0-9:_-]+.
+-- * 'parameters' - The parameters or configuration that the connector uses.
+mkConnector ::
+  -- | 'connectorARN'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   Connector
-connector pConnectorARN_ pId_ =
+mkConnector pConnectorARN_ pId_ =
   Connector'
-    { _conParameters = Nothing,
-      _conConnectorARN = pConnectorARN_,
-      _conId = pId_
+    { parameters = Lude.Nothing,
+      connectorARN = pConnectorARN_,
+      id = pId_
     }
 
 -- | The parameters or configuration that the connector uses.
-conParameters :: Lens' Connector (HashMap Text (Text))
-conParameters = lens _conParameters (\s a -> s {_conParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+conParameters :: Lens.Lens' Connector (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+conParameters = Lens.lens (parameters :: Connector -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: Connector)
+{-# DEPRECATED conParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The ARN of the connector.
-conConnectorARN :: Lens' Connector Text
-conConnectorARN = lens _conConnectorARN (\s a -> s {_conConnectorARN = a})
+--
+-- /Note:/ Consider using 'connectorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+conConnectorARN :: Lens.Lens' Connector Lude.Text
+conConnectorARN = Lens.lens (connectorARN :: Connector -> Lude.Text) (\s a -> s {connectorARN = a} :: Connector)
+{-# DEPRECATED conConnectorARN "Use generic-lens or generic-optics with 'connectorARN' instead." #-}
 
 -- | A descriptive or arbitrary ID for the connector. This value must be unique within the connector definition version. Max length is 128 characters with pattern [a-zA-Z0-9:_-]+.
-conId :: Lens' Connector Text
-conId = lens _conId (\s a -> s {_conId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+conId :: Lens.Lens' Connector Lude.Text
+conId = Lens.lens (id :: Connector -> Lude.Text) (\s a -> s {id = a} :: Connector)
+{-# DEPRECATED conId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON Connector where
+instance Lude.FromJSON Connector where
   parseJSON =
-    withObject
+    Lude.withObject
       "Connector"
       ( \x ->
           Connector'
-            <$> (x .:? "Parameters" .!= mempty)
-            <*> (x .: "ConnectorArn")
-            <*> (x .: "Id")
+            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ConnectorArn")
+            Lude.<*> (x Lude..: "Id")
       )
 
-instance Hashable Connector
-
-instance NFData Connector
-
-instance ToJSON Connector where
+instance Lude.ToJSON Connector where
   toJSON Connector' {..} =
-    object
-      ( catMaybes
-          [ ("Parameters" .=) <$> _conParameters,
-            Just ("ConnectorArn" .= _conConnectorARN),
-            Just ("Id" .= _conId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            Lude.Just ("ConnectorArn" Lude..= connectorARN),
+            Lude.Just ("Id" Lude..= id)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DomainType where
+module Network.AWS.IoT.Types.DomainType
+  ( DomainType
+      ( DomainType',
+        AWSManaged,
+        CustomerManaged,
+        Endpoint
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainType
-  = AWSManaged
-  | CustomerManaged
-  | Endpoint
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainType = DomainType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainType where
-  parser =
-    takeLowerText >>= \case
-      "aws_managed" -> pure AWSManaged
-      "customer_managed" -> pure CustomerManaged
-      "endpoint" -> pure Endpoint
-      e ->
-        fromTextError $
-          "Failure parsing DomainType from value: '" <> e
-            <> "'. Accepted values: aws_managed, customer_managed, endpoint"
+pattern AWSManaged :: DomainType
+pattern AWSManaged = DomainType' "AWS_MANAGED"
 
-instance ToText DomainType where
-  toText = \case
-    AWSManaged -> "AWS_MANAGED"
-    CustomerManaged -> "CUSTOMER_MANAGED"
-    Endpoint -> "ENDPOINT"
+pattern CustomerManaged :: DomainType
+pattern CustomerManaged = DomainType' "CUSTOMER_MANAGED"
 
-instance Hashable DomainType
+pattern Endpoint :: DomainType
+pattern Endpoint = DomainType' "ENDPOINT"
 
-instance NFData DomainType
-
-instance ToByteString DomainType
-
-instance ToQuery DomainType
-
-instance ToHeader DomainType
-
-instance FromJSON DomainType where
-  parseJSON = parseJSONText "DomainType"
+{-# COMPLETE
+  AWSManaged,
+  CustomerManaged,
+  Endpoint,
+  DomainType'
+  #-}

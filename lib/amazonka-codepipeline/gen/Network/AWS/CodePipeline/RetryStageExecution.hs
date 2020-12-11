@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,187 @@
 --
 -- Resumes the pipeline execution by retrying the last failed actions in a stage. You can retry a stage immediately if any of the actions in the stage fail. When you retry, all actions that are still in progress continue working, and failed actions are triggered again.
 module Network.AWS.CodePipeline.RetryStageExecution
-  ( -- * Creating a Request
-    retryStageExecution,
-    RetryStageExecution,
+  ( -- * Creating a request
+    RetryStageExecution (..),
+    mkRetryStageExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsePipelineName,
     rseStageName,
     rsePipelineExecutionId,
     rseRetryMode,
 
-    -- * Destructuring the Response
-    retryStageExecutionResponse,
-    RetryStageExecutionResponse,
+    -- * Destructuring the response
+    RetryStageExecutionResponse (..),
+    mkRetryStageExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsersPipelineExecutionId,
     rsersResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @RetryStageExecution@ action.
 --
---
---
--- /See:/ 'retryStageExecution' smart constructor.
+-- /See:/ 'mkRetryStageExecution' smart constructor.
 data RetryStageExecution = RetryStageExecution'
-  { _rsePipelineName ::
-      !Text,
-    _rseStageName :: !Text,
-    _rsePipelineExecutionId :: !Text,
-    _rseRetryMode :: !StageRetryMode
+  { pipelineName ::
+      Lude.Text,
+    stageName :: Lude.Text,
+    pipelineExecutionId :: Lude.Text,
+    retryMode :: StageRetryMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryStageExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsePipelineName' - The name of the pipeline that contains the failed stage.
---
--- * 'rseStageName' - The name of the failed stage to be retried.
---
--- * 'rsePipelineExecutionId' - The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
---
--- * 'rseRetryMode' - The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
-retryStageExecution ::
-  -- | 'rsePipelineName'
-  Text ->
-  -- | 'rseStageName'
-  Text ->
-  -- | 'rsePipelineExecutionId'
-  Text ->
-  -- | 'rseRetryMode'
+-- * 'pipelineExecutionId' - The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
+-- * 'pipelineName' - The name of the pipeline that contains the failed stage.
+-- * 'retryMode' - The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
+-- * 'stageName' - The name of the failed stage to be retried.
+mkRetryStageExecution ::
+  -- | 'pipelineName'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'pipelineExecutionId'
+  Lude.Text ->
+  -- | 'retryMode'
   StageRetryMode ->
   RetryStageExecution
-retryStageExecution
+mkRetryStageExecution
   pPipelineName_
   pStageName_
   pPipelineExecutionId_
   pRetryMode_ =
     RetryStageExecution'
-      { _rsePipelineName = pPipelineName_,
-        _rseStageName = pStageName_,
-        _rsePipelineExecutionId = pPipelineExecutionId_,
-        _rseRetryMode = pRetryMode_
+      { pipelineName = pPipelineName_,
+        stageName = pStageName_,
+        pipelineExecutionId = pPipelineExecutionId_,
+        retryMode = pRetryMode_
       }
 
 -- | The name of the pipeline that contains the failed stage.
-rsePipelineName :: Lens' RetryStageExecution Text
-rsePipelineName = lens _rsePipelineName (\s a -> s {_rsePipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsePipelineName :: Lens.Lens' RetryStageExecution Lude.Text
+rsePipelineName = Lens.lens (pipelineName :: RetryStageExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: RetryStageExecution)
+{-# DEPRECATED rsePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The name of the failed stage to be retried.
-rseStageName :: Lens' RetryStageExecution Text
-rseStageName = lens _rseStageName (\s a -> s {_rseStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rseStageName :: Lens.Lens' RetryStageExecution Lude.Text
+rseStageName = Lens.lens (stageName :: RetryStageExecution -> Lude.Text) (\s a -> s {stageName = a} :: RetryStageExecution)
+{-# DEPRECATED rseStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
-rsePipelineExecutionId :: Lens' RetryStageExecution Text
-rsePipelineExecutionId = lens _rsePipelineExecutionId (\s a -> s {_rsePipelineExecutionId = a})
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsePipelineExecutionId :: Lens.Lens' RetryStageExecution Lude.Text
+rsePipelineExecutionId = Lens.lens (pipelineExecutionId :: RetryStageExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: RetryStageExecution)
+{-# DEPRECATED rsePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
-rseRetryMode :: Lens' RetryStageExecution StageRetryMode
-rseRetryMode = lens _rseRetryMode (\s a -> s {_rseRetryMode = a})
+--
+-- /Note:/ Consider using 'retryMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rseRetryMode :: Lens.Lens' RetryStageExecution StageRetryMode
+rseRetryMode = Lens.lens (retryMode :: RetryStageExecution -> StageRetryMode) (\s a -> s {retryMode = a} :: RetryStageExecution)
+{-# DEPRECATED rseRetryMode "Use generic-lens or generic-optics with 'retryMode' instead." #-}
 
-instance AWSRequest RetryStageExecution where
+instance Lude.AWSRequest RetryStageExecution where
   type Rs RetryStageExecution = RetryStageExecutionResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RetryStageExecutionResponse'
-            <$> (x .?> "pipelineExecutionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "pipelineExecutionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RetryStageExecution
-
-instance NFData RetryStageExecution
-
-instance ToHeaders RetryStageExecution where
+instance Lude.ToHeaders RetryStageExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.RetryStageExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.RetryStageExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RetryStageExecution where
+instance Lude.ToJSON RetryStageExecution where
   toJSON RetryStageExecution' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineName" .= _rsePipelineName),
-            Just ("stageName" .= _rseStageName),
-            Just ("pipelineExecutionId" .= _rsePipelineExecutionId),
-            Just ("retryMode" .= _rseRetryMode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("pipelineExecutionId" Lude..= pipelineExecutionId),
+            Lude.Just ("retryMode" Lude..= retryMode)
           ]
       )
 
-instance ToPath RetryStageExecution where
-  toPath = const "/"
+instance Lude.ToPath RetryStageExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery RetryStageExecution where
-  toQuery = const mempty
+instance Lude.ToQuery RetryStageExecution where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @RetryStageExecution@ action.
 --
---
---
--- /See:/ 'retryStageExecutionResponse' smart constructor.
+-- /See:/ 'mkRetryStageExecutionResponse' smart constructor.
 data RetryStageExecutionResponse = RetryStageExecutionResponse'
-  { _rsersPipelineExecutionId ::
-      !(Maybe Text),
-    _rsersResponseStatus :: !Int
+  { pipelineExecutionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryStageExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsersPipelineExecutionId' - The ID of the current workflow execution in the failed stage.
---
--- * 'rsersResponseStatus' - -- | The response status code.
-retryStageExecutionResponse ::
-  -- | 'rsersResponseStatus'
-  Int ->
+-- * 'pipelineExecutionId' - The ID of the current workflow execution in the failed stage.
+-- * 'responseStatus' - The response status code.
+mkRetryStageExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RetryStageExecutionResponse
-retryStageExecutionResponse pResponseStatus_ =
+mkRetryStageExecutionResponse pResponseStatus_ =
   RetryStageExecutionResponse'
-    { _rsersPipelineExecutionId = Nothing,
-      _rsersResponseStatus = pResponseStatus_
+    { pipelineExecutionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the current workflow execution in the failed stage.
-rsersPipelineExecutionId :: Lens' RetryStageExecutionResponse (Maybe Text)
-rsersPipelineExecutionId = lens _rsersPipelineExecutionId (\s a -> s {_rsersPipelineExecutionId = a})
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsersPipelineExecutionId :: Lens.Lens' RetryStageExecutionResponse (Lude.Maybe Lude.Text)
+rsersPipelineExecutionId = Lens.lens (pipelineExecutionId :: RetryStageExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: RetryStageExecutionResponse)
+{-# DEPRECATED rsersPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
--- | -- | The response status code.
-rsersResponseStatus :: Lens' RetryStageExecutionResponse Int
-rsersResponseStatus = lens _rsersResponseStatus (\s a -> s {_rsersResponseStatus = a})
-
-instance NFData RetryStageExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsersResponseStatus :: Lens.Lens' RetryStageExecutionResponse Lude.Int
+rsersResponseStatus = Lens.lens (responseStatus :: RetryStageExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetryStageExecutionResponse)
+{-# DEPRECATED rsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

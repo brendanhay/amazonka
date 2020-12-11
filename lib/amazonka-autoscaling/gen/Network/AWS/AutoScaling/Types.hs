@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types
-  ( -- * Service Configuration
-    autoScaling,
+  ( -- * Service configuration
+    autoScalingService,
 
     -- * Errors
 
@@ -40,8 +38,8 @@ module Network.AWS.AutoScaling.Types
     ScalingActivityStatusCode (..),
 
     -- * Activity
-    Activity,
-    activity,
+    Activity (..),
+    mkActivity,
     aProgress,
     aStatusMessage,
     aEndTime,
@@ -54,19 +52,19 @@ module Network.AWS.AutoScaling.Types
     aStatusCode,
 
     -- * AdjustmentType
-    AdjustmentType,
-    adjustmentType,
+    AdjustmentType (..),
+    mkAdjustmentType,
     atAdjustmentType,
 
     -- * Alarm
-    Alarm,
-    alarm,
+    Alarm (..),
+    mkAlarm,
     aAlarmName,
     aAlarmARN,
 
     -- * AutoScalingGroup
-    AutoScalingGroup,
-    autoScalingGroup,
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
     asgStatus,
     asgTerminationPolicies,
     asgHealthCheckGracePeriod,
@@ -96,8 +94,8 @@ module Network.AWS.AutoScaling.Types
     asgCreatedTime,
 
     -- * AutoScalingInstanceDetails
-    AutoScalingInstanceDetails,
-    autoScalingInstanceDetails,
+    AutoScalingInstanceDetails (..),
+    mkAutoScalingInstanceDetails,
     asidWeightedCapacity,
     asidInstanceType,
     asidLaunchConfigurationName,
@@ -110,16 +108,16 @@ module Network.AWS.AutoScaling.Types
     asidProtectedFromScaleIn,
 
     -- * BlockDeviceMapping
-    BlockDeviceMapping,
-    blockDeviceMapping,
+    BlockDeviceMapping (..),
+    mkBlockDeviceMapping,
     bdmVirtualName,
     bdmNoDevice,
     bdmEBS,
     bdmDeviceName,
 
     -- * CustomizedMetricSpecification
-    CustomizedMetricSpecification,
-    customizedMetricSpecification,
+    CustomizedMetricSpecification (..),
+    mkCustomizedMetricSpecification,
     cmsDimensions,
     cmsUnit,
     cmsMetricName,
@@ -127,8 +125,8 @@ module Network.AWS.AutoScaling.Types
     cmsStatistic,
 
     -- * EBS
-    EBS,
-    ebs,
+    EBS (..),
+    mkEBS,
     ebsDeleteOnTermination,
     ebsVolumeSize,
     ebsIOPS,
@@ -137,27 +135,27 @@ module Network.AWS.AutoScaling.Types
     ebsSnapshotId,
 
     -- * EnabledMetric
-    EnabledMetric,
-    enabledMetric,
+    EnabledMetric (..),
+    mkEnabledMetric,
     emGranularity,
     emMetric,
 
     -- * FailedScheduledUpdateGroupActionRequest
-    FailedScheduledUpdateGroupActionRequest,
-    failedScheduledUpdateGroupActionRequest,
+    FailedScheduledUpdateGroupActionRequest (..),
+    mkFailedScheduledUpdateGroupActionRequest,
     fsugarErrorCode,
     fsugarErrorMessage,
     fsugarScheduledActionName,
 
     -- * Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fValues,
     fName,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iWeightedCapacity,
     iInstanceType,
     iLaunchConfigurationName,
@@ -169,20 +167,20 @@ module Network.AWS.AutoScaling.Types
     iProtectedFromScaleIn,
 
     -- * InstanceMetadataOptions
-    InstanceMetadataOptions,
-    instanceMetadataOptions,
+    InstanceMetadataOptions (..),
+    mkInstanceMetadataOptions,
     imoHTTPEndpoint,
     imoHTTPPutResponseHopLimit,
     imoHTTPTokens,
 
     -- * InstanceMonitoring
-    InstanceMonitoring,
-    instanceMonitoring,
+    InstanceMonitoring (..),
+    mkInstanceMonitoring,
     imEnabled,
 
     -- * InstanceRefresh
-    InstanceRefresh,
-    instanceRefresh,
+    InstanceRefresh (..),
+    mkInstanceRefresh,
     irStatus,
     irStartTime,
     irInstancesToUpdate,
@@ -193,8 +191,8 @@ module Network.AWS.AutoScaling.Types
     irInstanceRefreshId,
 
     -- * InstancesDistribution
-    InstancesDistribution,
-    instancesDistribution,
+    InstancesDistribution (..),
+    mkInstancesDistribution,
     idSpotAllocationStrategy,
     idSpotInstancePools,
     idSpotMaxPrice,
@@ -203,8 +201,8 @@ module Network.AWS.AutoScaling.Types
     idOnDemandPercentageAboveBaseCapacity,
 
     -- * LaunchConfiguration
-    LaunchConfiguration,
-    launchConfiguration,
+    LaunchConfiguration (..),
+    mkLaunchConfiguration,
     lcAssociatePublicIPAddress,
     lcSecurityGroups,
     lcSpotPrice,
@@ -227,28 +225,28 @@ module Network.AWS.AutoScaling.Types
     lcCreatedTime,
 
     -- * LaunchTemplate
-    LaunchTemplate,
-    launchTemplate,
+    LaunchTemplate (..),
+    mkLaunchTemplate,
     ltOverrides,
     ltLaunchTemplateSpecification,
 
     -- * LaunchTemplateOverrides
-    LaunchTemplateOverrides,
-    launchTemplateOverrides,
+    LaunchTemplateOverrides (..),
+    mkLaunchTemplateOverrides,
     ltoWeightedCapacity,
     ltoInstanceType,
     ltoLaunchTemplateSpecification,
 
     -- * LaunchTemplateSpecification
-    LaunchTemplateSpecification,
-    launchTemplateSpecification,
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
     ltsLaunchTemplateName,
     ltsLaunchTemplateId,
     ltsVersion,
 
     -- * LifecycleHook
-    LifecycleHook,
-    lifecycleHook,
+    LifecycleHook (..),
+    mkLifecycleHook,
     lhDefaultResult,
     lhLifecycleHookName,
     lhHeartbeatTimeout,
@@ -260,8 +258,8 @@ module Network.AWS.AutoScaling.Types
     lhRoleARN,
 
     -- * LifecycleHookSpecification
-    LifecycleHookSpecification,
-    lifecycleHookSpecification,
+    LifecycleHookSpecification (..),
+    mkLifecycleHookSpecification,
     lhsDefaultResult,
     lhsHeartbeatTimeout,
     lhsNotificationMetadata,
@@ -271,66 +269,66 @@ module Network.AWS.AutoScaling.Types
     lhsLifecycleTransition,
 
     -- * LoadBalancerState
-    LoadBalancerState,
-    loadBalancerState,
+    LoadBalancerState (..),
+    mkLoadBalancerState,
     lbsState,
     lbsLoadBalancerName,
 
     -- * LoadBalancerTargetGroupState
-    LoadBalancerTargetGroupState,
-    loadBalancerTargetGroupState,
+    LoadBalancerTargetGroupState (..),
+    mkLoadBalancerTargetGroupState,
     lbtgsState,
     lbtgsLoadBalancerTargetGroupARN,
 
     -- * MetricCollectionType
-    MetricCollectionType,
-    metricCollectionType,
+    MetricCollectionType (..),
+    mkMetricCollectionType,
     mctMetric,
 
     -- * MetricDimension
-    MetricDimension,
-    metricDimension,
+    MetricDimension (..),
+    mkMetricDimension,
     mdName,
     mdValue,
 
     -- * MetricGranularityType
-    MetricGranularityType,
-    metricGranularityType,
+    MetricGranularityType (..),
+    mkMetricGranularityType,
     mgtGranularity,
 
     -- * MixedInstancesPolicy
-    MixedInstancesPolicy,
-    mixedInstancesPolicy,
+    MixedInstancesPolicy (..),
+    mkMixedInstancesPolicy,
     mipLaunchTemplate,
     mipInstancesDistribution,
 
     -- * NotificationConfiguration
-    NotificationConfiguration,
-    notificationConfiguration,
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
     ncTopicARN,
     ncAutoScalingGroupName,
     ncNotificationType,
 
     -- * PredefinedMetricSpecification
-    PredefinedMetricSpecification,
-    predefinedMetricSpecification,
+    PredefinedMetricSpecification (..),
+    mkPredefinedMetricSpecification,
     pmsResourceLabel,
     pmsPredefinedMetricType,
 
     -- * ProcessType
-    ProcessType,
-    processType,
+    ProcessType (..),
+    mkProcessType,
     ptProcessName,
 
     -- * RefreshPreferences
-    RefreshPreferences,
-    refreshPreferences,
+    RefreshPreferences (..),
+    mkRefreshPreferences,
     rpMinHealthyPercentage,
     rpInstanceWarmup,
 
     -- * ScalingPolicy
-    ScalingPolicy,
-    scalingPolicy,
+    ScalingPolicy (..),
+    mkScalingPolicy,
     sMinAdjustmentStep,
     sEstimatedInstanceWarmup,
     sPolicyName,
@@ -348,14 +346,14 @@ module Network.AWS.AutoScaling.Types
     sMinAdjustmentMagnitude,
 
     -- * ScalingProcessQuery
-    ScalingProcessQuery,
-    scalingProcessQuery,
+    ScalingProcessQuery (..),
+    mkScalingProcessQuery,
     spqScalingProcesses,
     spqAutoScalingGroupName,
 
     -- * ScheduledUpdateGroupAction
-    ScheduledUpdateGroupAction,
-    scheduledUpdateGroupAction,
+    ScheduledUpdateGroupAction (..),
+    mkScheduledUpdateGroupAction,
     sugaScheduledActionARN,
     sugaStartTime,
     sugaTime,
@@ -368,8 +366,8 @@ module Network.AWS.AutoScaling.Types
     sugaEndTime,
 
     -- * ScheduledUpdateGroupActionRequest
-    ScheduledUpdateGroupActionRequest,
-    scheduledUpdateGroupActionRequest,
+    ScheduledUpdateGroupActionRequest (..),
+    mkScheduledUpdateGroupActionRequest,
     sugarStartTime,
     sugarMaxSize,
     sugarRecurrence,
@@ -379,30 +377,30 @@ module Network.AWS.AutoScaling.Types
     sugarScheduledActionName,
 
     -- * StepAdjustment
-    StepAdjustment,
-    stepAdjustment,
+    StepAdjustment (..),
+    mkStepAdjustment,
     saMetricIntervalLowerBound,
     saMetricIntervalUpperBound,
     saScalingAdjustment,
 
     -- * SuspendedProcess
-    SuspendedProcess,
-    suspendedProcess,
+    SuspendedProcess (..),
+    mkSuspendedProcess,
     spProcessName,
     spSuspensionReason,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagResourceId,
-    tagResourceType,
-    tagPropagateAtLaunch,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tResourceId,
+    tResourceType,
+    tPropagateAtLaunch,
+    tValue,
 
     -- * TagDescription
-    TagDescription,
-    tagDescription,
+    TagDescription (..),
+    mkTagDescription,
     tdResourceId,
     tdResourceType,
     tdKey,
@@ -410,8 +408,8 @@ module Network.AWS.AutoScaling.Types
     tdValue,
 
     -- * TargetTrackingConfiguration
-    TargetTrackingConfiguration,
-    targetTrackingConfiguration,
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
     ttcPredefinedMetricSpecification,
     ttcCustomizedMetricSpecification,
     ttcDisableScaleIn,
@@ -468,48 +466,60 @@ import Network.AWS.AutoScaling.Types.SuspendedProcess
 import Network.AWS.AutoScaling.Types.Tag
 import Network.AWS.AutoScaling.Types.TagDescription
 import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2011-01-01@ of the Amazon Auto Scaling SDK configuration.
-autoScaling :: Service
-autoScaling =
-  Service
-    { _svcAbbrev = "AutoScaling",
-      _svcSigner = v4,
-      _svcPrefix = "autoscaling",
-      _svcVersion = "2011-01-01",
-      _svcEndpoint = defaultEndpoint autoScaling,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "AutoScaling",
-      _svcRetry = retry
+autoScalingService :: Lude.Service
+autoScalingService =
+  Lude.Service
+    { Lude._svcAbbrev = "AutoScaling",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "autoscaling",
+      Lude._svcVersion = "2011-01-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint autoScalingService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "AutoScaling",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

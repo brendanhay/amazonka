@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,147 @@
 --
 -- Describes the specified contact flow.
 --
---
 -- You can also create and update contact flows using the <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language> .
 module Network.AWS.Connect.DescribeContactFlow
-  ( -- * Creating a Request
-    describeContactFlow,
-    DescribeContactFlow,
+  ( -- * Creating a request
+    DescribeContactFlow (..),
+    mkDescribeContactFlow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcfInstanceId,
     dcfContactFlowId,
 
-    -- * Destructuring the Response
-    describeContactFlowResponse,
-    DescribeContactFlowResponse,
+    -- * Destructuring the response
+    DescribeContactFlowResponse (..),
+    mkDescribeContactFlowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcfrsContactFlow,
     dcfrsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeContactFlow' smart constructor.
+-- | /See:/ 'mkDescribeContactFlow' smart constructor.
 data DescribeContactFlow = DescribeContactFlow'
-  { _dcfInstanceId ::
-      !Text,
-    _dcfContactFlowId :: !Text
+  { instanceId ::
+      Lude.Text,
+    contactFlowId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContactFlow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcfInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'dcfContactFlowId' - The identifier of the contact flow.
-describeContactFlow ::
-  -- | 'dcfInstanceId'
-  Text ->
-  -- | 'dcfContactFlowId'
-  Text ->
+-- * 'contactFlowId' - The identifier of the contact flow.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkDescribeContactFlow ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'contactFlowId'
+  Lude.Text ->
   DescribeContactFlow
-describeContactFlow pInstanceId_ pContactFlowId_ =
+mkDescribeContactFlow pInstanceId_ pContactFlowId_ =
   DescribeContactFlow'
-    { _dcfInstanceId = pInstanceId_,
-      _dcfContactFlowId = pContactFlowId_
+    { instanceId = pInstanceId_,
+      contactFlowId = pContactFlowId_
     }
 
 -- | The identifier of the Amazon Connect instance.
-dcfInstanceId :: Lens' DescribeContactFlow Text
-dcfInstanceId = lens _dcfInstanceId (\s a -> s {_dcfInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfInstanceId :: Lens.Lens' DescribeContactFlow Lude.Text
+dcfInstanceId = Lens.lens (instanceId :: DescribeContactFlow -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeContactFlow)
+{-# DEPRECATED dcfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the contact flow.
-dcfContactFlowId :: Lens' DescribeContactFlow Text
-dcfContactFlowId = lens _dcfContactFlowId (\s a -> s {_dcfContactFlowId = a})
+--
+-- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfContactFlowId :: Lens.Lens' DescribeContactFlow Lude.Text
+dcfContactFlowId = Lens.lens (contactFlowId :: DescribeContactFlow -> Lude.Text) (\s a -> s {contactFlowId = a} :: DescribeContactFlow)
+{-# DEPRECATED dcfContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
-instance AWSRequest DescribeContactFlow where
+instance Lude.AWSRequest DescribeContactFlow where
   type Rs DescribeContactFlow = DescribeContactFlowResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeContactFlowResponse'
-            <$> (x .?> "ContactFlow") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContactFlow") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeContactFlow
-
-instance NFData DescribeContactFlow
-
-instance ToHeaders DescribeContactFlow where
+instance Lude.ToHeaders DescribeContactFlow where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeContactFlow where
+instance Lude.ToPath DescribeContactFlow where
   toPath DescribeContactFlow' {..} =
-    mconcat
+    Lude.mconcat
       [ "/contact-flows/",
-        toBS _dcfInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _dcfContactFlowId
+        Lude.toBS contactFlowId
       ]
 
-instance ToQuery DescribeContactFlow where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeContactFlow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeContactFlowResponse' smart constructor.
+-- | /See:/ 'mkDescribeContactFlowResponse' smart constructor.
 data DescribeContactFlowResponse = DescribeContactFlowResponse'
-  { _dcfrsContactFlow ::
-      !(Maybe ContactFlow),
-    _dcfrsResponseStatus :: !Int
+  { contactFlow ::
+      Lude.Maybe ContactFlow,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContactFlowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcfrsContactFlow' - Information about the contact flow.
---
--- * 'dcfrsResponseStatus' - -- | The response status code.
-describeContactFlowResponse ::
-  -- | 'dcfrsResponseStatus'
-  Int ->
+-- * 'contactFlow' - Information about the contact flow.
+-- * 'responseStatus' - The response status code.
+mkDescribeContactFlowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeContactFlowResponse
-describeContactFlowResponse pResponseStatus_ =
+mkDescribeContactFlowResponse pResponseStatus_ =
   DescribeContactFlowResponse'
-    { _dcfrsContactFlow = Nothing,
-      _dcfrsResponseStatus = pResponseStatus_
+    { contactFlow = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the contact flow.
-dcfrsContactFlow :: Lens' DescribeContactFlowResponse (Maybe ContactFlow)
-dcfrsContactFlow = lens _dcfrsContactFlow (\s a -> s {_dcfrsContactFlow = a})
+--
+-- /Note:/ Consider using 'contactFlow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfrsContactFlow :: Lens.Lens' DescribeContactFlowResponse (Lude.Maybe ContactFlow)
+dcfrsContactFlow = Lens.lens (contactFlow :: DescribeContactFlowResponse -> Lude.Maybe ContactFlow) (\s a -> s {contactFlow = a} :: DescribeContactFlowResponse)
+{-# DEPRECATED dcfrsContactFlow "Use generic-lens or generic-optics with 'contactFlow' instead." #-}
 
--- | -- | The response status code.
-dcfrsResponseStatus :: Lens' DescribeContactFlowResponse Int
-dcfrsResponseStatus = lens _dcfrsResponseStatus (\s a -> s {_dcfrsResponseStatus = a})
-
-instance NFData DescribeContactFlowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfrsResponseStatus :: Lens.Lens' DescribeContactFlowResponse Lude.Int
+dcfrsResponseStatus = Lens.lens (responseStatus :: DescribeContactFlowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContactFlowResponse)
+{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,134 @@
 --
 -- Returns information about one or more of your Amazon Lightsail container services.
 module Network.AWS.Lightsail.GetContainerServices
-  ( -- * Creating a Request
-    getContainerServices,
-    GetContainerServices,
+  ( -- * Creating a request
+    GetContainerServices (..),
+    mkGetContainerServices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcsServiceName,
 
-    -- * Destructuring the Response
-    getContainerServicesResponse,
-    GetContainerServicesResponse,
+    -- * Destructuring the response
+    GetContainerServicesResponse (..),
+    mkGetContainerServicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcsrsContainerServices,
     gcsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContainerServices' smart constructor.
+-- | /See:/ 'mkGetContainerServices' smart constructor.
 newtype GetContainerServices = GetContainerServices'
-  { _gcsServiceName ::
-      Maybe Text
+  { serviceName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerServices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'serviceName' - The name of the container service for which to return information.
 --
--- * 'gcsServiceName' - The name of the container service for which to return information. When omitted, the response includes all of your container services in the AWS Region where the request is made.
-getContainerServices ::
+-- When omitted, the response includes all of your container services in the AWS Region where the request is made.
+mkGetContainerServices ::
   GetContainerServices
-getContainerServices =
-  GetContainerServices' {_gcsServiceName = Nothing}
+mkGetContainerServices =
+  GetContainerServices' {serviceName = Lude.Nothing}
 
--- | The name of the container service for which to return information. When omitted, the response includes all of your container services in the AWS Region where the request is made.
-gcsServiceName :: Lens' GetContainerServices (Maybe Text)
-gcsServiceName = lens _gcsServiceName (\s a -> s {_gcsServiceName = a})
+-- | The name of the container service for which to return information.
+--
+-- When omitted, the response includes all of your container services in the AWS Region where the request is made.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsServiceName :: Lens.Lens' GetContainerServices (Lude.Maybe Lude.Text)
+gcsServiceName = Lens.lens (serviceName :: GetContainerServices -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: GetContainerServices)
+{-# DEPRECATED gcsServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance AWSRequest GetContainerServices where
+instance Lude.AWSRequest GetContainerServices where
   type Rs GetContainerServices = GetContainerServicesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContainerServicesResponse'
-            <$> (x .?> "containerServices" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "containerServices" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContainerServices
-
-instance NFData GetContainerServices
-
-instance ToHeaders GetContainerServices where
+instance Lude.ToHeaders GetContainerServices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetContainerServices" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetContainerServices" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContainerServices where
+instance Lude.ToJSON GetContainerServices where
   toJSON GetContainerServices' {..} =
-    object (catMaybes [("serviceName" .=) <$> _gcsServiceName])
+    Lude.object
+      (Lude.catMaybes [("serviceName" Lude..=) Lude.<$> serviceName])
 
-instance ToPath GetContainerServices where
-  toPath = const "/"
+instance Lude.ToPath GetContainerServices where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContainerServices where
-  toQuery = const mempty
+instance Lude.ToQuery GetContainerServices where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContainerServicesResponse' smart constructor.
+-- | /See:/ 'mkGetContainerServicesResponse' smart constructor.
 data GetContainerServicesResponse = GetContainerServicesResponse'
-  { _gcsrsContainerServices ::
-      !(Maybe [ContainerService]),
-    _gcsrsResponseStatus :: !Int
+  { containerServices ::
+      Lude.Maybe [ContainerService],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerServicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsrsContainerServices' - An array of objects that describe one or more container services.
---
--- * 'gcsrsResponseStatus' - -- | The response status code.
-getContainerServicesResponse ::
-  -- | 'gcsrsResponseStatus'
-  Int ->
+-- * 'containerServices' - An array of objects that describe one or more container services.
+-- * 'responseStatus' - The response status code.
+mkGetContainerServicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContainerServicesResponse
-getContainerServicesResponse pResponseStatus_ =
+mkGetContainerServicesResponse pResponseStatus_ =
   GetContainerServicesResponse'
-    { _gcsrsContainerServices = Nothing,
-      _gcsrsResponseStatus = pResponseStatus_
+    { containerServices = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe one or more container services.
-gcsrsContainerServices :: Lens' GetContainerServicesResponse [ContainerService]
-gcsrsContainerServices = lens _gcsrsContainerServices (\s a -> s {_gcsrsContainerServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'containerServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsContainerServices :: Lens.Lens' GetContainerServicesResponse (Lude.Maybe [ContainerService])
+gcsrsContainerServices = Lens.lens (containerServices :: GetContainerServicesResponse -> Lude.Maybe [ContainerService]) (\s a -> s {containerServices = a} :: GetContainerServicesResponse)
+{-# DEPRECATED gcsrsContainerServices "Use generic-lens or generic-optics with 'containerServices' instead." #-}
 
--- | -- | The response status code.
-gcsrsResponseStatus :: Lens' GetContainerServicesResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\s a -> s {_gcsrsResponseStatus = a})
-
-instance NFData GetContainerServicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsResponseStatus :: Lens.Lens' GetContainerServicesResponse Lude.Int
+gcsrsResponseStatus = Lens.lens (responseStatus :: GetContainerServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerServicesResponse)
+{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

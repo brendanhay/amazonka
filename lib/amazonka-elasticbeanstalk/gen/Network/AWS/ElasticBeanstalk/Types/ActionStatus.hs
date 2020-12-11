@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ActionStatus where
+module Network.AWS.ElasticBeanstalk.Types.ActionStatus
+  ( ActionStatus
+      ( ActionStatus',
+        ASPending,
+        ASRunning,
+        ASScheduled,
+        ASUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionStatus
-  = ASPending
-  | ASRunning
-  | ASScheduled
-  | ASUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionStatus = ActionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionStatus where
-  parser =
-    takeLowerText >>= \case
-      "pending" -> pure ASPending
-      "running" -> pure ASRunning
-      "scheduled" -> pure ASScheduled
-      "unknown" -> pure ASUnknown
-      e ->
-        fromTextError $
-          "Failure parsing ActionStatus from value: '" <> e
-            <> "'. Accepted values: pending, running, scheduled, unknown"
+pattern ASPending :: ActionStatus
+pattern ASPending = ActionStatus' "Pending"
 
-instance ToText ActionStatus where
-  toText = \case
-    ASPending -> "Pending"
-    ASRunning -> "Running"
-    ASScheduled -> "Scheduled"
-    ASUnknown -> "Unknown"
+pattern ASRunning :: ActionStatus
+pattern ASRunning = ActionStatus' "Running"
 
-instance Hashable ActionStatus
+pattern ASScheduled :: ActionStatus
+pattern ASScheduled = ActionStatus' "Scheduled"
 
-instance NFData ActionStatus
+pattern ASUnknown :: ActionStatus
+pattern ASUnknown = ActionStatus' "Unknown"
 
-instance ToByteString ActionStatus
-
-instance ToQuery ActionStatus
-
-instance ToHeader ActionStatus
-
-instance FromXML ActionStatus where
-  parseXML = parseXMLText "ActionStatus"
+{-# COMPLETE
+  ASPending,
+  ASRunning,
+  ASScheduled,
+  ASUnknown,
+  ActionStatus'
+  #-}

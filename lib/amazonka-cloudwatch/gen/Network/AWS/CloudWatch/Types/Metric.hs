@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.Metric where
+module Network.AWS.CloudWatch.Types.Metric
+  ( Metric (..),
+
+    -- * Smart constructor
+    mkMetric,
+
+    -- * Lenses
+    mMetricName,
+    mNamespace,
+    mDimensions,
+  )
+where
 
 import Network.AWS.CloudWatch.Types.Dimension
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a specific metric.
 --
---
---
--- /See:/ 'metric' smart constructor.
+-- /See:/ 'mkMetric' smart constructor.
 data Metric = Metric'
-  { _mMetricName :: !(Maybe Text),
-    _mNamespace :: !(Maybe Text),
-    _mDimensions :: !(Maybe [Dimension])
+  { metricName :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text,
+    dimensions :: Lude.Maybe [Dimension]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Metric' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mMetricName' - The name of the metric. This is a required field.
---
--- * 'mNamespace' - The namespace of the metric.
---
--- * 'mDimensions' - The dimensions for the metric.
-metric ::
+-- * 'dimensions' - The dimensions for the metric.
+-- * 'metricName' - The name of the metric. This is a required field.
+-- * 'namespace' - The namespace of the metric.
+mkMetric ::
   Metric
-metric =
+mkMetric =
   Metric'
-    { _mMetricName = Nothing,
-      _mNamespace = Nothing,
-      _mDimensions = Nothing
+    { metricName = Lude.Nothing,
+      namespace = Lude.Nothing,
+      dimensions = Lude.Nothing
     }
 
 -- | The name of the metric. This is a required field.
-mMetricName :: Lens' Metric (Maybe Text)
-mMetricName = lens _mMetricName (\s a -> s {_mMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMetricName :: Lens.Lens' Metric (Lude.Maybe Lude.Text)
+mMetricName = Lens.lens (metricName :: Metric -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: Metric)
+{-# DEPRECATED mMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The namespace of the metric.
-mNamespace :: Lens' Metric (Maybe Text)
-mNamespace = lens _mNamespace (\s a -> s {_mNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mNamespace :: Lens.Lens' Metric (Lude.Maybe Lude.Text)
+mNamespace = Lens.lens (namespace :: Metric -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: Metric)
+{-# DEPRECATED mNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The dimensions for the metric.
-mDimensions :: Lens' Metric [Dimension]
-mDimensions = lens _mDimensions (\s a -> s {_mDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mDimensions :: Lens.Lens' Metric (Lude.Maybe [Dimension])
+mDimensions = Lens.lens (dimensions :: Metric -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: Metric)
+{-# DEPRECATED mDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance FromXML Metric where
+instance Lude.FromXML Metric where
   parseXML x =
     Metric'
-      <$> (x .@? "MetricName")
-      <*> (x .@? "Namespace")
-      <*> (x .@? "Dimensions" .!@ mempty >>= may (parseXMLList "member"))
+      Lude.<$> (x Lude..@? "MetricName")
+      Lude.<*> (x Lude..@? "Namespace")
+      Lude.<*> ( x Lude..@? "Dimensions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
 
-instance Hashable Metric
-
-instance NFData Metric
-
-instance ToQuery Metric where
+instance Lude.ToQuery Metric where
   toQuery Metric' {..} =
-    mconcat
-      [ "MetricName" =: _mMetricName,
-        "Namespace" =: _mNamespace,
-        "Dimensions" =: toQuery (toQueryList "member" <$> _mDimensions)
+    Lude.mconcat
+      [ "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions)
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.BillingRecord where
+module Network.AWS.Route53Domains.Types.BillingRecord
+  ( BillingRecord (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBillingRecord,
+
+    -- * Lenses
+    brOperation,
+    brInvoiceId,
+    brDomainName,
+    brBillDate,
+    brPrice,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53Domains.Types.OperationType
 
 -- | Information for one billing record.
 --
---
---
--- /See:/ 'billingRecord' smart constructor.
+-- /See:/ 'mkBillingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-  { _brOperation ::
-      !(Maybe OperationType),
-    _brInvoiceId :: !(Maybe Text),
-    _brDomainName :: !(Maybe Text),
-    _brBillDate :: !(Maybe POSIX),
-    _brPrice :: !(Maybe Double)
+  { operation ::
+      Lude.Maybe OperationType,
+    invoiceId :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Maybe Lude.Text,
+    billDate :: Lude.Maybe Lude.Timestamp,
+    price :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BillingRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'billDate' - The date that the operation was billed, in Unix format.
+-- * 'domainName' - The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
+-- * 'invoiceId' - The ID of the invoice that is associated with the billing record.
+-- * 'operation' - The operation that you were charged for.
+-- * 'price' - The price that you were charged for the operation, in US dollars.
 --
--- * 'brOperation' - The operation that you were charged for.
---
--- * 'brInvoiceId' - The ID of the invoice that is associated with the billing record.
---
--- * 'brDomainName' - The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
---
--- * 'brBillDate' - The date that the operation was billed, in Unix format.
---
--- * 'brPrice' - The price that you were charged for the operation, in US dollars. Example value: 12.0
-billingRecord ::
+-- Example value: 12.0
+mkBillingRecord ::
   BillingRecord
-billingRecord =
+mkBillingRecord =
   BillingRecord'
-    { _brOperation = Nothing,
-      _brInvoiceId = Nothing,
-      _brDomainName = Nothing,
-      _brBillDate = Nothing,
-      _brPrice = Nothing
+    { operation = Lude.Nothing,
+      invoiceId = Lude.Nothing,
+      domainName = Lude.Nothing,
+      billDate = Lude.Nothing,
+      price = Lude.Nothing
     }
 
 -- | The operation that you were charged for.
-brOperation :: Lens' BillingRecord (Maybe OperationType)
-brOperation = lens _brOperation (\s a -> s {_brOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brOperation :: Lens.Lens' BillingRecord (Lude.Maybe OperationType)
+brOperation = Lens.lens (operation :: BillingRecord -> Lude.Maybe OperationType) (\s a -> s {operation = a} :: BillingRecord)
+{-# DEPRECATED brOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The ID of the invoice that is associated with the billing record.
-brInvoiceId :: Lens' BillingRecord (Maybe Text)
-brInvoiceId = lens _brInvoiceId (\s a -> s {_brInvoiceId = a})
+--
+-- /Note:/ Consider using 'invoiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brInvoiceId :: Lens.Lens' BillingRecord (Lude.Maybe Lude.Text)
+brInvoiceId = Lens.lens (invoiceId :: BillingRecord -> Lude.Maybe Lude.Text) (\s a -> s {invoiceId = a} :: BillingRecord)
+{-# DEPRECATED brInvoiceId "Use generic-lens or generic-optics with 'invoiceId' instead." #-}
 
 -- | The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
-brDomainName :: Lens' BillingRecord (Maybe Text)
-brDomainName = lens _brDomainName (\s a -> s {_brDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brDomainName :: Lens.Lens' BillingRecord (Lude.Maybe Lude.Text)
+brDomainName = Lens.lens (domainName :: BillingRecord -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: BillingRecord)
+{-# DEPRECATED brDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The date that the operation was billed, in Unix format.
-brBillDate :: Lens' BillingRecord (Maybe UTCTime)
-brBillDate = lens _brBillDate (\s a -> s {_brBillDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'billDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brBillDate :: Lens.Lens' BillingRecord (Lude.Maybe Lude.Timestamp)
+brBillDate = Lens.lens (billDate :: BillingRecord -> Lude.Maybe Lude.Timestamp) (\s a -> s {billDate = a} :: BillingRecord)
+{-# DEPRECATED brBillDate "Use generic-lens or generic-optics with 'billDate' instead." #-}
 
--- | The price that you were charged for the operation, in US dollars. Example value: 12.0
-brPrice :: Lens' BillingRecord (Maybe Double)
-brPrice = lens _brPrice (\s a -> s {_brPrice = a})
+-- | The price that you were charged for the operation, in US dollars.
+--
+-- Example value: 12.0
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brPrice :: Lens.Lens' BillingRecord (Lude.Maybe Lude.Double)
+brPrice = Lens.lens (price :: BillingRecord -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: BillingRecord)
+{-# DEPRECATED brPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
-instance FromJSON BillingRecord where
+instance Lude.FromJSON BillingRecord where
   parseJSON =
-    withObject
+    Lude.withObject
       "BillingRecord"
       ( \x ->
           BillingRecord'
-            <$> (x .:? "Operation")
-            <*> (x .:? "InvoiceId")
-            <*> (x .:? "DomainName")
-            <*> (x .:? "BillDate")
-            <*> (x .:? "Price")
+            Lude.<$> (x Lude..:? "Operation")
+            Lude.<*> (x Lude..:? "InvoiceId")
+            Lude.<*> (x Lude..:? "DomainName")
+            Lude.<*> (x Lude..:? "BillDate")
+            Lude.<*> (x Lude..:? "Price")
       )
-
-instance Hashable BillingRecord
-
-instance NFData BillingRecord

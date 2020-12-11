@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,152 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CloudFormationStackRecord where
+module Network.AWS.Lightsail.Types.CloudFormationStackRecord
+  ( CloudFormationStackRecord (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCloudFormationStackRecord,
+
+    -- * Lenses
+    cfsrState,
+    cfsrDestinationInfo,
+    cfsrResourceType,
+    cfsrArn,
+    cfsrCreatedAt,
+    cfsrLocation,
+    cfsrName,
+    cfsrSourceInfo,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo
 import Network.AWS.Lightsail.Types.DestinationInfo
 import Network.AWS.Lightsail.Types.RecordState
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a CloudFormation stack record created as a result of the @create cloud formation stack@ operation.
 --
---
 -- A CloudFormation stack record provides information about the AWS CloudFormation stack used to create a new Amazon Elastic Compute Cloud instance from an exported Lightsail instance snapshot.
 --
---
--- /See:/ 'cloudFormationStackRecord' smart constructor.
+-- /See:/ 'mkCloudFormationStackRecord' smart constructor.
 data CloudFormationStackRecord = CloudFormationStackRecord'
-  { _cfsrState ::
-      !(Maybe RecordState),
-    _cfsrDestinationInfo ::
-      !(Maybe DestinationInfo),
-    _cfsrResourceType ::
-      !(Maybe ResourceType),
-    _cfsrArn :: !(Maybe Text),
-    _cfsrCreatedAt :: !(Maybe POSIX),
-    _cfsrLocation ::
-      !(Maybe ResourceLocation),
-    _cfsrName :: !(Maybe Text),
-    _cfsrSourceInfo ::
-      !( Maybe
-           [CloudFormationStackRecordSourceInfo]
-       )
+  { state ::
+      Lude.Maybe RecordState,
+    destinationInfo ::
+      Lude.Maybe DestinationInfo,
+    resourceType :: Lude.Maybe ResourceType,
+    arn :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    location :: Lude.Maybe ResourceLocation,
+    name :: Lude.Maybe Lude.Text,
+    sourceInfo ::
+      Lude.Maybe
+        [CloudFormationStackRecordSourceInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFormationStackRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfsrState' - The current state of the CloudFormation stack record.
---
--- * 'cfsrDestinationInfo' - A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
---
--- * 'cfsrResourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
---
--- * 'cfsrArn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.
---
--- * 'cfsrCreatedAt' - The date when the CloudFormation stack record was created.
---
--- * 'cfsrLocation' - A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
---
--- * 'cfsrName' - The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
---
--- * 'cfsrSourceInfo' - A list of objects describing the source of the CloudFormation stack record.
-cloudFormationStackRecord ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.
+-- * 'createdAt' - The date when the CloudFormation stack record was created.
+-- * 'destinationInfo' - A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
+-- * 'location' - A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
+-- * 'name' - The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
+-- * 'resourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
+-- * 'sourceInfo' - A list of objects describing the source of the CloudFormation stack record.
+-- * 'state' - The current state of the CloudFormation stack record.
+mkCloudFormationStackRecord ::
   CloudFormationStackRecord
-cloudFormationStackRecord =
+mkCloudFormationStackRecord =
   CloudFormationStackRecord'
-    { _cfsrState = Nothing,
-      _cfsrDestinationInfo = Nothing,
-      _cfsrResourceType = Nothing,
-      _cfsrArn = Nothing,
-      _cfsrCreatedAt = Nothing,
-      _cfsrLocation = Nothing,
-      _cfsrName = Nothing,
-      _cfsrSourceInfo = Nothing
+    { state = Lude.Nothing,
+      destinationInfo = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      location = Lude.Nothing,
+      name = Lude.Nothing,
+      sourceInfo = Lude.Nothing
     }
 
 -- | The current state of the CloudFormation stack record.
-cfsrState :: Lens' CloudFormationStackRecord (Maybe RecordState)
-cfsrState = lens _cfsrState (\s a -> s {_cfsrState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrState :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe RecordState)
+cfsrState = Lens.lens (state :: CloudFormationStackRecord -> Lude.Maybe RecordState) (\s a -> s {state = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
-cfsrDestinationInfo :: Lens' CloudFormationStackRecord (Maybe DestinationInfo)
-cfsrDestinationInfo = lens _cfsrDestinationInfo (\s a -> s {_cfsrDestinationInfo = a})
+--
+-- /Note:/ Consider using 'destinationInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrDestinationInfo :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe DestinationInfo)
+cfsrDestinationInfo = Lens.lens (destinationInfo :: CloudFormationStackRecord -> Lude.Maybe DestinationInfo) (\s a -> s {destinationInfo = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrDestinationInfo "Use generic-lens or generic-optics with 'destinationInfo' instead." #-}
 
 -- | The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
-cfsrResourceType :: Lens' CloudFormationStackRecord (Maybe ResourceType)
-cfsrResourceType = lens _cfsrResourceType (\s a -> s {_cfsrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrResourceType :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe ResourceType)
+cfsrResourceType = Lens.lens (resourceType :: CloudFormationStackRecord -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CloudFormation stack record.
-cfsrArn :: Lens' CloudFormationStackRecord (Maybe Text)
-cfsrArn = lens _cfsrArn (\s a -> s {_cfsrArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrArn :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe Lude.Text)
+cfsrArn = Lens.lens (arn :: CloudFormationStackRecord -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the CloudFormation stack record was created.
-cfsrCreatedAt :: Lens' CloudFormationStackRecord (Maybe UTCTime)
-cfsrCreatedAt = lens _cfsrCreatedAt (\s a -> s {_cfsrCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrCreatedAt :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe Lude.Timestamp)
+cfsrCreatedAt = Lens.lens (createdAt :: CloudFormationStackRecord -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
-cfsrLocation :: Lens' CloudFormationStackRecord (Maybe ResourceLocation)
-cfsrLocation = lens _cfsrLocation (\s a -> s {_cfsrLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrLocation :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe ResourceLocation)
+cfsrLocation = Lens.lens (location :: CloudFormationStackRecord -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
-cfsrName :: Lens' CloudFormationStackRecord (Maybe Text)
-cfsrName = lens _cfsrName (\s a -> s {_cfsrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrName :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe Lude.Text)
+cfsrName = Lens.lens (name :: CloudFormationStackRecord -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of objects describing the source of the CloudFormation stack record.
-cfsrSourceInfo :: Lens' CloudFormationStackRecord [CloudFormationStackRecordSourceInfo]
-cfsrSourceInfo = lens _cfsrSourceInfo (\s a -> s {_cfsrSourceInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrSourceInfo :: Lens.Lens' CloudFormationStackRecord (Lude.Maybe [CloudFormationStackRecordSourceInfo])
+cfsrSourceInfo = Lens.lens (sourceInfo :: CloudFormationStackRecord -> Lude.Maybe [CloudFormationStackRecordSourceInfo]) (\s a -> s {sourceInfo = a} :: CloudFormationStackRecord)
+{-# DEPRECATED cfsrSourceInfo "Use generic-lens or generic-optics with 'sourceInfo' instead." #-}
 
-instance FromJSON CloudFormationStackRecord where
+instance Lude.FromJSON CloudFormationStackRecord where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudFormationStackRecord"
       ( \x ->
           CloudFormationStackRecord'
-            <$> (x .:? "state")
-            <*> (x .:? "destinationInfo")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "arn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "location")
-            <*> (x .:? "name")
-            <*> (x .:? "sourceInfo" .!= mempty)
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "destinationInfo")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "sourceInfo" Lude..!= Lude.mempty)
       )
-
-instance Hashable CloudFormationStackRecord
-
-instance NFData CloudFormationStackRecord

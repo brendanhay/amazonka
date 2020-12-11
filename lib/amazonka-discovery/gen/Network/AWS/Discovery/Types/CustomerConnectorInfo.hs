@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.CustomerConnectorInfo where
+module Network.AWS.Discovery.Types.CustomerConnectorInfo
+  ( CustomerConnectorInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomerConnectorInfo,
+
+    -- * Lenses
+    cciActiveConnectors,
+    cciHealthyConnectors,
+    cciBlackListedConnectors,
+    cciShutdownConnectors,
+    cciUnhealthyConnectors,
+    cciTotalConnectors,
+    cciUnknownConnectors,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Inventory data for installed discovery connectors.
 --
---
---
--- /See:/ 'customerConnectorInfo' smart constructor.
+-- /See:/ 'mkCustomerConnectorInfo' smart constructor.
 data CustomerConnectorInfo = CustomerConnectorInfo'
-  { _cciActiveConnectors ::
-      !Int,
-    _cciHealthyConnectors :: !Int,
-    _cciBlackListedConnectors :: !Int,
-    _cciShutdownConnectors :: !Int,
-    _cciUnhealthyConnectors :: !Int,
-    _cciTotalConnectors :: !Int,
-    _cciUnknownConnectors :: !Int
+  { activeConnectors ::
+      Lude.Int,
+    healthyConnectors :: Lude.Int,
+    blackListedConnectors :: Lude.Int,
+    shutdownConnectors :: Lude.Int,
+    unhealthyConnectors :: Lude.Int,
+    totalConnectors :: Lude.Int,
+    unknownConnectors :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerConnectorInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cciActiveConnectors' - Number of active discovery connectors.
---
--- * 'cciHealthyConnectors' - Number of healthy discovery connectors.
---
--- * 'cciBlackListedConnectors' - Number of blacklisted discovery connectors.
---
--- * 'cciShutdownConnectors' - Number of discovery connectors with status SHUTDOWN,
---
--- * 'cciUnhealthyConnectors' - Number of unhealthy discovery connectors.
---
--- * 'cciTotalConnectors' - Total number of discovery connectors.
---
--- * 'cciUnknownConnectors' - Number of unknown discovery connectors.
-customerConnectorInfo ::
-  -- | 'cciActiveConnectors'
-  Int ->
-  -- | 'cciHealthyConnectors'
-  Int ->
-  -- | 'cciBlackListedConnectors'
-  Int ->
-  -- | 'cciShutdownConnectors'
-  Int ->
-  -- | 'cciUnhealthyConnectors'
-  Int ->
-  -- | 'cciTotalConnectors'
-  Int ->
-  -- | 'cciUnknownConnectors'
-  Int ->
+-- * 'activeConnectors' - Number of active discovery connectors.
+-- * 'blackListedConnectors' - Number of blacklisted discovery connectors.
+-- * 'healthyConnectors' - Number of healthy discovery connectors.
+-- * 'shutdownConnectors' - Number of discovery connectors with status SHUTDOWN,
+-- * 'totalConnectors' - Total number of discovery connectors.
+-- * 'unhealthyConnectors' - Number of unhealthy discovery connectors.
+-- * 'unknownConnectors' - Number of unknown discovery connectors.
+mkCustomerConnectorInfo ::
+  -- | 'activeConnectors'
+  Lude.Int ->
+  -- | 'healthyConnectors'
+  Lude.Int ->
+  -- | 'blackListedConnectors'
+  Lude.Int ->
+  -- | 'shutdownConnectors'
+  Lude.Int ->
+  -- | 'unhealthyConnectors'
+  Lude.Int ->
+  -- | 'totalConnectors'
+  Lude.Int ->
+  -- | 'unknownConnectors'
+  Lude.Int ->
   CustomerConnectorInfo
-customerConnectorInfo
+mkCustomerConnectorInfo
   pActiveConnectors_
   pHealthyConnectors_
   pBlackListedConnectors_
@@ -77,58 +83,75 @@ customerConnectorInfo
   pTotalConnectors_
   pUnknownConnectors_ =
     CustomerConnectorInfo'
-      { _cciActiveConnectors = pActiveConnectors_,
-        _cciHealthyConnectors = pHealthyConnectors_,
-        _cciBlackListedConnectors = pBlackListedConnectors_,
-        _cciShutdownConnectors = pShutdownConnectors_,
-        _cciUnhealthyConnectors = pUnhealthyConnectors_,
-        _cciTotalConnectors = pTotalConnectors_,
-        _cciUnknownConnectors = pUnknownConnectors_
+      { activeConnectors = pActiveConnectors_,
+        healthyConnectors = pHealthyConnectors_,
+        blackListedConnectors = pBlackListedConnectors_,
+        shutdownConnectors = pShutdownConnectors_,
+        unhealthyConnectors = pUnhealthyConnectors_,
+        totalConnectors = pTotalConnectors_,
+        unknownConnectors = pUnknownConnectors_
       }
 
 -- | Number of active discovery connectors.
-cciActiveConnectors :: Lens' CustomerConnectorInfo Int
-cciActiveConnectors = lens _cciActiveConnectors (\s a -> s {_cciActiveConnectors = a})
+--
+-- /Note:/ Consider using 'activeConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciActiveConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciActiveConnectors = Lens.lens (activeConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {activeConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciActiveConnectors "Use generic-lens or generic-optics with 'activeConnectors' instead." #-}
 
 -- | Number of healthy discovery connectors.
-cciHealthyConnectors :: Lens' CustomerConnectorInfo Int
-cciHealthyConnectors = lens _cciHealthyConnectors (\s a -> s {_cciHealthyConnectors = a})
+--
+-- /Note:/ Consider using 'healthyConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciHealthyConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciHealthyConnectors = Lens.lens (healthyConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {healthyConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciHealthyConnectors "Use generic-lens or generic-optics with 'healthyConnectors' instead." #-}
 
 -- | Number of blacklisted discovery connectors.
-cciBlackListedConnectors :: Lens' CustomerConnectorInfo Int
-cciBlackListedConnectors = lens _cciBlackListedConnectors (\s a -> s {_cciBlackListedConnectors = a})
+--
+-- /Note:/ Consider using 'blackListedConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciBlackListedConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciBlackListedConnectors = Lens.lens (blackListedConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {blackListedConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciBlackListedConnectors "Use generic-lens or generic-optics with 'blackListedConnectors' instead." #-}
 
 -- | Number of discovery connectors with status SHUTDOWN,
-cciShutdownConnectors :: Lens' CustomerConnectorInfo Int
-cciShutdownConnectors = lens _cciShutdownConnectors (\s a -> s {_cciShutdownConnectors = a})
+--
+-- /Note:/ Consider using 'shutdownConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciShutdownConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciShutdownConnectors = Lens.lens (shutdownConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {shutdownConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciShutdownConnectors "Use generic-lens or generic-optics with 'shutdownConnectors' instead." #-}
 
 -- | Number of unhealthy discovery connectors.
-cciUnhealthyConnectors :: Lens' CustomerConnectorInfo Int
-cciUnhealthyConnectors = lens _cciUnhealthyConnectors (\s a -> s {_cciUnhealthyConnectors = a})
+--
+-- /Note:/ Consider using 'unhealthyConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciUnhealthyConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciUnhealthyConnectors = Lens.lens (unhealthyConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {unhealthyConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciUnhealthyConnectors "Use generic-lens or generic-optics with 'unhealthyConnectors' instead." #-}
 
 -- | Total number of discovery connectors.
-cciTotalConnectors :: Lens' CustomerConnectorInfo Int
-cciTotalConnectors = lens _cciTotalConnectors (\s a -> s {_cciTotalConnectors = a})
+--
+-- /Note:/ Consider using 'totalConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciTotalConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciTotalConnectors = Lens.lens (totalConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {totalConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciTotalConnectors "Use generic-lens or generic-optics with 'totalConnectors' instead." #-}
 
 -- | Number of unknown discovery connectors.
-cciUnknownConnectors :: Lens' CustomerConnectorInfo Int
-cciUnknownConnectors = lens _cciUnknownConnectors (\s a -> s {_cciUnknownConnectors = a})
+--
+-- /Note:/ Consider using 'unknownConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cciUnknownConnectors :: Lens.Lens' CustomerConnectorInfo Lude.Int
+cciUnknownConnectors = Lens.lens (unknownConnectors :: CustomerConnectorInfo -> Lude.Int) (\s a -> s {unknownConnectors = a} :: CustomerConnectorInfo)
+{-# DEPRECATED cciUnknownConnectors "Use generic-lens or generic-optics with 'unknownConnectors' instead." #-}
 
-instance FromJSON CustomerConnectorInfo where
+instance Lude.FromJSON CustomerConnectorInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "CustomerConnectorInfo"
       ( \x ->
           CustomerConnectorInfo'
-            <$> (x .: "activeConnectors")
-            <*> (x .: "healthyConnectors")
-            <*> (x .: "blackListedConnectors")
-            <*> (x .: "shutdownConnectors")
-            <*> (x .: "unhealthyConnectors")
-            <*> (x .: "totalConnectors")
-            <*> (x .: "unknownConnectors")
+            Lude.<$> (x Lude..: "activeConnectors")
+            Lude.<*> (x Lude..: "healthyConnectors")
+            Lude.<*> (x Lude..: "blackListedConnectors")
+            Lude.<*> (x Lude..: "shutdownConnectors")
+            Lude.<*> (x Lude..: "unhealthyConnectors")
+            Lude.<*> (x Lude..: "totalConnectors")
+            Lude.<*> (x Lude..: "unknownConnectors")
       )
-
-instance Hashable CustomerConnectorInfo
-
-instance NFData CustomerConnectorInfo

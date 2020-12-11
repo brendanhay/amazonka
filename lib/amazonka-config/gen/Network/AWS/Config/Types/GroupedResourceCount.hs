@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.GroupedResourceCount where
+module Network.AWS.Config.Types.GroupedResourceCount
+  ( GroupedResourceCount (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupedResourceCount,
+
+    -- * Lenses
+    grcGroupName,
+    grcResourceCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The count of resources that are grouped by the group name.
 --
---
---
--- /See:/ 'groupedResourceCount' smart constructor.
+-- /See:/ 'mkGroupedResourceCount' smart constructor.
 data GroupedResourceCount = GroupedResourceCount'
-  { _grcGroupName ::
-      !Text,
-    _grcResourceCount :: !Integer
+  { groupName ::
+      Lude.Text,
+    resourceCount :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupedResourceCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grcGroupName' - The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
---
--- * 'grcResourceCount' - The number of resources in the group.
-groupedResourceCount ::
-  -- | 'grcGroupName'
-  Text ->
-  -- | 'grcResourceCount'
-  Integer ->
+-- * 'groupName' - The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
+-- * 'resourceCount' - The number of resources in the group.
+mkGroupedResourceCount ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'resourceCount'
+  Lude.Integer ->
   GroupedResourceCount
-groupedResourceCount pGroupName_ pResourceCount_ =
+mkGroupedResourceCount pGroupName_ pResourceCount_ =
   GroupedResourceCount'
-    { _grcGroupName = pGroupName_,
-      _grcResourceCount = pResourceCount_
+    { groupName = pGroupName_,
+      resourceCount = pResourceCount_
     }
 
 -- | The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
-grcGroupName :: Lens' GroupedResourceCount Text
-grcGroupName = lens _grcGroupName (\s a -> s {_grcGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcGroupName :: Lens.Lens' GroupedResourceCount Lude.Text
+grcGroupName = Lens.lens (groupName :: GroupedResourceCount -> Lude.Text) (\s a -> s {groupName = a} :: GroupedResourceCount)
+{-# DEPRECATED grcGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The number of resources in the group.
-grcResourceCount :: Lens' GroupedResourceCount Integer
-grcResourceCount = lens _grcResourceCount (\s a -> s {_grcResourceCount = a})
+--
+-- /Note:/ Consider using 'resourceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcResourceCount :: Lens.Lens' GroupedResourceCount Lude.Integer
+grcResourceCount = Lens.lens (resourceCount :: GroupedResourceCount -> Lude.Integer) (\s a -> s {resourceCount = a} :: GroupedResourceCount)
+{-# DEPRECATED grcResourceCount "Use generic-lens or generic-optics with 'resourceCount' instead." #-}
 
-instance FromJSON GroupedResourceCount where
+instance Lude.FromJSON GroupedResourceCount where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupedResourceCount"
       ( \x ->
           GroupedResourceCount'
-            <$> (x .: "GroupName") <*> (x .: "ResourceCount")
+            Lude.<$> (x Lude..: "GroupName") Lude.<*> (x Lude..: "ResourceCount")
       )
-
-instance Hashable GroupedResourceCount
-
-instance NFData GroupedResourceCount

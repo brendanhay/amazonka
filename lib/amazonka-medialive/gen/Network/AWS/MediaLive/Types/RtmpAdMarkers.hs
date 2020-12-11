@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpAdMarkers where
+module Network.AWS.MediaLive.Types.RtmpAdMarkers
+  ( RtmpAdMarkers
+      ( RtmpAdMarkers',
+        OnCuePointSCTE35
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rtmp Ad Markers
-data RtmpAdMarkers = OnCuePointSCTE35
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RtmpAdMarkers = RtmpAdMarkers' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RtmpAdMarkers where
-  parser =
-    takeLowerText >>= \case
-      "on_cue_point_scte35" -> pure OnCuePointSCTE35
-      e ->
-        fromTextError $
-          "Failure parsing RtmpAdMarkers from value: '" <> e
-            <> "'. Accepted values: on_cue_point_scte35"
+pattern OnCuePointSCTE35 :: RtmpAdMarkers
+pattern OnCuePointSCTE35 = RtmpAdMarkers' "ON_CUE_POINT_SCTE35"
 
-instance ToText RtmpAdMarkers where
-  toText = \case
-    OnCuePointSCTE35 -> "ON_CUE_POINT_SCTE35"
-
-instance Hashable RtmpAdMarkers
-
-instance NFData RtmpAdMarkers
-
-instance ToByteString RtmpAdMarkers
-
-instance ToQuery RtmpAdMarkers
-
-instance ToHeader RtmpAdMarkers
-
-instance ToJSON RtmpAdMarkers where
-  toJSON = toJSONText
-
-instance FromJSON RtmpAdMarkers where
-  parseJSON = parseJSONText "RtmpAdMarkers"
+{-# COMPLETE
+  OnCuePointSCTE35,
+  RtmpAdMarkers'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,175 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointSummary where
+module Network.AWS.SageMaker.Types.EndpointSummary
+  ( EndpointSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndpointSummary,
+
+    -- * Lenses
+    esEndpointName,
+    esEndpointARN,
+    esCreationTime,
+    esLastModifiedTime,
+    esEndpointStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.EndpointStatus
 
 -- | Provides summary information for an endpoint.
 --
---
---
--- /See:/ 'endpointSummary' smart constructor.
+-- /See:/ 'mkEndpointSummary' smart constructor.
 data EndpointSummary = EndpointSummary'
-  { _esEndpointName :: !Text,
-    _esEndpointARN :: !Text,
-    _esCreationTime :: !POSIX,
-    _esLastModifiedTime :: !POSIX,
-    _esEndpointStatus :: !EndpointStatus
+  { endpointName :: Lude.Text,
+    endpointARN :: Lude.Text,
+    creationTime :: Lude.Timestamp,
+    lastModifiedTime :: Lude.Timestamp,
+    endpointStatus :: EndpointStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - A timestamp that shows when the endpoint was created.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) of the endpoint.
+-- * 'endpointName' - The name of the endpoint.
+-- * 'endpointStatus' - The status of the endpoint.
 --
--- * 'esEndpointName' - The name of the endpoint.
 --
--- * 'esEndpointARN' - The Amazon Resource Name (ARN) of the endpoint.
+--     * @OutOfService@ : Endpoint is not available to take incoming requests.
 --
--- * 'esCreationTime' - A timestamp that shows when the endpoint was created.
 --
--- * 'esLastModifiedTime' - A timestamp that shows when the endpoint was last modified.
+--     * @Creating@ : 'CreateEndpoint' is executing.
 --
--- * 'esEndpointStatus' - The status of the endpoint.     * @OutOfService@ : Endpoint is not available to take incoming requests.     * @Creating@ : 'CreateEndpoint' is executing.     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.     * @InService@ : Endpoint is available to process incoming requests.     * @Deleting@ : 'DeleteEndpoint' is executing.     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint. To get a list of endpoints with a specified status, use the 'ListEndpointsInput$StatusEquals' filter.
-endpointSummary ::
-  -- | 'esEndpointName'
-  Text ->
-  -- | 'esEndpointARN'
-  Text ->
-  -- | 'esCreationTime'
-  UTCTime ->
-  -- | 'esLastModifiedTime'
-  UTCTime ->
-  -- | 'esEndpointStatus'
+--
+--     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.
+--
+--
+--     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.
+--
+--
+--     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.
+--
+--
+--     * @InService@ : Endpoint is available to process incoming requests.
+--
+--
+--     * @Deleting@ : 'DeleteEndpoint' is executing.
+--
+--
+--     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
+--
+--
+-- To get a list of endpoints with a specified status, use the 'ListEndpointsInput$StatusEquals' filter.
+-- * 'lastModifiedTime' - A timestamp that shows when the endpoint was last modified.
+mkEndpointSummary ::
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'endpointStatus'
   EndpointStatus ->
   EndpointSummary
-endpointSummary
+mkEndpointSummary
   pEndpointName_
   pEndpointARN_
   pCreationTime_
   pLastModifiedTime_
   pEndpointStatus_ =
     EndpointSummary'
-      { _esEndpointName = pEndpointName_,
-        _esEndpointARN = pEndpointARN_,
-        _esCreationTime = _Time # pCreationTime_,
-        _esLastModifiedTime = _Time # pLastModifiedTime_,
-        _esEndpointStatus = pEndpointStatus_
+      { endpointName = pEndpointName_,
+        endpointARN = pEndpointARN_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        endpointStatus = pEndpointStatus_
       }
 
 -- | The name of the endpoint.
-esEndpointName :: Lens' EndpointSummary Text
-esEndpointName = lens _esEndpointName (\s a -> s {_esEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEndpointName :: Lens.Lens' EndpointSummary Lude.Text
+esEndpointName = Lens.lens (endpointName :: EndpointSummary -> Lude.Text) (\s a -> s {endpointName = a} :: EndpointSummary)
+{-# DEPRECATED esEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-esEndpointARN :: Lens' EndpointSummary Text
-esEndpointARN = lens _esEndpointARN (\s a -> s {_esEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEndpointARN :: Lens.Lens' EndpointSummary Lude.Text
+esEndpointARN = Lens.lens (endpointARN :: EndpointSummary -> Lude.Text) (\s a -> s {endpointARN = a} :: EndpointSummary)
+{-# DEPRECATED esEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | A timestamp that shows when the endpoint was created.
-esCreationTime :: Lens' EndpointSummary UTCTime
-esCreationTime = lens _esCreationTime (\s a -> s {_esCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esCreationTime :: Lens.Lens' EndpointSummary Lude.Timestamp
+esCreationTime = Lens.lens (creationTime :: EndpointSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: EndpointSummary)
+{-# DEPRECATED esCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A timestamp that shows when the endpoint was last modified.
-esLastModifiedTime :: Lens' EndpointSummary UTCTime
-esLastModifiedTime = lens _esLastModifiedTime (\s a -> s {_esLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLastModifiedTime :: Lens.Lens' EndpointSummary Lude.Timestamp
+esLastModifiedTime = Lens.lens (lastModifiedTime :: EndpointSummary -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: EndpointSummary)
+{-# DEPRECATED esLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
--- | The status of the endpoint.     * @OutOfService@ : Endpoint is not available to take incoming requests.     * @Creating@ : 'CreateEndpoint' is executing.     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.     * @InService@ : Endpoint is available to process incoming requests.     * @Deleting@ : 'DeleteEndpoint' is executing.     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint. To get a list of endpoints with a specified status, use the 'ListEndpointsInput$StatusEquals' filter.
-esEndpointStatus :: Lens' EndpointSummary EndpointStatus
-esEndpointStatus = lens _esEndpointStatus (\s a -> s {_esEndpointStatus = a})
+-- | The status of the endpoint.
+--
+--
+--     * @OutOfService@ : Endpoint is not available to take incoming requests.
+--
+--
+--     * @Creating@ : 'CreateEndpoint' is executing.
+--
+--
+--     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.
+--
+--
+--     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.
+--
+--
+--     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.
+--
+--
+--     * @InService@ : Endpoint is available to process incoming requests.
+--
+--
+--     * @Deleting@ : 'DeleteEndpoint' is executing.
+--
+--
+--     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
+--
+--
+-- To get a list of endpoints with a specified status, use the 'ListEndpointsInput$StatusEquals' filter.
+--
+-- /Note:/ Consider using 'endpointStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEndpointStatus :: Lens.Lens' EndpointSummary EndpointStatus
+esEndpointStatus = Lens.lens (endpointStatus :: EndpointSummary -> EndpointStatus) (\s a -> s {endpointStatus = a} :: EndpointSummary)
+{-# DEPRECATED esEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
 
-instance FromJSON EndpointSummary where
+instance Lude.FromJSON EndpointSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "EndpointSummary"
       ( \x ->
           EndpointSummary'
-            <$> (x .: "EndpointName")
-            <*> (x .: "EndpointArn")
-            <*> (x .: "CreationTime")
-            <*> (x .: "LastModifiedTime")
-            <*> (x .: "EndpointStatus")
+            Lude.<$> (x Lude..: "EndpointName")
+            Lude.<*> (x Lude..: "EndpointArn")
+            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "LastModifiedTime")
+            Lude.<*> (x Lude..: "EndpointStatus")
       )
-
-instance Hashable EndpointSummary
-
-instance NFData EndpointSummary

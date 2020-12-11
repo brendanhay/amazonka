@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,95 @@
 --
 -- Deletes the specified launch configuration.
 --
---
 -- The launch configuration must not be attached to an Auto Scaling group. When this call completes, the launch configuration is no longer available for use.
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
-  ( -- * Creating a Request
-    deleteLaunchConfiguration,
-    DeleteLaunchConfiguration,
+  ( -- * Creating a request
+    DeleteLaunchConfiguration (..),
+    mkDeleteLaunchConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlcLaunchConfigurationName,
 
-    -- * Destructuring the Response
-    deleteLaunchConfigurationResponse,
-    DeleteLaunchConfigurationResponse,
+    -- * Destructuring the response
+    DeleteLaunchConfigurationResponse (..),
+    mkDeleteLaunchConfigurationResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLaunchConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteLaunchConfiguration' smart constructor.
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
-  { _dlcLaunchConfigurationName ::
-      Text
+  { launchConfigurationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcLaunchConfigurationName' - The name of the launch configuration.
-deleteLaunchConfiguration ::
-  -- | 'dlcLaunchConfigurationName'
-  Text ->
+-- * 'launchConfigurationName' - The name of the launch configuration.
+mkDeleteLaunchConfiguration ::
+  -- | 'launchConfigurationName'
+  Lude.Text ->
   DeleteLaunchConfiguration
-deleteLaunchConfiguration pLaunchConfigurationName_ =
+mkDeleteLaunchConfiguration pLaunchConfigurationName_ =
   DeleteLaunchConfiguration'
-    { _dlcLaunchConfigurationName =
+    { launchConfigurationName =
         pLaunchConfigurationName_
     }
 
 -- | The name of the launch configuration.
-dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
-dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\s a -> s {_dlcLaunchConfigurationName = a})
+--
+-- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcLaunchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Lude.Text
+dlcLaunchConfigurationName = Lens.lens (launchConfigurationName :: DeleteLaunchConfiguration -> Lude.Text) (\s a -> s {launchConfigurationName = a} :: DeleteLaunchConfiguration)
+{-# DEPRECATED dlcLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
-instance AWSRequest DeleteLaunchConfiguration where
+instance Lude.AWSRequest DeleteLaunchConfiguration where
   type
     Rs DeleteLaunchConfiguration =
       DeleteLaunchConfigurationResponse
-  request = postQuery autoScaling
-  response = receiveNull DeleteLaunchConfigurationResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull DeleteLaunchConfigurationResponse'
 
-instance Hashable DeleteLaunchConfiguration
+instance Lude.ToHeaders DeleteLaunchConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteLaunchConfiguration
+instance Lude.ToPath DeleteLaunchConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteLaunchConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DeleteLaunchConfiguration where
-  toPath = const "/"
-
-instance ToQuery DeleteLaunchConfiguration where
+instance Lude.ToQuery DeleteLaunchConfiguration where
   toQuery DeleteLaunchConfiguration' {..} =
-    mconcat
-      [ "Action" =: ("DeleteLaunchConfiguration" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "LaunchConfigurationName" =: _dlcLaunchConfigurationName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteLaunchConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "LaunchConfigurationName" Lude.=: launchConfigurationName
       ]
 
--- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchConfigurationResponse' with the minimum fields required to make a request.
-deleteLaunchConfigurationResponse ::
+mkDeleteLaunchConfigurationResponse ::
   DeleteLaunchConfigurationResponse
-deleteLaunchConfigurationResponse =
+mkDeleteLaunchConfigurationResponse =
   DeleteLaunchConfigurationResponse'
-
-instance NFData DeleteLaunchConfigurationResponse

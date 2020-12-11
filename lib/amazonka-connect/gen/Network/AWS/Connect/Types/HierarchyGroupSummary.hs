@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.HierarchyGroupSummary where
+module Network.AWS.Connect.Types.HierarchyGroupSummary
+  ( HierarchyGroupSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHierarchyGroupSummary,
+
+    -- * Lenses
+    hgsARN,
+    hgsName,
+    hgsId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about a hierarchy group.
 --
---
---
--- /See:/ 'hierarchyGroupSummary' smart constructor.
+-- /See:/ 'mkHierarchyGroupSummary' smart constructor.
 data HierarchyGroupSummary = HierarchyGroupSummary'
-  { _hgsARN ::
-      !(Maybe Text),
-    _hgsName :: !(Maybe Text),
-    _hgsId :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyGroupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hgsARN' - The Amazon Resource Name (ARN) of the hierarchy group.
---
--- * 'hgsName' - The name of the hierarchy group.
---
--- * 'hgsId' - The identifier of the hierarchy group.
-hierarchyGroupSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the hierarchy group.
+-- * 'id' - The identifier of the hierarchy group.
+-- * 'name' - The name of the hierarchy group.
+mkHierarchyGroupSummary ::
   HierarchyGroupSummary
-hierarchyGroupSummary =
+mkHierarchyGroupSummary =
   HierarchyGroupSummary'
-    { _hgsARN = Nothing,
-      _hgsName = Nothing,
-      _hgsId = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
-hgsARN :: Lens' HierarchyGroupSummary (Maybe Text)
-hgsARN = lens _hgsARN (\s a -> s {_hgsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsARN :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
+hgsARN = Lens.lens (arn :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: HierarchyGroupSummary)
+{-# DEPRECATED hgsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the hierarchy group.
-hgsName :: Lens' HierarchyGroupSummary (Maybe Text)
-hgsName = lens _hgsName (\s a -> s {_hgsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsName :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
+hgsName = Lens.lens (name :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HierarchyGroupSummary)
+{-# DEPRECATED hgsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the hierarchy group.
-hgsId :: Lens' HierarchyGroupSummary (Maybe Text)
-hgsId = lens _hgsId (\s a -> s {_hgsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsId :: Lens.Lens' HierarchyGroupSummary (Lude.Maybe Lude.Text)
+hgsId = Lens.lens (id :: HierarchyGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: HierarchyGroupSummary)
+{-# DEPRECATED hgsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON HierarchyGroupSummary where
+instance Lude.FromJSON HierarchyGroupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "HierarchyGroupSummary"
       ( \x ->
           HierarchyGroupSummary'
-            <$> (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable HierarchyGroupSummary
-
-instance NFData HierarchyGroupSummary

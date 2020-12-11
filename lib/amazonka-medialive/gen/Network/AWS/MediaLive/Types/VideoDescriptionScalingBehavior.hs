@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior where
+module Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior
+  ( VideoDescriptionScalingBehavior
+      ( VideoDescriptionScalingBehavior',
+        Default,
+        StretchToOutput
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Description Scaling Behavior
-data VideoDescriptionScalingBehavior
-  = Default
-  | StretchToOutput
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VideoDescriptionScalingBehavior = VideoDescriptionScalingBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VideoDescriptionScalingBehavior where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure Default
-      "stretch_to_output" -> pure StretchToOutput
-      e ->
-        fromTextError $
-          "Failure parsing VideoDescriptionScalingBehavior from value: '" <> e
-            <> "'. Accepted values: default, stretch_to_output"
+pattern Default :: VideoDescriptionScalingBehavior
+pattern Default = VideoDescriptionScalingBehavior' "DEFAULT"
 
-instance ToText VideoDescriptionScalingBehavior where
-  toText = \case
-    Default -> "DEFAULT"
-    StretchToOutput -> "STRETCH_TO_OUTPUT"
+pattern StretchToOutput :: VideoDescriptionScalingBehavior
+pattern StretchToOutput = VideoDescriptionScalingBehavior' "STRETCH_TO_OUTPUT"
 
-instance Hashable VideoDescriptionScalingBehavior
-
-instance NFData VideoDescriptionScalingBehavior
-
-instance ToByteString VideoDescriptionScalingBehavior
-
-instance ToQuery VideoDescriptionScalingBehavior
-
-instance ToHeader VideoDescriptionScalingBehavior
-
-instance ToJSON VideoDescriptionScalingBehavior where
-  toJSON = toJSONText
-
-instance FromJSON VideoDescriptionScalingBehavior where
-  parseJSON = parseJSONText "VideoDescriptionScalingBehavior"
+{-# COMPLETE
+  Default,
+  StretchToOutput,
+  VideoDescriptionScalingBehavior'
+  #-}

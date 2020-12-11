@@ -13,8 +13,8 @@
 --
 -- AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.
 module Network.AWS.XRay
-  ( -- * Service Configuration
-    xRay,
+  ( -- * Service configuration
+    xRayService,
 
     -- * Errors
     -- $errors
@@ -127,32 +127,32 @@ module Network.AWS.XRay
     TimeRangeType (..),
 
     -- ** Alias
-    Alias,
-    alias,
+    Alias (..),
+    mkAlias,
     aNames,
     aName,
     aType,
 
     -- ** AnnotationValue
-    AnnotationValue,
-    annotationValue,
+    AnnotationValue (..),
+    mkAnnotationValue,
     avNumberValue,
     avStringValue,
     avBooleanValue,
 
     -- ** AnomalousService
-    AnomalousService,
-    anomalousService,
+    AnomalousService (..),
+    mkAnomalousService,
     asServiceId,
 
     -- ** AvailabilityZoneDetail
-    AvailabilityZoneDetail,
-    availabilityZoneDetail,
+    AvailabilityZoneDetail (..),
+    mkAvailabilityZoneDetail,
     azdName,
 
     -- ** BackendConnectionErrors
-    BackendConnectionErrors,
-    backendConnectionErrors,
+    BackendConnectionErrors (..),
+    mkBackendConnectionErrors,
     bceOtherCount,
     bceTimeoutCount,
     bceHTTPCode5XXCount,
@@ -161,8 +161,8 @@ module Network.AWS.XRay
     bceUnknownHostCount,
 
     -- ** Edge
-    Edge,
-    edge,
+    Edge (..),
+    mkEdge,
     eStartTime,
     eAliases,
     eResponseTimeHistogram,
@@ -171,8 +171,8 @@ module Network.AWS.XRay
     eSummaryStatistics,
 
     -- ** EdgeStatistics
-    EdgeStatistics,
-    edgeStatistics,
+    EdgeStatistics (..),
+    mkEdgeStatistics,
     esFaultStatistics,
     esOKCount,
     esTotalResponseTime,
@@ -180,28 +180,28 @@ module Network.AWS.XRay
     esTotalCount,
 
     -- ** EncryptionConfig
-    EncryptionConfig,
-    encryptionConfig,
+    EncryptionConfig (..),
+    mkEncryptionConfig,
     ecStatus,
     ecKeyId,
     ecType,
 
     -- ** ErrorRootCause
-    ErrorRootCause,
-    errorRootCause,
+    ErrorRootCause (..),
+    mkErrorRootCause,
     ercClientImpacting,
     ercServices,
 
     -- ** ErrorRootCauseEntity
-    ErrorRootCauseEntity,
-    errorRootCauseEntity,
+    ErrorRootCauseEntity (..),
+    mkErrorRootCauseEntity,
     erceExceptions,
     erceRemote,
     erceName,
 
     -- ** ErrorRootCauseService
-    ErrorRootCauseService,
-    errorRootCauseService,
+    ErrorRootCauseService (..),
+    mkErrorRootCauseService,
     ercsEntityPath,
     ercsAccountId,
     ercsNames,
@@ -210,28 +210,28 @@ module Network.AWS.XRay
     ercsType,
 
     -- ** ErrorStatistics
-    ErrorStatistics,
-    errorStatistics,
+    ErrorStatistics (..),
+    mkErrorStatistics,
     eOtherCount,
     eThrottleCount,
     eTotalCount,
 
     -- ** FaultRootCause
-    FaultRootCause,
-    faultRootCause,
+    FaultRootCause (..),
+    mkFaultRootCause,
     frcClientImpacting,
     frcServices,
 
     -- ** FaultRootCauseEntity
-    FaultRootCauseEntity,
-    faultRootCauseEntity,
+    FaultRootCauseEntity (..),
+    mkFaultRootCauseEntity,
     frceExceptions,
     frceRemote,
     frceName,
 
     -- ** FaultRootCauseService
-    FaultRootCauseService,
-    faultRootCauseService,
+    FaultRootCauseService (..),
+    mkFaultRootCauseService,
     frcsEntityPath,
     frcsAccountId,
     frcsNames,
@@ -240,36 +240,36 @@ module Network.AWS.XRay
     frcsType,
 
     -- ** FaultStatistics
-    FaultStatistics,
-    faultStatistics,
+    FaultStatistics (..),
+    mkFaultStatistics,
     fsOtherCount,
     fsTotalCount,
 
     -- ** ForecastStatistics
-    ForecastStatistics,
-    forecastStatistics,
+    ForecastStatistics (..),
+    mkForecastStatistics,
     fsFaultCountLow,
     fsFaultCountHigh,
 
     -- ** Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gFilterExpression,
     gInsightsConfiguration,
     gGroupARN,
     gGroupName,
 
     -- ** GroupSummary
-    GroupSummary,
-    groupSummary,
+    GroupSummary (..),
+    mkGroupSummary,
     gsFilterExpression,
     gsInsightsConfiguration,
     gsGroupARN,
     gsGroupName,
 
     -- ** HTTP
-    HTTP,
-    hTTP,
+    HTTP (..),
+    mkHTTP,
     httpHTTPMethod,
     httpHTTPStatus,
     httpClientIP,
@@ -277,14 +277,14 @@ module Network.AWS.XRay
     httpHTTPURL,
 
     -- ** HistogramEntry
-    HistogramEntry,
-    histogramEntry,
+    HistogramEntry (..),
+    mkHistogramEntry,
     heCount,
     heValue,
 
     -- ** Insight
-    Insight,
-    insight,
+    Insight (..),
+    mkInsight,
     iSummary,
     iState,
     iStartTime,
@@ -299,8 +299,8 @@ module Network.AWS.XRay
     iGroupName,
 
     -- ** InsightEvent
-    InsightEvent,
-    insightEvent,
+    InsightEvent (..),
+    mkInsightEvent,
     ieSummary,
     ieEventTime,
     ieRootCauseServiceRequestImpactStatistics,
@@ -308,13 +308,13 @@ module Network.AWS.XRay
     ieClientRequestImpactStatistics,
 
     -- ** InsightImpactGraphEdge
-    InsightImpactGraphEdge,
-    insightImpactGraphEdge,
+    InsightImpactGraphEdge (..),
+    mkInsightImpactGraphEdge,
     iigeReferenceId,
 
     -- ** InsightImpactGraphService
-    InsightImpactGraphService,
-    insightImpactGraphService,
+    InsightImpactGraphService (..),
+    mkInsightImpactGraphService,
     iigsReferenceId,
     iigsAccountId,
     iigsNames,
@@ -323,8 +323,8 @@ module Network.AWS.XRay
     iigsEdges,
 
     -- ** InsightSummary
-    InsightSummary,
-    insightSummary,
+    InsightSummary (..),
+    mkInsightSummary,
     isSummary,
     isState,
     isStartTime,
@@ -340,44 +340,44 @@ module Network.AWS.XRay
     isLastUpdateTime,
 
     -- ** InsightsConfiguration
-    InsightsConfiguration,
-    insightsConfiguration,
+    InsightsConfiguration (..),
+    mkInsightsConfiguration,
     icNotificationsEnabled,
     icInsightsEnabled,
 
     -- ** InstanceIdDetail
-    InstanceIdDetail,
-    instanceIdDetail,
+    InstanceIdDetail (..),
+    mkInstanceIdDetail,
     iidId,
 
     -- ** RequestImpactStatistics
-    RequestImpactStatistics,
-    requestImpactStatistics,
+    RequestImpactStatistics (..),
+    mkRequestImpactStatistics,
     risOKCount,
     risFaultCount,
     risTotalCount,
 
     -- ** ResourceARNDetail
-    ResourceARNDetail,
-    resourceARNDetail,
+    ResourceARNDetail (..),
+    mkResourceARNDetail,
     radARN,
 
     -- ** ResponseTimeRootCause
-    ResponseTimeRootCause,
-    responseTimeRootCause,
+    ResponseTimeRootCause (..),
+    mkResponseTimeRootCause,
     rtrcClientImpacting,
     rtrcServices,
 
     -- ** ResponseTimeRootCauseEntity
-    ResponseTimeRootCauseEntity,
-    responseTimeRootCauseEntity,
+    ResponseTimeRootCauseEntity (..),
+    mkResponseTimeRootCauseEntity,
     rtrceRemote,
     rtrceCoverage,
     rtrceName,
 
     -- ** ResponseTimeRootCauseService
-    ResponseTimeRootCauseService,
-    responseTimeRootCauseService,
+    ResponseTimeRootCauseService (..),
+    mkResponseTimeRootCauseService,
     rtrcsEntityPath,
     rtrcsAccountId,
     rtrcsNames,
@@ -386,14 +386,14 @@ module Network.AWS.XRay
     rtrcsType,
 
     -- ** RootCauseException
-    RootCauseException,
-    rootCauseException,
+    RootCauseException (..),
+    mkRootCauseException,
     rceName,
     rceMessage,
 
     -- ** SamplingRule
-    SamplingRule,
-    samplingRule,
+    SamplingRule (..),
+    mkSamplingRule,
     srRuleName,
     srAttributes,
     srRuleARN,
@@ -409,15 +409,15 @@ module Network.AWS.XRay
     srVersion,
 
     -- ** SamplingRuleRecord
-    SamplingRuleRecord,
-    samplingRuleRecord,
+    SamplingRuleRecord (..),
+    mkSamplingRuleRecord,
     srrModifiedAt,
     srrSamplingRule,
     srrCreatedAt,
 
     -- ** SamplingRuleUpdate
-    SamplingRuleUpdate,
-    samplingRuleUpdate,
+    SamplingRuleUpdate (..),
+    mkSamplingRuleUpdate,
     sruHTTPMethod,
     sruPriority,
     sruRuleName,
@@ -432,8 +432,8 @@ module Network.AWS.XRay
     sruURLPath,
 
     -- ** SamplingStatisticSummary
-    SamplingStatisticSummary,
-    samplingStatisticSummary,
+    SamplingStatisticSummary (..),
+    mkSamplingStatisticSummary,
     sssRequestCount,
     sssBorrowCount,
     sssRuleName,
@@ -441,8 +441,8 @@ module Network.AWS.XRay
     sssSampledCount,
 
     -- ** SamplingStatisticsDocument
-    SamplingStatisticsDocument,
-    samplingStatisticsDocument,
+    SamplingStatisticsDocument (..),
+    mkSamplingStatisticsDocument,
     ssdBorrowCount,
     ssdRuleName,
     ssdClientId,
@@ -451,14 +451,14 @@ module Network.AWS.XRay
     ssdSampledCount,
 
     -- ** SamplingStrategy
-    SamplingStrategy,
-    samplingStrategy,
+    SamplingStrategy (..),
+    mkSamplingStrategy,
     ssValue,
     ssName,
 
     -- ** SamplingTargetDocument
-    SamplingTargetDocument,
-    samplingTargetDocument,
+    SamplingTargetDocument (..),
+    mkSamplingTargetDocument,
     stdReservoirQuota,
     stdRuleName,
     stdFixedRate,
@@ -466,22 +466,22 @@ module Network.AWS.XRay
     stdReservoirQuotaTTL,
 
     -- ** Segment
-    Segment,
-    segment,
+    Segment (..),
+    mkSegment,
     sDocument,
     sId,
 
     -- ** ServiceId
-    ServiceId,
-    serviceId,
+    ServiceId (..),
+    mkServiceId,
     siAccountId,
     siNames,
     siName,
     siType,
 
     -- ** ServiceInfo
-    ServiceInfo,
-    serviceInfo,
+    ServiceInfo (..),
+    mkServiceInfo,
     sState,
     sStartTime,
     sRoot,
@@ -497,8 +497,8 @@ module Network.AWS.XRay
     sSummaryStatistics,
 
     -- ** ServiceStatistics
-    ServiceStatistics,
-    serviceStatistics,
+    ServiceStatistics (..),
+    mkServiceStatistics,
     ssFaultStatistics,
     ssOKCount,
     ssTotalResponseTime,
@@ -506,14 +506,14 @@ module Network.AWS.XRay
     ssTotalCount,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TelemetryRecord
-    TelemetryRecord,
-    telemetryRecord,
+    TelemetryRecord (..),
+    mkTelemetryRecord,
     trSegmentsReceivedCount,
     trSegmentsSentCount,
     trSegmentsSpilloverCount,
@@ -522,8 +522,8 @@ module Network.AWS.XRay
     trTimestamp,
 
     -- ** TimeSeriesServiceStatistics
-    TimeSeriesServiceStatistics,
-    timeSeriesServiceStatistics,
+    TimeSeriesServiceStatistics (..),
+    mkTimeSeriesServiceStatistics,
     tsssServiceSummaryStatistics,
     tsssResponseTimeHistogram,
     tsssEdgeSummaryStatistics,
@@ -531,16 +531,16 @@ module Network.AWS.XRay
     tsssTimestamp,
 
     -- ** Trace
-    Trace,
-    trace,
+    Trace (..),
+    mkTrace,
     tLimitExceeded,
     tId,
     tSegments,
     tDuration,
 
     -- ** TraceSummary
-    TraceSummary,
-    traceSummary,
+    TraceSummary (..),
+    mkTraceSummary,
     tsAnnotations,
     tsHasThrottle,
     tsUsers,
@@ -563,33 +563,45 @@ module Network.AWS.XRay
     tsResponseTime,
 
     -- ** TraceUser
-    TraceUser,
-    traceUser,
+    TraceUser (..),
+    mkTraceUser,
     tuServiceIds,
     tuUserName,
 
     -- ** UnprocessedStatistics
-    UnprocessedStatistics,
-    unprocessedStatistics,
+    UnprocessedStatistics (..),
+    mkUnprocessedStatistics,
     usRuleName,
     usErrorCode,
     usMessage,
 
     -- ** UnprocessedTraceSegment
-    UnprocessedTraceSegment,
-    unprocessedTraceSegment,
+    UnprocessedTraceSegment (..),
+    mkUnprocessedTraceSegment,
     utsErrorCode,
     utsId,
     utsMessage,
 
     -- ** ValueWithServiceIds
-    ValueWithServiceIds,
-    valueWithServiceIds,
+    ValueWithServiceIds (..),
+    mkValueWithServiceIds,
     vwsiServiceIds,
     vwsiAnnotationValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.BatchGetTraces
 import Network.AWS.XRay.CreateGroup
 import Network.AWS.XRay.CreateSamplingRule

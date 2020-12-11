@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,166 @@
 --
 -- Returns the number of open workflow executions within the given domain that meet the specified filtering criteria.
 --
---
 -- __Access Control__
---
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
+--
 --     * Use an @Action@ element to allow or deny permission to call this action.
+--
 --
 --     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
 --
 --     * @tagFilter.tag@ : String constraint. The key is @swf:tagFilter.tag@ .
 --
+--
 --     * @typeFilter.name@ : String constraint. The key is @swf:typeFilter.name@ .
+--
 --
 --     * @typeFilter.version@ : String constraint. The key is @swf:typeFilter.version@ .
 --
 --
 --
 --
---
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 module Network.AWS.SWF.CountOpenWorkflowExecutions
-  ( -- * Creating a Request
-    countOpenWorkflowExecutions,
-    CountOpenWorkflowExecutions,
+  ( -- * Creating a request
+    CountOpenWorkflowExecutions (..),
+    mkCountOpenWorkflowExecutions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     coweExecutionFilter,
     coweTypeFilter,
     coweTagFilter,
     coweDomain,
     coweStartTimeFilter,
 
-    -- * Destructuring the Response
-    workflowExecutionCount,
-    WorkflowExecutionCount,
+    -- * Destructuring the response
+    WorkflowExecutionCount (..),
+    mkWorkflowExecutionCount,
 
-    -- * Response Lenses
+    -- ** Response lenses
     wecTruncated,
     wecCount,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SWF.Types
 
--- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
+-- | /See:/ 'mkCountOpenWorkflowExecutions' smart constructor.
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-  { _coweExecutionFilter ::
-      !(Maybe WorkflowExecutionFilter),
-    _coweTypeFilter ::
-      !(Maybe WorkflowTypeFilter),
-    _coweTagFilter ::
-      !(Maybe TagFilter),
-    _coweDomain :: !Text,
-    _coweStartTimeFilter ::
-      !ExecutionTimeFilter
+  { executionFilter ::
+      Lude.Maybe WorkflowExecutionFilter,
+    typeFilter ::
+      Lude.Maybe WorkflowTypeFilter,
+    tagFilter :: Lude.Maybe TagFilter,
+    domain :: Lude.Text,
+    startTimeFilter ::
+      ExecutionTimeFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CountOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coweExecutionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
---
--- * 'coweTypeFilter' - Specifies the type of the workflow executions to be counted.
---
--- * 'coweTagFilter' - If specified, only executions that have a tag that matches the filter are counted.
---
--- * 'coweDomain' - The name of the domain containing the workflow executions to count.
---
--- * 'coweStartTimeFilter' - Specifies the start time criteria that workflow executions must meet in order to be counted.
-countOpenWorkflowExecutions ::
-  -- | 'coweDomain'
-  Text ->
-  -- | 'coweStartTimeFilter'
+-- * 'domain' - The name of the domain containing the workflow executions to count.
+-- * 'executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
+-- * 'startTimeFilter' - Specifies the start time criteria that workflow executions must meet in order to be counted.
+-- * 'tagFilter' - If specified, only executions that have a tag that matches the filter are counted.
+-- * 'typeFilter' - Specifies the type of the workflow executions to be counted.
+mkCountOpenWorkflowExecutions ::
+  -- | 'domain'
+  Lude.Text ->
+  -- | 'startTimeFilter'
   ExecutionTimeFilter ->
   CountOpenWorkflowExecutions
-countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
+mkCountOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
   CountOpenWorkflowExecutions'
-    { _coweExecutionFilter = Nothing,
-      _coweTypeFilter = Nothing,
-      _coweTagFilter = Nothing,
-      _coweDomain = pDomain_,
-      _coweStartTimeFilter = pStartTimeFilter_
+    { executionFilter = Lude.Nothing,
+      typeFilter = Lude.Nothing,
+      tagFilter = Lude.Nothing,
+      domain = pDomain_,
+      startTimeFilter = pStartTimeFilter_
     }
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
-coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-coweExecutionFilter = lens _coweExecutionFilter (\s a -> s {_coweExecutionFilter = a})
+--
+-- /Note:/ Consider using 'executionFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweExecutionFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe WorkflowExecutionFilter)
+coweExecutionFilter = Lens.lens (executionFilter :: CountOpenWorkflowExecutions -> Lude.Maybe WorkflowExecutionFilter) (\s a -> s {executionFilter = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweExecutionFilter "Use generic-lens or generic-optics with 'executionFilter' instead." #-}
 
 -- | Specifies the type of the workflow executions to be counted.
-coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-coweTypeFilter = lens _coweTypeFilter (\s a -> s {_coweTypeFilter = a})
+--
+-- /Note:/ Consider using 'typeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweTypeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe WorkflowTypeFilter)
+coweTypeFilter = Lens.lens (typeFilter :: CountOpenWorkflowExecutions -> Lude.Maybe WorkflowTypeFilter) (\s a -> s {typeFilter = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
 
 -- | If specified, only executions that have a tag that matches the filter are counted.
-coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
-coweTagFilter = lens _coweTagFilter (\s a -> s {_coweTagFilter = a})
+--
+-- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweTagFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe TagFilter)
+coweTagFilter = Lens.lens (tagFilter :: CountOpenWorkflowExecutions -> Lude.Maybe TagFilter) (\s a -> s {tagFilter = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
 
 -- | The name of the domain containing the workflow executions to count.
-coweDomain :: Lens' CountOpenWorkflowExecutions Text
-coweDomain = lens _coweDomain (\s a -> s {_coweDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweDomain :: Lens.Lens' CountOpenWorkflowExecutions Lude.Text
+coweDomain = Lens.lens (domain :: CountOpenWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | Specifies the start time criteria that workflow executions must meet in order to be counted.
-coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
-coweStartTimeFilter = lens _coweStartTimeFilter (\s a -> s {_coweStartTimeFilter = a})
+--
+-- /Note:/ Consider using 'startTimeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweStartTimeFilter :: Lens.Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
+coweStartTimeFilter = Lens.lens (startTimeFilter :: CountOpenWorkflowExecutions -> ExecutionTimeFilter) (\s a -> s {startTimeFilter = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweStartTimeFilter "Use generic-lens or generic-optics with 'startTimeFilter' instead." #-}
 
-instance AWSRequest CountOpenWorkflowExecutions where
+instance Lude.AWSRequest CountOpenWorkflowExecutions where
   type Rs CountOpenWorkflowExecutions = WorkflowExecutionCount
-  request = postJSON swf
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON swfService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CountOpenWorkflowExecutions
-
-instance NFData CountOpenWorkflowExecutions
-
-instance ToHeaders CountOpenWorkflowExecutions where
+instance Lude.ToHeaders CountOpenWorkflowExecutions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CountOpenWorkflowExecutions where
+instance Lude.ToJSON CountOpenWorkflowExecutions where
   toJSON CountOpenWorkflowExecutions' {..} =
-    object
-      ( catMaybes
-          [ ("executionFilter" .=) <$> _coweExecutionFilter,
-            ("typeFilter" .=) <$> _coweTypeFilter,
-            ("tagFilter" .=) <$> _coweTagFilter,
-            Just ("domain" .= _coweDomain),
-            Just ("startTimeFilter" .= _coweStartTimeFilter)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("executionFilter" Lude..=) Lude.<$> executionFilter,
+            ("typeFilter" Lude..=) Lude.<$> typeFilter,
+            ("tagFilter" Lude..=) Lude.<$> tagFilter,
+            Lude.Just ("domain" Lude..= domain),
+            Lude.Just ("startTimeFilter" Lude..= startTimeFilter)
           ]
       )
 
-instance ToPath CountOpenWorkflowExecutions where
-  toPath = const "/"
+instance Lude.ToPath CountOpenWorkflowExecutions where
+  toPath = Lude.const "/"
 
-instance ToQuery CountOpenWorkflowExecutions where
-  toQuery = const mempty
+instance Lude.ToQuery CountOpenWorkflowExecutions where
+  toQuery = Lude.const Lude.mempty

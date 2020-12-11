@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.WorkerType where
+module Network.AWS.Glue.Types.WorkerType
+  ( WorkerType
+      ( WorkerType',
+        G_1X,
+        G_2X,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkerType
-  = G_1X
-  | G_2X
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkerType = WorkerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkerType where
-  parser =
-    takeLowerText >>= \case
-      "g.1x" -> pure G_1X
-      "g.2x" -> pure G_2X
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing WorkerType from value: '" <> e
-            <> "'. Accepted values: g.1x, g.2x, standard"
+pattern G_1X :: WorkerType
+pattern G_1X = WorkerType' "G.1X"
 
-instance ToText WorkerType where
-  toText = \case
-    G_1X -> "G.1X"
-    G_2X -> "G.2X"
-    Standard -> "Standard"
+pattern G_2X :: WorkerType
+pattern G_2X = WorkerType' "G.2X"
 
-instance Hashable WorkerType
+pattern Standard :: WorkerType
+pattern Standard = WorkerType' "Standard"
 
-instance NFData WorkerType
-
-instance ToByteString WorkerType
-
-instance ToQuery WorkerType
-
-instance ToHeader WorkerType
-
-instance ToJSON WorkerType where
-  toJSON = toJSONText
-
-instance FromJSON WorkerType where
-  parseJSON = parseJSONText "WorkerType"
+{-# COMPLETE
+  G_1X,
+  G_2X,
+  Standard,
+  WorkerType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves a list of connection definitions from the Data Catalog.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetConnections
-  ( -- * Creating a Request
-    getConnections,
-    GetConnections,
+  ( -- * Creating a request
+    GetConnections (..),
+    mkGetConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcsCatalogId,
     gcsNextToken,
     gcsHidePassword,
     gcsFilter,
     gcsMaxResults,
 
-    -- * Destructuring the Response
-    getConnectionsResponse,
-    GetConnectionsResponse,
+    -- * Destructuring the response
+    GetConnectionsResponse (..),
+    mkGetConnectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrsNextToken,
     ggrsConnectionList,
     ggrsResponseStatus,
@@ -46,155 +39,182 @@ module Network.AWS.Glue.GetConnections
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getConnections' smart constructor.
+-- | /See:/ 'mkGetConnections' smart constructor.
 data GetConnections = GetConnections'
-  { _gcsCatalogId ::
-      !(Maybe Text),
-    _gcsNextToken :: !(Maybe Text),
-    _gcsHidePassword :: !(Maybe Bool),
-    _gcsFilter :: !(Maybe GetConnectionsFilter),
-    _gcsMaxResults :: !(Maybe Nat)
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    hidePassword :: Lude.Maybe Lude.Bool,
+    filter :: Lude.Maybe GetConnectionsFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsCatalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
---
--- * 'gcsNextToken' - A continuation token, if this is a continuation call.
---
--- * 'gcsHidePassword' - Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
---
--- * 'gcsFilter' - A filter that controls which connections are returned.
---
--- * 'gcsMaxResults' - The maximum number of connections to return in one response.
-getConnections ::
+-- * 'catalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
+-- * 'filter' - A filter that controls which connections are returned.
+-- * 'hidePassword' - Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
+-- * 'maxResults' - The maximum number of connections to return in one response.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+mkGetConnections ::
   GetConnections
-getConnections =
+mkGetConnections =
   GetConnections'
-    { _gcsCatalogId = Nothing,
-      _gcsNextToken = Nothing,
-      _gcsHidePassword = Nothing,
-      _gcsFilter = Nothing,
-      _gcsMaxResults = Nothing
+    { catalogId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      hidePassword = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
-gcsCatalogId :: Lens' GetConnections (Maybe Text)
-gcsCatalogId = lens _gcsCatalogId (\s a -> s {_gcsCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsCatalogId :: Lens.Lens' GetConnections (Lude.Maybe Lude.Text)
+gcsCatalogId = Lens.lens (catalogId :: GetConnections -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetConnections)
+{-# DEPRECATED gcsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A continuation token, if this is a continuation call.
-gcsNextToken :: Lens' GetConnections (Maybe Text)
-gcsNextToken = lens _gcsNextToken (\s a -> s {_gcsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsNextToken :: Lens.Lens' GetConnections (Lude.Maybe Lude.Text)
+gcsNextToken = Lens.lens (nextToken :: GetConnections -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnections)
+{-# DEPRECATED gcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
-gcsHidePassword :: Lens' GetConnections (Maybe Bool)
-gcsHidePassword = lens _gcsHidePassword (\s a -> s {_gcsHidePassword = a})
+--
+-- /Note:/ Consider using 'hidePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsHidePassword :: Lens.Lens' GetConnections (Lude.Maybe Lude.Bool)
+gcsHidePassword = Lens.lens (hidePassword :: GetConnections -> Lude.Maybe Lude.Bool) (\s a -> s {hidePassword = a} :: GetConnections)
+{-# DEPRECATED gcsHidePassword "Use generic-lens or generic-optics with 'hidePassword' instead." #-}
 
 -- | A filter that controls which connections are returned.
-gcsFilter :: Lens' GetConnections (Maybe GetConnectionsFilter)
-gcsFilter = lens _gcsFilter (\s a -> s {_gcsFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsFilter :: Lens.Lens' GetConnections (Lude.Maybe GetConnectionsFilter)
+gcsFilter = Lens.lens (filter :: GetConnections -> Lude.Maybe GetConnectionsFilter) (\s a -> s {filter = a} :: GetConnections)
+{-# DEPRECATED gcsFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of connections to return in one response.
-gcsMaxResults :: Lens' GetConnections (Maybe Natural)
-gcsMaxResults = lens _gcsMaxResults (\s a -> s {_gcsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsMaxResults :: Lens.Lens' GetConnections (Lude.Maybe Lude.Natural)
+gcsMaxResults = Lens.lens (maxResults :: GetConnections -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetConnections)
+{-# DEPRECATED gcsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetConnections where
+instance Page.AWSPager GetConnections where
   page rq rs
-    | stop (rs ^. ggrsNextToken) = Nothing
-    | stop (rs ^. ggrsConnectionList) = Nothing
-    | otherwise = Just $ rq & gcsNextToken .~ rs ^. ggrsNextToken
+    | Page.stop (rs Lens.^. ggrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ggrsConnectionList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gcsNextToken Lens..~ rs Lens.^. ggrsNextToken
 
-instance AWSRequest GetConnections where
+instance Lude.AWSRequest GetConnections where
   type Rs GetConnections = GetConnectionsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConnectionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "ConnectionList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "ConnectionList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConnections
-
-instance NFData GetConnections
-
-instance ToHeaders GetConnections where
+instance Lude.ToHeaders GetConnections where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetConnections" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetConnections" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetConnections where
+instance Lude.ToJSON GetConnections where
   toJSON GetConnections' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gcsCatalogId,
-            ("NextToken" .=) <$> _gcsNextToken,
-            ("HidePassword" .=) <$> _gcsHidePassword,
-            ("Filter" .=) <$> _gcsFilter,
-            ("MaxResults" .=) <$> _gcsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("HidePassword" Lude..=) Lude.<$> hidePassword,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetConnections where
-  toPath = const "/"
+instance Lude.ToPath GetConnections where
+  toPath = Lude.const "/"
 
-instance ToQuery GetConnections where
-  toQuery = const mempty
+instance Lude.ToQuery GetConnections where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConnectionsResponse' smart constructor.
+-- | /See:/ 'mkGetConnectionsResponse' smart constructor.
 data GetConnectionsResponse = GetConnectionsResponse'
-  { _ggrsNextToken ::
-      !(Maybe Text),
-    _ggrsConnectionList :: !(Maybe [Connection]),
-    _ggrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    connectionList :: Lude.Maybe [Connection],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrsNextToken' - A continuation token, if the list of connections returned does not include the last of the filtered connections.
---
--- * 'ggrsConnectionList' - A list of requested connection definitions.
---
--- * 'ggrsResponseStatus' - -- | The response status code.
-getConnectionsResponse ::
-  -- | 'ggrsResponseStatus'
-  Int ->
+-- * 'connectionList' - A list of requested connection definitions.
+-- * 'nextToken' - A continuation token, if the list of connections returned does not include the last of the filtered connections.
+-- * 'responseStatus' - The response status code.
+mkGetConnectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConnectionsResponse
-getConnectionsResponse pResponseStatus_ =
+mkGetConnectionsResponse pResponseStatus_ =
   GetConnectionsResponse'
-    { _ggrsNextToken = Nothing,
-      _ggrsConnectionList = Nothing,
-      _ggrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      connectionList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if the list of connections returned does not include the last of the filtered connections.
-ggrsNextToken :: Lens' GetConnectionsResponse (Maybe Text)
-ggrsNextToken = lens _ggrsNextToken (\s a -> s {_ggrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsNextToken :: Lens.Lens' GetConnectionsResponse (Lude.Maybe Lude.Text)
+ggrsNextToken = Lens.lens (nextToken :: GetConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnectionsResponse)
+{-# DEPRECATED ggrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of requested connection definitions.
-ggrsConnectionList :: Lens' GetConnectionsResponse [Connection]
-ggrsConnectionList = lens _ggrsConnectionList (\s a -> s {_ggrsConnectionList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connectionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsConnectionList :: Lens.Lens' GetConnectionsResponse (Lude.Maybe [Connection])
+ggrsConnectionList = Lens.lens (connectionList :: GetConnectionsResponse -> Lude.Maybe [Connection]) (\s a -> s {connectionList = a} :: GetConnectionsResponse)
+{-# DEPRECATED ggrsConnectionList "Use generic-lens or generic-optics with 'connectionList' instead." #-}
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetConnectionsResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\s a -> s {_ggrsResponseStatus = a})
-
-instance NFData GetConnectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsResponseStatus :: Lens.Lens' GetConnectionsResponse Lude.Int
+ggrsResponseStatus = Lens.lens (responseStatus :: GetConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionsResponse)
+{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

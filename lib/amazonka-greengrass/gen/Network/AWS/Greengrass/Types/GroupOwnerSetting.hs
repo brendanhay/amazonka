@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.GroupOwnerSetting where
+module Network.AWS.Greengrass.Types.GroupOwnerSetting
+  ( GroupOwnerSetting (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupOwnerSetting,
+
+    -- * Lenses
+    gosAutoAddGroupOwner,
+    gosGroupOwner,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Group owner related settings for local resources.
 --
--- /See:/ 'groupOwnerSetting' smart constructor.
+-- /See:/ 'mkGroupOwnerSetting' smart constructor.
 data GroupOwnerSetting = GroupOwnerSetting'
-  { _gosAutoAddGroupOwner ::
-      !(Maybe Bool),
-    _gosGroupOwner :: !(Maybe Text)
+  { autoAddGroupOwner ::
+      Lude.Maybe Lude.Bool,
+    groupOwner :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupOwnerSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gosAutoAddGroupOwner' - If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group.
---
--- * 'gosGroupOwner' - The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
-groupOwnerSetting ::
+-- * 'autoAddGroupOwner' - If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group.
+-- * 'groupOwner' - The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
+mkGroupOwnerSetting ::
   GroupOwnerSetting
-groupOwnerSetting =
+mkGroupOwnerSetting =
   GroupOwnerSetting'
-    { _gosAutoAddGroupOwner = Nothing,
-      _gosGroupOwner = Nothing
+    { autoAddGroupOwner = Lude.Nothing,
+      groupOwner = Lude.Nothing
     }
 
 -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group.
-gosAutoAddGroupOwner :: Lens' GroupOwnerSetting (Maybe Bool)
-gosAutoAddGroupOwner = lens _gosAutoAddGroupOwner (\s a -> s {_gosAutoAddGroupOwner = a})
+--
+-- /Note:/ Consider using 'autoAddGroupOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosAutoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Lude.Maybe Lude.Bool)
+gosAutoAddGroupOwner = Lens.lens (autoAddGroupOwner :: GroupOwnerSetting -> Lude.Maybe Lude.Bool) (\s a -> s {autoAddGroupOwner = a} :: GroupOwnerSetting)
+{-# DEPRECATED gosAutoAddGroupOwner "Use generic-lens or generic-optics with 'autoAddGroupOwner' instead." #-}
 
 -- | The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
-gosGroupOwner :: Lens' GroupOwnerSetting (Maybe Text)
-gosGroupOwner = lens _gosGroupOwner (\s a -> s {_gosGroupOwner = a})
+--
+-- /Note:/ Consider using 'groupOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gosGroupOwner :: Lens.Lens' GroupOwnerSetting (Lude.Maybe Lude.Text)
+gosGroupOwner = Lens.lens (groupOwner :: GroupOwnerSetting -> Lude.Maybe Lude.Text) (\s a -> s {groupOwner = a} :: GroupOwnerSetting)
+{-# DEPRECATED gosGroupOwner "Use generic-lens or generic-optics with 'groupOwner' instead." #-}
 
-instance FromJSON GroupOwnerSetting where
+instance Lude.FromJSON GroupOwnerSetting where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupOwnerSetting"
       ( \x ->
           GroupOwnerSetting'
-            <$> (x .:? "AutoAddGroupOwner") <*> (x .:? "GroupOwner")
+            Lude.<$> (x Lude..:? "AutoAddGroupOwner")
+            Lude.<*> (x Lude..:? "GroupOwner")
       )
 
-instance Hashable GroupOwnerSetting
-
-instance NFData GroupOwnerSetting
-
-instance ToJSON GroupOwnerSetting where
+instance Lude.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =
-    object
-      ( catMaybes
-          [ ("AutoAddGroupOwner" .=) <$> _gosAutoAddGroupOwner,
-            ("GroupOwner" .=) <$> _gosGroupOwner
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AutoAddGroupOwner" Lude..=) Lude.<$> autoAddGroupOwner,
+            ("GroupOwner" Lude..=) Lude.<$> groupOwner
           ]
       )

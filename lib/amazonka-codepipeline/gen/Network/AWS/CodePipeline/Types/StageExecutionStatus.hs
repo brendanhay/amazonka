@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.StageExecutionStatus where
+module Network.AWS.CodePipeline.Types.StageExecutionStatus
+  ( StageExecutionStatus
+      ( StageExecutionStatus',
+        SESFailed,
+        SESInProgress,
+        SESStopped,
+        SESStopping,
+        SESSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StageExecutionStatus
-  = SESFailed
-  | SESInProgress
-  | SESStopped
-  | SESStopping
-  | SESSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StageExecutionStatus = StageExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StageExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure SESFailed
-      "inprogress" -> pure SESInProgress
-      "stopped" -> pure SESStopped
-      "stopping" -> pure SESStopping
-      "succeeded" -> pure SESSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing StageExecutionStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, stopped, stopping, succeeded"
+pattern SESFailed :: StageExecutionStatus
+pattern SESFailed = StageExecutionStatus' "Failed"
 
-instance ToText StageExecutionStatus where
-  toText = \case
-    SESFailed -> "Failed"
-    SESInProgress -> "InProgress"
-    SESStopped -> "Stopped"
-    SESStopping -> "Stopping"
-    SESSucceeded -> "Succeeded"
+pattern SESInProgress :: StageExecutionStatus
+pattern SESInProgress = StageExecutionStatus' "InProgress"
 
-instance Hashable StageExecutionStatus
+pattern SESStopped :: StageExecutionStatus
+pattern SESStopped = StageExecutionStatus' "Stopped"
 
-instance NFData StageExecutionStatus
+pattern SESStopping :: StageExecutionStatus
+pattern SESStopping = StageExecutionStatus' "Stopping"
 
-instance ToByteString StageExecutionStatus
+pattern SESSucceeded :: StageExecutionStatus
+pattern SESSucceeded = StageExecutionStatus' "Succeeded"
 
-instance ToQuery StageExecutionStatus
-
-instance ToHeader StageExecutionStatus
-
-instance FromJSON StageExecutionStatus where
-  parseJSON = parseJSONText "StageExecutionStatus"
+{-# COMPLETE
+  SESFailed,
+  SESInProgress,
+  SESStopped,
+  SESStopping,
+  SESSucceeded,
+  StageExecutionStatus'
+  #-}

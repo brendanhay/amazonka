@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,138 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.Diagnostics where
+module Network.AWS.CodeDeploy.Types.Diagnostics
+  ( Diagnostics (..),
+
+    -- * Smart constructor
+    mkDiagnostics,
+
+    -- * Lenses
+    dLogTail,
+    dErrorCode,
+    dScriptName,
+    dMessage,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.LifecycleErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Diagnostic information about executable scripts that are part of a deployment.
 --
---
---
--- /See:/ 'diagnostics' smart constructor.
+-- /See:/ 'mkDiagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-  { _dLogTail :: !(Maybe Text),
-    _dErrorCode :: !(Maybe LifecycleErrorCode),
-    _dScriptName :: !(Maybe Text),
-    _dMessage :: !(Maybe Text)
+  { logTail :: Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe LifecycleErrorCode,
+    scriptName :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Diagnostics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'errorCode' - The associated error code:
 --
--- * 'dLogTail' - The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 --
--- * 'dErrorCode' - The associated error code:     * Success: The specified script ran.     * ScriptMissing: The specified script was not found in the specified location.     * ScriptNotExecutable: The specified script is not a recognized executable file type.     * ScriptTimedOut: The specified script did not finish running in the specified time period.     * ScriptFailed: The specified script failed to run as expected.     * UnknownError: The specified script did not run for an unknown reason.
+--     * Success: The specified script ran.
 --
--- * 'dScriptName' - The name of the script.
 --
--- * 'dMessage' - The message associated with the error.
-diagnostics ::
+--     * ScriptMissing: The specified script was not found in the specified location.
+--
+--
+--     * ScriptNotExecutable: The specified script is not a recognized executable file type.
+--
+--
+--     * ScriptTimedOut: The specified script did not finish running in the specified time period.
+--
+--
+--     * ScriptFailed: The specified script failed to run as expected.
+--
+--
+--     * UnknownError: The specified script did not run for an unknown reason.
+--
+--
+-- * 'logTail' - The last portion of the diagnostic log.
+--
+-- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+-- * 'message' - The message associated with the error.
+-- * 'scriptName' - The name of the script.
+mkDiagnostics ::
   Diagnostics
-diagnostics =
+mkDiagnostics =
   Diagnostics'
-    { _dLogTail = Nothing,
-      _dErrorCode = Nothing,
-      _dScriptName = Nothing,
-      _dMessage = Nothing
+    { logTail = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      scriptName = Lude.Nothing,
+      message = Lude.Nothing
     }
 
--- | The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
-dLogTail :: Lens' Diagnostics (Maybe Text)
-dLogTail = lens _dLogTail (\s a -> s {_dLogTail = a})
+-- | The last portion of the diagnostic log.
+--
+-- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+--
+-- /Note:/ Consider using 'logTail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLogTail :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
+dLogTail = Lens.lens (logTail :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {logTail = a} :: Diagnostics)
+{-# DEPRECATED dLogTail "Use generic-lens or generic-optics with 'logTail' instead." #-}
 
--- | The associated error code:     * Success: The specified script ran.     * ScriptMissing: The specified script was not found in the specified location.     * ScriptNotExecutable: The specified script is not a recognized executable file type.     * ScriptTimedOut: The specified script did not finish running in the specified time period.     * ScriptFailed: The specified script failed to run as expected.     * UnknownError: The specified script did not run for an unknown reason.
-dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
-dErrorCode = lens _dErrorCode (\s a -> s {_dErrorCode = a})
+-- | The associated error code:
+--
+--
+--     * Success: The specified script ran.
+--
+--
+--     * ScriptMissing: The specified script was not found in the specified location.
+--
+--
+--     * ScriptNotExecutable: The specified script is not a recognized executable file type.
+--
+--
+--     * ScriptTimedOut: The specified script did not finish running in the specified time period.
+--
+--
+--     * ScriptFailed: The specified script failed to run as expected.
+--
+--
+--     * UnknownError: The specified script did not run for an unknown reason.
+--
+--
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dErrorCode :: Lens.Lens' Diagnostics (Lude.Maybe LifecycleErrorCode)
+dErrorCode = Lens.lens (errorCode :: Diagnostics -> Lude.Maybe LifecycleErrorCode) (\s a -> s {errorCode = a} :: Diagnostics)
+{-# DEPRECATED dErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The name of the script.
-dScriptName :: Lens' Diagnostics (Maybe Text)
-dScriptName = lens _dScriptName (\s a -> s {_dScriptName = a})
+--
+-- /Note:/ Consider using 'scriptName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScriptName :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
+dScriptName = Lens.lens (scriptName :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {scriptName = a} :: Diagnostics)
+{-# DEPRECATED dScriptName "Use generic-lens or generic-optics with 'scriptName' instead." #-}
 
 -- | The message associated with the error.
-dMessage :: Lens' Diagnostics (Maybe Text)
-dMessage = lens _dMessage (\s a -> s {_dMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMessage :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
+dMessage = Lens.lens (message :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Diagnostics)
+{-# DEPRECATED dMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON Diagnostics where
+instance Lude.FromJSON Diagnostics where
   parseJSON =
-    withObject
+    Lude.withObject
       "Diagnostics"
       ( \x ->
           Diagnostics'
-            <$> (x .:? "logTail")
-            <*> (x .:? "errorCode")
-            <*> (x .:? "scriptName")
-            <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "logTail")
+            Lude.<*> (x Lude..:? "errorCode")
+            Lude.<*> (x Lude..:? "scriptName")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable Diagnostics
-
-instance NFData Diagnostics

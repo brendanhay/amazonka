@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,168 @@
 --
 -- Gets a key policy attached to the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
 module Network.AWS.KMS.GetKeyPolicy
-  ( -- * Creating a Request
-    getKeyPolicy,
-    GetKeyPolicy,
+  ( -- * Creating a request
+    GetKeyPolicy (..),
+    mkGetKeyPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gkpKeyId,
     gkpPolicyName,
 
-    -- * Destructuring the Response
-    getKeyPolicyResponse,
-    GetKeyPolicyResponse,
+    -- * Destructuring the response
+    GetKeyPolicyResponse (..),
+    mkGetKeyPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gkprsPolicy,
     gkprsResponseStatus,
   )
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getKeyPolicy' smart constructor.
+-- | /See:/ 'mkGetKeyPolicy' smart constructor.
 data GetKeyPolicy = GetKeyPolicy'
-  { _gkpKeyId :: !Text,
-    _gkpPolicyName :: !Text
+  { keyId :: Lude.Text,
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'keyId' - A unique identifier for the customer master key (CMK).
 --
--- * 'gkpKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- For example:
 --
--- * 'gkpPolicyName' - Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
-getKeyPolicy ::
-  -- | 'gkpKeyId'
-  Text ->
-  -- | 'gkpPolicyName'
-  Text ->
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'policyName' - Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
+mkGetKeyPolicy ::
+  -- | 'keyId'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
   GetKeyPolicy
-getKeyPolicy pKeyId_ pPolicyName_ =
-  GetKeyPolicy' {_gkpKeyId = pKeyId_, _gkpPolicyName = pPolicyName_}
+mkGetKeyPolicy pKeyId_ pPolicyName_ =
+  GetKeyPolicy' {keyId = pKeyId_, policyName = pPolicyName_}
 
--- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-gkpKeyId :: Lens' GetKeyPolicy Text
-gkpKeyId = lens _gkpKeyId (\s a -> s {_gkpKeyId = a})
+-- | A unique identifier for the customer master key (CMK).
+--
+-- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- For example:
+--
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpKeyId :: Lens.Lens' GetKeyPolicy Lude.Text
+gkpKeyId = Lens.lens (keyId :: GetKeyPolicy -> Lude.Text) (\s a -> s {keyId = a} :: GetKeyPolicy)
+{-# DEPRECATED gkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
-gkpPolicyName :: Lens' GetKeyPolicy Text
-gkpPolicyName = lens _gkpPolicyName (\s a -> s {_gkpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpPolicyName :: Lens.Lens' GetKeyPolicy Lude.Text
+gkpPolicyName = Lens.lens (policyName :: GetKeyPolicy -> Lude.Text) (\s a -> s {policyName = a} :: GetKeyPolicy)
+{-# DEPRECATED gkpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest GetKeyPolicy where
+instance Lude.AWSRequest GetKeyPolicy where
   type Rs GetKeyPolicy = GetKeyPolicyResponse
-  request = postJSON kms
+  request = Req.postJSON kmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetKeyPolicyResponse' <$> (x .?> "Policy") <*> (pure (fromEnum s))
+          GetKeyPolicyResponse'
+            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetKeyPolicy
-
-instance NFData GetKeyPolicy
-
-instance ToHeaders GetKeyPolicy where
+instance Lude.ToHeaders GetKeyPolicy where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("TrentService.GetKeyPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("TrentService.GetKeyPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetKeyPolicy where
+instance Lude.ToJSON GetKeyPolicy where
   toJSON GetKeyPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("KeyId" .= _gkpKeyId),
-            Just ("PolicyName" .= _gkpPolicyName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            Lude.Just ("PolicyName" Lude..= policyName)
           ]
       )
 
-instance ToPath GetKeyPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetKeyPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetKeyPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetKeyPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getKeyPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
-  { _gkprsPolicy ::
-      !(Maybe Text),
-    _gkprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetKeyPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gkprsPolicy' - A key policy document in JSON format.
---
--- * 'gkprsResponseStatus' - -- | The response status code.
-getKeyPolicyResponse ::
-  -- | 'gkprsResponseStatus'
-  Int ->
+-- * 'policy' - A key policy document in JSON format.
+-- * 'responseStatus' - The response status code.
+mkGetKeyPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetKeyPolicyResponse
-getKeyPolicyResponse pResponseStatus_ =
+mkGetKeyPolicyResponse pResponseStatus_ =
   GetKeyPolicyResponse'
-    { _gkprsPolicy = Nothing,
-      _gkprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A key policy document in JSON format.
-gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
-gkprsPolicy = lens _gkprsPolicy (\s a -> s {_gkprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkprsPolicy :: Lens.Lens' GetKeyPolicyResponse (Lude.Maybe Lude.Text)
+gkprsPolicy = Lens.lens (policy :: GetKeyPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetKeyPolicyResponse)
+{-# DEPRECATED gkprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
-gkprsResponseStatus = lens _gkprsResponseStatus (\s a -> s {_gkprsResponseStatus = a})
-
-instance NFData GetKeyPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkprsResponseStatus :: Lens.Lens' GetKeyPolicyResponse Lude.Int
+gkprsResponseStatus = Lens.lens (responseStatus :: GetKeyPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyPolicyResponse)
+{-# DEPRECATED gkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectOwnership where
+module Network.AWS.S3.Types.ObjectOwnership
+  ( ObjectOwnership
+      ( ObjectOwnership',
+        BucketOwnerPreferred,
+        ObjectWriter
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | The container element for object ownership for a bucket's ownership controls.
 --
---
 -- BucketOwnerPreferred - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the @bucket-owner-full-control@ canned ACL.
---
 -- ObjectWriter - The uploading account will own the object if the object is uploaded with the @bucket-owner-full-control@ canned ACL.
-data ObjectOwnership
-  = BucketOwnerPreferred
-  | ObjectWriter
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectOwnership = ObjectOwnership' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectOwnership where
-  parser =
-    takeLowerText >>= \case
-      "bucketownerpreferred" -> pure BucketOwnerPreferred
-      "objectwriter" -> pure ObjectWriter
-      e ->
-        fromTextError $
-          "Failure parsing ObjectOwnership from value: '" <> e
-            <> "'. Accepted values: bucketownerpreferred, objectwriter"
+pattern BucketOwnerPreferred :: ObjectOwnership
+pattern BucketOwnerPreferred = ObjectOwnership' "BucketOwnerPreferred"
 
-instance ToText ObjectOwnership where
-  toText = \case
-    BucketOwnerPreferred -> "BucketOwnerPreferred"
-    ObjectWriter -> "ObjectWriter"
+pattern ObjectWriter :: ObjectOwnership
+pattern ObjectWriter = ObjectOwnership' "ObjectWriter"
 
-instance Hashable ObjectOwnership
-
-instance NFData ObjectOwnership
-
-instance ToByteString ObjectOwnership
-
-instance ToQuery ObjectOwnership
-
-instance ToHeader ObjectOwnership
-
-instance FromXML ObjectOwnership where
-  parseXML = parseXMLText "ObjectOwnership"
-
-instance ToXML ObjectOwnership where
-  toXML = toXMLText
+{-# COMPLETE
+  BucketOwnerPreferred,
+  ObjectWriter,
+  ObjectOwnership'
+  #-}

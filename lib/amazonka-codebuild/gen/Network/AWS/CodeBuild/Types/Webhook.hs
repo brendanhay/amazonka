@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.Webhook where
+module Network.AWS.CodeBuild.Types.Webhook
+  ( Webhook (..),
+
+    -- * Smart constructor
+    mkWebhook,
+
+    -- * Lenses
+    wBranchFilter,
+    wLastModifiedSecret,
+    wUrl,
+    wSecret,
+    wFilterGroups,
+    wPayloadURL,
+    wBuildType,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.WebhookBuildType
 import Network.AWS.CodeBuild.Types.WebhookFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a webhook that connects repository events to a build project in AWS CodeBuild.
 --
---
---
--- /See:/ 'webhook' smart constructor.
+-- /See:/ 'mkWebhook' smart constructor.
 data Webhook = Webhook'
-  { _wBranchFilter :: !(Maybe Text),
-    _wLastModifiedSecret :: !(Maybe POSIX),
-    _wUrl :: !(Maybe Text),
-    _wSecret :: !(Maybe Text),
-    _wFilterGroups :: !(Maybe [[WebhookFilter]]),
-    _wPayloadURL :: !(Maybe Text),
-    _wBuildType :: !(Maybe WebhookBuildType)
+  { branchFilter :: Lude.Maybe Lude.Text,
+    lastModifiedSecret :: Lude.Maybe Lude.Timestamp,
+    url :: Lude.Maybe Lude.Text,
+    secret :: Lude.Maybe Lude.Text,
+    filterGroups :: Lude.Maybe [[WebhookFilter]],
+    payloadURL :: Lude.Maybe Lude.Text,
+    buildType :: Lude.Maybe WebhookBuildType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Webhook' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'branchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
+-- * 'buildType' - Specifies the type of build this webhook will trigger.
+-- * 'filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
 --
--- * 'wBranchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
---
--- * 'wLastModifiedSecret' - A timestamp that indicates the last time a repository's secret token was modified.
---
--- * 'wUrl' - The URL to the webhook.
---
--- * 'wSecret' - The secret token of the associated repository.
---
--- * 'wFilterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .  For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
---
--- * 'wPayloadURL' - The AWS CodeBuild endpoint where webhook events are sent.
---
--- * 'wBuildType' - Specifies the type of build this webhook will trigger.
-webhook ::
+-- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
+-- * 'lastModifiedSecret' - A timestamp that indicates the last time a repository's secret token was modified.
+-- * 'payloadURL' - The AWS CodeBuild endpoint where webhook events are sent.
+-- * 'secret' - The secret token of the associated repository.
+-- * 'url' - The URL to the webhook.
+mkWebhook ::
   Webhook
-webhook =
+mkWebhook =
   Webhook'
-    { _wBranchFilter = Nothing,
-      _wLastModifiedSecret = Nothing,
-      _wUrl = Nothing,
-      _wSecret = Nothing,
-      _wFilterGroups = Nothing,
-      _wPayloadURL = Nothing,
-      _wBuildType = Nothing
+    { branchFilter = Lude.Nothing,
+      lastModifiedSecret = Lude.Nothing,
+      url = Lude.Nothing,
+      secret = Lude.Nothing,
+      filterGroups = Lude.Nothing,
+      payloadURL = Lude.Nothing,
+      buildType = Lude.Nothing
     }
 
 -- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
-wBranchFilter :: Lens' Webhook (Maybe Text)
-wBranchFilter = lens _wBranchFilter (\s a -> s {_wBranchFilter = a})
+--
+-- /Note:/ Consider using 'branchFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wBranchFilter :: Lens.Lens' Webhook (Lude.Maybe Lude.Text)
+wBranchFilter = Lens.lens (branchFilter :: Webhook -> Lude.Maybe Lude.Text) (\s a -> s {branchFilter = a} :: Webhook)
+{-# DEPRECATED wBranchFilter "Use generic-lens or generic-optics with 'branchFilter' instead." #-}
 
 -- | A timestamp that indicates the last time a repository's secret token was modified.
-wLastModifiedSecret :: Lens' Webhook (Maybe UTCTime)
-wLastModifiedSecret = lens _wLastModifiedSecret (\s a -> s {_wLastModifiedSecret = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedSecret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wLastModifiedSecret :: Lens.Lens' Webhook (Lude.Maybe Lude.Timestamp)
+wLastModifiedSecret = Lens.lens (lastModifiedSecret :: Webhook -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedSecret = a} :: Webhook)
+{-# DEPRECATED wLastModifiedSecret "Use generic-lens or generic-optics with 'lastModifiedSecret' instead." #-}
 
 -- | The URL to the webhook.
-wUrl :: Lens' Webhook (Maybe Text)
-wUrl = lens _wUrl (\s a -> s {_wUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wUrl :: Lens.Lens' Webhook (Lude.Maybe Lude.Text)
+wUrl = Lens.lens (url :: Webhook -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Webhook)
+{-# DEPRECATED wUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The secret token of the associated repository.
-wSecret :: Lens' Webhook (Maybe Text)
-wSecret = lens _wSecret (\s a -> s {_wSecret = a})
+--
+-- /Note:/ Consider using 'secret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wSecret :: Lens.Lens' Webhook (Lude.Maybe Lude.Text)
+wSecret = Lens.lens (secret :: Webhook -> Lude.Maybe Lude.Text) (\s a -> s {secret = a} :: Webhook)
+{-# DEPRECATED wSecret "Use generic-lens or generic-optics with 'secret' instead." #-}
 
--- | An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .  For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
-wFilterGroups :: Lens' Webhook [[WebhookFilter]]
-wFilterGroups = lens _wFilterGroups (\s a -> s {_wFilterGroups = a}) . _Default . _Coerce
+-- | An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
+--
+-- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
+--
+-- /Note:/ Consider using 'filterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wFilterGroups :: Lens.Lens' Webhook (Lude.Maybe [[WebhookFilter]])
+wFilterGroups = Lens.lens (filterGroups :: Webhook -> Lude.Maybe [[WebhookFilter]]) (\s a -> s {filterGroups = a} :: Webhook)
+{-# DEPRECATED wFilterGroups "Use generic-lens or generic-optics with 'filterGroups' instead." #-}
 
 -- | The AWS CodeBuild endpoint where webhook events are sent.
-wPayloadURL :: Lens' Webhook (Maybe Text)
-wPayloadURL = lens _wPayloadURL (\s a -> s {_wPayloadURL = a})
+--
+-- /Note:/ Consider using 'payloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wPayloadURL :: Lens.Lens' Webhook (Lude.Maybe Lude.Text)
+wPayloadURL = Lens.lens (payloadURL :: Webhook -> Lude.Maybe Lude.Text) (\s a -> s {payloadURL = a} :: Webhook)
+{-# DEPRECATED wPayloadURL "Use generic-lens or generic-optics with 'payloadURL' instead." #-}
 
 -- | Specifies the type of build this webhook will trigger.
-wBuildType :: Lens' Webhook (Maybe WebhookBuildType)
-wBuildType = lens _wBuildType (\s a -> s {_wBuildType = a})
+--
+-- /Note:/ Consider using 'buildType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wBuildType :: Lens.Lens' Webhook (Lude.Maybe WebhookBuildType)
+wBuildType = Lens.lens (buildType :: Webhook -> Lude.Maybe WebhookBuildType) (\s a -> s {buildType = a} :: Webhook)
+{-# DEPRECATED wBuildType "Use generic-lens or generic-optics with 'buildType' instead." #-}
 
-instance FromJSON Webhook where
+instance Lude.FromJSON Webhook where
   parseJSON =
-    withObject
+    Lude.withObject
       "Webhook"
       ( \x ->
           Webhook'
-            <$> (x .:? "branchFilter")
-            <*> (x .:? "lastModifiedSecret")
-            <*> (x .:? "url")
-            <*> (x .:? "secret")
-            <*> (x .:? "filterGroups" .!= mempty)
-            <*> (x .:? "payloadUrl")
-            <*> (x .:? "buildType")
+            Lude.<$> (x Lude..:? "branchFilter")
+            Lude.<*> (x Lude..:? "lastModifiedSecret")
+            Lude.<*> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "secret")
+            Lude.<*> (x Lude..:? "filterGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "payloadUrl")
+            Lude.<*> (x Lude..:? "buildType")
       )
-
-instance Hashable Webhook
-
-instance NFData Webhook

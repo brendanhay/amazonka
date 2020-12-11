@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,101 @@
 --
 -- Removes a statement from a topic's access control policy.
 module Network.AWS.SNS.RemovePermission
-  ( -- * Creating a Request
-    removePermission,
-    RemovePermission,
+  ( -- * Creating a request
+    RemovePermission (..),
+    mkRemovePermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpTopicARN,
     rpLabel,
 
-    -- * Destructuring the Response
-    removePermissionResponse,
-    RemovePermissionResponse,
+    -- * Destructuring the response
+    RemovePermissionResponse (..),
+    mkRemovePermissionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | Input for RemovePermission action.
 --
---
---
--- /See:/ 'removePermission' smart constructor.
+-- /See:/ 'mkRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpTopicARN :: !Text,
-    _rpLabel :: !Text
+  { topicARN :: Lude.Text,
+    label :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpTopicARN' - The ARN of the topic whose access control policy you wish to modify.
---
--- * 'rpLabel' - The unique label of the statement you want to remove.
-removePermission ::
-  -- | 'rpTopicARN'
-  Text ->
-  -- | 'rpLabel'
-  Text ->
+-- * 'label' - The unique label of the statement you want to remove.
+-- * 'topicARN' - The ARN of the topic whose access control policy you wish to modify.
+mkRemovePermission ::
+  -- | 'topicARN'
+  Lude.Text ->
+  -- | 'label'
+  Lude.Text ->
   RemovePermission
-removePermission pTopicARN_ pLabel_ =
-  RemovePermission' {_rpTopicARN = pTopicARN_, _rpLabel = pLabel_}
+mkRemovePermission pTopicARN_ pLabel_ =
+  RemovePermission' {topicARN = pTopicARN_, label = pLabel_}
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-rpTopicARN :: Lens' RemovePermission Text
-rpTopicARN = lens _rpTopicARN (\s a -> s {_rpTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpTopicARN :: Lens.Lens' RemovePermission Lude.Text
+rpTopicARN = Lens.lens (topicARN :: RemovePermission -> Lude.Text) (\s a -> s {topicARN = a} :: RemovePermission)
+{-# DEPRECATED rpTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The unique label of the statement you want to remove.
-rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\s a -> s {_rpLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpLabel :: Lens.Lens' RemovePermission Lude.Text
+rpLabel = Lens.lens (label :: RemovePermission -> Lude.Text) (\s a -> s {label = a} :: RemovePermission)
+{-# DEPRECATED rpLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance AWSRequest RemovePermission where
+instance Lude.AWSRequest RemovePermission where
   type Rs RemovePermission = RemovePermissionResponse
-  request = postQuery sns
-  response = receiveNull RemovePermissionResponse'
+  request = Req.postQuery snsService
+  response = Res.receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
+instance Lude.ToHeaders RemovePermission where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemovePermission
+instance Lude.ToPath RemovePermission where
+  toPath = Lude.const "/"
 
-instance ToHeaders RemovePermission where
-  toHeaders = const mempty
-
-instance ToPath RemovePermission where
-  toPath = const "/"
-
-instance ToQuery RemovePermission where
+instance Lude.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
-    mconcat
-      [ "Action" =: ("RemovePermission" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "TopicArn" =: _rpTopicARN,
-        "Label" =: _rpLabel
+    Lude.mconcat
+      [ "Action" Lude.=: ("RemovePermission" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "TopicArn" Lude.=: topicARN,
+        "Label" Lude.=: label
       ]
 
--- | /See:/ 'removePermissionResponse' smart constructor.
+-- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
-removePermissionResponse ::
+mkRemovePermissionResponse ::
   RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse'
-
-instance NFData RemovePermissionResponse
+mkRemovePermissionResponse = RemovePermissionResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.SkillTypeFilter where
+module Network.AWS.AlexaBusiness.Types.SkillTypeFilter
+  ( SkillTypeFilter
+      ( SkillTypeFilter',
+        STFAll,
+        STFPrivate,
+        STFPublic
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SkillTypeFilter
-  = STFAll
-  | STFPrivate
-  | STFPublic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SkillTypeFilter = SkillTypeFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SkillTypeFilter where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure STFAll
-      "private" -> pure STFPrivate
-      "public" -> pure STFPublic
-      e ->
-        fromTextError $
-          "Failure parsing SkillTypeFilter from value: '" <> e
-            <> "'. Accepted values: all, private, public"
+pattern STFAll :: SkillTypeFilter
+pattern STFAll = SkillTypeFilter' "ALL"
 
-instance ToText SkillTypeFilter where
-  toText = \case
-    STFAll -> "ALL"
-    STFPrivate -> "PRIVATE"
-    STFPublic -> "PUBLIC"
+pattern STFPrivate :: SkillTypeFilter
+pattern STFPrivate = SkillTypeFilter' "PRIVATE"
 
-instance Hashable SkillTypeFilter
+pattern STFPublic :: SkillTypeFilter
+pattern STFPublic = SkillTypeFilter' "PUBLIC"
 
-instance NFData SkillTypeFilter
-
-instance ToByteString SkillTypeFilter
-
-instance ToQuery SkillTypeFilter
-
-instance ToHeader SkillTypeFilter
-
-instance ToJSON SkillTypeFilter where
-  toJSON = toJSONText
+{-# COMPLETE
+  STFAll,
+  STFPrivate,
+  STFPublic,
+  SkillTypeFilter'
+  #-}

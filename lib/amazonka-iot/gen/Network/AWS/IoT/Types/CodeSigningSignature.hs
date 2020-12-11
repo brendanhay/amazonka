@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CodeSigningSignature where
+module Network.AWS.IoT.Types.CodeSigningSignature
+  ( CodeSigningSignature (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeSigningSignature,
+
+    -- * Lenses
+    cssInlineDocument,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the signature for a file.
 --
---
---
--- /See:/ 'codeSigningSignature' smart constructor.
+-- /See:/ 'mkCodeSigningSignature' smart constructor.
 newtype CodeSigningSignature = CodeSigningSignature'
-  { _cssInlineDocument ::
-      Maybe Base64
+  { inlineDocument ::
+      Lude.Maybe Lude.Base64
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningSignature' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cssInlineDocument' - A base64 encoded binary representation of the code signing signature.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-codeSigningSignature ::
+-- * 'inlineDocument' - A base64 encoded binary representation of the code signing signature.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkCodeSigningSignature ::
   CodeSigningSignature
-codeSigningSignature =
-  CodeSigningSignature' {_cssInlineDocument = Nothing}
+mkCodeSigningSignature =
+  CodeSigningSignature' {inlineDocument = Lude.Nothing}
 
--- | A base64 encoded binary representation of the code signing signature.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-cssInlineDocument :: Lens' CodeSigningSignature (Maybe ByteString)
-cssInlineDocument = lens _cssInlineDocument (\s a -> s {_cssInlineDocument = a}) . mapping _Base64
+-- | A base64 encoded binary representation of the code signing signature.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'inlineDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssInlineDocument :: Lens.Lens' CodeSigningSignature (Lude.Maybe Lude.Base64)
+cssInlineDocument = Lens.lens (inlineDocument :: CodeSigningSignature -> Lude.Maybe Lude.Base64) (\s a -> s {inlineDocument = a} :: CodeSigningSignature)
+{-# DEPRECATED cssInlineDocument "Use generic-lens or generic-optics with 'inlineDocument' instead." #-}
 
-instance FromJSON CodeSigningSignature where
+instance Lude.FromJSON CodeSigningSignature where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeSigningSignature"
-      (\x -> CodeSigningSignature' <$> (x .:? "inlineDocument"))
+      ( \x ->
+          CodeSigningSignature' Lude.<$> (x Lude..:? "inlineDocument")
+      )
 
-instance Hashable CodeSigningSignature
-
-instance NFData CodeSigningSignature
-
-instance ToJSON CodeSigningSignature where
+instance Lude.ToJSON CodeSigningSignature where
   toJSON CodeSigningSignature' {..} =
-    object (catMaybes [("inlineDocument" .=) <$> _cssInlineDocument])
+    Lude.object
+      ( Lude.catMaybes
+          [("inlineDocument" Lude..=) Lude.<$> inlineDocument]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportInstanceTaskDetails where
+module Network.AWS.EC2.Types.ImportInstanceTaskDetails
+  ( ImportInstanceTaskDetails (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkImportInstanceTaskDetails,
+
+    -- * Lenses
+    iitdInstanceId,
+    iitdPlatform,
+    iitdVolumes,
+    iitdDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem
 import Network.AWS.EC2.Types.PlatformValues
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an import instance task.
 --
---
---
--- /See:/ 'importInstanceTaskDetails' smart constructor.
+-- /See:/ 'mkImportInstanceTaskDetails' smart constructor.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-  { _iitdInstanceId ::
-      !(Maybe Text),
-    _iitdPlatform ::
-      !(Maybe PlatformValues),
-    _iitdVolumes ::
-      !( Maybe
-           [ImportInstanceVolumeDetailItem]
-       ),
-    _iitdDescription :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    platform :: Lude.Maybe PlatformValues,
+    volumes ::
+      Lude.Maybe
+        [ImportInstanceVolumeDetailItem],
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstanceTaskDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iitdInstanceId' - The ID of the instance.
---
--- * 'iitdPlatform' - The instance operating system.
---
--- * 'iitdVolumes' - The volumes.
---
--- * 'iitdDescription' - A description of the task.
-importInstanceTaskDetails ::
+-- * 'description' - A description of the task.
+-- * 'instanceId' - The ID of the instance.
+-- * 'platform' - The instance operating system.
+-- * 'volumes' - The volumes.
+mkImportInstanceTaskDetails ::
   ImportInstanceTaskDetails
-importInstanceTaskDetails =
+mkImportInstanceTaskDetails =
   ImportInstanceTaskDetails'
-    { _iitdInstanceId = Nothing,
-      _iitdPlatform = Nothing,
-      _iitdVolumes = Nothing,
-      _iitdDescription = Nothing
+    { instanceId = Lude.Nothing,
+      platform = Lude.Nothing,
+      volumes = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ID of the instance.
-iitdInstanceId :: Lens' ImportInstanceTaskDetails (Maybe Text)
-iitdInstanceId = lens _iitdInstanceId (\s a -> s {_iitdInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitdInstanceId :: Lens.Lens' ImportInstanceTaskDetails (Lude.Maybe Lude.Text)
+iitdInstanceId = Lens.lens (instanceId :: ImportInstanceTaskDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ImportInstanceTaskDetails)
+{-# DEPRECATED iitdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The instance operating system.
-iitdPlatform :: Lens' ImportInstanceTaskDetails (Maybe PlatformValues)
-iitdPlatform = lens _iitdPlatform (\s a -> s {_iitdPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitdPlatform :: Lens.Lens' ImportInstanceTaskDetails (Lude.Maybe PlatformValues)
+iitdPlatform = Lens.lens (platform :: ImportInstanceTaskDetails -> Lude.Maybe PlatformValues) (\s a -> s {platform = a} :: ImportInstanceTaskDetails)
+{-# DEPRECATED iitdPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The volumes.
-iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
-iitdVolumes = lens _iitdVolumes (\s a -> s {_iitdVolumes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitdVolumes :: Lens.Lens' ImportInstanceTaskDetails (Lude.Maybe [ImportInstanceVolumeDetailItem])
+iitdVolumes = Lens.lens (volumes :: ImportInstanceTaskDetails -> Lude.Maybe [ImportInstanceVolumeDetailItem]) (\s a -> s {volumes = a} :: ImportInstanceTaskDetails)
+{-# DEPRECATED iitdVolumes "Use generic-lens or generic-optics with 'volumes' instead." #-}
 
 -- | A description of the task.
-iitdDescription :: Lens' ImportInstanceTaskDetails (Maybe Text)
-iitdDescription = lens _iitdDescription (\s a -> s {_iitdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitdDescription :: Lens.Lens' ImportInstanceTaskDetails (Lude.Maybe Lude.Text)
+iitdDescription = Lens.lens (description :: ImportInstanceTaskDetails -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportInstanceTaskDetails)
+{-# DEPRECATED iitdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ImportInstanceTaskDetails where
+instance Lude.FromXML ImportInstanceTaskDetails where
   parseXML x =
     ImportInstanceTaskDetails'
-      <$> (x .@? "instanceId")
-      <*> (x .@? "platform")
-      <*> (x .@? "volumes" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "description")
-
-instance Hashable ImportInstanceTaskDetails
-
-instance NFData ImportInstanceTaskDetails
+      Lude.<$> (x Lude..@? "instanceId")
+      Lude.<*> (x Lude..@? "platform")
+      Lude.<*> ( x Lude..@? "volumes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "description")

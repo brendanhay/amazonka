@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.LatLonOptions where
+module Network.AWS.CloudSearch.Types.LatLonOptions
+  ( LatLonOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLatLonOptions,
+
+    -- * Lenses
+    lloSourceField,
+    lloReturnEnabled,
+    lloFacetEnabled,
+    lloSearchEnabled,
+    lloSortEnabled,
+    lloDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if @IndexFieldType@ specifies the field is of type @latlon@ . All options are enabled by default.
 --
---
---
--- /See:/ 'latLonOptions' smart constructor.
+-- /See:/ 'mkLatLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
-  { _lloSourceField ::
-      !(Maybe Text),
-    _lloReturnEnabled :: !(Maybe Bool),
-    _lloFacetEnabled :: !(Maybe Bool),
-    _lloSearchEnabled :: !(Maybe Bool),
-    _lloSortEnabled :: !(Maybe Bool),
-    _lloDefaultValue :: !(Maybe Text)
+  { sourceField ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    sortEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LatLonOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lloSourceField' - Undocumented member.
---
--- * 'lloReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'lloFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'lloSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'lloSortEnabled' - Whether the field can be used to sort the search results.
---
--- * 'lloDefaultValue' - A value to use for the field if the field isn't specified for a document.
-latLonOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sortEnabled' - Whether the field can be used to sort the search results.
+-- * 'sourceField' - Undocumented field.
+mkLatLonOptions ::
   LatLonOptions
-latLonOptions =
+mkLatLonOptions =
   LatLonOptions'
-    { _lloSourceField = Nothing,
-      _lloReturnEnabled = Nothing,
-      _lloFacetEnabled = Nothing,
-      _lloSearchEnabled = Nothing,
-      _lloSortEnabled = Nothing,
-      _lloDefaultValue = Nothing
+    { sourceField = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      sortEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
--- | Undocumented member.
-lloSourceField :: Lens' LatLonOptions (Maybe Text)
-lloSourceField = lens _lloSourceField (\s a -> s {_lloSourceField = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloSourceField :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Text)
+lloSourceField = Lens.lens (sourceField :: LatLonOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceField = a} :: LatLonOptions)
+{-# DEPRECATED lloSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloReturnEnabled = lens _lloReturnEnabled (\s a -> s {_lloReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloReturnEnabled :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Bool)
+lloReturnEnabled = Lens.lens (returnEnabled :: LatLonOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: LatLonOptions)
+{-# DEPRECATED lloReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-lloFacetEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloFacetEnabled = lens _lloFacetEnabled (\s a -> s {_lloFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloFacetEnabled :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Bool)
+lloFacetEnabled = Lens.lens (facetEnabled :: LatLonOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: LatLonOptions)
+{-# DEPRECATED lloFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-lloSearchEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloSearchEnabled = lens _lloSearchEnabled (\s a -> s {_lloSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloSearchEnabled :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Bool)
+lloSearchEnabled = Lens.lens (searchEnabled :: LatLonOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: LatLonOptions)
+{-# DEPRECATED lloSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | Whether the field can be used to sort the search results.
-lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
-lloSortEnabled = lens _lloSortEnabled (\s a -> s {_lloSortEnabled = a})
+--
+-- /Note:/ Consider using 'sortEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloSortEnabled :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Bool)
+lloSortEnabled = Lens.lens (sortEnabled :: LatLonOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sortEnabled = a} :: LatLonOptions)
+{-# DEPRECATED lloSortEnabled "Use generic-lens or generic-optics with 'sortEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
-lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
-lloDefaultValue = lens _lloDefaultValue (\s a -> s {_lloDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lloDefaultValue :: Lens.Lens' LatLonOptions (Lude.Maybe Lude.Text)
+lloDefaultValue = Lens.lens (defaultValue :: LatLonOptions -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: LatLonOptions)
+{-# DEPRECATED lloDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML LatLonOptions where
+instance Lude.FromXML LatLonOptions where
   parseXML x =
     LatLonOptions'
-      <$> (x .@? "SourceField")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "SortEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceField")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "SortEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable LatLonOptions
-
-instance NFData LatLonOptions
-
-instance ToQuery LatLonOptions where
+instance Lude.ToQuery LatLonOptions where
   toQuery LatLonOptions' {..} =
-    mconcat
-      [ "SourceField" =: _lloSourceField,
-        "ReturnEnabled" =: _lloReturnEnabled,
-        "FacetEnabled" =: _lloFacetEnabled,
-        "SearchEnabled" =: _lloSearchEnabled,
-        "SortEnabled" =: _lloSortEnabled,
-        "DefaultValue" =: _lloDefaultValue
+    Lude.mconcat
+      [ "SourceField" Lude.=: sourceField,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "SortEnabled" Lude.=: sortEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ValidationData where
+module Network.AWS.Rekognition.Types.ValidationData
+  ( ValidationData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValidationData,
+
+    -- * Lenses
+    vdAssets,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | Contains the Amazon S3 bucket location of the validation data for a model training job.
 --
---
 -- The validation data includes error information for individual JSON lines in the dataset. For more information, see Debugging a Failed Model Training in the Amazon Rekognition Custom Labels Developer Guide.
---
 -- You get the @ValidationData@ object for the training dataset ('TrainingDataResult' ) and the test dataset ('TestingDataResult' ) by calling 'DescribeProjectVersions' .
---
 -- The assets array contains a single 'Asset' object. The 'GroundTruthManifest' field of the Asset object contains the S3 bucket location of the validation data.
 --
---
--- /See:/ 'validationData' smart constructor.
+-- /See:/ 'mkValidationData' smart constructor.
 newtype ValidationData = ValidationData'
-  { _vdAssets ::
-      Maybe [Asset]
+  { assets ::
+      Lude.Maybe [Asset]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vdAssets' - The assets that comprise the validation data.
-validationData ::
+-- * 'assets' - The assets that comprise the validation data.
+mkValidationData ::
   ValidationData
-validationData = ValidationData' {_vdAssets = Nothing}
+mkValidationData = ValidationData' {assets = Lude.Nothing}
 
 -- | The assets that comprise the validation data.
-vdAssets :: Lens' ValidationData [Asset]
-vdAssets = lens _vdAssets (\s a -> s {_vdAssets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'assets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdAssets :: Lens.Lens' ValidationData (Lude.Maybe [Asset])
+vdAssets = Lens.lens (assets :: ValidationData -> Lude.Maybe [Asset]) (\s a -> s {assets = a} :: ValidationData)
+{-# DEPRECATED vdAssets "Use generic-lens or generic-optics with 'assets' instead." #-}
 
-instance FromJSON ValidationData where
+instance Lude.FromJSON ValidationData where
   parseJSON =
-    withObject
+    Lude.withObject
       "ValidationData"
-      (\x -> ValidationData' <$> (x .:? "Assets" .!= mempty))
-
-instance Hashable ValidationData
-
-instance NFData ValidationData
+      ( \x ->
+          ValidationData'
+            Lude.<$> (x Lude..:? "Assets" Lude..!= Lude.mempty)
+      )

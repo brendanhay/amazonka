@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- Stops a specific database that is currently running in Amazon Lightsail.
 --
---
 -- The @stop relational database@ operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.StopRelationalDatabase
-  ( -- * Creating a Request
-    stopRelationalDatabase,
-    StopRelationalDatabase,
+  ( -- * Creating a request
+    StopRelationalDatabase (..),
+    mkStopRelationalDatabase,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srdRelationalDatabaseSnapshotName,
     srdRelationalDatabaseName,
 
-    -- * Destructuring the Response
-    stopRelationalDatabaseResponse,
-    StopRelationalDatabaseResponse,
+    -- * Destructuring the response
+    StopRelationalDatabaseResponse (..),
+    mkStopRelationalDatabaseResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     storsOperations,
     storsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopRelationalDatabase' smart constructor.
+-- | /See:/ 'mkStopRelationalDatabase' smart constructor.
 data StopRelationalDatabase = StopRelationalDatabase'
-  { _srdRelationalDatabaseSnapshotName ::
-      !(Maybe Text),
-    _srdRelationalDatabaseName :: !Text
+  { relationalDatabaseSnapshotName ::
+      Lude.Maybe Lude.Text,
+    relationalDatabaseName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRelationalDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srdRelationalDatabaseSnapshotName' - The name of your new database snapshot to be created before stopping your database.
---
--- * 'srdRelationalDatabaseName' - The name of your database to stop.
-stopRelationalDatabase ::
-  -- | 'srdRelationalDatabaseName'
-  Text ->
+-- * 'relationalDatabaseName' - The name of your database to stop.
+-- * 'relationalDatabaseSnapshotName' - The name of your new database snapshot to be created before stopping your database.
+mkStopRelationalDatabase ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   StopRelationalDatabase
-stopRelationalDatabase pRelationalDatabaseName_ =
+mkStopRelationalDatabase pRelationalDatabaseName_ =
   StopRelationalDatabase'
-    { _srdRelationalDatabaseSnapshotName =
-        Nothing,
-      _srdRelationalDatabaseName = pRelationalDatabaseName_
+    { relationalDatabaseSnapshotName =
+        Lude.Nothing,
+      relationalDatabaseName = pRelationalDatabaseName_
     }
 
 -- | The name of your new database snapshot to be created before stopping your database.
-srdRelationalDatabaseSnapshotName :: Lens' StopRelationalDatabase (Maybe Text)
-srdRelationalDatabaseSnapshotName = lens _srdRelationalDatabaseSnapshotName (\s a -> s {_srdRelationalDatabaseSnapshotName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdRelationalDatabaseSnapshotName :: Lens.Lens' StopRelationalDatabase (Lude.Maybe Lude.Text)
+srdRelationalDatabaseSnapshotName = Lens.lens (relationalDatabaseSnapshotName :: StopRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {relationalDatabaseSnapshotName = a} :: StopRelationalDatabase)
+{-# DEPRECATED srdRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
 
 -- | The name of your database to stop.
-srdRelationalDatabaseName :: Lens' StopRelationalDatabase Text
-srdRelationalDatabaseName = lens _srdRelationalDatabaseName (\s a -> s {_srdRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdRelationalDatabaseName :: Lens.Lens' StopRelationalDatabase Lude.Text
+srdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: StopRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: StopRelationalDatabase)
+{-# DEPRECATED srdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance AWSRequest StopRelationalDatabase where
+instance Lude.AWSRequest StopRelationalDatabase where
   type Rs StopRelationalDatabase = StopRelationalDatabaseResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopRelationalDatabaseResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopRelationalDatabase
-
-instance NFData StopRelationalDatabase
-
-instance ToHeaders StopRelationalDatabase where
+instance Lude.ToHeaders StopRelationalDatabase where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.StopRelationalDatabase" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.StopRelationalDatabase" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopRelationalDatabase where
+instance Lude.ToJSON StopRelationalDatabase where
   toJSON StopRelationalDatabase' {..} =
-    object
-      ( catMaybes
-          [ ("relationalDatabaseSnapshotName" .=)
-              <$> _srdRelationalDatabaseSnapshotName,
-            Just ("relationalDatabaseName" .= _srdRelationalDatabaseName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("relationalDatabaseSnapshotName" Lude..=)
+              Lude.<$> relationalDatabaseSnapshotName,
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
           ]
       )
 
-instance ToPath StopRelationalDatabase where
-  toPath = const "/"
+instance Lude.ToPath StopRelationalDatabase where
+  toPath = Lude.const "/"
 
-instance ToQuery StopRelationalDatabase where
-  toQuery = const mempty
+instance Lude.ToQuery StopRelationalDatabase where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopRelationalDatabaseResponse' smart constructor.
+-- | /See:/ 'mkStopRelationalDatabaseResponse' smart constructor.
 data StopRelationalDatabaseResponse = StopRelationalDatabaseResponse'
-  { _storsOperations ::
-      !(Maybe [Operation]),
-    _storsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRelationalDatabaseResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'storsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'storsResponseStatus' - -- | The response status code.
-stopRelationalDatabaseResponse ::
-  -- | 'storsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkStopRelationalDatabaseResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopRelationalDatabaseResponse
-stopRelationalDatabaseResponse pResponseStatus_ =
+mkStopRelationalDatabaseResponse pResponseStatus_ =
   StopRelationalDatabaseResponse'
-    { _storsOperations = Nothing,
-      _storsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-storsOperations :: Lens' StopRelationalDatabaseResponse [Operation]
-storsOperations = lens _storsOperations (\s a -> s {_storsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+storsOperations :: Lens.Lens' StopRelationalDatabaseResponse (Lude.Maybe [Operation])
+storsOperations = Lens.lens (operations :: StopRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StopRelationalDatabaseResponse)
+{-# DEPRECATED storsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-storsResponseStatus :: Lens' StopRelationalDatabaseResponse Int
-storsResponseStatus = lens _storsResponseStatus (\s a -> s {_storsResponseStatus = a})
-
-instance NFData StopRelationalDatabaseResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+storsResponseStatus :: Lens.Lens' StopRelationalDatabaseResponse Lude.Int
+storsResponseStatus = Lens.lens (responseStatus :: StopRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopRelationalDatabaseResponse)
+{-# DEPRECATED storsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

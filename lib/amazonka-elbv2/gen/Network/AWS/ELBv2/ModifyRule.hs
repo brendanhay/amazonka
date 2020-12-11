@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,156 @@
 --
 -- Replaces the specified properties of the specified rule. Any properties that you do not specify are unchanged.
 --
---
 -- To add an item to a list, remove an item from a list, or update an item in a list, you must provide the entire list. For example, to add an action, specify a list with the current actions plus the new action.
 module Network.AWS.ELBv2.ModifyRule
-  ( -- * Creating a Request
-    modifyRule,
-    ModifyRule,
+  ( -- * Creating a request
+    ModifyRule (..),
+    mkModifyRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mrActions,
     mrConditions,
     mrRuleARN,
 
-    -- * Destructuring the Response
-    modifyRuleResponse,
-    ModifyRuleResponse,
+    -- * Destructuring the response
+    ModifyRuleResponse (..),
+    mkModifyRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mrrsRules,
     mrrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyRule' smart constructor.
+-- | /See:/ 'mkModifyRule' smart constructor.
 data ModifyRule = ModifyRule'
-  { _mrActions :: !(Maybe [Action]),
-    _mrConditions :: !(Maybe [RuleCondition]),
-    _mrRuleARN :: !Text
+  { actions :: Lude.Maybe [Action],
+    conditions :: Lude.Maybe [RuleCondition],
+    ruleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrActions' - The actions.
---
--- * 'mrConditions' - The conditions.
---
--- * 'mrRuleARN' - The Amazon Resource Name (ARN) of the rule.
-modifyRule ::
-  -- | 'mrRuleARN'
-  Text ->
+-- * 'actions' - The actions.
+-- * 'conditions' - The conditions.
+-- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
+mkModifyRule ::
+  -- | 'ruleARN'
+  Lude.Text ->
   ModifyRule
-modifyRule pRuleARN_ =
+mkModifyRule pRuleARN_ =
   ModifyRule'
-    { _mrActions = Nothing,
-      _mrConditions = Nothing,
-      _mrRuleARN = pRuleARN_
+    { actions = Lude.Nothing,
+      conditions = Lude.Nothing,
+      ruleARN = pRuleARN_
     }
 
 -- | The actions.
-mrActions :: Lens' ModifyRule [Action]
-mrActions = lens _mrActions (\s a -> s {_mrActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrActions :: Lens.Lens' ModifyRule (Lude.Maybe [Action])
+mrActions = Lens.lens (actions :: ModifyRule -> Lude.Maybe [Action]) (\s a -> s {actions = a} :: ModifyRule)
+{-# DEPRECATED mrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The conditions.
-mrConditions :: Lens' ModifyRule [RuleCondition]
-mrConditions = lens _mrConditions (\s a -> s {_mrConditions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrConditions :: Lens.Lens' ModifyRule (Lude.Maybe [RuleCondition])
+mrConditions = Lens.lens (conditions :: ModifyRule -> Lude.Maybe [RuleCondition]) (\s a -> s {conditions = a} :: ModifyRule)
+{-# DEPRECATED mrConditions "Use generic-lens or generic-optics with 'conditions' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the rule.
-mrRuleARN :: Lens' ModifyRule Text
-mrRuleARN = lens _mrRuleARN (\s a -> s {_mrRuleARN = a})
+--
+-- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrRuleARN :: Lens.Lens' ModifyRule Lude.Text
+mrRuleARN = Lens.lens (ruleARN :: ModifyRule -> Lude.Text) (\s a -> s {ruleARN = a} :: ModifyRule)
+{-# DEPRECATED mrRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
-instance AWSRequest ModifyRule where
+instance Lude.AWSRequest ModifyRule where
   type Rs ModifyRule = ModifyRuleResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyRuleResult"
       ( \s h x ->
           ModifyRuleResponse'
-            <$> (x .@? "Rules" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyRule
+instance Lude.ToHeaders ModifyRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyRule
+instance Lude.ToPath ModifyRule where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyRule where
-  toHeaders = const mempty
-
-instance ToPath ModifyRule where
-  toPath = const "/"
-
-instance ToQuery ModifyRule where
+instance Lude.ToQuery ModifyRule where
   toQuery ModifyRule' {..} =
-    mconcat
-      [ "Action" =: ("ModifyRule" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Actions" =: toQuery (toQueryList "member" <$> _mrActions),
-        "Conditions" =: toQuery (toQueryList "member" <$> _mrConditions),
-        "RuleArn" =: _mrRuleARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyRule" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Actions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> actions),
+        "Conditions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> conditions),
+        "RuleArn" Lude.=: ruleARN
       ]
 
--- | /See:/ 'modifyRuleResponse' smart constructor.
+-- | /See:/ 'mkModifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
-  { _mrrsRules ::
-      !(Maybe [Rule]),
-    _mrrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [Rule],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrrsRules' - Information about the modified rule.
---
--- * 'mrrsResponseStatus' - -- | The response status code.
-modifyRuleResponse ::
-  -- | 'mrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - Information about the modified rule.
+mkModifyRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyRuleResponse
-modifyRuleResponse pResponseStatus_ =
+mkModifyRuleResponse pResponseStatus_ =
   ModifyRuleResponse'
-    { _mrrsRules = Nothing,
-      _mrrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the modified rule.
-mrrsRules :: Lens' ModifyRuleResponse [Rule]
-mrrsRules = lens _mrrsRules (\s a -> s {_mrrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrrsRules :: Lens.Lens' ModifyRuleResponse (Lude.Maybe [Rule])
+mrrsRules = Lens.lens (rules :: ModifyRuleResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: ModifyRuleResponse)
+{-# DEPRECATED mrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
--- | -- | The response status code.
-mrrsResponseStatus :: Lens' ModifyRuleResponse Int
-mrrsResponseStatus = lens _mrrsResponseStatus (\s a -> s {_mrrsResponseStatus = a})
-
-instance NFData ModifyRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrrsResponseStatus :: Lens.Lens' ModifyRuleResponse Lude.Int
+mrrsResponseStatus = Lens.lens (responseStatus :: ModifyRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyRuleResponse)
+{-# DEPRECATED mrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

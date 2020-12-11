@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from SSO, a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
 module Network.AWS.SageMaker.CreateUserProfile
-  ( -- * Creating a Request
-    createUserProfile,
-    CreateUserProfile,
+  ( -- * Creating a request
+    CreateUserProfile (..),
+    mkCreateUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cupUserSettings,
     cupSingleSignOnUserValue,
     cupSingleSignOnUserIdentifier,
@@ -31,163 +26,188 @@ module Network.AWS.SageMaker.CreateUserProfile
     cupDomainId,
     cupUserProfileName,
 
-    -- * Destructuring the Response
-    createUserProfileResponse,
-    CreateUserProfileResponse,
+    -- * Destructuring the response
+    CreateUserProfileResponse (..),
+    mkCreateUserProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cuprsUserProfileARN,
     cuprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createUserProfile' smart constructor.
+-- | /See:/ 'mkCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { _cupUserSettings ::
-      !(Maybe UserSettings),
-    _cupSingleSignOnUserValue :: !(Maybe Text),
-    _cupSingleSignOnUserIdentifier :: !(Maybe Text),
-    _cupTags :: !(Maybe [Tag]),
-    _cupDomainId :: !Text,
-    _cupUserProfileName :: !Text
+  { userSettings ::
+      Lude.Maybe UserSettings,
+    singleSignOnUserValue :: Lude.Maybe Lude.Text,
+    singleSignOnUserIdentifier :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    domainId :: Lude.Text,
+    userProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cupUserSettings' - A collection of settings.
---
--- * 'cupSingleSignOnUserValue' - The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
---
--- * 'cupSingleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
---
--- * 'cupTags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
---
--- * 'cupDomainId' - The ID of the associated Domain.
---
--- * 'cupUserProfileName' - A name for the UserProfile.
-createUserProfile ::
-  -- | 'cupDomainId'
-  Text ->
-  -- | 'cupUserProfileName'
-  Text ->
+-- * 'domainId' - The ID of the associated Domain.
+-- * 'singleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+-- * 'singleSignOnUserValue' - The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+-- * 'tags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+-- * 'userProfileName' - A name for the UserProfile.
+-- * 'userSettings' - A collection of settings.
+mkCreateUserProfile ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
   CreateUserProfile
-createUserProfile pDomainId_ pUserProfileName_ =
+mkCreateUserProfile pDomainId_ pUserProfileName_ =
   CreateUserProfile'
-    { _cupUserSettings = Nothing,
-      _cupSingleSignOnUserValue = Nothing,
-      _cupSingleSignOnUserIdentifier = Nothing,
-      _cupTags = Nothing,
-      _cupDomainId = pDomainId_,
-      _cupUserProfileName = pUserProfileName_
+    { userSettings = Lude.Nothing,
+      singleSignOnUserValue = Lude.Nothing,
+      singleSignOnUserIdentifier = Lude.Nothing,
+      tags = Lude.Nothing,
+      domainId = pDomainId_,
+      userProfileName = pUserProfileName_
     }
 
 -- | A collection of settings.
-cupUserSettings :: Lens' CreateUserProfile (Maybe UserSettings)
-cupUserSettings = lens _cupUserSettings (\s a -> s {_cupUserSettings = a})
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUserSettings :: Lens.Lens' CreateUserProfile (Lude.Maybe UserSettings)
+cupUserSettings = Lens.lens (userSettings :: CreateUserProfile -> Lude.Maybe UserSettings) (\s a -> s {userSettings = a} :: CreateUserProfile)
+{-# DEPRECATED cupUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
 
 -- | The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-cupSingleSignOnUserValue :: Lens' CreateUserProfile (Maybe Text)
-cupSingleSignOnUserValue = lens _cupSingleSignOnUserValue (\s a -> s {_cupSingleSignOnUserValue = a})
+--
+-- /Note:/ Consider using 'singleSignOnUserValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSingleSignOnUserValue :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Text)
+cupSingleSignOnUserValue = Lens.lens (singleSignOnUserValue :: CreateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
+{-# DEPRECATED cupSingleSignOnUserValue "Use generic-lens or generic-optics with 'singleSignOnUserValue' instead." #-}
 
 -- | A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-cupSingleSignOnUserIdentifier :: Lens' CreateUserProfile (Maybe Text)
-cupSingleSignOnUserIdentifier = lens _cupSingleSignOnUserIdentifier (\s a -> s {_cupSingleSignOnUserIdentifier = a})
+--
+-- /Note:/ Consider using 'singleSignOnUserIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSingleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Text)
+cupSingleSignOnUserIdentifier = Lens.lens (singleSignOnUserIdentifier :: CreateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
+{-# DEPRECATED cupSingleSignOnUserIdentifier "Use generic-lens or generic-optics with 'singleSignOnUserIdentifier' instead." #-}
 
 -- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-cupTags :: Lens' CreateUserProfile [Tag]
-cupTags = lens _cupTags (\s a -> s {_cupTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupTags :: Lens.Lens' CreateUserProfile (Lude.Maybe [Tag])
+cupTags = Lens.lens (tags :: CreateUserProfile -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateUserProfile)
+{-# DEPRECATED cupTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the associated Domain.
-cupDomainId :: Lens' CreateUserProfile Text
-cupDomainId = lens _cupDomainId (\s a -> s {_cupDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupDomainId :: Lens.Lens' CreateUserProfile Lude.Text
+cupDomainId = Lens.lens (domainId :: CreateUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: CreateUserProfile)
+{-# DEPRECATED cupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | A name for the UserProfile.
-cupUserProfileName :: Lens' CreateUserProfile Text
-cupUserProfileName = lens _cupUserProfileName (\s a -> s {_cupUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUserProfileName :: Lens.Lens' CreateUserProfile Lude.Text
+cupUserProfileName = Lens.lens (userProfileName :: CreateUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: CreateUserProfile)
+{-# DEPRECATED cupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
-instance AWSRequest CreateUserProfile where
+instance Lude.AWSRequest CreateUserProfile where
   type Rs CreateUserProfile = CreateUserProfileResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            <$> (x .?> "UserProfileArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserProfileArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateUserProfile
-
-instance NFData CreateUserProfile
-
-instance ToHeaders CreateUserProfile where
+instance Lude.ToHeaders CreateUserProfile where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUserProfile where
+instance Lude.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    object
-      ( catMaybes
-          [ ("UserSettings" .=) <$> _cupUserSettings,
-            ("SingleSignOnUserValue" .=) <$> _cupSingleSignOnUserValue,
-            ("SingleSignOnUserIdentifier" .=)
-              <$> _cupSingleSignOnUserIdentifier,
-            ("Tags" .=) <$> _cupTags,
-            Just ("DomainId" .= _cupDomainId),
-            Just ("UserProfileName" .= _cupUserProfileName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserSettings" Lude..=) Lude.<$> userSettings,
+            ("SingleSignOnUserValue" Lude..=) Lude.<$> singleSignOnUserValue,
+            ("SingleSignOnUserIdentifier" Lude..=)
+              Lude.<$> singleSignOnUserIdentifier,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName)
           ]
       )
 
-instance ToPath CreateUserProfile where
-  toPath = const "/"
+instance Lude.ToPath CreateUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserProfileResponse' smart constructor.
+-- | /See:/ 'mkCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-  { _cuprsUserProfileARN ::
-      !(Maybe Text),
-    _cuprsResponseStatus :: !Int
+  { userProfileARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuprsUserProfileARN' - The user profile Amazon Resource Name (ARN).
---
--- * 'cuprsResponseStatus' - -- | The response status code.
-createUserProfileResponse ::
-  -- | 'cuprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
+mkCreateUserProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserProfileResponse
-createUserProfileResponse pResponseStatus_ =
+mkCreateUserProfileResponse pResponseStatus_ =
   CreateUserProfileResponse'
-    { _cuprsUserProfileARN = Nothing,
-      _cuprsResponseStatus = pResponseStatus_
+    { userProfileARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user profile Amazon Resource Name (ARN).
-cuprsUserProfileARN :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsUserProfileARN = lens _cuprsUserProfileARN (\s a -> s {_cuprsUserProfileARN = a})
+--
+-- /Note:/ Consider using 'userProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsUserProfileARN :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe Lude.Text)
+cuprsUserProfileARN = Lens.lens (userProfileARN :: CreateUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileARN = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsUserProfileARN "Use generic-lens or generic-optics with 'userProfileARN' instead." #-}
 
--- | -- | The response status code.
-cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\s a -> s {_cuprsResponseStatus = a})
-
-instance NFData CreateUserProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsResponseStatus :: Lens.Lens' CreateUserProfileResponse Lude.Int
+cuprsResponseStatus = Lens.lens (responseStatus :: CreateUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

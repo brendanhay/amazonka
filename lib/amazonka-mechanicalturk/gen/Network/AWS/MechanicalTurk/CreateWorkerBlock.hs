@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- The @CreateWorkerBlock@ operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.
 module Network.AWS.MechanicalTurk.CreateWorkerBlock
-  ( -- * Creating a Request
-    createWorkerBlock,
-    CreateWorkerBlock,
+  ( -- * Creating a request
+    CreateWorkerBlock (..),
+    mkCreateWorkerBlock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cwbWorkerId,
     cwbReason,
 
-    -- * Destructuring the Response
-    createWorkerBlockResponse,
-    CreateWorkerBlockResponse,
+    -- * Destructuring the response
+    CreateWorkerBlockResponse (..),
+    mkCreateWorkerBlockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cwbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createWorkerBlock' smart constructor.
+-- | /See:/ 'mkCreateWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
-  { _cwbWorkerId :: !Text,
-    _cwbReason :: !Text
+  { workerId :: Lude.Text,
+    reason :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkerBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwbWorkerId' - The ID of the Worker to block.
---
--- * 'cwbReason' - A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-createWorkerBlock ::
-  -- | 'cwbWorkerId'
-  Text ->
-  -- | 'cwbReason'
-  Text ->
+-- * 'reason' - A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
+-- * 'workerId' - The ID of the Worker to block.
+mkCreateWorkerBlock ::
+  -- | 'workerId'
+  Lude.Text ->
+  -- | 'reason'
+  Lude.Text ->
   CreateWorkerBlock
-createWorkerBlock pWorkerId_ pReason_ =
-  CreateWorkerBlock'
-    { _cwbWorkerId = pWorkerId_,
-      _cwbReason = pReason_
-    }
+mkCreateWorkerBlock pWorkerId_ pReason_ =
+  CreateWorkerBlock' {workerId = pWorkerId_, reason = pReason_}
 
 -- | The ID of the Worker to block.
-cwbWorkerId :: Lens' CreateWorkerBlock Text
-cwbWorkerId = lens _cwbWorkerId (\s a -> s {_cwbWorkerId = a})
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwbWorkerId :: Lens.Lens' CreateWorkerBlock Lude.Text
+cwbWorkerId = Lens.lens (workerId :: CreateWorkerBlock -> Lude.Text) (\s a -> s {workerId = a} :: CreateWorkerBlock)
+{-# DEPRECATED cwbWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
 -- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-cwbReason :: Lens' CreateWorkerBlock Text
-cwbReason = lens _cwbReason (\s a -> s {_cwbReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwbReason :: Lens.Lens' CreateWorkerBlock Lude.Text
+cwbReason = Lens.lens (reason :: CreateWorkerBlock -> Lude.Text) (\s a -> s {reason = a} :: CreateWorkerBlock)
+{-# DEPRECATED cwbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance AWSRequest CreateWorkerBlock where
+instance Lude.AWSRequest CreateWorkerBlock where
   type Rs CreateWorkerBlock = CreateWorkerBlockResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> CreateWorkerBlockResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateWorkerBlockResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateWorkerBlock
-
-instance NFData CreateWorkerBlock
-
-instance ToHeaders CreateWorkerBlock where
+instance Lude.ToHeaders CreateWorkerBlock where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.CreateWorkerBlock" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.CreateWorkerBlock" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateWorkerBlock where
+instance Lude.ToJSON CreateWorkerBlock where
   toJSON CreateWorkerBlock' {..} =
-    object
-      ( catMaybes
-          [Just ("WorkerId" .= _cwbWorkerId), Just ("Reason" .= _cwbReason)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("WorkerId" Lude..= workerId),
+            Lude.Just ("Reason" Lude..= reason)
+          ]
       )
 
-instance ToPath CreateWorkerBlock where
-  toPath = const "/"
+instance Lude.ToPath CreateWorkerBlock where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateWorkerBlock where
-  toQuery = const mempty
+instance Lude.ToQuery CreateWorkerBlock where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createWorkerBlockResponse' smart constructor.
+-- | /See:/ 'mkCreateWorkerBlockResponse' smart constructor.
 newtype CreateWorkerBlockResponse = CreateWorkerBlockResponse'
-  { _cwbrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkerBlockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwbrsResponseStatus' - -- | The response status code.
-createWorkerBlockResponse ::
-  -- | 'cwbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateWorkerBlockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateWorkerBlockResponse
-createWorkerBlockResponse pResponseStatus_ =
-  CreateWorkerBlockResponse'
-    { _cwbrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateWorkerBlockResponse pResponseStatus_ =
+  CreateWorkerBlockResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cwbrsResponseStatus :: Lens' CreateWorkerBlockResponse Int
-cwbrsResponseStatus = lens _cwbrsResponseStatus (\s a -> s {_cwbrsResponseStatus = a})
-
-instance NFData CreateWorkerBlockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwbrsResponseStatus :: Lens.Lens' CreateWorkerBlockResponse Lude.Int
+cwbrsResponseStatus = Lens.lens (responseStatus :: CreateWorkerBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWorkerBlockResponse)
+{-# DEPRECATED cwbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

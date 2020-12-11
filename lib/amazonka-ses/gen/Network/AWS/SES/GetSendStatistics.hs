@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,114 @@
 --
 -- Provides sending statistics for the current AWS Region. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute period of time.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.GetSendStatistics
-  ( -- * Creating a Request
-    getSendStatistics,
-    GetSendStatistics,
+  ( -- * Creating a request
+    GetSendStatistics (..),
+    mkGetSendStatistics,
 
-    -- * Destructuring the Response
-    getSendStatisticsResponse,
-    GetSendStatisticsResponse,
+    -- * Destructuring the response
+    GetSendStatisticsResponse (..),
+    mkGetSendStatisticsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gssrsSendDataPoints,
     gssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'getSendStatistics' smart constructor.
+-- | /See:/ 'mkGetSendStatistics' smart constructor.
 data GetSendStatistics = GetSendStatistics'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendStatistics' with the minimum fields required to make a request.
-getSendStatistics ::
+mkGetSendStatistics ::
   GetSendStatistics
-getSendStatistics = GetSendStatistics'
+mkGetSendStatistics = GetSendStatistics'
 
-instance AWSRequest GetSendStatistics where
+instance Lude.AWSRequest GetSendStatistics where
   type Rs GetSendStatistics = GetSendStatisticsResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetSendStatisticsResult"
       ( \s h x ->
           GetSendStatisticsResponse'
-            <$> (x .@? "SendDataPoints" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "SendDataPoints" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSendStatistics
+instance Lude.ToHeaders GetSendStatistics where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSendStatistics
+instance Lude.ToPath GetSendStatistics where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetSendStatistics where
-  toHeaders = const mempty
-
-instance ToPath GetSendStatistics where
-  toPath = const "/"
-
-instance ToQuery GetSendStatistics where
+instance Lude.ToQuery GetSendStatistics where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GetSendStatistics" :: ByteString),
-            "Version" =: ("2010-12-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GetSendStatistics" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
           ]
       )
 
 -- | Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.
 --
---
---
--- /See:/ 'getSendStatisticsResponse' smart constructor.
+-- /See:/ 'mkGetSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-  { _gssrsSendDataPoints ::
-      !(Maybe [SendDataPoint]),
-    _gssrsResponseStatus :: !Int
+  { sendDataPoints ::
+      Lude.Maybe [SendDataPoint],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssrsSendDataPoints' - A list of data points, each of which represents 15 minutes of activity.
---
--- * 'gssrsResponseStatus' - -- | The response status code.
-getSendStatisticsResponse ::
-  -- | 'gssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sendDataPoints' - A list of data points, each of which represents 15 minutes of activity.
+mkGetSendStatisticsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSendStatisticsResponse
-getSendStatisticsResponse pResponseStatus_ =
+mkGetSendStatisticsResponse pResponseStatus_ =
   GetSendStatisticsResponse'
-    { _gssrsSendDataPoints = Nothing,
-      _gssrsResponseStatus = pResponseStatus_
+    { sendDataPoints = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrsSendDataPoints = lens _gssrsSendDataPoints (\s a -> s {_gssrsSendDataPoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sendDataPoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsSendDataPoints :: Lens.Lens' GetSendStatisticsResponse (Lude.Maybe [SendDataPoint])
+gssrsSendDataPoints = Lens.lens (sendDataPoints :: GetSendStatisticsResponse -> Lude.Maybe [SendDataPoint]) (\s a -> s {sendDataPoints = a} :: GetSendStatisticsResponse)
+{-# DEPRECATED gssrsSendDataPoints "Use generic-lens or generic-optics with 'sendDataPoints' instead." #-}
 
--- | -- | The response status code.
-gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\s a -> s {_gssrsResponseStatus = a})
-
-instance NFData GetSendStatisticsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsResponseStatus :: Lens.Lens' GetSendStatisticsResponse Lude.Int
+gssrsResponseStatus = Lens.lens (responseStatus :: GetSendStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSendStatisticsResponse)
+{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

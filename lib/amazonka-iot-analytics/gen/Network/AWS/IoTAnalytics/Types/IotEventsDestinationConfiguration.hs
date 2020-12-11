@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration where
+module Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
+  ( IotEventsDestinationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIotEventsDestinationConfiguration,
+
+    -- * Lenses
+    iedcInputName,
+    iedcRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information for delivery of dataset contents to AWS IoT Events.
 --
---
---
--- /See:/ 'iotEventsDestinationConfiguration' smart constructor.
+-- /See:/ 'mkIotEventsDestinationConfiguration' smart constructor.
 data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
-  { _iedcInputName ::
-      !Text,
-    _iedcRoleARN :: !Text
+  { inputName ::
+      Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IotEventsDestinationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iedcInputName' - The name of the AWS IoT Events input to which dataset contents are delivered.
---
--- * 'iedcRoleARN' - The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
-iotEventsDestinationConfiguration ::
-  -- | 'iedcInputName'
-  Text ->
-  -- | 'iedcRoleARN'
-  Text ->
+-- * 'inputName' - The name of the AWS IoT Events input to which dataset contents are delivered.
+-- * 'roleARN' - The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+mkIotEventsDestinationConfiguration ::
+  -- | 'inputName'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   IotEventsDestinationConfiguration
-iotEventsDestinationConfiguration pInputName_ pRoleARN_ =
+mkIotEventsDestinationConfiguration pInputName_ pRoleARN_ =
   IotEventsDestinationConfiguration'
-    { _iedcInputName = pInputName_,
-      _iedcRoleARN = pRoleARN_
+    { inputName = pInputName_,
+      roleARN = pRoleARN_
     }
 
 -- | The name of the AWS IoT Events input to which dataset contents are delivered.
-iedcInputName :: Lens' IotEventsDestinationConfiguration Text
-iedcInputName = lens _iedcInputName (\s a -> s {_iedcInputName = a})
+--
+-- /Note:/ Consider using 'inputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iedcInputName :: Lens.Lens' IotEventsDestinationConfiguration Lude.Text
+iedcInputName = Lens.lens (inputName :: IotEventsDestinationConfiguration -> Lude.Text) (\s a -> s {inputName = a} :: IotEventsDestinationConfiguration)
+{-# DEPRECATED iedcInputName "Use generic-lens or generic-optics with 'inputName' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
-iedcRoleARN :: Lens' IotEventsDestinationConfiguration Text
-iedcRoleARN = lens _iedcRoleARN (\s a -> s {_iedcRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iedcRoleARN :: Lens.Lens' IotEventsDestinationConfiguration Lude.Text
+iedcRoleARN = Lens.lens (roleARN :: IotEventsDestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: IotEventsDestinationConfiguration)
+{-# DEPRECATED iedcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON IotEventsDestinationConfiguration where
+instance Lude.FromJSON IotEventsDestinationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "IotEventsDestinationConfiguration"
       ( \x ->
           IotEventsDestinationConfiguration'
-            <$> (x .: "inputName") <*> (x .: "roleArn")
+            Lude.<$> (x Lude..: "inputName") Lude.<*> (x Lude..: "roleArn")
       )
 
-instance Hashable IotEventsDestinationConfiguration
-
-instance NFData IotEventsDestinationConfiguration
-
-instance ToJSON IotEventsDestinationConfiguration where
+instance Lude.ToJSON IotEventsDestinationConfiguration where
   toJSON IotEventsDestinationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ Just ("inputName" .= _iedcInputName),
-            Just ("roleArn" .= _iedcRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("inputName" Lude..= inputName),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

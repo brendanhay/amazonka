@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2DisplayRatio where
+module Network.AWS.MediaLive.Types.Mpeg2DisplayRatio
+  ( Mpeg2DisplayRatio
+      ( Mpeg2DisplayRatio',
+        DISPLAYRATIO16X9,
+        DISPLAYRATIO4X3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Display Ratio
-data Mpeg2DisplayRatio
-  = DISPLAYRATIO16X9
-  | DISPLAYRATIO4X3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2DisplayRatio = Mpeg2DisplayRatio' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2DisplayRatio where
-  parser =
-    takeLowerText >>= \case
-      "displayratio16x9" -> pure DISPLAYRATIO16X9
-      "displayratio4x3" -> pure DISPLAYRATIO4X3
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2DisplayRatio from value: '" <> e
-            <> "'. Accepted values: displayratio16x9, displayratio4x3"
+pattern DISPLAYRATIO16X9 :: Mpeg2DisplayRatio
+pattern DISPLAYRATIO16X9 = Mpeg2DisplayRatio' "DISPLAYRATIO16X9"
 
-instance ToText Mpeg2DisplayRatio where
-  toText = \case
-    DISPLAYRATIO16X9 -> "DISPLAYRATIO16X9"
-    DISPLAYRATIO4X3 -> "DISPLAYRATIO4X3"
+pattern DISPLAYRATIO4X3 :: Mpeg2DisplayRatio
+pattern DISPLAYRATIO4X3 = Mpeg2DisplayRatio' "DISPLAYRATIO4X3"
 
-instance Hashable Mpeg2DisplayRatio
-
-instance NFData Mpeg2DisplayRatio
-
-instance ToByteString Mpeg2DisplayRatio
-
-instance ToQuery Mpeg2DisplayRatio
-
-instance ToHeader Mpeg2DisplayRatio
-
-instance ToJSON Mpeg2DisplayRatio where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2DisplayRatio where
-  parseJSON = parseJSONText "Mpeg2DisplayRatio"
+{-# COMPLETE
+  DISPLAYRATIO16X9,
+  DISPLAYRATIO4X3,
+  Mpeg2DisplayRatio'
+  #-}

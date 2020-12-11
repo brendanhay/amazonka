@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.WorkGroupState where
+module Network.AWS.Athena.Types.WorkGroupState
+  ( WorkGroupState
+      ( WorkGroupState',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkGroupState
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkGroupState = WorkGroupState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkGroupState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing WorkGroupState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: WorkGroupState
+pattern Disabled = WorkGroupState' "DISABLED"
 
-instance ToText WorkGroupState where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: WorkGroupState
+pattern Enabled = WorkGroupState' "ENABLED"
 
-instance Hashable WorkGroupState
-
-instance NFData WorkGroupState
-
-instance ToByteString WorkGroupState
-
-instance ToQuery WorkGroupState
-
-instance ToHeader WorkGroupState
-
-instance ToJSON WorkGroupState where
-  toJSON = toJSONText
-
-instance FromJSON WorkGroupState where
-  parseJSON = parseJSONText "WorkGroupState"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  WorkGroupState'
+  #-}

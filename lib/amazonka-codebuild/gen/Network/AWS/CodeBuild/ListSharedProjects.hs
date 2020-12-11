@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Gets a list of projects that are shared with other AWS accounts or users.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListSharedProjects
-  ( -- * Creating a Request
-    listSharedProjects,
-    ListSharedProjects,
+  ( -- * Creating a request
+    ListSharedProjects (..),
+    mkListSharedProjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lspSortOrder,
     lspNextToken,
     lspMaxResults,
     lspSortBy,
 
-    -- * Destructuring the Response
-    listSharedProjectsResponse,
-    ListSharedProjectsResponse,
+    -- * Destructuring the response
+    ListSharedProjectsResponse (..),
+    mkListSharedProjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsprsNextToken,
     lsprsProjects,
     lsprsResponseStatus,
@@ -45,146 +38,202 @@ module Network.AWS.CodeBuild.ListSharedProjects
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSharedProjects' smart constructor.
+-- | /See:/ 'mkListSharedProjects' smart constructor.
 data ListSharedProjects = ListSharedProjects'
-  { _lspSortOrder ::
-      !(Maybe SortOrderType),
-    _lspNextToken :: !(Maybe Text),
-    _lspMaxResults :: !(Maybe Nat),
-    _lspSortBy :: !(Maybe SharedResourceSortByType)
+  { sortOrder ::
+      Lude.Maybe SortOrderType,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe SharedResourceSortByType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSharedProjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of paginated shared build projects returned per response. Use @nextToken@ to iterate pages in the list of returned @Project@ objects. The default value is 100.
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'sortBy' - The criterion to be used to list build projects shared with the current AWS account or user. Valid values include:
 --
--- * 'lspSortOrder' - The order in which to list shared build projects. Valid values include:     * @ASCENDING@ : List in ascending order.     * @DESCENDING@ : List in descending order.
 --
--- * 'lspNextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+--     * @ARN@ : List based on the ARN.
 --
--- * 'lspMaxResults' - The maximum number of paginated shared build projects returned per response. Use @nextToken@ to iterate pages in the list of returned @Project@ objects. The default value is 100.
 --
--- * 'lspSortBy' - The criterion to be used to list build projects shared with the current AWS account or user. Valid values include:      * @ARN@ : List based on the ARN.      * @MODIFIED_TIME@ : List based on when information about the shared project was last changed.
-listSharedProjects ::
+--     * @MODIFIED_TIME@ : List based on when information about the shared project was last changed.
+--
+--
+-- * 'sortOrder' - The order in which to list shared build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+mkListSharedProjects ::
   ListSharedProjects
-listSharedProjects =
+mkListSharedProjects =
   ListSharedProjects'
-    { _lspSortOrder = Nothing,
-      _lspNextToken = Nothing,
-      _lspMaxResults = Nothing,
-      _lspSortBy = Nothing
+    { sortOrder = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
--- | The order in which to list shared build projects. Valid values include:     * @ASCENDING@ : List in ascending order.     * @DESCENDING@ : List in descending order.
-lspSortOrder :: Lens' ListSharedProjects (Maybe SortOrderType)
-lspSortOrder = lens _lspSortOrder (\s a -> s {_lspSortOrder = a})
+-- | The order in which to list shared build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+--
+--
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspSortOrder :: Lens.Lens' ListSharedProjects (Lude.Maybe SortOrderType)
+lspSortOrder = Lens.lens (sortOrder :: ListSharedProjects -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListSharedProjects)
+{-# DEPRECATED lspSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lspNextToken :: Lens' ListSharedProjects (Maybe Text)
-lspNextToken = lens _lspNextToken (\s a -> s {_lspNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspNextToken :: Lens.Lens' ListSharedProjects (Lude.Maybe Lude.Text)
+lspNextToken = Lens.lens (nextToken :: ListSharedProjects -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSharedProjects)
+{-# DEPRECATED lspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of paginated shared build projects returned per response. Use @nextToken@ to iterate pages in the list of returned @Project@ objects. The default value is 100.
-lspMaxResults :: Lens' ListSharedProjects (Maybe Natural)
-lspMaxResults = lens _lspMaxResults (\s a -> s {_lspMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspMaxResults :: Lens.Lens' ListSharedProjects (Lude.Maybe Lude.Natural)
+lspMaxResults = Lens.lens (maxResults :: ListSharedProjects -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSharedProjects)
+{-# DEPRECATED lspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The criterion to be used to list build projects shared with the current AWS account or user. Valid values include:      * @ARN@ : List based on the ARN.      * @MODIFIED_TIME@ : List based on when information about the shared project was last changed.
-lspSortBy :: Lens' ListSharedProjects (Maybe SharedResourceSortByType)
-lspSortBy = lens _lspSortBy (\s a -> s {_lspSortBy = a})
+-- | The criterion to be used to list build projects shared with the current AWS account or user. Valid values include:
+--
+--
+--     * @ARN@ : List based on the ARN.
+--
+--
+--     * @MODIFIED_TIME@ : List based on when information about the shared project was last changed.
+--
+--
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspSortBy :: Lens.Lens' ListSharedProjects (Lude.Maybe SharedResourceSortByType)
+lspSortBy = Lens.lens (sortBy :: ListSharedProjects -> Lude.Maybe SharedResourceSortByType) (\s a -> s {sortBy = a} :: ListSharedProjects)
+{-# DEPRECATED lspSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListSharedProjects where
+instance Page.AWSPager ListSharedProjects where
   page rq rs
-    | stop (rs ^. lsprsNextToken) = Nothing
-    | stop (rs ^. lsprsProjects) = Nothing
-    | otherwise = Just $ rq & lspNextToken .~ rs ^. lsprsNextToken
+    | Page.stop (rs Lens.^. lsprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsprsProjects) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lspNextToken Lens..~ rs Lens.^. lsprsNextToken
 
-instance AWSRequest ListSharedProjects where
+instance Lude.AWSRequest ListSharedProjects where
   type Rs ListSharedProjects = ListSharedProjectsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSharedProjectsResponse'
-            <$> (x .?> "nextToken") <*> (x .?> "projects") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "projects")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSharedProjects
-
-instance NFData ListSharedProjects
-
-instance ToHeaders ListSharedProjects where
+instance Lude.ToHeaders ListSharedProjects where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.ListSharedProjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.ListSharedProjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSharedProjects where
+instance Lude.ToJSON ListSharedProjects where
   toJSON ListSharedProjects' {..} =
-    object
-      ( catMaybes
-          [ ("sortOrder" .=) <$> _lspSortOrder,
-            ("nextToken" .=) <$> _lspNextToken,
-            ("maxResults" .=) <$> _lspMaxResults,
-            ("sortBy" .=) <$> _lspSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            ("sortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListSharedProjects where
-  toPath = const "/"
+instance Lude.ToPath ListSharedProjects where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSharedProjects where
-  toQuery = const mempty
+instance Lude.ToQuery ListSharedProjects where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listSharedProjectsResponse' smart constructor.
+-- | /See:/ 'mkListSharedProjectsResponse' smart constructor.
 data ListSharedProjectsResponse = ListSharedProjectsResponse'
-  { _lsprsNextToken ::
-      !(Maybe Text),
-    _lsprsProjects ::
-      !(Maybe (List1 Text)),
-    _lsprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    projects ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSharedProjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsprsNextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- * 'lsprsProjects' - The list of ARNs for the build projects shared with the current AWS account or user.
---
--- * 'lsprsResponseStatus' - -- | The response status code.
-listSharedProjectsResponse ::
-  -- | 'lsprsResponseStatus'
-  Int ->
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'projects' - The list of ARNs for the build projects shared with the current AWS account or user.
+-- * 'responseStatus' - The response status code.
+mkListSharedProjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSharedProjectsResponse
-listSharedProjectsResponse pResponseStatus_ =
+mkListSharedProjectsResponse pResponseStatus_ =
   ListSharedProjectsResponse'
-    { _lsprsNextToken = Nothing,
-      _lsprsProjects = Nothing,
-      _lsprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      projects = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lsprsNextToken :: Lens' ListSharedProjectsResponse (Maybe Text)
-lsprsNextToken = lens _lsprsNextToken (\s a -> s {_lsprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsNextToken :: Lens.Lens' ListSharedProjectsResponse (Lude.Maybe Lude.Text)
+lsprsNextToken = Lens.lens (nextToken :: ListSharedProjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSharedProjectsResponse)
+{-# DEPRECATED lsprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of ARNs for the build projects shared with the current AWS account or user.
-lsprsProjects :: Lens' ListSharedProjectsResponse (Maybe (NonEmpty Text))
-lsprsProjects = lens _lsprsProjects (\s a -> s {_lsprsProjects = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'projects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsProjects :: Lens.Lens' ListSharedProjectsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+lsprsProjects = Lens.lens (projects :: ListSharedProjectsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {projects = a} :: ListSharedProjectsResponse)
+{-# DEPRECATED lsprsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
 
--- | -- | The response status code.
-lsprsResponseStatus :: Lens' ListSharedProjectsResponse Int
-lsprsResponseStatus = lens _lsprsResponseStatus (\s a -> s {_lsprsResponseStatus = a})
-
-instance NFData ListSharedProjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsprsResponseStatus :: Lens.Lens' ListSharedProjectsResponse Lude.Int
+lsprsResponseStatus = Lens.lens (responseStatus :: ListSharedProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSharedProjectsResponse)
+{-# DEPRECATED lsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

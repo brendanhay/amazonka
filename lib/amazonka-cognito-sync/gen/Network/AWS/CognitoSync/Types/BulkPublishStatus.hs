@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types.BulkPublishStatus where
+module Network.AWS.CognitoSync.Types.BulkPublishStatus
+  ( BulkPublishStatus
+      ( BulkPublishStatus',
+        Failed,
+        InProgress,
+        NotStarted,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BulkPublishStatus
-  = Failed
-  | InProgress
-  | NotStarted
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BulkPublishStatus = BulkPublishStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BulkPublishStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "not_started" -> pure NotStarted
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing BulkPublishStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, not_started, succeeded"
+pattern Failed :: BulkPublishStatus
+pattern Failed = BulkPublishStatus' "FAILED"
 
-instance ToText BulkPublishStatus where
-  toText = \case
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    NotStarted -> "NOT_STARTED"
-    Succeeded -> "SUCCEEDED"
+pattern InProgress :: BulkPublishStatus
+pattern InProgress = BulkPublishStatus' "IN_PROGRESS"
 
-instance Hashable BulkPublishStatus
+pattern NotStarted :: BulkPublishStatus
+pattern NotStarted = BulkPublishStatus' "NOT_STARTED"
 
-instance NFData BulkPublishStatus
+pattern Succeeded :: BulkPublishStatus
+pattern Succeeded = BulkPublishStatus' "SUCCEEDED"
 
-instance ToByteString BulkPublishStatus
-
-instance ToQuery BulkPublishStatus
-
-instance ToHeader BulkPublishStatus
-
-instance FromJSON BulkPublishStatus where
-  parseJSON = parseJSONText "BulkPublishStatus"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  NotStarted,
+  Succeeded,
+  BulkPublishStatus'
+  #-}

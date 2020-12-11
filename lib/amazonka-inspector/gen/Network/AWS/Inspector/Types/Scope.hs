@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.Scope where
+module Network.AWS.Inspector.Types.Scope
+  ( Scope (..),
+
+    -- * Smart constructor
+    mkScope,
+
+    -- * Lenses
+    sValue,
+    sKey,
+  )
+where
 
 import Network.AWS.Inspector.Types.ScopeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type contains key-value pairs that identify various Amazon resources.
 --
---
---
--- /See:/ 'scope' smart constructor.
+-- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { _sValue :: !(Maybe Text),
-    _sKey :: !(Maybe ScopeType)
+  { value :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe ScopeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scope' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sValue' - The resource identifier for the specified scope type.
---
--- * 'sKey' - The type of the scope.
-scope ::
+-- * 'key' - The type of the scope.
+-- * 'value' - The resource identifier for the specified scope type.
+mkScope ::
   Scope
-scope = Scope' {_sValue = Nothing, _sKey = Nothing}
+mkScope = Scope' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The resource identifier for the specified scope type.
-sValue :: Lens' Scope (Maybe Text)
-sValue = lens _sValue (\s a -> s {_sValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sValue :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
+sValue = Lens.lens (value :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Scope)
+{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of the scope.
-sKey :: Lens' Scope (Maybe ScopeType)
-sKey = lens _sKey (\s a -> s {_sKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sKey :: Lens.Lens' Scope (Lude.Maybe ScopeType)
+sKey = Lens.lens (key :: Scope -> Lude.Maybe ScopeType) (\s a -> s {key = a} :: Scope)
+{-# DEPRECATED sKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON Scope where
+instance Lude.FromJSON Scope where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scope"
-      (\x -> Scope' <$> (x .:? "value") <*> (x .:? "key"))
-
-instance Hashable Scope
-
-instance NFData Scope
+      ( \x ->
+          Scope' Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "key")
+      )

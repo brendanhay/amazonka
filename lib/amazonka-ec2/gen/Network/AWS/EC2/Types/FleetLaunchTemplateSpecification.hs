@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetLaunchTemplateSpecification where
+module Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
+  ( FleetLaunchTemplateSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFleetLaunchTemplateSpecification,
+
+    -- * Lenses
+    fltsLaunchTemplateName,
+    fltsLaunchTemplateId,
+    fltsVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Amazon EC2 launch template and the launch template version that can be used by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
---
---
--- /See:/ 'fleetLaunchTemplateSpecification' smart constructor.
+-- /See:/ 'mkFleetLaunchTemplateSpecification' smart constructor.
 data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
-  { _fltsLaunchTemplateName ::
-      !(Maybe Text),
-    _fltsLaunchTemplateId ::
-      !(Maybe Text),
-    _fltsVersion ::
-      !(Maybe Text)
+  { launchTemplateName ::
+      Lude.Maybe Lude.Text,
+    launchTemplateId ::
+      Lude.Maybe Lude.Text,
+    version ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetLaunchTemplateSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'launchTemplateId' - The ID of the launch template. If you specify the template ID, you can't specify the template name.
+-- * 'launchTemplateName' - The name of the launch template. If you specify the template name, you can't specify the template ID.
+-- * 'version' - The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
 --
--- * 'fltsLaunchTemplateName' - The name of the launch template. If you specify the template name, you can't specify the template ID.
---
--- * 'fltsLaunchTemplateId' - The ID of the launch template. If you specify the template ID, you can't specify the template name.
---
--- * 'fltsVersion' - The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails. If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template. If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
-fleetLaunchTemplateSpecification ::
+-- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.
+-- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
+mkFleetLaunchTemplateSpecification ::
   FleetLaunchTemplateSpecification
-fleetLaunchTemplateSpecification =
+mkFleetLaunchTemplateSpecification =
   FleetLaunchTemplateSpecification'
-    { _fltsLaunchTemplateName =
-        Nothing,
-      _fltsLaunchTemplateId = Nothing,
-      _fltsVersion = Nothing
+    { launchTemplateName =
+        Lude.Nothing,
+      launchTemplateId = Lude.Nothing,
+      version = Lude.Nothing
     }
 
 -- | The name of the launch template. If you specify the template name, you can't specify the template ID.
-fltsLaunchTemplateName :: Lens' FleetLaunchTemplateSpecification (Maybe Text)
-fltsLaunchTemplateName = lens _fltsLaunchTemplateName (\s a -> s {_fltsLaunchTemplateName = a})
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltsLaunchTemplateName :: Lens.Lens' FleetLaunchTemplateSpecification (Lude.Maybe Lude.Text)
+fltsLaunchTemplateName = Lens.lens (launchTemplateName :: FleetLaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: FleetLaunchTemplateSpecification)
+{-# DEPRECATED fltsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template. If you specify the template ID, you can't specify the template name.
-fltsLaunchTemplateId :: Lens' FleetLaunchTemplateSpecification (Maybe Text)
-fltsLaunchTemplateId = lens _fltsLaunchTemplateId (\s a -> s {_fltsLaunchTemplateId = a})
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltsLaunchTemplateId :: Lens.Lens' FleetLaunchTemplateSpecification (Lude.Maybe Lude.Text)
+fltsLaunchTemplateId = Lens.lens (launchTemplateId :: FleetLaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: FleetLaunchTemplateSpecification)
+{-# DEPRECATED fltsLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
--- | The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails. If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template. If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
-fltsVersion :: Lens' FleetLaunchTemplateSpecification (Maybe Text)
-fltsVersion = lens _fltsVersion (\s a -> s {_fltsVersion = a})
+-- | The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
+--
+-- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.
+-- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltsVersion :: Lens.Lens' FleetLaunchTemplateSpecification (Lude.Maybe Lude.Text)
+fltsVersion = Lens.lens (version :: FleetLaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: FleetLaunchTemplateSpecification)
+{-# DEPRECATED fltsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromXML FleetLaunchTemplateSpecification where
+instance Lude.FromXML FleetLaunchTemplateSpecification where
   parseXML x =
     FleetLaunchTemplateSpecification'
-      <$> (x .@? "launchTemplateName")
-      <*> (x .@? "launchTemplateId")
-      <*> (x .@? "version")
+      Lude.<$> (x Lude..@? "launchTemplateName")
+      Lude.<*> (x Lude..@? "launchTemplateId")
+      Lude.<*> (x Lude..@? "version")
 
-instance Hashable FleetLaunchTemplateSpecification
-
-instance NFData FleetLaunchTemplateSpecification
-
-instance ToQuery FleetLaunchTemplateSpecification where
+instance Lude.ToQuery FleetLaunchTemplateSpecification where
   toQuery FleetLaunchTemplateSpecification' {..} =
-    mconcat
-      [ "LaunchTemplateName" =: _fltsLaunchTemplateName,
-        "LaunchTemplateId" =: _fltsLaunchTemplateId,
-        "Version" =: _fltsVersion
+    Lude.mconcat
+      [ "LaunchTemplateName" Lude.=: launchTemplateName,
+        "LaunchTemplateId" Lude.=: launchTemplateId,
+        "Version" Lude.=: version
       ]

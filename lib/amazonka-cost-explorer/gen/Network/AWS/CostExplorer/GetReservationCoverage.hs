@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,37 +17,47 @@
 --
 --     * AZ
 --
+--
 --     * CACHE_ENGINE
+--
 --
 --     * DATABASE_ENGINE
 --
+--
 --     * DEPLOYMENT_OPTION
+--
 --
 --     * INSTANCE_TYPE
 --
+--
 --     * LINKED_ACCOUNT
+--
 --
 --     * OPERATING_SYSTEM
 --
+--
 --     * PLATFORM
+--
 --
 --     * REGION
 --
+--
 --     * SERVICE
 --
+--
 --     * TAG
+--
 --
 --     * TENANCY
 --
 --
---
 -- To determine valid values for a dimension, use the @GetDimensionValues@ operation.
 module Network.AWS.CostExplorer.GetReservationCoverage
-  ( -- * Creating a Request
-    getReservationCoverage,
-    GetReservationCoverage,
+  ( -- * Creating a request
+    GetReservationCoverage (..),
+    mkGetReservationCoverage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grcGroupBy,
     grcNextPageToken,
     grcMetrics,
@@ -60,11 +65,11 @@ module Network.AWS.CostExplorer.GetReservationCoverage
     grcFilter,
     grcTimePeriod,
 
-    -- * Destructuring the Response
-    getReservationCoverageResponse,
-    GetReservationCoverageResponse,
+    -- * Destructuring the response
+    GetReservationCoverageResponse (..),
+    mkGetReservationCoverageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grcrsNextPageToken,
     grcrsTotal,
     grcrsResponseStatus,
@@ -73,175 +78,357 @@ module Network.AWS.CostExplorer.GetReservationCoverage
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | You can use the following request parameters to query for how much of your instance usage a reservation covered.
 --
---
---
--- /See:/ 'getReservationCoverage' smart constructor.
+-- /See:/ 'mkGetReservationCoverage' smart constructor.
 data GetReservationCoverage = GetReservationCoverage'
-  { _grcGroupBy ::
-      !(Maybe [GroupDefinition]),
-    _grcNextPageToken :: !(Maybe Text),
-    _grcMetrics :: !(Maybe [Text]),
-    _grcGranularity :: !(Maybe Granularity),
-    _grcFilter :: !(Maybe Expression),
-    _grcTimePeriod :: !DateInterval
+  { groupBy ::
+      Lude.Maybe [GroupDefinition],
+    nextPageToken :: Lude.Maybe Lude.Text,
+    metrics :: Lude.Maybe [Lude.Text],
+    granularity :: Lude.Maybe Granularity,
+    filter :: Lude.Maybe Expression,
+    timePeriod :: DateInterval
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservationCoverage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - Filters utilization data by dimensions. You can filter by the following dimensions:
 --
--- * 'grcGroupBy' - You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TENANCY
 --
--- * 'grcNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+--     * AZ
 --
--- * 'grcMetrics' - The measurement that you want your reservation coverage reported in. Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
 --
--- * 'grcGranularity' - The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+--     * CACHE_ENGINE
 --
--- * 'grcFilter' - Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together. If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2. Cost category is also supported.
 --
--- * 'grcTimePeriod' - The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-getReservationCoverage ::
-  -- | 'grcTimePeriod'
+--     * DATABASE_ENGINE
+--
+--
+--     * DEPLOYMENT_OPTION
+--
+--
+--     * INSTANCE_TYPE
+--
+--
+--     * LINKED_ACCOUNT
+--
+--
+--     * OPERATING_SYSTEM
+--
+--
+--     * PLATFORM
+--
+--
+--     * REGION
+--
+--
+--     * SERVICE
+--
+--
+--     * TAG
+--
+--
+--     * TENANCY
+--
+--
+-- @GetReservationCoverage@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together.
+-- If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
+-- Cost category is also supported.
+-- * 'granularity' - The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ .
+--
+-- If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ .
+-- The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+-- * 'groupBy' - You can group the data by the following attributes:
+--
+--
+--     * AZ
+--
+--
+--     * CACHE_ENGINE
+--
+--
+--     * DATABASE_ENGINE
+--
+--
+--     * DEPLOYMENT_OPTION
+--
+--
+--     * INSTANCE_TYPE
+--
+--
+--     * LINKED_ACCOUNT
+--
+--
+--     * OPERATING_SYSTEM
+--
+--
+--     * PLATFORM
+--
+--
+--     * REGION
+--
+--
+--     * TENANCY
+--
+--
+-- * 'metrics' - The measurement that you want your reservation coverage reported in.
+--
+-- Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'timePeriod' - The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+mkGetReservationCoverage ::
+  -- | 'timePeriod'
   DateInterval ->
   GetReservationCoverage
-getReservationCoverage pTimePeriod_ =
+mkGetReservationCoverage pTimePeriod_ =
   GetReservationCoverage'
-    { _grcGroupBy = Nothing,
-      _grcNextPageToken = Nothing,
-      _grcMetrics = Nothing,
-      _grcGranularity = Nothing,
-      _grcFilter = Nothing,
-      _grcTimePeriod = pTimePeriod_
+    { groupBy = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      metrics = Lude.Nothing,
+      granularity = Lude.Nothing,
+      filter = Lude.Nothing,
+      timePeriod = pTimePeriod_
     }
 
--- | You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TENANCY
-grcGroupBy :: Lens' GetReservationCoverage [GroupDefinition]
-grcGroupBy = lens _grcGroupBy (\s a -> s {_grcGroupBy = a}) . _Default . _Coerce
+-- | You can group the data by the following attributes:
+--
+--
+--     * AZ
+--
+--
+--     * CACHE_ENGINE
+--
+--
+--     * DATABASE_ENGINE
+--
+--
+--     * DEPLOYMENT_OPTION
+--
+--
+--     * INSTANCE_TYPE
+--
+--
+--     * LINKED_ACCOUNT
+--
+--
+--     * OPERATING_SYSTEM
+--
+--
+--     * PLATFORM
+--
+--
+--     * REGION
+--
+--
+--     * TENANCY
+--
+--
+--
+-- /Note:/ Consider using 'groupBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcGroupBy :: Lens.Lens' GetReservationCoverage (Lude.Maybe [GroupDefinition])
+grcGroupBy = Lens.lens (groupBy :: GetReservationCoverage -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupBy = a} :: GetReservationCoverage)
+{-# DEPRECATED grcGroupBy "Use generic-lens or generic-optics with 'groupBy' instead." #-}
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-grcNextPageToken :: Lens' GetReservationCoverage (Maybe Text)
-grcNextPageToken = lens _grcNextPageToken (\s a -> s {_grcNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcNextPageToken :: Lens.Lens' GetReservationCoverage (Lude.Maybe Lude.Text)
+grcNextPageToken = Lens.lens (nextPageToken :: GetReservationCoverage -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationCoverage)
+{-# DEPRECATED grcNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | The measurement that you want your reservation coverage reported in. Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
-grcMetrics :: Lens' GetReservationCoverage [Text]
-grcMetrics = lens _grcMetrics (\s a -> s {_grcMetrics = a}) . _Default . _Coerce
+-- | The measurement that you want your reservation coverage reported in.
+--
+-- Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcMetrics :: Lens.Lens' GetReservationCoverage (Lude.Maybe [Lude.Text])
+grcMetrics = Lens.lens (metrics :: GetReservationCoverage -> Lude.Maybe [Lude.Text]) (\s a -> s {metrics = a} :: GetReservationCoverage)
+{-# DEPRECATED grcMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
--- | The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
-grcGranularity :: Lens' GetReservationCoverage (Maybe Granularity)
-grcGranularity = lens _grcGranularity (\s a -> s {_grcGranularity = a})
+-- | The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ .
+--
+-- If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ .
+-- The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcGranularity :: Lens.Lens' GetReservationCoverage (Lude.Maybe Granularity)
+grcGranularity = Lens.lens (granularity :: GetReservationCoverage -> Lude.Maybe Granularity) (\s a -> s {granularity = a} :: GetReservationCoverage)
+{-# DEPRECATED grcGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
--- | Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together. If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2. Cost category is also supported.
-grcFilter :: Lens' GetReservationCoverage (Maybe Expression)
-grcFilter = lens _grcFilter (\s a -> s {_grcFilter = a})
+-- | Filters utilization data by dimensions. You can filter by the following dimensions:
+--
+--
+--     * AZ
+--
+--
+--     * CACHE_ENGINE
+--
+--
+--     * DATABASE_ENGINE
+--
+--
+--     * DEPLOYMENT_OPTION
+--
+--
+--     * INSTANCE_TYPE
+--
+--
+--     * LINKED_ACCOUNT
+--
+--
+--     * OPERATING_SYSTEM
+--
+--
+--     * PLATFORM
+--
+--
+--     * REGION
+--
+--
+--     * SERVICE
+--
+--
+--     * TAG
+--
+--
+--     * TENANCY
+--
+--
+-- @GetReservationCoverage@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together.
+-- If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
+-- Cost category is also supported.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcFilter :: Lens.Lens' GetReservationCoverage (Lude.Maybe Expression)
+grcFilter = Lens.lens (filter :: GetReservationCoverage -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetReservationCoverage)
+{-# DEPRECATED grcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-grcTimePeriod :: Lens' GetReservationCoverage DateInterval
-grcTimePeriod = lens _grcTimePeriod (\s a -> s {_grcTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcTimePeriod :: Lens.Lens' GetReservationCoverage DateInterval
+grcTimePeriod = Lens.lens (timePeriod :: GetReservationCoverage -> DateInterval) (\s a -> s {timePeriod = a} :: GetReservationCoverage)
+{-# DEPRECATED grcTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
-instance AWSRequest GetReservationCoverage where
+instance Lude.AWSRequest GetReservationCoverage where
   type Rs GetReservationCoverage = GetReservationCoverageResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetReservationCoverageResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "Total")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "CoveragesByTime" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "Total")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "CoveragesByTime" Lude..!@ Lude.mempty)
       )
 
-instance Hashable GetReservationCoverage
-
-instance NFData GetReservationCoverage
-
-instance ToHeaders GetReservationCoverage where
+instance Lude.ToHeaders GetReservationCoverage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetReservationCoverage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.GetReservationCoverage" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetReservationCoverage where
+instance Lude.ToJSON GetReservationCoverage where
   toJSON GetReservationCoverage' {..} =
-    object
-      ( catMaybes
-          [ ("GroupBy" .=) <$> _grcGroupBy,
-            ("NextPageToken" .=) <$> _grcNextPageToken,
-            ("Metrics" .=) <$> _grcMetrics,
-            ("Granularity" .=) <$> _grcGranularity,
-            ("Filter" .=) <$> _grcFilter,
-            Just ("TimePeriod" .= _grcTimePeriod)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupBy" Lude..=) Lude.<$> groupBy,
+            ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("Metrics" Lude..=) Lude.<$> metrics,
+            ("Granularity" Lude..=) Lude.<$> granularity,
+            ("Filter" Lude..=) Lude.<$> filter,
+            Lude.Just ("TimePeriod" Lude..= timePeriod)
           ]
       )
 
-instance ToPath GetReservationCoverage where
-  toPath = const "/"
+instance Lude.ToPath GetReservationCoverage where
+  toPath = Lude.const "/"
 
-instance ToQuery GetReservationCoverage where
-  toQuery = const mempty
+instance Lude.ToQuery GetReservationCoverage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getReservationCoverageResponse' smart constructor.
+-- | /See:/ 'mkGetReservationCoverageResponse' smart constructor.
 data GetReservationCoverageResponse = GetReservationCoverageResponse'
-  { _grcrsNextPageToken ::
-      !(Maybe Text),
-    _grcrsTotal ::
-      !(Maybe Coverage),
-    _grcrsResponseStatus :: !Int,
-    _grcrsCoveragesByTime ::
-      ![CoverageByTime]
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    total :: Lude.Maybe Coverage,
+    responseStatus :: Lude.Int,
+    coveragesByTime ::
+      [CoverageByTime]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservationCoverageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grcrsNextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'grcrsTotal' - The total amount of instance usage that a reservation covered.
---
--- * 'grcrsResponseStatus' - -- | The response status code.
---
--- * 'grcrsCoveragesByTime' - The amount of time that your reservations covered.
-getReservationCoverageResponse ::
-  -- | 'grcrsResponseStatus'
-  Int ->
+-- * 'coveragesByTime' - The amount of time that your reservations covered.
+-- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+-- * 'total' - The total amount of instance usage that a reservation covered.
+mkGetReservationCoverageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetReservationCoverageResponse
-getReservationCoverageResponse pResponseStatus_ =
+mkGetReservationCoverageResponse pResponseStatus_ =
   GetReservationCoverageResponse'
-    { _grcrsNextPageToken = Nothing,
-      _grcrsTotal = Nothing,
-      _grcrsResponseStatus = pResponseStatus_,
-      _grcrsCoveragesByTime = mempty
+    { nextPageToken = Lude.Nothing,
+      total = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      coveragesByTime = Lude.mempty
     }
 
 -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-grcrsNextPageToken :: Lens' GetReservationCoverageResponse (Maybe Text)
-grcrsNextPageToken = lens _grcrsNextPageToken (\s a -> s {_grcrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsNextPageToken :: Lens.Lens' GetReservationCoverageResponse (Lude.Maybe Lude.Text)
+grcrsNextPageToken = Lens.lens (nextPageToken :: GetReservationCoverageResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationCoverageResponse)
+{-# DEPRECATED grcrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The total amount of instance usage that a reservation covered.
-grcrsTotal :: Lens' GetReservationCoverageResponse (Maybe Coverage)
-grcrsTotal = lens _grcrsTotal (\s a -> s {_grcrsTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsTotal :: Lens.Lens' GetReservationCoverageResponse (Lude.Maybe Coverage)
+grcrsTotal = Lens.lens (total :: GetReservationCoverageResponse -> Lude.Maybe Coverage) (\s a -> s {total = a} :: GetReservationCoverageResponse)
+{-# DEPRECATED grcrsTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
--- | -- | The response status code.
-grcrsResponseStatus :: Lens' GetReservationCoverageResponse Int
-grcrsResponseStatus = lens _grcrsResponseStatus (\s a -> s {_grcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsResponseStatus :: Lens.Lens' GetReservationCoverageResponse Lude.Int
+grcrsResponseStatus = Lens.lens (responseStatus :: GetReservationCoverageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReservationCoverageResponse)
+{-# DEPRECATED grcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The amount of time that your reservations covered.
-grcrsCoveragesByTime :: Lens' GetReservationCoverageResponse [CoverageByTime]
-grcrsCoveragesByTime = lens _grcrsCoveragesByTime (\s a -> s {_grcrsCoveragesByTime = a}) . _Coerce
-
-instance NFData GetReservationCoverageResponse
+--
+-- /Note:/ Consider using 'coveragesByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsCoveragesByTime :: Lens.Lens' GetReservationCoverageResponse [CoverageByTime]
+grcrsCoveragesByTime = Lens.lens (coveragesByTime :: GetReservationCoverageResponse -> [CoverageByTime]) (\s a -> s {coveragesByTime = a} :: GetReservationCoverageResponse)
+{-# DEPRECATED grcrsCoveragesByTime "Use generic-lens or generic-optics with 'coveragesByTime' instead." #-}

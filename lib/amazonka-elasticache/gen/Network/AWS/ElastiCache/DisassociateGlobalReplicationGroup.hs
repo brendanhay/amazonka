@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,167 @@
 --
 -- Remove a secondary cluster from the Global Datastore using the Global Datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.
 module Network.AWS.ElastiCache.DisassociateGlobalReplicationGroup
-  ( -- * Creating a Request
-    disassociateGlobalReplicationGroup,
-    DisassociateGlobalReplicationGroup,
+  ( -- * Creating a request
+    DisassociateGlobalReplicationGroup (..),
+    mkDisassociateGlobalReplicationGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgrgGlobalReplicationGroupId,
     dgrgReplicationGroupId,
     dgrgReplicationGroupRegion,
 
-    -- * Destructuring the Response
-    disassociateGlobalReplicationGroupResponse,
-    DisassociateGlobalReplicationGroupResponse,
+    -- * Destructuring the response
+    DisassociateGlobalReplicationGroupResponse (..),
+    mkDisassociateGlobalReplicationGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgrgrsGlobalReplicationGroup,
     dgrgrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateGlobalReplicationGroup' smart constructor.
+-- | /See:/ 'mkDisassociateGlobalReplicationGroup' smart constructor.
 data DisassociateGlobalReplicationGroup = DisassociateGlobalReplicationGroup'
-  { _dgrgGlobalReplicationGroupId ::
-      !Text,
-    _dgrgReplicationGroupId ::
-      !Text,
-    _dgrgReplicationGroupRegion ::
-      !Text
+  { globalReplicationGroupId ::
+      Lude.Text,
+    replicationGroupId ::
+      Lude.Text,
+    replicationGroupRegion ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgrgGlobalReplicationGroupId' - The name of the Global Datastore
---
--- * 'dgrgReplicationGroupId' - The name of the secondary cluster you wish to remove from the Global Datastore
---
--- * 'dgrgReplicationGroupRegion' - The AWS region of secondary cluster you wish to remove from the Global Datastore
-disassociateGlobalReplicationGroup ::
-  -- | 'dgrgGlobalReplicationGroupId'
-  Text ->
-  -- | 'dgrgReplicationGroupId'
-  Text ->
-  -- | 'dgrgReplicationGroupRegion'
-  Text ->
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'replicationGroupId' - The name of the secondary cluster you wish to remove from the Global Datastore
+-- * 'replicationGroupRegion' - The AWS region of secondary cluster you wish to remove from the Global Datastore
+mkDisassociateGlobalReplicationGroup ::
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
+  -- | 'replicationGroupId'
+  Lude.Text ->
+  -- | 'replicationGroupRegion'
+  Lude.Text ->
   DisassociateGlobalReplicationGroup
-disassociateGlobalReplicationGroup
+mkDisassociateGlobalReplicationGroup
   pGlobalReplicationGroupId_
   pReplicationGroupId_
   pReplicationGroupRegion_ =
     DisassociateGlobalReplicationGroup'
-      { _dgrgGlobalReplicationGroupId =
+      { globalReplicationGroupId =
           pGlobalReplicationGroupId_,
-        _dgrgReplicationGroupId = pReplicationGroupId_,
-        _dgrgReplicationGroupRegion = pReplicationGroupRegion_
+        replicationGroupId = pReplicationGroupId_,
+        replicationGroupRegion = pReplicationGroupRegion_
       }
 
 -- | The name of the Global Datastore
-dgrgGlobalReplicationGroupId :: Lens' DisassociateGlobalReplicationGroup Text
-dgrgGlobalReplicationGroupId = lens _dgrgGlobalReplicationGroupId (\s a -> s {_dgrgGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgGlobalReplicationGroupId :: Lens.Lens' DisassociateGlobalReplicationGroup Lude.Text
+dgrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DisassociateGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: DisassociateGlobalReplicationGroup)
+{-# DEPRECATED dgrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The name of the secondary cluster you wish to remove from the Global Datastore
-dgrgReplicationGroupId :: Lens' DisassociateGlobalReplicationGroup Text
-dgrgReplicationGroupId = lens _dgrgReplicationGroupId (\s a -> s {_dgrgReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgReplicationGroupId :: Lens.Lens' DisassociateGlobalReplicationGroup Lude.Text
+dgrgReplicationGroupId = Lens.lens (replicationGroupId :: DisassociateGlobalReplicationGroup -> Lude.Text) (\s a -> s {replicationGroupId = a} :: DisassociateGlobalReplicationGroup)
+{-# DEPRECATED dgrgReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
 -- | The AWS region of secondary cluster you wish to remove from the Global Datastore
-dgrgReplicationGroupRegion :: Lens' DisassociateGlobalReplicationGroup Text
-dgrgReplicationGroupRegion = lens _dgrgReplicationGroupRegion (\s a -> s {_dgrgReplicationGroupRegion = a})
+--
+-- /Note:/ Consider using 'replicationGroupRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgReplicationGroupRegion :: Lens.Lens' DisassociateGlobalReplicationGroup Lude.Text
+dgrgReplicationGroupRegion = Lens.lens (replicationGroupRegion :: DisassociateGlobalReplicationGroup -> Lude.Text) (\s a -> s {replicationGroupRegion = a} :: DisassociateGlobalReplicationGroup)
+{-# DEPRECATED dgrgReplicationGroupRegion "Use generic-lens or generic-optics with 'replicationGroupRegion' instead." #-}
 
-instance AWSRequest DisassociateGlobalReplicationGroup where
+instance Lude.AWSRequest DisassociateGlobalReplicationGroup where
   type
     Rs DisassociateGlobalReplicationGroup =
       DisassociateGlobalReplicationGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DisassociateGlobalReplicationGroupResult"
       ( \s h x ->
           DisassociateGlobalReplicationGroupResponse'
-            <$> (x .@? "GlobalReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateGlobalReplicationGroup
+instance Lude.ToHeaders DisassociateGlobalReplicationGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisassociateGlobalReplicationGroup
+instance Lude.ToPath DisassociateGlobalReplicationGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisassociateGlobalReplicationGroup where
-  toHeaders = const mempty
-
-instance ToPath DisassociateGlobalReplicationGroup where
-  toPath = const "/"
-
-instance ToQuery DisassociateGlobalReplicationGroup where
+instance Lude.ToQuery DisassociateGlobalReplicationGroup where
   toQuery DisassociateGlobalReplicationGroup' {..} =
-    mconcat
-      [ "Action" =: ("DisassociateGlobalReplicationGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "GlobalReplicationGroupId" =: _dgrgGlobalReplicationGroupId,
-        "ReplicationGroupId" =: _dgrgReplicationGroupId,
-        "ReplicationGroupRegion" =: _dgrgReplicationGroupRegion
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DisassociateGlobalReplicationGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
+        "ReplicationGroupId" Lude.=: replicationGroupId,
+        "ReplicationGroupRegion" Lude.=: replicationGroupRegion
       ]
 
--- | /See:/ 'disassociateGlobalReplicationGroupResponse' smart constructor.
+-- | /See:/ 'mkDisassociateGlobalReplicationGroupResponse' smart constructor.
 data DisassociateGlobalReplicationGroupResponse = DisassociateGlobalReplicationGroupResponse'
-  { _dgrgrsGlobalReplicationGroup ::
-      !( Maybe
-           GlobalReplicationGroup
-       ),
-    _dgrgrsResponseStatus ::
-      !Int
+  { globalReplicationGroup ::
+      Lude.Maybe
+        GlobalReplicationGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgrgrsGlobalReplicationGroup' - Undocumented member.
---
--- * 'dgrgrsResponseStatus' - -- | The response status code.
-disassociateGlobalReplicationGroupResponse ::
-  -- | 'dgrgrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDisassociateGlobalReplicationGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateGlobalReplicationGroupResponse
-disassociateGlobalReplicationGroupResponse pResponseStatus_ =
+mkDisassociateGlobalReplicationGroupResponse pResponseStatus_ =
   DisassociateGlobalReplicationGroupResponse'
-    { _dgrgrsGlobalReplicationGroup =
-        Nothing,
-      _dgrgrsResponseStatus = pResponseStatus_
+    { globalReplicationGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dgrgrsGlobalReplicationGroup :: Lens' DisassociateGlobalReplicationGroupResponse (Maybe GlobalReplicationGroup)
-dgrgrsGlobalReplicationGroup = lens _dgrgrsGlobalReplicationGroup (\s a -> s {_dgrgrsGlobalReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgrsGlobalReplicationGroup :: Lens.Lens' DisassociateGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+dgrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: DisassociateGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: DisassociateGlobalReplicationGroupResponse)
+{-# DEPRECATED dgrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
--- | -- | The response status code.
-dgrgrsResponseStatus :: Lens' DisassociateGlobalReplicationGroupResponse Int
-dgrgrsResponseStatus = lens _dgrgrsResponseStatus (\s a -> s {_dgrgrsResponseStatus = a})
-
-instance NFData DisassociateGlobalReplicationGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgrsResponseStatus :: Lens.Lens' DisassociateGlobalReplicationGroupResponse Lude.Int
+dgrgrsResponseStatus = Lens.lens (responseStatus :: DisassociateGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateGlobalReplicationGroupResponse)
+{-# DEPRECATED dgrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

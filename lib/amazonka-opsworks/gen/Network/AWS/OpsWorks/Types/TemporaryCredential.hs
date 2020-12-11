@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.TemporaryCredential where
+module Network.AWS.OpsWorks.Types.TemporaryCredential
+  ( TemporaryCredential (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTemporaryCredential,
+
+    -- * Lenses
+    tcInstanceId,
+    tcUsername,
+    tcPassword,
+    tcValidForInMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.
 --
---
---
--- /See:/ 'temporaryCredential' smart constructor.
+-- /See:/ 'mkTemporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-  { _tcInstanceId ::
-      !(Maybe Text),
-    _tcUsername :: !(Maybe Text),
-    _tcPassword :: !(Maybe Text),
-    _tcValidForInMinutes :: !(Maybe Int)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    username :: Lude.Maybe Lude.Text,
+    password :: Lude.Maybe Lude.Text,
+    validForInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemporaryCredential' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcInstanceId' - The instance's AWS OpsWorks Stacks ID.
---
--- * 'tcUsername' - The user name.
---
--- * 'tcPassword' - The password.
---
--- * 'tcValidForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
-temporaryCredential ::
+-- * 'instanceId' - The instance's AWS OpsWorks Stacks ID.
+-- * 'password' - The password.
+-- * 'username' - The user name.
+-- * 'validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
+mkTemporaryCredential ::
   TemporaryCredential
-temporaryCredential =
+mkTemporaryCredential =
   TemporaryCredential'
-    { _tcInstanceId = Nothing,
-      _tcUsername = Nothing,
-      _tcPassword = Nothing,
-      _tcValidForInMinutes = Nothing
+    { instanceId = Lude.Nothing,
+      username = Lude.Nothing,
+      password = Lude.Nothing,
+      validForInMinutes = Lude.Nothing
     }
 
 -- | The instance's AWS OpsWorks Stacks ID.
-tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
-tcInstanceId = lens _tcInstanceId (\s a -> s {_tcInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcInstanceId :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
+tcInstanceId = Lens.lens (instanceId :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: TemporaryCredential)
+{-# DEPRECATED tcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The user name.
-tcUsername :: Lens' TemporaryCredential (Maybe Text)
-tcUsername = lens _tcUsername (\s a -> s {_tcUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcUsername :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
+tcUsername = Lens.lens (username :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: TemporaryCredential)
+{-# DEPRECATED tcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The password.
-tcPassword :: Lens' TemporaryCredential (Maybe Text)
-tcPassword = lens _tcPassword (\s a -> s {_tcPassword = a})
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcPassword :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Text)
+tcPassword = Lens.lens (password :: TemporaryCredential -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: TemporaryCredential)
+{-# DEPRECATED tcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
-tcValidForInMinutes :: Lens' TemporaryCredential (Maybe Int)
-tcValidForInMinutes = lens _tcValidForInMinutes (\s a -> s {_tcValidForInMinutes = a})
+--
+-- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcValidForInMinutes :: Lens.Lens' TemporaryCredential (Lude.Maybe Lude.Int)
+tcValidForInMinutes = Lens.lens (validForInMinutes :: TemporaryCredential -> Lude.Maybe Lude.Int) (\s a -> s {validForInMinutes = a} :: TemporaryCredential)
+{-# DEPRECATED tcValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
-instance FromJSON TemporaryCredential where
+instance Lude.FromJSON TemporaryCredential where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemporaryCredential"
       ( \x ->
           TemporaryCredential'
-            <$> (x .:? "InstanceId")
-            <*> (x .:? "Username")
-            <*> (x .:? "Password")
-            <*> (x .:? "ValidForInMinutes")
+            Lude.<$> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Username")
+            Lude.<*> (x Lude..:? "Password")
+            Lude.<*> (x Lude..:? "ValidForInMinutes")
       )
-
-instance Hashable TemporaryCredential
-
-instance NFData TemporaryCredential

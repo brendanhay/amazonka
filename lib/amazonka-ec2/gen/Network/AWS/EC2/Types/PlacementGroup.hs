@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PlacementGroup where
+module Network.AWS.EC2.Types.PlacementGroup
+  ( PlacementGroup (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkPlacementGroup,
+
+    -- * Lenses
+    pgState,
+    pgStrategy,
+    pgGroupId,
+    pgGroupName,
+    pgPartitionCount,
+    pgTags,
+  )
+where
+
 import Network.AWS.EC2.Types.PlacementGroupState
 import Network.AWS.EC2.Types.PlacementStrategy
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a placement group.
 --
---
---
--- /See:/ 'placementGroup' smart constructor.
+-- /See:/ 'mkPlacementGroup' smart constructor.
 data PlacementGroup = PlacementGroup'
-  { _pgState ::
-      !(Maybe PlacementGroupState),
-    _pgStrategy :: !(Maybe PlacementStrategy),
-    _pgGroupId :: !(Maybe Text),
-    _pgGroupName :: !(Maybe Text),
-    _pgPartitionCount :: !(Maybe Int),
-    _pgTags :: !(Maybe [Tag])
+  { state ::
+      Lude.Maybe PlacementGroupState,
+    strategy :: Lude.Maybe PlacementStrategy,
+    groupId :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    partitionCount :: Lude.Maybe Lude.Int,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacementGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pgState' - The state of the placement group.
---
--- * 'pgStrategy' - The placement strategy.
---
--- * 'pgGroupId' - The ID of the placement group.
---
--- * 'pgGroupName' - The name of the placement group.
---
--- * 'pgPartitionCount' - The number of partitions. Valid only if __strategy__ is set to @partition@ .
---
--- * 'pgTags' - Any tags applied to the placement group.
-placementGroup ::
+-- * 'groupId' - The ID of the placement group.
+-- * 'groupName' - The name of the placement group.
+-- * 'partitionCount' - The number of partitions. Valid only if __strategy__ is set to @partition@ .
+-- * 'state' - The state of the placement group.
+-- * 'strategy' - The placement strategy.
+-- * 'tags' - Any tags applied to the placement group.
+mkPlacementGroup ::
   PlacementGroup
-placementGroup =
+mkPlacementGroup =
   PlacementGroup'
-    { _pgState = Nothing,
-      _pgStrategy = Nothing,
-      _pgGroupId = Nothing,
-      _pgGroupName = Nothing,
-      _pgPartitionCount = Nothing,
-      _pgTags = Nothing
+    { state = Lude.Nothing,
+      strategy = Lude.Nothing,
+      groupId = Lude.Nothing,
+      groupName = Lude.Nothing,
+      partitionCount = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The state of the placement group.
-pgState :: Lens' PlacementGroup (Maybe PlacementGroupState)
-pgState = lens _pgState (\s a -> s {_pgState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgState :: Lens.Lens' PlacementGroup (Lude.Maybe PlacementGroupState)
+pgState = Lens.lens (state :: PlacementGroup -> Lude.Maybe PlacementGroupState) (\s a -> s {state = a} :: PlacementGroup)
+{-# DEPRECATED pgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The placement strategy.
-pgStrategy :: Lens' PlacementGroup (Maybe PlacementStrategy)
-pgStrategy = lens _pgStrategy (\s a -> s {_pgStrategy = a})
+--
+-- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgStrategy :: Lens.Lens' PlacementGroup (Lude.Maybe PlacementStrategy)
+pgStrategy = Lens.lens (strategy :: PlacementGroup -> Lude.Maybe PlacementStrategy) (\s a -> s {strategy = a} :: PlacementGroup)
+{-# DEPRECATED pgStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
 
 -- | The ID of the placement group.
-pgGroupId :: Lens' PlacementGroup (Maybe Text)
-pgGroupId = lens _pgGroupId (\s a -> s {_pgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgGroupId :: Lens.Lens' PlacementGroup (Lude.Maybe Lude.Text)
+pgGroupId = Lens.lens (groupId :: PlacementGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: PlacementGroup)
+{-# DEPRECATED pgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the placement group.
-pgGroupName :: Lens' PlacementGroup (Maybe Text)
-pgGroupName = lens _pgGroupName (\s a -> s {_pgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgGroupName :: Lens.Lens' PlacementGroup (Lude.Maybe Lude.Text)
+pgGroupName = Lens.lens (groupName :: PlacementGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: PlacementGroup)
+{-# DEPRECATED pgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The number of partitions. Valid only if __strategy__ is set to @partition@ .
-pgPartitionCount :: Lens' PlacementGroup (Maybe Int)
-pgPartitionCount = lens _pgPartitionCount (\s a -> s {_pgPartitionCount = a})
+--
+-- /Note:/ Consider using 'partitionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgPartitionCount :: Lens.Lens' PlacementGroup (Lude.Maybe Lude.Int)
+pgPartitionCount = Lens.lens (partitionCount :: PlacementGroup -> Lude.Maybe Lude.Int) (\s a -> s {partitionCount = a} :: PlacementGroup)
+{-# DEPRECATED pgPartitionCount "Use generic-lens or generic-optics with 'partitionCount' instead." #-}
 
 -- | Any tags applied to the placement group.
-pgTags :: Lens' PlacementGroup [Tag]
-pgTags = lens _pgTags (\s a -> s {_pgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgTags :: Lens.Lens' PlacementGroup (Lude.Maybe [Tag])
+pgTags = Lens.lens (tags :: PlacementGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PlacementGroup)
+{-# DEPRECATED pgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML PlacementGroup where
+instance Lude.FromXML PlacementGroup where
   parseXML x =
     PlacementGroup'
-      <$> (x .@? "state")
-      <*> (x .@? "strategy")
-      <*> (x .@? "groupId")
-      <*> (x .@? "groupName")
-      <*> (x .@? "partitionCount")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable PlacementGroup
-
-instance NFData PlacementGroup
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "strategy")
+      Lude.<*> (x Lude..@? "groupId")
+      Lude.<*> (x Lude..@? "groupName")
+      Lude.<*> (x Lude..@? "partitionCount")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DeviceType where
+module Network.AWS.EC2.Types.DeviceType
+  ( DeviceType
+      ( DeviceType',
+        DTEBS,
+        DTInstanceStore
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceType
-  = DTEBS
-  | DTInstanceStore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceType = DeviceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceType where
-  parser =
-    takeLowerText >>= \case
-      "ebs" -> pure DTEBS
-      "instance-store" -> pure DTInstanceStore
-      e ->
-        fromTextError $
-          "Failure parsing DeviceType from value: '" <> e
-            <> "'. Accepted values: ebs, instance-store"
+pattern DTEBS :: DeviceType
+pattern DTEBS = DeviceType' "ebs"
 
-instance ToText DeviceType where
-  toText = \case
-    DTEBS -> "ebs"
-    DTInstanceStore -> "instance-store"
+pattern DTInstanceStore :: DeviceType
+pattern DTInstanceStore = DeviceType' "instance-store"
 
-instance Hashable DeviceType
-
-instance NFData DeviceType
-
-instance ToByteString DeviceType
-
-instance ToQuery DeviceType
-
-instance ToHeader DeviceType
-
-instance FromXML DeviceType where
-  parseXML = parseXMLText "DeviceType"
+{-# COMPLETE
+  DTEBS,
+  DTInstanceStore,
+  DeviceType'
+  #-}

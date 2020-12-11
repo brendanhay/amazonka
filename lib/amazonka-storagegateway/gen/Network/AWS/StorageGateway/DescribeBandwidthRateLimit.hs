@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns the bandwidth rate limits of a gateway. By default, these limits are not set, which means no bandwidth rate limiting is in effect. This operation is supported for the stored volume, cached volume, and tape gateway types.
 --
---
 -- This operation only returns a value for a bandwidth rate limit only if the limit is set. If no limits are set for the gateway, then this operation returns only the gateway ARN in the response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-  ( -- * Creating a Request
-    describeBandwidthRateLimit,
-    DescribeBandwidthRateLimit,
+  ( -- * Creating a request
+    DescribeBandwidthRateLimit (..),
+    mkDescribeBandwidthRateLimit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbrlGatewayARN,
 
-    -- * Destructuring the Response
-    describeBandwidthRateLimitResponse,
-    DescribeBandwidthRateLimitResponse,
+    -- * Destructuring the response
+    DescribeBandwidthRateLimitResponse (..),
+    mkDescribeBandwidthRateLimitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrlrsGatewayARN,
     dbrlrsAverageUploadRateLimitInBitsPerSec,
     dbrlrsAverageDownloadRateLimitInBitsPerSec,
@@ -41,134 +35,150 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway.
 --
---
---
--- /See:/ 'describeBandwidthRateLimit' smart constructor.
+-- /See:/ 'mkDescribeBandwidthRateLimit' smart constructor.
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
-  { _dbrlGatewayARN ::
-      Text
+  { gatewayARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrlGatewayARN' - Undocumented member.
-describeBandwidthRateLimit ::
-  -- | 'dbrlGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDescribeBandwidthRateLimit ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeBandwidthRateLimit
-describeBandwidthRateLimit pGatewayARN_ =
-  DescribeBandwidthRateLimit' {_dbrlGatewayARN = pGatewayARN_}
+mkDescribeBandwidthRateLimit pGatewayARN_ =
+  DescribeBandwidthRateLimit' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
-dbrlGatewayARN = lens _dbrlGatewayARN (\s a -> s {_dbrlGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlGatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Lude.Text
+dbrlGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimit)
+{-# DEPRECATED dbrlGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DescribeBandwidthRateLimit where
+instance Lude.AWSRequest DescribeBandwidthRateLimit where
   type
     Rs DescribeBandwidthRateLimit =
       DescribeBandwidthRateLimitResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            <$> (x .?> "GatewayARN")
-            <*> (x .?> "AverageUploadRateLimitInBitsPerSec")
-            <*> (x .?> "AverageDownloadRateLimitInBitsPerSec")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "AverageUploadRateLimitInBitsPerSec")
+            Lude.<*> (x Lude..?> "AverageDownloadRateLimitInBitsPerSec")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBandwidthRateLimit
-
-instance NFData DescribeBandwidthRateLimit
-
-instance ToHeaders DescribeBandwidthRateLimit where
+instance Lude.ToHeaders DescribeBandwidthRateLimit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBandwidthRateLimit where
+instance Lude.ToJSON DescribeBandwidthRateLimit where
   toJSON DescribeBandwidthRateLimit' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _dbrlGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DescribeBandwidthRateLimit where
-  toPath = const "/"
+instance Lude.ToPath DescribeBandwidthRateLimit where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBandwidthRateLimit where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBandwidthRateLimit where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
---
---
--- /See:/ 'describeBandwidthRateLimitResponse' smart constructor.
+-- /See:/ 'mkDescribeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { _dbrlrsGatewayARN ::
-      !(Maybe Text),
-    _dbrlrsAverageUploadRateLimitInBitsPerSec ::
-      !(Maybe Nat),
-    _dbrlrsAverageDownloadRateLimitInBitsPerSec ::
-      !(Maybe Nat),
-    _dbrlrsResponseStatus ::
-      !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    averageUploadRateLimitInBitsPerSec ::
+      Lude.Maybe
+        Lude.Natural,
+    averageDownloadRateLimitInBitsPerSec ::
+      Lude.Maybe
+        Lude.Natural,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrlrsGatewayARN' - Undocumented member.
---
--- * 'dbrlrsAverageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
---
--- * 'dbrlrsAverageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
---
--- * 'dbrlrsResponseStatus' - -- | The response status code.
-describeBandwidthRateLimitResponse ::
-  -- | 'dbrlrsResponseStatus'
-  Int ->
+-- * 'averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
+-- * 'averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeBandwidthRateLimitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse pResponseStatus_ =
+mkDescribeBandwidthRateLimitResponse pResponseStatus_ =
   DescribeBandwidthRateLimitResponse'
-    { _dbrlrsGatewayARN = Nothing,
-      _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing,
-      _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing,
-      _dbrlrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      averageUploadRateLimitInBitsPerSec = Lude.Nothing,
+      averageDownloadRateLimitInBitsPerSec = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dbrlrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
-dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\s a -> s {_dbrlrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Text)
+dbrlrsGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
+{-# DEPRECATED dbrlrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
-dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInBitsPerSec (\s a -> s {_dbrlrsAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'averageUploadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Natural)
+dbrlrsAverageUploadRateLimitInBitsPerSec = Lens.lens (averageUploadRateLimitInBitsPerSec :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Natural) (\s a -> s {averageUploadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
+{-# DEPRECATED dbrlrsAverageUploadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageUploadRateLimitInBitsPerSec' instead." #-}
 
 -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
-dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\s a -> s {_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'averageDownloadRateLimitInBitsPerSec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Lude.Maybe Lude.Natural)
+dbrlrsAverageDownloadRateLimitInBitsPerSec = Lens.lens (averageDownloadRateLimitInBitsPerSec :: DescribeBandwidthRateLimitResponse -> Lude.Maybe Lude.Natural) (\s a -> s {averageDownloadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
+{-# DEPRECATED dbrlrsAverageDownloadRateLimitInBitsPerSec "Use generic-lens or generic-optics with 'averageDownloadRateLimitInBitsPerSec' instead." #-}
 
--- | -- | The response status code.
-dbrlrsResponseStatus :: Lens' DescribeBandwidthRateLimitResponse Int
-dbrlrsResponseStatus = lens _dbrlrsResponseStatus (\s a -> s {_dbrlrsResponseStatus = a})
-
-instance NFData DescribeBandwidthRateLimitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlrsResponseStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Lude.Int
+dbrlrsResponseStatus = Lens.lens (responseStatus :: DescribeBandwidthRateLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBandwidthRateLimitResponse)
+{-# DEPRECATED dbrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaId where
+module Network.AWS.Glue.Types.SchemaId
+  ( SchemaId (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSchemaId,
 
--- | /See:/ 'schemaId' smart constructor.
+    -- * Lenses
+    siRegistryName,
+    siSchemaName,
+    siSchemaARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkSchemaId' smart constructor.
 data SchemaId = SchemaId'
-  { _siRegistryName :: !(Maybe Text),
-    _siSchemaName :: !(Maybe Text),
-    _siSchemaARN :: !(Maybe Text)
+  { registryName :: Lude.Maybe Lude.Text,
+    schemaName :: Lude.Maybe Lude.Text,
+    schemaARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siRegistryName' - Undocumented member.
---
--- * 'siSchemaName' - Undocumented member.
---
--- * 'siSchemaARN' - Undocumented member.
-schemaId ::
+-- * 'registryName' - Undocumented field.
+-- * 'schemaARN' - Undocumented field.
+-- * 'schemaName' - Undocumented field.
+mkSchemaId ::
   SchemaId
-schemaId =
+mkSchemaId =
   SchemaId'
-    { _siRegistryName = Nothing,
-      _siSchemaName = Nothing,
-      _siSchemaARN = Nothing
+    { registryName = Lude.Nothing,
+      schemaName = Lude.Nothing,
+      schemaARN = Lude.Nothing
     }
 
--- | Undocumented member.
-siRegistryName :: Lens' SchemaId (Maybe Text)
-siRegistryName = lens _siRegistryName (\s a -> s {_siRegistryName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siRegistryName :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
+siRegistryName = Lens.lens (registryName :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: SchemaId)
+{-# DEPRECATED siRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
--- | Undocumented member.
-siSchemaName :: Lens' SchemaId (Maybe Text)
-siSchemaName = lens _siSchemaName (\s a -> s {_siSchemaName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSchemaName :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
+siSchemaName = Lens.lens (schemaName :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: SchemaId)
+{-# DEPRECATED siSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
--- | Undocumented member.
-siSchemaARN :: Lens' SchemaId (Maybe Text)
-siSchemaARN = lens _siSchemaARN (\s a -> s {_siSchemaARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSchemaARN :: Lens.Lens' SchemaId (Lude.Maybe Lude.Text)
+siSchemaARN = Lens.lens (schemaARN :: SchemaId -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: SchemaId)
+{-# DEPRECATED siSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance FromJSON SchemaId where
+instance Lude.FromJSON SchemaId where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaId"
       ( \x ->
           SchemaId'
-            <$> (x .:? "RegistryName")
-            <*> (x .:? "SchemaName")
-            <*> (x .:? "SchemaArn")
+            Lude.<$> (x Lude..:? "RegistryName")
+            Lude.<*> (x Lude..:? "SchemaName")
+            Lude.<*> (x Lude..:? "SchemaArn")
       )
 
-instance Hashable SchemaId
-
-instance NFData SchemaId
-
-instance ToJSON SchemaId where
+instance Lude.ToJSON SchemaId where
   toJSON SchemaId' {..} =
-    object
-      ( catMaybes
-          [ ("RegistryName" .=) <$> _siRegistryName,
-            ("SchemaName" .=) <$> _siSchemaName,
-            ("SchemaArn" .=) <$> _siSchemaARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RegistryName" Lude..=) Lude.<$> registryName,
+            ("SchemaName" Lude..=) Lude.<$> schemaName,
+            ("SchemaArn" Lude..=) Lude.<$> schemaARN
           ]
       )

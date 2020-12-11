@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentStatus where
+module Network.AWS.CodeDeploy.Types.DeploymentStatus
+  ( DeploymentStatus
+      ( DeploymentStatus',
+        Baking,
+        Created,
+        Failed,
+        InProgress,
+        Queued,
+        Ready,
+        Stopped,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentStatus
-  = Baking
-  | Created
-  | Failed
-  | InProgress
-  | Queued
-  | Ready
-  | Stopped
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentStatus = DeploymentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentStatus where
-  parser =
-    takeLowerText >>= \case
-      "baking" -> pure Baking
-      "created" -> pure Created
-      "failed" -> pure Failed
-      "inprogress" -> pure InProgress
-      "queued" -> pure Queued
-      "ready" -> pure Ready
-      "stopped" -> pure Stopped
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentStatus from value: '" <> e
-            <> "'. Accepted values: baking, created, failed, inprogress, queued, ready, stopped, succeeded"
+pattern Baking :: DeploymentStatus
+pattern Baking = DeploymentStatus' "Baking"
 
-instance ToText DeploymentStatus where
-  toText = \case
-    Baking -> "Baking"
-    Created -> "Created"
-    Failed -> "Failed"
-    InProgress -> "InProgress"
-    Queued -> "Queued"
-    Ready -> "Ready"
-    Stopped -> "Stopped"
-    Succeeded -> "Succeeded"
+pattern Created :: DeploymentStatus
+pattern Created = DeploymentStatus' "Created"
 
-instance Hashable DeploymentStatus
+pattern Failed :: DeploymentStatus
+pattern Failed = DeploymentStatus' "Failed"
 
-instance NFData DeploymentStatus
+pattern InProgress :: DeploymentStatus
+pattern InProgress = DeploymentStatus' "InProgress"
 
-instance ToByteString DeploymentStatus
+pattern Queued :: DeploymentStatus
+pattern Queued = DeploymentStatus' "Queued"
 
-instance ToQuery DeploymentStatus
+pattern Ready :: DeploymentStatus
+pattern Ready = DeploymentStatus' "Ready"
 
-instance ToHeader DeploymentStatus
+pattern Stopped :: DeploymentStatus
+pattern Stopped = DeploymentStatus' "Stopped"
 
-instance ToJSON DeploymentStatus where
-  toJSON = toJSONText
+pattern Succeeded :: DeploymentStatus
+pattern Succeeded = DeploymentStatus' "Succeeded"
 
-instance FromJSON DeploymentStatus where
-  parseJSON = parseJSONText "DeploymentStatus"
+{-# COMPLETE
+  Baking,
+  Created,
+  Failed,
+  InProgress,
+  Queued,
+  Ready,
+  Stopped,
+  Succeeded,
+  DeploymentStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSChannelRequest where
+module Network.AWS.Pinpoint.Types.APNSChannelRequest
+  ( APNSChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSChannelRequest,
+
+    -- * Lenses
+    acrTokenKey,
+    acrPrivateKey,
+    acrEnabled,
+    acrTeamId,
+    acrBundleId,
+    acrDefaultAuthenticationMethod,
+    acrCertificate,
+    acrTokenKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.
 --
---
---
--- /See:/ 'apnsChannelRequest' smart constructor.
+-- /See:/ 'mkAPNSChannelRequest' smart constructor.
 data APNSChannelRequest = APNSChannelRequest'
-  { _acrTokenKey ::
-      !(Maybe Text),
-    _acrPrivateKey :: !(Maybe Text),
-    _acrEnabled :: !(Maybe Bool),
-    _acrTeamId :: !(Maybe Text),
-    _acrBundleId :: !(Maybe Text),
-    _acrDefaultAuthenticationMethod :: !(Maybe Text),
-    _acrCertificate :: !(Maybe Text),
-    _acrTokenKeyId :: !(Maybe Text)
+  { tokenKey ::
+      Lude.Maybe Lude.Text,
+    privateKey :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    teamId :: Lude.Maybe Lude.Text,
+    bundleId :: Lude.Maybe Lude.Text,
+    defaultAuthenticationMethod :: Lude.Maybe Lude.Text,
+    certificate :: Lude.Maybe Lude.Text,
+    tokenKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acrTokenKey' - The authentication key to use for APNs tokens.
---
--- * 'acrPrivateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
---
--- * 'acrEnabled' - Specifies whether to enable the APNs channel for the application.
---
--- * 'acrTeamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
---
--- * 'acrBundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
---
--- * 'acrDefaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
---
--- * 'acrCertificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
---
--- * 'acrTokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-apnsChannelRequest ::
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
+-- * 'enabled' - Specifies whether to enable the APNs channel for the application.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
+mkAPNSChannelRequest ::
   APNSChannelRequest
-apnsChannelRequest =
+mkAPNSChannelRequest =
   APNSChannelRequest'
-    { _acrTokenKey = Nothing,
-      _acrPrivateKey = Nothing,
-      _acrEnabled = Nothing,
-      _acrTeamId = Nothing,
-      _acrBundleId = Nothing,
-      _acrDefaultAuthenticationMethod = Nothing,
-      _acrCertificate = Nothing,
-      _acrTokenKeyId = Nothing
+    { tokenKey = Lude.Nothing,
+      privateKey = Lude.Nothing,
+      enabled = Lude.Nothing,
+      teamId = Lude.Nothing,
+      bundleId = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      certificate = Lude.Nothing,
+      tokenKeyId = Lude.Nothing
     }
 
 -- | The authentication key to use for APNs tokens.
-acrTokenKey :: Lens' APNSChannelRequest (Maybe Text)
-acrTokenKey = lens _acrTokenKey (\s a -> s {_acrTokenKey = a})
+--
+-- /Note:/ Consider using 'tokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrTokenKey :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrTokenKey = Lens.lens (tokenKey :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKey = a} :: APNSChannelRequest)
+{-# DEPRECATED acrTokenKey "Use generic-lens or generic-optics with 'tokenKey' instead." #-}
 
 -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
-acrPrivateKey :: Lens' APNSChannelRequest (Maybe Text)
-acrPrivateKey = lens _acrPrivateKey (\s a -> s {_acrPrivateKey = a})
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrPrivateKey :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrPrivateKey = Lens.lens (privateKey :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {privateKey = a} :: APNSChannelRequest)
+{-# DEPRECATED acrPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | Specifies whether to enable the APNs channel for the application.
-acrEnabled :: Lens' APNSChannelRequest (Maybe Bool)
-acrEnabled = lens _acrEnabled (\s a -> s {_acrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrEnabled :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Bool)
+acrEnabled = Lens.lens (enabled :: APNSChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSChannelRequest)
+{-# DEPRECATED acrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
-acrTeamId :: Lens' APNSChannelRequest (Maybe Text)
-acrTeamId = lens _acrTeamId (\s a -> s {_acrTeamId = a})
+--
+-- /Note:/ Consider using 'teamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrTeamId :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrTeamId = Lens.lens (teamId :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {teamId = a} :: APNSChannelRequest)
+{-# DEPRECATED acrTeamId "Use generic-lens or generic-optics with 'teamId' instead." #-}
 
 -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
-acrBundleId :: Lens' APNSChannelRequest (Maybe Text)
-acrBundleId = lens _acrBundleId (\s a -> s {_acrBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrBundleId :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrBundleId = Lens.lens (bundleId :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: APNSChannelRequest)
+{-# DEPRECATED acrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
-acrDefaultAuthenticationMethod :: Lens' APNSChannelRequest (Maybe Text)
-acrDefaultAuthenticationMethod = lens _acrDefaultAuthenticationMethod (\s a -> s {_acrDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrDefaultAuthenticationMethod :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSChannelRequest)
+{-# DEPRECATED acrDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
-acrCertificate :: Lens' APNSChannelRequest (Maybe Text)
-acrCertificate = lens _acrCertificate (\s a -> s {_acrCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrCertificate :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrCertificate = Lens.lens (certificate :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: APNSChannelRequest)
+{-# DEPRECATED acrCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-acrTokenKeyId :: Lens' APNSChannelRequest (Maybe Text)
-acrTokenKeyId = lens _acrTokenKeyId (\s a -> s {_acrTokenKeyId = a})
+--
+-- /Note:/ Consider using 'tokenKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrTokenKeyId :: Lens.Lens' APNSChannelRequest (Lude.Maybe Lude.Text)
+acrTokenKeyId = Lens.lens (tokenKeyId :: APNSChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyId = a} :: APNSChannelRequest)
+{-# DEPRECATED acrTokenKeyId "Use generic-lens or generic-optics with 'tokenKeyId' instead." #-}
 
-instance Hashable APNSChannelRequest
-
-instance NFData APNSChannelRequest
-
-instance ToJSON APNSChannelRequest where
+instance Lude.ToJSON APNSChannelRequest where
   toJSON APNSChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("TokenKey" .=) <$> _acrTokenKey,
-            ("PrivateKey" .=) <$> _acrPrivateKey,
-            ("Enabled" .=) <$> _acrEnabled,
-            ("TeamId" .=) <$> _acrTeamId,
-            ("BundleId" .=) <$> _acrBundleId,
-            ("DefaultAuthenticationMethod" .=)
-              <$> _acrDefaultAuthenticationMethod,
-            ("Certificate" .=) <$> _acrCertificate,
-            ("TokenKeyId" .=) <$> _acrTokenKeyId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TokenKey" Lude..=) Lude.<$> tokenKey,
+            ("PrivateKey" Lude..=) Lude.<$> privateKey,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("TeamId" Lude..=) Lude.<$> teamId,
+            ("BundleId" Lude..=) Lude.<$> bundleId,
+            ("DefaultAuthenticationMethod" Lude..=)
+              Lude.<$> defaultAuthenticationMethod,
+            ("Certificate" Lude..=) Lude.<$> certificate,
+            ("TokenKeyId" Lude..=) Lude.<$> tokenKeyId
           ]
       )

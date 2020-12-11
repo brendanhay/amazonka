@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.PortRange where
+module Network.AWS.EMR.Types.PortRange
+  ( PortRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPortRange,
+
+    -- * Lenses
+    prMaxRange,
+    prMinRange,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of port ranges that are permitted to allow inbound traffic from all public IP addresses. To specify a single port, use the same value for @MinRange@ and @MaxRange@ .
 --
---
---
--- /See:/ 'portRange' smart constructor.
+-- /See:/ 'mkPortRange' smart constructor.
 data PortRange = PortRange'
-  { _prMaxRange :: !(Maybe Int),
-    _prMinRange :: !Int
+  { maxRange :: Lude.Maybe Lude.Int,
+    minRange :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prMaxRange' - The smallest port number in a specified range of port numbers.
---
--- * 'prMinRange' - The smallest port number in a specified range of port numbers.
-portRange ::
-  -- | 'prMinRange'
-  Int ->
+-- * 'maxRange' - The smallest port number in a specified range of port numbers.
+-- * 'minRange' - The smallest port number in a specified range of port numbers.
+mkPortRange ::
+  -- | 'minRange'
+  Lude.Int ->
   PortRange
-portRange pMinRange_ =
-  PortRange' {_prMaxRange = Nothing, _prMinRange = pMinRange_}
+mkPortRange pMinRange_ =
+  PortRange' {maxRange = Lude.Nothing, minRange = pMinRange_}
 
 -- | The smallest port number in a specified range of port numbers.
-prMaxRange :: Lens' PortRange (Maybe Int)
-prMaxRange = lens _prMaxRange (\s a -> s {_prMaxRange = a})
+--
+-- /Note:/ Consider using 'maxRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prMaxRange :: Lens.Lens' PortRange (Lude.Maybe Lude.Int)
+prMaxRange = Lens.lens (maxRange :: PortRange -> Lude.Maybe Lude.Int) (\s a -> s {maxRange = a} :: PortRange)
+{-# DEPRECATED prMaxRange "Use generic-lens or generic-optics with 'maxRange' instead." #-}
 
 -- | The smallest port number in a specified range of port numbers.
-prMinRange :: Lens' PortRange Int
-prMinRange = lens _prMinRange (\s a -> s {_prMinRange = a})
+--
+-- /Note:/ Consider using 'minRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prMinRange :: Lens.Lens' PortRange Lude.Int
+prMinRange = Lens.lens (minRange :: PortRange -> Lude.Int) (\s a -> s {minRange = a} :: PortRange)
+{-# DEPRECATED prMinRange "Use generic-lens or generic-optics with 'minRange' instead." #-}
 
-instance FromJSON PortRange where
+instance Lude.FromJSON PortRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "PortRange"
-      (\x -> PortRange' <$> (x .:? "MaxRange") <*> (x .: "MinRange"))
+      ( \x ->
+          PortRange'
+            Lude.<$> (x Lude..:? "MaxRange") Lude.<*> (x Lude..: "MinRange")
+      )
 
-instance Hashable PortRange
-
-instance NFData PortRange
-
-instance ToJSON PortRange where
+instance Lude.ToJSON PortRange where
   toJSON PortRange' {..} =
-    object
-      ( catMaybes
-          [ ("MaxRange" .=) <$> _prMaxRange,
-            Just ("MinRange" .= _prMinRange)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaxRange" Lude..=) Lude.<$> maxRange,
+            Lude.Just ("MinRange" Lude..= minRange)
           ]
       )

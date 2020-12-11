@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.EventResponseType where
+module Network.AWS.CognitoIdentityProvider.Types.EventResponseType
+  ( EventResponseType
+      ( EventResponseType',
+        Failure,
+        Success
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventResponseType
-  = Failure
-  | Success
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventResponseType = EventResponseType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventResponseType where
-  parser =
-    takeLowerText >>= \case
-      "failure" -> pure Failure
-      "success" -> pure Success
-      e ->
-        fromTextError $
-          "Failure parsing EventResponseType from value: '" <> e
-            <> "'. Accepted values: failure, success"
+pattern Failure :: EventResponseType
+pattern Failure = EventResponseType' "Failure"
 
-instance ToText EventResponseType where
-  toText = \case
-    Failure -> "Failure"
-    Success -> "Success"
+pattern Success :: EventResponseType
+pattern Success = EventResponseType' "Success"
 
-instance Hashable EventResponseType
-
-instance NFData EventResponseType
-
-instance ToByteString EventResponseType
-
-instance ToQuery EventResponseType
-
-instance ToHeader EventResponseType
-
-instance FromJSON EventResponseType where
-  parseJSON = parseJSONText "EventResponseType"
+{-# COMPLETE
+  Failure,
+  Success,
+  EventResponseType'
+  #-}

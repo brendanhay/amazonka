@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectAttributeAction where
+module Network.AWS.CloudDirectory.Types.ObjectAttributeAction
+  ( ObjectAttributeAction (..),
+
+    -- * Smart constructor
+    mkObjectAttributeAction,
+
+    -- * Lenses
+    oaaObjectAttributeActionType,
+    oaaObjectAttributeUpdateValue,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import Network.AWS.CloudDirectory.Types.UpdateActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The action to take on the object attribute.
 --
---
---
--- /See:/ 'objectAttributeAction' smart constructor.
+-- /See:/ 'mkObjectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
-  { _oaaObjectAttributeActionType ::
-      !(Maybe UpdateActionType),
-    _oaaObjectAttributeUpdateValue ::
-      !(Maybe TypedAttributeValue)
+  { objectAttributeActionType ::
+      Lude.Maybe UpdateActionType,
+    objectAttributeUpdateValue ::
+      Lude.Maybe TypedAttributeValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectAttributeAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oaaObjectAttributeActionType' - A type that can be either @Update@ or @Delete@ .
---
--- * 'oaaObjectAttributeUpdateValue' - The value that you want to update to.
-objectAttributeAction ::
+-- * 'objectAttributeActionType' - A type that can be either @Update@ or @Delete@ .
+-- * 'objectAttributeUpdateValue' - The value that you want to update to.
+mkObjectAttributeAction ::
   ObjectAttributeAction
-objectAttributeAction =
+mkObjectAttributeAction =
   ObjectAttributeAction'
-    { _oaaObjectAttributeActionType = Nothing,
-      _oaaObjectAttributeUpdateValue = Nothing
+    { objectAttributeActionType = Lude.Nothing,
+      objectAttributeUpdateValue = Lude.Nothing
     }
 
 -- | A type that can be either @Update@ or @Delete@ .
-oaaObjectAttributeActionType :: Lens' ObjectAttributeAction (Maybe UpdateActionType)
-oaaObjectAttributeActionType = lens _oaaObjectAttributeActionType (\s a -> s {_oaaObjectAttributeActionType = a})
+--
+-- /Note:/ Consider using 'objectAttributeActionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaaObjectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Lude.Maybe UpdateActionType)
+oaaObjectAttributeActionType = Lens.lens (objectAttributeActionType :: ObjectAttributeAction -> Lude.Maybe UpdateActionType) (\s a -> s {objectAttributeActionType = a} :: ObjectAttributeAction)
+{-# DEPRECATED oaaObjectAttributeActionType "Use generic-lens or generic-optics with 'objectAttributeActionType' instead." #-}
 
 -- | The value that you want to update to.
-oaaObjectAttributeUpdateValue :: Lens' ObjectAttributeAction (Maybe TypedAttributeValue)
-oaaObjectAttributeUpdateValue = lens _oaaObjectAttributeUpdateValue (\s a -> s {_oaaObjectAttributeUpdateValue = a})
+--
+-- /Note:/ Consider using 'objectAttributeUpdateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaaObjectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Lude.Maybe TypedAttributeValue)
+oaaObjectAttributeUpdateValue = Lens.lens (objectAttributeUpdateValue :: ObjectAttributeAction -> Lude.Maybe TypedAttributeValue) (\s a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
+{-# DEPRECATED oaaObjectAttributeUpdateValue "Use generic-lens or generic-optics with 'objectAttributeUpdateValue' instead." #-}
 
-instance Hashable ObjectAttributeAction
-
-instance NFData ObjectAttributeAction
-
-instance ToJSON ObjectAttributeAction where
+instance Lude.ToJSON ObjectAttributeAction where
   toJSON ObjectAttributeAction' {..} =
-    object
-      ( catMaybes
-          [ ("ObjectAttributeActionType" .=)
-              <$> _oaaObjectAttributeActionType,
-            ("ObjectAttributeUpdateValue" .=)
-              <$> _oaaObjectAttributeUpdateValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ObjectAttributeActionType" Lude..=)
+              Lude.<$> objectAttributeActionType,
+            ("ObjectAttributeUpdateValue" Lude..=)
+              Lude.<$> objectAttributeUpdateValue
           ]
       )

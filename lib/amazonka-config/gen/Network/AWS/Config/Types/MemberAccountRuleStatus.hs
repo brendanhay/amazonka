@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.MemberAccountRuleStatus where
+module Network.AWS.Config.Types.MemberAccountRuleStatus
+  ( MemberAccountRuleStatus
+      ( MemberAccountRuleStatus',
+        MARSCreateFailed,
+        MARSCreateInProgress,
+        MARSCreateSuccessful,
+        MARSDeleteFailed,
+        MARSDeleteInProgress,
+        MARSDeleteSuccessful,
+        MARSUpdateFailed,
+        MARSUpdateInProgress,
+        MARSUpdateSuccessful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MemberAccountRuleStatus
-  = MARSCreateFailed
-  | MARSCreateInProgress
-  | MARSCreateSuccessful
-  | MARSDeleteFailed
-  | MARSDeleteInProgress
-  | MARSDeleteSuccessful
-  | MARSUpdateFailed
-  | MARSUpdateInProgress
-  | MARSUpdateSuccessful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MemberAccountRuleStatus = MemberAccountRuleStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MemberAccountRuleStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure MARSCreateFailed
-      "create_in_progress" -> pure MARSCreateInProgress
-      "create_successful" -> pure MARSCreateSuccessful
-      "delete_failed" -> pure MARSDeleteFailed
-      "delete_in_progress" -> pure MARSDeleteInProgress
-      "delete_successful" -> pure MARSDeleteSuccessful
-      "update_failed" -> pure MARSUpdateFailed
-      "update_in_progress" -> pure MARSUpdateInProgress
-      "update_successful" -> pure MARSUpdateSuccessful
-      e ->
-        fromTextError $
-          "Failure parsing MemberAccountRuleStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, create_in_progress, create_successful, delete_failed, delete_in_progress, delete_successful, update_failed, update_in_progress, update_successful"
+pattern MARSCreateFailed :: MemberAccountRuleStatus
+pattern MARSCreateFailed = MemberAccountRuleStatus' "CREATE_FAILED"
 
-instance ToText MemberAccountRuleStatus where
-  toText = \case
-    MARSCreateFailed -> "CREATE_FAILED"
-    MARSCreateInProgress -> "CREATE_IN_PROGRESS"
-    MARSCreateSuccessful -> "CREATE_SUCCESSFUL"
-    MARSDeleteFailed -> "DELETE_FAILED"
-    MARSDeleteInProgress -> "DELETE_IN_PROGRESS"
-    MARSDeleteSuccessful -> "DELETE_SUCCESSFUL"
-    MARSUpdateFailed -> "UPDATE_FAILED"
-    MARSUpdateInProgress -> "UPDATE_IN_PROGRESS"
-    MARSUpdateSuccessful -> "UPDATE_SUCCESSFUL"
+pattern MARSCreateInProgress :: MemberAccountRuleStatus
+pattern MARSCreateInProgress = MemberAccountRuleStatus' "CREATE_IN_PROGRESS"
 
-instance Hashable MemberAccountRuleStatus
+pattern MARSCreateSuccessful :: MemberAccountRuleStatus
+pattern MARSCreateSuccessful = MemberAccountRuleStatus' "CREATE_SUCCESSFUL"
 
-instance NFData MemberAccountRuleStatus
+pattern MARSDeleteFailed :: MemberAccountRuleStatus
+pattern MARSDeleteFailed = MemberAccountRuleStatus' "DELETE_FAILED"
 
-instance ToByteString MemberAccountRuleStatus
+pattern MARSDeleteInProgress :: MemberAccountRuleStatus
+pattern MARSDeleteInProgress = MemberAccountRuleStatus' "DELETE_IN_PROGRESS"
 
-instance ToQuery MemberAccountRuleStatus
+pattern MARSDeleteSuccessful :: MemberAccountRuleStatus
+pattern MARSDeleteSuccessful = MemberAccountRuleStatus' "DELETE_SUCCESSFUL"
 
-instance ToHeader MemberAccountRuleStatus
+pattern MARSUpdateFailed :: MemberAccountRuleStatus
+pattern MARSUpdateFailed = MemberAccountRuleStatus' "UPDATE_FAILED"
 
-instance ToJSON MemberAccountRuleStatus where
-  toJSON = toJSONText
+pattern MARSUpdateInProgress :: MemberAccountRuleStatus
+pattern MARSUpdateInProgress = MemberAccountRuleStatus' "UPDATE_IN_PROGRESS"
 
-instance FromJSON MemberAccountRuleStatus where
-  parseJSON = parseJSONText "MemberAccountRuleStatus"
+pattern MARSUpdateSuccessful :: MemberAccountRuleStatus
+pattern MARSUpdateSuccessful = MemberAccountRuleStatus' "UPDATE_SUCCESSFUL"
+
+{-# COMPLETE
+  MARSCreateFailed,
+  MARSCreateInProgress,
+  MARSCreateSuccessful,
+  MARSDeleteFailed,
+  MARSDeleteInProgress,
+  MARSDeleteSuccessful,
+  MARSUpdateFailed,
+  MARSUpdateInProgress,
+  MARSUpdateSuccessful,
+  MemberAccountRuleStatus'
+  #-}

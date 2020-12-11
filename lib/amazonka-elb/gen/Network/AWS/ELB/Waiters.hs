@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,69 +10,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Waiters where
+module Network.AWS.ELB.Waiters
+  ( -- * AnyInstanceInService
+    mkAnyInstanceInService,
+
+    -- * InstanceDeregistered
+    mkInstanceDeregistered,
+
+    -- * InstanceInService
+    mkInstanceInService,
+  )
+where
 
 import Network.AWS.ELB.DescribeInstanceHealth
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-anyInstanceInService :: Wait DescribeInstanceHealth
-anyInstanceInService =
-  Wait
-    { _waitName = "AnyInstanceInService",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAny
+mkAnyInstanceInService :: Wait.Wait DescribeInstanceHealth
+mkAnyInstanceInService =
+  Wait.Wait
+    { Wait._waitName = "AnyInstanceInService",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAny
             "InService"
-            AcceptSuccess
-            ( folding (concatOf (dihrsInstanceStates . to toList))
-                . isState
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dihrsInstanceStates Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. isState
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-instanceDeregistered :: Wait DescribeInstanceHealth
-instanceDeregistered =
-  Wait
-    { _waitName = "InstanceDeregistered",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkInstanceDeregistered :: Wait.Wait DescribeInstanceHealth
+mkInstanceDeregistered =
+  Wait.Wait
+    { Wait._waitName = "InstanceDeregistered",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "OutOfService"
-            AcceptSuccess
-            ( folding (concatOf (dihrsInstanceStates . to toList))
-                . isState
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dihrsInstanceStates Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. isState
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchError "InvalidInstance" AcceptSuccess
+          Wait.matchError "InvalidInstance" Wait.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-instanceInService :: Wait DescribeInstanceHealth
-instanceInService =
-  Wait
-    { _waitName = "InstanceInService",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkInstanceInService :: Wait.Wait DescribeInstanceHealth
+mkInstanceInService =
+  Wait.Wait
+    { Wait._waitName = "InstanceInService",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "InService"
-            AcceptSuccess
-            ( folding (concatOf (dihrsInstanceStates . to toList))
-                . isState
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dihrsInstanceStates Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. isState
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchError "InvalidInstance" AcceptRetry
+          Wait.matchError "InvalidInstance" Wait.AcceptRetry
         ]
     }

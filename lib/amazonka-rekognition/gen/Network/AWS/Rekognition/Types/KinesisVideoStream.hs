@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.KinesisVideoStream where
+module Network.AWS.Rekognition.Types.KinesisVideoStream
+  ( KinesisVideoStream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisVideoStream,
+
+    -- * Lenses
+    kvsARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.
 --
---
---
--- /See:/ 'kinesisVideoStream' smart constructor.
+-- /See:/ 'mkKinesisVideoStream' smart constructor.
 newtype KinesisVideoStream = KinesisVideoStream'
-  { _kvsARN ::
-      Maybe Text
+  { arn ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisVideoStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kvsARN' - ARN of the Kinesis video stream stream that streams the source video.
-kinesisVideoStream ::
+-- * 'arn' - ARN of the Kinesis video stream stream that streams the source video.
+mkKinesisVideoStream ::
   KinesisVideoStream
-kinesisVideoStream = KinesisVideoStream' {_kvsARN = Nothing}
+mkKinesisVideoStream = KinesisVideoStream' {arn = Lude.Nothing}
 
 -- | ARN of the Kinesis video stream stream that streams the source video.
-kvsARN :: Lens' KinesisVideoStream (Maybe Text)
-kvsARN = lens _kvsARN (\s a -> s {_kvsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvsARN :: Lens.Lens' KinesisVideoStream (Lude.Maybe Lude.Text)
+kvsARN = Lens.lens (arn :: KinesisVideoStream -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: KinesisVideoStream)
+{-# DEPRECATED kvsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromJSON KinesisVideoStream where
+instance Lude.FromJSON KinesisVideoStream where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisVideoStream"
-      (\x -> KinesisVideoStream' <$> (x .:? "Arn"))
+      (\x -> KinesisVideoStream' Lude.<$> (x Lude..:? "Arn"))
 
-instance Hashable KinesisVideoStream
-
-instance NFData KinesisVideoStream
-
-instance ToJSON KinesisVideoStream where
+instance Lude.ToJSON KinesisVideoStream where
   toJSON KinesisVideoStream' {..} =
-    object (catMaybes [("Arn" .=) <$> _kvsARN])
+    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])

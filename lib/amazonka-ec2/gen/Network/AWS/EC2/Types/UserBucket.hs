@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UserBucket where
+module Network.AWS.EC2.Types.UserBucket
+  ( UserBucket (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserBucket,
+
+    -- * Lenses
+    ubS3Key,
+    ubS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
---
---
--- /See:/ 'userBucket' smart constructor.
+-- /See:/ 'mkUserBucket' smart constructor.
 data UserBucket = UserBucket'
-  { _ubS3Key :: !(Maybe Text),
-    _ubS3Bucket :: !(Maybe Text)
+  { s3Key :: Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserBucket' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubS3Key' - The file name of the disk image.
---
--- * 'ubS3Bucket' - The name of the Amazon S3 bucket where the disk image is located.
-userBucket ::
+-- * 's3Bucket' - The name of the Amazon S3 bucket where the disk image is located.
+-- * 's3Key' - The file name of the disk image.
+mkUserBucket ::
   UserBucket
-userBucket = UserBucket' {_ubS3Key = Nothing, _ubS3Bucket = Nothing}
+mkUserBucket =
+  UserBucket' {s3Key = Lude.Nothing, s3Bucket = Lude.Nothing}
 
 -- | The file name of the disk image.
-ubS3Key :: Lens' UserBucket (Maybe Text)
-ubS3Key = lens _ubS3Key (\s a -> s {_ubS3Key = a})
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubS3Key :: Lens.Lens' UserBucket (Lude.Maybe Lude.Text)
+ubS3Key = Lens.lens (s3Key :: UserBucket -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: UserBucket)
+{-# DEPRECATED ubS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
 
 -- | The name of the Amazon S3 bucket where the disk image is located.
-ubS3Bucket :: Lens' UserBucket (Maybe Text)
-ubS3Bucket = lens _ubS3Bucket (\s a -> s {_ubS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubS3Bucket :: Lens.Lens' UserBucket (Lude.Maybe Lude.Text)
+ubS3Bucket = Lens.lens (s3Bucket :: UserBucket -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: UserBucket)
+{-# DEPRECATED ubS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance Hashable UserBucket
-
-instance NFData UserBucket
-
-instance ToQuery UserBucket where
+instance Lude.ToQuery UserBucket where
   toQuery UserBucket' {..} =
-    mconcat ["S3Key" =: _ubS3Key, "S3Bucket" =: _ubS3Bucket]
+    Lude.mconcat ["S3Key" Lude.=: s3Key, "S3Bucket" Lude.=: s3Bucket]

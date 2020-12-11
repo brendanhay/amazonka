@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.SubscriptionType where
+module Network.AWS.Budgets.Types.SubscriptionType
+  ( SubscriptionType
+      ( SubscriptionType',
+        Email,
+        SNS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The subscription type of the subscriber. It can be SMS or EMAIL.
-data SubscriptionType
-  = Email
-  | SNS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubscriptionType = SubscriptionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubscriptionType where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure Email
-      "sns" -> pure SNS
-      e ->
-        fromTextError $
-          "Failure parsing SubscriptionType from value: '" <> e
-            <> "'. Accepted values: email, sns"
+pattern Email :: SubscriptionType
+pattern Email = SubscriptionType' "EMAIL"
 
-instance ToText SubscriptionType where
-  toText = \case
-    Email -> "EMAIL"
-    SNS -> "SNS"
+pattern SNS :: SubscriptionType
+pattern SNS = SubscriptionType' "SNS"
 
-instance Hashable SubscriptionType
-
-instance NFData SubscriptionType
-
-instance ToByteString SubscriptionType
-
-instance ToQuery SubscriptionType
-
-instance ToHeader SubscriptionType
-
-instance ToJSON SubscriptionType where
-  toJSON = toJSONText
-
-instance FromJSON SubscriptionType where
-  parseJSON = parseJSONText "SubscriptionType"
+{-# COMPLETE
+  Email,
+  SNS,
+  SubscriptionType'
+  #-}

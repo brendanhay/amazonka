@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,130 @@
 --
 -- Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user.
 module Network.AWS.AppStream.DisableUser
-  ( -- * Creating a Request
-    disableUser,
-    DisableUser,
+  ( -- * Creating a request
+    DisableUser (..),
+    mkDisableUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dUserName,
     dAuthenticationType,
 
-    -- * Destructuring the Response
-    disableUserResponse,
-    DisableUserResponse,
+    -- * Destructuring the response
+    DisableUserResponse (..),
+    mkDisableUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     disrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableUser' smart constructor.
+-- | /See:/ 'mkDisableUser' smart constructor.
 data DisableUser = DisableUser'
-  { _dUserName :: !(Sensitive Text),
-    _dAuthenticationType :: !AuthenticationType
+  { userName ::
+      Lude.Sensitive Lude.Text,
+    authenticationType :: AuthenticationType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dUserName' - The email address of the user.
---
--- * 'dAuthenticationType' - The authentication type for the user. You must specify USERPOOL.
-disableUser ::
-  -- | 'dUserName'
-  Text ->
-  -- | 'dAuthenticationType'
+-- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
+-- * 'userName' - The email address of the user.
+mkDisableUser ::
+  -- | 'userName'
+  Lude.Sensitive Lude.Text ->
+  -- | 'authenticationType'
   AuthenticationType ->
   DisableUser
-disableUser pUserName_ pAuthenticationType_ =
+mkDisableUser pUserName_ pAuthenticationType_ =
   DisableUser'
-    { _dUserName = _Sensitive # pUserName_,
-      _dAuthenticationType = pAuthenticationType_
+    { userName = pUserName_,
+      authenticationType = pAuthenticationType_
     }
 
 -- | The email address of the user.
-dUserName :: Lens' DisableUser Text
-dUserName = lens _dUserName (\s a -> s {_dUserName = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUserName :: Lens.Lens' DisableUser (Lude.Sensitive Lude.Text)
+dUserName = Lens.lens (userName :: DisableUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: DisableUser)
+{-# DEPRECATED dUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The authentication type for the user. You must specify USERPOOL.
-dAuthenticationType :: Lens' DisableUser AuthenticationType
-dAuthenticationType = lens _dAuthenticationType (\s a -> s {_dAuthenticationType = a})
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAuthenticationType :: Lens.Lens' DisableUser AuthenticationType
+dAuthenticationType = Lens.lens (authenticationType :: DisableUser -> AuthenticationType) (\s a -> s {authenticationType = a} :: DisableUser)
+{-# DEPRECATED dAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
-instance AWSRequest DisableUser where
+instance Lude.AWSRequest DisableUser where
   type Rs DisableUser = DisableUserResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveEmpty
-      (\s h x -> DisableUserResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DisableUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DisableUser
-
-instance NFData DisableUser
-
-instance ToHeaders DisableUser where
+instance Lude.ToHeaders DisableUser where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DisableUser" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DisableUser" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableUser where
+instance Lude.ToJSON DisableUser where
   toJSON DisableUser' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserName" .= _dUserName),
-            Just ("AuthenticationType" .= _dAuthenticationType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserName" Lude..= userName),
+            Lude.Just ("AuthenticationType" Lude..= authenticationType)
           ]
       )
 
-instance ToPath DisableUser where
-  toPath = const "/"
+instance Lude.ToPath DisableUser where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableUser where
-  toQuery = const mempty
+instance Lude.ToQuery DisableUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableUserResponse' smart constructor.
+-- | /See:/ 'mkDisableUserResponse' smart constructor.
 newtype DisableUserResponse = DisableUserResponse'
-  { _disrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disrsResponseStatus' - -- | The response status code.
-disableUserResponse ::
-  -- | 'disrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisableUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableUserResponse
-disableUserResponse pResponseStatus_ =
-  DisableUserResponse' {_disrsResponseStatus = pResponseStatus_}
+mkDisableUserResponse pResponseStatus_ =
+  DisableUserResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-disrsResponseStatus :: Lens' DisableUserResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\s a -> s {_disrsResponseStatus = a})
-
-instance NFData DisableUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsResponseStatus :: Lens.Lens' DisableUserResponse Lude.Int
+disrsResponseStatus = Lens.lens (responseStatus :: DisableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableUserResponse)
+{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

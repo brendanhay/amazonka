@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.HostRecovery where
+module Network.AWS.EC2.Types.HostRecovery
+  ( HostRecovery
+      ( HostRecovery',
+        HRON,
+        HROff
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HostRecovery
-  = HRON
-  | HROff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HostRecovery = HostRecovery' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HostRecovery where
-  parser =
-    takeLowerText >>= \case
-      "on" -> pure HRON
-      "off" -> pure HROff
-      e ->
-        fromTextError $
-          "Failure parsing HostRecovery from value: '" <> e
-            <> "'. Accepted values: on, off"
+pattern HRON :: HostRecovery
+pattern HRON = HostRecovery' "on"
 
-instance ToText HostRecovery where
-  toText = \case
-    HRON -> "on"
-    HROff -> "off"
+pattern HROff :: HostRecovery
+pattern HROff = HostRecovery' "off"
 
-instance Hashable HostRecovery
-
-instance NFData HostRecovery
-
-instance ToByteString HostRecovery
-
-instance ToQuery HostRecovery
-
-instance ToHeader HostRecovery
-
-instance FromXML HostRecovery where
-  parseXML = parseXMLText "HostRecovery"
+{-# COMPLETE
+  HRON,
+  HROff,
+  HostRecovery'
+  #-}

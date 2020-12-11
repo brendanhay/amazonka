@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.Replica where
+module Network.AWS.DynamoDB.Types.Replica
+  ( Replica (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplica,
+
+    -- * Lenses
+    rRegionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the properties of a replica.
 --
---
---
--- /See:/ 'replica' smart constructor.
-newtype Replica = Replica' {_rRegionName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkReplica' smart constructor.
+newtype Replica = Replica' {regionName :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Replica' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rRegionName' - The Region where the replica needs to be created.
-replica ::
+-- * 'regionName' - The Region where the replica needs to be created.
+mkReplica ::
   Replica
-replica = Replica' {_rRegionName = Nothing}
+mkReplica = Replica' {regionName = Lude.Nothing}
 
 -- | The Region where the replica needs to be created.
-rRegionName :: Lens' Replica (Maybe Text)
-rRegionName = lens _rRegionName (\s a -> s {_rRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRegionName :: Lens.Lens' Replica (Lude.Maybe Lude.Text)
+rRegionName = Lens.lens (regionName :: Replica -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: Replica)
+{-# DEPRECATED rRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance FromJSON Replica where
+instance Lude.FromJSON Replica where
   parseJSON =
-    withObject "Replica" (\x -> Replica' <$> (x .:? "RegionName"))
+    Lude.withObject
+      "Replica"
+      (\x -> Replica' Lude.<$> (x Lude..:? "RegionName"))
 
-instance Hashable Replica
-
-instance NFData Replica
-
-instance ToJSON Replica where
+instance Lude.ToJSON Replica where
   toJSON Replica' {..} =
-    object (catMaybes [("RegionName" .=) <$> _rRegionName])
+    Lude.object
+      (Lude.catMaybes [("RegionName" Lude..=) Lude.<$> regionName])

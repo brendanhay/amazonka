@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.StatusCode where
+module Network.AWS.CloudWatch.Types.StatusCode
+  ( StatusCode
+      ( StatusCode',
+        Complete,
+        InternalError,
+        PartialData
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusCode
-  = Complete
-  | InternalError
-  | PartialData
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusCode = StatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusCode where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure Complete
-      "internalerror" -> pure InternalError
-      "partialdata" -> pure PartialData
-      e ->
-        fromTextError $
-          "Failure parsing StatusCode from value: '" <> e
-            <> "'. Accepted values: complete, internalerror, partialdata"
+pattern Complete :: StatusCode
+pattern Complete = StatusCode' "Complete"
 
-instance ToText StatusCode where
-  toText = \case
-    Complete -> "Complete"
-    InternalError -> "InternalError"
-    PartialData -> "PartialData"
+pattern InternalError :: StatusCode
+pattern InternalError = StatusCode' "InternalError"
 
-instance Hashable StatusCode
+pattern PartialData :: StatusCode
+pattern PartialData = StatusCode' "PartialData"
 
-instance NFData StatusCode
-
-instance ToByteString StatusCode
-
-instance ToQuery StatusCode
-
-instance ToHeader StatusCode
-
-instance FromXML StatusCode where
-  parseXML = parseXMLText "StatusCode"
+{-# COMPLETE
+  Complete,
+  InternalError,
+  PartialData,
+  StatusCode'
+  #-}

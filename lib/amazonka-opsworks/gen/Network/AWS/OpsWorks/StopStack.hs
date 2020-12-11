@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,93 @@
 --
 -- Stops a specified stack.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.StopStack
-  ( -- * Creating a Request
-    stopStack,
-    StopStack,
+  ( -- * Creating a request
+    StopStack (..),
+    mkStopStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stoStackId,
 
-    -- * Destructuring the Response
-    stopStackResponse,
-    StopStackResponse,
+    -- * Destructuring the response
+    StopStackResponse (..),
+    mkStopStackResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopStack' smart constructor.
-newtype StopStack = StopStack' {_stoStackId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStopStack' smart constructor.
+newtype StopStack = StopStack' {stackId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stoStackId' - The stack ID.
-stopStack ::
-  -- | 'stoStackId'
-  Text ->
+-- * 'stackId' - The stack ID.
+mkStopStack ::
+  -- | 'stackId'
+  Lude.Text ->
   StopStack
-stopStack pStackId_ = StopStack' {_stoStackId = pStackId_}
+mkStopStack pStackId_ = StopStack' {stackId = pStackId_}
 
 -- | The stack ID.
-stoStackId :: Lens' StopStack Text
-stoStackId = lens _stoStackId (\s a -> s {_stoStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stoStackId :: Lens.Lens' StopStack Lude.Text
+stoStackId = Lens.lens (stackId :: StopStack -> Lude.Text) (\s a -> s {stackId = a} :: StopStack)
+{-# DEPRECATED stoStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest StopStack where
+instance Lude.AWSRequest StopStack where
   type Rs StopStack = StopStackResponse
-  request = postJSON opsWorks
-  response = receiveNull StopStackResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull StopStackResponse'
 
-instance Hashable StopStack
-
-instance NFData StopStack
-
-instance ToHeaders StopStack where
+instance Lude.ToHeaders StopStack where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.StopStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.StopStack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopStack where
+instance Lude.ToJSON StopStack where
   toJSON StopStack' {..} =
-    object (catMaybes [Just ("StackId" .= _stoStackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
 
-instance ToPath StopStack where
-  toPath = const "/"
+instance Lude.ToPath StopStack where
+  toPath = Lude.const "/"
 
-instance ToQuery StopStack where
-  toQuery = const mempty
+instance Lude.ToQuery StopStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopStackResponse' smart constructor.
+-- | /See:/ 'mkStopStackResponse' smart constructor.
 data StopStackResponse = StopStackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackResponse' with the minimum fields required to make a request.
-stopStackResponse ::
+mkStopStackResponse ::
   StopStackResponse
-stopStackResponse = StopStackResponse'
-
-instance NFData StopStackResponse
+mkStopStackResponse = StopStackResponse'

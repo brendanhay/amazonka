@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsClientCache where
+module Network.AWS.MediaLive.Types.HlsClientCache
+  ( HlsClientCache
+      ( HlsClientCache',
+        HCCDisabled,
+        HCCEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Client Cache
-data HlsClientCache
-  = HCCDisabled
-  | HCCEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsClientCache = HlsClientCache' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsClientCache where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HCCDisabled
-      "enabled" -> pure HCCEnabled
-      e ->
-        fromTextError $
-          "Failure parsing HlsClientCache from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HCCDisabled :: HlsClientCache
+pattern HCCDisabled = HlsClientCache' "DISABLED"
 
-instance ToText HlsClientCache where
-  toText = \case
-    HCCDisabled -> "DISABLED"
-    HCCEnabled -> "ENABLED"
+pattern HCCEnabled :: HlsClientCache
+pattern HCCEnabled = HlsClientCache' "ENABLED"
 
-instance Hashable HlsClientCache
-
-instance NFData HlsClientCache
-
-instance ToByteString HlsClientCache
-
-instance ToQuery HlsClientCache
-
-instance ToHeader HlsClientCache
-
-instance ToJSON HlsClientCache where
-  toJSON = toJSONText
-
-instance FromJSON HlsClientCache where
-  parseJSON = parseJSONText "HlsClientCache"
+{-# COMPLETE
+  HCCDisabled,
+  HCCEnabled,
+  HlsClientCache'
+  #-}

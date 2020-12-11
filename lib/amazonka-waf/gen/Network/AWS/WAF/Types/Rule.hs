@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.Rule where
+module Network.AWS.WAF.Types.Rule
+  ( Rule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRule,
+
+    -- * Lenses
+    rMetricName,
+    rName,
+    rRuleId,
+    rPredicates,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAF.Types.Predicate
 
 -- | A combination of 'ByteMatchSet' , 'IPSet' , and/or 'SqlInjectionMatchSet' objects that identify the web requests that you want to allow, block, or count. For example, you might create a @Rule@ that includes the following predicates:
@@ -24,73 +30,86 @@ import Network.AWS.WAF.Types.Predicate
 --
 --     * An @IPSet@ that causes AWS WAF to search for web requests that originate from the IP address @192.0.2.44@
 --
---     * A @ByteMatchSet@ that causes AWS WAF to search for web requests for which the value of the @User-Agent@ header is @BadBot@ .
 --
+--     * A @ByteMatchSet@ that causes AWS WAF to search for web requests for which the value of the @User-Agent@ header is @BadBot@ .
 --
 --
 -- To match the settings in this @Rule@ , a request must originate from @192.0.2.44@ AND include a @User-Agent@ header for which the value is @BadBot@ .
 --
---
--- /See:/ 'rule' smart constructor.
+-- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
-  { _rMetricName :: !(Maybe Text),
-    _rName :: !(Maybe Text),
-    _rRuleId :: !Text,
-    _rPredicates :: ![Predicate]
+  { metricName :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    ruleId :: Lude.Text,
+    predicates :: [Predicate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'metricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
+-- * 'name' - The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
+-- * 'predicates' - The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
+-- * 'ruleId' - A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
 --
--- * 'rMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
---
--- * 'rName' - The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
---
--- * 'rRuleId' - A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ). @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
---
--- * 'rPredicates' - The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
-rule ::
-  -- | 'rRuleId'
-  Text ->
+-- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+mkRule ::
+  -- | 'ruleId'
+  Lude.Text ->
   Rule
-rule pRuleId_ =
+mkRule pRuleId_ =
   Rule'
-    { _rMetricName = Nothing,
-      _rName = Nothing,
-      _rRuleId = pRuleId_,
-      _rPredicates = mempty
+    { metricName = Lude.Nothing,
+      name = Lude.Nothing,
+      ruleId = pRuleId_,
+      predicates = Lude.mempty
     }
 
 -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
-rMetricName :: Lens' Rule (Maybe Text)
-rMetricName = lens _rMetricName (\s a -> s {_rMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rMetricName :: Lens.Lens' Rule (Lude.Maybe Lude.Text)
+rMetricName = Lens.lens (metricName :: Rule -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: Rule)
+{-# DEPRECATED rMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
-rName :: Lens' Rule (Maybe Text)
-rName = lens _rName (\s a -> s {_rName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' Rule (Lude.Maybe Lude.Text)
+rName = Lens.lens (name :: Rule -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Rule)
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ). @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-rRuleId :: Lens' Rule Text
-rRuleId = lens _rRuleId (\s a -> s {_rRuleId = a})
+-- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
+--
+-- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRuleId :: Lens.Lens' Rule Lude.Text
+rRuleId = Lens.lens (ruleId :: Rule -> Lude.Text) (\s a -> s {ruleId = a} :: Rule)
+{-# DEPRECATED rRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
-rPredicates :: Lens' Rule [Predicate]
-rPredicates = lens _rPredicates (\s a -> s {_rPredicates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'predicates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPredicates :: Lens.Lens' Rule [Predicate]
+rPredicates = Lens.lens (predicates :: Rule -> [Predicate]) (\s a -> s {predicates = a} :: Rule)
+{-# DEPRECATED rPredicates "Use generic-lens or generic-optics with 'predicates' instead." #-}
 
-instance FromJSON Rule where
+instance Lude.FromJSON Rule where
   parseJSON =
-    withObject
+    Lude.withObject
       "Rule"
       ( \x ->
           Rule'
-            <$> (x .:? "MetricName")
-            <*> (x .:? "Name")
-            <*> (x .: "RuleId")
-            <*> (x .:? "Predicates" .!= mempty)
+            Lude.<$> (x Lude..:? "MetricName")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..: "RuleId")
+            Lude.<*> (x Lude..:? "Predicates" Lude..!= Lude.mempty)
       )
-
-instance Hashable Rule
-
-instance NFData Rule

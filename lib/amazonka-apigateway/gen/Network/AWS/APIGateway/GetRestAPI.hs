@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Lists the 'RestApi' resource in the collection.
 module Network.AWS.APIGateway.GetRestAPI
-  ( -- * Creating a Request
-    getRestAPI,
-    GetRestAPI,
+  ( -- * Creating a request
+    GetRestAPI (..),
+    mkGetRestAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     graRestAPIId,
 
-    -- * Destructuring the Response
-    restAPI,
-    RestAPI,
+    -- * Destructuring the response
+    RestAPI (..),
+    mkRestAPI,
 
-    -- * Response Lenses
+    -- ** Response lenses
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -48,49 +43,55 @@ module Network.AWS.APIGateway.GetRestAPI
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The GET request to list an existing 'RestApi' defined for your collection.
 --
---
---
--- /See:/ 'getRestAPI' smart constructor.
-newtype GetRestAPI = GetRestAPI' {_graRestAPIId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetRestAPI' smart constructor.
+newtype GetRestAPI = GetRestAPI' {restAPIId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRestAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'graRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getRestAPI ::
-  -- | 'graRestAPIId'
-  Text ->
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetRestAPI ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetRestAPI
-getRestAPI pRestAPIId_ = GetRestAPI' {_graRestAPIId = pRestAPIId_}
+mkGetRestAPI pRestAPIId_ = GetRestAPI' {restAPIId = pRestAPIId_}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-graRestAPIId :: Lens' GetRestAPI Text
-graRestAPIId = lens _graRestAPIId (\s a -> s {_graRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+graRestAPIId :: Lens.Lens' GetRestAPI Lude.Text
+graRestAPIId = Lens.lens (restAPIId :: GetRestAPI -> Lude.Text) (\s a -> s {restAPIId = a} :: GetRestAPI)
+{-# DEPRECATED graRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSRequest GetRestAPI where
+instance Lude.AWSRequest GetRestAPI where
   type Rs GetRestAPI = RestAPI
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetRestAPI
-
-instance NFData GetRestAPI
-
-instance ToHeaders GetRestAPI where
+instance Lude.ToHeaders GetRestAPI where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetRestAPI where
-  toPath GetRestAPI' {..} = mconcat ["/restapis/", toBS _graRestAPIId]
+instance Lude.ToPath GetRestAPI where
+  toPath GetRestAPI' {..} =
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId]
 
-instance ToQuery GetRestAPI where
-  toQuery = const mempty
+instance Lude.ToQuery GetRestAPI where
+  toQuery = Lude.const Lude.mempty

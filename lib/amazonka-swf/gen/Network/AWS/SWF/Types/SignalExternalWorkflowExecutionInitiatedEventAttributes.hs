@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes where
+module Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes
+  ( SignalExternalWorkflowExecutionInitiatedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSignalExternalWorkflowExecutionInitiatedEventAttributes,
+
+    -- * Lenses
+    seweieaControl,
+    seweieaInput,
+    seweieaRunId,
+    seweieaWorkflowId,
+    seweieaSignalName,
+    seweieaDecisionTaskCompletedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @SignalExternalWorkflowExecutionInitiated@ event.
 --
---
---
--- /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
+-- /See:/ 'mkSignalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
-  { _seweieaControl ::
-      !( Maybe
-           Text
-       ),
-    _seweieaInput ::
-      !( Maybe
-           Text
-       ),
-    _seweieaRunId ::
-      !( Maybe
-           Text
-       ),
-    _seweieaWorkflowId ::
-      !Text,
-    _seweieaSignalName ::
-      !Text,
-    _seweieaDecisionTaskCompletedEventId ::
-      !Integer
+  { control ::
+      Lude.Maybe
+        Lude.Text,
+    input ::
+      Lude.Maybe
+        Lude.Text,
+    runId ::
+      Lude.Maybe
+        Lude.Text,
+    workflowId ::
+      Lude.Text,
+    signalName ::
+      Lude.Text,
+    decisionTaskCompletedEventId ::
+      Lude.Integer
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'SignalExternalWorkflowExecutionInitiatedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seweieaControl' - Data attached to the event that can be used by the decider in subsequent decision tasks.
---
--- * 'seweieaInput' - The input provided to the signal.
---
--- * 'seweieaRunId' - The @runId@ of the external workflow execution to send the signal to.
---
--- * 'seweieaWorkflowId' - The @workflowId@ of the external workflow execution.
---
--- * 'seweieaSignalName' - The name of the signal.
---
--- * 'seweieaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-signalExternalWorkflowExecutionInitiatedEventAttributes ::
-  -- | 'seweieaWorkflowId'
-  Text ->
-  -- | 'seweieaSignalName'
-  Text ->
-  -- | 'seweieaDecisionTaskCompletedEventId'
-  Integer ->
+-- * 'control' - Data attached to the event that can be used by the decider in subsequent decision tasks.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'input' - The input provided to the signal.
+-- * 'runId' - The @runId@ of the external workflow execution to send the signal to.
+-- * 'signalName' - The name of the signal.
+-- * 'workflowId' - The @workflowId@ of the external workflow execution.
+mkSignalExternalWorkflowExecutionInitiatedEventAttributes ::
+  -- | 'workflowId'
+  Lude.Text ->
+  -- | 'signalName'
+  Lude.Text ->
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
   SignalExternalWorkflowExecutionInitiatedEventAttributes
-signalExternalWorkflowExecutionInitiatedEventAttributes
+mkSignalExternalWorkflowExecutionInitiatedEventAttributes
   pWorkflowId_
   pSignalName_
   pDecisionTaskCompletedEventId_ =
     SignalExternalWorkflowExecutionInitiatedEventAttributes'
-      { _seweieaControl =
-          Nothing,
-        _seweieaInput = Nothing,
-        _seweieaRunId = Nothing,
-        _seweieaWorkflowId = pWorkflowId_,
-        _seweieaSignalName = pSignalName_,
-        _seweieaDecisionTaskCompletedEventId =
+      { control =
+          Lude.Nothing,
+        input = Lude.Nothing,
+        runId = Lude.Nothing,
+        workflowId = pWorkflowId_,
+        signalName = pSignalName_,
+        decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | Data attached to the event that can be used by the decider in subsequent decision tasks.
-seweieaControl :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-seweieaControl = lens _seweieaControl (\s a -> s {_seweieaControl = a})
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaControl :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+seweieaControl = Lens.lens (control :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The input provided to the signal.
-seweieaInput :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-seweieaInput = lens _seweieaInput (\s a -> s {_seweieaInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaInput :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+seweieaInput = Lens.lens (input :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The @runId@ of the external workflow execution to send the signal to.
-seweieaRunId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-seweieaRunId = lens _seweieaRunId (\s a -> s {_seweieaRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaRunId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+seweieaRunId = Lens.lens (runId :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | The @workflowId@ of the external workflow execution.
-seweieaWorkflowId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
-seweieaWorkflowId = lens _seweieaWorkflowId (\s a -> s {_seweieaWorkflowId = a})
+--
+-- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaWorkflowId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Lude.Text
+seweieaWorkflowId = Lens.lens (workflowId :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Text) (\s a -> s {workflowId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
 -- | The name of the signal.
-seweieaSignalName :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
-seweieaSignalName = lens _seweieaSignalName (\s a -> s {_seweieaSignalName = a})
+--
+-- /Note:/ Consider using 'signalName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaSignalName :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Lude.Text
+seweieaSignalName = Lens.lens (signalName :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Text) (\s a -> s {signalName = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaSignalName "Use generic-lens or generic-optics with 'signalName' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-seweieaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Integer
-seweieaDecisionTaskCompletedEventId = lens _seweieaDecisionTaskCompletedEventId (\s a -> s {_seweieaDecisionTaskCompletedEventId = a})
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seweieaDecisionTaskCompletedEventId :: Lens.Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Lude.Integer
+seweieaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: SignalExternalWorkflowExecutionInitiatedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: SignalExternalWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED seweieaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
 instance
-  FromJSON
+  Lude.FromJSON
     SignalExternalWorkflowExecutionInitiatedEventAttributes
   where
   parseJSON =
-    withObject
+    Lude.withObject
       "SignalExternalWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           SignalExternalWorkflowExecutionInitiatedEventAttributes'
-            <$> (x .:? "control")
-            <*> (x .:? "input")
-            <*> (x .:? "runId")
-            <*> (x .: "workflowId")
-            <*> (x .: "signalName")
-            <*> (x .: "decisionTaskCompletedEventId")
+            Lude.<$> (x Lude..:? "control")
+            Lude.<*> (x Lude..:? "input")
+            Lude.<*> (x Lude..:? "runId")
+            Lude.<*> (x Lude..: "workflowId")
+            Lude.<*> (x Lude..: "signalName")
+            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )
-
-instance
-  Hashable
-    SignalExternalWorkflowExecutionInitiatedEventAttributes
-
-instance
-  NFData
-    SignalExternalWorkflowExecutionInitiatedEventAttributes

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ActionType where
+module Network.AWS.Redshift.Types.ActionType
+  ( ActionType
+      ( ActionType',
+        ATRecommendNodeConfig,
+        ATResizeCluster,
+        ATRestoreCluster
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ActionType
-  = ATRecommendNodeConfig
-  | ATResizeCluster
-  | ATRestoreCluster
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionType = ActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionType where
-  parser =
-    takeLowerText >>= \case
-      "recommend-node-config" -> pure ATRecommendNodeConfig
-      "resize-cluster" -> pure ATResizeCluster
-      "restore-cluster" -> pure ATRestoreCluster
-      e ->
-        fromTextError $
-          "Failure parsing ActionType from value: '" <> e
-            <> "'. Accepted values: recommend-node-config, resize-cluster, restore-cluster"
+pattern ATRecommendNodeConfig :: ActionType
+pattern ATRecommendNodeConfig = ActionType' "recommend-node-config"
 
-instance ToText ActionType where
-  toText = \case
-    ATRecommendNodeConfig -> "recommend-node-config"
-    ATResizeCluster -> "resize-cluster"
-    ATRestoreCluster -> "restore-cluster"
+pattern ATResizeCluster :: ActionType
+pattern ATResizeCluster = ActionType' "resize-cluster"
 
-instance Hashable ActionType
+pattern ATRestoreCluster :: ActionType
+pattern ATRestoreCluster = ActionType' "restore-cluster"
 
-instance NFData ActionType
-
-instance ToByteString ActionType
-
-instance ToQuery ActionType
-
-instance ToHeader ActionType
+{-# COMPLETE
+  ATRecommendNodeConfig,
+  ATResizeCluster,
+  ATRestoreCluster,
+  ActionType'
+  #-}

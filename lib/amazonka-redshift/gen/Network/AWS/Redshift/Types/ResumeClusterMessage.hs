@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ResumeClusterMessage where
+module Network.AWS.Redshift.Types.ResumeClusterMessage
+  ( ResumeClusterMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResumeClusterMessage,
+
+    -- * Lenses
+    rClusterIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resume cluster operation. For example, a scheduled action to run the @ResumeCluster@ API operation.
 --
---
---
--- /See:/ 'resumeClusterMessage' smart constructor.
+-- /See:/ 'mkResumeClusterMessage' smart constructor.
 newtype ResumeClusterMessage = ResumeClusterMessage'
-  { _rClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeClusterMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rClusterIdentifier' - The identifier of the cluster to be resumed.
-resumeClusterMessage ::
-  -- | 'rClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The identifier of the cluster to be resumed.
+mkResumeClusterMessage ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   ResumeClusterMessage
-resumeClusterMessage pClusterIdentifier_ =
-  ResumeClusterMessage' {_rClusterIdentifier = pClusterIdentifier_}
+mkResumeClusterMessage pClusterIdentifier_ =
+  ResumeClusterMessage' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The identifier of the cluster to be resumed.
-rClusterIdentifier :: Lens' ResumeClusterMessage Text
-rClusterIdentifier = lens _rClusterIdentifier (\s a -> s {_rClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rClusterIdentifier :: Lens.Lens' ResumeClusterMessage Lude.Text
+rClusterIdentifier = Lens.lens (clusterIdentifier :: ResumeClusterMessage -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResumeClusterMessage)
+{-# DEPRECATED rClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance FromXML ResumeClusterMessage where
-  parseXML x = ResumeClusterMessage' <$> (x .@ "ClusterIdentifier")
+instance Lude.FromXML ResumeClusterMessage where
+  parseXML x =
+    ResumeClusterMessage' Lude.<$> (x Lude..@ "ClusterIdentifier")
 
-instance Hashable ResumeClusterMessage
-
-instance NFData ResumeClusterMessage
-
-instance ToQuery ResumeClusterMessage where
+instance Lude.ToQuery ResumeClusterMessage where
   toQuery ResumeClusterMessage' {..} =
-    mconcat ["ClusterIdentifier" =: _rClusterIdentifier]
+    Lude.mconcat ["ClusterIdentifier" Lude.=: clusterIdentifier]

@@ -13,8 +13,8 @@
 --
 -- AWS Mobile Service provides mobile app and website developers with capabilities required to configure AWS resources and bootstrap their developer desktop projects with the necessary SDKs, constants, tools and samples to make use of those resources.
 module Network.AWS.Mobile
-  ( -- * Service Configuration
-    mobile,
+  ( -- * Service configuration
+    mobileService,
 
     -- * Errors
     -- $errors
@@ -61,8 +61,8 @@ module Network.AWS.Mobile
     ProjectState (..),
 
     -- ** BundleDetails
-    BundleDetails,
-    bundleDetails,
+    BundleDetails (..),
+    mkBundleDetails,
     bdAvailablePlatforms,
     bdBundleId,
     bdVersion,
@@ -71,8 +71,8 @@ module Network.AWS.Mobile
     bdDescription,
 
     -- ** ProjectDetails
-    ProjectDetails,
-    projectDetails,
+    ProjectDetails (..),
+    mkProjectDetails,
     pdState,
     pdResources,
     pdCreatedDate,
@@ -83,19 +83,30 @@ module Network.AWS.Mobile
     pdLastUpdatedDate,
 
     -- ** ProjectSummary
-    ProjectSummary,
-    projectSummary,
+    ProjectSummary (..),
+    mkProjectSummary,
     psName,
     psProjectId,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rFeature,
     rArn,
     rName,
     rAttributes,
     rType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -110,6 +121,7 @@ import Network.AWS.Mobile.ListProjects
 import Network.AWS.Mobile.Types
 import Network.AWS.Mobile.UpdateProject
 import Network.AWS.Mobile.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,181 @@
 --
 -- Updates metadata in a build resource, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
 --
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
---
 -- __Related operations__
 --
 --     * 'CreateBuild'
 --
+--
 --     * 'ListBuilds'
+--
 --
 --     * 'DescribeBuild'
 --
+--
 --     * 'UpdateBuild'
+--
 --
 --     * 'DeleteBuild'
 module Network.AWS.GameLift.UpdateBuild
-  ( -- * Creating a Request
-    updateBuild,
-    UpdateBuild,
+  ( -- * Creating a request
+    UpdateBuild (..),
+    mkUpdateBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubName,
     ubVersion,
     ubBuildId,
 
-    -- * Destructuring the Response
-    updateBuildResponse,
-    UpdateBuildResponse,
+    -- * Destructuring the response
+    UpdateBuildResponse (..),
+    mkUpdateBuildResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ubrsBuild,
     ubrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'updateBuild' smart constructor.
+-- /See:/ 'mkUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { _ubName :: !(Maybe Text),
-    _ubVersion :: !(Maybe Text),
-    _ubBuildId :: !Text
+  { name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    buildId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubName' - A descriptive label that is associated with a build. Build names do not need to be unique.
---
--- * 'ubVersion' - Version information that is associated with a build or script. Version strings do not need to be unique.
---
--- * 'ubBuildId' - A unique identifier for a build to update. You can use either the build ID or ARN value.
-updateBuild ::
-  -- | 'ubBuildId'
-  Text ->
+-- * 'buildId' - A unique identifier for a build to update. You can use either the build ID or ARN value.
+-- * 'name' - A descriptive label that is associated with a build. Build names do not need to be unique.
+-- * 'version' - Version information that is associated with a build or script. Version strings do not need to be unique.
+mkUpdateBuild ::
+  -- | 'buildId'
+  Lude.Text ->
   UpdateBuild
-updateBuild pBuildId_ =
+mkUpdateBuild pBuildId_ =
   UpdateBuild'
-    { _ubName = Nothing,
-      _ubVersion = Nothing,
-      _ubBuildId = pBuildId_
+    { name = Lude.Nothing,
+      version = Lude.Nothing,
+      buildId = pBuildId_
     }
 
 -- | A descriptive label that is associated with a build. Build names do not need to be unique.
-ubName :: Lens' UpdateBuild (Maybe Text)
-ubName = lens _ubName (\s a -> s {_ubName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubName :: Lens.Lens' UpdateBuild (Lude.Maybe Lude.Text)
+ubName = Lens.lens (name :: UpdateBuild -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateBuild)
+{-# DEPRECATED ubName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Version information that is associated with a build or script. Version strings do not need to be unique.
-ubVersion :: Lens' UpdateBuild (Maybe Text)
-ubVersion = lens _ubVersion (\s a -> s {_ubVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubVersion :: Lens.Lens' UpdateBuild (Lude.Maybe Lude.Text)
+ubVersion = Lens.lens (version :: UpdateBuild -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateBuild)
+{-# DEPRECATED ubVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | A unique identifier for a build to update. You can use either the build ID or ARN value.
-ubBuildId :: Lens' UpdateBuild Text
-ubBuildId = lens _ubBuildId (\s a -> s {_ubBuildId = a})
+--
+-- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubBuildId :: Lens.Lens' UpdateBuild Lude.Text
+ubBuildId = Lens.lens (buildId :: UpdateBuild -> Lude.Text) (\s a -> s {buildId = a} :: UpdateBuild)
+{-# DEPRECATED ubBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
-instance AWSRequest UpdateBuild where
+instance Lude.AWSRequest UpdateBuild where
   type Rs UpdateBuild = UpdateBuildResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateBuildResponse' <$> (x .?> "Build") <*> (pure (fromEnum s))
+          UpdateBuildResponse'
+            Lude.<$> (x Lude..?> "Build") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateBuild
-
-instance NFData UpdateBuild
-
-instance ToHeaders UpdateBuild where
+instance Lude.ToHeaders UpdateBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.UpdateBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.UpdateBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateBuild where
+instance Lude.ToJSON UpdateBuild where
   toJSON UpdateBuild' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _ubName,
-            ("Version" .=) <$> _ubVersion,
-            Just ("BuildId" .= _ubBuildId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("Version" Lude..=) Lude.<$> version,
+            Lude.Just ("BuildId" Lude..= buildId)
           ]
       )
 
-instance ToPath UpdateBuild where
-  toPath = const "/"
+instance Lude.ToPath UpdateBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateBuild where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBuild where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'updateBuildResponse' smart constructor.
+-- /See:/ 'mkUpdateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
-  { _ubrsBuild ::
-      !(Maybe Build),
-    _ubrsResponseStatus :: !Int
+  { build ::
+      Lude.Maybe Build,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBuildResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrsBuild' - The updated build resource.
---
--- * 'ubrsResponseStatus' - -- | The response status code.
-updateBuildResponse ::
-  -- | 'ubrsResponseStatus'
-  Int ->
+-- * 'build' - The updated build resource.
+-- * 'responseStatus' - The response status code.
+mkUpdateBuildResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateBuildResponse
-updateBuildResponse pResponseStatus_ =
+mkUpdateBuildResponse pResponseStatus_ =
   UpdateBuildResponse'
-    { _ubrsBuild = Nothing,
-      _ubrsResponseStatus = pResponseStatus_
+    { build = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated build resource.
-ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
-ubrsBuild = lens _ubrsBuild (\s a -> s {_ubrsBuild = a})
+--
+-- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsBuild :: Lens.Lens' UpdateBuildResponse (Lude.Maybe Build)
+ubrsBuild = Lens.lens (build :: UpdateBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: UpdateBuildResponse)
+{-# DEPRECATED ubrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
--- | -- | The response status code.
-ubrsResponseStatus :: Lens' UpdateBuildResponse Int
-ubrsResponseStatus = lens _ubrsResponseStatus (\s a -> s {_ubrsResponseStatus = a})
-
-instance NFData UpdateBuildResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsResponseStatus :: Lens.Lens' UpdateBuildResponse Lude.Int
+ubrsResponseStatus = Lens.lens (responseStatus :: UpdateBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBuildResponse)
+{-# DEPRECATED ubrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse where
+module Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse
+  ( JourneyDateRangeKpiResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkJourneyDateRangeKpiResponse,
+
+    -- * Lenses
+    jdrkNextToken,
+    jdrkKpiResult,
+    jdrkKpiName,
+    jdrkJourneyId,
+    jdrkEndTime,
+    jdrkStartTime,
+    jdrkApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.BaseKpiResult
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.
 --
---
---
--- /See:/ 'journeyDateRangeKpiResponse' smart constructor.
+-- /See:/ 'mkJourneyDateRangeKpiResponse' smart constructor.
 data JourneyDateRangeKpiResponse = JourneyDateRangeKpiResponse'
-  { _jdrkNextToken ::
-      !(Maybe Text),
-    _jdrkKpiResult :: !BaseKpiResult,
-    _jdrkKpiName :: !Text,
-    _jdrkJourneyId :: !Text,
-    _jdrkEndTime :: !POSIX,
-    _jdrkStartTime :: !POSIX,
-    _jdrkApplicationId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    kpiResult :: BaseKpiResult,
+    kpiName :: Lude.Text,
+    journeyId :: Lude.Text,
+    endTime :: Lude.Timestamp,
+    startTime :: Lude.Timestamp,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyDateRangeKpiResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jdrkNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.
---
--- * 'jdrkKpiResult' - An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.
---
--- * 'jdrkKpiName' - The name of the metric, also referred to as a /key performance indicator (KPI)/ , that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
---
--- * 'jdrkJourneyId' - The unique identifier for the journey that the metric applies to.
---
--- * 'jdrkEndTime' - The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
---
--- * 'jdrkStartTime' - The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
---
--- * 'jdrkApplicationId' - The unique identifier for the application that the metric applies to.
-journeyDateRangeKpiResponse ::
-  -- | 'jdrkKpiResult'
+-- * 'applicationId' - The unique identifier for the application that the metric applies to.
+-- * 'endTime' - The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
+-- * 'journeyId' - The unique identifier for the journey that the metric applies to.
+-- * 'kpiName' - The name of the metric, also referred to as a /key performance indicator (KPI)/ , that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+-- * 'kpiResult' - An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.
+-- * 'startTime' - The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
+mkJourneyDateRangeKpiResponse ::
+  -- | 'kpiResult'
   BaseKpiResult ->
-  -- | 'jdrkKpiName'
-  Text ->
-  -- | 'jdrkJourneyId'
-  Text ->
-  -- | 'jdrkEndTime'
-  UTCTime ->
-  -- | 'jdrkStartTime'
-  UTCTime ->
-  -- | 'jdrkApplicationId'
-  Text ->
+  -- | 'kpiName'
+  Lude.Text ->
+  -- | 'journeyId'
+  Lude.Text ->
+  -- | 'endTime'
+  Lude.Timestamp ->
+  -- | 'startTime'
+  Lude.Timestamp ->
+  -- | 'applicationId'
+  Lude.Text ->
   JourneyDateRangeKpiResponse
-journeyDateRangeKpiResponse
+mkJourneyDateRangeKpiResponse
   pKpiResult_
   pKpiName_
   pJourneyId_
@@ -75,58 +81,75 @@ journeyDateRangeKpiResponse
   pStartTime_
   pApplicationId_ =
     JourneyDateRangeKpiResponse'
-      { _jdrkNextToken = Nothing,
-        _jdrkKpiResult = pKpiResult_,
-        _jdrkKpiName = pKpiName_,
-        _jdrkJourneyId = pJourneyId_,
-        _jdrkEndTime = _Time # pEndTime_,
-        _jdrkStartTime = _Time # pStartTime_,
-        _jdrkApplicationId = pApplicationId_
+      { nextToken = Lude.Nothing,
+        kpiResult = pKpiResult_,
+        kpiName = pKpiName_,
+        journeyId = pJourneyId_,
+        endTime = pEndTime_,
+        startTime = pStartTime_,
+        applicationId = pApplicationId_
       }
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.
-jdrkNextToken :: Lens' JourneyDateRangeKpiResponse (Maybe Text)
-jdrkNextToken = lens _jdrkNextToken (\s a -> s {_jdrkNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkNextToken :: Lens.Lens' JourneyDateRangeKpiResponse (Lude.Maybe Lude.Text)
+jdrkNextToken = Lens.lens (nextToken :: JourneyDateRangeKpiResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.
-jdrkKpiResult :: Lens' JourneyDateRangeKpiResponse BaseKpiResult
-jdrkKpiResult = lens _jdrkKpiResult (\s a -> s {_jdrkKpiResult = a})
+--
+-- /Note:/ Consider using 'kpiResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkKpiResult :: Lens.Lens' JourneyDateRangeKpiResponse BaseKpiResult
+jdrkKpiResult = Lens.lens (kpiResult :: JourneyDateRangeKpiResponse -> BaseKpiResult) (\s a -> s {kpiResult = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkKpiResult "Use generic-lens or generic-optics with 'kpiResult' instead." #-}
 
 -- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-jdrkKpiName :: Lens' JourneyDateRangeKpiResponse Text
-jdrkKpiName = lens _jdrkKpiName (\s a -> s {_jdrkKpiName = a})
+--
+-- /Note:/ Consider using 'kpiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkKpiName :: Lens.Lens' JourneyDateRangeKpiResponse Lude.Text
+jdrkKpiName = Lens.lens (kpiName :: JourneyDateRangeKpiResponse -> Lude.Text) (\s a -> s {kpiName = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkKpiName "Use generic-lens or generic-optics with 'kpiName' instead." #-}
 
 -- | The unique identifier for the journey that the metric applies to.
-jdrkJourneyId :: Lens' JourneyDateRangeKpiResponse Text
-jdrkJourneyId = lens _jdrkJourneyId (\s a -> s {_jdrkJourneyId = a})
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkJourneyId :: Lens.Lens' JourneyDateRangeKpiResponse Lude.Text
+jdrkJourneyId = Lens.lens (journeyId :: JourneyDateRangeKpiResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
-jdrkEndTime :: Lens' JourneyDateRangeKpiResponse UTCTime
-jdrkEndTime = lens _jdrkEndTime (\s a -> s {_jdrkEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkEndTime :: Lens.Lens' JourneyDateRangeKpiResponse Lude.Timestamp
+jdrkEndTime = Lens.lens (endTime :: JourneyDateRangeKpiResponse -> Lude.Timestamp) (\s a -> s {endTime = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.
-jdrkStartTime :: Lens' JourneyDateRangeKpiResponse UTCTime
-jdrkStartTime = lens _jdrkStartTime (\s a -> s {_jdrkStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkStartTime :: Lens.Lens' JourneyDateRangeKpiResponse Lude.Timestamp
+jdrkStartTime = Lens.lens (startTime :: JourneyDateRangeKpiResponse -> Lude.Timestamp) (\s a -> s {startTime = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The unique identifier for the application that the metric applies to.
-jdrkApplicationId :: Lens' JourneyDateRangeKpiResponse Text
-jdrkApplicationId = lens _jdrkApplicationId (\s a -> s {_jdrkApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdrkApplicationId :: Lens.Lens' JourneyDateRangeKpiResponse Lude.Text
+jdrkApplicationId = Lens.lens (applicationId :: JourneyDateRangeKpiResponse -> Lude.Text) (\s a -> s {applicationId = a} :: JourneyDateRangeKpiResponse)
+{-# DEPRECATED jdrkApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON JourneyDateRangeKpiResponse where
+instance Lude.FromJSON JourneyDateRangeKpiResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyDateRangeKpiResponse"
       ( \x ->
           JourneyDateRangeKpiResponse'
-            <$> (x .:? "NextToken")
-            <*> (x .: "KpiResult")
-            <*> (x .: "KpiName")
-            <*> (x .: "JourneyId")
-            <*> (x .: "EndTime")
-            <*> (x .: "StartTime")
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..: "KpiResult")
+            Lude.<*> (x Lude..: "KpiName")
+            Lude.<*> (x Lude..: "JourneyId")
+            Lude.<*> (x Lude..: "EndTime")
+            Lude.<*> (x Lude..: "StartTime")
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable JourneyDateRangeKpiResponse
-
-instance NFData JourneyDateRangeKpiResponse

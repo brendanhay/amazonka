@@ -13,8 +13,8 @@
 --
 -- This is the Amazon Rekognition API reference.
 module Network.AWS.Rekognition
-  ( -- * Service Configuration
-    rekognition,
+  ( -- * Service configuration
+    rekognitionService,
 
     -- * Errors
     -- $errors
@@ -23,10 +23,10 @@ module Network.AWS.Rekognition
     -- $waiters
 
     -- ** ProjectVersionRunning
-    projectVersionRunning,
+    mkProjectVersionRunning,
 
     -- ** ProjectVersionTrainingCompleted
-    projectVersionTrainingCompleted,
+    mkProjectVersionTrainingCompleted,
 
     -- * Operations
     -- $operations
@@ -247,41 +247,41 @@ module Network.AWS.Rekognition
     VideoJobStatus (..),
 
     -- ** AgeRange
-    AgeRange,
-    ageRange,
+    AgeRange (..),
+    mkAgeRange,
     arLow,
     arHigh,
 
     -- ** Asset
-    Asset,
-    asset,
+    Asset (..),
+    mkAsset,
     aGroundTruthManifest,
 
     -- ** AudioMetadata
-    AudioMetadata,
-    audioMetadata,
+    AudioMetadata (..),
+    mkAudioMetadata,
     amCodec,
     amSampleRate,
     amNumberOfChannels,
     amDurationMillis,
 
     -- ** Beard
-    Beard,
-    beard,
+    Beard (..),
+    mkBeard,
     bValue,
     bConfidence,
 
     -- ** BoundingBox
-    BoundingBox,
-    boundingBox,
+    BoundingBox (..),
+    mkBoundingBox,
     bbHeight,
     bbLeft,
     bbWidth,
     bbTop,
 
     -- ** Celebrity
-    Celebrity,
-    celebrity,
+    Celebrity (..),
+    mkCelebrity,
     cMatchConfidence,
     cURLs,
     cName,
@@ -289,8 +289,8 @@ module Network.AWS.Rekognition
     cFace,
 
     -- ** CelebrityDetail
-    CelebrityDetail,
-    celebrityDetail,
+    CelebrityDetail (..),
+    mkCelebrityDetail,
     cdBoundingBox,
     cdURLs,
     cdConfidence,
@@ -299,20 +299,20 @@ module Network.AWS.Rekognition
     cdFace,
 
     -- ** CelebrityRecognition
-    CelebrityRecognition,
-    celebrityRecognition,
+    CelebrityRecognition (..),
+    mkCelebrityRecognition,
     crCelebrity,
     crTimestamp,
 
     -- ** CompareFacesMatch
-    CompareFacesMatch,
-    compareFacesMatch,
+    CompareFacesMatch (..),
+    mkCompareFacesMatch,
     cfmSimilarity,
     cfmFace,
 
     -- ** ComparedFace
-    ComparedFace,
-    comparedFace,
+    ComparedFace (..),
+    mkComparedFace,
     cfBoundingBox,
     cfPose,
     cfConfidence,
@@ -320,78 +320,78 @@ module Network.AWS.Rekognition
     cfLandmarks,
 
     -- ** ComparedSourceImageFace
-    ComparedSourceImageFace,
-    comparedSourceImageFace,
+    ComparedSourceImageFace (..),
+    mkComparedSourceImageFace,
     csifBoundingBox,
     csifConfidence,
 
     -- ** ContentModerationDetection
-    ContentModerationDetection,
-    contentModerationDetection,
+    ContentModerationDetection (..),
+    mkContentModerationDetection,
     cmdModerationLabel,
     cmdTimestamp,
 
     -- ** CoversBodyPart
-    CoversBodyPart,
-    coversBodyPart,
+    CoversBodyPart (..),
+    mkCoversBodyPart,
     cbpValue,
     cbpConfidence,
 
     -- ** CustomLabel
-    CustomLabel,
-    customLabel,
+    CustomLabel (..),
+    mkCustomLabel,
     clConfidence,
     clName,
     clGeometry,
 
     -- ** DetectTextFilters
-    DetectTextFilters,
-    detectTextFilters,
+    DetectTextFilters (..),
+    mkDetectTextFilters,
     dtfRegionsOfInterest,
     dtfWordFilter,
 
     -- ** DetectionFilter
-    DetectionFilter,
-    detectionFilter,
+    DetectionFilter (..),
+    mkDetectionFilter,
     dfMinBoundingBoxHeight,
     dfMinBoundingBoxWidth,
     dfMinConfidence,
 
     -- ** Emotion
-    Emotion,
-    emotion,
+    Emotion (..),
+    mkEmotion,
     eConfidence,
     eType,
 
     -- ** EquipmentDetection
-    EquipmentDetection,
-    equipmentDetection,
+    EquipmentDetection (..),
+    mkEquipmentDetection,
     edBoundingBox,
     edCoversBodyPart,
     edConfidence,
     edType,
 
     -- ** EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erSummary,
     erF1Score,
 
     -- ** EyeOpen
-    EyeOpen,
-    eyeOpen,
+    EyeOpen (..),
+    mkEyeOpen,
     eoValue,
     eoConfidence,
 
     -- ** Eyeglasses
-    Eyeglasses,
-    eyeglasses,
+    Eyeglasses (..),
+    mkEyeglasses,
     eyeValue,
     eyeConfidence,
 
     -- ** Face
-    Face,
-    face,
+    Face (..),
+    mkFace,
     fFaceId,
     fBoundingBox,
     fExternalImageId,
@@ -399,8 +399,8 @@ module Network.AWS.Rekognition
     fImageId,
 
     -- ** FaceDetail
-    FaceDetail,
-    faceDetail,
+    FaceDetail (..),
+    mkFaceDetail,
     fdAgeRange,
     fdSunglasses,
     fdMouthOpen,
@@ -418,193 +418,193 @@ module Network.AWS.Rekognition
     fdLandmarks,
 
     -- ** FaceDetection
-    FaceDetection,
-    faceDetection,
+    FaceDetection (..),
+    mkFaceDetection,
     fdTimestamp,
     fdFace,
 
     -- ** FaceMatch
-    FaceMatch,
-    faceMatch,
+    FaceMatch (..),
+    mkFaceMatch,
     fmSimilarity,
     fmFace,
 
     -- ** FaceRecord
-    FaceRecord,
-    faceRecord,
+    FaceRecord (..),
+    mkFaceRecord,
     frFaceDetail,
     frFace,
 
     -- ** FaceSearchSettings
-    FaceSearchSettings,
-    faceSearchSettings,
+    FaceSearchSettings (..),
+    mkFaceSearchSettings,
     fssFaceMatchThreshold,
     fssCollectionId,
 
     -- ** Gender
-    Gender,
-    gender,
+    Gender (..),
+    mkGender,
     gValue,
     gConfidence,
 
     -- ** Geometry
-    Geometry,
-    geometry,
+    Geometry (..),
+    mkGeometry,
     gBoundingBox,
     gPolygon,
 
     -- ** GroundTruthManifest
-    GroundTruthManifest,
-    groundTruthManifest,
+    GroundTruthManifest (..),
+    mkGroundTruthManifest,
     gtmS3Object,
 
     -- ** HumanLoopActivationOutput
-    HumanLoopActivationOutput,
-    humanLoopActivationOutput,
+    HumanLoopActivationOutput (..),
+    mkHumanLoopActivationOutput,
     hlaoHumanLoopActivationReasons,
     hlaoHumanLoopARN,
     hlaoHumanLoopActivationConditionsEvaluationResults,
 
     -- ** HumanLoopConfig
-    HumanLoopConfig,
-    humanLoopConfig,
+    HumanLoopConfig (..),
+    mkHumanLoopConfig,
     hlcDataAttributes,
     hlcHumanLoopName,
     hlcFlowDefinitionARN,
 
     -- ** HumanLoopDataAttributes
-    HumanLoopDataAttributes,
-    humanLoopDataAttributes,
+    HumanLoopDataAttributes (..),
+    mkHumanLoopDataAttributes,
     hldaContentClassifiers,
 
     -- ** Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iS3Object,
     iBytes,
 
     -- ** ImageQuality
-    ImageQuality,
-    imageQuality,
+    ImageQuality (..),
+    mkImageQuality,
     iqSharpness,
     iqBrightness,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iBoundingBox,
     iConfidence,
 
     -- ** KinesisDataStream
-    KinesisDataStream,
-    kinesisDataStream,
+    KinesisDataStream (..),
+    mkKinesisDataStream,
     kdsARN,
 
     -- ** KinesisVideoStream
-    KinesisVideoStream,
-    kinesisVideoStream,
+    KinesisVideoStream (..),
+    mkKinesisVideoStream,
     kvsARN,
 
     -- ** Label
-    Label,
-    label,
+    Label (..),
+    mkLabel,
     lConfidence,
     lParents,
     lName,
     lInstances,
 
     -- ** LabelDetection
-    LabelDetection,
-    labelDetection,
+    LabelDetection (..),
+    mkLabelDetection,
     ldLabel,
     ldTimestamp,
 
     -- ** Landmark
-    Landmark,
-    landmark,
+    Landmark (..),
+    mkLandmark,
     lType,
     lX,
     lY,
 
     -- ** ModerationLabel
-    ModerationLabel,
-    moderationLabel,
+    ModerationLabel (..),
+    mkModerationLabel,
     mlConfidence,
     mlName,
     mlParentName,
 
     -- ** MouthOpen
-    MouthOpen,
-    mouthOpen,
+    MouthOpen (..),
+    mkMouthOpen,
     moValue,
     moConfidence,
 
     -- ** Mustache
-    Mustache,
-    mustache,
+    Mustache (..),
+    mkMustache,
     mValue,
     mConfidence,
 
     -- ** NotificationChannel
-    NotificationChannel,
-    notificationChannel,
+    NotificationChannel (..),
+    mkNotificationChannel,
     ncSNSTopicARN,
     ncRoleARN,
 
     -- ** OutputConfig
-    OutputConfig,
-    outputConfig,
+    OutputConfig (..),
+    mkOutputConfig,
     ocS3KeyPrefix,
     ocS3Bucket,
 
     -- ** Parent
-    Parent,
-    parent,
+    Parent (..),
+    mkParent,
     pName,
 
     -- ** PersonDetail
-    PersonDetail,
-    personDetail,
+    PersonDetail (..),
+    mkPersonDetail,
     pdBoundingBox,
     pdIndex,
     pdFace,
 
     -- ** PersonDetection
-    PersonDetection,
-    personDetection,
+    PersonDetection (..),
+    mkPersonDetection,
     pdPerson,
     pdTimestamp,
 
     -- ** PersonMatch
-    PersonMatch,
-    personMatch,
+    PersonMatch (..),
+    mkPersonMatch,
     pmFaceMatches,
     pmPerson,
     pmTimestamp,
 
     -- ** Point
-    Point,
-    point,
+    Point (..),
+    mkPoint,
     pX,
     pY,
 
     -- ** Pose
-    Pose,
-    pose,
+    Pose (..),
+    mkPose,
     pYaw,
     pRoll,
     pPitch,
 
     -- ** ProjectDescription
-    ProjectDescription,
-    projectDescription,
+    ProjectDescription (..),
+    mkProjectDescription,
     pdStatus,
     pdCreationTimestamp,
     pdProjectARN,
 
     -- ** ProjectVersionDescription
-    ProjectVersionDescription,
-    projectVersionDescription,
+    ProjectVersionDescription (..),
+    mkProjectVersionDescription,
     pvdMinInferenceUnits,
     pvdStatus,
     pvdEvaluationResult,
@@ -619,48 +619,48 @@ module Network.AWS.Rekognition
     pvdTrainingDataResult,
 
     -- ** ProtectiveEquipmentBodyPart
-    ProtectiveEquipmentBodyPart,
-    protectiveEquipmentBodyPart,
+    ProtectiveEquipmentBodyPart (..),
+    mkProtectiveEquipmentBodyPart,
     pebpEquipmentDetections,
     pebpConfidence,
     pebpName,
 
     -- ** ProtectiveEquipmentPerson
-    ProtectiveEquipmentPerson,
-    protectiveEquipmentPerson,
+    ProtectiveEquipmentPerson (..),
+    mkProtectiveEquipmentPerson,
     pepBodyParts,
     pepBoundingBox,
     pepConfidence,
     pepId,
 
     -- ** ProtectiveEquipmentSummarizationAttributes
-    ProtectiveEquipmentSummarizationAttributes,
-    protectiveEquipmentSummarizationAttributes,
+    ProtectiveEquipmentSummarizationAttributes (..),
+    mkProtectiveEquipmentSummarizationAttributes,
     pesaMinConfidence,
     pesaRequiredEquipmentTypes,
 
     -- ** ProtectiveEquipmentSummary
-    ProtectiveEquipmentSummary,
-    protectiveEquipmentSummary,
+    ProtectiveEquipmentSummary (..),
+    mkProtectiveEquipmentSummary,
     pesPersonsWithRequiredEquipment,
     pesPersonsWithoutRequiredEquipment,
     pesPersonsIndeterminate,
 
     -- ** RegionOfInterest
-    RegionOfInterest,
-    regionOfInterest,
+    RegionOfInterest (..),
+    mkRegionOfInterest,
     roiBoundingBox,
 
     -- ** S3Object
-    S3Object,
-    s3Object,
+    S3Object (..),
+    mkS3Object,
     soBucket,
     soName,
     soVersion,
 
     -- ** SegmentDetection
-    SegmentDetection,
-    segmentDetection,
+    SegmentDetection (..),
+    mkSegmentDetection,
     sdTechnicalCueSegment,
     sdDurationSMPTE,
     sdEndTimestampMillis,
@@ -672,99 +672,99 @@ module Network.AWS.Rekognition
     sdShotSegment,
 
     -- ** SegmentTypeInfo
-    SegmentTypeInfo,
-    segmentTypeInfo,
+    SegmentTypeInfo (..),
+    mkSegmentTypeInfo,
     stiModelVersion,
     stiType,
 
     -- ** ShotSegment
-    ShotSegment,
-    shotSegment,
+    ShotSegment (..),
+    mkShotSegment,
     ssConfidence,
     ssIndex,
 
     -- ** Smile
-    Smile,
-    smile,
+    Smile (..),
+    mkSmile,
     smiValue,
     smiConfidence,
 
     -- ** StartSegmentDetectionFilters
-    StartSegmentDetectionFilters,
-    startSegmentDetectionFilters,
+    StartSegmentDetectionFilters (..),
+    mkStartSegmentDetectionFilters,
     ssdfTechnicalCueFilter,
     ssdfShotFilter,
 
     -- ** StartShotDetectionFilter
-    StartShotDetectionFilter,
-    startShotDetectionFilter,
+    StartShotDetectionFilter (..),
+    mkStartShotDetectionFilter,
     ssdfMinSegmentConfidence,
 
     -- ** StartTechnicalCueDetectionFilter
-    StartTechnicalCueDetectionFilter,
-    startTechnicalCueDetectionFilter,
+    StartTechnicalCueDetectionFilter (..),
+    mkStartTechnicalCueDetectionFilter,
     stcdfMinSegmentConfidence,
 
     -- ** StartTextDetectionFilters
-    StartTextDetectionFilters,
-    startTextDetectionFilters,
+    StartTextDetectionFilters (..),
+    mkStartTextDetectionFilters,
     stdfRegionsOfInterest,
     stdfWordFilter,
 
     -- ** StreamProcessor
-    StreamProcessor,
-    streamProcessor,
+    StreamProcessor (..),
+    mkStreamProcessor,
     spStatus,
     spName,
 
     -- ** StreamProcessorInput
-    StreamProcessorInput,
-    streamProcessorInput,
+    StreamProcessorInput (..),
+    mkStreamProcessorInput,
     spiKinesisVideoStream,
 
     -- ** StreamProcessorOutput
-    StreamProcessorOutput,
-    streamProcessorOutput,
+    StreamProcessorOutput (..),
+    mkStreamProcessorOutput,
     spoKinesisDataStream,
 
     -- ** StreamProcessorSettings
-    StreamProcessorSettings,
-    streamProcessorSettings,
+    StreamProcessorSettings (..),
+    mkStreamProcessorSettings,
     spsFaceSearch,
 
     -- ** Summary
-    Summary,
-    summary,
+    Summary (..),
+    mkSummary,
     sS3Object,
 
     -- ** Sunglasses
-    Sunglasses,
-    sunglasses,
+    Sunglasses (..),
+    mkSunglasses,
     sValue,
     sConfidence,
 
     -- ** TechnicalCueSegment
-    TechnicalCueSegment,
-    technicalCueSegment,
+    TechnicalCueSegment (..),
+    mkTechnicalCueSegment,
     tcsConfidence,
     tcsType,
 
     -- ** TestingData
-    TestingData,
-    testingData,
+    TestingData (..),
+    mkTestingData,
     tdAssets,
     tdAutoCreate,
 
     -- ** TestingDataResult
-    TestingDataResult,
-    testingDataResult,
+    TestingDataResult (..),
+    mkTestingDataResult,
     tdrInput,
     tdrOutput,
     tdrValidation,
 
     -- ** TextDetection
-    TextDetection,
-    textDetection,
+    TextDetection (..),
+    mkTextDetection,
     tdDetectedText,
     tdConfidence,
     tdGeometry,
@@ -773,51 +773,63 @@ module Network.AWS.Rekognition
     tdParentId,
 
     -- ** TextDetectionResult
-    TextDetectionResult,
-    textDetectionResult,
+    TextDetectionResult (..),
+    mkTextDetectionResult,
     tdrTextDetection,
     tdrTimestamp,
 
     -- ** TrainingData
-    TrainingData,
-    trainingData,
+    TrainingData (..),
+    mkTrainingData,
     tAssets,
 
     -- ** TrainingDataResult
-    TrainingDataResult,
-    trainingDataResult,
+    TrainingDataResult (..),
+    mkTrainingDataResult,
     tInput,
     tOutput,
     tValidation,
 
     -- ** UnindexedFace
-    UnindexedFace,
-    unindexedFace,
+    UnindexedFace (..),
+    mkUnindexedFace,
     ufReasons,
     ufFaceDetail,
 
     -- ** ValidationData
-    ValidationData,
-    validationData,
+    ValidationData (..),
+    mkValidationData,
     vdAssets,
 
     -- ** Video
-    Video,
-    video,
+    Video (..),
+    mkVideo,
     vS3Object,
 
     -- ** VideoMetadata
-    VideoMetadata,
-    videoMetadata,
+    VideoMetadata (..),
+    mkVideoMetadata,
     vmFrameRate,
     vmFormat,
     vmCodec,
     vmFrameHeight,
     vmDurationMillis,
     vmFrameWidth,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.CompareFaces
 import Network.AWS.Rekognition.CreateCollection
 import Network.AWS.Rekognition.CreateProject

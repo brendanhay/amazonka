@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CrawlerNodeDetails where
+module Network.AWS.Glue.Types.CrawlerNodeDetails
+  ( CrawlerNodeDetails (..),
+
+    -- * Smart constructor
+    mkCrawlerNodeDetails,
+
+    -- * Lenses
+    cndCrawls,
+  )
+where
 
 import Network.AWS.Glue.Types.Crawl
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of a Crawler node present in the workflow.
 --
---
---
--- /See:/ 'crawlerNodeDetails' smart constructor.
+-- /See:/ 'mkCrawlerNodeDetails' smart constructor.
 newtype CrawlerNodeDetails = CrawlerNodeDetails'
-  { _cndCrawls ::
-      Maybe [Crawl]
+  { crawls ::
+      Lude.Maybe [Crawl]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerNodeDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cndCrawls' - A list of crawls represented by the crawl node.
-crawlerNodeDetails ::
+-- * 'crawls' - A list of crawls represented by the crawl node.
+mkCrawlerNodeDetails ::
   CrawlerNodeDetails
-crawlerNodeDetails = CrawlerNodeDetails' {_cndCrawls = Nothing}
+mkCrawlerNodeDetails = CrawlerNodeDetails' {crawls = Lude.Nothing}
 
 -- | A list of crawls represented by the crawl node.
-cndCrawls :: Lens' CrawlerNodeDetails [Crawl]
-cndCrawls = lens _cndCrawls (\s a -> s {_cndCrawls = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'crawls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cndCrawls :: Lens.Lens' CrawlerNodeDetails (Lude.Maybe [Crawl])
+cndCrawls = Lens.lens (crawls :: CrawlerNodeDetails -> Lude.Maybe [Crawl]) (\s a -> s {crawls = a} :: CrawlerNodeDetails)
+{-# DEPRECATED cndCrawls "Use generic-lens or generic-optics with 'crawls' instead." #-}
 
-instance FromJSON CrawlerNodeDetails where
+instance Lude.FromJSON CrawlerNodeDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "CrawlerNodeDetails"
-      (\x -> CrawlerNodeDetails' <$> (x .:? "Crawls" .!= mempty))
-
-instance Hashable CrawlerNodeDetails
-
-instance NFData CrawlerNodeDetails
+      ( \x ->
+          CrawlerNodeDetails'
+            Lude.<$> (x Lude..:? "Crawls" Lude..!= Lude.mempty)
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,156 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandFilter where
+module Network.AWS.SSM.Types.CommandFilter
+  ( CommandFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCommandFilter,
+
+    -- * Lenses
+    cfKey,
+    cfValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.CommandFilterKey
 
 -- | Describes a command filter.
 --
---
---
--- /See:/ 'commandFilter' smart constructor.
+-- /See:/ 'mkCommandFilter' smart constructor.
 data CommandFilter = CommandFilter'
-  { _cfKey :: !CommandFilterKey,
-    _cfValue :: !Text
+  { key :: CommandFilterKey,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommandFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The name of the filter.
+-- * 'value' - The filter value. Valid values for each filter key are as follows:
 --
--- * 'cfKey' - The name of the filter.
 --
--- * 'cfValue' - The filter value. Valid values for each filter key are as follows:     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:     * @Pending@      * @InProgress@      * @Success@      * @Cancelled@      * @Failed@      * @TimedOut@      * @Cancelling@      * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.      * __ExecutionStage__ : Specify one of the following values:     * @Executing@ : Returns a list of command executions that are currently still running.     * @Complete@ : Returns a list of command executions that have already completed.
-commandFilter ::
-  -- | 'cfKey'
+--     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.
+--
+--
+--     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.
+--
+--
+--     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:
+--
+--     * @Pending@
+--
+--
+--     * @InProgress@
+--
+--
+--     * @Success@
+--
+--
+--     * @Cancelled@
+--
+--
+--     * @Failed@
+--
+--
+--     * @TimedOut@
+--
+--
+--     * @Cancelling@
+--
+--
+--
+--
+--     * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.
+--
+--
+--     * __ExecutionStage__ : Specify one of the following values:
+--
+--     * @Executing@ : Returns a list of command executions that are currently still running.
+--
+--
+--     * @Complete@ : Returns a list of command executions that have already completed.
+mkCommandFilter ::
+  -- | 'key'
   CommandFilterKey ->
-  -- | 'cfValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   CommandFilter
-commandFilter pKey_ pValue_ =
-  CommandFilter' {_cfKey = pKey_, _cfValue = pValue_}
+mkCommandFilter pKey_ pValue_ =
+  CommandFilter' {key = pKey_, value = pValue_}
 
 -- | The name of the filter.
-cfKey :: Lens' CommandFilter CommandFilterKey
-cfKey = lens _cfKey (\s a -> s {_cfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfKey :: Lens.Lens' CommandFilter CommandFilterKey
+cfKey = Lens.lens (key :: CommandFilter -> CommandFilterKey) (\s a -> s {key = a} :: CommandFilter)
+{-# DEPRECATED cfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | The filter value. Valid values for each filter key are as follows:     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:     * @Pending@      * @InProgress@      * @Success@      * @Cancelled@      * @Failed@      * @TimedOut@      * @Cancelling@      * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.      * __ExecutionStage__ : Specify one of the following values:     * @Executing@ : Returns a list of command executions that are currently still running.     * @Complete@ : Returns a list of command executions that have already completed.
-cfValue :: Lens' CommandFilter Text
-cfValue = lens _cfValue (\s a -> s {_cfValue = a})
+-- | The filter value. Valid values for each filter key are as follows:
+--
+--
+--     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.
+--
+--
+--     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.
+--
+--
+--     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:
+--
+--     * @Pending@
+--
+--
+--     * @InProgress@
+--
+--
+--     * @Success@
+--
+--
+--     * @Cancelled@
+--
+--
+--     * @Failed@
+--
+--
+--     * @TimedOut@
+--
+--
+--     * @Cancelling@
+--
+--
+--
+--
+--     * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.
+--
+--
+--     * __ExecutionStage__ : Specify one of the following values:
+--
+--     * @Executing@ : Returns a list of command executions that are currently still running.
+--
+--
+--     * @Complete@ : Returns a list of command executions that have already completed.
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfValue :: Lens.Lens' CommandFilter Lude.Text
+cfValue = Lens.lens (value :: CommandFilter -> Lude.Text) (\s a -> s {value = a} :: CommandFilter)
+{-# DEPRECATED cfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable CommandFilter
-
-instance NFData CommandFilter
-
-instance ToJSON CommandFilter where
+instance Lude.ToJSON CommandFilter where
   toJSON CommandFilter' {..} =
-    object
-      (catMaybes [Just ("key" .= _cfKey), Just ("value" .= _cfValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("key" Lude..= key), Lude.Just ("value" Lude..= value)]
+      )

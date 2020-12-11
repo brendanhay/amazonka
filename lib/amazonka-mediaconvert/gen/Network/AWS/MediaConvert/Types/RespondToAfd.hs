@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.RespondToAfd where
+module Network.AWS.MediaConvert.Types.RespondToAfd
+  ( RespondToAfd
+      ( RespondToAfd',
+        RTANone,
+        RTAPassthrough,
+        RTARespond
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Respond to AFD (RespondToAfd) to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to (NONE). A preferred implementation of this workflow is to set RespondToAfd to (NONE) and set AfdSignaling to (AUTO). * Choose None to remove all input AFD values from this output.
-data RespondToAfd
-  = RTANone
-  | RTAPassthrough
-  | RTARespond
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RespondToAfd = RespondToAfd' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RespondToAfd where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure RTANone
-      "passthrough" -> pure RTAPassthrough
-      "respond" -> pure RTARespond
-      e ->
-        fromTextError $
-          "Failure parsing RespondToAfd from value: '" <> e
-            <> "'. Accepted values: none, passthrough, respond"
+pattern RTANone :: RespondToAfd
+pattern RTANone = RespondToAfd' "NONE"
 
-instance ToText RespondToAfd where
-  toText = \case
-    RTANone -> "NONE"
-    RTAPassthrough -> "PASSTHROUGH"
-    RTARespond -> "RESPOND"
+pattern RTAPassthrough :: RespondToAfd
+pattern RTAPassthrough = RespondToAfd' "PASSTHROUGH"
 
-instance Hashable RespondToAfd
+pattern RTARespond :: RespondToAfd
+pattern RTARespond = RespondToAfd' "RESPOND"
 
-instance NFData RespondToAfd
-
-instance ToByteString RespondToAfd
-
-instance ToQuery RespondToAfd
-
-instance ToHeader RespondToAfd
-
-instance ToJSON RespondToAfd where
-  toJSON = toJSONText
-
-instance FromJSON RespondToAfd where
-  parseJSON = parseJSONText "RespondToAfd"
+{-# COMPLETE
+  RTANone,
+  RTAPassthrough,
+  RTARespond,
+  RespondToAfd'
+  #-}

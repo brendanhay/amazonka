@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,177 +14,199 @@
 --
 -- Returns an overview of the members of a group. Users and groups can be members of a group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkMail.ListGroupMembers
-  ( -- * Creating a Request
-    listGroupMembers,
-    ListGroupMembers,
+  ( -- * Creating a request
+    ListGroupMembers (..),
+    mkListGroupMembers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgmNextToken,
     lgmMaxResults,
     lgmOrganizationId,
     lgmGroupId,
 
-    -- * Destructuring the Response
-    listGroupMembersResponse,
-    ListGroupMembersResponse,
+    -- * Destructuring the response
+    ListGroupMembersResponse (..),
+    mkListGroupMembersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgmrsMembers,
     lgmrsNextToken,
     lgmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'listGroupMembers' smart constructor.
+-- | /See:/ 'mkListGroupMembers' smart constructor.
 data ListGroupMembers = ListGroupMembers'
-  { _lgmNextToken ::
-      !(Maybe Text),
-    _lgmMaxResults :: !(Maybe Nat),
-    _lgmOrganizationId :: !Text,
-    _lgmGroupId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    organizationId :: Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupMembers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgmNextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
---
--- * 'lgmMaxResults' - The maximum number of results to return in a single call.
---
--- * 'lgmOrganizationId' - The identifier for the organization under which the group exists.
---
--- * 'lgmGroupId' - The identifier for the group to which the members (users or groups) are associated.
-listGroupMembers ::
-  -- | 'lgmOrganizationId'
-  Text ->
-  -- | 'lgmGroupId'
-  Text ->
+-- * 'groupId' - The identifier for the group to which the members (users or groups) are associated.
+-- * 'maxResults' - The maximum number of results to return in a single call.
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'organizationId' - The identifier for the organization under which the group exists.
+mkListGroupMembers ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'groupId'
+  Lude.Text ->
   ListGroupMembers
-listGroupMembers pOrganizationId_ pGroupId_ =
+mkListGroupMembers pOrganizationId_ pGroupId_ =
   ListGroupMembers'
-    { _lgmNextToken = Nothing,
-      _lgmMaxResults = Nothing,
-      _lgmOrganizationId = pOrganizationId_,
-      _lgmGroupId = pGroupId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      organizationId = pOrganizationId_,
+      groupId = pGroupId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-lgmNextToken :: Lens' ListGroupMembers (Maybe Text)
-lgmNextToken = lens _lgmNextToken (\s a -> s {_lgmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmNextToken :: Lens.Lens' ListGroupMembers (Lude.Maybe Lude.Text)
+lgmNextToken = Lens.lens (nextToken :: ListGroupMembers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupMembers)
+{-# DEPRECATED lgmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call.
-lgmMaxResults :: Lens' ListGroupMembers (Maybe Natural)
-lgmMaxResults = lens _lgmMaxResults (\s a -> s {_lgmMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmMaxResults :: Lens.Lens' ListGroupMembers (Lude.Maybe Lude.Natural)
+lgmMaxResults = Lens.lens (maxResults :: ListGroupMembers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListGroupMembers)
+{-# DEPRECATED lgmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier for the organization under which the group exists.
-lgmOrganizationId :: Lens' ListGroupMembers Text
-lgmOrganizationId = lens _lgmOrganizationId (\s a -> s {_lgmOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmOrganizationId :: Lens.Lens' ListGroupMembers Lude.Text
+lgmOrganizationId = Lens.lens (organizationId :: ListGroupMembers -> Lude.Text) (\s a -> s {organizationId = a} :: ListGroupMembers)
+{-# DEPRECATED lgmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the group to which the members (users or groups) are associated.
-lgmGroupId :: Lens' ListGroupMembers Text
-lgmGroupId = lens _lgmGroupId (\s a -> s {_lgmGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmGroupId :: Lens.Lens' ListGroupMembers Lude.Text
+lgmGroupId = Lens.lens (groupId :: ListGroupMembers -> Lude.Text) (\s a -> s {groupId = a} :: ListGroupMembers)
+{-# DEPRECATED lgmGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSPager ListGroupMembers where
+instance Page.AWSPager ListGroupMembers where
   page rq rs
-    | stop (rs ^. lgmrsNextToken) = Nothing
-    | stop (rs ^. lgmrsMembers) = Nothing
-    | otherwise = Just $ rq & lgmNextToken .~ rs ^. lgmrsNextToken
+    | Page.stop (rs Lens.^. lgmrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgmrsMembers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgmNextToken Lens..~ rs Lens.^. lgmrsNextToken
 
-instance AWSRequest ListGroupMembers where
+instance Lude.AWSRequest ListGroupMembers where
   type Rs ListGroupMembers = ListGroupMembersResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupMembersResponse'
-            <$> (x .?> "Members" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Members" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroupMembers
-
-instance NFData ListGroupMembers
-
-instance ToHeaders ListGroupMembers where
+instance Lude.ToHeaders ListGroupMembers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.ListGroupMembers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.ListGroupMembers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGroupMembers where
+instance Lude.ToJSON ListGroupMembers where
   toJSON ListGroupMembers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lgmNextToken,
-            ("MaxResults" .=) <$> _lgmMaxResults,
-            Just ("OrganizationId" .= _lgmOrganizationId),
-            Just ("GroupId" .= _lgmGroupId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("GroupId" Lude..= groupId)
           ]
       )
 
-instance ToPath ListGroupMembers where
-  toPath = const "/"
+instance Lude.ToPath ListGroupMembers where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGroupMembers where
-  toQuery = const mempty
+instance Lude.ToQuery ListGroupMembers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGroupMembersResponse' smart constructor.
+-- | /See:/ 'mkListGroupMembersResponse' smart constructor.
 data ListGroupMembersResponse = ListGroupMembersResponse'
-  { _lgmrsMembers ::
-      !(Maybe [Member]),
-    _lgmrsNextToken :: !(Maybe Text),
-    _lgmrsResponseStatus :: !Int
+  { members ::
+      Lude.Maybe [Member],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupMembersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgmrsMembers' - The members associated to the group.
---
--- * 'lgmrsNextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
---
--- * 'lgmrsResponseStatus' - -- | The response status code.
-listGroupMembersResponse ::
-  -- | 'lgmrsResponseStatus'
-  Int ->
+-- * 'members' - The members associated to the group.
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'responseStatus' - The response status code.
+mkListGroupMembersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupMembersResponse
-listGroupMembersResponse pResponseStatus_ =
+mkListGroupMembersResponse pResponseStatus_ =
   ListGroupMembersResponse'
-    { _lgmrsMembers = Nothing,
-      _lgmrsNextToken = Nothing,
-      _lgmrsResponseStatus = pResponseStatus_
+    { members = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The members associated to the group.
-lgmrsMembers :: Lens' ListGroupMembersResponse [Member]
-lgmrsMembers = lens _lgmrsMembers (\s a -> s {_lgmrsMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'members' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmrsMembers :: Lens.Lens' ListGroupMembersResponse (Lude.Maybe [Member])
+lgmrsMembers = Lens.lens (members :: ListGroupMembersResponse -> Lude.Maybe [Member]) (\s a -> s {members = a} :: ListGroupMembersResponse)
+{-# DEPRECATED lgmrsMembers "Use generic-lens or generic-optics with 'members' instead." #-}
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-lgmrsNextToken :: Lens' ListGroupMembersResponse (Maybe Text)
-lgmrsNextToken = lens _lgmrsNextToken (\s a -> s {_lgmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmrsNextToken :: Lens.Lens' ListGroupMembersResponse (Lude.Maybe Lude.Text)
+lgmrsNextToken = Lens.lens (nextToken :: ListGroupMembersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupMembersResponse)
+{-# DEPRECATED lgmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lgmrsResponseStatus :: Lens' ListGroupMembersResponse Int
-lgmrsResponseStatus = lens _lgmrsResponseStatus (\s a -> s {_lgmrsResponseStatus = a})
-
-instance NFData ListGroupMembersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmrsResponseStatus :: Lens.Lens' ListGroupMembersResponse Lude.Int
+lgmrsResponseStatus = Lens.lens (responseStatus :: ListGroupMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupMembersResponse)
+{-# DEPRECATED lgmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

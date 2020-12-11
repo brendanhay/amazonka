@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,164 @@
 --
 -- Removes one or more instances from the specified Auto Scaling group.
 --
---
 -- After the instances are detached, you can manage them independent of the Auto Scaling group.
---
 -- If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.
---
 -- If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html Detach EC2 instances from your Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.DetachInstances
-  ( -- * Creating a Request
-    detachInstances,
-    DetachInstances,
+  ( -- * Creating a request
+    DetachInstances (..),
+    mkDetachInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diInstanceIds,
     diAutoScalingGroupName,
     diShouldDecrementDesiredCapacity,
 
-    -- * Destructuring the Response
-    detachInstancesResponse,
-    DetachInstancesResponse,
+    -- * Destructuring the response
+    DetachInstancesResponse (..),
+    mkDetachInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsActivities,
     dirsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachInstances' smart constructor.
+-- | /See:/ 'mkDetachInstances' smart constructor.
 data DetachInstances = DetachInstances'
-  { _diInstanceIds ::
-      !(Maybe [Text]),
-    _diAutoScalingGroupName :: !Text,
-    _diShouldDecrementDesiredCapacity :: !Bool
+  { instanceIds ::
+      Lude.Maybe [Lude.Text],
+    autoScalingGroupName :: Lude.Text,
+    shouldDecrementDesiredCapacity :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
---
--- * 'diAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'diShouldDecrementDesiredCapacity' - Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
-detachInstances ::
-  -- | 'diAutoScalingGroupName'
-  Text ->
-  -- | 'diShouldDecrementDesiredCapacity'
-  Bool ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+-- * 'shouldDecrementDesiredCapacity' - Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
+mkDetachInstances ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
+  -- | 'shouldDecrementDesiredCapacity'
+  Lude.Bool ->
   DetachInstances
-detachInstances
+mkDetachInstances
   pAutoScalingGroupName_
   pShouldDecrementDesiredCapacity_ =
     DetachInstances'
-      { _diInstanceIds = Nothing,
-        _diAutoScalingGroupName = pAutoScalingGroupName_,
-        _diShouldDecrementDesiredCapacity =
-          pShouldDecrementDesiredCapacity_
+      { instanceIds = Lude.Nothing,
+        autoScalingGroupName = pAutoScalingGroupName_,
+        shouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
       }
 
 -- | The IDs of the instances. You can specify up to 20 instances.
-diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s {_diInstanceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diInstanceIds :: Lens.Lens' DetachInstances (Lude.Maybe [Lude.Text])
+diInstanceIds = Lens.lens (instanceIds :: DetachInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DetachInstances)
+{-# DEPRECATED diInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The name of the Auto Scaling group.
-diAutoScalingGroupName :: Lens' DetachInstances Text
-diAutoScalingGroupName = lens _diAutoScalingGroupName (\s a -> s {_diAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAutoScalingGroupName :: Lens.Lens' DetachInstances Lude.Text
+diAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachInstances -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachInstances)
+{-# DEPRECATED diAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
-diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
-diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\s a -> s {_diShouldDecrementDesiredCapacity = a})
+--
+-- /Note:/ Consider using 'shouldDecrementDesiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diShouldDecrementDesiredCapacity :: Lens.Lens' DetachInstances Lude.Bool
+diShouldDecrementDesiredCapacity = Lens.lens (shouldDecrementDesiredCapacity :: DetachInstances -> Lude.Bool) (\s a -> s {shouldDecrementDesiredCapacity = a} :: DetachInstances)
+{-# DEPRECATED diShouldDecrementDesiredCapacity "Use generic-lens or generic-optics with 'shouldDecrementDesiredCapacity' instead." #-}
 
-instance AWSRequest DetachInstances where
+instance Lude.AWSRequest DetachInstances where
   type Rs DetachInstances = DetachInstancesResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DetachInstancesResult"
       ( \s h x ->
           DetachInstancesResponse'
-            <$> (x .@? "Activities" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Activities" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetachInstances
+instance Lude.ToHeaders DetachInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachInstances
+instance Lude.ToPath DetachInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachInstances where
-  toHeaders = const mempty
-
-instance ToPath DetachInstances where
-  toPath = const "/"
-
-instance ToQuery DetachInstances where
+instance Lude.ToQuery DetachInstances where
   toQuery DetachInstances' {..} =
-    mconcat
-      [ "Action" =: ("DetachInstances" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "InstanceIds" =: toQuery (toQueryList "member" <$> _diInstanceIds),
-        "AutoScalingGroupName" =: _diAutoScalingGroupName,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetachInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "InstanceIds"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "ShouldDecrementDesiredCapacity"
-          =: _diShouldDecrementDesiredCapacity
+          Lude.=: shouldDecrementDesiredCapacity
       ]
 
--- | /See:/ 'detachInstancesResponse' smart constructor.
+-- | /See:/ 'mkDetachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
-  { _dirsActivities ::
-      !(Maybe [Activity]),
-    _dirsResponseStatus :: !Int
+  { activities ::
+      Lude.Maybe [Activity],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsActivities' - The activities related to detaching the instances from the Auto Scaling group.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-detachInstancesResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'activities' - The activities related to detaching the instances from the Auto Scaling group.
+-- * 'responseStatus' - The response status code.
+mkDetachInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetachInstancesResponse
-detachInstancesResponse pResponseStatus_ =
+mkDetachInstancesResponse pResponseStatus_ =
   DetachInstancesResponse'
-    { _dirsActivities = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { activities = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The activities related to detaching the instances from the Auto Scaling group.
-dirsActivities :: Lens' DetachInstancesResponse [Activity]
-dirsActivities = lens _dirsActivities (\s a -> s {_dirsActivities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsActivities :: Lens.Lens' DetachInstancesResponse (Lude.Maybe [Activity])
+dirsActivities = Lens.lens (activities :: DetachInstancesResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: DetachInstancesResponse)
+{-# DEPRECATED dirsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DetachInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DetachInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DetachInstancesResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DetachInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachInstancesResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

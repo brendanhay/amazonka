@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.EvaluationResult where
+module Network.AWS.Config.Types.EvaluationResult
+  ( EvaluationResult (..),
+
+    -- * Smart constructor
+    mkEvaluationResult,
+
+    -- * Lenses
+    erEvaluationResultIdentifier,
+    erAnnotation,
+    erConfigRuleInvokedTime,
+    erResultRecordedTime,
+    erResultToken,
+    erComplianceType,
+  )
+where
 
 import Network.AWS.Config.Types.ComplianceType
 import Network.AWS.Config.Types.EvaluationResultIdentifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of an AWS Config evaluation. Provides the AWS resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information.
 --
---
---
--- /See:/ 'evaluationResult' smart constructor.
+-- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { _erEvaluationResultIdentifier ::
-      !(Maybe EvaluationResultIdentifier),
-    _erAnnotation :: !(Maybe Text),
-    _erConfigRuleInvokedTime :: !(Maybe POSIX),
-    _erResultRecordedTime :: !(Maybe POSIX),
-    _erResultToken :: !(Maybe Text),
-    _erComplianceType :: !(Maybe ComplianceType)
+  { evaluationResultIdentifier ::
+      Lude.Maybe EvaluationResultIdentifier,
+    annotation :: Lude.Maybe Lude.Text,
+    configRuleInvokedTime :: Lude.Maybe Lude.Timestamp,
+    resultRecordedTime :: Lude.Maybe Lude.Timestamp,
+    resultToken :: Lude.Maybe Lude.Text,
+    complianceType :: Lude.Maybe ComplianceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'annotation' - Supplementary information about how the evaluation determined the compliance.
+-- * 'complianceType' - Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.
 --
--- * 'erEvaluationResultIdentifier' - Uniquely identifies the evaluation result.
---
--- * 'erAnnotation' - Supplementary information about how the evaluation determined the compliance.
---
--- * 'erConfigRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
---
--- * 'erResultRecordedTime' - The time when AWS Config recorded the evaluation result.
---
--- * 'erResultToken' - An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
---
--- * 'erComplianceType' - Indicates whether the AWS resource complies with the AWS Config rule that evaluated it. For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
-evaluationResult ::
+-- For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
+-- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
+-- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
+-- * 'resultRecordedTime' - The time when AWS Config recorded the evaluation result.
+-- * 'resultToken' - An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
+mkEvaluationResult ::
   EvaluationResult
-evaluationResult =
+mkEvaluationResult =
   EvaluationResult'
-    { _erEvaluationResultIdentifier = Nothing,
-      _erAnnotation = Nothing,
-      _erConfigRuleInvokedTime = Nothing,
-      _erResultRecordedTime = Nothing,
-      _erResultToken = Nothing,
-      _erComplianceType = Nothing
+    { evaluationResultIdentifier = Lude.Nothing,
+      annotation = Lude.Nothing,
+      configRuleInvokedTime = Lude.Nothing,
+      resultRecordedTime = Lude.Nothing,
+      resultToken = Lude.Nothing,
+      complianceType = Lude.Nothing
     }
 
 -- | Uniquely identifies the evaluation result.
-erEvaluationResultIdentifier :: Lens' EvaluationResult (Maybe EvaluationResultIdentifier)
-erEvaluationResultIdentifier = lens _erEvaluationResultIdentifier (\s a -> s {_erEvaluationResultIdentifier = a})
+--
+-- /Note:/ Consider using 'evaluationResultIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erEvaluationResultIdentifier :: Lens.Lens' EvaluationResult (Lude.Maybe EvaluationResultIdentifier)
+erEvaluationResultIdentifier = Lens.lens (evaluationResultIdentifier :: EvaluationResult -> Lude.Maybe EvaluationResultIdentifier) (\s a -> s {evaluationResultIdentifier = a} :: EvaluationResult)
+{-# DEPRECATED erEvaluationResultIdentifier "Use generic-lens or generic-optics with 'evaluationResultIdentifier' instead." #-}
 
 -- | Supplementary information about how the evaluation determined the compliance.
-erAnnotation :: Lens' EvaluationResult (Maybe Text)
-erAnnotation = lens _erAnnotation (\s a -> s {_erAnnotation = a})
+--
+-- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erAnnotation :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Text)
+erAnnotation = Lens.lens (annotation :: EvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {annotation = a} :: EvaluationResult)
+{-# DEPRECATED erAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
 
 -- | The time when the AWS Config rule evaluated the AWS resource.
-erConfigRuleInvokedTime :: Lens' EvaluationResult (Maybe UTCTime)
-erConfigRuleInvokedTime = lens _erConfigRuleInvokedTime (\s a -> s {_erConfigRuleInvokedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'configRuleInvokedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erConfigRuleInvokedTime :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Timestamp)
+erConfigRuleInvokedTime = Lens.lens (configRuleInvokedTime :: EvaluationResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {configRuleInvokedTime = a} :: EvaluationResult)
+{-# DEPRECATED erConfigRuleInvokedTime "Use generic-lens or generic-optics with 'configRuleInvokedTime' instead." #-}
 
 -- | The time when AWS Config recorded the evaluation result.
-erResultRecordedTime :: Lens' EvaluationResult (Maybe UTCTime)
-erResultRecordedTime = lens _erResultRecordedTime (\s a -> s {_erResultRecordedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'resultRecordedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erResultRecordedTime :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Timestamp)
+erResultRecordedTime = Lens.lens (resultRecordedTime :: EvaluationResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {resultRecordedTime = a} :: EvaluationResult)
+{-# DEPRECATED erResultRecordedTime "Use generic-lens or generic-optics with 'resultRecordedTime' instead." #-}
 
 -- | An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
-erResultToken :: Lens' EvaluationResult (Maybe Text)
-erResultToken = lens _erResultToken (\s a -> s {_erResultToken = a})
+--
+-- /Note:/ Consider using 'resultToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erResultToken :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Text)
+erResultToken = Lens.lens (resultToken :: EvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {resultToken = a} :: EvaluationResult)
+{-# DEPRECATED erResultToken "Use generic-lens or generic-optics with 'resultToken' instead." #-}
 
--- | Indicates whether the AWS resource complies with the AWS Config rule that evaluated it. For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
-erComplianceType :: Lens' EvaluationResult (Maybe ComplianceType)
-erComplianceType = lens _erComplianceType (\s a -> s {_erComplianceType = a})
+-- | Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.
+--
+-- For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erComplianceType :: Lens.Lens' EvaluationResult (Lude.Maybe ComplianceType)
+erComplianceType = Lens.lens (complianceType :: EvaluationResult -> Lude.Maybe ComplianceType) (\s a -> s {complianceType = a} :: EvaluationResult)
+{-# DEPRECATED erComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance FromJSON EvaluationResult where
+instance Lude.FromJSON EvaluationResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            <$> (x .:? "EvaluationResultIdentifier")
-            <*> (x .:? "Annotation")
-            <*> (x .:? "ConfigRuleInvokedTime")
-            <*> (x .:? "ResultRecordedTime")
-            <*> (x .:? "ResultToken")
-            <*> (x .:? "ComplianceType")
+            Lude.<$> (x Lude..:? "EvaluationResultIdentifier")
+            Lude.<*> (x Lude..:? "Annotation")
+            Lude.<*> (x Lude..:? "ConfigRuleInvokedTime")
+            Lude.<*> (x Lude..:? "ResultRecordedTime")
+            Lude.<*> (x Lude..:? "ResultToken")
+            Lude.<*> (x Lude..:? "ComplianceType")
       )
-
-instance Hashable EvaluationResult
-
-instance NFData EvaluationResult

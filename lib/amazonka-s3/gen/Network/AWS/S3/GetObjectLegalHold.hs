@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,178 @@
 --
 -- Gets an object's current Legal Hold status. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects> .
 --
---
 -- This action is not supported by Amazon S3 on Outposts.
 module Network.AWS.S3.GetObjectLegalHold
-  ( -- * Creating a Request
-    getObjectLegalHold,
-    GetObjectLegalHold,
+  ( -- * Creating a request
+    GetObjectLegalHold (..),
+    mkGetObjectLegalHold,
 
-    -- * Request Lenses
+    -- ** Request lenses
     golhVersionId,
     golhRequestPayer,
     golhExpectedBucketOwner,
     golhBucket,
     golhKey,
 
-    -- * Destructuring the Response
-    getObjectLegalHoldResponse,
-    GetObjectLegalHoldResponse,
+    -- * Destructuring the response
+    GetObjectLegalHoldResponse (..),
+    mkGetObjectLegalHoldResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     golhrsLegalHold,
     golhrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getObjectLegalHold' smart constructor.
+-- | /See:/ 'mkGetObjectLegalHold' smart constructor.
 data GetObjectLegalHold = GetObjectLegalHold'
-  { _golhVersionId ::
-      !(Maybe ObjectVersionId),
-    _golhRequestPayer :: !(Maybe RequestPayer),
-    _golhExpectedBucketOwner :: !(Maybe Text),
-    _golhBucket :: !BucketName,
-    _golhKey :: !ObjectKey
+  { versionId ::
+      Lude.Maybe ObjectVersionId,
+    requestPayer :: Lude.Maybe RequestPayer,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    key :: ObjectKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectLegalHold' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The bucket name containing the object whose Legal Hold status you want to retrieve.
 --
--- * 'golhVersionId' - The version ID of the object whose Legal Hold status you want to retrieve.
---
--- * 'golhRequestPayer' - Undocumented member.
---
--- * 'golhExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'golhBucket' - The bucket name containing the object whose Legal Hold status you want to retrieve.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- * 'golhKey' - The key name for the object whose Legal Hold status you want to retrieve.
-getObjectLegalHold ::
-  -- | 'golhBucket'
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'key' - The key name for the object whose Legal Hold status you want to retrieve.
+-- * 'requestPayer' - Undocumented field.
+-- * 'versionId' - The version ID of the object whose Legal Hold status you want to retrieve.
+mkGetObjectLegalHold ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'golhKey'
+  -- | 'key'
   ObjectKey ->
   GetObjectLegalHold
-getObjectLegalHold pBucket_ pKey_ =
+mkGetObjectLegalHold pBucket_ pKey_ =
   GetObjectLegalHold'
-    { _golhVersionId = Nothing,
-      _golhRequestPayer = Nothing,
-      _golhExpectedBucketOwner = Nothing,
-      _golhBucket = pBucket_,
-      _golhKey = pKey_
+    { versionId = Lude.Nothing,
+      requestPayer = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_,
+      key = pKey_
     }
 
 -- | The version ID of the object whose Legal Hold status you want to retrieve.
-golhVersionId :: Lens' GetObjectLegalHold (Maybe ObjectVersionId)
-golhVersionId = lens _golhVersionId (\s a -> s {_golhVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhVersionId :: Lens.Lens' GetObjectLegalHold (Lude.Maybe ObjectVersionId)
+golhVersionId = Lens.lens (versionId :: GetObjectLegalHold -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | Undocumented member.
-golhRequestPayer :: Lens' GetObjectLegalHold (Maybe RequestPayer)
-golhRequestPayer = lens _golhRequestPayer (\s a -> s {_golhRequestPayer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhRequestPayer :: Lens.Lens' GetObjectLegalHold (Lude.Maybe RequestPayer)
+golhRequestPayer = Lens.lens (requestPayer :: GetObjectLegalHold -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-golhExpectedBucketOwner :: Lens' GetObjectLegalHold (Maybe Text)
-golhExpectedBucketOwner = lens _golhExpectedBucketOwner (\s a -> s {_golhExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhExpectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Lude.Maybe Lude.Text)
+golhExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectLegalHold -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket name containing the object whose Legal Hold status you want to retrieve.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
-golhBucket :: Lens' GetObjectLegalHold BucketName
-golhBucket = lens _golhBucket (\s a -> s {_golhBucket = a})
+-- | The bucket name containing the object whose Legal Hold status you want to retrieve.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhBucket :: Lens.Lens' GetObjectLegalHold BucketName
+golhBucket = Lens.lens (bucket :: GetObjectLegalHold -> BucketName) (\s a -> s {bucket = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The key name for the object whose Legal Hold status you want to retrieve.
-golhKey :: Lens' GetObjectLegalHold ObjectKey
-golhKey = lens _golhKey (\s a -> s {_golhKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhKey :: Lens.Lens' GetObjectLegalHold ObjectKey
+golhKey = Lens.lens (key :: GetObjectLegalHold -> ObjectKey) (\s a -> s {key = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest GetObjectLegalHold where
+instance Lude.AWSRequest GetObjectLegalHold where
   type Rs GetObjectLegalHold = GetObjectLegalHoldResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetObjectLegalHoldResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetObjectLegalHold
-
-instance NFData GetObjectLegalHold
-
-instance ToHeaders GetObjectLegalHold where
+instance Lude.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
-    mconcat
-      [ "x-amz-request-payer" =# _golhRequestPayer,
-        "x-amz-expected-bucket-owner" =# _golhExpectedBucketOwner
+    Lude.mconcat
+      [ "x-amz-request-payer" Lude.=# requestPayer,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath GetObjectLegalHold where
+instance Lude.ToPath GetObjectLegalHold where
   toPath GetObjectLegalHold' {..} =
-    mconcat ["/", toBS _golhBucket, "/", toBS _golhKey]
+    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
 
-instance ToQuery GetObjectLegalHold where
+instance Lude.ToQuery GetObjectLegalHold where
   toQuery GetObjectLegalHold' {..} =
-    mconcat ["versionId" =: _golhVersionId, "legal-hold"]
+    Lude.mconcat ["versionId" Lude.=: versionId, "legal-hold"]
 
--- | /See:/ 'getObjectLegalHoldResponse' smart constructor.
+-- | /See:/ 'mkGetObjectLegalHoldResponse' smart constructor.
 data GetObjectLegalHoldResponse = GetObjectLegalHoldResponse'
-  { _golhrsLegalHold ::
-      !(Maybe ObjectLockLegalHold),
-    _golhrsResponseStatus :: !Int
+  { legalHold ::
+      Lude.Maybe ObjectLockLegalHold,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectLegalHoldResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'golhrsLegalHold' - The current Legal Hold status for the specified object.
---
--- * 'golhrsResponseStatus' - -- | The response status code.
-getObjectLegalHoldResponse ::
-  -- | 'golhrsResponseStatus'
-  Int ->
+-- * 'legalHold' - The current Legal Hold status for the specified object.
+-- * 'responseStatus' - The response status code.
+mkGetObjectLegalHoldResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetObjectLegalHoldResponse
-getObjectLegalHoldResponse pResponseStatus_ =
+mkGetObjectLegalHoldResponse pResponseStatus_ =
   GetObjectLegalHoldResponse'
-    { _golhrsLegalHold = Nothing,
-      _golhrsResponseStatus = pResponseStatus_
+    { legalHold = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current Legal Hold status for the specified object.
-golhrsLegalHold :: Lens' GetObjectLegalHoldResponse (Maybe ObjectLockLegalHold)
-golhrsLegalHold = lens _golhrsLegalHold (\s a -> s {_golhrsLegalHold = a})
+--
+-- /Note:/ Consider using 'legalHold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhrsLegalHold :: Lens.Lens' GetObjectLegalHoldResponse (Lude.Maybe ObjectLockLegalHold)
+golhrsLegalHold = Lens.lens (legalHold :: GetObjectLegalHoldResponse -> Lude.Maybe ObjectLockLegalHold) (\s a -> s {legalHold = a} :: GetObjectLegalHoldResponse)
+{-# DEPRECATED golhrsLegalHold "Use generic-lens or generic-optics with 'legalHold' instead." #-}
 
--- | -- | The response status code.
-golhrsResponseStatus :: Lens' GetObjectLegalHoldResponse Int
-golhrsResponseStatus = lens _golhrsResponseStatus (\s a -> s {_golhrsResponseStatus = a})
-
-instance NFData GetObjectLegalHoldResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhrsResponseStatus :: Lens.Lens' GetObjectLegalHoldResponse Lude.Int
+golhrsResponseStatus = Lens.lens (responseStatus :: GetObjectLegalHoldResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectLegalHoldResponse)
+{-# DEPRECATED golhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

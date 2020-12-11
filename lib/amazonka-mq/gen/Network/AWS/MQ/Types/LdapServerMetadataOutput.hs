@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,169 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.LdapServerMetadataOutput where
+module Network.AWS.MQ.Types.LdapServerMetadataOutput
+  ( LdapServerMetadataOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLdapServerMetadataOutput,
+
+    -- * Lenses
+    lsmoUserBase,
+    lsmoUserSearchMatching,
+    lsmoUserRoleName,
+    lsmoServiceAccountUsername,
+    lsmoUserSearchSubtree,
+    lsmoRoleSearchSubtree,
+    lsmoHosts,
+    lsmoRoleName,
+    lsmoRoleSearchMatching,
+    lsmoRoleBase,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
 --
--- /See:/ 'ldapServerMetadataOutput' smart constructor.
+-- /See:/ 'mkLdapServerMetadataOutput' smart constructor.
 data LdapServerMetadataOutput = LdapServerMetadataOutput'
-  { _lsmoUserBase ::
-      !(Maybe Text),
-    _lsmoUserSearchMatching :: !(Maybe Text),
-    _lsmoUserRoleName :: !(Maybe Text),
-    _lsmoServiceAccountUsername ::
-      !(Maybe Text),
-    _lsmoUserSearchSubtree :: !(Maybe Bool),
-    _lsmoRoleSearchSubtree :: !(Maybe Bool),
-    _lsmoHosts :: !(Maybe [Text]),
-    _lsmoRoleName :: !(Maybe Text),
-    _lsmoRoleSearchMatching :: !(Maybe Text),
-    _lsmoRoleBase :: !(Maybe Text)
+  { userBase ::
+      Lude.Maybe Lude.Text,
+    userSearchMatching ::
+      Lude.Maybe Lude.Text,
+    userRoleName :: Lude.Maybe Lude.Text,
+    serviceAccountUsername ::
+      Lude.Maybe Lude.Text,
+    userSearchSubtree :: Lude.Maybe Lude.Bool,
+    roleSearchSubtree :: Lude.Maybe Lude.Bool,
+    hosts :: Lude.Maybe [Lude.Text],
+    roleName :: Lude.Maybe Lude.Text,
+    roleSearchMatching ::
+      Lude.Maybe Lude.Text,
+    roleBase :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LdapServerMetadataOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsmoUserBase' - Fully qualified name of the directory where you want to search for users.
---
--- * 'lsmoUserSearchMatching' - The search criteria for users.
---
--- * 'lsmoUserRoleName' - Specifies the name of the LDAP attribute for the user group membership.
---
--- * 'lsmoServiceAccountUsername' - Service account username.
---
--- * 'lsmoUserSearchSubtree' - The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
---
--- * 'lsmoRoleSearchSubtree' - The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
---
--- * 'lsmoHosts' - Fully qualified domain name of the LDAP server. Optional failover server.
---
--- * 'lsmoRoleName' - Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
---
--- * 'lsmoRoleSearchMatching' - The search criteria for groups.
---
--- * 'lsmoRoleBase' - Fully qualified name of the directory to search for a user’s groups.
-ldapServerMetadataOutput ::
+-- * 'hosts' - Fully qualified domain name of the LDAP server. Optional failover server.
+-- * 'roleBase' - Fully qualified name of the directory to search for a user’s groups.
+-- * 'roleName' - Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+-- * 'roleSearchMatching' - The search criteria for groups.
+-- * 'roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
+-- * 'serviceAccountUsername' - Service account username.
+-- * 'userBase' - Fully qualified name of the directory where you want to search for users.
+-- * 'userRoleName' - Specifies the name of the LDAP attribute for the user group membership.
+-- * 'userSearchMatching' - The search criteria for users.
+-- * 'userSearchSubtree' - The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
+mkLdapServerMetadataOutput ::
   LdapServerMetadataOutput
-ldapServerMetadataOutput =
+mkLdapServerMetadataOutput =
   LdapServerMetadataOutput'
-    { _lsmoUserBase = Nothing,
-      _lsmoUserSearchMatching = Nothing,
-      _lsmoUserRoleName = Nothing,
-      _lsmoServiceAccountUsername = Nothing,
-      _lsmoUserSearchSubtree = Nothing,
-      _lsmoRoleSearchSubtree = Nothing,
-      _lsmoHosts = Nothing,
-      _lsmoRoleName = Nothing,
-      _lsmoRoleSearchMatching = Nothing,
-      _lsmoRoleBase = Nothing
+    { userBase = Lude.Nothing,
+      userSearchMatching = Lude.Nothing,
+      userRoleName = Lude.Nothing,
+      serviceAccountUsername = Lude.Nothing,
+      userSearchSubtree = Lude.Nothing,
+      roleSearchSubtree = Lude.Nothing,
+      hosts = Lude.Nothing,
+      roleName = Lude.Nothing,
+      roleSearchMatching = Lude.Nothing,
+      roleBase = Lude.Nothing
     }
 
 -- | Fully qualified name of the directory where you want to search for users.
-lsmoUserBase :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoUserBase = lens _lsmoUserBase (\s a -> s {_lsmoUserBase = a})
+--
+-- /Note:/ Consider using 'userBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoUserBase :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoUserBase = Lens.lens (userBase :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {userBase = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoUserBase "Use generic-lens or generic-optics with 'userBase' instead." #-}
 
 -- | The search criteria for users.
-lsmoUserSearchMatching :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoUserSearchMatching = lens _lsmoUserSearchMatching (\s a -> s {_lsmoUserSearchMatching = a})
+--
+-- /Note:/ Consider using 'userSearchMatching' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoUserSearchMatching :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoUserSearchMatching = Lens.lens (userSearchMatching :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {userSearchMatching = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoUserSearchMatching "Use generic-lens or generic-optics with 'userSearchMatching' instead." #-}
 
 -- | Specifies the name of the LDAP attribute for the user group membership.
-lsmoUserRoleName :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoUserRoleName = lens _lsmoUserRoleName (\s a -> s {_lsmoUserRoleName = a})
+--
+-- /Note:/ Consider using 'userRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoUserRoleName :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoUserRoleName = Lens.lens (userRoleName :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {userRoleName = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoUserRoleName "Use generic-lens or generic-optics with 'userRoleName' instead." #-}
 
 -- | Service account username.
-lsmoServiceAccountUsername :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoServiceAccountUsername = lens _lsmoServiceAccountUsername (\s a -> s {_lsmoServiceAccountUsername = a})
+--
+-- /Note:/ Consider using 'serviceAccountUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoServiceAccountUsername :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoServiceAccountUsername = Lens.lens (serviceAccountUsername :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {serviceAccountUsername = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoServiceAccountUsername "Use generic-lens or generic-optics with 'serviceAccountUsername' instead." #-}
 
 -- | The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
-lsmoUserSearchSubtree :: Lens' LdapServerMetadataOutput (Maybe Bool)
-lsmoUserSearchSubtree = lens _lsmoUserSearchSubtree (\s a -> s {_lsmoUserSearchSubtree = a})
+--
+-- /Note:/ Consider using 'userSearchSubtree' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoUserSearchSubtree :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Bool)
+lsmoUserSearchSubtree = Lens.lens (userSearchSubtree :: LdapServerMetadataOutput -> Lude.Maybe Lude.Bool) (\s a -> s {userSearchSubtree = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoUserSearchSubtree "Use generic-lens or generic-optics with 'userSearchSubtree' instead." #-}
 
 -- | The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
-lsmoRoleSearchSubtree :: Lens' LdapServerMetadataOutput (Maybe Bool)
-lsmoRoleSearchSubtree = lens _lsmoRoleSearchSubtree (\s a -> s {_lsmoRoleSearchSubtree = a})
+--
+-- /Note:/ Consider using 'roleSearchSubtree' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoRoleSearchSubtree :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Bool)
+lsmoRoleSearchSubtree = Lens.lens (roleSearchSubtree :: LdapServerMetadataOutput -> Lude.Maybe Lude.Bool) (\s a -> s {roleSearchSubtree = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoRoleSearchSubtree "Use generic-lens or generic-optics with 'roleSearchSubtree' instead." #-}
 
 -- | Fully qualified domain name of the LDAP server. Optional failover server.
-lsmoHosts :: Lens' LdapServerMetadataOutput [Text]
-lsmoHosts = lens _lsmoHosts (\s a -> s {_lsmoHosts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hosts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoHosts :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe [Lude.Text])
+lsmoHosts = Lens.lens (hosts :: LdapServerMetadataOutput -> Lude.Maybe [Lude.Text]) (\s a -> s {hosts = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoHosts "Use generic-lens or generic-optics with 'hosts' instead." #-}
 
 -- | Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-lsmoRoleName :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoRoleName = lens _lsmoRoleName (\s a -> s {_lsmoRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoRoleName :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoRoleName = Lens.lens (roleName :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The search criteria for groups.
-lsmoRoleSearchMatching :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoRoleSearchMatching = lens _lsmoRoleSearchMatching (\s a -> s {_lsmoRoleSearchMatching = a})
+--
+-- /Note:/ Consider using 'roleSearchMatching' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoRoleSearchMatching :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoRoleSearchMatching = Lens.lens (roleSearchMatching :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {roleSearchMatching = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoRoleSearchMatching "Use generic-lens or generic-optics with 'roleSearchMatching' instead." #-}
 
 -- | Fully qualified name of the directory to search for a user’s groups.
-lsmoRoleBase :: Lens' LdapServerMetadataOutput (Maybe Text)
-lsmoRoleBase = lens _lsmoRoleBase (\s a -> s {_lsmoRoleBase = a})
+--
+-- /Note:/ Consider using 'roleBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmoRoleBase :: Lens.Lens' LdapServerMetadataOutput (Lude.Maybe Lude.Text)
+lsmoRoleBase = Lens.lens (roleBase :: LdapServerMetadataOutput -> Lude.Maybe Lude.Text) (\s a -> s {roleBase = a} :: LdapServerMetadataOutput)
+{-# DEPRECATED lsmoRoleBase "Use generic-lens or generic-optics with 'roleBase' instead." #-}
 
-instance FromJSON LdapServerMetadataOutput where
+instance Lude.FromJSON LdapServerMetadataOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "LdapServerMetadataOutput"
       ( \x ->
           LdapServerMetadataOutput'
-            <$> (x .:? "userBase")
-            <*> (x .:? "userSearchMatching")
-            <*> (x .:? "userRoleName")
-            <*> (x .:? "serviceAccountUsername")
-            <*> (x .:? "userSearchSubtree")
-            <*> (x .:? "roleSearchSubtree")
-            <*> (x .:? "hosts" .!= mempty)
-            <*> (x .:? "roleName")
-            <*> (x .:? "roleSearchMatching")
-            <*> (x .:? "roleBase")
+            Lude.<$> (x Lude..:? "userBase")
+            Lude.<*> (x Lude..:? "userSearchMatching")
+            Lude.<*> (x Lude..:? "userRoleName")
+            Lude.<*> (x Lude..:? "serviceAccountUsername")
+            Lude.<*> (x Lude..:? "userSearchSubtree")
+            Lude.<*> (x Lude..:? "roleSearchSubtree")
+            Lude.<*> (x Lude..:? "hosts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "roleName")
+            Lude.<*> (x Lude..:? "roleSearchMatching")
+            Lude.<*> (x Lude..:? "roleBase")
       )
-
-instance Hashable LdapServerMetadataOutput
-
-instance NFData LdapServerMetadataOutput

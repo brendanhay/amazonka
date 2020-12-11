@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MetricDimension where
+module Network.AWS.IoT.Types.MetricDimension
+  ( MetricDimension (..),
+
+    -- * Smart constructor
+    mkMetricDimension,
+
+    -- * Lenses
+    mdOperator,
+    mdDimensionName,
+  )
+where
 
 import Network.AWS.IoT.Types.DimensionValueOperator
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The dimension of a metric.
 --
---
---
--- /See:/ 'metricDimension' smart constructor.
+-- /See:/ 'mkMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { _mdOperator ::
-      !(Maybe DimensionValueOperator),
-    _mdDimensionName :: !Text
+  { operator ::
+      Lude.Maybe DimensionValueOperator,
+    dimensionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdOperator' - Defines how the @dimensionValues@ of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the @IN@ operator, a message will be counted only if its topic matches one of the topic filters. With @NOT_IN@ operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is @null@ ), it will be interpreted as @IN@ .
---
--- * 'mdDimensionName' - A unique identifier for the dimension.
-metricDimension ::
-  -- | 'mdDimensionName'
-  Text ->
+-- * 'dimensionName' - A unique identifier for the dimension.
+-- * 'operator' - Defines how the @dimensionValues@ of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the @IN@ operator, a message will be counted only if its topic matches one of the topic filters. With @NOT_IN@ operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is @null@ ), it will be interpreted as @IN@ .
+mkMetricDimension ::
+  -- | 'dimensionName'
+  Lude.Text ->
   MetricDimension
-metricDimension pDimensionName_ =
+mkMetricDimension pDimensionName_ =
   MetricDimension'
-    { _mdOperator = Nothing,
-      _mdDimensionName = pDimensionName_
+    { operator = Lude.Nothing,
+      dimensionName = pDimensionName_
     }
 
 -- | Defines how the @dimensionValues@ of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the @IN@ operator, a message will be counted only if its topic matches one of the topic filters. With @NOT_IN@ operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is @null@ ), it will be interpreted as @IN@ .
-mdOperator :: Lens' MetricDimension (Maybe DimensionValueOperator)
-mdOperator = lens _mdOperator (\s a -> s {_mdOperator = a})
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdOperator :: Lens.Lens' MetricDimension (Lude.Maybe DimensionValueOperator)
+mdOperator = Lens.lens (operator :: MetricDimension -> Lude.Maybe DimensionValueOperator) (\s a -> s {operator = a} :: MetricDimension)
+{-# DEPRECATED mdOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
 -- | A unique identifier for the dimension.
-mdDimensionName :: Lens' MetricDimension Text
-mdDimensionName = lens _mdDimensionName (\s a -> s {_mdDimensionName = a})
+--
+-- /Note:/ Consider using 'dimensionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdDimensionName :: Lens.Lens' MetricDimension Lude.Text
+mdDimensionName = Lens.lens (dimensionName :: MetricDimension -> Lude.Text) (\s a -> s {dimensionName = a} :: MetricDimension)
+{-# DEPRECATED mdDimensionName "Use generic-lens or generic-optics with 'dimensionName' instead." #-}
 
-instance FromJSON MetricDimension where
+instance Lude.FromJSON MetricDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricDimension"
       ( \x ->
-          MetricDimension' <$> (x .:? "operator") <*> (x .: "dimensionName")
+          MetricDimension'
+            Lude.<$> (x Lude..:? "operator") Lude.<*> (x Lude..: "dimensionName")
       )
 
-instance Hashable MetricDimension
-
-instance NFData MetricDimension
-
-instance ToJSON MetricDimension where
+instance Lude.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    object
-      ( catMaybes
-          [ ("operator" .=) <$> _mdOperator,
-            Just ("dimensionName" .= _mdDimensionName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("operator" Lude..=) Lude.<$> operator,
+            Lude.Just ("dimensionName" Lude..= dimensionName)
           ]
       )

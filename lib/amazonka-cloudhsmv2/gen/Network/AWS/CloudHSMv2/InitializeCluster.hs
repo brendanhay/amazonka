@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use 'DescribeClusters' .
 module Network.AWS.CloudHSMv2.InitializeCluster
-  ( -- * Creating a Request
-    initializeCluster,
-    InitializeCluster,
+  ( -- * Creating a request
+    InitializeCluster (..),
+    mkInitializeCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     icClusterId,
     icSignedCert,
     icTrustAnchor,
 
-    -- * Destructuring the Response
-    initializeClusterResponse,
-    InitializeClusterResponse,
+    -- * Destructuring the response
+    InitializeClusterResponse (..),
+    mkInitializeClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     icrsStateMessage,
     icrsState,
     icrsResponseStatus,
@@ -40,134 +35,155 @@ module Network.AWS.CloudHSMv2.InitializeCluster
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'initializeCluster' smart constructor.
+-- | /See:/ 'mkInitializeCluster' smart constructor.
 data InitializeCluster = InitializeCluster'
-  { _icClusterId :: !Text,
-    _icSignedCert :: !Text,
-    _icTrustAnchor :: !Text
+  { clusterId :: Lude.Text,
+    signedCert :: Lude.Text,
+    trustAnchor :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitializeCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icClusterId' - The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
---
--- * 'icSignedCert' - The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
---
--- * 'icTrustAnchor' - The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters.
-initializeCluster ::
-  -- | 'icClusterId'
-  Text ->
-  -- | 'icSignedCert'
-  Text ->
-  -- | 'icTrustAnchor'
-  Text ->
+-- * 'clusterId' - The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
+-- * 'signedCert' - The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
+-- * 'trustAnchor' - The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters.
+mkInitializeCluster ::
+  -- | 'clusterId'
+  Lude.Text ->
+  -- | 'signedCert'
+  Lude.Text ->
+  -- | 'trustAnchor'
+  Lude.Text ->
   InitializeCluster
-initializeCluster pClusterId_ pSignedCert_ pTrustAnchor_ =
+mkInitializeCluster pClusterId_ pSignedCert_ pTrustAnchor_ =
   InitializeCluster'
-    { _icClusterId = pClusterId_,
-      _icSignedCert = pSignedCert_,
-      _icTrustAnchor = pTrustAnchor_
+    { clusterId = pClusterId_,
+      signedCert = pSignedCert_,
+      trustAnchor = pTrustAnchor_
     }
 
 -- | The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
-icClusterId :: Lens' InitializeCluster Text
-icClusterId = lens _icClusterId (\s a -> s {_icClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icClusterId :: Lens.Lens' InitializeCluster Lude.Text
+icClusterId = Lens.lens (clusterId :: InitializeCluster -> Lude.Text) (\s a -> s {clusterId = a} :: InitializeCluster)
+{-# DEPRECATED icClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
-icSignedCert :: Lens' InitializeCluster Text
-icSignedCert = lens _icSignedCert (\s a -> s {_icSignedCert = a})
+--
+-- /Note:/ Consider using 'signedCert' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icSignedCert :: Lens.Lens' InitializeCluster Lude.Text
+icSignedCert = Lens.lens (signedCert :: InitializeCluster -> Lude.Text) (\s a -> s {signedCert = a} :: InitializeCluster)
+{-# DEPRECATED icSignedCert "Use generic-lens or generic-optics with 'signedCert' instead." #-}
 
 -- | The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. You must use a self-signed certificate. The certificate used to sign the HSM CSR must be directly available, and thus must be the root certificate. The certificate must be in PEM format and can contain a maximum of 5000 characters.
-icTrustAnchor :: Lens' InitializeCluster Text
-icTrustAnchor = lens _icTrustAnchor (\s a -> s {_icTrustAnchor = a})
+--
+-- /Note:/ Consider using 'trustAnchor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icTrustAnchor :: Lens.Lens' InitializeCluster Lude.Text
+icTrustAnchor = Lens.lens (trustAnchor :: InitializeCluster -> Lude.Text) (\s a -> s {trustAnchor = a} :: InitializeCluster)
+{-# DEPRECATED icTrustAnchor "Use generic-lens or generic-optics with 'trustAnchor' instead." #-}
 
-instance AWSRequest InitializeCluster where
+instance Lude.AWSRequest InitializeCluster where
   type Rs InitializeCluster = InitializeClusterResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           InitializeClusterResponse'
-            <$> (x .?> "StateMessage") <*> (x .?> "State") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StateMessage")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InitializeCluster
-
-instance NFData InitializeCluster
-
-instance ToHeaders InitializeCluster where
+instance Lude.ToHeaders InitializeCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("BaldrApiService.InitializeCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("BaldrApiService.InitializeCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON InitializeCluster where
+instance Lude.ToJSON InitializeCluster where
   toJSON InitializeCluster' {..} =
-    object
-      ( catMaybes
-          [ Just ("ClusterId" .= _icClusterId),
-            Just ("SignedCert" .= _icSignedCert),
-            Just ("TrustAnchor" .= _icTrustAnchor)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            Lude.Just ("SignedCert" Lude..= signedCert),
+            Lude.Just ("TrustAnchor" Lude..= trustAnchor)
           ]
       )
 
-instance ToPath InitializeCluster where
-  toPath = const "/"
+instance Lude.ToPath InitializeCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery InitializeCluster where
-  toQuery = const mempty
+instance Lude.ToQuery InitializeCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'initializeClusterResponse' smart constructor.
+-- | /See:/ 'mkInitializeClusterResponse' smart constructor.
 data InitializeClusterResponse = InitializeClusterResponse'
-  { _icrsStateMessage ::
-      !(Maybe Text),
-    _icrsState :: !(Maybe ClusterState),
-    _icrsResponseStatus :: !Int
+  { stateMessage ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe ClusterState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitializeClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icrsStateMessage' - A description of the cluster's state.
---
--- * 'icrsState' - The cluster's state.
---
--- * 'icrsResponseStatus' - -- | The response status code.
-initializeClusterResponse ::
-  -- | 'icrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The cluster's state.
+-- * 'stateMessage' - A description of the cluster's state.
+mkInitializeClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InitializeClusterResponse
-initializeClusterResponse pResponseStatus_ =
+mkInitializeClusterResponse pResponseStatus_ =
   InitializeClusterResponse'
-    { _icrsStateMessage = Nothing,
-      _icrsState = Nothing,
-      _icrsResponseStatus = pResponseStatus_
+    { stateMessage = Lude.Nothing,
+      state = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A description of the cluster's state.
-icrsStateMessage :: Lens' InitializeClusterResponse (Maybe Text)
-icrsStateMessage = lens _icrsStateMessage (\s a -> s {_icrsStateMessage = a})
+--
+-- /Note:/ Consider using 'stateMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrsStateMessage :: Lens.Lens' InitializeClusterResponse (Lude.Maybe Lude.Text)
+icrsStateMessage = Lens.lens (stateMessage :: InitializeClusterResponse -> Lude.Maybe Lude.Text) (\s a -> s {stateMessage = a} :: InitializeClusterResponse)
+{-# DEPRECATED icrsStateMessage "Use generic-lens or generic-optics with 'stateMessage' instead." #-}
 
 -- | The cluster's state.
-icrsState :: Lens' InitializeClusterResponse (Maybe ClusterState)
-icrsState = lens _icrsState (\s a -> s {_icrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrsState :: Lens.Lens' InitializeClusterResponse (Lude.Maybe ClusterState)
+icrsState = Lens.lens (state :: InitializeClusterResponse -> Lude.Maybe ClusterState) (\s a -> s {state = a} :: InitializeClusterResponse)
+{-# DEPRECATED icrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | -- | The response status code.
-icrsResponseStatus :: Lens' InitializeClusterResponse Int
-icrsResponseStatus = lens _icrsResponseStatus (\s a -> s {_icrsResponseStatus = a})
-
-instance NFData InitializeClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrsResponseStatus :: Lens.Lens' InitializeClusterResponse Lude.Int
+icrsResponseStatus = Lens.lens (responseStatus :: InitializeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitializeClusterResponse)
+{-# DEPRECATED icrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

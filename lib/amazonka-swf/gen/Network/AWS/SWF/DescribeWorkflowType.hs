@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,181 +14,210 @@
 --
 -- Returns information about the specified /workflow type/ . This includes configuration settings specified when the type was registered and other information such as creation date, current status, etc.
 --
---
 -- __Access Control__
---
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
+--
 --     * Use an @Action@ element to allow or deny permission to call this action.
+--
 --
 --     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
 --
 --     * @workflowType.name@ : String constraint. The key is @swf:workflowType.name@ .
+--
 --
 --     * @workflowType.version@ : String constraint. The key is @swf:workflowType.version@ .
 --
 --
 --
 --
---
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 module Network.AWS.SWF.DescribeWorkflowType
-  ( -- * Creating a Request
-    describeWorkflowType,
-    DescribeWorkflowType,
+  ( -- * Creating a request
+    DescribeWorkflowType (..),
+    mkDescribeWorkflowType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwtDomain,
     dwtWorkflowType,
 
-    -- * Destructuring the Response
-    describeWorkflowTypeResponse,
-    DescribeWorkflowTypeResponse,
+    -- * Destructuring the response
+    DescribeWorkflowTypeResponse (..),
+    mkDescribeWorkflowTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwtrsResponseStatus,
     dwtrsTypeInfo,
     dwtrsConfiguration,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SWF.Types
 
--- | /See:/ 'describeWorkflowType' smart constructor.
+-- | /See:/ 'mkDescribeWorkflowType' smart constructor.
 data DescribeWorkflowType = DescribeWorkflowType'
-  { _dwtDomain ::
-      !Text,
-    _dwtWorkflowType :: !WorkflowType
+  { domain ::
+      Lude.Text,
+    workflowType :: WorkflowType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkflowType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwtDomain' - The name of the domain in which this workflow type is registered.
---
--- * 'dwtWorkflowType' - The workflow type to describe.
-describeWorkflowType ::
-  -- | 'dwtDomain'
-  Text ->
-  -- | 'dwtWorkflowType'
+-- * 'domain' - The name of the domain in which this workflow type is registered.
+-- * 'workflowType' - The workflow type to describe.
+mkDescribeWorkflowType ::
+  -- | 'domain'
+  Lude.Text ->
+  -- | 'workflowType'
   WorkflowType ->
   DescribeWorkflowType
-describeWorkflowType pDomain_ pWorkflowType_ =
+mkDescribeWorkflowType pDomain_ pWorkflowType_ =
   DescribeWorkflowType'
-    { _dwtDomain = pDomain_,
-      _dwtWorkflowType = pWorkflowType_
+    { domain = pDomain_,
+      workflowType = pWorkflowType_
     }
 
 -- | The name of the domain in which this workflow type is registered.
-dwtDomain :: Lens' DescribeWorkflowType Text
-dwtDomain = lens _dwtDomain (\s a -> s {_dwtDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtDomain :: Lens.Lens' DescribeWorkflowType Lude.Text
+dwtDomain = Lens.lens (domain :: DescribeWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DescribeWorkflowType)
+{-# DEPRECATED dwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflow type to describe.
-dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
-dwtWorkflowType = lens _dwtWorkflowType (\s a -> s {_dwtWorkflowType = a})
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtWorkflowType :: Lens.Lens' DescribeWorkflowType WorkflowType
+dwtWorkflowType = Lens.lens (workflowType :: DescribeWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DescribeWorkflowType)
+{-# DEPRECATED dwtWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
-instance AWSRequest DescribeWorkflowType where
+instance Lude.AWSRequest DescribeWorkflowType where
   type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
-  request = postJSON swf
+  request = Req.postJSON swfService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeWorkflowTypeResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "typeInfo")
-            <*> (x .:> "configuration")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "typeInfo")
+            Lude.<*> (x Lude..:> "configuration")
       )
 
-instance Hashable DescribeWorkflowType
-
-instance NFData DescribeWorkflowType
-
-instance ToHeaders DescribeWorkflowType where
+instance Lude.ToHeaders DescribeWorkflowType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SimpleWorkflowService.DescribeWorkflowType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("SimpleWorkflowService.DescribeWorkflowType" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeWorkflowType where
+instance Lude.ToJSON DescribeWorkflowType where
   toJSON DescribeWorkflowType' {..} =
-    object
-      ( catMaybes
-          [ Just ("domain" .= _dwtDomain),
-            Just ("workflowType" .= _dwtWorkflowType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("domain" Lude..= domain),
+            Lude.Just ("workflowType" Lude..= workflowType)
           ]
       )
 
-instance ToPath DescribeWorkflowType where
-  toPath = const "/"
+instance Lude.ToPath DescribeWorkflowType where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeWorkflowType where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeWorkflowType where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains details about a workflow type.
 --
---
---
--- /See:/ 'describeWorkflowTypeResponse' smart constructor.
+-- /See:/ 'mkDescribeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-  { _dwtrsResponseStatus ::
-      !Int,
-    _dwtrsTypeInfo ::
-      !WorkflowTypeInfo,
-    _dwtrsConfiguration ::
-      !WorkflowTypeConfiguration
+  { responseStatus ::
+      Lude.Int,
+    typeInfo :: WorkflowTypeInfo,
+    configuration ::
+      WorkflowTypeConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkflowTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configuration' - Configuration settings of the workflow type registered through 'RegisterWorkflowType'
+-- * 'responseStatus' - The response status code.
+-- * 'typeInfo' - General information about the workflow type.
 --
--- * 'dwtrsResponseStatus' - -- | The response status code.
+-- The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.
 --
--- * 'dwtrsTypeInfo' - General information about the workflow type. The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
+--     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.
 --
--- * 'dwtrsConfiguration' - Configuration settings of the workflow type registered through 'RegisterWorkflowType'
-describeWorkflowTypeResponse ::
-  -- | 'dwtrsResponseStatus'
-  Int ->
-  -- | 'dwtrsTypeInfo'
+--
+--     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
+mkDescribeWorkflowTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'typeInfo'
   WorkflowTypeInfo ->
-  -- | 'dwtrsConfiguration'
+  -- | 'configuration'
   WorkflowTypeConfiguration ->
   DescribeWorkflowTypeResponse
-describeWorkflowTypeResponse
+mkDescribeWorkflowTypeResponse
   pResponseStatus_
   pTypeInfo_
   pConfiguration_ =
     DescribeWorkflowTypeResponse'
-      { _dwtrsResponseStatus =
-          pResponseStatus_,
-        _dwtrsTypeInfo = pTypeInfo_,
-        _dwtrsConfiguration = pConfiguration_
+      { responseStatus = pResponseStatus_,
+        typeInfo = pTypeInfo_,
+        configuration = pConfiguration_
       }
 
--- | -- | The response status code.
-dwtrsResponseStatus :: Lens' DescribeWorkflowTypeResponse Int
-dwtrsResponseStatus = lens _dwtrsResponseStatus (\s a -> s {_dwtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtrsResponseStatus :: Lens.Lens' DescribeWorkflowTypeResponse Lude.Int
+dwtrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkflowTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkflowTypeResponse)
+{-# DEPRECATED dwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | General information about the workflow type. The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
-dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
-dwtrsTypeInfo = lens _dwtrsTypeInfo (\s a -> s {_dwtrsTypeInfo = a})
+-- | General information about the workflow type.
+--
+-- The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.
+--
+--     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.
+--
+--
+--     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
+--
+--
+--
+-- /Note:/ Consider using 'typeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtrsTypeInfo :: Lens.Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
+dwtrsTypeInfo = Lens.lens (typeInfo :: DescribeWorkflowTypeResponse -> WorkflowTypeInfo) (\s a -> s {typeInfo = a} :: DescribeWorkflowTypeResponse)
+{-# DEPRECATED dwtrsTypeInfo "Use generic-lens or generic-optics with 'typeInfo' instead." #-}
 
 -- | Configuration settings of the workflow type registered through 'RegisterWorkflowType'
-dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
-dwtrsConfiguration = lens _dwtrsConfiguration (\s a -> s {_dwtrsConfiguration = a})
-
-instance NFData DescribeWorkflowTypeResponse
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtrsConfiguration :: Lens.Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
+dwtrsConfiguration = Lens.lens (configuration :: DescribeWorkflowTypeResponse -> WorkflowTypeConfiguration) (\s a -> s {configuration = a} :: DescribeWorkflowTypeResponse)
+{-# DEPRECATED dwtrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}

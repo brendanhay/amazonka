@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.S3KeyFilter where
+module Network.AWS.S3.Types.S3KeyFilter
+  ( S3KeyFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3KeyFilter,
+
+    -- * Lenses
+    skfFilterRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.FilterRule
 
 -- | A container for object key name prefix and suffix filtering rules.
 --
---
---
--- /See:/ 's3KeyFilter' smart constructor.
+-- /See:/ 'mkS3KeyFilter' smart constructor.
 newtype S3KeyFilter = S3KeyFilter'
-  { _skfFilterRules ::
-      Maybe [FilterRule]
+  { filterRules ::
+      Lude.Maybe [FilterRule]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3KeyFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'skfFilterRules' - Undocumented member.
-s3KeyFilter ::
+-- * 'filterRules' - Undocumented field.
+mkS3KeyFilter ::
   S3KeyFilter
-s3KeyFilter = S3KeyFilter' {_skfFilterRules = Nothing}
+mkS3KeyFilter = S3KeyFilter' {filterRules = Lude.Nothing}
 
--- | Undocumented member.
-skfFilterRules :: Lens' S3KeyFilter [FilterRule]
-skfFilterRules = lens _skfFilterRules (\s a -> s {_skfFilterRules = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filterRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skfFilterRules :: Lens.Lens' S3KeyFilter (Lude.Maybe [FilterRule])
+skfFilterRules = Lens.lens (filterRules :: S3KeyFilter -> Lude.Maybe [FilterRule]) (\s a -> s {filterRules = a} :: S3KeyFilter)
+{-# DEPRECATED skfFilterRules "Use generic-lens or generic-optics with 'filterRules' instead." #-}
 
-instance FromXML S3KeyFilter where
-  parseXML x = S3KeyFilter' <$> (may (parseXMLList "FilterRule") x)
+instance Lude.FromXML S3KeyFilter where
+  parseXML x =
+    S3KeyFilter'
+      Lude.<$> (Lude.may (Lude.parseXMLList "FilterRule") x)
 
-instance Hashable S3KeyFilter
-
-instance NFData S3KeyFilter
-
-instance ToXML S3KeyFilter where
+instance Lude.ToXML S3KeyFilter where
   toXML S3KeyFilter' {..} =
-    mconcat [toXML (toXMLList "FilterRule" <$> _skfFilterRules)]
+    Lude.mconcat
+      [Lude.toXML (Lude.toXMLList "FilterRule" Lude.<$> filterRules)]

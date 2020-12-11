@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AWSHealth.Types
-  ( -- * Service Configuration
-    awsHealth,
+  ( -- * Service configuration
+    awsHealthService,
 
     -- * Errors
 
@@ -31,8 +29,8 @@ module Network.AWS.AWSHealth.Types
     EventTypeCategory (..),
 
     -- * AffectedEntity
-    AffectedEntity,
-    affectedEntity,
+    AffectedEntity (..),
+    mkAffectedEntity,
     aeLastUpdatedTime,
     aeEntityValue,
     aeEntityURL,
@@ -43,20 +41,20 @@ module Network.AWS.AWSHealth.Types
     aeStatusCode,
 
     -- * DateTimeRange
-    DateTimeRange,
-    dateTimeRange,
+    DateTimeRange (..),
+    mkDateTimeRange,
     dtrTo,
     dtrFrom,
 
     -- * EntityAggregate
-    EntityAggregate,
-    entityAggregate,
+    EntityAggregate (..),
+    mkEntityAggregate,
     eCount,
     eEventARN,
 
     -- * EntityFilter
-    EntityFilter,
-    entityFilter,
+    EntityFilter (..),
+    mkEntityFilter,
     eStatusCodes,
     eEntityARNs,
     eEntityValues,
@@ -65,8 +63,8 @@ module Network.AWS.AWSHealth.Types
     eEventARNs,
 
     -- * Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eLastUpdatedTime,
     eArn,
     eService,
@@ -80,39 +78,39 @@ module Network.AWS.AWSHealth.Types
     eStatusCode,
 
     -- * EventAccountFilter
-    EventAccountFilter,
-    eventAccountFilter,
+    EventAccountFilter (..),
+    mkEventAccountFilter,
     eafAwsAccountId,
     eafEventARN,
 
     -- * EventAggregate
-    EventAggregate,
-    eventAggregate,
+    EventAggregate (..),
+    mkEventAggregate,
     eaCount,
     eaAggregateValue,
 
     -- * EventDescription
-    EventDescription,
-    eventDescription,
+    EventDescription (..),
+    mkEventDescription,
     edLatestDescription,
 
     -- * EventDetails
-    EventDetails,
-    eventDetails,
+    EventDetails (..),
+    mkEventDetails,
     edEvent,
     edEventDescription,
     edEventMetadata,
 
     -- * EventDetailsErrorItem
-    EventDetailsErrorItem,
-    eventDetailsErrorItem,
+    EventDetailsErrorItem (..),
+    mkEventDetailsErrorItem,
     edeiEventARN,
     edeiErrorName,
     edeiErrorMessage,
 
     -- * EventFilter
-    EventFilter,
-    eventFilter,
+    EventFilter (..),
+    mkEventFilter,
     efEventARNs,
     efEventTypeCategories,
     efEventTypeCodes,
@@ -128,30 +126,30 @@ module Network.AWS.AWSHealth.Types
     efLastUpdatedTimes,
 
     -- * EventType
-    EventType,
-    eventType,
+    EventType (..),
+    mkEventType,
     etService,
     etCategory,
     etCode,
 
     -- * EventTypeFilter
-    EventTypeFilter,
-    eventTypeFilter,
+    EventTypeFilter (..),
+    mkEventTypeFilter,
     etfEventTypeCategories,
     etfEventTypeCodes,
     etfServices,
 
     -- * OrganizationAffectedEntitiesErrorItem
-    OrganizationAffectedEntitiesErrorItem,
-    organizationAffectedEntitiesErrorItem,
+    OrganizationAffectedEntitiesErrorItem (..),
+    mkOrganizationAffectedEntitiesErrorItem,
     oaeeiAwsAccountId,
     oaeeiEventARN,
     oaeeiErrorName,
     oaeeiErrorMessage,
 
     -- * OrganizationEvent
-    OrganizationEvent,
-    organizationEvent,
+    OrganizationEvent (..),
+    mkOrganizationEvent,
     oeLastUpdatedTime,
     oeArn,
     oeService,
@@ -164,24 +162,24 @@ module Network.AWS.AWSHealth.Types
     oeStatusCode,
 
     -- * OrganizationEventDetails
-    OrganizationEventDetails,
-    organizationEventDetails,
+    OrganizationEventDetails (..),
+    mkOrganizationEventDetails,
     oedEvent,
     oedEventDescription,
     oedAwsAccountId,
     oedEventMetadata,
 
     -- * OrganizationEventDetailsErrorItem
-    OrganizationEventDetailsErrorItem,
-    organizationEventDetailsErrorItem,
+    OrganizationEventDetailsErrorItem (..),
+    mkOrganizationEventDetailsErrorItem,
     oedeiAwsAccountId,
     oedeiEventARN,
     oedeiErrorName,
     oedeiErrorMessage,
 
     -- * OrganizationEventFilter
-    OrganizationEventFilter,
-    organizationEventFilter,
+    OrganizationEventFilter (..),
+    mkOrganizationEventFilter,
     oefLastUpdatedTime,
     oefAwsAccountIds,
     oefEventTypeCategories,
@@ -219,48 +217,60 @@ import Network.AWS.AWSHealth.Types.OrganizationEvent
 import Network.AWS.AWSHealth.Types.OrganizationEventDetails
 import Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
 import Network.AWS.AWSHealth.Types.OrganizationEventFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-08-04@ of the Amazon Health APIs and Notifications SDK configuration.
-awsHealth :: Service
-awsHealth =
-  Service
-    { _svcAbbrev = "AWSHealth",
-      _svcSigner = v4,
-      _svcPrefix = "health",
-      _svcVersion = "2016-08-04",
-      _svcEndpoint = defaultEndpoint awsHealth,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "AWSHealth",
-      _svcRetry = retry
+awsHealthService :: Lude.Service
+awsHealthService =
+  Lude.Service
+    { Lude._svcAbbrev = "AWSHealth",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "health",
+      Lude._svcVersion = "2016-08-04",
+      Lude._svcEndpoint = Lude.defaultEndpoint awsHealthService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "AWSHealth",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

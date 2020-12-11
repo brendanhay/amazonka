@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ValidationError where
+module Network.AWS.IoT.Types.ValidationError
+  ( ValidationError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValidationError,
+
+    -- * Lenses
+    veErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an error found in a behavior specification.
 --
---
---
--- /See:/ 'validationError' smart constructor.
+-- /See:/ 'mkValidationError' smart constructor.
 newtype ValidationError = ValidationError'
-  { _veErrorMessage ::
-      Maybe Text
+  { errorMessage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'veErrorMessage' - The description of an error found in the behaviors.
-validationError ::
+-- * 'errorMessage' - The description of an error found in the behaviors.
+mkValidationError ::
   ValidationError
-validationError = ValidationError' {_veErrorMessage = Nothing}
+mkValidationError = ValidationError' {errorMessage = Lude.Nothing}
 
 -- | The description of an error found in the behaviors.
-veErrorMessage :: Lens' ValidationError (Maybe Text)
-veErrorMessage = lens _veErrorMessage (\s a -> s {_veErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veErrorMessage :: Lens.Lens' ValidationError (Lude.Maybe Lude.Text)
+veErrorMessage = Lens.lens (errorMessage :: ValidationError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ValidationError)
+{-# DEPRECATED veErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON ValidationError where
+instance Lude.FromJSON ValidationError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ValidationError"
-      (\x -> ValidationError' <$> (x .:? "errorMessage"))
-
-instance Hashable ValidationError
-
-instance NFData ValidationError
+      (\x -> ValidationError' Lude.<$> (x Lude..:? "errorMessage"))

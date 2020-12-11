@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ServerSideEncryptionConfiguration where
+module Network.AWS.S3.Types.ServerSideEncryptionConfiguration
+  ( ServerSideEncryptionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerSideEncryptionConfiguration,
+
+    -- * Lenses
+    ssecRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryptionRule
 
 -- | Specifies the default server-side-encryption configuration.
 --
---
---
--- /See:/ 'serverSideEncryptionConfiguration' smart constructor.
+-- /See:/ 'mkServerSideEncryptionConfiguration' smart constructor.
 newtype ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
-  { _ssecRules ::
+  { rules ::
       [ServerSideEncryptionRule]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerSideEncryptionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssecRules' - Container for information about a particular server-side encryption configuration rule.
-serverSideEncryptionConfiguration ::
+-- * 'rules' - Container for information about a particular server-side encryption configuration rule.
+mkServerSideEncryptionConfiguration ::
   ServerSideEncryptionConfiguration
-serverSideEncryptionConfiguration =
-  ServerSideEncryptionConfiguration' {_ssecRules = mempty}
+mkServerSideEncryptionConfiguration =
+  ServerSideEncryptionConfiguration' {rules = Lude.mempty}
 
 -- | Container for information about a particular server-side encryption configuration rule.
-ssecRules :: Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
-ssecRules = lens _ssecRules (\s a -> s {_ssecRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssecRules :: Lens.Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
+ssecRules = Lens.lens (rules :: ServerSideEncryptionConfiguration -> [ServerSideEncryptionRule]) (\s a -> s {rules = a} :: ServerSideEncryptionConfiguration)
+{-# DEPRECATED ssecRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance FromXML ServerSideEncryptionConfiguration where
+instance Lude.FromXML ServerSideEncryptionConfiguration where
   parseXML x =
-    ServerSideEncryptionConfiguration' <$> (parseXMLList "Rule" x)
+    ServerSideEncryptionConfiguration'
+      Lude.<$> (Lude.parseXMLList "Rule" x)
 
-instance Hashable ServerSideEncryptionConfiguration
-
-instance NFData ServerSideEncryptionConfiguration
-
-instance ToXML ServerSideEncryptionConfiguration where
+instance Lude.ToXML ServerSideEncryptionConfiguration where
   toXML ServerSideEncryptionConfiguration' {..} =
-    mconcat [toXMLList "Rule" _ssecRules]
+    Lude.mconcat [Lude.toXMLList "Rule" rules]

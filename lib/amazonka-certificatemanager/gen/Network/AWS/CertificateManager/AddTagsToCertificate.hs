@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,123 @@
 --
 -- Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a @key@ and an optional @value@ . You specify the certificate on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair.
 --
---
 -- You can apply a tag to just one certificate if you want to identify a specific characteristic of that certificate, or you can apply the same tag to multiple certificates if you want to filter for a common relationship among those certificates. Similarly, you can apply the same tag to multiple resources if you want to specify a relationship among those resources. For example, you can add the same tag to an ACM certificate and an Elastic Load Balancing load balancer to indicate that they are both used by the same website. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/tags.html Tagging ACM certificates> .
---
 -- To remove one or more tags, use the 'RemoveTagsFromCertificate' action. To view all of the tags that have been applied to the certificate, use the 'ListTagsForCertificate' action.
 module Network.AWS.CertificateManager.AddTagsToCertificate
-  ( -- * Creating a Request
-    addTagsToCertificate,
-    AddTagsToCertificate,
+  ( -- * Creating a request
+    AddTagsToCertificate (..),
+    mkAddTagsToCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attcCertificateARN,
     attcTags,
 
-    -- * Destructuring the Response
-    addTagsToCertificateResponse,
-    AddTagsToCertificateResponse,
+    -- * Destructuring the response
+    AddTagsToCertificateResponse (..),
+    mkAddTagsToCertificateResponse,
   )
 where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addTagsToCertificate' smart constructor.
+-- | /See:/ 'mkAddTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
-  { _attcCertificateARN ::
-      !Text,
-    _attcTags :: !(List1 Tag)
+  { certificateARN ::
+      Lude.Text,
+    tags :: Lude.NonEmpty Tag
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateARN' - String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:
 --
--- * 'attcCertificateARN' - String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- * 'attcTags' - The key-value pair that defines the tag. The tag value is optional.
-addTagsToCertificate ::
-  -- | 'attcCertificateARN'
-  Text ->
-  -- | 'attcTags'
-  NonEmpty Tag ->
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'tags' - The key-value pair that defines the tag. The tag value is optional.
+mkAddTagsToCertificate ::
+  -- | 'certificateARN'
+  Lude.Text ->
+  -- | 'tags'
+  Lude.NonEmpty Tag ->
   AddTagsToCertificate
-addTagsToCertificate pCertificateARN_ pTags_ =
+mkAddTagsToCertificate pCertificateARN_ pTags_ =
   AddTagsToCertificate'
-    { _attcCertificateARN = pCertificateARN_,
-      _attcTags = _List1 # pTags_
+    { certificateARN = pCertificateARN_,
+      tags = pTags_
     }
 
--- | String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-attcCertificateARN :: Lens' AddTagsToCertificate Text
-attcCertificateARN = lens _attcCertificateARN (\s a -> s {_attcCertificateARN = a})
+-- | String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:
+--
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attcCertificateARN :: Lens.Lens' AddTagsToCertificate Lude.Text
+attcCertificateARN = Lens.lens (certificateARN :: AddTagsToCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: AddTagsToCertificate)
+{-# DEPRECATED attcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The key-value pair that defines the tag. The tag value is optional.
-attcTags :: Lens' AddTagsToCertificate (NonEmpty Tag)
-attcTags = lens _attcTags (\s a -> s {_attcTags = a}) . _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attcTags :: Lens.Lens' AddTagsToCertificate (Lude.NonEmpty Tag)
+attcTags = Lens.lens (tags :: AddTagsToCertificate -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: AddTagsToCertificate)
+{-# DEPRECATED attcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest AddTagsToCertificate where
+instance Lude.AWSRequest AddTagsToCertificate where
   type Rs AddTagsToCertificate = AddTagsToCertificateResponse
-  request = postJSON certificateManager
-  response = receiveNull AddTagsToCertificateResponse'
+  request = Req.postJSON certificateManagerService
+  response = Res.receiveNull AddTagsToCertificateResponse'
 
-instance Hashable AddTagsToCertificate
-
-instance NFData AddTagsToCertificate
-
-instance ToHeaders AddTagsToCertificate where
+instance Lude.ToHeaders AddTagsToCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CertificateManager.AddTagsToCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CertificateManager.AddTagsToCertificate" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTagsToCertificate where
+instance Lude.ToJSON AddTagsToCertificate where
   toJSON AddTagsToCertificate' {..} =
-    object
-      ( catMaybes
-          [ Just ("CertificateArn" .= _attcCertificateARN),
-            Just ("Tags" .= _attcTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("CertificateArn" Lude..= certificateARN),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
-instance ToPath AddTagsToCertificate where
-  toPath = const "/"
+instance Lude.ToPath AddTagsToCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTagsToCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery AddTagsToCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addTagsToCertificateResponse' smart constructor.
+-- | /See:/ 'mkAddTagsToCertificateResponse' smart constructor.
 data AddTagsToCertificateResponse = AddTagsToCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToCertificateResponse' with the minimum fields required to make a request.
-addTagsToCertificateResponse ::
+mkAddTagsToCertificateResponse ::
   AddTagsToCertificateResponse
-addTagsToCertificateResponse = AddTagsToCertificateResponse'
-
-instance NFData AddTagsToCertificateResponse
+mkAddTagsToCertificateResponse = AddTagsToCertificateResponse'

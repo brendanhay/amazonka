@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse where
+module Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
+  ( LaunchTemplateElasticInferenceAcceleratorResponse (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateElasticInferenceAcceleratorResponse,
+
+    -- * Lenses
+    lCount,
+    lType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an elastic inference accelerator.
 --
---
---
--- /See:/ 'launchTemplateElasticInferenceAcceleratorResponse' smart constructor.
+-- /See:/ 'mkLaunchTemplateElasticInferenceAcceleratorResponse' smart constructor.
 data LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticInferenceAcceleratorResponse'
-  { _lCount ::
-      !( Maybe
-           Int
-       ),
-    _lType ::
-      !( Maybe
-           Text
-       )
+  { count ::
+      Lude.Maybe
+        Lude.Int,
+    type' ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LaunchTemplateElasticInferenceAcceleratorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'count' - The number of elastic inference accelerators to attach to the instance.
 --
--- * 'lCount' - The number of elastic inference accelerators to attach to the instance.  Default: 1
---
--- * 'lType' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-launchTemplateElasticInferenceAcceleratorResponse ::
+-- Default: 1
+-- * 'type'' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+mkLaunchTemplateElasticInferenceAcceleratorResponse ::
   LaunchTemplateElasticInferenceAcceleratorResponse
-launchTemplateElasticInferenceAcceleratorResponse =
+mkLaunchTemplateElasticInferenceAcceleratorResponse =
   LaunchTemplateElasticInferenceAcceleratorResponse'
-    { _lCount =
-        Nothing,
-      _lType = Nothing
+    { count =
+        Lude.Nothing,
+      type' = Lude.Nothing
     }
 
--- | The number of elastic inference accelerators to attach to the instance.  Default: 1
-lCount :: Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Maybe Int)
-lCount = lens _lCount (\s a -> s {_lCount = a})
+-- | The number of elastic inference accelerators to attach to the instance.
+--
+-- Default: 1
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lCount :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Lude.Maybe Lude.Int)
+lCount = Lens.lens (count :: LaunchTemplateElasticInferenceAcceleratorResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
+{-# DEPRECATED lCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-lType :: Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Maybe Text)
-lType = lens _lType (\s a -> s {_lType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lType :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Lude.Maybe Lude.Text)
+lType = Lens.lens (type' :: LaunchTemplateElasticInferenceAcceleratorResponse -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
+{-# DEPRECATED lType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromXML LaunchTemplateElasticInferenceAcceleratorResponse where
+instance
+  Lude.FromXML
+    LaunchTemplateElasticInferenceAcceleratorResponse
+  where
   parseXML x =
     LaunchTemplateElasticInferenceAcceleratorResponse'
-      <$> (x .@? "count") <*> (x .@? "type")
-
-instance Hashable LaunchTemplateElasticInferenceAcceleratorResponse
-
-instance NFData LaunchTemplateElasticInferenceAcceleratorResponse
+      Lude.<$> (x Lude..@? "count") Lude.<*> (x Lude..@? "type")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,147 @@
 --
 -- Creates an Amazon Pinpoint configuration for a recommender model.
 module Network.AWS.Pinpoint.CreateRecommenderConfiguration
-  ( -- * Creating a Request
-    createRecommenderConfiguration,
-    CreateRecommenderConfiguration,
+  ( -- * Creating a request
+    CreateRecommenderConfiguration (..),
+    mkCreateRecommenderConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crcCreateRecommenderConfiguration,
 
-    -- * Destructuring the Response
-    createRecommenderConfigurationResponse,
-    CreateRecommenderConfigurationResponse,
+    -- * Destructuring the response
+    CreateRecommenderConfigurationResponse (..),
+    mkCreateRecommenderConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crcrsResponseStatus,
     crcrsRecommenderConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createRecommenderConfiguration' smart constructor.
+-- | /See:/ 'mkCreateRecommenderConfiguration' smart constructor.
 newtype CreateRecommenderConfiguration = CreateRecommenderConfiguration'
-  { _crcCreateRecommenderConfiguration ::
+  { createRecommenderConfiguration ::
       CreateRecommenderConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRecommenderConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crcCreateRecommenderConfiguration' - Undocumented member.
-createRecommenderConfiguration ::
-  -- | 'crcCreateRecommenderConfiguration'
+-- * 'createRecommenderConfiguration' - Undocumented field.
+mkCreateRecommenderConfiguration ::
+  -- | 'createRecommenderConfiguration'
   CreateRecommenderConfiguration ->
   CreateRecommenderConfiguration
-createRecommenderConfiguration pCreateRecommenderConfiguration_ =
+mkCreateRecommenderConfiguration pCreateRecommenderConfiguration_ =
   CreateRecommenderConfiguration'
-    { _crcCreateRecommenderConfiguration =
+    { createRecommenderConfiguration =
         pCreateRecommenderConfiguration_
     }
 
--- | Undocumented member.
-crcCreateRecommenderConfiguration :: Lens' CreateRecommenderConfiguration CreateRecommenderConfiguration
-crcCreateRecommenderConfiguration = lens _crcCreateRecommenderConfiguration (\s a -> s {_crcCreateRecommenderConfiguration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'createRecommenderConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcCreateRecommenderConfiguration :: Lens.Lens' CreateRecommenderConfiguration CreateRecommenderConfiguration
+crcCreateRecommenderConfiguration = Lens.lens (createRecommenderConfiguration :: CreateRecommenderConfiguration -> CreateRecommenderConfiguration) (\s a -> s {createRecommenderConfiguration = a} :: CreateRecommenderConfiguration)
+{-# DEPRECATED crcCreateRecommenderConfiguration "Use generic-lens or generic-optics with 'createRecommenderConfiguration' instead." #-}
 
-instance AWSRequest CreateRecommenderConfiguration where
+instance Lude.AWSRequest CreateRecommenderConfiguration where
   type
     Rs CreateRecommenderConfiguration =
       CreateRecommenderConfigurationResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateRecommenderConfigurationResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable CreateRecommenderConfiguration
-
-instance NFData CreateRecommenderConfiguration
-
-instance ToHeaders CreateRecommenderConfiguration where
+instance Lude.ToHeaders CreateRecommenderConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateRecommenderConfiguration where
+instance Lude.ToJSON CreateRecommenderConfiguration where
   toJSON CreateRecommenderConfiguration' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "CreateRecommenderConfiguration"
-                  .= _crcCreateRecommenderConfiguration
+                  Lude..= createRecommenderConfiguration
               )
           ]
       )
 
-instance ToPath CreateRecommenderConfiguration where
-  toPath = const "/v1/recommenders"
+instance Lude.ToPath CreateRecommenderConfiguration where
+  toPath = Lude.const "/v1/recommenders"
 
-instance ToQuery CreateRecommenderConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRecommenderConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createRecommenderConfigurationResponse' smart constructor.
+-- | /See:/ 'mkCreateRecommenderConfigurationResponse' smart constructor.
 data CreateRecommenderConfigurationResponse = CreateRecommenderConfigurationResponse'
-  { _crcrsResponseStatus ::
-      !Int,
-    _crcrsRecommenderConfigurationResponse ::
-      !RecommenderConfigurationResponse
+  { responseStatus ::
+      Lude.Int,
+    recommenderConfigurationResponse ::
+      RecommenderConfigurationResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRecommenderConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crcrsResponseStatus' - -- | The response status code.
---
--- * 'crcrsRecommenderConfigurationResponse' - Undocumented member.
-createRecommenderConfigurationResponse ::
-  -- | 'crcrsResponseStatus'
-  Int ->
-  -- | 'crcrsRecommenderConfigurationResponse'
+-- * 'recommenderConfigurationResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateRecommenderConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   CreateRecommenderConfigurationResponse
-createRecommenderConfigurationResponse
+mkCreateRecommenderConfigurationResponse
   pResponseStatus_
   pRecommenderConfigurationResponse_ =
     CreateRecommenderConfigurationResponse'
-      { _crcrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _crcrsRecommenderConfigurationResponse =
+        recommenderConfigurationResponse =
           pRecommenderConfigurationResponse_
       }
 
--- | -- | The response status code.
-crcrsResponseStatus :: Lens' CreateRecommenderConfigurationResponse Int
-crcrsResponseStatus = lens _crcrsResponseStatus (\s a -> s {_crcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcrsResponseStatus :: Lens.Lens' CreateRecommenderConfigurationResponse Lude.Int
+crcrsResponseStatus = Lens.lens (responseStatus :: CreateRecommenderConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRecommenderConfigurationResponse)
+{-# DEPRECATED crcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-crcrsRecommenderConfigurationResponse :: Lens' CreateRecommenderConfigurationResponse RecommenderConfigurationResponse
-crcrsRecommenderConfigurationResponse = lens _crcrsRecommenderConfigurationResponse (\s a -> s {_crcrsRecommenderConfigurationResponse = a})
-
-instance NFData CreateRecommenderConfigurationResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'recommenderConfigurationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcrsRecommenderConfigurationResponse :: Lens.Lens' CreateRecommenderConfigurationResponse RecommenderConfigurationResponse
+crcrsRecommenderConfigurationResponse = Lens.lens (recommenderConfigurationResponse :: CreateRecommenderConfigurationResponse -> RecommenderConfigurationResponse) (\s a -> s {recommenderConfigurationResponse = a} :: CreateRecommenderConfigurationResponse)
+{-# DEPRECATED crcrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}

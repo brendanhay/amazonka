@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,152 @@
 --
 -- Associates a 'LoggingConfiguration' with a specified web ACL.
 --
---
 -- You can access information about all traffic that AWS WAF inspects using the following steps:
 --
 --     * Create an Amazon Kinesis Data Firehose.
---
 -- Create the data firehose with a PUT source and in the region that you are operating. However, if you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia).
+--
 --
 --     * Associate that firehose to your web ACL using a @PutLoggingConfiguration@ request.
 --
 --
---
 -- When you successfully enable logging using a @PutLoggingConfiguration@ request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more information, see <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging Web ACL Traffic Information> in the /AWS WAF Developer Guide/ .
 module Network.AWS.WAFRegional.PutLoggingConfiguration
-  ( -- * Creating a Request
-    putLoggingConfiguration,
-    PutLoggingConfiguration,
+  ( -- * Creating a request
+    PutLoggingConfiguration (..),
+    mkPutLoggingConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     plcLoggingConfiguration,
 
-    -- * Destructuring the Response
-    putLoggingConfigurationResponse,
-    PutLoggingConfigurationResponse,
+    -- * Destructuring the response
+    PutLoggingConfigurationResponse (..),
+    mkPutLoggingConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     plcrsLoggingConfiguration,
     plcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'putLoggingConfiguration' smart constructor.
+-- | /See:/ 'mkPutLoggingConfiguration' smart constructor.
 newtype PutLoggingConfiguration = PutLoggingConfiguration'
-  { _plcLoggingConfiguration ::
+  { loggingConfiguration ::
       LoggingConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLoggingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plcLoggingConfiguration' - The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
-putLoggingConfiguration ::
-  -- | 'plcLoggingConfiguration'
+-- * 'loggingConfiguration' - The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
+mkPutLoggingConfiguration ::
+  -- | 'loggingConfiguration'
   LoggingConfiguration ->
   PutLoggingConfiguration
-putLoggingConfiguration pLoggingConfiguration_ =
+mkPutLoggingConfiguration pLoggingConfiguration_ =
   PutLoggingConfiguration'
-    { _plcLoggingConfiguration =
+    { loggingConfiguration =
         pLoggingConfiguration_
     }
 
 -- | The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
-plcLoggingConfiguration :: Lens' PutLoggingConfiguration LoggingConfiguration
-plcLoggingConfiguration = lens _plcLoggingConfiguration (\s a -> s {_plcLoggingConfiguration = a})
+--
+-- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plcLoggingConfiguration :: Lens.Lens' PutLoggingConfiguration LoggingConfiguration
+plcLoggingConfiguration = Lens.lens (loggingConfiguration :: PutLoggingConfiguration -> LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: PutLoggingConfiguration)
+{-# DEPRECATED plcLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
-instance AWSRequest PutLoggingConfiguration where
+instance Lude.AWSRequest PutLoggingConfiguration where
   type Rs PutLoggingConfiguration = PutLoggingConfigurationResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutLoggingConfigurationResponse'
-            <$> (x .?> "LoggingConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LoggingConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutLoggingConfiguration
-
-instance NFData PutLoggingConfiguration
-
-instance ToHeaders PutLoggingConfiguration where
+instance Lude.ToHeaders PutLoggingConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.PutLoggingConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.PutLoggingConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutLoggingConfiguration where
+instance Lude.ToJSON PutLoggingConfiguration where
   toJSON PutLoggingConfiguration' {..} =
-    object
-      ( catMaybes
-          [Just ("LoggingConfiguration" .= _plcLoggingConfiguration)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("LoggingConfiguration" Lude..= loggingConfiguration)]
       )
 
-instance ToPath PutLoggingConfiguration where
-  toPath = const "/"
+instance Lude.ToPath PutLoggingConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery PutLoggingConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery PutLoggingConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putLoggingConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutLoggingConfigurationResponse' smart constructor.
 data PutLoggingConfigurationResponse = PutLoggingConfigurationResponse'
-  { _plcrsLoggingConfiguration ::
-      !( Maybe
-           LoggingConfiguration
-       ),
-    _plcrsResponseStatus ::
-      !Int
+  { loggingConfiguration ::
+      Lude.Maybe
+        LoggingConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLoggingConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plcrsLoggingConfiguration' - The 'LoggingConfiguration' that you submitted in the request.
---
--- * 'plcrsResponseStatus' - -- | The response status code.
-putLoggingConfigurationResponse ::
-  -- | 'plcrsResponseStatus'
-  Int ->
+-- * 'loggingConfiguration' - The 'LoggingConfiguration' that you submitted in the request.
+-- * 'responseStatus' - The response status code.
+mkPutLoggingConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutLoggingConfigurationResponse
-putLoggingConfigurationResponse pResponseStatus_ =
+mkPutLoggingConfigurationResponse pResponseStatus_ =
   PutLoggingConfigurationResponse'
-    { _plcrsLoggingConfiguration =
-        Nothing,
-      _plcrsResponseStatus = pResponseStatus_
+    { loggingConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The 'LoggingConfiguration' that you submitted in the request.
-plcrsLoggingConfiguration :: Lens' PutLoggingConfigurationResponse (Maybe LoggingConfiguration)
-plcrsLoggingConfiguration = lens _plcrsLoggingConfiguration (\s a -> s {_plcrsLoggingConfiguration = a})
+--
+-- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plcrsLoggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Lude.Maybe LoggingConfiguration)
+plcrsLoggingConfiguration = Lens.lens (loggingConfiguration :: PutLoggingConfigurationResponse -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: PutLoggingConfigurationResponse)
+{-# DEPRECATED plcrsLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
--- | -- | The response status code.
-plcrsResponseStatus :: Lens' PutLoggingConfigurationResponse Int
-plcrsResponseStatus = lens _plcrsResponseStatus (\s a -> s {_plcrsResponseStatus = a})
-
-instance NFData PutLoggingConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plcrsResponseStatus :: Lens.Lens' PutLoggingConfigurationResponse Lude.Int
+plcrsResponseStatus = Lens.lens (responseStatus :: PutLoggingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLoggingConfigurationResponse)
+{-# DEPRECATED plcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

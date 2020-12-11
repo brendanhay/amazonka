@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.UsageAccountResult where
+module Network.AWS.GuardDuty.Types.UsageAccountResult
+  ( UsageAccountResult (..),
+
+    -- * Smart constructor
+    mkUsageAccountResult,
+
+    -- * Lenses
+    uarAccountId,
+    uarTotal,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.Total
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the total of usage based on account IDs.
 --
---
---
--- /See:/ 'usageAccountResult' smart constructor.
+-- /See:/ 'mkUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
-  { _uarAccountId ::
-      !(Maybe Text),
-    _uarTotal :: !(Maybe Total)
+  { accountId ::
+      Lude.Maybe Lude.Text,
+    total :: Lude.Maybe Total
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageAccountResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uarAccountId' - The Account ID that generated usage.
---
--- * 'uarTotal' - Represents the total of usage for the Account ID.
-usageAccountResult ::
+-- * 'accountId' - The Account ID that generated usage.
+-- * 'total' - Represents the total of usage for the Account ID.
+mkUsageAccountResult ::
   UsageAccountResult
-usageAccountResult =
-  UsageAccountResult' {_uarAccountId = Nothing, _uarTotal = Nothing}
+mkUsageAccountResult =
+  UsageAccountResult'
+    { accountId = Lude.Nothing,
+      total = Lude.Nothing
+    }
 
 -- | The Account ID that generated usage.
-uarAccountId :: Lens' UsageAccountResult (Maybe Text)
-uarAccountId = lens _uarAccountId (\s a -> s {_uarAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarAccountId :: Lens.Lens' UsageAccountResult (Lude.Maybe Lude.Text)
+uarAccountId = Lens.lens (accountId :: UsageAccountResult -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: UsageAccountResult)
+{-# DEPRECATED uarAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Represents the total of usage for the Account ID.
-uarTotal :: Lens' UsageAccountResult (Maybe Total)
-uarTotal = lens _uarTotal (\s a -> s {_uarTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarTotal :: Lens.Lens' UsageAccountResult (Lude.Maybe Total)
+uarTotal = Lens.lens (total :: UsageAccountResult -> Lude.Maybe Total) (\s a -> s {total = a} :: UsageAccountResult)
+{-# DEPRECATED uarTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance FromJSON UsageAccountResult where
+instance Lude.FromJSON UsageAccountResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageAccountResult"
       ( \x ->
-          UsageAccountResult' <$> (x .:? "accountId") <*> (x .:? "total")
+          UsageAccountResult'
+            Lude.<$> (x Lude..:? "accountId") Lude.<*> (x Lude..:? "total")
       )
-
-instance Hashable UsageAccountResult
-
-instance NFData UsageAccountResult

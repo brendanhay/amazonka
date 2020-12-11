@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SourceType where
+module Network.AWS.Pinpoint.Types.SourceType
+  ( SourceType
+      ( SourceType',
+        STAll,
+        STAny,
+        STNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SourceType
-  = STAll
-  | STAny
-  | STNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceType = SourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure STAll
-      "any" -> pure STAny
-      "none" -> pure STNone
-      e ->
-        fromTextError $
-          "Failure parsing SourceType from value: '" <> e
-            <> "'. Accepted values: all, any, none"
+pattern STAll :: SourceType
+pattern STAll = SourceType' "ALL"
 
-instance ToText SourceType where
-  toText = \case
-    STAll -> "ALL"
-    STAny -> "ANY"
-    STNone -> "NONE"
+pattern STAny :: SourceType
+pattern STAny = SourceType' "ANY"
 
-instance Hashable SourceType
+pattern STNone :: SourceType
+pattern STNone = SourceType' "NONE"
 
-instance NFData SourceType
-
-instance ToByteString SourceType
-
-instance ToQuery SourceType
-
-instance ToHeader SourceType
-
-instance ToJSON SourceType where
-  toJSON = toJSONText
-
-instance FromJSON SourceType where
-  parseJSON = parseJSONText "SourceType"
+{-# COMPLETE
+  STAll,
+  STAny,
+  STNone,
+  SourceType'
+  #-}

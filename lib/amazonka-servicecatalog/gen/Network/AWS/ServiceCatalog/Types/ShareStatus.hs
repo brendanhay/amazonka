@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ShareStatus where
+module Network.AWS.ServiceCatalog.Types.ShareStatus
+  ( ShareStatus
+      ( ShareStatus',
+        Completed,
+        CompletedWithErrors,
+        Error,
+        InProgress,
+        NotStarted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShareStatus
-  = Completed
-  | CompletedWithErrors
-  | Error'
-  | InProgress
-  | NotStarted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShareStatus = ShareStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShareStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "completed_with_errors" -> pure CompletedWithErrors
-      "error" -> pure Error'
-      "in_progress" -> pure InProgress
-      "not_started" -> pure NotStarted
-      e ->
-        fromTextError $
-          "Failure parsing ShareStatus from value: '" <> e
-            <> "'. Accepted values: completed, completed_with_errors, error, in_progress, not_started"
+pattern Completed :: ShareStatus
+pattern Completed = ShareStatus' "COMPLETED"
 
-instance ToText ShareStatus where
-  toText = \case
-    Completed -> "COMPLETED"
-    CompletedWithErrors -> "COMPLETED_WITH_ERRORS"
-    Error' -> "ERROR"
-    InProgress -> "IN_PROGRESS"
-    NotStarted -> "NOT_STARTED"
+pattern CompletedWithErrors :: ShareStatus
+pattern CompletedWithErrors = ShareStatus' "COMPLETED_WITH_ERRORS"
 
-instance Hashable ShareStatus
+pattern Error :: ShareStatus
+pattern Error = ShareStatus' "ERROR"
 
-instance NFData ShareStatus
+pattern InProgress :: ShareStatus
+pattern InProgress = ShareStatus' "IN_PROGRESS"
 
-instance ToByteString ShareStatus
+pattern NotStarted :: ShareStatus
+pattern NotStarted = ShareStatus' "NOT_STARTED"
 
-instance ToQuery ShareStatus
-
-instance ToHeader ShareStatus
-
-instance FromJSON ShareStatus where
-  parseJSON = parseJSONText "ShareStatus"
+{-# COMPLETE
+  Completed,
+  CompletedWithErrors,
+  Error,
+  InProgress,
+  NotStarted,
+  ShareStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceGroupType where
+module Network.AWS.EMR.Types.InstanceGroupType
+  ( InstanceGroupType
+      ( InstanceGroupType',
+        Core,
+        Master,
+        Task
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceGroupType
-  = Core
-  | Master
-  | Task
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceGroupType = InstanceGroupType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceGroupType where
-  parser =
-    takeLowerText >>= \case
-      "core" -> pure Core
-      "master" -> pure Master
-      "task" -> pure Task
-      e ->
-        fromTextError $
-          "Failure parsing InstanceGroupType from value: '" <> e
-            <> "'. Accepted values: core, master, task"
+pattern Core :: InstanceGroupType
+pattern Core = InstanceGroupType' "CORE"
 
-instance ToText InstanceGroupType where
-  toText = \case
-    Core -> "CORE"
-    Master -> "MASTER"
-    Task -> "TASK"
+pattern Master :: InstanceGroupType
+pattern Master = InstanceGroupType' "MASTER"
 
-instance Hashable InstanceGroupType
+pattern Task :: InstanceGroupType
+pattern Task = InstanceGroupType' "TASK"
 
-instance NFData InstanceGroupType
-
-instance ToByteString InstanceGroupType
-
-instance ToQuery InstanceGroupType
-
-instance ToHeader InstanceGroupType
-
-instance ToJSON InstanceGroupType where
-  toJSON = toJSONText
-
-instance FromJSON InstanceGroupType where
-  parseJSON = parseJSONText "InstanceGroupType"
+{-# COMPLETE
+  Core,
+  Master,
+  Task,
+  InstanceGroupType'
+  #-}

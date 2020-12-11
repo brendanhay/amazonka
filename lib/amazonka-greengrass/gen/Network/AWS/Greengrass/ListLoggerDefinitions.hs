@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +16,19 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListLoggerDefinitions
-  ( -- * Creating a Request
-    listLoggerDefinitions,
-    ListLoggerDefinitions,
+  ( -- * Creating a request
+    ListLoggerDefinitions (..),
+    mkListLoggerDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lldNextToken,
     lldMaxResults,
 
-    -- * Destructuring the Response
-    listLoggerDefinitionsResponse,
-    ListLoggerDefinitionsResponse,
+    -- * Destructuring the response
+    ListLoggerDefinitionsResponse (..),
+    mkListLoggerDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lldrsNextToken,
     lldrsDefinitions,
     lldrsResponseStatus,
@@ -41,122 +36,142 @@ module Network.AWS.Greengrass.ListLoggerDefinitions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listLoggerDefinitions' smart constructor.
+-- | /See:/ 'mkListLoggerDefinitions' smart constructor.
 data ListLoggerDefinitions = ListLoggerDefinitions'
-  { _lldNextToken ::
-      !(Maybe Text),
-    _lldMaxResults :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggerDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lldNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lldMaxResults' - The maximum number of results to be returned per request.
-listLoggerDefinitions ::
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListLoggerDefinitions ::
   ListLoggerDefinitions
-listLoggerDefinitions =
+mkListLoggerDefinitions =
   ListLoggerDefinitions'
-    { _lldNextToken = Nothing,
-      _lldMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lldNextToken :: Lens' ListLoggerDefinitions (Maybe Text)
-lldNextToken = lens _lldNextToken (\s a -> s {_lldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldNextToken :: Lens.Lens' ListLoggerDefinitions (Lude.Maybe Lude.Text)
+lldNextToken = Lens.lens (nextToken :: ListLoggerDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLoggerDefinitions)
+{-# DEPRECATED lldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lldMaxResults :: Lens' ListLoggerDefinitions (Maybe Text)
-lldMaxResults = lens _lldMaxResults (\s a -> s {_lldMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldMaxResults :: Lens.Lens' ListLoggerDefinitions (Lude.Maybe Lude.Text)
+lldMaxResults = Lens.lens (maxResults :: ListLoggerDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListLoggerDefinitions)
+{-# DEPRECATED lldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListLoggerDefinitions where
+instance Page.AWSPager ListLoggerDefinitions where
   page rq rs
-    | stop (rs ^. lldrsNextToken) = Nothing
-    | stop (rs ^. lldrsDefinitions) = Nothing
-    | otherwise = Just $ rq & lldNextToken .~ rs ^. lldrsNextToken
+    | Page.stop (rs Lens.^. lldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lldrsDefinitions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lldNextToken Lens..~ rs Lens.^. lldrsNextToken
 
-instance AWSRequest ListLoggerDefinitions where
+instance Lude.AWSRequest ListLoggerDefinitions where
   type Rs ListLoggerDefinitions = ListLoggerDefinitionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLoggerDefinitionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Definitions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Definitions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListLoggerDefinitions
-
-instance NFData ListLoggerDefinitions
-
-instance ToHeaders ListLoggerDefinitions where
+instance Lude.ToHeaders ListLoggerDefinitions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListLoggerDefinitions where
-  toPath = const "/greengrass/definition/loggers"
+instance Lude.ToPath ListLoggerDefinitions where
+  toPath = Lude.const "/greengrass/definition/loggers"
 
-instance ToQuery ListLoggerDefinitions where
+instance Lude.ToQuery ListLoggerDefinitions where
   toQuery ListLoggerDefinitions' {..} =
-    mconcat
-      ["NextToken" =: _lldNextToken, "MaxResults" =: _lldMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listLoggerDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkListLoggerDefinitionsResponse' smart constructor.
 data ListLoggerDefinitionsResponse = ListLoggerDefinitionsResponse'
-  { _lldrsNextToken ::
-      !(Maybe Text),
-    _lldrsDefinitions ::
-      !( Maybe
-           [DefinitionInformation]
-       ),
-    _lldrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    definitions ::
+      Lude.Maybe
+        [DefinitionInformation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggerDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lldrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lldrsDefinitions' - Information about a definition.
---
--- * 'lldrsResponseStatus' - -- | The response status code.
-listLoggerDefinitionsResponse ::
-  -- | 'lldrsResponseStatus'
-  Int ->
+-- * 'definitions' - Information about a definition.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListLoggerDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLoggerDefinitionsResponse
-listLoggerDefinitionsResponse pResponseStatus_ =
+mkListLoggerDefinitionsResponse pResponseStatus_ =
   ListLoggerDefinitionsResponse'
-    { _lldrsNextToken = Nothing,
-      _lldrsDefinitions = Nothing,
-      _lldrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      definitions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lldrsNextToken :: Lens' ListLoggerDefinitionsResponse (Maybe Text)
-lldrsNextToken = lens _lldrsNextToken (\s a -> s {_lldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldrsNextToken :: Lens.Lens' ListLoggerDefinitionsResponse (Lude.Maybe Lude.Text)
+lldrsNextToken = Lens.lens (nextToken :: ListLoggerDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLoggerDefinitionsResponse)
+{-# DEPRECATED lldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a definition.
-lldrsDefinitions :: Lens' ListLoggerDefinitionsResponse [DefinitionInformation]
-lldrsDefinitions = lens _lldrsDefinitions (\s a -> s {_lldrsDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'definitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldrsDefinitions :: Lens.Lens' ListLoggerDefinitionsResponse (Lude.Maybe [DefinitionInformation])
+lldrsDefinitions = Lens.lens (definitions :: ListLoggerDefinitionsResponse -> Lude.Maybe [DefinitionInformation]) (\s a -> s {definitions = a} :: ListLoggerDefinitionsResponse)
+{-# DEPRECATED lldrsDefinitions "Use generic-lens or generic-optics with 'definitions' instead." #-}
 
--- | -- | The response status code.
-lldrsResponseStatus :: Lens' ListLoggerDefinitionsResponse Int
-lldrsResponseStatus = lens _lldrsResponseStatus (\s a -> s {_lldrsResponseStatus = a})
-
-instance NFData ListLoggerDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldrsResponseStatus :: Lens.Lens' ListLoggerDefinitionsResponse Lude.Int
+lldrsResponseStatus = Lens.lens (responseStatus :: ListLoggerDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLoggerDefinitionsResponse)
+{-# DEPRECATED lldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

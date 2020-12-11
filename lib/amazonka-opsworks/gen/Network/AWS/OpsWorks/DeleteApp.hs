@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,92 @@
 --
 -- Deletes a specified app.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeleteApp
-  ( -- * Creating a Request
-    deleteApp,
-    DeleteApp,
+  ( -- * Creating a request
+    DeleteApp (..),
+    mkDeleteApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daAppId,
 
-    -- * Destructuring the Response
-    deleteAppResponse,
-    DeleteAppResponse,
+    -- * Destructuring the response
+    DeleteAppResponse (..),
+    mkDeleteAppResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteApp' smart constructor.
-newtype DeleteApp = DeleteApp' {_daAppId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteApp' smart constructor.
+newtype DeleteApp = DeleteApp' {appId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daAppId' - The app ID.
-deleteApp ::
-  -- | 'daAppId'
-  Text ->
+-- * 'appId' - The app ID.
+mkDeleteApp ::
+  -- | 'appId'
+  Lude.Text ->
   DeleteApp
-deleteApp pAppId_ = DeleteApp' {_daAppId = pAppId_}
+mkDeleteApp pAppId_ = DeleteApp' {appId = pAppId_}
 
 -- | The app ID.
-daAppId :: Lens' DeleteApp Text
-daAppId = lens _daAppId (\s a -> s {_daAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAppId :: Lens.Lens' DeleteApp Lude.Text
+daAppId = Lens.lens (appId :: DeleteApp -> Lude.Text) (\s a -> s {appId = a} :: DeleteApp)
+{-# DEPRECATED daAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest DeleteApp where
+instance Lude.AWSRequest DeleteApp where
   type Rs DeleteApp = DeleteAppResponse
-  request = postJSON opsWorks
-  response = receiveNull DeleteAppResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeleteAppResponse'
 
-instance Hashable DeleteApp
-
-instance NFData DeleteApp
-
-instance ToHeaders DeleteApp where
+instance Lude.ToHeaders DeleteApp where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.DeleteApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.DeleteApp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApp where
+instance Lude.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
-    object (catMaybes [Just ("AppId" .= _daAppId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("AppId" Lude..= appId)])
 
-instance ToPath DeleteApp where
-  toPath = const "/"
+instance Lude.ToPath DeleteApp where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApp where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAppResponse' smart constructor.
+-- | /See:/ 'mkDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
-deleteAppResponse ::
+mkDeleteAppResponse ::
   DeleteAppResponse
-deleteAppResponse = DeleteAppResponse'
-
-instance NFData DeleteAppResponse
+mkDeleteAppResponse = DeleteAppResponse'

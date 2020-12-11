@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.HistoricalMetricResult where
+module Network.AWS.Connect.Types.HistoricalMetricResult
+  ( HistoricalMetricResult (..),
+
+    -- * Smart constructor
+    mkHistoricalMetricResult,
+
+    -- * Lenses
+    hmrCollections,
+    hmrDimensions,
+  )
+where
 
 import Network.AWS.Connect.Types.Dimensions
 import Network.AWS.Connect.Types.HistoricalMetricData
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the historical metrics retrieved.
 --
---
---
--- /See:/ 'historicalMetricResult' smart constructor.
+-- /See:/ 'mkHistoricalMetricResult' smart constructor.
 data HistoricalMetricResult = HistoricalMetricResult'
-  { _hmrCollections ::
-      !(Maybe [HistoricalMetricData]),
-    _hmrDimensions :: !(Maybe Dimensions)
+  { collections ::
+      Lude.Maybe [HistoricalMetricData],
+    dimensions :: Lude.Maybe Dimensions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoricalMetricResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hmrCollections' - The set of metrics.
---
--- * 'hmrDimensions' - The dimension for the metrics.
-historicalMetricResult ::
+-- * 'collections' - The set of metrics.
+-- * 'dimensions' - The dimension for the metrics.
+mkHistoricalMetricResult ::
   HistoricalMetricResult
-historicalMetricResult =
+mkHistoricalMetricResult =
   HistoricalMetricResult'
-    { _hmrCollections = Nothing,
-      _hmrDimensions = Nothing
+    { collections = Lude.Nothing,
+      dimensions = Lude.Nothing
     }
 
 -- | The set of metrics.
-hmrCollections :: Lens' HistoricalMetricResult [HistoricalMetricData]
-hmrCollections = lens _hmrCollections (\s a -> s {_hmrCollections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'collections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmrCollections :: Lens.Lens' HistoricalMetricResult (Lude.Maybe [HistoricalMetricData])
+hmrCollections = Lens.lens (collections :: HistoricalMetricResult -> Lude.Maybe [HistoricalMetricData]) (\s a -> s {collections = a} :: HistoricalMetricResult)
+{-# DEPRECATED hmrCollections "Use generic-lens or generic-optics with 'collections' instead." #-}
 
 -- | The dimension for the metrics.
-hmrDimensions :: Lens' HistoricalMetricResult (Maybe Dimensions)
-hmrDimensions = lens _hmrDimensions (\s a -> s {_hmrDimensions = a})
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmrDimensions :: Lens.Lens' HistoricalMetricResult (Lude.Maybe Dimensions)
+hmrDimensions = Lens.lens (dimensions :: HistoricalMetricResult -> Lude.Maybe Dimensions) (\s a -> s {dimensions = a} :: HistoricalMetricResult)
+{-# DEPRECATED hmrDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance FromJSON HistoricalMetricResult where
+instance Lude.FromJSON HistoricalMetricResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "HistoricalMetricResult"
       ( \x ->
           HistoricalMetricResult'
-            <$> (x .:? "Collections" .!= mempty) <*> (x .:? "Dimensions")
+            Lude.<$> (x Lude..:? "Collections" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Dimensions")
       )
-
-instance Hashable HistoricalMetricResult
-
-instance NFData HistoricalMetricResult

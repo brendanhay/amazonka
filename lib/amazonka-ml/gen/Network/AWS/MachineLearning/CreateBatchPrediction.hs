@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,185 +14,209 @@
 --
 -- Generates predictions for a group of observations. The observations to process exist in one or more data files referenced by a @DataSource@ . This operation creates a new @BatchPrediction@ , and uses an @MLModel@ and the data files referenced by the @DataSource@ as information sources.
 --
---
 -- @CreateBatchPrediction@ is an asynchronous operation. In response to @CreateBatchPrediction@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the @BatchPrediction@ status to @PENDING@ . After the @BatchPrediction@ completes, Amazon ML sets the status to @COMPLETED@ .
---
 -- You can poll for status updates by using the 'GetBatchPrediction' operation and checking the @Status@ parameter of the result. After the @COMPLETED@ status appears, the results are available in the location specified by the @OutputUri@ parameter.
 module Network.AWS.MachineLearning.CreateBatchPrediction
-  ( -- * Creating a Request
-    createBatchPrediction,
-    CreateBatchPrediction,
+  ( -- * Creating a request
+    CreateBatchPrediction (..),
+    mkCreateBatchPrediction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbpBatchPredictionName,
     cbpBatchPredictionId,
     cbpMLModelId,
     cbpBatchPredictionDataSourceId,
     cbpOutputURI,
 
-    -- * Destructuring the Response
-    createBatchPredictionResponse,
-    CreateBatchPredictionResponse,
+    -- * Destructuring the response
+    CreateBatchPredictionResponse (..),
+    mkCreateBatchPredictionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cbprsBatchPredictionId,
     cbprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createBatchPrediction' smart constructor.
+-- | /See:/ 'mkCreateBatchPrediction' smart constructor.
 data CreateBatchPrediction = CreateBatchPrediction'
-  { _cbpBatchPredictionName ::
-      !(Maybe Text),
-    _cbpBatchPredictionId :: !Text,
-    _cbpMLModelId :: !Text,
-    _cbpBatchPredictionDataSourceId :: !Text,
-    _cbpOutputURI :: !Text
+  { batchPredictionName ::
+      Lude.Maybe Lude.Text,
+    batchPredictionId :: Lude.Text,
+    mLModelId :: Lude.Text,
+    batchPredictionDataSourceId :: Lude.Text,
+    outputURI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBatchPrediction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
+-- * 'batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ .
+-- * 'batchPredictionName' - A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
+-- * 'mLModelId' - The ID of the @MLModel@ that will generate predictions for the group of observations.
+-- * 'outputURI' - The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
 --
--- * 'cbpBatchPredictionName' - A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
---
--- * 'cbpBatchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ .
---
--- * 'cbpMLModelId' - The ID of the @MLModel@ that will generate predictions for the group of observations.
---
--- * 'cbpBatchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
---
--- * 'cbpOutputURI' - The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'. Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
-createBatchPrediction ::
-  -- | 'cbpBatchPredictionId'
-  Text ->
-  -- | 'cbpMLModelId'
-  Text ->
-  -- | 'cbpBatchPredictionDataSourceId'
-  Text ->
-  -- | 'cbpOutputURI'
-  Text ->
+-- Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+mkCreateBatchPrediction ::
+  -- | 'batchPredictionId'
+  Lude.Text ->
+  -- | 'mLModelId'
+  Lude.Text ->
+  -- | 'batchPredictionDataSourceId'
+  Lude.Text ->
+  -- | 'outputURI'
+  Lude.Text ->
   CreateBatchPrediction
-createBatchPrediction
+mkCreateBatchPrediction
   pBatchPredictionId_
   pMLModelId_
   pBatchPredictionDataSourceId_
   pOutputURI_ =
     CreateBatchPrediction'
-      { _cbpBatchPredictionName = Nothing,
-        _cbpBatchPredictionId = pBatchPredictionId_,
-        _cbpMLModelId = pMLModelId_,
-        _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId_,
-        _cbpOutputURI = pOutputURI_
+      { batchPredictionName = Lude.Nothing,
+        batchPredictionId = pBatchPredictionId_,
+        mLModelId = pMLModelId_,
+        batchPredictionDataSourceId = pBatchPredictionDataSourceId_,
+        outputURI = pOutputURI_
       }
 
 -- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
-cbpBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
-cbpBatchPredictionName = lens _cbpBatchPredictionName (\s a -> s {_cbpBatchPredictionName = a})
+--
+-- /Note:/ Consider using 'batchPredictionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpBatchPredictionName :: Lens.Lens' CreateBatchPrediction (Lude.Maybe Lude.Text)
+cbpBatchPredictionName = Lens.lens (batchPredictionName :: CreateBatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionName = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
-cbpBatchPredictionId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionId = lens _cbpBatchPredictionId (\s a -> s {_cbpBatchPredictionId = a})
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpBatchPredictionId :: Lens.Lens' CreateBatchPrediction Lude.Text
+cbpBatchPredictionId = Lens.lens (batchPredictionId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 -- | The ID of the @MLModel@ that will generate predictions for the group of observations.
-cbpMLModelId :: Lens' CreateBatchPrediction Text
-cbpMLModelId = lens _cbpMLModelId (\s a -> s {_cbpMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpMLModelId :: Lens.Lens' CreateBatchPrediction Lude.Text
+cbpMLModelId = Lens.lens (mLModelId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {mLModelId = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
 -- | The ID of the @DataSource@ that points to the group of observations to predict.
-cbpBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\s a -> s {_cbpBatchPredictionDataSourceId = a})
+--
+-- /Note:/ Consider using 'batchPredictionDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpBatchPredictionDataSourceId :: Lens.Lens' CreateBatchPrediction Lude.Text
+cbpBatchPredictionDataSourceId = Lens.lens (batchPredictionDataSourceId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionDataSourceId = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpBatchPredictionDataSourceId "Use generic-lens or generic-optics with 'batchPredictionDataSourceId' instead." #-}
 
--- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'. Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
-cbpOutputURI :: Lens' CreateBatchPrediction Text
-cbpOutputURI = lens _cbpOutputURI (\s a -> s {_cbpOutputURI = a})
+-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
+--
+-- Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+--
+-- /Note:/ Consider using 'outputURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpOutputURI :: Lens.Lens' CreateBatchPrediction Lude.Text
+cbpOutputURI = Lens.lens (outputURI :: CreateBatchPrediction -> Lude.Text) (\s a -> s {outputURI = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpOutputURI "Use generic-lens or generic-optics with 'outputURI' instead." #-}
 
-instance AWSRequest CreateBatchPrediction where
+instance Lude.AWSRequest CreateBatchPrediction where
   type Rs CreateBatchPrediction = CreateBatchPredictionResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateBatchPredictionResponse'
-            <$> (x .?> "BatchPredictionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BatchPredictionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateBatchPrediction
-
-instance NFData CreateBatchPrediction
-
-instance ToHeaders CreateBatchPrediction where
+instance Lude.ToHeaders CreateBatchPrediction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.CreateBatchPrediction" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.CreateBatchPrediction" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateBatchPrediction where
+instance Lude.ToJSON CreateBatchPrediction where
   toJSON CreateBatchPrediction' {..} =
-    object
-      ( catMaybes
-          [ ("BatchPredictionName" .=) <$> _cbpBatchPredictionName,
-            Just ("BatchPredictionId" .= _cbpBatchPredictionId),
-            Just ("MLModelId" .= _cbpMLModelId),
-            Just
-              ("BatchPredictionDataSourceId" .= _cbpBatchPredictionDataSourceId),
-            Just ("OutputUri" .= _cbpOutputURI)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("BatchPredictionName" Lude..=) Lude.<$> batchPredictionName,
+            Lude.Just ("BatchPredictionId" Lude..= batchPredictionId),
+            Lude.Just ("MLModelId" Lude..= mLModelId),
+            Lude.Just
+              ( "BatchPredictionDataSourceId"
+                  Lude..= batchPredictionDataSourceId
+              ),
+            Lude.Just ("OutputUri" Lude..= outputURI)
           ]
       )
 
-instance ToPath CreateBatchPrediction where
-  toPath = const "/"
+instance Lude.ToPath CreateBatchPrediction where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateBatchPrediction where
-  toQuery = const mempty
+instance Lude.ToQuery CreateBatchPrediction where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateBatchPrediction@ operation, and is an acknowledgement that Amazon ML received the request.
 --
---
 -- The @CreateBatchPrediction@ operation is asynchronous. You can poll for status updates by using the @>GetBatchPrediction@ operation and checking the @Status@ parameter of the result.
 --
---
--- /See:/ 'createBatchPredictionResponse' smart constructor.
+-- /See:/ 'mkCreateBatchPredictionResponse' smart constructor.
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
-  { _cbprsBatchPredictionId ::
-      !(Maybe Text),
-    _cbprsResponseStatus :: !Int
+  { batchPredictionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBatchPredictionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbprsBatchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
---
--- * 'cbprsResponseStatus' - -- | The response status code.
-createBatchPredictionResponse ::
-  -- | 'cbprsResponseStatus'
-  Int ->
+-- * 'batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
+-- * 'responseStatus' - The response status code.
+mkCreateBatchPredictionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateBatchPredictionResponse
-createBatchPredictionResponse pResponseStatus_ =
+mkCreateBatchPredictionResponse pResponseStatus_ =
   CreateBatchPredictionResponse'
-    { _cbprsBatchPredictionId = Nothing,
-      _cbprsResponseStatus = pResponseStatus_
+    { batchPredictionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
-cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
-cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\s a -> s {_cbprsBatchPredictionId = a})
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbprsBatchPredictionId :: Lens.Lens' CreateBatchPredictionResponse (Lude.Maybe Lude.Text)
+cbprsBatchPredictionId = Lens.lens (batchPredictionId :: CreateBatchPredictionResponse -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionId = a} :: CreateBatchPredictionResponse)
+{-# DEPRECATED cbprsBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
--- | -- | The response status code.
-cbprsResponseStatus :: Lens' CreateBatchPredictionResponse Int
-cbprsResponseStatus = lens _cbprsResponseStatus (\s a -> s {_cbprsResponseStatus = a})
-
-instance NFData CreateBatchPredictionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbprsResponseStatus :: Lens.Lens' CreateBatchPredictionResponse Lude.Int
+cbprsResponseStatus = Lens.lens (responseStatus :: CreateBatchPredictionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBatchPredictionResponse)
+{-# DEPRECATED cbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

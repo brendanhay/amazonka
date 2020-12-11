@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TargetPlatformAccelerator where
+module Network.AWS.SageMaker.Types.TargetPlatformAccelerator
+  ( TargetPlatformAccelerator
+      ( TargetPlatformAccelerator',
+        IntelGraphics,
+        Mali,
+        Nvidia
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetPlatformAccelerator
-  = IntelGraphics
-  | Mali
-  | Nvidia
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetPlatformAccelerator = TargetPlatformAccelerator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetPlatformAccelerator where
-  parser =
-    takeLowerText >>= \case
-      "intel_graphics" -> pure IntelGraphics
-      "mali" -> pure Mali
-      "nvidia" -> pure Nvidia
-      e ->
-        fromTextError $
-          "Failure parsing TargetPlatformAccelerator from value: '" <> e
-            <> "'. Accepted values: intel_graphics, mali, nvidia"
+pattern IntelGraphics :: TargetPlatformAccelerator
+pattern IntelGraphics = TargetPlatformAccelerator' "INTEL_GRAPHICS"
 
-instance ToText TargetPlatformAccelerator where
-  toText = \case
-    IntelGraphics -> "INTEL_GRAPHICS"
-    Mali -> "MALI"
-    Nvidia -> "NVIDIA"
+pattern Mali :: TargetPlatformAccelerator
+pattern Mali = TargetPlatformAccelerator' "MALI"
 
-instance Hashable TargetPlatformAccelerator
+pattern Nvidia :: TargetPlatformAccelerator
+pattern Nvidia = TargetPlatformAccelerator' "NVIDIA"
 
-instance NFData TargetPlatformAccelerator
-
-instance ToByteString TargetPlatformAccelerator
-
-instance ToQuery TargetPlatformAccelerator
-
-instance ToHeader TargetPlatformAccelerator
-
-instance ToJSON TargetPlatformAccelerator where
-  toJSON = toJSONText
-
-instance FromJSON TargetPlatformAccelerator where
-  parseJSON = parseJSONText "TargetPlatformAccelerator"
+{-# COMPLETE
+  IntelGraphics,
+  Mali,
+  Nvidia,
+  TargetPlatformAccelerator'
+  #-}

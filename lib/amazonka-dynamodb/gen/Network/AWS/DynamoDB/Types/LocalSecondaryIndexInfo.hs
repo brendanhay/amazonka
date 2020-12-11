@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.LocalSecondaryIndexInfo where
+module Network.AWS.DynamoDB.Types.LocalSecondaryIndexInfo
+  ( LocalSecondaryIndexInfo (..),
+
+    -- * Smart constructor
+    mkLocalSecondaryIndexInfo,
+
+    -- * Lenses
+    lsiiKeySchema,
+    lsiiProjection,
+    lsiiIndexName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the properties of a local secondary index for the table when the backup was created.
 --
---
---
--- /See:/ 'localSecondaryIndexInfo' smart constructor.
+-- /See:/ 'mkLocalSecondaryIndexInfo' smart constructor.
 data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
-  { _lsiiKeySchema ::
-      !(Maybe (List1 KeySchemaElement)),
-    _lsiiProjection :: !(Maybe Projection),
-    _lsiiIndexName :: !(Maybe Text)
+  { keySchema ::
+      Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    projection :: Lude.Maybe Projection,
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalSecondaryIndexInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'indexName' - Represents the name of the local secondary index.
+-- * 'keySchema' - The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:
 --
--- * 'lsiiKeySchema' - The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
 --
--- * 'lsiiProjection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+--     * @HASH@ - partition key
 --
--- * 'lsiiIndexName' - Represents the name of the local secondary index.
-localSecondaryIndexInfo ::
+--
+--     * @RANGE@ - sort key
+--
+--
+-- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+mkLocalSecondaryIndexInfo ::
   LocalSecondaryIndexInfo
-localSecondaryIndexInfo =
+mkLocalSecondaryIndexInfo =
   LocalSecondaryIndexInfo'
-    { _lsiiKeySchema = Nothing,
-      _lsiiProjection = Nothing,
-      _lsiiIndexName = Nothing
+    { keySchema = Lude.Nothing,
+      projection = Lude.Nothing,
+      indexName = Lude.Nothing
     }
 
--- | The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
-lsiiKeySchema :: Lens' LocalSecondaryIndexInfo (Maybe (NonEmpty KeySchemaElement))
-lsiiKeySchema = lens _lsiiKeySchema (\s a -> s {_lsiiKeySchema = a}) . mapping _List1
+-- | The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:
+--
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiiKeySchema :: Lens.Lens' LocalSecondaryIndexInfo (Lude.Maybe (Lude.NonEmpty KeySchemaElement))
+lsiiKeySchema = Lens.lens (keySchema :: LocalSecondaryIndexInfo -> Lude.Maybe (Lude.NonEmpty KeySchemaElement)) (\s a -> s {keySchema = a} :: LocalSecondaryIndexInfo)
+{-# DEPRECATED lsiiKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-lsiiProjection :: Lens' LocalSecondaryIndexInfo (Maybe Projection)
-lsiiProjection = lens _lsiiProjection (\s a -> s {_lsiiProjection = a})
+--
+-- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiiProjection :: Lens.Lens' LocalSecondaryIndexInfo (Lude.Maybe Projection)
+lsiiProjection = Lens.lens (projection :: LocalSecondaryIndexInfo -> Lude.Maybe Projection) (\s a -> s {projection = a} :: LocalSecondaryIndexInfo)
+{-# DEPRECATED lsiiProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
 -- | Represents the name of the local secondary index.
-lsiiIndexName :: Lens' LocalSecondaryIndexInfo (Maybe Text)
-lsiiIndexName = lens _lsiiIndexName (\s a -> s {_lsiiIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiiIndexName :: Lens.Lens' LocalSecondaryIndexInfo (Lude.Maybe Lude.Text)
+lsiiIndexName = Lens.lens (indexName :: LocalSecondaryIndexInfo -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: LocalSecondaryIndexInfo)
+{-# DEPRECATED lsiiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance FromJSON LocalSecondaryIndexInfo where
+instance Lude.FromJSON LocalSecondaryIndexInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "LocalSecondaryIndexInfo"
       ( \x ->
           LocalSecondaryIndexInfo'
-            <$> (x .:? "KeySchema")
-            <*> (x .:? "Projection")
-            <*> (x .:? "IndexName")
+            Lude.<$> (x Lude..:? "KeySchema")
+            Lude.<*> (x Lude..:? "Projection")
+            Lude.<*> (x Lude..:? "IndexName")
       )
-
-instance Hashable LocalSecondaryIndexInfo
-
-instance NFData LocalSecondaryIndexInfo

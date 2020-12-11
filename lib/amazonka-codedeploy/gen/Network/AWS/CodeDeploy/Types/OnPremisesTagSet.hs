@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.OnPremisesTagSet where
+module Network.AWS.CodeDeploy.Types.OnPremisesTagSet
+  ( OnPremisesTagSet (..),
+
+    -- * Smart constructor
+    mkOnPremisesTagSet,
+
+    -- * Lenses
+    optsOnPremisesTagSetList,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.TagFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about groups of on-premises instance tags.
 --
---
---
--- /See:/ 'onPremisesTagSet' smart constructor.
+-- /See:/ 'mkOnPremisesTagSet' smart constructor.
 newtype OnPremisesTagSet = OnPremisesTagSet'
-  { _optsOnPremisesTagSetList ::
-      Maybe [[TagFilter]]
+  { onPremisesTagSetList ::
+      Lude.Maybe [[TagFilter]]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnPremisesTagSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'optsOnPremisesTagSetList' - A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-onPremisesTagSet ::
+-- * 'onPremisesTagSetList' - A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+mkOnPremisesTagSet ::
   OnPremisesTagSet
-onPremisesTagSet =
-  OnPremisesTagSet' {_optsOnPremisesTagSetList = Nothing}
+mkOnPremisesTagSet =
+  OnPremisesTagSet' {onPremisesTagSetList = Lude.Nothing}
 
 -- | A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-optsOnPremisesTagSetList :: Lens' OnPremisesTagSet [[TagFilter]]
-optsOnPremisesTagSetList = lens _optsOnPremisesTagSetList (\s a -> s {_optsOnPremisesTagSetList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'onPremisesTagSetList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+optsOnPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Lude.Maybe [[TagFilter]])
+optsOnPremisesTagSetList = Lens.lens (onPremisesTagSetList :: OnPremisesTagSet -> Lude.Maybe [[TagFilter]]) (\s a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet)
+{-# DEPRECATED optsOnPremisesTagSetList "Use generic-lens or generic-optics with 'onPremisesTagSetList' instead." #-}
 
-instance FromJSON OnPremisesTagSet where
+instance Lude.FromJSON OnPremisesTagSet where
   parseJSON =
-    withObject
+    Lude.withObject
       "OnPremisesTagSet"
       ( \x ->
-          OnPremisesTagSet' <$> (x .:? "onPremisesTagSetList" .!= mempty)
+          OnPremisesTagSet'
+            Lude.<$> (x Lude..:? "onPremisesTagSetList" Lude..!= Lude.mempty)
       )
 
-instance Hashable OnPremisesTagSet
-
-instance NFData OnPremisesTagSet
-
-instance ToJSON OnPremisesTagSet where
+instance Lude.ToJSON OnPremisesTagSet where
   toJSON OnPremisesTagSet' {..} =
-    object
-      ( catMaybes
-          [("onPremisesTagSetList" .=) <$> _optsOnPremisesTagSetList]
+    Lude.object
+      ( Lude.catMaybes
+          [("onPremisesTagSetList" Lude..=) Lude.<$> onPremisesTagSetList]
       )

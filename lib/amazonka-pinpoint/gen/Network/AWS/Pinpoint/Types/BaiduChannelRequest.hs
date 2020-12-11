@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.BaiduChannelRequest where
+module Network.AWS.Pinpoint.Types.BaiduChannelRequest
+  ( BaiduChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBaiduChannelRequest,
+
+    -- * Lenses
+    bcrEnabled,
+    bcrSecretKey,
+    bcrAPIKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.
 --
---
---
--- /See:/ 'baiduChannelRequest' smart constructor.
+-- /See:/ 'mkBaiduChannelRequest' smart constructor.
 data BaiduChannelRequest = BaiduChannelRequest'
-  { _bcrEnabled ::
-      !(Maybe Bool),
-    _bcrSecretKey :: !Text,
-    _bcrAPIKey :: !Text
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    secretKey :: Lude.Text,
+    apiKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaiduChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bcrEnabled' - Specifies whether to enable the Baidu channel for the application.
---
--- * 'bcrSecretKey' - The secret key that you received from the Baidu Cloud Push service to communicate with the service.
---
--- * 'bcrAPIKey' - The API key that you received from the Baidu Cloud Push service to communicate with the service.
-baiduChannelRequest ::
-  -- | 'bcrSecretKey'
-  Text ->
-  -- | 'bcrAPIKey'
-  Text ->
+-- * 'apiKey' - The API key that you received from the Baidu Cloud Push service to communicate with the service.
+-- * 'enabled' - Specifies whether to enable the Baidu channel for the application.
+-- * 'secretKey' - The secret key that you received from the Baidu Cloud Push service to communicate with the service.
+mkBaiduChannelRequest ::
+  -- | 'secretKey'
+  Lude.Text ->
+  -- | 'apiKey'
+  Lude.Text ->
   BaiduChannelRequest
-baiduChannelRequest pSecretKey_ pAPIKey_ =
+mkBaiduChannelRequest pSecretKey_ pAPIKey_ =
   BaiduChannelRequest'
-    { _bcrEnabled = Nothing,
-      _bcrSecretKey = pSecretKey_,
-      _bcrAPIKey = pAPIKey_
+    { enabled = Lude.Nothing,
+      secretKey = pSecretKey_,
+      apiKey = pAPIKey_
     }
 
 -- | Specifies whether to enable the Baidu channel for the application.
-bcrEnabled :: Lens' BaiduChannelRequest (Maybe Bool)
-bcrEnabled = lens _bcrEnabled (\s a -> s {_bcrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcrEnabled :: Lens.Lens' BaiduChannelRequest (Lude.Maybe Lude.Bool)
+bcrEnabled = Lens.lens (enabled :: BaiduChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: BaiduChannelRequest)
+{-# DEPRECATED bcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The secret key that you received from the Baidu Cloud Push service to communicate with the service.
-bcrSecretKey :: Lens' BaiduChannelRequest Text
-bcrSecretKey = lens _bcrSecretKey (\s a -> s {_bcrSecretKey = a})
+--
+-- /Note:/ Consider using 'secretKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcrSecretKey :: Lens.Lens' BaiduChannelRequest Lude.Text
+bcrSecretKey = Lens.lens (secretKey :: BaiduChannelRequest -> Lude.Text) (\s a -> s {secretKey = a} :: BaiduChannelRequest)
+{-# DEPRECATED bcrSecretKey "Use generic-lens or generic-optics with 'secretKey' instead." #-}
 
 -- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
-bcrAPIKey :: Lens' BaiduChannelRequest Text
-bcrAPIKey = lens _bcrAPIKey (\s a -> s {_bcrAPIKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcrAPIKey :: Lens.Lens' BaiduChannelRequest Lude.Text
+bcrAPIKey = Lens.lens (apiKey :: BaiduChannelRequest -> Lude.Text) (\s a -> s {apiKey = a} :: BaiduChannelRequest)
+{-# DEPRECATED bcrAPIKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
-instance Hashable BaiduChannelRequest
-
-instance NFData BaiduChannelRequest
-
-instance ToJSON BaiduChannelRequest where
+instance Lude.ToJSON BaiduChannelRequest where
   toJSON BaiduChannelRequest' {..} =
-    object
-      ( catMaybes
-          [ ("Enabled" .=) <$> _bcrEnabled,
-            Just ("SecretKey" .= _bcrSecretKey),
-            Just ("ApiKey" .= _bcrAPIKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Enabled" Lude..=) Lude.<$> enabled,
+            Lude.Just ("SecretKey" Lude..= secretKey),
+            Lude.Just ("ApiKey" Lude..= apiKey)
           ]
       )

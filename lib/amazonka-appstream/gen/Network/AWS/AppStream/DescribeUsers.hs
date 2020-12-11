@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Retrieves a list that describes one or more specified users in the user pool.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeUsers
-  ( -- * Creating a Request
-    describeUsers,
-    DescribeUsers,
+  ( -- * Creating a request
+    DescribeUsers (..),
+    mkDescribeUsers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     duNextToken,
     duMaxResults,
     duAuthenticationType,
 
-    -- * Destructuring the Response
-    describeUsersResponse,
-    DescribeUsersResponse,
+    -- * Destructuring the response
+    DescribeUsersResponse (..),
+    mkDescribeUsersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dursUsers,
     dursNextToken,
     dursResponseStatus,
@@ -44,139 +37,156 @@ module Network.AWS.AppStream.DescribeUsers
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeUsers' smart constructor.
+-- | /See:/ 'mkDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { _duNextToken :: !(Maybe Text),
-    _duMaxResults :: !(Maybe Int),
-    _duAuthenticationType :: !AuthenticationType
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    authenticationType :: AuthenticationType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- * 'duMaxResults' - The maximum size of each page of results.
---
--- * 'duAuthenticationType' - The authentication type for the users in the user pool to describe. You must specify USERPOOL.
-describeUsers ::
-  -- | 'duAuthenticationType'
+-- * 'authenticationType' - The authentication type for the users in the user pool to describe. You must specify USERPOOL.
+-- * 'maxResults' - The maximum size of each page of results.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+mkDescribeUsers ::
+  -- | 'authenticationType'
   AuthenticationType ->
   DescribeUsers
-describeUsers pAuthenticationType_ =
+mkDescribeUsers pAuthenticationType_ =
   DescribeUsers'
-    { _duNextToken = Nothing,
-      _duMaxResults = Nothing,
-      _duAuthenticationType = pAuthenticationType_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      authenticationType = pAuthenticationType_
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-duNextToken :: Lens' DescribeUsers (Maybe Text)
-duNextToken = lens _duNextToken (\s a -> s {_duNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duNextToken :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
+duNextToken = Lens.lens (nextToken :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsers)
+{-# DEPRECATED duNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of each page of results.
-duMaxResults :: Lens' DescribeUsers (Maybe Int)
-duMaxResults = lens _duMaxResults (\s a -> s {_duMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duMaxResults :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Int)
+duMaxResults = Lens.lens (maxResults :: DescribeUsers -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeUsers)
+{-# DEPRECATED duMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The authentication type for the users in the user pool to describe. You must specify USERPOOL.
-duAuthenticationType :: Lens' DescribeUsers AuthenticationType
-duAuthenticationType = lens _duAuthenticationType (\s a -> s {_duAuthenticationType = a})
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duAuthenticationType :: Lens.Lens' DescribeUsers AuthenticationType
+duAuthenticationType = Lens.lens (authenticationType :: DescribeUsers -> AuthenticationType) (\s a -> s {authenticationType = a} :: DescribeUsers)
+{-# DEPRECATED duAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
-instance AWSPager DescribeUsers where
+instance Page.AWSPager DescribeUsers where
   page rq rs
-    | stop (rs ^. dursNextToken) = Nothing
-    | stop (rs ^. dursUsers) = Nothing
-    | otherwise = Just $ rq & duNextToken .~ rs ^. dursNextToken
+    | Page.stop (rs Lens.^. dursNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dursUsers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& duNextToken Lens..~ rs Lens.^. dursNextToken
 
-instance AWSRequest DescribeUsers where
+instance Lude.AWSRequest DescribeUsers where
   type Rs DescribeUsers = DescribeUsersResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            <$> (x .?> "Users" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Users" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUsers
-
-instance NFData DescribeUsers
-
-instance ToHeaders DescribeUsers where
+instance Lude.ToHeaders DescribeUsers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DescribeUsers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DescribeUsers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUsers where
+instance Lude.ToJSON DescribeUsers where
   toJSON DescribeUsers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _duNextToken,
-            ("MaxResults" .=) <$> _duMaxResults,
-            Just ("AuthenticationType" .= _duAuthenticationType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("AuthenticationType" Lude..= authenticationType)
           ]
       )
 
-instance ToPath DescribeUsers where
-  toPath = const "/"
+instance Lude.ToPath DescribeUsers where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUsers where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUsers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeUsersResponse' smart constructor.
+-- | /See:/ 'mkDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { _dursUsers ::
-      !(Maybe [User]),
-    _dursNextToken :: !(Maybe Text),
-    _dursResponseStatus :: !Int
+  { users ::
+      Lude.Maybe [User],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dursUsers' - Information about users in the user pool.
---
--- * 'dursNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- * 'dursResponseStatus' - -- | The response status code.
-describeUsersResponse ::
-  -- | 'dursResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'users' - Information about users in the user pool.
+mkDescribeUsersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUsersResponse
-describeUsersResponse pResponseStatus_ =
+mkDescribeUsersResponse pResponseStatus_ =
   DescribeUsersResponse'
-    { _dursUsers = Nothing,
-      _dursNextToken = Nothing,
-      _dursResponseStatus = pResponseStatus_
+    { users = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about users in the user pool.
-dursUsers :: Lens' DescribeUsersResponse [User]
-dursUsers = lens _dursUsers (\s a -> s {_dursUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursUsers :: Lens.Lens' DescribeUsersResponse (Lude.Maybe [User])
+dursUsers = Lens.lens (users :: DescribeUsersResponse -> Lude.Maybe [User]) (\s a -> s {users = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-dursNextToken :: Lens' DescribeUsersResponse (Maybe Text)
-dursNextToken = lens _dursNextToken (\s a -> s {_dursNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursNextToken :: Lens.Lens' DescribeUsersResponse (Lude.Maybe Lude.Text)
+dursNextToken = Lens.lens (nextToken :: DescribeUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dursResponseStatus :: Lens' DescribeUsersResponse Int
-dursResponseStatus = lens _dursResponseStatus (\s a -> s {_dursResponseStatus = a})
-
-instance NFData DescribeUsersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursResponseStatus :: Lens.Lens' DescribeUsersResponse Lude.Int
+dursResponseStatus = Lens.lens (responseStatus :: DescribeUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

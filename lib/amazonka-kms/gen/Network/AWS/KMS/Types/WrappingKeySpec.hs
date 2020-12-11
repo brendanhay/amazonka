@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.WrappingKeySpec where
+module Network.AWS.KMS.Types.WrappingKeySpec
+  ( WrappingKeySpec
+      ( WrappingKeySpec',
+        Rsa2048
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WrappingKeySpec = Rsa2048
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WrappingKeySpec = WrappingKeySpec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WrappingKeySpec where
-  parser =
-    takeLowerText >>= \case
-      "rsa_2048" -> pure Rsa2048
-      e ->
-        fromTextError $
-          "Failure parsing WrappingKeySpec from value: '" <> e
-            <> "'. Accepted values: rsa_2048"
+pattern Rsa2048 :: WrappingKeySpec
+pattern Rsa2048 = WrappingKeySpec' "RSA_2048"
 
-instance ToText WrappingKeySpec where
-  toText = \case
-    Rsa2048 -> "RSA_2048"
-
-instance Hashable WrappingKeySpec
-
-instance NFData WrappingKeySpec
-
-instance ToByteString WrappingKeySpec
-
-instance ToQuery WrappingKeySpec
-
-instance ToHeader WrappingKeySpec
-
-instance ToJSON WrappingKeySpec where
-  toJSON = toJSONText
+{-# COMPLETE
+  Rsa2048,
+  WrappingKeySpec'
+  #-}

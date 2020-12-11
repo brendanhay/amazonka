@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,164 @@
 --
 -- Updates the specified scaling plan.
 --
---
 -- You cannot update a scaling plan if it is in the process of being created, updated, or deleted.
 module Network.AWS.AutoScalingPlans.UpdateScalingPlan
-  ( -- * Creating a Request
-    updateScalingPlan,
-    UpdateScalingPlan,
+  ( -- * Creating a request
+    UpdateScalingPlan (..),
+    mkUpdateScalingPlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uspScalingInstructions,
     uspApplicationSource,
     uspScalingPlanName,
     uspScalingPlanVersion,
 
-    -- * Destructuring the Response
-    updateScalingPlanResponse,
-    UpdateScalingPlanResponse,
+    -- * Destructuring the response
+    UpdateScalingPlanResponse (..),
+    mkUpdateScalingPlanResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usprsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScalingPlans.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateScalingPlan' smart constructor.
+-- | /See:/ 'mkUpdateScalingPlan' smart constructor.
 data UpdateScalingPlan = UpdateScalingPlan'
-  { _uspScalingInstructions ::
-      !(Maybe [ScalingInstruction]),
-    _uspApplicationSource :: !(Maybe ApplicationSource),
-    _uspScalingPlanName :: !Text,
-    _uspScalingPlanVersion :: !Integer
+  { scalingInstructions ::
+      Lude.Maybe [ScalingInstruction],
+    applicationSource :: Lude.Maybe ApplicationSource,
+    scalingPlanName :: Lude.Text,
+    scalingPlanVersion :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScalingPlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uspScalingInstructions' - The scaling instructions.
---
--- * 'uspApplicationSource' - A CloudFormation stack or set of tags.
---
--- * 'uspScalingPlanName' - The name of the scaling plan.
---
--- * 'uspScalingPlanVersion' - The version number of the scaling plan.
-updateScalingPlan ::
-  -- | 'uspScalingPlanName'
-  Text ->
-  -- | 'uspScalingPlanVersion'
-  Integer ->
+-- * 'applicationSource' - A CloudFormation stack or set of tags.
+-- * 'scalingInstructions' - The scaling instructions.
+-- * 'scalingPlanName' - The name of the scaling plan.
+-- * 'scalingPlanVersion' - The version number of the scaling plan.
+mkUpdateScalingPlan ::
+  -- | 'scalingPlanName'
+  Lude.Text ->
+  -- | 'scalingPlanVersion'
+  Lude.Integer ->
   UpdateScalingPlan
-updateScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
+mkUpdateScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
   UpdateScalingPlan'
-    { _uspScalingInstructions = Nothing,
-      _uspApplicationSource = Nothing,
-      _uspScalingPlanName = pScalingPlanName_,
-      _uspScalingPlanVersion = pScalingPlanVersion_
+    { scalingInstructions = Lude.Nothing,
+      applicationSource = Lude.Nothing,
+      scalingPlanName = pScalingPlanName_,
+      scalingPlanVersion = pScalingPlanVersion_
     }
 
 -- | The scaling instructions.
-uspScalingInstructions :: Lens' UpdateScalingPlan [ScalingInstruction]
-uspScalingInstructions = lens _uspScalingInstructions (\s a -> s {_uspScalingInstructions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scalingInstructions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspScalingInstructions :: Lens.Lens' UpdateScalingPlan (Lude.Maybe [ScalingInstruction])
+uspScalingInstructions = Lens.lens (scalingInstructions :: UpdateScalingPlan -> Lude.Maybe [ScalingInstruction]) (\s a -> s {scalingInstructions = a} :: UpdateScalingPlan)
+{-# DEPRECATED uspScalingInstructions "Use generic-lens or generic-optics with 'scalingInstructions' instead." #-}
 
 -- | A CloudFormation stack or set of tags.
-uspApplicationSource :: Lens' UpdateScalingPlan (Maybe ApplicationSource)
-uspApplicationSource = lens _uspApplicationSource (\s a -> s {_uspApplicationSource = a})
+--
+-- /Note:/ Consider using 'applicationSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspApplicationSource :: Lens.Lens' UpdateScalingPlan (Lude.Maybe ApplicationSource)
+uspApplicationSource = Lens.lens (applicationSource :: UpdateScalingPlan -> Lude.Maybe ApplicationSource) (\s a -> s {applicationSource = a} :: UpdateScalingPlan)
+{-# DEPRECATED uspApplicationSource "Use generic-lens or generic-optics with 'applicationSource' instead." #-}
 
 -- | The name of the scaling plan.
-uspScalingPlanName :: Lens' UpdateScalingPlan Text
-uspScalingPlanName = lens _uspScalingPlanName (\s a -> s {_uspScalingPlanName = a})
+--
+-- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspScalingPlanName :: Lens.Lens' UpdateScalingPlan Lude.Text
+uspScalingPlanName = Lens.lens (scalingPlanName :: UpdateScalingPlan -> Lude.Text) (\s a -> s {scalingPlanName = a} :: UpdateScalingPlan)
+{-# DEPRECATED uspScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
 
 -- | The version number of the scaling plan.
-uspScalingPlanVersion :: Lens' UpdateScalingPlan Integer
-uspScalingPlanVersion = lens _uspScalingPlanVersion (\s a -> s {_uspScalingPlanVersion = a})
+--
+-- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspScalingPlanVersion :: Lens.Lens' UpdateScalingPlan Lude.Integer
+uspScalingPlanVersion = Lens.lens (scalingPlanVersion :: UpdateScalingPlan -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: UpdateScalingPlan)
+{-# DEPRECATED uspScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
 
-instance AWSRequest UpdateScalingPlan where
+instance Lude.AWSRequest UpdateScalingPlan where
   type Rs UpdateScalingPlan = UpdateScalingPlanResponse
-  request = postJSON autoScalingPlans
+  request = Req.postJSON autoScalingPlansService
   response =
-    receiveEmpty
-      (\s h x -> UpdateScalingPlanResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateScalingPlanResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateScalingPlan
-
-instance NFData UpdateScalingPlan
-
-instance ToHeaders UpdateScalingPlan where
+instance Lude.ToHeaders UpdateScalingPlan where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateScalingPlan where
+instance Lude.ToJSON UpdateScalingPlan where
   toJSON UpdateScalingPlan' {..} =
-    object
-      ( catMaybes
-          [ ("ScalingInstructions" .=) <$> _uspScalingInstructions,
-            ("ApplicationSource" .=) <$> _uspApplicationSource,
-            Just ("ScalingPlanName" .= _uspScalingPlanName),
-            Just ("ScalingPlanVersion" .= _uspScalingPlanVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ScalingInstructions" Lude..=) Lude.<$> scalingInstructions,
+            ("ApplicationSource" Lude..=) Lude.<$> applicationSource,
+            Lude.Just ("ScalingPlanName" Lude..= scalingPlanName),
+            Lude.Just ("ScalingPlanVersion" Lude..= scalingPlanVersion)
           ]
       )
 
-instance ToPath UpdateScalingPlan where
-  toPath = const "/"
+instance Lude.ToPath UpdateScalingPlan where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateScalingPlan where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateScalingPlan where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateScalingPlanResponse' smart constructor.
+-- | /See:/ 'mkUpdateScalingPlanResponse' smart constructor.
 newtype UpdateScalingPlanResponse = UpdateScalingPlanResponse'
-  { _usprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScalingPlanResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usprsResponseStatus' - -- | The response status code.
-updateScalingPlanResponse ::
-  -- | 'usprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateScalingPlanResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateScalingPlanResponse
-updateScalingPlanResponse pResponseStatus_ =
-  UpdateScalingPlanResponse'
-    { _usprsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateScalingPlanResponse pResponseStatus_ =
+  UpdateScalingPlanResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-usprsResponseStatus :: Lens' UpdateScalingPlanResponse Int
-usprsResponseStatus = lens _usprsResponseStatus (\s a -> s {_usprsResponseStatus = a})
-
-instance NFData UpdateScalingPlanResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usprsResponseStatus :: Lens.Lens' UpdateScalingPlanResponse Lude.Int
+usprsResponseStatus = Lens.lens (responseStatus :: UpdateScalingPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateScalingPlanResponse)
+{-# DEPRECATED usprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.FailedRemediationExceptionBatch where
+module Network.AWS.Config.Types.FailedRemediationExceptionBatch
+  ( FailedRemediationExceptionBatch (..),
+
+    -- * Smart constructor
+    mkFailedRemediationExceptionBatch,
+
+    -- * Lenses
+    frebFailureMessage,
+    frebFailedItems,
+  )
+where
 
 import Network.AWS.Config.Types.RemediationException
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of each of the failed remediation exceptions with specific reasons.
 --
---
---
--- /See:/ 'failedRemediationExceptionBatch' smart constructor.
+-- /See:/ 'mkFailedRemediationExceptionBatch' smart constructor.
 data FailedRemediationExceptionBatch = FailedRemediationExceptionBatch'
-  { _frebFailureMessage ::
-      !(Maybe Text),
-    _frebFailedItems ::
-      !( Maybe
-           [RemediationException]
-       )
+  { failureMessage ::
+      Lude.Maybe Lude.Text,
+    failedItems ::
+      Lude.Maybe
+        [RemediationException]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedRemediationExceptionBatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'frebFailureMessage' - Returns a failure message. For example, the auto-remediation has failed.
---
--- * 'frebFailedItems' - Returns remediation exception resource key object of the failed items.
-failedRemediationExceptionBatch ::
+-- * 'failedItems' - Returns remediation exception resource key object of the failed items.
+-- * 'failureMessage' - Returns a failure message. For example, the auto-remediation has failed.
+mkFailedRemediationExceptionBatch ::
   FailedRemediationExceptionBatch
-failedRemediationExceptionBatch =
+mkFailedRemediationExceptionBatch =
   FailedRemediationExceptionBatch'
-    { _frebFailureMessage = Nothing,
-      _frebFailedItems = Nothing
+    { failureMessage = Lude.Nothing,
+      failedItems = Lude.Nothing
     }
 
 -- | Returns a failure message. For example, the auto-remediation has failed.
-frebFailureMessage :: Lens' FailedRemediationExceptionBatch (Maybe Text)
-frebFailureMessage = lens _frebFailureMessage (\s a -> s {_frebFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frebFailureMessage :: Lens.Lens' FailedRemediationExceptionBatch (Lude.Maybe Lude.Text)
+frebFailureMessage = Lens.lens (failureMessage :: FailedRemediationExceptionBatch -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: FailedRemediationExceptionBatch)
+{-# DEPRECATED frebFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | Returns remediation exception resource key object of the failed items.
-frebFailedItems :: Lens' FailedRemediationExceptionBatch [RemediationException]
-frebFailedItems = lens _frebFailedItems (\s a -> s {_frebFailedItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frebFailedItems :: Lens.Lens' FailedRemediationExceptionBatch (Lude.Maybe [RemediationException])
+frebFailedItems = Lens.lens (failedItems :: FailedRemediationExceptionBatch -> Lude.Maybe [RemediationException]) (\s a -> s {failedItems = a} :: FailedRemediationExceptionBatch)
+{-# DEPRECATED frebFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
-instance FromJSON FailedRemediationExceptionBatch where
+instance Lude.FromJSON FailedRemediationExceptionBatch where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailedRemediationExceptionBatch"
       ( \x ->
           FailedRemediationExceptionBatch'
-            <$> (x .:? "FailureMessage") <*> (x .:? "FailedItems" .!= mempty)
+            Lude.<$> (x Lude..:? "FailureMessage")
+            Lude.<*> (x Lude..:? "FailedItems" Lude..!= Lude.mempty)
       )
-
-instance Hashable FailedRemediationExceptionBatch
-
-instance NFData FailedRemediationExceptionBatch

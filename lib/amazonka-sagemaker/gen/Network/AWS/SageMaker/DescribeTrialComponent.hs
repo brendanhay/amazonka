@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Provides a list of a trials component's properties.
 module Network.AWS.SageMaker.DescribeTrialComponent
-  ( -- * Creating a Request
-    describeTrialComponent,
-    DescribeTrialComponent,
+  ( -- * Creating a request
+    DescribeTrialComponent (..),
+    mkDescribeTrialComponent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desTrialComponentName,
 
-    -- * Destructuring the Response
-    describeTrialComponentResponse,
-    DescribeTrialComponentResponse,
+    -- * Destructuring the response
+    DescribeTrialComponentResponse (..),
+    mkDescribeTrialComponentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desersCreationTime,
     desersStatus,
     desersMetrics,
@@ -50,262 +45,325 @@ module Network.AWS.SageMaker.DescribeTrialComponent
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeTrialComponent' smart constructor.
+-- | /See:/ 'mkDescribeTrialComponent' smart constructor.
 newtype DescribeTrialComponent = DescribeTrialComponent'
-  { _desTrialComponentName ::
-      Text
+  { trialComponentName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrialComponent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desTrialComponentName' - The name of the trial component to describe.
-describeTrialComponent ::
-  -- | 'desTrialComponentName'
-  Text ->
+-- * 'trialComponentName' - The name of the trial component to describe.
+mkDescribeTrialComponent ::
+  -- | 'trialComponentName'
+  Lude.Text ->
   DescribeTrialComponent
-describeTrialComponent pTrialComponentName_ =
+mkDescribeTrialComponent pTrialComponentName_ =
   DescribeTrialComponent'
-    { _desTrialComponentName =
+    { trialComponentName =
         pTrialComponentName_
     }
 
 -- | The name of the trial component to describe.
-desTrialComponentName :: Lens' DescribeTrialComponent Text
-desTrialComponentName = lens _desTrialComponentName (\s a -> s {_desTrialComponentName = a})
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desTrialComponentName :: Lens.Lens' DescribeTrialComponent Lude.Text
+desTrialComponentName = Lens.lens (trialComponentName :: DescribeTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: DescribeTrialComponent)
+{-# DEPRECATED desTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
-instance AWSRequest DescribeTrialComponent where
+instance Lude.AWSRequest DescribeTrialComponent where
   type Rs DescribeTrialComponent = DescribeTrialComponentResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTrialComponentResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "Status")
-            <*> (x .?> "Metrics" .!@ mempty)
-            <*> (x .?> "OutputArtifacts" .!@ mempty)
-            <*> (x .?> "StartTime")
-            <*> (x .?> "CreatedBy")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "TrialComponentName")
-            <*> (x .?> "Parameters" .!@ mempty)
-            <*> (x .?> "Source")
-            <*> (x .?> "DisplayName")
-            <*> (x .?> "LastModifiedBy")
-            <*> (x .?> "TrialComponentArn")
-            <*> (x .?> "InputArtifacts" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "Metrics" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "OutputArtifacts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "CreatedBy")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "TrialComponentName")
+            Lude.<*> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Source")
+            Lude.<*> (x Lude..?> "DisplayName")
+            Lude.<*> (x Lude..?> "LastModifiedBy")
+            Lude.<*> (x Lude..?> "TrialComponentArn")
+            Lude.<*> (x Lude..?> "InputArtifacts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTrialComponent
-
-instance NFData DescribeTrialComponent
-
-instance ToHeaders DescribeTrialComponent where
+instance Lude.ToHeaders DescribeTrialComponent where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeTrialComponent" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeTrialComponent" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTrialComponent where
+instance Lude.ToJSON DescribeTrialComponent where
   toJSON DescribeTrialComponent' {..} =
-    object
-      (catMaybes [Just ("TrialComponentName" .= _desTrialComponentName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("TrialComponentName" Lude..= trialComponentName)]
+      )
 
-instance ToPath DescribeTrialComponent where
-  toPath = const "/"
+instance Lude.ToPath DescribeTrialComponent where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTrialComponent where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTrialComponent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTrialComponentResponse' smart constructor.
+-- | /See:/ 'mkDescribeTrialComponentResponse' smart constructor.
 data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
-  { _desersCreationTime ::
-      !(Maybe POSIX),
-    _desersStatus ::
-      !(Maybe TrialComponentStatus),
-    _desersMetrics ::
-      !( Maybe
-           [TrialComponentMetricSummary]
-       ),
-    _desersOutputArtifacts ::
-      !( Maybe
-           ( Map
-               Text
-               (TrialComponentArtifact)
-           )
-       ),
-    _desersStartTime ::
-      !(Maybe POSIX),
-    _desersCreatedBy ::
-      !(Maybe UserContext),
-    _desersLastModifiedTime ::
-      !(Maybe POSIX),
-    _desersEndTime ::
-      !(Maybe POSIX),
-    _desersTrialComponentName ::
-      !(Maybe Text),
-    _desersParameters ::
-      !( Maybe
-           ( Map
-               Text
-               (TrialComponentParameterValue)
-           )
-       ),
-    _desersSource ::
-      !(Maybe TrialComponentSource),
-    _desersDisplayName ::
-      !(Maybe Text),
-    _desersLastModifiedBy ::
-      !(Maybe UserContext),
-    _desersTrialComponentARN ::
-      !(Maybe Text),
-    _desersInputArtifacts ::
-      !( Maybe
-           ( Map
-               Text
-               (TrialComponentArtifact)
-           )
-       ),
-    _desersResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status ::
+      Lude.Maybe
+        TrialComponentStatus,
+    metrics ::
+      Lude.Maybe
+        [TrialComponentMetricSummary],
+    outputArtifacts ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (TrialComponentArtifact)
+        ),
+    startTime ::
+      Lude.Maybe Lude.Timestamp,
+    createdBy ::
+      Lude.Maybe UserContext,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    endTime ::
+      Lude.Maybe Lude.Timestamp,
+    trialComponentName ::
+      Lude.Maybe Lude.Text,
+    parameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (TrialComponentParameterValue)
+        ),
+    source ::
+      Lude.Maybe
+        TrialComponentSource,
+    displayName ::
+      Lude.Maybe Lude.Text,
+    lastModifiedBy ::
+      Lude.Maybe UserContext,
+    trialComponentARN ::
+      Lude.Maybe Lude.Text,
+    inputArtifacts ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (TrialComponentArtifact)
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrialComponentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createdBy' - Who created the component.
+-- * 'creationTime' - When the component was created.
+-- * 'displayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
+-- * 'endTime' - When the component ended.
+-- * 'inputArtifacts' - The input artifacts of the component.
+-- * 'lastModifiedBy' - Who last modified the component.
+-- * 'lastModifiedTime' - When the component was last modified.
+-- * 'metrics' - The metrics for the component.
+-- * 'outputArtifacts' - The output artifacts of the component.
+-- * 'parameters' - The hyperparameters of the component.
+-- * 'responseStatus' - The response status code.
+-- * 'source' - The Amazon Resource Name (ARN) of the source and, optionally, the job type.
+-- * 'startTime' - When the component started.
+-- * 'status' - The status of the component. States include:
 --
--- * 'desersCreationTime' - When the component was created.
 --
--- * 'desersStatus' - The status of the component. States include:     * InProgress     * Completed     * Failed
+--     * InProgress
 --
--- * 'desersMetrics' - The metrics for the component.
 --
--- * 'desersOutputArtifacts' - The output artifacts of the component.
+--     * Completed
 --
--- * 'desersStartTime' - When the component started.
 --
--- * 'desersCreatedBy' - Who created the component.
+--     * Failed
 --
--- * 'desersLastModifiedTime' - When the component was last modified.
 --
--- * 'desersEndTime' - When the component ended.
---
--- * 'desersTrialComponentName' - The name of the trial component.
---
--- * 'desersParameters' - The hyperparameters of the component.
---
--- * 'desersSource' - The Amazon Resource Name (ARN) of the source and, optionally, the job type.
---
--- * 'desersDisplayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
---
--- * 'desersLastModifiedBy' - Who last modified the component.
---
--- * 'desersTrialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
---
--- * 'desersInputArtifacts' - The input artifacts of the component.
---
--- * 'desersResponseStatus' - -- | The response status code.
-describeTrialComponentResponse ::
-  -- | 'desersResponseStatus'
-  Int ->
+-- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'trialComponentName' - The name of the trial component.
+mkDescribeTrialComponentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTrialComponentResponse
-describeTrialComponentResponse pResponseStatus_ =
+mkDescribeTrialComponentResponse pResponseStatus_ =
   DescribeTrialComponentResponse'
-    { _desersCreationTime = Nothing,
-      _desersStatus = Nothing,
-      _desersMetrics = Nothing,
-      _desersOutputArtifacts = Nothing,
-      _desersStartTime = Nothing,
-      _desersCreatedBy = Nothing,
-      _desersLastModifiedTime = Nothing,
-      _desersEndTime = Nothing,
-      _desersTrialComponentName = Nothing,
-      _desersParameters = Nothing,
-      _desersSource = Nothing,
-      _desersDisplayName = Nothing,
-      _desersLastModifiedBy = Nothing,
-      _desersTrialComponentARN = Nothing,
-      _desersInputArtifacts = Nothing,
-      _desersResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      metrics = Lude.Nothing,
+      outputArtifacts = Lude.Nothing,
+      startTime = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      endTime = Lude.Nothing,
+      trialComponentName = Lude.Nothing,
+      parameters = Lude.Nothing,
+      source = Lude.Nothing,
+      displayName = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      trialComponentARN = Lude.Nothing,
+      inputArtifacts = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | When the component was created.
-desersCreationTime :: Lens' DescribeTrialComponentResponse (Maybe UTCTime)
-desersCreationTime = lens _desersCreationTime (\s a -> s {_desersCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersCreationTime :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Timestamp)
+desersCreationTime = Lens.lens (creationTime :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | The status of the component. States include:     * InProgress     * Completed     * Failed
-desersStatus :: Lens' DescribeTrialComponentResponse (Maybe TrialComponentStatus)
-desersStatus = lens _desersStatus (\s a -> s {_desersStatus = a})
+-- | The status of the component. States include:
+--
+--
+--     * InProgress
+--
+--
+--     * Completed
+--
+--
+--     * Failed
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersStatus :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe TrialComponentStatus)
+desersStatus = Lens.lens (status :: DescribeTrialComponentResponse -> Lude.Maybe TrialComponentStatus) (\s a -> s {status = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The metrics for the component.
-desersMetrics :: Lens' DescribeTrialComponentResponse [TrialComponentMetricSummary]
-desersMetrics = lens _desersMetrics (\s a -> s {_desersMetrics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersMetrics :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe [TrialComponentMetricSummary])
+desersMetrics = Lens.lens (metrics :: DescribeTrialComponentResponse -> Lude.Maybe [TrialComponentMetricSummary]) (\s a -> s {metrics = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The output artifacts of the component.
-desersOutputArtifacts :: Lens' DescribeTrialComponentResponse (HashMap Text (TrialComponentArtifact))
-desersOutputArtifacts = lens _desersOutputArtifacts (\s a -> s {_desersOutputArtifacts = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'outputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersOutputArtifacts :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)))
+desersOutputArtifacts = Lens.lens (outputArtifacts :: DescribeTrialComponentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact))) (\s a -> s {outputArtifacts = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersOutputArtifacts "Use generic-lens or generic-optics with 'outputArtifacts' instead." #-}
 
 -- | When the component started.
-desersStartTime :: Lens' DescribeTrialComponentResponse (Maybe UTCTime)
-desersStartTime = lens _desersStartTime (\s a -> s {_desersStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersStartTime :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Timestamp)
+desersStartTime = Lens.lens (startTime :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Who created the component.
-desersCreatedBy :: Lens' DescribeTrialComponentResponse (Maybe UserContext)
-desersCreatedBy = lens _desersCreatedBy (\s a -> s {_desersCreatedBy = a})
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersCreatedBy :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe UserContext)
+desersCreatedBy = Lens.lens (createdBy :: DescribeTrialComponentResponse -> Lude.Maybe UserContext) (\s a -> s {createdBy = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | When the component was last modified.
-desersLastModifiedTime :: Lens' DescribeTrialComponentResponse (Maybe UTCTime)
-desersLastModifiedTime = lens _desersLastModifiedTime (\s a -> s {_desersLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersLastModifiedTime :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Timestamp)
+desersLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | When the component ended.
-desersEndTime :: Lens' DescribeTrialComponentResponse (Maybe UTCTime)
-desersEndTime = lens _desersEndTime (\s a -> s {_desersEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersEndTime :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Timestamp)
+desersEndTime = Lens.lens (endTime :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The name of the trial component.
-desersTrialComponentName :: Lens' DescribeTrialComponentResponse (Maybe Text)
-desersTrialComponentName = lens _desersTrialComponentName (\s a -> s {_desersTrialComponentName = a})
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersTrialComponentName :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Text)
+desersTrialComponentName = Lens.lens (trialComponentName :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentName = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 -- | The hyperparameters of the component.
-desersParameters :: Lens' DescribeTrialComponentResponse (HashMap Text (TrialComponentParameterValue))
-desersParameters = lens _desersParameters (\s a -> s {_desersParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersParameters :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentParameterValue)))
+desersParameters = Lens.lens (parameters :: DescribeTrialComponentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentParameterValue))) (\s a -> s {parameters = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
-desersSource :: Lens' DescribeTrialComponentResponse (Maybe TrialComponentSource)
-desersSource = lens _desersSource (\s a -> s {_desersSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersSource :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe TrialComponentSource)
+desersSource = Lens.lens (source :: DescribeTrialComponentResponse -> Lude.Maybe TrialComponentSource) (\s a -> s {source = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
-desersDisplayName :: Lens' DescribeTrialComponentResponse (Maybe Text)
-desersDisplayName = lens _desersDisplayName (\s a -> s {_desersDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersDisplayName :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Text)
+desersDisplayName = Lens.lens (displayName :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | Who last modified the component.
-desersLastModifiedBy :: Lens' DescribeTrialComponentResponse (Maybe UserContext)
-desersLastModifiedBy = lens _desersLastModifiedBy (\s a -> s {_desersLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersLastModifiedBy :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe UserContext)
+desersLastModifiedBy = Lens.lens (lastModifiedBy :: DescribeTrialComponentResponse -> Lude.Maybe UserContext) (\s a -> s {lastModifiedBy = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the trial component.
-desersTrialComponentARN :: Lens' DescribeTrialComponentResponse (Maybe Text)
-desersTrialComponentARN = lens _desersTrialComponentARN (\s a -> s {_desersTrialComponentARN = a})
+--
+-- /Note:/ Consider using 'trialComponentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersTrialComponentARN :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe Lude.Text)
+desersTrialComponentARN = Lens.lens (trialComponentARN :: DescribeTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentARN = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersTrialComponentARN "Use generic-lens or generic-optics with 'trialComponentARN' instead." #-}
 
 -- | The input artifacts of the component.
-desersInputArtifacts :: Lens' DescribeTrialComponentResponse (HashMap Text (TrialComponentArtifact))
-desersInputArtifacts = lens _desersInputArtifacts (\s a -> s {_desersInputArtifacts = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'inputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersInputArtifacts :: Lens.Lens' DescribeTrialComponentResponse (Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)))
+desersInputArtifacts = Lens.lens (inputArtifacts :: DescribeTrialComponentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact))) (\s a -> s {inputArtifacts = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersInputArtifacts "Use generic-lens or generic-optics with 'inputArtifacts' instead." #-}
 
--- | -- | The response status code.
-desersResponseStatus :: Lens' DescribeTrialComponentResponse Int
-desersResponseStatus = lens _desersResponseStatus (\s a -> s {_desersResponseStatus = a})
-
-instance NFData DescribeTrialComponentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersResponseStatus :: Lens.Lens' DescribeTrialComponentResponse Lude.Int
+desersResponseStatus = Lens.lens (responseStatus :: DescribeTrialComponentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrialComponentResponse)
+{-# DEPRECATED desersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

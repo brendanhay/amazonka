@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.EventType where
+module Network.AWS.CognitoIdentityProvider.Types.EventType
+  ( EventType
+      ( EventType',
+        ETForgotPassword,
+        ETSignIn,
+        ETSignUp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventType
-  = ETForgotPassword
-  | ETSignIn
-  | ETSignUp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventType = EventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventType where
-  parser =
-    takeLowerText >>= \case
-      "forgotpassword" -> pure ETForgotPassword
-      "signin" -> pure ETSignIn
-      "signup" -> pure ETSignUp
-      e ->
-        fromTextError $
-          "Failure parsing EventType from value: '" <> e
-            <> "'. Accepted values: forgotpassword, signin, signup"
+pattern ETForgotPassword :: EventType
+pattern ETForgotPassword = EventType' "ForgotPassword"
 
-instance ToText EventType where
-  toText = \case
-    ETForgotPassword -> "ForgotPassword"
-    ETSignIn -> "SignIn"
-    ETSignUp -> "SignUp"
+pattern ETSignIn :: EventType
+pattern ETSignIn = EventType' "SignIn"
 
-instance Hashable EventType
+pattern ETSignUp :: EventType
+pattern ETSignUp = EventType' "SignUp"
 
-instance NFData EventType
-
-instance ToByteString EventType
-
-instance ToQuery EventType
-
-instance ToHeader EventType
-
-instance FromJSON EventType where
-  parseJSON = parseJSONText "EventType"
+{-# COMPLETE
+  ETForgotPassword,
+  ETSignIn,
+  ETSignUp,
+  EventType'
+  #-}

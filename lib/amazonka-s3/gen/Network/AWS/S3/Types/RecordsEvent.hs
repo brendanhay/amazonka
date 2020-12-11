@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RecordsEvent where
+module Network.AWS.S3.Types.RecordsEvent
+  ( RecordsEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecordsEvent,
+
+    -- * Lenses
+    rePayload,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | The container for the records event.
 --
---
---
--- /See:/ 'recordsEvent' smart constructor.
-newtype RecordsEvent = RecordsEvent' {_rePayload :: Maybe Base64}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRecordsEvent' smart constructor.
+newtype RecordsEvent = RecordsEvent'
+  { payload ::
+      Lude.Maybe Lude.Base64
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordsEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rePayload' - The byte array of partial, one or more result records.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-recordsEvent ::
+-- * 'payload' - The byte array of partial, one or more result records.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkRecordsEvent ::
   RecordsEvent
-recordsEvent = RecordsEvent' {_rePayload = Nothing}
+mkRecordsEvent = RecordsEvent' {payload = Lude.Nothing}
 
--- | The byte array of partial, one or more result records.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-rePayload :: Lens' RecordsEvent (Maybe ByteString)
-rePayload = lens _rePayload (\s a -> s {_rePayload = a}) . mapping _Base64
+-- | The byte array of partial, one or more result records.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rePayload :: Lens.Lens' RecordsEvent (Lude.Maybe Lude.Base64)
+rePayload = Lens.lens (payload :: RecordsEvent -> Lude.Maybe Lude.Base64) (\s a -> s {payload = a} :: RecordsEvent)
+{-# DEPRECATED rePayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
-instance FromXML RecordsEvent where
-  parseXML x = RecordsEvent' <$> (x .@? "Payload")
-
-instance Hashable RecordsEvent
-
-instance NFData RecordsEvent
+instance Lude.FromXML RecordsEvent where
+  parseXML x = RecordsEvent' Lude.<$> (x Lude..@? "Payload")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,138 @@
 --
 -- Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends from addresses on that domain. If Easy DKIM signing is enabled for an email address, then Amazon SES uses DKIM to sign all email it sends from that address.
 --
---
 -- You can enable DKIM signing for an identity at any time after you start the verification process for the identity, even if the verification process isn't complete.
---
 -- You can execute this operation no more than once per second.
---
 -- For more information about Easy DKIM signing, go to the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 module Network.AWS.SES.SetIdentityDkimEnabled
-  ( -- * Creating a Request
-    setIdentityDkimEnabled,
-    SetIdentityDkimEnabled,
+  ( -- * Creating a request
+    SetIdentityDkimEnabled (..),
+    mkSetIdentityDkimEnabled,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sideIdentity,
     sideDkimEnabled,
 
-    -- * Destructuring the Response
-    setIdentityDkimEnabledResponse,
-    SetIdentityDkimEnabledResponse,
+    -- * Destructuring the response
+    SetIdentityDkimEnabledResponse (..),
+    mkSetIdentityDkimEnabledResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sidersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'setIdentityDkimEnabled' smart constructor.
+-- /See:/ 'mkSetIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
-  { _sideIdentity ::
-      !Text,
-    _sideDkimEnabled :: !Bool
+  { identity ::
+      Lude.Text,
+    dkimEnabled :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityDkimEnabled' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sideIdentity' - The identity for which DKIM signing should be enabled or disabled.
---
--- * 'sideDkimEnabled' - Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
-setIdentityDkimEnabled ::
-  -- | 'sideIdentity'
-  Text ->
-  -- | 'sideDkimEnabled'
-  Bool ->
+-- * 'dkimEnabled' - Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
+-- * 'identity' - The identity for which DKIM signing should be enabled or disabled.
+mkSetIdentityDkimEnabled ::
+  -- | 'identity'
+  Lude.Text ->
+  -- | 'dkimEnabled'
+  Lude.Bool ->
   SetIdentityDkimEnabled
-setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
+mkSetIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
   SetIdentityDkimEnabled'
-    { _sideIdentity = pIdentity_,
-      _sideDkimEnabled = pDkimEnabled_
+    { identity = pIdentity_,
+      dkimEnabled = pDkimEnabled_
     }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
-sideIdentity :: Lens' SetIdentityDkimEnabled Text
-sideIdentity = lens _sideIdentity (\s a -> s {_sideIdentity = a})
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sideIdentity :: Lens.Lens' SetIdentityDkimEnabled Lude.Text
+sideIdentity = Lens.lens (identity :: SetIdentityDkimEnabled -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityDkimEnabled)
+{-# DEPRECATED sideIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
-sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-sideDkimEnabled = lens _sideDkimEnabled (\s a -> s {_sideDkimEnabled = a})
+--
+-- /Note:/ Consider using 'dkimEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sideDkimEnabled :: Lens.Lens' SetIdentityDkimEnabled Lude.Bool
+sideDkimEnabled = Lens.lens (dkimEnabled :: SetIdentityDkimEnabled -> Lude.Bool) (\s a -> s {dkimEnabled = a} :: SetIdentityDkimEnabled)
+{-# DEPRECATED sideDkimEnabled "Use generic-lens or generic-optics with 'dkimEnabled' instead." #-}
 
-instance AWSRequest SetIdentityDkimEnabled where
+instance Lude.AWSRequest SetIdentityDkimEnabled where
   type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetIdentityDkimEnabledResult"
       ( \s h x ->
-          SetIdentityDkimEnabledResponse' <$> (pure (fromEnum s))
+          SetIdentityDkimEnabledResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetIdentityDkimEnabled
+instance Lude.ToHeaders SetIdentityDkimEnabled where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetIdentityDkimEnabled
+instance Lude.ToPath SetIdentityDkimEnabled where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetIdentityDkimEnabled where
-  toHeaders = const mempty
-
-instance ToPath SetIdentityDkimEnabled where
-  toPath = const "/"
-
-instance ToQuery SetIdentityDkimEnabled where
+instance Lude.ToQuery SetIdentityDkimEnabled where
   toQuery SetIdentityDkimEnabled' {..} =
-    mconcat
-      [ "Action" =: ("SetIdentityDkimEnabled" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identity" =: _sideIdentity,
-        "DkimEnabled" =: _sideDkimEnabled
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetIdentityDkimEnabled" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identity" Lude.=: identity,
+        "DkimEnabled" Lude.=: dkimEnabled
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+-- /See:/ 'mkSetIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
-  { _sidersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityDkimEnabledResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sidersResponseStatus' - -- | The response status code.
-setIdentityDkimEnabledResponse ::
-  -- | 'sidersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetIdentityDkimEnabledResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse pResponseStatus_ =
+mkSetIdentityDkimEnabledResponse pResponseStatus_ =
   SetIdentityDkimEnabledResponse'
-    { _sidersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
-sidersResponseStatus = lens _sidersResponseStatus (\s a -> s {_sidersResponseStatus = a})
-
-instance NFData SetIdentityDkimEnabledResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sidersResponseStatus :: Lens.Lens' SetIdentityDkimEnabledResponse Lude.Int
+sidersResponseStatus = Lens.lens (responseStatus :: SetIdentityDkimEnabledResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetIdentityDkimEnabledResponse)
+{-# DEPRECATED sidersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,174 +7,235 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.StorediSCSIVolume where
+module Network.AWS.StorageGateway.Types.StorediSCSIVolume
+  ( StorediSCSIVolume (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStorediSCSIVolume,
+
+    -- * Lenses
+    sscsivVolumeiSCSIAttributes,
+    sscsivVolumeStatus,
+    sscsivSourceSnapshotId,
+    sscsivPreservedExistingData,
+    sscsivKMSKey,
+    sscsivVolumeAttachmentStatus,
+    sscsivVolumeARN,
+    sscsivVolumeProgress,
+    sscsivVolumeSizeInBytes,
+    sscsivVolumeUsedInBytes,
+    sscsivCreatedDate,
+    sscsivVolumeId,
+    sscsivVolumeDiskId,
+    sscsivVolumeType,
+    sscsivTargetName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
 
 -- | Describes an iSCSI stored volume.
 --
---
---
--- /See:/ 'storediSCSIVolume' smart constructor.
+-- /See:/ 'mkStorediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-  { _sscsivVolumeiSCSIAttributes ::
-      !(Maybe VolumeiSCSIAttributes),
-    _sscsivVolumeStatus :: !(Maybe Text),
-    _sscsivSourceSnapshotId :: !(Maybe Text),
-    _sscsivPreservedExistingData :: !(Maybe Bool),
-    _sscsivKMSKey :: !(Maybe Text),
-    _sscsivVolumeAttachmentStatus :: !(Maybe Text),
-    _sscsivVolumeARN :: !(Maybe Text),
-    _sscsivVolumeProgress :: !(Maybe Double),
-    _sscsivVolumeSizeInBytes :: !(Maybe Integer),
-    _sscsivVolumeUsedInBytes :: !(Maybe Integer),
-    _sscsivCreatedDate :: !(Maybe POSIX),
-    _sscsivVolumeId :: !(Maybe Text),
-    _sscsivVolumeDiskId :: !(Maybe Text),
-    _sscsivVolumeType :: !(Maybe Text),
-    _sscsivTargetName :: !(Maybe Text)
+  { volumeiSCSIAttributes ::
+      Lude.Maybe VolumeiSCSIAttributes,
+    volumeStatus :: Lude.Maybe Lude.Text,
+    sourceSnapshotId :: Lude.Maybe Lude.Text,
+    preservedExistingData :: Lude.Maybe Lude.Bool,
+    kmsKey :: Lude.Maybe Lude.Text,
+    volumeAttachmentStatus :: Lude.Maybe Lude.Text,
+    volumeARN :: Lude.Maybe Lude.Text,
+    volumeProgress :: Lude.Maybe Lude.Double,
+    volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    volumeUsedInBytes :: Lude.Maybe Lude.Integer,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    volumeId :: Lude.Maybe Lude.Text,
+    volumeDiskId :: Lude.Maybe Lude.Text,
+    volumeType :: Lude.Maybe Lude.Text,
+    targetName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorediSCSIVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createdDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
+-- * 'kmsKey' - Undocumented field.
+-- * 'preservedExistingData' - Indicates if when the stored volume was created, existing data on the underlying local disk was preserved.
 --
--- * 'sscsivVolumeiSCSIAttributes' - An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
+-- Valid Values: @true@ | @false@
+-- * 'sourceSnapshotId' - If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
+-- * 'targetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
 --
--- * 'sscsivVolumeStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
---
--- * 'sscsivSourceSnapshotId' - If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
---
--- * 'sscsivPreservedExistingData' - Indicates if when the stored volume was created, existing data on the underlying local disk was preserved. Valid Values: @true@ | @false@
---
--- * 'sscsivKMSKey' - Undocumented member.
---
--- * 'sscsivVolumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
---
--- * 'sscsivVolumeARN' - The Amazon Resource Name (ARN) of the storage volume.
---
--- * 'sscsivVolumeProgress' - Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
---
--- * 'sscsivVolumeSizeInBytes' - The size of the volume in bytes.
---
--- * 'sscsivVolumeUsedInBytes' - The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
---
--- * 'sscsivCreatedDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
---
--- * 'sscsivVolumeId' - The unique identifier of the volume, e.g., vol-AE4B946D.
---
--- * 'sscsivVolumeDiskId' - The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
---
--- * 'sscsivVolumeType' - One of the VolumeType enumeration values describing the type of the volume.
---
--- * 'sscsivTargetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
-storediSCSIVolume ::
+-- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the storage volume.
+-- * 'volumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
+-- * 'volumeDiskId' - The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
+-- * 'volumeId' - The unique identifier of the volume, e.g., vol-AE4B946D.
+-- * 'volumeProgress' - Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
+-- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'volumeStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
+-- * 'volumeType' - One of the VolumeType enumeration values describing the type of the volume.
+-- * 'volumeUsedInBytes' - The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
+-- * 'volumeiSCSIAttributes' - An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
+mkStorediSCSIVolume ::
   StorediSCSIVolume
-storediSCSIVolume =
+mkStorediSCSIVolume =
   StorediSCSIVolume'
-    { _sscsivVolumeiSCSIAttributes = Nothing,
-      _sscsivVolumeStatus = Nothing,
-      _sscsivSourceSnapshotId = Nothing,
-      _sscsivPreservedExistingData = Nothing,
-      _sscsivKMSKey = Nothing,
-      _sscsivVolumeAttachmentStatus = Nothing,
-      _sscsivVolumeARN = Nothing,
-      _sscsivVolumeProgress = Nothing,
-      _sscsivVolumeSizeInBytes = Nothing,
-      _sscsivVolumeUsedInBytes = Nothing,
-      _sscsivCreatedDate = Nothing,
-      _sscsivVolumeId = Nothing,
-      _sscsivVolumeDiskId = Nothing,
-      _sscsivVolumeType = Nothing,
-      _sscsivTargetName = Nothing
+    { volumeiSCSIAttributes = Lude.Nothing,
+      volumeStatus = Lude.Nothing,
+      sourceSnapshotId = Lude.Nothing,
+      preservedExistingData = Lude.Nothing,
+      kmsKey = Lude.Nothing,
+      volumeAttachmentStatus = Lude.Nothing,
+      volumeARN = Lude.Nothing,
+      volumeProgress = Lude.Nothing,
+      volumeSizeInBytes = Lude.Nothing,
+      volumeUsedInBytes = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      volumeId = Lude.Nothing,
+      volumeDiskId = Lude.Nothing,
+      volumeType = Lude.Nothing,
+      targetName = Lude.Nothing
     }
 
 -- | An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
-sscsivVolumeiSCSIAttributes :: Lens' StorediSCSIVolume (Maybe VolumeiSCSIAttributes)
-sscsivVolumeiSCSIAttributes = lens _sscsivVolumeiSCSIAttributes (\s a -> s {_sscsivVolumeiSCSIAttributes = a})
+--
+-- /Note:/ Consider using 'volumeiSCSIAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeiSCSIAttributes :: Lens.Lens' StorediSCSIVolume (Lude.Maybe VolumeiSCSIAttributes)
+sscsivVolumeiSCSIAttributes = Lens.lens (volumeiSCSIAttributes :: StorediSCSIVolume -> Lude.Maybe VolumeiSCSIAttributes) (\s a -> s {volumeiSCSIAttributes = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeiSCSIAttributes "Use generic-lens or generic-optics with 'volumeiSCSIAttributes' instead." #-}
 
 -- | One of the VolumeStatus values that indicates the state of the storage volume.
-sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeStatus = lens _sscsivVolumeStatus (\s a -> s {_sscsivVolumeStatus = a})
+--
+-- /Note:/ Consider using 'volumeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeStatus :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeStatus = Lens.lens (volumeStatus :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeStatus = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeStatus "Use generic-lens or generic-optics with 'volumeStatus' instead." #-}
 
 -- | If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
-sscsivSourceSnapshotId :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivSourceSnapshotId = lens _sscsivSourceSnapshotId (\s a -> s {_sscsivSourceSnapshotId = a})
+--
+-- /Note:/ Consider using 'sourceSnapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivSourceSnapshotId :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivSourceSnapshotId = Lens.lens (sourceSnapshotId :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {sourceSnapshotId = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivSourceSnapshotId "Use generic-lens or generic-optics with 'sourceSnapshotId' instead." #-}
 
--- | Indicates if when the stored volume was created, existing data on the underlying local disk was preserved. Valid Values: @true@ | @false@
-sscsivPreservedExistingData :: Lens' StorediSCSIVolume (Maybe Bool)
-sscsivPreservedExistingData = lens _sscsivPreservedExistingData (\s a -> s {_sscsivPreservedExistingData = a})
+-- | Indicates if when the stored volume was created, existing data on the underlying local disk was preserved.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'preservedExistingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivPreservedExistingData :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Bool)
+sscsivPreservedExistingData = Lens.lens (preservedExistingData :: StorediSCSIVolume -> Lude.Maybe Lude.Bool) (\s a -> s {preservedExistingData = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivPreservedExistingData "Use generic-lens or generic-optics with 'preservedExistingData' instead." #-}
 
--- | Undocumented member.
-sscsivKMSKey :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivKMSKey = lens _sscsivKMSKey (\s a -> s {_sscsivKMSKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivKMSKey :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivKMSKey = Lens.lens (kmsKey :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
 -- | A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
-sscsivVolumeAttachmentStatus :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeAttachmentStatus = lens _sscsivVolumeAttachmentStatus (\s a -> s {_sscsivVolumeAttachmentStatus = a})
+--
+-- /Note:/ Consider using 'volumeAttachmentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeAttachmentStatus :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeAttachmentStatus = Lens.lens (volumeAttachmentStatus :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeAttachmentStatus = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeAttachmentStatus "Use generic-lens or generic-optics with 'volumeAttachmentStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the storage volume.
-sscsivVolumeARN :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeARN = lens _sscsivVolumeARN (\s a -> s {_sscsivVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeARN :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeARN = Lens.lens (volumeARN :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
-sscsivVolumeProgress :: Lens' StorediSCSIVolume (Maybe Double)
-sscsivVolumeProgress = lens _sscsivVolumeProgress (\s a -> s {_sscsivVolumeProgress = a})
+--
+-- /Note:/ Consider using 'volumeProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeProgress :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Double)
+sscsivVolumeProgress = Lens.lens (volumeProgress :: StorediSCSIVolume -> Lude.Maybe Lude.Double) (\s a -> s {volumeProgress = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeProgress "Use generic-lens or generic-optics with 'volumeProgress' instead." #-}
 
 -- | The size of the volume in bytes.
-sscsivVolumeSizeInBytes :: Lens' StorediSCSIVolume (Maybe Integer)
-sscsivVolumeSizeInBytes = lens _sscsivVolumeSizeInBytes (\s a -> s {_sscsivVolumeSizeInBytes = a})
+--
+-- /Note:/ Consider using 'volumeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeSizeInBytes :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Integer)
+sscsivVolumeSizeInBytes = Lens.lens (volumeSizeInBytes :: StorediSCSIVolume -> Lude.Maybe Lude.Integer) (\s a -> s {volumeSizeInBytes = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
 
 -- | The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
-sscsivVolumeUsedInBytes :: Lens' StorediSCSIVolume (Maybe Integer)
-sscsivVolumeUsedInBytes = lens _sscsivVolumeUsedInBytes (\s a -> s {_sscsivVolumeUsedInBytes = a})
+--
+-- /Note:/ Consider using 'volumeUsedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeUsedInBytes :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Integer)
+sscsivVolumeUsedInBytes = Lens.lens (volumeUsedInBytes :: StorediSCSIVolume -> Lude.Maybe Lude.Integer) (\s a -> s {volumeUsedInBytes = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeUsedInBytes "Use generic-lens or generic-optics with 'volumeUsedInBytes' instead." #-}
 
 -- | The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
-sscsivCreatedDate :: Lens' StorediSCSIVolume (Maybe UTCTime)
-sscsivCreatedDate = lens _sscsivCreatedDate (\s a -> s {_sscsivCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivCreatedDate :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Timestamp)
+sscsivCreatedDate = Lens.lens (createdDate :: StorediSCSIVolume -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The unique identifier of the volume, e.g., vol-AE4B946D.
-sscsivVolumeId :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeId = lens _sscsivVolumeId (\s a -> s {_sscsivVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeId :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeId = Lens.lens (volumeId :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
-sscsivVolumeDiskId :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeDiskId = lens _sscsivVolumeDiskId (\s a -> s {_sscsivVolumeDiskId = a})
+--
+-- /Note:/ Consider using 'volumeDiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeDiskId :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeDiskId = Lens.lens (volumeDiskId :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeDiskId = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeDiskId "Use generic-lens or generic-optics with 'volumeDiskId' instead." #-}
 
 -- | One of the VolumeType enumeration values describing the type of the volume.
-sscsivVolumeType :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivVolumeType = lens _sscsivVolumeType (\s a -> s {_sscsivVolumeType = a})
+--
+-- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivVolumeType :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivVolumeType = Lens.lens (volumeType :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {volumeType = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
--- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
-sscsivTargetName :: Lens' StorediSCSIVolume (Maybe Text)
-sscsivTargetName = lens _sscsivTargetName (\s a -> s {_sscsivTargetName = a})
+-- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
+--
+-- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
+--
+-- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscsivTargetName :: Lens.Lens' StorediSCSIVolume (Lude.Maybe Lude.Text)
+sscsivTargetName = Lens.lens (targetName :: StorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {targetName = a} :: StorediSCSIVolume)
+{-# DEPRECATED sscsivTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
-instance FromJSON StorediSCSIVolume where
+instance Lude.FromJSON StorediSCSIVolume where
   parseJSON =
-    withObject
+    Lude.withObject
       "StorediSCSIVolume"
       ( \x ->
           StorediSCSIVolume'
-            <$> (x .:? "VolumeiSCSIAttributes")
-            <*> (x .:? "VolumeStatus")
-            <*> (x .:? "SourceSnapshotId")
-            <*> (x .:? "PreservedExistingData")
-            <*> (x .:? "KMSKey")
-            <*> (x .:? "VolumeAttachmentStatus")
-            <*> (x .:? "VolumeARN")
-            <*> (x .:? "VolumeProgress")
-            <*> (x .:? "VolumeSizeInBytes")
-            <*> (x .:? "VolumeUsedInBytes")
-            <*> (x .:? "CreatedDate")
-            <*> (x .:? "VolumeId")
-            <*> (x .:? "VolumeDiskId")
-            <*> (x .:? "VolumeType")
-            <*> (x .:? "TargetName")
+            Lude.<$> (x Lude..:? "VolumeiSCSIAttributes")
+            Lude.<*> (x Lude..:? "VolumeStatus")
+            Lude.<*> (x Lude..:? "SourceSnapshotId")
+            Lude.<*> (x Lude..:? "PreservedExistingData")
+            Lude.<*> (x Lude..:? "KMSKey")
+            Lude.<*> (x Lude..:? "VolumeAttachmentStatus")
+            Lude.<*> (x Lude..:? "VolumeARN")
+            Lude.<*> (x Lude..:? "VolumeProgress")
+            Lude.<*> (x Lude..:? "VolumeSizeInBytes")
+            Lude.<*> (x Lude..:? "VolumeUsedInBytes")
+            Lude.<*> (x Lude..:? "CreatedDate")
+            Lude.<*> (x Lude..:? "VolumeId")
+            Lude.<*> (x Lude..:? "VolumeDiskId")
+            Lude.<*> (x Lude..:? "VolumeType")
+            Lude.<*> (x Lude..:? "TargetName")
       )
-
-instance Hashable StorediSCSIVolume
-
-instance NFData StorediSCSIVolume

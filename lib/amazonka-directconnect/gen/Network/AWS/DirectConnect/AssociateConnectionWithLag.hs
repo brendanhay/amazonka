@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.
 --
---
 -- Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.
---
 -- For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.
 module Network.AWS.DirectConnect.AssociateConnectionWithLag
-  ( -- * Creating a Request
-    associateConnectionWithLag,
-    AssociateConnectionWithLag,
+  ( -- * Creating a request
+    AssociateConnectionWithLag (..),
+    mkAssociateConnectionWithLag,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acwlConnectionId,
     acwlLagId,
 
-    -- * Destructuring the Response
-    connection,
-    Connection,
+    -- * Destructuring the response
+    Connection (..),
+    mkConnection,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cLagId,
     cVlan,
     cLocation,
@@ -58,76 +51,83 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateConnectionWithLag' smart constructor.
+-- | /See:/ 'mkAssociateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-  { _acwlConnectionId ::
-      !Text,
-    _acwlLagId :: !Text
+  { connectionId ::
+      Lude.Text,
+    lagId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateConnectionWithLag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acwlConnectionId' - The ID of the connection.
---
--- * 'acwlLagId' - The ID of the LAG with which to associate the connection.
-associateConnectionWithLag ::
-  -- | 'acwlConnectionId'
-  Text ->
-  -- | 'acwlLagId'
-  Text ->
+-- * 'connectionId' - The ID of the connection.
+-- * 'lagId' - The ID of the LAG with which to associate the connection.
+mkAssociateConnectionWithLag ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'lagId'
+  Lude.Text ->
   AssociateConnectionWithLag
-associateConnectionWithLag pConnectionId_ pLagId_ =
+mkAssociateConnectionWithLag pConnectionId_ pLagId_ =
   AssociateConnectionWithLag'
-    { _acwlConnectionId = pConnectionId_,
-      _acwlLagId = pLagId_
+    { connectionId = pConnectionId_,
+      lagId = pLagId_
     }
 
 -- | The ID of the connection.
-acwlConnectionId :: Lens' AssociateConnectionWithLag Text
-acwlConnectionId = lens _acwlConnectionId (\s a -> s {_acwlConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
+acwlConnectionId = Lens.lens (connectionId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateConnectionWithLag)
+{-# DEPRECATED acwlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the LAG with which to associate the connection.
-acwlLagId :: Lens' AssociateConnectionWithLag Text
-acwlLagId = lens _acwlLagId (\s a -> s {_acwlLagId = a})
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwlLagId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
+acwlLagId = Lens.lens (lagId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {lagId = a} :: AssociateConnectionWithLag)
+{-# DEPRECATED acwlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance AWSRequest AssociateConnectionWithLag where
+instance Lude.AWSRequest AssociateConnectionWithLag where
   type Rs AssociateConnectionWithLag = Connection
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable AssociateConnectionWithLag
-
-instance NFData AssociateConnectionWithLag
-
-instance ToHeaders AssociateConnectionWithLag where
+instance Lude.ToHeaders AssociateConnectionWithLag where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.AssociateConnectionWithLag" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.AssociateConnectionWithLag" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateConnectionWithLag where
+instance Lude.ToJSON AssociateConnectionWithLag where
   toJSON AssociateConnectionWithLag' {..} =
-    object
-      ( catMaybes
-          [ Just ("connectionId" .= _acwlConnectionId),
-            Just ("lagId" .= _acwlLagId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("lagId" Lude..= lagId)
           ]
       )
 
-instance ToPath AssociateConnectionWithLag where
-  toPath = const "/"
+instance Lude.ToPath AssociateConnectionWithLag where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateConnectionWithLag where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateConnectionWithLag where
+  toQuery = Lude.const Lude.mempty

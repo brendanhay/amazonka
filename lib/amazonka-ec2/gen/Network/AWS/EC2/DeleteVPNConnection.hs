@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,106 @@
 --
 -- Deletes the specified VPN connection.
 --
---
 -- If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway device using the new configuration information returned with the new VPN connection ID.
---
 -- For certificate-based authentication, delete all AWS Certificate Manager (ACM) private certificates used for the AWS-side tunnel endpoints for the VPN connection before deleting the VPN connection.
 module Network.AWS.EC2.DeleteVPNConnection
-  ( -- * Creating a Request
-    deleteVPNConnection,
-    DeleteVPNConnection,
+  ( -- * Creating a request
+    DeleteVPNConnection (..),
+    mkDeleteVPNConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvcDryRun,
     dvcVPNConnectionId,
 
-    -- * Destructuring the Response
-    deleteVPNConnectionResponse,
-    DeleteVPNConnectionResponse,
+    -- * Destructuring the response
+    DeleteVPNConnectionResponse (..),
+    mkDeleteVPNConnectionResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteVpnConnection.
 --
---
---
--- /See:/ 'deleteVPNConnection' smart constructor.
+-- /See:/ 'mkDeleteVPNConnection' smart constructor.
 data DeleteVPNConnection = DeleteVPNConnection'
-  { _dvcDryRun ::
-      !(Maybe Bool),
-    _dvcVPNConnectionId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpnConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvcVPNConnectionId' - The ID of the VPN connection.
-deleteVPNConnection ::
-  -- | 'dvcVPNConnectionId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpnConnectionId' - The ID of the VPN connection.
+mkDeleteVPNConnection ::
+  -- | 'vpnConnectionId'
+  Lude.Text ->
   DeleteVPNConnection
-deleteVPNConnection pVPNConnectionId_ =
+mkDeleteVPNConnection pVPNConnectionId_ =
   DeleteVPNConnection'
-    { _dvcDryRun = Nothing,
-      _dvcVPNConnectionId = pVPNConnectionId_
+    { dryRun = Lude.Nothing,
+      vpnConnectionId = pVPNConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvcDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
-dvcDryRun = lens _dvcDryRun (\s a -> s {_dvcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcDryRun :: Lens.Lens' DeleteVPNConnection (Lude.Maybe Lude.Bool)
+dvcDryRun = Lens.lens (dryRun :: DeleteVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPNConnection)
+{-# DEPRECATED dvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPN connection.
-dvcVPNConnectionId :: Lens' DeleteVPNConnection Text
-dvcVPNConnectionId = lens _dvcVPNConnectionId (\s a -> s {_dvcVPNConnectionId = a})
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcVPNConnectionId :: Lens.Lens' DeleteVPNConnection Lude.Text
+dvcVPNConnectionId = Lens.lens (vpnConnectionId :: DeleteVPNConnection -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: DeleteVPNConnection)
+{-# DEPRECATED dvcVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
-instance AWSRequest DeleteVPNConnection where
+instance Lude.AWSRequest DeleteVPNConnection where
   type Rs DeleteVPNConnection = DeleteVPNConnectionResponse
-  request = postQuery ec2
-  response = receiveNull DeleteVPNConnectionResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteVPNConnectionResponse'
 
-instance Hashable DeleteVPNConnection
+instance Lude.ToHeaders DeleteVPNConnection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVPNConnection
+instance Lude.ToPath DeleteVPNConnection where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVPNConnection where
-  toHeaders = const mempty
-
-instance ToPath DeleteVPNConnection where
-  toPath = const "/"
-
-instance ToQuery DeleteVPNConnection where
+instance Lude.ToQuery DeleteVPNConnection where
   toQuery DeleteVPNConnection' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVpnConnection" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvcDryRun,
-        "VpnConnectionId" =: _dvcVPNConnectionId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteVpnConnection" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpnConnectionId" Lude.=: vpnConnectionId
       ]
 
--- | /See:/ 'deleteVPNConnectionResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPNConnectionResponse' smart constructor.
 data DeleteVPNConnectionResponse = DeleteVPNConnectionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnectionResponse' with the minimum fields required to make a request.
-deleteVPNConnectionResponse ::
+mkDeleteVPNConnectionResponse ::
   DeleteVPNConnectionResponse
-deleteVPNConnectionResponse = DeleteVPNConnectionResponse'
-
-instance NFData DeleteVPNConnectionResponse
+mkDeleteVPNConnectionResponse = DeleteVPNConnectionResponse'

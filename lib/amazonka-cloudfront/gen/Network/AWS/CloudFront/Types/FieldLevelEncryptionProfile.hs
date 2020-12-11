@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfile where
+module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfile
+  ( FieldLevelEncryptionProfile (..),
+
+    -- * Smart constructor
+    mkFieldLevelEncryptionProfile,
+
+    -- * Lenses
+    flepId,
+    flepLastModifiedTime,
+    flepFieldLevelEncryptionProfileConfig,
+  )
+where
 
 import Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type for field-level encryption profiles.
 --
---
---
--- /See:/ 'fieldLevelEncryptionProfile' smart constructor.
+-- /See:/ 'mkFieldLevelEncryptionProfile' smart constructor.
 data FieldLevelEncryptionProfile = FieldLevelEncryptionProfile'
-  { _flepId ::
-      !Text,
-    _flepLastModifiedTime :: !ISO8601,
-    _flepFieldLevelEncryptionProfileConfig ::
-      !FieldLevelEncryptionProfileConfig
+  { id ::
+      Lude.Text,
+    lastModifiedTime :: Lude.ISO8601,
+    fieldLevelEncryptionProfileConfig ::
+      FieldLevelEncryptionProfileConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldLevelEncryptionProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'flepId' - The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
---
--- * 'flepLastModifiedTime' - The last time the field-level encryption profile was updated.
---
--- * 'flepFieldLevelEncryptionProfileConfig' - A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.
-fieldLevelEncryptionProfile ::
-  -- | 'flepId'
-  Text ->
-  -- | 'flepLastModifiedTime'
-  UTCTime ->
-  -- | 'flepFieldLevelEncryptionProfileConfig'
+-- * 'fieldLevelEncryptionProfileConfig' - A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.
+-- * 'id' - The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
+-- * 'lastModifiedTime' - The last time the field-level encryption profile was updated.
+mkFieldLevelEncryptionProfile ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'lastModifiedTime'
+  Lude.ISO8601 ->
+  -- | 'fieldLevelEncryptionProfileConfig'
   FieldLevelEncryptionProfileConfig ->
   FieldLevelEncryptionProfile
-fieldLevelEncryptionProfile
+mkFieldLevelEncryptionProfile
   pId_
   pLastModifiedTime_
   pFieldLevelEncryptionProfileConfig_ =
     FieldLevelEncryptionProfile'
-      { _flepId = pId_,
-        _flepLastModifiedTime = _Time # pLastModifiedTime_,
-        _flepFieldLevelEncryptionProfileConfig =
+      { id = pId_,
+        lastModifiedTime = pLastModifiedTime_,
+        fieldLevelEncryptionProfileConfig =
           pFieldLevelEncryptionProfileConfig_
       }
 
 -- | The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
-flepId :: Lens' FieldLevelEncryptionProfile Text
-flepId = lens _flepId (\s a -> s {_flepId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flepId :: Lens.Lens' FieldLevelEncryptionProfile Lude.Text
+flepId = Lens.lens (id :: FieldLevelEncryptionProfile -> Lude.Text) (\s a -> s {id = a} :: FieldLevelEncryptionProfile)
+{-# DEPRECATED flepId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The last time the field-level encryption profile was updated.
-flepLastModifiedTime :: Lens' FieldLevelEncryptionProfile UTCTime
-flepLastModifiedTime = lens _flepLastModifiedTime (\s a -> s {_flepLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flepLastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfile Lude.ISO8601
+flepLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionProfile -> Lude.ISO8601) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfile)
+{-# DEPRECATED flepLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.
-flepFieldLevelEncryptionProfileConfig :: Lens' FieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
-flepFieldLevelEncryptionProfileConfig = lens _flepFieldLevelEncryptionProfileConfig (\s a -> s {_flepFieldLevelEncryptionProfileConfig = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flepFieldLevelEncryptionProfileConfig :: Lens.Lens' FieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
+flepFieldLevelEncryptionProfileConfig = Lens.lens (fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfile -> FieldLevelEncryptionProfileConfig) (\s a -> s {fieldLevelEncryptionProfileConfig = a} :: FieldLevelEncryptionProfile)
+{-# DEPRECATED flepFieldLevelEncryptionProfileConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileConfig' instead." #-}
 
-instance FromXML FieldLevelEncryptionProfile where
+instance Lude.FromXML FieldLevelEncryptionProfile where
   parseXML x =
     FieldLevelEncryptionProfile'
-      <$> (x .@ "Id")
-      <*> (x .@ "LastModifiedTime")
-      <*> (x .@ "FieldLevelEncryptionProfileConfig")
-
-instance Hashable FieldLevelEncryptionProfile
-
-instance NFData FieldLevelEncryptionProfile
+      Lude.<$> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "LastModifiedTime")
+      Lude.<*> (x Lude..@ "FieldLevelEncryptionProfileConfig")

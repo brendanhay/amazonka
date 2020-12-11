@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,107 @@
 --
 -- Deletes an existing Channel.
 module Network.AWS.MediaPackage.DeleteChannel
-  ( -- * Creating a Request
-    deleteChannel,
-    DeleteChannel,
+  ( -- * Creating a request
+    DeleteChannel (..),
+    mkDeleteChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcId,
 
-    -- * Destructuring the Response
-    deleteChannelResponse,
-    DeleteChannelResponse,
+    -- * Destructuring the response
+    DeleteChannelResponse (..),
+    mkDeleteChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteChannel' smart constructor.
-newtype DeleteChannel = DeleteChannel' {_dcId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteChannel' smart constructor.
+newtype DeleteChannel = DeleteChannel' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcId' - The ID of the Channel to delete.
-deleteChannel ::
-  -- | 'dcId'
-  Text ->
+-- * 'id' - The ID of the Channel to delete.
+mkDeleteChannel ::
+  -- | 'id'
+  Lude.Text ->
   DeleteChannel
-deleteChannel pId_ = DeleteChannel' {_dcId = pId_}
+mkDeleteChannel pId_ = DeleteChannel' {id = pId_}
 
 -- | The ID of the Channel to delete.
-dcId :: Lens' DeleteChannel Text
-dcId = lens _dcId (\s a -> s {_dcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcId :: Lens.Lens' DeleteChannel Lude.Text
+dcId = Lens.lens (id :: DeleteChannel -> Lude.Text) (\s a -> s {id = a} :: DeleteChannel)
+{-# DEPRECATED dcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteChannel where
+instance Lude.AWSRequest DeleteChannel where
   type Rs DeleteChannel = DeleteChannelResponse
-  request = delete mediaPackage
+  request = Req.delete mediaPackageService
   response =
-    receiveEmpty
-      (\s h x -> DeleteChannelResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteChannel
-
-instance NFData DeleteChannel
-
-instance ToHeaders DeleteChannel where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteChannelResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteChannel where
-  toPath DeleteChannel' {..} = mconcat ["/channels/", toBS _dcId]
+instance Lude.ToHeaders DeleteChannel where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
 
-instance ToQuery DeleteChannel where
-  toQuery = const mempty
+instance Lude.ToPath DeleteChannel where
+  toPath DeleteChannel' {..} =
+    Lude.mconcat ["/channels/", Lude.toBS id]
 
--- | /See:/ 'deleteChannelResponse' smart constructor.
+instance Lude.ToQuery DeleteChannel where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkDeleteChannelResponse' smart constructor.
 newtype DeleteChannelResponse = DeleteChannelResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteChannelResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteChannelResponse
-deleteChannelResponse pResponseStatus_ =
-  DeleteChannelResponse' {_drsResponseStatus = pResponseStatus_}
+mkDeleteChannelResponse pResponseStatus_ =
+  DeleteChannelResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteChannelResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteChannelResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteChannelResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

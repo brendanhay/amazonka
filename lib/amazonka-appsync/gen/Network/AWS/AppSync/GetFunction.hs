@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,138 @@
 --
 -- Get a @Function@ .
 module Network.AWS.AppSync.GetFunction
-  ( -- * Creating a Request
-    getFunction,
-    GetFunction,
+  ( -- * Creating a request
+    GetFunction (..),
+    mkGetFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfApiId,
     gfFunctionId,
 
-    -- * Destructuring the Response
-    getFunctionResponse,
-    GetFunctionResponse,
+    -- * Destructuring the response
+    GetFunctionResponse (..),
+    mkGetFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfrsFunctionConfiguration,
     gfrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFunction' smart constructor.
+-- | /See:/ 'mkGetFunction' smart constructor.
 data GetFunction = GetFunction'
-  { _gfApiId :: !Text,
-    _gfFunctionId :: !Text
+  { apiId :: Lude.Text,
+    functionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfApiId' - The GraphQL API ID.
---
--- * 'gfFunctionId' - The @Function@ ID.
-getFunction ::
-  -- | 'gfApiId'
-  Text ->
-  -- | 'gfFunctionId'
-  Text ->
+-- * 'apiId' - The GraphQL API ID.
+-- * 'functionId' - The @Function@ ID.
+mkGetFunction ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'functionId'
+  Lude.Text ->
   GetFunction
-getFunction pApiId_ pFunctionId_ =
-  GetFunction' {_gfApiId = pApiId_, _gfFunctionId = pFunctionId_}
+mkGetFunction pApiId_ pFunctionId_ =
+  GetFunction' {apiId = pApiId_, functionId = pFunctionId_}
 
 -- | The GraphQL API ID.
-gfApiId :: Lens' GetFunction Text
-gfApiId = lens _gfApiId (\s a -> s {_gfApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfApiId :: Lens.Lens' GetFunction Lude.Text
+gfApiId = Lens.lens (apiId :: GetFunction -> Lude.Text) (\s a -> s {apiId = a} :: GetFunction)
+{-# DEPRECATED gfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The @Function@ ID.
-gfFunctionId :: Lens' GetFunction Text
-gfFunctionId = lens _gfFunctionId (\s a -> s {_gfFunctionId = a})
+--
+-- /Note:/ Consider using 'functionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfFunctionId :: Lens.Lens' GetFunction Lude.Text
+gfFunctionId = Lens.lens (functionId :: GetFunction -> Lude.Text) (\s a -> s {functionId = a} :: GetFunction)
+{-# DEPRECATED gfFunctionId "Use generic-lens or generic-optics with 'functionId' instead." #-}
 
-instance AWSRequest GetFunction where
+instance Lude.AWSRequest GetFunction where
   type Rs GetFunction = GetFunctionResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFunctionResponse'
-            <$> (x .?> "functionConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "functionConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFunction
-
-instance NFData GetFunction
-
-instance ToHeaders GetFunction where
+instance Lude.ToHeaders GetFunction where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetFunction where
+instance Lude.ToPath GetFunction where
   toPath GetFunction' {..} =
-    mconcat
-      ["/v1/apis/", toBS _gfApiId, "/functions/", toBS _gfFunctionId]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/functions/", Lude.toBS functionId]
 
-instance ToQuery GetFunction where
-  toQuery = const mempty
+instance Lude.ToQuery GetFunction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFunctionResponse' smart constructor.
+-- | /See:/ 'mkGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { _gfrsFunctionConfiguration ::
-      !(Maybe FunctionConfiguration),
-    _gfrsResponseStatus :: !Int
+  { functionConfiguration ::
+      Lude.Maybe FunctionConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfrsFunctionConfiguration' - The @Function@ object.
---
--- * 'gfrsResponseStatus' - -- | The response status code.
-getFunctionResponse ::
-  -- | 'gfrsResponseStatus'
-  Int ->
+-- * 'functionConfiguration' - The @Function@ object.
+-- * 'responseStatus' - The response status code.
+mkGetFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFunctionResponse
-getFunctionResponse pResponseStatus_ =
+mkGetFunctionResponse pResponseStatus_ =
   GetFunctionResponse'
-    { _gfrsFunctionConfiguration = Nothing,
-      _gfrsResponseStatus = pResponseStatus_
+    { functionConfiguration = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @Function@ object.
-gfrsFunctionConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
-gfrsFunctionConfiguration = lens _gfrsFunctionConfiguration (\s a -> s {_gfrsFunctionConfiguration = a})
+--
+-- /Note:/ Consider using 'functionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsFunctionConfiguration :: Lens.Lens' GetFunctionResponse (Lude.Maybe FunctionConfiguration)
+gfrsFunctionConfiguration = Lens.lens (functionConfiguration :: GetFunctionResponse -> Lude.Maybe FunctionConfiguration) (\s a -> s {functionConfiguration = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsFunctionConfiguration "Use generic-lens or generic-optics with 'functionConfiguration' instead." #-}
 
--- | -- | The response status code.
-gfrsResponseStatus :: Lens' GetFunctionResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\s a -> s {_gfrsResponseStatus = a})
-
-instance NFData GetFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsResponseStatus :: Lens.Lens' GetFunctionResponse Lude.Int
+gfrsResponseStatus = Lens.lens (responseStatus :: GetFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionResponse)
+{-# DEPRECATED gfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

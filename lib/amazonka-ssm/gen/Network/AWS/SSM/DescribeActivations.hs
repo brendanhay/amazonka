@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,183 @@
 --
 -- Describes details about the activation, such as the date and time the activation was created, its expiration date, the IAM role assigned to the instances in the activation, and the number of instances registered by using this activation.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeActivations
-  ( -- * Creating a Request
-    describeActivations,
-    DescribeActivations,
+  ( -- * Creating a request
+    DescribeActivations (..),
+    mkDescribeActivations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daFilters,
     daNextToken,
     daMaxResults,
 
-    -- * Destructuring the Response
-    describeActivationsResponse,
-    DescribeActivationsResponse,
+    -- * Destructuring the response
+    DescribeActivationsResponse (..),
+    mkDescribeActivationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsActivationList,
     darsNextToken,
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeActivations' smart constructor.
+-- | /See:/ 'mkDescribeActivations' smart constructor.
 data DescribeActivations = DescribeActivations'
-  { _daFilters ::
-      !(Maybe [DescribeActivationsFilter]),
-    _daNextToken :: !(Maybe Text),
-    _daMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [DescribeActivationsFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daFilters' - A filter to view information about your activations.
---
--- * 'daNextToken' - A token to start the list. Use this token to get the next set of results.
---
--- * 'daMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-describeActivations ::
+-- * 'filters' - A filter to view information about your activations.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+mkDescribeActivations ::
   DescribeActivations
-describeActivations =
+mkDescribeActivations =
   DescribeActivations'
-    { _daFilters = Nothing,
-      _daNextToken = Nothing,
-      _daMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A filter to view information about your activations.
-daFilters :: Lens' DescribeActivations [DescribeActivationsFilter]
-daFilters = lens _daFilters (\s a -> s {_daFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daFilters :: Lens.Lens' DescribeActivations (Lude.Maybe [DescribeActivationsFilter])
+daFilters = Lens.lens (filters :: DescribeActivations -> Lude.Maybe [DescribeActivationsFilter]) (\s a -> s {filters = a} :: DescribeActivations)
+{-# DEPRECATED daFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | A token to start the list. Use this token to get the next set of results.
-daNextToken :: Lens' DescribeActivations (Maybe Text)
-daNextToken = lens _daNextToken (\s a -> s {_daNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daNextToken :: Lens.Lens' DescribeActivations (Lude.Maybe Lude.Text)
+daNextToken = Lens.lens (nextToken :: DescribeActivations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeActivations)
+{-# DEPRECATED daNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-daMaxResults :: Lens' DescribeActivations (Maybe Natural)
-daMaxResults = lens _daMaxResults (\s a -> s {_daMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daMaxResults :: Lens.Lens' DescribeActivations (Lude.Maybe Lude.Natural)
+daMaxResults = Lens.lens (maxResults :: DescribeActivations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeActivations)
+{-# DEPRECATED daMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeActivations where
+instance Page.AWSPager DescribeActivations where
   page rq rs
-    | stop (rs ^. darsNextToken) = Nothing
-    | stop (rs ^. darsActivationList) = Nothing
-    | otherwise = Just $ rq & daNextToken .~ rs ^. darsNextToken
+    | Page.stop (rs Lens.^. darsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. darsActivationList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& daNextToken Lens..~ rs Lens.^. darsNextToken
 
-instance AWSRequest DescribeActivations where
+instance Lude.AWSRequest DescribeActivations where
   type Rs DescribeActivations = DescribeActivationsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeActivationsResponse'
-            <$> (x .?> "ActivationList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ActivationList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeActivations
-
-instance NFData DescribeActivations
-
-instance ToHeaders DescribeActivations where
+instance Lude.ToHeaders DescribeActivations where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DescribeActivations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DescribeActivations" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeActivations where
+instance Lude.ToJSON DescribeActivations where
   toJSON DescribeActivations' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _daFilters,
-            ("NextToken" .=) <$> _daNextToken,
-            ("MaxResults" .=) <$> _daMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeActivations where
-  toPath = const "/"
+instance Lude.ToPath DescribeActivations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeActivations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeActivations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeActivationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeActivationsResponse' smart constructor.
 data DescribeActivationsResponse = DescribeActivationsResponse'
-  { _darsActivationList ::
-      !(Maybe [Activation]),
-    _darsNextToken :: !(Maybe Text),
-    _darsResponseStatus :: !Int
+  { activationList ::
+      Lude.Maybe [Activation],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsActivationList' - A list of activations for your AWS account.
---
--- * 'darsNextToken' - The token for the next set of items to return. Use this token to get the next set of results.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeActivationsResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'activationList' - A list of activations for your AWS account.
+-- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
+-- * 'responseStatus' - The response status code.
+mkDescribeActivationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeActivationsResponse
-describeActivationsResponse pResponseStatus_ =
+mkDescribeActivationsResponse pResponseStatus_ =
   DescribeActivationsResponse'
-    { _darsActivationList = Nothing,
-      _darsNextToken = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { activationList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of activations for your AWS account.
-darsActivationList :: Lens' DescribeActivationsResponse [Activation]
-darsActivationList = lens _darsActivationList (\s a -> s {_darsActivationList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'activationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsActivationList :: Lens.Lens' DescribeActivationsResponse (Lude.Maybe [Activation])
+darsActivationList = Lens.lens (activationList :: DescribeActivationsResponse -> Lude.Maybe [Activation]) (\s a -> s {activationList = a} :: DescribeActivationsResponse)
+{-# DEPRECATED darsActivationList "Use generic-lens or generic-optics with 'activationList' instead." #-}
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
-darsNextToken :: Lens' DescribeActivationsResponse (Maybe Text)
-darsNextToken = lens _darsNextToken (\s a -> s {_darsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsNextToken :: Lens.Lens' DescribeActivationsResponse (Lude.Maybe Lude.Text)
+darsNextToken = Lens.lens (nextToken :: DescribeActivationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeActivationsResponse)
+{-# DEPRECATED darsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeActivationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeActivationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeActivationsResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeActivationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeActivationsResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

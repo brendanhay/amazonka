@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry where
+module Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry
+  ( BatchUpdatePartitionFailureEntry (..),
+
+    -- * Smart constructor
+    mkBatchUpdatePartitionFailureEntry,
+
+    -- * Lenses
+    bupfePartitionValueList,
+    bupfeErrorDetail,
+  )
+where
 
 import Network.AWS.Glue.Types.ErrorDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a batch update partition error.
 --
---
---
--- /See:/ 'batchUpdatePartitionFailureEntry' smart constructor.
+-- /See:/ 'mkBatchUpdatePartitionFailureEntry' smart constructor.
 data BatchUpdatePartitionFailureEntry = BatchUpdatePartitionFailureEntry'
-  { _bupfePartitionValueList ::
-      !(Maybe [Text]),
-    _bupfeErrorDetail ::
-      !(Maybe ErrorDetail)
+  { partitionValueList ::
+      Lude.Maybe [Lude.Text],
+    errorDetail ::
+      Lude.Maybe ErrorDetail
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdatePartitionFailureEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bupfePartitionValueList' - A list of values defining the partitions.
---
--- * 'bupfeErrorDetail' - The details about the batch update partition error.
-batchUpdatePartitionFailureEntry ::
+-- * 'errorDetail' - The details about the batch update partition error.
+-- * 'partitionValueList' - A list of values defining the partitions.
+mkBatchUpdatePartitionFailureEntry ::
   BatchUpdatePartitionFailureEntry
-batchUpdatePartitionFailureEntry =
+mkBatchUpdatePartitionFailureEntry =
   BatchUpdatePartitionFailureEntry'
-    { _bupfePartitionValueList =
-        Nothing,
-      _bupfeErrorDetail = Nothing
+    { partitionValueList =
+        Lude.Nothing,
+      errorDetail = Lude.Nothing
     }
 
 -- | A list of values defining the partitions.
-bupfePartitionValueList :: Lens' BatchUpdatePartitionFailureEntry [Text]
-bupfePartitionValueList = lens _bupfePartitionValueList (\s a -> s {_bupfePartitionValueList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionValueList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bupfePartitionValueList :: Lens.Lens' BatchUpdatePartitionFailureEntry (Lude.Maybe [Lude.Text])
+bupfePartitionValueList = Lens.lens (partitionValueList :: BatchUpdatePartitionFailureEntry -> Lude.Maybe [Lude.Text]) (\s a -> s {partitionValueList = a} :: BatchUpdatePartitionFailureEntry)
+{-# DEPRECATED bupfePartitionValueList "Use generic-lens or generic-optics with 'partitionValueList' instead." #-}
 
 -- | The details about the batch update partition error.
-bupfeErrorDetail :: Lens' BatchUpdatePartitionFailureEntry (Maybe ErrorDetail)
-bupfeErrorDetail = lens _bupfeErrorDetail (\s a -> s {_bupfeErrorDetail = a})
+--
+-- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bupfeErrorDetail :: Lens.Lens' BatchUpdatePartitionFailureEntry (Lude.Maybe ErrorDetail)
+bupfeErrorDetail = Lens.lens (errorDetail :: BatchUpdatePartitionFailureEntry -> Lude.Maybe ErrorDetail) (\s a -> s {errorDetail = a} :: BatchUpdatePartitionFailureEntry)
+{-# DEPRECATED bupfeErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
 
-instance FromJSON BatchUpdatePartitionFailureEntry where
+instance Lude.FromJSON BatchUpdatePartitionFailureEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchUpdatePartitionFailureEntry"
       ( \x ->
           BatchUpdatePartitionFailureEntry'
-            <$> (x .:? "PartitionValueList" .!= mempty) <*> (x .:? "ErrorDetail")
+            Lude.<$> (x Lude..:? "PartitionValueList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ErrorDetail")
       )
-
-instance Hashable BatchUpdatePartitionFailureEntry
-
-instance NFData BatchUpdatePartitionFailureEntry

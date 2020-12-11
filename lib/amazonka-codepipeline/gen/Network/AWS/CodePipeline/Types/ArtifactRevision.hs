@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ArtifactRevision where
+module Network.AWS.CodePipeline.Types.ArtifactRevision
+  ( ArtifactRevision (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkArtifactRevision,
+
+    -- * Lenses
+    arRevisionSummary,
+    arRevisionURL,
+    arCreated,
+    arName,
+    arRevisionId,
+    arRevisionChangeIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents revision details of an artifact.
 --
---
---
--- /See:/ 'artifactRevision' smart constructor.
+-- /See:/ 'mkArtifactRevision' smart constructor.
 data ArtifactRevision = ArtifactRevision'
-  { _arRevisionSummary ::
-      !(Maybe Text),
-    _arRevisionURL :: !(Maybe Text),
-    _arCreated :: !(Maybe POSIX),
-    _arName :: !(Maybe Text),
-    _arRevisionId :: !(Maybe Text),
-    _arRevisionChangeIdentifier :: !(Maybe Text)
+  { revisionSummary ::
+      Lude.Maybe Lude.Text,
+    revisionURL :: Lude.Maybe Lude.Text,
+    created :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text,
+    revisionChangeIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arRevisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
---
--- * 'arRevisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
---
--- * 'arCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
---
--- * 'arName' - The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
---
--- * 'arRevisionId' - The revision ID of the artifact.
---
--- * 'arRevisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
-artifactRevision ::
+-- * 'created' - The date and time when the most recent revision of the artifact was created, in timestamp format.
+-- * 'name' - The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
+-- * 'revisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
+-- * 'revisionId' - The revision ID of the artifact.
+-- * 'revisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
+-- * 'revisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
+mkArtifactRevision ::
   ArtifactRevision
-artifactRevision =
+mkArtifactRevision =
   ArtifactRevision'
-    { _arRevisionSummary = Nothing,
-      _arRevisionURL = Nothing,
-      _arCreated = Nothing,
-      _arName = Nothing,
-      _arRevisionId = Nothing,
-      _arRevisionChangeIdentifier = Nothing
+    { revisionSummary = Lude.Nothing,
+      revisionURL = Lude.Nothing,
+      created = Lude.Nothing,
+      name = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      revisionChangeIdentifier = Lude.Nothing
     }
 
 -- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
-arRevisionSummary :: Lens' ArtifactRevision (Maybe Text)
-arRevisionSummary = lens _arRevisionSummary (\s a -> s {_arRevisionSummary = a})
+--
+-- /Note:/ Consider using 'revisionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRevisionSummary :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Text)
+arRevisionSummary = Lens.lens (revisionSummary :: ArtifactRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionSummary = a} :: ArtifactRevision)
+{-# DEPRECATED arRevisionSummary "Use generic-lens or generic-optics with 'revisionSummary' instead." #-}
 
 -- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
-arRevisionURL :: Lens' ArtifactRevision (Maybe Text)
-arRevisionURL = lens _arRevisionURL (\s a -> s {_arRevisionURL = a})
+--
+-- /Note:/ Consider using 'revisionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRevisionURL :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Text)
+arRevisionURL = Lens.lens (revisionURL :: ArtifactRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionURL = a} :: ArtifactRevision)
+{-# DEPRECATED arRevisionURL "Use generic-lens or generic-optics with 'revisionURL' instead." #-}
 
 -- | The date and time when the most recent revision of the artifact was created, in timestamp format.
-arCreated :: Lens' ArtifactRevision (Maybe UTCTime)
-arCreated = lens _arCreated (\s a -> s {_arCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arCreated :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Timestamp)
+arCreated = Lens.lens (created :: ArtifactRevision -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: ArtifactRevision)
+{-# DEPRECATED arCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
-arName :: Lens' ArtifactRevision (Maybe Text)
-arName = lens _arName (\s a -> s {_arName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arName :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Text)
+arName = Lens.lens (name :: ArtifactRevision -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ArtifactRevision)
+{-# DEPRECATED arName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The revision ID of the artifact.
-arRevisionId :: Lens' ArtifactRevision (Maybe Text)
-arRevisionId = lens _arRevisionId (\s a -> s {_arRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRevisionId :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Text)
+arRevisionId = Lens.lens (revisionId :: ArtifactRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: ArtifactRevision)
+{-# DEPRECATED arRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
-arRevisionChangeIdentifier :: Lens' ArtifactRevision (Maybe Text)
-arRevisionChangeIdentifier = lens _arRevisionChangeIdentifier (\s a -> s {_arRevisionChangeIdentifier = a})
+--
+-- /Note:/ Consider using 'revisionChangeIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRevisionChangeIdentifier :: Lens.Lens' ArtifactRevision (Lude.Maybe Lude.Text)
+arRevisionChangeIdentifier = Lens.lens (revisionChangeIdentifier :: ArtifactRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionChangeIdentifier = a} :: ArtifactRevision)
+{-# DEPRECATED arRevisionChangeIdentifier "Use generic-lens or generic-optics with 'revisionChangeIdentifier' instead." #-}
 
-instance FromJSON ArtifactRevision where
+instance Lude.FromJSON ArtifactRevision where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArtifactRevision"
       ( \x ->
           ArtifactRevision'
-            <$> (x .:? "revisionSummary")
-            <*> (x .:? "revisionUrl")
-            <*> (x .:? "created")
-            <*> (x .:? "name")
-            <*> (x .:? "revisionId")
-            <*> (x .:? "revisionChangeIdentifier")
+            Lude.<$> (x Lude..:? "revisionSummary")
+            Lude.<*> (x Lude..:? "revisionUrl")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "revisionId")
+            Lude.<*> (x Lude..:? "revisionChangeIdentifier")
       )
-
-instance Hashable ArtifactRevision
-
-instance NFData ArtifactRevision

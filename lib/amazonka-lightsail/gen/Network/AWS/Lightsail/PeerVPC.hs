@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,111 @@
 --
 -- Tries to peer the Lightsail VPC with the user's default VPC.
 module Network.AWS.Lightsail.PeerVPC
-  ( -- * Creating a Request
-    peerVPC,
-    PeerVPC,
+  ( -- * Creating a request
+    PeerVPC (..),
+    mkPeerVPC,
 
-    -- * Destructuring the Response
-    peerVPCResponse,
-    PeerVPCResponse,
+    -- * Destructuring the response
+    PeerVPCResponse (..),
+    mkPeerVPCResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pvrsOperation,
     pvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'peerVPC' smart constructor.
+-- | /See:/ 'mkPeerVPC' smart constructor.
 data PeerVPC = PeerVPC'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeerVPC' with the minimum fields required to make a request.
-peerVPC ::
+mkPeerVPC ::
   PeerVPC
-peerVPC = PeerVPC'
+mkPeerVPC = PeerVPC'
 
-instance AWSRequest PeerVPC where
+instance Lude.AWSRequest PeerVPC where
   type Rs PeerVPC = PeerVPCResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          PeerVPCResponse' <$> (x .?> "operation") <*> (pure (fromEnum s))
+          PeerVPCResponse'
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PeerVPC
-
-instance NFData PeerVPC
-
-instance ToHeaders PeerVPC where
+instance Lude.ToHeaders PeerVPC where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.PeerVpc" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.PeerVpc" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PeerVPC where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON PeerVPC where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath PeerVPC where
-  toPath = const "/"
+instance Lude.ToPath PeerVPC where
+  toPath = Lude.const "/"
 
-instance ToQuery PeerVPC where
-  toQuery = const mempty
+instance Lude.ToQuery PeerVPC where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'peerVPCResponse' smart constructor.
+-- | /See:/ 'mkPeerVPCResponse' smart constructor.
 data PeerVPCResponse = PeerVPCResponse'
-  { _pvrsOperation ::
-      !(Maybe Operation),
-    _pvrsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeerVPCResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvrsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'pvrsResponseStatus' - -- | The response status code.
-peerVPCResponse ::
-  -- | 'pvrsResponseStatus'
-  Int ->
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkPeerVPCResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PeerVPCResponse
-peerVPCResponse pResponseStatus_ =
+mkPeerVPCResponse pResponseStatus_ =
   PeerVPCResponse'
-    { _pvrsOperation = Nothing,
-      _pvrsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-pvrsOperation :: Lens' PeerVPCResponse (Maybe Operation)
-pvrsOperation = lens _pvrsOperation (\s a -> s {_pvrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvrsOperation :: Lens.Lens' PeerVPCResponse (Lude.Maybe Operation)
+pvrsOperation = Lens.lens (operation :: PeerVPCResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: PeerVPCResponse)
+{-# DEPRECATED pvrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-pvrsResponseStatus :: Lens' PeerVPCResponse Int
-pvrsResponseStatus = lens _pvrsResponseStatus (\s a -> s {_pvrsResponseStatus = a})
-
-instance NFData PeerVPCResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvrsResponseStatus :: Lens.Lens' PeerVPCResponse Lude.Int
+pvrsResponseStatus = Lens.lens (responseStatus :: PeerVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PeerVPCResponse)
+{-# DEPRECATED pvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,134 @@
 --
 -- Retrieves information about a policy.
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
 module Network.AWS.Organizations.DescribePolicy
-  ( -- * Creating a Request
-    describePolicy,
-    DescribePolicy,
+  ( -- * Creating a request
+    DescribePolicy (..),
+    mkDescribePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpPolicyId,
 
-    -- * Destructuring the Response
-    describePolicyResponse,
-    DescribePolicyResponse,
+    -- * Destructuring the response
+    DescribePolicyResponse (..),
+    mkDescribePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dprsPolicy,
     dprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePolicy' smart constructor.
-newtype DescribePolicy = DescribePolicy' {_dpPolicyId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribePolicy' smart constructor.
+newtype DescribePolicy = DescribePolicy' {policyId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyId' - The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
 --
--- * 'dpPolicyId' - The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-describePolicy ::
-  -- | 'dpPolicyId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+mkDescribePolicy ::
+  -- | 'policyId'
+  Lude.Text ->
   DescribePolicy
-describePolicy pPolicyId_ =
-  DescribePolicy' {_dpPolicyId = pPolicyId_}
+mkDescribePolicy pPolicyId_ =
+  DescribePolicy' {policyId = pPolicyId_}
 
--- | The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-dpPolicyId :: Lens' DescribePolicy Text
-dpPolicyId = lens _dpPolicyId (\s a -> s {_dpPolicyId = a})
+-- | The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPolicyId :: Lens.Lens' DescribePolicy Lude.Text
+dpPolicyId = Lens.lens (policyId :: DescribePolicy -> Lude.Text) (\s a -> s {policyId = a} :: DescribePolicy)
+{-# DEPRECATED dpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSRequest DescribePolicy where
+instance Lude.AWSRequest DescribePolicy where
   type Rs DescribePolicy = DescribePolicyResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribePolicyResponse'
-            <$> (x .?> "Policy") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePolicy
-
-instance NFData DescribePolicy
-
-instance ToHeaders DescribePolicy where
+instance Lude.ToHeaders DescribePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DescribePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.DescribePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribePolicy where
+instance Lude.ToJSON DescribePolicy where
   toJSON DescribePolicy' {..} =
-    object (catMaybes [Just ("PolicyId" .= _dpPolicyId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PolicyId" Lude..= policyId)])
 
-instance ToPath DescribePolicy where
-  toPath = const "/"
+instance Lude.ToPath DescribePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DescribePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describePolicyResponse' smart constructor.
+-- | /See:/ 'mkDescribePolicyResponse' smart constructor.
 data DescribePolicyResponse = DescribePolicyResponse'
-  { _dprsPolicy ::
-      !(Maybe Policy),
-    _dprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Policy,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dprsPolicy' - A structure that contains details about the specified policy.
---
--- * 'dprsResponseStatus' - -- | The response status code.
-describePolicyResponse ::
-  -- | 'dprsResponseStatus'
-  Int ->
+-- * 'policy' - A structure that contains details about the specified policy.
+-- * 'responseStatus' - The response status code.
+mkDescribePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePolicyResponse
-describePolicyResponse pResponseStatus_ =
+mkDescribePolicyResponse pResponseStatus_ =
   DescribePolicyResponse'
-    { _dprsPolicy = Nothing,
-      _dprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains details about the specified policy.
-dprsPolicy :: Lens' DescribePolicyResponse (Maybe Policy)
-dprsPolicy = lens _dprsPolicy (\s a -> s {_dprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprsPolicy :: Lens.Lens' DescribePolicyResponse (Lude.Maybe Policy)
+dprsPolicy = Lens.lens (policy :: DescribePolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: DescribePolicyResponse)
+{-# DEPRECATED dprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DescribePolicyResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\s a -> s {_dprsResponseStatus = a})
-
-instance NFData DescribePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprsResponseStatus :: Lens.Lens' DescribePolicyResponse Lude.Int
+dprsResponseStatus = Lens.lens (responseStatus :: DescribePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePolicyResponse)
+{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

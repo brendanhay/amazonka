@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.FailedItemErrorCode where
+module Network.AWS.Inspector.Types.FailedItemErrorCode
+  ( FailedItemErrorCode
+      ( FailedItemErrorCode',
+        FIECAccessDenied,
+        FIECDuplicateARN,
+        FIECInternalError,
+        FIECInvalidARN,
+        FIECItemDoesNotExist,
+        FIECLimitExceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FailedItemErrorCode
-  = FIECAccessDenied
-  | FIECDuplicateARN
-  | FIECInternalError
-  | FIECInvalidARN
-  | FIECItemDoesNotExist
-  | FIECLimitExceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FailedItemErrorCode = FailedItemErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FailedItemErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "access_denied" -> pure FIECAccessDenied
-      "duplicate_arn" -> pure FIECDuplicateARN
-      "internal_error" -> pure FIECInternalError
-      "invalid_arn" -> pure FIECInvalidARN
-      "item_does_not_exist" -> pure FIECItemDoesNotExist
-      "limit_exceeded" -> pure FIECLimitExceeded
-      e ->
-        fromTextError $
-          "Failure parsing FailedItemErrorCode from value: '" <> e
-            <> "'. Accepted values: access_denied, duplicate_arn, internal_error, invalid_arn, item_does_not_exist, limit_exceeded"
+pattern FIECAccessDenied :: FailedItemErrorCode
+pattern FIECAccessDenied = FailedItemErrorCode' "ACCESS_DENIED"
 
-instance ToText FailedItemErrorCode where
-  toText = \case
-    FIECAccessDenied -> "ACCESS_DENIED"
-    FIECDuplicateARN -> "DUPLICATE_ARN"
-    FIECInternalError -> "INTERNAL_ERROR"
-    FIECInvalidARN -> "INVALID_ARN"
-    FIECItemDoesNotExist -> "ITEM_DOES_NOT_EXIST"
-    FIECLimitExceeded -> "LIMIT_EXCEEDED"
+pattern FIECDuplicateARN :: FailedItemErrorCode
+pattern FIECDuplicateARN = FailedItemErrorCode' "DUPLICATE_ARN"
 
-instance Hashable FailedItemErrorCode
+pattern FIECInternalError :: FailedItemErrorCode
+pattern FIECInternalError = FailedItemErrorCode' "INTERNAL_ERROR"
 
-instance NFData FailedItemErrorCode
+pattern FIECInvalidARN :: FailedItemErrorCode
+pattern FIECInvalidARN = FailedItemErrorCode' "INVALID_ARN"
 
-instance ToByteString FailedItemErrorCode
+pattern FIECItemDoesNotExist :: FailedItemErrorCode
+pattern FIECItemDoesNotExist = FailedItemErrorCode' "ITEM_DOES_NOT_EXIST"
 
-instance ToQuery FailedItemErrorCode
+pattern FIECLimitExceeded :: FailedItemErrorCode
+pattern FIECLimitExceeded = FailedItemErrorCode' "LIMIT_EXCEEDED"
 
-instance ToHeader FailedItemErrorCode
-
-instance FromJSON FailedItemErrorCode where
-  parseJSON = parseJSONText "FailedItemErrorCode"
+{-# COMPLETE
+  FIECAccessDenied,
+  FIECDuplicateARN,
+  FIECInternalError,
+  FIECInvalidARN,
+  FIECItemDoesNotExist,
+  FIECLimitExceeded,
+  FailedItemErrorCode'
+  #-}

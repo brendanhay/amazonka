@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.ShipmentState where
+module Network.AWS.Snowball.Types.ShipmentState
+  ( ShipmentState
+      ( ShipmentState',
+        Received,
+        Returned
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShipmentState
-  = Received
-  | Returned
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShipmentState = ShipmentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShipmentState where
-  parser =
-    takeLowerText >>= \case
-      "received" -> pure Received
-      "returned" -> pure Returned
-      e ->
-        fromTextError $
-          "Failure parsing ShipmentState from value: '" <> e
-            <> "'. Accepted values: received, returned"
+pattern Received :: ShipmentState
+pattern Received = ShipmentState' "RECEIVED"
 
-instance ToText ShipmentState where
-  toText = \case
-    Received -> "RECEIVED"
-    Returned -> "RETURNED"
+pattern Returned :: ShipmentState
+pattern Returned = ShipmentState' "RETURNED"
 
-instance Hashable ShipmentState
-
-instance NFData ShipmentState
-
-instance ToByteString ShipmentState
-
-instance ToQuery ShipmentState
-
-instance ToHeader ShipmentState
-
-instance ToJSON ShipmentState where
-  toJSON = toJSONText
+{-# COMPLETE
+  Received,
+  Returned,
+  ShipmentState'
+  #-}

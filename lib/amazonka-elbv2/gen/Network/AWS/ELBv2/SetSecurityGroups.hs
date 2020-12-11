@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,143 @@
 --
 -- Associates the specified security groups with the specified Application Load Balancer. The specified security groups override the previously associated security groups.
 --
---
 -- You can't specify a security group for a Network Load Balancer or Gateway Load Balancer.
 module Network.AWS.ELBv2.SetSecurityGroups
-  ( -- * Creating a Request
-    setSecurityGroups,
-    SetSecurityGroups,
+  ( -- * Creating a request
+    SetSecurityGroups (..),
+    mkSetSecurityGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ssgLoadBalancerARN,
     ssgSecurityGroups,
 
-    -- * Destructuring the Response
-    setSecurityGroupsResponse,
-    SetSecurityGroupsResponse,
+    -- * Destructuring the response
+    SetSecurityGroupsResponse (..),
+    mkSetSecurityGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ssgrsSecurityGroupIds,
     ssgrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setSecurityGroups' smart constructor.
+-- | /See:/ 'mkSetSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
-  { _ssgLoadBalancerARN ::
-      !Text,
-    _ssgSecurityGroups :: ![Text]
+  { loadBalancerARN ::
+      Lude.Text,
+    securityGroups :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssgLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
---
--- * 'ssgSecurityGroups' - The IDs of the security groups.
-setSecurityGroups ::
-  -- | 'ssgLoadBalancerARN'
-  Text ->
+-- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'securityGroups' - The IDs of the security groups.
+mkSetSecurityGroups ::
+  -- | 'loadBalancerARN'
+  Lude.Text ->
   SetSecurityGroups
-setSecurityGroups pLoadBalancerARN_ =
+mkSetSecurityGroups pLoadBalancerARN_ =
   SetSecurityGroups'
-    { _ssgLoadBalancerARN = pLoadBalancerARN_,
-      _ssgSecurityGroups = mempty
+    { loadBalancerARN = pLoadBalancerARN_,
+      securityGroups = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-ssgLoadBalancerARN :: Lens' SetSecurityGroups Text
-ssgLoadBalancerARN = lens _ssgLoadBalancerARN (\s a -> s {_ssgLoadBalancerARN = a})
+--
+-- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgLoadBalancerARN :: Lens.Lens' SetSecurityGroups Lude.Text
+ssgLoadBalancerARN = Lens.lens (loadBalancerARN :: SetSecurityGroups -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: SetSecurityGroups)
+{-# DEPRECATED ssgLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 -- | The IDs of the security groups.
-ssgSecurityGroups :: Lens' SetSecurityGroups [Text]
-ssgSecurityGroups = lens _ssgSecurityGroups (\s a -> s {_ssgSecurityGroups = a}) . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgSecurityGroups :: Lens.Lens' SetSecurityGroups [Lude.Text]
+ssgSecurityGroups = Lens.lens (securityGroups :: SetSecurityGroups -> [Lude.Text]) (\s a -> s {securityGroups = a} :: SetSecurityGroups)
+{-# DEPRECATED ssgSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
-instance AWSRequest SetSecurityGroups where
+instance Lude.AWSRequest SetSecurityGroups where
   type Rs SetSecurityGroups = SetSecurityGroupsResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetSecurityGroupsResult"
       ( \s h x ->
           SetSecurityGroupsResponse'
-            <$> ( x .@? "SecurityGroupIds" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "SecurityGroupIds" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetSecurityGroups
+instance Lude.ToHeaders SetSecurityGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetSecurityGroups
+instance Lude.ToPath SetSecurityGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetSecurityGroups where
-  toHeaders = const mempty
-
-instance ToPath SetSecurityGroups where
-  toPath = const "/"
-
-instance ToQuery SetSecurityGroups where
+instance Lude.ToQuery SetSecurityGroups where
   toQuery SetSecurityGroups' {..} =
-    mconcat
-      [ "Action" =: ("SetSecurityGroups" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "LoadBalancerArn" =: _ssgLoadBalancerARN,
-        "SecurityGroups" =: toQueryList "member" _ssgSecurityGroups
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetSecurityGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "LoadBalancerArn" Lude.=: loadBalancerARN,
+        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups
       ]
 
--- | /See:/ 'setSecurityGroupsResponse' smart constructor.
+-- | /See:/ 'mkSetSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
-  { _ssgrsSecurityGroupIds ::
-      !(Maybe [Text]),
-    _ssgrsResponseStatus :: !Int
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssgrsSecurityGroupIds' - The IDs of the security groups associated with the load balancer.
---
--- * 'ssgrsResponseStatus' - -- | The response status code.
-setSecurityGroupsResponse ::
-  -- | 'ssgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'securityGroupIds' - The IDs of the security groups associated with the load balancer.
+mkSetSecurityGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetSecurityGroupsResponse
-setSecurityGroupsResponse pResponseStatus_ =
+mkSetSecurityGroupsResponse pResponseStatus_ =
   SetSecurityGroupsResponse'
-    { _ssgrsSecurityGroupIds = Nothing,
-      _ssgrsResponseStatus = pResponseStatus_
+    { securityGroupIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The IDs of the security groups associated with the load balancer.
-ssgrsSecurityGroupIds :: Lens' SetSecurityGroupsResponse [Text]
-ssgrsSecurityGroupIds = lens _ssgrsSecurityGroupIds (\s a -> s {_ssgrsSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgrsSecurityGroupIds :: Lens.Lens' SetSecurityGroupsResponse (Lude.Maybe [Lude.Text])
+ssgrsSecurityGroupIds = Lens.lens (securityGroupIds :: SetSecurityGroupsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: SetSecurityGroupsResponse)
+{-# DEPRECATED ssgrsSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
--- | -- | The response status code.
-ssgrsResponseStatus :: Lens' SetSecurityGroupsResponse Int
-ssgrsResponseStatus = lens _ssgrsResponseStatus (\s a -> s {_ssgrsResponseStatus = a})
-
-instance NFData SetSecurityGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgrsResponseStatus :: Lens.Lens' SetSecurityGroupsResponse Lude.Int
+ssgrsResponseStatus = Lens.lens (responseStatus :: SetSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetSecurityGroupsResponse)
+{-# DEPRECATED ssgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

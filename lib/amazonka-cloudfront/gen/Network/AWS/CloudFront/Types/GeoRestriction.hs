@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.GeoRestriction where
+module Network.AWS.CloudFront.Types.GeoRestriction
+  ( GeoRestriction (..),
+
+    -- * Smart constructor
+    mkGeoRestriction,
+
+    -- * Lenses
+    grItems,
+    grRestrictionType,
+    grQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.GeoRestrictionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using @MaxMind@ GeoIP databases.
 --
---
---
--- /See:/ 'geoRestriction' smart constructor.
+-- /See:/ 'mkGeoRestriction' smart constructor.
 data GeoRestriction = GeoRestriction'
-  { _grItems :: !(Maybe [Text]),
-    _grRestrictionType :: !GeoRestrictionType,
-    _grQuantity :: !Int
+  { items ::
+      Lude.Maybe [Lude.Text],
+    restrictionType :: GeoRestrictionType,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoRestriction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'items' - A complex type that contains a @Location@ element for each country in which you want CloudFront either to distribute your content (@whitelist@ ) or not distribute your content (@blacklist@ ).
 --
--- * 'grItems' - A complex type that contains a @Location@ element for each country in which you want CloudFront either to distribute your content (@whitelist@ ) or not distribute your content (@blacklist@ ). The @Location@ element is a two-letter, uppercase country code for a country that you want to include in your @blacklist@ or @whitelist@ . Include one @Location@ element for each country. CloudFront and @MaxMind@ both use @ISO 3166@ country codes. For the current list of countries and the corresponding codes, see @ISO 3166-1-alpha-2@ code on the /International Organization for Standardization/ website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+-- The @Location@ element is a two-letter, uppercase country code for a country that you want to include in your @blacklist@ or @whitelist@ . Include one @Location@ element for each country.
+-- CloudFront and @MaxMind@ both use @ISO 3166@ country codes. For the current list of countries and the corresponding codes, see @ISO 3166-1-alpha-2@ code on the /International Organization for Standardization/ website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+-- * 'quantity' - When geo restriction is @enabled@ , this is the number of countries in your @whitelist@ or @blacklist@ . Otherwise, when it is not enabled, @Quantity@ is @0@ , and you can omit @Items@ .
+-- * 'restrictionType' - The method that you want to use to restrict distribution of your content by country:
 --
--- * 'grRestrictionType' - The method that you want to use to restrict distribution of your content by country:     * @none@ : No geo restriction is enabled, meaning access to content is not restricted by client geo location.     * @blacklist@ : The @Location@ elements specify the countries in which you don't want CloudFront to distribute your content.     * @whitelist@ : The @Location@ elements specify the countries in which you want CloudFront to distribute your content.
 --
--- * 'grQuantity' - When geo restriction is @enabled@ , this is the number of countries in your @whitelist@ or @blacklist@ . Otherwise, when it is not enabled, @Quantity@ is @0@ , and you can omit @Items@ .
-geoRestriction ::
-  -- | 'grRestrictionType'
+--     * @none@ : No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+--
+--
+--     * @blacklist@ : The @Location@ elements specify the countries in which you don't want CloudFront to distribute your content.
+--
+--
+--     * @whitelist@ : The @Location@ elements specify the countries in which you want CloudFront to distribute your content.
+mkGeoRestriction ::
+  -- | 'restrictionType'
   GeoRestrictionType ->
-  -- | 'grQuantity'
-  Int ->
+  -- | 'quantity'
+  Lude.Int ->
   GeoRestriction
-geoRestriction pRestrictionType_ pQuantity_ =
+mkGeoRestriction pRestrictionType_ pQuantity_ =
   GeoRestriction'
-    { _grItems = Nothing,
-      _grRestrictionType = pRestrictionType_,
-      _grQuantity = pQuantity_
+    { items = Lude.Nothing,
+      restrictionType = pRestrictionType_,
+      quantity = pQuantity_
     }
 
--- | A complex type that contains a @Location@ element for each country in which you want CloudFront either to distribute your content (@whitelist@ ) or not distribute your content (@blacklist@ ). The @Location@ element is a two-letter, uppercase country code for a country that you want to include in your @blacklist@ or @whitelist@ . Include one @Location@ element for each country. CloudFront and @MaxMind@ both use @ISO 3166@ country codes. For the current list of countries and the corresponding codes, see @ISO 3166-1-alpha-2@ code on the /International Organization for Standardization/ website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
-grItems :: Lens' GeoRestriction [Text]
-grItems = lens _grItems (\s a -> s {_grItems = a}) . _Default . _Coerce
+-- | A complex type that contains a @Location@ element for each country in which you want CloudFront either to distribute your content (@whitelist@ ) or not distribute your content (@blacklist@ ).
+--
+-- The @Location@ element is a two-letter, uppercase country code for a country that you want to include in your @blacklist@ or @whitelist@ . Include one @Location@ element for each country.
+-- CloudFront and @MaxMind@ both use @ISO 3166@ country codes. For the current list of countries and the corresponding codes, see @ISO 3166-1-alpha-2@ code on the /International Organization for Standardization/ website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grItems :: Lens.Lens' GeoRestriction (Lude.Maybe [Lude.Text])
+grItems = Lens.lens (items :: GeoRestriction -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: GeoRestriction)
+{-# DEPRECATED grItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | The method that you want to use to restrict distribution of your content by country:     * @none@ : No geo restriction is enabled, meaning access to content is not restricted by client geo location.     * @blacklist@ : The @Location@ elements specify the countries in which you don't want CloudFront to distribute your content.     * @whitelist@ : The @Location@ elements specify the countries in which you want CloudFront to distribute your content.
-grRestrictionType :: Lens' GeoRestriction GeoRestrictionType
-grRestrictionType = lens _grRestrictionType (\s a -> s {_grRestrictionType = a})
+-- | The method that you want to use to restrict distribution of your content by country:
+--
+--
+--     * @none@ : No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+--
+--
+--     * @blacklist@ : The @Location@ elements specify the countries in which you don't want CloudFront to distribute your content.
+--
+--
+--     * @whitelist@ : The @Location@ elements specify the countries in which you want CloudFront to distribute your content.
+--
+--
+--
+-- /Note:/ Consider using 'restrictionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grRestrictionType :: Lens.Lens' GeoRestriction GeoRestrictionType
+grRestrictionType = Lens.lens (restrictionType :: GeoRestriction -> GeoRestrictionType) (\s a -> s {restrictionType = a} :: GeoRestriction)
+{-# DEPRECATED grRestrictionType "Use generic-lens or generic-optics with 'restrictionType' instead." #-}
 
 -- | When geo restriction is @enabled@ , this is the number of countries in your @whitelist@ or @blacklist@ . Otherwise, when it is not enabled, @Quantity@ is @0@ , and you can omit @Items@ .
-grQuantity :: Lens' GeoRestriction Int
-grQuantity = lens _grQuantity (\s a -> s {_grQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grQuantity :: Lens.Lens' GeoRestriction Lude.Int
+grQuantity = Lens.lens (quantity :: GeoRestriction -> Lude.Int) (\s a -> s {quantity = a} :: GeoRestriction)
+{-# DEPRECATED grQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML GeoRestriction where
+instance Lude.FromXML GeoRestriction where
   parseXML x =
     GeoRestriction'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "Location"))
-      <*> (x .@ "RestrictionType")
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Location")
+               )
+      Lude.<*> (x Lude..@ "RestrictionType")
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable GeoRestriction
-
-instance NFData GeoRestriction
-
-instance ToXML GeoRestriction where
+instance Lude.ToXML GeoRestriction where
   toXML GeoRestriction' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "Location" <$> _grItems),
-        "RestrictionType" @= _grRestrictionType,
-        "Quantity" @= _grQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "Location" Lude.<$> items),
+        "RestrictionType" Lude.@= restrictionType,
+        "Quantity" Lude.@= quantity
       ]

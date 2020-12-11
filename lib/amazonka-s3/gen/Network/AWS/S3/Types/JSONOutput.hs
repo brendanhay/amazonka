@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.JSONOutput where
+module Network.AWS.S3.Types.JSONOutput
+  ( JSONOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJSONOutput,
+
+    -- * Lenses
+    joRecordDelimiter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Specifies JSON as request's output serialization format.
 --
---
---
--- /See:/ 'jsonOutput' smart constructor.
-newtype JSONOutput = JSONOutput' {_joRecordDelimiter :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkJSONOutput' smart constructor.
+newtype JSONOutput = JSONOutput'
+  { recordDelimiter ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JSONOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'joRecordDelimiter' - The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').
-jsonOutput ::
+-- * 'recordDelimiter' - The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').
+mkJSONOutput ::
   JSONOutput
-jsonOutput = JSONOutput' {_joRecordDelimiter = Nothing}
+mkJSONOutput = JSONOutput' {recordDelimiter = Lude.Nothing}
 
 -- | The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').
-joRecordDelimiter :: Lens' JSONOutput (Maybe Text)
-joRecordDelimiter = lens _joRecordDelimiter (\s a -> s {_joRecordDelimiter = a})
+--
+-- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+joRecordDelimiter :: Lens.Lens' JSONOutput (Lude.Maybe Lude.Text)
+joRecordDelimiter = Lens.lens (recordDelimiter :: JSONOutput -> Lude.Maybe Lude.Text) (\s a -> s {recordDelimiter = a} :: JSONOutput)
+{-# DEPRECATED joRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
 
-instance Hashable JSONOutput
-
-instance NFData JSONOutput
-
-instance ToXML JSONOutput where
+instance Lude.ToXML JSONOutput where
   toXML JSONOutput' {..} =
-    mconcat ["RecordDelimiter" @= _joRecordDelimiter]
+    Lude.mconcat ["RecordDelimiter" Lude.@= recordDelimiter]

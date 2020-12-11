@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Gets a list of the events detection jobs that you have submitted.
 module Network.AWS.Comprehend.ListEventsDetectionJobs
-  ( -- * Creating a Request
-    listEventsDetectionJobs,
-    ListEventsDetectionJobs,
+  ( -- * Creating a request
+    ListEventsDetectionJobs (..),
+    mkListEventsDetectionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lNextToken,
     lFilter,
     lMaxResults,
 
-    -- * Destructuring the Response
-    listEventsDetectionJobsResponse,
-    ListEventsDetectionJobsResponse,
+    -- * Destructuring the response
+    ListEventsDetectionJobsResponse (..),
+    mkListEventsDetectionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsEventsDetectionJobPropertiesList,
     lrsNextToken,
     lrsResponseStatus,
@@ -40,136 +35,156 @@ module Network.AWS.Comprehend.ListEventsDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listEventsDetectionJobs' smart constructor.
+-- | /See:/ 'mkListEventsDetectionJobs' smart constructor.
 data ListEventsDetectionJobs = ListEventsDetectionJobs'
-  { _lNextToken ::
-      !(Maybe Text),
-    _lFilter ::
-      !(Maybe EventsDetectionJobFilter),
-    _lMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe EventsDetectionJobFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventsDetectionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lNextToken' - Identifies the next page of results to return.
---
--- * 'lFilter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
---
--- * 'lMaxResults' - The maximum number of results to return in each page.
-listEventsDetectionJobs ::
+-- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListEventsDetectionJobs ::
   ListEventsDetectionJobs
-listEventsDetectionJobs =
+mkListEventsDetectionJobs =
   ListEventsDetectionJobs'
-    { _lNextToken = Nothing,
-      _lFilter = Nothing,
-      _lMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-lNextToken :: Lens' ListEventsDetectionJobs (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListEventsDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
-lFilter :: Lens' ListEventsDetectionJobs (Maybe EventsDetectionJobFilter)
-lFilter = lens _lFilter (\s a -> s {_lFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lFilter :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe EventsDetectionJobFilter)
+lFilter = Lens.lens (filter :: ListEventsDetectionJobs -> Lude.Maybe EventsDetectionJobFilter) (\s a -> s {filter = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED lFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page.
-lMaxResults :: Lens' ListEventsDetectionJobs (Maybe Natural)
-lMaxResults = lens _lMaxResults (\s a -> s {_lMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListEventsDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListEventsDetectionJobs where
+instance Lude.AWSRequest ListEventsDetectionJobs where
   type Rs ListEventsDetectionJobs = ListEventsDetectionJobsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListEventsDetectionJobsResponse'
-            <$> (x .?> "EventsDetectionJobPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "EventsDetectionJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListEventsDetectionJobs
-
-instance NFData ListEventsDetectionJobs
-
-instance ToHeaders ListEventsDetectionJobs where
+instance Lude.ToHeaders ListEventsDetectionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListEventsDetectionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.ListEventsDetectionJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListEventsDetectionJobs where
+instance Lude.ToJSON ListEventsDetectionJobs where
   toJSON ListEventsDetectionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lNextToken,
-            ("Filter" .=) <$> _lFilter,
-            ("MaxResults" .=) <$> _lMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListEventsDetectionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListEventsDetectionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListEventsDetectionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListEventsDetectionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listEventsDetectionJobsResponse' smart constructor.
+-- | /See:/ 'mkListEventsDetectionJobsResponse' smart constructor.
 data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
-  { _lrsEventsDetectionJobPropertiesList ::
-      !( Maybe
-           [EventsDetectionJobProperties]
-       ),
-    _lrsNextToken ::
-      !(Maybe Text),
-    _lrsResponseStatus :: !Int
+  { eventsDetectionJobPropertiesList ::
+      Lude.Maybe
+        [EventsDetectionJobProperties],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventsDetectionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsEventsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'lrsNextToken' - Identifies the next page of results to return.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listEventsDetectionJobsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'eventsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+mkListEventsDetectionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListEventsDetectionJobsResponse
-listEventsDetectionJobsResponse pResponseStatus_ =
+mkListEventsDetectionJobsResponse pResponseStatus_ =
   ListEventsDetectionJobsResponse'
-    { _lrsEventsDetectionJobPropertiesList =
-        Nothing,
-      _lrsNextToken = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { eventsDetectionJobPropertiesList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list containing the properties of each job that is returned.
-lrsEventsDetectionJobPropertiesList :: Lens' ListEventsDetectionJobsResponse [EventsDetectionJobProperties]
-lrsEventsDetectionJobPropertiesList = lens _lrsEventsDetectionJobPropertiesList (\s a -> s {_lrsEventsDetectionJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventsDetectionJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsEventsDetectionJobPropertiesList :: Lens.Lens' ListEventsDetectionJobsResponse (Lude.Maybe [EventsDetectionJobProperties])
+lrsEventsDetectionJobPropertiesList = Lens.lens (eventsDetectionJobPropertiesList :: ListEventsDetectionJobsResponse -> Lude.Maybe [EventsDetectionJobProperties]) (\s a -> s {eventsDetectionJobPropertiesList = a} :: ListEventsDetectionJobsResponse)
+{-# DEPRECATED lrsEventsDetectionJobPropertiesList "Use generic-lens or generic-optics with 'eventsDetectionJobPropertiesList' instead." #-}
 
 -- | Identifies the next page of results to return.
-lrsNextToken :: Lens' ListEventsDetectionJobsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListEventsDetectionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventsDetectionJobsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListEventsDetectionJobsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListEventsDetectionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListEventsDetectionJobsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListEventsDetectionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventsDetectionJobsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

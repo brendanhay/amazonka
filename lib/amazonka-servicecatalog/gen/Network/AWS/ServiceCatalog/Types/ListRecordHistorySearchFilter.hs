@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter where
+module Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter
+  ( ListRecordHistorySearchFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkListRecordHistorySearchFilter,
+
+    -- * Lenses
+    lrhsfValue,
+    lrhsfKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The search filter to use when listing history records.
 --
---
---
--- /See:/ 'listRecordHistorySearchFilter' smart constructor.
+-- /See:/ 'mkListRecordHistorySearchFilter' smart constructor.
 data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
-  { _lrhsfValue ::
-      !(Maybe Text),
-    _lrhsfKey :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecordHistorySearchFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The filter key.
 --
--- * 'lrhsfValue' - The filter value.
 --
--- * 'lrhsfKey' - The filter key.     * @product@ - Filter results based on the specified product identifier.     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
-listRecordHistorySearchFilter ::
+--     * @product@ - Filter results based on the specified product identifier.
+--
+--
+--     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
+--
+--
+-- * 'value' - The filter value.
+mkListRecordHistorySearchFilter ::
   ListRecordHistorySearchFilter
-listRecordHistorySearchFilter =
+mkListRecordHistorySearchFilter =
   ListRecordHistorySearchFilter'
-    { _lrhsfValue = Nothing,
-      _lrhsfKey = Nothing
+    { value = Lude.Nothing,
+      key = Lude.Nothing
     }
 
 -- | The filter value.
-lrhsfValue :: Lens' ListRecordHistorySearchFilter (Maybe Text)
-lrhsfValue = lens _lrhsfValue (\s a -> s {_lrhsfValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhsfValue :: Lens.Lens' ListRecordHistorySearchFilter (Lude.Maybe Lude.Text)
+lrhsfValue = Lens.lens (value :: ListRecordHistorySearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ListRecordHistorySearchFilter)
+{-# DEPRECATED lrhsfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The filter key.     * @product@ - Filter results based on the specified product identifier.     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
-lrhsfKey :: Lens' ListRecordHistorySearchFilter (Maybe Text)
-lrhsfKey = lens _lrhsfKey (\s a -> s {_lrhsfKey = a})
+-- | The filter key.
+--
+--
+--     * @product@ - Filter results based on the specified product identifier.
+--
+--
+--     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
+--
+--
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhsfKey :: Lens.Lens' ListRecordHistorySearchFilter (Lude.Maybe Lude.Text)
+lrhsfKey = Lens.lens (key :: ListRecordHistorySearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ListRecordHistorySearchFilter)
+{-# DEPRECATED lrhsfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable ListRecordHistorySearchFilter
-
-instance NFData ListRecordHistorySearchFilter
-
-instance ToJSON ListRecordHistorySearchFilter where
+instance Lude.ToJSON ListRecordHistorySearchFilter where
   toJSON ListRecordHistorySearchFilter' {..} =
-    object
-      ( catMaybes
-          [("Value" .=) <$> _lrhsfValue, ("Key" .=) <$> _lrhsfKey]
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
       )

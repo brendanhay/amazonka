@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReturnItemCollectionMetrics where
+module Network.AWS.DynamoDB.Types.ReturnItemCollectionMetrics
+  ( ReturnItemCollectionMetrics
+      ( ReturnItemCollectionMetrics',
+        RICMNone,
+        RICMSize
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReturnItemCollectionMetrics
-  = RICMNone
-  | RICMSize
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReturnItemCollectionMetrics = ReturnItemCollectionMetrics' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReturnItemCollectionMetrics where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure RICMNone
-      "size" -> pure RICMSize
-      e ->
-        fromTextError $
-          "Failure parsing ReturnItemCollectionMetrics from value: '" <> e
-            <> "'. Accepted values: none, size"
+pattern RICMNone :: ReturnItemCollectionMetrics
+pattern RICMNone = ReturnItemCollectionMetrics' "NONE"
 
-instance ToText ReturnItemCollectionMetrics where
-  toText = \case
-    RICMNone -> "NONE"
-    RICMSize -> "SIZE"
+pattern RICMSize :: ReturnItemCollectionMetrics
+pattern RICMSize = ReturnItemCollectionMetrics' "SIZE"
 
-instance Hashable ReturnItemCollectionMetrics
-
-instance NFData ReturnItemCollectionMetrics
-
-instance ToByteString ReturnItemCollectionMetrics
-
-instance ToQuery ReturnItemCollectionMetrics
-
-instance ToHeader ReturnItemCollectionMetrics
-
-instance ToJSON ReturnItemCollectionMetrics where
-  toJSON = toJSONText
+{-# COMPLETE
+  RICMNone,
+  RICMSize,
+  ReturnItemCollectionMetrics'
+  #-}

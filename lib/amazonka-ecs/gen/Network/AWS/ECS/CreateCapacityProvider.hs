@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,215 @@
 --
 -- Creates a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling.
 --
---
 -- Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks on AWS Fargate use the @FARGATE@ and @FARGATE_SPOT@ capacity providers which are already created and available to all accounts in Regions supported by AWS Fargate.
 module Network.AWS.ECS.CreateCapacityProvider
-  ( -- * Creating a Request
-    createCapacityProvider,
-    CreateCapacityProvider,
+  ( -- * Creating a request
+    CreateCapacityProvider (..),
+    mkCreateCapacityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccpTags,
     ccpName,
     ccpAutoScalingGroupProvider,
 
-    -- * Destructuring the Response
-    createCapacityProviderResponse,
-    CreateCapacityProviderResponse,
+    -- * Destructuring the response
+    CreateCapacityProviderResponse (..),
+    mkCreateCapacityProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccprsCapacityProvider,
     ccprsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createCapacityProvider' smart constructor.
+-- | /See:/ 'mkCreateCapacityProvider' smart constructor.
 data CreateCapacityProvider = CreateCapacityProvider'
-  { _ccpTags ::
-      !(Maybe [Tag]),
-    _ccpName :: !Text,
-    _ccpAutoScalingGroupProvider ::
-      !AutoScalingGroupProvider
+  { tags ::
+      Lude.Maybe [Tag],
+    name :: Lude.Text,
+    autoScalingGroupProvider ::
+      AutoScalingGroupProvider
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCapacityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoScalingGroupProvider' - The details of the Auto Scaling group for the capacity provider.
+-- * 'name' - The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
+-- * 'tags' - The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'ccpTags' - The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+-- The following basic restrictions apply to tags:
 --
--- * 'ccpName' - The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
+--     * Maximum number of tags per resource - 50
 --
--- * 'ccpAutoScalingGroupProvider' - The details of the Auto Scaling group for the capacity provider.
-createCapacityProvider ::
-  -- | 'ccpName'
-  Text ->
-  -- | 'ccpAutoScalingGroupProvider'
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+mkCreateCapacityProvider ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'autoScalingGroupProvider'
   AutoScalingGroupProvider ->
   CreateCapacityProvider
-createCapacityProvider pName_ pAutoScalingGroupProvider_ =
+mkCreateCapacityProvider pName_ pAutoScalingGroupProvider_ =
   CreateCapacityProvider'
-    { _ccpTags = Nothing,
-      _ccpName = pName_,
-      _ccpAutoScalingGroupProvider = pAutoScalingGroupProvider_
+    { tags = Lude.Nothing,
+      name = pName_,
+      autoScalingGroupProvider = pAutoScalingGroupProvider_
     }
 
--- | The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-ccpTags :: Lens' CreateCapacityProvider [Tag]
-ccpTags = lens _ccpTags (\s a -> s {_ccpTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpTags :: Lens.Lens' CreateCapacityProvider (Lude.Maybe [Tag])
+ccpTags = Lens.lens (tags :: CreateCapacityProvider -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCapacityProvider)
+{-# DEPRECATED ccpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
-ccpName :: Lens' CreateCapacityProvider Text
-ccpName = lens _ccpName (\s a -> s {_ccpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpName :: Lens.Lens' CreateCapacityProvider Lude.Text
+ccpName = Lens.lens (name :: CreateCapacityProvider -> Lude.Text) (\s a -> s {name = a} :: CreateCapacityProvider)
+{-# DEPRECATED ccpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The details of the Auto Scaling group for the capacity provider.
-ccpAutoScalingGroupProvider :: Lens' CreateCapacityProvider AutoScalingGroupProvider
-ccpAutoScalingGroupProvider = lens _ccpAutoScalingGroupProvider (\s a -> s {_ccpAutoScalingGroupProvider = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpAutoScalingGroupProvider :: Lens.Lens' CreateCapacityProvider AutoScalingGroupProvider
+ccpAutoScalingGroupProvider = Lens.lens (autoScalingGroupProvider :: CreateCapacityProvider -> AutoScalingGroupProvider) (\s a -> s {autoScalingGroupProvider = a} :: CreateCapacityProvider)
+{-# DEPRECATED ccpAutoScalingGroupProvider "Use generic-lens or generic-optics with 'autoScalingGroupProvider' instead." #-}
 
-instance AWSRequest CreateCapacityProvider where
+instance Lude.AWSRequest CreateCapacityProvider where
   type Rs CreateCapacityProvider = CreateCapacityProviderResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCapacityProviderResponse'
-            <$> (x .?> "capacityProvider") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "capacityProvider")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCapacityProvider
-
-instance NFData CreateCapacityProvider
-
-instance ToHeaders CreateCapacityProvider where
+instance Lude.ToHeaders CreateCapacityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateCapacityProvider where
+instance Lude.ToJSON CreateCapacityProvider where
   toJSON CreateCapacityProvider' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _ccpTags,
-            Just ("name" .= _ccpName),
-            Just ("autoScalingGroupProvider" .= _ccpAutoScalingGroupProvider)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just
+              ("autoScalingGroupProvider" Lude..= autoScalingGroupProvider)
           ]
       )
 
-instance ToPath CreateCapacityProvider where
-  toPath = const "/"
+instance Lude.ToPath CreateCapacityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateCapacityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCapacityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCapacityProviderResponse' smart constructor.
+-- | /See:/ 'mkCreateCapacityProviderResponse' smart constructor.
 data CreateCapacityProviderResponse = CreateCapacityProviderResponse'
-  { _ccprsCapacityProvider ::
-      !(Maybe CapacityProvider),
-    _ccprsResponseStatus :: !Int
+  { capacityProvider ::
+      Lude.Maybe CapacityProvider,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCapacityProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccprsCapacityProvider' - The full description of the new capacity provider.
---
--- * 'ccprsResponseStatus' - -- | The response status code.
-createCapacityProviderResponse ::
-  -- | 'ccprsResponseStatus'
-  Int ->
+-- * 'capacityProvider' - The full description of the new capacity provider.
+-- * 'responseStatus' - The response status code.
+mkCreateCapacityProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCapacityProviderResponse
-createCapacityProviderResponse pResponseStatus_ =
+mkCreateCapacityProviderResponse pResponseStatus_ =
   CreateCapacityProviderResponse'
-    { _ccprsCapacityProvider = Nothing,
-      _ccprsResponseStatus = pResponseStatus_
+    { capacityProvider = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The full description of the new capacity provider.
-ccprsCapacityProvider :: Lens' CreateCapacityProviderResponse (Maybe CapacityProvider)
-ccprsCapacityProvider = lens _ccprsCapacityProvider (\s a -> s {_ccprsCapacityProvider = a})
+--
+-- /Note:/ Consider using 'capacityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccprsCapacityProvider :: Lens.Lens' CreateCapacityProviderResponse (Lude.Maybe CapacityProvider)
+ccprsCapacityProvider = Lens.lens (capacityProvider :: CreateCapacityProviderResponse -> Lude.Maybe CapacityProvider) (\s a -> s {capacityProvider = a} :: CreateCapacityProviderResponse)
+{-# DEPRECATED ccprsCapacityProvider "Use generic-lens or generic-optics with 'capacityProvider' instead." #-}
 
--- | -- | The response status code.
-ccprsResponseStatus :: Lens' CreateCapacityProviderResponse Int
-ccprsResponseStatus = lens _ccprsResponseStatus (\s a -> s {_ccprsResponseStatus = a})
-
-instance NFData CreateCapacityProviderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccprsResponseStatus :: Lens.Lens' CreateCapacityProviderResponse Lude.Int
+ccprsResponseStatus = Lens.lens (responseStatus :: CreateCapacityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCapacityProviderResponse)
+{-# DEPRECATED ccprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

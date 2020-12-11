@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.OrganizationsDecisionDetail where
+module Network.AWS.IAM.Types.OrganizationsDecisionDetail
+  ( OrganizationsDecisionDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationsDecisionDetail,
+
+    -- * Lenses
+    oddAllowedByOrganizations,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the effect that Organizations has on a policy simulation.
 --
---
---
--- /See:/ 'organizationsDecisionDetail' smart constructor.
+-- /See:/ 'mkOrganizationsDecisionDetail' smart constructor.
 newtype OrganizationsDecisionDetail = OrganizationsDecisionDetail'
-  { _oddAllowedByOrganizations ::
-      Maybe Bool
+  { allowedByOrganizations ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationsDecisionDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oddAllowedByOrganizations' - Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
-organizationsDecisionDetail ::
+-- * 'allowedByOrganizations' - Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
+mkOrganizationsDecisionDetail ::
   OrganizationsDecisionDetail
-organizationsDecisionDetail =
+mkOrganizationsDecisionDetail =
   OrganizationsDecisionDetail'
-    { _oddAllowedByOrganizations =
-        Nothing
+    { allowedByOrganizations =
+        Lude.Nothing
     }
 
 -- | Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
-oddAllowedByOrganizations :: Lens' OrganizationsDecisionDetail (Maybe Bool)
-oddAllowedByOrganizations = lens _oddAllowedByOrganizations (\s a -> s {_oddAllowedByOrganizations = a})
+--
+-- /Note:/ Consider using 'allowedByOrganizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oddAllowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Lude.Maybe Lude.Bool)
+oddAllowedByOrganizations = Lens.lens (allowedByOrganizations :: OrganizationsDecisionDetail -> Lude.Maybe Lude.Bool) (\s a -> s {allowedByOrganizations = a} :: OrganizationsDecisionDetail)
+{-# DEPRECATED oddAllowedByOrganizations "Use generic-lens or generic-optics with 'allowedByOrganizations' instead." #-}
 
-instance FromXML OrganizationsDecisionDetail where
+instance Lude.FromXML OrganizationsDecisionDetail where
   parseXML x =
-    OrganizationsDecisionDetail' <$> (x .@? "AllowedByOrganizations")
-
-instance Hashable OrganizationsDecisionDetail
-
-instance NFData OrganizationsDecisionDetail
+    OrganizationsDecisionDetail'
+      Lude.<$> (x Lude..@? "AllowedByOrganizations")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Bucket where
+module Network.AWS.S3.Types.Bucket
+  ( Bucket (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBucket,
+
+    -- * Lenses
+    bCreationDate,
+    bName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | In terms of implementation, a Bucket is a resource. An Amazon S3 bucket name is globally unique, and the namespace is shared by all AWS accounts.
 --
---
---
--- /See:/ 'bucket' smart constructor.
+-- /See:/ 'mkBucket' smart constructor.
 data Bucket = Bucket'
-  { _bCreationDate :: !ISO8601,
-    _bName :: !BucketName
+  { creationDate :: Lude.ISO8601,
+    name :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bCreationDate' - Date the bucket was created.
---
--- * 'bName' - The name of the bucket.
-bucket ::
-  -- | 'bCreationDate'
-  UTCTime ->
-  -- | 'bName'
+-- * 'creationDate' - Date the bucket was created.
+-- * 'name' - The name of the bucket.
+mkBucket ::
+  -- | 'creationDate'
+  Lude.ISO8601 ->
+  -- | 'name'
   BucketName ->
   Bucket
-bucket pCreationDate_ pName_ =
-  Bucket' {_bCreationDate = _Time # pCreationDate_, _bName = pName_}
+mkBucket pCreationDate_ pName_ =
+  Bucket' {creationDate = pCreationDate_, name = pName_}
 
 -- | Date the bucket was created.
-bCreationDate :: Lens' Bucket UTCTime
-bCreationDate = lens _bCreationDate (\s a -> s {_bCreationDate = a}) . _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCreationDate :: Lens.Lens' Bucket Lude.ISO8601
+bCreationDate = Lens.lens (creationDate :: Bucket -> Lude.ISO8601) (\s a -> s {creationDate = a} :: Bucket)
+{-# DEPRECATED bCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The name of the bucket.
-bName :: Lens' Bucket BucketName
-bName = lens _bName (\s a -> s {_bName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bName :: Lens.Lens' Bucket BucketName
+bName = Lens.lens (name :: Bucket -> BucketName) (\s a -> s {name = a} :: Bucket)
+{-# DEPRECATED bName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML Bucket where
-  parseXML x = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
-
-instance Hashable Bucket
-
-instance NFData Bucket
+instance Lude.FromXML Bucket where
+  parseXML x =
+    Bucket'
+      Lude.<$> (x Lude..@ "CreationDate") Lude.<*> (x Lude..@ "Name")

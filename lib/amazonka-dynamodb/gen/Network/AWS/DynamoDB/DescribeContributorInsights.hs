@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns information about contributor insights, for a given table or global secondary index.
 module Network.AWS.DynamoDB.DescribeContributorInsights
-  ( -- * Creating a Request
-    describeContributorInsights,
-    DescribeContributorInsights,
+  ( -- * Creating a request
+    DescribeContributorInsights (..),
+    mkDescribeContributorInsights,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dciIndexName,
     dciTableName,
 
-    -- * Destructuring the Response
-    describeContributorInsightsResponse,
-    DescribeContributorInsightsResponse,
+    -- * Destructuring the response
+    DescribeContributorInsightsResponse (..),
+    mkDescribeContributorInsightsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcirsContributorInsightsRuleList,
     dcirsFailureException,
     dcirsContributorInsightsStatus,
@@ -43,173 +38,232 @@ module Network.AWS.DynamoDB.DescribeContributorInsights
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeContributorInsights' smart constructor.
+-- | /See:/ 'mkDescribeContributorInsights' smart constructor.
 data DescribeContributorInsights = DescribeContributorInsights'
-  { _dciIndexName ::
-      !(Maybe Text),
-    _dciTableName :: !Text
+  { indexName ::
+      Lude.Maybe Lude.Text,
+    tableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContributorInsights' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dciIndexName' - The name of the global secondary index to describe, if applicable.
---
--- * 'dciTableName' - The name of the table to describe.
-describeContributorInsights ::
-  -- | 'dciTableName'
-  Text ->
+-- * 'indexName' - The name of the global secondary index to describe, if applicable.
+-- * 'tableName' - The name of the table to describe.
+mkDescribeContributorInsights ::
+  -- | 'tableName'
+  Lude.Text ->
   DescribeContributorInsights
-describeContributorInsights pTableName_ =
+mkDescribeContributorInsights pTableName_ =
   DescribeContributorInsights'
-    { _dciIndexName = Nothing,
-      _dciTableName = pTableName_
+    { indexName = Lude.Nothing,
+      tableName = pTableName_
     }
 
 -- | The name of the global secondary index to describe, if applicable.
-dciIndexName :: Lens' DescribeContributorInsights (Maybe Text)
-dciIndexName = lens _dciIndexName (\s a -> s {_dciIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciIndexName :: Lens.Lens' DescribeContributorInsights (Lude.Maybe Lude.Text)
+dciIndexName = Lens.lens (indexName :: DescribeContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsights)
+{-# DEPRECATED dciIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The name of the table to describe.
-dciTableName :: Lens' DescribeContributorInsights Text
-dciTableName = lens _dciTableName (\s a -> s {_dciTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciTableName :: Lens.Lens' DescribeContributorInsights Lude.Text
+dciTableName = Lens.lens (tableName :: DescribeContributorInsights -> Lude.Text) (\s a -> s {tableName = a} :: DescribeContributorInsights)
+{-# DEPRECATED dciTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest DescribeContributorInsights where
+instance Lude.AWSRequest DescribeContributorInsights where
   type
     Rs DescribeContributorInsights =
       DescribeContributorInsightsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            <$> (x .?> "ContributorInsightsRuleList" .!@ mempty)
-            <*> (x .?> "FailureException")
-            <*> (x .?> "ContributorInsightsStatus")
-            <*> (x .?> "LastUpdateDateTime")
-            <*> (x .?> "TableName")
-            <*> (x .?> "IndexName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContributorInsightsRuleList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "FailureException")
+            Lude.<*> (x Lude..?> "ContributorInsightsStatus")
+            Lude.<*> (x Lude..?> "LastUpdateDateTime")
+            Lude.<*> (x Lude..?> "TableName")
+            Lude.<*> (x Lude..?> "IndexName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeContributorInsights
-
-instance NFData DescribeContributorInsights
-
-instance ToHeaders DescribeContributorInsights where
+instance Lude.ToHeaders DescribeContributorInsights where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeContributorInsights" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "DynamoDB_20120810.DescribeContributorInsights" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeContributorInsights where
+instance Lude.ToJSON DescribeContributorInsights where
   toJSON DescribeContributorInsights' {..} =
-    object
-      ( catMaybes
-          [ ("IndexName" .=) <$> _dciIndexName,
-            Just ("TableName" .= _dciTableName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IndexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
-instance ToPath DescribeContributorInsights where
-  toPath = const "/"
+instance Lude.ToPath DescribeContributorInsights where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeContributorInsights where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeContributorInsights where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeContributorInsightsResponse' smart constructor.
+-- | /See:/ 'mkDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
-  { _dcirsContributorInsightsRuleList ::
-      !(Maybe [Text]),
-    _dcirsFailureException ::
-      !( Maybe
-           FailureException
-       ),
-    _dcirsContributorInsightsStatus ::
-      !( Maybe
-           ContributorInsightsStatus
-       ),
-    _dcirsLastUpdateDateTime ::
-      !(Maybe POSIX),
-    _dcirsTableName ::
-      !(Maybe Text),
-    _dcirsIndexName ::
-      !(Maybe Text),
-    _dcirsResponseStatus ::
-      !Int
+  { contributorInsightsRuleList ::
+      Lude.Maybe
+        [Lude.Text],
+    failureException ::
+      Lude.Maybe
+        FailureException,
+    contributorInsightsStatus ::
+      Lude.Maybe
+        ContributorInsightsStatus,
+    lastUpdateDateTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    tableName ::
+      Lude.Maybe
+        Lude.Text,
+    indexName ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContributorInsightsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'contributorInsightsRuleList' - List of names of the associated Alpine rules.
+-- * 'contributorInsightsStatus' - Current Status contributor insights.
+-- * 'failureException' - Returns information about the last failure that encountered.
 --
--- * 'dcirsContributorInsightsRuleList' - List of names of the associated Alpine rules.
+-- The most common exceptions for a FAILED status are:
 --
--- * 'dcirsFailureException' - Returns information about the last failure that encountered. The most common exceptions for a FAILED status are:     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
+--     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.
 --
--- * 'dcirsContributorInsightsStatus' - Current Status contributor insights.
 --
--- * 'dcirsLastUpdateDateTime' - Timestamp of the last time the status was changed.
+--     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.
 --
--- * 'dcirsTableName' - The name of the table being described.
 --
--- * 'dcirsIndexName' - The name of the global secondary index being described.
+--     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.
 --
--- * 'dcirsResponseStatus' - -- | The response status code.
-describeContributorInsightsResponse ::
-  -- | 'dcirsResponseStatus'
-  Int ->
+--
+--     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
+--
+--
+-- * 'indexName' - The name of the global secondary index being described.
+-- * 'lastUpdateDateTime' - Timestamp of the last time the status was changed.
+-- * 'responseStatus' - The response status code.
+-- * 'tableName' - The name of the table being described.
+mkDescribeContributorInsightsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeContributorInsightsResponse
-describeContributorInsightsResponse pResponseStatus_ =
+mkDescribeContributorInsightsResponse pResponseStatus_ =
   DescribeContributorInsightsResponse'
-    { _dcirsContributorInsightsRuleList =
-        Nothing,
-      _dcirsFailureException = Nothing,
-      _dcirsContributorInsightsStatus = Nothing,
-      _dcirsLastUpdateDateTime = Nothing,
-      _dcirsTableName = Nothing,
-      _dcirsIndexName = Nothing,
-      _dcirsResponseStatus = pResponseStatus_
+    { contributorInsightsRuleList =
+        Lude.Nothing,
+      failureException = Lude.Nothing,
+      contributorInsightsStatus = Lude.Nothing,
+      lastUpdateDateTime = Lude.Nothing,
+      tableName = Lude.Nothing,
+      indexName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of names of the associated Alpine rules.
-dcirsContributorInsightsRuleList :: Lens' DescribeContributorInsightsResponse [Text]
-dcirsContributorInsightsRuleList = lens _dcirsContributorInsightsRuleList (\s a -> s {_dcirsContributorInsightsRuleList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contributorInsightsRuleList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsContributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe [Lude.Text])
+dcirsContributorInsightsRuleList = Lens.lens (contributorInsightsRuleList :: DescribeContributorInsightsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsContributorInsightsRuleList "Use generic-lens or generic-optics with 'contributorInsightsRuleList' instead." #-}
 
--- | Returns information about the last failure that encountered. The most common exceptions for a FAILED status are:     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
-dcirsFailureException :: Lens' DescribeContributorInsightsResponse (Maybe FailureException)
-dcirsFailureException = lens _dcirsFailureException (\s a -> s {_dcirsFailureException = a})
+-- | Returns information about the last failure that encountered.
+--
+-- The most common exceptions for a FAILED status are:
+--
+--     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.
+--
+--
+--     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.
+--
+--
+--     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.
+--
+--
+--     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
+--
+--
+--
+-- /Note:/ Consider using 'failureException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsFailureException :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe FailureException)
+dcirsFailureException = Lens.lens (failureException :: DescribeContributorInsightsResponse -> Lude.Maybe FailureException) (\s a -> s {failureException = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsFailureException "Use generic-lens or generic-optics with 'failureException' instead." #-}
 
 -- | Current Status contributor insights.
-dcirsContributorInsightsStatus :: Lens' DescribeContributorInsightsResponse (Maybe ContributorInsightsStatus)
-dcirsContributorInsightsStatus = lens _dcirsContributorInsightsStatus (\s a -> s {_dcirsContributorInsightsStatus = a})
+--
+-- /Note:/ Consider using 'contributorInsightsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsContributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe ContributorInsightsStatus)
+dcirsContributorInsightsStatus = Lens.lens (contributorInsightsStatus :: DescribeContributorInsightsResponse -> Lude.Maybe ContributorInsightsStatus) (\s a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsContributorInsightsStatus "Use generic-lens or generic-optics with 'contributorInsightsStatus' instead." #-}
 
 -- | Timestamp of the last time the status was changed.
-dcirsLastUpdateDateTime :: Lens' DescribeContributorInsightsResponse (Maybe UTCTime)
-dcirsLastUpdateDateTime = lens _dcirsLastUpdateDateTime (\s a -> s {_dcirsLastUpdateDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsLastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Timestamp)
+dcirsLastUpdateDateTime = Lens.lens (lastUpdateDateTime :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsLastUpdateDateTime "Use generic-lens or generic-optics with 'lastUpdateDateTime' instead." #-}
 
 -- | The name of the table being described.
-dcirsTableName :: Lens' DescribeContributorInsightsResponse (Maybe Text)
-dcirsTableName = lens _dcirsTableName (\s a -> s {_dcirsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsTableName :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Text)
+dcirsTableName = Lens.lens (tableName :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the global secondary index being described.
-dcirsIndexName :: Lens' DescribeContributorInsightsResponse (Maybe Text)
-dcirsIndexName = lens _dcirsIndexName (\s a -> s {_dcirsIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsIndexName :: Lens.Lens' DescribeContributorInsightsResponse (Lude.Maybe Lude.Text)
+dcirsIndexName = Lens.lens (indexName :: DescribeContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
--- | -- | The response status code.
-dcirsResponseStatus :: Lens' DescribeContributorInsightsResponse Int
-dcirsResponseStatus = lens _dcirsResponseStatus (\s a -> s {_dcirsResponseStatus = a})
-
-instance NFData DescribeContributorInsightsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcirsResponseStatus :: Lens.Lens' DescribeContributorInsightsResponse Lude.Int
+dcirsResponseStatus = Lens.lens (responseStatus :: DescribeContributorInsightsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContributorInsightsResponse)
+{-# DEPRECATED dcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

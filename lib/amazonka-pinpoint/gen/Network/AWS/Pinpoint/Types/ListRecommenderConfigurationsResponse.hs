@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ListRecommenderConfigurationsResponse where
+module Network.AWS.Pinpoint.Types.ListRecommenderConfigurationsResponse
+  ( ListRecommenderConfigurationsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkListRecommenderConfigurationsResponse,
+
+    -- * Lenses
+    lrcNextToken,
+    lrcItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RecommenderConfigurationResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.
 --
---
---
--- /See:/ 'listRecommenderConfigurationsResponse' smart constructor.
+-- /See:/ 'mkListRecommenderConfigurationsResponse' smart constructor.
 data ListRecommenderConfigurationsResponse = ListRecommenderConfigurationsResponse'
-  { _lrcNextToken ::
-      !(Maybe Text),
-    _lrcItem ::
-      ![RecommenderConfigurationResponse]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    item ::
+      [RecommenderConfigurationResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecommenderConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrcNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'lrcItem' - An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
-listRecommenderConfigurationsResponse ::
+-- * 'item' - An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkListRecommenderConfigurationsResponse ::
   ListRecommenderConfigurationsResponse
-listRecommenderConfigurationsResponse =
+mkListRecommenderConfigurationsResponse =
   ListRecommenderConfigurationsResponse'
-    { _lrcNextToken = Nothing,
-      _lrcItem = mempty
+    { nextToken = Lude.Nothing,
+      item = Lude.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-lrcNextToken :: Lens' ListRecommenderConfigurationsResponse (Maybe Text)
-lrcNextToken = lens _lrcNextToken (\s a -> s {_lrcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrcNextToken :: Lens.Lens' ListRecommenderConfigurationsResponse (Lude.Maybe Lude.Text)
+lrcNextToken = Lens.lens (nextToken :: ListRecommenderConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRecommenderConfigurationsResponse)
+{-# DEPRECATED lrcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
-lrcItem :: Lens' ListRecommenderConfigurationsResponse [RecommenderConfigurationResponse]
-lrcItem = lens _lrcItem (\s a -> s {_lrcItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrcItem :: Lens.Lens' ListRecommenderConfigurationsResponse [RecommenderConfigurationResponse]
+lrcItem = Lens.lens (item :: ListRecommenderConfigurationsResponse -> [RecommenderConfigurationResponse]) (\s a -> s {item = a} :: ListRecommenderConfigurationsResponse)
+{-# DEPRECATED lrcItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON ListRecommenderConfigurationsResponse where
+instance Lude.FromJSON ListRecommenderConfigurationsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ListRecommenderConfigurationsResponse"
       ( \x ->
           ListRecommenderConfigurationsResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable ListRecommenderConfigurationsResponse
-
-instance NFData ListRecommenderConfigurationsResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,151 @@
 --
 -- Deletes the specified block storage disk. The disk must be in the @available@ state (not attached to a Lightsail instance).
 --
---
 -- The @delete disk@ operation supports tag-based access control via resource tags applied to the resource identified by @disk name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteDisk
-  ( -- * Creating a Request
-    deleteDisk,
-    DeleteDisk,
+  ( -- * Creating a request
+    DeleteDisk (..),
+    mkDeleteDisk,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dForceDeleteAddOns,
     dDiskName,
 
-    -- * Destructuring the Response
-    deleteDiskResponse,
-    DeleteDiskResponse,
+    -- * Destructuring the response
+    DeleteDiskResponse (..),
+    mkDeleteDiskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsOperations,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDisk' smart constructor.
+-- | /See:/ 'mkDeleteDisk' smart constructor.
 data DeleteDisk = DeleteDisk'
-  { _dForceDeleteAddOns :: !(Maybe Bool),
-    _dDiskName :: !Text
+  { forceDeleteAddOns ::
+      Lude.Maybe Lude.Bool,
+    diskName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDisk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dForceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for the disk.
---
--- * 'dDiskName' - The unique name of the disk you want to delete (e.g., @my-disk@ ).
-deleteDisk ::
-  -- | 'dDiskName'
-  Text ->
+-- * 'diskName' - The unique name of the disk you want to delete (e.g., @my-disk@ ).
+-- * 'forceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for the disk.
+mkDeleteDisk ::
+  -- | 'diskName'
+  Lude.Text ->
   DeleteDisk
-deleteDisk pDiskName_ =
+mkDeleteDisk pDiskName_ =
   DeleteDisk'
-    { _dForceDeleteAddOns = Nothing,
-      _dDiskName = pDiskName_
+    { forceDeleteAddOns = Lude.Nothing,
+      diskName = pDiskName_
     }
 
 -- | A Boolean value to indicate whether to delete the enabled add-ons for the disk.
-dForceDeleteAddOns :: Lens' DeleteDisk (Maybe Bool)
-dForceDeleteAddOns = lens _dForceDeleteAddOns (\s a -> s {_dForceDeleteAddOns = a})
+--
+-- /Note:/ Consider using 'forceDeleteAddOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dForceDeleteAddOns :: Lens.Lens' DeleteDisk (Lude.Maybe Lude.Bool)
+dForceDeleteAddOns = Lens.lens (forceDeleteAddOns :: DeleteDisk -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteAddOns = a} :: DeleteDisk)
+{-# DEPRECATED dForceDeleteAddOns "Use generic-lens or generic-optics with 'forceDeleteAddOns' instead." #-}
 
 -- | The unique name of the disk you want to delete (e.g., @my-disk@ ).
-dDiskName :: Lens' DeleteDisk Text
-dDiskName = lens _dDiskName (\s a -> s {_dDiskName = a})
+--
+-- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDiskName :: Lens.Lens' DeleteDisk Lude.Text
+dDiskName = Lens.lens (diskName :: DeleteDisk -> Lude.Text) (\s a -> s {diskName = a} :: DeleteDisk)
+{-# DEPRECATED dDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
-instance AWSRequest DeleteDisk where
+instance Lude.AWSRequest DeleteDisk where
   type Rs DeleteDisk = DeleteDiskResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteDiskResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDisk
-
-instance NFData DeleteDisk
-
-instance ToHeaders DeleteDisk where
+instance Lude.ToHeaders DeleteDisk where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.DeleteDisk" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.DeleteDisk" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDisk where
+instance Lude.ToJSON DeleteDisk where
   toJSON DeleteDisk' {..} =
-    object
-      ( catMaybes
-          [ ("forceDeleteAddOns" .=) <$> _dForceDeleteAddOns,
-            Just ("diskName" .= _dDiskName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("forceDeleteAddOns" Lude..=) Lude.<$> forceDeleteAddOns,
+            Lude.Just ("diskName" Lude..= diskName)
           ]
       )
 
-instance ToPath DeleteDisk where
-  toPath = const "/"
+instance Lude.ToPath DeleteDisk where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDisk where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDisk where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDiskResponse' smart constructor.
+-- | /See:/ 'mkDeleteDiskResponse' smart constructor.
 data DeleteDiskResponse = DeleteDiskResponse'
-  { _drsOperations ::
-      !(Maybe [Operation]),
-    _drsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDiskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteDiskResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteDiskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDiskResponse
-deleteDiskResponse pResponseStatus_ =
+mkDeleteDiskResponse pResponseStatus_ =
   DeleteDiskResponse'
-    { _drsOperations = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-drsOperations :: Lens' DeleteDiskResponse [Operation]
-drsOperations = lens _drsOperations (\s a -> s {_drsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsOperations :: Lens.Lens' DeleteDiskResponse (Lude.Maybe [Operation])
+drsOperations = Lens.lens (operations :: DeleteDiskResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteDiskResponse)
+{-# DEPRECATED drsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteDiskResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteDiskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteDiskResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDiskResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

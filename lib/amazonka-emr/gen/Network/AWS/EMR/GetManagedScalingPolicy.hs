@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- Fetches the attached managed scaling policy for an Amazon EMR cluster.
 module Network.AWS.EMR.GetManagedScalingPolicy
-  ( -- * Creating a Request
-    getManagedScalingPolicy,
-    GetManagedScalingPolicy,
+  ( -- * Creating a request
+    GetManagedScalingPolicy (..),
+    mkGetManagedScalingPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmspClusterId,
 
-    -- * Destructuring the Response
-    getManagedScalingPolicyResponse,
-    GetManagedScalingPolicyResponse,
+    -- * Destructuring the response
+    GetManagedScalingPolicyResponse (..),
+    mkGetManagedScalingPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmsprsManagedScalingPolicy,
     gmsprsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getManagedScalingPolicy' smart constructor.
+-- | /See:/ 'mkGetManagedScalingPolicy' smart constructor.
 newtype GetManagedScalingPolicy = GetManagedScalingPolicy'
-  { _gmspClusterId ::
-      Text
+  { clusterId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedScalingPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmspClusterId' - Specifies the ID of the cluster for which the managed scaling policy will be fetched.
-getManagedScalingPolicy ::
-  -- | 'gmspClusterId'
-  Text ->
+-- * 'clusterId' - Specifies the ID of the cluster for which the managed scaling policy will be fetched.
+mkGetManagedScalingPolicy ::
+  -- | 'clusterId'
+  Lude.Text ->
   GetManagedScalingPolicy
-getManagedScalingPolicy pClusterId_ =
-  GetManagedScalingPolicy' {_gmspClusterId = pClusterId_}
+mkGetManagedScalingPolicy pClusterId_ =
+  GetManagedScalingPolicy' {clusterId = pClusterId_}
 
 -- | Specifies the ID of the cluster for which the managed scaling policy will be fetched.
-gmspClusterId :: Lens' GetManagedScalingPolicy Text
-gmspClusterId = lens _gmspClusterId (\s a -> s {_gmspClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmspClusterId :: Lens.Lens' GetManagedScalingPolicy Lude.Text
+gmspClusterId = Lens.lens (clusterId :: GetManagedScalingPolicy -> Lude.Text) (\s a -> s {clusterId = a} :: GetManagedScalingPolicy)
+{-# DEPRECATED gmspClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest GetManagedScalingPolicy where
+instance Lude.AWSRequest GetManagedScalingPolicy where
   type Rs GetManagedScalingPolicy = GetManagedScalingPolicyResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetManagedScalingPolicyResponse'
-            <$> (x .?> "ManagedScalingPolicy") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ManagedScalingPolicy")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetManagedScalingPolicy
-
-instance NFData GetManagedScalingPolicy
-
-instance ToHeaders GetManagedScalingPolicy where
+instance Lude.ToHeaders GetManagedScalingPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.GetManagedScalingPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.GetManagedScalingPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetManagedScalingPolicy where
+instance Lude.ToJSON GetManagedScalingPolicy where
   toJSON GetManagedScalingPolicy' {..} =
-    object (catMaybes [Just ("ClusterId" .= _gmspClusterId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ClusterId" Lude..= clusterId)])
 
-instance ToPath GetManagedScalingPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetManagedScalingPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetManagedScalingPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetManagedScalingPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getManagedScalingPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetManagedScalingPolicyResponse' smart constructor.
 data GetManagedScalingPolicyResponse = GetManagedScalingPolicyResponse'
-  { _gmsprsManagedScalingPolicy ::
-      !( Maybe
-           ManagedScalingPolicy
-       ),
-    _gmsprsResponseStatus ::
-      !Int
+  { managedScalingPolicy ::
+      Lude.Maybe
+        ManagedScalingPolicy,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedScalingPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmsprsManagedScalingPolicy' - Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
---
--- * 'gmsprsResponseStatus' - -- | The response status code.
-getManagedScalingPolicyResponse ::
-  -- | 'gmsprsResponseStatus'
-  Int ->
+-- * 'managedScalingPolicy' - Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
+-- * 'responseStatus' - The response status code.
+mkGetManagedScalingPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetManagedScalingPolicyResponse
-getManagedScalingPolicyResponse pResponseStatus_ =
+mkGetManagedScalingPolicyResponse pResponseStatus_ =
   GetManagedScalingPolicyResponse'
-    { _gmsprsManagedScalingPolicy =
-        Nothing,
-      _gmsprsResponseStatus = pResponseStatus_
+    { managedScalingPolicy =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
-gmsprsManagedScalingPolicy :: Lens' GetManagedScalingPolicyResponse (Maybe ManagedScalingPolicy)
-gmsprsManagedScalingPolicy = lens _gmsprsManagedScalingPolicy (\s a -> s {_gmsprsManagedScalingPolicy = a})
+--
+-- /Note:/ Consider using 'managedScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsprsManagedScalingPolicy :: Lens.Lens' GetManagedScalingPolicyResponse (Lude.Maybe ManagedScalingPolicy)
+gmsprsManagedScalingPolicy = Lens.lens (managedScalingPolicy :: GetManagedScalingPolicyResponse -> Lude.Maybe ManagedScalingPolicy) (\s a -> s {managedScalingPolicy = a} :: GetManagedScalingPolicyResponse)
+{-# DEPRECATED gmsprsManagedScalingPolicy "Use generic-lens or generic-optics with 'managedScalingPolicy' instead." #-}
 
--- | -- | The response status code.
-gmsprsResponseStatus :: Lens' GetManagedScalingPolicyResponse Int
-gmsprsResponseStatus = lens _gmsprsResponseStatus (\s a -> s {_gmsprsResponseStatus = a})
-
-instance NFData GetManagedScalingPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsprsResponseStatus :: Lens.Lens' GetManagedScalingPolicyResponse Lude.Int
+gmsprsResponseStatus = Lens.lens (responseStatus :: GetManagedScalingPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetManagedScalingPolicyResponse)
+{-# DEPRECATED gmsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

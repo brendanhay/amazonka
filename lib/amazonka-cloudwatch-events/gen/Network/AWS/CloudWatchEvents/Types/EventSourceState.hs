@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.EventSourceState where
+module Network.AWS.CloudWatchEvents.Types.EventSourceState
+  ( EventSourceState
+      ( EventSourceState',
+        Active,
+        Deleted,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventSourceState
-  = Active
-  | Deleted
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventSourceState = EventSourceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventSourceState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "deleted" -> pure Deleted
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing EventSourceState from value: '" <> e
-            <> "'. Accepted values: active, deleted, pending"
+pattern Active :: EventSourceState
+pattern Active = EventSourceState' "ACTIVE"
 
-instance ToText EventSourceState where
-  toText = \case
-    Active -> "ACTIVE"
-    Deleted -> "DELETED"
-    Pending -> "PENDING"
+pattern Deleted :: EventSourceState
+pattern Deleted = EventSourceState' "DELETED"
 
-instance Hashable EventSourceState
+pattern Pending :: EventSourceState
+pattern Pending = EventSourceState' "PENDING"
 
-instance NFData EventSourceState
-
-instance ToByteString EventSourceState
-
-instance ToQuery EventSourceState
-
-instance ToHeader EventSourceState
-
-instance FromJSON EventSourceState where
-  parseJSON = parseJSONText "EventSourceState"
+{-# COMPLETE
+  Active,
+  Deleted,
+  Pending,
+  EventSourceState'
+  #-}

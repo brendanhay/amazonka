@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaImageAttribute where
+module Network.AWS.EC2.Types.FpgaImageAttribute
+  ( FpgaImageAttribute (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkFpgaImageAttribute,
+
+    -- * Lenses
+    fiaFpgaImageId,
+    fiaName,
+    fiaProductCodes,
+    fiaDescription,
+    fiaLoadPermissions,
+  )
+where
+
 import Network.AWS.EC2.Types.LoadPermission
 import Network.AWS.EC2.Types.ProductCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon FPGA image (AFI) attribute.
 --
---
---
--- /See:/ 'fpgaImageAttribute' smart constructor.
+-- /See:/ 'mkFpgaImageAttribute' smart constructor.
 data FpgaImageAttribute = FpgaImageAttribute'
-  { _fiaFpgaImageId ::
-      !(Maybe Text),
-    _fiaName :: !(Maybe Text),
-    _fiaProductCodes :: !(Maybe [ProductCode]),
-    _fiaDescription :: !(Maybe Text),
-    _fiaLoadPermissions :: !(Maybe [LoadPermission])
+  { fpgaImageId ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    productCodes :: Lude.Maybe [ProductCode],
+    description :: Lude.Maybe Lude.Text,
+    loadPermissions :: Lude.Maybe [LoadPermission]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fiaFpgaImageId' - The ID of the AFI.
---
--- * 'fiaName' - The name of the AFI.
---
--- * 'fiaProductCodes' - The product codes.
---
--- * 'fiaDescription' - The description of the AFI.
---
--- * 'fiaLoadPermissions' - The load permissions.
-fpgaImageAttribute ::
+-- * 'description' - The description of the AFI.
+-- * 'fpgaImageId' - The ID of the AFI.
+-- * 'loadPermissions' - The load permissions.
+-- * 'name' - The name of the AFI.
+-- * 'productCodes' - The product codes.
+mkFpgaImageAttribute ::
   FpgaImageAttribute
-fpgaImageAttribute =
+mkFpgaImageAttribute =
   FpgaImageAttribute'
-    { _fiaFpgaImageId = Nothing,
-      _fiaName = Nothing,
-      _fiaProductCodes = Nothing,
-      _fiaDescription = Nothing,
-      _fiaLoadPermissions = Nothing
+    { fpgaImageId = Lude.Nothing,
+      name = Lude.Nothing,
+      productCodes = Lude.Nothing,
+      description = Lude.Nothing,
+      loadPermissions = Lude.Nothing
     }
 
 -- | The ID of the AFI.
-fiaFpgaImageId :: Lens' FpgaImageAttribute (Maybe Text)
-fiaFpgaImageId = lens _fiaFpgaImageId (\s a -> s {_fiaFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiaFpgaImageId :: Lens.Lens' FpgaImageAttribute (Lude.Maybe Lude.Text)
+fiaFpgaImageId = Lens.lens (fpgaImageId :: FpgaImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: FpgaImageAttribute)
+{-# DEPRECATED fiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The name of the AFI.
-fiaName :: Lens' FpgaImageAttribute (Maybe Text)
-fiaName = lens _fiaName (\s a -> s {_fiaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiaName :: Lens.Lens' FpgaImageAttribute (Lude.Maybe Lude.Text)
+fiaName = Lens.lens (name :: FpgaImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FpgaImageAttribute)
+{-# DEPRECATED fiaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The product codes.
-fiaProductCodes :: Lens' FpgaImageAttribute [ProductCode]
-fiaProductCodes = lens _fiaProductCodes (\s a -> s {_fiaProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiaProductCodes :: Lens.Lens' FpgaImageAttribute (Lude.Maybe [ProductCode])
+fiaProductCodes = Lens.lens (productCodes :: FpgaImageAttribute -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: FpgaImageAttribute)
+{-# DEPRECATED fiaProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | The description of the AFI.
-fiaDescription :: Lens' FpgaImageAttribute (Maybe Text)
-fiaDescription = lens _fiaDescription (\s a -> s {_fiaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiaDescription :: Lens.Lens' FpgaImageAttribute (Lude.Maybe Lude.Text)
+fiaDescription = Lens.lens (description :: FpgaImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: FpgaImageAttribute)
+{-# DEPRECATED fiaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The load permissions.
-fiaLoadPermissions :: Lens' FpgaImageAttribute [LoadPermission]
-fiaLoadPermissions = lens _fiaLoadPermissions (\s a -> s {_fiaLoadPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiaLoadPermissions :: Lens.Lens' FpgaImageAttribute (Lude.Maybe [LoadPermission])
+fiaLoadPermissions = Lens.lens (loadPermissions :: FpgaImageAttribute -> Lude.Maybe [LoadPermission]) (\s a -> s {loadPermissions = a} :: FpgaImageAttribute)
+{-# DEPRECATED fiaLoadPermissions "Use generic-lens or generic-optics with 'loadPermissions' instead." #-}
 
-instance FromXML FpgaImageAttribute where
+instance Lude.FromXML FpgaImageAttribute where
   parseXML x =
     FpgaImageAttribute'
-      <$> (x .@? "fpgaImageId")
-      <*> (x .@? "name")
-      <*> (x .@? "productCodes" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "description")
-      <*> (x .@? "loadPermissions" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable FpgaImageAttribute
-
-instance NFData FpgaImageAttribute
+      Lude.<$> (x Lude..@? "fpgaImageId")
+      Lude.<*> (x Lude..@? "name")
+      Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> ( x Lude..@? "loadPermissions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

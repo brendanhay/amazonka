@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,17 @@
 --
 -- Gets the logging options.
 --
---
 -- NOTE: use of this command is not recommended. Use @GetV2LoggingOptions@ instead.
 module Network.AWS.IoT.GetLoggingOptions
-  ( -- * Creating a Request
-    getLoggingOptions,
-    GetLoggingOptions,
+  ( -- * Creating a request
+    GetLoggingOptions (..),
+    mkGetLoggingOptions,
 
-    -- * Destructuring the Response
-    getLoggingOptionsResponse,
-    GetLoggingOptionsResponse,
+    -- * Destructuring the response
+    GetLoggingOptionsResponse (..),
+    mkGetLoggingOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glorsLogLevel,
     glorsRoleARN,
     glorsResponseStatus,
@@ -38,90 +32,101 @@ module Network.AWS.IoT.GetLoggingOptions
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the GetLoggingOptions operation.
 --
---
---
--- /See:/ 'getLoggingOptions' smart constructor.
+-- /See:/ 'mkGetLoggingOptions' smart constructor.
 data GetLoggingOptions = GetLoggingOptions'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingOptions' with the minimum fields required to make a request.
-getLoggingOptions ::
+mkGetLoggingOptions ::
   GetLoggingOptions
-getLoggingOptions = GetLoggingOptions'
+mkGetLoggingOptions = GetLoggingOptions'
 
-instance AWSRequest GetLoggingOptions where
+instance Lude.AWSRequest GetLoggingOptions where
   type Rs GetLoggingOptions = GetLoggingOptionsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLoggingOptionsResponse'
-            <$> (x .?> "logLevel") <*> (x .?> "roleArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "logLevel")
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLoggingOptions
+instance Lude.ToHeaders GetLoggingOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetLoggingOptions
+instance Lude.ToPath GetLoggingOptions where
+  toPath = Lude.const "/loggingOptions"
 
-instance ToHeaders GetLoggingOptions where
-  toHeaders = const mempty
-
-instance ToPath GetLoggingOptions where
-  toPath = const "/loggingOptions"
-
-instance ToQuery GetLoggingOptions where
-  toQuery = const mempty
+instance Lude.ToQuery GetLoggingOptions where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the GetLoggingOptions operation.
 --
---
---
--- /See:/ 'getLoggingOptionsResponse' smart constructor.
+-- /See:/ 'mkGetLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
-  { _glorsLogLevel ::
-      !(Maybe LogLevel),
-    _glorsRoleARN :: !(Maybe Text),
-    _glorsResponseStatus :: !Int
+  { logLevel ::
+      Lude.Maybe LogLevel,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glorsLogLevel' - The logging level.
---
--- * 'glorsRoleARN' - The ARN of the IAM role that grants access.
---
--- * 'glorsResponseStatus' - -- | The response status code.
-getLoggingOptionsResponse ::
-  -- | 'glorsResponseStatus'
-  Int ->
+-- * 'logLevel' - The logging level.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The ARN of the IAM role that grants access.
+mkGetLoggingOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLoggingOptionsResponse
-getLoggingOptionsResponse pResponseStatus_ =
+mkGetLoggingOptionsResponse pResponseStatus_ =
   GetLoggingOptionsResponse'
-    { _glorsLogLevel = Nothing,
-      _glorsRoleARN = Nothing,
-      _glorsResponseStatus = pResponseStatus_
+    { logLevel = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The logging level.
-glorsLogLevel :: Lens' GetLoggingOptionsResponse (Maybe LogLevel)
-glorsLogLevel = lens _glorsLogLevel (\s a -> s {_glorsLogLevel = a})
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glorsLogLevel :: Lens.Lens' GetLoggingOptionsResponse (Lude.Maybe LogLevel)
+glorsLogLevel = Lens.lens (logLevel :: GetLoggingOptionsResponse -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: GetLoggingOptionsResponse)
+{-# DEPRECATED glorsLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | The ARN of the IAM role that grants access.
-glorsRoleARN :: Lens' GetLoggingOptionsResponse (Maybe Text)
-glorsRoleARN = lens _glorsRoleARN (\s a -> s {_glorsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glorsRoleARN :: Lens.Lens' GetLoggingOptionsResponse (Lude.Maybe Lude.Text)
+glorsRoleARN = Lens.lens (roleARN :: GetLoggingOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: GetLoggingOptionsResponse)
+{-# DEPRECATED glorsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-glorsResponseStatus :: Lens' GetLoggingOptionsResponse Int
-glorsResponseStatus = lens _glorsResponseStatus (\s a -> s {_glorsResponseStatus = a})
-
-instance NFData GetLoggingOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glorsResponseStatus :: Lens.Lens' GetLoggingOptionsResponse Lude.Int
+glorsResponseStatus = Lens.lens (responseStatus :: GetLoggingOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoggingOptionsResponse)
+{-# DEPRECATED glorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

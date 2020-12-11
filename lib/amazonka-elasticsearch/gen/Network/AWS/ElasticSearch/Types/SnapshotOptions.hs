@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.SnapshotOptions where
+module Network.AWS.ElasticSearch.Types.SnapshotOptions
+  ( SnapshotOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSnapshotOptions,
+
+    -- * Lenses
+    soAutomatedSnapshotStartHour,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 --
---
---
--- /See:/ 'snapshotOptions' smart constructor.
+-- /See:/ 'mkSnapshotOptions' smart constructor.
 newtype SnapshotOptions = SnapshotOptions'
-  { _soAutomatedSnapshotStartHour ::
-      Maybe Int
+  { automatedSnapshotStartHour ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'soAutomatedSnapshotStartHour' - Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
-snapshotOptions ::
+-- * 'automatedSnapshotStartHour' - Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
+mkSnapshotOptions ::
   SnapshotOptions
-snapshotOptions =
-  SnapshotOptions' {_soAutomatedSnapshotStartHour = Nothing}
+mkSnapshotOptions =
+  SnapshotOptions' {automatedSnapshotStartHour = Lude.Nothing}
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
-soAutomatedSnapshotStartHour :: Lens' SnapshotOptions (Maybe Int)
-soAutomatedSnapshotStartHour = lens _soAutomatedSnapshotStartHour (\s a -> s {_soAutomatedSnapshotStartHour = a})
+--
+-- /Note:/ Consider using 'automatedSnapshotStartHour' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+soAutomatedSnapshotStartHour :: Lens.Lens' SnapshotOptions (Lude.Maybe Lude.Int)
+soAutomatedSnapshotStartHour = Lens.lens (automatedSnapshotStartHour :: SnapshotOptions -> Lude.Maybe Lude.Int) (\s a -> s {automatedSnapshotStartHour = a} :: SnapshotOptions)
+{-# DEPRECATED soAutomatedSnapshotStartHour "Use generic-lens or generic-optics with 'automatedSnapshotStartHour' instead." #-}
 
-instance FromJSON SnapshotOptions where
+instance Lude.FromJSON SnapshotOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "SnapshotOptions"
-      (\x -> SnapshotOptions' <$> (x .:? "AutomatedSnapshotStartHour"))
+      ( \x ->
+          SnapshotOptions'
+            Lude.<$> (x Lude..:? "AutomatedSnapshotStartHour")
+      )
 
-instance Hashable SnapshotOptions
-
-instance NFData SnapshotOptions
-
-instance ToJSON SnapshotOptions where
+instance Lude.ToJSON SnapshotOptions where
   toJSON SnapshotOptions' {..} =
-    object
-      ( catMaybes
-          [ ("AutomatedSnapshotStartHour" .=)
-              <$> _soAutomatedSnapshotStartHour
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AutomatedSnapshotStartHour" Lude..=)
+              Lude.<$> automatedSnapshotStartHour
           ]
       )

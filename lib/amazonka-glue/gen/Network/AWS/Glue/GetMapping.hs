@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,159 @@
 --
 -- Creates mappings.
 module Network.AWS.Glue.GetMapping
-  ( -- * Creating a Request
-    getMapping,
-    GetMapping,
+  ( -- * Creating a request
+    GetMapping (..),
+    mkGetMapping,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmSinks,
     gmLocation,
     gmSource,
 
-    -- * Destructuring the Response
-    getMappingResponse,
-    GetMappingResponse,
+    -- * Destructuring the response
+    GetMappingResponse (..),
+    mkGetMappingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmrsResponseStatus,
     gmrsMapping,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getMapping' smart constructor.
+-- | /See:/ 'mkGetMapping' smart constructor.
 data GetMapping = GetMapping'
-  { _gmSinks :: !(Maybe [CatalogEntry]),
-    _gmLocation :: !(Maybe Location),
-    _gmSource :: !CatalogEntry
+  { sinks :: Lude.Maybe [CatalogEntry],
+    location :: Lude.Maybe Location,
+    source :: CatalogEntry
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmSinks' - A list of target tables.
---
--- * 'gmLocation' - Parameters for the mapping.
---
--- * 'gmSource' - Specifies the source table.
-getMapping ::
-  -- | 'gmSource'
+-- * 'location' - Parameters for the mapping.
+-- * 'sinks' - A list of target tables.
+-- * 'source' - Specifies the source table.
+mkGetMapping ::
+  -- | 'source'
   CatalogEntry ->
   GetMapping
-getMapping pSource_ =
+mkGetMapping pSource_ =
   GetMapping'
-    { _gmSinks = Nothing,
-      _gmLocation = Nothing,
-      _gmSource = pSource_
+    { sinks = Lude.Nothing,
+      location = Lude.Nothing,
+      source = pSource_
     }
 
 -- | A list of target tables.
-gmSinks :: Lens' GetMapping [CatalogEntry]
-gmSinks = lens _gmSinks (\s a -> s {_gmSinks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSinks :: Lens.Lens' GetMapping (Lude.Maybe [CatalogEntry])
+gmSinks = Lens.lens (sinks :: GetMapping -> Lude.Maybe [CatalogEntry]) (\s a -> s {sinks = a} :: GetMapping)
+{-# DEPRECATED gmSinks "Use generic-lens or generic-optics with 'sinks' instead." #-}
 
 -- | Parameters for the mapping.
-gmLocation :: Lens' GetMapping (Maybe Location)
-gmLocation = lens _gmLocation (\s a -> s {_gmLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmLocation :: Lens.Lens' GetMapping (Lude.Maybe Location)
+gmLocation = Lens.lens (location :: GetMapping -> Lude.Maybe Location) (\s a -> s {location = a} :: GetMapping)
+{-# DEPRECATED gmLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | Specifies the source table.
-gmSource :: Lens' GetMapping CatalogEntry
-gmSource = lens _gmSource (\s a -> s {_gmSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSource :: Lens.Lens' GetMapping CatalogEntry
+gmSource = Lens.lens (source :: GetMapping -> CatalogEntry) (\s a -> s {source = a} :: GetMapping)
+{-# DEPRECATED gmSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance AWSRequest GetMapping where
+instance Lude.AWSRequest GetMapping where
   type Rs GetMapping = GetMappingResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMappingResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "Mapping" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Mapping" Lude..!@ Lude.mempty)
       )
 
-instance Hashable GetMapping
-
-instance NFData GetMapping
-
-instance ToHeaders GetMapping where
+instance Lude.ToHeaders GetMapping where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetMapping" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetMapping" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMapping where
+instance Lude.ToJSON GetMapping where
   toJSON GetMapping' {..} =
-    object
-      ( catMaybes
-          [ ("Sinks" .=) <$> _gmSinks,
-            ("Location" .=) <$> _gmLocation,
-            Just ("Source" .= _gmSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Sinks" Lude..=) Lude.<$> sinks,
+            ("Location" Lude..=) Lude.<$> location,
+            Lude.Just ("Source" Lude..= source)
           ]
       )
 
-instance ToPath GetMapping where
-  toPath = const "/"
+instance Lude.ToPath GetMapping where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMapping where
-  toQuery = const mempty
+instance Lude.ToQuery GetMapping where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMappingResponse' smart constructor.
+-- | /See:/ 'mkGetMappingResponse' smart constructor.
 data GetMappingResponse = GetMappingResponse'
-  { _gmrsResponseStatus ::
-      !Int,
-    _gmrsMapping :: ![MappingEntry]
+  { responseStatus ::
+      Lude.Int,
+    mapping :: [MappingEntry]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMappingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmrsResponseStatus' - -- | The response status code.
---
--- * 'gmrsMapping' - A list of mappings to the specified targets.
-getMappingResponse ::
-  -- | 'gmrsResponseStatus'
-  Int ->
+-- * 'mapping' - A list of mappings to the specified targets.
+-- * 'responseStatus' - The response status code.
+mkGetMappingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMappingResponse
-getMappingResponse pResponseStatus_ =
+mkGetMappingResponse pResponseStatus_ =
   GetMappingResponse'
-    { _gmrsResponseStatus = pResponseStatus_,
-      _gmrsMapping = mempty
+    { responseStatus = pResponseStatus_,
+      mapping = Lude.mempty
     }
 
--- | -- | The response status code.
-gmrsResponseStatus :: Lens' GetMappingResponse Int
-gmrsResponseStatus = lens _gmrsResponseStatus (\s a -> s {_gmrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsResponseStatus :: Lens.Lens' GetMappingResponse Lude.Int
+gmrsResponseStatus = Lens.lens (responseStatus :: GetMappingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMappingResponse)
+{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of mappings to the specified targets.
-gmrsMapping :: Lens' GetMappingResponse [MappingEntry]
-gmrsMapping = lens _gmrsMapping (\s a -> s {_gmrsMapping = a}) . _Coerce
-
-instance NFData GetMappingResponse
+--
+-- /Note:/ Consider using 'mapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsMapping :: Lens.Lens' GetMappingResponse [MappingEntry]
+gmrsMapping = Lens.lens (mapping :: GetMappingResponse -> [MappingEntry]) (\s a -> s {mapping = a} :: GetMappingResponse)
+{-# DEPRECATED gmrsMapping "Use generic-lens or generic-optics with 'mapping' instead." #-}

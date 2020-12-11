@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ActiveContext where
+module Network.AWS.LexRuntime.Types.ActiveContext
+  ( ActiveContext (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkActiveContext,
+
+    -- * Lenses
+    acName,
+    acTimeToLive,
+    acParameters,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A context is a variable that contains information about the current state of the conversation between a user and Amazon Lex. Context can be set automatically by Amazon Lex when an intent is fulfilled, or it can be set at runtime using the @PutContent@ , @PutText@ , or @PutSession@ operation.
 --
---
---
--- /See:/ 'activeContext' smart constructor.
+-- /See:/ 'mkActiveContext' smart constructor.
 data ActiveContext = ActiveContext'
-  { _acName :: !Text,
-    _acTimeToLive :: !ActiveContextTimeToLive,
-    _acParameters :: !(Map Text (Sensitive Text))
+  { name :: Lude.Text,
+    timeToLive :: ActiveContextTimeToLive,
+    parameters :: Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acName' - The name of the context.
---
--- * 'acTimeToLive' - The length of time or number of turns that a context remains active.
---
--- * 'acParameters' - State variables for the current context. You can use these values as default values for slots in subsequent events.
-activeContext ::
-  -- | 'acName'
-  Text ->
-  -- | 'acTimeToLive'
+-- * 'name' - The name of the context.
+-- * 'parameters' - State variables for the current context. You can use these values as default values for slots in subsequent events.
+-- * 'timeToLive' - The length of time or number of turns that a context remains active.
+mkActiveContext ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'timeToLive'
   ActiveContextTimeToLive ->
   ActiveContext
-activeContext pName_ pTimeToLive_ =
+mkActiveContext pName_ pTimeToLive_ =
   ActiveContext'
-    { _acName = pName_,
-      _acTimeToLive = pTimeToLive_,
-      _acParameters = mempty
+    { name = pName_,
+      timeToLive = pTimeToLive_,
+      parameters = Lude.mempty
     }
 
 -- | The name of the context.
-acName :: Lens' ActiveContext Text
-acName = lens _acName (\s a -> s {_acName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acName :: Lens.Lens' ActiveContext Lude.Text
+acName = Lens.lens (name :: ActiveContext -> Lude.Text) (\s a -> s {name = a} :: ActiveContext)
+{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The length of time or number of turns that a context remains active.
-acTimeToLive :: Lens' ActiveContext ActiveContextTimeToLive
-acTimeToLive = lens _acTimeToLive (\s a -> s {_acTimeToLive = a})
+--
+-- /Note:/ Consider using 'timeToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acTimeToLive :: Lens.Lens' ActiveContext ActiveContextTimeToLive
+acTimeToLive = Lens.lens (timeToLive :: ActiveContext -> ActiveContextTimeToLive) (\s a -> s {timeToLive = a} :: ActiveContext)
+{-# DEPRECATED acTimeToLive "Use generic-lens or generic-optics with 'timeToLive' instead." #-}
 
 -- | State variables for the current context. You can use these values as default values for slots in subsequent events.
-acParameters :: Lens' ActiveContext (HashMap Text (Text))
-acParameters = lens _acParameters (\s a -> s {_acParameters = a}) . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acParameters :: Lens.Lens' ActiveContext (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))
+acParameters = Lens.lens (parameters :: ActiveContext -> Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)) (\s a -> s {parameters = a} :: ActiveContext)
+{-# DEPRECATED acParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance FromJSON ActiveContext where
+instance Lude.FromJSON ActiveContext where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActiveContext"
       ( \x ->
           ActiveContext'
-            <$> (x .: "name")
-            <*> (x .: "timeToLive")
-            <*> (x .:? "parameters" .!= mempty)
+            Lude.<$> (x Lude..: "name")
+            Lude.<*> (x Lude..: "timeToLive")
+            Lude.<*> (x Lude..:? "parameters" Lude..!= Lude.mempty)
       )
 
-instance Hashable ActiveContext
-
-instance NFData ActiveContext
-
-instance ToJSON ActiveContext where
+instance Lude.ToJSON ActiveContext where
   toJSON ActiveContext' {..} =
-    object
-      ( catMaybes
-          [ Just ("name" .= _acName),
-            Just ("timeToLive" .= _acTimeToLive),
-            Just ("parameters" .= _acParameters)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("timeToLive" Lude..= timeToLive),
+            Lude.Just ("parameters" Lude..= parameters)
           ]
       )

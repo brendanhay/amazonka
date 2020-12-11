@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,141 @@
 --
 -- Gets a description for one or more Network File System (NFS) file shares from a file gateway. This operation is only supported for file gateways.
 module Network.AWS.StorageGateway.DescribeNFSFileShares
-  ( -- * Creating a Request
-    describeNFSFileShares,
-    DescribeNFSFileShares,
+  ( -- * Creating a request
+    DescribeNFSFileShares (..),
+    mkDescribeNFSFileShares,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnfsfsFileShareARNList,
 
-    -- * Destructuring the Response
-    describeNFSFileSharesResponse,
-    DescribeNFSFileSharesResponse,
+    -- * Destructuring the response
+    DescribeNFSFileSharesResponse (..),
+    mkDescribeNFSFileSharesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnfsfsrsNFSFileShareInfoList,
     dnfsfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | DescribeNFSFileSharesInput
 --
---
---
--- /See:/ 'describeNFSFileShares' smart constructor.
+-- /See:/ 'mkDescribeNFSFileShares' smart constructor.
 newtype DescribeNFSFileShares = DescribeNFSFileShares'
-  { _dnfsfsFileShareARNList ::
-      List1 Text
+  { fileShareARNList ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNFSFileShares' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfsfsFileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to be described.
-describeNFSFileShares ::
-  -- | 'dnfsfsFileShareARNList'
-  NonEmpty Text ->
+-- * 'fileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to be described.
+mkDescribeNFSFileShares ::
+  -- | 'fileShareARNList'
+  Lude.NonEmpty Lude.Text ->
   DescribeNFSFileShares
-describeNFSFileShares pFileShareARNList_ =
-  DescribeNFSFileShares'
-    { _dnfsfsFileShareARNList =
-        _List1 # pFileShareARNList_
-    }
+mkDescribeNFSFileShares pFileShareARNList_ =
+  DescribeNFSFileShares' {fileShareARNList = pFileShareARNList_}
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
-dnfsfsFileShareARNList :: Lens' DescribeNFSFileShares (NonEmpty Text)
-dnfsfsFileShareARNList = lens _dnfsfsFileShareARNList (\s a -> s {_dnfsfsFileShareARNList = a}) . _List1
+--
+-- /Note:/ Consider using 'fileShareARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfsfsFileShareARNList :: Lens.Lens' DescribeNFSFileShares (Lude.NonEmpty Lude.Text)
+dnfsfsFileShareARNList = Lens.lens (fileShareARNList :: DescribeNFSFileShares -> Lude.NonEmpty Lude.Text) (\s a -> s {fileShareARNList = a} :: DescribeNFSFileShares)
+{-# DEPRECATED dnfsfsFileShareARNList "Use generic-lens or generic-optics with 'fileShareARNList' instead." #-}
 
-instance AWSRequest DescribeNFSFileShares where
+instance Lude.AWSRequest DescribeNFSFileShares where
   type Rs DescribeNFSFileShares = DescribeNFSFileSharesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeNFSFileSharesResponse'
-            <$> (x .?> "NFSFileShareInfoList" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NFSFileShareInfoList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNFSFileShares
-
-instance NFData DescribeNFSFileShares
-
-instance ToHeaders DescribeNFSFileShares where
+instance Lude.ToHeaders DescribeNFSFileShares where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DescribeNFSFileShares" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeNFSFileShares" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeNFSFileShares where
+instance Lude.ToJSON DescribeNFSFileShares where
   toJSON DescribeNFSFileShares' {..} =
-    object
-      (catMaybes [Just ("FileShareARNList" .= _dnfsfsFileShareARNList)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("FileShareARNList" Lude..= fileShareARNList)]
+      )
 
-instance ToPath DescribeNFSFileShares where
-  toPath = const "/"
+instance Lude.ToPath DescribeNFSFileShares where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeNFSFileShares where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeNFSFileShares where
+  toQuery = Lude.const Lude.mempty
 
 -- | DescribeNFSFileSharesOutput
 --
---
---
--- /See:/ 'describeNFSFileSharesResponse' smart constructor.
+-- /See:/ 'mkDescribeNFSFileSharesResponse' smart constructor.
 data DescribeNFSFileSharesResponse = DescribeNFSFileSharesResponse'
-  { _dnfsfsrsNFSFileShareInfoList ::
-      !(Maybe [NFSFileShareInfo]),
-    _dnfsfsrsResponseStatus :: !Int
+  { nFSFileShareInfoList ::
+      Lude.Maybe [NFSFileShareInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNFSFileSharesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfsfsrsNFSFileShareInfoList' - An array containing a description for each requested file share.
---
--- * 'dnfsfsrsResponseStatus' - -- | The response status code.
-describeNFSFileSharesResponse ::
-  -- | 'dnfsfsrsResponseStatus'
-  Int ->
+-- * 'nFSFileShareInfoList' - An array containing a description for each requested file share.
+-- * 'responseStatus' - The response status code.
+mkDescribeNFSFileSharesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNFSFileSharesResponse
-describeNFSFileSharesResponse pResponseStatus_ =
+mkDescribeNFSFileSharesResponse pResponseStatus_ =
   DescribeNFSFileSharesResponse'
-    { _dnfsfsrsNFSFileShareInfoList =
-        Nothing,
-      _dnfsfsrsResponseStatus = pResponseStatus_
+    { nFSFileShareInfoList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array containing a description for each requested file share.
-dnfsfsrsNFSFileShareInfoList :: Lens' DescribeNFSFileSharesResponse [NFSFileShareInfo]
-dnfsfsrsNFSFileShareInfoList = lens _dnfsfsrsNFSFileShareInfoList (\s a -> s {_dnfsfsrsNFSFileShareInfoList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nFSFileShareInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfsfsrsNFSFileShareInfoList :: Lens.Lens' DescribeNFSFileSharesResponse (Lude.Maybe [NFSFileShareInfo])
+dnfsfsrsNFSFileShareInfoList = Lens.lens (nFSFileShareInfoList :: DescribeNFSFileSharesResponse -> Lude.Maybe [NFSFileShareInfo]) (\s a -> s {nFSFileShareInfoList = a} :: DescribeNFSFileSharesResponse)
+{-# DEPRECATED dnfsfsrsNFSFileShareInfoList "Use generic-lens or generic-optics with 'nFSFileShareInfoList' instead." #-}
 
--- | -- | The response status code.
-dnfsfsrsResponseStatus :: Lens' DescribeNFSFileSharesResponse Int
-dnfsfsrsResponseStatus = lens _dnfsfsrsResponseStatus (\s a -> s {_dnfsfsrsResponseStatus = a})
-
-instance NFData DescribeNFSFileSharesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfsfsrsResponseStatus :: Lens.Lens' DescribeNFSFileSharesResponse Lude.Int
+dnfsfsrsResponseStatus = Lens.lens (responseStatus :: DescribeNFSFileSharesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNFSFileSharesResponse)
+{-# DEPRECATED dnfsfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

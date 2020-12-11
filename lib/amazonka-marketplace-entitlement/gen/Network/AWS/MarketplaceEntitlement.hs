@@ -14,15 +14,13 @@
 -- __AWS Marketplace Entitlement Service__
 --
 -- This reference provides descriptions of the AWS Marketplace Entitlement Service API.
---
 -- AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to a given product. An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.
---
 -- __Getting Entitlement Records__
 --
 --     * /GetEntitlements/ - Gets the entitlements for a Marketplace product.
 module Network.AWS.MarketplaceEntitlement
-  ( -- * Service Configuration
-    marketplaceEntitlement,
+  ( -- * Service configuration
+    marketplaceEntitlementService,
 
     -- * Errors
     -- $errors
@@ -42,8 +40,8 @@ module Network.AWS.MarketplaceEntitlement
     GetEntitlementFilterName (..),
 
     -- ** Entitlement
-    Entitlement,
-    entitlement,
+    Entitlement (..),
+    mkEntitlement,
     eDimension,
     eValue,
     eExpirationDate,
@@ -51,18 +49,30 @@ module Network.AWS.MarketplaceEntitlement
     eProductCode,
 
     -- ** EntitlementValue
-    EntitlementValue,
-    entitlementValue,
+    EntitlementValue (..),
+    mkEntitlementValue,
     evIntegerValue,
     evDoubleValue,
     evStringValue,
     evBooleanValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
 import Network.AWS.MarketplaceEntitlement.GetEntitlements
 import Network.AWS.MarketplaceEntitlement.Types
 import Network.AWS.MarketplaceEntitlement.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

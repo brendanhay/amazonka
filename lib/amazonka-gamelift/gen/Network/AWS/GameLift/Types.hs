@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types
-  ( -- * Service Configuration
-    gameLift,
+  ( -- * Service configuration
+    gameLiftService,
 
     -- * Errors
 
@@ -127,15 +125,15 @@ module Network.AWS.GameLift.Types
     SortOrder (..),
 
     -- * AWSCredentials
-    AWSCredentials,
-    awsCredentials,
+    AWSCredentials (..),
+    mkAWSCredentials,
     acSecretAccessKey,
     acSessionToken,
     acAccessKeyId,
 
     -- * Alias
-    Alias,
-    alias,
+    Alias (..),
+    mkAlias,
     aCreationTime,
     aLastUpdatedTime,
     aAliasId,
@@ -145,16 +143,16 @@ module Network.AWS.GameLift.Types
     aDescription,
 
     -- * AttributeValue
-    AttributeValue,
-    attributeValue,
+    AttributeValue (..),
+    mkAttributeValue,
     avSL,
     avSDM,
     avN,
     avS,
 
     -- * Build
-    Build,
-    build,
+    Build (..),
+    mkBuild,
     bCreationTime,
     bStatus,
     bOperatingSystem,
@@ -165,19 +163,19 @@ module Network.AWS.GameLift.Types
     bSizeOnDisk,
 
     -- * CertificateConfiguration
-    CertificateConfiguration,
-    certificateConfiguration,
+    CertificateConfiguration (..),
+    mkCertificateConfiguration,
     ccCertificateType,
 
     -- * DesiredPlayerSession
-    DesiredPlayerSession,
-    desiredPlayerSession,
+    DesiredPlayerSession (..),
+    mkDesiredPlayerSession,
     dpsPlayerData,
     dpsPlayerId,
 
     -- * EC2InstanceCounts
-    EC2InstanceCounts,
-    ec2InstanceCounts,
+    EC2InstanceCounts (..),
+    mkEC2InstanceCounts,
     eicIdLE,
     eicTERMINATING,
     eicPENDING,
@@ -187,15 +185,15 @@ module Network.AWS.GameLift.Types
     eicACTIVE,
 
     -- * EC2InstanceLimit
-    EC2InstanceLimit,
-    ec2InstanceLimit,
+    EC2InstanceLimit (..),
+    mkEC2InstanceLimit,
     eilEC2InstanceType,
     eilCurrentInstances,
     eilInstanceLimit,
 
     -- * Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eResourceId,
     ePreSignedLogURL,
     eEventTime,
@@ -204,8 +202,8 @@ module Network.AWS.GameLift.Types
     eEventId,
 
     -- * FleetAttributes
-    FleetAttributes,
-    fleetAttributes,
+    FleetAttributes (..),
+    mkFleetAttributes,
     faCreationTime,
     faStatus,
     faServerLaunchParameters,
@@ -231,15 +229,15 @@ module Network.AWS.GameLift.Types
     faResourceCreationLimitPolicy,
 
     -- * FleetCapacity
-    FleetCapacity,
-    fleetCapacity,
+    FleetCapacity (..),
+    mkFleetCapacity,
     fcInstanceType,
     fcFleetId,
     fcInstanceCounts,
 
     -- * FleetUtilization
-    FleetUtilization,
-    fleetUtilization,
+    FleetUtilization (..),
+    mkFleetUtilization,
     fuActiveGameSessionCount,
     fuMaximumPlayerSessionCount,
     fuCurrentPlayerSessionCount,
@@ -247,14 +245,14 @@ module Network.AWS.GameLift.Types
     fuActiveServerProcessCount,
 
     -- * GameProperty
-    GameProperty,
-    gameProperty,
+    GameProperty (..),
+    mkGameProperty,
     gpKey,
     gpValue,
 
     -- * GameServer
-    GameServer,
-    gameServer,
+    GameServer (..),
+    mkGameServer,
     gsInstanceId,
     gsLastClaimTime,
     gsGameServerGroupName,
@@ -268,8 +266,8 @@ module Network.AWS.GameLift.Types
     gsGameServerGroupARN,
 
     -- * GameServerGroup
-    GameServerGroup,
-    gameServerGroup,
+    GameServerGroup (..),
+    mkGameServerGroup,
     gsgCreationTime,
     gsgStatus,
     gsgInstanceDefinitions,
@@ -284,22 +282,22 @@ module Network.AWS.GameLift.Types
     gsgRoleARN,
 
     -- * GameServerGroupAutoScalingPolicy
-    GameServerGroupAutoScalingPolicy,
-    gameServerGroupAutoScalingPolicy,
+    GameServerGroupAutoScalingPolicy (..),
+    mkGameServerGroupAutoScalingPolicy,
     gsgaspEstimatedInstanceWarmup,
     gsgaspTargetTrackingConfiguration,
 
     -- * GameServerInstance
-    GameServerInstance,
-    gameServerInstance,
+    GameServerInstance (..),
+    mkGameServerInstance,
     gsiInstanceId,
     gsiGameServerGroupName,
     gsiInstanceStatus,
     gsiGameServerGroupARN,
 
     -- * GameSession
-    GameSession,
-    gameSession,
+    GameSession (..),
+    mkGameSession,
     gsCreationTime,
     gsStatus,
     gsGameProperties,
@@ -320,8 +318,8 @@ module Network.AWS.GameLift.Types
     gsPort,
 
     -- * GameSessionConnectionInfo
-    GameSessionConnectionInfo,
-    gameSessionConnectionInfo,
+    GameSessionConnectionInfo (..),
+    mkGameSessionConnectionInfo,
     gsciMatchedPlayerSessions,
     gsciIPAddress,
     gsciGameSessionARN,
@@ -329,14 +327,14 @@ module Network.AWS.GameLift.Types
     gsciPort,
 
     -- * GameSessionDetail
-    GameSessionDetail,
-    gameSessionDetail,
+    GameSessionDetail (..),
+    mkGameSessionDetail,
     gsdGameSession,
     gsdProtectionPolicy,
 
     -- * GameSessionPlacement
-    GameSessionPlacement,
-    gameSessionPlacement,
+    GameSessionPlacement (..),
+    mkGameSessionPlacement,
     gspStatus,
     gspPlacementId,
     gspGameProperties,
@@ -357,8 +355,8 @@ module Network.AWS.GameLift.Types
     gspPort,
 
     -- * GameSessionQueue
-    GameSessionQueue,
-    gameSessionQueue,
+    GameSessionQueue (..),
+    mkGameSessionQueue,
     gsqGameSessionQueueARN,
     gsqPlayerLatencyPolicies,
     gsqTimeoutInSeconds,
@@ -366,21 +364,21 @@ module Network.AWS.GameLift.Types
     gsqName,
 
     -- * GameSessionQueueDestination
-    GameSessionQueueDestination,
-    gameSessionQueueDestination,
+    GameSessionQueueDestination (..),
+    mkGameSessionQueueDestination,
     gsqdDestinationARN,
 
     -- * IPPermission
-    IPPermission,
-    ipPermission,
+    IPPermission (..),
+    mkIPPermission,
     ipFromPort,
     ipToPort,
     ipIPRange,
     ipProtocol,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iCreationTime,
     iInstanceId,
     iStatus,
@@ -391,8 +389,8 @@ module Network.AWS.GameLift.Types
     iDNSName,
 
     -- * InstanceAccess
-    InstanceAccess,
-    instanceAccess,
+    InstanceAccess (..),
+    mkInstanceAccess,
     iaInstanceId,
     iaIPAddress,
     iaOperatingSystem,
@@ -400,33 +398,33 @@ module Network.AWS.GameLift.Types
     iaFleetId,
 
     -- * InstanceCredentials
-    InstanceCredentials,
-    instanceCredentials,
+    InstanceCredentials (..),
+    mkInstanceCredentials,
     icUserName,
     icSecret,
 
     -- * InstanceDefinition
-    InstanceDefinition,
-    instanceDefinition,
+    InstanceDefinition (..),
+    mkInstanceDefinition,
     idWeightedCapacity,
     idInstanceType,
 
     -- * LaunchTemplateSpecification
-    LaunchTemplateSpecification,
-    launchTemplateSpecification,
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
     ltsLaunchTemplateName,
     ltsLaunchTemplateId,
     ltsVersion,
 
     -- * MatchedPlayerSession
-    MatchedPlayerSession,
-    matchedPlayerSession,
+    MatchedPlayerSession (..),
+    mkMatchedPlayerSession,
     mpsPlayerSessionId,
     mpsPlayerId,
 
     -- * MatchmakingConfiguration
-    MatchmakingConfiguration,
-    matchmakingConfiguration,
+    MatchmakingConfiguration (..),
+    mkMatchmakingConfiguration,
     mcCreationTime,
     mcBackfillMode,
     mcGameProperties,
@@ -446,16 +444,16 @@ module Network.AWS.GameLift.Types
     mcRuleSetARN,
 
     -- * MatchmakingRuleSet
-    MatchmakingRuleSet,
-    matchmakingRuleSet,
+    MatchmakingRuleSet (..),
+    mkMatchmakingRuleSet,
     mrsCreationTime,
     mrsRuleSetName,
     mrsRuleSetARN,
     mrsRuleSetBody,
 
     -- * MatchmakingTicket
-    MatchmakingTicket,
-    matchmakingTicket,
+    MatchmakingTicket (..),
+    mkMatchmakingTicket,
     mtStatus,
     mtConfigurationName,
     mtStartTime,
@@ -469,35 +467,35 @@ module Network.AWS.GameLift.Types
     mtPlayers,
 
     -- * PlacedPlayerSession
-    PlacedPlayerSession,
-    placedPlayerSession,
+    PlacedPlayerSession (..),
+    mkPlacedPlayerSession,
     ppsPlayerSessionId,
     ppsPlayerId,
 
     -- * Player
-    Player,
-    player,
+    Player (..),
+    mkPlayer,
     pPlayerAttributes,
     pTeam,
     pPlayerId,
     pLatencyInMs,
 
     -- * PlayerLatency
-    PlayerLatency,
-    playerLatency,
+    PlayerLatency (..),
+    mkPlayerLatency,
     plLatencyInMilliseconds,
     plRegionIdentifier,
     plPlayerId,
 
     -- * PlayerLatencyPolicy
-    PlayerLatencyPolicy,
-    playerLatencyPolicy,
+    PlayerLatencyPolicy (..),
+    mkPlayerLatencyPolicy,
     plpPolicyDurationSeconds,
     plpMaximumIndividualPlayerLatencyMilliseconds,
 
     -- * PlayerSession
-    PlayerSession,
-    playerSession,
+    PlayerSession (..),
+    mkPlayerSession,
     psCreationTime,
     psStatus,
     psIPAddress,
@@ -512,36 +510,36 @@ module Network.AWS.GameLift.Types
     psPort,
 
     -- * ResourceCreationLimitPolicy
-    ResourceCreationLimitPolicy,
-    resourceCreationLimitPolicy,
+    ResourceCreationLimitPolicy (..),
+    mkResourceCreationLimitPolicy,
     rclpNewGameSessionsPerCreator,
     rclpPolicyPeriodInMinutes,
 
     -- * RoutingStrategy
-    RoutingStrategy,
-    routingStrategy,
+    RoutingStrategy (..),
+    mkRoutingStrategy,
     rsType,
     rsMessage,
     rsFleetId,
 
     -- * RuntimeConfiguration
-    RuntimeConfiguration,
-    runtimeConfiguration,
+    RuntimeConfiguration (..),
+    mkRuntimeConfiguration,
     rcGameSessionActivationTimeoutSeconds,
     rcServerProcesses,
     rcMaxConcurrentGameSessionActivations,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
     slObjectVersion,
     slRoleARN,
 
     -- * ScalingPolicy
-    ScalingPolicy,
-    scalingPolicy,
+    ScalingPolicy (..),
+    mkScalingPolicy,
     spStatus,
     spScalingAdjustmentType,
     spEvaluationPeriods,
@@ -555,8 +553,8 @@ module Network.AWS.GameLift.Types
     spTargetConfiguration,
 
     -- * Script
-    Script,
-    script,
+    Script (..),
+    mkScript,
     sCreationTime,
     sStorageLocation,
     sName,
@@ -566,31 +564,31 @@ module Network.AWS.GameLift.Types
     sSizeOnDisk,
 
     -- * ServerProcess
-    ServerProcess,
-    serverProcess,
+    ServerProcess (..),
+    mkServerProcess,
     spParameters,
     spLaunchPath,
     spConcurrentExecutions,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TargetConfiguration
-    TargetConfiguration,
-    targetConfiguration,
+    TargetConfiguration (..),
+    mkTargetConfiguration,
     tcTargetValue,
 
     -- * TargetTrackingConfiguration
-    TargetTrackingConfiguration,
-    targetTrackingConfiguration,
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
     ttcTargetValue,
 
     -- * VPCPeeringAuthorization
-    VPCPeeringAuthorization,
-    vpcPeeringAuthorization,
+    VPCPeeringAuthorization (..),
+    mkVPCPeeringAuthorization,
     vpaCreationTime,
     vpaPeerVPCId,
     vpaPeerVPCAWSAccountId,
@@ -598,8 +596,8 @@ module Network.AWS.GameLift.Types
     vpaExpirationTime,
 
     -- * VPCPeeringConnection
-    VPCPeeringConnection,
-    vpcPeeringConnection,
+    VPCPeeringConnection (..),
+    mkVPCPeeringConnection,
     vpcVPCPeeringConnectionId,
     vpcStatus,
     vpcPeerVPCId,
@@ -609,8 +607,8 @@ module Network.AWS.GameLift.Types
     vpcFleetId,
 
     -- * VPCPeeringConnectionStatus
-    VPCPeeringConnectionStatus,
-    vpcPeeringConnectionStatus,
+    VPCPeeringConnectionStatus (..),
+    mkVPCPeeringConnectionStatus,
     vpcsCode,
     vpcsMessage,
   )
@@ -704,48 +702,60 @@ import Network.AWS.GameLift.Types.TargetTrackingConfiguration
 import Network.AWS.GameLift.Types.VPCPeeringAuthorization
 import Network.AWS.GameLift.Types.VPCPeeringConnection
 import Network.AWS.GameLift.Types.VPCPeeringConnectionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-10-01@ of the Amazon GameLift SDK configuration.
-gameLift :: Service
-gameLift =
-  Service
-    { _svcAbbrev = "GameLift",
-      _svcSigner = v4,
-      _svcPrefix = "gamelift",
-      _svcVersion = "2015-10-01",
-      _svcEndpoint = defaultEndpoint gameLift,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "GameLift",
-      _svcRetry = retry
+gameLiftService :: Lude.Service
+gameLiftService =
+  Lude.Service
+    { Lude._svcAbbrev = "GameLift",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "gamelift",
+      Lude._svcVersion = "2015-10-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint gameLiftService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "GameLift",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

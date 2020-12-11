@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Retrieves information about a high-availability partition group.
 module Network.AWS.CloudHSM.DescribeHAPG
-  ( -- * Creating a Request
-    describeHAPG,
-    DescribeHAPG,
+  ( -- * Creating a request
+    DescribeHAPG (..),
+    mkDescribeHAPG,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhapgHAPGARN,
 
-    -- * Destructuring the Response
-    describeHAPGResponse,
-    DescribeHAPGResponse,
+    -- * Destructuring the response
+    DescribeHAPGResponse (..),
+    mkDescribeHAPGResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhapgrsState,
     dhapgrsLastModifiedTimestamp,
     dhapgrsHSMsPendingRegistration,
@@ -50,177 +43,202 @@ module Network.AWS.CloudHSM.DescribeHAPG
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'DescribeHapg' action.
 --
---
---
--- /See:/ 'describeHAPG' smart constructor.
-newtype DescribeHAPG = DescribeHAPG' {_dhapgHAPGARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeHAPG' smart constructor.
+newtype DescribeHAPG = DescribeHAPG' {hapgARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHAPG' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhapgHAPGARN' - The ARN of the high-availability partition group to describe.
-describeHAPG ::
-  -- | 'dhapgHAPGARN'
-  Text ->
+-- * 'hapgARN' - The ARN of the high-availability partition group to describe.
+mkDescribeHAPG ::
+  -- | 'hapgARN'
+  Lude.Text ->
   DescribeHAPG
-describeHAPG pHAPGARN_ = DescribeHAPG' {_dhapgHAPGARN = pHAPGARN_}
+mkDescribeHAPG pHAPGARN_ = DescribeHAPG' {hapgARN = pHAPGARN_}
 
 -- | The ARN of the high-availability partition group to describe.
-dhapgHAPGARN :: Lens' DescribeHAPG Text
-dhapgHAPGARN = lens _dhapgHAPGARN (\s a -> s {_dhapgHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgHAPGARN :: Lens.Lens' DescribeHAPG Lude.Text
+dhapgHAPGARN = Lens.lens (hapgARN :: DescribeHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DescribeHAPG)
+{-# DEPRECATED dhapgHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
-instance AWSRequest DescribeHAPG where
+instance Lude.AWSRequest DescribeHAPG where
   type Rs DescribeHAPG = DescribeHAPGResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeHAPGResponse'
-            <$> (x .?> "State")
-            <*> (x .?> "LastModifiedTimestamp")
-            <*> (x .?> "HsmsPendingRegistration" .!@ mempty)
-            <*> (x .?> "HsmsPendingDeletion" .!@ mempty)
-            <*> (x .?> "HapgSerial")
-            <*> (x .?> "HsmsLastActionFailed" .!@ mempty)
-            <*> (x .?> "PartitionSerialList" .!@ mempty)
-            <*> (x .?> "HapgArn")
-            <*> (x .?> "Label")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "LastModifiedTimestamp")
+            Lude.<*> (x Lude..?> "HsmsPendingRegistration" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "HsmsPendingDeletion" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "HapgSerial")
+            Lude.<*> (x Lude..?> "HsmsLastActionFailed" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "PartitionSerialList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "HapgArn")
+            Lude.<*> (x Lude..?> "Label")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeHAPG
-
-instance NFData DescribeHAPG
-
-instance ToHeaders DescribeHAPG where
+instance Lude.ToHeaders DescribeHAPG where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.DescribeHapg" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.DescribeHapg" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeHAPG where
+instance Lude.ToJSON DescribeHAPG where
   toJSON DescribeHAPG' {..} =
-    object (catMaybes [Just ("HapgArn" .= _dhapgHAPGARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("HapgArn" Lude..= hapgARN)])
 
-instance ToPath DescribeHAPG where
-  toPath = const "/"
+instance Lude.ToPath DescribeHAPG where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeHAPG where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeHAPG where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of the 'DescribeHapg' action.
 --
---
---
--- /See:/ 'describeHAPGResponse' smart constructor.
+-- /See:/ 'mkDescribeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'
-  { _dhapgrsState ::
-      !(Maybe CloudHSMObjectState),
-    _dhapgrsLastModifiedTimestamp :: !(Maybe Text),
-    _dhapgrsHSMsPendingRegistration ::
-      !(Maybe [Text]),
-    _dhapgrsHSMsPendingDeletion :: !(Maybe [Text]),
-    _dhapgrsHAPGSerial :: !(Maybe Text),
-    _dhapgrsHSMsLastActionFailed :: !(Maybe [Text]),
-    _dhapgrsPartitionSerialList :: !(Maybe [Text]),
-    _dhapgrsHAPGARN :: !(Maybe Text),
-    _dhapgrsLabel :: !(Maybe Text),
-    _dhapgrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe CloudHSMObjectState,
+    lastModifiedTimestamp :: Lude.Maybe Lude.Text,
+    hsmsPendingRegistration :: Lude.Maybe [Lude.Text],
+    hsmsPendingDeletion :: Lude.Maybe [Lude.Text],
+    hapgSerial :: Lude.Maybe Lude.Text,
+    hsmsLastActionFailed :: Lude.Maybe [Lude.Text],
+    partitionSerialList :: Lude.Maybe [Lude.Text],
+    hapgARN :: Lude.Maybe Lude.Text,
+    label :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHAPGResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhapgrsState' - The state of the high-availability partition group.
---
--- * 'dhapgrsLastModifiedTimestamp' - The date and time the high-availability partition group was last modified.
---
--- * 'dhapgrsHSMsPendingRegistration' -
---
--- * 'dhapgrsHSMsPendingDeletion' -
---
--- * 'dhapgrsHAPGSerial' - The serial number of the high-availability partition group.
---
--- * 'dhapgrsHSMsLastActionFailed' -
---
--- * 'dhapgrsPartitionSerialList' - The list of partition serial numbers that belong to the high-availability partition group.
---
--- * 'dhapgrsHAPGARN' - The ARN of the high-availability partition group.
---
--- * 'dhapgrsLabel' - The label for the high-availability partition group.
---
--- * 'dhapgrsResponseStatus' - -- | The response status code.
-describeHAPGResponse ::
-  -- | 'dhapgrsResponseStatus'
-  Int ->
+-- * 'hapgARN' - The ARN of the high-availability partition group.
+-- * 'hapgSerial' - The serial number of the high-availability partition group.
+-- * 'hsmsLastActionFailed' -
+-- * 'hsmsPendingDeletion' -
+-- * 'hsmsPendingRegistration' -
+-- * 'label' - The label for the high-availability partition group.
+-- * 'lastModifiedTimestamp' - The date and time the high-availability partition group was last modified.
+-- * 'partitionSerialList' - The list of partition serial numbers that belong to the high-availability partition group.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of the high-availability partition group.
+mkDescribeHAPGResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeHAPGResponse
-describeHAPGResponse pResponseStatus_ =
+mkDescribeHAPGResponse pResponseStatus_ =
   DescribeHAPGResponse'
-    { _dhapgrsState = Nothing,
-      _dhapgrsLastModifiedTimestamp = Nothing,
-      _dhapgrsHSMsPendingRegistration = Nothing,
-      _dhapgrsHSMsPendingDeletion = Nothing,
-      _dhapgrsHAPGSerial = Nothing,
-      _dhapgrsHSMsLastActionFailed = Nothing,
-      _dhapgrsPartitionSerialList = Nothing,
-      _dhapgrsHAPGARN = Nothing,
-      _dhapgrsLabel = Nothing,
-      _dhapgrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      lastModifiedTimestamp = Lude.Nothing,
+      hsmsPendingRegistration = Lude.Nothing,
+      hsmsPendingDeletion = Lude.Nothing,
+      hapgSerial = Lude.Nothing,
+      hsmsLastActionFailed = Lude.Nothing,
+      partitionSerialList = Lude.Nothing,
+      hapgARN = Lude.Nothing,
+      label = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The state of the high-availability partition group.
-dhapgrsState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
-dhapgrsState = lens _dhapgrsState (\s a -> s {_dhapgrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsState :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe CloudHSMObjectState)
+dhapgrsState = Lens.lens (state :: DescribeHAPGResponse -> Lude.Maybe CloudHSMObjectState) (\s a -> s {state = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The date and time the high-availability partition group was last modified.
-dhapgrsLastModifiedTimestamp :: Lens' DescribeHAPGResponse (Maybe Text)
-dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\s a -> s {_dhapgrsLastModifiedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsLastModifiedTimestamp :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe Lude.Text)
+dhapgrsLastModifiedTimestamp = Lens.lens (lastModifiedTimestamp :: DescribeHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedTimestamp = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
 
 -- |
-dhapgrsHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\s a -> s {_dhapgrsHSMsPendingRegistration = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hsmsPendingRegistration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsHSMsPendingRegistration :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe [Lude.Text])
+dhapgrsHSMsPendingRegistration = Lens.lens (hsmsPendingRegistration :: DescribeHAPGResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {hsmsPendingRegistration = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsHSMsPendingRegistration "Use generic-lens or generic-optics with 'hsmsPendingRegistration' instead." #-}
 
 -- |
-dhapgrsHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\s a -> s {_dhapgrsHSMsPendingDeletion = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hsmsPendingDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsHSMsPendingDeletion :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe [Lude.Text])
+dhapgrsHSMsPendingDeletion = Lens.lens (hsmsPendingDeletion :: DescribeHAPGResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {hsmsPendingDeletion = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsHSMsPendingDeletion "Use generic-lens or generic-optics with 'hsmsPendingDeletion' instead." #-}
 
 -- | The serial number of the high-availability partition group.
-dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
-dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\s a -> s {_dhapgrsHAPGSerial = a})
+--
+-- /Note:/ Consider using 'hapgSerial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsHAPGSerial :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe Lude.Text)
+dhapgrsHAPGSerial = Lens.lens (hapgSerial :: DescribeHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgSerial = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsHAPGSerial "Use generic-lens or generic-optics with 'hapgSerial' instead." #-}
 
 -- |
-dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\s a -> s {_dhapgrsHSMsLastActionFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hsmsLastActionFailed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsHSMsLastActionFailed :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe [Lude.Text])
+dhapgrsHSMsLastActionFailed = Lens.lens (hsmsLastActionFailed :: DescribeHAPGResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {hsmsLastActionFailed = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsHSMsLastActionFailed "Use generic-lens or generic-optics with 'hsmsLastActionFailed' instead." #-}
 
 -- | The list of partition serial numbers that belong to the high-availability partition group.
-dhapgrsPartitionSerialList :: Lens' DescribeHAPGResponse [Text]
-dhapgrsPartitionSerialList = lens _dhapgrsPartitionSerialList (\s a -> s {_dhapgrsPartitionSerialList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionSerialList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsPartitionSerialList :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe [Lude.Text])
+dhapgrsPartitionSerialList = Lens.lens (partitionSerialList :: DescribeHAPGResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {partitionSerialList = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsPartitionSerialList "Use generic-lens or generic-optics with 'partitionSerialList' instead." #-}
 
 -- | The ARN of the high-availability partition group.
-dhapgrsHAPGARN :: Lens' DescribeHAPGResponse (Maybe Text)
-dhapgrsHAPGARN = lens _dhapgrsHAPGARN (\s a -> s {_dhapgrsHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsHAPGARN :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe Lude.Text)
+dhapgrsHAPGARN = Lens.lens (hapgARN :: DescribeHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgARN = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
 -- | The label for the high-availability partition group.
-dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
-dhapgrsLabel = lens _dhapgrsLabel (\s a -> s {_dhapgrsLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsLabel :: Lens.Lens' DescribeHAPGResponse (Lude.Maybe Lude.Text)
+dhapgrsLabel = Lens.lens (label :: DescribeHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
--- | -- | The response status code.
-dhapgrsResponseStatus :: Lens' DescribeHAPGResponse Int
-dhapgrsResponseStatus = lens _dhapgrsResponseStatus (\s a -> s {_dhapgrsResponseStatus = a})
-
-instance NFData DescribeHAPGResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhapgrsResponseStatus :: Lens.Lens' DescribeHAPGResponse Lude.Int
+dhapgrsResponseStatus = Lens.lens (responseStatus :: DescribeHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHAPGResponse)
+{-# DEPRECATED dhapgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

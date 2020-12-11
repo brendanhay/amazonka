@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,153 @@
 --
 -- Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.
 --
---
 -- If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, call 'DeactivatePipeline' .
---
 -- To activate a finished pipeline, modify the end date for the pipeline and then activate it.
 module Network.AWS.DataPipeline.ActivatePipeline
-  ( -- * Creating a Request
-    activatePipeline,
-    ActivatePipeline,
+  ( -- * Creating a request
+    ActivatePipeline (..),
+    mkActivatePipeline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apStartTimestamp,
     apParameterValues,
     apPipelineId,
 
-    -- * Destructuring the Response
-    activatePipelineResponse,
-    ActivatePipelineResponse,
+    -- * Destructuring the response
+    ActivatePipelineResponse (..),
+    mkActivatePipelineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aprsResponseStatus,
   )
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ActivatePipeline.
 --
---
---
--- /See:/ 'activatePipeline' smart constructor.
+-- /See:/ 'mkActivatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
-  { _apStartTimestamp ::
-      !(Maybe POSIX),
-    _apParameterValues :: !(Maybe [ParameterValue]),
-    _apPipelineId :: !Text
+  { startTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    parameterValues :: Lude.Maybe [ParameterValue],
+    pipelineId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivatePipeline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apStartTimestamp' - The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
---
--- * 'apParameterValues' - A list of parameter values to pass to the pipeline at activation.
---
--- * 'apPipelineId' - The ID of the pipeline.
-activatePipeline ::
-  -- | 'apPipelineId'
-  Text ->
+-- * 'parameterValues' - A list of parameter values to pass to the pipeline at activation.
+-- * 'pipelineId' - The ID of the pipeline.
+-- * 'startTimestamp' - The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
+mkActivatePipeline ::
+  -- | 'pipelineId'
+  Lude.Text ->
   ActivatePipeline
-activatePipeline pPipelineId_ =
+mkActivatePipeline pPipelineId_ =
   ActivatePipeline'
-    { _apStartTimestamp = Nothing,
-      _apParameterValues = Nothing,
-      _apPipelineId = pPipelineId_
+    { startTimestamp = Lude.Nothing,
+      parameterValues = Lude.Nothing,
+      pipelineId = pPipelineId_
     }
 
 -- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
-apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
-apStartTimestamp = lens _apStartTimestamp (\s a -> s {_apStartTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apStartTimestamp :: Lens.Lens' ActivatePipeline (Lude.Maybe Lude.Timestamp)
+apStartTimestamp = Lens.lens (startTimestamp :: ActivatePipeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTimestamp = a} :: ActivatePipeline)
+{-# DEPRECATED apStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
 -- | A list of parameter values to pass to the pipeline at activation.
-apParameterValues :: Lens' ActivatePipeline [ParameterValue]
-apParameterValues = lens _apParameterValues (\s a -> s {_apParameterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apParameterValues :: Lens.Lens' ActivatePipeline (Lude.Maybe [ParameterValue])
+apParameterValues = Lens.lens (parameterValues :: ActivatePipeline -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterValues = a} :: ActivatePipeline)
+{-# DEPRECATED apParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
 -- | The ID of the pipeline.
-apPipelineId :: Lens' ActivatePipeline Text
-apPipelineId = lens _apPipelineId (\s a -> s {_apPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPipelineId :: Lens.Lens' ActivatePipeline Lude.Text
+apPipelineId = Lens.lens (pipelineId :: ActivatePipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ActivatePipeline)
+{-# DEPRECATED apPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
-instance AWSRequest ActivatePipeline where
+instance Lude.AWSRequest ActivatePipeline where
   type Rs ActivatePipeline = ActivatePipelineResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveEmpty
-      (\s h x -> ActivatePipelineResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ActivatePipelineResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ActivatePipeline
-
-instance NFData ActivatePipeline
-
-instance ToHeaders ActivatePipeline where
+instance Lude.ToHeaders ActivatePipeline where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.ActivatePipeline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.ActivatePipeline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ActivatePipeline where
+instance Lude.ToJSON ActivatePipeline where
   toJSON ActivatePipeline' {..} =
-    object
-      ( catMaybes
-          [ ("startTimestamp" .=) <$> _apStartTimestamp,
-            ("parameterValues" .=) <$> _apParameterValues,
-            Just ("pipelineId" .= _apPipelineId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("startTimestamp" Lude..=) Lude.<$> startTimestamp,
+            ("parameterValues" Lude..=) Lude.<$> parameterValues,
+            Lude.Just ("pipelineId" Lude..= pipelineId)
           ]
       )
 
-instance ToPath ActivatePipeline where
-  toPath = const "/"
+instance Lude.ToPath ActivatePipeline where
+  toPath = Lude.const "/"
 
-instance ToQuery ActivatePipeline where
-  toQuery = const mempty
+instance Lude.ToQuery ActivatePipeline where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of ActivatePipeline.
 --
---
---
--- /See:/ 'activatePipelineResponse' smart constructor.
+-- /See:/ 'mkActivatePipelineResponse' smart constructor.
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
-  { _aprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivatePipelineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aprsResponseStatus' - -- | The response status code.
-activatePipelineResponse ::
-  -- | 'aprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkActivatePipelineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ActivatePipelineResponse
-activatePipelineResponse pResponseStatus_ =
-  ActivatePipelineResponse' {_aprsResponseStatus = pResponseStatus_}
+mkActivatePipelineResponse pResponseStatus_ =
+  ActivatePipelineResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-aprsResponseStatus :: Lens' ActivatePipelineResponse Int
-aprsResponseStatus = lens _aprsResponseStatus (\s a -> s {_aprsResponseStatus = a})
-
-instance NFData ActivatePipelineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aprsResponseStatus :: Lens.Lens' ActivatePipelineResponse Lude.Int
+aprsResponseStatus = Lens.lens (responseStatus :: ActivatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ActivatePipelineResponse)
+{-# DEPRECATED aprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

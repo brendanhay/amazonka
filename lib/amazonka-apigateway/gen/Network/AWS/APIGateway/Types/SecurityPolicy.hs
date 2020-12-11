@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.SecurityPolicy where
+module Network.AWS.APIGateway.Types.SecurityPolicy
+  ( SecurityPolicy
+      ( SecurityPolicy',
+        TLS10,
+        TLS12
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SecurityPolicy
-  = TLS10
-  | TLS12
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SecurityPolicy = SecurityPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SecurityPolicy where
-  parser =
-    takeLowerText >>= \case
-      "tls_1_0" -> pure TLS10
-      "tls_1_2" -> pure TLS12
-      e ->
-        fromTextError $
-          "Failure parsing SecurityPolicy from value: '" <> e
-            <> "'. Accepted values: tls_1_0, tls_1_2"
+pattern TLS10 :: SecurityPolicy
+pattern TLS10 = SecurityPolicy' "TLS_1_0"
 
-instance ToText SecurityPolicy where
-  toText = \case
-    TLS10 -> "TLS_1_0"
-    TLS12 -> "TLS_1_2"
+pattern TLS12 :: SecurityPolicy
+pattern TLS12 = SecurityPolicy' "TLS_1_2"
 
-instance Hashable SecurityPolicy
-
-instance NFData SecurityPolicy
-
-instance ToByteString SecurityPolicy
-
-instance ToQuery SecurityPolicy
-
-instance ToHeader SecurityPolicy
-
-instance ToJSON SecurityPolicy where
-  toJSON = toJSONText
-
-instance FromJSON SecurityPolicy where
-  parseJSON = parseJSONText "SecurityPolicy"
+{-# COMPLETE
+  TLS10,
+  TLS12,
+  SecurityPolicy'
+  #-}

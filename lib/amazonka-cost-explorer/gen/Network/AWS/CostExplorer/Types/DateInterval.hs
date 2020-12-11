@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.DateInterval where
+module Network.AWS.CostExplorer.Types.DateInterval
+  ( DateInterval (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDateInterval,
+
+    -- * Lenses
+    diStart,
+    diEnd,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The time period that you want the usage and costs for.
 --
---
---
--- /See:/ 'dateInterval' smart constructor.
+-- /See:/ 'mkDateInterval' smart constructor.
 data DateInterval = DateInterval'
-  { _diStart :: !Text,
-    _diEnd :: !Text
+  { start :: Lude.Text,
+    end :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DateInterval' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diStart' - The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
---
--- * 'diEnd' - The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
-dateInterval ::
-  -- | 'diStart'
-  Text ->
-  -- | 'diEnd'
-  Text ->
+-- * 'end' - The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
+-- * 'start' - The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
+mkDateInterval ::
+  -- | 'start'
+  Lude.Text ->
+  -- | 'end'
+  Lude.Text ->
   DateInterval
-dateInterval pStart_ pEnd_ =
-  DateInterval' {_diStart = pStart_, _diEnd = pEnd_}
+mkDateInterval pStart_ pEnd_ =
+  DateInterval' {start = pStart_, end = pEnd_}
 
 -- | The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
-diStart :: Lens' DateInterval Text
-diStart = lens _diStart (\s a -> s {_diStart = a})
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diStart :: Lens.Lens' DateInterval Lude.Text
+diStart = Lens.lens (start :: DateInterval -> Lude.Text) (\s a -> s {start = a} :: DateInterval)
+{-# DEPRECATED diStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
-diEnd :: Lens' DateInterval Text
-diEnd = lens _diEnd (\s a -> s {_diEnd = a})
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEnd :: Lens.Lens' DateInterval Lude.Text
+diEnd = Lens.lens (end :: DateInterval -> Lude.Text) (\s a -> s {end = a} :: DateInterval)
+{-# DEPRECATED diEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance FromJSON DateInterval where
+instance Lude.FromJSON DateInterval where
   parseJSON =
-    withObject
+    Lude.withObject
       "DateInterval"
-      (\x -> DateInterval' <$> (x .: "Start") <*> (x .: "End"))
+      ( \x ->
+          DateInterval'
+            Lude.<$> (x Lude..: "Start") Lude.<*> (x Lude..: "End")
+      )
 
-instance Hashable DateInterval
-
-instance NFData DateInterval
-
-instance ToJSON DateInterval where
+instance Lude.ToJSON DateInterval where
   toJSON DateInterval' {..} =
-    object
-      (catMaybes [Just ("Start" .= _diStart), Just ("End" .= _diEnd)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Start" Lude..= start), Lude.Just ("End" Lude..= end)]
+      )

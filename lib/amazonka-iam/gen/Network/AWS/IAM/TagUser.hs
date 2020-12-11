@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,111 @@
 --
 -- Adds one or more tags to an IAM user. If a tag with the same key name already exists, then that tag is overwritten with the new value.
 --
---
 -- A tag consists of a key name and an associated value. By assigning tags to your resources, you can do the following:
 --
 --     * __Administrative grouping and discovery__ - Attach tags to resources to aid in organization and search. For example, you could search for all resources with the key name /Project/ and the value /MyImportantProject/ . Or search for all resources with the key name /Cost Center/ and the value /41200/ .
 --
+--
 --     * __Access control__ - Reference tags in IAM user-based and resource-based policies. You can use tags to restrict access to only an IAM requesting user or to a role that has a specified tag attached. You can also restrict access to only those resources that have a certain tag attached. For examples of policies that show how to use tags to control access, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Control Access Using IAM Tags> in the /IAM User Guide/ .
+--
 --
 --     * __Cost allocation__ - Use tags to help track which individuals and teams are using which AWS resources.
 --
 --
---
 -- For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 module Network.AWS.IAM.TagUser
-  ( -- * Creating a Request
-    tagUser,
-    TagUser,
+  ( -- * Creating a request
+    TagUser (..),
+    mkTagUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tuUserName,
     tuTags,
 
-    -- * Destructuring the Response
-    tagUserResponse,
-    TagUserResponse,
+    -- * Destructuring the response
+    TagUserResponse (..),
+    mkTagUserResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagUser' smart constructor.
-data TagUser = TagUser' {_tuUserName :: !Text, _tuTags :: ![Tag]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkTagUser' smart constructor.
+data TagUser = TagUser' {userName :: Lude.Text, tags :: [Tag]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'tags' - The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
+-- * 'userName' - The name of the user that you want to add tags to.
 --
--- * 'tuUserName' - The name of the user that you want to add tags to. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
---
--- * 'tuTags' - The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
-tagUser ::
-  -- | 'tuUserName'
-  Text ->
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+mkTagUser ::
+  -- | 'userName'
+  Lude.Text ->
   TagUser
-tagUser pUserName_ =
-  TagUser' {_tuUserName = pUserName_, _tuTags = mempty}
+mkTagUser pUserName_ =
+  TagUser' {userName = pUserName_, tags = Lude.mempty}
 
--- | The name of the user that you want to add tags to. This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-tuUserName :: Lens' TagUser Text
-tuUserName = lens _tuUserName (\s a -> s {_tuUserName = a})
+-- | The name of the user that you want to add tags to.
+--
+-- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tuUserName :: Lens.Lens' TagUser Lude.Text
+tuUserName = Lens.lens (userName :: TagUser -> Lude.Text) (\s a -> s {userName = a} :: TagUser)
+{-# DEPRECATED tuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
-tuTags :: Lens' TagUser [Tag]
-tuTags = lens _tuTags (\s a -> s {_tuTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tuTags :: Lens.Lens' TagUser [Tag]
+tuTags = Lens.lens (tags :: TagUser -> [Tag]) (\s a -> s {tags = a} :: TagUser)
+{-# DEPRECATED tuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagUser where
+instance Lude.AWSRequest TagUser where
   type Rs TagUser = TagUserResponse
-  request = postQuery iam
-  response = receiveNull TagUserResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull TagUserResponse'
 
-instance Hashable TagUser
+instance Lude.ToHeaders TagUser where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TagUser
+instance Lude.ToPath TagUser where
+  toPath = Lude.const "/"
 
-instance ToHeaders TagUser where
-  toHeaders = const mempty
-
-instance ToPath TagUser where
-  toPath = const "/"
-
-instance ToQuery TagUser where
+instance Lude.ToQuery TagUser where
   toQuery TagUser' {..} =
-    mconcat
-      [ "Action" =: ("TagUser" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _tuUserName,
-        "Tags" =: toQueryList "member" _tuTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("TagUser" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "Tags" Lude.=: Lude.toQueryList "member" tags
       ]
 
--- | /See:/ 'tagUserResponse' smart constructor.
+-- | /See:/ 'mkTagUserResponse' smart constructor.
 data TagUserResponse = TagUserResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagUserResponse' with the minimum fields required to make a request.
-tagUserResponse ::
+mkTagUserResponse ::
   TagUserResponse
-tagUserResponse = TagUserResponse'
-
-instance NFData TagUserResponse
+mkTagUserResponse = TagUserResponse'

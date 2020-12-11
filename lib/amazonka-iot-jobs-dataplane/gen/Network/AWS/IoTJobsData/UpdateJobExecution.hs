@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the status of a job execution.
 module Network.AWS.IoTJobsData.UpdateJobExecution
-  ( -- * Creating a Request
-    updateJobExecution,
-    UpdateJobExecution,
+  ( -- * Creating a request
+    UpdateJobExecution (..),
+    mkUpdateJobExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ujeIncludeJobDocument,
     ujeStepTimeoutInMinutes,
     ujeStatusDetails,
@@ -34,11 +29,11 @@ module Network.AWS.IoTJobsData.UpdateJobExecution
     ujeThingName,
     ujeStatus,
 
-    -- * Destructuring the Response
-    updateJobExecutionResponse,
-    UpdateJobExecutionResponse,
+    -- * Destructuring the response
+    UpdateJobExecutionResponse (..),
+    mkUpdateJobExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ujersJobDocument,
     ujersExecutionState,
     ujersResponseStatus,
@@ -46,185 +41,217 @@ module Network.AWS.IoTJobsData.UpdateJobExecution
 where
 
 import Network.AWS.IoTJobsData.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateJobExecution' smart constructor.
+-- | /See:/ 'mkUpdateJobExecution' smart constructor.
 data UpdateJobExecution = UpdateJobExecution'
-  { _ujeIncludeJobDocument ::
-      !(Maybe Bool),
-    _ujeStepTimeoutInMinutes :: !(Maybe Integer),
-    _ujeStatusDetails :: !(Maybe (Map Text (Text))),
-    _ujeExecutionNumber :: !(Maybe Integer),
-    _ujeExpectedVersion :: !(Maybe Integer),
-    _ujeIncludeJobExecutionState :: !(Maybe Bool),
-    _ujeJobId :: !Text,
-    _ujeThingName :: !Text,
-    _ujeStatus :: !JobExecutionStatus
+  { includeJobDocument ::
+      Lude.Maybe Lude.Bool,
+    stepTimeoutInMinutes :: Lude.Maybe Lude.Integer,
+    statusDetails ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    executionNumber :: Lude.Maybe Lude.Integer,
+    expectedVersion :: Lude.Maybe Lude.Integer,
+    includeJobExecutionState :: Lude.Maybe Lude.Bool,
+    jobId :: Lude.Text,
+    thingName :: Lude.Text,
+    status :: JobExecutionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujeIncludeJobDocument' - Optional. When set to true, the response contains the job document. The default is false.
---
--- * 'ujeStepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in this field) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
---
--- * 'ujeStatusDetails' - Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
---
--- * 'ujeExecutionNumber' - Optional. A number that identifies a particular job execution on a particular device.
---
--- * 'ujeExpectedVersion' - Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
---
--- * 'ujeIncludeJobExecutionState' - Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.
---
--- * 'ujeJobId' - The unique identifier assigned to this job when it was created.
---
--- * 'ujeThingName' - The name of the thing associated with the device.
---
--- * 'ujeStatus' - The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.
-updateJobExecution ::
-  -- | 'ujeJobId'
-  Text ->
-  -- | 'ujeThingName'
-  Text ->
-  -- | 'ujeStatus'
+-- * 'executionNumber' - Optional. A number that identifies a particular job execution on a particular device.
+-- * 'expectedVersion' - Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
+-- * 'includeJobDocument' - Optional. When set to true, the response contains the job document. The default is false.
+-- * 'includeJobExecutionState' - Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.
+-- * 'jobId' - The unique identifier assigned to this job when it was created.
+-- * 'status' - The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.
+-- * 'statusDetails' - Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+-- * 'stepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in this field) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+-- * 'thingName' - The name of the thing associated with the device.
+mkUpdateJobExecution ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'thingName'
+  Lude.Text ->
+  -- | 'status'
   JobExecutionStatus ->
   UpdateJobExecution
-updateJobExecution pJobId_ pThingName_ pStatus_ =
+mkUpdateJobExecution pJobId_ pThingName_ pStatus_ =
   UpdateJobExecution'
-    { _ujeIncludeJobDocument = Nothing,
-      _ujeStepTimeoutInMinutes = Nothing,
-      _ujeStatusDetails = Nothing,
-      _ujeExecutionNumber = Nothing,
-      _ujeExpectedVersion = Nothing,
-      _ujeIncludeJobExecutionState = Nothing,
-      _ujeJobId = pJobId_,
-      _ujeThingName = pThingName_,
-      _ujeStatus = pStatus_
+    { includeJobDocument = Lude.Nothing,
+      stepTimeoutInMinutes = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      executionNumber = Lude.Nothing,
+      expectedVersion = Lude.Nothing,
+      includeJobExecutionState = Lude.Nothing,
+      jobId = pJobId_,
+      thingName = pThingName_,
+      status = pStatus_
     }
 
 -- | Optional. When set to true, the response contains the job document. The default is false.
-ujeIncludeJobDocument :: Lens' UpdateJobExecution (Maybe Bool)
-ujeIncludeJobDocument = lens _ujeIncludeJobDocument (\s a -> s {_ujeIncludeJobDocument = a})
+--
+-- /Note:/ Consider using 'includeJobDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeIncludeJobDocument :: Lens.Lens' UpdateJobExecution (Lude.Maybe Lude.Bool)
+ujeIncludeJobDocument = Lens.lens (includeJobDocument :: UpdateJobExecution -> Lude.Maybe Lude.Bool) (\s a -> s {includeJobDocument = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeIncludeJobDocument "Use generic-lens or generic-optics with 'includeJobDocument' instead." #-}
 
 -- | Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in this field) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
-ujeStepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
-ujeStepTimeoutInMinutes = lens _ujeStepTimeoutInMinutes (\s a -> s {_ujeStepTimeoutInMinutes = a})
+--
+-- /Note:/ Consider using 'stepTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeStepTimeoutInMinutes :: Lens.Lens' UpdateJobExecution (Lude.Maybe Lude.Integer)
+ujeStepTimeoutInMinutes = Lens.lens (stepTimeoutInMinutes :: UpdateJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {stepTimeoutInMinutes = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeStepTimeoutInMinutes "Use generic-lens or generic-optics with 'stepTimeoutInMinutes' instead." #-}
 
 -- | Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
-ujeStatusDetails :: Lens' UpdateJobExecution (HashMap Text (Text))
-ujeStatusDetails = lens _ujeStatusDetails (\s a -> s {_ujeStatusDetails = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeStatusDetails :: Lens.Lens' UpdateJobExecution (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ujeStatusDetails = Lens.lens (statusDetails :: UpdateJobExecution -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {statusDetails = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | Optional. A number that identifies a particular job execution on a particular device.
-ujeExecutionNumber :: Lens' UpdateJobExecution (Maybe Integer)
-ujeExecutionNumber = lens _ujeExecutionNumber (\s a -> s {_ujeExecutionNumber = a})
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeExecutionNumber :: Lens.Lens' UpdateJobExecution (Lude.Maybe Lude.Integer)
+ujeExecutionNumber = Lens.lens (executionNumber :: UpdateJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
-ujeExpectedVersion :: Lens' UpdateJobExecution (Maybe Integer)
-ujeExpectedVersion = lens _ujeExpectedVersion (\s a -> s {_ujeExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeExpectedVersion :: Lens.Lens' UpdateJobExecution (Lude.Maybe Lude.Integer)
+ujeExpectedVersion = Lens.lens (expectedVersion :: UpdateJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.
-ujeIncludeJobExecutionState :: Lens' UpdateJobExecution (Maybe Bool)
-ujeIncludeJobExecutionState = lens _ujeIncludeJobExecutionState (\s a -> s {_ujeIncludeJobExecutionState = a})
+--
+-- /Note:/ Consider using 'includeJobExecutionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeIncludeJobExecutionState :: Lens.Lens' UpdateJobExecution (Lude.Maybe Lude.Bool)
+ujeIncludeJobExecutionState = Lens.lens (includeJobExecutionState :: UpdateJobExecution -> Lude.Maybe Lude.Bool) (\s a -> s {includeJobExecutionState = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeIncludeJobExecutionState "Use generic-lens or generic-optics with 'includeJobExecutionState' instead." #-}
 
 -- | The unique identifier assigned to this job when it was created.
-ujeJobId :: Lens' UpdateJobExecution Text
-ujeJobId = lens _ujeJobId (\s a -> s {_ujeJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeJobId :: Lens.Lens' UpdateJobExecution Lude.Text
+ujeJobId = Lens.lens (jobId :: UpdateJobExecution -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The name of the thing associated with the device.
-ujeThingName :: Lens' UpdateJobExecution Text
-ujeThingName = lens _ujeThingName (\s a -> s {_ujeThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeThingName :: Lens.Lens' UpdateJobExecution Lude.Text
+ujeThingName = Lens.lens (thingName :: UpdateJobExecution -> Lude.Text) (\s a -> s {thingName = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.
-ujeStatus :: Lens' UpdateJobExecution JobExecutionStatus
-ujeStatus = lens _ujeStatus (\s a -> s {_ujeStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujeStatus :: Lens.Lens' UpdateJobExecution JobExecutionStatus
+ujeStatus = Lens.lens (status :: UpdateJobExecution -> JobExecutionStatus) (\s a -> s {status = a} :: UpdateJobExecution)
+{-# DEPRECATED ujeStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance AWSRequest UpdateJobExecution where
+instance Lude.AWSRequest UpdateJobExecution where
   type Rs UpdateJobExecution = UpdateJobExecutionResponse
-  request = postJSON ioTJobsData
+  request = Req.postJSON ioTJobsDataService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateJobExecutionResponse'
-            <$> (x .?> "jobDocument")
-            <*> (x .?> "executionState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobDocument")
+            Lude.<*> (x Lude..?> "executionState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateJobExecution
+instance Lude.ToHeaders UpdateJobExecution where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateJobExecution
-
-instance ToHeaders UpdateJobExecution where
-  toHeaders = const mempty
-
-instance ToJSON UpdateJobExecution where
+instance Lude.ToJSON UpdateJobExecution where
   toJSON UpdateJobExecution' {..} =
-    object
-      ( catMaybes
-          [ ("includeJobDocument" .=) <$> _ujeIncludeJobDocument,
-            ("stepTimeoutInMinutes" .=) <$> _ujeStepTimeoutInMinutes,
-            ("statusDetails" .=) <$> _ujeStatusDetails,
-            ("executionNumber" .=) <$> _ujeExecutionNumber,
-            ("expectedVersion" .=) <$> _ujeExpectedVersion,
-            ("includeJobExecutionState" .=) <$> _ujeIncludeJobExecutionState,
-            Just ("status" .= _ujeStatus)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("includeJobDocument" Lude..=) Lude.<$> includeJobDocument,
+            ("stepTimeoutInMinutes" Lude..=) Lude.<$> stepTimeoutInMinutes,
+            ("statusDetails" Lude..=) Lude.<$> statusDetails,
+            ("executionNumber" Lude..=) Lude.<$> executionNumber,
+            ("expectedVersion" Lude..=) Lude.<$> expectedVersion,
+            ("includeJobExecutionState" Lude..=)
+              Lude.<$> includeJobExecutionState,
+            Lude.Just ("status" Lude..= status)
           ]
       )
 
-instance ToPath UpdateJobExecution where
+instance Lude.ToPath UpdateJobExecution where
   toPath UpdateJobExecution' {..} =
-    mconcat
-      ["/things/", toBS _ujeThingName, "/jobs/", toBS _ujeJobId]
+    Lude.mconcat
+      ["/things/", Lude.toBS thingName, "/jobs/", Lude.toBS jobId]
 
-instance ToQuery UpdateJobExecution where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateJobExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateJobExecutionResponse' smart constructor.
+-- | /See:/ 'mkUpdateJobExecutionResponse' smart constructor.
 data UpdateJobExecutionResponse = UpdateJobExecutionResponse'
-  { _ujersJobDocument ::
-      !(Maybe Text),
-    _ujersExecutionState ::
-      !(Maybe JobExecutionState),
-    _ujersResponseStatus :: !Int
+  { jobDocument ::
+      Lude.Maybe Lude.Text,
+    executionState ::
+      Lude.Maybe JobExecutionState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujersJobDocument' - The contents of the Job Documents.
---
--- * 'ujersExecutionState' - A JobExecutionState object.
---
--- * 'ujersResponseStatus' - -- | The response status code.
-updateJobExecutionResponse ::
-  -- | 'ujersResponseStatus'
-  Int ->
+-- * 'executionState' - A JobExecutionState object.
+-- * 'jobDocument' - The contents of the Job Documents.
+-- * 'responseStatus' - The response status code.
+mkUpdateJobExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateJobExecutionResponse
-updateJobExecutionResponse pResponseStatus_ =
+mkUpdateJobExecutionResponse pResponseStatus_ =
   UpdateJobExecutionResponse'
-    { _ujersJobDocument = Nothing,
-      _ujersExecutionState = Nothing,
-      _ujersResponseStatus = pResponseStatus_
+    { jobDocument = Lude.Nothing,
+      executionState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The contents of the Job Documents.
-ujersJobDocument :: Lens' UpdateJobExecutionResponse (Maybe Text)
-ujersJobDocument = lens _ujersJobDocument (\s a -> s {_ujersJobDocument = a})
+--
+-- /Note:/ Consider using 'jobDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujersJobDocument :: Lens.Lens' UpdateJobExecutionResponse (Lude.Maybe Lude.Text)
+ujersJobDocument = Lens.lens (jobDocument :: UpdateJobExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobDocument = a} :: UpdateJobExecutionResponse)
+{-# DEPRECATED ujersJobDocument "Use generic-lens or generic-optics with 'jobDocument' instead." #-}
 
 -- | A JobExecutionState object.
-ujersExecutionState :: Lens' UpdateJobExecutionResponse (Maybe JobExecutionState)
-ujersExecutionState = lens _ujersExecutionState (\s a -> s {_ujersExecutionState = a})
+--
+-- /Note:/ Consider using 'executionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujersExecutionState :: Lens.Lens' UpdateJobExecutionResponse (Lude.Maybe JobExecutionState)
+ujersExecutionState = Lens.lens (executionState :: UpdateJobExecutionResponse -> Lude.Maybe JobExecutionState) (\s a -> s {executionState = a} :: UpdateJobExecutionResponse)
+{-# DEPRECATED ujersExecutionState "Use generic-lens or generic-optics with 'executionState' instead." #-}
 
--- | -- | The response status code.
-ujersResponseStatus :: Lens' UpdateJobExecutionResponse Int
-ujersResponseStatus = lens _ujersResponseStatus (\s a -> s {_ujersResponseStatus = a})
-
-instance NFData UpdateJobExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujersResponseStatus :: Lens.Lens' UpdateJobExecutionResponse Lude.Int
+ujersResponseStatus = Lens.lens (responseStatus :: UpdateJobExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJobExecutionResponse)
+{-# DEPRECATED ujersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

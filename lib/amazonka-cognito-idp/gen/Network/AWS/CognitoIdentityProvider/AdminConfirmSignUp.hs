@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,156 @@
 --
 -- Confirms user registration as an admin without using a confirmation code. Works on any user.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
-  ( -- * Creating a Request
-    adminConfirmSignUp,
-    AdminConfirmSignUp,
+  ( -- * Creating a request
+    AdminConfirmSignUp (..),
+    mkAdminConfirmSignUp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acsuClientMetadata,
     acsuUserPoolId,
     acsuUsername,
 
-    -- * Destructuring the Response
-    adminConfirmSignUpResponse,
-    AdminConfirmSignUpResponse,
+    -- * Destructuring the response
+    AdminConfirmSignUpResponse (..),
+    mkAdminConfirmSignUpResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acsursResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to confirm user registration.
 --
---
---
--- /See:/ 'adminConfirmSignUp' smart constructor.
+-- /See:/ 'mkAdminConfirmSignUp' smart constructor.
 data AdminConfirmSignUp = AdminConfirmSignUp'
-  { _acsuClientMetadata ::
-      !(Maybe (Map Text (Text))),
-    _acsuUserPoolId :: !Text,
-    _acsuUsername :: !(Sensitive Text)
+  { clientMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    userPoolId :: Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminConfirmSignUp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
--- * 'acsuClientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the @clientMetadata@ attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
---
--- * 'acsuUserPoolId' - The user pool ID for which you want to confirm user registration.
---
--- * 'acsuUsername' - The user name for which you want to confirm user registration.
-adminConfirmSignUp ::
-  -- | 'acsuUserPoolId'
-  Text ->
-  -- | 'acsuUsername'
-  Text ->
+-- If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the @clientMetadata@ attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'userPoolId' - The user pool ID for which you want to confirm user registration.
+-- * 'username' - The user name for which you want to confirm user registration.
+mkAdminConfirmSignUp ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminConfirmSignUp
-adminConfirmSignUp pUserPoolId_ pUsername_ =
+mkAdminConfirmSignUp pUserPoolId_ pUsername_ =
   AdminConfirmSignUp'
-    { _acsuClientMetadata = Nothing,
-      _acsuUserPoolId = pUserPoolId_,
-      _acsuUsername = _Sensitive # pUsername_
+    { clientMetadata = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
--- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the @clientMetadata@ attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-acsuClientMetadata :: Lens' AdminConfirmSignUp (HashMap Text (Text))
-acsuClientMetadata = lens _acsuClientMetadata (\s a -> s {_acsuClientMetadata = a}) . _Default . _Map
+-- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+--
+-- If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the @clientMetadata@ attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsuClientMetadata :: Lens.Lens' AdminConfirmSignUp (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+acsuClientMetadata = Lens.lens (clientMetadata :: AdminConfirmSignUp -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: AdminConfirmSignUp)
+{-# DEPRECATED acsuClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
 -- | The user pool ID for which you want to confirm user registration.
-acsuUserPoolId :: Lens' AdminConfirmSignUp Text
-acsuUserPoolId = lens _acsuUserPoolId (\s a -> s {_acsuUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsuUserPoolId :: Lens.Lens' AdminConfirmSignUp Lude.Text
+acsuUserPoolId = Lens.lens (userPoolId :: AdminConfirmSignUp -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminConfirmSignUp)
+{-# DEPRECATED acsuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name for which you want to confirm user registration.
-acsuUsername :: Lens' AdminConfirmSignUp Text
-acsuUsername = lens _acsuUsername (\s a -> s {_acsuUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsuUsername :: Lens.Lens' AdminConfirmSignUp (Lude.Sensitive Lude.Text)
+acsuUsername = Lens.lens (username :: AdminConfirmSignUp -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminConfirmSignUp)
+{-# DEPRECATED acsuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminConfirmSignUp where
+instance Lude.AWSRequest AdminConfirmSignUp where
   type Rs AdminConfirmSignUp = AdminConfirmSignUpResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
-      (\s h x -> AdminConfirmSignUpResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AdminConfirmSignUpResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AdminConfirmSignUp
-
-instance NFData AdminConfirmSignUp
-
-instance ToHeaders AdminConfirmSignUp where
+instance Lude.ToHeaders AdminConfirmSignUp where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminConfirmSignUp where
+instance Lude.ToJSON AdminConfirmSignUp where
   toJSON AdminConfirmSignUp' {..} =
-    object
-      ( catMaybes
-          [ ("ClientMetadata" .=) <$> _acsuClientMetadata,
-            Just ("UserPoolId" .= _acsuUserPoolId),
-            Just ("Username" .= _acsuUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminConfirmSignUp where
-  toPath = const "/"
+instance Lude.ToPath AdminConfirmSignUp where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminConfirmSignUp where
-  toQuery = const mempty
+instance Lude.ToQuery AdminConfirmSignUp where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to confirm registration.
 --
---
---
--- /See:/ 'adminConfirmSignUpResponse' smart constructor.
+-- /See:/ 'mkAdminConfirmSignUpResponse' smart constructor.
 newtype AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
-  { _acsursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminConfirmSignUpResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acsursResponseStatus' - -- | The response status code.
-adminConfirmSignUpResponse ::
-  -- | 'acsursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAdminConfirmSignUpResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminConfirmSignUpResponse
-adminConfirmSignUpResponse pResponseStatus_ =
-  AdminConfirmSignUpResponse'
-    { _acsursResponseStatus =
-        pResponseStatus_
-    }
+mkAdminConfirmSignUpResponse pResponseStatus_ =
+  AdminConfirmSignUpResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-acsursResponseStatus :: Lens' AdminConfirmSignUpResponse Int
-acsursResponseStatus = lens _acsursResponseStatus (\s a -> s {_acsursResponseStatus = a})
-
-instance NFData AdminConfirmSignUpResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsursResponseStatus :: Lens.Lens' AdminConfirmSignUpResponse Lude.Int
+acsursResponseStatus = Lens.lens (responseStatus :: AdminConfirmSignUpResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminConfirmSignUpResponse)
+{-# DEPRECATED acsursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

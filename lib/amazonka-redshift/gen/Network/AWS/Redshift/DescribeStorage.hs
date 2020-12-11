@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,122 @@
 --
 -- Returns account level backups storage size and provisional storage.
 module Network.AWS.Redshift.DescribeStorage
-  ( -- * Creating a Request
-    describeStorage,
-    DescribeStorage,
+  ( -- * Creating a request
+    DescribeStorage (..),
+    mkDescribeStorage,
 
-    -- * Destructuring the Response
-    describeStorageResponse,
-    DescribeStorageResponse,
+    -- * Destructuring the response
+    DescribeStorageResponse (..),
+    mkDescribeStorageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsTotalProvisionedStorageInMegaBytes,
     dsrsTotalBackupSizeInMegaBytes,
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStorage' smart constructor.
+-- | /See:/ 'mkDescribeStorage' smart constructor.
 data DescribeStorage = DescribeStorage'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStorage' with the minimum fields required to make a request.
-describeStorage ::
+mkDescribeStorage ::
   DescribeStorage
-describeStorage = DescribeStorage'
+mkDescribeStorage = DescribeStorage'
 
-instance AWSRequest DescribeStorage where
+instance Lude.AWSRequest DescribeStorage where
   type Rs DescribeStorage = DescribeStorageResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeStorageResult"
       ( \s h x ->
           DescribeStorageResponse'
-            <$> (x .@? "TotalProvisionedStorageInMegaBytes")
-            <*> (x .@? "TotalBackupSizeInMegaBytes")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "TotalProvisionedStorageInMegaBytes")
+            Lude.<*> (x Lude..@? "TotalBackupSizeInMegaBytes")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStorage
+instance Lude.ToHeaders DescribeStorage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStorage
+instance Lude.ToPath DescribeStorage where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeStorage where
-  toHeaders = const mempty
-
-instance ToPath DescribeStorage where
-  toPath = const "/"
-
-instance ToQuery DescribeStorage where
+instance Lude.ToQuery DescribeStorage where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DescribeStorage" :: ByteString),
-            "Version" =: ("2012-12-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("DescribeStorage" :: Lude.ByteString),
+            "Version" Lude.=: ("2012-12-01" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'describeStorageResponse' smart constructor.
+-- | /See:/ 'mkDescribeStorageResponse' smart constructor.
 data DescribeStorageResponse = DescribeStorageResponse'
-  { _dsrsTotalProvisionedStorageInMegaBytes ::
-      !(Maybe Double),
-    _dsrsTotalBackupSizeInMegaBytes ::
-      !(Maybe Double),
-    _dsrsResponseStatus :: !Int
+  { totalProvisionedStorageInMegaBytes ::
+      Lude.Maybe Lude.Double,
+    totalBackupSizeInMegaBytes ::
+      Lude.Maybe Lude.Double,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStorageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsTotalProvisionedStorageInMegaBytes' - The total amount of storage currently provisioned.
---
--- * 'dsrsTotalBackupSizeInMegaBytes' - The total amount of storage currently used for snapshots.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeStorageResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'totalBackupSizeInMegaBytes' - The total amount of storage currently used for snapshots.
+-- * 'totalProvisionedStorageInMegaBytes' - The total amount of storage currently provisioned.
+mkDescribeStorageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStorageResponse
-describeStorageResponse pResponseStatus_ =
+mkDescribeStorageResponse pResponseStatus_ =
   DescribeStorageResponse'
-    { _dsrsTotalProvisionedStorageInMegaBytes =
-        Nothing,
-      _dsrsTotalBackupSizeInMegaBytes = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { totalProvisionedStorageInMegaBytes =
+        Lude.Nothing,
+      totalBackupSizeInMegaBytes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The total amount of storage currently provisioned.
-dsrsTotalProvisionedStorageInMegaBytes :: Lens' DescribeStorageResponse (Maybe Double)
-dsrsTotalProvisionedStorageInMegaBytes = lens _dsrsTotalProvisionedStorageInMegaBytes (\s a -> s {_dsrsTotalProvisionedStorageInMegaBytes = a})
+--
+-- /Note:/ Consider using 'totalProvisionedStorageInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsTotalProvisionedStorageInMegaBytes :: Lens.Lens' DescribeStorageResponse (Lude.Maybe Lude.Double)
+dsrsTotalProvisionedStorageInMegaBytes = Lens.lens (totalProvisionedStorageInMegaBytes :: DescribeStorageResponse -> Lude.Maybe Lude.Double) (\s a -> s {totalProvisionedStorageInMegaBytes = a} :: DescribeStorageResponse)
+{-# DEPRECATED dsrsTotalProvisionedStorageInMegaBytes "Use generic-lens or generic-optics with 'totalProvisionedStorageInMegaBytes' instead." #-}
 
 -- | The total amount of storage currently used for snapshots.
-dsrsTotalBackupSizeInMegaBytes :: Lens' DescribeStorageResponse (Maybe Double)
-dsrsTotalBackupSizeInMegaBytes = lens _dsrsTotalBackupSizeInMegaBytes (\s a -> s {_dsrsTotalBackupSizeInMegaBytes = a})
+--
+-- /Note:/ Consider using 'totalBackupSizeInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsTotalBackupSizeInMegaBytes :: Lens.Lens' DescribeStorageResponse (Lude.Maybe Lude.Double)
+dsrsTotalBackupSizeInMegaBytes = Lens.lens (totalBackupSizeInMegaBytes :: DescribeStorageResponse -> Lude.Maybe Lude.Double) (\s a -> s {totalBackupSizeInMegaBytes = a} :: DescribeStorageResponse)
+{-# DEPRECATED dsrsTotalBackupSizeInMegaBytes "Use generic-lens or generic-optics with 'totalBackupSizeInMegaBytes' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeStorageResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeStorageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeStorageResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStorageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStorageResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

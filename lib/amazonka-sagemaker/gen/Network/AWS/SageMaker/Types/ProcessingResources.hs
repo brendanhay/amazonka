@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingResources where
+module Network.AWS.SageMaker.Types.ProcessingResources
+  ( ProcessingResources (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingResources,
+
+    -- * Lenses
+    prClusterConfig,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingClusterConfig
 
 -- | Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
 --
---
---
--- /See:/ 'processingResources' smart constructor.
+-- /See:/ 'mkProcessingResources' smart constructor.
 newtype ProcessingResources = ProcessingResources'
-  { _prClusterConfig ::
+  { clusterConfig ::
       ProcessingClusterConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prClusterConfig' - The configuration for the resources in a cluster used to run the processing job.
-processingResources ::
-  -- | 'prClusterConfig'
+-- * 'clusterConfig' - The configuration for the resources in a cluster used to run the processing job.
+mkProcessingResources ::
+  -- | 'clusterConfig'
   ProcessingClusterConfig ->
   ProcessingResources
-processingResources pClusterConfig_ =
-  ProcessingResources' {_prClusterConfig = pClusterConfig_}
+mkProcessingResources pClusterConfig_ =
+  ProcessingResources' {clusterConfig = pClusterConfig_}
 
 -- | The configuration for the resources in a cluster used to run the processing job.
-prClusterConfig :: Lens' ProcessingResources ProcessingClusterConfig
-prClusterConfig = lens _prClusterConfig (\s a -> s {_prClusterConfig = a})
+--
+-- /Note:/ Consider using 'clusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prClusterConfig :: Lens.Lens' ProcessingResources ProcessingClusterConfig
+prClusterConfig = Lens.lens (clusterConfig :: ProcessingResources -> ProcessingClusterConfig) (\s a -> s {clusterConfig = a} :: ProcessingResources)
+{-# DEPRECATED prClusterConfig "Use generic-lens or generic-optics with 'clusterConfig' instead." #-}
 
-instance FromJSON ProcessingResources where
+instance Lude.FromJSON ProcessingResources where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingResources"
-      (\x -> ProcessingResources' <$> (x .: "ClusterConfig"))
+      (\x -> ProcessingResources' Lude.<$> (x Lude..: "ClusterConfig"))
 
-instance Hashable ProcessingResources
-
-instance NFData ProcessingResources
-
-instance ToJSON ProcessingResources where
+instance Lude.ToJSON ProcessingResources where
   toJSON ProcessingResources' {..} =
-    object (catMaybes [Just ("ClusterConfig" .= _prClusterConfig)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ClusterConfig" Lude..= clusterConfig)]
+      )

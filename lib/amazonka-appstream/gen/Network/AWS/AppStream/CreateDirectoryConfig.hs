@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,156 @@
 --
 -- Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
 module Network.AWS.AppStream.CreateDirectoryConfig
-  ( -- * Creating a Request
-    createDirectoryConfig,
-    CreateDirectoryConfig,
+  ( -- * Creating a request
+    CreateDirectoryConfig (..),
+    mkCreateDirectoryConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcServiceAccountCredentials,
     cdcDirectoryName,
     cdcOrganizationalUnitDistinguishedNames,
 
-    -- * Destructuring the Response
-    createDirectoryConfigResponse,
-    CreateDirectoryConfigResponse,
+    -- * Destructuring the response
+    CreateDirectoryConfigResponse (..),
+    mkCreateDirectoryConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcrsDirectoryConfig,
     cdcrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDirectoryConfig' smart constructor.
+-- | /See:/ 'mkCreateDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { _cdcServiceAccountCredentials ::
-      !(Maybe ServiceAccountCredentials),
-    _cdcDirectoryName :: !Text,
-    _cdcOrganizationalUnitDistinguishedNames ::
-      ![Text]
+  { serviceAccountCredentials ::
+      Lude.Maybe ServiceAccountCredentials,
+    directoryName :: Lude.Text,
+    organizationalUnitDistinguishedNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectoryConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcServiceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
---
--- * 'cdcDirectoryName' - The fully qualified name of the directory (for example, corp.example.com).
---
--- * 'cdcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
-createDirectoryConfig ::
-  -- | 'cdcDirectoryName'
-  Text ->
+-- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
+-- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
+-- * 'serviceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
+mkCreateDirectoryConfig ::
+  -- | 'directoryName'
+  Lude.Text ->
   CreateDirectoryConfig
-createDirectoryConfig pDirectoryName_ =
+mkCreateDirectoryConfig pDirectoryName_ =
   CreateDirectoryConfig'
-    { _cdcServiceAccountCredentials = Nothing,
-      _cdcDirectoryName = pDirectoryName_,
-      _cdcOrganizationalUnitDistinguishedNames = mempty
+    { serviceAccountCredentials = Lude.Nothing,
+      directoryName = pDirectoryName_,
+      organizationalUnitDistinguishedNames = Lude.mempty
     }
 
 -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
-cdcServiceAccountCredentials :: Lens' CreateDirectoryConfig (Maybe ServiceAccountCredentials)
-cdcServiceAccountCredentials = lens _cdcServiceAccountCredentials (\s a -> s {_cdcServiceAccountCredentials = a})
+--
+-- /Note:/ Consider using 'serviceAccountCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcServiceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Lude.Maybe ServiceAccountCredentials)
+cdcServiceAccountCredentials = Lens.lens (serviceAccountCredentials :: CreateDirectoryConfig -> Lude.Maybe ServiceAccountCredentials) (\s a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
+{-# DEPRECATED cdcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
-cdcDirectoryName :: Lens' CreateDirectoryConfig Text
-cdcDirectoryName = lens _cdcDirectoryName (\s a -> s {_cdcDirectoryName = a})
+--
+-- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDirectoryName :: Lens.Lens' CreateDirectoryConfig Lude.Text
+cdcDirectoryName = Lens.lens (directoryName :: CreateDirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: CreateDirectoryConfig)
+{-# DEPRECATED cdcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
 -- | The distinguished names of the organizational units for computer accounts.
-cdcOrganizationalUnitDistinguishedNames :: Lens' CreateDirectoryConfig [Text]
-cdcOrganizationalUnitDistinguishedNames = lens _cdcOrganizationalUnitDistinguishedNames (\s a -> s {_cdcOrganizationalUnitDistinguishedNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcOrganizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Lude.Text]
+cdcOrganizationalUnitDistinguishedNames = Lens.lens (organizationalUnitDistinguishedNames :: CreateDirectoryConfig -> [Lude.Text]) (\s a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig)
+{-# DEPRECATED cdcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
 
-instance AWSRequest CreateDirectoryConfig where
+instance Lude.AWSRequest CreateDirectoryConfig where
   type Rs CreateDirectoryConfig = CreateDirectoryConfigResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDirectoryConfigResponse'
-            <$> (x .?> "DirectoryConfig") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDirectoryConfig
-
-instance NFData CreateDirectoryConfig
-
-instance ToHeaders CreateDirectoryConfig where
+instance Lude.ToHeaders CreateDirectoryConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.CreateDirectoryConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDirectoryConfig where
+instance Lude.ToJSON CreateDirectoryConfig where
   toJSON CreateDirectoryConfig' {..} =
-    object
-      ( catMaybes
-          [ ("ServiceAccountCredentials" .=)
-              <$> _cdcServiceAccountCredentials,
-            Just ("DirectoryName" .= _cdcDirectoryName),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServiceAccountCredentials" Lude..=)
+              Lude.<$> serviceAccountCredentials,
+            Lude.Just ("DirectoryName" Lude..= directoryName),
+            Lude.Just
               ( "OrganizationalUnitDistinguishedNames"
-                  .= _cdcOrganizationalUnitDistinguishedNames
+                  Lude..= organizationalUnitDistinguishedNames
               )
           ]
       )
 
-instance ToPath CreateDirectoryConfig where
-  toPath = const "/"
+instance Lude.ToPath CreateDirectoryConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDirectoryConfig where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDirectoryConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDirectoryConfigResponse' smart constructor.
+-- | /See:/ 'mkCreateDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
-  { _cdcrsDirectoryConfig ::
-      !(Maybe DirectoryConfig),
-    _cdcrsResponseStatus :: !Int
+  { directoryConfig ::
+      Lude.Maybe DirectoryConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectoryConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcrsDirectoryConfig' - Information about the directory configuration.
---
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDirectoryConfigResponse ::
-  -- | 'cdcrsResponseStatus'
-  Int ->
+-- * 'directoryConfig' - Information about the directory configuration.
+-- * 'responseStatus' - The response status code.
+mkCreateDirectoryConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDirectoryConfigResponse
-createDirectoryConfigResponse pResponseStatus_ =
+mkCreateDirectoryConfigResponse pResponseStatus_ =
   CreateDirectoryConfigResponse'
-    { _cdcrsDirectoryConfig = Nothing,
-      _cdcrsResponseStatus = pResponseStatus_
+    { directoryConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the directory configuration.
-cdcrsDirectoryConfig :: Lens' CreateDirectoryConfigResponse (Maybe DirectoryConfig)
-cdcrsDirectoryConfig = lens _cdcrsDirectoryConfig (\s a -> s {_cdcrsDirectoryConfig = a})
+--
+-- /Note:/ Consider using 'directoryConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsDirectoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Lude.Maybe DirectoryConfig)
+cdcrsDirectoryConfig = Lens.lens (directoryConfig :: CreateDirectoryConfigResponse -> Lude.Maybe DirectoryConfig) (\s a -> s {directoryConfig = a} :: CreateDirectoryConfigResponse)
+{-# DEPRECATED cdcrsDirectoryConfig "Use generic-lens or generic-optics with 'directoryConfig' instead." #-}
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDirectoryConfigResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\s a -> s {_cdcrsResponseStatus = a})
-
-instance NFData CreateDirectoryConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsResponseStatus :: Lens.Lens' CreateDirectoryConfigResponse Lude.Int
+cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDirectoryConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectoryConfigResponse)
+{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

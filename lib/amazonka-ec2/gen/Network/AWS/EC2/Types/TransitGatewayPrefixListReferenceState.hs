@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState where
+module Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
+  ( TransitGatewayPrefixListReferenceState
+      ( TransitGatewayPrefixListReferenceState',
+        TGPLRSAvailable,
+        TGPLRSDeleting,
+        TGPLRSModifying,
+        TGPLRSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayPrefixListReferenceState
-  = TGPLRSAvailable
-  | TGPLRSDeleting
-  | TGPLRSModifying
-  | TGPLRSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayPrefixListReferenceState = TransitGatewayPrefixListReferenceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayPrefixListReferenceState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure TGPLRSAvailable
-      "deleting" -> pure TGPLRSDeleting
-      "modifying" -> pure TGPLRSModifying
-      "pending" -> pure TGPLRSPending
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayPrefixListReferenceState from value: '" <> e
-            <> "'. Accepted values: available, deleting, modifying, pending"
+pattern TGPLRSAvailable :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSAvailable = TransitGatewayPrefixListReferenceState' "available"
 
-instance ToText TransitGatewayPrefixListReferenceState where
-  toText = \case
-    TGPLRSAvailable -> "available"
-    TGPLRSDeleting -> "deleting"
-    TGPLRSModifying -> "modifying"
-    TGPLRSPending -> "pending"
+pattern TGPLRSDeleting :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSDeleting = TransitGatewayPrefixListReferenceState' "deleting"
 
-instance Hashable TransitGatewayPrefixListReferenceState
+pattern TGPLRSModifying :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSModifying = TransitGatewayPrefixListReferenceState' "modifying"
 
-instance NFData TransitGatewayPrefixListReferenceState
+pattern TGPLRSPending :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSPending = TransitGatewayPrefixListReferenceState' "pending"
 
-instance ToByteString TransitGatewayPrefixListReferenceState
-
-instance ToQuery TransitGatewayPrefixListReferenceState
-
-instance ToHeader TransitGatewayPrefixListReferenceState
-
-instance FromXML TransitGatewayPrefixListReferenceState where
-  parseXML = parseXMLText "TransitGatewayPrefixListReferenceState"
+{-# COMPLETE
+  TGPLRSAvailable,
+  TGPLRSDeleting,
+  TGPLRSModifying,
+  TGPLRSPending,
+  TransitGatewayPrefixListReferenceState'
+  #-}

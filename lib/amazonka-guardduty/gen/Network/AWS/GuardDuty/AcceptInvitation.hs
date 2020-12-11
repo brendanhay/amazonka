@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,147 @@
 --
 -- Accepts the invitation to be monitored by a master GuardDuty account.
 module Network.AWS.GuardDuty.AcceptInvitation
-  ( -- * Creating a Request
-    acceptInvitation,
-    AcceptInvitation,
+  ( -- * Creating a request
+    AcceptInvitation (..),
+    mkAcceptInvitation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aiDetectorId,
     aiMasterId,
     aiInvitationId,
 
-    -- * Destructuring the Response
-    acceptInvitationResponse,
-    AcceptInvitationResponse,
+    -- * Destructuring the response
+    AcceptInvitationResponse (..),
+    mkAcceptInvitationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     airsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'acceptInvitation' smart constructor.
+-- | /See:/ 'mkAcceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
-  { _aiDetectorId :: !Text,
-    _aiMasterId :: !Text,
-    _aiInvitationId :: !Text
+  { detectorId :: Lude.Text,
+    masterId :: Lude.Text,
+    invitationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptInvitation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiDetectorId' - The unique ID of the detector of the GuardDuty member account.
---
--- * 'aiMasterId' - The account ID of the master GuardDuty account whose invitation you're accepting.
---
--- * 'aiInvitationId' - The value that is used to validate the master account to the member account.
-acceptInvitation ::
-  -- | 'aiDetectorId'
-  Text ->
-  -- | 'aiMasterId'
-  Text ->
-  -- | 'aiInvitationId'
-  Text ->
+-- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
+-- * 'invitationId' - The value that is used to validate the master account to the member account.
+-- * 'masterId' - The account ID of the master GuardDuty account whose invitation you're accepting.
+mkAcceptInvitation ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'masterId'
+  Lude.Text ->
+  -- | 'invitationId'
+  Lude.Text ->
   AcceptInvitation
-acceptInvitation pDetectorId_ pMasterId_ pInvitationId_ =
+mkAcceptInvitation pDetectorId_ pMasterId_ pInvitationId_ =
   AcceptInvitation'
-    { _aiDetectorId = pDetectorId_,
-      _aiMasterId = pMasterId_,
-      _aiInvitationId = pInvitationId_
+    { detectorId = pDetectorId_,
+      masterId = pMasterId_,
+      invitationId = pInvitationId_
     }
 
 -- | The unique ID of the detector of the GuardDuty member account.
-aiDetectorId :: Lens' AcceptInvitation Text
-aiDetectorId = lens _aiDetectorId (\s a -> s {_aiDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiDetectorId :: Lens.Lens' AcceptInvitation Lude.Text
+aiDetectorId = Lens.lens (detectorId :: AcceptInvitation -> Lude.Text) (\s a -> s {detectorId = a} :: AcceptInvitation)
+{-# DEPRECATED aiDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The account ID of the master GuardDuty account whose invitation you're accepting.
-aiMasterId :: Lens' AcceptInvitation Text
-aiMasterId = lens _aiMasterId (\s a -> s {_aiMasterId = a})
+--
+-- /Note:/ Consider using 'masterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiMasterId :: Lens.Lens' AcceptInvitation Lude.Text
+aiMasterId = Lens.lens (masterId :: AcceptInvitation -> Lude.Text) (\s a -> s {masterId = a} :: AcceptInvitation)
+{-# DEPRECATED aiMasterId "Use generic-lens or generic-optics with 'masterId' instead." #-}
 
 -- | The value that is used to validate the master account to the member account.
-aiInvitationId :: Lens' AcceptInvitation Text
-aiInvitationId = lens _aiInvitationId (\s a -> s {_aiInvitationId = a})
+--
+-- /Note:/ Consider using 'invitationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInvitationId :: Lens.Lens' AcceptInvitation Lude.Text
+aiInvitationId = Lens.lens (invitationId :: AcceptInvitation -> Lude.Text) (\s a -> s {invitationId = a} :: AcceptInvitation)
+{-# DEPRECATED aiInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
 
-instance AWSRequest AcceptInvitation where
+instance Lude.AWSRequest AcceptInvitation where
   type Rs AcceptInvitation = AcceptInvitationResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
-      (\s h x -> AcceptInvitationResponse' <$> (pure (fromEnum s)))
-
-instance Hashable AcceptInvitation
-
-instance NFData AcceptInvitation
-
-instance ToHeaders AcceptInvitation where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          AcceptInvitationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON AcceptInvitation where
-  toJSON AcceptInvitation' {..} =
-    object
-      ( catMaybes
-          [ Just ("masterId" .= _aiMasterId),
-            Just ("invitationId" .= _aiInvitationId)
+instance Lude.ToHeaders AcceptInvitation where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath AcceptInvitation where
+instance Lude.ToJSON AcceptInvitation where
+  toJSON AcceptInvitation' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("masterId" Lude..= masterId),
+            Lude.Just ("invitationId" Lude..= invitationId)
+          ]
+      )
+
+instance Lude.ToPath AcceptInvitation where
   toPath AcceptInvitation' {..} =
-    mconcat ["/detector/", toBS _aiDetectorId, "/master"]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/master"]
 
-instance ToQuery AcceptInvitation where
-  toQuery = const mempty
+instance Lude.ToQuery AcceptInvitation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'acceptInvitationResponse' smart constructor.
+-- | /See:/ 'mkAcceptInvitationResponse' smart constructor.
 newtype AcceptInvitationResponse = AcceptInvitationResponse'
-  { _airsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptInvitationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'airsResponseStatus' - -- | The response status code.
-acceptInvitationResponse ::
-  -- | 'airsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAcceptInvitationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcceptInvitationResponse
-acceptInvitationResponse pResponseStatus_ =
-  AcceptInvitationResponse' {_airsResponseStatus = pResponseStatus_}
+mkAcceptInvitationResponse pResponseStatus_ =
+  AcceptInvitationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-airsResponseStatus :: Lens' AcceptInvitationResponse Int
-airsResponseStatus = lens _airsResponseStatus (\s a -> s {_airsResponseStatus = a})
-
-instance NFData AcceptInvitationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airsResponseStatus :: Lens.Lens' AcceptInvitationResponse Lude.Int
+airsResponseStatus = Lens.lens (responseStatus :: AcceptInvitationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptInvitationResponse)
+{-# DEPRECATED airsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

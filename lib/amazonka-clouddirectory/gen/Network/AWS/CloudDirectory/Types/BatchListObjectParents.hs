@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListObjectParents where
+module Network.AWS.CloudDirectory.Types.BatchListObjectParents
+  ( BatchListObjectParents (..),
+
+    -- * Smart constructor
+    mkBatchListObjectParents,
+
+    -- * Lenses
+    bloplNextToken,
+    bloplMaxResults,
+    bloplObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'batchListObjectParents' smart constructor.
+-- | /See:/ 'mkBatchListObjectParents' smart constructor.
 data BatchListObjectParents = BatchListObjectParents'
-  { _bloplNextToken ::
-      !(Maybe Text),
-    _bloplMaxResults :: !(Maybe Nat),
-    _bloplObjectReference :: !ObjectReference
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectParents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bloplNextToken' - Undocumented member.
---
--- * 'bloplMaxResults' - Undocumented member.
---
--- * 'bloplObjectReference' - Undocumented member.
-batchListObjectParents ::
-  -- | 'bloplObjectReference'
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Undocumented field.
+-- * 'objectReference' - Undocumented field.
+mkBatchListObjectParents ::
+  -- | 'objectReference'
   ObjectReference ->
   BatchListObjectParents
-batchListObjectParents pObjectReference_ =
+mkBatchListObjectParents pObjectReference_ =
   BatchListObjectParents'
-    { _bloplNextToken = Nothing,
-      _bloplMaxResults = Nothing,
-      _bloplObjectReference = pObjectReference_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      objectReference = pObjectReference_
     }
 
--- | Undocumented member.
-bloplNextToken :: Lens' BatchListObjectParents (Maybe Text)
-bloplNextToken = lens _bloplNextToken (\s a -> s {_bloplNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloplNextToken :: Lens.Lens' BatchListObjectParents (Lude.Maybe Lude.Text)
+bloplNextToken = Lens.lens (nextToken :: BatchListObjectParents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectParents)
+{-# DEPRECATED bloplNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-bloplMaxResults :: Lens' BatchListObjectParents (Maybe Natural)
-bloplMaxResults = lens _bloplMaxResults (\s a -> s {_bloplMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloplMaxResults :: Lens.Lens' BatchListObjectParents (Lude.Maybe Lude.Natural)
+bloplMaxResults = Lens.lens (maxResults :: BatchListObjectParents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListObjectParents)
+{-# DEPRECATED bloplMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | Undocumented member.
-bloplObjectReference :: Lens' BatchListObjectParents ObjectReference
-bloplObjectReference = lens _bloplObjectReference (\s a -> s {_bloplObjectReference = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloplObjectReference :: Lens.Lens' BatchListObjectParents ObjectReference
+bloplObjectReference = Lens.lens (objectReference :: BatchListObjectParents -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListObjectParents)
+{-# DEPRECATED bloplObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchListObjectParents
-
-instance NFData BatchListObjectParents
-
-instance ToJSON BatchListObjectParents where
+instance Lude.ToJSON BatchListObjectParents where
   toJSON BatchListObjectParents' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _bloplNextToken,
-            ("MaxResults" .=) <$> _bloplMaxResults,
-            Just ("ObjectReference" .= _bloplObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

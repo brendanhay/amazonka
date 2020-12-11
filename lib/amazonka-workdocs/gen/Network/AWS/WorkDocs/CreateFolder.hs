@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,150 @@
 --
 -- Creates a folder with the specified name and parent folder.
 module Network.AWS.WorkDocs.CreateFolder
-  ( -- * Creating a Request
-    createFolder,
-    CreateFolder,
+  ( -- * Creating a request
+    CreateFolder (..),
+    mkCreateFolder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cfAuthenticationToken,
     cfName,
     cfParentFolderId,
 
-    -- * Destructuring the Response
-    createFolderResponse,
-    CreateFolderResponse,
+    -- * Destructuring the response
+    CreateFolderResponse (..),
+    mkCreateFolderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cfrsMetadata,
     cfrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'createFolder' smart constructor.
+-- | /See:/ 'mkCreateFolder' smart constructor.
 data CreateFolder = CreateFolder'
-  { _cfAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _cfName :: !(Maybe Text),
-    _cfParentFolderId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text,
+    parentFolderId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFolder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'cfName' - The name of the new folder.
---
--- * 'cfParentFolderId' - The ID of the parent folder.
-createFolder ::
-  -- | 'cfParentFolderId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'name' - The name of the new folder.
+-- * 'parentFolderId' - The ID of the parent folder.
+mkCreateFolder ::
+  -- | 'parentFolderId'
+  Lude.Text ->
   CreateFolder
-createFolder pParentFolderId_ =
+mkCreateFolder pParentFolderId_ =
   CreateFolder'
-    { _cfAuthenticationToken = Nothing,
-      _cfName = Nothing,
-      _cfParentFolderId = pParentFolderId_
+    { authenticationToken = Lude.Nothing,
+      name = Lude.Nothing,
+      parentFolderId = pParentFolderId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-cfAuthenticationToken :: Lens' CreateFolder (Maybe Text)
-cfAuthenticationToken = lens _cfAuthenticationToken (\s a -> s {_cfAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfAuthenticationToken :: Lens.Lens' CreateFolder (Lude.Maybe (Lude.Sensitive Lude.Text))
+cfAuthenticationToken = Lens.lens (authenticationToken :: CreateFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateFolder)
+{-# DEPRECATED cfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The name of the new folder.
-cfName :: Lens' CreateFolder (Maybe Text)
-cfName = lens _cfName (\s a -> s {_cfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' CreateFolder (Lude.Maybe Lude.Text)
+cfName = Lens.lens (name :: CreateFolder -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateFolder)
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the parent folder.
-cfParentFolderId :: Lens' CreateFolder Text
-cfParentFolderId = lens _cfParentFolderId (\s a -> s {_cfParentFolderId = a})
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfParentFolderId :: Lens.Lens' CreateFolder Lude.Text
+cfParentFolderId = Lens.lens (parentFolderId :: CreateFolder -> Lude.Text) (\s a -> s {parentFolderId = a} :: CreateFolder)
+{-# DEPRECATED cfParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
-instance AWSRequest CreateFolder where
+instance Lude.AWSRequest CreateFolder where
   type Rs CreateFolder = CreateFolderResponse
-  request = postJSON workDocs
+  request = Req.postJSON workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateFolderResponse'
-            <$> (x .?> "Metadata") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Metadata") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateFolder
-
-instance NFData CreateFolder
-
-instance ToHeaders CreateFolder where
+instance Lude.ToHeaders CreateFolder where
   toHeaders CreateFolder' {..} =
-    mconcat
-      [ "Authentication" =# _cfAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateFolder where
+instance Lude.ToJSON CreateFolder where
   toJSON CreateFolder' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _cfName,
-            Just ("ParentFolderId" .= _cfParentFolderId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            Lude.Just ("ParentFolderId" Lude..= parentFolderId)
           ]
       )
 
-instance ToPath CreateFolder where
-  toPath = const "/api/v1/folders"
+instance Lude.ToPath CreateFolder where
+  toPath = Lude.const "/api/v1/folders"
 
-instance ToQuery CreateFolder where
-  toQuery = const mempty
+instance Lude.ToQuery CreateFolder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createFolderResponse' smart constructor.
+-- | /See:/ 'mkCreateFolderResponse' smart constructor.
 data CreateFolderResponse = CreateFolderResponse'
-  { _cfrsMetadata ::
-      !(Maybe FolderMetadata),
-    _cfrsResponseStatus :: !Int
+  { metadata ::
+      Lude.Maybe FolderMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFolderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfrsMetadata' - The metadata of the folder.
---
--- * 'cfrsResponseStatus' - -- | The response status code.
-createFolderResponse ::
-  -- | 'cfrsResponseStatus'
-  Int ->
+-- * 'metadata' - The metadata of the folder.
+-- * 'responseStatus' - The response status code.
+mkCreateFolderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateFolderResponse
-createFolderResponse pResponseStatus_ =
+mkCreateFolderResponse pResponseStatus_ =
   CreateFolderResponse'
-    { _cfrsMetadata = Nothing,
-      _cfrsResponseStatus = pResponseStatus_
+    { metadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The metadata of the folder.
-cfrsMetadata :: Lens' CreateFolderResponse (Maybe FolderMetadata)
-cfrsMetadata = lens _cfrsMetadata (\s a -> s {_cfrsMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfrsMetadata :: Lens.Lens' CreateFolderResponse (Lude.Maybe FolderMetadata)
+cfrsMetadata = Lens.lens (metadata :: CreateFolderResponse -> Lude.Maybe FolderMetadata) (\s a -> s {metadata = a} :: CreateFolderResponse)
+{-# DEPRECATED cfrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | -- | The response status code.
-cfrsResponseStatus :: Lens' CreateFolderResponse Int
-cfrsResponseStatus = lens _cfrsResponseStatus (\s a -> s {_cfrsResponseStatus = a})
-
-instance NFData CreateFolderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfrsResponseStatus :: Lens.Lens' CreateFolderResponse Lude.Int
+cfrsResponseStatus = Lens.lens (responseStatus :: CreateFolderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFolderResponse)
+{-# DEPRECATED cfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

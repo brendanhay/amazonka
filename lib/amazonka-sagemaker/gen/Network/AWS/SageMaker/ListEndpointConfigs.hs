@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists endpoint configurations.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListEndpointConfigs
-  ( -- * Creating a Request
-    listEndpointConfigs,
-    ListEndpointConfigs,
+  ( -- * Creating a request
+    ListEndpointConfigs (..),
+    mkListEndpointConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lecNameContains,
     lecCreationTimeAfter,
     lecNextToken,
@@ -36,186 +29,217 @@ module Network.AWS.SageMaker.ListEndpointConfigs
     lecMaxResults,
     lecSortBy,
 
-    -- * Destructuring the Response
-    listEndpointConfigsResponse,
-    ListEndpointConfigsResponse,
+    -- * Destructuring the response
+    ListEndpointConfigsResponse (..),
+    mkListEndpointConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lecrsNextToken,
     lecrsResponseStatus,
     lecrsEndpointConfigs,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listEndpointConfigs' smart constructor.
+-- | /See:/ 'mkListEndpointConfigs' smart constructor.
 data ListEndpointConfigs = ListEndpointConfigs'
-  { _lecNameContains ::
-      !(Maybe Text),
-    _lecCreationTimeAfter :: !(Maybe POSIX),
-    _lecNextToken :: !(Maybe Text),
-    _lecSortOrder :: !(Maybe OrderKey),
-    _lecCreationTimeBefore :: !(Maybe POSIX),
-    _lecMaxResults :: !(Maybe Nat),
-    _lecSortBy :: !(Maybe EndpointConfigSortKey)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe OrderKey,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe EndpointConfigSortKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lecNameContains' - A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
---
--- * 'lecCreationTimeAfter' - A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).
---
--- * 'lecNextToken' - If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
---
--- * 'lecSortOrder' - The sort order for results. The default is @Descending@ .
---
--- * 'lecCreationTimeBefore' - A filter that returns only endpoint configurations created before the specified time (timestamp).
---
--- * 'lecMaxResults' - The maximum number of training jobs to return in the response.
---
--- * 'lecSortBy' - The field to sort results by. The default is @CreationTime@ .
-listEndpointConfigs ::
+-- * 'creationTimeAfter' - A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only endpoint configurations created before the specified time (timestamp).
+-- * 'maxResults' - The maximum number of training jobs to return in the response.
+-- * 'nameContains' - A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
+-- * 'nextToken' - If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
+-- * 'sortOrder' - The sort order for results. The default is @Descending@ .
+mkListEndpointConfigs ::
   ListEndpointConfigs
-listEndpointConfigs =
+mkListEndpointConfigs =
   ListEndpointConfigs'
-    { _lecNameContains = Nothing,
-      _lecCreationTimeAfter = Nothing,
-      _lecNextToken = Nothing,
-      _lecSortOrder = Nothing,
-      _lecCreationTimeBefore = Nothing,
-      _lecMaxResults = Nothing,
-      _lecSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
-lecNameContains :: Lens' ListEndpointConfigs (Maybe Text)
-lecNameContains = lens _lecNameContains (\s a -> s {_lecNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecNameContains :: Lens.Lens' ListEndpointConfigs (Lude.Maybe Lude.Text)
+lecNameContains = Lens.lens (nameContains :: ListEndpointConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).
-lecCreationTimeAfter :: Lens' ListEndpointConfigs (Maybe UTCTime)
-lecCreationTimeAfter = lens _lecCreationTimeAfter (\s a -> s {_lecCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecCreationTimeAfter :: Lens.Lens' ListEndpointConfigs (Lude.Maybe Lude.Timestamp)
+lecCreationTimeAfter = Lens.lens (creationTimeAfter :: ListEndpointConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
-lecNextToken :: Lens' ListEndpointConfigs (Maybe Text)
-lecNextToken = lens _lecNextToken (\s a -> s {_lecNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecNextToken :: Lens.Lens' ListEndpointConfigs (Lude.Maybe Lude.Text)
+lecNextToken = Lens.lens (nextToken :: ListEndpointConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order for results. The default is @Descending@ .
-lecSortOrder :: Lens' ListEndpointConfigs (Maybe OrderKey)
-lecSortOrder = lens _lecSortOrder (\s a -> s {_lecSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecSortOrder :: Lens.Lens' ListEndpointConfigs (Lude.Maybe OrderKey)
+lecSortOrder = Lens.lens (sortOrder :: ListEndpointConfigs -> Lude.Maybe OrderKey) (\s a -> s {sortOrder = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only endpoint configurations created before the specified time (timestamp).
-lecCreationTimeBefore :: Lens' ListEndpointConfigs (Maybe UTCTime)
-lecCreationTimeBefore = lens _lecCreationTimeBefore (\s a -> s {_lecCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecCreationTimeBefore :: Lens.Lens' ListEndpointConfigs (Lude.Maybe Lude.Timestamp)
+lecCreationTimeBefore = Lens.lens (creationTimeBefore :: ListEndpointConfigs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of training jobs to return in the response.
-lecMaxResults :: Lens' ListEndpointConfigs (Maybe Natural)
-lecMaxResults = lens _lecMaxResults (\s a -> s {_lecMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecMaxResults :: Lens.Lens' ListEndpointConfigs (Lude.Maybe Lude.Natural)
+lecMaxResults = Lens.lens (maxResults :: ListEndpointConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
-lecSortBy :: Lens' ListEndpointConfigs (Maybe EndpointConfigSortKey)
-lecSortBy = lens _lecSortBy (\s a -> s {_lecSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecSortBy :: Lens.Lens' ListEndpointConfigs (Lude.Maybe EndpointConfigSortKey)
+lecSortBy = Lens.lens (sortBy :: ListEndpointConfigs -> Lude.Maybe EndpointConfigSortKey) (\s a -> s {sortBy = a} :: ListEndpointConfigs)
+{-# DEPRECATED lecSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListEndpointConfigs where
+instance Page.AWSPager ListEndpointConfigs where
   page rq rs
-    | stop (rs ^. lecrsNextToken) = Nothing
-    | stop (rs ^. lecrsEndpointConfigs) = Nothing
-    | otherwise = Just $ rq & lecNextToken .~ rs ^. lecrsNextToken
+    | Page.stop (rs Lens.^. lecrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lecrsEndpointConfigs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lecNextToken Lens..~ rs Lens.^. lecrsNextToken
 
-instance AWSRequest ListEndpointConfigs where
+instance Lude.AWSRequest ListEndpointConfigs where
   type Rs ListEndpointConfigs = ListEndpointConfigsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListEndpointConfigsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "EndpointConfigs" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "EndpointConfigs" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListEndpointConfigs
-
-instance NFData ListEndpointConfigs
-
-instance ToHeaders ListEndpointConfigs where
+instance Lude.ToHeaders ListEndpointConfigs where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListEndpointConfigs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListEndpointConfigs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListEndpointConfigs where
+instance Lude.ToJSON ListEndpointConfigs where
   toJSON ListEndpointConfigs' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _lecNameContains,
-            ("CreationTimeAfter" .=) <$> _lecCreationTimeAfter,
-            ("NextToken" .=) <$> _lecNextToken,
-            ("SortOrder" .=) <$> _lecSortOrder,
-            ("CreationTimeBefore" .=) <$> _lecCreationTimeBefore,
-            ("MaxResults" .=) <$> _lecMaxResults,
-            ("SortBy" .=) <$> _lecSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListEndpointConfigs where
-  toPath = const "/"
+instance Lude.ToPath ListEndpointConfigs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListEndpointConfigs where
-  toQuery = const mempty
+instance Lude.ToQuery ListEndpointConfigs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listEndpointConfigsResponse' smart constructor.
+-- | /See:/ 'mkListEndpointConfigsResponse' smart constructor.
 data ListEndpointConfigsResponse = ListEndpointConfigsResponse'
-  { _lecrsNextToken ::
-      !(Maybe Text),
-    _lecrsResponseStatus :: !Int,
-    _lecrsEndpointConfigs ::
-      ![EndpointConfigSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    endpointConfigs ::
+      [EndpointConfigSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lecrsNextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
---
--- * 'lecrsResponseStatus' - -- | The response status code.
---
--- * 'lecrsEndpointConfigs' - An array of endpoint configurations.
-listEndpointConfigsResponse ::
-  -- | 'lecrsResponseStatus'
-  Int ->
+-- * 'endpointConfigs' - An array of endpoint configurations.
+-- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
+-- * 'responseStatus' - The response status code.
+mkListEndpointConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListEndpointConfigsResponse
-listEndpointConfigsResponse pResponseStatus_ =
+mkListEndpointConfigsResponse pResponseStatus_ =
   ListEndpointConfigsResponse'
-    { _lecrsNextToken = Nothing,
-      _lecrsResponseStatus = pResponseStatus_,
-      _lecrsEndpointConfigs = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      endpointConfigs = Lude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
-lecrsNextToken :: Lens' ListEndpointConfigsResponse (Maybe Text)
-lecrsNextToken = lens _lecrsNextToken (\s a -> s {_lecrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecrsNextToken :: Lens.Lens' ListEndpointConfigsResponse (Lude.Maybe Lude.Text)
+lecrsNextToken = Lens.lens (nextToken :: ListEndpointConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointConfigsResponse)
+{-# DEPRECATED lecrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lecrsResponseStatus :: Lens' ListEndpointConfigsResponse Int
-lecrsResponseStatus = lens _lecrsResponseStatus (\s a -> s {_lecrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecrsResponseStatus :: Lens.Lens' ListEndpointConfigsResponse Lude.Int
+lecrsResponseStatus = Lens.lens (responseStatus :: ListEndpointConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointConfigsResponse)
+{-# DEPRECATED lecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of endpoint configurations.
-lecrsEndpointConfigs :: Lens' ListEndpointConfigsResponse [EndpointConfigSummary]
-lecrsEndpointConfigs = lens _lecrsEndpointConfigs (\s a -> s {_lecrsEndpointConfigs = a}) . _Coerce
-
-instance NFData ListEndpointConfigsResponse
+--
+-- /Note:/ Consider using 'endpointConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecrsEndpointConfigs :: Lens.Lens' ListEndpointConfigsResponse [EndpointConfigSummary]
+lecrsEndpointConfigs = Lens.lens (endpointConfigs :: ListEndpointConfigsResponse -> [EndpointConfigSummary]) (\s a -> s {endpointConfigs = a} :: ListEndpointConfigsResponse)
+{-# DEPRECATED lecrsEndpointConfigs "Use generic-lens or generic-optics with 'endpointConfigs' instead." #-}

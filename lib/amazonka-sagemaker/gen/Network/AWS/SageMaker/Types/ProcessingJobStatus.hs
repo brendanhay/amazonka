@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingJobStatus where
+module Network.AWS.SageMaker.Types.ProcessingJobStatus
+  ( ProcessingJobStatus
+      ( ProcessingJobStatus',
+        PJSCompleted,
+        PJSFailed,
+        PJSInProgress,
+        PJSStopped,
+        PJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProcessingJobStatus
-  = PJSCompleted
-  | PJSFailed
-  | PJSInProgress
-  | PJSStopped
-  | PJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProcessingJobStatus = ProcessingJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProcessingJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure PJSCompleted
-      "failed" -> pure PJSFailed
-      "inprogress" -> pure PJSInProgress
-      "stopped" -> pure PJSStopped
-      "stopping" -> pure PJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing ProcessingJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern PJSCompleted :: ProcessingJobStatus
+pattern PJSCompleted = ProcessingJobStatus' "Completed"
 
-instance ToText ProcessingJobStatus where
-  toText = \case
-    PJSCompleted -> "Completed"
-    PJSFailed -> "Failed"
-    PJSInProgress -> "InProgress"
-    PJSStopped -> "Stopped"
-    PJSStopping -> "Stopping"
+pattern PJSFailed :: ProcessingJobStatus
+pattern PJSFailed = ProcessingJobStatus' "Failed"
 
-instance Hashable ProcessingJobStatus
+pattern PJSInProgress :: ProcessingJobStatus
+pattern PJSInProgress = ProcessingJobStatus' "InProgress"
 
-instance NFData ProcessingJobStatus
+pattern PJSStopped :: ProcessingJobStatus
+pattern PJSStopped = ProcessingJobStatus' "Stopped"
 
-instance ToByteString ProcessingJobStatus
+pattern PJSStopping :: ProcessingJobStatus
+pattern PJSStopping = ProcessingJobStatus' "Stopping"
 
-instance ToQuery ProcessingJobStatus
-
-instance ToHeader ProcessingJobStatus
-
-instance ToJSON ProcessingJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON ProcessingJobStatus where
-  parseJSON = parseJSONText "ProcessingJobStatus"
+{-# COMPLETE
+  PJSCompleted,
+  PJSFailed,
+  PJSInProgress,
+  PJSStopped,
+  PJSStopping,
+  ProcessingJobStatus'
+  #-}

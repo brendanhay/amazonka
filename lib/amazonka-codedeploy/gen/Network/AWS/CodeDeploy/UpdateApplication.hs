@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,112 @@
 --
 -- Changes the name of an application.
 module Network.AWS.CodeDeploy.UpdateApplication
-  ( -- * Creating a Request
-    updateApplication,
-    UpdateApplication,
+  ( -- * Creating a request
+    UpdateApplication (..),
+    mkUpdateApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaNewApplicationName,
     uaApplicationName,
 
-    -- * Destructuring the Response
-    updateApplicationResponse,
-    UpdateApplicationResponse,
+    -- * Destructuring the response
+    UpdateApplicationResponse (..),
+    mkUpdateApplicationResponse,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of an @UpdateApplication@ operation.
 --
---
---
--- /See:/ 'updateApplication' smart constructor.
+-- /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { _uaNewApplicationName ::
-      !(Maybe Text),
-    _uaApplicationName :: !(Maybe Text)
+  { newApplicationName ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaNewApplicationName' - The new name to give the application.
---
--- * 'uaApplicationName' - The current name of the application you want to change.
-updateApplication ::
+-- * 'applicationName' - The current name of the application you want to change.
+-- * 'newApplicationName' - The new name to give the application.
+mkUpdateApplication ::
   UpdateApplication
-updateApplication =
+mkUpdateApplication =
   UpdateApplication'
-    { _uaNewApplicationName = Nothing,
-      _uaApplicationName = Nothing
+    { newApplicationName = Lude.Nothing,
+      applicationName = Lude.Nothing
     }
 
 -- | The new name to give the application.
-uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaNewApplicationName = lens _uaNewApplicationName (\s a -> s {_uaNewApplicationName = a})
+--
+-- /Note:/ Consider using 'newApplicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaNewApplicationName :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaNewApplicationName = Lens.lens (newApplicationName :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {newApplicationName = a} :: UpdateApplication)
+{-# DEPRECATED uaNewApplicationName "Use generic-lens or generic-optics with 'newApplicationName' instead." #-}
 
 -- | The current name of the application you want to change.
-uaApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaApplicationName = lens _uaApplicationName (\s a -> s {_uaApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationName :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest UpdateApplication where
+instance Lude.AWSRequest UpdateApplication where
   type Rs UpdateApplication = UpdateApplicationResponse
-  request = postJSON codeDeploy
-  response = receiveNull UpdateApplicationResponse'
+  request = Req.postJSON codeDeployService
+  response = Res.receiveNull UpdateApplicationResponse'
 
-instance Hashable UpdateApplication
-
-instance NFData UpdateApplication
-
-instance ToHeaders UpdateApplication where
+instance Lude.ToHeaders UpdateApplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.UpdateApplication" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.UpdateApplication" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateApplication where
+instance Lude.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    object
-      ( catMaybes
-          [ ("newApplicationName" .=) <$> _uaNewApplicationName,
-            ("applicationName" .=) <$> _uaApplicationName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("newApplicationName" Lude..=) Lude.<$> newApplicationName,
+            ("applicationName" Lude..=) Lude.<$> applicationName
           ]
       )
 
-instance ToPath UpdateApplication where
-  toPath = const "/"
+instance Lude.ToPath UpdateApplication where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateApplication where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateApplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateApplicationResponse' smart constructor.
+-- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
-updateApplicationResponse ::
+mkUpdateApplicationResponse ::
   UpdateApplicationResponse
-updateApplicationResponse = UpdateApplicationResponse'
-
-instance NFData UpdateApplicationResponse
+mkUpdateApplicationResponse = UpdateApplicationResponse'

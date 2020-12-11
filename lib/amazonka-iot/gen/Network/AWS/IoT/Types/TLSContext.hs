@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TLSContext where
+module Network.AWS.IoT.Types.TLSContext
+  ( TLSContext (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTLSContext,
+
+    -- * Lenses
+    tcServerName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the TLS context to use for the test authorizer request.
 --
---
---
--- /See:/ 'tlsContext' smart constructor.
-newtype TLSContext = TLSContext' {_tcServerName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTLSContext' smart constructor.
+newtype TLSContext = TLSContext'
+  { serverName ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TLSContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcServerName' - The value of the @serverName@ key in a TLS authorization request.
-tlsContext ::
+-- * 'serverName' - The value of the @serverName@ key in a TLS authorization request.
+mkTLSContext ::
   TLSContext
-tlsContext = TLSContext' {_tcServerName = Nothing}
+mkTLSContext = TLSContext' {serverName = Lude.Nothing}
 
 -- | The value of the @serverName@ key in a TLS authorization request.
-tcServerName :: Lens' TLSContext (Maybe Text)
-tcServerName = lens _tcServerName (\s a -> s {_tcServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcServerName :: Lens.Lens' TLSContext (Lude.Maybe Lude.Text)
+tcServerName = Lens.lens (serverName :: TLSContext -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: TLSContext)
+{-# DEPRECATED tcServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
-instance Hashable TLSContext
-
-instance NFData TLSContext
-
-instance ToJSON TLSContext where
+instance Lude.ToJSON TLSContext where
   toJSON TLSContext' {..} =
-    object (catMaybes [("serverName" .=) <$> _tcServerName])
+    Lude.object
+      (Lude.catMaybes [("serverName" Lude..=) Lude.<$> serverName])

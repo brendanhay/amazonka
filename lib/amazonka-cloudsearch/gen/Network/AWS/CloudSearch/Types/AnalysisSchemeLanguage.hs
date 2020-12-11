@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,149 +7,215 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage where
+module Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
+  ( AnalysisSchemeLanguage
+      ( AnalysisSchemeLanguage',
+        AR,
+        BG,
+        CA,
+        CS,
+        DA,
+        DE,
+        EL,
+        EN,
+        ES,
+        EU,
+        FA,
+        FI,
+        FR,
+        GA,
+        GL,
+        HE,
+        HI,
+        HU,
+        HY,
+        IT,
+        Id,
+        JA,
+        KO,
+        LV,
+        Mul,
+        NL,
+        NO,
+        PT,
+        RO,
+        RU,
+        SV,
+        TH,
+        TR,
+        ZhHans,
+        ZhHant
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or @mul@ for multiple languages.
-data AnalysisSchemeLanguage
-  = AR
-  | BG
-  | CA
-  | CS
-  | DA
-  | DE
-  | EL
-  | EN
-  | ES
-  | EU
-  | FA
-  | FI
-  | FR
-  | GA
-  | GL
-  | HE
-  | HI
-  | HU
-  | HY
-  | IT
-  | Id
-  | JA
-  | KO
-  | LV
-  | Mul
-  | NL
-  | NO
-  | PT
-  | RO
-  | RU
-  | SV
-  | TH
-  | TR
-  | ZhHans
-  | ZhHant
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AnalysisSchemeLanguage = AnalysisSchemeLanguage' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AnalysisSchemeLanguage where
-  parser =
-    takeLowerText >>= \case
-      "ar" -> pure AR
-      "bg" -> pure BG
-      "ca" -> pure CA
-      "cs" -> pure CS
-      "da" -> pure DA
-      "de" -> pure DE
-      "el" -> pure EL
-      "en" -> pure EN
-      "es" -> pure ES
-      "eu" -> pure EU
-      "fa" -> pure FA
-      "fi" -> pure FI
-      "fr" -> pure FR
-      "ga" -> pure GA
-      "gl" -> pure GL
-      "he" -> pure HE
-      "hi" -> pure HI
-      "hu" -> pure HU
-      "hy" -> pure HY
-      "it" -> pure IT
-      "id" -> pure Id
-      "ja" -> pure JA
-      "ko" -> pure KO
-      "lv" -> pure LV
-      "mul" -> pure Mul
-      "nl" -> pure NL
-      "no" -> pure NO
-      "pt" -> pure PT
-      "ro" -> pure RO
-      "ru" -> pure RU
-      "sv" -> pure SV
-      "th" -> pure TH
-      "tr" -> pure TR
-      "zh-hans" -> pure ZhHans
-      "zh-hant" -> pure ZhHant
-      e ->
-        fromTextError $
-          "Failure parsing AnalysisSchemeLanguage from value: '" <> e
-            <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
+pattern AR :: AnalysisSchemeLanguage
+pattern AR = AnalysisSchemeLanguage' "ar"
 
-instance ToText AnalysisSchemeLanguage where
-  toText = \case
-    AR -> "ar"
-    BG -> "bg"
-    CA -> "ca"
-    CS -> "cs"
-    DA -> "da"
-    DE -> "de"
-    EL -> "el"
-    EN -> "en"
-    ES -> "es"
-    EU -> "eu"
-    FA -> "fa"
-    FI -> "fi"
-    FR -> "fr"
-    GA -> "ga"
-    GL -> "gl"
-    HE -> "he"
-    HI -> "hi"
-    HU -> "hu"
-    HY -> "hy"
-    IT -> "it"
-    Id -> "id"
-    JA -> "ja"
-    KO -> "ko"
-    LV -> "lv"
-    Mul -> "mul"
-    NL -> "nl"
-    NO -> "no"
-    PT -> "pt"
-    RO -> "ro"
-    RU -> "ru"
-    SV -> "sv"
-    TH -> "th"
-    TR -> "tr"
-    ZhHans -> "zh-Hans"
-    ZhHant -> "zh-Hant"
+pattern BG :: AnalysisSchemeLanguage
+pattern BG = AnalysisSchemeLanguage' "bg"
 
-instance Hashable AnalysisSchemeLanguage
+pattern CA :: AnalysisSchemeLanguage
+pattern CA = AnalysisSchemeLanguage' "ca"
 
-instance NFData AnalysisSchemeLanguage
+pattern CS :: AnalysisSchemeLanguage
+pattern CS = AnalysisSchemeLanguage' "cs"
 
-instance ToByteString AnalysisSchemeLanguage
+pattern DA :: AnalysisSchemeLanguage
+pattern DA = AnalysisSchemeLanguage' "da"
 
-instance ToQuery AnalysisSchemeLanguage
+pattern DE :: AnalysisSchemeLanguage
+pattern DE = AnalysisSchemeLanguage' "de"
 
-instance ToHeader AnalysisSchemeLanguage
+pattern EL :: AnalysisSchemeLanguage
+pattern EL = AnalysisSchemeLanguage' "el"
 
-instance FromXML AnalysisSchemeLanguage where
-  parseXML = parseXMLText "AnalysisSchemeLanguage"
+pattern EN :: AnalysisSchemeLanguage
+pattern EN = AnalysisSchemeLanguage' "en"
+
+pattern ES :: AnalysisSchemeLanguage
+pattern ES = AnalysisSchemeLanguage' "es"
+
+pattern EU :: AnalysisSchemeLanguage
+pattern EU = AnalysisSchemeLanguage' "eu"
+
+pattern FA :: AnalysisSchemeLanguage
+pattern FA = AnalysisSchemeLanguage' "fa"
+
+pattern FI :: AnalysisSchemeLanguage
+pattern FI = AnalysisSchemeLanguage' "fi"
+
+pattern FR :: AnalysisSchemeLanguage
+pattern FR = AnalysisSchemeLanguage' "fr"
+
+pattern GA :: AnalysisSchemeLanguage
+pattern GA = AnalysisSchemeLanguage' "ga"
+
+pattern GL :: AnalysisSchemeLanguage
+pattern GL = AnalysisSchemeLanguage' "gl"
+
+pattern HE :: AnalysisSchemeLanguage
+pattern HE = AnalysisSchemeLanguage' "he"
+
+pattern HI :: AnalysisSchemeLanguage
+pattern HI = AnalysisSchemeLanguage' "hi"
+
+pattern HU :: AnalysisSchemeLanguage
+pattern HU = AnalysisSchemeLanguage' "hu"
+
+pattern HY :: AnalysisSchemeLanguage
+pattern HY = AnalysisSchemeLanguage' "hy"
+
+pattern IT :: AnalysisSchemeLanguage
+pattern IT = AnalysisSchemeLanguage' "it"
+
+pattern Id :: AnalysisSchemeLanguage
+pattern Id = AnalysisSchemeLanguage' "id"
+
+pattern JA :: AnalysisSchemeLanguage
+pattern JA = AnalysisSchemeLanguage' "ja"
+
+pattern KO :: AnalysisSchemeLanguage
+pattern KO = AnalysisSchemeLanguage' "ko"
+
+pattern LV :: AnalysisSchemeLanguage
+pattern LV = AnalysisSchemeLanguage' "lv"
+
+pattern Mul :: AnalysisSchemeLanguage
+pattern Mul = AnalysisSchemeLanguage' "mul"
+
+pattern NL :: AnalysisSchemeLanguage
+pattern NL = AnalysisSchemeLanguage' "nl"
+
+pattern NO :: AnalysisSchemeLanguage
+pattern NO = AnalysisSchemeLanguage' "no"
+
+pattern PT :: AnalysisSchemeLanguage
+pattern PT = AnalysisSchemeLanguage' "pt"
+
+pattern RO :: AnalysisSchemeLanguage
+pattern RO = AnalysisSchemeLanguage' "ro"
+
+pattern RU :: AnalysisSchemeLanguage
+pattern RU = AnalysisSchemeLanguage' "ru"
+
+pattern SV :: AnalysisSchemeLanguage
+pattern SV = AnalysisSchemeLanguage' "sv"
+
+pattern TH :: AnalysisSchemeLanguage
+pattern TH = AnalysisSchemeLanguage' "th"
+
+pattern TR :: AnalysisSchemeLanguage
+pattern TR = AnalysisSchemeLanguage' "tr"
+
+pattern ZhHans :: AnalysisSchemeLanguage
+pattern ZhHans = AnalysisSchemeLanguage' "zh-Hans"
+
+pattern ZhHant :: AnalysisSchemeLanguage
+pattern ZhHant = AnalysisSchemeLanguage' "zh-Hant"
+
+{-# COMPLETE
+  AR,
+  BG,
+  CA,
+  CS,
+  DA,
+  DE,
+  EL,
+  EN,
+  ES,
+  EU,
+  FA,
+  FI,
+  FR,
+  GA,
+  GL,
+  HE,
+  HI,
+  HU,
+  HY,
+  IT,
+  Id,
+  JA,
+  KO,
+  LV,
+  Mul,
+  NL,
+  NO,
+  PT,
+  RO,
+  RU,
+  SV,
+  TH,
+  TR,
+  ZhHans,
+  ZhHant,
+  AnalysisSchemeLanguage'
+  #-}

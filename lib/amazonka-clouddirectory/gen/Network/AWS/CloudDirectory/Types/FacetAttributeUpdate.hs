@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.FacetAttributeUpdate where
+module Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
+  ( FacetAttributeUpdate (..),
+
+    -- * Smart constructor
+    mkFacetAttributeUpdate,
+
+    -- * Lenses
+    fauAttribute,
+    fauAction,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.FacetAttribute
 import Network.AWS.CloudDirectory.Types.UpdateActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure that contains information used to update an attribute.
 --
---
---
--- /See:/ 'facetAttributeUpdate' smart constructor.
+-- /See:/ 'mkFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-  { _fauAttribute ::
-      !(Maybe FacetAttribute),
-    _fauAction :: !(Maybe UpdateActionType)
+  { attribute ::
+      Lude.Maybe FacetAttribute,
+    action :: Lude.Maybe UpdateActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttributeUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fauAttribute' - The attribute to update.
---
--- * 'fauAction' - The action to perform when updating the attribute.
-facetAttributeUpdate ::
+-- * 'action' - The action to perform when updating the attribute.
+-- * 'attribute' - The attribute to update.
+mkFacetAttributeUpdate ::
   FacetAttributeUpdate
-facetAttributeUpdate =
+mkFacetAttributeUpdate =
   FacetAttributeUpdate'
-    { _fauAttribute = Nothing,
-      _fauAction = Nothing
+    { attribute = Lude.Nothing,
+      action = Lude.Nothing
     }
 
 -- | The attribute to update.
-fauAttribute :: Lens' FacetAttributeUpdate (Maybe FacetAttribute)
-fauAttribute = lens _fauAttribute (\s a -> s {_fauAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fauAttribute :: Lens.Lens' FacetAttributeUpdate (Lude.Maybe FacetAttribute)
+fauAttribute = Lens.lens (attribute :: FacetAttributeUpdate -> Lude.Maybe FacetAttribute) (\s a -> s {attribute = a} :: FacetAttributeUpdate)
+{-# DEPRECATED fauAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The action to perform when updating the attribute.
-fauAction :: Lens' FacetAttributeUpdate (Maybe UpdateActionType)
-fauAction = lens _fauAction (\s a -> s {_fauAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fauAction :: Lens.Lens' FacetAttributeUpdate (Lude.Maybe UpdateActionType)
+fauAction = Lens.lens (action :: FacetAttributeUpdate -> Lude.Maybe UpdateActionType) (\s a -> s {action = a} :: FacetAttributeUpdate)
+{-# DEPRECATED fauAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Hashable FacetAttributeUpdate
-
-instance NFData FacetAttributeUpdate
-
-instance ToJSON FacetAttributeUpdate where
+instance Lude.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =
-    object
-      ( catMaybes
-          [("Attribute" .=) <$> _fauAttribute, ("Action" .=) <$> _fauAction]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Attribute" Lude..=) Lude.<$> attribute,
+            ("Action" Lude..=) Lude.<$> action
+          ]
       )

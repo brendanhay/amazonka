@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,164 @@
 --
 -- Removes a VPC peering connection. To delete the connection, you must have a valid authorization for the VPC peering connection that you want to delete. You can check for an authorization by calling 'DescribeVpcPeeringAuthorizations' or request a new one using 'CreateVpcPeeringAuthorization' .
 --
---
 -- Once a valid authorization exists, call this operation from the AWS account that is used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection ID and fleet ID. If successful, the connection is removed.
 --
 --     * 'CreateVpcPeeringAuthorization'
 --
+--
 --     * 'DescribeVpcPeeringAuthorizations'
+--
 --
 --     * 'DeleteVpcPeeringAuthorization'
 --
+--
 --     * 'CreateVpcPeeringConnection'
+--
 --
 --     * 'DescribeVpcPeeringConnections'
 --
+--
 --     * 'DeleteVpcPeeringConnection'
 module Network.AWS.GameLift.DeleteVPCPeeringConnection
-  ( -- * Creating a Request
-    deleteVPCPeeringConnection,
-    DeleteVPCPeeringConnection,
+  ( -- * Creating a request
+    DeleteVPCPeeringConnection (..),
+    mkDeleteVPCPeeringConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpcFleetId,
     dvpcVPCPeeringConnectionId,
 
-    -- * Destructuring the Response
-    deleteVPCPeeringConnectionResponse,
-    DeleteVPCPeeringConnectionResponse,
+    -- * Destructuring the response
+    DeleteVPCPeeringConnectionResponse (..),
+    mkDeleteVPCPeeringConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'deleteVPCPeeringConnection' smart constructor.
+-- /See:/ 'mkDeleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-  { _dvpcFleetId ::
-      !Text,
-    _dvpcVPCPeeringConnectionId :: !Text
+  { fleetId ::
+      Lude.Text,
+    vpcPeeringConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcFleetId' - A unique identifier for a fleet. This fleet specified must match the fleet referenced in the VPC peering connection record. You can use either the fleet ID or ARN value.
---
--- * 'dvpcVPCPeeringConnectionId' - A unique identifier for a VPC peering connection. This value is included in the 'VpcPeeringConnection' object, which can be retrieved by calling 'DescribeVpcPeeringConnections' .
-deleteVPCPeeringConnection ::
-  -- | 'dvpcFleetId'
-  Text ->
-  -- | 'dvpcVPCPeeringConnectionId'
-  Text ->
+-- * 'fleetId' - A unique identifier for a fleet. This fleet specified must match the fleet referenced in the VPC peering connection record. You can use either the fleet ID or ARN value.
+-- * 'vpcPeeringConnectionId' - A unique identifier for a VPC peering connection. This value is included in the 'VpcPeeringConnection' object, which can be retrieved by calling 'DescribeVpcPeeringConnections' .
+mkDeleteVPCPeeringConnection ::
+  -- | 'fleetId'
+  Lude.Text ->
+  -- | 'vpcPeeringConnectionId'
+  Lude.Text ->
   DeleteVPCPeeringConnection
-deleteVPCPeeringConnection pFleetId_ pVPCPeeringConnectionId_ =
+mkDeleteVPCPeeringConnection pFleetId_ pVPCPeeringConnectionId_ =
   DeleteVPCPeeringConnection'
-    { _dvpcFleetId = pFleetId_,
-      _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { fleetId = pFleetId_,
+      vpcPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | A unique identifier for a fleet. This fleet specified must match the fleet referenced in the VPC peering connection record. You can use either the fleet ID or ARN value.
-dvpcFleetId :: Lens' DeleteVPCPeeringConnection Text
-dvpcFleetId = lens _dvpcFleetId (\s a -> s {_dvpcFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcFleetId :: Lens.Lens' DeleteVPCPeeringConnection Lude.Text
+dvpcFleetId = Lens.lens (fleetId :: DeleteVPCPeeringConnection -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteVPCPeeringConnection)
+{-# DEPRECATED dvpcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | A unique identifier for a VPC peering connection. This value is included in the 'VpcPeeringConnection' object, which can be retrieved by calling 'DescribeVpcPeeringConnections' .
-dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
-dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\s a -> s {_dvpcVPCPeeringConnectionId = a})
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcVPCPeeringConnectionId :: Lens.Lens' DeleteVPCPeeringConnection Lude.Text
+dvpcVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: DeleteVPCPeeringConnection -> Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: DeleteVPCPeeringConnection)
+{-# DEPRECATED dvpcVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
 
-instance AWSRequest DeleteVPCPeeringConnection where
+instance Lude.AWSRequest DeleteVPCPeeringConnection where
   type
     Rs DeleteVPCPeeringConnection =
       DeleteVPCPeeringConnectionResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteVPCPeeringConnectionResponse' <$> (pure (fromEnum s))
+          DeleteVPCPeeringConnectionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVPCPeeringConnection
-
-instance NFData DeleteVPCPeeringConnection
-
-instance ToHeaders DeleteVPCPeeringConnection where
+instance Lude.ToHeaders DeleteVPCPeeringConnection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DeleteVpcPeeringConnection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DeleteVpcPeeringConnection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteVPCPeeringConnection where
+instance Lude.ToJSON DeleteVPCPeeringConnection where
   toJSON DeleteVPCPeeringConnection' {..} =
-    object
-      ( catMaybes
-          [ Just ("FleetId" .= _dvpcFleetId),
-            Just ("VpcPeeringConnectionId" .= _dvpcVPCPeeringConnectionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("FleetId" Lude..= fleetId),
+            Lude.Just
+              ("VpcPeeringConnectionId" Lude..= vpcPeeringConnectionId)
           ]
       )
 
-instance ToPath DeleteVPCPeeringConnection where
-  toPath = const "/"
+instance Lude.ToPath DeleteVPCPeeringConnection where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteVPCPeeringConnection where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVPCPeeringConnection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPCPeeringConnectionResponse' smart constructor.
 newtype DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
-  { _dvpcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcrsResponseStatus' - -- | The response status code.
-deleteVPCPeeringConnectionResponse ::
-  -- | 'dvpcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteVPCPeeringConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pResponseStatus_ =
+mkDeleteVPCPeeringConnectionResponse pResponseStatus_ =
   DeleteVPCPeeringConnectionResponse'
-    { _dvpcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
-dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\s a -> s {_dvpcrsResponseStatus = a})
-
-instance NFData DeleteVPCPeeringConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcrsResponseStatus :: Lens.Lens' DeleteVPCPeeringConnectionResponse Lude.Int
+dvpcrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCPeeringConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCPeeringConnectionResponse)
+{-# DEPRECATED dvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

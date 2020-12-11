@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.InsightSelector where
+module Network.AWS.CloudTrail.Types.InsightSelector
+  ( InsightSelector (..),
+
+    -- * Smart constructor
+    mkInsightSelector,
+
+    -- * Lenses
+    isInsightType,
+  )
+where
 
 import Network.AWS.CloudTrail.Types.InsightType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A JSON string that contains a list of insight types that are logged on a trail.
 --
---
---
--- /See:/ 'insightSelector' smart constructor.
+-- /See:/ 'mkInsightSelector' smart constructor.
 newtype InsightSelector = InsightSelector'
-  { _isInsightType ::
-      Maybe InsightType
+  { insightType ::
+      Lude.Maybe InsightType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isInsightType' - The type of insights to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
-insightSelector ::
+-- * 'insightType' - The type of insights to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+mkInsightSelector ::
   InsightSelector
-insightSelector = InsightSelector' {_isInsightType = Nothing}
+mkInsightSelector = InsightSelector' {insightType = Lude.Nothing}
 
 -- | The type of insights to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
-isInsightType :: Lens' InsightSelector (Maybe InsightType)
-isInsightType = lens _isInsightType (\s a -> s {_isInsightType = a})
+--
+-- /Note:/ Consider using 'insightType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isInsightType :: Lens.Lens' InsightSelector (Lude.Maybe InsightType)
+isInsightType = Lens.lens (insightType :: InsightSelector -> Lude.Maybe InsightType) (\s a -> s {insightType = a} :: InsightSelector)
+{-# DEPRECATED isInsightType "Use generic-lens or generic-optics with 'insightType' instead." #-}
 
-instance FromJSON InsightSelector where
+instance Lude.FromJSON InsightSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "InsightSelector"
-      (\x -> InsightSelector' <$> (x .:? "InsightType"))
+      (\x -> InsightSelector' Lude.<$> (x Lude..:? "InsightType"))
 
-instance Hashable InsightSelector
-
-instance NFData InsightSelector
-
-instance ToJSON InsightSelector where
+instance Lude.ToJSON InsightSelector where
   toJSON InsightSelector' {..} =
-    object (catMaybes [("InsightType" .=) <$> _isInsightType])
+    Lude.object
+      (Lude.catMaybes [("InsightType" Lude..=) Lude.<$> insightType])

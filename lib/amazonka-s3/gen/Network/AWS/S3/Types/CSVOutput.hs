@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CSVOutput where
+module Network.AWS.S3.Types.CSVOutput
+  ( CSVOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCSVOutput,
+
+    -- * Lenses
+    coQuoteCharacter,
+    coQuoteFields,
+    coRecordDelimiter,
+    coQuoteEscapeCharacter,
+    coFieldDelimiter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.QuoteFields
 
 -- | Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.
 --
---
---
--- /See:/ 'csvOutput' smart constructor.
+-- /See:/ 'mkCSVOutput' smart constructor.
 data CSVOutput = CSVOutput'
-  { _coQuoteCharacter :: !(Maybe Text),
-    _coQuoteFields :: !(Maybe QuoteFields),
-    _coRecordDelimiter :: !(Maybe Text),
-    _coQuoteEscapeCharacter :: !(Maybe Text),
-    _coFieldDelimiter :: !(Maybe Text)
+  { quoteCharacter :: Lude.Maybe Lude.Text,
+    quoteFields :: Lude.Maybe QuoteFields,
+    recordDelimiter :: Lude.Maybe Lude.Text,
+    quoteEscapeCharacter :: Lude.Maybe Lude.Text,
+    fieldDelimiter :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'fieldDelimiter' - The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
+-- * 'quoteCharacter' - A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
+-- * 'quoteEscapeCharacter' - The single character used for escaping the quote character inside an already escaped value.
+-- * 'quoteFields' - Indicates whether to use quotation marks around output fields.
 --
--- * 'coQuoteCharacter' - A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
 --
--- * 'coQuoteFields' - Indicates whether to use quotation marks around output fields.      * @ALWAYS@ : Always use quotation marks for output fields.     * @ASNEEDED@ : Use quotation marks for output fields when needed.
+--     * @ALWAYS@ : Always use quotation marks for output fields.
 --
--- * 'coRecordDelimiter' - A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.
 --
--- * 'coQuoteEscapeCharacter' - The single character used for escaping the quote character inside an already escaped value.
+--     * @ASNEEDED@ : Use quotation marks for output fields when needed.
 --
--- * 'coFieldDelimiter' - The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
-csvOutput ::
+--
+-- * 'recordDelimiter' - A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.
+mkCSVOutput ::
   CSVOutput
-csvOutput =
+mkCSVOutput =
   CSVOutput'
-    { _coQuoteCharacter = Nothing,
-      _coQuoteFields = Nothing,
-      _coRecordDelimiter = Nothing,
-      _coQuoteEscapeCharacter = Nothing,
-      _coFieldDelimiter = Nothing
+    { quoteCharacter = Lude.Nothing,
+      quoteFields = Lude.Nothing,
+      recordDelimiter = Lude.Nothing,
+      quoteEscapeCharacter = Lude.Nothing,
+      fieldDelimiter = Lude.Nothing
     }
 
 -- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
-coQuoteCharacter :: Lens' CSVOutput (Maybe Text)
-coQuoteCharacter = lens _coQuoteCharacter (\s a -> s {_coQuoteCharacter = a})
+--
+-- /Note:/ Consider using 'quoteCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coQuoteCharacter :: Lens.Lens' CSVOutput (Lude.Maybe Lude.Text)
+coQuoteCharacter = Lens.lens (quoteCharacter :: CSVOutput -> Lude.Maybe Lude.Text) (\s a -> s {quoteCharacter = a} :: CSVOutput)
+{-# DEPRECATED coQuoteCharacter "Use generic-lens or generic-optics with 'quoteCharacter' instead." #-}
 
--- | Indicates whether to use quotation marks around output fields.      * @ALWAYS@ : Always use quotation marks for output fields.     * @ASNEEDED@ : Use quotation marks for output fields when needed.
-coQuoteFields :: Lens' CSVOutput (Maybe QuoteFields)
-coQuoteFields = lens _coQuoteFields (\s a -> s {_coQuoteFields = a})
+-- | Indicates whether to use quotation marks around output fields.
+--
+--
+--     * @ALWAYS@ : Always use quotation marks for output fields.
+--
+--
+--     * @ASNEEDED@ : Use quotation marks for output fields when needed.
+--
+--
+--
+-- /Note:/ Consider using 'quoteFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coQuoteFields :: Lens.Lens' CSVOutput (Lude.Maybe QuoteFields)
+coQuoteFields = Lens.lens (quoteFields :: CSVOutput -> Lude.Maybe QuoteFields) (\s a -> s {quoteFields = a} :: CSVOutput)
+{-# DEPRECATED coQuoteFields "Use generic-lens or generic-optics with 'quoteFields' instead." #-}
 
 -- | A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.
-coRecordDelimiter :: Lens' CSVOutput (Maybe Text)
-coRecordDelimiter = lens _coRecordDelimiter (\s a -> s {_coRecordDelimiter = a})
+--
+-- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coRecordDelimiter :: Lens.Lens' CSVOutput (Lude.Maybe Lude.Text)
+coRecordDelimiter = Lens.lens (recordDelimiter :: CSVOutput -> Lude.Maybe Lude.Text) (\s a -> s {recordDelimiter = a} :: CSVOutput)
+{-# DEPRECATED coRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
 
 -- | The single character used for escaping the quote character inside an already escaped value.
-coQuoteEscapeCharacter :: Lens' CSVOutput (Maybe Text)
-coQuoteEscapeCharacter = lens _coQuoteEscapeCharacter (\s a -> s {_coQuoteEscapeCharacter = a})
+--
+-- /Note:/ Consider using 'quoteEscapeCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coQuoteEscapeCharacter :: Lens.Lens' CSVOutput (Lude.Maybe Lude.Text)
+coQuoteEscapeCharacter = Lens.lens (quoteEscapeCharacter :: CSVOutput -> Lude.Maybe Lude.Text) (\s a -> s {quoteEscapeCharacter = a} :: CSVOutput)
+{-# DEPRECATED coQuoteEscapeCharacter "Use generic-lens or generic-optics with 'quoteEscapeCharacter' instead." #-}
 
 -- | The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
-coFieldDelimiter :: Lens' CSVOutput (Maybe Text)
-coFieldDelimiter = lens _coFieldDelimiter (\s a -> s {_coFieldDelimiter = a})
+--
+-- /Note:/ Consider using 'fieldDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coFieldDelimiter :: Lens.Lens' CSVOutput (Lude.Maybe Lude.Text)
+coFieldDelimiter = Lens.lens (fieldDelimiter :: CSVOutput -> Lude.Maybe Lude.Text) (\s a -> s {fieldDelimiter = a} :: CSVOutput)
+{-# DEPRECATED coFieldDelimiter "Use generic-lens or generic-optics with 'fieldDelimiter' instead." #-}
 
-instance Hashable CSVOutput
-
-instance NFData CSVOutput
-
-instance ToXML CSVOutput where
+instance Lude.ToXML CSVOutput where
   toXML CSVOutput' {..} =
-    mconcat
-      [ "QuoteCharacter" @= _coQuoteCharacter,
-        "QuoteFields" @= _coQuoteFields,
-        "RecordDelimiter" @= _coRecordDelimiter,
-        "QuoteEscapeCharacter" @= _coQuoteEscapeCharacter,
-        "FieldDelimiter" @= _coFieldDelimiter
+    Lude.mconcat
+      [ "QuoteCharacter" Lude.@= quoteCharacter,
+        "QuoteFields" Lude.@= quoteFields,
+        "RecordDelimiter" Lude.@= recordDelimiter,
+        "QuoteEscapeCharacter" Lude.@= quoteEscapeCharacter,
+        "FieldDelimiter" Lude.@= fieldDelimiter
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,126 @@
 --
 -- Deletes a private certificate authority (CA). You must provide the Amazon Resource Name (ARN) of the private CA that you want to delete. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
 --
---
 -- Before you can delete a CA that you have created and activated, you must disable it. To do this, call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action and set the __CertificateAuthorityStatus__ parameter to @DISABLED@ .
---
 -- Additionally, you can delete a CA if you are waiting for it to be created (that is, the status of the CA is @CREATING@ ). You can also delete it if the CA has been created but you haven't yet imported the signed certificate into ACM Private CA (that is, the status of the CA is @PENDING_CERTIFICATE@ ).
---
 -- When you successfully call <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthority.html DeleteCertificateAuthority> , the CA's status changes to @DELETED@ . However, the CA won't be permanently deleted until the restoration period has passed. By default, if you do not set the @PermanentDeletionTimeInDays@ parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DescribeCertificateAuthority.html DescribeCertificateAuthority> action returns the time remaining in the restoration window of a private CA in the @DELETED@ state. To restore an eligible CA, call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RestoreCertificateAuthority.html RestoreCertificateAuthority> action.
 module Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
-  ( -- * Creating a Request
-    deleteCertificateAuthority,
-    DeleteCertificateAuthority,
+  ( -- * Creating a request
+    DeleteCertificateAuthority (..),
+    mkDeleteCertificateAuthority,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcaPermanentDeletionTimeInDays,
     dcaCertificateAuthorityARN,
 
-    -- * Destructuring the Response
-    deleteCertificateAuthorityResponse,
-    DeleteCertificateAuthorityResponse,
+    -- * Destructuring the response
+    DeleteCertificateAuthorityResponse (..),
+    mkDeleteCertificateAuthorityResponse,
   )
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCertificateAuthority' smart constructor.
+-- | /See:/ 'mkDeleteCertificateAuthority' smart constructor.
 data DeleteCertificateAuthority = DeleteCertificateAuthority'
-  { _dcaPermanentDeletionTimeInDays ::
-      !(Maybe Nat),
-    _dcaCertificateAuthorityARN :: !Text
+  { permanentDeletionTimeInDays ::
+      Lude.Maybe Lude.Natural,
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateAuthority' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:
 --
--- * 'dcaPermanentDeletionTimeInDays' - The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
---
--- * 'dcaCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-deleteCertificateAuthority ::
-  -- | 'dcaCertificateAuthorityARN'
-  Text ->
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- * 'permanentDeletionTimeInDays' - The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
+mkDeleteCertificateAuthority ::
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
   DeleteCertificateAuthority
-deleteCertificateAuthority pCertificateAuthorityARN_ =
+mkDeleteCertificateAuthority pCertificateAuthorityARN_ =
   DeleteCertificateAuthority'
-    { _dcaPermanentDeletionTimeInDays =
-        Nothing,
-      _dcaCertificateAuthorityARN = pCertificateAuthorityARN_
+    { permanentDeletionTimeInDays =
+        Lude.Nothing,
+      certificateAuthorityARN = pCertificateAuthorityARN_
     }
 
 -- | The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
-dcaPermanentDeletionTimeInDays :: Lens' DeleteCertificateAuthority (Maybe Natural)
-dcaPermanentDeletionTimeInDays = lens _dcaPermanentDeletionTimeInDays (\s a -> s {_dcaPermanentDeletionTimeInDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'permanentDeletionTimeInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaPermanentDeletionTimeInDays :: Lens.Lens' DeleteCertificateAuthority (Lude.Maybe Lude.Natural)
+dcaPermanentDeletionTimeInDays = Lens.lens (permanentDeletionTimeInDays :: DeleteCertificateAuthority -> Lude.Maybe Lude.Natural) (\s a -> s {permanentDeletionTimeInDays = a} :: DeleteCertificateAuthority)
+{-# DEPRECATED dcaPermanentDeletionTimeInDays "Use generic-lens or generic-optics with 'permanentDeletionTimeInDays' instead." #-}
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-dcaCertificateAuthorityARN :: Lens' DeleteCertificateAuthority Text
-dcaCertificateAuthorityARN = lens _dcaCertificateAuthorityARN (\s a -> s {_dcaCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaCertificateAuthorityARN :: Lens.Lens' DeleteCertificateAuthority Lude.Text
+dcaCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: DeleteCertificateAuthority -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: DeleteCertificateAuthority)
+{-# DEPRECATED dcaCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
-instance AWSRequest DeleteCertificateAuthority where
+instance Lude.AWSRequest DeleteCertificateAuthority where
   type
     Rs DeleteCertificateAuthority =
       DeleteCertificateAuthorityResponse
-  request = postJSON certificateManagerPCA
-  response = receiveNull DeleteCertificateAuthorityResponse'
+  request = Req.postJSON certificateManagerPCAService
+  response = Res.receiveNull DeleteCertificateAuthorityResponse'
 
-instance Hashable DeleteCertificateAuthority
-
-instance NFData DeleteCertificateAuthority
-
-instance ToHeaders DeleteCertificateAuthority where
+instance Lude.ToHeaders DeleteCertificateAuthority where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ACMPrivateCA.DeleteCertificateAuthority" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ACMPrivateCA.DeleteCertificateAuthority" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCertificateAuthority where
+instance Lude.ToJSON DeleteCertificateAuthority where
   toJSON DeleteCertificateAuthority' {..} =
-    object
-      ( catMaybes
-          [ ("PermanentDeletionTimeInDays" .=)
-              <$> _dcaPermanentDeletionTimeInDays,
-            Just ("CertificateAuthorityArn" .= _dcaCertificateAuthorityARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PermanentDeletionTimeInDays" Lude..=)
+              Lude.<$> permanentDeletionTimeInDays,
+            Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
           ]
       )
 
-instance ToPath DeleteCertificateAuthority where
-  toPath = const "/"
+instance Lude.ToPath DeleteCertificateAuthority where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCertificateAuthority where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCertificateAuthority where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCertificateAuthorityResponse' smart constructor.
+-- | /See:/ 'mkDeleteCertificateAuthorityResponse' smart constructor.
 data DeleteCertificateAuthorityResponse = DeleteCertificateAuthorityResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateAuthorityResponse' with the minimum fields required to make a request.
-deleteCertificateAuthorityResponse ::
+mkDeleteCertificateAuthorityResponse ::
   DeleteCertificateAuthorityResponse
-deleteCertificateAuthorityResponse =
+mkDeleteCertificateAuthorityResponse =
   DeleteCertificateAuthorityResponse'
-
-instance NFData DeleteCertificateAuthorityResponse

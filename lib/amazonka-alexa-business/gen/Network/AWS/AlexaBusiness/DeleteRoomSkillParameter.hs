@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,152 @@
 --
 -- Deletes room skill parameter details by room, skill, and parameter key ID.
 module Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
-  ( -- * Creating a Request
-    deleteRoomSkillParameter,
-    DeleteRoomSkillParameter,
+  ( -- * Creating a request
+    DeleteRoomSkillParameter (..),
+    mkDeleteRoomSkillParameter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drspRoomARN,
     drspSkillId,
     drspParameterKey,
 
-    -- * Destructuring the Response
-    deleteRoomSkillParameterResponse,
-    DeleteRoomSkillParameterResponse,
+    -- * Destructuring the response
+    DeleteRoomSkillParameterResponse (..),
+    mkDeleteRoomSkillParameterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRoomSkillParameter' smart constructor.
+-- | /See:/ 'mkDeleteRoomSkillParameter' smart constructor.
 data DeleteRoomSkillParameter = DeleteRoomSkillParameter'
-  { _drspRoomARN ::
-      !(Maybe Text),
-    _drspSkillId :: !Text,
-    _drspParameterKey :: !Text
+  { roomARN ::
+      Lude.Maybe Lude.Text,
+    skillId :: Lude.Text,
+    parameterKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoomSkillParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drspRoomARN' - The ARN of the room from which to remove the room skill parameter details.
---
--- * 'drspSkillId' - The ID of the skill from which to remove the room skill parameter details.
---
--- * 'drspParameterKey' - The room skill parameter key for which to remove details.
-deleteRoomSkillParameter ::
-  -- | 'drspSkillId'
-  Text ->
-  -- | 'drspParameterKey'
-  Text ->
+-- * 'parameterKey' - The room skill parameter key for which to remove details.
+-- * 'roomARN' - The ARN of the room from which to remove the room skill parameter details.
+-- * 'skillId' - The ID of the skill from which to remove the room skill parameter details.
+mkDeleteRoomSkillParameter ::
+  -- | 'skillId'
+  Lude.Text ->
+  -- | 'parameterKey'
+  Lude.Text ->
   DeleteRoomSkillParameter
-deleteRoomSkillParameter pSkillId_ pParameterKey_ =
+mkDeleteRoomSkillParameter pSkillId_ pParameterKey_ =
   DeleteRoomSkillParameter'
-    { _drspRoomARN = Nothing,
-      _drspSkillId = pSkillId_,
-      _drspParameterKey = pParameterKey_
+    { roomARN = Lude.Nothing,
+      skillId = pSkillId_,
+      parameterKey = pParameterKey_
     }
 
 -- | The ARN of the room from which to remove the room skill parameter details.
-drspRoomARN :: Lens' DeleteRoomSkillParameter (Maybe Text)
-drspRoomARN = lens _drspRoomARN (\s a -> s {_drspRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drspRoomARN :: Lens.Lens' DeleteRoomSkillParameter (Lude.Maybe Lude.Text)
+drspRoomARN = Lens.lens (roomARN :: DeleteRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteRoomSkillParameter)
+{-# DEPRECATED drspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The ID of the skill from which to remove the room skill parameter details.
-drspSkillId :: Lens' DeleteRoomSkillParameter Text
-drspSkillId = lens _drspSkillId (\s a -> s {_drspSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drspSkillId :: Lens.Lens' DeleteRoomSkillParameter Lude.Text
+drspSkillId = Lens.lens (skillId :: DeleteRoomSkillParameter -> Lude.Text) (\s a -> s {skillId = a} :: DeleteRoomSkillParameter)
+{-# DEPRECATED drspSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The room skill parameter key for which to remove details.
-drspParameterKey :: Lens' DeleteRoomSkillParameter Text
-drspParameterKey = lens _drspParameterKey (\s a -> s {_drspParameterKey = a})
+--
+-- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drspParameterKey :: Lens.Lens' DeleteRoomSkillParameter Lude.Text
+drspParameterKey = Lens.lens (parameterKey :: DeleteRoomSkillParameter -> Lude.Text) (\s a -> s {parameterKey = a} :: DeleteRoomSkillParameter)
+{-# DEPRECATED drspParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
-instance AWSRequest DeleteRoomSkillParameter where
+instance Lude.AWSRequest DeleteRoomSkillParameter where
   type Rs DeleteRoomSkillParameter = DeleteRoomSkillParameterResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteRoomSkillParameterResponse' <$> (pure (fromEnum s))
+          DeleteRoomSkillParameterResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRoomSkillParameter
-
-instance NFData DeleteRoomSkillParameter
-
-instance ToHeaders DeleteRoomSkillParameter where
+instance Lude.ToHeaders DeleteRoomSkillParameter where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteRoomSkillParameter" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.DeleteRoomSkillParameter" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRoomSkillParameter where
+instance Lude.ToJSON DeleteRoomSkillParameter where
   toJSON DeleteRoomSkillParameter' {..} =
-    object
-      ( catMaybes
-          [ ("RoomArn" .=) <$> _drspRoomARN,
-            Just ("SkillId" .= _drspSkillId),
-            Just ("ParameterKey" .= _drspParameterKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
+            Lude.Just ("SkillId" Lude..= skillId),
+            Lude.Just ("ParameterKey" Lude..= parameterKey)
           ]
       )
 
-instance ToPath DeleteRoomSkillParameter where
-  toPath = const "/"
+instance Lude.ToPath DeleteRoomSkillParameter where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRoomSkillParameter where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRoomSkillParameter where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRoomSkillParameterResponse' smart constructor.
+-- | /See:/ 'mkDeleteRoomSkillParameterResponse' smart constructor.
 newtype DeleteRoomSkillParameterResponse = DeleteRoomSkillParameterResponse'
-  { _drsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoomSkillParameterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsprsResponseStatus' - -- | The response status code.
-deleteRoomSkillParameterResponse ::
-  -- | 'drsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteRoomSkillParameterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRoomSkillParameterResponse
-deleteRoomSkillParameterResponse pResponseStatus_ =
+mkDeleteRoomSkillParameterResponse pResponseStatus_ =
   DeleteRoomSkillParameterResponse'
-    { _drsprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-drsprsResponseStatus :: Lens' DeleteRoomSkillParameterResponse Int
-drsprsResponseStatus = lens _drsprsResponseStatus (\s a -> s {_drsprsResponseStatus = a})
-
-instance NFData DeleteRoomSkillParameterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsprsResponseStatus :: Lens.Lens' DeleteRoomSkillParameterResponse Lude.Int
+drsprsResponseStatus = Lens.lens (responseStatus :: DeleteRoomSkillParameterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRoomSkillParameterResponse)
+{-# DEPRECATED drsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

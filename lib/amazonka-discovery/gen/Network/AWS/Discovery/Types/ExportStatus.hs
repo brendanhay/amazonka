@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ExportStatus where
+module Network.AWS.Discovery.Types.ExportStatus
+  ( ExportStatus
+      ( ExportStatus',
+        Failed,
+        InProgress,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportStatus
-  = Failed
-  | InProgress
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportStatus = ExportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing ExportStatus from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, succeeded"
+pattern Failed :: ExportStatus
+pattern Failed = ExportStatus' "FAILED"
 
-instance ToText ExportStatus where
-  toText = \case
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Succeeded -> "SUCCEEDED"
+pattern InProgress :: ExportStatus
+pattern InProgress = ExportStatus' "IN_PROGRESS"
 
-instance Hashable ExportStatus
+pattern Succeeded :: ExportStatus
+pattern Succeeded = ExportStatus' "SUCCEEDED"
 
-instance NFData ExportStatus
-
-instance ToByteString ExportStatus
-
-instance ToQuery ExportStatus
-
-instance ToHeader ExportStatus
-
-instance FromJSON ExportStatus where
-  parseJSON = parseJSONText "ExportStatus"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Succeeded,
+  ExportStatus'
+  #-}

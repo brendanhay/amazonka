@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Describes a 'MethodResponse' resource.
 module Network.AWS.APIGateway.GetMethodResponse
-  ( -- * Creating a Request
-    getMethodResponse,
-    GetMethodResponse,
+  ( -- * Creating a request
+    GetMethodResponse (..),
+    mkGetMethodResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmRestAPIId,
     gmResourceId,
     gmHttpMethod,
     gmStatusCode,
 
-    -- * Destructuring the Response
-    methodResponse,
-    MethodResponse,
+    -- * Destructuring the response
+    MethodResponse (..),
+    mkMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mResponseModels,
     mStatusCode,
     mResponseParameters,
@@ -41,98 +36,109 @@ module Network.AWS.APIGateway.GetMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe a 'MethodResponse' resource.
 --
---
---
--- /See:/ 'getMethodResponse' smart constructor.
+-- /See:/ 'mkGetMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-  { _gmRestAPIId :: !Text,
-    _gmResourceId :: !Text,
-    _gmHttpMethod :: !Text,
-    _gmStatusCode :: !Text
+  { restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text,
+    statusCode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gmResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
---
--- * 'gmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
---
--- * 'gmStatusCode' - [Required] The status code for the 'MethodResponse' resource.
-getMethodResponse ::
-  -- | 'gmRestAPIId'
-  Text ->
-  -- | 'gmResourceId'
-  Text ->
-  -- | 'gmHttpMethod'
-  Text ->
-  -- | 'gmStatusCode'
-  Text ->
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
+-- * 'resourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'statusCode' - [Required] The status code for the 'MethodResponse' resource.
+mkGetMethodResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'statusCode'
+  Lude.Text ->
   GetMethodResponse
-getMethodResponse
+mkGetMethodResponse
   pRestAPIId_
   pResourceId_
   pHttpMethod_
   pStatusCode_ =
     GetMethodResponse'
-      { _gmRestAPIId = pRestAPIId_,
-        _gmResourceId = pResourceId_,
-        _gmHttpMethod = pHttpMethod_,
-        _gmStatusCode = pStatusCode_
+      { restAPIId = pRestAPIId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
       }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gmRestAPIId :: Lens' GetMethodResponse Text
-gmRestAPIId = lens _gmRestAPIId (\s a -> s {_gmRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmRestAPIId :: Lens.Lens' GetMethodResponse Lude.Text
+gmRestAPIId = Lens.lens (restAPIId :: GetMethodResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetMethodResponse)
+{-# DEPRECATED gmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
-gmResourceId :: Lens' GetMethodResponse Text
-gmResourceId = lens _gmResourceId (\s a -> s {_gmResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmResourceId :: Lens.Lens' GetMethodResponse Lude.Text
+gmResourceId = Lens.lens (resourceId :: GetMethodResponse -> Lude.Text) (\s a -> s {resourceId = a} :: GetMethodResponse)
+{-# DEPRECATED gmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The HTTP verb of the 'Method' resource.
-gmHttpMethod :: Lens' GetMethodResponse Text
-gmHttpMethod = lens _gmHttpMethod (\s a -> s {_gmHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmHttpMethod :: Lens.Lens' GetMethodResponse Lude.Text
+gmHttpMethod = Lens.lens (httpMethod :: GetMethodResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: GetMethodResponse)
+{-# DEPRECATED gmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
 -- | [Required] The status code for the 'MethodResponse' resource.
-gmStatusCode :: Lens' GetMethodResponse Text
-gmStatusCode = lens _gmStatusCode (\s a -> s {_gmStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmStatusCode :: Lens.Lens' GetMethodResponse Lude.Text
+gmStatusCode = Lens.lens (statusCode :: GetMethodResponse -> Lude.Text) (\s a -> s {statusCode = a} :: GetMethodResponse)
+{-# DEPRECATED gmStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSRequest GetMethodResponse where
+instance Lude.AWSRequest GetMethodResponse where
   type Rs GetMethodResponse = MethodResponse
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetMethodResponse
-
-instance NFData GetMethodResponse
-
-instance ToHeaders GetMethodResponse where
+instance Lude.ToHeaders GetMethodResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetMethodResponse where
+instance Lude.ToPath GetMethodResponse where
   toPath GetMethodResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gmRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _gmResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _gmHttpMethod,
+        Lude.toBS httpMethod,
         "/responses/",
-        toBS _gmStatusCode
+        Lude.toBS statusCode
       ]
 
-instance ToQuery GetMethodResponse where
-  toQuery = const mempty
+instance Lude.ToQuery GetMethodResponse where
+  toQuery = Lude.const Lude.mempty

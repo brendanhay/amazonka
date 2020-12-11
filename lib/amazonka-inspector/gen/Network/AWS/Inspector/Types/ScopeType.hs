@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.ScopeType where
+module Network.AWS.Inspector.Types.ScopeType
+  ( ScopeType
+      ( ScopeType',
+        InstanceId,
+        RulesPackageARN
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScopeType
-  = InstanceId
-  | RulesPackageARN
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScopeType = ScopeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScopeType where
-  parser =
-    takeLowerText >>= \case
-      "instance_id" -> pure InstanceId
-      "rules_package_arn" -> pure RulesPackageARN
-      e ->
-        fromTextError $
-          "Failure parsing ScopeType from value: '" <> e
-            <> "'. Accepted values: instance_id, rules_package_arn"
+pattern InstanceId :: ScopeType
+pattern InstanceId = ScopeType' "INSTANCE_ID"
 
-instance ToText ScopeType where
-  toText = \case
-    InstanceId -> "INSTANCE_ID"
-    RulesPackageARN -> "RULES_PACKAGE_ARN"
+pattern RulesPackageARN :: ScopeType
+pattern RulesPackageARN = ScopeType' "RULES_PACKAGE_ARN"
 
-instance Hashable ScopeType
-
-instance NFData ScopeType
-
-instance ToByteString ScopeType
-
-instance ToQuery ScopeType
-
-instance ToHeader ScopeType
-
-instance FromJSON ScopeType where
-  parseJSON = parseJSONText "ScopeType"
+{-# COMPLETE
+  InstanceId,
+  RulesPackageARN,
+  ScopeType'
+  #-}

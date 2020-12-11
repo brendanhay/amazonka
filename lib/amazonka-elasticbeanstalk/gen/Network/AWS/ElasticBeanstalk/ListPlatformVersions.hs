@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the platform versions available for your account in an AWS Region. Provides summary information about each platform version. Compare to 'DescribePlatformVersion' , which provides full details about a single platform version.
 --
---
 -- For definitions of platform version and other platform-related terms, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html AWS Elastic Beanstalk Platforms Glossary> .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.ListPlatformVersions
-  ( -- * Creating a Request
-    listPlatformVersions,
-    ListPlatformVersions,
+  ( -- * Creating a request
+    ListPlatformVersions (..),
+    mkListPlatformVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpvFilters,
     lpvNextToken,
     lpvMaxRecords,
 
-    -- * Destructuring the Response
-    listPlatformVersionsResponse,
-    ListPlatformVersionsResponse,
+    -- * Destructuring the response
+    ListPlatformVersionsResponse (..),
+    mkListPlatformVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpvrsNextToken,
     lpvrsPlatformSummaryList,
     lpvrsResponseStatus,
@@ -46,132 +39,158 @@ module Network.AWS.ElasticBeanstalk.ListPlatformVersions
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPlatformVersions' smart constructor.
+-- | /See:/ 'mkListPlatformVersions' smart constructor.
 data ListPlatformVersions = ListPlatformVersions'
-  { _lpvFilters ::
-      !(Maybe [PlatformFilter]),
-    _lpvNextToken :: !(Maybe Text),
-    _lpvMaxRecords :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [PlatformFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate @PlatformFilter@ terms.
+-- * 'maxRecords' - The maximum number of platform version values returned in one call.
+-- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
--- * 'lpvFilters' - Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate @PlatformFilter@ terms.
---
--- * 'lpvNextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
---
--- * 'lpvMaxRecords' - The maximum number of platform version values returned in one call.
-listPlatformVersions ::
+-- If no @NextToken@ is specified, the first page is retrieved.
+mkListPlatformVersions ::
   ListPlatformVersions
-listPlatformVersions =
+mkListPlatformVersions =
   ListPlatformVersions'
-    { _lpvFilters = Nothing,
-      _lpvNextToken = Nothing,
-      _lpvMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate @PlatformFilter@ terms.
-lpvFilters :: Lens' ListPlatformVersions [PlatformFilter]
-lpvFilters = lens _lpvFilters (\s a -> s {_lpvFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvFilters :: Lens.Lens' ListPlatformVersions (Lude.Maybe [PlatformFilter])
+lpvFilters = Lens.lens (filters :: ListPlatformVersions -> Lude.Maybe [PlatformFilter]) (\s a -> s {filters = a} :: ListPlatformVersions)
+{-# DEPRECATED lpvFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
-lpvNextToken :: Lens' ListPlatformVersions (Maybe Text)
-lpvNextToken = lens _lpvNextToken (\s a -> s {_lpvNextToken = a})
+-- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
+--
+-- If no @NextToken@ is specified, the first page is retrieved.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvNextToken :: Lens.Lens' ListPlatformVersions (Lude.Maybe Lude.Text)
+lpvNextToken = Lens.lens (nextToken :: ListPlatformVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPlatformVersions)
+{-# DEPRECATED lpvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of platform version values returned in one call.
-lpvMaxRecords :: Lens' ListPlatformVersions (Maybe Natural)
-lpvMaxRecords = lens _lpvMaxRecords (\s a -> s {_lpvMaxRecords = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvMaxRecords :: Lens.Lens' ListPlatformVersions (Lude.Maybe Lude.Natural)
+lpvMaxRecords = Lens.lens (maxRecords :: ListPlatformVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: ListPlatformVersions)
+{-# DEPRECATED lpvMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager ListPlatformVersions where
+instance Page.AWSPager ListPlatformVersions where
   page rq rs
-    | stop (rs ^. lpvrsNextToken) = Nothing
-    | stop (rs ^. lpvrsPlatformSummaryList) = Nothing
-    | otherwise = Just $ rq & lpvNextToken .~ rs ^. lpvrsNextToken
+    | Page.stop (rs Lens.^. lpvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lpvrsPlatformSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpvNextToken Lens..~ rs Lens.^. lpvrsNextToken
 
-instance AWSRequest ListPlatformVersions where
+instance Lude.AWSRequest ListPlatformVersions where
   type Rs ListPlatformVersions = ListPlatformVersionsResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListPlatformVersionsResult"
       ( \s h x ->
           ListPlatformVersionsResponse'
-            <$> (x .@? "NextToken")
-            <*> ( x .@? "PlatformSummaryList" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "PlatformSummaryList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPlatformVersions
+instance Lude.ToHeaders ListPlatformVersions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListPlatformVersions
+instance Lude.ToPath ListPlatformVersions where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListPlatformVersions where
-  toHeaders = const mempty
-
-instance ToPath ListPlatformVersions where
-  toPath = const "/"
-
-instance ToQuery ListPlatformVersions where
+instance Lude.ToQuery ListPlatformVersions where
   toQuery ListPlatformVersions' {..} =
-    mconcat
-      [ "Action" =: ("ListPlatformVersions" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Filters" =: toQuery (toQueryList "member" <$> _lpvFilters),
-        "NextToken" =: _lpvNextToken,
-        "MaxRecords" =: _lpvMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListPlatformVersions" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'listPlatformVersionsResponse' smart constructor.
+-- | /See:/ 'mkListPlatformVersionsResponse' smart constructor.
 data ListPlatformVersionsResponse = ListPlatformVersionsResponse'
-  { _lpvrsNextToken ::
-      !(Maybe Text),
-    _lpvrsPlatformSummaryList ::
-      !(Maybe [PlatformSummary]),
-    _lpvrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    platformSummaryList ::
+      Lude.Maybe [PlatformSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpvrsNextToken' - In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
---
--- * 'lpvrsPlatformSummaryList' - Summary information about the platform versions.
---
--- * 'lpvrsResponseStatus' - -- | The response status code.
-listPlatformVersionsResponse ::
-  -- | 'lpvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
+-- * 'platformSummaryList' - Summary information about the platform versions.
+-- * 'responseStatus' - The response status code.
+mkListPlatformVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPlatformVersionsResponse
-listPlatformVersionsResponse pResponseStatus_ =
+mkListPlatformVersionsResponse pResponseStatus_ =
   ListPlatformVersionsResponse'
-    { _lpvrsNextToken = Nothing,
-      _lpvrsPlatformSummaryList = Nothing,
-      _lpvrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      platformSummaryList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
-lpvrsNextToken :: Lens' ListPlatformVersionsResponse (Maybe Text)
-lpvrsNextToken = lens _lpvrsNextToken (\s a -> s {_lpvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvrsNextToken :: Lens.Lens' ListPlatformVersionsResponse (Lude.Maybe Lude.Text)
+lpvrsNextToken = Lens.lens (nextToken :: ListPlatformVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPlatformVersionsResponse)
+{-# DEPRECATED lpvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Summary information about the platform versions.
-lpvrsPlatformSummaryList :: Lens' ListPlatformVersionsResponse [PlatformSummary]
-lpvrsPlatformSummaryList = lens _lpvrsPlatformSummaryList (\s a -> s {_lpvrsPlatformSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'platformSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvrsPlatformSummaryList :: Lens.Lens' ListPlatformVersionsResponse (Lude.Maybe [PlatformSummary])
+lpvrsPlatformSummaryList = Lens.lens (platformSummaryList :: ListPlatformVersionsResponse -> Lude.Maybe [PlatformSummary]) (\s a -> s {platformSummaryList = a} :: ListPlatformVersionsResponse)
+{-# DEPRECATED lpvrsPlatformSummaryList "Use generic-lens or generic-optics with 'platformSummaryList' instead." #-}
 
--- | -- | The response status code.
-lpvrsResponseStatus :: Lens' ListPlatformVersionsResponse Int
-lpvrsResponseStatus = lens _lpvrsResponseStatus (\s a -> s {_lpvrsResponseStatus = a})
-
-instance NFData ListPlatformVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvrsResponseStatus :: Lens.Lens' ListPlatformVersionsResponse Lude.Int
+lpvrsResponseStatus = Lens.lens (responseStatus :: ListPlatformVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPlatformVersionsResponse)
+{-# DEPRECATED lpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

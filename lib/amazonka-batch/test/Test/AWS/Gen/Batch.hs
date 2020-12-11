@@ -28,121 +28,121 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCreateComputeEnvironment $
---             createComputeEnvironment
+--             mkCreateComputeEnvironment
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestRegisterJobDefinition $
---             registerJobDefinition
+--             mkRegisterJobDefinition
 --
 --         , requestSubmitJob $
---             submitJob
+--             mkSubmitJob
 --
 --         , requestListJobs $
---             listJobs
+--             mkListJobs
 --
 --         , requestTerminateJob $
---             terminateJob
+--             mkTerminateJob
 --
 --         , requestDescribeJobs $
---             describeJobs
+--             mkDescribeJobs
 --
 --         , requestDeleteComputeEnvironment $
---             deleteComputeEnvironment
+--             mkDeleteComputeEnvironment
 --
 --         , requestUpdateComputeEnvironment $
---             updateComputeEnvironment
+--             mkUpdateComputeEnvironment
 --
 --         , requestDescribeJobDefinitions $
---             describeJobDefinitions
+--             mkDescribeJobDefinitions
 --
 --         , requestUpdateJobQueue $
---             updateJobQueue
+--             mkUpdateJobQueue
 --
 --         , requestDeleteJobQueue $
---             deleteJobQueue
+--             mkDeleteJobQueue
 --
 --         , requestCreateJobQueue $
---             createJobQueue
+--             mkCreateJobQueue
 --
 --         , requestDeregisterJobDefinition $
---             deregisterJobDefinition
+--             mkDeregisterJobDefinition
 --
 --         , requestDescribeJobQueues $
---             describeJobQueues
+--             mkDescribeJobQueues
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDescribeComputeEnvironments $
---             describeComputeEnvironments
+--             mkDescribeComputeEnvironments
 --
 --         , requestCancelJob $
---             cancelJob
+--             mkCancelJob
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateComputeEnvironment $
---             createComputeEnvironmentResponse
+--             mkCreateComputeEnvironmentResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseRegisterJobDefinition $
---             registerJobDefinitionResponse
+--             mkRegisterJobDefinitionResponse
 --
 --         , responseSubmitJob $
---             submitJobResponse
+--             mkSubmitJobResponse
 --
 --         , responseListJobs $
---             listJobsResponse
+--             mkListJobsResponse
 --
 --         , responseTerminateJob $
---             terminateJobResponse
+--             mkTerminateJobResponse
 --
 --         , responseDescribeJobs $
---             describeJobsResponse
+--             mkDescribeJobsResponse
 --
 --         , responseDeleteComputeEnvironment $
---             deleteComputeEnvironmentResponse
+--             mkDeleteComputeEnvironmentResponse
 --
 --         , responseUpdateComputeEnvironment $
---             updateComputeEnvironmentResponse
+--             mkUpdateComputeEnvironmentResponse
 --
 --         , responseDescribeJobDefinitions $
---             describeJobDefinitionsResponse
+--             mkDescribeJobDefinitionsResponse
 --
 --         , responseUpdateJobQueue $
---             updateJobQueueResponse
+--             mkUpdateJobQueueResponse
 --
 --         , responseDeleteJobQueue $
---             deleteJobQueueResponse
+--             mkDeleteJobQueueResponse
 --
 --         , responseCreateJobQueue $
---             createJobQueueResponse
+--             mkCreateJobQueueResponse
 --
 --         , responseDeregisterJobDefinition $
---             deregisterJobDefinitionResponse
+--             mkDeregisterJobDefinitionResponse
 --
 --         , responseDescribeJobQueues $
---             describeJobQueuesResponse
+--             mkDescribeJobQueuesResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDescribeComputeEnvironments $
---             describeComputeEnvironmentsResponse
+--             mkDescribeComputeEnvironmentsResponse
 --
 --         , responseCancelJob $
---             cancelJobResponse
+--             mkCancelJobResponse
 --
 --           ]
 --     ]
@@ -270,7 +270,7 @@ responseCreateComputeEnvironment =
   res
     "CreateComputeEnvironmentResponse"
     "fixture/CreateComputeEnvironmentResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy CreateComputeEnvironment)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -278,7 +278,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterJobDefinition :: RegisterJobDefinitionResponse -> TestTree
@@ -286,7 +286,7 @@ responseRegisterJobDefinition =
   res
     "RegisterJobDefinitionResponse"
     "fixture/RegisterJobDefinitionResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy RegisterJobDefinition)
 
 responseSubmitJob :: SubmitJobResponse -> TestTree
@@ -294,7 +294,7 @@ responseSubmitJob =
   res
     "SubmitJobResponse"
     "fixture/SubmitJobResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy SubmitJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -302,7 +302,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy ListJobs)
 
 responseTerminateJob :: TerminateJobResponse -> TestTree
@@ -310,7 +310,7 @@ responseTerminateJob =
   res
     "TerminateJobResponse"
     "fixture/TerminateJobResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy TerminateJob)
 
 responseDescribeJobs :: DescribeJobsResponse -> TestTree
@@ -318,7 +318,7 @@ responseDescribeJobs =
   res
     "DescribeJobsResponse"
     "fixture/DescribeJobsResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DescribeJobs)
 
 responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
@@ -326,7 +326,7 @@ responseDeleteComputeEnvironment =
   res
     "DeleteComputeEnvironmentResponse"
     "fixture/DeleteComputeEnvironmentResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DeleteComputeEnvironment)
 
 responseUpdateComputeEnvironment :: UpdateComputeEnvironmentResponse -> TestTree
@@ -334,7 +334,7 @@ responseUpdateComputeEnvironment =
   res
     "UpdateComputeEnvironmentResponse"
     "fixture/UpdateComputeEnvironmentResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy UpdateComputeEnvironment)
 
 responseDescribeJobDefinitions :: DescribeJobDefinitionsResponse -> TestTree
@@ -342,7 +342,7 @@ responseDescribeJobDefinitions =
   res
     "DescribeJobDefinitionsResponse"
     "fixture/DescribeJobDefinitionsResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DescribeJobDefinitions)
 
 responseUpdateJobQueue :: UpdateJobQueueResponse -> TestTree
@@ -350,7 +350,7 @@ responseUpdateJobQueue =
   res
     "UpdateJobQueueResponse"
     "fixture/UpdateJobQueueResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy UpdateJobQueue)
 
 responseDeleteJobQueue :: DeleteJobQueueResponse -> TestTree
@@ -358,7 +358,7 @@ responseDeleteJobQueue =
   res
     "DeleteJobQueueResponse"
     "fixture/DeleteJobQueueResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DeleteJobQueue)
 
 responseCreateJobQueue :: CreateJobQueueResponse -> TestTree
@@ -366,7 +366,7 @@ responseCreateJobQueue =
   res
     "CreateJobQueueResponse"
     "fixture/CreateJobQueueResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy CreateJobQueue)
 
 responseDeregisterJobDefinition :: DeregisterJobDefinitionResponse -> TestTree
@@ -374,7 +374,7 @@ responseDeregisterJobDefinition =
   res
     "DeregisterJobDefinitionResponse"
     "fixture/DeregisterJobDefinitionResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DeregisterJobDefinition)
 
 responseDescribeJobQueues :: DescribeJobQueuesResponse -> TestTree
@@ -382,7 +382,7 @@ responseDescribeJobQueues =
   res
     "DescribeJobQueuesResponse"
     "fixture/DescribeJobQueuesResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DescribeJobQueues)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -390,7 +390,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -398,7 +398,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy UntagResource)
 
 responseDescribeComputeEnvironments :: DescribeComputeEnvironmentsResponse -> TestTree
@@ -406,7 +406,7 @@ responseDescribeComputeEnvironments =
   res
     "DescribeComputeEnvironmentsResponse"
     "fixture/DescribeComputeEnvironmentsResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy DescribeComputeEnvironments)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -414,5 +414,5 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    batch
+    batchService
     (Proxy :: Proxy CancelJob)

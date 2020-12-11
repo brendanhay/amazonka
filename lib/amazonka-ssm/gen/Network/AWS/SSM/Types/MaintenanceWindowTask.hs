@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowTask where
+module Network.AWS.SSM.Types.MaintenanceWindowTask
+  ( MaintenanceWindowTask (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceWindowTask,
+
+    -- * Lenses
+    mwtServiceRoleARN,
+    mwtWindowTaskId,
+    mwtTaskParameters,
+    mwtPriority,
+    mwtTaskARN,
+    mwtMaxErrors,
+    mwtName,
+    mwtTargets,
+    mwtLoggingInfo,
+    mwtType,
+    mwtDescription,
+    mwtMaxConcurrency,
+    mwtWindowId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.LoggingInfo
 import Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
 import Network.AWS.SSM.Types.MaintenanceWindowTaskType
@@ -24,158 +39,174 @@ import Network.AWS.SSM.Types.Target
 
 -- | Information about a task defined for a maintenance window.
 --
---
---
--- /See:/ 'maintenanceWindowTask' smart constructor.
+-- /See:/ 'mkMaintenanceWindowTask' smart constructor.
 data MaintenanceWindowTask = MaintenanceWindowTask'
-  { _mwtServiceRoleARN ::
-      !(Maybe Text),
-    _mwtWindowTaskId :: !(Maybe Text),
-    _mwtTaskParameters ::
-      !( Maybe
-           ( Sensitive
-               ( Map
-                   Text
-                   ( Sensitive
-                       MaintenanceWindowTaskParameterValueExpression
-                   )
-               )
-           )
-       ),
-    _mwtPriority :: !(Maybe Nat),
-    _mwtTaskARN :: !(Maybe Text),
-    _mwtMaxErrors :: !(Maybe Text),
-    _mwtName :: !(Maybe Text),
-    _mwtTargets :: !(Maybe [Target]),
-    _mwtLoggingInfo :: !(Maybe LoggingInfo),
-    _mwtType :: !(Maybe MaintenanceWindowTaskType),
-    _mwtDescription :: !(Maybe (Sensitive Text)),
-    _mwtMaxConcurrency :: !(Maybe Text),
-    _mwtWindowId :: !(Maybe Text)
+  { serviceRoleARN ::
+      Lude.Maybe Lude.Text,
+    windowTaskId :: Lude.Maybe Lude.Text,
+    taskParameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (MaintenanceWindowTaskParameterValueExpression)
+        ),
+    priority :: Lude.Maybe Lude.Natural,
+    taskARN :: Lude.Maybe Lude.Text,
+    maxErrors :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    targets :: Lude.Maybe [Target],
+    loggingInfo :: Lude.Maybe LoggingInfo,
+    type' :: Lude.Maybe MaintenanceWindowTaskType,
+    description ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    windowId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwtServiceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
---
--- * 'mwtWindowTaskId' - The task ID.
---
--- * 'mwtTaskParameters' - The parameters that should be passed to the task when it is run.
---
--- * 'mwtPriority' - The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
---
--- * 'mwtTaskARN' - The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
---
--- * 'mwtMaxErrors' - The maximum number of errors allowed before this task stops being scheduled.
---
--- * 'mwtName' - The task name.
---
--- * 'mwtTargets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
---
--- * 'mwtLoggingInfo' - Information about an S3 bucket to write task-level logs to.
---
--- * 'mwtType' - The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTIONS.
---
--- * 'mwtDescription' - A description of the task.
---
--- * 'mwtMaxConcurrency' - The maximum number of targets this task can be run for, in parallel.
---
--- * 'mwtWindowId' - The ID of the maintenance window where the task is registered.
-maintenanceWindowTask ::
+-- * 'description' - A description of the task.
+-- * 'loggingInfo' - Information about an S3 bucket to write task-level logs to.
+-- * 'maxConcurrency' - The maximum number of targets this task can be run for, in parallel.
+-- * 'maxErrors' - The maximum number of errors allowed before this task stops being scheduled.
+-- * 'name' - The task name.
+-- * 'priority' - The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+-- * 'targets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+-- * 'taskARN' - The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
+-- * 'taskParameters' - The parameters that should be passed to the task when it is run.
+-- * 'type'' - The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTIONS.
+-- * 'windowId' - The ID of the maintenance window where the task is registered.
+-- * 'windowTaskId' - The task ID.
+mkMaintenanceWindowTask ::
   MaintenanceWindowTask
-maintenanceWindowTask =
+mkMaintenanceWindowTask =
   MaintenanceWindowTask'
-    { _mwtServiceRoleARN = Nothing,
-      _mwtWindowTaskId = Nothing,
-      _mwtTaskParameters = Nothing,
-      _mwtPriority = Nothing,
-      _mwtTaskARN = Nothing,
-      _mwtMaxErrors = Nothing,
-      _mwtName = Nothing,
-      _mwtTargets = Nothing,
-      _mwtLoggingInfo = Nothing,
-      _mwtType = Nothing,
-      _mwtDescription = Nothing,
-      _mwtMaxConcurrency = Nothing,
-      _mwtWindowId = Nothing
+    { serviceRoleARN = Lude.Nothing,
+      windowTaskId = Lude.Nothing,
+      taskParameters = Lude.Nothing,
+      priority = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      name = Lude.Nothing,
+      targets = Lude.Nothing,
+      loggingInfo = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing,
+      maxConcurrency = Lude.Nothing,
+      windowId = Lude.Nothing
     }
 
 -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-mwtServiceRoleARN :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtServiceRoleARN = lens _mwtServiceRoleARN (\s a -> s {_mwtServiceRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtServiceRoleARN :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtServiceRoleARN = Lens.lens (serviceRoleARN :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | The task ID.
-mwtWindowTaskId :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtWindowTaskId = lens _mwtWindowTaskId (\s a -> s {_mwtWindowTaskId = a})
+--
+-- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtWindowTaskId :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtWindowTaskId = Lens.lens (windowTaskId :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {windowTaskId = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
 
 -- | The parameters that should be passed to the task when it is run.
-mwtTaskParameters :: Lens' MaintenanceWindowTask (Maybe (HashMap Text (MaintenanceWindowTaskParameterValueExpression)))
-mwtTaskParameters = lens _mwtTaskParameters (\s a -> s {_mwtTaskParameters = a}) . mapping (_Sensitive . _Map)
+--
+-- /Note:/ Consider using 'taskParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtTaskParameters :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)))
+mwtTaskParameters = Lens.lens (taskParameters :: MaintenanceWindowTask -> Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression))) (\s a -> s {taskParameters = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtTaskParameters "Use generic-lens or generic-optics with 'taskParameters' instead." #-}
 
 -- | The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
-mwtPriority :: Lens' MaintenanceWindowTask (Maybe Natural)
-mwtPriority = lens _mwtPriority (\s a -> s {_mwtPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtPriority :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Natural)
+mwtPriority = Lens.lens (priority :: MaintenanceWindowTask -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
-mwtTaskARN :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtTaskARN = lens _mwtTaskARN (\s a -> s {_mwtTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtTaskARN :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtTaskARN = Lens.lens (taskARN :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The maximum number of errors allowed before this task stops being scheduled.
-mwtMaxErrors :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtMaxErrors = lens _mwtMaxErrors (\s a -> s {_mwtMaxErrors = a})
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtMaxErrors :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtMaxErrors = Lens.lens (maxErrors :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
 -- | The task name.
-mwtName :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtName = lens _mwtName (\s a -> s {_mwtName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtName :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtName = Lens.lens (name :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
-mwtTargets :: Lens' MaintenanceWindowTask [Target]
-mwtTargets = lens _mwtTargets (\s a -> s {_mwtTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtTargets :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe [Target])
+mwtTargets = Lens.lens (targets :: MaintenanceWindowTask -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | Information about an S3 bucket to write task-level logs to.
-mwtLoggingInfo :: Lens' MaintenanceWindowTask (Maybe LoggingInfo)
-mwtLoggingInfo = lens _mwtLoggingInfo (\s a -> s {_mwtLoggingInfo = a})
+--
+-- /Note:/ Consider using 'loggingInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtLoggingInfo :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe LoggingInfo)
+mwtLoggingInfo = Lens.lens (loggingInfo :: MaintenanceWindowTask -> Lude.Maybe LoggingInfo) (\s a -> s {loggingInfo = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtLoggingInfo "Use generic-lens or generic-optics with 'loggingInfo' instead." #-}
 
 -- | The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTIONS.
-mwtType :: Lens' MaintenanceWindowTask (Maybe MaintenanceWindowTaskType)
-mwtType = lens _mwtType (\s a -> s {_mwtType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtType :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe MaintenanceWindowTaskType)
+mwtType = Lens.lens (type' :: MaintenanceWindowTask -> Lude.Maybe MaintenanceWindowTaskType) (\s a -> s {type' = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A description of the task.
-mwtDescription :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtDescription = lens _mwtDescription (\s a -> s {_mwtDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtDescription :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe (Lude.Sensitive Lude.Text))
+mwtDescription = Lens.lens (description :: MaintenanceWindowTask -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The maximum number of targets this task can be run for, in parallel.
-mwtMaxConcurrency :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtMaxConcurrency = lens _mwtMaxConcurrency (\s a -> s {_mwtMaxConcurrency = a})
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtMaxConcurrency :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtMaxConcurrency = Lens.lens (maxConcurrency :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
 -- | The ID of the maintenance window where the task is registered.
-mwtWindowId :: Lens' MaintenanceWindowTask (Maybe Text)
-mwtWindowId = lens _mwtWindowId (\s a -> s {_mwtWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwtWindowId :: Lens.Lens' MaintenanceWindowTask (Lude.Maybe Lude.Text)
+mwtWindowId = Lens.lens (windowId :: MaintenanceWindowTask -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: MaintenanceWindowTask)
+{-# DEPRECATED mwtWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance FromJSON MaintenanceWindowTask where
+instance Lude.FromJSON MaintenanceWindowTask where
   parseJSON =
-    withObject
+    Lude.withObject
       "MaintenanceWindowTask"
       ( \x ->
           MaintenanceWindowTask'
-            <$> (x .:? "ServiceRoleArn")
-            <*> (x .:? "WindowTaskId")
-            <*> (x .:? "TaskParameters" .!= mempty)
-            <*> (x .:? "Priority")
-            <*> (x .:? "TaskArn")
-            <*> (x .:? "MaxErrors")
-            <*> (x .:? "Name")
-            <*> (x .:? "Targets" .!= mempty)
-            <*> (x .:? "LoggingInfo")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
-            <*> (x .:? "MaxConcurrency")
-            <*> (x .:? "WindowId")
+            Lude.<$> (x Lude..:? "ServiceRoleArn")
+            Lude.<*> (x Lude..:? "WindowTaskId")
+            Lude.<*> (x Lude..:? "TaskParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Priority")
+            Lude.<*> (x Lude..:? "TaskArn")
+            Lude.<*> (x Lude..:? "MaxErrors")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LoggingInfo")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "MaxConcurrency")
+            Lude.<*> (x Lude..:? "WindowId")
       )
-
-instance Hashable MaintenanceWindowTask
-
-instance NFData MaintenanceWindowTask

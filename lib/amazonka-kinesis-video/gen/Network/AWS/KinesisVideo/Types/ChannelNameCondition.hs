@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types.ChannelNameCondition where
+module Network.AWS.KinesisVideo.Types.ChannelNameCondition
+  ( ChannelNameCondition (..),
+
+    -- * Smart constructor
+    mkChannelNameCondition,
+
+    -- * Lenses
+    cncComparisonOperator,
+    cncComparisonValue,
+  )
+where
 
 import Network.AWS.KinesisVideo.Types.ComparisonOperator
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An optional input parameter for the @ListSignalingChannels@ API. When this parameter is specified while invoking @ListSignalingChannels@ , the API returns only the channels that satisfy a condition specified in @ChannelNameCondition@ .
 --
---
---
--- /See:/ 'channelNameCondition' smart constructor.
+-- /See:/ 'mkChannelNameCondition' smart constructor.
 data ChannelNameCondition = ChannelNameCondition'
-  { _cncComparisonOperator ::
-      !(Maybe ComparisonOperator),
-    _cncComparisonValue :: !(Maybe Text)
+  { comparisonOperator ::
+      Lude.Maybe ComparisonOperator,
+    comparisonValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelNameCondition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cncComparisonOperator' - A comparison operator. Currently, you can only specify the @BEGINS_WITH@ operator, which finds signaling channels whose names begin with a given prefix.
---
--- * 'cncComparisonValue' - A value to compare.
-channelNameCondition ::
+-- * 'comparisonOperator' - A comparison operator. Currently, you can only specify the @BEGINS_WITH@ operator, which finds signaling channels whose names begin with a given prefix.
+-- * 'comparisonValue' - A value to compare.
+mkChannelNameCondition ::
   ChannelNameCondition
-channelNameCondition =
+mkChannelNameCondition =
   ChannelNameCondition'
-    { _cncComparisonOperator = Nothing,
-      _cncComparisonValue = Nothing
+    { comparisonOperator = Lude.Nothing,
+      comparisonValue = Lude.Nothing
     }
 
 -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@ operator, which finds signaling channels whose names begin with a given prefix.
-cncComparisonOperator :: Lens' ChannelNameCondition (Maybe ComparisonOperator)
-cncComparisonOperator = lens _cncComparisonOperator (\s a -> s {_cncComparisonOperator = a})
+--
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cncComparisonOperator :: Lens.Lens' ChannelNameCondition (Lude.Maybe ComparisonOperator)
+cncComparisonOperator = Lens.lens (comparisonOperator :: ChannelNameCondition -> Lude.Maybe ComparisonOperator) (\s a -> s {comparisonOperator = a} :: ChannelNameCondition)
+{-# DEPRECATED cncComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
 -- | A value to compare.
-cncComparisonValue :: Lens' ChannelNameCondition (Maybe Text)
-cncComparisonValue = lens _cncComparisonValue (\s a -> s {_cncComparisonValue = a})
+--
+-- /Note:/ Consider using 'comparisonValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cncComparisonValue :: Lens.Lens' ChannelNameCondition (Lude.Maybe Lude.Text)
+cncComparisonValue = Lens.lens (comparisonValue :: ChannelNameCondition -> Lude.Maybe Lude.Text) (\s a -> s {comparisonValue = a} :: ChannelNameCondition)
+{-# DEPRECATED cncComparisonValue "Use generic-lens or generic-optics with 'comparisonValue' instead." #-}
 
-instance Hashable ChannelNameCondition
-
-instance NFData ChannelNameCondition
-
-instance ToJSON ChannelNameCondition where
+instance Lude.ToJSON ChannelNameCondition where
   toJSON ChannelNameCondition' {..} =
-    object
-      ( catMaybes
-          [ ("ComparisonOperator" .=) <$> _cncComparisonOperator,
-            ("ComparisonValue" .=) <$> _cncComparisonValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ComparisonOperator" Lude..=) Lude.<$> comparisonOperator,
+            ("ComparisonValue" Lude..=) Lude.<$> comparisonValue
           ]
       )

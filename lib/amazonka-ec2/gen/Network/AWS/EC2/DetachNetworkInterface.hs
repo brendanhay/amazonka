@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,115 @@
 --
 -- Detaches a network interface from an instance.
 module Network.AWS.EC2.DetachNetworkInterface
-  ( -- * Creating a Request
-    detachNetworkInterface,
-    DetachNetworkInterface,
+  ( -- * Creating a request
+    DetachNetworkInterface (..),
+    mkDetachNetworkInterface,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dniForce,
     dniDryRun,
     dniAttachmentId,
 
-    -- * Destructuring the Response
-    detachNetworkInterfaceResponse,
-    DetachNetworkInterfaceResponse,
+    -- * Destructuring the response
+    DetachNetworkInterfaceResponse (..),
+    mkDetachNetworkInterfaceResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DetachNetworkInterface.
 --
---
---
--- /See:/ 'detachNetworkInterface' smart constructor.
+-- /See:/ 'mkDetachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
-  { _dniForce ::
-      !(Maybe Bool),
-    _dniDryRun :: !(Maybe Bool),
-    _dniAttachmentId :: !Text
+  { force ::
+      Lude.Maybe Lude.Bool,
+    dryRun :: Lude.Maybe Lude.Bool,
+    attachmentId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachNetworkInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dniForce' - Specifies whether to force a detachment.
---
--- * 'dniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dniAttachmentId' - The ID of the attachment.
-detachNetworkInterface ::
-  -- | 'dniAttachmentId'
-  Text ->
+-- * 'attachmentId' - The ID of the attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'force' - Specifies whether to force a detachment.
+mkDetachNetworkInterface ::
+  -- | 'attachmentId'
+  Lude.Text ->
   DetachNetworkInterface
-detachNetworkInterface pAttachmentId_ =
+mkDetachNetworkInterface pAttachmentId_ =
   DetachNetworkInterface'
-    { _dniForce = Nothing,
-      _dniDryRun = Nothing,
-      _dniAttachmentId = pAttachmentId_
+    { force = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      attachmentId = pAttachmentId_
     }
 
 -- | Specifies whether to force a detachment.
-dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
-dniForce = lens _dniForce (\s a -> s {_dniForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniForce :: Lens.Lens' DetachNetworkInterface (Lude.Maybe Lude.Bool)
+dniForce = Lens.lens (force :: DetachNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DetachNetworkInterface)
+{-# DEPRECATED dniForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
-dniDryRun = lens _dniDryRun (\s a -> s {_dniDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniDryRun :: Lens.Lens' DetachNetworkInterface (Lude.Maybe Lude.Bool)
+dniDryRun = Lens.lens (dryRun :: DetachNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachNetworkInterface)
+{-# DEPRECATED dniDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the attachment.
-dniAttachmentId :: Lens' DetachNetworkInterface Text
-dniAttachmentId = lens _dniAttachmentId (\s a -> s {_dniAttachmentId = a})
+--
+-- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniAttachmentId :: Lens.Lens' DetachNetworkInterface Lude.Text
+dniAttachmentId = Lens.lens (attachmentId :: DetachNetworkInterface -> Lude.Text) (\s a -> s {attachmentId = a} :: DetachNetworkInterface)
+{-# DEPRECATED dniAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
 
-instance AWSRequest DetachNetworkInterface where
+instance Lude.AWSRequest DetachNetworkInterface where
   type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse
-  request = postQuery ec2
-  response = receiveNull DetachNetworkInterfaceResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DetachNetworkInterfaceResponse'
 
-instance Hashable DetachNetworkInterface
+instance Lude.ToHeaders DetachNetworkInterface where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DetachNetworkInterface
+instance Lude.ToPath DetachNetworkInterface where
+  toPath = Lude.const "/"
 
-instance ToHeaders DetachNetworkInterface where
-  toHeaders = const mempty
-
-instance ToPath DetachNetworkInterface where
-  toPath = const "/"
-
-instance ToQuery DetachNetworkInterface where
+instance Lude.ToQuery DetachNetworkInterface where
   toQuery DetachNetworkInterface' {..} =
-    mconcat
-      [ "Action" =: ("DetachNetworkInterface" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Force" =: _dniForce,
-        "DryRun" =: _dniDryRun,
-        "AttachmentId" =: _dniAttachmentId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DetachNetworkInterface" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Force" Lude.=: force,
+        "DryRun" Lude.=: dryRun,
+        "AttachmentId" Lude.=: attachmentId
       ]
 
--- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
+-- | /See:/ 'mkDetachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachNetworkInterfaceResponse' with the minimum fields required to make a request.
-detachNetworkInterfaceResponse ::
+mkDetachNetworkInterfaceResponse ::
   DetachNetworkInterfaceResponse
-detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
-
-instance NFData DetachNetworkInterfaceResponse
+mkDetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'

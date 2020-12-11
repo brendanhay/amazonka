@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue where
+module Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue
+  ( ProductViewAggregationValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProductViewAggregationValue,
+
+    -- * Lenses
+    pvavValue,
+    pvavApproximateCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
 --
---
---
--- /See:/ 'productViewAggregationValue' smart constructor.
+-- /See:/ 'mkProductViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-  { _pvavValue ::
-      !(Maybe Text),
-    _pvavApproximateCount ::
-      !(Maybe Int)
+  { value ::
+      Lude.Maybe Lude.Text,
+    approximateCount ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewAggregationValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvavValue' - The value of the product view aggregation.
---
--- * 'pvavApproximateCount' - An approximate count of the products that match the value.
-productViewAggregationValue ::
+-- * 'approximateCount' - An approximate count of the products that match the value.
+-- * 'value' - The value of the product view aggregation.
+mkProductViewAggregationValue ::
   ProductViewAggregationValue
-productViewAggregationValue =
+mkProductViewAggregationValue =
   ProductViewAggregationValue'
-    { _pvavValue = Nothing,
-      _pvavApproximateCount = Nothing
+    { value = Lude.Nothing,
+      approximateCount = Lude.Nothing
     }
 
 -- | The value of the product view aggregation.
-pvavValue :: Lens' ProductViewAggregationValue (Maybe Text)
-pvavValue = lens _pvavValue (\s a -> s {_pvavValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvavValue :: Lens.Lens' ProductViewAggregationValue (Lude.Maybe Lude.Text)
+pvavValue = Lens.lens (value :: ProductViewAggregationValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ProductViewAggregationValue)
+{-# DEPRECATED pvavValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | An approximate count of the products that match the value.
-pvavApproximateCount :: Lens' ProductViewAggregationValue (Maybe Int)
-pvavApproximateCount = lens _pvavApproximateCount (\s a -> s {_pvavApproximateCount = a})
+--
+-- /Note:/ Consider using 'approximateCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvavApproximateCount :: Lens.Lens' ProductViewAggregationValue (Lude.Maybe Lude.Int)
+pvavApproximateCount = Lens.lens (approximateCount :: ProductViewAggregationValue -> Lude.Maybe Lude.Int) (\s a -> s {approximateCount = a} :: ProductViewAggregationValue)
+{-# DEPRECATED pvavApproximateCount "Use generic-lens or generic-optics with 'approximateCount' instead." #-}
 
-instance FromJSON ProductViewAggregationValue where
+instance Lude.FromJSON ProductViewAggregationValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProductViewAggregationValue"
       ( \x ->
           ProductViewAggregationValue'
-            <$> (x .:? "Value") <*> (x .:? "ApproximateCount")
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "ApproximateCount")
       )
-
-instance Hashable ProductViewAggregationValue
-
-instance NFData ProductViewAggregationValue

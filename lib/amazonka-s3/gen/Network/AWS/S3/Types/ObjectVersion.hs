@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,140 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectVersion where
+module Network.AWS.S3.Types.ObjectVersion
+  ( ObjectVersion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectVersion,
+
+    -- * Lenses
+    ovETag,
+    ovVersionId,
+    ovSize,
+    ovIsLatest,
+    ovOwner,
+    ovKey,
+    ovStorageClass,
+    ovLastModified,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectVersionStorageClass
 import Network.AWS.S3.Types.Owner
 
 -- | The version of an object.
 --
---
---
--- /See:/ 'objectVersion' smart constructor.
+-- /See:/ 'mkObjectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-  { _ovETag :: !(Maybe ETag),
-    _ovVersionId :: !(Maybe ObjectVersionId),
-    _ovSize :: !(Maybe Int),
-    _ovIsLatest :: !(Maybe Bool),
-    _ovOwner :: !(Maybe Owner),
-    _ovKey :: !(Maybe ObjectKey),
-    _ovStorageClass :: !(Maybe ObjectVersionStorageClass),
-    _ovLastModified :: !(Maybe ISO8601)
+  { eTag :: Lude.Maybe ETag,
+    versionId :: Lude.Maybe ObjectVersionId,
+    size :: Lude.Maybe Lude.Int,
+    isLatest :: Lude.Maybe Lude.Bool,
+    owner :: Lude.Maybe Owner,
+    key :: Lude.Maybe ObjectKey,
+    storageClass :: Lude.Maybe ObjectVersionStorageClass,
+    lastModified :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ovETag' - The entity tag is an MD5 hash of that version of the object.
---
--- * 'ovVersionId' - Version ID of an object.
---
--- * 'ovSize' - Size in bytes of the object.
---
--- * 'ovIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
---
--- * 'ovOwner' - Specifies the owner of the object.
---
--- * 'ovKey' - The object key.
---
--- * 'ovStorageClass' - The class of storage used to store the object.
---
--- * 'ovLastModified' - Date and time the object was last modified.
-objectVersion ::
+-- * 'eTag' - The entity tag is an MD5 hash of that version of the object.
+-- * 'isLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
+-- * 'key' - The object key.
+-- * 'lastModified' - Date and time the object was last modified.
+-- * 'owner' - Specifies the owner of the object.
+-- * 'size' - Size in bytes of the object.
+-- * 'storageClass' - The class of storage used to store the object.
+-- * 'versionId' - Version ID of an object.
+mkObjectVersion ::
   ObjectVersion
-objectVersion =
+mkObjectVersion =
   ObjectVersion'
-    { _ovETag = Nothing,
-      _ovVersionId = Nothing,
-      _ovSize = Nothing,
-      _ovIsLatest = Nothing,
-      _ovOwner = Nothing,
-      _ovKey = Nothing,
-      _ovStorageClass = Nothing,
-      _ovLastModified = Nothing
+    { eTag = Lude.Nothing,
+      versionId = Lude.Nothing,
+      size = Lude.Nothing,
+      isLatest = Lude.Nothing,
+      owner = Lude.Nothing,
+      key = Lude.Nothing,
+      storageClass = Lude.Nothing,
+      lastModified = Lude.Nothing
     }
 
 -- | The entity tag is an MD5 hash of that version of the object.
-ovETag :: Lens' ObjectVersion (Maybe ETag)
-ovETag = lens _ovETag (\s a -> s {_ovETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovETag :: Lens.Lens' ObjectVersion (Lude.Maybe ETag)
+ovETag = Lens.lens (eTag :: ObjectVersion -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: ObjectVersion)
+{-# DEPRECATED ovETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Version ID of an object.
-ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
-ovVersionId = lens _ovVersionId (\s a -> s {_ovVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovVersionId :: Lens.Lens' ObjectVersion (Lude.Maybe ObjectVersionId)
+ovVersionId = Lens.lens (versionId :: ObjectVersion -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: ObjectVersion)
+{-# DEPRECATED ovVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Size in bytes of the object.
-ovSize :: Lens' ObjectVersion (Maybe Int)
-ovSize = lens _ovSize (\s a -> s {_ovSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovSize :: Lens.Lens' ObjectVersion (Lude.Maybe Lude.Int)
+ovSize = Lens.lens (size :: ObjectVersion -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: ObjectVersion)
+{-# DEPRECATED ovSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | Specifies whether the object is (true) or is not (false) the latest version of an object.
-ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
-ovIsLatest = lens _ovIsLatest (\s a -> s {_ovIsLatest = a})
+--
+-- /Note:/ Consider using 'isLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovIsLatest :: Lens.Lens' ObjectVersion (Lude.Maybe Lude.Bool)
+ovIsLatest = Lens.lens (isLatest :: ObjectVersion -> Lude.Maybe Lude.Bool) (\s a -> s {isLatest = a} :: ObjectVersion)
+{-# DEPRECATED ovIsLatest "Use generic-lens or generic-optics with 'isLatest' instead." #-}
 
 -- | Specifies the owner of the object.
-ovOwner :: Lens' ObjectVersion (Maybe Owner)
-ovOwner = lens _ovOwner (\s a -> s {_ovOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovOwner :: Lens.Lens' ObjectVersion (Lude.Maybe Owner)
+ovOwner = Lens.lens (owner :: ObjectVersion -> Lude.Maybe Owner) (\s a -> s {owner = a} :: ObjectVersion)
+{-# DEPRECATED ovOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The object key.
-ovKey :: Lens' ObjectVersion (Maybe ObjectKey)
-ovKey = lens _ovKey (\s a -> s {_ovKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovKey :: Lens.Lens' ObjectVersion (Lude.Maybe ObjectKey)
+ovKey = Lens.lens (key :: ObjectVersion -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: ObjectVersion)
+{-# DEPRECATED ovKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The class of storage used to store the object.
-ovStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
-ovStorageClass = lens _ovStorageClass (\s a -> s {_ovStorageClass = a})
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovStorageClass :: Lens.Lens' ObjectVersion (Lude.Maybe ObjectVersionStorageClass)
+ovStorageClass = Lens.lens (storageClass :: ObjectVersion -> Lude.Maybe ObjectVersionStorageClass) (\s a -> s {storageClass = a} :: ObjectVersion)
+{-# DEPRECATED ovStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 -- | Date and time the object was last modified.
-ovLastModified :: Lens' ObjectVersion (Maybe UTCTime)
-ovLastModified = lens _ovLastModified (\s a -> s {_ovLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ovLastModified :: Lens.Lens' ObjectVersion (Lude.Maybe Lude.ISO8601)
+ovLastModified = Lens.lens (lastModified :: ObjectVersion -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: ObjectVersion)
+{-# DEPRECATED ovLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance FromXML ObjectVersion where
+instance Lude.FromXML ObjectVersion where
   parseXML x =
     ObjectVersion'
-      <$> (x .@? "ETag")
-      <*> (x .@? "VersionId")
-      <*> (x .@? "Size")
-      <*> (x .@? "IsLatest")
-      <*> (x .@? "Owner")
-      <*> (x .@? "Key")
-      <*> (x .@? "StorageClass")
-      <*> (x .@? "LastModified")
-
-instance Hashable ObjectVersion
-
-instance NFData ObjectVersion
+      Lude.<$> (x Lude..@? "ETag")
+      Lude.<*> (x Lude..@? "VersionId")
+      Lude.<*> (x Lude..@? "Size")
+      Lude.<*> (x Lude..@? "IsLatest")
+      Lude.<*> (x Lude..@? "Owner")
+      Lude.<*> (x Lude..@? "Key")
+      Lude.<*> (x Lude..@? "StorageClass")
+      Lude.<*> (x Lude..@? "LastModified")

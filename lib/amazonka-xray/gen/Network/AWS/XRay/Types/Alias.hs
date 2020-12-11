@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.Alias where
+module Network.AWS.XRay.Types.Alias
+  ( Alias (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAlias,
+
+    -- * Lenses
+    aNames,
+    aName,
+    aType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An alias for an edge.
 --
---
---
--- /See:/ 'alias' smart constructor.
+-- /See:/ 'mkAlias' smart constructor.
 data Alias = Alias'
-  { _aNames :: !(Maybe [Text]),
-    _aName :: !(Maybe Text),
-    _aType :: !(Maybe Text)
+  { names :: Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aNames' - A list of names for the alias, including the canonical name.
---
--- * 'aName' - The canonical name of the alias.
---
--- * 'aType' - The type of the alias.
-alias ::
+-- * 'name' - The canonical name of the alias.
+-- * 'names' - A list of names for the alias, including the canonical name.
+-- * 'type'' - The type of the alias.
+mkAlias ::
   Alias
-alias =
-  Alias' {_aNames = Nothing, _aName = Nothing, _aType = Nothing}
+mkAlias =
+  Alias'
+    { names = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing
+    }
 
 -- | A list of names for the alias, including the canonical name.
-aNames :: Lens' Alias [Text]
-aNames = lens _aNames (\s a -> s {_aNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNames :: Lens.Lens' Alias (Lude.Maybe [Lude.Text])
+aNames = Lens.lens (names :: Alias -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: Alias)
+{-# DEPRECATED aNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The canonical name of the alias.
-aName :: Lens' Alias (Maybe Text)
-aName = lens _aName (\s a -> s {_aName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
+aName = Lens.lens (name :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Alias)
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of the alias.
-aType :: Lens' Alias (Maybe Text)
-aType = lens _aType (\s a -> s {_aType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aType :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
+aType = Lens.lens (type' :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Alias)
+{-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Alias where
+instance Lude.FromJSON Alias where
   parseJSON =
-    withObject
+    Lude.withObject
       "Alias"
       ( \x ->
           Alias'
-            <$> (x .:? "Names" .!= mempty) <*> (x .:? "Name") <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "Names" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable Alias
-
-instance NFData Alias

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a commit for a repository on the tip of a specified branch.
 module Network.AWS.CodeCommit.CreateCommit
-  ( -- * Creating a Request
-    createCommit,
-    CreateCommit,
+  ( -- * Creating a request
+    CreateCommit (..),
+    mkCreateCommit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccSetFileModes,
     ccEmail,
     ccAuthorName,
@@ -35,11 +30,11 @@ module Network.AWS.CodeCommit.CreateCommit
     ccRepositoryName,
     ccBranchName,
 
-    -- * Destructuring the Response
-    createCommitResponse,
-    CreateCommitResponse,
+    -- * Destructuring the response
+    CreateCommitResponse (..),
+    mkCreateCommitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsCommitId,
     ccrsTreeId,
     ccrsFilesAdded,
@@ -50,225 +45,264 @@ module Network.AWS.CodeCommit.CreateCommit
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createCommit' smart constructor.
+-- | /See:/ 'mkCreateCommit' smart constructor.
 data CreateCommit = CreateCommit'
-  { _ccSetFileModes ::
-      !(Maybe [SetFileModeEntry]),
-    _ccEmail :: !(Maybe Text),
-    _ccAuthorName :: !(Maybe Text),
-    _ccParentCommitId :: !(Maybe Text),
-    _ccDeleteFiles :: !(Maybe [DeleteFileEntry]),
-    _ccPutFiles :: !(Maybe [PutFileEntry]),
-    _ccCommitMessage :: !(Maybe Text),
-    _ccKeepEmptyFolders :: !(Maybe Bool),
-    _ccRepositoryName :: !Text,
-    _ccBranchName :: !Text
+  { setFileModes ::
+      Lude.Maybe [SetFileModeEntry],
+    email :: Lude.Maybe Lude.Text,
+    authorName :: Lude.Maybe Lude.Text,
+    parentCommitId :: Lude.Maybe Lude.Text,
+    deleteFiles :: Lude.Maybe [DeleteFileEntry],
+    putFiles :: Lude.Maybe [PutFileEntry],
+    commitMessage :: Lude.Maybe Lude.Text,
+    keepEmptyFolders :: Lude.Maybe Lude.Bool,
+    repositoryName :: Lude.Text,
+    branchName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCommit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccSetFileModes' - The file modes to update for files in this commit.
---
--- * 'ccEmail' - The email address of the person who created the commit.
---
--- * 'ccAuthorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
---
--- * 'ccParentCommitId' - The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
---
--- * 'ccDeleteFiles' - The files to delete in this commit. These files still exist in earlier commits.
---
--- * 'ccPutFiles' - The files to add or update in this commit.
---
--- * 'ccCommitMessage' - The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
---
--- * 'ccKeepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
---
--- * 'ccRepositoryName' - The name of the repository where you create the commit.
---
--- * 'ccBranchName' - The name of the branch where you create the commit.
-createCommit ::
-  -- | 'ccRepositoryName'
-  Text ->
-  -- | 'ccBranchName'
-  Text ->
+-- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
+-- * 'branchName' - The name of the branch where you create the commit.
+-- * 'commitMessage' - The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
+-- * 'deleteFiles' - The files to delete in this commit. These files still exist in earlier commits.
+-- * 'email' - The email address of the person who created the commit.
+-- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
+-- * 'parentCommitId' - The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
+-- * 'putFiles' - The files to add or update in this commit.
+-- * 'repositoryName' - The name of the repository where you create the commit.
+-- * 'setFileModes' - The file modes to update for files in this commit.
+mkCreateCommit ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'branchName'
+  Lude.Text ->
   CreateCommit
-createCommit pRepositoryName_ pBranchName_ =
+mkCreateCommit pRepositoryName_ pBranchName_ =
   CreateCommit'
-    { _ccSetFileModes = Nothing,
-      _ccEmail = Nothing,
-      _ccAuthorName = Nothing,
-      _ccParentCommitId = Nothing,
-      _ccDeleteFiles = Nothing,
-      _ccPutFiles = Nothing,
-      _ccCommitMessage = Nothing,
-      _ccKeepEmptyFolders = Nothing,
-      _ccRepositoryName = pRepositoryName_,
-      _ccBranchName = pBranchName_
+    { setFileModes = Lude.Nothing,
+      email = Lude.Nothing,
+      authorName = Lude.Nothing,
+      parentCommitId = Lude.Nothing,
+      deleteFiles = Lude.Nothing,
+      putFiles = Lude.Nothing,
+      commitMessage = Lude.Nothing,
+      keepEmptyFolders = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      branchName = pBranchName_
     }
 
 -- | The file modes to update for files in this commit.
-ccSetFileModes :: Lens' CreateCommit [SetFileModeEntry]
-ccSetFileModes = lens _ccSetFileModes (\s a -> s {_ccSetFileModes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'setFileModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSetFileModes :: Lens.Lens' CreateCommit (Lude.Maybe [SetFileModeEntry])
+ccSetFileModes = Lens.lens (setFileModes :: CreateCommit -> Lude.Maybe [SetFileModeEntry]) (\s a -> s {setFileModes = a} :: CreateCommit)
+{-# DEPRECATED ccSetFileModes "Use generic-lens or generic-optics with 'setFileModes' instead." #-}
 
 -- | The email address of the person who created the commit.
-ccEmail :: Lens' CreateCommit (Maybe Text)
-ccEmail = lens _ccEmail (\s a -> s {_ccEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEmail :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
+ccEmail = Lens.lens (email :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: CreateCommit)
+{-# DEPRECATED ccEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
-ccAuthorName :: Lens' CreateCommit (Maybe Text)
-ccAuthorName = lens _ccAuthorName (\s a -> s {_ccAuthorName = a})
+--
+-- /Note:/ Consider using 'authorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAuthorName :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
+ccAuthorName = Lens.lens (authorName :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {authorName = a} :: CreateCommit)
+{-# DEPRECATED ccAuthorName "Use generic-lens or generic-optics with 'authorName' instead." #-}
 
 -- | The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
-ccParentCommitId :: Lens' CreateCommit (Maybe Text)
-ccParentCommitId = lens _ccParentCommitId (\s a -> s {_ccParentCommitId = a})
+--
+-- /Note:/ Consider using 'parentCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccParentCommitId :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
+ccParentCommitId = Lens.lens (parentCommitId :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {parentCommitId = a} :: CreateCommit)
+{-# DEPRECATED ccParentCommitId "Use generic-lens or generic-optics with 'parentCommitId' instead." #-}
 
 -- | The files to delete in this commit. These files still exist in earlier commits.
-ccDeleteFiles :: Lens' CreateCommit [DeleteFileEntry]
-ccDeleteFiles = lens _ccDeleteFiles (\s a -> s {_ccDeleteFiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deleteFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDeleteFiles :: Lens.Lens' CreateCommit (Lude.Maybe [DeleteFileEntry])
+ccDeleteFiles = Lens.lens (deleteFiles :: CreateCommit -> Lude.Maybe [DeleteFileEntry]) (\s a -> s {deleteFiles = a} :: CreateCommit)
+{-# DEPRECATED ccDeleteFiles "Use generic-lens or generic-optics with 'deleteFiles' instead." #-}
 
 -- | The files to add or update in this commit.
-ccPutFiles :: Lens' CreateCommit [PutFileEntry]
-ccPutFiles = lens _ccPutFiles (\s a -> s {_ccPutFiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'putFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPutFiles :: Lens.Lens' CreateCommit (Lude.Maybe [PutFileEntry])
+ccPutFiles = Lens.lens (putFiles :: CreateCommit -> Lude.Maybe [PutFileEntry]) (\s a -> s {putFiles = a} :: CreateCommit)
+{-# DEPRECATED ccPutFiles "Use generic-lens or generic-optics with 'putFiles' instead." #-}
 
 -- | The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
-ccCommitMessage :: Lens' CreateCommit (Maybe Text)
-ccCommitMessage = lens _ccCommitMessage (\s a -> s {_ccCommitMessage = a})
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCommitMessage :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
+ccCommitMessage = Lens.lens (commitMessage :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: CreateCommit)
+{-# DEPRECATED ccCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
 -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
-ccKeepEmptyFolders :: Lens' CreateCommit (Maybe Bool)
-ccKeepEmptyFolders = lens _ccKeepEmptyFolders (\s a -> s {_ccKeepEmptyFolders = a})
+--
+-- /Note:/ Consider using 'keepEmptyFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccKeepEmptyFolders :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Bool)
+ccKeepEmptyFolders = Lens.lens (keepEmptyFolders :: CreateCommit -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: CreateCommit)
+{-# DEPRECATED ccKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
 
 -- | The name of the repository where you create the commit.
-ccRepositoryName :: Lens' CreateCommit Text
-ccRepositoryName = lens _ccRepositoryName (\s a -> s {_ccRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRepositoryName :: Lens.Lens' CreateCommit Lude.Text
+ccRepositoryName = Lens.lens (repositoryName :: CreateCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateCommit)
+{-# DEPRECATED ccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The name of the branch where you create the commit.
-ccBranchName :: Lens' CreateCommit Text
-ccBranchName = lens _ccBranchName (\s a -> s {_ccBranchName = a})
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBranchName :: Lens.Lens' CreateCommit Lude.Text
+ccBranchName = Lens.lens (branchName :: CreateCommit -> Lude.Text) (\s a -> s {branchName = a} :: CreateCommit)
+{-# DEPRECATED ccBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
-instance AWSRequest CreateCommit where
+instance Lude.AWSRequest CreateCommit where
   type Rs CreateCommit = CreateCommitResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCommitResponse'
-            <$> (x .?> "commitId")
-            <*> (x .?> "treeId")
-            <*> (x .?> "filesAdded" .!@ mempty)
-            <*> (x .?> "filesUpdated" .!@ mempty)
-            <*> (x .?> "filesDeleted" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "commitId")
+            Lude.<*> (x Lude..?> "treeId")
+            Lude.<*> (x Lude..?> "filesAdded" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "filesUpdated" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "filesDeleted" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCommit
-
-instance NFData CreateCommit
-
-instance ToHeaders CreateCommit where
+instance Lude.ToHeaders CreateCommit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.CreateCommit" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.CreateCommit" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateCommit where
+instance Lude.ToJSON CreateCommit where
   toJSON CreateCommit' {..} =
-    object
-      ( catMaybes
-          [ ("setFileModes" .=) <$> _ccSetFileModes,
-            ("email" .=) <$> _ccEmail,
-            ("authorName" .=) <$> _ccAuthorName,
-            ("parentCommitId" .=) <$> _ccParentCommitId,
-            ("deleteFiles" .=) <$> _ccDeleteFiles,
-            ("putFiles" .=) <$> _ccPutFiles,
-            ("commitMessage" .=) <$> _ccCommitMessage,
-            ("keepEmptyFolders" .=) <$> _ccKeepEmptyFolders,
-            Just ("repositoryName" .= _ccRepositoryName),
-            Just ("branchName" .= _ccBranchName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("setFileModes" Lude..=) Lude.<$> setFileModes,
+            ("email" Lude..=) Lude.<$> email,
+            ("authorName" Lude..=) Lude.<$> authorName,
+            ("parentCommitId" Lude..=) Lude.<$> parentCommitId,
+            ("deleteFiles" Lude..=) Lude.<$> deleteFiles,
+            ("putFiles" Lude..=) Lude.<$> putFiles,
+            ("commitMessage" Lude..=) Lude.<$> commitMessage,
+            ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("branchName" Lude..= branchName)
           ]
       )
 
-instance ToPath CreateCommit where
-  toPath = const "/"
+instance Lude.ToPath CreateCommit where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateCommit where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCommit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCommitResponse' smart constructor.
+-- | /See:/ 'mkCreateCommitResponse' smart constructor.
 data CreateCommitResponse = CreateCommitResponse'
-  { _ccrsCommitId ::
-      !(Maybe Text),
-    _ccrsTreeId :: !(Maybe Text),
-    _ccrsFilesAdded :: !(Maybe [FileMetadata]),
-    _ccrsFilesUpdated :: !(Maybe [FileMetadata]),
-    _ccrsFilesDeleted :: !(Maybe [FileMetadata]),
-    _ccrsResponseStatus :: !Int
+  { commitId ::
+      Lude.Maybe Lude.Text,
+    treeId :: Lude.Maybe Lude.Text,
+    filesAdded :: Lude.Maybe [FileMetadata],
+    filesUpdated :: Lude.Maybe [FileMetadata],
+    filesDeleted :: Lude.Maybe [FileMetadata],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCommitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsCommitId' - The full commit ID of the commit that contains your committed file changes.
---
--- * 'ccrsTreeId' - The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.
---
--- * 'ccrsFilesAdded' - The files added as part of the committed file changes.
---
--- * 'ccrsFilesUpdated' - The files updated as part of the commited file changes.
---
--- * 'ccrsFilesDeleted' - The files deleted as part of the committed file changes.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createCommitResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'commitId' - The full commit ID of the commit that contains your committed file changes.
+-- * 'filesAdded' - The files added as part of the committed file changes.
+-- * 'filesDeleted' - The files deleted as part of the committed file changes.
+-- * 'filesUpdated' - The files updated as part of the commited file changes.
+-- * 'responseStatus' - The response status code.
+-- * 'treeId' - The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.
+mkCreateCommitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCommitResponse
-createCommitResponse pResponseStatus_ =
+mkCreateCommitResponse pResponseStatus_ =
   CreateCommitResponse'
-    { _ccrsCommitId = Nothing,
-      _ccrsTreeId = Nothing,
-      _ccrsFilesAdded = Nothing,
-      _ccrsFilesUpdated = Nothing,
-      _ccrsFilesDeleted = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { commitId = Lude.Nothing,
+      treeId = Lude.Nothing,
+      filesAdded = Lude.Nothing,
+      filesUpdated = Lude.Nothing,
+      filesDeleted = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The full commit ID of the commit that contains your committed file changes.
-ccrsCommitId :: Lens' CreateCommitResponse (Maybe Text)
-ccrsCommitId = lens _ccrsCommitId (\s a -> s {_ccrsCommitId = a})
+--
+-- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsCommitId :: Lens.Lens' CreateCommitResponse (Lude.Maybe Lude.Text)
+ccrsCommitId = Lens.lens (commitId :: CreateCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {commitId = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.
-ccrsTreeId :: Lens' CreateCommitResponse (Maybe Text)
-ccrsTreeId = lens _ccrsTreeId (\s a -> s {_ccrsTreeId = a})
+--
+-- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsTreeId :: Lens.Lens' CreateCommitResponse (Lude.Maybe Lude.Text)
+ccrsTreeId = Lens.lens (treeId :: CreateCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The files added as part of the committed file changes.
-ccrsFilesAdded :: Lens' CreateCommitResponse [FileMetadata]
-ccrsFilesAdded = lens _ccrsFilesAdded (\s a -> s {_ccrsFilesAdded = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filesAdded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsFilesAdded :: Lens.Lens' CreateCommitResponse (Lude.Maybe [FileMetadata])
+ccrsFilesAdded = Lens.lens (filesAdded :: CreateCommitResponse -> Lude.Maybe [FileMetadata]) (\s a -> s {filesAdded = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsFilesAdded "Use generic-lens or generic-optics with 'filesAdded' instead." #-}
 
 -- | The files updated as part of the commited file changes.
-ccrsFilesUpdated :: Lens' CreateCommitResponse [FileMetadata]
-ccrsFilesUpdated = lens _ccrsFilesUpdated (\s a -> s {_ccrsFilesUpdated = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filesUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsFilesUpdated :: Lens.Lens' CreateCommitResponse (Lude.Maybe [FileMetadata])
+ccrsFilesUpdated = Lens.lens (filesUpdated :: CreateCommitResponse -> Lude.Maybe [FileMetadata]) (\s a -> s {filesUpdated = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsFilesUpdated "Use generic-lens or generic-optics with 'filesUpdated' instead." #-}
 
 -- | The files deleted as part of the committed file changes.
-ccrsFilesDeleted :: Lens' CreateCommitResponse [FileMetadata]
-ccrsFilesDeleted = lens _ccrsFilesDeleted (\s a -> s {_ccrsFilesDeleted = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filesDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsFilesDeleted :: Lens.Lens' CreateCommitResponse (Lude.Maybe [FileMetadata])
+ccrsFilesDeleted = Lens.lens (filesDeleted :: CreateCommitResponse -> Lude.Maybe [FileMetadata]) (\s a -> s {filesDeleted = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsFilesDeleted "Use generic-lens or generic-optics with 'filesDeleted' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateCommitResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateCommitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateCommitResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateCommitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCommitResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

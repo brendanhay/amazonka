@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,23 @@
 --
 -- Creates a new RTMP distribution. An RTMP distribution is similar to a web distribution, but an RTMP distribution streams media files using the Adobe Real-Time Messaging Protocol (RTMP) instead of serving files using HTTP.
 --
---
 -- To create a new distribution, submit a @POST@ request to the /CloudFront API version/ /distribution resource. The request body must include a document with a /StreamingDistributionConfig/ element. The response echoes the @StreamingDistributionConfig@ element and returns other information about the RTMP distribution.
---
 -- To get the status of your request, use the /GET StreamingDistribution/ API action. When the value of @Enabled@ is @true@ and the value of @Status@ is @Deployed@ , your distribution is ready. A distribution usually deploys in less than 15 minutes.
---
 -- For more information about web distributions, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-rtmp.html Working with RTMP Distributions> in the /Amazon CloudFront Developer Guide/ .
---
 -- /Important:/ Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a web distribution or an RTMP distribution, and when you invalidate objects. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there's a mismatch between the number of values you say you're specifying in the @Quantity@ element and the number of values specified.
 module Network.AWS.CloudFront.CreateStreamingDistribution
-  ( -- * Creating a Request
-    createStreamingDistribution,
-    CreateStreamingDistribution,
+  ( -- * Creating a request
+    CreateStreamingDistribution (..),
+    mkCreateStreamingDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csdStreamingDistributionConfig,
 
-    -- * Destructuring the Response
-    createStreamingDistributionResponse,
-    CreateStreamingDistributionResponse,
+    -- * Destructuring the response
+    CreateStreamingDistributionResponse (..),
+    mkCreateStreamingDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csdrsETag,
     csdrsLocation,
     csdrsStreamingDistribution,
@@ -48,131 +39,144 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to create a new streaming distribution.
 --
---
---
--- /See:/ 'createStreamingDistribution' smart constructor.
+-- /See:/ 'mkCreateStreamingDistribution' smart constructor.
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
-  { _csdStreamingDistributionConfig ::
+  { streamingDistributionConfig ::
       StreamingDistributionConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdStreamingDistributionConfig' - The streaming distribution's configuration information.
-createStreamingDistribution ::
-  -- | 'csdStreamingDistributionConfig'
+-- * 'streamingDistributionConfig' - The streaming distribution's configuration information.
+mkCreateStreamingDistribution ::
+  -- | 'streamingDistributionConfig'
   StreamingDistributionConfig ->
   CreateStreamingDistribution
-createStreamingDistribution pStreamingDistributionConfig_ =
+mkCreateStreamingDistribution pStreamingDistributionConfig_ =
   CreateStreamingDistribution'
-    { _csdStreamingDistributionConfig =
+    { streamingDistributionConfig =
         pStreamingDistributionConfig_
     }
 
 -- | The streaming distribution's configuration information.
-csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
-csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\s a -> s {_csdStreamingDistributionConfig = a})
+--
+-- /Note:/ Consider using 'streamingDistributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdStreamingDistributionConfig :: Lens.Lens' CreateStreamingDistribution StreamingDistributionConfig
+csdStreamingDistributionConfig = Lens.lens (streamingDistributionConfig :: CreateStreamingDistribution -> StreamingDistributionConfig) (\s a -> s {streamingDistributionConfig = a} :: CreateStreamingDistribution)
+{-# DEPRECATED csdStreamingDistributionConfig "Use generic-lens or generic-optics with 'streamingDistributionConfig' instead." #-}
 
-instance AWSRequest CreateStreamingDistribution where
+instance Lude.AWSRequest CreateStreamingDistribution where
   type
     Rs CreateStreamingDistribution =
       CreateStreamingDistributionResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateStreamingDistributionResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Location")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateStreamingDistribution
-
-instance NFData CreateStreamingDistribution
-
-instance ToElement CreateStreamingDistribution where
+instance Lude.ToElement CreateStreamingDistribution where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig"
-      . _csdStreamingDistributionConfig
+      Lude.. streamingDistributionConfig
 
-instance ToHeaders CreateStreamingDistribution where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateStreamingDistribution where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateStreamingDistribution where
-  toPath = const "/2020-05-31/streaming-distribution"
+instance Lude.ToPath CreateStreamingDistribution where
+  toPath = Lude.const "/2020-05-31/streaming-distribution"
 
-instance ToQuery CreateStreamingDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStreamingDistribution where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createStreamingDistributionResponse' smart constructor.
+-- /See:/ 'mkCreateStreamingDistributionResponse' smart constructor.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-  { _csdrsETag ::
-      !(Maybe Text),
-    _csdrsLocation ::
-      !(Maybe Text),
-    _csdrsStreamingDistribution ::
-      !( Maybe
-           StreamingDistribution
-       ),
-    _csdrsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    location ::
+      Lude.Maybe
+        Lude.Text,
+    streamingDistribution ::
+      Lude.Maybe
+        StreamingDistribution,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdrsETag' - The current version of the streaming distribution created.
---
--- * 'csdrsLocation' - The fully qualified URI of the new streaming distribution resource just created.
---
--- * 'csdrsStreamingDistribution' - The streaming distribution's information.
---
--- * 'csdrsResponseStatus' - -- | The response status code.
-createStreamingDistributionResponse ::
-  -- | 'csdrsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the streaming distribution created.
+-- * 'location' - The fully qualified URI of the new streaming distribution resource just created.
+-- * 'responseStatus' - The response status code.
+-- * 'streamingDistribution' - The streaming distribution's information.
+mkCreateStreamingDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateStreamingDistributionResponse
-createStreamingDistributionResponse pResponseStatus_ =
+mkCreateStreamingDistributionResponse pResponseStatus_ =
   CreateStreamingDistributionResponse'
-    { _csdrsETag = Nothing,
-      _csdrsLocation = Nothing,
-      _csdrsStreamingDistribution = Nothing,
-      _csdrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      location = Lude.Nothing,
+      streamingDistribution = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the streaming distribution created.
-csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsETag = lens _csdrsETag (\s a -> s {_csdrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsETag :: Lens.Lens' CreateStreamingDistributionResponse (Lude.Maybe Lude.Text)
+csdrsETag = Lens.lens (eTag :: CreateStreamingDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateStreamingDistributionResponse)
+{-# DEPRECATED csdrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new streaming distribution resource just created.
-csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsLocation = lens _csdrsLocation (\s a -> s {_csdrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsLocation :: Lens.Lens' CreateStreamingDistributionResponse (Lude.Maybe Lude.Text)
+csdrsLocation = Lens.lens (location :: CreateStreamingDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateStreamingDistributionResponse)
+{-# DEPRECATED csdrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The streaming distribution's information.
-csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\s a -> s {_csdrsStreamingDistribution = a})
+--
+-- /Note:/ Consider using 'streamingDistribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsStreamingDistribution :: Lens.Lens' CreateStreamingDistributionResponse (Lude.Maybe StreamingDistribution)
+csdrsStreamingDistribution = Lens.lens (streamingDistribution :: CreateStreamingDistributionResponse -> Lude.Maybe StreamingDistribution) (\s a -> s {streamingDistribution = a} :: CreateStreamingDistributionResponse)
+{-# DEPRECATED csdrsStreamingDistribution "Use generic-lens or generic-optics with 'streamingDistribution' instead." #-}
 
--- | -- | The response status code.
-csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
-csdrsResponseStatus = lens _csdrsResponseStatus (\s a -> s {_csdrsResponseStatus = a})
-
-instance NFData CreateStreamingDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsResponseStatus :: Lens.Lens' CreateStreamingDistributionResponse Lude.Int
+csdrsResponseStatus = Lens.lens (responseStatus :: CreateStreamingDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamingDistributionResponse)
+{-# DEPRECATED csdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

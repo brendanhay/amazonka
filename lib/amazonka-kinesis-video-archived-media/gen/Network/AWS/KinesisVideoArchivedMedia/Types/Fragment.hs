@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.Fragment where
+module Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
+  ( Fragment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFragment,
+
+    -- * Lenses
+    fFragmentLengthInMilliseconds,
+    fServerTimestamp,
+    fFragmentSizeInBytes,
+    fFragmentNumber,
+    fProducerTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a segment of video or other time-delimited data.
 --
---
---
--- /See:/ 'fragment' smart constructor.
+-- /See:/ 'mkFragment' smart constructor.
 data Fragment = Fragment'
-  { _fFragmentLengthInMilliseconds ::
-      !(Maybe Integer),
-    _fServerTimestamp :: !(Maybe POSIX),
-    _fFragmentSizeInBytes :: !(Maybe Integer),
-    _fFragmentNumber :: !(Maybe Text),
-    _fProducerTimestamp :: !(Maybe POSIX)
+  { fragmentLengthInMilliseconds ::
+      Lude.Maybe Lude.Integer,
+    serverTimestamp :: Lude.Maybe Lude.Timestamp,
+    fragmentSizeInBytes :: Lude.Maybe Lude.Integer,
+    fragmentNumber :: Lude.Maybe Lude.Text,
+    producerTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Fragment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fFragmentLengthInMilliseconds' - The playback duration or other time value associated with the fragment.
---
--- * 'fServerTimestamp' - The timestamp from the AWS server corresponding to the fragment.
---
--- * 'fFragmentSizeInBytes' - The total fragment size, including information about the fragment and contained media data.
---
--- * 'fFragmentNumber' - The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
---
--- * 'fProducerTimestamp' - The timestamp from the producer corresponding to the fragment.
-fragment ::
+-- * 'fragmentLengthInMilliseconds' - The playback duration or other time value associated with the fragment.
+-- * 'fragmentNumber' - The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
+-- * 'fragmentSizeInBytes' - The total fragment size, including information about the fragment and contained media data.
+-- * 'producerTimestamp' - The timestamp from the producer corresponding to the fragment.
+-- * 'serverTimestamp' - The timestamp from the AWS server corresponding to the fragment.
+mkFragment ::
   Fragment
-fragment =
+mkFragment =
   Fragment'
-    { _fFragmentLengthInMilliseconds = Nothing,
-      _fServerTimestamp = Nothing,
-      _fFragmentSizeInBytes = Nothing,
-      _fFragmentNumber = Nothing,
-      _fProducerTimestamp = Nothing
+    { fragmentLengthInMilliseconds = Lude.Nothing,
+      serverTimestamp = Lude.Nothing,
+      fragmentSizeInBytes = Lude.Nothing,
+      fragmentNumber = Lude.Nothing,
+      producerTimestamp = Lude.Nothing
     }
 
 -- | The playback duration or other time value associated with the fragment.
-fFragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
-fFragmentLengthInMilliseconds = lens _fFragmentLengthInMilliseconds (\s a -> s {_fFragmentLengthInMilliseconds = a})
+--
+-- /Note:/ Consider using 'fragmentLengthInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFragmentLengthInMilliseconds :: Lens.Lens' Fragment (Lude.Maybe Lude.Integer)
+fFragmentLengthInMilliseconds = Lens.lens (fragmentLengthInMilliseconds :: Fragment -> Lude.Maybe Lude.Integer) (\s a -> s {fragmentLengthInMilliseconds = a} :: Fragment)
+{-# DEPRECATED fFragmentLengthInMilliseconds "Use generic-lens or generic-optics with 'fragmentLengthInMilliseconds' instead." #-}
 
 -- | The timestamp from the AWS server corresponding to the fragment.
-fServerTimestamp :: Lens' Fragment (Maybe UTCTime)
-fServerTimestamp = lens _fServerTimestamp (\s a -> s {_fServerTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serverTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fServerTimestamp :: Lens.Lens' Fragment (Lude.Maybe Lude.Timestamp)
+fServerTimestamp = Lens.lens (serverTimestamp :: Fragment -> Lude.Maybe Lude.Timestamp) (\s a -> s {serverTimestamp = a} :: Fragment)
+{-# DEPRECATED fServerTimestamp "Use generic-lens or generic-optics with 'serverTimestamp' instead." #-}
 
 -- | The total fragment size, including information about the fragment and contained media data.
-fFragmentSizeInBytes :: Lens' Fragment (Maybe Integer)
-fFragmentSizeInBytes = lens _fFragmentSizeInBytes (\s a -> s {_fFragmentSizeInBytes = a})
+--
+-- /Note:/ Consider using 'fragmentSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFragmentSizeInBytes :: Lens.Lens' Fragment (Lude.Maybe Lude.Integer)
+fFragmentSizeInBytes = Lens.lens (fragmentSizeInBytes :: Fragment -> Lude.Maybe Lude.Integer) (\s a -> s {fragmentSizeInBytes = a} :: Fragment)
+{-# DEPRECATED fFragmentSizeInBytes "Use generic-lens or generic-optics with 'fragmentSizeInBytes' instead." #-}
 
 -- | The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
-fFragmentNumber :: Lens' Fragment (Maybe Text)
-fFragmentNumber = lens _fFragmentNumber (\s a -> s {_fFragmentNumber = a})
+--
+-- /Note:/ Consider using 'fragmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFragmentNumber :: Lens.Lens' Fragment (Lude.Maybe Lude.Text)
+fFragmentNumber = Lens.lens (fragmentNumber :: Fragment -> Lude.Maybe Lude.Text) (\s a -> s {fragmentNumber = a} :: Fragment)
+{-# DEPRECATED fFragmentNumber "Use generic-lens or generic-optics with 'fragmentNumber' instead." #-}
 
 -- | The timestamp from the producer corresponding to the fragment.
-fProducerTimestamp :: Lens' Fragment (Maybe UTCTime)
-fProducerTimestamp = lens _fProducerTimestamp (\s a -> s {_fProducerTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'producerTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fProducerTimestamp :: Lens.Lens' Fragment (Lude.Maybe Lude.Timestamp)
+fProducerTimestamp = Lens.lens (producerTimestamp :: Fragment -> Lude.Maybe Lude.Timestamp) (\s a -> s {producerTimestamp = a} :: Fragment)
+{-# DEPRECATED fProducerTimestamp "Use generic-lens or generic-optics with 'producerTimestamp' instead." #-}
 
-instance FromJSON Fragment where
+instance Lude.FromJSON Fragment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Fragment"
       ( \x ->
           Fragment'
-            <$> (x .:? "FragmentLengthInMilliseconds")
-            <*> (x .:? "ServerTimestamp")
-            <*> (x .:? "FragmentSizeInBytes")
-            <*> (x .:? "FragmentNumber")
-            <*> (x .:? "ProducerTimestamp")
+            Lude.<$> (x Lude..:? "FragmentLengthInMilliseconds")
+            Lude.<*> (x Lude..:? "ServerTimestamp")
+            Lude.<*> (x Lude..:? "FragmentSizeInBytes")
+            Lude.<*> (x Lude..:? "FragmentNumber")
+            Lude.<*> (x Lude..:? "ProducerTimestamp")
       )
-
-instance Hashable Fragment
-
-instance NFData Fragment

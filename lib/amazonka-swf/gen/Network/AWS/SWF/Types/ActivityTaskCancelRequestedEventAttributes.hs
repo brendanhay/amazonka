@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes where
+module Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes
+  ( ActivityTaskCancelRequestedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivityTaskCancelRequestedEventAttributes,
+
+    -- * Lenses
+    atcreaDecisionTaskCompletedEventId,
+    atcreaActivityId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @ActivityTaskCancelRequested@ event.
 --
---
---
--- /See:/ 'activityTaskCancelRequestedEventAttributes' smart constructor.
+-- /See:/ 'mkActivityTaskCancelRequestedEventAttributes' smart constructor.
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'
-  { _atcreaDecisionTaskCompletedEventId ::
-      !Integer,
-    _atcreaActivityId ::
-      !Text
+  { decisionTaskCompletedEventId ::
+      Lude.Integer,
+    activityId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityTaskCancelRequestedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atcreaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- * 'atcreaActivityId' - The unique ID of the task.
-activityTaskCancelRequestedEventAttributes ::
-  -- | 'atcreaDecisionTaskCompletedEventId'
-  Integer ->
-  -- | 'atcreaActivityId'
-  Text ->
+-- * 'activityId' - The unique ID of the task.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+mkActivityTaskCancelRequestedEventAttributes ::
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
+  -- | 'activityId'
+  Lude.Text ->
   ActivityTaskCancelRequestedEventAttributes
-activityTaskCancelRequestedEventAttributes
+mkActivityTaskCancelRequestedEventAttributes
   pDecisionTaskCompletedEventId_
   pActivityId_ =
     ActivityTaskCancelRequestedEventAttributes'
-      { _atcreaDecisionTaskCompletedEventId =
+      { decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_,
-        _atcreaActivityId = pActivityId_
+        activityId = pActivityId_
       }
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RequestCancelActivityTask@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
-atcreaDecisionTaskCompletedEventId = lens _atcreaDecisionTaskCompletedEventId (\s a -> s {_atcreaDecisionTaskCompletedEventId = a})
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcreaDecisionTaskCompletedEventId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Lude.Integer
+atcreaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: ActivityTaskCancelRequestedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: ActivityTaskCancelRequestedEventAttributes)
+{-# DEPRECATED atcreaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
 -- | The unique ID of the task.
-atcreaActivityId :: Lens' ActivityTaskCancelRequestedEventAttributes Text
-atcreaActivityId = lens _atcreaActivityId (\s a -> s {_atcreaActivityId = a})
+--
+-- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcreaActivityId :: Lens.Lens' ActivityTaskCancelRequestedEventAttributes Lude.Text
+atcreaActivityId = Lens.lens (activityId :: ActivityTaskCancelRequestedEventAttributes -> Lude.Text) (\s a -> s {activityId = a} :: ActivityTaskCancelRequestedEventAttributes)
+{-# DEPRECATED atcreaActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
 
-instance FromJSON ActivityTaskCancelRequestedEventAttributes where
+instance Lude.FromJSON ActivityTaskCancelRequestedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActivityTaskCancelRequestedEventAttributes"
       ( \x ->
           ActivityTaskCancelRequestedEventAttributes'
-            <$> (x .: "decisionTaskCompletedEventId") <*> (x .: "activityId")
+            Lude.<$> (x Lude..: "decisionTaskCompletedEventId")
+            Lude.<*> (x Lude..: "activityId")
       )
-
-instance Hashable ActivityTaskCancelRequestedEventAttributes
-
-instance NFData ActivityTaskCancelRequestedEventAttributes

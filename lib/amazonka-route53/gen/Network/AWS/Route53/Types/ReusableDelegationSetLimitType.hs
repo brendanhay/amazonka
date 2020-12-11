@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ReusableDelegationSetLimitType where
+module Network.AWS.Route53.Types.ReusableDelegationSetLimitType
+  ( ReusableDelegationSetLimitType
+      ( ReusableDelegationSetLimitType',
+        MaxZonesByReusableDelegationSet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data ReusableDelegationSetLimitType = MaxZonesByReusableDelegationSet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReusableDelegationSetLimitType = ReusableDelegationSetLimitType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReusableDelegationSetLimitType where
-  parser =
-    takeLowerText >>= \case
-      "max_zones_by_reusable_delegation_set" -> pure MaxZonesByReusableDelegationSet
-      e ->
-        fromTextError $
-          "Failure parsing ReusableDelegationSetLimitType from value: '" <> e
-            <> "'. Accepted values: max_zones_by_reusable_delegation_set"
+pattern MaxZonesByReusableDelegationSet :: ReusableDelegationSetLimitType
+pattern MaxZonesByReusableDelegationSet = ReusableDelegationSetLimitType' "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
 
-instance ToText ReusableDelegationSetLimitType where
-  toText = \case
-    MaxZonesByReusableDelegationSet -> "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
-
-instance Hashable ReusableDelegationSetLimitType
-
-instance NFData ReusableDelegationSetLimitType
-
-instance ToByteString ReusableDelegationSetLimitType
-
-instance ToQuery ReusableDelegationSetLimitType
-
-instance ToHeader ReusableDelegationSetLimitType
-
-instance FromXML ReusableDelegationSetLimitType where
-  parseXML = parseXMLText "ReusableDelegationSetLimitType"
-
-instance ToXML ReusableDelegationSetLimitType where
-  toXML = toXMLText
+{-# COMPLETE
+  MaxZonesByReusableDelegationSet,
+  ReusableDelegationSetLimitType'
+  #-}

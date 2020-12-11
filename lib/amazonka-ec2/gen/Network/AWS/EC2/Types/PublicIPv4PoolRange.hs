@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PublicIPv4PoolRange where
+module Network.AWS.EC2.Types.PublicIPv4PoolRange
+  ( PublicIPv4PoolRange (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPublicIPv4PoolRange,
+
+    -- * Lenses
+    piprAvailableAddressCount,
+    piprLastAddress,
+    piprFirstAddress,
+    piprAddressCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an address range of an IPv4 address pool.
 --
---
---
--- /See:/ 'publicIPv4PoolRange' smart constructor.
+-- /See:/ 'mkPublicIPv4PoolRange' smart constructor.
 data PublicIPv4PoolRange = PublicIPv4PoolRange'
-  { _piprAvailableAddressCount ::
-      !(Maybe Int),
-    _piprLastAddress :: !(Maybe Text),
-    _piprFirstAddress :: !(Maybe Text),
-    _piprAddressCount :: !(Maybe Int)
+  { availableAddressCount ::
+      Lude.Maybe Lude.Int,
+    lastAddress :: Lude.Maybe Lude.Text,
+    firstAddress :: Lude.Maybe Lude.Text,
+    addressCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicIPv4PoolRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piprAvailableAddressCount' - The number of available addresses in the range.
---
--- * 'piprLastAddress' - The last IP address in the range.
---
--- * 'piprFirstAddress' - The first IP address in the range.
---
--- * 'piprAddressCount' - The number of addresses in the range.
-publicIPv4PoolRange ::
+-- * 'addressCount' - The number of addresses in the range.
+-- * 'availableAddressCount' - The number of available addresses in the range.
+-- * 'firstAddress' - The first IP address in the range.
+-- * 'lastAddress' - The last IP address in the range.
+mkPublicIPv4PoolRange ::
   PublicIPv4PoolRange
-publicIPv4PoolRange =
+mkPublicIPv4PoolRange =
   PublicIPv4PoolRange'
-    { _piprAvailableAddressCount = Nothing,
-      _piprLastAddress = Nothing,
-      _piprFirstAddress = Nothing,
-      _piprAddressCount = Nothing
+    { availableAddressCount = Lude.Nothing,
+      lastAddress = Lude.Nothing,
+      firstAddress = Lude.Nothing,
+      addressCount = Lude.Nothing
     }
 
 -- | The number of available addresses in the range.
-piprAvailableAddressCount :: Lens' PublicIPv4PoolRange (Maybe Int)
-piprAvailableAddressCount = lens _piprAvailableAddressCount (\s a -> s {_piprAvailableAddressCount = a})
+--
+-- /Note:/ Consider using 'availableAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piprAvailableAddressCount :: Lens.Lens' PublicIPv4PoolRange (Lude.Maybe Lude.Int)
+piprAvailableAddressCount = Lens.lens (availableAddressCount :: PublicIPv4PoolRange -> Lude.Maybe Lude.Int) (\s a -> s {availableAddressCount = a} :: PublicIPv4PoolRange)
+{-# DEPRECATED piprAvailableAddressCount "Use generic-lens or generic-optics with 'availableAddressCount' instead." #-}
 
 -- | The last IP address in the range.
-piprLastAddress :: Lens' PublicIPv4PoolRange (Maybe Text)
-piprLastAddress = lens _piprLastAddress (\s a -> s {_piprLastAddress = a})
+--
+-- /Note:/ Consider using 'lastAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piprLastAddress :: Lens.Lens' PublicIPv4PoolRange (Lude.Maybe Lude.Text)
+piprLastAddress = Lens.lens (lastAddress :: PublicIPv4PoolRange -> Lude.Maybe Lude.Text) (\s a -> s {lastAddress = a} :: PublicIPv4PoolRange)
+{-# DEPRECATED piprLastAddress "Use generic-lens or generic-optics with 'lastAddress' instead." #-}
 
 -- | The first IP address in the range.
-piprFirstAddress :: Lens' PublicIPv4PoolRange (Maybe Text)
-piprFirstAddress = lens _piprFirstAddress (\s a -> s {_piprFirstAddress = a})
+--
+-- /Note:/ Consider using 'firstAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piprFirstAddress :: Lens.Lens' PublicIPv4PoolRange (Lude.Maybe Lude.Text)
+piprFirstAddress = Lens.lens (firstAddress :: PublicIPv4PoolRange -> Lude.Maybe Lude.Text) (\s a -> s {firstAddress = a} :: PublicIPv4PoolRange)
+{-# DEPRECATED piprFirstAddress "Use generic-lens or generic-optics with 'firstAddress' instead." #-}
 
 -- | The number of addresses in the range.
-piprAddressCount :: Lens' PublicIPv4PoolRange (Maybe Int)
-piprAddressCount = lens _piprAddressCount (\s a -> s {_piprAddressCount = a})
+--
+-- /Note:/ Consider using 'addressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piprAddressCount :: Lens.Lens' PublicIPv4PoolRange (Lude.Maybe Lude.Int)
+piprAddressCount = Lens.lens (addressCount :: PublicIPv4PoolRange -> Lude.Maybe Lude.Int) (\s a -> s {addressCount = a} :: PublicIPv4PoolRange)
+{-# DEPRECATED piprAddressCount "Use generic-lens or generic-optics with 'addressCount' instead." #-}
 
-instance FromXML PublicIPv4PoolRange where
+instance Lude.FromXML PublicIPv4PoolRange where
   parseXML x =
     PublicIPv4PoolRange'
-      <$> (x .@? "availableAddressCount")
-      <*> (x .@? "lastAddress")
-      <*> (x .@? "firstAddress")
-      <*> (x .@? "addressCount")
-
-instance Hashable PublicIPv4PoolRange
-
-instance NFData PublicIPv4PoolRange
+      Lude.<$> (x Lude..@? "availableAddressCount")
+      Lude.<*> (x Lude..@? "lastAddress")
+      Lude.<*> (x Lude..@? "firstAddress")
+      Lude.<*> (x Lude..@? "addressCount")

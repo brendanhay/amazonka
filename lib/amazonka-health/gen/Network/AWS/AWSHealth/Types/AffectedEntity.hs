@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.AffectedEntity where
+module Network.AWS.AWSHealth.Types.AffectedEntity
+  ( AffectedEntity (..),
+
+    -- * Smart constructor
+    mkAffectedEntity,
+
+    -- * Lenses
+    aeLastUpdatedTime,
+    aeEntityValue,
+    aeEntityURL,
+    aeAwsAccountId,
+    aeEventARN,
+    aeEntityARN,
+    aeTags,
+    aeStatusCode,
+  )
+where
 
 import Network.AWS.AWSHealth.Types.EntityStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an entity that is affected by a Health event.
 --
---
---
--- /See:/ 'affectedEntity' smart constructor.
+-- /See:/ 'mkAffectedEntity' smart constructor.
 data AffectedEntity = AffectedEntity'
-  { _aeLastUpdatedTime ::
-      !(Maybe POSIX),
-    _aeEntityValue :: !(Maybe Text),
-    _aeEntityURL :: !(Maybe Text),
-    _aeAwsAccountId :: !(Maybe Text),
-    _aeEventARN :: !(Maybe Text),
-    _aeEntityARN :: !(Maybe Text),
-    _aeTags :: !(Maybe (Map Text (Text))),
-    _aeStatusCode :: !(Maybe EntityStatusCode)
+  { lastUpdatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    entityValue :: Lude.Maybe Lude.Text,
+    entityURL :: Lude.Maybe Lude.Text,
+    awsAccountId :: Lude.Maybe Lude.Text,
+    eventARN :: Lude.Maybe Lude.Text,
+    entityARN :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    statusCode :: Lude.Maybe EntityStatusCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AffectedEntity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeLastUpdatedTime' - The most recent time that the entity was updated.
---
--- * 'aeEntityValue' - The ID of the affected entity.
---
--- * 'aeEntityURL' - The URL of the affected entity.
---
--- * 'aeAwsAccountId' - The 12-digit AWS account number that contains the affected entity.
---
--- * 'aeEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- * 'aeEntityARN' - The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
---
--- * 'aeTags' - A map of entity tags attached to the affected entity.
---
--- * 'aeStatusCode' - The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
-affectedEntity ::
+-- * 'awsAccountId' - The 12-digit AWS account number that contains the affected entity.
+-- * 'entityARN' - The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
+-- * 'entityURL' - The URL of the affected entity.
+-- * 'entityValue' - The ID of the affected entity.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- * 'lastUpdatedTime' - The most recent time that the entity was updated.
+-- * 'statusCode' - The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
+-- * 'tags' - A map of entity tags attached to the affected entity.
+mkAffectedEntity ::
   AffectedEntity
-affectedEntity =
+mkAffectedEntity =
   AffectedEntity'
-    { _aeLastUpdatedTime = Nothing,
-      _aeEntityValue = Nothing,
-      _aeEntityURL = Nothing,
-      _aeAwsAccountId = Nothing,
-      _aeEventARN = Nothing,
-      _aeEntityARN = Nothing,
-      _aeTags = Nothing,
-      _aeStatusCode = Nothing
+    { lastUpdatedTime = Lude.Nothing,
+      entityValue = Lude.Nothing,
+      entityURL = Lude.Nothing,
+      awsAccountId = Lude.Nothing,
+      eventARN = Lude.Nothing,
+      entityARN = Lude.Nothing,
+      tags = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
 -- | The most recent time that the entity was updated.
-aeLastUpdatedTime :: Lens' AffectedEntity (Maybe UTCTime)
-aeLastUpdatedTime = lens _aeLastUpdatedTime (\s a -> s {_aeLastUpdatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeLastUpdatedTime :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Timestamp)
+aeLastUpdatedTime = Lens.lens (lastUpdatedTime :: AffectedEntity -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: AffectedEntity)
+{-# DEPRECATED aeLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | The ID of the affected entity.
-aeEntityValue :: Lens' AffectedEntity (Maybe Text)
-aeEntityValue = lens _aeEntityValue (\s a -> s {_aeEntityValue = a})
+--
+-- /Note:/ Consider using 'entityValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeEntityValue :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Text)
+aeEntityValue = Lens.lens (entityValue :: AffectedEntity -> Lude.Maybe Lude.Text) (\s a -> s {entityValue = a} :: AffectedEntity)
+{-# DEPRECATED aeEntityValue "Use generic-lens or generic-optics with 'entityValue' instead." #-}
 
 -- | The URL of the affected entity.
-aeEntityURL :: Lens' AffectedEntity (Maybe Text)
-aeEntityURL = lens _aeEntityURL (\s a -> s {_aeEntityURL = a})
+--
+-- /Note:/ Consider using 'entityURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeEntityURL :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Text)
+aeEntityURL = Lens.lens (entityURL :: AffectedEntity -> Lude.Maybe Lude.Text) (\s a -> s {entityURL = a} :: AffectedEntity)
+{-# DEPRECATED aeEntityURL "Use generic-lens or generic-optics with 'entityURL' instead." #-}
 
 -- | The 12-digit AWS account number that contains the affected entity.
-aeAwsAccountId :: Lens' AffectedEntity (Maybe Text)
-aeAwsAccountId = lens _aeAwsAccountId (\s a -> s {_aeAwsAccountId = a})
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeAwsAccountId :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Text)
+aeAwsAccountId = Lens.lens (awsAccountId :: AffectedEntity -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: AffectedEntity)
+{-# DEPRECATED aeAwsAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-aeEventARN :: Lens' AffectedEntity (Maybe Text)
-aeEventARN = lens _aeEventARN (\s a -> s {_aeEventARN = a})
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeEventARN :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Text)
+aeEventARN = Lens.lens (eventARN :: AffectedEntity -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: AffectedEntity)
+{-# DEPRECATED aeEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 -- | The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
-aeEntityARN :: Lens' AffectedEntity (Maybe Text)
-aeEntityARN = lens _aeEntityARN (\s a -> s {_aeEntityARN = a})
+--
+-- /Note:/ Consider using 'entityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeEntityARN :: Lens.Lens' AffectedEntity (Lude.Maybe Lude.Text)
+aeEntityARN = Lens.lens (entityARN :: AffectedEntity -> Lude.Maybe Lude.Text) (\s a -> s {entityARN = a} :: AffectedEntity)
+{-# DEPRECATED aeEntityARN "Use generic-lens or generic-optics with 'entityARN' instead." #-}
 
 -- | A map of entity tags attached to the affected entity.
-aeTags :: Lens' AffectedEntity (HashMap Text (Text))
-aeTags = lens _aeTags (\s a -> s {_aeTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeTags :: Lens.Lens' AffectedEntity (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+aeTags = Lens.lens (tags :: AffectedEntity -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: AffectedEntity)
+{-# DEPRECATED aeTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
-aeStatusCode :: Lens' AffectedEntity (Maybe EntityStatusCode)
-aeStatusCode = lens _aeStatusCode (\s a -> s {_aeStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeStatusCode :: Lens.Lens' AffectedEntity (Lude.Maybe EntityStatusCode)
+aeStatusCode = Lens.lens (statusCode :: AffectedEntity -> Lude.Maybe EntityStatusCode) (\s a -> s {statusCode = a} :: AffectedEntity)
+{-# DEPRECATED aeStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON AffectedEntity where
+instance Lude.FromJSON AffectedEntity where
   parseJSON =
-    withObject
+    Lude.withObject
       "AffectedEntity"
       ( \x ->
           AffectedEntity'
-            <$> (x .:? "lastUpdatedTime")
-            <*> (x .:? "entityValue")
-            <*> (x .:? "entityUrl")
-            <*> (x .:? "awsAccountId")
-            <*> (x .:? "eventArn")
-            <*> (x .:? "entityArn")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .:? "statusCode")
+            Lude.<$> (x Lude..:? "lastUpdatedTime")
+            Lude.<*> (x Lude..:? "entityValue")
+            Lude.<*> (x Lude..:? "entityUrl")
+            Lude.<*> (x Lude..:? "awsAccountId")
+            Lude.<*> (x Lude..:? "eventArn")
+            Lude.<*> (x Lude..:? "entityArn")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "statusCode")
       )
-
-instance Hashable AffectedEntity
-
-instance NFData AffectedEntity

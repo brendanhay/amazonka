@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,75 +14,84 @@
 --
 -- The @DeleteDomain@ operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The @DeleteDomain@ operation might take 10 or more seconds to complete.
 module Network.AWS.SDB.DeleteDomain
-  ( -- * Creating a Request
-    deleteDomain,
-    DeleteDomain,
+  ( -- * Creating a request
+    DeleteDomain (..),
+    mkDeleteDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDomainName,
 
-    -- * Destructuring the Response
-    deleteDomainResponse,
-    DeleteDomainResponse,
+    -- * Destructuring the response
+    DeleteDomainResponse (..),
+    mkDeleteDomainResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'deleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain' {_ddDomainName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteDomain' smart constructor.
+newtype DeleteDomain = DeleteDomain' {domainName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDomainName' - The name of the domain to delete.
-deleteDomain ::
-  -- | 'ddDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain to delete.
+mkDeleteDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   DeleteDomain
-deleteDomain pDomainName_ =
-  DeleteDomain' {_ddDomainName = pDomainName_}
+mkDeleteDomain pDomainName_ =
+  DeleteDomain' {domainName = pDomainName_}
 
 -- | The name of the domain to delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\s a -> s {_ddDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainName :: Lens.Lens' DeleteDomain Lude.Text
+ddDomainName = Lens.lens (domainName :: DeleteDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomain)
+{-# DEPRECATED ddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DeleteDomain where
+instance Lude.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
-  request = postQuery sdb
-  response = receiveNull DeleteDomainResponse'
+  request = Req.postQuery sdbService
+  response = Res.receiveNull DeleteDomainResponse'
 
-instance Hashable DeleteDomain
+instance Lude.ToHeaders DeleteDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDomain
+instance Lude.ToPath DeleteDomain where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDomain where
-  toHeaders = const mempty
-
-instance ToPath DeleteDomain where
-  toPath = const "/"
-
-instance ToQuery DeleteDomain where
+instance Lude.ToQuery DeleteDomain where
   toQuery DeleteDomain' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDomain" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "DomainName" =: _ddDomainName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDomain" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName
       ]
 
--- | /See:/ 'deleteDomainResponse' smart constructor.
+-- | /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
-deleteDomainResponse ::
+mkDeleteDomainResponse ::
   DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse'
-
-instance NFData DeleteDomainResponse
+mkDeleteDomainResponse = DeleteDomainResponse'

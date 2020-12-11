@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,147 @@
 --
 -- Rejects a request to attach a VPC to a transit gateway.
 --
---
 -- The VPC attachment must be in the @pendingAcceptance@ state. Use 'DescribeTransitGatewayVpcAttachments' to view your pending VPC attachment requests. Use 'AcceptTransitGatewayVpcAttachment' to accept a VPC attachment request.
 module Network.AWS.EC2.RejectTransitGatewayVPCAttachment
-  ( -- * Creating a Request
-    rejectTransitGatewayVPCAttachment,
-    RejectTransitGatewayVPCAttachment,
+  ( -- * Creating a request
+    RejectTransitGatewayVPCAttachment (..),
+    mkRejectTransitGatewayVPCAttachment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtgvaDryRun,
     rtgvaTransitGatewayAttachmentId,
 
-    -- * Destructuring the Response
-    rejectTransitGatewayVPCAttachmentResponse,
-    RejectTransitGatewayVPCAttachmentResponse,
+    -- * Destructuring the response
+    RejectTransitGatewayVPCAttachmentResponse (..),
+    mkRejectTransitGatewayVPCAttachmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtgvarsTransitGatewayVPCAttachment,
     rtgvarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectTransitGatewayVPCAttachment' smart constructor.
+-- | /See:/ 'mkRejectTransitGatewayVPCAttachment' smart constructor.
 data RejectTransitGatewayVPCAttachment = RejectTransitGatewayVPCAttachment'
-  { _rtgvaDryRun ::
-      !(Maybe Bool),
-    _rtgvaTransitGatewayAttachmentId ::
-      !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    transitGatewayAttachmentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectTransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtgvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rtgvaTransitGatewayAttachmentId' - The ID of the attachment.
-rejectTransitGatewayVPCAttachment ::
-  -- | 'rtgvaTransitGatewayAttachmentId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+mkRejectTransitGatewayVPCAttachment ::
+  -- | 'transitGatewayAttachmentId'
+  Lude.Text ->
   RejectTransitGatewayVPCAttachment
-rejectTransitGatewayVPCAttachment pTransitGatewayAttachmentId_ =
+mkRejectTransitGatewayVPCAttachment pTransitGatewayAttachmentId_ =
   RejectTransitGatewayVPCAttachment'
-    { _rtgvaDryRun = Nothing,
-      _rtgvaTransitGatewayAttachmentId =
-        pTransitGatewayAttachmentId_
+    { dryRun = Lude.Nothing,
+      transitGatewayAttachmentId = pTransitGatewayAttachmentId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rtgvaDryRun :: Lens' RejectTransitGatewayVPCAttachment (Maybe Bool)
-rtgvaDryRun = lens _rtgvaDryRun (\s a -> s {_rtgvaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgvaDryRun :: Lens.Lens' RejectTransitGatewayVPCAttachment (Lude.Maybe Lude.Bool)
+rtgvaDryRun = Lens.lens (dryRun :: RejectTransitGatewayVPCAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RejectTransitGatewayVPCAttachment)
+{-# DEPRECATED rtgvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the attachment.
-rtgvaTransitGatewayAttachmentId :: Lens' RejectTransitGatewayVPCAttachment Text
-rtgvaTransitGatewayAttachmentId = lens _rtgvaTransitGatewayAttachmentId (\s a -> s {_rtgvaTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgvaTransitGatewayAttachmentId :: Lens.Lens' RejectTransitGatewayVPCAttachment Lude.Text
+rtgvaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: RejectTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: RejectTransitGatewayVPCAttachment)
+{-# DEPRECATED rtgvaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance AWSRequest RejectTransitGatewayVPCAttachment where
+instance Lude.AWSRequest RejectTransitGatewayVPCAttachment where
   type
     Rs RejectTransitGatewayVPCAttachment =
       RejectTransitGatewayVPCAttachmentResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           RejectTransitGatewayVPCAttachmentResponse'
-            <$> (x .@? "transitGatewayVpcAttachment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "transitGatewayVpcAttachment")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RejectTransitGatewayVPCAttachment
+instance Lude.ToHeaders RejectTransitGatewayVPCAttachment where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RejectTransitGatewayVPCAttachment
+instance Lude.ToPath RejectTransitGatewayVPCAttachment where
+  toPath = Lude.const "/"
 
-instance ToHeaders RejectTransitGatewayVPCAttachment where
-  toHeaders = const mempty
-
-instance ToPath RejectTransitGatewayVPCAttachment where
-  toPath = const "/"
-
-instance ToQuery RejectTransitGatewayVPCAttachment where
+instance Lude.ToQuery RejectTransitGatewayVPCAttachment where
   toQuery RejectTransitGatewayVPCAttachment' {..} =
-    mconcat
-      [ "Action" =: ("RejectTransitGatewayVpcAttachment" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _rtgvaDryRun,
-        "TransitGatewayAttachmentId" =: _rtgvaTransitGatewayAttachmentId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("RejectTransitGatewayVpcAttachment" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
       ]
 
--- | /See:/ 'rejectTransitGatewayVPCAttachmentResponse' smart constructor.
+-- | /See:/ 'mkRejectTransitGatewayVPCAttachmentResponse' smart constructor.
 data RejectTransitGatewayVPCAttachmentResponse = RejectTransitGatewayVPCAttachmentResponse'
-  { _rtgvarsTransitGatewayVPCAttachment ::
-      !( Maybe
-           TransitGatewayVPCAttachment
-       ),
-    _rtgvarsResponseStatus ::
-      !Int
+  { transitGatewayVPCAttachment ::
+      Lude.Maybe
+        TransitGatewayVPCAttachment,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectTransitGatewayVPCAttachmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtgvarsTransitGatewayVPCAttachment' - Information about the attachment.
---
--- * 'rtgvarsResponseStatus' - -- | The response status code.
-rejectTransitGatewayVPCAttachmentResponse ::
-  -- | 'rtgvarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transitGatewayVPCAttachment' - Information about the attachment.
+mkRejectTransitGatewayVPCAttachmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectTransitGatewayVPCAttachmentResponse
-rejectTransitGatewayVPCAttachmentResponse pResponseStatus_ =
+mkRejectTransitGatewayVPCAttachmentResponse pResponseStatus_ =
   RejectTransitGatewayVPCAttachmentResponse'
-    { _rtgvarsTransitGatewayVPCAttachment =
-        Nothing,
-      _rtgvarsResponseStatus = pResponseStatus_
+    { transitGatewayVPCAttachment =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the attachment.
-rtgvarsTransitGatewayVPCAttachment :: Lens' RejectTransitGatewayVPCAttachmentResponse (Maybe TransitGatewayVPCAttachment)
-rtgvarsTransitGatewayVPCAttachment = lens _rtgvarsTransitGatewayVPCAttachment (\s a -> s {_rtgvarsTransitGatewayVPCAttachment = a})
+--
+-- /Note:/ Consider using 'transitGatewayVPCAttachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgvarsTransitGatewayVPCAttachment :: Lens.Lens' RejectTransitGatewayVPCAttachmentResponse (Lude.Maybe TransitGatewayVPCAttachment)
+rtgvarsTransitGatewayVPCAttachment = Lens.lens (transitGatewayVPCAttachment :: RejectTransitGatewayVPCAttachmentResponse -> Lude.Maybe TransitGatewayVPCAttachment) (\s a -> s {transitGatewayVPCAttachment = a} :: RejectTransitGatewayVPCAttachmentResponse)
+{-# DEPRECATED rtgvarsTransitGatewayVPCAttachment "Use generic-lens or generic-optics with 'transitGatewayVPCAttachment' instead." #-}
 
--- | -- | The response status code.
-rtgvarsResponseStatus :: Lens' RejectTransitGatewayVPCAttachmentResponse Int
-rtgvarsResponseStatus = lens _rtgvarsResponseStatus (\s a -> s {_rtgvarsResponseStatus = a})
-
-instance NFData RejectTransitGatewayVPCAttachmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgvarsResponseStatus :: Lens.Lens' RejectTransitGatewayVPCAttachmentResponse Lude.Int
+rtgvarsResponseStatus = Lens.lens (responseStatus :: RejectTransitGatewayVPCAttachmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectTransitGatewayVPCAttachmentResponse)
+{-# DEPRECATED rtgvarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

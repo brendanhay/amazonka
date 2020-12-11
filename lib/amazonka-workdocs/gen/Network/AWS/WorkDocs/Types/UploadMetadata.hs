@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.UploadMetadata where
+module Network.AWS.WorkDocs.Types.UploadMetadata
+  ( UploadMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUploadMetadata,
+
+    -- * Lenses
+    umUploadURL,
+    umSignedHeaders,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the upload.
 --
---
---
--- /See:/ 'uploadMetadata' smart constructor.
+-- /See:/ 'mkUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { _umUploadURL ::
-      !(Maybe (Sensitive Text)),
-    _umSignedHeaders :: !(Maybe (Map Text (Text)))
+  { uploadURL ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    signedHeaders ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umUploadURL' - The URL of the upload.
---
--- * 'umSignedHeaders' - The signed headers.
-uploadMetadata ::
+-- * 'signedHeaders' - The signed headers.
+-- * 'uploadURL' - The URL of the upload.
+mkUploadMetadata ::
   UploadMetadata
-uploadMetadata =
+mkUploadMetadata =
   UploadMetadata'
-    { _umUploadURL = Nothing,
-      _umSignedHeaders = Nothing
+    { uploadURL = Lude.Nothing,
+      signedHeaders = Lude.Nothing
     }
 
 -- | The URL of the upload.
-umUploadURL :: Lens' UploadMetadata (Maybe Text)
-umUploadURL = lens _umUploadURL (\s a -> s {_umUploadURL = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'uploadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umUploadURL :: Lens.Lens' UploadMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
+umUploadURL = Lens.lens (uploadURL :: UploadMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {uploadURL = a} :: UploadMetadata)
+{-# DEPRECATED umUploadURL "Use generic-lens or generic-optics with 'uploadURL' instead." #-}
 
 -- | The signed headers.
-umSignedHeaders :: Lens' UploadMetadata (HashMap Text (Text))
-umSignedHeaders = lens _umSignedHeaders (\s a -> s {_umSignedHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'signedHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umSignedHeaders :: Lens.Lens' UploadMetadata (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+umSignedHeaders = Lens.lens (signedHeaders :: UploadMetadata -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {signedHeaders = a} :: UploadMetadata)
+{-# DEPRECATED umSignedHeaders "Use generic-lens or generic-optics with 'signedHeaders' instead." #-}
 
-instance FromJSON UploadMetadata where
+instance Lude.FromJSON UploadMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            <$> (x .:? "UploadUrl") <*> (x .:? "SignedHeaders" .!= mempty)
+            Lude.<$> (x Lude..:? "UploadUrl")
+            Lude.<*> (x Lude..:? "SignedHeaders" Lude..!= Lude.mempty)
       )
-
-instance Hashable UploadMetadata
-
-instance NFData UploadMetadata

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Label where
+module Network.AWS.Rekognition.Types.Label
+  ( Label (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabel,
+
+    -- * Lenses
+    lConfidence,
+    lParents,
+    lName,
+    lInstances,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.Instance
 import Network.AWS.Rekognition.Types.Parent
 
@@ -24,66 +30,74 @@ import Network.AWS.Rekognition.Types.Parent
 --
 --
 --
---
---
--- /See:/ 'label' smart constructor.
+-- /See:/ 'mkLabel' smart constructor.
 data Label = Label'
-  { _lConfidence :: !(Maybe Double),
-    _lParents :: !(Maybe [Parent]),
-    _lName :: !(Maybe Text),
-    _lInstances :: !(Maybe [Instance])
+  { confidence :: Lude.Maybe Lude.Double,
+    parents :: Lude.Maybe [Parent],
+    name :: Lude.Maybe Lude.Text,
+    instances :: Lude.Maybe [Instance]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Label' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lConfidence' - Level of confidence.
---
--- * 'lParents' - The parent labels for a label. The response includes all ancestor labels.
---
--- * 'lName' - The name (label) of the object or scene.
---
--- * 'lInstances' - If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
-label ::
+-- * 'confidence' - Level of confidence.
+-- * 'instances' - If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
+-- * 'name' - The name (label) of the object or scene.
+-- * 'parents' - The parent labels for a label. The response includes all ancestor labels.
+mkLabel ::
   Label
-label =
+mkLabel =
   Label'
-    { _lConfidence = Nothing,
-      _lParents = Nothing,
-      _lName = Nothing,
-      _lInstances = Nothing
+    { confidence = Lude.Nothing,
+      parents = Lude.Nothing,
+      name = Lude.Nothing,
+      instances = Lude.Nothing
     }
 
 -- | Level of confidence.
-lConfidence :: Lens' Label (Maybe Double)
-lConfidence = lens _lConfidence (\s a -> s {_lConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lConfidence :: Lens.Lens' Label (Lude.Maybe Lude.Double)
+lConfidence = Lens.lens (confidence :: Label -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Label)
+{-# DEPRECATED lConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | The parent labels for a label. The response includes all ancestor labels.
-lParents :: Lens' Label [Parent]
-lParents = lens _lParents (\s a -> s {_lParents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lParents :: Lens.Lens' Label (Lude.Maybe [Parent])
+lParents = Lens.lens (parents :: Label -> Lude.Maybe [Parent]) (\s a -> s {parents = a} :: Label)
+{-# DEPRECATED lParents "Use generic-lens or generic-optics with 'parents' instead." #-}
 
 -- | The name (label) of the object or scene.
-lName :: Lens' Label (Maybe Text)
-lName = lens _lName (\s a -> s {_lName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lName :: Lens.Lens' Label (Lude.Maybe Lude.Text)
+lName = Lens.lens (name :: Label -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Label)
+{-# DEPRECATED lName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
-lInstances :: Lens' Label [Instance]
-lInstances = lens _lInstances (\s a -> s {_lInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lInstances :: Lens.Lens' Label (Lude.Maybe [Instance])
+lInstances = Lens.lens (instances :: Label -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: Label)
+{-# DEPRECATED lInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
-instance FromJSON Label where
+instance Lude.FromJSON Label where
   parseJSON =
-    withObject
+    Lude.withObject
       "Label"
       ( \x ->
           Label'
-            <$> (x .:? "Confidence")
-            <*> (x .:? "Parents" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "Instances" .!= mempty)
+            Lude.<$> (x Lude..:? "Confidence")
+            Lude.<*> (x Lude..:? "Parents" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Instances" Lude..!= Lude.mempty)
       )
-
-instance Hashable Label
-
-instance NFData Label

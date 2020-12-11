@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,143 +7,204 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig where
+module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
+  ( AuthenticateCognitoActionConfig (..),
+
+    -- * Smart constructor
+    mkAuthenticateCognitoActionConfig,
+
+    -- * Lenses
+    acacAuthenticationRequestExtraParams,
+    acacScope,
+    acacOnUnauthenticatedRequest,
+    acacSessionCookieName,
+    acacSessionTimeout,
+    acacUserPoolARN,
+    acacUserPoolClientId,
+    acacUserPoolDomain,
+  )
+where
 
 import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Request parameters to use when integrating with Amazon Cognito to authenticate users.
 --
---
---
--- /See:/ 'authenticateCognitoActionConfig' smart constructor.
+-- /See:/ 'mkAuthenticateCognitoActionConfig' smart constructor.
 data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
-  { _acacAuthenticationRequestExtraParams ::
-      !(Maybe (Map Text (Text))),
-    _acacScope :: !(Maybe Text),
-    _acacOnUnauthenticatedRequest ::
-      !( Maybe
-           AuthenticateCognitoActionConditionalBehaviorEnum
-       ),
-    _acacSessionCookieName ::
-      !(Maybe Text),
-    _acacSessionTimeout ::
-      !(Maybe Integer),
-    _acacUserPoolARN :: !Text,
-    _acacUserPoolClientId ::
-      !Text,
-    _acacUserPoolDomain ::
-      !Text
+  { authenticationRequestExtraParams ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    scope ::
+      Lude.Maybe Lude.Text,
+    onUnauthenticatedRequest ::
+      Lude.Maybe
+        AuthenticateCognitoActionConditionalBehaviorEnum,
+    sessionCookieName ::
+      Lude.Maybe Lude.Text,
+    sessionTimeout ::
+      Lude.Maybe Lude.Integer,
+    userPoolARN :: Lude.Text,
+    userPoolClientId ::
+      Lude.Text,
+    userPoolDomain :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthenticateCognitoActionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'authenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+-- * 'onUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are possible values:
 --
--- * 'acacAuthenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 --
--- * 'acacScope' - The set of user claims to be requested from the IdP. The default is @openid@ . To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+--     * deny- Return an HTTP 401 Unauthorized error.
 --
--- * 'acacOnUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are possible values:     * deny- Return an HTTP 401 Unauthorized error.     * allow- Allow the request to be forwarded to the target.     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
 --
--- * 'acacSessionCookieName' - The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+--     * allow- Allow the request to be forwarded to the target.
 --
--- * 'acacSessionTimeout' - The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 --
--- * 'acacUserPoolARN' - The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+--     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
 --
--- * 'acacUserPoolClientId' - The ID of the Amazon Cognito user pool client.
 --
--- * 'acacUserPoolDomain' - The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-authenticateCognitoActionConfig ::
-  -- | 'acacUserPoolARN'
-  Text ->
-  -- | 'acacUserPoolClientId'
-  Text ->
-  -- | 'acacUserPoolDomain'
-  Text ->
+-- * 'scope' - The set of user claims to be requested from the IdP. The default is @openid@ .
+--
+-- To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+-- * 'sessionCookieName' - The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+-- * 'sessionTimeout' - The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+-- * 'userPoolARN' - The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+-- * 'userPoolClientId' - The ID of the Amazon Cognito user pool client.
+-- * 'userPoolDomain' - The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+mkAuthenticateCognitoActionConfig ::
+  -- | 'userPoolARN'
+  Lude.Text ->
+  -- | 'userPoolClientId'
+  Lude.Text ->
+  -- | 'userPoolDomain'
+  Lude.Text ->
   AuthenticateCognitoActionConfig
-authenticateCognitoActionConfig
+mkAuthenticateCognitoActionConfig
   pUserPoolARN_
   pUserPoolClientId_
   pUserPoolDomain_ =
     AuthenticateCognitoActionConfig'
-      { _acacAuthenticationRequestExtraParams =
-          Nothing,
-        _acacScope = Nothing,
-        _acacOnUnauthenticatedRequest = Nothing,
-        _acacSessionCookieName = Nothing,
-        _acacSessionTimeout = Nothing,
-        _acacUserPoolARN = pUserPoolARN_,
-        _acacUserPoolClientId = pUserPoolClientId_,
-        _acacUserPoolDomain = pUserPoolDomain_
+      { authenticationRequestExtraParams =
+          Lude.Nothing,
+        scope = Lude.Nothing,
+        onUnauthenticatedRequest = Lude.Nothing,
+        sessionCookieName = Lude.Nothing,
+        sessionTimeout = Lude.Nothing,
+        userPoolARN = pUserPoolARN_,
+        userPoolClientId = pUserPoolClientId_,
+        userPoolDomain = pUserPoolDomain_
       }
 
 -- | The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-acacAuthenticationRequestExtraParams :: Lens' AuthenticateCognitoActionConfig (HashMap Text (Text))
-acacAuthenticationRequestExtraParams = lens _acacAuthenticationRequestExtraParams (\s a -> s {_acacAuthenticationRequestExtraParams = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'authenticationRequestExtraParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacAuthenticationRequestExtraParams :: Lens.Lens' AuthenticateCognitoActionConfig (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+acacAuthenticationRequestExtraParams = Lens.lens (authenticationRequestExtraParams :: AuthenticateCognitoActionConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {authenticationRequestExtraParams = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacAuthenticationRequestExtraParams "Use generic-lens or generic-optics with 'authenticationRequestExtraParams' instead." #-}
 
--- | The set of user claims to be requested from the IdP. The default is @openid@ . To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-acacScope :: Lens' AuthenticateCognitoActionConfig (Maybe Text)
-acacScope = lens _acacScope (\s a -> s {_acacScope = a})
+-- | The set of user claims to be requested from the IdP. The default is @openid@ .
+--
+-- To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+--
+-- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacScope :: Lens.Lens' AuthenticateCognitoActionConfig (Lude.Maybe Lude.Text)
+acacScope = Lens.lens (scope :: AuthenticateCognitoActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {scope = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
--- | The behavior if the user is not authenticated. The following are possible values:     * deny- Return an HTTP 401 Unauthorized error.     * allow- Allow the request to be forwarded to the target.     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
-acacOnUnauthenticatedRequest :: Lens' AuthenticateCognitoActionConfig (Maybe AuthenticateCognitoActionConditionalBehaviorEnum)
-acacOnUnauthenticatedRequest = lens _acacOnUnauthenticatedRequest (\s a -> s {_acacOnUnauthenticatedRequest = a})
+-- | The behavior if the user is not authenticated. The following are possible values:
+--
+--
+--     * deny- Return an HTTP 401 Unauthorized error.
+--
+--
+--     * allow- Allow the request to be forwarded to the target.
+--
+--
+--     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
+--
+--
+--
+-- /Note:/ Consider using 'onUnauthenticatedRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacOnUnauthenticatedRequest :: Lens.Lens' AuthenticateCognitoActionConfig (Lude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum)
+acacOnUnauthenticatedRequest = Lens.lens (onUnauthenticatedRequest :: AuthenticateCognitoActionConfig -> Lude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum) (\s a -> s {onUnauthenticatedRequest = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacOnUnauthenticatedRequest "Use generic-lens or generic-optics with 'onUnauthenticatedRequest' instead." #-}
 
 -- | The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
-acacSessionCookieName :: Lens' AuthenticateCognitoActionConfig (Maybe Text)
-acacSessionCookieName = lens _acacSessionCookieName (\s a -> s {_acacSessionCookieName = a})
+--
+-- /Note:/ Consider using 'sessionCookieName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacSessionCookieName :: Lens.Lens' AuthenticateCognitoActionConfig (Lude.Maybe Lude.Text)
+acacSessionCookieName = Lens.lens (sessionCookieName :: AuthenticateCognitoActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {sessionCookieName = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacSessionCookieName "Use generic-lens or generic-optics with 'sessionCookieName' instead." #-}
 
 -- | The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
-acacSessionTimeout :: Lens' AuthenticateCognitoActionConfig (Maybe Integer)
-acacSessionTimeout = lens _acacSessionTimeout (\s a -> s {_acacSessionTimeout = a})
+--
+-- /Note:/ Consider using 'sessionTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacSessionTimeout :: Lens.Lens' AuthenticateCognitoActionConfig (Lude.Maybe Lude.Integer)
+acacSessionTimeout = Lens.lens (sessionTimeout :: AuthenticateCognitoActionConfig -> Lude.Maybe Lude.Integer) (\s a -> s {sessionTimeout = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacSessionTimeout "Use generic-lens or generic-optics with 'sessionTimeout' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-acacUserPoolARN :: Lens' AuthenticateCognitoActionConfig Text
-acacUserPoolARN = lens _acacUserPoolARN (\s a -> s {_acacUserPoolARN = a})
+--
+-- /Note:/ Consider using 'userPoolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacUserPoolARN :: Lens.Lens' AuthenticateCognitoActionConfig Lude.Text
+acacUserPoolARN = Lens.lens (userPoolARN :: AuthenticateCognitoActionConfig -> Lude.Text) (\s a -> s {userPoolARN = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacUserPoolARN "Use generic-lens or generic-optics with 'userPoolARN' instead." #-}
 
 -- | The ID of the Amazon Cognito user pool client.
-acacUserPoolClientId :: Lens' AuthenticateCognitoActionConfig Text
-acacUserPoolClientId = lens _acacUserPoolClientId (\s a -> s {_acacUserPoolClientId = a})
+--
+-- /Note:/ Consider using 'userPoolClientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacUserPoolClientId :: Lens.Lens' AuthenticateCognitoActionConfig Lude.Text
+acacUserPoolClientId = Lens.lens (userPoolClientId :: AuthenticateCognitoActionConfig -> Lude.Text) (\s a -> s {userPoolClientId = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacUserPoolClientId "Use generic-lens or generic-optics with 'userPoolClientId' instead." #-}
 
 -- | The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-acacUserPoolDomain :: Lens' AuthenticateCognitoActionConfig Text
-acacUserPoolDomain = lens _acacUserPoolDomain (\s a -> s {_acacUserPoolDomain = a})
+--
+-- /Note:/ Consider using 'userPoolDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acacUserPoolDomain :: Lens.Lens' AuthenticateCognitoActionConfig Lude.Text
+acacUserPoolDomain = Lens.lens (userPoolDomain :: AuthenticateCognitoActionConfig -> Lude.Text) (\s a -> s {userPoolDomain = a} :: AuthenticateCognitoActionConfig)
+{-# DEPRECATED acacUserPoolDomain "Use generic-lens or generic-optics with 'userPoolDomain' instead." #-}
 
-instance FromXML AuthenticateCognitoActionConfig where
+instance Lude.FromXML AuthenticateCognitoActionConfig where
   parseXML x =
     AuthenticateCognitoActionConfig'
-      <$> ( x .@? "AuthenticationRequestExtraParams" .!@ mempty
-              >>= may (parseXMLMap "entry" "key" "value")
-          )
-      <*> (x .@? "Scope")
-      <*> (x .@? "OnUnauthenticatedRequest")
-      <*> (x .@? "SessionCookieName")
-      <*> (x .@? "SessionTimeout")
-      <*> (x .@ "UserPoolArn")
-      <*> (x .@ "UserPoolClientId")
-      <*> (x .@ "UserPoolDomain")
+      Lude.<$> ( x Lude..@? "AuthenticationRequestExtraParams" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+               )
+      Lude.<*> (x Lude..@? "Scope")
+      Lude.<*> (x Lude..@? "OnUnauthenticatedRequest")
+      Lude.<*> (x Lude..@? "SessionCookieName")
+      Lude.<*> (x Lude..@? "SessionTimeout")
+      Lude.<*> (x Lude..@ "UserPoolArn")
+      Lude.<*> (x Lude..@ "UserPoolClientId")
+      Lude.<*> (x Lude..@ "UserPoolDomain")
 
-instance Hashable AuthenticateCognitoActionConfig
-
-instance NFData AuthenticateCognitoActionConfig
-
-instance ToQuery AuthenticateCognitoActionConfig where
+instance Lude.ToQuery AuthenticateCognitoActionConfig where
   toQuery AuthenticateCognitoActionConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "AuthenticationRequestExtraParams"
-          =: toQuery
-            ( toQueryMap "entry" "key" "value"
-                <$> _acacAuthenticationRequestExtraParams
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryMap "entry" "key" "value"
+                Lude.<$> authenticationRequestExtraParams
             ),
-        "Scope" =: _acacScope,
-        "OnUnauthenticatedRequest" =: _acacOnUnauthenticatedRequest,
-        "SessionCookieName" =: _acacSessionCookieName,
-        "SessionTimeout" =: _acacSessionTimeout,
-        "UserPoolArn" =: _acacUserPoolARN,
-        "UserPoolClientId" =: _acacUserPoolClientId,
-        "UserPoolDomain" =: _acacUserPoolDomain
+        "Scope" Lude.=: scope,
+        "OnUnauthenticatedRequest" Lude.=: onUnauthenticatedRequest,
+        "SessionCookieName" Lude.=: sessionCookieName,
+        "SessionTimeout" Lude.=: sessionTimeout,
+        "UserPoolArn" Lude.=: userPoolARN,
+        "UserPoolClientId" Lude.=: userPoolClientId,
+        "UserPoolDomain" Lude.=: userPoolDomain
       ]

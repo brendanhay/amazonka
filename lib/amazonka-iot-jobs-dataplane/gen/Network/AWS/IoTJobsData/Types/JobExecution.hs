@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,138 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTJobsData.Types.JobExecution where
+module Network.AWS.IoTJobsData.Types.JobExecution
+  ( JobExecution (..),
+
+    -- * Smart constructor
+    mkJobExecution,
+
+    -- * Lenses
+    jeStatus,
+    jeJobId,
+    jeLastUpdatedAt,
+    jeApproximateSecondsBeforeTimedOut,
+    jeQueuedAt,
+    jeJobDocument,
+    jeStatusDetails,
+    jeExecutionNumber,
+    jeVersionNumber,
+    jeStartedAt,
+    jeThingName,
+  )
+where
 
 import Network.AWS.IoTJobsData.Types.JobExecutionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains data about a job execution.
 --
---
---
--- /See:/ 'jobExecution' smart constructor.
+-- /See:/ 'mkJobExecution' smart constructor.
 data JobExecution = JobExecution'
-  { _jeStatus ::
-      !(Maybe JobExecutionStatus),
-    _jeJobId :: !(Maybe Text),
-    _jeLastUpdatedAt :: !(Maybe Integer),
-    _jeApproximateSecondsBeforeTimedOut :: !(Maybe Integer),
-    _jeQueuedAt :: !(Maybe Integer),
-    _jeJobDocument :: !(Maybe Text),
-    _jeStatusDetails :: !(Maybe (Map Text (Text))),
-    _jeExecutionNumber :: !(Maybe Integer),
-    _jeVersionNumber :: !(Maybe Integer),
-    _jeStartedAt :: !(Maybe Integer),
-    _jeThingName :: !(Maybe Text)
+  { status ::
+      Lude.Maybe JobExecutionStatus,
+    jobId :: Lude.Maybe Lude.Text,
+    lastUpdatedAt :: Lude.Maybe Lude.Integer,
+    approximateSecondsBeforeTimedOut :: Lude.Maybe Lude.Integer,
+    queuedAt :: Lude.Maybe Lude.Integer,
+    jobDocument :: Lude.Maybe Lude.Text,
+    statusDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    executionNumber :: Lude.Maybe Lude.Integer,
+    versionNumber :: Lude.Maybe Lude.Integer,
+    startedAt :: Lude.Maybe Lude.Integer,
+    thingName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jeStatus' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
---
--- * 'jeJobId' - The unique identifier you assigned to this job when it was created.
---
--- * 'jeLastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
---
--- * 'jeApproximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
---
--- * 'jeQueuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
---
--- * 'jeJobDocument' - The content of the job document.
---
--- * 'jeStatusDetails' - A collection of name/value pairs that describe the status of the job execution.
---
--- * 'jeExecutionNumber' - A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
---
--- * 'jeVersionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
---
--- * 'jeStartedAt' - The time, in milliseconds since the epoch, when the job execution was started.
---
--- * 'jeThingName' - The name of the thing that is executing the job.
-jobExecution ::
+-- * 'approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
+-- * 'executionNumber' - A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
+-- * 'jobDocument' - The content of the job document.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
+-- * 'queuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
+-- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution was started.
+-- * 'status' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+-- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution.
+-- * 'thingName' - The name of the thing that is executing the job.
+-- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+mkJobExecution ::
   JobExecution
-jobExecution =
+mkJobExecution =
   JobExecution'
-    { _jeStatus = Nothing,
-      _jeJobId = Nothing,
-      _jeLastUpdatedAt = Nothing,
-      _jeApproximateSecondsBeforeTimedOut = Nothing,
-      _jeQueuedAt = Nothing,
-      _jeJobDocument = Nothing,
-      _jeStatusDetails = Nothing,
-      _jeExecutionNumber = Nothing,
-      _jeVersionNumber = Nothing,
-      _jeStartedAt = Nothing,
-      _jeThingName = Nothing
+    { status = Lude.Nothing,
+      jobId = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      approximateSecondsBeforeTimedOut = Lude.Nothing,
+      queuedAt = Lude.Nothing,
+      jobDocument = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      executionNumber = Lude.Nothing,
+      versionNumber = Lude.Nothing,
+      startedAt = Lude.Nothing,
+      thingName = Lude.Nothing
     }
 
 -- | The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
-jeStatus :: Lens' JobExecution (Maybe JobExecutionStatus)
-jeStatus = lens _jeStatus (\s a -> s {_jeStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeStatus :: Lens.Lens' JobExecution (Lude.Maybe JobExecutionStatus)
+jeStatus = Lens.lens (status :: JobExecution -> Lude.Maybe JobExecutionStatus) (\s a -> s {status = a} :: JobExecution)
+{-# DEPRECATED jeStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
-jeJobId :: Lens' JobExecution (Maybe Text)
-jeJobId = lens _jeJobId (\s a -> s {_jeJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeJobId :: Lens.Lens' JobExecution (Lude.Maybe Lude.Text)
+jeJobId = Lens.lens (jobId :: JobExecution -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobExecution)
+{-# DEPRECATED jeJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution was last updated.
-jeLastUpdatedAt :: Lens' JobExecution (Maybe Integer)
-jeLastUpdatedAt = lens _jeLastUpdatedAt (\s a -> s {_jeLastUpdatedAt = a})
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeLastUpdatedAt :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeLastUpdatedAt = Lens.lens (lastUpdatedAt :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {lastUpdatedAt = a} :: JobExecution)
+{-# DEPRECATED jeLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
-jeApproximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
-jeApproximateSecondsBeforeTimedOut = lens _jeApproximateSecondsBeforeTimedOut (\s a -> s {_jeApproximateSecondsBeforeTimedOut = a})
+--
+-- /Note:/ Consider using 'approximateSecondsBeforeTimedOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeApproximateSecondsBeforeTimedOut :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeApproximateSecondsBeforeTimedOut = Lens.lens (approximateSecondsBeforeTimedOut :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {approximateSecondsBeforeTimedOut = a} :: JobExecution)
+{-# DEPRECATED jeApproximateSecondsBeforeTimedOut "Use generic-lens or generic-optics with 'approximateSecondsBeforeTimedOut' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
-jeQueuedAt :: Lens' JobExecution (Maybe Integer)
-jeQueuedAt = lens _jeQueuedAt (\s a -> s {_jeQueuedAt = a})
+--
+-- /Note:/ Consider using 'queuedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeQueuedAt :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeQueuedAt = Lens.lens (queuedAt :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {queuedAt = a} :: JobExecution)
+{-# DEPRECATED jeQueuedAt "Use generic-lens or generic-optics with 'queuedAt' instead." #-}
 
 -- | The content of the job document.
-jeJobDocument :: Lens' JobExecution (Maybe Text)
-jeJobDocument = lens _jeJobDocument (\s a -> s {_jeJobDocument = a})
+--
+-- /Note:/ Consider using 'jobDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeJobDocument :: Lens.Lens' JobExecution (Lude.Maybe Lude.Text)
+jeJobDocument = Lens.lens (jobDocument :: JobExecution -> Lude.Maybe Lude.Text) (\s a -> s {jobDocument = a} :: JobExecution)
+{-# DEPRECATED jeJobDocument "Use generic-lens or generic-optics with 'jobDocument' instead." #-}
 
 -- | A collection of name/value pairs that describe the status of the job execution.
-jeStatusDetails :: Lens' JobExecution (HashMap Text (Text))
-jeStatusDetails = lens _jeStatusDetails (\s a -> s {_jeStatusDetails = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeStatusDetails :: Lens.Lens' JobExecution (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jeStatusDetails = Lens.lens (statusDetails :: JobExecution -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {statusDetails = a} :: JobExecution)
+{-# DEPRECATED jeStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
-jeExecutionNumber :: Lens' JobExecution (Maybe Integer)
-jeExecutionNumber = lens _jeExecutionNumber (\s a -> s {_jeExecutionNumber = a})
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeExecutionNumber :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeExecutionNumber = Lens.lens (executionNumber :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: JobExecution)
+{-# DEPRECATED jeExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The version of the job execution. Job execution versions are incremented each time they are updated by a device.
-jeVersionNumber :: Lens' JobExecution (Maybe Integer)
-jeVersionNumber = lens _jeVersionNumber (\s a -> s {_jeVersionNumber = a})
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeVersionNumber :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeVersionNumber = Lens.lens (versionNumber :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: JobExecution)
+{-# DEPRECATED jeVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution was started.
-jeStartedAt :: Lens' JobExecution (Maybe Integer)
-jeStartedAt = lens _jeStartedAt (\s a -> s {_jeStartedAt = a})
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeStartedAt :: Lens.Lens' JobExecution (Lude.Maybe Lude.Integer)
+jeStartedAt = Lens.lens (startedAt :: JobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {startedAt = a} :: JobExecution)
+{-# DEPRECATED jeStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | The name of the thing that is executing the job.
-jeThingName :: Lens' JobExecution (Maybe Text)
-jeThingName = lens _jeThingName (\s a -> s {_jeThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeThingName :: Lens.Lens' JobExecution (Lude.Maybe Lude.Text)
+jeThingName = Lens.lens (thingName :: JobExecution -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: JobExecution)
+{-# DEPRECATED jeThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance FromJSON JobExecution where
+instance Lude.FromJSON JobExecution where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobExecution"
       ( \x ->
           JobExecution'
-            <$> (x .:? "status")
-            <*> (x .:? "jobId")
-            <*> (x .:? "lastUpdatedAt")
-            <*> (x .:? "approximateSecondsBeforeTimedOut")
-            <*> (x .:? "queuedAt")
-            <*> (x .:? "jobDocument")
-            <*> (x .:? "statusDetails" .!= mempty)
-            <*> (x .:? "executionNumber")
-            <*> (x .:? "versionNumber")
-            <*> (x .:? "startedAt")
-            <*> (x .:? "thingName")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "jobId")
+            Lude.<*> (x Lude..:? "lastUpdatedAt")
+            Lude.<*> (x Lude..:? "approximateSecondsBeforeTimedOut")
+            Lude.<*> (x Lude..:? "queuedAt")
+            Lude.<*> (x Lude..:? "jobDocument")
+            Lude.<*> (x Lude..:? "statusDetails" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "executionNumber")
+            Lude.<*> (x Lude..:? "versionNumber")
+            Lude.<*> (x Lude..:? "startedAt")
+            Lude.<*> (x Lude..:? "thingName")
       )
-
-instance Hashable JobExecution
-
-instance NFData JobExecution

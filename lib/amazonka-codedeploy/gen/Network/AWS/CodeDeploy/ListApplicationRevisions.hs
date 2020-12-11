@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists information about revisions for an application.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListApplicationRevisions
-  ( -- * Creating a Request
-    listApplicationRevisions,
-    ListApplicationRevisions,
+  ( -- * Creating a request
+    ListApplicationRevisions (..),
+    mkListApplicationRevisions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     larS3KeyPrefix,
     larDeployed,
     larSortOrder,
@@ -36,11 +29,11 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     larSortBy,
     larApplicationName,
 
-    -- * Destructuring the Response
-    listApplicationRevisionsResponse,
-    ListApplicationRevisionsResponse,
+    -- * Destructuring the response
+    ListApplicationRevisionsResponse (..),
+    mkListApplicationRevisionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larrsNextToken,
     larrsRevisions,
     larrsResponseStatus,
@@ -48,190 +41,287 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListApplicationRevisions@ operation.
 --
---
---
--- /See:/ 'listApplicationRevisions' smart constructor.
+-- /See:/ 'mkListApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-  { _larS3KeyPrefix ::
-      !(Maybe Text),
-    _larDeployed ::
-      !(Maybe ListStateFilterAction),
-    _larSortOrder :: !(Maybe SortOrder),
-    _larNextToken :: !(Maybe Text),
-    _larS3Bucket :: !(Maybe Text),
-    _larSortBy ::
-      !(Maybe ApplicationRevisionSortBy),
-    _larApplicationName :: !Text
+  { s3KeyPrefix ::
+      Lude.Maybe Lude.Text,
+    deployed ::
+      Lude.Maybe ListStateFilterAction,
+    sortOrder :: Lude.Maybe SortOrder,
+    nextToken :: Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text,
+    sortBy ::
+      Lude.Maybe ApplicationRevisionSortBy,
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationRevisions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'deployed' - Whether to list revisions based on whether the revision is the target revision of a deployment group:
 --
--- * 'larS3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 --
--- * 'larDeployed' - Whether to list revisions based on whether the revision is the target revision of a deployment group:      * @include@ : List revisions that are target revisions of a deployment group.     * @exclude@ : Do not list revisions that are target revisions of a deployment group.     * @ignore@ : List all revisions.
+--     * @include@ : List revisions that are target revisions of a deployment group.
 --
--- * 'larSortOrder' - The order in which to sort the list results:      * @ascending@ : ascending order.     * @descending@ : descending order. If not specified, the results are sorted in ascending order. If set to null, the results are sorted in an arbitrary order.
 --
--- * 'larNextToken' - An identifier returned from the previous @ListApplicationRevisions@ call. It can be used to return the next set of applications in the list.
+--     * @exclude@ : Do not list revisions that are target revisions of a deployment group.
 --
--- * 'larS3Bucket' - An Amazon S3 bucket name to limit the search for revisions.  If set to null, all of the user's buckets are searched.
 --
--- * 'larSortBy' - The column name to use to sort the list results:     * @registerTime@ : Sort by the time the revisions were registered with AWS CodeDeploy.     * @firstUsedTime@ : Sort by the time the revisions were first used in a deployment.     * @lastUsedTime@ : Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results are returned in an arbitrary order.
+--     * @ignore@ : List all revisions.
 --
--- * 'larApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-listApplicationRevisions ::
-  -- | 'larApplicationName'
-  Text ->
+--
+-- * 'nextToken' - An identifier returned from the previous @ListApplicationRevisions@ call. It can be used to return the next set of applications in the list.
+-- * 's3Bucket' - An Amazon S3 bucket name to limit the search for revisions.
+--
+-- If set to null, all of the user's buckets are searched.
+-- * 's3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for revisions.
+-- * 'sortBy' - The column name to use to sort the list results:
+--
+--
+--     * @registerTime@ : Sort by the time the revisions were registered with AWS CodeDeploy.
+--
+--
+--     * @firstUsedTime@ : Sort by the time the revisions were first used in a deployment.
+--
+--
+--     * @lastUsedTime@ : Sort by the time the revisions were last used in a deployment.
+--
+--
+-- If not specified or set to null, the results are returned in an arbitrary order.
+-- * 'sortOrder' - The order in which to sort the list results:
+--
+--
+--     * @ascending@ : ascending order.
+--
+--
+--     * @descending@ : descending order.
+--
+--
+-- If not specified, the results are sorted in ascending order.
+-- If set to null, the results are sorted in an arbitrary order.
+mkListApplicationRevisions ::
+  -- | 'applicationName'
+  Lude.Text ->
   ListApplicationRevisions
-listApplicationRevisions pApplicationName_ =
+mkListApplicationRevisions pApplicationName_ =
   ListApplicationRevisions'
-    { _larS3KeyPrefix = Nothing,
-      _larDeployed = Nothing,
-      _larSortOrder = Nothing,
-      _larNextToken = Nothing,
-      _larS3Bucket = Nothing,
-      _larSortBy = Nothing,
-      _larApplicationName = pApplicationName_
+    { s3KeyPrefix = Lude.Nothing,
+      deployed = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      s3Bucket = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | A key prefix for the set of Amazon S3 objects to limit the search for revisions.
-larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
-larS3KeyPrefix = lens _larS3KeyPrefix (\s a -> s {_larS3KeyPrefix = a})
+--
+-- /Note:/ Consider using 's3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larS3KeyPrefix :: Lens.Lens' ListApplicationRevisions (Lude.Maybe Lude.Text)
+larS3KeyPrefix = Lens.lens (s3KeyPrefix :: ListApplicationRevisions -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: ListApplicationRevisions)
+{-# DEPRECATED larS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
--- | Whether to list revisions based on whether the revision is the target revision of a deployment group:      * @include@ : List revisions that are target revisions of a deployment group.     * @exclude@ : Do not list revisions that are target revisions of a deployment group.     * @ignore@ : List all revisions.
-larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
-larDeployed = lens _larDeployed (\s a -> s {_larDeployed = a})
+-- | Whether to list revisions based on whether the revision is the target revision of a deployment group:
+--
+--
+--     * @include@ : List revisions that are target revisions of a deployment group.
+--
+--
+--     * @exclude@ : Do not list revisions that are target revisions of a deployment group.
+--
+--
+--     * @ignore@ : List all revisions.
+--
+--
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larDeployed :: Lens.Lens' ListApplicationRevisions (Lude.Maybe ListStateFilterAction)
+larDeployed = Lens.lens (deployed :: ListApplicationRevisions -> Lude.Maybe ListStateFilterAction) (\s a -> s {deployed = a} :: ListApplicationRevisions)
+{-# DEPRECATED larDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
--- | The order in which to sort the list results:      * @ascending@ : ascending order.     * @descending@ : descending order. If not specified, the results are sorted in ascending order. If set to null, the results are sorted in an arbitrary order.
-larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
-larSortOrder = lens _larSortOrder (\s a -> s {_larSortOrder = a})
+-- | The order in which to sort the list results:
+--
+--
+--     * @ascending@ : ascending order.
+--
+--
+--     * @descending@ : descending order.
+--
+--
+-- If not specified, the results are sorted in ascending order.
+-- If set to null, the results are sorted in an arbitrary order.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larSortOrder :: Lens.Lens' ListApplicationRevisions (Lude.Maybe SortOrder)
+larSortOrder = Lens.lens (sortOrder :: ListApplicationRevisions -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListApplicationRevisions)
+{-# DEPRECATED larSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | An identifier returned from the previous @ListApplicationRevisions@ call. It can be used to return the next set of applications in the list.
-larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
-larNextToken = lens _larNextToken (\s a -> s {_larNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larNextToken :: Lens.Lens' ListApplicationRevisions (Lude.Maybe Lude.Text)
+larNextToken = Lens.lens (nextToken :: ListApplicationRevisions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationRevisions)
+{-# DEPRECATED larNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | An Amazon S3 bucket name to limit the search for revisions.  If set to null, all of the user's buckets are searched.
-larS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
-larS3Bucket = lens _larS3Bucket (\s a -> s {_larS3Bucket = a})
+-- | An Amazon S3 bucket name to limit the search for revisions.
+--
+-- If set to null, all of the user's buckets are searched.
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larS3Bucket :: Lens.Lens' ListApplicationRevisions (Lude.Maybe Lude.Text)
+larS3Bucket = Lens.lens (s3Bucket :: ListApplicationRevisions -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: ListApplicationRevisions)
+{-# DEPRECATED larS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
--- | The column name to use to sort the list results:     * @registerTime@ : Sort by the time the revisions were registered with AWS CodeDeploy.     * @firstUsedTime@ : Sort by the time the revisions were first used in a deployment.     * @lastUsedTime@ : Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results are returned in an arbitrary order.
-larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
-larSortBy = lens _larSortBy (\s a -> s {_larSortBy = a})
+-- | The column name to use to sort the list results:
+--
+--
+--     * @registerTime@ : Sort by the time the revisions were registered with AWS CodeDeploy.
+--
+--
+--     * @firstUsedTime@ : Sort by the time the revisions were first used in a deployment.
+--
+--
+--     * @lastUsedTime@ : Sort by the time the revisions were last used in a deployment.
+--
+--
+-- If not specified or set to null, the results are returned in an arbitrary order.
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larSortBy :: Lens.Lens' ListApplicationRevisions (Lude.Maybe ApplicationRevisionSortBy)
+larSortBy = Lens.lens (sortBy :: ListApplicationRevisions -> Lude.Maybe ApplicationRevisionSortBy) (\s a -> s {sortBy = a} :: ListApplicationRevisions)
+{-# DEPRECATED larSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-larApplicationName :: Lens' ListApplicationRevisions Text
-larApplicationName = lens _larApplicationName (\s a -> s {_larApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larApplicationName :: Lens.Lens' ListApplicationRevisions Lude.Text
+larApplicationName = Lens.lens (applicationName :: ListApplicationRevisions -> Lude.Text) (\s a -> s {applicationName = a} :: ListApplicationRevisions)
+{-# DEPRECATED larApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSPager ListApplicationRevisions where
+instance Page.AWSPager ListApplicationRevisions where
   page rq rs
-    | stop (rs ^. larrsNextToken) = Nothing
-    | stop (rs ^. larrsRevisions) = Nothing
-    | otherwise = Just $ rq & larNextToken .~ rs ^. larrsNextToken
+    | Page.stop (rs Lens.^. larrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. larrsRevisions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& larNextToken Lens..~ rs Lens.^. larrsNextToken
 
-instance AWSRequest ListApplicationRevisions where
+instance Lude.AWSRequest ListApplicationRevisions where
   type Rs ListApplicationRevisions = ListApplicationRevisionsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListApplicationRevisionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "revisions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "revisions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListApplicationRevisions
-
-instance NFData ListApplicationRevisions
-
-instance ToHeaders ListApplicationRevisions where
+instance Lude.ToHeaders ListApplicationRevisions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.ListApplicationRevisions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.ListApplicationRevisions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListApplicationRevisions where
+instance Lude.ToJSON ListApplicationRevisions where
   toJSON ListApplicationRevisions' {..} =
-    object
-      ( catMaybes
-          [ ("s3KeyPrefix" .=) <$> _larS3KeyPrefix,
-            ("deployed" .=) <$> _larDeployed,
-            ("sortOrder" .=) <$> _larSortOrder,
-            ("nextToken" .=) <$> _larNextToken,
-            ("s3Bucket" .=) <$> _larS3Bucket,
-            ("sortBy" .=) <$> _larSortBy,
-            Just ("applicationName" .= _larApplicationName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("s3KeyPrefix" Lude..=) Lude.<$> s3KeyPrefix,
+            ("deployed" Lude..=) Lude.<$> deployed,
+            ("sortOrder" Lude..=) Lude.<$> sortOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("s3Bucket" Lude..=) Lude.<$> s3Bucket,
+            ("sortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("applicationName" Lude..= applicationName)
           ]
       )
 
-instance ToPath ListApplicationRevisions where
-  toPath = const "/"
+instance Lude.ToPath ListApplicationRevisions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListApplicationRevisions where
-  toQuery = const mempty
+instance Lude.ToQuery ListApplicationRevisions where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListApplicationRevisions@ operation.
 --
---
---
--- /See:/ 'listApplicationRevisionsResponse' smart constructor.
+-- /See:/ 'mkListApplicationRevisionsResponse' smart constructor.
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-  { _larrsNextToken ::
-      !(Maybe Text),
-    _larrsRevisions ::
-      !( Maybe
-           [RevisionLocation]
-       ),
-    _larrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    revisions ::
+      Lude.Maybe
+        [RevisionLocation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
---
--- * 'larrsRevisions' - A list of locations that contain the matching revisions.
---
--- * 'larrsResponseStatus' - -- | The response status code.
-listApplicationRevisionsResponse ::
-  -- | 'larrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'revisions' - A list of locations that contain the matching revisions.
+mkListApplicationRevisionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApplicationRevisionsResponse
-listApplicationRevisionsResponse pResponseStatus_ =
+mkListApplicationRevisionsResponse pResponseStatus_ =
   ListApplicationRevisionsResponse'
-    { _larrsNextToken = Nothing,
-      _larrsRevisions = Nothing,
-      _larrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      revisions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
-larrsNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
-larrsNextToken = lens _larrsNextToken (\s a -> s {_larrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsNextToken :: Lens.Lens' ListApplicationRevisionsResponse (Lude.Maybe Lude.Text)
+larrsNextToken = Lens.lens (nextToken :: ListApplicationRevisionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationRevisionsResponse)
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of locations that contain the matching revisions.
-larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
-larrsRevisions = lens _larrsRevisions (\s a -> s {_larrsRevisions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'revisions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsRevisions :: Lens.Lens' ListApplicationRevisionsResponse (Lude.Maybe [RevisionLocation])
+larrsRevisions = Lens.lens (revisions :: ListApplicationRevisionsResponse -> Lude.Maybe [RevisionLocation]) (\s a -> s {revisions = a} :: ListApplicationRevisionsResponse)
+{-# DEPRECATED larrsRevisions "Use generic-lens or generic-optics with 'revisions' instead." #-}
 
--- | -- | The response status code.
-larrsResponseStatus :: Lens' ListApplicationRevisionsResponse Int
-larrsResponseStatus = lens _larrsResponseStatus (\s a -> s {_larrsResponseStatus = a})
-
-instance NFData ListApplicationRevisionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsResponseStatus :: Lens.Lens' ListApplicationRevisionsResponse Lude.Int
+larrsResponseStatus = Lens.lens (responseStatus :: ListApplicationRevisionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationRevisionsResponse)
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

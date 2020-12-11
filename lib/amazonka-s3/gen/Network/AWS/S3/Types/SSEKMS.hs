@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SSEKMS where
+module Network.AWS.S3.Types.SSEKMS
+  ( SSEKMS (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSSEKMS,
+
+    -- * Lenses
+    ssekKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
 --
---
---
--- /See:/ 'sSEKMS' smart constructor.
-newtype SSEKMS = SSEKMS' {_ssekKeyId :: Sensitive Text}
-  deriving (Eq, Show, Data, Typeable, Generic)
+-- /See:/ 'mkSSEKMS' smart constructor.
+newtype SSEKMS = SSEKMS' {keyId :: Lude.Sensitive Lude.Text}
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSEKMS' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssekKeyId' - Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
-sSEKMS ::
-  -- | 'ssekKeyId'
-  Text ->
+-- * 'keyId' - Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
+mkSSEKMS ::
+  -- | 'keyId'
+  Lude.Sensitive Lude.Text ->
   SSEKMS
-sSEKMS pKeyId_ = SSEKMS' {_ssekKeyId = _Sensitive # pKeyId_}
+mkSSEKMS pKeyId_ = SSEKMS' {keyId = pKeyId_}
 
 -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
-ssekKeyId :: Lens' SSEKMS Text
-ssekKeyId = lens _ssekKeyId (\s a -> s {_ssekKeyId = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssekKeyId :: Lens.Lens' SSEKMS (Lude.Sensitive Lude.Text)
+ssekKeyId = Lens.lens (keyId :: SSEKMS -> Lude.Sensitive Lude.Text) (\s a -> s {keyId = a} :: SSEKMS)
+{-# DEPRECATED ssekKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance FromXML SSEKMS where
-  parseXML x = SSEKMS' <$> (x .@ "KeyId")
+instance Lude.FromXML SSEKMS where
+  parseXML x = SSEKMS' Lude.<$> (x Lude..@ "KeyId")
 
-instance Hashable SSEKMS
-
-instance NFData SSEKMS
-
-instance ToXML SSEKMS where
-  toXML SSEKMS' {..} = mconcat ["KeyId" @= _ssekKeyId]
+instance Lude.ToXML SSEKMS where
+  toXML SSEKMS' {..} = Lude.mconcat ["KeyId" Lude.@= keyId]

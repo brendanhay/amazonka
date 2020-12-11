@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.FailureException where
+module Network.AWS.DynamoDB.Types.FailureException
+  ( FailureException (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFailureException,
+
+    -- * Lenses
+    feExceptionName,
+    feExceptionDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a failure a contributor insights operation.
 --
---
---
--- /See:/ 'failureException' smart constructor.
+-- /See:/ 'mkFailureException' smart constructor.
 data FailureException = FailureException'
-  { _feExceptionName ::
-      !(Maybe Text),
-    _feExceptionDescription :: !(Maybe Text)
+  { exceptionName ::
+      Lude.Maybe Lude.Text,
+    exceptionDescription :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureException' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'feExceptionName' - Exception name.
---
--- * 'feExceptionDescription' - Description of the failure.
-failureException ::
+-- * 'exceptionDescription' - Description of the failure.
+-- * 'exceptionName' - Exception name.
+mkFailureException ::
   FailureException
-failureException =
+mkFailureException =
   FailureException'
-    { _feExceptionName = Nothing,
-      _feExceptionDescription = Nothing
+    { exceptionName = Lude.Nothing,
+      exceptionDescription = Lude.Nothing
     }
 
 -- | Exception name.
-feExceptionName :: Lens' FailureException (Maybe Text)
-feExceptionName = lens _feExceptionName (\s a -> s {_feExceptionName = a})
+--
+-- /Note:/ Consider using 'exceptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+feExceptionName :: Lens.Lens' FailureException (Lude.Maybe Lude.Text)
+feExceptionName = Lens.lens (exceptionName :: FailureException -> Lude.Maybe Lude.Text) (\s a -> s {exceptionName = a} :: FailureException)
+{-# DEPRECATED feExceptionName "Use generic-lens or generic-optics with 'exceptionName' instead." #-}
 
 -- | Description of the failure.
-feExceptionDescription :: Lens' FailureException (Maybe Text)
-feExceptionDescription = lens _feExceptionDescription (\s a -> s {_feExceptionDescription = a})
+--
+-- /Note:/ Consider using 'exceptionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+feExceptionDescription :: Lens.Lens' FailureException (Lude.Maybe Lude.Text)
+feExceptionDescription = Lens.lens (exceptionDescription :: FailureException -> Lude.Maybe Lude.Text) (\s a -> s {exceptionDescription = a} :: FailureException)
+{-# DEPRECATED feExceptionDescription "Use generic-lens or generic-optics with 'exceptionDescription' instead." #-}
 
-instance FromJSON FailureException where
+instance Lude.FromJSON FailureException where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailureException"
       ( \x ->
           FailureException'
-            <$> (x .:? "ExceptionName") <*> (x .:? "ExceptionDescription")
+            Lude.<$> (x Lude..:? "ExceptionName")
+            Lude.<*> (x Lude..:? "ExceptionDescription")
       )
-
-instance Hashable FailureException
-
-instance NFData FailureException

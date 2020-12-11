@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,119 @@
 --
 -- Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.
 module Network.AWS.MediaStore.StopAccessLogging
-  ( -- * Creating a Request
-    stopAccessLogging,
-    StopAccessLogging,
+  ( -- * Creating a request
+    StopAccessLogging (..),
+    mkStopAccessLogging,
 
-    -- * Request Lenses
+    -- ** Request lenses
     salContainerName,
 
-    -- * Destructuring the Response
-    stopAccessLoggingResponse,
-    StopAccessLoggingResponse,
+    -- * Destructuring the response
+    StopAccessLoggingResponse (..),
+    mkStopAccessLoggingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     salrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopAccessLogging' smart constructor.
+-- | /See:/ 'mkStopAccessLogging' smart constructor.
 newtype StopAccessLogging = StopAccessLogging'
-  { _salContainerName ::
-      Text
+  { containerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAccessLogging' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'salContainerName' - The name of the container that you want to stop access logging on.
-stopAccessLogging ::
-  -- | 'salContainerName'
-  Text ->
+-- * 'containerName' - The name of the container that you want to stop access logging on.
+mkStopAccessLogging ::
+  -- | 'containerName'
+  Lude.Text ->
   StopAccessLogging
-stopAccessLogging pContainerName_ =
-  StopAccessLogging' {_salContainerName = pContainerName_}
+mkStopAccessLogging pContainerName_ =
+  StopAccessLogging' {containerName = pContainerName_}
 
 -- | The name of the container that you want to stop access logging on.
-salContainerName :: Lens' StopAccessLogging Text
-salContainerName = lens _salContainerName (\s a -> s {_salContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+salContainerName :: Lens.Lens' StopAccessLogging Lude.Text
+salContainerName = Lens.lens (containerName :: StopAccessLogging -> Lude.Text) (\s a -> s {containerName = a} :: StopAccessLogging)
+{-# DEPRECATED salContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance AWSRequest StopAccessLogging where
+instance Lude.AWSRequest StopAccessLogging where
   type Rs StopAccessLogging = StopAccessLoggingResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> StopAccessLoggingResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StopAccessLoggingResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopAccessLogging
-
-instance NFData StopAccessLogging
-
-instance ToHeaders StopAccessLogging where
+instance Lude.ToHeaders StopAccessLogging where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.StopAccessLogging" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.StopAccessLogging" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopAccessLogging where
+instance Lude.ToJSON StopAccessLogging where
   toJSON StopAccessLogging' {..} =
-    object (catMaybes [Just ("ContainerName" .= _salContainerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ContainerName" Lude..= containerName)]
+      )
 
-instance ToPath StopAccessLogging where
-  toPath = const "/"
+instance Lude.ToPath StopAccessLogging where
+  toPath = Lude.const "/"
 
-instance ToQuery StopAccessLogging where
-  toQuery = const mempty
+instance Lude.ToQuery StopAccessLogging where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopAccessLoggingResponse' smart constructor.
+-- | /See:/ 'mkStopAccessLoggingResponse' smart constructor.
 newtype StopAccessLoggingResponse = StopAccessLoggingResponse'
-  { _salrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAccessLoggingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'salrsResponseStatus' - -- | The response status code.
-stopAccessLoggingResponse ::
-  -- | 'salrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopAccessLoggingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopAccessLoggingResponse
-stopAccessLoggingResponse pResponseStatus_ =
-  StopAccessLoggingResponse'
-    { _salrsResponseStatus =
-        pResponseStatus_
-    }
+mkStopAccessLoggingResponse pResponseStatus_ =
+  StopAccessLoggingResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-salrsResponseStatus :: Lens' StopAccessLoggingResponse Int
-salrsResponseStatus = lens _salrsResponseStatus (\s a -> s {_salrsResponseStatus = a})
-
-instance NFData StopAccessLoggingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+salrsResponseStatus :: Lens.Lens' StopAccessLoggingResponse Lude.Int
+salrsResponseStatus = Lens.lens (responseStatus :: StopAccessLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAccessLoggingResponse)
+{-# DEPRECATED salrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

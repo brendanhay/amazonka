@@ -15,8 +15,8 @@
 --
 -- Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide> .
 module Network.AWS.EFS
-  ( -- * Service Configuration
-    efs,
+  ( -- * Service configuration
+    efsService,
 
     -- * Errors
     -- $errors
@@ -111,8 +111,8 @@ module Network.AWS.EFS
     TransitionToIARules (..),
 
     -- ** AccessPointDescription
-    AccessPointDescription,
-    accessPointDescription,
+    AccessPointDescription (..),
+    mkAccessPointDescription,
     apdPosixUser,
     apdRootDirectory,
     apdClientToken,
@@ -125,25 +125,25 @@ module Network.AWS.EFS
     apdTags,
 
     -- ** BackupPolicy
-    BackupPolicy,
-    backupPolicy,
+    BackupPolicy (..),
+    mkBackupPolicy,
     bpStatus,
 
     -- ** BackupPolicyDescription
-    BackupPolicyDescription,
-    backupPolicyDescription,
+    BackupPolicyDescription (..),
+    mkBackupPolicyDescription,
     bpdBackupPolicy,
 
     -- ** CreationInfo
-    CreationInfo,
-    creationInfo,
+    CreationInfo (..),
+    mkCreationInfo,
     ciOwnerUid,
     ciOwnerGid,
     ciPermissions,
 
     -- ** FileSystemDescription
-    FileSystemDescription,
-    fileSystemDescription,
+    FileSystemDescription (..),
+    mkFileSystemDescription,
     fsdProvisionedThroughputInMibps,
     fsdFileSystemARN,
     fsdEncrypted,
@@ -161,32 +161,32 @@ module Network.AWS.EFS
     fsdTags,
 
     -- ** FileSystemPolicyDescription
-    FileSystemPolicyDescription,
-    fileSystemPolicyDescription,
+    FileSystemPolicyDescription (..),
+    mkFileSystemPolicyDescription,
     fspdFileSystemId,
     fspdPolicy,
 
     -- ** FileSystemSize
-    FileSystemSize,
-    fileSystemSize,
+    FileSystemSize (..),
+    mkFileSystemSize,
     fssValueInIA,
     fssValueInStandard,
     fssTimestamp,
     fssValue,
 
     -- ** LifecycleConfigurationDescription
-    LifecycleConfigurationDescription,
-    lifecycleConfigurationDescription,
+    LifecycleConfigurationDescription (..),
+    mkLifecycleConfigurationDescription,
     lcdLifecyclePolicies,
 
     -- ** LifecyclePolicy
-    LifecyclePolicy,
-    lifecyclePolicy,
+    LifecyclePolicy (..),
+    mkLifecyclePolicy,
     lpTransitionToIA,
 
     -- ** MountTargetDescription
-    MountTargetDescription,
-    mountTargetDescription,
+    MountTargetDescription (..),
+    mkMountTargetDescription,
     mtdIPAddress,
     mtdAvailabilityZoneId,
     mtdVPCId,
@@ -199,23 +199,34 @@ module Network.AWS.EFS
     mtdLifeCycleState,
 
     -- ** PosixUser
-    PosixUser,
-    posixUser,
+    PosixUser (..),
+    mkPosixUser,
     puSecondaryGids,
     puUid,
     puGid,
 
     -- ** RootDirectory
-    RootDirectory,
-    rootDirectory,
+    RootDirectory (..),
+    mkRootDirectory,
     rdCreationInfo,
     rdPath,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -243,6 +254,7 @@ import Network.AWS.EFS.Types
 import Network.AWS.EFS.UntagResource
 import Network.AWS.EFS.UpdateFileSystem
 import Network.AWS.EFS.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

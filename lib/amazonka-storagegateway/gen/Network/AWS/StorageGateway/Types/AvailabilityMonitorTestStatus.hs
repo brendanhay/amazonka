@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus where
+module Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
+  ( AvailabilityMonitorTestStatus
+      ( AvailabilityMonitorTestStatus',
+        Complete,
+        Failed,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AvailabilityMonitorTestStatus
-  = Complete
-  | Failed
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AvailabilityMonitorTestStatus = AvailabilityMonitorTestStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AvailabilityMonitorTestStatus where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure Complete
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing AvailabilityMonitorTestStatus from value: '" <> e
-            <> "'. Accepted values: complete, failed, pending"
+pattern Complete :: AvailabilityMonitorTestStatus
+pattern Complete = AvailabilityMonitorTestStatus' "COMPLETE"
 
-instance ToText AvailabilityMonitorTestStatus where
-  toText = \case
-    Complete -> "COMPLETE"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
+pattern Failed :: AvailabilityMonitorTestStatus
+pattern Failed = AvailabilityMonitorTestStatus' "FAILED"
 
-instance Hashable AvailabilityMonitorTestStatus
+pattern Pending :: AvailabilityMonitorTestStatus
+pattern Pending = AvailabilityMonitorTestStatus' "PENDING"
 
-instance NFData AvailabilityMonitorTestStatus
-
-instance ToByteString AvailabilityMonitorTestStatus
-
-instance ToQuery AvailabilityMonitorTestStatus
-
-instance ToHeader AvailabilityMonitorTestStatus
-
-instance FromJSON AvailabilityMonitorTestStatus where
-  parseJSON = parseJSONText "AvailabilityMonitorTestStatus"
+{-# COMPLETE
+  Complete,
+  Failed,
+  Pending,
+  AvailabilityMonitorTestStatus'
+  #-}

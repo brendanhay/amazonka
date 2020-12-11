@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,145 @@
 --
 -- Refreshes the AWS Trusted Advisor check that you specify using the check ID. You can get the check IDs by calling the 'DescribeTrustedAdvisorChecks' operation.
 --
---
 -- The response contains a 'TrustedAdvisorCheckRefreshStatus' object.
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
-  ( -- * Creating a Request
-    refreshTrustedAdvisorCheck,
-    RefreshTrustedAdvisorCheck,
+  ( -- * Creating a request
+    RefreshTrustedAdvisorCheck (..),
+    mkRefreshTrustedAdvisorCheck,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtacCheckId,
 
-    -- * Destructuring the Response
-    refreshTrustedAdvisorCheckResponse,
-    RefreshTrustedAdvisorCheckResponse,
+    -- * Destructuring the response
+    RefreshTrustedAdvisorCheckResponse (..),
+    mkRefreshTrustedAdvisorCheckResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtacrsResponseStatus,
     rtacrsStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Support.Types
 
 -- |
 --
---
---
--- /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
+-- /See:/ 'mkRefreshTrustedAdvisorCheck' smart constructor.
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
-  { _rtacCheckId ::
-      Text
+  { checkId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshTrustedAdvisorCheck' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtacCheckId' - The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
-refreshTrustedAdvisorCheck ::
-  -- | 'rtacCheckId'
-  Text ->
+-- * 'checkId' - The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
+mkRefreshTrustedAdvisorCheck ::
+  -- | 'checkId'
+  Lude.Text ->
   RefreshTrustedAdvisorCheck
-refreshTrustedAdvisorCheck pCheckId_ =
-  RefreshTrustedAdvisorCheck' {_rtacCheckId = pCheckId_}
+mkRefreshTrustedAdvisorCheck pCheckId_ =
+  RefreshTrustedAdvisorCheck' {checkId = pCheckId_}
 
 -- | The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
-rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
-rtacCheckId = lens _rtacCheckId (\s a -> s {_rtacCheckId = a})
+--
+-- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtacCheckId :: Lens.Lens' RefreshTrustedAdvisorCheck Lude.Text
+rtacCheckId = Lens.lens (checkId :: RefreshTrustedAdvisorCheck -> Lude.Text) (\s a -> s {checkId = a} :: RefreshTrustedAdvisorCheck)
+{-# DEPRECATED rtacCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
 
-instance AWSRequest RefreshTrustedAdvisorCheck where
+instance Lude.AWSRequest RefreshTrustedAdvisorCheck where
   type
     Rs RefreshTrustedAdvisorCheck =
       RefreshTrustedAdvisorCheckResponse
-  request = postJSON support
+  request = Req.postJSON supportService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RefreshTrustedAdvisorCheckResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "status")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "status")
       )
 
-instance Hashable RefreshTrustedAdvisorCheck
-
-instance NFData RefreshTrustedAdvisorCheck
-
-instance ToHeaders RefreshTrustedAdvisorCheck where
+instance Lude.ToHeaders RefreshTrustedAdvisorCheck where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSSupport_20130415.RefreshTrustedAdvisorCheck" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSSupport_20130415.RefreshTrustedAdvisorCheck" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RefreshTrustedAdvisorCheck where
+instance Lude.ToJSON RefreshTrustedAdvisorCheck where
   toJSON RefreshTrustedAdvisorCheck' {..} =
-    object (catMaybes [Just ("checkId" .= _rtacCheckId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("checkId" Lude..= checkId)])
 
-instance ToPath RefreshTrustedAdvisorCheck where
-  toPath = const "/"
+instance Lude.ToPath RefreshTrustedAdvisorCheck where
+  toPath = Lude.const "/"
 
-instance ToQuery RefreshTrustedAdvisorCheck where
-  toQuery = const mempty
+instance Lude.ToQuery RefreshTrustedAdvisorCheck where
+  toQuery = Lude.const Lude.mempty
 
 -- | The current refresh status of a Trusted Advisor check.
 --
---
---
--- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
+-- /See:/ 'mkRefreshTrustedAdvisorCheckResponse' smart constructor.
 data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-  { _rtacrsResponseStatus ::
-      !Int,
-    _rtacrsStatus ::
-      !TrustedAdvisorCheckRefreshStatus
+  { responseStatus ::
+      Lude.Int,
+    status ::
+      TrustedAdvisorCheckRefreshStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshTrustedAdvisorCheckResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtacrsResponseStatus' - -- | The response status code.
---
--- * 'rtacrsStatus' - The current refresh status for a check, including the amount of time until the check is eligible for refresh.
-refreshTrustedAdvisorCheckResponse ::
-  -- | 'rtacrsResponseStatus'
-  Int ->
-  -- | 'rtacrsStatus'
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current refresh status for a check, including the amount of time until the check is eligible for refresh.
+mkRefreshTrustedAdvisorCheckResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'status'
   TrustedAdvisorCheckRefreshStatus ->
   RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
+mkRefreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
   RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _rtacrsStatus = pStatus_
+      status = pStatus_
     }
 
--- | -- | The response status code.
-rtacrsResponseStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
-rtacrsResponseStatus = lens _rtacrsResponseStatus (\s a -> s {_rtacrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtacrsResponseStatus :: Lens.Lens' RefreshTrustedAdvisorCheckResponse Lude.Int
+rtacrsResponseStatus = Lens.lens (responseStatus :: RefreshTrustedAdvisorCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RefreshTrustedAdvisorCheckResponse)
+{-# DEPRECATED rtacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The current refresh status for a check, including the amount of time until the check is eligible for refresh.
-rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
-rtacrsStatus = lens _rtacrsStatus (\s a -> s {_rtacrsStatus = a})
-
-instance NFData RefreshTrustedAdvisorCheckResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtacrsStatus :: Lens.Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
+rtacrsStatus = Lens.lens (status :: RefreshTrustedAdvisorCheckResponse -> TrustedAdvisorCheckRefreshStatus) (\s a -> s {status = a} :: RefreshTrustedAdvisorCheckResponse)
+{-# DEPRECATED rtacrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

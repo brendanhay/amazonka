@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.BootstrapActionConfig where
+module Network.AWS.EMR.Types.BootstrapActionConfig
+  ( BootstrapActionConfig (..),
+
+    -- * Smart constructor
+    mkBootstrapActionConfig,
+
+    -- * Lenses
+    bacName,
+    bacScriptBootstrapAction,
+  )
+where
 
 import Network.AWS.EMR.Types.ScriptBootstrapActionConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration of a bootstrap action.
 --
---
---
--- /See:/ 'bootstrapActionConfig' smart constructor.
+-- /See:/ 'mkBootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
-  { _bacName ::
-      !Text,
-    _bacScriptBootstrapAction ::
-      !ScriptBootstrapActionConfig
+  { name ::
+      Lude.Text,
+    scriptBootstrapAction ::
+      ScriptBootstrapActionConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BootstrapActionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bacName' - The name of the bootstrap action.
---
--- * 'bacScriptBootstrapAction' - The script run by the bootstrap action.
-bootstrapActionConfig ::
-  -- | 'bacName'
-  Text ->
-  -- | 'bacScriptBootstrapAction'
+-- * 'name' - The name of the bootstrap action.
+-- * 'scriptBootstrapAction' - The script run by the bootstrap action.
+mkBootstrapActionConfig ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'scriptBootstrapAction'
   ScriptBootstrapActionConfig ->
   BootstrapActionConfig
-bootstrapActionConfig pName_ pScriptBootstrapAction_ =
+mkBootstrapActionConfig pName_ pScriptBootstrapAction_ =
   BootstrapActionConfig'
-    { _bacName = pName_,
-      _bacScriptBootstrapAction = pScriptBootstrapAction_
+    { name = pName_,
+      scriptBootstrapAction = pScriptBootstrapAction_
     }
 
 -- | The name of the bootstrap action.
-bacName :: Lens' BootstrapActionConfig Text
-bacName = lens _bacName (\s a -> s {_bacName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bacName :: Lens.Lens' BootstrapActionConfig Lude.Text
+bacName = Lens.lens (name :: BootstrapActionConfig -> Lude.Text) (\s a -> s {name = a} :: BootstrapActionConfig)
+{-# DEPRECATED bacName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The script run by the bootstrap action.
-bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionConfig
-bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\s a -> s {_bacScriptBootstrapAction = a})
+--
+-- /Note:/ Consider using 'scriptBootstrapAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bacScriptBootstrapAction :: Lens.Lens' BootstrapActionConfig ScriptBootstrapActionConfig
+bacScriptBootstrapAction = Lens.lens (scriptBootstrapAction :: BootstrapActionConfig -> ScriptBootstrapActionConfig) (\s a -> s {scriptBootstrapAction = a} :: BootstrapActionConfig)
+{-# DEPRECATED bacScriptBootstrapAction "Use generic-lens or generic-optics with 'scriptBootstrapAction' instead." #-}
 
-instance Hashable BootstrapActionConfig
-
-instance NFData BootstrapActionConfig
-
-instance ToJSON BootstrapActionConfig where
+instance Lude.ToJSON BootstrapActionConfig where
   toJSON BootstrapActionConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _bacName),
-            Just ("ScriptBootstrapAction" .= _bacScriptBootstrapAction)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ScriptBootstrapAction" Lude..= scriptBootstrapAction)
           ]
       )

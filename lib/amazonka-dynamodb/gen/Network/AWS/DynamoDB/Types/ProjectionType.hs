@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ProjectionType where
+module Network.AWS.DynamoDB.Types.ProjectionType
+  ( ProjectionType
+      ( ProjectionType',
+        PTAll,
+        PTInclude,
+        PTKeysOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProjectionType
-  = PTAll
-  | PTInclude
-  | PTKeysOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProjectionType = ProjectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProjectionType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure PTAll
-      "include" -> pure PTInclude
-      "keys_only" -> pure PTKeysOnly
-      e ->
-        fromTextError $
-          "Failure parsing ProjectionType from value: '" <> e
-            <> "'. Accepted values: all, include, keys_only"
+pattern PTAll :: ProjectionType
+pattern PTAll = ProjectionType' "ALL"
 
-instance ToText ProjectionType where
-  toText = \case
-    PTAll -> "ALL"
-    PTInclude -> "INCLUDE"
-    PTKeysOnly -> "KEYS_ONLY"
+pattern PTInclude :: ProjectionType
+pattern PTInclude = ProjectionType' "INCLUDE"
 
-instance Hashable ProjectionType
+pattern PTKeysOnly :: ProjectionType
+pattern PTKeysOnly = ProjectionType' "KEYS_ONLY"
 
-instance NFData ProjectionType
-
-instance ToByteString ProjectionType
-
-instance ToQuery ProjectionType
-
-instance ToHeader ProjectionType
-
-instance ToJSON ProjectionType where
-  toJSON = toJSONText
-
-instance FromJSON ProjectionType where
-  parseJSON = parseJSONText "ProjectionType"
+{-# COMPLETE
+  PTAll,
+  PTInclude,
+  PTKeysOnly,
+  ProjectionType'
+  #-}

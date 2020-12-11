@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.Host where
+module Network.AWS.Batch.Types.Host
+  ( Host (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHost,
+
+    -- * Lenses
+    hSourcePath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Determine whether your data volume persists on the host container instance and where it is stored. If this parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running.
 --
---
---
--- /See:/ 'host' smart constructor.
-newtype Host = Host' {_hSourcePath :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkHost' smart constructor.
+newtype Host = Host' {sourcePath :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Host' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hSourcePath' - The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-host ::
+-- * 'sourcePath' - The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+mkHost ::
   Host
-host = Host' {_hSourcePath = Nothing}
+mkHost = Host' {sourcePath = Lude.Nothing}
 
 -- | The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-hSourcePath :: Lens' Host (Maybe Text)
-hSourcePath = lens _hSourcePath (\s a -> s {_hSourcePath = a})
+--
+-- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hSourcePath :: Lens.Lens' Host (Lude.Maybe Lude.Text)
+hSourcePath = Lens.lens (sourcePath :: Host -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: Host)
+{-# DEPRECATED hSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance FromJSON Host where
+instance Lude.FromJSON Host where
   parseJSON =
-    withObject "Host" (\x -> Host' <$> (x .:? "sourcePath"))
+    Lude.withObject
+      "Host"
+      (\x -> Host' Lude.<$> (x Lude..:? "sourcePath"))
 
-instance Hashable Host
-
-instance NFData Host
-
-instance ToJSON Host where
+instance Lude.ToJSON Host where
   toJSON Host' {..} =
-    object (catMaybes [("sourcePath" .=) <$> _hSourcePath])
+    Lude.object
+      (Lude.catMaybes [("sourcePath" Lude..=) Lude.<$> sourcePath])

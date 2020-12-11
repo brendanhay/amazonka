@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TableIdentifier where
+module Network.AWS.Glue.Types.TableIdentifier
+  ( TableIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTableIdentifier,
+
+    -- * Lenses
+    tiCatalogId,
+    tiName,
+    tiDatabaseName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure that describes a target table for resource linking.
 --
---
---
--- /See:/ 'tableIdentifier' smart constructor.
+-- /See:/ 'mkTableIdentifier' smart constructor.
 data TableIdentifier = TableIdentifier'
-  { _tiCatalogId ::
-      !(Maybe Text),
-    _tiName :: !(Maybe Text),
-    _tiDatabaseName :: !(Maybe Text)
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    databaseName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tiCatalogId' - The ID of the Data Catalog in which the table resides.
---
--- * 'tiName' - The name of the target table.
---
--- * 'tiDatabaseName' - The name of the catalog database that contains the target table.
-tableIdentifier ::
+-- * 'catalogId' - The ID of the Data Catalog in which the table resides.
+-- * 'databaseName' - The name of the catalog database that contains the target table.
+-- * 'name' - The name of the target table.
+mkTableIdentifier ::
   TableIdentifier
-tableIdentifier =
+mkTableIdentifier =
   TableIdentifier'
-    { _tiCatalogId = Nothing,
-      _tiName = Nothing,
-      _tiDatabaseName = Nothing
+    { catalogId = Lude.Nothing,
+      name = Lude.Nothing,
+      databaseName = Lude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the table resides.
-tiCatalogId :: Lens' TableIdentifier (Maybe Text)
-tiCatalogId = lens _tiCatalogId (\s a -> s {_tiCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiCatalogId :: Lens.Lens' TableIdentifier (Lude.Maybe Lude.Text)
+tiCatalogId = Lens.lens (catalogId :: TableIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: TableIdentifier)
+{-# DEPRECATED tiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the target table.
-tiName :: Lens' TableIdentifier (Maybe Text)
-tiName = lens _tiName (\s a -> s {_tiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiName :: Lens.Lens' TableIdentifier (Lude.Maybe Lude.Text)
+tiName = Lens.lens (name :: TableIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TableIdentifier)
+{-# DEPRECATED tiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the catalog database that contains the target table.
-tiDatabaseName :: Lens' TableIdentifier (Maybe Text)
-tiDatabaseName = lens _tiDatabaseName (\s a -> s {_tiDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiDatabaseName :: Lens.Lens' TableIdentifier (Lude.Maybe Lude.Text)
+tiDatabaseName = Lens.lens (databaseName :: TableIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: TableIdentifier)
+{-# DEPRECATED tiDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance FromJSON TableIdentifier where
+instance Lude.FromJSON TableIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "TableIdentifier"
       ( \x ->
           TableIdentifier'
-            <$> (x .:? "CatalogId") <*> (x .:? "Name") <*> (x .:? "DatabaseName")
+            Lude.<$> (x Lude..:? "CatalogId")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "DatabaseName")
       )
 
-instance Hashable TableIdentifier
-
-instance NFData TableIdentifier
-
-instance ToJSON TableIdentifier where
+instance Lude.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _tiCatalogId,
-            ("Name" .=) <$> _tiName,
-            ("DatabaseName" .=) <$> _tiDatabaseName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("Name" Lude..=) Lude.<$> name,
+            ("DatabaseName" Lude..=) Lude.<$> databaseName
           ]
       )

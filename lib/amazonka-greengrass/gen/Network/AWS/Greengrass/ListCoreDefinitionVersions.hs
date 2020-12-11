@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListCoreDefinitionVersions
-  ( -- * Creating a Request
-    listCoreDefinitionVersions,
-    ListCoreDefinitionVersions,
+  ( -- * Creating a request
+    ListCoreDefinitionVersions (..),
+    mkListCoreDefinitionVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcdvsNextToken,
     lcdvsMaxResults,
     lcdvsCoreDefinitionId,
 
-    -- * Destructuring the Response
-    listCoreDefinitionVersionsResponse,
-    ListCoreDefinitionVersionsResponse,
+    -- * Destructuring the response
+    ListCoreDefinitionVersionsResponse (..),
+    mkListCoreDefinitionVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcdvrsVersions,
     lcdvrsNextToken,
     lcdvrsResponseStatus,
@@ -42,140 +37,162 @@ module Network.AWS.Greengrass.ListCoreDefinitionVersions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCoreDefinitionVersions' smart constructor.
+-- | /See:/ 'mkListCoreDefinitionVersions' smart constructor.
 data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
-  { _lcdvsNextToken ::
-      !(Maybe Text),
-    _lcdvsMaxResults :: !(Maybe Text),
-    _lcdvsCoreDefinitionId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text,
+    coreDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCoreDefinitionVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcdvsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lcdvsMaxResults' - The maximum number of results to be returned per request.
---
--- * 'lcdvsCoreDefinitionId' - The ID of the core definition.
-listCoreDefinitionVersions ::
-  -- | 'lcdvsCoreDefinitionId'
-  Text ->
+-- * 'coreDefinitionId' - The ID of the core definition.
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListCoreDefinitionVersions ::
+  -- | 'coreDefinitionId'
+  Lude.Text ->
   ListCoreDefinitionVersions
-listCoreDefinitionVersions pCoreDefinitionId_ =
+mkListCoreDefinitionVersions pCoreDefinitionId_ =
   ListCoreDefinitionVersions'
-    { _lcdvsNextToken = Nothing,
-      _lcdvsMaxResults = Nothing,
-      _lcdvsCoreDefinitionId = pCoreDefinitionId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      coreDefinitionId = pCoreDefinitionId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lcdvsNextToken :: Lens' ListCoreDefinitionVersions (Maybe Text)
-lcdvsNextToken = lens _lcdvsNextToken (\s a -> s {_lcdvsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsNextToken :: Lens.Lens' ListCoreDefinitionVersions (Lude.Maybe Lude.Text)
+lcdvsNextToken = Lens.lens (nextToken :: ListCoreDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCoreDefinitionVersions)
+{-# DEPRECATED lcdvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lcdvsMaxResults :: Lens' ListCoreDefinitionVersions (Maybe Text)
-lcdvsMaxResults = lens _lcdvsMaxResults (\s a -> s {_lcdvsMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsMaxResults :: Lens.Lens' ListCoreDefinitionVersions (Lude.Maybe Lude.Text)
+lcdvsMaxResults = Lens.lens (maxResults :: ListCoreDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListCoreDefinitionVersions)
+{-# DEPRECATED lcdvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the core definition.
-lcdvsCoreDefinitionId :: Lens' ListCoreDefinitionVersions Text
-lcdvsCoreDefinitionId = lens _lcdvsCoreDefinitionId (\s a -> s {_lcdvsCoreDefinitionId = a})
+--
+-- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsCoreDefinitionId :: Lens.Lens' ListCoreDefinitionVersions Lude.Text
+lcdvsCoreDefinitionId = Lens.lens (coreDefinitionId :: ListCoreDefinitionVersions -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: ListCoreDefinitionVersions)
+{-# DEPRECATED lcdvsCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
 
-instance AWSPager ListCoreDefinitionVersions where
+instance Page.AWSPager ListCoreDefinitionVersions where
   page rq rs
-    | stop (rs ^. lcdvrsNextToken) = Nothing
-    | stop (rs ^. lcdvrsVersions) = Nothing
-    | otherwise = Just $ rq & lcdvsNextToken .~ rs ^. lcdvrsNextToken
+    | Page.stop (rs Lens.^. lcdvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcdvrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcdvsNextToken Lens..~ rs Lens.^. lcdvrsNextToken
 
-instance AWSRequest ListCoreDefinitionVersions where
+instance Lude.AWSRequest ListCoreDefinitionVersions where
   type
     Rs ListCoreDefinitionVersions =
       ListCoreDefinitionVersionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCoreDefinitionVersionsResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCoreDefinitionVersions
-
-instance NFData ListCoreDefinitionVersions
-
-instance ToHeaders ListCoreDefinitionVersions where
+instance Lude.ToHeaders ListCoreDefinitionVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListCoreDefinitionVersions where
+instance Lude.ToPath ListCoreDefinitionVersions where
   toPath ListCoreDefinitionVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/cores/",
-        toBS _lcdvsCoreDefinitionId,
+        Lude.toBS coreDefinitionId,
         "/versions"
       ]
 
-instance ToQuery ListCoreDefinitionVersions where
+instance Lude.ToQuery ListCoreDefinitionVersions where
   toQuery ListCoreDefinitionVersions' {..} =
-    mconcat
-      ["NextToken" =: _lcdvsNextToken, "MaxResults" =: _lcdvsMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listCoreDefinitionVersionsResponse' smart constructor.
+-- | /See:/ 'mkListCoreDefinitionVersionsResponse' smart constructor.
 data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
-  { _lcdvrsVersions ::
-      !( Maybe
-           [VersionInformation]
-       ),
-    _lcdvrsNextToken ::
-      !(Maybe Text),
-    _lcdvrsResponseStatus ::
-      !Int
+  { versions ::
+      Lude.Maybe
+        [VersionInformation],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCoreDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcdvrsVersions' - Information about a version.
---
--- * 'lcdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lcdvrsResponseStatus' - -- | The response status code.
-listCoreDefinitionVersionsResponse ::
-  -- | 'lcdvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - Information about a version.
+mkListCoreDefinitionVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCoreDefinitionVersionsResponse
-listCoreDefinitionVersionsResponse pResponseStatus_ =
+mkListCoreDefinitionVersionsResponse pResponseStatus_ =
   ListCoreDefinitionVersionsResponse'
-    { _lcdvrsVersions = Nothing,
-      _lcdvrsNextToken = Nothing,
-      _lcdvrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a version.
-lcdvrsVersions :: Lens' ListCoreDefinitionVersionsResponse [VersionInformation]
-lcdvrsVersions = lens _lcdvrsVersions (\s a -> s {_lcdvrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvrsVersions :: Lens.Lens' ListCoreDefinitionVersionsResponse (Lude.Maybe [VersionInformation])
+lcdvrsVersions = Lens.lens (versions :: ListCoreDefinitionVersionsResponse -> Lude.Maybe [VersionInformation]) (\s a -> s {versions = a} :: ListCoreDefinitionVersionsResponse)
+{-# DEPRECATED lcdvrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lcdvrsNextToken :: Lens' ListCoreDefinitionVersionsResponse (Maybe Text)
-lcdvrsNextToken = lens _lcdvrsNextToken (\s a -> s {_lcdvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvrsNextToken :: Lens.Lens' ListCoreDefinitionVersionsResponse (Lude.Maybe Lude.Text)
+lcdvrsNextToken = Lens.lens (nextToken :: ListCoreDefinitionVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCoreDefinitionVersionsResponse)
+{-# DEPRECATED lcdvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcdvrsResponseStatus :: Lens' ListCoreDefinitionVersionsResponse Int
-lcdvrsResponseStatus = lens _lcdvrsResponseStatus (\s a -> s {_lcdvrsResponseStatus = a})
-
-instance NFData ListCoreDefinitionVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvrsResponseStatus :: Lens.Lens' ListCoreDefinitionVersionsResponse Lude.Int
+lcdvrsResponseStatus = Lens.lens (responseStatus :: ListCoreDefinitionVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCoreDefinitionVersionsResponse)
+{-# DEPRECATED lcdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.NodeType where
+module Network.AWS.Glue.Types.NodeType
+  ( NodeType
+      ( NodeType',
+        Crawler,
+        Job,
+        Trigger
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NodeType
-  = Crawler
-  | Job
-  | Trigger
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NodeType = NodeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NodeType where
-  parser =
-    takeLowerText >>= \case
-      "crawler" -> pure Crawler
-      "job" -> pure Job
-      "trigger" -> pure Trigger
-      e ->
-        fromTextError $
-          "Failure parsing NodeType from value: '" <> e
-            <> "'. Accepted values: crawler, job, trigger"
+pattern Crawler :: NodeType
+pattern Crawler = NodeType' "CRAWLER"
 
-instance ToText NodeType where
-  toText = \case
-    Crawler -> "CRAWLER"
-    Job -> "JOB"
-    Trigger -> "TRIGGER"
+pattern Job :: NodeType
+pattern Job = NodeType' "JOB"
 
-instance Hashable NodeType
+pattern Trigger :: NodeType
+pattern Trigger = NodeType' "TRIGGER"
 
-instance NFData NodeType
-
-instance ToByteString NodeType
-
-instance ToQuery NodeType
-
-instance ToHeader NodeType
-
-instance FromJSON NodeType where
-  parseJSON = parseJSONText "NodeType"
+{-# COMPLETE
+  Crawler,
+  Job,
+  Trigger,
+  NodeType'
+  #-}

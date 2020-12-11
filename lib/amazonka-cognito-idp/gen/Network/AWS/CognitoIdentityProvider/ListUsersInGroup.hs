@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,25 @@
 --
 -- Lists the users in the specified group.
 --
---
 -- Calling this action requires developer credentials.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
-  ( -- * Creating a Request
-    listUsersInGroup,
-    ListUsersInGroup,
+  ( -- * Creating a request
+    ListUsersInGroup (..),
+    mkListUsersInGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     luigNextToken,
     luigLimit,
     luigUserPoolId,
     luigGroupName,
 
-    -- * Destructuring the Response
-    listUsersInGroupResponse,
-    ListUsersInGroupResponse,
+    -- * Destructuring the response
+    ListUsersInGroupResponse (..),
+    mkListUsersInGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     luigrsUsers,
     luigrsNextToken,
     luigrsResponseStatus,
@@ -47,153 +40,171 @@ module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listUsersInGroup' smart constructor.
+-- | /See:/ 'mkListUsersInGroup' smart constructor.
 data ListUsersInGroup = ListUsersInGroup'
-  { _luigNextToken ::
-      !(Maybe Text),
-    _luigLimit :: !(Maybe Nat),
-    _luigUserPoolId :: !Text,
-    _luigGroupName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    userPoolId :: Lude.Text,
+    groupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsersInGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luigNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'luigLimit' - The limit of the request to list users.
---
--- * 'luigUserPoolId' - The user pool ID for the user pool.
---
--- * 'luigGroupName' - The name of the group.
-listUsersInGroup ::
-  -- | 'luigUserPoolId'
-  Text ->
-  -- | 'luigGroupName'
-  Text ->
+-- * 'groupName' - The name of the group.
+-- * 'limit' - The limit of the request to list users.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkListUsersInGroup ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
   ListUsersInGroup
-listUsersInGroup pUserPoolId_ pGroupName_ =
+mkListUsersInGroup pUserPoolId_ pGroupName_ =
   ListUsersInGroup'
-    { _luigNextToken = Nothing,
-      _luigLimit = Nothing,
-      _luigUserPoolId = pUserPoolId_,
-      _luigGroupName = pGroupName_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      groupName = pGroupName_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-luigNextToken :: Lens' ListUsersInGroup (Maybe Text)
-luigNextToken = lens _luigNextToken (\s a -> s {_luigNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigNextToken :: Lens.Lens' ListUsersInGroup (Lude.Maybe Lude.Text)
+luigNextToken = Lens.lens (nextToken :: ListUsersInGroup -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsersInGroup)
+{-# DEPRECATED luigNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The limit of the request to list users.
-luigLimit :: Lens' ListUsersInGroup (Maybe Natural)
-luigLimit = lens _luigLimit (\s a -> s {_luigLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigLimit :: Lens.Lens' ListUsersInGroup (Lude.Maybe Lude.Natural)
+luigLimit = Lens.lens (limit :: ListUsersInGroup -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListUsersInGroup)
+{-# DEPRECATED luigLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The user pool ID for the user pool.
-luigUserPoolId :: Lens' ListUsersInGroup Text
-luigUserPoolId = lens _luigUserPoolId (\s a -> s {_luigUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigUserPoolId :: Lens.Lens' ListUsersInGroup Lude.Text
+luigUserPoolId = Lens.lens (userPoolId :: ListUsersInGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: ListUsersInGroup)
+{-# DEPRECATED luigUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The name of the group.
-luigGroupName :: Lens' ListUsersInGroup Text
-luigGroupName = lens _luigGroupName (\s a -> s {_luigGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigGroupName :: Lens.Lens' ListUsersInGroup Lude.Text
+luigGroupName = Lens.lens (groupName :: ListUsersInGroup -> Lude.Text) (\s a -> s {groupName = a} :: ListUsersInGroup)
+{-# DEPRECATED luigGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSPager ListUsersInGroup where
+instance Page.AWSPager ListUsersInGroup where
   page rq rs
-    | stop (rs ^. luigrsNextToken) = Nothing
-    | stop (rs ^. luigrsUsers) = Nothing
-    | otherwise = Just $ rq & luigNextToken .~ rs ^. luigrsNextToken
+    | Page.stop (rs Lens.^. luigrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. luigrsUsers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& luigNextToken Lens..~ rs Lens.^. luigrsNextToken
 
-instance AWSRequest ListUsersInGroup where
+instance Lude.AWSRequest ListUsersInGroup where
   type Rs ListUsersInGroup = ListUsersInGroupResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListUsersInGroupResponse'
-            <$> (x .?> "Users" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Users" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListUsersInGroup
-
-instance NFData ListUsersInGroup
-
-instance ToHeaders ListUsersInGroup where
+instance Lude.ToHeaders ListUsersInGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListUsersInGroup where
+instance Lude.ToJSON ListUsersInGroup where
   toJSON ListUsersInGroup' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _luigNextToken,
-            ("Limit" .=) <$> _luigLimit,
-            Just ("UserPoolId" .= _luigUserPoolId),
-            Just ("GroupName" .= _luigGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("GroupName" Lude..= groupName)
           ]
       )
 
-instance ToPath ListUsersInGroup where
-  toPath = const "/"
+instance Lude.ToPath ListUsersInGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery ListUsersInGroup where
-  toQuery = const mempty
+instance Lude.ToQuery ListUsersInGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listUsersInGroupResponse' smart constructor.
+-- | /See:/ 'mkListUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
-  { _luigrsUsers ::
-      !(Maybe [UserType]),
-    _luigrsNextToken :: !(Maybe Text),
-    _luigrsResponseStatus :: !Int
+  { users ::
+      Lude.Maybe [UserType],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsersInGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luigrsUsers' - The users returned in the request to list users.
---
--- * 'luigrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'luigrsResponseStatus' - -- | The response status code.
-listUsersInGroupResponse ::
-  -- | 'luigrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'users' - The users returned in the request to list users.
+mkListUsersInGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListUsersInGroupResponse
-listUsersInGroupResponse pResponseStatus_ =
+mkListUsersInGroupResponse pResponseStatus_ =
   ListUsersInGroupResponse'
-    { _luigrsUsers = Nothing,
-      _luigrsNextToken = Nothing,
-      _luigrsResponseStatus = pResponseStatus_
+    { users = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The users returned in the request to list users.
-luigrsUsers :: Lens' ListUsersInGroupResponse [UserType]
-luigrsUsers = lens _luigrsUsers (\s a -> s {_luigrsUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigrsUsers :: Lens.Lens' ListUsersInGroupResponse (Lude.Maybe [UserType])
+luigrsUsers = Lens.lens (users :: ListUsersInGroupResponse -> Lude.Maybe [UserType]) (\s a -> s {users = a} :: ListUsersInGroupResponse)
+{-# DEPRECATED luigrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-luigrsNextToken :: Lens' ListUsersInGroupResponse (Maybe Text)
-luigrsNextToken = lens _luigrsNextToken (\s a -> s {_luigrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigrsNextToken :: Lens.Lens' ListUsersInGroupResponse (Lude.Maybe Lude.Text)
+luigrsNextToken = Lens.lens (nextToken :: ListUsersInGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsersInGroupResponse)
+{-# DEPRECATED luigrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-luigrsResponseStatus :: Lens' ListUsersInGroupResponse Int
-luigrsResponseStatus = lens _luigrsResponseStatus (\s a -> s {_luigrsResponseStatus = a})
-
-instance NFData ListUsersInGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luigrsResponseStatus :: Lens.Lens' ListUsersInGroupResponse Lude.Int
+luigrsResponseStatus = Lens.lens (responseStatus :: ListUsersInGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUsersInGroupResponse)
+{-# DEPRECATED luigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

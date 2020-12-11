@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
+  ( ProvisioningArtifactType
+      ( ProvisioningArtifactType',
+        PATCloudFormationTemplate,
+        PATMarketplaceAMI,
+        PATMarketplaceCar
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisioningArtifactType
-  = PATCloudFormationTemplate
-  | PATMarketplaceAMI
-  | PATMarketplaceCar
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisioningArtifactType = ProvisioningArtifactType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisioningArtifactType where
-  parser =
-    takeLowerText >>= \case
-      "cloud_formation_template" -> pure PATCloudFormationTemplate
-      "marketplace_ami" -> pure PATMarketplaceAMI
-      "marketplace_car" -> pure PATMarketplaceCar
-      e ->
-        fromTextError $
-          "Failure parsing ProvisioningArtifactType from value: '" <> e
-            <> "'. Accepted values: cloud_formation_template, marketplace_ami, marketplace_car"
+pattern PATCloudFormationTemplate :: ProvisioningArtifactType
+pattern PATCloudFormationTemplate = ProvisioningArtifactType' "CLOUD_FORMATION_TEMPLATE"
 
-instance ToText ProvisioningArtifactType where
-  toText = \case
-    PATCloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
-    PATMarketplaceAMI -> "MARKETPLACE_AMI"
-    PATMarketplaceCar -> "MARKETPLACE_CAR"
+pattern PATMarketplaceAMI :: ProvisioningArtifactType
+pattern PATMarketplaceAMI = ProvisioningArtifactType' "MARKETPLACE_AMI"
 
-instance Hashable ProvisioningArtifactType
+pattern PATMarketplaceCar :: ProvisioningArtifactType
+pattern PATMarketplaceCar = ProvisioningArtifactType' "MARKETPLACE_CAR"
 
-instance NFData ProvisioningArtifactType
-
-instance ToByteString ProvisioningArtifactType
-
-instance ToQuery ProvisioningArtifactType
-
-instance ToHeader ProvisioningArtifactType
-
-instance ToJSON ProvisioningArtifactType where
-  toJSON = toJSONText
-
-instance FromJSON ProvisioningArtifactType where
-  parseJSON = parseJSONText "ProvisioningArtifactType"
+{-# COMPLETE
+  PATCloudFormationTemplate,
+  PATMarketplaceAMI,
+  PATMarketplaceCar,
+  ProvisioningArtifactType'
+  #-}

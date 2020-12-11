@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,113 +7,148 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.AdvancedFieldSelector where
+module Network.AWS.CloudTrail.Types.AdvancedFieldSelector
+  ( AdvancedFieldSelector (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAdvancedFieldSelector,
 
--- | /See:/ 'advancedFieldSelector' smart constructor.
+    -- * Lenses
+    afsEndsWith,
+    afsNotStartsWith,
+    afsEquals,
+    afsNotEquals,
+    afsNotEndsWith,
+    afsStartsWith,
+    afsField,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkAdvancedFieldSelector' smart constructor.
 data AdvancedFieldSelector = AdvancedFieldSelector'
-  { _afsEndsWith ::
-      !(Maybe (List1 Text)),
-    _afsNotStartsWith :: !(Maybe (List1 Text)),
-    _afsEquals :: !(Maybe (List1 Text)),
-    _afsNotEquals :: !(Maybe (List1 Text)),
-    _afsNotEndsWith :: !(Maybe (List1 Text)),
-    _afsStartsWith :: !(Maybe (List1 Text)),
-    _afsField :: !Text
+  { endsWith ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    notStartsWith ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    equals :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    notEquals ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    notEndsWith ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    startsWith ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    field :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedFieldSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'afsEndsWith' - Undocumented member.
---
--- * 'afsNotStartsWith' - Undocumented member.
---
--- * 'afsEquals' - Undocumented member.
---
--- * 'afsNotEquals' - Undocumented member.
---
--- * 'afsNotEndsWith' - Undocumented member.
---
--- * 'afsStartsWith' - Undocumented member.
---
--- * 'afsField' - Undocumented member.
-advancedFieldSelector ::
-  -- | 'afsField'
-  Text ->
+-- * 'endsWith' - Undocumented field.
+-- * 'equals' - Undocumented field.
+-- * 'field' - Undocumented field.
+-- * 'notEndsWith' - Undocumented field.
+-- * 'notEquals' - Undocumented field.
+-- * 'notStartsWith' - Undocumented field.
+-- * 'startsWith' - Undocumented field.
+mkAdvancedFieldSelector ::
+  -- | 'field'
+  Lude.Text ->
   AdvancedFieldSelector
-advancedFieldSelector pField_ =
+mkAdvancedFieldSelector pField_ =
   AdvancedFieldSelector'
-    { _afsEndsWith = Nothing,
-      _afsNotStartsWith = Nothing,
-      _afsEquals = Nothing,
-      _afsNotEquals = Nothing,
-      _afsNotEndsWith = Nothing,
-      _afsStartsWith = Nothing,
-      _afsField = pField_
+    { endsWith = Lude.Nothing,
+      notStartsWith = Lude.Nothing,
+      equals = Lude.Nothing,
+      notEquals = Lude.Nothing,
+      notEndsWith = Lude.Nothing,
+      startsWith = Lude.Nothing,
+      field = pField_
     }
 
--- | Undocumented member.
-afsEndsWith :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsEndsWith = lens _afsEndsWith (\s a -> s {_afsEndsWith = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsEndsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsEndsWith = Lens.lens (endsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {endsWith = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsEndsWith "Use generic-lens or generic-optics with 'endsWith' instead." #-}
 
--- | Undocumented member.
-afsNotStartsWith :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsNotStartsWith = lens _afsNotStartsWith (\s a -> s {_afsNotStartsWith = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notStartsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsNotStartsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsNotStartsWith = Lens.lens (notStartsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notStartsWith = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsNotStartsWith "Use generic-lens or generic-optics with 'notStartsWith' instead." #-}
 
--- | Undocumented member.
-afsEquals :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsEquals = lens _afsEquals (\s a -> s {_afsEquals = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'equals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsEquals :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsEquals = Lens.lens (equals :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {equals = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsEquals "Use generic-lens or generic-optics with 'equals' instead." #-}
 
--- | Undocumented member.
-afsNotEquals :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsNotEquals = lens _afsNotEquals (\s a -> s {_afsNotEquals = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsNotEquals :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsNotEquals = Lens.lens (notEquals :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notEquals = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsNotEquals "Use generic-lens or generic-optics with 'notEquals' instead." #-}
 
--- | Undocumented member.
-afsNotEndsWith :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsNotEndsWith = lens _afsNotEndsWith (\s a -> s {_afsNotEndsWith = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notEndsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsNotEndsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsNotEndsWith = Lens.lens (notEndsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notEndsWith = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsNotEndsWith "Use generic-lens or generic-optics with 'notEndsWith' instead." #-}
 
--- | Undocumented member.
-afsStartsWith :: Lens' AdvancedFieldSelector (Maybe (NonEmpty Text))
-afsStartsWith = lens _afsStartsWith (\s a -> s {_afsStartsWith = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'startsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsStartsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
+afsStartsWith = Lens.lens (startsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {startsWith = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsStartsWith "Use generic-lens or generic-optics with 'startsWith' instead." #-}
 
--- | Undocumented member.
-afsField :: Lens' AdvancedFieldSelector Text
-afsField = lens _afsField (\s a -> s {_afsField = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsField :: Lens.Lens' AdvancedFieldSelector Lude.Text
+afsField = Lens.lens (field :: AdvancedFieldSelector -> Lude.Text) (\s a -> s {field = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsField "Use generic-lens or generic-optics with 'field' instead." #-}
 
-instance FromJSON AdvancedFieldSelector where
+instance Lude.FromJSON AdvancedFieldSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "AdvancedFieldSelector"
       ( \x ->
           AdvancedFieldSelector'
-            <$> (x .:? "EndsWith")
-            <*> (x .:? "NotStartsWith")
-            <*> (x .:? "Equals")
-            <*> (x .:? "NotEquals")
-            <*> (x .:? "NotEndsWith")
-            <*> (x .:? "StartsWith")
-            <*> (x .: "Field")
+            Lude.<$> (x Lude..:? "EndsWith")
+            Lude.<*> (x Lude..:? "NotStartsWith")
+            Lude.<*> (x Lude..:? "Equals")
+            Lude.<*> (x Lude..:? "NotEquals")
+            Lude.<*> (x Lude..:? "NotEndsWith")
+            Lude.<*> (x Lude..:? "StartsWith")
+            Lude.<*> (x Lude..: "Field")
       )
 
-instance Hashable AdvancedFieldSelector
-
-instance NFData AdvancedFieldSelector
-
-instance ToJSON AdvancedFieldSelector where
+instance Lude.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =
-    object
-      ( catMaybes
-          [ ("EndsWith" .=) <$> _afsEndsWith,
-            ("NotStartsWith" .=) <$> _afsNotStartsWith,
-            ("Equals" .=) <$> _afsEquals,
-            ("NotEquals" .=) <$> _afsNotEquals,
-            ("NotEndsWith" .=) <$> _afsNotEndsWith,
-            ("StartsWith" .=) <$> _afsStartsWith,
-            Just ("Field" .= _afsField)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EndsWith" Lude..=) Lude.<$> endsWith,
+            ("NotStartsWith" Lude..=) Lude.<$> notStartsWith,
+            ("Equals" Lude..=) Lude.<$> equals,
+            ("NotEquals" Lude..=) Lude.<$> notEquals,
+            ("NotEndsWith" Lude..=) Lude.<$> notEndsWith,
+            ("StartsWith" Lude..=) Lude.<$> startsWith,
+            Lude.Just ("Field" Lude..= field)
           ]
       )

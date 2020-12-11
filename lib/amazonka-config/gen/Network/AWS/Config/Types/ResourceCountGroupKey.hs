@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ResourceCountGroupKey where
+module Network.AWS.Config.Types.ResourceCountGroupKey
+  ( ResourceCountGroupKey
+      ( ResourceCountGroupKey',
+        RCGKAWSRegion,
+        RCGKAccountId,
+        RCGKResourceType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceCountGroupKey
-  = RCGKAWSRegion
-  | RCGKAccountId
-  | RCGKResourceType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceCountGroupKey = ResourceCountGroupKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceCountGroupKey where
-  parser =
-    takeLowerText >>= \case
-      "aws_region" -> pure RCGKAWSRegion
-      "account_id" -> pure RCGKAccountId
-      "resource_type" -> pure RCGKResourceType
-      e ->
-        fromTextError $
-          "Failure parsing ResourceCountGroupKey from value: '" <> e
-            <> "'. Accepted values: aws_region, account_id, resource_type"
+pattern RCGKAWSRegion :: ResourceCountGroupKey
+pattern RCGKAWSRegion = ResourceCountGroupKey' "AWS_REGION"
 
-instance ToText ResourceCountGroupKey where
-  toText = \case
-    RCGKAWSRegion -> "AWS_REGION"
-    RCGKAccountId -> "ACCOUNT_ID"
-    RCGKResourceType -> "RESOURCE_TYPE"
+pattern RCGKAccountId :: ResourceCountGroupKey
+pattern RCGKAccountId = ResourceCountGroupKey' "ACCOUNT_ID"
 
-instance Hashable ResourceCountGroupKey
+pattern RCGKResourceType :: ResourceCountGroupKey
+pattern RCGKResourceType = ResourceCountGroupKey' "RESOURCE_TYPE"
 
-instance NFData ResourceCountGroupKey
-
-instance ToByteString ResourceCountGroupKey
-
-instance ToQuery ResourceCountGroupKey
-
-instance ToHeader ResourceCountGroupKey
-
-instance ToJSON ResourceCountGroupKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  RCGKAWSRegion,
+  RCGKAccountId,
+  RCGKResourceType,
+  ResourceCountGroupKey'
+  #-}

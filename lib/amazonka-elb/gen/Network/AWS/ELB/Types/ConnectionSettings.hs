@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.ConnectionSettings where
+module Network.AWS.ELB.Types.ConnectionSettings
+  ( ConnectionSettings (..),
+
+    -- * Smart constructor
+    mkConnectionSettings,
+
+    -- * Lenses
+    csIdleTimeout,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the @ConnectionSettings@ attribute.
 --
---
---
--- /See:/ 'connectionSettings' smart constructor.
+-- /See:/ 'mkConnectionSettings' smart constructor.
 newtype ConnectionSettings = ConnectionSettings'
-  { _csIdleTimeout ::
-      Nat
+  { idleTimeout ::
+      Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csIdleTimeout' - The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
-connectionSettings ::
-  -- | 'csIdleTimeout'
-  Natural ->
+-- * 'idleTimeout' - The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
+mkConnectionSettings ::
+  -- | 'idleTimeout'
+  Lude.Natural ->
   ConnectionSettings
-connectionSettings pIdleTimeout_ =
-  ConnectionSettings' {_csIdleTimeout = _Nat # pIdleTimeout_}
+mkConnectionSettings pIdleTimeout_ =
+  ConnectionSettings' {idleTimeout = pIdleTimeout_}
 
 -- | The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
-csIdleTimeout :: Lens' ConnectionSettings Natural
-csIdleTimeout = lens _csIdleTimeout (\s a -> s {_csIdleTimeout = a}) . _Nat
+--
+-- /Note:/ Consider using 'idleTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csIdleTimeout :: Lens.Lens' ConnectionSettings Lude.Natural
+csIdleTimeout = Lens.lens (idleTimeout :: ConnectionSettings -> Lude.Natural) (\s a -> s {idleTimeout = a} :: ConnectionSettings)
+{-# DEPRECATED csIdleTimeout "Use generic-lens or generic-optics with 'idleTimeout' instead." #-}
 
-instance FromXML ConnectionSettings where
-  parseXML x = ConnectionSettings' <$> (x .@ "IdleTimeout")
+instance Lude.FromXML ConnectionSettings where
+  parseXML x = ConnectionSettings' Lude.<$> (x Lude..@ "IdleTimeout")
 
-instance Hashable ConnectionSettings
-
-instance NFData ConnectionSettings
-
-instance ToQuery ConnectionSettings where
+instance Lude.ToQuery ConnectionSettings where
   toQuery ConnectionSettings' {..} =
-    mconcat ["IdleTimeout" =: _csIdleTimeout]
+    Lude.mconcat ["IdleTimeout" Lude.=: idleTimeout]

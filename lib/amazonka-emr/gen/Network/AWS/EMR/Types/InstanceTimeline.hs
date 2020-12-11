@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceTimeline where
+module Network.AWS.EMR.Types.InstanceTimeline
+  ( InstanceTimeline (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceTimeline,
+
+    -- * Lenses
+    itReadyDateTime,
+    itCreationDateTime,
+    itEndDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The timeline of the instance lifecycle.
 --
---
---
--- /See:/ 'instanceTimeline' smart constructor.
+-- /See:/ 'mkInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-  { _itReadyDateTime ::
-      !(Maybe POSIX),
-    _itCreationDateTime :: !(Maybe POSIX),
-    _itEndDateTime :: !(Maybe POSIX)
+  { readyDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    endDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTimeline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itReadyDateTime' - The date and time when the instance was ready to perform tasks.
---
--- * 'itCreationDateTime' - The creation date and time of the instance.
---
--- * 'itEndDateTime' - The date and time when the instance was terminated.
-instanceTimeline ::
+-- * 'creationDateTime' - The creation date and time of the instance.
+-- * 'endDateTime' - The date and time when the instance was terminated.
+-- * 'readyDateTime' - The date and time when the instance was ready to perform tasks.
+mkInstanceTimeline ::
   InstanceTimeline
-instanceTimeline =
+mkInstanceTimeline =
   InstanceTimeline'
-    { _itReadyDateTime = Nothing,
-      _itCreationDateTime = Nothing,
-      _itEndDateTime = Nothing
+    { readyDateTime = Lude.Nothing,
+      creationDateTime = Lude.Nothing,
+      endDateTime = Lude.Nothing
     }
 
 -- | The date and time when the instance was ready to perform tasks.
-itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
-itReadyDateTime = lens _itReadyDateTime (\s a -> s {_itReadyDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itReadyDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
+itReadyDateTime = Lens.lens (readyDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: InstanceTimeline)
+{-# DEPRECATED itReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The creation date and time of the instance.
-itCreationDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
-itCreationDateTime = lens _itCreationDateTime (\s a -> s {_itCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itCreationDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
+itCreationDateTime = Lens.lens (creationDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: InstanceTimeline)
+{-# DEPRECATED itCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the instance was terminated.
-itEndDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
-itEndDateTime = lens _itEndDateTime (\s a -> s {_itEndDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itEndDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
+itEndDateTime = Lens.lens (endDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: InstanceTimeline)
+{-# DEPRECATED itEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance FromJSON InstanceTimeline where
+instance Lude.FromJSON InstanceTimeline where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceTimeline"
       ( \x ->
           InstanceTimeline'
-            <$> (x .:? "ReadyDateTime")
-            <*> (x .:? "CreationDateTime")
-            <*> (x .:? "EndDateTime")
+            Lude.<$> (x Lude..:? "ReadyDateTime")
+            Lude.<*> (x Lude..:? "CreationDateTime")
+            Lude.<*> (x Lude..:? "EndDateTime")
       )
-
-instance Hashable InstanceTimeline
-
-instance NFData InstanceTimeline

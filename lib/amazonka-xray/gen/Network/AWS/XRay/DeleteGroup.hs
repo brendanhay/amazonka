@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,120 @@
 --
 -- Deletes a group resource.
 module Network.AWS.XRay.DeleteGroup
-  ( -- * Creating a Request
-    deleteGroup,
-    DeleteGroup,
+  ( -- * Creating a request
+    DeleteGroup (..),
+    mkDeleteGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgGroupARN,
     dgGroupName,
 
-    -- * Destructuring the Response
-    deleteGroupResponse,
-    DeleteGroupResponse,
+    -- * Destructuring the response
+    DeleteGroupResponse (..),
+    mkDeleteGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'deleteGroup' smart constructor.
+-- | /See:/ 'mkDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-  { _dgGroupARN :: !(Maybe Text),
-    _dgGroupName :: !(Maybe Text)
+  { groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgGroupARN' - The ARN of the group that was generated on creation.
---
--- * 'dgGroupName' - The case-sensitive name of the group.
-deleteGroup ::
+-- * 'groupARN' - The ARN of the group that was generated on creation.
+-- * 'groupName' - The case-sensitive name of the group.
+mkDeleteGroup ::
   DeleteGroup
-deleteGroup =
-  DeleteGroup' {_dgGroupARN = Nothing, _dgGroupName = Nothing}
+mkDeleteGroup =
+  DeleteGroup' {groupARN = Lude.Nothing, groupName = Lude.Nothing}
 
 -- | The ARN of the group that was generated on creation.
-dgGroupARN :: Lens' DeleteGroup (Maybe Text)
-dgGroupARN = lens _dgGroupARN (\s a -> s {_dgGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgGroupARN :: Lens.Lens' DeleteGroup (Lude.Maybe Lude.Text)
+dgGroupARN = Lens.lens (groupARN :: DeleteGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: DeleteGroup)
+{-# DEPRECATED dgGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The case-sensitive name of the group.
-dgGroupName :: Lens' DeleteGroup (Maybe Text)
-dgGroupName = lens _dgGroupName (\s a -> s {_dgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgGroupName :: Lens.Lens' DeleteGroup (Lude.Maybe Lude.Text)
+dgGroupName = Lens.lens (groupName :: DeleteGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: DeleteGroup)
+{-# DEPRECATED dgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest DeleteGroup where
+instance Lude.AWSRequest DeleteGroup where
   type Rs DeleteGroup = DeleteGroupResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveEmpty
-      (\s h x -> DeleteGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteGroup
+instance Lude.ToHeaders DeleteGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteGroup
-
-instance ToHeaders DeleteGroup where
-  toHeaders = const mempty
-
-instance ToJSON DeleteGroup where
+instance Lude.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
-    object
-      ( catMaybes
-          [ ("GroupARN" .=) <$> _dgGroupARN,
-            ("GroupName" .=) <$> _dgGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupARN" Lude..=) Lude.<$> groupARN,
+            ("GroupName" Lude..=) Lude.<$> groupName
           ]
       )
 
-instance ToPath DeleteGroup where
-  toPath = const "/DeleteGroup"
+instance Lude.ToPath DeleteGroup where
+  toPath = Lude.const "/DeleteGroup"
 
-instance ToQuery DeleteGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteGroupResponse' smart constructor.
 newtype DeleteGroupResponse = DeleteGroupResponse'
-  { _dgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgrsResponseStatus' - -- | The response status code.
-deleteGroupResponse ::
-  -- | 'dgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteGroupResponse
-deleteGroupResponse pResponseStatus_ =
-  DeleteGroupResponse' {_dgrsResponseStatus = pResponseStatus_}
+mkDeleteGroupResponse pResponseStatus_ =
+  DeleteGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dgrsResponseStatus :: Lens' DeleteGroupResponse Int
-dgrsResponseStatus = lens _dgrsResponseStatus (\s a -> s {_dgrsResponseStatus = a})
-
-instance NFData DeleteGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrsResponseStatus :: Lens.Lens' DeleteGroupResponse Lude.Int
+dgrsResponseStatus = Lens.lens (responseStatus :: DeleteGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGroupResponse)
+{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

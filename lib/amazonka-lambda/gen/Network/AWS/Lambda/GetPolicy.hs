@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns the <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html resource-based IAM policy> for a function, version, or alias.
 module Network.AWS.Lambda.GetPolicy
-  ( -- * Creating a Request
-    getPolicy,
-    GetPolicy,
+  ( -- * Creating a request
+    GetPolicy (..),
+    mkGetPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpQualifier,
     gpFunctionName,
 
-    -- * Destructuring the Response
-    getPolicyResponse,
-    GetPolicyResponse,
+    -- * Destructuring the response
+    GetPolicyResponse (..),
+    mkGetPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gprsPolicy,
     gprsRevisionId,
     gprsResponseStatus,
@@ -39,107 +34,152 @@ module Network.AWS.Lambda.GetPolicy
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPolicy' smart constructor.
+-- | /See:/ 'mkGetPolicy' smart constructor.
 data GetPolicy = GetPolicy'
-  { _gpQualifier :: !(Maybe Text),
-    _gpFunctionName :: !Text
+  { qualifier :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'gpQualifier' - Specify a version or alias to get the policy for that resource.
+-- __Name formats__
 --
--- * 'gpFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-getPolicy ::
-  -- | 'gpFunctionName'
-  Text ->
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'qualifier' - Specify a version or alias to get the policy for that resource.
+mkGetPolicy ::
+  -- | 'functionName'
+  Lude.Text ->
   GetPolicy
-getPolicy pFunctionName_ =
+mkGetPolicy pFunctionName_ =
   GetPolicy'
-    { _gpQualifier = Nothing,
-      _gpFunctionName = pFunctionName_
+    { qualifier = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get the policy for that resource.
-gpQualifier :: Lens' GetPolicy (Maybe Text)
-gpQualifier = lens _gpQualifier (\s a -> s {_gpQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpQualifier :: Lens.Lens' GetPolicy (Lude.Maybe Lude.Text)
+gpQualifier = Lens.lens (qualifier :: GetPolicy -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetPolicy)
+{-# DEPRECATED gpQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
--- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-gpFunctionName :: Lens' GetPolicy Text
-gpFunctionName = lens _gpFunctionName (\s a -> s {_gpFunctionName = a})
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpFunctionName :: Lens.Lens' GetPolicy Lude.Text
+gpFunctionName = Lens.lens (functionName :: GetPolicy -> Lude.Text) (\s a -> s {functionName = a} :: GetPolicy)
+{-# DEPRECATED gpFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest GetPolicy where
+instance Lude.AWSRequest GetPolicy where
   type Rs GetPolicy = GetPolicyResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            <$> (x .?> "Policy") <*> (x .?> "RevisionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Policy")
+            Lude.<*> (x Lude..?> "RevisionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPolicy
+instance Lude.ToHeaders GetPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPolicy
-
-instance ToHeaders GetPolicy where
-  toHeaders = const mempty
-
-instance ToPath GetPolicy where
+instance Lude.ToPath GetPolicy where
   toPath GetPolicy' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _gpFunctionName, "/policy"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/policy"]
 
-instance ToQuery GetPolicy where
-  toQuery GetPolicy' {..} = mconcat ["Qualifier" =: _gpQualifier]
+instance Lude.ToQuery GetPolicy where
+  toQuery GetPolicy' {..} =
+    Lude.mconcat ["Qualifier" Lude.=: qualifier]
 
--- | /See:/ 'getPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicy ::
-      !(Maybe Text),
-    _gprsRevisionId :: !(Maybe Text),
-    _gprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsPolicy' - The resource-based policy.
---
--- * 'gprsRevisionId' - A unique identifier for the current revision of the policy.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getPolicyResponse ::
-  -- | 'gprsResponseStatus'
-  Int ->
+-- * 'policy' - The resource-based policy.
+-- * 'responseStatus' - The response status code.
+-- * 'revisionId' - A unique identifier for the current revision of the policy.
+mkGetPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPolicyResponse
-getPolicyResponse pResponseStatus_ =
+mkGetPolicyResponse pResponseStatus_ =
   GetPolicyResponse'
-    { _gprsPolicy = Nothing,
-      _gprsRevisionId = Nothing,
-      _gprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The resource-based policy.
-gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicy = lens _gprsPolicy (\s a -> s {_gprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsPolicy :: Lens.Lens' GetPolicyResponse (Lude.Maybe Lude.Text)
+gprsPolicy = Lens.lens (policy :: GetPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | A unique identifier for the current revision of the policy.
-gprsRevisionId :: Lens' GetPolicyResponse (Maybe Text)
-gprsRevisionId = lens _gprsRevisionId (\s a -> s {_gprsRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsRevisionId :: Lens.Lens' GetPolicyResponse (Lude.Maybe Lude.Text)
+gprsRevisionId = Lens.lens (revisionId :: GetPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\s a -> s {_gprsResponseStatus = a})
-
-instance NFData GetPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsResponseStatus :: Lens.Lens' GetPolicyResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPolicyResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

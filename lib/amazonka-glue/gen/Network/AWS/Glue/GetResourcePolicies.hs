@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Retrieves the security configurations for the resource policies set on individual resources, and also the account-level policy.
 --
---
 -- This operation also returns the Data Catalog resource policy. However, if you enabled metadata encryption in Data Catalog settings, and you do not have permission on the AWS KMS key, the operation can't return the Data Catalog resource policy.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetResourcePolicies
-  ( -- * Creating a Request
-    getResourcePolicies,
-    GetResourcePolicies,
+  ( -- * Creating a request
+    GetResourcePolicies (..),
+    mkGetResourcePolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grpNextToken,
     grpMaxResults,
 
-    -- * Destructuring the Response
-    getResourcePoliciesResponse,
-    GetResourcePoliciesResponse,
+    -- * Destructuring the response
+    GetResourcePoliciesResponse (..),
+    mkGetResourcePoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grprsGetResourcePoliciesResponseList,
     grprsNextToken,
     grprsResponseStatus,
@@ -45,129 +38,151 @@ module Network.AWS.Glue.GetResourcePolicies
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getResourcePolicies' smart constructor.
+-- | /See:/ 'mkGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { _grpNextToken ::
-      !(Maybe Text),
-    _grpMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grpNextToken' - A continuation token, if this is a continuation request.
---
--- * 'grpMaxResults' - The maximum size of a list to return.
-getResourcePolicies ::
+-- * 'maxResults' - The maximum size of a list to return.
+-- * 'nextToken' - A continuation token, if this is a continuation request.
+mkGetResourcePolicies ::
   GetResourcePolicies
-getResourcePolicies =
+mkGetResourcePolicies =
   GetResourcePolicies'
-    { _grpNextToken = Nothing,
-      _grpMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A continuation token, if this is a continuation request.
-grpNextToken :: Lens' GetResourcePolicies (Maybe Text)
-grpNextToken = lens _grpNextToken (\s a -> s {_grpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpNextToken :: Lens.Lens' GetResourcePolicies (Lude.Maybe Lude.Text)
+grpNextToken = Lens.lens (nextToken :: GetResourcePolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetResourcePolicies)
+{-# DEPRECATED grpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
-grpMaxResults :: Lens' GetResourcePolicies (Maybe Natural)
-grpMaxResults = lens _grpMaxResults (\s a -> s {_grpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpMaxResults :: Lens.Lens' GetResourcePolicies (Lude.Maybe Lude.Natural)
+grpMaxResults = Lens.lens (maxResults :: GetResourcePolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetResourcePolicies)
+{-# DEPRECATED grpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetResourcePolicies where
+instance Page.AWSPager GetResourcePolicies where
   page rq rs
-    | stop (rs ^. grprsNextToken) = Nothing
-    | stop (rs ^. grprsGetResourcePoliciesResponseList) = Nothing
-    | otherwise = Just $ rq & grpNextToken .~ rs ^. grprsNextToken
+    | Page.stop (rs Lens.^. grprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grprsGetResourcePoliciesResponseList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grpNextToken Lens..~ rs Lens.^. grprsNextToken
 
-instance AWSRequest GetResourcePolicies where
+instance Lude.AWSRequest GetResourcePolicies where
   type Rs GetResourcePolicies = GetResourcePoliciesResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetResourcePoliciesResponse'
-            <$> (x .?> "GetResourcePoliciesResponseList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GetResourcePoliciesResponseList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetResourcePolicies
-
-instance NFData GetResourcePolicies
-
-instance ToHeaders GetResourcePolicies where
+instance Lude.ToHeaders GetResourcePolicies where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetResourcePolicies" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetResourcePolicies" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetResourcePolicies where
+instance Lude.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _grpNextToken,
-            ("MaxResults" .=) <$> _grpMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetResourcePolicies where
-  toPath = const "/"
+instance Lude.ToPath GetResourcePolicies where
+  toPath = Lude.const "/"
 
-instance ToQuery GetResourcePolicies where
-  toQuery = const mempty
+instance Lude.ToQuery GetResourcePolicies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getResourcePoliciesResponse' smart constructor.
+-- | /See:/ 'mkGetResourcePoliciesResponse' smart constructor.
 data GetResourcePoliciesResponse = GetResourcePoliciesResponse'
-  { _grprsGetResourcePoliciesResponseList ::
-      !(Maybe [GluePolicy]),
-    _grprsNextToken :: !(Maybe Text),
-    _grprsResponseStatus :: !Int
+  { getResourcePoliciesResponseList ::
+      Lude.Maybe [GluePolicy],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grprsGetResourcePoliciesResponseList' - A list of the individual resource policies and the account-level resource policy.
---
--- * 'grprsNextToken' - A continuation token, if the returned list does not contain the last resource policy available.
---
--- * 'grprsResponseStatus' - -- | The response status code.
-getResourcePoliciesResponse ::
-  -- | 'grprsResponseStatus'
-  Int ->
+-- * 'getResourcePoliciesResponseList' - A list of the individual resource policies and the account-level resource policy.
+-- * 'nextToken' - A continuation token, if the returned list does not contain the last resource policy available.
+-- * 'responseStatus' - The response status code.
+mkGetResourcePoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetResourcePoliciesResponse
-getResourcePoliciesResponse pResponseStatus_ =
+mkGetResourcePoliciesResponse pResponseStatus_ =
   GetResourcePoliciesResponse'
-    { _grprsGetResourcePoliciesResponseList =
-        Nothing,
-      _grprsNextToken = Nothing,
-      _grprsResponseStatus = pResponseStatus_
+    { getResourcePoliciesResponseList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the individual resource policies and the account-level resource policy.
-grprsGetResourcePoliciesResponseList :: Lens' GetResourcePoliciesResponse [GluePolicy]
-grprsGetResourcePoliciesResponseList = lens _grprsGetResourcePoliciesResponseList (\s a -> s {_grprsGetResourcePoliciesResponseList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'getResourcePoliciesResponseList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsGetResourcePoliciesResponseList :: Lens.Lens' GetResourcePoliciesResponse (Lude.Maybe [GluePolicy])
+grprsGetResourcePoliciesResponseList = Lens.lens (getResourcePoliciesResponseList :: GetResourcePoliciesResponse -> Lude.Maybe [GluePolicy]) (\s a -> s {getResourcePoliciesResponseList = a} :: GetResourcePoliciesResponse)
+{-# DEPRECATED grprsGetResourcePoliciesResponseList "Use generic-lens or generic-optics with 'getResourcePoliciesResponseList' instead." #-}
 
 -- | A continuation token, if the returned list does not contain the last resource policy available.
-grprsNextToken :: Lens' GetResourcePoliciesResponse (Maybe Text)
-grprsNextToken = lens _grprsNextToken (\s a -> s {_grprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsNextToken :: Lens.Lens' GetResourcePoliciesResponse (Lude.Maybe Lude.Text)
+grprsNextToken = Lens.lens (nextToken :: GetResourcePoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetResourcePoliciesResponse)
+{-# DEPRECATED grprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-grprsResponseStatus :: Lens' GetResourcePoliciesResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\s a -> s {_grprsResponseStatus = a})
-
-instance NFData GetResourcePoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsResponseStatus :: Lens.Lens' GetResourcePoliciesResponse Lude.Int
+grprsResponseStatus = Lens.lens (responseStatus :: GetResourcePoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourcePoliciesResponse)
+{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

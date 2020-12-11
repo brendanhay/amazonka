@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,128 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerValidationConfiguration where
+module Network.AWS.SMS.Types.ServerValidationConfiguration
+  ( ServerValidationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerValidationConfiguration,
+
+    -- * Lenses
+    svcServerValidationStrategy,
+    svcUserDataValidationParameters,
+    svcName,
+    svcServer,
+    svcValidationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.Server
 import Network.AWS.SMS.Types.ServerValidationStrategy
 import Network.AWS.SMS.Types.UserDataValidationParameters
 
 -- | Configuration for validating an instance.
 --
---
---
--- /See:/ 'serverValidationConfiguration' smart constructor.
+-- /See:/ 'mkServerValidationConfiguration' smart constructor.
 data ServerValidationConfiguration = ServerValidationConfiguration'
-  { _svcServerValidationStrategy ::
-      !( Maybe
-           ServerValidationStrategy
-       ),
-    _svcUserDataValidationParameters ::
-      !( Maybe
-           UserDataValidationParameters
-       ),
-    _svcName :: !(Maybe Text),
-    _svcServer :: !(Maybe Server),
-    _svcValidationId ::
-      !(Maybe Text)
+  { serverValidationStrategy ::
+      Lude.Maybe
+        ServerValidationStrategy,
+    userDataValidationParameters ::
+      Lude.Maybe
+        UserDataValidationParameters,
+    name :: Lude.Maybe Lude.Text,
+    server :: Lude.Maybe Server,
+    validationId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerValidationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svcServerValidationStrategy' - The validation strategy.
---
--- * 'svcUserDataValidationParameters' - The validation parameters.
---
--- * 'svcName' - The name of the configuration.
---
--- * 'svcServer' - Undocumented member.
---
--- * 'svcValidationId' - The ID of the validation.
-serverValidationConfiguration ::
+-- * 'name' - The name of the configuration.
+-- * 'server' - Undocumented field.
+-- * 'serverValidationStrategy' - The validation strategy.
+-- * 'userDataValidationParameters' - The validation parameters.
+-- * 'validationId' - The ID of the validation.
+mkServerValidationConfiguration ::
   ServerValidationConfiguration
-serverValidationConfiguration =
+mkServerValidationConfiguration =
   ServerValidationConfiguration'
-    { _svcServerValidationStrategy =
-        Nothing,
-      _svcUserDataValidationParameters = Nothing,
-      _svcName = Nothing,
-      _svcServer = Nothing,
-      _svcValidationId = Nothing
+    { serverValidationStrategy =
+        Lude.Nothing,
+      userDataValidationParameters = Lude.Nothing,
+      name = Lude.Nothing,
+      server = Lude.Nothing,
+      validationId = Lude.Nothing
     }
 
 -- | The validation strategy.
-svcServerValidationStrategy :: Lens' ServerValidationConfiguration (Maybe ServerValidationStrategy)
-svcServerValidationStrategy = lens _svcServerValidationStrategy (\s a -> s {_svcServerValidationStrategy = a})
+--
+-- /Note:/ Consider using 'serverValidationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svcServerValidationStrategy :: Lens.Lens' ServerValidationConfiguration (Lude.Maybe ServerValidationStrategy)
+svcServerValidationStrategy = Lens.lens (serverValidationStrategy :: ServerValidationConfiguration -> Lude.Maybe ServerValidationStrategy) (\s a -> s {serverValidationStrategy = a} :: ServerValidationConfiguration)
+{-# DEPRECATED svcServerValidationStrategy "Use generic-lens or generic-optics with 'serverValidationStrategy' instead." #-}
 
 -- | The validation parameters.
-svcUserDataValidationParameters :: Lens' ServerValidationConfiguration (Maybe UserDataValidationParameters)
-svcUserDataValidationParameters = lens _svcUserDataValidationParameters (\s a -> s {_svcUserDataValidationParameters = a})
+--
+-- /Note:/ Consider using 'userDataValidationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svcUserDataValidationParameters :: Lens.Lens' ServerValidationConfiguration (Lude.Maybe UserDataValidationParameters)
+svcUserDataValidationParameters = Lens.lens (userDataValidationParameters :: ServerValidationConfiguration -> Lude.Maybe UserDataValidationParameters) (\s a -> s {userDataValidationParameters = a} :: ServerValidationConfiguration)
+{-# DEPRECATED svcUserDataValidationParameters "Use generic-lens or generic-optics with 'userDataValidationParameters' instead." #-}
 
 -- | The name of the configuration.
-svcName :: Lens' ServerValidationConfiguration (Maybe Text)
-svcName = lens _svcName (\s a -> s {_svcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svcName :: Lens.Lens' ServerValidationConfiguration (Lude.Maybe Lude.Text)
+svcName = Lens.lens (name :: ServerValidationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServerValidationConfiguration)
+{-# DEPRECATED svcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-svcServer :: Lens' ServerValidationConfiguration (Maybe Server)
-svcServer = lens _svcServer (\s a -> s {_svcServer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svcServer :: Lens.Lens' ServerValidationConfiguration (Lude.Maybe Server)
+svcServer = Lens.lens (server :: ServerValidationConfiguration -> Lude.Maybe Server) (\s a -> s {server = a} :: ServerValidationConfiguration)
+{-# DEPRECATED svcServer "Use generic-lens or generic-optics with 'server' instead." #-}
 
 -- | The ID of the validation.
-svcValidationId :: Lens' ServerValidationConfiguration (Maybe Text)
-svcValidationId = lens _svcValidationId (\s a -> s {_svcValidationId = a})
+--
+-- /Note:/ Consider using 'validationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svcValidationId :: Lens.Lens' ServerValidationConfiguration (Lude.Maybe Lude.Text)
+svcValidationId = Lens.lens (validationId :: ServerValidationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {validationId = a} :: ServerValidationConfiguration)
+{-# DEPRECATED svcValidationId "Use generic-lens or generic-optics with 'validationId' instead." #-}
 
-instance FromJSON ServerValidationConfiguration where
+instance Lude.FromJSON ServerValidationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerValidationConfiguration"
       ( \x ->
           ServerValidationConfiguration'
-            <$> (x .:? "serverValidationStrategy")
-            <*> (x .:? "userDataValidationParameters")
-            <*> (x .:? "name")
-            <*> (x .:? "server")
-            <*> (x .:? "validationId")
+            Lude.<$> (x Lude..:? "serverValidationStrategy")
+            Lude.<*> (x Lude..:? "userDataValidationParameters")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "server")
+            Lude.<*> (x Lude..:? "validationId")
       )
 
-instance Hashable ServerValidationConfiguration
-
-instance NFData ServerValidationConfiguration
-
-instance ToJSON ServerValidationConfiguration where
+instance Lude.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("serverValidationStrategy" .=) <$> _svcServerValidationStrategy,
-            ("userDataValidationParameters" .=)
-              <$> _svcUserDataValidationParameters,
-            ("name" .=) <$> _svcName,
-            ("server" .=) <$> _svcServer,
-            ("validationId" .=) <$> _svcValidationId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serverValidationStrategy" Lude..=)
+              Lude.<$> serverValidationStrategy,
+            ("userDataValidationParameters" Lude..=)
+              Lude.<$> userDataValidationParameters,
+            ("name" Lude..=) Lude.<$> name,
+            ("server" Lude..=) Lude.<$> server,
+            ("validationId" Lude..=) Lude.<$> validationId
           ]
       )

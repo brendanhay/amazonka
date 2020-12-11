@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.RootDeviceType where
+module Network.AWS.OpsWorks.Types.RootDeviceType
+  ( RootDeviceType
+      ( RootDeviceType',
+        EBS,
+        InstanceStore
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RootDeviceType
-  = EBS
-  | InstanceStore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RootDeviceType = RootDeviceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RootDeviceType where
-  parser =
-    takeLowerText >>= \case
-      "ebs" -> pure EBS
-      "instance-store" -> pure InstanceStore
-      e ->
-        fromTextError $
-          "Failure parsing RootDeviceType from value: '" <> e
-            <> "'. Accepted values: ebs, instance-store"
+pattern EBS :: RootDeviceType
+pattern EBS = RootDeviceType' "ebs"
 
-instance ToText RootDeviceType where
-  toText = \case
-    EBS -> "ebs"
-    InstanceStore -> "instance-store"
+pattern InstanceStore :: RootDeviceType
+pattern InstanceStore = RootDeviceType' "instance-store"
 
-instance Hashable RootDeviceType
-
-instance NFData RootDeviceType
-
-instance ToByteString RootDeviceType
-
-instance ToQuery RootDeviceType
-
-instance ToHeader RootDeviceType
-
-instance ToJSON RootDeviceType where
-  toJSON = toJSONText
-
-instance FromJSON RootDeviceType where
-  parseJSON = parseJSONText "RootDeviceType"
+{-# COMPLETE
+  EBS,
+  InstanceStore,
+  RootDeviceType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,187 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectCache where
+module Network.AWS.CodeBuild.Types.ProjectCache
+  ( ProjectCache (..),
+
+    -- * Smart constructor
+    mkProjectCache,
+
+    -- * Lenses
+    pcLocation,
+    pcModes,
+    pcType,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.CacheMode
 import Network.AWS.CodeBuild.Types.CacheType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the cache for the build project.
 --
---
---
--- /See:/ 'projectCache' smart constructor.
+-- /See:/ 'mkProjectCache' smart constructor.
 data ProjectCache = ProjectCache'
-  { _pcLocation :: !(Maybe Text),
-    _pcModes :: !(Maybe [CacheMode]),
-    _pcType :: !CacheType
+  { location :: Lude.Maybe Lude.Text,
+    modes :: Lude.Maybe [CacheMode],
+    type' :: CacheType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'location' - Information about the cache location:
 --
--- * 'pcLocation' - Information about the cache location:      * @NO_CACHE@ or @LOCAL@ : This value is ignored.     * @S3@ : This is the S3 bucket name/prefix.
 --
--- * 'pcModes' - An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for @LOCAL@ cache types. Possible values are:     * LOCAL_SOURCE_CACHE    * Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.      * LOCAL_DOCKER_LAYER_CACHE    * Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.      * LOCAL_CUSTOM_CACHE    * Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:      * Only directories can be specified for caching. You cannot specify individual files.      * Symlinks are used to reference cached directories.      * Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+--     * @NO_CACHE@ or @LOCAL@ : This value is ignored.
 --
--- * 'pcType' - The type of cache used by the build project. Valid values include:     * @NO_CACHE@ : The build project does not use any cache.     * @S3@ : The build project reads and writes from and to S3.     * @LOCAL@ : The build project stores a cache locally on a build host that is only available to that build host.
-projectCache ::
-  -- | 'pcType'
+--
+--     * @S3@ : This is the S3 bucket name/prefix.
+--
+--
+-- * 'modes' - An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for @LOCAL@ cache types.
+--
+-- Possible values are:
+--
+--     * LOCAL_SOURCE_CACHE
+--
+--     * Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+--
+--
+--     * LOCAL_DOCKER_LAYER_CACHE
+--
+--     * Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+--
+--
+--     * LOCAL_CUSTOM_CACHE
+--
+--     * Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+--
+--     * Only directories can be specified for caching. You cannot specify individual files.
+--
+--
+--     * Symlinks are used to reference cached directories.
+--
+--
+--     * Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+--
+--
+--
+--
+-- * 'type'' - The type of cache used by the build project. Valid values include:
+--
+--
+--     * @NO_CACHE@ : The build project does not use any cache.
+--
+--
+--     * @S3@ : The build project reads and writes from and to S3.
+--
+--
+--     * @LOCAL@ : The build project stores a cache locally on a build host that is only available to that build host.
+mkProjectCache ::
+  -- | 'type''
   CacheType ->
   ProjectCache
-projectCache pType_ =
+mkProjectCache pType_ =
   ProjectCache'
-    { _pcLocation = Nothing,
-      _pcModes = Nothing,
-      _pcType = pType_
+    { location = Lude.Nothing,
+      modes = Lude.Nothing,
+      type' = pType_
     }
 
--- | Information about the cache location:      * @NO_CACHE@ or @LOCAL@ : This value is ignored.     * @S3@ : This is the S3 bucket name/prefix.
-pcLocation :: Lens' ProjectCache (Maybe Text)
-pcLocation = lens _pcLocation (\s a -> s {_pcLocation = a})
+-- | Information about the cache location:
+--
+--
+--     * @NO_CACHE@ or @LOCAL@ : This value is ignored.
+--
+--
+--     * @S3@ : This is the S3 bucket name/prefix.
+--
+--
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcLocation :: Lens.Lens' ProjectCache (Lude.Maybe Lude.Text)
+pcLocation = Lens.lens (location :: ProjectCache -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ProjectCache)
+{-# DEPRECATED pcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for @LOCAL@ cache types. Possible values are:     * LOCAL_SOURCE_CACHE    * Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.      * LOCAL_DOCKER_LAYER_CACHE    * Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.      * LOCAL_CUSTOM_CACHE    * Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:      * Only directories can be specified for caching. You cannot specify individual files.      * Symlinks are used to reference cached directories.      * Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
-pcModes :: Lens' ProjectCache [CacheMode]
-pcModes = lens _pcModes (\s a -> s {_pcModes = a}) . _Default . _Coerce
+-- | An array of strings that specify the local cache modes. You can use one or more local cache modes at the same time. This is only used for @LOCAL@ cache types.
+--
+-- Possible values are:
+--
+--     * LOCAL_SOURCE_CACHE
+--
+--     * Caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored.
+--
+--
+--     * LOCAL_DOCKER_LAYER_CACHE
+--
+--     * Caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network.
+--
+--
+--     * LOCAL_CUSTOM_CACHE
+--
+--     * Caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache:
+--
+--     * Only directories can be specified for caching. You cannot specify individual files.
+--
+--
+--     * Symlinks are used to reference cached directories.
+--
+--
+--     * Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'modes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcModes :: Lens.Lens' ProjectCache (Lude.Maybe [CacheMode])
+pcModes = Lens.lens (modes :: ProjectCache -> Lude.Maybe [CacheMode]) (\s a -> s {modes = a} :: ProjectCache)
+{-# DEPRECATED pcModes "Use generic-lens or generic-optics with 'modes' instead." #-}
 
--- | The type of cache used by the build project. Valid values include:     * @NO_CACHE@ : The build project does not use any cache.     * @S3@ : The build project reads and writes from and to S3.     * @LOCAL@ : The build project stores a cache locally on a build host that is only available to that build host.
-pcType :: Lens' ProjectCache CacheType
-pcType = lens _pcType (\s a -> s {_pcType = a})
+-- | The type of cache used by the build project. Valid values include:
+--
+--
+--     * @NO_CACHE@ : The build project does not use any cache.
+--
+--
+--     * @S3@ : The build project reads and writes from and to S3.
+--
+--
+--     * @LOCAL@ : The build project stores a cache locally on a build host that is only available to that build host.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcType :: Lens.Lens' ProjectCache CacheType
+pcType = Lens.lens (type' :: ProjectCache -> CacheType) (\s a -> s {type' = a} :: ProjectCache)
+{-# DEPRECATED pcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON ProjectCache where
+instance Lude.FromJSON ProjectCache where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectCache"
       ( \x ->
           ProjectCache'
-            <$> (x .:? "location")
-            <*> (x .:? "modes" .!= mempty)
-            <*> (x .: "type")
+            Lude.<$> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "modes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "type")
       )
 
-instance Hashable ProjectCache
-
-instance NFData ProjectCache
-
-instance ToJSON ProjectCache where
+instance Lude.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =
-    object
-      ( catMaybes
-          [ ("location" .=) <$> _pcLocation,
-            ("modes" .=) <$> _pcModes,
-            Just ("type" .= _pcType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("location" Lude..=) Lude.<$> location,
+            ("modes" Lude..=) Lude.<$> modes,
+            Lude.Just ("type" Lude..= type')
           ]
       )

@@ -28,121 +28,121 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribePipelines $
---             describePipelines
+--             mkDescribePipelines
 --
 --         , requestQueryObjects $
---             queryObjects
+--             mkQueryObjects
 --
 --         , requestRemoveTags $
---             removeTags
+--             mkRemoveTags
 --
 --         , requestDeletePipeline $
---             deletePipeline
+--             mkDeletePipeline
 --
 --         , requestListPipelines $
---             listPipelines
+--             mkListPipelines
 --
 --         , requestEvaluateExpression $
---             evaluateExpression
+--             mkEvaluateExpression
 --
 --         , requestGetPipelineDefinition $
---             getPipelineDefinition
+--             mkGetPipelineDefinition
 --
 --         , requestPollForTask $
---             pollForTask
+--             mkPollForTask
 --
 --         , requestDeactivatePipeline $
---             deactivatePipeline
+--             mkDeactivatePipeline
 --
 --         , requestAddTags $
---             addTags
+--             mkAddTags
 --
 --         , requestDescribeObjects $
---             describeObjects
+--             mkDescribeObjects
 --
 --         , requestReportTaskRunnerHeartbeat $
---             reportTaskRunnerHeartbeat
+--             mkReportTaskRunnerHeartbeat
 --
 --         , requestActivatePipeline $
---             activatePipeline
+--             mkActivatePipeline
 --
 --         , requestSetTaskStatus $
---             setTaskStatus
+--             mkSetTaskStatus
 --
 --         , requestSetStatus $
---             setStatus
+--             mkSetStatus
 --
 --         , requestReportTaskProgress $
---             reportTaskProgress
+--             mkReportTaskProgress
 --
 --         , requestCreatePipeline $
---             createPipeline
+--             mkCreatePipeline
 --
 --         , requestPutPipelineDefinition $
---             putPipelineDefinition
+--             mkPutPipelineDefinition
 --
 --         , requestValidatePipelineDefinition $
---             validatePipelineDefinition
+--             mkValidatePipelineDefinition
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribePipelines $
---             describePipelinesResponse
+--             mkDescribePipelinesResponse
 --
 --         , responseQueryObjects $
---             queryObjectsResponse
+--             mkQueryObjectsResponse
 --
 --         , responseRemoveTags $
---             removeTagsResponse
+--             mkRemoveTagsResponse
 --
 --         , responseDeletePipeline $
---             deletePipelineResponse
+--             mkDeletePipelineResponse
 --
 --         , responseListPipelines $
---             listPipelinesResponse
+--             mkListPipelinesResponse
 --
 --         , responseEvaluateExpression $
---             evaluateExpressionResponse
+--             mkEvaluateExpressionResponse
 --
 --         , responseGetPipelineDefinition $
---             getPipelineDefinitionResponse
+--             mkGetPipelineDefinitionResponse
 --
 --         , responsePollForTask $
---             pollForTaskResponse
+--             mkPollForTaskResponse
 --
 --         , responseDeactivatePipeline $
---             deactivatePipelineResponse
+--             mkDeactivatePipelineResponse
 --
 --         , responseAddTags $
---             addTagsResponse
+--             mkAddTagsResponse
 --
 --         , responseDescribeObjects $
---             describeObjectsResponse
+--             mkDescribeObjectsResponse
 --
 --         , responseReportTaskRunnerHeartbeat $
---             reportTaskRunnerHeartbeatResponse
+--             mkReportTaskRunnerHeartbeatResponse
 --
 --         , responseActivatePipeline $
---             activatePipelineResponse
+--             mkActivatePipelineResponse
 --
 --         , responseSetTaskStatus $
---             setTaskStatusResponse
+--             mkSetTaskStatusResponse
 --
 --         , responseSetStatus $
---             setStatusResponse
+--             mkSetStatusResponse
 --
 --         , responseReportTaskProgress $
---             reportTaskProgressResponse
+--             mkReportTaskProgressResponse
 --
 --         , responseCreatePipeline $
---             createPipelineResponse
+--             mkCreatePipelineResponse
 --
 --         , responsePutPipelineDefinition $
---             putPipelineDefinitionResponse
+--             mkPutPipelineDefinitionResponse
 --
 --         , responseValidatePipelineDefinition $
---             validatePipelineDefinitionResponse
+--             mkValidatePipelineDefinitionResponse
 --
 --           ]
 --     ]
@@ -270,7 +270,7 @@ responseDescribePipelines =
   res
     "DescribePipelinesResponse"
     "fixture/DescribePipelinesResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy DescribePipelines)
 
 responseQueryObjects :: QueryObjectsResponse -> TestTree
@@ -278,7 +278,7 @@ responseQueryObjects =
   res
     "QueryObjectsResponse"
     "fixture/QueryObjectsResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy QueryObjects)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -286,7 +286,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy RemoveTags)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy DeletePipeline)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -302,7 +302,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy ListPipelines)
 
 responseEvaluateExpression :: EvaluateExpressionResponse -> TestTree
@@ -310,7 +310,7 @@ responseEvaluateExpression =
   res
     "EvaluateExpressionResponse"
     "fixture/EvaluateExpressionResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy EvaluateExpression)
 
 responseGetPipelineDefinition :: GetPipelineDefinitionResponse -> TestTree
@@ -318,7 +318,7 @@ responseGetPipelineDefinition =
   res
     "GetPipelineDefinitionResponse"
     "fixture/GetPipelineDefinitionResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy GetPipelineDefinition)
 
 responsePollForTask :: PollForTaskResponse -> TestTree
@@ -326,7 +326,7 @@ responsePollForTask =
   res
     "PollForTaskResponse"
     "fixture/PollForTaskResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy PollForTask)
 
 responseDeactivatePipeline :: DeactivatePipelineResponse -> TestTree
@@ -334,7 +334,7 @@ responseDeactivatePipeline =
   res
     "DeactivatePipelineResponse"
     "fixture/DeactivatePipelineResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy DeactivatePipeline)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -342,7 +342,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy AddTags)
 
 responseDescribeObjects :: DescribeObjectsResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeObjects =
   res
     "DescribeObjectsResponse"
     "fixture/DescribeObjectsResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy DescribeObjects)
 
 responseReportTaskRunnerHeartbeat :: ReportTaskRunnerHeartbeatResponse -> TestTree
@@ -358,7 +358,7 @@ responseReportTaskRunnerHeartbeat =
   res
     "ReportTaskRunnerHeartbeatResponse"
     "fixture/ReportTaskRunnerHeartbeatResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy ReportTaskRunnerHeartbeat)
 
 responseActivatePipeline :: ActivatePipelineResponse -> TestTree
@@ -366,7 +366,7 @@ responseActivatePipeline =
   res
     "ActivatePipelineResponse"
     "fixture/ActivatePipelineResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy ActivatePipeline)
 
 responseSetTaskStatus :: SetTaskStatusResponse -> TestTree
@@ -374,7 +374,7 @@ responseSetTaskStatus =
   res
     "SetTaskStatusResponse"
     "fixture/SetTaskStatusResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy SetTaskStatus)
 
 responseSetStatus :: SetStatusResponse -> TestTree
@@ -382,7 +382,7 @@ responseSetStatus =
   res
     "SetStatusResponse"
     "fixture/SetStatusResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy SetStatus)
 
 responseReportTaskProgress :: ReportTaskProgressResponse -> TestTree
@@ -390,7 +390,7 @@ responseReportTaskProgress =
   res
     "ReportTaskProgressResponse"
     "fixture/ReportTaskProgressResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy ReportTaskProgress)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -398,7 +398,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy CreatePipeline)
 
 responsePutPipelineDefinition :: PutPipelineDefinitionResponse -> TestTree
@@ -406,7 +406,7 @@ responsePutPipelineDefinition =
   res
     "PutPipelineDefinitionResponse"
     "fixture/PutPipelineDefinitionResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy PutPipelineDefinition)
 
 responseValidatePipelineDefinition :: ValidatePipelineDefinitionResponse -> TestTree
@@ -414,5 +414,5 @@ responseValidatePipelineDefinition =
   res
     "ValidatePipelineDefinitionResponse"
     "fixture/ValidatePipelineDefinitionResponse.proto"
-    dataPipeline
+    dataPipelineService
     (Proxy :: Proxy ValidatePipelineDefinition)

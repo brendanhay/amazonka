@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest where
+module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+  ( CmafInitializationVectorInManifest
+      ( CmafInitializationVectorInManifest',
+        CIVIMExclude,
+        CIVIMInclude
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
-data CmafInitializationVectorInManifest
-  = CIVIMExclude
-  | CIVIMInclude
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CmafInitializationVectorInManifest = CmafInitializationVectorInManifest' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CmafInitializationVectorInManifest where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure CIVIMExclude
-      "include" -> pure CIVIMInclude
-      e ->
-        fromTextError $
-          "Failure parsing CmafInitializationVectorInManifest from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern CIVIMExclude :: CmafInitializationVectorInManifest
+pattern CIVIMExclude = CmafInitializationVectorInManifest' "EXCLUDE"
 
-instance ToText CmafInitializationVectorInManifest where
-  toText = \case
-    CIVIMExclude -> "EXCLUDE"
-    CIVIMInclude -> "INCLUDE"
+pattern CIVIMInclude :: CmafInitializationVectorInManifest
+pattern CIVIMInclude = CmafInitializationVectorInManifest' "INCLUDE"
 
-instance Hashable CmafInitializationVectorInManifest
-
-instance NFData CmafInitializationVectorInManifest
-
-instance ToByteString CmafInitializationVectorInManifest
-
-instance ToQuery CmafInitializationVectorInManifest
-
-instance ToHeader CmafInitializationVectorInManifest
-
-instance ToJSON CmafInitializationVectorInManifest where
-  toJSON = toJSONText
-
-instance FromJSON CmafInitializationVectorInManifest where
-  parseJSON = parseJSONText "CmafInitializationVectorInManifest"
+{-# COMPLETE
+  CIVIMExclude,
+  CIVIMInclude,
+  CmafInitializationVectorInManifest'
+  #-}

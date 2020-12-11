@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.CancelWorkflowExecutionFailedCause where
+module Network.AWS.SWF.Types.CancelWorkflowExecutionFailedCause
+  ( CancelWorkflowExecutionFailedCause
+      ( CancelWorkflowExecutionFailedCause',
+        COperationNotPermitted,
+        CUnhandledDecision
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CancelWorkflowExecutionFailedCause
-  = COperationNotPermitted
-  | CUnhandledDecision
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CancelWorkflowExecutionFailedCause = CancelWorkflowExecutionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CancelWorkflowExecutionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "operation_not_permitted" -> pure COperationNotPermitted
-      "unhandled_decision" -> pure CUnhandledDecision
-      e ->
-        fromTextError $
-          "Failure parsing CancelWorkflowExecutionFailedCause from value: '" <> e
-            <> "'. Accepted values: operation_not_permitted, unhandled_decision"
+pattern COperationNotPermitted :: CancelWorkflowExecutionFailedCause
+pattern COperationNotPermitted = CancelWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToText CancelWorkflowExecutionFailedCause where
-  toText = \case
-    COperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    CUnhandledDecision -> "UNHANDLED_DECISION"
+pattern CUnhandledDecision :: CancelWorkflowExecutionFailedCause
+pattern CUnhandledDecision = CancelWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
-instance Hashable CancelWorkflowExecutionFailedCause
-
-instance NFData CancelWorkflowExecutionFailedCause
-
-instance ToByteString CancelWorkflowExecutionFailedCause
-
-instance ToQuery CancelWorkflowExecutionFailedCause
-
-instance ToHeader CancelWorkflowExecutionFailedCause
-
-instance FromJSON CancelWorkflowExecutionFailedCause where
-  parseJSON = parseJSONText "CancelWorkflowExecutionFailedCause"
+{-# COMPLETE
+  COperationNotPermitted,
+  CUnhandledDecision,
+  CancelWorkflowExecutionFailedCause'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,169 +17,191 @@
 --
 --     * 'CreateAlias'
 --
+--
 --     * 'ListAliases'
+--
 --
 --     * 'DescribeAlias'
 --
+--
 --     * 'UpdateAlias'
+--
 --
 --     * 'DeleteAlias'
 --
+--
 --     * 'ResolveAlias'
 module Network.AWS.GameLift.UpdateAlias
-  ( -- * Creating a Request
-    updateAlias,
-    UpdateAlias,
+  ( -- * Creating a request
+    UpdateAlias (..),
+    mkUpdateAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaRoutingStrategy,
     uaName,
     uaDescription,
     uaAliasId,
 
-    -- * Destructuring the Response
-    updateAliasResponse,
-    UpdateAliasResponse,
+    -- * Destructuring the response
+    UpdateAliasResponse (..),
+    mkUpdateAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uarsAlias,
     uarsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'updateAlias' smart constructor.
+-- /See:/ 'mkUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { _uaRoutingStrategy ::
-      !(Maybe RoutingStrategy),
-    _uaName :: !(Maybe Text),
-    _uaDescription :: !(Maybe Text),
-    _uaAliasId :: !Text
+  { routingStrategy ::
+      Lude.Maybe RoutingStrategy,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    aliasId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaRoutingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
---
--- * 'uaName' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
---
--- * 'uaDescription' - A human-readable description of the alias.
---
--- * 'uaAliasId' - A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
-updateAlias ::
-  -- | 'uaAliasId'
-  Text ->
+-- * 'aliasId' - A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
+-- * 'description' - A human-readable description of the alias.
+-- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'routingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
+mkUpdateAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   UpdateAlias
-updateAlias pAliasId_ =
+mkUpdateAlias pAliasId_ =
   UpdateAlias'
-    { _uaRoutingStrategy = Nothing,
-      _uaName = Nothing,
-      _uaDescription = Nothing,
-      _uaAliasId = pAliasId_
+    { routingStrategy = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      aliasId = pAliasId_
     }
 
 -- | The routing configuration, including routing type and fleet target, for the alias.
-uaRoutingStrategy :: Lens' UpdateAlias (Maybe RoutingStrategy)
-uaRoutingStrategy = lens _uaRoutingStrategy (\s a -> s {_uaRoutingStrategy = a})
+--
+-- /Note:/ Consider using 'routingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaRoutingStrategy :: Lens.Lens' UpdateAlias (Lude.Maybe RoutingStrategy)
+uaRoutingStrategy = Lens.lens (routingStrategy :: UpdateAlias -> Lude.Maybe RoutingStrategy) (\s a -> s {routingStrategy = a} :: UpdateAlias)
+{-# DEPRECATED uaRoutingStrategy "Use generic-lens or generic-optics with 'routingStrategy' instead." #-}
 
 -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
-uaName :: Lens' UpdateAlias (Maybe Text)
-uaName = lens _uaName (\s a -> s {_uaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaName :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
+uaName = Lens.lens (name :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateAlias)
+{-# DEPRECATED uaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A human-readable description of the alias.
-uaDescription :: Lens' UpdateAlias (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s {_uaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDescription :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAlias)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
-uaAliasId :: Lens' UpdateAlias Text
-uaAliasId = lens _uaAliasId (\s a -> s {_uaAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAliasId :: Lens.Lens' UpdateAlias Lude.Text
+uaAliasId = Lens.lens (aliasId :: UpdateAlias -> Lude.Text) (\s a -> s {aliasId = a} :: UpdateAlias)
+{-# DEPRECATED uaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest UpdateAlias where
+instance Lude.AWSRequest UpdateAlias where
   type Rs UpdateAlias = UpdateAliasResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateAliasResponse' <$> (x .?> "Alias") <*> (pure (fromEnum s))
+          UpdateAliasResponse'
+            Lude.<$> (x Lude..?> "Alias") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAlias
-
-instance NFData UpdateAlias
-
-instance ToHeaders UpdateAlias where
+instance Lude.ToHeaders UpdateAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.UpdateAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.UpdateAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAlias where
+instance Lude.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
-    object
-      ( catMaybes
-          [ ("RoutingStrategy" .=) <$> _uaRoutingStrategy,
-            ("Name" .=) <$> _uaName,
-            ("Description" .=) <$> _uaDescription,
-            Just ("AliasId" .= _uaAliasId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoutingStrategy" Lude..=) Lude.<$> routingStrategy,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("AliasId" Lude..= aliasId)
           ]
       )
 
-instance ToPath UpdateAlias where
-  toPath = const "/"
+instance Lude.ToPath UpdateAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAlias where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAlias where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'updateAliasResponse' smart constructor.
+-- /See:/ 'mkUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
-  { _uarsAlias ::
-      !(Maybe Alias),
-    _uarsResponseStatus :: !Int
+  { alias ::
+      Lude.Maybe Alias,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uarsAlias' - The updated alias resource.
---
--- * 'uarsResponseStatus' - -- | The response status code.
-updateAliasResponse ::
-  -- | 'uarsResponseStatus'
-  Int ->
+-- * 'alias' - The updated alias resource.
+-- * 'responseStatus' - The response status code.
+mkUpdateAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAliasResponse
-updateAliasResponse pResponseStatus_ =
+mkUpdateAliasResponse pResponseStatus_ =
   UpdateAliasResponse'
-    { _uarsAlias = Nothing,
-      _uarsResponseStatus = pResponseStatus_
+    { alias = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated alias resource.
-uarsAlias :: Lens' UpdateAliasResponse (Maybe Alias)
-uarsAlias = lens _uarsAlias (\s a -> s {_uarsAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsAlias :: Lens.Lens' UpdateAliasResponse (Lude.Maybe Alias)
+uarsAlias = Lens.lens (alias :: UpdateAliasResponse -> Lude.Maybe Alias) (\s a -> s {alias = a} :: UpdateAliasResponse)
+{-# DEPRECATED uarsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
--- | -- | The response status code.
-uarsResponseStatus :: Lens' UpdateAliasResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\s a -> s {_uarsResponseStatus = a})
-
-instance NFData UpdateAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarsResponseStatus :: Lens.Lens' UpdateAliasResponse Lude.Int
+uarsResponseStatus = Lens.lens (responseStatus :: UpdateAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAliasResponse)
+{-# DEPRECATED uarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

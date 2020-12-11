@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerDataFormat where
+module Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
+  ( EntityRecognizerDataFormat
+      ( EntityRecognizerDataFormat',
+        AugmentedManifest,
+        ComprehendCSV
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EntityRecognizerDataFormat
-  = AugmentedManifest
-  | ComprehendCSV
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EntityRecognizerDataFormat = EntityRecognizerDataFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EntityRecognizerDataFormat where
-  parser =
-    takeLowerText >>= \case
-      "augmented_manifest" -> pure AugmentedManifest
-      "comprehend_csv" -> pure ComprehendCSV
-      e ->
-        fromTextError $
-          "Failure parsing EntityRecognizerDataFormat from value: '" <> e
-            <> "'. Accepted values: augmented_manifest, comprehend_csv"
+pattern AugmentedManifest :: EntityRecognizerDataFormat
+pattern AugmentedManifest = EntityRecognizerDataFormat' "AUGMENTED_MANIFEST"
 
-instance ToText EntityRecognizerDataFormat where
-  toText = \case
-    AugmentedManifest -> "AUGMENTED_MANIFEST"
-    ComprehendCSV -> "COMPREHEND_CSV"
+pattern ComprehendCSV :: EntityRecognizerDataFormat
+pattern ComprehendCSV = EntityRecognizerDataFormat' "COMPREHEND_CSV"
 
-instance Hashable EntityRecognizerDataFormat
-
-instance NFData EntityRecognizerDataFormat
-
-instance ToByteString EntityRecognizerDataFormat
-
-instance ToQuery EntityRecognizerDataFormat
-
-instance ToHeader EntityRecognizerDataFormat
-
-instance ToJSON EntityRecognizerDataFormat where
-  toJSON = toJSONText
-
-instance FromJSON EntityRecognizerDataFormat where
-  parseJSON = parseJSONText "EntityRecognizerDataFormat"
+{-# COMPLETE
+  AugmentedManifest,
+  ComprehendCSV,
+  EntityRecognizerDataFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists your GraphQL APIs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListGraphqlAPIs
-  ( -- * Creating a Request
-    listGraphqlAPIs,
-    ListGraphqlAPIs,
+  ( -- * Creating a request
+    ListGraphqlAPIs (..),
+    mkListGraphqlAPIs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgaNextToken,
     lgaMaxResults,
 
-    -- * Destructuring the Response
-    listGraphqlAPIsResponse,
-    ListGraphqlAPIsResponse,
+    -- * Destructuring the response
+    ListGraphqlAPIsResponse (..),
+    mkListGraphqlAPIsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgarsNextToken,
     lgarsGraphqlAPIs,
     lgarsResponseStatus,
@@ -43,119 +36,140 @@ module Network.AWS.AppSync.ListGraphqlAPIs
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGraphqlAPIs' smart constructor.
+-- | /See:/ 'mkListGraphqlAPIs' smart constructor.
 data ListGraphqlAPIs = ListGraphqlAPIs'
-  { _lgaNextToken ::
-      !(Maybe Text),
-    _lgaMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGraphqlAPIs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgaNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lgaMaxResults' - The maximum number of results you want the request to return.
-listGraphqlAPIs ::
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListGraphqlAPIs ::
   ListGraphqlAPIs
-listGraphqlAPIs =
+mkListGraphqlAPIs =
   ListGraphqlAPIs'
-    { _lgaNextToken = Nothing,
-      _lgaMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lgaNextToken :: Lens' ListGraphqlAPIs (Maybe Text)
-lgaNextToken = lens _lgaNextToken (\s a -> s {_lgaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgaNextToken :: Lens.Lens' ListGraphqlAPIs (Lude.Maybe Lude.Text)
+lgaNextToken = Lens.lens (nextToken :: ListGraphqlAPIs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGraphqlAPIs)
+{-# DEPRECATED lgaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-lgaMaxResults :: Lens' ListGraphqlAPIs (Maybe Natural)
-lgaMaxResults = lens _lgaMaxResults (\s a -> s {_lgaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgaMaxResults :: Lens.Lens' ListGraphqlAPIs (Lude.Maybe Lude.Natural)
+lgaMaxResults = Lens.lens (maxResults :: ListGraphqlAPIs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListGraphqlAPIs)
+{-# DEPRECATED lgaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListGraphqlAPIs where
+instance Page.AWSPager ListGraphqlAPIs where
   page rq rs
-    | stop (rs ^. lgarsNextToken) = Nothing
-    | stop (rs ^. lgarsGraphqlAPIs) = Nothing
-    | otherwise = Just $ rq & lgaNextToken .~ rs ^. lgarsNextToken
+    | Page.stop (rs Lens.^. lgarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgarsGraphqlAPIs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgaNextToken Lens..~ rs Lens.^. lgarsNextToken
 
-instance AWSRequest ListGraphqlAPIs where
+instance Lude.AWSRequest ListGraphqlAPIs where
   type Rs ListGraphqlAPIs = ListGraphqlAPIsResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGraphqlAPIsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "graphqlApis" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "graphqlApis" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGraphqlAPIs
-
-instance NFData ListGraphqlAPIs
-
-instance ToHeaders ListGraphqlAPIs where
+instance Lude.ToHeaders ListGraphqlAPIs where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListGraphqlAPIs where
-  toPath = const "/v1/apis"
+instance Lude.ToPath ListGraphqlAPIs where
+  toPath = Lude.const "/v1/apis"
 
-instance ToQuery ListGraphqlAPIs where
+instance Lude.ToQuery ListGraphqlAPIs where
   toQuery ListGraphqlAPIs' {..} =
-    mconcat
-      ["nextToken" =: _lgaNextToken, "maxResults" =: _lgaMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listGraphqlAPIsResponse' smart constructor.
+-- | /See:/ 'mkListGraphqlAPIsResponse' smart constructor.
 data ListGraphqlAPIsResponse = ListGraphqlAPIsResponse'
-  { _lgarsNextToken ::
-      !(Maybe Text),
-    _lgarsGraphqlAPIs :: !(Maybe [GraphqlAPI]),
-    _lgarsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    graphqlAPIs :: Lude.Maybe [GraphqlAPI],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGraphqlAPIsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgarsNextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
---
--- * 'lgarsGraphqlAPIs' - The @GraphqlApi@ objects.
---
--- * 'lgarsResponseStatus' - -- | The response status code.
-listGraphqlAPIsResponse ::
-  -- | 'lgarsResponseStatus'
-  Int ->
+-- * 'graphqlAPIs' - The @GraphqlApi@ objects.
+-- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListGraphqlAPIsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGraphqlAPIsResponse
-listGraphqlAPIsResponse pResponseStatus_ =
+mkListGraphqlAPIsResponse pResponseStatus_ =
   ListGraphqlAPIsResponse'
-    { _lgarsNextToken = Nothing,
-      _lgarsGraphqlAPIs = Nothing,
-      _lgarsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      graphqlAPIs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-lgarsNextToken :: Lens' ListGraphqlAPIsResponse (Maybe Text)
-lgarsNextToken = lens _lgarsNextToken (\s a -> s {_lgarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgarsNextToken :: Lens.Lens' ListGraphqlAPIsResponse (Lude.Maybe Lude.Text)
+lgarsNextToken = Lens.lens (nextToken :: ListGraphqlAPIsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGraphqlAPIsResponse)
+{-# DEPRECATED lgarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The @GraphqlApi@ objects.
-lgarsGraphqlAPIs :: Lens' ListGraphqlAPIsResponse [GraphqlAPI]
-lgarsGraphqlAPIs = lens _lgarsGraphqlAPIs (\s a -> s {_lgarsGraphqlAPIs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'graphqlAPIs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgarsGraphqlAPIs :: Lens.Lens' ListGraphqlAPIsResponse (Lude.Maybe [GraphqlAPI])
+lgarsGraphqlAPIs = Lens.lens (graphqlAPIs :: ListGraphqlAPIsResponse -> Lude.Maybe [GraphqlAPI]) (\s a -> s {graphqlAPIs = a} :: ListGraphqlAPIsResponse)
+{-# DEPRECATED lgarsGraphqlAPIs "Use generic-lens or generic-optics with 'graphqlAPIs' instead." #-}
 
--- | -- | The response status code.
-lgarsResponseStatus :: Lens' ListGraphqlAPIsResponse Int
-lgarsResponseStatus = lens _lgarsResponseStatus (\s a -> s {_lgarsResponseStatus = a})
-
-instance NFData ListGraphqlAPIsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgarsResponseStatus :: Lens.Lens' ListGraphqlAPIsResponse Lude.Int
+lgarsResponseStatus = Lens.lens (responseStatus :: ListGraphqlAPIsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGraphqlAPIsResponse)
+{-# DEPRECATED lgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

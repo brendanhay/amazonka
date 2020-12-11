@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,151 @@
 --
 -- Adds one or more custom properties to the specified resource (a folder, document, or version).
 module Network.AWS.WorkDocs.CreateCustomMetadata
-  ( -- * Creating a Request
-    createCustomMetadata,
-    CreateCustomMetadata,
+  ( -- * Creating a request
+    CreateCustomMetadata (..),
+    mkCreateCustomMetadata,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccmVersionId,
     ccmAuthenticationToken,
     ccmResourceId,
     ccmCustomMetadata,
 
-    -- * Destructuring the Response
-    createCustomMetadataResponse,
-    CreateCustomMetadataResponse,
+    -- * Destructuring the response
+    CreateCustomMetadataResponse (..),
+    mkCreateCustomMetadataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'createCustomMetadata' smart constructor.
+-- | /See:/ 'mkCreateCustomMetadata' smart constructor.
 data CreateCustomMetadata = CreateCustomMetadata'
-  { _ccmVersionId ::
-      !(Maybe Text),
-    _ccmAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _ccmResourceId :: !Text,
-    _ccmCustomMetadata :: !(Map Text (Text))
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceId :: Lude.Text,
+    customMetadata ::
+      Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccmVersionId' - The ID of the version, if the custom metadata is being added to a document version.
---
--- * 'ccmAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'ccmResourceId' - The ID of the resource.
---
--- * 'ccmCustomMetadata' - Custom metadata in the form of name-value pairs.
-createCustomMetadata ::
-  -- | 'ccmResourceId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'customMetadata' - Custom metadata in the form of name-value pairs.
+-- * 'resourceId' - The ID of the resource.
+-- * 'versionId' - The ID of the version, if the custom metadata is being added to a document version.
+mkCreateCustomMetadata ::
+  -- | 'resourceId'
+  Lude.Text ->
   CreateCustomMetadata
-createCustomMetadata pResourceId_ =
+mkCreateCustomMetadata pResourceId_ =
   CreateCustomMetadata'
-    { _ccmVersionId = Nothing,
-      _ccmAuthenticationToken = Nothing,
-      _ccmResourceId = pResourceId_,
-      _ccmCustomMetadata = mempty
+    { versionId = Lude.Nothing,
+      authenticationToken = Lude.Nothing,
+      resourceId = pResourceId_,
+      customMetadata = Lude.mempty
     }
 
 -- | The ID of the version, if the custom metadata is being added to a document version.
-ccmVersionId :: Lens' CreateCustomMetadata (Maybe Text)
-ccmVersionId = lens _ccmVersionId (\s a -> s {_ccmVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmVersionId :: Lens.Lens' CreateCustomMetadata (Lude.Maybe Lude.Text)
+ccmVersionId = Lens.lens (versionId :: CreateCustomMetadata -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: CreateCustomMetadata)
+{-# DEPRECATED ccmVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-ccmAuthenticationToken :: Lens' CreateCustomMetadata (Maybe Text)
-ccmAuthenticationToken = lens _ccmAuthenticationToken (\s a -> s {_ccmAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmAuthenticationToken :: Lens.Lens' CreateCustomMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
+ccmAuthenticationToken = Lens.lens (authenticationToken :: CreateCustomMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateCustomMetadata)
+{-# DEPRECATED ccmAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the resource.
-ccmResourceId :: Lens' CreateCustomMetadata Text
-ccmResourceId = lens _ccmResourceId (\s a -> s {_ccmResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmResourceId :: Lens.Lens' CreateCustomMetadata Lude.Text
+ccmResourceId = Lens.lens (resourceId :: CreateCustomMetadata -> Lude.Text) (\s a -> s {resourceId = a} :: CreateCustomMetadata)
+{-# DEPRECATED ccmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Custom metadata in the form of name-value pairs.
-ccmCustomMetadata :: Lens' CreateCustomMetadata (HashMap Text (Text))
-ccmCustomMetadata = lens _ccmCustomMetadata (\s a -> s {_ccmCustomMetadata = a}) . _Map
+--
+-- /Note:/ Consider using 'customMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmCustomMetadata :: Lens.Lens' CreateCustomMetadata (Lude.HashMap Lude.Text (Lude.Text))
+ccmCustomMetadata = Lens.lens (customMetadata :: CreateCustomMetadata -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {customMetadata = a} :: CreateCustomMetadata)
+{-# DEPRECATED ccmCustomMetadata "Use generic-lens or generic-optics with 'customMetadata' instead." #-}
 
-instance AWSRequest CreateCustomMetadata where
+instance Lude.AWSRequest CreateCustomMetadata where
   type Rs CreateCustomMetadata = CreateCustomMetadataResponse
-  request = putJSON workDocs
+  request = Req.putJSON workDocsService
   response =
-    receiveEmpty
-      (\s h x -> CreateCustomMetadataResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateCustomMetadataResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateCustomMetadata
-
-instance NFData CreateCustomMetadata
-
-instance ToHeaders CreateCustomMetadata where
+instance Lude.ToHeaders CreateCustomMetadata where
   toHeaders CreateCustomMetadata' {..} =
-    mconcat
-      [ "Authentication" =# _ccmAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateCustomMetadata where
+instance Lude.ToJSON CreateCustomMetadata where
   toJSON CreateCustomMetadata' {..} =
-    object
-      (catMaybes [Just ("CustomMetadata" .= _ccmCustomMetadata)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CustomMetadata" Lude..= customMetadata)]
+      )
 
-instance ToPath CreateCustomMetadata where
+instance Lude.ToPath CreateCustomMetadata where
   toPath CreateCustomMetadata' {..} =
-    mconcat
-      ["/api/v1/resources/", toBS _ccmResourceId, "/customMetadata"]
+    Lude.mconcat
+      ["/api/v1/resources/", Lude.toBS resourceId, "/customMetadata"]
 
-instance ToQuery CreateCustomMetadata where
+instance Lude.ToQuery CreateCustomMetadata where
   toQuery CreateCustomMetadata' {..} =
-    mconcat ["versionid" =: _ccmVersionId]
+    Lude.mconcat ["versionid" Lude.=: versionId]
 
--- | /See:/ 'createCustomMetadataResponse' smart constructor.
+-- | /See:/ 'mkCreateCustomMetadataResponse' smart constructor.
 newtype CreateCustomMetadataResponse = CreateCustomMetadataResponse'
-  { _ccmrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomMetadataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccmrsResponseStatus' - -- | The response status code.
-createCustomMetadataResponse ::
-  -- | 'ccmrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateCustomMetadataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCustomMetadataResponse
-createCustomMetadataResponse pResponseStatus_ =
-  CreateCustomMetadataResponse'
-    { _ccmrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateCustomMetadataResponse pResponseStatus_ =
+  CreateCustomMetadataResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ccmrsResponseStatus :: Lens' CreateCustomMetadataResponse Int
-ccmrsResponseStatus = lens _ccmrsResponseStatus (\s a -> s {_ccmrsResponseStatus = a})
-
-instance NFData CreateCustomMetadataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmrsResponseStatus :: Lens.Lens' CreateCustomMetadataResponse Lude.Int
+ccmrsResponseStatus = Lens.lens (responseStatus :: CreateCustomMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCustomMetadataResponse)
+{-# DEPRECATED ccmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

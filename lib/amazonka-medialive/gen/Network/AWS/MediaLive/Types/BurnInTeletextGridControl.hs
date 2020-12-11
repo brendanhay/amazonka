@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInTeletextGridControl where
+module Network.AWS.MediaLive.Types.BurnInTeletextGridControl
+  ( BurnInTeletextGridControl
+      ( BurnInTeletextGridControl',
+        BITGCFixed,
+        BITGCScaled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Burn In Teletext Grid Control
-data BurnInTeletextGridControl
-  = BITGCFixed
-  | BITGCScaled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurnInTeletextGridControl = BurnInTeletextGridControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurnInTeletextGridControl where
-  parser =
-    takeLowerText >>= \case
-      "fixed" -> pure BITGCFixed
-      "scaled" -> pure BITGCScaled
-      e ->
-        fromTextError $
-          "Failure parsing BurnInTeletextGridControl from value: '" <> e
-            <> "'. Accepted values: fixed, scaled"
+pattern BITGCFixed :: BurnInTeletextGridControl
+pattern BITGCFixed = BurnInTeletextGridControl' "FIXED"
 
-instance ToText BurnInTeletextGridControl where
-  toText = \case
-    BITGCFixed -> "FIXED"
-    BITGCScaled -> "SCALED"
+pattern BITGCScaled :: BurnInTeletextGridControl
+pattern BITGCScaled = BurnInTeletextGridControl' "SCALED"
 
-instance Hashable BurnInTeletextGridControl
-
-instance NFData BurnInTeletextGridControl
-
-instance ToByteString BurnInTeletextGridControl
-
-instance ToQuery BurnInTeletextGridControl
-
-instance ToHeader BurnInTeletextGridControl
-
-instance ToJSON BurnInTeletextGridControl where
-  toJSON = toJSONText
-
-instance FromJSON BurnInTeletextGridControl where
-  parseJSON = parseJSONText "BurnInTeletextGridControl"
+{-# COMPLETE
+  BITGCFixed,
+  BITGCScaled,
+  BurnInTeletextGridControl'
+  #-}

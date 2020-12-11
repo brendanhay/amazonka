@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,113 @@
 --
 -- Deletes the specified SSH public key.
 --
---
 -- The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
 module Network.AWS.IAM.DeleteSSHPublicKey
-  ( -- * Creating a Request
-    deleteSSHPublicKey,
-    DeleteSSHPublicKey,
+  ( -- * Creating a request
+    DeleteSSHPublicKey (..),
+    mkDeleteSSHPublicKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dspkUserName,
     dspkSSHPublicKeyId,
 
-    -- * Destructuring the Response
-    deleteSSHPublicKeyResponse,
-    DeleteSSHPublicKeyResponse,
+    -- * Destructuring the response
+    DeleteSSHPublicKeyResponse (..),
+    mkDeleteSSHPublicKeyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSSHPublicKey' smart constructor.
+-- | /See:/ 'mkDeleteSSHPublicKey' smart constructor.
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-  { _dspkUserName ::
-      !Text,
-    _dspkSSHPublicKeyId :: !Text
+  { userName ::
+      Lude.Text,
+    sshPublicKeyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSSHPublicKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sshPublicKeyId' - The unique identifier for the SSH public key.
 --
--- * 'dspkUserName' - The name of the IAM user associated with the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'userName' - The name of the IAM user associated with the SSH public key.
 --
--- * 'dspkSSHPublicKeyId' - The unique identifier for the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-deleteSSHPublicKey ::
-  -- | 'dspkUserName'
-  Text ->
-  -- | 'dspkSSHPublicKeyId'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDeleteSSHPublicKey ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'sshPublicKeyId'
+  Lude.Text ->
   DeleteSSHPublicKey
-deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
+mkDeleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
   DeleteSSHPublicKey'
-    { _dspkUserName = pUserName_,
-      _dspkSSHPublicKeyId = pSSHPublicKeyId_
+    { userName = pUserName_,
+      sshPublicKeyId = pSSHPublicKeyId_
     }
 
--- | The name of the IAM user associated with the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dspkUserName :: Lens' DeleteSSHPublicKey Text
-dspkUserName = lens _dspkUserName (\s a -> s {_dspkUserName = a})
+-- | The name of the IAM user associated with the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspkUserName :: Lens.Lens' DeleteSSHPublicKey Lude.Text
+dspkUserName = Lens.lens (userName :: DeleteSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: DeleteSSHPublicKey)
+{-# DEPRECATED dspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The unique identifier for the SSH public key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-dspkSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
-dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\s a -> s {_dspkSSHPublicKeyId = a})
+-- | The unique identifier for the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+--
+-- /Note:/ Consider using 'sshPublicKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspkSSHPublicKeyId :: Lens.Lens' DeleteSSHPublicKey Lude.Text
+dspkSSHPublicKeyId = Lens.lens (sshPublicKeyId :: DeleteSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyId = a} :: DeleteSSHPublicKey)
+{-# DEPRECATED dspkSSHPublicKeyId "Use generic-lens or generic-optics with 'sshPublicKeyId' instead." #-}
 
-instance AWSRequest DeleteSSHPublicKey where
+instance Lude.AWSRequest DeleteSSHPublicKey where
   type Rs DeleteSSHPublicKey = DeleteSSHPublicKeyResponse
-  request = postQuery iam
-  response = receiveNull DeleteSSHPublicKeyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteSSHPublicKeyResponse'
 
-instance Hashable DeleteSSHPublicKey
+instance Lude.ToHeaders DeleteSSHPublicKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSSHPublicKey
+instance Lude.ToPath DeleteSSHPublicKey where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteSSHPublicKey where
-  toHeaders = const mempty
-
-instance ToPath DeleteSSHPublicKey where
-  toPath = const "/"
-
-instance ToQuery DeleteSSHPublicKey where
+instance Lude.ToQuery DeleteSSHPublicKey where
   toQuery DeleteSSHPublicKey' {..} =
-    mconcat
-      [ "Action" =: ("DeleteSSHPublicKey" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _dspkUserName,
-        "SSHPublicKeyId" =: _dspkSSHPublicKeyId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteSSHPublicKey" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "SSHPublicKeyId" Lude.=: sshPublicKeyId
       ]
 
--- | /See:/ 'deleteSSHPublicKeyResponse' smart constructor.
+-- | /See:/ 'mkDeleteSSHPublicKeyResponse' smart constructor.
 data DeleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSSHPublicKeyResponse' with the minimum fields required to make a request.
-deleteSSHPublicKeyResponse ::
+mkDeleteSSHPublicKeyResponse ::
   DeleteSSHPublicKeyResponse
-deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
-
-instance NFData DeleteSSHPublicKeyResponse
+mkDeleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'

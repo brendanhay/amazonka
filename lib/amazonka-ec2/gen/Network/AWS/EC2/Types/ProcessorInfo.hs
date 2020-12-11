@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ProcessorInfo where
+module Network.AWS.EC2.Types.ProcessorInfo
+  ( ProcessorInfo (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkProcessorInfo,
+
+    -- * Lenses
+    piSupportedArchitectures,
+    piSustainedClockSpeedInGhz,
+  )
+where
+
 import Network.AWS.EC2.Types.ArchitectureType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the processor used by the instance type.
 --
---
---
--- /See:/ 'processorInfo' smart constructor.
+-- /See:/ 'mkProcessorInfo' smart constructor.
 data ProcessorInfo = ProcessorInfo'
-  { _piSupportedArchitectures ::
-      !(Maybe [ArchitectureType]),
-    _piSustainedClockSpeedInGhz :: !(Maybe Double)
+  { supportedArchitectures ::
+      Lude.Maybe [ArchitectureType],
+    sustainedClockSpeedInGhz :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessorInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piSupportedArchitectures' - The architectures supported by the instance type.
---
--- * 'piSustainedClockSpeedInGhz' - The speed of the processor, in GHz.
-processorInfo ::
+-- * 'supportedArchitectures' - The architectures supported by the instance type.
+-- * 'sustainedClockSpeedInGhz' - The speed of the processor, in GHz.
+mkProcessorInfo ::
   ProcessorInfo
-processorInfo =
+mkProcessorInfo =
   ProcessorInfo'
-    { _piSupportedArchitectures = Nothing,
-      _piSustainedClockSpeedInGhz = Nothing
+    { supportedArchitectures = Lude.Nothing,
+      sustainedClockSpeedInGhz = Lude.Nothing
     }
 
 -- | The architectures supported by the instance type.
-piSupportedArchitectures :: Lens' ProcessorInfo [ArchitectureType]
-piSupportedArchitectures = lens _piSupportedArchitectures (\s a -> s {_piSupportedArchitectures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedArchitectures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSupportedArchitectures :: Lens.Lens' ProcessorInfo (Lude.Maybe [ArchitectureType])
+piSupportedArchitectures = Lens.lens (supportedArchitectures :: ProcessorInfo -> Lude.Maybe [ArchitectureType]) (\s a -> s {supportedArchitectures = a} :: ProcessorInfo)
+{-# DEPRECATED piSupportedArchitectures "Use generic-lens or generic-optics with 'supportedArchitectures' instead." #-}
 
 -- | The speed of the processor, in GHz.
-piSustainedClockSpeedInGhz :: Lens' ProcessorInfo (Maybe Double)
-piSustainedClockSpeedInGhz = lens _piSustainedClockSpeedInGhz (\s a -> s {_piSustainedClockSpeedInGhz = a})
+--
+-- /Note:/ Consider using 'sustainedClockSpeedInGhz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSustainedClockSpeedInGhz :: Lens.Lens' ProcessorInfo (Lude.Maybe Lude.Double)
+piSustainedClockSpeedInGhz = Lens.lens (sustainedClockSpeedInGhz :: ProcessorInfo -> Lude.Maybe Lude.Double) (\s a -> s {sustainedClockSpeedInGhz = a} :: ProcessorInfo)
+{-# DEPRECATED piSustainedClockSpeedInGhz "Use generic-lens or generic-optics with 'sustainedClockSpeedInGhz' instead." #-}
 
-instance FromXML ProcessorInfo where
+instance Lude.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      <$> ( x .@? "supportedArchitectures" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "sustainedClockSpeedInGhz")
-
-instance Hashable ProcessorInfo
-
-instance NFData ProcessorInfo
+      Lude.<$> ( x Lude..@? "supportedArchitectures" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "sustainedClockSpeedInGhz")

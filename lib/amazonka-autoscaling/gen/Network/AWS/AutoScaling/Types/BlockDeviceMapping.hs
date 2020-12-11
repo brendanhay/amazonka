@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.BlockDeviceMapping where
+module Network.AWS.AutoScaling.Types.BlockDeviceMapping
+  ( BlockDeviceMapping (..),
+
+    -- * Smart constructor
+    mkBlockDeviceMapping,
+
+    -- * Lenses
+    bdmVirtualName,
+    bdmNoDevice,
+    bdmEBS,
+    bdmDeviceName,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.EBS
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping.
 --
---
---
--- /See:/ 'blockDeviceMapping' smart constructor.
+-- /See:/ 'mkBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { _bdmVirtualName ::
-      !(Maybe Text),
-    _bdmNoDevice :: !(Maybe Bool),
-    _bdmEBS :: !(Maybe EBS),
-    _bdmDeviceName :: !Text
+  { virtualName ::
+      Lude.Maybe Lude.Text,
+    noDevice :: Lude.Maybe Lude.Bool,
+    ebs :: Lude.Maybe EBS,
+    deviceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deviceName' - The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when an instance is launched.
 --
--- * 'bdmVirtualName' - The name of the virtual device (for example, @ephemeral0@ ). You can specify either @VirtualName@ or @Ebs@ , but not both.
+-- You can specify either @VirtualName@ or @Ebs@ , but not both.
+-- * 'noDevice' - Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI.
 --
--- * 'bdmNoDevice' - Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI. If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances. If you specify @NoDevice@ , you cannot specify @Ebs@ .
+-- If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
+-- If you specify @NoDevice@ , you cannot specify @Ebs@ .
+-- * 'virtualName' - The name of the virtual device (for example, @ephemeral0@ ).
 --
--- * 'bdmEBS' - Parameters used to automatically set up EBS volumes when an instance is launched. You can specify either @VirtualName@ or @Ebs@ , but not both.
---
--- * 'bdmDeviceName' - The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
-blockDeviceMapping ::
-  -- | 'bdmDeviceName'
-  Text ->
+-- You can specify either @VirtualName@ or @Ebs@ , but not both.
+mkBlockDeviceMapping ::
+  -- | 'deviceName'
+  Lude.Text ->
   BlockDeviceMapping
-blockDeviceMapping pDeviceName_ =
+mkBlockDeviceMapping pDeviceName_ =
   BlockDeviceMapping'
-    { _bdmVirtualName = Nothing,
-      _bdmNoDevice = Nothing,
-      _bdmEBS = Nothing,
-      _bdmDeviceName = pDeviceName_
+    { virtualName = Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = pDeviceName_
     }
 
--- | The name of the virtual device (for example, @ephemeral0@ ). You can specify either @VirtualName@ or @Ebs@ , but not both.
-bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
-bdmVirtualName = lens _bdmVirtualName (\s a -> s {_bdmVirtualName = a})
+-- | The name of the virtual device (for example, @ephemeral0@ ).
+--
+-- You can specify either @VirtualName@ or @Ebs@ , but not both.
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmVirtualName :: Lens.Lens' BlockDeviceMapping (Lude.Maybe Lude.Text)
+bdmVirtualName = Lens.lens (virtualName :: BlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
--- | Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI. If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances. If you specify @NoDevice@ , you cannot specify @Ebs@ .
-bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
-bdmNoDevice = lens _bdmNoDevice (\s a -> s {_bdmNoDevice = a})
+-- | Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI.
+--
+-- If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
+-- If you specify @NoDevice@ , you cannot specify @Ebs@ .
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmNoDevice :: Lens.Lens' BlockDeviceMapping (Lude.Maybe Lude.Bool)
+bdmNoDevice = Lens.lens (noDevice :: BlockDeviceMapping -> Lude.Maybe Lude.Bool) (\s a -> s {noDevice = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
--- | Parameters used to automatically set up EBS volumes when an instance is launched. You can specify either @VirtualName@ or @Ebs@ , but not both.
-bdmEBS :: Lens' BlockDeviceMapping (Maybe EBS)
-bdmEBS = lens _bdmEBS (\s a -> s {_bdmEBS = a})
+-- | Parameters used to automatically set up EBS volumes when an instance is launched.
+--
+-- You can specify either @VirtualName@ or @Ebs@ , but not both.
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmEBS :: Lens.Lens' BlockDeviceMapping (Lude.Maybe EBS)
+bdmEBS = Lens.lens (ebs :: BlockDeviceMapping -> Lude.Maybe EBS) (\s a -> s {ebs = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
-bdmDeviceName :: Lens' BlockDeviceMapping Text
-bdmDeviceName = lens _bdmDeviceName (\s a -> s {_bdmDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmDeviceName :: Lens.Lens' BlockDeviceMapping Lude.Text
+bdmDeviceName = Lens.lens (deviceName :: BlockDeviceMapping -> Lude.Text) (\s a -> s {deviceName = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance FromXML BlockDeviceMapping where
+instance Lude.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      <$> (x .@? "VirtualName")
-      <*> (x .@? "NoDevice")
-      <*> (x .@? "Ebs")
-      <*> (x .@ "DeviceName")
+      Lude.<$> (x Lude..@? "VirtualName")
+      Lude.<*> (x Lude..@? "NoDevice")
+      Lude.<*> (x Lude..@? "Ebs")
+      Lude.<*> (x Lude..@ "DeviceName")
 
-instance Hashable BlockDeviceMapping
-
-instance NFData BlockDeviceMapping
-
-instance ToQuery BlockDeviceMapping where
+instance Lude.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
-    mconcat
-      [ "VirtualName" =: _bdmVirtualName,
-        "NoDevice" =: _bdmNoDevice,
-        "Ebs" =: _bdmEBS,
-        "DeviceName" =: _bdmDeviceName
+    Lude.mconcat
+      [ "VirtualName" Lude.=: virtualName,
+        "NoDevice" Lude.=: noDevice,
+        "Ebs" Lude.=: ebs,
+        "DeviceName" Lude.=: deviceName
       ]

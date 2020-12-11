@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.HealthCheckRegion where
+module Network.AWS.Route53.Types.HealthCheckRegion
+  ( HealthCheckRegion
+      ( HealthCheckRegion',
+        HCRApNortheast1,
+        HCRApSoutheast1,
+        HCRApSoutheast2,
+        HCREuWest1,
+        HCRSaEast1,
+        HCRUsEast1,
+        HCRUsWest1,
+        HCRUsWest2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data HealthCheckRegion
-  = HCRApNortheast1
-  | HCRApSoutheast1
-  | HCRApSoutheast2
-  | HCREuWest1
-  | HCRSaEast1
-  | HCRUsEast1
-  | HCRUsWest1
-  | HCRUsWest2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HealthCheckRegion = HealthCheckRegion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HealthCheckRegion where
-  parser =
-    takeLowerText >>= \case
-      "ap-northeast-1" -> pure HCRApNortheast1
-      "ap-southeast-1" -> pure HCRApSoutheast1
-      "ap-southeast-2" -> pure HCRApSoutheast2
-      "eu-west-1" -> pure HCREuWest1
-      "sa-east-1" -> pure HCRSaEast1
-      "us-east-1" -> pure HCRUsEast1
-      "us-west-1" -> pure HCRUsWest1
-      "us-west-2" -> pure HCRUsWest2
-      e ->
-        fromTextError $
-          "Failure parsing HealthCheckRegion from value: '" <> e
-            <> "'. Accepted values: ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+pattern HCRApNortheast1 :: HealthCheckRegion
+pattern HCRApNortheast1 = HealthCheckRegion' "ap-northeast-1"
 
-instance ToText HealthCheckRegion where
-  toText = \case
-    HCRApNortheast1 -> "ap-northeast-1"
-    HCRApSoutheast1 -> "ap-southeast-1"
-    HCRApSoutheast2 -> "ap-southeast-2"
-    HCREuWest1 -> "eu-west-1"
-    HCRSaEast1 -> "sa-east-1"
-    HCRUsEast1 -> "us-east-1"
-    HCRUsWest1 -> "us-west-1"
-    HCRUsWest2 -> "us-west-2"
+pattern HCRApSoutheast1 :: HealthCheckRegion
+pattern HCRApSoutheast1 = HealthCheckRegion' "ap-southeast-1"
 
-instance Hashable HealthCheckRegion
+pattern HCRApSoutheast2 :: HealthCheckRegion
+pattern HCRApSoutheast2 = HealthCheckRegion' "ap-southeast-2"
 
-instance NFData HealthCheckRegion
+pattern HCREuWest1 :: HealthCheckRegion
+pattern HCREuWest1 = HealthCheckRegion' "eu-west-1"
 
-instance ToByteString HealthCheckRegion
+pattern HCRSaEast1 :: HealthCheckRegion
+pattern HCRSaEast1 = HealthCheckRegion' "sa-east-1"
 
-instance ToQuery HealthCheckRegion
+pattern HCRUsEast1 :: HealthCheckRegion
+pattern HCRUsEast1 = HealthCheckRegion' "us-east-1"
 
-instance ToHeader HealthCheckRegion
+pattern HCRUsWest1 :: HealthCheckRegion
+pattern HCRUsWest1 = HealthCheckRegion' "us-west-1"
 
-instance FromXML HealthCheckRegion where
-  parseXML = parseXMLText "HealthCheckRegion"
+pattern HCRUsWest2 :: HealthCheckRegion
+pattern HCRUsWest2 = HealthCheckRegion' "us-west-2"
 
-instance ToXML HealthCheckRegion where
-  toXML = toXMLText
+{-# COMPLETE
+  HCRApNortheast1,
+  HCRApSoutheast1,
+  HCRApSoutheast2,
+  HCREuWest1,
+  HCRSaEast1,
+  HCRUsEast1,
+  HCRUsWest1,
+  HCRUsWest2,
+  HealthCheckRegion'
+  #-}

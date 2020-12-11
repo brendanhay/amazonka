@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,163 @@
 --
 -- Describes <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP addresses> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeElasticIPs
-  ( -- * Creating a Request
-    describeElasticIPs,
-    DescribeElasticIPs,
+  ( -- * Creating a request
+    DescribeElasticIPs (..),
+    mkDescribeElasticIPs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deiInstanceId,
     deiIPs,
     deiStackId,
 
-    -- * Destructuring the Response
-    describeElasticIPsResponse,
-    DescribeElasticIPsResponse,
+    -- * Destructuring the response
+    DescribeElasticIPsResponse (..),
+    mkDescribeElasticIPsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deirsElasticIPs,
     deirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeElasticIPs' smart constructor.
+-- | /See:/ 'mkDescribeElasticIPs' smart constructor.
 data DescribeElasticIPs = DescribeElasticIPs'
-  { _deiInstanceId ::
-      !(Maybe Text),
-    _deiIPs :: !(Maybe [Text]),
-    _deiStackId :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    ips :: Lude.Maybe [Lude.Text],
+    stackId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticIPs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deiInstanceId' - The instance ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses associated with the specified instance.
---
--- * 'deiIPs' - An array of Elastic IP addresses to be described. If you include this parameter, @DescribeElasticIps@ returns a description of the specified Elastic IP addresses. Otherwise, it returns a description of every Elastic IP address.
---
--- * 'deiStackId' - A stack ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses that are registered with the specified stack.
-describeElasticIPs ::
+-- * 'instanceId' - The instance ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses associated with the specified instance.
+-- * 'ips' - An array of Elastic IP addresses to be described. If you include this parameter, @DescribeElasticIps@ returns a description of the specified Elastic IP addresses. Otherwise, it returns a description of every Elastic IP address.
+-- * 'stackId' - A stack ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses that are registered with the specified stack.
+mkDescribeElasticIPs ::
   DescribeElasticIPs
-describeElasticIPs =
+mkDescribeElasticIPs =
   DescribeElasticIPs'
-    { _deiInstanceId = Nothing,
-      _deiIPs = Nothing,
-      _deiStackId = Nothing
+    { instanceId = Lude.Nothing,
+      ips = Lude.Nothing,
+      stackId = Lude.Nothing
     }
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses associated with the specified instance.
-deiInstanceId :: Lens' DescribeElasticIPs (Maybe Text)
-deiInstanceId = lens _deiInstanceId (\s a -> s {_deiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiInstanceId :: Lens.Lens' DescribeElasticIPs (Lude.Maybe Lude.Text)
+deiInstanceId = Lens.lens (instanceId :: DescribeElasticIPs -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DescribeElasticIPs)
+{-# DEPRECATED deiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | An array of Elastic IP addresses to be described. If you include this parameter, @DescribeElasticIps@ returns a description of the specified Elastic IP addresses. Otherwise, it returns a description of every Elastic IP address.
-deiIPs :: Lens' DescribeElasticIPs [Text]
-deiIPs = lens _deiIPs (\s a -> s {_deiIPs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ips' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiIPs :: Lens.Lens' DescribeElasticIPs (Lude.Maybe [Lude.Text])
+deiIPs = Lens.lens (ips :: DescribeElasticIPs -> Lude.Maybe [Lude.Text]) (\s a -> s {ips = a} :: DescribeElasticIPs)
+{-# DEPRECATED deiIPs "Use generic-lens or generic-optics with 'ips' instead." #-}
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses that are registered with the specified stack.
-deiStackId :: Lens' DescribeElasticIPs (Maybe Text)
-deiStackId = lens _deiStackId (\s a -> s {_deiStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiStackId :: Lens.Lens' DescribeElasticIPs (Lude.Maybe Lude.Text)
+deiStackId = Lens.lens (stackId :: DescribeElasticIPs -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeElasticIPs)
+{-# DEPRECATED deiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeElasticIPs where
+instance Lude.AWSRequest DescribeElasticIPs where
   type Rs DescribeElasticIPs = DescribeElasticIPsResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeElasticIPsResponse'
-            <$> (x .?> "ElasticIps" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ElasticIps" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeElasticIPs
-
-instance NFData DescribeElasticIPs
-
-instance ToHeaders DescribeElasticIPs where
+instance Lude.ToHeaders DescribeElasticIPs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeElasticIps" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeElasticIps" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeElasticIPs where
+instance Lude.ToJSON DescribeElasticIPs where
   toJSON DescribeElasticIPs' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceId" .=) <$> _deiInstanceId,
-            ("Ips" .=) <$> _deiIPs,
-            ("StackId" .=) <$> _deiStackId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("Ips" Lude..=) Lude.<$> ips,
+            ("StackId" Lude..=) Lude.<$> stackId
           ]
       )
 
-instance ToPath DescribeElasticIPs where
-  toPath = const "/"
+instance Lude.ToPath DescribeElasticIPs where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeElasticIPs where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeElasticIPs where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeElasticIps@ request.
 --
---
---
--- /See:/ 'describeElasticIPsResponse' smart constructor.
+-- /See:/ 'mkDescribeElasticIPsResponse' smart constructor.
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-  { _deirsElasticIPs ::
-      !(Maybe [ElasticIP]),
-    _deirsResponseStatus :: !Int
+  { elasticIPs ::
+      Lude.Maybe [ElasticIP],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticIPsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deirsElasticIPs' - An @ElasticIps@ object that describes the specified Elastic IP addresses.
---
--- * 'deirsResponseStatus' - -- | The response status code.
-describeElasticIPsResponse ::
-  -- | 'deirsResponseStatus'
-  Int ->
+-- * 'elasticIPs' - An @ElasticIps@ object that describes the specified Elastic IP addresses.
+-- * 'responseStatus' - The response status code.
+mkDescribeElasticIPsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeElasticIPsResponse
-describeElasticIPsResponse pResponseStatus_ =
+mkDescribeElasticIPsResponse pResponseStatus_ =
   DescribeElasticIPsResponse'
-    { _deirsElasticIPs = Nothing,
-      _deirsResponseStatus = pResponseStatus_
+    { elasticIPs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP addresses.
-deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
-deirsElasticIPs = lens _deirsElasticIPs (\s a -> s {_deirsElasticIPs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deirsElasticIPs :: Lens.Lens' DescribeElasticIPsResponse (Lude.Maybe [ElasticIP])
+deirsElasticIPs = Lens.lens (elasticIPs :: DescribeElasticIPsResponse -> Lude.Maybe [ElasticIP]) (\s a -> s {elasticIPs = a} :: DescribeElasticIPsResponse)
+{-# DEPRECATED deirsElasticIPs "Use generic-lens or generic-optics with 'elasticIPs' instead." #-}
 
--- | -- | The response status code.
-deirsResponseStatus :: Lens' DescribeElasticIPsResponse Int
-deirsResponseStatus = lens _deirsResponseStatus (\s a -> s {_deirsResponseStatus = a})
-
-instance NFData DescribeElasticIPsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deirsResponseStatus :: Lens.Lens' DescribeElasticIPsResponse Lude.Int
+deirsResponseStatus = Lens.lens (responseStatus :: DescribeElasticIPsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticIPsResponse)
+{-# DEPRECATED deirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Returns detailed information about a type that has been registered.
 --
---
 -- If you specify a @VersionId@ , @DescribeType@ returns information about that specific type version. Otherwise, it returns information about the default type version.
 module Network.AWS.CloudFormation.DescribeType
-  ( -- * Creating a Request
-    describeType,
-    DescribeType,
+  ( -- * Creating a request
+    DescribeType (..),
+    mkDescribeType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtVersionId,
     dtTypeName,
     dtARN,
     dtType,
 
-    -- * Destructuring the Response
-    describeTypeResponse,
-    DescribeTypeResponse,
+    -- * Destructuring the response
+    DescribeTypeResponse (..),
+    mkDescribeTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dttrsLastUpdated,
     dttrsTypeName,
     dttrsARN,
@@ -58,258 +52,413 @@ module Network.AWS.CloudFormation.DescribeType
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeType' smart constructor.
+-- | /See:/ 'mkDescribeType' smart constructor.
 data DescribeType = DescribeType'
-  { _dtVersionId :: !(Maybe Text),
-    _dtTypeName :: !(Maybe Text),
-    _dtARN :: !(Maybe Text),
-    _dtType :: !(Maybe RegistryType)
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    typeName :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe RegistryType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the type.
 --
--- * 'dtVersionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered. If you specify a @VersionId@ , @DescribeType@ returns information about that specific type version. Otherwise, it returns information about the default type version.
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'type'' - The kind of type.
 --
--- * 'dtTypeName' - The name of the type. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- Currently the only valid value is @RESOURCE@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'typeName' - The name of the type.
 --
--- * 'dtARN' - The Amazon Resource Name (ARN) of the type. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
 --
--- * 'dtType' - The kind of type.  Currently the only valid value is @RESOURCE@ . Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-describeType ::
+-- If you specify a @VersionId@ , @DescribeType@ returns information about that specific type version. Otherwise, it returns information about the default type version.
+mkDescribeType ::
   DescribeType
-describeType =
+mkDescribeType =
   DescribeType'
-    { _dtVersionId = Nothing,
-      _dtTypeName = Nothing,
-      _dtARN = Nothing,
-      _dtType = Nothing
+    { versionId = Lude.Nothing,
+      typeName = Lude.Nothing,
+      arn = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
--- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered. If you specify a @VersionId@ , @DescribeType@ returns information about that specific type version. Otherwise, it returns information about the default type version.
-dtVersionId :: Lens' DescribeType (Maybe Text)
-dtVersionId = lens _dtVersionId (\s a -> s {_dtVersionId = a})
+-- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+--
+-- If you specify a @VersionId@ , @DescribeType@ returns information about that specific type version. Otherwise, it returns information about the default type version.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtVersionId :: Lens.Lens' DescribeType (Lude.Maybe Lude.Text)
+dtVersionId = Lens.lens (versionId :: DescribeType -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: DescribeType)
+{-# DEPRECATED dtVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | The name of the type. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-dtTypeName :: Lens' DescribeType (Maybe Text)
-dtTypeName = lens _dtTypeName (\s a -> s {_dtTypeName = a})
+-- | The name of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTypeName :: Lens.Lens' DescribeType (Lude.Maybe Lude.Text)
+dtTypeName = Lens.lens (typeName :: DescribeType -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: DescribeType)
+{-# DEPRECATED dtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the type. Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-dtARN :: Lens' DescribeType (Maybe Text)
-dtARN = lens _dtARN (\s a -> s {_dtARN = a})
+-- | The Amazon Resource Name (ARN) of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtARN :: Lens.Lens' DescribeType (Lude.Maybe Lude.Text)
+dtARN = Lens.lens (arn :: DescribeType -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeType)
+{-# DEPRECATED dtARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The kind of type.  Currently the only valid value is @RESOURCE@ . Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-dtType :: Lens' DescribeType (Maybe RegistryType)
-dtType = lens _dtType (\s a -> s {_dtType = a})
+-- | The kind of type.
+--
+-- Currently the only valid value is @RESOURCE@ .
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtType :: Lens.Lens' DescribeType (Lude.Maybe RegistryType)
+dtType = Lens.lens (type' :: DescribeType -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: DescribeType)
+{-# DEPRECATED dtType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest DescribeType where
+instance Lude.AWSRequest DescribeType where
   type Rs DescribeType = DescribeTypeResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeTypeResult"
       ( \s h x ->
           DescribeTypeResponse'
-            <$> (x .@? "LastUpdated")
-            <*> (x .@? "TypeName")
-            <*> (x .@? "Arn")
-            <*> (x .@? "ExecutionRoleArn")
-            <*> (x .@? "Visibility")
-            <*> (x .@? "Schema")
-            <*> (x .@? "DefaultVersionId")
-            <*> (x .@? "DeprecatedStatus")
-            <*> (x .@? "TimeCreated")
-            <*> (x .@? "Type")
-            <*> (x .@? "IsDefaultVersion")
-            <*> (x .@? "Description")
-            <*> (x .@? "SourceUrl")
-            <*> (x .@? "DocumentationUrl")
-            <*> (x .@? "ProvisioningType")
-            <*> (x .@? "LoggingConfig")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "LastUpdated")
+            Lude.<*> (x Lude..@? "TypeName")
+            Lude.<*> (x Lude..@? "Arn")
+            Lude.<*> (x Lude..@? "ExecutionRoleArn")
+            Lude.<*> (x Lude..@? "Visibility")
+            Lude.<*> (x Lude..@? "Schema")
+            Lude.<*> (x Lude..@? "DefaultVersionId")
+            Lude.<*> (x Lude..@? "DeprecatedStatus")
+            Lude.<*> (x Lude..@? "TimeCreated")
+            Lude.<*> (x Lude..@? "Type")
+            Lude.<*> (x Lude..@? "IsDefaultVersion")
+            Lude.<*> (x Lude..@? "Description")
+            Lude.<*> (x Lude..@? "SourceUrl")
+            Lude.<*> (x Lude..@? "DocumentationUrl")
+            Lude.<*> (x Lude..@? "ProvisioningType")
+            Lude.<*> (x Lude..@? "LoggingConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeType
+instance Lude.ToHeaders DescribeType where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeType
+instance Lude.ToPath DescribeType where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeType where
-  toHeaders = const mempty
-
-instance ToPath DescribeType where
-  toPath = const "/"
-
-instance ToQuery DescribeType where
+instance Lude.ToQuery DescribeType where
   toQuery DescribeType' {..} =
-    mconcat
-      [ "Action" =: ("DescribeType" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "VersionId" =: _dtVersionId,
-        "TypeName" =: _dtTypeName,
-        "Arn" =: _dtARN,
-        "Type" =: _dtType
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeType" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "VersionId" Lude.=: versionId,
+        "TypeName" Lude.=: typeName,
+        "Arn" Lude.=: arn,
+        "Type" Lude.=: type'
       ]
 
--- | /See:/ 'describeTypeResponse' smart constructor.
+-- | /See:/ 'mkDescribeTypeResponse' smart constructor.
 data DescribeTypeResponse = DescribeTypeResponse'
-  { _dttrsLastUpdated ::
-      !(Maybe ISO8601),
-    _dttrsTypeName :: !(Maybe Text),
-    _dttrsARN :: !(Maybe Text),
-    _dttrsExecutionRoleARN :: !(Maybe Text),
-    _dttrsVisibility :: !(Maybe Visibility),
-    _dttrsSchema :: !(Maybe Text),
-    _dttrsDefaultVersionId :: !(Maybe Text),
-    _dttrsDeprecatedStatus ::
-      !(Maybe DeprecatedStatus),
-    _dttrsTimeCreated :: !(Maybe ISO8601),
-    _dttrsType :: !(Maybe RegistryType),
-    _dttrsIsDefaultVersion :: !(Maybe Bool),
-    _dttrsDescription :: !(Maybe Text),
-    _dttrsSourceURL :: !(Maybe Text),
-    _dttrsDocumentationURL :: !(Maybe Text),
-    _dttrsProvisioningType ::
-      !(Maybe ProvisioningType),
-    _dttrsLoggingConfig :: !(Maybe LoggingConfig),
-    _dttrsResponseStatus :: !Int
+  { lastUpdated ::
+      Lude.Maybe Lude.ISO8601,
+    typeName :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    executionRoleARN :: Lude.Maybe Lude.Text,
+    visibility :: Lude.Maybe Visibility,
+    schema :: Lude.Maybe Lude.Text,
+    defaultVersionId :: Lude.Maybe Lude.Text,
+    deprecatedStatus :: Lude.Maybe DeprecatedStatus,
+    timeCreated :: Lude.Maybe Lude.ISO8601,
+    type' :: Lude.Maybe RegistryType,
+    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    sourceURL :: Lude.Maybe Lude.Text,
+    documentationURL :: Lude.Maybe Lude.Text,
+    provisioningType :: Lude.Maybe ProvisioningType,
+    loggingConfig :: Lude.Maybe LoggingConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the type.
+-- * 'defaultVersionId' - The ID of the default version of the type. The default version is used when the type version is not specified.
 --
--- * 'dttrsLastUpdated' - When the specified type version was registered.
+-- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
+-- * 'deprecatedStatus' - The deprecation status of the type.
 --
--- * 'dttrsTypeName' - The name of the registered type.
+-- Valid values include:
 --
--- * 'dttrsARN' - The Amazon Resource Name (ARN) of the type.
+--     * @LIVE@ : The type is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.
 --
--- * 'dttrsExecutionRoleARN' - The Amazon Resource Name (ARN) of the IAM execution role used to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
 --
--- * 'dttrsVisibility' - The scope at which the type is visible and usable in CloudFormation operations. Valid values include:     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as @PRIVATE@ .     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
+--     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
 --
--- * 'dttrsSchema' - The schema that defines the type. For more information on type schemas, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema> in the /CloudFormation CLI User Guide/ .
 --
--- * 'dttrsDefaultVersionId' - The ID of the default version of the type. The default version is used when the type version is not specified. To set the default version of a type, use @'SetTypeDefaultVersion' @ .
+-- * 'description' - The description of the registered type.
+-- * 'documentationURL' - The URL of a page providing detailed documentation for this type.
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM execution role used to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+-- * 'isDefaultVersion' - Whether the specified type version is set as the default version.
+-- * 'lastUpdated' - When the specified type version was registered.
+-- * 'loggingConfig' - Contains logging configuration information for a type.
+-- * 'provisioningType' - The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
 --
--- * 'dttrsDeprecatedStatus' - The deprecation status of the type. Valid values include:     * @LIVE@ : The type is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
+-- Valid values include:
 --
--- * 'dttrsTimeCreated' - When the specified type version was registered.
+--     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.
 --
--- * 'dttrsType' - The kind of type.  Currently the only valid value is @RESOURCE@ .
 --
--- * 'dttrsIsDefaultVersion' - Whether the specified type version is set as the default version.
+--     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.
 --
--- * 'dttrsDescription' - The description of the registered type.
 --
--- * 'dttrsSourceURL' - The URL of the source code for the type.
+--     * @NON_PROVISIONABLE@ : The type does not include all of the following handlers, and therefore cannot actually be provisioned.
 --
--- * 'dttrsDocumentationURL' - The URL of a page providing detailed documentation for this type.
+--     * create
 --
--- * 'dttrsProvisioningType' - The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted. Valid values include:     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.     * @NON_PROVISIONABLE@ : The type does not include all of the following handlers, and therefore cannot actually be provisioned.     * create     * read     * delete
 --
--- * 'dttrsLoggingConfig' - Contains logging configuration information for a type.
+--     * read
 --
--- * 'dttrsResponseStatus' - -- | The response status code.
-describeTypeResponse ::
-  -- | 'dttrsResponseStatus'
-  Int ->
+--
+--     * delete
+--
+--
+--
+--
+-- * 'responseStatus' - The response status code.
+-- * 'schema' - The schema that defines the type.
+--
+-- For more information on type schemas, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema> in the /CloudFormation CLI User Guide/ .
+-- * 'sourceURL' - The URL of the source code for the type.
+-- * 'timeCreated' - When the specified type version was registered.
+-- * 'type'' - The kind of type.
+--
+-- Currently the only valid value is @RESOURCE@ .
+-- * 'typeName' - The name of the registered type.
+-- * 'visibility' - The scope at which the type is visible and usable in CloudFormation operations.
+--
+-- Valid values include:
+--
+--     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as @PRIVATE@ .
+--
+--
+--     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
+mkDescribeTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTypeResponse
-describeTypeResponse pResponseStatus_ =
+mkDescribeTypeResponse pResponseStatus_ =
   DescribeTypeResponse'
-    { _dttrsLastUpdated = Nothing,
-      _dttrsTypeName = Nothing,
-      _dttrsARN = Nothing,
-      _dttrsExecutionRoleARN = Nothing,
-      _dttrsVisibility = Nothing,
-      _dttrsSchema = Nothing,
-      _dttrsDefaultVersionId = Nothing,
-      _dttrsDeprecatedStatus = Nothing,
-      _dttrsTimeCreated = Nothing,
-      _dttrsType = Nothing,
-      _dttrsIsDefaultVersion = Nothing,
-      _dttrsDescription = Nothing,
-      _dttrsSourceURL = Nothing,
-      _dttrsDocumentationURL = Nothing,
-      _dttrsProvisioningType = Nothing,
-      _dttrsLoggingConfig = Nothing,
-      _dttrsResponseStatus = pResponseStatus_
+    { lastUpdated = Lude.Nothing,
+      typeName = Lude.Nothing,
+      arn = Lude.Nothing,
+      executionRoleARN = Lude.Nothing,
+      visibility = Lude.Nothing,
+      schema = Lude.Nothing,
+      defaultVersionId = Lude.Nothing,
+      deprecatedStatus = Lude.Nothing,
+      timeCreated = Lude.Nothing,
+      type' = Lude.Nothing,
+      isDefaultVersion = Lude.Nothing,
+      description = Lude.Nothing,
+      sourceURL = Lude.Nothing,
+      documentationURL = Lude.Nothing,
+      provisioningType = Lude.Nothing,
+      loggingConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | When the specified type version was registered.
-dttrsLastUpdated :: Lens' DescribeTypeResponse (Maybe UTCTime)
-dttrsLastUpdated = lens _dttrsLastUpdated (\s a -> s {_dttrsLastUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsLastUpdated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.ISO8601)
+dttrsLastUpdated = Lens.lens (lastUpdated :: DescribeTypeResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUpdated = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | The name of the registered type.
-dttrsTypeName :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsTypeName = lens _dttrsTypeName (\s a -> s {_dttrsTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsTypeName :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsTypeName = Lens.lens (typeName :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the type.
-dttrsARN :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsARN = lens _dttrsARN (\s a -> s {_dttrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsARN :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsARN = Lens.lens (arn :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM execution role used to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
-dttrsExecutionRoleARN :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsExecutionRoleARN = lens _dttrsExecutionRoleARN (\s a -> s {_dttrsExecutionRoleARN = a})
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsExecutionRoleARN :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsExecutionRoleARN = Lens.lens (executionRoleARN :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {executionRoleARN = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
--- | The scope at which the type is visible and usable in CloudFormation operations. Valid values include:     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as @PRIVATE@ .     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
-dttrsVisibility :: Lens' DescribeTypeResponse (Maybe Visibility)
-dttrsVisibility = lens _dttrsVisibility (\s a -> s {_dttrsVisibility = a})
+-- | The scope at which the type is visible and usable in CloudFormation operations.
+--
+-- Valid values include:
+--
+--     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as @PRIVATE@ .
+--
+--
+--     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
+--
+--
+--
+-- /Note:/ Consider using 'visibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsVisibility :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Visibility)
+dttrsVisibility = Lens.lens (visibility :: DescribeTypeResponse -> Lude.Maybe Visibility) (\s a -> s {visibility = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsVisibility "Use generic-lens or generic-optics with 'visibility' instead." #-}
 
--- | The schema that defines the type. For more information on type schemas, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema> in the /CloudFormation CLI User Guide/ .
-dttrsSchema :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsSchema = lens _dttrsSchema (\s a -> s {_dttrsSchema = a})
+-- | The schema that defines the type.
+--
+-- For more information on type schemas, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema> in the /CloudFormation CLI User Guide/ .
+--
+-- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsSchema :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsSchema = Lens.lens (schema :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {schema = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
--- | The ID of the default version of the type. The default version is used when the type version is not specified. To set the default version of a type, use @'SetTypeDefaultVersion' @ .
-dttrsDefaultVersionId :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsDefaultVersionId = lens _dttrsDefaultVersionId (\s a -> s {_dttrsDefaultVersionId = a})
+-- | The ID of the default version of the type. The default version is used when the type version is not specified.
+--
+-- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
+--
+-- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsDefaultVersionId :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsDefaultVersionId = Lens.lens (defaultVersionId :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersionId = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
 
--- | The deprecation status of the type. Valid values include:     * @LIVE@ : The type is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
-dttrsDeprecatedStatus :: Lens' DescribeTypeResponse (Maybe DeprecatedStatus)
-dttrsDeprecatedStatus = lens _dttrsDeprecatedStatus (\s a -> s {_dttrsDeprecatedStatus = a})
+-- | The deprecation status of the type.
+--
+-- Valid values include:
+--
+--     * @LIVE@ : The type is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.
+--
+--
+--     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
+--
+--
+--
+-- /Note:/ Consider using 'deprecatedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsDeprecatedStatus :: Lens.Lens' DescribeTypeResponse (Lude.Maybe DeprecatedStatus)
+dttrsDeprecatedStatus = Lens.lens (deprecatedStatus :: DescribeTypeResponse -> Lude.Maybe DeprecatedStatus) (\s a -> s {deprecatedStatus = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsDeprecatedStatus "Use generic-lens or generic-optics with 'deprecatedStatus' instead." #-}
 
 -- | When the specified type version was registered.
-dttrsTimeCreated :: Lens' DescribeTypeResponse (Maybe UTCTime)
-dttrsTimeCreated = lens _dttrsTimeCreated (\s a -> s {_dttrsTimeCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timeCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsTimeCreated :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.ISO8601)
+dttrsTimeCreated = Lens.lens (timeCreated :: DescribeTypeResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {timeCreated = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsTimeCreated "Use generic-lens or generic-optics with 'timeCreated' instead." #-}
 
--- | The kind of type.  Currently the only valid value is @RESOURCE@ .
-dttrsType :: Lens' DescribeTypeResponse (Maybe RegistryType)
-dttrsType = lens _dttrsType (\s a -> s {_dttrsType = a})
+-- | The kind of type.
+--
+-- Currently the only valid value is @RESOURCE@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsType :: Lens.Lens' DescribeTypeResponse (Lude.Maybe RegistryType)
+dttrsType = Lens.lens (type' :: DescribeTypeResponse -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Whether the specified type version is set as the default version.
-dttrsIsDefaultVersion :: Lens' DescribeTypeResponse (Maybe Bool)
-dttrsIsDefaultVersion = lens _dttrsIsDefaultVersion (\s a -> s {_dttrsIsDefaultVersion = a})
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsIsDefaultVersion :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Bool)
+dttrsIsDefaultVersion = Lens.lens (isDefaultVersion :: DescribeTypeResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
 -- | The description of the registered type.
-dttrsDescription :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsDescription = lens _dttrsDescription (\s a -> s {_dttrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsDescription :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsDescription = Lens.lens (description :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The URL of the source code for the type.
-dttrsSourceURL :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsSourceURL = lens _dttrsSourceURL (\s a -> s {_dttrsSourceURL = a})
+--
+-- /Note:/ Consider using 'sourceURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsSourceURL :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsSourceURL = Lens.lens (sourceURL :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {sourceURL = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsSourceURL "Use generic-lens or generic-optics with 'sourceURL' instead." #-}
 
 -- | The URL of a page providing detailed documentation for this type.
-dttrsDocumentationURL :: Lens' DescribeTypeResponse (Maybe Text)
-dttrsDocumentationURL = lens _dttrsDocumentationURL (\s a -> s {_dttrsDocumentationURL = a})
+--
+-- /Note:/ Consider using 'documentationURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsDocumentationURL :: Lens.Lens' DescribeTypeResponse (Lude.Maybe Lude.Text)
+dttrsDocumentationURL = Lens.lens (documentationURL :: DescribeTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {documentationURL = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsDocumentationURL "Use generic-lens or generic-optics with 'documentationURL' instead." #-}
 
--- | The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted. Valid values include:     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.     * @NON_PROVISIONABLE@ : The type does not include all of the following handlers, and therefore cannot actually be provisioned.     * create     * read     * delete
-dttrsProvisioningType :: Lens' DescribeTypeResponse (Maybe ProvisioningType)
-dttrsProvisioningType = lens _dttrsProvisioningType (\s a -> s {_dttrsProvisioningType = a})
+-- | The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+--
+-- Valid values include:
+--
+--     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.
+--
+--
+--     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.
+--
+--
+--     * @NON_PROVISIONABLE@ : The type does not include all of the following handlers, and therefore cannot actually be provisioned.
+--
+--     * create
+--
+--
+--     * read
+--
+--
+--     * delete
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'provisioningType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsProvisioningType :: Lens.Lens' DescribeTypeResponse (Lude.Maybe ProvisioningType)
+dttrsProvisioningType = Lens.lens (provisioningType :: DescribeTypeResponse -> Lude.Maybe ProvisioningType) (\s a -> s {provisioningType = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsProvisioningType "Use generic-lens or generic-optics with 'provisioningType' instead." #-}
 
 -- | Contains logging configuration information for a type.
-dttrsLoggingConfig :: Lens' DescribeTypeResponse (Maybe LoggingConfig)
-dttrsLoggingConfig = lens _dttrsLoggingConfig (\s a -> s {_dttrsLoggingConfig = a})
+--
+-- /Note:/ Consider using 'loggingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsLoggingConfig :: Lens.Lens' DescribeTypeResponse (Lude.Maybe LoggingConfig)
+dttrsLoggingConfig = Lens.lens (loggingConfig :: DescribeTypeResponse -> Lude.Maybe LoggingConfig) (\s a -> s {loggingConfig = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsLoggingConfig "Use generic-lens or generic-optics with 'loggingConfig' instead." #-}
 
--- | -- | The response status code.
-dttrsResponseStatus :: Lens' DescribeTypeResponse Int
-dttrsResponseStatus = lens _dttrsResponseStatus (\s a -> s {_dttrsResponseStatus = a})
-
-instance NFData DescribeTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsResponseStatus :: Lens.Lens' DescribeTypeResponse Lude.Int
+dttrsResponseStatus = Lens.lens (responseStatus :: DescribeTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTypeResponse)
+{-# DEPRECATED dttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes one or more flow logs. To view the information in your flow logs (the log streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs API.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeFlowLogs
-  ( -- * Creating a Request
-    describeFlowLogs,
-    DescribeFlowLogs,
+  ( -- * Creating a request
+    DescribeFlowLogs (..),
+    mkDescribeFlowLogs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dflsNextToken,
     dflsFlowLogIds,
     dflsFilter,
     dflsDryRun,
     dflsMaxResults,
 
-    -- * Destructuring the Response
-    describeFlowLogsResponse,
-    DescribeFlowLogsResponse,
+    -- * Destructuring the response
+    DescribeFlowLogsResponse (..),
+    mkDescribeFlowLogsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dflsrsNextToken,
     dflsrsFlowLogs,
     dflsrsResponseStatus,
@@ -46,146 +39,229 @@ module Network.AWS.EC2.DescribeFlowLogs
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFlowLogs' smart constructor.
+-- | /See:/ 'mkDescribeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-  { _dflsNextToken ::
-      !(Maybe Text),
-    _dflsFlowLogIds :: !(Maybe [Text]),
-    _dflsFilter :: !(Maybe [Filter]),
-    _dflsDryRun :: !(Maybe Bool),
-    _dflsMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    flowLogIds :: Lude.Maybe [Lude.Text],
+    filter :: Lude.Maybe [Filter],
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowLogs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filter' - One or more filters.
 --
--- * 'dflsNextToken' - The token for the next page of results.
 --
--- * 'dflsFlowLogIds' - One or more flow log IDs. Constraint: Maximum of 1000 flow log IDs.
+--     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
 --
--- * 'dflsFilter' - One or more filters.     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .     * @flow-log-id@ - The ID of the flow log.     * @log-group-name@ - The name of the log group.     * @resource-id@ - The ID of the VPC, subnet, or network interface.     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
--- * 'dflsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .
 --
--- * 'dflsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeFlowLogs ::
+--
+--     * @flow-log-id@ - The ID of the flow log.
+--
+--
+--     * @log-group-name@ - The name of the log group.
+--
+--
+--     * @resource-id@ - The ID of the VPC, subnet, or network interface.
+--
+--
+--     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+-- * 'flowLogIds' - One or more flow log IDs.
+--
+-- Constraint: Maximum of 1000 flow log IDs.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+mkDescribeFlowLogs ::
   DescribeFlowLogs
-describeFlowLogs =
+mkDescribeFlowLogs =
   DescribeFlowLogs'
-    { _dflsNextToken = Nothing,
-      _dflsFlowLogIds = Nothing,
-      _dflsFilter = Nothing,
-      _dflsDryRun = Nothing,
-      _dflsMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      flowLogIds = Lude.Nothing,
+      filter = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next page of results.
-dflsNextToken :: Lens' DescribeFlowLogs (Maybe Text)
-dflsNextToken = lens _dflsNextToken (\s a -> s {_dflsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsNextToken :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Text)
+dflsNextToken = Lens.lens (nextToken :: DescribeFlowLogs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFlowLogs)
+{-# DEPRECATED dflsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | One or more flow log IDs. Constraint: Maximum of 1000 flow log IDs.
-dflsFlowLogIds :: Lens' DescribeFlowLogs [Text]
-dflsFlowLogIds = lens _dflsFlowLogIds (\s a -> s {_dflsFlowLogIds = a}) . _Default . _Coerce
+-- | One or more flow log IDs.
+--
+-- Constraint: Maximum of 1000 flow log IDs.
+--
+-- /Note:/ Consider using 'flowLogIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsFlowLogIds :: Lens.Lens' DescribeFlowLogs (Lude.Maybe [Lude.Text])
+dflsFlowLogIds = Lens.lens (flowLogIds :: DescribeFlowLogs -> Lude.Maybe [Lude.Text]) (\s a -> s {flowLogIds = a} :: DescribeFlowLogs)
+{-# DEPRECATED dflsFlowLogIds "Use generic-lens or generic-optics with 'flowLogIds' instead." #-}
 
--- | One or more filters.     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .     * @flow-log-id@ - The ID of the flow log.     * @log-group-name@ - The name of the log group.     * @resource-id@ - The ID of the VPC, subnet, or network interface.     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-dflsFilter :: Lens' DescribeFlowLogs [Filter]
-dflsFilter = lens _dflsFilter (\s a -> s {_dflsFilter = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
+--
+--
+--     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .
+--
+--
+--     * @flow-log-id@ - The ID of the flow log.
+--
+--
+--     * @log-group-name@ - The name of the log group.
+--
+--
+--     * @resource-id@ - The ID of the VPC, subnet, or network interface.
+--
+--
+--     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsFilter :: Lens.Lens' DescribeFlowLogs (Lude.Maybe [Filter])
+dflsFilter = Lens.lens (filter :: DescribeFlowLogs -> Lude.Maybe [Filter]) (\s a -> s {filter = a} :: DescribeFlowLogs)
+{-# DEPRECATED dflsFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dflsDryRun :: Lens' DescribeFlowLogs (Maybe Bool)
-dflsDryRun = lens _dflsDryRun (\s a -> s {_dflsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsDryRun :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Bool)
+dflsDryRun = Lens.lens (dryRun :: DescribeFlowLogs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFlowLogs)
+{-# DEPRECATED dflsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dflsMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
-dflsMaxResults = lens _dflsMaxResults (\s a -> s {_dflsMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsMaxResults :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Int)
+dflsMaxResults = Lens.lens (maxResults :: DescribeFlowLogs -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFlowLogs)
+{-# DEPRECATED dflsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeFlowLogs where
+instance Page.AWSPager DescribeFlowLogs where
   page rq rs
-    | stop (rs ^. dflsrsNextToken) = Nothing
-    | stop (rs ^. dflsrsFlowLogs) = Nothing
-    | otherwise = Just $ rq & dflsNextToken .~ rs ^. dflsrsNextToken
+    | Page.stop (rs Lens.^. dflsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dflsrsFlowLogs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dflsNextToken Lens..~ rs Lens.^. dflsrsNextToken
 
-instance AWSRequest DescribeFlowLogs where
+instance Lude.AWSRequest DescribeFlowLogs where
   type Rs DescribeFlowLogs = DescribeFlowLogsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            <$> (x .@? "nextToken")
-            <*> (x .@? "flowLogSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "flowLogSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeFlowLogs
+instance Lude.ToHeaders DescribeFlowLogs where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeFlowLogs
+instance Lude.ToPath DescribeFlowLogs where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeFlowLogs where
-  toHeaders = const mempty
-
-instance ToPath DescribeFlowLogs where
-  toPath = const "/"
-
-instance ToQuery DescribeFlowLogs where
+instance Lude.ToQuery DescribeFlowLogs where
   toQuery DescribeFlowLogs' {..} =
-    mconcat
-      [ "Action" =: ("DescribeFlowLogs" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NextToken" =: _dflsNextToken,
-        toQuery (toQueryList "FlowLogId" <$> _dflsFlowLogIds),
-        toQuery (toQueryList "Filter" <$> _dflsFilter),
-        "DryRun" =: _dflsDryRun,
-        "MaxResults" =: _dflsMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeFlowLogs" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery (Lude.toQueryList "FlowLogId" Lude.<$> flowLogIds),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filter),
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeFlowLogsResponse' smart constructor.
+-- | /See:/ 'mkDescribeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-  { _dflsrsNextToken ::
-      !(Maybe Text),
-    _dflsrsFlowLogs :: !(Maybe [FlowLog]),
-    _dflsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    flowLogs :: Lude.Maybe [FlowLog],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dflsrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dflsrsFlowLogs' - Information about the flow logs.
---
--- * 'dflsrsResponseStatus' - -- | The response status code.
-describeFlowLogsResponse ::
-  -- | 'dflsrsResponseStatus'
-  Int ->
+-- * 'flowLogs' - Information about the flow logs.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeFlowLogsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFlowLogsResponse
-describeFlowLogsResponse pResponseStatus_ =
+mkDescribeFlowLogsResponse pResponseStatus_ =
   DescribeFlowLogsResponse'
-    { _dflsrsNextToken = Nothing,
-      _dflsrsFlowLogs = Nothing,
-      _dflsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      flowLogs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
-dflsrsNextToken = lens _dflsrsNextToken (\s a -> s {_dflsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsrsNextToken :: Lens.Lens' DescribeFlowLogsResponse (Lude.Maybe Lude.Text)
+dflsrsNextToken = Lens.lens (nextToken :: DescribeFlowLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFlowLogsResponse)
+{-# DEPRECATED dflsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the flow logs.
-dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-dflsrsFlowLogs = lens _dflsrsFlowLogs (\s a -> s {_dflsrsFlowLogs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'flowLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsrsFlowLogs :: Lens.Lens' DescribeFlowLogsResponse (Lude.Maybe [FlowLog])
+dflsrsFlowLogs = Lens.lens (flowLogs :: DescribeFlowLogsResponse -> Lude.Maybe [FlowLog]) (\s a -> s {flowLogs = a} :: DescribeFlowLogsResponse)
+{-# DEPRECATED dflsrsFlowLogs "Use generic-lens or generic-optics with 'flowLogs' instead." #-}
 
--- | -- | The response status code.
-dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
-dflsrsResponseStatus = lens _dflsrsResponseStatus (\s a -> s {_dflsrsResponseStatus = a})
-
-instance NFData DescribeFlowLogsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsrsResponseStatus :: Lens.Lens' DescribeFlowLogsResponse Lude.Int
+dflsrsResponseStatus = Lens.lens (responseStatus :: DescribeFlowLogsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFlowLogsResponse)
+{-# DEPRECATED dflsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

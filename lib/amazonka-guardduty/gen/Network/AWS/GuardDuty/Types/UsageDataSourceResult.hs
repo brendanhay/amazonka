@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.UsageDataSourceResult where
+module Network.AWS.GuardDuty.Types.UsageDataSourceResult
+  ( UsageDataSourceResult (..),
+
+    -- * Smart constructor
+    mkUsageDataSourceResult,
+
+    -- * Lenses
+    udsrTotal,
+    udsrDataSource,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.DataSource
 import Network.AWS.GuardDuty.Types.Total
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the result of usage based on data source type.
 --
---
---
--- /See:/ 'usageDataSourceResult' smart constructor.
+-- /See:/ 'mkUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
-  { _udsrTotal ::
-      !(Maybe Total),
-    _udsrDataSource :: !(Maybe DataSource)
+  { total ::
+      Lude.Maybe Total,
+    dataSource :: Lude.Maybe DataSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageDataSourceResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udsrTotal' - Represents the total of usage for the specified data source.
---
--- * 'udsrDataSource' - The data source type that generated usage.
-usageDataSourceResult ::
+-- * 'dataSource' - The data source type that generated usage.
+-- * 'total' - Represents the total of usage for the specified data source.
+mkUsageDataSourceResult ::
   UsageDataSourceResult
-usageDataSourceResult =
+mkUsageDataSourceResult =
   UsageDataSourceResult'
-    { _udsrTotal = Nothing,
-      _udsrDataSource = Nothing
+    { total = Lude.Nothing,
+      dataSource = Lude.Nothing
     }
 
 -- | Represents the total of usage for the specified data source.
-udsrTotal :: Lens' UsageDataSourceResult (Maybe Total)
-udsrTotal = lens _udsrTotal (\s a -> s {_udsrTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsrTotal :: Lens.Lens' UsageDataSourceResult (Lude.Maybe Total)
+udsrTotal = Lens.lens (total :: UsageDataSourceResult -> Lude.Maybe Total) (\s a -> s {total = a} :: UsageDataSourceResult)
+{-# DEPRECATED udsrTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The data source type that generated usage.
-udsrDataSource :: Lens' UsageDataSourceResult (Maybe DataSource)
-udsrDataSource = lens _udsrDataSource (\s a -> s {_udsrDataSource = a})
+--
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsrDataSource :: Lens.Lens' UsageDataSourceResult (Lude.Maybe DataSource)
+udsrDataSource = Lens.lens (dataSource :: UsageDataSourceResult -> Lude.Maybe DataSource) (\s a -> s {dataSource = a} :: UsageDataSourceResult)
+{-# DEPRECATED udsrDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
-instance FromJSON UsageDataSourceResult where
+instance Lude.FromJSON UsageDataSourceResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageDataSourceResult"
       ( \x ->
           UsageDataSourceResult'
-            <$> (x .:? "total") <*> (x .:? "dataSource")
+            Lude.<$> (x Lude..:? "total") Lude.<*> (x Lude..:? "dataSource")
       )
-
-instance Hashable UsageDataSourceResult
-
-instance NFData UsageDataSourceResult

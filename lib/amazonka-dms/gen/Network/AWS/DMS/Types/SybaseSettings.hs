@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.SybaseSettings where
+module Network.AWS.DMS.Types.SybaseSettings
+  ( SybaseSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSybaseSettings,
+
+    -- * Lenses
+    ssServerName,
+    ssUsername,
+    ssPassword,
+    ssDatabaseName,
+    ssPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information that defines a SAP ASE endpoint.
 --
---
---
--- /See:/ 'sybaseSettings' smart constructor.
+-- /See:/ 'mkSybaseSettings' smart constructor.
 data SybaseSettings = SybaseSettings'
-  { _ssServerName ::
-      !(Maybe Text),
-    _ssUsername :: !(Maybe Text),
-    _ssPassword :: !(Maybe (Sensitive Text)),
-    _ssDatabaseName :: !(Maybe Text),
-    _ssPort :: !(Maybe Int)
+  { serverName ::
+      Lude.Maybe Lude.Text,
+    username :: Lude.Maybe Lude.Text,
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    databaseName :: Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SybaseSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssServerName' - Fully qualified domain name of the endpoint.
---
--- * 'ssUsername' - Endpoint connection user name.
---
--- * 'ssPassword' - Endpoint connection password.
---
--- * 'ssDatabaseName' - Database name for the endpoint.
---
--- * 'ssPort' - Endpoint TCP port.
-sybaseSettings ::
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'password' - Endpoint connection password.
+-- * 'port' - Endpoint TCP port.
+-- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'username' - Endpoint connection user name.
+mkSybaseSettings ::
   SybaseSettings
-sybaseSettings =
+mkSybaseSettings =
   SybaseSettings'
-    { _ssServerName = Nothing,
-      _ssUsername = Nothing,
-      _ssPassword = Nothing,
-      _ssDatabaseName = Nothing,
-      _ssPort = Nothing
+    { serverName = Lude.Nothing,
+      username = Lude.Nothing,
+      password = Lude.Nothing,
+      databaseName = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | Fully qualified domain name of the endpoint.
-ssServerName :: Lens' SybaseSettings (Maybe Text)
-ssServerName = lens _ssServerName (\s a -> s {_ssServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssServerName :: Lens.Lens' SybaseSettings (Lude.Maybe Lude.Text)
+ssServerName = Lens.lens (serverName :: SybaseSettings -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: SybaseSettings)
+{-# DEPRECATED ssServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Endpoint connection user name.
-ssUsername :: Lens' SybaseSettings (Maybe Text)
-ssUsername = lens _ssUsername (\s a -> s {_ssUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssUsername :: Lens.Lens' SybaseSettings (Lude.Maybe Lude.Text)
+ssUsername = Lens.lens (username :: SybaseSettings -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: SybaseSettings)
+{-# DEPRECATED ssUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Endpoint connection password.
-ssPassword :: Lens' SybaseSettings (Maybe Text)
-ssPassword = lens _ssPassword (\s a -> s {_ssPassword = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssPassword :: Lens.Lens' SybaseSettings (Lude.Maybe (Lude.Sensitive Lude.Text))
+ssPassword = Lens.lens (password :: SybaseSettings -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {password = a} :: SybaseSettings)
+{-# DEPRECATED ssPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | Database name for the endpoint.
-ssDatabaseName :: Lens' SybaseSettings (Maybe Text)
-ssDatabaseName = lens _ssDatabaseName (\s a -> s {_ssDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDatabaseName :: Lens.Lens' SybaseSettings (Lude.Maybe Lude.Text)
+ssDatabaseName = Lens.lens (databaseName :: SybaseSettings -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: SybaseSettings)
+{-# DEPRECATED ssDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | Endpoint TCP port.
-ssPort :: Lens' SybaseSettings (Maybe Int)
-ssPort = lens _ssPort (\s a -> s {_ssPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssPort :: Lens.Lens' SybaseSettings (Lude.Maybe Lude.Int)
+ssPort = Lens.lens (port :: SybaseSettings -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: SybaseSettings)
+{-# DEPRECATED ssPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON SybaseSettings where
+instance Lude.FromJSON SybaseSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "SybaseSettings"
       ( \x ->
           SybaseSettings'
-            <$> (x .:? "ServerName")
-            <*> (x .:? "Username")
-            <*> (x .:? "Password")
-            <*> (x .:? "DatabaseName")
-            <*> (x .:? "Port")
+            Lude.<$> (x Lude..:? "ServerName")
+            Lude.<*> (x Lude..:? "Username")
+            Lude.<*> (x Lude..:? "Password")
+            Lude.<*> (x Lude..:? "DatabaseName")
+            Lude.<*> (x Lude..:? "Port")
       )
 
-instance Hashable SybaseSettings
-
-instance NFData SybaseSettings
-
-instance ToJSON SybaseSettings where
+instance Lude.ToJSON SybaseSettings where
   toJSON SybaseSettings' {..} =
-    object
-      ( catMaybes
-          [ ("ServerName" .=) <$> _ssServerName,
-            ("Username" .=) <$> _ssUsername,
-            ("Password" .=) <$> _ssPassword,
-            ("DatabaseName" .=) <$> _ssDatabaseName,
-            ("Port" .=) <$> _ssPort
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServerName" Lude..=) Lude.<$> serverName,
+            ("Username" Lude..=) Lude.<$> username,
+            ("Password" Lude..=) Lude.<$> password,
+            ("DatabaseName" Lude..=) Lude.<$> databaseName,
+            ("Port" Lude..=) Lude.<$> port
           ]
       )

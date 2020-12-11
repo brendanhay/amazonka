@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,193 +14,218 @@
 --
 -- Returns a list of all of the channels associated with the specified bot.
 --
---
 -- The @GetBotChannelAssociations@ operation requires permissions for the @lex:GetBotChannelAssociations@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.LexModels.GetBotChannelAssociations
-  ( -- * Creating a Request
-    getBotChannelAssociations,
-    GetBotChannelAssociations,
+  ( -- * Creating a request
+    GetBotChannelAssociations (..),
+    mkGetBotChannelAssociations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbcaNameContains,
     gbcaNextToken,
     gbcaMaxResults,
     gbcaBotName,
     gbcaBotAlias,
 
-    -- * Destructuring the Response
-    getBotChannelAssociationsResponse,
-    GetBotChannelAssociationsResponse,
+    -- * Destructuring the response
+    GetBotChannelAssociationsResponse (..),
+    mkGetBotChannelAssociationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbcasrsBotChannelAssociations,
     gbcasrsNextToken,
     gbcasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBotChannelAssociations' smart constructor.
+-- | /See:/ 'mkGetBotChannelAssociations' smart constructor.
 data GetBotChannelAssociations = GetBotChannelAssociations'
-  { _gbcaNameContains ::
-      !(Maybe Text),
-    _gbcaNextToken :: !(Maybe Text),
-    _gbcaMaxResults :: !(Maybe Nat),
-    _gbcaBotName :: !Text,
-    _gbcaBotAlias :: !Text
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    botName :: Lude.Text,
+    botAlias :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbcaNameContains' - Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
---
--- * 'gbcaNextToken' - A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
---
--- * 'gbcaMaxResults' - The maximum number of associations to return in the response. The default is 50.
---
--- * 'gbcaBotName' - The name of the Amazon Lex bot in the association.
---
--- * 'gbcaBotAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
-getBotChannelAssociations ::
-  -- | 'gbcaBotName'
-  Text ->
-  -- | 'gbcaBotAlias'
-  Text ->
+-- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+-- * 'botName' - The name of the Amazon Lex bot in the association.
+-- * 'maxResults' - The maximum number of associations to return in the response. The default is 50.
+-- * 'nameContains' - Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
+-- * 'nextToken' - A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
+mkGetBotChannelAssociations ::
+  -- | 'botName'
+  Lude.Text ->
+  -- | 'botAlias'
+  Lude.Text ->
   GetBotChannelAssociations
-getBotChannelAssociations pBotName_ pBotAlias_ =
+mkGetBotChannelAssociations pBotName_ pBotAlias_ =
   GetBotChannelAssociations'
-    { _gbcaNameContains = Nothing,
-      _gbcaNextToken = Nothing,
-      _gbcaMaxResults = Nothing,
-      _gbcaBotName = pBotName_,
-      _gbcaBotAlias = pBotAlias_
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      botName = pBotName_,
+      botAlias = pBotAlias_
     }
 
 -- | Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
-gbcaNameContains :: Lens' GetBotChannelAssociations (Maybe Text)
-gbcaNameContains = lens _gbcaNameContains (\s a -> s {_gbcaNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaNameContains :: Lens.Lens' GetBotChannelAssociations (Lude.Maybe Lude.Text)
+gbcaNameContains = Lens.lens (nameContains :: GetBotChannelAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
-gbcaNextToken :: Lens' GetBotChannelAssociations (Maybe Text)
-gbcaNextToken = lens _gbcaNextToken (\s a -> s {_gbcaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaNextToken :: Lens.Lens' GetBotChannelAssociations (Lude.Maybe Lude.Text)
+gbcaNextToken = Lens.lens (nextToken :: GetBotChannelAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of associations to return in the response. The default is 50.
-gbcaMaxResults :: Lens' GetBotChannelAssociations (Maybe Natural)
-gbcaMaxResults = lens _gbcaMaxResults (\s a -> s {_gbcaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaMaxResults :: Lens.Lens' GetBotChannelAssociations (Lude.Maybe Lude.Natural)
+gbcaMaxResults = Lens.lens (maxResults :: GetBotChannelAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the Amazon Lex bot in the association.
-gbcaBotName :: Lens' GetBotChannelAssociations Text
-gbcaBotName = lens _gbcaBotName (\s a -> s {_gbcaBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaBotName :: Lens.Lens' GetBotChannelAssociations Lude.Text
+gbcaBotName = Lens.lens (botName :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botName = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
-gbcaBotAlias :: Lens' GetBotChannelAssociations Text
-gbcaBotAlias = lens _gbcaBotAlias (\s a -> s {_gbcaBotAlias = a})
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaBotAlias :: Lens.Lens' GetBotChannelAssociations Lude.Text
+gbcaBotAlias = Lens.lens (botAlias :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botAlias = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
-instance AWSPager GetBotChannelAssociations where
+instance Page.AWSPager GetBotChannelAssociations where
   page rq rs
-    | stop (rs ^. gbcasrsNextToken) = Nothing
-    | stop (rs ^. gbcasrsBotChannelAssociations) = Nothing
-    | otherwise = Just $ rq & gbcaNextToken .~ rs ^. gbcasrsNextToken
+    | Page.stop (rs Lens.^. gbcasrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gbcasrsBotChannelAssociations) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gbcaNextToken Lens..~ rs Lens.^. gbcasrsNextToken
 
-instance AWSRequest GetBotChannelAssociations where
+instance Lude.AWSRequest GetBotChannelAssociations where
   type
     Rs GetBotChannelAssociations =
       GetBotChannelAssociationsResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBotChannelAssociationsResponse'
-            <$> (x .?> "botChannelAssociations" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "botChannelAssociations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBotChannelAssociations
-
-instance NFData GetBotChannelAssociations
-
-instance ToHeaders GetBotChannelAssociations where
+instance Lude.ToHeaders GetBotChannelAssociations where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetBotChannelAssociations where
+instance Lude.ToPath GetBotChannelAssociations where
   toPath GetBotChannelAssociations' {..} =
-    mconcat
+    Lude.mconcat
       [ "/bots/",
-        toBS _gbcaBotName,
+        Lude.toBS botName,
         "/aliases/",
-        toBS _gbcaBotAlias,
+        Lude.toBS botAlias,
         "/channels/"
       ]
 
-instance ToQuery GetBotChannelAssociations where
+instance Lude.ToQuery GetBotChannelAssociations where
   toQuery GetBotChannelAssociations' {..} =
-    mconcat
-      [ "nameContains" =: _gbcaNameContains,
-        "nextToken" =: _gbcaNextToken,
-        "maxResults" =: _gbcaMaxResults
+    Lude.mconcat
+      [ "nameContains" Lude.=: nameContains,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'getBotChannelAssociationsResponse' smart constructor.
+-- | /See:/ 'mkGetBotChannelAssociationsResponse' smart constructor.
 data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
-  { _gbcasrsBotChannelAssociations ::
-      !( Maybe
-           [BotChannelAssociation]
-       ),
-    _gbcasrsNextToken ::
-      !(Maybe Text),
-    _gbcasrsResponseStatus ::
-      !Int
+  { botChannelAssociations ::
+      Lude.Maybe
+        [BotChannelAssociation],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbcasrsBotChannelAssociations' - An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel.
---
--- * 'gbcasrsNextToken' - A pagination token that fetches the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
---
--- * 'gbcasrsResponseStatus' - -- | The response status code.
-getBotChannelAssociationsResponse ::
-  -- | 'gbcasrsResponseStatus'
-  Int ->
+-- * 'botChannelAssociations' - An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel.
+-- * 'nextToken' - A pagination token that fetches the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
+-- * 'responseStatus' - The response status code.
+mkGetBotChannelAssociationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBotChannelAssociationsResponse
-getBotChannelAssociationsResponse pResponseStatus_ =
+mkGetBotChannelAssociationsResponse pResponseStatus_ =
   GetBotChannelAssociationsResponse'
-    { _gbcasrsBotChannelAssociations =
-        Nothing,
-      _gbcasrsNextToken = Nothing,
-      _gbcasrsResponseStatus = pResponseStatus_
+    { botChannelAssociations =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel.
-gbcasrsBotChannelAssociations :: Lens' GetBotChannelAssociationsResponse [BotChannelAssociation]
-gbcasrsBotChannelAssociations = lens _gbcasrsBotChannelAssociations (\s a -> s {_gbcasrsBotChannelAssociations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'botChannelAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcasrsBotChannelAssociations :: Lens.Lens' GetBotChannelAssociationsResponse (Lude.Maybe [BotChannelAssociation])
+gbcasrsBotChannelAssociations = Lens.lens (botChannelAssociations :: GetBotChannelAssociationsResponse -> Lude.Maybe [BotChannelAssociation]) (\s a -> s {botChannelAssociations = a} :: GetBotChannelAssociationsResponse)
+{-# DEPRECATED gbcasrsBotChannelAssociations "Use generic-lens or generic-optics with 'botChannelAssociations' instead." #-}
 
 -- | A pagination token that fetches the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
-gbcasrsNextToken :: Lens' GetBotChannelAssociationsResponse (Maybe Text)
-gbcasrsNextToken = lens _gbcasrsNextToken (\s a -> s {_gbcasrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcasrsNextToken :: Lens.Lens' GetBotChannelAssociationsResponse (Lude.Maybe Lude.Text)
+gbcasrsNextToken = Lens.lens (nextToken :: GetBotChannelAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotChannelAssociationsResponse)
+{-# DEPRECATED gbcasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gbcasrsResponseStatus :: Lens' GetBotChannelAssociationsResponse Int
-gbcasrsResponseStatus = lens _gbcasrsResponseStatus (\s a -> s {_gbcasrsResponseStatus = a})
-
-instance NFData GetBotChannelAssociationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcasrsResponseStatus :: Lens.Lens' GetBotChannelAssociationsResponse Lude.Int
+gbcasrsResponseStatus = Lens.lens (responseStatus :: GetBotChannelAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBotChannelAssociationsResponse)
+{-# DEPRECATED gbcasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

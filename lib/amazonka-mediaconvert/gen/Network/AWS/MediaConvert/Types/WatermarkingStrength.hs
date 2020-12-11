@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.WatermarkingStrength where
+module Network.AWS.MediaConvert.Types.WatermarkingStrength
+  ( WatermarkingStrength
+      ( WatermarkingStrength',
+        WSDefault,
+        WSLighter,
+        WSLightest,
+        WSStronger,
+        WSStrongest
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. Ignore this setting unless Nagra support directs you to specify a value. When you don't specify a value here, the Nagra NexGuard library uses its default value.
-data WatermarkingStrength
-  = WSDefault
-  | WSLighter
-  | WSLightest
-  | WSStronger
-  | WSStrongest
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WatermarkingStrength = WatermarkingStrength' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WatermarkingStrength where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure WSDefault
-      "lighter" -> pure WSLighter
-      "lightest" -> pure WSLightest
-      "stronger" -> pure WSStronger
-      "strongest" -> pure WSStrongest
-      e ->
-        fromTextError $
-          "Failure parsing WatermarkingStrength from value: '" <> e
-            <> "'. Accepted values: default, lighter, lightest, stronger, strongest"
+pattern WSDefault :: WatermarkingStrength
+pattern WSDefault = WatermarkingStrength' "DEFAULT"
 
-instance ToText WatermarkingStrength where
-  toText = \case
-    WSDefault -> "DEFAULT"
-    WSLighter -> "LIGHTER"
-    WSLightest -> "LIGHTEST"
-    WSStronger -> "STRONGER"
-    WSStrongest -> "STRONGEST"
+pattern WSLighter :: WatermarkingStrength
+pattern WSLighter = WatermarkingStrength' "LIGHTER"
 
-instance Hashable WatermarkingStrength
+pattern WSLightest :: WatermarkingStrength
+pattern WSLightest = WatermarkingStrength' "LIGHTEST"
 
-instance NFData WatermarkingStrength
+pattern WSStronger :: WatermarkingStrength
+pattern WSStronger = WatermarkingStrength' "STRONGER"
 
-instance ToByteString WatermarkingStrength
+pattern WSStrongest :: WatermarkingStrength
+pattern WSStrongest = WatermarkingStrength' "STRONGEST"
 
-instance ToQuery WatermarkingStrength
-
-instance ToHeader WatermarkingStrength
-
-instance ToJSON WatermarkingStrength where
-  toJSON = toJSONText
-
-instance FromJSON WatermarkingStrength where
-  parseJSON = parseJSONText "WatermarkingStrength"
+{-# COMPLETE
+  WSDefault,
+  WSLighter,
+  WSLightest,
+  WSStronger,
+  WSStrongest,
+  WatermarkingStrength'
+  #-}

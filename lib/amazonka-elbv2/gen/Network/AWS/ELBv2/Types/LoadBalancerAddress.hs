@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.LoadBalancerAddress where
+module Network.AWS.ELBv2.Types.LoadBalancerAddress
+  ( LoadBalancerAddress (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLoadBalancerAddress,
+
+    -- * Lenses
+    lbaIPv6Address,
+    lbaIPAddress,
+    lbaAllocationId,
+    lbaPrivateIPv4Address,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a static IP address for a load balancer.
 --
---
---
--- /See:/ 'loadBalancerAddress' smart constructor.
+-- /See:/ 'mkLoadBalancerAddress' smart constructor.
 data LoadBalancerAddress = LoadBalancerAddress'
-  { _lbaIPv6Address ::
-      !(Maybe Text),
-    _lbaIPAddress :: !(Maybe Text),
-    _lbaAllocationId :: !(Maybe Text),
-    _lbaPrivateIPv4Address :: !(Maybe Text)
+  { ipv6Address ::
+      Lude.Maybe Lude.Text,
+    ipAddress :: Lude.Maybe Lude.Text,
+    allocationId :: Lude.Maybe Lude.Text,
+    privateIPv4Address :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbaIPv6Address' - [Network Load Balancers] The IPv6 address.
---
--- * 'lbaIPAddress' - The static IP address.
---
--- * 'lbaAllocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
---
--- * 'lbaPrivateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
-loadBalancerAddress ::
+-- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
+-- * 'ipAddress' - The static IP address.
+-- * 'ipv6Address' - [Network Load Balancers] The IPv6 address.
+-- * 'privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
+mkLoadBalancerAddress ::
   LoadBalancerAddress
-loadBalancerAddress =
+mkLoadBalancerAddress =
   LoadBalancerAddress'
-    { _lbaIPv6Address = Nothing,
-      _lbaIPAddress = Nothing,
-      _lbaAllocationId = Nothing,
-      _lbaPrivateIPv4Address = Nothing
+    { ipv6Address = Lude.Nothing,
+      ipAddress = Lude.Nothing,
+      allocationId = Lude.Nothing,
+      privateIPv4Address = Lude.Nothing
     }
 
 -- | [Network Load Balancers] The IPv6 address.
-lbaIPv6Address :: Lens' LoadBalancerAddress (Maybe Text)
-lbaIPv6Address = lens _lbaIPv6Address (\s a -> s {_lbaIPv6Address = a})
+--
+-- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaIPv6Address :: Lens.Lens' LoadBalancerAddress (Lude.Maybe Lude.Text)
+lbaIPv6Address = Lens.lens (ipv6Address :: LoadBalancerAddress -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: LoadBalancerAddress)
+{-# DEPRECATED lbaIPv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
 
 -- | The static IP address.
-lbaIPAddress :: Lens' LoadBalancerAddress (Maybe Text)
-lbaIPAddress = lens _lbaIPAddress (\s a -> s {_lbaIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaIPAddress :: Lens.Lens' LoadBalancerAddress (Lude.Maybe Lude.Text)
+lbaIPAddress = Lens.lens (ipAddress :: LoadBalancerAddress -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: LoadBalancerAddress)
+{-# DEPRECATED lbaIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
-lbaAllocationId :: Lens' LoadBalancerAddress (Maybe Text)
-lbaAllocationId = lens _lbaAllocationId (\s a -> s {_lbaAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaAllocationId :: Lens.Lens' LoadBalancerAddress (Lude.Maybe Lude.Text)
+lbaAllocationId = Lens.lens (allocationId :: LoadBalancerAddress -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: LoadBalancerAddress)
+{-# DEPRECATED lbaAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
 -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
-lbaPrivateIPv4Address :: Lens' LoadBalancerAddress (Maybe Text)
-lbaPrivateIPv4Address = lens _lbaPrivateIPv4Address (\s a -> s {_lbaPrivateIPv4Address = a})
+--
+-- /Note:/ Consider using 'privateIPv4Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaPrivateIPv4Address :: Lens.Lens' LoadBalancerAddress (Lude.Maybe Lude.Text)
+lbaPrivateIPv4Address = Lens.lens (privateIPv4Address :: LoadBalancerAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateIPv4Address = a} :: LoadBalancerAddress)
+{-# DEPRECATED lbaPrivateIPv4Address "Use generic-lens or generic-optics with 'privateIPv4Address' instead." #-}
 
-instance FromXML LoadBalancerAddress where
+instance Lude.FromXML LoadBalancerAddress where
   parseXML x =
     LoadBalancerAddress'
-      <$> (x .@? "IPv6Address")
-      <*> (x .@? "IpAddress")
-      <*> (x .@? "AllocationId")
-      <*> (x .@? "PrivateIPv4Address")
-
-instance Hashable LoadBalancerAddress
-
-instance NFData LoadBalancerAddress
+      Lude.<$> (x Lude..@? "IPv6Address")
+      Lude.<*> (x Lude..@? "IpAddress")
+      Lude.<*> (x Lude..@? "AllocationId")
+      Lude.<*> (x Lude..@? "PrivateIPv4Address")

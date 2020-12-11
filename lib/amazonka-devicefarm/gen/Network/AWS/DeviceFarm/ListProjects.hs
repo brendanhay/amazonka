@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets information about projects.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListProjects
-  ( -- * Creating a Request
-    listProjects,
-    ListProjects,
+  ( -- * Creating a request
+    ListProjects (..),
+    mkListProjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpArn,
     lpNextToken,
 
-    -- * Destructuring the Response
-    listProjectsResponse,
-    ListProjectsResponse,
+    -- * Destructuring the response
+    ListProjectsResponse (..),
+    mkListProjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsNextToken,
     lprsProjects,
     lprsResponseStatus,
@@ -43,131 +36,149 @@ module Network.AWS.DeviceFarm.ListProjects
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list projects operation.
 --
---
---
--- /See:/ 'listProjects' smart constructor.
+-- /See:/ 'mkListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { _lpArn :: !(Maybe Text),
-    _lpNextToken :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpArn' - Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
---
--- * 'lpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-listProjects ::
+-- * 'arn' - Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListProjects ::
   ListProjects
-listProjects =
-  ListProjects' {_lpArn = Nothing, _lpNextToken = Nothing}
+mkListProjects =
+  ListProjects' {arn = Lude.Nothing, nextToken = Lude.Nothing}
 
 -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
-lpArn :: Lens' ListProjects (Maybe Text)
-lpArn = lens _lpArn (\s a -> s {_lpArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpArn :: Lens.Lens' ListProjects (Lude.Maybe Lude.Text)
+lpArn = Lens.lens (arn :: ListProjects -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ListProjects)
+{-# DEPRECATED lpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\s a -> s {_lpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListProjects (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: ListProjects -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjects)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListProjects where
+instance Page.AWSPager ListProjects where
   page rq rs
-    | stop (rs ^. lprsNextToken) = Nothing
-    | stop (rs ^. lprsProjects) = Nothing
-    | otherwise = Just $ rq & lpNextToken .~ rs ^. lprsNextToken
+    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsProjects) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
 
-instance AWSRequest ListProjects where
+instance Lude.AWSRequest ListProjects where
   type Rs ListProjects = ListProjectsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "projects" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "projects" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProjects
-
-instance NFData ListProjects
-
-instance ToHeaders ListProjects where
+instance Lude.ToHeaders ListProjects where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListProjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListProjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListProjects where
+instance Lude.ToJSON ListProjects where
   toJSON ListProjects' {..} =
-    object
-      ( catMaybes
-          [("arn" .=) <$> _lpArn, ("nextToken" .=) <$> _lpNextToken]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("arn" Lude..=) Lude.<$> arn,
+            ("nextToken" Lude..=) Lude.<$> nextToken
+          ]
       )
 
-instance ToPath ListProjects where
-  toPath = const "/"
+instance Lude.ToPath ListProjects where
+  toPath = Lude.const "/"
 
-instance ToQuery ListProjects where
-  toQuery = const mempty
+instance Lude.ToQuery ListProjects where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list projects request.
 --
---
---
--- /See:/ 'listProjectsResponse' smart constructor.
+-- /See:/ 'mkListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { _lprsNextToken ::
-      !(Maybe Text),
-    _lprsProjects :: !(Maybe [Project]),
-    _lprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    projects :: Lude.Maybe [Project],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'lprsProjects' - Information about the projects.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listProjectsResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'projects' - Information about the projects.
+-- * 'responseStatus' - The response status code.
+mkListProjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProjectsResponse
-listProjectsResponse pResponseStatus_ =
+mkListProjectsResponse pResponseStatus_ =
   ListProjectsResponse'
-    { _lprsNextToken = Nothing,
-      _lprsProjects = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      projects = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\s a -> s {_lprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextToken :: Lens.Lens' ListProjectsResponse (Lude.Maybe Lude.Text)
+lprsNextToken = Lens.lens (nextToken :: ListProjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the projects.
-lprsProjects :: Lens' ListProjectsResponse [Project]
-lprsProjects = lens _lprsProjects (\s a -> s {_lprsProjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'projects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsProjects :: Lens.Lens' ListProjectsResponse (Lude.Maybe [Project])
+lprsProjects = Lens.lens (projects :: ListProjectsResponse -> Lude.Maybe [Project]) (\s a -> s {projects = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListProjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListProjectsResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

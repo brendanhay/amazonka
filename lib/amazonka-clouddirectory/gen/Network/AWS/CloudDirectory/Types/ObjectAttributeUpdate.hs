@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate where
+module Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
+  ( ObjectAttributeUpdate (..),
+
+    -- * Smart constructor
+    mkObjectAttributeUpdate,
+
+    -- * Lenses
+    oauObjectAttributeAction,
+    oauObjectAttributeKey,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.ObjectAttributeAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Structure that contains attribute update information.
 --
---
---
--- /See:/ 'objectAttributeUpdate' smart constructor.
+-- /See:/ 'mkObjectAttributeUpdate' smart constructor.
 data ObjectAttributeUpdate = ObjectAttributeUpdate'
-  { _oauObjectAttributeAction ::
-      !(Maybe ObjectAttributeAction),
-    _oauObjectAttributeKey :: !(Maybe AttributeKey)
+  { objectAttributeAction ::
+      Lude.Maybe ObjectAttributeAction,
+    objectAttributeKey :: Lude.Maybe AttributeKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectAttributeUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oauObjectAttributeAction' - The action to perform as part of the attribute update.
---
--- * 'oauObjectAttributeKey' - The key of the attribute being updated.
-objectAttributeUpdate ::
+-- * 'objectAttributeAction' - The action to perform as part of the attribute update.
+-- * 'objectAttributeKey' - The key of the attribute being updated.
+mkObjectAttributeUpdate ::
   ObjectAttributeUpdate
-objectAttributeUpdate =
+mkObjectAttributeUpdate =
   ObjectAttributeUpdate'
-    { _oauObjectAttributeAction = Nothing,
-      _oauObjectAttributeKey = Nothing
+    { objectAttributeAction = Lude.Nothing,
+      objectAttributeKey = Lude.Nothing
     }
 
 -- | The action to perform as part of the attribute update.
-oauObjectAttributeAction :: Lens' ObjectAttributeUpdate (Maybe ObjectAttributeAction)
-oauObjectAttributeAction = lens _oauObjectAttributeAction (\s a -> s {_oauObjectAttributeAction = a})
+--
+-- /Note:/ Consider using 'objectAttributeAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oauObjectAttributeAction :: Lens.Lens' ObjectAttributeUpdate (Lude.Maybe ObjectAttributeAction)
+oauObjectAttributeAction = Lens.lens (objectAttributeAction :: ObjectAttributeUpdate -> Lude.Maybe ObjectAttributeAction) (\s a -> s {objectAttributeAction = a} :: ObjectAttributeUpdate)
+{-# DEPRECATED oauObjectAttributeAction "Use generic-lens or generic-optics with 'objectAttributeAction' instead." #-}
 
 -- | The key of the attribute being updated.
-oauObjectAttributeKey :: Lens' ObjectAttributeUpdate (Maybe AttributeKey)
-oauObjectAttributeKey = lens _oauObjectAttributeKey (\s a -> s {_oauObjectAttributeKey = a})
+--
+-- /Note:/ Consider using 'objectAttributeKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oauObjectAttributeKey :: Lens.Lens' ObjectAttributeUpdate (Lude.Maybe AttributeKey)
+oauObjectAttributeKey = Lens.lens (objectAttributeKey :: ObjectAttributeUpdate -> Lude.Maybe AttributeKey) (\s a -> s {objectAttributeKey = a} :: ObjectAttributeUpdate)
+{-# DEPRECATED oauObjectAttributeKey "Use generic-lens or generic-optics with 'objectAttributeKey' instead." #-}
 
-instance Hashable ObjectAttributeUpdate
-
-instance NFData ObjectAttributeUpdate
-
-instance ToJSON ObjectAttributeUpdate where
+instance Lude.ToJSON ObjectAttributeUpdate where
   toJSON ObjectAttributeUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("ObjectAttributeAction" .=) <$> _oauObjectAttributeAction,
-            ("ObjectAttributeKey" .=) <$> _oauObjectAttributeKey
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ObjectAttributeAction" Lude..=) Lude.<$> objectAttributeAction,
+            ("ObjectAttributeKey" Lude..=) Lude.<$> objectAttributeKey
           ]
       )

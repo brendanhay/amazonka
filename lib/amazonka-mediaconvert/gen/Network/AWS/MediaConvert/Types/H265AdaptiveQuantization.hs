@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265AdaptiveQuantization where
+module Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
+  ( H265AdaptiveQuantization
+      ( H265AdaptiveQuantization',
+        HAQHigh,
+        HAQHigher,
+        HAQLow,
+        HAQMax,
+        HAQMedium,
+        HAQOff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to the following settings: Flicker adaptive quantization (flickerAdaptiveQuantization), Spatial adaptive quantization (spatialAdaptiveQuantization), and Temporal adaptive quantization (temporalAdaptiveQuantization).
-data H265AdaptiveQuantization
-  = HAQHigh
-  | HAQHigher
-  | HAQLow
-  | HAQMax
-  | HAQMedium
-  | HAQOff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265AdaptiveQuantization = H265AdaptiveQuantization' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265AdaptiveQuantization where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure HAQHigh
-      "higher" -> pure HAQHigher
-      "low" -> pure HAQLow
-      "max" -> pure HAQMax
-      "medium" -> pure HAQMedium
-      "off" -> pure HAQOff
-      e ->
-        fromTextError $
-          "Failure parsing H265AdaptiveQuantization from value: '" <> e
-            <> "'. Accepted values: high, higher, low, max, medium, off"
+pattern HAQHigh :: H265AdaptiveQuantization
+pattern HAQHigh = H265AdaptiveQuantization' "HIGH"
 
-instance ToText H265AdaptiveQuantization where
-  toText = \case
-    HAQHigh -> "HIGH"
-    HAQHigher -> "HIGHER"
-    HAQLow -> "LOW"
-    HAQMax -> "MAX"
-    HAQMedium -> "MEDIUM"
-    HAQOff -> "OFF"
+pattern HAQHigher :: H265AdaptiveQuantization
+pattern HAQHigher = H265AdaptiveQuantization' "HIGHER"
 
-instance Hashable H265AdaptiveQuantization
+pattern HAQLow :: H265AdaptiveQuantization
+pattern HAQLow = H265AdaptiveQuantization' "LOW"
 
-instance NFData H265AdaptiveQuantization
+pattern HAQMax :: H265AdaptiveQuantization
+pattern HAQMax = H265AdaptiveQuantization' "MAX"
 
-instance ToByteString H265AdaptiveQuantization
+pattern HAQMedium :: H265AdaptiveQuantization
+pattern HAQMedium = H265AdaptiveQuantization' "MEDIUM"
 
-instance ToQuery H265AdaptiveQuantization
+pattern HAQOff :: H265AdaptiveQuantization
+pattern HAQOff = H265AdaptiveQuantization' "OFF"
 
-instance ToHeader H265AdaptiveQuantization
-
-instance ToJSON H265AdaptiveQuantization where
-  toJSON = toJSONText
-
-instance FromJSON H265AdaptiveQuantization where
-  parseJSON = parseJSONText "H265AdaptiveQuantization"
+{-# COMPLETE
+  HAQHigh,
+  HAQHigher,
+  HAQLow,
+  HAQMax,
+  HAQMedium,
+  HAQOff,
+  H265AdaptiveQuantization'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioOnlyHlsSettings where
+module Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
+  ( AudioOnlyHlsSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioOnlyHlsSettings,
+
+    -- * Lenses
+    aohsAudioOnlyImage,
+    aohsSegmentType,
+    aohsAudioGroupId,
+    aohsAudioTrackType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType
 import Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType
 import Network.AWS.MediaLive.Types.InputLocation
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Only Hls Settings
 --
--- /See:/ 'audioOnlyHlsSettings' smart constructor.
+-- /See:/ 'mkAudioOnlyHlsSettings' smart constructor.
 data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
-  { _aohsAudioOnlyImage ::
-      !(Maybe InputLocation),
-    _aohsSegmentType ::
-      !(Maybe AudioOnlyHlsSegmentType),
-    _aohsAudioGroupId :: !(Maybe Text),
-    _aohsAudioTrackType ::
-      !(Maybe AudioOnlyHlsTrackType)
+  { audioOnlyImage ::
+      Lude.Maybe InputLocation,
+    segmentType :: Lude.Maybe AudioOnlyHlsSegmentType,
+    audioGroupId :: Lude.Maybe Lude.Text,
+    audioTrackType ::
+      Lude.Maybe AudioOnlyHlsTrackType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioOnlyHlsSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'audioGroupId' - Specifies the group to which the audio Rendition belongs.
+-- * 'audioOnlyImage' - Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
 --
--- * 'aohsAudioOnlyImage' - Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth. The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
 --
--- * 'aohsSegmentType' - Specifies the segment type.
+-- The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+-- * 'audioTrackType' - Four types of audio-only tracks are supported:
 --
--- * 'aohsAudioGroupId' - Specifies the group to which the audio Rendition belongs.
 --
--- * 'aohsAudioTrackType' - Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-audioOnlyHlsSettings ::
+-- Audio-Only Variant Stream
+-- The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
+--
+-- Alternate Audio, Auto Select, Default
+-- Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
+--
+-- Alternate Audio, Auto Select, Not Default
+-- Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
+--
+-- Alternate Audio, not Auto Select
+-- Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+-- * 'segmentType' - Specifies the segment type.
+mkAudioOnlyHlsSettings ::
   AudioOnlyHlsSettings
-audioOnlyHlsSettings =
+mkAudioOnlyHlsSettings =
   AudioOnlyHlsSettings'
-    { _aohsAudioOnlyImage = Nothing,
-      _aohsSegmentType = Nothing,
-      _aohsAudioGroupId = Nothing,
-      _aohsAudioTrackType = Nothing
+    { audioOnlyImage = Lude.Nothing,
+      segmentType = Lude.Nothing,
+      audioGroupId = Lude.Nothing,
+      audioTrackType = Lude.Nothing
     }
 
--- | Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth. The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
-aohsAudioOnlyImage :: Lens' AudioOnlyHlsSettings (Maybe InputLocation)
-aohsAudioOnlyImage = lens _aohsAudioOnlyImage (\s a -> s {_aohsAudioOnlyImage = a})
+-- | Optional. Specifies the .jpg or .png image to use as the cover art for an audio-only output. We recommend a low bit-size file because the image increases the output audio bandwidth.
+--
+--
+-- The image is attached to the audio as an ID3 tag, frame type APIC, picture type 0x10, as per the "ID3 tag version 2.4.0 - Native Frames" standard.
+--
+-- /Note:/ Consider using 'audioOnlyImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aohsAudioOnlyImage :: Lens.Lens' AudioOnlyHlsSettings (Lude.Maybe InputLocation)
+aohsAudioOnlyImage = Lens.lens (audioOnlyImage :: AudioOnlyHlsSettings -> Lude.Maybe InputLocation) (\s a -> s {audioOnlyImage = a} :: AudioOnlyHlsSettings)
+{-# DEPRECATED aohsAudioOnlyImage "Use generic-lens or generic-optics with 'audioOnlyImage' instead." #-}
 
 -- | Specifies the segment type.
-aohsSegmentType :: Lens' AudioOnlyHlsSettings (Maybe AudioOnlyHlsSegmentType)
-aohsSegmentType = lens _aohsSegmentType (\s a -> s {_aohsSegmentType = a})
+--
+-- /Note:/ Consider using 'segmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aohsSegmentType :: Lens.Lens' AudioOnlyHlsSettings (Lude.Maybe AudioOnlyHlsSegmentType)
+aohsSegmentType = Lens.lens (segmentType :: AudioOnlyHlsSettings -> Lude.Maybe AudioOnlyHlsSegmentType) (\s a -> s {segmentType = a} :: AudioOnlyHlsSettings)
+{-# DEPRECATED aohsSegmentType "Use generic-lens or generic-optics with 'segmentType' instead." #-}
 
 -- | Specifies the group to which the audio Rendition belongs.
-aohsAudioGroupId :: Lens' AudioOnlyHlsSettings (Maybe Text)
-aohsAudioGroupId = lens _aohsAudioGroupId (\s a -> s {_aohsAudioGroupId = a})
+--
+-- /Note:/ Consider using 'audioGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aohsAudioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Lude.Maybe Lude.Text)
+aohsAudioGroupId = Lens.lens (audioGroupId :: AudioOnlyHlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
+{-# DEPRECATED aohsAudioGroupId "Use generic-lens or generic-optics with 'audioGroupId' instead." #-}
 
--- | Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-aohsAudioTrackType :: Lens' AudioOnlyHlsSettings (Maybe AudioOnlyHlsTrackType)
-aohsAudioTrackType = lens _aohsAudioTrackType (\s a -> s {_aohsAudioTrackType = a})
+-- | Four types of audio-only tracks are supported:
+--
+--
+-- Audio-Only Variant Stream
+-- The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest.
+--
+-- Alternate Audio, Auto Select, Default
+-- Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES
+--
+-- Alternate Audio, Auto Select, Not Default
+-- Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES
+--
+-- Alternate Audio, not Auto Select
+-- Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+--
+-- /Note:/ Consider using 'audioTrackType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aohsAudioTrackType :: Lens.Lens' AudioOnlyHlsSettings (Lude.Maybe AudioOnlyHlsTrackType)
+aohsAudioTrackType = Lens.lens (audioTrackType :: AudioOnlyHlsSettings -> Lude.Maybe AudioOnlyHlsTrackType) (\s a -> s {audioTrackType = a} :: AudioOnlyHlsSettings)
+{-# DEPRECATED aohsAudioTrackType "Use generic-lens or generic-optics with 'audioTrackType' instead." #-}
 
-instance FromJSON AudioOnlyHlsSettings where
+instance Lude.FromJSON AudioOnlyHlsSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioOnlyHlsSettings"
       ( \x ->
           AudioOnlyHlsSettings'
-            <$> (x .:? "audioOnlyImage")
-            <*> (x .:? "segmentType")
-            <*> (x .:? "audioGroupId")
-            <*> (x .:? "audioTrackType")
+            Lude.<$> (x Lude..:? "audioOnlyImage")
+            Lude.<*> (x Lude..:? "segmentType")
+            Lude.<*> (x Lude..:? "audioGroupId")
+            Lude.<*> (x Lude..:? "audioTrackType")
       )
 
-instance Hashable AudioOnlyHlsSettings
-
-instance NFData AudioOnlyHlsSettings
-
-instance ToJSON AudioOnlyHlsSettings where
+instance Lude.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =
-    object
-      ( catMaybes
-          [ ("audioOnlyImage" .=) <$> _aohsAudioOnlyImage,
-            ("segmentType" .=) <$> _aohsSegmentType,
-            ("audioGroupId" .=) <$> _aohsAudioGroupId,
-            ("audioTrackType" .=) <$> _aohsAudioTrackType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("audioOnlyImage" Lude..=) Lude.<$> audioOnlyImage,
+            ("segmentType" Lude..=) Lude.<$> segmentType,
+            ("audioGroupId" Lude..=) Lude.<$> audioGroupId,
+            ("audioTrackType" Lude..=) Lude.<$> audioTrackType
           ]
       )

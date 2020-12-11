@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.CurrentMetricResult where
+module Network.AWS.Connect.Types.CurrentMetricResult
+  ( CurrentMetricResult (..),
+
+    -- * Smart constructor
+    mkCurrentMetricResult,
+
+    -- * Lenses
+    cmrCollections,
+    cmrDimensions,
+  )
+where
 
 import Network.AWS.Connect.Types.CurrentMetricData
 import Network.AWS.Connect.Types.Dimensions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a set of real-time metrics.
 --
---
---
--- /See:/ 'currentMetricResult' smart constructor.
+-- /See:/ 'mkCurrentMetricResult' smart constructor.
 data CurrentMetricResult = CurrentMetricResult'
-  { _cmrCollections ::
-      !(Maybe [CurrentMetricData]),
-    _cmrDimensions :: !(Maybe Dimensions)
+  { collections ::
+      Lude.Maybe [CurrentMetricData],
+    dimensions :: Lude.Maybe Dimensions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CurrentMetricResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmrCollections' - The set of metrics.
---
--- * 'cmrDimensions' - The dimensions for the metrics.
-currentMetricResult ::
+-- * 'collections' - The set of metrics.
+-- * 'dimensions' - The dimensions for the metrics.
+mkCurrentMetricResult ::
   CurrentMetricResult
-currentMetricResult =
+mkCurrentMetricResult =
   CurrentMetricResult'
-    { _cmrCollections = Nothing,
-      _cmrDimensions = Nothing
+    { collections = Lude.Nothing,
+      dimensions = Lude.Nothing
     }
 
 -- | The set of metrics.
-cmrCollections :: Lens' CurrentMetricResult [CurrentMetricData]
-cmrCollections = lens _cmrCollections (\s a -> s {_cmrCollections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'collections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrCollections :: Lens.Lens' CurrentMetricResult (Lude.Maybe [CurrentMetricData])
+cmrCollections = Lens.lens (collections :: CurrentMetricResult -> Lude.Maybe [CurrentMetricData]) (\s a -> s {collections = a} :: CurrentMetricResult)
+{-# DEPRECATED cmrCollections "Use generic-lens or generic-optics with 'collections' instead." #-}
 
 -- | The dimensions for the metrics.
-cmrDimensions :: Lens' CurrentMetricResult (Maybe Dimensions)
-cmrDimensions = lens _cmrDimensions (\s a -> s {_cmrDimensions = a})
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrDimensions :: Lens.Lens' CurrentMetricResult (Lude.Maybe Dimensions)
+cmrDimensions = Lens.lens (dimensions :: CurrentMetricResult -> Lude.Maybe Dimensions) (\s a -> s {dimensions = a} :: CurrentMetricResult)
+{-# DEPRECATED cmrDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance FromJSON CurrentMetricResult where
+instance Lude.FromJSON CurrentMetricResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "CurrentMetricResult"
       ( \x ->
           CurrentMetricResult'
-            <$> (x .:? "Collections" .!= mempty) <*> (x .:? "Dimensions")
+            Lude.<$> (x Lude..:? "Collections" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Dimensions")
       )
-
-instance Hashable CurrentMetricResult
-
-instance NFData CurrentMetricResult

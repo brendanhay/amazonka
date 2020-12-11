@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.HTTPParameters where
+module Network.AWS.CloudWatchEvents.Types.HTTPParameters
+  ( HTTPParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPParameters,
+
+    -- * Lenses
+    httppPathParameterValues,
+    httppQueryStringParameters,
+    httppHeaderParameters,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | These are custom parameter to be used when the target is an API Gateway REST APIs.
 --
---
---
--- /See:/ 'hTTPParameters' smart constructor.
+-- /See:/ 'mkHTTPParameters' smart constructor.
 data HTTPParameters = HTTPParameters'
-  { _httppPathParameterValues ::
-      !(Maybe [Text]),
-    _httppQueryStringParameters :: !(Maybe (Map Text (Text))),
-    _httppHeaderParameters :: !(Maybe (Map Text (Text)))
+  { pathParameterValues ::
+      Lude.Maybe [Lude.Text],
+    queryStringParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    headerParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httppPathParameterValues' - The path parameter values to be used to populate API Gateway REST API path wildcards ("*").
---
--- * 'httppQueryStringParameters' - The query string keys/values that need to be sent as part of request invoking the API Gateway REST API.
---
--- * 'httppHeaderParameters' - The headers that need to be sent as part of request invoking the API Gateway REST API.
-hTTPParameters ::
+-- * 'headerParameters' - The headers that need to be sent as part of request invoking the API Gateway REST API.
+-- * 'pathParameterValues' - The path parameter values to be used to populate API Gateway REST API path wildcards ("*").
+-- * 'queryStringParameters' - The query string keys/values that need to be sent as part of request invoking the API Gateway REST API.
+mkHTTPParameters ::
   HTTPParameters
-hTTPParameters =
+mkHTTPParameters =
   HTTPParameters'
-    { _httppPathParameterValues = Nothing,
-      _httppQueryStringParameters = Nothing,
-      _httppHeaderParameters = Nothing
+    { pathParameterValues = Lude.Nothing,
+      queryStringParameters = Lude.Nothing,
+      headerParameters = Lude.Nothing
     }
 
 -- | The path parameter values to be used to populate API Gateway REST API path wildcards ("*").
-httppPathParameterValues :: Lens' HTTPParameters [Text]
-httppPathParameterValues = lens _httppPathParameterValues (\s a -> s {_httppPathParameterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pathParameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httppPathParameterValues :: Lens.Lens' HTTPParameters (Lude.Maybe [Lude.Text])
+httppPathParameterValues = Lens.lens (pathParameterValues :: HTTPParameters -> Lude.Maybe [Lude.Text]) (\s a -> s {pathParameterValues = a} :: HTTPParameters)
+{-# DEPRECATED httppPathParameterValues "Use generic-lens or generic-optics with 'pathParameterValues' instead." #-}
 
 -- | The query string keys/values that need to be sent as part of request invoking the API Gateway REST API.
-httppQueryStringParameters :: Lens' HTTPParameters (HashMap Text (Text))
-httppQueryStringParameters = lens _httppQueryStringParameters (\s a -> s {_httppQueryStringParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'queryStringParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httppQueryStringParameters :: Lens.Lens' HTTPParameters (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+httppQueryStringParameters = Lens.lens (queryStringParameters :: HTTPParameters -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {queryStringParameters = a} :: HTTPParameters)
+{-# DEPRECATED httppQueryStringParameters "Use generic-lens or generic-optics with 'queryStringParameters' instead." #-}
 
 -- | The headers that need to be sent as part of request invoking the API Gateway REST API.
-httppHeaderParameters :: Lens' HTTPParameters (HashMap Text (Text))
-httppHeaderParameters = lens _httppHeaderParameters (\s a -> s {_httppHeaderParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'headerParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httppHeaderParameters :: Lens.Lens' HTTPParameters (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+httppHeaderParameters = Lens.lens (headerParameters :: HTTPParameters -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {headerParameters = a} :: HTTPParameters)
+{-# DEPRECATED httppHeaderParameters "Use generic-lens or generic-optics with 'headerParameters' instead." #-}
 
-instance FromJSON HTTPParameters where
+instance Lude.FromJSON HTTPParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPParameters"
       ( \x ->
           HTTPParameters'
-            <$> (x .:? "PathParameterValues" .!= mempty)
-            <*> (x .:? "QueryStringParameters" .!= mempty)
-            <*> (x .:? "HeaderParameters" .!= mempty)
+            Lude.<$> (x Lude..:? "PathParameterValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "QueryStringParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "HeaderParameters" Lude..!= Lude.mempty)
       )
 
-instance Hashable HTTPParameters
-
-instance NFData HTTPParameters
-
-instance ToJSON HTTPParameters where
+instance Lude.ToJSON HTTPParameters where
   toJSON HTTPParameters' {..} =
-    object
-      ( catMaybes
-          [ ("PathParameterValues" .=) <$> _httppPathParameterValues,
-            ("QueryStringParameters" .=) <$> _httppQueryStringParameters,
-            ("HeaderParameters" .=) <$> _httppHeaderParameters
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PathParameterValues" Lude..=) Lude.<$> pathParameterValues,
+            ("QueryStringParameters" Lude..=) Lude.<$> queryStringParameters,
+            ("HeaderParameters" Lude..=) Lude.<$> headerParameters
           ]
       )

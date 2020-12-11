@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Predicate where
+module Network.AWS.Glue.Types.Predicate
+  ( Predicate (..),
+
+    -- * Smart constructor
+    mkPredicate,
+
+    -- * Lenses
+    pLogical,
+    pConditions,
+  )
+where
 
 import Network.AWS.Glue.Types.Condition
 import Network.AWS.Glue.Types.Logical
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines the predicate of the trigger, which determines when it fires.
 --
---
---
--- /See:/ 'predicate' smart constructor.
+-- /See:/ 'mkPredicate' smart constructor.
 data Predicate = Predicate'
-  { _pLogical :: !(Maybe Logical),
-    _pConditions :: !(Maybe [Condition])
+  { logical :: Lude.Maybe Logical,
+    conditions :: Lude.Maybe [Condition]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Predicate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pLogical' - An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
---
--- * 'pConditions' - A list of the conditions that determine when the trigger will fire.
-predicate ::
+-- * 'conditions' - A list of the conditions that determine when the trigger will fire.
+-- * 'logical' - An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+mkPredicate ::
   Predicate
-predicate = Predicate' {_pLogical = Nothing, _pConditions = Nothing}
+mkPredicate =
+  Predicate' {logical = Lude.Nothing, conditions = Lude.Nothing}
 
 -- | An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
-pLogical :: Lens' Predicate (Maybe Logical)
-pLogical = lens _pLogical (\s a -> s {_pLogical = a})
+--
+-- /Note:/ Consider using 'logical' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLogical :: Lens.Lens' Predicate (Lude.Maybe Logical)
+pLogical = Lens.lens (logical :: Predicate -> Lude.Maybe Logical) (\s a -> s {logical = a} :: Predicate)
+{-# DEPRECATED pLogical "Use generic-lens or generic-optics with 'logical' instead." #-}
 
 -- | A list of the conditions that determine when the trigger will fire.
-pConditions :: Lens' Predicate [Condition]
-pConditions = lens _pConditions (\s a -> s {_pConditions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pConditions :: Lens.Lens' Predicate (Lude.Maybe [Condition])
+pConditions = Lens.lens (conditions :: Predicate -> Lude.Maybe [Condition]) (\s a -> s {conditions = a} :: Predicate)
+{-# DEPRECATED pConditions "Use generic-lens or generic-optics with 'conditions' instead." #-}
 
-instance FromJSON Predicate where
+instance Lude.FromJSON Predicate where
   parseJSON =
-    withObject
+    Lude.withObject
       "Predicate"
       ( \x ->
           Predicate'
-            <$> (x .:? "Logical") <*> (x .:? "Conditions" .!= mempty)
+            Lude.<$> (x Lude..:? "Logical")
+            Lude.<*> (x Lude..:? "Conditions" Lude..!= Lude.mempty)
       )
 
-instance Hashable Predicate
-
-instance NFData Predicate
-
-instance ToJSON Predicate where
+instance Lude.ToJSON Predicate where
   toJSON Predicate' {..} =
-    object
-      ( catMaybes
-          [("Logical" .=) <$> _pLogical, ("Conditions" .=) <$> _pConditions]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Logical" Lude..=) Lude.<$> logical,
+            ("Conditions" Lude..=) Lude.<$> conditions
+          ]
       )

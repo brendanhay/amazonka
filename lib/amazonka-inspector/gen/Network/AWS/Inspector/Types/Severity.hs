@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.Severity where
+module Network.AWS.Inspector.Types.Severity
+  ( Severity
+      ( Severity',
+        High,
+        Informational,
+        Low,
+        Medium,
+        Undefined
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Severity
-  = High
-  | Informational
-  | Low
-  | Medium
-  | Undefined
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Severity = Severity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Severity where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure High
-      "informational" -> pure Informational
-      "low" -> pure Low
-      "medium" -> pure Medium
-      "undefined" -> pure Undefined
-      e ->
-        fromTextError $
-          "Failure parsing Severity from value: '" <> e
-            <> "'. Accepted values: high, informational, low, medium, undefined"
+pattern High :: Severity
+pattern High = Severity' "High"
 
-instance ToText Severity where
-  toText = \case
-    High -> "High"
-    Informational -> "Informational"
-    Low -> "Low"
-    Medium -> "Medium"
-    Undefined -> "Undefined"
+pattern Informational :: Severity
+pattern Informational = Severity' "Informational"
 
-instance Hashable Severity
+pattern Low :: Severity
+pattern Low = Severity' "Low"
 
-instance NFData Severity
+pattern Medium :: Severity
+pattern Medium = Severity' "Medium"
 
-instance ToByteString Severity
+pattern Undefined :: Severity
+pattern Undefined = Severity' "Undefined"
 
-instance ToQuery Severity
-
-instance ToHeader Severity
-
-instance ToJSON Severity where
-  toJSON = toJSONText
-
-instance FromJSON Severity where
-  parseJSON = parseJSONText "Severity"
+{-# COMPLETE
+  High,
+  Informational,
+  Low,
+  Medium,
+  Undefined,
+  Severity'
+  #-}

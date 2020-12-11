@@ -13,13 +13,11 @@
 --
 -- Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are the variables you want to measure for your resources and applications.
 --
---
 -- CloudWatch alarms send notifications or automatically change the resources you are monitoring based on rules that you define. For example, you can monitor the CPU usage and disk reads and writes of your Amazon EC2 instances. Then, use this data to determine whether you should launch additional instances to handle increased load. You can also use this data to stop under-used instances to save money.
---
 -- In addition to monitoring the built-in metrics that come with AWS, you can monitor your own custom metrics. With CloudWatch, you gain system-wide visibility into resource utilization, application performance, and operational health.
 module Network.AWS.CloudWatch
-  ( -- * Service Configuration
-    cloudWatch,
+  ( -- * Service configuration
+    cloudWatchService,
 
     -- * Errors
     -- $errors
@@ -28,10 +26,10 @@ module Network.AWS.CloudWatch
     -- $waiters
 
     -- ** CompositeAlarmExists
-    compositeAlarmExists,
+    mkCompositeAlarmExists,
 
     -- ** AlarmExists
-    alarmExists,
+    mkAlarmExists,
 
     -- * Operations
     -- $operations
@@ -159,8 +157,8 @@ module Network.AWS.CloudWatch
     StatusCode (..),
 
     -- ** AlarmHistoryItem
-    AlarmHistoryItem,
-    alarmHistoryItem,
+    AlarmHistoryItem (..),
+    mkAlarmHistoryItem,
     ahiAlarmName,
     ahiHistoryItemType,
     ahiHistoryData,
@@ -169,8 +167,8 @@ module Network.AWS.CloudWatch
     ahiTimestamp,
 
     -- ** AnomalyDetector
-    AnomalyDetector,
-    anomalyDetector,
+    AnomalyDetector (..),
+    mkAnomalyDetector,
     adMetricName,
     adNamespace,
     adStateValue,
@@ -179,14 +177,14 @@ module Network.AWS.CloudWatch
     adDimensions,
 
     -- ** AnomalyDetectorConfiguration
-    AnomalyDetectorConfiguration,
-    anomalyDetectorConfiguration,
+    AnomalyDetectorConfiguration (..),
+    mkAnomalyDetectorConfiguration,
     adcMetricTimezone,
     adcExcludedTimeRanges,
 
     -- ** CompositeAlarm
-    CompositeAlarm,
-    compositeAlarm,
+    CompositeAlarm (..),
+    mkCompositeAlarm,
     caAlarmName,
     caStateUpdatedTimestamp,
     caAlarmDescription,
@@ -202,22 +200,22 @@ module Network.AWS.CloudWatch
     caAlarmActions,
 
     -- ** DashboardEntry
-    DashboardEntry,
-    dashboardEntry,
+    DashboardEntry (..),
+    mkDashboardEntry,
     deSize,
     deDashboardName,
     deLastModified,
     deDashboardARN,
 
     -- ** DashboardValidationMessage
-    DashboardValidationMessage,
-    dashboardValidationMessage,
+    DashboardValidationMessage (..),
+    mkDashboardValidationMessage,
     dvmDataPath,
     dvmMessage,
 
     -- ** Datapoint
-    Datapoint,
-    datapoint,
+    Datapoint (..),
+    mkDatapoint,
     dSampleCount,
     dMaximum,
     dAverage,
@@ -228,41 +226,41 @@ module Network.AWS.CloudWatch
     dTimestamp,
 
     -- ** Dimension
-    Dimension,
-    dimension,
+    Dimension (..),
+    mkDimension,
     dName,
     dValue,
 
     -- ** DimensionFilter
-    DimensionFilter,
-    dimensionFilter,
+    DimensionFilter (..),
+    mkDimensionFilter,
     dfValue,
     dfName,
 
     -- ** InsightRule
-    InsightRule,
-    insightRule,
+    InsightRule (..),
+    mkInsightRule,
     irName,
     irState,
     irSchema,
     irDefinition,
 
     -- ** InsightRuleContributor
-    InsightRuleContributor,
-    insightRuleContributor,
+    InsightRuleContributor (..),
+    mkInsightRuleContributor,
     ircKeys,
     ircApproximateAggregateValue,
     ircDatapoints,
 
     -- ** InsightRuleContributorDatapoint
-    InsightRuleContributorDatapoint,
-    insightRuleContributorDatapoint,
+    InsightRuleContributorDatapoint (..),
+    mkInsightRuleContributorDatapoint,
     ircdTimestamp,
     ircdApproximateValue,
 
     -- ** InsightRuleMetricDatapoint
-    InsightRuleMetricDatapoint,
-    insightRuleMetricDatapoint,
+    InsightRuleMetricDatapoint (..),
+    mkInsightRuleMetricDatapoint,
     irmdMaxContributorValue,
     irmdSampleCount,
     irmdMaximum,
@@ -273,21 +271,21 @@ module Network.AWS.CloudWatch
     irmdTimestamp,
 
     -- ** MessageData
-    MessageData,
-    messageData,
+    MessageData (..),
+    mkMessageData,
     mValue,
     mCode,
 
     -- ** Metric
-    Metric,
-    metric,
+    Metric (..),
+    mkMetric,
     mMetricName,
     mNamespace,
     mDimensions,
 
     -- ** MetricAlarm
-    MetricAlarm,
-    metricAlarm,
+    MetricAlarm (..),
+    mkMetricAlarm,
     maAlarmName,
     maStateUpdatedTimestamp,
     maMetrics,
@@ -317,8 +315,8 @@ module Network.AWS.CloudWatch
     maExtendedStatistic,
 
     -- ** MetricDataQuery
-    MetricDataQuery,
-    metricDataQuery,
+    MetricDataQuery (..),
+    mkMetricDataQuery,
     mdqReturnData,
     mdqPeriod,
     mdqExpression,
@@ -327,8 +325,8 @@ module Network.AWS.CloudWatch
     mdqId,
 
     -- ** MetricDataResult
-    MetricDataResult,
-    metricDataResult,
+    MetricDataResult (..),
+    mkMetricDataResult,
     mdrValues,
     mdrId,
     mdrTimestamps,
@@ -337,8 +335,8 @@ module Network.AWS.CloudWatch
     mdrStatusCode,
 
     -- ** MetricDatum
-    MetricDatum,
-    metricDatum,
+    MetricDatum (..),
+    mkMetricDatum,
     mdValues,
     mdCounts,
     mdValue,
@@ -350,40 +348,51 @@ module Network.AWS.CloudWatch
     mdMetricName,
 
     -- ** MetricStat
-    MetricStat,
-    metricStat,
+    MetricStat (..),
+    mkMetricStat,
     msUnit,
     msMetric,
     msPeriod,
     msStat,
 
     -- ** PartialFailure
-    PartialFailure,
-    partialFailure,
+    PartialFailure (..),
+    mkPartialFailure,
     pfFailureResource,
     pfFailureCode,
     pfFailureDescription,
     pfExceptionType,
 
     -- ** Range
-    Range,
-    range,
+    Range (..),
+    mkRange,
     rStartTime,
     rEndTime,
 
     -- ** StatisticSet
-    StatisticSet,
-    statisticSet,
+    StatisticSet (..),
+    mkStatisticSet,
     ssSampleCount,
     ssSum,
     ssMinimum,
     ssMaximum,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -419,6 +428,7 @@ import Network.AWS.CloudWatch.TagResource
 import Network.AWS.CloudWatch.Types
 import Network.AWS.CloudWatch.UntagResource
 import Network.AWS.CloudWatch.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

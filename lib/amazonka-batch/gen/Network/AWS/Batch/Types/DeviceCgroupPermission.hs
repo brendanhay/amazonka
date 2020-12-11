@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.DeviceCgroupPermission where
+module Network.AWS.Batch.Types.DeviceCgroupPermission
+  ( DeviceCgroupPermission
+      ( DeviceCgroupPermission',
+        Mknod,
+        Read,
+        Write
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceCgroupPermission
-  = Mknod
-  | Read
-  | Write
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceCgroupPermission = DeviceCgroupPermission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceCgroupPermission where
-  parser =
-    takeLowerText >>= \case
-      "mknod" -> pure Mknod
-      "read" -> pure Read
-      "write" -> pure Write
-      e ->
-        fromTextError $
-          "Failure parsing DeviceCgroupPermission from value: '" <> e
-            <> "'. Accepted values: mknod, read, write"
+pattern Mknod :: DeviceCgroupPermission
+pattern Mknod = DeviceCgroupPermission' "MKNOD"
 
-instance ToText DeviceCgroupPermission where
-  toText = \case
-    Mknod -> "MKNOD"
-    Read -> "READ"
-    Write -> "WRITE"
+pattern Read :: DeviceCgroupPermission
+pattern Read = DeviceCgroupPermission' "READ"
 
-instance Hashable DeviceCgroupPermission
+pattern Write :: DeviceCgroupPermission
+pattern Write = DeviceCgroupPermission' "WRITE"
 
-instance NFData DeviceCgroupPermission
-
-instance ToByteString DeviceCgroupPermission
-
-instance ToQuery DeviceCgroupPermission
-
-instance ToHeader DeviceCgroupPermission
-
-instance ToJSON DeviceCgroupPermission where
-  toJSON = toJSONText
-
-instance FromJSON DeviceCgroupPermission where
-  parseJSON = parseJSONText "DeviceCgroupPermission"
+{-# COMPLETE
+  Mknod,
+  Read,
+  Write,
+  DeviceCgroupPermission'
+  #-}

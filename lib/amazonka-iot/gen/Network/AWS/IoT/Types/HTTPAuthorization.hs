@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HTTPAuthorization where
+module Network.AWS.IoT.Types.HTTPAuthorization
+  ( HTTPAuthorization (..),
+
+    -- * Smart constructor
+    mkHTTPAuthorization,
+
+    -- * Lenses
+    httpaSigv4,
+  )
+where
 
 import Network.AWS.IoT.Types.SigV4Authorization
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorization method used to send messages.
 --
---
---
--- /See:/ 'hTTPAuthorization' smart constructor.
+-- /See:/ 'mkHTTPAuthorization' smart constructor.
 newtype HTTPAuthorization = HTTPAuthorization'
-  { _httpaSigv4 ::
-      Maybe SigV4Authorization
+  { sigv4 ::
+      Lude.Maybe SigV4Authorization
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPAuthorization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpaSigv4' - Use Sig V4 authorization. For more information, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
-hTTPAuthorization ::
+-- * 'sigv4' - Use Sig V4 authorization. For more information, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+mkHTTPAuthorization ::
   HTTPAuthorization
-hTTPAuthorization = HTTPAuthorization' {_httpaSigv4 = Nothing}
+mkHTTPAuthorization = HTTPAuthorization' {sigv4 = Lude.Nothing}
 
 -- | Use Sig V4 authorization. For more information, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
-httpaSigv4 :: Lens' HTTPAuthorization (Maybe SigV4Authorization)
-httpaSigv4 = lens _httpaSigv4 (\s a -> s {_httpaSigv4 = a})
+--
+-- /Note:/ Consider using 'sigv4' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpaSigv4 :: Lens.Lens' HTTPAuthorization (Lude.Maybe SigV4Authorization)
+httpaSigv4 = Lens.lens (sigv4 :: HTTPAuthorization -> Lude.Maybe SigV4Authorization) (\s a -> s {sigv4 = a} :: HTTPAuthorization)
+{-# DEPRECATED httpaSigv4 "Use generic-lens or generic-optics with 'sigv4' instead." #-}
 
-instance FromJSON HTTPAuthorization where
+instance Lude.FromJSON HTTPAuthorization where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPAuthorization"
-      (\x -> HTTPAuthorization' <$> (x .:? "sigv4"))
+      (\x -> HTTPAuthorization' Lude.<$> (x Lude..:? "sigv4"))
 
-instance Hashable HTTPAuthorization
-
-instance NFData HTTPAuthorization
-
-instance ToJSON HTTPAuthorization where
+instance Lude.ToJSON HTTPAuthorization where
   toJSON HTTPAuthorization' {..} =
-    object (catMaybes [("sigv4" .=) <$> _httpaSigv4])
+    Lude.object (Lude.catMaybes [("sigv4" Lude..=) Lude.<$> sigv4])

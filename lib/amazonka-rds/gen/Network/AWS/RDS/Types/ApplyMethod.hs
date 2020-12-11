@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.ApplyMethod where
+module Network.AWS.RDS.Types.ApplyMethod
+  ( ApplyMethod
+      ( ApplyMethod',
+        Immediate,
+        PendingReboot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApplyMethod
-  = Immediate
-  | PendingReboot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApplyMethod = ApplyMethod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApplyMethod where
-  parser =
-    takeLowerText >>= \case
-      "immediate" -> pure Immediate
-      "pending-reboot" -> pure PendingReboot
-      e ->
-        fromTextError $
-          "Failure parsing ApplyMethod from value: '" <> e
-            <> "'. Accepted values: immediate, pending-reboot"
+pattern Immediate :: ApplyMethod
+pattern Immediate = ApplyMethod' "immediate"
 
-instance ToText ApplyMethod where
-  toText = \case
-    Immediate -> "immediate"
-    PendingReboot -> "pending-reboot"
+pattern PendingReboot :: ApplyMethod
+pattern PendingReboot = ApplyMethod' "pending-reboot"
 
-instance Hashable ApplyMethod
-
-instance NFData ApplyMethod
-
-instance ToByteString ApplyMethod
-
-instance ToQuery ApplyMethod
-
-instance ToHeader ApplyMethod
-
-instance FromXML ApplyMethod where
-  parseXML = parseXMLText "ApplyMethod"
+{-# COMPLETE
+  Immediate,
+  PendingReboot,
+  ApplyMethod'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionRunAsConfig where
+module Network.AWS.Greengrass.Types.FunctionRunAsConfig
+  ( FunctionRunAsConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFunctionRunAsConfig,
+
+    -- * Lenses
+    fracUid,
+    fracGid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
 --
--- /See:/ 'functionRunAsConfig' smart constructor.
+-- /See:/ 'mkFunctionRunAsConfig' smart constructor.
 data FunctionRunAsConfig = FunctionRunAsConfig'
-  { _fracUid ::
-      !(Maybe Int),
-    _fracGid :: !(Maybe Int)
+  { uid ::
+      Lude.Maybe Lude.Int,
+    gid :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionRunAsConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fracUid' - The user ID whose permissions are used to run a Lambda function.
---
--- * 'fracGid' - The group ID whose permissions are used to run a Lambda function.
-functionRunAsConfig ::
+-- * 'gid' - The group ID whose permissions are used to run a Lambda function.
+-- * 'uid' - The user ID whose permissions are used to run a Lambda function.
+mkFunctionRunAsConfig ::
   FunctionRunAsConfig
-functionRunAsConfig =
-  FunctionRunAsConfig' {_fracUid = Nothing, _fracGid = Nothing}
+mkFunctionRunAsConfig =
+  FunctionRunAsConfig' {uid = Lude.Nothing, gid = Lude.Nothing}
 
 -- | The user ID whose permissions are used to run a Lambda function.
-fracUid :: Lens' FunctionRunAsConfig (Maybe Int)
-fracUid = lens _fracUid (\s a -> s {_fracUid = a})
+--
+-- /Note:/ Consider using 'uid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fracUid :: Lens.Lens' FunctionRunAsConfig (Lude.Maybe Lude.Int)
+fracUid = Lens.lens (uid :: FunctionRunAsConfig -> Lude.Maybe Lude.Int) (\s a -> s {uid = a} :: FunctionRunAsConfig)
+{-# DEPRECATED fracUid "Use generic-lens or generic-optics with 'uid' instead." #-}
 
 -- | The group ID whose permissions are used to run a Lambda function.
-fracGid :: Lens' FunctionRunAsConfig (Maybe Int)
-fracGid = lens _fracGid (\s a -> s {_fracGid = a})
+--
+-- /Note:/ Consider using 'gid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fracGid :: Lens.Lens' FunctionRunAsConfig (Lude.Maybe Lude.Int)
+fracGid = Lens.lens (gid :: FunctionRunAsConfig -> Lude.Maybe Lude.Int) (\s a -> s {gid = a} :: FunctionRunAsConfig)
+{-# DEPRECATED fracGid "Use generic-lens or generic-optics with 'gid' instead." #-}
 
-instance FromJSON FunctionRunAsConfig where
+instance Lude.FromJSON FunctionRunAsConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "FunctionRunAsConfig"
-      (\x -> FunctionRunAsConfig' <$> (x .:? "Uid") <*> (x .:? "Gid"))
+      ( \x ->
+          FunctionRunAsConfig'
+            Lude.<$> (x Lude..:? "Uid") Lude.<*> (x Lude..:? "Gid")
+      )
 
-instance Hashable FunctionRunAsConfig
-
-instance NFData FunctionRunAsConfig
-
-instance ToJSON FunctionRunAsConfig where
+instance Lude.ToJSON FunctionRunAsConfig where
   toJSON FunctionRunAsConfig' {..} =
-    object
-      (catMaybes [("Uid" .=) <$> _fracUid, ("Gid" .=) <$> _fracGid])
+    Lude.object
+      ( Lude.catMaybes
+          [("Uid" Lude..=) Lude.<$> uid, ("Gid" Lude..=) Lude.<$> gid]
+      )

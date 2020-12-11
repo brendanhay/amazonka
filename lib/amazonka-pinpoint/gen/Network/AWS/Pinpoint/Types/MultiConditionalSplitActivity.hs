@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity where
+module Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity
+  ( MultiConditionalSplitActivity (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMultiConditionalSplitActivity,
+
+    -- * Lenses
+    mcsaBranches,
+    mcsaEvaluationWaitTime,
+    mcsaDefaultActivity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.MultiConditionalBranch
 import Network.AWS.Pinpoint.Types.WaitTime
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
 --
---
---
--- /See:/ 'multiConditionalSplitActivity' smart constructor.
+-- /See:/ 'mkMultiConditionalSplitActivity' smart constructor.
 data MultiConditionalSplitActivity = MultiConditionalSplitActivity'
-  { _mcsaBranches ::
-      !( Maybe
-           [MultiConditionalBranch]
-       ),
-    _mcsaEvaluationWaitTime ::
-      !(Maybe WaitTime),
-    _mcsaDefaultActivity ::
-      !(Maybe Text)
+  { branches ::
+      Lude.Maybe
+        [MultiConditionalBranch],
+    evaluationWaitTime ::
+      Lude.Maybe WaitTime,
+    defaultActivity ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiConditionalSplitActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcsaBranches' - The paths for the activity, including the conditions for entering each path and the activity to perform for each path.
---
--- * 'mcsaEvaluationWaitTime' - The amount of time to wait or the date and time when Amazon Pinpoint determines whether the conditions are met.
---
--- * 'mcsaDefaultActivity' - The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.
-multiConditionalSplitActivity ::
+-- * 'branches' - The paths for the activity, including the conditions for entering each path and the activity to perform for each path.
+-- * 'defaultActivity' - The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.
+-- * 'evaluationWaitTime' - The amount of time to wait or the date and time when Amazon Pinpoint determines whether the conditions are met.
+mkMultiConditionalSplitActivity ::
   MultiConditionalSplitActivity
-multiConditionalSplitActivity =
+mkMultiConditionalSplitActivity =
   MultiConditionalSplitActivity'
-    { _mcsaBranches = Nothing,
-      _mcsaEvaluationWaitTime = Nothing,
-      _mcsaDefaultActivity = Nothing
+    { branches = Lude.Nothing,
+      evaluationWaitTime = Lude.Nothing,
+      defaultActivity = Lude.Nothing
     }
 
 -- | The paths for the activity, including the conditions for entering each path and the activity to perform for each path.
-mcsaBranches :: Lens' MultiConditionalSplitActivity [MultiConditionalBranch]
-mcsaBranches = lens _mcsaBranches (\s a -> s {_mcsaBranches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'branches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsaBranches :: Lens.Lens' MultiConditionalSplitActivity (Lude.Maybe [MultiConditionalBranch])
+mcsaBranches = Lens.lens (branches :: MultiConditionalSplitActivity -> Lude.Maybe [MultiConditionalBranch]) (\s a -> s {branches = a} :: MultiConditionalSplitActivity)
+{-# DEPRECATED mcsaBranches "Use generic-lens or generic-optics with 'branches' instead." #-}
 
 -- | The amount of time to wait or the date and time when Amazon Pinpoint determines whether the conditions are met.
-mcsaEvaluationWaitTime :: Lens' MultiConditionalSplitActivity (Maybe WaitTime)
-mcsaEvaluationWaitTime = lens _mcsaEvaluationWaitTime (\s a -> s {_mcsaEvaluationWaitTime = a})
+--
+-- /Note:/ Consider using 'evaluationWaitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsaEvaluationWaitTime :: Lens.Lens' MultiConditionalSplitActivity (Lude.Maybe WaitTime)
+mcsaEvaluationWaitTime = Lens.lens (evaluationWaitTime :: MultiConditionalSplitActivity -> Lude.Maybe WaitTime) (\s a -> s {evaluationWaitTime = a} :: MultiConditionalSplitActivity)
+{-# DEPRECATED mcsaEvaluationWaitTime "Use generic-lens or generic-optics with 'evaluationWaitTime' instead." #-}
 
 -- | The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.
-mcsaDefaultActivity :: Lens' MultiConditionalSplitActivity (Maybe Text)
-mcsaDefaultActivity = lens _mcsaDefaultActivity (\s a -> s {_mcsaDefaultActivity = a})
+--
+-- /Note:/ Consider using 'defaultActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsaDefaultActivity :: Lens.Lens' MultiConditionalSplitActivity (Lude.Maybe Lude.Text)
+mcsaDefaultActivity = Lens.lens (defaultActivity :: MultiConditionalSplitActivity -> Lude.Maybe Lude.Text) (\s a -> s {defaultActivity = a} :: MultiConditionalSplitActivity)
+{-# DEPRECATED mcsaDefaultActivity "Use generic-lens or generic-optics with 'defaultActivity' instead." #-}
 
-instance FromJSON MultiConditionalSplitActivity where
+instance Lude.FromJSON MultiConditionalSplitActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiConditionalSplitActivity"
       ( \x ->
           MultiConditionalSplitActivity'
-            <$> (x .:? "Branches" .!= mempty)
-            <*> (x .:? "EvaluationWaitTime")
-            <*> (x .:? "DefaultActivity")
+            Lude.<$> (x Lude..:? "Branches" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EvaluationWaitTime")
+            Lude.<*> (x Lude..:? "DefaultActivity")
       )
 
-instance Hashable MultiConditionalSplitActivity
-
-instance NFData MultiConditionalSplitActivity
-
-instance ToJSON MultiConditionalSplitActivity where
+instance Lude.ToJSON MultiConditionalSplitActivity where
   toJSON MultiConditionalSplitActivity' {..} =
-    object
-      ( catMaybes
-          [ ("Branches" .=) <$> _mcsaBranches,
-            ("EvaluationWaitTime" .=) <$> _mcsaEvaluationWaitTime,
-            ("DefaultActivity" .=) <$> _mcsaDefaultActivity
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Branches" Lude..=) Lude.<$> branches,
+            ("EvaluationWaitTime" Lude..=) Lude.<$> evaluationWaitTime,
+            ("DefaultActivity" Lude..=) Lude.<$> defaultActivity
           ]
       )

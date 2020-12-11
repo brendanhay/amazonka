@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,36 +14,29 @@
 --
 -- Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by 'StartCelebrityRecognition' .
 --
---
 -- Celebrity recognition in a video is an asynchronous operation. Analysis is started by a call to 'StartCelebrityRecognition' which returns a job identifier (@JobId@ ). When the celebrity recognition operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartCelebrityRecognition@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetCelebrityDetection@ and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityDetection@ .
---
 -- For more information, see Working With Stored Videos in the Amazon Rekognition Developer Guide.
---
 -- @GetCelebrityRecognition@ returns detected celebrities and the time(s) they are detected in an array (@Celebrities@ ) of 'CelebrityRecognition' objects. Each @CelebrityRecognition@ contains information about the celebrity in a 'CelebrityDetail' object and the time, @Timestamp@ , the celebrity was detected.
---
 -- By default, the @Celebrities@ array is sorted by time (milliseconds from the start of the video). You can also sort the array by celebrity by specifying the value @ID@ in the @SortBy@ input parameter.
---
 -- The @CelebrityDetail@ object includes the celebrity identifer and additional information urls. If you don't store the additional information urls, you can get them later by calling 'GetCelebrityInfo' with the celebrity identifer.
---
 -- No information is returned for faces not recognized as celebrities.
---
 -- Use MaxResults parameter to limit the number of labels returned. If there are more results than specified in @MaxResults@ , the value of @NextToken@ in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call @GetCelebrityDetection@ and populate the @NextToken@ request parameter with the token value returned from the previous call to @GetCelebrityRecognition@ .
 module Network.AWS.Rekognition.GetCelebrityRecognition
-  ( -- * Creating a Request
-    getCelebrityRecognition,
-    GetCelebrityRecognition,
+  ( -- * Creating a request
+    GetCelebrityRecognition (..),
+    mkGetCelebrityRecognition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcrNextToken,
     gcrMaxResults,
     gcrSortBy,
     gcrJobId,
 
-    -- * Destructuring the Response
-    getCelebrityRecognitionResponse,
-    GetCelebrityRecognitionResponse,
+    -- * Destructuring the response
+    GetCelebrityRecognitionResponse (..),
+    mkGetCelebrityRecognitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrrsNextToken,
     gcrrsVideoMetadata,
     gcrrsStatusMessage,
@@ -58,178 +46,203 @@ module Network.AWS.Rekognition.GetCelebrityRecognition
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCelebrityRecognition' smart constructor.
+-- | /See:/ 'mkGetCelebrityRecognition' smart constructor.
 data GetCelebrityRecognition = GetCelebrityRecognition'
-  { _gcrNextToken ::
-      !(Maybe Text),
-    _gcrMaxResults :: !(Maybe Nat),
-    _gcrSortBy ::
-      !(Maybe CelebrityRecognitionSortBy),
-    _gcrJobId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy ::
+      Lude.Maybe CelebrityRecognitionSortBy,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCelebrityRecognition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrNextToken' - If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
---
--- * 'gcrMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
---
--- * 'gcrSortBy' - Sort to use for celebrities returned in @Celebrities@ field. Specify @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by the time the celebrity was recognized.
---
--- * 'gcrJobId' - Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
-getCelebrityRecognition ::
-  -- | 'gcrJobId'
-  Text ->
+-- * 'jobId' - Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
+-- * 'nextToken' - If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
+-- * 'sortBy' - Sort to use for celebrities returned in @Celebrities@ field. Specify @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by the time the celebrity was recognized.
+mkGetCelebrityRecognition ::
+  -- | 'jobId'
+  Lude.Text ->
   GetCelebrityRecognition
-getCelebrityRecognition pJobId_ =
+mkGetCelebrityRecognition pJobId_ =
   GetCelebrityRecognition'
-    { _gcrNextToken = Nothing,
-      _gcrMaxResults = Nothing,
-      _gcrSortBy = Nothing,
-      _gcrJobId = pJobId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
-gcrNextToken :: Lens' GetCelebrityRecognition (Maybe Text)
-gcrNextToken = lens _gcrNextToken (\s a -> s {_gcrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrNextToken :: Lens.Lens' GetCelebrityRecognition (Lude.Maybe Lude.Text)
+gcrNextToken = Lens.lens (nextToken :: GetCelebrityRecognition -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCelebrityRecognition)
+{-# DEPRECATED gcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-gcrMaxResults :: Lens' GetCelebrityRecognition (Maybe Natural)
-gcrMaxResults = lens _gcrMaxResults (\s a -> s {_gcrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrMaxResults :: Lens.Lens' GetCelebrityRecognition (Lude.Maybe Lude.Natural)
+gcrMaxResults = Lens.lens (maxResults :: GetCelebrityRecognition -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCelebrityRecognition)
+{-# DEPRECATED gcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Sort to use for celebrities returned in @Celebrities@ field. Specify @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by the time the celebrity was recognized.
-gcrSortBy :: Lens' GetCelebrityRecognition (Maybe CelebrityRecognitionSortBy)
-gcrSortBy = lens _gcrSortBy (\s a -> s {_gcrSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrSortBy :: Lens.Lens' GetCelebrityRecognition (Lude.Maybe CelebrityRecognitionSortBy)
+gcrSortBy = Lens.lens (sortBy :: GetCelebrityRecognition -> Lude.Maybe CelebrityRecognitionSortBy) (\s a -> s {sortBy = a} :: GetCelebrityRecognition)
+{-# DEPRECATED gcrSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
-gcrJobId :: Lens' GetCelebrityRecognition Text
-gcrJobId = lens _gcrJobId (\s a -> s {_gcrJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrJobId :: Lens.Lens' GetCelebrityRecognition Lude.Text
+gcrJobId = Lens.lens (jobId :: GetCelebrityRecognition -> Lude.Text) (\s a -> s {jobId = a} :: GetCelebrityRecognition)
+{-# DEPRECATED gcrJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetCelebrityRecognition where
+instance Lude.AWSRequest GetCelebrityRecognition where
   type Rs GetCelebrityRecognition = GetCelebrityRecognitionResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCelebrityRecognitionResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "VideoMetadata")
-            <*> (x .?> "StatusMessage")
-            <*> (x .?> "Celebrities" .!@ mempty)
-            <*> (x .?> "JobStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "VideoMetadata")
+            Lude.<*> (x Lude..?> "StatusMessage")
+            Lude.<*> (x Lude..?> "Celebrities" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCelebrityRecognition
-
-instance NFData GetCelebrityRecognition
-
-instance ToHeaders GetCelebrityRecognition where
+instance Lude.ToHeaders GetCelebrityRecognition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.GetCelebrityRecognition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.GetCelebrityRecognition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCelebrityRecognition where
+instance Lude.ToJSON GetCelebrityRecognition where
   toJSON GetCelebrityRecognition' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gcrNextToken,
-            ("MaxResults" .=) <$> _gcrMaxResults,
-            ("SortBy" .=) <$> _gcrSortBy,
-            Just ("JobId" .= _gcrJobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("JobId" Lude..= jobId)
           ]
       )
 
-instance ToPath GetCelebrityRecognition where
-  toPath = const "/"
+instance Lude.ToPath GetCelebrityRecognition where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCelebrityRecognition where
-  toQuery = const mempty
+instance Lude.ToQuery GetCelebrityRecognition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCelebrityRecognitionResponse' smart constructor.
+-- | /See:/ 'mkGetCelebrityRecognitionResponse' smart constructor.
 data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
-  { _gcrrsNextToken ::
-      !(Maybe Text),
-    _gcrrsVideoMetadata ::
-      !(Maybe VideoMetadata),
-    _gcrrsStatusMessage ::
-      !(Maybe Text),
-    _gcrrsCelebrities ::
-      !( Maybe
-           [CelebrityRecognition]
-       ),
-    _gcrrsJobStatus ::
-      !(Maybe VideoJobStatus),
-    _gcrrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    videoMetadata ::
+      Lude.Maybe VideoMetadata,
+    statusMessage ::
+      Lude.Maybe Lude.Text,
+    celebrities ::
+      Lude.Maybe
+        [CelebrityRecognition],
+    jobStatus ::
+      Lude.Maybe VideoJobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCelebrityRecognitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
---
--- * 'gcrrsVideoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
---
--- * 'gcrrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- * 'gcrrsCelebrities' - Array of celebrities recognized in the video.
---
--- * 'gcrrsJobStatus' - The current status of the celebrity recognition job.
---
--- * 'gcrrsResponseStatus' - -- | The response status code.
-getCelebrityRecognitionResponse ::
-  -- | 'gcrrsResponseStatus'
-  Int ->
+-- * 'celebrities' - Array of celebrities recognized in the video.
+-- * 'jobStatus' - The current status of the celebrity recognition job.
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
+-- * 'responseStatus' - The response status code.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+mkGetCelebrityRecognitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCelebrityRecognitionResponse
-getCelebrityRecognitionResponse pResponseStatus_ =
+mkGetCelebrityRecognitionResponse pResponseStatus_ =
   GetCelebrityRecognitionResponse'
-    { _gcrrsNextToken = Nothing,
-      _gcrrsVideoMetadata = Nothing,
-      _gcrrsStatusMessage = Nothing,
-      _gcrrsCelebrities = Nothing,
-      _gcrrsJobStatus = Nothing,
-      _gcrrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      videoMetadata = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      celebrities = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
-gcrrsNextToken :: Lens' GetCelebrityRecognitionResponse (Maybe Text)
-gcrrsNextToken = lens _gcrrsNextToken (\s a -> s {_gcrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsNextToken :: Lens.Lens' GetCelebrityRecognitionResponse (Lude.Maybe Lude.Text)
+gcrrsNextToken = Lens.lens (nextToken :: GetCelebrityRecognitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
-gcrrsVideoMetadata :: Lens' GetCelebrityRecognitionResponse (Maybe VideoMetadata)
-gcrrsVideoMetadata = lens _gcrrsVideoMetadata (\s a -> s {_gcrrsVideoMetadata = a})
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsVideoMetadata :: Lens.Lens' GetCelebrityRecognitionResponse (Lude.Maybe VideoMetadata)
+gcrrsVideoMetadata = Lens.lens (videoMetadata :: GetCelebrityRecognitionResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-gcrrsStatusMessage :: Lens' GetCelebrityRecognitionResponse (Maybe Text)
-gcrrsStatusMessage = lens _gcrrsStatusMessage (\s a -> s {_gcrrsStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsStatusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Lude.Maybe Lude.Text)
+gcrrsStatusMessage = Lens.lens (statusMessage :: GetCelebrityRecognitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | Array of celebrities recognized in the video.
-gcrrsCelebrities :: Lens' GetCelebrityRecognitionResponse [CelebrityRecognition]
-gcrrsCelebrities = lens _gcrrsCelebrities (\s a -> s {_gcrrsCelebrities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'celebrities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsCelebrities :: Lens.Lens' GetCelebrityRecognitionResponse (Lude.Maybe [CelebrityRecognition])
+gcrrsCelebrities = Lens.lens (celebrities :: GetCelebrityRecognitionResponse -> Lude.Maybe [CelebrityRecognition]) (\s a -> s {celebrities = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsCelebrities "Use generic-lens or generic-optics with 'celebrities' instead." #-}
 
 -- | The current status of the celebrity recognition job.
-gcrrsJobStatus :: Lens' GetCelebrityRecognitionResponse (Maybe VideoJobStatus)
-gcrrsJobStatus = lens _gcrrsJobStatus (\s a -> s {_gcrrsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsJobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Lude.Maybe VideoJobStatus)
+gcrrsJobStatus = Lens.lens (jobStatus :: GetCelebrityRecognitionResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-gcrrsResponseStatus :: Lens' GetCelebrityRecognitionResponse Int
-gcrrsResponseStatus = lens _gcrrsResponseStatus (\s a -> s {_gcrrsResponseStatus = a})
-
-instance NFData GetCelebrityRecognitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsResponseStatus :: Lens.Lens' GetCelebrityRecognitionResponse Lude.Int
+gcrrsResponseStatus = Lens.lens (responseStatus :: GetCelebrityRecognitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCelebrityRecognitionResponse)
+{-# DEPRECATED gcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

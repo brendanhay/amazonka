@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.PipelineSummary where
+module Network.AWS.CodePipeline.Types.PipelineSummary
+  ( PipelineSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPipelineSummary,
+
+    -- * Lenses
+    psCreated,
+    psName,
+    psVersion,
+    psUpdated,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns a summary of a pipeline.
 --
---
---
--- /See:/ 'pipelineSummary' smart constructor.
+-- /See:/ 'mkPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-  { _psCreated ::
-      !(Maybe POSIX),
-    _psName :: !(Maybe Text),
-    _psVersion :: !(Maybe Nat),
-    _psUpdated :: !(Maybe POSIX)
+  { created ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Natural,
+    updated :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psCreated' - The date and time the pipeline was created, in timestamp format.
---
--- * 'psName' - The name of the pipeline.
---
--- * 'psVersion' - The version number of the pipeline.
---
--- * 'psUpdated' - The date and time of the last update to the pipeline, in timestamp format.
-pipelineSummary ::
+-- * 'created' - The date and time the pipeline was created, in timestamp format.
+-- * 'name' - The name of the pipeline.
+-- * 'updated' - The date and time of the last update to the pipeline, in timestamp format.
+-- * 'version' - The version number of the pipeline.
+mkPipelineSummary ::
   PipelineSummary
-pipelineSummary =
+mkPipelineSummary =
   PipelineSummary'
-    { _psCreated = Nothing,
-      _psName = Nothing,
-      _psVersion = Nothing,
-      _psUpdated = Nothing
+    { created = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      updated = Lude.Nothing
     }
 
 -- | The date and time the pipeline was created, in timestamp format.
-psCreated :: Lens' PipelineSummary (Maybe UTCTime)
-psCreated = lens _psCreated (\s a -> s {_psCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psCreated :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Timestamp)
+psCreated = Lens.lens (created :: PipelineSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: PipelineSummary)
+{-# DEPRECATED psCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The name of the pipeline.
-psName :: Lens' PipelineSummary (Maybe Text)
-psName = lens _psName (\s a -> s {_psName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psName :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Text)
+psName = Lens.lens (name :: PipelineSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PipelineSummary)
+{-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version number of the pipeline.
-psVersion :: Lens' PipelineSummary (Maybe Natural)
-psVersion = lens _psVersion (\s a -> s {_psVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psVersion :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Natural)
+psVersion = Lens.lens (version :: PipelineSummary -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: PipelineSummary)
+{-# DEPRECATED psVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The date and time of the last update to the pipeline, in timestamp format.
-psUpdated :: Lens' PipelineSummary (Maybe UTCTime)
-psUpdated = lens _psUpdated (\s a -> s {_psUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psUpdated :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Timestamp)
+psUpdated = Lens.lens (updated :: PipelineSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {updated = a} :: PipelineSummary)
+{-# DEPRECATED psUpdated "Use generic-lens or generic-optics with 'updated' instead." #-}
 
-instance FromJSON PipelineSummary where
+instance Lude.FromJSON PipelineSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            <$> (x .:? "created")
-            <*> (x .:? "name")
-            <*> (x .:? "version")
-            <*> (x .:? "updated")
+            Lude.<$> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "updated")
       )
-
-instance Hashable PipelineSummary
-
-instance NFData PipelineSummary

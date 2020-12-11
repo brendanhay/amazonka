@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.FileSystemType where
+module Network.AWS.SageMaker.Types.FileSystemType
+  ( FileSystemType
+      ( FileSystemType',
+        Efs,
+        FSxLustre
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FileSystemType
-  = Efs
-  | FSxLustre
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FileSystemType = FileSystemType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FileSystemType where
-  parser =
-    takeLowerText >>= \case
-      "efs" -> pure Efs
-      "fsxlustre" -> pure FSxLustre
-      e ->
-        fromTextError $
-          "Failure parsing FileSystemType from value: '" <> e
-            <> "'. Accepted values: efs, fsxlustre"
+pattern Efs :: FileSystemType
+pattern Efs = FileSystemType' "EFS"
 
-instance ToText FileSystemType where
-  toText = \case
-    Efs -> "EFS"
-    FSxLustre -> "FSxLustre"
+pattern FSxLustre :: FileSystemType
+pattern FSxLustre = FileSystemType' "FSxLustre"
 
-instance Hashable FileSystemType
-
-instance NFData FileSystemType
-
-instance ToByteString FileSystemType
-
-instance ToQuery FileSystemType
-
-instance ToHeader FileSystemType
-
-instance ToJSON FileSystemType where
-  toJSON = toJSONText
-
-instance FromJSON FileSystemType where
-  parseJSON = parseJSONText "FileSystemType"
+{-# COMPLETE
+  Efs,
+  FSxLustre,
+  FileSystemType'
+  #-}

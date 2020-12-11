@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.VirtualInterfaceState where
+module Network.AWS.DirectConnect.Types.VirtualInterfaceState
+  ( VirtualInterfaceState
+      ( VirtualInterfaceState',
+        VISAvailable,
+        VISConfirming,
+        VISDeleted,
+        VISDeleting,
+        VISDown,
+        VISPending,
+        VISRejected,
+        VISUnknown,
+        VISVerifying
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VirtualInterfaceState
-  = VISAvailable
-  | VISConfirming
-  | VISDeleted
-  | VISDeleting
-  | VISDown
-  | VISPending
-  | VISRejected
-  | VISUnknown
-  | VISVerifying
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VirtualInterfaceState = VirtualInterfaceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VirtualInterfaceState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure VISAvailable
-      "confirming" -> pure VISConfirming
-      "deleted" -> pure VISDeleted
-      "deleting" -> pure VISDeleting
-      "down" -> pure VISDown
-      "pending" -> pure VISPending
-      "rejected" -> pure VISRejected
-      "unknown" -> pure VISUnknown
-      "verifying" -> pure VISVerifying
-      e ->
-        fromTextError $
-          "Failure parsing VirtualInterfaceState from value: '" <> e
-            <> "'. Accepted values: available, confirming, deleted, deleting, down, pending, rejected, unknown, verifying"
+pattern VISAvailable :: VirtualInterfaceState
+pattern VISAvailable = VirtualInterfaceState' "available"
 
-instance ToText VirtualInterfaceState where
-  toText = \case
-    VISAvailable -> "available"
-    VISConfirming -> "confirming"
-    VISDeleted -> "deleted"
-    VISDeleting -> "deleting"
-    VISDown -> "down"
-    VISPending -> "pending"
-    VISRejected -> "rejected"
-    VISUnknown -> "unknown"
-    VISVerifying -> "verifying"
+pattern VISConfirming :: VirtualInterfaceState
+pattern VISConfirming = VirtualInterfaceState' "confirming"
 
-instance Hashable VirtualInterfaceState
+pattern VISDeleted :: VirtualInterfaceState
+pattern VISDeleted = VirtualInterfaceState' "deleted"
 
-instance NFData VirtualInterfaceState
+pattern VISDeleting :: VirtualInterfaceState
+pattern VISDeleting = VirtualInterfaceState' "deleting"
 
-instance ToByteString VirtualInterfaceState
+pattern VISDown :: VirtualInterfaceState
+pattern VISDown = VirtualInterfaceState' "down"
 
-instance ToQuery VirtualInterfaceState
+pattern VISPending :: VirtualInterfaceState
+pattern VISPending = VirtualInterfaceState' "pending"
 
-instance ToHeader VirtualInterfaceState
+pattern VISRejected :: VirtualInterfaceState
+pattern VISRejected = VirtualInterfaceState' "rejected"
 
-instance FromJSON VirtualInterfaceState where
-  parseJSON = parseJSONText "VirtualInterfaceState"
+pattern VISUnknown :: VirtualInterfaceState
+pattern VISUnknown = VirtualInterfaceState' "unknown"
+
+pattern VISVerifying :: VirtualInterfaceState
+pattern VISVerifying = VirtualInterfaceState' "verifying"
+
+{-# COMPLETE
+  VISAvailable,
+  VISConfirming,
+  VISDeleted,
+  VISDeleting,
+  VISDown,
+  VISPending,
+  VISRejected,
+  VISUnknown,
+  VISVerifying,
+  VirtualInterfaceState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,138 @@
 --
 -- Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use @GetIdentityPolicies@ .
 --
---
 -- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.ListIdentityPolicies
-  ( -- * Creating a Request
-    listIdentityPolicies,
-    ListIdentityPolicies,
+  ( -- * Creating a request
+    ListIdentityPolicies (..),
+    mkListIdentityPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lipIdentity,
 
-    -- * Destructuring the Response
-    listIdentityPoliciesResponse,
-    ListIdentityPoliciesResponse,
+    -- * Destructuring the response
+    ListIdentityPoliciesResponse (..),
+    mkListIdentityPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     liprsResponseStatus,
     liprsPolicyNames,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'listIdentityPolicies' smart constructor.
+-- /See:/ 'mkListIdentityPolicies' smart constructor.
 newtype ListIdentityPolicies = ListIdentityPolicies'
-  { _lipIdentity ::
-      Text
+  { identity ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentityPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'identity' - The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
--- * 'lipIdentity' - The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
-listIdentityPolicies ::
-  -- | 'lipIdentity'
-  Text ->
+-- To successfully call this API, you must own the identity.
+mkListIdentityPolicies ::
+  -- | 'identity'
+  Lude.Text ->
   ListIdentityPolicies
-listIdentityPolicies pIdentity_ =
-  ListIdentityPolicies' {_lipIdentity = pIdentity_}
+mkListIdentityPolicies pIdentity_ =
+  ListIdentityPolicies' {identity = pIdentity_}
 
--- | The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
-lipIdentity :: Lens' ListIdentityPolicies Text
-lipIdentity = lens _lipIdentity (\s a -> s {_lipIdentity = a})
+-- | The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipIdentity :: Lens.Lens' ListIdentityPolicies Lude.Text
+lipIdentity = Lens.lens (identity :: ListIdentityPolicies -> Lude.Text) (\s a -> s {identity = a} :: ListIdentityPolicies)
+{-# DEPRECATED lipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
-instance AWSRequest ListIdentityPolicies where
+instance Lude.AWSRequest ListIdentityPolicies where
   type Rs ListIdentityPolicies = ListIdentityPoliciesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListIdentityPoliciesResult"
       ( \s h x ->
           ListIdentityPoliciesResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@? "PolicyNames" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable ListIdentityPolicies
+instance Lude.ToHeaders ListIdentityPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListIdentityPolicies
+instance Lude.ToPath ListIdentityPolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListIdentityPolicies where
-  toHeaders = const mempty
-
-instance ToPath ListIdentityPolicies where
-  toPath = const "/"
-
-instance ToQuery ListIdentityPolicies where
+instance Lude.ToQuery ListIdentityPolicies where
   toQuery ListIdentityPolicies' {..} =
-    mconcat
-      [ "Action" =: ("ListIdentityPolicies" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identity" =: _lipIdentity
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListIdentityPolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identity" Lude.=: identity
       ]
 
 -- | A list of names of sending authorization policies that apply to an identity.
 --
---
---
--- /See:/ 'listIdentityPoliciesResponse' smart constructor.
+-- /See:/ 'mkListIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
-  { _liprsResponseStatus ::
-      !Int,
-    _liprsPolicyNames :: ![Text]
+  { responseStatus ::
+      Lude.Int,
+    policyNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentityPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liprsResponseStatus' - -- | The response status code.
---
--- * 'liprsPolicyNames' - A list of names of policies that apply to the specified identity.
-listIdentityPoliciesResponse ::
-  -- | 'liprsResponseStatus'
-  Int ->
+-- * 'policyNames' - A list of names of policies that apply to the specified identity.
+-- * 'responseStatus' - The response status code.
+mkListIdentityPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListIdentityPoliciesResponse
-listIdentityPoliciesResponse pResponseStatus_ =
+mkListIdentityPoliciesResponse pResponseStatus_ =
   ListIdentityPoliciesResponse'
-    { _liprsResponseStatus =
-        pResponseStatus_,
-      _liprsPolicyNames = mempty
+    { responseStatus = pResponseStatus_,
+      policyNames = Lude.mempty
     }
 
--- | -- | The response status code.
-liprsResponseStatus :: Lens' ListIdentityPoliciesResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\s a -> s {_liprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsResponseStatus :: Lens.Lens' ListIdentityPoliciesResponse Lude.Int
+liprsResponseStatus = Lens.lens (responseStatus :: ListIdentityPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentityPoliciesResponse)
+{-# DEPRECATED liprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of names of policies that apply to the specified identity.
-liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
-liprsPolicyNames = lens _liprsPolicyNames (\s a -> s {_liprsPolicyNames = a}) . _Coerce
-
-instance NFData ListIdentityPoliciesResponse
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsPolicyNames :: Lens.Lens' ListIdentityPoliciesResponse [Lude.Text]
+liprsPolicyNames = Lens.lens (policyNames :: ListIdentityPoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListIdentityPoliciesResponse)
+{-# DEPRECATED liprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,158 @@
 --
 -- Maps a user or group to the Amazon EMR Studio specified by @StudioId@ , and applies a session policy to refine Studio permissions for that user or group.
 module Network.AWS.EMR.CreateStudioSessionMapping
-  ( -- * Creating a Request
-    createStudioSessionMapping,
-    CreateStudioSessionMapping,
+  ( -- * Creating a request
+    CreateStudioSessionMapping (..),
+    mkCreateStudioSessionMapping,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cssmIdentityId,
     cssmIdentityName,
     cssmStudioId,
     cssmIdentityType,
     cssmSessionPolicyARN,
 
-    -- * Destructuring the Response
-    createStudioSessionMappingResponse,
-    CreateStudioSessionMappingResponse,
+    -- * Destructuring the response
+    CreateStudioSessionMappingResponse (..),
+    mkCreateStudioSessionMappingResponse,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createStudioSessionMapping' smart constructor.
+-- | /See:/ 'mkCreateStudioSessionMapping' smart constructor.
 data CreateStudioSessionMapping = CreateStudioSessionMapping'
-  { _cssmIdentityId ::
-      !(Maybe Text),
-    _cssmIdentityName :: !(Maybe Text),
-    _cssmStudioId :: !Text,
-    _cssmIdentityType :: !IdentityType,
-    _cssmSessionPolicyARN :: !Text
+  { identityId ::
+      Lude.Maybe Lude.Text,
+    identityName :: Lude.Maybe Lude.Text,
+    studioId :: Lude.Text,
+    identityType :: IdentityType,
+    sessionPolicyARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStudioSessionMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cssmIdentityId' - The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
---
--- * 'cssmIdentityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
---
--- * 'cssmStudioId' - The ID of the Amazon EMR Studio to which the user or group will be mapped.
---
--- * 'cssmIdentityType' - Specifies whether the identity to map to the Studio is a user or a group.
---
--- * 'cssmSessionPolicyARN' - The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
-createStudioSessionMapping ::
-  -- | 'cssmStudioId'
-  Text ->
-  -- | 'cssmIdentityType'
+-- * 'identityId' - The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
+-- * 'identityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
+-- * 'identityType' - Specifies whether the identity to map to the Studio is a user or a group.
+-- * 'sessionPolicyARN' - The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
+-- * 'studioId' - The ID of the Amazon EMR Studio to which the user or group will be mapped.
+mkCreateStudioSessionMapping ::
+  -- | 'studioId'
+  Lude.Text ->
+  -- | 'identityType'
   IdentityType ->
-  -- | 'cssmSessionPolicyARN'
-  Text ->
+  -- | 'sessionPolicyARN'
+  Lude.Text ->
   CreateStudioSessionMapping
-createStudioSessionMapping
+mkCreateStudioSessionMapping
   pStudioId_
   pIdentityType_
   pSessionPolicyARN_ =
     CreateStudioSessionMapping'
-      { _cssmIdentityId = Nothing,
-        _cssmIdentityName = Nothing,
-        _cssmStudioId = pStudioId_,
-        _cssmIdentityType = pIdentityType_,
-        _cssmSessionPolicyARN = pSessionPolicyARN_
+      { identityId = Lude.Nothing,
+        identityName = Lude.Nothing,
+        studioId = pStudioId_,
+        identityType = pIdentityType_,
+        sessionPolicyARN = pSessionPolicyARN_
       }
 
 -- | The globally unique identifier (GUID) of the user or group from the AWS SSO Identity Store. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
-cssmIdentityId :: Lens' CreateStudioSessionMapping (Maybe Text)
-cssmIdentityId = lens _cssmIdentityId (\s a -> s {_cssmIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssmIdentityId :: Lens.Lens' CreateStudioSessionMapping (Lude.Maybe Lude.Text)
+cssmIdentityId = Lens.lens (identityId :: CreateStudioSessionMapping -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: CreateStudioSessionMapping)
+{-# DEPRECATED cssmIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
-cssmIdentityName :: Lens' CreateStudioSessionMapping (Maybe Text)
-cssmIdentityName = lens _cssmIdentityName (\s a -> s {_cssmIdentityName = a})
+--
+-- /Note:/ Consider using 'identityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssmIdentityName :: Lens.Lens' CreateStudioSessionMapping (Lude.Maybe Lude.Text)
+cssmIdentityName = Lens.lens (identityName :: CreateStudioSessionMapping -> Lude.Maybe Lude.Text) (\s a -> s {identityName = a} :: CreateStudioSessionMapping)
+{-# DEPRECATED cssmIdentityName "Use generic-lens or generic-optics with 'identityName' instead." #-}
 
 -- | The ID of the Amazon EMR Studio to which the user or group will be mapped.
-cssmStudioId :: Lens' CreateStudioSessionMapping Text
-cssmStudioId = lens _cssmStudioId (\s a -> s {_cssmStudioId = a})
+--
+-- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssmStudioId :: Lens.Lens' CreateStudioSessionMapping Lude.Text
+cssmStudioId = Lens.lens (studioId :: CreateStudioSessionMapping -> Lude.Text) (\s a -> s {studioId = a} :: CreateStudioSessionMapping)
+{-# DEPRECATED cssmStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 -- | Specifies whether the identity to map to the Studio is a user or a group.
-cssmIdentityType :: Lens' CreateStudioSessionMapping IdentityType
-cssmIdentityType = lens _cssmIdentityType (\s a -> s {_cssmIdentityType = a})
+--
+-- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssmIdentityType :: Lens.Lens' CreateStudioSessionMapping IdentityType
+cssmIdentityType = Lens.lens (identityType :: CreateStudioSessionMapping -> IdentityType) (\s a -> s {identityType = a} :: CreateStudioSessionMapping)
+{-# DEPRECATED cssmIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
-cssmSessionPolicyARN :: Lens' CreateStudioSessionMapping Text
-cssmSessionPolicyARN = lens _cssmSessionPolicyARN (\s a -> s {_cssmSessionPolicyARN = a})
+--
+-- /Note:/ Consider using 'sessionPolicyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssmSessionPolicyARN :: Lens.Lens' CreateStudioSessionMapping Lude.Text
+cssmSessionPolicyARN = Lens.lens (sessionPolicyARN :: CreateStudioSessionMapping -> Lude.Text) (\s a -> s {sessionPolicyARN = a} :: CreateStudioSessionMapping)
+{-# DEPRECATED cssmSessionPolicyARN "Use generic-lens or generic-optics with 'sessionPolicyARN' instead." #-}
 
-instance AWSRequest CreateStudioSessionMapping where
+instance Lude.AWSRequest CreateStudioSessionMapping where
   type
     Rs CreateStudioSessionMapping =
       CreateStudioSessionMappingResponse
-  request = postJSON emr
-  response = receiveNull CreateStudioSessionMappingResponse'
+  request = Req.postJSON emrService
+  response = Res.receiveNull CreateStudioSessionMappingResponse'
 
-instance Hashable CreateStudioSessionMapping
-
-instance NFData CreateStudioSessionMapping
-
-instance ToHeaders CreateStudioSessionMapping where
+instance Lude.ToHeaders CreateStudioSessionMapping where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.CreateStudioSessionMapping" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.CreateStudioSessionMapping" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateStudioSessionMapping where
+instance Lude.ToJSON CreateStudioSessionMapping where
   toJSON CreateStudioSessionMapping' {..} =
-    object
-      ( catMaybes
-          [ ("IdentityId" .=) <$> _cssmIdentityId,
-            ("IdentityName" .=) <$> _cssmIdentityName,
-            Just ("StudioId" .= _cssmStudioId),
-            Just ("IdentityType" .= _cssmIdentityType),
-            Just ("SessionPolicyArn" .= _cssmSessionPolicyARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IdentityId" Lude..=) Lude.<$> identityId,
+            ("IdentityName" Lude..=) Lude.<$> identityName,
+            Lude.Just ("StudioId" Lude..= studioId),
+            Lude.Just ("IdentityType" Lude..= identityType),
+            Lude.Just ("SessionPolicyArn" Lude..= sessionPolicyARN)
           ]
       )
 
-instance ToPath CreateStudioSessionMapping where
-  toPath = const "/"
+instance Lude.ToPath CreateStudioSessionMapping where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateStudioSessionMapping where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStudioSessionMapping where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createStudioSessionMappingResponse' smart constructor.
+-- | /See:/ 'mkCreateStudioSessionMappingResponse' smart constructor.
 data CreateStudioSessionMappingResponse = CreateStudioSessionMappingResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStudioSessionMappingResponse' with the minimum fields required to make a request.
-createStudioSessionMappingResponse ::
+mkCreateStudioSessionMappingResponse ::
   CreateStudioSessionMappingResponse
-createStudioSessionMappingResponse =
+mkCreateStudioSessionMappingResponse =
   CreateStudioSessionMappingResponse'
-
-instance NFData CreateStudioSessionMappingResponse

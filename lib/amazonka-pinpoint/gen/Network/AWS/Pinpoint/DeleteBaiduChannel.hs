@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,131 @@
 --
 -- Disables the Baidu channel for an application and deletes any existing settings for the channel.
 module Network.AWS.Pinpoint.DeleteBaiduChannel
-  ( -- * Creating a Request
-    deleteBaiduChannel,
-    DeleteBaiduChannel,
+  ( -- * Creating a request
+    DeleteBaiduChannel (..),
+    mkDeleteBaiduChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbcApplicationId,
 
-    -- * Destructuring the Response
-    deleteBaiduChannelResponse,
-    DeleteBaiduChannelResponse,
+    -- * Destructuring the response
+    DeleteBaiduChannelResponse (..),
+    mkDeleteBaiduChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbcrsResponseStatus,
     dbcrsBaiduChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBaiduChannel' smart constructor.
+-- | /See:/ 'mkDeleteBaiduChannel' smart constructor.
 newtype DeleteBaiduChannel = DeleteBaiduChannel'
-  { _dbcApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBaiduChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteBaiduChannel ::
-  -- | 'dbcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkDeleteBaiduChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteBaiduChannel
-deleteBaiduChannel pApplicationId_ =
-  DeleteBaiduChannel' {_dbcApplicationId = pApplicationId_}
+mkDeleteBaiduChannel pApplicationId_ =
+  DeleteBaiduChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-dbcApplicationId :: Lens' DeleteBaiduChannel Text
-dbcApplicationId = lens _dbcApplicationId (\s a -> s {_dbcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcApplicationId :: Lens.Lens' DeleteBaiduChannel Lude.Text
+dbcApplicationId = Lens.lens (applicationId :: DeleteBaiduChannel -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteBaiduChannel)
+{-# DEPRECATED dbcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteBaiduChannel where
+instance Lude.AWSRequest DeleteBaiduChannel where
   type Rs DeleteBaiduChannel = DeleteBaiduChannelResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteBaiduChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteBaiduChannel
-
-instance NFData DeleteBaiduChannel
-
-instance ToHeaders DeleteBaiduChannel where
+instance Lude.ToHeaders DeleteBaiduChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBaiduChannel where
+instance Lude.ToPath DeleteBaiduChannel where
   toPath DeleteBaiduChannel' {..} =
-    mconcat ["/v1/apps/", toBS _dbcApplicationId, "/channels/baidu"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/baidu"]
 
-instance ToQuery DeleteBaiduChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBaiduChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBaiduChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteBaiduChannelResponse' smart constructor.
 data DeleteBaiduChannelResponse = DeleteBaiduChannelResponse'
-  { _dbcrsResponseStatus ::
-      !Int,
-    _dbcrsBaiduChannelResponse ::
-      !BaiduChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    baiduChannelResponse ::
+      BaiduChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBaiduChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbcrsResponseStatus' - -- | The response status code.
---
--- * 'dbcrsBaiduChannelResponse' - Undocumented member.
-deleteBaiduChannelResponse ::
-  -- | 'dbcrsResponseStatus'
-  Int ->
-  -- | 'dbcrsBaiduChannelResponse'
+-- * 'baiduChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteBaiduChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'baiduChannelResponse'
   BaiduChannelResponse ->
   DeleteBaiduChannelResponse
-deleteBaiduChannelResponse pResponseStatus_ pBaiduChannelResponse_ =
-  DeleteBaiduChannelResponse'
-    { _dbcrsResponseStatus =
-        pResponseStatus_,
-      _dbcrsBaiduChannelResponse = pBaiduChannelResponse_
-    }
+mkDeleteBaiduChannelResponse
+  pResponseStatus_
+  pBaiduChannelResponse_ =
+    DeleteBaiduChannelResponse'
+      { responseStatus = pResponseStatus_,
+        baiduChannelResponse = pBaiduChannelResponse_
+      }
 
--- | -- | The response status code.
-dbcrsResponseStatus :: Lens' DeleteBaiduChannelResponse Int
-dbcrsResponseStatus = lens _dbcrsResponseStatus (\s a -> s {_dbcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcrsResponseStatus :: Lens.Lens' DeleteBaiduChannelResponse Lude.Int
+dbcrsResponseStatus = Lens.lens (responseStatus :: DeleteBaiduChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBaiduChannelResponse)
+{-# DEPRECATED dbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dbcrsBaiduChannelResponse :: Lens' DeleteBaiduChannelResponse BaiduChannelResponse
-dbcrsBaiduChannelResponse = lens _dbcrsBaiduChannelResponse (\s a -> s {_dbcrsBaiduChannelResponse = a})
-
-instance NFData DeleteBaiduChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'baiduChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcrsBaiduChannelResponse :: Lens.Lens' DeleteBaiduChannelResponse BaiduChannelResponse
+dbcrsBaiduChannelResponse = Lens.lens (baiduChannelResponse :: DeleteBaiduChannelResponse -> BaiduChannelResponse) (\s a -> s {baiduChannelResponse = a} :: DeleteBaiduChannelResponse)
+{-# DEPRECATED dbcrsBaiduChannelResponse "Use generic-lens or generic-optics with 'baiduChannelResponse' instead." #-}

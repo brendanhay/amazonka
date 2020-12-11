@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types
-  ( -- * Service Configuration
-    codeBuild,
+  ( -- * Service configuration
+    codeBuildService,
 
     -- * Errors
 
@@ -121,14 +119,14 @@ module Network.AWS.CodeBuild.Types
     WebhookFilterType (..),
 
     -- * BatchRestrictions
-    BatchRestrictions,
-    batchRestrictions,
+    BatchRestrictions (..),
+    mkBatchRestrictions,
     brMaximumBuildsAllowed,
     brComputeTypesAllowed,
 
     -- * Build
-    Build,
-    build,
+    Build (..),
+    mkBuild,
     bPhases,
     bBuildComplete,
     bSecondaryArtifacts,
@@ -163,8 +161,8 @@ module Network.AWS.CodeBuild.Types
     bTimeoutInMinutes,
 
     -- * BuildArtifacts
-    BuildArtifacts,
-    buildArtifacts,
+    BuildArtifacts (..),
+    mkBuildArtifacts,
     baLocation,
     baMd5sum,
     baEncryptionDisabled,
@@ -173,8 +171,8 @@ module Network.AWS.CodeBuild.Types
     baSha256sum,
 
     -- * BuildBatch
-    BuildBatch,
-    buildBatch,
+    BuildBatch (..),
+    mkBuildBatch,
     bbPhases,
     bbSecondaryArtifacts,
     bbBuildTimeoutInMinutes,
@@ -206,13 +204,13 @@ module Network.AWS.CodeBuild.Types
     bbComplete,
 
     -- * BuildBatchFilter
-    BuildBatchFilter,
-    buildBatchFilter,
+    BuildBatchFilter (..),
+    mkBuildBatchFilter,
     bbfStatus,
 
     -- * BuildBatchPhase
-    BuildBatchPhase,
-    buildBatchPhase,
+    BuildBatchPhase (..),
+    mkBuildBatchPhase,
     bbpContexts,
     bbpStartTime,
     bbpPhaseStatus,
@@ -221,8 +219,8 @@ module Network.AWS.CodeBuild.Types
     bbpDurationInSeconds,
 
     -- * BuildGroup
-    BuildGroup,
-    buildGroup,
+    BuildGroup (..),
+    mkBuildGroup,
     bgIdentifier,
     bgDependsOn,
     bgIgnoreFailure,
@@ -230,14 +228,14 @@ module Network.AWS.CodeBuild.Types
     bgPriorBuildSummaryList,
 
     -- * BuildNotDeleted
-    BuildNotDeleted,
-    buildNotDeleted,
+    BuildNotDeleted (..),
+    mkBuildNotDeleted,
     bndId,
     bndStatusCode,
 
     -- * BuildPhase
-    BuildPhase,
-    buildPhase,
+    BuildPhase (..),
+    mkBuildPhase,
     bpContexts,
     bpStartTime,
     bpPhaseStatus,
@@ -246,14 +244,14 @@ module Network.AWS.CodeBuild.Types
     bpDurationInSeconds,
 
     -- * BuildStatusConfig
-    BuildStatusConfig,
-    buildStatusConfig,
+    BuildStatusConfig (..),
+    mkBuildStatusConfig,
     bscContext,
     bscTargetURL,
 
     -- * BuildSummary
-    BuildSummary,
-    buildSummary,
+    BuildSummary (..),
+    mkBuildSummary,
     bsSecondaryArtifacts,
     bsPrimaryArtifact,
     bsArn,
@@ -261,15 +259,15 @@ module Network.AWS.CodeBuild.Types
     bsRequestedOn,
 
     -- * CloudWatchLogsConfig
-    CloudWatchLogsConfig,
-    cloudWatchLogsConfig,
+    CloudWatchLogsConfig (..),
+    mkCloudWatchLogsConfig,
     cwlcGroupName,
     cwlcStreamName,
     cwlcStatus,
 
     -- * CodeCoverage
-    CodeCoverage,
-    codeCoverage,
+    CodeCoverage (..),
+    mkCodeCoverage,
     ccExpired,
     ccBranchesMissed,
     ccLinesMissed,
@@ -282,8 +280,8 @@ module Network.AWS.CodeBuild.Types
     ccReportARN,
 
     -- * CodeCoverageReportSummary
-    CodeCoverageReportSummary,
-    codeCoverageReportSummary,
+    CodeCoverageReportSummary (..),
+    mkCodeCoverageReportSummary,
     ccrsBranchesMissed,
     ccrsLinesMissed,
     ccrsBranchesCovered,
@@ -292,57 +290,57 @@ module Network.AWS.CodeBuild.Types
     ccrsLineCoveragePercentage,
 
     -- * DebugSession
-    DebugSession,
-    debugSession,
+    DebugSession (..),
+    mkDebugSession,
     dsSessionEnabled,
     dsSessionTarget,
 
     -- * EnvironmentImage
-    EnvironmentImage,
-    environmentImage,
+    EnvironmentImage (..),
+    mkEnvironmentImage,
     eiVersions,
     eiName,
     eiDescription,
 
     -- * EnvironmentLanguage
-    EnvironmentLanguage,
-    environmentLanguage,
+    EnvironmentLanguage (..),
+    mkEnvironmentLanguage,
     elImages,
     elLanguage,
 
     -- * EnvironmentPlatform
-    EnvironmentPlatform,
-    environmentPlatform,
+    EnvironmentPlatform (..),
+    mkEnvironmentPlatform,
     epPlatform,
     epLanguages,
 
     -- * EnvironmentVariable
-    EnvironmentVariable,
-    environmentVariable,
+    EnvironmentVariable (..),
+    mkEnvironmentVariable,
     evType,
     evName,
     evValue,
 
     -- * ExportedEnvironmentVariable
-    ExportedEnvironmentVariable,
-    exportedEnvironmentVariable,
+    ExportedEnvironmentVariable (..),
+    mkExportedEnvironmentVariable,
     eevValue,
     eevName,
 
     -- * GitSubmodulesConfig
-    GitSubmodulesConfig,
-    gitSubmodulesConfig,
+    GitSubmodulesConfig (..),
+    mkGitSubmodulesConfig,
     gscFetchSubmodules,
 
     -- * LogsConfig
-    LogsConfig,
-    logsConfig,
+    LogsConfig (..),
+    mkLogsConfig,
     lcS3Logs,
     lcCloudWatchLogs,
 
     -- * LogsLocation
-    LogsLocation,
-    logsLocation,
+    LogsLocation (..),
+    mkLogsLocation,
     llDeepLink,
     llS3Logs,
     llCloudWatchLogs,
@@ -353,20 +351,20 @@ module Network.AWS.CodeBuild.Types
     llStreamName,
 
     -- * NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niSubnetId,
     niNetworkInterfaceId,
 
     -- * PhaseContext
-    PhaseContext,
-    phaseContext,
+    PhaseContext (..),
+    mkPhaseContext,
     pcMessage,
     pcStatusCode,
 
     -- * Project
-    Project,
-    project,
+    Project (..),
+    mkProject,
     pSecondaryArtifacts,
     pArn,
     pArtifacts,
@@ -393,8 +391,8 @@ module Network.AWS.CodeBuild.Types
     pTimeoutInMinutes,
 
     -- * ProjectArtifacts
-    ProjectArtifacts,
-    projectArtifacts,
+    ProjectArtifacts (..),
+    mkProjectArtifacts,
     paPackaging,
     paPath,
     paLocation,
@@ -406,29 +404,29 @@ module Network.AWS.CodeBuild.Types
     paType,
 
     -- * ProjectBadge
-    ProjectBadge,
-    projectBadge,
+    ProjectBadge (..),
+    mkProjectBadge,
     pbBadgeEnabled,
     pbBadgeRequestURL,
 
     -- * ProjectBuildBatchConfig
-    ProjectBuildBatchConfig,
-    projectBuildBatchConfig,
+    ProjectBuildBatchConfig (..),
+    mkProjectBuildBatchConfig,
     pbbcCombineArtifacts,
     pbbcTimeoutInMins,
     pbbcRestrictions,
     pbbcServiceRole,
 
     -- * ProjectCache
-    ProjectCache,
-    projectCache,
+    ProjectCache (..),
+    mkProjectCache,
     pcLocation,
     pcModes,
     pcType,
 
     -- * ProjectEnvironment
-    ProjectEnvironment,
-    projectEnvironment,
+    ProjectEnvironment (..),
+    mkProjectEnvironment,
     peImagePullCredentialsType,
     pePrivilegedMode,
     peRegistryCredential,
@@ -439,8 +437,8 @@ module Network.AWS.CodeBuild.Types
     peComputeType,
 
     -- * ProjectFileSystemLocation
-    ProjectFileSystemLocation,
-    projectFileSystemLocation,
+    ProjectFileSystemLocation (..),
+    mkProjectFileSystemLocation,
     pfslLocation,
     pfslIdentifier,
     pfslMountOptions,
@@ -448,8 +446,8 @@ module Network.AWS.CodeBuild.Types
     pfslMountPoint,
 
     -- * ProjectSource
-    ProjectSource,
-    projectSource,
+    ProjectSource (..),
+    mkProjectSource,
     psReportBuildStatus,
     psInsecureSSL,
     psLocation,
@@ -462,20 +460,20 @@ module Network.AWS.CodeBuild.Types
     psType,
 
     -- * ProjectSourceVersion
-    ProjectSourceVersion,
-    projectSourceVersion,
+    ProjectSourceVersion (..),
+    mkProjectSourceVersion,
     psvSourceIdentifier,
     psvSourceVersion,
 
     -- * RegistryCredential
-    RegistryCredential,
-    registryCredential,
+    RegistryCredential (..),
+    mkRegistryCredential,
     rcCredential,
     rcCredentialProvider,
 
     -- * Report
-    Report,
-    report,
+    Report (..),
+    mkReport,
     rReportGroupARN,
     rStatus,
     rExpired,
@@ -490,19 +488,19 @@ module Network.AWS.CodeBuild.Types
     rExportConfig,
 
     -- * ReportExportConfig
-    ReportExportConfig,
-    reportExportConfig,
+    ReportExportConfig (..),
+    mkReportExportConfig,
     recExportConfigType,
     recS3Destination,
 
     -- * ReportFilter
-    ReportFilter,
-    reportFilter,
+    ReportFilter (..),
+    mkReportFilter,
     rfStatus,
 
     -- * ReportGroup
-    ReportGroup,
-    reportGroup,
+    ReportGroup (..),
+    mkReportGroup,
     rgStatus,
     rgArn,
     rgCreated,
@@ -513,35 +511,35 @@ module Network.AWS.CodeBuild.Types
     rgTags,
 
     -- * ReportGroupTrendStats
-    ReportGroupTrendStats,
-    reportGroupTrendStats,
+    ReportGroupTrendStats (..),
+    mkReportGroupTrendStats,
     rgtsMax,
     rgtsAverage,
     rgtsMin,
 
     -- * ReportWithRawData
-    ReportWithRawData,
-    reportWithRawData,
+    ReportWithRawData (..),
+    mkReportWithRawData,
     rwrdData,
     rwrdReportARN,
 
     -- * ResolvedArtifact
-    ResolvedArtifact,
-    resolvedArtifact,
+    ResolvedArtifact (..),
+    mkResolvedArtifact,
     raLocation,
     raIdentifier,
     raType,
 
     -- * S3LogsConfig
-    S3LogsConfig,
-    s3LogsConfig,
+    S3LogsConfig (..),
+    mkS3LogsConfig,
     slcLocation,
     slcEncryptionDisabled,
     slcStatus,
 
     -- * S3ReportExportConfig
-    S3ReportExportConfig,
-    s3ReportExportConfig,
+    S3ReportExportConfig (..),
+    mkS3ReportExportConfig,
     srecPackaging,
     srecPath,
     srecBucket,
@@ -549,27 +547,27 @@ module Network.AWS.CodeBuild.Types
     srecEncryptionKey,
 
     -- * SourceAuth
-    SourceAuth,
-    sourceAuth,
+    SourceAuth (..),
+    mkSourceAuth,
     saResource,
     saType,
 
     -- * SourceCredentialsInfo
-    SourceCredentialsInfo,
-    sourceCredentialsInfo,
+    SourceCredentialsInfo (..),
+    mkSourceCredentialsInfo,
     sciArn,
     sciServerType,
     sciAuthType,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TestCase
-    TestCase,
-    testCase,
+    TestCase (..),
+    mkTestCase,
     tcDurationInNanoSeconds,
     tcStatus,
     tcExpired,
@@ -580,28 +578,28 @@ module Network.AWS.CodeBuild.Types
     tcReportARN,
 
     -- * TestCaseFilter
-    TestCaseFilter,
-    testCaseFilter,
+    TestCaseFilter (..),
+    mkTestCaseFilter,
     tcfStatus,
     tcfKeyword,
 
     -- * TestReportSummary
-    TestReportSummary,
-    testReportSummary,
+    TestReportSummary (..),
+    mkTestReportSummary,
     trsTotal,
     trsStatusCounts,
     trsDurationInNanoSeconds,
 
     -- * VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vcSecurityGroupIds,
     vcVpcId,
     vcSubnets,
 
     -- * Webhook
-    Webhook,
-    webhook,
+    Webhook (..),
+    mkWebhook,
     wBranchFilter,
     wLastModifiedSecret,
     wUrl,
@@ -611,8 +609,8 @@ module Network.AWS.CodeBuild.Types
     wBuildType,
 
     -- * WebhookFilter
-    WebhookFilter,
-    webhookFilter,
+    WebhookFilter (..),
+    mkWebhookFilter,
     wfExcludeMatchedPattern,
     wfType,
     wfPattern,
@@ -707,48 +705,60 @@ import Network.AWS.CodeBuild.Types.Webhook
 import Network.AWS.CodeBuild.Types.WebhookBuildType
 import Network.AWS.CodeBuild.Types.WebhookFilter
 import Network.AWS.CodeBuild.Types.WebhookFilterType
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-10-06@ of the Amazon CodeBuild SDK configuration.
-codeBuild :: Service
-codeBuild =
-  Service
-    { _svcAbbrev = "CodeBuild",
-      _svcSigner = v4,
-      _svcPrefix = "codebuild",
-      _svcVersion = "2016-10-06",
-      _svcEndpoint = defaultEndpoint codeBuild,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CodeBuild",
-      _svcRetry = retry
+codeBuildService :: Lude.Service
+codeBuildService =
+  Lude.Service
+    { Lude._svcAbbrev = "CodeBuild",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "codebuild",
+      Lude._svcVersion = "2016-10-06",
+      Lude._svcEndpoint = Lude.defaultEndpoint codeBuildService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CodeBuild",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

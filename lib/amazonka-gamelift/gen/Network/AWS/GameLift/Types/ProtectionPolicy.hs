@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.ProtectionPolicy where
+module Network.AWS.GameLift.Types.ProtectionPolicy
+  ( ProtectionPolicy
+      ( ProtectionPolicy',
+        PPFullProtection,
+        PPNoProtection
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProtectionPolicy
-  = PPFullProtection
-  | PPNoProtection
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProtectionPolicy = ProtectionPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProtectionPolicy where
-  parser =
-    takeLowerText >>= \case
-      "fullprotection" -> pure PPFullProtection
-      "noprotection" -> pure PPNoProtection
-      e ->
-        fromTextError $
-          "Failure parsing ProtectionPolicy from value: '" <> e
-            <> "'. Accepted values: fullprotection, noprotection"
+pattern PPFullProtection :: ProtectionPolicy
+pattern PPFullProtection = ProtectionPolicy' "FullProtection"
 
-instance ToText ProtectionPolicy where
-  toText = \case
-    PPFullProtection -> "FullProtection"
-    PPNoProtection -> "NoProtection"
+pattern PPNoProtection :: ProtectionPolicy
+pattern PPNoProtection = ProtectionPolicy' "NoProtection"
 
-instance Hashable ProtectionPolicy
-
-instance NFData ProtectionPolicy
-
-instance ToByteString ProtectionPolicy
-
-instance ToQuery ProtectionPolicy
-
-instance ToHeader ProtectionPolicy
-
-instance ToJSON ProtectionPolicy where
-  toJSON = toJSONText
-
-instance FromJSON ProtectionPolicy where
-  parseJSON = parseJSONText "ProtectionPolicy"
+{-# COMPLETE
+  PPFullProtection,
+  PPNoProtection,
+  ProtectionPolicy'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,181 @@
 --
 -- Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.
 module Network.AWS.AppStream.CopyImage
-  ( -- * Creating a Request
-    copyImage,
-    CopyImage,
+  ( -- * Creating a request
+    CopyImage (..),
+    mkCopyImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ciDestinationImageDescription,
     ciSourceImageName,
     ciDestinationImageName,
     ciDestinationRegion,
 
-    -- * Destructuring the Response
-    copyImageResponse,
-    CopyImageResponse,
+    -- * Destructuring the response
+    CopyImageResponse (..),
+    mkCopyImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cirsDestinationImageName,
     cirsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'copyImage' smart constructor.
+-- | /See:/ 'mkCopyImage' smart constructor.
 data CopyImage = CopyImage'
-  { _ciDestinationImageDescription ::
-      !(Maybe Text),
-    _ciSourceImageName :: !Text,
-    _ciDestinationImageName :: !Text,
-    _ciDestinationRegion :: !Text
+  { destinationImageDescription ::
+      Lude.Maybe Lude.Text,
+    sourceImageName :: Lude.Text,
+    destinationImageName :: Lude.Text,
+    destinationRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciDestinationImageDescription' - The description that the image will have when it is copied to the destination.
---
--- * 'ciSourceImageName' - The name of the image to copy.
---
--- * 'ciDestinationImageName' - The name that the image will have when it is copied to the destination.
---
--- * 'ciDestinationRegion' - The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.
-copyImage ::
-  -- | 'ciSourceImageName'
-  Text ->
-  -- | 'ciDestinationImageName'
-  Text ->
-  -- | 'ciDestinationRegion'
-  Text ->
+-- * 'destinationImageDescription' - The description that the image will have when it is copied to the destination.
+-- * 'destinationImageName' - The name that the image will have when it is copied to the destination.
+-- * 'destinationRegion' - The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.
+-- * 'sourceImageName' - The name of the image to copy.
+mkCopyImage ::
+  -- | 'sourceImageName'
+  Lude.Text ->
+  -- | 'destinationImageName'
+  Lude.Text ->
+  -- | 'destinationRegion'
+  Lude.Text ->
   CopyImage
-copyImage
+mkCopyImage
   pSourceImageName_
   pDestinationImageName_
   pDestinationRegion_ =
     CopyImage'
-      { _ciDestinationImageDescription = Nothing,
-        _ciSourceImageName = pSourceImageName_,
-        _ciDestinationImageName = pDestinationImageName_,
-        _ciDestinationRegion = pDestinationRegion_
+      { destinationImageDescription = Lude.Nothing,
+        sourceImageName = pSourceImageName_,
+        destinationImageName = pDestinationImageName_,
+        destinationRegion = pDestinationRegion_
       }
 
 -- | The description that the image will have when it is copied to the destination.
-ciDestinationImageDescription :: Lens' CopyImage (Maybe Text)
-ciDestinationImageDescription = lens _ciDestinationImageDescription (\s a -> s {_ciDestinationImageDescription = a})
+--
+-- /Note:/ Consider using 'destinationImageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDestinationImageDescription :: Lens.Lens' CopyImage (Lude.Maybe Lude.Text)
+ciDestinationImageDescription = Lens.lens (destinationImageDescription :: CopyImage -> Lude.Maybe Lude.Text) (\s a -> s {destinationImageDescription = a} :: CopyImage)
+{-# DEPRECATED ciDestinationImageDescription "Use generic-lens or generic-optics with 'destinationImageDescription' instead." #-}
 
 -- | The name of the image to copy.
-ciSourceImageName :: Lens' CopyImage Text
-ciSourceImageName = lens _ciSourceImageName (\s a -> s {_ciSourceImageName = a})
+--
+-- /Note:/ Consider using 'sourceImageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSourceImageName :: Lens.Lens' CopyImage Lude.Text
+ciSourceImageName = Lens.lens (sourceImageName :: CopyImage -> Lude.Text) (\s a -> s {sourceImageName = a} :: CopyImage)
+{-# DEPRECATED ciSourceImageName "Use generic-lens or generic-optics with 'sourceImageName' instead." #-}
 
 -- | The name that the image will have when it is copied to the destination.
-ciDestinationImageName :: Lens' CopyImage Text
-ciDestinationImageName = lens _ciDestinationImageName (\s a -> s {_ciDestinationImageName = a})
+--
+-- /Note:/ Consider using 'destinationImageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDestinationImageName :: Lens.Lens' CopyImage Lude.Text
+ciDestinationImageName = Lens.lens (destinationImageName :: CopyImage -> Lude.Text) (\s a -> s {destinationImageName = a} :: CopyImage)
+{-# DEPRECATED ciDestinationImageName "Use generic-lens or generic-optics with 'destinationImageName' instead." #-}
 
 -- | The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.
-ciDestinationRegion :: Lens' CopyImage Text
-ciDestinationRegion = lens _ciDestinationRegion (\s a -> s {_ciDestinationRegion = a})
+--
+-- /Note:/ Consider using 'destinationRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDestinationRegion :: Lens.Lens' CopyImage Lude.Text
+ciDestinationRegion = Lens.lens (destinationRegion :: CopyImage -> Lude.Text) (\s a -> s {destinationRegion = a} :: CopyImage)
+{-# DEPRECATED ciDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
 
-instance AWSRequest CopyImage where
+instance Lude.AWSRequest CopyImage where
   type Rs CopyImage = CopyImageResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CopyImageResponse'
-            <$> (x .?> "DestinationImageName") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DestinationImageName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyImage
-
-instance NFData CopyImage
-
-instance ToHeaders CopyImage where
+instance Lude.ToHeaders CopyImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.CopyImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.CopyImage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CopyImage where
+instance Lude.ToJSON CopyImage where
   toJSON CopyImage' {..} =
-    object
-      ( catMaybes
-          [ ("DestinationImageDescription" .=)
-              <$> _ciDestinationImageDescription,
-            Just ("SourceImageName" .= _ciSourceImageName),
-            Just ("DestinationImageName" .= _ciDestinationImageName),
-            Just ("DestinationRegion" .= _ciDestinationRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DestinationImageDescription" Lude..=)
+              Lude.<$> destinationImageDescription,
+            Lude.Just ("SourceImageName" Lude..= sourceImageName),
+            Lude.Just ("DestinationImageName" Lude..= destinationImageName),
+            Lude.Just ("DestinationRegion" Lude..= destinationRegion)
           ]
       )
 
-instance ToPath CopyImage where
-  toPath = const "/"
+instance Lude.ToPath CopyImage where
+  toPath = Lude.const "/"
 
-instance ToQuery CopyImage where
-  toQuery = const mempty
+instance Lude.ToQuery CopyImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copyImageResponse' smart constructor.
+-- | /See:/ 'mkCopyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
-  { _cirsDestinationImageName ::
-      !(Maybe Text),
-    _cirsResponseStatus :: !Int
+  { destinationImageName ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cirsDestinationImageName' - The name of the destination image.
---
--- * 'cirsResponseStatus' - -- | The response status code.
-copyImageResponse ::
-  -- | 'cirsResponseStatus'
-  Int ->
+-- * 'destinationImageName' - The name of the destination image.
+-- * 'responseStatus' - The response status code.
+mkCopyImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyImageResponse
-copyImageResponse pResponseStatus_ =
+mkCopyImageResponse pResponseStatus_ =
   CopyImageResponse'
-    { _cirsDestinationImageName = Nothing,
-      _cirsResponseStatus = pResponseStatus_
+    { destinationImageName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the destination image.
-cirsDestinationImageName :: Lens' CopyImageResponse (Maybe Text)
-cirsDestinationImageName = lens _cirsDestinationImageName (\s a -> s {_cirsDestinationImageName = a})
+--
+-- /Note:/ Consider using 'destinationImageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsDestinationImageName :: Lens.Lens' CopyImageResponse (Lude.Maybe Lude.Text)
+cirsDestinationImageName = Lens.lens (destinationImageName :: CopyImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {destinationImageName = a} :: CopyImageResponse)
+{-# DEPRECATED cirsDestinationImageName "Use generic-lens or generic-optics with 'destinationImageName' instead." #-}
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CopyImageResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\s a -> s {_cirsResponseStatus = a})
-
-instance NFData CopyImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsResponseStatus :: Lens.Lens' CopyImageResponse Lude.Int
+cirsResponseStatus = Lens.lens (responseStatus :: CopyImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyImageResponse)
+{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

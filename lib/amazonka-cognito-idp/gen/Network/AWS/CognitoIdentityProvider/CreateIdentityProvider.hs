@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates an identity provider for a user pool.
 module Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
-  ( -- * Creating a Request
-    createIdentityProvider,
-    CreateIdentityProvider,
+  ( -- * Creating a request
+    CreateIdentityProvider (..),
+    mkCreateIdentityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cipIdpIdentifiers,
     cipAttributeMapping,
     cipUserPoolId,
@@ -31,172 +26,382 @@ module Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
     cipProviderType,
     cipProviderDetails,
 
-    -- * Destructuring the Response
-    createIdentityProviderResponse,
-    CreateIdentityProviderResponse,
+    -- * Destructuring the response
+    CreateIdentityProviderResponse (..),
+    mkCreateIdentityProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ciprsResponseStatus,
     ciprsIdentityProvider,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createIdentityProvider' smart constructor.
+-- | /See:/ 'mkCreateIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
-  { _cipIdpIdentifiers ::
-      !(Maybe [Text]),
-    _cipAttributeMapping ::
-      !(Maybe (Map Text (Text))),
-    _cipUserPoolId :: !Text,
-    _cipProviderName :: !Text,
-    _cipProviderType :: !IdentityProviderTypeType,
-    _cipProviderDetails :: !(Map Text (Text))
+  { idpIdentifiers ::
+      Lude.Maybe [Lude.Text],
+    attributeMapping ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    userPoolId :: Lude.Text,
+    providerName :: Lude.Text,
+    providerType :: IdentityProviderTypeType,
+    providerDetails ::
+      Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIdentityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
+-- * 'idpIdentifiers' - A list of identity provider identifiers.
+-- * 'providerDetails' - The identity provider details. The following list describes the provider detail keys for each identity provider type.
 --
--- * 'cipIdpIdentifiers' - A list of identity provider identifiers.
 --
--- * 'cipAttributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
+--     * For Google and Login with Amazon:
 --
--- * 'cipUserPoolId' - The user pool ID.
+--     * client_id
 --
--- * 'cipProviderName' - The identity provider name.
 --
--- * 'cipProviderType' - The identity provider type.
+--     * client_secret
 --
--- * 'cipProviderDetails' - The identity provider details. The following list describes the provider detail keys for each identity provider type.     * For Google and Login with Amazon:     * client_id     * client_secret     * authorize_scopes     * For Facebook:     * client_id     * client_secret     * authorize_scopes     * api_version     * For Sign in with Apple:     * client_id     * team_id     * key_id     * private_key     * authorize_scopes     * For OIDC providers:     * client_id     * client_secret     * attributes_request_method     * oidc_issuer     * authorize_scopes     * authorize_url /if not available from discovery URL specified by oidc_issuer key/      * token_url /if not available from discovery URL specified by oidc_issuer key/      * attributes_url /if not available from discovery URL specified by oidc_issuer key/      * jwks_uri /if not available from discovery URL specified by oidc_issuer key/      * For SAML providers:     * MetadataFile OR MetadataURL     * IDPSignout /optional/
-createIdentityProvider ::
-  -- | 'cipUserPoolId'
-  Text ->
-  -- | 'cipProviderName'
-  Text ->
-  -- | 'cipProviderType'
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For Facebook:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--     * api_version
+--
+--
+--
+--
+--     * For Sign in with Apple:
+--
+--     * client_id
+--
+--
+--     * team_id
+--
+--
+--     * key_id
+--
+--
+--     * private_key
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For OIDC providers:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * attributes_request_method
+--
+--
+--     * oidc_issuer
+--
+--
+--     * authorize_scopes
+--
+--
+--     * authorize_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * token_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * attributes_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * jwks_uri /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--
+--
+--     * For SAML providers:
+--
+--     * MetadataFile OR MetadataURL
+--
+--
+--     * IDPSignout /optional/
+--
+--
+--
+--
+-- * 'providerName' - The identity provider name.
+-- * 'providerType' - The identity provider type.
+-- * 'userPoolId' - The user pool ID.
+mkCreateIdentityProvider ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'providerName'
+  Lude.Text ->
+  -- | 'providerType'
   IdentityProviderTypeType ->
   CreateIdentityProvider
-createIdentityProvider pUserPoolId_ pProviderName_ pProviderType_ =
+mkCreateIdentityProvider pUserPoolId_ pProviderName_ pProviderType_ =
   CreateIdentityProvider'
-    { _cipIdpIdentifiers = Nothing,
-      _cipAttributeMapping = Nothing,
-      _cipUserPoolId = pUserPoolId_,
-      _cipProviderName = pProviderName_,
-      _cipProviderType = pProviderType_,
-      _cipProviderDetails = mempty
+    { idpIdentifiers = Lude.Nothing,
+      attributeMapping = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      providerName = pProviderName_,
+      providerType = pProviderType_,
+      providerDetails = Lude.mempty
     }
 
 -- | A list of identity provider identifiers.
-cipIdpIdentifiers :: Lens' CreateIdentityProvider [Text]
-cipIdpIdentifiers = lens _cipIdpIdentifiers (\s a -> s {_cipIdpIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'idpIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipIdpIdentifiers :: Lens.Lens' CreateIdentityProvider (Lude.Maybe [Lude.Text])
+cipIdpIdentifiers = Lens.lens (idpIdentifiers :: CreateIdentityProvider -> Lude.Maybe [Lude.Text]) (\s a -> s {idpIdentifiers = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipIdpIdentifiers "Use generic-lens or generic-optics with 'idpIdentifiers' instead." #-}
 
 -- | A mapping of identity provider attributes to standard and custom user pool attributes.
-cipAttributeMapping :: Lens' CreateIdentityProvider (HashMap Text (Text))
-cipAttributeMapping = lens _cipAttributeMapping (\s a -> s {_cipAttributeMapping = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributeMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipAttributeMapping :: Lens.Lens' CreateIdentityProvider (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cipAttributeMapping = Lens.lens (attributeMapping :: CreateIdentityProvider -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributeMapping = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipAttributeMapping "Use generic-lens or generic-optics with 'attributeMapping' instead." #-}
 
 -- | The user pool ID.
-cipUserPoolId :: Lens' CreateIdentityProvider Text
-cipUserPoolId = lens _cipUserPoolId (\s a -> s {_cipUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipUserPoolId :: Lens.Lens' CreateIdentityProvider Lude.Text
+cipUserPoolId = Lens.lens (userPoolId :: CreateIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
-cipProviderName :: Lens' CreateIdentityProvider Text
-cipProviderName = lens _cipProviderName (\s a -> s {_cipProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipProviderName :: Lens.Lens' CreateIdentityProvider Lude.Text
+cipProviderName = Lens.lens (providerName :: CreateIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The identity provider type.
-cipProviderType :: Lens' CreateIdentityProvider IdentityProviderTypeType
-cipProviderType = lens _cipProviderType (\s a -> s {_cipProviderType = a})
+--
+-- /Note:/ Consider using 'providerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipProviderType :: Lens.Lens' CreateIdentityProvider IdentityProviderTypeType
+cipProviderType = Lens.lens (providerType :: CreateIdentityProvider -> IdentityProviderTypeType) (\s a -> s {providerType = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipProviderType "Use generic-lens or generic-optics with 'providerType' instead." #-}
 
--- | The identity provider details. The following list describes the provider detail keys for each identity provider type.     * For Google and Login with Amazon:     * client_id     * client_secret     * authorize_scopes     * For Facebook:     * client_id     * client_secret     * authorize_scopes     * api_version     * For Sign in with Apple:     * client_id     * team_id     * key_id     * private_key     * authorize_scopes     * For OIDC providers:     * client_id     * client_secret     * attributes_request_method     * oidc_issuer     * authorize_scopes     * authorize_url /if not available from discovery URL specified by oidc_issuer key/      * token_url /if not available from discovery URL specified by oidc_issuer key/      * attributes_url /if not available from discovery URL specified by oidc_issuer key/      * jwks_uri /if not available from discovery URL specified by oidc_issuer key/      * For SAML providers:     * MetadataFile OR MetadataURL     * IDPSignout /optional/
-cipProviderDetails :: Lens' CreateIdentityProvider (HashMap Text (Text))
-cipProviderDetails = lens _cipProviderDetails (\s a -> s {_cipProviderDetails = a}) . _Map
+-- | The identity provider details. The following list describes the provider detail keys for each identity provider type.
+--
+--
+--     * For Google and Login with Amazon:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For Facebook:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * authorize_scopes
+--
+--
+--     * api_version
+--
+--
+--
+--
+--     * For Sign in with Apple:
+--
+--     * client_id
+--
+--
+--     * team_id
+--
+--
+--     * key_id
+--
+--
+--     * private_key
+--
+--
+--     * authorize_scopes
+--
+--
+--
+--
+--     * For OIDC providers:
+--
+--     * client_id
+--
+--
+--     * client_secret
+--
+--
+--     * attributes_request_method
+--
+--
+--     * oidc_issuer
+--
+--
+--     * authorize_scopes
+--
+--
+--     * authorize_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * token_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * attributes_url /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--     * jwks_uri /if not available from discovery URL specified by oidc_issuer key/
+--
+--
+--
+--
+--     * For SAML providers:
+--
+--     * MetadataFile OR MetadataURL
+--
+--
+--     * IDPSignout /optional/
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'providerDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipProviderDetails :: Lens.Lens' CreateIdentityProvider (Lude.HashMap Lude.Text (Lude.Text))
+cipProviderDetails = Lens.lens (providerDetails :: CreateIdentityProvider -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {providerDetails = a} :: CreateIdentityProvider)
+{-# DEPRECATED cipProviderDetails "Use generic-lens or generic-optics with 'providerDetails' instead." #-}
 
-instance AWSRequest CreateIdentityProvider where
+instance Lude.AWSRequest CreateIdentityProvider where
   type Rs CreateIdentityProvider = CreateIdentityProviderResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateIdentityProviderResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "IdentityProvider")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "IdentityProvider")
       )
 
-instance Hashable CreateIdentityProvider
-
-instance NFData CreateIdentityProvider
-
-instance ToHeaders CreateIdentityProvider where
+instance Lude.ToHeaders CreateIdentityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.CreateIdentityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.CreateIdentityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateIdentityProvider where
+instance Lude.ToJSON CreateIdentityProvider where
   toJSON CreateIdentityProvider' {..} =
-    object
-      ( catMaybes
-          [ ("IdpIdentifiers" .=) <$> _cipIdpIdentifiers,
-            ("AttributeMapping" .=) <$> _cipAttributeMapping,
-            Just ("UserPoolId" .= _cipUserPoolId),
-            Just ("ProviderName" .= _cipProviderName),
-            Just ("ProviderType" .= _cipProviderType),
-            Just ("ProviderDetails" .= _cipProviderDetails)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IdpIdentifiers" Lude..=) Lude.<$> idpIdentifiers,
+            ("AttributeMapping" Lude..=) Lude.<$> attributeMapping,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("ProviderName" Lude..= providerName),
+            Lude.Just ("ProviderType" Lude..= providerType),
+            Lude.Just ("ProviderDetails" Lude..= providerDetails)
           ]
       )
 
-instance ToPath CreateIdentityProvider where
-  toPath = const "/"
+instance Lude.ToPath CreateIdentityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateIdentityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery CreateIdentityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createIdentityProviderResponse' smart constructor.
+-- | /See:/ 'mkCreateIdentityProviderResponse' smart constructor.
 data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
-  { _ciprsResponseStatus ::
-      !Int,
-    _ciprsIdentityProvider ::
-      !IdentityProviderType
+  { responseStatus ::
+      Lude.Int,
+    identityProvider ::
+      IdentityProviderType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIdentityProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciprsResponseStatus' - -- | The response status code.
---
--- * 'ciprsIdentityProvider' - The newly created identity provider object.
-createIdentityProviderResponse ::
-  -- | 'ciprsResponseStatus'
-  Int ->
-  -- | 'ciprsIdentityProvider'
+-- * 'identityProvider' - The newly created identity provider object.
+-- * 'responseStatus' - The response status code.
+mkCreateIdentityProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'identityProvider'
   IdentityProviderType ->
   CreateIdentityProviderResponse
-createIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
-  CreateIdentityProviderResponse'
-    { _ciprsResponseStatus =
-        pResponseStatus_,
-      _ciprsIdentityProvider = pIdentityProvider_
-    }
+mkCreateIdentityProviderResponse
+  pResponseStatus_
+  pIdentityProvider_ =
+    CreateIdentityProviderResponse'
+      { responseStatus =
+          pResponseStatus_,
+        identityProvider = pIdentityProvider_
+      }
 
--- | -- | The response status code.
-ciprsResponseStatus :: Lens' CreateIdentityProviderResponse Int
-ciprsResponseStatus = lens _ciprsResponseStatus (\s a -> s {_ciprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciprsResponseStatus :: Lens.Lens' CreateIdentityProviderResponse Lude.Int
+ciprsResponseStatus = Lens.lens (responseStatus :: CreateIdentityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIdentityProviderResponse)
+{-# DEPRECATED ciprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The newly created identity provider object.
-ciprsIdentityProvider :: Lens' CreateIdentityProviderResponse IdentityProviderType
-ciprsIdentityProvider = lens _ciprsIdentityProvider (\s a -> s {_ciprsIdentityProvider = a})
-
-instance NFData CreateIdentityProviderResponse
+--
+-- /Note:/ Consider using 'identityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciprsIdentityProvider :: Lens.Lens' CreateIdentityProviderResponse IdentityProviderType
+ciprsIdentityProvider = Lens.lens (identityProvider :: CreateIdentityProviderResponse -> IdentityProviderType) (\s a -> s {identityProvider = a} :: CreateIdentityProviderResponse)
+{-# DEPRECATED ciprsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}

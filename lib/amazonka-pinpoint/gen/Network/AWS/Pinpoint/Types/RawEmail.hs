@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.RawEmail where
+module Network.AWS.Pinpoint.Types.RawEmail
+  ( RawEmail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRawEmail,
+
+    -- * Lenses
+    reData,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the contents of an email message, represented as a raw MIME message.
 --
---
---
--- /See:/ 'rawEmail' smart constructor.
-newtype RawEmail = RawEmail' {_reData :: Maybe Base64}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRawEmail' smart constructor.
+newtype RawEmail = RawEmail' {data' :: Lude.Maybe Lude.Base64}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RawEmail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reData' - The email message, represented as a raw MIME message. The entire message must be base64 encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-rawEmail ::
+-- * 'data'' - The email message, represented as a raw MIME message. The entire message must be base64 encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkRawEmail ::
   RawEmail
-rawEmail = RawEmail' {_reData = Nothing}
+mkRawEmail = RawEmail' {data' = Lude.Nothing}
 
--- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-reData :: Lens' RawEmail (Maybe ByteString)
-reData = lens _reData (\s a -> s {_reData = a}) . mapping _Base64
+-- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reData :: Lens.Lens' RawEmail (Lude.Maybe Lude.Base64)
+reData = Lens.lens (data' :: RawEmail -> Lude.Maybe Lude.Base64) (\s a -> s {data' = a} :: RawEmail)
+{-# DEPRECATED reData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance Hashable RawEmail
-
-instance NFData RawEmail
-
-instance ToJSON RawEmail where
-  toJSON RawEmail' {..} = object (catMaybes [("Data" .=) <$> _reData])
+instance Lude.ToJSON RawEmail where
+  toJSON RawEmail' {..} =
+    Lude.object (Lude.catMaybes [("Data" Lude..=) Lude.<$> data'])

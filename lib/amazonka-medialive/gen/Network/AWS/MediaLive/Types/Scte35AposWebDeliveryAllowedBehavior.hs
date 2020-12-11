@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior where
+module Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
+  ( Scte35AposWebDeliveryAllowedBehavior
+      ( Scte35AposWebDeliveryAllowedBehavior',
+        SAWDABFollow,
+        SAWDABIgnore
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Scte35 Apos Web Delivery Allowed Behavior
-data Scte35AposWebDeliveryAllowedBehavior
-  = SAWDABFollow
-  | SAWDABIgnore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35AposWebDeliveryAllowedBehavior = Scte35AposWebDeliveryAllowedBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35AposWebDeliveryAllowedBehavior where
-  parser =
-    takeLowerText >>= \case
-      "follow" -> pure SAWDABFollow
-      "ignore" -> pure SAWDABIgnore
-      e ->
-        fromTextError $
-          "Failure parsing Scte35AposWebDeliveryAllowedBehavior from value: '" <> e
-            <> "'. Accepted values: follow, ignore"
+pattern SAWDABFollow :: Scte35AposWebDeliveryAllowedBehavior
+pattern SAWDABFollow = Scte35AposWebDeliveryAllowedBehavior' "FOLLOW"
 
-instance ToText Scte35AposWebDeliveryAllowedBehavior where
-  toText = \case
-    SAWDABFollow -> "FOLLOW"
-    SAWDABIgnore -> "IGNORE"
+pattern SAWDABIgnore :: Scte35AposWebDeliveryAllowedBehavior
+pattern SAWDABIgnore = Scte35AposWebDeliveryAllowedBehavior' "IGNORE"
 
-instance Hashable Scte35AposWebDeliveryAllowedBehavior
-
-instance NFData Scte35AposWebDeliveryAllowedBehavior
-
-instance ToByteString Scte35AposWebDeliveryAllowedBehavior
-
-instance ToQuery Scte35AposWebDeliveryAllowedBehavior
-
-instance ToHeader Scte35AposWebDeliveryAllowedBehavior
-
-instance ToJSON Scte35AposWebDeliveryAllowedBehavior where
-  toJSON = toJSONText
-
-instance FromJSON Scte35AposWebDeliveryAllowedBehavior where
-  parseJSON = parseJSONText "Scte35AposWebDeliveryAllowedBehavior"
+{-# COMPLETE
+  SAWDABFollow,
+  SAWDABIgnore,
+  Scte35AposWebDeliveryAllowedBehavior'
+  #-}

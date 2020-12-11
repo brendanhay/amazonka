@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse where
+module Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse
+  ( ImportImageLicenseConfigurationResponse (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImportImageLicenseConfigurationResponse,
+
+    -- * Lenses
+    iilcLicenseConfigurationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The response information for license configurations.
 --
---
---
--- /See:/ 'importImageLicenseConfigurationResponse' smart constructor.
+-- /See:/ 'mkImportImageLicenseConfigurationResponse' smart constructor.
 newtype ImportImageLicenseConfigurationResponse = ImportImageLicenseConfigurationResponse'
-  { _iilcLicenseConfigurationARN ::
-      Maybe
-        Text
+  { licenseConfigurationARN ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImageLicenseConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iilcLicenseConfigurationARN' - The ARN of a license configuration.
-importImageLicenseConfigurationResponse ::
+-- * 'licenseConfigurationARN' - The ARN of a license configuration.
+mkImportImageLicenseConfigurationResponse ::
   ImportImageLicenseConfigurationResponse
-importImageLicenseConfigurationResponse =
+mkImportImageLicenseConfigurationResponse =
   ImportImageLicenseConfigurationResponse'
-    { _iilcLicenseConfigurationARN =
-        Nothing
+    { licenseConfigurationARN =
+        Lude.Nothing
     }
 
 -- | The ARN of a license configuration.
-iilcLicenseConfigurationARN :: Lens' ImportImageLicenseConfigurationResponse (Maybe Text)
-iilcLicenseConfigurationARN = lens _iilcLicenseConfigurationARN (\s a -> s {_iilcLicenseConfigurationARN = a})
+--
+-- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iilcLicenseConfigurationARN :: Lens.Lens' ImportImageLicenseConfigurationResponse (Lude.Maybe Lude.Text)
+iilcLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: ImportImageLicenseConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: ImportImageLicenseConfigurationResponse)
+{-# DEPRECATED iilcLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
 
-instance FromXML ImportImageLicenseConfigurationResponse where
+instance Lude.FromXML ImportImageLicenseConfigurationResponse where
   parseXML x =
     ImportImageLicenseConfigurationResponse'
-      <$> (x .@? "licenseConfigurationArn")
-
-instance Hashable ImportImageLicenseConfigurationResponse
-
-instance NFData ImportImageLicenseConfigurationResponse
+      Lude.<$> (x Lude..@? "licenseConfigurationArn")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.FaultStatistics where
+module Network.AWS.XRay.Types.FaultStatistics
+  ( FaultStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFaultStatistics,
+
+    -- * Lenses
+    fsOtherCount,
+    fsTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 --
---
---
--- /See:/ 'faultStatistics' smart constructor.
+-- /See:/ 'mkFaultStatistics' smart constructor.
 data FaultStatistics = FaultStatistics'
-  { _fsOtherCount ::
-      !(Maybe Integer),
-    _fsTotalCount :: !(Maybe Integer)
+  { otherCount ::
+      Lude.Maybe Lude.Integer,
+    totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsOtherCount' - The number of requests that failed with untracked 5xx Server Error status codes.
---
--- * 'fsTotalCount' - The total number of requests that failed with a 5xx Server Error status code.
-faultStatistics ::
+-- * 'otherCount' - The number of requests that failed with untracked 5xx Server Error status codes.
+-- * 'totalCount' - The total number of requests that failed with a 5xx Server Error status code.
+mkFaultStatistics ::
   FaultStatistics
-faultStatistics =
+mkFaultStatistics =
   FaultStatistics'
-    { _fsOtherCount = Nothing,
-      _fsTotalCount = Nothing
+    { otherCount = Lude.Nothing,
+      totalCount = Lude.Nothing
     }
 
 -- | The number of requests that failed with untracked 5xx Server Error status codes.
-fsOtherCount :: Lens' FaultStatistics (Maybe Integer)
-fsOtherCount = lens _fsOtherCount (\s a -> s {_fsOtherCount = a})
+--
+-- /Note:/ Consider using 'otherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsOtherCount :: Lens.Lens' FaultStatistics (Lude.Maybe Lude.Integer)
+fsOtherCount = Lens.lens (otherCount :: FaultStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {otherCount = a} :: FaultStatistics)
+{-# DEPRECATED fsOtherCount "Use generic-lens or generic-optics with 'otherCount' instead." #-}
 
 -- | The total number of requests that failed with a 5xx Server Error status code.
-fsTotalCount :: Lens' FaultStatistics (Maybe Integer)
-fsTotalCount = lens _fsTotalCount (\s a -> s {_fsTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsTotalCount :: Lens.Lens' FaultStatistics (Lude.Maybe Lude.Integer)
+fsTotalCount = Lens.lens (totalCount :: FaultStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: FaultStatistics)
+{-# DEPRECATED fsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance FromJSON FaultStatistics where
+instance Lude.FromJSON FaultStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "FaultStatistics"
       ( \x ->
-          FaultStatistics' <$> (x .:? "OtherCount") <*> (x .:? "TotalCount")
+          FaultStatistics'
+            Lude.<$> (x Lude..:? "OtherCount") Lude.<*> (x Lude..:? "TotalCount")
       )
-
-instance Hashable FaultStatistics
-
-instance NFData FaultStatistics

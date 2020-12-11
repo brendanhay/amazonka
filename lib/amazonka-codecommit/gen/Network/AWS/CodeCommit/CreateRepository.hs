@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,165 @@
 --
 -- Creates a new, empty repository.
 module Network.AWS.CodeCommit.CreateRepository
-  ( -- * Creating a Request
-    createRepository,
-    CreateRepository,
+  ( -- * Creating a request
+    CreateRepository (..),
+    mkCreateRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crRepositoryDescription,
     crTags,
     crRepositoryName,
 
-    -- * Destructuring the Response
-    createRepositoryResponse,
-    CreateRepositoryResponse,
+    -- * Destructuring the response
+    CreateRepositoryResponse (..),
+    mkCreateRepositoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsRepositoryMetadata,
     crrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a create repository operation.
 --
---
---
--- /See:/ 'createRepository' smart constructor.
+-- /See:/ 'mkCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { _crRepositoryDescription ::
-      !(Maybe Text),
-    _crTags :: !(Maybe (Map Text (Text))),
-    _crRepositoryName :: !Text
+  { repositoryDescription ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crRepositoryDescription' - A comment or description about the new repository.
---
--- * 'crTags' - One or more tag key-value pairs to use when tagging this repository.
---
--- * 'crRepositoryName' - The name of the new repository to be created.
-createRepository ::
-  -- | 'crRepositoryName'
-  Text ->
+-- * 'repositoryDescription' - A comment or description about the new repository.
+-- * 'repositoryName' - The name of the new repository to be created.
+-- * 'tags' - One or more tag key-value pairs to use when tagging this repository.
+mkCreateRepository ::
+  -- | 'repositoryName'
+  Lude.Text ->
   CreateRepository
-createRepository pRepositoryName_ =
+mkCreateRepository pRepositoryName_ =
   CreateRepository'
-    { _crRepositoryDescription = Nothing,
-      _crTags = Nothing,
-      _crRepositoryName = pRepositoryName_
+    { repositoryDescription = Lude.Nothing,
+      tags = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | A comment or description about the new repository.
-crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
-crRepositoryDescription = lens _crRepositoryDescription (\s a -> s {_crRepositoryDescription = a})
+--
+-- /Note:/ Consider using 'repositoryDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRepositoryDescription :: Lens.Lens' CreateRepository (Lude.Maybe Lude.Text)
+crRepositoryDescription = Lens.lens (repositoryDescription :: CreateRepository -> Lude.Maybe Lude.Text) (\s a -> s {repositoryDescription = a} :: CreateRepository)
+{-# DEPRECATED crRepositoryDescription "Use generic-lens or generic-optics with 'repositoryDescription' instead." #-}
 
 -- | One or more tag key-value pairs to use when tagging this repository.
-crTags :: Lens' CreateRepository (HashMap Text (Text))
-crTags = lens _crTags (\s a -> s {_crTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRepository (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crTags = Lens.lens (tags :: CreateRepository -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRepository)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the new repository to be created.
-crRepositoryName :: Lens' CreateRepository Text
-crRepositoryName = lens _crRepositoryName (\s a -> s {_crRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRepositoryName :: Lens.Lens' CreateRepository Lude.Text
+crRepositoryName = Lens.lens (repositoryName :: CreateRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateRepository)
+{-# DEPRECATED crRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest CreateRepository where
+instance Lude.AWSRequest CreateRepository where
   type Rs CreateRepository = CreateRepositoryResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            <$> (x .?> "repositoryMetadata") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "repositoryMetadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRepository
-
-instance NFData CreateRepository
-
-instance ToHeaders CreateRepository where
+instance Lude.ToHeaders CreateRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.CreateRepository" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.CreateRepository" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateRepository where
+instance Lude.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
-    object
-      ( catMaybes
-          [ ("repositoryDescription" .=) <$> _crRepositoryDescription,
-            ("tags" .=) <$> _crTags,
-            Just ("repositoryName" .= _crRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("repositoryDescription" Lude..=) Lude.<$> repositoryDescription,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath CreateRepository where
-  toPath = const "/"
+instance Lude.ToPath CreateRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateRepository where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRepository where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a create repository operation.
 --
---
---
--- /See:/ 'createRepositoryResponse' smart constructor.
+-- /See:/ 'mkCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-  { _crrsRepositoryMetadata ::
-      !(Maybe RepositoryMetadata),
-    _crrsResponseStatus :: !Int
+  { repositoryMetadata ::
+      Lude.Maybe RepositoryMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsRepositoryMetadata' - Information about the newly created repository.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createRepositoryResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'repositoryMetadata' - Information about the newly created repository.
+-- * 'responseStatus' - The response status code.
+mkCreateRepositoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRepositoryResponse
-createRepositoryResponse pResponseStatus_ =
+mkCreateRepositoryResponse pResponseStatus_ =
   CreateRepositoryResponse'
-    { _crrsRepositoryMetadata = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { repositoryMetadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the newly created repository.
-crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
-crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\s a -> s {_crrsRepositoryMetadata = a})
+--
+-- /Note:/ Consider using 'repositoryMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRepositoryMetadata :: Lens.Lens' CreateRepositoryResponse (Lude.Maybe RepositoryMetadata)
+crrsRepositoryMetadata = Lens.lens (repositoryMetadata :: CreateRepositoryResponse -> Lude.Maybe RepositoryMetadata) (\s a -> s {repositoryMetadata = a} :: CreateRepositoryResponse)
+{-# DEPRECATED crrsRepositoryMetadata "Use generic-lens or generic-optics with 'repositoryMetadata' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRepositoryResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateRepositoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateRepositoryResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRepositoryResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

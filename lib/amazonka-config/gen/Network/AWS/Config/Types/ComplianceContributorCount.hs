@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ComplianceContributorCount where
+module Network.AWS.Config.Types.ComplianceContributorCount
+  ( ComplianceContributorCount (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComplianceContributorCount,
+
+    -- * Lenses
+    cccCappedCount,
+    cccCapExceeded,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.
 --
---
---
--- /See:/ 'complianceContributorCount' smart constructor.
+-- /See:/ 'mkComplianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
-  { _cccCappedCount ::
-      !(Maybe Int),
-    _cccCapExceeded :: !(Maybe Bool)
+  { cappedCount ::
+      Lude.Maybe Lude.Int,
+    capExceeded :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceContributorCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cccCappedCount' - The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
---
--- * 'cccCapExceeded' - Indicates whether the maximum count is reached.
-complianceContributorCount ::
+-- * 'capExceeded' - Indicates whether the maximum count is reached.
+-- * 'cappedCount' - The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
+mkComplianceContributorCount ::
   ComplianceContributorCount
-complianceContributorCount =
+mkComplianceContributorCount =
   ComplianceContributorCount'
-    { _cccCappedCount = Nothing,
-      _cccCapExceeded = Nothing
+    { cappedCount = Lude.Nothing,
+      capExceeded = Lude.Nothing
     }
 
 -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
-cccCappedCount :: Lens' ComplianceContributorCount (Maybe Int)
-cccCappedCount = lens _cccCappedCount (\s a -> s {_cccCappedCount = a})
+--
+-- /Note:/ Consider using 'cappedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccCappedCount :: Lens.Lens' ComplianceContributorCount (Lude.Maybe Lude.Int)
+cccCappedCount = Lens.lens (cappedCount :: ComplianceContributorCount -> Lude.Maybe Lude.Int) (\s a -> s {cappedCount = a} :: ComplianceContributorCount)
+{-# DEPRECATED cccCappedCount "Use generic-lens or generic-optics with 'cappedCount' instead." #-}
 
 -- | Indicates whether the maximum count is reached.
-cccCapExceeded :: Lens' ComplianceContributorCount (Maybe Bool)
-cccCapExceeded = lens _cccCapExceeded (\s a -> s {_cccCapExceeded = a})
+--
+-- /Note:/ Consider using 'capExceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccCapExceeded :: Lens.Lens' ComplianceContributorCount (Lude.Maybe Lude.Bool)
+cccCapExceeded = Lens.lens (capExceeded :: ComplianceContributorCount -> Lude.Maybe Lude.Bool) (\s a -> s {capExceeded = a} :: ComplianceContributorCount)
+{-# DEPRECATED cccCapExceeded "Use generic-lens or generic-optics with 'capExceeded' instead." #-}
 
-instance FromJSON ComplianceContributorCount where
+instance Lude.FromJSON ComplianceContributorCount where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComplianceContributorCount"
       ( \x ->
           ComplianceContributorCount'
-            <$> (x .:? "CappedCount") <*> (x .:? "CapExceeded")
+            Lude.<$> (x Lude..:? "CappedCount") Lude.<*> (x Lude..:? "CapExceeded")
       )
-
-instance Hashable ComplianceContributorCount
-
-instance NFData ComplianceContributorCount

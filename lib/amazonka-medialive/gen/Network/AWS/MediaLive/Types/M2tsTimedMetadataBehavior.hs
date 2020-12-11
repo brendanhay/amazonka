@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsTimedMetadataBehavior where
+module Network.AWS.MediaLive.Types.M2tsTimedMetadataBehavior
+  ( M2tsTimedMetadataBehavior
+      ( M2tsTimedMetadataBehavior',
+        MTMBNoPassthrough,
+        MTMBPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Timed Metadata Behavior
-data M2tsTimedMetadataBehavior
-  = MTMBNoPassthrough
-  | MTMBPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsTimedMetadataBehavior = M2tsTimedMetadataBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsTimedMetadataBehavior where
-  parser =
-    takeLowerText >>= \case
-      "no_passthrough" -> pure MTMBNoPassthrough
-      "passthrough" -> pure MTMBPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M2tsTimedMetadataBehavior from value: '" <> e
-            <> "'. Accepted values: no_passthrough, passthrough"
+pattern MTMBNoPassthrough :: M2tsTimedMetadataBehavior
+pattern MTMBNoPassthrough = M2tsTimedMetadataBehavior' "NO_PASSTHROUGH"
 
-instance ToText M2tsTimedMetadataBehavior where
-  toText = \case
-    MTMBNoPassthrough -> "NO_PASSTHROUGH"
-    MTMBPassthrough -> "PASSTHROUGH"
+pattern MTMBPassthrough :: M2tsTimedMetadataBehavior
+pattern MTMBPassthrough = M2tsTimedMetadataBehavior' "PASSTHROUGH"
 
-instance Hashable M2tsTimedMetadataBehavior
-
-instance NFData M2tsTimedMetadataBehavior
-
-instance ToByteString M2tsTimedMetadataBehavior
-
-instance ToQuery M2tsTimedMetadataBehavior
-
-instance ToHeader M2tsTimedMetadataBehavior
-
-instance ToJSON M2tsTimedMetadataBehavior where
-  toJSON = toJSONText
-
-instance FromJSON M2tsTimedMetadataBehavior where
-  parseJSON = parseJSONText "M2tsTimedMetadataBehavior"
+{-# COMPLETE
+  MTMBNoPassthrough,
+  MTMBPassthrough,
+  M2tsTimedMetadataBehavior'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,195 @@
 --
 -- Clears any customization of a 'GatewayResponse' of a specified response type on the given 'RestApi' and resets it with the default settings.
 module Network.AWS.APIGateway.DeleteGatewayResponse
-  ( -- * Creating a Request
-    deleteGatewayResponse,
-    DeleteGatewayResponse,
+  ( -- * Creating a request
+    DeleteGatewayResponse (..),
+    mkDeleteGatewayResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgRestAPIId,
     dgResponseType,
 
-    -- * Destructuring the Response
-    deleteGatewayResponseResponse,
-    DeleteGatewayResponseResponse,
+    -- * Destructuring the response
+    DeleteGatewayResponseResponse (..),
+    mkDeleteGatewayResponseResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Clears any customization of a 'GatewayResponse' of a specified response type on the given 'RestApi' and resets it with the default settings.
 --
---
---
--- /See:/ 'deleteGatewayResponse' smart constructor.
+-- /See:/ 'mkDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { _dgRestAPIId ::
-      !Text,
-    _dgResponseType :: !GatewayResponseType
+  { restAPIId ::
+      Lude.Text,
+    responseType :: GatewayResponseType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
--- * 'dgRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+--     * ACCESS_DENIED
 --
--- * 'dgResponseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
-deleteGatewayResponse ::
-  -- | 'dgRestAPIId'
-  Text ->
-  -- | 'dgResponseType'
+--     * API_CONFIGURATION_ERROR
+--
+--     * AUTHORIZER_FAILURE
+--
+--     * AUTHORIZER_CONFIGURATION_ERROR
+--
+--     * BAD_REQUEST_PARAMETERS
+--
+--     * BAD_REQUEST_BODY
+--
+--     * DEFAULT_4XX
+--
+--     * DEFAULT_5XX
+--
+--     * EXPIRED_TOKEN
+--
+--     * INVALID_SIGNATURE
+--
+--     * INTEGRATION_FAILURE
+--
+--     * INTEGRATION_TIMEOUT
+--
+--     * INVALID_API_KEY
+--
+--     * MISSING_AUTHENTICATION_TOKEN
+--
+--     * QUOTA_EXCEEDED
+--
+--     * REQUEST_TOO_LARGE
+--
+--     * RESOURCE_NOT_FOUND
+--
+--     * THROTTLED
+--
+--     * UNAUTHORIZED
+--
+--     * UNSUPPORTED_MEDIA_TYPE
+--
+--
+--
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkDeleteGatewayResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'responseType'
   GatewayResponseType ->
   DeleteGatewayResponse
-deleteGatewayResponse pRestAPIId_ pResponseType_ =
+mkDeleteGatewayResponse pRestAPIId_ pResponseType_ =
   DeleteGatewayResponse'
-    { _dgRestAPIId = pRestAPIId_,
-      _dgResponseType = pResponseType_
+    { restAPIId = pRestAPIId_,
+      responseType = pResponseType_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-dgRestAPIId :: Lens' DeleteGatewayResponse Text
-dgRestAPIId = lens _dgRestAPIId (\s a -> s {_dgRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgRestAPIId :: Lens.Lens' DeleteGatewayResponse Lude.Text
+dgRestAPIId = Lens.lens (restAPIId :: DeleteGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteGatewayResponse)
+{-# DEPRECATED dgRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The response type of the associated 'GatewayResponse' . Valid values are     * ACCESS_DENIED    * API_CONFIGURATION_ERROR    * AUTHORIZER_FAILURE    * AUTHORIZER_CONFIGURATION_ERROR    * BAD_REQUEST_PARAMETERS    * BAD_REQUEST_BODY    * DEFAULT_4XX    * DEFAULT_5XX    * EXPIRED_TOKEN    * INVALID_SIGNATURE    * INTEGRATION_FAILURE    * INTEGRATION_TIMEOUT    * INVALID_API_KEY    * MISSING_AUTHENTICATION_TOKEN    * QUOTA_EXCEEDED    * REQUEST_TOO_LARGE    * RESOURCE_NOT_FOUND    * THROTTLED    * UNAUTHORIZED    * UNSUPPORTED_MEDIA_TYPE
-dgResponseType :: Lens' DeleteGatewayResponse GatewayResponseType
-dgResponseType = lens _dgResponseType (\s a -> s {_dgResponseType = a})
+-- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
+--
+--     * ACCESS_DENIED
+--
+--     * API_CONFIGURATION_ERROR
+--
+--     * AUTHORIZER_FAILURE
+--
+--     * AUTHORIZER_CONFIGURATION_ERROR
+--
+--     * BAD_REQUEST_PARAMETERS
+--
+--     * BAD_REQUEST_BODY
+--
+--     * DEFAULT_4XX
+--
+--     * DEFAULT_5XX
+--
+--     * EXPIRED_TOKEN
+--
+--     * INVALID_SIGNATURE
+--
+--     * INTEGRATION_FAILURE
+--
+--     * INTEGRATION_TIMEOUT
+--
+--     * INVALID_API_KEY
+--
+--     * MISSING_AUTHENTICATION_TOKEN
+--
+--     * QUOTA_EXCEEDED
+--
+--     * REQUEST_TOO_LARGE
+--
+--     * RESOURCE_NOT_FOUND
+--
+--     * THROTTLED
+--
+--     * UNAUTHORIZED
+--
+--     * UNSUPPORTED_MEDIA_TYPE
+--
+--
+--
+--
+-- /Note:/ Consider using 'responseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgResponseType :: Lens.Lens' DeleteGatewayResponse GatewayResponseType
+dgResponseType = Lens.lens (responseType :: DeleteGatewayResponse -> GatewayResponseType) (\s a -> s {responseType = a} :: DeleteGatewayResponse)
+{-# DEPRECATED dgResponseType "Use generic-lens or generic-optics with 'responseType' instead." #-}
 
-instance AWSRequest DeleteGatewayResponse where
+instance Lude.AWSRequest DeleteGatewayResponse where
   type Rs DeleteGatewayResponse = DeleteGatewayResponseResponse
-  request = delete apiGateway
-  response = receiveNull DeleteGatewayResponseResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteGatewayResponseResponse'
 
-instance Hashable DeleteGatewayResponse
-
-instance NFData DeleteGatewayResponse
-
-instance ToHeaders DeleteGatewayResponse where
+instance Lude.ToHeaders DeleteGatewayResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteGatewayResponse where
+instance Lude.ToPath DeleteGatewayResponse where
   toPath DeleteGatewayResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _dgRestAPIId,
+        Lude.toBS restAPIId,
         "/gatewayresponses/",
-        toBS _dgResponseType
+        Lude.toBS responseType
       ]
 
-instance ToQuery DeleteGatewayResponse where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteGatewayResponse where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteGatewayResponseResponse' smart constructor.
+-- | /See:/ 'mkDeleteGatewayResponseResponse' smart constructor.
 data DeleteGatewayResponseResponse = DeleteGatewayResponseResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayResponseResponse' with the minimum fields required to make a request.
-deleteGatewayResponseResponse ::
+mkDeleteGatewayResponseResponse ::
   DeleteGatewayResponseResponse
-deleteGatewayResponseResponse = DeleteGatewayResponseResponse'
-
-instance NFData DeleteGatewayResponseResponse
+mkDeleteGatewayResponseResponse = DeleteGatewayResponseResponse'

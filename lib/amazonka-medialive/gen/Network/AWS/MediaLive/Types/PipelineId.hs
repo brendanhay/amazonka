@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.PipelineId where
+module Network.AWS.MediaLive.Types.PipelineId
+  ( PipelineId
+      ( PipelineId',
+        PIPipeline0,
+        PIPipeline1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Pipeline ID
-data PipelineId
-  = PIPipeline0
-  | PIPipeline1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PipelineId = PipelineId' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PipelineId where
-  parser =
-    takeLowerText >>= \case
-      "pipeline_0" -> pure PIPipeline0
-      "pipeline_1" -> pure PIPipeline1
-      e ->
-        fromTextError $
-          "Failure parsing PipelineId from value: '" <> e
-            <> "'. Accepted values: pipeline_0, pipeline_1"
+pattern PIPipeline0 :: PipelineId
+pattern PIPipeline0 = PipelineId' "PIPELINE_0"
 
-instance ToText PipelineId where
-  toText = \case
-    PIPipeline0 -> "PIPELINE_0"
-    PIPipeline1 -> "PIPELINE_1"
+pattern PIPipeline1 :: PipelineId
+pattern PIPipeline1 = PipelineId' "PIPELINE_1"
 
-instance Hashable PipelineId
-
-instance NFData PipelineId
-
-instance ToByteString PipelineId
-
-instance ToQuery PipelineId
-
-instance ToHeader PipelineId
-
-instance ToJSON PipelineId where
-  toJSON = toJSONText
-
-instance FromJSON PipelineId where
-  parseJSON = parseJSONText "PipelineId"
+{-# COMPLETE
+  PIPipeline0,
+  PIPipeline1,
+  PipelineId'
+  #-}

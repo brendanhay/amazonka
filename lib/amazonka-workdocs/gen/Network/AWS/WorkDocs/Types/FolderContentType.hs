@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.FolderContentType where
+module Network.AWS.WorkDocs.Types.FolderContentType
+  ( FolderContentType
+      ( FolderContentType',
+        FCTAll,
+        FCTDocument,
+        FCTFolder
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FolderContentType
-  = FCTAll
-  | FCTDocument
-  | FCTFolder
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FolderContentType = FolderContentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FolderContentType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure FCTAll
-      "document" -> pure FCTDocument
-      "folder" -> pure FCTFolder
-      e ->
-        fromTextError $
-          "Failure parsing FolderContentType from value: '" <> e
-            <> "'. Accepted values: all, document, folder"
+pattern FCTAll :: FolderContentType
+pattern FCTAll = FolderContentType' "ALL"
 
-instance ToText FolderContentType where
-  toText = \case
-    FCTAll -> "ALL"
-    FCTDocument -> "DOCUMENT"
-    FCTFolder -> "FOLDER"
+pattern FCTDocument :: FolderContentType
+pattern FCTDocument = FolderContentType' "DOCUMENT"
 
-instance Hashable FolderContentType
+pattern FCTFolder :: FolderContentType
+pattern FCTFolder = FolderContentType' "FOLDER"
 
-instance NFData FolderContentType
-
-instance ToByteString FolderContentType
-
-instance ToQuery FolderContentType
-
-instance ToHeader FolderContentType
-
-instance ToJSON FolderContentType where
-  toJSON = toJSONText
+{-# COMPLETE
+  FCTAll,
+  FCTDocument,
+  FCTFolder,
+  FolderContentType'
+  #-}

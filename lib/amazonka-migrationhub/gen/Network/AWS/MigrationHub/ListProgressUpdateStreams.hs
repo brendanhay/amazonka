@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,178 @@
 --
 -- Lists progress update streams associated with the user account making this call.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListProgressUpdateStreams
-  ( -- * Creating a Request
-    listProgressUpdateStreams,
-    ListProgressUpdateStreams,
+  ( -- * Creating a request
+    ListProgressUpdateStreams (..),
+    mkListProgressUpdateStreams,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpusNextToken,
     lpusMaxResults,
 
-    -- * Destructuring the Response
-    listProgressUpdateStreamsResponse,
-    ListProgressUpdateStreamsResponse,
+    -- * Destructuring the response
+    ListProgressUpdateStreamsResponse (..),
+    mkListProgressUpdateStreamsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpusrsProgressUpdateStreamSummaryList,
     lpusrsNextToken,
     lpusrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listProgressUpdateStreams' smart constructor.
+-- | /See:/ 'mkListProgressUpdateStreams' smart constructor.
 data ListProgressUpdateStreams = ListProgressUpdateStreams'
-  { _lpusNextToken ::
-      !(Maybe Text),
-    _lpusMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProgressUpdateStreams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpusNextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
---
--- * 'lpusMaxResults' - Filter to limit the maximum number of results to list per page.
-listProgressUpdateStreams ::
+-- * 'maxResults' - Filter to limit the maximum number of results to list per page.
+-- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+mkListProgressUpdateStreams ::
   ListProgressUpdateStreams
-listProgressUpdateStreams =
+mkListProgressUpdateStreams =
   ListProgressUpdateStreams'
-    { _lpusNextToken = Nothing,
-      _lpusMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
-lpusNextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
-lpusNextToken = lens _lpusNextToken (\s a -> s {_lpusNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpusNextToken :: Lens.Lens' ListProgressUpdateStreams (Lude.Maybe Lude.Text)
+lpusNextToken = Lens.lens (nextToken :: ListProgressUpdateStreams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProgressUpdateStreams)
+{-# DEPRECATED lpusNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filter to limit the maximum number of results to list per page.
-lpusMaxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
-lpusMaxResults = lens _lpusMaxResults (\s a -> s {_lpusMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpusMaxResults :: Lens.Lens' ListProgressUpdateStreams (Lude.Maybe Lude.Natural)
+lpusMaxResults = Lens.lens (maxResults :: ListProgressUpdateStreams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProgressUpdateStreams)
+{-# DEPRECATED lpusMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListProgressUpdateStreams where
+instance Page.AWSPager ListProgressUpdateStreams where
   page rq rs
-    | stop (rs ^. lpusrsNextToken) = Nothing
-    | stop (rs ^. lpusrsProgressUpdateStreamSummaryList) = Nothing
-    | otherwise = Just $ rq & lpusNextToken .~ rs ^. lpusrsNextToken
+    | Page.stop (rs Lens.^. lpusrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lpusrsProgressUpdateStreamSummaryList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpusNextToken Lens..~ rs Lens.^. lpusrsNextToken
 
-instance AWSRequest ListProgressUpdateStreams where
+instance Lude.AWSRequest ListProgressUpdateStreams where
   type
     Rs ListProgressUpdateStreams =
       ListProgressUpdateStreamsResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProgressUpdateStreamsResponse'
-            <$> (x .?> "ProgressUpdateStreamSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProgressUpdateStreamSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProgressUpdateStreams
-
-instance NFData ListProgressUpdateStreams
-
-instance ToHeaders ListProgressUpdateStreams where
+instance Lude.ToHeaders ListProgressUpdateStreams where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.ListProgressUpdateStreams" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.ListProgressUpdateStreams" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListProgressUpdateStreams where
+instance Lude.ToJSON ListProgressUpdateStreams where
   toJSON ListProgressUpdateStreams' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lpusNextToken,
-            ("MaxResults" .=) <$> _lpusMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListProgressUpdateStreams where
-  toPath = const "/"
+instance Lude.ToPath ListProgressUpdateStreams where
+  toPath = Lude.const "/"
 
-instance ToQuery ListProgressUpdateStreams where
-  toQuery = const mempty
+instance Lude.ToQuery ListProgressUpdateStreams where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listProgressUpdateStreamsResponse' smart constructor.
+-- | /See:/ 'mkListProgressUpdateStreamsResponse' smart constructor.
 data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-  { _lpusrsProgressUpdateStreamSummaryList ::
-      !( Maybe
-           [ProgressUpdateStreamSummary]
-       ),
-    _lpusrsNextToken ::
-      !(Maybe Text),
-    _lpusrsResponseStatus ::
-      !Int
+  { progressUpdateStreamSummaryList ::
+      Lude.Maybe
+        [ProgressUpdateStreamSummary],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProgressUpdateStreamsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpusrsProgressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed in the input.
---
--- * 'lpusrsNextToken' - If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
---
--- * 'lpusrsResponseStatus' - -- | The response status code.
-listProgressUpdateStreamsResponse ::
-  -- | 'lpusrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+-- * 'progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed in the input.
+-- * 'responseStatus' - The response status code.
+mkListProgressUpdateStreamsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProgressUpdateStreamsResponse
-listProgressUpdateStreamsResponse pResponseStatus_ =
+mkListProgressUpdateStreamsResponse pResponseStatus_ =
   ListProgressUpdateStreamsResponse'
-    { _lpusrsProgressUpdateStreamSummaryList =
-        Nothing,
-      _lpusrsNextToken = Nothing,
-      _lpusrsResponseStatus = pResponseStatus_
+    { progressUpdateStreamSummaryList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of progress update streams up to the max number of results passed in the input.
-lpusrsProgressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse [ProgressUpdateStreamSummary]
-lpusrsProgressUpdateStreamSummaryList = lens _lpusrsProgressUpdateStreamSummaryList (\s a -> s {_lpusrsProgressUpdateStreamSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'progressUpdateStreamSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpusrsProgressUpdateStreamSummaryList :: Lens.Lens' ListProgressUpdateStreamsResponse (Lude.Maybe [ProgressUpdateStreamSummary])
+lpusrsProgressUpdateStreamSummaryList = Lens.lens (progressUpdateStreamSummaryList :: ListProgressUpdateStreamsResponse -> Lude.Maybe [ProgressUpdateStreamSummary]) (\s a -> s {progressUpdateStreamSummaryList = a} :: ListProgressUpdateStreamsResponse)
+{-# DEPRECATED lpusrsProgressUpdateStreamSummaryList "Use generic-lens or generic-optics with 'progressUpdateStreamSummaryList' instead." #-}
 
 -- | If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
-lpusrsNextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
-lpusrsNextToken = lens _lpusrsNextToken (\s a -> s {_lpusrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpusrsNextToken :: Lens.Lens' ListProgressUpdateStreamsResponse (Lude.Maybe Lude.Text)
+lpusrsNextToken = Lens.lens (nextToken :: ListProgressUpdateStreamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProgressUpdateStreamsResponse)
+{-# DEPRECATED lpusrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lpusrsResponseStatus :: Lens' ListProgressUpdateStreamsResponse Int
-lpusrsResponseStatus = lens _lpusrsResponseStatus (\s a -> s {_lpusrsResponseStatus = a})
-
-instance NFData ListProgressUpdateStreamsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpusrsResponseStatus :: Lens.Lens' ListProgressUpdateStreamsResponse Lude.Int
+lpusrsResponseStatus = Lens.lens (responseStatus :: ListProgressUpdateStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProgressUpdateStreamsResponse)
+{-# DEPRECATED lpusrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

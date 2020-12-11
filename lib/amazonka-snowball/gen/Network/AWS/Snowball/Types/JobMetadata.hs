@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,37 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.JobMetadata where
+module Network.AWS.Snowball.Types.JobMetadata
+  ( JobMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobMetadata,
+
+    -- * Lenses
+    jmJobType,
+    jmKMSKeyARN,
+    jmJobId,
+    jmJobLogInfo,
+    jmNotification,
+    jmJobState,
+    jmForwardingAddressId,
+    jmShippingDetails,
+    jmAddressId,
+    jmSnowballType,
+    jmDataTransferProgress,
+    jmResources,
+    jmClusterId,
+    jmCreationDate,
+    jmDeviceConfiguration,
+    jmDescription,
+    jmTaxDocuments,
+    jmRoleARN,
+    jmSnowballCapacityPreference,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Snowball.Types.DataTransfer
 import Network.AWS.Snowball.Types.DeviceConfiguration
 import Network.AWS.Snowball.Types.JobLogs
@@ -31,201 +52,239 @@ import Network.AWS.Snowball.Types.TaxDocuments
 
 -- | Contains information about a specific job including shipping information, job status, and other important metadata. This information is returned as a part of the response syntax of the @DescribeJob@ action.
 --
---
---
--- /See:/ 'jobMetadata' smart constructor.
+-- /See:/ 'mkJobMetadata' smart constructor.
 data JobMetadata = JobMetadata'
-  { _jmJobType :: !(Maybe JobType),
-    _jmKMSKeyARN :: !(Maybe Text),
-    _jmJobId :: !(Maybe Text),
-    _jmJobLogInfo :: !(Maybe JobLogs),
-    _jmNotification :: !(Maybe Notification),
-    _jmJobState :: !(Maybe JobState),
-    _jmForwardingAddressId :: !(Maybe Text),
-    _jmShippingDetails :: !(Maybe ShippingDetails),
-    _jmAddressId :: !(Maybe Text),
-    _jmSnowballType :: !(Maybe SnowballType),
-    _jmDataTransferProgress :: !(Maybe DataTransfer),
-    _jmResources :: !(Maybe JobResource),
-    _jmClusterId :: !(Maybe Text),
-    _jmCreationDate :: !(Maybe POSIX),
-    _jmDeviceConfiguration :: !(Maybe DeviceConfiguration),
-    _jmDescription :: !(Maybe Text),
-    _jmTaxDocuments :: !(Maybe TaxDocuments),
-    _jmRoleARN :: !(Maybe Text),
-    _jmSnowballCapacityPreference :: !(Maybe SnowballCapacity)
+  { jobType :: Lude.Maybe JobType,
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    jobId :: Lude.Maybe Lude.Text,
+    jobLogInfo :: Lude.Maybe JobLogs,
+    notification :: Lude.Maybe Notification,
+    jobState :: Lude.Maybe JobState,
+    forwardingAddressId :: Lude.Maybe Lude.Text,
+    shippingDetails :: Lude.Maybe ShippingDetails,
+    addressId :: Lude.Maybe Lude.Text,
+    snowballType :: Lude.Maybe SnowballType,
+    dataTransferProgress :: Lude.Maybe DataTransfer,
+    resources :: Lude.Maybe JobResource,
+    clusterId :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    deviceConfiguration :: Lude.Maybe DeviceConfiguration,
+    description :: Lude.Maybe Lude.Text,
+    taxDocuments :: Lude.Maybe TaxDocuments,
+    roleARN :: Lude.Maybe Lude.Text,
+    snowballCapacityPreference :: Lude.Maybe SnowballCapacity
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jmJobType' - The type of job.
---
--- * 'jmKMSKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
---
--- * 'jmJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
---
--- * 'jmJobLogInfo' - Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
---
--- * 'jmNotification' - The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
---
--- * 'jmJobState' - The current status of the jobs.
---
--- * 'jmForwardingAddressId' - The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
---
--- * 'jmShippingDetails' - A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
---
--- * 'jmAddressId' - The ID for the address that you want the Snow device shipped to.
---
--- * 'jmSnowballType' - The type of device used with this job.
---
--- * 'jmDataTransferProgress' - A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
---
--- * 'jmResources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
---
--- * 'jmClusterId' - The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
---
--- * 'jmCreationDate' - The creation date for this job.
---
--- * 'jmDeviceConfiguration' - Undocumented member.
---
--- * 'jmDescription' - The description of the job, provided at job creation.
---
--- * 'jmTaxDocuments' - The metadata associated with the tax documents required in your AWS Region.
---
--- * 'jmRoleARN' - The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
---
--- * 'jmSnowballCapacityPreference' - The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
-jobMetadata ::
+-- * 'addressId' - The ID for the address that you want the Snow device shipped to.
+-- * 'clusterId' - The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'creationDate' - The creation date for this job.
+-- * 'dataTransferProgress' - A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+-- * 'description' - The description of the job, provided at job creation.
+-- * 'deviceConfiguration' - Undocumented field.
+-- * 'forwardingAddressId' - The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
+-- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'jobLogInfo' - Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
+-- * 'jobState' - The current status of the jobs.
+-- * 'jobType' - The type of job.
+-- * 'kmsKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
+-- * 'notification' - The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
+-- * 'resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+-- * 'roleARN' - The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- * 'shippingDetails' - A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
+-- * 'snowballCapacityPreference' - The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
+-- * 'snowballType' - The type of device used with this job.
+-- * 'taxDocuments' - The metadata associated with the tax documents required in your AWS Region.
+mkJobMetadata ::
   JobMetadata
-jobMetadata =
+mkJobMetadata =
   JobMetadata'
-    { _jmJobType = Nothing,
-      _jmKMSKeyARN = Nothing,
-      _jmJobId = Nothing,
-      _jmJobLogInfo = Nothing,
-      _jmNotification = Nothing,
-      _jmJobState = Nothing,
-      _jmForwardingAddressId = Nothing,
-      _jmShippingDetails = Nothing,
-      _jmAddressId = Nothing,
-      _jmSnowballType = Nothing,
-      _jmDataTransferProgress = Nothing,
-      _jmResources = Nothing,
-      _jmClusterId = Nothing,
-      _jmCreationDate = Nothing,
-      _jmDeviceConfiguration = Nothing,
-      _jmDescription = Nothing,
-      _jmTaxDocuments = Nothing,
-      _jmRoleARN = Nothing,
-      _jmSnowballCapacityPreference = Nothing
+    { jobType = Lude.Nothing,
+      kmsKeyARN = Lude.Nothing,
+      jobId = Lude.Nothing,
+      jobLogInfo = Lude.Nothing,
+      notification = Lude.Nothing,
+      jobState = Lude.Nothing,
+      forwardingAddressId = Lude.Nothing,
+      shippingDetails = Lude.Nothing,
+      addressId = Lude.Nothing,
+      snowballType = Lude.Nothing,
+      dataTransferProgress = Lude.Nothing,
+      resources = Lude.Nothing,
+      clusterId = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      deviceConfiguration = Lude.Nothing,
+      description = Lude.Nothing,
+      taxDocuments = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      snowballCapacityPreference = Lude.Nothing
     }
 
 -- | The type of job.
-jmJobType :: Lens' JobMetadata (Maybe JobType)
-jmJobType = lens _jmJobType (\s a -> s {_jmJobType = a})
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmJobType :: Lens.Lens' JobMetadata (Lude.Maybe JobType)
+jmJobType = Lens.lens (jobType :: JobMetadata -> Lude.Maybe JobType) (\s a -> s {jobType = a} :: JobMetadata)
+{-# DEPRECATED jmJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
-jmKMSKeyARN :: Lens' JobMetadata (Maybe Text)
-jmKMSKeyARN = lens _jmKMSKeyARN (\s a -> s {_jmKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmKMSKeyARN :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmKMSKeyARN = Lens.lens (kmsKeyARN :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: JobMetadata)
+{-# DEPRECATED jmKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-jmJobId :: Lens' JobMetadata (Maybe Text)
-jmJobId = lens _jmJobId (\s a -> s {_jmJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmJobId :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmJobId = Lens.lens (jobId :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobMetadata)
+{-# DEPRECATED jmJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
-jmJobLogInfo :: Lens' JobMetadata (Maybe JobLogs)
-jmJobLogInfo = lens _jmJobLogInfo (\s a -> s {_jmJobLogInfo = a})
+--
+-- /Note:/ Consider using 'jobLogInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmJobLogInfo :: Lens.Lens' JobMetadata (Lude.Maybe JobLogs)
+jmJobLogInfo = Lens.lens (jobLogInfo :: JobMetadata -> Lude.Maybe JobLogs) (\s a -> s {jobLogInfo = a} :: JobMetadata)
+{-# DEPRECATED jmJobLogInfo "Use generic-lens or generic-optics with 'jobLogInfo' instead." #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
-jmNotification :: Lens' JobMetadata (Maybe Notification)
-jmNotification = lens _jmNotification (\s a -> s {_jmNotification = a})
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmNotification :: Lens.Lens' JobMetadata (Lude.Maybe Notification)
+jmNotification = Lens.lens (notification :: JobMetadata -> Lude.Maybe Notification) (\s a -> s {notification = a} :: JobMetadata)
+{-# DEPRECATED jmNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | The current status of the jobs.
-jmJobState :: Lens' JobMetadata (Maybe JobState)
-jmJobState = lens _jmJobState (\s a -> s {_jmJobState = a})
+--
+-- /Note:/ Consider using 'jobState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmJobState :: Lens.Lens' JobMetadata (Lude.Maybe JobState)
+jmJobState = Lens.lens (jobState :: JobMetadata -> Lude.Maybe JobState) (\s a -> s {jobState = a} :: JobMetadata)
+{-# DEPRECATED jmJobState "Use generic-lens or generic-optics with 'jobState' instead." #-}
 
 -- | The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
-jmForwardingAddressId :: Lens' JobMetadata (Maybe Text)
-jmForwardingAddressId = lens _jmForwardingAddressId (\s a -> s {_jmForwardingAddressId = a})
+--
+-- /Note:/ Consider using 'forwardingAddressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmForwardingAddressId :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmForwardingAddressId = Lens.lens (forwardingAddressId :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {forwardingAddressId = a} :: JobMetadata)
+{-# DEPRECATED jmForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
 
 -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
-jmShippingDetails :: Lens' JobMetadata (Maybe ShippingDetails)
-jmShippingDetails = lens _jmShippingDetails (\s a -> s {_jmShippingDetails = a})
+--
+-- /Note:/ Consider using 'shippingDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmShippingDetails :: Lens.Lens' JobMetadata (Lude.Maybe ShippingDetails)
+jmShippingDetails = Lens.lens (shippingDetails :: JobMetadata -> Lude.Maybe ShippingDetails) (\s a -> s {shippingDetails = a} :: JobMetadata)
+{-# DEPRECATED jmShippingDetails "Use generic-lens or generic-optics with 'shippingDetails' instead." #-}
 
 -- | The ID for the address that you want the Snow device shipped to.
-jmAddressId :: Lens' JobMetadata (Maybe Text)
-jmAddressId = lens _jmAddressId (\s a -> s {_jmAddressId = a})
+--
+-- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmAddressId :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmAddressId = Lens.lens (addressId :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {addressId = a} :: JobMetadata)
+{-# DEPRECATED jmAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
 -- | The type of device used with this job.
-jmSnowballType :: Lens' JobMetadata (Maybe SnowballType)
-jmSnowballType = lens _jmSnowballType (\s a -> s {_jmSnowballType = a})
+--
+-- /Note:/ Consider using 'snowballType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmSnowballType :: Lens.Lens' JobMetadata (Lude.Maybe SnowballType)
+jmSnowballType = Lens.lens (snowballType :: JobMetadata -> Lude.Maybe SnowballType) (\s a -> s {snowballType = a} :: JobMetadata)
+{-# DEPRECATED jmSnowballType "Use generic-lens or generic-optics with 'snowballType' instead." #-}
 
 -- | A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
-jmDataTransferProgress :: Lens' JobMetadata (Maybe DataTransfer)
-jmDataTransferProgress = lens _jmDataTransferProgress (\s a -> s {_jmDataTransferProgress = a})
+--
+-- /Note:/ Consider using 'dataTransferProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmDataTransferProgress :: Lens.Lens' JobMetadata (Lude.Maybe DataTransfer)
+jmDataTransferProgress = Lens.lens (dataTransferProgress :: JobMetadata -> Lude.Maybe DataTransfer) (\s a -> s {dataTransferProgress = a} :: JobMetadata)
+{-# DEPRECATED jmDataTransferProgress "Use generic-lens or generic-optics with 'dataTransferProgress' instead." #-}
 
 -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
-jmResources :: Lens' JobMetadata (Maybe JobResource)
-jmResources = lens _jmResources (\s a -> s {_jmResources = a})
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmResources :: Lens.Lens' JobMetadata (Lude.Maybe JobResource)
+jmResources = Lens.lens (resources :: JobMetadata -> Lude.Maybe JobResource) (\s a -> s {resources = a} :: JobMetadata)
+{-# DEPRECATED jmResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-jmClusterId :: Lens' JobMetadata (Maybe Text)
-jmClusterId = lens _jmClusterId (\s a -> s {_jmClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmClusterId :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmClusterId = Lens.lens (clusterId :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: JobMetadata)
+{-# DEPRECATED jmClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The creation date for this job.
-jmCreationDate :: Lens' JobMetadata (Maybe UTCTime)
-jmCreationDate = lens _jmCreationDate (\s a -> s {_jmCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmCreationDate :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Timestamp)
+jmCreationDate = Lens.lens (creationDate :: JobMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: JobMetadata)
+{-# DEPRECATED jmCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | Undocumented member.
-jmDeviceConfiguration :: Lens' JobMetadata (Maybe DeviceConfiguration)
-jmDeviceConfiguration = lens _jmDeviceConfiguration (\s a -> s {_jmDeviceConfiguration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'deviceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmDeviceConfiguration :: Lens.Lens' JobMetadata (Lude.Maybe DeviceConfiguration)
+jmDeviceConfiguration = Lens.lens (deviceConfiguration :: JobMetadata -> Lude.Maybe DeviceConfiguration) (\s a -> s {deviceConfiguration = a} :: JobMetadata)
+{-# DEPRECATED jmDeviceConfiguration "Use generic-lens or generic-optics with 'deviceConfiguration' instead." #-}
 
 -- | The description of the job, provided at job creation.
-jmDescription :: Lens' JobMetadata (Maybe Text)
-jmDescription = lens _jmDescription (\s a -> s {_jmDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmDescription :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmDescription = Lens.lens (description :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: JobMetadata)
+{-# DEPRECATED jmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The metadata associated with the tax documents required in your AWS Region.
-jmTaxDocuments :: Lens' JobMetadata (Maybe TaxDocuments)
-jmTaxDocuments = lens _jmTaxDocuments (\s a -> s {_jmTaxDocuments = a})
+--
+-- /Note:/ Consider using 'taxDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmTaxDocuments :: Lens.Lens' JobMetadata (Lude.Maybe TaxDocuments)
+jmTaxDocuments = Lens.lens (taxDocuments :: JobMetadata -> Lude.Maybe TaxDocuments) (\s a -> s {taxDocuments = a} :: JobMetadata)
+{-# DEPRECATED jmTaxDocuments "Use generic-lens or generic-optics with 'taxDocuments' instead." #-}
 
 -- | The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
-jmRoleARN :: Lens' JobMetadata (Maybe Text)
-jmRoleARN = lens _jmRoleARN (\s a -> s {_jmRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmRoleARN :: Lens.Lens' JobMetadata (Lude.Maybe Lude.Text)
+jmRoleARN = Lens.lens (roleARN :: JobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: JobMetadata)
+{-# DEPRECATED jmRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
-jmSnowballCapacityPreference :: Lens' JobMetadata (Maybe SnowballCapacity)
-jmSnowballCapacityPreference = lens _jmSnowballCapacityPreference (\s a -> s {_jmSnowballCapacityPreference = a})
+--
+-- /Note:/ Consider using 'snowballCapacityPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmSnowballCapacityPreference :: Lens.Lens' JobMetadata (Lude.Maybe SnowballCapacity)
+jmSnowballCapacityPreference = Lens.lens (snowballCapacityPreference :: JobMetadata -> Lude.Maybe SnowballCapacity) (\s a -> s {snowballCapacityPreference = a} :: JobMetadata)
+{-# DEPRECATED jmSnowballCapacityPreference "Use generic-lens or generic-optics with 'snowballCapacityPreference' instead." #-}
 
-instance FromJSON JobMetadata where
+instance Lude.FromJSON JobMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobMetadata"
       ( \x ->
           JobMetadata'
-            <$> (x .:? "JobType")
-            <*> (x .:? "KmsKeyARN")
-            <*> (x .:? "JobId")
-            <*> (x .:? "JobLogInfo")
-            <*> (x .:? "Notification")
-            <*> (x .:? "JobState")
-            <*> (x .:? "ForwardingAddressId")
-            <*> (x .:? "ShippingDetails")
-            <*> (x .:? "AddressId")
-            <*> (x .:? "SnowballType")
-            <*> (x .:? "DataTransferProgress")
-            <*> (x .:? "Resources")
-            <*> (x .:? "ClusterId")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "DeviceConfiguration")
-            <*> (x .:? "Description")
-            <*> (x .:? "TaxDocuments")
-            <*> (x .:? "RoleARN")
-            <*> (x .:? "SnowballCapacityPreference")
+            Lude.<$> (x Lude..:? "JobType")
+            Lude.<*> (x Lude..:? "KmsKeyARN")
+            Lude.<*> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "JobLogInfo")
+            Lude.<*> (x Lude..:? "Notification")
+            Lude.<*> (x Lude..:? "JobState")
+            Lude.<*> (x Lude..:? "ForwardingAddressId")
+            Lude.<*> (x Lude..:? "ShippingDetails")
+            Lude.<*> (x Lude..:? "AddressId")
+            Lude.<*> (x Lude..:? "SnowballType")
+            Lude.<*> (x Lude..:? "DataTransferProgress")
+            Lude.<*> (x Lude..:? "Resources")
+            Lude.<*> (x Lude..:? "ClusterId")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "DeviceConfiguration")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "TaxDocuments")
+            Lude.<*> (x Lude..:? "RoleARN")
+            Lude.<*> (x Lude..:? "SnowballCapacityPreference")
       )
-
-instance Hashable JobMetadata
-
-instance NFData JobMetadata

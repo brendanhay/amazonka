@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,136 @@
 --
 -- Gets information about one or more applications. The maximum number of applications that can be returned is 100.
 module Network.AWS.CodeDeploy.BatchGetApplications
-  ( -- * Creating a Request
-    batchGetApplications,
-    BatchGetApplications,
+  ( -- * Creating a request
+    BatchGetApplications (..),
+    mkBatchGetApplications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgaApplicationNames,
 
-    -- * Destructuring the Response
-    batchGetApplicationsResponse,
-    BatchGetApplicationsResponse,
+    -- * Destructuring the response
+    BatchGetApplicationsResponse (..),
+    mkBatchGetApplicationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgarsApplicationsInfo,
     bgarsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @BatchGetApplications@ operation.
 --
---
---
--- /See:/ 'batchGetApplications' smart constructor.
+-- /See:/ 'mkBatchGetApplications' smart constructor.
 newtype BatchGetApplications = BatchGetApplications'
-  { _bgaApplicationNames ::
-      [Text]
+  { applicationNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgaApplicationNames' - A list of application names separated by spaces. The maximum number of application names you can specify is 100.
-batchGetApplications ::
+-- * 'applicationNames' - A list of application names separated by spaces. The maximum number of application names you can specify is 100.
+mkBatchGetApplications ::
   BatchGetApplications
-batchGetApplications =
-  BatchGetApplications' {_bgaApplicationNames = mempty}
+mkBatchGetApplications =
+  BatchGetApplications' {applicationNames = Lude.mempty}
 
 -- | A list of application names separated by spaces. The maximum number of application names you can specify is 100.
-bgaApplicationNames :: Lens' BatchGetApplications [Text]
-bgaApplicationNames = lens _bgaApplicationNames (\s a -> s {_bgaApplicationNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'applicationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgaApplicationNames :: Lens.Lens' BatchGetApplications [Lude.Text]
+bgaApplicationNames = Lens.lens (applicationNames :: BatchGetApplications -> [Lude.Text]) (\s a -> s {applicationNames = a} :: BatchGetApplications)
+{-# DEPRECATED bgaApplicationNames "Use generic-lens or generic-optics with 'applicationNames' instead." #-}
 
-instance AWSRequest BatchGetApplications where
+instance Lude.AWSRequest BatchGetApplications where
   type Rs BatchGetApplications = BatchGetApplicationsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetApplicationsResponse'
-            <$> (x .?> "applicationsInfo" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "applicationsInfo" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetApplications
-
-instance NFData BatchGetApplications
-
-instance ToHeaders BatchGetApplications where
+instance Lude.ToHeaders BatchGetApplications where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.BatchGetApplications" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.BatchGetApplications" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetApplications where
+instance Lude.ToJSON BatchGetApplications where
   toJSON BatchGetApplications' {..} =
-    object
-      (catMaybes [Just ("applicationNames" .= _bgaApplicationNames)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("applicationNames" Lude..= applicationNames)]
+      )
 
-instance ToPath BatchGetApplications where
-  toPath = const "/"
+instance Lude.ToPath BatchGetApplications where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetApplications where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetApplications where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetApplications@ operation.
 --
---
---
--- /See:/ 'batchGetApplicationsResponse' smart constructor.
+-- /See:/ 'mkBatchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
-  { _bgarsApplicationsInfo ::
-      !(Maybe [ApplicationInfo]),
-    _bgarsResponseStatus :: !Int
+  { applicationsInfo ::
+      Lude.Maybe [ApplicationInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplicationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgarsApplicationsInfo' - Information about the applications.
---
--- * 'bgarsResponseStatus' - -- | The response status code.
-batchGetApplicationsResponse ::
-  -- | 'bgarsResponseStatus'
-  Int ->
+-- * 'applicationsInfo' - Information about the applications.
+-- * 'responseStatus' - The response status code.
+mkBatchGetApplicationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetApplicationsResponse
-batchGetApplicationsResponse pResponseStatus_ =
+mkBatchGetApplicationsResponse pResponseStatus_ =
   BatchGetApplicationsResponse'
-    { _bgarsApplicationsInfo = Nothing,
-      _bgarsResponseStatus = pResponseStatus_
+    { applicationsInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the applications.
-bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
-bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\s a -> s {_bgarsApplicationsInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'applicationsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarsApplicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Lude.Maybe [ApplicationInfo])
+bgarsApplicationsInfo = Lens.lens (applicationsInfo :: BatchGetApplicationsResponse -> Lude.Maybe [ApplicationInfo]) (\s a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse)
+{-# DEPRECATED bgarsApplicationsInfo "Use generic-lens or generic-optics with 'applicationsInfo' instead." #-}
 
--- | -- | The response status code.
-bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
-bgarsResponseStatus = lens _bgarsResponseStatus (\s a -> s {_bgarsResponseStatus = a})
-
-instance NFData BatchGetApplicationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarsResponseStatus :: Lens.Lens' BatchGetApplicationsResponse Lude.Int
+bgarsResponseStatus = Lens.lens (responseStatus :: BatchGetApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetApplicationsResponse)
+{-# DEPRECATED bgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

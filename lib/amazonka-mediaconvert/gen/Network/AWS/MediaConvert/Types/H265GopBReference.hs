@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265GopBReference where
+module Network.AWS.MediaConvert.Types.H265GopBReference
+  ( H265GopBReference
+      ( H265GopBReference',
+        HGBRDisabled,
+        HGBREnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If enable, use reference B frames for GOP structures that have B frames > 1.
-data H265GopBReference
-  = HGBRDisabled
-  | HGBREnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265GopBReference = H265GopBReference' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265GopBReference where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HGBRDisabled
-      "enabled" -> pure HGBREnabled
-      e ->
-        fromTextError $
-          "Failure parsing H265GopBReference from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HGBRDisabled :: H265GopBReference
+pattern HGBRDisabled = H265GopBReference' "DISABLED"
 
-instance ToText H265GopBReference where
-  toText = \case
-    HGBRDisabled -> "DISABLED"
-    HGBREnabled -> "ENABLED"
+pattern HGBREnabled :: H265GopBReference
+pattern HGBREnabled = H265GopBReference' "ENABLED"
 
-instance Hashable H265GopBReference
-
-instance NFData H265GopBReference
-
-instance ToByteString H265GopBReference
-
-instance ToQuery H265GopBReference
-
-instance ToHeader H265GopBReference
-
-instance ToJSON H265GopBReference where
-  toJSON = toJSONText
-
-instance FromJSON H265GopBReference where
-  parseJSON = parseJSONText "H265GopBReference"
+{-# COMPLETE
+  HGBRDisabled,
+  HGBREnabled,
+  H265GopBReference'
+  #-}

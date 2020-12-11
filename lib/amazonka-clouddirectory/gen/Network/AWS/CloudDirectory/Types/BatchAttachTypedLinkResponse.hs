@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse where
+module Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
+  ( BatchAttachTypedLinkResponse (..),
+
+    -- * Smart constructor
+    mkBatchAttachTypedLinkResponse,
+
+    -- * Lenses
+    batlTypedLinkSpecifier,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'AttachTypedLink' response operation.
 --
---
---
--- /See:/ 'batchAttachTypedLinkResponse' smart constructor.
+-- /See:/ 'mkBatchAttachTypedLinkResponse' smart constructor.
 newtype BatchAttachTypedLinkResponse = BatchAttachTypedLinkResponse'
-  { _batlTypedLinkSpecifier ::
-      Maybe TypedLinkSpecifier
+  { typedLinkSpecifier ::
+      Lude.Maybe TypedLinkSpecifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachTypedLinkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'batlTypedLinkSpecifier' - Returns a typed link specifier as output.
-batchAttachTypedLinkResponse ::
+-- * 'typedLinkSpecifier' - Returns a typed link specifier as output.
+mkBatchAttachTypedLinkResponse ::
   BatchAttachTypedLinkResponse
-batchAttachTypedLinkResponse =
-  BatchAttachTypedLinkResponse' {_batlTypedLinkSpecifier = Nothing}
+mkBatchAttachTypedLinkResponse =
+  BatchAttachTypedLinkResponse' {typedLinkSpecifier = Lude.Nothing}
 
 -- | Returns a typed link specifier as output.
-batlTypedLinkSpecifier :: Lens' BatchAttachTypedLinkResponse (Maybe TypedLinkSpecifier)
-batlTypedLinkSpecifier = lens _batlTypedLinkSpecifier (\s a -> s {_batlTypedLinkSpecifier = a})
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batlTypedLinkSpecifier :: Lens.Lens' BatchAttachTypedLinkResponse (Lude.Maybe TypedLinkSpecifier)
+batlTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchAttachTypedLinkResponse -> Lude.Maybe TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchAttachTypedLinkResponse)
+{-# DEPRECATED batlTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance FromJSON BatchAttachTypedLinkResponse where
+instance Lude.FromJSON BatchAttachTypedLinkResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchAttachTypedLinkResponse"
       ( \x ->
-          BatchAttachTypedLinkResponse' <$> (x .:? "TypedLinkSpecifier")
+          BatchAttachTypedLinkResponse'
+            Lude.<$> (x Lude..:? "TypedLinkSpecifier")
       )
-
-instance Hashable BatchAttachTypedLinkResponse
-
-instance NFData BatchAttachTypedLinkResponse

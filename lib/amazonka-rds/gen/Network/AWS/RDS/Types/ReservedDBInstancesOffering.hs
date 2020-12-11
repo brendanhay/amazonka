@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,131 +7,172 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.ReservedDBInstancesOffering where
+module Network.AWS.RDS.Types.ReservedDBInstancesOffering
+  ( ReservedDBInstancesOffering (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReservedDBInstancesOffering,
+
+    -- * Lenses
+    rdioCurrencyCode,
+    rdioProductDescription,
+    rdioDBInstanceClass,
+    rdioMultiAZ,
+    rdioReservedDBInstancesOfferingId,
+    rdioRecurringCharges,
+    rdioOfferingType,
+    rdioUsagePrice,
+    rdioFixedPrice,
+    rdioDuration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.RecurringCharge
 
 -- | This data type is used as a response element in the @DescribeReservedDBInstancesOfferings@ action.
 --
---
---
--- /See:/ 'reservedDBInstancesOffering' smart constructor.
+-- /See:/ 'mkReservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-  { _rdioCurrencyCode ::
-      !(Maybe Text),
-    _rdioProductDescription ::
-      !(Maybe Text),
-    _rdioDBInstanceClass ::
-      !(Maybe Text),
-    _rdioMultiAZ :: !(Maybe Bool),
-    _rdioReservedDBInstancesOfferingId ::
-      !(Maybe Text),
-    _rdioRecurringCharges ::
-      !(Maybe [RecurringCharge]),
-    _rdioOfferingType :: !(Maybe Text),
-    _rdioUsagePrice :: !(Maybe Double),
-    _rdioFixedPrice :: !(Maybe Double),
-    _rdioDuration :: !(Maybe Int)
+  { currencyCode ::
+      Lude.Maybe Lude.Text,
+    productDescription ::
+      Lude.Maybe Lude.Text,
+    dbInstanceClass ::
+      Lude.Maybe Lude.Text,
+    multiAZ :: Lude.Maybe Lude.Bool,
+    reservedDBInstancesOfferingId ::
+      Lude.Maybe Lude.Text,
+    recurringCharges ::
+      Lude.Maybe [RecurringCharge],
+    offeringType ::
+      Lude.Maybe Lude.Text,
+    usagePrice ::
+      Lude.Maybe Lude.Double,
+    fixedPrice ::
+      Lude.Maybe Lude.Double,
+    duration :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdioCurrencyCode' - The currency code for the reserved DB instance offering.
---
--- * 'rdioProductDescription' - The database engine used by the offering.
---
--- * 'rdioDBInstanceClass' - The DB instance class for the reserved DB instance.
---
--- * 'rdioMultiAZ' - Indicates if the offering applies to Multi-AZ deployments.
---
--- * 'rdioReservedDBInstancesOfferingId' - The offering identifier.
---
--- * 'rdioRecurringCharges' - The recurring price charged to run this reserved DB instance.
---
--- * 'rdioOfferingType' - The offering type.
---
--- * 'rdioUsagePrice' - The hourly price charged for this offering.
---
--- * 'rdioFixedPrice' - The fixed price charged for this offering.
---
--- * 'rdioDuration' - The duration of the offering in seconds.
-reservedDBInstancesOffering ::
+-- * 'currencyCode' - The currency code for the reserved DB instance offering.
+-- * 'dbInstanceClass' - The DB instance class for the reserved DB instance.
+-- * 'duration' - The duration of the offering in seconds.
+-- * 'fixedPrice' - The fixed price charged for this offering.
+-- * 'multiAZ' - Indicates if the offering applies to Multi-AZ deployments.
+-- * 'offeringType' - The offering type.
+-- * 'productDescription' - The database engine used by the offering.
+-- * 'recurringCharges' - The recurring price charged to run this reserved DB instance.
+-- * 'reservedDBInstancesOfferingId' - The offering identifier.
+-- * 'usagePrice' - The hourly price charged for this offering.
+mkReservedDBInstancesOffering ::
   ReservedDBInstancesOffering
-reservedDBInstancesOffering =
+mkReservedDBInstancesOffering =
   ReservedDBInstancesOffering'
-    { _rdioCurrencyCode = Nothing,
-      _rdioProductDescription = Nothing,
-      _rdioDBInstanceClass = Nothing,
-      _rdioMultiAZ = Nothing,
-      _rdioReservedDBInstancesOfferingId = Nothing,
-      _rdioRecurringCharges = Nothing,
-      _rdioOfferingType = Nothing,
-      _rdioUsagePrice = Nothing,
-      _rdioFixedPrice = Nothing,
-      _rdioDuration = Nothing
+    { currencyCode = Lude.Nothing,
+      productDescription = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      reservedDBInstancesOfferingId = Lude.Nothing,
+      recurringCharges = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- | The currency code for the reserved DB instance offering.
-rdioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdioCurrencyCode = lens _rdioCurrencyCode (\s a -> s {_rdioCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioCurrencyCode :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Text)
+rdioCurrencyCode = Lens.lens (currencyCode :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The database engine used by the offering.
-rdioProductDescription :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdioProductDescription = lens _rdioProductDescription (\s a -> s {_rdioProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioProductDescription :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Text)
+rdioProductDescription = Lens.lens (productDescription :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The DB instance class for the reserved DB instance.
-rdioDBInstanceClass :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdioDBInstanceClass = lens _rdioDBInstanceClass (\s a -> s {_rdioDBInstanceClass = a})
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioDBInstanceClass :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Text)
+rdioDBInstanceClass = Lens.lens (dbInstanceClass :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
 -- | Indicates if the offering applies to Multi-AZ deployments.
-rdioMultiAZ :: Lens' ReservedDBInstancesOffering (Maybe Bool)
-rdioMultiAZ = lens _rdioMultiAZ (\s a -> s {_rdioMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioMultiAZ :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Bool)
+rdioMultiAZ = Lens.lens (multiAZ :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | The offering identifier.
-rdioReservedDBInstancesOfferingId :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdioReservedDBInstancesOfferingId = lens _rdioReservedDBInstancesOfferingId (\s a -> s {_rdioReservedDBInstancesOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedDBInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioReservedDBInstancesOfferingId :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Text)
+rdioReservedDBInstancesOfferingId = Lens.lens (reservedDBInstancesOfferingId :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {reservedDBInstancesOfferingId = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
 
 -- | The recurring price charged to run this reserved DB instance.
-rdioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
-rdioRecurringCharges = lens _rdioRecurringCharges (\s a -> s {_rdioRecurringCharges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recurringCharges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioRecurringCharges :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe [RecurringCharge])
+rdioRecurringCharges = Lens.lens (recurringCharges :: ReservedDBInstancesOffering -> Lude.Maybe [RecurringCharge]) (\s a -> s {recurringCharges = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioRecurringCharges "Use generic-lens or generic-optics with 'recurringCharges' instead." #-}
 
 -- | The offering type.
-rdioOfferingType :: Lens' ReservedDBInstancesOffering (Maybe Text)
-rdioOfferingType = lens _rdioOfferingType (\s a -> s {_rdioOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioOfferingType :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Text)
+rdioOfferingType = Lens.lens (offeringType :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringType = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | The hourly price charged for this offering.
-rdioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
-rdioUsagePrice = lens _rdioUsagePrice (\s a -> s {_rdioUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioUsagePrice :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Double)
+rdioUsagePrice = Lens.lens (usagePrice :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | The fixed price charged for this offering.
-rdioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
-rdioFixedPrice = lens _rdioFixedPrice (\s a -> s {_rdioFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioFixedPrice :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Double)
+rdioFixedPrice = Lens.lens (fixedPrice :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | The duration of the offering in seconds.
-rdioDuration :: Lens' ReservedDBInstancesOffering (Maybe Int)
-rdioDuration = lens _rdioDuration (\s a -> s {_rdioDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdioDuration :: Lens.Lens' ReservedDBInstancesOffering (Lude.Maybe Lude.Int)
+rdioDuration = Lens.lens (duration :: ReservedDBInstancesOffering -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: ReservedDBInstancesOffering)
+{-# DEPRECATED rdioDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance FromXML ReservedDBInstancesOffering where
+instance Lude.FromXML ReservedDBInstancesOffering where
   parseXML x =
     ReservedDBInstancesOffering'
-      <$> (x .@? "CurrencyCode")
-      <*> (x .@? "ProductDescription")
-      <*> (x .@? "DBInstanceClass")
-      <*> (x .@? "MultiAZ")
-      <*> (x .@? "ReservedDBInstancesOfferingId")
-      <*> ( x .@? "RecurringCharges" .!@ mempty
-              >>= may (parseXMLList "RecurringCharge")
-          )
-      <*> (x .@? "OfferingType")
-      <*> (x .@? "UsagePrice")
-      <*> (x .@? "FixedPrice")
-      <*> (x .@? "Duration")
-
-instance Hashable ReservedDBInstancesOffering
-
-instance NFData ReservedDBInstancesOffering
+      Lude.<$> (x Lude..@? "CurrencyCode")
+      Lude.<*> (x Lude..@? "ProductDescription")
+      Lude.<*> (x Lude..@? "DBInstanceClass")
+      Lude.<*> (x Lude..@? "MultiAZ")
+      Lude.<*> (x Lude..@? "ReservedDBInstancesOfferingId")
+      Lude.<*> ( x Lude..@? "RecurringCharges" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "RecurringCharge")
+               )
+      Lude.<*> (x Lude..@? "OfferingType")
+      Lude.<*> (x Lude..@? "UsagePrice")
+      Lude.<*> (x Lude..@? "FixedPrice")
+      Lude.<*> (x Lude..@? "Duration")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,102 @@
 --
 -- Add tags to a CloudFront resource.
 module Network.AWS.CloudFront.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResource,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to add tags to a CloudFront resource.
 --
---
---
--- /See:/ 'tagResource' smart constructor.
+-- /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResource :: !Text,
-    _trTags :: !Tags
+  { resource :: Lude.Text,
+    tags :: Tags
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trResource' - An ARN of a CloudFront resource.
---
--- * 'trTags' - A complex type that contains zero or more @Tag@ elements.
-tagResource ::
-  -- | 'trResource'
-  Text ->
-  -- | 'trTags'
+-- * 'resource' - An ARN of a CloudFront resource.
+-- * 'tags' - A complex type that contains zero or more @Tag@ elements.
+mkTagResource ::
+  -- | 'resource'
+  Lude.Text ->
+  -- | 'tags'
   Tags ->
   TagResource
-tagResource pResource_ pTags_ =
-  TagResource' {_trResource = pResource_, _trTags = pTags_}
+mkTagResource pResource_ pTags_ =
+  TagResource' {resource = pResource_, tags = pTags_}
 
 -- | An ARN of a CloudFront resource.
-trResource :: Lens' TagResource Text
-trResource = lens _trResource (\s a -> s {_trResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResource :: Lens.Lens' TagResource Lude.Text
+trResource = Lens.lens (resource :: TagResource -> Lude.Text) (\s a -> s {resource = a} :: TagResource)
+{-# DEPRECATED trResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | A complex type that contains zero or more @Tag@ elements.
-trTags :: Lens' TagResource Tags
-trTags = lens _trTags (\s a -> s {_trTags = a})
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource Tags
+trTags = Lens.lens (tags :: TagResource -> Tags) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postXML cloudFront
-  response = receiveNull TagResourceResponse'
+  request = Req.postXML cloudFrontService
+  response = Res.receiveNull TagResourceResponse'
 
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToElement TagResource where
+instance Lude.ToElement TagResource where
   toElement =
-    mkElement "{http://cloudfront.amazonaws.com/doc/2020-05-31/}Tags"
-      . _trTags
+    Lude.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}Tags"
+      Lude.. tags
 
-instance ToHeaders TagResource where
-  toHeaders = const mempty
+instance Lude.ToHeaders TagResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath TagResource where
-  toPath = const "/2020-05-31/tagging"
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/2020-05-31/tagging"
 
-instance ToQuery TagResource where
+instance Lude.ToQuery TagResource where
   toQuery TagResource' {..} =
-    mconcat ["Resource" =: _trResource, "Operation=Tag"]
+    Lude.mconcat ["Resource" Lude.=: resource, "Operation=Tag"]
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
-tagResourceResponse ::
+mkTagResourceResponse ::
   TagResourceResponse
-tagResourceResponse = TagResourceResponse'
-
-instance NFData TagResourceResponse
+mkTagResourceResponse = TagResourceResponse'

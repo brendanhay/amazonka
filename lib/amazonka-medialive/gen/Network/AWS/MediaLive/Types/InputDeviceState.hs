@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceState where
+module Network.AWS.MediaLive.Types.InputDeviceState
+  ( InputDeviceState
+      ( InputDeviceState',
+        Idle,
+        Streaming
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The state of the input device.
-data InputDeviceState
-  = Idle
-  | Streaming
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputDeviceState = InputDeviceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputDeviceState where
-  parser =
-    takeLowerText >>= \case
-      "idle" -> pure Idle
-      "streaming" -> pure Streaming
-      e ->
-        fromTextError $
-          "Failure parsing InputDeviceState from value: '" <> e
-            <> "'. Accepted values: idle, streaming"
+pattern Idle :: InputDeviceState
+pattern Idle = InputDeviceState' "IDLE"
 
-instance ToText InputDeviceState where
-  toText = \case
-    Idle -> "IDLE"
-    Streaming -> "STREAMING"
+pattern Streaming :: InputDeviceState
+pattern Streaming = InputDeviceState' "STREAMING"
 
-instance Hashable InputDeviceState
-
-instance NFData InputDeviceState
-
-instance ToByteString InputDeviceState
-
-instance ToQuery InputDeviceState
-
-instance ToHeader InputDeviceState
-
-instance FromJSON InputDeviceState where
-  parseJSON = parseJSONText "InputDeviceState"
+{-# COMPLETE
+  Idle,
+  Streaming,
+  InputDeviceState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,140 @@
 --
 -- Detaches a policy from a target root, organizational unit (OU), or account.
 --
---
 -- /Important:/ If the policy being detached is a service control policy (SCP), the changes to permissions for AWS Identity and Access Management (IAM) users and roles in affected accounts are immediate.
---
 -- Every root, OU, and account must have at least one SCP attached. If you want to replace the default @FullAWSAccess@ policy with an SCP that limits the permissions that can be delegated, you must attach the replacement SCP before you can remove the default SCP. This is the authorization strategy of an "<https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_allowlist allow list> ". If you instead attach a second SCP and leave the @FullAWSAccess@ SCP still attached, and specify @"Effect": "Deny"@ in the second SCP to override the @"Effect": "Allow"@ in the @FullAWSAccess@ policy (or any other attached SCP), you're using the authorization strategy of a "<https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist deny list> ".
---
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.DetachPolicy
-  ( -- * Creating a Request
-    detachPolicy,
-    DetachPolicy,
+  ( -- * Creating a request
+    DetachPolicy (..),
+    mkDetachPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detPolicyId,
     detTargetId,
 
-    -- * Destructuring the Response
-    detachPolicyResponse,
-    DetachPolicyResponse,
+    -- * Destructuring the response
+    DetachPolicyResponse (..),
+    mkDetachPolicyResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachPolicy' smart constructor.
+-- | /See:/ 'mkDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { _detPolicyId :: !Text,
-    _detTargetId :: !Text
+  { policyId :: Lude.Text,
+    targetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyId' - The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
 --
--- * 'detPolicyId' - The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+-- * 'targetId' - The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
 --
--- * 'detTargetId' - The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.     * __Account__ - A string that consists of exactly 12 digits.     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-detachPolicy ::
-  -- | 'detPolicyId'
-  Text ->
-  -- | 'detTargetId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
+--
+--     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+--
+--
+--     * __Account__ - A string that consists of exactly 12 digits.
+--
+--
+--     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+mkDetachPolicy ::
+  -- | 'policyId'
+  Lude.Text ->
+  -- | 'targetId'
+  Lude.Text ->
   DetachPolicy
-detachPolicy pPolicyId_ pTargetId_ =
-  DetachPolicy'
-    { _detPolicyId = pPolicyId_,
-      _detTargetId = pTargetId_
-    }
+mkDetachPolicy pPolicyId_ pTargetId_ =
+  DetachPolicy' {policyId = pPolicyId_, targetId = pTargetId_}
 
--- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-detPolicyId :: Lens' DetachPolicy Text
-detPolicyId = lens _detPolicyId (\s a -> s {_detPolicyId = a})
+-- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detPolicyId :: Lens.Lens' DetachPolicy Lude.Text
+detPolicyId = Lens.lens (policyId :: DetachPolicy -> Lude.Text) (\s a -> s {policyId = a} :: DetachPolicy)
+{-# DEPRECATED detPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
--- | The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.     * __Account__ - A string that consists of exactly 12 digits.     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-detTargetId :: Lens' DetachPolicy Text
-detTargetId = lens _detTargetId (\s a -> s {_detTargetId = a})
+-- | The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
+--
+--     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+--
+--
+--     * __Account__ - A string that consists of exactly 12 digits.
+--
+--
+--     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--
+--
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detTargetId :: Lens.Lens' DetachPolicy Lude.Text
+detTargetId = Lens.lens (targetId :: DetachPolicy -> Lude.Text) (\s a -> s {targetId = a} :: DetachPolicy)
+{-# DEPRECATED detTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
-instance AWSRequest DetachPolicy where
+instance Lude.AWSRequest DetachPolicy where
   type Rs DetachPolicy = DetachPolicyResponse
-  request = postJSON organizations
-  response = receiveNull DetachPolicyResponse'
+  request = Req.postJSON organizationsService
+  response = Res.receiveNull DetachPolicyResponse'
 
-instance Hashable DetachPolicy
-
-instance NFData DetachPolicy
-
-instance ToHeaders DetachPolicy where
+instance Lude.ToHeaders DetachPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DetachPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.DetachPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetachPolicy where
+instance Lude.ToJSON DetachPolicy where
   toJSON DetachPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("PolicyId" .= _detPolicyId),
-            Just ("TargetId" .= _detTargetId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("PolicyId" Lude..= policyId),
+            Lude.Just ("TargetId" Lude..= targetId)
           ]
       )
 
-instance ToPath DetachPolicy where
-  toPath = const "/"
+instance Lude.ToPath DetachPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DetachPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DetachPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detachPolicyResponse' smart constructor.
+-- | /See:/ 'mkDetachPolicyResponse' smart constructor.
 data DetachPolicyResponse = DetachPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
-detachPolicyResponse ::
+mkDetachPolicyResponse ::
   DetachPolicyResponse
-detachPolicyResponse = DetachPolicyResponse'
-
-instance NFData DetachPolicyResponse
+mkDetachPolicyResponse = DetachPolicyResponse'

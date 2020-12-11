@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus where
+module Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
+  ( ConfigurationDeploymentStatus
+      ( ConfigurationDeploymentStatus',
+        CDSDeployed,
+        CDSFailed,
+        CDSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigurationDeploymentStatus
-  = CDSDeployed
-  | CDSFailed
-  | CDSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigurationDeploymentStatus = ConfigurationDeploymentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigurationDeploymentStatus where
-  parser =
-    takeLowerText >>= \case
-      "deployed" -> pure CDSDeployed
-      "failed" -> pure CDSFailed
-      "pending" -> pure CDSPending
-      e ->
-        fromTextError $
-          "Failure parsing ConfigurationDeploymentStatus from value: '" <> e
-            <> "'. Accepted values: deployed, failed, pending"
+pattern CDSDeployed :: ConfigurationDeploymentStatus
+pattern CDSDeployed = ConfigurationDeploymentStatus' "deployed"
 
-instance ToText ConfigurationDeploymentStatus where
-  toText = \case
-    CDSDeployed -> "deployed"
-    CDSFailed -> "failed"
-    CDSPending -> "pending"
+pattern CDSFailed :: ConfigurationDeploymentStatus
+pattern CDSFailed = ConfigurationDeploymentStatus' "failed"
 
-instance Hashable ConfigurationDeploymentStatus
+pattern CDSPending :: ConfigurationDeploymentStatus
+pattern CDSPending = ConfigurationDeploymentStatus' "pending"
 
-instance NFData ConfigurationDeploymentStatus
-
-instance ToByteString ConfigurationDeploymentStatus
-
-instance ToQuery ConfigurationDeploymentStatus
-
-instance ToHeader ConfigurationDeploymentStatus
-
-instance FromXML ConfigurationDeploymentStatus where
-  parseXML = parseXMLText "ConfigurationDeploymentStatus"
+{-# COMPLETE
+  CDSDeployed,
+  CDSFailed,
+  CDSPending,
+  ConfigurationDeploymentStatus'
+  #-}

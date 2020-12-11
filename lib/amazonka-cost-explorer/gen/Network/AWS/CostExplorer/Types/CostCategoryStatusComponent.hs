@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategoryStatusComponent where
+module Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
+  ( CostCategoryStatusComponent
+      ( CostCategoryStatusComponent',
+        CostExplorer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CostCategoryStatusComponent = CostExplorer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CostCategoryStatusComponent = CostCategoryStatusComponent' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CostCategoryStatusComponent where
-  parser =
-    takeLowerText >>= \case
-      "cost_explorer" -> pure CostExplorer
-      e ->
-        fromTextError $
-          "Failure parsing CostCategoryStatusComponent from value: '" <> e
-            <> "'. Accepted values: cost_explorer"
+pattern CostExplorer :: CostCategoryStatusComponent
+pattern CostExplorer = CostCategoryStatusComponent' "COST_EXPLORER"
 
-instance ToText CostCategoryStatusComponent where
-  toText = \case
-    CostExplorer -> "COST_EXPLORER"
-
-instance Hashable CostCategoryStatusComponent
-
-instance NFData CostCategoryStatusComponent
-
-instance ToByteString CostCategoryStatusComponent
-
-instance ToQuery CostCategoryStatusComponent
-
-instance ToHeader CostCategoryStatusComponent
-
-instance FromJSON CostCategoryStatusComponent where
-  parseJSON = parseJSONText "CostCategoryStatusComponent"
+{-# COMPLETE
+  CostExplorer,
+  CostCategoryStatusComponent'
+  #-}

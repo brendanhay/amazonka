@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.AnalyticsS3ExportFileFormat where
+module Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
+  ( AnalyticsS3ExportFileFormat
+      ( AnalyticsS3ExportFileFormat',
+        CSV
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data AnalyticsS3ExportFileFormat = CSV
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AnalyticsS3ExportFileFormat = AnalyticsS3ExportFileFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AnalyticsS3ExportFileFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      e ->
-        fromTextError $
-          "Failure parsing AnalyticsS3ExportFileFormat from value: '" <> e
-            <> "'. Accepted values: csv"
+pattern CSV :: AnalyticsS3ExportFileFormat
+pattern CSV = AnalyticsS3ExportFileFormat' "CSV"
 
-instance ToText AnalyticsS3ExportFileFormat where
-  toText = \case
-    CSV -> "CSV"
-
-instance Hashable AnalyticsS3ExportFileFormat
-
-instance NFData AnalyticsS3ExportFileFormat
-
-instance ToByteString AnalyticsS3ExportFileFormat
-
-instance ToQuery AnalyticsS3ExportFileFormat
-
-instance ToHeader AnalyticsS3ExportFileFormat
-
-instance FromXML AnalyticsS3ExportFileFormat where
-  parseXML = parseXMLText "AnalyticsS3ExportFileFormat"
-
-instance ToXML AnalyticsS3ExportFileFormat where
-  toXML = toXMLText
+{-# COMPLETE
+  CSV,
+  AnalyticsS3ExportFileFormat'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType where
+module Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType
+  ( CustomDomainConfigType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomDomainConfigType,
+
+    -- * Lenses
+    cdctCertificateARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
 --
---
---
--- /See:/ 'customDomainConfigType' smart constructor.
+-- /See:/ 'mkCustomDomainConfigType' smart constructor.
 newtype CustomDomainConfigType = CustomDomainConfigType'
-  { _cdctCertificateARN ::
-      Text
+  { certificateARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomDomainConfigType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdctCertificateARN' - The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
-customDomainConfigType ::
-  -- | 'cdctCertificateARN'
-  Text ->
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+mkCustomDomainConfigType ::
+  -- | 'certificateARN'
+  Lude.Text ->
   CustomDomainConfigType
-customDomainConfigType pCertificateARN_ =
-  CustomDomainConfigType' {_cdctCertificateARN = pCertificateARN_}
+mkCustomDomainConfigType pCertificateARN_ =
+  CustomDomainConfigType' {certificateARN = pCertificateARN_}
 
 -- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
-cdctCertificateARN :: Lens' CustomDomainConfigType Text
-cdctCertificateARN = lens _cdctCertificateARN (\s a -> s {_cdctCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdctCertificateARN :: Lens.Lens' CustomDomainConfigType Lude.Text
+cdctCertificateARN = Lens.lens (certificateARN :: CustomDomainConfigType -> Lude.Text) (\s a -> s {certificateARN = a} :: CustomDomainConfigType)
+{-# DEPRECATED cdctCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
-instance FromJSON CustomDomainConfigType where
+instance Lude.FromJSON CustomDomainConfigType where
   parseJSON =
-    withObject
+    Lude.withObject
       "CustomDomainConfigType"
-      (\x -> CustomDomainConfigType' <$> (x .: "CertificateArn"))
+      ( \x ->
+          CustomDomainConfigType' Lude.<$> (x Lude..: "CertificateArn")
+      )
 
-instance Hashable CustomDomainConfigType
-
-instance NFData CustomDomainConfigType
-
-instance ToJSON CustomDomainConfigType where
+instance Lude.ToJSON CustomDomainConfigType where
   toJSON CustomDomainConfigType' {..} =
-    object
-      (catMaybes [Just ("CertificateArn" .= _cdctCertificateARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CertificateArn" Lude..= certificateARN)]
+      )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns a list of the actions taken in a 'TestGridSession' .
 module Network.AWS.DeviceFarm.ListTestGridSessionActions
-  ( -- * Creating a Request
-    listTestGridSessionActions,
-    ListTestGridSessionActions,
+  ( -- * Creating a request
+    ListTestGridSessionActions (..),
+    mkListTestGridSessionActions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltgsaMaxResult,
     ltgsaNextToken,
     ltgsaSessionARN,
 
-    -- * Destructuring the Response
-    listTestGridSessionActionsResponse,
-    ListTestGridSessionActionsResponse,
+    -- * Destructuring the response
+    ListTestGridSessionActionsResponse (..),
+    mkListTestGridSessionActionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltgsarsActions,
     ltgsarsNextToken,
     ltgsarsResponseStatus,
@@ -40,139 +35,159 @@ module Network.AWS.DeviceFarm.ListTestGridSessionActions
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTestGridSessionActions' smart constructor.
+-- | /See:/ 'mkListTestGridSessionActions' smart constructor.
 data ListTestGridSessionActions = ListTestGridSessionActions'
-  { _ltgsaMaxResult ::
-      !(Maybe Nat),
-    _ltgsaNextToken :: !(Maybe Text),
-    _ltgsaSessionARN :: !Text
+  { maxResult ::
+      Lude.Maybe Lude.Natural,
+    nextToken :: Lude.Maybe Lude.Text,
+    sessionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessionActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgsaMaxResult' - The maximum number of sessions to return per response.
---
--- * 'ltgsaNextToken' - Pagination token.
---
--- * 'ltgsaSessionARN' - The ARN of the session to retrieve.
-listTestGridSessionActions ::
-  -- | 'ltgsaSessionARN'
-  Text ->
+-- * 'maxResult' - The maximum number of sessions to return per response.
+-- * 'nextToken' - Pagination token.
+-- * 'sessionARN' - The ARN of the session to retrieve.
+mkListTestGridSessionActions ::
+  -- | 'sessionARN'
+  Lude.Text ->
   ListTestGridSessionActions
-listTestGridSessionActions pSessionARN_ =
+mkListTestGridSessionActions pSessionARN_ =
   ListTestGridSessionActions'
-    { _ltgsaMaxResult = Nothing,
-      _ltgsaNextToken = Nothing,
-      _ltgsaSessionARN = pSessionARN_
+    { maxResult = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sessionARN = pSessionARN_
     }
 
 -- | The maximum number of sessions to return per response.
-ltgsaMaxResult :: Lens' ListTestGridSessionActions (Maybe Natural)
-ltgsaMaxResult = lens _ltgsaMaxResult (\s a -> s {_ltgsaMaxResult = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsaMaxResult :: Lens.Lens' ListTestGridSessionActions (Lude.Maybe Lude.Natural)
+ltgsaMaxResult = Lens.lens (maxResult :: ListTestGridSessionActions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResult = a} :: ListTestGridSessionActions)
+{-# DEPRECATED ltgsaMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
 
 -- | Pagination token.
-ltgsaNextToken :: Lens' ListTestGridSessionActions (Maybe Text)
-ltgsaNextToken = lens _ltgsaNextToken (\s a -> s {_ltgsaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsaNextToken :: Lens.Lens' ListTestGridSessionActions (Lude.Maybe Lude.Text)
+ltgsaNextToken = Lens.lens (nextToken :: ListTestGridSessionActions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionActions)
+{-# DEPRECATED ltgsaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ARN of the session to retrieve.
-ltgsaSessionARN :: Lens' ListTestGridSessionActions Text
-ltgsaSessionARN = lens _ltgsaSessionARN (\s a -> s {_ltgsaSessionARN = a})
+--
+-- /Note:/ Consider using 'sessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsaSessionARN :: Lens.Lens' ListTestGridSessionActions Lude.Text
+ltgsaSessionARN = Lens.lens (sessionARN :: ListTestGridSessionActions -> Lude.Text) (\s a -> s {sessionARN = a} :: ListTestGridSessionActions)
+{-# DEPRECATED ltgsaSessionARN "Use generic-lens or generic-optics with 'sessionARN' instead." #-}
 
-instance AWSRequest ListTestGridSessionActions where
+instance Lude.AWSRequest ListTestGridSessionActions where
   type
     Rs ListTestGridSessionActions =
       ListTestGridSessionActionsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTestGridSessionActionsResponse'
-            <$> (x .?> "actions" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "actions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTestGridSessionActions
-
-instance NFData ListTestGridSessionActions
-
-instance ToHeaders ListTestGridSessionActions where
+instance Lude.ToHeaders ListTestGridSessionActions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListTestGridSessionActions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DeviceFarm_20150623.ListTestGridSessionActions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTestGridSessionActions where
+instance Lude.ToJSON ListTestGridSessionActions where
   toJSON ListTestGridSessionActions' {..} =
-    object
-      ( catMaybes
-          [ ("maxResult" .=) <$> _ltgsaMaxResult,
-            ("nextToken" .=) <$> _ltgsaNextToken,
-            Just ("sessionArn" .= _ltgsaSessionARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maxResult" Lude..=) Lude.<$> maxResult,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("sessionArn" Lude..= sessionARN)
           ]
       )
 
-instance ToPath ListTestGridSessionActions where
-  toPath = const "/"
+instance Lude.ToPath ListTestGridSessionActions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTestGridSessionActions where
-  toQuery = const mempty
+instance Lude.ToQuery ListTestGridSessionActions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTestGridSessionActionsResponse' smart constructor.
+-- | /See:/ 'mkListTestGridSessionActionsResponse' smart constructor.
 data ListTestGridSessionActionsResponse = ListTestGridSessionActionsResponse'
-  { _ltgsarsActions ::
-      !( Maybe
-           [TestGridSessionAction]
-       ),
-    _ltgsarsNextToken ::
-      !(Maybe Text),
-    _ltgsarsResponseStatus ::
-      !Int
+  { actions ::
+      Lude.Maybe
+        [TestGridSessionAction],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessionActionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgsarsActions' - The action taken by the session.
---
--- * 'ltgsarsNextToken' - Pagination token.
---
--- * 'ltgsarsResponseStatus' - -- | The response status code.
-listTestGridSessionActionsResponse ::
-  -- | 'ltgsarsResponseStatus'
-  Int ->
+-- * 'actions' - The action taken by the session.
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+mkListTestGridSessionActionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTestGridSessionActionsResponse
-listTestGridSessionActionsResponse pResponseStatus_ =
+mkListTestGridSessionActionsResponse pResponseStatus_ =
   ListTestGridSessionActionsResponse'
-    { _ltgsarsActions = Nothing,
-      _ltgsarsNextToken = Nothing,
-      _ltgsarsResponseStatus = pResponseStatus_
+    { actions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The action taken by the session.
-ltgsarsActions :: Lens' ListTestGridSessionActionsResponse [TestGridSessionAction]
-ltgsarsActions = lens _ltgsarsActions (\s a -> s {_ltgsarsActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsarsActions :: Lens.Lens' ListTestGridSessionActionsResponse (Lude.Maybe [TestGridSessionAction])
+ltgsarsActions = Lens.lens (actions :: ListTestGridSessionActionsResponse -> Lude.Maybe [TestGridSessionAction]) (\s a -> s {actions = a} :: ListTestGridSessionActionsResponse)
+{-# DEPRECATED ltgsarsActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Pagination token.
-ltgsarsNextToken :: Lens' ListTestGridSessionActionsResponse (Maybe Text)
-ltgsarsNextToken = lens _ltgsarsNextToken (\s a -> s {_ltgsarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsarsNextToken :: Lens.Lens' ListTestGridSessionActionsResponse (Lude.Maybe Lude.Text)
+ltgsarsNextToken = Lens.lens (nextToken :: ListTestGridSessionActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionActionsResponse)
+{-# DEPRECATED ltgsarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltgsarsResponseStatus :: Lens' ListTestGridSessionActionsResponse Int
-ltgsarsResponseStatus = lens _ltgsarsResponseStatus (\s a -> s {_ltgsarsResponseStatus = a})
-
-instance NFData ListTestGridSessionActionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsarsResponseStatus :: Lens.Lens' ListTestGridSessionActionsResponse Lude.Int
+ltgsarsResponseStatus = Lens.lens (responseStatus :: ListTestGridSessionActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestGridSessionActionsResponse)
+{-# DEPRECATED ltgsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

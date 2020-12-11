@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the configuration of the report delivery schedule with the specified schedule ARN.
 module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
-  ( -- * Creating a Request
-    updateBusinessReportSchedule,
-    UpdateBusinessReportSchedule,
+  ( -- * Creating a request
+    UpdateBusinessReportSchedule (..),
+    mkUpdateBusinessReportSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubrsS3KeyPrefix,
     ubrsFormat,
     ubrsRecurrence,
@@ -31,158 +26,183 @@ module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
     ubrsS3BucketName,
     ubrsScheduleARN,
 
-    -- * Destructuring the Response
-    updateBusinessReportScheduleResponse,
-    UpdateBusinessReportScheduleResponse,
+    -- * Destructuring the response
+    UpdateBusinessReportScheduleResponse (..),
+    mkUpdateBusinessReportScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ubrsrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateBusinessReportSchedule' smart constructor.
+-- | /See:/ 'mkUpdateBusinessReportSchedule' smart constructor.
 data UpdateBusinessReportSchedule = UpdateBusinessReportSchedule'
-  { _ubrsS3KeyPrefix ::
-      !(Maybe Text),
-    _ubrsFormat ::
-      !(Maybe BusinessReportFormat),
-    _ubrsRecurrence ::
-      !(Maybe BusinessReportRecurrence),
-    _ubrsScheduleName ::
-      !(Maybe Text),
-    _ubrsS3BucketName ::
-      !(Maybe Text),
-    _ubrsScheduleARN :: !Text
+  { s3KeyPrefix ::
+      Lude.Maybe Lude.Text,
+    format ::
+      Lude.Maybe BusinessReportFormat,
+    recurrence ::
+      Lude.Maybe
+        BusinessReportRecurrence,
+    scheduleName ::
+      Lude.Maybe Lude.Text,
+    s3BucketName ::
+      Lude.Maybe Lude.Text,
+    scheduleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBusinessReportSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrsS3KeyPrefix' - The S3 key where the report is delivered.
---
--- * 'ubrsFormat' - The format of the generated report (individual CSV files or zipped files of individual files).
---
--- * 'ubrsRecurrence' - The recurrence of the reports.
---
--- * 'ubrsScheduleName' - The name identifier of the schedule.
---
--- * 'ubrsS3BucketName' - The S3 location of the output reports.
---
--- * 'ubrsScheduleARN' - The ARN of the business report schedule.
-updateBusinessReportSchedule ::
-  -- | 'ubrsScheduleARN'
-  Text ->
+-- * 'format' - The format of the generated report (individual CSV files or zipped files of individual files).
+-- * 'recurrence' - The recurrence of the reports.
+-- * 's3BucketName' - The S3 location of the output reports.
+-- * 's3KeyPrefix' - The S3 key where the report is delivered.
+-- * 'scheduleARN' - The ARN of the business report schedule.
+-- * 'scheduleName' - The name identifier of the schedule.
+mkUpdateBusinessReportSchedule ::
+  -- | 'scheduleARN'
+  Lude.Text ->
   UpdateBusinessReportSchedule
-updateBusinessReportSchedule pScheduleARN_ =
+mkUpdateBusinessReportSchedule pScheduleARN_ =
   UpdateBusinessReportSchedule'
-    { _ubrsS3KeyPrefix = Nothing,
-      _ubrsFormat = Nothing,
-      _ubrsRecurrence = Nothing,
-      _ubrsScheduleName = Nothing,
-      _ubrsS3BucketName = Nothing,
-      _ubrsScheduleARN = pScheduleARN_
+    { s3KeyPrefix = Lude.Nothing,
+      format = Lude.Nothing,
+      recurrence = Lude.Nothing,
+      scheduleName = Lude.Nothing,
+      s3BucketName = Lude.Nothing,
+      scheduleARN = pScheduleARN_
     }
 
 -- | The S3 key where the report is delivered.
-ubrsS3KeyPrefix :: Lens' UpdateBusinessReportSchedule (Maybe Text)
-ubrsS3KeyPrefix = lens _ubrsS3KeyPrefix (\s a -> s {_ubrsS3KeyPrefix = a})
+--
+-- /Note:/ Consider using 's3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsS3KeyPrefix :: Lens.Lens' UpdateBusinessReportSchedule (Lude.Maybe Lude.Text)
+ubrsS3KeyPrefix = Lens.lens (s3KeyPrefix :: UpdateBusinessReportSchedule -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
 -- | The format of the generated report (individual CSV files or zipped files of individual files).
-ubrsFormat :: Lens' UpdateBusinessReportSchedule (Maybe BusinessReportFormat)
-ubrsFormat = lens _ubrsFormat (\s a -> s {_ubrsFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsFormat :: Lens.Lens' UpdateBusinessReportSchedule (Lude.Maybe BusinessReportFormat)
+ubrsFormat = Lens.lens (format :: UpdateBusinessReportSchedule -> Lude.Maybe BusinessReportFormat) (\s a -> s {format = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The recurrence of the reports.
-ubrsRecurrence :: Lens' UpdateBusinessReportSchedule (Maybe BusinessReportRecurrence)
-ubrsRecurrence = lens _ubrsRecurrence (\s a -> s {_ubrsRecurrence = a})
+--
+-- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsRecurrence :: Lens.Lens' UpdateBusinessReportSchedule (Lude.Maybe BusinessReportRecurrence)
+ubrsRecurrence = Lens.lens (recurrence :: UpdateBusinessReportSchedule -> Lude.Maybe BusinessReportRecurrence) (\s a -> s {recurrence = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
 
 -- | The name identifier of the schedule.
-ubrsScheduleName :: Lens' UpdateBusinessReportSchedule (Maybe Text)
-ubrsScheduleName = lens _ubrsScheduleName (\s a -> s {_ubrsScheduleName = a})
+--
+-- /Note:/ Consider using 'scheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsScheduleName :: Lens.Lens' UpdateBusinessReportSchedule (Lude.Maybe Lude.Text)
+ubrsScheduleName = Lens.lens (scheduleName :: UpdateBusinessReportSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleName = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsScheduleName "Use generic-lens or generic-optics with 'scheduleName' instead." #-}
 
 -- | The S3 location of the output reports.
-ubrsS3BucketName :: Lens' UpdateBusinessReportSchedule (Maybe Text)
-ubrsS3BucketName = lens _ubrsS3BucketName (\s a -> s {_ubrsS3BucketName = a})
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsS3BucketName :: Lens.Lens' UpdateBusinessReportSchedule (Lude.Maybe Lude.Text)
+ubrsS3BucketName = Lens.lens (s3BucketName :: UpdateBusinessReportSchedule -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 -- | The ARN of the business report schedule.
-ubrsScheduleARN :: Lens' UpdateBusinessReportSchedule Text
-ubrsScheduleARN = lens _ubrsScheduleARN (\s a -> s {_ubrsScheduleARN = a})
+--
+-- /Note:/ Consider using 'scheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsScheduleARN :: Lens.Lens' UpdateBusinessReportSchedule Lude.Text
+ubrsScheduleARN = Lens.lens (scheduleARN :: UpdateBusinessReportSchedule -> Lude.Text) (\s a -> s {scheduleARN = a} :: UpdateBusinessReportSchedule)
+{-# DEPRECATED ubrsScheduleARN "Use generic-lens or generic-optics with 'scheduleARN' instead." #-}
 
-instance AWSRequest UpdateBusinessReportSchedule where
+instance Lude.AWSRequest UpdateBusinessReportSchedule where
   type
     Rs UpdateBusinessReportSchedule =
       UpdateBusinessReportScheduleResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateBusinessReportScheduleResponse' <$> (pure (fromEnum s))
+          UpdateBusinessReportScheduleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateBusinessReportSchedule
-
-instance NFData UpdateBusinessReportSchedule
-
-instance ToHeaders UpdateBusinessReportSchedule where
+instance Lude.ToHeaders UpdateBusinessReportSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.UpdateBusinessReportSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.UpdateBusinessReportSchedule" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateBusinessReportSchedule where
+instance Lude.ToJSON UpdateBusinessReportSchedule where
   toJSON UpdateBusinessReportSchedule' {..} =
-    object
-      ( catMaybes
-          [ ("S3KeyPrefix" .=) <$> _ubrsS3KeyPrefix,
-            ("Format" .=) <$> _ubrsFormat,
-            ("Recurrence" .=) <$> _ubrsRecurrence,
-            ("ScheduleName" .=) <$> _ubrsScheduleName,
-            ("S3BucketName" .=) <$> _ubrsS3BucketName,
-            Just ("ScheduleArn" .= _ubrsScheduleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3KeyPrefix" Lude..=) Lude.<$> s3KeyPrefix,
+            ("Format" Lude..=) Lude.<$> format,
+            ("Recurrence" Lude..=) Lude.<$> recurrence,
+            ("ScheduleName" Lude..=) Lude.<$> scheduleName,
+            ("S3BucketName" Lude..=) Lude.<$> s3BucketName,
+            Lude.Just ("ScheduleArn" Lude..= scheduleARN)
           ]
       )
 
-instance ToPath UpdateBusinessReportSchedule where
-  toPath = const "/"
+instance Lude.ToPath UpdateBusinessReportSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateBusinessReportSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBusinessReportSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateBusinessReportScheduleResponse' smart constructor.
+-- | /See:/ 'mkUpdateBusinessReportScheduleResponse' smart constructor.
 newtype UpdateBusinessReportScheduleResponse = UpdateBusinessReportScheduleResponse'
-  { _ubrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBusinessReportScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrsrsResponseStatus' - -- | The response status code.
-updateBusinessReportScheduleResponse ::
-  -- | 'ubrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateBusinessReportScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateBusinessReportScheduleResponse
-updateBusinessReportScheduleResponse pResponseStatus_ =
+mkUpdateBusinessReportScheduleResponse pResponseStatus_ =
   UpdateBusinessReportScheduleResponse'
-    { _ubrsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ubrsrsResponseStatus :: Lens' UpdateBusinessReportScheduleResponse Int
-ubrsrsResponseStatus = lens _ubrsrsResponseStatus (\s a -> s {_ubrsrsResponseStatus = a})
-
-instance NFData UpdateBusinessReportScheduleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsrsResponseStatus :: Lens.Lens' UpdateBusinessReportScheduleResponse Lude.Int
+ubrsrsResponseStatus = Lens.lens (responseStatus :: UpdateBusinessReportScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBusinessReportScheduleResponse)
+{-# DEPRECATED ubrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

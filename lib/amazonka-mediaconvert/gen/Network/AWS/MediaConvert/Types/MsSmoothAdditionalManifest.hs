@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest where
+module Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
+  ( MsSmoothAdditionalManifest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMsSmoothAdditionalManifest,
+
+    -- * Lenses
+    msamManifestNameModifier,
+    msamSelectedOutputs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
 --
--- /See:/ 'msSmoothAdditionalManifest' smart constructor.
+-- /See:/ 'mkMsSmoothAdditionalManifest' smart constructor.
 data MsSmoothAdditionalManifest = MsSmoothAdditionalManifest'
-  { _msamManifestNameModifier ::
-      !(Maybe Text),
-    _msamSelectedOutputs ::
-      !(Maybe [Text])
+  { manifestNameModifier ::
+      Lude.Maybe Lude.Text,
+    selectedOutputs ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MsSmoothAdditionalManifest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msamManifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
---
--- * 'msamSelectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
-msSmoothAdditionalManifest ::
+-- * 'manifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
+-- * 'selectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
+mkMsSmoothAdditionalManifest ::
   MsSmoothAdditionalManifest
-msSmoothAdditionalManifest =
+mkMsSmoothAdditionalManifest =
   MsSmoothAdditionalManifest'
-    { _msamManifestNameModifier = Nothing,
-      _msamSelectedOutputs = Nothing
+    { manifestNameModifier = Lude.Nothing,
+      selectedOutputs = Lude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
-msamManifestNameModifier :: Lens' MsSmoothAdditionalManifest (Maybe Text)
-msamManifestNameModifier = lens _msamManifestNameModifier (\s a -> s {_msamManifestNameModifier = a})
+--
+-- /Note:/ Consider using 'manifestNameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msamManifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Lude.Maybe Lude.Text)
+msamManifestNameModifier = Lens.lens (manifestNameModifier :: MsSmoothAdditionalManifest -> Lude.Maybe Lude.Text) (\s a -> s {manifestNameModifier = a} :: MsSmoothAdditionalManifest)
+{-# DEPRECATED msamManifestNameModifier "Use generic-lens or generic-optics with 'manifestNameModifier' instead." #-}
 
 -- | Specify the outputs that you want this additional top-level manifest to reference.
-msamSelectedOutputs :: Lens' MsSmoothAdditionalManifest [Text]
-msamSelectedOutputs = lens _msamSelectedOutputs (\s a -> s {_msamSelectedOutputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'selectedOutputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msamSelectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Lude.Maybe [Lude.Text])
+msamSelectedOutputs = Lens.lens (selectedOutputs :: MsSmoothAdditionalManifest -> Lude.Maybe [Lude.Text]) (\s a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest)
+{-# DEPRECATED msamSelectedOutputs "Use generic-lens or generic-optics with 'selectedOutputs' instead." #-}
 
-instance FromJSON MsSmoothAdditionalManifest where
+instance Lude.FromJSON MsSmoothAdditionalManifest where
   parseJSON =
-    withObject
+    Lude.withObject
       "MsSmoothAdditionalManifest"
       ( \x ->
           MsSmoothAdditionalManifest'
-            <$> (x .:? "manifestNameModifier")
-            <*> (x .:? "selectedOutputs" .!= mempty)
+            Lude.<$> (x Lude..:? "manifestNameModifier")
+            Lude.<*> (x Lude..:? "selectedOutputs" Lude..!= Lude.mempty)
       )
 
-instance Hashable MsSmoothAdditionalManifest
-
-instance NFData MsSmoothAdditionalManifest
-
-instance ToJSON MsSmoothAdditionalManifest where
+instance Lude.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =
-    object
-      ( catMaybes
-          [ ("manifestNameModifier" .=) <$> _msamManifestNameModifier,
-            ("selectedOutputs" .=) <$> _msamSelectedOutputs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("manifestNameModifier" Lude..=) Lude.<$> manifestNameModifier,
+            ("selectedOutputs" Lude..=) Lude.<$> selectedOutputs
           ]
       )

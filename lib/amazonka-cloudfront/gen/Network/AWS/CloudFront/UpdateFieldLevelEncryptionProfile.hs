@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Update a field-level encryption profile.
 module Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
-  ( -- * Creating a Request
-    updateFieldLevelEncryptionProfile,
-    UpdateFieldLevelEncryptionProfile,
+  ( -- * Creating a request
+    UpdateFieldLevelEncryptionProfile (..),
+    mkUpdateFieldLevelEncryptionProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uflepIfMatch,
     uflepFieldLevelEncryptionProfileConfig,
     uflepId,
 
-    -- * Destructuring the Response
-    updateFieldLevelEncryptionProfileResponse,
-    UpdateFieldLevelEncryptionProfileResponse,
+    -- * Destructuring the response
+    UpdateFieldLevelEncryptionProfileResponse (..),
+    mkUpdateFieldLevelEncryptionProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufleprsETag,
     ufleprsFieldLevelEncryptionProfile,
     ufleprsResponseStatus,
@@ -40,148 +35,158 @@ module Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFieldLevelEncryptionProfile' smart constructor.
+-- | /See:/ 'mkUpdateFieldLevelEncryptionProfile' smart constructor.
 data UpdateFieldLevelEncryptionProfile = UpdateFieldLevelEncryptionProfile'
-  { _uflepIfMatch ::
-      !(Maybe Text),
-    _uflepFieldLevelEncryptionProfileConfig ::
-      !FieldLevelEncryptionProfileConfig,
-    _uflepId :: !Text
+  { ifMatch ::
+      Lude.Maybe Lude.Text,
+    fieldLevelEncryptionProfileConfig ::
+      FieldLevelEncryptionProfileConfig,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uflepIfMatch' - The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'uflepFieldLevelEncryptionProfileConfig' - Request to update a field-level encryption profile.
---
--- * 'uflepId' - The ID of the field-level encryption profile request.
-updateFieldLevelEncryptionProfile ::
-  -- | 'uflepFieldLevelEncryptionProfileConfig'
+-- * 'fieldLevelEncryptionProfileConfig' - Request to update a field-level encryption profile.
+-- * 'id' - The ID of the field-level encryption profile request.
+-- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
+mkUpdateFieldLevelEncryptionProfile ::
+  -- | 'fieldLevelEncryptionProfileConfig'
   FieldLevelEncryptionProfileConfig ->
-  -- | 'uflepId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdateFieldLevelEncryptionProfile
-updateFieldLevelEncryptionProfile
+mkUpdateFieldLevelEncryptionProfile
   pFieldLevelEncryptionProfileConfig_
   pId_ =
     UpdateFieldLevelEncryptionProfile'
-      { _uflepIfMatch = Nothing,
-        _uflepFieldLevelEncryptionProfileConfig =
+      { ifMatch = Lude.Nothing,
+        fieldLevelEncryptionProfileConfig =
           pFieldLevelEncryptionProfileConfig_,
-        _uflepId = pId_
+        id = pId_
       }
 
 -- | The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
-uflepIfMatch :: Lens' UpdateFieldLevelEncryptionProfile (Maybe Text)
-uflepIfMatch = lens _uflepIfMatch (\s a -> s {_uflepIfMatch = a})
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uflepIfMatch :: Lens.Lens' UpdateFieldLevelEncryptionProfile (Lude.Maybe Lude.Text)
+uflepIfMatch = Lens.lens (ifMatch :: UpdateFieldLevelEncryptionProfile -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateFieldLevelEncryptionProfile)
+{-# DEPRECATED uflepIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | Request to update a field-level encryption profile.
-uflepFieldLevelEncryptionProfileConfig :: Lens' UpdateFieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
-uflepFieldLevelEncryptionProfileConfig = lens _uflepFieldLevelEncryptionProfileConfig (\s a -> s {_uflepFieldLevelEncryptionProfileConfig = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uflepFieldLevelEncryptionProfileConfig :: Lens.Lens' UpdateFieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
+uflepFieldLevelEncryptionProfileConfig = Lens.lens (fieldLevelEncryptionProfileConfig :: UpdateFieldLevelEncryptionProfile -> FieldLevelEncryptionProfileConfig) (\s a -> s {fieldLevelEncryptionProfileConfig = a} :: UpdateFieldLevelEncryptionProfile)
+{-# DEPRECATED uflepFieldLevelEncryptionProfileConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileConfig' instead." #-}
 
 -- | The ID of the field-level encryption profile request.
-uflepId :: Lens' UpdateFieldLevelEncryptionProfile Text
-uflepId = lens _uflepId (\s a -> s {_uflepId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uflepId :: Lens.Lens' UpdateFieldLevelEncryptionProfile Lude.Text
+uflepId = Lens.lens (id :: UpdateFieldLevelEncryptionProfile -> Lude.Text) (\s a -> s {id = a} :: UpdateFieldLevelEncryptionProfile)
+{-# DEPRECATED uflepId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateFieldLevelEncryptionProfile where
+instance Lude.AWSRequest UpdateFieldLevelEncryptionProfile where
   type
     Rs UpdateFieldLevelEncryptionProfile =
       UpdateFieldLevelEncryptionProfileResponse
-  request = putXML cloudFront
+  request = Req.putXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateFieldLevelEncryptionProfileResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateFieldLevelEncryptionProfile
-
-instance NFData UpdateFieldLevelEncryptionProfile
-
-instance ToElement UpdateFieldLevelEncryptionProfile where
+instance Lude.ToElement UpdateFieldLevelEncryptionProfile where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}FieldLevelEncryptionProfileConfig"
-      . _uflepFieldLevelEncryptionProfileConfig
+      Lude.. fieldLevelEncryptionProfileConfig
 
-instance ToHeaders UpdateFieldLevelEncryptionProfile where
+instance Lude.ToHeaders UpdateFieldLevelEncryptionProfile where
   toHeaders UpdateFieldLevelEncryptionProfile' {..} =
-    mconcat ["If-Match" =# _uflepIfMatch]
+    Lude.mconcat ["If-Match" Lude.=# ifMatch]
 
-instance ToPath UpdateFieldLevelEncryptionProfile where
+instance Lude.ToPath UpdateFieldLevelEncryptionProfile where
   toPath UpdateFieldLevelEncryptionProfile' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
-        toBS _uflepId,
+        Lude.toBS id,
         "/config"
       ]
 
-instance ToQuery UpdateFieldLevelEncryptionProfile where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFieldLevelEncryptionProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFieldLevelEncryptionProfileResponse' smart constructor.
+-- | /See:/ 'mkUpdateFieldLevelEncryptionProfileResponse' smart constructor.
 data UpdateFieldLevelEncryptionProfileResponse = UpdateFieldLevelEncryptionProfileResponse'
-  { _ufleprsETag ::
-      !( Maybe
-           Text
-       ),
-    _ufleprsFieldLevelEncryptionProfile ::
-      !( Maybe
-           FieldLevelEncryptionProfile
-       ),
-    _ufleprsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    fieldLevelEncryptionProfile ::
+      Lude.Maybe
+        FieldLevelEncryptionProfile,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufleprsETag' - The result of the field-level encryption profile request.
---
--- * 'ufleprsFieldLevelEncryptionProfile' - Return the results of updating the profile.
---
--- * 'ufleprsResponseStatus' - -- | The response status code.
-updateFieldLevelEncryptionProfileResponse ::
-  -- | 'ufleprsResponseStatus'
-  Int ->
+-- * 'eTag' - The result of the field-level encryption profile request.
+-- * 'fieldLevelEncryptionProfile' - Return the results of updating the profile.
+-- * 'responseStatus' - The response status code.
+mkUpdateFieldLevelEncryptionProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFieldLevelEncryptionProfileResponse
-updateFieldLevelEncryptionProfileResponse pResponseStatus_ =
+mkUpdateFieldLevelEncryptionProfileResponse pResponseStatus_ =
   UpdateFieldLevelEncryptionProfileResponse'
-    { _ufleprsETag =
-        Nothing,
-      _ufleprsFieldLevelEncryptionProfile = Nothing,
-      _ufleprsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      fieldLevelEncryptionProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The result of the field-level encryption profile request.
-ufleprsETag :: Lens' UpdateFieldLevelEncryptionProfileResponse (Maybe Text)
-ufleprsETag = lens _ufleprsETag (\s a -> s {_ufleprsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufleprsETag :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse (Lude.Maybe Lude.Text)
+ufleprsETag = Lens.lens (eTag :: UpdateFieldLevelEncryptionProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateFieldLevelEncryptionProfileResponse)
+{-# DEPRECATED ufleprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Return the results of updating the profile.
-ufleprsFieldLevelEncryptionProfile :: Lens' UpdateFieldLevelEncryptionProfileResponse (Maybe FieldLevelEncryptionProfile)
-ufleprsFieldLevelEncryptionProfile = lens _ufleprsFieldLevelEncryptionProfile (\s a -> s {_ufleprsFieldLevelEncryptionProfile = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufleprsFieldLevelEncryptionProfile :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse (Lude.Maybe FieldLevelEncryptionProfile)
+ufleprsFieldLevelEncryptionProfile = Lens.lens (fieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfileResponse -> Lude.Maybe FieldLevelEncryptionProfile) (\s a -> s {fieldLevelEncryptionProfile = a} :: UpdateFieldLevelEncryptionProfileResponse)
+{-# DEPRECATED ufleprsFieldLevelEncryptionProfile "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfile' instead." #-}
 
--- | -- | The response status code.
-ufleprsResponseStatus :: Lens' UpdateFieldLevelEncryptionProfileResponse Int
-ufleprsResponseStatus = lens _ufleprsResponseStatus (\s a -> s {_ufleprsResponseStatus = a})
-
-instance NFData UpdateFieldLevelEncryptionProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufleprsResponseStatus :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse Lude.Int
+ufleprsResponseStatus = Lens.lens (responseStatus :: UpdateFieldLevelEncryptionProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFieldLevelEncryptionProfileResponse)
+{-# DEPRECATED ufleprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

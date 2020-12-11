@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ActiveContextTimeToLive where
+module Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
+  ( ActiveContextTimeToLive (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActiveContextTimeToLive,
+
+    -- * Lenses
+    acttlTurnsToLive,
+    acttlTimeToLiveInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The length of time or number of turns that a context remains active.
 --
---
---
--- /See:/ 'activeContextTimeToLive' smart constructor.
+-- /See:/ 'mkActiveContextTimeToLive' smart constructor.
 data ActiveContextTimeToLive = ActiveContextTimeToLive'
-  { _acttlTurnsToLive ::
-      !(Maybe Nat),
-    _acttlTimeToLiveInSeconds :: !(Maybe Nat)
+  { turnsToLive ::
+      Lude.Maybe Lude.Natural,
+    timeToLiveInSeconds ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveContextTimeToLive' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acttlTurnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
---
--- * 'acttlTimeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
-activeContextTimeToLive ::
+-- * 'timeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
+-- * 'turnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+mkActiveContextTimeToLive ::
   ActiveContextTimeToLive
-activeContextTimeToLive =
+mkActiveContextTimeToLive =
   ActiveContextTimeToLive'
-    { _acttlTurnsToLive = Nothing,
-      _acttlTimeToLiveInSeconds = Nothing
+    { turnsToLive = Lude.Nothing,
+      timeToLiveInSeconds = Lude.Nothing
     }
 
 -- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
-acttlTurnsToLive :: Lens' ActiveContextTimeToLive (Maybe Natural)
-acttlTurnsToLive = lens _acttlTurnsToLive (\s a -> s {_acttlTurnsToLive = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'turnsToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acttlTurnsToLive :: Lens.Lens' ActiveContextTimeToLive (Lude.Maybe Lude.Natural)
+acttlTurnsToLive = Lens.lens (turnsToLive :: ActiveContextTimeToLive -> Lude.Maybe Lude.Natural) (\s a -> s {turnsToLive = a} :: ActiveContextTimeToLive)
+{-# DEPRECATED acttlTurnsToLive "Use generic-lens or generic-optics with 'turnsToLive' instead." #-}
 
 -- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
-acttlTimeToLiveInSeconds :: Lens' ActiveContextTimeToLive (Maybe Natural)
-acttlTimeToLiveInSeconds = lens _acttlTimeToLiveInSeconds (\s a -> s {_acttlTimeToLiveInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeToLiveInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acttlTimeToLiveInSeconds :: Lens.Lens' ActiveContextTimeToLive (Lude.Maybe Lude.Natural)
+acttlTimeToLiveInSeconds = Lens.lens (timeToLiveInSeconds :: ActiveContextTimeToLive -> Lude.Maybe Lude.Natural) (\s a -> s {timeToLiveInSeconds = a} :: ActiveContextTimeToLive)
+{-# DEPRECATED acttlTimeToLiveInSeconds "Use generic-lens or generic-optics with 'timeToLiveInSeconds' instead." #-}
 
-instance FromJSON ActiveContextTimeToLive where
+instance Lude.FromJSON ActiveContextTimeToLive where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActiveContextTimeToLive"
       ( \x ->
           ActiveContextTimeToLive'
-            <$> (x .:? "turnsToLive") <*> (x .:? "timeToLiveInSeconds")
+            Lude.<$> (x Lude..:? "turnsToLive")
+            Lude.<*> (x Lude..:? "timeToLiveInSeconds")
       )
 
-instance Hashable ActiveContextTimeToLive
-
-instance NFData ActiveContextTimeToLive
-
-instance ToJSON ActiveContextTimeToLive where
+instance Lude.ToJSON ActiveContextTimeToLive where
   toJSON ActiveContextTimeToLive' {..} =
-    object
-      ( catMaybes
-          [ ("turnsToLive" .=) <$> _acttlTurnsToLive,
-            ("timeToLiveInSeconds" .=) <$> _acttlTimeToLiveInSeconds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("turnsToLive" Lude..=) Lude.<$> turnsToLive,
+            ("timeToLiveInSeconds" Lude..=) Lude.<$> timeToLiveInSeconds
           ]
       )

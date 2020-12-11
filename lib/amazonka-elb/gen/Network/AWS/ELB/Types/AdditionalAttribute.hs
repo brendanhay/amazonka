@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.AdditionalAttribute where
+module Network.AWS.ELB.Types.AdditionalAttribute
+  ( AdditionalAttribute (..),
+
+    -- * Smart constructor
+    mkAdditionalAttribute,
+
+    -- * Lenses
+    aaValue,
+    aaKey,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about additional load balancer attributes.
 --
---
---
--- /See:/ 'additionalAttribute' smart constructor.
+-- /See:/ 'mkAdditionalAttribute' smart constructor.
 data AdditionalAttribute = AdditionalAttribute'
-  { _aaValue ::
-      !(Maybe Text),
-    _aaKey :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdditionalAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The name of the attribute.
 --
--- * 'aaValue' - This value of the attribute.
+-- The following attribute is supported.
 --
--- * 'aaKey' - The name of the attribute. The following attribute is supported.     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
-additionalAttribute ::
+--     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
+--
+--
+-- * 'value' - This value of the attribute.
+mkAdditionalAttribute ::
   AdditionalAttribute
-additionalAttribute =
-  AdditionalAttribute' {_aaValue = Nothing, _aaKey = Nothing}
+mkAdditionalAttribute =
+  AdditionalAttribute' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | This value of the attribute.
-aaValue :: Lens' AdditionalAttribute (Maybe Text)
-aaValue = lens _aaValue (\s a -> s {_aaValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaValue :: Lens.Lens' AdditionalAttribute (Lude.Maybe Lude.Text)
+aaValue = Lens.lens (value :: AdditionalAttribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AdditionalAttribute)
+{-# DEPRECATED aaValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The name of the attribute. The following attribute is supported.     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
-aaKey :: Lens' AdditionalAttribute (Maybe Text)
-aaKey = lens _aaKey (\s a -> s {_aaKey = a})
+-- | The name of the attribute.
+--
+-- The following attribute is supported.
+--
+--     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
+--
+--
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaKey :: Lens.Lens' AdditionalAttribute (Lude.Maybe Lude.Text)
+aaKey = Lens.lens (key :: AdditionalAttribute -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: AdditionalAttribute)
+{-# DEPRECATED aaKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromXML AdditionalAttribute where
+instance Lude.FromXML AdditionalAttribute where
   parseXML x =
-    AdditionalAttribute' <$> (x .@? "Value") <*> (x .@? "Key")
+    AdditionalAttribute'
+      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Key")
 
-instance Hashable AdditionalAttribute
-
-instance NFData AdditionalAttribute
-
-instance ToQuery AdditionalAttribute where
+instance Lude.ToQuery AdditionalAttribute where
   toQuery AdditionalAttribute' {..} =
-    mconcat ["Value" =: _aaValue, "Key" =: _aaKey]
+    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]

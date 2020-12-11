@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,196 @@
 --
 -- Returns a list of parameter settings for the specified parameter group family.
 --
---
 -- For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
-  ( -- * Creating a Request
-    describeDefaultClusterParameters,
-    DescribeDefaultClusterParameters,
+  ( -- * Creating a request
+    DescribeDefaultClusterParameters (..),
+    mkDescribeDefaultClusterParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcpMarker,
     ddcpMaxRecords,
     ddcpParameterGroupFamily,
 
-    -- * Destructuring the Response
-    describeDefaultClusterParametersResponse,
-    DescribeDefaultClusterParametersResponse,
+    -- * Destructuring the response
+    DescribeDefaultClusterParametersResponse (..),
+    mkDescribeDefaultClusterParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcprsResponseStatus,
     ddcprsDefaultClusterParameters,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeDefaultClusterParameters' smart constructor.
+-- /See:/ 'mkDescribeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-  { _ddcpMarker ::
-      !(Maybe Text),
-    _ddcpMaxRecords ::
-      !(Maybe Int),
-    _ddcpParameterGroupFamily ::
-      !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int,
+    parameterGroupFamily ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultClusterParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeDefaultClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+-- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
--- * 'ddcpMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeDefaultClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- * 'ddcpMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
---
--- * 'ddcpParameterGroupFamily' - The name of the cluster parameter group family.
-describeDefaultClusterParameters ::
-  -- | 'ddcpParameterGroupFamily'
-  Text ->
+-- Default: @100@
+-- Constraints: minimum 20, maximum 100.
+-- * 'parameterGroupFamily' - The name of the cluster parameter group family.
+mkDescribeDefaultClusterParameters ::
+  -- | 'parameterGroupFamily'
+  Lude.Text ->
   DescribeDefaultClusterParameters
-describeDefaultClusterParameters pParameterGroupFamily_ =
+mkDescribeDefaultClusterParameters pParameterGroupFamily_ =
   DescribeDefaultClusterParameters'
-    { _ddcpMarker = Nothing,
-      _ddcpMaxRecords = Nothing,
-      _ddcpParameterGroupFamily = pParameterGroupFamily_
+    { marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      parameterGroupFamily = pParameterGroupFamily_
     }
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeDefaultClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcpMarker = lens _ddcpMarker (\s a -> s {_ddcpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcpMarker :: Lens.Lens' DescribeDefaultClusterParameters (Lude.Maybe Lude.Text)
+ddcpMarker = Lens.lens (marker :: DescribeDefaultClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDefaultClusterParameters)
+{-# DEPRECATED ddcpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
-ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
-ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s {_ddcpMaxRecords = a})
+-- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+--
+-- Default: @100@
+-- Constraints: minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcpMaxRecords :: Lens.Lens' DescribeDefaultClusterParameters (Lude.Maybe Lude.Int)
+ddcpMaxRecords = Lens.lens (maxRecords :: DescribeDefaultClusterParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDefaultClusterParameters)
+{-# DEPRECATED ddcpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of the cluster parameter group family.
-ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
-ddcpParameterGroupFamily = lens _ddcpParameterGroupFamily (\s a -> s {_ddcpParameterGroupFamily = a})
+--
+-- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcpParameterGroupFamily :: Lens.Lens' DescribeDefaultClusterParameters Lude.Text
+ddcpParameterGroupFamily = Lens.lens (parameterGroupFamily :: DescribeDefaultClusterParameters -> Lude.Text) (\s a -> s {parameterGroupFamily = a} :: DescribeDefaultClusterParameters)
+{-# DEPRECATED ddcpParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
 
-instance AWSPager DescribeDefaultClusterParameters where
+instance Page.AWSPager DescribeDefaultClusterParameters where
   page rq rs
-    | stop (rs ^? ddcprsDefaultClusterParameters . dcpMarker . _Just) =
-      Nothing
-    | stop (rs ^. ddcprsDefaultClusterParameters . dcpParameters) =
-      Nothing
-    | otherwise =
-      Just $
+    | Page.stop
+        ( rs
+            Lens.^? ddcprsDefaultClusterParameters Lude.. dcpMarker Lude.. Lens._Just
+        ) =
+      Lude.Nothing
+    | Page.stop
+        ( rs
+            Lens.^? ddcprsDefaultClusterParameters
+              Lude.. dcpParameters
+              Lude.. Lens._Just
+        ) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
         rq
-          & ddcpMarker
-          .~ rs ^? ddcprsDefaultClusterParameters . dcpMarker . _Just
+          Lude.& ddcpMarker
+          Lens..~ rs
+          Lens.^? ddcprsDefaultClusterParameters Lude.. dcpMarker Lude.. Lens._Just
 
-instance AWSRequest DescribeDefaultClusterParameters where
+instance Lude.AWSRequest DescribeDefaultClusterParameters where
   type
     Rs DescribeDefaultClusterParameters =
       DescribeDefaultClusterParametersResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDefaultClusterParametersResult"
       ( \s h x ->
           DescribeDefaultClusterParametersResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "DefaultClusterParameters")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "DefaultClusterParameters")
       )
 
-instance Hashable DescribeDefaultClusterParameters
+instance Lude.ToHeaders DescribeDefaultClusterParameters where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDefaultClusterParameters
+instance Lude.ToPath DescribeDefaultClusterParameters where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDefaultClusterParameters where
-  toHeaders = const mempty
-
-instance ToPath DescribeDefaultClusterParameters where
-  toPath = const "/"
-
-instance ToQuery DescribeDefaultClusterParameters where
+instance Lude.ToQuery DescribeDefaultClusterParameters where
   toQuery DescribeDefaultClusterParameters' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDefaultClusterParameters" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "Marker" =: _ddcpMarker,
-        "MaxRecords" =: _ddcpMaxRecords,
-        "ParameterGroupFamily" =: _ddcpParameterGroupFamily
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeDefaultClusterParameters" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "ParameterGroupFamily" Lude.=: parameterGroupFamily
       ]
 
--- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
+-- | /See:/ 'mkDescribeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-  { _ddcprsResponseStatus ::
-      !Int,
-    _ddcprsDefaultClusterParameters ::
-      !DefaultClusterParameters
+  { responseStatus ::
+      Lude.Int,
+    defaultClusterParameters ::
+      DefaultClusterParameters
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultClusterParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcprsResponseStatus' - -- | The response status code.
---
--- * 'ddcprsDefaultClusterParameters' - Undocumented member.
-describeDefaultClusterParametersResponse ::
-  -- | 'ddcprsResponseStatus'
-  Int ->
-  -- | 'ddcprsDefaultClusterParameters'
+-- * 'defaultClusterParameters' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeDefaultClusterParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'defaultClusterParameters'
   DefaultClusterParameters ->
   DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse
+mkDescribeDefaultClusterParametersResponse
   pResponseStatus_
   pDefaultClusterParameters_ =
     DescribeDefaultClusterParametersResponse'
-      { _ddcprsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _ddcprsDefaultClusterParameters =
-          pDefaultClusterParameters_
+        defaultClusterParameters = pDefaultClusterParameters_
       }
 
--- | -- | The response status code.
-ddcprsResponseStatus :: Lens' DescribeDefaultClusterParametersResponse Int
-ddcprsResponseStatus = lens _ddcprsResponseStatus (\s a -> s {_ddcprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcprsResponseStatus :: Lens.Lens' DescribeDefaultClusterParametersResponse Lude.Int
+ddcprsResponseStatus = Lens.lens (responseStatus :: DescribeDefaultClusterParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDefaultClusterParametersResponse)
+{-# DEPRECATED ddcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
-ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\s a -> s {_ddcprsDefaultClusterParameters = a})
-
-instance NFData DescribeDefaultClusterParametersResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'defaultClusterParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcprsDefaultClusterParameters :: Lens.Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
+ddcprsDefaultClusterParameters = Lens.lens (defaultClusterParameters :: DescribeDefaultClusterParametersResponse -> DefaultClusterParameters) (\s a -> s {defaultClusterParameters = a} :: DescribeDefaultClusterParametersResponse)
+{-# DEPRECATED ddcprsDefaultClusterParameters "Use generic-lens or generic-optics with 'defaultClusterParameters' instead." #-}

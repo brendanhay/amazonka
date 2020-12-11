@@ -13,11 +13,10 @@
 --
 -- Amazon Polly is a web service that makes it easy to synthesize speech from text.
 --
---
 -- The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.
 module Network.AWS.Polly
-  ( -- * Service Configuration
-    polly,
+  ( -- * Service configuration
+    pollyService,
 
     -- * Errors
     -- $errors
@@ -82,14 +81,14 @@ module Network.AWS.Polly
     VoiceId (..),
 
     -- ** Lexicon
-    Lexicon,
-    lexicon,
+    Lexicon (..),
+    mkLexicon,
     lContent,
     lName,
 
     -- ** LexiconAttributes
-    LexiconAttributes,
-    lexiconAttributes,
+    LexiconAttributes (..),
+    mkLexiconAttributes,
     laLanguageCode,
     laSize,
     laLexemesCount,
@@ -98,14 +97,14 @@ module Network.AWS.Polly
     laLastModified,
 
     -- ** LexiconDescription
-    LexiconDescription,
-    lexiconDescription,
+    LexiconDescription (..),
+    mkLexiconDescription,
     ldAttributes,
     ldName,
 
     -- ** SynthesisTask
-    SynthesisTask,
-    synthesisTask,
+    SynthesisTask (..),
+    mkSynthesisTask,
     stCreationTime,
     stLanguageCode,
     stSNSTopicARN,
@@ -123,8 +122,8 @@ module Network.AWS.Polly
     stOutputURI,
 
     -- ** Voice
-    Voice,
-    voice,
+    Voice (..),
+    mkVoice,
     vLanguageCode,
     vLanguageName,
     vGender,
@@ -132,6 +131,17 @@ module Network.AWS.Polly
     vId,
     vAdditionalLanguageCodes,
     vSupportedEngines,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -146,6 +156,7 @@ import Network.AWS.Polly.StartSpeechSynthesisTask
 import Network.AWS.Polly.SynthesizeSpeech
 import Network.AWS.Polly.Types
 import Network.AWS.Polly.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

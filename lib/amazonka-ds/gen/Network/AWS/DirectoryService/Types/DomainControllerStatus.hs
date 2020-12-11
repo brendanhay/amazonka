@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DomainControllerStatus where
+module Network.AWS.DirectoryService.Types.DomainControllerStatus
+  ( DomainControllerStatus
+      ( DomainControllerStatus',
+        Active,
+        Creating,
+        Deleted,
+        Deleting,
+        Failed,
+        Impaired,
+        Restoring
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainControllerStatus
-  = Active
-  | Creating
-  | Deleted
-  | Deleting
-  | Failed
-  | Impaired
-  | Restoring
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainControllerStatus = DomainControllerStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainControllerStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "impaired" -> pure Impaired
-      "restoring" -> pure Restoring
-      e ->
-        fromTextError $
-          "Failure parsing DomainControllerStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleted, deleting, failed, impaired, restoring"
+pattern Active :: DomainControllerStatus
+pattern Active = DomainControllerStatus' "Active"
 
-instance ToText DomainControllerStatus where
-  toText = \case
-    Active -> "Active"
-    Creating -> "Creating"
-    Deleted -> "Deleted"
-    Deleting -> "Deleting"
-    Failed -> "Failed"
-    Impaired -> "Impaired"
-    Restoring -> "Restoring"
+pattern Creating :: DomainControllerStatus
+pattern Creating = DomainControllerStatus' "Creating"
 
-instance Hashable DomainControllerStatus
+pattern Deleted :: DomainControllerStatus
+pattern Deleted = DomainControllerStatus' "Deleted"
 
-instance NFData DomainControllerStatus
+pattern Deleting :: DomainControllerStatus
+pattern Deleting = DomainControllerStatus' "Deleting"
 
-instance ToByteString DomainControllerStatus
+pattern Failed :: DomainControllerStatus
+pattern Failed = DomainControllerStatus' "Failed"
 
-instance ToQuery DomainControllerStatus
+pattern Impaired :: DomainControllerStatus
+pattern Impaired = DomainControllerStatus' "Impaired"
 
-instance ToHeader DomainControllerStatus
+pattern Restoring :: DomainControllerStatus
+pattern Restoring = DomainControllerStatus' "Restoring"
 
-instance FromJSON DomainControllerStatus where
-  parseJSON = parseJSONText "DomainControllerStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  Deleted,
+  Deleting,
+  Failed,
+  Impaired,
+  Restoring,
+  DomainControllerStatus'
+  #-}

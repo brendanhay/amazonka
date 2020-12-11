@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.Term where
+module Network.AWS.Translate.Types.Term
+  ( Term (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTerm,
+
+    -- * Lenses
+    tTargetText,
+    tSourceText,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The term being translated by the custom terminology.
 --
---
---
--- /See:/ 'term' smart constructor.
+-- /See:/ 'mkTerm' smart constructor.
 data Term = Term'
-  { _tTargetText :: !(Maybe Text),
-    _tSourceText :: !(Maybe Text)
+  { targetText :: Lude.Maybe Lude.Text,
+    sourceText :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Term' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tTargetText' - The target text of the term being translated by the custom terminology.
---
--- * 'tSourceText' - The source text of the term being translated by the custom terminology.
-term ::
+-- * 'sourceText' - The source text of the term being translated by the custom terminology.
+-- * 'targetText' - The target text of the term being translated by the custom terminology.
+mkTerm ::
   Term
-term = Term' {_tTargetText = Nothing, _tSourceText = Nothing}
+mkTerm =
+  Term' {targetText = Lude.Nothing, sourceText = Lude.Nothing}
 
 -- | The target text of the term being translated by the custom terminology.
-tTargetText :: Lens' Term (Maybe Text)
-tTargetText = lens _tTargetText (\s a -> s {_tTargetText = a})
+--
+-- /Note:/ Consider using 'targetText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTargetText :: Lens.Lens' Term (Lude.Maybe Lude.Text)
+tTargetText = Lens.lens (targetText :: Term -> Lude.Maybe Lude.Text) (\s a -> s {targetText = a} :: Term)
+{-# DEPRECATED tTargetText "Use generic-lens or generic-optics with 'targetText' instead." #-}
 
 -- | The source text of the term being translated by the custom terminology.
-tSourceText :: Lens' Term (Maybe Text)
-tSourceText = lens _tSourceText (\s a -> s {_tSourceText = a})
+--
+-- /Note:/ Consider using 'sourceText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSourceText :: Lens.Lens' Term (Lude.Maybe Lude.Text)
+tSourceText = Lens.lens (sourceText :: Term -> Lude.Maybe Lude.Text) (\s a -> s {sourceText = a} :: Term)
+{-# DEPRECATED tSourceText "Use generic-lens or generic-optics with 'sourceText' instead." #-}
 
-instance FromJSON Term where
+instance Lude.FromJSON Term where
   parseJSON =
-    withObject
+    Lude.withObject
       "Term"
-      (\x -> Term' <$> (x .:? "TargetText") <*> (x .:? "SourceText"))
-
-instance Hashable Term
-
-instance NFData Term
+      ( \x ->
+          Term'
+            Lude.<$> (x Lude..:? "TargetText") Lude.<*> (x Lude..:? "SourceText")
+      )

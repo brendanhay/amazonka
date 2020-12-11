@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MarketType where
+module Network.AWS.EC2.Types.MarketType
+  ( MarketType
+      ( MarketType',
+        Spot
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MarketType = Spot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MarketType = MarketType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MarketType where
-  parser =
-    takeLowerText >>= \case
-      "spot" -> pure Spot
-      e ->
-        fromTextError $
-          "Failure parsing MarketType from value: '" <> e
-            <> "'. Accepted values: spot"
+pattern Spot :: MarketType
+pattern Spot = MarketType' "spot"
 
-instance ToText MarketType where
-  toText = \case
-    Spot -> "spot"
-
-instance Hashable MarketType
-
-instance NFData MarketType
-
-instance ToByteString MarketType
-
-instance ToQuery MarketType
-
-instance ToHeader MarketType
-
-instance FromXML MarketType where
-  parseXML = parseXMLText "MarketType"
+{-# COMPLETE
+  Spot,
+  MarketType'
+  #-}

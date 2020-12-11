@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily where
+module Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
+  ( UnlimitedSupportedInstanceFamily
+      ( UnlimitedSupportedInstanceFamily',
+        T2,
+        T3,
+        T3a,
+        T4g
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UnlimitedSupportedInstanceFamily
-  = T2
-  | T3
-  | T3a
-  | T4g
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UnlimitedSupportedInstanceFamily = UnlimitedSupportedInstanceFamily' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UnlimitedSupportedInstanceFamily where
-  parser =
-    takeLowerText >>= \case
-      "t2" -> pure T2
-      "t3" -> pure T3
-      "t3a" -> pure T3a
-      "t4g" -> pure T4g
-      e ->
-        fromTextError $
-          "Failure parsing UnlimitedSupportedInstanceFamily from value: '" <> e
-            <> "'. Accepted values: t2, t3, t3a, t4g"
+pattern T2 :: UnlimitedSupportedInstanceFamily
+pattern T2 = UnlimitedSupportedInstanceFamily' "t2"
 
-instance ToText UnlimitedSupportedInstanceFamily where
-  toText = \case
-    T2 -> "t2"
-    T3 -> "t3"
-    T3a -> "t3a"
-    T4g -> "t4g"
+pattern T3 :: UnlimitedSupportedInstanceFamily
+pattern T3 = UnlimitedSupportedInstanceFamily' "t3"
 
-instance Hashable UnlimitedSupportedInstanceFamily
+pattern T3a :: UnlimitedSupportedInstanceFamily
+pattern T3a = UnlimitedSupportedInstanceFamily' "t3a"
 
-instance NFData UnlimitedSupportedInstanceFamily
+pattern T4g :: UnlimitedSupportedInstanceFamily
+pattern T4g = UnlimitedSupportedInstanceFamily' "t4g"
 
-instance ToByteString UnlimitedSupportedInstanceFamily
-
-instance ToQuery UnlimitedSupportedInstanceFamily
-
-instance ToHeader UnlimitedSupportedInstanceFamily
-
-instance FromXML UnlimitedSupportedInstanceFamily where
-  parseXML = parseXMLText "UnlimitedSupportedInstanceFamily"
+{-# COMPLETE
+  T2,
+  T3,
+  T3a,
+  T4g,
+  UnlimitedSupportedInstanceFamily'
+  #-}

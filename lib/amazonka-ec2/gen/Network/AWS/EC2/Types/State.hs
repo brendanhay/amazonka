@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.State where
+module Network.AWS.EC2.Types.State
+  ( State
+      ( State',
+        SAvailable,
+        SDeleted,
+        SDeleting,
+        SExpired,
+        SFailed,
+        SPending,
+        SPendingAcceptance,
+        SRejected
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data State
-  = SAvailable
-  | SDeleted
-  | SDeleting
-  | SExpired
-  | SFailed
-  | SPending
-  | SPendingAcceptance
-  | SRejected
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype State = State' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText State where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure SAvailable
-      "deleted" -> pure SDeleted
-      "deleting" -> pure SDeleting
-      "expired" -> pure SExpired
-      "failed" -> pure SFailed
-      "pending" -> pure SPending
-      "pendingacceptance" -> pure SPendingAcceptance
-      "rejected" -> pure SRejected
-      e ->
-        fromTextError $
-          "Failure parsing State from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, expired, failed, pending, pendingacceptance, rejected"
+pattern SAvailable :: State
+pattern SAvailable = State' "Available"
 
-instance ToText State where
-  toText = \case
-    SAvailable -> "Available"
-    SDeleted -> "Deleted"
-    SDeleting -> "Deleting"
-    SExpired -> "Expired"
-    SFailed -> "Failed"
-    SPending -> "Pending"
-    SPendingAcceptance -> "PendingAcceptance"
-    SRejected -> "Rejected"
+pattern SDeleted :: State
+pattern SDeleted = State' "Deleted"
 
-instance Hashable State
+pattern SDeleting :: State
+pattern SDeleting = State' "Deleting"
 
-instance NFData State
+pattern SExpired :: State
+pattern SExpired = State' "Expired"
 
-instance ToByteString State
+pattern SFailed :: State
+pattern SFailed = State' "Failed"
 
-instance ToQuery State
+pattern SPending :: State
+pattern SPending = State' "Pending"
 
-instance ToHeader State
+pattern SPendingAcceptance :: State
+pattern SPendingAcceptance = State' "PendingAcceptance"
 
-instance FromXML State where
-  parseXML = parseXMLText "State"
+pattern SRejected :: State
+pattern SRejected = State' "Rejected"
+
+{-# COMPLETE
+  SAvailable,
+  SDeleted,
+  SDeleting,
+  SExpired,
+  SFailed,
+  SPending,
+  SPendingAcceptance,
+  SRejected,
+  State'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNRouteStatus where
+module Network.AWS.EC2.Types.ClientVPNRouteStatus
+  ( ClientVPNRouteStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNRouteStatus,
+
+    -- * Lenses
+    cvrsCode,
+    cvrsMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNRouteStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of a Client VPN endpoint route.
 --
---
---
--- /See:/ 'clientVPNRouteStatus' smart constructor.
+-- /See:/ 'mkClientVPNRouteStatus' smart constructor.
 data ClientVPNRouteStatus = ClientVPNRouteStatus'
-  { _cvrsCode ::
-      !(Maybe ClientVPNRouteStatusCode),
-    _cvrsMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe ClientVPNRouteStatusCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNRouteStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvrsCode' - The state of the Client VPN endpoint route.
---
--- * 'cvrsMessage' - A message about the status of the Client VPN endpoint route, if applicable.
-clientVPNRouteStatus ::
+-- * 'code' - The state of the Client VPN endpoint route.
+-- * 'message' - A message about the status of the Client VPN endpoint route, if applicable.
+mkClientVPNRouteStatus ::
   ClientVPNRouteStatus
-clientVPNRouteStatus =
+mkClientVPNRouteStatus =
   ClientVPNRouteStatus'
-    { _cvrsCode = Nothing,
-      _cvrsMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The state of the Client VPN endpoint route.
-cvrsCode :: Lens' ClientVPNRouteStatus (Maybe ClientVPNRouteStatusCode)
-cvrsCode = lens _cvrsCode (\s a -> s {_cvrsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsCode :: Lens.Lens' ClientVPNRouteStatus (Lude.Maybe ClientVPNRouteStatusCode)
+cvrsCode = Lens.lens (code :: ClientVPNRouteStatus -> Lude.Maybe ClientVPNRouteStatusCode) (\s a -> s {code = a} :: ClientVPNRouteStatus)
+{-# DEPRECATED cvrsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the Client VPN endpoint route, if applicable.
-cvrsMessage :: Lens' ClientVPNRouteStatus (Maybe Text)
-cvrsMessage = lens _cvrsMessage (\s a -> s {_cvrsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsMessage :: Lens.Lens' ClientVPNRouteStatus (Lude.Maybe Lude.Text)
+cvrsMessage = Lens.lens (message :: ClientVPNRouteStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClientVPNRouteStatus)
+{-# DEPRECATED cvrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ClientVPNRouteStatus where
+instance Lude.FromXML ClientVPNRouteStatus where
   parseXML x =
-    ClientVPNRouteStatus' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ClientVPNRouteStatus
-
-instance NFData ClientVPNRouteStatus
+    ClientVPNRouteStatus'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

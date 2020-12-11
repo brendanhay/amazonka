@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,24 @@
 --
 -- Detects unsafe content in a specified JPEG or PNG format image. Use @DetectModerationLabels@ to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.
 --
---
 -- To filter images, use the labels returned by @DetectModerationLabels@ to determine which types of content are appropriate.
---
 -- For information about moderation labels, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
---
 -- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
 module Network.AWS.Rekognition.DetectModerationLabels
-  ( -- * Creating a Request
-    detectModerationLabels,
-    DetectModerationLabels,
+  ( -- * Creating a request
+    DetectModerationLabels (..),
+    mkDetectModerationLabels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmlHumanLoopConfig,
     dmlMinConfidence,
     dmlImage,
 
-    -- * Destructuring the Response
-    detectModerationLabelsResponse,
-    DetectModerationLabelsResponse,
+    -- * Destructuring the response
+    DetectModerationLabelsResponse (..),
+    mkDetectModerationLabelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmlrsHumanLoopActivationOutput,
     dmlrsModerationModelVersion,
     dmlrsModerationLabels,
@@ -47,148 +39,176 @@ module Network.AWS.Rekognition.DetectModerationLabels
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectModerationLabels' smart constructor.
+-- | /See:/ 'mkDetectModerationLabels' smart constructor.
 data DetectModerationLabels = DetectModerationLabels'
-  { _dmlHumanLoopConfig ::
-      !(Maybe HumanLoopConfig),
-    _dmlMinConfidence :: !(Maybe Double),
-    _dmlImage :: !Image
+  { humanLoopConfig ::
+      Lude.Maybe HumanLoopConfig,
+    minConfidence :: Lude.Maybe Lude.Double,
+    image :: Image
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectModerationLabels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'humanLoopConfig' - Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
+-- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
--- * 'dmlHumanLoopConfig' - Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- * 'minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.
 --
--- * 'dmlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
---
--- * 'dmlImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-detectModerationLabels ::
-  -- | 'dmlImage'
+-- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+mkDetectModerationLabels ::
+  -- | 'image'
   Image ->
   DetectModerationLabels
-detectModerationLabels pImage_ =
+mkDetectModerationLabels pImage_ =
   DetectModerationLabels'
-    { _dmlHumanLoopConfig = Nothing,
-      _dmlMinConfidence = Nothing,
-      _dmlImage = pImage_
+    { humanLoopConfig = Lude.Nothing,
+      minConfidence = Lude.Nothing,
+      image = pImage_
     }
 
 -- | Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
-dmlHumanLoopConfig :: Lens' DetectModerationLabels (Maybe HumanLoopConfig)
-dmlHumanLoopConfig = lens _dmlHumanLoopConfig (\s a -> s {_dmlHumanLoopConfig = a})
+--
+-- /Note:/ Consider using 'humanLoopConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlHumanLoopConfig :: Lens.Lens' DetectModerationLabels (Lude.Maybe HumanLoopConfig)
+dmlHumanLoopConfig = Lens.lens (humanLoopConfig :: DetectModerationLabels -> Lude.Maybe HumanLoopConfig) (\s a -> s {humanLoopConfig = a} :: DetectModerationLabels)
+{-# DEPRECATED dmlHumanLoopConfig "Use generic-lens or generic-optics with 'humanLoopConfig' instead." #-}
 
--- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
-dmlMinConfidence :: Lens' DetectModerationLabels (Maybe Double)
-dmlMinConfidence = lens _dmlMinConfidence (\s a -> s {_dmlMinConfidence = a})
+-- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.
+--
+-- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+--
+-- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlMinConfidence :: Lens.Lens' DetectModerationLabels (Lude.Maybe Lude.Double)
+dmlMinConfidence = Lens.lens (minConfidence :: DetectModerationLabels -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: DetectModerationLabels)
+{-# DEPRECATED dmlMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-dmlImage :: Lens' DetectModerationLabels Image
-dmlImage = lens _dmlImage (\s a -> s {_dmlImage = a})
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+--
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlImage :: Lens.Lens' DetectModerationLabels Image
+dmlImage = Lens.lens (image :: DetectModerationLabels -> Image) (\s a -> s {image = a} :: DetectModerationLabels)
+{-# DEPRECATED dmlImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
-instance AWSRequest DetectModerationLabels where
+instance Lude.AWSRequest DetectModerationLabels where
   type Rs DetectModerationLabels = DetectModerationLabelsResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetectModerationLabelsResponse'
-            <$> (x .?> "HumanLoopActivationOutput")
-            <*> (x .?> "ModerationModelVersion")
-            <*> (x .?> "ModerationLabels" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "HumanLoopActivationOutput")
+            Lude.<*> (x Lude..?> "ModerationModelVersion")
+            Lude.<*> (x Lude..?> "ModerationLabels" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetectModerationLabels
-
-instance NFData DetectModerationLabels
-
-instance ToHeaders DetectModerationLabels where
+instance Lude.ToHeaders DetectModerationLabels where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.DetectModerationLabels" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.DetectModerationLabels" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetectModerationLabels where
+instance Lude.ToJSON DetectModerationLabels where
   toJSON DetectModerationLabels' {..} =
-    object
-      ( catMaybes
-          [ ("HumanLoopConfig" .=) <$> _dmlHumanLoopConfig,
-            ("MinConfidence" .=) <$> _dmlMinConfidence,
-            Just ("Image" .= _dmlImage)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("HumanLoopConfig" Lude..=) Lude.<$> humanLoopConfig,
+            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
+            Lude.Just ("Image" Lude..= image)
           ]
       )
 
-instance ToPath DetectModerationLabels where
-  toPath = const "/"
+instance Lude.ToPath DetectModerationLabels where
+  toPath = Lude.const "/"
 
-instance ToQuery DetectModerationLabels where
-  toQuery = const mempty
+instance Lude.ToQuery DetectModerationLabels where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detectModerationLabelsResponse' smart constructor.
+-- | /See:/ 'mkDetectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-  { _dmlrsHumanLoopActivationOutput ::
-      !( Maybe
-           HumanLoopActivationOutput
-       ),
-    _dmlrsModerationModelVersion ::
-      !(Maybe Text),
-    _dmlrsModerationLabels ::
-      !(Maybe [ModerationLabel]),
-    _dmlrsResponseStatus :: !Int
+  { humanLoopActivationOutput ::
+      Lude.Maybe
+        HumanLoopActivationOutput,
+    moderationModelVersion ::
+      Lude.Maybe Lude.Text,
+    moderationLabels ::
+      Lude.Maybe [ModerationLabel],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectModerationLabelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmlrsHumanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
---
--- * 'dmlrsModerationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
---
--- * 'dmlrsModerationLabels' - Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
---
--- * 'dmlrsResponseStatus' - -- | The response status code.
-detectModerationLabelsResponse ::
-  -- | 'dmlrsResponseStatus'
-  Int ->
+-- * 'humanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
+-- * 'moderationLabels' - Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
+-- * 'moderationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
+-- * 'responseStatus' - The response status code.
+mkDetectModerationLabelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetectModerationLabelsResponse
-detectModerationLabelsResponse pResponseStatus_ =
+mkDetectModerationLabelsResponse pResponseStatus_ =
   DetectModerationLabelsResponse'
-    { _dmlrsHumanLoopActivationOutput =
-        Nothing,
-      _dmlrsModerationModelVersion = Nothing,
-      _dmlrsModerationLabels = Nothing,
-      _dmlrsResponseStatus = pResponseStatus_
+    { humanLoopActivationOutput =
+        Lude.Nothing,
+      moderationModelVersion = Lude.Nothing,
+      moderationLabels = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Shows the results of the human in the loop evaluation.
-dmlrsHumanLoopActivationOutput :: Lens' DetectModerationLabelsResponse (Maybe HumanLoopActivationOutput)
-dmlrsHumanLoopActivationOutput = lens _dmlrsHumanLoopActivationOutput (\s a -> s {_dmlrsHumanLoopActivationOutput = a})
+--
+-- /Note:/ Consider using 'humanLoopActivationOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlrsHumanLoopActivationOutput :: Lens.Lens' DetectModerationLabelsResponse (Lude.Maybe HumanLoopActivationOutput)
+dmlrsHumanLoopActivationOutput = Lens.lens (humanLoopActivationOutput :: DetectModerationLabelsResponse -> Lude.Maybe HumanLoopActivationOutput) (\s a -> s {humanLoopActivationOutput = a} :: DetectModerationLabelsResponse)
+{-# DEPRECATED dmlrsHumanLoopActivationOutput "Use generic-lens or generic-optics with 'humanLoopActivationOutput' instead." #-}
 
 -- | Version number of the moderation detection model that was used to detect unsafe content.
-dmlrsModerationModelVersion :: Lens' DetectModerationLabelsResponse (Maybe Text)
-dmlrsModerationModelVersion = lens _dmlrsModerationModelVersion (\s a -> s {_dmlrsModerationModelVersion = a})
+--
+-- /Note:/ Consider using 'moderationModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlrsModerationModelVersion :: Lens.Lens' DetectModerationLabelsResponse (Lude.Maybe Lude.Text)
+dmlrsModerationModelVersion = Lens.lens (moderationModelVersion :: DetectModerationLabelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {moderationModelVersion = a} :: DetectModerationLabelsResponse)
+{-# DEPRECATED dmlrsModerationModelVersion "Use generic-lens or generic-optics with 'moderationModelVersion' instead." #-}
 
 -- | Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
-dmlrsModerationLabels :: Lens' DetectModerationLabelsResponse [ModerationLabel]
-dmlrsModerationLabels = lens _dmlrsModerationLabels (\s a -> s {_dmlrsModerationLabels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'moderationLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlrsModerationLabels :: Lens.Lens' DetectModerationLabelsResponse (Lude.Maybe [ModerationLabel])
+dmlrsModerationLabels = Lens.lens (moderationLabels :: DetectModerationLabelsResponse -> Lude.Maybe [ModerationLabel]) (\s a -> s {moderationLabels = a} :: DetectModerationLabelsResponse)
+{-# DEPRECATED dmlrsModerationLabels "Use generic-lens or generic-optics with 'moderationLabels' instead." #-}
 
--- | -- | The response status code.
-dmlrsResponseStatus :: Lens' DetectModerationLabelsResponse Int
-dmlrsResponseStatus = lens _dmlrsResponseStatus (\s a -> s {_dmlrsResponseStatus = a})
-
-instance NFData DetectModerationLabelsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlrsResponseStatus :: Lens.Lens' DetectModerationLabelsResponse Lude.Int
+dmlrsResponseStatus = Lens.lens (responseStatus :: DetectModerationLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectModerationLabelsResponse)
+{-# DEPRECATED dmlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

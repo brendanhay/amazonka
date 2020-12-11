@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NewDHCPConfiguration where
+module Network.AWS.EC2.Types.NewDHCPConfiguration
+  ( NewDHCPConfiguration (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNewDHCPConfiguration,
 
--- | /See:/ 'newDHCPConfiguration' smart constructor.
+    -- * Lenses
+    ndcValues,
+    ndcKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkNewDHCPConfiguration' smart constructor.
 data NewDHCPConfiguration = NewDHCPConfiguration'
-  { _ndcValues ::
-      !(Maybe [Text]),
-    _ndcKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewDHCPConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ndcValues' - Undocumented member.
---
--- * 'ndcKey' - Undocumented member.
-newDHCPConfiguration ::
+-- * 'key' - Undocumented field.
+-- * 'values' - Undocumented field.
+mkNewDHCPConfiguration ::
   NewDHCPConfiguration
-newDHCPConfiguration =
-  NewDHCPConfiguration' {_ndcValues = Nothing, _ndcKey = Nothing}
+mkNewDHCPConfiguration =
+  NewDHCPConfiguration' {values = Lude.Nothing, key = Lude.Nothing}
 
--- | Undocumented member.
-ndcValues :: Lens' NewDHCPConfiguration [Text]
-ndcValues = lens _ndcValues (\s a -> s {_ndcValues = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ndcValues :: Lens.Lens' NewDHCPConfiguration (Lude.Maybe [Lude.Text])
+ndcValues = Lens.lens (values :: NewDHCPConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: NewDHCPConfiguration)
+{-# DEPRECATED ndcValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | Undocumented member.
-ndcKey :: Lens' NewDHCPConfiguration (Maybe Text)
-ndcKey = lens _ndcKey (\s a -> s {_ndcKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ndcKey :: Lens.Lens' NewDHCPConfiguration (Lude.Maybe Lude.Text)
+ndcKey = Lens.lens (key :: NewDHCPConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: NewDHCPConfiguration)
+{-# DEPRECATED ndcKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable NewDHCPConfiguration
-
-instance NFData NewDHCPConfiguration
-
-instance ToQuery NewDHCPConfiguration where
+instance Lude.ToQuery NewDHCPConfiguration where
   toQuery NewDHCPConfiguration' {..} =
-    mconcat
-      [toQuery (toQueryList "Value" <$> _ndcValues), "Key" =: _ndcKey]
+    Lude.mconcat
+      [ Lude.toQuery (Lude.toQueryList "Value" Lude.<$> values),
+        "Key" Lude.=: key
+      ]

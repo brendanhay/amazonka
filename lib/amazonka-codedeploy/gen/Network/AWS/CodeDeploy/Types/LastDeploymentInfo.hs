@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.LastDeploymentInfo where
+module Network.AWS.CodeDeploy.Types.LastDeploymentInfo
+  ( LastDeploymentInfo (..),
+
+    -- * Smart constructor
+    mkLastDeploymentInfo,
+
+    -- * Lenses
+    ldiStatus,
+    ldiDeploymentId,
+    ldiEndTime,
+    ldiCreateTime,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.DeploymentStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the most recent attempted or successful deployment to a deployment group.
 --
---
---
--- /See:/ 'lastDeploymentInfo' smart constructor.
+-- /See:/ 'mkLastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-  { _ldiStatus ::
-      !(Maybe DeploymentStatus),
-    _ldiDeploymentId :: !(Maybe Text),
-    _ldiEndTime :: !(Maybe POSIX),
-    _ldiCreateTime :: !(Maybe POSIX)
+  { status ::
+      Lude.Maybe DeploymentStatus,
+    deploymentId :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastDeploymentInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldiStatus' - The status of the most recent deployment.
---
--- * 'ldiDeploymentId' - The unique ID of a deployment.
---
--- * 'ldiEndTime' - A timestamp that indicates when the most recent deployment to the deployment group was complete.
---
--- * 'ldiCreateTime' - A timestamp that indicates when the most recent deployment to the deployment group started.
-lastDeploymentInfo ::
+-- * 'createTime' - A timestamp that indicates when the most recent deployment to the deployment group started.
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'endTime' - A timestamp that indicates when the most recent deployment to the deployment group was complete.
+-- * 'status' - The status of the most recent deployment.
+mkLastDeploymentInfo ::
   LastDeploymentInfo
-lastDeploymentInfo =
+mkLastDeploymentInfo =
   LastDeploymentInfo'
-    { _ldiStatus = Nothing,
-      _ldiDeploymentId = Nothing,
-      _ldiEndTime = Nothing,
-      _ldiCreateTime = Nothing
+    { status = Lude.Nothing,
+      deploymentId = Lude.Nothing,
+      endTime = Lude.Nothing,
+      createTime = Lude.Nothing
     }
 
 -- | The status of the most recent deployment.
-ldiStatus :: Lens' LastDeploymentInfo (Maybe DeploymentStatus)
-ldiStatus = lens _ldiStatus (\s a -> s {_ldiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiStatus :: Lens.Lens' LastDeploymentInfo (Lude.Maybe DeploymentStatus)
+ldiStatus = Lens.lens (status :: LastDeploymentInfo -> Lude.Maybe DeploymentStatus) (\s a -> s {status = a} :: LastDeploymentInfo)
+{-# DEPRECATED ldiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of a deployment.
-ldiDeploymentId :: Lens' LastDeploymentInfo (Maybe Text)
-ldiDeploymentId = lens _ldiDeploymentId (\s a -> s {_ldiDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiDeploymentId :: Lens.Lens' LastDeploymentInfo (Lude.Maybe Lude.Text)
+ldiDeploymentId = Lens.lens (deploymentId :: LastDeploymentInfo -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: LastDeploymentInfo)
+{-# DEPRECATED ldiDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | A timestamp that indicates when the most recent deployment to the deployment group was complete.
-ldiEndTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
-ldiEndTime = lens _ldiEndTime (\s a -> s {_ldiEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiEndTime :: Lens.Lens' LastDeploymentInfo (Lude.Maybe Lude.Timestamp)
+ldiEndTime = Lens.lens (endTime :: LastDeploymentInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: LastDeploymentInfo)
+{-# DEPRECATED ldiEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | A timestamp that indicates when the most recent deployment to the deployment group started.
-ldiCreateTime :: Lens' LastDeploymentInfo (Maybe UTCTime)
-ldiCreateTime = lens _ldiCreateTime (\s a -> s {_ldiCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiCreateTime :: Lens.Lens' LastDeploymentInfo (Lude.Maybe Lude.Timestamp)
+ldiCreateTime = Lens.lens (createTime :: LastDeploymentInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: LastDeploymentInfo)
+{-# DEPRECATED ldiCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance FromJSON LastDeploymentInfo where
+instance Lude.FromJSON LastDeploymentInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "LastDeploymentInfo"
       ( \x ->
           LastDeploymentInfo'
-            <$> (x .:? "status")
-            <*> (x .:? "deploymentId")
-            <*> (x .:? "endTime")
-            <*> (x .:? "createTime")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "deploymentId")
+            Lude.<*> (x Lude..:? "endTime")
+            Lude.<*> (x Lude..:? "createTime")
       )
-
-instance Hashable LastDeploymentInfo
-
-instance NFData LastDeploymentInfo

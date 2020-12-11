@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,130 @@
 --
 -- Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.
 module Network.AWS.SNS.AddPermission
-  ( -- * Creating a Request
-    addPermission,
-    AddPermission,
+  ( -- * Creating a request
+    AddPermission (..),
+    mkAddPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apTopicARN,
     apLabel,
     apAWSAccountId,
     apActionName,
 
-    -- * Destructuring the Response
-    addPermissionResponse,
-    AddPermissionResponse,
+    -- * Destructuring the response
+    AddPermissionResponse (..),
+    mkAddPermissionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
--- | /See:/ 'addPermission' smart constructor.
+-- | /See:/ 'mkAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { _apTopicARN :: !Text,
-    _apLabel :: !Text,
-    _apAWSAccountId :: ![Text],
-    _apActionName :: ![Text]
+  { topicARN :: Lude.Text,
+    label :: Lude.Text,
+    awsAccountId :: [Lude.Text],
+    actionName :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actionName' - The action you want to allow for the specified principal(s).
 --
--- * 'apTopicARN' - The ARN of the topic whose access control policy you wish to modify.
---
--- * 'apLabel' - A unique identifier for the new policy statement.
---
--- * 'apAWSAccountId' - The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
---
--- * 'apActionName' - The action you want to allow for the specified principal(s). Valid values: Any Amazon SNS action name, for example @Publish@ .
-addPermission ::
-  -- | 'apTopicARN'
-  Text ->
-  -- | 'apLabel'
-  Text ->
+-- Valid values: Any Amazon SNS action name, for example @Publish@ .
+-- * 'awsAccountId' - The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
+-- * 'label' - A unique identifier for the new policy statement.
+-- * 'topicARN' - The ARN of the topic whose access control policy you wish to modify.
+mkAddPermission ::
+  -- | 'topicARN'
+  Lude.Text ->
+  -- | 'label'
+  Lude.Text ->
   AddPermission
-addPermission pTopicARN_ pLabel_ =
+mkAddPermission pTopicARN_ pLabel_ =
   AddPermission'
-    { _apTopicARN = pTopicARN_,
-      _apLabel = pLabel_,
-      _apAWSAccountId = mempty,
-      _apActionName = mempty
+    { topicARN = pTopicARN_,
+      label = pLabel_,
+      awsAccountId = Lude.mempty,
+      actionName = Lude.mempty
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-apTopicARN :: Lens' AddPermission Text
-apTopicARN = lens _apTopicARN (\s a -> s {_apTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apTopicARN :: Lens.Lens' AddPermission Lude.Text
+apTopicARN = Lens.lens (topicARN :: AddPermission -> Lude.Text) (\s a -> s {topicARN = a} :: AddPermission)
+{-# DEPRECATED apTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | A unique identifier for the new policy statement.
-apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\s a -> s {_apLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apLabel :: Lens.Lens' AddPermission Lude.Text
+apLabel = Lens.lens (label :: AddPermission -> Lude.Text) (\s a -> s {label = a} :: AddPermission)
+{-# DEPRECATED apLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The AWS account IDs of the users (principals) who will be given access to the specified actions. The users must have AWS accounts, but do not need to be signed up for this service.
-apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\s a -> s {_apAWSAccountId = a}) . _Coerce
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAWSAccountId :: Lens.Lens' AddPermission [Lude.Text]
+apAWSAccountId = Lens.lens (awsAccountId :: AddPermission -> [Lude.Text]) (\s a -> s {awsAccountId = a} :: AddPermission)
+{-# DEPRECATED apAWSAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
--- | The action you want to allow for the specified principal(s). Valid values: Any Amazon SNS action name, for example @Publish@ .
-apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\s a -> s {_apActionName = a}) . _Coerce
+-- | The action you want to allow for the specified principal(s).
+--
+-- Valid values: Any Amazon SNS action name, for example @Publish@ .
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apActionName :: Lens.Lens' AddPermission [Lude.Text]
+apActionName = Lens.lens (actionName :: AddPermission -> [Lude.Text]) (\s a -> s {actionName = a} :: AddPermission)
+{-# DEPRECATED apActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
-instance AWSRequest AddPermission where
+instance Lude.AWSRequest AddPermission where
   type Rs AddPermission = AddPermissionResponse
-  request = postQuery sns
-  response = receiveNull AddPermissionResponse'
+  request = Req.postQuery snsService
+  response = Res.receiveNull AddPermissionResponse'
 
-instance Hashable AddPermission
+instance Lude.ToHeaders AddPermission where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddPermission
+instance Lude.ToPath AddPermission where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddPermission where
-  toHeaders = const mempty
-
-instance ToPath AddPermission where
-  toPath = const "/"
-
-instance ToQuery AddPermission where
+instance Lude.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    mconcat
-      [ "Action" =: ("AddPermission" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "TopicArn" =: _apTopicARN,
-        "Label" =: _apLabel,
-        "AWSAccountId" =: toQueryList "member" _apAWSAccountId,
-        "ActionName" =: toQueryList "member" _apActionName
+    Lude.mconcat
+      [ "Action" Lude.=: ("AddPermission" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "TopicArn" Lude.=: topicARN,
+        "Label" Lude.=: label,
+        "AWSAccountId" Lude.=: Lude.toQueryList "member" awsAccountId,
+        "ActionName" Lude.=: Lude.toQueryList "member" actionName
       ]
 
--- | /See:/ 'addPermissionResponse' smart constructor.
+-- | /See:/ 'mkAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
-addPermissionResponse ::
+mkAddPermissionResponse ::
   AddPermissionResponse
-addPermissionResponse = AddPermissionResponse'
-
-instance NFData AddPermissionResponse
+mkAddPermissionResponse = AddPermissionResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,155 @@
 --
 -- Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
 --
---
 -- The repository can be hosted either in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository.
 module Network.AWS.SageMaker.CreateCodeRepository
-  ( -- * Creating a Request
-    createCodeRepository,
-    CreateCodeRepository,
+  ( -- * Creating a request
+    CreateCodeRepository (..),
+    mkCreateCodeRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccrCodeRepositoryName,
     ccrGitConfig,
 
-    -- * Destructuring the Response
-    createCodeRepositoryResponse,
-    CreateCodeRepositoryResponse,
+    -- * Destructuring the response
+    CreateCodeRepositoryResponse (..),
+    mkCreateCodeRepositoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrrsResponseStatus,
     ccrrsCodeRepositoryARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createCodeRepository' smart constructor.
+-- | /See:/ 'mkCreateCodeRepository' smart constructor.
 data CreateCodeRepository = CreateCodeRepository'
-  { _ccrCodeRepositoryName ::
-      !Text,
-    _ccrGitConfig :: !GitConfig
+  { codeRepositoryName ::
+      Lude.Text,
+    gitConfig :: GitConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCodeRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrCodeRepositoryName' - The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
---
--- * 'ccrGitConfig' - Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.
-createCodeRepository ::
-  -- | 'ccrCodeRepositoryName'
-  Text ->
-  -- | 'ccrGitConfig'
+-- * 'codeRepositoryName' - The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+-- * 'gitConfig' - Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.
+mkCreateCodeRepository ::
+  -- | 'codeRepositoryName'
+  Lude.Text ->
+  -- | 'gitConfig'
   GitConfig ->
   CreateCodeRepository
-createCodeRepository pCodeRepositoryName_ pGitConfig_ =
+mkCreateCodeRepository pCodeRepositoryName_ pGitConfig_ =
   CreateCodeRepository'
-    { _ccrCodeRepositoryName =
-        pCodeRepositoryName_,
-      _ccrGitConfig = pGitConfig_
+    { codeRepositoryName = pCodeRepositoryName_,
+      gitConfig = pGitConfig_
     }
 
 -- | The name of the Git repository. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-ccrCodeRepositoryName :: Lens' CreateCodeRepository Text
-ccrCodeRepositoryName = lens _ccrCodeRepositoryName (\s a -> s {_ccrCodeRepositoryName = a})
+--
+-- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrCodeRepositoryName :: Lens.Lens' CreateCodeRepository Lude.Text
+ccrCodeRepositoryName = Lens.lens (codeRepositoryName :: CreateCodeRepository -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: CreateCodeRepository)
+{-# DEPRECATED ccrCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
 -- | Specifies details about the repository, including the URL where the repository is located, the default branch, and credentials to use to access the repository.
-ccrGitConfig :: Lens' CreateCodeRepository GitConfig
-ccrGitConfig = lens _ccrGitConfig (\s a -> s {_ccrGitConfig = a})
+--
+-- /Note:/ Consider using 'gitConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrGitConfig :: Lens.Lens' CreateCodeRepository GitConfig
+ccrGitConfig = Lens.lens (gitConfig :: CreateCodeRepository -> GitConfig) (\s a -> s {gitConfig = a} :: CreateCodeRepository)
+{-# DEPRECATED ccrGitConfig "Use generic-lens or generic-optics with 'gitConfig' instead." #-}
 
-instance AWSRequest CreateCodeRepository where
+instance Lude.AWSRequest CreateCodeRepository where
   type Rs CreateCodeRepository = CreateCodeRepositoryResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCodeRepositoryResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "CodeRepositoryArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CodeRepositoryArn")
       )
 
-instance Hashable CreateCodeRepository
-
-instance NFData CreateCodeRepository
-
-instance ToHeaders CreateCodeRepository where
+instance Lude.ToHeaders CreateCodeRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.CreateCodeRepository" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.CreateCodeRepository" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateCodeRepository where
+instance Lude.ToJSON CreateCodeRepository where
   toJSON CreateCodeRepository' {..} =
-    object
-      ( catMaybes
-          [ Just ("CodeRepositoryName" .= _ccrCodeRepositoryName),
-            Just ("GitConfig" .= _ccrGitConfig)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("CodeRepositoryName" Lude..= codeRepositoryName),
+            Lude.Just ("GitConfig" Lude..= gitConfig)
           ]
       )
 
-instance ToPath CreateCodeRepository where
-  toPath = const "/"
+instance Lude.ToPath CreateCodeRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateCodeRepository where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCodeRepository where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCodeRepositoryResponse' smart constructor.
+-- | /See:/ 'mkCreateCodeRepositoryResponse' smart constructor.
 data CreateCodeRepositoryResponse = CreateCodeRepositoryResponse'
-  { _ccrrsResponseStatus ::
-      !Int,
-    _ccrrsCodeRepositoryARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    codeRepositoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCodeRepositoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrrsResponseStatus' - -- | The response status code.
---
--- * 'ccrrsCodeRepositoryARN' - The Amazon Resource Name (ARN) of the new repository.
-createCodeRepositoryResponse ::
-  -- | 'ccrrsResponseStatus'
-  Int ->
-  -- | 'ccrrsCodeRepositoryARN'
-  Text ->
+-- * 'codeRepositoryARN' - The Amazon Resource Name (ARN) of the new repository.
+-- * 'responseStatus' - The response status code.
+mkCreateCodeRepositoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'codeRepositoryARN'
+  Lude.Text ->
   CreateCodeRepositoryResponse
-createCodeRepositoryResponse pResponseStatus_ pCodeRepositoryARN_ =
+mkCreateCodeRepositoryResponse pResponseStatus_ pCodeRepositoryARN_ =
   CreateCodeRepositoryResponse'
-    { _ccrrsResponseStatus =
-        pResponseStatus_,
-      _ccrrsCodeRepositoryARN = pCodeRepositoryARN_
+    { responseStatus = pResponseStatus_,
+      codeRepositoryARN = pCodeRepositoryARN_
     }
 
--- | -- | The response status code.
-ccrrsResponseStatus :: Lens' CreateCodeRepositoryResponse Int
-ccrrsResponseStatus = lens _ccrrsResponseStatus (\s a -> s {_ccrrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrrsResponseStatus :: Lens.Lens' CreateCodeRepositoryResponse Lude.Int
+ccrrsResponseStatus = Lens.lens (responseStatus :: CreateCodeRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCodeRepositoryResponse)
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the new repository.
-ccrrsCodeRepositoryARN :: Lens' CreateCodeRepositoryResponse Text
-ccrrsCodeRepositoryARN = lens _ccrrsCodeRepositoryARN (\s a -> s {_ccrrsCodeRepositoryARN = a})
-
-instance NFData CreateCodeRepositoryResponse
+--
+-- /Note:/ Consider using 'codeRepositoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrrsCodeRepositoryARN :: Lens.Lens' CreateCodeRepositoryResponse Lude.Text
+ccrrsCodeRepositoryARN = Lens.lens (codeRepositoryARN :: CreateCodeRepositoryResponse -> Lude.Text) (\s a -> s {codeRepositoryARN = a} :: CreateCodeRepositoryResponse)
+{-# DEPRECATED ccrrsCodeRepositoryARN "Use generic-lens or generic-optics with 'codeRepositoryARN' instead." #-}

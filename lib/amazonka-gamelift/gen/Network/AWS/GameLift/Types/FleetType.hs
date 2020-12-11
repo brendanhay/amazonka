@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FleetType where
+module Network.AWS.GameLift.Types.FleetType
+  ( FleetType
+      ( FleetType',
+        OnDemand,
+        Spot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetType
-  = OnDemand
-  | Spot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetType = FleetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetType where
-  parser =
-    takeLowerText >>= \case
-      "on_demand" -> pure OnDemand
-      "spot" -> pure Spot
-      e ->
-        fromTextError $
-          "Failure parsing FleetType from value: '" <> e
-            <> "'. Accepted values: on_demand, spot"
+pattern OnDemand :: FleetType
+pattern OnDemand = FleetType' "ON_DEMAND"
 
-instance ToText FleetType where
-  toText = \case
-    OnDemand -> "ON_DEMAND"
-    Spot -> "SPOT"
+pattern Spot :: FleetType
+pattern Spot = FleetType' "SPOT"
 
-instance Hashable FleetType
-
-instance NFData FleetType
-
-instance ToByteString FleetType
-
-instance ToQuery FleetType
-
-instance ToHeader FleetType
-
-instance ToJSON FleetType where
-  toJSON = toJSONText
-
-instance FromJSON FleetType where
-  parseJSON = parseJSONText "FleetType"
+{-# COMPLETE
+  OnDemand,
+  Spot,
+  FleetType'
+  #-}

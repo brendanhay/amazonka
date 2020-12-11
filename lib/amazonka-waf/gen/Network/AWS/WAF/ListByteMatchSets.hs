@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,171 @@
 --
 -- Returns an array of 'ByteMatchSetSummary' objects.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WAF.ListByteMatchSets
-  ( -- * Creating a Request
-    listByteMatchSets,
-    ListByteMatchSets,
+  ( -- * Creating a request
+    ListByteMatchSets (..),
+    mkListByteMatchSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbmsNextMarker,
     lbmsLimit,
 
-    -- * Destructuring the Response
-    listByteMatchSetsResponse,
-    ListByteMatchSetsResponse,
+    -- * Destructuring the response
+    ListByteMatchSetsResponse (..),
+    mkListByteMatchSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbmsrsByteMatchSets,
     lbmsrsNextMarker,
     lbmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'listByteMatchSets' smart constructor.
+-- | /See:/ 'mkListByteMatchSets' smart constructor.
 data ListByteMatchSets = ListByteMatchSets'
-  { _lbmsNextMarker ::
-      !(Maybe Text),
-    _lbmsLimit :: !(Maybe Nat)
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListByteMatchSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbmsNextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
---
--- * 'lbmsLimit' - Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
-listByteMatchSets ::
+-- * 'limit' - Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
+mkListByteMatchSets ::
   ListByteMatchSets
-listByteMatchSets =
+mkListByteMatchSets =
   ListByteMatchSets'
-    { _lbmsNextMarker = Nothing,
-      _lbmsLimit = Nothing
+    { nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
-lbmsNextMarker :: Lens' ListByteMatchSets (Maybe Text)
-lbmsNextMarker = lens _lbmsNextMarker (\s a -> s {_lbmsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmsNextMarker :: Lens.Lens' ListByteMatchSets (Lude.Maybe Lude.Text)
+lbmsNextMarker = Lens.lens (nextMarker :: ListByteMatchSets -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListByteMatchSets)
+{-# DEPRECATED lbmsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
-lbmsLimit :: Lens' ListByteMatchSets (Maybe Natural)
-lbmsLimit = lens _lbmsLimit (\s a -> s {_lbmsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmsLimit :: Lens.Lens' ListByteMatchSets (Lude.Maybe Lude.Natural)
+lbmsLimit = Lens.lens (limit :: ListByteMatchSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListByteMatchSets)
+{-# DEPRECATED lbmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListByteMatchSets where
+instance Page.AWSPager ListByteMatchSets where
   page rq rs
-    | stop (rs ^. lbmsrsNextMarker) = Nothing
-    | stop (rs ^. lbmsrsByteMatchSets) = Nothing
-    | otherwise = Just $ rq & lbmsNextMarker .~ rs ^. lbmsrsNextMarker
+    | Page.stop (rs Lens.^. lbmsrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbmsrsByteMatchSets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbmsNextMarker Lens..~ rs Lens.^. lbmsrsNextMarker
 
-instance AWSRequest ListByteMatchSets where
+instance Lude.AWSRequest ListByteMatchSets where
   type Rs ListByteMatchSets = ListByteMatchSetsResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListByteMatchSetsResponse'
-            <$> (x .?> "ByteMatchSets" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ByteMatchSets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListByteMatchSets
-
-instance NFData ListByteMatchSets
-
-instance ToHeaders ListByteMatchSets where
+instance Lude.ToHeaders ListByteMatchSets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.ListByteMatchSets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.ListByteMatchSets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListByteMatchSets where
+instance Lude.ToJSON ListByteMatchSets where
   toJSON ListByteMatchSets' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _lbmsNextMarker,
-            ("Limit" .=) <$> _lbmsLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListByteMatchSets where
-  toPath = const "/"
+instance Lude.ToPath ListByteMatchSets where
+  toPath = Lude.const "/"
 
-instance ToQuery ListByteMatchSets where
-  toQuery = const mempty
+instance Lude.ToQuery ListByteMatchSets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listByteMatchSetsResponse' smart constructor.
+-- | /See:/ 'mkListByteMatchSetsResponse' smart constructor.
 data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
-  { _lbmsrsByteMatchSets ::
-      !(Maybe [ByteMatchSetSummary]),
-    _lbmsrsNextMarker :: !(Maybe Text),
-    _lbmsrsResponseStatus :: !Int
+  { byteMatchSets ::
+      Lude.Maybe [ByteMatchSetSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListByteMatchSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbmsrsByteMatchSets' - An array of 'ByteMatchSetSummary' objects.
---
--- * 'lbmsrsNextMarker' - If you have more @ByteMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another @ListByteMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lbmsrsResponseStatus' - -- | The response status code.
-listByteMatchSetsResponse ::
-  -- | 'lbmsrsResponseStatus'
-  Int ->
+-- * 'byteMatchSets' - An array of 'ByteMatchSetSummary' objects.
+-- * 'nextMarker' - If you have more @ByteMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another @ListByteMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'responseStatus' - The response status code.
+mkListByteMatchSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListByteMatchSetsResponse
-listByteMatchSetsResponse pResponseStatus_ =
+mkListByteMatchSetsResponse pResponseStatus_ =
   ListByteMatchSetsResponse'
-    { _lbmsrsByteMatchSets = Nothing,
-      _lbmsrsNextMarker = Nothing,
-      _lbmsrsResponseStatus = pResponseStatus_
+    { byteMatchSets = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of 'ByteMatchSetSummary' objects.
-lbmsrsByteMatchSets :: Lens' ListByteMatchSetsResponse [ByteMatchSetSummary]
-lbmsrsByteMatchSets = lens _lbmsrsByteMatchSets (\s a -> s {_lbmsrsByteMatchSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'byteMatchSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmsrsByteMatchSets :: Lens.Lens' ListByteMatchSetsResponse (Lude.Maybe [ByteMatchSetSummary])
+lbmsrsByteMatchSets = Lens.lens (byteMatchSets :: ListByteMatchSetsResponse -> Lude.Maybe [ByteMatchSetSummary]) (\s a -> s {byteMatchSets = a} :: ListByteMatchSetsResponse)
+{-# DEPRECATED lbmsrsByteMatchSets "Use generic-lens or generic-optics with 'byteMatchSets' instead." #-}
 
 -- | If you have more @ByteMatchSet@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another @ListByteMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lbmsrsNextMarker :: Lens' ListByteMatchSetsResponse (Maybe Text)
-lbmsrsNextMarker = lens _lbmsrsNextMarker (\s a -> s {_lbmsrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmsrsNextMarker :: Lens.Lens' ListByteMatchSetsResponse (Lude.Maybe Lude.Text)
+lbmsrsNextMarker = Lens.lens (nextMarker :: ListByteMatchSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListByteMatchSetsResponse)
+{-# DEPRECATED lbmsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lbmsrsResponseStatus :: Lens' ListByteMatchSetsResponse Int
-lbmsrsResponseStatus = lens _lbmsrsResponseStatus (\s a -> s {_lbmsrsResponseStatus = a})
-
-instance NFData ListByteMatchSetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmsrsResponseStatus :: Lens.Lens' ListByteMatchSetsResponse Lude.Int
+lbmsrsResponseStatus = Lens.lens (responseStatus :: ListByteMatchSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListByteMatchSetsResponse)
+{-# DEPRECATED lbmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

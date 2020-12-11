@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.Configuration where
+module Network.AWS.EMR.Types.Configuration
+  ( Configuration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConfiguration,
+
+    -- * Lenses
+    cConfigurations,
+    cClassification,
+    cProperties,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications> .
 --
---
---
--- /See:/ 'configuration' smart constructor.
+-- /See:/ 'mkConfiguration' smart constructor.
 data Configuration = Configuration'
-  { _cConfigurations ::
-      !(Maybe [Configuration]),
-    _cClassification :: !(Maybe Text),
-    _cProperties :: !(Maybe (Map Text (Text)))
+  { configurations ::
+      Lude.Maybe [Configuration],
+    classification :: Lude.Maybe Lude.Text,
+    properties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Configuration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cConfigurations' - A list of additional configurations to apply within a configuration object.
---
--- * 'cClassification' - The classification within a configuration.
---
--- * 'cProperties' - A set of properties specified within a configuration classification.
-configuration ::
+-- * 'classification' - The classification within a configuration.
+-- * 'configurations' - A list of additional configurations to apply within a configuration object.
+-- * 'properties' - A set of properties specified within a configuration classification.
+mkConfiguration ::
   Configuration
-configuration =
+mkConfiguration =
   Configuration'
-    { _cConfigurations = Nothing,
-      _cClassification = Nothing,
-      _cProperties = Nothing
+    { configurations = Lude.Nothing,
+      classification = Lude.Nothing,
+      properties = Lude.Nothing
     }
 
 -- | A list of additional configurations to apply within a configuration object.
-cConfigurations :: Lens' Configuration [Configuration]
-cConfigurations = lens _cConfigurations (\s a -> s {_cConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConfigurations :: Lens.Lens' Configuration (Lude.Maybe [Configuration])
+cConfigurations = Lens.lens (configurations :: Configuration -> Lude.Maybe [Configuration]) (\s a -> s {configurations = a} :: Configuration)
+{-# DEPRECATED cConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | The classification within a configuration.
-cClassification :: Lens' Configuration (Maybe Text)
-cClassification = lens _cClassification (\s a -> s {_cClassification = a})
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClassification :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cClassification = Lens.lens (classification :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: Configuration)
+{-# DEPRECATED cClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | A set of properties specified within a configuration classification.
-cProperties :: Lens' Configuration (HashMap Text (Text))
-cProperties = lens _cProperties (\s a -> s {_cProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cProperties :: Lens.Lens' Configuration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cProperties = Lens.lens (properties :: Configuration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {properties = a} :: Configuration)
+{-# DEPRECATED cProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance FromJSON Configuration where
+instance Lude.FromJSON Configuration where
   parseJSON =
-    withObject
+    Lude.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            <$> (x .:? "Configurations" .!= mempty)
-            <*> (x .:? "Classification")
-            <*> (x .:? "Properties" .!= mempty)
+            Lude.<$> (x Lude..:? "Configurations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Classification")
+            Lude.<*> (x Lude..:? "Properties" Lude..!= Lude.mempty)
       )
 
-instance Hashable Configuration
-
-instance NFData Configuration
-
-instance ToJSON Configuration where
+instance Lude.ToJSON Configuration where
   toJSON Configuration' {..} =
-    object
-      ( catMaybes
-          [ ("Configurations" .=) <$> _cConfigurations,
-            ("Classification" .=) <$> _cClassification,
-            ("Properties" .=) <$> _cProperties
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Configurations" Lude..=) Lude.<$> configurations,
+            ("Classification" Lude..=) Lude.<$> classification,
+            ("Properties" Lude..=) Lude.<$> properties
           ]
       )

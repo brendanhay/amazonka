@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.LoadBalancer where
+module Network.AWS.ElasticBeanstalk.Types.LoadBalancer
+  ( LoadBalancer (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLoadBalancer,
+
+    -- * Lenses
+    lbName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a LoadBalancer.
 --
---
---
--- /See:/ 'loadBalancer' smart constructor.
-newtype LoadBalancer = LoadBalancer' {_lbName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkLoadBalancer' smart constructor.
+newtype LoadBalancer = LoadBalancer' {name :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbName' - The name of the LoadBalancer.
-loadBalancer ::
+-- * 'name' - The name of the LoadBalancer.
+mkLoadBalancer ::
   LoadBalancer
-loadBalancer = LoadBalancer' {_lbName = Nothing}
+mkLoadBalancer = LoadBalancer' {name = Lude.Nothing}
 
 -- | The name of the LoadBalancer.
-lbName :: Lens' LoadBalancer (Maybe Text)
-lbName = lens _lbName (\s a -> s {_lbName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbName :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
+lbName = Lens.lens (name :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LoadBalancer)
+{-# DEPRECATED lbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML LoadBalancer where
-  parseXML x = LoadBalancer' <$> (x .@? "Name")
-
-instance Hashable LoadBalancer
-
-instance NFData LoadBalancer
+instance Lude.FromXML LoadBalancer where
+  parseXML x = LoadBalancer' Lude.<$> (x Lude..@? "Name")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,27 @@
 --
 -- Updates a Network File System (NFS) file share. This operation is only supported in the file gateway type.
 --
---
 -- Updates the following file share settings:
 --
 --     * Default storage class for your S3 bucket
 --
+--
 --     * Metadata defaults for your S3 bucket
+--
 --
 --     * Allowed NFS clients for your file share
 --
+--
 --     * Squash settings
+--
 --
 --     * Write status of your file share
 module Network.AWS.StorageGateway.UpdateNFSFileShare
-  ( -- * Creating a Request
-    updateNFSFileShare,
-    UpdateNFSFileShare,
+  ( -- * Creating a request
+    UpdateNFSFileShare (..),
+    mkUpdateNFSFileShare,
 
-    -- * Request Lenses
+    -- ** Request lenses
     unfsfsKMSKey,
     unfsfsCacheAttributes,
     unfsfsObjectACL,
@@ -52,242 +50,319 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     unfsfsReadOnly,
     unfsfsFileShareARN,
 
-    -- * Destructuring the Response
-    updateNFSFileShareResponse,
-    UpdateNFSFileShareResponse,
+    -- * Destructuring the response
+    UpdateNFSFileShareResponse (..),
+    mkUpdateNFSFileShareResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     unfsfsrsFileShareARN,
     unfsfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | UpdateNFSFileShareInput
 --
---
---
--- /See:/ 'updateNFSFileShare' smart constructor.
+-- /See:/ 'mkUpdateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-  { _unfsfsKMSKey ::
-      !(Maybe Text),
-    _unfsfsCacheAttributes :: !(Maybe CacheAttributes),
-    _unfsfsObjectACL :: !(Maybe ObjectACL),
-    _unfsfsKMSEncrypted :: !(Maybe Bool),
-    _unfsfsDefaultStorageClass :: !(Maybe Text),
-    _unfsfsFileShareName :: !(Maybe Text),
-    _unfsfsNotificationPolicy :: !(Maybe Text),
-    _unfsfsSquash :: !(Maybe Text),
-    _unfsfsRequesterPays :: !(Maybe Bool),
-    _unfsfsNFSFileShareDefaults ::
-      !(Maybe NFSFileShareDefaults),
-    _unfsfsClientList :: !(Maybe (List1 Text)),
-    _unfsfsGuessMIMETypeEnabled :: !(Maybe Bool),
-    _unfsfsReadOnly :: !(Maybe Bool),
-    _unfsfsFileShareARN :: !Text
+  { kmsKey ::
+      Lude.Maybe Lude.Text,
+    cacheAttributes :: Lude.Maybe CacheAttributes,
+    objectACL :: Lude.Maybe ObjectACL,
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    defaultStorageClass :: Lude.Maybe Lude.Text,
+    fileShareName :: Lude.Maybe Lude.Text,
+    notificationPolicy :: Lude.Maybe Lude.Text,
+    squash :: Lude.Maybe Lude.Text,
+    requesterPays :: Lude.Maybe Lude.Bool,
+    nFSFileShareDefaults ::
+      Lude.Maybe NFSFileShareDefaults,
+    clientList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    readOnly :: Lude.Maybe Lude.Bool,
+    fileShareARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNFSFileShare' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheAttributes' - Refresh cache information.
+-- * 'clientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- * 'unfsfsKMSKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
+-- * 'fileShareName' - The name of the file share. Optional.
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
 --
--- * 'unfsfsCacheAttributes' - Refresh cache information.
+-- Valid Values: @true@ | @false@
+-- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- * 'unfsfsObjectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+-- Valid Values: @true@ | @false@
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'nFSFileShareDefaults' - The default values for the file share. Optional.
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
 --
--- * 'unfsfsKMSEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
+-- Valid Values: @true@ | @false@
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
 --
--- * 'unfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- Valid Values: @true@ | @false@
+-- * 'squash' - The user mapped to anonymous user.
 --
--- * 'unfsfsFileShareName' - The name of the file share. Optional.
+-- Valid values are the following:
 --
--- * 'unfsfsNotificationPolicy' - The notification policy of the file share.
+--     * @RootSquash@ : Only root is mapped to anonymous user.
 --
--- * 'unfsfsSquash' - The user mapped to anonymous user. Valid values are the following:     * @RootSquash@ : Only root is mapped to anonymous user.     * @NoSquash@ : No one is mapped to anonymous user.     * @AllSquash@ : Everyone is mapped to anonymous user.
 --
--- * 'unfsfsRequesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
+--     * @NoSquash@ : No one is mapped to anonymous user.
 --
--- * 'unfsfsNFSFileShareDefaults' - The default values for the file share. Optional.
 --
--- * 'unfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
---
--- * 'unfsfsGuessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
---
--- * 'unfsfsReadOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
---
--- * 'unfsfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
-updateNFSFileShare ::
-  -- | 'unfsfsFileShareARN'
-  Text ->
+--     * @AllSquash@ : Everyone is mapped to anonymous user.
+mkUpdateNFSFileShare ::
+  -- | 'fileShareARN'
+  Lude.Text ->
   UpdateNFSFileShare
-updateNFSFileShare pFileShareARN_ =
+mkUpdateNFSFileShare pFileShareARN_ =
   UpdateNFSFileShare'
-    { _unfsfsKMSKey = Nothing,
-      _unfsfsCacheAttributes = Nothing,
-      _unfsfsObjectACL = Nothing,
-      _unfsfsKMSEncrypted = Nothing,
-      _unfsfsDefaultStorageClass = Nothing,
-      _unfsfsFileShareName = Nothing,
-      _unfsfsNotificationPolicy = Nothing,
-      _unfsfsSquash = Nothing,
-      _unfsfsRequesterPays = Nothing,
-      _unfsfsNFSFileShareDefaults = Nothing,
-      _unfsfsClientList = Nothing,
-      _unfsfsGuessMIMETypeEnabled = Nothing,
-      _unfsfsReadOnly = Nothing,
-      _unfsfsFileShareARN = pFileShareARN_
+    { kmsKey = Lude.Nothing,
+      cacheAttributes = Lude.Nothing,
+      objectACL = Lude.Nothing,
+      kmsEncrypted = Lude.Nothing,
+      defaultStorageClass = Lude.Nothing,
+      fileShareName = Lude.Nothing,
+      notificationPolicy = Lude.Nothing,
+      squash = Lude.Nothing,
+      requesterPays = Lude.Nothing,
+      nFSFileShareDefaults = Lude.Nothing,
+      clientList = Lude.Nothing,
+      guessMIMETypeEnabled = Lude.Nothing,
+      readOnly = Lude.Nothing,
+      fileShareARN = pFileShareARN_
     }
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
-unfsfsKMSKey :: Lens' UpdateNFSFileShare (Maybe Text)
-unfsfsKMSKey = lens _unfsfsKMSKey (\s a -> s {_unfsfsKMSKey = a})
+--
+-- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsKMSKey :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Text)
+unfsfsKMSKey = Lens.lens (kmsKey :: UpdateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
 -- | Refresh cache information.
-unfsfsCacheAttributes :: Lens' UpdateNFSFileShare (Maybe CacheAttributes)
-unfsfsCacheAttributes = lens _unfsfsCacheAttributes (\s a -> s {_unfsfsCacheAttributes = a})
+--
+-- /Note:/ Consider using 'cacheAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsCacheAttributes :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe CacheAttributes)
+unfsfsCacheAttributes = Lens.lens (cacheAttributes :: UpdateNFSFileShare -> Lude.Maybe CacheAttributes) (\s a -> s {cacheAttributes = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsCacheAttributes "Use generic-lens or generic-optics with 'cacheAttributes' instead." #-}
 
 -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
-unfsfsObjectACL :: Lens' UpdateNFSFileShare (Maybe ObjectACL)
-unfsfsObjectACL = lens _unfsfsObjectACL (\s a -> s {_unfsfsObjectACL = a})
+--
+-- /Note:/ Consider using 'objectACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsObjectACL :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe ObjectACL)
+unfsfsObjectACL = Lens.lens (objectACL :: UpdateNFSFileShare -> Lude.Maybe ObjectACL) (\s a -> s {objectACL = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsObjectACL "Use generic-lens or generic-optics with 'objectACL' instead." #-}
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
-unfsfsKMSEncrypted :: Lens' UpdateNFSFileShare (Maybe Bool)
-unfsfsKMSEncrypted = lens _unfsfsKMSEncrypted (\s a -> s {_unfsfsKMSEncrypted = a})
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsKMSEncrypted :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
+unfsfsKMSEncrypted = Lens.lens (kmsEncrypted :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
--- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-unfsfsDefaultStorageClass :: Lens' UpdateNFSFileShare (Maybe Text)
-unfsfsDefaultStorageClass = lens _unfsfsDefaultStorageClass (\s a -> s {_unfsfsDefaultStorageClass = a})
+-- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+--
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+--
+-- /Note:/ Consider using 'defaultStorageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsDefaultStorageClass :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Text)
+unfsfsDefaultStorageClass = Lens.lens (defaultStorageClass :: UpdateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {defaultStorageClass = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsDefaultStorageClass "Use generic-lens or generic-optics with 'defaultStorageClass' instead." #-}
 
 -- | The name of the file share. Optional.
-unfsfsFileShareName :: Lens' UpdateNFSFileShare (Maybe Text)
-unfsfsFileShareName = lens _unfsfsFileShareName (\s a -> s {_unfsfsFileShareName = a})
+--
+-- /Note:/ Consider using 'fileShareName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsFileShareName :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Text)
+unfsfsFileShareName = Lens.lens (fileShareName :: UpdateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {fileShareName = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsFileShareName "Use generic-lens or generic-optics with 'fileShareName' instead." #-}
 
 -- | The notification policy of the file share.
-unfsfsNotificationPolicy :: Lens' UpdateNFSFileShare (Maybe Text)
-unfsfsNotificationPolicy = lens _unfsfsNotificationPolicy (\s a -> s {_unfsfsNotificationPolicy = a})
+--
+-- /Note:/ Consider using 'notificationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsNotificationPolicy :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Text)
+unfsfsNotificationPolicy = Lens.lens (notificationPolicy :: UpdateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {notificationPolicy = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsNotificationPolicy "Use generic-lens or generic-optics with 'notificationPolicy' instead." #-}
 
--- | The user mapped to anonymous user. Valid values are the following:     * @RootSquash@ : Only root is mapped to anonymous user.     * @NoSquash@ : No one is mapped to anonymous user.     * @AllSquash@ : Everyone is mapped to anonymous user.
-unfsfsSquash :: Lens' UpdateNFSFileShare (Maybe Text)
-unfsfsSquash = lens _unfsfsSquash (\s a -> s {_unfsfsSquash = a})
+-- | The user mapped to anonymous user.
+--
+-- Valid values are the following:
+--
+--     * @RootSquash@ : Only root is mapped to anonymous user.
+--
+--
+--     * @NoSquash@ : No one is mapped to anonymous user.
+--
+--
+--     * @AllSquash@ : Everyone is mapped to anonymous user.
+--
+--
+--
+-- /Note:/ Consider using 'squash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsSquash :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Text)
+unfsfsSquash = Lens.lens (squash :: UpdateNFSFileShare -> Lude.Maybe Lude.Text) (\s a -> s {squash = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsSquash "Use generic-lens or generic-optics with 'squash' instead." #-}
 
--- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
-unfsfsRequesterPays :: Lens' UpdateNFSFileShare (Maybe Bool)
-unfsfsRequesterPays = lens _unfsfsRequesterPays (\s a -> s {_unfsfsRequesterPays = a})
+-- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'requesterPays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsRequesterPays :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
+unfsfsRequesterPays = Lens.lens (requesterPays :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {requesterPays = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsRequesterPays "Use generic-lens or generic-optics with 'requesterPays' instead." #-}
 
 -- | The default values for the file share. Optional.
-unfsfsNFSFileShareDefaults :: Lens' UpdateNFSFileShare (Maybe NFSFileShareDefaults)
-unfsfsNFSFileShareDefaults = lens _unfsfsNFSFileShareDefaults (\s a -> s {_unfsfsNFSFileShareDefaults = a})
+--
+-- /Note:/ Consider using 'nFSFileShareDefaults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsNFSFileShareDefaults :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe NFSFileShareDefaults)
+unfsfsNFSFileShareDefaults = Lens.lens (nFSFileShareDefaults :: UpdateNFSFileShare -> Lude.Maybe NFSFileShareDefaults) (\s a -> s {nFSFileShareDefaults = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsNFSFileShareDefaults "Use generic-lens or generic-optics with 'nFSFileShareDefaults' instead." #-}
 
 -- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
-unfsfsClientList :: Lens' UpdateNFSFileShare (Maybe (NonEmpty Text))
-unfsfsClientList = lens _unfsfsClientList (\s a -> s {_unfsfsClientList = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsClientList :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe (Lude.NonEmpty Lude.Text))
+unfsfsClientList = Lens.lens (clientList :: UpdateNFSFileShare -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {clientList = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}
 
--- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
-unfsfsGuessMIMETypeEnabled :: Lens' UpdateNFSFileShare (Maybe Bool)
-unfsfsGuessMIMETypeEnabled = lens _unfsfsGuessMIMETypeEnabled (\s a -> s {_unfsfsGuessMIMETypeEnabled = a})
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'guessMIMETypeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsGuessMIMETypeEnabled :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
+unfsfsGuessMIMETypeEnabled = Lens.lens (guessMIMETypeEnabled :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {guessMIMETypeEnabled = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsGuessMIMETypeEnabled "Use generic-lens or generic-optics with 'guessMIMETypeEnabled' instead." #-}
 
--- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
-unfsfsReadOnly :: Lens' UpdateNFSFileShare (Maybe Bool)
-unfsfsReadOnly = lens _unfsfsReadOnly (\s a -> s {_unfsfsReadOnly = a})
+-- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsReadOnly :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
+unfsfsReadOnly = Lens.lens (readOnly :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the file share to be updated.
-unfsfsFileShareARN :: Lens' UpdateNFSFileShare Text
-unfsfsFileShareARN = lens _unfsfsFileShareARN (\s a -> s {_unfsfsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsFileShareARN :: Lens.Lens' UpdateNFSFileShare Lude.Text
+unfsfsFileShareARN = Lens.lens (fileShareARN :: UpdateNFSFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
-instance AWSRequest UpdateNFSFileShare where
+instance Lude.AWSRequest UpdateNFSFileShare where
   type Rs UpdateNFSFileShare = UpdateNFSFileShareResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateNFSFileShareResponse'
-            <$> (x .?> "FileShareARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FileShareARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateNFSFileShare
-
-instance NFData UpdateNFSFileShare
-
-instance ToHeaders UpdateNFSFileShare where
+instance Lude.ToHeaders UpdateNFSFileShare where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.UpdateNFSFileShare" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.UpdateNFSFileShare" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateNFSFileShare where
+instance Lude.ToJSON UpdateNFSFileShare where
   toJSON UpdateNFSFileShare' {..} =
-    object
-      ( catMaybes
-          [ ("KMSKey" .=) <$> _unfsfsKMSKey,
-            ("CacheAttributes" .=) <$> _unfsfsCacheAttributes,
-            ("ObjectACL" .=) <$> _unfsfsObjectACL,
-            ("KMSEncrypted" .=) <$> _unfsfsKMSEncrypted,
-            ("DefaultStorageClass" .=) <$> _unfsfsDefaultStorageClass,
-            ("FileShareName" .=) <$> _unfsfsFileShareName,
-            ("NotificationPolicy" .=) <$> _unfsfsNotificationPolicy,
-            ("Squash" .=) <$> _unfsfsSquash,
-            ("RequesterPays" .=) <$> _unfsfsRequesterPays,
-            ("NFSFileShareDefaults" .=) <$> _unfsfsNFSFileShareDefaults,
-            ("ClientList" .=) <$> _unfsfsClientList,
-            ("GuessMIMETypeEnabled" .=) <$> _unfsfsGuessMIMETypeEnabled,
-            ("ReadOnly" .=) <$> _unfsfsReadOnly,
-            Just ("FileShareARN" .= _unfsfsFileShareARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
+            ("CacheAttributes" Lude..=) Lude.<$> cacheAttributes,
+            ("ObjectACL" Lude..=) Lude.<$> objectACL,
+            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Lude..=) Lude.<$> defaultStorageClass,
+            ("FileShareName" Lude..=) Lude.<$> fileShareName,
+            ("NotificationPolicy" Lude..=) Lude.<$> notificationPolicy,
+            ("Squash" Lude..=) Lude.<$> squash,
+            ("RequesterPays" Lude..=) Lude.<$> requesterPays,
+            ("NFSFileShareDefaults" Lude..=) Lude.<$> nFSFileShareDefaults,
+            ("ClientList" Lude..=) Lude.<$> clientList,
+            ("GuessMIMETypeEnabled" Lude..=) Lude.<$> guessMIMETypeEnabled,
+            ("ReadOnly" Lude..=) Lude.<$> readOnly,
+            Lude.Just ("FileShareARN" Lude..= fileShareARN)
           ]
       )
 
-instance ToPath UpdateNFSFileShare where
-  toPath = const "/"
+instance Lude.ToPath UpdateNFSFileShare where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateNFSFileShare where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateNFSFileShare where
+  toQuery = Lude.const Lude.mempty
 
 -- | UpdateNFSFileShareOutput
 --
---
---
--- /See:/ 'updateNFSFileShareResponse' smart constructor.
+-- /See:/ 'mkUpdateNFSFileShareResponse' smart constructor.
 data UpdateNFSFileShareResponse = UpdateNFSFileShareResponse'
-  { _unfsfsrsFileShareARN ::
-      !(Maybe Text),
-    _unfsfsrsResponseStatus :: !Int
+  { fileShareARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNFSFileShareResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unfsfsrsFileShareARN' - The Amazon Resource Name (ARN) of the updated file share.
---
--- * 'unfsfsrsResponseStatus' - -- | The response status code.
-updateNFSFileShareResponse ::
-  -- | 'unfsfsrsResponseStatus'
-  Int ->
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the updated file share.
+-- * 'responseStatus' - The response status code.
+mkUpdateNFSFileShareResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateNFSFileShareResponse
-updateNFSFileShareResponse pResponseStatus_ =
+mkUpdateNFSFileShareResponse pResponseStatus_ =
   UpdateNFSFileShareResponse'
-    { _unfsfsrsFileShareARN = Nothing,
-      _unfsfsrsResponseStatus = pResponseStatus_
+    { fileShareARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the updated file share.
-unfsfsrsFileShareARN :: Lens' UpdateNFSFileShareResponse (Maybe Text)
-unfsfsrsFileShareARN = lens _unfsfsrsFileShareARN (\s a -> s {_unfsfsrsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsrsFileShareARN :: Lens.Lens' UpdateNFSFileShareResponse (Lude.Maybe Lude.Text)
+unfsfsrsFileShareARN = Lens.lens (fileShareARN :: UpdateNFSFileShareResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateNFSFileShareResponse)
+{-# DEPRECATED unfsfsrsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | -- | The response status code.
-unfsfsrsResponseStatus :: Lens' UpdateNFSFileShareResponse Int
-unfsfsrsResponseStatus = lens _unfsfsrsResponseStatus (\s a -> s {_unfsfsrsResponseStatus = a})
-
-instance NFData UpdateNFSFileShareResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsrsResponseStatus :: Lens.Lens' UpdateNFSFileShareResponse Lude.Int
+unfsfsrsResponseStatus = Lens.lens (responseStatus :: UpdateNFSFileShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateNFSFileShareResponse)
+{-# DEPRECATED unfsfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

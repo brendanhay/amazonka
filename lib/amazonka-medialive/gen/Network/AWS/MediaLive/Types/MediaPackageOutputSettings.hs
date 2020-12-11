@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,31 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MediaPackageOutputSettings where
+module Network.AWS.MediaLive.Types.MediaPackageOutputSettings
+  ( MediaPackageOutputSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMediaPackageOutputSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Media Package Output Settings
 --
--- /See:/ 'mediaPackageOutputSettings' smart constructor.
+-- /See:/ 'mkMediaPackageOutputSettings' smart constructor.
 data MediaPackageOutputSettings = MediaPackageOutputSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MediaPackageOutputSettings' with the minimum fields required to make a request.
-mediaPackageOutputSettings ::
+mkMediaPackageOutputSettings ::
   MediaPackageOutputSettings
-mediaPackageOutputSettings = MediaPackageOutputSettings'
+mkMediaPackageOutputSettings = MediaPackageOutputSettings'
 
-instance FromJSON MediaPackageOutputSettings where
+instance Lude.FromJSON MediaPackageOutputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MediaPackageOutputSettings"
-      (\x -> pure MediaPackageOutputSettings')
+      (\x -> Lude.pure MediaPackageOutputSettings')
 
-instance Hashable MediaPackageOutputSettings
-
-instance NFData MediaPackageOutputSettings
-
-instance ToJSON MediaPackageOutputSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON MediaPackageOutputSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

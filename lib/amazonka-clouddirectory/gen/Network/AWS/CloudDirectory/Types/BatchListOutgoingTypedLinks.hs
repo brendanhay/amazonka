@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks where
+module Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
+  ( BatchListOutgoingTypedLinks (..),
+
+    -- * Smart constructor
+    mkBatchListOutgoingTypedLinks,
+
+    -- * Lenses
+    blotlsFilterAttributeRanges,
+    blotlsNextToken,
+    blotlsFilterTypedLink,
+    blotlsMaxResults,
+    blotlsObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object inside a 'BatchRead' operation. For more information, see 'ListOutgoingTypedLinks' and 'BatchReadRequest$Operations' .
 --
---
---
--- /See:/ 'batchListOutgoingTypedLinks' smart constructor.
+-- /See:/ 'mkBatchListOutgoingTypedLinks' smart constructor.
 data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
-  { _blotlsFilterAttributeRanges ::
-      !(Maybe [TypedLinkAttributeRange]),
-    _blotlsNextToken :: !(Maybe Text),
-    _blotlsFilterTypedLink ::
-      !( Maybe
-           TypedLinkSchemaAndFacetName
-       ),
-    _blotlsMaxResults :: !(Maybe Nat),
-    _blotlsObjectReference ::
-      !ObjectReference
+  { filterAttributeRanges ::
+      Lude.Maybe
+        [TypedLinkAttributeRange],
+    nextToken :: Lude.Maybe Lude.Text,
+    filterTypedLink ::
+      Lude.Maybe
+        TypedLinkSchemaAndFacetName,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListOutgoingTypedLinks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blotlsFilterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
---
--- * 'blotlsNextToken' - The pagination token.
---
--- * 'blotlsFilterTypedLink' - Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
---
--- * 'blotlsMaxResults' - The maximum number of results to retrieve.
---
--- * 'blotlsObjectReference' - The reference that identifies the object whose attributes will be listed.
-batchListOutgoingTypedLinks ::
-  -- | 'blotlsObjectReference'
+-- * 'filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+-- * 'filterTypedLink' - Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - The reference that identifies the object whose attributes will be listed.
+mkBatchListOutgoingTypedLinks ::
+  -- | 'objectReference'
   ObjectReference ->
   BatchListOutgoingTypedLinks
-batchListOutgoingTypedLinks pObjectReference_ =
+mkBatchListOutgoingTypedLinks pObjectReference_ =
   BatchListOutgoingTypedLinks'
-    { _blotlsFilterAttributeRanges =
-        Nothing,
-      _blotlsNextToken = Nothing,
-      _blotlsFilterTypedLink = Nothing,
-      _blotlsMaxResults = Nothing,
-      _blotlsObjectReference = pObjectReference_
+    { filterAttributeRanges =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filterTypedLink = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      objectReference = pObjectReference_
     }
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
-blotlsFilterAttributeRanges :: Lens' BatchListOutgoingTypedLinks [TypedLinkAttributeRange]
-blotlsFilterAttributeRanges = lens _blotlsFilterAttributeRanges (\s a -> s {_blotlsFilterAttributeRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filterAttributeRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlsFilterAttributeRanges :: Lens.Lens' BatchListOutgoingTypedLinks (Lude.Maybe [TypedLinkAttributeRange])
+blotlsFilterAttributeRanges = Lens.lens (filterAttributeRanges :: BatchListOutgoingTypedLinks -> Lude.Maybe [TypedLinkAttributeRange]) (\s a -> s {filterAttributeRanges = a} :: BatchListOutgoingTypedLinks)
+{-# DEPRECATED blotlsFilterAttributeRanges "Use generic-lens or generic-optics with 'filterAttributeRanges' instead." #-}
 
 -- | The pagination token.
-blotlsNextToken :: Lens' BatchListOutgoingTypedLinks (Maybe Text)
-blotlsNextToken = lens _blotlsNextToken (\s a -> s {_blotlsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlsNextToken :: Lens.Lens' BatchListOutgoingTypedLinks (Lude.Maybe Lude.Text)
+blotlsNextToken = Lens.lens (nextToken :: BatchListOutgoingTypedLinks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListOutgoingTypedLinks)
+{-# DEPRECATED blotlsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
-blotlsFilterTypedLink :: Lens' BatchListOutgoingTypedLinks (Maybe TypedLinkSchemaAndFacetName)
-blotlsFilterTypedLink = lens _blotlsFilterTypedLink (\s a -> s {_blotlsFilterTypedLink = a})
+--
+-- /Note:/ Consider using 'filterTypedLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlsFilterTypedLink :: Lens.Lens' BatchListOutgoingTypedLinks (Lude.Maybe TypedLinkSchemaAndFacetName)
+blotlsFilterTypedLink = Lens.lens (filterTypedLink :: BatchListOutgoingTypedLinks -> Lude.Maybe TypedLinkSchemaAndFacetName) (\s a -> s {filterTypedLink = a} :: BatchListOutgoingTypedLinks)
+{-# DEPRECATED blotlsFilterTypedLink "Use generic-lens or generic-optics with 'filterTypedLink' instead." #-}
 
 -- | The maximum number of results to retrieve.
-blotlsMaxResults :: Lens' BatchListOutgoingTypedLinks (Maybe Natural)
-blotlsMaxResults = lens _blotlsMaxResults (\s a -> s {_blotlsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlsMaxResults :: Lens.Lens' BatchListOutgoingTypedLinks (Lude.Maybe Lude.Natural)
+blotlsMaxResults = Lens.lens (maxResults :: BatchListOutgoingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListOutgoingTypedLinks)
+{-# DEPRECATED blotlsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The reference that identifies the object whose attributes will be listed.
-blotlsObjectReference :: Lens' BatchListOutgoingTypedLinks ObjectReference
-blotlsObjectReference = lens _blotlsObjectReference (\s a -> s {_blotlsObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlsObjectReference :: Lens.Lens' BatchListOutgoingTypedLinks ObjectReference
+blotlsObjectReference = Lens.lens (objectReference :: BatchListOutgoingTypedLinks -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListOutgoingTypedLinks)
+{-# DEPRECATED blotlsObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchListOutgoingTypedLinks
-
-instance NFData BatchListOutgoingTypedLinks
-
-instance ToJSON BatchListOutgoingTypedLinks where
+instance Lude.ToJSON BatchListOutgoingTypedLinks where
   toJSON BatchListOutgoingTypedLinks' {..} =
-    object
-      ( catMaybes
-          [ ("FilterAttributeRanges" .=) <$> _blotlsFilterAttributeRanges,
-            ("NextToken" .=) <$> _blotlsNextToken,
-            ("FilterTypedLink" .=) <$> _blotlsFilterTypedLink,
-            ("MaxResults" .=) <$> _blotlsMaxResults,
-            Just ("ObjectReference" .= _blotlsObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FilterAttributeRanges" Lude..=) Lude.<$> filterAttributeRanges,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("FilterTypedLink" Lude..=) Lude.<$> filterTypedLink,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

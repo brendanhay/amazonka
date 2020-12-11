@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Edge where
+module Network.AWS.Glue.Types.Edge
+  ( Edge (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEdge,
+
+    -- * Lenses
+    eSourceId,
+    eDestinationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An edge represents a directed connection between two AWS Glue components that are part of the workflow the edge belongs to.
 --
---
---
--- /See:/ 'edge' smart constructor.
+-- /See:/ 'mkEdge' smart constructor.
 data Edge = Edge'
-  { _eSourceId :: !(Maybe Text),
-    _eDestinationId :: !(Maybe Text)
+  { sourceId :: Lude.Maybe Lude.Text,
+    destinationId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Edge' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eSourceId' - The unique of the node within the workflow where the edge starts.
---
--- * 'eDestinationId' - The unique of the node within the workflow where the edge ends.
-edge ::
+-- * 'destinationId' - The unique of the node within the workflow where the edge ends.
+-- * 'sourceId' - The unique of the node within the workflow where the edge starts.
+mkEdge ::
   Edge
-edge = Edge' {_eSourceId = Nothing, _eDestinationId = Nothing}
+mkEdge =
+  Edge' {sourceId = Lude.Nothing, destinationId = Lude.Nothing}
 
 -- | The unique of the node within the workflow where the edge starts.
-eSourceId :: Lens' Edge (Maybe Text)
-eSourceId = lens _eSourceId (\s a -> s {_eSourceId = a})
+--
+-- /Note:/ Consider using 'sourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceId :: Lens.Lens' Edge (Lude.Maybe Lude.Text)
+eSourceId = Lens.lens (sourceId :: Edge -> Lude.Maybe Lude.Text) (\s a -> s {sourceId = a} :: Edge)
+{-# DEPRECATED eSourceId "Use generic-lens or generic-optics with 'sourceId' instead." #-}
 
 -- | The unique of the node within the workflow where the edge ends.
-eDestinationId :: Lens' Edge (Maybe Text)
-eDestinationId = lens _eDestinationId (\s a -> s {_eDestinationId = a})
+--
+-- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDestinationId :: Lens.Lens' Edge (Lude.Maybe Lude.Text)
+eDestinationId = Lens.lens (destinationId :: Edge -> Lude.Maybe Lude.Text) (\s a -> s {destinationId = a} :: Edge)
+{-# DEPRECATED eDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance FromJSON Edge where
+instance Lude.FromJSON Edge where
   parseJSON =
-    withObject
+    Lude.withObject
       "Edge"
-      (\x -> Edge' <$> (x .:? "SourceId") <*> (x .:? "DestinationId"))
-
-instance Hashable Edge
-
-instance NFData Edge
+      ( \x ->
+          Edge'
+            Lude.<$> (x Lude..:? "SourceId") Lude.<*> (x Lude..:? "DestinationId")
+      )

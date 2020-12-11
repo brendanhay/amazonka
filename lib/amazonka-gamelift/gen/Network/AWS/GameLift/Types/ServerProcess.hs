@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.ServerProcess where
+module Network.AWS.GameLift.Types.ServerProcess
+  ( ServerProcess (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerProcess,
+
+    -- * Lenses
+    spParameters,
+    spLaunchPath,
+    spConcurrentExecutions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of instructions for launching server processes on each instance in a fleet. Server processes run either a custom game build executable or a Realtime Servers script. Each instruction set identifies the location of the custom game build executable or Realtime launch script, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's @'RuntimeConfiguration' @ .
 --
---
---
--- /See:/ 'serverProcess' smart constructor.
+-- /See:/ 'mkServerProcess' smart constructor.
 data ServerProcess = ServerProcess'
-  { _spParameters :: !(Maybe Text),
-    _spLaunchPath :: !Text,
-    _spConcurrentExecutions :: !Nat
+  { parameters ::
+      Lude.Maybe Lude.Text,
+    launchPath :: Lude.Text,
+    concurrentExecutions :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerProcess' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'concurrentExecutions' - The number of server processes that use this configuration to run concurrently on an instance.
+-- * 'launchPath' - The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:
 --
--- * 'spParameters' - An optional list of parameters to pass to the server executable or Realtime script on launch.
 --
--- * 'spLaunchPath' - The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:      * Windows (for custom game builds only): @C:\game@ . Example: "@C:\game\MyGame\server.exe@ "      * Linux: @/local/game@ . Examples: "@/local/game/MyGame/server.exe@ " or "@/local/game/MyRealtimeScript.js@ "
+--     * Windows (for custom game builds only): @C:\game@ . Example: "@C:\game\MyGame\server.exe@ "
 --
--- * 'spConcurrentExecutions' - The number of server processes that use this configuration to run concurrently on an instance.
-serverProcess ::
-  -- | 'spLaunchPath'
-  Text ->
-  -- | 'spConcurrentExecutions'
-  Natural ->
+--
+--     * Linux: @/local/game@ . Examples: "@/local/game/MyGame/server.exe@ " or "@/local/game/MyRealtimeScript.js@ "
+--
+--
+-- * 'parameters' - An optional list of parameters to pass to the server executable or Realtime script on launch.
+mkServerProcess ::
+  -- | 'launchPath'
+  Lude.Text ->
+  -- | 'concurrentExecutions'
+  Lude.Natural ->
   ServerProcess
-serverProcess pLaunchPath_ pConcurrentExecutions_ =
+mkServerProcess pLaunchPath_ pConcurrentExecutions_ =
   ServerProcess'
-    { _spParameters = Nothing,
-      _spLaunchPath = pLaunchPath_,
-      _spConcurrentExecutions = _Nat # pConcurrentExecutions_
+    { parameters = Lude.Nothing,
+      launchPath = pLaunchPath_,
+      concurrentExecutions = pConcurrentExecutions_
     }
 
 -- | An optional list of parameters to pass to the server executable or Realtime script on launch.
-spParameters :: Lens' ServerProcess (Maybe Text)
-spParameters = lens _spParameters (\s a -> s {_spParameters = a})
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spParameters :: Lens.Lens' ServerProcess (Lude.Maybe Lude.Text)
+spParameters = Lens.lens (parameters :: ServerProcess -> Lude.Maybe Lude.Text) (\s a -> s {parameters = a} :: ServerProcess)
+{-# DEPRECATED spParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:      * Windows (for custom game builds only): @C:\game@ . Example: "@C:\game\MyGame\server.exe@ "      * Linux: @/local/game@ . Examples: "@/local/game/MyGame/server.exe@ " or "@/local/game/MyRealtimeScript.js@ "
-spLaunchPath :: Lens' ServerProcess Text
-spLaunchPath = lens _spLaunchPath (\s a -> s {_spLaunchPath = a})
+-- | The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:
+--
+--
+--     * Windows (for custom game builds only): @C:\game@ . Example: "@C:\game\MyGame\server.exe@ "
+--
+--
+--     * Linux: @/local/game@ . Examples: "@/local/game/MyGame/server.exe@ " or "@/local/game/MyRealtimeScript.js@ "
+--
+--
+--
+-- /Note:/ Consider using 'launchPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spLaunchPath :: Lens.Lens' ServerProcess Lude.Text
+spLaunchPath = Lens.lens (launchPath :: ServerProcess -> Lude.Text) (\s a -> s {launchPath = a} :: ServerProcess)
+{-# DEPRECATED spLaunchPath "Use generic-lens or generic-optics with 'launchPath' instead." #-}
 
 -- | The number of server processes that use this configuration to run concurrently on an instance.
-spConcurrentExecutions :: Lens' ServerProcess Natural
-spConcurrentExecutions = lens _spConcurrentExecutions (\s a -> s {_spConcurrentExecutions = a}) . _Nat
+--
+-- /Note:/ Consider using 'concurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spConcurrentExecutions :: Lens.Lens' ServerProcess Lude.Natural
+spConcurrentExecutions = Lens.lens (concurrentExecutions :: ServerProcess -> Lude.Natural) (\s a -> s {concurrentExecutions = a} :: ServerProcess)
+{-# DEPRECATED spConcurrentExecutions "Use generic-lens or generic-optics with 'concurrentExecutions' instead." #-}
 
-instance FromJSON ServerProcess where
+instance Lude.FromJSON ServerProcess where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerProcess"
       ( \x ->
           ServerProcess'
-            <$> (x .:? "Parameters")
-            <*> (x .: "LaunchPath")
-            <*> (x .: "ConcurrentExecutions")
+            Lude.<$> (x Lude..:? "Parameters")
+            Lude.<*> (x Lude..: "LaunchPath")
+            Lude.<*> (x Lude..: "ConcurrentExecutions")
       )
 
-instance Hashable ServerProcess
-
-instance NFData ServerProcess
-
-instance ToJSON ServerProcess where
+instance Lude.ToJSON ServerProcess where
   toJSON ServerProcess' {..} =
-    object
-      ( catMaybes
-          [ ("Parameters" .=) <$> _spParameters,
-            Just ("LaunchPath" .= _spLaunchPath),
-            Just ("ConcurrentExecutions" .= _spConcurrentExecutions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            Lude.Just ("LaunchPath" Lude..= launchPath),
+            Lude.Just ("ConcurrentExecutions" Lude..= concurrentExecutions)
           ]
       )

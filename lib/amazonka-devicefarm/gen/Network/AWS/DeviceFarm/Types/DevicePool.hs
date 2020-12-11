@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,139 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DevicePool where
+module Network.AWS.DeviceFarm.Types.DevicePool
+  ( DevicePool (..),
+
+    -- * Smart constructor
+    mkDevicePool,
+
+    -- * Lenses
+    devArn,
+    devRules,
+    devName,
+    devMaxDevices,
+    devType,
+    devDescription,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.DevicePoolType
 import Network.AWS.DeviceFarm.Types.Rule
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a collection of device types.
 --
---
---
--- /See:/ 'devicePool' smart constructor.
+-- /See:/ 'mkDevicePool' smart constructor.
 data DevicePool = DevicePool'
-  { _devArn :: !(Maybe Text),
-    _devRules :: !(Maybe [Rule]),
-    _devName :: !(Maybe Text),
-    _devMaxDevices :: !(Maybe Int),
-    _devType :: !(Maybe DevicePoolType),
-    _devDescription :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    rules :: Lude.Maybe [Rule],
+    name :: Lude.Maybe Lude.Text,
+    maxDevices :: Lude.Maybe Lude.Int,
+    type' :: Lude.Maybe DevicePoolType,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevicePool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The device pool's ARN.
+-- * 'description' - The device pool's description.
+-- * 'maxDevices' - The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
 --
--- * 'devArn' - The device pool's ARN.
+-- By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+-- * 'name' - The device pool's name.
+-- * 'rules' - Information about the device pool's rules.
+-- * 'type'' - The device pool's type.
 --
--- * 'devRules' - Information about the device pool's rules.
+-- Allowed values include:
 --
--- * 'devName' - The device pool's name.
+--     * CURATED: A device pool that is created and managed by AWS Device Farm.
 --
--- * 'devMaxDevices' - The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter. By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 --
--- * 'devType' - The device pool's type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
---
--- * 'devDescription' - The device pool's description.
-devicePool ::
+--     * PRIVATE: A device pool that is created and managed by the device pool developer.
+mkDevicePool ::
   DevicePool
-devicePool =
+mkDevicePool =
   DevicePool'
-    { _devArn = Nothing,
-      _devRules = Nothing,
-      _devName = Nothing,
-      _devMaxDevices = Nothing,
-      _devType = Nothing,
-      _devDescription = Nothing
+    { arn = Lude.Nothing,
+      rules = Lude.Nothing,
+      name = Lude.Nothing,
+      maxDevices = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The device pool's ARN.
-devArn :: Lens' DevicePool (Maybe Text)
-devArn = lens _devArn (\s a -> s {_devArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devArn :: Lens.Lens' DevicePool (Lude.Maybe Lude.Text)
+devArn = Lens.lens (arn :: DevicePool -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DevicePool)
+{-# DEPRECATED devArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Information about the device pool's rules.
-devRules :: Lens' DevicePool [Rule]
-devRules = lens _devRules (\s a -> s {_devRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devRules :: Lens.Lens' DevicePool (Lude.Maybe [Rule])
+devRules = Lens.lens (rules :: DevicePool -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: DevicePool)
+{-# DEPRECATED devRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The device pool's name.
-devName :: Lens' DevicePool (Maybe Text)
-devName = lens _devName (\s a -> s {_devName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devName :: Lens.Lens' DevicePool (Lude.Maybe Lude.Text)
+devName = Lens.lens (name :: DevicePool -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DevicePool)
+{-# DEPRECATED devName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter. By specifying the maximum number of devices, you can control the costs that you incur by running tests.
-devMaxDevices :: Lens' DevicePool (Maybe Int)
-devMaxDevices = lens _devMaxDevices (\s a -> s {_devMaxDevices = a})
+-- | The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+--
+-- By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+--
+-- /Note:/ Consider using 'maxDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devMaxDevices :: Lens.Lens' DevicePool (Lude.Maybe Lude.Int)
+devMaxDevices = Lens.lens (maxDevices :: DevicePool -> Lude.Maybe Lude.Int) (\s a -> s {maxDevices = a} :: DevicePool)
+{-# DEPRECATED devMaxDevices "Use generic-lens or generic-optics with 'maxDevices' instead." #-}
 
--- | The device pool's type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
-devType :: Lens' DevicePool (Maybe DevicePoolType)
-devType = lens _devType (\s a -> s {_devType = a})
+-- | The device pool's type.
+--
+-- Allowed values include:
+--
+--     * CURATED: A device pool that is created and managed by AWS Device Farm.
+--
+--
+--     * PRIVATE: A device pool that is created and managed by the device pool developer.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devType :: Lens.Lens' DevicePool (Lude.Maybe DevicePoolType)
+devType = Lens.lens (type' :: DevicePool -> Lude.Maybe DevicePoolType) (\s a -> s {type' = a} :: DevicePool)
+{-# DEPRECATED devType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The device pool's description.
-devDescription :: Lens' DevicePool (Maybe Text)
-devDescription = lens _devDescription (\s a -> s {_devDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+devDescription :: Lens.Lens' DevicePool (Lude.Maybe Lude.Text)
+devDescription = Lens.lens (description :: DevicePool -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DevicePool)
+{-# DEPRECATED devDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON DevicePool where
+instance Lude.FromJSON DevicePool where
   parseJSON =
-    withObject
+    Lude.withObject
       "DevicePool"
       ( \x ->
           DevicePool'
-            <$> (x .:? "arn")
-            <*> (x .:? "rules" .!= mempty)
-            <*> (x .:? "name")
-            <*> (x .:? "maxDevices")
-            <*> (x .:? "type")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "rules" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "maxDevices")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable DevicePool
-
-instance NFData DevicePool

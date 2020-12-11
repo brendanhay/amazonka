@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.Variable where
+module Network.AWS.IoTAnalytics.Types.Variable
+  ( Variable (..),
+
+    -- * Smart constructor
+    mkVariable,
+
+    -- * Lenses
+    vOutputFileURIValue,
+    vDoubleValue,
+    vStringValue,
+    vDatasetContentVersionValue,
+    vName,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
 import Network.AWS.IoTAnalytics.Types.OutputFileURIValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An instance of a variable to be passed to the @containerAction@ execution. Each variable must have a name and a value given by one of @stringValue@ , @datasetContentVersionValue@ , or @outputFileUriValue@ .
 --
---
---
--- /See:/ 'variable' smart constructor.
+-- /See:/ 'mkVariable' smart constructor.
 data Variable = Variable'
-  { _vOutputFileURIValue ::
-      !(Maybe OutputFileURIValue),
-    _vDoubleValue :: !(Maybe Double),
-    _vStringValue :: !(Maybe Text),
-    _vDatasetContentVersionValue ::
-      !(Maybe DatasetContentVersionValue),
-    _vName :: !Text
+  { outputFileURIValue ::
+      Lude.Maybe OutputFileURIValue,
+    doubleValue :: Lude.Maybe Lude.Double,
+    stringValue :: Lude.Maybe Lude.Text,
+    datasetContentVersionValue ::
+      Lude.Maybe DatasetContentVersionValue,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Variable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vOutputFileURIValue' - The value of the variable as a structure that specifies an output file URI.
---
--- * 'vDoubleValue' - The value of the variable as a double (numeric).
---
--- * 'vStringValue' - The value of the variable as a string.
---
--- * 'vDatasetContentVersionValue' - The value of the variable as a structure that specifies a dataset content version.
---
--- * 'vName' - The name of the variable.
-variable ::
-  -- | 'vName'
-  Text ->
+-- * 'datasetContentVersionValue' - The value of the variable as a structure that specifies a dataset content version.
+-- * 'doubleValue' - The value of the variable as a double (numeric).
+-- * 'name' - The name of the variable.
+-- * 'outputFileURIValue' - The value of the variable as a structure that specifies an output file URI.
+-- * 'stringValue' - The value of the variable as a string.
+mkVariable ::
+  -- | 'name'
+  Lude.Text ->
   Variable
-variable pName_ =
+mkVariable pName_ =
   Variable'
-    { _vOutputFileURIValue = Nothing,
-      _vDoubleValue = Nothing,
-      _vStringValue = Nothing,
-      _vDatasetContentVersionValue = Nothing,
-      _vName = pName_
+    { outputFileURIValue = Lude.Nothing,
+      doubleValue = Lude.Nothing,
+      stringValue = Lude.Nothing,
+      datasetContentVersionValue = Lude.Nothing,
+      name = pName_
     }
 
 -- | The value of the variable as a structure that specifies an output file URI.
-vOutputFileURIValue :: Lens' Variable (Maybe OutputFileURIValue)
-vOutputFileURIValue = lens _vOutputFileURIValue (\s a -> s {_vOutputFileURIValue = a})
+--
+-- /Note:/ Consider using 'outputFileURIValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vOutputFileURIValue :: Lens.Lens' Variable (Lude.Maybe OutputFileURIValue)
+vOutputFileURIValue = Lens.lens (outputFileURIValue :: Variable -> Lude.Maybe OutputFileURIValue) (\s a -> s {outputFileURIValue = a} :: Variable)
+{-# DEPRECATED vOutputFileURIValue "Use generic-lens or generic-optics with 'outputFileURIValue' instead." #-}
 
 -- | The value of the variable as a double (numeric).
-vDoubleValue :: Lens' Variable (Maybe Double)
-vDoubleValue = lens _vDoubleValue (\s a -> s {_vDoubleValue = a})
+--
+-- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vDoubleValue :: Lens.Lens' Variable (Lude.Maybe Lude.Double)
+vDoubleValue = Lens.lens (doubleValue :: Variable -> Lude.Maybe Lude.Double) (\s a -> s {doubleValue = a} :: Variable)
+{-# DEPRECATED vDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
 
 -- | The value of the variable as a string.
-vStringValue :: Lens' Variable (Maybe Text)
-vStringValue = lens _vStringValue (\s a -> s {_vStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vStringValue :: Lens.Lens' Variable (Lude.Maybe Lude.Text)
+vStringValue = Lens.lens (stringValue :: Variable -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: Variable)
+{-# DEPRECATED vStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
 -- | The value of the variable as a structure that specifies a dataset content version.
-vDatasetContentVersionValue :: Lens' Variable (Maybe DatasetContentVersionValue)
-vDatasetContentVersionValue = lens _vDatasetContentVersionValue (\s a -> s {_vDatasetContentVersionValue = a})
+--
+-- /Note:/ Consider using 'datasetContentVersionValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vDatasetContentVersionValue :: Lens.Lens' Variable (Lude.Maybe DatasetContentVersionValue)
+vDatasetContentVersionValue = Lens.lens (datasetContentVersionValue :: Variable -> Lude.Maybe DatasetContentVersionValue) (\s a -> s {datasetContentVersionValue = a} :: Variable)
+{-# DEPRECATED vDatasetContentVersionValue "Use generic-lens or generic-optics with 'datasetContentVersionValue' instead." #-}
 
 -- | The name of the variable.
-vName :: Lens' Variable Text
-vName = lens _vName (\s a -> s {_vName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vName :: Lens.Lens' Variable Lude.Text
+vName = Lens.lens (name :: Variable -> Lude.Text) (\s a -> s {name = a} :: Variable)
+{-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Variable where
+instance Lude.FromJSON Variable where
   parseJSON =
-    withObject
+    Lude.withObject
       "Variable"
       ( \x ->
           Variable'
-            <$> (x .:? "outputFileUriValue")
-            <*> (x .:? "doubleValue")
-            <*> (x .:? "stringValue")
-            <*> (x .:? "datasetContentVersionValue")
-            <*> (x .: "name")
+            Lude.<$> (x Lude..:? "outputFileUriValue")
+            Lude.<*> (x Lude..:? "doubleValue")
+            Lude.<*> (x Lude..:? "stringValue")
+            Lude.<*> (x Lude..:? "datasetContentVersionValue")
+            Lude.<*> (x Lude..: "name")
       )
 
-instance Hashable Variable
-
-instance NFData Variable
-
-instance ToJSON Variable where
+instance Lude.ToJSON Variable where
   toJSON Variable' {..} =
-    object
-      ( catMaybes
-          [ ("outputFileUriValue" .=) <$> _vOutputFileURIValue,
-            ("doubleValue" .=) <$> _vDoubleValue,
-            ("stringValue" .=) <$> _vStringValue,
-            ("datasetContentVersionValue" .=) <$> _vDatasetContentVersionValue,
-            Just ("name" .= _vName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("outputFileUriValue" Lude..=) Lude.<$> outputFileURIValue,
+            ("doubleValue" Lude..=) Lude.<$> doubleValue,
+            ("stringValue" Lude..=) Lude.<$> stringValue,
+            ("datasetContentVersionValue" Lude..=)
+              Lude.<$> datasetContentVersionValue,
+            Lude.Just ("name" Lude..= name)
           ]
       )

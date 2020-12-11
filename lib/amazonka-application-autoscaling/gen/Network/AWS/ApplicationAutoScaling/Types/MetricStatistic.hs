@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.MetricStatistic where
+module Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
+  ( MetricStatistic
+      ( MetricStatistic',
+        Average,
+        Maximum,
+        Minimum,
+        SampleCount,
+        Sum
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricStatistic
-  = Average
-  | Maximum
-  | Minimum
-  | SampleCount
-  | Sum
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricStatistic = MetricStatistic' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricStatistic where
-  parser =
-    takeLowerText >>= \case
-      "average" -> pure Average
-      "maximum" -> pure Maximum
-      "minimum" -> pure Minimum
-      "samplecount" -> pure SampleCount
-      "sum" -> pure Sum
-      e ->
-        fromTextError $
-          "Failure parsing MetricStatistic from value: '" <> e
-            <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
+pattern Average :: MetricStatistic
+pattern Average = MetricStatistic' "Average"
 
-instance ToText MetricStatistic where
-  toText = \case
-    Average -> "Average"
-    Maximum -> "Maximum"
-    Minimum -> "Minimum"
-    SampleCount -> "SampleCount"
-    Sum -> "Sum"
+pattern Maximum :: MetricStatistic
+pattern Maximum = MetricStatistic' "Maximum"
 
-instance Hashable MetricStatistic
+pattern Minimum :: MetricStatistic
+pattern Minimum = MetricStatistic' "Minimum"
 
-instance NFData MetricStatistic
+pattern SampleCount :: MetricStatistic
+pattern SampleCount = MetricStatistic' "SampleCount"
 
-instance ToByteString MetricStatistic
+pattern Sum :: MetricStatistic
+pattern Sum = MetricStatistic' "Sum"
 
-instance ToQuery MetricStatistic
-
-instance ToHeader MetricStatistic
-
-instance ToJSON MetricStatistic where
-  toJSON = toJSONText
-
-instance FromJSON MetricStatistic where
-  parseJSON = parseJSONText "MetricStatistic"
+{-# COMPLETE
+  Average,
+  Maximum,
+  Minimum,
+  SampleCount,
+  Sum,
+  MetricStatistic'
+  #-}

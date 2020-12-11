@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Pauses a cluster.
 module Network.AWS.Redshift.PauseCluster
-  ( -- * Creating a Request
-    pauseCluster,
-    PauseCluster,
+  ( -- * Creating a request
+    PauseCluster (..),
+    mkPauseCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcClusterIdentifier,
 
-    -- * Destructuring the Response
-    pauseClusterResponse,
-    PauseClusterResponse,
+    -- * Destructuring the response
+    PauseClusterResponse (..),
+    mkPauseClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcrsCluster,
     pcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Describes a pause cluster operation. For example, a scheduled action to run the @PauseCluster@ API operation.
 --
---
---
--- /See:/ 'pauseCluster' smart constructor.
-newtype PauseCluster = PauseCluster' {_pcClusterIdentifier :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkPauseCluster' smart constructor.
+newtype PauseCluster = PauseCluster'
+  { clusterIdentifier ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PauseCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcClusterIdentifier' - The identifier of the cluster to be paused.
-pauseCluster ::
-  -- | 'pcClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The identifier of the cluster to be paused.
+mkPauseCluster ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   PauseCluster
-pauseCluster pClusterIdentifier_ =
-  PauseCluster' {_pcClusterIdentifier = pClusterIdentifier_}
+mkPauseCluster pClusterIdentifier_ =
+  PauseCluster' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The identifier of the cluster to be paused.
-pcClusterIdentifier :: Lens' PauseCluster Text
-pcClusterIdentifier = lens _pcClusterIdentifier (\s a -> s {_pcClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcClusterIdentifier :: Lens.Lens' PauseCluster Lude.Text
+pcClusterIdentifier = Lens.lens (clusterIdentifier :: PauseCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: PauseCluster)
+{-# DEPRECATED pcClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest PauseCluster where
+instance Lude.AWSRequest PauseCluster where
   type Rs PauseCluster = PauseClusterResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PauseClusterResult"
       ( \s h x ->
           PauseClusterResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PauseCluster
+instance Lude.ToHeaders PauseCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PauseCluster
+instance Lude.ToPath PauseCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders PauseCluster where
-  toHeaders = const mempty
-
-instance ToPath PauseCluster where
-  toPath = const "/"
-
-instance ToQuery PauseCluster where
+instance Lude.ToQuery PauseCluster where
   toQuery PauseCluster' {..} =
-    mconcat
-      [ "Action" =: ("PauseCluster" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _pcClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("PauseCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'pauseClusterResponse' smart constructor.
+-- | /See:/ 'mkPauseClusterResponse' smart constructor.
 data PauseClusterResponse = PauseClusterResponse'
-  { _pcrsCluster ::
-      !(Maybe Cluster),
-    _pcrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PauseClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcrsCluster' - Undocumented member.
---
--- * 'pcrsResponseStatus' - -- | The response status code.
-pauseClusterResponse ::
-  -- | 'pcrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkPauseClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PauseClusterResponse
-pauseClusterResponse pResponseStatus_ =
+mkPauseClusterResponse pResponseStatus_ =
   PauseClusterResponse'
-    { _pcrsCluster = Nothing,
-      _pcrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-pcrsCluster :: Lens' PauseClusterResponse (Maybe Cluster)
-pcrsCluster = lens _pcrsCluster (\s a -> s {_pcrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrsCluster :: Lens.Lens' PauseClusterResponse (Lude.Maybe Cluster)
+pcrsCluster = Lens.lens (cluster :: PauseClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: PauseClusterResponse)
+{-# DEPRECATED pcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-pcrsResponseStatus :: Lens' PauseClusterResponse Int
-pcrsResponseStatus = lens _pcrsResponseStatus (\s a -> s {_pcrsResponseStatus = a})
-
-instance NFData PauseClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrsResponseStatus :: Lens.Lens' PauseClusterResponse Lude.Int
+pcrsResponseStatus = Lens.lens (responseStatus :: PauseClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PauseClusterResponse)
+{-# DEPRECATED pcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

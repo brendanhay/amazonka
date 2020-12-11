@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobTimeout where
+module Network.AWS.Batch.Types.JobTimeout
+  ( JobTimeout (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobTimeout,
+
+    -- * Lenses
+    jtAttemptDurationSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing a job timeout configuration.
 --
---
---
--- /See:/ 'jobTimeout' smart constructor.
+-- /See:/ 'mkJobTimeout' smart constructor.
 newtype JobTimeout = JobTimeout'
-  { _jtAttemptDurationSeconds ::
-      Maybe Int
+  { attemptDurationSeconds ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobTimeout' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jtAttemptDurationSeconds' - The time duration in seconds (measured from the job attempt's @startedAt@ timestamp) after which AWS Batch terminates your jobs if they have not finished.
-jobTimeout ::
+-- * 'attemptDurationSeconds' - The time duration in seconds (measured from the job attempt's @startedAt@ timestamp) after which AWS Batch terminates your jobs if they have not finished.
+mkJobTimeout ::
   JobTimeout
-jobTimeout = JobTimeout' {_jtAttemptDurationSeconds = Nothing}
+mkJobTimeout = JobTimeout' {attemptDurationSeconds = Lude.Nothing}
 
 -- | The time duration in seconds (measured from the job attempt's @startedAt@ timestamp) after which AWS Batch terminates your jobs if they have not finished.
-jtAttemptDurationSeconds :: Lens' JobTimeout (Maybe Int)
-jtAttemptDurationSeconds = lens _jtAttemptDurationSeconds (\s a -> s {_jtAttemptDurationSeconds = a})
+--
+-- /Note:/ Consider using 'attemptDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jtAttemptDurationSeconds :: Lens.Lens' JobTimeout (Lude.Maybe Lude.Int)
+jtAttemptDurationSeconds = Lens.lens (attemptDurationSeconds :: JobTimeout -> Lude.Maybe Lude.Int) (\s a -> s {attemptDurationSeconds = a} :: JobTimeout)
+{-# DEPRECATED jtAttemptDurationSeconds "Use generic-lens or generic-optics with 'attemptDurationSeconds' instead." #-}
 
-instance FromJSON JobTimeout where
+instance Lude.FromJSON JobTimeout where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobTimeout"
-      (\x -> JobTimeout' <$> (x .:? "attemptDurationSeconds"))
+      (\x -> JobTimeout' Lude.<$> (x Lude..:? "attemptDurationSeconds"))
 
-instance Hashable JobTimeout
-
-instance NFData JobTimeout
-
-instance ToJSON JobTimeout where
+instance Lude.ToJSON JobTimeout where
   toJSON JobTimeout' {..} =
-    object
-      ( catMaybes
-          [("attemptDurationSeconds" .=) <$> _jtAttemptDurationSeconds]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("attemptDurationSeconds" Lude..=)
+              Lude.<$> attemptDurationSeconds
+          ]
       )

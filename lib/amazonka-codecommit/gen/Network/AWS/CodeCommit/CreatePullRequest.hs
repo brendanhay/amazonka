@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,174 @@
 --
 -- Creates a pull request in the specified repository.
 module Network.AWS.CodeCommit.CreatePullRequest
-  ( -- * Creating a Request
-    createPullRequest,
-    CreatePullRequest,
+  ( -- * Creating a request
+    CreatePullRequest (..),
+    mkCreatePullRequest,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cprClientRequestToken,
     cprDescription,
     cprTitle,
     cprTargets,
 
-    -- * Destructuring the Response
-    createPullRequestResponse,
-    CreatePullRequestResponse,
+    -- * Destructuring the response
+    CreatePullRequestResponse (..),
+    mkCreatePullRequestResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprrsResponseStatus,
     cprrsPullRequest,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createPullRequest' smart constructor.
+-- | /See:/ 'mkCreatePullRequest' smart constructor.
 data CreatePullRequest = CreatePullRequest'
-  { _cprClientRequestToken ::
-      !(Maybe Text),
-    _cprDescription :: !(Maybe Text),
-    _cprTitle :: !Text,
-    _cprTargets :: ![Target]
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    title :: Lude.Text,
+    targets :: [Target]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePullRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprClientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
---
--- * 'cprDescription' - A description of the pull request.
---
--- * 'cprTitle' - The title of the pull request. This title is used to identify the pull request to other users in the repository.
---
--- * 'cprTargets' - The targets for the pull request, including the source of the code to be reviewed (the source branch) and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).
-createPullRequest ::
-  -- | 'cprTitle'
-  Text ->
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- * 'description' - A description of the pull request.
+-- * 'targets' - The targets for the pull request, including the source of the code to be reviewed (the source branch) and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).
+-- * 'title' - The title of the pull request. This title is used to identify the pull request to other users in the repository.
+mkCreatePullRequest ::
+  -- | 'title'
+  Lude.Text ->
   CreatePullRequest
-createPullRequest pTitle_ =
+mkCreatePullRequest pTitle_ =
   CreatePullRequest'
-    { _cprClientRequestToken = Nothing,
-      _cprDescription = Nothing,
-      _cprTitle = pTitle_,
-      _cprTargets = mempty
+    { clientRequestToken = Lude.Nothing,
+      description = Lude.Nothing,
+      title = pTitle_,
+      targets = Lude.mempty
     }
 
 -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
-cprClientRequestToken :: Lens' CreatePullRequest (Maybe Text)
-cprClientRequestToken = lens _cprClientRequestToken (\s a -> s {_cprClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprClientRequestToken :: Lens.Lens' CreatePullRequest (Lude.Maybe Lude.Text)
+cprClientRequestToken = Lens.lens (clientRequestToken :: CreatePullRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreatePullRequest)
+{-# DEPRECATED cprClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | A description of the pull request.
-cprDescription :: Lens' CreatePullRequest (Maybe Text)
-cprDescription = lens _cprDescription (\s a -> s {_cprDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprDescription :: Lens.Lens' CreatePullRequest (Lude.Maybe Lude.Text)
+cprDescription = Lens.lens (description :: CreatePullRequest -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePullRequest)
+{-# DEPRECATED cprDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The title of the pull request. This title is used to identify the pull request to other users in the repository.
-cprTitle :: Lens' CreatePullRequest Text
-cprTitle = lens _cprTitle (\s a -> s {_cprTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprTitle :: Lens.Lens' CreatePullRequest Lude.Text
+cprTitle = Lens.lens (title :: CreatePullRequest -> Lude.Text) (\s a -> s {title = a} :: CreatePullRequest)
+{-# DEPRECATED cprTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The targets for the pull request, including the source of the code to be reviewed (the source branch) and the destination where the creator of the pull request intends the code to be merged after the pull request is closed (the destination branch).
-cprTargets :: Lens' CreatePullRequest [Target]
-cprTargets = lens _cprTargets (\s a -> s {_cprTargets = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprTargets :: Lens.Lens' CreatePullRequest [Target]
+cprTargets = Lens.lens (targets :: CreatePullRequest -> [Target]) (\s a -> s {targets = a} :: CreatePullRequest)
+{-# DEPRECATED cprTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
-instance AWSRequest CreatePullRequest where
+instance Lude.AWSRequest CreatePullRequest where
   type Rs CreatePullRequest = CreatePullRequestResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePullRequestResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "pullRequest")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "pullRequest")
       )
 
-instance Hashable CreatePullRequest
-
-instance NFData CreatePullRequest
-
-instance ToHeaders CreatePullRequest where
+instance Lude.ToHeaders CreatePullRequest where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.CreatePullRequest" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.CreatePullRequest" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePullRequest where
+instance Lude.ToJSON CreatePullRequest where
   toJSON CreatePullRequest' {..} =
-    object
-      ( catMaybes
-          [ ("clientRequestToken" .=) <$> _cprClientRequestToken,
-            ("description" .=) <$> _cprDescription,
-            Just ("title" .= _cprTitle),
-            Just ("targets" .= _cprTargets)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("title" Lude..= title),
+            Lude.Just ("targets" Lude..= targets)
           ]
       )
 
-instance ToPath CreatePullRequest where
-  toPath = const "/"
+instance Lude.ToPath CreatePullRequest where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePullRequest where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePullRequest where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPullRequestResponse' smart constructor.
+-- | /See:/ 'mkCreatePullRequestResponse' smart constructor.
 data CreatePullRequestResponse = CreatePullRequestResponse'
-  { _cprrsResponseStatus ::
-      !Int,
-    _cprrsPullRequest :: !PullRequest
+  { responseStatus ::
+      Lude.Int,
+    pullRequest :: PullRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePullRequestResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprrsResponseStatus' - -- | The response status code.
---
--- * 'cprrsPullRequest' - Information about the newly created pull request.
-createPullRequestResponse ::
-  -- | 'cprrsResponseStatus'
-  Int ->
-  -- | 'cprrsPullRequest'
+-- * 'pullRequest' - Information about the newly created pull request.
+-- * 'responseStatus' - The response status code.
+mkCreatePullRequestResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'pullRequest'
   PullRequest ->
   CreatePullRequestResponse
-createPullRequestResponse pResponseStatus_ pPullRequest_ =
+mkCreatePullRequestResponse pResponseStatus_ pPullRequest_ =
   CreatePullRequestResponse'
-    { _cprrsResponseStatus =
-        pResponseStatus_,
-      _cprrsPullRequest = pPullRequest_
+    { responseStatus = pResponseStatus_,
+      pullRequest = pPullRequest_
     }
 
--- | -- | The response status code.
-cprrsResponseStatus :: Lens' CreatePullRequestResponse Int
-cprrsResponseStatus = lens _cprrsResponseStatus (\s a -> s {_cprrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprrsResponseStatus :: Lens.Lens' CreatePullRequestResponse Lude.Int
+cprrsResponseStatus = Lens.lens (responseStatus :: CreatePullRequestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePullRequestResponse)
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the newly created pull request.
-cprrsPullRequest :: Lens' CreatePullRequestResponse PullRequest
-cprrsPullRequest = lens _cprrsPullRequest (\s a -> s {_cprrsPullRequest = a})
-
-instance NFData CreatePullRequestResponse
+--
+-- /Note:/ Consider using 'pullRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprrsPullRequest :: Lens.Lens' CreatePullRequestResponse PullRequest
+cprrsPullRequest = Lens.lens (pullRequest :: CreatePullRequestResponse -> PullRequest) (\s a -> s {pullRequest = a} :: CreatePullRequestResponse)
+{-# DEPRECATED cprrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}

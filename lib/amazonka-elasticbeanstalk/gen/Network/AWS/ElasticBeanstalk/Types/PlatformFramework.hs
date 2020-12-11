@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.PlatformFramework where
+module Network.AWS.ElasticBeanstalk.Types.PlatformFramework
+  ( PlatformFramework (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPlatformFramework,
+
+    -- * Lenses
+    pfName,
+    pfVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A framework supported by the platform.
 --
---
---
--- /See:/ 'platformFramework' smart constructor.
+-- /See:/ 'mkPlatformFramework' smart constructor.
 data PlatformFramework = PlatformFramework'
-  { _pfName ::
-      !(Maybe Text),
-    _pfVersion :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformFramework' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfName' - The name of the framework.
---
--- * 'pfVersion' - The version of the framework.
-platformFramework ::
+-- * 'name' - The name of the framework.
+-- * 'version' - The version of the framework.
+mkPlatformFramework ::
   PlatformFramework
-platformFramework =
-  PlatformFramework' {_pfName = Nothing, _pfVersion = Nothing}
+mkPlatformFramework =
+  PlatformFramework' {name = Lude.Nothing, version = Lude.Nothing}
 
 -- | The name of the framework.
-pfName :: Lens' PlatformFramework (Maybe Text)
-pfName = lens _pfName (\s a -> s {_pfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfName :: Lens.Lens' PlatformFramework (Lude.Maybe Lude.Text)
+pfName = Lens.lens (name :: PlatformFramework -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PlatformFramework)
+{-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the framework.
-pfVersion :: Lens' PlatformFramework (Maybe Text)
-pfVersion = lens _pfVersion (\s a -> s {_pfVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfVersion :: Lens.Lens' PlatformFramework (Lude.Maybe Lude.Text)
+pfVersion = Lens.lens (version :: PlatformFramework -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: PlatformFramework)
+{-# DEPRECATED pfVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance FromXML PlatformFramework where
+instance Lude.FromXML PlatformFramework where
   parseXML x =
-    PlatformFramework' <$> (x .@? "Name") <*> (x .@? "Version")
-
-instance Hashable PlatformFramework
-
-instance NFData PlatformFramework
+    PlatformFramework'
+      Lude.<$> (x Lude..@? "Name") Lude.<*> (x Lude..@? "Version")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.Policies where
+module Network.AWS.ELB.Types.Policies
+  ( Policies (..),
+
+    -- * Smart constructor
+    mkPolicies,
+
+    -- * Lenses
+    pOtherPolicies,
+    pLBCookieStickinessPolicies,
+    pAppCookieStickinessPolicies,
+  )
+where
 
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.AppCookieStickinessPolicy
 import Network.AWS.ELB.Types.LBCookieStickinessPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The policies for a load balancer.
 --
---
---
--- /See:/ 'policies' smart constructor.
+-- /See:/ 'mkPolicies' smart constructor.
 data Policies = Policies'
-  { _pOtherPolicies :: !(Maybe [Text]),
-    _pLBCookieStickinessPolicies ::
-      !(Maybe [LBCookieStickinessPolicy]),
-    _pAppCookieStickinessPolicies ::
-      !(Maybe [AppCookieStickinessPolicy])
+  { otherPolicies :: Lude.Maybe [Lude.Text],
+    lBCookieStickinessPolicies ::
+      Lude.Maybe [LBCookieStickinessPolicy],
+    appCookieStickinessPolicies ::
+      Lude.Maybe [AppCookieStickinessPolicy]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pOtherPolicies' - The policies other than the stickiness policies.
---
--- * 'pLBCookieStickinessPolicies' - The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
---
--- * 'pAppCookieStickinessPolicies' - The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
-policies ::
+-- * 'appCookieStickinessPolicies' - The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
+-- * 'lBCookieStickinessPolicies' - The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
+-- * 'otherPolicies' - The policies other than the stickiness policies.
+mkPolicies ::
   Policies
-policies =
+mkPolicies =
   Policies'
-    { _pOtherPolicies = Nothing,
-      _pLBCookieStickinessPolicies = Nothing,
-      _pAppCookieStickinessPolicies = Nothing
+    { otherPolicies = Lude.Nothing,
+      lBCookieStickinessPolicies = Lude.Nothing,
+      appCookieStickinessPolicies = Lude.Nothing
     }
 
 -- | The policies other than the stickiness policies.
-pOtherPolicies :: Lens' Policies [Text]
-pOtherPolicies = lens _pOtherPolicies (\s a -> s {_pOtherPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'otherPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pOtherPolicies :: Lens.Lens' Policies (Lude.Maybe [Lude.Text])
+pOtherPolicies = Lens.lens (otherPolicies :: Policies -> Lude.Maybe [Lude.Text]) (\s a -> s {otherPolicies = a} :: Policies)
+{-# DEPRECATED pOtherPolicies "Use generic-lens or generic-optics with 'otherPolicies' instead." #-}
 
 -- | The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
-pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
-pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\s a -> s {_pLBCookieStickinessPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lBCookieStickinessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLBCookieStickinessPolicies :: Lens.Lens' Policies (Lude.Maybe [LBCookieStickinessPolicy])
+pLBCookieStickinessPolicies = Lens.lens (lBCookieStickinessPolicies :: Policies -> Lude.Maybe [LBCookieStickinessPolicy]) (\s a -> s {lBCookieStickinessPolicies = a} :: Policies)
+{-# DEPRECATED pLBCookieStickinessPolicies "Use generic-lens or generic-optics with 'lBCookieStickinessPolicies' instead." #-}
 
 -- | The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
-pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
-pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\s a -> s {_pAppCookieStickinessPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'appCookieStickinessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAppCookieStickinessPolicies :: Lens.Lens' Policies (Lude.Maybe [AppCookieStickinessPolicy])
+pAppCookieStickinessPolicies = Lens.lens (appCookieStickinessPolicies :: Policies -> Lude.Maybe [AppCookieStickinessPolicy]) (\s a -> s {appCookieStickinessPolicies = a} :: Policies)
+{-# DEPRECATED pAppCookieStickinessPolicies "Use generic-lens or generic-optics with 'appCookieStickinessPolicies' instead." #-}
 
-instance FromXML Policies where
+instance Lude.FromXML Policies where
   parseXML x =
     Policies'
-      <$> (x .@? "OtherPolicies" .!@ mempty >>= may (parseXMLList "member"))
-      <*> ( x .@? "LBCookieStickinessPolicies" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> ( x .@? "AppCookieStickinessPolicies" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable Policies
-
-instance NFData Policies
+      Lude.<$> ( x Lude..@? "OtherPolicies" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> ( x Lude..@? "LBCookieStickinessPolicies" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> ( x Lude..@? "AppCookieStickinessPolicies" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

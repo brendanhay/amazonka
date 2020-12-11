@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ReplicationRunStageDetails where
+module Network.AWS.SMS.Types.ReplicationRunStageDetails
+  ( ReplicationRunStageDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationRunStageDetails,
+
+    -- * Lenses
+    rrsdStage,
+    rrsdStageProgress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the current stage of a replication run.
 --
---
---
--- /See:/ 'replicationRunStageDetails' smart constructor.
+-- /See:/ 'mkReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
-  { _rrsdStage ::
-      !(Maybe Text),
-    _rrsdStageProgress :: !(Maybe Text)
+  { stage ::
+      Lude.Maybe Lude.Text,
+    stageProgress :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRunStageDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsdStage' - The current stage of a replication run.
---
--- * 'rrsdStageProgress' - The progress of the current stage of a replication run.
-replicationRunStageDetails ::
+-- * 'stage' - The current stage of a replication run.
+-- * 'stageProgress' - The progress of the current stage of a replication run.
+mkReplicationRunStageDetails ::
   ReplicationRunStageDetails
-replicationRunStageDetails =
+mkReplicationRunStageDetails =
   ReplicationRunStageDetails'
-    { _rrsdStage = Nothing,
-      _rrsdStageProgress = Nothing
+    { stage = Lude.Nothing,
+      stageProgress = Lude.Nothing
     }
 
 -- | The current stage of a replication run.
-rrsdStage :: Lens' ReplicationRunStageDetails (Maybe Text)
-rrsdStage = lens _rrsdStage (\s a -> s {_rrsdStage = a})
+--
+-- /Note:/ Consider using 'stage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsdStage :: Lens.Lens' ReplicationRunStageDetails (Lude.Maybe Lude.Text)
+rrsdStage = Lens.lens (stage :: ReplicationRunStageDetails -> Lude.Maybe Lude.Text) (\s a -> s {stage = a} :: ReplicationRunStageDetails)
+{-# DEPRECATED rrsdStage "Use generic-lens or generic-optics with 'stage' instead." #-}
 
 -- | The progress of the current stage of a replication run.
-rrsdStageProgress :: Lens' ReplicationRunStageDetails (Maybe Text)
-rrsdStageProgress = lens _rrsdStageProgress (\s a -> s {_rrsdStageProgress = a})
+--
+-- /Note:/ Consider using 'stageProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsdStageProgress :: Lens.Lens' ReplicationRunStageDetails (Lude.Maybe Lude.Text)
+rrsdStageProgress = Lens.lens (stageProgress :: ReplicationRunStageDetails -> Lude.Maybe Lude.Text) (\s a -> s {stageProgress = a} :: ReplicationRunStageDetails)
+{-# DEPRECATED rrsdStageProgress "Use generic-lens or generic-optics with 'stageProgress' instead." #-}
 
-instance FromJSON ReplicationRunStageDetails where
+instance Lude.FromJSON ReplicationRunStageDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationRunStageDetails"
       ( \x ->
           ReplicationRunStageDetails'
-            <$> (x .:? "stage") <*> (x .:? "stageProgress")
+            Lude.<$> (x Lude..:? "stage") Lude.<*> (x Lude..:? "stageProgress")
       )
-
-instance Hashable ReplicationRunStageDetails
-
-instance NFData ReplicationRunStageDetails

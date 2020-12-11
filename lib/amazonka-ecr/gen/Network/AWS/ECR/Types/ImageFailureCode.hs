@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageFailureCode where
+module Network.AWS.ECR.Types.ImageFailureCode
+  ( ImageFailureCode
+      ( ImageFailureCode',
+        ImageNotFound,
+        ImageReferencedByManifestList,
+        ImageTagDoesNotMatchDigest,
+        InvalidImageDigest,
+        InvalidImageTag,
+        KMSError,
+        MissingDigestAndTag
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageFailureCode
-  = ImageNotFound
-  | ImageReferencedByManifestList
-  | ImageTagDoesNotMatchDigest
-  | InvalidImageDigest
-  | InvalidImageTag
-  | KMSError
-  | MissingDigestAndTag
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageFailureCode = ImageFailureCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageFailureCode where
-  parser =
-    takeLowerText >>= \case
-      "imagenotfound" -> pure ImageNotFound
-      "imagereferencedbymanifestlist" -> pure ImageReferencedByManifestList
-      "imagetagdoesnotmatchdigest" -> pure ImageTagDoesNotMatchDigest
-      "invalidimagedigest" -> pure InvalidImageDigest
-      "invalidimagetag" -> pure InvalidImageTag
-      "kmserror" -> pure KMSError
-      "missingdigestandtag" -> pure MissingDigestAndTag
-      e ->
-        fromTextError $
-          "Failure parsing ImageFailureCode from value: '" <> e
-            <> "'. Accepted values: imagenotfound, imagereferencedbymanifestlist, imagetagdoesnotmatchdigest, invalidimagedigest, invalidimagetag, kmserror, missingdigestandtag"
+pattern ImageNotFound :: ImageFailureCode
+pattern ImageNotFound = ImageFailureCode' "ImageNotFound"
 
-instance ToText ImageFailureCode where
-  toText = \case
-    ImageNotFound -> "ImageNotFound"
-    ImageReferencedByManifestList -> "ImageReferencedByManifestList"
-    ImageTagDoesNotMatchDigest -> "ImageTagDoesNotMatchDigest"
-    InvalidImageDigest -> "InvalidImageDigest"
-    InvalidImageTag -> "InvalidImageTag"
-    KMSError -> "KmsError"
-    MissingDigestAndTag -> "MissingDigestAndTag"
+pattern ImageReferencedByManifestList :: ImageFailureCode
+pattern ImageReferencedByManifestList = ImageFailureCode' "ImageReferencedByManifestList"
 
-instance Hashable ImageFailureCode
+pattern ImageTagDoesNotMatchDigest :: ImageFailureCode
+pattern ImageTagDoesNotMatchDigest = ImageFailureCode' "ImageTagDoesNotMatchDigest"
 
-instance NFData ImageFailureCode
+pattern InvalidImageDigest :: ImageFailureCode
+pattern InvalidImageDigest = ImageFailureCode' "InvalidImageDigest"
 
-instance ToByteString ImageFailureCode
+pattern InvalidImageTag :: ImageFailureCode
+pattern InvalidImageTag = ImageFailureCode' "InvalidImageTag"
 
-instance ToQuery ImageFailureCode
+pattern KMSError :: ImageFailureCode
+pattern KMSError = ImageFailureCode' "KmsError"
 
-instance ToHeader ImageFailureCode
+pattern MissingDigestAndTag :: ImageFailureCode
+pattern MissingDigestAndTag = ImageFailureCode' "MissingDigestAndTag"
 
-instance FromJSON ImageFailureCode where
-  parseJSON = parseJSONText "ImageFailureCode"
+{-# COMPLETE
+  ImageNotFound,
+  ImageReferencedByManifestList,
+  ImageTagDoesNotMatchDigest,
+  InvalidImageDigest,
+  InvalidImageTag,
+  KMSError,
+  MissingDigestAndTag,
+  ImageFailureCode'
+  #-}

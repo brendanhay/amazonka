@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,134 @@
 --
 -- Gets the reason that a specified health check failed most recently.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
-  ( -- * Creating a Request
-    getHealthCheckLastFailureReason,
-    GetHealthCheckLastFailureReason,
+  ( -- * Creating a request
+    GetHealthCheckLastFailureReason (..),
+    mkGetHealthCheckLastFailureReason,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ghclfrHealthCheckId,
 
-    -- * Destructuring the Response
-    getHealthCheckLastFailureReasonResponse,
-    GetHealthCheckLastFailureReasonResponse,
+    -- * Destructuring the response
+    GetHealthCheckLastFailureReasonResponse (..),
+    mkGetHealthCheckLastFailureReasonResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ghclfrrsResponseStatus,
     ghclfrrsHealthCheckObservations,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request for the reason that a health check failed most recently.
 --
---
---
--- /See:/ 'getHealthCheckLastFailureReason' smart constructor.
+-- /See:/ 'mkGetHealthCheckLastFailureReason' smart constructor.
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
-  { _ghclfrHealthCheckId ::
-      Text
+  { healthCheckId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheckLastFailureReason' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghclfrHealthCheckId' - The ID for the health check for which you want the last failure reason. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
-getHealthCheckLastFailureReason ::
-  -- | 'ghclfrHealthCheckId'
-  Text ->
+-- * 'healthCheckId' - The ID for the health check for which you want the last failure reason. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
+mkGetHealthCheckLastFailureReason ::
+  -- | 'healthCheckId'
+  Lude.Text ->
   GetHealthCheckLastFailureReason
-getHealthCheckLastFailureReason pHealthCheckId_ =
-  GetHealthCheckLastFailureReason'
-    { _ghclfrHealthCheckId =
-        pHealthCheckId_
-    }
+mkGetHealthCheckLastFailureReason pHealthCheckId_ =
+  GetHealthCheckLastFailureReason' {healthCheckId = pHealthCheckId_}
 
 -- | The ID for the health check for which you want the last failure reason. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
-ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
-ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\s a -> s {_ghclfrHealthCheckId = a})
+--
+-- /Note:/ Consider using 'healthCheckId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghclfrHealthCheckId :: Lens.Lens' GetHealthCheckLastFailureReason Lude.Text
+ghclfrHealthCheckId = Lens.lens (healthCheckId :: GetHealthCheckLastFailureReason -> Lude.Text) (\s a -> s {healthCheckId = a} :: GetHealthCheckLastFailureReason)
+{-# DEPRECATED ghclfrHealthCheckId "Use generic-lens or generic-optics with 'healthCheckId' instead." #-}
 
-instance AWSRequest GetHealthCheckLastFailureReason where
+instance Lude.AWSRequest GetHealthCheckLastFailureReason where
   type
     Rs GetHealthCheckLastFailureReason =
       GetHealthCheckLastFailureReasonResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetHealthCheckLastFailureReasonResponse'
-            <$> (pure (fromEnum s))
-            <*> ( x .@? "HealthCheckObservations" .!@ mempty
-                    >>= parseXMLList "HealthCheckObservation"
-                )
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "HealthCheckObservations" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "HealthCheckObservation"
+                     )
       )
 
-instance Hashable GetHealthCheckLastFailureReason
+instance Lude.ToHeaders GetHealthCheckLastFailureReason where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetHealthCheckLastFailureReason
-
-instance ToHeaders GetHealthCheckLastFailureReason where
-  toHeaders = const mempty
-
-instance ToPath GetHealthCheckLastFailureReason where
+instance Lude.ToPath GetHealthCheckLastFailureReason where
   toPath GetHealthCheckLastFailureReason' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2013-04-01/healthcheck/",
-        toBS _ghclfrHealthCheckId,
+        Lude.toBS healthCheckId,
         "/lastfailurereason"
       ]
 
-instance ToQuery GetHealthCheckLastFailureReason where
-  toQuery = const mempty
+instance Lude.ToQuery GetHealthCheckLastFailureReason where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheckLastFailureReason@ request.
 --
---
---
--- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
+-- /See:/ 'mkGetHealthCheckLastFailureReasonResponse' smart constructor.
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-  { _ghclfrrsResponseStatus ::
-      !Int,
-    _ghclfrrsHealthCheckObservations ::
-      ![HealthCheckObservation]
+  { responseStatus ::
+      Lude.Int,
+    healthCheckObservations ::
+      [HealthCheckObservation]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheckLastFailureReasonResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghclfrrsResponseStatus' - -- | The response status code.
---
--- * 'ghclfrrsHealthCheckObservations' - A list that contains one @Observation@ element for each Amazon Route 53 health checker that is reporting a last failure reason.
-getHealthCheckLastFailureReasonResponse ::
-  -- | 'ghclfrrsResponseStatus'
-  Int ->
+-- * 'healthCheckObservations' - A list that contains one @Observation@ element for each Amazon Route 53 health checker that is reporting a last failure reason.
+-- * 'responseStatus' - The response status code.
+mkGetHealthCheckLastFailureReasonResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse pResponseStatus_ =
+mkGetHealthCheckLastFailureReasonResponse pResponseStatus_ =
   GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _ghclfrrsHealthCheckObservations = mempty
+      healthCheckObservations = Lude.mempty
     }
 
--- | -- | The response status code.
-ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
-ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\s a -> s {_ghclfrrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghclfrrsResponseStatus :: Lens.Lens' GetHealthCheckLastFailureReasonResponse Lude.Int
+ghclfrrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckLastFailureReasonResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHealthCheckLastFailureReasonResponse)
+{-# DEPRECATED ghclfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list that contains one @Observation@ element for each Amazon Route 53 health checker that is reporting a last failure reason.
-ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
-ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\s a -> s {_ghclfrrsHealthCheckObservations = a}) . _Coerce
-
-instance NFData GetHealthCheckLastFailureReasonResponse
+--
+-- /Note:/ Consider using 'healthCheckObservations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghclfrrsHealthCheckObservations :: Lens.Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
+ghclfrrsHealthCheckObservations = Lens.lens (healthCheckObservations :: GetHealthCheckLastFailureReasonResponse -> [HealthCheckObservation]) (\s a -> s {healthCheckObservations = a} :: GetHealthCheckLastFailureReasonResponse)
+{-# DEPRECATED ghclfrrsHealthCheckObservations "Use generic-lens or generic-optics with 'healthCheckObservations' instead." #-}

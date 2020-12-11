@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.CertificateState where
+module Network.AWS.DirectoryService.Types.CertificateState
+  ( CertificateState
+      ( CertificateState',
+        DeregisterFailed,
+        Deregistered,
+        Deregistering,
+        RegisterFailed,
+        Registered,
+        Registering
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateState
-  = DeregisterFailed
-  | Deregistered
-  | Deregistering
-  | RegisterFailed
-  | Registered
-  | Registering
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateState = CertificateState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateState where
-  parser =
-    takeLowerText >>= \case
-      "deregisterfailed" -> pure DeregisterFailed
-      "deregistered" -> pure Deregistered
-      "deregistering" -> pure Deregistering
-      "registerfailed" -> pure RegisterFailed
-      "registered" -> pure Registered
-      "registering" -> pure Registering
-      e ->
-        fromTextError $
-          "Failure parsing CertificateState from value: '" <> e
-            <> "'. Accepted values: deregisterfailed, deregistered, deregistering, registerfailed, registered, registering"
+pattern DeregisterFailed :: CertificateState
+pattern DeregisterFailed = CertificateState' "DeregisterFailed"
 
-instance ToText CertificateState where
-  toText = \case
-    DeregisterFailed -> "DeregisterFailed"
-    Deregistered -> "Deregistered"
-    Deregistering -> "Deregistering"
-    RegisterFailed -> "RegisterFailed"
-    Registered -> "Registered"
-    Registering -> "Registering"
+pattern Deregistered :: CertificateState
+pattern Deregistered = CertificateState' "Deregistered"
 
-instance Hashable CertificateState
+pattern Deregistering :: CertificateState
+pattern Deregistering = CertificateState' "Deregistering"
 
-instance NFData CertificateState
+pattern RegisterFailed :: CertificateState
+pattern RegisterFailed = CertificateState' "RegisterFailed"
 
-instance ToByteString CertificateState
+pattern Registered :: CertificateState
+pattern Registered = CertificateState' "Registered"
 
-instance ToQuery CertificateState
+pattern Registering :: CertificateState
+pattern Registering = CertificateState' "Registering"
 
-instance ToHeader CertificateState
-
-instance FromJSON CertificateState where
-  parseJSON = parseJSONText "CertificateState"
+{-# COMPLETE
+  DeregisterFailed,
+  Deregistered,
+  Deregistering,
+  RegisterFailed,
+  Registered,
+  Registering,
+  CertificateState'
+  #-}

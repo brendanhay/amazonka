@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CreateXMLClassifierRequest where
+module Network.AWS.Glue.Types.CreateXMLClassifierRequest
+  ( CreateXMLClassifierRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreateXMLClassifierRequest,
+
+    -- * Lenses
+    cxcrRowTag,
+    cxcrClassification,
+    cxcrName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies an XML classifier for @CreateClassifier@ to create.
 --
---
---
--- /See:/ 'createXMLClassifierRequest' smart constructor.
+-- /See:/ 'mkCreateXMLClassifierRequest' smart constructor.
 data CreateXMLClassifierRequest = CreateXMLClassifierRequest'
-  { _cxcrRowTag ::
-      !(Maybe Text),
-    _cxcrClassification :: !Text,
-    _cxcrName :: !Text
+  { rowTag ::
+      Lude.Maybe Lude.Text,
+    classification :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateXMLClassifierRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cxcrRowTag' - The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
---
--- * 'cxcrClassification' - An identifier of the data format that the classifier matches.
---
--- * 'cxcrName' - The name of the classifier.
-createXMLClassifierRequest ::
-  -- | 'cxcrClassification'
-  Text ->
-  -- | 'cxcrName'
-  Text ->
+-- * 'classification' - An identifier of the data format that the classifier matches.
+-- * 'name' - The name of the classifier.
+-- * 'rowTag' - The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
+mkCreateXMLClassifierRequest ::
+  -- | 'classification'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateXMLClassifierRequest
-createXMLClassifierRequest pClassification_ pName_ =
+mkCreateXMLClassifierRequest pClassification_ pName_ =
   CreateXMLClassifierRequest'
-    { _cxcrRowTag = Nothing,
-      _cxcrClassification = pClassification_,
-      _cxcrName = pName_
+    { rowTag = Lude.Nothing,
+      classification = pClassification_,
+      name = pName_
     }
 
 -- | The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
-cxcrRowTag :: Lens' CreateXMLClassifierRequest (Maybe Text)
-cxcrRowTag = lens _cxcrRowTag (\s a -> s {_cxcrRowTag = a})
+--
+-- /Note:/ Consider using 'rowTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxcrRowTag :: Lens.Lens' CreateXMLClassifierRequest (Lude.Maybe Lude.Text)
+cxcrRowTag = Lens.lens (rowTag :: CreateXMLClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {rowTag = a} :: CreateXMLClassifierRequest)
+{-# DEPRECATED cxcrRowTag "Use generic-lens or generic-optics with 'rowTag' instead." #-}
 
 -- | An identifier of the data format that the classifier matches.
-cxcrClassification :: Lens' CreateXMLClassifierRequest Text
-cxcrClassification = lens _cxcrClassification (\s a -> s {_cxcrClassification = a})
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxcrClassification :: Lens.Lens' CreateXMLClassifierRequest Lude.Text
+cxcrClassification = Lens.lens (classification :: CreateXMLClassifierRequest -> Lude.Text) (\s a -> s {classification = a} :: CreateXMLClassifierRequest)
+{-# DEPRECATED cxcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The name of the classifier.
-cxcrName :: Lens' CreateXMLClassifierRequest Text
-cxcrName = lens _cxcrName (\s a -> s {_cxcrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxcrName :: Lens.Lens' CreateXMLClassifierRequest Lude.Text
+cxcrName = Lens.lens (name :: CreateXMLClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: CreateXMLClassifierRequest)
+{-# DEPRECATED cxcrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable CreateXMLClassifierRequest
-
-instance NFData CreateXMLClassifierRequest
-
-instance ToJSON CreateXMLClassifierRequest where
+instance Lude.ToJSON CreateXMLClassifierRequest where
   toJSON CreateXMLClassifierRequest' {..} =
-    object
-      ( catMaybes
-          [ ("RowTag" .=) <$> _cxcrRowTag,
-            Just ("Classification" .= _cxcrClassification),
-            Just ("Name" .= _cxcrName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RowTag" Lude..=) Lude.<$> rowTag,
+            Lude.Just ("Classification" Lude..= classification),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

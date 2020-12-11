@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.StartSigningJobParameter where
+module Network.AWS.IoT.Types.StartSigningJobParameter
+  ( StartSigningJobParameter (..),
+
+    -- * Smart constructor
+    mkStartSigningJobParameter,
+
+    -- * Lenses
+    ssjpDestination,
+    ssjpSigningProfileName,
+    ssjpSigningProfileParameter,
+  )
+where
 
 import Network.AWS.IoT.Types.Destination
 import Network.AWS.IoT.Types.SigningProfileParameter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information required to start a signing job.
 --
---
---
--- /See:/ 'startSigningJobParameter' smart constructor.
+-- /See:/ 'mkStartSigningJobParameter' smart constructor.
 data StartSigningJobParameter = StartSigningJobParameter'
-  { _ssjpDestination ::
-      !(Maybe Destination),
-    _ssjpSigningProfileName :: !(Maybe Text),
-    _ssjpSigningProfileParameter ::
-      !(Maybe SigningProfileParameter)
+  { destination ::
+      Lude.Maybe Destination,
+    signingProfileName ::
+      Lude.Maybe Lude.Text,
+    signingProfileParameter ::
+      Lude.Maybe SigningProfileParameter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSigningJobParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssjpDestination' - The location to write the code-signed file.
---
--- * 'ssjpSigningProfileName' - The code-signing profile name.
---
--- * 'ssjpSigningProfileParameter' - Describes the code-signing profile.
-startSigningJobParameter ::
+-- * 'destination' - The location to write the code-signed file.
+-- * 'signingProfileName' - The code-signing profile name.
+-- * 'signingProfileParameter' - Describes the code-signing profile.
+mkStartSigningJobParameter ::
   StartSigningJobParameter
-startSigningJobParameter =
+mkStartSigningJobParameter =
   StartSigningJobParameter'
-    { _ssjpDestination = Nothing,
-      _ssjpSigningProfileName = Nothing,
-      _ssjpSigningProfileParameter = Nothing
+    { destination = Lude.Nothing,
+      signingProfileName = Lude.Nothing,
+      signingProfileParameter = Lude.Nothing
     }
 
 -- | The location to write the code-signed file.
-ssjpDestination :: Lens' StartSigningJobParameter (Maybe Destination)
-ssjpDestination = lens _ssjpDestination (\s a -> s {_ssjpDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssjpDestination :: Lens.Lens' StartSigningJobParameter (Lude.Maybe Destination)
+ssjpDestination = Lens.lens (destination :: StartSigningJobParameter -> Lude.Maybe Destination) (\s a -> s {destination = a} :: StartSigningJobParameter)
+{-# DEPRECATED ssjpDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The code-signing profile name.
-ssjpSigningProfileName :: Lens' StartSigningJobParameter (Maybe Text)
-ssjpSigningProfileName = lens _ssjpSigningProfileName (\s a -> s {_ssjpSigningProfileName = a})
+--
+-- /Note:/ Consider using 'signingProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssjpSigningProfileName :: Lens.Lens' StartSigningJobParameter (Lude.Maybe Lude.Text)
+ssjpSigningProfileName = Lens.lens (signingProfileName :: StartSigningJobParameter -> Lude.Maybe Lude.Text) (\s a -> s {signingProfileName = a} :: StartSigningJobParameter)
+{-# DEPRECATED ssjpSigningProfileName "Use generic-lens or generic-optics with 'signingProfileName' instead." #-}
 
 -- | Describes the code-signing profile.
-ssjpSigningProfileParameter :: Lens' StartSigningJobParameter (Maybe SigningProfileParameter)
-ssjpSigningProfileParameter = lens _ssjpSigningProfileParameter (\s a -> s {_ssjpSigningProfileParameter = a})
+--
+-- /Note:/ Consider using 'signingProfileParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssjpSigningProfileParameter :: Lens.Lens' StartSigningJobParameter (Lude.Maybe SigningProfileParameter)
+ssjpSigningProfileParameter = Lens.lens (signingProfileParameter :: StartSigningJobParameter -> Lude.Maybe SigningProfileParameter) (\s a -> s {signingProfileParameter = a} :: StartSigningJobParameter)
+{-# DEPRECATED ssjpSigningProfileParameter "Use generic-lens or generic-optics with 'signingProfileParameter' instead." #-}
 
-instance FromJSON StartSigningJobParameter where
+instance Lude.FromJSON StartSigningJobParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "StartSigningJobParameter"
       ( \x ->
           StartSigningJobParameter'
-            <$> (x .:? "destination")
-            <*> (x .:? "signingProfileName")
-            <*> (x .:? "signingProfileParameter")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "signingProfileName")
+            Lude.<*> (x Lude..:? "signingProfileParameter")
       )
 
-instance Hashable StartSigningJobParameter
-
-instance NFData StartSigningJobParameter
-
-instance ToJSON StartSigningJobParameter where
+instance Lude.ToJSON StartSigningJobParameter where
   toJSON StartSigningJobParameter' {..} =
-    object
-      ( catMaybes
-          [ ("destination" .=) <$> _ssjpDestination,
-            ("signingProfileName" .=) <$> _ssjpSigningProfileName,
-            ("signingProfileParameter" .=) <$> _ssjpSigningProfileParameter
+    Lude.object
+      ( Lude.catMaybes
+          [ ("destination" Lude..=) Lude.<$> destination,
+            ("signingProfileName" Lude..=) Lude.<$> signingProfileName,
+            ("signingProfileParameter" Lude..=)
+              Lude.<$> signingProfileParameter
           ]
       )

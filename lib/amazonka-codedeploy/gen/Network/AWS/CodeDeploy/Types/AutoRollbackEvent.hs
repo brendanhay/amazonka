@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.AutoRollbackEvent where
+module Network.AWS.CodeDeploy.Types.AutoRollbackEvent
+  ( AutoRollbackEvent
+      ( AutoRollbackEvent',
+        AREDeploymentFailure,
+        AREDeploymentStopOnAlarm,
+        AREDeploymentStopOnRequest
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoRollbackEvent
-  = AREDeploymentFailure
-  | AREDeploymentStopOnAlarm
-  | AREDeploymentStopOnRequest
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoRollbackEvent = AutoRollbackEvent' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoRollbackEvent where
-  parser =
-    takeLowerText >>= \case
-      "deployment_failure" -> pure AREDeploymentFailure
-      "deployment_stop_on_alarm" -> pure AREDeploymentStopOnAlarm
-      "deployment_stop_on_request" -> pure AREDeploymentStopOnRequest
-      e ->
-        fromTextError $
-          "Failure parsing AutoRollbackEvent from value: '" <> e
-            <> "'. Accepted values: deployment_failure, deployment_stop_on_alarm, deployment_stop_on_request"
+pattern AREDeploymentFailure :: AutoRollbackEvent
+pattern AREDeploymentFailure = AutoRollbackEvent' "DEPLOYMENT_FAILURE"
 
-instance ToText AutoRollbackEvent where
-  toText = \case
-    AREDeploymentFailure -> "DEPLOYMENT_FAILURE"
-    AREDeploymentStopOnAlarm -> "DEPLOYMENT_STOP_ON_ALARM"
-    AREDeploymentStopOnRequest -> "DEPLOYMENT_STOP_ON_REQUEST"
+pattern AREDeploymentStopOnAlarm :: AutoRollbackEvent
+pattern AREDeploymentStopOnAlarm = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_ALARM"
 
-instance Hashable AutoRollbackEvent
+pattern AREDeploymentStopOnRequest :: AutoRollbackEvent
+pattern AREDeploymentStopOnRequest = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_REQUEST"
 
-instance NFData AutoRollbackEvent
-
-instance ToByteString AutoRollbackEvent
-
-instance ToQuery AutoRollbackEvent
-
-instance ToHeader AutoRollbackEvent
-
-instance ToJSON AutoRollbackEvent where
-  toJSON = toJSONText
-
-instance FromJSON AutoRollbackEvent where
-  parseJSON = parseJSONText "AutoRollbackEvent"
+{-# COMPLETE
+  AREDeploymentFailure,
+  AREDeploymentStopOnAlarm,
+  AREDeploymentStopOnRequest,
+  AutoRollbackEvent'
+  #-}

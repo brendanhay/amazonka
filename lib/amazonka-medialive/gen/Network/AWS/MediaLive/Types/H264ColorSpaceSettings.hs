@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264ColorSpaceSettings where
+module Network.AWS.MediaLive.Types.H264ColorSpaceSettings
+  ( H264ColorSpaceSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkH264ColorSpaceSettings,
+
+    -- * Lenses
+    hRec709Settings,
+    hRec601Settings,
+    hColorSpacePassthroughSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
 import Network.AWS.MediaLive.Types.Rec601Settings
 import Network.AWS.MediaLive.Types.Rec709Settings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Color Space Settings
 --
--- /See:/ 'h264ColorSpaceSettings' smart constructor.
+-- /See:/ 'mkH264ColorSpaceSettings' smart constructor.
 data H264ColorSpaceSettings = H264ColorSpaceSettings'
-  { _hRec709Settings ::
-      !(Maybe Rec709Settings),
-    _hRec601Settings :: !(Maybe Rec601Settings),
-    _hColorSpacePassthroughSettings ::
-      !(Maybe ColorSpacePassthroughSettings)
+  { rec709Settings ::
+      Lude.Maybe Rec709Settings,
+    rec601Settings :: Lude.Maybe Rec601Settings,
+    colorSpacePassthroughSettings ::
+      Lude.Maybe ColorSpacePassthroughSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H264ColorSpaceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hRec709Settings' - Undocumented member.
---
--- * 'hRec601Settings' - Undocumented member.
---
--- * 'hColorSpacePassthroughSettings' - Undocumented member.
-h264ColorSpaceSettings ::
+-- * 'colorSpacePassthroughSettings' - Undocumented field.
+-- * 'rec601Settings' - Undocumented field.
+-- * 'rec709Settings' - Undocumented field.
+mkH264ColorSpaceSettings ::
   H264ColorSpaceSettings
-h264ColorSpaceSettings =
+mkH264ColorSpaceSettings =
   H264ColorSpaceSettings'
-    { _hRec709Settings = Nothing,
-      _hRec601Settings = Nothing,
-      _hColorSpacePassthroughSettings = Nothing
+    { rec709Settings = Lude.Nothing,
+      rec601Settings = Lude.Nothing,
+      colorSpacePassthroughSettings = Lude.Nothing
     }
 
--- | Undocumented member.
-hRec709Settings :: Lens' H264ColorSpaceSettings (Maybe Rec709Settings)
-hRec709Settings = lens _hRec709Settings (\s a -> s {_hRec709Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rec709Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hRec709Settings :: Lens.Lens' H264ColorSpaceSettings (Lude.Maybe Rec709Settings)
+hRec709Settings = Lens.lens (rec709Settings :: H264ColorSpaceSettings -> Lude.Maybe Rec709Settings) (\s a -> s {rec709Settings = a} :: H264ColorSpaceSettings)
+{-# DEPRECATED hRec709Settings "Use generic-lens or generic-optics with 'rec709Settings' instead." #-}
 
--- | Undocumented member.
-hRec601Settings :: Lens' H264ColorSpaceSettings (Maybe Rec601Settings)
-hRec601Settings = lens _hRec601Settings (\s a -> s {_hRec601Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rec601Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hRec601Settings :: Lens.Lens' H264ColorSpaceSettings (Lude.Maybe Rec601Settings)
+hRec601Settings = Lens.lens (rec601Settings :: H264ColorSpaceSettings -> Lude.Maybe Rec601Settings) (\s a -> s {rec601Settings = a} :: H264ColorSpaceSettings)
+{-# DEPRECATED hRec601Settings "Use generic-lens or generic-optics with 'rec601Settings' instead." #-}
 
--- | Undocumented member.
-hColorSpacePassthroughSettings :: Lens' H264ColorSpaceSettings (Maybe ColorSpacePassthroughSettings)
-hColorSpacePassthroughSettings = lens _hColorSpacePassthroughSettings (\s a -> s {_hColorSpacePassthroughSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'colorSpacePassthroughSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hColorSpacePassthroughSettings :: Lens.Lens' H264ColorSpaceSettings (Lude.Maybe ColorSpacePassthroughSettings)
+hColorSpacePassthroughSettings = Lens.lens (colorSpacePassthroughSettings :: H264ColorSpaceSettings -> Lude.Maybe ColorSpacePassthroughSettings) (\s a -> s {colorSpacePassthroughSettings = a} :: H264ColorSpaceSettings)
+{-# DEPRECATED hColorSpacePassthroughSettings "Use generic-lens or generic-optics with 'colorSpacePassthroughSettings' instead." #-}
 
-instance FromJSON H264ColorSpaceSettings where
+instance Lude.FromJSON H264ColorSpaceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "H264ColorSpaceSettings"
       ( \x ->
           H264ColorSpaceSettings'
-            <$> (x .:? "rec709Settings")
-            <*> (x .:? "rec601Settings")
-            <*> (x .:? "colorSpacePassthroughSettings")
+            Lude.<$> (x Lude..:? "rec709Settings")
+            Lude.<*> (x Lude..:? "rec601Settings")
+            Lude.<*> (x Lude..:? "colorSpacePassthroughSettings")
       )
 
-instance Hashable H264ColorSpaceSettings
-
-instance NFData H264ColorSpaceSettings
-
-instance ToJSON H264ColorSpaceSettings where
+instance Lude.ToJSON H264ColorSpaceSettings where
   toJSON H264ColorSpaceSettings' {..} =
-    object
-      ( catMaybes
-          [ ("rec709Settings" .=) <$> _hRec709Settings,
-            ("rec601Settings" .=) <$> _hRec601Settings,
-            ("colorSpacePassthroughSettings" .=)
-              <$> _hColorSpacePassthroughSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("rec709Settings" Lude..=) Lude.<$> rec709Settings,
+            ("rec601Settings" Lude..=) Lude.<$> rec601Settings,
+            ("colorSpacePassthroughSettings" Lude..=)
+              Lude.<$> colorSpacePassthroughSettings
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,139 +7,205 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ConfigurationSettingsDescription where
+module Network.AWS.ElasticBeanstalk.Types.ConfigurationSettingsDescription
+  ( ConfigurationSettingsDescription (..),
+
+    -- * Smart constructor
+    mkConfigurationSettingsDescription,
+
+    -- * Lenses
+    csdTemplateName,
+    csdOptionSettings,
+    csdDateUpdated,
+    csdDateCreated,
+    csdPlatformARN,
+    csdEnvironmentName,
+    csdApplicationName,
+    csdDeploymentStatus,
+    csdSolutionStackName,
+    csdDescription,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
 import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the settings for a configuration set.
 --
---
---
--- /See:/ 'configurationSettingsDescription' smart constructor.
+-- /See:/ 'mkConfigurationSettingsDescription' smart constructor.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-  { _csdTemplateName ::
-      !(Maybe Text),
-    _csdOptionSettings ::
-      !( Maybe
-           [ConfigurationOptionSetting]
-       ),
-    _csdDateUpdated ::
-      !(Maybe ISO8601),
-    _csdDateCreated ::
-      !(Maybe ISO8601),
-    _csdPlatformARN ::
-      !(Maybe Text),
-    _csdEnvironmentName ::
-      !(Maybe Text),
-    _csdApplicationName ::
-      !(Maybe Text),
-    _csdDeploymentStatus ::
-      !( Maybe
-           ConfigurationDeploymentStatus
-       ),
-    _csdSolutionStackName ::
-      !(Maybe Text),
-    _csdDescription ::
-      !(Maybe Text)
+  { templateName ::
+      Lude.Maybe Lude.Text,
+    optionSettings ::
+      Lude.Maybe
+        [ConfigurationOptionSetting],
+    dateUpdated ::
+      Lude.Maybe Lude.ISO8601,
+    dateCreated ::
+      Lude.Maybe Lude.ISO8601,
+    platformARN ::
+      Lude.Maybe Lude.Text,
+    environmentName ::
+      Lude.Maybe Lude.Text,
+    applicationName ::
+      Lude.Maybe Lude.Text,
+    deploymentStatus ::
+      Lude.Maybe
+        ConfigurationDeploymentStatus,
+    solutionStackName ::
+      Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationSettingsDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of the application associated with this configuration set.
+-- * 'dateCreated' - The date (in UTC time) when this configuration set was created.
+-- * 'dateUpdated' - The date (in UTC time) when this configuration set was last modified.
+-- * 'deploymentStatus' - If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:
 --
--- * 'csdTemplateName' - If not @null@ , the name of the configuration template for this configuration set.
 --
--- * 'csdOptionSettings' - A list of the configuration options and their values in this configuration set.
+--     * @null@ : This configuration is not associated with a running environment.
 --
--- * 'csdDateUpdated' - The date (in UTC time) when this configuration set was last modified.
 --
--- * 'csdDateCreated' - The date (in UTC time) when this configuration set was created.
+--     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.
 --
--- * 'csdPlatformARN' - The ARN of the platform version.
 --
--- * 'csdEnvironmentName' - If not @null@ , the name of the environment for this configuration set.
+--     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.
 --
--- * 'csdApplicationName' - The name of the application associated with this configuration set.
 --
--- * 'csdDeploymentStatus' - If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:      * @null@ : This configuration is not associated with a running environment.     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.     * @failed@ : This is a draft configuration that failed to successfully deploy.
+--     * @failed@ : This is a draft configuration that failed to successfully deploy.
 --
--- * 'csdSolutionStackName' - The name of the solution stack this configuration set uses.
 --
--- * 'csdDescription' - Describes this configuration set.
-configurationSettingsDescription ::
+-- * 'description' - Describes this configuration set.
+-- * 'environmentName' - If not @null@ , the name of the environment for this configuration set.
+-- * 'optionSettings' - A list of the configuration options and their values in this configuration set.
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'solutionStackName' - The name of the solution stack this configuration set uses.
+-- * 'templateName' - If not @null@ , the name of the configuration template for this configuration set.
+mkConfigurationSettingsDescription ::
   ConfigurationSettingsDescription
-configurationSettingsDescription =
+mkConfigurationSettingsDescription =
   ConfigurationSettingsDescription'
-    { _csdTemplateName = Nothing,
-      _csdOptionSettings = Nothing,
-      _csdDateUpdated = Nothing,
-      _csdDateCreated = Nothing,
-      _csdPlatformARN = Nothing,
-      _csdEnvironmentName = Nothing,
-      _csdApplicationName = Nothing,
-      _csdDeploymentStatus = Nothing,
-      _csdSolutionStackName = Nothing,
-      _csdDescription = Nothing
+    { templateName = Lude.Nothing,
+      optionSettings = Lude.Nothing,
+      dateUpdated = Lude.Nothing,
+      dateCreated = Lude.Nothing,
+      platformARN = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      deploymentStatus = Lude.Nothing,
+      solutionStackName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | If not @null@ , the name of the configuration template for this configuration set.
-csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdTemplateName = lens _csdTemplateName (\s a -> s {_csdTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdTemplateName :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdTemplateName = Lens.lens (templateName :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | A list of the configuration options and their values in this configuration set.
-csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
-csdOptionSettings = lens _csdOptionSettings (\s a -> s {_csdOptionSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdOptionSettings :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe [ConfigurationOptionSetting])
+csdOptionSettings = Lens.lens (optionSettings :: ConfigurationSettingsDescription -> Lude.Maybe [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | The date (in UTC time) when this configuration set was last modified.
-csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateUpdated = lens _csdDateUpdated (\s a -> s {_csdDateUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdDateUpdated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.ISO8601)
+csdDateUpdated = Lens.lens (dateUpdated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The date (in UTC time) when this configuration set was created.
-csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateCreated = lens _csdDateCreated (\s a -> s {_csdDateCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdDateCreated :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.ISO8601)
+csdDateCreated = Lens.lens (dateCreated :: ConfigurationSettingsDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | The ARN of the platform version.
-csdPlatformARN :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdPlatformARN = lens _csdPlatformARN (\s a -> s {_csdPlatformARN = a})
+--
+-- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdPlatformARN :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdPlatformARN = Lens.lens (platformARN :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
 -- | If not @null@ , the name of the environment for this configuration set.
-csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdEnvironmentName = lens _csdEnvironmentName (\s a -> s {_csdEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdEnvironmentName :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdEnvironmentName = Lens.lens (environmentName :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of the application associated with this configuration set.
-csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdApplicationName = lens _csdApplicationName (\s a -> s {_csdApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdApplicationName :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdApplicationName = Lens.lens (applicationName :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
--- | If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:      * @null@ : This configuration is not associated with a running environment.     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.     * @failed@ : This is a draft configuration that failed to successfully deploy.
-csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
-csdDeploymentStatus = lens _csdDeploymentStatus (\s a -> s {_csdDeploymentStatus = a})
+-- | If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:
+--
+--
+--     * @null@ : This configuration is not associated with a running environment.
+--
+--
+--     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.
+--
+--
+--     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.
+--
+--
+--     * @failed@ : This is a draft configuration that failed to successfully deploy.
+--
+--
+--
+-- /Note:/ Consider using 'deploymentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdDeploymentStatus :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe ConfigurationDeploymentStatus)
+csdDeploymentStatus = Lens.lens (deploymentStatus :: ConfigurationSettingsDescription -> Lude.Maybe ConfigurationDeploymentStatus) (\s a -> s {deploymentStatus = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdDeploymentStatus "Use generic-lens or generic-optics with 'deploymentStatus' instead." #-}
 
 -- | The name of the solution stack this configuration set uses.
-csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdSolutionStackName = lens _csdSolutionStackName (\s a -> s {_csdSolutionStackName = a})
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdSolutionStackName :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdSolutionStackName = Lens.lens (solutionStackName :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
 -- | Describes this configuration set.
-csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
-csdDescription = lens _csdDescription (\s a -> s {_csdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdDescription :: Lens.Lens' ConfigurationSettingsDescription (Lude.Maybe Lude.Text)
+csdDescription = Lens.lens (description :: ConfigurationSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConfigurationSettingsDescription)
+{-# DEPRECATED csdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ConfigurationSettingsDescription where
+instance Lude.FromXML ConfigurationSettingsDescription where
   parseXML x =
     ConfigurationSettingsDescription'
-      <$> (x .@? "TemplateName")
-      <*> (x .@? "OptionSettings" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "DateUpdated")
-      <*> (x .@? "DateCreated")
-      <*> (x .@? "PlatformArn")
-      <*> (x .@? "EnvironmentName")
-      <*> (x .@? "ApplicationName")
-      <*> (x .@? "DeploymentStatus")
-      <*> (x .@? "SolutionStackName")
-      <*> (x .@? "Description")
-
-instance Hashable ConfigurationSettingsDescription
-
-instance NFData ConfigurationSettingsDescription
+      Lude.<$> (x Lude..@? "TemplateName")
+      Lude.<*> ( x Lude..@? "OptionSettings" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "DateUpdated")
+      Lude.<*> (x Lude..@? "DateCreated")
+      Lude.<*> (x Lude..@? "PlatformArn")
+      Lude.<*> (x Lude..@? "EnvironmentName")
+      Lude.<*> (x Lude..@? "ApplicationName")
+      Lude.<*> (x Lude..@? "DeploymentStatus")
+      Lude.<*> (x Lude..@? "SolutionStackName")
+      Lude.<*> (x Lude..@? "Description")

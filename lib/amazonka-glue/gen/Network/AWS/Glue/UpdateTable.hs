@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,159 @@
 --
 -- Updates a metadata table in the Data Catalog.
 module Network.AWS.Glue.UpdateTable
-  ( -- * Creating a Request
-    updateTable,
-    UpdateTable,
+  ( -- * Creating a request
+    UpdateTable (..),
+    mkUpdateTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utSkipArchive,
     utCatalogId,
     utDatabaseName,
     utTableInput,
 
-    -- * Destructuring the Response
-    updateTableResponse,
-    UpdateTableResponse,
+    -- * Destructuring the response
+    UpdateTableResponse (..),
+    mkUpdateTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTable' smart constructor.
+-- | /See:/ 'mkUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { _utSkipArchive :: !(Maybe Bool),
-    _utCatalogId :: !(Maybe Text),
-    _utDatabaseName :: !Text,
-    _utTableInput :: !TableInput
+  { skipArchive ::
+      Lude.Maybe Lude.Bool,
+    catalogId :: Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableInput :: TableInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utSkipArchive' - By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
---
--- * 'utCatalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
---
--- * 'utDatabaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
---
--- * 'utTableInput' - An updated @TableInput@ object to define the metadata table in the catalog.
-updateTable ::
-  -- | 'utDatabaseName'
-  Text ->
-  -- | 'utTableInput'
+-- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- * 'skipArchive' - By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
+-- * 'tableInput' - An updated @TableInput@ object to define the metadata table in the catalog.
+mkUpdateTable ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableInput'
   TableInput ->
   UpdateTable
-updateTable pDatabaseName_ pTableInput_ =
+mkUpdateTable pDatabaseName_ pTableInput_ =
   UpdateTable'
-    { _utSkipArchive = Nothing,
-      _utCatalogId = Nothing,
-      _utDatabaseName = pDatabaseName_,
-      _utTableInput = pTableInput_
+    { skipArchive = Lude.Nothing,
+      catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableInput = pTableInput_
     }
 
 -- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
-utSkipArchive :: Lens' UpdateTable (Maybe Bool)
-utSkipArchive = lens _utSkipArchive (\s a -> s {_utSkipArchive = a})
+--
+-- /Note:/ Consider using 'skipArchive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utSkipArchive :: Lens.Lens' UpdateTable (Lude.Maybe Lude.Bool)
+utSkipArchive = Lens.lens (skipArchive :: UpdateTable -> Lude.Maybe Lude.Bool) (\s a -> s {skipArchive = a} :: UpdateTable)
+{-# DEPRECATED utSkipArchive "Use generic-lens or generic-optics with 'skipArchive' instead." #-}
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
-utCatalogId :: Lens' UpdateTable (Maybe Text)
-utCatalogId = lens _utCatalogId (\s a -> s {_utCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utCatalogId :: Lens.Lens' UpdateTable (Lude.Maybe Lude.Text)
+utCatalogId = Lens.lens (catalogId :: UpdateTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateTable)
+{-# DEPRECATED utCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
-utDatabaseName :: Lens' UpdateTable Text
-utDatabaseName = lens _utDatabaseName (\s a -> s {_utDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utDatabaseName :: Lens.Lens' UpdateTable Lude.Text
+utDatabaseName = Lens.lens (databaseName :: UpdateTable -> Lude.Text) (\s a -> s {databaseName = a} :: UpdateTable)
+{-# DEPRECATED utDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | An updated @TableInput@ object to define the metadata table in the catalog.
-utTableInput :: Lens' UpdateTable TableInput
-utTableInput = lens _utTableInput (\s a -> s {_utTableInput = a})
+--
+-- /Note:/ Consider using 'tableInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTableInput :: Lens.Lens' UpdateTable TableInput
+utTableInput = Lens.lens (tableInput :: UpdateTable -> TableInput) (\s a -> s {tableInput = a} :: UpdateTable)
+{-# DEPRECATED utTableInput "Use generic-lens or generic-optics with 'tableInput' instead." #-}
 
-instance AWSRequest UpdateTable where
+instance Lude.AWSRequest UpdateTable where
   type Rs UpdateTable = UpdateTableResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> UpdateTableResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateTableResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateTable
-
-instance NFData UpdateTable
-
-instance ToHeaders UpdateTable where
+instance Lude.ToHeaders UpdateTable where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateTable" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.UpdateTable" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTable where
+instance Lude.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
-    object
-      ( catMaybes
-          [ ("SkipArchive" .=) <$> _utSkipArchive,
-            ("CatalogId" .=) <$> _utCatalogId,
-            Just ("DatabaseName" .= _utDatabaseName),
-            Just ("TableInput" .= _utTableInput)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SkipArchive" Lude..=) Lude.<$> skipArchive,
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableInput" Lude..= tableInput)
           ]
       )
 
-instance ToPath UpdateTable where
-  toPath = const "/"
+instance Lude.ToPath UpdateTable where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTable where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTable where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTableResponse' smart constructor.
+-- | /See:/ 'mkUpdateTableResponse' smart constructor.
 newtype UpdateTableResponse = UpdateTableResponse'
-  { _utrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utrsResponseStatus' - -- | The response status code.
-updateTableResponse ::
-  -- | 'utrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTableResponse
-updateTableResponse pResponseStatus_ =
-  UpdateTableResponse' {_utrsResponseStatus = pResponseStatus_}
+mkUpdateTableResponse pResponseStatus_ =
+  UpdateTableResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-utrsResponseStatus :: Lens' UpdateTableResponse Int
-utrsResponseStatus = lens _utrsResponseStatus (\s a -> s {_utrsResponseStatus = a})
-
-instance NFData UpdateTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrsResponseStatus :: Lens.Lens' UpdateTableResponse Lude.Int
+utrsResponseStatus = Lens.lens (responseStatus :: UpdateTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTableResponse)
+{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

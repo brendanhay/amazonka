@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.DomainAvailability where
+module Network.AWS.Route53Domains.Types.DomainAvailability
+  ( DomainAvailability
+      ( DomainAvailability',
+        DAAvailable,
+        DAAvailablePreorder,
+        DAAvailableReserved,
+        DADontKnow,
+        DAReserved,
+        DAUnavailable,
+        DAUnavailablePremium,
+        DAUnavailableRestricted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainAvailability
-  = DAAvailable
-  | DAAvailablePreorder
-  | DAAvailableReserved
-  | DADontKnow
-  | DAReserved
-  | DAUnavailable
-  | DAUnavailablePremium
-  | DAUnavailableRestricted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainAvailability = DomainAvailability' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainAvailability where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure DAAvailable
-      "available_preorder" -> pure DAAvailablePreorder
-      "available_reserved" -> pure DAAvailableReserved
-      "dont_know" -> pure DADontKnow
-      "reserved" -> pure DAReserved
-      "unavailable" -> pure DAUnavailable
-      "unavailable_premium" -> pure DAUnavailablePremium
-      "unavailable_restricted" -> pure DAUnavailableRestricted
-      e ->
-        fromTextError $
-          "Failure parsing DomainAvailability from value: '" <> e
-            <> "'. Accepted values: available, available_preorder, available_reserved, dont_know, reserved, unavailable, unavailable_premium, unavailable_restricted"
+pattern DAAvailable :: DomainAvailability
+pattern DAAvailable = DomainAvailability' "AVAILABLE"
 
-instance ToText DomainAvailability where
-  toText = \case
-    DAAvailable -> "AVAILABLE"
-    DAAvailablePreorder -> "AVAILABLE_PREORDER"
-    DAAvailableReserved -> "AVAILABLE_RESERVED"
-    DADontKnow -> "DONT_KNOW"
-    DAReserved -> "RESERVED"
-    DAUnavailable -> "UNAVAILABLE"
-    DAUnavailablePremium -> "UNAVAILABLE_PREMIUM"
-    DAUnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
+pattern DAAvailablePreorder :: DomainAvailability
+pattern DAAvailablePreorder = DomainAvailability' "AVAILABLE_PREORDER"
 
-instance Hashable DomainAvailability
+pattern DAAvailableReserved :: DomainAvailability
+pattern DAAvailableReserved = DomainAvailability' "AVAILABLE_RESERVED"
 
-instance NFData DomainAvailability
+pattern DADontKnow :: DomainAvailability
+pattern DADontKnow = DomainAvailability' "DONT_KNOW"
 
-instance ToByteString DomainAvailability
+pattern DAReserved :: DomainAvailability
+pattern DAReserved = DomainAvailability' "RESERVED"
 
-instance ToQuery DomainAvailability
+pattern DAUnavailable :: DomainAvailability
+pattern DAUnavailable = DomainAvailability' "UNAVAILABLE"
 
-instance ToHeader DomainAvailability
+pattern DAUnavailablePremium :: DomainAvailability
+pattern DAUnavailablePremium = DomainAvailability' "UNAVAILABLE_PREMIUM"
 
-instance FromJSON DomainAvailability where
-  parseJSON = parseJSONText "DomainAvailability"
+pattern DAUnavailableRestricted :: DomainAvailability
+pattern DAUnavailableRestricted = DomainAvailability' "UNAVAILABLE_RESTRICTED"
+
+{-# COMPLETE
+  DAAvailable,
+  DAAvailablePreorder,
+  DAAvailableReserved,
+  DADontKnow,
+  DAReserved,
+  DAUnavailable,
+  DAUnavailablePremium,
+  DAUnavailableRestricted,
+  DomainAvailability'
+  #-}

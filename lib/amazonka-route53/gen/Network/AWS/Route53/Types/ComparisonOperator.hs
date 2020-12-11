@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ComparisonOperator where
+module Network.AWS.Route53.Types.ComparisonOperator
+  ( ComparisonOperator
+      ( ComparisonOperator',
+        GreaterThanOrEqualToThreshold,
+        GreaterThanThreshold,
+        LessThanOrEqualToThreshold,
+        LessThanThreshold
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data ComparisonOperator
-  = GreaterThanOrEqualToThreshold
-  | GreaterThanThreshold
-  | LessThanOrEqualToThreshold
-  | LessThanThreshold
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComparisonOperator = ComparisonOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComparisonOperator where
-  parser =
-    takeLowerText >>= \case
-      "greaterthanorequaltothreshold" -> pure GreaterThanOrEqualToThreshold
-      "greaterthanthreshold" -> pure GreaterThanThreshold
-      "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
-      "lessthanthreshold" -> pure LessThanThreshold
-      e ->
-        fromTextError $
-          "Failure parsing ComparisonOperator from value: '" <> e
-            <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
+pattern GreaterThanOrEqualToThreshold :: ComparisonOperator
+pattern GreaterThanOrEqualToThreshold = ComparisonOperator' "GreaterThanOrEqualToThreshold"
 
-instance ToText ComparisonOperator where
-  toText = \case
-    GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
-    GreaterThanThreshold -> "GreaterThanThreshold"
-    LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
-    LessThanThreshold -> "LessThanThreshold"
+pattern GreaterThanThreshold :: ComparisonOperator
+pattern GreaterThanThreshold = ComparisonOperator' "GreaterThanThreshold"
 
-instance Hashable ComparisonOperator
+pattern LessThanOrEqualToThreshold :: ComparisonOperator
+pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
 
-instance NFData ComparisonOperator
+pattern LessThanThreshold :: ComparisonOperator
+pattern LessThanThreshold = ComparisonOperator' "LessThanThreshold"
 
-instance ToByteString ComparisonOperator
-
-instance ToQuery ComparisonOperator
-
-instance ToHeader ComparisonOperator
-
-instance FromXML ComparisonOperator where
-  parseXML = parseXMLText "ComparisonOperator"
+{-# COMPLETE
+  GreaterThanOrEqualToThreshold,
+  GreaterThanThreshold,
+  LessThanOrEqualToThreshold,
+  LessThanThreshold,
+  ComparisonOperator'
+  #-}

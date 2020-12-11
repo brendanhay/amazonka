@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrefixListId where
+module Network.AWS.EC2.Types.PrefixListId
+  ( PrefixListId (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrefixListId,
+
+    -- * Lenses
+    pliPrefixListId,
+    pliDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a prefix list ID.
 --
---
---
--- /See:/ 'prefixListId' smart constructor.
+-- /See:/ 'mkPrefixListId' smart constructor.
 data PrefixListId = PrefixListId'
-  { _pliPrefixListId ::
-      !(Maybe Text),
-    _pliDescription :: !(Maybe Text)
+  { prefixListId ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrefixListId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description for the security group rule that references this prefix list ID.
 --
--- * 'pliPrefixListId' - The ID of the prefix.
---
--- * 'pliDescription' - A description for the security group rule that references this prefix list ID. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-prefixListId ::
+-- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+-- * 'prefixListId' - The ID of the prefix.
+mkPrefixListId ::
   PrefixListId
-prefixListId =
+mkPrefixListId =
   PrefixListId'
-    { _pliPrefixListId = Nothing,
-      _pliDescription = Nothing
+    { prefixListId = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ID of the prefix.
-pliPrefixListId :: Lens' PrefixListId (Maybe Text)
-pliPrefixListId = lens _pliPrefixListId (\s a -> s {_pliPrefixListId = a})
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pliPrefixListId :: Lens.Lens' PrefixListId (Lude.Maybe Lude.Text)
+pliPrefixListId = Lens.lens (prefixListId :: PrefixListId -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: PrefixListId)
+{-# DEPRECATED pliPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
--- | A description for the security group rule that references this prefix list ID. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-pliDescription :: Lens' PrefixListId (Maybe Text)
-pliDescription = lens _pliDescription (\s a -> s {_pliDescription = a})
+-- | A description for the security group rule that references this prefix list ID.
+--
+-- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pliDescription :: Lens.Lens' PrefixListId (Lude.Maybe Lude.Text)
+pliDescription = Lens.lens (description :: PrefixListId -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PrefixListId)
+{-# DEPRECATED pliDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML PrefixListId where
+instance Lude.FromXML PrefixListId where
   parseXML x =
     PrefixListId'
-      <$> (x .@? "prefixListId") <*> (x .@? "description")
+      Lude.<$> (x Lude..@? "prefixListId") Lude.<*> (x Lude..@? "description")
 
-instance Hashable PrefixListId
-
-instance NFData PrefixListId
-
-instance ToQuery PrefixListId where
+instance Lude.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =
-    mconcat
-      [ "PrefixListId" =: _pliPrefixListId,
-        "Description" =: _pliDescription
+    Lude.mconcat
+      [ "PrefixListId" Lude.=: prefixListId,
+        "Description" Lude.=: description
       ]

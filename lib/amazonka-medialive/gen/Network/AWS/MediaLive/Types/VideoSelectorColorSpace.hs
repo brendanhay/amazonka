@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoSelectorColorSpace where
+module Network.AWS.MediaLive.Types.VideoSelectorColorSpace
+  ( VideoSelectorColorSpace
+      ( VideoSelectorColorSpace',
+        Follow,
+        Rec601,
+        Rec709
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Selector Color Space
-data VideoSelectorColorSpace
-  = Follow
-  | Rec601
-  | Rec709
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VideoSelectorColorSpace = VideoSelectorColorSpace' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VideoSelectorColorSpace where
-  parser =
-    takeLowerText >>= \case
-      "follow" -> pure Follow
-      "rec_601" -> pure Rec601
-      "rec_709" -> pure Rec709
-      e ->
-        fromTextError $
-          "Failure parsing VideoSelectorColorSpace from value: '" <> e
-            <> "'. Accepted values: follow, rec_601, rec_709"
+pattern Follow :: VideoSelectorColorSpace
+pattern Follow = VideoSelectorColorSpace' "FOLLOW"
 
-instance ToText VideoSelectorColorSpace where
-  toText = \case
-    Follow -> "FOLLOW"
-    Rec601 -> "REC_601"
-    Rec709 -> "REC_709"
+pattern Rec601 :: VideoSelectorColorSpace
+pattern Rec601 = VideoSelectorColorSpace' "REC_601"
 
-instance Hashable VideoSelectorColorSpace
+pattern Rec709 :: VideoSelectorColorSpace
+pattern Rec709 = VideoSelectorColorSpace' "REC_709"
 
-instance NFData VideoSelectorColorSpace
-
-instance ToByteString VideoSelectorColorSpace
-
-instance ToQuery VideoSelectorColorSpace
-
-instance ToHeader VideoSelectorColorSpace
-
-instance ToJSON VideoSelectorColorSpace where
-  toJSON = toJSONText
-
-instance FromJSON VideoSelectorColorSpace where
-  parseJSON = parseJSONText "VideoSelectorColorSpace"
+{-# COMPLETE
+  Follow,
+  Rec601,
+  Rec709,
+  VideoSelectorColorSpace'
+  #-}

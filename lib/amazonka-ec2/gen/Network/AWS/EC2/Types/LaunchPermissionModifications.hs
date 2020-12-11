@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchPermissionModifications where
+module Network.AWS.EC2.Types.LaunchPermissionModifications
+  ( LaunchPermissionModifications (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchPermissionModifications,
+
+    -- * Lenses
+    lRemove,
+    lAdd,
+  )
+where
+
 import Network.AWS.EC2.Types.LaunchPermission
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch permission modification.
 --
---
---
--- /See:/ 'launchPermissionModifications' smart constructor.
+-- /See:/ 'mkLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { _lRemove ::
-      !(Maybe [LaunchPermission]),
-    _lAdd ::
-      !(Maybe [LaunchPermission])
+  { remove ::
+      Lude.Maybe [LaunchPermission],
+    add ::
+      Lude.Maybe [LaunchPermission]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPermissionModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lRemove' - The AWS account ID to remove from the list of launch permissions for the AMI.
---
--- * 'lAdd' - The AWS account ID to add to the list of launch permissions for the AMI.
-launchPermissionModifications ::
+-- * 'add' - The AWS account ID to add to the list of launch permissions for the AMI.
+-- * 'remove' - The AWS account ID to remove from the list of launch permissions for the AMI.
+mkLaunchPermissionModifications ::
   LaunchPermissionModifications
-launchPermissionModifications =
+mkLaunchPermissionModifications =
   LaunchPermissionModifications'
-    { _lRemove = Nothing,
-      _lAdd = Nothing
+    { remove = Lude.Nothing,
+      add = Lude.Nothing
     }
 
 -- | The AWS account ID to remove from the list of launch permissions for the AMI.
-lRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
-lRemove = lens _lRemove (\s a -> s {_lRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lRemove :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
+lRemove = Lens.lens (remove :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {remove = a} :: LaunchPermissionModifications)
+{-# DEPRECATED lRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
-lAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
-lAdd = lens _lAdd (\s a -> s {_lAdd = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lAdd :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
+lAdd = Lens.lens (add :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {add = a} :: LaunchPermissionModifications)
+{-# DEPRECATED lAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
-instance Hashable LaunchPermissionModifications
-
-instance NFData LaunchPermissionModifications
-
-instance ToQuery LaunchPermissionModifications where
+instance Lude.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =
-    mconcat
-      [ toQuery (toQueryList "Remove" <$> _lRemove),
-        toQuery (toQueryList "Add" <$> _lAdd)
+    Lude.mconcat
+      [ Lude.toQuery (Lude.toQueryList "Remove" Lude.<$> remove),
+        Lude.toQuery (Lude.toQueryList "Add" Lude.<$> add)
       ]

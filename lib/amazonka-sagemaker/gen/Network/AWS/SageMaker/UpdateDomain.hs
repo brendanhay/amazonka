@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,148 @@
 --
 -- Updates the default settings for new user profiles in the domain.
 module Network.AWS.SageMaker.UpdateDomain
-  ( -- * Creating a Request
-    updateDomain,
-    UpdateDomain,
+  ( -- * Creating a request
+    UpdateDomain (..),
+    mkUpdateDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udDefaultUserSettings,
     udDomainId,
 
-    -- * Destructuring the Response
-    updateDomainResponse,
-    UpdateDomainResponse,
+    -- * Destructuring the response
+    UpdateDomainResponse (..),
+    mkUpdateDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsDomainARN,
     udrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateDomain' smart constructor.
+-- | /See:/ 'mkUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { _udDefaultUserSettings ::
-      !(Maybe UserSettings),
-    _udDomainId :: !Text
+  { defaultUserSettings ::
+      Lude.Maybe UserSettings,
+    domainId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udDefaultUserSettings' - A collection of settings.
---
--- * 'udDomainId' - The ID of the domain to be updated.
-updateDomain ::
-  -- | 'udDomainId'
-  Text ->
+-- * 'defaultUserSettings' - A collection of settings.
+-- * 'domainId' - The ID of the domain to be updated.
+mkUpdateDomain ::
+  -- | 'domainId'
+  Lude.Text ->
   UpdateDomain
-updateDomain pDomainId_ =
+mkUpdateDomain pDomainId_ =
   UpdateDomain'
-    { _udDefaultUserSettings = Nothing,
-      _udDomainId = pDomainId_
+    { defaultUserSettings = Lude.Nothing,
+      domainId = pDomainId_
     }
 
 -- | A collection of settings.
-udDefaultUserSettings :: Lens' UpdateDomain (Maybe UserSettings)
-udDefaultUserSettings = lens _udDefaultUserSettings (\s a -> s {_udDefaultUserSettings = a})
+--
+-- /Note:/ Consider using 'defaultUserSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDefaultUserSettings :: Lens.Lens' UpdateDomain (Lude.Maybe UserSettings)
+udDefaultUserSettings = Lens.lens (defaultUserSettings :: UpdateDomain -> Lude.Maybe UserSettings) (\s a -> s {defaultUserSettings = a} :: UpdateDomain)
+{-# DEPRECATED udDefaultUserSettings "Use generic-lens or generic-optics with 'defaultUserSettings' instead." #-}
 
 -- | The ID of the domain to be updated.
-udDomainId :: Lens' UpdateDomain Text
-udDomainId = lens _udDomainId (\s a -> s {_udDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDomainId :: Lens.Lens' UpdateDomain Lude.Text
+udDomainId = Lens.lens (domainId :: UpdateDomain -> Lude.Text) (\s a -> s {domainId = a} :: UpdateDomain)
+{-# DEPRECATED udDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance AWSRequest UpdateDomain where
+instance Lude.AWSRequest UpdateDomain where
   type Rs UpdateDomain = UpdateDomainResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDomainResponse'
-            <$> (x .?> "DomainArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDomain
-
-instance NFData UpdateDomain
-
-instance ToHeaders UpdateDomain where
+instance Lude.ToHeaders UpdateDomain where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.UpdateDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.UpdateDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDomain where
+instance Lude.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultUserSettings" .=) <$> _udDefaultUserSettings,
-            Just ("DomainId" .= _udDomainId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultUserSettings" Lude..=) Lude.<$> defaultUserSettings,
+            Lude.Just ("DomainId" Lude..= domainId)
           ]
       )
 
-instance ToPath UpdateDomain where
-  toPath = const "/"
+instance Lude.ToPath UpdateDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDomain where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDomainResponse' smart constructor.
+-- | /See:/ 'mkUpdateDomainResponse' smart constructor.
 data UpdateDomainResponse = UpdateDomainResponse'
-  { _udrsDomainARN ::
-      !(Maybe Text),
-    _udrsResponseStatus :: !Int
+  { domainARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsDomainARN' - The Amazon Resource Name (ARN) of the domain.
---
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDomainResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'domainARN' - The Amazon Resource Name (ARN) of the domain.
+-- * 'responseStatus' - The response status code.
+mkUpdateDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDomainResponse
-updateDomainResponse pResponseStatus_ =
+mkUpdateDomainResponse pResponseStatus_ =
   UpdateDomainResponse'
-    { _udrsDomainARN = Nothing,
-      _udrsResponseStatus = pResponseStatus_
+    { domainARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the domain.
-udrsDomainARN :: Lens' UpdateDomainResponse (Maybe Text)
-udrsDomainARN = lens _udrsDomainARN (\s a -> s {_udrsDomainARN = a})
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsDomainARN :: Lens.Lens' UpdateDomainResponse (Lude.Maybe Lude.Text)
+udrsDomainARN = Lens.lens (domainARN :: UpdateDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: UpdateDomainResponse)
+{-# DEPRECATED udrsDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDomainResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UpdateDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UpdateDomainResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

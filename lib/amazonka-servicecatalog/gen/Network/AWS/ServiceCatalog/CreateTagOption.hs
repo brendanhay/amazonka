@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,145 @@
 --
 -- Creates a TagOption.
 module Network.AWS.ServiceCatalog.CreateTagOption
-  ( -- * Creating a Request
-    createTagOption,
-    CreateTagOption,
+  ( -- * Creating a request
+    CreateTagOption (..),
+    mkCreateTagOption,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctoKey,
     ctoValue,
 
-    -- * Destructuring the Response
-    createTagOptionResponse,
-    CreateTagOptionResponse,
+    -- * Destructuring the response
+    CreateTagOptionResponse (..),
+    mkCreateTagOptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctorsTagOptionDetail,
     ctorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'createTagOption' smart constructor.
+-- | /See:/ 'mkCreateTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
-  { _ctoKey :: !Text,
-    _ctoValue :: !Text
+  { key :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctoKey' - The TagOption key.
---
--- * 'ctoValue' - The TagOption value.
-createTagOption ::
-  -- | 'ctoKey'
-  Text ->
-  -- | 'ctoValue'
-  Text ->
+-- * 'key' - The TagOption key.
+-- * 'value' - The TagOption value.
+mkCreateTagOption ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   CreateTagOption
-createTagOption pKey_ pValue_ =
-  CreateTagOption' {_ctoKey = pKey_, _ctoValue = pValue_}
+mkCreateTagOption pKey_ pValue_ =
+  CreateTagOption' {key = pKey_, value = pValue_}
 
 -- | The TagOption key.
-ctoKey :: Lens' CreateTagOption Text
-ctoKey = lens _ctoKey (\s a -> s {_ctoKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctoKey :: Lens.Lens' CreateTagOption Lude.Text
+ctoKey = Lens.lens (key :: CreateTagOption -> Lude.Text) (\s a -> s {key = a} :: CreateTagOption)
+{-# DEPRECATED ctoKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The TagOption value.
-ctoValue :: Lens' CreateTagOption Text
-ctoValue = lens _ctoValue (\s a -> s {_ctoValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctoValue :: Lens.Lens' CreateTagOption Lude.Text
+ctoValue = Lens.lens (value :: CreateTagOption -> Lude.Text) (\s a -> s {value = a} :: CreateTagOption)
+{-# DEPRECATED ctoValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance AWSRequest CreateTagOption where
+instance Lude.AWSRequest CreateTagOption where
   type Rs CreateTagOption = CreateTagOptionResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateTagOptionResponse'
-            <$> (x .?> "TagOptionDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TagOptionDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTagOption
-
-instance NFData CreateTagOption
-
-instance ToHeaders CreateTagOption where
+instance Lude.ToHeaders CreateTagOption where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.CreateTagOption" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.CreateTagOption" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTagOption where
+instance Lude.ToJSON CreateTagOption where
   toJSON CreateTagOption' {..} =
-    object
-      (catMaybes [Just ("Key" .= _ctoKey), Just ("Value" .= _ctoValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+      )
 
-instance ToPath CreateTagOption where
-  toPath = const "/"
+instance Lude.ToPath CreateTagOption where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTagOption where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTagOption where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTagOptionResponse' smart constructor.
+-- | /See:/ 'mkCreateTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
-  { _ctorsTagOptionDetail ::
-      !(Maybe TagOptionDetail),
-    _ctorsResponseStatus :: !Int
+  { tagOptionDetail ::
+      Lude.Maybe TagOptionDetail,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagOptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctorsTagOptionDetail' - Information about the TagOption.
---
--- * 'ctorsResponseStatus' - -- | The response status code.
-createTagOptionResponse ::
-  -- | 'ctorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tagOptionDetail' - Information about the TagOption.
+mkCreateTagOptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTagOptionResponse
-createTagOptionResponse pResponseStatus_ =
+mkCreateTagOptionResponse pResponseStatus_ =
   CreateTagOptionResponse'
-    { _ctorsTagOptionDetail = Nothing,
-      _ctorsResponseStatus = pResponseStatus_
+    { tagOptionDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the TagOption.
-ctorsTagOptionDetail :: Lens' CreateTagOptionResponse (Maybe TagOptionDetail)
-ctorsTagOptionDetail = lens _ctorsTagOptionDetail (\s a -> s {_ctorsTagOptionDetail = a})
+--
+-- /Note:/ Consider using 'tagOptionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctorsTagOptionDetail :: Lens.Lens' CreateTagOptionResponse (Lude.Maybe TagOptionDetail)
+ctorsTagOptionDetail = Lens.lens (tagOptionDetail :: CreateTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: CreateTagOptionResponse)
+{-# DEPRECATED ctorsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
 
--- | -- | The response status code.
-ctorsResponseStatus :: Lens' CreateTagOptionResponse Int
-ctorsResponseStatus = lens _ctorsResponseStatus (\s a -> s {_ctorsResponseStatus = a})
-
-instance NFData CreateTagOptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctorsResponseStatus :: Lens.Lens' CreateTagOptionResponse Lude.Int
+ctorsResponseStatus = Lens.lens (responseStatus :: CreateTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTagOptionResponse)
+{-# DEPRECATED ctorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,125 @@
 --
 -- Disables the specified directory. Disabled directories cannot be read or written to. Only enabled directories can be disabled. Disabled directories may be reenabled.
 module Network.AWS.CloudDirectory.DisableDirectory
-  ( -- * Creating a Request
-    disableDirectory,
-    DisableDirectory,
+  ( -- * Creating a request
+    DisableDirectory (..),
+    mkDisableDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDirectoryARN,
 
-    -- * Destructuring the Response
-    disableDirectoryResponse,
-    DisableDirectoryResponse,
+    -- * Destructuring the response
+    DisableDirectoryResponse (..),
+    mkDisableDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
     drsDirectoryARN,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableDirectory' smart constructor.
+-- | /See:/ 'mkDisableDirectory' smart constructor.
 newtype DisableDirectory = DisableDirectory'
-  { _ddDirectoryARN ::
-      Text
+  { directoryARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDirectoryARN' - The ARN of the directory to disable.
-disableDirectory ::
-  -- | 'ddDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the directory to disable.
+mkDisableDirectory ::
+  -- | 'directoryARN'
+  Lude.Text ->
   DisableDirectory
-disableDirectory pDirectoryARN_ =
-  DisableDirectory' {_ddDirectoryARN = pDirectoryARN_}
+mkDisableDirectory pDirectoryARN_ =
+  DisableDirectory' {directoryARN = pDirectoryARN_}
 
 -- | The ARN of the directory to disable.
-ddDirectoryARN :: Lens' DisableDirectory Text
-ddDirectoryARN = lens _ddDirectoryARN (\s a -> s {_ddDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDirectoryARN :: Lens.Lens' DisableDirectory Lude.Text
+ddDirectoryARN = Lens.lens (directoryARN :: DisableDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: DisableDirectory)
+{-# DEPRECATED ddDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
-instance AWSRequest DisableDirectory where
+instance Lude.AWSRequest DisableDirectory where
   type Rs DisableDirectory = DisableDirectoryResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisableDirectoryResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "DirectoryArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DirectoryArn")
       )
 
-instance Hashable DisableDirectory
-
-instance NFData DisableDirectory
-
-instance ToHeaders DisableDirectory where
+instance Lude.ToHeaders DisableDirectory where
   toHeaders DisableDirectory' {..} =
-    mconcat ["x-amz-data-partition" =# _ddDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON DisableDirectory where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisableDirectory where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisableDirectory where
-  toPath = const "/amazonclouddirectory/2017-01-11/directory/disable"
+instance Lude.ToPath DisableDirectory where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/directory/disable"
 
-instance ToQuery DisableDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery DisableDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableDirectoryResponse' smart constructor.
+-- | /See:/ 'mkDisableDirectoryResponse' smart constructor.
 data DisableDirectoryResponse = DisableDirectoryResponse'
-  { _drsResponseStatus ::
-      !Int,
-    _drsDirectoryARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    directoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
---
--- * 'drsDirectoryARN' - The ARN of the directory that has been disabled.
-disableDirectoryResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
-  -- | 'drsDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the directory that has been disabled.
+-- * 'responseStatus' - The response status code.
+mkDisableDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'directoryARN'
+  Lude.Text ->
   DisableDirectoryResponse
-disableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
+mkDisableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   DisableDirectoryResponse'
-    { _drsResponseStatus = pResponseStatus_,
-      _drsDirectoryARN = pDirectoryARN_
+    { responseStatus = pResponseStatus_,
+      directoryARN = pDirectoryARN_
     }
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DisableDirectoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DisableDirectoryResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DisableDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDirectoryResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the directory that has been disabled.
-drsDirectoryARN :: Lens' DisableDirectoryResponse Text
-drsDirectoryARN = lens _drsDirectoryARN (\s a -> s {_drsDirectoryARN = a})
-
-instance NFData DisableDirectoryResponse
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDirectoryARN :: Lens.Lens' DisableDirectoryResponse Lude.Text
+drsDirectoryARN = Lens.lens (directoryARN :: DisableDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: DisableDirectoryResponse)
+{-# DEPRECATED drsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}

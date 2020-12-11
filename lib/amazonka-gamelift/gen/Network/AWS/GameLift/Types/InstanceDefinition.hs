@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.InstanceDefinition where
+module Network.AWS.GameLift.Types.InstanceDefinition
+  ( InstanceDefinition (..),
+
+    -- * Smart constructor
+    mkInstanceDefinition,
+
+    -- * Lenses
+    idWeightedCapacity,
+    idInstanceType,
+  )
+where
 
 import Network.AWS.GameLift.Types.GameServerGroupInstanceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game server groups.__
 --
---
 -- An allowed instance type for a 'GameServerGroup' . All game server groups must have at least two instance types defined for it. GameLift FleetIQ periodically evaluates each defined instance type for viability. It then updates the Auto Scaling group with the list of viable instance types.
 --
---
--- /See:/ 'instanceDefinition' smart constructor.
+-- /See:/ 'mkInstanceDefinition' smart constructor.
 data InstanceDefinition = InstanceDefinition'
-  { _idWeightedCapacity ::
-      !(Maybe Text),
-    _idInstanceType :: !GameServerGroupInstanceType
+  { weightedCapacity ::
+      Lude.Maybe Lude.Text,
+    instanceType :: GameServerGroupInstanceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idWeightedCapacity' - Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
---
--- * 'idInstanceType' - An EC2 instance type designation.
-instanceDefinition ::
-  -- | 'idInstanceType'
+-- * 'instanceType' - An EC2 instance type designation.
+-- * 'weightedCapacity' - Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
+mkInstanceDefinition ::
+  -- | 'instanceType'
   GameServerGroupInstanceType ->
   InstanceDefinition
-instanceDefinition pInstanceType_ =
+mkInstanceDefinition pInstanceType_ =
   InstanceDefinition'
-    { _idWeightedCapacity = Nothing,
-      _idInstanceType = pInstanceType_
+    { weightedCapacity = Lude.Nothing,
+      instanceType = pInstanceType_
     }
 
 -- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
-idWeightedCapacity :: Lens' InstanceDefinition (Maybe Text)
-idWeightedCapacity = lens _idWeightedCapacity (\s a -> s {_idWeightedCapacity = a})
+--
+-- /Note:/ Consider using 'weightedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idWeightedCapacity :: Lens.Lens' InstanceDefinition (Lude.Maybe Lude.Text)
+idWeightedCapacity = Lens.lens (weightedCapacity :: InstanceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {weightedCapacity = a} :: InstanceDefinition)
+{-# DEPRECATED idWeightedCapacity "Use generic-lens or generic-optics with 'weightedCapacity' instead." #-}
 
 -- | An EC2 instance type designation.
-idInstanceType :: Lens' InstanceDefinition GameServerGroupInstanceType
-idInstanceType = lens _idInstanceType (\s a -> s {_idInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInstanceType :: Lens.Lens' InstanceDefinition GameServerGroupInstanceType
+idInstanceType = Lens.lens (instanceType :: InstanceDefinition -> GameServerGroupInstanceType) (\s a -> s {instanceType = a} :: InstanceDefinition)
+{-# DEPRECATED idInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
-instance FromJSON InstanceDefinition where
+instance Lude.FromJSON InstanceDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceDefinition"
       ( \x ->
           InstanceDefinition'
-            <$> (x .:? "WeightedCapacity") <*> (x .: "InstanceType")
+            Lude.<$> (x Lude..:? "WeightedCapacity")
+            Lude.<*> (x Lude..: "InstanceType")
       )
 
-instance Hashable InstanceDefinition
-
-instance NFData InstanceDefinition
-
-instance ToJSON InstanceDefinition where
+instance Lude.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("WeightedCapacity" .=) <$> _idWeightedCapacity,
-            Just ("InstanceType" .= _idInstanceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WeightedCapacity" Lude..=) Lude.<$> weightedCapacity,
+            Lude.Just ("InstanceType" Lude..= instanceType)
           ]
       )

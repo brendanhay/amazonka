@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.ActiveTrustedSigners where
+module Network.AWS.CloudFront.Types.ActiveTrustedSigners
+  ( ActiveTrustedSigners (..),
+
+    -- * Smart constructor
+    mkActiveTrustedSigners,
+
+    -- * Lenses
+    atsItems,
+    atsEnabled,
+    atsQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.Signer
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
---
---
--- /See:/ 'activeTrustedSigners' smart constructor.
+-- /See:/ 'mkActiveTrustedSigners' smart constructor.
 data ActiveTrustedSigners = ActiveTrustedSigners'
-  { _atsItems ::
-      !(Maybe [Signer]),
-    _atsEnabled :: !Bool,
-    _atsQuantity :: !Int
+  { items ::
+      Lude.Maybe [Signer],
+    enabled :: Lude.Bool,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveTrustedSigners' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atsItems' - A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
---
--- * 'atsEnabled' - This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
---
--- * 'atsQuantity' - The number of AWS accounts in the list.
-activeTrustedSigners ::
-  -- | 'atsEnabled'
-  Bool ->
-  -- | 'atsQuantity'
-  Int ->
+-- * 'enabled' - This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
+-- * 'items' - A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+-- * 'quantity' - The number of AWS accounts in the list.
+mkActiveTrustedSigners ::
+  -- | 'enabled'
+  Lude.Bool ->
+  -- | 'quantity'
+  Lude.Int ->
   ActiveTrustedSigners
-activeTrustedSigners pEnabled_ pQuantity_ =
+mkActiveTrustedSigners pEnabled_ pQuantity_ =
   ActiveTrustedSigners'
-    { _atsItems = Nothing,
-      _atsEnabled = pEnabled_,
-      _atsQuantity = pQuantity_
+    { items = Lude.Nothing,
+      enabled = pEnabled_,
+      quantity = pQuantity_
     }
 
 -- | A list of AWS accounts and the identifiers of active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-atsItems :: Lens' ActiveTrustedSigners [Signer]
-atsItems = lens _atsItems (\s a -> s {_atsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsItems :: Lens.Lens' ActiveTrustedSigners (Lude.Maybe [Signer])
+atsItems = Lens.lens (items :: ActiveTrustedSigners -> Lude.Maybe [Signer]) (\s a -> s {items = a} :: ActiveTrustedSigners)
+{-# DEPRECATED atsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | This field is @true@ if any of the AWS accounts in the list have active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
-atsEnabled :: Lens' ActiveTrustedSigners Bool
-atsEnabled = lens _atsEnabled (\s a -> s {_atsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsEnabled :: Lens.Lens' ActiveTrustedSigners Lude.Bool
+atsEnabled = Lens.lens (enabled :: ActiveTrustedSigners -> Lude.Bool) (\s a -> s {enabled = a} :: ActiveTrustedSigners)
+{-# DEPRECATED atsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The number of AWS accounts in the list.
-atsQuantity :: Lens' ActiveTrustedSigners Int
-atsQuantity = lens _atsQuantity (\s a -> s {_atsQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atsQuantity :: Lens.Lens' ActiveTrustedSigners Lude.Int
+atsQuantity = Lens.lens (quantity :: ActiveTrustedSigners -> Lude.Int) (\s a -> s {quantity = a} :: ActiveTrustedSigners)
+{-# DEPRECATED atsQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML ActiveTrustedSigners where
+instance Lude.FromXML ActiveTrustedSigners where
   parseXML x =
     ActiveTrustedSigners'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "Signer"))
-      <*> (x .@ "Enabled")
-      <*> (x .@ "Quantity")
-
-instance Hashable ActiveTrustedSigners
-
-instance NFData ActiveTrustedSigners
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Signer")
+               )
+      Lude.<*> (x Lude..@ "Enabled")
+      Lude.<*> (x Lude..@ "Quantity")

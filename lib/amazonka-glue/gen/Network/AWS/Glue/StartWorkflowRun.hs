@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,126 @@
 --
 -- Starts a new run of the specified workflow.
 module Network.AWS.Glue.StartWorkflowRun
-  ( -- * Creating a Request
-    startWorkflowRun,
-    StartWorkflowRun,
+  ( -- * Creating a request
+    StartWorkflowRun (..),
+    mkStartWorkflowRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     swrName,
 
-    -- * Destructuring the Response
-    startWorkflowRunResponse,
-    StartWorkflowRunResponse,
+    -- * Destructuring the response
+    StartWorkflowRunResponse (..),
+    mkStartWorkflowRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     swrrsRunId,
     swrrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startWorkflowRun' smart constructor.
-newtype StartWorkflowRun = StartWorkflowRun' {_swrName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStartWorkflowRun' smart constructor.
+newtype StartWorkflowRun = StartWorkflowRun' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkflowRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'swrName' - The name of the workflow to start.
-startWorkflowRun ::
-  -- | 'swrName'
-  Text ->
+-- * 'name' - The name of the workflow to start.
+mkStartWorkflowRun ::
+  -- | 'name'
+  Lude.Text ->
   StartWorkflowRun
-startWorkflowRun pName_ = StartWorkflowRun' {_swrName = pName_}
+mkStartWorkflowRun pName_ = StartWorkflowRun' {name = pName_}
 
 -- | The name of the workflow to start.
-swrName :: Lens' StartWorkflowRun Text
-swrName = lens _swrName (\s a -> s {_swrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swrName :: Lens.Lens' StartWorkflowRun Lude.Text
+swrName = Lens.lens (name :: StartWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: StartWorkflowRun)
+{-# DEPRECATED swrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StartWorkflowRun where
+instance Lude.AWSRequest StartWorkflowRun where
   type Rs StartWorkflowRun = StartWorkflowRunResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartWorkflowRunResponse'
-            <$> (x .?> "RunId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RunId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartWorkflowRun
-
-instance NFData StartWorkflowRun
-
-instance ToHeaders StartWorkflowRun where
+instance Lude.ToHeaders StartWorkflowRun where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.StartWorkflowRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.StartWorkflowRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartWorkflowRun where
+instance Lude.ToJSON StartWorkflowRun where
   toJSON StartWorkflowRun' {..} =
-    object (catMaybes [Just ("Name" .= _swrName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath StartWorkflowRun where
-  toPath = const "/"
+instance Lude.ToPath StartWorkflowRun where
+  toPath = Lude.const "/"
 
-instance ToQuery StartWorkflowRun where
-  toQuery = const mempty
+instance Lude.ToQuery StartWorkflowRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startWorkflowRunResponse' smart constructor.
+-- | /See:/ 'mkStartWorkflowRunResponse' smart constructor.
 data StartWorkflowRunResponse = StartWorkflowRunResponse'
-  { _swrrsRunId ::
-      !(Maybe Text),
-    _swrrsResponseStatus :: !Int
+  { runId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkflowRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'swrrsRunId' - An Id for the new run.
---
--- * 'swrrsResponseStatus' - -- | The response status code.
-startWorkflowRunResponse ::
-  -- | 'swrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'runId' - An Id for the new run.
+mkStartWorkflowRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartWorkflowRunResponse
-startWorkflowRunResponse pResponseStatus_ =
+mkStartWorkflowRunResponse pResponseStatus_ =
   StartWorkflowRunResponse'
-    { _swrrsRunId = Nothing,
-      _swrrsResponseStatus = pResponseStatus_
+    { runId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An Id for the new run.
-swrrsRunId :: Lens' StartWorkflowRunResponse (Maybe Text)
-swrrsRunId = lens _swrrsRunId (\s a -> s {_swrrsRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swrrsRunId :: Lens.Lens' StartWorkflowRunResponse (Lude.Maybe Lude.Text)
+swrrsRunId = Lens.lens (runId :: StartWorkflowRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: StartWorkflowRunResponse)
+{-# DEPRECATED swrrsRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
--- | -- | The response status code.
-swrrsResponseStatus :: Lens' StartWorkflowRunResponse Int
-swrrsResponseStatus = lens _swrrsResponseStatus (\s a -> s {_swrrsResponseStatus = a})
-
-instance NFData StartWorkflowRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swrrsResponseStatus :: Lens.Lens' StartWorkflowRunResponse Lude.Int
+swrrsResponseStatus = Lens.lens (responseStatus :: StartWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartWorkflowRunResponse)
+{-# DEPRECATED swrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

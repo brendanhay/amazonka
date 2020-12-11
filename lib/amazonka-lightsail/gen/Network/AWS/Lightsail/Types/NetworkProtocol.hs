@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.NetworkProtocol where
+module Network.AWS.Lightsail.Types.NetworkProtocol
+  ( NetworkProtocol
+      ( NetworkProtocol',
+        All,
+        ICMP,
+        TCP,
+        Udp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkProtocol
-  = All
-  | ICMP
-  | TCP
-  | Udp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkProtocol = NetworkProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkProtocol where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "icmp" -> pure ICMP
-      "tcp" -> pure TCP
-      "udp" -> pure Udp
-      e ->
-        fromTextError $
-          "Failure parsing NetworkProtocol from value: '" <> e
-            <> "'. Accepted values: all, icmp, tcp, udp"
+pattern All :: NetworkProtocol
+pattern All = NetworkProtocol' "all"
 
-instance ToText NetworkProtocol where
-  toText = \case
-    All -> "all"
-    ICMP -> "icmp"
-    TCP -> "tcp"
-    Udp -> "udp"
+pattern ICMP :: NetworkProtocol
+pattern ICMP = NetworkProtocol' "icmp"
 
-instance Hashable NetworkProtocol
+pattern TCP :: NetworkProtocol
+pattern TCP = NetworkProtocol' "tcp"
 
-instance NFData NetworkProtocol
+pattern Udp :: NetworkProtocol
+pattern Udp = NetworkProtocol' "udp"
 
-instance ToByteString NetworkProtocol
-
-instance ToQuery NetworkProtocol
-
-instance ToHeader NetworkProtocol
-
-instance ToJSON NetworkProtocol where
-  toJSON = toJSONText
-
-instance FromJSON NetworkProtocol where
-  parseJSON = parseJSONText "NetworkProtocol"
+{-# COMPLETE
+  All,
+  ICMP,
+  TCP,
+  Udp,
+  NetworkProtocol'
+  #-}

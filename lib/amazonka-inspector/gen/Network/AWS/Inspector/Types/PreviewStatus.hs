@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.PreviewStatus where
+module Network.AWS.Inspector.Types.PreviewStatus
+  ( PreviewStatus
+      ( PreviewStatus',
+        PSCompleted,
+        PSWorkInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PreviewStatus
-  = PSCompleted
-  | PSWorkInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PreviewStatus = PreviewStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PreviewStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure PSCompleted
-      "work_in_progress" -> pure PSWorkInProgress
-      e ->
-        fromTextError $
-          "Failure parsing PreviewStatus from value: '" <> e
-            <> "'. Accepted values: completed, work_in_progress"
+pattern PSCompleted :: PreviewStatus
+pattern PSCompleted = PreviewStatus' "COMPLETED"
 
-instance ToText PreviewStatus where
-  toText = \case
-    PSCompleted -> "COMPLETED"
-    PSWorkInProgress -> "WORK_IN_PROGRESS"
+pattern PSWorkInProgress :: PreviewStatus
+pattern PSWorkInProgress = PreviewStatus' "WORK_IN_PROGRESS"
 
-instance Hashable PreviewStatus
-
-instance NFData PreviewStatus
-
-instance ToByteString PreviewStatus
-
-instance ToQuery PreviewStatus
-
-instance ToHeader PreviewStatus
-
-instance FromJSON PreviewStatus where
-  parseJSON = parseJSONText "PreviewStatus"
+{-# COMPLETE
+  PSCompleted,
+  PSWorkInProgress,
+  PreviewStatus'
+  #-}

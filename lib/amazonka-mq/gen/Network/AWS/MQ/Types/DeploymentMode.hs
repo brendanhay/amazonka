@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.DeploymentMode where
+module Network.AWS.MQ.Types.DeploymentMode
+  ( DeploymentMode
+      ( DeploymentMode',
+        ActiveStandbyMultiAz,
+        ClusterMultiAz,
+        SingleInstance
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The deployment mode of the broker.
-data DeploymentMode
-  = ActiveStandbyMultiAz
-  | ClusterMultiAz
-  | SingleInstance
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentMode = DeploymentMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentMode where
-  parser =
-    takeLowerText >>= \case
-      "active_standby_multi_az" -> pure ActiveStandbyMultiAz
-      "cluster_multi_az" -> pure ClusterMultiAz
-      "single_instance" -> pure SingleInstance
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentMode from value: '" <> e
-            <> "'. Accepted values: active_standby_multi_az, cluster_multi_az, single_instance"
+pattern ActiveStandbyMultiAz :: DeploymentMode
+pattern ActiveStandbyMultiAz = DeploymentMode' "ACTIVE_STANDBY_MULTI_AZ"
 
-instance ToText DeploymentMode where
-  toText = \case
-    ActiveStandbyMultiAz -> "ACTIVE_STANDBY_MULTI_AZ"
-    ClusterMultiAz -> "CLUSTER_MULTI_AZ"
-    SingleInstance -> "SINGLE_INSTANCE"
+pattern ClusterMultiAz :: DeploymentMode
+pattern ClusterMultiAz = DeploymentMode' "CLUSTER_MULTI_AZ"
 
-instance Hashable DeploymentMode
+pattern SingleInstance :: DeploymentMode
+pattern SingleInstance = DeploymentMode' "SINGLE_INSTANCE"
 
-instance NFData DeploymentMode
-
-instance ToByteString DeploymentMode
-
-instance ToQuery DeploymentMode
-
-instance ToHeader DeploymentMode
-
-instance ToJSON DeploymentMode where
-  toJSON = toJSONText
-
-instance FromJSON DeploymentMode where
-  parseJSON = parseJSONText "DeploymentMode"
+{-# COMPLETE
+  ActiveStandbyMultiAz,
+  ClusterMultiAz,
+  SingleInstance,
+  DeploymentMode'
+  #-}

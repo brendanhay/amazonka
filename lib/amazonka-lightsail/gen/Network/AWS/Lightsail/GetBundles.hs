@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,181 @@
 --
 -- Returns the list of bundles that are available for purchase. A bundle describes the specs for your virtual private server (or /instance/ ).
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetBundles
-  ( -- * Creating a Request
-    getBundles,
-    GetBundles,
+  ( -- * Creating a request
+    GetBundles (..),
+    mkGetBundles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbsIncludeInactive,
     gbsPageToken,
 
-    -- * Destructuring the Response
-    getBundlesResponse,
-    GetBundlesResponse,
+    -- * Destructuring the response
+    GetBundlesResponse (..),
+    mkGetBundlesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbrsNextPageToken,
     gbrsBundles,
     gbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBundles' smart constructor.
+-- | /See:/ 'mkGetBundles' smart constructor.
 data GetBundles = GetBundles'
-  { _gbsIncludeInactive :: !(Maybe Bool),
-    _gbsPageToken :: !(Maybe Text)
+  { includeInactive ::
+      Lude.Maybe Lude.Bool,
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBundles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'includeInactive' - A Boolean value that indicates whether to include inactive bundle results in your request.
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gbsIncludeInactive' - A Boolean value that indicates whether to include inactive bundle results in your request.
---
--- * 'gbsPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getBundles ::
+-- To get a page token, perform an initial @GetBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetBundles ::
   GetBundles
-getBundles =
+mkGetBundles =
   GetBundles'
-    { _gbsIncludeInactive = Nothing,
-      _gbsPageToken = Nothing
+    { includeInactive = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
 
 -- | A Boolean value that indicates whether to include inactive bundle results in your request.
-gbsIncludeInactive :: Lens' GetBundles (Maybe Bool)
-gbsIncludeInactive = lens _gbsIncludeInactive (\s a -> s {_gbsIncludeInactive = a})
+--
+-- /Note:/ Consider using 'includeInactive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbsIncludeInactive :: Lens.Lens' GetBundles (Lude.Maybe Lude.Bool)
+gbsIncludeInactive = Lens.lens (includeInactive :: GetBundles -> Lude.Maybe Lude.Bool) (\s a -> s {includeInactive = a} :: GetBundles)
+{-# DEPRECATED gbsIncludeInactive "Use generic-lens or generic-optics with 'includeInactive' instead." #-}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-gbsPageToken :: Lens' GetBundles (Maybe Text)
-gbsPageToken = lens _gbsPageToken (\s a -> s {_gbsPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbsPageToken :: Lens.Lens' GetBundles (Lude.Maybe Lude.Text)
+gbsPageToken = Lens.lens (pageToken :: GetBundles -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetBundles)
+{-# DEPRECATED gbsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetBundles where
+instance Page.AWSPager GetBundles where
   page rq rs
-    | stop (rs ^. gbrsNextPageToken) = Nothing
-    | stop (rs ^. gbrsBundles) = Nothing
-    | otherwise = Just $ rq & gbsPageToken .~ rs ^. gbrsNextPageToken
+    | Page.stop (rs Lens.^. gbrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gbrsBundles) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gbsPageToken Lens..~ rs Lens.^. gbrsNextPageToken
 
-instance AWSRequest GetBundles where
+instance Lude.AWSRequest GetBundles where
   type Rs GetBundles = GetBundlesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBundlesResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "bundles" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "bundles" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBundles
-
-instance NFData GetBundles
-
-instance ToHeaders GetBundles where
+instance Lude.ToHeaders GetBundles where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.GetBundles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.GetBundles" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetBundles where
+instance Lude.ToJSON GetBundles where
   toJSON GetBundles' {..} =
-    object
-      ( catMaybes
-          [ ("includeInactive" .=) <$> _gbsIncludeInactive,
-            ("pageToken" .=) <$> _gbsPageToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("includeInactive" Lude..=) Lude.<$> includeInactive,
+            ("pageToken" Lude..=) Lude.<$> pageToken
           ]
       )
 
-instance ToPath GetBundles where
-  toPath = const "/"
+instance Lude.ToPath GetBundles where
+  toPath = Lude.const "/"
 
-instance ToQuery GetBundles where
-  toQuery = const mempty
+instance Lude.ToQuery GetBundles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getBundlesResponse' smart constructor.
+-- | /See:/ 'mkGetBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
-  { _gbrsNextPageToken ::
-      !(Maybe Text),
-    _gbrsBundles :: !(Maybe [Bundle]),
-    _gbrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    bundles :: Lude.Maybe [Bundle],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBundlesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bundles' - An array of key-value pairs that contains information about the available bundles.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'gbrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'gbrsBundles' - An array of key-value pairs that contains information about the available bundles.
---
--- * 'gbrsResponseStatus' - -- | The response status code.
-getBundlesResponse ::
-  -- | 'gbrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetBundlesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBundlesResponse
-getBundlesResponse pResponseStatus_ =
+mkGetBundlesResponse pResponseStatus_ =
   GetBundlesResponse'
-    { _gbrsNextPageToken = Nothing,
-      _gbrsBundles = Nothing,
-      _gbrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      bundles = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
-gbrsNextPageToken :: Lens' GetBundlesResponse (Maybe Text)
-gbrsNextPageToken = lens _gbrsNextPageToken (\s a -> s {_gbrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsNextPageToken :: Lens.Lens' GetBundlesResponse (Lude.Maybe Lude.Text)
+gbrsNextPageToken = Lens.lens (nextPageToken :: GetBundlesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetBundlesResponse)
+{-# DEPRECATED gbrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of key-value pairs that contains information about the available bundles.
-gbrsBundles :: Lens' GetBundlesResponse [Bundle]
-gbrsBundles = lens _gbrsBundles (\s a -> s {_gbrsBundles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bundles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsBundles :: Lens.Lens' GetBundlesResponse (Lude.Maybe [Bundle])
+gbrsBundles = Lens.lens (bundles :: GetBundlesResponse -> Lude.Maybe [Bundle]) (\s a -> s {bundles = a} :: GetBundlesResponse)
+{-# DEPRECATED gbrsBundles "Use generic-lens or generic-optics with 'bundles' instead." #-}
 
--- | -- | The response status code.
-gbrsResponseStatus :: Lens' GetBundlesResponse Int
-gbrsResponseStatus = lens _gbrsResponseStatus (\s a -> s {_gbrsResponseStatus = a})
-
-instance NFData GetBundlesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsResponseStatus :: Lens.Lens' GetBundlesResponse Lude.Int
+gbrsResponseStatus = Lens.lens (responseStatus :: GetBundlesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBundlesResponse)
+{-# DEPRECATED gbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

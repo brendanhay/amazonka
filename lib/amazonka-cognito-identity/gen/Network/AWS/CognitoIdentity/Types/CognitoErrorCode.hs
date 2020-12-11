@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.CognitoErrorCode where
+module Network.AWS.CognitoIdentity.Types.CognitoErrorCode
+  ( CognitoErrorCode
+      ( CognitoErrorCode',
+        AccessDenied,
+        InternalServerError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CognitoErrorCode
-  = AccessDenied
-  | InternalServerError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CognitoErrorCode = CognitoErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CognitoErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "accessdenied" -> pure AccessDenied
-      "internalservererror" -> pure InternalServerError
-      e ->
-        fromTextError $
-          "Failure parsing CognitoErrorCode from value: '" <> e
-            <> "'. Accepted values: accessdenied, internalservererror"
+pattern AccessDenied :: CognitoErrorCode
+pattern AccessDenied = CognitoErrorCode' "AccessDenied"
 
-instance ToText CognitoErrorCode where
-  toText = \case
-    AccessDenied -> "AccessDenied"
-    InternalServerError -> "InternalServerError"
+pattern InternalServerError :: CognitoErrorCode
+pattern InternalServerError = CognitoErrorCode' "InternalServerError"
 
-instance Hashable CognitoErrorCode
-
-instance NFData CognitoErrorCode
-
-instance ToByteString CognitoErrorCode
-
-instance ToQuery CognitoErrorCode
-
-instance ToHeader CognitoErrorCode
-
-instance FromJSON CognitoErrorCode where
-  parseJSON = parseJSONText "CognitoErrorCode"
+{-# COMPLETE
+  AccessDenied,
+  InternalServerError,
+  CognitoErrorCode'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,148 @@
 --
 -- Updates the state when a the shipment states changes to a different state.
 module Network.AWS.Snowball.UpdateJobShipmentState
-  ( -- * Creating a Request
-    updateJobShipmentState,
-    UpdateJobShipmentState,
+  ( -- * Creating a request
+    UpdateJobShipmentState (..),
+    mkUpdateJobShipmentState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ujssJobId,
     ujssShipmentState,
 
-    -- * Destructuring the Response
-    updateJobShipmentStateResponse,
-    UpdateJobShipmentStateResponse,
+    -- * Destructuring the response
+    UpdateJobShipmentStateResponse (..),
+    mkUpdateJobShipmentStateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ujssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'updateJobShipmentState' smart constructor.
+-- | /See:/ 'mkUpdateJobShipmentState' smart constructor.
 data UpdateJobShipmentState = UpdateJobShipmentState'
-  { _ujssJobId ::
-      !Text,
-    _ujssShipmentState :: !ShipmentState
+  { jobId ::
+      Lude.Text,
+    shipmentState :: ShipmentState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobShipmentState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'jobId' - The job ID of the job whose shipment date you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'shipmentState' - The state of a device when it is being shipped.
 --
--- * 'ujssJobId' - The job ID of the job whose shipment date you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
---
--- * 'ujssShipmentState' - The state of a device when it is being shipped.  Set to @RECEIVED@ when the device arrives at your location. Set to @RETURNED@ when you have returned the device to AWS.
-updateJobShipmentState ::
-  -- | 'ujssJobId'
-  Text ->
-  -- | 'ujssShipmentState'
+-- Set to @RECEIVED@ when the device arrives at your location.
+-- Set to @RETURNED@ when you have returned the device to AWS.
+mkUpdateJobShipmentState ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'shipmentState'
   ShipmentState ->
   UpdateJobShipmentState
-updateJobShipmentState pJobId_ pShipmentState_ =
+mkUpdateJobShipmentState pJobId_ pShipmentState_ =
   UpdateJobShipmentState'
-    { _ujssJobId = pJobId_,
-      _ujssShipmentState = pShipmentState_
+    { jobId = pJobId_,
+      shipmentState = pShipmentState_
     }
 
 -- | The job ID of the job whose shipment date you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-ujssJobId :: Lens' UpdateJobShipmentState Text
-ujssJobId = lens _ujssJobId (\s a -> s {_ujssJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujssJobId :: Lens.Lens' UpdateJobShipmentState Lude.Text
+ujssJobId = Lens.lens (jobId :: UpdateJobShipmentState -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJobShipmentState)
+{-# DEPRECATED ujssJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | The state of a device when it is being shipped.  Set to @RECEIVED@ when the device arrives at your location. Set to @RETURNED@ when you have returned the device to AWS.
-ujssShipmentState :: Lens' UpdateJobShipmentState ShipmentState
-ujssShipmentState = lens _ujssShipmentState (\s a -> s {_ujssShipmentState = a})
+-- | The state of a device when it is being shipped.
+--
+-- Set to @RECEIVED@ when the device arrives at your location.
+-- Set to @RETURNED@ when you have returned the device to AWS.
+--
+-- /Note:/ Consider using 'shipmentState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujssShipmentState :: Lens.Lens' UpdateJobShipmentState ShipmentState
+ujssShipmentState = Lens.lens (shipmentState :: UpdateJobShipmentState -> ShipmentState) (\s a -> s {shipmentState = a} :: UpdateJobShipmentState)
+{-# DEPRECATED ujssShipmentState "Use generic-lens or generic-optics with 'shipmentState' instead." #-}
 
-instance AWSRequest UpdateJobShipmentState where
+instance Lude.AWSRequest UpdateJobShipmentState where
   type Rs UpdateJobShipmentState = UpdateJobShipmentStateResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateJobShipmentStateResponse' <$> (pure (fromEnum s))
+          UpdateJobShipmentStateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateJobShipmentState
-
-instance NFData UpdateJobShipmentState
-
-instance ToHeaders UpdateJobShipmentState where
+instance Lude.ToHeaders UpdateJobShipmentState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateJobShipmentState where
+instance Lude.ToJSON UpdateJobShipmentState where
   toJSON UpdateJobShipmentState' {..} =
-    object
-      ( catMaybes
-          [ Just ("JobId" .= _ujssJobId),
-            Just ("ShipmentState" .= _ujssShipmentState)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("JobId" Lude..= jobId),
+            Lude.Just ("ShipmentState" Lude..= shipmentState)
           ]
       )
 
-instance ToPath UpdateJobShipmentState where
-  toPath = const "/"
+instance Lude.ToPath UpdateJobShipmentState where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateJobShipmentState where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateJobShipmentState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateJobShipmentStateResponse' smart constructor.
+-- | /See:/ 'mkUpdateJobShipmentStateResponse' smart constructor.
 newtype UpdateJobShipmentStateResponse = UpdateJobShipmentStateResponse'
-  { _ujssrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobShipmentStateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujssrsResponseStatus' - -- | The response status code.
-updateJobShipmentStateResponse ::
-  -- | 'ujssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateJobShipmentStateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateJobShipmentStateResponse
-updateJobShipmentStateResponse pResponseStatus_ =
+mkUpdateJobShipmentStateResponse pResponseStatus_ =
   UpdateJobShipmentStateResponse'
-    { _ujssrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ujssrsResponseStatus :: Lens' UpdateJobShipmentStateResponse Int
-ujssrsResponseStatus = lens _ujssrsResponseStatus (\s a -> s {_ujssrsResponseStatus = a})
-
-instance NFData UpdateJobShipmentStateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujssrsResponseStatus :: Lens.Lens' UpdateJobShipmentStateResponse Lude.Int
+ujssrsResponseStatus = Lens.lens (responseStatus :: UpdateJobShipmentStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJobShipmentStateResponse)
+{-# DEPRECATED ujssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

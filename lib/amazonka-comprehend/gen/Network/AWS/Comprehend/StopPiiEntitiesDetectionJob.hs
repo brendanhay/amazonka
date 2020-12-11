@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Stops a PII entities detection job in progress.
 module Network.AWS.Comprehend.StopPiiEntitiesDetectionJob
-  ( -- * Creating a Request
-    stopPiiEntitiesDetectionJob,
-    StopPiiEntitiesDetectionJob,
+  ( -- * Creating a request
+    StopPiiEntitiesDetectionJob (..),
+    mkStopPiiEntitiesDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spedjJobId,
 
-    -- * Destructuring the Response
-    stopPiiEntitiesDetectionJobResponse,
-    StopPiiEntitiesDetectionJobResponse,
+    -- * Destructuring the response
+    StopPiiEntitiesDetectionJobResponse (..),
+    mkStopPiiEntitiesDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     spedjprsJobId,
     spedjprsJobStatus,
     spedjprsResponseStatus,
@@ -38,111 +33,132 @@ module Network.AWS.Comprehend.StopPiiEntitiesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopPiiEntitiesDetectionJob' smart constructor.
+-- | /See:/ 'mkStopPiiEntitiesDetectionJob' smart constructor.
 newtype StopPiiEntitiesDetectionJob = StopPiiEntitiesDetectionJob'
-  { _spedjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPiiEntitiesDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spedjJobId' - The identifier of the PII entities detection job to stop.
-stopPiiEntitiesDetectionJob ::
-  -- | 'spedjJobId'
-  Text ->
+-- * 'jobId' - The identifier of the PII entities detection job to stop.
+mkStopPiiEntitiesDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   StopPiiEntitiesDetectionJob
-stopPiiEntitiesDetectionJob pJobId_ =
-  StopPiiEntitiesDetectionJob' {_spedjJobId = pJobId_}
+mkStopPiiEntitiesDetectionJob pJobId_ =
+  StopPiiEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the PII entities detection job to stop.
-spedjJobId :: Lens' StopPiiEntitiesDetectionJob Text
-spedjJobId = lens _spedjJobId (\s a -> s {_spedjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjJobId :: Lens.Lens' StopPiiEntitiesDetectionJob Lude.Text
+spedjJobId = Lens.lens (jobId :: StopPiiEntitiesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopPiiEntitiesDetectionJob)
+{-# DEPRECATED spedjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest StopPiiEntitiesDetectionJob where
+instance Lude.AWSRequest StopPiiEntitiesDetectionJob where
   type
     Rs StopPiiEntitiesDetectionJob =
       StopPiiEntitiesDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopPiiEntitiesDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopPiiEntitiesDetectionJob
-
-instance NFData StopPiiEntitiesDetectionJob
-
-instance ToHeaders StopPiiEntitiesDetectionJob where
+instance Lude.ToHeaders StopPiiEntitiesDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StopPiiEntitiesDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StopPiiEntitiesDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopPiiEntitiesDetectionJob where
+instance Lude.ToJSON StopPiiEntitiesDetectionJob where
   toJSON StopPiiEntitiesDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _spedjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath StopPiiEntitiesDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StopPiiEntitiesDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopPiiEntitiesDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopPiiEntitiesDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopPiiEntitiesDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStopPiiEntitiesDetectionJobResponse' smart constructor.
 data StopPiiEntitiesDetectionJobResponse = StopPiiEntitiesDetectionJobResponse'
-  { _spedjprsJobId ::
-      !(Maybe Text),
-    _spedjprsJobStatus ::
-      !(Maybe JobStatus),
-    _spedjprsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe
+        Lude.Text,
+    jobStatus ::
+      Lude.Maybe
+        JobStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPiiEntitiesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spedjprsJobId' - The identifier of the PII entities detection job to stop.
---
--- * 'spedjprsJobStatus' - The status of the PII entities detection job.
---
--- * 'spedjprsResponseStatus' - -- | The response status code.
-stopPiiEntitiesDetectionJobResponse ::
-  -- | 'spedjprsResponseStatus'
-  Int ->
+-- * 'jobId' - The identifier of the PII entities detection job to stop.
+-- * 'jobStatus' - The status of the PII entities detection job.
+-- * 'responseStatus' - The response status code.
+mkStopPiiEntitiesDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopPiiEntitiesDetectionJobResponse
-stopPiiEntitiesDetectionJobResponse pResponseStatus_ =
+mkStopPiiEntitiesDetectionJobResponse pResponseStatus_ =
   StopPiiEntitiesDetectionJobResponse'
-    { _spedjprsJobId = Nothing,
-      _spedjprsJobStatus = Nothing,
-      _spedjprsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the PII entities detection job to stop.
-spedjprsJobId :: Lens' StopPiiEntitiesDetectionJobResponse (Maybe Text)
-spedjprsJobId = lens _spedjprsJobId (\s a -> s {_spedjprsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjprsJobId :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe Lude.Text)
+spedjprsJobId = Lens.lens (jobId :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjprsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the PII entities detection job.
-spedjprsJobStatus :: Lens' StopPiiEntitiesDetectionJobResponse (Maybe JobStatus)
-spedjprsJobStatus = lens _spedjprsJobStatus (\s a -> s {_spedjprsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjprsJobStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe JobStatus)
+spedjprsJobStatus = Lens.lens (jobStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjprsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-spedjprsResponseStatus :: Lens' StopPiiEntitiesDetectionJobResponse Int
-spedjprsResponseStatus = lens _spedjprsResponseStatus (\s a -> s {_spedjprsResponseStatus = a})
-
-instance NFData StopPiiEntitiesDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjprsResponseStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse Lude.Int
+spedjprsResponseStatus = Lens.lens (responseStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

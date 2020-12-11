@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,155 @@
 --
 -- Returns information about a commit, including commit message and committer information.
 module Network.AWS.CodeCommit.GetCommit
-  ( -- * Creating a Request
-    getCommit,
-    GetCommit,
+  ( -- * Creating a request
+    GetCommit (..),
+    mkGetCommit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcRepositoryName,
     gcCommitId,
 
-    -- * Destructuring the Response
-    getCommitResponse,
-    GetCommitResponse,
+    -- * Destructuring the response
+    GetCommitResponse (..),
+    mkGetCommitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsResponseStatus,
     gcrsCommit,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a get commit operation.
 --
---
---
--- /See:/ 'getCommit' smart constructor.
+-- /See:/ 'mkGetCommit' smart constructor.
 data GetCommit = GetCommit'
-  { _gcRepositoryName :: !Text,
-    _gcCommitId :: !Text
+  { repositoryName :: Lude.Text,
+    commitId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcRepositoryName' - The name of the repository to which the commit was made.
---
--- * 'gcCommitId' - The commit ID. Commit IDs are the full SHA ID of the commit.
-getCommit ::
-  -- | 'gcRepositoryName'
-  Text ->
-  -- | 'gcCommitId'
-  Text ->
+-- * 'commitId' - The commit ID. Commit IDs are the full SHA ID of the commit.
+-- * 'repositoryName' - The name of the repository to which the commit was made.
+mkGetCommit ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'commitId'
+  Lude.Text ->
   GetCommit
-getCommit pRepositoryName_ pCommitId_ =
+mkGetCommit pRepositoryName_ pCommitId_ =
   GetCommit'
-    { _gcRepositoryName = pRepositoryName_,
-      _gcCommitId = pCommitId_
+    { repositoryName = pRepositoryName_,
+      commitId = pCommitId_
     }
 
 -- | The name of the repository to which the commit was made.
-gcRepositoryName :: Lens' GetCommit Text
-gcRepositoryName = lens _gcRepositoryName (\s a -> s {_gcRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcRepositoryName :: Lens.Lens' GetCommit Lude.Text
+gcRepositoryName = Lens.lens (repositoryName :: GetCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: GetCommit)
+{-# DEPRECATED gcRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The commit ID. Commit IDs are the full SHA ID of the commit.
-gcCommitId :: Lens' GetCommit Text
-gcCommitId = lens _gcCommitId (\s a -> s {_gcCommitId = a})
+--
+-- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcCommitId :: Lens.Lens' GetCommit Lude.Text
+gcCommitId = Lens.lens (commitId :: GetCommit -> Lude.Text) (\s a -> s {commitId = a} :: GetCommit)
+{-# DEPRECATED gcCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
-instance AWSRequest GetCommit where
+instance Lude.AWSRequest GetCommit where
   type Rs GetCommit = GetCommitResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetCommitResponse' <$> (pure (fromEnum s)) <*> (x .:> "commit")
+          GetCommitResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "commit")
       )
 
-instance Hashable GetCommit
-
-instance NFData GetCommit
-
-instance ToHeaders GetCommit where
+instance Lude.ToHeaders GetCommit where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeCommit_20150413.GetCommit" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeCommit_20150413.GetCommit" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCommit where
+instance Lude.ToJSON GetCommit where
   toJSON GetCommit' {..} =
-    object
-      ( catMaybes
-          [ Just ("repositoryName" .= _gcRepositoryName),
-            Just ("commitId" .= _gcCommitId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("commitId" Lude..= commitId)
           ]
       )
 
-instance ToPath GetCommit where
-  toPath = const "/"
+instance Lude.ToPath GetCommit where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCommit where
-  toQuery = const mempty
+instance Lude.ToQuery GetCommit where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a get commit operation.
 --
---
---
--- /See:/ 'getCommitResponse' smart constructor.
+-- /See:/ 'mkGetCommitResponse' smart constructor.
 data GetCommitResponse = GetCommitResponse'
-  { _gcrsResponseStatus ::
-      !Int,
-    _gcrsCommit :: !Commit
+  { responseStatus ::
+      Lude.Int,
+    commit :: Commit
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsResponseStatus' - -- | The response status code.
---
--- * 'gcrsCommit' - A commit data type object that contains information about the specified commit.
-getCommitResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
-  -- | 'gcrsCommit'
+-- * 'commit' - A commit data type object that contains information about the specified commit.
+-- * 'responseStatus' - The response status code.
+mkGetCommitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'commit'
   Commit ->
   GetCommitResponse
-getCommitResponse pResponseStatus_ pCommit_ =
+mkGetCommitResponse pResponseStatus_ pCommit_ =
   GetCommitResponse'
-    { _gcrsResponseStatus = pResponseStatus_,
-      _gcrsCommit = pCommit_
+    { responseStatus = pResponseStatus_,
+      commit = pCommit_
     }
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetCommitResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetCommitResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetCommitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommitResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A commit data type object that contains information about the specified commit.
-gcrsCommit :: Lens' GetCommitResponse Commit
-gcrsCommit = lens _gcrsCommit (\s a -> s {_gcrsCommit = a})
-
-instance NFData GetCommitResponse
+--
+-- /Note:/ Consider using 'commit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsCommit :: Lens.Lens' GetCommitResponse Commit
+gcrsCommit = Lens.lens (commit :: GetCommitResponse -> Commit) (\s a -> s {commit = a} :: GetCommitResponse)
+{-# DEPRECATED gcrsCommit "Use generic-lens or generic-optics with 'commit' instead." #-}

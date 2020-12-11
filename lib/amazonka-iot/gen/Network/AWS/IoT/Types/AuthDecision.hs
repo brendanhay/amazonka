@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthDecision where
+module Network.AWS.IoT.Types.AuthDecision
+  ( AuthDecision
+      ( AuthDecision',
+        Allowed,
+        ExplicitDeny,
+        ImplicitDeny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthDecision
-  = Allowed
-  | ExplicitDeny
-  | ImplicitDeny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthDecision = AuthDecision' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthDecision where
-  parser =
-    takeLowerText >>= \case
-      "allowed" -> pure Allowed
-      "explicit_deny" -> pure ExplicitDeny
-      "implicit_deny" -> pure ImplicitDeny
-      e ->
-        fromTextError $
-          "Failure parsing AuthDecision from value: '" <> e
-            <> "'. Accepted values: allowed, explicit_deny, implicit_deny"
+pattern Allowed :: AuthDecision
+pattern Allowed = AuthDecision' "ALLOWED"
 
-instance ToText AuthDecision where
-  toText = \case
-    Allowed -> "ALLOWED"
-    ExplicitDeny -> "EXPLICIT_DENY"
-    ImplicitDeny -> "IMPLICIT_DENY"
+pattern ExplicitDeny :: AuthDecision
+pattern ExplicitDeny = AuthDecision' "EXPLICIT_DENY"
 
-instance Hashable AuthDecision
+pattern ImplicitDeny :: AuthDecision
+pattern ImplicitDeny = AuthDecision' "IMPLICIT_DENY"
 
-instance NFData AuthDecision
-
-instance ToByteString AuthDecision
-
-instance ToQuery AuthDecision
-
-instance ToHeader AuthDecision
-
-instance FromJSON AuthDecision where
-  parseJSON = parseJSONText "AuthDecision"
+{-# COMPLETE
+  Allowed,
+  ExplicitDeny,
+  ImplicitDeny,
+  AuthDecision'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,145 @@
 --
 -- Associates a device with the specified network profile.
 module Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
-  ( -- * Creating a Request
-    associateDeviceWithNetworkProfile,
-    AssociateDeviceWithNetworkProfile,
+  ( -- * Creating a request
+    AssociateDeviceWithNetworkProfile (..),
+    mkAssociateDeviceWithNetworkProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     adwnpDeviceARN,
     adwnpNetworkProfileARN,
 
-    -- * Destructuring the Response
-    associateDeviceWithNetworkProfileResponse,
-    AssociateDeviceWithNetworkProfileResponse,
+    -- * Destructuring the response
+    AssociateDeviceWithNetworkProfileResponse (..),
+    mkAssociateDeviceWithNetworkProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     adwnprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateDeviceWithNetworkProfile' smart constructor.
+-- | /See:/ 'mkAssociateDeviceWithNetworkProfile' smart constructor.
 data AssociateDeviceWithNetworkProfile = AssociateDeviceWithNetworkProfile'
-  { _adwnpDeviceARN ::
-      !Text,
-    _adwnpNetworkProfileARN ::
-      !Text
+  { deviceARN ::
+      Lude.Text,
+    networkProfileARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDeviceWithNetworkProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adwnpDeviceARN' - The device ARN.
---
--- * 'adwnpNetworkProfileARN' - The ARN of the network profile to associate with a device.
-associateDeviceWithNetworkProfile ::
-  -- | 'adwnpDeviceARN'
-  Text ->
-  -- | 'adwnpNetworkProfileARN'
-  Text ->
+-- * 'deviceARN' - The device ARN.
+-- * 'networkProfileARN' - The ARN of the network profile to associate with a device.
+mkAssociateDeviceWithNetworkProfile ::
+  -- | 'deviceARN'
+  Lude.Text ->
+  -- | 'networkProfileARN'
+  Lude.Text ->
   AssociateDeviceWithNetworkProfile
-associateDeviceWithNetworkProfile pDeviceARN_ pNetworkProfileARN_ =
+mkAssociateDeviceWithNetworkProfile pDeviceARN_ pNetworkProfileARN_ =
   AssociateDeviceWithNetworkProfile'
-    { _adwnpDeviceARN = pDeviceARN_,
-      _adwnpNetworkProfileARN = pNetworkProfileARN_
+    { deviceARN = pDeviceARN_,
+      networkProfileARN = pNetworkProfileARN_
     }
 
 -- | The device ARN.
-adwnpDeviceARN :: Lens' AssociateDeviceWithNetworkProfile Text
-adwnpDeviceARN = lens _adwnpDeviceARN (\s a -> s {_adwnpDeviceARN = a})
+--
+-- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adwnpDeviceARN :: Lens.Lens' AssociateDeviceWithNetworkProfile Lude.Text
+adwnpDeviceARN = Lens.lens (deviceARN :: AssociateDeviceWithNetworkProfile -> Lude.Text) (\s a -> s {deviceARN = a} :: AssociateDeviceWithNetworkProfile)
+{-# DEPRECATED adwnpDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 -- | The ARN of the network profile to associate with a device.
-adwnpNetworkProfileARN :: Lens' AssociateDeviceWithNetworkProfile Text
-adwnpNetworkProfileARN = lens _adwnpNetworkProfileARN (\s a -> s {_adwnpNetworkProfileARN = a})
+--
+-- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adwnpNetworkProfileARN :: Lens.Lens' AssociateDeviceWithNetworkProfile Lude.Text
+adwnpNetworkProfileARN = Lens.lens (networkProfileARN :: AssociateDeviceWithNetworkProfile -> Lude.Text) (\s a -> s {networkProfileARN = a} :: AssociateDeviceWithNetworkProfile)
+{-# DEPRECATED adwnpNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
 
-instance AWSRequest AssociateDeviceWithNetworkProfile where
+instance Lude.AWSRequest AssociateDeviceWithNetworkProfile where
   type
     Rs AssociateDeviceWithNetworkProfile =
       AssociateDeviceWithNetworkProfileResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateDeviceWithNetworkProfileResponse' <$> (pure (fromEnum s))
+          AssociateDeviceWithNetworkProfileResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateDeviceWithNetworkProfile
-
-instance NFData AssociateDeviceWithNetworkProfile
-
-instance ToHeaders AssociateDeviceWithNetworkProfile where
+instance Lude.ToHeaders AssociateDeviceWithNetworkProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.AssociateDeviceWithNetworkProfile" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateDeviceWithNetworkProfile where
+instance Lude.ToJSON AssociateDeviceWithNetworkProfile where
   toJSON AssociateDeviceWithNetworkProfile' {..} =
-    object
-      ( catMaybes
-          [ Just ("DeviceArn" .= _adwnpDeviceARN),
-            Just ("NetworkProfileArn" .= _adwnpNetworkProfileARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DeviceArn" Lude..= deviceARN),
+            Lude.Just ("NetworkProfileArn" Lude..= networkProfileARN)
           ]
       )
 
-instance ToPath AssociateDeviceWithNetworkProfile where
-  toPath = const "/"
+instance Lude.ToPath AssociateDeviceWithNetworkProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateDeviceWithNetworkProfile where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateDeviceWithNetworkProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateDeviceWithNetworkProfileResponse' smart constructor.
+-- | /See:/ 'mkAssociateDeviceWithNetworkProfileResponse' smart constructor.
 newtype AssociateDeviceWithNetworkProfileResponse = AssociateDeviceWithNetworkProfileResponse'
-  { _adwnprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDeviceWithNetworkProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adwnprsResponseStatus' - -- | The response status code.
-associateDeviceWithNetworkProfileResponse ::
-  -- | 'adwnprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateDeviceWithNetworkProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateDeviceWithNetworkProfileResponse
-associateDeviceWithNetworkProfileResponse pResponseStatus_ =
+mkAssociateDeviceWithNetworkProfileResponse pResponseStatus_ =
   AssociateDeviceWithNetworkProfileResponse'
-    { _adwnprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-adwnprsResponseStatus :: Lens' AssociateDeviceWithNetworkProfileResponse Int
-adwnprsResponseStatus = lens _adwnprsResponseStatus (\s a -> s {_adwnprsResponseStatus = a})
-
-instance NFData AssociateDeviceWithNetworkProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adwnprsResponseStatus :: Lens.Lens' AssociateDeviceWithNetworkProfileResponse Lude.Int
+adwnprsResponseStatus = Lens.lens (responseStatus :: AssociateDeviceWithNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateDeviceWithNetworkProfileResponse)
+{-# DEPRECATED adwnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

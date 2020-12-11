@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.Logs where
+module Network.AWS.MQ.Types.Logs
+  ( Logs (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLogs,
+
+    -- * Lenses
+    lAudit,
+    lGeneral,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The list of information about logs to be enabled for the specified broker.
 --
--- /See:/ 'logs' smart constructor.
+-- /See:/ 'mkLogs' smart constructor.
 data Logs = Logs'
-  { _lAudit :: !(Maybe Bool),
-    _lGeneral :: !(Maybe Bool)
+  { audit :: Lude.Maybe Lude.Bool,
+    general :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Logs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lAudit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
---
--- * 'lGeneral' - Enables general logging.
-logs ::
+-- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
+-- * 'general' - Enables general logging.
+mkLogs ::
   Logs
-logs = Logs' {_lAudit = Nothing, _lGeneral = Nothing}
+mkLogs = Logs' {audit = Lude.Nothing, general = Lude.Nothing}
 
 -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-lAudit :: Lens' Logs (Maybe Bool)
-lAudit = lens _lAudit (\s a -> s {_lAudit = a})
+--
+-- /Note:/ Consider using 'audit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lAudit :: Lens.Lens' Logs (Lude.Maybe Lude.Bool)
+lAudit = Lens.lens (audit :: Logs -> Lude.Maybe Lude.Bool) (\s a -> s {audit = a} :: Logs)
+{-# DEPRECATED lAudit "Use generic-lens or generic-optics with 'audit' instead." #-}
 
 -- | Enables general logging.
-lGeneral :: Lens' Logs (Maybe Bool)
-lGeneral = lens _lGeneral (\s a -> s {_lGeneral = a})
+--
+-- /Note:/ Consider using 'general' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lGeneral :: Lens.Lens' Logs (Lude.Maybe Lude.Bool)
+lGeneral = Lens.lens (general :: Logs -> Lude.Maybe Lude.Bool) (\s a -> s {general = a} :: Logs)
+{-# DEPRECATED lGeneral "Use generic-lens or generic-optics with 'general' instead." #-}
 
-instance FromJSON Logs where
+instance Lude.FromJSON Logs where
   parseJSON =
-    withObject
+    Lude.withObject
       "Logs"
-      (\x -> Logs' <$> (x .:? "audit") <*> (x .:? "general"))
+      ( \x ->
+          Logs'
+            Lude.<$> (x Lude..:? "audit") Lude.<*> (x Lude..:? "general")
+      )
 
-instance Hashable Logs
-
-instance NFData Logs
-
-instance ToJSON Logs where
+instance Lude.ToJSON Logs where
   toJSON Logs' {..} =
-    object
-      ( catMaybes
-          [("audit" .=) <$> _lAudit, ("general" .=) <$> _lGeneral]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("audit" Lude..=) Lude.<$> audit,
+            ("general" Lude..=) Lude.<$> general
+          ]
       )

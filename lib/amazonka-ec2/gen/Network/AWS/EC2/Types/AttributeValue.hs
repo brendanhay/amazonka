@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AttributeValue where
+module Network.AWS.EC2.Types.AttributeValue
+  ( AttributeValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributeValue,
+
+    -- * Lenses
+    avValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a value for a resource attribute that is a String.
 --
---
---
--- /See:/ 'attributeValue' smart constructor.
-newtype AttributeValue = AttributeValue' {_avValue :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkAttributeValue' smart constructor.
+newtype AttributeValue = AttributeValue'
+  { value ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avValue' - The attribute value. The value is case-sensitive.
-attributeValue ::
+-- * 'value' - The attribute value. The value is case-sensitive.
+mkAttributeValue ::
   AttributeValue
-attributeValue = AttributeValue' {_avValue = Nothing}
+mkAttributeValue = AttributeValue' {value = Lude.Nothing}
 
 -- | The attribute value. The value is case-sensitive.
-avValue :: Lens' AttributeValue (Maybe Text)
-avValue = lens _avValue (\s a -> s {_avValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avValue :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
+avValue = Lens.lens (value :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AttributeValue)
+{-# DEPRECATED avValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML AttributeValue where
-  parseXML x = AttributeValue' <$> (x .@? "value")
+instance Lude.FromXML AttributeValue where
+  parseXML x = AttributeValue' Lude.<$> (x Lude..@? "value")
 
-instance Hashable AttributeValue
-
-instance NFData AttributeValue
-
-instance ToQuery AttributeValue where
-  toQuery AttributeValue' {..} = mconcat ["Value" =: _avValue]
+instance Lude.ToQuery AttributeValue where
+  toQuery AttributeValue' {..} = Lude.mconcat ["Value" Lude.=: value]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse where
+module Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
+  ( BatchListObjectParentPathsResponse (..),
+
+    -- * Smart constructor
+    mkBatchListObjectParentPathsResponse,
+
+    -- * Lenses
+    bloppPathToObjectIdentifiersList,
+    bloppNextToken,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListObjectParentPaths' response operation.
 --
---
---
--- /See:/ 'batchListObjectParentPathsResponse' smart constructor.
+-- /See:/ 'mkBatchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
-  { _bloppPathToObjectIdentifiersList ::
-      !( Maybe
-           [PathToObjectIdentifiers]
-       ),
-    _bloppNextToken ::
-      !(Maybe Text)
+  { pathToObjectIdentifiersList ::
+      Lude.Maybe
+        [PathToObjectIdentifiers],
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectParentPathsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bloppPathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
---
--- * 'bloppNextToken' - The pagination token.
-batchListObjectParentPathsResponse ::
+-- * 'nextToken' - The pagination token.
+-- * 'pathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
+mkBatchListObjectParentPathsResponse ::
   BatchListObjectParentPathsResponse
-batchListObjectParentPathsResponse =
+mkBatchListObjectParentPathsResponse =
   BatchListObjectParentPathsResponse'
-    { _bloppPathToObjectIdentifiersList =
-        Nothing,
-      _bloppNextToken = Nothing
+    { pathToObjectIdentifiersList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
-bloppPathToObjectIdentifiersList :: Lens' BatchListObjectParentPathsResponse [PathToObjectIdentifiers]
-bloppPathToObjectIdentifiersList = lens _bloppPathToObjectIdentifiersList (\s a -> s {_bloppPathToObjectIdentifiersList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pathToObjectIdentifiersList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloppPathToObjectIdentifiersList :: Lens.Lens' BatchListObjectParentPathsResponse (Lude.Maybe [PathToObjectIdentifiers])
+bloppPathToObjectIdentifiersList = Lens.lens (pathToObjectIdentifiersList :: BatchListObjectParentPathsResponse -> Lude.Maybe [PathToObjectIdentifiers]) (\s a -> s {pathToObjectIdentifiersList = a} :: BatchListObjectParentPathsResponse)
+{-# DEPRECATED bloppPathToObjectIdentifiersList "Use generic-lens or generic-optics with 'pathToObjectIdentifiersList' instead." #-}
 
 -- | The pagination token.
-bloppNextToken :: Lens' BatchListObjectParentPathsResponse (Maybe Text)
-bloppNextToken = lens _bloppNextToken (\s a -> s {_bloppNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloppNextToken :: Lens.Lens' BatchListObjectParentPathsResponse (Lude.Maybe Lude.Text)
+bloppNextToken = Lens.lens (nextToken :: BatchListObjectParentPathsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectParentPathsResponse)
+{-# DEPRECATED bloppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance FromJSON BatchListObjectParentPathsResponse where
+instance Lude.FromJSON BatchListObjectParentPathsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchListObjectParentPathsResponse"
       ( \x ->
           BatchListObjectParentPathsResponse'
-            <$> (x .:? "PathToObjectIdentifiersList" .!= mempty)
-            <*> (x .:? "NextToken")
+            Lude.<$> (x Lude..:? "PathToObjectIdentifiersList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextToken")
       )
-
-instance Hashable BatchListObjectParentPathsResponse
-
-instance NFData BatchListObjectParentPathsResponse

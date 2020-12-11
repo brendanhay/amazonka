@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ListingState where
+module Network.AWS.EC2.Types.ListingState
+  ( ListingState
+      ( ListingState',
+        LAvailable,
+        LCancelled,
+        LPending,
+        LSold
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ListingState
-  = LAvailable
-  | LCancelled
-  | LPending
-  | LSold
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ListingState = ListingState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ListingState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure LAvailable
-      "cancelled" -> pure LCancelled
-      "pending" -> pure LPending
-      "sold" -> pure LSold
-      e ->
-        fromTextError $
-          "Failure parsing ListingState from value: '" <> e
-            <> "'. Accepted values: available, cancelled, pending, sold"
+pattern LAvailable :: ListingState
+pattern LAvailable = ListingState' "available"
 
-instance ToText ListingState where
-  toText = \case
-    LAvailable -> "available"
-    LCancelled -> "cancelled"
-    LPending -> "pending"
-    LSold -> "sold"
+pattern LCancelled :: ListingState
+pattern LCancelled = ListingState' "cancelled"
 
-instance Hashable ListingState
+pattern LPending :: ListingState
+pattern LPending = ListingState' "pending"
 
-instance NFData ListingState
+pattern LSold :: ListingState
+pattern LSold = ListingState' "sold"
 
-instance ToByteString ListingState
-
-instance ToQuery ListingState
-
-instance ToHeader ListingState
-
-instance FromXML ListingState where
-  parseXML = parseXMLText "ListingState"
+{-# COMPLETE
+  LAvailable,
+  LCancelled,
+  LPending,
+  LSold,
+  ListingState'
+  #-}

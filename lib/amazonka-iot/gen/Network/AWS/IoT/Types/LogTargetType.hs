@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.LogTargetType where
+module Network.AWS.IoT.Types.LogTargetType
+  ( LogTargetType
+      ( LogTargetType',
+        LTTDefault,
+        LTTThingGroup
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogTargetType
-  = LTTDefault
-  | LTTThingGroup
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogTargetType = LogTargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogTargetType where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure LTTDefault
-      "thing_group" -> pure LTTThingGroup
-      e ->
-        fromTextError $
-          "Failure parsing LogTargetType from value: '" <> e
-            <> "'. Accepted values: default, thing_group"
+pattern LTTDefault :: LogTargetType
+pattern LTTDefault = LogTargetType' "DEFAULT"
 
-instance ToText LogTargetType where
-  toText = \case
-    LTTDefault -> "DEFAULT"
-    LTTThingGroup -> "THING_GROUP"
+pattern LTTThingGroup :: LogTargetType
+pattern LTTThingGroup = LogTargetType' "THING_GROUP"
 
-instance Hashable LogTargetType
-
-instance NFData LogTargetType
-
-instance ToByteString LogTargetType
-
-instance ToQuery LogTargetType
-
-instance ToHeader LogTargetType
-
-instance ToJSON LogTargetType where
-  toJSON = toJSONText
-
-instance FromJSON LogTargetType where
-  parseJSON = parseJSONText "LogTargetType"
+{-# COMPLETE
+  LTTDefault,
+  LTTThingGroup,
+  LogTargetType'
+  #-}

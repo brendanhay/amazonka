@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
 module Network.AWS.Greengrass.AssociateServiceRoleToAccount
-  ( -- * Creating a Request
-    associateServiceRoleToAccount,
-    AssociateServiceRoleToAccount,
+  ( -- * Creating a request
+    AssociateServiceRoleToAccount (..),
+    mkAssociateServiceRoleToAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asrtaRoleARN,
 
-    -- * Destructuring the Response
-    associateServiceRoleToAccountResponse,
-    AssociateServiceRoleToAccountResponse,
+    -- * Destructuring the response
+    AssociateServiceRoleToAccountResponse (..),
+    mkAssociateServiceRoleToAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asrtarsAssociatedAt,
     asrtarsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateServiceRoleToAccount' smart constructor.
+-- | /See:/ 'mkAssociateServiceRoleToAccount' smart constructor.
 newtype AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
-  { _asrtaRoleARN ::
-      Text
+  { roleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateServiceRoleToAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asrtaRoleARN' - The ARN of the service role you wish to associate with your account.
-associateServiceRoleToAccount ::
-  -- | 'asrtaRoleARN'
-  Text ->
+-- * 'roleARN' - The ARN of the service role you wish to associate with your account.
+mkAssociateServiceRoleToAccount ::
+  -- | 'roleARN'
+  Lude.Text ->
   AssociateServiceRoleToAccount
-associateServiceRoleToAccount pRoleARN_ =
-  AssociateServiceRoleToAccount' {_asrtaRoleARN = pRoleARN_}
+mkAssociateServiceRoleToAccount pRoleARN_ =
+  AssociateServiceRoleToAccount' {roleARN = pRoleARN_}
 
 -- | The ARN of the service role you wish to associate with your account.
-asrtaRoleARN :: Lens' AssociateServiceRoleToAccount Text
-asrtaRoleARN = lens _asrtaRoleARN (\s a -> s {_asrtaRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrtaRoleARN :: Lens.Lens' AssociateServiceRoleToAccount Lude.Text
+asrtaRoleARN = Lens.lens (roleARN :: AssociateServiceRoleToAccount -> Lude.Text) (\s a -> s {roleARN = a} :: AssociateServiceRoleToAccount)
+{-# DEPRECATED asrtaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest AssociateServiceRoleToAccount where
+instance Lude.AWSRequest AssociateServiceRoleToAccount where
   type
     Rs AssociateServiceRoleToAccount =
       AssociateServiceRoleToAccountResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssociateServiceRoleToAccountResponse'
-            <$> (x .?> "AssociatedAt") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociatedAt") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateServiceRoleToAccount
-
-instance NFData AssociateServiceRoleToAccount
-
-instance ToHeaders AssociateServiceRoleToAccount where
+instance Lude.ToHeaders AssociateServiceRoleToAccount where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON AssociateServiceRoleToAccount where
+instance Lude.ToJSON AssociateServiceRoleToAccount where
   toJSON AssociateServiceRoleToAccount' {..} =
-    object (catMaybes [Just ("RoleArn" .= _asrtaRoleARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RoleArn" Lude..= roleARN)])
 
-instance ToPath AssociateServiceRoleToAccount where
-  toPath = const "/greengrass/servicerole"
+instance Lude.ToPath AssociateServiceRoleToAccount where
+  toPath = Lude.const "/greengrass/servicerole"
 
-instance ToQuery AssociateServiceRoleToAccount where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateServiceRoleToAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateServiceRoleToAccountResponse' smart constructor.
+-- | /See:/ 'mkAssociateServiceRoleToAccountResponse' smart constructor.
 data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountResponse'
-  { _asrtarsAssociatedAt ::
-      !(Maybe Text),
-    _asrtarsResponseStatus ::
-      !Int
+  { associatedAt ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateServiceRoleToAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asrtarsAssociatedAt' - The time when the service role was associated with the account.
---
--- * 'asrtarsResponseStatus' - -- | The response status code.
-associateServiceRoleToAccountResponse ::
-  -- | 'asrtarsResponseStatus'
-  Int ->
+-- * 'associatedAt' - The time when the service role was associated with the account.
+-- * 'responseStatus' - The response status code.
+mkAssociateServiceRoleToAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateServiceRoleToAccountResponse
-associateServiceRoleToAccountResponse pResponseStatus_ =
+mkAssociateServiceRoleToAccountResponse pResponseStatus_ =
   AssociateServiceRoleToAccountResponse'
-    { _asrtarsAssociatedAt =
-        Nothing,
-      _asrtarsResponseStatus = pResponseStatus_
+    { associatedAt =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time when the service role was associated with the account.
-asrtarsAssociatedAt :: Lens' AssociateServiceRoleToAccountResponse (Maybe Text)
-asrtarsAssociatedAt = lens _asrtarsAssociatedAt (\s a -> s {_asrtarsAssociatedAt = a})
+--
+-- /Note:/ Consider using 'associatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrtarsAssociatedAt :: Lens.Lens' AssociateServiceRoleToAccountResponse (Lude.Maybe Lude.Text)
+asrtarsAssociatedAt = Lens.lens (associatedAt :: AssociateServiceRoleToAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {associatedAt = a} :: AssociateServiceRoleToAccountResponse)
+{-# DEPRECATED asrtarsAssociatedAt "Use generic-lens or generic-optics with 'associatedAt' instead." #-}
 
--- | -- | The response status code.
-asrtarsResponseStatus :: Lens' AssociateServiceRoleToAccountResponse Int
-asrtarsResponseStatus = lens _asrtarsResponseStatus (\s a -> s {_asrtarsResponseStatus = a})
-
-instance NFData AssociateServiceRoleToAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrtarsResponseStatus :: Lens.Lens' AssociateServiceRoleToAccountResponse Lude.Int
+asrtarsResponseStatus = Lens.lens (responseStatus :: AssociateServiceRoleToAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateServiceRoleToAccountResponse)
+{-# DEPRECATED asrtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

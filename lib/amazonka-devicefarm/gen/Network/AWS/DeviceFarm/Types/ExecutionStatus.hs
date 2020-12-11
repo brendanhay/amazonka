@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.ExecutionStatus where
+module Network.AWS.DeviceFarm.Types.ExecutionStatus
+  ( ExecutionStatus
+      ( ExecutionStatus',
+        Completed,
+        Pending,
+        PendingConcurrency,
+        PendingDevice,
+        Preparing,
+        Processing,
+        Running,
+        Scheduling,
+        Stopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionStatus
-  = Completed
-  | Pending
-  | PendingConcurrency
-  | PendingDevice
-  | Preparing
-  | Processing
-  | Running
-  | Scheduling
-  | Stopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionStatus = ExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "pending" -> pure Pending
-      "pending_concurrency" -> pure PendingConcurrency
-      "pending_device" -> pure PendingDevice
-      "preparing" -> pure Preparing
-      "processing" -> pure Processing
-      "running" -> pure Running
-      "scheduling" -> pure Scheduling
-      "stopping" -> pure Stopping
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionStatus from value: '" <> e
-            <> "'. Accepted values: completed, pending, pending_concurrency, pending_device, preparing, processing, running, scheduling, stopping"
+pattern Completed :: ExecutionStatus
+pattern Completed = ExecutionStatus' "COMPLETED"
 
-instance ToText ExecutionStatus where
-  toText = \case
-    Completed -> "COMPLETED"
-    Pending -> "PENDING"
-    PendingConcurrency -> "PENDING_CONCURRENCY"
-    PendingDevice -> "PENDING_DEVICE"
-    Preparing -> "PREPARING"
-    Processing -> "PROCESSING"
-    Running -> "RUNNING"
-    Scheduling -> "SCHEDULING"
-    Stopping -> "STOPPING"
+pattern Pending :: ExecutionStatus
+pattern Pending = ExecutionStatus' "PENDING"
 
-instance Hashable ExecutionStatus
+pattern PendingConcurrency :: ExecutionStatus
+pattern PendingConcurrency = ExecutionStatus' "PENDING_CONCURRENCY"
 
-instance NFData ExecutionStatus
+pattern PendingDevice :: ExecutionStatus
+pattern PendingDevice = ExecutionStatus' "PENDING_DEVICE"
 
-instance ToByteString ExecutionStatus
+pattern Preparing :: ExecutionStatus
+pattern Preparing = ExecutionStatus' "PREPARING"
 
-instance ToQuery ExecutionStatus
+pattern Processing :: ExecutionStatus
+pattern Processing = ExecutionStatus' "PROCESSING"
 
-instance ToHeader ExecutionStatus
+pattern Running :: ExecutionStatus
+pattern Running = ExecutionStatus' "RUNNING"
 
-instance FromJSON ExecutionStatus where
-  parseJSON = parseJSONText "ExecutionStatus"
+pattern Scheduling :: ExecutionStatus
+pattern Scheduling = ExecutionStatus' "SCHEDULING"
+
+pattern Stopping :: ExecutionStatus
+pattern Stopping = ExecutionStatus' "STOPPING"
+
+{-# COMPLETE
+  Completed,
+  Pending,
+  PendingConcurrency,
+  PendingDevice,
+  Preparing,
+  Processing,
+  Running,
+  Scheduling,
+  Stopping,
+  ExecutionStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HopDestination where
+module Network.AWS.MediaConvert.Types.HopDestination
+  ( HopDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHopDestination,
+
+    -- * Lenses
+    hdPriority,
+    hdQueue,
+    hdWaitMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
 --
--- /See:/ 'hopDestination' smart constructor.
+-- /See:/ 'mkHopDestination' smart constructor.
 data HopDestination = HopDestination'
-  { _hdPriority :: !(Maybe Int),
-    _hdQueue :: !(Maybe Text),
-    _hdWaitMinutes :: !(Maybe Int)
+  { priority ::
+      Lude.Maybe Lude.Int,
+    queue :: Lude.Maybe Lude.Text,
+    waitMinutes :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HopDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hdPriority' - Optional. When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
---
--- * 'hdQueue' - Optional unless the job is submitted on the default queue. When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
---
--- * 'hdWaitMinutes' - Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
-hopDestination ::
+-- * 'priority' - Optional. When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
+-- * 'queue' - Optional unless the job is submitted on the default queue. When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
+-- * 'waitMinutes' - Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
+mkHopDestination ::
   HopDestination
-hopDestination =
+mkHopDestination =
   HopDestination'
-    { _hdPriority = Nothing,
-      _hdQueue = Nothing,
-      _hdWaitMinutes = Nothing
+    { priority = Lude.Nothing,
+      queue = Lude.Nothing,
+      waitMinutes = Lude.Nothing
     }
 
 -- | Optional. When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
-hdPriority :: Lens' HopDestination (Maybe Int)
-hdPriority = lens _hdPriority (\s a -> s {_hdPriority = a})
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hdPriority :: Lens.Lens' HopDestination (Lude.Maybe Lude.Int)
+hdPriority = Lens.lens (priority :: HopDestination -> Lude.Maybe Lude.Int) (\s a -> s {priority = a} :: HopDestination)
+{-# DEPRECATED hdPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | Optional unless the job is submitted on the default queue. When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
-hdQueue :: Lens' HopDestination (Maybe Text)
-hdQueue = lens _hdQueue (\s a -> s {_hdQueue = a})
+--
+-- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hdQueue :: Lens.Lens' HopDestination (Lude.Maybe Lude.Text)
+hdQueue = Lens.lens (queue :: HopDestination -> Lude.Maybe Lude.Text) (\s a -> s {queue = a} :: HopDestination)
+{-# DEPRECATED hdQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
 -- | Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
-hdWaitMinutes :: Lens' HopDestination (Maybe Int)
-hdWaitMinutes = lens _hdWaitMinutes (\s a -> s {_hdWaitMinutes = a})
+--
+-- /Note:/ Consider using 'waitMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hdWaitMinutes :: Lens.Lens' HopDestination (Lude.Maybe Lude.Int)
+hdWaitMinutes = Lens.lens (waitMinutes :: HopDestination -> Lude.Maybe Lude.Int) (\s a -> s {waitMinutes = a} :: HopDestination)
+{-# DEPRECATED hdWaitMinutes "Use generic-lens or generic-optics with 'waitMinutes' instead." #-}
 
-instance FromJSON HopDestination where
+instance Lude.FromJSON HopDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "HopDestination"
       ( \x ->
           HopDestination'
-            <$> (x .:? "priority") <*> (x .:? "queue") <*> (x .:? "waitMinutes")
+            Lude.<$> (x Lude..:? "priority")
+            Lude.<*> (x Lude..:? "queue")
+            Lude.<*> (x Lude..:? "waitMinutes")
       )
 
-instance Hashable HopDestination
-
-instance NFData HopDestination
-
-instance ToJSON HopDestination where
+instance Lude.ToJSON HopDestination where
   toJSON HopDestination' {..} =
-    object
-      ( catMaybes
-          [ ("priority" .=) <$> _hdPriority,
-            ("queue" .=) <$> _hdQueue,
-            ("waitMinutes" .=) <$> _hdWaitMinutes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("priority" Lude..=) Lude.<$> priority,
+            ("queue" Lude..=) Lude.<$> queue,
+            ("waitMinutes" Lude..=) Lude.<$> waitMinutes
           ]
       )

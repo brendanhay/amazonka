@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsManifestDurationFormat where
+module Network.AWS.MediaLive.Types.HlsManifestDurationFormat
+  ( HlsManifestDurationFormat
+      ( HlsManifestDurationFormat',
+        FloatingPoint,
+        Integer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Manifest Duration Format
-data HlsManifestDurationFormat
-  = FloatingPoint
-  | Integer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsManifestDurationFormat = HlsManifestDurationFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsManifestDurationFormat where
-  parser =
-    takeLowerText >>= \case
-      "floating_point" -> pure FloatingPoint
-      "integer" -> pure Integer
-      e ->
-        fromTextError $
-          "Failure parsing HlsManifestDurationFormat from value: '" <> e
-            <> "'. Accepted values: floating_point, integer"
+pattern FloatingPoint :: HlsManifestDurationFormat
+pattern FloatingPoint = HlsManifestDurationFormat' "FLOATING_POINT"
 
-instance ToText HlsManifestDurationFormat where
-  toText = \case
-    FloatingPoint -> "FLOATING_POINT"
-    Integer -> "INTEGER"
+pattern Integer :: HlsManifestDurationFormat
+pattern Integer = HlsManifestDurationFormat' "INTEGER"
 
-instance Hashable HlsManifestDurationFormat
-
-instance NFData HlsManifestDurationFormat
-
-instance ToByteString HlsManifestDurationFormat
-
-instance ToQuery HlsManifestDurationFormat
-
-instance ToHeader HlsManifestDurationFormat
-
-instance ToJSON HlsManifestDurationFormat where
-  toJSON = toJSONText
-
-instance FromJSON HlsManifestDurationFormat where
-  parseJSON = parseJSONText "HlsManifestDurationFormat"
+{-# COMPLETE
+  FloatingPoint,
+  Integer,
+  HlsManifestDurationFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a patch baseline.
 module Network.AWS.SSM.CreatePatchBaseline
-  ( -- * Creating a Request
-    createPatchBaseline,
-    CreatePatchBaseline,
+  ( -- * Creating a request
+    CreatePatchBaseline (..),
+    mkCreatePatchBaseline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpbApprovalRules,
     cpbClientToken,
     cpbOperatingSystem,
@@ -38,227 +33,297 @@ module Network.AWS.SSM.CreatePatchBaseline
     cpbTags,
     cpbName,
 
-    -- * Destructuring the Response
-    createPatchBaselineResponse,
-    CreatePatchBaselineResponse,
+    -- * Destructuring the response
+    CreatePatchBaselineResponse (..),
+    mkCreatePatchBaselineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpbrsBaselineId,
     cpbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'createPatchBaseline' smart constructor.
+-- | /See:/ 'mkCreatePatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-  { _cpbApprovalRules ::
-      !(Maybe PatchRuleGroup),
-    _cpbClientToken :: !(Maybe Text),
-    _cpbOperatingSystem :: !(Maybe OperatingSystem),
-    _cpbGlobalFilters :: !(Maybe PatchFilterGroup),
-    _cpbApprovedPatchesComplianceLevel ::
-      !(Maybe PatchComplianceLevel),
-    _cpbRejectedPatchesAction :: !(Maybe PatchAction),
-    _cpbApprovedPatches :: !(Maybe [Text]),
-    _cpbApprovedPatchesEnableNonSecurity ::
-      !(Maybe Bool),
-    _cpbRejectedPatches :: !(Maybe [Text]),
-    _cpbSources :: !(Maybe [PatchSource]),
-    _cpbDescription :: !(Maybe Text),
-    _cpbTags :: !(Maybe [Tag]),
-    _cpbName :: !Text
+  { approvalRules ::
+      Lude.Maybe PatchRuleGroup,
+    clientToken :: Lude.Maybe Lude.Text,
+    operatingSystem :: Lude.Maybe OperatingSystem,
+    globalFilters :: Lude.Maybe PatchFilterGroup,
+    approvedPatchesComplianceLevel ::
+      Lude.Maybe PatchComplianceLevel,
+    rejectedPatchesAction :: Lude.Maybe PatchAction,
+    approvedPatches :: Lude.Maybe [Lude.Text],
+    approvedPatchesEnableNonSecurity ::
+      Lude.Maybe Lude.Bool,
+    rejectedPatches :: Lude.Maybe [Lude.Text],
+    sources :: Lude.Maybe [PatchSource],
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePatchBaseline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'approvalRules' - A set of rules used to include patches in the baseline.
+-- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
 --
--- * 'cpbApprovalRules' - A set of rules used to include patches in the baseline.
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'approvedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+-- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'clientToken' - User-provided idempotency token.
+-- * 'description' - A description of the patch baseline.
+-- * 'globalFilters' - A set of global filters used to include patches in the baseline.
+-- * 'name' - The name of the patch baseline.
+-- * 'operatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+-- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
 --
--- * 'cpbClientToken' - User-provided idempotency token.
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'rejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.
 --
--- * 'cpbOperatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
 --
--- * 'cpbGlobalFilters' - A set of global filters used to include patches in the baseline.
+--     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.
 --
--- * 'cpbApprovedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
 --
--- * 'cpbRejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
+--     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
 --
--- * 'cpbApprovedPatches' - A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
 --
--- * 'cpbApprovedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+-- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:
 --
--- * 'cpbRejectedPatches' - A list of explicitly rejected patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
 --
--- * 'cpbSources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+--     * @Key=PatchSeverity,Value=Critical@
 --
--- * 'cpbDescription' - A description of the patch baseline.
 --
--- * 'cpbTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:     * @Key=PatchSeverity,Value=Critical@      * @Key=OS,Value=Windows@
---
--- * 'cpbName' - The name of the patch baseline.
-createPatchBaseline ::
-  -- | 'cpbName'
-  Text ->
+--     * @Key=OS,Value=Windows@
+mkCreatePatchBaseline ::
+  -- | 'name'
+  Lude.Text ->
   CreatePatchBaseline
-createPatchBaseline pName_ =
+mkCreatePatchBaseline pName_ =
   CreatePatchBaseline'
-    { _cpbApprovalRules = Nothing,
-      _cpbClientToken = Nothing,
-      _cpbOperatingSystem = Nothing,
-      _cpbGlobalFilters = Nothing,
-      _cpbApprovedPatchesComplianceLevel = Nothing,
-      _cpbRejectedPatchesAction = Nothing,
-      _cpbApprovedPatches = Nothing,
-      _cpbApprovedPatchesEnableNonSecurity = Nothing,
-      _cpbRejectedPatches = Nothing,
-      _cpbSources = Nothing,
-      _cpbDescription = Nothing,
-      _cpbTags = Nothing,
-      _cpbName = pName_
+    { approvalRules = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      operatingSystem = Lude.Nothing,
+      globalFilters = Lude.Nothing,
+      approvedPatchesComplianceLevel = Lude.Nothing,
+      rejectedPatchesAction = Lude.Nothing,
+      approvedPatches = Lude.Nothing,
+      approvedPatchesEnableNonSecurity = Lude.Nothing,
+      rejectedPatches = Lude.Nothing,
+      sources = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | A set of rules used to include patches in the baseline.
-cpbApprovalRules :: Lens' CreatePatchBaseline (Maybe PatchRuleGroup)
-cpbApprovalRules = lens _cpbApprovalRules (\s a -> s {_cpbApprovalRules = a})
+--
+-- /Note:/ Consider using 'approvalRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbApprovalRules :: Lens.Lens' CreatePatchBaseline (Lude.Maybe PatchRuleGroup)
+cpbApprovalRules = Lens.lens (approvalRules :: CreatePatchBaseline -> Lude.Maybe PatchRuleGroup) (\s a -> s {approvalRules = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbApprovalRules "Use generic-lens or generic-optics with 'approvalRules' instead." #-}
 
 -- | User-provided idempotency token.
-cpbClientToken :: Lens' CreatePatchBaseline (Maybe Text)
-cpbClientToken = lens _cpbClientToken (\s a -> s {_cpbClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbClientToken :: Lens.Lens' CreatePatchBaseline (Lude.Maybe Lude.Text)
+cpbClientToken = Lens.lens (clientToken :: CreatePatchBaseline -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
-cpbOperatingSystem :: Lens' CreatePatchBaseline (Maybe OperatingSystem)
-cpbOperatingSystem = lens _cpbOperatingSystem (\s a -> s {_cpbOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbOperatingSystem :: Lens.Lens' CreatePatchBaseline (Lude.Maybe OperatingSystem)
+cpbOperatingSystem = Lens.lens (operatingSystem :: CreatePatchBaseline -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | A set of global filters used to include patches in the baseline.
-cpbGlobalFilters :: Lens' CreatePatchBaseline (Maybe PatchFilterGroup)
-cpbGlobalFilters = lens _cpbGlobalFilters (\s a -> s {_cpbGlobalFilters = a})
+--
+-- /Note:/ Consider using 'globalFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbGlobalFilters :: Lens.Lens' CreatePatchBaseline (Lude.Maybe PatchFilterGroup)
+cpbGlobalFilters = Lens.lens (globalFilters :: CreatePatchBaseline -> Lude.Maybe PatchFilterGroup) (\s a -> s {globalFilters = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbGlobalFilters "Use generic-lens or generic-optics with 'globalFilters' instead." #-}
 
 -- | Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
-cpbApprovedPatchesComplianceLevel :: Lens' CreatePatchBaseline (Maybe PatchComplianceLevel)
-cpbApprovedPatchesComplianceLevel = lens _cpbApprovedPatchesComplianceLevel (\s a -> s {_cpbApprovedPatchesComplianceLevel = a})
+--
+-- /Note:/ Consider using 'approvedPatchesComplianceLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbApprovedPatchesComplianceLevel :: Lens.Lens' CreatePatchBaseline (Lude.Maybe PatchComplianceLevel)
+cpbApprovedPatchesComplianceLevel = Lens.lens (approvedPatchesComplianceLevel :: CreatePatchBaseline -> Lude.Maybe PatchComplianceLevel) (\s a -> s {approvedPatchesComplianceLevel = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbApprovedPatchesComplianceLevel "Use generic-lens or generic-optics with 'approvedPatchesComplianceLevel' instead." #-}
 
--- | The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
-cpbRejectedPatchesAction :: Lens' CreatePatchBaseline (Maybe PatchAction)
-cpbRejectedPatchesAction = lens _cpbRejectedPatchesAction (\s a -> s {_cpbRejectedPatchesAction = a})
+-- | The action for Patch Manager to take on patches included in the RejectedPackages list.
+--
+--
+--     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.
+--
+--
+--     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
+--
+--
+--
+-- /Note:/ Consider using 'rejectedPatchesAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbRejectedPatchesAction :: Lens.Lens' CreatePatchBaseline (Lude.Maybe PatchAction)
+cpbRejectedPatchesAction = Lens.lens (rejectedPatchesAction :: CreatePatchBaseline -> Lude.Maybe PatchAction) (\s a -> s {rejectedPatchesAction = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbRejectedPatchesAction "Use generic-lens or generic-optics with 'rejectedPatchesAction' instead." #-}
 
--- | A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
-cpbApprovedPatches :: Lens' CreatePatchBaseline [Text]
-cpbApprovedPatches = lens _cpbApprovedPatches (\s a -> s {_cpbApprovedPatches = a}) . _Default . _Coerce
+-- | A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+--
+-- /Note:/ Consider using 'approvedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbApprovedPatches :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [Lude.Text])
+cpbApprovedPatches = Lens.lens (approvedPatches :: CreatePatchBaseline -> Lude.Maybe [Lude.Text]) (\s a -> s {approvedPatches = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbApprovedPatches "Use generic-lens or generic-optics with 'approvedPatches' instead." #-}
 
 -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
-cpbApprovedPatchesEnableNonSecurity :: Lens' CreatePatchBaseline (Maybe Bool)
-cpbApprovedPatchesEnableNonSecurity = lens _cpbApprovedPatchesEnableNonSecurity (\s a -> s {_cpbApprovedPatchesEnableNonSecurity = a})
+--
+-- /Note:/ Consider using 'approvedPatchesEnableNonSecurity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbApprovedPatchesEnableNonSecurity :: Lens.Lens' CreatePatchBaseline (Lude.Maybe Lude.Bool)
+cpbApprovedPatchesEnableNonSecurity = Lens.lens (approvedPatchesEnableNonSecurity :: CreatePatchBaseline -> Lude.Maybe Lude.Bool) (\s a -> s {approvedPatchesEnableNonSecurity = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbApprovedPatchesEnableNonSecurity "Use generic-lens or generic-optics with 'approvedPatchesEnableNonSecurity' instead." #-}
 
--- | A list of explicitly rejected patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
-cpbRejectedPatches :: Lens' CreatePatchBaseline [Text]
-cpbRejectedPatches = lens _cpbRejectedPatches (\s a -> s {_cpbRejectedPatches = a}) . _Default . _Coerce
+-- | A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+--
+-- /Note:/ Consider using 'rejectedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbRejectedPatches :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [Lude.Text])
+cpbRejectedPatches = Lens.lens (rejectedPatches :: CreatePatchBaseline -> Lude.Maybe [Lude.Text]) (\s a -> s {rejectedPatches = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbRejectedPatches "Use generic-lens or generic-optics with 'rejectedPatches' instead." #-}
 
 -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
-cpbSources :: Lens' CreatePatchBaseline [PatchSource]
-cpbSources = lens _cpbSources (\s a -> s {_cpbSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbSources :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [PatchSource])
+cpbSources = Lens.lens (sources :: CreatePatchBaseline -> Lude.Maybe [PatchSource]) (\s a -> s {sources = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbSources "Use generic-lens or generic-optics with 'sources' instead." #-}
 
 -- | A description of the patch baseline.
-cpbDescription :: Lens' CreatePatchBaseline (Maybe Text)
-cpbDescription = lens _cpbDescription (\s a -> s {_cpbDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbDescription :: Lens.Lens' CreatePatchBaseline (Lude.Maybe Lude.Text)
+cpbDescription = Lens.lens (description :: CreatePatchBaseline -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:     * @Key=PatchSeverity,Value=Critical@      * @Key=OS,Value=Windows@
-cpbTags :: Lens' CreatePatchBaseline [Tag]
-cpbTags = lens _cpbTags (\s a -> s {_cpbTags = a}) . _Default . _Coerce
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:
+--
+--
+--     * @Key=PatchSeverity,Value=Critical@
+--
+--
+--     * @Key=OS,Value=Windows@
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbTags :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [Tag])
+cpbTags = Lens.lens (tags :: CreatePatchBaseline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the patch baseline.
-cpbName :: Lens' CreatePatchBaseline Text
-cpbName = lens _cpbName (\s a -> s {_cpbName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbName :: Lens.Lens' CreatePatchBaseline Lude.Text
+cpbName = Lens.lens (name :: CreatePatchBaseline -> Lude.Text) (\s a -> s {name = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreatePatchBaseline where
+instance Lude.AWSRequest CreatePatchBaseline where
   type Rs CreatePatchBaseline = CreatePatchBaselineResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePatchBaselineResponse'
-            <$> (x .?> "BaselineId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BaselineId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePatchBaseline
-
-instance NFData CreatePatchBaseline
-
-instance ToHeaders CreatePatchBaseline where
+instance Lude.ToHeaders CreatePatchBaseline where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.CreatePatchBaseline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.CreatePatchBaseline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePatchBaseline where
+instance Lude.ToJSON CreatePatchBaseline where
   toJSON CreatePatchBaseline' {..} =
-    object
-      ( catMaybes
-          [ ("ApprovalRules" .=) <$> _cpbApprovalRules,
-            ("ClientToken" .=) <$> _cpbClientToken,
-            ("OperatingSystem" .=) <$> _cpbOperatingSystem,
-            ("GlobalFilters" .=) <$> _cpbGlobalFilters,
-            ("ApprovedPatchesComplianceLevel" .=)
-              <$> _cpbApprovedPatchesComplianceLevel,
-            ("RejectedPatchesAction" .=) <$> _cpbRejectedPatchesAction,
-            ("ApprovedPatches" .=) <$> _cpbApprovedPatches,
-            ("ApprovedPatchesEnableNonSecurity" .=)
-              <$> _cpbApprovedPatchesEnableNonSecurity,
-            ("RejectedPatches" .=) <$> _cpbRejectedPatches,
-            ("Sources" .=) <$> _cpbSources,
-            ("Description" .=) <$> _cpbDescription,
-            ("Tags" .=) <$> _cpbTags,
-            Just ("Name" .= _cpbName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ApprovalRules" Lude..=) Lude.<$> approvalRules,
+            ("ClientToken" Lude..=) Lude.<$> clientToken,
+            ("OperatingSystem" Lude..=) Lude.<$> operatingSystem,
+            ("GlobalFilters" Lude..=) Lude.<$> globalFilters,
+            ("ApprovedPatchesComplianceLevel" Lude..=)
+              Lude.<$> approvedPatchesComplianceLevel,
+            ("RejectedPatchesAction" Lude..=) Lude.<$> rejectedPatchesAction,
+            ("ApprovedPatches" Lude..=) Lude.<$> approvedPatches,
+            ("ApprovedPatchesEnableNonSecurity" Lude..=)
+              Lude.<$> approvedPatchesEnableNonSecurity,
+            ("RejectedPatches" Lude..=) Lude.<$> rejectedPatches,
+            ("Sources" Lude..=) Lude.<$> sources,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreatePatchBaseline where
-  toPath = const "/"
+instance Lude.ToPath CreatePatchBaseline where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePatchBaseline where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePatchBaseline where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPatchBaselineResponse' smart constructor.
+-- | /See:/ 'mkCreatePatchBaselineResponse' smart constructor.
 data CreatePatchBaselineResponse = CreatePatchBaselineResponse'
-  { _cpbrsBaselineId ::
-      !(Maybe Text),
-    _cpbrsResponseStatus :: !Int
+  { baselineId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePatchBaselineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpbrsBaselineId' - The ID of the created patch baseline.
---
--- * 'cpbrsResponseStatus' - -- | The response status code.
-createPatchBaselineResponse ::
-  -- | 'cpbrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the created patch baseline.
+-- * 'responseStatus' - The response status code.
+mkCreatePatchBaselineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePatchBaselineResponse
-createPatchBaselineResponse pResponseStatus_ =
+mkCreatePatchBaselineResponse pResponseStatus_ =
   CreatePatchBaselineResponse'
-    { _cpbrsBaselineId = Nothing,
-      _cpbrsResponseStatus = pResponseStatus_
+    { baselineId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the created patch baseline.
-cpbrsBaselineId :: Lens' CreatePatchBaselineResponse (Maybe Text)
-cpbrsBaselineId = lens _cpbrsBaselineId (\s a -> s {_cpbrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbrsBaselineId :: Lens.Lens' CreatePatchBaselineResponse (Lude.Maybe Lude.Text)
+cpbrsBaselineId = Lens.lens (baselineId :: CreatePatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: CreatePatchBaselineResponse)
+{-# DEPRECATED cpbrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
--- | -- | The response status code.
-cpbrsResponseStatus :: Lens' CreatePatchBaselineResponse Int
-cpbrsResponseStatus = lens _cpbrsResponseStatus (\s a -> s {_cpbrsResponseStatus = a})
-
-instance NFData CreatePatchBaselineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbrsResponseStatus :: Lens.Lens' CreatePatchBaselineResponse Lude.Int
+cpbrsResponseStatus = Lens.lens (responseStatus :: CreatePatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePatchBaselineResponse)
+{-# DEPRECATED cpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

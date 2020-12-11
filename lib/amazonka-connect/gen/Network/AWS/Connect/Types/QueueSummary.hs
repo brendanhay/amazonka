@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.QueueSummary where
+module Network.AWS.Connect.Types.QueueSummary
+  ( QueueSummary (..),
+
+    -- * Smart constructor
+    mkQueueSummary,
+
+    -- * Lenses
+    qsARN,
+    qsName,
+    qsId,
+    qsQueueType,
+  )
+where
 
 import Network.AWS.Connect.Types.QueueType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about a queue.
 --
---
---
--- /See:/ 'queueSummary' smart constructor.
+-- /See:/ 'mkQueueSummary' smart constructor.
 data QueueSummary = QueueSummary'
-  { _qsARN :: !(Maybe Text),
-    _qsName :: !(Maybe Text),
-    _qsId :: !(Maybe Text),
-    _qsQueueType :: !(Maybe QueueType)
+  { arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    queueType :: Lude.Maybe QueueType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueueSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qsARN' - The Amazon Resource Name (ARN) of the queue.
---
--- * 'qsName' - The name of the queue.
---
--- * 'qsId' - The identifier of the queue.
---
--- * 'qsQueueType' - The type of queue.
-queueSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the queue.
+-- * 'id' - The identifier of the queue.
+-- * 'name' - The name of the queue.
+-- * 'queueType' - The type of queue.
+mkQueueSummary ::
   QueueSummary
-queueSummary =
+mkQueueSummary =
   QueueSummary'
-    { _qsARN = Nothing,
-      _qsName = Nothing,
-      _qsId = Nothing,
-      _qsQueueType = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      queueType = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the queue.
-qsARN :: Lens' QueueSummary (Maybe Text)
-qsARN = lens _qsARN (\s a -> s {_qsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsARN :: Lens.Lens' QueueSummary (Lude.Maybe Lude.Text)
+qsARN = Lens.lens (arn :: QueueSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: QueueSummary)
+{-# DEPRECATED qsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the queue.
-qsName :: Lens' QueueSummary (Maybe Text)
-qsName = lens _qsName (\s a -> s {_qsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsName :: Lens.Lens' QueueSummary (Lude.Maybe Lude.Text)
+qsName = Lens.lens (name :: QueueSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: QueueSummary)
+{-# DEPRECATED qsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the queue.
-qsId :: Lens' QueueSummary (Maybe Text)
-qsId = lens _qsId (\s a -> s {_qsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsId :: Lens.Lens' QueueSummary (Lude.Maybe Lude.Text)
+qsId = Lens.lens (id :: QueueSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: QueueSummary)
+{-# DEPRECATED qsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of queue.
-qsQueueType :: Lens' QueueSummary (Maybe QueueType)
-qsQueueType = lens _qsQueueType (\s a -> s {_qsQueueType = a})
+--
+-- /Note:/ Consider using 'queueType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsQueueType :: Lens.Lens' QueueSummary (Lude.Maybe QueueType)
+qsQueueType = Lens.lens (queueType :: QueueSummary -> Lude.Maybe QueueType) (\s a -> s {queueType = a} :: QueueSummary)
+{-# DEPRECATED qsQueueType "Use generic-lens or generic-optics with 'queueType' instead." #-}
 
-instance FromJSON QueueSummary where
+instance Lude.FromJSON QueueSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueueSummary"
       ( \x ->
           QueueSummary'
-            <$> (x .:? "Arn")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "QueueType")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "QueueType")
       )
-
-instance Hashable QueueSummary
-
-instance NFData QueueSummary

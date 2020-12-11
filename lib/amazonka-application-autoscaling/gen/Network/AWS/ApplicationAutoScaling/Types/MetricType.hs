@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.MetricType where
+module Network.AWS.ApplicationAutoScaling.Types.MetricType
+  ( MetricType
+      ( MetricType',
+        ALBRequestCountPerTarget,
+        AppStreamAverageCapacityUtilization,
+        CassandraReadCapacityUtilization,
+        CassandraWriteCapacityUtilization,
+        ComprehendInferenceUtilization,
+        DynamoDBReadCapacityUtilization,
+        DynamoDBWriteCapacityUtilization,
+        EC2SpotFleetRequestAverageCPUUtilization,
+        EC2SpotFleetRequestAverageNetworkIn,
+        EC2SpotFleetRequestAverageNetworkOut,
+        ECSServiceAverageCPUUtilization,
+        ECSServiceAverageMemoryUtilization,
+        KafkaBrokerStorageUtilization,
+        LambdaProvisionedConcurrencyUtilization,
+        RDSReaderAverageCPUUtilization,
+        RDSReaderAverageDatabaseConnections,
+        SageMakerVariantInvocationsPerInstance
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricType
-  = ALBRequestCountPerTarget
-  | AppStreamAverageCapacityUtilization
-  | CassandraReadCapacityUtilization
-  | CassandraWriteCapacityUtilization
-  | ComprehendInferenceUtilization
-  | DynamoDBReadCapacityUtilization
-  | DynamoDBWriteCapacityUtilization
-  | EC2SpotFleetRequestAverageCPUUtilization
-  | EC2SpotFleetRequestAverageNetworkIn
-  | EC2SpotFleetRequestAverageNetworkOut
-  | ECSServiceAverageCPUUtilization
-  | ECSServiceAverageMemoryUtilization
-  | KafkaBrokerStorageUtilization
-  | LambdaProvisionedConcurrencyUtilization
-  | RDSReaderAverageCPUUtilization
-  | RDSReaderAverageDatabaseConnections
-  | SageMakerVariantInvocationsPerInstance
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricType = MetricType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricType where
-  parser =
-    takeLowerText >>= \case
-      "albrequestcountpertarget" -> pure ALBRequestCountPerTarget
-      "appstreamaveragecapacityutilization" -> pure AppStreamAverageCapacityUtilization
-      "cassandrareadcapacityutilization" -> pure CassandraReadCapacityUtilization
-      "cassandrawritecapacityutilization" -> pure CassandraWriteCapacityUtilization
-      "comprehendinferenceutilization" -> pure ComprehendInferenceUtilization
-      "dynamodbreadcapacityutilization" -> pure DynamoDBReadCapacityUtilization
-      "dynamodbwritecapacityutilization" -> pure DynamoDBWriteCapacityUtilization
-      "ec2spotfleetrequestaveragecpuutilization" -> pure EC2SpotFleetRequestAverageCPUUtilization
-      "ec2spotfleetrequestaveragenetworkin" -> pure EC2SpotFleetRequestAverageNetworkIn
-      "ec2spotfleetrequestaveragenetworkout" -> pure EC2SpotFleetRequestAverageNetworkOut
-      "ecsserviceaveragecpuutilization" -> pure ECSServiceAverageCPUUtilization
-      "ecsserviceaveragememoryutilization" -> pure ECSServiceAverageMemoryUtilization
-      "kafkabrokerstorageutilization" -> pure KafkaBrokerStorageUtilization
-      "lambdaprovisionedconcurrencyutilization" -> pure LambdaProvisionedConcurrencyUtilization
-      "rdsreaderaveragecpuutilization" -> pure RDSReaderAverageCPUUtilization
-      "rdsreaderaveragedatabaseconnections" -> pure RDSReaderAverageDatabaseConnections
-      "sagemakervariantinvocationsperinstance" -> pure SageMakerVariantInvocationsPerInstance
-      e ->
-        fromTextError $
-          "Failure parsing MetricType from value: '" <> e
-            <> "'. Accepted values: albrequestcountpertarget, appstreamaveragecapacityutilization, cassandrareadcapacityutilization, cassandrawritecapacityutilization, comprehendinferenceutilization, dynamodbreadcapacityutilization, dynamodbwritecapacityutilization, ec2spotfleetrequestaveragecpuutilization, ec2spotfleetrequestaveragenetworkin, ec2spotfleetrequestaveragenetworkout, ecsserviceaveragecpuutilization, ecsserviceaveragememoryutilization, kafkabrokerstorageutilization, lambdaprovisionedconcurrencyutilization, rdsreaderaveragecpuutilization, rdsreaderaveragedatabaseconnections, sagemakervariantinvocationsperinstance"
+pattern ALBRequestCountPerTarget :: MetricType
+pattern ALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
 
-instance ToText MetricType where
-  toText = \case
-    ALBRequestCountPerTarget -> "ALBRequestCountPerTarget"
-    AppStreamAverageCapacityUtilization -> "AppStreamAverageCapacityUtilization"
-    CassandraReadCapacityUtilization -> "CassandraReadCapacityUtilization"
-    CassandraWriteCapacityUtilization -> "CassandraWriteCapacityUtilization"
-    ComprehendInferenceUtilization -> "ComprehendInferenceUtilization"
-    DynamoDBReadCapacityUtilization -> "DynamoDBReadCapacityUtilization"
-    DynamoDBWriteCapacityUtilization -> "DynamoDBWriteCapacityUtilization"
-    EC2SpotFleetRequestAverageCPUUtilization -> "EC2SpotFleetRequestAverageCPUUtilization"
-    EC2SpotFleetRequestAverageNetworkIn -> "EC2SpotFleetRequestAverageNetworkIn"
-    EC2SpotFleetRequestAverageNetworkOut -> "EC2SpotFleetRequestAverageNetworkOut"
-    ECSServiceAverageCPUUtilization -> "ECSServiceAverageCPUUtilization"
-    ECSServiceAverageMemoryUtilization -> "ECSServiceAverageMemoryUtilization"
-    KafkaBrokerStorageUtilization -> "KafkaBrokerStorageUtilization"
-    LambdaProvisionedConcurrencyUtilization -> "LambdaProvisionedConcurrencyUtilization"
-    RDSReaderAverageCPUUtilization -> "RDSReaderAverageCPUUtilization"
-    RDSReaderAverageDatabaseConnections -> "RDSReaderAverageDatabaseConnections"
-    SageMakerVariantInvocationsPerInstance -> "SageMakerVariantInvocationsPerInstance"
+pattern AppStreamAverageCapacityUtilization :: MetricType
+pattern AppStreamAverageCapacityUtilization = MetricType' "AppStreamAverageCapacityUtilization"
 
-instance Hashable MetricType
+pattern CassandraReadCapacityUtilization :: MetricType
+pattern CassandraReadCapacityUtilization = MetricType' "CassandraReadCapacityUtilization"
 
-instance NFData MetricType
+pattern CassandraWriteCapacityUtilization :: MetricType
+pattern CassandraWriteCapacityUtilization = MetricType' "CassandraWriteCapacityUtilization"
 
-instance ToByteString MetricType
+pattern ComprehendInferenceUtilization :: MetricType
+pattern ComprehendInferenceUtilization = MetricType' "ComprehendInferenceUtilization"
 
-instance ToQuery MetricType
+pattern DynamoDBReadCapacityUtilization :: MetricType
+pattern DynamoDBReadCapacityUtilization = MetricType' "DynamoDBReadCapacityUtilization"
 
-instance ToHeader MetricType
+pattern DynamoDBWriteCapacityUtilization :: MetricType
+pattern DynamoDBWriteCapacityUtilization = MetricType' "DynamoDBWriteCapacityUtilization"
 
-instance ToJSON MetricType where
-  toJSON = toJSONText
+pattern EC2SpotFleetRequestAverageCPUUtilization :: MetricType
+pattern EC2SpotFleetRequestAverageCPUUtilization = MetricType' "EC2SpotFleetRequestAverageCPUUtilization"
 
-instance FromJSON MetricType where
-  parseJSON = parseJSONText "MetricType"
+pattern EC2SpotFleetRequestAverageNetworkIn :: MetricType
+pattern EC2SpotFleetRequestAverageNetworkIn = MetricType' "EC2SpotFleetRequestAverageNetworkIn"
+
+pattern EC2SpotFleetRequestAverageNetworkOut :: MetricType
+pattern EC2SpotFleetRequestAverageNetworkOut = MetricType' "EC2SpotFleetRequestAverageNetworkOut"
+
+pattern ECSServiceAverageCPUUtilization :: MetricType
+pattern ECSServiceAverageCPUUtilization = MetricType' "ECSServiceAverageCPUUtilization"
+
+pattern ECSServiceAverageMemoryUtilization :: MetricType
+pattern ECSServiceAverageMemoryUtilization = MetricType' "ECSServiceAverageMemoryUtilization"
+
+pattern KafkaBrokerStorageUtilization :: MetricType
+pattern KafkaBrokerStorageUtilization = MetricType' "KafkaBrokerStorageUtilization"
+
+pattern LambdaProvisionedConcurrencyUtilization :: MetricType
+pattern LambdaProvisionedConcurrencyUtilization = MetricType' "LambdaProvisionedConcurrencyUtilization"
+
+pattern RDSReaderAverageCPUUtilization :: MetricType
+pattern RDSReaderAverageCPUUtilization = MetricType' "RDSReaderAverageCPUUtilization"
+
+pattern RDSReaderAverageDatabaseConnections :: MetricType
+pattern RDSReaderAverageDatabaseConnections = MetricType' "RDSReaderAverageDatabaseConnections"
+
+pattern SageMakerVariantInvocationsPerInstance :: MetricType
+pattern SageMakerVariantInvocationsPerInstance = MetricType' "SageMakerVariantInvocationsPerInstance"
+
+{-# COMPLETE
+  ALBRequestCountPerTarget,
+  AppStreamAverageCapacityUtilization,
+  CassandraReadCapacityUtilization,
+  CassandraWriteCapacityUtilization,
+  ComprehendInferenceUtilization,
+  DynamoDBReadCapacityUtilization,
+  DynamoDBWriteCapacityUtilization,
+  EC2SpotFleetRequestAverageCPUUtilization,
+  EC2SpotFleetRequestAverageNetworkIn,
+  EC2SpotFleetRequestAverageNetworkOut,
+  ECSServiceAverageCPUUtilization,
+  ECSServiceAverageMemoryUtilization,
+  KafkaBrokerStorageUtilization,
+  LambdaProvisionedConcurrencyUtilization,
+  RDSReaderAverageCPUUtilization,
+  RDSReaderAverageDatabaseConnections,
+  SageMakerVariantInvocationsPerInstance,
+  MetricType'
+  #-}

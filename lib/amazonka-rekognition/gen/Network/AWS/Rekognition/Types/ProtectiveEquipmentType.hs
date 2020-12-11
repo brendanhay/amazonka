@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProtectiveEquipmentType where
+module Network.AWS.Rekognition.Types.ProtectiveEquipmentType
+  ( ProtectiveEquipmentType
+      ( ProtectiveEquipmentType',
+        FaceCover,
+        HandCover,
+        HeadCover
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProtectiveEquipmentType
-  = FaceCover
-  | HandCover
-  | HeadCover
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProtectiveEquipmentType = ProtectiveEquipmentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProtectiveEquipmentType where
-  parser =
-    takeLowerText >>= \case
-      "face_cover" -> pure FaceCover
-      "hand_cover" -> pure HandCover
-      "head_cover" -> pure HeadCover
-      e ->
-        fromTextError $
-          "Failure parsing ProtectiveEquipmentType from value: '" <> e
-            <> "'. Accepted values: face_cover, hand_cover, head_cover"
+pattern FaceCover :: ProtectiveEquipmentType
+pattern FaceCover = ProtectiveEquipmentType' "FACE_COVER"
 
-instance ToText ProtectiveEquipmentType where
-  toText = \case
-    FaceCover -> "FACE_COVER"
-    HandCover -> "HAND_COVER"
-    HeadCover -> "HEAD_COVER"
+pattern HandCover :: ProtectiveEquipmentType
+pattern HandCover = ProtectiveEquipmentType' "HAND_COVER"
 
-instance Hashable ProtectiveEquipmentType
+pattern HeadCover :: ProtectiveEquipmentType
+pattern HeadCover = ProtectiveEquipmentType' "HEAD_COVER"
 
-instance NFData ProtectiveEquipmentType
-
-instance ToByteString ProtectiveEquipmentType
-
-instance ToQuery ProtectiveEquipmentType
-
-instance ToHeader ProtectiveEquipmentType
-
-instance ToJSON ProtectiveEquipmentType where
-  toJSON = toJSONText
-
-instance FromJSON ProtectiveEquipmentType where
-  parseJSON = parseJSONText "ProtectiveEquipmentType"
+{-# COMPLETE
+  FaceCover,
+  HandCover,
+  HeadCover,
+  ProtectiveEquipmentType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.RenderableTask where
+module Network.AWS.SageMaker.Types.RenderableTask
+  ( RenderableTask (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRenderableTask,
+
+    -- * Lenses
+    rtInput,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains input values for a task.
 --
---
---
--- /See:/ 'renderableTask' smart constructor.
-newtype RenderableTask = RenderableTask' {_rtInput :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRenderableTask' smart constructor.
+newtype RenderableTask = RenderableTask' {input :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenderableTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtInput' - A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable @task.input@ . For example, if you define a variable @task.input.text@ in your template, you can supply the variable in the JSON object as @"text": "sample text"@ .
-renderableTask ::
-  -- | 'rtInput'
-  Text ->
+-- * 'input' - A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable @task.input@ . For example, if you define a variable @task.input.text@ in your template, you can supply the variable in the JSON object as @"text": "sample text"@ .
+mkRenderableTask ::
+  -- | 'input'
+  Lude.Text ->
   RenderableTask
-renderableTask pInput_ = RenderableTask' {_rtInput = pInput_}
+mkRenderableTask pInput_ = RenderableTask' {input = pInput_}
 
 -- | A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable @task.input@ . For example, if you define a variable @task.input.text@ in your template, you can supply the variable in the JSON object as @"text": "sample text"@ .
-rtInput :: Lens' RenderableTask Text
-rtInput = lens _rtInput (\s a -> s {_rtInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtInput :: Lens.Lens' RenderableTask Lude.Text
+rtInput = Lens.lens (input :: RenderableTask -> Lude.Text) (\s a -> s {input = a} :: RenderableTask)
+{-# DEPRECATED rtInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
-instance Hashable RenderableTask
-
-instance NFData RenderableTask
-
-instance ToJSON RenderableTask where
+instance Lude.ToJSON RenderableTask where
   toJSON RenderableTask' {..} =
-    object (catMaybes [Just ("Input" .= _rtInput)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Input" Lude..= input)])

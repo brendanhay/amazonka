@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.UsageStatisticType where
+module Network.AWS.GuardDuty.Types.UsageStatisticType
+  ( UsageStatisticType
+      ( UsageStatisticType',
+        SumByAccount,
+        SumByDataSource,
+        SumByResource,
+        TopResources
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UsageStatisticType
-  = SumByAccount
-  | SumByDataSource
-  | SumByResource
-  | TopResources
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageStatisticType = UsageStatisticType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageStatisticType where
-  parser =
-    takeLowerText >>= \case
-      "sum_by_account" -> pure SumByAccount
-      "sum_by_data_source" -> pure SumByDataSource
-      "sum_by_resource" -> pure SumByResource
-      "top_resources" -> pure TopResources
-      e ->
-        fromTextError $
-          "Failure parsing UsageStatisticType from value: '" <> e
-            <> "'. Accepted values: sum_by_account, sum_by_data_source, sum_by_resource, top_resources"
+pattern SumByAccount :: UsageStatisticType
+pattern SumByAccount = UsageStatisticType' "SUM_BY_ACCOUNT"
 
-instance ToText UsageStatisticType where
-  toText = \case
-    SumByAccount -> "SUM_BY_ACCOUNT"
-    SumByDataSource -> "SUM_BY_DATA_SOURCE"
-    SumByResource -> "SUM_BY_RESOURCE"
-    TopResources -> "TOP_RESOURCES"
+pattern SumByDataSource :: UsageStatisticType
+pattern SumByDataSource = UsageStatisticType' "SUM_BY_DATA_SOURCE"
 
-instance Hashable UsageStatisticType
+pattern SumByResource :: UsageStatisticType
+pattern SumByResource = UsageStatisticType' "SUM_BY_RESOURCE"
 
-instance NFData UsageStatisticType
+pattern TopResources :: UsageStatisticType
+pattern TopResources = UsageStatisticType' "TOP_RESOURCES"
 
-instance ToByteString UsageStatisticType
-
-instance ToQuery UsageStatisticType
-
-instance ToHeader UsageStatisticType
-
-instance ToJSON UsageStatisticType where
-  toJSON = toJSONText
+{-# COMPLETE
+  SumByAccount,
+  SumByDataSource,
+  SumByResource,
+  TopResources,
+  UsageStatisticType'
+  #-}

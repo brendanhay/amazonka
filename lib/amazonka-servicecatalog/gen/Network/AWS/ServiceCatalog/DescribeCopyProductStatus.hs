@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets the status of the specified copy product operation.
 module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
-  ( -- * Creating a Request
-    describeCopyProductStatus,
-    DescribeCopyProductStatus,
+  ( -- * Creating a request
+    DescribeCopyProductStatus (..),
+    mkDescribeCopyProductStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcpsAcceptLanguage,
     dcpsCopyProductToken,
 
-    -- * Destructuring the Response
-    describeCopyProductStatusResponse,
-    DescribeCopyProductStatusResponse,
+    -- * Destructuring the response
+    DescribeCopyProductStatusResponse (..),
+    mkDescribeCopyProductStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcpsrsTargetProductId,
     dcpsrsCopyProductStatus,
     dcpsrsStatusDetail,
@@ -39,144 +34,184 @@ module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'describeCopyProductStatus' smart constructor.
+-- | /See:/ 'mkDescribeCopyProductStatus' smart constructor.
 data DescribeCopyProductStatus = DescribeCopyProductStatus'
-  { _dcpsAcceptLanguage ::
-      !(Maybe Text),
-    _dcpsCopyProductToken :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    copyProductToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCopyProductStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'dcpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dcpsCopyProductToken' - The token for the copy product operation. This token is returned by 'CopyProduct' .
-describeCopyProductStatus ::
-  -- | 'dcpsCopyProductToken'
-  Text ->
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'copyProductToken' - The token for the copy product operation. This token is returned by 'CopyProduct' .
+mkDescribeCopyProductStatus ::
+  -- | 'copyProductToken'
+  Lude.Text ->
   DescribeCopyProductStatus
-describeCopyProductStatus pCopyProductToken_ =
+mkDescribeCopyProductStatus pCopyProductToken_ =
   DescribeCopyProductStatus'
-    { _dcpsAcceptLanguage = Nothing,
-      _dcpsCopyProductToken = pCopyProductToken_
+    { acceptLanguage = Lude.Nothing,
+      copyProductToken = pCopyProductToken_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dcpsAcceptLanguage :: Lens' DescribeCopyProductStatus (Maybe Text)
-dcpsAcceptLanguage = lens _dcpsAcceptLanguage (\s a -> s {_dcpsAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsAcceptLanguage :: Lens.Lens' DescribeCopyProductStatus (Lude.Maybe Lude.Text)
+dcpsAcceptLanguage = Lens.lens (acceptLanguage :: DescribeCopyProductStatus -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeCopyProductStatus)
+{-# DEPRECATED dcpsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The token for the copy product operation. This token is returned by 'CopyProduct' .
-dcpsCopyProductToken :: Lens' DescribeCopyProductStatus Text
-dcpsCopyProductToken = lens _dcpsCopyProductToken (\s a -> s {_dcpsCopyProductToken = a})
+--
+-- /Note:/ Consider using 'copyProductToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsCopyProductToken :: Lens.Lens' DescribeCopyProductStatus Lude.Text
+dcpsCopyProductToken = Lens.lens (copyProductToken :: DescribeCopyProductStatus -> Lude.Text) (\s a -> s {copyProductToken = a} :: DescribeCopyProductStatus)
+{-# DEPRECATED dcpsCopyProductToken "Use generic-lens or generic-optics with 'copyProductToken' instead." #-}
 
-instance AWSRequest DescribeCopyProductStatus where
+instance Lude.AWSRequest DescribeCopyProductStatus where
   type
     Rs DescribeCopyProductStatus =
       DescribeCopyProductStatusResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCopyProductStatusResponse'
-            <$> (x .?> "TargetProductId")
-            <*> (x .?> "CopyProductStatus")
-            <*> (x .?> "StatusDetail")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TargetProductId")
+            Lude.<*> (x Lude..?> "CopyProductStatus")
+            Lude.<*> (x Lude..?> "StatusDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCopyProductStatus
-
-instance NFData DescribeCopyProductStatus
-
-instance ToHeaders DescribeCopyProductStatus where
+instance Lude.ToHeaders DescribeCopyProductStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCopyProductStatus where
+instance Lude.ToJSON DescribeCopyProductStatus where
   toJSON DescribeCopyProductStatus' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _dcpsAcceptLanguage,
-            Just ("CopyProductToken" .= _dcpsCopyProductToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("CopyProductToken" Lude..= copyProductToken)
           ]
       )
 
-instance ToPath DescribeCopyProductStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeCopyProductStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCopyProductStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCopyProductStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCopyProductStatusResponse' smart constructor.
+-- | /See:/ 'mkDescribeCopyProductStatusResponse' smart constructor.
 data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
-  { _dcpsrsTargetProductId ::
-      !(Maybe Text),
-    _dcpsrsCopyProductStatus ::
-      !( Maybe
-           CopyProductStatus
-       ),
-    _dcpsrsStatusDetail ::
-      !(Maybe Text),
-    _dcpsrsResponseStatus ::
-      !Int
+  { targetProductId ::
+      Lude.Maybe Lude.Text,
+    copyProductStatus ::
+      Lude.Maybe
+        CopyProductStatus,
+    statusDetail ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCopyProductStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpsrsTargetProductId' - The identifier of the copied product.
---
--- * 'dcpsrsCopyProductStatus' - The status of the copy product operation.
---
--- * 'dcpsrsStatusDetail' - The status message.
---
--- * 'dcpsrsResponseStatus' - -- | The response status code.
-describeCopyProductStatusResponse ::
-  -- | 'dcpsrsResponseStatus'
-  Int ->
+-- * 'copyProductStatus' - The status of the copy product operation.
+-- * 'responseStatus' - The response status code.
+-- * 'statusDetail' - The status message.
+-- * 'targetProductId' - The identifier of the copied product.
+mkDescribeCopyProductStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCopyProductStatusResponse
-describeCopyProductStatusResponse pResponseStatus_ =
+mkDescribeCopyProductStatusResponse pResponseStatus_ =
   DescribeCopyProductStatusResponse'
-    { _dcpsrsTargetProductId =
-        Nothing,
-      _dcpsrsCopyProductStatus = Nothing,
-      _dcpsrsStatusDetail = Nothing,
-      _dcpsrsResponseStatus = pResponseStatus_
+    { targetProductId =
+        Lude.Nothing,
+      copyProductStatus = Lude.Nothing,
+      statusDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the copied product.
-dcpsrsTargetProductId :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsTargetProductId = lens _dcpsrsTargetProductId (\s a -> s {_dcpsrsTargetProductId = a})
+--
+-- /Note:/ Consider using 'targetProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsrsTargetProductId :: Lens.Lens' DescribeCopyProductStatusResponse (Lude.Maybe Lude.Text)
+dcpsrsTargetProductId = Lens.lens (targetProductId :: DescribeCopyProductStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {targetProductId = a} :: DescribeCopyProductStatusResponse)
+{-# DEPRECATED dcpsrsTargetProductId "Use generic-lens or generic-optics with 'targetProductId' instead." #-}
 
 -- | The status of the copy product operation.
-dcpsrsCopyProductStatus :: Lens' DescribeCopyProductStatusResponse (Maybe CopyProductStatus)
-dcpsrsCopyProductStatus = lens _dcpsrsCopyProductStatus (\s a -> s {_dcpsrsCopyProductStatus = a})
+--
+-- /Note:/ Consider using 'copyProductStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsrsCopyProductStatus :: Lens.Lens' DescribeCopyProductStatusResponse (Lude.Maybe CopyProductStatus)
+dcpsrsCopyProductStatus = Lens.lens (copyProductStatus :: DescribeCopyProductStatusResponse -> Lude.Maybe CopyProductStatus) (\s a -> s {copyProductStatus = a} :: DescribeCopyProductStatusResponse)
+{-# DEPRECATED dcpsrsCopyProductStatus "Use generic-lens or generic-optics with 'copyProductStatus' instead." #-}
 
 -- | The status message.
-dcpsrsStatusDetail :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsStatusDetail = lens _dcpsrsStatusDetail (\s a -> s {_dcpsrsStatusDetail = a})
+--
+-- /Note:/ Consider using 'statusDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsrsStatusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Lude.Maybe Lude.Text)
+dcpsrsStatusDetail = Lens.lens (statusDetail :: DescribeCopyProductStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusDetail = a} :: DescribeCopyProductStatusResponse)
+{-# DEPRECATED dcpsrsStatusDetail "Use generic-lens or generic-optics with 'statusDetail' instead." #-}
 
--- | -- | The response status code.
-dcpsrsResponseStatus :: Lens' DescribeCopyProductStatusResponse Int
-dcpsrsResponseStatus = lens _dcpsrsResponseStatus (\s a -> s {_dcpsrsResponseStatus = a})
-
-instance NFData DescribeCopyProductStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsrsResponseStatus :: Lens.Lens' DescribeCopyProductStatusResponse Lude.Int
+dcpsrsResponseStatus = Lens.lens (responseStatus :: DescribeCopyProductStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCopyProductStatusResponse)
+{-# DEPRECATED dcpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters where
+module Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+  ( CmafPackageCreateOrUpdateParameters (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCmafPackageCreateOrUpdateParameters,
+
+    -- * Lenses
+    cpcoupHlsManifests,
+    cpcoupSegmentDurationSeconds,
+    cpcoupStreamSelection,
+    cpcoupEncryption,
+    cpcoupSegmentPrefix,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.CmafEncryption
 import Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
 import Network.AWS.MediaPackage.Types.StreamSelection
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A Common Media Application Format (CMAF) packaging configuration.
 --
--- /See:/ 'cmafPackageCreateOrUpdateParameters' smart constructor.
+-- /See:/ 'mkCmafPackageCreateOrUpdateParameters' smart constructor.
 data CmafPackageCreateOrUpdateParameters = CmafPackageCreateOrUpdateParameters'
-  { _cpcoupHlsManifests ::
-      !( Maybe
-           [HlsManifestCreateOrUpdateParameters]
-       ),
-    _cpcoupSegmentDurationSeconds ::
-      !(Maybe Int),
-    _cpcoupStreamSelection ::
-      !( Maybe
-           StreamSelection
-       ),
-    _cpcoupEncryption ::
-      !( Maybe
-           CmafEncryption
-       ),
-    _cpcoupSegmentPrefix ::
-      !(Maybe Text)
+  { hlsManifests ::
+      Lude.Maybe
+        [HlsManifestCreateOrUpdateParameters],
+    segmentDurationSeconds ::
+      Lude.Maybe Lude.Int,
+    streamSelection ::
+      Lude.Maybe
+        StreamSelection,
+    encryption ::
+      Lude.Maybe
+        CmafEncryption,
+    segmentPrefix ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafPackageCreateOrUpdateParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encryption' - Undocumented field.
+-- * 'hlsManifests' - A list of HLS manifest configurations
+-- * 'segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be
 --
--- * 'cpcoupHlsManifests' - A list of HLS manifest configurations
---
--- * 'cpcoupSegmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
---
--- * 'cpcoupStreamSelection' - Undocumented member.
---
--- * 'cpcoupEncryption' - Undocumented member.
---
--- * 'cpcoupSegmentPrefix' - An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
-cmafPackageCreateOrUpdateParameters ::
+-- rounded to the nearest multiple of the source segment duration.
+-- * 'segmentPrefix' - An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
+-- * 'streamSelection' - Undocumented field.
+mkCmafPackageCreateOrUpdateParameters ::
   CmafPackageCreateOrUpdateParameters
-cmafPackageCreateOrUpdateParameters =
+mkCmafPackageCreateOrUpdateParameters =
   CmafPackageCreateOrUpdateParameters'
-    { _cpcoupHlsManifests =
-        Nothing,
-      _cpcoupSegmentDurationSeconds = Nothing,
-      _cpcoupStreamSelection = Nothing,
-      _cpcoupEncryption = Nothing,
-      _cpcoupSegmentPrefix = Nothing
+    { hlsManifests = Lude.Nothing,
+      segmentDurationSeconds = Lude.Nothing,
+      streamSelection = Lude.Nothing,
+      encryption = Lude.Nothing,
+      segmentPrefix = Lude.Nothing
     }
 
 -- | A list of HLS manifest configurations
-cpcoupHlsManifests :: Lens' CmafPackageCreateOrUpdateParameters [HlsManifestCreateOrUpdateParameters]
-cpcoupHlsManifests = lens _cpcoupHlsManifests (\s a -> s {_cpcoupHlsManifests = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hlsManifests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcoupHlsManifests :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Lude.Maybe [HlsManifestCreateOrUpdateParameters])
+cpcoupHlsManifests = Lens.lens (hlsManifests :: CmafPackageCreateOrUpdateParameters -> Lude.Maybe [HlsManifestCreateOrUpdateParameters]) (\s a -> s {hlsManifests = a} :: CmafPackageCreateOrUpdateParameters)
+{-# DEPRECATED cpcoupHlsManifests "Use generic-lens or generic-optics with 'hlsManifests' instead." #-}
 
--- | Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
-cpcoupSegmentDurationSeconds :: Lens' CmafPackageCreateOrUpdateParameters (Maybe Int)
-cpcoupSegmentDurationSeconds = lens _cpcoupSegmentDurationSeconds (\s a -> s {_cpcoupSegmentDurationSeconds = a})
+-- | Duration (in seconds) of each segment. Actual segments will be
+--
+-- rounded to the nearest multiple of the source segment duration.
+--
+-- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcoupSegmentDurationSeconds :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Lude.Maybe Lude.Int)
+cpcoupSegmentDurationSeconds = Lens.lens (segmentDurationSeconds :: CmafPackageCreateOrUpdateParameters -> Lude.Maybe Lude.Int) (\s a -> s {segmentDurationSeconds = a} :: CmafPackageCreateOrUpdateParameters)
+{-# DEPRECATED cpcoupSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
 
--- | Undocumented member.
-cpcoupStreamSelection :: Lens' CmafPackageCreateOrUpdateParameters (Maybe StreamSelection)
-cpcoupStreamSelection = lens _cpcoupStreamSelection (\s a -> s {_cpcoupStreamSelection = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcoupStreamSelection :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Lude.Maybe StreamSelection)
+cpcoupStreamSelection = Lens.lens (streamSelection :: CmafPackageCreateOrUpdateParameters -> Lude.Maybe StreamSelection) (\s a -> s {streamSelection = a} :: CmafPackageCreateOrUpdateParameters)
+{-# DEPRECATED cpcoupStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
 
--- | Undocumented member.
-cpcoupEncryption :: Lens' CmafPackageCreateOrUpdateParameters (Maybe CmafEncryption)
-cpcoupEncryption = lens _cpcoupEncryption (\s a -> s {_cpcoupEncryption = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcoupEncryption :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Lude.Maybe CmafEncryption)
+cpcoupEncryption = Lens.lens (encryption :: CmafPackageCreateOrUpdateParameters -> Lude.Maybe CmafEncryption) (\s a -> s {encryption = a} :: CmafPackageCreateOrUpdateParameters)
+{-# DEPRECATED cpcoupEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
-cpcoupSegmentPrefix :: Lens' CmafPackageCreateOrUpdateParameters (Maybe Text)
-cpcoupSegmentPrefix = lens _cpcoupSegmentPrefix (\s a -> s {_cpcoupSegmentPrefix = a})
+--
+-- /Note:/ Consider using 'segmentPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcoupSegmentPrefix :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Lude.Maybe Lude.Text)
+cpcoupSegmentPrefix = Lens.lens (segmentPrefix :: CmafPackageCreateOrUpdateParameters -> Lude.Maybe Lude.Text) (\s a -> s {segmentPrefix = a} :: CmafPackageCreateOrUpdateParameters)
+{-# DEPRECATED cpcoupSegmentPrefix "Use generic-lens or generic-optics with 'segmentPrefix' instead." #-}
 
-instance Hashable CmafPackageCreateOrUpdateParameters
-
-instance NFData CmafPackageCreateOrUpdateParameters
-
-instance ToJSON CmafPackageCreateOrUpdateParameters where
+instance Lude.ToJSON CmafPackageCreateOrUpdateParameters where
   toJSON CmafPackageCreateOrUpdateParameters' {..} =
-    object
-      ( catMaybes
-          [ ("hlsManifests" .=) <$> _cpcoupHlsManifests,
-            ("segmentDurationSeconds" .=) <$> _cpcoupSegmentDurationSeconds,
-            ("streamSelection" .=) <$> _cpcoupStreamSelection,
-            ("encryption" .=) <$> _cpcoupEncryption,
-            ("segmentPrefix" .=) <$> _cpcoupSegmentPrefix
+    Lude.object
+      ( Lude.catMaybes
+          [ ("hlsManifests" Lude..=) Lude.<$> hlsManifests,
+            ("segmentDurationSeconds" Lude..=) Lude.<$> segmentDurationSeconds,
+            ("streamSelection" Lude..=) Lude.<$> streamSelection,
+            ("encryption" Lude..=) Lude.<$> encryption,
+            ("segmentPrefix" Lude..=) Lude.<$> segmentPrefix
           ]
       )

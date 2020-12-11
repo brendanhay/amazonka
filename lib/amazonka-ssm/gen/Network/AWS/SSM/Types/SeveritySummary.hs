@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.SeveritySummary where
+module Network.AWS.SSM.Types.SeveritySummary
+  ( SeveritySummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSeveritySummary,
+
+    -- * Lenses
+    ssLowCount,
+    ssUnspecifiedCount,
+    ssHighCount,
+    ssMediumCount,
+    ssInformationalCount,
+    ssCriticalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The number of managed instances found for each patch severity level defined in the request filter.
 --
---
---
--- /See:/ 'severitySummary' smart constructor.
+-- /See:/ 'mkSeveritySummary' smart constructor.
 data SeveritySummary = SeveritySummary'
-  { _ssLowCount ::
-      !(Maybe Int),
-    _ssUnspecifiedCount :: !(Maybe Int),
-    _ssHighCount :: !(Maybe Int),
-    _ssMediumCount :: !(Maybe Int),
-    _ssInformationalCount :: !(Maybe Int),
-    _ssCriticalCount :: !(Maybe Int)
+  { lowCount ::
+      Lude.Maybe Lude.Int,
+    unspecifiedCount :: Lude.Maybe Lude.Int,
+    highCount :: Lude.Maybe Lude.Int,
+    mediumCount :: Lude.Maybe Lude.Int,
+    informationalCount :: Lude.Maybe Lude.Int,
+    criticalCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SeveritySummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssLowCount' - The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
---
--- * 'ssUnspecifiedCount' - The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
---
--- * 'ssHighCount' - The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
---
--- * 'ssMediumCount' - The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
---
--- * 'ssInformationalCount' - The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
---
--- * 'ssCriticalCount' - The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
-severitySummary ::
+-- * 'criticalCount' - The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
+-- * 'highCount' - The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
+-- * 'informationalCount' - The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
+-- * 'lowCount' - The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
+-- * 'mediumCount' - The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
+-- * 'unspecifiedCount' - The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
+mkSeveritySummary ::
   SeveritySummary
-severitySummary =
+mkSeveritySummary =
   SeveritySummary'
-    { _ssLowCount = Nothing,
-      _ssUnspecifiedCount = Nothing,
-      _ssHighCount = Nothing,
-      _ssMediumCount = Nothing,
-      _ssInformationalCount = Nothing,
-      _ssCriticalCount = Nothing
+    { lowCount = Lude.Nothing,
+      unspecifiedCount = Lude.Nothing,
+      highCount = Lude.Nothing,
+      mediumCount = Lude.Nothing,
+      informationalCount = Lude.Nothing,
+      criticalCount = Lude.Nothing
     }
 
 -- | The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
-ssLowCount :: Lens' SeveritySummary (Maybe Int)
-ssLowCount = lens _ssLowCount (\s a -> s {_ssLowCount = a})
+--
+-- /Note:/ Consider using 'lowCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLowCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssLowCount = Lens.lens (lowCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {lowCount = a} :: SeveritySummary)
+{-# DEPRECATED ssLowCount "Use generic-lens or generic-optics with 'lowCount' instead." #-}
 
 -- | The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
-ssUnspecifiedCount :: Lens' SeveritySummary (Maybe Int)
-ssUnspecifiedCount = lens _ssUnspecifiedCount (\s a -> s {_ssUnspecifiedCount = a})
+--
+-- /Note:/ Consider using 'unspecifiedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssUnspecifiedCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssUnspecifiedCount = Lens.lens (unspecifiedCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {unspecifiedCount = a} :: SeveritySummary)
+{-# DEPRECATED ssUnspecifiedCount "Use generic-lens or generic-optics with 'unspecifiedCount' instead." #-}
 
 -- | The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
-ssHighCount :: Lens' SeveritySummary (Maybe Int)
-ssHighCount = lens _ssHighCount (\s a -> s {_ssHighCount = a})
+--
+-- /Note:/ Consider using 'highCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssHighCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssHighCount = Lens.lens (highCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {highCount = a} :: SeveritySummary)
+{-# DEPRECATED ssHighCount "Use generic-lens or generic-optics with 'highCount' instead." #-}
 
 -- | The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
-ssMediumCount :: Lens' SeveritySummary (Maybe Int)
-ssMediumCount = lens _ssMediumCount (\s a -> s {_ssMediumCount = a})
+--
+-- /Note:/ Consider using 'mediumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMediumCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssMediumCount = Lens.lens (mediumCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {mediumCount = a} :: SeveritySummary)
+{-# DEPRECATED ssMediumCount "Use generic-lens or generic-optics with 'mediumCount' instead." #-}
 
 -- | The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
-ssInformationalCount :: Lens' SeveritySummary (Maybe Int)
-ssInformationalCount = lens _ssInformationalCount (\s a -> s {_ssInformationalCount = a})
+--
+-- /Note:/ Consider using 'informationalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssInformationalCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssInformationalCount = Lens.lens (informationalCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {informationalCount = a} :: SeveritySummary)
+{-# DEPRECATED ssInformationalCount "Use generic-lens or generic-optics with 'informationalCount' instead." #-}
 
 -- | The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
-ssCriticalCount :: Lens' SeveritySummary (Maybe Int)
-ssCriticalCount = lens _ssCriticalCount (\s a -> s {_ssCriticalCount = a})
+--
+-- /Note:/ Consider using 'criticalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCriticalCount :: Lens.Lens' SeveritySummary (Lude.Maybe Lude.Int)
+ssCriticalCount = Lens.lens (criticalCount :: SeveritySummary -> Lude.Maybe Lude.Int) (\s a -> s {criticalCount = a} :: SeveritySummary)
+{-# DEPRECATED ssCriticalCount "Use generic-lens or generic-optics with 'criticalCount' instead." #-}
 
-instance FromJSON SeveritySummary where
+instance Lude.FromJSON SeveritySummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SeveritySummary"
       ( \x ->
           SeveritySummary'
-            <$> (x .:? "LowCount")
-            <*> (x .:? "UnspecifiedCount")
-            <*> (x .:? "HighCount")
-            <*> (x .:? "MediumCount")
-            <*> (x .:? "InformationalCount")
-            <*> (x .:? "CriticalCount")
+            Lude.<$> (x Lude..:? "LowCount")
+            Lude.<*> (x Lude..:? "UnspecifiedCount")
+            Lude.<*> (x Lude..:? "HighCount")
+            Lude.<*> (x Lude..:? "MediumCount")
+            Lude.<*> (x Lude..:? "InformationalCount")
+            Lude.<*> (x Lude..:? "CriticalCount")
       )
-
-instance Hashable SeveritySummary
-
-instance NFData SeveritySummary

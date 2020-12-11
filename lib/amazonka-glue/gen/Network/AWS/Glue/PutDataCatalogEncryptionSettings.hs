@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,145 @@
 --
 -- Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
 module Network.AWS.Glue.PutDataCatalogEncryptionSettings
-  ( -- * Creating a Request
-    putDataCatalogEncryptionSettings,
-    PutDataCatalogEncryptionSettings,
+  ( -- * Creating a request
+    PutDataCatalogEncryptionSettings (..),
+    mkPutDataCatalogEncryptionSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pdcesCatalogId,
     pdcesDataCatalogEncryptionSettings,
 
-    -- * Destructuring the Response
-    putDataCatalogEncryptionSettingsResponse,
-    PutDataCatalogEncryptionSettingsResponse,
+    -- * Destructuring the response
+    PutDataCatalogEncryptionSettingsResponse (..),
+    mkPutDataCatalogEncryptionSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pdcesrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putDataCatalogEncryptionSettings' smart constructor.
+-- | /See:/ 'mkPutDataCatalogEncryptionSettings' smart constructor.
 data PutDataCatalogEncryptionSettings = PutDataCatalogEncryptionSettings'
-  { _pdcesCatalogId ::
-      !(Maybe Text),
-    _pdcesDataCatalogEncryptionSettings ::
-      !DataCatalogEncryptionSettings
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    dataCatalogEncryptionSettings ::
+      DataCatalogEncryptionSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDataCatalogEncryptionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdcesCatalogId' - The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
---
--- * 'pdcesDataCatalogEncryptionSettings' - The security configuration to set.
-putDataCatalogEncryptionSettings ::
-  -- | 'pdcesDataCatalogEncryptionSettings'
+-- * 'catalogId' - The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+-- * 'dataCatalogEncryptionSettings' - The security configuration to set.
+mkPutDataCatalogEncryptionSettings ::
+  -- | 'dataCatalogEncryptionSettings'
   DataCatalogEncryptionSettings ->
   PutDataCatalogEncryptionSettings
-putDataCatalogEncryptionSettings pDataCatalogEncryptionSettings_ =
+mkPutDataCatalogEncryptionSettings pDataCatalogEncryptionSettings_ =
   PutDataCatalogEncryptionSettings'
-    { _pdcesCatalogId = Nothing,
-      _pdcesDataCatalogEncryptionSettings =
+    { catalogId = Lude.Nothing,
+      dataCatalogEncryptionSettings =
         pDataCatalogEncryptionSettings_
     }
 
 -- | The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-pdcesCatalogId :: Lens' PutDataCatalogEncryptionSettings (Maybe Text)
-pdcesCatalogId = lens _pdcesCatalogId (\s a -> s {_pdcesCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdcesCatalogId :: Lens.Lens' PutDataCatalogEncryptionSettings (Lude.Maybe Lude.Text)
+pdcesCatalogId = Lens.lens (catalogId :: PutDataCatalogEncryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: PutDataCatalogEncryptionSettings)
+{-# DEPRECATED pdcesCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The security configuration to set.
-pdcesDataCatalogEncryptionSettings :: Lens' PutDataCatalogEncryptionSettings DataCatalogEncryptionSettings
-pdcesDataCatalogEncryptionSettings = lens _pdcesDataCatalogEncryptionSettings (\s a -> s {_pdcesDataCatalogEncryptionSettings = a})
+--
+-- /Note:/ Consider using 'dataCatalogEncryptionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdcesDataCatalogEncryptionSettings :: Lens.Lens' PutDataCatalogEncryptionSettings DataCatalogEncryptionSettings
+pdcesDataCatalogEncryptionSettings = Lens.lens (dataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettings -> DataCatalogEncryptionSettings) (\s a -> s {dataCatalogEncryptionSettings = a} :: PutDataCatalogEncryptionSettings)
+{-# DEPRECATED pdcesDataCatalogEncryptionSettings "Use generic-lens or generic-optics with 'dataCatalogEncryptionSettings' instead." #-}
 
-instance AWSRequest PutDataCatalogEncryptionSettings where
+instance Lude.AWSRequest PutDataCatalogEncryptionSettings where
   type
     Rs PutDataCatalogEncryptionSettings =
       PutDataCatalogEncryptionSettingsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          PutDataCatalogEncryptionSettingsResponse' <$> (pure (fromEnum s))
+          PutDataCatalogEncryptionSettingsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutDataCatalogEncryptionSettings
-
-instance NFData PutDataCatalogEncryptionSettings
-
-instance ToHeaders PutDataCatalogEncryptionSettings where
+instance Lude.ToHeaders PutDataCatalogEncryptionSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.PutDataCatalogEncryptionSettings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.PutDataCatalogEncryptionSettings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutDataCatalogEncryptionSettings where
+instance Lude.ToJSON PutDataCatalogEncryptionSettings where
   toJSON PutDataCatalogEncryptionSettings' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _pdcesCatalogId,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just
               ( "DataCatalogEncryptionSettings"
-                  .= _pdcesDataCatalogEncryptionSettings
+                  Lude..= dataCatalogEncryptionSettings
               )
           ]
       )
 
-instance ToPath PutDataCatalogEncryptionSettings where
-  toPath = const "/"
+instance Lude.ToPath PutDataCatalogEncryptionSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery PutDataCatalogEncryptionSettings where
-  toQuery = const mempty
+instance Lude.ToQuery PutDataCatalogEncryptionSettings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putDataCatalogEncryptionSettingsResponse' smart constructor.
+-- | /See:/ 'mkPutDataCatalogEncryptionSettingsResponse' smart constructor.
 newtype PutDataCatalogEncryptionSettingsResponse = PutDataCatalogEncryptionSettingsResponse'
-  { _pdcesrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDataCatalogEncryptionSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdcesrsResponseStatus' - -- | The response status code.
-putDataCatalogEncryptionSettingsResponse ::
-  -- | 'pdcesrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutDataCatalogEncryptionSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutDataCatalogEncryptionSettingsResponse
-putDataCatalogEncryptionSettingsResponse pResponseStatus_ =
+mkPutDataCatalogEncryptionSettingsResponse pResponseStatus_ =
   PutDataCatalogEncryptionSettingsResponse'
-    { _pdcesrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-pdcesrsResponseStatus :: Lens' PutDataCatalogEncryptionSettingsResponse Int
-pdcesrsResponseStatus = lens _pdcesrsResponseStatus (\s a -> s {_pdcesrsResponseStatus = a})
-
-instance NFData PutDataCatalogEncryptionSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdcesrsResponseStatus :: Lens.Lens' PutDataCatalogEncryptionSettingsResponse Lude.Int
+pdcesrsResponseStatus = Lens.lens (responseStatus :: PutDataCatalogEncryptionSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutDataCatalogEncryptionSettingsResponse)
+{-# DEPRECATED pdcesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

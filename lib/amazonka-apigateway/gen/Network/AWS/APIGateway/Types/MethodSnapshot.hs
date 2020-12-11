@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.MethodSnapshot where
+module Network.AWS.APIGateway.Types.MethodSnapshot
+  ( MethodSnapshot (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMethodSnapshot,
+
+    -- * Lenses
+    msAuthorizationType,
+    msApiKeyRequired,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a summary of a 'Method' resource, given a particular date and time.
 --
---
---
--- /See:/ 'methodSnapshot' smart constructor.
+-- /See:/ 'mkMethodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
-  { _msAuthorizationType ::
-      !(Maybe Text),
-    _msApiKeyRequired :: !(Maybe Bool)
+  { authorizationType ::
+      Lude.Maybe Lude.Text,
+    apiKeyRequired :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MethodSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msAuthorizationType' - The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
---
--- * 'msApiKeyRequired' - Specifies whether the method requires a valid 'ApiKey' .
-methodSnapshot ::
+-- * 'apiKeyRequired' - Specifies whether the method requires a valid 'ApiKey' .
+-- * 'authorizationType' - The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
+mkMethodSnapshot ::
   MethodSnapshot
-methodSnapshot =
+mkMethodSnapshot =
   MethodSnapshot'
-    { _msAuthorizationType = Nothing,
-      _msApiKeyRequired = Nothing
+    { authorizationType = Lude.Nothing,
+      apiKeyRequired = Lude.Nothing
     }
 
 -- | The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
-msAuthorizationType :: Lens' MethodSnapshot (Maybe Text)
-msAuthorizationType = lens _msAuthorizationType (\s a -> s {_msAuthorizationType = a})
+--
+-- /Note:/ Consider using 'authorizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msAuthorizationType :: Lens.Lens' MethodSnapshot (Lude.Maybe Lude.Text)
+msAuthorizationType = Lens.lens (authorizationType :: MethodSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {authorizationType = a} :: MethodSnapshot)
+{-# DEPRECATED msAuthorizationType "Use generic-lens or generic-optics with 'authorizationType' instead." #-}
 
 -- | Specifies whether the method requires a valid 'ApiKey' .
-msApiKeyRequired :: Lens' MethodSnapshot (Maybe Bool)
-msApiKeyRequired = lens _msApiKeyRequired (\s a -> s {_msApiKeyRequired = a})
+--
+-- /Note:/ Consider using 'apiKeyRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msApiKeyRequired :: Lens.Lens' MethodSnapshot (Lude.Maybe Lude.Bool)
+msApiKeyRequired = Lens.lens (apiKeyRequired :: MethodSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {apiKeyRequired = a} :: MethodSnapshot)
+{-# DEPRECATED msApiKeyRequired "Use generic-lens or generic-optics with 'apiKeyRequired' instead." #-}
 
-instance FromJSON MethodSnapshot where
+instance Lude.FromJSON MethodSnapshot where
   parseJSON =
-    withObject
+    Lude.withObject
       "MethodSnapshot"
       ( \x ->
           MethodSnapshot'
-            <$> (x .:? "authorizationType") <*> (x .:? "apiKeyRequired")
+            Lude.<$> (x Lude..:? "authorizationType")
+            Lude.<*> (x Lude..:? "apiKeyRequired")
       )
-
-instance Hashable MethodSnapshot
-
-instance NFData MethodSnapshot

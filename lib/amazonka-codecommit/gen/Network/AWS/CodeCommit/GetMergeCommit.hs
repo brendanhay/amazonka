@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Returns information about a specified merge commit.
 module Network.AWS.CodeCommit.GetMergeCommit
-  ( -- * Creating a Request
-    getMergeCommit,
-    GetMergeCommit,
+  ( -- * Creating a request
+    GetMergeCommit (..),
+    mkGetMergeCommit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmcConflictDetailLevel,
     gmcConflictResolutionStrategy,
     gmcRepositoryName,
     gmcSourceCommitSpecifier,
     gmcDestinationCommitSpecifier,
 
-    -- * Destructuring the Response
-    getMergeCommitResponse,
-    GetMergeCommitResponse,
+    -- * Destructuring the response
+    GetMergeCommitResponse (..),
+    mkGetMergeCommitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmcrsMergedCommitId,
     gmcrsDestinationCommitId,
     gmcrsBaseCommitId,
@@ -44,179 +39,206 @@ module Network.AWS.CodeCommit.GetMergeCommit
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getMergeCommit' smart constructor.
+-- | /See:/ 'mkGetMergeCommit' smart constructor.
 data GetMergeCommit = GetMergeCommit'
-  { _gmcConflictDetailLevel ::
-      !(Maybe ConflictDetailLevelTypeEnum),
-    _gmcConflictResolutionStrategy ::
-      !(Maybe ConflictResolutionStrategyTypeEnum),
-    _gmcRepositoryName :: !Text,
-    _gmcSourceCommitSpecifier :: !Text,
-    _gmcDestinationCommitSpecifier :: !Text
+  { conflictDetailLevel ::
+      Lude.Maybe ConflictDetailLevelTypeEnum,
+    conflictResolutionStrategy ::
+      Lude.Maybe ConflictResolutionStrategyTypeEnum,
+    repositoryName :: Lude.Text,
+    sourceCommitSpecifier :: Lude.Text,
+    destinationCommitSpecifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMergeCommit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmcConflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
---
--- * 'gmcConflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
---
--- * 'gmcRepositoryName' - The name of the repository that contains the merge commit about which you want to get information.
---
--- * 'gmcSourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
---
--- * 'gmcDestinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-getMergeCommit ::
-  -- | 'gmcRepositoryName'
-  Text ->
-  -- | 'gmcSourceCommitSpecifier'
-  Text ->
-  -- | 'gmcDestinationCommitSpecifier'
-  Text ->
+-- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+-- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
+-- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- * 'repositoryName' - The name of the repository that contains the merge commit about which you want to get information.
+-- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+mkGetMergeCommit ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'sourceCommitSpecifier'
+  Lude.Text ->
+  -- | 'destinationCommitSpecifier'
+  Lude.Text ->
   GetMergeCommit
-getMergeCommit
+mkGetMergeCommit
   pRepositoryName_
   pSourceCommitSpecifier_
   pDestinationCommitSpecifier_ =
     GetMergeCommit'
-      { _gmcConflictDetailLevel = Nothing,
-        _gmcConflictResolutionStrategy = Nothing,
-        _gmcRepositoryName = pRepositoryName_,
-        _gmcSourceCommitSpecifier = pSourceCommitSpecifier_,
-        _gmcDestinationCommitSpecifier = pDestinationCommitSpecifier_
+      { conflictDetailLevel = Lude.Nothing,
+        conflictResolutionStrategy = Lude.Nothing,
+        repositoryName = pRepositoryName_,
+        sourceCommitSpecifier = pSourceCommitSpecifier_,
+        destinationCommitSpecifier = pDestinationCommitSpecifier_
       }
 
 -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
-gmcConflictDetailLevel :: Lens' GetMergeCommit (Maybe ConflictDetailLevelTypeEnum)
-gmcConflictDetailLevel = lens _gmcConflictDetailLevel (\s a -> s {_gmcConflictDetailLevel = a})
+--
+-- /Note:/ Consider using 'conflictDetailLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcConflictDetailLevel :: Lens.Lens' GetMergeCommit (Lude.Maybe ConflictDetailLevelTypeEnum)
+gmcConflictDetailLevel = Lens.lens (conflictDetailLevel :: GetMergeCommit -> Lude.Maybe ConflictDetailLevelTypeEnum) (\s a -> s {conflictDetailLevel = a} :: GetMergeCommit)
+{-# DEPRECATED gmcConflictDetailLevel "Use generic-lens or generic-optics with 'conflictDetailLevel' instead." #-}
 
 -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
-gmcConflictResolutionStrategy :: Lens' GetMergeCommit (Maybe ConflictResolutionStrategyTypeEnum)
-gmcConflictResolutionStrategy = lens _gmcConflictResolutionStrategy (\s a -> s {_gmcConflictResolutionStrategy = a})
+--
+-- /Note:/ Consider using 'conflictResolutionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcConflictResolutionStrategy :: Lens.Lens' GetMergeCommit (Lude.Maybe ConflictResolutionStrategyTypeEnum)
+gmcConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: GetMergeCommit -> Lude.Maybe ConflictResolutionStrategyTypeEnum) (\s a -> s {conflictResolutionStrategy = a} :: GetMergeCommit)
+{-# DEPRECATED gmcConflictResolutionStrategy "Use generic-lens or generic-optics with 'conflictResolutionStrategy' instead." #-}
 
 -- | The name of the repository that contains the merge commit about which you want to get information.
-gmcRepositoryName :: Lens' GetMergeCommit Text
-gmcRepositoryName = lens _gmcRepositoryName (\s a -> s {_gmcRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcRepositoryName :: Lens.Lens' GetMergeCommit Lude.Text
+gmcRepositoryName = Lens.lens (repositoryName :: GetMergeCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: GetMergeCommit)
+{-# DEPRECATED gmcRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-gmcSourceCommitSpecifier :: Lens' GetMergeCommit Text
-gmcSourceCommitSpecifier = lens _gmcSourceCommitSpecifier (\s a -> s {_gmcSourceCommitSpecifier = a})
+--
+-- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcSourceCommitSpecifier :: Lens.Lens' GetMergeCommit Lude.Text
+gmcSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: GetMergeCommit -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: GetMergeCommit)
+{-# DEPRECATED gmcSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
-gmcDestinationCommitSpecifier :: Lens' GetMergeCommit Text
-gmcDestinationCommitSpecifier = lens _gmcDestinationCommitSpecifier (\s a -> s {_gmcDestinationCommitSpecifier = a})
+--
+-- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcDestinationCommitSpecifier :: Lens.Lens' GetMergeCommit Lude.Text
+gmcDestinationCommitSpecifier = Lens.lens (destinationCommitSpecifier :: GetMergeCommit -> Lude.Text) (\s a -> s {destinationCommitSpecifier = a} :: GetMergeCommit)
+{-# DEPRECATED gmcDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
 
-instance AWSRequest GetMergeCommit where
+instance Lude.AWSRequest GetMergeCommit where
   type Rs GetMergeCommit = GetMergeCommitResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMergeCommitResponse'
-            <$> (x .?> "mergedCommitId")
-            <*> (x .?> "destinationCommitId")
-            <*> (x .?> "baseCommitId")
-            <*> (x .?> "sourceCommitId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "mergedCommitId")
+            Lude.<*> (x Lude..?> "destinationCommitId")
+            Lude.<*> (x Lude..?> "baseCommitId")
+            Lude.<*> (x Lude..?> "sourceCommitId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMergeCommit
-
-instance NFData GetMergeCommit
-
-instance ToHeaders GetMergeCommit where
+instance Lude.ToHeaders GetMergeCommit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.GetMergeCommit" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.GetMergeCommit" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMergeCommit where
+instance Lude.ToJSON GetMergeCommit where
   toJSON GetMergeCommit' {..} =
-    object
-      ( catMaybes
-          [ ("conflictDetailLevel" .=) <$> _gmcConflictDetailLevel,
-            ("conflictResolutionStrategy" .=)
-              <$> _gmcConflictResolutionStrategy,
-            Just ("repositoryName" .= _gmcRepositoryName),
-            Just ("sourceCommitSpecifier" .= _gmcSourceCommitSpecifier),
-            Just
-              ("destinationCommitSpecifier" .= _gmcDestinationCommitSpecifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
+            ("conflictResolutionStrategy" Lude..=)
+              Lude.<$> conflictResolutionStrategy,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
+            Lude.Just
+              ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier)
           ]
       )
 
-instance ToPath GetMergeCommit where
-  toPath = const "/"
+instance Lude.ToPath GetMergeCommit where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMergeCommit where
-  toQuery = const mempty
+instance Lude.ToQuery GetMergeCommit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMergeCommitResponse' smart constructor.
+-- | /See:/ 'mkGetMergeCommitResponse' smart constructor.
 data GetMergeCommitResponse = GetMergeCommitResponse'
-  { _gmcrsMergedCommitId ::
-      !(Maybe Text),
-    _gmcrsDestinationCommitId :: !(Maybe Text),
-    _gmcrsBaseCommitId :: !(Maybe Text),
-    _gmcrsSourceCommitId :: !(Maybe Text),
-    _gmcrsResponseStatus :: !Int
+  { mergedCommitId ::
+      Lude.Maybe Lude.Text,
+    destinationCommitId :: Lude.Maybe Lude.Text,
+    baseCommitId :: Lude.Maybe Lude.Text,
+    sourceCommitId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMergeCommitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmcrsMergedCommitId' - The commit ID for the merge commit created when the source branch was merged into the destination branch. If the fast-forward merge strategy was used, there is no merge commit.
---
--- * 'gmcrsDestinationCommitId' - The commit ID of the destination commit specifier that was used in the merge evaluation.
---
--- * 'gmcrsBaseCommitId' - The commit ID of the merge base.
---
--- * 'gmcrsSourceCommitId' - The commit ID of the source commit specifier that was used in the merge evaluation.
---
--- * 'gmcrsResponseStatus' - -- | The response status code.
-getMergeCommitResponse ::
-  -- | 'gmcrsResponseStatus'
-  Int ->
+-- * 'baseCommitId' - The commit ID of the merge base.
+-- * 'destinationCommitId' - The commit ID of the destination commit specifier that was used in the merge evaluation.
+-- * 'mergedCommitId' - The commit ID for the merge commit created when the source branch was merged into the destination branch. If the fast-forward merge strategy was used, there is no merge commit.
+-- * 'responseStatus' - The response status code.
+-- * 'sourceCommitId' - The commit ID of the source commit specifier that was used in the merge evaluation.
+mkGetMergeCommitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMergeCommitResponse
-getMergeCommitResponse pResponseStatus_ =
+mkGetMergeCommitResponse pResponseStatus_ =
   GetMergeCommitResponse'
-    { _gmcrsMergedCommitId = Nothing,
-      _gmcrsDestinationCommitId = Nothing,
-      _gmcrsBaseCommitId = Nothing,
-      _gmcrsSourceCommitId = Nothing,
-      _gmcrsResponseStatus = pResponseStatus_
+    { mergedCommitId = Lude.Nothing,
+      destinationCommitId = Lude.Nothing,
+      baseCommitId = Lude.Nothing,
+      sourceCommitId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The commit ID for the merge commit created when the source branch was merged into the destination branch. If the fast-forward merge strategy was used, there is no merge commit.
-gmcrsMergedCommitId :: Lens' GetMergeCommitResponse (Maybe Text)
-gmcrsMergedCommitId = lens _gmcrsMergedCommitId (\s a -> s {_gmcrsMergedCommitId = a})
+--
+-- /Note:/ Consider using 'mergedCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcrsMergedCommitId :: Lens.Lens' GetMergeCommitResponse (Lude.Maybe Lude.Text)
+gmcrsMergedCommitId = Lens.lens (mergedCommitId :: GetMergeCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {mergedCommitId = a} :: GetMergeCommitResponse)
+{-# DEPRECATED gmcrsMergedCommitId "Use generic-lens or generic-optics with 'mergedCommitId' instead." #-}
 
 -- | The commit ID of the destination commit specifier that was used in the merge evaluation.
-gmcrsDestinationCommitId :: Lens' GetMergeCommitResponse (Maybe Text)
-gmcrsDestinationCommitId = lens _gmcrsDestinationCommitId (\s a -> s {_gmcrsDestinationCommitId = a})
+--
+-- /Note:/ Consider using 'destinationCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcrsDestinationCommitId :: Lens.Lens' GetMergeCommitResponse (Lude.Maybe Lude.Text)
+gmcrsDestinationCommitId = Lens.lens (destinationCommitId :: GetMergeCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {destinationCommitId = a} :: GetMergeCommitResponse)
+{-# DEPRECATED gmcrsDestinationCommitId "Use generic-lens or generic-optics with 'destinationCommitId' instead." #-}
 
 -- | The commit ID of the merge base.
-gmcrsBaseCommitId :: Lens' GetMergeCommitResponse (Maybe Text)
-gmcrsBaseCommitId = lens _gmcrsBaseCommitId (\s a -> s {_gmcrsBaseCommitId = a})
+--
+-- /Note:/ Consider using 'baseCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcrsBaseCommitId :: Lens.Lens' GetMergeCommitResponse (Lude.Maybe Lude.Text)
+gmcrsBaseCommitId = Lens.lens (baseCommitId :: GetMergeCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {baseCommitId = a} :: GetMergeCommitResponse)
+{-# DEPRECATED gmcrsBaseCommitId "Use generic-lens or generic-optics with 'baseCommitId' instead." #-}
 
 -- | The commit ID of the source commit specifier that was used in the merge evaluation.
-gmcrsSourceCommitId :: Lens' GetMergeCommitResponse (Maybe Text)
-gmcrsSourceCommitId = lens _gmcrsSourceCommitId (\s a -> s {_gmcrsSourceCommitId = a})
+--
+-- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcrsSourceCommitId :: Lens.Lens' GetMergeCommitResponse (Lude.Maybe Lude.Text)
+gmcrsSourceCommitId = Lens.lens (sourceCommitId :: GetMergeCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: GetMergeCommitResponse)
+{-# DEPRECATED gmcrsSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
--- | -- | The response status code.
-gmcrsResponseStatus :: Lens' GetMergeCommitResponse Int
-gmcrsResponseStatus = lens _gmcrsResponseStatus (\s a -> s {_gmcrsResponseStatus = a})
-
-instance NFData GetMergeCommitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmcrsResponseStatus :: Lens.Lens' GetMergeCommitResponse Lude.Int
+gmcrsResponseStatus = Lens.lens (responseStatus :: GetMergeCommitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMergeCommitResponse)
+{-# DEPRECATED gmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

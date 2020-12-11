@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,165 @@
 --
 -- Task runners call @PollForTask@ to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the @workerGroup@ parameter. The task returned can come from any of the pipelines that match the @workerGroup@ value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner.
 --
---
 -- If tasks are ready in the work queue, @PollForTask@ returns a response immediately. If no tasks are available in the queue, @PollForTask@ uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call @PollForTask@ again on the same @workerGroup@ until it receives a response, and this can take up to 90 seconds.
 module Network.AWS.DataPipeline.PollForTask
-  ( -- * Creating a Request
-    pollForTask,
-    PollForTask,
+  ( -- * Creating a request
+    PollForTask (..),
+    mkPollForTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pftHostname,
     pftInstanceIdentity,
     pftWorkerGroup,
 
-    -- * Destructuring the Response
-    pollForTaskResponse,
-    PollForTaskResponse,
+    -- * Destructuring the response
+    PollForTaskResponse (..),
+    mkPollForTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pftrsTaskObject,
     pftrsResponseStatus,
   )
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for PollForTask.
 --
---
---
--- /See:/ 'pollForTask' smart constructor.
+-- /See:/ 'mkPollForTask' smart constructor.
 data PollForTask = PollForTask'
-  { _pftHostname :: !(Maybe Text),
-    _pftInstanceIdentity :: !(Maybe InstanceIdentity),
-    _pftWorkerGroup :: !Text
+  { hostname :: Lude.Maybe Lude.Text,
+    instanceIdentity :: Lude.Maybe InstanceIdentity,
+    workerGroup :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pftHostname' - The public DNS name of the calling task runner.
---
--- * 'pftInstanceIdentity' - Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
---
--- * 'pftWorkerGroup' - The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
-pollForTask ::
-  -- | 'pftWorkerGroup'
-  Text ->
+-- * 'hostname' - The public DNS name of the calling task runner.
+-- * 'instanceIdentity' - Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
+-- * 'workerGroup' - The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
+mkPollForTask ::
+  -- | 'workerGroup'
+  Lude.Text ->
   PollForTask
-pollForTask pWorkerGroup_ =
+mkPollForTask pWorkerGroup_ =
   PollForTask'
-    { _pftHostname = Nothing,
-      _pftInstanceIdentity = Nothing,
-      _pftWorkerGroup = pWorkerGroup_
+    { hostname = Lude.Nothing,
+      instanceIdentity = Lude.Nothing,
+      workerGroup = pWorkerGroup_
     }
 
 -- | The public DNS name of the calling task runner.
-pftHostname :: Lens' PollForTask (Maybe Text)
-pftHostname = lens _pftHostname (\s a -> s {_pftHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftHostname :: Lens.Lens' PollForTask (Lude.Maybe Lude.Text)
+pftHostname = Lens.lens (hostname :: PollForTask -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: PollForTask)
+{-# DEPRECATED pftHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
-pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
-pftInstanceIdentity = lens _pftInstanceIdentity (\s a -> s {_pftInstanceIdentity = a})
+--
+-- /Note:/ Consider using 'instanceIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftInstanceIdentity :: Lens.Lens' PollForTask (Lude.Maybe InstanceIdentity)
+pftInstanceIdentity = Lens.lens (instanceIdentity :: PollForTask -> Lude.Maybe InstanceIdentity) (\s a -> s {instanceIdentity = a} :: PollForTask)
+{-# DEPRECATED pftInstanceIdentity "Use generic-lens or generic-optics with 'instanceIdentity' instead." #-}
 
 -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
-pftWorkerGroup :: Lens' PollForTask Text
-pftWorkerGroup = lens _pftWorkerGroup (\s a -> s {_pftWorkerGroup = a})
+--
+-- /Note:/ Consider using 'workerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftWorkerGroup :: Lens.Lens' PollForTask Lude.Text
+pftWorkerGroup = Lens.lens (workerGroup :: PollForTask -> Lude.Text) (\s a -> s {workerGroup = a} :: PollForTask)
+{-# DEPRECATED pftWorkerGroup "Use generic-lens or generic-optics with 'workerGroup' instead." #-}
 
-instance AWSRequest PollForTask where
+instance Lude.AWSRequest PollForTask where
   type Rs PollForTask = PollForTaskResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PollForTaskResponse'
-            <$> (x .?> "taskObject") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskObject") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PollForTask
-
-instance NFData PollForTask
-
-instance ToHeaders PollForTask where
+instance Lude.ToHeaders PollForTask where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.PollForTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.PollForTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PollForTask where
+instance Lude.ToJSON PollForTask where
   toJSON PollForTask' {..} =
-    object
-      ( catMaybes
-          [ ("hostname" .=) <$> _pftHostname,
-            ("instanceIdentity" .=) <$> _pftInstanceIdentity,
-            Just ("workerGroup" .= _pftWorkerGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("hostname" Lude..=) Lude.<$> hostname,
+            ("instanceIdentity" Lude..=) Lude.<$> instanceIdentity,
+            Lude.Just ("workerGroup" Lude..= workerGroup)
           ]
       )
 
-instance ToPath PollForTask where
-  toPath = const "/"
+instance Lude.ToPath PollForTask where
+  toPath = Lude.const "/"
 
-instance ToQuery PollForTask where
-  toQuery = const mempty
+instance Lude.ToQuery PollForTask where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of PollForTask.
 --
---
---
--- /See:/ 'pollForTaskResponse' smart constructor.
+-- /See:/ 'mkPollForTaskResponse' smart constructor.
 data PollForTaskResponse = PollForTaskResponse'
-  { _pftrsTaskObject ::
-      !(Maybe TaskObject),
-    _pftrsResponseStatus :: !Int
+  { taskObject ::
+      Lude.Maybe TaskObject,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pftrsTaskObject' - The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
---
--- * 'pftrsResponseStatus' - -- | The response status code.
-pollForTaskResponse ::
-  -- | 'pftrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'taskObject' - The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
+mkPollForTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PollForTaskResponse
-pollForTaskResponse pResponseStatus_ =
+mkPollForTaskResponse pResponseStatus_ =
   PollForTaskResponse'
-    { _pftrsTaskObject = Nothing,
-      _pftrsResponseStatus = pResponseStatus_
+    { taskObject = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
-pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
-pftrsTaskObject = lens _pftrsTaskObject (\s a -> s {_pftrsTaskObject = a})
+--
+-- /Note:/ Consider using 'taskObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftrsTaskObject :: Lens.Lens' PollForTaskResponse (Lude.Maybe TaskObject)
+pftrsTaskObject = Lens.lens (taskObject :: PollForTaskResponse -> Lude.Maybe TaskObject) (\s a -> s {taskObject = a} :: PollForTaskResponse)
+{-# DEPRECATED pftrsTaskObject "Use generic-lens or generic-optics with 'taskObject' instead." #-}
 
--- | -- | The response status code.
-pftrsResponseStatus :: Lens' PollForTaskResponse Int
-pftrsResponseStatus = lens _pftrsResponseStatus (\s a -> s {_pftrsResponseStatus = a})
-
-instance NFData PollForTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftrsResponseStatus :: Lens.Lens' PollForTaskResponse Lude.Int
+pftrsResponseStatus = Lens.lens (responseStatus :: PollForTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForTaskResponse)
+{-# DEPRECATED pftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

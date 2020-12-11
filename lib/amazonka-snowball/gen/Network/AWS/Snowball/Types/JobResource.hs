@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.JobResource where
+module Network.AWS.Snowball.Types.JobResource
+  ( JobResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobResource,
+
+    -- * Lenses
+    jrEC2AMIResources,
+    jrLambdaResources,
+    jrS3Resources,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Snowball.Types.EC2AMIResource
 import Network.AWS.Snowball.Types.LambdaResource
 import Network.AWS.Snowball.Types.S3Resource
 
 -- | Contains an array of AWS resource objects. Each object represents an Amazon S3 bucket, an AWS Lambda function, or an Amazon Machine Image (AMI) based on Amazon EC2 that is associated with a particular job.
 --
---
---
--- /See:/ 'jobResource' smart constructor.
+-- /See:/ 'mkJobResource' smart constructor.
 data JobResource = JobResource'
-  { _jrEC2AMIResources ::
-      !(Maybe [EC2AMIResource]),
-    _jrLambdaResources :: !(Maybe [LambdaResource]),
-    _jrS3Resources :: !(Maybe [S3Resource])
+  { ec2AMIResources ::
+      Lude.Maybe [EC2AMIResource],
+    lambdaResources :: Lude.Maybe [LambdaResource],
+    s3Resources :: Lude.Maybe [S3Resource]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jrEC2AMIResources' - The Amazon Machine Images (AMIs) associated with this job.
---
--- * 'jrLambdaResources' - The Python-language Lambda functions for this job.
---
--- * 'jrS3Resources' - An array of @S3Resource@ objects.
-jobResource ::
+-- * 'ec2AMIResources' - The Amazon Machine Images (AMIs) associated with this job.
+-- * 'lambdaResources' - The Python-language Lambda functions for this job.
+-- * 's3Resources' - An array of @S3Resource@ objects.
+mkJobResource ::
   JobResource
-jobResource =
+mkJobResource =
   JobResource'
-    { _jrEC2AMIResources = Nothing,
-      _jrLambdaResources = Nothing,
-      _jrS3Resources = Nothing
+    { ec2AMIResources = Lude.Nothing,
+      lambdaResources = Lude.Nothing,
+      s3Resources = Lude.Nothing
     }
 
 -- | The Amazon Machine Images (AMIs) associated with this job.
-jrEC2AMIResources :: Lens' JobResource [EC2AMIResource]
-jrEC2AMIResources = lens _jrEC2AMIResources (\s a -> s {_jrEC2AMIResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ec2AMIResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jrEC2AMIResources :: Lens.Lens' JobResource (Lude.Maybe [EC2AMIResource])
+jrEC2AMIResources = Lens.lens (ec2AMIResources :: JobResource -> Lude.Maybe [EC2AMIResource]) (\s a -> s {ec2AMIResources = a} :: JobResource)
+{-# DEPRECATED jrEC2AMIResources "Use generic-lens or generic-optics with 'ec2AMIResources' instead." #-}
 
 -- | The Python-language Lambda functions for this job.
-jrLambdaResources :: Lens' JobResource [LambdaResource]
-jrLambdaResources = lens _jrLambdaResources (\s a -> s {_jrLambdaResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lambdaResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jrLambdaResources :: Lens.Lens' JobResource (Lude.Maybe [LambdaResource])
+jrLambdaResources = Lens.lens (lambdaResources :: JobResource -> Lude.Maybe [LambdaResource]) (\s a -> s {lambdaResources = a} :: JobResource)
+{-# DEPRECATED jrLambdaResources "Use generic-lens or generic-optics with 'lambdaResources' instead." #-}
 
 -- | An array of @S3Resource@ objects.
-jrS3Resources :: Lens' JobResource [S3Resource]
-jrS3Resources = lens _jrS3Resources (\s a -> s {_jrS3Resources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 's3Resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jrS3Resources :: Lens.Lens' JobResource (Lude.Maybe [S3Resource])
+jrS3Resources = Lens.lens (s3Resources :: JobResource -> Lude.Maybe [S3Resource]) (\s a -> s {s3Resources = a} :: JobResource)
+{-# DEPRECATED jrS3Resources "Use generic-lens or generic-optics with 's3Resources' instead." #-}
 
-instance FromJSON JobResource where
+instance Lude.FromJSON JobResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobResource"
       ( \x ->
           JobResource'
-            <$> (x .:? "Ec2AmiResources" .!= mempty)
-            <*> (x .:? "LambdaResources" .!= mempty)
-            <*> (x .:? "S3Resources" .!= mempty)
+            Lude.<$> (x Lude..:? "Ec2AmiResources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LambdaResources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "S3Resources" Lude..!= Lude.mempty)
       )
 
-instance Hashable JobResource
-
-instance NFData JobResource
-
-instance ToJSON JobResource where
+instance Lude.ToJSON JobResource where
   toJSON JobResource' {..} =
-    object
-      ( catMaybes
-          [ ("Ec2AmiResources" .=) <$> _jrEC2AMIResources,
-            ("LambdaResources" .=) <$> _jrLambdaResources,
-            ("S3Resources" .=) <$> _jrS3Resources
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Ec2AmiResources" Lude..=) Lude.<$> ec2AMIResources,
+            ("LambdaResources" Lude..=) Lude.<$> lambdaResources,
+            ("S3Resources" Lude..=) Lude.<$> s3Resources
           ]
       )

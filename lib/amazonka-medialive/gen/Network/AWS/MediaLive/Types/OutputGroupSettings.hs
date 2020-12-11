@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,25 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputGroupSettings where
+module Network.AWS.MediaLive.Types.OutputGroupSettings
+  ( OutputGroupSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOutputGroupSettings,
+
+    -- * Lenses
+    ogsMediaPackageGroupSettings,
+    ogsMsSmoothGroupSettings,
+    ogsRtmpGroupSettings,
+    ogsMultiplexGroupSettings,
+    ogsHlsGroupSettings,
+    ogsArchiveGroupSettings,
+    ogsUdpGroupSettings,
+    ogsFrameCaptureGroupSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ArchiveGroupSettings
 import Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
 import Network.AWS.MediaLive.Types.HlsGroupSettings
@@ -24,126 +34,144 @@ import Network.AWS.MediaLive.Types.MsSmoothGroupSettings
 import Network.AWS.MediaLive.Types.MultiplexGroupSettings
 import Network.AWS.MediaLive.Types.RtmpGroupSettings
 import Network.AWS.MediaLive.Types.UdpGroupSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Output Group Settings
 --
--- /See:/ 'outputGroupSettings' smart constructor.
+-- /See:/ 'mkOutputGroupSettings' smart constructor.
 data OutputGroupSettings = OutputGroupSettings'
-  { _ogsMediaPackageGroupSettings ::
-      !(Maybe MediaPackageGroupSettings),
-    _ogsMsSmoothGroupSettings ::
-      !(Maybe MsSmoothGroupSettings),
-    _ogsRtmpGroupSettings :: !(Maybe RtmpGroupSettings),
-    _ogsMultiplexGroupSettings ::
-      !(Maybe MultiplexGroupSettings),
-    _ogsHlsGroupSettings :: !(Maybe HlsGroupSettings),
-    _ogsArchiveGroupSettings ::
-      !(Maybe ArchiveGroupSettings),
-    _ogsUdpGroupSettings :: !(Maybe UdpGroupSettings),
-    _ogsFrameCaptureGroupSettings ::
-      !(Maybe FrameCaptureGroupSettings)
+  { mediaPackageGroupSettings ::
+      Lude.Maybe MediaPackageGroupSettings,
+    msSmoothGroupSettings ::
+      Lude.Maybe MsSmoothGroupSettings,
+    rtmpGroupSettings :: Lude.Maybe RtmpGroupSettings,
+    multiplexGroupSettings ::
+      Lude.Maybe MultiplexGroupSettings,
+    hlsGroupSettings :: Lude.Maybe HlsGroupSettings,
+    archiveGroupSettings ::
+      Lude.Maybe ArchiveGroupSettings,
+    udpGroupSettings :: Lude.Maybe UdpGroupSettings,
+    frameCaptureGroupSettings ::
+      Lude.Maybe FrameCaptureGroupSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroupSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogsMediaPackageGroupSettings' - Undocumented member.
---
--- * 'ogsMsSmoothGroupSettings' - Undocumented member.
---
--- * 'ogsRtmpGroupSettings' - Undocumented member.
---
--- * 'ogsMultiplexGroupSettings' - Undocumented member.
---
--- * 'ogsHlsGroupSettings' - Undocumented member.
---
--- * 'ogsArchiveGroupSettings' - Undocumented member.
---
--- * 'ogsUdpGroupSettings' - Undocumented member.
---
--- * 'ogsFrameCaptureGroupSettings' - Undocumented member.
-outputGroupSettings ::
+-- * 'archiveGroupSettings' - Undocumented field.
+-- * 'frameCaptureGroupSettings' - Undocumented field.
+-- * 'hlsGroupSettings' - Undocumented field.
+-- * 'mediaPackageGroupSettings' - Undocumented field.
+-- * 'msSmoothGroupSettings' - Undocumented field.
+-- * 'multiplexGroupSettings' - Undocumented field.
+-- * 'rtmpGroupSettings' - Undocumented field.
+-- * 'udpGroupSettings' - Undocumented field.
+mkOutputGroupSettings ::
   OutputGroupSettings
-outputGroupSettings =
+mkOutputGroupSettings =
   OutputGroupSettings'
-    { _ogsMediaPackageGroupSettings = Nothing,
-      _ogsMsSmoothGroupSettings = Nothing,
-      _ogsRtmpGroupSettings = Nothing,
-      _ogsMultiplexGroupSettings = Nothing,
-      _ogsHlsGroupSettings = Nothing,
-      _ogsArchiveGroupSettings = Nothing,
-      _ogsUdpGroupSettings = Nothing,
-      _ogsFrameCaptureGroupSettings = Nothing
+    { mediaPackageGroupSettings = Lude.Nothing,
+      msSmoothGroupSettings = Lude.Nothing,
+      rtmpGroupSettings = Lude.Nothing,
+      multiplexGroupSettings = Lude.Nothing,
+      hlsGroupSettings = Lude.Nothing,
+      archiveGroupSettings = Lude.Nothing,
+      udpGroupSettings = Lude.Nothing,
+      frameCaptureGroupSettings = Lude.Nothing
     }
 
--- | Undocumented member.
-ogsMediaPackageGroupSettings :: Lens' OutputGroupSettings (Maybe MediaPackageGroupSettings)
-ogsMediaPackageGroupSettings = lens _ogsMediaPackageGroupSettings (\s a -> s {_ogsMediaPackageGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mediaPackageGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsMediaPackageGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe MediaPackageGroupSettings)
+ogsMediaPackageGroupSettings = Lens.lens (mediaPackageGroupSettings :: OutputGroupSettings -> Lude.Maybe MediaPackageGroupSettings) (\s a -> s {mediaPackageGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsMediaPackageGroupSettings "Use generic-lens or generic-optics with 'mediaPackageGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsMsSmoothGroupSettings :: Lens' OutputGroupSettings (Maybe MsSmoothGroupSettings)
-ogsMsSmoothGroupSettings = lens _ogsMsSmoothGroupSettings (\s a -> s {_ogsMsSmoothGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'msSmoothGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsMsSmoothGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe MsSmoothGroupSettings)
+ogsMsSmoothGroupSettings = Lens.lens (msSmoothGroupSettings :: OutputGroupSettings -> Lude.Maybe MsSmoothGroupSettings) (\s a -> s {msSmoothGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsMsSmoothGroupSettings "Use generic-lens or generic-optics with 'msSmoothGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsRtmpGroupSettings :: Lens' OutputGroupSettings (Maybe RtmpGroupSettings)
-ogsRtmpGroupSettings = lens _ogsRtmpGroupSettings (\s a -> s {_ogsRtmpGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rtmpGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsRtmpGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe RtmpGroupSettings)
+ogsRtmpGroupSettings = Lens.lens (rtmpGroupSettings :: OutputGroupSettings -> Lude.Maybe RtmpGroupSettings) (\s a -> s {rtmpGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsRtmpGroupSettings "Use generic-lens or generic-optics with 'rtmpGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsMultiplexGroupSettings :: Lens' OutputGroupSettings (Maybe MultiplexGroupSettings)
-ogsMultiplexGroupSettings = lens _ogsMultiplexGroupSettings (\s a -> s {_ogsMultiplexGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'multiplexGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsMultiplexGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe MultiplexGroupSettings)
+ogsMultiplexGroupSettings = Lens.lens (multiplexGroupSettings :: OutputGroupSettings -> Lude.Maybe MultiplexGroupSettings) (\s a -> s {multiplexGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsMultiplexGroupSettings "Use generic-lens or generic-optics with 'multiplexGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsHlsGroupSettings :: Lens' OutputGroupSettings (Maybe HlsGroupSettings)
-ogsHlsGroupSettings = lens _ogsHlsGroupSettings (\s a -> s {_ogsHlsGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsHlsGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe HlsGroupSettings)
+ogsHlsGroupSettings = Lens.lens (hlsGroupSettings :: OutputGroupSettings -> Lude.Maybe HlsGroupSettings) (\s a -> s {hlsGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsHlsGroupSettings "Use generic-lens or generic-optics with 'hlsGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsArchiveGroupSettings :: Lens' OutputGroupSettings (Maybe ArchiveGroupSettings)
-ogsArchiveGroupSettings = lens _ogsArchiveGroupSettings (\s a -> s {_ogsArchiveGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'archiveGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsArchiveGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe ArchiveGroupSettings)
+ogsArchiveGroupSettings = Lens.lens (archiveGroupSettings :: OutputGroupSettings -> Lude.Maybe ArchiveGroupSettings) (\s a -> s {archiveGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsArchiveGroupSettings "Use generic-lens or generic-optics with 'archiveGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsUdpGroupSettings :: Lens' OutputGroupSettings (Maybe UdpGroupSettings)
-ogsUdpGroupSettings = lens _ogsUdpGroupSettings (\s a -> s {_ogsUdpGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'udpGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsUdpGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe UdpGroupSettings)
+ogsUdpGroupSettings = Lens.lens (udpGroupSettings :: OutputGroupSettings -> Lude.Maybe UdpGroupSettings) (\s a -> s {udpGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsUdpGroupSettings "Use generic-lens or generic-optics with 'udpGroupSettings' instead." #-}
 
--- | Undocumented member.
-ogsFrameCaptureGroupSettings :: Lens' OutputGroupSettings (Maybe FrameCaptureGroupSettings)
-ogsFrameCaptureGroupSettings = lens _ogsFrameCaptureGroupSettings (\s a -> s {_ogsFrameCaptureGroupSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'frameCaptureGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogsFrameCaptureGroupSettings :: Lens.Lens' OutputGroupSettings (Lude.Maybe FrameCaptureGroupSettings)
+ogsFrameCaptureGroupSettings = Lens.lens (frameCaptureGroupSettings :: OutputGroupSettings -> Lude.Maybe FrameCaptureGroupSettings) (\s a -> s {frameCaptureGroupSettings = a} :: OutputGroupSettings)
+{-# DEPRECATED ogsFrameCaptureGroupSettings "Use generic-lens or generic-optics with 'frameCaptureGroupSettings' instead." #-}
 
-instance FromJSON OutputGroupSettings where
+instance Lude.FromJSON OutputGroupSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputGroupSettings"
       ( \x ->
           OutputGroupSettings'
-            <$> (x .:? "mediaPackageGroupSettings")
-            <*> (x .:? "msSmoothGroupSettings")
-            <*> (x .:? "rtmpGroupSettings")
-            <*> (x .:? "multiplexGroupSettings")
-            <*> (x .:? "hlsGroupSettings")
-            <*> (x .:? "archiveGroupSettings")
-            <*> (x .:? "udpGroupSettings")
-            <*> (x .:? "frameCaptureGroupSettings")
+            Lude.<$> (x Lude..:? "mediaPackageGroupSettings")
+            Lude.<*> (x Lude..:? "msSmoothGroupSettings")
+            Lude.<*> (x Lude..:? "rtmpGroupSettings")
+            Lude.<*> (x Lude..:? "multiplexGroupSettings")
+            Lude.<*> (x Lude..:? "hlsGroupSettings")
+            Lude.<*> (x Lude..:? "archiveGroupSettings")
+            Lude.<*> (x Lude..:? "udpGroupSettings")
+            Lude.<*> (x Lude..:? "frameCaptureGroupSettings")
       )
 
-instance Hashable OutputGroupSettings
-
-instance NFData OutputGroupSettings
-
-instance ToJSON OutputGroupSettings where
+instance Lude.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =
-    object
-      ( catMaybes
-          [ ("mediaPackageGroupSettings" .=)
-              <$> _ogsMediaPackageGroupSettings,
-            ("msSmoothGroupSettings" .=) <$> _ogsMsSmoothGroupSettings,
-            ("rtmpGroupSettings" .=) <$> _ogsRtmpGroupSettings,
-            ("multiplexGroupSettings" .=) <$> _ogsMultiplexGroupSettings,
-            ("hlsGroupSettings" .=) <$> _ogsHlsGroupSettings,
-            ("archiveGroupSettings" .=) <$> _ogsArchiveGroupSettings,
-            ("udpGroupSettings" .=) <$> _ogsUdpGroupSettings,
-            ("frameCaptureGroupSettings" .=)
-              <$> _ogsFrameCaptureGroupSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("mediaPackageGroupSettings" Lude..=)
+              Lude.<$> mediaPackageGroupSettings,
+            ("msSmoothGroupSettings" Lude..=) Lude.<$> msSmoothGroupSettings,
+            ("rtmpGroupSettings" Lude..=) Lude.<$> rtmpGroupSettings,
+            ("multiplexGroupSettings" Lude..=) Lude.<$> multiplexGroupSettings,
+            ("hlsGroupSettings" Lude..=) Lude.<$> hlsGroupSettings,
+            ("archiveGroupSettings" Lude..=) Lude.<$> archiveGroupSettings,
+            ("udpGroupSettings" Lude..=) Lude.<$> udpGroupSettings,
+            ("frameCaptureGroupSettings" Lude..=)
+              Lude.<$> frameCaptureGroupSettings
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectIdentifier where
+module Network.AWS.S3.Types.ObjectIdentifier
+  ( ObjectIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectIdentifier,
+
+    -- * Lenses
+    oiVersionId,
+    oiKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Object Identifier is unique value to identify objects.
 --
---
---
--- /See:/ 'objectIdentifier' smart constructor.
+-- /See:/ 'mkObjectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
-  { _oiVersionId ::
-      !(Maybe ObjectVersionId),
-    _oiKey :: !ObjectKey
+  { versionId ::
+      Lude.Maybe ObjectVersionId,
+    key :: ObjectKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oiVersionId' - VersionId for the specific version of the object to delete.
---
--- * 'oiKey' - Key name of the object to delete.
-objectIdentifier ::
-  -- | 'oiKey'
+-- * 'key' - Key name of the object to delete.
+-- * 'versionId' - VersionId for the specific version of the object to delete.
+mkObjectIdentifier ::
+  -- | 'key'
   ObjectKey ->
   ObjectIdentifier
-objectIdentifier pKey_ =
-  ObjectIdentifier' {_oiVersionId = Nothing, _oiKey = pKey_}
+mkObjectIdentifier pKey_ =
+  ObjectIdentifier' {versionId = Lude.Nothing, key = pKey_}
 
 -- | VersionId for the specific version of the object to delete.
-oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
-oiVersionId = lens _oiVersionId (\s a -> s {_oiVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiVersionId :: Lens.Lens' ObjectIdentifier (Lude.Maybe ObjectVersionId)
+oiVersionId = Lens.lens (versionId :: ObjectIdentifier -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: ObjectIdentifier)
+{-# DEPRECATED oiVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Key name of the object to delete.
-oiKey :: Lens' ObjectIdentifier ObjectKey
-oiKey = lens _oiKey (\s a -> s {_oiKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oiKey :: Lens.Lens' ObjectIdentifier ObjectKey
+oiKey = Lens.lens (key :: ObjectIdentifier -> ObjectKey) (\s a -> s {key = a} :: ObjectIdentifier)
+{-# DEPRECATED oiKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable ObjectIdentifier
-
-instance NFData ObjectIdentifier
-
-instance ToXML ObjectIdentifier where
+instance Lude.ToXML ObjectIdentifier where
   toXML ObjectIdentifier' {..} =
-    mconcat ["VersionId" @= _oiVersionId, "Key" @= _oiKey]
+    Lude.mconcat ["VersionId" Lude.@= versionId, "Key" Lude.@= key]

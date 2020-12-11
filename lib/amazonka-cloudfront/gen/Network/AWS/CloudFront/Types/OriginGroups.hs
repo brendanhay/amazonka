@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginGroups where
+module Network.AWS.CloudFront.Types.OriginGroups
+  ( OriginGroups (..),
+
+    -- * Smart constructor
+    mkOriginGroups,
+
+    -- * Lenses
+    ogItems,
+    ogQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.OriginGroup
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type for the origin groups specified for a distribution.
 --
---
---
--- /See:/ 'originGroups' smart constructor.
+-- /See:/ 'mkOriginGroups' smart constructor.
 data OriginGroups = OriginGroups'
-  { _ogItems ::
-      !(Maybe [OriginGroup]),
-    _ogQuantity :: !Int
+  { items ::
+      Lude.Maybe [OriginGroup],
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogItems' - The items (origin groups) in a distribution.
---
--- * 'ogQuantity' - The number of origin groups.
-originGroups ::
-  -- | 'ogQuantity'
-  Int ->
+-- * 'items' - The items (origin groups) in a distribution.
+-- * 'quantity' - The number of origin groups.
+mkOriginGroups ::
+  -- | 'quantity'
+  Lude.Int ->
   OriginGroups
-originGroups pQuantity_ =
-  OriginGroups' {_ogItems = Nothing, _ogQuantity = pQuantity_}
+mkOriginGroups pQuantity_ =
+  OriginGroups' {items = Lude.Nothing, quantity = pQuantity_}
 
 -- | The items (origin groups) in a distribution.
-ogItems :: Lens' OriginGroups [OriginGroup]
-ogItems = lens _ogItems (\s a -> s {_ogItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogItems :: Lens.Lens' OriginGroups (Lude.Maybe [OriginGroup])
+ogItems = Lens.lens (items :: OriginGroups -> Lude.Maybe [OriginGroup]) (\s a -> s {items = a} :: OriginGroups)
+{-# DEPRECATED ogItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of origin groups.
-ogQuantity :: Lens' OriginGroups Int
-ogQuantity = lens _ogQuantity (\s a -> s {_ogQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogQuantity :: Lens.Lens' OriginGroups Lude.Int
+ogQuantity = Lens.lens (quantity :: OriginGroups -> Lude.Int) (\s a -> s {quantity = a} :: OriginGroups)
+{-# DEPRECATED ogQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML OriginGroups where
+instance Lude.FromXML OriginGroups where
   parseXML x =
     OriginGroups'
-      <$> (x .@? "Items" .!@ mempty >>= may (parseXMLList "OriginGroup"))
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "OriginGroup")
+               )
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable OriginGroups
-
-instance NFData OriginGroups
-
-instance ToXML OriginGroups where
+instance Lude.ToXML OriginGroups where
   toXML OriginGroups' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "OriginGroup" <$> _ogItems),
-        "Quantity" @= _ogQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "OriginGroup" Lude.<$> items),
+        "Quantity" Lude.@= quantity
       ]

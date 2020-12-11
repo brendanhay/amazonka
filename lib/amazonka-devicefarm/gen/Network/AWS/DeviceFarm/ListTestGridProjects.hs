@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets a list of all Selenium testing projects in your account.
 module Network.AWS.DeviceFarm.ListTestGridProjects
-  ( -- * Creating a Request
-    listTestGridProjects,
-    ListTestGridProjects,
+  ( -- * Creating a request
+    ListTestGridProjects (..),
+    mkListTestGridProjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltgpMaxResult,
     ltgpNextToken,
 
-    -- * Destructuring the Response
-    listTestGridProjectsResponse,
-    ListTestGridProjectsResponse,
+    -- * Destructuring the response
+    ListTestGridProjectsResponse (..),
+    mkListTestGridProjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltgprsTestGridProjects,
     ltgprsNextToken,
     ltgprsResponseStatus,
@@ -39,122 +34,139 @@ module Network.AWS.DeviceFarm.ListTestGridProjects
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTestGridProjects' smart constructor.
+-- | /See:/ 'mkListTestGridProjects' smart constructor.
 data ListTestGridProjects = ListTestGridProjects'
-  { _ltgpMaxResult ::
-      !(Maybe Nat),
-    _ltgpNextToken :: !(Maybe Text)
+  { maxResult ::
+      Lude.Maybe Lude.Natural,
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridProjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgpMaxResult' - Return no more than this number of results.
---
--- * 'ltgpNextToken' - From a response, used to continue a paginated listing.
-listTestGridProjects ::
+-- * 'maxResult' - Return no more than this number of results.
+-- * 'nextToken' - From a response, used to continue a paginated listing.
+mkListTestGridProjects ::
   ListTestGridProjects
-listTestGridProjects =
+mkListTestGridProjects =
   ListTestGridProjects'
-    { _ltgpMaxResult = Nothing,
-      _ltgpNextToken = Nothing
+    { maxResult = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | Return no more than this number of results.
-ltgpMaxResult :: Lens' ListTestGridProjects (Maybe Natural)
-ltgpMaxResult = lens _ltgpMaxResult (\s a -> s {_ltgpMaxResult = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgpMaxResult :: Lens.Lens' ListTestGridProjects (Lude.Maybe Lude.Natural)
+ltgpMaxResult = Lens.lens (maxResult :: ListTestGridProjects -> Lude.Maybe Lude.Natural) (\s a -> s {maxResult = a} :: ListTestGridProjects)
+{-# DEPRECATED ltgpMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
 
 -- | From a response, used to continue a paginated listing.
-ltgpNextToken :: Lens' ListTestGridProjects (Maybe Text)
-ltgpNextToken = lens _ltgpNextToken (\s a -> s {_ltgpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgpNextToken :: Lens.Lens' ListTestGridProjects (Lude.Maybe Lude.Text)
+ltgpNextToken = Lens.lens (nextToken :: ListTestGridProjects -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridProjects)
+{-# DEPRECATED ltgpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSRequest ListTestGridProjects where
+instance Lude.AWSRequest ListTestGridProjects where
   type Rs ListTestGridProjects = ListTestGridProjectsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTestGridProjectsResponse'
-            <$> (x .?> "testGridProjects" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "testGridProjects" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTestGridProjects
-
-instance NFData ListTestGridProjects
-
-instance ToHeaders ListTestGridProjects where
+instance Lude.ToHeaders ListTestGridProjects where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListTestGridProjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListTestGridProjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTestGridProjects where
+instance Lude.ToJSON ListTestGridProjects where
   toJSON ListTestGridProjects' {..} =
-    object
-      ( catMaybes
-          [ ("maxResult" .=) <$> _ltgpMaxResult,
-            ("nextToken" .=) <$> _ltgpNextToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maxResult" Lude..=) Lude.<$> maxResult,
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
-instance ToPath ListTestGridProjects where
-  toPath = const "/"
+instance Lude.ToPath ListTestGridProjects where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTestGridProjects where
-  toQuery = const mempty
+instance Lude.ToQuery ListTestGridProjects where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTestGridProjectsResponse' smart constructor.
+-- | /See:/ 'mkListTestGridProjectsResponse' smart constructor.
 data ListTestGridProjectsResponse = ListTestGridProjectsResponse'
-  { _ltgprsTestGridProjects ::
-      !(Maybe [TestGridProject]),
-    _ltgprsNextToken :: !(Maybe Text),
-    _ltgprsResponseStatus :: !Int
+  { testGridProjects ::
+      Lude.Maybe [TestGridProject],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridProjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgprsTestGridProjects' - The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
---
--- * 'ltgprsNextToken' - Used for pagination. Pass into 'ListTestGridProjects' to get more results in a paginated request.
---
--- * 'ltgprsResponseStatus' - -- | The response status code.
-listTestGridProjectsResponse ::
-  -- | 'ltgprsResponseStatus'
-  Int ->
+-- * 'nextToken' - Used for pagination. Pass into 'ListTestGridProjects' to get more results in a paginated request.
+-- * 'responseStatus' - The response status code.
+-- * 'testGridProjects' - The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
+mkListTestGridProjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTestGridProjectsResponse
-listTestGridProjectsResponse pResponseStatus_ =
+mkListTestGridProjectsResponse pResponseStatus_ =
   ListTestGridProjectsResponse'
-    { _ltgprsTestGridProjects = Nothing,
-      _ltgprsNextToken = Nothing,
-      _ltgprsResponseStatus = pResponseStatus_
+    { testGridProjects = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
-ltgprsTestGridProjects :: Lens' ListTestGridProjectsResponse [TestGridProject]
-ltgprsTestGridProjects = lens _ltgprsTestGridProjects (\s a -> s {_ltgprsTestGridProjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'testGridProjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgprsTestGridProjects :: Lens.Lens' ListTestGridProjectsResponse (Lude.Maybe [TestGridProject])
+ltgprsTestGridProjects = Lens.lens (testGridProjects :: ListTestGridProjectsResponse -> Lude.Maybe [TestGridProject]) (\s a -> s {testGridProjects = a} :: ListTestGridProjectsResponse)
+{-# DEPRECATED ltgprsTestGridProjects "Use generic-lens or generic-optics with 'testGridProjects' instead." #-}
 
 -- | Used for pagination. Pass into 'ListTestGridProjects' to get more results in a paginated request.
-ltgprsNextToken :: Lens' ListTestGridProjectsResponse (Maybe Text)
-ltgprsNextToken = lens _ltgprsNextToken (\s a -> s {_ltgprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgprsNextToken :: Lens.Lens' ListTestGridProjectsResponse (Lude.Maybe Lude.Text)
+ltgprsNextToken = Lens.lens (nextToken :: ListTestGridProjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridProjectsResponse)
+{-# DEPRECATED ltgprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltgprsResponseStatus :: Lens' ListTestGridProjectsResponse Int
-ltgprsResponseStatus = lens _ltgprsResponseStatus (\s a -> s {_ltgprsResponseStatus = a})
-
-instance NFData ListTestGridProjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgprsResponseStatus :: Lens.Lens' ListTestGridProjectsResponse Lude.Int
+ltgprsResponseStatus = Lens.lens (responseStatus :: ListTestGridProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestGridProjectsResponse)
+{-# DEPRECATED ltgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

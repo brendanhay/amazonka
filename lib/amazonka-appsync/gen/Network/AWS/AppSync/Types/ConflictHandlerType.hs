@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.ConflictHandlerType where
+module Network.AWS.AppSync.Types.ConflictHandlerType
+  ( ConflictHandlerType
+      ( ConflictHandlerType',
+        CHTAutomerge,
+        CHTLambda,
+        CHTNone,
+        CHTOptimisticConcurrency
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConflictHandlerType
-  = CHTAutomerge
-  | CHTLambda
-  | CHTNone
-  | CHTOptimisticConcurrency
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConflictHandlerType = ConflictHandlerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConflictHandlerType where
-  parser =
-    takeLowerText >>= \case
-      "automerge" -> pure CHTAutomerge
-      "lambda" -> pure CHTLambda
-      "none" -> pure CHTNone
-      "optimistic_concurrency" -> pure CHTOptimisticConcurrency
-      e ->
-        fromTextError $
-          "Failure parsing ConflictHandlerType from value: '" <> e
-            <> "'. Accepted values: automerge, lambda, none, optimistic_concurrency"
+pattern CHTAutomerge :: ConflictHandlerType
+pattern CHTAutomerge = ConflictHandlerType' "AUTOMERGE"
 
-instance ToText ConflictHandlerType where
-  toText = \case
-    CHTAutomerge -> "AUTOMERGE"
-    CHTLambda -> "LAMBDA"
-    CHTNone -> "NONE"
-    CHTOptimisticConcurrency -> "OPTIMISTIC_CONCURRENCY"
+pattern CHTLambda :: ConflictHandlerType
+pattern CHTLambda = ConflictHandlerType' "LAMBDA"
 
-instance Hashable ConflictHandlerType
+pattern CHTNone :: ConflictHandlerType
+pattern CHTNone = ConflictHandlerType' "NONE"
 
-instance NFData ConflictHandlerType
+pattern CHTOptimisticConcurrency :: ConflictHandlerType
+pattern CHTOptimisticConcurrency = ConflictHandlerType' "OPTIMISTIC_CONCURRENCY"
 
-instance ToByteString ConflictHandlerType
-
-instance ToQuery ConflictHandlerType
-
-instance ToHeader ConflictHandlerType
-
-instance ToJSON ConflictHandlerType where
-  toJSON = toJSONText
-
-instance FromJSON ConflictHandlerType where
-  parseJSON = parseJSONText "ConflictHandlerType"
+{-# COMPLETE
+  CHTAutomerge,
+  CHTLambda,
+  CHTNone,
+  CHTOptimisticConcurrency,
+  ConflictHandlerType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ResourceType where
+module Network.AWS.Lightsail.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        RTAlarm,
+        RTCertificate,
+        RTCloudFormationStackRecord,
+        RTContactMethod,
+        RTContainerService,
+        RTDisk,
+        RTDiskSnapshot,
+        RTDistribution,
+        RTDomain,
+        RTExportSnapshotRecord,
+        RTInstance,
+        RTInstanceSnapshot,
+        RTKeyPair,
+        RTLoadBalancer,
+        RTLoadBalancerTLSCertificate,
+        RTPeeredVPC,
+        RTRelationalDatabase,
+        RTRelationalDatabaseSnapshot,
+        RTStaticIP
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = RTAlarm
-  | RTCertificate
-  | RTCloudFormationStackRecord
-  | RTContactMethod
-  | RTContainerService
-  | RTDisk
-  | RTDiskSnapshot
-  | RTDistribution
-  | RTDomain
-  | RTExportSnapshotRecord
-  | RTInstance
-  | RTInstanceSnapshot
-  | RTKeyPair
-  | RTLoadBalancer
-  | RTLoadBalancerTLSCertificate
-  | RTPeeredVPC
-  | RTRelationalDatabase
-  | RTRelationalDatabaseSnapshot
-  | RTStaticIP
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "alarm" -> pure RTAlarm
-      "certificate" -> pure RTCertificate
-      "cloudformationstackrecord" -> pure RTCloudFormationStackRecord
-      "contactmethod" -> pure RTContactMethod
-      "containerservice" -> pure RTContainerService
-      "disk" -> pure RTDisk
-      "disksnapshot" -> pure RTDiskSnapshot
-      "distribution" -> pure RTDistribution
-      "domain" -> pure RTDomain
-      "exportsnapshotrecord" -> pure RTExportSnapshotRecord
-      "instance" -> pure RTInstance
-      "instancesnapshot" -> pure RTInstanceSnapshot
-      "keypair" -> pure RTKeyPair
-      "loadbalancer" -> pure RTLoadBalancer
-      "loadbalancertlscertificate" -> pure RTLoadBalancerTLSCertificate
-      "peeredvpc" -> pure RTPeeredVPC
-      "relationaldatabase" -> pure RTRelationalDatabase
-      "relationaldatabasesnapshot" -> pure RTRelationalDatabaseSnapshot
-      "staticip" -> pure RTStaticIP
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: alarm, certificate, cloudformationstackrecord, contactmethod, containerservice, disk, disksnapshot, distribution, domain, exportsnapshotrecord, instance, instancesnapshot, keypair, loadbalancer, loadbalancertlscertificate, peeredvpc, relationaldatabase, relationaldatabasesnapshot, staticip"
+pattern RTAlarm :: ResourceType
+pattern RTAlarm = ResourceType' "Alarm"
 
-instance ToText ResourceType where
-  toText = \case
-    RTAlarm -> "Alarm"
-    RTCertificate -> "Certificate"
-    RTCloudFormationStackRecord -> "CloudFormationStackRecord"
-    RTContactMethod -> "ContactMethod"
-    RTContainerService -> "ContainerService"
-    RTDisk -> "Disk"
-    RTDiskSnapshot -> "DiskSnapshot"
-    RTDistribution -> "Distribution"
-    RTDomain -> "Domain"
-    RTExportSnapshotRecord -> "ExportSnapshotRecord"
-    RTInstance -> "Instance"
-    RTInstanceSnapshot -> "InstanceSnapshot"
-    RTKeyPair -> "KeyPair"
-    RTLoadBalancer -> "LoadBalancer"
-    RTLoadBalancerTLSCertificate -> "LoadBalancerTlsCertificate"
-    RTPeeredVPC -> "PeeredVpc"
-    RTRelationalDatabase -> "RelationalDatabase"
-    RTRelationalDatabaseSnapshot -> "RelationalDatabaseSnapshot"
-    RTStaticIP -> "StaticIp"
+pattern RTCertificate :: ResourceType
+pattern RTCertificate = ResourceType' "Certificate"
 
-instance Hashable ResourceType
+pattern RTCloudFormationStackRecord :: ResourceType
+pattern RTCloudFormationStackRecord = ResourceType' "CloudFormationStackRecord"
 
-instance NFData ResourceType
+pattern RTContactMethod :: ResourceType
+pattern RTContactMethod = ResourceType' "ContactMethod"
 
-instance ToByteString ResourceType
+pattern RTContainerService :: ResourceType
+pattern RTContainerService = ResourceType' "ContainerService"
 
-instance ToQuery ResourceType
+pattern RTDisk :: ResourceType
+pattern RTDisk = ResourceType' "Disk"
 
-instance ToHeader ResourceType
+pattern RTDiskSnapshot :: ResourceType
+pattern RTDiskSnapshot = ResourceType' "DiskSnapshot"
 
-instance FromJSON ResourceType where
-  parseJSON = parseJSONText "ResourceType"
+pattern RTDistribution :: ResourceType
+pattern RTDistribution = ResourceType' "Distribution"
+
+pattern RTDomain :: ResourceType
+pattern RTDomain = ResourceType' "Domain"
+
+pattern RTExportSnapshotRecord :: ResourceType
+pattern RTExportSnapshotRecord = ResourceType' "ExportSnapshotRecord"
+
+pattern RTInstance :: ResourceType
+pattern RTInstance = ResourceType' "Instance"
+
+pattern RTInstanceSnapshot :: ResourceType
+pattern RTInstanceSnapshot = ResourceType' "InstanceSnapshot"
+
+pattern RTKeyPair :: ResourceType
+pattern RTKeyPair = ResourceType' "KeyPair"
+
+pattern RTLoadBalancer :: ResourceType
+pattern RTLoadBalancer = ResourceType' "LoadBalancer"
+
+pattern RTLoadBalancerTLSCertificate :: ResourceType
+pattern RTLoadBalancerTLSCertificate = ResourceType' "LoadBalancerTlsCertificate"
+
+pattern RTPeeredVPC :: ResourceType
+pattern RTPeeredVPC = ResourceType' "PeeredVpc"
+
+pattern RTRelationalDatabase :: ResourceType
+pattern RTRelationalDatabase = ResourceType' "RelationalDatabase"
+
+pattern RTRelationalDatabaseSnapshot :: ResourceType
+pattern RTRelationalDatabaseSnapshot = ResourceType' "RelationalDatabaseSnapshot"
+
+pattern RTStaticIP :: ResourceType
+pattern RTStaticIP = ResourceType' "StaticIp"
+
+{-# COMPLETE
+  RTAlarm,
+  RTCertificate,
+  RTCloudFormationStackRecord,
+  RTContactMethod,
+  RTContainerService,
+  RTDisk,
+  RTDiskSnapshot,
+  RTDistribution,
+  RTDomain,
+  RTExportSnapshotRecord,
+  RTInstance,
+  RTInstanceSnapshot,
+  RTKeyPair,
+  RTLoadBalancer,
+  RTLoadBalancerTLSCertificate,
+  RTPeeredVPC,
+  RTRelationalDatabase,
+  RTRelationalDatabaseSnapshot,
+  RTStaticIP,
+  ResourceType'
+  #-}

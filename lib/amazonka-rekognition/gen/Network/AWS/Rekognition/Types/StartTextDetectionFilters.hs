@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.StartTextDetectionFilters where
+module Network.AWS.Rekognition.Types.StartTextDetectionFilters
+  ( StartTextDetectionFilters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStartTextDetectionFilters,
+
+    -- * Lenses
+    stdfRegionsOfInterest,
+    stdfWordFilter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.DetectionFilter
 import Network.AWS.Rekognition.Types.RegionOfInterest
 
 -- | Set of optional parameters that let you set the criteria text must meet to be included in your response. @WordFilter@ looks at a word's height, width and minimum confidence. @RegionOfInterest@ lets you set a specific region of the screen to look for text in.
 --
---
---
--- /See:/ 'startTextDetectionFilters' smart constructor.
+-- /See:/ 'mkStartTextDetectionFilters' smart constructor.
 data StartTextDetectionFilters = StartTextDetectionFilters'
-  { _stdfRegionsOfInterest ::
-      !(Maybe [RegionOfInterest]),
-    _stdfWordFilter ::
-      !(Maybe DetectionFilter)
+  { regionsOfInterest ::
+      Lude.Maybe [RegionOfInterest],
+    wordFilter ::
+      Lude.Maybe DetectionFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTextDetectionFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdfRegionsOfInterest' - Filter focusing on a certain area of the frame. Uses a @BoundingBox@ object to set the region of the screen.
---
--- * 'stdfWordFilter' - Filters focusing on qualities of the text, such as confidence or size.
-startTextDetectionFilters ::
+-- * 'regionsOfInterest' - Filter focusing on a certain area of the frame. Uses a @BoundingBox@ object to set the region of the screen.
+-- * 'wordFilter' - Filters focusing on qualities of the text, such as confidence or size.
+mkStartTextDetectionFilters ::
   StartTextDetectionFilters
-startTextDetectionFilters =
+mkStartTextDetectionFilters =
   StartTextDetectionFilters'
-    { _stdfRegionsOfInterest = Nothing,
-      _stdfWordFilter = Nothing
+    { regionsOfInterest = Lude.Nothing,
+      wordFilter = Lude.Nothing
     }
 
 -- | Filter focusing on a certain area of the frame. Uses a @BoundingBox@ object to set the region of the screen.
-stdfRegionsOfInterest :: Lens' StartTextDetectionFilters [RegionOfInterest]
-stdfRegionsOfInterest = lens _stdfRegionsOfInterest (\s a -> s {_stdfRegionsOfInterest = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regionsOfInterest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdfRegionsOfInterest :: Lens.Lens' StartTextDetectionFilters (Lude.Maybe [RegionOfInterest])
+stdfRegionsOfInterest = Lens.lens (regionsOfInterest :: StartTextDetectionFilters -> Lude.Maybe [RegionOfInterest]) (\s a -> s {regionsOfInterest = a} :: StartTextDetectionFilters)
+{-# DEPRECATED stdfRegionsOfInterest "Use generic-lens or generic-optics with 'regionsOfInterest' instead." #-}
 
 -- | Filters focusing on qualities of the text, such as confidence or size.
-stdfWordFilter :: Lens' StartTextDetectionFilters (Maybe DetectionFilter)
-stdfWordFilter = lens _stdfWordFilter (\s a -> s {_stdfWordFilter = a})
+--
+-- /Note:/ Consider using 'wordFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdfWordFilter :: Lens.Lens' StartTextDetectionFilters (Lude.Maybe DetectionFilter)
+stdfWordFilter = Lens.lens (wordFilter :: StartTextDetectionFilters -> Lude.Maybe DetectionFilter) (\s a -> s {wordFilter = a} :: StartTextDetectionFilters)
+{-# DEPRECATED stdfWordFilter "Use generic-lens or generic-optics with 'wordFilter' instead." #-}
 
-instance Hashable StartTextDetectionFilters
-
-instance NFData StartTextDetectionFilters
-
-instance ToJSON StartTextDetectionFilters where
+instance Lude.ToJSON StartTextDetectionFilters where
   toJSON StartTextDetectionFilters' {..} =
-    object
-      ( catMaybes
-          [ ("RegionsOfInterest" .=) <$> _stdfRegionsOfInterest,
-            ("WordFilter" .=) <$> _stdfWordFilter
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RegionsOfInterest" Lude..=) Lude.<$> regionsOfInterest,
+            ("WordFilter" Lude..=) Lude.<$> wordFilter
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventScopeCode where
+module Network.AWS.AWSHealth.Types.EventScopeCode
+  ( EventScopeCode
+      ( EventScopeCode',
+        AccountSpecific,
+        None,
+        Public
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventScopeCode
-  = AccountSpecific
-  | None
-  | Public
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventScopeCode = EventScopeCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventScopeCode where
-  parser =
-    takeLowerText >>= \case
-      "account_specific" -> pure AccountSpecific
-      "none" -> pure None
-      "public" -> pure Public
-      e ->
-        fromTextError $
-          "Failure parsing EventScopeCode from value: '" <> e
-            <> "'. Accepted values: account_specific, none, public"
+pattern AccountSpecific :: EventScopeCode
+pattern AccountSpecific = EventScopeCode' "ACCOUNT_SPECIFIC"
 
-instance ToText EventScopeCode where
-  toText = \case
-    AccountSpecific -> "ACCOUNT_SPECIFIC"
-    None -> "NONE"
-    Public -> "PUBLIC"
+pattern None :: EventScopeCode
+pattern None = EventScopeCode' "NONE"
 
-instance Hashable EventScopeCode
+pattern Public :: EventScopeCode
+pattern Public = EventScopeCode' "PUBLIC"
 
-instance NFData EventScopeCode
-
-instance ToByteString EventScopeCode
-
-instance ToQuery EventScopeCode
-
-instance ToHeader EventScopeCode
-
-instance FromJSON EventScopeCode where
-  parseJSON = parseJSONText "EventScopeCode"
+{-# COMPLETE
+  AccountSpecific,
+  None,
+  Public,
+  EventScopeCode'
+  #-}

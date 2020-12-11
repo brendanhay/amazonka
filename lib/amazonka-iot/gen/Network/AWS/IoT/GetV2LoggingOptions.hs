@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Gets the fine grained logging options.
 module Network.AWS.IoT.GetV2LoggingOptions
-  ( -- * Creating a Request
-    getV2LoggingOptions,
-    GetV2LoggingOptions,
+  ( -- * Creating a request
+    GetV2LoggingOptions (..),
+    mkGetV2LoggingOptions,
 
-    -- * Destructuring the Response
-    getV2LoggingOptionsResponse,
-    GetV2LoggingOptionsResponse,
+    -- * Destructuring the response
+    GetV2LoggingOptionsResponse (..),
+    mkGetV2LoggingOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gvlorsDisableAllLogs,
     gvlorsDefaultLogLevel,
     gvlorsRoleARN,
@@ -36,94 +31,109 @@ module Network.AWS.IoT.GetV2LoggingOptions
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getV2LoggingOptions' smart constructor.
+-- | /See:/ 'mkGetV2LoggingOptions' smart constructor.
 data GetV2LoggingOptions = GetV2LoggingOptions'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetV2LoggingOptions' with the minimum fields required to make a request.
-getV2LoggingOptions ::
+mkGetV2LoggingOptions ::
   GetV2LoggingOptions
-getV2LoggingOptions = GetV2LoggingOptions'
+mkGetV2LoggingOptions = GetV2LoggingOptions'
 
-instance AWSRequest GetV2LoggingOptions where
+instance Lude.AWSRequest GetV2LoggingOptions where
   type Rs GetV2LoggingOptions = GetV2LoggingOptionsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetV2LoggingOptionsResponse'
-            <$> (x .?> "disableAllLogs")
-            <*> (x .?> "defaultLogLevel")
-            <*> (x .?> "roleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "disableAllLogs")
+            Lude.<*> (x Lude..?> "defaultLogLevel")
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetV2LoggingOptions
+instance Lude.ToHeaders GetV2LoggingOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetV2LoggingOptions
+instance Lude.ToPath GetV2LoggingOptions where
+  toPath = Lude.const "/v2LoggingOptions"
 
-instance ToHeaders GetV2LoggingOptions where
-  toHeaders = const mempty
+instance Lude.ToQuery GetV2LoggingOptions where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath GetV2LoggingOptions where
-  toPath = const "/v2LoggingOptions"
-
-instance ToQuery GetV2LoggingOptions where
-  toQuery = const mempty
-
--- | /See:/ 'getV2LoggingOptionsResponse' smart constructor.
+-- | /See:/ 'mkGetV2LoggingOptionsResponse' smart constructor.
 data GetV2LoggingOptionsResponse = GetV2LoggingOptionsResponse'
-  { _gvlorsDisableAllLogs ::
-      !(Maybe Bool),
-    _gvlorsDefaultLogLevel ::
-      !(Maybe LogLevel),
-    _gvlorsRoleARN :: !(Maybe Text),
-    _gvlorsResponseStatus :: !Int
+  { disableAllLogs ::
+      Lude.Maybe Lude.Bool,
+    defaultLogLevel ::
+      Lude.Maybe LogLevel,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetV2LoggingOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gvlorsDisableAllLogs' - Disables all logs.
---
--- * 'gvlorsDefaultLogLevel' - The default log level.
---
--- * 'gvlorsRoleARN' - The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
---
--- * 'gvlorsResponseStatus' - -- | The response status code.
-getV2LoggingOptionsResponse ::
-  -- | 'gvlorsResponseStatus'
-  Int ->
+-- * 'defaultLogLevel' - The default log level.
+-- * 'disableAllLogs' - Disables all logs.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
+mkGetV2LoggingOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetV2LoggingOptionsResponse
-getV2LoggingOptionsResponse pResponseStatus_ =
+mkGetV2LoggingOptionsResponse pResponseStatus_ =
   GetV2LoggingOptionsResponse'
-    { _gvlorsDisableAllLogs = Nothing,
-      _gvlorsDefaultLogLevel = Nothing,
-      _gvlorsRoleARN = Nothing,
-      _gvlorsResponseStatus = pResponseStatus_
+    { disableAllLogs = Lude.Nothing,
+      defaultLogLevel = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Disables all logs.
-gvlorsDisableAllLogs :: Lens' GetV2LoggingOptionsResponse (Maybe Bool)
-gvlorsDisableAllLogs = lens _gvlorsDisableAllLogs (\s a -> s {_gvlorsDisableAllLogs = a})
+--
+-- /Note:/ Consider using 'disableAllLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlorsDisableAllLogs :: Lens.Lens' GetV2LoggingOptionsResponse (Lude.Maybe Lude.Bool)
+gvlorsDisableAllLogs = Lens.lens (disableAllLogs :: GetV2LoggingOptionsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {disableAllLogs = a} :: GetV2LoggingOptionsResponse)
+{-# DEPRECATED gvlorsDisableAllLogs "Use generic-lens or generic-optics with 'disableAllLogs' instead." #-}
 
 -- | The default log level.
-gvlorsDefaultLogLevel :: Lens' GetV2LoggingOptionsResponse (Maybe LogLevel)
-gvlorsDefaultLogLevel = lens _gvlorsDefaultLogLevel (\s a -> s {_gvlorsDefaultLogLevel = a})
+--
+-- /Note:/ Consider using 'defaultLogLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlorsDefaultLogLevel :: Lens.Lens' GetV2LoggingOptionsResponse (Lude.Maybe LogLevel)
+gvlorsDefaultLogLevel = Lens.lens (defaultLogLevel :: GetV2LoggingOptionsResponse -> Lude.Maybe LogLevel) (\s a -> s {defaultLogLevel = a} :: GetV2LoggingOptionsResponse)
+{-# DEPRECATED gvlorsDefaultLogLevel "Use generic-lens or generic-optics with 'defaultLogLevel' instead." #-}
 
 -- | The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
-gvlorsRoleARN :: Lens' GetV2LoggingOptionsResponse (Maybe Text)
-gvlorsRoleARN = lens _gvlorsRoleARN (\s a -> s {_gvlorsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlorsRoleARN :: Lens.Lens' GetV2LoggingOptionsResponse (Lude.Maybe Lude.Text)
+gvlorsRoleARN = Lens.lens (roleARN :: GetV2LoggingOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: GetV2LoggingOptionsResponse)
+{-# DEPRECATED gvlorsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-gvlorsResponseStatus :: Lens' GetV2LoggingOptionsResponse Int
-gvlorsResponseStatus = lens _gvlorsResponseStatus (\s a -> s {_gvlorsResponseStatus = a})
-
-instance NFData GetV2LoggingOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlorsResponseStatus :: Lens.Lens' GetV2LoggingOptionsResponse Lude.Int
+gvlorsResponseStatus = Lens.lens (responseStatus :: GetV2LoggingOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetV2LoggingOptionsResponse)
+{-# DEPRECATED gvlorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

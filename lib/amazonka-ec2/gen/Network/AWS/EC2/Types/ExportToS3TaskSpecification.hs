@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ExportToS3TaskSpecification where
+module Network.AWS.EC2.Types.ExportToS3TaskSpecification
+  ( ExportToS3TaskSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkExportToS3TaskSpecification,
+
+    -- * Lenses
+    etstsContainerFormat,
+    etstsS3Prefix,
+    etstsS3Bucket,
+    etstsDiskImageFormat,
+  )
+where
+
 import Network.AWS.EC2.Types.ContainerFormat
 import Network.AWS.EC2.Types.DiskImageFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an instance export task.
 --
---
---
--- /See:/ 'exportToS3TaskSpecification' smart constructor.
+-- /See:/ 'mkExportToS3TaskSpecification' smart constructor.
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
-  { _etstsContainerFormat ::
-      !(Maybe ContainerFormat),
-    _etstsS3Prefix :: !(Maybe Text),
-    _etstsS3Bucket :: !(Maybe Text),
-    _etstsDiskImageFormat ::
-      !(Maybe DiskImageFormat)
+  { containerFormat ::
+      Lude.Maybe ContainerFormat,
+    s3Prefix :: Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text,
+    diskImageFormat ::
+      Lude.Maybe DiskImageFormat
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportToS3TaskSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etstsContainerFormat' - The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
---
--- * 'etstsS3Prefix' - The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
---
--- * 'etstsS3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
---
--- * 'etstsDiskImageFormat' - The format for the exported image.
-exportToS3TaskSpecification ::
+-- * 'containerFormat' - The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
+-- * 'diskImageFormat' - The format for the exported image.
+-- * 's3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
+-- * 's3Prefix' - The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
+mkExportToS3TaskSpecification ::
   ExportToS3TaskSpecification
-exportToS3TaskSpecification =
+mkExportToS3TaskSpecification =
   ExportToS3TaskSpecification'
-    { _etstsContainerFormat = Nothing,
-      _etstsS3Prefix = Nothing,
-      _etstsS3Bucket = Nothing,
-      _etstsDiskImageFormat = Nothing
+    { containerFormat = Lude.Nothing,
+      s3Prefix = Lude.Nothing,
+      s3Bucket = Lude.Nothing,
+      diskImageFormat = Lude.Nothing
     }
 
 -- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
-etstsContainerFormat :: Lens' ExportToS3TaskSpecification (Maybe ContainerFormat)
-etstsContainerFormat = lens _etstsContainerFormat (\s a -> s {_etstsContainerFormat = a})
+--
+-- /Note:/ Consider using 'containerFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsContainerFormat :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe ContainerFormat)
+etstsContainerFormat = Lens.lens (containerFormat :: ExportToS3TaskSpecification -> Lude.Maybe ContainerFormat) (\s a -> s {containerFormat = a} :: ExportToS3TaskSpecification)
+{-# DEPRECATED etstsContainerFormat "Use generic-lens or generic-optics with 'containerFormat' instead." #-}
 
 -- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
-etstsS3Prefix :: Lens' ExportToS3TaskSpecification (Maybe Text)
-etstsS3Prefix = lens _etstsS3Prefix (\s a -> s {_etstsS3Prefix = a})
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsS3Prefix :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe Lude.Text)
+etstsS3Prefix = Lens.lens (s3Prefix :: ExportToS3TaskSpecification -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportToS3TaskSpecification)
+{-# DEPRECATED etstsS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
-etstsS3Bucket :: Lens' ExportToS3TaskSpecification (Maybe Text)
-etstsS3Bucket = lens _etstsS3Bucket (\s a -> s {_etstsS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsS3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe Lude.Text)
+etstsS3Bucket = Lens.lens (s3Bucket :: ExportToS3TaskSpecification -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: ExportToS3TaskSpecification)
+{-# DEPRECATED etstsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | The format for the exported image.
-etstsDiskImageFormat :: Lens' ExportToS3TaskSpecification (Maybe DiskImageFormat)
-etstsDiskImageFormat = lens _etstsDiskImageFormat (\s a -> s {_etstsDiskImageFormat = a})
+--
+-- /Note:/ Consider using 'diskImageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsDiskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe DiskImageFormat)
+etstsDiskImageFormat = Lens.lens (diskImageFormat :: ExportToS3TaskSpecification -> Lude.Maybe DiskImageFormat) (\s a -> s {diskImageFormat = a} :: ExportToS3TaskSpecification)
+{-# DEPRECATED etstsDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
 
-instance Hashable ExportToS3TaskSpecification
-
-instance NFData ExportToS3TaskSpecification
-
-instance ToQuery ExportToS3TaskSpecification where
+instance Lude.ToQuery ExportToS3TaskSpecification where
   toQuery ExportToS3TaskSpecification' {..} =
-    mconcat
-      [ "ContainerFormat" =: _etstsContainerFormat,
-        "S3Prefix" =: _etstsS3Prefix,
-        "S3Bucket" =: _etstsS3Bucket,
-        "DiskImageFormat" =: _etstsDiskImageFormat
+    Lude.mconcat
+      [ "ContainerFormat" Lude.=: containerFormat,
+        "S3Prefix" Lude.=: s3Prefix,
+        "S3Bucket" Lude.=: s3Bucket,
+        "DiskImageFormat" Lude.=: diskImageFormat
       ]

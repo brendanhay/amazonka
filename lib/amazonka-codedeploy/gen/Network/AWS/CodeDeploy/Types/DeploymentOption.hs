@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentOption where
+module Network.AWS.CodeDeploy.Types.DeploymentOption
+  ( DeploymentOption
+      ( DeploymentOption',
+        WithTrafficControl,
+        WithoutTrafficControl
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentOption
-  = WithTrafficControl
-  | WithoutTrafficControl
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentOption = DeploymentOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentOption where
-  parser =
-    takeLowerText >>= \case
-      "with_traffic_control" -> pure WithTrafficControl
-      "without_traffic_control" -> pure WithoutTrafficControl
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentOption from value: '" <> e
-            <> "'. Accepted values: with_traffic_control, without_traffic_control"
+pattern WithTrafficControl :: DeploymentOption
+pattern WithTrafficControl = DeploymentOption' "WITH_TRAFFIC_CONTROL"
 
-instance ToText DeploymentOption where
-  toText = \case
-    WithTrafficControl -> "WITH_TRAFFIC_CONTROL"
-    WithoutTrafficControl -> "WITHOUT_TRAFFIC_CONTROL"
+pattern WithoutTrafficControl :: DeploymentOption
+pattern WithoutTrafficControl = DeploymentOption' "WITHOUT_TRAFFIC_CONTROL"
 
-instance Hashable DeploymentOption
-
-instance NFData DeploymentOption
-
-instance ToByteString DeploymentOption
-
-instance ToQuery DeploymentOption
-
-instance ToHeader DeploymentOption
-
-instance ToJSON DeploymentOption where
-  toJSON = toJSONText
-
-instance FromJSON DeploymentOption where
-  parseJSON = parseJSONText "DeploymentOption"
+{-# COMPLETE
+  WithTrafficControl,
+  WithoutTrafficControl,
+  DeploymentOption'
+  #-}

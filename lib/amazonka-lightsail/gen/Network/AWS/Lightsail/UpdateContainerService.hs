@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,207 @@
 --
 -- Updates the configuration of your Amazon Lightsail container service, such as its power, scale, and public domain names.
 module Network.AWS.Lightsail.UpdateContainerService
-  ( -- * Creating a Request
-    updateContainerService,
-    UpdateContainerService,
+  ( -- * Creating a request
+    UpdateContainerService (..),
+    mkUpdateContainerService,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucsScale,
     ucsPower,
     ucsIsDisabled,
     ucsPublicDomainNames,
     ucsServiceName,
 
-    -- * Destructuring the Response
-    updateContainerServiceResponse,
-    UpdateContainerServiceResponse,
+    -- * Destructuring the response
+    UpdateContainerServiceResponse (..),
+    mkUpdateContainerServiceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucsrsContainerService,
     ucsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateContainerService' smart constructor.
+-- | /See:/ 'mkUpdateContainerService' smart constructor.
 data UpdateContainerService = UpdateContainerService'
-  { _ucsScale ::
-      !(Maybe Nat),
-    _ucsPower ::
-      !(Maybe ContainerServicePowerName),
-    _ucsIsDisabled :: !(Maybe Bool),
-    _ucsPublicDomainNames ::
-      !(Maybe (Map Text ([Text]))),
-    _ucsServiceName :: !Text
+  { scale ::
+      Lude.Maybe Lude.Natural,
+    power :: Lude.Maybe ContainerServicePowerName,
+    isDisabled :: Lude.Maybe Lude.Bool,
+    publicDomainNames ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text ([Lude.Text])),
+    serviceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'isDisabled' - A Boolean value to indicate whether the container service is disabled.
+-- * 'power' - The power for the container service.
 --
--- * 'ucsScale' - The scale for the container service. The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+-- The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+-- Use the @GetContainerServicePowers@ action to view the specifications of each power option.
+-- * 'publicDomainNames' - The public domain names to use with the container service, such as @example.com@ and @www.example.com@ .
 --
--- * 'ucsPower' - The power for the container service. The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service. Use the @GetContainerServicePowers@ action to view the specifications of each power option.
+-- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+-- If you don't specify public domain names, then you can use the default domain of the container service.
+-- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+-- You can specify public domain names using a string to array map as shown in the example later on this page.
+-- * 'scale' - The scale for the container service.
 --
--- * 'ucsIsDisabled' - A Boolean value to indicate whether the container service is disabled.
---
--- * 'ucsPublicDomainNames' - The public domain names to use with the container service, such as @example.com@ and @www.example.com@ . You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service. You can specify public domain names using a string to array map as shown in the example later on this page.
---
--- * 'ucsServiceName' - The name of the container service to update.
-updateContainerService ::
-  -- | 'ucsServiceName'
-  Text ->
+-- The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+-- * 'serviceName' - The name of the container service to update.
+mkUpdateContainerService ::
+  -- | 'serviceName'
+  Lude.Text ->
   UpdateContainerService
-updateContainerService pServiceName_ =
+mkUpdateContainerService pServiceName_ =
   UpdateContainerService'
-    { _ucsScale = Nothing,
-      _ucsPower = Nothing,
-      _ucsIsDisabled = Nothing,
-      _ucsPublicDomainNames = Nothing,
-      _ucsServiceName = pServiceName_
+    { scale = Lude.Nothing,
+      power = Lude.Nothing,
+      isDisabled = Lude.Nothing,
+      publicDomainNames = Lude.Nothing,
+      serviceName = pServiceName_
     }
 
--- | The scale for the container service. The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
-ucsScale :: Lens' UpdateContainerService (Maybe Natural)
-ucsScale = lens _ucsScale (\s a -> s {_ucsScale = a}) . mapping _Nat
+-- | The scale for the container service.
+--
+-- The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+--
+-- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsScale :: Lens.Lens' UpdateContainerService (Lude.Maybe Lude.Natural)
+ucsScale = Lens.lens (scale :: UpdateContainerService -> Lude.Maybe Lude.Natural) (\s a -> s {scale = a} :: UpdateContainerService)
+{-# DEPRECATED ucsScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
--- | The power for the container service. The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service. Use the @GetContainerServicePowers@ action to view the specifications of each power option.
-ucsPower :: Lens' UpdateContainerService (Maybe ContainerServicePowerName)
-ucsPower = lens _ucsPower (\s a -> s {_ucsPower = a})
+-- | The power for the container service.
+--
+-- The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+-- Use the @GetContainerServicePowers@ action to view the specifications of each power option.
+--
+-- /Note:/ Consider using 'power' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsPower :: Lens.Lens' UpdateContainerService (Lude.Maybe ContainerServicePowerName)
+ucsPower = Lens.lens (power :: UpdateContainerService -> Lude.Maybe ContainerServicePowerName) (\s a -> s {power = a} :: UpdateContainerService)
+{-# DEPRECATED ucsPower "Use generic-lens or generic-optics with 'power' instead." #-}
 
 -- | A Boolean value to indicate whether the container service is disabled.
-ucsIsDisabled :: Lens' UpdateContainerService (Maybe Bool)
-ucsIsDisabled = lens _ucsIsDisabled (\s a -> s {_ucsIsDisabled = a})
+--
+-- /Note:/ Consider using 'isDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsIsDisabled :: Lens.Lens' UpdateContainerService (Lude.Maybe Lude.Bool)
+ucsIsDisabled = Lens.lens (isDisabled :: UpdateContainerService -> Lude.Maybe Lude.Bool) (\s a -> s {isDisabled = a} :: UpdateContainerService)
+{-# DEPRECATED ucsIsDisabled "Use generic-lens or generic-optics with 'isDisabled' instead." #-}
 
--- | The public domain names to use with the container service, such as @example.com@ and @www.example.com@ . You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service. You can specify public domain names using a string to array map as shown in the example later on this page.
-ucsPublicDomainNames :: Lens' UpdateContainerService (HashMap Text ([Text]))
-ucsPublicDomainNames = lens _ucsPublicDomainNames (\s a -> s {_ucsPublicDomainNames = a}) . _Default . _Map
+-- | The public domain names to use with the container service, such as @example.com@ and @www.example.com@ .
+--
+-- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+-- If you don't specify public domain names, then you can use the default domain of the container service.
+-- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+-- You can specify public domain names using a string to array map as shown in the example later on this page.
+--
+-- /Note:/ Consider using 'publicDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsPublicDomainNames :: Lens.Lens' UpdateContainerService (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+ucsPublicDomainNames = Lens.lens (publicDomainNames :: UpdateContainerService -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {publicDomainNames = a} :: UpdateContainerService)
+{-# DEPRECATED ucsPublicDomainNames "Use generic-lens or generic-optics with 'publicDomainNames' instead." #-}
 
 -- | The name of the container service to update.
-ucsServiceName :: Lens' UpdateContainerService Text
-ucsServiceName = lens _ucsServiceName (\s a -> s {_ucsServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsServiceName :: Lens.Lens' UpdateContainerService Lude.Text
+ucsServiceName = Lens.lens (serviceName :: UpdateContainerService -> Lude.Text) (\s a -> s {serviceName = a} :: UpdateContainerService)
+{-# DEPRECATED ucsServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance AWSRequest UpdateContainerService where
+instance Lude.AWSRequest UpdateContainerService where
   type Rs UpdateContainerService = UpdateContainerServiceResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateContainerServiceResponse'
-            <$> (x .?> "containerService") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "containerService")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateContainerService
-
-instance NFData UpdateContainerService
-
-instance ToHeaders UpdateContainerService where
+instance Lude.ToHeaders UpdateContainerService where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.UpdateContainerService" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.UpdateContainerService" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateContainerService where
+instance Lude.ToJSON UpdateContainerService where
   toJSON UpdateContainerService' {..} =
-    object
-      ( catMaybes
-          [ ("scale" .=) <$> _ucsScale,
-            ("power" .=) <$> _ucsPower,
-            ("isDisabled" .=) <$> _ucsIsDisabled,
-            ("publicDomainNames" .=) <$> _ucsPublicDomainNames,
-            Just ("serviceName" .= _ucsServiceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("scale" Lude..=) Lude.<$> scale,
+            ("power" Lude..=) Lude.<$> power,
+            ("isDisabled" Lude..=) Lude.<$> isDisabled,
+            ("publicDomainNames" Lude..=) Lude.<$> publicDomainNames,
+            Lude.Just ("serviceName" Lude..= serviceName)
           ]
       )
 
-instance ToPath UpdateContainerService where
-  toPath = const "/"
+instance Lude.ToPath UpdateContainerService where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateContainerService where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateContainerService where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateContainerServiceResponse' smart constructor.
+-- | /See:/ 'mkUpdateContainerServiceResponse' smart constructor.
 data UpdateContainerServiceResponse = UpdateContainerServiceResponse'
-  { _ucsrsContainerService ::
-      !(Maybe ContainerService),
-    _ucsrsResponseStatus :: !Int
+  { containerService ::
+      Lude.Maybe ContainerService,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerServiceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsrsContainerService' - An object that describes a container service.
---
--- * 'ucsrsResponseStatus' - -- | The response status code.
-updateContainerServiceResponse ::
-  -- | 'ucsrsResponseStatus'
-  Int ->
+-- * 'containerService' - An object that describes a container service.
+-- * 'responseStatus' - The response status code.
+mkUpdateContainerServiceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateContainerServiceResponse
-updateContainerServiceResponse pResponseStatus_ =
+mkUpdateContainerServiceResponse pResponseStatus_ =
   UpdateContainerServiceResponse'
-    { _ucsrsContainerService = Nothing,
-      _ucsrsResponseStatus = pResponseStatus_
+    { containerService = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes a container service.
-ucsrsContainerService :: Lens' UpdateContainerServiceResponse (Maybe ContainerService)
-ucsrsContainerService = lens _ucsrsContainerService (\s a -> s {_ucsrsContainerService = a})
+--
+-- /Note:/ Consider using 'containerService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsrsContainerService :: Lens.Lens' UpdateContainerServiceResponse (Lude.Maybe ContainerService)
+ucsrsContainerService = Lens.lens (containerService :: UpdateContainerServiceResponse -> Lude.Maybe ContainerService) (\s a -> s {containerService = a} :: UpdateContainerServiceResponse)
+{-# DEPRECATED ucsrsContainerService "Use generic-lens or generic-optics with 'containerService' instead." #-}
 
--- | -- | The response status code.
-ucsrsResponseStatus :: Lens' UpdateContainerServiceResponse Int
-ucsrsResponseStatus = lens _ucsrsResponseStatus (\s a -> s {_ucsrsResponseStatus = a})
-
-instance NFData UpdateContainerServiceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsrsResponseStatus :: Lens.Lens' UpdateContainerServiceResponse Lude.Int
+ucsrsResponseStatus = Lens.lens (responseStatus :: UpdateContainerServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContainerServiceResponse)
+{-# DEPRECATED ucsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

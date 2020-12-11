@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.Datum where
+module Network.AWS.Athena.Types.Datum
+  ( Datum (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDatum,
+
+    -- * Lenses
+    dVarCharValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A piece of data (a field in the table).
 --
---
---
--- /See:/ 'datum' smart constructor.
-newtype Datum = Datum' {_dVarCharValue :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDatum' smart constructor.
+newtype Datum = Datum' {varCharValue :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Datum' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dVarCharValue' - The value of the datum.
-datum ::
+-- * 'varCharValue' - The value of the datum.
+mkDatum ::
   Datum
-datum = Datum' {_dVarCharValue = Nothing}
+mkDatum = Datum' {varCharValue = Lude.Nothing}
 
 -- | The value of the datum.
-dVarCharValue :: Lens' Datum (Maybe Text)
-dVarCharValue = lens _dVarCharValue (\s a -> s {_dVarCharValue = a})
+--
+-- /Note:/ Consider using 'varCharValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVarCharValue :: Lens.Lens' Datum (Lude.Maybe Lude.Text)
+dVarCharValue = Lens.lens (varCharValue :: Datum -> Lude.Maybe Lude.Text) (\s a -> s {varCharValue = a} :: Datum)
+{-# DEPRECATED dVarCharValue "Use generic-lens or generic-optics with 'varCharValue' instead." #-}
 
-instance FromJSON Datum where
+instance Lude.FromJSON Datum where
   parseJSON =
-    withObject "Datum" (\x -> Datum' <$> (x .:? "VarCharValue"))
-
-instance Hashable Datum
-
-instance NFData Datum
+    Lude.withObject
+      "Datum"
+      (\x -> Datum' Lude.<$> (x Lude..:? "VarCharValue"))

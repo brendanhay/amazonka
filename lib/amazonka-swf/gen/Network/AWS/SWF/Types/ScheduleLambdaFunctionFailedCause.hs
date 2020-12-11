@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause where
+module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
+  ( ScheduleLambdaFunctionFailedCause
+      ( ScheduleLambdaFunctionFailedCause',
+        IdAlreadyInUse,
+        LambdaFunctionCreationRateExceeded,
+        LambdaServiceNotAvailableInRegion,
+        OpenLambdaFunctionsLimitExceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScheduleLambdaFunctionFailedCause
-  = IdAlreadyInUse
-  | LambdaFunctionCreationRateExceeded
-  | LambdaServiceNotAvailableInRegion
-  | OpenLambdaFunctionsLimitExceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScheduleLambdaFunctionFailedCause = ScheduleLambdaFunctionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScheduleLambdaFunctionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "id_already_in_use" -> pure IdAlreadyInUse
-      "lambda_function_creation_rate_exceeded" -> pure LambdaFunctionCreationRateExceeded
-      "lambda_service_not_available_in_region" -> pure LambdaServiceNotAvailableInRegion
-      "open_lambda_functions_limit_exceeded" -> pure OpenLambdaFunctionsLimitExceeded
-      e ->
-        fromTextError $
-          "Failure parsing ScheduleLambdaFunctionFailedCause from value: '" <> e
-            <> "'. Accepted values: id_already_in_use, lambda_function_creation_rate_exceeded, lambda_service_not_available_in_region, open_lambda_functions_limit_exceeded"
+pattern IdAlreadyInUse :: ScheduleLambdaFunctionFailedCause
+pattern IdAlreadyInUse = ScheduleLambdaFunctionFailedCause' "ID_ALREADY_IN_USE"
 
-instance ToText ScheduleLambdaFunctionFailedCause where
-  toText = \case
-    IdAlreadyInUse -> "ID_ALREADY_IN_USE"
-    LambdaFunctionCreationRateExceeded -> "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
-    LambdaServiceNotAvailableInRegion -> "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
-    OpenLambdaFunctionsLimitExceeded -> "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+pattern LambdaFunctionCreationRateExceeded :: ScheduleLambdaFunctionFailedCause
+pattern LambdaFunctionCreationRateExceeded = ScheduleLambdaFunctionFailedCause' "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
 
-instance Hashable ScheduleLambdaFunctionFailedCause
+pattern LambdaServiceNotAvailableInRegion :: ScheduleLambdaFunctionFailedCause
+pattern LambdaServiceNotAvailableInRegion = ScheduleLambdaFunctionFailedCause' "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
 
-instance NFData ScheduleLambdaFunctionFailedCause
+pattern OpenLambdaFunctionsLimitExceeded :: ScheduleLambdaFunctionFailedCause
+pattern OpenLambdaFunctionsLimitExceeded = ScheduleLambdaFunctionFailedCause' "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
 
-instance ToByteString ScheduleLambdaFunctionFailedCause
-
-instance ToQuery ScheduleLambdaFunctionFailedCause
-
-instance ToHeader ScheduleLambdaFunctionFailedCause
-
-instance FromJSON ScheduleLambdaFunctionFailedCause where
-  parseJSON = parseJSONText "ScheduleLambdaFunctionFailedCause"
+{-# COMPLETE
+  IdAlreadyInUse,
+  LambdaFunctionCreationRateExceeded,
+  LambdaServiceNotAvailableInRegion,
+  OpenLambdaFunctionsLimitExceeded,
+  ScheduleLambdaFunctionFailedCause'
+  #-}

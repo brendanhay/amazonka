@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Describes one or more launch configurations.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
-  ( -- * Creating a Request
-    describeLaunchConfigurations,
-    DescribeLaunchConfigurations,
+  ( -- * Creating a request
+    DescribeLaunchConfigurations (..),
+    mkDescribeLaunchConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlcLaunchConfigurationNames,
     dlcNextToken,
     dlcMaxRecords,
 
-    -- * Destructuring the Response
-    describeLaunchConfigurationsResponse,
-    DescribeLaunchConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeLaunchConfigurationsResponse (..),
+    mkDescribeLaunchConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlcrsNextToken,
     dlcrsResponseStatus,
     dlcrsLaunchConfigurations,
@@ -44,137 +37,161 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLaunchConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-  { _dlcLaunchConfigurationNames ::
-      !(Maybe [Text]),
-    _dlcNextToken :: !(Maybe Text),
-    _dlcMaxRecords :: !(Maybe Int)
+  { launchConfigurationNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLaunchConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcLaunchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
---
--- * 'dlcNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dlcMaxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-describeLaunchConfigurations ::
+-- * 'launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeLaunchConfigurations ::
   DescribeLaunchConfigurations
-describeLaunchConfigurations =
+mkDescribeLaunchConfigurations =
   DescribeLaunchConfigurations'
-    { _dlcLaunchConfigurationNames =
-        Nothing,
-      _dlcNextToken = Nothing,
-      _dlcMaxRecords = Nothing
+    { launchConfigurationNames =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
-dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\s a -> s {_dlcLaunchConfigurationNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'launchConfigurationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcLaunchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe [Lude.Text])
+dlcLaunchConfigurationNames = Lens.lens (launchConfigurationNames :: DescribeLaunchConfigurations -> Lude.Maybe [Lude.Text]) (\s a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations)
+{-# DEPRECATED dlcLaunchConfigurationNames "Use generic-lens or generic-optics with 'launchConfigurationNames' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlcNextToken = lens _dlcNextToken (\s a -> s {_dlcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcNextToken :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe Lude.Text)
+dlcNextToken = Lens.lens (nextToken :: DescribeLaunchConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchConfigurations)
+{-# DEPRECATED dlcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
-dlcMaxRecords = lens _dlcMaxRecords (\s a -> s {_dlcMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcMaxRecords :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe Lude.Int)
+dlcMaxRecords = Lens.lens (maxRecords :: DescribeLaunchConfigurations -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLaunchConfigurations)
+{-# DEPRECATED dlcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeLaunchConfigurations where
+instance Page.AWSPager DescribeLaunchConfigurations where
   page rq rs
-    | stop (rs ^. dlcrsNextToken) = Nothing
-    | stop (rs ^. dlcrsLaunchConfigurations) = Nothing
-    | otherwise = Just $ rq & dlcNextToken .~ rs ^. dlcrsNextToken
+    | Page.stop (rs Lens.^. dlcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlcrsLaunchConfigurations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dlcNextToken Lens..~ rs Lens.^. dlcrsNextToken
 
-instance AWSRequest DescribeLaunchConfigurations where
+instance Lude.AWSRequest DescribeLaunchConfigurations where
   type
     Rs DescribeLaunchConfigurations =
       DescribeLaunchConfigurationsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeLaunchConfigurationsResult"
       ( \s h x ->
           DescribeLaunchConfigurationsResponse'
-            <$> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
-            <*> ( x .@? "LaunchConfigurations" .!@ mempty
-                    >>= parseXMLList "member"
-                )
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "LaunchConfigurations" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable DescribeLaunchConfigurations
+instance Lude.ToHeaders DescribeLaunchConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLaunchConfigurations
+instance Lude.ToPath DescribeLaunchConfigurations where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLaunchConfigurations where
-  toHeaders = const mempty
-
-instance ToPath DescribeLaunchConfigurations where
-  toPath = const "/"
-
-instance ToQuery DescribeLaunchConfigurations where
+instance Lude.ToQuery DescribeLaunchConfigurations where
   toQuery DescribeLaunchConfigurations' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLaunchConfigurations" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeLaunchConfigurations" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "LaunchConfigurationNames"
-          =: toQuery (toQueryList "member" <$> _dlcLaunchConfigurationNames),
-        "NextToken" =: _dlcNextToken,
-        "MaxRecords" =: _dlcMaxRecords
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> launchConfigurationNames),
+        "NextToken" Lude.=: nextToken,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-  { _dlcrsNextToken ::
-      !(Maybe Text),
-    _dlcrsResponseStatus ::
-      !Int,
-    _dlcrsLaunchConfigurations ::
-      ![LaunchConfiguration]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    launchConfigurations ::
+      [LaunchConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLaunchConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcrsNextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
---
--- * 'dlcrsResponseStatus' - -- | The response status code.
---
--- * 'dlcrsLaunchConfigurations' - The launch configurations.
-describeLaunchConfigurationsResponse ::
-  -- | 'dlcrsResponseStatus'
-  Int ->
+-- * 'launchConfigurations' - The launch configurations.
+-- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeLaunchConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pResponseStatus_ =
+mkDescribeLaunchConfigurationsResponse pResponseStatus_ =
   DescribeLaunchConfigurationsResponse'
-    { _dlcrsNextToken = Nothing,
-      _dlcrsResponseStatus = pResponseStatus_,
-      _dlcrsLaunchConfigurations = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      launchConfigurations = Lude.mempty
     }
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-dlcrsNextToken = lens _dlcrsNextToken (\s a -> s {_dlcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsNextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Lude.Maybe Lude.Text)
+dlcrsNextToken = Lens.lens (nextToken :: DescribeLaunchConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchConfigurationsResponse)
+{-# DEPRECATED dlcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dlcrsResponseStatus :: Lens' DescribeLaunchConfigurationsResponse Int
-dlcrsResponseStatus = lens _dlcrsResponseStatus (\s a -> s {_dlcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsResponseStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Lude.Int
+dlcrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchConfigurationsResponse)
+{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The launch configurations.
-dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\s a -> s {_dlcrsLaunchConfigurations = a}) . _Coerce
-
-instance NFData DescribeLaunchConfigurationsResponse
+--
+-- /Note:/ Consider using 'launchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsLaunchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrsLaunchConfigurations = Lens.lens (launchConfigurations :: DescribeLaunchConfigurationsResponse -> [LaunchConfiguration]) (\s a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse)
+{-# DEPRECATED dlcrsLaunchConfigurations "Use generic-lens or generic-optics with 'launchConfigurations' instead." #-}

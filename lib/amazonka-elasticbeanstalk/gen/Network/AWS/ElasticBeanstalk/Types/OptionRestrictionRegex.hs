@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex where
+module Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
+  ( OptionRestrictionRegex (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOptionRestrictionRegex,
+
+    -- * Lenses
+    orrPattern,
+    orrLabel,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A regular expression representing a restriction on a string configuration option value.
 --
---
---
--- /See:/ 'optionRestrictionRegex' smart constructor.
+-- /See:/ 'mkOptionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
-  { _orrPattern ::
-      !(Maybe Text),
-    _orrLabel :: !(Maybe Text)
+  { pattern' ::
+      Lude.Maybe Lude.Text,
+    label :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionRestrictionRegex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'orrPattern' - The regular expression pattern that a string configuration option value with this restriction must match.
---
--- * 'orrLabel' - A unique name representing this regular expression.
-optionRestrictionRegex ::
+-- * 'label' - A unique name representing this regular expression.
+-- * 'pattern'' - The regular expression pattern that a string configuration option value with this restriction must match.
+mkOptionRestrictionRegex ::
   OptionRestrictionRegex
-optionRestrictionRegex =
+mkOptionRestrictionRegex =
   OptionRestrictionRegex'
-    { _orrPattern = Nothing,
-      _orrLabel = Nothing
+    { pattern' = Lude.Nothing,
+      label = Lude.Nothing
     }
 
 -- | The regular expression pattern that a string configuration option value with this restriction must match.
-orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
-orrPattern = lens _orrPattern (\s a -> s {_orrPattern = a})
+--
+-- /Note:/ Consider using 'pattern'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orrPattern :: Lens.Lens' OptionRestrictionRegex (Lude.Maybe Lude.Text)
+orrPattern = Lens.lens (pattern' :: OptionRestrictionRegex -> Lude.Maybe Lude.Text) (\s a -> s {pattern' = a} :: OptionRestrictionRegex)
+{-# DEPRECATED orrPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
 
 -- | A unique name representing this regular expression.
-orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
-orrLabel = lens _orrLabel (\s a -> s {_orrLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orrLabel :: Lens.Lens' OptionRestrictionRegex (Lude.Maybe Lude.Text)
+orrLabel = Lens.lens (label :: OptionRestrictionRegex -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: OptionRestrictionRegex)
+{-# DEPRECATED orrLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance FromXML OptionRestrictionRegex where
+instance Lude.FromXML OptionRestrictionRegex where
   parseXML x =
-    OptionRestrictionRegex' <$> (x .@? "Pattern") <*> (x .@? "Label")
-
-instance Hashable OptionRestrictionRegex
-
-instance NFData OptionRestrictionRegex
+    OptionRestrictionRegex'
+      Lude.<$> (x Lude..@? "Pattern") Lude.<*> (x Lude..@? "Label")

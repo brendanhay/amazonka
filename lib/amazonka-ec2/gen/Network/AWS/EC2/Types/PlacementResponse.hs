@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PlacementResponse where
+module Network.AWS.EC2.Types.PlacementResponse
+  ( PlacementResponse (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPlacementResponse,
+
+    -- * Lenses
+    pGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the placement of an instance.
 --
---
---
--- /See:/ 'placementResponse' smart constructor.
+-- /See:/ 'mkPlacementResponse' smart constructor.
 newtype PlacementResponse = PlacementResponse'
-  { _pGroupName ::
-      Maybe Text
+  { groupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pGroupName' - The name of the placement group that the instance is in.
-placementResponse ::
+-- * 'groupName' - The name of the placement group that the instance is in.
+mkPlacementResponse ::
   PlacementResponse
-placementResponse = PlacementResponse' {_pGroupName = Nothing}
+mkPlacementResponse = PlacementResponse' {groupName = Lude.Nothing}
 
 -- | The name of the placement group that the instance is in.
-pGroupName :: Lens' PlacementResponse (Maybe Text)
-pGroupName = lens _pGroupName (\s a -> s {_pGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pGroupName :: Lens.Lens' PlacementResponse (Lude.Maybe Lude.Text)
+pGroupName = Lens.lens (groupName :: PlacementResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: PlacementResponse)
+{-# DEPRECATED pGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance FromXML PlacementResponse where
-  parseXML x = PlacementResponse' <$> (x .@? "groupName")
-
-instance Hashable PlacementResponse
-
-instance NFData PlacementResponse
+instance Lude.FromXML PlacementResponse where
+  parseXML x = PlacementResponse' Lude.<$> (x Lude..@? "groupName")

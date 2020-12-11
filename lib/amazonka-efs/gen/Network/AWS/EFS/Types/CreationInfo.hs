@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.CreationInfo where
+module Network.AWS.EFS.Types.CreationInfo
+  ( CreationInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCreationInfo,
+
+    -- * Lenses
+    ciOwnerUid,
+    ciOwnerGid,
+    ciPermissions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required if the @RootDirectory@ > @Path@ specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's @RootDirectory@ > @Path@ . If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying @CreationInfo@ , you must include values for all properties.
 --
---
 -- /Important:/ If you do not provide @CreationInfo@ and the specified @RootDirectory@ does not exist, attempts to mount the file system using the access point will fail.
 --
---
--- /See:/ 'creationInfo' smart constructor.
+-- /See:/ 'mkCreationInfo' smart constructor.
 data CreationInfo = CreationInfo'
-  { _ciOwnerUid :: !Nat,
-    _ciOwnerGid :: !Nat,
-    _ciPermissions :: !Text
+  { ownerUid :: Lude.Natural,
+    ownerGid :: Lude.Natural,
+    permissions :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreationInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciOwnerUid' - Specifies the POSIX user ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
---
--- * 'ciOwnerGid' - Specifies the POSIX group ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
---
--- * 'ciPermissions' - Specifies the POSIX permissions to apply to the @RootDirectory@ , in the format of an octal number representing the file's mode bits.
-creationInfo ::
-  -- | 'ciOwnerUid'
-  Natural ->
-  -- | 'ciOwnerGid'
-  Natural ->
-  -- | 'ciPermissions'
-  Text ->
+-- * 'ownerGid' - Specifies the POSIX group ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
+-- * 'ownerUid' - Specifies the POSIX user ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
+-- * 'permissions' - Specifies the POSIX permissions to apply to the @RootDirectory@ , in the format of an octal number representing the file's mode bits.
+mkCreationInfo ::
+  -- | 'ownerUid'
+  Lude.Natural ->
+  -- | 'ownerGid'
+  Lude.Natural ->
+  -- | 'permissions'
+  Lude.Text ->
   CreationInfo
-creationInfo pOwnerUid_ pOwnerGid_ pPermissions_ =
+mkCreationInfo pOwnerUid_ pOwnerGid_ pPermissions_ =
   CreationInfo'
-    { _ciOwnerUid = _Nat # pOwnerUid_,
-      _ciOwnerGid = _Nat # pOwnerGid_,
-      _ciPermissions = pPermissions_
+    { ownerUid = pOwnerUid_,
+      ownerGid = pOwnerGid_,
+      permissions = pPermissions_
     }
 
 -- | Specifies the POSIX user ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
-ciOwnerUid :: Lens' CreationInfo Natural
-ciOwnerUid = lens _ciOwnerUid (\s a -> s {_ciOwnerUid = a}) . _Nat
+--
+-- /Note:/ Consider using 'ownerUid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciOwnerUid :: Lens.Lens' CreationInfo Lude.Natural
+ciOwnerUid = Lens.lens (ownerUid :: CreationInfo -> Lude.Natural) (\s a -> s {ownerUid = a} :: CreationInfo)
+{-# DEPRECATED ciOwnerUid "Use generic-lens or generic-optics with 'ownerUid' instead." #-}
 
 -- | Specifies the POSIX group ID to apply to the @RootDirectory@ . Accepts values from 0 to 2^32 (4294967295).
-ciOwnerGid :: Lens' CreationInfo Natural
-ciOwnerGid = lens _ciOwnerGid (\s a -> s {_ciOwnerGid = a}) . _Nat
+--
+-- /Note:/ Consider using 'ownerGid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciOwnerGid :: Lens.Lens' CreationInfo Lude.Natural
+ciOwnerGid = Lens.lens (ownerGid :: CreationInfo -> Lude.Natural) (\s a -> s {ownerGid = a} :: CreationInfo)
+{-# DEPRECATED ciOwnerGid "Use generic-lens or generic-optics with 'ownerGid' instead." #-}
 
 -- | Specifies the POSIX permissions to apply to the @RootDirectory@ , in the format of an octal number representing the file's mode bits.
-ciPermissions :: Lens' CreationInfo Text
-ciPermissions = lens _ciPermissions (\s a -> s {_ciPermissions = a})
+--
+-- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciPermissions :: Lens.Lens' CreationInfo Lude.Text
+ciPermissions = Lens.lens (permissions :: CreationInfo -> Lude.Text) (\s a -> s {permissions = a} :: CreationInfo)
+{-# DEPRECATED ciPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
-instance FromJSON CreationInfo where
+instance Lude.FromJSON CreationInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "CreationInfo"
       ( \x ->
           CreationInfo'
-            <$> (x .: "OwnerUid") <*> (x .: "OwnerGid") <*> (x .: "Permissions")
+            Lude.<$> (x Lude..: "OwnerUid")
+            Lude.<*> (x Lude..: "OwnerGid")
+            Lude.<*> (x Lude..: "Permissions")
       )
 
-instance Hashable CreationInfo
-
-instance NFData CreationInfo
-
-instance ToJSON CreationInfo where
+instance Lude.ToJSON CreationInfo where
   toJSON CreationInfo' {..} =
-    object
-      ( catMaybes
-          [ Just ("OwnerUid" .= _ciOwnerUid),
-            Just ("OwnerGid" .= _ciOwnerGid),
-            Just ("Permissions" .= _ciPermissions)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OwnerUid" Lude..= ownerUid),
+            Lude.Just ("OwnerGid" Lude..= ownerGid),
+            Lude.Just ("Permissions" Lude..= permissions)
           ]
       )

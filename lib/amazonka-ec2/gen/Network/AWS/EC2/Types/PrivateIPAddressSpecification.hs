@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrivateIPAddressSpecification where
+module Network.AWS.EC2.Types.PrivateIPAddressSpecification
+  ( PrivateIPAddressSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrivateIPAddressSpecification,
+
+    -- * Lenses
+    piasPrimary,
+    piasPrivateIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a secondary private IPv4 address for a network interface.
 --
---
---
--- /See:/ 'privateIPAddressSpecification' smart constructor.
+-- /See:/ 'mkPrivateIPAddressSpecification' smart constructor.
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
-  { _piasPrimary ::
-      !(Maybe Bool),
-    _piasPrivateIPAddress ::
-      !(Maybe Text)
+  { primary ::
+      Lude.Maybe Lude.Bool,
+    privateIPAddress ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateIPAddressSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piasPrimary' - Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
---
--- * 'piasPrivateIPAddress' - The private IPv4 addresses.
-privateIPAddressSpecification ::
+-- * 'primary' - Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+-- * 'privateIPAddress' - The private IPv4 addresses.
+mkPrivateIPAddressSpecification ::
   PrivateIPAddressSpecification
-privateIPAddressSpecification =
+mkPrivateIPAddressSpecification =
   PrivateIPAddressSpecification'
-    { _piasPrimary = Nothing,
-      _piasPrivateIPAddress = Nothing
+    { primary = Lude.Nothing,
+      privateIPAddress = Lude.Nothing
     }
 
 -- | Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
-piasPrimary :: Lens' PrivateIPAddressSpecification (Maybe Bool)
-piasPrimary = lens _piasPrimary (\s a -> s {_piasPrimary = a})
+--
+-- /Note:/ Consider using 'primary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piasPrimary :: Lens.Lens' PrivateIPAddressSpecification (Lude.Maybe Lude.Bool)
+piasPrimary = Lens.lens (primary :: PrivateIPAddressSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {primary = a} :: PrivateIPAddressSpecification)
+{-# DEPRECATED piasPrimary "Use generic-lens or generic-optics with 'primary' instead." #-}
 
 -- | The private IPv4 addresses.
-piasPrivateIPAddress :: Lens' PrivateIPAddressSpecification (Maybe Text)
-piasPrivateIPAddress = lens _piasPrivateIPAddress (\s a -> s {_piasPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piasPrivateIPAddress :: Lens.Lens' PrivateIPAddressSpecification (Lude.Maybe Lude.Text)
+piasPrivateIPAddress = Lens.lens (privateIPAddress :: PrivateIPAddressSpecification -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: PrivateIPAddressSpecification)
+{-# DEPRECATED piasPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
-instance FromXML PrivateIPAddressSpecification where
+instance Lude.FromXML PrivateIPAddressSpecification where
   parseXML x =
     PrivateIPAddressSpecification'
-      <$> (x .@? "primary") <*> (x .@? "privateIpAddress")
+      Lude.<$> (x Lude..@? "primary") Lude.<*> (x Lude..@? "privateIpAddress")
 
-instance Hashable PrivateIPAddressSpecification
-
-instance NFData PrivateIPAddressSpecification
-
-instance ToQuery PrivateIPAddressSpecification where
+instance Lude.ToQuery PrivateIPAddressSpecification where
   toQuery PrivateIPAddressSpecification' {..} =
-    mconcat
-      [ "Primary" =: _piasPrimary,
-        "PrivateIpAddress" =: _piasPrivateIPAddress
+    Lude.mconcat
+      [ "Primary" Lude.=: primary,
+        "PrivateIpAddress" Lude.=: privateIPAddress
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,127 @@
 --
 -- Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.
 module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
-  ( -- * Creating a Request
-    deleteElasticsearchDomain,
-    DeleteElasticsearchDomain,
+  ( -- * Creating a request
+    DeleteElasticsearchDomain (..),
+    mkDeleteElasticsearchDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delDomainName,
 
-    -- * Destructuring the Response
-    deleteElasticsearchDomainResponse,
-    DeleteElasticsearchDomainResponse,
+    -- * Destructuring the response
+    DeleteElasticsearchDomainResponse (..),
+    mkDeleteElasticsearchDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dedersDomainStatus,
     dedersResponseStatus,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DeleteElasticsearchDomain' @ operation. Specifies the name of the Elasticsearch domain that you want to delete.
 --
---
---
--- /See:/ 'deleteElasticsearchDomain' smart constructor.
+-- /See:/ 'mkDeleteElasticsearchDomain' smart constructor.
 newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
-  { _delDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteElasticsearchDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delDomainName' - The name of the Elasticsearch domain that you want to permanently delete.
-deleteElasticsearchDomain ::
-  -- | 'delDomainName'
-  Text ->
+-- * 'domainName' - The name of the Elasticsearch domain that you want to permanently delete.
+mkDeleteElasticsearchDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   DeleteElasticsearchDomain
-deleteElasticsearchDomain pDomainName_ =
-  DeleteElasticsearchDomain' {_delDomainName = pDomainName_}
+mkDeleteElasticsearchDomain pDomainName_ =
+  DeleteElasticsearchDomain' {domainName = pDomainName_}
 
 -- | The name of the Elasticsearch domain that you want to permanently delete.
-delDomainName :: Lens' DeleteElasticsearchDomain Text
-delDomainName = lens _delDomainName (\s a -> s {_delDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delDomainName :: Lens.Lens' DeleteElasticsearchDomain Lude.Text
+delDomainName = Lens.lens (domainName :: DeleteElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteElasticsearchDomain)
+{-# DEPRECATED delDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DeleteElasticsearchDomain where
+instance Lude.AWSRequest DeleteElasticsearchDomain where
   type
     Rs DeleteElasticsearchDomain =
       DeleteElasticsearchDomainResponse
-  request = delete elasticSearch
+  request = Req.delete elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteElasticsearchDomainResponse'
-            <$> (x .?> "DomainStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteElasticsearchDomain
+instance Lude.ToHeaders DeleteElasticsearchDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteElasticsearchDomain
-
-instance ToHeaders DeleteElasticsearchDomain where
-  toHeaders = const mempty
-
-instance ToPath DeleteElasticsearchDomain where
+instance Lude.ToPath DeleteElasticsearchDomain where
   toPath DeleteElasticsearchDomain' {..} =
-    mconcat ["/2015-01-01/es/domain/", toBS _delDomainName]
+    Lude.mconcat ["/2015-01-01/es/domain/", Lude.toBS domainName]
 
-instance ToQuery DeleteElasticsearchDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteElasticsearchDomain where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @DeleteElasticsearchDomain@ request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.
 --
---
---
--- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
+-- /See:/ 'mkDeleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
-  { _dedersDomainStatus ::
-      !( Maybe
-           ElasticsearchDomainStatus
-       ),
-    _dedersResponseStatus ::
-      !Int
+  { domainStatus ::
+      Lude.Maybe
+        ElasticsearchDomainStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dedersDomainStatus' - The status of the Elasticsearch domain being deleted.
---
--- * 'dedersResponseStatus' - -- | The response status code.
-deleteElasticsearchDomainResponse ::
-  -- | 'dedersResponseStatus'
-  Int ->
+-- * 'domainStatus' - The status of the Elasticsearch domain being deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteElasticsearchDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteElasticsearchDomainResponse
-deleteElasticsearchDomainResponse pResponseStatus_ =
+mkDeleteElasticsearchDomainResponse pResponseStatus_ =
   DeleteElasticsearchDomainResponse'
-    { _dedersDomainStatus = Nothing,
-      _dedersResponseStatus = pResponseStatus_
+    { domainStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the Elasticsearch domain being deleted.
-dedersDomainStatus :: Lens' DeleteElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
-dedersDomainStatus = lens _dedersDomainStatus (\s a -> s {_dedersDomainStatus = a})
+--
+-- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedersDomainStatus :: Lens.Lens' DeleteElasticsearchDomainResponse (Lude.Maybe ElasticsearchDomainStatus)
+dedersDomainStatus = Lens.lens (domainStatus :: DeleteElasticsearchDomainResponse -> Lude.Maybe ElasticsearchDomainStatus) (\s a -> s {domainStatus = a} :: DeleteElasticsearchDomainResponse)
+{-# DEPRECATED dedersDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
--- | -- | The response status code.
-dedersResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
-dedersResponseStatus = lens _dedersResponseStatus (\s a -> s {_dedersResponseStatus = a})
-
-instance NFData DeleteElasticsearchDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedersResponseStatus :: Lens.Lens' DeleteElasticsearchDomainResponse Lude.Int
+dedersResponseStatus = Lens.lens (responseStatus :: DeleteElasticsearchDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteElasticsearchDomainResponse)
+{-# DEPRECATED dedersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

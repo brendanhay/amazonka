@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState where
+module Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
+  ( DirectConnectGatewayAttachmentState
+      ( DirectConnectGatewayAttachmentState',
+        Attached,
+        Attaching,
+        Detached,
+        Detaching
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectConnectGatewayAttachmentState
-  = Attached
-  | Attaching
-  | Detached
-  | Detaching
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectConnectGatewayAttachmentState = DirectConnectGatewayAttachmentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectConnectGatewayAttachmentState where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure Attached
-      "attaching" -> pure Attaching
-      "detached" -> pure Detached
-      "detaching" -> pure Detaching
-      e ->
-        fromTextError $
-          "Failure parsing DirectConnectGatewayAttachmentState from value: '" <> e
-            <> "'. Accepted values: attached, attaching, detached, detaching"
+pattern Attached :: DirectConnectGatewayAttachmentState
+pattern Attached = DirectConnectGatewayAttachmentState' "attached"
 
-instance ToText DirectConnectGatewayAttachmentState where
-  toText = \case
-    Attached -> "attached"
-    Attaching -> "attaching"
-    Detached -> "detached"
-    Detaching -> "detaching"
+pattern Attaching :: DirectConnectGatewayAttachmentState
+pattern Attaching = DirectConnectGatewayAttachmentState' "attaching"
 
-instance Hashable DirectConnectGatewayAttachmentState
+pattern Detached :: DirectConnectGatewayAttachmentState
+pattern Detached = DirectConnectGatewayAttachmentState' "detached"
 
-instance NFData DirectConnectGatewayAttachmentState
+pattern Detaching :: DirectConnectGatewayAttachmentState
+pattern Detaching = DirectConnectGatewayAttachmentState' "detaching"
 
-instance ToByteString DirectConnectGatewayAttachmentState
-
-instance ToQuery DirectConnectGatewayAttachmentState
-
-instance ToHeader DirectConnectGatewayAttachmentState
-
-instance FromJSON DirectConnectGatewayAttachmentState where
-  parseJSON = parseJSONText "DirectConnectGatewayAttachmentState"
+{-# COMPLETE
+  Attached,
+  Attaching,
+  Detached,
+  Detaching,
+  DirectConnectGatewayAttachmentState'
+  #-}

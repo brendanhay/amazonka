@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingOutputConfig where
+module Network.AWS.SageMaker.Types.ProcessingOutputConfig
+  ( ProcessingOutputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingOutputConfig,
+
+    -- * Lenses
+    pocKMSKeyId,
+    pocOutputs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingOutput
 
 -- | The output configuration for the processing job.
 --
---
---
--- /See:/ 'processingOutputConfig' smart constructor.
+-- /See:/ 'mkProcessingOutputConfig' smart constructor.
 data ProcessingOutputConfig = ProcessingOutputConfig'
-  { _pocKMSKeyId ::
-      !(Maybe Text),
-    _pocOutputs :: ![ProcessingOutput]
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    outputs :: [ProcessingOutput]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingOutputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pocKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
---
--- * 'pocOutputs' - Output configuration information for a processing job.
-processingOutputConfig ::
+-- * 'kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
+-- * 'outputs' - Output configuration information for a processing job.
+mkProcessingOutputConfig ::
   ProcessingOutputConfig
-processingOutputConfig =
+mkProcessingOutputConfig =
   ProcessingOutputConfig'
-    { _pocKMSKeyId = Nothing,
-      _pocOutputs = mempty
+    { kmsKeyId = Lude.Nothing,
+      outputs = Lude.mempty
     }
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
-pocKMSKeyId :: Lens' ProcessingOutputConfig (Maybe Text)
-pocKMSKeyId = lens _pocKMSKeyId (\s a -> s {_pocKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocKMSKeyId :: Lens.Lens' ProcessingOutputConfig (Lude.Maybe Lude.Text)
+pocKMSKeyId = Lens.lens (kmsKeyId :: ProcessingOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ProcessingOutputConfig)
+{-# DEPRECATED pocKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Output configuration information for a processing job.
-pocOutputs :: Lens' ProcessingOutputConfig [ProcessingOutput]
-pocOutputs = lens _pocOutputs (\s a -> s {_pocOutputs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocOutputs :: Lens.Lens' ProcessingOutputConfig [ProcessingOutput]
+pocOutputs = Lens.lens (outputs :: ProcessingOutputConfig -> [ProcessingOutput]) (\s a -> s {outputs = a} :: ProcessingOutputConfig)
+{-# DEPRECATED pocOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
-instance FromJSON ProcessingOutputConfig where
+instance Lude.FromJSON ProcessingOutputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingOutputConfig"
       ( \x ->
           ProcessingOutputConfig'
-            <$> (x .:? "KmsKeyId") <*> (x .:? "Outputs" .!= mempty)
+            Lude.<$> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "Outputs" Lude..!= Lude.mempty)
       )
 
-instance Hashable ProcessingOutputConfig
-
-instance NFData ProcessingOutputConfig
-
-instance ToJSON ProcessingOutputConfig where
+instance Lude.ToJSON ProcessingOutputConfig where
   toJSON ProcessingOutputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KmsKeyId" .=) <$> _pocKMSKeyId,
-            Just ("Outputs" .= _pocOutputs)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("Outputs" Lude..= outputs)
           ]
       )

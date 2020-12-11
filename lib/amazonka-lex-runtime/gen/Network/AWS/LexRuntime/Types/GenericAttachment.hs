@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.GenericAttachment where
+module Network.AWS.LexRuntime.Types.GenericAttachment
+  ( GenericAttachment (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkGenericAttachment,
+
+    -- * Lenses
+    gaButtons,
+    gaSubTitle,
+    gaImageURL,
+    gaAttachmentLinkURL,
+    gaTitle,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.Button
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an option rendered to the user when a prompt is shown. It could be an image, a button, a link, or text.
 --
---
---
--- /See:/ 'genericAttachment' smart constructor.
+-- /See:/ 'mkGenericAttachment' smart constructor.
 data GenericAttachment = GenericAttachment'
-  { _gaButtons ::
-      !(Maybe [Button]),
-    _gaSubTitle :: !(Maybe Text),
-    _gaImageURL :: !(Maybe Text),
-    _gaAttachmentLinkURL :: !(Maybe Text),
-    _gaTitle :: !(Maybe Text)
+  { buttons ::
+      Lude.Maybe [Button],
+    subTitle :: Lude.Maybe Lude.Text,
+    imageURL :: Lude.Maybe Lude.Text,
+    attachmentLinkURL :: Lude.Maybe Lude.Text,
+    title :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenericAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaButtons' - The list of options to show to the user.
---
--- * 'gaSubTitle' - The subtitle shown below the title.
---
--- * 'gaImageURL' - The URL of an image that is displayed to the user.
---
--- * 'gaAttachmentLinkURL' - The URL of an attachment to the response card.
---
--- * 'gaTitle' - The title of the option.
-genericAttachment ::
+-- * 'attachmentLinkURL' - The URL of an attachment to the response card.
+-- * 'buttons' - The list of options to show to the user.
+-- * 'imageURL' - The URL of an image that is displayed to the user.
+-- * 'subTitle' - The subtitle shown below the title.
+-- * 'title' - The title of the option.
+mkGenericAttachment ::
   GenericAttachment
-genericAttachment =
+mkGenericAttachment =
   GenericAttachment'
-    { _gaButtons = Nothing,
-      _gaSubTitle = Nothing,
-      _gaImageURL = Nothing,
-      _gaAttachmentLinkURL = Nothing,
-      _gaTitle = Nothing
+    { buttons = Lude.Nothing,
+      subTitle = Lude.Nothing,
+      imageURL = Lude.Nothing,
+      attachmentLinkURL = Lude.Nothing,
+      title = Lude.Nothing
     }
 
 -- | The list of options to show to the user.
-gaButtons :: Lens' GenericAttachment [Button]
-gaButtons = lens _gaButtons (\s a -> s {_gaButtons = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'buttons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaButtons :: Lens.Lens' GenericAttachment (Lude.Maybe [Button])
+gaButtons = Lens.lens (buttons :: GenericAttachment -> Lude.Maybe [Button]) (\s a -> s {buttons = a} :: GenericAttachment)
+{-# DEPRECATED gaButtons "Use generic-lens or generic-optics with 'buttons' instead." #-}
 
 -- | The subtitle shown below the title.
-gaSubTitle :: Lens' GenericAttachment (Maybe Text)
-gaSubTitle = lens _gaSubTitle (\s a -> s {_gaSubTitle = a})
+--
+-- /Note:/ Consider using 'subTitle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaSubTitle :: Lens.Lens' GenericAttachment (Lude.Maybe Lude.Text)
+gaSubTitle = Lens.lens (subTitle :: GenericAttachment -> Lude.Maybe Lude.Text) (\s a -> s {subTitle = a} :: GenericAttachment)
+{-# DEPRECATED gaSubTitle "Use generic-lens or generic-optics with 'subTitle' instead." #-}
 
 -- | The URL of an image that is displayed to the user.
-gaImageURL :: Lens' GenericAttachment (Maybe Text)
-gaImageURL = lens _gaImageURL (\s a -> s {_gaImageURL = a})
+--
+-- /Note:/ Consider using 'imageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaImageURL :: Lens.Lens' GenericAttachment (Lude.Maybe Lude.Text)
+gaImageURL = Lens.lens (imageURL :: GenericAttachment -> Lude.Maybe Lude.Text) (\s a -> s {imageURL = a} :: GenericAttachment)
+{-# DEPRECATED gaImageURL "Use generic-lens or generic-optics with 'imageURL' instead." #-}
 
 -- | The URL of an attachment to the response card.
-gaAttachmentLinkURL :: Lens' GenericAttachment (Maybe Text)
-gaAttachmentLinkURL = lens _gaAttachmentLinkURL (\s a -> s {_gaAttachmentLinkURL = a})
+--
+-- /Note:/ Consider using 'attachmentLinkURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaAttachmentLinkURL :: Lens.Lens' GenericAttachment (Lude.Maybe Lude.Text)
+gaAttachmentLinkURL = Lens.lens (attachmentLinkURL :: GenericAttachment -> Lude.Maybe Lude.Text) (\s a -> s {attachmentLinkURL = a} :: GenericAttachment)
+{-# DEPRECATED gaAttachmentLinkURL "Use generic-lens or generic-optics with 'attachmentLinkURL' instead." #-}
 
 -- | The title of the option.
-gaTitle :: Lens' GenericAttachment (Maybe Text)
-gaTitle = lens _gaTitle (\s a -> s {_gaTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaTitle :: Lens.Lens' GenericAttachment (Lude.Maybe Lude.Text)
+gaTitle = Lens.lens (title :: GenericAttachment -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: GenericAttachment)
+{-# DEPRECATED gaTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
-instance FromJSON GenericAttachment where
+instance Lude.FromJSON GenericAttachment where
   parseJSON =
-    withObject
+    Lude.withObject
       "GenericAttachment"
       ( \x ->
           GenericAttachment'
-            <$> (x .:? "buttons" .!= mempty)
-            <*> (x .:? "subTitle")
-            <*> (x .:? "imageUrl")
-            <*> (x .:? "attachmentLinkUrl")
-            <*> (x .:? "title")
+            Lude.<$> (x Lude..:? "buttons" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "subTitle")
+            Lude.<*> (x Lude..:? "imageUrl")
+            Lude.<*> (x Lude..:? "attachmentLinkUrl")
+            Lude.<*> (x Lude..:? "title")
       )
-
-instance Hashable GenericAttachment
-
-instance NFData GenericAttachment

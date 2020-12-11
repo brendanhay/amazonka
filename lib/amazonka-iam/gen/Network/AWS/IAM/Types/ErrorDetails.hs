@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.ErrorDetails where
+module Network.AWS.IAM.Types.ErrorDetails
+  ( ErrorDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorDetails,
+
+    -- * Lenses
+    edMessage,
+    edCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the reason that the operation failed.
 --
---
 -- This data type is used as a response element in the 'GetOrganizationsAccessReport' , 'GetServiceLastAccessedDetails' , and 'GetServiceLastAccessedDetailsWithEntities' operations.
 --
---
--- /See:/ 'errorDetails' smart constructor.
+-- /See:/ 'mkErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { _edMessage :: !Text,
-    _edCode :: !Text
+  { message :: Lude.Text,
+    code :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edMessage' - Detailed information about the reason that the operation failed.
---
--- * 'edCode' - The error code associated with the operation failure.
-errorDetails ::
-  -- | 'edMessage'
-  Text ->
-  -- | 'edCode'
-  Text ->
+-- * 'code' - The error code associated with the operation failure.
+-- * 'message' - Detailed information about the reason that the operation failed.
+mkErrorDetails ::
+  -- | 'message'
+  Lude.Text ->
+  -- | 'code'
+  Lude.Text ->
   ErrorDetails
-errorDetails pMessage_ pCode_ =
-  ErrorDetails' {_edMessage = pMessage_, _edCode = pCode_}
+mkErrorDetails pMessage_ pCode_ =
+  ErrorDetails' {message = pMessage_, code = pCode_}
 
 -- | Detailed information about the reason that the operation failed.
-edMessage :: Lens' ErrorDetails Text
-edMessage = lens _edMessage (\s a -> s {_edMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edMessage :: Lens.Lens' ErrorDetails Lude.Text
+edMessage = Lens.lens (message :: ErrorDetails -> Lude.Text) (\s a -> s {message = a} :: ErrorDetails)
+{-# DEPRECATED edMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The error code associated with the operation failure.
-edCode :: Lens' ErrorDetails Text
-edCode = lens _edCode (\s a -> s {_edCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edCode :: Lens.Lens' ErrorDetails Lude.Text
+edCode = Lens.lens (code :: ErrorDetails -> Lude.Text) (\s a -> s {code = a} :: ErrorDetails)
+{-# DEPRECATED edCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromXML ErrorDetails where
-  parseXML x = ErrorDetails' <$> (x .@ "Message") <*> (x .@ "Code")
-
-instance Hashable ErrorDetails
-
-instance NFData ErrorDetails
+instance Lude.FromXML ErrorDetails where
+  parseXML x =
+    ErrorDetails'
+      Lude.<$> (x Lude..@ "Message") Lude.<*> (x Lude..@ "Code")

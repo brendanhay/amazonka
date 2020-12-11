@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the 'RestoreAddressToClassic' request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.
 module Network.AWS.EC2.MoveAddressToVPC
-  ( -- * Creating a Request
-    moveAddressToVPC,
-    MoveAddressToVPC,
+  ( -- * Creating a request
+    MoveAddressToVPC (..),
+    mkMoveAddressToVPC,
 
-    -- * Request Lenses
+    -- ** Request lenses
     matvDryRun,
     matvPublicIP,
 
-    -- * Destructuring the Response
-    moveAddressToVPCResponse,
-    MoveAddressToVPCResponse,
+    -- * Destructuring the response
+    MoveAddressToVPCResponse (..),
+    mkMoveAddressToVPCResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     matvrsStatus,
     matvrsAllocationId,
     matvrsResponseStatus,
@@ -39,114 +34,127 @@ module Network.AWS.EC2.MoveAddressToVPC
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'moveAddressToVPC' smart constructor.
+-- | /See:/ 'mkMoveAddressToVPC' smart constructor.
 data MoveAddressToVPC = MoveAddressToVPC'
-  { _matvDryRun ::
-      !(Maybe Bool),
-    _matvPublicIP :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    publicIP :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MoveAddressToVPC' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'matvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'matvPublicIP' - The Elastic IP address.
-moveAddressToVPC ::
-  -- | 'matvPublicIP'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'publicIP' - The Elastic IP address.
+mkMoveAddressToVPC ::
+  -- | 'publicIP'
+  Lude.Text ->
   MoveAddressToVPC
-moveAddressToVPC pPublicIP_ =
-  MoveAddressToVPC'
-    { _matvDryRun = Nothing,
-      _matvPublicIP = pPublicIP_
-    }
+mkMoveAddressToVPC pPublicIP_ =
+  MoveAddressToVPC' {dryRun = Lude.Nothing, publicIP = pPublicIP_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
-matvDryRun = lens _matvDryRun (\s a -> s {_matvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+matvDryRun :: Lens.Lens' MoveAddressToVPC (Lude.Maybe Lude.Bool)
+matvDryRun = Lens.lens (dryRun :: MoveAddressToVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: MoveAddressToVPC)
+{-# DEPRECATED matvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The Elastic IP address.
-matvPublicIP :: Lens' MoveAddressToVPC Text
-matvPublicIP = lens _matvPublicIP (\s a -> s {_matvPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+matvPublicIP :: Lens.Lens' MoveAddressToVPC Lude.Text
+matvPublicIP = Lens.lens (publicIP :: MoveAddressToVPC -> Lude.Text) (\s a -> s {publicIP = a} :: MoveAddressToVPC)
+{-# DEPRECATED matvPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
-instance AWSRequest MoveAddressToVPC where
+instance Lude.AWSRequest MoveAddressToVPC where
   type Rs MoveAddressToVPC = MoveAddressToVPCResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           MoveAddressToVPCResponse'
-            <$> (x .@? "status")
-            <*> (x .@? "allocationId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "status")
+            Lude.<*> (x Lude..@? "allocationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable MoveAddressToVPC
+instance Lude.ToHeaders MoveAddressToVPC where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData MoveAddressToVPC
+instance Lude.ToPath MoveAddressToVPC where
+  toPath = Lude.const "/"
 
-instance ToHeaders MoveAddressToVPC where
-  toHeaders = const mempty
-
-instance ToPath MoveAddressToVPC where
-  toPath = const "/"
-
-instance ToQuery MoveAddressToVPC where
+instance Lude.ToQuery MoveAddressToVPC where
   toQuery MoveAddressToVPC' {..} =
-    mconcat
-      [ "Action" =: ("MoveAddressToVpc" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _matvDryRun,
-        "PublicIp" =: _matvPublicIP
+    Lude.mconcat
+      [ "Action" Lude.=: ("MoveAddressToVpc" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "PublicIp" Lude.=: publicIP
       ]
 
--- | /See:/ 'moveAddressToVPCResponse' smart constructor.
+-- | /See:/ 'mkMoveAddressToVPCResponse' smart constructor.
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
-  { _matvrsStatus ::
-      !(Maybe AddressStatus),
-    _matvrsAllocationId :: !(Maybe Text),
-    _matvrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe AddressStatus,
+    allocationId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MoveAddressToVPCResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'matvrsStatus' - The status of the move of the IP address.
---
--- * 'matvrsAllocationId' - The allocation ID for the Elastic IP address.
---
--- * 'matvrsResponseStatus' - -- | The response status code.
-moveAddressToVPCResponse ::
-  -- | 'matvrsResponseStatus'
-  Int ->
+-- * 'allocationId' - The allocation ID for the Elastic IP address.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the move of the IP address.
+mkMoveAddressToVPCResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   MoveAddressToVPCResponse
-moveAddressToVPCResponse pResponseStatus_ =
+mkMoveAddressToVPCResponse pResponseStatus_ =
   MoveAddressToVPCResponse'
-    { _matvrsStatus = Nothing,
-      _matvrsAllocationId = Nothing,
-      _matvrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      allocationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the move of the IP address.
-matvrsStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
-matvrsStatus = lens _matvrsStatus (\s a -> s {_matvrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+matvrsStatus :: Lens.Lens' MoveAddressToVPCResponse (Lude.Maybe AddressStatus)
+matvrsStatus = Lens.lens (status :: MoveAddressToVPCResponse -> Lude.Maybe AddressStatus) (\s a -> s {status = a} :: MoveAddressToVPCResponse)
+{-# DEPRECATED matvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The allocation ID for the Elastic IP address.
-matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
-matvrsAllocationId = lens _matvrsAllocationId (\s a -> s {_matvrsAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+matvrsAllocationId :: Lens.Lens' MoveAddressToVPCResponse (Lude.Maybe Lude.Text)
+matvrsAllocationId = Lens.lens (allocationId :: MoveAddressToVPCResponse -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: MoveAddressToVPCResponse)
+{-# DEPRECATED matvrsAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
--- | -- | The response status code.
-matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
-matvrsResponseStatus = lens _matvrsResponseStatus (\s a -> s {_matvrsResponseStatus = a})
-
-instance NFData MoveAddressToVPCResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+matvrsResponseStatus :: Lens.Lens' MoveAddressToVPCResponse Lude.Int
+matvrsResponseStatus = Lens.lens (responseStatus :: MoveAddressToVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MoveAddressToVPCResponse)
+{-# DEPRECATED matvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,228 +7,302 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBClusterSnapshot where
+module Network.AWS.RDS.Types.DBClusterSnapshot
+  ( DBClusterSnapshot (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBClusterSnapshot,
+
+    -- * Lenses
+    dcsEngineVersion,
+    dcsStatus,
+    dcsStorageEncrypted,
+    dcsDBClusterIdentifier,
+    dcsMasterUsername,
+    dcsIAMDatabaseAuthenticationEnabled,
+    dcsDBClusterSnapshotARN,
+    dcsVPCId,
+    dcsTagList,
+    dcsDBClusterSnapshotIdentifier,
+    dcsEngine,
+    dcsLicenseModel,
+    dcsAvailabilityZones,
+    dcsSnapshotType,
+    dcsKMSKeyId,
+    dcsSnapshotCreateTime,
+    dcsAllocatedStorage,
+    dcsSourceDBClusterSnapshotARN,
+    dcsClusterCreateTime,
+    dcsPercentProgress,
+    dcsPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.Tag
 
 -- | Contains the details for an Amazon RDS DB cluster snapshot
 --
---
 -- This data type is used as a response element in the @DescribeDBClusterSnapshots@ action.
 --
---
--- /See:/ 'dbClusterSnapshot' smart constructor.
+-- /See:/ 'mkDBClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
-  { _dcsEngineVersion ::
-      !(Maybe Text),
-    _dcsStatus :: !(Maybe Text),
-    _dcsStorageEncrypted :: !(Maybe Bool),
-    _dcsDBClusterIdentifier :: !(Maybe Text),
-    _dcsMasterUsername :: !(Maybe Text),
-    _dcsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool),
-    _dcsDBClusterSnapshotARN :: !(Maybe Text),
-    _dcsVPCId :: !(Maybe Text),
-    _dcsTagList :: !(Maybe [Tag]),
-    _dcsDBClusterSnapshotIdentifier :: !(Maybe Text),
-    _dcsEngine :: !(Maybe Text),
-    _dcsLicenseModel :: !(Maybe Text),
-    _dcsAvailabilityZones :: !(Maybe [Text]),
-    _dcsSnapshotType :: !(Maybe Text),
-    _dcsKMSKeyId :: !(Maybe Text),
-    _dcsSnapshotCreateTime :: !(Maybe ISO8601),
-    _dcsAllocatedStorage :: !(Maybe Int),
-    _dcsSourceDBClusterSnapshotARN :: !(Maybe Text),
-    _dcsClusterCreateTime :: !(Maybe ISO8601),
-    _dcsPercentProgress :: !(Maybe Int),
-    _dcsPort :: !(Maybe Int)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    storageEncrypted :: Lude.Maybe Lude.Bool,
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    masterUsername :: Lude.Maybe Lude.Text,
+    iamDatabaseAuthenticationEnabled ::
+      Lude.Maybe Lude.Bool,
+    dbClusterSnapshotARN :: Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    tagList :: Lude.Maybe [Tag],
+    dbClusterSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    engine :: Lude.Maybe Lude.Text,
+    licenseModel :: Lude.Maybe Lude.Text,
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    snapshotType :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    snapshotCreateTime :: Lude.Maybe Lude.ISO8601,
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    sourceDBClusterSnapshotARN :: Lude.Maybe Lude.Text,
+    clusterCreateTime :: Lude.Maybe Lude.ISO8601,
+    percentProgress :: Lude.Maybe Lude.Int,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsEngineVersion' - Provides the version of the database engine for this DB cluster snapshot.
---
--- * 'dcsStatus' - Specifies the status of this DB cluster snapshot.
---
--- * 'dcsStorageEncrypted' - Specifies whether the DB cluster snapshot is encrypted.
---
--- * 'dcsDBClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
---
--- * 'dcsMasterUsername' - Provides the master username for the DB cluster snapshot.
---
--- * 'dcsIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
---
--- * 'dcsDBClusterSnapshotARN' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
---
--- * 'dcsVPCId' - Provides the VPC ID associated with the DB cluster snapshot.
---
--- * 'dcsTagList' - Undocumented member.
---
--- * 'dcsDBClusterSnapshotIdentifier' - Specifies the identifier for the DB cluster snapshot.
---
--- * 'dcsEngine' - Specifies the name of the database engine.
---
--- * 'dcsLicenseModel' - Provides the license model information for this DB cluster snapshot.
---
--- * 'dcsAvailabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
---
--- * 'dcsSnapshotType' - Provides the type of the DB cluster snapshot.
---
--- * 'dcsKMSKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
---
--- * 'dcsSnapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
---
--- * 'dcsAllocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
---
--- * 'dcsSourceDBClusterSnapshotARN' - If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
---
--- * 'dcsClusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
---
--- * 'dcsPercentProgress' - Specifies the percentage of the estimated data that has been transferred.
---
--- * 'dcsPort' - Specifies the port that the DB cluster was listening on at the time of the snapshot.
-dbClusterSnapshot ::
+-- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+-- * 'availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
+-- * 'clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
+-- * 'dbClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+-- * 'dbClusterSnapshotARN' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
+-- * 'dbClusterSnapshotIdentifier' - Specifies the identifier for the DB cluster snapshot.
+-- * 'engine' - Specifies the name of the database engine.
+-- * 'engineVersion' - Provides the version of the database engine for this DB cluster snapshot.
+-- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+-- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+-- * 'licenseModel' - Provides the license model information for this DB cluster snapshot.
+-- * 'masterUsername' - Provides the master username for the DB cluster snapshot.
+-- * 'percentProgress' - Specifies the percentage of the estimated data that has been transferred.
+-- * 'port' - Specifies the port that the DB cluster was listening on at the time of the snapshot.
+-- * 'snapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+-- * 'snapshotType' - Provides the type of the DB cluster snapshot.
+-- * 'sourceDBClusterSnapshotARN' - If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
+-- * 'status' - Specifies the status of this DB cluster snapshot.
+-- * 'storageEncrypted' - Specifies whether the DB cluster snapshot is encrypted.
+-- * 'tagList' - Undocumented field.
+-- * 'vpcId' - Provides the VPC ID associated with the DB cluster snapshot.
+mkDBClusterSnapshot ::
   DBClusterSnapshot
-dbClusterSnapshot =
+mkDBClusterSnapshot =
   DBClusterSnapshot'
-    { _dcsEngineVersion = Nothing,
-      _dcsStatus = Nothing,
-      _dcsStorageEncrypted = Nothing,
-      _dcsDBClusterIdentifier = Nothing,
-      _dcsMasterUsername = Nothing,
-      _dcsIAMDatabaseAuthenticationEnabled = Nothing,
-      _dcsDBClusterSnapshotARN = Nothing,
-      _dcsVPCId = Nothing,
-      _dcsTagList = Nothing,
-      _dcsDBClusterSnapshotIdentifier = Nothing,
-      _dcsEngine = Nothing,
-      _dcsLicenseModel = Nothing,
-      _dcsAvailabilityZones = Nothing,
-      _dcsSnapshotType = Nothing,
-      _dcsKMSKeyId = Nothing,
-      _dcsSnapshotCreateTime = Nothing,
-      _dcsAllocatedStorage = Nothing,
-      _dcsSourceDBClusterSnapshotARN = Nothing,
-      _dcsClusterCreateTime = Nothing,
-      _dcsPercentProgress = Nothing,
-      _dcsPort = Nothing
+    { engineVersion = Lude.Nothing,
+      status = Lude.Nothing,
+      storageEncrypted = Lude.Nothing,
+      dbClusterIdentifier = Lude.Nothing,
+      masterUsername = Lude.Nothing,
+      iamDatabaseAuthenticationEnabled = Lude.Nothing,
+      dbClusterSnapshotARN = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      tagList = Lude.Nothing,
+      dbClusterSnapshotIdentifier = Lude.Nothing,
+      engine = Lude.Nothing,
+      licenseModel = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      snapshotType = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      snapshotCreateTime = Lude.Nothing,
+      allocatedStorage = Lude.Nothing,
+      sourceDBClusterSnapshotARN = Lude.Nothing,
+      clusterCreateTime = Lude.Nothing,
+      percentProgress = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | Provides the version of the database engine for this DB cluster snapshot.
-dcsEngineVersion :: Lens' DBClusterSnapshot (Maybe Text)
-dcsEngineVersion = lens _dcsEngineVersion (\s a -> s {_dcsEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsEngineVersion :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsEngineVersion = Lens.lens (engineVersion :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Specifies the status of this DB cluster snapshot.
-dcsStatus :: Lens' DBClusterSnapshot (Maybe Text)
-dcsStatus = lens _dcsStatus (\s a -> s {_dcsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsStatus :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsStatus = Lens.lens (status :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies whether the DB cluster snapshot is encrypted.
-dcsStorageEncrypted :: Lens' DBClusterSnapshot (Maybe Bool)
-dcsStorageEncrypted = lens _dcsStorageEncrypted (\s a -> s {_dcsStorageEncrypted = a})
+--
+-- /Note:/ Consider using 'storageEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsStorageEncrypted :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Bool)
+dcsStorageEncrypted = Lens.lens (storageEncrypted :: DBClusterSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {storageEncrypted = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsStorageEncrypted "Use generic-lens or generic-optics with 'storageEncrypted' instead." #-}
 
 -- | Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
-dcsDBClusterIdentifier :: Lens' DBClusterSnapshot (Maybe Text)
-dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\s a -> s {_dcsDBClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsDBClusterIdentifier :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | Provides the master username for the DB cluster snapshot.
-dcsMasterUsername :: Lens' DBClusterSnapshot (Maybe Text)
-dcsMasterUsername = lens _dcsMasterUsername (\s a -> s {_dcsMasterUsername = a})
+--
+-- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsMasterUsername :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsMasterUsername = Lens.lens (masterUsername :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {masterUsername = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
 
 -- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
-dcsIAMDatabaseAuthenticationEnabled :: Lens' DBClusterSnapshot (Maybe Bool)
-dcsIAMDatabaseAuthenticationEnabled = lens _dcsIAMDatabaseAuthenticationEnabled (\s a -> s {_dcsIAMDatabaseAuthenticationEnabled = a})
+--
+-- /Note:/ Consider using 'iamDatabaseAuthenticationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsIAMDatabaseAuthenticationEnabled :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Bool)
+dcsIAMDatabaseAuthenticationEnabled = Lens.lens (iamDatabaseAuthenticationEnabled :: DBClusterSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {iamDatabaseAuthenticationEnabled = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsIAMDatabaseAuthenticationEnabled "Use generic-lens or generic-optics with 'iamDatabaseAuthenticationEnabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
-dcsDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
-dcsDBClusterSnapshotARN = lens _dcsDBClusterSnapshotARN (\s a -> s {_dcsDBClusterSnapshotARN = a})
+--
+-- /Note:/ Consider using 'dbClusterSnapshotARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsDBClusterSnapshotARN :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsDBClusterSnapshotARN = Lens.lens (dbClusterSnapshotARN :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterSnapshotARN = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsDBClusterSnapshotARN "Use generic-lens or generic-optics with 'dbClusterSnapshotARN' instead." #-}
 
 -- | Provides the VPC ID associated with the DB cluster snapshot.
-dcsVPCId :: Lens' DBClusterSnapshot (Maybe Text)
-dcsVPCId = lens _dcsVPCId (\s a -> s {_dcsVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsVPCId :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsVPCId = Lens.lens (vpcId :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | Undocumented member.
-dcsTagList :: Lens' DBClusterSnapshot [Tag]
-dcsTagList = lens _dcsTagList (\s a -> s {_dcsTagList = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsTagList :: Lens.Lens' DBClusterSnapshot (Lude.Maybe [Tag])
+dcsTagList = Lens.lens (tagList :: DBClusterSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | Specifies the identifier for the DB cluster snapshot.
-dcsDBClusterSnapshotIdentifier :: Lens' DBClusterSnapshot (Maybe Text)
-dcsDBClusterSnapshotIdentifier = lens _dcsDBClusterSnapshotIdentifier (\s a -> s {_dcsDBClusterSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsDBClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
 -- | Specifies the name of the database engine.
-dcsEngine :: Lens' DBClusterSnapshot (Maybe Text)
-dcsEngine = lens _dcsEngine (\s a -> s {_dcsEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsEngine :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsEngine = Lens.lens (engine :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | Provides the license model information for this DB cluster snapshot.
-dcsLicenseModel :: Lens' DBClusterSnapshot (Maybe Text)
-dcsLicenseModel = lens _dcsLicenseModel (\s a -> s {_dcsLicenseModel = a})
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsLicenseModel :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsLicenseModel = Lens.lens (licenseModel :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
 
 -- | Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
-dcsAvailabilityZones :: Lens' DBClusterSnapshot [Text]
-dcsAvailabilityZones = lens _dcsAvailabilityZones (\s a -> s {_dcsAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsAvailabilityZones :: Lens.Lens' DBClusterSnapshot (Lude.Maybe [Lude.Text])
+dcsAvailabilityZones = Lens.lens (availabilityZones :: DBClusterSnapshot -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | Provides the type of the DB cluster snapshot.
-dcsSnapshotType :: Lens' DBClusterSnapshot (Maybe Text)
-dcsSnapshotType = lens _dcsSnapshotType (\s a -> s {_dcsSnapshotType = a})
+--
+-- /Note:/ Consider using 'snapshotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsSnapshotType :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsSnapshotType = Lens.lens (snapshotType :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {snapshotType = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
 
 -- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-dcsKMSKeyId :: Lens' DBClusterSnapshot (Maybe Text)
-dcsKMSKeyId = lens _dcsKMSKeyId (\s a -> s {_dcsKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsKMSKeyId :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsKMSKeyId = Lens.lens (kmsKeyId :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
-dcsSnapshotCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
-dcsSnapshotCreateTime = lens _dcsSnapshotCreateTime (\s a -> s {_dcsSnapshotCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsSnapshotCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.ISO8601)
+dcsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {snapshotCreateTime = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
 -- | Specifies the allocated storage size in gibibytes (GiB).
-dcsAllocatedStorage :: Lens' DBClusterSnapshot (Maybe Int)
-dcsAllocatedStorage = lens _dcsAllocatedStorage (\s a -> s {_dcsAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsAllocatedStorage :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Int)
+dcsAllocatedStorage = Lens.lens (allocatedStorage :: DBClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
-dcsSourceDBClusterSnapshotARN :: Lens' DBClusterSnapshot (Maybe Text)
-dcsSourceDBClusterSnapshotARN = lens _dcsSourceDBClusterSnapshotARN (\s a -> s {_dcsSourceDBClusterSnapshotARN = a})
+--
+-- /Note:/ Consider using 'sourceDBClusterSnapshotARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsSourceDBClusterSnapshotARN :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Text)
+dcsSourceDBClusterSnapshotARN = Lens.lens (sourceDBClusterSnapshotARN :: DBClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceDBClusterSnapshotARN = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsSourceDBClusterSnapshotARN "Use generic-lens or generic-optics with 'sourceDBClusterSnapshotARN' instead." #-}
 
 -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
-dcsClusterCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
-dcsClusterCreateTime = lens _dcsClusterCreateTime (\s a -> s {_dcsClusterCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'clusterCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsClusterCreateTime :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.ISO8601)
+dcsClusterCreateTime = Lens.lens (clusterCreateTime :: DBClusterSnapshot -> Lude.Maybe Lude.ISO8601) (\s a -> s {clusterCreateTime = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsClusterCreateTime "Use generic-lens or generic-optics with 'clusterCreateTime' instead." #-}
 
 -- | Specifies the percentage of the estimated data that has been transferred.
-dcsPercentProgress :: Lens' DBClusterSnapshot (Maybe Int)
-dcsPercentProgress = lens _dcsPercentProgress (\s a -> s {_dcsPercentProgress = a})
+--
+-- /Note:/ Consider using 'percentProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsPercentProgress :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Int)
+dcsPercentProgress = Lens.lens (percentProgress :: DBClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {percentProgress = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsPercentProgress "Use generic-lens or generic-optics with 'percentProgress' instead." #-}
 
 -- | Specifies the port that the DB cluster was listening on at the time of the snapshot.
-dcsPort :: Lens' DBClusterSnapshot (Maybe Int)
-dcsPort = lens _dcsPort (\s a -> s {_dcsPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsPort :: Lens.Lens' DBClusterSnapshot (Lude.Maybe Lude.Int)
+dcsPort = Lens.lens (port :: DBClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: DBClusterSnapshot)
+{-# DEPRECATED dcsPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromXML DBClusterSnapshot where
+instance Lude.FromXML DBClusterSnapshot where
   parseXML x =
     DBClusterSnapshot'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "Status")
-      <*> (x .@? "StorageEncrypted")
-      <*> (x .@? "DBClusterIdentifier")
-      <*> (x .@? "MasterUsername")
-      <*> (x .@? "IAMDatabaseAuthenticationEnabled")
-      <*> (x .@? "DBClusterSnapshotArn")
-      <*> (x .@? "VpcId")
-      <*> (x .@? "TagList" .!@ mempty >>= may (parseXMLList "Tag"))
-      <*> (x .@? "DBClusterSnapshotIdentifier")
-      <*> (x .@? "Engine")
-      <*> (x .@? "LicenseModel")
-      <*> ( x .@? "AvailabilityZones" .!@ mempty
-              >>= may (parseXMLList "AvailabilityZone")
-          )
-      <*> (x .@? "SnapshotType")
-      <*> (x .@? "KmsKeyId")
-      <*> (x .@? "SnapshotCreateTime")
-      <*> (x .@? "AllocatedStorage")
-      <*> (x .@? "SourceDBClusterSnapshotArn")
-      <*> (x .@? "ClusterCreateTime")
-      <*> (x .@? "PercentProgress")
-      <*> (x .@? "Port")
-
-instance Hashable DBClusterSnapshot
-
-instance NFData DBClusterSnapshot
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "StorageEncrypted")
+      Lude.<*> (x Lude..@? "DBClusterIdentifier")
+      Lude.<*> (x Lude..@? "MasterUsername")
+      Lude.<*> (x Lude..@? "IAMDatabaseAuthenticationEnabled")
+      Lude.<*> (x Lude..@? "DBClusterSnapshotArn")
+      Lude.<*> (x Lude..@? "VpcId")
+      Lude.<*> ( x Lude..@? "TagList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
+      Lude.<*> (x Lude..@? "DBClusterSnapshotIdentifier")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "LicenseModel")
+      Lude.<*> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "AvailabilityZone")
+               )
+      Lude.<*> (x Lude..@? "SnapshotType")
+      Lude.<*> (x Lude..@? "KmsKeyId")
+      Lude.<*> (x Lude..@? "SnapshotCreateTime")
+      Lude.<*> (x Lude..@? "AllocatedStorage")
+      Lude.<*> (x Lude..@? "SourceDBClusterSnapshotArn")
+      Lude.<*> (x Lude..@? "ClusterCreateTime")
+      Lude.<*> (x Lude..@? "PercentProgress")
+      Lude.<*> (x Lude..@? "Port")

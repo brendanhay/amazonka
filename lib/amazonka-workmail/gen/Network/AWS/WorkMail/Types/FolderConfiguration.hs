@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.FolderConfiguration where
+module Network.AWS.WorkMail.Types.FolderConfiguration
+  ( FolderConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFolderConfiguration,
+
+    -- * Lenses
+    fcPeriod,
+    fcName,
+    fcAction,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.Types.FolderName
 import Network.AWS.WorkMail.Types.RetentionAction
 
 -- | The configuration applied to an organization's folders by its retention policy.
 --
---
---
--- /See:/ 'folderConfiguration' smart constructor.
+-- /See:/ 'mkFolderConfiguration' smart constructor.
 data FolderConfiguration = FolderConfiguration'
-  { _fcPeriod ::
-      !(Maybe Nat),
-    _fcName :: !FolderName,
-    _fcAction :: !RetentionAction
+  { period ::
+      Lude.Maybe Lude.Natural,
+    name :: FolderName,
+    action :: RetentionAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FolderConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcPeriod' - The period of time at which the folder configuration action is applied.
---
--- * 'fcName' - The folder name.
---
--- * 'fcAction' - The action to take on the folder contents at the end of the folder configuration period.
-folderConfiguration ::
-  -- | 'fcName'
+-- * 'action' - The action to take on the folder contents at the end of the folder configuration period.
+-- * 'name' - The folder name.
+-- * 'period' - The period of time at which the folder configuration action is applied.
+mkFolderConfiguration ::
+  -- | 'name'
   FolderName ->
-  -- | 'fcAction'
+  -- | 'action'
   RetentionAction ->
   FolderConfiguration
-folderConfiguration pName_ pAction_ =
+mkFolderConfiguration pName_ pAction_ =
   FolderConfiguration'
-    { _fcPeriod = Nothing,
-      _fcName = pName_,
-      _fcAction = pAction_
+    { period = Lude.Nothing,
+      name = pName_,
+      action = pAction_
     }
 
 -- | The period of time at which the folder configuration action is applied.
-fcPeriod :: Lens' FolderConfiguration (Maybe Natural)
-fcPeriod = lens _fcPeriod (\s a -> s {_fcPeriod = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcPeriod :: Lens.Lens' FolderConfiguration (Lude.Maybe Lude.Natural)
+fcPeriod = Lens.lens (period :: FolderConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: FolderConfiguration)
+{-# DEPRECATED fcPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The folder name.
-fcName :: Lens' FolderConfiguration FolderName
-fcName = lens _fcName (\s a -> s {_fcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcName :: Lens.Lens' FolderConfiguration FolderName
+fcName = Lens.lens (name :: FolderConfiguration -> FolderName) (\s a -> s {name = a} :: FolderConfiguration)
+{-# DEPRECATED fcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The action to take on the folder contents at the end of the folder configuration period.
-fcAction :: Lens' FolderConfiguration RetentionAction
-fcAction = lens _fcAction (\s a -> s {_fcAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcAction :: Lens.Lens' FolderConfiguration RetentionAction
+fcAction = Lens.lens (action :: FolderConfiguration -> RetentionAction) (\s a -> s {action = a} :: FolderConfiguration)
+{-# DEPRECATED fcAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance FromJSON FolderConfiguration where
+instance Lude.FromJSON FolderConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "FolderConfiguration"
       ( \x ->
           FolderConfiguration'
-            <$> (x .:? "Period") <*> (x .: "Name") <*> (x .: "Action")
+            Lude.<$> (x Lude..:? "Period")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "Action")
       )
 
-instance Hashable FolderConfiguration
-
-instance NFData FolderConfiguration
-
-instance ToJSON FolderConfiguration where
+instance Lude.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("Period" .=) <$> _fcPeriod,
-            Just ("Name" .= _fcName),
-            Just ("Action" .= _fcAction)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Period" Lude..=) Lude.<$> period,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Action" Lude..= action)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes where
+module Network.AWS.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
+  ( PreventUserExistenceErrorTypes
+      ( PreventUserExistenceErrorTypes',
+        PUEETEnabled,
+        PUEETLegacy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PreventUserExistenceErrorTypes
-  = PUEETEnabled
-  | PUEETLegacy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PreventUserExistenceErrorTypes = PreventUserExistenceErrorTypes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PreventUserExistenceErrorTypes where
-  parser =
-    takeLowerText >>= \case
-      "enabled" -> pure PUEETEnabled
-      "legacy" -> pure PUEETLegacy
-      e ->
-        fromTextError $
-          "Failure parsing PreventUserExistenceErrorTypes from value: '" <> e
-            <> "'. Accepted values: enabled, legacy"
+pattern PUEETEnabled :: PreventUserExistenceErrorTypes
+pattern PUEETEnabled = PreventUserExistenceErrorTypes' "ENABLED"
 
-instance ToText PreventUserExistenceErrorTypes where
-  toText = \case
-    PUEETEnabled -> "ENABLED"
-    PUEETLegacy -> "LEGACY"
+pattern PUEETLegacy :: PreventUserExistenceErrorTypes
+pattern PUEETLegacy = PreventUserExistenceErrorTypes' "LEGACY"
 
-instance Hashable PreventUserExistenceErrorTypes
-
-instance NFData PreventUserExistenceErrorTypes
-
-instance ToByteString PreventUserExistenceErrorTypes
-
-instance ToQuery PreventUserExistenceErrorTypes
-
-instance ToHeader PreventUserExistenceErrorTypes
-
-instance ToJSON PreventUserExistenceErrorTypes where
-  toJSON = toJSONText
-
-instance FromJSON PreventUserExistenceErrorTypes where
-  parseJSON = parseJSONText "PreventUserExistenceErrorTypes"
+{-# COMPLETE
+  PUEETEnabled,
+  PUEETLegacy,
+  PreventUserExistenceErrorTypes'
+  #-}

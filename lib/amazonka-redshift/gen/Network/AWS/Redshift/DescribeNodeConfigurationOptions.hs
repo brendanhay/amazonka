@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns properties of possible node configurations such as node type, number of nodes, and disk usage for the specified action type.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeNodeConfigurationOptions
-  ( -- * Creating a Request
-    describeNodeConfigurationOptions,
-    DescribeNodeConfigurationOptions,
+  ( -- * Creating a request
+    DescribeNodeConfigurationOptions (..),
+    mkDescribeNodeConfigurationOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dncoSnapshotIdentifier,
     dncoFilters,
     dncoClusterIdentifier,
@@ -36,201 +29,236 @@ module Network.AWS.Redshift.DescribeNodeConfigurationOptions
     dncoOwnerAccount,
     dncoActionType,
 
-    -- * Destructuring the Response
-    describeNodeConfigurationOptionsResponse,
-    DescribeNodeConfigurationOptionsResponse,
+    -- * Destructuring the response
+    DescribeNodeConfigurationOptionsResponse (..),
+    mkDescribeNodeConfigurationOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dncorsNodeConfigurationOptionList,
     dncorsMarker,
     dncorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeNodeConfigurationOptions' smart constructor.
+-- | /See:/ 'mkDescribeNodeConfigurationOptions' smart constructor.
 data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
-  { _dncoSnapshotIdentifier ::
-      !(Maybe Text),
-    _dncoFilters ::
-      !( Maybe
-           [NodeConfigurationOptionsFilter]
-       ),
-    _dncoClusterIdentifier ::
-      !(Maybe Text),
-    _dncoMarker ::
-      !(Maybe Text),
-    _dncoMaxRecords ::
-      !(Maybe Int),
-    _dncoOwnerAccount ::
-      !(Maybe Text),
-    _dncoActionType ::
-      !ActionType
+  { snapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    filters ::
+      Lude.Maybe
+        [NodeConfigurationOptionsFilter],
+    clusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    marker ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int,
+    ownerAccount ::
+      Lude.Maybe Lude.Text,
+    actionType :: ActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNodeConfigurationOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actionType' - The action type to evaluate for possible node configurations. Specify "restore-cluster" to get configuration combinations based on an existing snapshot. Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot. Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
+-- * 'clusterIdentifier' - The identifier of the cluster to evaluate for possible node configurations.
+-- * 'filters' - A set of name, operator, and value items to filter the results.
+-- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeNodeConfigurationOptions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+-- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
--- * 'dncoSnapshotIdentifier' - The identifier of the snapshot to evaluate for possible node configurations.
---
--- * 'dncoFilters' - A set of name, operator, and value items to filter the results.
---
--- * 'dncoClusterIdentifier' - The identifier of the cluster to evaluate for possible node configurations.
---
--- * 'dncoMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeNodeConfigurationOptions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- * 'dncoMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @500@  Constraints: minimum 100, maximum 500.
---
--- * 'dncoOwnerAccount' - The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
---
--- * 'dncoActionType' - The action type to evaluate for possible node configurations. Specify "restore-cluster" to get configuration combinations based on an existing snapshot. Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot. Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
-describeNodeConfigurationOptions ::
-  -- | 'dncoActionType'
+-- Default: @500@
+-- Constraints: minimum 100, maximum 500.
+-- * 'ownerAccount' - The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+-- * 'snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node configurations.
+mkDescribeNodeConfigurationOptions ::
+  -- | 'actionType'
   ActionType ->
   DescribeNodeConfigurationOptions
-describeNodeConfigurationOptions pActionType_ =
+mkDescribeNodeConfigurationOptions pActionType_ =
   DescribeNodeConfigurationOptions'
-    { _dncoSnapshotIdentifier =
-        Nothing,
-      _dncoFilters = Nothing,
-      _dncoClusterIdentifier = Nothing,
-      _dncoMarker = Nothing,
-      _dncoMaxRecords = Nothing,
-      _dncoOwnerAccount = Nothing,
-      _dncoActionType = pActionType_
+    { snapshotIdentifier =
+        Lude.Nothing,
+      filters = Lude.Nothing,
+      clusterIdentifier = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      ownerAccount = Lude.Nothing,
+      actionType = pActionType_
     }
 
 -- | The identifier of the snapshot to evaluate for possible node configurations.
-dncoSnapshotIdentifier :: Lens' DescribeNodeConfigurationOptions (Maybe Text)
-dncoSnapshotIdentifier = lens _dncoSnapshotIdentifier (\s a -> s {_dncoSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoSnapshotIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe Lude.Text)
+dncoSnapshotIdentifier = Lens.lens (snapshotIdentifier :: DescribeNodeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {snapshotIdentifier = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
 -- | A set of name, operator, and value items to filter the results.
-dncoFilters :: Lens' DescribeNodeConfigurationOptions [NodeConfigurationOptionsFilter]
-dncoFilters = lens _dncoFilters (\s a -> s {_dncoFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoFilters :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe [NodeConfigurationOptionsFilter])
+dncoFilters = Lens.lens (filters :: DescribeNodeConfigurationOptions -> Lude.Maybe [NodeConfigurationOptionsFilter]) (\s a -> s {filters = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The identifier of the cluster to evaluate for possible node configurations.
-dncoClusterIdentifier :: Lens' DescribeNodeConfigurationOptions (Maybe Text)
-dncoClusterIdentifier = lens _dncoClusterIdentifier (\s a -> s {_dncoClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoClusterIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe Lude.Text)
+dncoClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeNodeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeNodeConfigurationOptions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-dncoMarker :: Lens' DescribeNodeConfigurationOptions (Maybe Text)
-dncoMarker = lens _dncoMarker (\s a -> s {_dncoMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoMarker :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe Lude.Text)
+dncoMarker = Lens.lens (marker :: DescribeNodeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @500@  Constraints: minimum 100, maximum 500.
-dncoMaxRecords :: Lens' DescribeNodeConfigurationOptions (Maybe Int)
-dncoMaxRecords = lens _dncoMaxRecords (\s a -> s {_dncoMaxRecords = a})
+-- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+--
+-- Default: @500@
+-- Constraints: minimum 100, maximum 500.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoMaxRecords :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe Lude.Int)
+dncoMaxRecords = Lens.lens (maxRecords :: DescribeNodeConfigurationOptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-dncoOwnerAccount :: Lens' DescribeNodeConfigurationOptions (Maybe Text)
-dncoOwnerAccount = lens _dncoOwnerAccount (\s a -> s {_dncoOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoOwnerAccount :: Lens.Lens' DescribeNodeConfigurationOptions (Lude.Maybe Lude.Text)
+dncoOwnerAccount = Lens.lens (ownerAccount :: DescribeNodeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | The action type to evaluate for possible node configurations. Specify "restore-cluster" to get configuration combinations based on an existing snapshot. Specify "recommend-node-config" to get configuration recommendations based on an existing cluster or snapshot. Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
-dncoActionType :: Lens' DescribeNodeConfigurationOptions ActionType
-dncoActionType = lens _dncoActionType (\s a -> s {_dncoActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncoActionType :: Lens.Lens' DescribeNodeConfigurationOptions ActionType
+dncoActionType = Lens.lens (actionType :: DescribeNodeConfigurationOptions -> ActionType) (\s a -> s {actionType = a} :: DescribeNodeConfigurationOptions)
+{-# DEPRECATED dncoActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance AWSPager DescribeNodeConfigurationOptions where
+instance Page.AWSPager DescribeNodeConfigurationOptions where
   page rq rs
-    | stop (rs ^. dncorsMarker) = Nothing
-    | stop (rs ^. dncorsNodeConfigurationOptionList) = Nothing
-    | otherwise = Just $ rq & dncoMarker .~ rs ^. dncorsMarker
+    | Page.stop (rs Lens.^. dncorsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dncorsNodeConfigurationOptionList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dncoMarker Lens..~ rs Lens.^. dncorsMarker
 
-instance AWSRequest DescribeNodeConfigurationOptions where
+instance Lude.AWSRequest DescribeNodeConfigurationOptions where
   type
     Rs DescribeNodeConfigurationOptions =
       DescribeNodeConfigurationOptionsResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeNodeConfigurationOptionsResult"
       ( \s h x ->
           DescribeNodeConfigurationOptionsResponse'
-            <$> ( x .@? "NodeConfigurationOptionList" .!@ mempty
-                    >>= may (parseXMLList "NodeConfigurationOption")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "NodeConfigurationOptionList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "NodeConfigurationOption")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNodeConfigurationOptions
+instance Lude.ToHeaders DescribeNodeConfigurationOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeNodeConfigurationOptions
+instance Lude.ToPath DescribeNodeConfigurationOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeNodeConfigurationOptions where
-  toHeaders = const mempty
-
-instance ToPath DescribeNodeConfigurationOptions where
-  toPath = const "/"
-
-instance ToQuery DescribeNodeConfigurationOptions where
+instance Lude.ToQuery DescribeNodeConfigurationOptions where
   toQuery DescribeNodeConfigurationOptions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeNodeConfigurationOptions" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "SnapshotIdentifier" =: _dncoSnapshotIdentifier,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeNodeConfigurationOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
         "Filter"
-          =: toQuery
-            (toQueryList "NodeConfigurationOptionsFilter" <$> _dncoFilters),
-        "ClusterIdentifier" =: _dncoClusterIdentifier,
-        "Marker" =: _dncoMarker,
-        "MaxRecords" =: _dncoMaxRecords,
-        "OwnerAccount" =: _dncoOwnerAccount,
-        "ActionType" =: _dncoActionType
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "NodeConfigurationOptionsFilter"
+                Lude.<$> filters
+            ),
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "OwnerAccount" Lude.=: ownerAccount,
+        "ActionType" Lude.=: actionType
       ]
 
--- | /See:/ 'describeNodeConfigurationOptionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeNodeConfigurationOptionsResponse' smart constructor.
 data DescribeNodeConfigurationOptionsResponse = DescribeNodeConfigurationOptionsResponse'
-  { _dncorsNodeConfigurationOptionList ::
-      !( Maybe
-           [NodeConfigurationOption]
-       ),
-    _dncorsMarker ::
-      !( Maybe
-           Text
-       ),
-    _dncorsResponseStatus ::
-      !Int
+  { nodeConfigurationOptionList ::
+      Lude.Maybe
+        [NodeConfigurationOption],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNodeConfigurationOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dncorsNodeConfigurationOptionList' - A list of valid node configurations.
---
--- * 'dncorsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
---
--- * 'dncorsResponseStatus' - -- | The response status code.
-describeNodeConfigurationOptionsResponse ::
-  -- | 'dncorsResponseStatus'
-  Int ->
+-- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+-- * 'nodeConfigurationOptionList' - A list of valid node configurations.
+-- * 'responseStatus' - The response status code.
+mkDescribeNodeConfigurationOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNodeConfigurationOptionsResponse
-describeNodeConfigurationOptionsResponse pResponseStatus_ =
+mkDescribeNodeConfigurationOptionsResponse pResponseStatus_ =
   DescribeNodeConfigurationOptionsResponse'
-    { _dncorsNodeConfigurationOptionList =
-        Nothing,
-      _dncorsMarker = Nothing,
-      _dncorsResponseStatus = pResponseStatus_
+    { nodeConfigurationOptionList =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of valid node configurations.
-dncorsNodeConfigurationOptionList :: Lens' DescribeNodeConfigurationOptionsResponse [NodeConfigurationOption]
-dncorsNodeConfigurationOptionList = lens _dncorsNodeConfigurationOptionList (\s a -> s {_dncorsNodeConfigurationOptionList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeConfigurationOptionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncorsNodeConfigurationOptionList :: Lens.Lens' DescribeNodeConfigurationOptionsResponse (Lude.Maybe [NodeConfigurationOption])
+dncorsNodeConfigurationOptionList = Lens.lens (nodeConfigurationOptionList :: DescribeNodeConfigurationOptionsResponse -> Lude.Maybe [NodeConfigurationOption]) (\s a -> s {nodeConfigurationOptionList = a} :: DescribeNodeConfigurationOptionsResponse)
+{-# DEPRECATED dncorsNodeConfigurationOptionList "Use generic-lens or generic-optics with 'nodeConfigurationOptionList' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-dncorsMarker :: Lens' DescribeNodeConfigurationOptionsResponse (Maybe Text)
-dncorsMarker = lens _dncorsMarker (\s a -> s {_dncorsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncorsMarker :: Lens.Lens' DescribeNodeConfigurationOptionsResponse (Lude.Maybe Lude.Text)
+dncorsMarker = Lens.lens (marker :: DescribeNodeConfigurationOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeNodeConfigurationOptionsResponse)
+{-# DEPRECATED dncorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dncorsResponseStatus :: Lens' DescribeNodeConfigurationOptionsResponse Int
-dncorsResponseStatus = lens _dncorsResponseStatus (\s a -> s {_dncorsResponseStatus = a})
-
-instance NFData DescribeNodeConfigurationOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncorsResponseStatus :: Lens.Lens' DescribeNodeConfigurationOptionsResponse Lude.Int
+dncorsResponseStatus = Lens.lens (responseStatus :: DescribeNodeConfigurationOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNodeConfigurationOptionsResponse)
+{-# DEPRECATED dncorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

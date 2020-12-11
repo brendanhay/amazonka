@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,149 @@
 --
 -- Remove one or more specified aliases from a set of aliases for a given user.
 module Network.AWS.WorkMail.DeleteAlias
-  ( -- * Creating a Request
-    deleteAlias,
-    DeleteAlias,
+  ( -- * Creating a request
+    DeleteAlias (..),
+    mkDeleteAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daOrganizationId,
     daEntityId,
     daAlias,
 
-    -- * Destructuring the Response
-    deleteAliasResponse,
-    DeleteAliasResponse,
+    -- * Destructuring the response
+    DeleteAliasResponse (..),
+    mkDeleteAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'deleteAlias' smart constructor.
+-- | /See:/ 'mkDeleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
-  { _daOrganizationId :: !Text,
-    _daEntityId :: !Text,
-    _daAlias :: !Text
+  { organizationId :: Lude.Text,
+    entityId :: Lude.Text,
+    alias :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daOrganizationId' - The identifier for the organization under which the user exists.
---
--- * 'daEntityId' - The identifier for the member (user or group) from which to have the aliases removed.
---
--- * 'daAlias' - The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
-deleteAlias ::
-  -- | 'daOrganizationId'
-  Text ->
-  -- | 'daEntityId'
-  Text ->
-  -- | 'daAlias'
-  Text ->
+-- * 'alias' - The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
+-- * 'entityId' - The identifier for the member (user or group) from which to have the aliases removed.
+-- * 'organizationId' - The identifier for the organization under which the user exists.
+mkDeleteAlias ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
+  -- | 'alias'
+  Lude.Text ->
   DeleteAlias
-deleteAlias pOrganizationId_ pEntityId_ pAlias_ =
+mkDeleteAlias pOrganizationId_ pEntityId_ pAlias_ =
   DeleteAlias'
-    { _daOrganizationId = pOrganizationId_,
-      _daEntityId = pEntityId_,
-      _daAlias = pAlias_
+    { organizationId = pOrganizationId_,
+      entityId = pEntityId_,
+      alias = pAlias_
     }
 
 -- | The identifier for the organization under which the user exists.
-daOrganizationId :: Lens' DeleteAlias Text
-daOrganizationId = lens _daOrganizationId (\s a -> s {_daOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daOrganizationId :: Lens.Lens' DeleteAlias Lude.Text
+daOrganizationId = Lens.lens (organizationId :: DeleteAlias -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteAlias)
+{-# DEPRECATED daOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the member (user or group) from which to have the aliases removed.
-daEntityId :: Lens' DeleteAlias Text
-daEntityId = lens _daEntityId (\s a -> s {_daEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daEntityId :: Lens.Lens' DeleteAlias Lude.Text
+daEntityId = Lens.lens (entityId :: DeleteAlias -> Lude.Text) (\s a -> s {entityId = a} :: DeleteAlias)
+{-# DEPRECATED daEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
-daAlias :: Lens' DeleteAlias Text
-daAlias = lens _daAlias (\s a -> s {_daAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAlias :: Lens.Lens' DeleteAlias Lude.Text
+daAlias = Lens.lens (alias :: DeleteAlias -> Lude.Text) (\s a -> s {alias = a} :: DeleteAlias)
+{-# DEPRECATED daAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
-instance AWSRequest DeleteAlias where
+instance Lude.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
-      (\s h x -> DeleteAliasResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteAliasResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteAlias
-
-instance NFData DeleteAlias
-
-instance ToHeaders DeleteAlias where
+instance Lude.ToHeaders DeleteAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.DeleteAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.DeleteAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAlias where
+instance Lude.ToJSON DeleteAlias where
   toJSON DeleteAlias' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _daOrganizationId),
-            Just ("EntityId" .= _daEntityId),
-            Just ("Alias" .= _daAlias)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("EntityId" Lude..= entityId),
+            Lude.Just ("Alias" Lude..= alias)
           ]
       )
 
-instance ToPath DeleteAlias where
-  toPath = const "/"
+instance Lude.ToPath DeleteAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 newtype DeleteAliasResponse = DeleteAliasResponse'
-  { _darsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsResponseStatus' - -- | The response status code.
-deleteAliasResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAliasResponse
-deleteAliasResponse pResponseStatus_ =
-  DeleteAliasResponse' {_darsResponseStatus = pResponseStatus_}
+mkDeleteAliasResponse pResponseStatus_ =
+  DeleteAliasResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteAliasResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DeleteAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DeleteAliasResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAliasResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

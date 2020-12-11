@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioChannelMapping where
+module Network.AWS.MediaLive.Types.AudioChannelMapping
+  ( AudioChannelMapping (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioChannelMapping,
+
+    -- * Lenses
+    acmOutputChannel,
+    acmInputChannelLevels,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputChannelLevel
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Channel Mapping
 --
--- /See:/ 'audioChannelMapping' smart constructor.
+-- /See:/ 'mkAudioChannelMapping' smart constructor.
 data AudioChannelMapping = AudioChannelMapping'
-  { _acmOutputChannel ::
-      !Nat,
-    _acmInputChannelLevels :: ![InputChannelLevel]
+  { outputChannel ::
+      Lude.Natural,
+    inputChannelLevels :: [InputChannelLevel]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioChannelMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acmOutputChannel' - The index of the output channel being produced.
---
--- * 'acmInputChannelLevels' - Indices and gain values for each input channel that should be remixed into this output channel.
-audioChannelMapping ::
-  -- | 'acmOutputChannel'
-  Natural ->
+-- * 'inputChannelLevels' - Indices and gain values for each input channel that should be remixed into this output channel.
+-- * 'outputChannel' - The index of the output channel being produced.
+mkAudioChannelMapping ::
+  -- | 'outputChannel'
+  Lude.Natural ->
   AudioChannelMapping
-audioChannelMapping pOutputChannel_ =
+mkAudioChannelMapping pOutputChannel_ =
   AudioChannelMapping'
-    { _acmOutputChannel = _Nat # pOutputChannel_,
-      _acmInputChannelLevels = mempty
+    { outputChannel = pOutputChannel_,
+      inputChannelLevels = Lude.mempty
     }
 
 -- | The index of the output channel being produced.
-acmOutputChannel :: Lens' AudioChannelMapping Natural
-acmOutputChannel = lens _acmOutputChannel (\s a -> s {_acmOutputChannel = a}) . _Nat
+--
+-- /Note:/ Consider using 'outputChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acmOutputChannel :: Lens.Lens' AudioChannelMapping Lude.Natural
+acmOutputChannel = Lens.lens (outputChannel :: AudioChannelMapping -> Lude.Natural) (\s a -> s {outputChannel = a} :: AudioChannelMapping)
+{-# DEPRECATED acmOutputChannel "Use generic-lens or generic-optics with 'outputChannel' instead." #-}
 
 -- | Indices and gain values for each input channel that should be remixed into this output channel.
-acmInputChannelLevels :: Lens' AudioChannelMapping [InputChannelLevel]
-acmInputChannelLevels = lens _acmInputChannelLevels (\s a -> s {_acmInputChannelLevels = a}) . _Coerce
+--
+-- /Note:/ Consider using 'inputChannelLevels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acmInputChannelLevels :: Lens.Lens' AudioChannelMapping [InputChannelLevel]
+acmInputChannelLevels = Lens.lens (inputChannelLevels :: AudioChannelMapping -> [InputChannelLevel]) (\s a -> s {inputChannelLevels = a} :: AudioChannelMapping)
+{-# DEPRECATED acmInputChannelLevels "Use generic-lens or generic-optics with 'inputChannelLevels' instead." #-}
 
-instance FromJSON AudioChannelMapping where
+instance Lude.FromJSON AudioChannelMapping where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioChannelMapping"
       ( \x ->
           AudioChannelMapping'
-            <$> (x .: "outputChannel") <*> (x .:? "inputChannelLevels" .!= mempty)
+            Lude.<$> (x Lude..: "outputChannel")
+            Lude.<*> (x Lude..:? "inputChannelLevels" Lude..!= Lude.mempty)
       )
 
-instance Hashable AudioChannelMapping
-
-instance NFData AudioChannelMapping
-
-instance ToJSON AudioChannelMapping where
+instance Lude.ToJSON AudioChannelMapping where
   toJSON AudioChannelMapping' {..} =
-    object
-      ( catMaybes
-          [ Just ("outputChannel" .= _acmOutputChannel),
-            Just ("inputChannelLevels" .= _acmInputChannelLevels)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("outputChannel" Lude..= outputChannel),
+            Lude.Just ("inputChannelLevels" Lude..= inputChannelLevels)
           ]
       )

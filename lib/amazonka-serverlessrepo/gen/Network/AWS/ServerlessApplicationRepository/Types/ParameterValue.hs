@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServerlessApplicationRepository.Types.ParameterValue where
+module Network.AWS.ServerlessApplicationRepository.Types.ParameterValue
+  ( ParameterValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterValue,
+
+    -- * Lenses
+    pvValue,
+    pvName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Parameter value of the application.
 --
---
---
--- /See:/ 'parameterValue' smart constructor.
+-- /See:/ 'mkParameterValue' smart constructor.
 data ParameterValue = ParameterValue'
-  { _pvValue :: !Text,
-    _pvName :: !Text
+  { value :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation
 --
--- * 'pvValue' - The input value associated with the parameter.
---
--- * 'pvName' - The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation  uses the default value that is specified in your template.
-parameterValue ::
-  -- | 'pvValue'
-  Text ->
-  -- | 'pvName'
-  Text ->
+--  uses the default value that is specified in your template.
+-- * 'value' - The input value associated with the parameter.
+mkParameterValue ::
+  -- | 'value'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   ParameterValue
-parameterValue pValue_ pName_ =
-  ParameterValue' {_pvValue = pValue_, _pvName = pName_}
+mkParameterValue pValue_ pName_ =
+  ParameterValue' {value = pValue_, name = pName_}
 
 -- | The input value associated with the parameter.
-pvValue :: Lens' ParameterValue Text
-pvValue = lens _pvValue (\s a -> s {_pvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvValue :: Lens.Lens' ParameterValue Lude.Text
+pvValue = Lens.lens (value :: ParameterValue -> Lude.Text) (\s a -> s {value = a} :: ParameterValue)
+{-# DEPRECATED pvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation  uses the default value that is specified in your template.
-pvName :: Lens' ParameterValue Text
-pvName = lens _pvName (\s a -> s {_pvName = a})
+-- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation
+--
+--  uses the default value that is specified in your template.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvName :: Lens.Lens' ParameterValue Lude.Text
+pvName = Lens.lens (name :: ParameterValue -> Lude.Text) (\s a -> s {name = a} :: ParameterValue)
+{-# DEPRECATED pvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable ParameterValue
-
-instance NFData ParameterValue
-
-instance ToJSON ParameterValue where
+instance Lude.ToJSON ParameterValue where
   toJSON ParameterValue' {..} =
-    object
-      (catMaybes [Just ("value" .= _pvValue), Just ("name" .= _pvName)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("value" Lude..= value),
+            Lude.Just ("name" Lude..= name)
+          ]
+      )

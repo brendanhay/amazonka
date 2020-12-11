@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
 module Network.AWS.MQ.CreateConfiguration
-  ( -- * Creating a Request
-    createConfiguration,
-    CreateConfiguration,
+  ( -- * Creating a request
+    CreateConfiguration (..),
+    mkCreateConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccEngineVersion,
     ccAuthenticationStrategy,
     ccName,
     ccEngineType,
     ccTags,
 
-    -- * Destructuring the Response
-    createConfigurationResponse,
-    CreateConfigurationResponse,
+    -- * Destructuring the response
+    CreateConfigurationResponse (..),
+    mkCreateConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsARN,
     ccrsLatestRevision,
     ccrsCreated,
@@ -45,188 +40,222 @@ module Network.AWS.MQ.CreateConfiguration
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
 --
--- /See:/ 'createConfiguration' smart constructor.
+-- /See:/ 'mkCreateConfiguration' smart constructor.
 data CreateConfiguration = CreateConfiguration'
-  { _ccEngineVersion ::
-      !(Maybe Text),
-    _ccAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _ccName :: !(Maybe Text),
-    _ccEngineType :: !(Maybe EngineType),
-    _ccTags :: !(Maybe (Map Text (Text)))
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    authenticationStrategy ::
+      Lude.Maybe AuthenticationStrategy,
+    name :: Lude.Maybe Lude.Text,
+    engineType :: Lude.Maybe EngineType,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccEngineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'ccAuthenticationStrategy' - The authentication strategy associated with the configuration.
---
--- * 'ccName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
---
--- * 'ccEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
---
--- * 'ccTags' - Create tags when creating the configuration.
-createConfiguration ::
+-- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'tags' - Create tags when creating the configuration.
+mkCreateConfiguration ::
   CreateConfiguration
-createConfiguration =
+mkCreateConfiguration =
   CreateConfiguration'
-    { _ccEngineVersion = Nothing,
-      _ccAuthenticationStrategy = Nothing,
-      _ccName = Nothing,
-      _ccEngineType = Nothing,
-      _ccTags = Nothing
+    { engineVersion = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      name = Lude.Nothing,
+      engineType = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-ccEngineVersion :: Lens' CreateConfiguration (Maybe Text)
-ccEngineVersion = lens _ccEngineVersion (\s a -> s {_ccEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEngineVersion :: Lens.Lens' CreateConfiguration (Lude.Maybe Lude.Text)
+ccEngineVersion = Lens.lens (engineVersion :: CreateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: CreateConfiguration)
+{-# DEPRECATED ccEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The authentication strategy associated with the configuration.
-ccAuthenticationStrategy :: Lens' CreateConfiguration (Maybe AuthenticationStrategy)
-ccAuthenticationStrategy = lens _ccAuthenticationStrategy (\s a -> s {_ccAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAuthenticationStrategy :: Lens.Lens' CreateConfiguration (Lude.Maybe AuthenticationStrategy)
+ccAuthenticationStrategy = Lens.lens (authenticationStrategy :: CreateConfiguration -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: CreateConfiguration)
+{-# DEPRECATED ccAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-ccName :: Lens' CreateConfiguration (Maybe Text)
-ccName = lens _ccName (\s a -> s {_ccName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccName :: Lens.Lens' CreateConfiguration (Lude.Maybe Lude.Text)
+ccName = Lens.lens (name :: CreateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateConfiguration)
+{-# DEPRECATED ccName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-ccEngineType :: Lens' CreateConfiguration (Maybe EngineType)
-ccEngineType = lens _ccEngineType (\s a -> s {_ccEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEngineType :: Lens.Lens' CreateConfiguration (Lude.Maybe EngineType)
+ccEngineType = Lens.lens (engineType :: CreateConfiguration -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: CreateConfiguration)
+{-# DEPRECATED ccEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | Create tags when creating the configuration.
-ccTags :: Lens' CreateConfiguration (HashMap Text (Text))
-ccTags = lens _ccTags (\s a -> s {_ccTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccTags = Lens.lens (tags :: CreateConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateConfiguration)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateConfiguration where
+instance Lude.AWSRequest CreateConfiguration where
   type Rs CreateConfiguration = CreateConfigurationResponse
-  request = postJSON mq
+  request = Req.postJSON mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateConfigurationResponse'
-            <$> (x .?> "arn")
-            <*> (x .?> "latestRevision")
-            <*> (x .?> "created")
-            <*> (x .?> "authenticationStrategy")
-            <*> (x .?> "name")
-            <*> (x .?> "id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "latestRevision")
+            Lude.<*> (x Lude..?> "created")
+            Lude.<*> (x Lude..?> "authenticationStrategy")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConfiguration
-
-instance NFData CreateConfiguration
-
-instance ToHeaders CreateConfiguration where
+instance Lude.ToHeaders CreateConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateConfiguration where
-  toJSON CreateConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("engineVersion" .=) <$> _ccEngineVersion,
-            ("authenticationStrategy" .=) <$> _ccAuthenticationStrategy,
-            ("name" .=) <$> _ccName,
-            ("engineType" .=) <$> _ccEngineType,
-            ("tags" .=) <$> _ccTags
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateConfiguration where
-  toPath = const "/v1/configurations"
+instance Lude.ToJSON CreateConfiguration where
+  toJSON CreateConfiguration' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("engineVersion" Lude..=) Lude.<$> engineVersion,
+            ("authenticationStrategy" Lude..=) Lude.<$> authenticationStrategy,
+            ("name" Lude..=) Lude.<$> name,
+            ("engineType" Lude..=) Lude.<$> engineType,
+            ("tags" Lude..=) Lude.<$> tags
+          ]
+      )
 
-instance ToQuery CreateConfiguration where
-  toQuery = const mempty
+instance Lude.ToPath CreateConfiguration where
+  toPath = Lude.const "/v1/configurations"
 
--- | /See:/ 'createConfigurationResponse' smart constructor.
+instance Lude.ToQuery CreateConfiguration where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateConfigurationResponse' smart constructor.
 data CreateConfigurationResponse = CreateConfigurationResponse'
-  { _ccrsARN ::
-      !(Maybe Text),
-    _ccrsLatestRevision ::
-      !(Maybe ConfigurationRevision),
-    _ccrsCreated :: !(Maybe POSIX),
-    _ccrsAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _ccrsName :: !(Maybe Text),
-    _ccrsId :: !(Maybe Text),
-    _ccrsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    latestRevision ::
+      Lude.Maybe ConfigurationRevision,
+    created ::
+      Lude.Maybe Lude.Timestamp,
+    authenticationStrategy ::
+      Lude.Maybe AuthenticationStrategy,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsARN' - Required. The Amazon Resource Name (ARN) of the configuration.
---
--- * 'ccrsLatestRevision' - The latest revision of the configuration.
---
--- * 'ccrsCreated' - Required. The date and time of the configuration.
---
--- * 'ccrsAuthenticationStrategy' - The authentication strategy associated with the configuration.
---
--- * 'ccrsName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
---
--- * 'ccrsId' - Required. The unique ID that Amazon MQ generates for the configuration.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createConfigurationResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'arn' - Required. The Amazon Resource Name (ARN) of the configuration.
+-- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'created' - Required. The date and time of the configuration.
+-- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
+-- * 'latestRevision' - The latest revision of the configuration.
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'responseStatus' - The response status code.
+mkCreateConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConfigurationResponse
-createConfigurationResponse pResponseStatus_ =
+mkCreateConfigurationResponse pResponseStatus_ =
   CreateConfigurationResponse'
-    { _ccrsARN = Nothing,
-      _ccrsLatestRevision = Nothing,
-      _ccrsCreated = Nothing,
-      _ccrsAuthenticationStrategy = Nothing,
-      _ccrsName = Nothing,
-      _ccrsId = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      latestRevision = Lude.Nothing,
+      created = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
-ccrsARN :: Lens' CreateConfigurationResponse (Maybe Text)
-ccrsARN = lens _ccrsARN (\s a -> s {_ccrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsARN :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe Lude.Text)
+ccrsARN = Lens.lens (arn :: CreateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The latest revision of the configuration.
-ccrsLatestRevision :: Lens' CreateConfigurationResponse (Maybe ConfigurationRevision)
-ccrsLatestRevision = lens _ccrsLatestRevision (\s a -> s {_ccrsLatestRevision = a})
+--
+-- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsLatestRevision :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe ConfigurationRevision)
+ccrsLatestRevision = Lens.lens (latestRevision :: CreateConfigurationResponse -> Lude.Maybe ConfigurationRevision) (\s a -> s {latestRevision = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
 
 -- | Required. The date and time of the configuration.
-ccrsCreated :: Lens' CreateConfigurationResponse (Maybe UTCTime)
-ccrsCreated = lens _ccrsCreated (\s a -> s {_ccrsCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsCreated :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe Lude.Timestamp)
+ccrsCreated = Lens.lens (created :: CreateConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The authentication strategy associated with the configuration.
-ccrsAuthenticationStrategy :: Lens' CreateConfigurationResponse (Maybe AuthenticationStrategy)
-ccrsAuthenticationStrategy = lens _ccrsAuthenticationStrategy (\s a -> s {_ccrsAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsAuthenticationStrategy :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe AuthenticationStrategy)
+ccrsAuthenticationStrategy = Lens.lens (authenticationStrategy :: CreateConfigurationResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-ccrsName :: Lens' CreateConfigurationResponse (Maybe Text)
-ccrsName = lens _ccrsName (\s a -> s {_ccrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsName :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe Lude.Text)
+ccrsName = Lens.lens (name :: CreateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-ccrsId :: Lens' CreateConfigurationResponse (Maybe Text)
-ccrsId = lens _ccrsId (\s a -> s {_ccrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsId :: Lens.Lens' CreateConfigurationResponse (Lude.Maybe Lude.Text)
+ccrsId = Lens.lens (id :: CreateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateConfigurationResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateConfigurationResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConfigurationResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

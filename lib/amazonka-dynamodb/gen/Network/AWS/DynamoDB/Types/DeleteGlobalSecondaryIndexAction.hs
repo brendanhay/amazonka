@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction where
+module Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
+  ( DeleteGlobalSecondaryIndexAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteGlobalSecondaryIndexAction,
+
+    -- * Lenses
+    dgsiaIndexName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a global secondary index to be deleted from an existing table.
 --
---
---
--- /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
+-- /See:/ 'mkDeleteGlobalSecondaryIndexAction' smart constructor.
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
-  { _dgsiaIndexName ::
-      Text
+  { indexName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgsiaIndexName' - The name of the global secondary index to be deleted.
-deleteGlobalSecondaryIndexAction ::
-  -- | 'dgsiaIndexName'
-  Text ->
+-- * 'indexName' - The name of the global secondary index to be deleted.
+mkDeleteGlobalSecondaryIndexAction ::
+  -- | 'indexName'
+  Lude.Text ->
   DeleteGlobalSecondaryIndexAction
-deleteGlobalSecondaryIndexAction pIndexName_ =
-  DeleteGlobalSecondaryIndexAction' {_dgsiaIndexName = pIndexName_}
+mkDeleteGlobalSecondaryIndexAction pIndexName_ =
+  DeleteGlobalSecondaryIndexAction' {indexName = pIndexName_}
 
 -- | The name of the global secondary index to be deleted.
-dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
-dgsiaIndexName = lens _dgsiaIndexName (\s a -> s {_dgsiaIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsiaIndexName :: Lens.Lens' DeleteGlobalSecondaryIndexAction Lude.Text
+dgsiaIndexName = Lens.lens (indexName :: DeleteGlobalSecondaryIndexAction -> Lude.Text) (\s a -> s {indexName = a} :: DeleteGlobalSecondaryIndexAction)
+{-# DEPRECATED dgsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Hashable DeleteGlobalSecondaryIndexAction
-
-instance NFData DeleteGlobalSecondaryIndexAction
-
-instance ToJSON DeleteGlobalSecondaryIndexAction where
+instance Lude.ToJSON DeleteGlobalSecondaryIndexAction where
   toJSON DeleteGlobalSecondaryIndexAction' {..} =
-    object (catMaybes [Just ("IndexName" .= _dgsiaIndexName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("IndexName" Lude..= indexName)])

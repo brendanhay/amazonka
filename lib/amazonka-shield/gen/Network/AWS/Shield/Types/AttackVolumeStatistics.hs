@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackVolumeStatistics where
+module Network.AWS.Shield.Types.AttackVolumeStatistics
+  ( AttackVolumeStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttackVolumeStatistics,
+
+    -- * Lenses
+    avsMax,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statistics objects for the various data types in 'AttackVolume' .
 --
---
---
--- /See:/ 'attackVolumeStatistics' smart constructor.
+-- /See:/ 'mkAttackVolumeStatistics' smart constructor.
 newtype AttackVolumeStatistics = AttackVolumeStatistics'
-  { _avsMax ::
-      Double
+  { max ::
+      Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackVolumeStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avsMax' - The maximum attack volume observed for the given unit.
-attackVolumeStatistics ::
-  -- | 'avsMax'
-  Double ->
+-- * 'max' - The maximum attack volume observed for the given unit.
+mkAttackVolumeStatistics ::
+  -- | 'max'
+  Lude.Double ->
   AttackVolumeStatistics
-attackVolumeStatistics pMax_ =
-  AttackVolumeStatistics' {_avsMax = pMax_}
+mkAttackVolumeStatistics pMax_ =
+  AttackVolumeStatistics' {max = pMax_}
 
 -- | The maximum attack volume observed for the given unit.
-avsMax :: Lens' AttackVolumeStatistics Double
-avsMax = lens _avsMax (\s a -> s {_avsMax = a})
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsMax :: Lens.Lens' AttackVolumeStatistics Lude.Double
+avsMax = Lens.lens (max :: AttackVolumeStatistics -> Lude.Double) (\s a -> s {max = a} :: AttackVolumeStatistics)
+{-# DEPRECATED avsMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
-instance FromJSON AttackVolumeStatistics where
+instance Lude.FromJSON AttackVolumeStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttackVolumeStatistics"
-      (\x -> AttackVolumeStatistics' <$> (x .: "Max"))
-
-instance Hashable AttackVolumeStatistics
-
-instance NFData AttackVolumeStatistics
+      (\x -> AttackVolumeStatistics' Lude.<$> (x Lude..: "Max"))

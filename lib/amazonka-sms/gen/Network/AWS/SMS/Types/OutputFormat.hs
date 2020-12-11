@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.OutputFormat where
+module Network.AWS.SMS.Types.OutputFormat
+  ( OutputFormat
+      ( OutputFormat',
+        JSON,
+        Yaml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutputFormat
-  = JSON
-  | Yaml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutputFormat = OutputFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutputFormat where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "yaml" -> pure Yaml
-      e ->
-        fromTextError $
-          "Failure parsing OutputFormat from value: '" <> e
-            <> "'. Accepted values: json, yaml"
+pattern JSON :: OutputFormat
+pattern JSON = OutputFormat' "JSON"
 
-instance ToText OutputFormat where
-  toText = \case
-    JSON -> "JSON"
-    Yaml -> "YAML"
+pattern Yaml :: OutputFormat
+pattern Yaml = OutputFormat' "YAML"
 
-instance Hashable OutputFormat
-
-instance NFData OutputFormat
-
-instance ToByteString OutputFormat
-
-instance ToQuery OutputFormat
-
-instance ToHeader OutputFormat
-
-instance ToJSON OutputFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  JSON,
+  Yaml,
+  OutputFormat'
+  #-}

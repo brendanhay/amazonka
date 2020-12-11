@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,126 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastoreSummary where
+module Network.AWS.IoTAnalytics.Types.DatastoreSummary
+  ( DatastoreSummary (..),
+
+    -- * Smart constructor
+    mkDatastoreSummary,
+
+    -- * Lenses
+    dsCreationTime,
+    dsStatus,
+    dsLastMessageArrivalTime,
+    dsDatastoreName,
+    dsLastUpdateTime,
+    dsDatastoreStorage,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.DatastoreStatus
 import Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A summary of information about a data store.
 --
---
---
--- /See:/ 'datastoreSummary' smart constructor.
+-- /See:/ 'mkDatastoreSummary' smart constructor.
 data DatastoreSummary = DatastoreSummary'
-  { _dsCreationTime ::
-      !(Maybe POSIX),
-    _dsStatus :: !(Maybe DatastoreStatus),
-    _dsLastMessageArrivalTime :: !(Maybe POSIX),
-    _dsDatastoreName :: !(Maybe Text),
-    _dsLastUpdateTime :: !(Maybe POSIX),
-    _dsDatastoreStorage :: !(Maybe DatastoreStorageSummary)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe DatastoreStatus,
+    lastMessageArrivalTime :: Lude.Maybe Lude.Timestamp,
+    datastoreName :: Lude.Maybe Lude.Text,
+    lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+    datastoreStorage :: Lude.Maybe DatastoreStorageSummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - When the data store was created.
+-- * 'datastoreName' - The name of the data store.
+-- * 'datastoreStorage' - Where data store data is stored.
+-- * 'lastMessageArrivalTime' - The last time when a new message arrived in the data store.
 --
--- * 'dsCreationTime' - When the data store was created.
---
--- * 'dsStatus' - The status of the data store.
---
--- * 'dsLastMessageArrivalTime' - The last time when a new message arrived in the data store. AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation. This feature only applies to messages that arrived in the data store after October 23, 2020.
---
--- * 'dsDatastoreName' - The name of the data store.
---
--- * 'dsLastUpdateTime' - The last time the data store was updated.
---
--- * 'dsDatastoreStorage' - Where data store data is stored.
-datastoreSummary ::
+-- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
+-- This feature only applies to messages that arrived in the data store after October 23, 2020.
+-- * 'lastUpdateTime' - The last time the data store was updated.
+-- * 'status' - The status of the data store.
+mkDatastoreSummary ::
   DatastoreSummary
-datastoreSummary =
+mkDatastoreSummary =
   DatastoreSummary'
-    { _dsCreationTime = Nothing,
-      _dsStatus = Nothing,
-      _dsLastMessageArrivalTime = Nothing,
-      _dsDatastoreName = Nothing,
-      _dsLastUpdateTime = Nothing,
-      _dsDatastoreStorage = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      lastMessageArrivalTime = Lude.Nothing,
+      datastoreName = Lude.Nothing,
+      lastUpdateTime = Lude.Nothing,
+      datastoreStorage = Lude.Nothing
     }
 
 -- | When the data store was created.
-dsCreationTime :: Lens' DatastoreSummary (Maybe UTCTime)
-dsCreationTime = lens _dsCreationTime (\s a -> s {_dsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCreationTime :: Lens.Lens' DatastoreSummary (Lude.Maybe Lude.Timestamp)
+dsCreationTime = Lens.lens (creationTime :: DatastoreSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DatastoreSummary)
+{-# DEPRECATED dsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the data store.
-dsStatus :: Lens' DatastoreSummary (Maybe DatastoreStatus)
-dsStatus = lens _dsStatus (\s a -> s {_dsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStatus :: Lens.Lens' DatastoreSummary (Lude.Maybe DatastoreStatus)
+dsStatus = Lens.lens (status :: DatastoreSummary -> Lude.Maybe DatastoreStatus) (\s a -> s {status = a} :: DatastoreSummary)
+{-# DEPRECATED dsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The last time when a new message arrived in the data store. AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation. This feature only applies to messages that arrived in the data store after October 23, 2020.
-dsLastMessageArrivalTime :: Lens' DatastoreSummary (Maybe UTCTime)
-dsLastMessageArrivalTime = lens _dsLastMessageArrivalTime (\s a -> s {_dsLastMessageArrivalTime = a}) . mapping _Time
+-- | The last time when a new message arrived in the data store.
+--
+-- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
+-- This feature only applies to messages that arrived in the data store after October 23, 2020.
+--
+-- /Note:/ Consider using 'lastMessageArrivalTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLastMessageArrivalTime :: Lens.Lens' DatastoreSummary (Lude.Maybe Lude.Timestamp)
+dsLastMessageArrivalTime = Lens.lens (lastMessageArrivalTime :: DatastoreSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastMessageArrivalTime = a} :: DatastoreSummary)
+{-# DEPRECATED dsLastMessageArrivalTime "Use generic-lens or generic-optics with 'lastMessageArrivalTime' instead." #-}
 
 -- | The name of the data store.
-dsDatastoreName :: Lens' DatastoreSummary (Maybe Text)
-dsDatastoreName = lens _dsDatastoreName (\s a -> s {_dsDatastoreName = a})
+--
+-- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDatastoreName :: Lens.Lens' DatastoreSummary (Lude.Maybe Lude.Text)
+dsDatastoreName = Lens.lens (datastoreName :: DatastoreSummary -> Lude.Maybe Lude.Text) (\s a -> s {datastoreName = a} :: DatastoreSummary)
+{-# DEPRECATED dsDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
 -- | The last time the data store was updated.
-dsLastUpdateTime :: Lens' DatastoreSummary (Maybe UTCTime)
-dsLastUpdateTime = lens _dsLastUpdateTime (\s a -> s {_dsLastUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLastUpdateTime :: Lens.Lens' DatastoreSummary (Lude.Maybe Lude.Timestamp)
+dsLastUpdateTime = Lens.lens (lastUpdateTime :: DatastoreSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: DatastoreSummary)
+{-# DEPRECATED dsLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 -- | Where data store data is stored.
-dsDatastoreStorage :: Lens' DatastoreSummary (Maybe DatastoreStorageSummary)
-dsDatastoreStorage = lens _dsDatastoreStorage (\s a -> s {_dsDatastoreStorage = a})
+--
+-- /Note:/ Consider using 'datastoreStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDatastoreStorage :: Lens.Lens' DatastoreSummary (Lude.Maybe DatastoreStorageSummary)
+dsDatastoreStorage = Lens.lens (datastoreStorage :: DatastoreSummary -> Lude.Maybe DatastoreStorageSummary) (\s a -> s {datastoreStorage = a} :: DatastoreSummary)
+{-# DEPRECATED dsDatastoreStorage "Use generic-lens or generic-optics with 'datastoreStorage' instead." #-}
 
-instance FromJSON DatastoreSummary where
+instance Lude.FromJSON DatastoreSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatastoreSummary"
       ( \x ->
           DatastoreSummary'
-            <$> (x .:? "creationTime")
-            <*> (x .:? "status")
-            <*> (x .:? "lastMessageArrivalTime")
-            <*> (x .:? "datastoreName")
-            <*> (x .:? "lastUpdateTime")
-            <*> (x .:? "datastoreStorage")
+            Lude.<$> (x Lude..:? "creationTime")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "lastMessageArrivalTime")
+            Lude.<*> (x Lude..:? "datastoreName")
+            Lude.<*> (x Lude..:? "lastUpdateTime")
+            Lude.<*> (x Lude..:? "datastoreStorage")
       )
-
-instance Hashable DatastoreSummary
-
-instance NFData DatastoreSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DefinitionFormat where
+module Network.AWS.Pinpoint.Types.DefinitionFormat
+  ( DefinitionFormat
+      ( DefinitionFormat',
+        CSV,
+        JSON
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DefinitionFormat
-  = CSV
-  | JSON
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DefinitionFormat = DefinitionFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DefinitionFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      "json" -> pure JSON
-      e ->
-        fromTextError $
-          "Failure parsing DefinitionFormat from value: '" <> e
-            <> "'. Accepted values: csv, json"
+pattern CSV :: DefinitionFormat
+pattern CSV = DefinitionFormat' "CSV"
 
-instance ToText DefinitionFormat where
-  toText = \case
-    CSV -> "CSV"
-    JSON -> "JSON"
+pattern JSON :: DefinitionFormat
+pattern JSON = DefinitionFormat' "JSON"
 
-instance Hashable DefinitionFormat
-
-instance NFData DefinitionFormat
-
-instance ToByteString DefinitionFormat
-
-instance ToQuery DefinitionFormat
-
-instance ToHeader DefinitionFormat
-
-instance ToJSON DefinitionFormat where
-  toJSON = toJSONText
-
-instance FromJSON DefinitionFormat where
-  parseJSON = parseJSONText "DefinitionFormat"
+{-# COMPLETE
+  CSV,
+  JSON,
+  DefinitionFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,25 @@
 --
 -- Lists the names of the inline policies that are embedded in the specified IAM role.
 --
---
 -- An IAM role can also have managed policies attached to it. To list the managed policies that are attached to a role, use 'ListAttachedRolePolicies' . For more information about policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
 -- You can paginate the results using the @MaxItems@ and @Marker@ parameters. If there are no inline policies embedded with the specified role, the operation returns an empty list.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListRolePolicies
-  ( -- * Creating a Request
-    listRolePolicies,
-    ListRolePolicies,
+  ( -- * Creating a request
+    ListRolePolicies (..),
+    mkListRolePolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrpMarker,
     lrpMaxItems,
     lrpRoleName,
 
-    -- * Destructuring the Response
-    listRolePoliciesResponse,
-    ListRolePoliciesResponse,
+    -- * Destructuring the response
+    ListRolePoliciesResponse (..),
+    mkListRolePoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrprsMarker,
     lrprsIsTruncated,
     lrprsResponseStatus,
@@ -49,144 +41,173 @@ module Network.AWS.IAM.ListRolePolicies
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRolePolicies' smart constructor.
+-- | /See:/ 'mkListRolePolicies' smart constructor.
 data ListRolePolicies = ListRolePolicies'
-  { _lrpMarker ::
-      !(Maybe Text),
-    _lrpMaxItems :: !(Maybe Nat),
-    _lrpRoleName :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    roleName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRolePolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'lrpMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'roleName' - The name of the role to list policies for.
 --
--- * 'lrpMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
---
--- * 'lrpRoleName' - The name of the role to list policies for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-listRolePolicies ::
-  -- | 'lrpRoleName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkListRolePolicies ::
+  -- | 'roleName'
+  Lude.Text ->
   ListRolePolicies
-listRolePolicies pRoleName_ =
+mkListRolePolicies pRoleName_ =
   ListRolePolicies'
-    { _lrpMarker = Nothing,
-      _lrpMaxItems = Nothing,
-      _lrpRoleName = pRoleName_
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      roleName = pRoleName_
     }
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lrpMarker :: Lens' ListRolePolicies (Maybe Text)
-lrpMarker = lens _lrpMarker (\s a -> s {_lrpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpMarker :: Lens.Lens' ListRolePolicies (Lude.Maybe Lude.Text)
+lrpMarker = Lens.lens (marker :: ListRolePolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRolePolicies)
+{-# DEPRECATED lrpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
-lrpMaxItems = lens _lrpMaxItems (\s a -> s {_lrpMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpMaxItems :: Lens.Lens' ListRolePolicies (Lude.Maybe Lude.Natural)
+lrpMaxItems = Lens.lens (maxItems :: ListRolePolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListRolePolicies)
+{-# DEPRECATED lrpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name of the role to list policies for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-lrpRoleName :: Lens' ListRolePolicies Text
-lrpRoleName = lens _lrpRoleName (\s a -> s {_lrpRoleName = a})
+-- | The name of the role to list policies for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpRoleName :: Lens.Lens' ListRolePolicies Lude.Text
+lrpRoleName = Lens.lens (roleName :: ListRolePolicies -> Lude.Text) (\s a -> s {roleName = a} :: ListRolePolicies)
+{-# DEPRECATED lrpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance AWSPager ListRolePolicies where
+instance Page.AWSPager ListRolePolicies where
   page rq rs
-    | stop (rs ^. lrprsIsTruncated) = Nothing
-    | isNothing (rs ^. lrprsMarker) = Nothing
-    | otherwise = Just $ rq & lrpMarker .~ rs ^. lrprsMarker
+    | Page.stop (rs Lens.^. lrprsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lrprsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lrpMarker Lens..~ rs Lens.^. lrprsMarker
 
-instance AWSRequest ListRolePolicies where
+instance Lude.AWSRequest ListRolePolicies where
   type Rs ListRolePolicies = ListRolePoliciesResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListRolePoliciesResult"
       ( \s h x ->
           ListRolePoliciesResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
-            <*> (x .@? "PolicyNames" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable ListRolePolicies
+instance Lude.ToHeaders ListRolePolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListRolePolicies
+instance Lude.ToPath ListRolePolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListRolePolicies where
-  toHeaders = const mempty
-
-instance ToPath ListRolePolicies where
-  toPath = const "/"
-
-instance ToQuery ListRolePolicies where
+instance Lude.ToQuery ListRolePolicies where
   toQuery ListRolePolicies' {..} =
-    mconcat
-      [ "Action" =: ("ListRolePolicies" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "Marker" =: _lrpMarker,
-        "MaxItems" =: _lrpMaxItems,
-        "RoleName" =: _lrpRoleName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListRolePolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "RoleName" Lude.=: roleName
       ]
 
 -- | Contains the response to a successful 'ListRolePolicies' request.
 --
---
---
--- /See:/ 'listRolePoliciesResponse' smart constructor.
+-- /See:/ 'mkListRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-  { _lrprsMarker ::
-      !(Maybe Text),
-    _lrprsIsTruncated :: !(Maybe Bool),
-    _lrprsResponseStatus :: !Int,
-    _lrprsPolicyNames :: ![Text]
+  { marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int,
+    policyNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRolePoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrprsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lrprsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'lrprsResponseStatus' - -- | The response status code.
---
--- * 'lrprsPolicyNames' - A list of policy names.
-listRolePoliciesResponse ::
-  -- | 'lrprsResponseStatus'
-  Int ->
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'policyNames' - A list of policy names.
+-- * 'responseStatus' - The response status code.
+mkListRolePoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRolePoliciesResponse
-listRolePoliciesResponse pResponseStatus_ =
+mkListRolePoliciesResponse pResponseStatus_ =
   ListRolePoliciesResponse'
-    { _lrprsMarker = Nothing,
-      _lrprsIsTruncated = Nothing,
-      _lrprsResponseStatus = pResponseStatus_,
-      _lrprsPolicyNames = mempty
+    { marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      policyNames = Lude.mempty
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lrprsMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
-lrprsMarker = lens _lrprsMarker (\s a -> s {_lrprsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsMarker :: Lens.Lens' ListRolePoliciesResponse (Lude.Maybe Lude.Text)
+lrprsMarker = Lens.lens (marker :: ListRolePoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRolePoliciesResponse)
+{-# DEPRECATED lrprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
-lrprsIsTruncated = lens _lrprsIsTruncated (\s a -> s {_lrprsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsIsTruncated :: Lens.Lens' ListRolePoliciesResponse (Lude.Maybe Lude.Bool)
+lrprsIsTruncated = Lens.lens (isTruncated :: ListRolePoliciesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListRolePoliciesResponse)
+{-# DEPRECATED lrprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-lrprsResponseStatus :: Lens' ListRolePoliciesResponse Int
-lrprsResponseStatus = lens _lrprsResponseStatus (\s a -> s {_lrprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsResponseStatus :: Lens.Lens' ListRolePoliciesResponse Lude.Int
+lrprsResponseStatus = Lens.lens (responseStatus :: ListRolePoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRolePoliciesResponse)
+{-# DEPRECATED lrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of policy names.
-lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprsPolicyNames = lens _lrprsPolicyNames (\s a -> s {_lrprsPolicyNames = a}) . _Coerce
-
-instance NFData ListRolePoliciesResponse
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsPolicyNames :: Lens.Lens' ListRolePoliciesResponse [Lude.Text]
+lrprsPolicyNames = Lens.lens (policyNames :: ListRolePoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListRolePoliciesResponse)
+{-# DEPRECATED lrprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointInput where
+module Network.AWS.SageMaker.Types.EndpointInput
+  ( EndpointInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEndpointInput,
+
+    -- * Lenses
+    eiS3DataDistributionType,
+    eiS3InputMode,
+    eiEndpointName,
+    eiLocalPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType
 import Network.AWS.SageMaker.Types.ProcessingS3InputMode
 
 -- | Input object for the endpoint
 --
---
---
--- /See:/ 'endpointInput' smart constructor.
+-- /See:/ 'mkEndpointInput' smart constructor.
 data EndpointInput = EndpointInput'
-  { _eiS3DataDistributionType ::
-      !(Maybe ProcessingS3DataDistributionType),
-    _eiS3InputMode :: !(Maybe ProcessingS3InputMode),
-    _eiEndpointName :: !Text,
-    _eiLocalPath :: !Text
+  { s3DataDistributionType ::
+      Lude.Maybe ProcessingS3DataDistributionType,
+    s3InputMode :: Lude.Maybe ProcessingS3InputMode,
+    endpointName :: Lude.Text,
+    localPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eiS3DataDistributionType' - Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
---
--- * 'eiS3InputMode' - Whether the @Pipe@ or @File@ is used as the input mode for transfering data for the monitoring job. @Pipe@ mode is recommended for large datasets. @File@ mode is useful for small files that fit in memory. Defaults to @File@ .
---
--- * 'eiEndpointName' - An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
---
--- * 'eiLocalPath' - Path to the filesystem where the endpoint data is available to the container.
-endpointInput ::
-  -- | 'eiEndpointName'
-  Text ->
-  -- | 'eiLocalPath'
-  Text ->
+-- * 'endpointName' - An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
+-- * 'localPath' - Path to the filesystem where the endpoint data is available to the container.
+-- * 's3DataDistributionType' - Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
+-- * 's3InputMode' - Whether the @Pipe@ or @File@ is used as the input mode for transfering data for the monitoring job. @Pipe@ mode is recommended for large datasets. @File@ mode is useful for small files that fit in memory. Defaults to @File@ .
+mkEndpointInput ::
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'localPath'
+  Lude.Text ->
   EndpointInput
-endpointInput pEndpointName_ pLocalPath_ =
+mkEndpointInput pEndpointName_ pLocalPath_ =
   EndpointInput'
-    { _eiS3DataDistributionType = Nothing,
-      _eiS3InputMode = Nothing,
-      _eiEndpointName = pEndpointName_,
-      _eiLocalPath = pLocalPath_
+    { s3DataDistributionType = Lude.Nothing,
+      s3InputMode = Lude.Nothing,
+      endpointName = pEndpointName_,
+      localPath = pLocalPath_
     }
 
 -- | Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
-eiS3DataDistributionType :: Lens' EndpointInput (Maybe ProcessingS3DataDistributionType)
-eiS3DataDistributionType = lens _eiS3DataDistributionType (\s a -> s {_eiS3DataDistributionType = a})
+--
+-- /Note:/ Consider using 's3DataDistributionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiS3DataDistributionType :: Lens.Lens' EndpointInput (Lude.Maybe ProcessingS3DataDistributionType)
+eiS3DataDistributionType = Lens.lens (s3DataDistributionType :: EndpointInput -> Lude.Maybe ProcessingS3DataDistributionType) (\s a -> s {s3DataDistributionType = a} :: EndpointInput)
+{-# DEPRECATED eiS3DataDistributionType "Use generic-lens or generic-optics with 's3DataDistributionType' instead." #-}
 
 -- | Whether the @Pipe@ or @File@ is used as the input mode for transfering data for the monitoring job. @Pipe@ mode is recommended for large datasets. @File@ mode is useful for small files that fit in memory. Defaults to @File@ .
-eiS3InputMode :: Lens' EndpointInput (Maybe ProcessingS3InputMode)
-eiS3InputMode = lens _eiS3InputMode (\s a -> s {_eiS3InputMode = a})
+--
+-- /Note:/ Consider using 's3InputMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiS3InputMode :: Lens.Lens' EndpointInput (Lude.Maybe ProcessingS3InputMode)
+eiS3InputMode = Lens.lens (s3InputMode :: EndpointInput -> Lude.Maybe ProcessingS3InputMode) (\s a -> s {s3InputMode = a} :: EndpointInput)
+{-# DEPRECATED eiS3InputMode "Use generic-lens or generic-optics with 's3InputMode' instead." #-}
 
 -- | An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
-eiEndpointName :: Lens' EndpointInput Text
-eiEndpointName = lens _eiEndpointName (\s a -> s {_eiEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiEndpointName :: Lens.Lens' EndpointInput Lude.Text
+eiEndpointName = Lens.lens (endpointName :: EndpointInput -> Lude.Text) (\s a -> s {endpointName = a} :: EndpointInput)
+{-# DEPRECATED eiEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | Path to the filesystem where the endpoint data is available to the container.
-eiLocalPath :: Lens' EndpointInput Text
-eiLocalPath = lens _eiLocalPath (\s a -> s {_eiLocalPath = a})
+--
+-- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiLocalPath :: Lens.Lens' EndpointInput Lude.Text
+eiLocalPath = Lens.lens (localPath :: EndpointInput -> Lude.Text) (\s a -> s {localPath = a} :: EndpointInput)
+{-# DEPRECATED eiLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
-instance FromJSON EndpointInput where
+instance Lude.FromJSON EndpointInput where
   parseJSON =
-    withObject
+    Lude.withObject
       "EndpointInput"
       ( \x ->
           EndpointInput'
-            <$> (x .:? "S3DataDistributionType")
-            <*> (x .:? "S3InputMode")
-            <*> (x .: "EndpointName")
-            <*> (x .: "LocalPath")
+            Lude.<$> (x Lude..:? "S3DataDistributionType")
+            Lude.<*> (x Lude..:? "S3InputMode")
+            Lude.<*> (x Lude..: "EndpointName")
+            Lude.<*> (x Lude..: "LocalPath")
       )
 
-instance Hashable EndpointInput
-
-instance NFData EndpointInput
-
-instance ToJSON EndpointInput where
+instance Lude.ToJSON EndpointInput where
   toJSON EndpointInput' {..} =
-    object
-      ( catMaybes
-          [ ("S3DataDistributionType" .=) <$> _eiS3DataDistributionType,
-            ("S3InputMode" .=) <$> _eiS3InputMode,
-            Just ("EndpointName" .= _eiEndpointName),
-            Just ("LocalPath" .= _eiLocalPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3DataDistributionType" Lude..=)
+              Lude.<$> s3DataDistributionType,
+            ("S3InputMode" Lude..=) Lude.<$> s3InputMode,
+            Lude.Just ("EndpointName" Lude..= endpointName),
+            Lude.Just ("LocalPath" Lude..= localPath)
           ]
       )

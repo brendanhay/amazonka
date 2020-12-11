@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,31 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmpteTtDestinationSettings where
+module Network.AWS.MediaLive.Types.SmpteTtDestinationSettings
+  ( SmpteTtDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSmpteTtDestinationSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smpte Tt Destination Settings
 --
--- /See:/ 'smpteTtDestinationSettings' smart constructor.
+-- /See:/ 'mkSmpteTtDestinationSettings' smart constructor.
 data SmpteTtDestinationSettings = SmpteTtDestinationSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SmpteTtDestinationSettings' with the minimum fields required to make a request.
-smpteTtDestinationSettings ::
+mkSmpteTtDestinationSettings ::
   SmpteTtDestinationSettings
-smpteTtDestinationSettings = SmpteTtDestinationSettings'
+mkSmpteTtDestinationSettings = SmpteTtDestinationSettings'
 
-instance FromJSON SmpteTtDestinationSettings where
+instance Lude.FromJSON SmpteTtDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "SmpteTtDestinationSettings"
-      (\x -> pure SmpteTtDestinationSettings')
+      (\x -> Lude.pure SmpteTtDestinationSettings')
 
-instance Hashable SmpteTtDestinationSettings
-
-instance NFData SmpteTtDestinationSettings
-
-instance ToJSON SmpteTtDestinationSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON SmpteTtDestinationSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

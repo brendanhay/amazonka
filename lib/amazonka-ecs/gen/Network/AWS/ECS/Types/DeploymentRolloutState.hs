@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.DeploymentRolloutState where
+module Network.AWS.ECS.Types.DeploymentRolloutState
+  ( DeploymentRolloutState
+      ( DeploymentRolloutState',
+        Completed,
+        Failed,
+        InProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentRolloutState
-  = Completed
-  | Failed
-  | InProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentRolloutState = DeploymentRolloutState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentRolloutState where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentRolloutState from value: '" <> e
-            <> "'. Accepted values: completed, failed, in_progress"
+pattern Completed :: DeploymentRolloutState
+pattern Completed = DeploymentRolloutState' "COMPLETED"
 
-instance ToText DeploymentRolloutState where
-  toText = \case
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
+pattern Failed :: DeploymentRolloutState
+pattern Failed = DeploymentRolloutState' "FAILED"
 
-instance Hashable DeploymentRolloutState
+pattern InProgress :: DeploymentRolloutState
+pattern InProgress = DeploymentRolloutState' "IN_PROGRESS"
 
-instance NFData DeploymentRolloutState
-
-instance ToByteString DeploymentRolloutState
-
-instance ToQuery DeploymentRolloutState
-
-instance ToHeader DeploymentRolloutState
-
-instance FromJSON DeploymentRolloutState where
-  parseJSON = parseJSONText "DeploymentRolloutState"
+{-# COMPLETE
+  Completed,
+  Failed,
+  InProgress,
+  DeploymentRolloutState'
+  #-}

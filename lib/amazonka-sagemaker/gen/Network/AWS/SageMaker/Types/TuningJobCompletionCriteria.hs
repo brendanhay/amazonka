@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TuningJobCompletionCriteria where
+module Network.AWS.SageMaker.Types.TuningJobCompletionCriteria
+  ( TuningJobCompletionCriteria (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTuningJobCompletionCriteria,
+
+    -- * Lenses
+    tjccTargetObjectiveMetricValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The job completion criteria.
 --
---
---
--- /See:/ 'tuningJobCompletionCriteria' smart constructor.
+-- /See:/ 'mkTuningJobCompletionCriteria' smart constructor.
 newtype TuningJobCompletionCriteria = TuningJobCompletionCriteria'
-  { _tjccTargetObjectiveMetricValue ::
-      Double
+  { targetObjectiveMetricValue ::
+      Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TuningJobCompletionCriteria' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tjccTargetObjectiveMetricValue' - The value of the objective metric.
-tuningJobCompletionCriteria ::
-  -- | 'tjccTargetObjectiveMetricValue'
-  Double ->
+-- * 'targetObjectiveMetricValue' - The value of the objective metric.
+mkTuningJobCompletionCriteria ::
+  -- | 'targetObjectiveMetricValue'
+  Lude.Double ->
   TuningJobCompletionCriteria
-tuningJobCompletionCriteria pTargetObjectiveMetricValue_ =
+mkTuningJobCompletionCriteria pTargetObjectiveMetricValue_ =
   TuningJobCompletionCriteria'
-    { _tjccTargetObjectiveMetricValue =
+    { targetObjectiveMetricValue =
         pTargetObjectiveMetricValue_
     }
 
 -- | The value of the objective metric.
-tjccTargetObjectiveMetricValue :: Lens' TuningJobCompletionCriteria Double
-tjccTargetObjectiveMetricValue = lens _tjccTargetObjectiveMetricValue (\s a -> s {_tjccTargetObjectiveMetricValue = a})
+--
+-- /Note:/ Consider using 'targetObjectiveMetricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjccTargetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Lude.Double
+tjccTargetObjectiveMetricValue = Lens.lens (targetObjectiveMetricValue :: TuningJobCompletionCriteria -> Lude.Double) (\s a -> s {targetObjectiveMetricValue = a} :: TuningJobCompletionCriteria)
+{-# DEPRECATED tjccTargetObjectiveMetricValue "Use generic-lens or generic-optics with 'targetObjectiveMetricValue' instead." #-}
 
-instance FromJSON TuningJobCompletionCriteria where
+instance Lude.FromJSON TuningJobCompletionCriteria where
   parseJSON =
-    withObject
+    Lude.withObject
       "TuningJobCompletionCriteria"
       ( \x ->
           TuningJobCompletionCriteria'
-            <$> (x .: "TargetObjectiveMetricValue")
+            Lude.<$> (x Lude..: "TargetObjectiveMetricValue")
       )
 
-instance Hashable TuningJobCompletionCriteria
-
-instance NFData TuningJobCompletionCriteria
-
-instance ToJSON TuningJobCompletionCriteria where
+instance Lude.ToJSON TuningJobCompletionCriteria where
   toJSON TuningJobCompletionCriteria' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("TargetObjectiveMetricValue" .= _tjccTargetObjectiveMetricValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("TargetObjectiveMetricValue" Lude..= targetObjectiveMetricValue)
           ]
       )

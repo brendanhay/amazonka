@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.RegistrationConfig where
+module Network.AWS.IoT.Types.RegistrationConfig
+  ( RegistrationConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRegistrationConfig,
+
+    -- * Lenses
+    rcTemplateBody,
+    rcRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The registration configuration.
 --
---
---
--- /See:/ 'registrationConfig' smart constructor.
+-- /See:/ 'mkRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { _rcTemplateBody ::
-      !(Maybe Text),
-    _rcRoleARN :: !(Maybe Text)
+  { templateBody ::
+      Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistrationConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcTemplateBody' - The template body.
---
--- * 'rcRoleARN' - The ARN of the role.
-registrationConfig ::
+-- * 'roleARN' - The ARN of the role.
+-- * 'templateBody' - The template body.
+mkRegistrationConfig ::
   RegistrationConfig
-registrationConfig =
+mkRegistrationConfig =
   RegistrationConfig'
-    { _rcTemplateBody = Nothing,
-      _rcRoleARN = Nothing
+    { templateBody = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | The template body.
-rcTemplateBody :: Lens' RegistrationConfig (Maybe Text)
-rcTemplateBody = lens _rcTemplateBody (\s a -> s {_rcTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcTemplateBody :: Lens.Lens' RegistrationConfig (Lude.Maybe Lude.Text)
+rcTemplateBody = Lens.lens (templateBody :: RegistrationConfig -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: RegistrationConfig)
+{-# DEPRECATED rcTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | The ARN of the role.
-rcRoleARN :: Lens' RegistrationConfig (Maybe Text)
-rcRoleARN = lens _rcRoleARN (\s a -> s {_rcRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRoleARN :: Lens.Lens' RegistrationConfig (Lude.Maybe Lude.Text)
+rcRoleARN = Lens.lens (roleARN :: RegistrationConfig -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: RegistrationConfig)
+{-# DEPRECATED rcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON RegistrationConfig where
+instance Lude.FromJSON RegistrationConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            <$> (x .:? "templateBody") <*> (x .:? "roleArn")
+            Lude.<$> (x Lude..:? "templateBody") Lude.<*> (x Lude..:? "roleArn")
       )
 
-instance Hashable RegistrationConfig
-
-instance NFData RegistrationConfig
-
-instance ToJSON RegistrationConfig where
+instance Lude.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
-    object
-      ( catMaybes
-          [ ("templateBody" .=) <$> _rcTemplateBody,
-            ("roleArn" .=) <$> _rcRoleARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("templateBody" Lude..=) Lude.<$> templateBody,
+            ("roleArn" Lude..=) Lude.<$> roleARN
           ]
       )

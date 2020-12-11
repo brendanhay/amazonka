@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Generates a 'ClientCertificate' resource.
 module Network.AWS.APIGateway.GenerateClientCertificate
-  ( -- * Creating a Request
-    generateClientCertificate,
-    GenerateClientCertificate,
+  ( -- * Creating a request
+    GenerateClientCertificate (..),
+    mkGenerateClientCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gccDescription,
     gccTags,
 
-    -- * Destructuring the Response
-    clientCertificate,
-    ClientCertificate,
+    -- * Destructuring the response
+    ClientCertificate (..),
+    mkClientCertificate,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccPemEncodedCertificate,
     ccClientCertificateId,
     ccCreatedDate,
@@ -42,68 +37,79 @@ module Network.AWS.APIGateway.GenerateClientCertificate
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to generate a 'ClientCertificate' resource.
 --
---
---
--- /See:/ 'generateClientCertificate' smart constructor.
+-- /See:/ 'mkGenerateClientCertificate' smart constructor.
 data GenerateClientCertificate = GenerateClientCertificate'
-  { _gccDescription ::
-      !(Maybe Text),
-    _gccTags :: !(Maybe (Map Text (Text)))
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccDescription' - The description of the 'ClientCertificate' .
---
--- * 'gccTags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-generateClientCertificate ::
+-- * 'description' - The description of the 'ClientCertificate' .
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+mkGenerateClientCertificate ::
   GenerateClientCertificate
-generateClientCertificate =
+mkGenerateClientCertificate =
   GenerateClientCertificate'
-    { _gccDescription = Nothing,
-      _gccTags = Nothing
+    { description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The description of the 'ClientCertificate' .
-gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
-gccDescription = lens _gccDescription (\s a -> s {_gccDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccDescription :: Lens.Lens' GenerateClientCertificate (Lude.Maybe Lude.Text)
+gccDescription = Lens.lens (description :: GenerateClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GenerateClientCertificate)
+{-# DEPRECATED gccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-gccTags :: Lens' GenerateClientCertificate (HashMap Text (Text))
-gccTags = lens _gccTags (\s a -> s {_gccTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccTags :: Lens.Lens' GenerateClientCertificate (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gccTags = Lens.lens (tags :: GenerateClientCertificate -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GenerateClientCertificate)
+{-# DEPRECATED gccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest GenerateClientCertificate where
+instance Lude.AWSRequest GenerateClientCertificate where
   type Rs GenerateClientCertificate = ClientCertificate
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GenerateClientCertificate
-
-instance NFData GenerateClientCertificate
-
-instance ToHeaders GenerateClientCertificate where
+instance Lude.ToHeaders GenerateClientCertificate where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
-
-instance ToJSON GenerateClientCertificate where
-  toJSON GenerateClientCertificate' {..} =
-    object
-      ( catMaybes
-          [("description" .=) <$> _gccDescription, ("tags" .=) <$> _gccTags]
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
       )
 
-instance ToPath GenerateClientCertificate where
-  toPath = const "/clientcertificates"
+instance Lude.ToJSON GenerateClientCertificate where
+  toJSON GenerateClientCertificate' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
+          ]
+      )
 
-instance ToQuery GenerateClientCertificate where
-  toQuery = const mempty
+instance Lude.ToPath GenerateClientCertificate where
+  toPath = Lude.const "/clientcertificates"
+
+instance Lude.ToQuery GenerateClientCertificate where
+  toQuery = Lude.const Lude.mempty

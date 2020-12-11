@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLOutputDataConfig where
+module Network.AWS.SageMaker.Types.AutoMLOutputDataConfig
+  ( AutoMLOutputDataConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoMLOutputDataConfig,
+
+    -- * Lenses
+    amlodcKMSKeyId,
+    amlodcS3OutputPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The output data configuration.
 --
---
---
--- /See:/ 'autoMLOutputDataConfig' smart constructor.
+-- /See:/ 'mkAutoMLOutputDataConfig' smart constructor.
 data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
-  { _amlodcKMSKeyId ::
-      !(Maybe Text),
-    _amlodcS3OutputPath :: !Text
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    s3OutputPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLOutputDataConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amlodcKMSKeyId' - The AWS KMS encryption key ID.
---
--- * 'amlodcS3OutputPath' - The Amazon S3 output path. Must be 128 characters or less.
-autoMLOutputDataConfig ::
-  -- | 'amlodcS3OutputPath'
-  Text ->
+-- * 'kmsKeyId' - The AWS KMS encryption key ID.
+-- * 's3OutputPath' - The Amazon S3 output path. Must be 128 characters or less.
+mkAutoMLOutputDataConfig ::
+  -- | 's3OutputPath'
+  Lude.Text ->
   AutoMLOutputDataConfig
-autoMLOutputDataConfig pS3OutputPath_ =
+mkAutoMLOutputDataConfig pS3OutputPath_ =
   AutoMLOutputDataConfig'
-    { _amlodcKMSKeyId = Nothing,
-      _amlodcS3OutputPath = pS3OutputPath_
+    { kmsKeyId = Lude.Nothing,
+      s3OutputPath = pS3OutputPath_
     }
 
 -- | The AWS KMS encryption key ID.
-amlodcKMSKeyId :: Lens' AutoMLOutputDataConfig (Maybe Text)
-amlodcKMSKeyId = lens _amlodcKMSKeyId (\s a -> s {_amlodcKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlodcKMSKeyId :: Lens.Lens' AutoMLOutputDataConfig (Lude.Maybe Lude.Text)
+amlodcKMSKeyId = Lens.lens (kmsKeyId :: AutoMLOutputDataConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: AutoMLOutputDataConfig)
+{-# DEPRECATED amlodcKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The Amazon S3 output path. Must be 128 characters or less.
-amlodcS3OutputPath :: Lens' AutoMLOutputDataConfig Text
-amlodcS3OutputPath = lens _amlodcS3OutputPath (\s a -> s {_amlodcS3OutputPath = a})
+--
+-- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlodcS3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Lude.Text
+amlodcS3OutputPath = Lens.lens (s3OutputPath :: AutoMLOutputDataConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: AutoMLOutputDataConfig)
+{-# DEPRECATED amlodcS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
-instance FromJSON AutoMLOutputDataConfig where
+instance Lude.FromJSON AutoMLOutputDataConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoMLOutputDataConfig"
       ( \x ->
           AutoMLOutputDataConfig'
-            <$> (x .:? "KmsKeyId") <*> (x .: "S3OutputPath")
+            Lude.<$> (x Lude..:? "KmsKeyId") Lude.<*> (x Lude..: "S3OutputPath")
       )
 
-instance Hashable AutoMLOutputDataConfig
-
-instance NFData AutoMLOutputDataConfig
-
-instance ToJSON AutoMLOutputDataConfig where
+instance Lude.ToJSON AutoMLOutputDataConfig where
   toJSON AutoMLOutputDataConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KmsKeyId" .=) <$> _amlodcKMSKeyId,
-            Just ("S3OutputPath" .= _amlodcS3OutputPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("S3OutputPath" Lude..= s3OutputPath)
           ]
       )

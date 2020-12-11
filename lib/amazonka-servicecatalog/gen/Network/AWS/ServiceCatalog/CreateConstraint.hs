@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a constraint.
 --
---
 -- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.CreateConstraint
-  ( -- * Creating a Request
-    createConstraint,
-    CreateConstraint,
+  ( -- * Creating a request
+    CreateConstraint (..),
+    mkCreateConstraint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccAcceptLanguage,
     ccDescription,
     ccPortfolioId,
@@ -35,11 +29,11 @@ module Network.AWS.ServiceCatalog.CreateConstraint
     ccType,
     ccIdempotencyToken,
 
-    -- * Destructuring the Response
-    createConstraintResponse,
-    CreateConstraintResponse,
+    -- * Destructuring the response
+    CreateConstraintResponse (..),
+    mkCreateConstraintResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsStatus,
     ccrsConstraintDetail,
     ccrsConstraintParameters,
@@ -47,194 +41,361 @@ module Network.AWS.ServiceCatalog.CreateConstraint
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'createConstraint' smart constructor.
+-- | /See:/ 'mkCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { _ccAcceptLanguage ::
-      !(Maybe Text),
-    _ccDescription :: !(Maybe Text),
-    _ccPortfolioId :: !Text,
-    _ccProductId :: !Text,
-    _ccParameters :: !Text,
-    _ccType :: !Text,
-    _ccIdempotencyToken :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    portfolioId :: Lude.Text,
+    productId :: Lude.Text,
+    parameters :: Lude.Text,
+    type' :: Lude.Text,
+    idempotencyToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConstraint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'ccAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'ccDescription' - The description of the constraint.
+--     * @en@ - English (default)
 --
--- * 'ccPortfolioId' - The portfolio identifier.
 --
--- * 'ccProductId' - The product identifier.
+--     * @jp@ - Japanese
 --
--- * 'ccParameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both. Specify the @RoleArn@ property as follows: @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@  Specify the @LocalRoleName@ property as follows: @{"LocalRoleName": "SCBasicLaunchRole"}@  If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account. You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@      * RESOURCE_UPDATE    * Specify the @TagUpdatesOnProvisionedProduct@ property as follows: @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@  The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .     * STACKSET    * Specify the @Parameters@ property as follows: @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @STACKSET@ constraint on a product and portfolio. Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 --
--- * 'ccType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @RESOURCE_UPDATE@      * @STACKSET@      * @TEMPLATE@
+--     * @zh@ - Chinese
 --
--- * 'ccIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-createConstraint ::
-  -- | 'ccPortfolioId'
-  Text ->
-  -- | 'ccProductId'
-  Text ->
-  -- | 'ccParameters'
-  Text ->
-  -- | 'ccType'
-  Text ->
-  -- | 'ccIdempotencyToken'
-  Text ->
+--
+-- * 'description' - The description of the constraint.
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'parameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+--
+--
+--     * LAUNCH
+--
+--     * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both.
+-- Specify the @RoleArn@ property as follows:
+-- @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@
+-- Specify the @LocalRoleName@ property as follows:
+-- @{"LocalRoleName": "SCBasicLaunchRole"}@
+-- If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+-- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+-- You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.
+--
+--
+--     * NOTIFICATION
+--
+--     * Specify the @NotificationArns@ property as follows:
+-- @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@
+--
+--
+--     * RESOURCE_UPDATE
+--
+--     * Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+-- @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@
+-- The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .
+--
+--
+--     * STACKSET
+--
+--     * Specify the @Parameters@ property as follows:
+-- @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@
+-- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+-- You also cannot have more than one @STACKSET@ constraint on a product and portfolio.
+-- Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.
+--
+--
+--     * TEMPLATE
+--
+--     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+--
+--
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'productId' - The product identifier.
+-- * 'type'' - The type of constraint.
+--
+--
+--     * @LAUNCH@
+--
+--
+--     * @NOTIFICATION@
+--
+--
+--     * @RESOURCE_UPDATE@
+--
+--
+--     * @STACKSET@
+--
+--
+--     * @TEMPLATE@
+mkCreateConstraint ::
+  -- | 'portfolioId'
+  Lude.Text ->
+  -- | 'productId'
+  Lude.Text ->
+  -- | 'parameters'
+  Lude.Text ->
+  -- | 'type''
+  Lude.Text ->
+  -- | 'idempotencyToken'
+  Lude.Text ->
   CreateConstraint
-createConstraint
+mkCreateConstraint
   pPortfolioId_
   pProductId_
   pParameters_
   pType_
   pIdempotencyToken_ =
     CreateConstraint'
-      { _ccAcceptLanguage = Nothing,
-        _ccDescription = Nothing,
-        _ccPortfolioId = pPortfolioId_,
-        _ccProductId = pProductId_,
-        _ccParameters = pParameters_,
-        _ccType = pType_,
-        _ccIdempotencyToken = pIdempotencyToken_
+      { acceptLanguage = Lude.Nothing,
+        description = Lude.Nothing,
+        portfolioId = pPortfolioId_,
+        productId = pProductId_,
+        parameters = pParameters_,
+        type' = pType_,
+        idempotencyToken = pIdempotencyToken_
       }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-ccAcceptLanguage :: Lens' CreateConstraint (Maybe Text)
-ccAcceptLanguage = lens _ccAcceptLanguage (\s a -> s {_ccAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAcceptLanguage :: Lens.Lens' CreateConstraint (Lude.Maybe Lude.Text)
+ccAcceptLanguage = Lens.lens (acceptLanguage :: CreateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreateConstraint)
+{-# DEPRECATED ccAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The description of the constraint.
-ccDescription :: Lens' CreateConstraint (Maybe Text)
-ccDescription = lens _ccDescription (\s a -> s {_ccDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' CreateConstraint (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: CreateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateConstraint)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The portfolio identifier.
-ccPortfolioId :: Lens' CreateConstraint Text
-ccPortfolioId = lens _ccPortfolioId (\s a -> s {_ccPortfolioId = a})
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPortfolioId :: Lens.Lens' CreateConstraint Lude.Text
+ccPortfolioId = Lens.lens (portfolioId :: CreateConstraint -> Lude.Text) (\s a -> s {portfolioId = a} :: CreateConstraint)
+{-# DEPRECATED ccPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The product identifier.
-ccProductId :: Lens' CreateConstraint Text
-ccProductId = lens _ccProductId (\s a -> s {_ccProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccProductId :: Lens.Lens' CreateConstraint Lude.Text
+ccProductId = Lens.lens (productId :: CreateConstraint -> Lude.Text) (\s a -> s {productId = a} :: CreateConstraint)
+{-# DEPRECATED ccProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
--- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both. Specify the @RoleArn@ property as follows: @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@  Specify the @LocalRoleName@ property as follows: @{"LocalRoleName": "SCBasicLaunchRole"}@  If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account. You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@      * RESOURCE_UPDATE    * Specify the @TagUpdatesOnProvisionedProduct@ property as follows: @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@  The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .     * STACKSET    * Specify the @Parameters@ property as follows: @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @STACKSET@ constraint on a product and portfolio. Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
-ccParameters :: Lens' CreateConstraint Text
-ccParameters = lens _ccParameters (\s a -> s {_ccParameters = a})
+-- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+--
+--
+--     * LAUNCH
+--
+--     * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both.
+-- Specify the @RoleArn@ property as follows:
+-- @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@
+-- Specify the @LocalRoleName@ property as follows:
+-- @{"LocalRoleName": "SCBasicLaunchRole"}@
+-- If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+-- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+-- You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.
+--
+--
+--     * NOTIFICATION
+--
+--     * Specify the @NotificationArns@ property as follows:
+-- @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@
+--
+--
+--     * RESOURCE_UPDATE
+--
+--     * Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+-- @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@
+-- The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .
+--
+--
+--     * STACKSET
+--
+--     * Specify the @Parameters@ property as follows:
+-- @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@
+-- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+-- You also cannot have more than one @STACKSET@ constraint on a product and portfolio.
+-- Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.
+--
+--
+--     * TEMPLATE
+--
+--     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+--
+--
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccParameters :: Lens.Lens' CreateConstraint Lude.Text
+ccParameters = Lens.lens (parameters :: CreateConstraint -> Lude.Text) (\s a -> s {parameters = a} :: CreateConstraint)
+{-# DEPRECATED ccParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @RESOURCE_UPDATE@      * @STACKSET@      * @TEMPLATE@
-ccType :: Lens' CreateConstraint Text
-ccType = lens _ccType (\s a -> s {_ccType = a})
+-- | The type of constraint.
+--
+--
+--     * @LAUNCH@
+--
+--
+--     * @NOTIFICATION@
+--
+--
+--     * @RESOURCE_UPDATE@
+--
+--
+--     * @STACKSET@
+--
+--
+--     * @TEMPLATE@
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccType :: Lens.Lens' CreateConstraint Lude.Text
+ccType = Lens.lens (type' :: CreateConstraint -> Lude.Text) (\s a -> s {type' = a} :: CreateConstraint)
+{-# DEPRECATED ccType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-ccIdempotencyToken :: Lens' CreateConstraint Text
-ccIdempotencyToken = lens _ccIdempotencyToken (\s a -> s {_ccIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccIdempotencyToken :: Lens.Lens' CreateConstraint Lude.Text
+ccIdempotencyToken = Lens.lens (idempotencyToken :: CreateConstraint -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateConstraint)
+{-# DEPRECATED ccIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
-instance AWSRequest CreateConstraint where
+instance Lude.AWSRequest CreateConstraint where
   type Rs CreateConstraint = CreateConstraintResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateConstraintResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "ConstraintDetail")
-            <*> (x .?> "ConstraintParameters")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "ConstraintDetail")
+            Lude.<*> (x Lude..?> "ConstraintParameters")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConstraint
-
-instance NFData CreateConstraint
-
-instance ToHeaders CreateConstraint where
+instance Lude.ToHeaders CreateConstraint where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.CreateConstraint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateConstraint where
+instance Lude.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _ccAcceptLanguage,
-            ("Description" .=) <$> _ccDescription,
-            Just ("PortfolioId" .= _ccPortfolioId),
-            Just ("ProductId" .= _ccProductId),
-            Just ("Parameters" .= _ccParameters),
-            Just ("Type" .= _ccType),
-            Just ("IdempotencyToken" .= _ccIdempotencyToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("PortfolioId" Lude..= portfolioId),
+            Lude.Just ("ProductId" Lude..= productId),
+            Lude.Just ("Parameters" Lude..= parameters),
+            Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
           ]
       )
 
-instance ToPath CreateConstraint where
-  toPath = const "/"
+instance Lude.ToPath CreateConstraint where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateConstraint where
-  toQuery = const mempty
+instance Lude.ToQuery CreateConstraint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createConstraintResponse' smart constructor.
+-- | /See:/ 'mkCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { _ccrsStatus ::
-      !(Maybe RequestStatus),
-    _ccrsConstraintDetail ::
-      !(Maybe ConstraintDetail),
-    _ccrsConstraintParameters ::
-      !(Maybe Text),
-    _ccrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe RequestStatus,
+    constraintDetail ::
+      Lude.Maybe ConstraintDetail,
+    constraintParameters ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConstraintResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsStatus' - The status of the current request.
---
--- * 'ccrsConstraintDetail' - Information about the constraint.
---
--- * 'ccrsConstraintParameters' - The constraint parameters.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createConstraintResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'constraintDetail' - Information about the constraint.
+-- * 'constraintParameters' - The constraint parameters.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the current request.
+mkCreateConstraintResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConstraintResponse
-createConstraintResponse pResponseStatus_ =
+mkCreateConstraintResponse pResponseStatus_ =
   CreateConstraintResponse'
-    { _ccrsStatus = Nothing,
-      _ccrsConstraintDetail = Nothing,
-      _ccrsConstraintParameters = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      constraintDetail = Lude.Nothing,
+      constraintParameters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the current request.
-ccrsStatus :: Lens' CreateConstraintResponse (Maybe RequestStatus)
-ccrsStatus = lens _ccrsStatus (\s a -> s {_ccrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsStatus :: Lens.Lens' CreateConstraintResponse (Lude.Maybe RequestStatus)
+ccrsStatus = Lens.lens (status :: CreateConstraintResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: CreateConstraintResponse)
+{-# DEPRECATED ccrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Information about the constraint.
-ccrsConstraintDetail :: Lens' CreateConstraintResponse (Maybe ConstraintDetail)
-ccrsConstraintDetail = lens _ccrsConstraintDetail (\s a -> s {_ccrsConstraintDetail = a})
+--
+-- /Note:/ Consider using 'constraintDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsConstraintDetail :: Lens.Lens' CreateConstraintResponse (Lude.Maybe ConstraintDetail)
+ccrsConstraintDetail = Lens.lens (constraintDetail :: CreateConstraintResponse -> Lude.Maybe ConstraintDetail) (\s a -> s {constraintDetail = a} :: CreateConstraintResponse)
+{-# DEPRECATED ccrsConstraintDetail "Use generic-lens or generic-optics with 'constraintDetail' instead." #-}
 
 -- | The constraint parameters.
-ccrsConstraintParameters :: Lens' CreateConstraintResponse (Maybe Text)
-ccrsConstraintParameters = lens _ccrsConstraintParameters (\s a -> s {_ccrsConstraintParameters = a})
+--
+-- /Note:/ Consider using 'constraintParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsConstraintParameters :: Lens.Lens' CreateConstraintResponse (Lude.Maybe Lude.Text)
+ccrsConstraintParameters = Lens.lens (constraintParameters :: CreateConstraintResponse -> Lude.Maybe Lude.Text) (\s a -> s {constraintParameters = a} :: CreateConstraintResponse)
+{-# DEPRECATED ccrsConstraintParameters "Use generic-lens or generic-optics with 'constraintParameters' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateConstraintResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateConstraintResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateConstraintResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConstraintResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

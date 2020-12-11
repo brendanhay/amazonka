@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatusCode where
+module Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatusCode
+  ( ClientVPNAuthorizationRuleStatusCode
+      ( ClientVPNAuthorizationRuleStatusCode',
+        CVARSCActive,
+        CVARSCAuthorizing,
+        CVARSCFailed,
+        CVARSCRevoking
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVPNAuthorizationRuleStatusCode
-  = CVARSCActive
-  | CVARSCAuthorizing
-  | CVARSCFailed
-  | CVARSCRevoking
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVPNAuthorizationRuleStatusCode = ClientVPNAuthorizationRuleStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVPNAuthorizationRuleStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CVARSCActive
-      "authorizing" -> pure CVARSCAuthorizing
-      "failed" -> pure CVARSCFailed
-      "revoking" -> pure CVARSCRevoking
-      e ->
-        fromTextError $
-          "Failure parsing ClientVPNAuthorizationRuleStatusCode from value: '" <> e
-            <> "'. Accepted values: active, authorizing, failed, revoking"
+pattern CVARSCActive :: ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCActive = ClientVPNAuthorizationRuleStatusCode' "active"
 
-instance ToText ClientVPNAuthorizationRuleStatusCode where
-  toText = \case
-    CVARSCActive -> "active"
-    CVARSCAuthorizing -> "authorizing"
-    CVARSCFailed -> "failed"
-    CVARSCRevoking -> "revoking"
+pattern CVARSCAuthorizing :: ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCAuthorizing = ClientVPNAuthorizationRuleStatusCode' "authorizing"
 
-instance Hashable ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCFailed :: ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCFailed = ClientVPNAuthorizationRuleStatusCode' "failed"
 
-instance NFData ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCRevoking :: ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCRevoking = ClientVPNAuthorizationRuleStatusCode' "revoking"
 
-instance ToByteString ClientVPNAuthorizationRuleStatusCode
-
-instance ToQuery ClientVPNAuthorizationRuleStatusCode
-
-instance ToHeader ClientVPNAuthorizationRuleStatusCode
-
-instance FromXML ClientVPNAuthorizationRuleStatusCode where
-  parseXML = parseXMLText "ClientVPNAuthorizationRuleStatusCode"
+{-# COMPLETE
+  CVARSCActive,
+  CVARSCAuthorizing,
+  CVARSCFailed,
+  CVARSCRevoking,
+  ClientVPNAuthorizationRuleStatusCode'
+  #-}

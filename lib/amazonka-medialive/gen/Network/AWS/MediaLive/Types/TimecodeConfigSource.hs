@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TimecodeConfigSource where
+module Network.AWS.MediaLive.Types.TimecodeConfigSource
+  ( TimecodeConfigSource
+      ( TimecodeConfigSource',
+        TCSEmbedded,
+        TCSSystemclock,
+        TCSZerobased
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Timecode Config Source
-data TimecodeConfigSource
-  = TCSEmbedded
-  | TCSSystemclock
-  | TCSZerobased
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimecodeConfigSource = TimecodeConfigSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimecodeConfigSource where
-  parser =
-    takeLowerText >>= \case
-      "embedded" -> pure TCSEmbedded
-      "systemclock" -> pure TCSSystemclock
-      "zerobased" -> pure TCSZerobased
-      e ->
-        fromTextError $
-          "Failure parsing TimecodeConfigSource from value: '" <> e
-            <> "'. Accepted values: embedded, systemclock, zerobased"
+pattern TCSEmbedded :: TimecodeConfigSource
+pattern TCSEmbedded = TimecodeConfigSource' "EMBEDDED"
 
-instance ToText TimecodeConfigSource where
-  toText = \case
-    TCSEmbedded -> "EMBEDDED"
-    TCSSystemclock -> "SYSTEMCLOCK"
-    TCSZerobased -> "ZEROBASED"
+pattern TCSSystemclock :: TimecodeConfigSource
+pattern TCSSystemclock = TimecodeConfigSource' "SYSTEMCLOCK"
 
-instance Hashable TimecodeConfigSource
+pattern TCSZerobased :: TimecodeConfigSource
+pattern TCSZerobased = TimecodeConfigSource' "ZEROBASED"
 
-instance NFData TimecodeConfigSource
-
-instance ToByteString TimecodeConfigSource
-
-instance ToQuery TimecodeConfigSource
-
-instance ToHeader TimecodeConfigSource
-
-instance ToJSON TimecodeConfigSource where
-  toJSON = toJSONText
-
-instance FromJSON TimecodeConfigSource where
-  parseJSON = parseJSONText "TimecodeConfigSource"
+{-# COMPLETE
+  TCSEmbedded,
+  TCSSystemclock,
+  TCSZerobased,
+  TimecodeConfigSource'
+  #-}

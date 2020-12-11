@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.ReportFileFormat where
+module Network.AWS.Inspector.Types.ReportFileFormat
+  ( ReportFileFormat
+      ( ReportFileFormat',
+        HTML,
+        Pdf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportFileFormat
-  = HTML
-  | Pdf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportFileFormat = ReportFileFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportFileFormat where
-  parser =
-    takeLowerText >>= \case
-      "html" -> pure HTML
-      "pdf" -> pure Pdf
-      e ->
-        fromTextError $
-          "Failure parsing ReportFileFormat from value: '" <> e
-            <> "'. Accepted values: html, pdf"
+pattern HTML :: ReportFileFormat
+pattern HTML = ReportFileFormat' "HTML"
 
-instance ToText ReportFileFormat where
-  toText = \case
-    HTML -> "HTML"
-    Pdf -> "PDF"
+pattern Pdf :: ReportFileFormat
+pattern Pdf = ReportFileFormat' "PDF"
 
-instance Hashable ReportFileFormat
-
-instance NFData ReportFileFormat
-
-instance ToByteString ReportFileFormat
-
-instance ToQuery ReportFileFormat
-
-instance ToHeader ReportFileFormat
-
-instance ToJSON ReportFileFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  HTML,
+  Pdf,
+  ReportFileFormat'
+  #-}

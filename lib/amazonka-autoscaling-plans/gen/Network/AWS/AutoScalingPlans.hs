@@ -14,13 +14,11 @@
 -- __AWS Auto Scaling__
 --
 -- Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS CloudFormation services.
---
 -- Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.
---
 -- For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html AWS Auto Scaling User Guide> .
 module Network.AWS.AutoScalingPlans
-  ( -- * Service Configuration
-    autoScalingPlans,
+  ( -- * Service configuration
+    autoScalingPlansService,
 
     -- * Errors
     -- $errors
@@ -88,14 +86,14 @@ module Network.AWS.AutoScalingPlans
     ServiceNamespace (..),
 
     -- ** ApplicationSource
-    ApplicationSource,
-    applicationSource,
+    ApplicationSource (..),
+    mkApplicationSource,
     asTagFilters,
     asCloudFormationStackARN,
 
     -- ** CustomizedLoadMetricSpecification
-    CustomizedLoadMetricSpecification,
-    customizedLoadMetricSpecification,
+    CustomizedLoadMetricSpecification (..),
+    mkCustomizedLoadMetricSpecification,
     clmsDimensions,
     clmsUnit,
     clmsMetricName,
@@ -103,8 +101,8 @@ module Network.AWS.AutoScalingPlans
     clmsStatistic,
 
     -- ** CustomizedScalingMetricSpecification
-    CustomizedScalingMetricSpecification,
-    customizedScalingMetricSpecification,
+    CustomizedScalingMetricSpecification (..),
+    mkCustomizedScalingMetricSpecification,
     csmsDimensions,
     csmsUnit,
     csmsMetricName,
@@ -112,32 +110,32 @@ module Network.AWS.AutoScalingPlans
     csmsStatistic,
 
     -- ** Datapoint
-    Datapoint,
-    datapoint,
+    Datapoint (..),
+    mkDatapoint,
     dValue,
     dTimestamp,
 
     -- ** MetricDimension
-    MetricDimension,
-    metricDimension,
+    MetricDimension (..),
+    mkMetricDimension,
     mdName,
     mdValue,
 
     -- ** PredefinedLoadMetricSpecification
-    PredefinedLoadMetricSpecification,
-    predefinedLoadMetricSpecification,
+    PredefinedLoadMetricSpecification (..),
+    mkPredefinedLoadMetricSpecification,
     plmsResourceLabel,
     plmsPredefinedLoadMetricType,
 
     -- ** PredefinedScalingMetricSpecification
-    PredefinedScalingMetricSpecification,
-    predefinedScalingMetricSpecification,
+    PredefinedScalingMetricSpecification (..),
+    mkPredefinedScalingMetricSpecification,
     psmsResourceLabel,
     psmsPredefinedScalingMetricType,
 
     -- ** ScalingInstruction
-    ScalingInstruction,
-    scalingInstruction,
+    ScalingInstruction (..),
+    mkScalingInstruction,
     siScheduledActionBufferTime,
     siPredictiveScalingMaxCapacityBuffer,
     siScalingPolicyUpdateBehavior,
@@ -154,8 +152,8 @@ module Network.AWS.AutoScalingPlans
     siTargetTrackingConfigurations,
 
     -- ** ScalingPlan
-    ScalingPlan,
-    scalingPlan,
+    ScalingPlan (..),
+    mkScalingPlan,
     spCreationTime,
     spStatusStartTime,
     spStatusMessage,
@@ -166,8 +164,8 @@ module Network.AWS.AutoScalingPlans
     spStatusCode,
 
     -- ** ScalingPlanResource
-    ScalingPlanResource,
-    scalingPlanResource,
+    ScalingPlanResource (..),
+    mkScalingPlanResource,
     sprScalingStatusMessage,
     sprScalingPolicies,
     sprScalingPlanName,
@@ -178,21 +176,21 @@ module Network.AWS.AutoScalingPlans
     sprScalingStatusCode,
 
     -- ** ScalingPolicy
-    ScalingPolicy,
-    scalingPolicy,
+    ScalingPolicy (..),
+    mkScalingPolicy,
     spTargetTrackingConfiguration,
     spPolicyName,
     spPolicyType,
 
     -- ** TagFilter
-    TagFilter,
-    tagFilter,
+    TagFilter (..),
+    mkTagFilter,
     tfValues,
     tfKey,
 
     -- ** TargetTrackingConfiguration
-    TargetTrackingConfiguration,
-    targetTrackingConfiguration,
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
     ttcEstimatedInstanceWarmup,
     ttcPredefinedScalingMetricSpecification,
     ttcScaleInCooldown,
@@ -200,6 +198,17 @@ module Network.AWS.AutoScalingPlans
     ttcCustomizedScalingMetricSpecification,
     ttcScaleOutCooldown,
     ttcTargetValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -211,6 +220,7 @@ import Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
 import Network.AWS.AutoScalingPlans.Types
 import Network.AWS.AutoScalingPlans.UpdateScalingPlan
 import Network.AWS.AutoScalingPlans.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

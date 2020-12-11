@@ -13,8 +13,8 @@
 --
 -- AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.
 module Network.AWS.Greengrass
-  ( -- * Service Configuration
-    greengrass,
+  ( -- * Service configuration
+    greengrassService,
 
     -- * Errors
     -- $errors
@@ -346,22 +346,22 @@ module Network.AWS.Greengrass
     UpdateTargetsOperatingSystem (..),
 
     -- ** BulkDeployment
-    BulkDeployment,
-    bulkDeployment,
+    BulkDeployment (..),
+    mkBulkDeployment,
     bdBulkDeploymentARN,
     bdBulkDeploymentId,
     bdCreatedAt,
 
     -- ** BulkDeploymentMetrics
-    BulkDeploymentMetrics,
-    bulkDeploymentMetrics,
+    BulkDeploymentMetrics (..),
+    mkBulkDeploymentMetrics,
     bdmRecordsProcessed,
     bdmRetryAttempts,
     bdmInvalidInputRecords,
 
     -- ** BulkDeploymentResult
-    BulkDeploymentResult,
-    bulkDeploymentResult,
+    BulkDeploymentResult (..),
+    mkBulkDeploymentResult,
     bdrDeploymentId,
     bdrDeploymentARN,
     bdrCreatedAt,
@@ -372,41 +372,41 @@ module Network.AWS.Greengrass
     bdrErrorMessage,
 
     -- ** ConnectivityInfo
-    ConnectivityInfo,
-    connectivityInfo,
+    ConnectivityInfo (..),
+    mkConnectivityInfo,
     ciPortNumber,
     ciId,
     ciMetadata,
     ciHostAddress,
 
     -- ** Connector
-    Connector,
-    connector,
+    Connector (..),
+    mkConnector,
     conParameters,
     conConnectorARN,
     conId,
 
     -- ** ConnectorDefinitionVersion
-    ConnectorDefinitionVersion,
-    connectorDefinitionVersion,
+    ConnectorDefinitionVersion (..),
+    mkConnectorDefinitionVersion,
     cdvConnectors,
 
     -- ** Core
-    Core,
-    core,
+    Core (..),
+    mkCore,
     cSyncShadow,
     cThingARN,
     cId,
     cCertificateARN,
 
     -- ** CoreDefinitionVersion
-    CoreDefinitionVersion,
-    coreDefinitionVersion,
+    CoreDefinitionVersion (..),
+    mkCoreDefinitionVersion,
     cdvCores,
 
     -- ** DefinitionInformation
-    DefinitionInformation,
-    definitionInformation,
+    DefinitionInformation (..),
+    mkDefinitionInformation,
     diLatestVersionARN,
     diARN,
     diName,
@@ -417,8 +417,8 @@ module Network.AWS.Greengrass
     diLastUpdatedTimestamp,
 
     -- ** Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dDeploymentId,
     dDeploymentARN,
     dCreatedAt,
@@ -426,34 +426,34 @@ module Network.AWS.Greengrass
     dGroupARN,
 
     -- ** Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dSyncShadow,
     dThingARN,
     dId,
     dCertificateARN,
 
     -- ** DeviceDefinitionVersion
-    DeviceDefinitionVersion,
-    deviceDefinitionVersion,
+    DeviceDefinitionVersion (..),
+    mkDeviceDefinitionVersion,
     ddvDevices,
 
     -- ** ErrorDetail
-    ErrorDetail,
-    errorDetail,
+    ErrorDetail (..),
+    mkErrorDetail,
     edDetailedErrorCode,
     edDetailedErrorMessage,
 
     -- ** Function
-    Function,
-    function,
+    Function (..),
+    mkFunction,
     fFunctionARN,
     fFunctionConfiguration,
     fId,
 
     -- ** FunctionConfiguration
-    FunctionConfiguration,
-    functionConfiguration,
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
     fcMemorySize,
     fcExecArgs,
     fcEnvironment,
@@ -463,45 +463,45 @@ module Network.AWS.Greengrass
     fcTimeout,
 
     -- ** FunctionConfigurationEnvironment
-    FunctionConfigurationEnvironment,
-    functionConfigurationEnvironment,
+    FunctionConfigurationEnvironment (..),
+    mkFunctionConfigurationEnvironment,
     fceVariables,
     fceExecution,
     fceResourceAccessPolicies,
     fceAccessSysfs,
 
     -- ** FunctionDefaultConfig
-    FunctionDefaultConfig,
-    functionDefaultConfig,
+    FunctionDefaultConfig (..),
+    mkFunctionDefaultConfig,
     fdcExecution,
 
     -- ** FunctionDefaultExecutionConfig
-    FunctionDefaultExecutionConfig,
-    functionDefaultExecutionConfig,
+    FunctionDefaultExecutionConfig (..),
+    mkFunctionDefaultExecutionConfig,
     fdecRunAs,
     fdecIsolationMode,
 
     -- ** FunctionDefinitionVersion
-    FunctionDefinitionVersion,
-    functionDefinitionVersion,
+    FunctionDefinitionVersion (..),
+    mkFunctionDefinitionVersion,
     fdvDefaultConfig,
     fdvFunctions,
 
     -- ** FunctionExecutionConfig
-    FunctionExecutionConfig,
-    functionExecutionConfig,
+    FunctionExecutionConfig (..),
+    mkFunctionExecutionConfig,
     fecRunAs,
     fecIsolationMode,
 
     -- ** FunctionRunAsConfig
-    FunctionRunAsConfig,
-    functionRunAsConfig,
+    FunctionRunAsConfig (..),
+    mkFunctionRunAsConfig,
     fracUid,
     fracGid,
 
     -- ** GreengrassLogger
-    GreengrassLogger,
-    greengrassLogger,
+    GreengrassLogger (..),
+    mkGreengrassLogger,
     glSpace,
     glType,
     glLevel,
@@ -509,14 +509,14 @@ module Network.AWS.Greengrass
     glComponent,
 
     -- ** GroupCertificateAuthorityProperties
-    GroupCertificateAuthorityProperties,
-    groupCertificateAuthorityProperties,
+    GroupCertificateAuthorityProperties (..),
+    mkGroupCertificateAuthorityProperties,
     gcapGroupCertificateAuthorityARN,
     gcapGroupCertificateAuthorityId,
 
     -- ** GroupInformation
-    GroupInformation,
-    groupInformation,
+    GroupInformation (..),
+    mkGroupInformation,
     giLatestVersionARN,
     giARN,
     giName,
@@ -526,14 +526,14 @@ module Network.AWS.Greengrass
     giLastUpdatedTimestamp,
 
     -- ** GroupOwnerSetting
-    GroupOwnerSetting,
-    groupOwnerSetting,
+    GroupOwnerSetting (..),
+    mkGroupOwnerSetting,
     gosAutoAddGroupOwner,
     gosGroupOwner,
 
     -- ** GroupVersion
-    GroupVersion,
-    groupVersion,
+    GroupVersion (..),
+    mkGroupVersion,
     gvResourceDefinitionVersionARN,
     gvSubscriptionDefinitionVersionARN,
     gvCoreDefinitionVersionARN,
@@ -543,39 +543,39 @@ module Network.AWS.Greengrass
     gvConnectorDefinitionVersionARN,
 
     -- ** LocalDeviceResourceData
-    LocalDeviceResourceData,
-    localDeviceResourceData,
+    LocalDeviceResourceData (..),
+    mkLocalDeviceResourceData,
     ldrdGroupOwnerSetting,
     ldrdSourcePath,
 
     -- ** LocalVolumeResourceData
-    LocalVolumeResourceData,
-    localVolumeResourceData,
+    LocalVolumeResourceData (..),
+    mkLocalVolumeResourceData,
     lvrdGroupOwnerSetting,
     lvrdDestinationPath,
     lvrdSourcePath,
 
     -- ** LoggerDefinitionVersion
-    LoggerDefinitionVersion,
-    loggerDefinitionVersion,
+    LoggerDefinitionVersion (..),
+    mkLoggerDefinitionVersion,
     ldvLoggers,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rResourceDataContainer,
     rId,
     rName,
 
     -- ** ResourceAccessPolicy
-    ResourceAccessPolicy,
-    resourceAccessPolicy,
+    ResourceAccessPolicy (..),
+    mkResourceAccessPolicy,
     rapPermission,
     rapResourceId,
 
     -- ** ResourceDataContainer
-    ResourceDataContainer,
-    resourceDataContainer,
+    ResourceDataContainer (..),
+    mkResourceDataContainer,
     rdcS3MachineLearningModelResourceData,
     rdcSageMakerMachineLearningModelResourceData,
     rdcLocalVolumeResourceData,
@@ -583,72 +583,83 @@ module Network.AWS.Greengrass
     rdcSecretsManagerSecretResourceData,
 
     -- ** ResourceDefinitionVersion
-    ResourceDefinitionVersion,
-    resourceDefinitionVersion,
+    ResourceDefinitionVersion (..),
+    mkResourceDefinitionVersion,
     rdvResources,
 
     -- ** ResourceDownloadOwnerSetting
-    ResourceDownloadOwnerSetting,
-    resourceDownloadOwnerSetting,
+    ResourceDownloadOwnerSetting (..),
+    mkResourceDownloadOwnerSetting,
     rdosGroupOwner,
     rdosGroupPermission,
 
     -- ** RuntimeConfiguration
-    RuntimeConfiguration,
-    runtimeConfiguration,
+    RuntimeConfiguration (..),
+    mkRuntimeConfiguration,
     rcTelemetryConfiguration,
 
     -- ** S3MachineLearningModelResourceData
-    S3MachineLearningModelResourceData,
-    s3MachineLearningModelResourceData,
+    S3MachineLearningModelResourceData (..),
+    mkS3MachineLearningModelResourceData,
     smlmrdOwnerSetting,
     smlmrdDestinationPath,
     smlmrdS3URI,
 
     -- ** SageMakerMachineLearningModelResourceData
-    SageMakerMachineLearningModelResourceData,
-    sageMakerMachineLearningModelResourceData,
+    SageMakerMachineLearningModelResourceData (..),
+    mkSageMakerMachineLearningModelResourceData,
     smmlmrdOwnerSetting,
     smmlmrdSageMakerJobARN,
     smmlmrdDestinationPath,
 
     -- ** SecretsManagerSecretResourceData
-    SecretsManagerSecretResourceData,
-    secretsManagerSecretResourceData,
+    SecretsManagerSecretResourceData (..),
+    mkSecretsManagerSecretResourceData,
     smsrdAdditionalStagingLabelsToDownload,
     smsrdARN,
 
     -- ** Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sTarget,
     sId,
     sSubject,
     sSource,
 
     -- ** SubscriptionDefinitionVersion
-    SubscriptionDefinitionVersion,
-    subscriptionDefinitionVersion,
+    SubscriptionDefinitionVersion (..),
+    mkSubscriptionDefinitionVersion,
     sdvSubscriptions,
 
     -- ** TelemetryConfiguration
-    TelemetryConfiguration,
-    telemetryConfiguration,
+    TelemetryConfiguration (..),
+    mkTelemetryConfiguration,
     tcConfigurationSyncStatus,
     tcTelemetry,
 
     -- ** TelemetryConfigurationUpdate
-    TelemetryConfigurationUpdate,
-    telemetryConfigurationUpdate,
+    TelemetryConfigurationUpdate (..),
+    mkTelemetryConfigurationUpdate,
     tcuTelemetry,
 
     -- ** VersionInformation
-    VersionInformation,
-    versionInformation,
+    VersionInformation (..),
+    mkVersionInformation,
     viARN,
     viCreationTimestamp,
     viVersion,
     viId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -746,6 +757,7 @@ import Network.AWS.Greengrass.UpdateResourceDefinition
 import Network.AWS.Greengrass.UpdateSubscriptionDefinition
 import Network.AWS.Greengrass.UpdateThingRuntimeConfiguration
 import Network.AWS.Greengrass.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

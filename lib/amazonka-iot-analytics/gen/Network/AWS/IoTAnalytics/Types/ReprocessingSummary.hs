@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ReprocessingSummary where
+module Network.AWS.IoTAnalytics.Types.ReprocessingSummary
+  ( ReprocessingSummary (..),
+
+    -- * Smart constructor
+    mkReprocessingSummary,
+
+    -- * Lenses
+    rsCreationTime,
+    rsStatus,
+    rsId,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.ReprocessingStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about pipeline reprocessing.
 --
---
---
--- /See:/ 'reprocessingSummary' smart constructor.
+-- /See:/ 'mkReprocessingSummary' smart constructor.
 data ReprocessingSummary = ReprocessingSummary'
-  { _rsCreationTime ::
-      !(Maybe POSIX),
-    _rsStatus :: !(Maybe ReprocessingStatus),
-    _rsId :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe ReprocessingStatus,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReprocessingSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsCreationTime' - The time the pipeline reprocessing was created.
---
--- * 'rsStatus' - The status of the pipeline reprocessing.
---
--- * 'rsId' - The @reprocessingId@ returned by @StartPipelineReprocessing@ .
-reprocessingSummary ::
+-- * 'creationTime' - The time the pipeline reprocessing was created.
+-- * 'id' - The @reprocessingId@ returned by @StartPipelineReprocessing@ .
+-- * 'status' - The status of the pipeline reprocessing.
+mkReprocessingSummary ::
   ReprocessingSummary
-reprocessingSummary =
+mkReprocessingSummary =
   ReprocessingSummary'
-    { _rsCreationTime = Nothing,
-      _rsStatus = Nothing,
-      _rsId = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The time the pipeline reprocessing was created.
-rsCreationTime :: Lens' ReprocessingSummary (Maybe UTCTime)
-rsCreationTime = lens _rsCreationTime (\s a -> s {_rsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsCreationTime :: Lens.Lens' ReprocessingSummary (Lude.Maybe Lude.Timestamp)
+rsCreationTime = Lens.lens (creationTime :: ReprocessingSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ReprocessingSummary)
+{-# DEPRECATED rsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the pipeline reprocessing.
-rsStatus :: Lens' ReprocessingSummary (Maybe ReprocessingStatus)
-rsStatus = lens _rsStatus (\s a -> s {_rsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsStatus :: Lens.Lens' ReprocessingSummary (Lude.Maybe ReprocessingStatus)
+rsStatus = Lens.lens (status :: ReprocessingSummary -> Lude.Maybe ReprocessingStatus) (\s a -> s {status = a} :: ReprocessingSummary)
+{-# DEPRECATED rsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @reprocessingId@ returned by @StartPipelineReprocessing@ .
-rsId :: Lens' ReprocessingSummary (Maybe Text)
-rsId = lens _rsId (\s a -> s {_rsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsId :: Lens.Lens' ReprocessingSummary (Lude.Maybe Lude.Text)
+rsId = Lens.lens (id :: ReprocessingSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ReprocessingSummary)
+{-# DEPRECATED rsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON ReprocessingSummary where
+instance Lude.FromJSON ReprocessingSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReprocessingSummary"
       ( \x ->
           ReprocessingSummary'
-            <$> (x .:? "creationTime") <*> (x .:? "status") <*> (x .:? "id")
+            Lude.<$> (x Lude..:? "creationTime")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "id")
       )
-
-instance Hashable ReprocessingSummary
-
-instance NFData ReprocessingSummary

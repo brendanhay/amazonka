@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group. This applicable only when you have ElastiCache in Classic setup
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-  ( -- * Creating a Request
-    describeCacheSecurityGroups,
-    DescribeCacheSecurityGroups,
+  ( -- * Creating a request
+    DescribeCacheSecurityGroups (..),
+    mkDescribeCacheSecurityGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcsgsCacheSecurityGroupName,
     dcsgsMarker,
     dcsgsMaxRecords,
 
-    -- * Destructuring the Response
-    describeCacheSecurityGroupsResponse,
-    DescribeCacheSecurityGroupsResponse,
+    -- * Destructuring the response
+    DescribeCacheSecurityGroupsResponse (..),
+    mkDescribeCacheSecurityGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcsgsrsCacheSecurityGroups,
     dcsgsrsMarker,
     dcsgsrsResponseStatus,
@@ -44,147 +37,171 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DescribeCacheSecurityGroups@ operation.
 --
---
---
--- /See:/ 'describeCacheSecurityGroups' smart constructor.
+-- /See:/ 'mkDescribeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-  { _dcsgsCacheSecurityGroupName ::
-      !(Maybe Text),
-    _dcsgsMarker :: !(Maybe Text),
-    _dcsgsMaxRecords :: !(Maybe Int)
+  { cacheSecurityGroupName ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheSecurityGroupName' - The name of the cache security group to return details for.
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'dcsgsCacheSecurityGroupName' - The name of the cache security group to return details for.
---
--- * 'dcsgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcsgsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-describeCacheSecurityGroups ::
+-- Default: 100
+-- Constraints: minimum 20; maximum 100.
+mkDescribeCacheSecurityGroups ::
   DescribeCacheSecurityGroups
-describeCacheSecurityGroups =
+mkDescribeCacheSecurityGroups =
   DescribeCacheSecurityGroups'
-    { _dcsgsCacheSecurityGroupName =
-        Nothing,
-      _dcsgsMarker = Nothing,
-      _dcsgsMaxRecords = Nothing
+    { cacheSecurityGroupName =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The name of the cache security group to return details for.
-dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\s a -> s {_dcsgsCacheSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsCacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Text)
+dcsgsCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: DescribeCacheSecurityGroups)
+{-# DEPRECATED dcsgsCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\s a -> s {_dcsgsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsMarker :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Text)
+dcsgsMarker = Lens.lens (marker :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroups)
+{-# DEPRECATED dcsgsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-dcsgsMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
-dcsgsMaxRecords = lens _dcsgsMaxRecords (\s a -> s {_dcsgsMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: minimum 20; maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsMaxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Int)
+dcsgsMaxRecords = Lens.lens (maxRecords :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheSecurityGroups)
+{-# DEPRECATED dcsgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeCacheSecurityGroups where
+instance Page.AWSPager DescribeCacheSecurityGroups where
   page rq rs
-    | stop (rs ^. dcsgsrsMarker) = Nothing
-    | stop (rs ^. dcsgsrsCacheSecurityGroups) = Nothing
-    | otherwise = Just $ rq & dcsgsMarker .~ rs ^. dcsgsrsMarker
+    | Page.stop (rs Lens.^. dcsgsrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcsgsrsCacheSecurityGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcsgsMarker Lens..~ rs Lens.^. dcsgsrsMarker
 
-instance AWSRequest DescribeCacheSecurityGroups where
+instance Lude.AWSRequest DescribeCacheSecurityGroups where
   type
     Rs DescribeCacheSecurityGroups =
       DescribeCacheSecurityGroupsResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeCacheSecurityGroupsResult"
       ( \s h x ->
           DescribeCacheSecurityGroupsResponse'
-            <$> ( x .@? "CacheSecurityGroups" .!@ mempty
-                    >>= may (parseXMLList "CacheSecurityGroup")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "CacheSecurityGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "CacheSecurityGroup")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCacheSecurityGroups
+instance Lude.ToHeaders DescribeCacheSecurityGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeCacheSecurityGroups
+instance Lude.ToPath DescribeCacheSecurityGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeCacheSecurityGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeCacheSecurityGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeCacheSecurityGroups where
+instance Lude.ToQuery DescribeCacheSecurityGroups where
   toQuery DescribeCacheSecurityGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeCacheSecurityGroups" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheSecurityGroupName" =: _dcsgsCacheSecurityGroupName,
-        "Marker" =: _dcsgsMarker,
-        "MaxRecords" =: _dcsgsMaxRecords
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeCacheSecurityGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheSecurityGroupName" Lude.=: cacheSecurityGroupName,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSecurityGroups@ operation.
 --
---
---
--- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
+-- /See:/ 'mkDescribeCacheSecurityGroupsResponse' smart constructor.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-  { _dcsgsrsCacheSecurityGroups ::
-      !( Maybe
-           [CacheSecurityGroup]
-       ),
-    _dcsgsrsMarker ::
-      !(Maybe Text),
-    _dcsgsrsResponseStatus ::
-      !Int
+  { cacheSecurityGroups ::
+      Lude.Maybe
+        [CacheSecurityGroup],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsgsrsCacheSecurityGroups' - A list of cache security groups. Each element in the list contains detailed information about one group.
---
--- * 'dcsgsrsMarker' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dcsgsrsResponseStatus' - -- | The response status code.
-describeCacheSecurityGroupsResponse ::
-  -- | 'dcsgsrsResponseStatus'
-  Int ->
+-- * 'cacheSecurityGroups' - A list of cache security groups. Each element in the list contains detailed information about one group.
+-- * 'marker' - Provides an identifier to allow retrieval of paginated results.
+-- * 'responseStatus' - The response status code.
+mkDescribeCacheSecurityGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse pResponseStatus_ =
+mkDescribeCacheSecurityGroupsResponse pResponseStatus_ =
   DescribeCacheSecurityGroupsResponse'
-    { _dcsgsrsCacheSecurityGroups =
-        Nothing,
-      _dcsgsrsMarker = Nothing,
-      _dcsgsrsResponseStatus = pResponseStatus_
+    { cacheSecurityGroups =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of cache security groups. Each element in the list contains detailed information about one group.
-dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\s a -> s {_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsrsCacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe [CacheSecurityGroup])
+dcsgsrsCacheSecurityGroups = Lens.lens (cacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe [CacheSecurityGroup]) (\s a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgsrsCacheSecurityGroups "Use generic-lens or generic-optics with 'cacheSecurityGroups' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-dcsgsrsMarker = lens _dcsgsrsMarker (\s a -> s {_dcsgsrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsrsMarker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe Lude.Text)
+dcsgsrsMarker = Lens.lens (marker :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dcsgsrsResponseStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
-dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\s a -> s {_dcsgsrsResponseStatus = a})
-
-instance NFData DescribeCacheSecurityGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgsrsResponseStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Lude.Int
+dcsgsrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

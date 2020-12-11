@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TransportProtocol where
+module Network.AWS.ECS.Types.TransportProtocol
+  ( TransportProtocol
+      ( TransportProtocol',
+        TCP,
+        Udp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransportProtocol
-  = TCP
-  | Udp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransportProtocol = TransportProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransportProtocol where
-  parser =
-    takeLowerText >>= \case
-      "tcp" -> pure TCP
-      "udp" -> pure Udp
-      e ->
-        fromTextError $
-          "Failure parsing TransportProtocol from value: '" <> e
-            <> "'. Accepted values: tcp, udp"
+pattern TCP :: TransportProtocol
+pattern TCP = TransportProtocol' "tcp"
 
-instance ToText TransportProtocol where
-  toText = \case
-    TCP -> "tcp"
-    Udp -> "udp"
+pattern Udp :: TransportProtocol
+pattern Udp = TransportProtocol' "udp"
 
-instance Hashable TransportProtocol
-
-instance NFData TransportProtocol
-
-instance ToByteString TransportProtocol
-
-instance ToQuery TransportProtocol
-
-instance ToHeader TransportProtocol
-
-instance ToJSON TransportProtocol where
-  toJSON = toJSONText
-
-instance FromJSON TransportProtocol where
-  parseJSON = parseJSONText "TransportProtocol"
+{-# COMPLETE
+  TCP,
+  Udp,
+  TransportProtocol'
+  #-}

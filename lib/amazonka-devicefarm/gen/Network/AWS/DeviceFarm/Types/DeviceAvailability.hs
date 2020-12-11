@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DeviceAvailability where
+module Network.AWS.DeviceFarm.Types.DeviceAvailability
+  ( DeviceAvailability
+      ( DeviceAvailability',
+        Available,
+        Busy,
+        HighlyAvailable,
+        TemporaryNotAvailable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceAvailability
-  = Available
-  | Busy
-  | HighlyAvailable
-  | TemporaryNotAvailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceAvailability = DeviceAvailability' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceAvailability where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "busy" -> pure Busy
-      "highly_available" -> pure HighlyAvailable
-      "temporary_not_available" -> pure TemporaryNotAvailable
-      e ->
-        fromTextError $
-          "Failure parsing DeviceAvailability from value: '" <> e
-            <> "'. Accepted values: available, busy, highly_available, temporary_not_available"
+pattern Available :: DeviceAvailability
+pattern Available = DeviceAvailability' "AVAILABLE"
 
-instance ToText DeviceAvailability where
-  toText = \case
-    Available -> "AVAILABLE"
-    Busy -> "BUSY"
-    HighlyAvailable -> "HIGHLY_AVAILABLE"
-    TemporaryNotAvailable -> "TEMPORARY_NOT_AVAILABLE"
+pattern Busy :: DeviceAvailability
+pattern Busy = DeviceAvailability' "BUSY"
 
-instance Hashable DeviceAvailability
+pattern HighlyAvailable :: DeviceAvailability
+pattern HighlyAvailable = DeviceAvailability' "HIGHLY_AVAILABLE"
 
-instance NFData DeviceAvailability
+pattern TemporaryNotAvailable :: DeviceAvailability
+pattern TemporaryNotAvailable = DeviceAvailability' "TEMPORARY_NOT_AVAILABLE"
 
-instance ToByteString DeviceAvailability
-
-instance ToQuery DeviceAvailability
-
-instance ToHeader DeviceAvailability
-
-instance FromJSON DeviceAvailability where
-  parseJSON = parseJSONText "DeviceAvailability"
+{-# COMPLETE
+  Available,
+  Busy,
+  HighlyAvailable,
+  TemporaryNotAvailable,
+  DeviceAvailability'
+  #-}

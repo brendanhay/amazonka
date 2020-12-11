@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,107 @@
 --
 -- Retrieves the number of health checks that are associated with the current AWS account.
 module Network.AWS.Route53.GetHealthCheckCount
-  ( -- * Creating a Request
-    getHealthCheckCount,
-    GetHealthCheckCount,
+  ( -- * Creating a request
+    GetHealthCheckCount (..),
+    mkGetHealthCheckCount,
 
-    -- * Destructuring the Response
-    getHealthCheckCountResponse,
-    GetHealthCheckCountResponse,
+    -- * Destructuring the response
+    GetHealthCheckCountResponse (..),
+    mkGetHealthCheckCountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ghccrsResponseStatus,
     ghccrsHealthCheckCount,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request for the number of health checks that are associated with the current AWS account.
 --
---
---
--- /See:/ 'getHealthCheckCount' smart constructor.
+-- /See:/ 'mkGetHealthCheckCount' smart constructor.
 data GetHealthCheckCount = GetHealthCheckCount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheckCount' with the minimum fields required to make a request.
-getHealthCheckCount ::
+mkGetHealthCheckCount ::
   GetHealthCheckCount
-getHealthCheckCount = GetHealthCheckCount'
+mkGetHealthCheckCount = GetHealthCheckCount'
 
-instance AWSRequest GetHealthCheckCount where
+instance Lude.AWSRequest GetHealthCheckCount where
   type Rs GetHealthCheckCount = GetHealthCheckCountResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetHealthCheckCountResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "HealthCheckCount")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "HealthCheckCount")
       )
 
-instance Hashable GetHealthCheckCount
+instance Lude.ToHeaders GetHealthCheckCount where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetHealthCheckCount
+instance Lude.ToPath GetHealthCheckCount where
+  toPath = Lude.const "/2013-04-01/healthcheckcount"
 
-instance ToHeaders GetHealthCheckCount where
-  toHeaders = const mempty
-
-instance ToPath GetHealthCheckCount where
-  toPath = const "/2013-04-01/healthcheckcount"
-
-instance ToQuery GetHealthCheckCount where
-  toQuery = const mempty
+instance Lude.ToQuery GetHealthCheckCount where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheckCount@ request.
 --
---
---
--- /See:/ 'getHealthCheckCountResponse' smart constructor.
+-- /See:/ 'mkGetHealthCheckCountResponse' smart constructor.
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
-  { _ghccrsResponseStatus ::
-      !Int,
-    _ghccrsHealthCheckCount :: !Integer
+  { responseStatus ::
+      Lude.Int,
+    healthCheckCount :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheckCountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghccrsResponseStatus' - -- | The response status code.
---
--- * 'ghccrsHealthCheckCount' - The number of health checks associated with the current AWS account.
-getHealthCheckCountResponse ::
-  -- | 'ghccrsResponseStatus'
-  Int ->
-  -- | 'ghccrsHealthCheckCount'
-  Integer ->
+-- * 'healthCheckCount' - The number of health checks associated with the current AWS account.
+-- * 'responseStatus' - The response status code.
+mkGetHealthCheckCountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'healthCheckCount'
+  Lude.Integer ->
   GetHealthCheckCountResponse
-getHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
+mkGetHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
   GetHealthCheckCountResponse'
-    { _ghccrsResponseStatus =
-        pResponseStatus_,
-      _ghccrsHealthCheckCount = pHealthCheckCount_
+    { responseStatus = pResponseStatus_,
+      healthCheckCount = pHealthCheckCount_
     }
 
--- | -- | The response status code.
-ghccrsResponseStatus :: Lens' GetHealthCheckCountResponse Int
-ghccrsResponseStatus = lens _ghccrsResponseStatus (\s a -> s {_ghccrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghccrsResponseStatus :: Lens.Lens' GetHealthCheckCountResponse Lude.Int
+ghccrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHealthCheckCountResponse)
+{-# DEPRECATED ghccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The number of health checks associated with the current AWS account.
-ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
-ghccrsHealthCheckCount = lens _ghccrsHealthCheckCount (\s a -> s {_ghccrsHealthCheckCount = a})
-
-instance NFData GetHealthCheckCountResponse
+--
+-- /Note:/ Consider using 'healthCheckCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghccrsHealthCheckCount :: Lens.Lens' GetHealthCheckCountResponse Lude.Integer
+ghccrsHealthCheckCount = Lens.lens (healthCheckCount :: GetHealthCheckCountResponse -> Lude.Integer) (\s a -> s {healthCheckCount = a} :: GetHealthCheckCountResponse)
+{-# DEPRECATED ghccrsHealthCheckCount "Use generic-lens or generic-optics with 'healthCheckCount' instead." #-}

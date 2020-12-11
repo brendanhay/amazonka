@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAttachObject where
+module Network.AWS.CloudDirectory.Types.BatchAttachObject
+  ( BatchAttachObject (..),
+
+    -- * Smart constructor
+    mkBatchAttachObject,
+
+    -- * Lenses
+    baoParentReference,
+    baoChildReference,
+    baoLinkName,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of an 'AttachObject' operation.
 --
---
---
--- /See:/ 'batchAttachObject' smart constructor.
+-- /See:/ 'mkBatchAttachObject' smart constructor.
 data BatchAttachObject = BatchAttachObject'
-  { _baoParentReference ::
-      !ObjectReference,
-    _baoChildReference :: !ObjectReference,
-    _baoLinkName :: !Text
+  { parentReference ::
+      ObjectReference,
+    childReference :: ObjectReference,
+    linkName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'baoParentReference' - The parent object reference.
---
--- * 'baoChildReference' - The child object reference that is to be attached to the object.
---
--- * 'baoLinkName' - The name of the link.
-batchAttachObject ::
-  -- | 'baoParentReference'
+-- * 'childReference' - The child object reference that is to be attached to the object.
+-- * 'linkName' - The name of the link.
+-- * 'parentReference' - The parent object reference.
+mkBatchAttachObject ::
+  -- | 'parentReference'
   ObjectReference ->
-  -- | 'baoChildReference'
+  -- | 'childReference'
   ObjectReference ->
-  -- | 'baoLinkName'
-  Text ->
+  -- | 'linkName'
+  Lude.Text ->
   BatchAttachObject
-batchAttachObject pParentReference_ pChildReference_ pLinkName_ =
+mkBatchAttachObject pParentReference_ pChildReference_ pLinkName_ =
   BatchAttachObject'
-    { _baoParentReference = pParentReference_,
-      _baoChildReference = pChildReference_,
-      _baoLinkName = pLinkName_
+    { parentReference = pParentReference_,
+      childReference = pChildReference_,
+      linkName = pLinkName_
     }
 
 -- | The parent object reference.
-baoParentReference :: Lens' BatchAttachObject ObjectReference
-baoParentReference = lens _baoParentReference (\s a -> s {_baoParentReference = a})
+--
+-- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baoParentReference :: Lens.Lens' BatchAttachObject ObjectReference
+baoParentReference = Lens.lens (parentReference :: BatchAttachObject -> ObjectReference) (\s a -> s {parentReference = a} :: BatchAttachObject)
+{-# DEPRECATED baoParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The child object reference that is to be attached to the object.
-baoChildReference :: Lens' BatchAttachObject ObjectReference
-baoChildReference = lens _baoChildReference (\s a -> s {_baoChildReference = a})
+--
+-- /Note:/ Consider using 'childReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baoChildReference :: Lens.Lens' BatchAttachObject ObjectReference
+baoChildReference = Lens.lens (childReference :: BatchAttachObject -> ObjectReference) (\s a -> s {childReference = a} :: BatchAttachObject)
+{-# DEPRECATED baoChildReference "Use generic-lens or generic-optics with 'childReference' instead." #-}
 
 -- | The name of the link.
-baoLinkName :: Lens' BatchAttachObject Text
-baoLinkName = lens _baoLinkName (\s a -> s {_baoLinkName = a})
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baoLinkName :: Lens.Lens' BatchAttachObject Lude.Text
+baoLinkName = Lens.lens (linkName :: BatchAttachObject -> Lude.Text) (\s a -> s {linkName = a} :: BatchAttachObject)
+{-# DEPRECATED baoLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
-instance Hashable BatchAttachObject
-
-instance NFData BatchAttachObject
-
-instance ToJSON BatchAttachObject where
+instance Lude.ToJSON BatchAttachObject where
   toJSON BatchAttachObject' {..} =
-    object
-      ( catMaybes
-          [ Just ("ParentReference" .= _baoParentReference),
-            Just ("ChildReference" .= _baoChildReference),
-            Just ("LinkName" .= _baoLinkName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ParentReference" Lude..= parentReference),
+            Lude.Just ("ChildReference" Lude..= childReference),
+            Lude.Just ("LinkName" Lude..= linkName)
           ]
       )

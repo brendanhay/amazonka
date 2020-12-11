@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,174 +14,197 @@
 --
 -- Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeSessions
-  ( -- * Creating a Request
-    describeSessions,
-    DescribeSessions,
+  ( -- * Creating a request
+    DescribeSessions (..),
+    mkDescribeSessions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsFilters,
     dsNextToken,
     dsMaxResults,
     dsState,
 
-    -- * Destructuring the Response
-    describeSessionsResponse,
-    DescribeSessionsResponse,
+    -- * Destructuring the response
+    DescribeSessionsResponse (..),
+    mkDescribeSessionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsNextToken,
     dsrsSessions,
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeSessions' smart constructor.
+-- | /See:/ 'mkDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { _dsFilters ::
-      !(Maybe (List1 SessionFilter)),
-    _dsNextToken :: !(Maybe Text),
-    _dsMaxResults :: !(Maybe Nat),
-    _dsState :: !SessionState
+  { filters ::
+      Lude.Maybe (Lude.NonEmpty SessionFilter),
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    state :: SessionState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsFilters' - One or more filters to limit the type of sessions returned by the request.
---
--- * 'dsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dsMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- * 'dsState' - The session status to retrieve a list of sessions for. For example, "Active".
-describeSessions ::
-  -- | 'dsState'
+-- * 'filters' - One or more filters to limit the type of sessions returned by the request.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'state' - The session status to retrieve a list of sessions for. For example, "Active".
+mkDescribeSessions ::
+  -- | 'state'
   SessionState ->
   DescribeSessions
-describeSessions pState_ =
+mkDescribeSessions pState_ =
   DescribeSessions'
-    { _dsFilters = Nothing,
-      _dsNextToken = Nothing,
-      _dsMaxResults = Nothing,
-      _dsState = pState_
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      state = pState_
     }
 
 -- | One or more filters to limit the type of sessions returned by the request.
-dsFilters :: Lens' DescribeSessions (Maybe (NonEmpty SessionFilter))
-dsFilters = lens _dsFilters (\s a -> s {_dsFilters = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFilters :: Lens.Lens' DescribeSessions (Lude.Maybe (Lude.NonEmpty SessionFilter))
+dsFilters = Lens.lens (filters :: DescribeSessions -> Lude.Maybe (Lude.NonEmpty SessionFilter)) (\s a -> s {filters = a} :: DescribeSessions)
+{-# DEPRECATED dsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dsNextToken :: Lens' DescribeSessions (Maybe Text)
-dsNextToken = lens _dsNextToken (\s a -> s {_dsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNextToken :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Text)
+dsNextToken = Lens.lens (nextToken :: DescribeSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSessions)
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-dsMaxResults :: Lens' DescribeSessions (Maybe Natural)
-dsMaxResults = lens _dsMaxResults (\s a -> s {_dsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsMaxResults :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Natural)
+dsMaxResults = Lens.lens (maxResults :: DescribeSessions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSessions)
+{-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The session status to retrieve a list of sessions for. For example, "Active".
-dsState :: Lens' DescribeSessions SessionState
-dsState = lens _dsState (\s a -> s {_dsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsState :: Lens.Lens' DescribeSessions SessionState
+dsState = Lens.lens (state :: DescribeSessions -> SessionState) (\s a -> s {state = a} :: DescribeSessions)
+{-# DEPRECATED dsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance AWSPager DescribeSessions where
+instance Page.AWSPager DescribeSessions where
   page rq rs
-    | stop (rs ^. dsrsNextToken) = Nothing
-    | stop (rs ^. dsrsSessions) = Nothing
-    | otherwise = Just $ rq & dsNextToken .~ rs ^. dsrsNextToken
+    | Page.stop (rs Lens.^. dsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dsrsSessions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dsNextToken Lens..~ rs Lens.^. dsrsNextToken
 
-instance AWSRequest DescribeSessions where
+instance Lude.AWSRequest DescribeSessions where
   type Rs DescribeSessions = DescribeSessionsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSessionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Sessions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Sessions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSessions
-
-instance NFData DescribeSessions
-
-instance ToHeaders DescribeSessions where
+instance Lude.ToHeaders DescribeSessions where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DescribeSessions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DescribeSessions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeSessions where
+instance Lude.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _dsFilters,
-            ("NextToken" .=) <$> _dsNextToken,
-            ("MaxResults" .=) <$> _dsMaxResults,
-            Just ("State" .= _dsState)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("State" Lude..= state)
           ]
       )
 
-instance ToPath DescribeSessions where
-  toPath = const "/"
+instance Lude.ToPath DescribeSessions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeSessions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSessions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeSessionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-  { _dsrsNextToken ::
-      !(Maybe Text),
-    _dsrsSessions :: !(Maybe [Session]),
-    _dsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    sessions :: Lude.Maybe [Session],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSessionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dsrsSessions' - A list of sessions meeting the request parameters.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeSessionsResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'responseStatus' - The response status code.
+-- * 'sessions' - A list of sessions meeting the request parameters.
+mkDescribeSessionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSessionsResponse
-describeSessionsResponse pResponseStatus_ =
+mkDescribeSessionsResponse pResponseStatus_ =
   DescribeSessionsResponse'
-    { _dsrsNextToken = Nothing,
-      _dsrsSessions = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      sessions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dsrsNextToken :: Lens' DescribeSessionsResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\s a -> s {_dsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsNextToken :: Lens.Lens' DescribeSessionsResponse (Lude.Maybe Lude.Text)
+dsrsNextToken = Lens.lens (nextToken :: DescribeSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSessionsResponse)
+{-# DEPRECATED dsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of sessions meeting the request parameters.
-dsrsSessions :: Lens' DescribeSessionsResponse [Session]
-dsrsSessions = lens _dsrsSessions (\s a -> s {_dsrsSessions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsSessions :: Lens.Lens' DescribeSessionsResponse (Lude.Maybe [Session])
+dsrsSessions = Lens.lens (sessions :: DescribeSessionsResponse -> Lude.Maybe [Session]) (\s a -> s {sessions = a} :: DescribeSessionsResponse)
+{-# DEPRECATED dsrsSessions "Use generic-lens or generic-optics with 'sessions' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeSessionsResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeSessionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeSessionsResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSessionsResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

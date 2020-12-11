@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationComplianceSeverity where
+module Network.AWS.SSM.Types.AssociationComplianceSeverity
+  ( AssociationComplianceSeverity
+      ( AssociationComplianceSeverity',
+        ACSCritical,
+        ACSHigh,
+        ACSLow,
+        ACSMedium,
+        ACSUnspecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationComplianceSeverity
-  = ACSCritical
-  | ACSHigh
-  | ACSLow
-  | ACSMedium
-  | ACSUnspecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationComplianceSeverity = AssociationComplianceSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationComplianceSeverity where
-  parser =
-    takeLowerText >>= \case
-      "critical" -> pure ACSCritical
-      "high" -> pure ACSHigh
-      "low" -> pure ACSLow
-      "medium" -> pure ACSMedium
-      "unspecified" -> pure ACSUnspecified
-      e ->
-        fromTextError $
-          "Failure parsing AssociationComplianceSeverity from value: '" <> e
-            <> "'. Accepted values: critical, high, low, medium, unspecified"
+pattern ACSCritical :: AssociationComplianceSeverity
+pattern ACSCritical = AssociationComplianceSeverity' "CRITICAL"
 
-instance ToText AssociationComplianceSeverity where
-  toText = \case
-    ACSCritical -> "CRITICAL"
-    ACSHigh -> "HIGH"
-    ACSLow -> "LOW"
-    ACSMedium -> "MEDIUM"
-    ACSUnspecified -> "UNSPECIFIED"
+pattern ACSHigh :: AssociationComplianceSeverity
+pattern ACSHigh = AssociationComplianceSeverity' "HIGH"
 
-instance Hashable AssociationComplianceSeverity
+pattern ACSLow :: AssociationComplianceSeverity
+pattern ACSLow = AssociationComplianceSeverity' "LOW"
 
-instance NFData AssociationComplianceSeverity
+pattern ACSMedium :: AssociationComplianceSeverity
+pattern ACSMedium = AssociationComplianceSeverity' "MEDIUM"
 
-instance ToByteString AssociationComplianceSeverity
+pattern ACSUnspecified :: AssociationComplianceSeverity
+pattern ACSUnspecified = AssociationComplianceSeverity' "UNSPECIFIED"
 
-instance ToQuery AssociationComplianceSeverity
-
-instance ToHeader AssociationComplianceSeverity
-
-instance ToJSON AssociationComplianceSeverity where
-  toJSON = toJSONText
-
-instance FromJSON AssociationComplianceSeverity where
-  parseJSON = parseJSONText "AssociationComplianceSeverity"
+{-# COMPLETE
+  ACSCritical,
+  ACSHigh,
+  ACSLow,
+  ACSMedium,
+  ACSUnspecified,
+  AssociationComplianceSeverity'
+  #-}

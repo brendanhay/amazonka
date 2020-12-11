@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MatchmakingConfigurationStatus where
+module Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
+  ( MatchmakingConfigurationStatus
+      ( MatchmakingConfigurationStatus',
+        MCSCancelled,
+        MCSCompleted,
+        MCSFailed,
+        MCSPlacing,
+        MCSQueued,
+        MCSRequiresAcceptance,
+        MCSSearching,
+        MCSTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MatchmakingConfigurationStatus
-  = MCSCancelled
-  | MCSCompleted
-  | MCSFailed
-  | MCSPlacing
-  | MCSQueued
-  | MCSRequiresAcceptance
-  | MCSSearching
-  | MCSTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MatchmakingConfigurationStatus = MatchmakingConfigurationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MatchmakingConfigurationStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure MCSCancelled
-      "completed" -> pure MCSCompleted
-      "failed" -> pure MCSFailed
-      "placing" -> pure MCSPlacing
-      "queued" -> pure MCSQueued
-      "requires_acceptance" -> pure MCSRequiresAcceptance
-      "searching" -> pure MCSSearching
-      "timed_out" -> pure MCSTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing MatchmakingConfigurationStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, completed, failed, placing, queued, requires_acceptance, searching, timed_out"
+pattern MCSCancelled :: MatchmakingConfigurationStatus
+pattern MCSCancelled = MatchmakingConfigurationStatus' "CANCELLED"
 
-instance ToText MatchmakingConfigurationStatus where
-  toText = \case
-    MCSCancelled -> "CANCELLED"
-    MCSCompleted -> "COMPLETED"
-    MCSFailed -> "FAILED"
-    MCSPlacing -> "PLACING"
-    MCSQueued -> "QUEUED"
-    MCSRequiresAcceptance -> "REQUIRES_ACCEPTANCE"
-    MCSSearching -> "SEARCHING"
-    MCSTimedOut -> "TIMED_OUT"
+pattern MCSCompleted :: MatchmakingConfigurationStatus
+pattern MCSCompleted = MatchmakingConfigurationStatus' "COMPLETED"
 
-instance Hashable MatchmakingConfigurationStatus
+pattern MCSFailed :: MatchmakingConfigurationStatus
+pattern MCSFailed = MatchmakingConfigurationStatus' "FAILED"
 
-instance NFData MatchmakingConfigurationStatus
+pattern MCSPlacing :: MatchmakingConfigurationStatus
+pattern MCSPlacing = MatchmakingConfigurationStatus' "PLACING"
 
-instance ToByteString MatchmakingConfigurationStatus
+pattern MCSQueued :: MatchmakingConfigurationStatus
+pattern MCSQueued = MatchmakingConfigurationStatus' "QUEUED"
 
-instance ToQuery MatchmakingConfigurationStatus
+pattern MCSRequiresAcceptance :: MatchmakingConfigurationStatus
+pattern MCSRequiresAcceptance = MatchmakingConfigurationStatus' "REQUIRES_ACCEPTANCE"
 
-instance ToHeader MatchmakingConfigurationStatus
+pattern MCSSearching :: MatchmakingConfigurationStatus
+pattern MCSSearching = MatchmakingConfigurationStatus' "SEARCHING"
 
-instance FromJSON MatchmakingConfigurationStatus where
-  parseJSON = parseJSONText "MatchmakingConfigurationStatus"
+pattern MCSTimedOut :: MatchmakingConfigurationStatus
+pattern MCSTimedOut = MatchmakingConfigurationStatus' "TIMED_OUT"
+
+{-# COMPLETE
+  MCSCancelled,
+  MCSCompleted,
+  MCSFailed,
+  MCSPlacing,
+  MCSQueued,
+  MCSRequiresAcceptance,
+  MCSSearching,
+  MCSTimedOut,
+  MatchmakingConfigurationStatus'
+  #-}

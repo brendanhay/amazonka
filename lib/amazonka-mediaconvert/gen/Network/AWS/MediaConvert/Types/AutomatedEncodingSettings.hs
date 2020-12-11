@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AutomatedEncodingSettings where
+module Network.AWS.MediaConvert.Types.AutomatedEncodingSettings
+  ( AutomatedEncodingSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAutomatedEncodingSettings,
+
+    -- * Lenses
+    aesAbrSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AutomatedAbrSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
 --
--- /See:/ 'automatedEncodingSettings' smart constructor.
+-- /See:/ 'mkAutomatedEncodingSettings' smart constructor.
 newtype AutomatedEncodingSettings = AutomatedEncodingSettings'
-  { _aesAbrSettings ::
-      Maybe AutomatedAbrSettings
+  { abrSettings ::
+      Lude.Maybe AutomatedAbrSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomatedEncodingSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aesAbrSettings' - Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
-automatedEncodingSettings ::
+-- * 'abrSettings' - Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
+mkAutomatedEncodingSettings ::
   AutomatedEncodingSettings
-automatedEncodingSettings =
-  AutomatedEncodingSettings' {_aesAbrSettings = Nothing}
+mkAutomatedEncodingSettings =
+  AutomatedEncodingSettings' {abrSettings = Lude.Nothing}
 
 -- | Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
-aesAbrSettings :: Lens' AutomatedEncodingSettings (Maybe AutomatedAbrSettings)
-aesAbrSettings = lens _aesAbrSettings (\s a -> s {_aesAbrSettings = a})
+--
+-- /Note:/ Consider using 'abrSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesAbrSettings :: Lens.Lens' AutomatedEncodingSettings (Lude.Maybe AutomatedAbrSettings)
+aesAbrSettings = Lens.lens (abrSettings :: AutomatedEncodingSettings -> Lude.Maybe AutomatedAbrSettings) (\s a -> s {abrSettings = a} :: AutomatedEncodingSettings)
+{-# DEPRECATED aesAbrSettings "Use generic-lens or generic-optics with 'abrSettings' instead." #-}
 
-instance FromJSON AutomatedEncodingSettings where
+instance Lude.FromJSON AutomatedEncodingSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutomatedEncodingSettings"
-      (\x -> AutomatedEncodingSettings' <$> (x .:? "abrSettings"))
+      ( \x ->
+          AutomatedEncodingSettings' Lude.<$> (x Lude..:? "abrSettings")
+      )
 
-instance Hashable AutomatedEncodingSettings
-
-instance NFData AutomatedEncodingSettings
-
-instance ToJSON AutomatedEncodingSettings where
+instance Lude.ToJSON AutomatedEncodingSettings where
   toJSON AutomatedEncodingSettings' {..} =
-    object (catMaybes [("abrSettings" .=) <$> _aesAbrSettings])
+    Lude.object
+      (Lude.catMaybes [("abrSettings" Lude..=) Lude.<$> abrSettings])

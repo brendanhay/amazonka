@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.LogLevel where
+module Network.AWS.IoT.Types.LogLevel
+  ( LogLevel
+      ( LogLevel',
+        Debug,
+        Disabled,
+        Error,
+        Info,
+        Warn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogLevel
-  = Debug
-  | Disabled
-  | Error'
-  | Info
-  | Warn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogLevel = LogLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogLevel where
-  parser =
-    takeLowerText >>= \case
-      "debug" -> pure Debug
-      "disabled" -> pure Disabled
-      "error" -> pure Error'
-      "info" -> pure Info
-      "warn" -> pure Warn
-      e ->
-        fromTextError $
-          "Failure parsing LogLevel from value: '" <> e
-            <> "'. Accepted values: debug, disabled, error, info, warn"
+pattern Debug :: LogLevel
+pattern Debug = LogLevel' "DEBUG"
 
-instance ToText LogLevel where
-  toText = \case
-    Debug -> "DEBUG"
-    Disabled -> "DISABLED"
-    Error' -> "ERROR"
-    Info -> "INFO"
-    Warn -> "WARN"
+pattern Disabled :: LogLevel
+pattern Disabled = LogLevel' "DISABLED"
 
-instance Hashable LogLevel
+pattern Error :: LogLevel
+pattern Error = LogLevel' "ERROR"
 
-instance NFData LogLevel
+pattern Info :: LogLevel
+pattern Info = LogLevel' "INFO"
 
-instance ToByteString LogLevel
+pattern Warn :: LogLevel
+pattern Warn = LogLevel' "WARN"
 
-instance ToQuery LogLevel
-
-instance ToHeader LogLevel
-
-instance ToJSON LogLevel where
-  toJSON = toJSONText
-
-instance FromJSON LogLevel where
-  parseJSON = parseJSONText "LogLevel"
+{-# COMPLETE
+  Debug,
+  Disabled,
+  Error,
+  Info,
+  Warn,
+  LogLevel'
+  #-}

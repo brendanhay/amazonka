@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CertificateAuthentication where
+module Network.AWS.EC2.Types.CertificateAuthentication
+  ( CertificateAuthentication (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCertificateAuthentication,
+
+    -- * Lenses
+    caClientRootCertificateChain,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the client certificate used for authentication.
 --
---
---
--- /See:/ 'certificateAuthentication' smart constructor.
+-- /See:/ 'mkCertificateAuthentication' smart constructor.
 newtype CertificateAuthentication = CertificateAuthentication'
-  { _caClientRootCertificateChain ::
-      Maybe Text
+  { clientRootCertificateChain ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateAuthentication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caClientRootCertificateChain' - The ARN of the client certificate.
-certificateAuthentication ::
+-- * 'clientRootCertificateChain' - The ARN of the client certificate.
+mkCertificateAuthentication ::
   CertificateAuthentication
-certificateAuthentication =
+mkCertificateAuthentication =
   CertificateAuthentication'
-    { _caClientRootCertificateChain =
-        Nothing
+    { clientRootCertificateChain =
+        Lude.Nothing
     }
 
 -- | The ARN of the client certificate.
-caClientRootCertificateChain :: Lens' CertificateAuthentication (Maybe Text)
-caClientRootCertificateChain = lens _caClientRootCertificateChain (\s a -> s {_caClientRootCertificateChain = a})
+--
+-- /Note:/ Consider using 'clientRootCertificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caClientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Lude.Maybe Lude.Text)
+caClientRootCertificateChain = Lens.lens (clientRootCertificateChain :: CertificateAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {clientRootCertificateChain = a} :: CertificateAuthentication)
+{-# DEPRECATED caClientRootCertificateChain "Use generic-lens or generic-optics with 'clientRootCertificateChain' instead." #-}
 
-instance FromXML CertificateAuthentication where
+instance Lude.FromXML CertificateAuthentication where
   parseXML x =
     CertificateAuthentication'
-      <$> (x .@? "clientRootCertificateChain")
-
-instance Hashable CertificateAuthentication
-
-instance NFData CertificateAuthentication
+      Lude.<$> (x Lude..@? "clientRootCertificateChain")

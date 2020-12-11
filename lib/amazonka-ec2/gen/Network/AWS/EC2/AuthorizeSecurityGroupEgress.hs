@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,16 @@
 --
 -- [VPC only] Adds the specified egress rules to a security group for use with a VPC.
 --
---
 -- An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances associated with the specified destination security groups.
---
 -- You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
---
 -- Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.
---
 -- For more information about VPC security group limits, see <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC Limits> .
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
-  ( -- * Creating a Request
-    authorizeSecurityGroupEgress,
-    AuthorizeSecurityGroupEgress,
+  ( -- * Creating a request
+    AuthorizeSecurityGroupEgress (..),
+    mkAuthorizeSecurityGroupEgress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asgeFromPort,
     asgeIPPermissions,
     asgeIPProtocol,
@@ -43,151 +34,179 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     asgeDryRun,
     asgeGroupId,
 
-    -- * Destructuring the Response
-    authorizeSecurityGroupEgressResponse,
-    AuthorizeSecurityGroupEgressResponse,
+    -- * Destructuring the response
+    AuthorizeSecurityGroupEgressResponse (..),
+    mkAuthorizeSecurityGroupEgressResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'authorizeSecurityGroupEgress' smart constructor.
+-- | /See:/ 'mkAuthorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-  { _asgeFromPort ::
-      !(Maybe Int),
-    _asgeIPPermissions ::
-      !(Maybe [IPPermission]),
-    _asgeIPProtocol :: !(Maybe Text),
-    _asgeToPort :: !(Maybe Int),
-    _asgeCidrIP :: !(Maybe Text),
-    _asgeSourceSecurityGroupOwnerId ::
-      !(Maybe Text),
-    _asgeSourceSecurityGroupName ::
-      !(Maybe Text),
-    _asgeDryRun :: !(Maybe Bool),
-    _asgeGroupId :: !Text
+  { fromPort ::
+      Lude.Maybe Lude.Int,
+    ipPermissions ::
+      Lude.Maybe [IPPermission],
+    ipProtocol ::
+      Lude.Maybe Lude.Text,
+    toPort :: Lude.Maybe Lude.Int,
+    cidrIP :: Lude.Maybe Lude.Text,
+    sourceSecurityGroupOwnerId ::
+      Lude.Maybe Lude.Text,
+    sourceSecurityGroupName ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgeFromPort' - Not supported. Use a set of IP permissions to specify the port.
---
--- * 'asgeIPPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
---
--- * 'asgeIPProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
---
--- * 'asgeToPort' - Not supported. Use a set of IP permissions to specify the port.
---
--- * 'asgeCidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
---
--- * 'asgeSourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
---
--- * 'asgeSourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
---
--- * 'asgeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'asgeGroupId' - The ID of the security group.
-authorizeSecurityGroupEgress ::
-  -- | 'asgeGroupId'
-  Text ->
+-- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fromPort' - Not supported. Use a set of IP permissions to specify the port.
+-- * 'groupId' - The ID of the security group.
+-- * 'ipPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+-- * 'ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
+-- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'toPort' - Not supported. Use a set of IP permissions to specify the port.
+mkAuthorizeSecurityGroupEgress ::
+  -- | 'groupId'
+  Lude.Text ->
   AuthorizeSecurityGroupEgress
-authorizeSecurityGroupEgress pGroupId_ =
+mkAuthorizeSecurityGroupEgress pGroupId_ =
   AuthorizeSecurityGroupEgress'
-    { _asgeFromPort = Nothing,
-      _asgeIPPermissions = Nothing,
-      _asgeIPProtocol = Nothing,
-      _asgeToPort = Nothing,
-      _asgeCidrIP = Nothing,
-      _asgeSourceSecurityGroupOwnerId = Nothing,
-      _asgeSourceSecurityGroupName = Nothing,
-      _asgeDryRun = Nothing,
-      _asgeGroupId = pGroupId_
+    { fromPort = Lude.Nothing,
+      ipPermissions = Lude.Nothing,
+      ipProtocol = Lude.Nothing,
+      toPort = Lude.Nothing,
+      cidrIP = Lude.Nothing,
+      sourceSecurityGroupOwnerId = Lude.Nothing,
+      sourceSecurityGroupName = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | Not supported. Use a set of IP permissions to specify the port.
-asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
-asgeFromPort = lens _asgeFromPort (\s a -> s {_asgeFromPort = a})
+--
+-- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeFromPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Int)
+asgeFromPort = Lens.lens (fromPort :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Int) (\s a -> s {fromPort = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
 
 -- | The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
-asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
-asgeIPPermissions = lens _asgeIPPermissions (\s a -> s {_asgeIPPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeIPPermissions :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe [IPPermission])
+asgeIPPermissions = Lens.lens (ipPermissions :: AuthorizeSecurityGroupEgress -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissions = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
-asgeIPProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeIPProtocol = lens _asgeIPProtocol (\s a -> s {_asgeIPProtocol = a})
+--
+-- /Note:/ Consider using 'ipProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeIPProtocol :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Text)
+asgeIPProtocol = Lens.lens (ipProtocol :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {ipProtocol = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeIPProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the port.
-asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
-asgeToPort = lens _asgeToPort (\s a -> s {_asgeToPort = a})
+--
+-- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeToPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Int)
+asgeToPort = Lens.lens (toPort :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Int) (\s a -> s {toPort = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the CIDR.
-asgeCidrIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeCidrIP = lens _asgeCidrIP (\s a -> s {_asgeCidrIP = a})
+--
+-- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeCidrIP :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Text)
+asgeCidrIP = Lens.lens (cidrIP :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {cidrIP = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
-asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeSourceSecurityGroupOwnerId = lens _asgeSourceSecurityGroupOwnerId (\s a -> s {_asgeSourceSecurityGroupOwnerId = a})
+--
+-- /Note:/ Consider using 'sourceSecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeSourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Text)
+asgeSourceSecurityGroupOwnerId = Lens.lens (sourceSecurityGroupOwnerId :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupOwnerId = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeSourceSecurityGroupOwnerId "Use generic-lens or generic-optics with 'sourceSecurityGroupOwnerId' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify a destination security group.
-asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\s a -> s {_asgeSourceSecurityGroupName = a})
+--
+-- /Note:/ Consider using 'sourceSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeSourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Text)
+asgeSourceSecurityGroupName = Lens.lens (sourceSecurityGroupName :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeSourceSecurityGroupName "Use generic-lens or generic-optics with 'sourceSecurityGroupName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-asgeDryRun :: Lens' AuthorizeSecurityGroupEgress (Maybe Bool)
-asgeDryRun = lens _asgeDryRun (\s a -> s {_asgeDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeDryRun :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Bool)
+asgeDryRun = Lens.lens (dryRun :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the security group.
-asgeGroupId :: Lens' AuthorizeSecurityGroupEgress Text
-asgeGroupId = lens _asgeGroupId (\s a -> s {_asgeGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeGroupId :: Lens.Lens' AuthorizeSecurityGroupEgress Lude.Text
+asgeGroupId = Lens.lens (groupId :: AuthorizeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest AuthorizeSecurityGroupEgress where
+instance Lude.AWSRequest AuthorizeSecurityGroupEgress where
   type
     Rs AuthorizeSecurityGroupEgress =
       AuthorizeSecurityGroupEgressResponse
-  request = postQuery ec2
-  response = receiveNull AuthorizeSecurityGroupEgressResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull AuthorizeSecurityGroupEgressResponse'
 
-instance Hashable AuthorizeSecurityGroupEgress
+instance Lude.ToHeaders AuthorizeSecurityGroupEgress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AuthorizeSecurityGroupEgress
+instance Lude.ToPath AuthorizeSecurityGroupEgress where
+  toPath = Lude.const "/"
 
-instance ToHeaders AuthorizeSecurityGroupEgress where
-  toHeaders = const mempty
-
-instance ToPath AuthorizeSecurityGroupEgress where
-  toPath = const "/"
-
-instance ToQuery AuthorizeSecurityGroupEgress where
+instance Lude.ToQuery AuthorizeSecurityGroupEgress where
   toQuery AuthorizeSecurityGroupEgress' {..} =
-    mconcat
-      [ "Action" =: ("AuthorizeSecurityGroupEgress" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "FromPort" =: _asgeFromPort,
-        toQuery (toQueryList "IpPermissions" <$> _asgeIPPermissions),
-        "IpProtocol" =: _asgeIPProtocol,
-        "ToPort" =: _asgeToPort,
-        "CidrIp" =: _asgeCidrIP,
-        "SourceSecurityGroupOwnerId" =: _asgeSourceSecurityGroupOwnerId,
-        "SourceSecurityGroupName" =: _asgeSourceSecurityGroupName,
-        "DryRun" =: _asgeDryRun,
-        "GroupId" =: _asgeGroupId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AuthorizeSecurityGroupEgress" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "FromPort" Lude.=: fromPort,
+        Lude.toQuery
+          (Lude.toQueryList "IpPermissions" Lude.<$> ipPermissions),
+        "IpProtocol" Lude.=: ipProtocol,
+        "ToPort" Lude.=: toPort,
+        "CidrIp" Lude.=: cidrIP,
+        "SourceSecurityGroupOwnerId" Lude.=: sourceSecurityGroupOwnerId,
+        "SourceSecurityGroupName" Lude.=: sourceSecurityGroupName,
+        "DryRun" Lude.=: dryRun,
+        "GroupId" Lude.=: groupId
       ]
 
--- | /See:/ 'authorizeSecurityGroupEgressResponse' smart constructor.
+-- | /See:/ 'mkAuthorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgressResponse' with the minimum fields required to make a request.
-authorizeSecurityGroupEgressResponse ::
+mkAuthorizeSecurityGroupEgressResponse ::
   AuthorizeSecurityGroupEgressResponse
-authorizeSecurityGroupEgressResponse =
+mkAuthorizeSecurityGroupEgressResponse =
   AuthorizeSecurityGroupEgressResponse'
-
-instance NFData AuthorizeSecurityGroupEgressResponse

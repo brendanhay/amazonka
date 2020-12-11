@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the IAM groups that have the specified path prefix.
 --
---
 -- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroups
-  ( -- * Creating a Request
-    listGroups,
-    ListGroups,
+  ( -- * Creating a request
+    ListGroups (..),
+    mkListGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgPathPrefix,
     lgMarker,
     lgMaxItems,
 
-    -- * Destructuring the Response
-    listGroupsResponse,
-    ListGroupsResponse,
+    -- * Destructuring the response
+    ListGroupsResponse (..),
+    mkListGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsMarker,
     lgrsIsTruncated,
     lgrsResponseStatus,
@@ -47,141 +40,170 @@ module Network.AWS.IAM.ListGroups
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroups' smart constructor.
+-- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { _lgPathPrefix :: !(Maybe Text),
-    _lgMarker :: !(Maybe Text),
-    _lgMaxItems :: !(Maybe Nat)
+  { pathPrefix :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'lgPathPrefix' - The path prefix for filtering the results. For example, the prefix @/division_abc/subdivision_xyz/@ gets all groups whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'pathPrefix' - The path prefix for filtering the results. For example, the prefix @/division_abc/subdivision_xyz/@ gets all groups whose path starts with @/division_abc/subdivision_xyz/@ .
 --
--- * 'lgMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
---
--- * 'lgMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-listGroups ::
+-- This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+mkListGroups ::
   ListGroups
-listGroups =
+mkListGroups =
   ListGroups'
-    { _lgPathPrefix = Nothing,
-      _lgMarker = Nothing,
-      _lgMaxItems = Nothing
+    { pathPrefix = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
--- | The path prefix for filtering the results. For example, the prefix @/division_abc/subdivision_xyz/@ gets all groups whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
-lgPathPrefix :: Lens' ListGroups (Maybe Text)
-lgPathPrefix = lens _lgPathPrefix (\s a -> s {_lgPathPrefix = a})
+-- | The path prefix for filtering the results. For example, the prefix @/division_abc/subdivision_xyz/@ gets all groups whose path starts with @/division_abc/subdivision_xyz/@ .
+--
+-- This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+--
+-- /Note:/ Consider using 'pathPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgPathPrefix :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgPathPrefix = Lens.lens (pathPrefix :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {pathPrefix = a} :: ListGroups)
+{-# DEPRECATED lgPathPrefix "Use generic-lens or generic-optics with 'pathPrefix' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lgMarker :: Lens' ListGroups (Maybe Text)
-lgMarker = lens _lgMarker (\s a -> s {_lgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMarker :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgMarker = Lens.lens (marker :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGroups)
+{-# DEPRECATED lgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lgMaxItems :: Lens' ListGroups (Maybe Natural)
-lgMaxItems = lens _lgMaxItems (\s a -> s {_lgMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMaxItems :: Lens.Lens' ListGroups (Lude.Maybe Lude.Natural)
+lgMaxItems = Lens.lens (maxItems :: ListGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListGroups)
+{-# DEPRECATED lgMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListGroups where
+instance Page.AWSPager ListGroups where
   page rq rs
-    | stop (rs ^. lgrsIsTruncated) = Nothing
-    | isNothing (rs ^. lgrsMarker) = Nothing
-    | otherwise = Just $ rq & lgMarker .~ rs ^. lgrsMarker
+    | Page.stop (rs Lens.^. lgrsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lgrsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lgMarker Lens..~ rs Lens.^. lgrsMarker
 
-instance AWSRequest ListGroups where
+instance Lude.AWSRequest ListGroups where
   type Rs ListGroups = ListGroupsResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListGroupsResult"
       ( \s h x ->
           ListGroupsResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
-            <*> (x .@? "Groups" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Groups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable ListGroups
+instance Lude.ToHeaders ListGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListGroups
+instance Lude.ToPath ListGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListGroups where
-  toHeaders = const mempty
-
-instance ToPath ListGroups where
-  toPath = const "/"
-
-instance ToQuery ListGroups where
+instance Lude.ToQuery ListGroups where
   toQuery ListGroups' {..} =
-    mconcat
-      [ "Action" =: ("ListGroups" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "PathPrefix" =: _lgPathPrefix,
-        "Marker" =: _lgMarker,
-        "MaxItems" =: _lgMaxItems
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "PathPrefix" Lude.=: pathPrefix,
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems
       ]
 
 -- | Contains the response to a successful 'ListGroups' request.
 --
---
---
--- /See:/ 'listGroupsResponse' smart constructor.
+-- /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { _lgrsMarker ::
-      !(Maybe Text),
-    _lgrsIsTruncated :: !(Maybe Bool),
-    _lgrsResponseStatus :: !Int,
-    _lgrsGroups :: ![Group]
+  { marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int,
+    groups :: [Group]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lgrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'lgrsResponseStatus' - -- | The response status code.
---
--- * 'lgrsGroups' - A list of groups.
-listGroupsResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'groups' - A list of groups.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+mkListGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupsResponse
-listGroupsResponse pResponseStatus_ =
+mkListGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-    { _lgrsMarker = Nothing,
-      _lgrsIsTruncated = Nothing,
-      _lgrsResponseStatus = pResponseStatus_,
-      _lgrsGroups = mempty
+    { marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      groups = Lude.mempty
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lgrsMarker :: Lens' ListGroupsResponse (Maybe Text)
-lgrsMarker = lens _lgrsMarker (\s a -> s {_lgrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsMarker :: Lens.Lens' ListGroupsResponse (Lude.Maybe Lude.Text)
+lgrsMarker = Lens.lens (marker :: ListGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-lgrsIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
-lgrsIsTruncated = lens _lgrsIsTruncated (\s a -> s {_lgrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsIsTruncated :: Lens.Lens' ListGroupsResponse (Lude.Maybe Lude.Bool)
+lgrsIsTruncated = Lens.lens (isTruncated :: ListGroupsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGroupsResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of groups.
-lgrsGroups :: Lens' ListGroupsResponse [Group]
-lgrsGroups = lens _lgrsGroups (\s a -> s {_lgrsGroups = a}) . _Coerce
-
-instance NFData ListGroupsResponse
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGroups :: Lens.Lens' ListGroupsResponse [Group]
+lgrsGroups = Lens.lens (groups :: ListGroupsResponse -> [Group]) (\s a -> s {groups = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ClusterField where
+module Network.AWS.ECS.Types.ClusterField
+  ( ClusterField
+      ( ClusterField',
+        Attachments,
+        Settings,
+        Statistics,
+        Tags
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClusterField
-  = Attachments
-  | Settings
-  | Statistics
-  | Tags
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClusterField = ClusterField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClusterField where
-  parser =
-    takeLowerText >>= \case
-      "attachments" -> pure Attachments
-      "settings" -> pure Settings
-      "statistics" -> pure Statistics
-      "tags" -> pure Tags
-      e ->
-        fromTextError $
-          "Failure parsing ClusterField from value: '" <> e
-            <> "'. Accepted values: attachments, settings, statistics, tags"
+pattern Attachments :: ClusterField
+pattern Attachments = ClusterField' "ATTACHMENTS"
 
-instance ToText ClusterField where
-  toText = \case
-    Attachments -> "ATTACHMENTS"
-    Settings -> "SETTINGS"
-    Statistics -> "STATISTICS"
-    Tags -> "TAGS"
+pattern Settings :: ClusterField
+pattern Settings = ClusterField' "SETTINGS"
 
-instance Hashable ClusterField
+pattern Statistics :: ClusterField
+pattern Statistics = ClusterField' "STATISTICS"
 
-instance NFData ClusterField
+pattern Tags :: ClusterField
+pattern Tags = ClusterField' "TAGS"
 
-instance ToByteString ClusterField
-
-instance ToQuery ClusterField
-
-instance ToHeader ClusterField
-
-instance ToJSON ClusterField where
-  toJSON = toJSONText
+{-# COMPLETE
+  Attachments,
+  Settings,
+  Statistics,
+  Tags,
+  ClusterField'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.VideoMetadata where
+module Network.AWS.Rekognition.Types.VideoMetadata
+  ( VideoMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVideoMetadata,
+
+    -- * Lenses
+    vmFrameRate,
+    vmFormat,
+    vmCodec,
+    vmFrameHeight,
+    vmDurationMillis,
+    vmFrameWidth,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
 --
---
---
--- /See:/ 'videoMetadata' smart constructor.
+-- /See:/ 'mkVideoMetadata' smart constructor.
 data VideoMetadata = VideoMetadata'
-  { _vmFrameRate ::
-      !(Maybe Double),
-    _vmFormat :: !(Maybe Text),
-    _vmCodec :: !(Maybe Text),
-    _vmFrameHeight :: !(Maybe Nat),
-    _vmDurationMillis :: !(Maybe Nat),
-    _vmFrameWidth :: !(Maybe Nat)
+  { frameRate ::
+      Lude.Maybe Lude.Double,
+    format :: Lude.Maybe Lude.Text,
+    codec :: Lude.Maybe Lude.Text,
+    frameHeight :: Lude.Maybe Lude.Natural,
+    durationMillis :: Lude.Maybe Lude.Natural,
+    frameWidth :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vmFrameRate' - Number of frames per second in the video.
---
--- * 'vmFormat' - Format of the analyzed video. Possible values are MP4, MOV and AVI.
---
--- * 'vmCodec' - Type of compression used in the analyzed video.
---
--- * 'vmFrameHeight' - Vertical pixel dimension of the video.
---
--- * 'vmDurationMillis' - Length of the video in milliseconds.
---
--- * 'vmFrameWidth' - Horizontal pixel dimension of the video.
-videoMetadata ::
+-- * 'codec' - Type of compression used in the analyzed video.
+-- * 'durationMillis' - Length of the video in milliseconds.
+-- * 'format' - Format of the analyzed video. Possible values are MP4, MOV and AVI.
+-- * 'frameHeight' - Vertical pixel dimension of the video.
+-- * 'frameRate' - Number of frames per second in the video.
+-- * 'frameWidth' - Horizontal pixel dimension of the video.
+mkVideoMetadata ::
   VideoMetadata
-videoMetadata =
+mkVideoMetadata =
   VideoMetadata'
-    { _vmFrameRate = Nothing,
-      _vmFormat = Nothing,
-      _vmCodec = Nothing,
-      _vmFrameHeight = Nothing,
-      _vmDurationMillis = Nothing,
-      _vmFrameWidth = Nothing
+    { frameRate = Lude.Nothing,
+      format = Lude.Nothing,
+      codec = Lude.Nothing,
+      frameHeight = Lude.Nothing,
+      durationMillis = Lude.Nothing,
+      frameWidth = Lude.Nothing
     }
 
 -- | Number of frames per second in the video.
-vmFrameRate :: Lens' VideoMetadata (Maybe Double)
-vmFrameRate = lens _vmFrameRate (\s a -> s {_vmFrameRate = a})
+--
+-- /Note:/ Consider using 'frameRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmFrameRate :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Double)
+vmFrameRate = Lens.lens (frameRate :: VideoMetadata -> Lude.Maybe Lude.Double) (\s a -> s {frameRate = a} :: VideoMetadata)
+{-# DEPRECATED vmFrameRate "Use generic-lens or generic-optics with 'frameRate' instead." #-}
 
 -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
-vmFormat :: Lens' VideoMetadata (Maybe Text)
-vmFormat = lens _vmFormat (\s a -> s {_vmFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmFormat :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Text)
+vmFormat = Lens.lens (format :: VideoMetadata -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: VideoMetadata)
+{-# DEPRECATED vmFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | Type of compression used in the analyzed video.
-vmCodec :: Lens' VideoMetadata (Maybe Text)
-vmCodec = lens _vmCodec (\s a -> s {_vmCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmCodec :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Text)
+vmCodec = Lens.lens (codec :: VideoMetadata -> Lude.Maybe Lude.Text) (\s a -> s {codec = a} :: VideoMetadata)
+{-# DEPRECATED vmCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | Vertical pixel dimension of the video.
-vmFrameHeight :: Lens' VideoMetadata (Maybe Natural)
-vmFrameHeight = lens _vmFrameHeight (\s a -> s {_vmFrameHeight = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'frameHeight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmFrameHeight :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Natural)
+vmFrameHeight = Lens.lens (frameHeight :: VideoMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {frameHeight = a} :: VideoMetadata)
+{-# DEPRECATED vmFrameHeight "Use generic-lens or generic-optics with 'frameHeight' instead." #-}
 
 -- | Length of the video in milliseconds.
-vmDurationMillis :: Lens' VideoMetadata (Maybe Natural)
-vmDurationMillis = lens _vmDurationMillis (\s a -> s {_vmDurationMillis = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'durationMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmDurationMillis :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Natural)
+vmDurationMillis = Lens.lens (durationMillis :: VideoMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {durationMillis = a} :: VideoMetadata)
+{-# DEPRECATED vmDurationMillis "Use generic-lens or generic-optics with 'durationMillis' instead." #-}
 
 -- | Horizontal pixel dimension of the video.
-vmFrameWidth :: Lens' VideoMetadata (Maybe Natural)
-vmFrameWidth = lens _vmFrameWidth (\s a -> s {_vmFrameWidth = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'frameWidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmFrameWidth :: Lens.Lens' VideoMetadata (Lude.Maybe Lude.Natural)
+vmFrameWidth = Lens.lens (frameWidth :: VideoMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {frameWidth = a} :: VideoMetadata)
+{-# DEPRECATED vmFrameWidth "Use generic-lens or generic-optics with 'frameWidth' instead." #-}
 
-instance FromJSON VideoMetadata where
+instance Lude.FromJSON VideoMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "VideoMetadata"
       ( \x ->
           VideoMetadata'
-            <$> (x .:? "FrameRate")
-            <*> (x .:? "Format")
-            <*> (x .:? "Codec")
-            <*> (x .:? "FrameHeight")
-            <*> (x .:? "DurationMillis")
-            <*> (x .:? "FrameWidth")
+            Lude.<$> (x Lude..:? "FrameRate")
+            Lude.<*> (x Lude..:? "Format")
+            Lude.<*> (x Lude..:? "Codec")
+            Lude.<*> (x Lude..:? "FrameHeight")
+            Lude.<*> (x Lude..:? "DurationMillis")
+            Lude.<*> (x Lude..:? "FrameWidth")
       )
-
-instance Hashable VideoMetadata
-
-instance NFData VideoMetadata

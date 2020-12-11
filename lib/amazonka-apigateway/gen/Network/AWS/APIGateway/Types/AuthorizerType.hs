@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.AuthorizerType where
+module Network.AWS.APIGateway.Types.AuthorizerType
+  ( AuthorizerType
+      ( AuthorizerType',
+        AuthorizerCognitoUserPools,
+        AuthorizerRequest,
+        AuthorizerToken
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
-data AuthorizerType
-  = AuthorizerCognitoUserPools
-  | AuthorizerRequest
-  | AuthorizerToken
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthorizerType = AuthorizerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthorizerType where
-  parser =
-    takeLowerText >>= \case
-      "cognito_user_pools" -> pure AuthorizerCognitoUserPools
-      "request" -> pure AuthorizerRequest
-      "token" -> pure AuthorizerToken
-      e ->
-        fromTextError $
-          "Failure parsing AuthorizerType from value: '" <> e
-            <> "'. Accepted values: cognito_user_pools, request, token"
+pattern AuthorizerCognitoUserPools :: AuthorizerType
+pattern AuthorizerCognitoUserPools = AuthorizerType' "COGNITO_USER_POOLS"
 
-instance ToText AuthorizerType where
-  toText = \case
-    AuthorizerCognitoUserPools -> "COGNITO_USER_POOLS"
-    AuthorizerRequest -> "REQUEST"
-    AuthorizerToken -> "TOKEN"
+pattern AuthorizerRequest :: AuthorizerType
+pattern AuthorizerRequest = AuthorizerType' "REQUEST"
 
-instance Hashable AuthorizerType
+pattern AuthorizerToken :: AuthorizerType
+pattern AuthorizerToken = AuthorizerType' "TOKEN"
 
-instance NFData AuthorizerType
-
-instance ToByteString AuthorizerType
-
-instance ToQuery AuthorizerType
-
-instance ToHeader AuthorizerType
-
-instance ToJSON AuthorizerType where
-  toJSON = toJSONText
-
-instance FromJSON AuthorizerType where
-  parseJSON = parseJSONText "AuthorizerType"
+{-# COMPLETE
+  AuthorizerCognitoUserPools,
+  AuthorizerRequest,
+  AuthorizerToken,
+  AuthorizerType'
+  #-}

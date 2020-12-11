@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,113 @@
 --
 -- Deletes a security group.
 --
---
 -- If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@ in EC2-VPC.
 module Network.AWS.EC2.DeleteSecurityGroup
-  ( -- * Creating a Request
-    deleteSecurityGroup,
-    DeleteSecurityGroup,
+  ( -- * Creating a request
+    DeleteSecurityGroup (..),
+    mkDeleteSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsgGroupId,
     dsgGroupName,
     dsgDryRun,
 
-    -- * Destructuring the Response
-    deleteSecurityGroupResponse,
-    DeleteSecurityGroupResponse,
+    -- * Destructuring the response
+    DeleteSecurityGroupResponse (..),
+    mkDeleteSecurityGroupResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSecurityGroup' smart constructor.
+-- | /See:/ 'mkDeleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
-  { _dsgGroupId ::
-      !(Maybe Text),
-    _dsgGroupName :: !(Maybe Text),
-    _dsgDryRun :: !(Maybe Bool)
+  { groupId ::
+      Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgGroupId' - The ID of the security group. Required for a nondefault VPC.
---
--- * 'dsgGroupName' - [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
---
--- * 'dsgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deleteSecurityGroup ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'groupId' - The ID of the security group. Required for a nondefault VPC.
+-- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
+mkDeleteSecurityGroup ::
   DeleteSecurityGroup
-deleteSecurityGroup =
+mkDeleteSecurityGroup =
   DeleteSecurityGroup'
-    { _dsgGroupId = Nothing,
-      _dsgGroupName = Nothing,
-      _dsgDryRun = Nothing
+    { groupId = Lude.Nothing,
+      groupName = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the security group. Required for a nondefault VPC.
-dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupId = lens _dsgGroupId (\s a -> s {_dsgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgGroupId :: Lens.Lens' DeleteSecurityGroup (Lude.Maybe Lude.Text)
+dsgGroupId = Lens.lens (groupId :: DeleteSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: DeleteSecurityGroup)
+{-# DEPRECATED dsgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
-dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupName = lens _dsgGroupName (\s a -> s {_dsgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgGroupName :: Lens.Lens' DeleteSecurityGroup (Lude.Maybe Lude.Text)
+dsgGroupName = Lens.lens (groupName :: DeleteSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: DeleteSecurityGroup)
+{-# DEPRECATED dsgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
-dsgDryRun = lens _dsgDryRun (\s a -> s {_dsgDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgDryRun :: Lens.Lens' DeleteSecurityGroup (Lude.Maybe Lude.Bool)
+dsgDryRun = Lens.lens (dryRun :: DeleteSecurityGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSecurityGroup)
+{-# DEPRECATED dsgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DeleteSecurityGroup where
+instance Lude.AWSRequest DeleteSecurityGroup where
   type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
-  request = postQuery ec2
-  response = receiveNull DeleteSecurityGroupResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteSecurityGroupResponse'
 
-instance Hashable DeleteSecurityGroup
+instance Lude.ToHeaders DeleteSecurityGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSecurityGroup
+instance Lude.ToPath DeleteSecurityGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteSecurityGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteSecurityGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteSecurityGroup where
+instance Lude.ToQuery DeleteSecurityGroup where
   toQuery DeleteSecurityGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteSecurityGroup" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "GroupId" =: _dsgGroupId,
-        "GroupName" =: _dsgGroupName,
-        "DryRun" =: _dsgDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteSecurityGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "GroupId" Lude.=: groupId,
+        "GroupName" Lude.=: groupName,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityGroupResponse' with the minimum fields required to make a request.
-deleteSecurityGroupResponse ::
+mkDeleteSecurityGroupResponse ::
   DeleteSecurityGroupResponse
-deleteSecurityGroupResponse = DeleteSecurityGroupResponse'
-
-instance NFData DeleteSecurityGroupResponse
+mkDeleteSecurityGroupResponse = DeleteSecurityGroupResponse'

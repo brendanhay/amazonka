@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceProtocol where
+module Network.AWS.Lightsail.Types.ContainerServiceProtocol
+  ( ContainerServiceProtocol
+      ( ContainerServiceProtocol',
+        CSPHTTP,
+        CSPHTTPS,
+        CSPTCP,
+        CSPUdp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerServiceProtocol
-  = CSPHTTP
-  | CSPHTTPS
-  | CSPTCP
-  | CSPUdp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerServiceProtocol = ContainerServiceProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerServiceProtocol where
-  parser =
-    takeLowerText >>= \case
-      "http" -> pure CSPHTTP
-      "https" -> pure CSPHTTPS
-      "tcp" -> pure CSPTCP
-      "udp" -> pure CSPUdp
-      e ->
-        fromTextError $
-          "Failure parsing ContainerServiceProtocol from value: '" <> e
-            <> "'. Accepted values: http, https, tcp, udp"
+pattern CSPHTTP :: ContainerServiceProtocol
+pattern CSPHTTP = ContainerServiceProtocol' "HTTP"
 
-instance ToText ContainerServiceProtocol where
-  toText = \case
-    CSPHTTP -> "HTTP"
-    CSPHTTPS -> "HTTPS"
-    CSPTCP -> "TCP"
-    CSPUdp -> "UDP"
+pattern CSPHTTPS :: ContainerServiceProtocol
+pattern CSPHTTPS = ContainerServiceProtocol' "HTTPS"
 
-instance Hashable ContainerServiceProtocol
+pattern CSPTCP :: ContainerServiceProtocol
+pattern CSPTCP = ContainerServiceProtocol' "TCP"
 
-instance NFData ContainerServiceProtocol
+pattern CSPUdp :: ContainerServiceProtocol
+pattern CSPUdp = ContainerServiceProtocol' "UDP"
 
-instance ToByteString ContainerServiceProtocol
-
-instance ToQuery ContainerServiceProtocol
-
-instance ToHeader ContainerServiceProtocol
-
-instance ToJSON ContainerServiceProtocol where
-  toJSON = toJSONText
-
-instance FromJSON ContainerServiceProtocol where
-  parseJSON = parseJSONText "ContainerServiceProtocol"
+{-# COMPLETE
+  CSPHTTP,
+  CSPHTTPS,
+  CSPTCP,
+  CSPUdp,
+  ContainerServiceProtocol'
+  #-}

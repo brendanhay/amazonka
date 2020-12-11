@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayPropagationState where
+module Network.AWS.EC2.Types.TransitGatewayPropagationState
+  ( TransitGatewayPropagationState
+      ( TransitGatewayPropagationState',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayPropagationState
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayPropagationState = TransitGatewayPropagationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayPropagationState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayPropagationState from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern Disabled :: TransitGatewayPropagationState
+pattern Disabled = TransitGatewayPropagationState' "disabled"
 
-instance ToText TransitGatewayPropagationState where
-  toText = \case
-    Disabled -> "disabled"
-    Disabling -> "disabling"
-    Enabled -> "enabled"
-    Enabling -> "enabling"
+pattern Disabling :: TransitGatewayPropagationState
+pattern Disabling = TransitGatewayPropagationState' "disabling"
 
-instance Hashable TransitGatewayPropagationState
+pattern Enabled :: TransitGatewayPropagationState
+pattern Enabled = TransitGatewayPropagationState' "enabled"
 
-instance NFData TransitGatewayPropagationState
+pattern Enabling :: TransitGatewayPropagationState
+pattern Enabling = TransitGatewayPropagationState' "enabling"
 
-instance ToByteString TransitGatewayPropagationState
-
-instance ToQuery TransitGatewayPropagationState
-
-instance ToHeader TransitGatewayPropagationState
-
-instance FromXML TransitGatewayPropagationState where
-  parseXML = parseXMLText "TransitGatewayPropagationState"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  TransitGatewayPropagationState'
+  #-}

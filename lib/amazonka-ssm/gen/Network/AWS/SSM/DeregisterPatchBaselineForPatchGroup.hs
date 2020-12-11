@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,173 @@
 --
 -- Removes a patch group from a patch baseline.
 module Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
-  ( -- * Creating a Request
-    deregisterPatchBaselineForPatchGroup,
-    DeregisterPatchBaselineForPatchGroup,
+  ( -- * Creating a request
+    DeregisterPatchBaselineForPatchGroup (..),
+    mkDeregisterPatchBaselineForPatchGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpbfpgBaselineId,
     dpbfpgPatchGroup,
 
-    -- * Destructuring the Response
-    deregisterPatchBaselineForPatchGroupResponse,
-    DeregisterPatchBaselineForPatchGroupResponse,
+    -- * Destructuring the response
+    DeregisterPatchBaselineForPatchGroupResponse (..),
+    mkDeregisterPatchBaselineForPatchGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpbfpgrsBaselineId,
     dpbfpgrsPatchGroup,
     dpbfpgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deregisterPatchBaselineForPatchGroup' smart constructor.
+-- | /See:/ 'mkDeregisterPatchBaselineForPatchGroup' smart constructor.
 data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup'
-  { _dpbfpgBaselineId ::
-      !Text,
-    _dpbfpgPatchGroup ::
-      !Text
+  { baselineId ::
+      Lude.Text,
+    patchGroup ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpbfpgBaselineId' - The ID of the patch baseline to deregister the patch group from.
---
--- * 'dpbfpgPatchGroup' - The name of the patch group that should be deregistered from the patch baseline.
-deregisterPatchBaselineForPatchGroup ::
-  -- | 'dpbfpgBaselineId'
-  Text ->
-  -- | 'dpbfpgPatchGroup'
-  Text ->
+-- * 'baselineId' - The ID of the patch baseline to deregister the patch group from.
+-- * 'patchGroup' - The name of the patch group that should be deregistered from the patch baseline.
+mkDeregisterPatchBaselineForPatchGroup ::
+  -- | 'baselineId'
+  Lude.Text ->
+  -- | 'patchGroup'
+  Lude.Text ->
   DeregisterPatchBaselineForPatchGroup
-deregisterPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
+mkDeregisterPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
   DeregisterPatchBaselineForPatchGroup'
-    { _dpbfpgBaselineId =
-        pBaselineId_,
-      _dpbfpgPatchGroup = pPatchGroup_
+    { baselineId = pBaselineId_,
+      patchGroup = pPatchGroup_
     }
 
 -- | The ID of the patch baseline to deregister the patch group from.
-dpbfpgBaselineId :: Lens' DeregisterPatchBaselineForPatchGroup Text
-dpbfpgBaselineId = lens _dpbfpgBaselineId (\s a -> s {_dpbfpgBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbfpgBaselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Lude.Text
+dpbfpgBaselineId = Lens.lens (baselineId :: DeregisterPatchBaselineForPatchGroup -> Lude.Text) (\s a -> s {baselineId = a} :: DeregisterPatchBaselineForPatchGroup)
+{-# DEPRECATED dpbfpgBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
 -- | The name of the patch group that should be deregistered from the patch baseline.
-dpbfpgPatchGroup :: Lens' DeregisterPatchBaselineForPatchGroup Text
-dpbfpgPatchGroup = lens _dpbfpgPatchGroup (\s a -> s {_dpbfpgPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbfpgPatchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroup Lude.Text
+dpbfpgPatchGroup = Lens.lens (patchGroup :: DeregisterPatchBaselineForPatchGroup -> Lude.Text) (\s a -> s {patchGroup = a} :: DeregisterPatchBaselineForPatchGroup)
+{-# DEPRECATED dpbfpgPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
-instance AWSRequest DeregisterPatchBaselineForPatchGroup where
+instance Lude.AWSRequest DeregisterPatchBaselineForPatchGroup where
   type
     Rs DeregisterPatchBaselineForPatchGroup =
       DeregisterPatchBaselineForPatchGroupResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeregisterPatchBaselineForPatchGroupResponse'
-            <$> (x .?> "BaselineId")
-            <*> (x .?> "PatchGroup")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BaselineId")
+            Lude.<*> (x Lude..?> "PatchGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterPatchBaselineForPatchGroup
-
-instance NFData DeregisterPatchBaselineForPatchGroup
-
-instance ToHeaders DeregisterPatchBaselineForPatchGroup where
+instance Lude.ToHeaders DeregisterPatchBaselineForPatchGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DeregisterPatchBaselineForPatchGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonSSM.DeregisterPatchBaselineForPatchGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterPatchBaselineForPatchGroup where
+instance Lude.ToJSON DeregisterPatchBaselineForPatchGroup where
   toJSON DeregisterPatchBaselineForPatchGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("BaselineId" .= _dpbfpgBaselineId),
-            Just ("PatchGroup" .= _dpbfpgPatchGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("BaselineId" Lude..= baselineId),
+            Lude.Just ("PatchGroup" Lude..= patchGroup)
           ]
       )
 
-instance ToPath DeregisterPatchBaselineForPatchGroup where
-  toPath = const "/"
+instance Lude.ToPath DeregisterPatchBaselineForPatchGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterPatchBaselineForPatchGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterPatchBaselineForPatchGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterPatchBaselineForPatchGroupResponse' smart constructor.
+-- | /See:/ 'mkDeregisterPatchBaselineForPatchGroupResponse' smart constructor.
 data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPatchGroupResponse'
-  { _dpbfpgrsBaselineId ::
-      !( Maybe
-           Text
-       ),
-    _dpbfpgrsPatchGroup ::
-      !( Maybe
-           Text
-       ),
-    _dpbfpgrsResponseStatus ::
-      !Int
+  { baselineId ::
+      Lude.Maybe
+        Lude.Text,
+    patchGroup ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpbfpgrsBaselineId' - The ID of the patch baseline the patch group was deregistered from.
---
--- * 'dpbfpgrsPatchGroup' - The name of the patch group deregistered from the patch baseline.
---
--- * 'dpbfpgrsResponseStatus' - -- | The response status code.
-deregisterPatchBaselineForPatchGroupResponse ::
-  -- | 'dpbfpgrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the patch baseline the patch group was deregistered from.
+-- * 'patchGroup' - The name of the patch group deregistered from the patch baseline.
+-- * 'responseStatus' - The response status code.
+mkDeregisterPatchBaselineForPatchGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterPatchBaselineForPatchGroupResponse
-deregisterPatchBaselineForPatchGroupResponse pResponseStatus_ =
+mkDeregisterPatchBaselineForPatchGroupResponse pResponseStatus_ =
   DeregisterPatchBaselineForPatchGroupResponse'
-    { _dpbfpgrsBaselineId =
-        Nothing,
-      _dpbfpgrsPatchGroup = Nothing,
-      _dpbfpgrsResponseStatus = pResponseStatus_
+    { baselineId =
+        Lude.Nothing,
+      patchGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the patch baseline the patch group was deregistered from.
-dpbfpgrsBaselineId :: Lens' DeregisterPatchBaselineForPatchGroupResponse (Maybe Text)
-dpbfpgrsBaselineId = lens _dpbfpgrsBaselineId (\s a -> s {_dpbfpgrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbfpgrsBaselineId :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Lude.Maybe Lude.Text)
+dpbfpgrsBaselineId = Lens.lens (baselineId :: DeregisterPatchBaselineForPatchGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: DeregisterPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED dpbfpgrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
 -- | The name of the patch group deregistered from the patch baseline.
-dpbfpgrsPatchGroup :: Lens' DeregisterPatchBaselineForPatchGroupResponse (Maybe Text)
-dpbfpgrsPatchGroup = lens _dpbfpgrsPatchGroup (\s a -> s {_dpbfpgrsPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbfpgrsPatchGroup :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse (Lude.Maybe Lude.Text)
+dpbfpgrsPatchGroup = Lens.lens (patchGroup :: DeregisterPatchBaselineForPatchGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {patchGroup = a} :: DeregisterPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED dpbfpgrsPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
--- | -- | The response status code.
-dpbfpgrsResponseStatus :: Lens' DeregisterPatchBaselineForPatchGroupResponse Int
-dpbfpgrsResponseStatus = lens _dpbfpgrsResponseStatus (\s a -> s {_dpbfpgrsResponseStatus = a})
-
-instance NFData DeregisterPatchBaselineForPatchGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpbfpgrsResponseStatus :: Lens.Lens' DeregisterPatchBaselineForPatchGroupResponse Lude.Int
+dpbfpgrsResponseStatus = Lens.lens (responseStatus :: DeregisterPatchBaselineForPatchGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED dpbfpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

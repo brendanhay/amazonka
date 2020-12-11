@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Subscription where
+module Network.AWS.Greengrass.Types.Subscription
+  ( Subscription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubscription,
+
+    -- * Lenses
+    sTarget,
+    sId,
+    sSubject,
+    sSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a subscription.
 --
--- /See:/ 'subscription' smart constructor.
+-- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { _sTarget :: !Text,
-    _sId :: !Text,
-    _sSubject :: !Text,
-    _sSource :: !Text
+  { target :: Lude.Text,
+    id :: Lude.Text,
+    subject :: Lude.Text,
+    source :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sTarget' - Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
---
--- * 'sId' - A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
---
--- * 'sSubject' - The MQTT topic used to route the message.
---
--- * 'sSource' - The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-subscription ::
-  -- | 'sTarget'
-  Text ->
-  -- | 'sId'
-  Text ->
-  -- | 'sSubject'
-  Text ->
-  -- | 'sSource'
-  Text ->
+-- * 'id' - A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+-- * 'source' - The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
+-- * 'subject' - The MQTT topic used to route the message.
+-- * 'target' - Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
+mkSubscription ::
+  -- | 'target'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
+  -- | 'subject'
+  Lude.Text ->
+  -- | 'source'
+  Lude.Text ->
   Subscription
-subscription pTarget_ pId_ pSubject_ pSource_ =
+mkSubscription pTarget_ pId_ pSubject_ pSource_ =
   Subscription'
-    { _sTarget = pTarget_,
-      _sId = pId_,
-      _sSubject = pSubject_,
-      _sSource = pSource_
+    { target = pTarget_,
+      id = pId_,
+      subject = pSubject_,
+      source = pSource_
     }
 
 -- | Where the message is sent to. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-sTarget :: Lens' Subscription Text
-sTarget = lens _sTarget (\s a -> s {_sTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTarget :: Lens.Lens' Subscription Lude.Text
+sTarget = Lens.lens (target :: Subscription -> Lude.Text) (\s a -> s {target = a} :: Subscription)
+{-# DEPRECATED sTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 -- | A descriptive or arbitrary ID for the subscription. This value must be unique within the subscription definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-sId :: Lens' Subscription Text
-sId = lens _sId (\s a -> s {_sId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sId :: Lens.Lens' Subscription Lude.Text
+sId = Lens.lens (id :: Subscription -> Lude.Text) (\s a -> s {id = a} :: Subscription)
+{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The MQTT topic used to route the message.
-sSubject :: Lens' Subscription Text
-sSubject = lens _sSubject (\s a -> s {_sSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubject :: Lens.Lens' Subscription Lude.Text
+sSubject = Lens.lens (subject :: Subscription -> Lude.Text) (\s a -> s {subject = a} :: Subscription)
+{-# DEPRECATED sSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The source of the subscription. Can be a thing ARN, a Lambda function ARN, a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-sSource :: Lens' Subscription Text
-sSource = lens _sSource (\s a -> s {_sSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSource :: Lens.Lens' Subscription Lude.Text
+sSource = Lens.lens (source :: Subscription -> Lude.Text) (\s a -> s {source = a} :: Subscription)
+{-# DEPRECATED sSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance FromJSON Subscription where
+instance Lude.FromJSON Subscription where
   parseJSON =
-    withObject
+    Lude.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            <$> (x .: "Target")
-            <*> (x .: "Id")
-            <*> (x .: "Subject")
-            <*> (x .: "Source")
+            Lude.<$> (x Lude..: "Target")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "Subject")
+            Lude.<*> (x Lude..: "Source")
       )
 
-instance Hashable Subscription
-
-instance NFData Subscription
-
-instance ToJSON Subscription where
+instance Lude.ToJSON Subscription where
   toJSON Subscription' {..} =
-    object
-      ( catMaybes
-          [ Just ("Target" .= _sTarget),
-            Just ("Id" .= _sId),
-            Just ("Subject" .= _sSubject),
-            Just ("Source" .= _sSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Target" Lude..= target),
+            Lude.Just ("Id" Lude..= id),
+            Lude.Just ("Subject" Lude..= subject),
+            Lude.Just ("Source" Lude..= source)
           ]
       )

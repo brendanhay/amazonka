@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,133 @@
 --
 -- Deletes a specified policy.
 module Network.AWS.Glue.DeleteResourcePolicy
-  ( -- * Creating a Request
-    deleteResourcePolicy,
-    DeleteResourcePolicy,
+  ( -- * Creating a request
+    DeleteResourcePolicy (..),
+    mkDeleteResourcePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drpPolicyHashCondition,
     drpResourceARN,
 
-    -- * Destructuring the Response
-    deleteResourcePolicyResponse,
-    DeleteResourcePolicyResponse,
+    -- * Destructuring the response
+    DeleteResourcePolicyResponse (..),
+    mkDeleteResourcePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drprsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteResourcePolicy' smart constructor.
+-- | /See:/ 'mkDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'
-  { _drpPolicyHashCondition ::
-      !(Maybe Text),
-    _drpResourceARN :: !(Maybe Text)
+  { policyHashCondition ::
+      Lude.Maybe Lude.Text,
+    resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpPolicyHashCondition' - The hash value returned when this policy was set.
---
--- * 'drpResourceARN' - The ARN of the AWS Glue resource for the resource policy to be deleted.
-deleteResourcePolicy ::
+-- * 'policyHashCondition' - The hash value returned when this policy was set.
+-- * 'resourceARN' - The ARN of the AWS Glue resource for the resource policy to be deleted.
+mkDeleteResourcePolicy ::
   DeleteResourcePolicy
-deleteResourcePolicy =
+mkDeleteResourcePolicy =
   DeleteResourcePolicy'
-    { _drpPolicyHashCondition = Nothing,
-      _drpResourceARN = Nothing
+    { policyHashCondition = Lude.Nothing,
+      resourceARN = Lude.Nothing
     }
 
 -- | The hash value returned when this policy was set.
-drpPolicyHashCondition :: Lens' DeleteResourcePolicy (Maybe Text)
-drpPolicyHashCondition = lens _drpPolicyHashCondition (\s a -> s {_drpPolicyHashCondition = a})
+--
+-- /Note:/ Consider using 'policyHashCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpPolicyHashCondition :: Lens.Lens' DeleteResourcePolicy (Lude.Maybe Lude.Text)
+drpPolicyHashCondition = Lens.lens (policyHashCondition :: DeleteResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyHashCondition = a} :: DeleteResourcePolicy)
+{-# DEPRECATED drpPolicyHashCondition "Use generic-lens or generic-optics with 'policyHashCondition' instead." #-}
 
 -- | The ARN of the AWS Glue resource for the resource policy to be deleted.
-drpResourceARN :: Lens' DeleteResourcePolicy (Maybe Text)
-drpResourceARN = lens _drpResourceARN (\s a -> s {_drpResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpResourceARN :: Lens.Lens' DeleteResourcePolicy (Lude.Maybe Lude.Text)
+drpResourceARN = Lens.lens (resourceARN :: DeleteResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: DeleteResourcePolicy)
+{-# DEPRECATED drpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest DeleteResourcePolicy where
+instance Lude.AWSRequest DeleteResourcePolicy where
   type Rs DeleteResourcePolicy = DeleteResourcePolicyResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> DeleteResourcePolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteResourcePolicyResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteResourcePolicy
-
-instance NFData DeleteResourcePolicy
-
-instance ToHeaders DeleteResourcePolicy where
+instance Lude.ToHeaders DeleteResourcePolicy where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.DeleteResourcePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.DeleteResourcePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteResourcePolicy where
+instance Lude.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("PolicyHashCondition" .=) <$> _drpPolicyHashCondition,
-            ("ResourceArn" .=) <$> _drpResourceARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PolicyHashCondition" Lude..=) Lude.<$> policyHashCondition,
+            ("ResourceArn" Lude..=) Lude.<$> resourceARN
           ]
       )
 
-instance ToPath DeleteResourcePolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteResourcePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteResourcePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteResourcePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteResourcePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteResourcePolicyResponse' smart constructor.
 newtype DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-  { _drprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drprsResponseStatus' - -- | The response status code.
-deleteResourcePolicyResponse ::
-  -- | 'drprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteResourcePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteResourcePolicyResponse
-deleteResourcePolicyResponse pResponseStatus_ =
-  DeleteResourcePolicyResponse'
-    { _drprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteResourcePolicyResponse pResponseStatus_ =
+  DeleteResourcePolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drprsResponseStatus :: Lens' DeleteResourcePolicyResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\s a -> s {_drprsResponseStatus = a})
-
-instance NFData DeleteResourcePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprsResponseStatus :: Lens.Lens' DeleteResourcePolicyResponse Lude.Int
+drprsResponseStatus = Lens.lens (responseStatus :: DeleteResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteResourcePolicyResponse)
+{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,156 @@
 --
 -- Adds one or more tags to the specified resource.
 --
---
 -- Currently, you can attach tags to the following resources in AWS Organizations.
 --
 --     * AWS account
 --
+--
 --     * Organization root
 --
+--
 --     * Organizational unit (OU)
+--
 --
 --     * Policy (any type)
 --
 --
---
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResourceId,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceId :: !Text,
-    _trTags :: ![Tag]
+  { resourceId :: Lude.Text,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceId' - The ID of the resource to add a tag to.
+-- * 'tags' - A list of tags to add to the specified resource.
 --
--- * 'trResourceId' - The ID of the resource to add a tag to.
+-- You can specify any of the following taggable resources.
 --
--- * 'trTags' - A list of tags to add to the specified resource. You can specify any of the following taggable resources.     * AWS account – specify the account ID number.     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @      * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @      * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @  For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
-tagResource ::
-  -- | 'trResourceId'
-  Text ->
+--     * AWS account – specify the account ID number.
+--
+--
+--     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
+--
+--
+--     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
+--
+--
+--     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
+--
+--
+-- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
+mkTagResource ::
+  -- | 'resourceId'
+  Lude.Text ->
   TagResource
-tagResource pResourceId_ =
-  TagResource' {_trResourceId = pResourceId_, _trTags = mempty}
+mkTagResource pResourceId_ =
+  TagResource' {resourceId = pResourceId_, tags = Lude.mempty}
 
 -- | The ID of the resource to add a tag to.
-trResourceId :: Lens' TagResource Text
-trResourceId = lens _trResourceId (\s a -> s {_trResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceId :: Lens.Lens' TagResource Lude.Text
+trResourceId = Lens.lens (resourceId :: TagResource -> Lude.Text) (\s a -> s {resourceId = a} :: TagResource)
+{-# DEPRECATED trResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
--- | A list of tags to add to the specified resource. You can specify any of the following taggable resources.     * AWS account – specify the account ID number.     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @      * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @      * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @  For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
-trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Coerce
+-- | A list of tags to add to the specified resource.
+--
+-- You can specify any of the following taggable resources.
+--
+--     * AWS account – specify the account ID number.
+--
+--
+--     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
+--
+--
+--     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
+--
+--
+--     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
+--
+--
+-- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource [Tag]
+trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON organizations
-  response = receiveNull TagResourceResponse'
+  request = Req.postJSON organizationsService
+  response = Res.receiveNull TagResourceResponse'
 
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
+instance Lude.ToHeaders TagResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.TagResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.TagResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TagResource where
+instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
-    object
-      ( catMaybes
-          [Just ("ResourceId" .= _trResourceId), Just ("Tags" .= _trTags)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("Tags" Lude..= tags)
+          ]
       )
 
-instance ToPath TagResource where
-  toPath = const "/"
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/"
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
-tagResourceResponse ::
+mkTagResourceResponse ::
   TagResourceResponse
-tagResourceResponse = TagResourceResponse'
-
-instance NFData TagResourceResponse
+mkTagResourceResponse = TagResourceResponse'

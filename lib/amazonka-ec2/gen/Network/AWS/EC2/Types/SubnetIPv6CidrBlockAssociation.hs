@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SubnetIPv6CidrBlockAssociation where
+module Network.AWS.EC2.Types.SubnetIPv6CidrBlockAssociation
+  ( SubnetIPv6CidrBlockAssociation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSubnetIPv6CidrBlockAssociation,
+
+    -- * Lenses
+    sicbaAssociationId,
+    sicbaIPv6CidrBlock,
+    sicbaIPv6CidrBlockState,
+  )
+where
+
 import Network.AWS.EC2.Types.SubnetCidrBlockState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv6 CIDR block associated with a subnet.
 --
---
---
--- /See:/ 'subnetIPv6CidrBlockAssociation' smart constructor.
+-- /See:/ 'mkSubnetIPv6CidrBlockAssociation' smart constructor.
 data SubnetIPv6CidrBlockAssociation = SubnetIPv6CidrBlockAssociation'
-  { _sicbaAssociationId ::
-      !(Maybe Text),
-    _sicbaIPv6CidrBlock ::
-      !(Maybe Text),
-    _sicbaIPv6CidrBlockState ::
-      !(Maybe SubnetCidrBlockState)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    ipv6CidrBlock ::
+      Lude.Maybe Lude.Text,
+    ipv6CidrBlockState ::
+      Lude.Maybe
+        SubnetCidrBlockState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetIPv6CidrBlockAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sicbaAssociationId' - The association ID for the CIDR block.
---
--- * 'sicbaIPv6CidrBlock' - The IPv6 CIDR block.
---
--- * 'sicbaIPv6CidrBlockState' - Information about the state of the CIDR block.
-subnetIPv6CidrBlockAssociation ::
+-- * 'associationId' - The association ID for the CIDR block.
+-- * 'ipv6CidrBlock' - The IPv6 CIDR block.
+-- * 'ipv6CidrBlockState' - Information about the state of the CIDR block.
+mkSubnetIPv6CidrBlockAssociation ::
   SubnetIPv6CidrBlockAssociation
-subnetIPv6CidrBlockAssociation =
+mkSubnetIPv6CidrBlockAssociation =
   SubnetIPv6CidrBlockAssociation'
-    { _sicbaAssociationId = Nothing,
-      _sicbaIPv6CidrBlock = Nothing,
-      _sicbaIPv6CidrBlockState = Nothing
+    { associationId = Lude.Nothing,
+      ipv6CidrBlock = Lude.Nothing,
+      ipv6CidrBlockState = Lude.Nothing
     }
 
 -- | The association ID for the CIDR block.
-sicbaAssociationId :: Lens' SubnetIPv6CidrBlockAssociation (Maybe Text)
-sicbaAssociationId = lens _sicbaAssociationId (\s a -> s {_sicbaAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sicbaAssociationId :: Lens.Lens' SubnetIPv6CidrBlockAssociation (Lude.Maybe Lude.Text)
+sicbaAssociationId = Lens.lens (associationId :: SubnetIPv6CidrBlockAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: SubnetIPv6CidrBlockAssociation)
+{-# DEPRECATED sicbaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The IPv6 CIDR block.
-sicbaIPv6CidrBlock :: Lens' SubnetIPv6CidrBlockAssociation (Maybe Text)
-sicbaIPv6CidrBlock = lens _sicbaIPv6CidrBlock (\s a -> s {_sicbaIPv6CidrBlock = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sicbaIPv6CidrBlock :: Lens.Lens' SubnetIPv6CidrBlockAssociation (Lude.Maybe Lude.Text)
+sicbaIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: SubnetIPv6CidrBlockAssociation -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: SubnetIPv6CidrBlockAssociation)
+{-# DEPRECATED sicbaIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
 -- | Information about the state of the CIDR block.
-sicbaIPv6CidrBlockState :: Lens' SubnetIPv6CidrBlockAssociation (Maybe SubnetCidrBlockState)
-sicbaIPv6CidrBlockState = lens _sicbaIPv6CidrBlockState (\s a -> s {_sicbaIPv6CidrBlockState = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlockState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sicbaIPv6CidrBlockState :: Lens.Lens' SubnetIPv6CidrBlockAssociation (Lude.Maybe SubnetCidrBlockState)
+sicbaIPv6CidrBlockState = Lens.lens (ipv6CidrBlockState :: SubnetIPv6CidrBlockAssociation -> Lude.Maybe SubnetCidrBlockState) (\s a -> s {ipv6CidrBlockState = a} :: SubnetIPv6CidrBlockAssociation)
+{-# DEPRECATED sicbaIPv6CidrBlockState "Use generic-lens or generic-optics with 'ipv6CidrBlockState' instead." #-}
 
-instance FromXML SubnetIPv6CidrBlockAssociation where
+instance Lude.FromXML SubnetIPv6CidrBlockAssociation where
   parseXML x =
     SubnetIPv6CidrBlockAssociation'
-      <$> (x .@? "associationId")
-      <*> (x .@? "ipv6CidrBlock")
-      <*> (x .@? "ipv6CidrBlockState")
-
-instance Hashable SubnetIPv6CidrBlockAssociation
-
-instance NFData SubnetIPv6CidrBlockAssociation
+      Lude.<$> (x Lude..@? "associationId")
+      Lude.<*> (x Lude..@? "ipv6CidrBlock")
+      Lude.<*> (x Lude..@? "ipv6CidrBlockState")

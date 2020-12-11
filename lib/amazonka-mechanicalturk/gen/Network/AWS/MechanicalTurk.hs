@@ -13,8 +13,8 @@
 --
 -- __Amazon Mechanical Turk API Reference__
 module Network.AWS.MechanicalTurk
-  ( -- * Service Configuration
-    mechanicalTurk,
+  ( -- * Service configuration
+    mechanicalTurkService,
 
     -- * Errors
     -- $errors
@@ -184,8 +184,8 @@ module Network.AWS.MechanicalTurk
     ReviewableHITStatus (..),
 
     -- ** Assignment
-    Assignment,
-    assignment,
+    Assignment (..),
+    mkAssignment,
     aAcceptTime,
     aAnswer,
     aAssignmentStatus,
@@ -200,8 +200,8 @@ module Network.AWS.MechanicalTurk
     aSubmitTime,
 
     -- ** BonusPayment
-    BonusPayment,
-    bonusPayment,
+    BonusPayment (..),
+    mkBonusPayment,
     bpReason,
     bpGrantTime,
     bpWorkerId,
@@ -209,8 +209,8 @@ module Network.AWS.MechanicalTurk
     bpBonusAmount,
 
     -- ** HIT
-    HIT,
-    hIT,
+    HIT (..),
+    mkHIT,
     hitCreationTime,
     hitHITGroupId,
     hitNumberOfAssignmentsPending,
@@ -234,48 +234,48 @@ module Network.AWS.MechanicalTurk
     hitAssignmentDurationInSeconds,
 
     -- ** HITLayoutParameter
-    HITLayoutParameter,
-    hITLayoutParameter,
+    HITLayoutParameter (..),
+    mkHITLayoutParameter,
     hitlpName,
     hitlpValue,
 
     -- ** Locale
-    Locale,
-    locale,
+    Locale (..),
+    mkLocale,
     lSubdivision,
     lCountry,
 
     -- ** NotificationSpecification
-    NotificationSpecification,
-    notificationSpecification,
+    NotificationSpecification (..),
+    mkNotificationSpecification,
     nsDestination,
     nsTransport,
     nsVersion,
     nsEventTypes,
 
     -- ** NotifyWorkersFailureStatus
-    NotifyWorkersFailureStatus,
-    notifyWorkersFailureStatus,
+    NotifyWorkersFailureStatus (..),
+    mkNotifyWorkersFailureStatus,
     nwfsNotifyWorkersFailureMessage,
     nwfsNotifyWorkersFailureCode,
     nwfsWorkerId,
 
     -- ** ParameterMapEntry
-    ParameterMapEntry,
-    parameterMapEntry,
+    ParameterMapEntry (..),
+    mkParameterMapEntry,
     pmeValues,
     pmeKey,
 
     -- ** PolicyParameter
-    PolicyParameter,
-    policyParameter,
+    PolicyParameter (..),
+    mkPolicyParameter,
     ppValues,
     ppMapEntries,
     ppKey,
 
     -- ** Qualification
-    Qualification,
-    qualification,
+    Qualification (..),
+    mkQualification,
     qStatus,
     qIntegerValue,
     qLocaleValue,
@@ -284,8 +284,8 @@ module Network.AWS.MechanicalTurk
     qWorkerId,
 
     -- ** QualificationRequest
-    QualificationRequest,
-    qualificationRequest,
+    QualificationRequest (..),
+    mkQualificationRequest,
     quaQualificationRequestId,
     quaTest,
     quaQualificationTypeId,
@@ -294,8 +294,8 @@ module Network.AWS.MechanicalTurk
     quaSubmitTime,
 
     -- ** QualificationRequirement
-    QualificationRequirement,
-    qualificationRequirement,
+    QualificationRequirement (..),
+    mkQualificationRequirement,
     qrLocaleValues,
     qrActionsGuarded,
     qrRequiredToPreview,
@@ -304,8 +304,8 @@ module Network.AWS.MechanicalTurk
     qrComparator,
 
     -- ** QualificationType
-    QualificationType,
-    qualificationType,
+    QualificationType (..),
+    mkQualificationType,
     qtCreationTime,
     qtTestDurationInSeconds,
     qtQualificationTypeStatus,
@@ -321,8 +321,8 @@ module Network.AWS.MechanicalTurk
     qtRetryDelayInSeconds,
 
     -- ** ReviewActionDetail
-    ReviewActionDetail,
-    reviewActionDetail,
+    ReviewActionDetail (..),
+    mkReviewActionDetail,
     radStatus,
     radTargetId,
     radActionId,
@@ -333,20 +333,20 @@ module Network.AWS.MechanicalTurk
     radErrorCode,
 
     -- ** ReviewPolicy
-    ReviewPolicy,
-    reviewPolicy,
+    ReviewPolicy (..),
+    mkReviewPolicy,
     rpParameters,
     rpPolicyName,
 
     -- ** ReviewReport
-    ReviewReport,
-    reviewReport,
+    ReviewReport (..),
+    mkReviewReport,
     rrReviewActions,
     rrReviewResults,
 
     -- ** ReviewResultDetail
-    ReviewResultDetail,
-    reviewResultDetail,
+    ReviewResultDetail (..),
+    mkReviewResultDetail,
     rrdValue,
     rrdActionId,
     rrdSubjectType,
@@ -355,10 +355,21 @@ module Network.AWS.MechanicalTurk
     rrdSubjectId,
 
     -- ** WorkerBlock
-    WorkerBlock,
-    workerBlock,
+    WorkerBlock (..),
+    mkWorkerBlock,
     wbReason,
     wbWorkerId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -403,6 +414,7 @@ import Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
 import Network.AWS.MechanicalTurk.UpdateNotificationSettings
 import Network.AWS.MechanicalTurk.UpdateQualificationType
 import Network.AWS.MechanicalTurk.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

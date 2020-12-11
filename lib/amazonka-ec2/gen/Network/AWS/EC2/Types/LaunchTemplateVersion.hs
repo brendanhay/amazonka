@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,140 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateVersion where
+module Network.AWS.EC2.Types.LaunchTemplateVersion
+  ( LaunchTemplateVersion (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateVersion,
+
+    -- * Lenses
+    ltvLaunchTemplateName,
+    ltvLaunchTemplateId,
+    ltvCreatedBy,
+    ltvDefaultVersion,
+    ltvVersionNumber,
+    ltvVersionDescription,
+    ltvLaunchTemplateData,
+    ltvCreateTime,
+  )
+where
+
 import Network.AWS.EC2.Types.ResponseLaunchTemplateData
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch template version.
 --
---
---
--- /See:/ 'launchTemplateVersion' smart constructor.
+-- /See:/ 'mkLaunchTemplateVersion' smart constructor.
 data LaunchTemplateVersion = LaunchTemplateVersion'
-  { _ltvLaunchTemplateName ::
-      !(Maybe Text),
-    _ltvLaunchTemplateId :: !(Maybe Text),
-    _ltvCreatedBy :: !(Maybe Text),
-    _ltvDefaultVersion :: !(Maybe Bool),
-    _ltvVersionNumber :: !(Maybe Integer),
-    _ltvVersionDescription :: !(Maybe Text),
-    _ltvLaunchTemplateData ::
-      !(Maybe ResponseLaunchTemplateData),
-    _ltvCreateTime :: !(Maybe ISO8601)
+  { launchTemplateName ::
+      Lude.Maybe Lude.Text,
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    createdBy :: Lude.Maybe Lude.Text,
+    defaultVersion :: Lude.Maybe Lude.Bool,
+    versionNumber :: Lude.Maybe Lude.Integer,
+    versionDescription :: Lude.Maybe Lude.Text,
+    launchTemplateData ::
+      Lude.Maybe ResponseLaunchTemplateData,
+    createTime :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltvLaunchTemplateName' - The name of the launch template.
---
--- * 'ltvLaunchTemplateId' - The ID of the launch template.
---
--- * 'ltvCreatedBy' - The principal that created the version.
---
--- * 'ltvDefaultVersion' - Indicates whether the version is the default version.
---
--- * 'ltvVersionNumber' - The version number.
---
--- * 'ltvVersionDescription' - The description for the version.
---
--- * 'ltvLaunchTemplateData' - Information about the launch template.
---
--- * 'ltvCreateTime' - The time the version was created.
-launchTemplateVersion ::
+-- * 'createTime' - The time the version was created.
+-- * 'createdBy' - The principal that created the version.
+-- * 'defaultVersion' - Indicates whether the version is the default version.
+-- * 'launchTemplateData' - Information about the launch template.
+-- * 'launchTemplateId' - The ID of the launch template.
+-- * 'launchTemplateName' - The name of the launch template.
+-- * 'versionDescription' - The description for the version.
+-- * 'versionNumber' - The version number.
+mkLaunchTemplateVersion ::
   LaunchTemplateVersion
-launchTemplateVersion =
+mkLaunchTemplateVersion =
   LaunchTemplateVersion'
-    { _ltvLaunchTemplateName = Nothing,
-      _ltvLaunchTemplateId = Nothing,
-      _ltvCreatedBy = Nothing,
-      _ltvDefaultVersion = Nothing,
-      _ltvVersionNumber = Nothing,
-      _ltvVersionDescription = Nothing,
-      _ltvLaunchTemplateData = Nothing,
-      _ltvCreateTime = Nothing
+    { launchTemplateName = Lude.Nothing,
+      launchTemplateId = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      defaultVersion = Lude.Nothing,
+      versionNumber = Lude.Nothing,
+      versionDescription = Lude.Nothing,
+      launchTemplateData = Lude.Nothing,
+      createTime = Lude.Nothing
     }
 
 -- | The name of the launch template.
-ltvLaunchTemplateName :: Lens' LaunchTemplateVersion (Maybe Text)
-ltvLaunchTemplateName = lens _ltvLaunchTemplateName (\s a -> s {_ltvLaunchTemplateName = a})
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvLaunchTemplateName :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Text)
+ltvLaunchTemplateName = Lens.lens (launchTemplateName :: LaunchTemplateVersion -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template.
-ltvLaunchTemplateId :: Lens' LaunchTemplateVersion (Maybe Text)
-ltvLaunchTemplateId = lens _ltvLaunchTemplateId (\s a -> s {_ltvLaunchTemplateId = a})
+--
+-- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvLaunchTemplateId :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Text)
+ltvLaunchTemplateId = Lens.lens (launchTemplateId :: LaunchTemplateVersion -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
 -- | The principal that created the version.
-ltvCreatedBy :: Lens' LaunchTemplateVersion (Maybe Text)
-ltvCreatedBy = lens _ltvCreatedBy (\s a -> s {_ltvCreatedBy = a})
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvCreatedBy :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Text)
+ltvCreatedBy = Lens.lens (createdBy :: LaunchTemplateVersion -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | Indicates whether the version is the default version.
-ltvDefaultVersion :: Lens' LaunchTemplateVersion (Maybe Bool)
-ltvDefaultVersion = lens _ltvDefaultVersion (\s a -> s {_ltvDefaultVersion = a})
+--
+-- /Note:/ Consider using 'defaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvDefaultVersion :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Bool)
+ltvDefaultVersion = Lens.lens (defaultVersion :: LaunchTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {defaultVersion = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvDefaultVersion "Use generic-lens or generic-optics with 'defaultVersion' instead." #-}
 
 -- | The version number.
-ltvVersionNumber :: Lens' LaunchTemplateVersion (Maybe Integer)
-ltvVersionNumber = lens _ltvVersionNumber (\s a -> s {_ltvVersionNumber = a})
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvVersionNumber :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Integer)
+ltvVersionNumber = Lens.lens (versionNumber :: LaunchTemplateVersion -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The description for the version.
-ltvVersionDescription :: Lens' LaunchTemplateVersion (Maybe Text)
-ltvVersionDescription = lens _ltvVersionDescription (\s a -> s {_ltvVersionDescription = a})
+--
+-- /Note:/ Consider using 'versionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvVersionDescription :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.Text)
+ltvVersionDescription = Lens.lens (versionDescription :: LaunchTemplateVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionDescription = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvVersionDescription "Use generic-lens or generic-optics with 'versionDescription' instead." #-}
 
 -- | Information about the launch template.
-ltvLaunchTemplateData :: Lens' LaunchTemplateVersion (Maybe ResponseLaunchTemplateData)
-ltvLaunchTemplateData = lens _ltvLaunchTemplateData (\s a -> s {_ltvLaunchTemplateData = a})
+--
+-- /Note:/ Consider using 'launchTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvLaunchTemplateData :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe ResponseLaunchTemplateData)
+ltvLaunchTemplateData = Lens.lens (launchTemplateData :: LaunchTemplateVersion -> Lude.Maybe ResponseLaunchTemplateData) (\s a -> s {launchTemplateData = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
 
 -- | The time the version was created.
-ltvCreateTime :: Lens' LaunchTemplateVersion (Maybe UTCTime)
-ltvCreateTime = lens _ltvCreateTime (\s a -> s {_ltvCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvCreateTime :: Lens.Lens' LaunchTemplateVersion (Lude.Maybe Lude.ISO8601)
+ltvCreateTime = Lens.lens (createTime :: LaunchTemplateVersion -> Lude.Maybe Lude.ISO8601) (\s a -> s {createTime = a} :: LaunchTemplateVersion)
+{-# DEPRECATED ltvCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance FromXML LaunchTemplateVersion where
+instance Lude.FromXML LaunchTemplateVersion where
   parseXML x =
     LaunchTemplateVersion'
-      <$> (x .@? "launchTemplateName")
-      <*> (x .@? "launchTemplateId")
-      <*> (x .@? "createdBy")
-      <*> (x .@? "defaultVersion")
-      <*> (x .@? "versionNumber")
-      <*> (x .@? "versionDescription")
-      <*> (x .@? "launchTemplateData")
-      <*> (x .@? "createTime")
-
-instance Hashable LaunchTemplateVersion
-
-instance NFData LaunchTemplateVersion
+      Lude.<$> (x Lude..@? "launchTemplateName")
+      Lude.<*> (x Lude..@? "launchTemplateId")
+      Lude.<*> (x Lude..@? "createdBy")
+      Lude.<*> (x Lude..@? "defaultVersion")
+      Lude.<*> (x Lude..@? "versionNumber")
+      Lude.<*> (x Lude..@? "versionDescription")
+      Lude.<*> (x Lude..@? "launchTemplateData")
+      Lude.<*> (x Lude..@? "createTime")

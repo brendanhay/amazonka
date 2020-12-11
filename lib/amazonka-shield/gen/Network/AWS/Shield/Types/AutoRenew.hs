@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AutoRenew where
+module Network.AWS.Shield.Types.AutoRenew
+  ( AutoRenew
+      ( AutoRenew',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoRenew
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoRenew = AutoRenew' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoRenew where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing AutoRenew from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: AutoRenew
+pattern Disabled = AutoRenew' "DISABLED"
 
-instance ToText AutoRenew where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: AutoRenew
+pattern Enabled = AutoRenew' "ENABLED"
 
-instance Hashable AutoRenew
-
-instance NFData AutoRenew
-
-instance ToByteString AutoRenew
-
-instance ToQuery AutoRenew
-
-instance ToHeader AutoRenew
-
-instance ToJSON AutoRenew where
-  toJSON = toJSONText
-
-instance FromJSON AutoRenew where
-  parseJSON = parseJSONText "AutoRenew"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  AutoRenew'
+  #-}

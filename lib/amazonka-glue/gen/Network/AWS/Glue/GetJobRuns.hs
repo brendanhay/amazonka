@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Retrieves metadata for all runs of a given job definition.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetJobRuns
-  ( -- * Creating a Request
-    getJobRuns,
-    GetJobRuns,
+  ( -- * Creating a request
+    GetJobRuns (..),
+    mkGetJobRuns,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjrNextToken,
     gjrMaxResults,
     gjrJobName,
 
-    -- * Destructuring the Response
-    getJobRunsResponse,
-    GetJobRunsResponse,
+    -- * Destructuring the response
+    GetJobRunsResponse (..),
+    mkGetJobRunsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjrrsNextToken,
     gjrrsJobRuns,
     gjrrsResponseStatus,
@@ -44,138 +37,160 @@ module Network.AWS.Glue.GetJobRuns
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getJobRuns' smart constructor.
+-- | /See:/ 'mkGetJobRuns' smart constructor.
 data GetJobRuns = GetJobRuns'
-  { _gjrNextToken :: !(Maybe Text),
-    _gjrMaxResults :: !(Maybe Nat),
-    _gjrJobName :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    jobName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobRuns' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjrNextToken' - A continuation token, if this is a continuation call.
---
--- * 'gjrMaxResults' - The maximum size of the response.
---
--- * 'gjrJobName' - The name of the job definition for which to retrieve all job runs.
-getJobRuns ::
-  -- | 'gjrJobName'
-  Text ->
+-- * 'jobName' - The name of the job definition for which to retrieve all job runs.
+-- * 'maxResults' - The maximum size of the response.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+mkGetJobRuns ::
+  -- | 'jobName'
+  Lude.Text ->
   GetJobRuns
-getJobRuns pJobName_ =
+mkGetJobRuns pJobName_ =
   GetJobRuns'
-    { _gjrNextToken = Nothing,
-      _gjrMaxResults = Nothing,
-      _gjrJobName = pJobName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      jobName = pJobName_
     }
 
 -- | A continuation token, if this is a continuation call.
-gjrNextToken :: Lens' GetJobRuns (Maybe Text)
-gjrNextToken = lens _gjrNextToken (\s a -> s {_gjrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrNextToken :: Lens.Lens' GetJobRuns (Lude.Maybe Lude.Text)
+gjrNextToken = Lens.lens (nextToken :: GetJobRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetJobRuns)
+{-# DEPRECATED gjrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of the response.
-gjrMaxResults :: Lens' GetJobRuns (Maybe Natural)
-gjrMaxResults = lens _gjrMaxResults (\s a -> s {_gjrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrMaxResults :: Lens.Lens' GetJobRuns (Lude.Maybe Lude.Natural)
+gjrMaxResults = Lens.lens (maxResults :: GetJobRuns -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetJobRuns)
+{-# DEPRECATED gjrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the job definition for which to retrieve all job runs.
-gjrJobName :: Lens' GetJobRuns Text
-gjrJobName = lens _gjrJobName (\s a -> s {_gjrJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrJobName :: Lens.Lens' GetJobRuns Lude.Text
+gjrJobName = Lens.lens (jobName :: GetJobRuns -> Lude.Text) (\s a -> s {jobName = a} :: GetJobRuns)
+{-# DEPRECATED gjrJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
-instance AWSPager GetJobRuns where
+instance Page.AWSPager GetJobRuns where
   page rq rs
-    | stop (rs ^. gjrrsNextToken) = Nothing
-    | stop (rs ^. gjrrsJobRuns) = Nothing
-    | otherwise = Just $ rq & gjrNextToken .~ rs ^. gjrrsNextToken
+    | Page.stop (rs Lens.^. gjrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gjrrsJobRuns) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gjrNextToken Lens..~ rs Lens.^. gjrrsNextToken
 
-instance AWSRequest GetJobRuns where
+instance Lude.AWSRequest GetJobRuns where
   type Rs GetJobRuns = GetJobRunsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetJobRunsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "JobRuns" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "JobRuns" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetJobRuns
-
-instance NFData GetJobRuns
-
-instance ToHeaders GetJobRuns where
+instance Lude.ToHeaders GetJobRuns where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetJobRuns" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetJobRuns" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetJobRuns where
+instance Lude.ToJSON GetJobRuns where
   toJSON GetJobRuns' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gjrNextToken,
-            ("MaxResults" .=) <$> _gjrMaxResults,
-            Just ("JobName" .= _gjrJobName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("JobName" Lude..= jobName)
           ]
       )
 
-instance ToPath GetJobRuns where
-  toPath = const "/"
+instance Lude.ToPath GetJobRuns where
+  toPath = Lude.const "/"
 
-instance ToQuery GetJobRuns where
-  toQuery = const mempty
+instance Lude.ToQuery GetJobRuns where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getJobRunsResponse' smart constructor.
+-- | /See:/ 'mkGetJobRunsResponse' smart constructor.
 data GetJobRunsResponse = GetJobRunsResponse'
-  { _gjrrsNextToken ::
-      !(Maybe Text),
-    _gjrrsJobRuns :: !(Maybe [JobRun]),
-    _gjrrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    jobRuns :: Lude.Maybe [JobRun],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobRunsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjrrsNextToken' - A continuation token, if not all requested job runs have been returned.
---
--- * 'gjrrsJobRuns' - A list of job-run metadata objects.
---
--- * 'gjrrsResponseStatus' - -- | The response status code.
-getJobRunsResponse ::
-  -- | 'gjrrsResponseStatus'
-  Int ->
+-- * 'jobRuns' - A list of job-run metadata objects.
+-- * 'nextToken' - A continuation token, if not all requested job runs have been returned.
+-- * 'responseStatus' - The response status code.
+mkGetJobRunsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetJobRunsResponse
-getJobRunsResponse pResponseStatus_ =
+mkGetJobRunsResponse pResponseStatus_ =
   GetJobRunsResponse'
-    { _gjrrsNextToken = Nothing,
-      _gjrrsJobRuns = Nothing,
-      _gjrrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      jobRuns = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if not all requested job runs have been returned.
-gjrrsNextToken :: Lens' GetJobRunsResponse (Maybe Text)
-gjrrsNextToken = lens _gjrrsNextToken (\s a -> s {_gjrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrrsNextToken :: Lens.Lens' GetJobRunsResponse (Lude.Maybe Lude.Text)
+gjrrsNextToken = Lens.lens (nextToken :: GetJobRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetJobRunsResponse)
+{-# DEPRECATED gjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of job-run metadata objects.
-gjrrsJobRuns :: Lens' GetJobRunsResponse [JobRun]
-gjrrsJobRuns = lens _gjrrsJobRuns (\s a -> s {_gjrrsJobRuns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrrsJobRuns :: Lens.Lens' GetJobRunsResponse (Lude.Maybe [JobRun])
+gjrrsJobRuns = Lens.lens (jobRuns :: GetJobRunsResponse -> Lude.Maybe [JobRun]) (\s a -> s {jobRuns = a} :: GetJobRunsResponse)
+{-# DEPRECATED gjrrsJobRuns "Use generic-lens or generic-optics with 'jobRuns' instead." #-}
 
--- | -- | The response status code.
-gjrrsResponseStatus :: Lens' GetJobRunsResponse Int
-gjrrsResponseStatus = lens _gjrrsResponseStatus (\s a -> s {_gjrrsResponseStatus = a})
-
-instance NFData GetJobRunsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrrsResponseStatus :: Lens.Lens' GetJobRunsResponse Lude.Int
+gjrrsResponseStatus = Lens.lens (responseStatus :: GetJobRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobRunsResponse)
+{-# DEPRECATED gjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

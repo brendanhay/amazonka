@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ExportFormat where
+module Network.AWS.DynamoDB.Types.ExportFormat
+  ( ExportFormat
+      ( ExportFormat',
+        DynamodbJSON,
+        Ion
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportFormat
-  = DynamodbJSON
-  | Ion
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportFormat = ExportFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportFormat where
-  parser =
-    takeLowerText >>= \case
-      "dynamodb_json" -> pure DynamodbJSON
-      "ion" -> pure Ion
-      e ->
-        fromTextError $
-          "Failure parsing ExportFormat from value: '" <> e
-            <> "'. Accepted values: dynamodb_json, ion"
+pattern DynamodbJSON :: ExportFormat
+pattern DynamodbJSON = ExportFormat' "DYNAMODB_JSON"
 
-instance ToText ExportFormat where
-  toText = \case
-    DynamodbJSON -> "DYNAMODB_JSON"
-    Ion -> "ION"
+pattern Ion :: ExportFormat
+pattern Ion = ExportFormat' "ION"
 
-instance Hashable ExportFormat
-
-instance NFData ExportFormat
-
-instance ToByteString ExportFormat
-
-instance ToQuery ExportFormat
-
-instance ToHeader ExportFormat
-
-instance ToJSON ExportFormat where
-  toJSON = toJSONText
-
-instance FromJSON ExportFormat where
-  parseJSON = parseJSONText "ExportFormat"
+{-# COMPLETE
+  DynamodbJSON,
+  Ion,
+  ExportFormat'
+  #-}

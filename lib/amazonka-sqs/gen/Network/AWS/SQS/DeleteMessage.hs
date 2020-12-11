@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,108 @@
 --
 -- Deletes the specified message from the specified queue. To select the message to delete, use the @ReceiptHandle@ of the message (/not/ the @MessageId@ which you receive when you send the message). Amazon SQS can delete a message from a queue even if a visibility timeout setting causes the message to be locked by another consumer. Amazon SQS automatically deletes messages left in a queue longer than the retention period configured for the queue.
 module Network.AWS.SQS.DeleteMessage
-  ( -- * Creating a Request
-    deleteMessage,
-    DeleteMessage,
+  ( -- * Creating a request
+    DeleteMessage (..),
+    mkDeleteMessage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmQueueURL,
     dmReceiptHandle,
 
-    -- * Destructuring the Response
-    deleteMessageResponse,
-    DeleteMessageResponse,
+    -- * Destructuring the response
+    DeleteMessageResponse (..),
+    mkDeleteMessageResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'deleteMessage' smart constructor.
+-- /See:/ 'mkDeleteMessage' smart constructor.
 data DeleteMessage = DeleteMessage'
-  { _dmQueueURL :: !Text,
-    _dmReceiptHandle :: !Text
+  { queueURL :: Lude.Text,
+    receiptHandle :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'queueURL' - The URL of the Amazon SQS queue from which messages are deleted.
 --
--- * 'dmQueueURL' - The URL of the Amazon SQS queue from which messages are deleted. Queue URLs and names are case-sensitive.
---
--- * 'dmReceiptHandle' - The receipt handle associated with the message to delete.
-deleteMessage ::
-  -- | 'dmQueueURL'
-  Text ->
-  -- | 'dmReceiptHandle'
-  Text ->
+-- Queue URLs and names are case-sensitive.
+-- * 'receiptHandle' - The receipt handle associated with the message to delete.
+mkDeleteMessage ::
+  -- | 'queueURL'
+  Lude.Text ->
+  -- | 'receiptHandle'
+  Lude.Text ->
   DeleteMessage
-deleteMessage pQueueURL_ pReceiptHandle_ =
+mkDeleteMessage pQueueURL_ pReceiptHandle_ =
   DeleteMessage'
-    { _dmQueueURL = pQueueURL_,
-      _dmReceiptHandle = pReceiptHandle_
+    { queueURL = pQueueURL_,
+      receiptHandle = pReceiptHandle_
     }
 
--- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs and names are case-sensitive.
-dmQueueURL :: Lens' DeleteMessage Text
-dmQueueURL = lens _dmQueueURL (\s a -> s {_dmQueueURL = a})
+-- | The URL of the Amazon SQS queue from which messages are deleted.
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmQueueURL :: Lens.Lens' DeleteMessage Lude.Text
+dmQueueURL = Lens.lens (queueURL :: DeleteMessage -> Lude.Text) (\s a -> s {queueURL = a} :: DeleteMessage)
+{-# DEPRECATED dmQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
 -- | The receipt handle associated with the message to delete.
-dmReceiptHandle :: Lens' DeleteMessage Text
-dmReceiptHandle = lens _dmReceiptHandle (\s a -> s {_dmReceiptHandle = a})
+--
+-- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmReceiptHandle :: Lens.Lens' DeleteMessage Lude.Text
+dmReceiptHandle = Lens.lens (receiptHandle :: DeleteMessage -> Lude.Text) (\s a -> s {receiptHandle = a} :: DeleteMessage)
+{-# DEPRECATED dmReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance AWSRequest DeleteMessage where
+instance Lude.AWSRequest DeleteMessage where
   type Rs DeleteMessage = DeleteMessageResponse
-  request = postQuery sqs
-  response = receiveNull DeleteMessageResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull DeleteMessageResponse'
 
-instance Hashable DeleteMessage
+instance Lude.ToHeaders DeleteMessage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteMessage
+instance Lude.ToPath DeleteMessage where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteMessage where
-  toHeaders = const mempty
-
-instance ToPath DeleteMessage where
-  toPath = const "/"
-
-instance ToQuery DeleteMessage where
+instance Lude.ToQuery DeleteMessage where
   toQuery DeleteMessage' {..} =
-    mconcat
-      [ "Action" =: ("DeleteMessage" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _dmQueueURL,
-        "ReceiptHandle" =: _dmReceiptHandle
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteMessage" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL,
+        "ReceiptHandle" Lude.=: receiptHandle
       ]
 
--- | /See:/ 'deleteMessageResponse' smart constructor.
+-- | /See:/ 'mkDeleteMessageResponse' smart constructor.
 data DeleteMessageResponse = DeleteMessageResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageResponse' with the minimum fields required to make a request.
-deleteMessageResponse ::
+mkDeleteMessageResponse ::
   DeleteMessageResponse
-deleteMessageResponse = DeleteMessageResponse'
-
-instance NFData DeleteMessageResponse
+mkDeleteMessageResponse = DeleteMessageResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,149 @@
 --
 -- Returns information about a repository branch, including its name and the last commit ID.
 module Network.AWS.CodeCommit.GetBranch
-  ( -- * Creating a Request
-    getBranch,
-    GetBranch,
+  ( -- * Creating a request
+    GetBranch (..),
+    mkGetBranch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbBranchName,
     gbRepositoryName,
 
-    -- * Destructuring the Response
-    getBranchResponse,
-    GetBranchResponse,
+    -- * Destructuring the response
+    GetBranchResponse (..),
+    mkGetBranchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsBranch,
     grsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a get branch operation.
 --
---
---
--- /See:/ 'getBranch' smart constructor.
+-- /See:/ 'mkGetBranch' smart constructor.
 data GetBranch = GetBranch'
-  { _gbBranchName :: !(Maybe Text),
-    _gbRepositoryName :: !(Maybe Text)
+  { branchName :: Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBranch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbBranchName' - The name of the branch for which you want to retrieve information.
---
--- * 'gbRepositoryName' - The name of the repository that contains the branch for which you want to retrieve information.
-getBranch ::
+-- * 'branchName' - The name of the branch for which you want to retrieve information.
+-- * 'repositoryName' - The name of the repository that contains the branch for which you want to retrieve information.
+mkGetBranch ::
   GetBranch
-getBranch =
-  GetBranch' {_gbBranchName = Nothing, _gbRepositoryName = Nothing}
+mkGetBranch =
+  GetBranch'
+    { branchName = Lude.Nothing,
+      repositoryName = Lude.Nothing
+    }
 
 -- | The name of the branch for which you want to retrieve information.
-gbBranchName :: Lens' GetBranch (Maybe Text)
-gbBranchName = lens _gbBranchName (\s a -> s {_gbBranchName = a})
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbBranchName :: Lens.Lens' GetBranch (Lude.Maybe Lude.Text)
+gbBranchName = Lens.lens (branchName :: GetBranch -> Lude.Maybe Lude.Text) (\s a -> s {branchName = a} :: GetBranch)
+{-# DEPRECATED gbBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
 -- | The name of the repository that contains the branch for which you want to retrieve information.
-gbRepositoryName :: Lens' GetBranch (Maybe Text)
-gbRepositoryName = lens _gbRepositoryName (\s a -> s {_gbRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbRepositoryName :: Lens.Lens' GetBranch (Lude.Maybe Lude.Text)
+gbRepositoryName = Lens.lens (repositoryName :: GetBranch -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: GetBranch)
+{-# DEPRECATED gbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest GetBranch where
+instance Lude.AWSRequest GetBranch where
   type Rs GetBranch = GetBranchResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetBranchResponse' <$> (x .?> "branch") <*> (pure (fromEnum s))
+          GetBranchResponse'
+            Lude.<$> (x Lude..?> "branch") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBranch
-
-instance NFData GetBranch
-
-instance ToHeaders GetBranch where
+instance Lude.ToHeaders GetBranch where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeCommit_20150413.GetBranch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeCommit_20150413.GetBranch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetBranch where
+instance Lude.ToJSON GetBranch where
   toJSON GetBranch' {..} =
-    object
-      ( catMaybes
-          [ ("branchName" .=) <$> _gbBranchName,
-            ("repositoryName" .=) <$> _gbRepositoryName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("branchName" Lude..=) Lude.<$> branchName,
+            ("repositoryName" Lude..=) Lude.<$> repositoryName
           ]
       )
 
-instance ToPath GetBranch where
-  toPath = const "/"
+instance Lude.ToPath GetBranch where
+  toPath = Lude.const "/"
 
-instance ToQuery GetBranch where
-  toQuery = const mempty
+instance Lude.ToQuery GetBranch where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a get branch operation.
 --
---
---
--- /See:/ 'getBranchResponse' smart constructor.
+-- /See:/ 'mkGetBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
-  { _grsBranch ::
-      !(Maybe BranchInfo),
-    _grsResponseStatus :: !Int
+  { branch ::
+      Lude.Maybe BranchInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBranchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsBranch' - The name of the branch.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getBranchResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'branch' - The name of the branch.
+-- * 'responseStatus' - The response status code.
+mkGetBranchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBranchResponse
-getBranchResponse pResponseStatus_ =
+mkGetBranchResponse pResponseStatus_ =
   GetBranchResponse'
-    { _grsBranch = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { branch = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the branch.
-grsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
-grsBranch = lens _grsBranch (\s a -> s {_grsBranch = a})
+--
+-- /Note:/ Consider using 'branch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsBranch :: Lens.Lens' GetBranchResponse (Lude.Maybe BranchInfo)
+grsBranch = Lens.lens (branch :: GetBranchResponse -> Lude.Maybe BranchInfo) (\s a -> s {branch = a} :: GetBranchResponse)
+{-# DEPRECATED grsBranch "Use generic-lens or generic-optics with 'branch' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetBranchResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetBranchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetBranchResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetBranchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBranchResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

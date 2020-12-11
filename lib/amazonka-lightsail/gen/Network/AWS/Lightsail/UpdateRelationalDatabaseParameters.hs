@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,162 @@
 --
 -- Allows the update of one or more parameters of a database in Amazon Lightsail.
 --
---
 -- Parameter updates don't cause outages; therefore, their application is not subject to the preferred maintenance window. However, there are two ways in which parameter updates are applied: @dynamic@ or @pending-reboot@ . Parameters marked with a @dynamic@ apply type are applied immediately. Parameters marked with a @pending-reboot@ apply type are applied only after the database is rebooted using the @reboot relational database@ operation.
---
 -- The @update relational database parameters@ operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
-  ( -- * Creating a Request
-    updateRelationalDatabaseParameters,
-    UpdateRelationalDatabaseParameters,
+  ( -- * Creating a request
+    UpdateRelationalDatabaseParameters (..),
+    mkUpdateRelationalDatabaseParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urdpRelationalDatabaseName,
     urdpParameters,
 
-    -- * Destructuring the Response
-    updateRelationalDatabaseParametersResponse,
-    UpdateRelationalDatabaseParametersResponse,
+    -- * Destructuring the response
+    UpdateRelationalDatabaseParametersResponse (..),
+    mkUpdateRelationalDatabaseParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urdprsOperations,
     urdprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateRelationalDatabaseParameters' smart constructor.
+-- | /See:/ 'mkUpdateRelationalDatabaseParameters' smart constructor.
 data UpdateRelationalDatabaseParameters = UpdateRelationalDatabaseParameters'
-  { _urdpRelationalDatabaseName ::
-      !Text,
-    _urdpParameters ::
-      ![RelationalDatabaseParameter]
+  { relationalDatabaseName ::
+      Lude.Text,
+    parameters ::
+      [RelationalDatabaseParameter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRelationalDatabaseParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdpRelationalDatabaseName' - The name of your database for which to update parameters.
---
--- * 'urdpParameters' - The database parameters to update.
-updateRelationalDatabaseParameters ::
-  -- | 'urdpRelationalDatabaseName'
-  Text ->
+-- * 'parameters' - The database parameters to update.
+-- * 'relationalDatabaseName' - The name of your database for which to update parameters.
+mkUpdateRelationalDatabaseParameters ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   UpdateRelationalDatabaseParameters
-updateRelationalDatabaseParameters pRelationalDatabaseName_ =
+mkUpdateRelationalDatabaseParameters pRelationalDatabaseName_ =
   UpdateRelationalDatabaseParameters'
-    { _urdpRelationalDatabaseName =
+    { relationalDatabaseName =
         pRelationalDatabaseName_,
-      _urdpParameters = mempty
+      parameters = Lude.mempty
     }
 
 -- | The name of your database for which to update parameters.
-urdpRelationalDatabaseName :: Lens' UpdateRelationalDatabaseParameters Text
-urdpRelationalDatabaseName = lens _urdpRelationalDatabaseName (\s a -> s {_urdpRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdpRelationalDatabaseName :: Lens.Lens' UpdateRelationalDatabaseParameters Lude.Text
+urdpRelationalDatabaseName = Lens.lens (relationalDatabaseName :: UpdateRelationalDatabaseParameters -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: UpdateRelationalDatabaseParameters)
+{-# DEPRECATED urdpRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 -- | The database parameters to update.
-urdpParameters :: Lens' UpdateRelationalDatabaseParameters [RelationalDatabaseParameter]
-urdpParameters = lens _urdpParameters (\s a -> s {_urdpParameters = a}) . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdpParameters :: Lens.Lens' UpdateRelationalDatabaseParameters [RelationalDatabaseParameter]
+urdpParameters = Lens.lens (parameters :: UpdateRelationalDatabaseParameters -> [RelationalDatabaseParameter]) (\s a -> s {parameters = a} :: UpdateRelationalDatabaseParameters)
+{-# DEPRECATED urdpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance AWSRequest UpdateRelationalDatabaseParameters where
+instance Lude.AWSRequest UpdateRelationalDatabaseParameters where
   type
     Rs UpdateRelationalDatabaseParameters =
       UpdateRelationalDatabaseParametersResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRelationalDatabaseParametersResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRelationalDatabaseParameters
-
-instance NFData UpdateRelationalDatabaseParameters
-
-instance ToHeaders UpdateRelationalDatabaseParameters where
+instance Lude.ToHeaders UpdateRelationalDatabaseParameters where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRelationalDatabaseParameters where
+instance Lude.ToJSON UpdateRelationalDatabaseParameters where
   toJSON UpdateRelationalDatabaseParameters' {..} =
-    object
-      ( catMaybes
-          [ Just ("relationalDatabaseName" .= _urdpRelationalDatabaseName),
-            Just ("parameters" .= _urdpParameters)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName),
+            Lude.Just ("parameters" Lude..= parameters)
           ]
       )
 
-instance ToPath UpdateRelationalDatabaseParameters where
-  toPath = const "/"
+instance Lude.ToPath UpdateRelationalDatabaseParameters where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRelationalDatabaseParameters where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRelationalDatabaseParameters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRelationalDatabaseParametersResponse' smart constructor.
+-- | /See:/ 'mkUpdateRelationalDatabaseParametersResponse' smart constructor.
 data UpdateRelationalDatabaseParametersResponse = UpdateRelationalDatabaseParametersResponse'
-  { _urdprsOperations ::
-      !( Maybe
-           [Operation]
-       ),
-    _urdprsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe
+        [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRelationalDatabaseParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdprsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'urdprsResponseStatus' - -- | The response status code.
-updateRelationalDatabaseParametersResponse ::
-  -- | 'urdprsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkUpdateRelationalDatabaseParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRelationalDatabaseParametersResponse
-updateRelationalDatabaseParametersResponse pResponseStatus_ =
+mkUpdateRelationalDatabaseParametersResponse pResponseStatus_ =
   UpdateRelationalDatabaseParametersResponse'
-    { _urdprsOperations =
-        Nothing,
-      _urdprsResponseStatus = pResponseStatus_
+    { operations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-urdprsOperations :: Lens' UpdateRelationalDatabaseParametersResponse [Operation]
-urdprsOperations = lens _urdprsOperations (\s a -> s {_urdprsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdprsOperations :: Lens.Lens' UpdateRelationalDatabaseParametersResponse (Lude.Maybe [Operation])
+urdprsOperations = Lens.lens (operations :: UpdateRelationalDatabaseParametersResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: UpdateRelationalDatabaseParametersResponse)
+{-# DEPRECATED urdprsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-urdprsResponseStatus :: Lens' UpdateRelationalDatabaseParametersResponse Int
-urdprsResponseStatus = lens _urdprsResponseStatus (\s a -> s {_urdprsResponseStatus = a})
-
-instance NFData UpdateRelationalDatabaseParametersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdprsResponseStatus :: Lens.Lens' UpdateRelationalDatabaseParametersResponse Lude.Int
+urdprsResponseStatus = Lens.lens (responseStatus :: UpdateRelationalDatabaseParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRelationalDatabaseParametersResponse)
+{-# DEPRECATED urdprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

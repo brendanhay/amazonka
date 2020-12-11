@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.ContentTypeProfile where
+module Network.AWS.CloudFront.Types.ContentTypeProfile
+  ( ContentTypeProfile (..),
+
+    -- * Smart constructor
+    mkContentTypeProfile,
+
+    -- * Lenses
+    ctpProfileId,
+    ctpFormat,
+    ctpContentType,
+  )
+where
 
 import Network.AWS.CloudFront.Types.Format
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A field-level encryption content type profile.
 --
---
---
--- /See:/ 'contentTypeProfile' smart constructor.
+-- /See:/ 'mkContentTypeProfile' smart constructor.
 data ContentTypeProfile = ContentTypeProfile'
-  { _ctpProfileId ::
-      !(Maybe Text),
-    _ctpFormat :: !Format,
-    _ctpContentType :: !Text
+  { profileId ::
+      Lude.Maybe Lude.Text,
+    format :: Format,
+    contentType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentTypeProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctpProfileId' - The profile ID for a field-level encryption content type-profile mapping.
---
--- * 'ctpFormat' - The format for a field-level encryption content type-profile mapping.
---
--- * 'ctpContentType' - The content type for a field-level encryption content type-profile mapping.
-contentTypeProfile ::
-  -- | 'ctpFormat'
+-- * 'contentType' - The content type for a field-level encryption content type-profile mapping.
+-- * 'format' - The format for a field-level encryption content type-profile mapping.
+-- * 'profileId' - The profile ID for a field-level encryption content type-profile mapping.
+mkContentTypeProfile ::
+  -- | 'format'
   Format ->
-  -- | 'ctpContentType'
-  Text ->
+  -- | 'contentType'
+  Lude.Text ->
   ContentTypeProfile
-contentTypeProfile pFormat_ pContentType_ =
+mkContentTypeProfile pFormat_ pContentType_ =
   ContentTypeProfile'
-    { _ctpProfileId = Nothing,
-      _ctpFormat = pFormat_,
-      _ctpContentType = pContentType_
+    { profileId = Lude.Nothing,
+      format = pFormat_,
+      contentType = pContentType_
     }
 
 -- | The profile ID for a field-level encryption content type-profile mapping.
-ctpProfileId :: Lens' ContentTypeProfile (Maybe Text)
-ctpProfileId = lens _ctpProfileId (\s a -> s {_ctpProfileId = a})
+--
+-- /Note:/ Consider using 'profileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpProfileId :: Lens.Lens' ContentTypeProfile (Lude.Maybe Lude.Text)
+ctpProfileId = Lens.lens (profileId :: ContentTypeProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileId = a} :: ContentTypeProfile)
+{-# DEPRECATED ctpProfileId "Use generic-lens or generic-optics with 'profileId' instead." #-}
 
 -- | The format for a field-level encryption content type-profile mapping.
-ctpFormat :: Lens' ContentTypeProfile Format
-ctpFormat = lens _ctpFormat (\s a -> s {_ctpFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpFormat :: Lens.Lens' ContentTypeProfile Format
+ctpFormat = Lens.lens (format :: ContentTypeProfile -> Format) (\s a -> s {format = a} :: ContentTypeProfile)
+{-# DEPRECATED ctpFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The content type for a field-level encryption content type-profile mapping.
-ctpContentType :: Lens' ContentTypeProfile Text
-ctpContentType = lens _ctpContentType (\s a -> s {_ctpContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpContentType :: Lens.Lens' ContentTypeProfile Lude.Text
+ctpContentType = Lens.lens (contentType :: ContentTypeProfile -> Lude.Text) (\s a -> s {contentType = a} :: ContentTypeProfile)
+{-# DEPRECATED ctpContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance FromXML ContentTypeProfile where
+instance Lude.FromXML ContentTypeProfile where
   parseXML x =
     ContentTypeProfile'
-      <$> (x .@? "ProfileId") <*> (x .@ "Format") <*> (x .@ "ContentType")
+      Lude.<$> (x Lude..@? "ProfileId")
+      Lude.<*> (x Lude..@ "Format")
+      Lude.<*> (x Lude..@ "ContentType")
 
-instance Hashable ContentTypeProfile
-
-instance NFData ContentTypeProfile
-
-instance ToXML ContentTypeProfile where
+instance Lude.ToXML ContentTypeProfile where
   toXML ContentTypeProfile' {..} =
-    mconcat
-      [ "ProfileId" @= _ctpProfileId,
-        "Format" @= _ctpFormat,
-        "ContentType" @= _ctpContentType
+    Lude.mconcat
+      [ "ProfileId" Lude.@= profileId,
+        "Format" Lude.@= format,
+        "ContentType" Lude.@= contentType
       ]

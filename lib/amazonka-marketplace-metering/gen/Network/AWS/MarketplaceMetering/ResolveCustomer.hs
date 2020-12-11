@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,150 @@
 --
 -- ResolveCustomer is called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a registration token through their browser. The registration token is resolved through this API to obtain a CustomerIdentifier and product code.
 module Network.AWS.MarketplaceMetering.ResolveCustomer
-  ( -- * Creating a Request
-    resolveCustomer,
-    ResolveCustomer,
+  ( -- * Creating a request
+    ResolveCustomer (..),
+    mkResolveCustomer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcRegistrationToken,
 
-    -- * Destructuring the Response
-    resolveCustomerResponse,
-    ResolveCustomerResponse,
+    -- * Destructuring the response
+    ResolveCustomerResponse (..),
+    mkResolveCustomerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcrsCustomerIdentifier,
     rcrsProductCode,
     rcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains input to the ResolveCustomer operation.
 --
---
---
--- /See:/ 'resolveCustomer' smart constructor.
+-- /See:/ 'mkResolveCustomer' smart constructor.
 newtype ResolveCustomer = ResolveCustomer'
-  { _rcRegistrationToken ::
-      Text
+  { registrationToken ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveCustomer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcRegistrationToken' - When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
-resolveCustomer ::
-  -- | 'rcRegistrationToken'
-  Text ->
+-- * 'registrationToken' - When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
+mkResolveCustomer ::
+  -- | 'registrationToken'
+  Lude.Text ->
   ResolveCustomer
-resolveCustomer pRegistrationToken_ =
-  ResolveCustomer' {_rcRegistrationToken = pRegistrationToken_}
+mkResolveCustomer pRegistrationToken_ =
+  ResolveCustomer' {registrationToken = pRegistrationToken_}
 
 -- | When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
-rcRegistrationToken :: Lens' ResolveCustomer Text
-rcRegistrationToken = lens _rcRegistrationToken (\s a -> s {_rcRegistrationToken = a})
+--
+-- /Note:/ Consider using 'registrationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRegistrationToken :: Lens.Lens' ResolveCustomer Lude.Text
+rcRegistrationToken = Lens.lens (registrationToken :: ResolveCustomer -> Lude.Text) (\s a -> s {registrationToken = a} :: ResolveCustomer)
+{-# DEPRECATED rcRegistrationToken "Use generic-lens or generic-optics with 'registrationToken' instead." #-}
 
-instance AWSRequest ResolveCustomer where
+instance Lude.AWSRequest ResolveCustomer where
   type Rs ResolveCustomer = ResolveCustomerResponse
-  request = postJSON marketplaceMetering
+  request = Req.postJSON marketplaceMeteringService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResolveCustomerResponse'
-            <$> (x .?> "CustomerIdentifier")
-            <*> (x .?> "ProductCode")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CustomerIdentifier")
+            Lude.<*> (x Lude..?> "ProductCode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResolveCustomer
-
-instance NFData ResolveCustomer
-
-instance ToHeaders ResolveCustomer where
+instance Lude.ToHeaders ResolveCustomer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMPMeteringService.ResolveCustomer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMPMeteringService.ResolveCustomer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResolveCustomer where
+instance Lude.ToJSON ResolveCustomer where
   toJSON ResolveCustomer' {..} =
-    object
-      (catMaybes [Just ("RegistrationToken" .= _rcRegistrationToken)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("RegistrationToken" Lude..= registrationToken)]
+      )
 
-instance ToPath ResolveCustomer where
-  toPath = const "/"
+instance Lude.ToPath ResolveCustomer where
+  toPath = Lude.const "/"
 
-instance ToQuery ResolveCustomer where
-  toQuery = const mempty
+instance Lude.ToQuery ResolveCustomer where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of the ResolveCustomer operation. Contains the CustomerIdentifier and product code.
 --
---
---
--- /See:/ 'resolveCustomerResponse' smart constructor.
+-- /See:/ 'mkResolveCustomerResponse' smart constructor.
 data ResolveCustomerResponse = ResolveCustomerResponse'
-  { _rcrsCustomerIdentifier ::
-      !(Maybe Text),
-    _rcrsProductCode :: !(Maybe Text),
-    _rcrsResponseStatus :: !Int
+  { customerIdentifier ::
+      Lude.Maybe Lude.Text,
+    productCode :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveCustomerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcrsCustomerIdentifier' - The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
---
--- * 'rcrsProductCode' - The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
---
--- * 'rcrsResponseStatus' - -- | The response status code.
-resolveCustomerResponse ::
-  -- | 'rcrsResponseStatus'
-  Int ->
+-- * 'customerIdentifier' - The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
+-- * 'productCode' - The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
+-- * 'responseStatus' - The response status code.
+mkResolveCustomerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResolveCustomerResponse
-resolveCustomerResponse pResponseStatus_ =
+mkResolveCustomerResponse pResponseStatus_ =
   ResolveCustomerResponse'
-    { _rcrsCustomerIdentifier = Nothing,
-      _rcrsProductCode = Nothing,
-      _rcrsResponseStatus = pResponseStatus_
+    { customerIdentifier = Lude.Nothing,
+      productCode = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
-rcrsCustomerIdentifier :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsCustomerIdentifier = lens _rcrsCustomerIdentifier (\s a -> s {_rcrsCustomerIdentifier = a})
+--
+-- /Note:/ Consider using 'customerIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsCustomerIdentifier :: Lens.Lens' ResolveCustomerResponse (Lude.Maybe Lude.Text)
+rcrsCustomerIdentifier = Lens.lens (customerIdentifier :: ResolveCustomerResponse -> Lude.Maybe Lude.Text) (\s a -> s {customerIdentifier = a} :: ResolveCustomerResponse)
+{-# DEPRECATED rcrsCustomerIdentifier "Use generic-lens or generic-optics with 'customerIdentifier' instead." #-}
 
 -- | The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
-rcrsProductCode :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsProductCode = lens _rcrsProductCode (\s a -> s {_rcrsProductCode = a})
+--
+-- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsProductCode :: Lens.Lens' ResolveCustomerResponse (Lude.Maybe Lude.Text)
+rcrsProductCode = Lens.lens (productCode :: ResolveCustomerResponse -> Lude.Maybe Lude.Text) (\s a -> s {productCode = a} :: ResolveCustomerResponse)
+{-# DEPRECATED rcrsProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' ResolveCustomerResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\s a -> s {_rcrsResponseStatus = a})
-
-instance NFData ResolveCustomerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsResponseStatus :: Lens.Lens' ResolveCustomerResponse Lude.Int
+rcrsResponseStatus = Lens.lens (responseStatus :: ResolveCustomerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResolveCustomerResponse)
+{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

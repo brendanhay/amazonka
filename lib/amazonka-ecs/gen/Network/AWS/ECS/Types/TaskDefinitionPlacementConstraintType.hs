@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType where
+module Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType
+  ( TaskDefinitionPlacementConstraintType
+      ( TaskDefinitionPlacementConstraintType',
+        MemberOf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskDefinitionPlacementConstraintType = MemberOf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskDefinitionPlacementConstraintType = TaskDefinitionPlacementConstraintType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskDefinitionPlacementConstraintType where
-  parser =
-    takeLowerText >>= \case
-      "memberof" -> pure MemberOf
-      e ->
-        fromTextError $
-          "Failure parsing TaskDefinitionPlacementConstraintType from value: '" <> e
-            <> "'. Accepted values: memberof"
+pattern MemberOf :: TaskDefinitionPlacementConstraintType
+pattern MemberOf = TaskDefinitionPlacementConstraintType' "memberOf"
 
-instance ToText TaskDefinitionPlacementConstraintType where
-  toText = \case
-    MemberOf -> "memberOf"
-
-instance Hashable TaskDefinitionPlacementConstraintType
-
-instance NFData TaskDefinitionPlacementConstraintType
-
-instance ToByteString TaskDefinitionPlacementConstraintType
-
-instance ToQuery TaskDefinitionPlacementConstraintType
-
-instance ToHeader TaskDefinitionPlacementConstraintType
-
-instance ToJSON TaskDefinitionPlacementConstraintType where
-  toJSON = toJSONText
-
-instance FromJSON TaskDefinitionPlacementConstraintType where
-  parseJSON = parseJSONText "TaskDefinitionPlacementConstraintType"
+{-# COMPLETE
+  MemberOf,
+  TaskDefinitionPlacementConstraintType'
+  #-}

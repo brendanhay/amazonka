@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DeviceFilterAttribute where
+module Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
+  ( DeviceFilterAttribute
+      ( DeviceFilterAttribute',
+        DFAARN,
+        DFAAvailability,
+        DFAFleetType,
+        DFAFormFactor,
+        DFAInstanceARN,
+        DFAInstanceLabels,
+        DFAManufacturer,
+        DFAModel,
+        DFAOSVersion,
+        DFAPlatform,
+        DFARemoteAccessEnabled,
+        DFARemoteDebugEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeviceFilterAttribute
-  = DFAARN
-  | DFAAvailability
-  | DFAFleetType
-  | DFAFormFactor
-  | DFAInstanceARN
-  | DFAInstanceLabels
-  | DFAManufacturer
-  | DFAModel
-  | DFAOSVersion
-  | DFAPlatform
-  | DFARemoteAccessEnabled
-  | DFARemoteDebugEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeviceFilterAttribute = DeviceFilterAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeviceFilterAttribute where
-  parser =
-    takeLowerText >>= \case
-      "arn" -> pure DFAARN
-      "availability" -> pure DFAAvailability
-      "fleet_type" -> pure DFAFleetType
-      "form_factor" -> pure DFAFormFactor
-      "instance_arn" -> pure DFAInstanceARN
-      "instance_labels" -> pure DFAInstanceLabels
-      "manufacturer" -> pure DFAManufacturer
-      "model" -> pure DFAModel
-      "os_version" -> pure DFAOSVersion
-      "platform" -> pure DFAPlatform
-      "remote_access_enabled" -> pure DFARemoteAccessEnabled
-      "remote_debug_enabled" -> pure DFARemoteDebugEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DeviceFilterAttribute from value: '" <> e
-            <> "'. Accepted values: arn, availability, fleet_type, form_factor, instance_arn, instance_labels, manufacturer, model, os_version, platform, remote_access_enabled, remote_debug_enabled"
+pattern DFAARN :: DeviceFilterAttribute
+pattern DFAARN = DeviceFilterAttribute' "ARN"
 
-instance ToText DeviceFilterAttribute where
-  toText = \case
-    DFAARN -> "ARN"
-    DFAAvailability -> "AVAILABILITY"
-    DFAFleetType -> "FLEET_TYPE"
-    DFAFormFactor -> "FORM_FACTOR"
-    DFAInstanceARN -> "INSTANCE_ARN"
-    DFAInstanceLabels -> "INSTANCE_LABELS"
-    DFAManufacturer -> "MANUFACTURER"
-    DFAModel -> "MODEL"
-    DFAOSVersion -> "OS_VERSION"
-    DFAPlatform -> "PLATFORM"
-    DFARemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
-    DFARemoteDebugEnabled -> "REMOTE_DEBUG_ENABLED"
+pattern DFAAvailability :: DeviceFilterAttribute
+pattern DFAAvailability = DeviceFilterAttribute' "AVAILABILITY"
 
-instance Hashable DeviceFilterAttribute
+pattern DFAFleetType :: DeviceFilterAttribute
+pattern DFAFleetType = DeviceFilterAttribute' "FLEET_TYPE"
 
-instance NFData DeviceFilterAttribute
+pattern DFAFormFactor :: DeviceFilterAttribute
+pattern DFAFormFactor = DeviceFilterAttribute' "FORM_FACTOR"
 
-instance ToByteString DeviceFilterAttribute
+pattern DFAInstanceARN :: DeviceFilterAttribute
+pattern DFAInstanceARN = DeviceFilterAttribute' "INSTANCE_ARN"
 
-instance ToQuery DeviceFilterAttribute
+pattern DFAInstanceLabels :: DeviceFilterAttribute
+pattern DFAInstanceLabels = DeviceFilterAttribute' "INSTANCE_LABELS"
 
-instance ToHeader DeviceFilterAttribute
+pattern DFAManufacturer :: DeviceFilterAttribute
+pattern DFAManufacturer = DeviceFilterAttribute' "MANUFACTURER"
 
-instance ToJSON DeviceFilterAttribute where
-  toJSON = toJSONText
+pattern DFAModel :: DeviceFilterAttribute
+pattern DFAModel = DeviceFilterAttribute' "MODEL"
 
-instance FromJSON DeviceFilterAttribute where
-  parseJSON = parseJSONText "DeviceFilterAttribute"
+pattern DFAOSVersion :: DeviceFilterAttribute
+pattern DFAOSVersion = DeviceFilterAttribute' "OS_VERSION"
+
+pattern DFAPlatform :: DeviceFilterAttribute
+pattern DFAPlatform = DeviceFilterAttribute' "PLATFORM"
+
+pattern DFARemoteAccessEnabled :: DeviceFilterAttribute
+pattern DFARemoteAccessEnabled = DeviceFilterAttribute' "REMOTE_ACCESS_ENABLED"
+
+pattern DFARemoteDebugEnabled :: DeviceFilterAttribute
+pattern DFARemoteDebugEnabled = DeviceFilterAttribute' "REMOTE_DEBUG_ENABLED"
+
+{-# COMPLETE
+  DFAARN,
+  DFAAvailability,
+  DFAFleetType,
+  DFAFormFactor,
+  DFAInstanceARN,
+  DFAInstanceLabels,
+  DFAManufacturer,
+  DFAModel,
+  DFAOSVersion,
+  DFAPlatform,
+  DFARemoteAccessEnabled,
+  DFARemoteDebugEnabled,
+  DeviceFilterAttribute'
+  #-}

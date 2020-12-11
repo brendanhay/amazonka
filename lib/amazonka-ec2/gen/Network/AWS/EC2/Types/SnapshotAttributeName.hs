@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SnapshotAttributeName where
+module Network.AWS.EC2.Types.SnapshotAttributeName
+  ( SnapshotAttributeName
+      ( SnapshotAttributeName',
+        SANCreateVolumePermission,
+        SANProductCodes
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SnapshotAttributeName
-  = SANCreateVolumePermission
-  | SANProductCodes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SnapshotAttributeName = SnapshotAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SnapshotAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "createvolumepermission" -> pure SANCreateVolumePermission
-      "productcodes" -> pure SANProductCodes
-      e ->
-        fromTextError $
-          "Failure parsing SnapshotAttributeName from value: '" <> e
-            <> "'. Accepted values: createvolumepermission, productcodes"
+pattern SANCreateVolumePermission :: SnapshotAttributeName
+pattern SANCreateVolumePermission = SnapshotAttributeName' "createVolumePermission"
 
-instance ToText SnapshotAttributeName where
-  toText = \case
-    SANCreateVolumePermission -> "createVolumePermission"
-    SANProductCodes -> "productCodes"
+pattern SANProductCodes :: SnapshotAttributeName
+pattern SANProductCodes = SnapshotAttributeName' "productCodes"
 
-instance Hashable SnapshotAttributeName
-
-instance NFData SnapshotAttributeName
-
-instance ToByteString SnapshotAttributeName
-
-instance ToQuery SnapshotAttributeName
-
-instance ToHeader SnapshotAttributeName
+{-# COMPLETE
+  SANCreateVolumePermission,
+  SANProductCodes,
+  SnapshotAttributeName'
+  #-}

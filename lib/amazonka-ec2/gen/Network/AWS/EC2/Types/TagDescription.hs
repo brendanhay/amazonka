@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TagDescription where
+module Network.AWS.EC2.Types.TagDescription
+  ( TagDescription (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTagDescription,
+
+    -- * Lenses
+    tdResourceId,
+    tdResourceType,
+    tdKey,
+    tdValue,
+  )
+where
+
 import Network.AWS.EC2.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a tag.
 --
---
---
--- /See:/ 'tagDescription' smart constructor.
+-- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { _tdResourceId :: !Text,
-    _tdResourceType :: !ResourceType,
-    _tdKey :: !Text,
-    _tdValue :: !Text
+  { resourceId :: Lude.Text,
+    resourceType :: ResourceType,
+    key :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdResourceId' - The ID of the resource.
---
--- * 'tdResourceType' - The resource type.
---
--- * 'tdKey' - The tag key.
---
--- * 'tdValue' - The tag value.
-tagDescription ::
-  -- | 'tdResourceId'
-  Text ->
-  -- | 'tdResourceType'
+-- * 'key' - The tag key.
+-- * 'resourceId' - The ID of the resource.
+-- * 'resourceType' - The resource type.
+-- * 'value' - The tag value.
+mkTagDescription ::
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'resourceType'
   ResourceType ->
-  -- | 'tdKey'
-  Text ->
-  -- | 'tdValue'
-  Text ->
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   TagDescription
-tagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
+mkTagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
   TagDescription'
-    { _tdResourceId = pResourceId_,
-      _tdResourceType = pResourceType_,
-      _tdKey = pKey_,
-      _tdValue = pValue_
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_,
+      key = pKey_,
+      value = pValue_
     }
 
 -- | The ID of the resource.
-tdResourceId :: Lens' TagDescription Text
-tdResourceId = lens _tdResourceId (\s a -> s {_tdResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdResourceId :: Lens.Lens' TagDescription Lude.Text
+tdResourceId = Lens.lens (resourceId :: TagDescription -> Lude.Text) (\s a -> s {resourceId = a} :: TagDescription)
+{-# DEPRECATED tdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type.
-tdResourceType :: Lens' TagDescription ResourceType
-tdResourceType = lens _tdResourceType (\s a -> s {_tdResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdResourceType :: Lens.Lens' TagDescription ResourceType
+tdResourceType = Lens.lens (resourceType :: TagDescription -> ResourceType) (\s a -> s {resourceType = a} :: TagDescription)
+{-# DEPRECATED tdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tag key.
-tdKey :: Lens' TagDescription Text
-tdKey = lens _tdKey (\s a -> s {_tdKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdKey :: Lens.Lens' TagDescription Lude.Text
+tdKey = Lens.lens (key :: TagDescription -> Lude.Text) (\s a -> s {key = a} :: TagDescription)
+{-# DEPRECATED tdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The tag value.
-tdValue :: Lens' TagDescription Text
-tdValue = lens _tdValue (\s a -> s {_tdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdValue :: Lens.Lens' TagDescription Lude.Text
+tdValue = Lens.lens (value :: TagDescription -> Lude.Text) (\s a -> s {value = a} :: TagDescription)
+{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML TagDescription where
+instance Lude.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      <$> (x .@ "resourceId")
-      <*> (x .@ "resourceType")
-      <*> (x .@ "key")
-      <*> (x .@ "value")
-
-instance Hashable TagDescription
-
-instance NFData TagDescription
+      Lude.<$> (x Lude..@ "resourceId")
+      Lude.<*> (x Lude..@ "resourceType")
+      Lude.<*> (x Lude..@ "key")
+      Lude.<*> (x Lude..@ "value")

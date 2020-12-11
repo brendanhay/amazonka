@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd where
+module Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
+  ( VideoDescriptionRespondToAfd
+      ( VideoDescriptionRespondToAfd',
+        None,
+        Passthrough,
+        Respond
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Description Respond To Afd
-data VideoDescriptionRespondToAfd
-  = None
-  | Passthrough
-  | Respond
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VideoDescriptionRespondToAfd = VideoDescriptionRespondToAfd' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VideoDescriptionRespondToAfd where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "passthrough" -> pure Passthrough
-      "respond" -> pure Respond
-      e ->
-        fromTextError $
-          "Failure parsing VideoDescriptionRespondToAfd from value: '" <> e
-            <> "'. Accepted values: none, passthrough, respond"
+pattern None :: VideoDescriptionRespondToAfd
+pattern None = VideoDescriptionRespondToAfd' "NONE"
 
-instance ToText VideoDescriptionRespondToAfd where
-  toText = \case
-    None -> "NONE"
-    Passthrough -> "PASSTHROUGH"
-    Respond -> "RESPOND"
+pattern Passthrough :: VideoDescriptionRespondToAfd
+pattern Passthrough = VideoDescriptionRespondToAfd' "PASSTHROUGH"
 
-instance Hashable VideoDescriptionRespondToAfd
+pattern Respond :: VideoDescriptionRespondToAfd
+pattern Respond = VideoDescriptionRespondToAfd' "RESPOND"
 
-instance NFData VideoDescriptionRespondToAfd
-
-instance ToByteString VideoDescriptionRespondToAfd
-
-instance ToQuery VideoDescriptionRespondToAfd
-
-instance ToHeader VideoDescriptionRespondToAfd
-
-instance ToJSON VideoDescriptionRespondToAfd where
-  toJSON = toJSONText
-
-instance FromJSON VideoDescriptionRespondToAfd where
-  parseJSON = parseJSONText "VideoDescriptionRespondToAfd"
+{-# COMPLETE
+  None,
+  Passthrough,
+  Respond,
+  VideoDescriptionRespondToAfd'
+  #-}

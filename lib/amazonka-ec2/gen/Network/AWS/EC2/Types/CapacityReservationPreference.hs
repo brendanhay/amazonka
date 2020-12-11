@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationPreference where
+module Network.AWS.EC2.Types.CapacityReservationPreference
+  ( CapacityReservationPreference
+      ( CapacityReservationPreference',
+        None,
+        Open
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CapacityReservationPreference
-  = None
-  | Open
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CapacityReservationPreference = CapacityReservationPreference' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CapacityReservationPreference where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "open" -> pure Open
-      e ->
-        fromTextError $
-          "Failure parsing CapacityReservationPreference from value: '" <> e
-            <> "'. Accepted values: none, open"
+pattern None :: CapacityReservationPreference
+pattern None = CapacityReservationPreference' "none"
 
-instance ToText CapacityReservationPreference where
-  toText = \case
-    None -> "none"
-    Open -> "open"
+pattern Open :: CapacityReservationPreference
+pattern Open = CapacityReservationPreference' "open"
 
-instance Hashable CapacityReservationPreference
-
-instance NFData CapacityReservationPreference
-
-instance ToByteString CapacityReservationPreference
-
-instance ToQuery CapacityReservationPreference
-
-instance ToHeader CapacityReservationPreference
-
-instance FromXML CapacityReservationPreference where
-  parseXML = parseXMLText "CapacityReservationPreference"
+{-# COMPLETE
+  None,
+  Open,
+  CapacityReservationPreference'
+  #-}

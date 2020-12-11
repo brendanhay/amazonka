@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists all GuardDuty membership invitations that were sent to the current AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.GuardDuty.ListInvitations
-  ( -- * Creating a Request
-    listInvitations,
-    ListInvitations,
+  ( -- * Creating a request
+    ListInvitations (..),
+    mkListInvitations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liNextToken,
     liMaxResults,
 
-    -- * Destructuring the Response
-    listInvitationsResponse,
-    ListInvitationsResponse,
+    -- * Destructuring the response
+    ListInvitationsResponse (..),
+    mkListInvitationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsInvitations,
     lirsNextToken,
     lirsResponseStatus,
@@ -43,116 +36,140 @@ module Network.AWS.GuardDuty.ListInvitations
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listInvitations' smart constructor.
+-- | /See:/ 'mkListInvitations' smart constructor.
 data ListInvitations = ListInvitations'
-  { _liNextToken ::
-      !(Maybe Text),
-    _liMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInvitations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
---
--- * 'liMaxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
-listInvitations ::
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+mkListInvitations ::
   ListInvitations
-listInvitations =
-  ListInvitations' {_liNextToken = Nothing, _liMaxResults = Nothing}
+mkListInvitations =
+  ListInvitations'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-liNextToken :: Lens' ListInvitations (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s {_liNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListInvitations (Lude.Maybe Lude.Text)
+liNextToken = Lens.lens (nextToken :: ListInvitations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInvitations)
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
-liMaxResults :: Lens' ListInvitations (Maybe Natural)
-liMaxResults = lens _liMaxResults (\s a -> s {_liMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListInvitations (Lude.Maybe Lude.Natural)
+liMaxResults = Lens.lens (maxResults :: ListInvitations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInvitations)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListInvitations where
+instance Page.AWSPager ListInvitations where
   page rq rs
-    | stop (rs ^. lirsNextToken) = Nothing
-    | stop (rs ^. lirsInvitations) = Nothing
-    | otherwise = Just $ rq & liNextToken .~ rs ^. lirsNextToken
+    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirsInvitations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
 
-instance AWSRequest ListInvitations where
+instance Lude.AWSRequest ListInvitations where
   type Rs ListInvitations = ListInvitationsResponse
-  request = get guardDuty
+  request = Req.get guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInvitationsResponse'
-            <$> (x .?> "invitations" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "invitations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInvitations
-
-instance NFData ListInvitations
-
-instance ToHeaders ListInvitations where
+instance Lude.ToHeaders ListInvitations where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListInvitations where
-  toPath = const "/invitation"
+instance Lude.ToPath ListInvitations where
+  toPath = Lude.const "/invitation"
 
-instance ToQuery ListInvitations where
+instance Lude.ToQuery ListInvitations where
   toQuery ListInvitations' {..} =
-    mconcat
-      ["nextToken" =: _liNextToken, "maxResults" =: _liMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listInvitationsResponse' smart constructor.
+-- | /See:/ 'mkListInvitationsResponse' smart constructor.
 data ListInvitationsResponse = ListInvitationsResponse'
-  { _lirsInvitations ::
-      !(Maybe [Invitation]),
-    _lirsNextToken :: !(Maybe Text),
-    _lirsResponseStatus :: !Int
+  { invitations ::
+      Lude.Maybe [Invitation],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInvitationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsInvitations' - A list of invitation descriptions.
---
--- * 'lirsNextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listInvitationsResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'invitations' - A list of invitation descriptions.
+-- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
+-- * 'responseStatus' - The response status code.
+mkListInvitationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInvitationsResponse
-listInvitationsResponse pResponseStatus_ =
+mkListInvitationsResponse pResponseStatus_ =
   ListInvitationsResponse'
-    { _lirsInvitations = Nothing,
-      _lirsNextToken = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { invitations = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of invitation descriptions.
-lirsInvitations :: Lens' ListInvitationsResponse [Invitation]
-lirsInvitations = lens _lirsInvitations (\s a -> s {_lirsInvitations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'invitations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsInvitations :: Lens.Lens' ListInvitationsResponse (Lude.Maybe [Invitation])
+lirsInvitations = Lens.lens (invitations :: ListInvitationsResponse -> Lude.Maybe [Invitation]) (\s a -> s {invitations = a} :: ListInvitationsResponse)
+{-# DEPRECATED lirsInvitations "Use generic-lens or generic-optics with 'invitations' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
-lirsNextToken :: Lens' ListInvitationsResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s {_lirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsNextToken :: Lens.Lens' ListInvitationsResponse (Lude.Maybe Lude.Text)
+lirsNextToken = Lens.lens (nextToken :: ListInvitationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInvitationsResponse)
+{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListInvitationsResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListInvitationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListInvitationsResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInvitationsResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

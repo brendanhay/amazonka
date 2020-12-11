@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,178 +7,265 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Deployment where
+module Network.AWS.ECS.Types.Deployment
+  ( Deployment (..),
+
+    -- * Smart constructor
+    mkDeployment,
+
+    -- * Lenses
+    dRolloutState,
+    dRunningCount,
+    dStatus,
+    dCreatedAt,
+    dPlatformVersion,
+    dDesiredCount,
+    dPendingCount,
+    dId,
+    dFailedTasks,
+    dLaunchType,
+    dUpdatedAt,
+    dTaskDefinition,
+    dRolloutStateReason,
+    dNetworkConfiguration,
+    dCapacityProviderStrategy,
+  )
+where
 
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.DeploymentRolloutState
 import Network.AWS.ECS.Types.LaunchType
 import Network.AWS.ECS.Types.NetworkConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of an Amazon ECS service deployment. This is used only when a service uses the @ECS@ deployment controller type.
 --
---
---
--- /See:/ 'deployment' smart constructor.
+-- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { _dRolloutState ::
-      !(Maybe DeploymentRolloutState),
-    _dRunningCount :: !(Maybe Int),
-    _dStatus :: !(Maybe Text),
-    _dCreatedAt :: !(Maybe POSIX),
-    _dPlatformVersion :: !(Maybe Text),
-    _dDesiredCount :: !(Maybe Int),
-    _dPendingCount :: !(Maybe Int),
-    _dId :: !(Maybe Text),
-    _dFailedTasks :: !(Maybe Int),
-    _dLaunchType :: !(Maybe LaunchType),
-    _dUpdatedAt :: !(Maybe POSIX),
-    _dTaskDefinition :: !(Maybe Text),
-    _dRolloutStateReason :: !(Maybe Text),
-    _dNetworkConfiguration :: !(Maybe NetworkConfiguration),
-    _dCapacityProviderStrategy ::
-      !(Maybe [CapacityProviderStrategyItem])
+  { rolloutState ::
+      Lude.Maybe DeploymentRolloutState,
+    runningCount :: Lude.Maybe Lude.Int,
+    status :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    platformVersion :: Lude.Maybe Lude.Text,
+    desiredCount :: Lude.Maybe Lude.Int,
+    pendingCount :: Lude.Maybe Lude.Int,
+    id :: Lude.Maybe Lude.Text,
+    failedTasks :: Lude.Maybe Lude.Int,
+    launchType :: Lude.Maybe LaunchType,
+    updatedAt :: Lude.Maybe Lude.Timestamp,
+    taskDefinition :: Lude.Maybe Lude.Text,
+    rolloutStateReason :: Lude.Maybe Lude.Text,
+    networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    capacityProviderStrategy ::
+      Lude.Maybe [CapacityProviderStrategyItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'capacityProviderStrategy' - The capacity provider strategy that the deployment is using.
+-- * 'createdAt' - The Unix timestamp for when the service deployment was created.
+-- * 'desiredCount' - The most recent desired count of tasks that was specified for the service to deploy or maintain.
+-- * 'failedTasks' - The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
+-- * 'id' - The ID of the deployment.
+-- * 'launchType' - The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
+-- * 'pendingCount' - The number of tasks in the deployment that are in the @PENDING@ status.
+-- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'rolloutState' - The rollout state of the deployment. When a service deployment is started, it begins in an @IN_PROGRESS@ state. When the service reaches a steady state, the deployment will transition to a @COMPLETED@ state. If the service fails to reach a steady state and circuit breaker is enabled, the deployment will transition to a @FAILED@ state. A deployment in @FAILED@ state will launch no new tasks. For more information, see 'DeploymentCircuitBreaker' .
+-- * 'rolloutStateReason' - A description of the rollout state of a deployment.
+-- * 'runningCount' - The number of tasks in the deployment that are in the @RUNNING@ status.
+-- * 'status' - The status of the deployment. The following describes each state:
 --
--- * 'dRolloutState' - The rollout state of the deployment. When a service deployment is started, it begins in an @IN_PROGRESS@ state. When the service reaches a steady state, the deployment will transition to a @COMPLETED@ state. If the service fails to reach a steady state and circuit breaker is enabled, the deployment will transition to a @FAILED@ state. A deployment in @FAILED@ state will launch no new tasks. For more information, see 'DeploymentCircuitBreaker' .
 --
--- * 'dRunningCount' - The number of tasks in the deployment that are in the @RUNNING@ status.
+--     * PRIMARY
 --
--- * 'dStatus' - The status of the deployment. The following describes each state:     * PRIMARY    * The most recent deployment of a service.     * ACTIVE    * A service deployment that still has running tasks, but are in the process of being replaced with a new @PRIMARY@ deployment.     * INACTIVE    * A deployment that has been completely replaced.
+--     * The most recent deployment of a service.
 --
--- * 'dCreatedAt' - The Unix timestamp for when the service deployment was created.
 --
--- * 'dPlatformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * ACTIVE
 --
--- * 'dDesiredCount' - The most recent desired count of tasks that was specified for the service to deploy or maintain.
+--     * A service deployment that still has running tasks, but are in the process of being replaced with a new @PRIMARY@ deployment.
 --
--- * 'dPendingCount' - The number of tasks in the deployment that are in the @PENDING@ status.
 --
--- * 'dId' - The ID of the deployment.
+--     * INACTIVE
 --
--- * 'dFailedTasks' - The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
+--     * A deployment that has been completely replaced.
 --
--- * 'dLaunchType' - The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
 --
--- * 'dUpdatedAt' - The Unix timestamp for when the service deployment was last updated.
---
--- * 'dTaskDefinition' - The most recent task definition that was specified for the tasks in the service to use.
---
--- * 'dRolloutStateReason' - A description of the rollout state of a deployment.
---
--- * 'dNetworkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
---
--- * 'dCapacityProviderStrategy' - The capacity provider strategy that the deployment is using.
-deployment ::
+-- * 'taskDefinition' - The most recent task definition that was specified for the tasks in the service to use.
+-- * 'updatedAt' - The Unix timestamp for when the service deployment was last updated.
+mkDeployment ::
   Deployment
-deployment =
+mkDeployment =
   Deployment'
-    { _dRolloutState = Nothing,
-      _dRunningCount = Nothing,
-      _dStatus = Nothing,
-      _dCreatedAt = Nothing,
-      _dPlatformVersion = Nothing,
-      _dDesiredCount = Nothing,
-      _dPendingCount = Nothing,
-      _dId = Nothing,
-      _dFailedTasks = Nothing,
-      _dLaunchType = Nothing,
-      _dUpdatedAt = Nothing,
-      _dTaskDefinition = Nothing,
-      _dRolloutStateReason = Nothing,
-      _dNetworkConfiguration = Nothing,
-      _dCapacityProviderStrategy = Nothing
+    { rolloutState = Lude.Nothing,
+      runningCount = Lude.Nothing,
+      status = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      platformVersion = Lude.Nothing,
+      desiredCount = Lude.Nothing,
+      pendingCount = Lude.Nothing,
+      id = Lude.Nothing,
+      failedTasks = Lude.Nothing,
+      launchType = Lude.Nothing,
+      updatedAt = Lude.Nothing,
+      taskDefinition = Lude.Nothing,
+      rolloutStateReason = Lude.Nothing,
+      networkConfiguration = Lude.Nothing,
+      capacityProviderStrategy = Lude.Nothing
     }
 
 -- | The rollout state of the deployment. When a service deployment is started, it begins in an @IN_PROGRESS@ state. When the service reaches a steady state, the deployment will transition to a @COMPLETED@ state. If the service fails to reach a steady state and circuit breaker is enabled, the deployment will transition to a @FAILED@ state. A deployment in @FAILED@ state will launch no new tasks. For more information, see 'DeploymentCircuitBreaker' .
-dRolloutState :: Lens' Deployment (Maybe DeploymentRolloutState)
-dRolloutState = lens _dRolloutState (\s a -> s {_dRolloutState = a})
+--
+-- /Note:/ Consider using 'rolloutState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRolloutState :: Lens.Lens' Deployment (Lude.Maybe DeploymentRolloutState)
+dRolloutState = Lens.lens (rolloutState :: Deployment -> Lude.Maybe DeploymentRolloutState) (\s a -> s {rolloutState = a} :: Deployment)
+{-# DEPRECATED dRolloutState "Use generic-lens or generic-optics with 'rolloutState' instead." #-}
 
 -- | The number of tasks in the deployment that are in the @RUNNING@ status.
-dRunningCount :: Lens' Deployment (Maybe Int)
-dRunningCount = lens _dRunningCount (\s a -> s {_dRunningCount = a})
+--
+-- /Note:/ Consider using 'runningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRunningCount :: Lens.Lens' Deployment (Lude.Maybe Lude.Int)
+dRunningCount = Lens.lens (runningCount :: Deployment -> Lude.Maybe Lude.Int) (\s a -> s {runningCount = a} :: Deployment)
+{-# DEPRECATED dRunningCount "Use generic-lens or generic-optics with 'runningCount' instead." #-}
 
--- | The status of the deployment. The following describes each state:     * PRIMARY    * The most recent deployment of a service.     * ACTIVE    * A service deployment that still has running tasks, but are in the process of being replaced with a new @PRIMARY@ deployment.     * INACTIVE    * A deployment that has been completely replaced.
-dStatus :: Lens' Deployment (Maybe Text)
-dStatus = lens _dStatus (\s a -> s {_dStatus = a})
+-- | The status of the deployment. The following describes each state:
+--
+--
+--     * PRIMARY
+--
+--     * The most recent deployment of a service.
+--
+--
+--     * ACTIVE
+--
+--     * A service deployment that still has running tasks, but are in the process of being replaced with a new @PRIMARY@ deployment.
+--
+--
+--     * INACTIVE
+--
+--     * A deployment that has been completely replaced.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStatus :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dStatus = Lens.lens (status :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Deployment)
+{-# DEPRECATED dStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Unix timestamp for when the service deployment was created.
-dCreatedAt :: Lens' Deployment (Maybe UTCTime)
-dCreatedAt = lens _dCreatedAt (\s a -> s {_dCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCreatedAt :: Lens.Lens' Deployment (Lude.Maybe Lude.Timestamp)
+dCreatedAt = Lens.lens (createdAt :: Deployment -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Deployment)
+{-# DEPRECATED dCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
-dPlatformVersion :: Lens' Deployment (Maybe Text)
-dPlatformVersion = lens _dPlatformVersion (\s a -> s {_dPlatformVersion = a})
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPlatformVersion :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dPlatformVersion = Lens.lens (platformVersion :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: Deployment)
+{-# DEPRECATED dPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | The most recent desired count of tasks that was specified for the service to deploy or maintain.
-dDesiredCount :: Lens' Deployment (Maybe Int)
-dDesiredCount = lens _dDesiredCount (\s a -> s {_dDesiredCount = a})
+--
+-- /Note:/ Consider using 'desiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDesiredCount :: Lens.Lens' Deployment (Lude.Maybe Lude.Int)
+dDesiredCount = Lens.lens (desiredCount :: Deployment -> Lude.Maybe Lude.Int) (\s a -> s {desiredCount = a} :: Deployment)
+{-# DEPRECATED dDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
 
 -- | The number of tasks in the deployment that are in the @PENDING@ status.
-dPendingCount :: Lens' Deployment (Maybe Int)
-dPendingCount = lens _dPendingCount (\s a -> s {_dPendingCount = a})
+--
+-- /Note:/ Consider using 'pendingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPendingCount :: Lens.Lens' Deployment (Lude.Maybe Lude.Int)
+dPendingCount = Lens.lens (pendingCount :: Deployment -> Lude.Maybe Lude.Int) (\s a -> s {pendingCount = a} :: Deployment)
+{-# DEPRECATED dPendingCount "Use generic-lens or generic-optics with 'pendingCount' instead." #-}
 
 -- | The ID of the deployment.
-dId :: Lens' Deployment (Maybe Text)
-dId = lens _dId (\s a -> s {_dId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dId :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dId = Lens.lens (id :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Deployment)
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
-dFailedTasks :: Lens' Deployment (Maybe Int)
-dFailedTasks = lens _dFailedTasks (\s a -> s {_dFailedTasks = a})
+--
+-- /Note:/ Consider using 'failedTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFailedTasks :: Lens.Lens' Deployment (Lude.Maybe Lude.Int)
+dFailedTasks = Lens.lens (failedTasks :: Deployment -> Lude.Maybe Lude.Int) (\s a -> s {failedTasks = a} :: Deployment)
+{-# DEPRECATED dFailedTasks "Use generic-lens or generic-optics with 'failedTasks' instead." #-}
 
 -- | The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
-dLaunchType :: Lens' Deployment (Maybe LaunchType)
-dLaunchType = lens _dLaunchType (\s a -> s {_dLaunchType = a})
+--
+-- /Note:/ Consider using 'launchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLaunchType :: Lens.Lens' Deployment (Lude.Maybe LaunchType)
+dLaunchType = Lens.lens (launchType :: Deployment -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: Deployment)
+{-# DEPRECATED dLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
 
 -- | The Unix timestamp for when the service deployment was last updated.
-dUpdatedAt :: Lens' Deployment (Maybe UTCTime)
-dUpdatedAt = lens _dUpdatedAt (\s a -> s {_dUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUpdatedAt :: Lens.Lens' Deployment (Lude.Maybe Lude.Timestamp)
+dUpdatedAt = Lens.lens (updatedAt :: Deployment -> Lude.Maybe Lude.Timestamp) (\s a -> s {updatedAt = a} :: Deployment)
+{-# DEPRECATED dUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
 -- | The most recent task definition that was specified for the tasks in the service to use.
-dTaskDefinition :: Lens' Deployment (Maybe Text)
-dTaskDefinition = lens _dTaskDefinition (\s a -> s {_dTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTaskDefinition :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dTaskDefinition = Lens.lens (taskDefinition :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: Deployment)
+{-# DEPRECATED dTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
 -- | A description of the rollout state of a deployment.
-dRolloutStateReason :: Lens' Deployment (Maybe Text)
-dRolloutStateReason = lens _dRolloutStateReason (\s a -> s {_dRolloutStateReason = a})
+--
+-- /Note:/ Consider using 'rolloutStateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRolloutStateReason :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dRolloutStateReason = Lens.lens (rolloutStateReason :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {rolloutStateReason = a} :: Deployment)
+{-# DEPRECATED dRolloutStateReason "Use generic-lens or generic-optics with 'rolloutStateReason' instead." #-}
 
 -- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
-dNetworkConfiguration :: Lens' Deployment (Maybe NetworkConfiguration)
-dNetworkConfiguration = lens _dNetworkConfiguration (\s a -> s {_dNetworkConfiguration = a})
+--
+-- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNetworkConfiguration :: Lens.Lens' Deployment (Lude.Maybe NetworkConfiguration)
+dNetworkConfiguration = Lens.lens (networkConfiguration :: Deployment -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: Deployment)
+{-# DEPRECATED dNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
 -- | The capacity provider strategy that the deployment is using.
-dCapacityProviderStrategy :: Lens' Deployment [CapacityProviderStrategyItem]
-dCapacityProviderStrategy = lens _dCapacityProviderStrategy (\s a -> s {_dCapacityProviderStrategy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'capacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCapacityProviderStrategy :: Lens.Lens' Deployment (Lude.Maybe [CapacityProviderStrategyItem])
+dCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: Deployment -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: Deployment)
+{-# DEPRECATED dCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
 
-instance FromJSON Deployment where
+instance Lude.FromJSON Deployment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            <$> (x .:? "rolloutState")
-            <*> (x .:? "runningCount")
-            <*> (x .:? "status")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "platformVersion")
-            <*> (x .:? "desiredCount")
-            <*> (x .:? "pendingCount")
-            <*> (x .:? "id")
-            <*> (x .:? "failedTasks")
-            <*> (x .:? "launchType")
-            <*> (x .:? "updatedAt")
-            <*> (x .:? "taskDefinition")
-            <*> (x .:? "rolloutStateReason")
-            <*> (x .:? "networkConfiguration")
-            <*> (x .:? "capacityProviderStrategy" .!= mempty)
+            Lude.<$> (x Lude..:? "rolloutState")
+            Lude.<*> (x Lude..:? "runningCount")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "platformVersion")
+            Lude.<*> (x Lude..:? "desiredCount")
+            Lude.<*> (x Lude..:? "pendingCount")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "failedTasks")
+            Lude.<*> (x Lude..:? "launchType")
+            Lude.<*> (x Lude..:? "updatedAt")
+            Lude.<*> (x Lude..:? "taskDefinition")
+            Lude.<*> (x Lude..:? "rolloutStateReason")
+            Lude.<*> (x Lude..:? "networkConfiguration")
+            Lude.<*> (x Lude..:? "capacityProviderStrategy" Lude..!= Lude.mempty)
       )
-
-instance Hashable Deployment
-
-instance NFData Deployment

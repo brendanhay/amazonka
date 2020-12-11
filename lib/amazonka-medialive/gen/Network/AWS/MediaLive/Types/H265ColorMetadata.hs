@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265ColorMetadata where
+module Network.AWS.MediaLive.Types.H265ColorMetadata
+  ( H265ColorMetadata
+      ( H265ColorMetadata',
+        HCMIgnore,
+        HCMInsert
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Color Metadata
-data H265ColorMetadata
-  = HCMIgnore
-  | HCMInsert
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265ColorMetadata = H265ColorMetadata' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265ColorMetadata where
-  parser =
-    takeLowerText >>= \case
-      "ignore" -> pure HCMIgnore
-      "insert" -> pure HCMInsert
-      e ->
-        fromTextError $
-          "Failure parsing H265ColorMetadata from value: '" <> e
-            <> "'. Accepted values: ignore, insert"
+pattern HCMIgnore :: H265ColorMetadata
+pattern HCMIgnore = H265ColorMetadata' "IGNORE"
 
-instance ToText H265ColorMetadata where
-  toText = \case
-    HCMIgnore -> "IGNORE"
-    HCMInsert -> "INSERT"
+pattern HCMInsert :: H265ColorMetadata
+pattern HCMInsert = H265ColorMetadata' "INSERT"
 
-instance Hashable H265ColorMetadata
-
-instance NFData H265ColorMetadata
-
-instance ToByteString H265ColorMetadata
-
-instance ToQuery H265ColorMetadata
-
-instance ToHeader H265ColorMetadata
-
-instance ToJSON H265ColorMetadata where
-  toJSON = toJSONText
-
-instance FromJSON H265ColorMetadata where
-  parseJSON = parseJSONText "H265ColorMetadata"
+{-# COMPLETE
+  HCMIgnore,
+  HCMInsert,
+  H265ColorMetadata'
+  #-}

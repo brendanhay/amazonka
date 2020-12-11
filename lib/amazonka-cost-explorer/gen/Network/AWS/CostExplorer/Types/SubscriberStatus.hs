@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SubscriberStatus where
+module Network.AWS.CostExplorer.Types.SubscriberStatus
+  ( SubscriberStatus
+      ( SubscriberStatus',
+        Confirmed,
+        Declined
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SubscriberStatus
-  = Confirmed
-  | Declined
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubscriberStatus = SubscriberStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubscriberStatus where
-  parser =
-    takeLowerText >>= \case
-      "confirmed" -> pure Confirmed
-      "declined" -> pure Declined
-      e ->
-        fromTextError $
-          "Failure parsing SubscriberStatus from value: '" <> e
-            <> "'. Accepted values: confirmed, declined"
+pattern Confirmed :: SubscriberStatus
+pattern Confirmed = SubscriberStatus' "CONFIRMED"
 
-instance ToText SubscriberStatus where
-  toText = \case
-    Confirmed -> "CONFIRMED"
-    Declined -> "DECLINED"
+pattern Declined :: SubscriberStatus
+pattern Declined = SubscriberStatus' "DECLINED"
 
-instance Hashable SubscriberStatus
-
-instance NFData SubscriberStatus
-
-instance ToByteString SubscriberStatus
-
-instance ToQuery SubscriberStatus
-
-instance ToHeader SubscriberStatus
-
-instance ToJSON SubscriberStatus where
-  toJSON = toJSONText
-
-instance FromJSON SubscriberStatus where
-  parseJSON = parseJSONText "SubscriberStatus"
+{-# COMPLETE
+  Confirmed,
+  Declined,
+  SubscriberStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the specified configuration.
 module Network.AWS.MQ.DescribeConfiguration
-  ( -- * Creating a Request
-    describeConfiguration,
-    DescribeConfiguration,
+  ( -- * Creating a request
+    DescribeConfiguration (..),
+    mkDescribeConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcConfigurationId,
 
-    -- * Destructuring the Response
-    describeConfigurationResponse,
-    DescribeConfigurationResponse,
+    -- * Destructuring the response
+    DescribeConfigurationResponse (..),
+    mkDescribeConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsEngineVersion,
     dcrsARN,
     dcrsLatestRevision,
@@ -45,181 +40,220 @@ module Network.AWS.MQ.DescribeConfiguration
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeConfiguration' smart constructor.
+-- | /See:/ 'mkDescribeConfiguration' smart constructor.
 newtype DescribeConfiguration = DescribeConfiguration'
-  { _dcConfigurationId ::
-      Text
+  { configurationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcConfigurationId' - The unique ID that Amazon MQ generates for the configuration.
-describeConfiguration ::
-  -- | 'dcConfigurationId'
-  Text ->
+-- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
+mkDescribeConfiguration ::
+  -- | 'configurationId'
+  Lude.Text ->
   DescribeConfiguration
-describeConfiguration pConfigurationId_ =
-  DescribeConfiguration' {_dcConfigurationId = pConfigurationId_}
+mkDescribeConfiguration pConfigurationId_ =
+  DescribeConfiguration' {configurationId = pConfigurationId_}
 
 -- | The unique ID that Amazon MQ generates for the configuration.
-dcConfigurationId :: Lens' DescribeConfiguration Text
-dcConfigurationId = lens _dcConfigurationId (\s a -> s {_dcConfigurationId = a})
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcConfigurationId :: Lens.Lens' DescribeConfiguration Lude.Text
+dcConfigurationId = Lens.lens (configurationId :: DescribeConfiguration -> Lude.Text) (\s a -> s {configurationId = a} :: DescribeConfiguration)
+{-# DEPRECATED dcConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
-instance AWSRequest DescribeConfiguration where
+instance Lude.AWSRequest DescribeConfiguration where
   type Rs DescribeConfiguration = DescribeConfigurationResponse
-  request = get mq
+  request = Req.get mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigurationResponse'
-            <$> (x .?> "engineVersion")
-            <*> (x .?> "arn")
-            <*> (x .?> "latestRevision")
-            <*> (x .?> "created")
-            <*> (x .?> "authenticationStrategy")
-            <*> (x .?> "name")
-            <*> (x .?> "id")
-            <*> (x .?> "description")
-            <*> (x .?> "engineType")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "engineVersion")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "latestRevision")
+            Lude.<*> (x Lude..?> "created")
+            Lude.<*> (x Lude..?> "authenticationStrategy")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "engineType")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfiguration
-
-instance NFData DescribeConfiguration
-
-instance ToHeaders DescribeConfiguration where
+instance Lude.ToHeaders DescribeConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeConfiguration where
+instance Lude.ToPath DescribeConfiguration where
   toPath DescribeConfiguration' {..} =
-    mconcat ["/v1/configurations/", toBS _dcConfigurationId]
+    Lude.mconcat ["/v1/configurations/", Lude.toBS configurationId]
 
-instance ToQuery DescribeConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDescribeConfigurationResponse' smart constructor.
 data DescribeConfigurationResponse = DescribeConfigurationResponse'
-  { _dcrsEngineVersion ::
-      !(Maybe Text),
-    _dcrsARN :: !(Maybe Text),
-    _dcrsLatestRevision ::
-      !(Maybe ConfigurationRevision),
-    _dcrsCreated :: !(Maybe POSIX),
-    _dcrsAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _dcrsName :: !(Maybe Text),
-    _dcrsId :: !(Maybe Text),
-    _dcrsDescription ::
-      !(Maybe Text),
-    _dcrsEngineType ::
-      !(Maybe EngineType),
-    _dcrsTags ::
-      !(Maybe (Map Text (Text))),
-    _dcrsResponseStatus :: !Int
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    latestRevision ::
+      Lude.Maybe
+        ConfigurationRevision,
+    created ::
+      Lude.Maybe Lude.Timestamp,
+    authenticationStrategy ::
+      Lude.Maybe
+        AuthenticationStrategy,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text,
+    engineType ::
+      Lude.Maybe EngineType,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsEngineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'dcrsARN' - Required. The ARN of the configuration.
---
--- * 'dcrsLatestRevision' - Required. The latest revision of the configuration.
---
--- * 'dcrsCreated' - Required. The date and time of the configuration revision.
---
--- * 'dcrsAuthenticationStrategy' - The authentication strategy associated with the configuration.
---
--- * 'dcrsName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
---
--- * 'dcrsId' - Required. The unique ID that Amazon MQ generates for the configuration.
---
--- * 'dcrsDescription' - Required. The description of the configuration.
---
--- * 'dcrsEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
---
--- * 'dcrsTags' - The list of all tags associated with this configuration.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeConfigurationResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'arn' - Required. The ARN of the configuration.
+-- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'created' - Required. The date and time of the configuration revision.
+-- * 'description' - Required. The description of the configuration.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
+-- * 'latestRevision' - Required. The latest revision of the configuration.
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The list of all tags associated with this configuration.
+mkDescribeConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigurationResponse
-describeConfigurationResponse pResponseStatus_ =
+mkDescribeConfigurationResponse pResponseStatus_ =
   DescribeConfigurationResponse'
-    { _dcrsEngineVersion = Nothing,
-      _dcrsARN = Nothing,
-      _dcrsLatestRevision = Nothing,
-      _dcrsCreated = Nothing,
-      _dcrsAuthenticationStrategy = Nothing,
-      _dcrsName = Nothing,
-      _dcrsId = Nothing,
-      _dcrsDescription = Nothing,
-      _dcrsEngineType = Nothing,
-      _dcrsTags = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { engineVersion = Lude.Nothing,
+      arn = Lude.Nothing,
+      latestRevision = Lude.Nothing,
+      created = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      engineType = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-dcrsEngineVersion :: Lens' DescribeConfigurationResponse (Maybe Text)
-dcrsEngineVersion = lens _dcrsEngineVersion (\s a -> s {_dcrsEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsEngineVersion :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
+dcrsEngineVersion = Lens.lens (engineVersion :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Required. The ARN of the configuration.
-dcrsARN :: Lens' DescribeConfigurationResponse (Maybe Text)
-dcrsARN = lens _dcrsARN (\s a -> s {_dcrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsARN :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
+dcrsARN = Lens.lens (arn :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Required. The latest revision of the configuration.
-dcrsLatestRevision :: Lens' DescribeConfigurationResponse (Maybe ConfigurationRevision)
-dcrsLatestRevision = lens _dcrsLatestRevision (\s a -> s {_dcrsLatestRevision = a})
+--
+-- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsLatestRevision :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe ConfigurationRevision)
+dcrsLatestRevision = Lens.lens (latestRevision :: DescribeConfigurationResponse -> Lude.Maybe ConfigurationRevision) (\s a -> s {latestRevision = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
 
 -- | Required. The date and time of the configuration revision.
-dcrsCreated :: Lens' DescribeConfigurationResponse (Maybe UTCTime)
-dcrsCreated = lens _dcrsCreated (\s a -> s {_dcrsCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCreated :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Timestamp)
+dcrsCreated = Lens.lens (created :: DescribeConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The authentication strategy associated with the configuration.
-dcrsAuthenticationStrategy :: Lens' DescribeConfigurationResponse (Maybe AuthenticationStrategy)
-dcrsAuthenticationStrategy = lens _dcrsAuthenticationStrategy (\s a -> s {_dcrsAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsAuthenticationStrategy :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe AuthenticationStrategy)
+dcrsAuthenticationStrategy = Lens.lens (authenticationStrategy :: DescribeConfigurationResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-dcrsName :: Lens' DescribeConfigurationResponse (Maybe Text)
-dcrsName = lens _dcrsName (\s a -> s {_dcrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsName :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
+dcrsName = Lens.lens (name :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-dcrsId :: Lens' DescribeConfigurationResponse (Maybe Text)
-dcrsId = lens _dcrsId (\s a -> s {_dcrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsId :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
+dcrsId = Lens.lens (id :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Required. The description of the configuration.
-dcrsDescription :: Lens' DescribeConfigurationResponse (Maybe Text)
-dcrsDescription = lens _dcrsDescription (\s a -> s {_dcrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsDescription :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe Lude.Text)
+dcrsDescription = Lens.lens (description :: DescribeConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-dcrsEngineType :: Lens' DescribeConfigurationResponse (Maybe EngineType)
-dcrsEngineType = lens _dcrsEngineType (\s a -> s {_dcrsEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsEngineType :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe EngineType)
+dcrsEngineType = Lens.lens (engineType :: DescribeConfigurationResponse -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The list of all tags associated with this configuration.
-dcrsTags :: Lens' DescribeConfigurationResponse (HashMap Text (Text))
-dcrsTags = lens _dcrsTags (\s a -> s {_dcrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsTags :: Lens.Lens' DescribeConfigurationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dcrsTags = Lens.lens (tags :: DescribeConfigurationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeConfigurationResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeConfigurationResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,129 +7,169 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.Configuration where
+module Network.AWS.MQ.Types.Configuration
+  ( Configuration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkConfiguration,
+
+    -- * Lenses
+    cEngineVersion,
+    cARN,
+    cLatestRevision,
+    cCreated,
+    cAuthenticationStrategy,
+    cName,
+    cId,
+    cDescription,
+    cEngineType,
+    cTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.AuthenticationStrategy
 import Network.AWS.MQ.Types.ConfigurationRevision
 import Network.AWS.MQ.Types.EngineType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about all configurations.
 --
--- /See:/ 'configuration' smart constructor.
+-- /See:/ 'mkConfiguration' smart constructor.
 data Configuration = Configuration'
-  { _cEngineVersion ::
-      !(Maybe Text),
-    _cARN :: !(Maybe Text),
-    _cLatestRevision :: !(Maybe ConfigurationRevision),
-    _cCreated :: !(Maybe POSIX),
-    _cAuthenticationStrategy :: !(Maybe AuthenticationStrategy),
-    _cName :: !(Maybe Text),
-    _cId :: !(Maybe Text),
-    _cDescription :: !(Maybe Text),
-    _cEngineType :: !(Maybe EngineType),
-    _cTags :: !(Maybe (Map Text (Text)))
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    latestRevision :: Lude.Maybe ConfigurationRevision,
+    created :: Lude.Maybe Lude.Timestamp,
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    engineType :: Lude.Maybe EngineType,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Configuration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cEngineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'cARN' - Required. The ARN of the configuration.
---
--- * 'cLatestRevision' - Required. The latest revision of the configuration.
---
--- * 'cCreated' - Required. The date and time of the configuration revision.
---
--- * 'cAuthenticationStrategy' - The authentication strategy associated with the configuration.
---
--- * 'cName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
---
--- * 'cId' - Required. The unique ID that Amazon MQ generates for the configuration.
---
--- * 'cDescription' - Required. The description of the configuration.
---
--- * 'cEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
---
--- * 'cTags' - The list of all tags associated with this configuration.
-configuration ::
+-- * 'arn' - Required. The ARN of the configuration.
+-- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'created' - Required. The date and time of the configuration revision.
+-- * 'description' - Required. The description of the configuration.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
+-- * 'latestRevision' - Required. The latest revision of the configuration.
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'tags' - The list of all tags associated with this configuration.
+mkConfiguration ::
   Configuration
-configuration =
+mkConfiguration =
   Configuration'
-    { _cEngineVersion = Nothing,
-      _cARN = Nothing,
-      _cLatestRevision = Nothing,
-      _cCreated = Nothing,
-      _cAuthenticationStrategy = Nothing,
-      _cName = Nothing,
-      _cId = Nothing,
-      _cDescription = Nothing,
-      _cEngineType = Nothing,
-      _cTags = Nothing
+    { engineVersion = Lude.Nothing,
+      arn = Lude.Nothing,
+      latestRevision = Lude.Nothing,
+      created = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      engineType = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-cEngineVersion :: Lens' Configuration (Maybe Text)
-cEngineVersion = lens _cEngineVersion (\s a -> s {_cEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEngineVersion :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cEngineVersion = Lens.lens (engineVersion :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: Configuration)
+{-# DEPRECATED cEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Required. The ARN of the configuration.
-cARN :: Lens' Configuration (Maybe Text)
-cARN = lens _cARN (\s a -> s {_cARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cARN :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cARN = Lens.lens (arn :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Configuration)
+{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Required. The latest revision of the configuration.
-cLatestRevision :: Lens' Configuration (Maybe ConfigurationRevision)
-cLatestRevision = lens _cLatestRevision (\s a -> s {_cLatestRevision = a})
+--
+-- /Note:/ Consider using 'latestRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLatestRevision :: Lens.Lens' Configuration (Lude.Maybe ConfigurationRevision)
+cLatestRevision = Lens.lens (latestRevision :: Configuration -> Lude.Maybe ConfigurationRevision) (\s a -> s {latestRevision = a} :: Configuration)
+{-# DEPRECATED cLatestRevision "Use generic-lens or generic-optics with 'latestRevision' instead." #-}
 
 -- | Required. The date and time of the configuration revision.
-cCreated :: Lens' Configuration (Maybe UTCTime)
-cCreated = lens _cCreated (\s a -> s {_cCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreated :: Lens.Lens' Configuration (Lude.Maybe Lude.Timestamp)
+cCreated = Lens.lens (created :: Configuration -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Configuration)
+{-# DEPRECATED cCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The authentication strategy associated with the configuration.
-cAuthenticationStrategy :: Lens' Configuration (Maybe AuthenticationStrategy)
-cAuthenticationStrategy = lens _cAuthenticationStrategy (\s a -> s {_cAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAuthenticationStrategy :: Lens.Lens' Configuration (Lude.Maybe AuthenticationStrategy)
+cAuthenticationStrategy = Lens.lens (authenticationStrategy :: Configuration -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: Configuration)
+{-# DEPRECATED cAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-cName :: Lens' Configuration (Maybe Text)
-cName = lens _cName (\s a -> s {_cName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cName = Lens.lens (name :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Configuration)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-cId :: Lens' Configuration (Maybe Text)
-cId = lens _cId (\s a -> s {_cId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cId = Lens.lens (id :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Configuration)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Required. The description of the configuration.
-cDescription :: Lens' Configuration (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Configuration)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-cEngineType :: Lens' Configuration (Maybe EngineType)
-cEngineType = lens _cEngineType (\s a -> s {_cEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEngineType :: Lens.Lens' Configuration (Lude.Maybe EngineType)
+cEngineType = Lens.lens (engineType :: Configuration -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: Configuration)
+{-# DEPRECATED cEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The list of all tags associated with this configuration.
-cTags :: Lens' Configuration (HashMap Text (Text))
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' Configuration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cTags = Lens.lens (tags :: Configuration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: Configuration)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Configuration where
+instance Lude.FromJSON Configuration where
   parseJSON =
-    withObject
+    Lude.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            <$> (x .:? "engineVersion")
-            <*> (x .:? "arn")
-            <*> (x .:? "latestRevision")
-            <*> (x .:? "created")
-            <*> (x .:? "authenticationStrategy")
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "description")
-            <*> (x .:? "engineType")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "engineVersion")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "latestRevision")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "authenticationStrategy")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "engineType")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable Configuration
-
-instance NFData Configuration

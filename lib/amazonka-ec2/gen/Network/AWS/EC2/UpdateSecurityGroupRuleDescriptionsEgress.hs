@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,178 @@
 --
 -- [VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.
 --
---
 -- You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.
 module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
-  ( -- * Creating a Request
-    updateSecurityGroupRuleDescriptionsEgress,
-    UpdateSecurityGroupRuleDescriptionsEgress,
+  ( -- * Creating a request
+    UpdateSecurityGroupRuleDescriptionsEgress (..),
+    mkUpdateSecurityGroupRuleDescriptionsEgress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usgrdeGroupId,
     usgrdeGroupName,
     usgrdeDryRun,
     usgrdeIPPermissions,
 
-    -- * Destructuring the Response
-    updateSecurityGroupRuleDescriptionsEgressResponse,
-    UpdateSecurityGroupRuleDescriptionsEgressResponse,
+    -- * Destructuring the response
+    UpdateSecurityGroupRuleDescriptionsEgressResponse (..),
+    mkUpdateSecurityGroupRuleDescriptionsEgressResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usgrdersReturn,
     usgrdersResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSecurityGroupRuleDescriptionsEgress' smart constructor.
+-- | /See:/ 'mkUpdateSecurityGroupRuleDescriptionsEgress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescriptionsEgress'
-  { _usgrdeGroupId ::
-      !( Maybe
-           Text
-       ),
-    _usgrdeGroupName ::
-      !( Maybe
-           Text
-       ),
-    _usgrdeDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _usgrdeIPPermissions ::
-      ![IPPermission]
+  { groupId ::
+      Lude.Maybe
+        Lude.Text,
+    groupName ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    ipPermissions ::
+      [IPPermission]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSecurityGroupRuleDescriptionsEgress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usgrdeGroupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
---
--- * 'usgrdeGroupName' - [Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
---
--- * 'usgrdeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'usgrdeIPPermissions' - The IP permissions for the security group rule.
-updateSecurityGroupRuleDescriptionsEgress ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+-- * 'groupName' - [Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+-- * 'ipPermissions' - The IP permissions for the security group rule.
+mkUpdateSecurityGroupRuleDescriptionsEgress ::
   UpdateSecurityGroupRuleDescriptionsEgress
-updateSecurityGroupRuleDescriptionsEgress =
+mkUpdateSecurityGroupRuleDescriptionsEgress =
   UpdateSecurityGroupRuleDescriptionsEgress'
-    { _usgrdeGroupId =
-        Nothing,
-      _usgrdeGroupName = Nothing,
-      _usgrdeDryRun = Nothing,
-      _usgrdeIPPermissions = mempty
+    { groupId =
+        Lude.Nothing,
+      groupName = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      ipPermissions = Lude.mempty
     }
 
 -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-usgrdeGroupId :: Lens' UpdateSecurityGroupRuleDescriptionsEgress (Maybe Text)
-usgrdeGroupId = lens _usgrdeGroupId (\s a -> s {_usgrdeGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdeGroupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Lude.Maybe Lude.Text)
+usgrdeGroupId = Lens.lens (groupId :: UpdateSecurityGroupRuleDescriptionsEgress -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+{-# DEPRECATED usgrdeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | [Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
-usgrdeGroupName :: Lens' UpdateSecurityGroupRuleDescriptionsEgress (Maybe Text)
-usgrdeGroupName = lens _usgrdeGroupName (\s a -> s {_usgrdeGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdeGroupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Lude.Maybe Lude.Text)
+usgrdeGroupName = Lens.lens (groupName :: UpdateSecurityGroupRuleDescriptionsEgress -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+{-# DEPRECATED usgrdeGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-usgrdeDryRun :: Lens' UpdateSecurityGroupRuleDescriptionsEgress (Maybe Bool)
-usgrdeDryRun = lens _usgrdeDryRun (\s a -> s {_usgrdeDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdeDryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Lude.Maybe Lude.Bool)
+usgrdeDryRun = Lens.lens (dryRun :: UpdateSecurityGroupRuleDescriptionsEgress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+{-# DEPRECATED usgrdeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IP permissions for the security group rule.
-usgrdeIPPermissions :: Lens' UpdateSecurityGroupRuleDescriptionsEgress [IPPermission]
-usgrdeIPPermissions = lens _usgrdeIPPermissions (\s a -> s {_usgrdeIPPermissions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ipPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdeIPPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress [IPPermission]
+usgrdeIPPermissions = Lens.lens (ipPermissions :: UpdateSecurityGroupRuleDescriptionsEgress -> [IPPermission]) (\s a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+{-# DEPRECATED usgrdeIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
 
-instance AWSRequest UpdateSecurityGroupRuleDescriptionsEgress where
+instance Lude.AWSRequest UpdateSecurityGroupRuleDescriptionsEgress where
   type
     Rs UpdateSecurityGroupRuleDescriptionsEgress =
       UpdateSecurityGroupRuleDescriptionsEgressResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateSecurityGroupRuleDescriptionsEgressResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSecurityGroupRuleDescriptionsEgress
+instance Lude.ToHeaders UpdateSecurityGroupRuleDescriptionsEgress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateSecurityGroupRuleDescriptionsEgress
+instance Lude.ToPath UpdateSecurityGroupRuleDescriptionsEgress where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateSecurityGroupRuleDescriptionsEgress where
-  toHeaders = const mempty
-
-instance ToPath UpdateSecurityGroupRuleDescriptionsEgress where
-  toPath = const "/"
-
-instance ToQuery UpdateSecurityGroupRuleDescriptionsEgress where
+instance Lude.ToQuery UpdateSecurityGroupRuleDescriptionsEgress where
   toQuery UpdateSecurityGroupRuleDescriptionsEgress' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("UpdateSecurityGroupRuleDescriptionsEgress" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "GroupId" =: _usgrdeGroupId,
-        "GroupName" =: _usgrdeGroupName,
-        "DryRun" =: _usgrdeDryRun,
-        toQueryList "IpPermissions" _usgrdeIPPermissions
+          Lude.=: ("UpdateSecurityGroupRuleDescriptionsEgress" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "GroupId" Lude.=: groupId,
+        "GroupName" Lude.=: groupName,
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "IpPermissions" ipPermissions
       ]
 
--- | /See:/ 'updateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
+-- | /See:/ 'mkUpdateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgressResponse = UpdateSecurityGroupRuleDescriptionsEgressResponse'
-  { _usgrdersReturn ::
-      !( Maybe
-           Bool
-       ),
-    _usgrdersResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UpdateSecurityGroupRuleDescriptionsEgressResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usgrdersReturn' - Returns @true@ if the request succeeds; otherwise, returns an error.
---
--- * 'usgrdersResponseStatus' - -- | The response status code.
-updateSecurityGroupRuleDescriptionsEgressResponse ::
-  -- | 'usgrdersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, returns an error.
+mkUpdateSecurityGroupRuleDescriptionsEgressResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSecurityGroupRuleDescriptionsEgressResponse
-updateSecurityGroupRuleDescriptionsEgressResponse pResponseStatus_ =
-  UpdateSecurityGroupRuleDescriptionsEgressResponse'
-    { _usgrdersReturn =
-        Nothing,
-      _usgrdersResponseStatus = pResponseStatus_
-    }
+mkUpdateSecurityGroupRuleDescriptionsEgressResponse
+  pResponseStatus_ =
+    UpdateSecurityGroupRuleDescriptionsEgressResponse'
+      { return =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-usgrdersReturn :: Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse (Maybe Bool)
-usgrdersReturn = lens _usgrdersReturn (\s a -> s {_usgrdersReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdersReturn :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse (Lude.Maybe Lude.Bool)
+usgrdersReturn = Lens.lens (return :: UpdateSecurityGroupRuleDescriptionsEgressResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: UpdateSecurityGroupRuleDescriptionsEgressResponse)
+{-# DEPRECATED usgrdersReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-usgrdersResponseStatus :: Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse Int
-usgrdersResponseStatus = lens _usgrdersResponseStatus (\s a -> s {_usgrdersResponseStatus = a})
-
-instance NFData UpdateSecurityGroupRuleDescriptionsEgressResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdersResponseStatus :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse Lude.Int
+usgrdersResponseStatus = Lens.lens (responseStatus :: UpdateSecurityGroupRuleDescriptionsEgressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSecurityGroupRuleDescriptionsEgressResponse)
+{-# DEPRECATED usgrdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

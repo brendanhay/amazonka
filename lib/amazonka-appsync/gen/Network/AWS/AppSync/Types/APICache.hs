@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,272 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.APICache where
+module Network.AWS.AppSync.Types.APICache
+  ( APICache (..),
+
+    -- * Smart constructor
+    mkAPICache,
+
+    -- * Lenses
+    acTtl,
+    acStatus,
+    acAtRestEncryptionEnabled,
+    acTransitEncryptionEnabled,
+    acApiCachingBehavior,
+    acType,
+  )
+where
 
 import Network.AWS.AppSync.Types.APICacheStatus
 import Network.AWS.AppSync.Types.APICacheType
 import Network.AWS.AppSync.Types.APICachingBehavior
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @ApiCache@ object.
 --
---
---
--- /See:/ 'apiCache' smart constructor.
+-- /See:/ 'mkAPICache' smart constructor.
 data APICache = APICache'
-  { _acTtl :: !(Maybe Integer),
-    _acStatus :: !(Maybe APICacheStatus),
-    _acAtRestEncryptionEnabled :: !(Maybe Bool),
-    _acTransitEncryptionEnabled :: !(Maybe Bool),
-    _acApiCachingBehavior :: !(Maybe APICachingBehavior),
-    _acType :: !(Maybe APICacheType)
+  { ttl :: Lude.Maybe Lude.Integer,
+    status :: Lude.Maybe APICacheStatus,
+    atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    apiCachingBehavior :: Lude.Maybe APICachingBehavior,
+    type' :: Lude.Maybe APICacheType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiCachingBehavior' - Caching behavior.
 --
--- * 'acTtl' - TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
 --
--- * 'acStatus' - The cache instance status.     * __AVAILABLE__ : The instance is available for use.     * __CREATING__ : The instance is currently creating.     * __DELETING__ : The instance is currently deleting.     * __MODIFYING__ : The instance is currently modifying.     * __FAILED__ : The instance has failed creation.
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
 --
--- * 'acAtRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
 --
--- * 'acTransitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
--- * 'acApiCachingBehavior' - Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
--- * 'acType' - The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-apiCache ::
+-- * 'atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
+-- * 'status' - The cache instance status.
+--
+--
+--     * __AVAILABLE__ : The instance is available for use.
+--
+--
+--     * __CREATING__ : The instance is currently creating.
+--
+--
+--     * __DELETING__ : The instance is currently deleting.
+--
+--
+--     * __MODIFYING__ : The instance is currently modifying.
+--
+--
+--     * __FAILED__ : The instance has failed creation.
+--
+--
+-- * 'transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
+-- * 'ttl' - TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+-- * 'type'' - The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+mkAPICache ::
   APICache
-apiCache =
+mkAPICache =
   APICache'
-    { _acTtl = Nothing,
-      _acStatus = Nothing,
-      _acAtRestEncryptionEnabled = Nothing,
-      _acTransitEncryptionEnabled = Nothing,
-      _acApiCachingBehavior = Nothing,
-      _acType = Nothing
+    { ttl = Lude.Nothing,
+      status = Lude.Nothing,
+      atRestEncryptionEnabled = Lude.Nothing,
+      transitEncryptionEnabled = Lude.Nothing,
+      apiCachingBehavior = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
--- | TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
-acTtl :: Lens' APICache (Maybe Integer)
-acTtl = lens _acTtl (\s a -> s {_acTtl = a})
+-- | TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+--
+-- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acTtl :: Lens.Lens' APICache (Lude.Maybe Lude.Integer)
+acTtl = Lens.lens (ttl :: APICache -> Lude.Maybe Lude.Integer) (\s a -> s {ttl = a} :: APICache)
+{-# DEPRECATED acTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
 
--- | The cache instance status.     * __AVAILABLE__ : The instance is available for use.     * __CREATING__ : The instance is currently creating.     * __DELETING__ : The instance is currently deleting.     * __MODIFYING__ : The instance is currently modifying.     * __FAILED__ : The instance has failed creation.
-acStatus :: Lens' APICache (Maybe APICacheStatus)
-acStatus = lens _acStatus (\s a -> s {_acStatus = a})
+-- | The cache instance status.
+--
+--
+--     * __AVAILABLE__ : The instance is available for use.
+--
+--
+--     * __CREATING__ : The instance is currently creating.
+--
+--
+--     * __DELETING__ : The instance is currently deleting.
+--
+--
+--     * __MODIFYING__ : The instance is currently modifying.
+--
+--
+--     * __FAILED__ : The instance has failed creation.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acStatus :: Lens.Lens' APICache (Lude.Maybe APICacheStatus)
+acStatus = Lens.lens (status :: APICache -> Lude.Maybe APICacheStatus) (\s a -> s {status = a} :: APICache)
+{-# DEPRECATED acStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | At rest encryption flag for cache. This setting cannot be updated after creation.
-acAtRestEncryptionEnabled :: Lens' APICache (Maybe Bool)
-acAtRestEncryptionEnabled = lens _acAtRestEncryptionEnabled (\s a -> s {_acAtRestEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'atRestEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAtRestEncryptionEnabled :: Lens.Lens' APICache (Lude.Maybe Lude.Bool)
+acAtRestEncryptionEnabled = Lens.lens (atRestEncryptionEnabled :: APICache -> Lude.Maybe Lude.Bool) (\s a -> s {atRestEncryptionEnabled = a} :: APICache)
+{-# DEPRECATED acAtRestEncryptionEnabled "Use generic-lens or generic-optics with 'atRestEncryptionEnabled' instead." #-}
 
 -- | Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
-acTransitEncryptionEnabled :: Lens' APICache (Maybe Bool)
-acTransitEncryptionEnabled = lens _acTransitEncryptionEnabled (\s a -> s {_acTransitEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'transitEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acTransitEncryptionEnabled :: Lens.Lens' APICache (Lude.Maybe Lude.Bool)
+acTransitEncryptionEnabled = Lens.lens (transitEncryptionEnabled :: APICache -> Lude.Maybe Lude.Bool) (\s a -> s {transitEncryptionEnabled = a} :: APICache)
+{-# DEPRECATED acTransitEncryptionEnabled "Use generic-lens or generic-optics with 'transitEncryptionEnabled' instead." #-}
 
--- | Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
-acApiCachingBehavior :: Lens' APICache (Maybe APICachingBehavior)
-acApiCachingBehavior = lens _acApiCachingBehavior (\s a -> s {_acApiCachingBehavior = a})
+-- | Caching behavior.
+--
+--
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+--
+--
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
+--
+--
+--
+-- /Note:/ Consider using 'apiCachingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acApiCachingBehavior :: Lens.Lens' APICache (Lude.Maybe APICachingBehavior)
+acApiCachingBehavior = Lens.lens (apiCachingBehavior :: APICache -> Lude.Maybe APICachingBehavior) (\s a -> s {apiCachingBehavior = a} :: APICache)
+{-# DEPRECATED acApiCachingBehavior "Use generic-lens or generic-optics with 'apiCachingBehavior' instead." #-}
 
--- | The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-acType :: Lens' APICache (Maybe APICacheType)
-acType = lens _acType (\s a -> s {_acType = a})
+-- | The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acType :: Lens.Lens' APICache (Lude.Maybe APICacheType)
+acType = Lens.lens (type' :: APICache -> Lude.Maybe APICacheType) (\s a -> s {type' = a} :: APICache)
+{-# DEPRECATED acType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON APICache where
+instance Lude.FromJSON APICache where
   parseJSON =
-    withObject
+    Lude.withObject
       "APICache"
       ( \x ->
           APICache'
-            <$> (x .:? "ttl")
-            <*> (x .:? "status")
-            <*> (x .:? "atRestEncryptionEnabled")
-            <*> (x .:? "transitEncryptionEnabled")
-            <*> (x .:? "apiCachingBehavior")
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "ttl")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "atRestEncryptionEnabled")
+            Lude.<*> (x Lude..:? "transitEncryptionEnabled")
+            Lude.<*> (x Lude..:? "apiCachingBehavior")
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable APICache
-
-instance NFData APICache

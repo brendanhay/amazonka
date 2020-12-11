@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.BlockDeviceMapping where
+module Network.AWS.EC2.Types.BlockDeviceMapping
+  ( BlockDeviceMapping (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkBlockDeviceMapping,
+
+    -- * Lenses
+    bdmVirtualName,
+    bdmNoDevice,
+    bdmEBS,
+    bdmDeviceName,
+  )
+where
+
 import Network.AWS.EC2.Types.EBSBlockDevice
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping.
 --
---
---
--- /See:/ 'blockDeviceMapping' smart constructor.
+-- /See:/ 'mkBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { _bdmVirtualName ::
-      !(Maybe Text),
-    _bdmNoDevice :: !(Maybe Text),
-    _bdmEBS :: !(Maybe EBSBlockDevice),
-    _bdmDeviceName :: !Text
+  { virtualName ::
+      Lude.Maybe Lude.Text,
+    noDevice :: Lude.Maybe Lude.Text,
+    ebs :: Lude.Maybe EBSBlockDevice,
+    deviceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'virtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 --
--- * 'bdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
---
--- * 'bdmNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
---
--- * 'bdmEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
---
--- * 'bdmDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
-blockDeviceMapping ::
-  -- | 'bdmDeviceName'
-  Text ->
+-- NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+mkBlockDeviceMapping ::
+  -- | 'deviceName'
+  Lude.Text ->
   BlockDeviceMapping
-blockDeviceMapping pDeviceName_ =
+mkBlockDeviceMapping pDeviceName_ =
   BlockDeviceMapping'
-    { _bdmVirtualName = Nothing,
-      _bdmNoDevice = Nothing,
-      _bdmEBS = Nothing,
-      _bdmDeviceName = pDeviceName_
+    { virtualName = Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = pDeviceName_
     }
 
--- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
-bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
-bdmVirtualName = lens _bdmVirtualName (\s a -> s {_bdmVirtualName = a})
+-- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+--
+-- NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmVirtualName :: Lens.Lens' BlockDeviceMapping (Lude.Maybe Lude.Text)
+bdmVirtualName = Lens.lens (virtualName :: BlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
 -- | Suppresses the specified device included in the block device mapping of the AMI.
-bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
-bdmNoDevice = lens _bdmNoDevice (\s a -> s {_bdmNoDevice = a})
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmNoDevice :: Lens.Lens' BlockDeviceMapping (Lude.Maybe Lude.Text)
+bdmNoDevice = Lens.lens (noDevice :: BlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {noDevice = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
 -- | Parameters used to automatically set up EBS volumes when the instance is launched.
-bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
-bdmEBS = lens _bdmEBS (\s a -> s {_bdmEBS = a})
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmEBS :: Lens.Lens' BlockDeviceMapping (Lude.Maybe EBSBlockDevice)
+bdmEBS = Lens.lens (ebs :: BlockDeviceMapping -> Lude.Maybe EBSBlockDevice) (\s a -> s {ebs = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
-bdmDeviceName :: Lens' BlockDeviceMapping Text
-bdmDeviceName = lens _bdmDeviceName (\s a -> s {_bdmDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmDeviceName :: Lens.Lens' BlockDeviceMapping Lude.Text
+bdmDeviceName = Lens.lens (deviceName :: BlockDeviceMapping -> Lude.Text) (\s a -> s {deviceName = a} :: BlockDeviceMapping)
+{-# DEPRECATED bdmDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance FromXML BlockDeviceMapping where
+instance Lude.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      <$> (x .@? "virtualName")
-      <*> (x .@? "noDevice")
-      <*> (x .@? "ebs")
-      <*> (x .@ "deviceName")
+      Lude.<$> (x Lude..@? "virtualName")
+      Lude.<*> (x Lude..@? "noDevice")
+      Lude.<*> (x Lude..@? "ebs")
+      Lude.<*> (x Lude..@ "deviceName")
 
-instance Hashable BlockDeviceMapping
-
-instance NFData BlockDeviceMapping
-
-instance ToQuery BlockDeviceMapping where
+instance Lude.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
-    mconcat
-      [ "VirtualName" =: _bdmVirtualName,
-        "NoDevice" =: _bdmNoDevice,
-        "Ebs" =: _bdmEBS,
-        "DeviceName" =: _bdmDeviceName
+    Lude.mconcat
+      [ "VirtualName" Lude.=: virtualName,
+        "NoDevice" Lude.=: noDevice,
+        "Ebs" Lude.=: ebs,
+        "DeviceName" Lude.=: deviceName
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,121 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType where
+module Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType
+  ( UserPoolDescriptionType (..),
+
+    -- * Smart constructor
+    mkUserPoolDescriptionType,
+
+    -- * Lenses
+    updtStatus,
+    updtLastModifiedDate,
+    updtName,
+    updtId,
+    updtCreationDate,
+    updtLambdaConfig,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
 import Network.AWS.CognitoIdentityProvider.Types.StatusType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A user pool description.
 --
---
---
--- /See:/ 'userPoolDescriptionType' smart constructor.
+-- /See:/ 'mkUserPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
-  { _updtStatus ::
-      !(Maybe StatusType),
-    _updtLastModifiedDate :: !(Maybe POSIX),
-    _updtName :: !(Maybe Text),
-    _updtId :: !(Maybe Text),
-    _updtCreationDate :: !(Maybe POSIX),
-    _updtLambdaConfig ::
-      !(Maybe LambdaConfigType)
+  { status ::
+      Lude.Maybe StatusType,
+    lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    lambdaConfig :: Lude.Maybe LambdaConfigType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolDescriptionType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updtStatus' - The user pool status in a user pool description.
---
--- * 'updtLastModifiedDate' - The date the user pool description was last modified.
---
--- * 'updtName' - The name in a user pool description.
---
--- * 'updtId' - The ID in a user pool description.
---
--- * 'updtCreationDate' - The date the user pool description was created.
---
--- * 'updtLambdaConfig' - The AWS Lambda configuration information in a user pool description.
-userPoolDescriptionType ::
+-- * 'creationDate' - The date the user pool description was created.
+-- * 'id' - The ID in a user pool description.
+-- * 'lambdaConfig' - The AWS Lambda configuration information in a user pool description.
+-- * 'lastModifiedDate' - The date the user pool description was last modified.
+-- * 'name' - The name in a user pool description.
+-- * 'status' - The user pool status in a user pool description.
+mkUserPoolDescriptionType ::
   UserPoolDescriptionType
-userPoolDescriptionType =
+mkUserPoolDescriptionType =
   UserPoolDescriptionType'
-    { _updtStatus = Nothing,
-      _updtLastModifiedDate = Nothing,
-      _updtName = Nothing,
-      _updtId = Nothing,
-      _updtCreationDate = Nothing,
-      _updtLambdaConfig = Nothing
+    { status = Lude.Nothing,
+      lastModifiedDate = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      lambdaConfig = Lude.Nothing
     }
 
 -- | The user pool status in a user pool description.
-updtStatus :: Lens' UserPoolDescriptionType (Maybe StatusType)
-updtStatus = lens _updtStatus (\s a -> s {_updtStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtStatus :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe StatusType)
+updtStatus = Lens.lens (status :: UserPoolDescriptionType -> Lude.Maybe StatusType) (\s a -> s {status = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date the user pool description was last modified.
-updtLastModifiedDate :: Lens' UserPoolDescriptionType (Maybe UTCTime)
-updtLastModifiedDate = lens _updtLastModifiedDate (\s a -> s {_updtLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtLastModifiedDate :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Timestamp)
+updtLastModifiedDate = Lens.lens (lastModifiedDate :: UserPoolDescriptionType -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The name in a user pool description.
-updtName :: Lens' UserPoolDescriptionType (Maybe Text)
-updtName = lens _updtName (\s a -> s {_updtName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtName :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Text)
+updtName = Lens.lens (name :: UserPoolDescriptionType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID in a user pool description.
-updtId :: Lens' UserPoolDescriptionType (Maybe Text)
-updtId = lens _updtId (\s a -> s {_updtId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtId :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Text)
+updtId = Lens.lens (id :: UserPoolDescriptionType -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date the user pool description was created.
-updtCreationDate :: Lens' UserPoolDescriptionType (Maybe UTCTime)
-updtCreationDate = lens _updtCreationDate (\s a -> s {_updtCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtCreationDate :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Timestamp)
+updtCreationDate = Lens.lens (creationDate :: UserPoolDescriptionType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The AWS Lambda configuration information in a user pool description.
-updtLambdaConfig :: Lens' UserPoolDescriptionType (Maybe LambdaConfigType)
-updtLambdaConfig = lens _updtLambdaConfig (\s a -> s {_updtLambdaConfig = a})
+--
+-- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtLambdaConfig :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe LambdaConfigType)
+updtLambdaConfig = Lens.lens (lambdaConfig :: UserPoolDescriptionType -> Lude.Maybe LambdaConfigType) (\s a -> s {lambdaConfig = a} :: UserPoolDescriptionType)
+{-# DEPRECATED updtLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
 
-instance FromJSON UserPoolDescriptionType where
+instance Lude.FromJSON UserPoolDescriptionType where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPoolDescriptionType"
       ( \x ->
           UserPoolDescriptionType'
-            <$> (x .:? "Status")
-            <*> (x .:? "LastModifiedDate")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "LambdaConfig")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "LambdaConfig")
       )
-
-instance Hashable UserPoolDescriptionType
-
-instance NFData UserPoolDescriptionType

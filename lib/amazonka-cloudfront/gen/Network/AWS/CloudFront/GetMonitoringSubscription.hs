@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,128 @@
 --
 -- Gets information about whether additional CloudWatch metrics are enabled for the specified CloudFront distribution.
 module Network.AWS.CloudFront.GetMonitoringSubscription
-  ( -- * Creating a Request
-    getMonitoringSubscription,
-    GetMonitoringSubscription,
+  ( -- * Creating a request
+    GetMonitoringSubscription (..),
+    mkGetMonitoringSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmsDistributionId,
 
-    -- * Destructuring the Response
-    getMonitoringSubscriptionResponse,
-    GetMonitoringSubscriptionResponse,
+    -- * Destructuring the response
+    GetMonitoringSubscriptionResponse (..),
+    mkGetMonitoringSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmsrsMonitoringSubscription,
     gmsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getMonitoringSubscription' smart constructor.
+-- | /See:/ 'mkGetMonitoringSubscription' smart constructor.
 newtype GetMonitoringSubscription = GetMonitoringSubscription'
-  { _gmsDistributionId ::
-      Text
+  { distributionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMonitoringSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmsDistributionId' - The ID of the distribution that you are getting metrics information for.
-getMonitoringSubscription ::
-  -- | 'gmsDistributionId'
-  Text ->
+-- * 'distributionId' - The ID of the distribution that you are getting metrics information for.
+mkGetMonitoringSubscription ::
+  -- | 'distributionId'
+  Lude.Text ->
   GetMonitoringSubscription
-getMonitoringSubscription pDistributionId_ =
-  GetMonitoringSubscription' {_gmsDistributionId = pDistributionId_}
+mkGetMonitoringSubscription pDistributionId_ =
+  GetMonitoringSubscription' {distributionId = pDistributionId_}
 
 -- | The ID of the distribution that you are getting metrics information for.
-gmsDistributionId :: Lens' GetMonitoringSubscription Text
-gmsDistributionId = lens _gmsDistributionId (\s a -> s {_gmsDistributionId = a})
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsDistributionId :: Lens.Lens' GetMonitoringSubscription Lude.Text
+gmsDistributionId = Lens.lens (distributionId :: GetMonitoringSubscription -> Lude.Text) (\s a -> s {distributionId = a} :: GetMonitoringSubscription)
+{-# DEPRECATED gmsDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
-instance AWSRequest GetMonitoringSubscription where
+instance Lude.AWSRequest GetMonitoringSubscription where
   type
     Rs GetMonitoringSubscription =
       GetMonitoringSubscriptionResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetMonitoringSubscriptionResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMonitoringSubscription
+instance Lude.ToHeaders GetMonitoringSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetMonitoringSubscription
-
-instance ToHeaders GetMonitoringSubscription where
-  toHeaders = const mempty
-
-instance ToPath GetMonitoringSubscription where
+instance Lude.ToPath GetMonitoringSubscription where
   toPath GetMonitoringSubscription' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/distributions/",
-        toBS _gmsDistributionId,
+        Lude.toBS distributionId,
         "/monitoring-subscription"
       ]
 
-instance ToQuery GetMonitoringSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery GetMonitoringSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMonitoringSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkGetMonitoringSubscriptionResponse' smart constructor.
 data GetMonitoringSubscriptionResponse = GetMonitoringSubscriptionResponse'
-  { _gmsrsMonitoringSubscription ::
-      !( Maybe
-           MonitoringSubscription
-       ),
-    _gmsrsResponseStatus ::
-      !Int
+  { monitoringSubscription ::
+      Lude.Maybe
+        MonitoringSubscription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMonitoringSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmsrsMonitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
---
--- * 'gmsrsResponseStatus' - -- | The response status code.
-getMonitoringSubscriptionResponse ::
-  -- | 'gmsrsResponseStatus'
-  Int ->
+-- * 'monitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+-- * 'responseStatus' - The response status code.
+mkGetMonitoringSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMonitoringSubscriptionResponse
-getMonitoringSubscriptionResponse pResponseStatus_ =
+mkGetMonitoringSubscriptionResponse pResponseStatus_ =
   GetMonitoringSubscriptionResponse'
-    { _gmsrsMonitoringSubscription =
-        Nothing,
-      _gmsrsResponseStatus = pResponseStatus_
+    { monitoringSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-gmsrsMonitoringSubscription :: Lens' GetMonitoringSubscriptionResponse (Maybe MonitoringSubscription)
-gmsrsMonitoringSubscription = lens _gmsrsMonitoringSubscription (\s a -> s {_gmsrsMonitoringSubscription = a})
+--
+-- /Note:/ Consider using 'monitoringSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsrsMonitoringSubscription :: Lens.Lens' GetMonitoringSubscriptionResponse (Lude.Maybe MonitoringSubscription)
+gmsrsMonitoringSubscription = Lens.lens (monitoringSubscription :: GetMonitoringSubscriptionResponse -> Lude.Maybe MonitoringSubscription) (\s a -> s {monitoringSubscription = a} :: GetMonitoringSubscriptionResponse)
+{-# DEPRECATED gmsrsMonitoringSubscription "Use generic-lens or generic-optics with 'monitoringSubscription' instead." #-}
 
--- | -- | The response status code.
-gmsrsResponseStatus :: Lens' GetMonitoringSubscriptionResponse Int
-gmsrsResponseStatus = lens _gmsrsResponseStatus (\s a -> s {_gmsrsResponseStatus = a})
-
-instance NFData GetMonitoringSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsrsResponseStatus :: Lens.Lens' GetMonitoringSubscriptionResponse Lude.Int
+gmsrsResponseStatus = Lens.lens (responseStatus :: GetMonitoringSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMonitoringSubscriptionResponse)
+{-# DEPRECATED gmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,149 @@
 --
 -- Retrieves properties for a custom game build. To request a build resource, specify a build ID. If successful, an object containing the build properties is returned.
 --
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
---
 -- __Related operations__
 --
 --     * 'CreateBuild'
 --
+--
 --     * 'ListBuilds'
+--
 --
 --     * 'DescribeBuild'
 --
+--
 --     * 'UpdateBuild'
+--
 --
 --     * 'DeleteBuild'
 module Network.AWS.GameLift.DescribeBuild
-  ( -- * Creating a Request
-    describeBuild,
-    DescribeBuild,
+  ( -- * Creating a request
+    DescribeBuild (..),
+    mkDescribeBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dBuildId,
 
-    -- * Destructuring the Response
-    describeBuildResponse,
-    DescribeBuildResponse,
+    -- * Destructuring the response
+    DescribeBuildResponse (..),
+    mkDescribeBuildResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsBuild,
     dbrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeBuild' smart constructor.
-newtype DescribeBuild = DescribeBuild' {_dBuildId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeBuild' smart constructor.
+newtype DescribeBuild = DescribeBuild' {buildId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dBuildId' - A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
-describeBuild ::
-  -- | 'dBuildId'
-  Text ->
+-- * 'buildId' - A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
+mkDescribeBuild ::
+  -- | 'buildId'
+  Lude.Text ->
   DescribeBuild
-describeBuild pBuildId_ = DescribeBuild' {_dBuildId = pBuildId_}
+mkDescribeBuild pBuildId_ = DescribeBuild' {buildId = pBuildId_}
 
 -- | A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
-dBuildId :: Lens' DescribeBuild Text
-dBuildId = lens _dBuildId (\s a -> s {_dBuildId = a})
+--
+-- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dBuildId :: Lens.Lens' DescribeBuild Lude.Text
+dBuildId = Lens.lens (buildId :: DescribeBuild -> Lude.Text) (\s a -> s {buildId = a} :: DescribeBuild)
+{-# DEPRECATED dBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
-instance AWSRequest DescribeBuild where
+instance Lude.AWSRequest DescribeBuild where
   type Rs DescribeBuild = DescribeBuildResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DescribeBuildResponse' <$> (x .?> "Build") <*> (pure (fromEnum s))
+          DescribeBuildResponse'
+            Lude.<$> (x Lude..?> "Build") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBuild
-
-instance NFData DescribeBuild
-
-instance ToHeaders DescribeBuild where
+instance Lude.ToHeaders DescribeBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DescribeBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DescribeBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBuild where
+instance Lude.ToJSON DescribeBuild where
   toJSON DescribeBuild' {..} =
-    object (catMaybes [Just ("BuildId" .= _dBuildId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BuildId" Lude..= buildId)])
 
-instance ToPath DescribeBuild where
-  toPath = const "/"
+instance Lude.ToPath DescribeBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBuild where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBuild where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeBuildResponse' smart constructor.
+-- /See:/ 'mkDescribeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
-  { _dbrsBuild ::
-      !(Maybe Build),
-    _dbrsResponseStatus :: !Int
+  { build ::
+      Lude.Maybe Build,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBuildResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsBuild' - Set of properties describing the requested build.
---
--- * 'dbrsResponseStatus' - -- | The response status code.
-describeBuildResponse ::
-  -- | 'dbrsResponseStatus'
-  Int ->
+-- * 'build' - Set of properties describing the requested build.
+-- * 'responseStatus' - The response status code.
+mkDescribeBuildResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBuildResponse
-describeBuildResponse pResponseStatus_ =
+mkDescribeBuildResponse pResponseStatus_ =
   DescribeBuildResponse'
-    { _dbrsBuild = Nothing,
-      _dbrsResponseStatus = pResponseStatus_
+    { build = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Set of properties describing the requested build.
-dbrsBuild :: Lens' DescribeBuildResponse (Maybe Build)
-dbrsBuild = lens _dbrsBuild (\s a -> s {_dbrsBuild = a})
+--
+-- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsBuild :: Lens.Lens' DescribeBuildResponse (Lude.Maybe Build)
+dbrsBuild = Lens.lens (build :: DescribeBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: DescribeBuildResponse)
+{-# DEPRECATED dbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DescribeBuildResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\s a -> s {_dbrsResponseStatus = a})
-
-instance NFData DescribeBuildResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsResponseStatus :: Lens.Lens' DescribeBuildResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBuildResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,149 +7,193 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.Operation where
+module Network.AWS.Lightsail.Types.Operation
+  ( Operation (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOperation,
+
+    -- * Lenses
+    opeStatus,
+    opeOperationDetails,
+    opeResourceType,
+    opeCreatedAt,
+    opeResourceName,
+    opeLocation,
+    opeStatusChangedAt,
+    opeErrorDetails,
+    opeErrorCode,
+    opeId,
+    opeOperationType,
+    opeIsTerminal,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.OperationStatus
 import Network.AWS.Lightsail.Types.OperationType
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the API operation.
 --
---
---
--- /See:/ 'operation' smart constructor.
+-- /See:/ 'mkOperation' smart constructor.
 data Operation = Operation'
-  { _opeStatus :: !(Maybe OperationStatus),
-    _opeOperationDetails :: !(Maybe Text),
-    _opeResourceType :: !(Maybe ResourceType),
-    _opeCreatedAt :: !(Maybe POSIX),
-    _opeResourceName :: !(Maybe Text),
-    _opeLocation :: !(Maybe ResourceLocation),
-    _opeStatusChangedAt :: !(Maybe POSIX),
-    _opeErrorDetails :: !(Maybe Text),
-    _opeErrorCode :: !(Maybe Text),
-    _opeId :: !(Maybe Text),
-    _opeOperationType :: !(Maybe OperationType),
-    _opeIsTerminal :: !(Maybe Bool)
+  { status :: Lude.Maybe OperationStatus,
+    operationDetails :: Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe ResourceType,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    resourceName :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe ResourceLocation,
+    statusChangedAt :: Lude.Maybe Lude.Timestamp,
+    errorDetails :: Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    operationType :: Lude.Maybe OperationType,
+    isTerminal :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Operation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'opeStatus' - The status of the operation.
---
--- * 'opeOperationDetails' - Details about the operation (e.g., @Debian-1GB-Ohio-1@ ).
---
--- * 'opeResourceType' - The resource type.
---
--- * 'opeCreatedAt' - The timestamp when the operation was initialized (e.g., @1479816991.349@ ).
---
--- * 'opeResourceName' - The resource name.
---
--- * 'opeLocation' - The AWS Region and Availability Zone.
---
--- * 'opeStatusChangedAt' - The timestamp when the status was changed (e.g., @1479816991.349@ ).
---
--- * 'opeErrorDetails' - The error details.
---
--- * 'opeErrorCode' - The error code.
---
--- * 'opeId' - The ID of the operation.
---
--- * 'opeOperationType' - The type of operation.
---
--- * 'opeIsTerminal' - A Boolean value indicating whether the operation is terminal.
-operation ::
+-- * 'createdAt' - The timestamp when the operation was initialized (e.g., @1479816991.349@ ).
+-- * 'errorCode' - The error code.
+-- * 'errorDetails' - The error details.
+-- * 'id' - The ID of the operation.
+-- * 'isTerminal' - A Boolean value indicating whether the operation is terminal.
+-- * 'location' - The AWS Region and Availability Zone.
+-- * 'operationDetails' - Details about the operation (e.g., @Debian-1GB-Ohio-1@ ).
+-- * 'operationType' - The type of operation.
+-- * 'resourceName' - The resource name.
+-- * 'resourceType' - The resource type.
+-- * 'status' - The status of the operation.
+-- * 'statusChangedAt' - The timestamp when the status was changed (e.g., @1479816991.349@ ).
+mkOperation ::
   Operation
-operation =
+mkOperation =
   Operation'
-    { _opeStatus = Nothing,
-      _opeOperationDetails = Nothing,
-      _opeResourceType = Nothing,
-      _opeCreatedAt = Nothing,
-      _opeResourceName = Nothing,
-      _opeLocation = Nothing,
-      _opeStatusChangedAt = Nothing,
-      _opeErrorDetails = Nothing,
-      _opeErrorCode = Nothing,
-      _opeId = Nothing,
-      _opeOperationType = Nothing,
-      _opeIsTerminal = Nothing
+    { status = Lude.Nothing,
+      operationDetails = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      location = Lude.Nothing,
+      statusChangedAt = Lude.Nothing,
+      errorDetails = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      id = Lude.Nothing,
+      operationType = Lude.Nothing,
+      isTerminal = Lude.Nothing
     }
 
 -- | The status of the operation.
-opeStatus :: Lens' Operation (Maybe OperationStatus)
-opeStatus = lens _opeStatus (\s a -> s {_opeStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeStatus :: Lens.Lens' Operation (Lude.Maybe OperationStatus)
+opeStatus = Lens.lens (status :: Operation -> Lude.Maybe OperationStatus) (\s a -> s {status = a} :: Operation)
+{-# DEPRECATED opeStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Details about the operation (e.g., @Debian-1GB-Ohio-1@ ).
-opeOperationDetails :: Lens' Operation (Maybe Text)
-opeOperationDetails = lens _opeOperationDetails (\s a -> s {_opeOperationDetails = a})
+--
+-- /Note:/ Consider using 'operationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeOperationDetails :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
+opeOperationDetails = Lens.lens (operationDetails :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {operationDetails = a} :: Operation)
+{-# DEPRECATED opeOperationDetails "Use generic-lens or generic-optics with 'operationDetails' instead." #-}
 
 -- | The resource type.
-opeResourceType :: Lens' Operation (Maybe ResourceType)
-opeResourceType = lens _opeResourceType (\s a -> s {_opeResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeResourceType :: Lens.Lens' Operation (Lude.Maybe ResourceType)
+opeResourceType = Lens.lens (resourceType :: Operation -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: Operation)
+{-# DEPRECATED opeResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The timestamp when the operation was initialized (e.g., @1479816991.349@ ).
-opeCreatedAt :: Lens' Operation (Maybe UTCTime)
-opeCreatedAt = lens _opeCreatedAt (\s a -> s {_opeCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeCreatedAt :: Lens.Lens' Operation (Lude.Maybe Lude.Timestamp)
+opeCreatedAt = Lens.lens (createdAt :: Operation -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Operation)
+{-# DEPRECATED opeCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The resource name.
-opeResourceName :: Lens' Operation (Maybe Text)
-opeResourceName = lens _opeResourceName (\s a -> s {_opeResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeResourceName :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
+opeResourceName = Lens.lens (resourceName :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: Operation)
+{-# DEPRECATED opeResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The AWS Region and Availability Zone.
-opeLocation :: Lens' Operation (Maybe ResourceLocation)
-opeLocation = lens _opeLocation (\s a -> s {_opeLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeLocation :: Lens.Lens' Operation (Lude.Maybe ResourceLocation)
+opeLocation = Lens.lens (location :: Operation -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: Operation)
+{-# DEPRECATED opeLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The timestamp when the status was changed (e.g., @1479816991.349@ ).
-opeStatusChangedAt :: Lens' Operation (Maybe UTCTime)
-opeStatusChangedAt = lens _opeStatusChangedAt (\s a -> s {_opeStatusChangedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'statusChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeStatusChangedAt :: Lens.Lens' Operation (Lude.Maybe Lude.Timestamp)
+opeStatusChangedAt = Lens.lens (statusChangedAt :: Operation -> Lude.Maybe Lude.Timestamp) (\s a -> s {statusChangedAt = a} :: Operation)
+{-# DEPRECATED opeStatusChangedAt "Use generic-lens or generic-optics with 'statusChangedAt' instead." #-}
 
 -- | The error details.
-opeErrorDetails :: Lens' Operation (Maybe Text)
-opeErrorDetails = lens _opeErrorDetails (\s a -> s {_opeErrorDetails = a})
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeErrorDetails :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
+opeErrorDetails = Lens.lens (errorDetails :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {errorDetails = a} :: Operation)
+{-# DEPRECATED opeErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
 
 -- | The error code.
-opeErrorCode :: Lens' Operation (Maybe Text)
-opeErrorCode = lens _opeErrorCode (\s a -> s {_opeErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeErrorCode :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
+opeErrorCode = Lens.lens (errorCode :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: Operation)
+{-# DEPRECATED opeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The ID of the operation.
-opeId :: Lens' Operation (Maybe Text)
-opeId = lens _opeId (\s a -> s {_opeId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeId :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
+opeId = Lens.lens (id :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Operation)
+{-# DEPRECATED opeId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of operation.
-opeOperationType :: Lens' Operation (Maybe OperationType)
-opeOperationType = lens _opeOperationType (\s a -> s {_opeOperationType = a})
+--
+-- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeOperationType :: Lens.Lens' Operation (Lude.Maybe OperationType)
+opeOperationType = Lens.lens (operationType :: Operation -> Lude.Maybe OperationType) (\s a -> s {operationType = a} :: Operation)
+{-# DEPRECATED opeOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
 
 -- | A Boolean value indicating whether the operation is terminal.
-opeIsTerminal :: Lens' Operation (Maybe Bool)
-opeIsTerminal = lens _opeIsTerminal (\s a -> s {_opeIsTerminal = a})
+--
+-- /Note:/ Consider using 'isTerminal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opeIsTerminal :: Lens.Lens' Operation (Lude.Maybe Lude.Bool)
+opeIsTerminal = Lens.lens (isTerminal :: Operation -> Lude.Maybe Lude.Bool) (\s a -> s {isTerminal = a} :: Operation)
+{-# DEPRECATED opeIsTerminal "Use generic-lens or generic-optics with 'isTerminal' instead." #-}
 
-instance FromJSON Operation where
+instance Lude.FromJSON Operation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Operation"
       ( \x ->
           Operation'
-            <$> (x .:? "status")
-            <*> (x .:? "operationDetails")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "resourceName")
-            <*> (x .:? "location")
-            <*> (x .:? "statusChangedAt")
-            <*> (x .:? "errorDetails")
-            <*> (x .:? "errorCode")
-            <*> (x .:? "id")
-            <*> (x .:? "operationType")
-            <*> (x .:? "isTerminal")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "operationDetails")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "resourceName")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "statusChangedAt")
+            Lude.<*> (x Lude..:? "errorDetails")
+            Lude.<*> (x Lude..:? "errorCode")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "operationType")
+            Lude.<*> (x Lude..:? "isTerminal")
       )
-
-instance Hashable Operation
-
-instance NFData Operation

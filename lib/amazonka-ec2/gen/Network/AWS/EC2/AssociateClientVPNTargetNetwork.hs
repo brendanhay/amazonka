@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.
 --
---
 -- If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that's in a different VPC, you must first modify the Client VPN endpoint ('ModifyClientVpnEndpoint' ) and change the VPC that's associated with it.
 module Network.AWS.EC2.AssociateClientVPNTargetNetwork
-  ( -- * Creating a Request
-    associateClientVPNTargetNetwork,
-    AssociateClientVPNTargetNetwork,
+  ( -- * Creating a request
+    AssociateClientVPNTargetNetwork (..),
+    mkAssociateClientVPNTargetNetwork,
 
-    -- * Request Lenses
+    -- ** Request lenses
     acvtnClientToken,
     acvtnDryRun,
     acvtnClientVPNEndpointId,
     acvtnSubnetId,
 
-    -- * Destructuring the Response
-    associateClientVPNTargetNetworkResponse,
-    AssociateClientVPNTargetNetworkResponse,
+    -- * Destructuring the response
+    AssociateClientVPNTargetNetworkResponse (..),
+    mkAssociateClientVPNTargetNetworkResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acvtnrsAssociationId,
     acvtnrsStatus,
     acvtnrsResponseStatus,
@@ -44,145 +38,164 @@ module Network.AWS.EC2.AssociateClientVPNTargetNetwork
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateClientVPNTargetNetwork' smart constructor.
+-- | /See:/ 'mkAssociateClientVPNTargetNetwork' smart constructor.
 data AssociateClientVPNTargetNetwork = AssociateClientVPNTargetNetwork'
-  { _acvtnClientToken ::
-      !(Maybe Text),
-    _acvtnDryRun ::
-      !(Maybe Bool),
-    _acvtnClientVPNEndpointId ::
-      !Text,
-    _acvtnSubnetId :: !Text
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    clientVPNEndpointId ::
+      Lude.Text,
+    subnetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateClientVPNTargetNetwork' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acvtnClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'acvtnDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'acvtnClientVPNEndpointId' - The ID of the Client VPN endpoint.
---
--- * 'acvtnSubnetId' - The ID of the subnet to associate with the Client VPN endpoint.
-associateClientVPNTargetNetwork ::
-  -- | 'acvtnClientVPNEndpointId'
-  Text ->
-  -- | 'acvtnSubnetId'
-  Text ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'subnetId' - The ID of the subnet to associate with the Client VPN endpoint.
+mkAssociateClientVPNTargetNetwork ::
+  -- | 'clientVPNEndpointId'
+  Lude.Text ->
+  -- | 'subnetId'
+  Lude.Text ->
   AssociateClientVPNTargetNetwork
-associateClientVPNTargetNetwork pClientVPNEndpointId_ pSubnetId_ =
+mkAssociateClientVPNTargetNetwork pClientVPNEndpointId_ pSubnetId_ =
   AssociateClientVPNTargetNetwork'
-    { _acvtnClientToken = Nothing,
-      _acvtnDryRun = Nothing,
-      _acvtnClientVPNEndpointId = pClientVPNEndpointId_,
-      _acvtnSubnetId = pSubnetId_
+    { clientToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      clientVPNEndpointId = pClientVPNEndpointId_,
+      subnetId = pSubnetId_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-acvtnClientToken :: Lens' AssociateClientVPNTargetNetwork (Maybe Text)
-acvtnClientToken = lens _acvtnClientToken (\s a -> s {_acvtnClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnClientToken :: Lens.Lens' AssociateClientVPNTargetNetwork (Lude.Maybe Lude.Text)
+acvtnClientToken = Lens.lens (clientToken :: AssociateClientVPNTargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: AssociateClientVPNTargetNetwork)
+{-# DEPRECATED acvtnClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-acvtnDryRun :: Lens' AssociateClientVPNTargetNetwork (Maybe Bool)
-acvtnDryRun = lens _acvtnDryRun (\s a -> s {_acvtnDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnDryRun :: Lens.Lens' AssociateClientVPNTargetNetwork (Lude.Maybe Lude.Bool)
+acvtnDryRun = Lens.lens (dryRun :: AssociateClientVPNTargetNetwork -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateClientVPNTargetNetwork)
+{-# DEPRECATED acvtnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
-acvtnClientVPNEndpointId :: Lens' AssociateClientVPNTargetNetwork Text
-acvtnClientVPNEndpointId = lens _acvtnClientVPNEndpointId (\s a -> s {_acvtnClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnClientVPNEndpointId :: Lens.Lens' AssociateClientVPNTargetNetwork Lude.Text
+acvtnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: AssociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: AssociateClientVPNTargetNetwork)
+{-# DEPRECATED acvtnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The ID of the subnet to associate with the Client VPN endpoint.
-acvtnSubnetId :: Lens' AssociateClientVPNTargetNetwork Text
-acvtnSubnetId = lens _acvtnSubnetId (\s a -> s {_acvtnSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnSubnetId :: Lens.Lens' AssociateClientVPNTargetNetwork Lude.Text
+acvtnSubnetId = Lens.lens (subnetId :: AssociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {subnetId = a} :: AssociateClientVPNTargetNetwork)
+{-# DEPRECATED acvtnSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance AWSRequest AssociateClientVPNTargetNetwork where
+instance Lude.AWSRequest AssociateClientVPNTargetNetwork where
   type
     Rs AssociateClientVPNTargetNetwork =
       AssociateClientVPNTargetNetworkResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           AssociateClientVPNTargetNetworkResponse'
-            <$> (x .@? "associationId")
-            <*> (x .@? "status")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "associationId")
+            Lude.<*> (x Lude..@? "status")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateClientVPNTargetNetwork
+instance Lude.ToHeaders AssociateClientVPNTargetNetwork where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AssociateClientVPNTargetNetwork
+instance Lude.ToPath AssociateClientVPNTargetNetwork where
+  toPath = Lude.const "/"
 
-instance ToHeaders AssociateClientVPNTargetNetwork where
-  toHeaders = const mempty
-
-instance ToPath AssociateClientVPNTargetNetwork where
-  toPath = const "/"
-
-instance ToQuery AssociateClientVPNTargetNetwork where
+instance Lude.ToQuery AssociateClientVPNTargetNetwork where
   toQuery AssociateClientVPNTargetNetwork' {..} =
-    mconcat
-      [ "Action" =: ("AssociateClientVpnTargetNetwork" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _acvtnClientToken,
-        "DryRun" =: _acvtnDryRun,
-        "ClientVpnEndpointId" =: _acvtnClientVPNEndpointId,
-        "SubnetId" =: _acvtnSubnetId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("AssociateClientVpnTargetNetwork" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "DryRun" Lude.=: dryRun,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "SubnetId" Lude.=: subnetId
       ]
 
--- | /See:/ 'associateClientVPNTargetNetworkResponse' smart constructor.
+-- | /See:/ 'mkAssociateClientVPNTargetNetworkResponse' smart constructor.
 data AssociateClientVPNTargetNetworkResponse = AssociateClientVPNTargetNetworkResponse'
-  { _acvtnrsAssociationId ::
-      !( Maybe
-           Text
-       ),
-    _acvtnrsStatus ::
-      !( Maybe
-           AssociationStatus
-       ),
-    _acvtnrsResponseStatus ::
-      !Int
+  { associationId ::
+      Lude.Maybe
+        Lude.Text,
+    status ::
+      Lude.Maybe
+        AssociationStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateClientVPNTargetNetworkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acvtnrsAssociationId' - The unique ID of the target network association.
---
--- * 'acvtnrsStatus' - The current state of the target network association.
---
--- * 'acvtnrsResponseStatus' - -- | The response status code.
-associateClientVPNTargetNetworkResponse ::
-  -- | 'acvtnrsResponseStatus'
-  Int ->
+-- * 'associationId' - The unique ID of the target network association.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current state of the target network association.
+mkAssociateClientVPNTargetNetworkResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateClientVPNTargetNetworkResponse
-associateClientVPNTargetNetworkResponse pResponseStatus_ =
+mkAssociateClientVPNTargetNetworkResponse pResponseStatus_ =
   AssociateClientVPNTargetNetworkResponse'
-    { _acvtnrsAssociationId =
-        Nothing,
-      _acvtnrsStatus = Nothing,
-      _acvtnrsResponseStatus = pResponseStatus_
+    { associationId =
+        Lude.Nothing,
+      status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ID of the target network association.
-acvtnrsAssociationId :: Lens' AssociateClientVPNTargetNetworkResponse (Maybe Text)
-acvtnrsAssociationId = lens _acvtnrsAssociationId (\s a -> s {_acvtnrsAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnrsAssociationId :: Lens.Lens' AssociateClientVPNTargetNetworkResponse (Lude.Maybe Lude.Text)
+acvtnrsAssociationId = Lens.lens (associationId :: AssociateClientVPNTargetNetworkResponse -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociateClientVPNTargetNetworkResponse)
+{-# DEPRECATED acvtnrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The current state of the target network association.
-acvtnrsStatus :: Lens' AssociateClientVPNTargetNetworkResponse (Maybe AssociationStatus)
-acvtnrsStatus = lens _acvtnrsStatus (\s a -> s {_acvtnrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnrsStatus :: Lens.Lens' AssociateClientVPNTargetNetworkResponse (Lude.Maybe AssociationStatus)
+acvtnrsStatus = Lens.lens (status :: AssociateClientVPNTargetNetworkResponse -> Lude.Maybe AssociationStatus) (\s a -> s {status = a} :: AssociateClientVPNTargetNetworkResponse)
+{-# DEPRECATED acvtnrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-acvtnrsResponseStatus :: Lens' AssociateClientVPNTargetNetworkResponse Int
-acvtnrsResponseStatus = lens _acvtnrsResponseStatus (\s a -> s {_acvtnrsResponseStatus = a})
-
-instance NFData AssociateClientVPNTargetNetworkResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acvtnrsResponseStatus :: Lens.Lens' AssociateClientVPNTargetNetworkResponse Lude.Int
+acvtnrsResponseStatus = Lens.lens (responseStatus :: AssociateClientVPNTargetNetworkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateClientVPNTargetNetworkResponse)
+{-# DEPRECATED acvtnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

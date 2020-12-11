@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamFailureType where
+module Network.AWS.Firehose.Types.DeliveryStreamFailureType
+  ( DeliveryStreamFailureType
+      ( DeliveryStreamFailureType',
+        CreateEniFailed,
+        CreateKMSGrantFailed,
+        DeleteEniFailed,
+        DisabledKMSKey,
+        EniAccessDenied,
+        InvalidKMSKey,
+        KMSAccessDenied,
+        KMSKeyNotFound,
+        KMSOptInRequired,
+        RetireKMSGrantFailed,
+        SecurityGroupAccessDenied,
+        SecurityGroupNotFound,
+        SubnetAccessDenied,
+        SubnetNotFound,
+        UnknownError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStreamFailureType
-  = CreateEniFailed
-  | CreateKMSGrantFailed
-  | DeleteEniFailed
-  | DisabledKMSKey
-  | EniAccessDenied
-  | InvalidKMSKey
-  | KMSAccessDenied
-  | KMSKeyNotFound
-  | KMSOptInRequired
-  | RetireKMSGrantFailed
-  | SecurityGroupAccessDenied
-  | SecurityGroupNotFound
-  | SubnetAccessDenied
-  | SubnetNotFound
-  | UnknownError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStreamFailureType = DeliveryStreamFailureType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStreamFailureType where
-  parser =
-    takeLowerText >>= \case
-      "create_eni_failed" -> pure CreateEniFailed
-      "create_kms_grant_failed" -> pure CreateKMSGrantFailed
-      "delete_eni_failed" -> pure DeleteEniFailed
-      "disabled_kms_key" -> pure DisabledKMSKey
-      "eni_access_denied" -> pure EniAccessDenied
-      "invalid_kms_key" -> pure InvalidKMSKey
-      "kms_access_denied" -> pure KMSAccessDenied
-      "kms_key_not_found" -> pure KMSKeyNotFound
-      "kms_opt_in_required" -> pure KMSOptInRequired
-      "retire_kms_grant_failed" -> pure RetireKMSGrantFailed
-      "security_group_access_denied" -> pure SecurityGroupAccessDenied
-      "security_group_not_found" -> pure SecurityGroupNotFound
-      "subnet_access_denied" -> pure SubnetAccessDenied
-      "subnet_not_found" -> pure SubnetNotFound
-      "unknown_error" -> pure UnknownError
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStreamFailureType from value: '" <> e
-            <> "'. Accepted values: create_eni_failed, create_kms_grant_failed, delete_eni_failed, disabled_kms_key, eni_access_denied, invalid_kms_key, kms_access_denied, kms_key_not_found, kms_opt_in_required, retire_kms_grant_failed, security_group_access_denied, security_group_not_found, subnet_access_denied, subnet_not_found, unknown_error"
+pattern CreateEniFailed :: DeliveryStreamFailureType
+pattern CreateEniFailed = DeliveryStreamFailureType' "CREATE_ENI_FAILED"
 
-instance ToText DeliveryStreamFailureType where
-  toText = \case
-    CreateEniFailed -> "CREATE_ENI_FAILED"
-    CreateKMSGrantFailed -> "CREATE_KMS_GRANT_FAILED"
-    DeleteEniFailed -> "DELETE_ENI_FAILED"
-    DisabledKMSKey -> "DISABLED_KMS_KEY"
-    EniAccessDenied -> "ENI_ACCESS_DENIED"
-    InvalidKMSKey -> "INVALID_KMS_KEY"
-    KMSAccessDenied -> "KMS_ACCESS_DENIED"
-    KMSKeyNotFound -> "KMS_KEY_NOT_FOUND"
-    KMSOptInRequired -> "KMS_OPT_IN_REQUIRED"
-    RetireKMSGrantFailed -> "RETIRE_KMS_GRANT_FAILED"
-    SecurityGroupAccessDenied -> "SECURITY_GROUP_ACCESS_DENIED"
-    SecurityGroupNotFound -> "SECURITY_GROUP_NOT_FOUND"
-    SubnetAccessDenied -> "SUBNET_ACCESS_DENIED"
-    SubnetNotFound -> "SUBNET_NOT_FOUND"
-    UnknownError -> "UNKNOWN_ERROR"
+pattern CreateKMSGrantFailed :: DeliveryStreamFailureType
+pattern CreateKMSGrantFailed = DeliveryStreamFailureType' "CREATE_KMS_GRANT_FAILED"
 
-instance Hashable DeliveryStreamFailureType
+pattern DeleteEniFailed :: DeliveryStreamFailureType
+pattern DeleteEniFailed = DeliveryStreamFailureType' "DELETE_ENI_FAILED"
 
-instance NFData DeliveryStreamFailureType
+pattern DisabledKMSKey :: DeliveryStreamFailureType
+pattern DisabledKMSKey = DeliveryStreamFailureType' "DISABLED_KMS_KEY"
 
-instance ToByteString DeliveryStreamFailureType
+pattern EniAccessDenied :: DeliveryStreamFailureType
+pattern EniAccessDenied = DeliveryStreamFailureType' "ENI_ACCESS_DENIED"
 
-instance ToQuery DeliveryStreamFailureType
+pattern InvalidKMSKey :: DeliveryStreamFailureType
+pattern InvalidKMSKey = DeliveryStreamFailureType' "INVALID_KMS_KEY"
 
-instance ToHeader DeliveryStreamFailureType
+pattern KMSAccessDenied :: DeliveryStreamFailureType
+pattern KMSAccessDenied = DeliveryStreamFailureType' "KMS_ACCESS_DENIED"
 
-instance FromJSON DeliveryStreamFailureType where
-  parseJSON = parseJSONText "DeliveryStreamFailureType"
+pattern KMSKeyNotFound :: DeliveryStreamFailureType
+pattern KMSKeyNotFound = DeliveryStreamFailureType' "KMS_KEY_NOT_FOUND"
+
+pattern KMSOptInRequired :: DeliveryStreamFailureType
+pattern KMSOptInRequired = DeliveryStreamFailureType' "KMS_OPT_IN_REQUIRED"
+
+pattern RetireKMSGrantFailed :: DeliveryStreamFailureType
+pattern RetireKMSGrantFailed = DeliveryStreamFailureType' "RETIRE_KMS_GRANT_FAILED"
+
+pattern SecurityGroupAccessDenied :: DeliveryStreamFailureType
+pattern SecurityGroupAccessDenied = DeliveryStreamFailureType' "SECURITY_GROUP_ACCESS_DENIED"
+
+pattern SecurityGroupNotFound :: DeliveryStreamFailureType
+pattern SecurityGroupNotFound = DeliveryStreamFailureType' "SECURITY_GROUP_NOT_FOUND"
+
+pattern SubnetAccessDenied :: DeliveryStreamFailureType
+pattern SubnetAccessDenied = DeliveryStreamFailureType' "SUBNET_ACCESS_DENIED"
+
+pattern SubnetNotFound :: DeliveryStreamFailureType
+pattern SubnetNotFound = DeliveryStreamFailureType' "SUBNET_NOT_FOUND"
+
+pattern UnknownError :: DeliveryStreamFailureType
+pattern UnknownError = DeliveryStreamFailureType' "UNKNOWN_ERROR"
+
+{-# COMPLETE
+  CreateEniFailed,
+  CreateKMSGrantFailed,
+  DeleteEniFailed,
+  DisabledKMSKey,
+  EniAccessDenied,
+  InvalidKMSKey,
+  KMSAccessDenied,
+  KMSKeyNotFound,
+  KMSOptInRequired,
+  RetireKMSGrantFailed,
+  SecurityGroupAccessDenied,
+  SecurityGroupNotFound,
+  SubnetAccessDenied,
+  SubnetNotFound,
+  UnknownError,
+  DeliveryStreamFailureType'
+  #-}

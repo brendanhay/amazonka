@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets a 'RequestValidator' of a given 'RestApi' .
 module Network.AWS.APIGateway.GetRequestValidator
-  ( -- * Creating a Request
-    getRequestValidator,
-    GetRequestValidator,
+  ( -- * Creating a request
+    GetRequestValidator (..),
+    mkGetRequestValidator,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grvrRestAPIId,
     grvrRequestValidatorId,
 
-    -- * Destructuring the Response
-    requestValidator,
-    RequestValidator,
+    -- * Destructuring the response
+    RequestValidator (..),
+    mkRequestValidator,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rvValidateRequestParameters,
     rvName,
     rvValidateRequestBody,
@@ -40,71 +35,78 @@ module Network.AWS.APIGateway.GetRequestValidator
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Gets a 'RequestValidator' of a given 'RestApi' .
 --
---
---
--- /See:/ 'getRequestValidator' smart constructor.
+-- /See:/ 'mkGetRequestValidator' smart constructor.
 data GetRequestValidator = GetRequestValidator'
-  { _grvrRestAPIId ::
-      !Text,
-    _grvrRequestValidatorId :: !Text
+  { restAPIId ::
+      Lude.Text,
+    requestValidatorId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRequestValidator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grvrRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'grvrRequestValidatorId' - [Required] The identifier of the 'RequestValidator' to be retrieved.
-getRequestValidator ::
-  -- | 'grvrRestAPIId'
-  Text ->
-  -- | 'grvrRequestValidatorId'
-  Text ->
+-- * 'requestValidatorId' - [Required] The identifier of the 'RequestValidator' to be retrieved.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetRequestValidator ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'requestValidatorId'
+  Lude.Text ->
   GetRequestValidator
-getRequestValidator pRestAPIId_ pRequestValidatorId_ =
+mkGetRequestValidator pRestAPIId_ pRequestValidatorId_ =
   GetRequestValidator'
-    { _grvrRestAPIId = pRestAPIId_,
-      _grvrRequestValidatorId = pRequestValidatorId_
+    { restAPIId = pRestAPIId_,
+      requestValidatorId = pRequestValidatorId_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-grvrRestAPIId :: Lens' GetRequestValidator Text
-grvrRestAPIId = lens _grvrRestAPIId (\s a -> s {_grvrRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvrRestAPIId :: Lens.Lens' GetRequestValidator Lude.Text
+grvrRestAPIId = Lens.lens (restAPIId :: GetRequestValidator -> Lude.Text) (\s a -> s {restAPIId = a} :: GetRequestValidator)
+{-# DEPRECATED grvrRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'RequestValidator' to be retrieved.
-grvrRequestValidatorId :: Lens' GetRequestValidator Text
-grvrRequestValidatorId = lens _grvrRequestValidatorId (\s a -> s {_grvrRequestValidatorId = a})
+--
+-- /Note:/ Consider using 'requestValidatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvrRequestValidatorId :: Lens.Lens' GetRequestValidator Lude.Text
+grvrRequestValidatorId = Lens.lens (requestValidatorId :: GetRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: GetRequestValidator)
+{-# DEPRECATED grvrRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
 
-instance AWSRequest GetRequestValidator where
+instance Lude.AWSRequest GetRequestValidator where
   type Rs GetRequestValidator = RequestValidator
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetRequestValidator
-
-instance NFData GetRequestValidator
-
-instance ToHeaders GetRequestValidator where
+instance Lude.ToHeaders GetRequestValidator where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetRequestValidator where
+instance Lude.ToPath GetRequestValidator where
   toPath GetRequestValidator' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _grvrRestAPIId,
+        Lude.toBS restAPIId,
         "/requestvalidators/",
-        toBS _grvrRequestValidatorId
+        Lude.toBS requestValidatorId
       ]
 
-instance ToQuery GetRequestValidator where
-  toQuery = const mempty
+instance Lude.ToQuery GetRequestValidator where
+  toQuery = Lude.const Lude.mempty

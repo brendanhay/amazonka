@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterNode where
+module Network.AWS.Redshift.Types.ClusterNode
+  ( ClusterNode (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterNode,
+
+    -- * Lenses
+    cnNodeRole,
+    cnPrivateIPAddress,
+    cnPublicIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | The identifier of a node in a cluster.
 --
---
---
--- /See:/ 'clusterNode' smart constructor.
+-- /See:/ 'mkClusterNode' smart constructor.
 data ClusterNode = ClusterNode'
-  { _cnNodeRole :: !(Maybe Text),
-    _cnPrivateIPAddress :: !(Maybe Text),
-    _cnPublicIPAddress :: !(Maybe Text)
+  { nodeRole :: Lude.Maybe Lude.Text,
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    publicIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterNode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cnNodeRole' - Whether the node is a leader node or a compute node.
---
--- * 'cnPrivateIPAddress' - The private IP address of a node within a cluster.
---
--- * 'cnPublicIPAddress' - The public IP address of a node within a cluster.
-clusterNode ::
+-- * 'nodeRole' - Whether the node is a leader node or a compute node.
+-- * 'privateIPAddress' - The private IP address of a node within a cluster.
+-- * 'publicIPAddress' - The public IP address of a node within a cluster.
+mkClusterNode ::
   ClusterNode
-clusterNode =
+mkClusterNode =
   ClusterNode'
-    { _cnNodeRole = Nothing,
-      _cnPrivateIPAddress = Nothing,
-      _cnPublicIPAddress = Nothing
+    { nodeRole = Lude.Nothing,
+      privateIPAddress = Lude.Nothing,
+      publicIPAddress = Lude.Nothing
     }
 
 -- | Whether the node is a leader node or a compute node.
-cnNodeRole :: Lens' ClusterNode (Maybe Text)
-cnNodeRole = lens _cnNodeRole (\s a -> s {_cnNodeRole = a})
+--
+-- /Note:/ Consider using 'nodeRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnNodeRole :: Lens.Lens' ClusterNode (Lude.Maybe Lude.Text)
+cnNodeRole = Lens.lens (nodeRole :: ClusterNode -> Lude.Maybe Lude.Text) (\s a -> s {nodeRole = a} :: ClusterNode)
+{-# DEPRECATED cnNodeRole "Use generic-lens or generic-optics with 'nodeRole' instead." #-}
 
 -- | The private IP address of a node within a cluster.
-cnPrivateIPAddress :: Lens' ClusterNode (Maybe Text)
-cnPrivateIPAddress = lens _cnPrivateIPAddress (\s a -> s {_cnPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnPrivateIPAddress :: Lens.Lens' ClusterNode (Lude.Maybe Lude.Text)
+cnPrivateIPAddress = Lens.lens (privateIPAddress :: ClusterNode -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: ClusterNode)
+{-# DEPRECATED cnPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The public IP address of a node within a cluster.
-cnPublicIPAddress :: Lens' ClusterNode (Maybe Text)
-cnPublicIPAddress = lens _cnPublicIPAddress (\s a -> s {_cnPublicIPAddress = a})
+--
+-- /Note:/ Consider using 'publicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnPublicIPAddress :: Lens.Lens' ClusterNode (Lude.Maybe Lude.Text)
+cnPublicIPAddress = Lens.lens (publicIPAddress :: ClusterNode -> Lude.Maybe Lude.Text) (\s a -> s {publicIPAddress = a} :: ClusterNode)
+{-# DEPRECATED cnPublicIPAddress "Use generic-lens or generic-optics with 'publicIPAddress' instead." #-}
 
-instance FromXML ClusterNode where
+instance Lude.FromXML ClusterNode where
   parseXML x =
     ClusterNode'
-      <$> (x .@? "NodeRole")
-      <*> (x .@? "PrivateIPAddress")
-      <*> (x .@? "PublicIPAddress")
-
-instance Hashable ClusterNode
-
-instance NFData ClusterNode
+      Lude.<$> (x Lude..@? "NodeRole")
+      Lude.<*> (x Lude..@? "PrivateIPAddress")
+      Lude.<*> (x Lude..@? "PublicIPAddress")

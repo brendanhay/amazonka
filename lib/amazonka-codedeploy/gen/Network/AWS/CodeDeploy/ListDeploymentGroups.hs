@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists the deployment groups for an application registered with the IAM user or AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
-  ( -- * Creating a Request
-    listDeploymentGroups,
-    ListDeploymentGroups,
+  ( -- * Creating a request
+    ListDeploymentGroups (..),
+    mkListDeploymentGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldgNextToken,
     ldgApplicationName,
 
-    -- * Destructuring the Response
-    listDeploymentGroupsResponse,
-    ListDeploymentGroupsResponse,
+    -- * Destructuring the response
+    ListDeploymentGroupsResponse (..),
+    mkListDeploymentGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldgrsNextToken,
     ldgrsApplicationName,
     ldgrsDeploymentGroups,
@@ -44,150 +37,168 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListDeploymentGroups@ operation.
 --
---
---
--- /See:/ 'listDeploymentGroups' smart constructor.
+-- /See:/ 'mkListDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-  { _ldgNextToken ::
-      !(Maybe Text),
-    _ldgApplicationName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldgNextToken' - An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
---
--- * 'ldgApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-listDeploymentGroups ::
-  -- | 'ldgApplicationName'
-  Text ->
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'nextToken' - An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
+mkListDeploymentGroups ::
+  -- | 'applicationName'
+  Lude.Text ->
   ListDeploymentGroups
-listDeploymentGroups pApplicationName_ =
+mkListDeploymentGroups pApplicationName_ =
   ListDeploymentGroups'
-    { _ldgNextToken = Nothing,
-      _ldgApplicationName = pApplicationName_
+    { nextToken = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
-ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
-ldgNextToken = lens _ldgNextToken (\s a -> s {_ldgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgNextToken :: Lens.Lens' ListDeploymentGroups (Lude.Maybe Lude.Text)
+ldgNextToken = Lens.lens (nextToken :: ListDeploymentGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentGroups)
+{-# DEPRECATED ldgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-ldgApplicationName :: Lens' ListDeploymentGroups Text
-ldgApplicationName = lens _ldgApplicationName (\s a -> s {_ldgApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgApplicationName :: Lens.Lens' ListDeploymentGroups Lude.Text
+ldgApplicationName = Lens.lens (applicationName :: ListDeploymentGroups -> Lude.Text) (\s a -> s {applicationName = a} :: ListDeploymentGroups)
+{-# DEPRECATED ldgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSPager ListDeploymentGroups where
+instance Page.AWSPager ListDeploymentGroups where
   page rq rs
-    | stop (rs ^. ldgrsNextToken) = Nothing
-    | stop (rs ^. ldgrsDeploymentGroups) = Nothing
-    | otherwise = Just $ rq & ldgNextToken .~ rs ^. ldgrsNextToken
+    | Page.stop (rs Lens.^. ldgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldgrsDeploymentGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldgNextToken Lens..~ rs Lens.^. ldgrsNextToken
 
-instance AWSRequest ListDeploymentGroups where
+instance Lude.AWSRequest ListDeploymentGroups where
   type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDeploymentGroupsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "applicationName")
-            <*> (x .?> "deploymentGroups" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "applicationName")
+            Lude.<*> (x Lude..?> "deploymentGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDeploymentGroups
-
-instance NFData ListDeploymentGroups
-
-instance ToHeaders ListDeploymentGroups where
+instance Lude.ToHeaders ListDeploymentGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.ListDeploymentGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.ListDeploymentGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDeploymentGroups where
+instance Lude.ToJSON ListDeploymentGroups where
   toJSON ListDeploymentGroups' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _ldgNextToken,
-            Just ("applicationName" .= _ldgApplicationName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("applicationName" Lude..= applicationName)
           ]
       )
 
-instance ToPath ListDeploymentGroups where
-  toPath = const "/"
+instance Lude.ToPath ListDeploymentGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDeploymentGroups where
-  toQuery = const mempty
+instance Lude.ToQuery ListDeploymentGroups where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListDeploymentGroups@ operation.
 --
---
---
--- /See:/ 'listDeploymentGroupsResponse' smart constructor.
+-- /See:/ 'mkListDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { _ldgrsNextToken ::
-      !(Maybe Text),
-    _ldgrsApplicationName ::
-      !(Maybe Text),
-    _ldgrsDeploymentGroups ::
-      !(Maybe [Text]),
-    _ldgrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    applicationName ::
+      Lude.Maybe Lude.Text,
+    deploymentGroups ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldgrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
---
--- * 'ldgrsApplicationName' - The application name.
---
--- * 'ldgrsDeploymentGroups' - A list of deployment group names.
---
--- * 'ldgrsResponseStatus' - -- | The response status code.
-listDeploymentGroupsResponse ::
-  -- | 'ldgrsResponseStatus'
-  Int ->
+-- * 'applicationName' - The application name.
+-- * 'deploymentGroups' - A list of deployment group names.
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
+-- * 'responseStatus' - The response status code.
+mkListDeploymentGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pResponseStatus_ =
+mkListDeploymentGroupsResponse pResponseStatus_ =
   ListDeploymentGroupsResponse'
-    { _ldgrsNextToken = Nothing,
-      _ldgrsApplicationName = Nothing,
-      _ldgrsDeploymentGroups = Nothing,
-      _ldgrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      deploymentGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
-ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsNextToken = lens _ldgrsNextToken (\s a -> s {_ldgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgrsNextToken :: Lens.Lens' ListDeploymentGroupsResponse (Lude.Maybe Lude.Text)
+ldgrsNextToken = Lens.lens (nextToken :: ListDeploymentGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentGroupsResponse)
+{-# DEPRECATED ldgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The application name.
-ldgrsApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrsApplicationName = lens _ldgrsApplicationName (\s a -> s {_ldgrsApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgrsApplicationName :: Lens.Lens' ListDeploymentGroupsResponse (Lude.Maybe Lude.Text)
+ldgrsApplicationName = Lens.lens (applicationName :: ListDeploymentGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ListDeploymentGroupsResponse)
+{-# DEPRECATED ldgrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | A list of deployment group names.
-ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\s a -> s {_ldgrsDeploymentGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deploymentGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgrsDeploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Lude.Maybe [Lude.Text])
+ldgrsDeploymentGroups = Lens.lens (deploymentGroups :: ListDeploymentGroupsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse)
+{-# DEPRECATED ldgrsDeploymentGroups "Use generic-lens or generic-optics with 'deploymentGroups' instead." #-}
 
--- | -- | The response status code.
-ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
-ldgrsResponseStatus = lens _ldgrsResponseStatus (\s a -> s {_ldgrsResponseStatus = a})
-
-instance NFData ListDeploymentGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldgrsResponseStatus :: Lens.Lens' ListDeploymentGroupsResponse Lude.Int
+ldgrsResponseStatus = Lens.lens (responseStatus :: ListDeploymentGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeploymentGroupsResponse)
+{-# DEPRECATED ldgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

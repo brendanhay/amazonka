@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.OrcFormatVersion where
+module Network.AWS.Firehose.Types.OrcFormatVersion
+  ( OrcFormatVersion
+      ( OrcFormatVersion',
+        V011,
+        V012
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrcFormatVersion
-  = V011
-  | V012
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrcFormatVersion = OrcFormatVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrcFormatVersion where
-  parser =
-    takeLowerText >>= \case
-      "v0_11" -> pure V011
-      "v0_12" -> pure V012
-      e ->
-        fromTextError $
-          "Failure parsing OrcFormatVersion from value: '" <> e
-            <> "'. Accepted values: v0_11, v0_12"
+pattern V011 :: OrcFormatVersion
+pattern V011 = OrcFormatVersion' "V0_11"
 
-instance ToText OrcFormatVersion where
-  toText = \case
-    V011 -> "V0_11"
-    V012 -> "V0_12"
+pattern V012 :: OrcFormatVersion
+pattern V012 = OrcFormatVersion' "V0_12"
 
-instance Hashable OrcFormatVersion
-
-instance NFData OrcFormatVersion
-
-instance ToByteString OrcFormatVersion
-
-instance ToQuery OrcFormatVersion
-
-instance ToHeader OrcFormatVersion
-
-instance ToJSON OrcFormatVersion where
-  toJSON = toJSONText
-
-instance FromJSON OrcFormatVersion where
-  parseJSON = parseJSONText "OrcFormatVersion"
+{-# COMPLETE
+  V011,
+  V012,
+  OrcFormatVersion'
+  #-}

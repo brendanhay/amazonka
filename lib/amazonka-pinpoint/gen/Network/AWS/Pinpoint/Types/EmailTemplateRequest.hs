@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,130 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EmailTemplateRequest where
+module Network.AWS.Pinpoint.Types.EmailTemplateRequest
+  ( EmailTemplateRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEmailTemplateRequest,
+
+    -- * Lenses
+    etrSubject,
+    etrTextPart,
+    etrTemplateDescription,
+    etrDefaultSubstitutions,
+    etrHTMLPart,
+    etrRecommenderId,
+    etrTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.
 --
---
---
--- /See:/ 'emailTemplateRequest' smart constructor.
+-- /See:/ 'mkEmailTemplateRequest' smart constructor.
 data EmailTemplateRequest = EmailTemplateRequest'
-  { _etrSubject ::
-      !(Maybe Text),
-    _etrTextPart :: !(Maybe Text),
-    _etrTemplateDescription :: !(Maybe Text),
-    _etrDefaultSubstitutions :: !(Maybe Text),
-    _etrHTMLPart :: !(Maybe Text),
-    _etrRecommenderId :: !(Maybe Text),
-    _etrTags :: !(Maybe (Map Text (Text)))
+  { subject ::
+      Lude.Maybe Lude.Text,
+    textPart :: Lude.Maybe Lude.Text,
+    templateDescription :: Lude.Maybe Lude.Text,
+    defaultSubstitutions :: Lude.Maybe Lude.Text,
+    htmlPart :: Lude.Maybe Lude.Text,
+    recommenderId :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailTemplateRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etrSubject' - The subject line, or title, to use in email messages that are based on the message template.
---
--- * 'etrTextPart' - The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
---
--- * 'etrTemplateDescription' - A custom description of the message template.
---
--- * 'etrDefaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
---
--- * 'etrHTMLPart' - The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
---
--- * 'etrRecommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
---
--- * 'etrTags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
-emailTemplateRequest ::
+-- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+-- * 'htmlPart' - The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+-- * 'recommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+-- * 'subject' - The subject line, or title, to use in email messages that are based on the message template.
+-- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+-- * 'templateDescription' - A custom description of the message template.
+-- * 'textPart' - The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+mkEmailTemplateRequest ::
   EmailTemplateRequest
-emailTemplateRequest =
+mkEmailTemplateRequest =
   EmailTemplateRequest'
-    { _etrSubject = Nothing,
-      _etrTextPart = Nothing,
-      _etrTemplateDescription = Nothing,
-      _etrDefaultSubstitutions = Nothing,
-      _etrHTMLPart = Nothing,
-      _etrRecommenderId = Nothing,
-      _etrTags = Nothing
+    { subject = Lude.Nothing,
+      textPart = Lude.Nothing,
+      templateDescription = Lude.Nothing,
+      defaultSubstitutions = Lude.Nothing,
+      htmlPart = Lude.Nothing,
+      recommenderId = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The subject line, or title, to use in email messages that are based on the message template.
-etrSubject :: Lens' EmailTemplateRequest (Maybe Text)
-etrSubject = lens _etrSubject (\s a -> s {_etrSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrSubject :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrSubject = Lens.lens (subject :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {subject = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-etrTextPart :: Lens' EmailTemplateRequest (Maybe Text)
-etrTextPart = lens _etrTextPart (\s a -> s {_etrTextPart = a})
+--
+-- /Note:/ Consider using 'textPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrTextPart :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrTextPart = Lens.lens (textPart :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {textPart = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrTextPart "Use generic-lens or generic-optics with 'textPart' instead." #-}
 
 -- | A custom description of the message template.
-etrTemplateDescription :: Lens' EmailTemplateRequest (Maybe Text)
-etrTemplateDescription = lens _etrTemplateDescription (\s a -> s {_etrTemplateDescription = a})
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrTemplateDescription :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrTemplateDescription = Lens.lens (templateDescription :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-etrDefaultSubstitutions :: Lens' EmailTemplateRequest (Maybe Text)
-etrDefaultSubstitutions = lens _etrDefaultSubstitutions (\s a -> s {_etrDefaultSubstitutions = a})
+--
+-- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrDefaultSubstitutions :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrDefaultSubstitutions = Lens.lens (defaultSubstitutions :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
 
 -- | The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-etrHTMLPart :: Lens' EmailTemplateRequest (Maybe Text)
-etrHTMLPart = lens _etrHTMLPart (\s a -> s {_etrHTMLPart = a})
+--
+-- /Note:/ Consider using 'htmlPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrHTMLPart :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrHTMLPart = Lens.lens (htmlPart :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {htmlPart = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrHTMLPart "Use generic-lens or generic-optics with 'htmlPart' instead." #-}
 
 -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-etrRecommenderId :: Lens' EmailTemplateRequest (Maybe Text)
-etrRecommenderId = lens _etrRecommenderId (\s a -> s {_etrRecommenderId = a})
+--
+-- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrRecommenderId :: Lens.Lens' EmailTemplateRequest (Lude.Maybe Lude.Text)
+etrRecommenderId = Lens.lens (recommenderId :: EmailTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {recommenderId = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
 
 -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
-etrTags :: Lens' EmailTemplateRequest (HashMap Text (Text))
-etrTags = lens _etrTags (\s a -> s {_etrTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etrTags :: Lens.Lens' EmailTemplateRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+etrTags = Lens.lens (tags :: EmailTemplateRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: EmailTemplateRequest)
+{-# DEPRECATED etrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Hashable EmailTemplateRequest
-
-instance NFData EmailTemplateRequest
-
-instance ToJSON EmailTemplateRequest where
+instance Lude.ToJSON EmailTemplateRequest where
   toJSON EmailTemplateRequest' {..} =
-    object
-      ( catMaybes
-          [ ("Subject" .=) <$> _etrSubject,
-            ("TextPart" .=) <$> _etrTextPart,
-            ("TemplateDescription" .=) <$> _etrTemplateDescription,
-            ("DefaultSubstitutions" .=) <$> _etrDefaultSubstitutions,
-            ("HtmlPart" .=) <$> _etrHTMLPart,
-            ("RecommenderId" .=) <$> _etrRecommenderId,
-            ("tags" .=) <$> _etrTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Subject" Lude..=) Lude.<$> subject,
+            ("TextPart" Lude..=) Lude.<$> textPart,
+            ("TemplateDescription" Lude..=) Lude.<$> templateDescription,
+            ("DefaultSubstitutions" Lude..=) Lude.<$> defaultSubstitutions,
+            ("HtmlPart" Lude..=) Lude.<$> htmlPart,
+            ("RecommenderId" Lude..=) Lude.<$> recommenderId,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,112 @@
 --
 -- Deletes the configuration recorder.
 --
---
 -- After the configuration recorder is deleted, AWS Config will not record resource configuration changes until you create a new configuration recorder.
---
 -- This action does not delete the configuration information that was previously recorded. You will be able to access the previously recorded information by using the @GetResourceConfigHistory@ action, but you will not be able to access this information in the AWS Config console until you create a new configuration recorder.
 module Network.AWS.Config.DeleteConfigurationRecorder
-  ( -- * Creating a Request
-    deleteConfigurationRecorder,
-    DeleteConfigurationRecorder,
+  ( -- * Creating a request
+    DeleteConfigurationRecorder (..),
+    mkDeleteConfigurationRecorder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcrConfigurationRecorderName,
 
-    -- * Destructuring the Response
-    deleteConfigurationRecorderResponse,
-    DeleteConfigurationRecorderResponse,
+    -- * Destructuring the response
+    DeleteConfigurationRecorderResponse (..),
+    mkDeleteConfigurationRecorderResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request object for the @DeleteConfigurationRecorder@ action.
 --
---
---
--- /See:/ 'deleteConfigurationRecorder' smart constructor.
+-- /See:/ 'mkDeleteConfigurationRecorder' smart constructor.
 newtype DeleteConfigurationRecorder = DeleteConfigurationRecorder'
-  { _dcrConfigurationRecorderName ::
-      Text
+  { configurationRecorderName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationRecorder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrConfigurationRecorderName' - The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
-deleteConfigurationRecorder ::
-  -- | 'dcrConfigurationRecorderName'
-  Text ->
+-- * 'configurationRecorderName' - The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
+mkDeleteConfigurationRecorder ::
+  -- | 'configurationRecorderName'
+  Lude.Text ->
   DeleteConfigurationRecorder
-deleteConfigurationRecorder pConfigurationRecorderName_ =
+mkDeleteConfigurationRecorder pConfigurationRecorderName_ =
   DeleteConfigurationRecorder'
-    { _dcrConfigurationRecorderName =
+    { configurationRecorderName =
         pConfigurationRecorderName_
     }
 
 -- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
-dcrConfigurationRecorderName :: Lens' DeleteConfigurationRecorder Text
-dcrConfigurationRecorderName = lens _dcrConfigurationRecorderName (\s a -> s {_dcrConfigurationRecorderName = a})
+--
+-- /Note:/ Consider using 'configurationRecorderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrConfigurationRecorderName :: Lens.Lens' DeleteConfigurationRecorder Lude.Text
+dcrConfigurationRecorderName = Lens.lens (configurationRecorderName :: DeleteConfigurationRecorder -> Lude.Text) (\s a -> s {configurationRecorderName = a} :: DeleteConfigurationRecorder)
+{-# DEPRECATED dcrConfigurationRecorderName "Use generic-lens or generic-optics with 'configurationRecorderName' instead." #-}
 
-instance AWSRequest DeleteConfigurationRecorder where
+instance Lude.AWSRequest DeleteConfigurationRecorder where
   type
     Rs DeleteConfigurationRecorder =
       DeleteConfigurationRecorderResponse
-  request = postJSON config
-  response = receiveNull DeleteConfigurationRecorderResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteConfigurationRecorderResponse'
 
-instance Hashable DeleteConfigurationRecorder
-
-instance NFData DeleteConfigurationRecorder
-
-instance ToHeaders DeleteConfigurationRecorder where
+instance Lude.ToHeaders DeleteConfigurationRecorder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteConfigurationRecorder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DeleteConfigurationRecorder" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteConfigurationRecorder where
+instance Lude.ToJSON DeleteConfigurationRecorder where
   toJSON DeleteConfigurationRecorder' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("ConfigurationRecorderName" .= _dcrConfigurationRecorderName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ConfigurationRecorderName" Lude..= configurationRecorderName)
           ]
       )
 
-instance ToPath DeleteConfigurationRecorder where
-  toPath = const "/"
+instance Lude.ToPath DeleteConfigurationRecorder where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteConfigurationRecorder where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConfigurationRecorder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteConfigurationRecorderResponse' smart constructor.
+-- | /See:/ 'mkDeleteConfigurationRecorderResponse' smart constructor.
 data DeleteConfigurationRecorderResponse = DeleteConfigurationRecorderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationRecorderResponse' with the minimum fields required to make a request.
-deleteConfigurationRecorderResponse ::
+mkDeleteConfigurationRecorderResponse ::
   DeleteConfigurationRecorderResponse
-deleteConfigurationRecorderResponse =
+mkDeleteConfigurationRecorderResponse =
   DeleteConfigurationRecorderResponse'
-
-instance NFData DeleteConfigurationRecorderResponse

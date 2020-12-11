@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ImagePullCredentialsType where
+module Network.AWS.CodeBuild.Types.ImagePullCredentialsType
+  ( ImagePullCredentialsType
+      ( ImagePullCredentialsType',
+        Codebuild,
+        ServiceRole
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImagePullCredentialsType
-  = Codebuild
-  | ServiceRole
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImagePullCredentialsType = ImagePullCredentialsType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImagePullCredentialsType where
-  parser =
-    takeLowerText >>= \case
-      "codebuild" -> pure Codebuild
-      "service_role" -> pure ServiceRole
-      e ->
-        fromTextError $
-          "Failure parsing ImagePullCredentialsType from value: '" <> e
-            <> "'. Accepted values: codebuild, service_role"
+pattern Codebuild :: ImagePullCredentialsType
+pattern Codebuild = ImagePullCredentialsType' "CODEBUILD"
 
-instance ToText ImagePullCredentialsType where
-  toText = \case
-    Codebuild -> "CODEBUILD"
-    ServiceRole -> "SERVICE_ROLE"
+pattern ServiceRole :: ImagePullCredentialsType
+pattern ServiceRole = ImagePullCredentialsType' "SERVICE_ROLE"
 
-instance Hashable ImagePullCredentialsType
-
-instance NFData ImagePullCredentialsType
-
-instance ToByteString ImagePullCredentialsType
-
-instance ToQuery ImagePullCredentialsType
-
-instance ToHeader ImagePullCredentialsType
-
-instance ToJSON ImagePullCredentialsType where
-  toJSON = toJSONText
-
-instance FromJSON ImagePullCredentialsType where
-  parseJSON = parseJSONText "ImagePullCredentialsType"
+{-# COMPLETE
+  Codebuild,
+  ServiceRole,
+  ImagePullCredentialsType'
+  #-}

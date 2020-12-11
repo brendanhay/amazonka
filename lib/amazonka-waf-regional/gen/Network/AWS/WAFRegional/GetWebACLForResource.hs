@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,150 @@
 --
 -- Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.
 module Network.AWS.WAFRegional.GetWebACLForResource
-  ( -- * Creating a Request
-    getWebACLForResource,
-    GetWebACLForResource,
+  ( -- * Creating a request
+    GetWebACLForResource (..),
+    mkGetWebACLForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gwafrResourceARN,
 
-    -- * Destructuring the Response
-    getWebACLForResourceResponse,
-    GetWebACLForResourceResponse,
+    -- * Destructuring the response
+    GetWebACLForResourceResponse (..),
+    mkGetWebACLForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gwafrrsWebACLSummary,
     gwafrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getWebACLForResource' smart constructor.
+-- | /See:/ 'mkGetWebACLForResource' smart constructor.
 newtype GetWebACLForResource = GetWebACLForResource'
-  { _gwafrResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.
 --
--- * 'gwafrResourceARN' - The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
-getWebACLForResource ::
-  -- | 'gwafrResourceARN'
-  Text ->
+-- The ARN should be in one of the following formats:
+--
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+mkGetWebACLForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   GetWebACLForResource
-getWebACLForResource pResourceARN_ =
-  GetWebACLForResource' {_gwafrResourceARN = pResourceARN_}
+mkGetWebACLForResource pResourceARN_ =
+  GetWebACLForResource' {resourceARN = pResourceARN_}
 
--- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
-gwafrResourceARN :: Lens' GetWebACLForResource Text
-gwafrResourceARN = lens _gwafrResourceARN (\s a -> s {_gwafrResourceARN = a})
+-- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.
+--
+-- The ARN should be in one of the following formats:
+--
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+--
+--
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwafrResourceARN :: Lens.Lens' GetWebACLForResource Lude.Text
+gwafrResourceARN = Lens.lens (resourceARN :: GetWebACLForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: GetWebACLForResource)
+{-# DEPRECATED gwafrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest GetWebACLForResource where
+instance Lude.AWSRequest GetWebACLForResource where
   type Rs GetWebACLForResource = GetWebACLForResourceResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetWebACLForResourceResponse'
-            <$> (x .?> "WebACLSummary") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "WebACLSummary")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetWebACLForResource
-
-instance NFData GetWebACLForResource
-
-instance ToHeaders GetWebACLForResource where
+instance Lude.ToHeaders GetWebACLForResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetWebACLForResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.GetWebACLForResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetWebACLForResource where
+instance Lude.ToJSON GetWebACLForResource where
   toJSON GetWebACLForResource' {..} =
-    object (catMaybes [Just ("ResourceArn" .= _gwafrResourceARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
 
-instance ToPath GetWebACLForResource where
-  toPath = const "/"
+instance Lude.ToPath GetWebACLForResource where
+  toPath = Lude.const "/"
 
-instance ToQuery GetWebACLForResource where
-  toQuery = const mempty
+instance Lude.ToQuery GetWebACLForResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getWebACLForResourceResponse' smart constructor.
+-- | /See:/ 'mkGetWebACLForResourceResponse' smart constructor.
 data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
-  { _gwafrrsWebACLSummary ::
-      !(Maybe WebACLSummary),
-    _gwafrrsResponseStatus :: !Int
+  { webACLSummary ::
+      Lude.Maybe WebACLSummary,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwafrrsWebACLSummary' - Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
---
--- * 'gwafrrsResponseStatus' - -- | The response status code.
-getWebACLForResourceResponse ::
-  -- | 'gwafrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'webACLSummary' - Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
+mkGetWebACLForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetWebACLForResourceResponse
-getWebACLForResourceResponse pResponseStatus_ =
+mkGetWebACLForResourceResponse pResponseStatus_ =
   GetWebACLForResourceResponse'
-    { _gwafrrsWebACLSummary = Nothing,
-      _gwafrrsResponseStatus = pResponseStatus_
+    { webACLSummary = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
-gwafrrsWebACLSummary :: Lens' GetWebACLForResourceResponse (Maybe WebACLSummary)
-gwafrrsWebACLSummary = lens _gwafrrsWebACLSummary (\s a -> s {_gwafrrsWebACLSummary = a})
+--
+-- /Note:/ Consider using 'webACLSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwafrrsWebACLSummary :: Lens.Lens' GetWebACLForResourceResponse (Lude.Maybe WebACLSummary)
+gwafrrsWebACLSummary = Lens.lens (webACLSummary :: GetWebACLForResourceResponse -> Lude.Maybe WebACLSummary) (\s a -> s {webACLSummary = a} :: GetWebACLForResourceResponse)
+{-# DEPRECATED gwafrrsWebACLSummary "Use generic-lens or generic-optics with 'webACLSummary' instead." #-}
 
--- | -- | The response status code.
-gwafrrsResponseStatus :: Lens' GetWebACLForResourceResponse Int
-gwafrrsResponseStatus = lens _gwafrrsResponseStatus (\s a -> s {_gwafrrsResponseStatus = a})
-
-instance NFData GetWebACLForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwafrrsResponseStatus :: Lens.Lens' GetWebACLForResourceResponse Lude.Int
+gwafrrsResponseStatus = Lens.lens (responseStatus :: GetWebACLForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWebACLForResourceResponse)
+{-# DEPRECATED gwafrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,159 @@
 --
 -- Returns the base-64 encoded content of an individual blob in a repository.
 module Network.AWS.CodeCommit.GetBlob
-  ( -- * Creating a Request
-    getBlob,
-    GetBlob,
+  ( -- * Creating a request
+    GetBlob (..),
+    mkGetBlob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gRepositoryName,
     gBlobId,
 
-    -- * Destructuring the Response
-    getBlobResponse,
-    GetBlobResponse,
+    -- * Destructuring the response
+    GetBlobResponse (..),
+    mkGetBlobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbrsResponseStatus,
     gbrsContent,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a get blob operation.
 --
---
---
--- /See:/ 'getBlob' smart constructor.
+-- /See:/ 'mkGetBlob' smart constructor.
 data GetBlob = GetBlob'
-  { _gRepositoryName :: !Text,
-    _gBlobId :: !Text
+  { repositoryName :: Lude.Text,
+    blobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gRepositoryName' - The name of the repository that contains the blob.
---
--- * 'gBlobId' - The ID of the blob, which is its SHA-1 pointer.
-getBlob ::
-  -- | 'gRepositoryName'
-  Text ->
-  -- | 'gBlobId'
-  Text ->
+-- * 'blobId' - The ID of the blob, which is its SHA-1 pointer.
+-- * 'repositoryName' - The name of the repository that contains the blob.
+mkGetBlob ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'blobId'
+  Lude.Text ->
   GetBlob
-getBlob pRepositoryName_ pBlobId_ =
-  GetBlob'
-    { _gRepositoryName = pRepositoryName_,
-      _gBlobId = pBlobId_
-    }
+mkGetBlob pRepositoryName_ pBlobId_ =
+  GetBlob' {repositoryName = pRepositoryName_, blobId = pBlobId_}
 
 -- | The name of the repository that contains the blob.
-gRepositoryName :: Lens' GetBlob Text
-gRepositoryName = lens _gRepositoryName (\s a -> s {_gRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gRepositoryName :: Lens.Lens' GetBlob Lude.Text
+gRepositoryName = Lens.lens (repositoryName :: GetBlob -> Lude.Text) (\s a -> s {repositoryName = a} :: GetBlob)
+{-# DEPRECATED gRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The ID of the blob, which is its SHA-1 pointer.
-gBlobId :: Lens' GetBlob Text
-gBlobId = lens _gBlobId (\s a -> s {_gBlobId = a})
+--
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gBlobId :: Lens.Lens' GetBlob Lude.Text
+gBlobId = Lens.lens (blobId :: GetBlob -> Lude.Text) (\s a -> s {blobId = a} :: GetBlob)
+{-# DEPRECATED gBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
 
-instance AWSRequest GetBlob where
+instance Lude.AWSRequest GetBlob where
   type Rs GetBlob = GetBlobResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetBlobResponse' <$> (pure (fromEnum s)) <*> (x .:> "content")
+          GetBlobResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "content")
       )
 
-instance Hashable GetBlob
-
-instance NFData GetBlob
-
-instance ToHeaders GetBlob where
+instance Lude.ToHeaders GetBlob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeCommit_20150413.GetBlob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeCommit_20150413.GetBlob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetBlob where
+instance Lude.ToJSON GetBlob where
   toJSON GetBlob' {..} =
-    object
-      ( catMaybes
-          [ Just ("repositoryName" .= _gRepositoryName),
-            Just ("blobId" .= _gBlobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("blobId" Lude..= blobId)
           ]
       )
 
-instance ToPath GetBlob where
-  toPath = const "/"
+instance Lude.ToPath GetBlob where
+  toPath = Lude.const "/"
 
-instance ToQuery GetBlob where
-  toQuery = const mempty
+instance Lude.ToQuery GetBlob where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a get blob operation.
 --
---
---
--- /See:/ 'getBlobResponse' smart constructor.
+-- /See:/ 'mkGetBlobResponse' smart constructor.
 data GetBlobResponse = GetBlobResponse'
-  { _gbrsResponseStatus ::
-      !Int,
-    _gbrsContent :: !Base64
+  { responseStatus :: Lude.Int,
+    content :: Lude.Base64
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBlobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbrsResponseStatus' - -- | The response status code.
---
--- * 'gbrsContent' - The content of the blob, usually a file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-getBlobResponse ::
-  -- | 'gbrsResponseStatus'
-  Int ->
-  -- | 'gbrsContent'
-  ByteString ->
+-- * 'content' - The content of the blob, usually a file.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'responseStatus' - The response status code.
+mkGetBlobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'content'
+  Lude.Base64 ->
   GetBlobResponse
-getBlobResponse pResponseStatus_ pContent_ =
+mkGetBlobResponse pResponseStatus_ pContent_ =
   GetBlobResponse'
-    { _gbrsResponseStatus = pResponseStatus_,
-      _gbrsContent = _Base64 # pContent_
+    { responseStatus = pResponseStatus_,
+      content = pContent_
     }
 
--- | -- | The response status code.
-gbrsResponseStatus :: Lens' GetBlobResponse Int
-gbrsResponseStatus = lens _gbrsResponseStatus (\s a -> s {_gbrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsResponseStatus :: Lens.Lens' GetBlobResponse Lude.Int
+gbrsResponseStatus = Lens.lens (responseStatus :: GetBlobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBlobResponse)
+{-# DEPRECATED gbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | The content of the blob, usually a file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-gbrsContent :: Lens' GetBlobResponse ByteString
-gbrsContent = lens _gbrsContent (\s a -> s {_gbrsContent = a}) . _Base64
-
-instance NFData GetBlobResponse
+-- | The content of the blob, usually a file.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbrsContent :: Lens.Lens' GetBlobResponse Lude.Base64
+gbrsContent = Lens.lens (content :: GetBlobResponse -> Lude.Base64) (\s a -> s {content = a} :: GetBlobResponse)
+{-# DEPRECATED gbrsContent "Use generic-lens or generic-optics with 'content' instead." #-}

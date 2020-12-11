@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MsSmoothH265PackagingType where
+module Network.AWS.MediaLive.Types.MsSmoothH265PackagingType
+  ( MsSmoothH265PackagingType
+      ( MsSmoothH265PackagingType',
+        MSHPTHEV1,
+        MSHPTHVC1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ms Smooth H265 Packaging Type
-data MsSmoothH265PackagingType
-  = MSHPTHEV1
-  | MSHPTHVC1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MsSmoothH265PackagingType = MsSmoothH265PackagingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MsSmoothH265PackagingType where
-  parser =
-    takeLowerText >>= \case
-      "hev1" -> pure MSHPTHEV1
-      "hvc1" -> pure MSHPTHVC1
-      e ->
-        fromTextError $
-          "Failure parsing MsSmoothH265PackagingType from value: '" <> e
-            <> "'. Accepted values: hev1, hvc1"
+pattern MSHPTHEV1 :: MsSmoothH265PackagingType
+pattern MSHPTHEV1 = MsSmoothH265PackagingType' "HEV1"
 
-instance ToText MsSmoothH265PackagingType where
-  toText = \case
-    MSHPTHEV1 -> "HEV1"
-    MSHPTHVC1 -> "HVC1"
+pattern MSHPTHVC1 :: MsSmoothH265PackagingType
+pattern MSHPTHVC1 = MsSmoothH265PackagingType' "HVC1"
 
-instance Hashable MsSmoothH265PackagingType
-
-instance NFData MsSmoothH265PackagingType
-
-instance ToByteString MsSmoothH265PackagingType
-
-instance ToQuery MsSmoothH265PackagingType
-
-instance ToHeader MsSmoothH265PackagingType
-
-instance ToJSON MsSmoothH265PackagingType where
-  toJSON = toJSONText
-
-instance FromJSON MsSmoothH265PackagingType where
-  parseJSON = parseJSONText "MsSmoothH265PackagingType"
+{-# COMPLETE
+  MSHPTHEV1,
+  MSHPTHVC1,
+  MsSmoothH265PackagingType'
+  #-}

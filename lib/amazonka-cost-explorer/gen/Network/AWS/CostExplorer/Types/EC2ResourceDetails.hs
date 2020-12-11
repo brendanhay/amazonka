@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,154 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.EC2ResourceDetails where
+module Network.AWS.CostExplorer.Types.EC2ResourceDetails
+  ( EC2ResourceDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEC2ResourceDetails,
+
+    -- * Lenses
+    erdPlatform,
+    erdVcpu,
+    erdNetworkPerformance,
+    erdMemory,
+    erdInstanceType,
+    erdStorage,
+    erdSku,
+    erdRegion,
+    erdHourlyOnDemandRate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on the Amazon EC2 Resource.
 --
---
---
--- /See:/ 'ec2ResourceDetails' smart constructor.
+-- /See:/ 'mkEC2ResourceDetails' smart constructor.
 data EC2ResourceDetails = EC2ResourceDetails'
-  { _erdPlatform ::
-      !(Maybe Text),
-    _erdVcpu :: !(Maybe Text),
-    _erdNetworkPerformance :: !(Maybe Text),
-    _erdMemory :: !(Maybe Text),
-    _erdInstanceType :: !(Maybe Text),
-    _erdStorage :: !(Maybe Text),
-    _erdSku :: !(Maybe Text),
-    _erdRegion :: !(Maybe Text),
-    _erdHourlyOnDemandRate :: !(Maybe Text)
+  { platform ::
+      Lude.Maybe Lude.Text,
+    vcpu :: Lude.Maybe Lude.Text,
+    networkPerformance :: Lude.Maybe Lude.Text,
+    memory :: Lude.Maybe Lude.Text,
+    instanceType :: Lude.Maybe Lude.Text,
+    storage :: Lude.Maybe Lude.Text,
+    sku :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    hourlyOnDemandRate :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2ResourceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erdPlatform' - The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance.
---
--- * 'erdVcpu' - Number of VCPU cores in the AWS instance type.
---
--- * 'erdNetworkPerformance' - Network performance capacity of the AWS instance.
---
--- * 'erdMemory' - Memory capacity of the AWS instance.
---
--- * 'erdInstanceType' - The type of AWS instance.
---
--- * 'erdStorage' - The disk storage of the AWS instance (not EBS storage).
---
--- * 'erdSku' - The SKU of the product.
---
--- * 'erdRegion' - The AWS Region of the instance.
---
--- * 'erdHourlyOnDemandRate' - Hourly public On-Demand rate for the instance type.
-ec2ResourceDetails ::
+-- * 'hourlyOnDemandRate' - Hourly public On-Demand rate for the instance type.
+-- * 'instanceType' - The type of AWS instance.
+-- * 'memory' - Memory capacity of the AWS instance.
+-- * 'networkPerformance' - Network performance capacity of the AWS instance.
+-- * 'platform' - The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance.
+-- * 'region' - The AWS Region of the instance.
+-- * 'sku' - The SKU of the product.
+-- * 'storage' - The disk storage of the AWS instance (not EBS storage).
+-- * 'vcpu' - Number of VCPU cores in the AWS instance type.
+mkEC2ResourceDetails ::
   EC2ResourceDetails
-ec2ResourceDetails =
+mkEC2ResourceDetails =
   EC2ResourceDetails'
-    { _erdPlatform = Nothing,
-      _erdVcpu = Nothing,
-      _erdNetworkPerformance = Nothing,
-      _erdMemory = Nothing,
-      _erdInstanceType = Nothing,
-      _erdStorage = Nothing,
-      _erdSku = Nothing,
-      _erdRegion = Nothing,
-      _erdHourlyOnDemandRate = Nothing
+    { platform = Lude.Nothing,
+      vcpu = Lude.Nothing,
+      networkPerformance = Lude.Nothing,
+      memory = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      storage = Lude.Nothing,
+      sku = Lude.Nothing,
+      region = Lude.Nothing,
+      hourlyOnDemandRate = Lude.Nothing
     }
 
 -- | The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance.
-erdPlatform :: Lens' EC2ResourceDetails (Maybe Text)
-erdPlatform = lens _erdPlatform (\s a -> s {_erdPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdPlatform :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdPlatform = Lens.lens (platform :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | Number of VCPU cores in the AWS instance type.
-erdVcpu :: Lens' EC2ResourceDetails (Maybe Text)
-erdVcpu = lens _erdVcpu (\s a -> s {_erdVcpu = a})
+--
+-- /Note:/ Consider using 'vcpu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdVcpu :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdVcpu = Lens.lens (vcpu :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {vcpu = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdVcpu "Use generic-lens or generic-optics with 'vcpu' instead." #-}
 
 -- | Network performance capacity of the AWS instance.
-erdNetworkPerformance :: Lens' EC2ResourceDetails (Maybe Text)
-erdNetworkPerformance = lens _erdNetworkPerformance (\s a -> s {_erdNetworkPerformance = a})
+--
+-- /Note:/ Consider using 'networkPerformance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdNetworkPerformance :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdNetworkPerformance = Lens.lens (networkPerformance :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {networkPerformance = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdNetworkPerformance "Use generic-lens or generic-optics with 'networkPerformance' instead." #-}
 
 -- | Memory capacity of the AWS instance.
-erdMemory :: Lens' EC2ResourceDetails (Maybe Text)
-erdMemory = lens _erdMemory (\s a -> s {_erdMemory = a})
+--
+-- /Note:/ Consider using 'memory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdMemory :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdMemory = Lens.lens (memory :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {memory = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdMemory "Use generic-lens or generic-optics with 'memory' instead." #-}
 
 -- | The type of AWS instance.
-erdInstanceType :: Lens' EC2ResourceDetails (Maybe Text)
-erdInstanceType = lens _erdInstanceType (\s a -> s {_erdInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdInstanceType :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdInstanceType = Lens.lens (instanceType :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The disk storage of the AWS instance (not EBS storage).
-erdStorage :: Lens' EC2ResourceDetails (Maybe Text)
-erdStorage = lens _erdStorage (\s a -> s {_erdStorage = a})
+--
+-- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdStorage :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdStorage = Lens.lens (storage :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {storage = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
 
 -- | The SKU of the product.
-erdSku :: Lens' EC2ResourceDetails (Maybe Text)
-erdSku = lens _erdSku (\s a -> s {_erdSku = a})
+--
+-- /Note:/ Consider using 'sku' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdSku :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdSku = Lens.lens (sku :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {sku = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdSku "Use generic-lens or generic-optics with 'sku' instead." #-}
 
 -- | The AWS Region of the instance.
-erdRegion :: Lens' EC2ResourceDetails (Maybe Text)
-erdRegion = lens _erdRegion (\s a -> s {_erdRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdRegion :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdRegion = Lens.lens (region :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | Hourly public On-Demand rate for the instance type.
-erdHourlyOnDemandRate :: Lens' EC2ResourceDetails (Maybe Text)
-erdHourlyOnDemandRate = lens _erdHourlyOnDemandRate (\s a -> s {_erdHourlyOnDemandRate = a})
+--
+-- /Note:/ Consider using 'hourlyOnDemandRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdHourlyOnDemandRate :: Lens.Lens' EC2ResourceDetails (Lude.Maybe Lude.Text)
+erdHourlyOnDemandRate = Lens.lens (hourlyOnDemandRate :: EC2ResourceDetails -> Lude.Maybe Lude.Text) (\s a -> s {hourlyOnDemandRate = a} :: EC2ResourceDetails)
+{-# DEPRECATED erdHourlyOnDemandRate "Use generic-lens or generic-optics with 'hourlyOnDemandRate' instead." #-}
 
-instance FromJSON EC2ResourceDetails where
+instance Lude.FromJSON EC2ResourceDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "EC2ResourceDetails"
       ( \x ->
           EC2ResourceDetails'
-            <$> (x .:? "Platform")
-            <*> (x .:? "Vcpu")
-            <*> (x .:? "NetworkPerformance")
-            <*> (x .:? "Memory")
-            <*> (x .:? "InstanceType")
-            <*> (x .:? "Storage")
-            <*> (x .:? "Sku")
-            <*> (x .:? "Region")
-            <*> (x .:? "HourlyOnDemandRate")
+            Lude.<$> (x Lude..:? "Platform")
+            Lude.<*> (x Lude..:? "Vcpu")
+            Lude.<*> (x Lude..:? "NetworkPerformance")
+            Lude.<*> (x Lude..:? "Memory")
+            Lude.<*> (x Lude..:? "InstanceType")
+            Lude.<*> (x Lude..:? "Storage")
+            Lude.<*> (x Lude..:? "Sku")
+            Lude.<*> (x Lude..:? "Region")
+            Lude.<*> (x Lude..:? "HourlyOnDemandRate")
       )
-
-instance Hashable EC2ResourceDetails
-
-instance NFData EC2ResourceDetails

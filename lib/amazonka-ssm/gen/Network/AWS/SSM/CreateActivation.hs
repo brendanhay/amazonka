@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Generates an activation code and activation ID you can use to register your on-premises server or virtual machine (VM) with Systems Manager. Registering these machines with Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and ID when installing SSM Agent on machines in your hybrid environment. For more information about requirements for managing on-premises instances and VMs using Systems Manager, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html Setting up AWS Systems Manager for hybrid environments> in the /AWS Systems Manager User Guide/ .
 module Network.AWS.SSM.CreateActivation
-  ( -- * Creating a Request
-    createActivation,
-    CreateActivation,
+  ( -- * Creating a request
+    CreateActivation (..),
+    mkCreateActivation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caDefaultInstanceName,
     caRegistrationLimit,
     caExpirationDate,
@@ -31,171 +26,225 @@ module Network.AWS.SSM.CreateActivation
     caTags,
     caIAMRole,
 
-    -- * Destructuring the Response
-    createActivationResponse,
-    CreateActivationResponse,
+    -- * Destructuring the response
+    CreateActivationResponse (..),
+    mkCreateActivationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsActivationId,
     carsActivationCode,
     carsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'createActivation' smart constructor.
+-- | /See:/ 'mkCreateActivation' smart constructor.
 data CreateActivation = CreateActivation'
-  { _caDefaultInstanceName ::
-      !(Maybe Text),
-    _caRegistrationLimit :: !(Maybe Nat),
-    _caExpirationDate :: !(Maybe POSIX),
-    _caDescription :: !(Maybe Text),
-    _caTags :: !(Maybe [Tag]),
-    _caIAMRole :: !Text
+  { defaultInstanceName ::
+      Lude.Maybe Lude.Text,
+    registrationLimit :: Lude.Maybe Lude.Natural,
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    iamRole :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'defaultInstanceName' - The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources.
 --
--- * 'caDefaultInstanceName' - The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources. /Important:/ Do not enter personally identifiable information in this field.
+-- /Important:/ Do not enter personally identifiable information in this field.
+-- * 'description' - A user-defined description of the resource that you want to register with Systems Manager.
 --
--- * 'caRegistrationLimit' - Specify the maximum number of managed instances you want to register. The default value is 1 instance.
+-- /Important:/ Do not enter personally identifiable information in this field.
+-- * 'expirationDate' - The date by which this activation request should expire. The default value is 24 hours.
+-- * 'iamRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
+-- * 'registrationLimit' - Specify the maximum number of managed instances you want to register. The default value is 1 instance.
+-- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:
 --
--- * 'caExpirationDate' - The date by which this activation request should expire. The default value is 24 hours.
 --
--- * 'caDescription' - A user-defined description of the resource that you want to register with Systems Manager.  /Important:/ Do not enter personally identifiable information in this field.
+--     * @Key=OS,Value=Windows@
 --
--- * 'caTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@  /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs. You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
 --
--- * 'caIAMRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
-createActivation ::
-  -- | 'caIAMRole'
-  Text ->
+--     * @Key=Environment,Value=Production@
+--
+--
+-- /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs.
+-- You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
+mkCreateActivation ::
+  -- | 'iamRole'
+  Lude.Text ->
   CreateActivation
-createActivation pIAMRole_ =
+mkCreateActivation pIAMRole_ =
   CreateActivation'
-    { _caDefaultInstanceName = Nothing,
-      _caRegistrationLimit = Nothing,
-      _caExpirationDate = Nothing,
-      _caDescription = Nothing,
-      _caTags = Nothing,
-      _caIAMRole = pIAMRole_
+    { defaultInstanceName = Lude.Nothing,
+      registrationLimit = Lude.Nothing,
+      expirationDate = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      iamRole = pIAMRole_
     }
 
--- | The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources. /Important:/ Do not enter personally identifiable information in this field.
-caDefaultInstanceName :: Lens' CreateActivation (Maybe Text)
-caDefaultInstanceName = lens _caDefaultInstanceName (\s a -> s {_caDefaultInstanceName = a})
+-- | The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources.
+--
+-- /Important:/ Do not enter personally identifiable information in this field.
+--
+-- /Note:/ Consider using 'defaultInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDefaultInstanceName :: Lens.Lens' CreateActivation (Lude.Maybe Lude.Text)
+caDefaultInstanceName = Lens.lens (defaultInstanceName :: CreateActivation -> Lude.Maybe Lude.Text) (\s a -> s {defaultInstanceName = a} :: CreateActivation)
+{-# DEPRECATED caDefaultInstanceName "Use generic-lens or generic-optics with 'defaultInstanceName' instead." #-}
 
 -- | Specify the maximum number of managed instances you want to register. The default value is 1 instance.
-caRegistrationLimit :: Lens' CreateActivation (Maybe Natural)
-caRegistrationLimit = lens _caRegistrationLimit (\s a -> s {_caRegistrationLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'registrationLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRegistrationLimit :: Lens.Lens' CreateActivation (Lude.Maybe Lude.Natural)
+caRegistrationLimit = Lens.lens (registrationLimit :: CreateActivation -> Lude.Maybe Lude.Natural) (\s a -> s {registrationLimit = a} :: CreateActivation)
+{-# DEPRECATED caRegistrationLimit "Use generic-lens or generic-optics with 'registrationLimit' instead." #-}
 
 -- | The date by which this activation request should expire. The default value is 24 hours.
-caExpirationDate :: Lens' CreateActivation (Maybe UTCTime)
-caExpirationDate = lens _caExpirationDate (\s a -> s {_caExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caExpirationDate :: Lens.Lens' CreateActivation (Lude.Maybe Lude.Timestamp)
+caExpirationDate = Lens.lens (expirationDate :: CreateActivation -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: CreateActivation)
+{-# DEPRECATED caExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
--- | A user-defined description of the resource that you want to register with Systems Manager.  /Important:/ Do not enter personally identifiable information in this field.
-caDescription :: Lens' CreateActivation (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+-- | A user-defined description of the resource that you want to register with Systems Manager.
+--
+-- /Important:/ Do not enter personally identifiable information in this field.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateActivation (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateActivation -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateActivation)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@  /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs. You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
-caTags :: Lens' CreateActivation [Tag]
-caTags = lens _caTags (\s a -> s {_caTags = a}) . _Default . _Coerce
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:
+--
+--
+--     * @Key=OS,Value=Windows@
+--
+--
+--     * @Key=Environment,Value=Production@
+--
+--
+-- /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs.
+-- You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateActivation (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateActivation -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateActivation)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
-caIAMRole :: Lens' CreateActivation Text
-caIAMRole = lens _caIAMRole (\s a -> s {_caIAMRole = a})
+--
+-- /Note:/ Consider using 'iamRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caIAMRole :: Lens.Lens' CreateActivation Lude.Text
+caIAMRole = Lens.lens (iamRole :: CreateActivation -> Lude.Text) (\s a -> s {iamRole = a} :: CreateActivation)
+{-# DEPRECATED caIAMRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
 
-instance AWSRequest CreateActivation where
+instance Lude.AWSRequest CreateActivation where
   type Rs CreateActivation = CreateActivationResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateActivationResponse'
-            <$> (x .?> "ActivationId")
-            <*> (x .?> "ActivationCode")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ActivationId")
+            Lude.<*> (x Lude..?> "ActivationCode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateActivation
-
-instance NFData CreateActivation
-
-instance ToHeaders CreateActivation where
+instance Lude.ToHeaders CreateActivation where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.CreateActivation" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.CreateActivation" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateActivation where
+instance Lude.ToJSON CreateActivation where
   toJSON CreateActivation' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultInstanceName" .=) <$> _caDefaultInstanceName,
-            ("RegistrationLimit" .=) <$> _caRegistrationLimit,
-            ("ExpirationDate" .=) <$> _caExpirationDate,
-            ("Description" .=) <$> _caDescription,
-            ("Tags" .=) <$> _caTags,
-            Just ("IamRole" .= _caIAMRole)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultInstanceName" Lude..=) Lude.<$> defaultInstanceName,
+            ("RegistrationLimit" Lude..=) Lude.<$> registrationLimit,
+            ("ExpirationDate" Lude..=) Lude.<$> expirationDate,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("IamRole" Lude..= iamRole)
           ]
       )
 
-instance ToPath CreateActivation where
-  toPath = const "/"
+instance Lude.ToPath CreateActivation where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateActivation where
-  toQuery = const mempty
+instance Lude.ToQuery CreateActivation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createActivationResponse' smart constructor.
+-- | /See:/ 'mkCreateActivationResponse' smart constructor.
 data CreateActivationResponse = CreateActivationResponse'
-  { _carsActivationId ::
-      !(Maybe Text),
-    _carsActivationCode :: !(Maybe Text),
-    _carsResponseStatus :: !Int
+  { activationId ::
+      Lude.Maybe Lude.Text,
+    activationCode :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsActivationId' - The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
---
--- * 'carsActivationCode' - The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createActivationResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'activationCode' - The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
+-- * 'activationId' - The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
+-- * 'responseStatus' - The response status code.
+mkCreateActivationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateActivationResponse
-createActivationResponse pResponseStatus_ =
+mkCreateActivationResponse pResponseStatus_ =
   CreateActivationResponse'
-    { _carsActivationId = Nothing,
-      _carsActivationCode = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { activationId = Lude.Nothing,
+      activationCode = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
-carsActivationId :: Lens' CreateActivationResponse (Maybe Text)
-carsActivationId = lens _carsActivationId (\s a -> s {_carsActivationId = a})
+--
+-- /Note:/ Consider using 'activationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsActivationId :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
+carsActivationId = Lens.lens (activationId :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationId = a} :: CreateActivationResponse)
+{-# DEPRECATED carsActivationId "Use generic-lens or generic-optics with 'activationId' instead." #-}
 
 -- | The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
-carsActivationCode :: Lens' CreateActivationResponse (Maybe Text)
-carsActivationCode = lens _carsActivationCode (\s a -> s {_carsActivationCode = a})
+--
+-- /Note:/ Consider using 'activationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsActivationCode :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
+carsActivationCode = Lens.lens (activationCode :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationCode = a} :: CreateActivationResponse)
+{-# DEPRECATED carsActivationCode "Use generic-lens or generic-optics with 'activationCode' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateActivationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateActivationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateActivationResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateActivationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateActivationResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

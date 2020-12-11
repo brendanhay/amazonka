@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProactiveEngagementStatus where
+module Network.AWS.Shield.Types.ProactiveEngagementStatus
+  ( ProactiveEngagementStatus
+      ( ProactiveEngagementStatus',
+        PESDisabled,
+        PESEnabled,
+        PESPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProactiveEngagementStatus
-  = PESDisabled
-  | PESEnabled
-  | PESPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProactiveEngagementStatus = ProactiveEngagementStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProactiveEngagementStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure PESDisabled
-      "enabled" -> pure PESEnabled
-      "pending" -> pure PESPending
-      e ->
-        fromTextError $
-          "Failure parsing ProactiveEngagementStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled, pending"
+pattern PESDisabled :: ProactiveEngagementStatus
+pattern PESDisabled = ProactiveEngagementStatus' "DISABLED"
 
-instance ToText ProactiveEngagementStatus where
-  toText = \case
-    PESDisabled -> "DISABLED"
-    PESEnabled -> "ENABLED"
-    PESPending -> "PENDING"
+pattern PESEnabled :: ProactiveEngagementStatus
+pattern PESEnabled = ProactiveEngagementStatus' "ENABLED"
 
-instance Hashable ProactiveEngagementStatus
+pattern PESPending :: ProactiveEngagementStatus
+pattern PESPending = ProactiveEngagementStatus' "PENDING"
 
-instance NFData ProactiveEngagementStatus
-
-instance ToByteString ProactiveEngagementStatus
-
-instance ToQuery ProactiveEngagementStatus
-
-instance ToHeader ProactiveEngagementStatus
-
-instance FromJSON ProactiveEngagementStatus where
-  parseJSON = parseJSONText "ProactiveEngagementStatus"
+{-# COMPLETE
+  PESDisabled,
+  PESEnabled,
+  PESPending,
+  ProactiveEngagementStatus'
+  #-}

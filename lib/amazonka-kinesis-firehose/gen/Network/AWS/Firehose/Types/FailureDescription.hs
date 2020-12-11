@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.FailureDescription where
+module Network.AWS.Firehose.Types.FailureDescription
+  ( FailureDescription (..),
+
+    -- * Smart constructor
+    mkFailureDescription,
+
+    -- * Lenses
+    fdType,
+    fdDetails,
+  )
+where
 
 import Network.AWS.Firehose.Types.DeliveryStreamFailureType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
 --
---
---
--- /See:/ 'failureDescription' smart constructor.
+-- /See:/ 'mkFailureDescription' smart constructor.
 data FailureDescription = FailureDescription'
-  { _fdType ::
-      !DeliveryStreamFailureType,
-    _fdDetails :: !Text
+  { type' ::
+      DeliveryStreamFailureType,
+    details :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdType' - The type of error that caused the failure.
---
--- * 'fdDetails' - A message providing details about the error that caused the failure.
-failureDescription ::
-  -- | 'fdType'
+-- * 'details' - A message providing details about the error that caused the failure.
+-- * 'type'' - The type of error that caused the failure.
+mkFailureDescription ::
+  -- | 'type''
   DeliveryStreamFailureType ->
-  -- | 'fdDetails'
-  Text ->
+  -- | 'details'
+  Lude.Text ->
   FailureDescription
-failureDescription pType_ pDetails_ =
-  FailureDescription' {_fdType = pType_, _fdDetails = pDetails_}
+mkFailureDescription pType_ pDetails_ =
+  FailureDescription' {type' = pType_, details = pDetails_}
 
 -- | The type of error that caused the failure.
-fdType :: Lens' FailureDescription DeliveryStreamFailureType
-fdType = lens _fdType (\s a -> s {_fdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdType :: Lens.Lens' FailureDescription DeliveryStreamFailureType
+fdType = Lens.lens (type' :: FailureDescription -> DeliveryStreamFailureType) (\s a -> s {type' = a} :: FailureDescription)
+{-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A message providing details about the error that caused the failure.
-fdDetails :: Lens' FailureDescription Text
-fdDetails = lens _fdDetails (\s a -> s {_fdDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdDetails :: Lens.Lens' FailureDescription Lude.Text
+fdDetails = Lens.lens (details :: FailureDescription -> Lude.Text) (\s a -> s {details = a} :: FailureDescription)
+{-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance FromJSON FailureDescription where
+instance Lude.FromJSON FailureDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailureDescription"
-      (\x -> FailureDescription' <$> (x .: "Type") <*> (x .: "Details"))
-
-instance Hashable FailureDescription
-
-instance NFData FailureDescription
+      ( \x ->
+          FailureDescription'
+            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Details")
+      )

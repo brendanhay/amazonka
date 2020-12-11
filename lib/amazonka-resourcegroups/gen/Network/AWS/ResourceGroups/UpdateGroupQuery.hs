@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,152 @@
 --
 -- Updates the resource query of a group.
 module Network.AWS.ResourceGroups.UpdateGroupQuery
-  ( -- * Creating a Request
-    updateGroupQuery,
-    UpdateGroupQuery,
+  ( -- * Creating a request
+    UpdateGroupQuery (..),
+    mkUpdateGroupQuery,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugqGroup,
     ugqGroupName,
     ugqResourceQuery,
 
-    -- * Destructuring the Response
-    updateGroupQueryResponse,
-    UpdateGroupQueryResponse,
+    -- * Destructuring the response
+    UpdateGroupQueryResponse (..),
+    mkUpdateGroupQueryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugqrsGroupQuery,
     ugqrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGroupQuery' smart constructor.
+-- | /See:/ 'mkUpdateGroupQuery' smart constructor.
 data UpdateGroupQuery = UpdateGroupQuery'
-  { _ugqGroup ::
-      !(Maybe Text),
-    _ugqGroupName :: !(Maybe Text),
-    _ugqResourceQuery :: !ResourceQuery
+  { group ::
+      Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    resourceQuery :: ResourceQuery
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupQuery' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugqGroup' - The name or the ARN of the resource group to query.
---
--- * 'ugqGroupName' - Don't use this parameter. Use @Group@ instead.
---
--- * 'ugqResourceQuery' - The resource query to determine which AWS resources are members of this resource group.
-updateGroupQuery ::
-  -- | 'ugqResourceQuery'
+-- * 'group' - The name or the ARN of the resource group to query.
+-- * 'groupName' - Don't use this parameter. Use @Group@ instead.
+-- * 'resourceQuery' - The resource query to determine which AWS resources are members of this resource group.
+mkUpdateGroupQuery ::
+  -- | 'resourceQuery'
   ResourceQuery ->
   UpdateGroupQuery
-updateGroupQuery pResourceQuery_ =
+mkUpdateGroupQuery pResourceQuery_ =
   UpdateGroupQuery'
-    { _ugqGroup = Nothing,
-      _ugqGroupName = Nothing,
-      _ugqResourceQuery = pResourceQuery_
+    { group = Lude.Nothing,
+      groupName = Lude.Nothing,
+      resourceQuery = pResourceQuery_
     }
 
 -- | The name or the ARN of the resource group to query.
-ugqGroup :: Lens' UpdateGroupQuery (Maybe Text)
-ugqGroup = lens _ugqGroup (\s a -> s {_ugqGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugqGroup :: Lens.Lens' UpdateGroupQuery (Lude.Maybe Lude.Text)
+ugqGroup = Lens.lens (group :: UpdateGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: UpdateGroupQuery)
+{-# DEPRECATED ugqGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | Don't use this parameter. Use @Group@ instead.
-ugqGroupName :: Lens' UpdateGroupQuery (Maybe Text)
-ugqGroupName = lens _ugqGroupName (\s a -> s {_ugqGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugqGroupName :: Lens.Lens' UpdateGroupQuery (Lude.Maybe Lude.Text)
+ugqGroupName = Lens.lens (groupName :: UpdateGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateGroupQuery)
+{-# DEPRECATED ugqGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The resource query to determine which AWS resources are members of this resource group.
-ugqResourceQuery :: Lens' UpdateGroupQuery ResourceQuery
-ugqResourceQuery = lens _ugqResourceQuery (\s a -> s {_ugqResourceQuery = a})
+--
+-- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugqResourceQuery :: Lens.Lens' UpdateGroupQuery ResourceQuery
+ugqResourceQuery = Lens.lens (resourceQuery :: UpdateGroupQuery -> ResourceQuery) (\s a -> s {resourceQuery = a} :: UpdateGroupQuery)
+{-# DEPRECATED ugqResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
 
-instance AWSRequest UpdateGroupQuery where
+instance Lude.AWSRequest UpdateGroupQuery where
   type Rs UpdateGroupQuery = UpdateGroupQueryResponse
-  request = postJSON resourceGroups
+  request = Req.postJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGroupQueryResponse'
-            <$> (x .?> "GroupQuery") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GroupQuery") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGroupQuery
+instance Lude.ToHeaders UpdateGroupQuery where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateGroupQuery
-
-instance ToHeaders UpdateGroupQuery where
-  toHeaders = const mempty
-
-instance ToJSON UpdateGroupQuery where
+instance Lude.ToJSON UpdateGroupQuery where
   toJSON UpdateGroupQuery' {..} =
-    object
-      ( catMaybes
-          [ ("Group" .=) <$> _ugqGroup,
-            ("GroupName" .=) <$> _ugqGroupName,
-            Just ("ResourceQuery" .= _ugqResourceQuery)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Group" Lude..=) Lude.<$> group,
+            ("GroupName" Lude..=) Lude.<$> groupName,
+            Lude.Just ("ResourceQuery" Lude..= resourceQuery)
           ]
       )
 
-instance ToPath UpdateGroupQuery where
-  toPath = const "/update-group-query"
+instance Lude.ToPath UpdateGroupQuery where
+  toPath = Lude.const "/update-group-query"
 
-instance ToQuery UpdateGroupQuery where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGroupQuery where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGroupQueryResponse' smart constructor.
+-- | /See:/ 'mkUpdateGroupQueryResponse' smart constructor.
 data UpdateGroupQueryResponse = UpdateGroupQueryResponse'
-  { _ugqrsGroupQuery ::
-      !(Maybe GroupQuery),
-    _ugqrsResponseStatus :: !Int
+  { groupQuery ::
+      Lude.Maybe GroupQuery,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupQueryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugqrsGroupQuery' - The updated resource query associated with the resource group after the update.
---
--- * 'ugqrsResponseStatus' - -- | The response status code.
-updateGroupQueryResponse ::
-  -- | 'ugqrsResponseStatus'
-  Int ->
+-- * 'groupQuery' - The updated resource query associated with the resource group after the update.
+-- * 'responseStatus' - The response status code.
+mkUpdateGroupQueryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGroupQueryResponse
-updateGroupQueryResponse pResponseStatus_ =
+mkUpdateGroupQueryResponse pResponseStatus_ =
   UpdateGroupQueryResponse'
-    { _ugqrsGroupQuery = Nothing,
-      _ugqrsResponseStatus = pResponseStatus_
+    { groupQuery = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated resource query associated with the resource group after the update.
-ugqrsGroupQuery :: Lens' UpdateGroupQueryResponse (Maybe GroupQuery)
-ugqrsGroupQuery = lens _ugqrsGroupQuery (\s a -> s {_ugqrsGroupQuery = a})
+--
+-- /Note:/ Consider using 'groupQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugqrsGroupQuery :: Lens.Lens' UpdateGroupQueryResponse (Lude.Maybe GroupQuery)
+ugqrsGroupQuery = Lens.lens (groupQuery :: UpdateGroupQueryResponse -> Lude.Maybe GroupQuery) (\s a -> s {groupQuery = a} :: UpdateGroupQueryResponse)
+{-# DEPRECATED ugqrsGroupQuery "Use generic-lens or generic-optics with 'groupQuery' instead." #-}
 
--- | -- | The response status code.
-ugqrsResponseStatus :: Lens' UpdateGroupQueryResponse Int
-ugqrsResponseStatus = lens _ugqrsResponseStatus (\s a -> s {_ugqrsResponseStatus = a})
-
-instance NFData UpdateGroupQueryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugqrsResponseStatus :: Lens.Lens' UpdateGroupQueryResponse Lude.Int
+ugqrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupQueryResponse)
+{-# DEPRECATED ugqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

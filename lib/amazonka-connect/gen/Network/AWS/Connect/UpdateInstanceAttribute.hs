@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,127 @@
 --
 -- Updates the value for the specified attribute type.
 module Network.AWS.Connect.UpdateInstanceAttribute
-  ( -- * Creating a Request
-    updateInstanceAttribute,
-    UpdateInstanceAttribute,
+  ( -- * Creating a request
+    UpdateInstanceAttribute (..),
+    mkUpdateInstanceAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uiaInstanceId,
     uiaAttributeType,
     uiaValue,
 
-    -- * Destructuring the Response
-    updateInstanceAttributeResponse,
-    UpdateInstanceAttributeResponse,
+    -- * Destructuring the response
+    UpdateInstanceAttributeResponse (..),
+    mkUpdateInstanceAttributeResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateInstanceAttribute' smart constructor.
+-- | /See:/ 'mkUpdateInstanceAttribute' smart constructor.
 data UpdateInstanceAttribute = UpdateInstanceAttribute'
-  { _uiaInstanceId ::
-      !Text,
-    _uiaAttributeType :: !InstanceAttributeType,
-    _uiaValue :: !Text
+  { instanceId ::
+      Lude.Text,
+    attributeType :: InstanceAttributeType,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiaInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'uiaAttributeType' - The type of attribute.
---
--- * 'uiaValue' - The value for the attribute. Maximum character limit is 100.
-updateInstanceAttribute ::
-  -- | 'uiaInstanceId'
-  Text ->
-  -- | 'uiaAttributeType'
+-- * 'attributeType' - The type of attribute.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'value' - The value for the attribute. Maximum character limit is 100.
+mkUpdateInstanceAttribute ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'attributeType'
   InstanceAttributeType ->
-  -- | 'uiaValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   UpdateInstanceAttribute
-updateInstanceAttribute pInstanceId_ pAttributeType_ pValue_ =
+mkUpdateInstanceAttribute pInstanceId_ pAttributeType_ pValue_ =
   UpdateInstanceAttribute'
-    { _uiaInstanceId = pInstanceId_,
-      _uiaAttributeType = pAttributeType_,
-      _uiaValue = pValue_
+    { instanceId = pInstanceId_,
+      attributeType = pAttributeType_,
+      value = pValue_
     }
 
 -- | The identifier of the Amazon Connect instance.
-uiaInstanceId :: Lens' UpdateInstanceAttribute Text
-uiaInstanceId = lens _uiaInstanceId (\s a -> s {_uiaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiaInstanceId :: Lens.Lens' UpdateInstanceAttribute Lude.Text
+uiaInstanceId = Lens.lens (instanceId :: UpdateInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateInstanceAttribute)
+{-# DEPRECATED uiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The type of attribute.
-uiaAttributeType :: Lens' UpdateInstanceAttribute InstanceAttributeType
-uiaAttributeType = lens _uiaAttributeType (\s a -> s {_uiaAttributeType = a})
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiaAttributeType :: Lens.Lens' UpdateInstanceAttribute InstanceAttributeType
+uiaAttributeType = Lens.lens (attributeType :: UpdateInstanceAttribute -> InstanceAttributeType) (\s a -> s {attributeType = a} :: UpdateInstanceAttribute)
+{-# DEPRECATED uiaAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 -- | The value for the attribute. Maximum character limit is 100.
-uiaValue :: Lens' UpdateInstanceAttribute Text
-uiaValue = lens _uiaValue (\s a -> s {_uiaValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiaValue :: Lens.Lens' UpdateInstanceAttribute Lude.Text
+uiaValue = Lens.lens (value :: UpdateInstanceAttribute -> Lude.Text) (\s a -> s {value = a} :: UpdateInstanceAttribute)
+{-# DEPRECATED uiaValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance AWSRequest UpdateInstanceAttribute where
+instance Lude.AWSRequest UpdateInstanceAttribute where
   type Rs UpdateInstanceAttribute = UpdateInstanceAttributeResponse
-  request = postJSON connect
-  response = receiveNull UpdateInstanceAttributeResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateInstanceAttributeResponse'
 
-instance Hashable UpdateInstanceAttribute
-
-instance NFData UpdateInstanceAttribute
-
-instance ToHeaders UpdateInstanceAttribute where
+instance Lude.ToHeaders UpdateInstanceAttribute where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateInstanceAttribute where
+instance Lude.ToJSON UpdateInstanceAttribute where
   toJSON UpdateInstanceAttribute' {..} =
-    object (catMaybes [Just ("Value" .= _uiaValue)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Value" Lude..= value)])
 
-instance ToPath UpdateInstanceAttribute where
+instance Lude.ToPath UpdateInstanceAttribute where
   toPath UpdateInstanceAttribute' {..} =
-    mconcat
+    Lude.mconcat
       [ "/instance/",
-        toBS _uiaInstanceId,
+        Lude.toBS instanceId,
         "/attribute/",
-        toBS _uiaAttributeType
+        Lude.toBS attributeType
       ]
 
-instance ToQuery UpdateInstanceAttribute where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateInstanceAttribute where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateInstanceAttributeResponse' smart constructor.
+-- | /See:/ 'mkUpdateInstanceAttributeResponse' smart constructor.
 data UpdateInstanceAttributeResponse = UpdateInstanceAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceAttributeResponse' with the minimum fields required to make a request.
-updateInstanceAttributeResponse ::
+mkUpdateInstanceAttributeResponse ::
   UpdateInstanceAttributeResponse
-updateInstanceAttributeResponse = UpdateInstanceAttributeResponse'
-
-instance NFData UpdateInstanceAttributeResponse
+mkUpdateInstanceAttributeResponse =
+  UpdateInstanceAttributeResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ExportInfo where
+module Network.AWS.Discovery.Types.ExportInfo
+  ( ExportInfo (..),
+
+    -- * Smart constructor
+    mkExportInfo,
+
+    -- * Lenses
+    eiConfigurationsDownloadURL,
+    eiRequestedStartTime,
+    eiRequestedEndTime,
+    eiIsTruncated,
+    eiExportId,
+    eiExportStatus,
+    eiStatusMessage,
+    eiExportRequestTime,
+  )
+where
 
 import Network.AWS.Discovery.Types.ExportStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information regarding the export status of discovered data. The value is an array of objects.
 --
---
---
--- /See:/ 'exportInfo' smart constructor.
+-- /See:/ 'mkExportInfo' smart constructor.
 data ExportInfo = ExportInfo'
-  { _eiConfigurationsDownloadURL ::
-      !(Maybe Text),
-    _eiRequestedStartTime :: !(Maybe POSIX),
-    _eiRequestedEndTime :: !(Maybe POSIX),
-    _eiIsTruncated :: !(Maybe Bool),
-    _eiExportId :: !Text,
-    _eiExportStatus :: !ExportStatus,
-    _eiStatusMessage :: !Text,
-    _eiExportRequestTime :: !POSIX
+  { configurationsDownloadURL ::
+      Lude.Maybe Lude.Text,
+    requestedStartTime :: Lude.Maybe Lude.Timestamp,
+    requestedEndTime :: Lude.Maybe Lude.Timestamp,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    exportId :: Lude.Text,
+    exportStatus :: ExportStatus,
+    statusMessage :: Lude.Text,
+    exportRequestTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eiConfigurationsDownloadURL' - A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
---
--- * 'eiRequestedStartTime' - The value of @startTime@ parameter in the @StartExportTask@ request. If no @startTime@ was requested, this result does not appear in @ExportInfo@ .
---
--- * 'eiRequestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was requested, this result does not appear in @ExportInfo@ .
---
--- * 'eiIsTruncated' - If true, the export of agent information exceeded the size limit for a single export and the exported data is incomplete for the requested time range. To address this, select a smaller time range for the export by using @startDate@ and @endDate@ .
---
--- * 'eiExportId' - A unique identifier used to query an export.
---
--- * 'eiExportStatus' - The status of the data export job.
---
--- * 'eiStatusMessage' - A status message provided for API callers.
---
--- * 'eiExportRequestTime' - The time that the data export was initiated.
-exportInfo ::
-  -- | 'eiExportId'
-  Text ->
-  -- | 'eiExportStatus'
+-- * 'configurationsDownloadURL' - A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
+-- * 'exportId' - A unique identifier used to query an export.
+-- * 'exportRequestTime' - The time that the data export was initiated.
+-- * 'exportStatus' - The status of the data export job.
+-- * 'isTruncated' - If true, the export of agent information exceeded the size limit for a single export and the exported data is incomplete for the requested time range. To address this, select a smaller time range for the export by using @startDate@ and @endDate@ .
+-- * 'requestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was requested, this result does not appear in @ExportInfo@ .
+-- * 'requestedStartTime' - The value of @startTime@ parameter in the @StartExportTask@ request. If no @startTime@ was requested, this result does not appear in @ExportInfo@ .
+-- * 'statusMessage' - A status message provided for API callers.
+mkExportInfo ::
+  -- | 'exportId'
+  Lude.Text ->
+  -- | 'exportStatus'
   ExportStatus ->
-  -- | 'eiStatusMessage'
-  Text ->
-  -- | 'eiExportRequestTime'
-  UTCTime ->
+  -- | 'statusMessage'
+  Lude.Text ->
+  -- | 'exportRequestTime'
+  Lude.Timestamp ->
   ExportInfo
-exportInfo
+mkExportInfo
   pExportId_
   pExportStatus_
   pStatusMessage_
   pExportRequestTime_ =
     ExportInfo'
-      { _eiConfigurationsDownloadURL = Nothing,
-        _eiRequestedStartTime = Nothing,
-        _eiRequestedEndTime = Nothing,
-        _eiIsTruncated = Nothing,
-        _eiExportId = pExportId_,
-        _eiExportStatus = pExportStatus_,
-        _eiStatusMessage = pStatusMessage_,
-        _eiExportRequestTime = _Time # pExportRequestTime_
+      { configurationsDownloadURL = Lude.Nothing,
+        requestedStartTime = Lude.Nothing,
+        requestedEndTime = Lude.Nothing,
+        isTruncated = Lude.Nothing,
+        exportId = pExportId_,
+        exportStatus = pExportStatus_,
+        statusMessage = pStatusMessage_,
+        exportRequestTime = pExportRequestTime_
       }
 
 -- | A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
-eiConfigurationsDownloadURL :: Lens' ExportInfo (Maybe Text)
-eiConfigurationsDownloadURL = lens _eiConfigurationsDownloadURL (\s a -> s {_eiConfigurationsDownloadURL = a})
+--
+-- /Note:/ Consider using 'configurationsDownloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiConfigurationsDownloadURL :: Lens.Lens' ExportInfo (Lude.Maybe Lude.Text)
+eiConfigurationsDownloadURL = Lens.lens (configurationsDownloadURL :: ExportInfo -> Lude.Maybe Lude.Text) (\s a -> s {configurationsDownloadURL = a} :: ExportInfo)
+{-# DEPRECATED eiConfigurationsDownloadURL "Use generic-lens or generic-optics with 'configurationsDownloadURL' instead." #-}
 
 -- | The value of @startTime@ parameter in the @StartExportTask@ request. If no @startTime@ was requested, this result does not appear in @ExportInfo@ .
-eiRequestedStartTime :: Lens' ExportInfo (Maybe UTCTime)
-eiRequestedStartTime = lens _eiRequestedStartTime (\s a -> s {_eiRequestedStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'requestedStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiRequestedStartTime :: Lens.Lens' ExportInfo (Lude.Maybe Lude.Timestamp)
+eiRequestedStartTime = Lens.lens (requestedStartTime :: ExportInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {requestedStartTime = a} :: ExportInfo)
+{-# DEPRECATED eiRequestedStartTime "Use generic-lens or generic-optics with 'requestedStartTime' instead." #-}
 
 -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was requested, this result does not appear in @ExportInfo@ .
-eiRequestedEndTime :: Lens' ExportInfo (Maybe UTCTime)
-eiRequestedEndTime = lens _eiRequestedEndTime (\s a -> s {_eiRequestedEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'requestedEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiRequestedEndTime :: Lens.Lens' ExportInfo (Lude.Maybe Lude.Timestamp)
+eiRequestedEndTime = Lens.lens (requestedEndTime :: ExportInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {requestedEndTime = a} :: ExportInfo)
+{-# DEPRECATED eiRequestedEndTime "Use generic-lens or generic-optics with 'requestedEndTime' instead." #-}
 
 -- | If true, the export of agent information exceeded the size limit for a single export and the exported data is incomplete for the requested time range. To address this, select a smaller time range for the export by using @startDate@ and @endDate@ .
-eiIsTruncated :: Lens' ExportInfo (Maybe Bool)
-eiIsTruncated = lens _eiIsTruncated (\s a -> s {_eiIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiIsTruncated :: Lens.Lens' ExportInfo (Lude.Maybe Lude.Bool)
+eiIsTruncated = Lens.lens (isTruncated :: ExportInfo -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ExportInfo)
+{-# DEPRECATED eiIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | A unique identifier used to query an export.
-eiExportId :: Lens' ExportInfo Text
-eiExportId = lens _eiExportId (\s a -> s {_eiExportId = a})
+--
+-- /Note:/ Consider using 'exportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiExportId :: Lens.Lens' ExportInfo Lude.Text
+eiExportId = Lens.lens (exportId :: ExportInfo -> Lude.Text) (\s a -> s {exportId = a} :: ExportInfo)
+{-# DEPRECATED eiExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
 
 -- | The status of the data export job.
-eiExportStatus :: Lens' ExportInfo ExportStatus
-eiExportStatus = lens _eiExportStatus (\s a -> s {_eiExportStatus = a})
+--
+-- /Note:/ Consider using 'exportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiExportStatus :: Lens.Lens' ExportInfo ExportStatus
+eiExportStatus = Lens.lens (exportStatus :: ExportInfo -> ExportStatus) (\s a -> s {exportStatus = a} :: ExportInfo)
+{-# DEPRECATED eiExportStatus "Use generic-lens or generic-optics with 'exportStatus' instead." #-}
 
 -- | A status message provided for API callers.
-eiStatusMessage :: Lens' ExportInfo Text
-eiStatusMessage = lens _eiStatusMessage (\s a -> s {_eiStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiStatusMessage :: Lens.Lens' ExportInfo Lude.Text
+eiStatusMessage = Lens.lens (statusMessage :: ExportInfo -> Lude.Text) (\s a -> s {statusMessage = a} :: ExportInfo)
+{-# DEPRECATED eiStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The time that the data export was initiated.
-eiExportRequestTime :: Lens' ExportInfo UTCTime
-eiExportRequestTime = lens _eiExportRequestTime (\s a -> s {_eiExportRequestTime = a}) . _Time
+--
+-- /Note:/ Consider using 'exportRequestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiExportRequestTime :: Lens.Lens' ExportInfo Lude.Timestamp
+eiExportRequestTime = Lens.lens (exportRequestTime :: ExportInfo -> Lude.Timestamp) (\s a -> s {exportRequestTime = a} :: ExportInfo)
+{-# DEPRECATED eiExportRequestTime "Use generic-lens or generic-optics with 'exportRequestTime' instead." #-}
 
-instance FromJSON ExportInfo where
+instance Lude.FromJSON ExportInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportInfo"
       ( \x ->
           ExportInfo'
-            <$> (x .:? "configurationsDownloadUrl")
-            <*> (x .:? "requestedStartTime")
-            <*> (x .:? "requestedEndTime")
-            <*> (x .:? "isTruncated")
-            <*> (x .: "exportId")
-            <*> (x .: "exportStatus")
-            <*> (x .: "statusMessage")
-            <*> (x .: "exportRequestTime")
+            Lude.<$> (x Lude..:? "configurationsDownloadUrl")
+            Lude.<*> (x Lude..:? "requestedStartTime")
+            Lude.<*> (x Lude..:? "requestedEndTime")
+            Lude.<*> (x Lude..:? "isTruncated")
+            Lude.<*> (x Lude..: "exportId")
+            Lude.<*> (x Lude..: "exportStatus")
+            Lude.<*> (x Lude..: "statusMessage")
+            Lude.<*> (x Lude..: "exportRequestTime")
       )
-
-instance Hashable ExportInfo
-
-instance NFData ExportInfo

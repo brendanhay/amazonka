@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.RedshiftS3BackupMode where
+module Network.AWS.Firehose.Types.RedshiftS3BackupMode
+  ( RedshiftS3BackupMode
+      ( RedshiftS3BackupMode',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RedshiftS3BackupMode
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RedshiftS3BackupMode = RedshiftS3BackupMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RedshiftS3BackupMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing RedshiftS3BackupMode from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: RedshiftS3BackupMode
+pattern Disabled = RedshiftS3BackupMode' "Disabled"
 
-instance ToText RedshiftS3BackupMode where
-  toText = \case
-    Disabled -> "Disabled"
-    Enabled -> "Enabled"
+pattern Enabled :: RedshiftS3BackupMode
+pattern Enabled = RedshiftS3BackupMode' "Enabled"
 
-instance Hashable RedshiftS3BackupMode
-
-instance NFData RedshiftS3BackupMode
-
-instance ToByteString RedshiftS3BackupMode
-
-instance ToQuery RedshiftS3BackupMode
-
-instance ToHeader RedshiftS3BackupMode
-
-instance ToJSON RedshiftS3BackupMode where
-  toJSON = toJSONText
-
-instance FromJSON RedshiftS3BackupMode where
-  parseJSON = parseJSONText "RedshiftS3BackupMode"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  RedshiftS3BackupMode'
+  #-}

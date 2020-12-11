@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,147 @@
 --
 -- Creates a configuration set event destination.
 --
---
 -- An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateConfigurationSetEventDestination
-  ( -- * Creating a Request
-    createConfigurationSetEventDestination,
-    CreateConfigurationSetEventDestination,
+  ( -- * Creating a request
+    CreateConfigurationSetEventDestination (..),
+    mkCreateConfigurationSetEventDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccsedConfigurationSetName,
     ccsedEventDestination,
 
-    -- * Destructuring the Response
-    createConfigurationSetEventDestinationResponse,
-    CreateConfigurationSetEventDestinationResponse,
+    -- * Destructuring the response
+    CreateConfigurationSetEventDestinationResponse (..),
+    mkCreateConfigurationSetEventDestinationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccsedrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createConfigurationSetEventDestination' smart constructor.
+-- /See:/ 'mkCreateConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-  { _ccsedConfigurationSetName ::
-      !Text,
-    _ccsedEventDestination ::
-      !EventDestination
+  { configurationSetName ::
+      Lude.Text,
+    eventDestination ::
+      EventDestination
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationSetEventDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsedConfigurationSetName' - The name of the configuration set that the event destination should be associated with.
---
--- * 'ccsedEventDestination' - An object that describes the AWS service that email sending event information will be published to.
-createConfigurationSetEventDestination ::
-  -- | 'ccsedConfigurationSetName'
-  Text ->
-  -- | 'ccsedEventDestination'
+-- * 'configurationSetName' - The name of the configuration set that the event destination should be associated with.
+-- * 'eventDestination' - An object that describes the AWS service that email sending event information will be published to.
+mkCreateConfigurationSetEventDestination ::
+  -- | 'configurationSetName'
+  Lude.Text ->
+  -- | 'eventDestination'
   EventDestination ->
   CreateConfigurationSetEventDestination
-createConfigurationSetEventDestination
+mkCreateConfigurationSetEventDestination
   pConfigurationSetName_
   pEventDestination_ =
     CreateConfigurationSetEventDestination'
-      { _ccsedConfigurationSetName =
+      { configurationSetName =
           pConfigurationSetName_,
-        _ccsedEventDestination = pEventDestination_
+        eventDestination = pEventDestination_
       }
 
 -- | The name of the configuration set that the event destination should be associated with.
-ccsedConfigurationSetName :: Lens' CreateConfigurationSetEventDestination Text
-ccsedConfigurationSetName = lens _ccsedConfigurationSetName (\s a -> s {_ccsedConfigurationSetName = a})
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsedConfigurationSetName :: Lens.Lens' CreateConfigurationSetEventDestination Lude.Text
+ccsedConfigurationSetName = Lens.lens (configurationSetName :: CreateConfigurationSetEventDestination -> Lude.Text) (\s a -> s {configurationSetName = a} :: CreateConfigurationSetEventDestination)
+{-# DEPRECATED ccsedConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | An object that describes the AWS service that email sending event information will be published to.
-ccsedEventDestination :: Lens' CreateConfigurationSetEventDestination EventDestination
-ccsedEventDestination = lens _ccsedEventDestination (\s a -> s {_ccsedEventDestination = a})
+--
+-- /Note:/ Consider using 'eventDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsedEventDestination :: Lens.Lens' CreateConfigurationSetEventDestination EventDestination
+ccsedEventDestination = Lens.lens (eventDestination :: CreateConfigurationSetEventDestination -> EventDestination) (\s a -> s {eventDestination = a} :: CreateConfigurationSetEventDestination)
+{-# DEPRECATED ccsedEventDestination "Use generic-lens or generic-optics with 'eventDestination' instead." #-}
 
-instance AWSRequest CreateConfigurationSetEventDestination where
+instance Lude.AWSRequest CreateConfigurationSetEventDestination where
   type
     Rs CreateConfigurationSetEventDestination =
       CreateConfigurationSetEventDestinationResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateConfigurationSetEventDestinationResult"
       ( \s h x ->
           CreateConfigurationSetEventDestinationResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConfigurationSetEventDestination
+instance Lude.ToHeaders CreateConfigurationSetEventDestination where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateConfigurationSetEventDestination
+instance Lude.ToPath CreateConfigurationSetEventDestination where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateConfigurationSetEventDestination where
-  toHeaders = const mempty
-
-instance ToPath CreateConfigurationSetEventDestination where
-  toPath = const "/"
-
-instance ToQuery CreateConfigurationSetEventDestination where
+instance Lude.ToQuery CreateConfigurationSetEventDestination where
   toQuery CreateConfigurationSetEventDestination' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("CreateConfigurationSetEventDestination" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ConfigurationSetName" =: _ccsedConfigurationSetName,
-        "EventDestination" =: _ccsedEventDestination
+          Lude.=: ("CreateConfigurationSetEventDestination" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ConfigurationSetName" Lude.=: configurationSetName,
+        "EventDestination" Lude.=: eventDestination
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'createConfigurationSetEventDestinationResponse' smart constructor.
+-- /See:/ 'mkCreateConfigurationSetEventDestinationResponse' smart constructor.
 newtype CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEventDestinationResponse'
-  { _ccsedrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'CreateConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsedrsResponseStatus' - -- | The response status code.
-createConfigurationSetEventDestinationResponse ::
-  -- | 'ccsedrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateConfigurationSetEventDestinationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConfigurationSetEventDestinationResponse
-createConfigurationSetEventDestinationResponse pResponseStatus_ =
+mkCreateConfigurationSetEventDestinationResponse pResponseStatus_ =
   CreateConfigurationSetEventDestinationResponse'
-    { _ccsedrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ccsedrsResponseStatus :: Lens' CreateConfigurationSetEventDestinationResponse Int
-ccsedrsResponseStatus = lens _ccsedrsResponseStatus (\s a -> s {_ccsedrsResponseStatus = a})
-
-instance NFData CreateConfigurationSetEventDestinationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsedrsResponseStatus :: Lens.Lens' CreateConfigurationSetEventDestinationResponse Lude.Int
+ccsedrsResponseStatus = Lens.lens (responseStatus :: CreateConfigurationSetEventDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConfigurationSetEventDestinationResponse)
+{-# DEPRECATED ccsedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

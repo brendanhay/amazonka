@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,121 @@
 --
 -- List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues> in the /Amazon Simple Queue Service Developer Guide/ .
 module Network.AWS.SQS.ListQueueTags
-  ( -- * Creating a Request
-    listQueueTags,
-    ListQueueTags,
+  ( -- * Creating a request
+    ListQueueTags (..),
+    mkListQueueTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lqtQueueURL,
 
-    -- * Destructuring the Response
-    listQueueTagsResponse,
-    ListQueueTagsResponse,
+    -- * Destructuring the response
+    ListQueueTagsResponse (..),
+    mkListQueueTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lqtrsTags,
     lqtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
--- | /See:/ 'listQueueTags' smart constructor.
-newtype ListQueueTags = ListQueueTags' {_lqtQueueURL :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkListQueueTags' smart constructor.
+newtype ListQueueTags = ListQueueTags' {queueURL :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueueTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqtQueueURL' - The URL of the queue.
-listQueueTags ::
-  -- | 'lqtQueueURL'
-  Text ->
+-- * 'queueURL' - The URL of the queue.
+mkListQueueTags ::
+  -- | 'queueURL'
+  Lude.Text ->
   ListQueueTags
-listQueueTags pQueueURL_ =
-  ListQueueTags' {_lqtQueueURL = pQueueURL_}
+mkListQueueTags pQueueURL_ = ListQueueTags' {queueURL = pQueueURL_}
 
 -- | The URL of the queue.
-lqtQueueURL :: Lens' ListQueueTags Text
-lqtQueueURL = lens _lqtQueueURL (\s a -> s {_lqtQueueURL = a})
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtQueueURL :: Lens.Lens' ListQueueTags Lude.Text
+lqtQueueURL = Lens.lens (queueURL :: ListQueueTags -> Lude.Text) (\s a -> s {queueURL = a} :: ListQueueTags)
+{-# DEPRECATED lqtQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
-instance AWSRequest ListQueueTags where
+instance Lude.AWSRequest ListQueueTags where
   type Rs ListQueueTags = ListQueueTagsResponse
-  request = postQuery sqs
+  request = Req.postQuery sqsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListQueueTagsResult"
       ( \s h x ->
           ListQueueTagsResponse'
-            <$> (may (parseXMLMap "Tag" "Key" "Value") x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLMap "Tag" "Key" "Value") x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListQueueTags
+instance Lude.ToHeaders ListQueueTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListQueueTags
+instance Lude.ToPath ListQueueTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListQueueTags where
-  toHeaders = const mempty
-
-instance ToPath ListQueueTags where
-  toPath = const "/"
-
-instance ToQuery ListQueueTags where
+instance Lude.ToQuery ListQueueTags where
   toQuery ListQueueTags' {..} =
-    mconcat
-      [ "Action" =: ("ListQueueTags" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _lqtQueueURL
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListQueueTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL
       ]
 
--- | /See:/ 'listQueueTagsResponse' smart constructor.
+-- | /See:/ 'mkListQueueTagsResponse' smart constructor.
 data ListQueueTagsResponse = ListQueueTagsResponse'
-  { _lqtrsTags ::
-      !(Maybe (Map Text (Text))),
-    _lqtrsResponseStatus :: !Int
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueueTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqtrsTags' - The list of all tags added to the specified queue.
---
--- * 'lqtrsResponseStatus' - -- | The response status code.
-listQueueTagsResponse ::
-  -- | 'lqtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The list of all tags added to the specified queue.
+mkListQueueTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListQueueTagsResponse
-listQueueTagsResponse pResponseStatus_ =
+mkListQueueTagsResponse pResponseStatus_ =
   ListQueueTagsResponse'
-    { _lqtrsTags = Nothing,
-      _lqtrsResponseStatus = pResponseStatus_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of all tags added to the specified queue.
-lqtrsTags :: Lens' ListQueueTagsResponse (HashMap Text (Text))
-lqtrsTags = lens _lqtrsTags (\s a -> s {_lqtrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsTags :: Lens.Lens' ListQueueTagsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+lqtrsTags = Lens.lens (tags :: ListQueueTagsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListQueueTagsResponse)
+{-# DEPRECATED lqtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-lqtrsResponseStatus :: Lens' ListQueueTagsResponse Int
-lqtrsResponseStatus = lens _lqtrsResponseStatus (\s a -> s {_lqtrsResponseStatus = a})
-
-instance NFData ListQueueTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsResponseStatus :: Lens.Lens' ListQueueTagsResponse Lude.Int
+lqtrsResponseStatus = Lens.lens (responseStatus :: ListQueueTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQueueTagsResponse)
+{-# DEPRECATED lqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudTrail.ListPublicKeys
-  ( -- * Creating a Request
-    listPublicKeys,
-    ListPublicKeys,
+  ( -- * Creating a request
+    ListPublicKeys (..),
+    mkListPublicKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpkStartTime,
     lpkNextToken,
     lpkEndTime,
 
-    -- * Destructuring the Response
-    listPublicKeysResponse,
-    ListPublicKeysResponse,
+    -- * Destructuring the response
+    ListPublicKeysResponse (..),
+    mkListPublicKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpkrsPublicKeyList,
     lpkrsNextToken,
     lpkrsResponseStatus,
@@ -44,148 +37,166 @@ module Network.AWS.CloudTrail.ListPublicKeys
 where
 
 import Network.AWS.CloudTrail.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests the public keys for a specified time range.
 --
---
---
--- /See:/ 'listPublicKeys' smart constructor.
+-- /See:/ 'mkListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { _lpkStartTime ::
-      !(Maybe POSIX),
-    _lpkNextToken :: !(Maybe Text),
-    _lpkEndTime :: !(Maybe POSIX)
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpkStartTime' - Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
---
--- * 'lpkNextToken' - Reserved for future use.
---
--- * 'lpkEndTime' - Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
-listPublicKeys ::
+-- * 'endTime' - Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
+-- * 'nextToken' - Reserved for future use.
+-- * 'startTime' - Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
+mkListPublicKeys ::
   ListPublicKeys
-listPublicKeys =
+mkListPublicKeys =
   ListPublicKeys'
-    { _lpkStartTime = Nothing,
-      _lpkNextToken = Nothing,
-      _lpkEndTime = Nothing
+    { startTime = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      endTime = Lude.Nothing
     }
 
 -- | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
-lpkStartTime :: Lens' ListPublicKeys (Maybe UTCTime)
-lpkStartTime = lens _lpkStartTime (\s a -> s {_lpkStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkStartTime :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Timestamp)
+lpkStartTime = Lens.lens (startTime :: ListPublicKeys -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: ListPublicKeys)
+{-# DEPRECATED lpkStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Reserved for future use.
-lpkNextToken :: Lens' ListPublicKeys (Maybe Text)
-lpkNextToken = lens _lpkNextToken (\s a -> s {_lpkNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkNextToken :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Text)
+lpkNextToken = Lens.lens (nextToken :: ListPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPublicKeys)
+{-# DEPRECATED lpkNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
-lpkEndTime :: Lens' ListPublicKeys (Maybe UTCTime)
-lpkEndTime = lens _lpkEndTime (\s a -> s {_lpkEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkEndTime :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Timestamp)
+lpkEndTime = Lens.lens (endTime :: ListPublicKeys -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: ListPublicKeys)
+{-# DEPRECATED lpkEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSPager ListPublicKeys where
+instance Page.AWSPager ListPublicKeys where
   page rq rs
-    | stop (rs ^. lpkrsNextToken) = Nothing
-    | stop (rs ^. lpkrsPublicKeyList) = Nothing
-    | otherwise = Just $ rq & lpkNextToken .~ rs ^. lpkrsNextToken
+    | Page.stop (rs Lens.^. lpkrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lpkrsPublicKeyList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpkNextToken Lens..~ rs Lens.^. lpkrsNextToken
 
-instance AWSRequest ListPublicKeys where
+instance Lude.AWSRequest ListPublicKeys where
   type Rs ListPublicKeys = ListPublicKeysResponse
-  request = postJSON cloudTrail
+  request = Req.postJSON cloudTrailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPublicKeysResponse'
-            <$> (x .?> "PublicKeyList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PublicKeyList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPublicKeys
-
-instance NFData ListPublicKeys
-
-instance ToHeaders ListPublicKeys where
+instance Lude.ToHeaders ListPublicKeys where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListPublicKeys" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPublicKeys where
+instance Lude.ToJSON ListPublicKeys where
   toJSON ListPublicKeys' {..} =
-    object
-      ( catMaybes
-          [ ("StartTime" .=) <$> _lpkStartTime,
-            ("NextToken" .=) <$> _lpkNextToken,
-            ("EndTime" .=) <$> _lpkEndTime
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StartTime" Lude..=) Lude.<$> startTime,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("EndTime" Lude..=) Lude.<$> endTime
           ]
       )
 
-instance ToPath ListPublicKeys where
-  toPath = const "/"
+instance Lude.ToPath ListPublicKeys where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPublicKeys where
-  toQuery = const mempty
+instance Lude.ToQuery ListPublicKeys where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
---
---
--- /See:/ 'listPublicKeysResponse' smart constructor.
+-- /See:/ 'mkListPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-  { _lpkrsPublicKeyList ::
-      !(Maybe [PublicKey]),
-    _lpkrsNextToken :: !(Maybe Text),
-    _lpkrsResponseStatus :: !Int
+  { publicKeyList ::
+      Lude.Maybe [PublicKey],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpkrsPublicKeyList' - Contains an array of PublicKey objects.
---
--- * 'lpkrsNextToken' - Reserved for future use.
---
--- * 'lpkrsResponseStatus' - -- | The response status code.
-listPublicKeysResponse ::
-  -- | 'lpkrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Reserved for future use.
+-- * 'publicKeyList' - Contains an array of PublicKey objects.
+-- * 'responseStatus' - The response status code.
+mkListPublicKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPublicKeysResponse
-listPublicKeysResponse pResponseStatus_ =
+mkListPublicKeysResponse pResponseStatus_ =
   ListPublicKeysResponse'
-    { _lpkrsPublicKeyList = Nothing,
-      _lpkrsNextToken = Nothing,
-      _lpkrsResponseStatus = pResponseStatus_
+    { publicKeyList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains an array of PublicKey objects.
-lpkrsPublicKeyList :: Lens' ListPublicKeysResponse [PublicKey]
-lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\s a -> s {_lpkrsPublicKeyList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'publicKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkrsPublicKeyList :: Lens.Lens' ListPublicKeysResponse (Lude.Maybe [PublicKey])
+lpkrsPublicKeyList = Lens.lens (publicKeyList :: ListPublicKeysResponse -> Lude.Maybe [PublicKey]) (\s a -> s {publicKeyList = a} :: ListPublicKeysResponse)
+{-# DEPRECATED lpkrsPublicKeyList "Use generic-lens or generic-optics with 'publicKeyList' instead." #-}
 
 -- | Reserved for future use.
-lpkrsNextToken :: Lens' ListPublicKeysResponse (Maybe Text)
-lpkrsNextToken = lens _lpkrsNextToken (\s a -> s {_lpkrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkrsNextToken :: Lens.Lens' ListPublicKeysResponse (Lude.Maybe Lude.Text)
+lpkrsNextToken = Lens.lens (nextToken :: ListPublicKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPublicKeysResponse)
+{-# DEPRECATED lpkrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
-lpkrsResponseStatus = lens _lpkrsResponseStatus (\s a -> s {_lpkrsResponseStatus = a})
-
-instance NFData ListPublicKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpkrsResponseStatus :: Lens.Lens' ListPublicKeysResponse Lude.Int
+lpkrsResponseStatus = Lens.lens (responseStatus :: ListPublicKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPublicKeysResponse)
+{-# DEPRECATED lpkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

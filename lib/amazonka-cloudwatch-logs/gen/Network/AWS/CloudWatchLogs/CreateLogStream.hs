@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,124 @@
 --
 -- Creates a log stream for the specified log group. A log stream is a sequence of log events that originate from a single source, such as an application instance or a resource that is being monitored.
 --
---
 -- There is no limit on the number of log streams that you can create for a log group. There is a limit of 50 TPS on @CreateLogStream@ operations, after which transactions are throttled.
---
 -- You must use the following guidelines when naming a log stream:
 --
 --     * Log stream names must be unique within the log group.
 --
+--
 --     * Log stream names can be between 1 and 512 characters long.
+--
 --
 --     * The ':' (colon) and '*' (asterisk) characters are not allowed.
 module Network.AWS.CloudWatchLogs.CreateLogStream
-  ( -- * Creating a Request
-    createLogStream,
-    CreateLogStream,
+  ( -- * Creating a request
+    CreateLogStream (..),
+    mkCreateLogStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clsLogGroupName,
     clsLogStreamName,
 
-    -- * Destructuring the Response
-    createLogStreamResponse,
-    CreateLogStreamResponse,
+    -- * Destructuring the response
+    CreateLogStreamResponse (..),
+    mkCreateLogStreamResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createLogStream' smart constructor.
+-- | /See:/ 'mkCreateLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
-  { _clsLogGroupName :: !Text,
-    _clsLogStreamName :: !Text
+  { logGroupName :: Lude.Text,
+    logStreamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLogStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clsLogGroupName' - The name of the log group.
---
--- * 'clsLogStreamName' - The name of the log stream.
-createLogStream ::
-  -- | 'clsLogGroupName'
-  Text ->
-  -- | 'clsLogStreamName'
-  Text ->
+-- * 'logGroupName' - The name of the log group.
+-- * 'logStreamName' - The name of the log stream.
+mkCreateLogStream ::
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'logStreamName'
+  Lude.Text ->
   CreateLogStream
-createLogStream pLogGroupName_ pLogStreamName_ =
+mkCreateLogStream pLogGroupName_ pLogStreamName_ =
   CreateLogStream'
-    { _clsLogGroupName = pLogGroupName_,
-      _clsLogStreamName = pLogStreamName_
+    { logGroupName = pLogGroupName_,
+      logStreamName = pLogStreamName_
     }
 
 -- | The name of the log group.
-clsLogGroupName :: Lens' CreateLogStream Text
-clsLogGroupName = lens _clsLogGroupName (\s a -> s {_clsLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clsLogGroupName :: Lens.Lens' CreateLogStream Lude.Text
+clsLogGroupName = Lens.lens (logGroupName :: CreateLogStream -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateLogStream)
+{-# DEPRECATED clsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The name of the log stream.
-clsLogStreamName :: Lens' CreateLogStream Text
-clsLogStreamName = lens _clsLogStreamName (\s a -> s {_clsLogStreamName = a})
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clsLogStreamName :: Lens.Lens' CreateLogStream Lude.Text
+clsLogStreamName = Lens.lens (logStreamName :: CreateLogStream -> Lude.Text) (\s a -> s {logStreamName = a} :: CreateLogStream)
+{-# DEPRECATED clsLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
-instance AWSRequest CreateLogStream where
+instance Lude.AWSRequest CreateLogStream where
   type Rs CreateLogStream = CreateLogStreamResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull CreateLogStreamResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull CreateLogStreamResponse'
 
-instance Hashable CreateLogStream
-
-instance NFData CreateLogStream
-
-instance ToHeaders CreateLogStream where
+instance Lude.ToHeaders CreateLogStream where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.CreateLogStream" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.CreateLogStream" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateLogStream where
+instance Lude.ToJSON CreateLogStream where
   toJSON CreateLogStream' {..} =
-    object
-      ( catMaybes
-          [ Just ("logGroupName" .= _clsLogGroupName),
-            Just ("logStreamName" .= _clsLogStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("logStreamName" Lude..= logStreamName)
           ]
       )
 
-instance ToPath CreateLogStream where
-  toPath = const "/"
+instance Lude.ToPath CreateLogStream where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateLogStream where
-  toQuery = const mempty
+instance Lude.ToQuery CreateLogStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createLogStreamResponse' smart constructor.
+-- | /See:/ 'mkCreateLogStreamResponse' smart constructor.
 data CreateLogStreamResponse = CreateLogStreamResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLogStreamResponse' with the minimum fields required to make a request.
-createLogStreamResponse ::
+mkCreateLogStreamResponse ::
   CreateLogStreamResponse
-createLogStreamResponse = CreateLogStreamResponse'
-
-instance NFData CreateLogStreamResponse
+mkCreateLogStreamResponse = CreateLogStreamResponse'

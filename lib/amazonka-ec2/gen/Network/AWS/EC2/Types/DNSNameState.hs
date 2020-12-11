@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DNSNameState where
+module Network.AWS.EC2.Types.DNSNameState
+  ( DNSNameState
+      ( DNSNameState',
+        DNSFailed,
+        DNSPendingVerification,
+        DNSVerified
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DNSNameState
-  = DNSFailed
-  | DNSPendingVerification
-  | DNSVerified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DNSNameState = DNSNameState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DNSNameState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure DNSFailed
-      "pendingverification" -> pure DNSPendingVerification
-      "verified" -> pure DNSVerified
-      e ->
-        fromTextError $
-          "Failure parsing DNSNameState from value: '" <> e
-            <> "'. Accepted values: failed, pendingverification, verified"
+pattern DNSFailed :: DNSNameState
+pattern DNSFailed = DNSNameState' "failed"
 
-instance ToText DNSNameState where
-  toText = \case
-    DNSFailed -> "failed"
-    DNSPendingVerification -> "pendingVerification"
-    DNSVerified -> "verified"
+pattern DNSPendingVerification :: DNSNameState
+pattern DNSPendingVerification = DNSNameState' "pendingVerification"
 
-instance Hashable DNSNameState
+pattern DNSVerified :: DNSNameState
+pattern DNSVerified = DNSNameState' "verified"
 
-instance NFData DNSNameState
-
-instance ToByteString DNSNameState
-
-instance ToQuery DNSNameState
-
-instance ToHeader DNSNameState
-
-instance FromXML DNSNameState where
-  parseXML = parseXMLText "DNSNameState"
+{-# COMPLETE
+  DNSFailed,
+  DNSPendingVerification,
+  DNSVerified,
+  DNSNameState'
+  #-}

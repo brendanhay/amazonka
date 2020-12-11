@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,141 @@
 --
 -- Lists the automatic tape creation policies for a gateway. If there are no automatic tape creation policies for the gateway, it returns an empty list.
 --
---
 -- This operation is only supported for tape gateways.
 module Network.AWS.StorageGateway.ListAutomaticTapeCreationPolicies
-  ( -- * Creating a Request
-    listAutomaticTapeCreationPolicies,
-    ListAutomaticTapeCreationPolicies,
+  ( -- * Creating a request
+    ListAutomaticTapeCreationPolicies (..),
+    mkListAutomaticTapeCreationPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     latcpGatewayARN,
 
-    -- * Destructuring the Response
-    listAutomaticTapeCreationPoliciesResponse,
-    ListAutomaticTapeCreationPoliciesResponse,
+    -- * Destructuring the response
+    ListAutomaticTapeCreationPoliciesResponse (..),
+    mkListAutomaticTapeCreationPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     latcprsAutomaticTapeCreationPolicyInfos,
     latcprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'listAutomaticTapeCreationPolicies' smart constructor.
+-- | /See:/ 'mkListAutomaticTapeCreationPolicies' smart constructor.
 newtype ListAutomaticTapeCreationPolicies = ListAutomaticTapeCreationPolicies'
-  { _latcpGatewayARN ::
-      Maybe Text
+  { gatewayARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutomaticTapeCreationPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'latcpGatewayARN' - Undocumented member.
-listAutomaticTapeCreationPolicies ::
+-- * 'gatewayARN' - Undocumented field.
+mkListAutomaticTapeCreationPolicies ::
   ListAutomaticTapeCreationPolicies
-listAutomaticTapeCreationPolicies =
-  ListAutomaticTapeCreationPolicies' {_latcpGatewayARN = Nothing}
+mkListAutomaticTapeCreationPolicies =
+  ListAutomaticTapeCreationPolicies' {gatewayARN = Lude.Nothing}
 
--- | Undocumented member.
-latcpGatewayARN :: Lens' ListAutomaticTapeCreationPolicies (Maybe Text)
-latcpGatewayARN = lens _latcpGatewayARN (\s a -> s {_latcpGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latcpGatewayARN :: Lens.Lens' ListAutomaticTapeCreationPolicies (Lude.Maybe Lude.Text)
+latcpGatewayARN = Lens.lens (gatewayARN :: ListAutomaticTapeCreationPolicies -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListAutomaticTapeCreationPolicies)
+{-# DEPRECATED latcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest ListAutomaticTapeCreationPolicies where
+instance Lude.AWSRequest ListAutomaticTapeCreationPolicies where
   type
     Rs ListAutomaticTapeCreationPolicies =
       ListAutomaticTapeCreationPoliciesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAutomaticTapeCreationPoliciesResponse'
-            <$> (x .?> "AutomaticTapeCreationPolicyInfos" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "AutomaticTapeCreationPolicyInfos"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAutomaticTapeCreationPolicies
-
-instance NFData ListAutomaticTapeCreationPolicies
-
-instance ToHeaders ListAutomaticTapeCreationPolicies where
+instance Lude.ToHeaders ListAutomaticTapeCreationPolicies where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.ListAutomaticTapeCreationPolicies" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.ListAutomaticTapeCreationPolicies" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAutomaticTapeCreationPolicies where
+instance Lude.ToJSON ListAutomaticTapeCreationPolicies where
   toJSON ListAutomaticTapeCreationPolicies' {..} =
-    object (catMaybes [("GatewayARN" .=) <$> _latcpGatewayARN])
+    Lude.object
+      (Lude.catMaybes [("GatewayARN" Lude..=) Lude.<$> gatewayARN])
 
-instance ToPath ListAutomaticTapeCreationPolicies where
-  toPath = const "/"
+instance Lude.ToPath ListAutomaticTapeCreationPolicies where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAutomaticTapeCreationPolicies where
-  toQuery = const mempty
+instance Lude.ToQuery ListAutomaticTapeCreationPolicies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAutomaticTapeCreationPoliciesResponse' smart constructor.
+-- | /See:/ 'mkListAutomaticTapeCreationPoliciesResponse' smart constructor.
 data ListAutomaticTapeCreationPoliciesResponse = ListAutomaticTapeCreationPoliciesResponse'
-  { _latcprsAutomaticTapeCreationPolicyInfos ::
-      !( Maybe
-           [AutomaticTapeCreationPolicyInfo]
-       ),
-    _latcprsResponseStatus ::
-      !Int
+  { automaticTapeCreationPolicyInfos ::
+      Lude.Maybe
+        [AutomaticTapeCreationPolicyInfo],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutomaticTapeCreationPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'latcprsAutomaticTapeCreationPolicyInfos' - Gets a listing of information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
---
--- * 'latcprsResponseStatus' - -- | The response status code.
-listAutomaticTapeCreationPoliciesResponse ::
-  -- | 'latcprsResponseStatus'
-  Int ->
+-- * 'automaticTapeCreationPolicyInfos' - Gets a listing of information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
+-- * 'responseStatus' - The response status code.
+mkListAutomaticTapeCreationPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAutomaticTapeCreationPoliciesResponse
-listAutomaticTapeCreationPoliciesResponse pResponseStatus_ =
+mkListAutomaticTapeCreationPoliciesResponse pResponseStatus_ =
   ListAutomaticTapeCreationPoliciesResponse'
-    { _latcprsAutomaticTapeCreationPolicyInfos =
-        Nothing,
-      _latcprsResponseStatus = pResponseStatus_
+    { automaticTapeCreationPolicyInfos =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Gets a listing of information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
-latcprsAutomaticTapeCreationPolicyInfos :: Lens' ListAutomaticTapeCreationPoliciesResponse [AutomaticTapeCreationPolicyInfo]
-latcprsAutomaticTapeCreationPolicyInfos = lens _latcprsAutomaticTapeCreationPolicyInfos (\s a -> s {_latcprsAutomaticTapeCreationPolicyInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'automaticTapeCreationPolicyInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latcprsAutomaticTapeCreationPolicyInfos :: Lens.Lens' ListAutomaticTapeCreationPoliciesResponse (Lude.Maybe [AutomaticTapeCreationPolicyInfo])
+latcprsAutomaticTapeCreationPolicyInfos = Lens.lens (automaticTapeCreationPolicyInfos :: ListAutomaticTapeCreationPoliciesResponse -> Lude.Maybe [AutomaticTapeCreationPolicyInfo]) (\s a -> s {automaticTapeCreationPolicyInfos = a} :: ListAutomaticTapeCreationPoliciesResponse)
+{-# DEPRECATED latcprsAutomaticTapeCreationPolicyInfos "Use generic-lens or generic-optics with 'automaticTapeCreationPolicyInfos' instead." #-}
 
--- | -- | The response status code.
-latcprsResponseStatus :: Lens' ListAutomaticTapeCreationPoliciesResponse Int
-latcprsResponseStatus = lens _latcprsResponseStatus (\s a -> s {_latcprsResponseStatus = a})
-
-instance NFData ListAutomaticTapeCreationPoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latcprsResponseStatus :: Lens.Lens' ListAutomaticTapeCreationPoliciesResponse Lude.Int
+latcprsResponseStatus = Lens.lens (responseStatus :: ListAutomaticTapeCreationPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAutomaticTapeCreationPoliciesResponse)
+{-# DEPRECATED latcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

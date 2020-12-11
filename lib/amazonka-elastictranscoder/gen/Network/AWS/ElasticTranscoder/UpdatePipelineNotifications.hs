@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,179 @@
 --
 -- With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.
 --
---
 -- When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-  ( -- * Creating a Request
-    updatePipelineNotifications,
-    UpdatePipelineNotifications,
+  ( -- * Creating a request
+    UpdatePipelineNotifications (..),
+    mkUpdatePipelineNotifications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upnId,
     upnNotifications,
 
-    -- * Destructuring the Response
-    updatePipelineNotificationsResponse,
-    UpdatePipelineNotificationsResponse,
+    -- * Destructuring the response
+    UpdatePipelineNotificationsResponse (..),
+    mkUpdatePipelineNotificationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     upnrsPipeline,
     upnrsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The @UpdatePipelineNotificationsRequest@ structure.
 --
---
---
--- /See:/ 'updatePipelineNotifications' smart constructor.
+-- /See:/ 'mkUpdatePipelineNotifications' smart constructor.
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-  { _upnId ::
-      !Text,
-    _upnNotifications :: !Notifications
+  { id ::
+      Lude.Text,
+    notifications :: Notifications
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineNotifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'id' - The identifier of the pipeline for which you want to change notification settings.
+-- * 'notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
 --
--- * 'upnId' - The identifier of the pipeline for which you want to change notification settings.
+-- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
 --
--- * 'upnNotifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
-updatePipelineNotifications ::
-  -- | 'upnId'
-  Text ->
-  -- | 'upnNotifications'
+--     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
+mkUpdatePipelineNotifications ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'notifications'
   Notifications ->
   UpdatePipelineNotifications
-updatePipelineNotifications pId_ pNotifications_ =
+mkUpdatePipelineNotifications pId_ pNotifications_ =
   UpdatePipelineNotifications'
-    { _upnId = pId_,
-      _upnNotifications = pNotifications_
+    { id = pId_,
+      notifications = pNotifications_
     }
 
 -- | The identifier of the pipeline for which you want to change notification settings.
-upnId :: Lens' UpdatePipelineNotifications Text
-upnId = lens _upnId (\s a -> s {_upnId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upnId :: Lens.Lens' UpdatePipelineNotifications Lude.Text
+upnId = Lens.lens (id :: UpdatePipelineNotifications -> Lude.Text) (\s a -> s {id = a} :: UpdatePipelineNotifications)
+{-# DEPRECATED upnId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
-upnNotifications :: Lens' UpdatePipelineNotifications Notifications
-upnNotifications = lens _upnNotifications (\s a -> s {_upnNotifications = a})
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
+--
+-- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
+--
+--     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
+--
+--
+--
+-- /Note:/ Consider using 'notifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upnNotifications :: Lens.Lens' UpdatePipelineNotifications Notifications
+upnNotifications = Lens.lens (notifications :: UpdatePipelineNotifications -> Notifications) (\s a -> s {notifications = a} :: UpdatePipelineNotifications)
+{-# DEPRECATED upnNotifications "Use generic-lens or generic-optics with 'notifications' instead." #-}
 
-instance AWSRequest UpdatePipelineNotifications where
+instance Lude.AWSRequest UpdatePipelineNotifications where
   type
     Rs UpdatePipelineNotifications =
       UpdatePipelineNotificationsResponse
-  request = postJSON elasticTranscoder
+  request = Req.postJSON elasticTranscoderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePipelineNotificationsResponse'
-            <$> (x .?> "Pipeline") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Pipeline") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePipelineNotifications
+instance Lude.ToHeaders UpdatePipelineNotifications where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdatePipelineNotifications
-
-instance ToHeaders UpdatePipelineNotifications where
-  toHeaders = const mempty
-
-instance ToJSON UpdatePipelineNotifications where
+instance Lude.ToJSON UpdatePipelineNotifications where
   toJSON UpdatePipelineNotifications' {..} =
-    object (catMaybes [Just ("Notifications" .= _upnNotifications)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Notifications" Lude..= notifications)]
+      )
 
-instance ToPath UpdatePipelineNotifications where
+instance Lude.ToPath UpdatePipelineNotifications where
   toPath UpdatePipelineNotifications' {..} =
-    mconcat ["/2012-09-25/pipelines/", toBS _upnId, "/notifications"]
+    Lude.mconcat
+      ["/2012-09-25/pipelines/", Lude.toBS id, "/notifications"]
 
-instance ToQuery UpdatePipelineNotifications where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePipelineNotifications where
+  toQuery = Lude.const Lude.mempty
 
 -- | The @UpdatePipelineNotificationsResponse@ structure.
 --
---
---
--- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
+-- /See:/ 'mkUpdatePipelineNotificationsResponse' smart constructor.
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-  { _upnrsPipeline ::
-      !(Maybe Pipeline),
-    _upnrsResponseStatus ::
-      !Int
+  { pipeline ::
+      Lude.Maybe Pipeline,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upnrsPipeline' - A section of the response body that provides information about the pipeline associated with this notification.
---
--- * 'upnrsResponseStatus' - -- | The response status code.
-updatePipelineNotificationsResponse ::
-  -- | 'upnrsResponseStatus'
-  Int ->
+-- * 'pipeline' - A section of the response body that provides information about the pipeline associated with this notification.
+-- * 'responseStatus' - The response status code.
+mkUpdatePipelineNotificationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse pResponseStatus_ =
+mkUpdatePipelineNotificationsResponse pResponseStatus_ =
   UpdatePipelineNotificationsResponse'
-    { _upnrsPipeline = Nothing,
-      _upnrsResponseStatus = pResponseStatus_
+    { pipeline = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the pipeline associated with this notification.
-upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnrsPipeline = lens _upnrsPipeline (\s a -> s {_upnrsPipeline = a})
+--
+-- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upnrsPipeline :: Lens.Lens' UpdatePipelineNotificationsResponse (Lude.Maybe Pipeline)
+upnrsPipeline = Lens.lens (pipeline :: UpdatePipelineNotificationsResponse -> Lude.Maybe Pipeline) (\s a -> s {pipeline = a} :: UpdatePipelineNotificationsResponse)
+{-# DEPRECATED upnrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
--- | -- | The response status code.
-upnrsResponseStatus :: Lens' UpdatePipelineNotificationsResponse Int
-upnrsResponseStatus = lens _upnrsResponseStatus (\s a -> s {_upnrsResponseStatus = a})
-
-instance NFData UpdatePipelineNotificationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upnrsResponseStatus :: Lens.Lens' UpdatePipelineNotificationsResponse Lude.Int
+upnrsResponseStatus = Lens.lens (responseStatus :: UpdatePipelineNotificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePipelineNotificationsResponse)
+{-# DEPRECATED upnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

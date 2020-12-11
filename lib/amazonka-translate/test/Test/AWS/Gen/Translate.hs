@@ -28,91 +28,91 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeTextTranslationJob $
---             describeTextTranslationJob
+--             mkDescribeTextTranslationJob
 --
 --         , requestListTerminologies $
---             listTerminologies
+--             mkListTerminologies
 --
 --         , requestCreateParallelData $
---             createParallelData
+--             mkCreateParallelData
 --
 --         , requestUpdateParallelData $
---             updateParallelData
+--             mkUpdateParallelData
 --
 --         , requestDeleteParallelData $
---             deleteParallelData
+--             mkDeleteParallelData
 --
 --         , requestGetParallelData $
---             getParallelData
+--             mkGetParallelData
 --
 --         , requestGetTerminology $
---             getTerminology
+--             mkGetTerminology
 --
 --         , requestTranslateText $
---             translateText
+--             mkTranslateText
 --
 --         , requestImportTerminology $
---             importTerminology
+--             mkImportTerminology
 --
 --         , requestStopTextTranslationJob $
---             stopTextTranslationJob
+--             mkStopTextTranslationJob
 --
 --         , requestDeleteTerminology $
---             deleteTerminology
+--             mkDeleteTerminology
 --
 --         , requestListTextTranslationJobs $
---             listTextTranslationJobs
+--             mkListTextTranslationJobs
 --
 --         , requestStartTextTranslationJob $
---             startTextTranslationJob
+--             mkStartTextTranslationJob
 --
 --         , requestListParallelData $
---             listParallelData
+--             mkListParallelData
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeTextTranslationJob $
---             describeTextTranslationJobResponse
+--             mkDescribeTextTranslationJobResponse
 --
 --         , responseListTerminologies $
---             listTerminologiesResponse
+--             mkListTerminologiesResponse
 --
 --         , responseCreateParallelData $
---             createParallelDataResponse
+--             mkCreateParallelDataResponse
 --
 --         , responseUpdateParallelData $
---             updateParallelDataResponse
+--             mkUpdateParallelDataResponse
 --
 --         , responseDeleteParallelData $
---             deleteParallelDataResponse
+--             mkDeleteParallelDataResponse
 --
 --         , responseGetParallelData $
---             getParallelDataResponse
+--             mkGetParallelDataResponse
 --
 --         , responseGetTerminology $
---             getTerminologyResponse
+--             mkGetTerminologyResponse
 --
 --         , responseTranslateText $
---             translateTextResponse
+--             mkTranslateTextResponse
 --
 --         , responseImportTerminology $
---             importTerminologyResponse
+--             mkImportTerminologyResponse
 --
 --         , responseStopTextTranslationJob $
---             stopTextTranslationJobResponse
+--             mkStopTextTranslationJobResponse
 --
 --         , responseDeleteTerminology $
---             deleteTerminologyResponse
+--             mkDeleteTerminologyResponse
 --
 --         , responseListTextTranslationJobs $
---             listTextTranslationJobsResponse
+--             mkListTextTranslationJobsResponse
 --
 --         , responseStartTextTranslationJob $
---             startTextTranslationJobResponse
+--             mkStartTextTranslationJobResponse
 --
 --         , responseListParallelData $
---             listParallelDataResponse
+--             mkListParallelDataResponse
 --
 --           ]
 --     ]
@@ -210,7 +210,7 @@ responseDescribeTextTranslationJob =
   res
     "DescribeTextTranslationJobResponse"
     "fixture/DescribeTextTranslationJobResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy DescribeTextTranslationJob)
 
 responseListTerminologies :: ListTerminologiesResponse -> TestTree
@@ -218,7 +218,7 @@ responseListTerminologies =
   res
     "ListTerminologiesResponse"
     "fixture/ListTerminologiesResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy ListTerminologies)
 
 responseCreateParallelData :: CreateParallelDataResponse -> TestTree
@@ -226,7 +226,7 @@ responseCreateParallelData =
   res
     "CreateParallelDataResponse"
     "fixture/CreateParallelDataResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy CreateParallelData)
 
 responseUpdateParallelData :: UpdateParallelDataResponse -> TestTree
@@ -234,7 +234,7 @@ responseUpdateParallelData =
   res
     "UpdateParallelDataResponse"
     "fixture/UpdateParallelDataResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy UpdateParallelData)
 
 responseDeleteParallelData :: DeleteParallelDataResponse -> TestTree
@@ -242,7 +242,7 @@ responseDeleteParallelData =
   res
     "DeleteParallelDataResponse"
     "fixture/DeleteParallelDataResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy DeleteParallelData)
 
 responseGetParallelData :: GetParallelDataResponse -> TestTree
@@ -250,7 +250,7 @@ responseGetParallelData =
   res
     "GetParallelDataResponse"
     "fixture/GetParallelDataResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy GetParallelData)
 
 responseGetTerminology :: GetTerminologyResponse -> TestTree
@@ -258,7 +258,7 @@ responseGetTerminology =
   res
     "GetTerminologyResponse"
     "fixture/GetTerminologyResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy GetTerminology)
 
 responseTranslateText :: TranslateTextResponse -> TestTree
@@ -266,7 +266,7 @@ responseTranslateText =
   res
     "TranslateTextResponse"
     "fixture/TranslateTextResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy TranslateText)
 
 responseImportTerminology :: ImportTerminologyResponse -> TestTree
@@ -274,7 +274,7 @@ responseImportTerminology =
   res
     "ImportTerminologyResponse"
     "fixture/ImportTerminologyResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy ImportTerminology)
 
 responseStopTextTranslationJob :: StopTextTranslationJobResponse -> TestTree
@@ -282,7 +282,7 @@ responseStopTextTranslationJob =
   res
     "StopTextTranslationJobResponse"
     "fixture/StopTextTranslationJobResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy StopTextTranslationJob)
 
 responseDeleteTerminology :: DeleteTerminologyResponse -> TestTree
@@ -290,7 +290,7 @@ responseDeleteTerminology =
   res
     "DeleteTerminologyResponse"
     "fixture/DeleteTerminologyResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy DeleteTerminology)
 
 responseListTextTranslationJobs :: ListTextTranslationJobsResponse -> TestTree
@@ -298,7 +298,7 @@ responseListTextTranslationJobs =
   res
     "ListTextTranslationJobsResponse"
     "fixture/ListTextTranslationJobsResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy ListTextTranslationJobs)
 
 responseStartTextTranslationJob :: StartTextTranslationJobResponse -> TestTree
@@ -306,7 +306,7 @@ responseStartTextTranslationJob =
   res
     "StartTextTranslationJobResponse"
     "fixture/StartTextTranslationJobResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy StartTextTranslationJob)
 
 responseListParallelData :: ListParallelDataResponse -> TestTree
@@ -314,5 +314,5 @@ responseListParallelData =
   res
     "ListParallelDataResponse"
     "fixture/ListParallelDataResponse.proto"
-    translate
+    translateService
     (Proxy :: Proxy ListParallelData)

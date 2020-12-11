@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AuthFlowType where
+module Network.AWS.CognitoIdentityProvider.Types.AuthFlowType
+  ( AuthFlowType
+      ( AuthFlowType',
+        AdminNoSrpAuth,
+        AdminUserPasswordAuth,
+        CustomAuth,
+        RefreshToken,
+        RefreshTokenAuth,
+        UserPasswordAuth,
+        UserSrpAuth
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthFlowType
-  = AdminNoSrpAuth
-  | AdminUserPasswordAuth
-  | CustomAuth
-  | RefreshToken
-  | RefreshTokenAuth
-  | UserPasswordAuth
-  | UserSrpAuth
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthFlowType = AuthFlowType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthFlowType where
-  parser =
-    takeLowerText >>= \case
-      "admin_no_srp_auth" -> pure AdminNoSrpAuth
-      "admin_user_password_auth" -> pure AdminUserPasswordAuth
-      "custom_auth" -> pure CustomAuth
-      "refresh_token" -> pure RefreshToken
-      "refresh_token_auth" -> pure RefreshTokenAuth
-      "user_password_auth" -> pure UserPasswordAuth
-      "user_srp_auth" -> pure UserSrpAuth
-      e ->
-        fromTextError $
-          "Failure parsing AuthFlowType from value: '" <> e
-            <> "'. Accepted values: admin_no_srp_auth, admin_user_password_auth, custom_auth, refresh_token, refresh_token_auth, user_password_auth, user_srp_auth"
+pattern AdminNoSrpAuth :: AuthFlowType
+pattern AdminNoSrpAuth = AuthFlowType' "ADMIN_NO_SRP_AUTH"
 
-instance ToText AuthFlowType where
-  toText = \case
-    AdminNoSrpAuth -> "ADMIN_NO_SRP_AUTH"
-    AdminUserPasswordAuth -> "ADMIN_USER_PASSWORD_AUTH"
-    CustomAuth -> "CUSTOM_AUTH"
-    RefreshToken -> "REFRESH_TOKEN"
-    RefreshTokenAuth -> "REFRESH_TOKEN_AUTH"
-    UserPasswordAuth -> "USER_PASSWORD_AUTH"
-    UserSrpAuth -> "USER_SRP_AUTH"
+pattern AdminUserPasswordAuth :: AuthFlowType
+pattern AdminUserPasswordAuth = AuthFlowType' "ADMIN_USER_PASSWORD_AUTH"
 
-instance Hashable AuthFlowType
+pattern CustomAuth :: AuthFlowType
+pattern CustomAuth = AuthFlowType' "CUSTOM_AUTH"
 
-instance NFData AuthFlowType
+pattern RefreshToken :: AuthFlowType
+pattern RefreshToken = AuthFlowType' "REFRESH_TOKEN"
 
-instance ToByteString AuthFlowType
+pattern RefreshTokenAuth :: AuthFlowType
+pattern RefreshTokenAuth = AuthFlowType' "REFRESH_TOKEN_AUTH"
 
-instance ToQuery AuthFlowType
+pattern UserPasswordAuth :: AuthFlowType
+pattern UserPasswordAuth = AuthFlowType' "USER_PASSWORD_AUTH"
 
-instance ToHeader AuthFlowType
+pattern UserSrpAuth :: AuthFlowType
+pattern UserSrpAuth = AuthFlowType' "USER_SRP_AUTH"
 
-instance ToJSON AuthFlowType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AdminNoSrpAuth,
+  AdminUserPasswordAuth,
+  CustomAuth,
+  RefreshToken,
+  RefreshTokenAuth,
+  UserPasswordAuth,
+  UserSrpAuth,
+  AuthFlowType'
+  #-}

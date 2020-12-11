@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OfferingType where
+module Network.AWS.MediaLive.Types.OfferingType
+  ( OfferingType
+      ( OfferingType',
+        NoUpfront
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Offering type, e.g. 'NO_UPFRONT'
-data OfferingType = NoUpfront
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OfferingType = OfferingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OfferingType where
-  parser =
-    takeLowerText >>= \case
-      "no_upfront" -> pure NoUpfront
-      e ->
-        fromTextError $
-          "Failure parsing OfferingType from value: '" <> e
-            <> "'. Accepted values: no_upfront"
+pattern NoUpfront :: OfferingType
+pattern NoUpfront = OfferingType' "NO_UPFRONT"
 
-instance ToText OfferingType where
-  toText = \case
-    NoUpfront -> "NO_UPFRONT"
-
-instance Hashable OfferingType
-
-instance NFData OfferingType
-
-instance ToByteString OfferingType
-
-instance ToQuery OfferingType
-
-instance ToHeader OfferingType
-
-instance FromJSON OfferingType where
-  parseJSON = parseJSONText "OfferingType"
+{-# COMPLETE
+  NoUpfront,
+  OfferingType'
+  #-}

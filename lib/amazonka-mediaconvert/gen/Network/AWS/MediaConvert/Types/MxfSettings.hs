@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MxfSettings where
+module Network.AWS.MediaConvert.Types.MxfSettings
+  ( MxfSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMxfSettings,
+
+    -- * Lenses
+    msAfdSignaling,
+    msProfile,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MxfAfdSignaling
 import Network.AWS.MediaConvert.Types.MxfProfile
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | MXF settings
 --
--- /See:/ 'mxfSettings' smart constructor.
+-- /See:/ 'mkMxfSettings' smart constructor.
 data MxfSettings = MxfSettings'
-  { _msAfdSignaling ::
-      !(Maybe MxfAfdSignaling),
-    _msProfile :: !(Maybe MxfProfile)
+  { afdSignaling ::
+      Lude.Maybe MxfAfdSignaling,
+    profile :: Lude.Maybe MxfProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MxfSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msAfdSignaling' - Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
---
--- * 'msProfile' - Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
-mxfSettings ::
+-- * 'afdSignaling' - Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
+-- * 'profile' - Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
+mkMxfSettings ::
   MxfSettings
-mxfSettings =
-  MxfSettings' {_msAfdSignaling = Nothing, _msProfile = Nothing}
+mkMxfSettings =
+  MxfSettings' {afdSignaling = Lude.Nothing, profile = Lude.Nothing}
 
 -- | Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
-msAfdSignaling :: Lens' MxfSettings (Maybe MxfAfdSignaling)
-msAfdSignaling = lens _msAfdSignaling (\s a -> s {_msAfdSignaling = a})
+--
+-- /Note:/ Consider using 'afdSignaling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msAfdSignaling :: Lens.Lens' MxfSettings (Lude.Maybe MxfAfdSignaling)
+msAfdSignaling = Lens.lens (afdSignaling :: MxfSettings -> Lude.Maybe MxfAfdSignaling) (\s a -> s {afdSignaling = a} :: MxfSettings)
+{-# DEPRECATED msAfdSignaling "Use generic-lens or generic-optics with 'afdSignaling' instead." #-}
 
 -- | Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
-msProfile :: Lens' MxfSettings (Maybe MxfProfile)
-msProfile = lens _msProfile (\s a -> s {_msProfile = a})
+--
+-- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msProfile :: Lens.Lens' MxfSettings (Lude.Maybe MxfProfile)
+msProfile = Lens.lens (profile :: MxfSettings -> Lude.Maybe MxfProfile) (\s a -> s {profile = a} :: MxfSettings)
+{-# DEPRECATED msProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
-instance FromJSON MxfSettings where
+instance Lude.FromJSON MxfSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MxfSettings"
       ( \x ->
-          MxfSettings' <$> (x .:? "afdSignaling") <*> (x .:? "profile")
+          MxfSettings'
+            Lude.<$> (x Lude..:? "afdSignaling") Lude.<*> (x Lude..:? "profile")
       )
 
-instance Hashable MxfSettings
-
-instance NFData MxfSettings
-
-instance ToJSON MxfSettings where
+instance Lude.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =
-    object
-      ( catMaybes
-          [ ("afdSignaling" .=) <$> _msAfdSignaling,
-            ("profile" .=) <$> _msProfile
+    Lude.object
+      ( Lude.catMaybes
+          [ ("afdSignaling" Lude..=) Lude.<$> afdSignaling,
+            ("profile" Lude..=) Lude.<$> profile
           ]
       )

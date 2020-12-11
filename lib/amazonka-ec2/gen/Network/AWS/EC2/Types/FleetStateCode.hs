@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetStateCode where
+module Network.AWS.EC2.Types.FleetStateCode
+  ( FleetStateCode
+      ( FleetStateCode',
+        FSCActive,
+        FSCDeleted,
+        FSCDeletedRunning,
+        FSCDeletedTerminating,
+        FSCFailed,
+        FSCModifying,
+        FSCSubmitted
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetStateCode
-  = FSCActive
-  | FSCDeleted
-  | FSCDeletedRunning
-  | FSCDeletedTerminating
-  | FSCFailed
-  | FSCModifying
-  | FSCSubmitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetStateCode = FleetStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetStateCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure FSCActive
-      "deleted" -> pure FSCDeleted
-      "deleted_running" -> pure FSCDeletedRunning
-      "deleted_terminating" -> pure FSCDeletedTerminating
-      "failed" -> pure FSCFailed
-      "modifying" -> pure FSCModifying
-      "submitted" -> pure FSCSubmitted
-      e ->
-        fromTextError $
-          "Failure parsing FleetStateCode from value: '" <> e
-            <> "'. Accepted values: active, deleted, deleted_running, deleted_terminating, failed, modifying, submitted"
+pattern FSCActive :: FleetStateCode
+pattern FSCActive = FleetStateCode' "active"
 
-instance ToText FleetStateCode where
-  toText = \case
-    FSCActive -> "active"
-    FSCDeleted -> "deleted"
-    FSCDeletedRunning -> "deleted_running"
-    FSCDeletedTerminating -> "deleted_terminating"
-    FSCFailed -> "failed"
-    FSCModifying -> "modifying"
-    FSCSubmitted -> "submitted"
+pattern FSCDeleted :: FleetStateCode
+pattern FSCDeleted = FleetStateCode' "deleted"
 
-instance Hashable FleetStateCode
+pattern FSCDeletedRunning :: FleetStateCode
+pattern FSCDeletedRunning = FleetStateCode' "deleted_running"
 
-instance NFData FleetStateCode
+pattern FSCDeletedTerminating :: FleetStateCode
+pattern FSCDeletedTerminating = FleetStateCode' "deleted_terminating"
 
-instance ToByteString FleetStateCode
+pattern FSCFailed :: FleetStateCode
+pattern FSCFailed = FleetStateCode' "failed"
 
-instance ToQuery FleetStateCode
+pattern FSCModifying :: FleetStateCode
+pattern FSCModifying = FleetStateCode' "modifying"
 
-instance ToHeader FleetStateCode
+pattern FSCSubmitted :: FleetStateCode
+pattern FSCSubmitted = FleetStateCode' "submitted"
 
-instance FromXML FleetStateCode where
-  parseXML = parseXMLText "FleetStateCode"
+{-# COMPLETE
+  FSCActive,
+  FSCDeleted,
+  FSCDeletedRunning,
+  FSCDeletedTerminating,
+  FSCFailed,
+  FSCModifying,
+  FSCSubmitted,
+  FleetStateCode'
+  #-}

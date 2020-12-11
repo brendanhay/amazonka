@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.StreamViewType where
+module Network.AWS.DynamoDB.Types.StreamViewType
+  ( StreamViewType
+      ( StreamViewType',
+        KeysOnly,
+        NewAndOldImages,
+        NewImage,
+        OldImage
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StreamViewType
-  = KeysOnly
-  | NewAndOldImages
-  | NewImage
-  | OldImage
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StreamViewType = StreamViewType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StreamViewType where
-  parser =
-    takeLowerText >>= \case
-      "keys_only" -> pure KeysOnly
-      "new_and_old_images" -> pure NewAndOldImages
-      "new_image" -> pure NewImage
-      "old_image" -> pure OldImage
-      e ->
-        fromTextError $
-          "Failure parsing StreamViewType from value: '" <> e
-            <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
+pattern KeysOnly :: StreamViewType
+pattern KeysOnly = StreamViewType' "KEYS_ONLY"
 
-instance ToText StreamViewType where
-  toText = \case
-    KeysOnly -> "KEYS_ONLY"
-    NewAndOldImages -> "NEW_AND_OLD_IMAGES"
-    NewImage -> "NEW_IMAGE"
-    OldImage -> "OLD_IMAGE"
+pattern NewAndOldImages :: StreamViewType
+pattern NewAndOldImages = StreamViewType' "NEW_AND_OLD_IMAGES"
 
-instance Hashable StreamViewType
+pattern NewImage :: StreamViewType
+pattern NewImage = StreamViewType' "NEW_IMAGE"
 
-instance NFData StreamViewType
+pattern OldImage :: StreamViewType
+pattern OldImage = StreamViewType' "OLD_IMAGE"
 
-instance ToByteString StreamViewType
-
-instance ToQuery StreamViewType
-
-instance ToHeader StreamViewType
-
-instance ToJSON StreamViewType where
-  toJSON = toJSONText
-
-instance FromJSON StreamViewType where
-  parseJSON = parseJSONText "StreamViewType"
+{-# COMPLETE
+  KeysOnly,
+  NewAndOldImages,
+  NewImage,
+  OldImage,
+  StreamViewType'
+  #-}

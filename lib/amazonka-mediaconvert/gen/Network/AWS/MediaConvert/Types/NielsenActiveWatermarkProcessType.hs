@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType where
+module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
+  ( NielsenActiveWatermarkProcessType
+      ( NielsenActiveWatermarkProcessType',
+        Cbet,
+        NAES2AndNw,
+        NAES2AndNwAndCbet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Choose the type of Nielsen watermarks that you want in your outputs. When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value for the setting SID (sourceId). When you choose CBET (CBET), you must provide a value for the setting CSID (cbetSourceId). When you choose NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values for both of these settings.
-data NielsenActiveWatermarkProcessType
-  = Cbet
-  | NAES2AndNw
-  | NAES2AndNwAndCbet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NielsenActiveWatermarkProcessType = NielsenActiveWatermarkProcessType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NielsenActiveWatermarkProcessType where
-  parser =
-    takeLowerText >>= \case
-      "cbet" -> pure Cbet
-      "naes2_and_nw" -> pure NAES2AndNw
-      "naes2_and_nw_and_cbet" -> pure NAES2AndNwAndCbet
-      e ->
-        fromTextError $
-          "Failure parsing NielsenActiveWatermarkProcessType from value: '" <> e
-            <> "'. Accepted values: cbet, naes2_and_nw, naes2_and_nw_and_cbet"
+pattern Cbet :: NielsenActiveWatermarkProcessType
+pattern Cbet = NielsenActiveWatermarkProcessType' "CBET"
 
-instance ToText NielsenActiveWatermarkProcessType where
-  toText = \case
-    Cbet -> "CBET"
-    NAES2AndNw -> "NAES2_AND_NW"
-    NAES2AndNwAndCbet -> "NAES2_AND_NW_AND_CBET"
+pattern NAES2AndNw :: NielsenActiveWatermarkProcessType
+pattern NAES2AndNw = NielsenActiveWatermarkProcessType' "NAES2_AND_NW"
 
-instance Hashable NielsenActiveWatermarkProcessType
+pattern NAES2AndNwAndCbet :: NielsenActiveWatermarkProcessType
+pattern NAES2AndNwAndCbet = NielsenActiveWatermarkProcessType' "NAES2_AND_NW_AND_CBET"
 
-instance NFData NielsenActiveWatermarkProcessType
-
-instance ToByteString NielsenActiveWatermarkProcessType
-
-instance ToQuery NielsenActiveWatermarkProcessType
-
-instance ToHeader NielsenActiveWatermarkProcessType
-
-instance ToJSON NielsenActiveWatermarkProcessType where
-  toJSON = toJSONText
-
-instance FromJSON NielsenActiveWatermarkProcessType where
-  parseJSON = parseJSONText "NielsenActiveWatermarkProcessType"
+{-# COMPLETE
+  Cbet,
+  NAES2AndNw,
+  NAES2AndNwAndCbet,
+  NielsenActiveWatermarkProcessType'
+  #-}

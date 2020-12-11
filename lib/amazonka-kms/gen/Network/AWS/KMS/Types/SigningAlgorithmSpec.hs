@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.SigningAlgorithmSpec where
+module Network.AWS.KMS.Types.SigningAlgorithmSpec
+  ( SigningAlgorithmSpec
+      ( SigningAlgorithmSpec',
+        EcdsaSha256,
+        EcdsaSha384,
+        EcdsaSha512,
+        RsassaPKCS1V15Sha256,
+        RsassaPKCS1V15Sha384,
+        RsassaPKCS1V15Sha512,
+        RsassaPssSha256,
+        RsassaPssSha384,
+        RsassaPssSha512
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SigningAlgorithmSpec
-  = EcdsaSha256
-  | EcdsaSha384
-  | EcdsaSha512
-  | RsassaPKCS1V15Sha256
-  | RsassaPKCS1V15Sha384
-  | RsassaPKCS1V15Sha512
-  | RsassaPssSha256
-  | RsassaPssSha384
-  | RsassaPssSha512
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SigningAlgorithmSpec = SigningAlgorithmSpec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SigningAlgorithmSpec where
-  parser =
-    takeLowerText >>= \case
-      "ecdsa_sha_256" -> pure EcdsaSha256
-      "ecdsa_sha_384" -> pure EcdsaSha384
-      "ecdsa_sha_512" -> pure EcdsaSha512
-      "rsassa_pkcs1_v1_5_sha_256" -> pure RsassaPKCS1V15Sha256
-      "rsassa_pkcs1_v1_5_sha_384" -> pure RsassaPKCS1V15Sha384
-      "rsassa_pkcs1_v1_5_sha_512" -> pure RsassaPKCS1V15Sha512
-      "rsassa_pss_sha_256" -> pure RsassaPssSha256
-      "rsassa_pss_sha_384" -> pure RsassaPssSha384
-      "rsassa_pss_sha_512" -> pure RsassaPssSha512
-      e ->
-        fromTextError $
-          "Failure parsing SigningAlgorithmSpec from value: '" <> e
-            <> "'. Accepted values: ecdsa_sha_256, ecdsa_sha_384, ecdsa_sha_512, rsassa_pkcs1_v1_5_sha_256, rsassa_pkcs1_v1_5_sha_384, rsassa_pkcs1_v1_5_sha_512, rsassa_pss_sha_256, rsassa_pss_sha_384, rsassa_pss_sha_512"
+pattern EcdsaSha256 :: SigningAlgorithmSpec
+pattern EcdsaSha256 = SigningAlgorithmSpec' "ECDSA_SHA_256"
 
-instance ToText SigningAlgorithmSpec where
-  toText = \case
-    EcdsaSha256 -> "ECDSA_SHA_256"
-    EcdsaSha384 -> "ECDSA_SHA_384"
-    EcdsaSha512 -> "ECDSA_SHA_512"
-    RsassaPKCS1V15Sha256 -> "RSASSA_PKCS1_V1_5_SHA_256"
-    RsassaPKCS1V15Sha384 -> "RSASSA_PKCS1_V1_5_SHA_384"
-    RsassaPKCS1V15Sha512 -> "RSASSA_PKCS1_V1_5_SHA_512"
-    RsassaPssSha256 -> "RSASSA_PSS_SHA_256"
-    RsassaPssSha384 -> "RSASSA_PSS_SHA_384"
-    RsassaPssSha512 -> "RSASSA_PSS_SHA_512"
+pattern EcdsaSha384 :: SigningAlgorithmSpec
+pattern EcdsaSha384 = SigningAlgorithmSpec' "ECDSA_SHA_384"
 
-instance Hashable SigningAlgorithmSpec
+pattern EcdsaSha512 :: SigningAlgorithmSpec
+pattern EcdsaSha512 = SigningAlgorithmSpec' "ECDSA_SHA_512"
 
-instance NFData SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha256 :: SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha256 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_256"
 
-instance ToByteString SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha384 :: SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha384 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_384"
 
-instance ToQuery SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha512 :: SigningAlgorithmSpec
+pattern RsassaPKCS1V15Sha512 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_512"
 
-instance ToHeader SigningAlgorithmSpec
+pattern RsassaPssSha256 :: SigningAlgorithmSpec
+pattern RsassaPssSha256 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_256"
 
-instance ToJSON SigningAlgorithmSpec where
-  toJSON = toJSONText
+pattern RsassaPssSha384 :: SigningAlgorithmSpec
+pattern RsassaPssSha384 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_384"
 
-instance FromJSON SigningAlgorithmSpec where
-  parseJSON = parseJSONText "SigningAlgorithmSpec"
+pattern RsassaPssSha512 :: SigningAlgorithmSpec
+pattern RsassaPssSha512 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_512"
+
+{-# COMPLETE
+  EcdsaSha256,
+  EcdsaSha384,
+  EcdsaSha512,
+  RsassaPKCS1V15Sha256,
+  RsassaPKCS1V15Sha384,
+  RsassaPKCS1V15Sha512,
+  RsassaPssSha256,
+  RsassaPssSha384,
+  RsassaPssSha512,
+  SigningAlgorithmSpec'
+  #-}

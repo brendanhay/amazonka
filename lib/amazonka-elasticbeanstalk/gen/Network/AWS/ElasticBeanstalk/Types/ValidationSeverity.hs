@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ValidationSeverity where
+module Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
+  ( ValidationSeverity
+      ( ValidationSeverity',
+        Error,
+        Warning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ValidationSeverity
-  = Error'
-  | Warning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ValidationSeverity = ValidationSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ValidationSeverity where
-  parser =
-    takeLowerText >>= \case
-      "error" -> pure Error'
-      "warning" -> pure Warning
-      e ->
-        fromTextError $
-          "Failure parsing ValidationSeverity from value: '" <> e
-            <> "'. Accepted values: error, warning"
+pattern Error :: ValidationSeverity
+pattern Error = ValidationSeverity' "error"
 
-instance ToText ValidationSeverity where
-  toText = \case
-    Error' -> "error"
-    Warning -> "warning"
+pattern Warning :: ValidationSeverity
+pattern Warning = ValidationSeverity' "warning"
 
-instance Hashable ValidationSeverity
-
-instance NFData ValidationSeverity
-
-instance ToByteString ValidationSeverity
-
-instance ToQuery ValidationSeverity
-
-instance ToHeader ValidationSeverity
-
-instance FromXML ValidationSeverity where
-  parseXML = parseXMLText "ValidationSeverity"
+{-# COMPLETE
+  Error,
+  Warning,
+  ValidationSeverity'
+  #-}

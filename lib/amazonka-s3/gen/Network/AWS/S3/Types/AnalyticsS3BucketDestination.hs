@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.AnalyticsS3BucketDestination where
+module Network.AWS.S3.Types.AnalyticsS3BucketDestination
+  ( AnalyticsS3BucketDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAnalyticsS3BucketDestination,
+
+    -- * Lenses
+    asbdBucketAccountId,
+    asbdPrefix,
+    asbdFormat,
+    asbdBucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
 
 -- | Contains information about where to publish the analytics results.
 --
---
---
--- /See:/ 'analyticsS3BucketDestination' smart constructor.
+-- /See:/ 'mkAnalyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
-  { _asbdBucketAccountId ::
-      !(Maybe Text),
-    _asbdPrefix :: !(Maybe Text),
-    _asbdFormat ::
-      !AnalyticsS3ExportFileFormat,
-    _asbdBucket :: !BucketName
+  { bucketAccountId ::
+      Lude.Maybe Lude.Text,
+    prefix :: Lude.Maybe Lude.Text,
+    format ::
+      AnalyticsS3ExportFileFormat,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsS3BucketDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asbdBucketAccountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
---
--- * 'asbdPrefix' - The prefix to use when exporting data. The prefix is prepended to all results.
---
--- * 'asbdFormat' - Specifies the file format used when exporting data to Amazon S3.
---
--- * 'asbdBucket' - The Amazon Resource Name (ARN) of the bucket to which data is exported.
-analyticsS3BucketDestination ::
-  -- | 'asbdFormat'
+-- * 'bucket' - The Amazon Resource Name (ARN) of the bucket to which data is exported.
+-- * 'bucketAccountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+-- * 'format' - Specifies the file format used when exporting data to Amazon S3.
+-- * 'prefix' - The prefix to use when exporting data. The prefix is prepended to all results.
+mkAnalyticsS3BucketDestination ::
+  -- | 'format'
   AnalyticsS3ExportFileFormat ->
-  -- | 'asbdBucket'
+  -- | 'bucket'
   BucketName ->
   AnalyticsS3BucketDestination
-analyticsS3BucketDestination pFormat_ pBucket_ =
+mkAnalyticsS3BucketDestination pFormat_ pBucket_ =
   AnalyticsS3BucketDestination'
-    { _asbdBucketAccountId = Nothing,
-      _asbdPrefix = Nothing,
-      _asbdFormat = pFormat_,
-      _asbdBucket = pBucket_
+    { bucketAccountId = Lude.Nothing,
+      prefix = Lude.Nothing,
+      format = pFormat_,
+      bucket = pBucket_
     }
 
 -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
-asbdBucketAccountId :: Lens' AnalyticsS3BucketDestination (Maybe Text)
-asbdBucketAccountId = lens _asbdBucketAccountId (\s a -> s {_asbdBucketAccountId = a})
+--
+-- /Note:/ Consider using 'bucketAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdBucketAccountId :: Lens.Lens' AnalyticsS3BucketDestination (Lude.Maybe Lude.Text)
+asbdBucketAccountId = Lens.lens (bucketAccountId :: AnalyticsS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {bucketAccountId = a} :: AnalyticsS3BucketDestination)
+{-# DEPRECATED asbdBucketAccountId "Use generic-lens or generic-optics with 'bucketAccountId' instead." #-}
 
 -- | The prefix to use when exporting data. The prefix is prepended to all results.
-asbdPrefix :: Lens' AnalyticsS3BucketDestination (Maybe Text)
-asbdPrefix = lens _asbdPrefix (\s a -> s {_asbdPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdPrefix :: Lens.Lens' AnalyticsS3BucketDestination (Lude.Maybe Lude.Text)
+asbdPrefix = Lens.lens (prefix :: AnalyticsS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: AnalyticsS3BucketDestination)
+{-# DEPRECATED asbdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Specifies the file format used when exporting data to Amazon S3.
-asbdFormat :: Lens' AnalyticsS3BucketDestination AnalyticsS3ExportFileFormat
-asbdFormat = lens _asbdFormat (\s a -> s {_asbdFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdFormat :: Lens.Lens' AnalyticsS3BucketDestination AnalyticsS3ExportFileFormat
+asbdFormat = Lens.lens (format :: AnalyticsS3BucketDestination -> AnalyticsS3ExportFileFormat) (\s a -> s {format = a} :: AnalyticsS3BucketDestination)
+{-# DEPRECATED asbdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the bucket to which data is exported.
-asbdBucket :: Lens' AnalyticsS3BucketDestination BucketName
-asbdBucket = lens _asbdBucket (\s a -> s {_asbdBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asbdBucket :: Lens.Lens' AnalyticsS3BucketDestination BucketName
+asbdBucket = Lens.lens (bucket :: AnalyticsS3BucketDestination -> BucketName) (\s a -> s {bucket = a} :: AnalyticsS3BucketDestination)
+{-# DEPRECATED asbdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance FromXML AnalyticsS3BucketDestination where
+instance Lude.FromXML AnalyticsS3BucketDestination where
   parseXML x =
     AnalyticsS3BucketDestination'
-      <$> (x .@? "BucketAccountId")
-      <*> (x .@? "Prefix")
-      <*> (x .@ "Format")
-      <*> (x .@ "Bucket")
+      Lude.<$> (x Lude..@? "BucketAccountId")
+      Lude.<*> (x Lude..@? "Prefix")
+      Lude.<*> (x Lude..@ "Format")
+      Lude.<*> (x Lude..@ "Bucket")
 
-instance Hashable AnalyticsS3BucketDestination
-
-instance NFData AnalyticsS3BucketDestination
-
-instance ToXML AnalyticsS3BucketDestination where
+instance Lude.ToXML AnalyticsS3BucketDestination where
   toXML AnalyticsS3BucketDestination' {..} =
-    mconcat
-      [ "BucketAccountId" @= _asbdBucketAccountId,
-        "Prefix" @= _asbdPrefix,
-        "Format" @= _asbdFormat,
-        "Bucket" @= _asbdBucket
+    Lude.mconcat
+      [ "BucketAccountId" Lude.@= bucketAccountId,
+        "Prefix" Lude.@= prefix,
+        "Format" Lude.@= format,
+        "Bucket" Lude.@= bucket
       ]

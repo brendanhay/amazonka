@@ -15,8 +15,8 @@
 --
 -- Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and Amazon Linux desktops for your users.
 module Network.AWS.WorkSpaces
-  ( -- * Service Configuration
-    workSpaces,
+  ( -- * Service configuration
+    workSpacesService,
 
     -- * Errors
     -- $errors
@@ -249,8 +249,8 @@ module Network.AWS.WorkSpaces
     WorkspaceState (..),
 
     -- ** AccountModification
-    AccountModification,
-    accountModification,
+    AccountModification (..),
+    mkAccountModification,
     amStartTime,
     amDedicatedTenancySupport,
     amModificationState,
@@ -259,24 +259,24 @@ module Network.AWS.WorkSpaces
     amErrorMessage,
 
     -- ** ClientProperties
-    ClientProperties,
-    clientProperties,
+    ClientProperties (..),
+    mkClientProperties,
     cpReconnectEnabled,
 
     -- ** ClientPropertiesResult
-    ClientPropertiesResult,
-    clientPropertiesResult,
+    ClientPropertiesResult (..),
+    mkClientPropertiesResult,
     cprResourceId,
     cprClientProperties,
 
     -- ** ComputeType
-    ComputeType,
-    computeType,
+    ComputeType (..),
+    mkComputeType,
     ctName,
 
     -- ** ConnectionAlias
-    ConnectionAlias,
-    connectionAlias,
+    ConnectionAlias (..),
+    mkConnectionAlias,
     caState,
     caOwnerAccountId,
     caAliasId,
@@ -284,22 +284,22 @@ module Network.AWS.WorkSpaces
     caConnectionString,
 
     -- ** ConnectionAliasAssociation
-    ConnectionAliasAssociation,
-    connectionAliasAssociation,
+    ConnectionAliasAssociation (..),
+    mkConnectionAliasAssociation,
     caaAssociatedAccountId,
     caaResourceId,
     caaAssociationStatus,
     caaConnectionIdentifier,
 
     -- ** ConnectionAliasPermission
-    ConnectionAliasPermission,
-    connectionAliasPermission,
+    ConnectionAliasPermission (..),
+    mkConnectionAliasPermission,
     capSharedAccountId,
     capAllowAssociation,
 
     -- ** DefaultWorkspaceCreationProperties
-    DefaultWorkspaceCreationProperties,
-    defaultWorkspaceCreationProperties,
+    DefaultWorkspaceCreationProperties (..),
+    mkDefaultWorkspaceCreationProperties,
     dwcpCustomSecurityGroupId,
     dwcpUserEnabledAsLocalAdministrator,
     dwcpEnableWorkDocs,
@@ -308,59 +308,59 @@ module Network.AWS.WorkSpaces
     dwcpDefaultOu,
 
     -- ** FailedCreateWorkspaceRequest
-    FailedCreateWorkspaceRequest,
-    failedCreateWorkspaceRequest,
+    FailedCreateWorkspaceRequest (..),
+    mkFailedCreateWorkspaceRequest,
     fcwrWorkspaceRequest,
     fcwrErrorCode,
     fcwrErrorMessage,
 
     -- ** FailedWorkspaceChangeRequest
-    FailedWorkspaceChangeRequest,
-    failedWorkspaceChangeRequest,
+    FailedWorkspaceChangeRequest (..),
+    mkFailedWorkspaceChangeRequest,
     fwcrErrorCode,
     fwcrWorkspaceId,
     fwcrErrorMessage,
 
     -- ** IPRuleItem
-    IPRuleItem,
-    ipRuleItem,
+    IPRuleItem (..),
+    mkIPRuleItem,
     iriRuleDesc,
     iriIpRule,
 
     -- ** ImagePermission
-    ImagePermission,
-    imagePermission,
+    ImagePermission (..),
+    mkImagePermission,
     ipSharedAccountId,
 
     -- ** ModificationState
-    ModificationState,
-    modificationState,
+    ModificationState (..),
+    mkModificationState,
     msState,
     msResource,
 
     -- ** OperatingSystem
-    OperatingSystem,
-    operatingSystem,
+    OperatingSystem (..),
+    mkOperatingSystem,
     osType,
 
     -- ** RebootRequest
-    RebootRequest,
-    rebootRequest,
+    RebootRequest (..),
+    mkRebootRequest,
     rWorkspaceId,
 
     -- ** RebuildRequest
-    RebuildRequest,
-    rebuildRequest,
+    RebuildRequest (..),
+    mkRebuildRequest,
     rrWorkspaceId,
 
     -- ** RootStorage
-    RootStorage,
-    rootStorage,
+    RootStorage (..),
+    mkRootStorage,
     rsCapacity,
 
     -- ** SelfservicePermissions
-    SelfservicePermissions,
-    selfservicePermissions,
+    SelfservicePermissions (..),
+    mkSelfservicePermissions,
     spRestartWorkspace,
     spChangeComputeType,
     spSwitchRunningMode,
@@ -368,39 +368,39 @@ module Network.AWS.WorkSpaces
     spIncreaseVolumeSize,
 
     -- ** Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sSnapshotTime,
 
     -- ** StartRequest
-    StartRequest,
-    startRequest,
+    StartRequest (..),
+    mkStartRequest,
     sWorkspaceId,
 
     -- ** StopRequest
-    StopRequest,
-    stopRequest,
+    StopRequest (..),
+    mkStopRequest,
     srWorkspaceId,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TerminateRequest
-    TerminateRequest,
-    terminateRequest,
+    TerminateRequest (..),
+    mkTerminateRequest,
     trWorkspaceId,
 
     -- ** UserStorage
-    UserStorage,
-    userStorage,
+    UserStorage (..),
+    mkUserStorage,
     usCapacity,
 
     -- ** Workspace
-    Workspace,
-    workspace,
+    Workspace (..),
+    mkWorkspace,
     wDirectoryId,
     wState,
     wIPAddress,
@@ -418,19 +418,19 @@ module Network.AWS.WorkSpaces
     wErrorMessage,
 
     -- ** WorkspaceAccessProperties
-    WorkspaceAccessProperties,
-    workspaceAccessProperties,
+    WorkspaceAccessProperties (..),
+    mkWorkspaceAccessProperties,
     wapDeviceTypeWindows,
     wapDeviceTypeWeb,
     wapDeviceTypeAndroid,
     wapDeviceTypeOSx,
     wapDeviceTypeChromeOS,
-    wapDeviceTypeIos,
+    wapDeviceTypeIOS,
     wapDeviceTypeZeroClient,
 
     -- ** WorkspaceBundle
-    WorkspaceBundle,
-    workspaceBundle,
+    WorkspaceBundle (..),
+    mkWorkspaceBundle,
     wbLastUpdatedTime,
     wbBundleId,
     wbOwner,
@@ -442,16 +442,16 @@ module Network.AWS.WorkSpaces
     wbDescription,
 
     -- ** WorkspaceConnectionStatus
-    WorkspaceConnectionStatus,
-    workspaceConnectionStatus,
+    WorkspaceConnectionStatus (..),
+    mkWorkspaceConnectionStatus,
     wcsLastKnownUserConnectionTimestamp,
     wcsConnectionStateCheckTimestamp,
     wcsWorkspaceId,
     wcsConnectionState,
 
     -- ** WorkspaceCreationProperties
-    WorkspaceCreationProperties,
-    workspaceCreationProperties,
+    WorkspaceCreationProperties (..),
+    mkWorkspaceCreationProperties,
     wcpCustomSecurityGroupId,
     wcpUserEnabledAsLocalAdministrator,
     wcpEnableWorkDocs,
@@ -460,8 +460,8 @@ module Network.AWS.WorkSpaces
     wcpDefaultOu,
 
     -- ** WorkspaceDirectory
-    WorkspaceDirectory,
-    workspaceDirectory,
+    WorkspaceDirectory (..),
+    mkWorkspaceDirectory,
     wdRegistrationCode,
     wdIAMRoleId,
     wdDirectoryId,
@@ -480,8 +480,8 @@ module Network.AWS.WorkSpaces
     wdSelfservicePermissions,
 
     -- ** WorkspaceImage
-    WorkspaceImage,
-    workspaceImage,
+    WorkspaceImage (..),
+    mkWorkspaceImage,
     wiState,
     wiOwnerAccountId,
     wiOperatingSystem,
@@ -494,8 +494,8 @@ module Network.AWS.WorkSpaces
     wiDescription,
 
     -- ** WorkspaceProperties
-    WorkspaceProperties,
-    workspaceProperties,
+    WorkspaceProperties (..),
+    mkWorkspaceProperties,
     wpComputeTypeName,
     wpRunningMode,
     wpRootVolumeSizeGib,
@@ -503,8 +503,8 @@ module Network.AWS.WorkSpaces
     wpUserVolumeSizeGib,
 
     -- ** WorkspaceRequest
-    WorkspaceRequest,
-    workspaceRequest,
+    WorkspaceRequest (..),
+    mkWorkspaceRequest,
     wrWorkspaceProperties,
     wrRootVolumeEncryptionEnabled,
     wrVolumeEncryptionKey,
@@ -515,15 +515,27 @@ module Network.AWS.WorkSpaces
     wrBundleId,
 
     -- ** WorkspacesIPGroup
-    WorkspacesIPGroup,
-    workspacesIPGroup,
+    WorkspacesIPGroup (..),
+    mkWorkspacesIPGroup,
     wigGroupDesc,
     wigUserRules,
     wigGroupId,
     wigGroupName,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.AssociateConnectionAlias
 import Network.AWS.WorkSpaces.AssociateIPGroups
 import Network.AWS.WorkSpaces.AuthorizeIPRules

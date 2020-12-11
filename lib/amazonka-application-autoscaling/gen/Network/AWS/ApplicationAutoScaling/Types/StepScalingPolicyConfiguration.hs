@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,227 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration where
+module Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
+  ( StepScalingPolicyConfiguration (..),
+
+    -- * Smart constructor
+    mkStepScalingPolicyConfiguration,
+
+    -- * Lenses
+    sspcStepAdjustments,
+    sspcAdjustmentType,
+    sspcCooldown,
+    sspcMetricAggregationType,
+    sspcMinAdjustmentMagnitude,
+  )
+where
 
 import Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
 import Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
 import Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a step scaling policy configuration to use with Application Auto Scaling.
 --
---
---
--- /See:/ 'stepScalingPolicyConfiguration' smart constructor.
+-- /See:/ 'mkStepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
-  { _sspcStepAdjustments ::
-      !(Maybe [StepAdjustment]),
-    _sspcAdjustmentType ::
-      !(Maybe AdjustmentType),
-    _sspcCooldown :: !(Maybe Int),
-    _sspcMetricAggregationType ::
-      !( Maybe
-           MetricAggregationType
-       ),
-    _sspcMinAdjustmentMagnitude ::
-      !(Maybe Int)
+  { stepAdjustments ::
+      Lude.Maybe [StepAdjustment],
+    adjustmentType ::
+      Lude.Maybe AdjustmentType,
+    cooldown ::
+      Lude.Maybe Lude.Int,
+    metricAggregationType ::
+      Lude.Maybe
+        MetricAggregationType,
+    minAdjustmentMagnitude ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepScalingPolicyConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'adjustmentType' - Specifies how the @ScalingAdjustment@ value in a <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment> is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
 --
--- * 'sspcStepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach. At least one step adjustment is required if you are adding a new step scaling policy configuration.
+-- @AdjustmentType@ is required if you are adding a new step scaling policy configuration.
+-- * 'cooldown' - The amount of time, in seconds, to wait for a previous scaling activity to take effect.
 --
--- * 'sspcAdjustmentType' - Specifies how the @ScalingAdjustment@ value in a <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment> is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .  @AdjustmentType@ is required if you are adding a new step scaling policy configuration.
+-- With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity.
+-- With scale-in policies, the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the cooldown period after a scale-in activity, Application Auto Scaling scales out the target immediately. In this case, the cooldown period for the scale-in activity stops and doesn't complete.
+-- Application Auto Scaling provides a default value of 300 for the following scalable targets:
 --
--- * 'sspcCooldown' - The amount of time, in seconds, to wait for a previous scaling activity to take effect.  With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity. With scale-in policies, the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the cooldown period after a scale-in activity, Application Auto Scaling scales out the target immediately. In this case, the cooldown period for the scale-in activity stops and doesn't complete. Application Auto Scaling provides a default value of 300 for the following scalable targets:     * ECS services     * Spot Fleet requests     * EMR clusters     * AppStream 2.0 fleets     * Aurora DB clusters     * Amazon SageMaker endpoint variants     * Custom resources For all other scalable targets, the default value is 0:     * DynamoDB tables     * DynamoDB global secondary indexes     * Amazon Comprehend document classification and entity recognizer endpoints     * Lambda provisioned concurrency     * Amazon Keyspaces tables     * Amazon MSK cluster storage
+--     * ECS services
 --
--- * 'sspcMetricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
 --
--- * 'sspcMinAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling scales out the service by 2 tasks.
-stepScalingPolicyConfiguration ::
+--     * Spot Fleet requests
+--
+--
+--     * EMR clusters
+--
+--
+--     * AppStream 2.0 fleets
+--
+--
+--     * Aurora DB clusters
+--
+--
+--     * Amazon SageMaker endpoint variants
+--
+--
+--     * Custom resources
+--
+--
+-- For all other scalable targets, the default value is 0:
+--
+--     * DynamoDB tables
+--
+--
+--     * DynamoDB global secondary indexes
+--
+--
+--     * Amazon Comprehend document classification and entity recognizer endpoints
+--
+--
+--     * Lambda provisioned concurrency
+--
+--
+--     * Amazon Keyspaces tables
+--
+--
+--     * Amazon MSK cluster storage
+--
+--
+-- * 'metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
+-- * 'minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling scales out the service by 2 tasks.
+-- * 'stepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach.
+--
+-- At least one step adjustment is required if you are adding a new step scaling policy configuration.
+mkStepScalingPolicyConfiguration ::
   StepScalingPolicyConfiguration
-stepScalingPolicyConfiguration =
+mkStepScalingPolicyConfiguration =
   StepScalingPolicyConfiguration'
-    { _sspcStepAdjustments = Nothing,
-      _sspcAdjustmentType = Nothing,
-      _sspcCooldown = Nothing,
-      _sspcMetricAggregationType = Nothing,
-      _sspcMinAdjustmentMagnitude = Nothing
+    { stepAdjustments = Lude.Nothing,
+      adjustmentType = Lude.Nothing,
+      cooldown = Lude.Nothing,
+      metricAggregationType = Lude.Nothing,
+      minAdjustmentMagnitude = Lude.Nothing
     }
 
--- | A set of adjustments that enable you to scale based on the size of the alarm breach. At least one step adjustment is required if you are adding a new step scaling policy configuration.
-sspcStepAdjustments :: Lens' StepScalingPolicyConfiguration [StepAdjustment]
-sspcStepAdjustments = lens _sspcStepAdjustments (\s a -> s {_sspcStepAdjustments = a}) . _Default . _Coerce
+-- | A set of adjustments that enable you to scale based on the size of the alarm breach.
+--
+-- At least one step adjustment is required if you are adding a new step scaling policy configuration.
+--
+-- /Note:/ Consider using 'stepAdjustments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspcStepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Lude.Maybe [StepAdjustment])
+sspcStepAdjustments = Lens.lens (stepAdjustments :: StepScalingPolicyConfiguration -> Lude.Maybe [StepAdjustment]) (\s a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration)
+{-# DEPRECATED sspcStepAdjustments "Use generic-lens or generic-optics with 'stepAdjustments' instead." #-}
 
--- | Specifies how the @ScalingAdjustment@ value in a <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment> is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .  @AdjustmentType@ is required if you are adding a new step scaling policy configuration.
-sspcAdjustmentType :: Lens' StepScalingPolicyConfiguration (Maybe AdjustmentType)
-sspcAdjustmentType = lens _sspcAdjustmentType (\s a -> s {_sspcAdjustmentType = a})
+-- | Specifies how the @ScalingAdjustment@ value in a <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment> is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
+--
+-- @AdjustmentType@ is required if you are adding a new step scaling policy configuration.
+--
+-- /Note:/ Consider using 'adjustmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspcAdjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Lude.Maybe AdjustmentType)
+sspcAdjustmentType = Lens.lens (adjustmentType :: StepScalingPolicyConfiguration -> Lude.Maybe AdjustmentType) (\s a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
+{-# DEPRECATED sspcAdjustmentType "Use generic-lens or generic-optics with 'adjustmentType' instead." #-}
 
--- | The amount of time, in seconds, to wait for a previous scaling activity to take effect.  With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity. With scale-in policies, the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the cooldown period after a scale-in activity, Application Auto Scaling scales out the target immediately. In this case, the cooldown period for the scale-in activity stops and doesn't complete. Application Auto Scaling provides a default value of 300 for the following scalable targets:     * ECS services     * Spot Fleet requests     * EMR clusters     * AppStream 2.0 fleets     * Aurora DB clusters     * Amazon SageMaker endpoint variants     * Custom resources For all other scalable targets, the default value is 0:     * DynamoDB tables     * DynamoDB global secondary indexes     * Amazon Comprehend document classification and entity recognizer endpoints     * Lambda provisioned concurrency     * Amazon Keyspaces tables     * Amazon MSK cluster storage
-sspcCooldown :: Lens' StepScalingPolicyConfiguration (Maybe Int)
-sspcCooldown = lens _sspcCooldown (\s a -> s {_sspcCooldown = a})
+-- | The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+--
+-- With scale-out policies, the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a step scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity. For example, when an alarm triggers a step scaling policy to increase the capacity by 2, the scaling activity completes successfully, and a cooldown period starts. If the alarm triggers again during the cooldown period but at a more aggressive step adjustment of 3, the previous increase of 2 is considered part of the current capacity. Therefore, only 1 is added to the capacity.
+-- With scale-in policies, the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the cooldown period after a scale-in activity, Application Auto Scaling scales out the target immediately. In this case, the cooldown period for the scale-in activity stops and doesn't complete.
+-- Application Auto Scaling provides a default value of 300 for the following scalable targets:
+--
+--     * ECS services
+--
+--
+--     * Spot Fleet requests
+--
+--
+--     * EMR clusters
+--
+--
+--     * AppStream 2.0 fleets
+--
+--
+--     * Aurora DB clusters
+--
+--
+--     * Amazon SageMaker endpoint variants
+--
+--
+--     * Custom resources
+--
+--
+-- For all other scalable targets, the default value is 0:
+--
+--     * DynamoDB tables
+--
+--
+--     * DynamoDB global secondary indexes
+--
+--
+--     * Amazon Comprehend document classification and entity recognizer endpoints
+--
+--
+--     * Lambda provisioned concurrency
+--
+--
+--     * Amazon Keyspaces tables
+--
+--
+--     * Amazon MSK cluster storage
+--
+--
+--
+-- /Note:/ Consider using 'cooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspcCooldown :: Lens.Lens' StepScalingPolicyConfiguration (Lude.Maybe Lude.Int)
+sspcCooldown = Lens.lens (cooldown :: StepScalingPolicyConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {cooldown = a} :: StepScalingPolicyConfiguration)
+{-# DEPRECATED sspcCooldown "Use generic-lens or generic-optics with 'cooldown' instead." #-}
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
-sspcMetricAggregationType :: Lens' StepScalingPolicyConfiguration (Maybe MetricAggregationType)
-sspcMetricAggregationType = lens _sspcMetricAggregationType (\s a -> s {_sspcMetricAggregationType = a})
+--
+-- /Note:/ Consider using 'metricAggregationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspcMetricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Lude.Maybe MetricAggregationType)
+sspcMetricAggregationType = Lens.lens (metricAggregationType :: StepScalingPolicyConfiguration -> Lude.Maybe MetricAggregationType) (\s a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
+{-# DEPRECATED sspcMetricAggregationType "Use generic-lens or generic-optics with 'metricAggregationType' instead." #-}
 
 -- | The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Amazon ECS service by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling scales out the service by 2 tasks.
-sspcMinAdjustmentMagnitude :: Lens' StepScalingPolicyConfiguration (Maybe Int)
-sspcMinAdjustmentMagnitude = lens _sspcMinAdjustmentMagnitude (\s a -> s {_sspcMinAdjustmentMagnitude = a})
+--
+-- /Note:/ Consider using 'minAdjustmentMagnitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspcMinAdjustmentMagnitude :: Lens.Lens' StepScalingPolicyConfiguration (Lude.Maybe Lude.Int)
+sspcMinAdjustmentMagnitude = Lens.lens (minAdjustmentMagnitude :: StepScalingPolicyConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {minAdjustmentMagnitude = a} :: StepScalingPolicyConfiguration)
+{-# DEPRECATED sspcMinAdjustmentMagnitude "Use generic-lens or generic-optics with 'minAdjustmentMagnitude' instead." #-}
 
-instance FromJSON StepScalingPolicyConfiguration where
+instance Lude.FromJSON StepScalingPolicyConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepScalingPolicyConfiguration"
       ( \x ->
           StepScalingPolicyConfiguration'
-            <$> (x .:? "StepAdjustments" .!= mempty)
-            <*> (x .:? "AdjustmentType")
-            <*> (x .:? "Cooldown")
-            <*> (x .:? "MetricAggregationType")
-            <*> (x .:? "MinAdjustmentMagnitude")
+            Lude.<$> (x Lude..:? "StepAdjustments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AdjustmentType")
+            Lude.<*> (x Lude..:? "Cooldown")
+            Lude.<*> (x Lude..:? "MetricAggregationType")
+            Lude.<*> (x Lude..:? "MinAdjustmentMagnitude")
       )
 
-instance Hashable StepScalingPolicyConfiguration
-
-instance NFData StepScalingPolicyConfiguration
-
-instance ToJSON StepScalingPolicyConfiguration where
+instance Lude.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("StepAdjustments" .=) <$> _sspcStepAdjustments,
-            ("AdjustmentType" .=) <$> _sspcAdjustmentType,
-            ("Cooldown" .=) <$> _sspcCooldown,
-            ("MetricAggregationType" .=) <$> _sspcMetricAggregationType,
-            ("MinAdjustmentMagnitude" .=) <$> _sspcMinAdjustmentMagnitude
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StepAdjustments" Lude..=) Lude.<$> stepAdjustments,
+            ("AdjustmentType" Lude..=) Lude.<$> adjustmentType,
+            ("Cooldown" Lude..=) Lude.<$> cooldown,
+            ("MetricAggregationType" Lude..=) Lude.<$> metricAggregationType,
+            ("MinAdjustmentMagnitude" Lude..=)
+              Lude.<$> minAdjustmentMagnitude
           ]
       )

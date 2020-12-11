@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,122 @@
 --
 -- This operation lists the provisioned capacity units for the specified AWS account.
 module Network.AWS.Glacier.ListProvisionedCapacity
-  ( -- * Creating a Request
-    listProvisionedCapacity,
-    ListProvisionedCapacity,
+  ( -- * Creating a request
+    ListProvisionedCapacity (..),
+    mkListProvisionedCapacity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpcAccountId,
 
-    -- * Destructuring the Response
-    listProvisionedCapacityResponse,
-    ListProvisionedCapacityResponse,
+    -- * Destructuring the response
+    ListProvisionedCapacityResponse (..),
+    mkListProvisionedCapacityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lpcrsProvisionedCapacityList,
     lpcrsResponseStatus,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listProvisionedCapacity' smart constructor.
+-- | /See:/ 'mkListProvisionedCapacity' smart constructor.
 newtype ListProvisionedCapacity = ListProvisionedCapacity'
-  { _lpcAccountId ::
-      Text
+  { accountId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisionedCapacity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpcAccountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-listProvisionedCapacity ::
-  -- | 'lpcAccountId'
-  Text ->
+-- * 'accountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
+mkListProvisionedCapacity ::
+  -- | 'accountId'
+  Lude.Text ->
   ListProvisionedCapacity
-listProvisionedCapacity pAccountId_ =
-  ListProvisionedCapacity' {_lpcAccountId = pAccountId_}
+mkListProvisionedCapacity pAccountId_ =
+  ListProvisionedCapacity' {accountId = pAccountId_}
 
 -- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-lpcAccountId :: Lens' ListProvisionedCapacity Text
-lpcAccountId = lens _lpcAccountId (\s a -> s {_lpcAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpcAccountId :: Lens.Lens' ListProvisionedCapacity Lude.Text
+lpcAccountId = Lens.lens (accountId :: ListProvisionedCapacity -> Lude.Text) (\s a -> s {accountId = a} :: ListProvisionedCapacity)
+{-# DEPRECATED lpcAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance AWSRequest ListProvisionedCapacity where
+instance Lude.AWSRequest ListProvisionedCapacity where
   type Rs ListProvisionedCapacity = ListProvisionedCapacityResponse
-  request = get glacier
+  request = Req.get glacierService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProvisionedCapacityResponse'
-            <$> (x .?> "ProvisionedCapacityList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProvisionedCapacityList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProvisionedCapacity
+instance Lude.ToHeaders ListProvisionedCapacity where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListProvisionedCapacity
-
-instance ToHeaders ListProvisionedCapacity where
-  toHeaders = const mempty
-
-instance ToPath ListProvisionedCapacity where
+instance Lude.ToPath ListProvisionedCapacity where
   toPath ListProvisionedCapacity' {..} =
-    mconcat ["/", toBS _lpcAccountId, "/provisioned-capacity"]
+    Lude.mconcat ["/", Lude.toBS accountId, "/provisioned-capacity"]
 
-instance ToQuery ListProvisionedCapacity where
-  toQuery = const mempty
+instance Lude.ToQuery ListProvisionedCapacity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listProvisionedCapacityResponse' smart constructor.
+-- | /See:/ 'mkListProvisionedCapacityResponse' smart constructor.
 data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
-  { _lpcrsProvisionedCapacityList ::
-      !( Maybe
-           [ProvisionedCapacityDescription]
-       ),
-    _lpcrsResponseStatus ::
-      !Int
+  { provisionedCapacityList ::
+      Lude.Maybe
+        [ProvisionedCapacityDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisionedCapacityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpcrsProvisionedCapacityList' - The response body contains the following JSON fields.
---
--- * 'lpcrsResponseStatus' - -- | The response status code.
-listProvisionedCapacityResponse ::
-  -- | 'lpcrsResponseStatus'
-  Int ->
+-- * 'provisionedCapacityList' - The response body contains the following JSON fields.
+-- * 'responseStatus' - The response status code.
+mkListProvisionedCapacityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProvisionedCapacityResponse
-listProvisionedCapacityResponse pResponseStatus_ =
+mkListProvisionedCapacityResponse pResponseStatus_ =
   ListProvisionedCapacityResponse'
-    { _lpcrsProvisionedCapacityList =
-        Nothing,
-      _lpcrsResponseStatus = pResponseStatus_
+    { provisionedCapacityList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The response body contains the following JSON fields.
-lpcrsProvisionedCapacityList :: Lens' ListProvisionedCapacityResponse [ProvisionedCapacityDescription]
-lpcrsProvisionedCapacityList = lens _lpcrsProvisionedCapacityList (\s a -> s {_lpcrsProvisionedCapacityList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisionedCapacityList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpcrsProvisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Lude.Maybe [ProvisionedCapacityDescription])
+lpcrsProvisionedCapacityList = Lens.lens (provisionedCapacityList :: ListProvisionedCapacityResponse -> Lude.Maybe [ProvisionedCapacityDescription]) (\s a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse)
+{-# DEPRECATED lpcrsProvisionedCapacityList "Use generic-lens or generic-optics with 'provisionedCapacityList' instead." #-}
 
--- | -- | The response status code.
-lpcrsResponseStatus :: Lens' ListProvisionedCapacityResponse Int
-lpcrsResponseStatus = lens _lpcrsResponseStatus (\s a -> s {_lpcrsResponseStatus = a})
-
-instance NFData ListProvisionedCapacityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpcrsResponseStatus :: Lens.Lens' ListProvisionedCapacityResponse Lude.Int
+lpcrsResponseStatus = Lens.lens (responseStatus :: ListProvisionedCapacityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisionedCapacityResponse)
+{-# DEPRECATED lpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

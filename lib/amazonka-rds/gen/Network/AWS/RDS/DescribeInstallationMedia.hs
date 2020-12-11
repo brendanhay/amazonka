@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,172 +14,209 @@
 --
 -- Describes the available installation media for a DB engine that requires an on-premises customer provided license, such as Microsoft SQL Server.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeInstallationMedia
-  ( -- * Creating a Request
-    describeInstallationMedia,
-    DescribeInstallationMedia,
+  ( -- * Creating a request
+    DescribeInstallationMedia (..),
+    mkDescribeInstallationMedia,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dimInstallationMediaId,
     dimFilters,
     dimMarker,
     dimMaxRecords,
 
-    -- * Destructuring the Response
-    describeInstallationMediaResponse,
-    DescribeInstallationMediaResponse,
+    -- * Destructuring the response
+    DescribeInstallationMediaResponse (..),
+    mkDescribeInstallationMediaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dimrsMarker,
     dimrsInstallationMedia,
     dimrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeInstallationMedia' smart constructor.
+-- | /See:/ 'mkDescribeInstallationMedia' smart constructor.
 data DescribeInstallationMedia = DescribeInstallationMedia'
-  { _dimInstallationMediaId ::
-      !(Maybe Text),
-    _dimFilters :: !(Maybe [Filter]),
-    _dimMarker :: !(Maybe Text),
-    _dimMaxRecords :: !(Maybe Int)
+  { installationMediaId ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstallationMedia' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - A filter that specifies one or more installation media to describe. Supported filters include the following:
 --
--- * 'dimInstallationMediaId' - The installation medium ID.
 --
--- * 'dimFilters' - A filter that specifies one or more installation media to describe. Supported filters include the following:     * @custom-availability-zone-id@ - Accepts custom Availability Zone (AZ) identifiers. The results list includes information about only the custom AZs identified by these identifiers.     * @engine@ - Accepts database engines. The results list includes information about only the database engines identified by these identifiers. For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
+--     * @custom-availability-zone-id@ - Accepts custom Availability Zone (AZ) identifiers. The results list includes information about only the custom AZs identified by these identifiers.
 --
--- * 'dimMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dimMaxRecords' - An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-describeInstallationMedia ::
+--     * @engine@ - Accepts database engines. The results list includes information about only the database engines identified by these identifiers.
+-- For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
+--
+--
+-- * 'installationMediaId' - The installation medium ID.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+mkDescribeInstallationMedia ::
   DescribeInstallationMedia
-describeInstallationMedia =
+mkDescribeInstallationMedia =
   DescribeInstallationMedia'
-    { _dimInstallationMediaId = Nothing,
-      _dimFilters = Nothing,
-      _dimMarker = Nothing,
-      _dimMaxRecords = Nothing
+    { installationMediaId = Lude.Nothing,
+      filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The installation medium ID.
-dimInstallationMediaId :: Lens' DescribeInstallationMedia (Maybe Text)
-dimInstallationMediaId = lens _dimInstallationMediaId (\s a -> s {_dimInstallationMediaId = a})
+--
+-- /Note:/ Consider using 'installationMediaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimInstallationMediaId :: Lens.Lens' DescribeInstallationMedia (Lude.Maybe Lude.Text)
+dimInstallationMediaId = Lens.lens (installationMediaId :: DescribeInstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {installationMediaId = a} :: DescribeInstallationMedia)
+{-# DEPRECATED dimInstallationMediaId "Use generic-lens or generic-optics with 'installationMediaId' instead." #-}
 
--- | A filter that specifies one or more installation media to describe. Supported filters include the following:     * @custom-availability-zone-id@ - Accepts custom Availability Zone (AZ) identifiers. The results list includes information about only the custom AZs identified by these identifiers.     * @engine@ - Accepts database engines. The results list includes information about only the database engines identified by these identifiers. For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
-dimFilters :: Lens' DescribeInstallationMedia [Filter]
-dimFilters = lens _dimFilters (\s a -> s {_dimFilters = a}) . _Default . _Coerce
+-- | A filter that specifies one or more installation media to describe. Supported filters include the following:
+--
+--
+--     * @custom-availability-zone-id@ - Accepts custom Availability Zone (AZ) identifiers. The results list includes information about only the custom AZs identified by these identifiers.
+--
+--
+--     * @engine@ - Accepts database engines. The results list includes information about only the database engines identified by these identifiers.
+-- For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimFilters :: Lens.Lens' DescribeInstallationMedia (Lude.Maybe [Filter])
+dimFilters = Lens.lens (filters :: DescribeInstallationMedia -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInstallationMedia)
+{-# DEPRECATED dimFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dimMarker :: Lens' DescribeInstallationMedia (Maybe Text)
-dimMarker = lens _dimMarker (\s a -> s {_dimMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimMarker :: Lens.Lens' DescribeInstallationMedia (Lude.Maybe Lude.Text)
+dimMarker = Lens.lens (marker :: DescribeInstallationMedia -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeInstallationMedia)
+{-# DEPRECATED dimMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dimMaxRecords :: Lens' DescribeInstallationMedia (Maybe Int)
-dimMaxRecords = lens _dimMaxRecords (\s a -> s {_dimMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimMaxRecords :: Lens.Lens' DescribeInstallationMedia (Lude.Maybe Lude.Int)
+dimMaxRecords = Lens.lens (maxRecords :: DescribeInstallationMedia -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeInstallationMedia)
+{-# DEPRECATED dimMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeInstallationMedia where
+instance Page.AWSPager DescribeInstallationMedia where
   page rq rs
-    | stop (rs ^. dimrsMarker) = Nothing
-    | stop (rs ^. dimrsInstallationMedia) = Nothing
-    | otherwise = Just $ rq & dimMarker .~ rs ^. dimrsMarker
+    | Page.stop (rs Lens.^. dimrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dimrsInstallationMedia) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dimMarker Lens..~ rs Lens.^. dimrsMarker
 
-instance AWSRequest DescribeInstallationMedia where
+instance Lude.AWSRequest DescribeInstallationMedia where
   type
     Rs DescribeInstallationMedia =
       DescribeInstallationMediaResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeInstallationMediaResult"
       ( \s h x ->
           DescribeInstallationMediaResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "InstallationMedia" .!@ mempty
-                    >>= may (parseXMLList "InstallationMedia")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "InstallationMedia" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "InstallationMedia")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstallationMedia
+instance Lude.ToHeaders DescribeInstallationMedia where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeInstallationMedia
+instance Lude.ToPath DescribeInstallationMedia where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeInstallationMedia where
-  toHeaders = const mempty
-
-instance ToPath DescribeInstallationMedia where
-  toPath = const "/"
-
-instance ToQuery DescribeInstallationMedia where
+instance Lude.ToQuery DescribeInstallationMedia where
   toQuery DescribeInstallationMedia' {..} =
-    mconcat
-      [ "Action" =: ("DescribeInstallationMedia" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "InstallationMediaId" =: _dimInstallationMediaId,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dimFilters),
-        "Marker" =: _dimMarker,
-        "MaxRecords" =: _dimMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeInstallationMedia" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "InstallationMediaId" Lude.=: installationMediaId,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'describeInstallationMediaResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstallationMediaResponse' smart constructor.
 data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
-  { _dimrsMarker ::
-      !(Maybe Text),
-    _dimrsInstallationMedia ::
-      !( Maybe
-           [InstallationMedia]
-       ),
-    _dimrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    installationMedia ::
+      Lude.Maybe
+        [InstallationMedia],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstallationMediaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dimrsMarker' - An optional pagination token provided by a previous 'DescribeInstallationMedia' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dimrsInstallationMedia' - The list of 'InstallationMedia' objects for the AWS account.
---
--- * 'dimrsResponseStatus' - -- | The response status code.
-describeInstallationMediaResponse ::
-  -- | 'dimrsResponseStatus'
-  Int ->
+-- * 'installationMedia' - The list of 'InstallationMedia' objects for the AWS account.
+-- * 'marker' - An optional pagination token provided by a previous 'DescribeInstallationMedia' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeInstallationMediaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstallationMediaResponse
-describeInstallationMediaResponse pResponseStatus_ =
+mkDescribeInstallationMediaResponse pResponseStatus_ =
   DescribeInstallationMediaResponse'
-    { _dimrsMarker = Nothing,
-      _dimrsInstallationMedia = Nothing,
-      _dimrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      installationMedia = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous 'DescribeInstallationMedia' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dimrsMarker :: Lens' DescribeInstallationMediaResponse (Maybe Text)
-dimrsMarker = lens _dimrsMarker (\s a -> s {_dimrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimrsMarker :: Lens.Lens' DescribeInstallationMediaResponse (Lude.Maybe Lude.Text)
+dimrsMarker = Lens.lens (marker :: DescribeInstallationMediaResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeInstallationMediaResponse)
+{-# DEPRECATED dimrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The list of 'InstallationMedia' objects for the AWS account.
-dimrsInstallationMedia :: Lens' DescribeInstallationMediaResponse [InstallationMedia]
-dimrsInstallationMedia = lens _dimrsInstallationMedia (\s a -> s {_dimrsInstallationMedia = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'installationMedia' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimrsInstallationMedia :: Lens.Lens' DescribeInstallationMediaResponse (Lude.Maybe [InstallationMedia])
+dimrsInstallationMedia = Lens.lens (installationMedia :: DescribeInstallationMediaResponse -> Lude.Maybe [InstallationMedia]) (\s a -> s {installationMedia = a} :: DescribeInstallationMediaResponse)
+{-# DEPRECATED dimrsInstallationMedia "Use generic-lens or generic-optics with 'installationMedia' instead." #-}
 
--- | -- | The response status code.
-dimrsResponseStatus :: Lens' DescribeInstallationMediaResponse Int
-dimrsResponseStatus = lens _dimrsResponseStatus (\s a -> s {_dimrsResponseStatus = a})
-
-instance NFData DescribeInstallationMediaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dimrsResponseStatus :: Lens.Lens' DescribeInstallationMediaResponse Lude.Int
+dimrsResponseStatus = Lens.lens (responseStatus :: DescribeInstallationMediaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstallationMediaResponse)
+{-# DEPRECATED dimrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

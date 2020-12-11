@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.RenewalType where
+module Network.AWS.MediaConvert.Types.RenewalType
+  ( RenewalType
+      ( RenewalType',
+        AutoRenew,
+        Expire
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
-data RenewalType
-  = AutoRenew
-  | Expire
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RenewalType = RenewalType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RenewalType where
-  parser =
-    takeLowerText >>= \case
-      "auto_renew" -> pure AutoRenew
-      "expire" -> pure Expire
-      e ->
-        fromTextError $
-          "Failure parsing RenewalType from value: '" <> e
-            <> "'. Accepted values: auto_renew, expire"
+pattern AutoRenew :: RenewalType
+pattern AutoRenew = RenewalType' "AUTO_RENEW"
 
-instance ToText RenewalType where
-  toText = \case
-    AutoRenew -> "AUTO_RENEW"
-    Expire -> "EXPIRE"
+pattern Expire :: RenewalType
+pattern Expire = RenewalType' "EXPIRE"
 
-instance Hashable RenewalType
-
-instance NFData RenewalType
-
-instance ToByteString RenewalType
-
-instance ToQuery RenewalType
-
-instance ToHeader RenewalType
-
-instance ToJSON RenewalType where
-  toJSON = toJSONText
-
-instance FromJSON RenewalType where
-  parseJSON = parseJSONText "RenewalType"
+{-# COMPLETE
+  AutoRenew,
+  Expire,
+  RenewalType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3MetadataControl where
+module Network.AWS.MediaConvert.Types.Eac3MetadataControl
+  ( Eac3MetadataControl
+      ( Eac3MetadataControl',
+        EMCFollowInput,
+        EMCUseConfigured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-data Eac3MetadataControl
-  = EMCFollowInput
-  | EMCUseConfigured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3MetadataControl = Eac3MetadataControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3MetadataControl where
-  parser =
-    takeLowerText >>= \case
-      "follow_input" -> pure EMCFollowInput
-      "use_configured" -> pure EMCUseConfigured
-      e ->
-        fromTextError $
-          "Failure parsing Eac3MetadataControl from value: '" <> e
-            <> "'. Accepted values: follow_input, use_configured"
+pattern EMCFollowInput :: Eac3MetadataControl
+pattern EMCFollowInput = Eac3MetadataControl' "FOLLOW_INPUT"
 
-instance ToText Eac3MetadataControl where
-  toText = \case
-    EMCFollowInput -> "FOLLOW_INPUT"
-    EMCUseConfigured -> "USE_CONFIGURED"
+pattern EMCUseConfigured :: Eac3MetadataControl
+pattern EMCUseConfigured = Eac3MetadataControl' "USE_CONFIGURED"
 
-instance Hashable Eac3MetadataControl
-
-instance NFData Eac3MetadataControl
-
-instance ToByteString Eac3MetadataControl
-
-instance ToQuery Eac3MetadataControl
-
-instance ToHeader Eac3MetadataControl
-
-instance ToJSON Eac3MetadataControl where
-  toJSON = toJSONText
-
-instance FromJSON Eac3MetadataControl where
-  parseJSON = parseJSONText "Eac3MetadataControl"
+{-# COMPLETE
+  EMCFollowInput,
+  EMCUseConfigured,
+  Eac3MetadataControl'
+  #-}

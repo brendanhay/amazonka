@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,169 +17,193 @@
 --
 --     * Can show a summary list of the most recent migration tasks.
 --
+--
 --     * Can show a summary list of migration tasks associated with a given discovered resource.
+--
 --
 --     * Lists migration tasks in a paginated interface.
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListMigrationTasks
-  ( -- * Creating a Request
-    listMigrationTasks,
-    ListMigrationTasks,
+  ( -- * Creating a request
+    ListMigrationTasks (..),
+    mkListMigrationTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmtResourceName,
     lmtNextToken,
     lmtMaxResults,
 
-    -- * Destructuring the Response
-    listMigrationTasksResponse,
-    ListMigrationTasksResponse,
+    -- * Destructuring the response
+    ListMigrationTasksResponse (..),
+    mkListMigrationTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmtrsMigrationTaskSummaryList,
     lmtrsNextToken,
     lmtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listMigrationTasks' smart constructor.
+-- | /See:/ 'mkListMigrationTasks' smart constructor.
 data ListMigrationTasks = ListMigrationTasks'
-  { _lmtResourceName ::
-      !(Maybe Text),
-    _lmtNextToken :: !(Maybe Text),
-    _lmtMaxResults :: !(Maybe Nat)
+  { resourceName ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMigrationTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmtResourceName' - Filter migration tasks by discovered resource name.
---
--- * 'lmtNextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
---
--- * 'lmtMaxResults' - Value to specify how many results are returned per page.
-listMigrationTasks ::
+-- * 'maxResults' - Value to specify how many results are returned per page.
+-- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+-- * 'resourceName' - Filter migration tasks by discovered resource name.
+mkListMigrationTasks ::
   ListMigrationTasks
-listMigrationTasks =
+mkListMigrationTasks =
   ListMigrationTasks'
-    { _lmtResourceName = Nothing,
-      _lmtNextToken = Nothing,
-      _lmtMaxResults = Nothing
+    { resourceName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Filter migration tasks by discovered resource name.
-lmtResourceName :: Lens' ListMigrationTasks (Maybe Text)
-lmtResourceName = lens _lmtResourceName (\s a -> s {_lmtResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtResourceName :: Lens.Lens' ListMigrationTasks (Lude.Maybe Lude.Text)
+lmtResourceName = Lens.lens (resourceName :: ListMigrationTasks -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ListMigrationTasks)
+{-# DEPRECATED lmtResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
-lmtNextToken :: Lens' ListMigrationTasks (Maybe Text)
-lmtNextToken = lens _lmtNextToken (\s a -> s {_lmtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtNextToken :: Lens.Lens' ListMigrationTasks (Lude.Maybe Lude.Text)
+lmtNextToken = Lens.lens (nextToken :: ListMigrationTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMigrationTasks)
+{-# DEPRECATED lmtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Value to specify how many results are returned per page.
-lmtMaxResults :: Lens' ListMigrationTasks (Maybe Natural)
-lmtMaxResults = lens _lmtMaxResults (\s a -> s {_lmtMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtMaxResults :: Lens.Lens' ListMigrationTasks (Lude.Maybe Lude.Natural)
+lmtMaxResults = Lens.lens (maxResults :: ListMigrationTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMigrationTasks)
+{-# DEPRECATED lmtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListMigrationTasks where
+instance Page.AWSPager ListMigrationTasks where
   page rq rs
-    | stop (rs ^. lmtrsNextToken) = Nothing
-    | stop (rs ^. lmtrsMigrationTaskSummaryList) = Nothing
-    | otherwise = Just $ rq & lmtNextToken .~ rs ^. lmtrsNextToken
+    | Page.stop (rs Lens.^. lmtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmtrsMigrationTaskSummaryList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmtNextToken Lens..~ rs Lens.^. lmtrsNextToken
 
-instance AWSRequest ListMigrationTasks where
+instance Lude.AWSRequest ListMigrationTasks where
   type Rs ListMigrationTasks = ListMigrationTasksResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListMigrationTasksResponse'
-            <$> (x .?> "MigrationTaskSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "MigrationTaskSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListMigrationTasks
-
-instance NFData ListMigrationTasks
-
-instance ToHeaders ListMigrationTasks where
+instance Lude.ToHeaders ListMigrationTasks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.ListMigrationTasks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.ListMigrationTasks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListMigrationTasks where
+instance Lude.ToJSON ListMigrationTasks where
   toJSON ListMigrationTasks' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceName" .=) <$> _lmtResourceName,
-            ("NextToken" .=) <$> _lmtNextToken,
-            ("MaxResults" .=) <$> _lmtMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceName" Lude..=) Lude.<$> resourceName,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListMigrationTasks where
-  toPath = const "/"
+instance Lude.ToPath ListMigrationTasks where
+  toPath = Lude.const "/"
 
-instance ToQuery ListMigrationTasks where
-  toQuery = const mempty
+instance Lude.ToQuery ListMigrationTasks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listMigrationTasksResponse' smart constructor.
+-- | /See:/ 'mkListMigrationTasksResponse' smart constructor.
 data ListMigrationTasksResponse = ListMigrationTasksResponse'
-  { _lmtrsMigrationTaskSummaryList ::
-      !(Maybe [MigrationTaskSummary]),
-    _lmtrsNextToken :: !(Maybe Text),
-    _lmtrsResponseStatus :: !Int
+  { migrationTaskSummaryList ::
+      Lude.Maybe [MigrationTaskSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMigrationTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmtrsMigrationTaskSummaryList' - Lists the migration task's summary which includes: @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and the @UpdateDateTime@ for each task.
---
--- * 'lmtrsNextToken' - If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
---
--- * 'lmtrsResponseStatus' - -- | The response status code.
-listMigrationTasksResponse ::
-  -- | 'lmtrsResponseStatus'
-  Int ->
+-- * 'migrationTaskSummaryList' - Lists the migration task's summary which includes: @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and the @UpdateDateTime@ for each task.
+-- * 'nextToken' - If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+-- * 'responseStatus' - The response status code.
+mkListMigrationTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMigrationTasksResponse
-listMigrationTasksResponse pResponseStatus_ =
+mkListMigrationTasksResponse pResponseStatus_ =
   ListMigrationTasksResponse'
-    { _lmtrsMigrationTaskSummaryList =
-        Nothing,
-      _lmtrsNextToken = Nothing,
-      _lmtrsResponseStatus = pResponseStatus_
+    { migrationTaskSummaryList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Lists the migration task's summary which includes: @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and the @UpdateDateTime@ for each task.
-lmtrsMigrationTaskSummaryList :: Lens' ListMigrationTasksResponse [MigrationTaskSummary]
-lmtrsMigrationTaskSummaryList = lens _lmtrsMigrationTaskSummaryList (\s a -> s {_lmtrsMigrationTaskSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'migrationTaskSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtrsMigrationTaskSummaryList :: Lens.Lens' ListMigrationTasksResponse (Lude.Maybe [MigrationTaskSummary])
+lmtrsMigrationTaskSummaryList = Lens.lens (migrationTaskSummaryList :: ListMigrationTasksResponse -> Lude.Maybe [MigrationTaskSummary]) (\s a -> s {migrationTaskSummaryList = a} :: ListMigrationTasksResponse)
+{-# DEPRECATED lmtrsMigrationTaskSummaryList "Use generic-lens or generic-optics with 'migrationTaskSummaryList' instead." #-}
 
 -- | If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
-lmtrsNextToken :: Lens' ListMigrationTasksResponse (Maybe Text)
-lmtrsNextToken = lens _lmtrsNextToken (\s a -> s {_lmtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtrsNextToken :: Lens.Lens' ListMigrationTasksResponse (Lude.Maybe Lude.Text)
+lmtrsNextToken = Lens.lens (nextToken :: ListMigrationTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMigrationTasksResponse)
+{-# DEPRECATED lmtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lmtrsResponseStatus :: Lens' ListMigrationTasksResponse Int
-lmtrsResponseStatus = lens _lmtrsResponseStatus (\s a -> s {_lmtrsResponseStatus = a})
-
-instance NFData ListMigrationTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmtrsResponseStatus :: Lens.Lens' ListMigrationTasksResponse Lude.Int
+lmtrsResponseStatus = Lens.lens (responseStatus :: ListMigrationTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMigrationTasksResponse)
+{-# DEPRECATED lmtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

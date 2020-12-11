@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,138 @@
 --
 -- Gets the properties associated with a key phrases detection job. Use this operation to get the status of a detection job.
 module Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
-  ( -- * Creating a Request
-    describeKeyPhrasesDetectionJob,
-    DescribeKeyPhrasesDetectionJob,
+  ( -- * Creating a request
+    DescribeKeyPhrasesDetectionJob (..),
+    mkDescribeKeyPhrasesDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dkpdjJobId,
 
-    -- * Destructuring the Response
-    describeKeyPhrasesDetectionJobResponse,
-    DescribeKeyPhrasesDetectionJobResponse,
+    -- * Destructuring the response
+    DescribeKeyPhrasesDetectionJobResponse (..),
+    mkDescribeKeyPhrasesDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dkpdjrsKeyPhrasesDetectionJobProperties,
     dkpdjrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeKeyPhrasesDetectionJob' smart constructor.
+-- | /See:/ 'mkDescribeKeyPhrasesDetectionJob' smart constructor.
 newtype DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
-  { _dkpdjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKeyPhrasesDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dkpdjJobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-describeKeyPhrasesDetectionJob ::
-  -- | 'dkpdjJobId'
-  Text ->
+-- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+mkDescribeKeyPhrasesDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeKeyPhrasesDetectionJob
-describeKeyPhrasesDetectionJob pJobId_ =
-  DescribeKeyPhrasesDetectionJob' {_dkpdjJobId = pJobId_}
+mkDescribeKeyPhrasesDetectionJob pJobId_ =
+  DescribeKeyPhrasesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-dkpdjJobId :: Lens' DescribeKeyPhrasesDetectionJob Text
-dkpdjJobId = lens _dkpdjJobId (\s a -> s {_dkpdjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpdjJobId :: Lens.Lens' DescribeKeyPhrasesDetectionJob Lude.Text
+dkpdjJobId = Lens.lens (jobId :: DescribeKeyPhrasesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeKeyPhrasesDetectionJob)
+{-# DEPRECATED dkpdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeKeyPhrasesDetectionJob where
+instance Lude.AWSRequest DescribeKeyPhrasesDetectionJob where
   type
     Rs DescribeKeyPhrasesDetectionJob =
       DescribeKeyPhrasesDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeKeyPhrasesDetectionJobResponse'
-            <$> (x .?> "KeyPhrasesDetectionJobProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "KeyPhrasesDetectionJobProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeKeyPhrasesDetectionJob
-
-instance NFData DescribeKeyPhrasesDetectionJob
-
-instance ToHeaders DescribeKeyPhrasesDetectionJob where
+instance Lude.ToHeaders DescribeKeyPhrasesDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeKeyPhrasesDetectionJob where
+instance Lude.ToJSON DescribeKeyPhrasesDetectionJob where
   toJSON DescribeKeyPhrasesDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _dkpdjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath DescribeKeyPhrasesDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeKeyPhrasesDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeKeyPhrasesDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeKeyPhrasesDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeKeyPhrasesDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeKeyPhrasesDetectionJobResponse' smart constructor.
 data DescribeKeyPhrasesDetectionJobResponse = DescribeKeyPhrasesDetectionJobResponse'
-  { _dkpdjrsKeyPhrasesDetectionJobProperties ::
-      !( Maybe
-           KeyPhrasesDetectionJobProperties
-       ),
-    _dkpdjrsResponseStatus ::
-      !Int
+  { keyPhrasesDetectionJobProperties ::
+      Lude.Maybe
+        KeyPhrasesDetectionJobProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKeyPhrasesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dkpdjrsKeyPhrasesDetectionJobProperties' - An object that contains the properties associated with a key phrases detection job.
---
--- * 'dkpdjrsResponseStatus' - -- | The response status code.
-describeKeyPhrasesDetectionJobResponse ::
-  -- | 'dkpdjrsResponseStatus'
-  Int ->
+-- * 'keyPhrasesDetectionJobProperties' - An object that contains the properties associated with a key phrases detection job.
+-- * 'responseStatus' - The response status code.
+mkDescribeKeyPhrasesDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeKeyPhrasesDetectionJobResponse
-describeKeyPhrasesDetectionJobResponse pResponseStatus_ =
+mkDescribeKeyPhrasesDetectionJobResponse pResponseStatus_ =
   DescribeKeyPhrasesDetectionJobResponse'
-    { _dkpdjrsKeyPhrasesDetectionJobProperties =
-        Nothing,
-      _dkpdjrsResponseStatus = pResponseStatus_
+    { keyPhrasesDetectionJobProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains the properties associated with a key phrases detection job.
-dkpdjrsKeyPhrasesDetectionJobProperties :: Lens' DescribeKeyPhrasesDetectionJobResponse (Maybe KeyPhrasesDetectionJobProperties)
-dkpdjrsKeyPhrasesDetectionJobProperties = lens _dkpdjrsKeyPhrasesDetectionJobProperties (\s a -> s {_dkpdjrsKeyPhrasesDetectionJobProperties = a})
+--
+-- /Note:/ Consider using 'keyPhrasesDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpdjrsKeyPhrasesDetectionJobProperties :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse (Lude.Maybe KeyPhrasesDetectionJobProperties)
+dkpdjrsKeyPhrasesDetectionJobProperties = Lens.lens (keyPhrasesDetectionJobProperties :: DescribeKeyPhrasesDetectionJobResponse -> Lude.Maybe KeyPhrasesDetectionJobProperties) (\s a -> s {keyPhrasesDetectionJobProperties = a} :: DescribeKeyPhrasesDetectionJobResponse)
+{-# DEPRECATED dkpdjrsKeyPhrasesDetectionJobProperties "Use generic-lens or generic-optics with 'keyPhrasesDetectionJobProperties' instead." #-}
 
--- | -- | The response status code.
-dkpdjrsResponseStatus :: Lens' DescribeKeyPhrasesDetectionJobResponse Int
-dkpdjrsResponseStatus = lens _dkpdjrsResponseStatus (\s a -> s {_dkpdjrsResponseStatus = a})
-
-instance NFData DescribeKeyPhrasesDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpdjrsResponseStatus :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse Lude.Int
+dkpdjrsResponseStatus = Lens.lens (responseStatus :: DescribeKeyPhrasesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeKeyPhrasesDetectionJobResponse)
+{-# DEPRECATED dkpdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

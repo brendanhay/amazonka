@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,72 +14,81 @@
 --
 -- Deletes the specified tags.
 module Network.AWS.AutoScaling.DeleteTags
-  ( -- * Creating a Request
-    deleteTags,
-    DeleteTags,
+  ( -- * Creating a request
+    DeleteTags (..),
+    mkDeleteTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtTags,
 
-    -- * Destructuring the Response
-    deleteTagsResponse,
-    DeleteTagsResponse,
+    -- * Destructuring the response
+    DeleteTagsResponse (..),
+    mkDeleteTagsResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTags' smart constructor.
-newtype DeleteTags = DeleteTags' {_dtTags :: [Tag]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteTags' smart constructor.
+newtype DeleteTags = DeleteTags' {tags :: [Tag]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtTags' - One or more tags.
-deleteTags ::
+-- * 'tags' - One or more tags.
+mkDeleteTags ::
   DeleteTags
-deleteTags = DeleteTags' {_dtTags = mempty}
+mkDeleteTags = DeleteTags' {tags = Lude.mempty}
 
 -- | One or more tags.
-dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\s a -> s {_dtTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTags :: Lens.Lens' DeleteTags [Tag]
+dtTags = Lens.lens (tags :: DeleteTags -> [Tag]) (\s a -> s {tags = a} :: DeleteTags)
+{-# DEPRECATED dtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest DeleteTags where
+instance Lude.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = postQuery autoScaling
-  response = receiveNull DeleteTagsResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
+instance Lude.ToHeaders DeleteTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTags
+instance Lude.ToPath DeleteTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteTags where
-  toHeaders = const mempty
-
-instance ToPath DeleteTags where
-  toPath = const "/"
-
-instance ToQuery DeleteTags where
+instance Lude.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    mconcat
-      [ "Action" =: ("DeleteTags" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "Tags" =: toQueryList "member" _dtTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQueryList "member" tags
       ]
 
--- | /See:/ 'deleteTagsResponse' smart constructor.
+-- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
-deleteTagsResponse ::
+mkDeleteTagsResponse ::
   DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse'
-
-instance NFData DeleteTagsResponse
+mkDeleteTagsResponse = DeleteTagsResponse'

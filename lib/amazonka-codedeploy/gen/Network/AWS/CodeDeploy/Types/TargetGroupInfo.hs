@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TargetGroupInfo where
+module Network.AWS.CodeDeploy.Types.TargetGroupInfo
+  ( TargetGroupInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetGroupInfo,
+
+    -- * Lenses
+    tgiName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group.
 --
---
---
--- /See:/ 'targetGroupInfo' smart constructor.
-newtype TargetGroupInfo = TargetGroupInfo' {_tgiName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTargetGroupInfo' smart constructor.
+newtype TargetGroupInfo = TargetGroupInfo'
+  { name ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgiName' - For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
-targetGroupInfo ::
+-- * 'name' - For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+mkTargetGroupInfo ::
   TargetGroupInfo
-targetGroupInfo = TargetGroupInfo' {_tgiName = Nothing}
+mkTargetGroupInfo = TargetGroupInfo' {name = Lude.Nothing}
 
 -- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
-tgiName :: Lens' TargetGroupInfo (Maybe Text)
-tgiName = lens _tgiName (\s a -> s {_tgiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgiName :: Lens.Lens' TargetGroupInfo (Lude.Maybe Lude.Text)
+tgiName = Lens.lens (name :: TargetGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TargetGroupInfo)
+{-# DEPRECATED tgiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON TargetGroupInfo where
+instance Lude.FromJSON TargetGroupInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "TargetGroupInfo"
-      (\x -> TargetGroupInfo' <$> (x .:? "name"))
+      (\x -> TargetGroupInfo' Lude.<$> (x Lude..:? "name"))
 
-instance Hashable TargetGroupInfo
-
-instance NFData TargetGroupInfo
-
-instance ToJSON TargetGroupInfo where
+instance Lude.ToJSON TargetGroupInfo where
   toJSON TargetGroupInfo' {..} =
-    object (catMaybes [("name" .=) <$> _tgiName])
+    Lude.object (Lude.catMaybes [("name" Lude..=) Lude.<$> name])

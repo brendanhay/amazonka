@@ -13,8 +13,8 @@
 --
 -- __AWS Import/Export Service__
 module Network.AWS.ImportExport
-  ( -- * Service Configuration
-    importExport,
+  ( -- * Service configuration
+    importExportService,
 
     -- * Errors
     -- $errors
@@ -49,18 +49,29 @@ module Network.AWS.ImportExport
     JobType (..),
 
     -- ** Artifact
-    Artifact,
-    artifact,
+    Artifact (..),
+    mkArtifact,
     aURL,
     aDescription,
 
     -- ** Job
-    Job,
-    job,
-    jobJobType,
-    jobJobId,
-    jobIsCanceled,
-    jobCreationDate,
+    Job (..),
+    mkJob,
+    jJobType,
+    jJobId,
+    jIsCanceled,
+    jCreationDate,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -72,6 +83,7 @@ import Network.AWS.ImportExport.ListJobs
 import Network.AWS.ImportExport.Types
 import Network.AWS.ImportExport.UpdateJob
 import Network.AWS.ImportExport.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

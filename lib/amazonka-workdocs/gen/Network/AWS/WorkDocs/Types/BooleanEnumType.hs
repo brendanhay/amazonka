@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.BooleanEnumType where
+module Network.AWS.WorkDocs.Types.BooleanEnumType
+  ( BooleanEnumType
+      ( BooleanEnumType',
+        False,
+        True
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BooleanEnumType
-  = False'
-  | True'
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BooleanEnumType = BooleanEnumType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BooleanEnumType where
-  parser =
-    takeLowerText >>= \case
-      "false" -> pure False'
-      "true" -> pure True'
-      e ->
-        fromTextError $
-          "Failure parsing BooleanEnumType from value: '" <> e
-            <> "'. Accepted values: false, true"
+pattern False :: BooleanEnumType
+pattern False = BooleanEnumType' "FALSE"
 
-instance ToText BooleanEnumType where
-  toText = \case
-    False' -> "FALSE"
-    True' -> "TRUE"
+pattern True :: BooleanEnumType
+pattern True = BooleanEnumType' "TRUE"
 
-instance Hashable BooleanEnumType
-
-instance NFData BooleanEnumType
-
-instance ToByteString BooleanEnumType
-
-instance ToQuery BooleanEnumType
-
-instance ToHeader BooleanEnumType
-
-instance ToJSON BooleanEnumType where
-  toJSON = toJSONText
+{-# COMPLETE
+  False,
+  True,
+  BooleanEnumType'
+  #-}

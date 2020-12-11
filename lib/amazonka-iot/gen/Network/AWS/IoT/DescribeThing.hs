@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about the specified thing.
 module Network.AWS.IoT.DescribeThing
-  ( -- * Creating a Request
-    describeThing,
-    DescribeThing,
+  ( -- * Creating a request
+    DescribeThing (..),
+    mkDescribeThing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desThingName,
 
-    -- * Destructuring the Response
-    describeThingResponse,
-    DescribeThingResponse,
+    -- * Destructuring the response
+    DescribeThingResponse (..),
+    mkDescribeThingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsDefaultClientId,
     dtrsThingTypeName,
     dtrsThingARN,
@@ -44,158 +39,185 @@ module Network.AWS.IoT.DescribeThing
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DescribeThing operation.
 --
---
---
--- /See:/ 'describeThing' smart constructor.
-newtype DescribeThing = DescribeThing' {_desThingName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeThing' smart constructor.
+newtype DescribeThing = DescribeThing' {thingName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desThingName' - The name of the thing.
-describeThing ::
-  -- | 'desThingName'
-  Text ->
+-- * 'thingName' - The name of the thing.
+mkDescribeThing ::
+  -- | 'thingName'
+  Lude.Text ->
   DescribeThing
-describeThing pThingName_ =
-  DescribeThing' {_desThingName = pThingName_}
+mkDescribeThing pThingName_ =
+  DescribeThing' {thingName = pThingName_}
 
 -- | The name of the thing.
-desThingName :: Lens' DescribeThing Text
-desThingName = lens _desThingName (\s a -> s {_desThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desThingName :: Lens.Lens' DescribeThing Lude.Text
+desThingName = Lens.lens (thingName :: DescribeThing -> Lude.Text) (\s a -> s {thingName = a} :: DescribeThing)
+{-# DEPRECATED desThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest DescribeThing where
+instance Lude.AWSRequest DescribeThing where
   type Rs DescribeThing = DescribeThingResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeThingResponse'
-            <$> (x .?> "defaultClientId")
-            <*> (x .?> "thingTypeName")
-            <*> (x .?> "thingArn")
-            <*> (x .?> "attributes" .!@ mempty)
-            <*> (x .?> "version")
-            <*> (x .?> "thingName")
-            <*> (x .?> "billingGroupName")
-            <*> (x .?> "thingId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "defaultClientId")
+            Lude.<*> (x Lude..?> "thingTypeName")
+            Lude.<*> (x Lude..?> "thingArn")
+            Lude.<*> (x Lude..?> "attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "thingName")
+            Lude.<*> (x Lude..?> "billingGroupName")
+            Lude.<*> (x Lude..?> "thingId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeThing
+instance Lude.ToHeaders DescribeThing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeThing
-
-instance ToHeaders DescribeThing where
-  toHeaders = const mempty
-
-instance ToPath DescribeThing where
+instance Lude.ToPath DescribeThing where
   toPath DescribeThing' {..} =
-    mconcat ["/things/", toBS _desThingName]
+    Lude.mconcat ["/things/", Lude.toBS thingName]
 
-instance ToQuery DescribeThing where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeThing where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the DescribeThing operation.
 --
---
---
--- /See:/ 'describeThingResponse' smart constructor.
+-- /See:/ 'mkDescribeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-  { _dtrsDefaultClientId ::
-      !(Maybe Text),
-    _dtrsThingTypeName :: !(Maybe Text),
-    _dtrsThingARN :: !(Maybe Text),
-    _dtrsAttributes :: !(Maybe (Map Text (Text))),
-    _dtrsVersion :: !(Maybe Integer),
-    _dtrsThingName :: !(Maybe Text),
-    _dtrsBillingGroupName :: !(Maybe Text),
-    _dtrsThingId :: !(Maybe Text),
-    _dtrsResponseStatus :: !Int
+  { defaultClientId ::
+      Lude.Maybe Lude.Text,
+    thingTypeName :: Lude.Maybe Lude.Text,
+    thingARN :: Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    version :: Lude.Maybe Lude.Integer,
+    thingName :: Lude.Maybe Lude.Text,
+    billingGroupName :: Lude.Maybe Lude.Text,
+    thingId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - The thing attributes.
+-- * 'billingGroupName' - The name of the billing group the thing belongs to.
+-- * 'defaultClientId' - The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
 --
--- * 'dtrsDefaultClientId' - The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service. This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
---
--- * 'dtrsThingTypeName' - The thing type name.
---
--- * 'dtrsThingARN' - The ARN of the thing to describe.
---
--- * 'dtrsAttributes' - The thing attributes.
---
--- * 'dtrsVersion' - The current version of the thing record in the registry.
---
--- * 'dtrsThingName' - The name of the thing.
---
--- * 'dtrsBillingGroupName' - The name of the billing group the thing belongs to.
---
--- * 'dtrsThingId' - The ID of the thing to describe.
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeThingResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
+-- * 'responseStatus' - The response status code.
+-- * 'thingARN' - The ARN of the thing to describe.
+-- * 'thingId' - The ID of the thing to describe.
+-- * 'thingName' - The name of the thing.
+-- * 'thingTypeName' - The thing type name.
+-- * 'version' - The current version of the thing record in the registry.
+mkDescribeThingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeThingResponse
-describeThingResponse pResponseStatus_ =
+mkDescribeThingResponse pResponseStatus_ =
   DescribeThingResponse'
-    { _dtrsDefaultClientId = Nothing,
-      _dtrsThingTypeName = Nothing,
-      _dtrsThingARN = Nothing,
-      _dtrsAttributes = Nothing,
-      _dtrsVersion = Nothing,
-      _dtrsThingName = Nothing,
-      _dtrsBillingGroupName = Nothing,
-      _dtrsThingId = Nothing,
-      _dtrsResponseStatus = pResponseStatus_
+    { defaultClientId = Lude.Nothing,
+      thingTypeName = Lude.Nothing,
+      thingARN = Lude.Nothing,
+      attributes = Lude.Nothing,
+      version = Lude.Nothing,
+      thingName = Lude.Nothing,
+      billingGroupName = Lude.Nothing,
+      thingId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service. This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
-dtrsDefaultClientId :: Lens' DescribeThingResponse (Maybe Text)
-dtrsDefaultClientId = lens _dtrsDefaultClientId (\s a -> s {_dtrsDefaultClientId = a})
+-- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
+--
+-- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
+--
+-- /Note:/ Consider using 'defaultClientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsDefaultClientId :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsDefaultClientId = Lens.lens (defaultClientId :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultClientId = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsDefaultClientId "Use generic-lens or generic-optics with 'defaultClientId' instead." #-}
 
 -- | The thing type name.
-dtrsThingTypeName :: Lens' DescribeThingResponse (Maybe Text)
-dtrsThingTypeName = lens _dtrsThingTypeName (\s a -> s {_dtrsThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsThingTypeName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsThingTypeName = Lens.lens (thingTypeName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
 -- | The ARN of the thing to describe.
-dtrsThingARN :: Lens' DescribeThingResponse (Maybe Text)
-dtrsThingARN = lens _dtrsThingARN (\s a -> s {_dtrsThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsThingARN :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsThingARN = Lens.lens (thingARN :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | The thing attributes.
-dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text (Text))
-dtrsAttributes = lens _dtrsAttributes (\s a -> s {_dtrsAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsAttributes :: Lens.Lens' DescribeThingResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dtrsAttributes = Lens.lens (attributes :: DescribeThingResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The current version of the thing record in the registry.
-dtrsVersion :: Lens' DescribeThingResponse (Maybe Integer)
-dtrsVersion = lens _dtrsVersion (\s a -> s {_dtrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsVersion :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Integer)
+dtrsVersion = Lens.lens (version :: DescribeThingResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the thing.
-dtrsThingName :: Lens' DescribeThingResponse (Maybe Text)
-dtrsThingName = lens _dtrsThingName (\s a -> s {_dtrsThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsThingName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsThingName = Lens.lens (thingName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The name of the billing group the thing belongs to.
-dtrsBillingGroupName :: Lens' DescribeThingResponse (Maybe Text)
-dtrsBillingGroupName = lens _dtrsBillingGroupName (\s a -> s {_dtrsBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsBillingGroupName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsBillingGroupName = Lens.lens (billingGroupName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 -- | The ID of the thing to describe.
-dtrsThingId :: Lens' DescribeThingResponse (Maybe Text)
-dtrsThingId = lens _dtrsThingId (\s a -> s {_dtrsThingId = a})
+--
+-- /Note:/ Consider using 'thingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsThingId :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
+dtrsThingId = Lens.lens (thingId :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingId = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsThingId "Use generic-lens or generic-optics with 'thingId' instead." #-}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeThingResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DescribeThingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DescribeThingResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DescribeThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

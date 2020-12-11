@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ForecastDataType where
+module Network.AWS.AutoScalingPlans.Types.ForecastDataType
+  ( ForecastDataType
+      ( ForecastDataType',
+        CapacityForecast,
+        LoadForecast,
+        ScheduledActionMaxCapacity,
+        ScheduledActionMinCapacity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ForecastDataType
-  = CapacityForecast
-  | LoadForecast
-  | ScheduledActionMaxCapacity
-  | ScheduledActionMinCapacity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ForecastDataType = ForecastDataType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ForecastDataType where
-  parser =
-    takeLowerText >>= \case
-      "capacityforecast" -> pure CapacityForecast
-      "loadforecast" -> pure LoadForecast
-      "scheduledactionmaxcapacity" -> pure ScheduledActionMaxCapacity
-      "scheduledactionmincapacity" -> pure ScheduledActionMinCapacity
-      e ->
-        fromTextError $
-          "Failure parsing ForecastDataType from value: '" <> e
-            <> "'. Accepted values: capacityforecast, loadforecast, scheduledactionmaxcapacity, scheduledactionmincapacity"
+pattern CapacityForecast :: ForecastDataType
+pattern CapacityForecast = ForecastDataType' "CapacityForecast"
 
-instance ToText ForecastDataType where
-  toText = \case
-    CapacityForecast -> "CapacityForecast"
-    LoadForecast -> "LoadForecast"
-    ScheduledActionMaxCapacity -> "ScheduledActionMaxCapacity"
-    ScheduledActionMinCapacity -> "ScheduledActionMinCapacity"
+pattern LoadForecast :: ForecastDataType
+pattern LoadForecast = ForecastDataType' "LoadForecast"
 
-instance Hashable ForecastDataType
+pattern ScheduledActionMaxCapacity :: ForecastDataType
+pattern ScheduledActionMaxCapacity = ForecastDataType' "ScheduledActionMaxCapacity"
 
-instance NFData ForecastDataType
+pattern ScheduledActionMinCapacity :: ForecastDataType
+pattern ScheduledActionMinCapacity = ForecastDataType' "ScheduledActionMinCapacity"
 
-instance ToByteString ForecastDataType
-
-instance ToQuery ForecastDataType
-
-instance ToHeader ForecastDataType
-
-instance ToJSON ForecastDataType where
-  toJSON = toJSONText
+{-# COMPLETE
+  CapacityForecast,
+  LoadForecast,
+  ScheduledActionMaxCapacity,
+  ScheduledActionMinCapacity,
+  ForecastDataType'
+  #-}

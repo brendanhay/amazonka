@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.PlacementStrategyType where
+module Network.AWS.ECS.Types.PlacementStrategyType
+  ( PlacementStrategyType
+      ( PlacementStrategyType',
+        Binpack,
+        Random,
+        Spread
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlacementStrategyType
-  = Binpack
-  | Random
-  | Spread
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlacementStrategyType = PlacementStrategyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlacementStrategyType where
-  parser =
-    takeLowerText >>= \case
-      "binpack" -> pure Binpack
-      "random" -> pure Random
-      "spread" -> pure Spread
-      e ->
-        fromTextError $
-          "Failure parsing PlacementStrategyType from value: '" <> e
-            <> "'. Accepted values: binpack, random, spread"
+pattern Binpack :: PlacementStrategyType
+pattern Binpack = PlacementStrategyType' "binpack"
 
-instance ToText PlacementStrategyType where
-  toText = \case
-    Binpack -> "binpack"
-    Random -> "random"
-    Spread -> "spread"
+pattern Random :: PlacementStrategyType
+pattern Random = PlacementStrategyType' "random"
 
-instance Hashable PlacementStrategyType
+pattern Spread :: PlacementStrategyType
+pattern Spread = PlacementStrategyType' "spread"
 
-instance NFData PlacementStrategyType
-
-instance ToByteString PlacementStrategyType
-
-instance ToQuery PlacementStrategyType
-
-instance ToHeader PlacementStrategyType
-
-instance ToJSON PlacementStrategyType where
-  toJSON = toJSONText
-
-instance FromJSON PlacementStrategyType where
-  parseJSON = parseJSONText "PlacementStrategyType"
+{-# COMPLETE
+  Binpack,
+  Random,
+  Spread,
+  PlacementStrategyType'
+  #-}

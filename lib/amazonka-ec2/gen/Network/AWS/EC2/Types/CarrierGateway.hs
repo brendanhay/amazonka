@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CarrierGateway where
+module Network.AWS.EC2.Types.CarrierGateway
+  ( CarrierGateway (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkCarrierGateway,
+
+    -- * Lenses
+    cgState,
+    cgVPCId,
+    cgOwnerId,
+    cgTags,
+    cgCarrierGatewayId,
+  )
+where
+
 import Network.AWS.EC2.Types.CarrierGatewayState
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a carrier gateway.
 --
---
---
--- /See:/ 'carrierGateway' smart constructor.
+-- /See:/ 'mkCarrierGateway' smart constructor.
 data CarrierGateway = CarrierGateway'
-  { _cgState ::
-      !(Maybe CarrierGatewayState),
-    _cgVPCId :: !(Maybe Text),
-    _cgOwnerId :: !(Maybe Text),
-    _cgTags :: !(Maybe [Tag]),
-    _cgCarrierGatewayId :: !(Maybe Text)
+  { state ::
+      Lude.Maybe CarrierGatewayState,
+    vpcId :: Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    carrierGatewayId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CarrierGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgState' - The state of the carrier gateway.
---
--- * 'cgVPCId' - The ID of the VPC associated with the carrier gateway.
---
--- * 'cgOwnerId' - The AWS account ID of the owner of the carrier gateway.
---
--- * 'cgTags' - The tags assigned to the carrier gateway.
---
--- * 'cgCarrierGatewayId' - The ID of the carrier gateway.
-carrierGateway ::
+-- * 'carrierGatewayId' - The ID of the carrier gateway.
+-- * 'ownerId' - The AWS account ID of the owner of the carrier gateway.
+-- * 'state' - The state of the carrier gateway.
+-- * 'tags' - The tags assigned to the carrier gateway.
+-- * 'vpcId' - The ID of the VPC associated with the carrier gateway.
+mkCarrierGateway ::
   CarrierGateway
-carrierGateway =
+mkCarrierGateway =
   CarrierGateway'
-    { _cgState = Nothing,
-      _cgVPCId = Nothing,
-      _cgOwnerId = Nothing,
-      _cgTags = Nothing,
-      _cgCarrierGatewayId = Nothing
+    { state = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      tags = Lude.Nothing,
+      carrierGatewayId = Lude.Nothing
     }
 
 -- | The state of the carrier gateway.
-cgState :: Lens' CarrierGateway (Maybe CarrierGatewayState)
-cgState = lens _cgState (\s a -> s {_cgState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgState :: Lens.Lens' CarrierGateway (Lude.Maybe CarrierGatewayState)
+cgState = Lens.lens (state :: CarrierGateway -> Lude.Maybe CarrierGatewayState) (\s a -> s {state = a} :: CarrierGateway)
+{-# DEPRECATED cgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the VPC associated with the carrier gateway.
-cgVPCId :: Lens' CarrierGateway (Maybe Text)
-cgVPCId = lens _cgVPCId (\s a -> s {_cgVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgVPCId :: Lens.Lens' CarrierGateway (Lude.Maybe Lude.Text)
+cgVPCId = Lens.lens (vpcId :: CarrierGateway -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: CarrierGateway)
+{-# DEPRECATED cgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The AWS account ID of the owner of the carrier gateway.
-cgOwnerId :: Lens' CarrierGateway (Maybe Text)
-cgOwnerId = lens _cgOwnerId (\s a -> s {_cgOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgOwnerId :: Lens.Lens' CarrierGateway (Lude.Maybe Lude.Text)
+cgOwnerId = Lens.lens (ownerId :: CarrierGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: CarrierGateway)
+{-# DEPRECATED cgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The tags assigned to the carrier gateway.
-cgTags :: Lens' CarrierGateway [Tag]
-cgTags = lens _cgTags (\s a -> s {_cgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgTags :: Lens.Lens' CarrierGateway (Lude.Maybe [Tag])
+cgTags = Lens.lens (tags :: CarrierGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CarrierGateway)
+{-# DEPRECATED cgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the carrier gateway.
-cgCarrierGatewayId :: Lens' CarrierGateway (Maybe Text)
-cgCarrierGatewayId = lens _cgCarrierGatewayId (\s a -> s {_cgCarrierGatewayId = a})
+--
+-- /Note:/ Consider using 'carrierGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgCarrierGatewayId :: Lens.Lens' CarrierGateway (Lude.Maybe Lude.Text)
+cgCarrierGatewayId = Lens.lens (carrierGatewayId :: CarrierGateway -> Lude.Maybe Lude.Text) (\s a -> s {carrierGatewayId = a} :: CarrierGateway)
+{-# DEPRECATED cgCarrierGatewayId "Use generic-lens or generic-optics with 'carrierGatewayId' instead." #-}
 
-instance FromXML CarrierGateway where
+instance Lude.FromXML CarrierGateway where
   parseXML x =
     CarrierGateway'
-      <$> (x .@? "state")
-      <*> (x .@? "vpcId")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "carrierGatewayId")
-
-instance Hashable CarrierGateway
-
-instance NFData CarrierGateway
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "vpcId")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "carrierGatewayId")

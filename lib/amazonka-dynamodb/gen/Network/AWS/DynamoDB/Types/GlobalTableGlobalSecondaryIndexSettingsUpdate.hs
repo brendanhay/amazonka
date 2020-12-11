@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate where
+module Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
+  ( GlobalTableGlobalSecondaryIndexSettingsUpdate (..),
+
+    -- * Smart constructor
+    mkGlobalTableGlobalSecondaryIndexSettingsUpdate,
+
+    -- * Lenses
+    gtgsisuProvisionedWriteCapacityUnits,
+    gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
+    gtgsisuIndexName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the settings of a global secondary index for a global table that will be modified.
 --
---
---
--- /See:/ 'globalTableGlobalSecondaryIndexSettingsUpdate' smart constructor.
+-- /See:/ 'mkGlobalTableGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryIndexSettingsUpdate'
-  { _gtgsisuProvisionedWriteCapacityUnits ::
-      !( Maybe
-           Nat
-       ),
-    _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate ::
-      !( Maybe
-           AutoScalingSettingsUpdate
-       ),
-    _gtgsisuIndexName ::
-      !Text
+  { provisionedWriteCapacityUnits ::
+      Lude.Maybe
+        Lude.Natural,
+    provisionedWriteCapacityAutoScalingSettingsUpdate ::
+      Lude.Maybe
+        AutoScalingSettingsUpdate,
+    indexName ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GlobalTableGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgsisuProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
---
--- * 'gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index's write capacity units.
---
--- * 'gtgsisuIndexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
-globalTableGlobalSecondaryIndexSettingsUpdate ::
-  -- | 'gtgsisuIndexName'
-  Text ->
+-- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+-- * 'provisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index's write capacity units.
+-- * 'provisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+mkGlobalTableGlobalSecondaryIndexSettingsUpdate ::
+  -- | 'indexName'
+  Lude.Text ->
   GlobalTableGlobalSecondaryIndexSettingsUpdate
-globalTableGlobalSecondaryIndexSettingsUpdate pIndexName_ =
+mkGlobalTableGlobalSecondaryIndexSettingsUpdate pIndexName_ =
   GlobalTableGlobalSecondaryIndexSettingsUpdate'
-    { _gtgsisuProvisionedWriteCapacityUnits =
-        Nothing,
-      _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate =
-        Nothing,
-      _gtgsisuIndexName = pIndexName_
+    { provisionedWriteCapacityUnits =
+        Lude.Nothing,
+      provisionedWriteCapacityAutoScalingSettingsUpdate =
+        Lude.Nothing,
+      indexName = pIndexName_
     }
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
-gtgsisuProvisionedWriteCapacityUnits :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Maybe Natural)
-gtgsisuProvisionedWriteCapacityUnits = lens _gtgsisuProvisionedWriteCapacityUnits (\s a -> s {_gtgsisuProvisionedWriteCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsisuProvisionedWriteCapacityUnits :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Lude.Maybe Lude.Natural)
+gtgsisuProvisionedWriteCapacityUnits = Lens.lens (provisionedWriteCapacityUnits :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {provisionedWriteCapacityUnits = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
+{-# DEPRECATED gtgsisuProvisionedWriteCapacityUnits "Use generic-lens or generic-optics with 'provisionedWriteCapacityUnits' instead." #-}
 
 -- | Auto scaling settings for managing a global secondary index's write capacity units.
-gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Maybe AutoScalingSettingsUpdate)
-gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = lens _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate (\s a -> s {_gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = a})
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Lude.Maybe AutoScalingSettingsUpdate)
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = Lens.lens (provisionedWriteCapacityAutoScalingSettingsUpdate :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {provisionedWriteCapacityAutoScalingSettingsUpdate = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
+{-# DEPRECATED gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingSettingsUpdate' instead." #-}
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
-gtgsisuIndexName :: Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Text
-gtgsisuIndexName = lens _gtgsisuIndexName (\s a -> s {_gtgsisuIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsisuIndexName :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Lude.Text
+gtgsisuIndexName = Lens.lens (indexName :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Text) (\s a -> s {indexName = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
+{-# DEPRECATED gtgsisuIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Hashable GlobalTableGlobalSecondaryIndexSettingsUpdate
-
-instance NFData GlobalTableGlobalSecondaryIndexSettingsUpdate
-
-instance ToJSON GlobalTableGlobalSecondaryIndexSettingsUpdate where
+instance Lude.ToJSON GlobalTableGlobalSecondaryIndexSettingsUpdate where
   toJSON GlobalTableGlobalSecondaryIndexSettingsUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("ProvisionedWriteCapacityUnits" .=)
-              <$> _gtgsisuProvisionedWriteCapacityUnits,
-            ("ProvisionedWriteCapacityAutoScalingSettingsUpdate" .=)
-              <$> _gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
-            Just ("IndexName" .= _gtgsisuIndexName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProvisionedWriteCapacityUnits" Lude..=)
+              Lude.<$> provisionedWriteCapacityUnits,
+            ("ProvisionedWriteCapacityAutoScalingSettingsUpdate" Lude..=)
+              Lude.<$> provisionedWriteCapacityAutoScalingSettingsUpdate,
+            Lude.Just ("IndexName" Lude..= indexName)
           ]
       )

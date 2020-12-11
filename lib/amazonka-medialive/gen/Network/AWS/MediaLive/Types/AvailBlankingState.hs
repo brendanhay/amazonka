@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AvailBlankingState where
+module Network.AWS.MediaLive.Types.AvailBlankingState
+  ( AvailBlankingState
+      ( AvailBlankingState',
+        ABSDisabled,
+        ABSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Avail Blanking State
-data AvailBlankingState
-  = ABSDisabled
-  | ABSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AvailBlankingState = AvailBlankingState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AvailBlankingState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ABSDisabled
-      "enabled" -> pure ABSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing AvailBlankingState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ABSDisabled :: AvailBlankingState
+pattern ABSDisabled = AvailBlankingState' "DISABLED"
 
-instance ToText AvailBlankingState where
-  toText = \case
-    ABSDisabled -> "DISABLED"
-    ABSEnabled -> "ENABLED"
+pattern ABSEnabled :: AvailBlankingState
+pattern ABSEnabled = AvailBlankingState' "ENABLED"
 
-instance Hashable AvailBlankingState
-
-instance NFData AvailBlankingState
-
-instance ToByteString AvailBlankingState
-
-instance ToQuery AvailBlankingState
-
-instance ToHeader AvailBlankingState
-
-instance ToJSON AvailBlankingState where
-  toJSON = toJSONText
-
-instance FromJSON AvailBlankingState where
-  parseJSON = parseJSONText "AvailBlankingState"
+{-# COMPLETE
+  ABSDisabled,
+  ABSEnabled,
+  AvailBlankingState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,110 @@
 --
 -- Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization.
 --
---
 -- Only a master account and a delegated administrator account can delete an organization config rule. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
---
 -- AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a rule while it is in this state.
 module Network.AWS.Config.DeleteOrganizationConfigRule
-  ( -- * Creating a Request
-    deleteOrganizationConfigRule,
-    DeleteOrganizationConfigRule,
+  ( -- * Creating a request
+    DeleteOrganizationConfigRule (..),
+    mkDeleteOrganizationConfigRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     docrOrganizationConfigRuleName,
 
-    -- * Destructuring the Response
-    deleteOrganizationConfigRuleResponse,
-    DeleteOrganizationConfigRuleResponse,
+    -- * Destructuring the response
+    DeleteOrganizationConfigRuleResponse (..),
+    mkDeleteOrganizationConfigRuleResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteOrganizationConfigRule' smart constructor.
+-- | /See:/ 'mkDeleteOrganizationConfigRule' smart constructor.
 newtype DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
-  { _docrOrganizationConfigRuleName ::
-      Text
+  { organizationConfigRuleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationConfigRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'docrOrganizationConfigRuleName' - The name of organization config rule that you want to delete.
-deleteOrganizationConfigRule ::
-  -- | 'docrOrganizationConfigRuleName'
-  Text ->
+-- * 'organizationConfigRuleName' - The name of organization config rule that you want to delete.
+mkDeleteOrganizationConfigRule ::
+  -- | 'organizationConfigRuleName'
+  Lude.Text ->
   DeleteOrganizationConfigRule
-deleteOrganizationConfigRule pOrganizationConfigRuleName_ =
+mkDeleteOrganizationConfigRule pOrganizationConfigRuleName_ =
   DeleteOrganizationConfigRule'
-    { _docrOrganizationConfigRuleName =
+    { organizationConfigRuleName =
         pOrganizationConfigRuleName_
     }
 
 -- | The name of organization config rule that you want to delete.
-docrOrganizationConfigRuleName :: Lens' DeleteOrganizationConfigRule Text
-docrOrganizationConfigRuleName = lens _docrOrganizationConfigRuleName (\s a -> s {_docrOrganizationConfigRuleName = a})
+--
+-- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrOrganizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Lude.Text
+docrOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: DeleteOrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: DeleteOrganizationConfigRule)
+{-# DEPRECATED docrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
-instance AWSRequest DeleteOrganizationConfigRule where
+instance Lude.AWSRequest DeleteOrganizationConfigRule where
   type
     Rs DeleteOrganizationConfigRule =
       DeleteOrganizationConfigRuleResponse
-  request = postJSON config
-  response = receiveNull DeleteOrganizationConfigRuleResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteOrganizationConfigRuleResponse'
 
-instance Hashable DeleteOrganizationConfigRule
-
-instance NFData DeleteOrganizationConfigRule
-
-instance ToHeaders DeleteOrganizationConfigRule where
+instance Lude.ToHeaders DeleteOrganizationConfigRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteOrganizationConfigRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DeleteOrganizationConfigRule" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteOrganizationConfigRule where
+instance Lude.ToJSON DeleteOrganizationConfigRule where
   toJSON DeleteOrganizationConfigRule' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("OrganizationConfigRuleName" .= _docrOrganizationConfigRuleName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("OrganizationConfigRuleName" Lude..= organizationConfigRuleName)
           ]
       )
 
-instance ToPath DeleteOrganizationConfigRule where
-  toPath = const "/"
+instance Lude.ToPath DeleteOrganizationConfigRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteOrganizationConfigRule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteOrganizationConfigRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteOrganizationConfigRuleResponse' smart constructor.
+-- | /See:/ 'mkDeleteOrganizationConfigRuleResponse' smart constructor.
 data DeleteOrganizationConfigRuleResponse = DeleteOrganizationConfigRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationConfigRuleResponse' with the minimum fields required to make a request.
-deleteOrganizationConfigRuleResponse ::
+mkDeleteOrganizationConfigRuleResponse ::
   DeleteOrganizationConfigRuleResponse
-deleteOrganizationConfigRuleResponse =
+mkDeleteOrganizationConfigRuleResponse =
   DeleteOrganizationConfigRuleResponse'
-
-instance NFData DeleteOrganizationConfigRuleResponse

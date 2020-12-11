@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,152 +7,193 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobDefinition where
+module Network.AWS.Batch.Types.JobDefinition
+  ( JobDefinition (..),
+
+    -- * Smart constructor
+    mkJobDefinition,
+
+    -- * Lenses
+    jobStatus,
+    jobRetryStrategy,
+    jobParameters,
+    jobTimeout,
+    jobContainerProperties,
+    jobNodeProperties,
+    jobTags,
+    jobJobDefinitionName,
+    jobJobDefinitionARN,
+    jobRevision,
+    jobType,
+  )
+where
 
 import Network.AWS.Batch.Types.ContainerProperties
 import Network.AWS.Batch.Types.JobTimeout
 import Network.AWS.Batch.Types.NodeProperties
 import Network.AWS.Batch.Types.RetryStrategy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing an AWS Batch job definition.
 --
---
---
--- /See:/ 'jobDefinition' smart constructor.
+-- /See:/ 'mkJobDefinition' smart constructor.
 data JobDefinition = JobDefinition'
-  { _jddStatus :: !(Maybe Text),
-    _jddRetryStrategy :: !(Maybe RetryStrategy),
-    _jddParameters :: !(Maybe (Map Text (Text))),
-    _jddTimeout :: !(Maybe JobTimeout),
-    _jddContainerProperties :: !(Maybe ContainerProperties),
-    _jddNodeProperties :: !(Maybe NodeProperties),
-    _jddTags :: !(Maybe (Map Text (Text))),
-    _jddJobDefinitionName :: !Text,
-    _jddJobDefinitionARN :: !Text,
-    _jddRevision :: !Int,
-    _jddType :: !Text
+  { status :: Lude.Maybe Lude.Text,
+    retryStrategy :: Lude.Maybe RetryStrategy,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    timeout :: Lude.Maybe JobTimeout,
+    containerProperties :: Lude.Maybe ContainerProperties,
+    nodeProperties :: Lude.Maybe NodeProperties,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    jobDefinitionName :: Lude.Text,
+    jobDefinitionARN :: Lude.Text,
+    revision :: Lude.Int,
+    type' :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jddStatus' - The status of the job definition.
---
--- * 'jddRetryStrategy' - The retry strategy to use for failed jobs that are submitted with this job definition.
---
--- * 'jddParameters' - Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters> in the /AWS Batch User Guide/ .
---
--- * 'jddTimeout' - The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished.
---
--- * 'jddContainerProperties' - An object with various properties specific to container-based jobs.
---
--- * 'jddNodeProperties' - An object with various properties specific to multi-node parallel jobs.
---
--- * 'jddTags' - The tags applied to the job definition.
---
--- * 'jddJobDefinitionName' - The name of the job definition.
---
--- * 'jddJobDefinitionARN' - The Amazon Resource Name (ARN) for the job definition.
---
--- * 'jddRevision' - The revision of the job definition.
---
--- * 'jddType' - The type of job definition.
-jobDefinition ::
-  -- | 'jddJobDefinitionName'
-  Text ->
-  -- | 'jddJobDefinitionARN'
-  Text ->
-  -- | 'jddRevision'
-  Int ->
-  -- | 'jddType'
-  Text ->
+-- * 'containerProperties' - An object with various properties specific to container-based jobs.
+-- * 'jobDefinitionARN' - The Amazon Resource Name (ARN) for the job definition.
+-- * 'jobDefinitionName' - The name of the job definition.
+-- * 'nodeProperties' - An object with various properties specific to multi-node parallel jobs.
+-- * 'parameters' - Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters> in the /AWS Batch User Guide/ .
+-- * 'retryStrategy' - The retry strategy to use for failed jobs that are submitted with this job definition.
+-- * 'revision' - The revision of the job definition.
+-- * 'status' - The status of the job definition.
+-- * 'tags' - The tags applied to the job definition.
+-- * 'timeout' - The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished.
+-- * 'type'' - The type of job definition.
+mkJobDefinition ::
+  -- | 'jobDefinitionName'
+  Lude.Text ->
+  -- | 'jobDefinitionARN'
+  Lude.Text ->
+  -- | 'revision'
+  Lude.Int ->
+  -- | 'type''
+  Lude.Text ->
   JobDefinition
-jobDefinition
+mkJobDefinition
   pJobDefinitionName_
   pJobDefinitionARN_
   pRevision_
   pType_ =
     JobDefinition'
-      { _jddStatus = Nothing,
-        _jddRetryStrategy = Nothing,
-        _jddParameters = Nothing,
-        _jddTimeout = Nothing,
-        _jddContainerProperties = Nothing,
-        _jddNodeProperties = Nothing,
-        _jddTags = Nothing,
-        _jddJobDefinitionName = pJobDefinitionName_,
-        _jddJobDefinitionARN = pJobDefinitionARN_,
-        _jddRevision = pRevision_,
-        _jddType = pType_
+      { status = Lude.Nothing,
+        retryStrategy = Lude.Nothing,
+        parameters = Lude.Nothing,
+        timeout = Lude.Nothing,
+        containerProperties = Lude.Nothing,
+        nodeProperties = Lude.Nothing,
+        tags = Lude.Nothing,
+        jobDefinitionName = pJobDefinitionName_,
+        jobDefinitionARN = pJobDefinitionARN_,
+        revision = pRevision_,
+        type' = pType_
       }
 
 -- | The status of the job definition.
-jddStatus :: Lens' JobDefinition (Maybe Text)
-jddStatus = lens _jddStatus (\s a -> s {_jddStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobStatus :: Lens.Lens' JobDefinition (Lude.Maybe Lude.Text)
+jobStatus = Lens.lens (status :: JobDefinition -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: JobDefinition)
+{-# DEPRECATED jobStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The retry strategy to use for failed jobs that are submitted with this job definition.
-jddRetryStrategy :: Lens' JobDefinition (Maybe RetryStrategy)
-jddRetryStrategy = lens _jddRetryStrategy (\s a -> s {_jddRetryStrategy = a})
+--
+-- /Note:/ Consider using 'retryStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobRetryStrategy :: Lens.Lens' JobDefinition (Lude.Maybe RetryStrategy)
+jobRetryStrategy = Lens.lens (retryStrategy :: JobDefinition -> Lude.Maybe RetryStrategy) (\s a -> s {retryStrategy = a} :: JobDefinition)
+{-# DEPRECATED jobRetryStrategy "Use generic-lens or generic-optics with 'retryStrategy' instead." #-}
 
 -- | Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters> in the /AWS Batch User Guide/ .
-jddParameters :: Lens' JobDefinition (HashMap Text (Text))
-jddParameters = lens _jddParameters (\s a -> s {_jddParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobParameters :: Lens.Lens' JobDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jobParameters = Lens.lens (parameters :: JobDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: JobDefinition)
+{-# DEPRECATED jobParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they have not finished.
-jddTimeout :: Lens' JobDefinition (Maybe JobTimeout)
-jddTimeout = lens _jddTimeout (\s a -> s {_jddTimeout = a})
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobTimeout :: Lens.Lens' JobDefinition (Lude.Maybe JobTimeout)
+jobTimeout = Lens.lens (timeout :: JobDefinition -> Lude.Maybe JobTimeout) (\s a -> s {timeout = a} :: JobDefinition)
+{-# DEPRECATED jobTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
 -- | An object with various properties specific to container-based jobs.
-jddContainerProperties :: Lens' JobDefinition (Maybe ContainerProperties)
-jddContainerProperties = lens _jddContainerProperties (\s a -> s {_jddContainerProperties = a})
+--
+-- /Note:/ Consider using 'containerProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobContainerProperties :: Lens.Lens' JobDefinition (Lude.Maybe ContainerProperties)
+jobContainerProperties = Lens.lens (containerProperties :: JobDefinition -> Lude.Maybe ContainerProperties) (\s a -> s {containerProperties = a} :: JobDefinition)
+{-# DEPRECATED jobContainerProperties "Use generic-lens or generic-optics with 'containerProperties' instead." #-}
 
 -- | An object with various properties specific to multi-node parallel jobs.
-jddNodeProperties :: Lens' JobDefinition (Maybe NodeProperties)
-jddNodeProperties = lens _jddNodeProperties (\s a -> s {_jddNodeProperties = a})
+--
+-- /Note:/ Consider using 'nodeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobNodeProperties :: Lens.Lens' JobDefinition (Lude.Maybe NodeProperties)
+jobNodeProperties = Lens.lens (nodeProperties :: JobDefinition -> Lude.Maybe NodeProperties) (\s a -> s {nodeProperties = a} :: JobDefinition)
+{-# DEPRECATED jobNodeProperties "Use generic-lens or generic-optics with 'nodeProperties' instead." #-}
 
 -- | The tags applied to the job definition.
-jddTags :: Lens' JobDefinition (HashMap Text (Text))
-jddTags = lens _jddTags (\s a -> s {_jddTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobTags :: Lens.Lens' JobDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+jobTags = Lens.lens (tags :: JobDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: JobDefinition)
+{-# DEPRECATED jobTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the job definition.
-jddJobDefinitionName :: Lens' JobDefinition Text
-jddJobDefinitionName = lens _jddJobDefinitionName (\s a -> s {_jddJobDefinitionName = a})
+--
+-- /Note:/ Consider using 'jobDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobJobDefinitionName :: Lens.Lens' JobDefinition Lude.Text
+jobJobDefinitionName = Lens.lens (jobDefinitionName :: JobDefinition -> Lude.Text) (\s a -> s {jobDefinitionName = a} :: JobDefinition)
+{-# DEPRECATED jobJobDefinitionName "Use generic-lens or generic-optics with 'jobDefinitionName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the job definition.
-jddJobDefinitionARN :: Lens' JobDefinition Text
-jddJobDefinitionARN = lens _jddJobDefinitionARN (\s a -> s {_jddJobDefinitionARN = a})
+--
+-- /Note:/ Consider using 'jobDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobJobDefinitionARN :: Lens.Lens' JobDefinition Lude.Text
+jobJobDefinitionARN = Lens.lens (jobDefinitionARN :: JobDefinition -> Lude.Text) (\s a -> s {jobDefinitionARN = a} :: JobDefinition)
+{-# DEPRECATED jobJobDefinitionARN "Use generic-lens or generic-optics with 'jobDefinitionARN' instead." #-}
 
 -- | The revision of the job definition.
-jddRevision :: Lens' JobDefinition Int
-jddRevision = lens _jddRevision (\s a -> s {_jddRevision = a})
+--
+-- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobRevision :: Lens.Lens' JobDefinition Lude.Int
+jobRevision = Lens.lens (revision :: JobDefinition -> Lude.Int) (\s a -> s {revision = a} :: JobDefinition)
+{-# DEPRECATED jobRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
 -- | The type of job definition.
-jddType :: Lens' JobDefinition Text
-jddType = lens _jddType (\s a -> s {_jddType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobType :: Lens.Lens' JobDefinition Lude.Text
+jobType = Lens.lens (type' :: JobDefinition -> Lude.Text) (\s a -> s {type' = a} :: JobDefinition)
+{-# DEPRECATED jobType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON JobDefinition where
+instance Lude.FromJSON JobDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobDefinition"
       ( \x ->
           JobDefinition'
-            <$> (x .:? "status")
-            <*> (x .:? "retryStrategy")
-            <*> (x .:? "parameters" .!= mempty)
-            <*> (x .:? "timeout")
-            <*> (x .:? "containerProperties")
-            <*> (x .:? "nodeProperties")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .: "jobDefinitionName")
-            <*> (x .: "jobDefinitionArn")
-            <*> (x .: "revision")
-            <*> (x .: "type")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "retryStrategy")
+            Lude.<*> (x Lude..:? "parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "timeout")
+            Lude.<*> (x Lude..:? "containerProperties")
+            Lude.<*> (x Lude..:? "nodeProperties")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "jobDefinitionName")
+            Lude.<*> (x Lude..: "jobDefinitionArn")
+            Lude.<*> (x Lude..: "revision")
+            Lude.<*> (x Lude..: "type")
       )
-
-instance Hashable JobDefinition
-
-instance NFData JobDefinition

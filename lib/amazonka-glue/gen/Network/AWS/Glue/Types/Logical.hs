@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Logical where
+module Network.AWS.Glue.Types.Logical
+  ( Logical
+      ( Logical',
+        And,
+        Any
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Logical
-  = And
-  | Any
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Logical = Logical' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Logical where
-  parser =
-    takeLowerText >>= \case
-      "and" -> pure And
-      "any" -> pure Any
-      e ->
-        fromTextError $
-          "Failure parsing Logical from value: '" <> e
-            <> "'. Accepted values: and, any"
+pattern And :: Logical
+pattern And = Logical' "AND"
 
-instance ToText Logical where
-  toText = \case
-    And -> "AND"
-    Any -> "ANY"
+pattern Any :: Logical
+pattern Any = Logical' "ANY"
 
-instance Hashable Logical
-
-instance NFData Logical
-
-instance ToByteString Logical
-
-instance ToQuery Logical
-
-instance ToHeader Logical
-
-instance ToJSON Logical where
-  toJSON = toJSONText
-
-instance FromJSON Logical where
-  parseJSON = parseJSONText "Logical"
+{-# COMPLETE
+  And,
+  Any,
+  Logical'
+  #-}

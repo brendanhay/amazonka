@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.VirtualMFADevice where
+module Network.AWS.IAM.Types.VirtualMFADevice
+  ( VirtualMFADevice (..),
+
+    -- * Smart constructor
+    mkVirtualMFADevice,
+
+    -- * Lenses
+    vmdQRCodePNG,
+    vmdBase32StringSeed,
+    vmdUser,
+    vmdEnableDate,
+    vmdSerialNumber,
+  )
+where
 
 import Network.AWS.IAM.Types.User
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a virtual MFA device.
 --
---
---
--- /See:/ 'virtualMFADevice' smart constructor.
+-- /See:/ 'mkVirtualMFADevice' smart constructor.
 data VirtualMFADevice = VirtualMFADevice'
-  { _vmdQRCodePNG ::
-      !(Maybe (Sensitive Base64)),
-    _vmdBase32StringSeed :: !(Maybe (Sensitive Base64)),
-    _vmdUser :: !(Maybe User),
-    _vmdEnableDate :: !(Maybe ISO8601),
-    _vmdSerialNumber :: !Text
+  { qRCodePNG ::
+      Lude.Maybe (Lude.Sensitive Lude.Base64),
+    base32StringSeed ::
+      Lude.Maybe (Lude.Sensitive Lude.Base64),
+    user :: Lude.Maybe User,
+    enableDate :: Lude.Maybe Lude.ISO8601,
+    serialNumber :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualMFADevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vmdQRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'vmdBase32StringSeed' - The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'vmdUser' - The IAM user associated with this virtual MFA device.
---
--- * 'vmdEnableDate' - The date and time on which the virtual MFA device was enabled.
---
--- * 'vmdSerialNumber' - The serial number associated with @VirtualMFADevice@ .
-virtualMFADevice ::
-  -- | 'vmdSerialNumber'
-  Text ->
+-- * 'base32StringSeed' - The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. --
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'enableDate' - The date and time on which the virtual MFA device was enabled.
+-- * 'qRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. --
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'serialNumber' - The serial number associated with @VirtualMFADevice@ .
+-- * 'user' - The IAM user associated with this virtual MFA device.
+mkVirtualMFADevice ::
+  -- | 'serialNumber'
+  Lude.Text ->
   VirtualMFADevice
-virtualMFADevice pSerialNumber_ =
+mkVirtualMFADevice pSerialNumber_ =
   VirtualMFADevice'
-    { _vmdQRCodePNG = Nothing,
-      _vmdBase32StringSeed = Nothing,
-      _vmdUser = Nothing,
-      _vmdEnableDate = Nothing,
-      _vmdSerialNumber = pSerialNumber_
+    { qRCodePNG = Lude.Nothing,
+      base32StringSeed = Lude.Nothing,
+      user = Lude.Nothing,
+      enableDate = Lude.Nothing,
+      serialNumber = pSerialNumber_
     }
 
--- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
-vmdQRCodePNG = lens _vmdQRCodePNG (\s a -> s {_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64)
+-- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. --
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'qRCodePNG' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmdQRCodePNG :: Lens.Lens' VirtualMFADevice (Lude.Maybe (Lude.Sensitive Lude.Base64))
+vmdQRCodePNG = Lens.lens (qRCodePNG :: VirtualMFADevice -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {qRCodePNG = a} :: VirtualMFADevice)
+{-# DEPRECATED vmdQRCodePNG "Use generic-lens or generic-optics with 'qRCodePNG' instead." #-}
 
--- | The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
-vmdBase32StringSeed = lens _vmdBase32StringSeed (\s a -> s {_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64)
+-- | The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. --
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'base32StringSeed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmdBase32StringSeed :: Lens.Lens' VirtualMFADevice (Lude.Maybe (Lude.Sensitive Lude.Base64))
+vmdBase32StringSeed = Lens.lens (base32StringSeed :: VirtualMFADevice -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {base32StringSeed = a} :: VirtualMFADevice)
+{-# DEPRECATED vmdBase32StringSeed "Use generic-lens or generic-optics with 'base32StringSeed' instead." #-}
 
 -- | The IAM user associated with this virtual MFA device.
-vmdUser :: Lens' VirtualMFADevice (Maybe User)
-vmdUser = lens _vmdUser (\s a -> s {_vmdUser = a})
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmdUser :: Lens.Lens' VirtualMFADevice (Lude.Maybe User)
+vmdUser = Lens.lens (user :: VirtualMFADevice -> Lude.Maybe User) (\s a -> s {user = a} :: VirtualMFADevice)
+{-# DEPRECATED vmdUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
 -- | The date and time on which the virtual MFA device was enabled.
-vmdEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
-vmdEnableDate = lens _vmdEnableDate (\s a -> s {_vmdEnableDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'enableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmdEnableDate :: Lens.Lens' VirtualMFADevice (Lude.Maybe Lude.ISO8601)
+vmdEnableDate = Lens.lens (enableDate :: VirtualMFADevice -> Lude.Maybe Lude.ISO8601) (\s a -> s {enableDate = a} :: VirtualMFADevice)
+{-# DEPRECATED vmdEnableDate "Use generic-lens or generic-optics with 'enableDate' instead." #-}
 
 -- | The serial number associated with @VirtualMFADevice@ .
-vmdSerialNumber :: Lens' VirtualMFADevice Text
-vmdSerialNumber = lens _vmdSerialNumber (\s a -> s {_vmdSerialNumber = a})
+--
+-- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmdSerialNumber :: Lens.Lens' VirtualMFADevice Lude.Text
+vmdSerialNumber = Lens.lens (serialNumber :: VirtualMFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: VirtualMFADevice)
+{-# DEPRECATED vmdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance FromXML VirtualMFADevice where
+instance Lude.FromXML VirtualMFADevice where
   parseXML x =
     VirtualMFADevice'
-      <$> (x .@? "QRCodePNG")
-      <*> (x .@? "Base32StringSeed")
-      <*> (x .@? "User")
-      <*> (x .@? "EnableDate")
-      <*> (x .@ "SerialNumber")
-
-instance Hashable VirtualMFADevice
-
-instance NFData VirtualMFADevice
+      Lude.<$> (x Lude..@? "QRCodePNG")
+      Lude.<*> (x Lude..@? "Base32StringSeed")
+      Lude.<*> (x Lude..@? "User")
+      Lude.<*> (x Lude..@? "EnableDate")
+      Lude.<*> (x Lude..@ "SerialNumber")

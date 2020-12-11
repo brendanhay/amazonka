@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,192 @@
 --
 -- Create a new program in the multiplex.
 module Network.AWS.MediaLive.CreateMultiplexProgram
-  ( -- * Creating a Request
-    createMultiplexProgram,
-    CreateMultiplexProgram,
+  ( -- * Creating a request
+    CreateMultiplexProgram (..),
+    mkCreateMultiplexProgram,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmpMultiplexId,
     cmpRequestId,
     cmpMultiplexProgramSettings,
     cmpProgramName,
 
-    -- * Destructuring the Response
-    createMultiplexProgramResponse,
-    CreateMultiplexProgramResponse,
+    -- * Destructuring the response
+    CreateMultiplexProgramResponse (..),
+    mkCreateMultiplexProgramResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmprsMultiplexProgram,
     cmprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to create a program in a multiplex.
 --
--- /See:/ 'createMultiplexProgram' smart constructor.
+-- /See:/ 'mkCreateMultiplexProgram' smart constructor.
 data CreateMultiplexProgram = CreateMultiplexProgram'
-  { _cmpMultiplexId ::
-      !Text,
-    _cmpRequestId :: !Text,
-    _cmpMultiplexProgramSettings ::
-      !MultiplexProgramSettings,
-    _cmpProgramName :: !Text
+  { multiplexId ::
+      Lude.Text,
+    requestId :: Lude.Text,
+    multiplexProgramSettings ::
+      MultiplexProgramSettings,
+    programName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplexProgram' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'multiplexId' - ID of the multiplex where the program is to be created.
+-- * 'multiplexProgramSettings' - The settings for this multiplex program.
+-- * 'programName' - Name of multiplex program.
+-- * 'requestId' - Unique request ID. This prevents retries from creating multiple
 --
--- * 'cmpMultiplexId' - ID of the multiplex where the program is to be created.
---
--- * 'cmpRequestId' - Unique request ID. This prevents retries from creating multiple resources.
---
--- * 'cmpMultiplexProgramSettings' - The settings for this multiplex program.
---
--- * 'cmpProgramName' - Name of multiplex program.
-createMultiplexProgram ::
-  -- | 'cmpMultiplexId'
-  Text ->
-  -- | 'cmpRequestId'
-  Text ->
-  -- | 'cmpMultiplexProgramSettings'
+-- resources.
+mkCreateMultiplexProgram ::
+  -- | 'multiplexId'
+  Lude.Text ->
+  -- | 'requestId'
+  Lude.Text ->
+  -- | 'multiplexProgramSettings'
   MultiplexProgramSettings ->
-  -- | 'cmpProgramName'
-  Text ->
+  -- | 'programName'
+  Lude.Text ->
   CreateMultiplexProgram
-createMultiplexProgram
+mkCreateMultiplexProgram
   pMultiplexId_
   pRequestId_
   pMultiplexProgramSettings_
   pProgramName_ =
     CreateMultiplexProgram'
-      { _cmpMultiplexId = pMultiplexId_,
-        _cmpRequestId = pRequestId_,
-        _cmpMultiplexProgramSettings = pMultiplexProgramSettings_,
-        _cmpProgramName = pProgramName_
+      { multiplexId = pMultiplexId_,
+        requestId = pRequestId_,
+        multiplexProgramSettings = pMultiplexProgramSettings_,
+        programName = pProgramName_
       }
 
 -- | ID of the multiplex where the program is to be created.
-cmpMultiplexId :: Lens' CreateMultiplexProgram Text
-cmpMultiplexId = lens _cmpMultiplexId (\s a -> s {_cmpMultiplexId = a})
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpMultiplexId :: Lens.Lens' CreateMultiplexProgram Lude.Text
+cmpMultiplexId = Lens.lens (multiplexId :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
--- | Unique request ID. This prevents retries from creating multiple resources.
-cmpRequestId :: Lens' CreateMultiplexProgram Text
-cmpRequestId = lens _cmpRequestId (\s a -> s {_cmpRequestId = a})
+-- | Unique request ID. This prevents retries from creating multiple
+--
+-- resources.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpRequestId :: Lens.Lens' CreateMultiplexProgram Lude.Text
+cmpRequestId = Lens.lens (requestId :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {requestId = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | The settings for this multiplex program.
-cmpMultiplexProgramSettings :: Lens' CreateMultiplexProgram MultiplexProgramSettings
-cmpMultiplexProgramSettings = lens _cmpMultiplexProgramSettings (\s a -> s {_cmpMultiplexProgramSettings = a})
+--
+-- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpMultiplexProgramSettings :: Lens.Lens' CreateMultiplexProgram MultiplexProgramSettings
+cmpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: CreateMultiplexProgram -> MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
 -- | Name of multiplex program.
-cmpProgramName :: Lens' CreateMultiplexProgram Text
-cmpProgramName = lens _cmpProgramName (\s a -> s {_cmpProgramName = a})
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpProgramName :: Lens.Lens' CreateMultiplexProgram Lude.Text
+cmpProgramName = Lens.lens (programName :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
-instance AWSRequest CreateMultiplexProgram where
+instance Lude.AWSRequest CreateMultiplexProgram where
   type Rs CreateMultiplexProgram = CreateMultiplexProgramResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateMultiplexProgramResponse'
-            <$> (x .?> "multiplexProgram") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "multiplexProgram")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMultiplexProgram
-
-instance NFData CreateMultiplexProgram
-
-instance ToHeaders CreateMultiplexProgram where
+instance Lude.ToHeaders CreateMultiplexProgram where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateMultiplexProgram where
-  toJSON CreateMultiplexProgram' {..} =
-    object
-      ( catMaybes
-          [ Just ("requestId" .= _cmpRequestId),
-            Just ("multiplexProgramSettings" .= _cmpMultiplexProgramSettings),
-            Just ("programName" .= _cmpProgramName)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateMultiplexProgram where
-  toPath CreateMultiplexProgram' {..} =
-    mconcat ["/prod/multiplexes/", toBS _cmpMultiplexId, "/programs"]
+instance Lude.ToJSON CreateMultiplexProgram where
+  toJSON CreateMultiplexProgram' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("requestId" Lude..= requestId),
+            Lude.Just
+              ("multiplexProgramSettings" Lude..= multiplexProgramSettings),
+            Lude.Just ("programName" Lude..= programName)
+          ]
+      )
 
-instance ToQuery CreateMultiplexProgram where
-  toQuery = const mempty
+instance Lude.ToPath CreateMultiplexProgram where
+  toPath CreateMultiplexProgram' {..} =
+    Lude.mconcat
+      ["/prod/multiplexes/", Lude.toBS multiplexId, "/programs"]
+
+instance Lude.ToQuery CreateMultiplexProgram where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for CreateMultiplexProgramResponse
 --
--- /See:/ 'createMultiplexProgramResponse' smart constructor.
+-- /See:/ 'mkCreateMultiplexProgramResponse' smart constructor.
 data CreateMultiplexProgramResponse = CreateMultiplexProgramResponse'
-  { _cmprsMultiplexProgram ::
-      !(Maybe MultiplexProgram),
-    _cmprsResponseStatus :: !Int
+  { multiplexProgram ::
+      Lude.Maybe MultiplexProgram,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplexProgramResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmprsMultiplexProgram' - The newly created multiplex program.
---
--- * 'cmprsResponseStatus' - -- | The response status code.
-createMultiplexProgramResponse ::
-  -- | 'cmprsResponseStatus'
-  Int ->
+-- * 'multiplexProgram' - The newly created multiplex program.
+-- * 'responseStatus' - The response status code.
+mkCreateMultiplexProgramResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMultiplexProgramResponse
-createMultiplexProgramResponse pResponseStatus_ =
+mkCreateMultiplexProgramResponse pResponseStatus_ =
   CreateMultiplexProgramResponse'
-    { _cmprsMultiplexProgram = Nothing,
-      _cmprsResponseStatus = pResponseStatus_
+    { multiplexProgram = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The newly created multiplex program.
-cmprsMultiplexProgram :: Lens' CreateMultiplexProgramResponse (Maybe MultiplexProgram)
-cmprsMultiplexProgram = lens _cmprsMultiplexProgram (\s a -> s {_cmprsMultiplexProgram = a})
+--
+-- /Note:/ Consider using 'multiplexProgram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmprsMultiplexProgram :: Lens.Lens' CreateMultiplexProgramResponse (Lude.Maybe MultiplexProgram)
+cmprsMultiplexProgram = Lens.lens (multiplexProgram :: CreateMultiplexProgramResponse -> Lude.Maybe MultiplexProgram) (\s a -> s {multiplexProgram = a} :: CreateMultiplexProgramResponse)
+{-# DEPRECATED cmprsMultiplexProgram "Use generic-lens or generic-optics with 'multiplexProgram' instead." #-}
 
--- | -- | The response status code.
-cmprsResponseStatus :: Lens' CreateMultiplexProgramResponse Int
-cmprsResponseStatus = lens _cmprsResponseStatus (\s a -> s {_cmprsResponseStatus = a})
-
-instance NFData CreateMultiplexProgramResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmprsResponseStatus :: Lens.Lens' CreateMultiplexProgramResponse Lude.Int
+cmprsResponseStatus = Lens.lens (responseStatus :: CreateMultiplexProgramResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMultiplexProgramResponse)
+{-# DEPRECATED cmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.InstanceIdentity where
+module Network.AWS.OpsWorks.Types.InstanceIdentity
+  ( InstanceIdentity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceIdentity,
+
+    -- * Lenses
+    iiSignature,
+    iiDocument,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <https://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data> .
 --
---
---
--- /See:/ 'instanceIdentity' smart constructor.
+-- /See:/ 'mkInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { _iiSignature ::
-      !(Maybe Text),
-    _iiDocument :: !(Maybe Text)
+  { signature ::
+      Lude.Maybe Lude.Text,
+    document :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iiSignature' - A signature that can be used to verify the document's accuracy and authenticity.
---
--- * 'iiDocument' - A JSON document that contains the metadata.
-instanceIdentity ::
+-- * 'document' - A JSON document that contains the metadata.
+-- * 'signature' - A signature that can be used to verify the document's accuracy and authenticity.
+mkInstanceIdentity ::
   InstanceIdentity
-instanceIdentity =
-  InstanceIdentity' {_iiSignature = Nothing, _iiDocument = Nothing}
+mkInstanceIdentity =
+  InstanceIdentity'
+    { signature = Lude.Nothing,
+      document = Lude.Nothing
+    }
 
 -- | A signature that can be used to verify the document's accuracy and authenticity.
-iiSignature :: Lens' InstanceIdentity (Maybe Text)
-iiSignature = lens _iiSignature (\s a -> s {_iiSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiSignature :: Lens.Lens' InstanceIdentity (Lude.Maybe Lude.Text)
+iiSignature = Lens.lens (signature :: InstanceIdentity -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: InstanceIdentity)
+{-# DEPRECATED iiSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | A JSON document that contains the metadata.
-iiDocument :: Lens' InstanceIdentity (Maybe Text)
-iiDocument = lens _iiDocument (\s a -> s {_iiDocument = a})
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiDocument :: Lens.Lens' InstanceIdentity (Lude.Maybe Lude.Text)
+iiDocument = Lens.lens (document :: InstanceIdentity -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: InstanceIdentity)
+{-# DEPRECATED iiDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
-instance Hashable InstanceIdentity
-
-instance NFData InstanceIdentity
-
-instance ToJSON InstanceIdentity where
+instance Lude.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
-    object
-      ( catMaybes
-          [ ("Signature" .=) <$> _iiSignature,
-            ("Document" .=) <$> _iiDocument
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Signature" Lude..=) Lude.<$> signature,
+            ("Document" Lude..=) Lude.<$> document
           ]
       )

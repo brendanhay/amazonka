@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CalendarState where
+module Network.AWS.SSM.Types.CalendarState
+  ( CalendarState
+      ( CalendarState',
+        CSClosed,
+        CSOpen
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CalendarState
-  = CSClosed
-  | CSOpen
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CalendarState = CalendarState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CalendarState where
-  parser =
-    takeLowerText >>= \case
-      "closed" -> pure CSClosed
-      "open" -> pure CSOpen
-      e ->
-        fromTextError $
-          "Failure parsing CalendarState from value: '" <> e
-            <> "'. Accepted values: closed, open"
+pattern CSClosed :: CalendarState
+pattern CSClosed = CalendarState' "CLOSED"
 
-instance ToText CalendarState where
-  toText = \case
-    CSClosed -> "CLOSED"
-    CSOpen -> "OPEN"
+pattern CSOpen :: CalendarState
+pattern CSOpen = CalendarState' "OPEN"
 
-instance Hashable CalendarState
-
-instance NFData CalendarState
-
-instance ToByteString CalendarState
-
-instance ToQuery CalendarState
-
-instance ToHeader CalendarState
-
-instance FromJSON CalendarState where
-  parseJSON = parseJSONText "CalendarState"
+{-# COMPLETE
+  CSClosed,
+  CSOpen,
+  CalendarState'
+  #-}

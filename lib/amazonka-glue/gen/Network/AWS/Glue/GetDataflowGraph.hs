@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Transforms a Python script into a directed acyclic graph (DAG).
 module Network.AWS.Glue.GetDataflowGraph
-  ( -- * Creating a Request
-    getDataflowGraph,
-    GetDataflowGraph,
+  ( -- * Creating a request
+    GetDataflowGraph (..),
+    mkGetDataflowGraph,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdgPythonScript,
 
-    -- * Destructuring the Response
-    getDataflowGraphResponse,
-    GetDataflowGraphResponse,
+    -- * Destructuring the response
+    GetDataflowGraphResponse (..),
+    mkGetDataflowGraphResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdgrsDagEdges,
     gdgrsDagNodes,
     gdgrsResponseStatus,
@@ -38,105 +33,122 @@ module Network.AWS.Glue.GetDataflowGraph
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDataflowGraph' smart constructor.
+-- | /See:/ 'mkGetDataflowGraph' smart constructor.
 newtype GetDataflowGraph = GetDataflowGraph'
-  { _gdgPythonScript ::
-      Maybe Text
+  { pythonScript ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataflowGraph' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdgPythonScript' - The Python script to transform.
-getDataflowGraph ::
+-- * 'pythonScript' - The Python script to transform.
+mkGetDataflowGraph ::
   GetDataflowGraph
-getDataflowGraph = GetDataflowGraph' {_gdgPythonScript = Nothing}
+mkGetDataflowGraph = GetDataflowGraph' {pythonScript = Lude.Nothing}
 
 -- | The Python script to transform.
-gdgPythonScript :: Lens' GetDataflowGraph (Maybe Text)
-gdgPythonScript = lens _gdgPythonScript (\s a -> s {_gdgPythonScript = a})
+--
+-- /Note:/ Consider using 'pythonScript' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgPythonScript :: Lens.Lens' GetDataflowGraph (Lude.Maybe Lude.Text)
+gdgPythonScript = Lens.lens (pythonScript :: GetDataflowGraph -> Lude.Maybe Lude.Text) (\s a -> s {pythonScript = a} :: GetDataflowGraph)
+{-# DEPRECATED gdgPythonScript "Use generic-lens or generic-optics with 'pythonScript' instead." #-}
 
-instance AWSRequest GetDataflowGraph where
+instance Lude.AWSRequest GetDataflowGraph where
   type Rs GetDataflowGraph = GetDataflowGraphResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDataflowGraphResponse'
-            <$> (x .?> "DagEdges" .!@ mempty)
-            <*> (x .?> "DagNodes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DagEdges" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "DagNodes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDataflowGraph
-
-instance NFData GetDataflowGraph
-
-instance ToHeaders GetDataflowGraph where
+instance Lude.ToHeaders GetDataflowGraph where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetDataflowGraph" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetDataflowGraph" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDataflowGraph where
+instance Lude.ToJSON GetDataflowGraph where
   toJSON GetDataflowGraph' {..} =
-    object (catMaybes [("PythonScript" .=) <$> _gdgPythonScript])
+    Lude.object
+      (Lude.catMaybes [("PythonScript" Lude..=) Lude.<$> pythonScript])
 
-instance ToPath GetDataflowGraph where
-  toPath = const "/"
+instance Lude.ToPath GetDataflowGraph where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDataflowGraph where
-  toQuery = const mempty
+instance Lude.ToQuery GetDataflowGraph where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDataflowGraphResponse' smart constructor.
+-- | /See:/ 'mkGetDataflowGraphResponse' smart constructor.
 data GetDataflowGraphResponse = GetDataflowGraphResponse'
-  { _gdgrsDagEdges ::
-      !(Maybe [CodeGenEdge]),
-    _gdgrsDagNodes :: !(Maybe [CodeGenNode]),
-    _gdgrsResponseStatus :: !Int
+  { dagEdges ::
+      Lude.Maybe [CodeGenEdge],
+    dagNodes :: Lude.Maybe [CodeGenNode],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataflowGraphResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdgrsDagEdges' - A list of the edges in the resulting DAG.
---
--- * 'gdgrsDagNodes' - A list of the nodes in the resulting DAG.
---
--- * 'gdgrsResponseStatus' - -- | The response status code.
-getDataflowGraphResponse ::
-  -- | 'gdgrsResponseStatus'
-  Int ->
+-- * 'dagEdges' - A list of the edges in the resulting DAG.
+-- * 'dagNodes' - A list of the nodes in the resulting DAG.
+-- * 'responseStatus' - The response status code.
+mkGetDataflowGraphResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDataflowGraphResponse
-getDataflowGraphResponse pResponseStatus_ =
+mkGetDataflowGraphResponse pResponseStatus_ =
   GetDataflowGraphResponse'
-    { _gdgrsDagEdges = Nothing,
-      _gdgrsDagNodes = Nothing,
-      _gdgrsResponseStatus = pResponseStatus_
+    { dagEdges = Lude.Nothing,
+      dagNodes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the edges in the resulting DAG.
-gdgrsDagEdges :: Lens' GetDataflowGraphResponse [CodeGenEdge]
-gdgrsDagEdges = lens _gdgrsDagEdges (\s a -> s {_gdgrsDagEdges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dagEdges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgrsDagEdges :: Lens.Lens' GetDataflowGraphResponse (Lude.Maybe [CodeGenEdge])
+gdgrsDagEdges = Lens.lens (dagEdges :: GetDataflowGraphResponse -> Lude.Maybe [CodeGenEdge]) (\s a -> s {dagEdges = a} :: GetDataflowGraphResponse)
+{-# DEPRECATED gdgrsDagEdges "Use generic-lens or generic-optics with 'dagEdges' instead." #-}
 
 -- | A list of the nodes in the resulting DAG.
-gdgrsDagNodes :: Lens' GetDataflowGraphResponse [CodeGenNode]
-gdgrsDagNodes = lens _gdgrsDagNodes (\s a -> s {_gdgrsDagNodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dagNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgrsDagNodes :: Lens.Lens' GetDataflowGraphResponse (Lude.Maybe [CodeGenNode])
+gdgrsDagNodes = Lens.lens (dagNodes :: GetDataflowGraphResponse -> Lude.Maybe [CodeGenNode]) (\s a -> s {dagNodes = a} :: GetDataflowGraphResponse)
+{-# DEPRECATED gdgrsDagNodes "Use generic-lens or generic-optics with 'dagNodes' instead." #-}
 
--- | -- | The response status code.
-gdgrsResponseStatus :: Lens' GetDataflowGraphResponse Int
-gdgrsResponseStatus = lens _gdgrsResponseStatus (\s a -> s {_gdgrsResponseStatus = a})
-
-instance NFData GetDataflowGraphResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgrsResponseStatus :: Lens.Lens' GetDataflowGraphResponse Lude.Int
+gdgrsResponseStatus = Lens.lens (responseStatus :: GetDataflowGraphResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDataflowGraphResponse)
+{-# DEPRECATED gdgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

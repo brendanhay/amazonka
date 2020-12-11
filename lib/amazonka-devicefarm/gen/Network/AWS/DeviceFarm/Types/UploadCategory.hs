@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.UploadCategory where
+module Network.AWS.DeviceFarm.Types.UploadCategory
+  ( UploadCategory
+      ( UploadCategory',
+        UCCurated,
+        UCPrivate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UploadCategory
-  = UCCurated
-  | UCPrivate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UploadCategory = UploadCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UploadCategory where
-  parser =
-    takeLowerText >>= \case
-      "curated" -> pure UCCurated
-      "private" -> pure UCPrivate
-      e ->
-        fromTextError $
-          "Failure parsing UploadCategory from value: '" <> e
-            <> "'. Accepted values: curated, private"
+pattern UCCurated :: UploadCategory
+pattern UCCurated = UploadCategory' "CURATED"
 
-instance ToText UploadCategory where
-  toText = \case
-    UCCurated -> "CURATED"
-    UCPrivate -> "PRIVATE"
+pattern UCPrivate :: UploadCategory
+pattern UCPrivate = UploadCategory' "PRIVATE"
 
-instance Hashable UploadCategory
-
-instance NFData UploadCategory
-
-instance ToByteString UploadCategory
-
-instance ToQuery UploadCategory
-
-instance ToHeader UploadCategory
-
-instance FromJSON UploadCategory where
-  parseJSON = parseJSONText "UploadCategory"
+{-# COMPLETE
+  UCCurated,
+  UCPrivate,
+  UploadCategory'
+  #-}

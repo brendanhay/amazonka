@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates the replication instance using the specified parameters.
 --
---
 -- AWS DMS requires that your account have certain roles with appropriate permissions before you can create a replication instance. For information on the required roles, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole Creating the IAM Roles to Use With the AWS CLI and AWS DMS API> . For information on the required permissions, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions IAM Permissions Needed to Use AWS DMS> .
 module Network.AWS.DMS.CreateReplicationInstance
-  ( -- * Creating a Request
-    createReplicationInstance,
-    CreateReplicationInstance,
+  ( -- * Creating a request
+    CreateReplicationInstance (..),
+    mkCreateReplicationInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     criEngineVersion,
     criPubliclyAccessible,
     criAutoMinorVersionUpgrade,
@@ -43,271 +37,368 @@ module Network.AWS.DMS.CreateReplicationInstance
     criReplicationInstanceIdentifier,
     criReplicationInstanceClass,
 
-    -- * Destructuring the Response
-    createReplicationInstanceResponse,
-    CreateReplicationInstanceResponse,
+    -- * Destructuring the response
+    CreateReplicationInstanceResponse (..),
+    mkCreateReplicationInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crirsReplicationInstance,
     crirsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createReplicationInstance' smart constructor.
+-- /See:/ 'mkCreateReplicationInstance' smart constructor.
 data CreateReplicationInstance = CreateReplicationInstance'
-  { _criEngineVersion ::
-      !(Maybe Text),
-    _criPubliclyAccessible :: !(Maybe Bool),
-    _criAutoMinorVersionUpgrade ::
-      !(Maybe Bool),
-    _criReplicationSubnetGroupIdentifier ::
-      !(Maybe Text),
-    _criPreferredMaintenanceWindow ::
-      !(Maybe Text),
-    _criKMSKeyId :: !(Maybe Text),
-    _criAvailabilityZone :: !(Maybe Text),
-    _criVPCSecurityGroupIds ::
-      !(Maybe [Text]),
-    _criMultiAZ :: !(Maybe Bool),
-    _criAllocatedStorage :: !(Maybe Int),
-    _criDNSNameServers :: !(Maybe Text),
-    _criResourceIdentifier :: !(Maybe Text),
-    _criTags :: !(Maybe [Tag]),
-    _criReplicationInstanceIdentifier ::
-      !Text,
-    _criReplicationInstanceClass :: !Text
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    publiclyAccessible ::
+      Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade ::
+      Lude.Maybe Lude.Bool,
+    replicationSubnetGroupIdentifier ::
+      Lude.Maybe Lude.Text,
+    preferredMaintenanceWindow ::
+      Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    availabilityZone ::
+      Lude.Maybe Lude.Text,
+    vpcSecurityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    multiAZ :: Lude.Maybe Lude.Bool,
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    dnsNameServers :: Lude.Maybe Lude.Text,
+    resourceIdentifier ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    replicationInstanceIdentifier ::
+      Lude.Text,
+    replicationInstanceClass :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+-- * 'autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to @true@ .
 --
--- * 'criEngineVersion' - The engine version number of the replication instance. If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+-- Default: @true@
+-- * 'availabilityZone' - The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for example: @us-east-1d@
+-- * 'dnsNameServers' - A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers. For example: @"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"@
+-- * 'engineVersion' - The engine version number of the replication instance.
 --
--- * 'criPubliclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
+-- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+-- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance.
 --
--- * 'criAutoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to @true@ . Default: @true@
+-- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+-- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+-- * 'preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 --
--- * 'criReplicationSubnetGroupIdentifier' - A subnet group to associate with the replication instance.
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week.
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+-- Constraints: Minimum 30-minute window.
+-- * 'publiclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
+-- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
 --
--- * 'criPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week. Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
+-- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+-- * 'replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string.
 --
--- * 'criKMSKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- Constraints:
 --
--- * 'criAvailabilityZone' - The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for example: @us-east-1d@
+--     * Must contain 1-63 alphanumeric characters or hyphens.
 --
--- * 'criVPCSecurityGroupIds' - Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
 --
--- * 'criMultiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+--     * First character must be a letter.
 --
--- * 'criAllocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 --
--- * 'criDNSNameServers' - A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers. For example: @"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"@
+--     * Can't end with a hyphen or contain two consecutive hyphens.
 --
--- * 'criResourceIdentifier' - A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
 --
--- * 'criTags' - One or more tags to be assigned to the replication instance.
---
--- * 'criReplicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain 1-63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
---
--- * 'criReplicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ . For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
-createReplicationInstance ::
-  -- | 'criReplicationInstanceIdentifier'
-  Text ->
-  -- | 'criReplicationInstanceClass'
-  Text ->
+-- Example: @myrepinstance@
+-- * 'replicationSubnetGroupIdentifier' - A subnet group to associate with the replication instance.
+-- * 'resourceIdentifier' - A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
+-- * 'tags' - One or more tags to be assigned to the replication instance.
+-- * 'vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
+mkCreateReplicationInstance ::
+  -- | 'replicationInstanceIdentifier'
+  Lude.Text ->
+  -- | 'replicationInstanceClass'
+  Lude.Text ->
   CreateReplicationInstance
-createReplicationInstance
+mkCreateReplicationInstance
   pReplicationInstanceIdentifier_
   pReplicationInstanceClass_ =
     CreateReplicationInstance'
-      { _criEngineVersion = Nothing,
-        _criPubliclyAccessible = Nothing,
-        _criAutoMinorVersionUpgrade = Nothing,
-        _criReplicationSubnetGroupIdentifier = Nothing,
-        _criPreferredMaintenanceWindow = Nothing,
-        _criKMSKeyId = Nothing,
-        _criAvailabilityZone = Nothing,
-        _criVPCSecurityGroupIds = Nothing,
-        _criMultiAZ = Nothing,
-        _criAllocatedStorage = Nothing,
-        _criDNSNameServers = Nothing,
-        _criResourceIdentifier = Nothing,
-        _criTags = Nothing,
-        _criReplicationInstanceIdentifier =
-          pReplicationInstanceIdentifier_,
-        _criReplicationInstanceClass = pReplicationInstanceClass_
+      { engineVersion = Lude.Nothing,
+        publiclyAccessible = Lude.Nothing,
+        autoMinorVersionUpgrade = Lude.Nothing,
+        replicationSubnetGroupIdentifier = Lude.Nothing,
+        preferredMaintenanceWindow = Lude.Nothing,
+        kmsKeyId = Lude.Nothing,
+        availabilityZone = Lude.Nothing,
+        vpcSecurityGroupIds = Lude.Nothing,
+        multiAZ = Lude.Nothing,
+        allocatedStorage = Lude.Nothing,
+        dnsNameServers = Lude.Nothing,
+        resourceIdentifier = Lude.Nothing,
+        tags = Lude.Nothing,
+        replicationInstanceIdentifier = pReplicationInstanceIdentifier_,
+        replicationInstanceClass = pReplicationInstanceClass_
       }
 
--- | The engine version number of the replication instance. If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
-criEngineVersion :: Lens' CreateReplicationInstance (Maybe Text)
-criEngineVersion = lens _criEngineVersion (\s a -> s {_criEngineVersion = a})
+-- | The engine version number of the replication instance.
+--
+-- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criEngineVersion :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criEngineVersion = Lens.lens (engineVersion :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: CreateReplicationInstance)
+{-# DEPRECATED criEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
-criPubliclyAccessible :: Lens' CreateReplicationInstance (Maybe Bool)
-criPubliclyAccessible = lens _criPubliclyAccessible (\s a -> s {_criPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criPubliclyAccessible :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Bool)
+criPubliclyAccessible = Lens.lens (publiclyAccessible :: CreateReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: CreateReplicationInstance)
+{-# DEPRECATED criPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
--- | A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to @true@ . Default: @true@
-criAutoMinorVersionUpgrade :: Lens' CreateReplicationInstance (Maybe Bool)
-criAutoMinorVersionUpgrade = lens _criAutoMinorVersionUpgrade (\s a -> s {_criAutoMinorVersionUpgrade = a})
+-- | A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to @true@ .
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criAutoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Bool)
+criAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: CreateReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationInstance)
+{-# DEPRECATED criAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | A subnet group to associate with the replication instance.
-criReplicationSubnetGroupIdentifier :: Lens' CreateReplicationInstance (Maybe Text)
-criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier (\s a -> s {_criReplicationSubnetGroupIdentifier = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criReplicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criReplicationSubnetGroupIdentifier = Lens.lens (replicationSubnetGroupIdentifier :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationInstance)
+{-# DEPRECATED criReplicationSubnetGroupIdentifier "Use generic-lens or generic-optics with 'replicationSubnetGroupIdentifier' instead." #-}
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week. Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
-criPreferredMaintenanceWindow :: Lens' CreateReplicationInstance (Maybe Text)
-criPreferredMaintenanceWindow = lens _criPreferredMaintenanceWindow (\s a -> s {_criPreferredMaintenanceWindow = a})
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region, occurring on a random day of the week.
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+-- Constraints: Minimum 30-minute window.
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criPreferredMaintenanceWindow :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: CreateReplicationInstance)
+{-# DEPRECATED criPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
--- | An AWS KMS key identifier that is used to encrypt the data on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
-criKMSKeyId :: Lens' CreateReplicationInstance (Maybe Text)
-criKMSKeyId = lens _criKMSKeyId (\s a -> s {_criKMSKeyId = a})
+-- | An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+--
+-- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+-- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criKMSKeyId :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criKMSKeyId = Lens.lens (kmsKeyId :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateReplicationInstance)
+{-# DEPRECATED criKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for example: @us-east-1d@
-criAvailabilityZone :: Lens' CreateReplicationInstance (Maybe Text)
-criAvailabilityZone = lens _criAvailabilityZone (\s a -> s {_criAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criAvailabilityZone :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criAvailabilityZone = Lens.lens (availabilityZone :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateReplicationInstance)
+{-# DEPRECATED criAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
-criVPCSecurityGroupIds :: Lens' CreateReplicationInstance [Text]
-criVPCSecurityGroupIds = lens _criVPCSecurityGroupIds (\s a -> s {_criVPCSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criVPCSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Lude.Maybe [Lude.Text])
+criVPCSecurityGroupIds = Lens.lens (vpcSecurityGroupIds :: CreateReplicationInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance)
+{-# DEPRECATED criVPCSecurityGroupIds "Use generic-lens or generic-optics with 'vpcSecurityGroupIds' instead." #-}
 
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
-criMultiAZ :: Lens' CreateReplicationInstance (Maybe Bool)
-criMultiAZ = lens _criMultiAZ (\s a -> s {_criMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criMultiAZ :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Bool)
+criMultiAZ = Lens.lens (multiAZ :: CreateReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: CreateReplicationInstance)
+{-# DEPRECATED criMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-criAllocatedStorage :: Lens' CreateReplicationInstance (Maybe Int)
-criAllocatedStorage = lens _criAllocatedStorage (\s a -> s {_criAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criAllocatedStorage :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Int)
+criAllocatedStorage = Lens.lens (allocatedStorage :: CreateReplicationInstance -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: CreateReplicationInstance)
+{-# DEPRECATED criAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers. For example: @"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"@
-criDNSNameServers :: Lens' CreateReplicationInstance (Maybe Text)
-criDNSNameServers = lens _criDNSNameServers (\s a -> s {_criDNSNameServers = a})
+--
+-- /Note:/ Consider using 'dnsNameServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criDNSNameServers :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criDNSNameServers = Lens.lens (dnsNameServers :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {dnsNameServers = a} :: CreateReplicationInstance)
+{-# DEPRECATED criDNSNameServers "Use generic-lens or generic-optics with 'dnsNameServers' instead." #-}
 
 -- | A friendly name for the resource identifier at the end of the @EndpointArn@ response parameter that is returned in the created @Endpoint@ object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as @Example-App-ARN1@ . For example, this value might result in the @EndpointArn@ value @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@ . If you don't specify a @ResourceIdentifier@ value, AWS DMS generates a default identifier value for the end of @EndpointArn@ .
-criResourceIdentifier :: Lens' CreateReplicationInstance (Maybe Text)
-criResourceIdentifier = lens _criResourceIdentifier (\s a -> s {_criResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criResourceIdentifier :: Lens.Lens' CreateReplicationInstance (Lude.Maybe Lude.Text)
+criResourceIdentifier = Lens.lens (resourceIdentifier :: CreateReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdentifier = a} :: CreateReplicationInstance)
+{-# DEPRECATED criResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
 -- | One or more tags to be assigned to the replication instance.
-criTags :: Lens' CreateReplicationInstance [Tag]
-criTags = lens _criTags (\s a -> s {_criTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criTags :: Lens.Lens' CreateReplicationInstance (Lude.Maybe [Tag])
+criTags = Lens.lens (tags :: CreateReplicationInstance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReplicationInstance)
+{-# DEPRECATED criTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The replication instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain 1-63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
-criReplicationInstanceIdentifier :: Lens' CreateReplicationInstance Text
-criReplicationInstanceIdentifier = lens _criReplicationInstanceIdentifier (\s a -> s {_criReplicationInstanceIdentifier = a})
+-- | The replication instance identifier. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain 1-63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @myrepinstance@
+--
+-- /Note:/ Consider using 'replicationInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criReplicationInstanceIdentifier :: Lens.Lens' CreateReplicationInstance Lude.Text
+criReplicationInstanceIdentifier = Lens.lens (replicationInstanceIdentifier :: CreateReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceIdentifier = a} :: CreateReplicationInstance)
+{-# DEPRECATED criReplicationInstanceIdentifier "Use generic-lens or generic-optics with 'replicationInstanceIdentifier' instead." #-}
 
--- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ . For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
-criReplicationInstanceClass :: Lens' CreateReplicationInstance Text
-criReplicationInstanceClass = lens _criReplicationInstanceClass (\s a -> s {_criReplicationInstanceClass = a})
+-- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
+--
+-- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+--
+-- /Note:/ Consider using 'replicationInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+criReplicationInstanceClass :: Lens.Lens' CreateReplicationInstance Lude.Text
+criReplicationInstanceClass = Lens.lens (replicationInstanceClass :: CreateReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceClass = a} :: CreateReplicationInstance)
+{-# DEPRECATED criReplicationInstanceClass "Use generic-lens or generic-optics with 'replicationInstanceClass' instead." #-}
 
-instance AWSRequest CreateReplicationInstance where
+instance Lude.AWSRequest CreateReplicationInstance where
   type
     Rs CreateReplicationInstance =
       CreateReplicationInstanceResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateReplicationInstanceResponse'
-            <$> (x .?> "ReplicationInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateReplicationInstance
-
-instance NFData CreateReplicationInstance
-
-instance ToHeaders CreateReplicationInstance where
+instance Lude.ToHeaders CreateReplicationInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.CreateReplicationInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.CreateReplicationInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateReplicationInstance where
+instance Lude.ToJSON CreateReplicationInstance where
   toJSON CreateReplicationInstance' {..} =
-    object
-      ( catMaybes
-          [ ("EngineVersion" .=) <$> _criEngineVersion,
-            ("PubliclyAccessible" .=) <$> _criPubliclyAccessible,
-            ("AutoMinorVersionUpgrade" .=) <$> _criAutoMinorVersionUpgrade,
-            ("ReplicationSubnetGroupIdentifier" .=)
-              <$> _criReplicationSubnetGroupIdentifier,
-            ("PreferredMaintenanceWindow" .=)
-              <$> _criPreferredMaintenanceWindow,
-            ("KmsKeyId" .=) <$> _criKMSKeyId,
-            ("AvailabilityZone" .=) <$> _criAvailabilityZone,
-            ("VpcSecurityGroupIds" .=) <$> _criVPCSecurityGroupIds,
-            ("MultiAZ" .=) <$> _criMultiAZ,
-            ("AllocatedStorage" .=) <$> _criAllocatedStorage,
-            ("DnsNameServers" .=) <$> _criDNSNameServers,
-            ("ResourceIdentifier" .=) <$> _criResourceIdentifier,
-            ("Tags" .=) <$> _criTags,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EngineVersion" Lude..=) Lude.<$> engineVersion,
+            ("PubliclyAccessible" Lude..=) Lude.<$> publiclyAccessible,
+            ("AutoMinorVersionUpgrade" Lude..=)
+              Lude.<$> autoMinorVersionUpgrade,
+            ("ReplicationSubnetGroupIdentifier" Lude..=)
+              Lude.<$> replicationSubnetGroupIdentifier,
+            ("PreferredMaintenanceWindow" Lude..=)
+              Lude.<$> preferredMaintenanceWindow,
+            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            ("AvailabilityZone" Lude..=) Lude.<$> availabilityZone,
+            ("VpcSecurityGroupIds" Lude..=) Lude.<$> vpcSecurityGroupIds,
+            ("MultiAZ" Lude..=) Lude.<$> multiAZ,
+            ("AllocatedStorage" Lude..=) Lude.<$> allocatedStorage,
+            ("DnsNameServers" Lude..=) Lude.<$> dnsNameServers,
+            ("ResourceIdentifier" Lude..=) Lude.<$> resourceIdentifier,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just
               ( "ReplicationInstanceIdentifier"
-                  .= _criReplicationInstanceIdentifier
+                  Lude..= replicationInstanceIdentifier
               ),
-            Just ("ReplicationInstanceClass" .= _criReplicationInstanceClass)
+            Lude.Just
+              ("ReplicationInstanceClass" Lude..= replicationInstanceClass)
           ]
       )
 
-instance ToPath CreateReplicationInstance where
-  toPath = const "/"
+instance Lude.ToPath CreateReplicationInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateReplicationInstance where
-  toQuery = const mempty
+instance Lude.ToQuery CreateReplicationInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'createReplicationInstanceResponse' smart constructor.
+-- /See:/ 'mkCreateReplicationInstanceResponse' smart constructor.
 data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
-  { _crirsReplicationInstance ::
-      !( Maybe
-           ReplicationInstance
-       ),
-    _crirsResponseStatus ::
-      !Int
+  { replicationInstance ::
+      Lude.Maybe
+        ReplicationInstance,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crirsReplicationInstance' - The replication instance that was created.
---
--- * 'crirsResponseStatus' - -- | The response status code.
-createReplicationInstanceResponse ::
-  -- | 'crirsResponseStatus'
-  Int ->
+-- * 'replicationInstance' - The replication instance that was created.
+-- * 'responseStatus' - The response status code.
+mkCreateReplicationInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateReplicationInstanceResponse
-createReplicationInstanceResponse pResponseStatus_ =
+mkCreateReplicationInstanceResponse pResponseStatus_ =
   CreateReplicationInstanceResponse'
-    { _crirsReplicationInstance =
-        Nothing,
-      _crirsResponseStatus = pResponseStatus_
+    { replicationInstance =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication instance that was created.
-crirsReplicationInstance :: Lens' CreateReplicationInstanceResponse (Maybe ReplicationInstance)
-crirsReplicationInstance = lens _crirsReplicationInstance (\s a -> s {_crirsReplicationInstance = a})
+--
+-- /Note:/ Consider using 'replicationInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crirsReplicationInstance :: Lens.Lens' CreateReplicationInstanceResponse (Lude.Maybe ReplicationInstance)
+crirsReplicationInstance = Lens.lens (replicationInstance :: CreateReplicationInstanceResponse -> Lude.Maybe ReplicationInstance) (\s a -> s {replicationInstance = a} :: CreateReplicationInstanceResponse)
+{-# DEPRECATED crirsReplicationInstance "Use generic-lens or generic-optics with 'replicationInstance' instead." #-}
 
--- | -- | The response status code.
-crirsResponseStatus :: Lens' CreateReplicationInstanceResponse Int
-crirsResponseStatus = lens _crirsResponseStatus (\s a -> s {_crirsResponseStatus = a})
-
-instance NFData CreateReplicationInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crirsResponseStatus :: Lens.Lens' CreateReplicationInstanceResponse Lude.Int
+crirsResponseStatus = Lens.lens (responseStatus :: CreateReplicationInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReplicationInstanceResponse)
+{-# DEPRECATED crirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

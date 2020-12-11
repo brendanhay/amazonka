@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult where
+module Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult
+  ( BatchScheduleActionCreateResult (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBatchScheduleActionCreateResult,
+
+    -- * Lenses
+    bScheduleActions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of actions that have been created in the schedule.
 --
--- /See:/ 'batchScheduleActionCreateResult' smart constructor.
+-- /See:/ 'mkBatchScheduleActionCreateResult' smart constructor.
 newtype BatchScheduleActionCreateResult = BatchScheduleActionCreateResult'
-  { _bScheduleActions ::
+  { scheduleActions ::
       [ScheduleAction]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchScheduleActionCreateResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bScheduleActions' - List of actions that have been created in the schedule.
-batchScheduleActionCreateResult ::
+-- * 'scheduleActions' - List of actions that have been created in the schedule.
+mkBatchScheduleActionCreateResult ::
   BatchScheduleActionCreateResult
-batchScheduleActionCreateResult =
-  BatchScheduleActionCreateResult' {_bScheduleActions = mempty}
+mkBatchScheduleActionCreateResult =
+  BatchScheduleActionCreateResult' {scheduleActions = Lude.mempty}
 
 -- | List of actions that have been created in the schedule.
-bScheduleActions :: Lens' BatchScheduleActionCreateResult [ScheduleAction]
-bScheduleActions = lens _bScheduleActions (\s a -> s {_bScheduleActions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'scheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bScheduleActions :: Lens.Lens' BatchScheduleActionCreateResult [ScheduleAction]
+bScheduleActions = Lens.lens (scheduleActions :: BatchScheduleActionCreateResult -> [ScheduleAction]) (\s a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult)
+{-# DEPRECATED bScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
 
-instance FromJSON BatchScheduleActionCreateResult where
+instance Lude.FromJSON BatchScheduleActionCreateResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchScheduleActionCreateResult"
       ( \x ->
           BatchScheduleActionCreateResult'
-            <$> (x .:? "scheduleActions" .!= mempty)
+            Lude.<$> (x Lude..:? "scheduleActions" Lude..!= Lude.mempty)
       )
-
-instance Hashable BatchScheduleActionCreateResult
-
-instance NFData BatchScheduleActionCreateResult

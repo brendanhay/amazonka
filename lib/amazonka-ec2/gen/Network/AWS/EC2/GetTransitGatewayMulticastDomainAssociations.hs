@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Gets information about the associations for the transit gateway multicast domain.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
-  ( -- * Creating a Request
-    getTransitGatewayMulticastDomainAssociations,
-    GetTransitGatewayMulticastDomainAssociations,
+  ( -- * Creating a request
+    GetTransitGatewayMulticastDomainAssociations (..),
+    mkGetTransitGatewayMulticastDomainAssociations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtgmdaFilters,
     gtgmdaTransitGatewayMulticastDomainId,
     gtgmdaNextToken,
     gtgmdaDryRun,
     gtgmdaMaxResults,
 
-    -- * Destructuring the Response
-    getTransitGatewayMulticastDomainAssociationsResponse,
-    GetTransitGatewayMulticastDomainAssociationsResponse,
+    -- * Destructuring the response
+    GetTransitGatewayMulticastDomainAssociationsResponse (..),
+    mkGetTransitGatewayMulticastDomainAssociationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtgmdarsNextToken,
     gtgmdarsMulticastDomainAssociations,
     gtgmdarsResponseStatus,
@@ -46,194 +39,240 @@ module Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTransitGatewayMulticastDomainAssociations' smart constructor.
+-- | /See:/ 'mkGetTransitGatewayMulticastDomainAssociations' smart constructor.
 data GetTransitGatewayMulticastDomainAssociations = GetTransitGatewayMulticastDomainAssociations'
-  { _gtgmdaFilters ::
-      !( Maybe
-           [Filter]
-       ),
-    _gtgmdaTransitGatewayMulticastDomainId ::
-      !( Maybe
-           Text
-       ),
-    _gtgmdaNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gtgmdaDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _gtgmdaMaxResults ::
-      !( Maybe
-           Nat
-       )
+  { filters ::
+      Lude.Maybe
+        [Filter],
+    transitGatewayMulticastDomainId ::
+      Lude.Maybe
+        Lude.Text,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    maxResults ::
+      Lude.Maybe
+        Lude.Natural
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTransitGatewayMulticastDomainAssociations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. The possible values are:
 --
--- * 'gtgmdaFilters' - One or more filters. The possible values are:     * @resource-id@ - The ID of the resource.     * @resource-type@ - The type of resource. The valid value is: @vpc@ .     * @state@ - The state of the subnet association. Valid values are @associated@ | @associating@ | @disassociated@ | @disassociating@ .     * @subnet-id@ - The ID of the subnet.     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
 --
--- * 'gtgmdaTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--     * @resource-id@ - The ID of the resource.
 --
--- * 'gtgmdaNextToken' - The token for the next page of results.
 --
--- * 'gtgmdaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @resource-type@ - The type of resource. The valid value is: @vpc@ .
 --
--- * 'gtgmdaMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-getTransitGatewayMulticastDomainAssociations ::
+--
+--     * @state@ - The state of the subnet association. Valid values are @associated@ | @associating@ | @disassociated@ | @disassociating@ .
+--
+--
+--     * @subnet-id@ - The ID of the subnet.
+--
+--
+--     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkGetTransitGatewayMulticastDomainAssociations ::
   GetTransitGatewayMulticastDomainAssociations
-getTransitGatewayMulticastDomainAssociations =
+mkGetTransitGatewayMulticastDomainAssociations =
   GetTransitGatewayMulticastDomainAssociations'
-    { _gtgmdaFilters =
-        Nothing,
-      _gtgmdaTransitGatewayMulticastDomainId = Nothing,
-      _gtgmdaNextToken = Nothing,
-      _gtgmdaDryRun = Nothing,
-      _gtgmdaMaxResults = Nothing
+    { filters =
+        Lude.Nothing,
+      transitGatewayMulticastDomainId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters. The possible values are:     * @resource-id@ - The ID of the resource.     * @resource-type@ - The type of resource. The valid value is: @vpc@ .     * @state@ - The state of the subnet association. Valid values are @associated@ | @associating@ | @disassociated@ | @disassociating@ .     * @subnet-id@ - The ID of the subnet.     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
-gtgmdaFilters :: Lens' GetTransitGatewayMulticastDomainAssociations [Filter]
-gtgmdaFilters = lens _gtgmdaFilters (\s a -> s {_gtgmdaFilters = a}) . _Default . _Coerce
+-- | One or more filters. The possible values are:
+--
+--
+--     * @resource-id@ - The ID of the resource.
+--
+--
+--     * @resource-type@ - The type of resource. The valid value is: @vpc@ .
+--
+--
+--     * @state@ - The state of the subnet association. Valid values are @associated@ | @associating@ | @disassociated@ | @disassociating@ .
+--
+--
+--     * @subnet-id@ - The ID of the subnet.
+--
+--
+--     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdaFilters :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Lude.Maybe [Filter])
+gtgmdaFilters = Lens.lens (filters :: GetTransitGatewayMulticastDomainAssociations -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: GetTransitGatewayMulticastDomainAssociations)
+{-# DEPRECATED gtgmdaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
-gtgmdaTransitGatewayMulticastDomainId :: Lens' GetTransitGatewayMulticastDomainAssociations (Maybe Text)
-gtgmdaTransitGatewayMulticastDomainId = lens _gtgmdaTransitGatewayMulticastDomainId (\s a -> s {_gtgmdaTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdaTransitGatewayMulticastDomainId :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Text)
+gtgmdaTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: GetTransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: GetTransitGatewayMulticastDomainAssociations)
+{-# DEPRECATED gtgmdaTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
 -- | The token for the next page of results.
-gtgmdaNextToken :: Lens' GetTransitGatewayMulticastDomainAssociations (Maybe Text)
-gtgmdaNextToken = lens _gtgmdaNextToken (\s a -> s {_gtgmdaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdaNextToken :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Text)
+gtgmdaNextToken = Lens.lens (nextToken :: GetTransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTransitGatewayMulticastDomainAssociations)
+{-# DEPRECATED gtgmdaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-gtgmdaDryRun :: Lens' GetTransitGatewayMulticastDomainAssociations (Maybe Bool)
-gtgmdaDryRun = lens _gtgmdaDryRun (\s a -> s {_gtgmdaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdaDryRun :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Bool)
+gtgmdaDryRun = Lens.lens (dryRun :: GetTransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetTransitGatewayMulticastDomainAssociations)
+{-# DEPRECATED gtgmdaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-gtgmdaMaxResults :: Lens' GetTransitGatewayMulticastDomainAssociations (Maybe Natural)
-gtgmdaMaxResults = lens _gtgmdaMaxResults (\s a -> s {_gtgmdaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdaMaxResults :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Natural)
+gtgmdaMaxResults = Lens.lens (maxResults :: GetTransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTransitGatewayMulticastDomainAssociations)
+{-# DEPRECATED gtgmdaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetTransitGatewayMulticastDomainAssociations where
+instance Page.AWSPager GetTransitGatewayMulticastDomainAssociations where
   page rq rs
-    | stop (rs ^. gtgmdarsNextToken) = Nothing
-    | stop (rs ^. gtgmdarsMulticastDomainAssociations) = Nothing
-    | otherwise =
-      Just $ rq & gtgmdaNextToken .~ rs ^. gtgmdarsNextToken
+    | Page.stop (rs Lens.^. gtgmdarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gtgmdarsMulticastDomainAssociations) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gtgmdaNextToken Lens..~ rs Lens.^. gtgmdarsNextToken
 
-instance AWSRequest GetTransitGatewayMulticastDomainAssociations where
+instance
+  Lude.AWSRequest
+    GetTransitGatewayMulticastDomainAssociations
+  where
   type
     Rs GetTransitGatewayMulticastDomainAssociations =
       GetTransitGatewayMulticastDomainAssociationsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetTransitGatewayMulticastDomainAssociationsResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "multicastDomainAssociations" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "multicastDomainAssociations" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTransitGatewayMulticastDomainAssociations
+instance
+  Lude.ToHeaders
+    GetTransitGatewayMulticastDomainAssociations
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTransitGatewayMulticastDomainAssociations
+instance Lude.ToPath GetTransitGatewayMulticastDomainAssociations where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetTransitGatewayMulticastDomainAssociations where
-  toHeaders = const mempty
-
-instance ToPath GetTransitGatewayMulticastDomainAssociations where
-  toPath = const "/"
-
-instance ToQuery GetTransitGatewayMulticastDomainAssociations where
+instance Lude.ToQuery GetTransitGatewayMulticastDomainAssociations where
   toQuery GetTransitGatewayMulticastDomainAssociations' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("GetTransitGatewayMulticastDomainAssociations" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _gtgmdaFilters),
+          Lude.=: ( "GetTransitGatewayMulticastDomainAssociations" ::
+                      Lude.ByteString
+                  ),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "TransitGatewayMulticastDomainId"
-          =: _gtgmdaTransitGatewayMulticastDomainId,
-        "NextToken" =: _gtgmdaNextToken,
-        "DryRun" =: _gtgmdaDryRun,
-        "MaxResults" =: _gtgmdaMaxResults
+          Lude.=: transitGatewayMulticastDomainId,
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'getTransitGatewayMulticastDomainAssociationsResponse' smart constructor.
+-- | /See:/ 'mkGetTransitGatewayMulticastDomainAssociationsResponse' smart constructor.
 data GetTransitGatewayMulticastDomainAssociationsResponse = GetTransitGatewayMulticastDomainAssociationsResponse'
-  { _gtgmdarsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gtgmdarsMulticastDomainAssociations ::
-      !( Maybe
-           [TransitGatewayMulticastDomainAssociation]
-       ),
-    _gtgmdarsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    multicastDomainAssociations ::
+      Lude.Maybe
+        [TransitGatewayMulticastDomainAssociation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetTransitGatewayMulticastDomainAssociationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgmdarsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'gtgmdarsMulticastDomainAssociations' - Information about the multicast domain associations.
---
--- * 'gtgmdarsResponseStatus' - -- | The response status code.
-getTransitGatewayMulticastDomainAssociationsResponse ::
-  -- | 'gtgmdarsResponseStatus'
-  Int ->
+-- * 'multicastDomainAssociations' - Information about the multicast domain associations.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkGetTransitGatewayMulticastDomainAssociationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTransitGatewayMulticastDomainAssociationsResponse
-getTransitGatewayMulticastDomainAssociationsResponse
+mkGetTransitGatewayMulticastDomainAssociationsResponse
   pResponseStatus_ =
     GetTransitGatewayMulticastDomainAssociationsResponse'
-      { _gtgmdarsNextToken =
-          Nothing,
-        _gtgmdarsMulticastDomainAssociations =
-          Nothing,
-        _gtgmdarsResponseStatus =
-          pResponseStatus_
+      { nextToken =
+          Lude.Nothing,
+        multicastDomainAssociations =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-gtgmdarsNextToken :: Lens' GetTransitGatewayMulticastDomainAssociationsResponse (Maybe Text)
-gtgmdarsNextToken = lens _gtgmdarsNextToken (\s a -> s {_gtgmdarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdarsNextToken :: Lens.Lens' GetTransitGatewayMulticastDomainAssociationsResponse (Lude.Maybe Lude.Text)
+gtgmdarsNextToken = Lens.lens (nextToken :: GetTransitGatewayMulticastDomainAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTransitGatewayMulticastDomainAssociationsResponse)
+{-# DEPRECATED gtgmdarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the multicast domain associations.
-gtgmdarsMulticastDomainAssociations :: Lens' GetTransitGatewayMulticastDomainAssociationsResponse [TransitGatewayMulticastDomainAssociation]
-gtgmdarsMulticastDomainAssociations = lens _gtgmdarsMulticastDomainAssociations (\s a -> s {_gtgmdarsMulticastDomainAssociations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'multicastDomainAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdarsMulticastDomainAssociations :: Lens.Lens' GetTransitGatewayMulticastDomainAssociationsResponse (Lude.Maybe [TransitGatewayMulticastDomainAssociation])
+gtgmdarsMulticastDomainAssociations = Lens.lens (multicastDomainAssociations :: GetTransitGatewayMulticastDomainAssociationsResponse -> Lude.Maybe [TransitGatewayMulticastDomainAssociation]) (\s a -> s {multicastDomainAssociations = a} :: GetTransitGatewayMulticastDomainAssociationsResponse)
+{-# DEPRECATED gtgmdarsMulticastDomainAssociations "Use generic-lens or generic-optics with 'multicastDomainAssociations' instead." #-}
 
--- | -- | The response status code.
-gtgmdarsResponseStatus :: Lens' GetTransitGatewayMulticastDomainAssociationsResponse Int
-gtgmdarsResponseStatus = lens _gtgmdarsResponseStatus (\s a -> s {_gtgmdarsResponseStatus = a})
-
-instance
-  NFData
-    GetTransitGatewayMulticastDomainAssociationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgmdarsResponseStatus :: Lens.Lens' GetTransitGatewayMulticastDomainAssociationsResponse Lude.Int
+gtgmdarsResponseStatus = Lens.lens (responseStatus :: GetTransitGatewayMulticastDomainAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTransitGatewayMulticastDomainAssociationsResponse)
+{-# DEPRECATED gtgmdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.APICacheType where
+module Network.AWS.AppSync.Types.APICacheType
+  ( APICacheType
+      ( APICacheType',
+        Large,
+        Large12X,
+        Large2X,
+        Large4X,
+        Large8X,
+        Medium,
+        R42XLARGE,
+        R44XLARGE,
+        R48XLARGE,
+        R4Large,
+        R4XLarge,
+        Small,
+        T2Medium,
+        T2Small,
+        XLarge
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data APICacheType
-  = Large
-  | Large12X
-  | Large2X
-  | Large4X
-  | Large8X
-  | Medium
-  | R42XLARGE
-  | R44XLARGE
-  | R48XLARGE
-  | R4Large
-  | R4XLarge
-  | Small
-  | T2Medium
-  | T2Small
-  | XLarge
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype APICacheType = APICacheType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText APICacheType where
-  parser =
-    takeLowerText >>= \case
-      "large" -> pure Large
-      "large_12x" -> pure Large12X
-      "large_2x" -> pure Large2X
-      "large_4x" -> pure Large4X
-      "large_8x" -> pure Large8X
-      "medium" -> pure Medium
-      "r4_2xlarge" -> pure R42XLARGE
-      "r4_4xlarge" -> pure R44XLARGE
-      "r4_8xlarge" -> pure R48XLARGE
-      "r4_large" -> pure R4Large
-      "r4_xlarge" -> pure R4XLarge
-      "small" -> pure Small
-      "t2_medium" -> pure T2Medium
-      "t2_small" -> pure T2Small
-      "xlarge" -> pure XLarge
-      e ->
-        fromTextError $
-          "Failure parsing APICacheType from value: '" <> e
-            <> "'. Accepted values: large, large_12x, large_2x, large_4x, large_8x, medium, r4_2xlarge, r4_4xlarge, r4_8xlarge, r4_large, r4_xlarge, small, t2_medium, t2_small, xlarge"
+pattern Large :: APICacheType
+pattern Large = APICacheType' "LARGE"
 
-instance ToText APICacheType where
-  toText = \case
-    Large -> "LARGE"
-    Large12X -> "LARGE_12X"
-    Large2X -> "LARGE_2X"
-    Large4X -> "LARGE_4X"
-    Large8X -> "LARGE_8X"
-    Medium -> "MEDIUM"
-    R42XLARGE -> "R4_2XLARGE"
-    R44XLARGE -> "R4_4XLARGE"
-    R48XLARGE -> "R4_8XLARGE"
-    R4Large -> "R4_LARGE"
-    R4XLarge -> "R4_XLARGE"
-    Small -> "SMALL"
-    T2Medium -> "T2_MEDIUM"
-    T2Small -> "T2_SMALL"
-    XLarge -> "XLARGE"
+pattern Large12X :: APICacheType
+pattern Large12X = APICacheType' "LARGE_12X"
 
-instance Hashable APICacheType
+pattern Large2X :: APICacheType
+pattern Large2X = APICacheType' "LARGE_2X"
 
-instance NFData APICacheType
+pattern Large4X :: APICacheType
+pattern Large4X = APICacheType' "LARGE_4X"
 
-instance ToByteString APICacheType
+pattern Large8X :: APICacheType
+pattern Large8X = APICacheType' "LARGE_8X"
 
-instance ToQuery APICacheType
+pattern Medium :: APICacheType
+pattern Medium = APICacheType' "MEDIUM"
 
-instance ToHeader APICacheType
+pattern R42XLARGE :: APICacheType
+pattern R42XLARGE = APICacheType' "R4_2XLARGE"
 
-instance ToJSON APICacheType where
-  toJSON = toJSONText
+pattern R44XLARGE :: APICacheType
+pattern R44XLARGE = APICacheType' "R4_4XLARGE"
 
-instance FromJSON APICacheType where
-  parseJSON = parseJSONText "APICacheType"
+pattern R48XLARGE :: APICacheType
+pattern R48XLARGE = APICacheType' "R4_8XLARGE"
+
+pattern R4Large :: APICacheType
+pattern R4Large = APICacheType' "R4_LARGE"
+
+pattern R4XLarge :: APICacheType
+pattern R4XLarge = APICacheType' "R4_XLARGE"
+
+pattern Small :: APICacheType
+pattern Small = APICacheType' "SMALL"
+
+pattern T2Medium :: APICacheType
+pattern T2Medium = APICacheType' "T2_MEDIUM"
+
+pattern T2Small :: APICacheType
+pattern T2Small = APICacheType' "T2_SMALL"
+
+pattern XLarge :: APICacheType
+pattern XLarge = APICacheType' "XLARGE"
+
+{-# COMPLETE
+  Large,
+  Large12X,
+  Large2X,
+  Large4X,
+  Large8X,
+  Medium,
+  R42XLARGE,
+  R44XLARGE,
+  R48XLARGE,
+  R4Large,
+  R4XLarge,
+  Small,
+  T2Medium,
+  T2Small,
+  XLarge,
+  APICacheType'
+  #-}

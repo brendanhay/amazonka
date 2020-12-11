@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,149 @@
 --
 -- Tests whether the specified event pattern matches the provided event.
 --
---
 -- Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
 module Network.AWS.CloudWatchEvents.TestEventPattern
-  ( -- * Creating a Request
-    testEventPattern,
-    TestEventPattern,
+  ( -- * Creating a request
+    TestEventPattern (..),
+    mkTestEventPattern,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tepEventPattern,
     tepEvent,
 
-    -- * Destructuring the Response
-    testEventPatternResponse,
-    TestEventPatternResponse,
+    -- * Destructuring the response
+    TestEventPatternResponse (..),
+    mkTestEventPatternResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     teprsResult,
     teprsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'testEventPattern' smart constructor.
+-- | /See:/ 'mkTestEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
-  { _tepEventPattern ::
-      !Text,
-    _tepEvent :: !Text
+  { eventPattern ::
+      Lude.Text,
+    event :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestEventPattern' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tepEventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
---
--- * 'tepEvent' - The event, in JSON format, to test against the event pattern.
-testEventPattern ::
-  -- | 'tepEventPattern'
-  Text ->
-  -- | 'tepEvent'
-  Text ->
+-- * 'event' - The event, in JSON format, to test against the event pattern.
+-- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+mkTestEventPattern ::
+  -- | 'eventPattern'
+  Lude.Text ->
+  -- | 'event'
+  Lude.Text ->
   TestEventPattern
-testEventPattern pEventPattern_ pEvent_ =
-  TestEventPattern'
-    { _tepEventPattern = pEventPattern_,
-      _tepEvent = pEvent_
-    }
+mkTestEventPattern pEventPattern_ pEvent_ =
+  TestEventPattern' {eventPattern = pEventPattern_, event = pEvent_}
 
 -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
-tepEventPattern :: Lens' TestEventPattern Text
-tepEventPattern = lens _tepEventPattern (\s a -> s {_tepEventPattern = a})
+--
+-- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tepEventPattern :: Lens.Lens' TestEventPattern Lude.Text
+tepEventPattern = Lens.lens (eventPattern :: TestEventPattern -> Lude.Text) (\s a -> s {eventPattern = a} :: TestEventPattern)
+{-# DEPRECATED tepEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
 
 -- | The event, in JSON format, to test against the event pattern.
-tepEvent :: Lens' TestEventPattern Text
-tepEvent = lens _tepEvent (\s a -> s {_tepEvent = a})
+--
+-- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tepEvent :: Lens.Lens' TestEventPattern Lude.Text
+tepEvent = Lens.lens (event :: TestEventPattern -> Lude.Text) (\s a -> s {event = a} :: TestEventPattern)
+{-# DEPRECATED tepEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
-instance AWSRequest TestEventPattern where
+instance Lude.AWSRequest TestEventPattern where
   type Rs TestEventPattern = TestEventPatternResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TestEventPatternResponse'
-            <$> (x .?> "Result") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Result") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TestEventPattern
-
-instance NFData TestEventPattern
-
-instance ToHeaders TestEventPattern where
+instance Lude.ToHeaders TestEventPattern where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.TestEventPattern" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.TestEventPattern" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TestEventPattern where
+instance Lude.ToJSON TestEventPattern where
   toJSON TestEventPattern' {..} =
-    object
-      ( catMaybes
-          [ Just ("EventPattern" .= _tepEventPattern),
-            Just ("Event" .= _tepEvent)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("EventPattern" Lude..= eventPattern),
+            Lude.Just ("Event" Lude..= event)
           ]
       )
 
-instance ToPath TestEventPattern where
-  toPath = const "/"
+instance Lude.ToPath TestEventPattern where
+  toPath = Lude.const "/"
 
-instance ToQuery TestEventPattern where
-  toQuery = const mempty
+instance Lude.ToQuery TestEventPattern where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'testEventPatternResponse' smart constructor.
+-- | /See:/ 'mkTestEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
-  { _teprsResult ::
-      !(Maybe Bool),
-    _teprsResponseStatus :: !Int
+  { result ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestEventPatternResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'teprsResult' - Indicates whether the event matches the event pattern.
---
--- * 'teprsResponseStatus' - -- | The response status code.
-testEventPatternResponse ::
-  -- | 'teprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'result' - Indicates whether the event matches the event pattern.
+mkTestEventPatternResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TestEventPatternResponse
-testEventPatternResponse pResponseStatus_ =
+mkTestEventPatternResponse pResponseStatus_ =
   TestEventPatternResponse'
-    { _teprsResult = Nothing,
-      _teprsResponseStatus = pResponseStatus_
+    { result = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the event matches the event pattern.
-teprsResult :: Lens' TestEventPatternResponse (Maybe Bool)
-teprsResult = lens _teprsResult (\s a -> s {_teprsResult = a})
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teprsResult :: Lens.Lens' TestEventPatternResponse (Lude.Maybe Lude.Bool)
+teprsResult = Lens.lens (result :: TestEventPatternResponse -> Lude.Maybe Lude.Bool) (\s a -> s {result = a} :: TestEventPatternResponse)
+{-# DEPRECATED teprsResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
--- | -- | The response status code.
-teprsResponseStatus :: Lens' TestEventPatternResponse Int
-teprsResponseStatus = lens _teprsResponseStatus (\s a -> s {_teprsResponseStatus = a})
-
-instance NFData TestEventPatternResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+teprsResponseStatus :: Lens.Lens' TestEventPatternResponse Lude.Int
+teprsResponseStatus = Lens.lens (responseStatus :: TestEventPatternResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestEventPatternResponse)
+{-# DEPRECATED teprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

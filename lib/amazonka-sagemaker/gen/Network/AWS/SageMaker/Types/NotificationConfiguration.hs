@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotificationConfiguration where
+module Network.AWS.SageMaker.Types.NotificationConfiguration
+  ( NotificationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotificationConfiguration,
+
+    -- * Lenses
+    ncNotificationTopicARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configures SNS notifications of available or expiring work items for work teams.
 --
---
---
--- /See:/ 'notificationConfiguration' smart constructor.
+-- /See:/ 'mkNotificationConfiguration' smart constructor.
 newtype NotificationConfiguration = NotificationConfiguration'
-  { _ncNotificationTopicARN ::
-      Maybe Text
+  { notificationTopicARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncNotificationTopicARN' - The ARN for the SNS topic to which notifications should be published.
-notificationConfiguration ::
+-- * 'notificationTopicARN' - The ARN for the SNS topic to which notifications should be published.
+mkNotificationConfiguration ::
   NotificationConfiguration
-notificationConfiguration =
-  NotificationConfiguration' {_ncNotificationTopicARN = Nothing}
+mkNotificationConfiguration =
+  NotificationConfiguration' {notificationTopicARN = Lude.Nothing}
 
 -- | The ARN for the SNS topic to which notifications should be published.
-ncNotificationTopicARN :: Lens' NotificationConfiguration (Maybe Text)
-ncNotificationTopicARN = lens _ncNotificationTopicARN (\s a -> s {_ncNotificationTopicARN = a})
+--
+-- /Note:/ Consider using 'notificationTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncNotificationTopicARN :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
+ncNotificationTopicARN = Lens.lens (notificationTopicARN :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {notificationTopicARN = a} :: NotificationConfiguration)
+{-# DEPRECATED ncNotificationTopicARN "Use generic-lens or generic-optics with 'notificationTopicARN' instead." #-}
 
-instance FromJSON NotificationConfiguration where
+instance Lude.FromJSON NotificationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "NotificationConfiguration"
       ( \x ->
-          NotificationConfiguration' <$> (x .:? "NotificationTopicArn")
+          NotificationConfiguration'
+            Lude.<$> (x Lude..:? "NotificationTopicArn")
       )
 
-instance Hashable NotificationConfiguration
-
-instance NFData NotificationConfiguration
-
-instance ToJSON NotificationConfiguration where
+instance Lude.ToJSON NotificationConfiguration where
   toJSON NotificationConfiguration' {..} =
-    object
-      ( catMaybes
-          [("NotificationTopicArn" .=) <$> _ncNotificationTopicARN]
+    Lude.object
+      ( Lude.catMaybes
+          [("NotificationTopicArn" Lude..=) Lude.<$> notificationTopicARN]
       )

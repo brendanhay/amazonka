@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HTTPURLDestinationConfiguration where
+module Network.AWS.IoT.Types.HTTPURLDestinationConfiguration
+  ( HTTPURLDestinationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPURLDestinationConfiguration,
+
+    -- * Lenses
+    httpudcConfirmationURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | HTTP URL destination configuration used by the topic rule's HTTP action.
 --
---
---
--- /See:/ 'hTTPURLDestinationConfiguration' smart constructor.
+-- /See:/ 'mkHTTPURLDestinationConfiguration' smart constructor.
 newtype HTTPURLDestinationConfiguration = HTTPURLDestinationConfiguration'
-  { _httpudcConfirmationURL ::
-      Text
+  { confirmationURL ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPURLDestinationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpudcConfirmationURL' - The URL AWS IoT uses to confirm ownership of or access to the topic rule destination URL.
-hTTPURLDestinationConfiguration ::
-  -- | 'httpudcConfirmationURL'
-  Text ->
+-- * 'confirmationURL' - The URL AWS IoT uses to confirm ownership of or access to the topic rule destination URL.
+mkHTTPURLDestinationConfiguration ::
+  -- | 'confirmationURL'
+  Lude.Text ->
   HTTPURLDestinationConfiguration
-hTTPURLDestinationConfiguration pConfirmationURL_ =
+mkHTTPURLDestinationConfiguration pConfirmationURL_ =
   HTTPURLDestinationConfiguration'
-    { _httpudcConfirmationURL =
+    { confirmationURL =
         pConfirmationURL_
     }
 
 -- | The URL AWS IoT uses to confirm ownership of or access to the topic rule destination URL.
-httpudcConfirmationURL :: Lens' HTTPURLDestinationConfiguration Text
-httpudcConfirmationURL = lens _httpudcConfirmationURL (\s a -> s {_httpudcConfirmationURL = a})
+--
+-- /Note:/ Consider using 'confirmationURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpudcConfirmationURL :: Lens.Lens' HTTPURLDestinationConfiguration Lude.Text
+httpudcConfirmationURL = Lens.lens (confirmationURL :: HTTPURLDestinationConfiguration -> Lude.Text) (\s a -> s {confirmationURL = a} :: HTTPURLDestinationConfiguration)
+{-# DEPRECATED httpudcConfirmationURL "Use generic-lens or generic-optics with 'confirmationURL' instead." #-}
 
-instance Hashable HTTPURLDestinationConfiguration
-
-instance NFData HTTPURLDestinationConfiguration
-
-instance ToJSON HTTPURLDestinationConfiguration where
+instance Lude.ToJSON HTTPURLDestinationConfiguration where
   toJSON HTTPURLDestinationConfiguration' {..} =
-    object
-      (catMaybes [Just ("confirmationUrl" .= _httpudcConfirmationURL)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("confirmationUrl" Lude..= confirmationURL)]
+      )

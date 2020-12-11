@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,138 @@
 --
 -- Retrieves the application replication configuration associated with the specified application.
 module Network.AWS.SMS.GetAppReplicationConfiguration
-  ( -- * Creating a Request
-    getAppReplicationConfiguration,
-    GetAppReplicationConfiguration,
+  ( -- * Creating a request
+    GetAppReplicationConfiguration (..),
+    mkGetAppReplicationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     garcAppId,
 
-    -- * Destructuring the Response
-    getAppReplicationConfigurationResponse,
-    GetAppReplicationConfigurationResponse,
+    -- * Destructuring the response
+    GetAppReplicationConfigurationResponse (..),
+    mkGetAppReplicationConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garcrsServerGroupReplicationConfigurations,
     garcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'getAppReplicationConfiguration' smart constructor.
+-- | /See:/ 'mkGetAppReplicationConfiguration' smart constructor.
 newtype GetAppReplicationConfiguration = GetAppReplicationConfiguration'
-  { _garcAppId ::
-      Maybe Text
+  { appId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppReplicationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garcAppId' - The ID of the application.
-getAppReplicationConfiguration ::
+-- * 'appId' - The ID of the application.
+mkGetAppReplicationConfiguration ::
   GetAppReplicationConfiguration
-getAppReplicationConfiguration =
-  GetAppReplicationConfiguration' {_garcAppId = Nothing}
+mkGetAppReplicationConfiguration =
+  GetAppReplicationConfiguration' {appId = Lude.Nothing}
 
 -- | The ID of the application.
-garcAppId :: Lens' GetAppReplicationConfiguration (Maybe Text)
-garcAppId = lens _garcAppId (\s a -> s {_garcAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcAppId :: Lens.Lens' GetAppReplicationConfiguration (Lude.Maybe Lude.Text)
+garcAppId = Lens.lens (appId :: GetAppReplicationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GetAppReplicationConfiguration)
+{-# DEPRECATED garcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest GetAppReplicationConfiguration where
+instance Lude.AWSRequest GetAppReplicationConfiguration where
   type
     Rs GetAppReplicationConfiguration =
       GetAppReplicationConfigurationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAppReplicationConfigurationResponse'
-            <$> (x .?> "serverGroupReplicationConfigurations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "serverGroupReplicationConfigurations"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAppReplicationConfiguration
-
-instance NFData GetAppReplicationConfiguration
-
-instance ToHeaders GetAppReplicationConfiguration where
+instance Lude.ToHeaders GetAppReplicationConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAppReplicationConfiguration where
+instance Lude.ToJSON GetAppReplicationConfiguration where
   toJSON GetAppReplicationConfiguration' {..} =
-    object (catMaybes [("appId" .=) <$> _garcAppId])
+    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
 
-instance ToPath GetAppReplicationConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetAppReplicationConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAppReplicationConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetAppReplicationConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppReplicationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetAppReplicationConfigurationResponse' smart constructor.
 data GetAppReplicationConfigurationResponse = GetAppReplicationConfigurationResponse'
-  { _garcrsServerGroupReplicationConfigurations ::
-      !( Maybe
-           [ServerGroupReplicationConfiguration]
-       ),
-    _garcrsResponseStatus ::
-      !Int
+  { serverGroupReplicationConfigurations ::
+      Lude.Maybe
+        [ServerGroupReplicationConfiguration],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppReplicationConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garcrsServerGroupReplicationConfigurations' - The replication configurations associated with server groups in this application.
---
--- * 'garcrsResponseStatus' - -- | The response status code.
-getAppReplicationConfigurationResponse ::
-  -- | 'garcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'serverGroupReplicationConfigurations' - The replication configurations associated with server groups in this application.
+mkGetAppReplicationConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppReplicationConfigurationResponse
-getAppReplicationConfigurationResponse pResponseStatus_ =
+mkGetAppReplicationConfigurationResponse pResponseStatus_ =
   GetAppReplicationConfigurationResponse'
-    { _garcrsServerGroupReplicationConfigurations =
-        Nothing,
-      _garcrsResponseStatus = pResponseStatus_
+    { serverGroupReplicationConfigurations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication configurations associated with server groups in this application.
-garcrsServerGroupReplicationConfigurations :: Lens' GetAppReplicationConfigurationResponse [ServerGroupReplicationConfiguration]
-garcrsServerGroupReplicationConfigurations = lens _garcrsServerGroupReplicationConfigurations (\s a -> s {_garcrsServerGroupReplicationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroupReplicationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcrsServerGroupReplicationConfigurations :: Lens.Lens' GetAppReplicationConfigurationResponse (Lude.Maybe [ServerGroupReplicationConfiguration])
+garcrsServerGroupReplicationConfigurations = Lens.lens (serverGroupReplicationConfigurations :: GetAppReplicationConfigurationResponse -> Lude.Maybe [ServerGroupReplicationConfiguration]) (\s a -> s {serverGroupReplicationConfigurations = a} :: GetAppReplicationConfigurationResponse)
+{-# DEPRECATED garcrsServerGroupReplicationConfigurations "Use generic-lens or generic-optics with 'serverGroupReplicationConfigurations' instead." #-}
 
--- | -- | The response status code.
-garcrsResponseStatus :: Lens' GetAppReplicationConfigurationResponse Int
-garcrsResponseStatus = lens _garcrsResponseStatus (\s a -> s {_garcrsResponseStatus = a})
-
-instance NFData GetAppReplicationConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcrsResponseStatus :: Lens.Lens' GetAppReplicationConfigurationResponse Lude.Int
+garcrsResponseStatus = Lens.lens (responseStatus :: GetAppReplicationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppReplicationConfigurationResponse)
+{-# DEPRECATED garcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TargetPlatformOS where
+module Network.AWS.SageMaker.Types.TargetPlatformOS
+  ( TargetPlatformOS
+      ( TargetPlatformOS',
+        Android,
+        Linux
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetPlatformOS
-  = Android
-  | Linux
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetPlatformOS = TargetPlatformOS' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetPlatformOS where
-  parser =
-    takeLowerText >>= \case
-      "android" -> pure Android
-      "linux" -> pure Linux
-      e ->
-        fromTextError $
-          "Failure parsing TargetPlatformOS from value: '" <> e
-            <> "'. Accepted values: android, linux"
+pattern Android :: TargetPlatformOS
+pattern Android = TargetPlatformOS' "ANDROID"
 
-instance ToText TargetPlatformOS where
-  toText = \case
-    Android -> "ANDROID"
-    Linux -> "LINUX"
+pattern Linux :: TargetPlatformOS
+pattern Linux = TargetPlatformOS' "LINUX"
 
-instance Hashable TargetPlatformOS
-
-instance NFData TargetPlatformOS
-
-instance ToByteString TargetPlatformOS
-
-instance ToQuery TargetPlatformOS
-
-instance ToHeader TargetPlatformOS
-
-instance ToJSON TargetPlatformOS where
-  toJSON = toJSONText
-
-instance FromJSON TargetPlatformOS where
-  parseJSON = parseJSONText "TargetPlatformOS"
+{-# COMPLETE
+  Android,
+  Linux,
+  TargetPlatformOS'
+  #-}

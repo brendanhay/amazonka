@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.OfferingClassType where
+module Network.AWS.EC2.Types.OfferingClassType
+  ( OfferingClassType
+      ( OfferingClassType',
+        OCTConvertible,
+        OCTStandard
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OfferingClassType
-  = OCTConvertible
-  | OCTStandard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OfferingClassType = OfferingClassType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OfferingClassType where
-  parser =
-    takeLowerText >>= \case
-      "convertible" -> pure OCTConvertible
-      "standard" -> pure OCTStandard
-      e ->
-        fromTextError $
-          "Failure parsing OfferingClassType from value: '" <> e
-            <> "'. Accepted values: convertible, standard"
+pattern OCTConvertible :: OfferingClassType
+pattern OCTConvertible = OfferingClassType' "convertible"
 
-instance ToText OfferingClassType where
-  toText = \case
-    OCTConvertible -> "convertible"
-    OCTStandard -> "standard"
+pattern OCTStandard :: OfferingClassType
+pattern OCTStandard = OfferingClassType' "standard"
 
-instance Hashable OfferingClassType
-
-instance NFData OfferingClassType
-
-instance ToByteString OfferingClassType
-
-instance ToQuery OfferingClassType
-
-instance ToHeader OfferingClassType
-
-instance FromXML OfferingClassType where
-  parseXML = parseXMLText "OfferingClassType"
+{-# COMPLETE
+  OCTConvertible,
+  OCTStandard,
+  OfferingClassType'
+  #-}

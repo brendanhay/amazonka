@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,181 @@
 --
 -- Gets information about all versions of a slot type.
 --
---
 -- The @GetSlotTypeVersions@ operation returns a @SlotTypeMetadata@ object for each version of a slot type. For example, if a slot type has three numbered versions, the @GetSlotTypeVersions@ operation returns four @SlotTypeMetadata@ objects in the response, one for each numbered version and one for the @> LATEST@ version.
---
 -- The @GetSlotTypeVersions@ operation always returns at least one version, the @> LATEST@ version.
---
 -- This operation requires permissions for the @lex:GetSlotTypeVersions@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.LexModels.GetSlotTypeVersions
-  ( -- * Creating a Request
-    getSlotTypeVersions,
-    GetSlotTypeVersions,
+  ( -- * Creating a request
+    GetSlotTypeVersions (..),
+    mkGetSlotTypeVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstvNextToken,
     gstvMaxResults,
     gstvName,
 
-    -- * Destructuring the Response
-    getSlotTypeVersionsResponse,
-    GetSlotTypeVersionsResponse,
+    -- * Destructuring the response
+    GetSlotTypeVersionsResponse (..),
+    mkGetSlotTypeVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gstvrsNextToken,
     gstvrsSlotTypes,
     gstvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSlotTypeVersions' smart constructor.
+-- | /See:/ 'mkGetSlotTypeVersions' smart constructor.
 data GetSlotTypeVersions = GetSlotTypeVersions'
-  { _gstvNextToken ::
-      !(Maybe Text),
-    _gstvMaxResults :: !(Maybe Nat),
-    _gstvName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypeVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstvNextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
---
--- * 'gstvMaxResults' - The maximum number of slot type versions to return in the response. The default is 10.
---
--- * 'gstvName' - The name of the slot type for which versions should be returned.
-getSlotTypeVersions ::
-  -- | 'gstvName'
-  Text ->
+-- * 'maxResults' - The maximum number of slot type versions to return in the response. The default is 10.
+-- * 'name' - The name of the slot type for which versions should be returned.
+-- * 'nextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+mkGetSlotTypeVersions ::
+  -- | 'name'
+  Lude.Text ->
   GetSlotTypeVersions
-getSlotTypeVersions pName_ =
+mkGetSlotTypeVersions pName_ =
   GetSlotTypeVersions'
-    { _gstvNextToken = Nothing,
-      _gstvMaxResults = Nothing,
-      _gstvName = pName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      name = pName_
     }
 
 -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
-gstvNextToken :: Lens' GetSlotTypeVersions (Maybe Text)
-gstvNextToken = lens _gstvNextToken (\s a -> s {_gstvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvNextToken :: Lens.Lens' GetSlotTypeVersions (Lude.Maybe Lude.Text)
+gstvNextToken = Lens.lens (nextToken :: GetSlotTypeVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSlotTypeVersions)
+{-# DEPRECATED gstvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of slot type versions to return in the response. The default is 10.
-gstvMaxResults :: Lens' GetSlotTypeVersions (Maybe Natural)
-gstvMaxResults = lens _gstvMaxResults (\s a -> s {_gstvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvMaxResults :: Lens.Lens' GetSlotTypeVersions (Lude.Maybe Lude.Natural)
+gstvMaxResults = Lens.lens (maxResults :: GetSlotTypeVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSlotTypeVersions)
+{-# DEPRECATED gstvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the slot type for which versions should be returned.
-gstvName :: Lens' GetSlotTypeVersions Text
-gstvName = lens _gstvName (\s a -> s {_gstvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvName :: Lens.Lens' GetSlotTypeVersions Lude.Text
+gstvName = Lens.lens (name :: GetSlotTypeVersions -> Lude.Text) (\s a -> s {name = a} :: GetSlotTypeVersions)
+{-# DEPRECATED gstvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSPager GetSlotTypeVersions where
+instance Page.AWSPager GetSlotTypeVersions where
   page rq rs
-    | stop (rs ^. gstvrsNextToken) = Nothing
-    | stop (rs ^. gstvrsSlotTypes) = Nothing
-    | otherwise = Just $ rq & gstvNextToken .~ rs ^. gstvrsNextToken
+    | Page.stop (rs Lens.^. gstvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gstvrsSlotTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gstvNextToken Lens..~ rs Lens.^. gstvrsNextToken
 
-instance AWSRequest GetSlotTypeVersions where
+instance Lude.AWSRequest GetSlotTypeVersions where
   type Rs GetSlotTypeVersions = GetSlotTypeVersionsResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSlotTypeVersionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "slotTypes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "slotTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSlotTypeVersions
-
-instance NFData GetSlotTypeVersions
-
-instance ToHeaders GetSlotTypeVersions where
+instance Lude.ToHeaders GetSlotTypeVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSlotTypeVersions where
+instance Lude.ToPath GetSlotTypeVersions where
   toPath GetSlotTypeVersions' {..} =
-    mconcat ["/slottypes/", toBS _gstvName, "/versions/"]
+    Lude.mconcat ["/slottypes/", Lude.toBS name, "/versions/"]
 
-instance ToQuery GetSlotTypeVersions where
+instance Lude.ToQuery GetSlotTypeVersions where
   toQuery GetSlotTypeVersions' {..} =
-    mconcat
-      ["nextToken" =: _gstvNextToken, "maxResults" =: _gstvMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'getSlotTypeVersionsResponse' smart constructor.
+-- | /See:/ 'mkGetSlotTypeVersionsResponse' smart constructor.
 data GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse'
-  { _gstvrsNextToken ::
-      !(Maybe Text),
-    _gstvrsSlotTypes ::
-      !(Maybe [SlotTypeMetadata]),
-    _gstvrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    slotTypes ::
+      Lude.Maybe [SlotTypeMetadata],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypeVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstvrsNextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
---
--- * 'gstvrsSlotTypes' - An array of @SlotTypeMetadata@ objects, one for each numbered version of the slot type plus one for the @> LATEST@ version.
---
--- * 'gstvrsResponseStatus' - -- | The response status code.
-getSlotTypeVersionsResponse ::
-  -- | 'gstvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'slotTypes' - An array of @SlotTypeMetadata@ objects, one for each numbered version of the slot type plus one for the @> LATEST@ version.
+mkGetSlotTypeVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSlotTypeVersionsResponse
-getSlotTypeVersionsResponse pResponseStatus_ =
+mkGetSlotTypeVersionsResponse pResponseStatus_ =
   GetSlotTypeVersionsResponse'
-    { _gstvrsNextToken = Nothing,
-      _gstvrsSlotTypes = Nothing,
-      _gstvrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      slotTypes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
-gstvrsNextToken :: Lens' GetSlotTypeVersionsResponse (Maybe Text)
-gstvrsNextToken = lens _gstvrsNextToken (\s a -> s {_gstvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvrsNextToken :: Lens.Lens' GetSlotTypeVersionsResponse (Lude.Maybe Lude.Text)
+gstvrsNextToken = Lens.lens (nextToken :: GetSlotTypeVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSlotTypeVersionsResponse)
+{-# DEPRECATED gstvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @SlotTypeMetadata@ objects, one for each numbered version of the slot type plus one for the @> LATEST@ version.
-gstvrsSlotTypes :: Lens' GetSlotTypeVersionsResponse [SlotTypeMetadata]
-gstvrsSlotTypes = lens _gstvrsSlotTypes (\s a -> s {_gstvrsSlotTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slotTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvrsSlotTypes :: Lens.Lens' GetSlotTypeVersionsResponse (Lude.Maybe [SlotTypeMetadata])
+gstvrsSlotTypes = Lens.lens (slotTypes :: GetSlotTypeVersionsResponse -> Lude.Maybe [SlotTypeMetadata]) (\s a -> s {slotTypes = a} :: GetSlotTypeVersionsResponse)
+{-# DEPRECATED gstvrsSlotTypes "Use generic-lens or generic-optics with 'slotTypes' instead." #-}
 
--- | -- | The response status code.
-gstvrsResponseStatus :: Lens' GetSlotTypeVersionsResponse Int
-gstvrsResponseStatus = lens _gstvrsResponseStatus (\s a -> s {_gstvrsResponseStatus = a})
-
-instance NFData GetSlotTypeVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvrsResponseStatus :: Lens.Lens' GetSlotTypeVersionsResponse Lude.Int
+gstvrsResponseStatus = Lens.lens (responseStatus :: GetSlotTypeVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSlotTypeVersionsResponse)
+{-# DEPRECATED gstvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

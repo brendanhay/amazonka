@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandPluginStatus where
+module Network.AWS.SSM.Types.CommandPluginStatus
+  ( CommandPluginStatus
+      ( CommandPluginStatus',
+        CPSCancelled,
+        CPSFailed,
+        CPSInProgress,
+        CPSPending,
+        CPSSuccess,
+        CPSTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CommandPluginStatus
-  = CPSCancelled
-  | CPSFailed
-  | CPSInProgress
-  | CPSPending
-  | CPSSuccess
-  | CPSTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CommandPluginStatus = CommandPluginStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CommandPluginStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure CPSCancelled
-      "failed" -> pure CPSFailed
-      "inprogress" -> pure CPSInProgress
-      "pending" -> pure CPSPending
-      "success" -> pure CPSSuccess
-      "timedout" -> pure CPSTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing CommandPluginStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, inprogress, pending, success, timedout"
+pattern CPSCancelled :: CommandPluginStatus
+pattern CPSCancelled = CommandPluginStatus' "Cancelled"
 
-instance ToText CommandPluginStatus where
-  toText = \case
-    CPSCancelled -> "Cancelled"
-    CPSFailed -> "Failed"
-    CPSInProgress -> "InProgress"
-    CPSPending -> "Pending"
-    CPSSuccess -> "Success"
-    CPSTimedOut -> "TimedOut"
+pattern CPSFailed :: CommandPluginStatus
+pattern CPSFailed = CommandPluginStatus' "Failed"
 
-instance Hashable CommandPluginStatus
+pattern CPSInProgress :: CommandPluginStatus
+pattern CPSInProgress = CommandPluginStatus' "InProgress"
 
-instance NFData CommandPluginStatus
+pattern CPSPending :: CommandPluginStatus
+pattern CPSPending = CommandPluginStatus' "Pending"
 
-instance ToByteString CommandPluginStatus
+pattern CPSSuccess :: CommandPluginStatus
+pattern CPSSuccess = CommandPluginStatus' "Success"
 
-instance ToQuery CommandPluginStatus
+pattern CPSTimedOut :: CommandPluginStatus
+pattern CPSTimedOut = CommandPluginStatus' "TimedOut"
 
-instance ToHeader CommandPluginStatus
-
-instance FromJSON CommandPluginStatus where
-  parseJSON = parseJSONText "CommandPluginStatus"
+{-# COMPLETE
+  CPSCancelled,
+  CPSFailed,
+  CPSInProgress,
+  CPSPending,
+  CPSSuccess,
+  CPSTimedOut,
+  CommandPluginStatus'
+  #-}

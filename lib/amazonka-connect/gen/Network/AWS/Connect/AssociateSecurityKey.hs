@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,143 @@
 --
 -- Associates a security key to the instance.
 module Network.AWS.Connect.AssociateSecurityKey
-  ( -- * Creating a Request
-    associateSecurityKey,
-    AssociateSecurityKey,
+  ( -- * Creating a request
+    AssociateSecurityKey (..),
+    mkAssociateSecurityKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     askInstanceId,
     askKey,
 
-    -- * Destructuring the Response
-    associateSecurityKeyResponse,
-    AssociateSecurityKeyResponse,
+    -- * Destructuring the response
+    AssociateSecurityKeyResponse (..),
+    mkAssociateSecurityKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     askrsAssociationId,
     askrsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateSecurityKey' smart constructor.
+-- | /See:/ 'mkAssociateSecurityKey' smart constructor.
 data AssociateSecurityKey = AssociateSecurityKey'
-  { _askInstanceId ::
-      !Text,
-    _askKey :: !Text
+  { instanceId ::
+      Lude.Text,
+    key :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSecurityKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'askInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'askKey' - A valid security key in PEM format.
-associateSecurityKey ::
-  -- | 'askInstanceId'
-  Text ->
-  -- | 'askKey'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'key' - A valid security key in PEM format.
+mkAssociateSecurityKey ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   AssociateSecurityKey
-associateSecurityKey pInstanceId_ pKey_ =
-  AssociateSecurityKey'
-    { _askInstanceId = pInstanceId_,
-      _askKey = pKey_
-    }
+mkAssociateSecurityKey pInstanceId_ pKey_ =
+  AssociateSecurityKey' {instanceId = pInstanceId_, key = pKey_}
 
 -- | The identifier of the Amazon Connect instance.
-askInstanceId :: Lens' AssociateSecurityKey Text
-askInstanceId = lens _askInstanceId (\s a -> s {_askInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+askInstanceId :: Lens.Lens' AssociateSecurityKey Lude.Text
+askInstanceId = Lens.lens (instanceId :: AssociateSecurityKey -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateSecurityKey)
+{-# DEPRECATED askInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A valid security key in PEM format.
-askKey :: Lens' AssociateSecurityKey Text
-askKey = lens _askKey (\s a -> s {_askKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+askKey :: Lens.Lens' AssociateSecurityKey Lude.Text
+askKey = Lens.lens (key :: AssociateSecurityKey -> Lude.Text) (\s a -> s {key = a} :: AssociateSecurityKey)
+{-# DEPRECATED askKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest AssociateSecurityKey where
+instance Lude.AWSRequest AssociateSecurityKey where
   type Rs AssociateSecurityKey = AssociateSecurityKeyResponse
-  request = putJSON connect
+  request = Req.putJSON connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssociateSecurityKeyResponse'
-            <$> (x .?> "AssociationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateSecurityKey
-
-instance NFData AssociateSecurityKey
-
-instance ToHeaders AssociateSecurityKey where
+instance Lude.ToHeaders AssociateSecurityKey where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON AssociateSecurityKey where
+instance Lude.ToJSON AssociateSecurityKey where
   toJSON AssociateSecurityKey' {..} =
-    object (catMaybes [Just ("Key" .= _askKey)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Key" Lude..= key)])
 
-instance ToPath AssociateSecurityKey where
+instance Lude.ToPath AssociateSecurityKey where
   toPath AssociateSecurityKey' {..} =
-    mconcat ["/instance/", toBS _askInstanceId, "/security-key"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/security-key"]
 
-instance ToQuery AssociateSecurityKey where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateSecurityKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateSecurityKeyResponse' smart constructor.
+-- | /See:/ 'mkAssociateSecurityKeyResponse' smart constructor.
 data AssociateSecurityKeyResponse = AssociateSecurityKeyResponse'
-  { _askrsAssociationId ::
-      !(Maybe Text),
-    _askrsResponseStatus :: !Int
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSecurityKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'askrsAssociationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- * 'askrsResponseStatus' - -- | The response status code.
-associateSecurityKeyResponse ::
-  -- | 'askrsResponseStatus'
-  Int ->
+-- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+-- * 'responseStatus' - The response status code.
+mkAssociateSecurityKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateSecurityKeyResponse
-associateSecurityKeyResponse pResponseStatus_ =
+mkAssociateSecurityKeyResponse pResponseStatus_ =
   AssociateSecurityKeyResponse'
-    { _askrsAssociationId = Nothing,
-      _askrsResponseStatus = pResponseStatus_
+    { associationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-askrsAssociationId :: Lens' AssociateSecurityKeyResponse (Maybe Text)
-askrsAssociationId = lens _askrsAssociationId (\s a -> s {_askrsAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+askrsAssociationId :: Lens.Lens' AssociateSecurityKeyResponse (Lude.Maybe Lude.Text)
+askrsAssociationId = Lens.lens (associationId :: AssociateSecurityKeyResponse -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociateSecurityKeyResponse)
+{-# DEPRECATED askrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
--- | -- | The response status code.
-askrsResponseStatus :: Lens' AssociateSecurityKeyResponse Int
-askrsResponseStatus = lens _askrsResponseStatus (\s a -> s {_askrsResponseStatus = a})
-
-instance NFData AssociateSecurityKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+askrsResponseStatus :: Lens.Lens' AssociateSecurityKeyResponse Lude.Int
+askrsResponseStatus = Lens.lens (responseStatus :: AssociateSecurityKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSecurityKeyResponse)
+{-# DEPRECATED askrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CannedAccessControlList where
+module Network.AWS.IoT.Types.CannedAccessControlList
+  ( CannedAccessControlList
+      ( CannedAccessControlList',
+        AWSExecRead,
+        AuthenticatedRead,
+        BucketOwnerFullControl,
+        BucketOwnerRead,
+        LogDeliveryWrite,
+        Private,
+        PublicRead,
+        PublicReadWrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CannedAccessControlList
-  = AWSExecRead
-  | AuthenticatedRead
-  | BucketOwnerFullControl
-  | BucketOwnerRead
-  | LogDeliveryWrite
-  | Private
-  | PublicRead
-  | PublicReadWrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CannedAccessControlList = CannedAccessControlList' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CannedAccessControlList where
-  parser =
-    takeLowerText >>= \case
-      "aws-exec-read" -> pure AWSExecRead
-      "authenticated-read" -> pure AuthenticatedRead
-      "bucket-owner-full-control" -> pure BucketOwnerFullControl
-      "bucket-owner-read" -> pure BucketOwnerRead
-      "log-delivery-write" -> pure LogDeliveryWrite
-      "private" -> pure Private
-      "public-read" -> pure PublicRead
-      "public-read-write" -> pure PublicReadWrite
-      e ->
-        fromTextError $
-          "Failure parsing CannedAccessControlList from value: '" <> e
-            <> "'. Accepted values: aws-exec-read, authenticated-read, bucket-owner-full-control, bucket-owner-read, log-delivery-write, private, public-read, public-read-write"
+pattern AWSExecRead :: CannedAccessControlList
+pattern AWSExecRead = CannedAccessControlList' "aws-exec-read"
 
-instance ToText CannedAccessControlList where
-  toText = \case
-    AWSExecRead -> "aws-exec-read"
-    AuthenticatedRead -> "authenticated-read"
-    BucketOwnerFullControl -> "bucket-owner-full-control"
-    BucketOwnerRead -> "bucket-owner-read"
-    LogDeliveryWrite -> "log-delivery-write"
-    Private -> "private"
-    PublicRead -> "public-read"
-    PublicReadWrite -> "public-read-write"
+pattern AuthenticatedRead :: CannedAccessControlList
+pattern AuthenticatedRead = CannedAccessControlList' "authenticated-read"
 
-instance Hashable CannedAccessControlList
+pattern BucketOwnerFullControl :: CannedAccessControlList
+pattern BucketOwnerFullControl = CannedAccessControlList' "bucket-owner-full-control"
 
-instance NFData CannedAccessControlList
+pattern BucketOwnerRead :: CannedAccessControlList
+pattern BucketOwnerRead = CannedAccessControlList' "bucket-owner-read"
 
-instance ToByteString CannedAccessControlList
+pattern LogDeliveryWrite :: CannedAccessControlList
+pattern LogDeliveryWrite = CannedAccessControlList' "log-delivery-write"
 
-instance ToQuery CannedAccessControlList
+pattern Private :: CannedAccessControlList
+pattern Private = CannedAccessControlList' "private"
 
-instance ToHeader CannedAccessControlList
+pattern PublicRead :: CannedAccessControlList
+pattern PublicRead = CannedAccessControlList' "public-read"
 
-instance ToJSON CannedAccessControlList where
-  toJSON = toJSONText
+pattern PublicReadWrite :: CannedAccessControlList
+pattern PublicReadWrite = CannedAccessControlList' "public-read-write"
 
-instance FromJSON CannedAccessControlList where
-  parseJSON = parseJSONText "CannedAccessControlList"
+{-# COMPLETE
+  AWSExecRead,
+  AuthenticatedRead,
+  BucketOwnerFullControl,
+  BucketOwnerRead,
+  LogDeliveryWrite,
+  Private,
+  PublicRead,
+  PublicReadWrite,
+  CannedAccessControlList'
+  #-}

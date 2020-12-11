@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationOverview where
+module Network.AWS.SSM.Types.AssociationOverview
+  ( AssociationOverview (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationOverview,
+
+    -- * Lenses
+    aoDetailedStatus,
+    aoStatus,
+    aoAssociationStatusAggregatedCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the association.
 --
---
---
--- /See:/ 'associationOverview' smart constructor.
+-- /See:/ 'mkAssociationOverview' smart constructor.
 data AssociationOverview = AssociationOverview'
-  { _aoDetailedStatus ::
-      !(Maybe Text),
-    _aoStatus :: !(Maybe Text),
-    _aoAssociationStatusAggregatedCount ::
-      !(Maybe (Map Text (Int)))
+  { detailedStatus ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    associationStatusAggregatedCount ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationOverview' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aoDetailedStatus' - A detailed status of the association.
---
--- * 'aoStatus' - The status of the association. Status can be: Pending, Success, or Failed.
---
--- * 'aoAssociationStatusAggregatedCount' - Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
-associationOverview ::
+-- * 'associationStatusAggregatedCount' - Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
+-- * 'detailedStatus' - A detailed status of the association.
+-- * 'status' - The status of the association. Status can be: Pending, Success, or Failed.
+mkAssociationOverview ::
   AssociationOverview
-associationOverview =
+mkAssociationOverview =
   AssociationOverview'
-    { _aoDetailedStatus = Nothing,
-      _aoStatus = Nothing,
-      _aoAssociationStatusAggregatedCount = Nothing
+    { detailedStatus = Lude.Nothing,
+      status = Lude.Nothing,
+      associationStatusAggregatedCount = Lude.Nothing
     }
 
 -- | A detailed status of the association.
-aoDetailedStatus :: Lens' AssociationOverview (Maybe Text)
-aoDetailedStatus = lens _aoDetailedStatus (\s a -> s {_aoDetailedStatus = a})
+--
+-- /Note:/ Consider using 'detailedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoDetailedStatus :: Lens.Lens' AssociationOverview (Lude.Maybe Lude.Text)
+aoDetailedStatus = Lens.lens (detailedStatus :: AssociationOverview -> Lude.Maybe Lude.Text) (\s a -> s {detailedStatus = a} :: AssociationOverview)
+{-# DEPRECATED aoDetailedStatus "Use generic-lens or generic-optics with 'detailedStatus' instead." #-}
 
 -- | The status of the association. Status can be: Pending, Success, or Failed.
-aoStatus :: Lens' AssociationOverview (Maybe Text)
-aoStatus = lens _aoStatus (\s a -> s {_aoStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoStatus :: Lens.Lens' AssociationOverview (Lude.Maybe Lude.Text)
+aoStatus = Lens.lens (status :: AssociationOverview -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: AssociationOverview)
+{-# DEPRECATED aoStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
-aoAssociationStatusAggregatedCount :: Lens' AssociationOverview (HashMap Text (Int))
-aoAssociationStatusAggregatedCount = lens _aoAssociationStatusAggregatedCount (\s a -> s {_aoAssociationStatusAggregatedCount = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'associationStatusAggregatedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoAssociationStatusAggregatedCount :: Lens.Lens' AssociationOverview (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)))
+aoAssociationStatusAggregatedCount = Lens.lens (associationStatusAggregatedCount :: AssociationOverview -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))) (\s a -> s {associationStatusAggregatedCount = a} :: AssociationOverview)
+{-# DEPRECATED aoAssociationStatusAggregatedCount "Use generic-lens or generic-optics with 'associationStatusAggregatedCount' instead." #-}
 
-instance FromJSON AssociationOverview where
+instance Lude.FromJSON AssociationOverview where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssociationOverview"
       ( \x ->
           AssociationOverview'
-            <$> (x .:? "DetailedStatus")
-            <*> (x .:? "Status")
-            <*> (x .:? "AssociationStatusAggregatedCount" .!= mempty)
+            Lude.<$> (x Lude..:? "DetailedStatus")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> ( x Lude..:? "AssociationStatusAggregatedCount"
+                         Lude..!= Lude.mempty
+                     )
       )
-
-instance Hashable AssociationOverview
-
-instance NFData AssociationOverview

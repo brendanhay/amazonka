@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.FlowDefinitionStatus where
+module Network.AWS.SageMaker.Types.FlowDefinitionStatus
+  ( FlowDefinitionStatus
+      ( FlowDefinitionStatus',
+        FDSActive,
+        FDSDeleting,
+        FDSFailed,
+        FDSInitializing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FlowDefinitionStatus
-  = FDSActive
-  | FDSDeleting
-  | FDSFailed
-  | FDSInitializing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FlowDefinitionStatus = FlowDefinitionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FlowDefinitionStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure FDSActive
-      "deleting" -> pure FDSDeleting
-      "failed" -> pure FDSFailed
-      "initializing" -> pure FDSInitializing
-      e ->
-        fromTextError $
-          "Failure parsing FlowDefinitionStatus from value: '" <> e
-            <> "'. Accepted values: active, deleting, failed, initializing"
+pattern FDSActive :: FlowDefinitionStatus
+pattern FDSActive = FlowDefinitionStatus' "Active"
 
-instance ToText FlowDefinitionStatus where
-  toText = \case
-    FDSActive -> "Active"
-    FDSDeleting -> "Deleting"
-    FDSFailed -> "Failed"
-    FDSInitializing -> "Initializing"
+pattern FDSDeleting :: FlowDefinitionStatus
+pattern FDSDeleting = FlowDefinitionStatus' "Deleting"
 
-instance Hashable FlowDefinitionStatus
+pattern FDSFailed :: FlowDefinitionStatus
+pattern FDSFailed = FlowDefinitionStatus' "Failed"
 
-instance NFData FlowDefinitionStatus
+pattern FDSInitializing :: FlowDefinitionStatus
+pattern FDSInitializing = FlowDefinitionStatus' "Initializing"
 
-instance ToByteString FlowDefinitionStatus
-
-instance ToQuery FlowDefinitionStatus
-
-instance ToHeader FlowDefinitionStatus
-
-instance FromJSON FlowDefinitionStatus where
-  parseJSON = parseJSONText "FlowDefinitionStatus"
+{-# COMPLETE
+  FDSActive,
+  FDSDeleting,
+  FDSFailed,
+  FDSInitializing,
+  FlowDefinitionStatus'
+  #-}

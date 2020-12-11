@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,146 @@
 --
 -- Bulk update custom inventory items on one more instance. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.
 module Network.AWS.SSM.PutInventory
-  ( -- * Creating a Request
-    putInventory,
-    PutInventory,
+  ( -- * Creating a request
+    PutInventory (..),
+    mkPutInventory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     piInstanceId,
     piItems,
 
-    -- * Destructuring the Response
-    putInventoryResponse,
-    PutInventoryResponse,
+    -- * Destructuring the response
+    PutInventoryResponse (..),
+    mkPutInventoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pirsMessage,
     pirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'putInventory' smart constructor.
+-- | /See:/ 'mkPutInventory' smart constructor.
 data PutInventory = PutInventory'
-  { _piInstanceId :: !Text,
-    _piItems :: !(List1 InventoryItem)
+  { instanceId :: Lude.Text,
+    items :: Lude.NonEmpty InventoryItem
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInventory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piInstanceId' - An instance ID where you want to add or update inventory items.
---
--- * 'piItems' - The inventory items that you want to add or update on instances.
-putInventory ::
-  -- | 'piInstanceId'
-  Text ->
-  -- | 'piItems'
-  NonEmpty InventoryItem ->
+-- * 'instanceId' - An instance ID where you want to add or update inventory items.
+-- * 'items' - The inventory items that you want to add or update on instances.
+mkPutInventory ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'items'
+  Lude.NonEmpty InventoryItem ->
   PutInventory
-putInventory pInstanceId_ pItems_ =
-  PutInventory'
-    { _piInstanceId = pInstanceId_,
-      _piItems = _List1 # pItems_
-    }
+mkPutInventory pInstanceId_ pItems_ =
+  PutInventory' {instanceId = pInstanceId_, items = pItems_}
 
 -- | An instance ID where you want to add or update inventory items.
-piInstanceId :: Lens' PutInventory Text
-piInstanceId = lens _piInstanceId (\s a -> s {_piInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piInstanceId :: Lens.Lens' PutInventory Lude.Text
+piInstanceId = Lens.lens (instanceId :: PutInventory -> Lude.Text) (\s a -> s {instanceId = a} :: PutInventory)
+{-# DEPRECATED piInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The inventory items that you want to add or update on instances.
-piItems :: Lens' PutInventory (NonEmpty InventoryItem)
-piItems = lens _piItems (\s a -> s {_piItems = a}) . _List1
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piItems :: Lens.Lens' PutInventory (Lude.NonEmpty InventoryItem)
+piItems = Lens.lens (items :: PutInventory -> Lude.NonEmpty InventoryItem) (\s a -> s {items = a} :: PutInventory)
+{-# DEPRECATED piItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance AWSRequest PutInventory where
+instance Lude.AWSRequest PutInventory where
   type Rs PutInventory = PutInventoryResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutInventoryResponse'
-            <$> (x .?> "Message") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Message") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutInventory
-
-instance NFData PutInventory
-
-instance ToHeaders PutInventory where
+instance Lude.ToHeaders PutInventory where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.PutInventory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.PutInventory" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutInventory where
+instance Lude.ToJSON PutInventory where
   toJSON PutInventory' {..} =
-    object
-      ( catMaybes
-          [Just ("InstanceId" .= _piInstanceId), Just ("Items" .= _piItems)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("Items" Lude..= items)
+          ]
       )
 
-instance ToPath PutInventory where
-  toPath = const "/"
+instance Lude.ToPath PutInventory where
+  toPath = Lude.const "/"
 
-instance ToQuery PutInventory where
-  toQuery = const mempty
+instance Lude.ToQuery PutInventory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putInventoryResponse' smart constructor.
+-- | /See:/ 'mkPutInventoryResponse' smart constructor.
 data PutInventoryResponse = PutInventoryResponse'
-  { _pirsMessage ::
-      !(Maybe Text),
-    _pirsResponseStatus :: !Int
+  { message ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInventoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pirsMessage' - Information about the request.
---
--- * 'pirsResponseStatus' - -- | The response status code.
-putInventoryResponse ::
-  -- | 'pirsResponseStatus'
-  Int ->
+-- * 'message' - Information about the request.
+-- * 'responseStatus' - The response status code.
+mkPutInventoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutInventoryResponse
-putInventoryResponse pResponseStatus_ =
+mkPutInventoryResponse pResponseStatus_ =
   PutInventoryResponse'
-    { _pirsMessage = Nothing,
-      _pirsResponseStatus = pResponseStatus_
+    { message = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the request.
-pirsMessage :: Lens' PutInventoryResponse (Maybe Text)
-pirsMessage = lens _pirsMessage (\s a -> s {_pirsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsMessage :: Lens.Lens' PutInventoryResponse (Lude.Maybe Lude.Text)
+pirsMessage = Lens.lens (message :: PutInventoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PutInventoryResponse)
+{-# DEPRECATED pirsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
--- | -- | The response status code.
-pirsResponseStatus :: Lens' PutInventoryResponse Int
-pirsResponseStatus = lens _pirsResponseStatus (\s a -> s {_pirsResponseStatus = a})
-
-instance NFData PutInventoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsResponseStatus :: Lens.Lens' PutInventoryResponse Lude.Int
+pirsResponseStatus = Lens.lens (responseStatus :: PutInventoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutInventoryResponse)
+{-# DEPRECATED pirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

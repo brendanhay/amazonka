@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionInfos where
+module Network.AWS.SWF.Types.WorkflowExecutionInfos
+  ( WorkflowExecutionInfos (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowExecutionInfos,
+
+    -- * Lenses
+    weiNextPageToken,
+    weiExecutionInfos,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.WorkflowExecutionInfo
 
 -- | Contains a paginated list of information about workflow executions.
 --
---
---
--- /See:/ 'workflowExecutionInfos' smart constructor.
+-- /See:/ 'mkWorkflowExecutionInfos' smart constructor.
 data WorkflowExecutionInfos = WorkflowExecutionInfos'
-  { _weiNextPageToken ::
-      !(Maybe Text),
-    _weiExecutionInfos ::
-      ![WorkflowExecutionInfo]
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    executionInfos :: [WorkflowExecutionInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionInfos' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'executionInfos' - The list of workflow information structures.
+-- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
--- * 'weiNextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
---
--- * 'weiExecutionInfos' - The list of workflow information structures.
-workflowExecutionInfos ::
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+mkWorkflowExecutionInfos ::
   WorkflowExecutionInfos
-workflowExecutionInfos =
+mkWorkflowExecutionInfos =
   WorkflowExecutionInfos'
-    { _weiNextPageToken = Nothing,
-      _weiExecutionInfos = mempty
+    { nextPageToken = Lude.Nothing,
+      executionInfos = Lude.mempty
     }
 
--- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
-weiNextPageToken :: Lens' WorkflowExecutionInfos (Maybe Text)
-weiNextPageToken = lens _weiNextPageToken (\s a -> s {_weiNextPageToken = a})
+-- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+--
+-- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weiNextPageToken :: Lens.Lens' WorkflowExecutionInfos (Lude.Maybe Lude.Text)
+weiNextPageToken = Lens.lens (nextPageToken :: WorkflowExecutionInfos -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: WorkflowExecutionInfos)
+{-# DEPRECATED weiNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The list of workflow information structures.
-weiExecutionInfos :: Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
-weiExecutionInfos = lens _weiExecutionInfos (\s a -> s {_weiExecutionInfos = a}) . _Coerce
+--
+-- /Note:/ Consider using 'executionInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weiExecutionInfos :: Lens.Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
+weiExecutionInfos = Lens.lens (executionInfos :: WorkflowExecutionInfos -> [WorkflowExecutionInfo]) (\s a -> s {executionInfos = a} :: WorkflowExecutionInfos)
+{-# DEPRECATED weiExecutionInfos "Use generic-lens or generic-optics with 'executionInfos' instead." #-}
 
-instance FromJSON WorkflowExecutionInfos where
+instance Lude.FromJSON WorkflowExecutionInfos where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowExecutionInfos"
       ( \x ->
           WorkflowExecutionInfos'
-            <$> (x .:? "nextPageToken") <*> (x .:? "executionInfos" .!= mempty)
+            Lude.<$> (x Lude..:? "nextPageToken")
+            Lude.<*> (x Lude..:? "executionInfos" Lude..!= Lude.mempty)
       )
-
-instance Hashable WorkflowExecutionInfos
-
-instance NFData WorkflowExecutionInfos

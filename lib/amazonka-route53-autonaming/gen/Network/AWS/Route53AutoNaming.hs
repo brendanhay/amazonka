@@ -13,8 +13,8 @@
 --
 -- AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records.
 module Network.AWS.Route53AutoNaming
-  ( -- * Service Configuration
-    route53AutoNaming,
+  ( -- * Service configuration
+    route53AutoNamingService,
 
     -- * Errors
     -- $errors
@@ -139,31 +139,31 @@ module Network.AWS.Route53AutoNaming
     ServiceFilterName (..),
 
     -- ** DNSConfig
-    DNSConfig,
-    dnsConfig,
+    DNSConfig (..),
+    mkDNSConfig,
     dcRoutingPolicy,
     dcNamespaceId,
     dcDNSRecords,
 
     -- ** DNSConfigChange
-    DNSConfigChange,
-    dnsConfigChange,
+    DNSConfigChange (..),
+    mkDNSConfigChange,
     dccDNSRecords,
 
     -- ** DNSProperties
-    DNSProperties,
-    dnsProperties,
+    DNSProperties (..),
+    mkDNSProperties,
     dpHostedZoneId,
 
     -- ** DNSRecord
-    DNSRecord,
-    dnsRecord,
+    DNSRecord (..),
+    mkDNSRecord,
     drType,
     drTTL,
 
     -- ** HTTPInstanceSummary
-    HTTPInstanceSummary,
-    hTTPInstanceSummary,
+    HTTPInstanceSummary (..),
+    mkHTTPInstanceSummary,
     httpisInstanceId,
     httpisNamespaceName,
     httpisAttributes,
@@ -171,38 +171,38 @@ module Network.AWS.Route53AutoNaming
     httpisHealthStatus,
 
     -- ** HTTPProperties
-    HTTPProperties,
-    hTTPProperties,
+    HTTPProperties (..),
+    mkHTTPProperties,
     httppHTTPName,
 
     -- ** HealthCheckConfig
-    HealthCheckConfig,
-    healthCheckConfig,
+    HealthCheckConfig (..),
+    mkHealthCheckConfig,
     hccFailureThreshold,
     hccResourcePath,
     hccType,
 
     -- ** HealthCheckCustomConfig
-    HealthCheckCustomConfig,
-    healthCheckCustomConfig,
+    HealthCheckCustomConfig (..),
+    mkHealthCheckCustomConfig,
     hcccFailureThreshold,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iCreatorRequestId,
     iAttributes,
     iId,
 
     -- ** InstanceSummary
-    InstanceSummary,
-    instanceSummary,
+    InstanceSummary (..),
+    mkInstanceSummary,
     isAttributes,
     isId,
 
     -- ** Namespace
-    Namespace,
-    namespace,
+    Namespace (..),
+    mkNamespace,
     nARN,
     nCreatorRequestId,
     nCreateDate,
@@ -214,21 +214,21 @@ module Network.AWS.Route53AutoNaming
     nProperties,
 
     -- ** NamespaceFilter
-    NamespaceFilter,
-    namespaceFilter,
+    NamespaceFilter (..),
+    mkNamespaceFilter,
     nfCondition,
     nfName,
     nfValues,
 
     -- ** NamespaceProperties
-    NamespaceProperties,
-    namespaceProperties,
+    NamespaceProperties (..),
+    mkNamespaceProperties,
     npDNSProperties,
     npHTTPProperties,
 
     -- ** NamespaceSummary
-    NamespaceSummary,
-    namespaceSummary,
+    NamespaceSummary (..),
+    mkNamespaceSummary,
     nsARN,
     nsCreateDate,
     nsServiceCount,
@@ -239,8 +239,8 @@ module Network.AWS.Route53AutoNaming
     nsProperties,
 
     -- ** Operation
-    Operation,
-    operation,
+    Operation (..),
+    mkOperation,
     oStatus,
     oUpdateDate,
     oCreateDate,
@@ -251,35 +251,35 @@ module Network.AWS.Route53AutoNaming
     oErrorMessage,
 
     -- ** OperationFilter
-    OperationFilter,
-    operationFilter,
+    OperationFilter (..),
+    mkOperationFilter,
     ofCondition,
     ofName,
     ofValues,
 
     -- ** OperationSummary
-    OperationSummary,
-    operationSummary,
+    OperationSummary (..),
+    mkOperationSummary,
     osStatus,
     osId,
 
     -- ** ServiceChange
-    ServiceChange,
-    serviceChange,
+    ServiceChange (..),
+    mkServiceChange,
     scHealthCheckConfig,
     scDNSConfig,
     scDescription,
 
     -- ** ServiceFilter
-    ServiceFilter,
-    serviceFilter,
+    ServiceFilter (..),
+    mkServiceFilter,
     sfCondition,
     sfName,
     sfValues,
 
     -- ** ServiceInfo
-    ServiceInfo,
-    serviceInfo,
+    ServiceInfo (..),
+    mkServiceInfo,
     siInstanceCount,
     siARN,
     siHealthCheckConfig,
@@ -293,8 +293,8 @@ module Network.AWS.Route53AutoNaming
     siDescription,
 
     -- ** ServiceSummary
-    ServiceSummary,
-    serviceSummary,
+    ServiceSummary (..),
+    mkServiceSummary,
     ssInstanceCount,
     ssARN,
     ssHealthCheckConfig,
@@ -306,13 +306,25 @@ module Network.AWS.Route53AutoNaming
     ssDescription,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.CreateHTTPNamespace
 import Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
 import Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace

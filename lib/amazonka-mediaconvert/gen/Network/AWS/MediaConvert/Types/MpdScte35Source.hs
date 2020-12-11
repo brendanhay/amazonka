@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MpdScte35Source where
+module Network.AWS.MediaConvert.Types.MpdScte35Source
+  ( MpdScte35Source
+      ( MpdScte35Source',
+        MpdNone,
+        MpdPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-data MpdScte35Source
-  = MpdNone
-  | MpdPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MpdScte35Source = MpdScte35Source' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MpdScte35Source where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure MpdNone
-      "passthrough" -> pure MpdPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing MpdScte35Source from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern MpdNone :: MpdScte35Source
+pattern MpdNone = MpdScte35Source' "NONE"
 
-instance ToText MpdScte35Source where
-  toText = \case
-    MpdNone -> "NONE"
-    MpdPassthrough -> "PASSTHROUGH"
+pattern MpdPassthrough :: MpdScte35Source
+pattern MpdPassthrough = MpdScte35Source' "PASSTHROUGH"
 
-instance Hashable MpdScte35Source
-
-instance NFData MpdScte35Source
-
-instance ToByteString MpdScte35Source
-
-instance ToQuery MpdScte35Source
-
-instance ToHeader MpdScte35Source
-
-instance ToJSON MpdScte35Source where
-  toJSON = toJSONText
-
-instance FromJSON MpdScte35Source where
-  parseJSON = parseJSONText "MpdScte35Source"
+{-# COMPLETE
+  MpdNone,
+  MpdPassthrough,
+  MpdScte35Source'
+  #-}

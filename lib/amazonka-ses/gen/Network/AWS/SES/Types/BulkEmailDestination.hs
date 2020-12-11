@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.BulkEmailDestination where
+module Network.AWS.SES.Types.BulkEmailDestination
+  ( BulkEmailDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBulkEmailDestination,
+
+    -- * Lenses
+    bedReplacementTemplateData,
+    bedReplacementTags,
+    bedDestination,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.Destination
 import Network.AWS.SES.Types.MessageTag
 
 -- | An array that contains one or more Destinations, as well as the tags and replacement data associated with each of those Destinations.
 --
---
---
--- /See:/ 'bulkEmailDestination' smart constructor.
+-- /See:/ 'mkBulkEmailDestination' smart constructor.
 data BulkEmailDestination = BulkEmailDestination'
-  { _bedReplacementTemplateData ::
-      !(Maybe Text),
-    _bedReplacementTags :: !(Maybe [MessageTag]),
-    _bedDestination :: !Destination
+  { replacementTemplateData ::
+      Lude.Maybe Lude.Text,
+    replacementTags :: Lude.Maybe [MessageTag],
+    destination :: Destination
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BulkEmailDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bedReplacementTemplateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
---
--- * 'bedReplacementTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendBulkTemplatedEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
---
--- * 'bedDestination' - Undocumented member.
-bulkEmailDestination ::
-  -- | 'bedDestination'
+-- * 'destination' - Undocumented field.
+-- * 'replacementTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendBulkTemplatedEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+-- * 'replacementTemplateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+mkBulkEmailDestination ::
+  -- | 'destination'
   Destination ->
   BulkEmailDestination
-bulkEmailDestination pDestination_ =
+mkBulkEmailDestination pDestination_ =
   BulkEmailDestination'
-    { _bedReplacementTemplateData = Nothing,
-      _bedReplacementTags = Nothing,
-      _bedDestination = pDestination_
+    { replacementTemplateData = Lude.Nothing,
+      replacementTags = Lude.Nothing,
+      destination = pDestination_
     }
 
 -- | A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
-bedReplacementTemplateData :: Lens' BulkEmailDestination (Maybe Text)
-bedReplacementTemplateData = lens _bedReplacementTemplateData (\s a -> s {_bedReplacementTemplateData = a})
+--
+-- /Note:/ Consider using 'replacementTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bedReplacementTemplateData :: Lens.Lens' BulkEmailDestination (Lude.Maybe Lude.Text)
+bedReplacementTemplateData = Lens.lens (replacementTemplateData :: BulkEmailDestination -> Lude.Maybe Lude.Text) (\s a -> s {replacementTemplateData = a} :: BulkEmailDestination)
+{-# DEPRECATED bedReplacementTemplateData "Use generic-lens or generic-optics with 'replacementTemplateData' instead." #-}
 
 -- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendBulkTemplatedEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
-bedReplacementTags :: Lens' BulkEmailDestination [MessageTag]
-bedReplacementTags = lens _bedReplacementTags (\s a -> s {_bedReplacementTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replacementTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bedReplacementTags :: Lens.Lens' BulkEmailDestination (Lude.Maybe [MessageTag])
+bedReplacementTags = Lens.lens (replacementTags :: BulkEmailDestination -> Lude.Maybe [MessageTag]) (\s a -> s {replacementTags = a} :: BulkEmailDestination)
+{-# DEPRECATED bedReplacementTags "Use generic-lens or generic-optics with 'replacementTags' instead." #-}
 
--- | Undocumented member.
-bedDestination :: Lens' BulkEmailDestination Destination
-bedDestination = lens _bedDestination (\s a -> s {_bedDestination = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bedDestination :: Lens.Lens' BulkEmailDestination Destination
+bedDestination = Lens.lens (destination :: BulkEmailDestination -> Destination) (\s a -> s {destination = a} :: BulkEmailDestination)
+{-# DEPRECATED bedDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Hashable BulkEmailDestination
-
-instance NFData BulkEmailDestination
-
-instance ToQuery BulkEmailDestination where
+instance Lude.ToQuery BulkEmailDestination where
   toQuery BulkEmailDestination' {..} =
-    mconcat
-      [ "ReplacementTemplateData" =: _bedReplacementTemplateData,
+    Lude.mconcat
+      [ "ReplacementTemplateData" Lude.=: replacementTemplateData,
         "ReplacementTags"
-          =: toQuery (toQueryList "member" <$> _bedReplacementTags),
-        "Destination" =: _bedDestination
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> replacementTags),
+        "Destination" Lude.=: destination
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Validates the specified pipeline definition to ensure that it is well formed and can be run without error.
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
-  ( -- * Creating a Request
-    validatePipelineDefinition,
-    ValidatePipelineDefinition,
+  ( -- * Creating a request
+    ValidatePipelineDefinition (..),
+    mkValidatePipelineDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     vpdParameterObjects,
     vpdParameterValues,
     vpdPipelineId,
     vpdPipelineObjects,
 
-    -- * Destructuring the Response
-    validatePipelineDefinitionResponse,
-    ValidatePipelineDefinitionResponse,
+    -- * Destructuring the response
+    ValidatePipelineDefinitionResponse (..),
+    mkValidatePipelineDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     vpdrsValidationErrors,
     vpdrsValidationWarnings,
     vpdrsResponseStatus,
@@ -42,173 +37,188 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ValidatePipelineDefinition.
 --
---
---
--- /See:/ 'validatePipelineDefinition' smart constructor.
+-- /See:/ 'mkValidatePipelineDefinition' smart constructor.
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
-  { _vpdParameterObjects ::
-      !(Maybe [ParameterObject]),
-    _vpdParameterValues ::
-      !(Maybe [ParameterValue]),
-    _vpdPipelineId :: !Text,
-    _vpdPipelineObjects ::
-      ![PipelineObject]
+  { parameterObjects ::
+      Lude.Maybe [ParameterObject],
+    parameterValues ::
+      Lude.Maybe [ParameterValue],
+    pipelineId :: Lude.Text,
+    pipelineObjects :: [PipelineObject]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidatePipelineDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vpdParameterObjects' - The parameter objects used with the pipeline.
---
--- * 'vpdParameterValues' - The parameter values used with the pipeline.
---
--- * 'vpdPipelineId' - The ID of the pipeline.
---
--- * 'vpdPipelineObjects' - The objects that define the pipeline changes to validate against the pipeline.
-validatePipelineDefinition ::
-  -- | 'vpdPipelineId'
-  Text ->
+-- * 'parameterObjects' - The parameter objects used with the pipeline.
+-- * 'parameterValues' - The parameter values used with the pipeline.
+-- * 'pipelineId' - The ID of the pipeline.
+-- * 'pipelineObjects' - The objects that define the pipeline changes to validate against the pipeline.
+mkValidatePipelineDefinition ::
+  -- | 'pipelineId'
+  Lude.Text ->
   ValidatePipelineDefinition
-validatePipelineDefinition pPipelineId_ =
+mkValidatePipelineDefinition pPipelineId_ =
   ValidatePipelineDefinition'
-    { _vpdParameterObjects = Nothing,
-      _vpdParameterValues = Nothing,
-      _vpdPipelineId = pPipelineId_,
-      _vpdPipelineObjects = mempty
+    { parameterObjects = Lude.Nothing,
+      parameterValues = Lude.Nothing,
+      pipelineId = pPipelineId_,
+      pipelineObjects = Lude.mempty
     }
 
 -- | The parameter objects used with the pipeline.
-vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
-vpdParameterObjects = lens _vpdParameterObjects (\s a -> s {_vpdParameterObjects = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdParameterObjects :: Lens.Lens' ValidatePipelineDefinition (Lude.Maybe [ParameterObject])
+vpdParameterObjects = Lens.lens (parameterObjects :: ValidatePipelineDefinition -> Lude.Maybe [ParameterObject]) (\s a -> s {parameterObjects = a} :: ValidatePipelineDefinition)
+{-# DEPRECATED vpdParameterObjects "Use generic-lens or generic-optics with 'parameterObjects' instead." #-}
 
 -- | The parameter values used with the pipeline.
-vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
-vpdParameterValues = lens _vpdParameterValues (\s a -> s {_vpdParameterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdParameterValues :: Lens.Lens' ValidatePipelineDefinition (Lude.Maybe [ParameterValue])
+vpdParameterValues = Lens.lens (parameterValues :: ValidatePipelineDefinition -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterValues = a} :: ValidatePipelineDefinition)
+{-# DEPRECATED vpdParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
 -- | The ID of the pipeline.
-vpdPipelineId :: Lens' ValidatePipelineDefinition Text
-vpdPipelineId = lens _vpdPipelineId (\s a -> s {_vpdPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdPipelineId :: Lens.Lens' ValidatePipelineDefinition Lude.Text
+vpdPipelineId = Lens.lens (pipelineId :: ValidatePipelineDefinition -> Lude.Text) (\s a -> s {pipelineId = a} :: ValidatePipelineDefinition)
+{-# DEPRECATED vpdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The objects that define the pipeline changes to validate against the pipeline.
-vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-vpdPipelineObjects = lens _vpdPipelineObjects (\s a -> s {_vpdPipelineObjects = a}) . _Coerce
+--
+-- /Note:/ Consider using 'pipelineObjects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdPipelineObjects :: Lens.Lens' ValidatePipelineDefinition [PipelineObject]
+vpdPipelineObjects = Lens.lens (pipelineObjects :: ValidatePipelineDefinition -> [PipelineObject]) (\s a -> s {pipelineObjects = a} :: ValidatePipelineDefinition)
+{-# DEPRECATED vpdPipelineObjects "Use generic-lens or generic-optics with 'pipelineObjects' instead." #-}
 
-instance AWSRequest ValidatePipelineDefinition where
+instance Lude.AWSRequest ValidatePipelineDefinition where
   type
     Rs ValidatePipelineDefinition =
       ValidatePipelineDefinitionResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ValidatePipelineDefinitionResponse'
-            <$> (x .?> "validationErrors" .!@ mempty)
-            <*> (x .?> "validationWarnings" .!@ mempty)
-            <*> (pure (fromEnum s))
-            <*> (x .:> "errored")
+            Lude.<$> (x Lude..?> "validationErrors" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "validationWarnings" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "errored")
       )
 
-instance Hashable ValidatePipelineDefinition
-
-instance NFData ValidatePipelineDefinition
-
-instance ToHeaders ValidatePipelineDefinition where
+instance Lude.ToHeaders ValidatePipelineDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DataPipeline.ValidatePipelineDefinition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DataPipeline.ValidatePipelineDefinition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ValidatePipelineDefinition where
+instance Lude.ToJSON ValidatePipelineDefinition where
   toJSON ValidatePipelineDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("parameterObjects" .=) <$> _vpdParameterObjects,
-            ("parameterValues" .=) <$> _vpdParameterValues,
-            Just ("pipelineId" .= _vpdPipelineId),
-            Just ("pipelineObjects" .= _vpdPipelineObjects)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("parameterObjects" Lude..=) Lude.<$> parameterObjects,
+            ("parameterValues" Lude..=) Lude.<$> parameterValues,
+            Lude.Just ("pipelineId" Lude..= pipelineId),
+            Lude.Just ("pipelineObjects" Lude..= pipelineObjects)
           ]
       )
 
-instance ToPath ValidatePipelineDefinition where
-  toPath = const "/"
+instance Lude.ToPath ValidatePipelineDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery ValidatePipelineDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery ValidatePipelineDefinition where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of ValidatePipelineDefinition.
 --
---
---
--- /See:/ 'validatePipelineDefinitionResponse' smart constructor.
+-- /See:/ 'mkValidatePipelineDefinitionResponse' smart constructor.
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
-  { _vpdrsValidationErrors ::
-      !( Maybe
-           [ValidationError]
-       ),
-    _vpdrsValidationWarnings ::
-      !( Maybe
-           [ValidationWarning]
-       ),
-    _vpdrsResponseStatus ::
-      !Int,
-    _vpdrsErrored ::
-      !Bool
+  { validationErrors ::
+      Lude.Maybe
+        [ValidationError],
+    validationWarnings ::
+      Lude.Maybe
+        [ValidationWarning],
+    responseStatus ::
+      Lude.Int,
+    errored :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidatePipelineDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vpdrsValidationErrors' - Any validation errors that were found.
---
--- * 'vpdrsValidationWarnings' - Any validation warnings that were found.
---
--- * 'vpdrsResponseStatus' - -- | The response status code.
---
--- * 'vpdrsErrored' - Indicates whether there were validation errors.
-validatePipelineDefinitionResponse ::
-  -- | 'vpdrsResponseStatus'
-  Int ->
-  -- | 'vpdrsErrored'
-  Bool ->
+-- * 'errored' - Indicates whether there were validation errors.
+-- * 'responseStatus' - The response status code.
+-- * 'validationErrors' - Any validation errors that were found.
+-- * 'validationWarnings' - Any validation warnings that were found.
+mkValidatePipelineDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'errored'
+  Lude.Bool ->
   ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pResponseStatus_ pErrored_ =
+mkValidatePipelineDefinitionResponse pResponseStatus_ pErrored_ =
   ValidatePipelineDefinitionResponse'
-    { _vpdrsValidationErrors =
-        Nothing,
-      _vpdrsValidationWarnings = Nothing,
-      _vpdrsResponseStatus = pResponseStatus_,
-      _vpdrsErrored = pErrored_
+    { validationErrors =
+        Lude.Nothing,
+      validationWarnings = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      errored = pErrored_
     }
 
 -- | Any validation errors that were found.
-vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
-vpdrsValidationErrors = lens _vpdrsValidationErrors (\s a -> s {_vpdrsValidationErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdrsValidationErrors :: Lens.Lens' ValidatePipelineDefinitionResponse (Lude.Maybe [ValidationError])
+vpdrsValidationErrors = Lens.lens (validationErrors :: ValidatePipelineDefinitionResponse -> Lude.Maybe [ValidationError]) (\s a -> s {validationErrors = a} :: ValidatePipelineDefinitionResponse)
+{-# DEPRECATED vpdrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
 
 -- | Any validation warnings that were found.
-vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
-vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\s a -> s {_vpdrsValidationWarnings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validationWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdrsValidationWarnings :: Lens.Lens' ValidatePipelineDefinitionResponse (Lude.Maybe [ValidationWarning])
+vpdrsValidationWarnings = Lens.lens (validationWarnings :: ValidatePipelineDefinitionResponse -> Lude.Maybe [ValidationWarning]) (\s a -> s {validationWarnings = a} :: ValidatePipelineDefinitionResponse)
+{-# DEPRECATED vpdrsValidationWarnings "Use generic-lens or generic-optics with 'validationWarnings' instead." #-}
 
--- | -- | The response status code.
-vpdrsResponseStatus :: Lens' ValidatePipelineDefinitionResponse Int
-vpdrsResponseStatus = lens _vpdrsResponseStatus (\s a -> s {_vpdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdrsResponseStatus :: Lens.Lens' ValidatePipelineDefinitionResponse Lude.Int
+vpdrsResponseStatus = Lens.lens (responseStatus :: ValidatePipelineDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ValidatePipelineDefinitionResponse)
+{-# DEPRECATED vpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Indicates whether there were validation errors.
-vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrsErrored = lens _vpdrsErrored (\s a -> s {_vpdrsErrored = a})
-
-instance NFData ValidatePipelineDefinitionResponse
+--
+-- /Note:/ Consider using 'errored' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpdrsErrored :: Lens.Lens' ValidatePipelineDefinitionResponse Lude.Bool
+vpdrsErrored = Lens.lens (errored :: ValidatePipelineDefinitionResponse -> Lude.Bool) (\s a -> s {errored = a} :: ValidatePipelineDefinitionResponse)
+{-# DEPRECATED vpdrsErrored "Use generic-lens or generic-optics with 'errored' instead." #-}

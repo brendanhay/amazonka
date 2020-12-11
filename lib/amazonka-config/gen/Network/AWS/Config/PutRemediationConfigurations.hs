@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,144 @@
 --
 -- Adds or updates the remediation configuration with a specific AWS Config rule with the selected target or action. The API creates the @RemediationConfiguration@ object for the AWS Config rule. The AWS Config rule must already exist for you to add a remediation configuration. The target (SSM document) must exist and have permissions to use the target.
 module Network.AWS.Config.PutRemediationConfigurations
-  ( -- * Creating a Request
-    putRemediationConfigurations,
-    PutRemediationConfigurations,
+  ( -- * Creating a request
+    PutRemediationConfigurations (..),
+    mkPutRemediationConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prcRemediationConfigurations,
 
-    -- * Destructuring the Response
-    putRemediationConfigurationsResponse,
-    PutRemediationConfigurationsResponse,
+    -- * Destructuring the response
+    PutRemediationConfigurationsResponse (..),
+    mkPutRemediationConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prcrsFailedBatches,
     prcrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putRemediationConfigurations' smart constructor.
+-- | /See:/ 'mkPutRemediationConfigurations' smart constructor.
 newtype PutRemediationConfigurations = PutRemediationConfigurations'
-  { _prcRemediationConfigurations ::
+  { remediationConfigurations ::
       [RemediationConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRemediationConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prcRemediationConfigurations' - A list of remediation configuration objects.
-putRemediationConfigurations ::
+-- * 'remediationConfigurations' - A list of remediation configuration objects.
+mkPutRemediationConfigurations ::
   PutRemediationConfigurations
-putRemediationConfigurations =
+mkPutRemediationConfigurations =
   PutRemediationConfigurations'
-    { _prcRemediationConfigurations =
-        mempty
+    { remediationConfigurations =
+        Lude.mempty
     }
 
 -- | A list of remediation configuration objects.
-prcRemediationConfigurations :: Lens' PutRemediationConfigurations [RemediationConfiguration]
-prcRemediationConfigurations = lens _prcRemediationConfigurations (\s a -> s {_prcRemediationConfigurations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'remediationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcRemediationConfigurations :: Lens.Lens' PutRemediationConfigurations [RemediationConfiguration]
+prcRemediationConfigurations = Lens.lens (remediationConfigurations :: PutRemediationConfigurations -> [RemediationConfiguration]) (\s a -> s {remediationConfigurations = a} :: PutRemediationConfigurations)
+{-# DEPRECATED prcRemediationConfigurations "Use generic-lens or generic-optics with 'remediationConfigurations' instead." #-}
 
-instance AWSRequest PutRemediationConfigurations where
+instance Lude.AWSRequest PutRemediationConfigurations where
   type
     Rs PutRemediationConfigurations =
       PutRemediationConfigurationsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutRemediationConfigurationsResponse'
-            <$> (x .?> "FailedBatches" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailedBatches" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutRemediationConfigurations
-
-instance NFData PutRemediationConfigurations
-
-instance ToHeaders PutRemediationConfigurations where
+instance Lude.ToHeaders PutRemediationConfigurations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.PutRemediationConfigurations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.PutRemediationConfigurations" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutRemediationConfigurations where
+instance Lude.ToJSON PutRemediationConfigurations where
   toJSON PutRemediationConfigurations' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("RemediationConfigurations" .= _prcRemediationConfigurations)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("RemediationConfigurations" Lude..= remediationConfigurations)
           ]
       )
 
-instance ToPath PutRemediationConfigurations where
-  toPath = const "/"
+instance Lude.ToPath PutRemediationConfigurations where
+  toPath = Lude.const "/"
 
-instance ToQuery PutRemediationConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery PutRemediationConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putRemediationConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkPutRemediationConfigurationsResponse' smart constructor.
 data PutRemediationConfigurationsResponse = PutRemediationConfigurationsResponse'
-  { _prcrsFailedBatches ::
-      !( Maybe
-           [FailedRemediationBatch]
-       ),
-    _prcrsResponseStatus ::
-      !Int
+  { failedBatches ::
+      Lude.Maybe
+        [FailedRemediationBatch],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRemediationConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prcrsFailedBatches' - Returns a list of failed remediation batch objects.
---
--- * 'prcrsResponseStatus' - -- | The response status code.
-putRemediationConfigurationsResponse ::
-  -- | 'prcrsResponseStatus'
-  Int ->
+-- * 'failedBatches' - Returns a list of failed remediation batch objects.
+-- * 'responseStatus' - The response status code.
+mkPutRemediationConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutRemediationConfigurationsResponse
-putRemediationConfigurationsResponse pResponseStatus_ =
+mkPutRemediationConfigurationsResponse pResponseStatus_ =
   PutRemediationConfigurationsResponse'
-    { _prcrsFailedBatches =
-        Nothing,
-      _prcrsResponseStatus = pResponseStatus_
+    { failedBatches =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of failed remediation batch objects.
-prcrsFailedBatches :: Lens' PutRemediationConfigurationsResponse [FailedRemediationBatch]
-prcrsFailedBatches = lens _prcrsFailedBatches (\s a -> s {_prcrsFailedBatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failedBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcrsFailedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Lude.Maybe [FailedRemediationBatch])
+prcrsFailedBatches = Lens.lens (failedBatches :: PutRemediationConfigurationsResponse -> Lude.Maybe [FailedRemediationBatch]) (\s a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse)
+{-# DEPRECATED prcrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
 
--- | -- | The response status code.
-prcrsResponseStatus :: Lens' PutRemediationConfigurationsResponse Int
-prcrsResponseStatus = lens _prcrsResponseStatus (\s a -> s {_prcrsResponseStatus = a})
-
-instance NFData PutRemediationConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcrsResponseStatus :: Lens.Lens' PutRemediationConfigurationsResponse Lude.Int
+prcrsResponseStatus = Lens.lens (responseStatus :: PutRemediationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRemediationConfigurationsResponse)
+{-# DEPRECATED prcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.PipelineConfig where
+module Network.AWS.AppSync.Types.PipelineConfig
+  ( PipelineConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPipelineConfig,
+
+    -- * Lenses
+    pcFunctions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@ .
 --
---
---
--- /See:/ 'pipelineConfig' smart constructor.
+-- /See:/ 'mkPipelineConfig' smart constructor.
 newtype PipelineConfig = PipelineConfig'
-  { _pcFunctions ::
-      Maybe [Text]
+  { functions ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcFunctions' - A list of @Function@ objects.
-pipelineConfig ::
+-- * 'functions' - A list of @Function@ objects.
+mkPipelineConfig ::
   PipelineConfig
-pipelineConfig = PipelineConfig' {_pcFunctions = Nothing}
+mkPipelineConfig = PipelineConfig' {functions = Lude.Nothing}
 
 -- | A list of @Function@ objects.
-pcFunctions :: Lens' PipelineConfig [Text]
-pcFunctions = lens _pcFunctions (\s a -> s {_pcFunctions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcFunctions :: Lens.Lens' PipelineConfig (Lude.Maybe [Lude.Text])
+pcFunctions = Lens.lens (functions :: PipelineConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {functions = a} :: PipelineConfig)
+{-# DEPRECATED pcFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
-instance FromJSON PipelineConfig where
+instance Lude.FromJSON PipelineConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "PipelineConfig"
-      (\x -> PipelineConfig' <$> (x .:? "functions" .!= mempty))
+      ( \x ->
+          PipelineConfig'
+            Lude.<$> (x Lude..:? "functions" Lude..!= Lude.mempty)
+      )
 
-instance Hashable PipelineConfig
-
-instance NFData PipelineConfig
-
-instance ToJSON PipelineConfig where
+instance Lude.ToJSON PipelineConfig where
   toJSON PipelineConfig' {..} =
-    object (catMaybes [("functions" .=) <$> _pcFunctions])
+    Lude.object
+      (Lude.catMaybes [("functions" Lude..=) Lude.<$> functions])

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,140 @@
 --
 -- Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.
 --
---
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.DeleteIdentities
-  ( -- * Creating a Request
-    deleteIdentities,
-    DeleteIdentities,
+  ( -- * Creating a request
+    DeleteIdentities (..),
+    mkDeleteIdentities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diIdentityIdsToDelete,
 
-    -- * Destructuring the Response
-    deleteIdentitiesResponse,
-    DeleteIdentitiesResponse,
+    -- * Destructuring the response
+    DeleteIdentitiesResponse (..),
+    mkDeleteIdentitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsUnprocessedIdentityIds,
     dirsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the @DeleteIdentities@ action.
 --
---
---
--- /See:/ 'deleteIdentities' smart constructor.
+-- /See:/ 'mkDeleteIdentities' smart constructor.
 newtype DeleteIdentities = DeleteIdentities'
-  { _diIdentityIdsToDelete ::
-      List1 Text
+  { identityIdsToDelete ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diIdentityIdsToDelete' - A list of 1-60 identities that you want to delete.
-deleteIdentities ::
-  -- | 'diIdentityIdsToDelete'
-  NonEmpty Text ->
+-- * 'identityIdsToDelete' - A list of 1-60 identities that you want to delete.
+mkDeleteIdentities ::
+  -- | 'identityIdsToDelete'
+  Lude.NonEmpty Lude.Text ->
   DeleteIdentities
-deleteIdentities pIdentityIdsToDelete_ =
-  DeleteIdentities'
-    { _diIdentityIdsToDelete =
-        _List1 # pIdentityIdsToDelete_
-    }
+mkDeleteIdentities pIdentityIdsToDelete_ =
+  DeleteIdentities' {identityIdsToDelete = pIdentityIdsToDelete_}
 
 -- | A list of 1-60 identities that you want to delete.
-diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
-diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\s a -> s {_diIdentityIdsToDelete = a}) . _List1
+--
+-- /Note:/ Consider using 'identityIdsToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diIdentityIdsToDelete :: Lens.Lens' DeleteIdentities (Lude.NonEmpty Lude.Text)
+diIdentityIdsToDelete = Lens.lens (identityIdsToDelete :: DeleteIdentities -> Lude.NonEmpty Lude.Text) (\s a -> s {identityIdsToDelete = a} :: DeleteIdentities)
+{-# DEPRECATED diIdentityIdsToDelete "Use generic-lens or generic-optics with 'identityIdsToDelete' instead." #-}
 
-instance AWSRequest DeleteIdentities where
+instance Lude.AWSRequest DeleteIdentities where
   type Rs DeleteIdentities = DeleteIdentitiesResponse
-  request = postJSON cognitoIdentity
+  request = Req.postJSON cognitoIdentityService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteIdentitiesResponse'
-            <$> (x .?> "UnprocessedIdentityIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UnprocessedIdentityIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteIdentities
-
-instance NFData DeleteIdentities
-
-instance ToHeaders DeleteIdentities where
+instance Lude.ToHeaders DeleteIdentities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.DeleteIdentities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.DeleteIdentities" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteIdentities where
+instance Lude.ToJSON DeleteIdentities where
   toJSON DeleteIdentities' {..} =
-    object
-      ( catMaybes
-          [Just ("IdentityIdsToDelete" .= _diIdentityIdsToDelete)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("IdentityIdsToDelete" Lude..= identityIdsToDelete)]
       )
 
-instance ToPath DeleteIdentities where
-  toPath = const "/"
+instance Lude.ToPath DeleteIdentities where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteIdentities where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteIdentities where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returned in response to a successful @DeleteIdentities@ operation.
 --
---
---
--- /See:/ 'deleteIdentitiesResponse' smart constructor.
+-- /See:/ 'mkDeleteIdentitiesResponse' smart constructor.
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
-  { _dirsUnprocessedIdentityIds ::
-      !(Maybe [UnprocessedIdentityId]),
-    _dirsResponseStatus :: !Int
+  { unprocessedIdentityIds ::
+      Lude.Maybe [UnprocessedIdentityId],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsUnprocessedIdentityIds' - An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-deleteIdentitiesResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedIdentityIds' - An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
+mkDeleteIdentitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteIdentitiesResponse
-deleteIdentitiesResponse pResponseStatus_ =
+mkDeleteIdentitiesResponse pResponseStatus_ =
   DeleteIdentitiesResponse'
-    { _dirsUnprocessedIdentityIds = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { unprocessedIdentityIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
-dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
-dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\s a -> s {_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedIdentityIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsUnprocessedIdentityIds :: Lens.Lens' DeleteIdentitiesResponse (Lude.Maybe [UnprocessedIdentityId])
+dirsUnprocessedIdentityIds = Lens.lens (unprocessedIdentityIds :: DeleteIdentitiesResponse -> Lude.Maybe [UnprocessedIdentityId]) (\s a -> s {unprocessedIdentityIds = a} :: DeleteIdentitiesResponse)
+{-# DEPRECATED dirsUnprocessedIdentityIds "Use generic-lens or generic-optics with 'unprocessedIdentityIds' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DeleteIdentitiesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DeleteIdentitiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DeleteIdentitiesResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DeleteIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIdentitiesResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

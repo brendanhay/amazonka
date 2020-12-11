@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ScalingBehavior where
+module Network.AWS.MediaConvert.Types.ScalingBehavior
+  ( ScalingBehavior
+      ( ScalingBehavior',
+        SBDefault,
+        SBStretchToOutput
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify how the service handles outputs that have a different aspect ratio from the input aspect ratio. Choose Stretch to output (STRETCH_TO_OUTPUT) to have the service stretch your video image to fit. Keep the setting Default (DEFAULT) to have the service letterbox your video instead. This setting overrides any value that you specify for the setting Selection placement (position) in this output.
-data ScalingBehavior
-  = SBDefault
-  | SBStretchToOutput
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingBehavior = ScalingBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingBehavior where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure SBDefault
-      "stretch_to_output" -> pure SBStretchToOutput
-      e ->
-        fromTextError $
-          "Failure parsing ScalingBehavior from value: '" <> e
-            <> "'. Accepted values: default, stretch_to_output"
+pattern SBDefault :: ScalingBehavior
+pattern SBDefault = ScalingBehavior' "DEFAULT"
 
-instance ToText ScalingBehavior where
-  toText = \case
-    SBDefault -> "DEFAULT"
-    SBStretchToOutput -> "STRETCH_TO_OUTPUT"
+pattern SBStretchToOutput :: ScalingBehavior
+pattern SBStretchToOutput = ScalingBehavior' "STRETCH_TO_OUTPUT"
 
-instance Hashable ScalingBehavior
-
-instance NFData ScalingBehavior
-
-instance ToByteString ScalingBehavior
-
-instance ToQuery ScalingBehavior
-
-instance ToHeader ScalingBehavior
-
-instance ToJSON ScalingBehavior where
-  toJSON = toJSONText
-
-instance FromJSON ScalingBehavior where
-  parseJSON = parseJSONText "ScalingBehavior"
+{-# COMPLETE
+  SBDefault,
+  SBStretchToOutput,
+  ScalingBehavior'
+  #-}

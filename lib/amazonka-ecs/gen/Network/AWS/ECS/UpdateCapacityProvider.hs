@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,155 @@
 --
 -- Modifies the parameters for a capacity provider.
 module Network.AWS.ECS.UpdateCapacityProvider
-  ( -- * Creating a Request
-    updateCapacityProvider,
-    UpdateCapacityProvider,
+  ( -- * Creating a request
+    UpdateCapacityProvider (..),
+    mkUpdateCapacityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucpName,
     ucpAutoScalingGroupProvider,
 
-    -- * Destructuring the Response
-    updateCapacityProviderResponse,
-    UpdateCapacityProviderResponse,
+    -- * Destructuring the response
+    UpdateCapacityProviderResponse (..),
+    mkUpdateCapacityProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucprsCapacityProvider,
     ucprsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateCapacityProvider' smart constructor.
+-- | /See:/ 'mkUpdateCapacityProvider' smart constructor.
 data UpdateCapacityProvider = UpdateCapacityProvider'
-  { _ucpName ::
-      !Text,
-    _ucpAutoScalingGroupProvider ::
-      !AutoScalingGroupProviderUpdate
+  { name ::
+      Lude.Text,
+    autoScalingGroupProvider ::
+      AutoScalingGroupProviderUpdate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCapacityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucpName' - An object representing the parameters to update for the Auto Scaling group capacity provider.
---
--- * 'ucpAutoScalingGroupProvider' - The name of the capacity provider to update.
-updateCapacityProvider ::
-  -- | 'ucpName'
-  Text ->
-  -- | 'ucpAutoScalingGroupProvider'
+-- * 'autoScalingGroupProvider' - The name of the capacity provider to update.
+-- * 'name' - An object representing the parameters to update for the Auto Scaling group capacity provider.
+mkUpdateCapacityProvider ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'autoScalingGroupProvider'
   AutoScalingGroupProviderUpdate ->
   UpdateCapacityProvider
-updateCapacityProvider pName_ pAutoScalingGroupProvider_ =
+mkUpdateCapacityProvider pName_ pAutoScalingGroupProvider_ =
   UpdateCapacityProvider'
-    { _ucpName = pName_,
-      _ucpAutoScalingGroupProvider = pAutoScalingGroupProvider_
+    { name = pName_,
+      autoScalingGroupProvider = pAutoScalingGroupProvider_
     }
 
 -- | An object representing the parameters to update for the Auto Scaling group capacity provider.
-ucpName :: Lens' UpdateCapacityProvider Text
-ucpName = lens _ucpName (\s a -> s {_ucpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucpName :: Lens.Lens' UpdateCapacityProvider Lude.Text
+ucpName = Lens.lens (name :: UpdateCapacityProvider -> Lude.Text) (\s a -> s {name = a} :: UpdateCapacityProvider)
+{-# DEPRECATED ucpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the capacity provider to update.
-ucpAutoScalingGroupProvider :: Lens' UpdateCapacityProvider AutoScalingGroupProviderUpdate
-ucpAutoScalingGroupProvider = lens _ucpAutoScalingGroupProvider (\s a -> s {_ucpAutoScalingGroupProvider = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucpAutoScalingGroupProvider :: Lens.Lens' UpdateCapacityProvider AutoScalingGroupProviderUpdate
+ucpAutoScalingGroupProvider = Lens.lens (autoScalingGroupProvider :: UpdateCapacityProvider -> AutoScalingGroupProviderUpdate) (\s a -> s {autoScalingGroupProvider = a} :: UpdateCapacityProvider)
+{-# DEPRECATED ucpAutoScalingGroupProvider "Use generic-lens or generic-optics with 'autoScalingGroupProvider' instead." #-}
 
-instance AWSRequest UpdateCapacityProvider where
+instance Lude.AWSRequest UpdateCapacityProvider where
   type Rs UpdateCapacityProvider = UpdateCapacityProviderResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateCapacityProviderResponse'
-            <$> (x .?> "capacityProvider") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "capacityProvider")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateCapacityProvider
-
-instance NFData UpdateCapacityProvider
-
-instance ToHeaders UpdateCapacityProvider where
+instance Lude.ToHeaders UpdateCapacityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateCapacityProvider where
+instance Lude.ToJSON UpdateCapacityProvider where
   toJSON UpdateCapacityProvider' {..} =
-    object
-      ( catMaybes
-          [ Just ("name" .= _ucpName),
-            Just ("autoScalingGroupProvider" .= _ucpAutoScalingGroupProvider)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just
+              ("autoScalingGroupProvider" Lude..= autoScalingGroupProvider)
           ]
       )
 
-instance ToPath UpdateCapacityProvider where
-  toPath = const "/"
+instance Lude.ToPath UpdateCapacityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateCapacityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateCapacityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateCapacityProviderResponse' smart constructor.
+-- | /See:/ 'mkUpdateCapacityProviderResponse' smart constructor.
 data UpdateCapacityProviderResponse = UpdateCapacityProviderResponse'
-  { _ucprsCapacityProvider ::
-      !(Maybe CapacityProvider),
-    _ucprsResponseStatus :: !Int
+  { capacityProvider ::
+      Lude.Maybe CapacityProvider,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCapacityProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucprsCapacityProvider' - Undocumented member.
---
--- * 'ucprsResponseStatus' - -- | The response status code.
-updateCapacityProviderResponse ::
-  -- | 'ucprsResponseStatus'
-  Int ->
+-- * 'capacityProvider' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateCapacityProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateCapacityProviderResponse
-updateCapacityProviderResponse pResponseStatus_ =
+mkUpdateCapacityProviderResponse pResponseStatus_ =
   UpdateCapacityProviderResponse'
-    { _ucprsCapacityProvider = Nothing,
-      _ucprsResponseStatus = pResponseStatus_
+    { capacityProvider = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ucprsCapacityProvider :: Lens' UpdateCapacityProviderResponse (Maybe CapacityProvider)
-ucprsCapacityProvider = lens _ucprsCapacityProvider (\s a -> s {_ucprsCapacityProvider = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'capacityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucprsCapacityProvider :: Lens.Lens' UpdateCapacityProviderResponse (Lude.Maybe CapacityProvider)
+ucprsCapacityProvider = Lens.lens (capacityProvider :: UpdateCapacityProviderResponse -> Lude.Maybe CapacityProvider) (\s a -> s {capacityProvider = a} :: UpdateCapacityProviderResponse)
+{-# DEPRECATED ucprsCapacityProvider "Use generic-lens or generic-optics with 'capacityProvider' instead." #-}
 
--- | -- | The response status code.
-ucprsResponseStatus :: Lens' UpdateCapacityProviderResponse Int
-ucprsResponseStatus = lens _ucprsResponseStatus (\s a -> s {_ucprsResponseStatus = a})
-
-instance NFData UpdateCapacityProviderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucprsResponseStatus :: Lens.Lens' UpdateCapacityProviderResponse Lude.Int
+ucprsResponseStatus = Lens.lens (responseStatus :: UpdateCapacityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCapacityProviderResponse)
+{-# DEPRECATED ucprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

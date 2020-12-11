@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateType where
+module Network.AWS.CertificateManager.Types.CertificateType
+  ( CertificateType
+      ( CertificateType',
+        AmazonIssued,
+        Imported,
+        Private
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateType
-  = AmazonIssued
-  | Imported
-  | Private
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateType = CertificateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateType where
-  parser =
-    takeLowerText >>= \case
-      "amazon_issued" -> pure AmazonIssued
-      "imported" -> pure Imported
-      "private" -> pure Private
-      e ->
-        fromTextError $
-          "Failure parsing CertificateType from value: '" <> e
-            <> "'. Accepted values: amazon_issued, imported, private"
+pattern AmazonIssued :: CertificateType
+pattern AmazonIssued = CertificateType' "AMAZON_ISSUED"
 
-instance ToText CertificateType where
-  toText = \case
-    AmazonIssued -> "AMAZON_ISSUED"
-    Imported -> "IMPORTED"
-    Private -> "PRIVATE"
+pattern Imported :: CertificateType
+pattern Imported = CertificateType' "IMPORTED"
 
-instance Hashable CertificateType
+pattern Private :: CertificateType
+pattern Private = CertificateType' "PRIVATE"
 
-instance NFData CertificateType
-
-instance ToByteString CertificateType
-
-instance ToQuery CertificateType
-
-instance ToHeader CertificateType
-
-instance FromJSON CertificateType where
-  parseJSON = parseJSONText "CertificateType"
+{-# COMPLETE
+  AmazonIssued,
+  Imported,
+  Private,
+  CertificateType'
+  #-}

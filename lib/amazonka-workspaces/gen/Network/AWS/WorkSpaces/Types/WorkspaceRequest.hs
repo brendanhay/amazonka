@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,135 +7,167 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceRequest where
+module Network.AWS.WorkSpaces.Types.WorkspaceRequest
+  ( WorkspaceRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkspaceRequest,
+
+    -- * Lenses
+    wrWorkspaceProperties,
+    wrRootVolumeEncryptionEnabled,
+    wrVolumeEncryptionKey,
+    wrUserVolumeEncryptionEnabled,
+    wrTags,
+    wrDirectoryId,
+    wrUserName,
+    wrBundleId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.Tag
 import Network.AWS.WorkSpaces.Types.WorkspaceProperties
 
 -- | Describes the information used to create a WorkSpace.
 --
---
---
--- /See:/ 'workspaceRequest' smart constructor.
+-- /See:/ 'mkWorkspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-  { _wrWorkspaceProperties ::
-      !(Maybe WorkspaceProperties),
-    _wrRootVolumeEncryptionEnabled :: !(Maybe Bool),
-    _wrVolumeEncryptionKey :: !(Maybe Text),
-    _wrUserVolumeEncryptionEnabled :: !(Maybe Bool),
-    _wrTags :: !(Maybe [Tag]),
-    _wrDirectoryId :: !Text,
-    _wrUserName :: !Text,
-    _wrBundleId :: !Text
+  { workspaceProperties ::
+      Lude.Maybe WorkspaceProperties,
+    rootVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    volumeEncryptionKey :: Lude.Maybe Lude.Text,
+    userVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    tags :: Lude.Maybe [Tag],
+    directoryId :: Lude.Text,
+    userName :: Lude.Text,
+    bundleId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wrWorkspaceProperties' - The WorkSpace properties.
---
--- * 'wrRootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
---
--- * 'wrVolumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
---
--- * 'wrUserVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
---
--- * 'wrTags' - The tags for the WorkSpace.
---
--- * 'wrDirectoryId' - The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
---
--- * 'wrUserName' - The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
---
--- * 'wrBundleId' - The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
-workspaceRequest ::
-  -- | 'wrDirectoryId'
-  Text ->
-  -- | 'wrUserName'
-  Text ->
-  -- | 'wrBundleId'
-  Text ->
+-- * 'bundleId' - The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
+-- * 'directoryId' - The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
+-- * 'rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
+-- * 'tags' - The tags for the WorkSpace.
+-- * 'userName' - The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
+-- * 'userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
+-- * 'volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+-- * 'workspaceProperties' - The WorkSpace properties.
+mkWorkspaceRequest ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'bundleId'
+  Lude.Text ->
   WorkspaceRequest
-workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
+mkWorkspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
   WorkspaceRequest'
-    { _wrWorkspaceProperties = Nothing,
-      _wrRootVolumeEncryptionEnabled = Nothing,
-      _wrVolumeEncryptionKey = Nothing,
-      _wrUserVolumeEncryptionEnabled = Nothing,
-      _wrTags = Nothing,
-      _wrDirectoryId = pDirectoryId_,
-      _wrUserName = pUserName_,
-      _wrBundleId = pBundleId_
+    { workspaceProperties = Lude.Nothing,
+      rootVolumeEncryptionEnabled = Lude.Nothing,
+      volumeEncryptionKey = Lude.Nothing,
+      userVolumeEncryptionEnabled = Lude.Nothing,
+      tags = Lude.Nothing,
+      directoryId = pDirectoryId_,
+      userName = pUserName_,
+      bundleId = pBundleId_
     }
 
 -- | The WorkSpace properties.
-wrWorkspaceProperties :: Lens' WorkspaceRequest (Maybe WorkspaceProperties)
-wrWorkspaceProperties = lens _wrWorkspaceProperties (\s a -> s {_wrWorkspaceProperties = a})
+--
+-- /Note:/ Consider using 'workspaceProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrWorkspaceProperties :: Lens.Lens' WorkspaceRequest (Lude.Maybe WorkspaceProperties)
+wrWorkspaceProperties = Lens.lens (workspaceProperties :: WorkspaceRequest -> Lude.Maybe WorkspaceProperties) (\s a -> s {workspaceProperties = a} :: WorkspaceRequest)
+{-# DEPRECATED wrWorkspaceProperties "Use generic-lens or generic-optics with 'workspaceProperties' instead." #-}
 
 -- | Indicates whether the data stored on the root volume is encrypted.
-wrRootVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
-wrRootVolumeEncryptionEnabled = lens _wrRootVolumeEncryptionEnabled (\s a -> s {_wrRootVolumeEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'rootVolumeEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrRootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Lude.Maybe Lude.Bool)
+wrRootVolumeEncryptionEnabled = Lens.lens (rootVolumeEncryptionEnabled :: WorkspaceRequest -> Lude.Maybe Lude.Bool) (\s a -> s {rootVolumeEncryptionEnabled = a} :: WorkspaceRequest)
+{-# DEPRECATED wrRootVolumeEncryptionEnabled "Use generic-lens or generic-optics with 'rootVolumeEncryptionEnabled' instead." #-}
 
 -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-wrVolumeEncryptionKey :: Lens' WorkspaceRequest (Maybe Text)
-wrVolumeEncryptionKey = lens _wrVolumeEncryptionKey (\s a -> s {_wrVolumeEncryptionKey = a})
+--
+-- /Note:/ Consider using 'volumeEncryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrVolumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Lude.Maybe Lude.Text)
+wrVolumeEncryptionKey = Lens.lens (volumeEncryptionKey :: WorkspaceRequest -> Lude.Maybe Lude.Text) (\s a -> s {volumeEncryptionKey = a} :: WorkspaceRequest)
+{-# DEPRECATED wrVolumeEncryptionKey "Use generic-lens or generic-optics with 'volumeEncryptionKey' instead." #-}
 
 -- | Indicates whether the data stored on the user volume is encrypted.
-wrUserVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
-wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\s a -> s {_wrUserVolumeEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'userVolumeEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrUserVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Lude.Maybe Lude.Bool)
+wrUserVolumeEncryptionEnabled = Lens.lens (userVolumeEncryptionEnabled :: WorkspaceRequest -> Lude.Maybe Lude.Bool) (\s a -> s {userVolumeEncryptionEnabled = a} :: WorkspaceRequest)
+{-# DEPRECATED wrUserVolumeEncryptionEnabled "Use generic-lens or generic-optics with 'userVolumeEncryptionEnabled' instead." #-}
 
 -- | The tags for the WorkSpace.
-wrTags :: Lens' WorkspaceRequest [Tag]
-wrTags = lens _wrTags (\s a -> s {_wrTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrTags :: Lens.Lens' WorkspaceRequest (Lude.Maybe [Tag])
+wrTags = Lens.lens (tags :: WorkspaceRequest -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: WorkspaceRequest)
+{-# DEPRECATED wrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
-wrDirectoryId :: Lens' WorkspaceRequest Text
-wrDirectoryId = lens _wrDirectoryId (\s a -> s {_wrDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrDirectoryId :: Lens.Lens' WorkspaceRequest Lude.Text
+wrDirectoryId = Lens.lens (directoryId :: WorkspaceRequest -> Lude.Text) (\s a -> s {directoryId = a} :: WorkspaceRequest)
+{-# DEPRECATED wrDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
-wrUserName :: Lens' WorkspaceRequest Text
-wrUserName = lens _wrUserName (\s a -> s {_wrUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrUserName :: Lens.Lens' WorkspaceRequest Lude.Text
+wrUserName = Lens.lens (userName :: WorkspaceRequest -> Lude.Text) (\s a -> s {userName = a} :: WorkspaceRequest)
+{-# DEPRECATED wrUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
-wrBundleId :: Lens' WorkspaceRequest Text
-wrBundleId = lens _wrBundleId (\s a -> s {_wrBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrBundleId :: Lens.Lens' WorkspaceRequest Lude.Text
+wrBundleId = Lens.lens (bundleId :: WorkspaceRequest -> Lude.Text) (\s a -> s {bundleId = a} :: WorkspaceRequest)
+{-# DEPRECATED wrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
-instance FromJSON WorkspaceRequest where
+instance Lude.FromJSON WorkspaceRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkspaceRequest"
       ( \x ->
           WorkspaceRequest'
-            <$> (x .:? "WorkspaceProperties")
-            <*> (x .:? "RootVolumeEncryptionEnabled")
-            <*> (x .:? "VolumeEncryptionKey")
-            <*> (x .:? "UserVolumeEncryptionEnabled")
-            <*> (x .:? "Tags" .!= mempty)
-            <*> (x .: "DirectoryId")
-            <*> (x .: "UserName")
-            <*> (x .: "BundleId")
+            Lude.<$> (x Lude..:? "WorkspaceProperties")
+            Lude.<*> (x Lude..:? "RootVolumeEncryptionEnabled")
+            Lude.<*> (x Lude..:? "VolumeEncryptionKey")
+            Lude.<*> (x Lude..:? "UserVolumeEncryptionEnabled")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "DirectoryId")
+            Lude.<*> (x Lude..: "UserName")
+            Lude.<*> (x Lude..: "BundleId")
       )
 
-instance Hashable WorkspaceRequest
-
-instance NFData WorkspaceRequest
-
-instance ToJSON WorkspaceRequest where
+instance Lude.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =
-    object
-      ( catMaybes
-          [ ("WorkspaceProperties" .=) <$> _wrWorkspaceProperties,
-            ("RootVolumeEncryptionEnabled" .=)
-              <$> _wrRootVolumeEncryptionEnabled,
-            ("VolumeEncryptionKey" .=) <$> _wrVolumeEncryptionKey,
-            ("UserVolumeEncryptionEnabled" .=)
-              <$> _wrUserVolumeEncryptionEnabled,
-            ("Tags" .=) <$> _wrTags,
-            Just ("DirectoryId" .= _wrDirectoryId),
-            Just ("UserName" .= _wrUserName),
-            Just ("BundleId" .= _wrBundleId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WorkspaceProperties" Lude..=) Lude.<$> workspaceProperties,
+            ("RootVolumeEncryptionEnabled" Lude..=)
+              Lude.<$> rootVolumeEncryptionEnabled,
+            ("VolumeEncryptionKey" Lude..=) Lude.<$> volumeEncryptionKey,
+            ("UserVolumeEncryptionEnabled" Lude..=)
+              Lude.<$> userVolumeEncryptionEnabled,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("UserName" Lude..= userName),
+            Lude.Just ("BundleId" Lude..= bundleId)
           ]
       )

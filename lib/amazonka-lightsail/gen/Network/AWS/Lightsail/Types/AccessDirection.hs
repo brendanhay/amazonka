@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AccessDirection where
+module Network.AWS.Lightsail.Types.AccessDirection
+  ( AccessDirection
+      ( AccessDirection',
+        Inbound,
+        Outbound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccessDirection
-  = Inbound
-  | Outbound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccessDirection = AccessDirection' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccessDirection where
-  parser =
-    takeLowerText >>= \case
-      "inbound" -> pure Inbound
-      "outbound" -> pure Outbound
-      e ->
-        fromTextError $
-          "Failure parsing AccessDirection from value: '" <> e
-            <> "'. Accepted values: inbound, outbound"
+pattern Inbound :: AccessDirection
+pattern Inbound = AccessDirection' "inbound"
 
-instance ToText AccessDirection where
-  toText = \case
-    Inbound -> "inbound"
-    Outbound -> "outbound"
+pattern Outbound :: AccessDirection
+pattern Outbound = AccessDirection' "outbound"
 
-instance Hashable AccessDirection
-
-instance NFData AccessDirection
-
-instance ToByteString AccessDirection
-
-instance ToQuery AccessDirection
-
-instance ToHeader AccessDirection
-
-instance FromJSON AccessDirection where
-  parseJSON = parseJSONText "AccessDirection"
+{-# COMPLETE
+  Inbound,
+  Outbound,
+  AccessDirection'
+  #-}

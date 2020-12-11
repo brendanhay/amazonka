@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus where
+module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
+  ( ProvisionedProductPlanStatus
+      ( ProvisionedProductPlanStatus',
+        CreateFailed,
+        CreateInProgress,
+        CreateSuccess,
+        ExecuteFailed,
+        ExecuteInProgress,
+        ExecuteSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisionedProductPlanStatus
-  = CreateFailed
-  | CreateInProgress
-  | CreateSuccess
-  | ExecuteFailed
-  | ExecuteInProgress
-  | ExecuteSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisionedProductPlanStatus = ProvisionedProductPlanStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisionedProductPlanStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure CreateFailed
-      "create_in_progress" -> pure CreateInProgress
-      "create_success" -> pure CreateSuccess
-      "execute_failed" -> pure ExecuteFailed
-      "execute_in_progress" -> pure ExecuteInProgress
-      "execute_success" -> pure ExecuteSuccess
-      e ->
-        fromTextError $
-          "Failure parsing ProvisionedProductPlanStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, create_in_progress, create_success, execute_failed, execute_in_progress, execute_success"
+pattern CreateFailed :: ProvisionedProductPlanStatus
+pattern CreateFailed = ProvisionedProductPlanStatus' "CREATE_FAILED"
 
-instance ToText ProvisionedProductPlanStatus where
-  toText = \case
-    CreateFailed -> "CREATE_FAILED"
-    CreateInProgress -> "CREATE_IN_PROGRESS"
-    CreateSuccess -> "CREATE_SUCCESS"
-    ExecuteFailed -> "EXECUTE_FAILED"
-    ExecuteInProgress -> "EXECUTE_IN_PROGRESS"
-    ExecuteSuccess -> "EXECUTE_SUCCESS"
+pattern CreateInProgress :: ProvisionedProductPlanStatus
+pattern CreateInProgress = ProvisionedProductPlanStatus' "CREATE_IN_PROGRESS"
 
-instance Hashable ProvisionedProductPlanStatus
+pattern CreateSuccess :: ProvisionedProductPlanStatus
+pattern CreateSuccess = ProvisionedProductPlanStatus' "CREATE_SUCCESS"
 
-instance NFData ProvisionedProductPlanStatus
+pattern ExecuteFailed :: ProvisionedProductPlanStatus
+pattern ExecuteFailed = ProvisionedProductPlanStatus' "EXECUTE_FAILED"
 
-instance ToByteString ProvisionedProductPlanStatus
+pattern ExecuteInProgress :: ProvisionedProductPlanStatus
+pattern ExecuteInProgress = ProvisionedProductPlanStatus' "EXECUTE_IN_PROGRESS"
 
-instance ToQuery ProvisionedProductPlanStatus
+pattern ExecuteSuccess :: ProvisionedProductPlanStatus
+pattern ExecuteSuccess = ProvisionedProductPlanStatus' "EXECUTE_SUCCESS"
 
-instance ToHeader ProvisionedProductPlanStatus
-
-instance FromJSON ProvisionedProductPlanStatus where
-  parseJSON = parseJSONText "ProvisionedProductPlanStatus"
+{-# COMPLETE
+  CreateFailed,
+  CreateInProgress,
+  CreateSuccess,
+  ExecuteFailed,
+  ExecuteInProgress,
+  ExecuteSuccess,
+  ProvisionedProductPlanStatus'
+  #-}

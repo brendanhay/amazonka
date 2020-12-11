@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ResourceTargetDefinition where
+module Network.AWS.CloudFormation.Types.ResourceTargetDefinition
+  ( ResourceTargetDefinition (..),
+
+    -- * Smart constructor
+    mkResourceTargetDefinition,
+
+    -- * Lenses
+    rtdAttribute,
+    rtdRequiresRecreation,
+    rtdName,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.RequiresRecreation
 import Network.AWS.CloudFormation.Types.ResourceAttribute
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The field that AWS CloudFormation will change, such as the name of a resource's property, and whether the resource will be recreated.
 --
---
---
--- /See:/ 'resourceTargetDefinition' smart constructor.
+-- /See:/ 'mkResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { _rtdAttribute ::
-      !(Maybe ResourceAttribute),
-    _rtdRequiresRecreation ::
-      !(Maybe RequiresRecreation),
-    _rtdName :: !(Maybe Text)
+  { attribute ::
+      Lude.Maybe ResourceAttribute,
+    requiresRecreation ::
+      Lude.Maybe RequiresRecreation,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtdAttribute' - Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
---
--- * 'rtdRequiresRecreation' - If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
---
--- * 'rtdName' - If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
-resourceTargetDefinition ::
+-- * 'attribute' - Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
+-- * 'name' - If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
+-- * 'requiresRecreation' - If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
+mkResourceTargetDefinition ::
   ResourceTargetDefinition
-resourceTargetDefinition =
+mkResourceTargetDefinition =
   ResourceTargetDefinition'
-    { _rtdAttribute = Nothing,
-      _rtdRequiresRecreation = Nothing,
-      _rtdName = Nothing
+    { attribute = Lude.Nothing,
+      requiresRecreation = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
-rtdAttribute :: Lens' ResourceTargetDefinition (Maybe ResourceAttribute)
-rtdAttribute = lens _rtdAttribute (\s a -> s {_rtdAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdAttribute :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe ResourceAttribute)
+rtdAttribute = Lens.lens (attribute :: ResourceTargetDefinition -> Lude.Maybe ResourceAttribute) (\s a -> s {attribute = a} :: ResourceTargetDefinition)
+{-# DEPRECATED rtdAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
-rtdRequiresRecreation :: Lens' ResourceTargetDefinition (Maybe RequiresRecreation)
-rtdRequiresRecreation = lens _rtdRequiresRecreation (\s a -> s {_rtdRequiresRecreation = a})
+--
+-- /Note:/ Consider using 'requiresRecreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdRequiresRecreation :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe RequiresRecreation)
+rtdRequiresRecreation = Lens.lens (requiresRecreation :: ResourceTargetDefinition -> Lude.Maybe RequiresRecreation) (\s a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
+{-# DEPRECATED rtdRequiresRecreation "Use generic-lens or generic-optics with 'requiresRecreation' instead." #-}
 
 -- | If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
-rtdName :: Lens' ResourceTargetDefinition (Maybe Text)
-rtdName = lens _rtdName (\s a -> s {_rtdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdName :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe Lude.Text)
+rtdName = Lens.lens (name :: ResourceTargetDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceTargetDefinition)
+{-# DEPRECATED rtdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML ResourceTargetDefinition where
+instance Lude.FromXML ResourceTargetDefinition where
   parseXML x =
     ResourceTargetDefinition'
-      <$> (x .@? "Attribute")
-      <*> (x .@? "RequiresRecreation")
-      <*> (x .@? "Name")
-
-instance Hashable ResourceTargetDefinition
-
-instance NFData ResourceTargetDefinition
+      Lude.<$> (x Lude..@? "Attribute")
+      Lude.<*> (x Lude..@? "RequiresRecreation")
+      Lude.<*> (x Lude..@? "Name")

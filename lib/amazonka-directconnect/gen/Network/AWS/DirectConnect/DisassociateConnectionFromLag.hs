@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the 'DeleteConnection' request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect Partner is automatically converted to an interconnect.
 --
---
 -- If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections.
 module Network.AWS.DirectConnect.DisassociateConnectionFromLag
-  ( -- * Creating a Request
-    disassociateConnectionFromLag,
-    DisassociateConnectionFromLag,
+  ( -- * Creating a request
+    DisassociateConnectionFromLag (..),
+    mkDisassociateConnectionFromLag,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcflConnectionId,
     dcflLagId,
 
-    -- * Destructuring the Response
-    connection,
-    Connection,
+    -- * Destructuring the response
+    Connection (..),
+    mkConnection,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cLagId,
     cVlan,
     cLocation,
@@ -56,77 +50,85 @@ module Network.AWS.DirectConnect.DisassociateConnectionFromLag
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateConnectionFromLag' smart constructor.
+-- | /See:/ 'mkDisassociateConnectionFromLag' smart constructor.
 data DisassociateConnectionFromLag = DisassociateConnectionFromLag'
-  { _dcflConnectionId ::
-      !Text,
-    _dcflLagId :: !Text
+  { connectionId ::
+      Lude.Text,
+    lagId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateConnectionFromLag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcflConnectionId' - The ID of the connection.
---
--- * 'dcflLagId' - The ID of the LAG.
-disassociateConnectionFromLag ::
-  -- | 'dcflConnectionId'
-  Text ->
-  -- | 'dcflLagId'
-  Text ->
+-- * 'connectionId' - The ID of the connection.
+-- * 'lagId' - The ID of the LAG.
+mkDisassociateConnectionFromLag ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'lagId'
+  Lude.Text ->
   DisassociateConnectionFromLag
-disassociateConnectionFromLag pConnectionId_ pLagId_ =
+mkDisassociateConnectionFromLag pConnectionId_ pLagId_ =
   DisassociateConnectionFromLag'
-    { _dcflConnectionId =
-        pConnectionId_,
-      _dcflLagId = pLagId_
+    { connectionId = pConnectionId_,
+      lagId = pLagId_
     }
 
 -- | The ID of the connection.
-dcflConnectionId :: Lens' DisassociateConnectionFromLag Text
-dcflConnectionId = lens _dcflConnectionId (\s a -> s {_dcflConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcflConnectionId :: Lens.Lens' DisassociateConnectionFromLag Lude.Text
+dcflConnectionId = Lens.lens (connectionId :: DisassociateConnectionFromLag -> Lude.Text) (\s a -> s {connectionId = a} :: DisassociateConnectionFromLag)
+{-# DEPRECATED dcflConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the LAG.
-dcflLagId :: Lens' DisassociateConnectionFromLag Text
-dcflLagId = lens _dcflLagId (\s a -> s {_dcflLagId = a})
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcflLagId :: Lens.Lens' DisassociateConnectionFromLag Lude.Text
+dcflLagId = Lens.lens (lagId :: DisassociateConnectionFromLag -> Lude.Text) (\s a -> s {lagId = a} :: DisassociateConnectionFromLag)
+{-# DEPRECATED dcflLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance AWSRequest DisassociateConnectionFromLag where
+instance Lude.AWSRequest DisassociateConnectionFromLag where
   type Rs DisassociateConnectionFromLag = Connection
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DisassociateConnectionFromLag
-
-instance NFData DisassociateConnectionFromLag
-
-instance ToHeaders DisassociateConnectionFromLag where
+instance Lude.ToHeaders DisassociateConnectionFromLag where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DisassociateConnectionFromLag" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.DisassociateConnectionFromLag" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateConnectionFromLag where
+instance Lude.ToJSON DisassociateConnectionFromLag where
   toJSON DisassociateConnectionFromLag' {..} =
-    object
-      ( catMaybes
-          [ Just ("connectionId" .= _dcflConnectionId),
-            Just ("lagId" .= _dcflLagId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("lagId" Lude..= lagId)
           ]
       )
 
-instance ToPath DisassociateConnectionFromLag where
-  toPath = const "/"
+instance Lude.ToPath DisassociateConnectionFromLag where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateConnectionFromLag where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateConnectionFromLag where
+  toQuery = Lude.const Lude.mempty

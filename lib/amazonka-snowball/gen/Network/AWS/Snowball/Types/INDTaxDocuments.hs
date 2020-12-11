@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.INDTaxDocuments where
+module Network.AWS.Snowball.Types.INDTaxDocuments
+  ( INDTaxDocuments (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkINDTaxDocuments,
+
+    -- * Lenses
+    indtdGSTIN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tax documents required in AWS Regions in India.
 --
---
---
--- /See:/ 'iNDTaxDocuments' smart constructor.
+-- /See:/ 'mkINDTaxDocuments' smart constructor.
 newtype INDTaxDocuments = INDTaxDocuments'
-  { _indtdGSTIN ::
-      Maybe Text
+  { gSTIN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'INDTaxDocuments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'indtdGSTIN' - The Goods and Services Tax (GST) documents required in AWS Regions in India.
-iNDTaxDocuments ::
+-- * 'gSTIN' - The Goods and Services Tax (GST) documents required in AWS Regions in India.
+mkINDTaxDocuments ::
   INDTaxDocuments
-iNDTaxDocuments = INDTaxDocuments' {_indtdGSTIN = Nothing}
+mkINDTaxDocuments = INDTaxDocuments' {gSTIN = Lude.Nothing}
 
 -- | The Goods and Services Tax (GST) documents required in AWS Regions in India.
-indtdGSTIN :: Lens' INDTaxDocuments (Maybe Text)
-indtdGSTIN = lens _indtdGSTIN (\s a -> s {_indtdGSTIN = a})
+--
+-- /Note:/ Consider using 'gSTIN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+indtdGSTIN :: Lens.Lens' INDTaxDocuments (Lude.Maybe Lude.Text)
+indtdGSTIN = Lens.lens (gSTIN :: INDTaxDocuments -> Lude.Maybe Lude.Text) (\s a -> s {gSTIN = a} :: INDTaxDocuments)
+{-# DEPRECATED indtdGSTIN "Use generic-lens or generic-optics with 'gSTIN' instead." #-}
 
-instance FromJSON INDTaxDocuments where
+instance Lude.FromJSON INDTaxDocuments where
   parseJSON =
-    withObject
+    Lude.withObject
       "INDTaxDocuments"
-      (\x -> INDTaxDocuments' <$> (x .:? "GSTIN"))
+      (\x -> INDTaxDocuments' Lude.<$> (x Lude..:? "GSTIN"))
 
-instance Hashable INDTaxDocuments
-
-instance NFData INDTaxDocuments
-
-instance ToJSON INDTaxDocuments where
+instance Lude.ToJSON INDTaxDocuments where
   toJSON INDTaxDocuments' {..} =
-    object (catMaybes [("GSTIN" .=) <$> _indtdGSTIN])
+    Lude.object (Lude.catMaybes [("GSTIN" Lude..=) Lude.<$> gSTIN])

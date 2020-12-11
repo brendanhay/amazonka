@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,133 @@
 --
 -- Removes IP address blocks from a directory.
 module Network.AWS.DirectoryService.RemoveIPRoutes
-  ( -- * Creating a Request
-    removeIPRoutes,
-    RemoveIPRoutes,
+  ( -- * Creating a request
+    RemoveIPRoutes (..),
+    mkRemoveIPRoutes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rirDirectoryId,
     rirCidrIPs,
 
-    -- * Destructuring the Response
-    removeIPRoutesResponse,
-    RemoveIPRoutesResponse,
+    -- * Destructuring the response
+    RemoveIPRoutesResponse (..),
+    mkRemoveIPRoutesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rirrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeIPRoutes' smart constructor.
+-- | /See:/ 'mkRemoveIPRoutes' smart constructor.
 data RemoveIPRoutes = RemoveIPRoutes'
-  { _rirDirectoryId :: !Text,
-    _rirCidrIPs :: ![Text]
+  { directoryId :: Lude.Text,
+    cidrIPs :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveIPRoutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirDirectoryId' - Identifier (ID) of the directory from which you want to remove the IP addresses.
---
--- * 'rirCidrIPs' - IP address blocks that you want to remove.
-removeIPRoutes ::
-  -- | 'rirDirectoryId'
-  Text ->
+-- * 'cidrIPs' - IP address blocks that you want to remove.
+-- * 'directoryId' - Identifier (ID) of the directory from which you want to remove the IP addresses.
+mkRemoveIPRoutes ::
+  -- | 'directoryId'
+  Lude.Text ->
   RemoveIPRoutes
-removeIPRoutes pDirectoryId_ =
+mkRemoveIPRoutes pDirectoryId_ =
   RemoveIPRoutes'
-    { _rirDirectoryId = pDirectoryId_,
-      _rirCidrIPs = mempty
+    { directoryId = pDirectoryId_,
+      cidrIPs = Lude.mempty
     }
 
 -- | Identifier (ID) of the directory from which you want to remove the IP addresses.
-rirDirectoryId :: Lens' RemoveIPRoutes Text
-rirDirectoryId = lens _rirDirectoryId (\s a -> s {_rirDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirDirectoryId :: Lens.Lens' RemoveIPRoutes Lude.Text
+rirDirectoryId = Lens.lens (directoryId :: RemoveIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: RemoveIPRoutes)
+{-# DEPRECATED rirDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | IP address blocks that you want to remove.
-rirCidrIPs :: Lens' RemoveIPRoutes [Text]
-rirCidrIPs = lens _rirCidrIPs (\s a -> s {_rirCidrIPs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'cidrIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirCidrIPs :: Lens.Lens' RemoveIPRoutes [Lude.Text]
+rirCidrIPs = Lens.lens (cidrIPs :: RemoveIPRoutes -> [Lude.Text]) (\s a -> s {cidrIPs = a} :: RemoveIPRoutes)
+{-# DEPRECATED rirCidrIPs "Use generic-lens or generic-optics with 'cidrIPs' instead." #-}
 
-instance AWSRequest RemoveIPRoutes where
+instance Lude.AWSRequest RemoveIPRoutes where
   type Rs RemoveIPRoutes = RemoveIPRoutesResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> RemoveIPRoutesResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RemoveIPRoutesResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RemoveIPRoutes
-
-instance NFData RemoveIPRoutes
-
-instance ToHeaders RemoveIPRoutes where
+instance Lude.ToHeaders RemoveIPRoutes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.RemoveIpRoutes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.RemoveIpRoutes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RemoveIPRoutes where
+instance Lude.ToJSON RemoveIPRoutes where
   toJSON RemoveIPRoutes' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _rirDirectoryId),
-            Just ("CidrIps" .= _rirCidrIPs)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("CidrIps" Lude..= cidrIPs)
           ]
       )
 
-instance ToPath RemoveIPRoutes where
-  toPath = const "/"
+instance Lude.ToPath RemoveIPRoutes where
+  toPath = Lude.const "/"
 
-instance ToQuery RemoveIPRoutes where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveIPRoutes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeIPRoutesResponse' smart constructor.
+-- | /See:/ 'mkRemoveIPRoutesResponse' smart constructor.
 newtype RemoveIPRoutesResponse = RemoveIPRoutesResponse'
-  { _rirrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveIPRoutesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirrsResponseStatus' - -- | The response status code.
-removeIPRoutesResponse ::
-  -- | 'rirrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRemoveIPRoutesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveIPRoutesResponse
-removeIPRoutesResponse pResponseStatus_ =
-  RemoveIPRoutesResponse' {_rirrsResponseStatus = pResponseStatus_}
+mkRemoveIPRoutesResponse pResponseStatus_ =
+  RemoveIPRoutesResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rirrsResponseStatus :: Lens' RemoveIPRoutesResponse Int
-rirrsResponseStatus = lens _rirrsResponseStatus (\s a -> s {_rirrsResponseStatus = a})
-
-instance NFData RemoveIPRoutesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirrsResponseStatus :: Lens.Lens' RemoveIPRoutesResponse Lude.Int
+rirrsResponseStatus = Lens.lens (responseStatus :: RemoveIPRoutesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveIPRoutesResponse)
+{-# DEPRECATED rirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

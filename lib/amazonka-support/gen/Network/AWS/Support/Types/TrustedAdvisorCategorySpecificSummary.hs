@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary where
+module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
+  ( TrustedAdvisorCategorySpecificSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrustedAdvisorCategorySpecificSummary,
+
+    -- * Lenses
+    tacssCostOptimizing,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 
 -- | The container for summary information that relates to the category of the Trusted Advisor check.
 --
---
---
--- /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
+-- /See:/ 'mkTrustedAdvisorCategorySpecificSummary' smart constructor.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
-  { _tacssCostOptimizing ::
-      Maybe
+  { costOptimizing ::
+      Lude.Maybe
         TrustedAdvisorCostOptimizingSummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedAdvisorCategorySpecificSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tacssCostOptimizing' - The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
-trustedAdvisorCategorySpecificSummary ::
+-- * 'costOptimizing' - The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
+mkTrustedAdvisorCategorySpecificSummary ::
   TrustedAdvisorCategorySpecificSummary
-trustedAdvisorCategorySpecificSummary =
+mkTrustedAdvisorCategorySpecificSummary =
   TrustedAdvisorCategorySpecificSummary'
-    { _tacssCostOptimizing =
-        Nothing
+    { costOptimizing =
+        Lude.Nothing
     }
 
 -- | The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
-tacssCostOptimizing :: Lens' TrustedAdvisorCategorySpecificSummary (Maybe TrustedAdvisorCostOptimizingSummary)
-tacssCostOptimizing = lens _tacssCostOptimizing (\s a -> s {_tacssCostOptimizing = a})
+--
+-- /Note:/ Consider using 'costOptimizing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacssCostOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Lude.Maybe TrustedAdvisorCostOptimizingSummary)
+tacssCostOptimizing = Lens.lens (costOptimizing :: TrustedAdvisorCategorySpecificSummary -> Lude.Maybe TrustedAdvisorCostOptimizingSummary) (\s a -> s {costOptimizing = a} :: TrustedAdvisorCategorySpecificSummary)
+{-# DEPRECATED tacssCostOptimizing "Use generic-lens or generic-optics with 'costOptimizing' instead." #-}
 
-instance FromJSON TrustedAdvisorCategorySpecificSummary where
+instance Lude.FromJSON TrustedAdvisorCategorySpecificSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrustedAdvisorCategorySpecificSummary"
       ( \x ->
           TrustedAdvisorCategorySpecificSummary'
-            <$> (x .:? "costOptimizing")
+            Lude.<$> (x Lude..:? "costOptimizing")
       )
-
-instance Hashable TrustedAdvisorCategorySpecificSummary
-
-instance NFData TrustedAdvisorCategorySpecificSummary

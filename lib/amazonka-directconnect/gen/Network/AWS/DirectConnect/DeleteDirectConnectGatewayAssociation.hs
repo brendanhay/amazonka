@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,178 @@
 --
 -- Deletes the association between the specified Direct Connect gateway and virtual private gateway.
 --
---
 -- We recommend that you specify the @associationID@ to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the @virtualGatewayId@ and @directConnectGatewayId@ to delete an association.
 module Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
-  ( -- * Creating a Request
-    deleteDirectConnectGatewayAssociation,
-    DeleteDirectConnectGatewayAssociation,
+  ( -- * Creating a request
+    DeleteDirectConnectGatewayAssociation (..),
+    mkDeleteDirectConnectGatewayAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delVirtualGatewayId,
     delAssociationId,
     delDirectConnectGatewayId,
 
-    -- * Destructuring the Response
-    deleteDirectConnectGatewayAssociationResponse,
-    DeleteDirectConnectGatewayAssociationResponse,
+    -- * Destructuring the response
+    DeleteDirectConnectGatewayAssociationResponse (..),
+    mkDeleteDirectConnectGatewayAssociationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsDirectConnectGatewayAssociation,
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDirectConnectGatewayAssociation' smart constructor.
+-- | /See:/ 'mkDeleteDirectConnectGatewayAssociation' smart constructor.
 data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociation'
-  { _delVirtualGatewayId ::
-      !(Maybe Text),
-    _delAssociationId ::
-      !(Maybe Text),
-    _delDirectConnectGatewayId ::
-      !(Maybe Text)
+  { virtualGatewayId ::
+      Lude.Maybe
+        Lude.Text,
+    associationId ::
+      Lude.Maybe
+        Lude.Text,
+    directConnectGatewayId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectConnectGatewayAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delVirtualGatewayId' - The ID of the virtual private gateway.
---
--- * 'delAssociationId' - The ID of the Direct Connect gateway association.
---
--- * 'delDirectConnectGatewayId' - The ID of the Direct Connect gateway.
-deleteDirectConnectGatewayAssociation ::
+-- * 'associationId' - The ID of the Direct Connect gateway association.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'virtualGatewayId' - The ID of the virtual private gateway.
+mkDeleteDirectConnectGatewayAssociation ::
   DeleteDirectConnectGatewayAssociation
-deleteDirectConnectGatewayAssociation =
+mkDeleteDirectConnectGatewayAssociation =
   DeleteDirectConnectGatewayAssociation'
-    { _delVirtualGatewayId =
-        Nothing,
-      _delAssociationId = Nothing,
-      _delDirectConnectGatewayId = Nothing
+    { virtualGatewayId =
+        Lude.Nothing,
+      associationId = Lude.Nothing,
+      directConnectGatewayId = Lude.Nothing
     }
 
 -- | The ID of the virtual private gateway.
-delVirtualGatewayId :: Lens' DeleteDirectConnectGatewayAssociation (Maybe Text)
-delVirtualGatewayId = lens _delVirtualGatewayId (\s a -> s {_delVirtualGatewayId = a})
+--
+-- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delVirtualGatewayId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
+delVirtualGatewayId = Lens.lens (virtualGatewayId :: DeleteDirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: DeleteDirectConnectGatewayAssociation)
+{-# DEPRECATED delVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
 
 -- | The ID of the Direct Connect gateway association.
-delAssociationId :: Lens' DeleteDirectConnectGatewayAssociation (Maybe Text)
-delAssociationId = lens _delAssociationId (\s a -> s {_delAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delAssociationId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
+delAssociationId = Lens.lens (associationId :: DeleteDirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DeleteDirectConnectGatewayAssociation)
+{-# DEPRECATED delAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
-delDirectConnectGatewayId :: Lens' DeleteDirectConnectGatewayAssociation (Maybe Text)
-delDirectConnectGatewayId = lens _delDirectConnectGatewayId (\s a -> s {_delDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delDirectConnectGatewayId :: Lens.Lens' DeleteDirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
+delDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DeleteDirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DeleteDirectConnectGatewayAssociation)
+{-# DEPRECATED delDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
-instance AWSRequest DeleteDirectConnectGatewayAssociation where
+instance Lude.AWSRequest DeleteDirectConnectGatewayAssociation where
   type
     Rs DeleteDirectConnectGatewayAssociation =
       DeleteDirectConnectGatewayAssociationResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteDirectConnectGatewayAssociationResponse'
-            <$> (x .?> "directConnectGatewayAssociation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "directConnectGatewayAssociation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDirectConnectGatewayAssociation
-
-instance NFData DeleteDirectConnectGatewayAssociation
-
-instance ToHeaders DeleteDirectConnectGatewayAssociation where
+instance Lude.ToHeaders DeleteDirectConnectGatewayAssociation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "OvertureService.DeleteDirectConnectGatewayAssociation" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.DeleteDirectConnectGatewayAssociation" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDirectConnectGatewayAssociation where
+instance Lude.ToJSON DeleteDirectConnectGatewayAssociation where
   toJSON DeleteDirectConnectGatewayAssociation' {..} =
-    object
-      ( catMaybes
-          [ ("virtualGatewayId" .=) <$> _delVirtualGatewayId,
-            ("associationId" .=) <$> _delAssociationId,
-            ("directConnectGatewayId" .=) <$> _delDirectConnectGatewayId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("virtualGatewayId" Lude..=) Lude.<$> virtualGatewayId,
+            ("associationId" Lude..=) Lude.<$> associationId,
+            ("directConnectGatewayId" Lude..=)
+              Lude.<$> directConnectGatewayId
           ]
       )
 
-instance ToPath DeleteDirectConnectGatewayAssociation where
-  toPath = const "/"
+instance Lude.ToPath DeleteDirectConnectGatewayAssociation where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDirectConnectGatewayAssociation where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDirectConnectGatewayAssociation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDirectConnectGatewayAssociationResponse' smart constructor.
+-- | /See:/ 'mkDeleteDirectConnectGatewayAssociationResponse' smart constructor.
 data DeleteDirectConnectGatewayAssociationResponse = DeleteDirectConnectGatewayAssociationResponse'
-  { _delrsDirectConnectGatewayAssociation ::
-      !( Maybe
-           DirectConnectGatewayAssociation
-       ),
-    _delrsResponseStatus ::
-      !Int
+  { directConnectGatewayAssociation ::
+      Lude.Maybe
+        DirectConnectGatewayAssociation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeleteDirectConnectGatewayAssociationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsDirectConnectGatewayAssociation' - Information about the deleted association.
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteDirectConnectGatewayAssociationResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'directConnectGatewayAssociation' - Information about the deleted association.
+-- * 'responseStatus' - The response status code.
+mkDeleteDirectConnectGatewayAssociationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDirectConnectGatewayAssociationResponse
-deleteDirectConnectGatewayAssociationResponse pResponseStatus_ =
+mkDeleteDirectConnectGatewayAssociationResponse pResponseStatus_ =
   DeleteDirectConnectGatewayAssociationResponse'
-    { _delrsDirectConnectGatewayAssociation =
-        Nothing,
-      _delrsResponseStatus = pResponseStatus_
+    { directConnectGatewayAssociation =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the deleted association.
-delrsDirectConnectGatewayAssociation :: Lens' DeleteDirectConnectGatewayAssociationResponse (Maybe DirectConnectGatewayAssociation)
-delrsDirectConnectGatewayAssociation = lens _delrsDirectConnectGatewayAssociation (\s a -> s {_delrsDirectConnectGatewayAssociation = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsDirectConnectGatewayAssociation :: Lens.Lens' DeleteDirectConnectGatewayAssociationResponse (Lude.Maybe DirectConnectGatewayAssociation)
+delrsDirectConnectGatewayAssociation = Lens.lens (directConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociationResponse -> Lude.Maybe DirectConnectGatewayAssociation) (\s a -> s {directConnectGatewayAssociation = a} :: DeleteDirectConnectGatewayAssociationResponse)
+{-# DEPRECATED delrsDirectConnectGatewayAssociation "Use generic-lens or generic-optics with 'directConnectGatewayAssociation' instead." #-}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteDirectConnectGatewayAssociationResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteDirectConnectGatewayAssociationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteDirectConnectGatewayAssociationResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectConnectGatewayAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectConnectGatewayAssociationResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

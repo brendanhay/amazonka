@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AutoSnapshotStatus where
+module Network.AWS.Lightsail.Types.AutoSnapshotStatus
+  ( AutoSnapshotStatus
+      ( AutoSnapshotStatus',
+        ASSFailed,
+        ASSInProgress,
+        ASSNotFound,
+        ASSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoSnapshotStatus
-  = ASSFailed
-  | ASSInProgress
-  | ASSNotFound
-  | ASSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoSnapshotStatus = AutoSnapshotStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoSnapshotStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure ASSFailed
-      "inprogress" -> pure ASSInProgress
-      "notfound" -> pure ASSNotFound
-      "success" -> pure ASSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing AutoSnapshotStatus from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, notfound, success"
+pattern ASSFailed :: AutoSnapshotStatus
+pattern ASSFailed = AutoSnapshotStatus' "Failed"
 
-instance ToText AutoSnapshotStatus where
-  toText = \case
-    ASSFailed -> "Failed"
-    ASSInProgress -> "InProgress"
-    ASSNotFound -> "NotFound"
-    ASSSuccess -> "Success"
+pattern ASSInProgress :: AutoSnapshotStatus
+pattern ASSInProgress = AutoSnapshotStatus' "InProgress"
 
-instance Hashable AutoSnapshotStatus
+pattern ASSNotFound :: AutoSnapshotStatus
+pattern ASSNotFound = AutoSnapshotStatus' "NotFound"
 
-instance NFData AutoSnapshotStatus
+pattern ASSSuccess :: AutoSnapshotStatus
+pattern ASSSuccess = AutoSnapshotStatus' "Success"
 
-instance ToByteString AutoSnapshotStatus
-
-instance ToQuery AutoSnapshotStatus
-
-instance ToHeader AutoSnapshotStatus
-
-instance FromJSON AutoSnapshotStatus where
-  parseJSON = parseJSONText "AutoSnapshotStatus"
+{-# COMPLETE
+  ASSFailed,
+  ASSInProgress,
+  ASSNotFound,
+  ASSSuccess,
+  AutoSnapshotStatus'
+  #-}

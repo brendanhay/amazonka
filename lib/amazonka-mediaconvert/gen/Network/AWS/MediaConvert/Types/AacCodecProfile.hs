@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AacCodecProfile where
+module Network.AWS.MediaConvert.Types.AacCodecProfile
+  ( AacCodecProfile
+      ( AacCodecProfile',
+        ACPHEV1,
+        ACPHEV2,
+        ACPLC
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | AAC Profile.
-data AacCodecProfile
-  = ACPHEV1
-  | ACPHEV2
-  | ACPLC
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacCodecProfile = AacCodecProfile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacCodecProfile where
-  parser =
-    takeLowerText >>= \case
-      "hev1" -> pure ACPHEV1
-      "hev2" -> pure ACPHEV2
-      "lc" -> pure ACPLC
-      e ->
-        fromTextError $
-          "Failure parsing AacCodecProfile from value: '" <> e
-            <> "'. Accepted values: hev1, hev2, lc"
+pattern ACPHEV1 :: AacCodecProfile
+pattern ACPHEV1 = AacCodecProfile' "HEV1"
 
-instance ToText AacCodecProfile where
-  toText = \case
-    ACPHEV1 -> "HEV1"
-    ACPHEV2 -> "HEV2"
-    ACPLC -> "LC"
+pattern ACPHEV2 :: AacCodecProfile
+pattern ACPHEV2 = AacCodecProfile' "HEV2"
 
-instance Hashable AacCodecProfile
+pattern ACPLC :: AacCodecProfile
+pattern ACPLC = AacCodecProfile' "LC"
 
-instance NFData AacCodecProfile
-
-instance ToByteString AacCodecProfile
-
-instance ToQuery AacCodecProfile
-
-instance ToHeader AacCodecProfile
-
-instance ToJSON AacCodecProfile where
-  toJSON = toJSONText
-
-instance FromJSON AacCodecProfile where
-  parseJSON = parseJSONText "AacCodecProfile"
+{-# COMPLETE
+  ACPHEV1,
+  ACPHEV2,
+  ACPLC,
+  AacCodecProfile'
+  #-}

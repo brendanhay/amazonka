@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Backtracks a DB cluster to a specific time, without creating a new DB cluster.
 --
---
 -- For more information on backtracking, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html Backtracking an Aurora DB Cluster> in the /Amazon Aurora User Guide./
 module Network.AWS.RDS.BacktrackDBCluster
-  ( -- * Creating a Request
-    backtrackDBCluster,
-    BacktrackDBCluster,
+  ( -- * Creating a request
+    BacktrackDBCluster (..),
+    mkBacktrackDBCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdcForce,
     bdcUseEarliestTimeOnPointInTimeUnavailable,
     bdcDBClusterIdentifier,
     bdcBacktrackTo,
 
-    -- * Destructuring the Response
-    dbClusterBacktrack,
-    DBClusterBacktrack,
+    -- * Destructuring the response
+    DBClusterBacktrack (..),
+    mkDBClusterBacktrack,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcbStatus,
     dcbBacktrackIdentifier,
     dcbBacktrackTo,
@@ -46,94 +40,148 @@ module Network.AWS.RDS.BacktrackDBCluster
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'backtrackDBCluster' smart constructor.
+-- /See:/ 'mkBacktrackDBCluster' smart constructor.
 data BacktrackDBCluster = BacktrackDBCluster'
-  { _bdcForce ::
-      !(Maybe Bool),
-    _bdcUseEarliestTimeOnPointInTimeUnavailable ::
-      !(Maybe Bool),
-    _bdcDBClusterIdentifier :: !Text,
-    _bdcBacktrackTo :: !ISO8601
+  { force ::
+      Lude.Maybe Lude.Bool,
+    useEarliestTimeOnPointInTimeUnavailable ::
+      Lude.Maybe Lude.Bool,
+    dbClusterIdentifier :: Lude.Text,
+    backtrackTo :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BacktrackDBCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'backtrackTo' - The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
--- * 'bdcForce' - A value that indicates whether to force the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled.
+-- Constraints:
 --
--- * 'bdcUseEarliestTimeOnPointInTimeUnavailable' - A value that indicates whether to backtrack the DB cluster to the earliest possible backtrack time when /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time. When this parameter is disabled and /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time, an error occurs.
+--     * Must contain a valid ISO 8601 timestamp.
 --
--- * 'bdcDBClusterIdentifier' - The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 --
--- * 'bdcBacktrackTo' - The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Can't contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
-backtrackDBCluster ::
-  -- | 'bdcDBClusterIdentifier'
-  Text ->
-  -- | 'bdcBacktrackTo'
-  UTCTime ->
+--     * Can't contain a timestamp set in the future.
+--
+--
+-- Example: @2017-07-08T18:00Z@
+-- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @my-cluster1@
+-- * 'force' - A value that indicates whether to force the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled.
+-- * 'useEarliestTimeOnPointInTimeUnavailable' - A value that indicates whether to backtrack the DB cluster to the earliest possible backtrack time when /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time. When this parameter is disabled and /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time, an error occurs.
+mkBacktrackDBCluster ::
+  -- | 'dbClusterIdentifier'
+  Lude.Text ->
+  -- | 'backtrackTo'
+  Lude.ISO8601 ->
   BacktrackDBCluster
-backtrackDBCluster pDBClusterIdentifier_ pBacktrackTo_ =
+mkBacktrackDBCluster pDBClusterIdentifier_ pBacktrackTo_ =
   BacktrackDBCluster'
-    { _bdcForce = Nothing,
-      _bdcUseEarliestTimeOnPointInTimeUnavailable = Nothing,
-      _bdcDBClusterIdentifier = pDBClusterIdentifier_,
-      _bdcBacktrackTo = _Time # pBacktrackTo_
+    { force = Lude.Nothing,
+      useEarliestTimeOnPointInTimeUnavailable = Lude.Nothing,
+      dbClusterIdentifier = pDBClusterIdentifier_,
+      backtrackTo = pBacktrackTo_
     }
 
 -- | A value that indicates whether to force the DB cluster to backtrack when binary logging is enabled. Otherwise, an error occurs when binary logging is enabled.
-bdcForce :: Lens' BacktrackDBCluster (Maybe Bool)
-bdcForce = lens _bdcForce (\s a -> s {_bdcForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcForce :: Lens.Lens' BacktrackDBCluster (Lude.Maybe Lude.Bool)
+bdcForce = Lens.lens (force :: BacktrackDBCluster -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: BacktrackDBCluster)
+{-# DEPRECATED bdcForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | A value that indicates whether to backtrack the DB cluster to the earliest possible backtrack time when /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time. When this parameter is disabled and /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time, an error occurs.
-bdcUseEarliestTimeOnPointInTimeUnavailable :: Lens' BacktrackDBCluster (Maybe Bool)
-bdcUseEarliestTimeOnPointInTimeUnavailable = lens _bdcUseEarliestTimeOnPointInTimeUnavailable (\s a -> s {_bdcUseEarliestTimeOnPointInTimeUnavailable = a})
+--
+-- /Note:/ Consider using 'useEarliestTimeOnPointInTimeUnavailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcUseEarliestTimeOnPointInTimeUnavailable :: Lens.Lens' BacktrackDBCluster (Lude.Maybe Lude.Bool)
+bdcUseEarliestTimeOnPointInTimeUnavailable = Lens.lens (useEarliestTimeOnPointInTimeUnavailable :: BacktrackDBCluster -> Lude.Maybe Lude.Bool) (\s a -> s {useEarliestTimeOnPointInTimeUnavailable = a} :: BacktrackDBCluster)
+{-# DEPRECATED bdcUseEarliestTimeOnPointInTimeUnavailable "Use generic-lens or generic-optics with 'useEarliestTimeOnPointInTimeUnavailable' instead." #-}
 
--- | The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
-bdcDBClusterIdentifier :: Lens' BacktrackDBCluster Text
-bdcDBClusterIdentifier = lens _bdcDBClusterIdentifier (\s a -> s {_bdcDBClusterIdentifier = a})
+-- | The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @my-cluster1@
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcDBClusterIdentifier :: Lens.Lens' BacktrackDBCluster Lude.Text
+bdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: BacktrackDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: BacktrackDBCluster)
+{-# DEPRECATED bdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
--- | The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Can't contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
-bdcBacktrackTo :: Lens' BacktrackDBCluster UTCTime
-bdcBacktrackTo = lens _bdcBacktrackTo (\s a -> s {_bdcBacktrackTo = a}) . _Time
+-- | The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Constraints:
+--
+--     * Must contain a valid ISO 8601 timestamp.
+--
+--
+--     * Can't contain a timestamp set in the future.
+--
+--
+-- Example: @2017-07-08T18:00Z@
+--
+-- /Note:/ Consider using 'backtrackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcBacktrackTo :: Lens.Lens' BacktrackDBCluster Lude.ISO8601
+bdcBacktrackTo = Lens.lens (backtrackTo :: BacktrackDBCluster -> Lude.ISO8601) (\s a -> s {backtrackTo = a} :: BacktrackDBCluster)
+{-# DEPRECATED bdcBacktrackTo "Use generic-lens or generic-optics with 'backtrackTo' instead." #-}
 
-instance AWSRequest BacktrackDBCluster where
+instance Lude.AWSRequest BacktrackDBCluster where
   type Rs BacktrackDBCluster = DBClusterBacktrack
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "BacktrackDBClusterResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable BacktrackDBCluster
+instance Lude.ToHeaders BacktrackDBCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BacktrackDBCluster
+instance Lude.ToPath BacktrackDBCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders BacktrackDBCluster where
-  toHeaders = const mempty
-
-instance ToPath BacktrackDBCluster where
-  toPath = const "/"
-
-instance ToQuery BacktrackDBCluster where
+instance Lude.ToQuery BacktrackDBCluster where
   toQuery BacktrackDBCluster' {..} =
-    mconcat
-      [ "Action" =: ("BacktrackDBCluster" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Force" =: _bdcForce,
+    Lude.mconcat
+      [ "Action" Lude.=: ("BacktrackDBCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Force" Lude.=: force,
         "UseEarliestTimeOnPointInTimeUnavailable"
-          =: _bdcUseEarliestTimeOnPointInTimeUnavailable,
-        "DBClusterIdentifier" =: _bdcDBClusterIdentifier,
-        "BacktrackTo" =: _bdcBacktrackTo
+          Lude.=: useEarliestTimeOnPointInTimeUnavailable,
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "BacktrackTo" Lude.=: backtrackTo
       ]

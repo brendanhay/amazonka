@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod where
+module Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
+  ( ElasticsearchIndexRotationPeriod
+      ( ElasticsearchIndexRotationPeriod',
+        NoRotation,
+        OneDay,
+        OneHour,
+        OneMonth,
+        OneWeek
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ElasticsearchIndexRotationPeriod
-  = NoRotation
-  | OneDay
-  | OneHour
-  | OneMonth
-  | OneWeek
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ElasticsearchIndexRotationPeriod = ElasticsearchIndexRotationPeriod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ElasticsearchIndexRotationPeriod where
-  parser =
-    takeLowerText >>= \case
-      "norotation" -> pure NoRotation
-      "oneday" -> pure OneDay
-      "onehour" -> pure OneHour
-      "onemonth" -> pure OneMonth
-      "oneweek" -> pure OneWeek
-      e ->
-        fromTextError $
-          "Failure parsing ElasticsearchIndexRotationPeriod from value: '" <> e
-            <> "'. Accepted values: norotation, oneday, onehour, onemonth, oneweek"
+pattern NoRotation :: ElasticsearchIndexRotationPeriod
+pattern NoRotation = ElasticsearchIndexRotationPeriod' "NoRotation"
 
-instance ToText ElasticsearchIndexRotationPeriod where
-  toText = \case
-    NoRotation -> "NoRotation"
-    OneDay -> "OneDay"
-    OneHour -> "OneHour"
-    OneMonth -> "OneMonth"
-    OneWeek -> "OneWeek"
+pattern OneDay :: ElasticsearchIndexRotationPeriod
+pattern OneDay = ElasticsearchIndexRotationPeriod' "OneDay"
 
-instance Hashable ElasticsearchIndexRotationPeriod
+pattern OneHour :: ElasticsearchIndexRotationPeriod
+pattern OneHour = ElasticsearchIndexRotationPeriod' "OneHour"
 
-instance NFData ElasticsearchIndexRotationPeriod
+pattern OneMonth :: ElasticsearchIndexRotationPeriod
+pattern OneMonth = ElasticsearchIndexRotationPeriod' "OneMonth"
 
-instance ToByteString ElasticsearchIndexRotationPeriod
+pattern OneWeek :: ElasticsearchIndexRotationPeriod
+pattern OneWeek = ElasticsearchIndexRotationPeriod' "OneWeek"
 
-instance ToQuery ElasticsearchIndexRotationPeriod
-
-instance ToHeader ElasticsearchIndexRotationPeriod
-
-instance ToJSON ElasticsearchIndexRotationPeriod where
-  toJSON = toJSONText
-
-instance FromJSON ElasticsearchIndexRotationPeriod where
-  parseJSON = parseJSONText "ElasticsearchIndexRotationPeriod"
+{-# COMPLETE
+  NoRotation,
+  OneDay,
+  OneHour,
+  OneMonth,
+  OneWeek,
+  ElasticsearchIndexRotationPeriod'
+  #-}

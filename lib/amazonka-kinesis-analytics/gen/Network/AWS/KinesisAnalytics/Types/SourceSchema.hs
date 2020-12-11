@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.SourceSchema where
+module Network.AWS.KinesisAnalytics.Types.SourceSchema
+  ( SourceSchema (..),
+
+    -- * Smart constructor
+    mkSourceSchema,
+
+    -- * Lenses
+    ssRecordEncoding,
+    ssRecordFormat,
+    ssRecordColumns,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.RecordColumn
 import Network.AWS.KinesisAnalytics.Types.RecordFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 --
---
---
--- /See:/ 'sourceSchema' smart constructor.
+-- /See:/ 'mkSourceSchema' smart constructor.
 data SourceSchema = SourceSchema'
-  { _ssRecordEncoding ::
-      !(Maybe Text),
-    _ssRecordFormat :: !RecordFormat,
-    _ssRecordColumns :: !(List1 RecordColumn)
+  { recordEncoding ::
+      Lude.Maybe Lude.Text,
+    recordFormat :: RecordFormat,
+    recordColumns :: Lude.NonEmpty RecordColumn
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssRecordEncoding' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
---
--- * 'ssRecordFormat' - Specifies the format of the records on the streaming source.
---
--- * 'ssRecordColumns' - A list of @RecordColumn@ objects.
-sourceSchema ::
-  -- | 'ssRecordFormat'
+-- * 'recordColumns' - A list of @RecordColumn@ objects.
+-- * 'recordEncoding' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
+-- * 'recordFormat' - Specifies the format of the records on the streaming source.
+mkSourceSchema ::
+  -- | 'recordFormat'
   RecordFormat ->
-  -- | 'ssRecordColumns'
-  NonEmpty RecordColumn ->
+  -- | 'recordColumns'
+  Lude.NonEmpty RecordColumn ->
   SourceSchema
-sourceSchema pRecordFormat_ pRecordColumns_ =
+mkSourceSchema pRecordFormat_ pRecordColumns_ =
   SourceSchema'
-    { _ssRecordEncoding = Nothing,
-      _ssRecordFormat = pRecordFormat_,
-      _ssRecordColumns = _List1 # pRecordColumns_
+    { recordEncoding = Lude.Nothing,
+      recordFormat = pRecordFormat_,
+      recordColumns = pRecordColumns_
     }
 
 -- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
-ssRecordEncoding :: Lens' SourceSchema (Maybe Text)
-ssRecordEncoding = lens _ssRecordEncoding (\s a -> s {_ssRecordEncoding = a})
+--
+-- /Note:/ Consider using 'recordEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssRecordEncoding :: Lens.Lens' SourceSchema (Lude.Maybe Lude.Text)
+ssRecordEncoding = Lens.lens (recordEncoding :: SourceSchema -> Lude.Maybe Lude.Text) (\s a -> s {recordEncoding = a} :: SourceSchema)
+{-# DEPRECATED ssRecordEncoding "Use generic-lens or generic-optics with 'recordEncoding' instead." #-}
 
 -- | Specifies the format of the records on the streaming source.
-ssRecordFormat :: Lens' SourceSchema RecordFormat
-ssRecordFormat = lens _ssRecordFormat (\s a -> s {_ssRecordFormat = a})
+--
+-- /Note:/ Consider using 'recordFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssRecordFormat :: Lens.Lens' SourceSchema RecordFormat
+ssRecordFormat = Lens.lens (recordFormat :: SourceSchema -> RecordFormat) (\s a -> s {recordFormat = a} :: SourceSchema)
+{-# DEPRECATED ssRecordFormat "Use generic-lens or generic-optics with 'recordFormat' instead." #-}
 
 -- | A list of @RecordColumn@ objects.
-ssRecordColumns :: Lens' SourceSchema (NonEmpty RecordColumn)
-ssRecordColumns = lens _ssRecordColumns (\s a -> s {_ssRecordColumns = a}) . _List1
+--
+-- /Note:/ Consider using 'recordColumns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssRecordColumns :: Lens.Lens' SourceSchema (Lude.NonEmpty RecordColumn)
+ssRecordColumns = Lens.lens (recordColumns :: SourceSchema -> Lude.NonEmpty RecordColumn) (\s a -> s {recordColumns = a} :: SourceSchema)
+{-# DEPRECATED ssRecordColumns "Use generic-lens or generic-optics with 'recordColumns' instead." #-}
 
-instance FromJSON SourceSchema where
+instance Lude.FromJSON SourceSchema where
   parseJSON =
-    withObject
+    Lude.withObject
       "SourceSchema"
       ( \x ->
           SourceSchema'
-            <$> (x .:? "RecordEncoding")
-            <*> (x .: "RecordFormat")
-            <*> (x .: "RecordColumns")
+            Lude.<$> (x Lude..:? "RecordEncoding")
+            Lude.<*> (x Lude..: "RecordFormat")
+            Lude.<*> (x Lude..: "RecordColumns")
       )
 
-instance Hashable SourceSchema
-
-instance NFData SourceSchema
-
-instance ToJSON SourceSchema where
+instance Lude.ToJSON SourceSchema where
   toJSON SourceSchema' {..} =
-    object
-      ( catMaybes
-          [ ("RecordEncoding" .=) <$> _ssRecordEncoding,
-            Just ("RecordFormat" .= _ssRecordFormat),
-            Just ("RecordColumns" .= _ssRecordColumns)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RecordEncoding" Lude..=) Lude.<$> recordEncoding,
+            Lude.Just ("RecordFormat" Lude..= recordFormat),
+            Lude.Just ("RecordColumns" Lude..= recordColumns)
           ]
       )

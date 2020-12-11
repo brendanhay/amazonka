@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexProgramSettings where
+module Network.AWS.MediaLive.Types.MultiplexProgramSettings
+  ( MultiplexProgramSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMultiplexProgramSettings,
+
+    -- * Lenses
+    mpsPreferredChannelPipeline,
+    mpsVideoSettings,
+    mpsServiceDescriptor,
+    mpsProgramNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexProgramServiceDescriptor
 import Network.AWS.MediaLive.Types.MultiplexVideoSettings
 import Network.AWS.MediaLive.Types.PreferredChannelPipeline
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Multiplex Program settings configuration.
 --
--- /See:/ 'multiplexProgramSettings' smart constructor.
+-- /See:/ 'mkMultiplexProgramSettings' smart constructor.
 data MultiplexProgramSettings = MultiplexProgramSettings'
-  { _mpsPreferredChannelPipeline ::
-      !(Maybe PreferredChannelPipeline),
-    _mpsVideoSettings ::
-      !(Maybe MultiplexVideoSettings),
-    _mpsServiceDescriptor ::
-      !( Maybe
-           MultiplexProgramServiceDescriptor
-       ),
-    _mpsProgramNumber :: !Nat
+  { preferredChannelPipeline ::
+      Lude.Maybe PreferredChannelPipeline,
+    videoSettings ::
+      Lude.Maybe MultiplexVideoSettings,
+    serviceDescriptor ::
+      Lude.Maybe
+        MultiplexProgramServiceDescriptor,
+    programNumber :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpsPreferredChannelPipeline' - Indicates which pipeline is preferred by the multiplex for program ingest.
---
--- * 'mpsVideoSettings' - Program video settings configuration.
---
--- * 'mpsServiceDescriptor' - Transport stream service descriptor configuration for the Multiplex program.
---
--- * 'mpsProgramNumber' - Unique program number.
-multiplexProgramSettings ::
-  -- | 'mpsProgramNumber'
-  Natural ->
+-- * 'preferredChannelPipeline' - Indicates which pipeline is preferred by the multiplex for program ingest.
+-- * 'programNumber' - Unique program number.
+-- * 'serviceDescriptor' - Transport stream service descriptor configuration for the Multiplex program.
+-- * 'videoSettings' - Program video settings configuration.
+mkMultiplexProgramSettings ::
+  -- | 'programNumber'
+  Lude.Natural ->
   MultiplexProgramSettings
-multiplexProgramSettings pProgramNumber_ =
+mkMultiplexProgramSettings pProgramNumber_ =
   MultiplexProgramSettings'
-    { _mpsPreferredChannelPipeline = Nothing,
-      _mpsVideoSettings = Nothing,
-      _mpsServiceDescriptor = Nothing,
-      _mpsProgramNumber = _Nat # pProgramNumber_
+    { preferredChannelPipeline =
+        Lude.Nothing,
+      videoSettings = Lude.Nothing,
+      serviceDescriptor = Lude.Nothing,
+      programNumber = pProgramNumber_
     }
 
 -- | Indicates which pipeline is preferred by the multiplex for program ingest.
-mpsPreferredChannelPipeline :: Lens' MultiplexProgramSettings (Maybe PreferredChannelPipeline)
-mpsPreferredChannelPipeline = lens _mpsPreferredChannelPipeline (\s a -> s {_mpsPreferredChannelPipeline = a})
+--
+-- /Note:/ Consider using 'preferredChannelPipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsPreferredChannelPipeline :: Lens.Lens' MultiplexProgramSettings (Lude.Maybe PreferredChannelPipeline)
+mpsPreferredChannelPipeline = Lens.lens (preferredChannelPipeline :: MultiplexProgramSettings -> Lude.Maybe PreferredChannelPipeline) (\s a -> s {preferredChannelPipeline = a} :: MultiplexProgramSettings)
+{-# DEPRECATED mpsPreferredChannelPipeline "Use generic-lens or generic-optics with 'preferredChannelPipeline' instead." #-}
 
 -- | Program video settings configuration.
-mpsVideoSettings :: Lens' MultiplexProgramSettings (Maybe MultiplexVideoSettings)
-mpsVideoSettings = lens _mpsVideoSettings (\s a -> s {_mpsVideoSettings = a})
+--
+-- /Note:/ Consider using 'videoSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsVideoSettings :: Lens.Lens' MultiplexProgramSettings (Lude.Maybe MultiplexVideoSettings)
+mpsVideoSettings = Lens.lens (videoSettings :: MultiplexProgramSettings -> Lude.Maybe MultiplexVideoSettings) (\s a -> s {videoSettings = a} :: MultiplexProgramSettings)
+{-# DEPRECATED mpsVideoSettings "Use generic-lens or generic-optics with 'videoSettings' instead." #-}
 
 -- | Transport stream service descriptor configuration for the Multiplex program.
-mpsServiceDescriptor :: Lens' MultiplexProgramSettings (Maybe MultiplexProgramServiceDescriptor)
-mpsServiceDescriptor = lens _mpsServiceDescriptor (\s a -> s {_mpsServiceDescriptor = a})
+--
+-- /Note:/ Consider using 'serviceDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsServiceDescriptor :: Lens.Lens' MultiplexProgramSettings (Lude.Maybe MultiplexProgramServiceDescriptor)
+mpsServiceDescriptor = Lens.lens (serviceDescriptor :: MultiplexProgramSettings -> Lude.Maybe MultiplexProgramServiceDescriptor) (\s a -> s {serviceDescriptor = a} :: MultiplexProgramSettings)
+{-# DEPRECATED mpsServiceDescriptor "Use generic-lens or generic-optics with 'serviceDescriptor' instead." #-}
 
 -- | Unique program number.
-mpsProgramNumber :: Lens' MultiplexProgramSettings Natural
-mpsProgramNumber = lens _mpsProgramNumber (\s a -> s {_mpsProgramNumber = a}) . _Nat
+--
+-- /Note:/ Consider using 'programNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsProgramNumber :: Lens.Lens' MultiplexProgramSettings Lude.Natural
+mpsProgramNumber = Lens.lens (programNumber :: MultiplexProgramSettings -> Lude.Natural) (\s a -> s {programNumber = a} :: MultiplexProgramSettings)
+{-# DEPRECATED mpsProgramNumber "Use generic-lens or generic-optics with 'programNumber' instead." #-}
 
-instance FromJSON MultiplexProgramSettings where
+instance Lude.FromJSON MultiplexProgramSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexProgramSettings"
       ( \x ->
           MultiplexProgramSettings'
-            <$> (x .:? "preferredChannelPipeline")
-            <*> (x .:? "videoSettings")
-            <*> (x .:? "serviceDescriptor")
-            <*> (x .: "programNumber")
+            Lude.<$> (x Lude..:? "preferredChannelPipeline")
+            Lude.<*> (x Lude..:? "videoSettings")
+            Lude.<*> (x Lude..:? "serviceDescriptor")
+            Lude.<*> (x Lude..: "programNumber")
       )
 
-instance Hashable MultiplexProgramSettings
-
-instance NFData MultiplexProgramSettings
-
-instance ToJSON MultiplexProgramSettings where
+instance Lude.ToJSON MultiplexProgramSettings where
   toJSON MultiplexProgramSettings' {..} =
-    object
-      ( catMaybes
-          [ ("preferredChannelPipeline" .=) <$> _mpsPreferredChannelPipeline,
-            ("videoSettings" .=) <$> _mpsVideoSettings,
-            ("serviceDescriptor" .=) <$> _mpsServiceDescriptor,
-            Just ("programNumber" .= _mpsProgramNumber)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("preferredChannelPipeline" Lude..=)
+              Lude.<$> preferredChannelPipeline,
+            ("videoSettings" Lude..=) Lude.<$> videoSettings,
+            ("serviceDescriptor" Lude..=) Lude.<$> serviceDescriptor,
+            Lude.Just ("programNumber" Lude..= programNumber)
           ]
       )

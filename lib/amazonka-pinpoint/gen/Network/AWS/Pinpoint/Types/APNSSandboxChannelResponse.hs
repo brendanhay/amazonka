@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,149 +7,194 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.APNSSandboxChannelResponse where
+module Network.AWS.Pinpoint.Types.APNSSandboxChannelResponse
+  ( APNSSandboxChannelResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPNSSandboxChannelResponse,
+
+    -- * Lenses
+    ascLastModifiedDate,
+    ascEnabled,
+    ascHasTokenKey,
+    ascDefaultAuthenticationMethod,
+    ascIsArchived,
+    ascApplicationId,
+    ascVersion,
+    ascId,
+    ascCreationDate,
+    ascLastModifiedBy,
+    ascHasCredential,
+    ascPlatform,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.
 --
---
---
--- /See:/ 'apnsSandboxChannelResponse' smart constructor.
+-- /See:/ 'mkAPNSSandboxChannelResponse' smart constructor.
 data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
-  { _ascLastModifiedDate ::
-      !(Maybe Text),
-    _ascEnabled :: !(Maybe Bool),
-    _ascHasTokenKey :: !(Maybe Bool),
-    _ascDefaultAuthenticationMethod ::
-      !(Maybe Text),
-    _ascIsArchived :: !(Maybe Bool),
-    _ascApplicationId :: !(Maybe Text),
-    _ascVersion :: !(Maybe Int),
-    _ascId :: !(Maybe Text),
-    _ascCreationDate :: !(Maybe Text),
-    _ascLastModifiedBy :: !(Maybe Text),
-    _ascHasCredential :: !(Maybe Bool),
-    _ascPlatform :: !Text
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    hasTokenKey :: Lude.Maybe Lude.Bool,
+    defaultAuthenticationMethod ::
+      Lude.Maybe Lude.Text,
+    isArchived :: Lude.Maybe Lude.Bool,
+    applicationId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Int,
+    id :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    lastModifiedBy ::
+      Lude.Maybe Lude.Text,
+    hasCredential :: Lude.Maybe Lude.Bool,
+    platform :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ascLastModifiedDate' - The date and time when the APNs sandbox channel was last modified.
---
--- * 'ascEnabled' - Specifies whether the APNs sandbox channel is enabled for the application.
---
--- * 'ascHasTokenKey' - Specifies whether the APNs sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
---
--- * 'ascDefaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
---
--- * 'ascIsArchived' - Specifies whether the APNs sandbox channel is archived.
---
--- * 'ascApplicationId' - The unique identifier for the application that the APNs sandbox channel applies to.
---
--- * 'ascVersion' - The current version of the APNs sandbox channel.
---
--- * 'ascId' - (Deprecated) An identifier for the APNs sandbox channel. This property is retained only for backward compatibility.
---
--- * 'ascCreationDate' - The date and time when the APNs sandbox channel was enabled.
---
--- * 'ascLastModifiedBy' - The user who last modified the APNs sandbox channel.
---
--- * 'ascHasCredential' - (Not used) This property is retained only for backward compatibility.
---
--- * 'ascPlatform' - The type of messaging or notification platform for the channel. For the APNs sandbox channel, this value is APNS_SANDBOX.
-apnsSandboxChannelResponse ::
-  -- | 'ascPlatform'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that the APNs sandbox channel applies to.
+-- * 'creationDate' - The date and time when the APNs sandbox channel was enabled.
+-- * 'defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
+-- * 'enabled' - Specifies whether the APNs sandbox channel is enabled for the application.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- * 'hasTokenKey' - Specifies whether the APNs sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+-- * 'id' - (Deprecated) An identifier for the APNs sandbox channel. This property is retained only for backward compatibility.
+-- * 'isArchived' - Specifies whether the APNs sandbox channel is archived.
+-- * 'lastModifiedBy' - The user who last modified the APNs sandbox channel.
+-- * 'lastModifiedDate' - The date and time when the APNs sandbox channel was last modified.
+-- * 'platform' - The type of messaging or notification platform for the channel. For the APNs sandbox channel, this value is APNS_SANDBOX.
+-- * 'version' - The current version of the APNs sandbox channel.
+mkAPNSSandboxChannelResponse ::
+  -- | 'platform'
+  Lude.Text ->
   APNSSandboxChannelResponse
-apnsSandboxChannelResponse pPlatform_ =
+mkAPNSSandboxChannelResponse pPlatform_ =
   APNSSandboxChannelResponse'
-    { _ascLastModifiedDate = Nothing,
-      _ascEnabled = Nothing,
-      _ascHasTokenKey = Nothing,
-      _ascDefaultAuthenticationMethod = Nothing,
-      _ascIsArchived = Nothing,
-      _ascApplicationId = Nothing,
-      _ascVersion = Nothing,
-      _ascId = Nothing,
-      _ascCreationDate = Nothing,
-      _ascLastModifiedBy = Nothing,
-      _ascHasCredential = Nothing,
-      _ascPlatform = pPlatform_
+    { lastModifiedDate = Lude.Nothing,
+      enabled = Lude.Nothing,
+      hasTokenKey = Lude.Nothing,
+      defaultAuthenticationMethod = Lude.Nothing,
+      isArchived = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      hasCredential = Lude.Nothing,
+      platform = pPlatform_
     }
 
 -- | The date and time when the APNs sandbox channel was last modified.
-ascLastModifiedDate :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascLastModifiedDate = lens _ascLastModifiedDate (\s a -> s {_ascLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascLastModifiedDate :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascLastModifiedDate = Lens.lens (lastModifiedDate :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Specifies whether the APNs sandbox channel is enabled for the application.
-ascEnabled :: Lens' APNSSandboxChannelResponse (Maybe Bool)
-ascEnabled = lens _ascEnabled (\s a -> s {_ascEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascEnabled :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Bool)
+ascEnabled = Lens.lens (enabled :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Specifies whether the APNs sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
-ascHasTokenKey :: Lens' APNSSandboxChannelResponse (Maybe Bool)
-ascHasTokenKey = lens _ascHasTokenKey (\s a -> s {_ascHasTokenKey = a})
+--
+-- /Note:/ Consider using 'hasTokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascHasTokenKey :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Bool)
+ascHasTokenKey = Lens.lens (hasTokenKey :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasTokenKey = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascHasTokenKey "Use generic-lens or generic-optics with 'hasTokenKey' instead." #-}
 
 -- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
-ascDefaultAuthenticationMethod :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascDefaultAuthenticationMethod = lens _ascDefaultAuthenticationMethod (\s a -> s {_ascDefaultAuthenticationMethod = a})
+--
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascDefaultAuthenticationMethod :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
 
 -- | Specifies whether the APNs sandbox channel is archived.
-ascIsArchived :: Lens' APNSSandboxChannelResponse (Maybe Bool)
-ascIsArchived = lens _ascIsArchived (\s a -> s {_ascIsArchived = a})
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascIsArchived :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Bool)
+ascIsArchived = Lens.lens (isArchived :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
 
 -- | The unique identifier for the application that the APNs sandbox channel applies to.
-ascApplicationId :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascApplicationId = lens _ascApplicationId (\s a -> s {_ascApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascApplicationId :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascApplicationId = Lens.lens (applicationId :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The current version of the APNs sandbox channel.
-ascVersion :: Lens' APNSSandboxChannelResponse (Maybe Int)
-ascVersion = lens _ascVersion (\s a -> s {_ascVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascVersion :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Int)
+ascVersion = Lens.lens (version :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | (Deprecated) An identifier for the APNs sandbox channel. This property is retained only for backward compatibility.
-ascId :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascId = lens _ascId (\s a -> s {_ascId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascId :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascId = Lens.lens (id :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time when the APNs sandbox channel was enabled.
-ascCreationDate :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascCreationDate = lens _ascCreationDate (\s a -> s {_ascCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascCreationDate :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascCreationDate = Lens.lens (creationDate :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The user who last modified the APNs sandbox channel.
-ascLastModifiedBy :: Lens' APNSSandboxChannelResponse (Maybe Text)
-ascLastModifiedBy = lens _ascLastModifiedBy (\s a -> s {_ascLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascLastModifiedBy :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Text)
+ascLastModifiedBy = Lens.lens (lastModifiedBy :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
-ascHasCredential :: Lens' APNSSandboxChannelResponse (Maybe Bool)
-ascHasCredential = lens _ascHasCredential (\s a -> s {_ascHasCredential = a})
+--
+-- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascHasCredential :: Lens.Lens' APNSSandboxChannelResponse (Lude.Maybe Lude.Bool)
+ascHasCredential = Lens.lens (hasCredential :: APNSSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
 -- | The type of messaging or notification platform for the channel. For the APNs sandbox channel, this value is APNS_SANDBOX.
-ascPlatform :: Lens' APNSSandboxChannelResponse Text
-ascPlatform = lens _ascPlatform (\s a -> s {_ascPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascPlatform :: Lens.Lens' APNSSandboxChannelResponse Lude.Text
+ascPlatform = Lens.lens (platform :: APNSSandboxChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: APNSSandboxChannelResponse)
+{-# DEPRECATED ascPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
-instance FromJSON APNSSandboxChannelResponse where
+instance Lude.FromJSON APNSSandboxChannelResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "APNSSandboxChannelResponse"
       ( \x ->
           APNSSandboxChannelResponse'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "Enabled")
-            <*> (x .:? "HasTokenKey")
-            <*> (x .:? "DefaultAuthenticationMethod")
-            <*> (x .:? "IsArchived")
-            <*> (x .:? "ApplicationId")
-            <*> (x .:? "Version")
-            <*> (x .:? "Id")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "LastModifiedBy")
-            <*> (x .:? "HasCredential")
-            <*> (x .: "Platform")
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "HasTokenKey")
+            Lude.<*> (x Lude..:? "DefaultAuthenticationMethod")
+            Lude.<*> (x Lude..:? "IsArchived")
+            Lude.<*> (x Lude..:? "ApplicationId")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "LastModifiedBy")
+            Lude.<*> (x Lude..:? "HasCredential")
+            Lude.<*> (x Lude..: "Platform")
       )
-
-instance Hashable APNSSandboxChannelResponse
-
-instance NFData APNSSandboxChannelResponse

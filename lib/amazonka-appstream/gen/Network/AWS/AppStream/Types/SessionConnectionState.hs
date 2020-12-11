@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.SessionConnectionState where
+module Network.AWS.AppStream.Types.SessionConnectionState
+  ( SessionConnectionState
+      ( SessionConnectionState',
+        Connected,
+        NotConnected
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SessionConnectionState
-  = Connected
-  | NotConnected
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SessionConnectionState = SessionConnectionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SessionConnectionState where
-  parser =
-    takeLowerText >>= \case
-      "connected" -> pure Connected
-      "not_connected" -> pure NotConnected
-      e ->
-        fromTextError $
-          "Failure parsing SessionConnectionState from value: '" <> e
-            <> "'. Accepted values: connected, not_connected"
+pattern Connected :: SessionConnectionState
+pattern Connected = SessionConnectionState' "CONNECTED"
 
-instance ToText SessionConnectionState where
-  toText = \case
-    Connected -> "CONNECTED"
-    NotConnected -> "NOT_CONNECTED"
+pattern NotConnected :: SessionConnectionState
+pattern NotConnected = SessionConnectionState' "NOT_CONNECTED"
 
-instance Hashable SessionConnectionState
-
-instance NFData SessionConnectionState
-
-instance ToByteString SessionConnectionState
-
-instance ToQuery SessionConnectionState
-
-instance ToHeader SessionConnectionState
-
-instance FromJSON SessionConnectionState where
-  parseJSON = parseJSONText "SessionConnectionState"
+{-# COMPLETE
+  Connected,
+  NotConnected,
+  SessionConnectionState'
+  #-}

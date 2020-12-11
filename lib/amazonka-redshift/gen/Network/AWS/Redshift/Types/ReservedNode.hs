@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,156 +7,239 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ReservedNode where
+module Network.AWS.Redshift.Types.ReservedNode
+  ( ReservedNode (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReservedNode,
+
+    -- * Lenses
+    rnReservedNodeOfferingType,
+    rnState,
+    rnCurrencyCode,
+    rnStartTime,
+    rnNodeCount,
+    rnReservedNodeId,
+    rnReservedNodeOfferingId,
+    rnRecurringCharges,
+    rnOfferingType,
+    rnUsagePrice,
+    rnNodeType,
+    rnFixedPrice,
+    rnDuration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.RecurringCharge
 import Network.AWS.Redshift.Types.ReservedNodeOfferingType
 
 -- | Describes a reserved node. You can call the 'DescribeReservedNodeOfferings' API to obtain the available reserved node offerings.
 --
---
---
--- /See:/ 'reservedNode' smart constructor.
+-- /See:/ 'mkReservedNode' smart constructor.
 data ReservedNode = ReservedNode'
-  { _rnReservedNodeOfferingType ::
-      !(Maybe ReservedNodeOfferingType),
-    _rnState :: !(Maybe Text),
-    _rnCurrencyCode :: !(Maybe Text),
-    _rnStartTime :: !(Maybe ISO8601),
-    _rnNodeCount :: !(Maybe Int),
-    _rnReservedNodeId :: !(Maybe Text),
-    _rnReservedNodeOfferingId :: !(Maybe Text),
-    _rnRecurringCharges :: !(Maybe [RecurringCharge]),
-    _rnOfferingType :: !(Maybe Text),
-    _rnUsagePrice :: !(Maybe Double),
-    _rnNodeType :: !(Maybe Text),
-    _rnFixedPrice :: !(Maybe Double),
-    _rnDuration :: !(Maybe Int)
+  { reservedNodeOfferingType ::
+      Lude.Maybe ReservedNodeOfferingType,
+    state :: Lude.Maybe Lude.Text,
+    currencyCode :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.ISO8601,
+    nodeCount :: Lude.Maybe Lude.Int,
+    reservedNodeId :: Lude.Maybe Lude.Text,
+    reservedNodeOfferingId :: Lude.Maybe Lude.Text,
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    offeringType :: Lude.Maybe Lude.Text,
+    usagePrice :: Lude.Maybe Lude.Double,
+    nodeType :: Lude.Maybe Lude.Text,
+    fixedPrice :: Lude.Maybe Lude.Double,
+    duration :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedNode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'currencyCode' - The currency code for the reserved cluster.
+-- * 'duration' - The duration of the node reservation in seconds.
+-- * 'fixedPrice' - The fixed cost Amazon Redshift charges you for this reserved node.
+-- * 'nodeCount' - The number of reserved compute nodes.
+-- * 'nodeType' - The node type of the reserved node.
+-- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
+-- * 'recurringCharges' - The recurring charges for the reserved node.
+-- * 'reservedNodeId' - The unique identifier for the reservation.
+-- * 'reservedNodeOfferingId' - The identifier for the reserved node offering.
+-- * 'reservedNodeOfferingType' -
+-- * 'startTime' - The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
+-- * 'state' - The state of the reserved compute node.
 --
--- * 'rnReservedNodeOfferingType' -
+-- Possible Values:
 --
--- * 'rnState' - The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.     * retired-The reserved node is no longer available.      * exchanging-The owner is exchanging the reserved node for another reserved node.
+--     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.
 --
--- * 'rnCurrencyCode' - The currency code for the reserved cluster.
 --
--- * 'rnStartTime' - The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
+--     * active-This reserved node is owned by the caller and is available for use.
 --
--- * 'rnNodeCount' - The number of reserved compute nodes.
 --
--- * 'rnReservedNodeId' - The unique identifier for the reservation.
+--     * payment-failed-Payment failed for the purchase attempt.
 --
--- * 'rnReservedNodeOfferingId' - The identifier for the reserved node offering.
 --
--- * 'rnRecurringCharges' - The recurring charges for the reserved node.
+--     * retired-The reserved node is no longer available.
 --
--- * 'rnOfferingType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
 --
--- * 'rnUsagePrice' - The hourly rate Amazon Redshift charges you for this reserved node.
+--     * exchanging-The owner is exchanging the reserved node for another reserved node.
 --
--- * 'rnNodeType' - The node type of the reserved node.
 --
--- * 'rnFixedPrice' - The fixed cost Amazon Redshift charges you for this reserved node.
---
--- * 'rnDuration' - The duration of the node reservation in seconds.
-reservedNode ::
+-- * 'usagePrice' - The hourly rate Amazon Redshift charges you for this reserved node.
+mkReservedNode ::
   ReservedNode
-reservedNode =
+mkReservedNode =
   ReservedNode'
-    { _rnReservedNodeOfferingType = Nothing,
-      _rnState = Nothing,
-      _rnCurrencyCode = Nothing,
-      _rnStartTime = Nothing,
-      _rnNodeCount = Nothing,
-      _rnReservedNodeId = Nothing,
-      _rnReservedNodeOfferingId = Nothing,
-      _rnRecurringCharges = Nothing,
-      _rnOfferingType = Nothing,
-      _rnUsagePrice = Nothing,
-      _rnNodeType = Nothing,
-      _rnFixedPrice = Nothing,
-      _rnDuration = Nothing
+    { reservedNodeOfferingType = Lude.Nothing,
+      state = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      startTime = Lude.Nothing,
+      nodeCount = Lude.Nothing,
+      reservedNodeId = Lude.Nothing,
+      reservedNodeOfferingId = Lude.Nothing,
+      recurringCharges = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      nodeType = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- |
-rnReservedNodeOfferingType :: Lens' ReservedNode (Maybe ReservedNodeOfferingType)
-rnReservedNodeOfferingType = lens _rnReservedNodeOfferingType (\s a -> s {_rnReservedNodeOfferingType = a})
+--
+-- /Note:/ Consider using 'reservedNodeOfferingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnReservedNodeOfferingType :: Lens.Lens' ReservedNode (Lude.Maybe ReservedNodeOfferingType)
+rnReservedNodeOfferingType = Lens.lens (reservedNodeOfferingType :: ReservedNode -> Lude.Maybe ReservedNodeOfferingType) (\s a -> s {reservedNodeOfferingType = a} :: ReservedNode)
+{-# DEPRECATED rnReservedNodeOfferingType "Use generic-lens or generic-optics with 'reservedNodeOfferingType' instead." #-}
 
--- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.     * retired-The reserved node is no longer available.      * exchanging-The owner is exchanging the reserved node for another reserved node.
-rnState :: Lens' ReservedNode (Maybe Text)
-rnState = lens _rnState (\s a -> s {_rnState = a})
+-- | The state of the reserved compute node.
+--
+-- Possible Values:
+--
+--     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.
+--
+--
+--     * active-This reserved node is owned by the caller and is available for use.
+--
+--
+--     * payment-failed-Payment failed for the purchase attempt.
+--
+--
+--     * retired-The reserved node is no longer available.
+--
+--
+--     * exchanging-The owner is exchanging the reserved node for another reserved node.
+--
+--
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnState :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnState = Lens.lens (state :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: ReservedNode)
+{-# DEPRECATED rnState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The currency code for the reserved cluster.
-rnCurrencyCode :: Lens' ReservedNode (Maybe Text)
-rnCurrencyCode = lens _rnCurrencyCode (\s a -> s {_rnCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnCurrencyCode :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnCurrencyCode = Lens.lens (currencyCode :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: ReservedNode)
+{-# DEPRECATED rnCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
-rnStartTime :: Lens' ReservedNode (Maybe UTCTime)
-rnStartTime = lens _rnStartTime (\s a -> s {_rnStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnStartTime :: Lens.Lens' ReservedNode (Lude.Maybe Lude.ISO8601)
+rnStartTime = Lens.lens (startTime :: ReservedNode -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: ReservedNode)
+{-# DEPRECATED rnStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The number of reserved compute nodes.
-rnNodeCount :: Lens' ReservedNode (Maybe Int)
-rnNodeCount = lens _rnNodeCount (\s a -> s {_rnNodeCount = a})
+--
+-- /Note:/ Consider using 'nodeCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnNodeCount :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Int)
+rnNodeCount = Lens.lens (nodeCount :: ReservedNode -> Lude.Maybe Lude.Int) (\s a -> s {nodeCount = a} :: ReservedNode)
+{-# DEPRECATED rnNodeCount "Use generic-lens or generic-optics with 'nodeCount' instead." #-}
 
 -- | The unique identifier for the reservation.
-rnReservedNodeId :: Lens' ReservedNode (Maybe Text)
-rnReservedNodeId = lens _rnReservedNodeId (\s a -> s {_rnReservedNodeId = a})
+--
+-- /Note:/ Consider using 'reservedNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnReservedNodeId :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnReservedNodeId = Lens.lens (reservedNodeId :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {reservedNodeId = a} :: ReservedNode)
+{-# DEPRECATED rnReservedNodeId "Use generic-lens or generic-optics with 'reservedNodeId' instead." #-}
 
 -- | The identifier for the reserved node offering.
-rnReservedNodeOfferingId :: Lens' ReservedNode (Maybe Text)
-rnReservedNodeOfferingId = lens _rnReservedNodeOfferingId (\s a -> s {_rnReservedNodeOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnReservedNodeOfferingId :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnReservedNodeOfferingId = Lens.lens (reservedNodeOfferingId :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {reservedNodeOfferingId = a} :: ReservedNode)
+{-# DEPRECATED rnReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
 -- | The recurring charges for the reserved node.
-rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
-rnRecurringCharges = lens _rnRecurringCharges (\s a -> s {_rnRecurringCharges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recurringCharges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnRecurringCharges :: Lens.Lens' ReservedNode (Lude.Maybe [RecurringCharge])
+rnRecurringCharges = Lens.lens (recurringCharges :: ReservedNode -> Lude.Maybe [RecurringCharge]) (\s a -> s {recurringCharges = a} :: ReservedNode)
+{-# DEPRECATED rnRecurringCharges "Use generic-lens or generic-optics with 'recurringCharges' instead." #-}
 
 -- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
-rnOfferingType :: Lens' ReservedNode (Maybe Text)
-rnOfferingType = lens _rnOfferingType (\s a -> s {_rnOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnOfferingType :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnOfferingType = Lens.lens (offeringType :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {offeringType = a} :: ReservedNode)
+{-# DEPRECATED rnOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | The hourly rate Amazon Redshift charges you for this reserved node.
-rnUsagePrice :: Lens' ReservedNode (Maybe Double)
-rnUsagePrice = lens _rnUsagePrice (\s a -> s {_rnUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnUsagePrice :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Double)
+rnUsagePrice = Lens.lens (usagePrice :: ReservedNode -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: ReservedNode)
+{-# DEPRECATED rnUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | The node type of the reserved node.
-rnNodeType :: Lens' ReservedNode (Maybe Text)
-rnNodeType = lens _rnNodeType (\s a -> s {_rnNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnNodeType :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Text)
+rnNodeType = Lens.lens (nodeType :: ReservedNode -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ReservedNode)
+{-# DEPRECATED rnNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The fixed cost Amazon Redshift charges you for this reserved node.
-rnFixedPrice :: Lens' ReservedNode (Maybe Double)
-rnFixedPrice = lens _rnFixedPrice (\s a -> s {_rnFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnFixedPrice :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Double)
+rnFixedPrice = Lens.lens (fixedPrice :: ReservedNode -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: ReservedNode)
+{-# DEPRECATED rnFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | The duration of the node reservation in seconds.
-rnDuration :: Lens' ReservedNode (Maybe Int)
-rnDuration = lens _rnDuration (\s a -> s {_rnDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnDuration :: Lens.Lens' ReservedNode (Lude.Maybe Lude.Int)
+rnDuration = Lens.lens (duration :: ReservedNode -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: ReservedNode)
+{-# DEPRECATED rnDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance FromXML ReservedNode where
+instance Lude.FromXML ReservedNode where
   parseXML x =
     ReservedNode'
-      <$> (x .@? "ReservedNodeOfferingType")
-      <*> (x .@? "State")
-      <*> (x .@? "CurrencyCode")
-      <*> (x .@? "StartTime")
-      <*> (x .@? "NodeCount")
-      <*> (x .@? "ReservedNodeId")
-      <*> (x .@? "ReservedNodeOfferingId")
-      <*> ( x .@? "RecurringCharges" .!@ mempty
-              >>= may (parseXMLList "RecurringCharge")
-          )
-      <*> (x .@? "OfferingType")
-      <*> (x .@? "UsagePrice")
-      <*> (x .@? "NodeType")
-      <*> (x .@? "FixedPrice")
-      <*> (x .@? "Duration")
-
-instance Hashable ReservedNode
-
-instance NFData ReservedNode
+      Lude.<$> (x Lude..@? "ReservedNodeOfferingType")
+      Lude.<*> (x Lude..@? "State")
+      Lude.<*> (x Lude..@? "CurrencyCode")
+      Lude.<*> (x Lude..@? "StartTime")
+      Lude.<*> (x Lude..@? "NodeCount")
+      Lude.<*> (x Lude..@? "ReservedNodeId")
+      Lude.<*> (x Lude..@? "ReservedNodeOfferingId")
+      Lude.<*> ( x Lude..@? "RecurringCharges" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "RecurringCharge")
+               )
+      Lude.<*> (x Lude..@? "OfferingType")
+      Lude.<*> (x Lude..@? "UsagePrice")
+      Lude.<*> (x Lude..@? "NodeType")
+      Lude.<*> (x Lude..@? "FixedPrice")
+      Lude.<*> (x Lude..@? "Duration")

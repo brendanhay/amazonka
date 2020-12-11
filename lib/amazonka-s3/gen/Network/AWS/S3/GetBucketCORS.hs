@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,143 @@
 --
 -- Returns the cors configuration information set for the bucket.
 --
---
 -- To use this operation, you must have permission to perform the s3:GetBucketCORS action. By default, the bucket owner has this permission and can grant it to others.
---
 -- For more information about cors, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing> .
---
 -- The following operations are related to @GetBucketCors@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html PutBucketCors>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html DeleteBucketCors>
 module Network.AWS.S3.GetBucketCORS
-  ( -- * Creating a Request
-    getBucketCORS,
-    GetBucketCORS,
+  ( -- * Creating a request
+    GetBucketCORS (..),
+    mkGetBucketCORS,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbcExpectedBucketOwner,
     gbcBucket,
 
-    -- * Destructuring the Response
-    getBucketCORSResponse,
-    GetBucketCORSResponse,
+    -- * Destructuring the response
+    GetBucketCORSResponse (..),
+    mkGetBucketCORSResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbcrsCORSRules,
     gbcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getBucketCORS' smart constructor.
+-- | /See:/ 'mkGetBucketCORS' smart constructor.
 data GetBucketCORS = GetBucketCORS'
-  { _gbcExpectedBucketOwner ::
-      !(Maybe Text),
-    _gbcBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketCORS' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbcExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gbcBucket' - The bucket name for which to get the cors configuration.
-getBucketCORS ::
-  -- | 'gbcBucket'
+-- * 'bucket' - The bucket name for which to get the cors configuration.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkGetBucketCORS ::
+  -- | 'bucket'
   BucketName ->
   GetBucketCORS
-getBucketCORS pBucket_ =
+mkGetBucketCORS pBucket_ =
   GetBucketCORS'
-    { _gbcExpectedBucketOwner = Nothing,
-      _gbcBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gbcExpectedBucketOwner :: Lens' GetBucketCORS (Maybe Text)
-gbcExpectedBucketOwner = lens _gbcExpectedBucketOwner (\s a -> s {_gbcExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcExpectedBucketOwner :: Lens.Lens' GetBucketCORS (Lude.Maybe Lude.Text)
+gbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketCORS)
+{-# DEPRECATED gbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name for which to get the cors configuration.
-gbcBucket :: Lens' GetBucketCORS BucketName
-gbcBucket = lens _gbcBucket (\s a -> s {_gbcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcBucket :: Lens.Lens' GetBucketCORS BucketName
+gbcBucket = Lens.lens (bucket :: GetBucketCORS -> BucketName) (\s a -> s {bucket = a} :: GetBucketCORS)
+{-# DEPRECATED gbcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest GetBucketCORS where
+instance Lude.AWSRequest GetBucketCORS where
   type Rs GetBucketCORS = GetBucketCORSResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetBucketCORSResponse'
-            <$> (may (parseXMLList "CORSRule") x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "CORSRule") x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBucketCORS
-
-instance NFData GetBucketCORS
-
-instance ToHeaders GetBucketCORS where
+instance Lude.ToHeaders GetBucketCORS where
   toHeaders GetBucketCORS' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _gbcExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath GetBucketCORS where
-  toPath GetBucketCORS' {..} = mconcat ["/", toBS _gbcBucket]
+instance Lude.ToPath GetBucketCORS where
+  toPath GetBucketCORS' {..} = Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery GetBucketCORS where
-  toQuery = const (mconcat ["cors"])
+instance Lude.ToQuery GetBucketCORS where
+  toQuery = Lude.const (Lude.mconcat ["cors"])
 
--- | /See:/ 'getBucketCORSResponse' smart constructor.
+-- | /See:/ 'mkGetBucketCORSResponse' smart constructor.
 data GetBucketCORSResponse = GetBucketCORSResponse'
-  { _gbcrsCORSRules ::
-      !(Maybe [CORSRule]),
-    _gbcrsResponseStatus :: !Int
+  { corsRules ::
+      Lude.Maybe [CORSRule],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketCORSResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbcrsCORSRules' - A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
---
--- * 'gbcrsResponseStatus' - -- | The response status code.
-getBucketCORSResponse ::
-  -- | 'gbcrsResponseStatus'
-  Int ->
+-- * 'corsRules' - A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+-- * 'responseStatus' - The response status code.
+mkGetBucketCORSResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBucketCORSResponse
-getBucketCORSResponse pResponseStatus_ =
+mkGetBucketCORSResponse pResponseStatus_ =
   GetBucketCORSResponse'
-    { _gbcrsCORSRules = Nothing,
-      _gbcrsResponseStatus = pResponseStatus_
+    { corsRules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
-gbcrsCORSRules = lens _gbcrsCORSRules (\s a -> s {_gbcrsCORSRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'corsRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcrsCORSRules :: Lens.Lens' GetBucketCORSResponse (Lude.Maybe [CORSRule])
+gbcrsCORSRules = Lens.lens (corsRules :: GetBucketCORSResponse -> Lude.Maybe [CORSRule]) (\s a -> s {corsRules = a} :: GetBucketCORSResponse)
+{-# DEPRECATED gbcrsCORSRules "Use generic-lens or generic-optics with 'corsRules' instead." #-}
 
--- | -- | The response status code.
-gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
-gbcrsResponseStatus = lens _gbcrsResponseStatus (\s a -> s {_gbcrsResponseStatus = a})
-
-instance NFData GetBucketCORSResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcrsResponseStatus :: Lens.Lens' GetBucketCORSResponse Lude.Int
+gbcrsResponseStatus = Lens.lens (responseStatus :: GetBucketCORSResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketCORSResponse)
+{-# DEPRECATED gbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

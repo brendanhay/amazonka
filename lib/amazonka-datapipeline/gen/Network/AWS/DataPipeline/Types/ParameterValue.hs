@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.ParameterValue where
+module Network.AWS.DataPipeline.Types.ParameterValue
+  ( ParameterValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterValue,
+
+    -- * Lenses
+    pvId,
+    pvStringValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A value or list of parameter values.
 --
---
---
--- /See:/ 'parameterValue' smart constructor.
+-- /See:/ 'mkParameterValue' smart constructor.
 data ParameterValue = ParameterValue'
-  { _pvId :: !Text,
-    _pvStringValue :: !Text
+  { id :: Lude.Text,
+    stringValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvId' - The ID of the parameter value.
---
--- * 'pvStringValue' - The field value, expressed as a String.
-parameterValue ::
-  -- | 'pvId'
-  Text ->
-  -- | 'pvStringValue'
-  Text ->
+-- * 'id' - The ID of the parameter value.
+-- * 'stringValue' - The field value, expressed as a String.
+mkParameterValue ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'stringValue'
+  Lude.Text ->
   ParameterValue
-parameterValue pId_ pStringValue_ =
-  ParameterValue' {_pvId = pId_, _pvStringValue = pStringValue_}
+mkParameterValue pId_ pStringValue_ =
+  ParameterValue' {id = pId_, stringValue = pStringValue_}
 
 -- | The ID of the parameter value.
-pvId :: Lens' ParameterValue Text
-pvId = lens _pvId (\s a -> s {_pvId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvId :: Lens.Lens' ParameterValue Lude.Text
+pvId = Lens.lens (id :: ParameterValue -> Lude.Text) (\s a -> s {id = a} :: ParameterValue)
+{-# DEPRECATED pvId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The field value, expressed as a String.
-pvStringValue :: Lens' ParameterValue Text
-pvStringValue = lens _pvStringValue (\s a -> s {_pvStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvStringValue :: Lens.Lens' ParameterValue Lude.Text
+pvStringValue = Lens.lens (stringValue :: ParameterValue -> Lude.Text) (\s a -> s {stringValue = a} :: ParameterValue)
+{-# DEPRECATED pvStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
-instance FromJSON ParameterValue where
+instance Lude.FromJSON ParameterValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterValue"
-      (\x -> ParameterValue' <$> (x .: "id") <*> (x .: "stringValue"))
+      ( \x ->
+          ParameterValue'
+            Lude.<$> (x Lude..: "id") Lude.<*> (x Lude..: "stringValue")
+      )
 
-instance Hashable ParameterValue
-
-instance NFData ParameterValue
-
-instance ToJSON ParameterValue where
+instance Lude.ToJSON ParameterValue where
   toJSON ParameterValue' {..} =
-    object
-      ( catMaybes
-          [Just ("id" .= _pvId), Just ("stringValue" .= _pvStringValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("id" Lude..= id),
+            Lude.Just ("stringValue" Lude..= stringValue)
+          ]
       )

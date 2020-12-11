@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,141 @@
 --
 -- Deletes the specified scaling plan.
 --
---
 -- Deleting a scaling plan deletes the underlying 'ScalingInstruction' for all of the scalable resources that are covered by the plan.
---
 -- If the plan has launched resources or has scaling activities in progress, you must delete those resources separately.
 module Network.AWS.AutoScalingPlans.DeleteScalingPlan
-  ( -- * Creating a Request
-    deleteScalingPlan,
-    DeleteScalingPlan,
+  ( -- * Creating a request
+    DeleteScalingPlan (..),
+    mkDeleteScalingPlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dspScalingPlanName,
     dspScalingPlanVersion,
 
-    -- * Destructuring the Response
-    deleteScalingPlanResponse,
-    DeleteScalingPlanResponse,
+    -- * Destructuring the response
+    DeleteScalingPlanResponse (..),
+    mkDeleteScalingPlanResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsprsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScalingPlans.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteScalingPlan' smart constructor.
+-- | /See:/ 'mkDeleteScalingPlan' smart constructor.
 data DeleteScalingPlan = DeleteScalingPlan'
-  { _dspScalingPlanName ::
-      !Text,
-    _dspScalingPlanVersion :: !Integer
+  { scalingPlanName ::
+      Lude.Text,
+    scalingPlanVersion :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dspScalingPlanName' - The name of the scaling plan.
---
--- * 'dspScalingPlanVersion' - The version number of the scaling plan.
-deleteScalingPlan ::
-  -- | 'dspScalingPlanName'
-  Text ->
-  -- | 'dspScalingPlanVersion'
-  Integer ->
+-- * 'scalingPlanName' - The name of the scaling plan.
+-- * 'scalingPlanVersion' - The version number of the scaling plan.
+mkDeleteScalingPlan ::
+  -- | 'scalingPlanName'
+  Lude.Text ->
+  -- | 'scalingPlanVersion'
+  Lude.Integer ->
   DeleteScalingPlan
-deleteScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
+mkDeleteScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
   DeleteScalingPlan'
-    { _dspScalingPlanName = pScalingPlanName_,
-      _dspScalingPlanVersion = pScalingPlanVersion_
+    { scalingPlanName = pScalingPlanName_,
+      scalingPlanVersion = pScalingPlanVersion_
     }
 
 -- | The name of the scaling plan.
-dspScalingPlanName :: Lens' DeleteScalingPlan Text
-dspScalingPlanName = lens _dspScalingPlanName (\s a -> s {_dspScalingPlanName = a})
+--
+-- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspScalingPlanName :: Lens.Lens' DeleteScalingPlan Lude.Text
+dspScalingPlanName = Lens.lens (scalingPlanName :: DeleteScalingPlan -> Lude.Text) (\s a -> s {scalingPlanName = a} :: DeleteScalingPlan)
+{-# DEPRECATED dspScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
 
 -- | The version number of the scaling plan.
-dspScalingPlanVersion :: Lens' DeleteScalingPlan Integer
-dspScalingPlanVersion = lens _dspScalingPlanVersion (\s a -> s {_dspScalingPlanVersion = a})
+--
+-- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspScalingPlanVersion :: Lens.Lens' DeleteScalingPlan Lude.Integer
+dspScalingPlanVersion = Lens.lens (scalingPlanVersion :: DeleteScalingPlan -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: DeleteScalingPlan)
+{-# DEPRECATED dspScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
 
-instance AWSRequest DeleteScalingPlan where
+instance Lude.AWSRequest DeleteScalingPlan where
   type Rs DeleteScalingPlan = DeleteScalingPlanResponse
-  request = postJSON autoScalingPlans
+  request = Req.postJSON autoScalingPlansService
   response =
-    receiveEmpty
-      (\s h x -> DeleteScalingPlanResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteScalingPlanResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteScalingPlan
-
-instance NFData DeleteScalingPlan
-
-instance ToHeaders DeleteScalingPlan where
+instance Lude.ToHeaders DeleteScalingPlan where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteScalingPlan where
+instance Lude.ToJSON DeleteScalingPlan where
   toJSON DeleteScalingPlan' {..} =
-    object
-      ( catMaybes
-          [ Just ("ScalingPlanName" .= _dspScalingPlanName),
-            Just ("ScalingPlanVersion" .= _dspScalingPlanVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ScalingPlanName" Lude..= scalingPlanName),
+            Lude.Just ("ScalingPlanVersion" Lude..= scalingPlanVersion)
           ]
       )
 
-instance ToPath DeleteScalingPlan where
-  toPath = const "/"
+instance Lude.ToPath DeleteScalingPlan where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteScalingPlan where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteScalingPlan where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteScalingPlanResponse' smart constructor.
+-- | /See:/ 'mkDeleteScalingPlanResponse' smart constructor.
 newtype DeleteScalingPlanResponse = DeleteScalingPlanResponse'
-  { _dsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPlanResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsprsResponseStatus' - -- | The response status code.
-deleteScalingPlanResponse ::
-  -- | 'dsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteScalingPlanResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteScalingPlanResponse
-deleteScalingPlanResponse pResponseStatus_ =
-  DeleteScalingPlanResponse'
-    { _dsprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteScalingPlanResponse pResponseStatus_ =
+  DeleteScalingPlanResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsprsResponseStatus :: Lens' DeleteScalingPlanResponse Int
-dsprsResponseStatus = lens _dsprsResponseStatus (\s a -> s {_dsprsResponseStatus = a})
-
-instance NFData DeleteScalingPlanResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprsResponseStatus :: Lens.Lens' DeleteScalingPlanResponse Lude.Int
+dsprsResponseStatus = Lens.lens (responseStatus :: DeleteScalingPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteScalingPlanResponse)
+{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

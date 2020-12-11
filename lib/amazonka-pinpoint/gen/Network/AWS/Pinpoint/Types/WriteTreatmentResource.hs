@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,139 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.WriteTreatmentResource where
+module Network.AWS.Pinpoint.Types.WriteTreatmentResource
+  ( WriteTreatmentResource (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkWriteTreatmentResource,
+
+    -- * Lenses
+    wtrCustomDeliveryConfiguration,
+    wtrSchedule,
+    wtrTemplateConfiguration,
+    wtrTreatmentName,
+    wtrTreatmentDescription,
+    wtrMessageConfiguration,
+    wtrSizePercent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
 import Network.AWS.Pinpoint.Types.MessageConfiguration
 import Network.AWS.Pinpoint.Types.Schedule
 import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a campaign treatment. A /treatment/ is a variation of a campaign that's used for A/B testing of a campaign.
 --
---
---
--- /See:/ 'writeTreatmentResource' smart constructor.
+-- /See:/ 'mkWriteTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
-  { _wtrCustomDeliveryConfiguration ::
-      !(Maybe CustomDeliveryConfiguration),
-    _wtrSchedule :: !(Maybe Schedule),
-    _wtrTemplateConfiguration ::
-      !(Maybe TemplateConfiguration),
-    _wtrTreatmentName :: !(Maybe Text),
-    _wtrTreatmentDescription :: !(Maybe Text),
-    _wtrMessageConfiguration ::
-      !(Maybe MessageConfiguration),
-    _wtrSizePercent :: !Int
+  { customDeliveryConfiguration ::
+      Lude.Maybe CustomDeliveryConfiguration,
+    schedule :: Lude.Maybe Schedule,
+    templateConfiguration ::
+      Lude.Maybe TemplateConfiguration,
+    treatmentName :: Lude.Maybe Lude.Text,
+    treatmentDescription :: Lude.Maybe Lude.Text,
+    messageConfiguration ::
+      Lude.Maybe MessageConfiguration,
+    sizePercent :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteTreatmentResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wtrCustomDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
---
--- * 'wtrSchedule' - The schedule settings for the treatment.
---
--- * 'wtrTemplateConfiguration' - The message template to use for the treatment.
---
--- * 'wtrTreatmentName' - A custom name for the treatment.
---
--- * 'wtrTreatmentDescription' - A custom description of the treatment.
---
--- * 'wtrMessageConfiguration' - The message configuration settings for the treatment.
---
--- * 'wtrSizePercent' - The allocated percentage of users (segment members) to send the treatment to.
-writeTreatmentResource ::
-  -- | 'wtrSizePercent'
-  Int ->
+-- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
+-- * 'messageConfiguration' - The message configuration settings for the treatment.
+-- * 'schedule' - The schedule settings for the treatment.
+-- * 'sizePercent' - The allocated percentage of users (segment members) to send the treatment to.
+-- * 'templateConfiguration' - The message template to use for the treatment.
+-- * 'treatmentDescription' - A custom description of the treatment.
+-- * 'treatmentName' - A custom name for the treatment.
+mkWriteTreatmentResource ::
+  -- | 'sizePercent'
+  Lude.Int ->
   WriteTreatmentResource
-writeTreatmentResource pSizePercent_ =
+mkWriteTreatmentResource pSizePercent_ =
   WriteTreatmentResource'
-    { _wtrCustomDeliveryConfiguration =
-        Nothing,
-      _wtrSchedule = Nothing,
-      _wtrTemplateConfiguration = Nothing,
-      _wtrTreatmentName = Nothing,
-      _wtrTreatmentDescription = Nothing,
-      _wtrMessageConfiguration = Nothing,
-      _wtrSizePercent = pSizePercent_
+    { customDeliveryConfiguration =
+        Lude.Nothing,
+      schedule = Lude.Nothing,
+      templateConfiguration = Lude.Nothing,
+      treatmentName = Lude.Nothing,
+      treatmentDescription = Lude.Nothing,
+      messageConfiguration = Lude.Nothing,
+      sizePercent = pSizePercent_
     }
 
 -- | The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
-wtrCustomDeliveryConfiguration :: Lens' WriteTreatmentResource (Maybe CustomDeliveryConfiguration)
-wtrCustomDeliveryConfiguration = lens _wtrCustomDeliveryConfiguration (\s a -> s {_wtrCustomDeliveryConfiguration = a})
+--
+-- /Note:/ Consider using 'customDeliveryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrCustomDeliveryConfiguration :: Lens.Lens' WriteTreatmentResource (Lude.Maybe CustomDeliveryConfiguration)
+wtrCustomDeliveryConfiguration = Lens.lens (customDeliveryConfiguration :: WriteTreatmentResource -> Lude.Maybe CustomDeliveryConfiguration) (\s a -> s {customDeliveryConfiguration = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrCustomDeliveryConfiguration "Use generic-lens or generic-optics with 'customDeliveryConfiguration' instead." #-}
 
 -- | The schedule settings for the treatment.
-wtrSchedule :: Lens' WriteTreatmentResource (Maybe Schedule)
-wtrSchedule = lens _wtrSchedule (\s a -> s {_wtrSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrSchedule :: Lens.Lens' WriteTreatmentResource (Lude.Maybe Schedule)
+wtrSchedule = Lens.lens (schedule :: WriteTreatmentResource -> Lude.Maybe Schedule) (\s a -> s {schedule = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The message template to use for the treatment.
-wtrTemplateConfiguration :: Lens' WriteTreatmentResource (Maybe TemplateConfiguration)
-wtrTemplateConfiguration = lens _wtrTemplateConfiguration (\s a -> s {_wtrTemplateConfiguration = a})
+--
+-- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrTemplateConfiguration :: Lens.Lens' WriteTreatmentResource (Lude.Maybe TemplateConfiguration)
+wtrTemplateConfiguration = Lens.lens (templateConfiguration :: WriteTreatmentResource -> Lude.Maybe TemplateConfiguration) (\s a -> s {templateConfiguration = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
 
 -- | A custom name for the treatment.
-wtrTreatmentName :: Lens' WriteTreatmentResource (Maybe Text)
-wtrTreatmentName = lens _wtrTreatmentName (\s a -> s {_wtrTreatmentName = a})
+--
+-- /Note:/ Consider using 'treatmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrTreatmentName :: Lens.Lens' WriteTreatmentResource (Lude.Maybe Lude.Text)
+wtrTreatmentName = Lens.lens (treatmentName :: WriteTreatmentResource -> Lude.Maybe Lude.Text) (\s a -> s {treatmentName = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrTreatmentName "Use generic-lens or generic-optics with 'treatmentName' instead." #-}
 
 -- | A custom description of the treatment.
-wtrTreatmentDescription :: Lens' WriteTreatmentResource (Maybe Text)
-wtrTreatmentDescription = lens _wtrTreatmentDescription (\s a -> s {_wtrTreatmentDescription = a})
+--
+-- /Note:/ Consider using 'treatmentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrTreatmentDescription :: Lens.Lens' WriteTreatmentResource (Lude.Maybe Lude.Text)
+wtrTreatmentDescription = Lens.lens (treatmentDescription :: WriteTreatmentResource -> Lude.Maybe Lude.Text) (\s a -> s {treatmentDescription = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrTreatmentDescription "Use generic-lens or generic-optics with 'treatmentDescription' instead." #-}
 
 -- | The message configuration settings for the treatment.
-wtrMessageConfiguration :: Lens' WriteTreatmentResource (Maybe MessageConfiguration)
-wtrMessageConfiguration = lens _wtrMessageConfiguration (\s a -> s {_wtrMessageConfiguration = a})
+--
+-- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrMessageConfiguration :: Lens.Lens' WriteTreatmentResource (Lude.Maybe MessageConfiguration)
+wtrMessageConfiguration = Lens.lens (messageConfiguration :: WriteTreatmentResource -> Lude.Maybe MessageConfiguration) (\s a -> s {messageConfiguration = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
 
 -- | The allocated percentage of users (segment members) to send the treatment to.
-wtrSizePercent :: Lens' WriteTreatmentResource Int
-wtrSizePercent = lens _wtrSizePercent (\s a -> s {_wtrSizePercent = a})
+--
+-- /Note:/ Consider using 'sizePercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrSizePercent :: Lens.Lens' WriteTreatmentResource Lude.Int
+wtrSizePercent = Lens.lens (sizePercent :: WriteTreatmentResource -> Lude.Int) (\s a -> s {sizePercent = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrSizePercent "Use generic-lens or generic-optics with 'sizePercent' instead." #-}
 
-instance Hashable WriteTreatmentResource
-
-instance NFData WriteTreatmentResource
-
-instance ToJSON WriteTreatmentResource where
+instance Lude.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =
-    object
-      ( catMaybes
-          [ ("CustomDeliveryConfiguration" .=)
-              <$> _wtrCustomDeliveryConfiguration,
-            ("Schedule" .=) <$> _wtrSchedule,
-            ("TemplateConfiguration" .=) <$> _wtrTemplateConfiguration,
-            ("TreatmentName" .=) <$> _wtrTreatmentName,
-            ("TreatmentDescription" .=) <$> _wtrTreatmentDescription,
-            ("MessageConfiguration" .=) <$> _wtrMessageConfiguration,
-            Just ("SizePercent" .= _wtrSizePercent)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CustomDeliveryConfiguration" Lude..=)
+              Lude.<$> customDeliveryConfiguration,
+            ("Schedule" Lude..=) Lude.<$> schedule,
+            ("TemplateConfiguration" Lude..=) Lude.<$> templateConfiguration,
+            ("TreatmentName" Lude..=) Lude.<$> treatmentName,
+            ("TreatmentDescription" Lude..=) Lude.<$> treatmentDescription,
+            ("MessageConfiguration" Lude..=) Lude.<$> messageConfiguration,
+            Lude.Just ("SizePercent" Lude..= sizePercent)
           ]
       )

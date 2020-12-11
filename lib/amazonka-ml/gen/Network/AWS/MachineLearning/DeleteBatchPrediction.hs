@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,141 @@
 --
 -- Assigns the DELETED status to a @BatchPrediction@ , rendering it unusable.
 --
---
 -- After using the @DeleteBatchPrediction@ operation, you can use the 'GetBatchPrediction' operation to verify that the status of the @BatchPrediction@ changed to DELETED.
---
 -- __Caution:__ The result of the @DeleteBatchPrediction@ operation is irreversible.
 module Network.AWS.MachineLearning.DeleteBatchPrediction
-  ( -- * Creating a Request
-    deleteBatchPrediction,
-    DeleteBatchPrediction,
+  ( -- * Creating a request
+    DeleteBatchPrediction (..),
+    mkDeleteBatchPrediction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbpBatchPredictionId,
 
-    -- * Destructuring the Response
-    deleteBatchPredictionResponse,
-    DeleteBatchPredictionResponse,
+    -- * Destructuring the response
+    DeleteBatchPredictionResponse (..),
+    mkDeleteBatchPredictionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbprsBatchPredictionId,
     dbprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBatchPrediction' smart constructor.
+-- | /See:/ 'mkDeleteBatchPrediction' smart constructor.
 newtype DeleteBatchPrediction = DeleteBatchPrediction'
-  { _dbpBatchPredictionId ::
-      Text
+  { batchPredictionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBatchPrediction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbpBatchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ .
-deleteBatchPrediction ::
-  -- | 'dbpBatchPredictionId'
-  Text ->
+-- * 'batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ .
+mkDeleteBatchPrediction ::
+  -- | 'batchPredictionId'
+  Lude.Text ->
   DeleteBatchPrediction
-deleteBatchPrediction pBatchPredictionId_ =
-  DeleteBatchPrediction'
-    { _dbpBatchPredictionId =
-        pBatchPredictionId_
-    }
+mkDeleteBatchPrediction pBatchPredictionId_ =
+  DeleteBatchPrediction' {batchPredictionId = pBatchPredictionId_}
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
-dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
-dbpBatchPredictionId = lens _dbpBatchPredictionId (\s a -> s {_dbpBatchPredictionId = a})
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpBatchPredictionId :: Lens.Lens' DeleteBatchPrediction Lude.Text
+dbpBatchPredictionId = Lens.lens (batchPredictionId :: DeleteBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: DeleteBatchPrediction)
+{-# DEPRECATED dbpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
-instance AWSRequest DeleteBatchPrediction where
+instance Lude.AWSRequest DeleteBatchPrediction where
   type Rs DeleteBatchPrediction = DeleteBatchPredictionResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteBatchPredictionResponse'
-            <$> (x .?> "BatchPredictionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BatchPredictionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBatchPrediction
-
-instance NFData DeleteBatchPrediction
-
-instance ToHeaders DeleteBatchPrediction where
+instance Lude.ToHeaders DeleteBatchPrediction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.DeleteBatchPrediction" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.DeleteBatchPrediction" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBatchPrediction where
+instance Lude.ToJSON DeleteBatchPrediction where
   toJSON DeleteBatchPrediction' {..} =
-    object
-      (catMaybes [Just ("BatchPredictionId" .= _dbpBatchPredictionId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("BatchPredictionId" Lude..= batchPredictionId)]
+      )
 
-instance ToPath DeleteBatchPrediction where
-  toPath = const "/"
+instance Lude.ToPath DeleteBatchPrediction where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBatchPrediction where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBatchPrediction where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteBatchPrediction@ operation.
 --
---
 -- You can use the @GetBatchPrediction@ operation and check the value of the @Status@ parameter to see whether a @BatchPrediction@ is marked as @DELETED@ .
 --
---
--- /See:/ 'deleteBatchPredictionResponse' smart constructor.
+-- /See:/ 'mkDeleteBatchPredictionResponse' smart constructor.
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
-  { _dbprsBatchPredictionId ::
-      !(Maybe Text),
-    _dbprsResponseStatus :: !Int
+  { batchPredictionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBatchPredictionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbprsBatchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value should be identical to the value of the @BatchPredictionID@ in the request.
---
--- * 'dbprsResponseStatus' - -- | The response status code.
-deleteBatchPredictionResponse ::
-  -- | 'dbprsResponseStatus'
-  Int ->
+-- * 'batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value should be identical to the value of the @BatchPredictionID@ in the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteBatchPredictionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pResponseStatus_ =
+mkDeleteBatchPredictionResponse pResponseStatus_ =
   DeleteBatchPredictionResponse'
-    { _dbprsBatchPredictionId = Nothing,
-      _dbprsResponseStatus = pResponseStatus_
+    { batchPredictionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value should be identical to the value of the @BatchPredictionID@ in the request.
-dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
-dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\s a -> s {_dbprsBatchPredictionId = a})
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbprsBatchPredictionId :: Lens.Lens' DeleteBatchPredictionResponse (Lude.Maybe Lude.Text)
+dbprsBatchPredictionId = Lens.lens (batchPredictionId :: DeleteBatchPredictionResponse -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionId = a} :: DeleteBatchPredictionResponse)
+{-# DEPRECATED dbprsBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
--- | -- | The response status code.
-dbprsResponseStatus :: Lens' DeleteBatchPredictionResponse Int
-dbprsResponseStatus = lens _dbprsResponseStatus (\s a -> s {_dbprsResponseStatus = a})
-
-instance NFData DeleteBatchPredictionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbprsResponseStatus :: Lens.Lens' DeleteBatchPredictionResponse Lude.Int
+dbprsResponseStatus = Lens.lens (responseStatus :: DeleteBatchPredictionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBatchPredictionResponse)
+{-# DEPRECATED dbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Progress where
+module Network.AWS.S3.Types.Progress
+  ( Progress (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProgress,
+
+    -- * Lenses
+    pBytesReturned,
+    pBytesScanned,
+    pBytesProcessed,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | This data type contains information about progress of an operation.
 --
---
---
--- /See:/ 'progress' smart constructor.
+-- /See:/ 'mkProgress' smart constructor.
 data Progress = Progress'
-  { _pBytesReturned :: !(Maybe Integer),
-    _pBytesScanned :: !(Maybe Integer),
-    _pBytesProcessed :: !(Maybe Integer)
+  { bytesReturned :: Lude.Maybe Lude.Integer,
+    bytesScanned :: Lude.Maybe Lude.Integer,
+    bytesProcessed :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Progress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pBytesReturned' - The current number of bytes of records payload data returned.
---
--- * 'pBytesScanned' - The current number of object bytes scanned.
---
--- * 'pBytesProcessed' - The current number of uncompressed object bytes processed.
-progress ::
+-- * 'bytesProcessed' - The current number of uncompressed object bytes processed.
+-- * 'bytesReturned' - The current number of bytes of records payload data returned.
+-- * 'bytesScanned' - The current number of object bytes scanned.
+mkProgress ::
   Progress
-progress =
+mkProgress =
   Progress'
-    { _pBytesReturned = Nothing,
-      _pBytesScanned = Nothing,
-      _pBytesProcessed = Nothing
+    { bytesReturned = Lude.Nothing,
+      bytesScanned = Lude.Nothing,
+      bytesProcessed = Lude.Nothing
     }
 
 -- | The current number of bytes of records payload data returned.
-pBytesReturned :: Lens' Progress (Maybe Integer)
-pBytesReturned = lens _pBytesReturned (\s a -> s {_pBytesReturned = a})
+--
+-- /Note:/ Consider using 'bytesReturned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pBytesReturned :: Lens.Lens' Progress (Lude.Maybe Lude.Integer)
+pBytesReturned = Lens.lens (bytesReturned :: Progress -> Lude.Maybe Lude.Integer) (\s a -> s {bytesReturned = a} :: Progress)
+{-# DEPRECATED pBytesReturned "Use generic-lens or generic-optics with 'bytesReturned' instead." #-}
 
 -- | The current number of object bytes scanned.
-pBytesScanned :: Lens' Progress (Maybe Integer)
-pBytesScanned = lens _pBytesScanned (\s a -> s {_pBytesScanned = a})
+--
+-- /Note:/ Consider using 'bytesScanned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pBytesScanned :: Lens.Lens' Progress (Lude.Maybe Lude.Integer)
+pBytesScanned = Lens.lens (bytesScanned :: Progress -> Lude.Maybe Lude.Integer) (\s a -> s {bytesScanned = a} :: Progress)
+{-# DEPRECATED pBytesScanned "Use generic-lens or generic-optics with 'bytesScanned' instead." #-}
 
 -- | The current number of uncompressed object bytes processed.
-pBytesProcessed :: Lens' Progress (Maybe Integer)
-pBytesProcessed = lens _pBytesProcessed (\s a -> s {_pBytesProcessed = a})
+--
+-- /Note:/ Consider using 'bytesProcessed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pBytesProcessed :: Lens.Lens' Progress (Lude.Maybe Lude.Integer)
+pBytesProcessed = Lens.lens (bytesProcessed :: Progress -> Lude.Maybe Lude.Integer) (\s a -> s {bytesProcessed = a} :: Progress)
+{-# DEPRECATED pBytesProcessed "Use generic-lens or generic-optics with 'bytesProcessed' instead." #-}
 
-instance FromXML Progress where
+instance Lude.FromXML Progress where
   parseXML x =
     Progress'
-      <$> (x .@? "BytesReturned")
-      <*> (x .@? "BytesScanned")
-      <*> (x .@? "BytesProcessed")
-
-instance Hashable Progress
-
-instance NFData Progress
+      Lude.<$> (x Lude..@? "BytesReturned")
+      Lude.<*> (x Lude..@? "BytesScanned")
+      Lude.<*> (x Lude..@? "BytesProcessed")

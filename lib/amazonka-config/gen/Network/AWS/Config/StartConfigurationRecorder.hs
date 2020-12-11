@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,111 @@
 --
 -- Starts recording configurations of the AWS resources you have selected to record in your AWS account.
 --
---
 -- You must have created at least one delivery channel to successfully start the configuration recorder.
 module Network.AWS.Config.StartConfigurationRecorder
-  ( -- * Creating a Request
-    startConfigurationRecorder,
-    StartConfigurationRecorder,
+  ( -- * Creating a request
+    StartConfigurationRecorder (..),
+    mkStartConfigurationRecorder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sConfigurationRecorderName,
 
-    -- * Destructuring the Response
-    startConfigurationRecorderResponse,
-    StartConfigurationRecorderResponse,
+    -- * Destructuring the response
+    StartConfigurationRecorderResponse (..),
+    mkStartConfigurationRecorderResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'StartConfigurationRecorder' action.
 --
---
---
--- /See:/ 'startConfigurationRecorder' smart constructor.
+-- /See:/ 'mkStartConfigurationRecorder' smart constructor.
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
-  { _sConfigurationRecorderName ::
-      Text
+  { configurationRecorderName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartConfigurationRecorder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sConfigurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
-startConfigurationRecorder ::
-  -- | 'sConfigurationRecorderName'
-  Text ->
+-- * 'configurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
+mkStartConfigurationRecorder ::
+  -- | 'configurationRecorderName'
+  Lude.Text ->
   StartConfigurationRecorder
-startConfigurationRecorder pConfigurationRecorderName_ =
+mkStartConfigurationRecorder pConfigurationRecorderName_ =
   StartConfigurationRecorder'
-    { _sConfigurationRecorderName =
+    { configurationRecorderName =
         pConfigurationRecorderName_
     }
 
 -- | The name of the recorder object that records each configuration change made to the resources.
-sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
-sConfigurationRecorderName = lens _sConfigurationRecorderName (\s a -> s {_sConfigurationRecorderName = a})
+--
+-- /Note:/ Consider using 'configurationRecorderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sConfigurationRecorderName :: Lens.Lens' StartConfigurationRecorder Lude.Text
+sConfigurationRecorderName = Lens.lens (configurationRecorderName :: StartConfigurationRecorder -> Lude.Text) (\s a -> s {configurationRecorderName = a} :: StartConfigurationRecorder)
+{-# DEPRECATED sConfigurationRecorderName "Use generic-lens or generic-optics with 'configurationRecorderName' instead." #-}
 
-instance AWSRequest StartConfigurationRecorder where
+instance Lude.AWSRequest StartConfigurationRecorder where
   type
     Rs StartConfigurationRecorder =
       StartConfigurationRecorderResponse
-  request = postJSON config
-  response = receiveNull StartConfigurationRecorderResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull StartConfigurationRecorderResponse'
 
-instance Hashable StartConfigurationRecorder
-
-instance NFData StartConfigurationRecorder
-
-instance ToHeaders StartConfigurationRecorder where
+instance Lude.ToHeaders StartConfigurationRecorder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.StartConfigurationRecorder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.StartConfigurationRecorder" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartConfigurationRecorder where
+instance Lude.ToJSON StartConfigurationRecorder where
   toJSON StartConfigurationRecorder' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("ConfigurationRecorderName" .= _sConfigurationRecorderName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ConfigurationRecorderName" Lude..= configurationRecorderName)
           ]
       )
 
-instance ToPath StartConfigurationRecorder where
-  toPath = const "/"
+instance Lude.ToPath StartConfigurationRecorder where
+  toPath = Lude.const "/"
 
-instance ToQuery StartConfigurationRecorder where
-  toQuery = const mempty
+instance Lude.ToQuery StartConfigurationRecorder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startConfigurationRecorderResponse' smart constructor.
+-- | /See:/ 'mkStartConfigurationRecorderResponse' smart constructor.
 data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartConfigurationRecorderResponse' with the minimum fields required to make a request.
-startConfigurationRecorderResponse ::
+mkStartConfigurationRecorderResponse ::
   StartConfigurationRecorderResponse
-startConfigurationRecorderResponse =
+mkStartConfigurationRecorderResponse =
   StartConfigurationRecorderResponse'
-
-instance NFData StartConfigurationRecorderResponse

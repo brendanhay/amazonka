@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; @Initializing@ , @CreatingSnapshot@ , and @UpdatingSchema@ .
 module Network.AWS.DirectoryService.CancelSchemaExtension
-  ( -- * Creating a Request
-    cancelSchemaExtension,
-    CancelSchemaExtension,
+  ( -- * Creating a request
+    CancelSchemaExtension (..),
+    mkCancelSchemaExtension,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cseDirectoryId,
     cseSchemaExtensionId,
 
-    -- * Destructuring the Response
-    cancelSchemaExtensionResponse,
-    CancelSchemaExtensionResponse,
+    -- * Destructuring the response
+    CancelSchemaExtensionResponse (..),
+    mkCancelSchemaExtensionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csersResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelSchemaExtension' smart constructor.
+-- | /See:/ 'mkCancelSchemaExtension' smart constructor.
 data CancelSchemaExtension = CancelSchemaExtension'
-  { _cseDirectoryId ::
-      !Text,
-    _cseSchemaExtensionId :: !Text
+  { directoryId ::
+      Lude.Text,
+    schemaExtensionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSchemaExtension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cseDirectoryId' - The identifier of the directory whose schema extension will be canceled.
---
--- * 'cseSchemaExtensionId' - The identifier of the schema extension that will be canceled.
-cancelSchemaExtension ::
-  -- | 'cseDirectoryId'
-  Text ->
-  -- | 'cseSchemaExtensionId'
-  Text ->
+-- * 'directoryId' - The identifier of the directory whose schema extension will be canceled.
+-- * 'schemaExtensionId' - The identifier of the schema extension that will be canceled.
+mkCancelSchemaExtension ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'schemaExtensionId'
+  Lude.Text ->
   CancelSchemaExtension
-cancelSchemaExtension pDirectoryId_ pSchemaExtensionId_ =
+mkCancelSchemaExtension pDirectoryId_ pSchemaExtensionId_ =
   CancelSchemaExtension'
-    { _cseDirectoryId = pDirectoryId_,
-      _cseSchemaExtensionId = pSchemaExtensionId_
+    { directoryId = pDirectoryId_,
+      schemaExtensionId = pSchemaExtensionId_
     }
 
 -- | The identifier of the directory whose schema extension will be canceled.
-cseDirectoryId :: Lens' CancelSchemaExtension Text
-cseDirectoryId = lens _cseDirectoryId (\s a -> s {_cseDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseDirectoryId :: Lens.Lens' CancelSchemaExtension Lude.Text
+cseDirectoryId = Lens.lens (directoryId :: CancelSchemaExtension -> Lude.Text) (\s a -> s {directoryId = a} :: CancelSchemaExtension)
+{-# DEPRECATED cseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the schema extension that will be canceled.
-cseSchemaExtensionId :: Lens' CancelSchemaExtension Text
-cseSchemaExtensionId = lens _cseSchemaExtensionId (\s a -> s {_cseSchemaExtensionId = a})
+--
+-- /Note:/ Consider using 'schemaExtensionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseSchemaExtensionId :: Lens.Lens' CancelSchemaExtension Lude.Text
+cseSchemaExtensionId = Lens.lens (schemaExtensionId :: CancelSchemaExtension -> Lude.Text) (\s a -> s {schemaExtensionId = a} :: CancelSchemaExtension)
+{-# DEPRECATED cseSchemaExtensionId "Use generic-lens or generic-optics with 'schemaExtensionId' instead." #-}
 
-instance AWSRequest CancelSchemaExtension where
+instance Lude.AWSRequest CancelSchemaExtension where
   type Rs CancelSchemaExtension = CancelSchemaExtensionResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> CancelSchemaExtensionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CancelSchemaExtensionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CancelSchemaExtension
-
-instance NFData CancelSchemaExtension
-
-instance ToHeaders CancelSchemaExtension where
+instance Lude.ToHeaders CancelSchemaExtension where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.CancelSchemaExtension" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.CancelSchemaExtension" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelSchemaExtension where
+instance Lude.ToJSON CancelSchemaExtension where
   toJSON CancelSchemaExtension' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _cseDirectoryId),
-            Just ("SchemaExtensionId" .= _cseSchemaExtensionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("SchemaExtensionId" Lude..= schemaExtensionId)
           ]
       )
 
-instance ToPath CancelSchemaExtension where
-  toPath = const "/"
+instance Lude.ToPath CancelSchemaExtension where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelSchemaExtension where
-  toQuery = const mempty
+instance Lude.ToQuery CancelSchemaExtension where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelSchemaExtensionResponse' smart constructor.
+-- | /See:/ 'mkCancelSchemaExtensionResponse' smart constructor.
 newtype CancelSchemaExtensionResponse = CancelSchemaExtensionResponse'
-  { _csersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSchemaExtensionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csersResponseStatus' - -- | The response status code.
-cancelSchemaExtensionResponse ::
-  -- | 'csersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelSchemaExtensionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelSchemaExtensionResponse
-cancelSchemaExtensionResponse pResponseStatus_ =
-  CancelSchemaExtensionResponse'
-    { _csersResponseStatus =
-        pResponseStatus_
-    }
+mkCancelSchemaExtensionResponse pResponseStatus_ =
+  CancelSchemaExtensionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-csersResponseStatus :: Lens' CancelSchemaExtensionResponse Int
-csersResponseStatus = lens _csersResponseStatus (\s a -> s {_csersResponseStatus = a})
-
-instance NFData CancelSchemaExtensionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csersResponseStatus :: Lens.Lens' CancelSchemaExtensionResponse Lude.Int
+csersResponseStatus = Lens.lens (responseStatus :: CancelSchemaExtensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelSchemaExtensionResponse)
+{-# DEPRECATED csersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

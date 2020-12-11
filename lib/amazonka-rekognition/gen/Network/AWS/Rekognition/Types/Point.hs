@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Point where
+module Network.AWS.Rekognition.Types.Point
+  ( Point (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPoint,
+
+    -- * Lenses
+    pX,
+    pY,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.
 --
---
 -- An array of @Point@ objects, @Polygon@ , is returned by 'DetectText' and by 'DetectCustomLabels' . @Polygon@ represents a fine-grained polygon around a detected item. For more information, see Geometry in the Amazon Rekognition Developer Guide.
 --
---
--- /See:/ 'point' smart constructor.
-data Point = Point' {_pX :: !(Maybe Double), _pY :: !(Maybe Double)}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkPoint' smart constructor.
+data Point = Point'
+  { x :: Lude.Maybe Lude.Double,
+    y :: Lude.Maybe Lude.Double
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Point' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pX' - The value of the X coordinate for a point on a @Polygon@ .
---
--- * 'pY' - The value of the Y coordinate for a point on a @Polygon@ .
-point ::
+-- * 'x' - The value of the X coordinate for a point on a @Polygon@ .
+-- * 'y' - The value of the Y coordinate for a point on a @Polygon@ .
+mkPoint ::
   Point
-point = Point' {_pX = Nothing, _pY = Nothing}
+mkPoint = Point' {x = Lude.Nothing, y = Lude.Nothing}
 
 -- | The value of the X coordinate for a point on a @Polygon@ .
-pX :: Lens' Point (Maybe Double)
-pX = lens _pX (\s a -> s {_pX = a})
+--
+-- /Note:/ Consider using 'x' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pX :: Lens.Lens' Point (Lude.Maybe Lude.Double)
+pX = Lens.lens (x :: Point -> Lude.Maybe Lude.Double) (\s a -> s {x = a} :: Point)
+{-# DEPRECATED pX "Use generic-lens or generic-optics with 'x' instead." #-}
 
 -- | The value of the Y coordinate for a point on a @Polygon@ .
-pY :: Lens' Point (Maybe Double)
-pY = lens _pY (\s a -> s {_pY = a})
+--
+-- /Note:/ Consider using 'y' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pY :: Lens.Lens' Point (Lude.Maybe Lude.Double)
+pY = Lens.lens (y :: Point -> Lude.Maybe Lude.Double) (\s a -> s {y = a} :: Point)
+{-# DEPRECATED pY "Use generic-lens or generic-optics with 'y' instead." #-}
 
-instance FromJSON Point where
+instance Lude.FromJSON Point where
   parseJSON =
-    withObject
+    Lude.withObject
       "Point"
-      (\x -> Point' <$> (x .:? "X") <*> (x .:? "Y"))
-
-instance Hashable Point
-
-instance NFData Point
+      (\x -> Point' Lude.<$> (x Lude..:? "X") Lude.<*> (x Lude..:? "Y"))

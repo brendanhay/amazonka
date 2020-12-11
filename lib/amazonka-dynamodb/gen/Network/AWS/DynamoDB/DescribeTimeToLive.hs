@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,132 @@
 --
 -- Gives a description of the Time to Live (TTL) status on the specified table.
 module Network.AWS.DynamoDB.DescribeTimeToLive
-  ( -- * Creating a Request
-    describeTimeToLive,
-    DescribeTimeToLive,
+  ( -- * Creating a request
+    DescribeTimeToLive (..),
+    mkDescribeTimeToLive,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dttlTableName,
 
-    -- * Destructuring the Response
-    describeTimeToLiveResponse,
-    DescribeTimeToLiveResponse,
+    -- * Destructuring the response
+    DescribeTimeToLiveResponse (..),
+    mkDescribeTimeToLiveResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dttlrsTimeToLiveDescription,
     dttlrsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTimeToLive' smart constructor.
+-- | /See:/ 'mkDescribeTimeToLive' smart constructor.
 newtype DescribeTimeToLive = DescribeTimeToLive'
-  { _dttlTableName ::
-      Text
+  { tableName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTimeToLive' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttlTableName' - The name of the table to be described.
-describeTimeToLive ::
-  -- | 'dttlTableName'
-  Text ->
+-- * 'tableName' - The name of the table to be described.
+mkDescribeTimeToLive ::
+  -- | 'tableName'
+  Lude.Text ->
   DescribeTimeToLive
-describeTimeToLive pTableName_ =
-  DescribeTimeToLive' {_dttlTableName = pTableName_}
+mkDescribeTimeToLive pTableName_ =
+  DescribeTimeToLive' {tableName = pTableName_}
 
 -- | The name of the table to be described.
-dttlTableName :: Lens' DescribeTimeToLive Text
-dttlTableName = lens _dttlTableName (\s a -> s {_dttlTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttlTableName :: Lens.Lens' DescribeTimeToLive Lude.Text
+dttlTableName = Lens.lens (tableName :: DescribeTimeToLive -> Lude.Text) (\s a -> s {tableName = a} :: DescribeTimeToLive)
+{-# DEPRECATED dttlTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest DescribeTimeToLive where
+instance Lude.AWSRequest DescribeTimeToLive where
   type Rs DescribeTimeToLive = DescribeTimeToLiveResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTimeToLiveResponse'
-            <$> (x .?> "TimeToLiveDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TimeToLiveDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTimeToLive
-
-instance NFData DescribeTimeToLive
-
-instance ToHeaders DescribeTimeToLive where
+instance Lude.ToHeaders DescribeTimeToLive where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeTimeToLive" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.DescribeTimeToLive" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTimeToLive where
+instance Lude.ToJSON DescribeTimeToLive where
   toJSON DescribeTimeToLive' {..} =
-    object (catMaybes [Just ("TableName" .= _dttlTableName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
 
-instance ToPath DescribeTimeToLive where
-  toPath = const "/"
+instance Lude.ToPath DescribeTimeToLive where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTimeToLive where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTimeToLive where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTimeToLiveResponse' smart constructor.
+-- | /See:/ 'mkDescribeTimeToLiveResponse' smart constructor.
 data DescribeTimeToLiveResponse = DescribeTimeToLiveResponse'
-  { _dttlrsTimeToLiveDescription ::
-      !(Maybe TimeToLiveDescription),
-    _dttlrsResponseStatus :: !Int
+  { timeToLiveDescription ::
+      Lude.Maybe TimeToLiveDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTimeToLiveResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttlrsTimeToLiveDescription' -
---
--- * 'dttlrsResponseStatus' - -- | The response status code.
-describeTimeToLiveResponse ::
-  -- | 'dttlrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'timeToLiveDescription' -
+mkDescribeTimeToLiveResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTimeToLiveResponse
-describeTimeToLiveResponse pResponseStatus_ =
+mkDescribeTimeToLiveResponse pResponseStatus_ =
   DescribeTimeToLiveResponse'
-    { _dttlrsTimeToLiveDescription =
-        Nothing,
-      _dttlrsResponseStatus = pResponseStatus_
+    { timeToLiveDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- |
-dttlrsTimeToLiveDescription :: Lens' DescribeTimeToLiveResponse (Maybe TimeToLiveDescription)
-dttlrsTimeToLiveDescription = lens _dttlrsTimeToLiveDescription (\s a -> s {_dttlrsTimeToLiveDescription = a})
+--
+-- /Note:/ Consider using 'timeToLiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttlrsTimeToLiveDescription :: Lens.Lens' DescribeTimeToLiveResponse (Lude.Maybe TimeToLiveDescription)
+dttlrsTimeToLiveDescription = Lens.lens (timeToLiveDescription :: DescribeTimeToLiveResponse -> Lude.Maybe TimeToLiveDescription) (\s a -> s {timeToLiveDescription = a} :: DescribeTimeToLiveResponse)
+{-# DEPRECATED dttlrsTimeToLiveDescription "Use generic-lens or generic-optics with 'timeToLiveDescription' instead." #-}
 
--- | -- | The response status code.
-dttlrsResponseStatus :: Lens' DescribeTimeToLiveResponse Int
-dttlrsResponseStatus = lens _dttlrsResponseStatus (\s a -> s {_dttlrsResponseStatus = a})
-
-instance NFData DescribeTimeToLiveResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttlrsResponseStatus :: Lens.Lens' DescribeTimeToLiveResponse Lude.Int
+dttlrsResponseStatus = Lens.lens (responseStatus :: DescribeTimeToLiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTimeToLiveResponse)
+{-# DEPRECATED dttlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

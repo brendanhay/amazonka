@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.Column where
+module Network.AWS.Athena.Types.Column
+  ( Column (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkColumn,
+
+    -- * Lenses
+    cType,
+    cComment,
+    cName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains metadata for a column in a table.
 --
---
---
--- /See:/ 'column' smart constructor.
+-- /See:/ 'mkColumn' smart constructor.
 data Column = Column'
-  { _cType :: !(Maybe Text),
-    _cComment :: !(Maybe Text),
-    _cName :: !Text
+  { type' :: Lude.Maybe Lude.Text,
+    comment :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Column' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cType' - The data type of the column.
---
--- * 'cComment' - Optional information about the column.
---
--- * 'cName' - The name of the column.
-column ::
-  -- | 'cName'
-  Text ->
+-- * 'comment' - Optional information about the column.
+-- * 'name' - The name of the column.
+-- * 'type'' - The data type of the column.
+mkColumn ::
+  -- | 'name'
+  Lude.Text ->
   Column
-column pName_ =
-  Column' {_cType = Nothing, _cComment = Nothing, _cName = pName_}
+mkColumn pName_ =
+  Column'
+    { type' = Lude.Nothing,
+      comment = Lude.Nothing,
+      name = pName_
+    }
 
 -- | The data type of the column.
-cType :: Lens' Column (Maybe Text)
-cType = lens _cType (\s a -> s {_cType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cType :: Lens.Lens' Column (Lude.Maybe Lude.Text)
+cType = Lens.lens (type' :: Column -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Column)
+{-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Optional information about the column.
-cComment :: Lens' Column (Maybe Text)
-cComment = lens _cComment (\s a -> s {_cComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cComment :: Lens.Lens' Column (Lude.Maybe Lude.Text)
+cComment = Lens.lens (comment :: Column -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: Column)
+{-# DEPRECATED cComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The name of the column.
-cName :: Lens' Column Text
-cName = lens _cName (\s a -> s {_cName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Column Lude.Text
+cName = Lens.lens (name :: Column -> Lude.Text) (\s a -> s {name = a} :: Column)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Column where
+instance Lude.FromJSON Column where
   parseJSON =
-    withObject
+    Lude.withObject
       "Column"
       ( \x ->
-          Column' <$> (x .:? "Type") <*> (x .:? "Comment") <*> (x .: "Name")
+          Column'
+            Lude.<$> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Comment")
+            Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable Column
-
-instance NFData Column

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Credentials where
+module Network.AWS.Connect.Types.Credentials
+  ( Credentials (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCredentials,
+
+    -- * Lenses
+    cAccessTokenExpiration,
+    cAccessToken,
+    cRefreshToken,
+    cRefreshTokenExpiration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains credentials to use for federation.
 --
---
---
--- /See:/ 'credentials' smart constructor.
+-- /See:/ 'mkCredentials' smart constructor.
 data Credentials = Credentials'
-  { _cAccessTokenExpiration ::
-      !(Maybe POSIX),
-    _cAccessToken :: !(Maybe (Sensitive Text)),
-    _cRefreshToken :: !(Maybe (Sensitive Text)),
-    _cRefreshTokenExpiration :: !(Maybe POSIX)
+  { accessTokenExpiration ::
+      Lude.Maybe Lude.Timestamp,
+    accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    refreshToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    refreshTokenExpiration :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cAccessTokenExpiration' - A token generated with an expiration time for the session a user is logged in to Amazon Connect.
---
--- * 'cAccessToken' - An access token generated for a federated user to access Amazon Connect.
---
--- * 'cRefreshToken' - Renews a token generated for a user to access the Amazon Connect instance.
---
--- * 'cRefreshTokenExpiration' - Renews the expiration timer for a generated token.
-credentials ::
+-- * 'accessToken' - An access token generated for a federated user to access Amazon Connect.
+-- * 'accessTokenExpiration' - A token generated with an expiration time for the session a user is logged in to Amazon Connect.
+-- * 'refreshToken' - Renews a token generated for a user to access the Amazon Connect instance.
+-- * 'refreshTokenExpiration' - Renews the expiration timer for a generated token.
+mkCredentials ::
   Credentials
-credentials =
+mkCredentials =
   Credentials'
-    { _cAccessTokenExpiration = Nothing,
-      _cAccessToken = Nothing,
-      _cRefreshToken = Nothing,
-      _cRefreshTokenExpiration = Nothing
+    { accessTokenExpiration = Lude.Nothing,
+      accessToken = Lude.Nothing,
+      refreshToken = Lude.Nothing,
+      refreshTokenExpiration = Lude.Nothing
     }
 
 -- | A token generated with an expiration time for the session a user is logged in to Amazon Connect.
-cAccessTokenExpiration :: Lens' Credentials (Maybe UTCTime)
-cAccessTokenExpiration = lens _cAccessTokenExpiration (\s a -> s {_cAccessTokenExpiration = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'accessTokenExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAccessTokenExpiration :: Lens.Lens' Credentials (Lude.Maybe Lude.Timestamp)
+cAccessTokenExpiration = Lens.lens (accessTokenExpiration :: Credentials -> Lude.Maybe Lude.Timestamp) (\s a -> s {accessTokenExpiration = a} :: Credentials)
+{-# DEPRECATED cAccessTokenExpiration "Use generic-lens or generic-optics with 'accessTokenExpiration' instead." #-}
 
 -- | An access token generated for a federated user to access Amazon Connect.
-cAccessToken :: Lens' Credentials (Maybe Text)
-cAccessToken = lens _cAccessToken (\s a -> s {_cAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAccessToken :: Lens.Lens' Credentials (Lude.Maybe (Lude.Sensitive Lude.Text))
+cAccessToken = Lens.lens (accessToken :: Credentials -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: Credentials)
+{-# DEPRECATED cAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | Renews a token generated for a user to access the Amazon Connect instance.
-cRefreshToken :: Lens' Credentials (Maybe Text)
-cRefreshToken = lens _cRefreshToken (\s a -> s {_cRefreshToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'refreshToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRefreshToken :: Lens.Lens' Credentials (Lude.Maybe (Lude.Sensitive Lude.Text))
+cRefreshToken = Lens.lens (refreshToken :: Credentials -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {refreshToken = a} :: Credentials)
+{-# DEPRECATED cRefreshToken "Use generic-lens or generic-optics with 'refreshToken' instead." #-}
 
 -- | Renews the expiration timer for a generated token.
-cRefreshTokenExpiration :: Lens' Credentials (Maybe UTCTime)
-cRefreshTokenExpiration = lens _cRefreshTokenExpiration (\s a -> s {_cRefreshTokenExpiration = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'refreshTokenExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRefreshTokenExpiration :: Lens.Lens' Credentials (Lude.Maybe Lude.Timestamp)
+cRefreshTokenExpiration = Lens.lens (refreshTokenExpiration :: Credentials -> Lude.Maybe Lude.Timestamp) (\s a -> s {refreshTokenExpiration = a} :: Credentials)
+{-# DEPRECATED cRefreshTokenExpiration "Use generic-lens or generic-optics with 'refreshTokenExpiration' instead." #-}
 
-instance FromJSON Credentials where
+instance Lude.FromJSON Credentials where
   parseJSON =
-    withObject
+    Lude.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            <$> (x .:? "AccessTokenExpiration")
-            <*> (x .:? "AccessToken")
-            <*> (x .:? "RefreshToken")
-            <*> (x .:? "RefreshTokenExpiration")
+            Lude.<$> (x Lude..:? "AccessTokenExpiration")
+            Lude.<*> (x Lude..:? "AccessToken")
+            Lude.<*> (x Lude..:? "RefreshToken")
+            Lude.<*> (x Lude..:? "RefreshTokenExpiration")
       )
-
-instance Hashable Credentials
-
-instance NFData Credentials

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.OTAUpdateSummary where
+module Network.AWS.IoT.Types.OTAUpdateSummary
+  ( OTAUpdateSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOTAUpdateSummary,
+
+    -- * Lenses
+    otausCreationDate,
+    otausOtaUpdateId,
+    otausOtaUpdateARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An OTA update summary.
 --
---
---
--- /See:/ 'oTAUpdateSummary' smart constructor.
+-- /See:/ 'mkOTAUpdateSummary' smart constructor.
 data OTAUpdateSummary = OTAUpdateSummary'
-  { _otausCreationDate ::
-      !(Maybe POSIX),
-    _otausOtaUpdateId :: !(Maybe Text),
-    _otausOtaUpdateARN :: !(Maybe Text)
+  { creationDate ::
+      Lude.Maybe Lude.Timestamp,
+    otaUpdateId :: Lude.Maybe Lude.Text,
+    otaUpdateARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OTAUpdateSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'otausCreationDate' - The date when the OTA update was created.
---
--- * 'otausOtaUpdateId' - The OTA update ID.
---
--- * 'otausOtaUpdateARN' - The OTA update ARN.
-oTAUpdateSummary ::
+-- * 'creationDate' - The date when the OTA update was created.
+-- * 'otaUpdateARN' - The OTA update ARN.
+-- * 'otaUpdateId' - The OTA update ID.
+mkOTAUpdateSummary ::
   OTAUpdateSummary
-oTAUpdateSummary =
+mkOTAUpdateSummary =
   OTAUpdateSummary'
-    { _otausCreationDate = Nothing,
-      _otausOtaUpdateId = Nothing,
-      _otausOtaUpdateARN = Nothing
+    { creationDate = Lude.Nothing,
+      otaUpdateId = Lude.Nothing,
+      otaUpdateARN = Lude.Nothing
     }
 
 -- | The date when the OTA update was created.
-otausCreationDate :: Lens' OTAUpdateSummary (Maybe UTCTime)
-otausCreationDate = lens _otausCreationDate (\s a -> s {_otausCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otausCreationDate :: Lens.Lens' OTAUpdateSummary (Lude.Maybe Lude.Timestamp)
+otausCreationDate = Lens.lens (creationDate :: OTAUpdateSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: OTAUpdateSummary)
+{-# DEPRECATED otausCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The OTA update ID.
-otausOtaUpdateId :: Lens' OTAUpdateSummary (Maybe Text)
-otausOtaUpdateId = lens _otausOtaUpdateId (\s a -> s {_otausOtaUpdateId = a})
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otausOtaUpdateId :: Lens.Lens' OTAUpdateSummary (Lude.Maybe Lude.Text)
+otausOtaUpdateId = Lens.lens (otaUpdateId :: OTAUpdateSummary -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateId = a} :: OTAUpdateSummary)
+{-# DEPRECATED otausOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
 -- | The OTA update ARN.
-otausOtaUpdateARN :: Lens' OTAUpdateSummary (Maybe Text)
-otausOtaUpdateARN = lens _otausOtaUpdateARN (\s a -> s {_otausOtaUpdateARN = a})
+--
+-- /Note:/ Consider using 'otaUpdateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otausOtaUpdateARN :: Lens.Lens' OTAUpdateSummary (Lude.Maybe Lude.Text)
+otausOtaUpdateARN = Lens.lens (otaUpdateARN :: OTAUpdateSummary -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateARN = a} :: OTAUpdateSummary)
+{-# DEPRECATED otausOtaUpdateARN "Use generic-lens or generic-optics with 'otaUpdateARN' instead." #-}
 
-instance FromJSON OTAUpdateSummary where
+instance Lude.FromJSON OTAUpdateSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "OTAUpdateSummary"
       ( \x ->
           OTAUpdateSummary'
-            <$> (x .:? "creationDate")
-            <*> (x .:? "otaUpdateId")
-            <*> (x .:? "otaUpdateArn")
+            Lude.<$> (x Lude..:? "creationDate")
+            Lude.<*> (x Lude..:? "otaUpdateId")
+            Lude.<*> (x Lude..:? "otaUpdateArn")
       )
-
-instance Hashable OTAUpdateSummary
-
-instance NFData OTAUpdateSummary

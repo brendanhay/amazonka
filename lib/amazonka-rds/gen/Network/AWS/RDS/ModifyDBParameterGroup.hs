@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,112 @@
 --
 -- Modifies the parameters of a DB parameter group. To modify more than one parameter, submit a list of the following: @ParameterName@ , @ParameterValue@ , and @ApplyMethod@ . A maximum of 20 parameters can be modified in a single request.
 --
---
 -- /Important:/ After you modify a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the modify action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the @character_set_database@ parameter. You can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.
 module Network.AWS.RDS.ModifyDBParameterGroup
-  ( -- * Creating a Request
-    modifyDBParameterGroup,
-    ModifyDBParameterGroup,
+  ( -- * Creating a request
+    ModifyDBParameterGroup (..),
+    mkModifyDBParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mdpgDBParameterGroupName,
     mdpgParameters,
 
-    -- * Destructuring the Response
-    dbParameterGroupNameMessage,
-    DBParameterGroupNameMessage,
+    -- * Destructuring the response
+    DBParameterGroupNameMessage (..),
+    mkDBParameterGroupNameMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpgnmDBParameterGroupName,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyDBParameterGroup' smart constructor.
+-- /See:/ 'mkModifyDBParameterGroup' smart constructor.
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
-  { _mdpgDBParameterGroupName ::
-      !Text,
-    _mdpgParameters :: ![Parameter]
+  { dbParameterGroupName ::
+      Lude.Text,
+    parameters :: [Parameter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbParameterGroupName' - The name of the DB parameter group.
 --
--- * 'mdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * If supplied, must match the name of an existing @DBParameterGroup@ .
+-- Constraints:
 --
--- * 'mdpgParameters' - An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request. Valid Values (for the application method): @immediate | pending-reboot@
-modifyDBParameterGroup ::
-  -- | 'mdpgDBParameterGroupName'
-  Text ->
+--     * If supplied, must match the name of an existing @DBParameterGroup@ .
+--
+--
+-- * 'parameters' - An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.
+--
+-- Valid Values (for the application method): @immediate | pending-reboot@
+mkModifyDBParameterGroup ::
+  -- | 'dbParameterGroupName'
+  Lude.Text ->
   ModifyDBParameterGroup
-modifyDBParameterGroup pDBParameterGroupName_ =
+mkModifyDBParameterGroup pDBParameterGroupName_ =
   ModifyDBParameterGroup'
-    { _mdpgDBParameterGroupName =
+    { dbParameterGroupName =
         pDBParameterGroupName_,
-      _mdpgParameters = mempty
+      parameters = Lude.mempty
     }
 
--- | The name of the DB parameter group. Constraints:     * If supplied, must match the name of an existing @DBParameterGroup@ .
-mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
-mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\s a -> s {_mdpgDBParameterGroupName = a})
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+--     * If supplied, must match the name of an existing @DBParameterGroup@ .
+--
+--
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpgDBParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Lude.Text
+mdpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: ModifyDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: ModifyDBParameterGroup)
+{-# DEPRECATED mdpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
--- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request. Valid Values (for the application method): @immediate | pending-reboot@
-mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
-mdpgParameters = lens _mdpgParameters (\s a -> s {_mdpgParameters = a}) . _Coerce
+-- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.
+--
+-- Valid Values (for the application method): @immediate | pending-reboot@
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpgParameters :: Lens.Lens' ModifyDBParameterGroup [Parameter]
+mdpgParameters = Lens.lens (parameters :: ModifyDBParameterGroup -> [Parameter]) (\s a -> s {parameters = a} :: ModifyDBParameterGroup)
+{-# DEPRECATED mdpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance AWSRequest ModifyDBParameterGroup where
+instance Lude.AWSRequest ModifyDBParameterGroup where
   type Rs ModifyDBParameterGroup = DBParameterGroupNameMessage
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyDBParameterGroupResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ModifyDBParameterGroup
+instance Lude.ToHeaders ModifyDBParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyDBParameterGroup
+instance Lude.ToPath ModifyDBParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyDBParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyDBParameterGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyDBParameterGroup where
+instance Lude.ToQuery ModifyDBParameterGroup where
   toQuery ModifyDBParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyDBParameterGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBParameterGroupName" =: _mdpgDBParameterGroupName,
-        "Parameters" =: toQueryList "Parameter" _mdpgParameters
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyDBParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBParameterGroupName" Lude.=: dbParameterGroupName,
+        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters
       ]

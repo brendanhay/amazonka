@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.FaceDetail where
+module Network.AWS.Rekognition.Types.FaceDetail
+  ( FaceDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFaceDetail,
+
+    -- * Lenses
+    fdAgeRange,
+    fdSunglasses,
+    fdMouthOpen,
+    fdBoundingBox,
+    fdEmotions,
+    fdEyesOpen,
+    fdPose,
+    fdConfidence,
+    fdGender,
+    fdQuality,
+    fdEyeglasses,
+    fdBeard,
+    fdMustache,
+    fdSmile,
+    fdLandmarks,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.AgeRange
 import Network.AWS.Rekognition.Types.Beard
 import Network.AWS.Rekognition.Types.BoundingBox
@@ -34,179 +51,209 @@ import Network.AWS.Rekognition.Types.Sunglasses
 
 -- | Structure containing attributes of the face that the algorithm detected.
 --
---
 -- A @FaceDetail@ object contains either the default facial attributes or all facial attributes. The default attributes are @BoundingBox@ , @Confidence@ , @Landmarks@ , @Pose@ , and @Quality@ .
---
 -- 'GetFaceDetection' is the only Amazon Rekognition Video stored video operation that can return a @FaceDetail@ object with all attributes. To specify which attributes to return, use the @FaceAttributes@ input parameter for 'StartFaceDetection' . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a @FaceAttributes@ input parameter.
 --
 --     * GetCelebrityRecognition
 --
+--
 --     * GetPersonTracking
+--
 --
 --     * GetFaceSearch
 --
 --
---
 -- The Amazon Rekognition Image 'DetectFaces' and 'IndexFaces' operations can return all facial attributes. To specify which attributes to return, use the @Attributes@ input parameter for @DetectFaces@ . For @IndexFaces@ , use the @DetectAttributes@ input parameter.
 --
---
--- /See:/ 'faceDetail' smart constructor.
+-- /See:/ 'mkFaceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-  { _fdAgeRange :: !(Maybe AgeRange),
-    _fdSunglasses :: !(Maybe Sunglasses),
-    _fdMouthOpen :: !(Maybe MouthOpen),
-    _fdBoundingBox :: !(Maybe BoundingBox),
-    _fdEmotions :: !(Maybe [Emotion]),
-    _fdEyesOpen :: !(Maybe EyeOpen),
-    _fdPose :: !(Maybe Pose),
-    _fdConfidence :: !(Maybe Double),
-    _fdGender :: !(Maybe Gender),
-    _fdQuality :: !(Maybe ImageQuality),
-    _fdEyeglasses :: !(Maybe Eyeglasses),
-    _fdBeard :: !(Maybe Beard),
-    _fdMustache :: !(Maybe Mustache),
-    _fdSmile :: !(Maybe Smile),
-    _fdLandmarks :: !(Maybe [Landmark])
+  { ageRange :: Lude.Maybe AgeRange,
+    sunglasses :: Lude.Maybe Sunglasses,
+    mouthOpen :: Lude.Maybe MouthOpen,
+    boundingBox :: Lude.Maybe BoundingBox,
+    emotions :: Lude.Maybe [Emotion],
+    eyesOpen :: Lude.Maybe EyeOpen,
+    pose :: Lude.Maybe Pose,
+    confidence :: Lude.Maybe Lude.Double,
+    gender :: Lude.Maybe Gender,
+    quality :: Lude.Maybe ImageQuality,
+    eyeglasses :: Lude.Maybe Eyeglasses,
+    beard :: Lude.Maybe Beard,
+    mustache :: Lude.Maybe Mustache,
+    smile :: Lude.Maybe Smile,
+    landmarks :: Lude.Maybe [Landmark]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdAgeRange' - The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
---
--- * 'fdSunglasses' - Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
---
--- * 'fdMouthOpen' - Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
---
--- * 'fdBoundingBox' - Bounding box of the face. Default attribute.
---
--- * 'fdEmotions' - The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
---
--- * 'fdEyesOpen' - Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
---
--- * 'fdPose' - Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
---
--- * 'fdConfidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
---
--- * 'fdGender' - The predicted gender of a detected face.
---
--- * 'fdQuality' - Identifies image brightness and sharpness. Default attribute.
---
--- * 'fdEyeglasses' - Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
---
--- * 'fdBeard' - Indicates whether or not the face has a beard, and the confidence level in the determination.
---
--- * 'fdMustache' - Indicates whether or not the face has a mustache, and the confidence level in the determination.
---
--- * 'fdSmile' - Indicates whether or not the face is smiling, and the confidence level in the determination.
---
--- * 'fdLandmarks' - Indicates the location of landmarks on the face. Default attribute.
-faceDetail ::
+-- * 'ageRange' - The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
+-- * 'beard' - Indicates whether or not the face has a beard, and the confidence level in the determination.
+-- * 'boundingBox' - Bounding box of the face. Default attribute.
+-- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
+-- * 'emotions' - The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
+-- * 'eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
+-- * 'eyesOpen' - Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
+-- * 'gender' - The predicted gender of a detected face.
+-- * 'landmarks' - Indicates the location of landmarks on the face. Default attribute.
+-- * 'mouthOpen' - Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
+-- * 'mustache' - Indicates whether or not the face has a mustache, and the confidence level in the determination.
+-- * 'pose' - Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
+-- * 'quality' - Identifies image brightness and sharpness. Default attribute.
+-- * 'smile' - Indicates whether or not the face is smiling, and the confidence level in the determination.
+-- * 'sunglasses' - Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
+mkFaceDetail ::
   FaceDetail
-faceDetail =
+mkFaceDetail =
   FaceDetail'
-    { _fdAgeRange = Nothing,
-      _fdSunglasses = Nothing,
-      _fdMouthOpen = Nothing,
-      _fdBoundingBox = Nothing,
-      _fdEmotions = Nothing,
-      _fdEyesOpen = Nothing,
-      _fdPose = Nothing,
-      _fdConfidence = Nothing,
-      _fdGender = Nothing,
-      _fdQuality = Nothing,
-      _fdEyeglasses = Nothing,
-      _fdBeard = Nothing,
-      _fdMustache = Nothing,
-      _fdSmile = Nothing,
-      _fdLandmarks = Nothing
+    { ageRange = Lude.Nothing,
+      sunglasses = Lude.Nothing,
+      mouthOpen = Lude.Nothing,
+      boundingBox = Lude.Nothing,
+      emotions = Lude.Nothing,
+      eyesOpen = Lude.Nothing,
+      pose = Lude.Nothing,
+      confidence = Lude.Nothing,
+      gender = Lude.Nothing,
+      quality = Lude.Nothing,
+      eyeglasses = Lude.Nothing,
+      beard = Lude.Nothing,
+      mustache = Lude.Nothing,
+      smile = Lude.Nothing,
+      landmarks = Lude.Nothing
     }
 
 -- | The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
-fdAgeRange :: Lens' FaceDetail (Maybe AgeRange)
-fdAgeRange = lens _fdAgeRange (\s a -> s {_fdAgeRange = a})
+--
+-- /Note:/ Consider using 'ageRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdAgeRange :: Lens.Lens' FaceDetail (Lude.Maybe AgeRange)
+fdAgeRange = Lens.lens (ageRange :: FaceDetail -> Lude.Maybe AgeRange) (\s a -> s {ageRange = a} :: FaceDetail)
+{-# DEPRECATED fdAgeRange "Use generic-lens or generic-optics with 'ageRange' instead." #-}
 
 -- | Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
-fdSunglasses :: Lens' FaceDetail (Maybe Sunglasses)
-fdSunglasses = lens _fdSunglasses (\s a -> s {_fdSunglasses = a})
+--
+-- /Note:/ Consider using 'sunglasses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdSunglasses :: Lens.Lens' FaceDetail (Lude.Maybe Sunglasses)
+fdSunglasses = Lens.lens (sunglasses :: FaceDetail -> Lude.Maybe Sunglasses) (\s a -> s {sunglasses = a} :: FaceDetail)
+{-# DEPRECATED fdSunglasses "Use generic-lens or generic-optics with 'sunglasses' instead." #-}
 
 -- | Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
-fdMouthOpen :: Lens' FaceDetail (Maybe MouthOpen)
-fdMouthOpen = lens _fdMouthOpen (\s a -> s {_fdMouthOpen = a})
+--
+-- /Note:/ Consider using 'mouthOpen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdMouthOpen :: Lens.Lens' FaceDetail (Lude.Maybe MouthOpen)
+fdMouthOpen = Lens.lens (mouthOpen :: FaceDetail -> Lude.Maybe MouthOpen) (\s a -> s {mouthOpen = a} :: FaceDetail)
+{-# DEPRECATED fdMouthOpen "Use generic-lens or generic-optics with 'mouthOpen' instead." #-}
 
 -- | Bounding box of the face. Default attribute.
-fdBoundingBox :: Lens' FaceDetail (Maybe BoundingBox)
-fdBoundingBox = lens _fdBoundingBox (\s a -> s {_fdBoundingBox = a})
+--
+-- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdBoundingBox :: Lens.Lens' FaceDetail (Lude.Maybe BoundingBox)
+fdBoundingBox = Lens.lens (boundingBox :: FaceDetail -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: FaceDetail)
+{-# DEPRECATED fdBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
-fdEmotions :: Lens' FaceDetail [Emotion]
-fdEmotions = lens _fdEmotions (\s a -> s {_fdEmotions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'emotions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdEmotions :: Lens.Lens' FaceDetail (Lude.Maybe [Emotion])
+fdEmotions = Lens.lens (emotions :: FaceDetail -> Lude.Maybe [Emotion]) (\s a -> s {emotions = a} :: FaceDetail)
+{-# DEPRECATED fdEmotions "Use generic-lens or generic-optics with 'emotions' instead." #-}
 
 -- | Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
-fdEyesOpen :: Lens' FaceDetail (Maybe EyeOpen)
-fdEyesOpen = lens _fdEyesOpen (\s a -> s {_fdEyesOpen = a})
+--
+-- /Note:/ Consider using 'eyesOpen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdEyesOpen :: Lens.Lens' FaceDetail (Lude.Maybe EyeOpen)
+fdEyesOpen = Lens.lens (eyesOpen :: FaceDetail -> Lude.Maybe EyeOpen) (\s a -> s {eyesOpen = a} :: FaceDetail)
+{-# DEPRECATED fdEyesOpen "Use generic-lens or generic-optics with 'eyesOpen' instead." #-}
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
-fdPose :: Lens' FaceDetail (Maybe Pose)
-fdPose = lens _fdPose (\s a -> s {_fdPose = a})
+--
+-- /Note:/ Consider using 'pose' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdPose :: Lens.Lens' FaceDetail (Lude.Maybe Pose)
+fdPose = Lens.lens (pose :: FaceDetail -> Lude.Maybe Pose) (\s a -> s {pose = a} :: FaceDetail)
+{-# DEPRECATED fdPose "Use generic-lens or generic-optics with 'pose' instead." #-}
 
 -- | Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
-fdConfidence :: Lens' FaceDetail (Maybe Double)
-fdConfidence = lens _fdConfidence (\s a -> s {_fdConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdConfidence :: Lens.Lens' FaceDetail (Lude.Maybe Lude.Double)
+fdConfidence = Lens.lens (confidence :: FaceDetail -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: FaceDetail)
+{-# DEPRECATED fdConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | The predicted gender of a detected face.
-fdGender :: Lens' FaceDetail (Maybe Gender)
-fdGender = lens _fdGender (\s a -> s {_fdGender = a})
+--
+-- /Note:/ Consider using 'gender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdGender :: Lens.Lens' FaceDetail (Lude.Maybe Gender)
+fdGender = Lens.lens (gender :: FaceDetail -> Lude.Maybe Gender) (\s a -> s {gender = a} :: FaceDetail)
+{-# DEPRECATED fdGender "Use generic-lens or generic-optics with 'gender' instead." #-}
 
 -- | Identifies image brightness and sharpness. Default attribute.
-fdQuality :: Lens' FaceDetail (Maybe ImageQuality)
-fdQuality = lens _fdQuality (\s a -> s {_fdQuality = a})
+--
+-- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdQuality :: Lens.Lens' FaceDetail (Lude.Maybe ImageQuality)
+fdQuality = Lens.lens (quality :: FaceDetail -> Lude.Maybe ImageQuality) (\s a -> s {quality = a} :: FaceDetail)
+{-# DEPRECATED fdQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
 -- | Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
-fdEyeglasses :: Lens' FaceDetail (Maybe Eyeglasses)
-fdEyeglasses = lens _fdEyeglasses (\s a -> s {_fdEyeglasses = a})
+--
+-- /Note:/ Consider using 'eyeglasses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdEyeglasses :: Lens.Lens' FaceDetail (Lude.Maybe Eyeglasses)
+fdEyeglasses = Lens.lens (eyeglasses :: FaceDetail -> Lude.Maybe Eyeglasses) (\s a -> s {eyeglasses = a} :: FaceDetail)
+{-# DEPRECATED fdEyeglasses "Use generic-lens or generic-optics with 'eyeglasses' instead." #-}
 
 -- | Indicates whether or not the face has a beard, and the confidence level in the determination.
-fdBeard :: Lens' FaceDetail (Maybe Beard)
-fdBeard = lens _fdBeard (\s a -> s {_fdBeard = a})
+--
+-- /Note:/ Consider using 'beard' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdBeard :: Lens.Lens' FaceDetail (Lude.Maybe Beard)
+fdBeard = Lens.lens (beard :: FaceDetail -> Lude.Maybe Beard) (\s a -> s {beard = a} :: FaceDetail)
+{-# DEPRECATED fdBeard "Use generic-lens or generic-optics with 'beard' instead." #-}
 
 -- | Indicates whether or not the face has a mustache, and the confidence level in the determination.
-fdMustache :: Lens' FaceDetail (Maybe Mustache)
-fdMustache = lens _fdMustache (\s a -> s {_fdMustache = a})
+--
+-- /Note:/ Consider using 'mustache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdMustache :: Lens.Lens' FaceDetail (Lude.Maybe Mustache)
+fdMustache = Lens.lens (mustache :: FaceDetail -> Lude.Maybe Mustache) (\s a -> s {mustache = a} :: FaceDetail)
+{-# DEPRECATED fdMustache "Use generic-lens or generic-optics with 'mustache' instead." #-}
 
 -- | Indicates whether or not the face is smiling, and the confidence level in the determination.
-fdSmile :: Lens' FaceDetail (Maybe Smile)
-fdSmile = lens _fdSmile (\s a -> s {_fdSmile = a})
+--
+-- /Note:/ Consider using 'smile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdSmile :: Lens.Lens' FaceDetail (Lude.Maybe Smile)
+fdSmile = Lens.lens (smile :: FaceDetail -> Lude.Maybe Smile) (\s a -> s {smile = a} :: FaceDetail)
+{-# DEPRECATED fdSmile "Use generic-lens or generic-optics with 'smile' instead." #-}
 
 -- | Indicates the location of landmarks on the face. Default attribute.
-fdLandmarks :: Lens' FaceDetail [Landmark]
-fdLandmarks = lens _fdLandmarks (\s a -> s {_fdLandmarks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'landmarks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdLandmarks :: Lens.Lens' FaceDetail (Lude.Maybe [Landmark])
+fdLandmarks = Lens.lens (landmarks :: FaceDetail -> Lude.Maybe [Landmark]) (\s a -> s {landmarks = a} :: FaceDetail)
+{-# DEPRECATED fdLandmarks "Use generic-lens or generic-optics with 'landmarks' instead." #-}
 
-instance FromJSON FaceDetail where
+instance Lude.FromJSON FaceDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "FaceDetail"
       ( \x ->
           FaceDetail'
-            <$> (x .:? "AgeRange")
-            <*> (x .:? "Sunglasses")
-            <*> (x .:? "MouthOpen")
-            <*> (x .:? "BoundingBox")
-            <*> (x .:? "Emotions" .!= mempty)
-            <*> (x .:? "EyesOpen")
-            <*> (x .:? "Pose")
-            <*> (x .:? "Confidence")
-            <*> (x .:? "Gender")
-            <*> (x .:? "Quality")
-            <*> (x .:? "Eyeglasses")
-            <*> (x .:? "Beard")
-            <*> (x .:? "Mustache")
-            <*> (x .:? "Smile")
-            <*> (x .:? "Landmarks" .!= mempty)
+            Lude.<$> (x Lude..:? "AgeRange")
+            Lude.<*> (x Lude..:? "Sunglasses")
+            Lude.<*> (x Lude..:? "MouthOpen")
+            Lude.<*> (x Lude..:? "BoundingBox")
+            Lude.<*> (x Lude..:? "Emotions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EyesOpen")
+            Lude.<*> (x Lude..:? "Pose")
+            Lude.<*> (x Lude..:? "Confidence")
+            Lude.<*> (x Lude..:? "Gender")
+            Lude.<*> (x Lude..:? "Quality")
+            Lude.<*> (x Lude..:? "Eyeglasses")
+            Lude.<*> (x Lude..:? "Beard")
+            Lude.<*> (x Lude..:? "Mustache")
+            Lude.<*> (x Lude..:? "Smile")
+            Lude.<*> (x Lude..:? "Landmarks" Lude..!= Lude.mempty)
       )
-
-instance Hashable FaceDetail
-
-instance NFData FaceDetail

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceCreditSpecification where
+module Network.AWS.EC2.Types.InstanceCreditSpecification
+  ( InstanceCreditSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceCreditSpecification,
+
+    -- * Lenses
+    icsInstanceId,
+    icsCPUCredits,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the credit option for CPU usage of a burstable performance instance.
 --
---
---
--- /See:/ 'instanceCreditSpecification' smart constructor.
+-- /See:/ 'mkInstanceCreditSpecification' smart constructor.
 data InstanceCreditSpecification = InstanceCreditSpecification'
-  { _icsInstanceId ::
-      !(Maybe Text),
-    _icsCPUCredits :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    cpuCredits :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceCreditSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icsInstanceId' - The ID of the instance.
---
--- * 'icsCPUCredits' - The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
-instanceCreditSpecification ::
+-- * 'cpuCredits' - The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
+-- * 'instanceId' - The ID of the instance.
+mkInstanceCreditSpecification ::
   InstanceCreditSpecification
-instanceCreditSpecification =
+mkInstanceCreditSpecification =
   InstanceCreditSpecification'
-    { _icsInstanceId = Nothing,
-      _icsCPUCredits = Nothing
+    { instanceId = Lude.Nothing,
+      cpuCredits = Lude.Nothing
     }
 
 -- | The ID of the instance.
-icsInstanceId :: Lens' InstanceCreditSpecification (Maybe Text)
-icsInstanceId = lens _icsInstanceId (\s a -> s {_icsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icsInstanceId :: Lens.Lens' InstanceCreditSpecification (Lude.Maybe Lude.Text)
+icsInstanceId = Lens.lens (instanceId :: InstanceCreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceCreditSpecification)
+{-# DEPRECATED icsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
-icsCPUCredits :: Lens' InstanceCreditSpecification (Maybe Text)
-icsCPUCredits = lens _icsCPUCredits (\s a -> s {_icsCPUCredits = a})
+--
+-- /Note:/ Consider using 'cpuCredits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icsCPUCredits :: Lens.Lens' InstanceCreditSpecification (Lude.Maybe Lude.Text)
+icsCPUCredits = Lens.lens (cpuCredits :: InstanceCreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {cpuCredits = a} :: InstanceCreditSpecification)
+{-# DEPRECATED icsCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
 
-instance FromXML InstanceCreditSpecification where
+instance Lude.FromXML InstanceCreditSpecification where
   parseXML x =
     InstanceCreditSpecification'
-      <$> (x .@? "instanceId") <*> (x .@? "cpuCredits")
-
-instance Hashable InstanceCreditSpecification
-
-instance NFData InstanceCreditSpecification
+      Lude.<$> (x Lude..@? "instanceId") Lude.<*> (x Lude..@? "cpuCredits")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListOutgoingTypedLinks
-  ( -- * Creating a Request
-    listOutgoingTypedLinks,
-    ListOutgoingTypedLinks,
+  ( -- * Creating a request
+    ListOutgoingTypedLinks (..),
+    mkListOutgoingTypedLinks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lotlFilterAttributeRanges,
     lotlConsistencyLevel,
     lotlNextToken,
@@ -36,11 +29,11 @@ module Network.AWS.CloudDirectory.ListOutgoingTypedLinks
     lotlDirectoryARN,
     lotlObjectReference,
 
-    -- * Destructuring the Response
-    listOutgoingTypedLinksResponse,
-    ListOutgoingTypedLinksResponse,
+    -- * Destructuring the response
+    ListOutgoingTypedLinksResponse (..),
+    mkListOutgoingTypedLinksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lotlrsTypedLinkSpecifiers,
     lotlrsNextToken,
     lotlrsResponseStatus,
@@ -48,176 +41,206 @@ module Network.AWS.CloudDirectory.ListOutgoingTypedLinks
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOutgoingTypedLinks' smart constructor.
+-- | /See:/ 'mkListOutgoingTypedLinks' smart constructor.
 data ListOutgoingTypedLinks = ListOutgoingTypedLinks'
-  { _lotlFilterAttributeRanges ::
-      !(Maybe [TypedLinkAttributeRange]),
-    _lotlConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _lotlNextToken :: !(Maybe Text),
-    _lotlFilterTypedLink ::
-      !(Maybe TypedLinkSchemaAndFacetName),
-    _lotlMaxResults :: !(Maybe Nat),
-    _lotlDirectoryARN :: !Text,
-    _lotlObjectReference :: !ObjectReference
+  { filterAttributeRanges ::
+      Lude.Maybe [TypedLinkAttributeRange],
+    consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    nextToken :: Lude.Maybe Lude.Text,
+    filterTypedLink ::
+      Lude.Maybe TypedLinkSchemaAndFacetName,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOutgoingTypedLinks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lotlFilterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
---
--- * 'lotlConsistencyLevel' - The consistency level to execute the request at.
---
--- * 'lotlNextToken' - The pagination token.
---
--- * 'lotlFilterTypedLink' - Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
---
--- * 'lotlMaxResults' - The maximum number of results to retrieve.
---
--- * 'lotlDirectoryARN' - The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
---
--- * 'lotlObjectReference' - A reference that identifies the object whose attributes will be listed.
-listOutgoingTypedLinks ::
-  -- | 'lotlDirectoryARN'
-  Text ->
-  -- | 'lotlObjectReference'
+-- * 'consistencyLevel' - The consistency level to execute the request at.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
+-- * 'filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+-- * 'filterTypedLink' - Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - A reference that identifies the object whose attributes will be listed.
+mkListOutgoingTypedLinks ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'objectReference'
   ObjectReference ->
   ListOutgoingTypedLinks
-listOutgoingTypedLinks pDirectoryARN_ pObjectReference_ =
+mkListOutgoingTypedLinks pDirectoryARN_ pObjectReference_ =
   ListOutgoingTypedLinks'
-    { _lotlFilterAttributeRanges = Nothing,
-      _lotlConsistencyLevel = Nothing,
-      _lotlNextToken = Nothing,
-      _lotlFilterTypedLink = Nothing,
-      _lotlMaxResults = Nothing,
-      _lotlDirectoryARN = pDirectoryARN_,
-      _lotlObjectReference = pObjectReference_
+    { filterAttributeRanges = Lude.Nothing,
+      consistencyLevel = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filterTypedLink = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      objectReference = pObjectReference_
     }
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
-lotlFilterAttributeRanges :: Lens' ListOutgoingTypedLinks [TypedLinkAttributeRange]
-lotlFilterAttributeRanges = lens _lotlFilterAttributeRanges (\s a -> s {_lotlFilterAttributeRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filterAttributeRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlFilterAttributeRanges :: Lens.Lens' ListOutgoingTypedLinks (Lude.Maybe [TypedLinkAttributeRange])
+lotlFilterAttributeRanges = Lens.lens (filterAttributeRanges :: ListOutgoingTypedLinks -> Lude.Maybe [TypedLinkAttributeRange]) (\s a -> s {filterAttributeRanges = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlFilterAttributeRanges "Use generic-lens or generic-optics with 'filterAttributeRanges' instead." #-}
 
 -- | The consistency level to execute the request at.
-lotlConsistencyLevel :: Lens' ListOutgoingTypedLinks (Maybe ConsistencyLevel)
-lotlConsistencyLevel = lens _lotlConsistencyLevel (\s a -> s {_lotlConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlConsistencyLevel :: Lens.Lens' ListOutgoingTypedLinks (Lude.Maybe ConsistencyLevel)
+lotlConsistencyLevel = Lens.lens (consistencyLevel :: ListOutgoingTypedLinks -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The pagination token.
-lotlNextToken :: Lens' ListOutgoingTypedLinks (Maybe Text)
-lotlNextToken = lens _lotlNextToken (\s a -> s {_lotlNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlNextToken :: Lens.Lens' ListOutgoingTypedLinks (Lude.Maybe Lude.Text)
+lotlNextToken = Lens.lens (nextToken :: ListOutgoingTypedLinks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls.
-lotlFilterTypedLink :: Lens' ListOutgoingTypedLinks (Maybe TypedLinkSchemaAndFacetName)
-lotlFilterTypedLink = lens _lotlFilterTypedLink (\s a -> s {_lotlFilterTypedLink = a})
+--
+-- /Note:/ Consider using 'filterTypedLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlFilterTypedLink :: Lens.Lens' ListOutgoingTypedLinks (Lude.Maybe TypedLinkSchemaAndFacetName)
+lotlFilterTypedLink = Lens.lens (filterTypedLink :: ListOutgoingTypedLinks -> Lude.Maybe TypedLinkSchemaAndFacetName) (\s a -> s {filterTypedLink = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlFilterTypedLink "Use generic-lens or generic-optics with 'filterTypedLink' instead." #-}
 
 -- | The maximum number of results to retrieve.
-lotlMaxResults :: Lens' ListOutgoingTypedLinks (Maybe Natural)
-lotlMaxResults = lens _lotlMaxResults (\s a -> s {_lotlMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlMaxResults :: Lens.Lens' ListOutgoingTypedLinks (Lude.Maybe Lude.Natural)
+lotlMaxResults = Lens.lens (maxResults :: ListOutgoingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
-lotlDirectoryARN :: Lens' ListOutgoingTypedLinks Text
-lotlDirectoryARN = lens _lotlDirectoryARN (\s a -> s {_lotlDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlDirectoryARN :: Lens.Lens' ListOutgoingTypedLinks Lude.Text
+lotlDirectoryARN = Lens.lens (directoryARN :: ListOutgoingTypedLinks -> Lude.Text) (\s a -> s {directoryARN = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A reference that identifies the object whose attributes will be listed.
-lotlObjectReference :: Lens' ListOutgoingTypedLinks ObjectReference
-lotlObjectReference = lens _lotlObjectReference (\s a -> s {_lotlObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlObjectReference :: Lens.Lens' ListOutgoingTypedLinks ObjectReference
+lotlObjectReference = Lens.lens (objectReference :: ListOutgoingTypedLinks -> ObjectReference) (\s a -> s {objectReference = a} :: ListOutgoingTypedLinks)
+{-# DEPRECATED lotlObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance AWSPager ListOutgoingTypedLinks where
+instance Page.AWSPager ListOutgoingTypedLinks where
   page rq rs
-    | stop (rs ^. lotlrsNextToken) = Nothing
-    | stop (rs ^. lotlrsTypedLinkSpecifiers) = Nothing
-    | otherwise = Just $ rq & lotlNextToken .~ rs ^. lotlrsNextToken
+    | Page.stop (rs Lens.^. lotlrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lotlrsTypedLinkSpecifiers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lotlNextToken Lens..~ rs Lens.^. lotlrsNextToken
 
-instance AWSRequest ListOutgoingTypedLinks where
+instance Lude.AWSRequest ListOutgoingTypedLinks where
   type Rs ListOutgoingTypedLinks = ListOutgoingTypedLinksResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListOutgoingTypedLinksResponse'
-            <$> (x .?> "TypedLinkSpecifiers" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TypedLinkSpecifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOutgoingTypedLinks
-
-instance NFData ListOutgoingTypedLinks
-
-instance ToHeaders ListOutgoingTypedLinks where
+instance Lude.ToHeaders ListOutgoingTypedLinks where
   toHeaders ListOutgoingTypedLinks' {..} =
-    mconcat ["x-amz-data-partition" =# _lotlDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON ListOutgoingTypedLinks where
+instance Lude.ToJSON ListOutgoingTypedLinks where
   toJSON ListOutgoingTypedLinks' {..} =
-    object
-      ( catMaybes
-          [ ("FilterAttributeRanges" .=) <$> _lotlFilterAttributeRanges,
-            ("ConsistencyLevel" .=) <$> _lotlConsistencyLevel,
-            ("NextToken" .=) <$> _lotlNextToken,
-            ("FilterTypedLink" .=) <$> _lotlFilterTypedLink,
-            ("MaxResults" .=) <$> _lotlMaxResults,
-            Just ("ObjectReference" .= _lotlObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FilterAttributeRanges" Lude..=) Lude.<$> filterAttributeRanges,
+            ("ConsistencyLevel" Lude..=) Lude.<$> consistencyLevel,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("FilterTypedLink" Lude..=) Lude.<$> filterTypedLink,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
-instance ToPath ListOutgoingTypedLinks where
+instance Lude.ToPath ListOutgoingTypedLinks where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
+    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
 
-instance ToQuery ListOutgoingTypedLinks where
-  toQuery = const mempty
+instance Lude.ToQuery ListOutgoingTypedLinks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listOutgoingTypedLinksResponse' smart constructor.
+-- | /See:/ 'mkListOutgoingTypedLinksResponse' smart constructor.
 data ListOutgoingTypedLinksResponse = ListOutgoingTypedLinksResponse'
-  { _lotlrsTypedLinkSpecifiers ::
-      !(Maybe [TypedLinkSpecifier]),
-    _lotlrsNextToken ::
-      !(Maybe Text),
-    _lotlrsResponseStatus :: !Int
+  { typedLinkSpecifiers ::
+      Lude.Maybe
+        [TypedLinkSpecifier],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOutgoingTypedLinksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lotlrsTypedLinkSpecifiers' - Returns a typed link specifier as output.
---
--- * 'lotlrsNextToken' - The pagination token.
---
--- * 'lotlrsResponseStatus' - -- | The response status code.
-listOutgoingTypedLinksResponse ::
-  -- | 'lotlrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'typedLinkSpecifiers' - Returns a typed link specifier as output.
+mkListOutgoingTypedLinksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOutgoingTypedLinksResponse
-listOutgoingTypedLinksResponse pResponseStatus_ =
+mkListOutgoingTypedLinksResponse pResponseStatus_ =
   ListOutgoingTypedLinksResponse'
-    { _lotlrsTypedLinkSpecifiers =
-        Nothing,
-      _lotlrsNextToken = Nothing,
-      _lotlrsResponseStatus = pResponseStatus_
+    { typedLinkSpecifiers =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a typed link specifier as output.
-lotlrsTypedLinkSpecifiers :: Lens' ListOutgoingTypedLinksResponse [TypedLinkSpecifier]
-lotlrsTypedLinkSpecifiers = lens _lotlrsTypedLinkSpecifiers (\s a -> s {_lotlrsTypedLinkSpecifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'typedLinkSpecifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlrsTypedLinkSpecifiers :: Lens.Lens' ListOutgoingTypedLinksResponse (Lude.Maybe [TypedLinkSpecifier])
+lotlrsTypedLinkSpecifiers = Lens.lens (typedLinkSpecifiers :: ListOutgoingTypedLinksResponse -> Lude.Maybe [TypedLinkSpecifier]) (\s a -> s {typedLinkSpecifiers = a} :: ListOutgoingTypedLinksResponse)
+{-# DEPRECATED lotlrsTypedLinkSpecifiers "Use generic-lens or generic-optics with 'typedLinkSpecifiers' instead." #-}
 
 -- | The pagination token.
-lotlrsNextToken :: Lens' ListOutgoingTypedLinksResponse (Maybe Text)
-lotlrsNextToken = lens _lotlrsNextToken (\s a -> s {_lotlrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlrsNextToken :: Lens.Lens' ListOutgoingTypedLinksResponse (Lude.Maybe Lude.Text)
+lotlrsNextToken = Lens.lens (nextToken :: ListOutgoingTypedLinksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOutgoingTypedLinksResponse)
+{-# DEPRECATED lotlrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lotlrsResponseStatus :: Lens' ListOutgoingTypedLinksResponse Int
-lotlrsResponseStatus = lens _lotlrsResponseStatus (\s a -> s {_lotlrsResponseStatus = a})
-
-instance NFData ListOutgoingTypedLinksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotlrsResponseStatus :: Lens.Lens' ListOutgoingTypedLinksResponse Lude.Int
+lotlrsResponseStatus = Lens.lens (responseStatus :: ListOutgoingTypedLinksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOutgoingTypedLinksResponse)
+{-# DEPRECATED lotlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

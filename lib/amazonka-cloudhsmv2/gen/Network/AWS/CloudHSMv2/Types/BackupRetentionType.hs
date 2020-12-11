@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.BackupRetentionType where
+module Network.AWS.CloudHSMv2.Types.BackupRetentionType
+  ( BackupRetentionType
+      ( BackupRetentionType',
+        Days
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupRetentionType = Days
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupRetentionType = BackupRetentionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupRetentionType where
-  parser =
-    takeLowerText >>= \case
-      "days" -> pure Days
-      e ->
-        fromTextError $
-          "Failure parsing BackupRetentionType from value: '" <> e
-            <> "'. Accepted values: days"
+pattern Days :: BackupRetentionType
+pattern Days = BackupRetentionType' "DAYS"
 
-instance ToText BackupRetentionType where
-  toText = \case
-    Days -> "DAYS"
-
-instance Hashable BackupRetentionType
-
-instance NFData BackupRetentionType
-
-instance ToByteString BackupRetentionType
-
-instance ToQuery BackupRetentionType
-
-instance ToHeader BackupRetentionType
-
-instance ToJSON BackupRetentionType where
-  toJSON = toJSONText
-
-instance FromJSON BackupRetentionType where
-  parseJSON = parseJSONText "BackupRetentionType"
+{-# COMPLETE
+  Days,
+  BackupRetentionType'
+  #-}

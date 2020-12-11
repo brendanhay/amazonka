@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Returns summary information about types that have been registered with CloudFormation.
 module Network.AWS.CloudFormation.ListTypes
-  ( -- * Creating a Request
-    listTypes,
-    ListTypes,
+  ( -- * Creating a request
+    ListTypes (..),
+    mkListTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltVisibility,
     ltNextToken,
     ltDeprecatedStatus,
@@ -31,11 +26,11 @@ module Network.AWS.CloudFormation.ListTypes
     ltMaxResults,
     ltProvisioningType,
 
-    -- * Destructuring the Response
-    listTypesResponse,
-    ListTypesResponse,
+    -- * Destructuring the response
+    ListTypesResponse (..),
+    mkListTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTypeSummaries,
     ltrsNextToken,
     ltrsResponseStatus,
@@ -43,148 +38,236 @@ module Network.AWS.CloudFormation.ListTypes
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTypes' smart constructor.
+-- | /See:/ 'mkListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { _ltVisibility :: !(Maybe Visibility),
-    _ltNextToken :: !(Maybe Text),
-    _ltDeprecatedStatus :: !(Maybe DeprecatedStatus),
-    _ltType :: !(Maybe RegistryType),
-    _ltMaxResults :: !(Maybe Nat),
-    _ltProvisioningType :: !(Maybe ProvisioningType)
+  { visibility :: Lude.Maybe Visibility,
+    nextToken :: Lude.Maybe Lude.Text,
+    deprecatedStatus :: Lude.Maybe DeprecatedStatus,
+    type' :: Lude.Maybe RegistryType,
+    maxResults :: Lude.Maybe Lude.Natural,
+    provisioningType :: Lude.Maybe ProvisioningType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deprecatedStatus' - The deprecation status of the types that you want to get summary information about.
 --
--- * 'ltVisibility' - The scope at which the type is visible and usable in CloudFormation operations. Valid values include:     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you create as @PRIVATE@ .     * @PUBLIC@ : The type is publically visible and usable within any Amazon account. The default is @PRIVATE@ .
+-- Valid values include:
 --
--- * 'ltNextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+--     * @LIVE@ : The type is registered for use in CloudFormation operations.
 --
--- * 'ltDeprecatedStatus' - The deprecation status of the types that you want to get summary information about. Valid values include:     * @LIVE@ : The type is registered for use in CloudFormation operations.     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
 --
--- * 'ltType' - The type of extension.
+--     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
 --
--- * 'ltMaxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 --
--- * 'ltProvisioningType' - The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted. Valid values include:     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.     * @NON_PROVISIONABLE@ : The type does not include create, read, and delete handlers, and therefore cannot actually be provisioned.
-listTypes ::
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+-- * 'provisioningType' - The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+--
+-- Valid values include:
+--
+--     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.
+--
+--
+--     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.
+--
+--
+--     * @NON_PROVISIONABLE@ : The type does not include create, read, and delete handlers, and therefore cannot actually be provisioned.
+--
+--
+-- * 'type'' - The type of extension.
+-- * 'visibility' - The scope at which the type is visible and usable in CloudFormation operations.
+--
+-- Valid values include:
+--
+--     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you create as @PRIVATE@ .
+--
+--
+--     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
+--
+--
+-- The default is @PRIVATE@ .
+mkListTypes ::
   ListTypes
-listTypes =
+mkListTypes =
   ListTypes'
-    { _ltVisibility = Nothing,
-      _ltNextToken = Nothing,
-      _ltDeprecatedStatus = Nothing,
-      _ltType = Nothing,
-      _ltMaxResults = Nothing,
-      _ltProvisioningType = Nothing
+    { visibility = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      deprecatedStatus = Lude.Nothing,
+      type' = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      provisioningType = Lude.Nothing
     }
 
--- | The scope at which the type is visible and usable in CloudFormation operations. Valid values include:     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you create as @PRIVATE@ .     * @PUBLIC@ : The type is publically visible and usable within any Amazon account. The default is @PRIVATE@ .
-ltVisibility :: Lens' ListTypes (Maybe Visibility)
-ltVisibility = lens _ltVisibility (\s a -> s {_ltVisibility = a})
+-- | The scope at which the type is visible and usable in CloudFormation operations.
+--
+-- Valid values include:
+--
+--     * @PRIVATE@ : The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you create as @PRIVATE@ .
+--
+--
+--     * @PUBLIC@ : The type is publically visible and usable within any Amazon account.
+--
+--
+-- The default is @PRIVATE@ .
+--
+-- /Note:/ Consider using 'visibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltVisibility :: Lens.Lens' ListTypes (Lude.Maybe Visibility)
+ltVisibility = Lens.lens (visibility :: ListTypes -> Lude.Maybe Visibility) (\s a -> s {visibility = a} :: ListTypes)
+{-# DEPRECATED ltVisibility "Use generic-lens or generic-optics with 'visibility' instead." #-}
 
 -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
-ltNextToken :: Lens' ListTypes (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTypes (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypes)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The deprecation status of the types that you want to get summary information about. Valid values include:     * @LIVE@ : The type is registered for use in CloudFormation operations.     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
-ltDeprecatedStatus :: Lens' ListTypes (Maybe DeprecatedStatus)
-ltDeprecatedStatus = lens _ltDeprecatedStatus (\s a -> s {_ltDeprecatedStatus = a})
+-- | The deprecation status of the types that you want to get summary information about.
+--
+-- Valid values include:
+--
+--     * @LIVE@ : The type is registered for use in CloudFormation operations.
+--
+--
+--     * @DEPRECATED@ : The type has been deregistered and can no longer be used in CloudFormation operations.
+--
+--
+--
+-- /Note:/ Consider using 'deprecatedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltDeprecatedStatus :: Lens.Lens' ListTypes (Lude.Maybe DeprecatedStatus)
+ltDeprecatedStatus = Lens.lens (deprecatedStatus :: ListTypes -> Lude.Maybe DeprecatedStatus) (\s a -> s {deprecatedStatus = a} :: ListTypes)
+{-# DEPRECATED ltDeprecatedStatus "Use generic-lens or generic-optics with 'deprecatedStatus' instead." #-}
 
 -- | The type of extension.
-ltType :: Lens' ListTypes (Maybe RegistryType)
-ltType = lens _ltType (\s a -> s {_ltType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltType :: Lens.Lens' ListTypes (Lude.Maybe RegistryType)
+ltType = Lens.lens (type' :: ListTypes -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: ListTypes)
+{-# DEPRECATED ltType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-ltMaxResults :: Lens' ListTypes (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTypes (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypes)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted. Valid values include:     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.     * @NON_PROVISIONABLE@ : The type does not include create, read, and delete handlers, and therefore cannot actually be provisioned.
-ltProvisioningType :: Lens' ListTypes (Maybe ProvisioningType)
-ltProvisioningType = lens _ltProvisioningType (\s a -> s {_ltProvisioningType = a})
+-- | The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+--
+-- Valid values include:
+--
+--     * @FULLY_MUTABLE@ : The type includes an update handler to process updates to the type during stack update operations.
+--
+--
+--     * @IMMUTABLE@ : The type does not include an update handler, so the type cannot be updated and must instead be replaced during stack update operations.
+--
+--
+--     * @NON_PROVISIONABLE@ : The type does not include create, read, and delete handlers, and therefore cannot actually be provisioned.
+--
+--
+--
+-- /Note:/ Consider using 'provisioningType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltProvisioningType :: Lens.Lens' ListTypes (Lude.Maybe ProvisioningType)
+ltProvisioningType = Lens.lens (provisioningType :: ListTypes -> Lude.Maybe ProvisioningType) (\s a -> s {provisioningType = a} :: ListTypes)
+{-# DEPRECATED ltProvisioningType "Use generic-lens or generic-optics with 'provisioningType' instead." #-}
 
-instance AWSRequest ListTypes where
+instance Lude.AWSRequest ListTypes where
   type Rs ListTypes = ListTypesResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTypesResult"
       ( \s h x ->
           ListTypesResponse'
-            <$> (x .@? "TypeSummaries" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "TypeSummaries" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTypes
+instance Lude.ToHeaders ListTypes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTypes
+instance Lude.ToPath ListTypes where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTypes where
-  toHeaders = const mempty
-
-instance ToPath ListTypes where
-  toPath = const "/"
-
-instance ToQuery ListTypes where
+instance Lude.ToQuery ListTypes where
   toQuery ListTypes' {..} =
-    mconcat
-      [ "Action" =: ("ListTypes" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "Visibility" =: _ltVisibility,
-        "NextToken" =: _ltNextToken,
-        "DeprecatedStatus" =: _ltDeprecatedStatus,
-        "Type" =: _ltType,
-        "MaxResults" =: _ltMaxResults,
-        "ProvisioningType" =: _ltProvisioningType
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTypes" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "Visibility" Lude.=: visibility,
+        "NextToken" Lude.=: nextToken,
+        "DeprecatedStatus" Lude.=: deprecatedStatus,
+        "Type" Lude.=: type',
+        "MaxResults" Lude.=: maxResults,
+        "ProvisioningType" Lude.=: provisioningType
       ]
 
--- | /See:/ 'listTypesResponse' smart constructor.
+-- | /See:/ 'mkListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { _ltrsTypeSummaries ::
-      !(Maybe [TypeSummary]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { typeSummaries ::
+      Lude.Maybe [TypeSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTypeSummaries' - A list of @TypeSummary@ structures that contain information about the specified types.
---
--- * 'ltrsNextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTypesResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+-- * 'responseStatus' - The response status code.
+-- * 'typeSummaries' - A list of @TypeSummary@ structures that contain information about the specified types.
+mkListTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTypesResponse
-listTypesResponse pResponseStatus_ =
+mkListTypesResponse pResponseStatus_ =
   ListTypesResponse'
-    { _ltrsTypeSummaries = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { typeSummaries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @TypeSummary@ structures that contain information about the specified types.
-ltrsTypeSummaries :: Lens' ListTypesResponse [TypeSummary]
-ltrsTypeSummaries = lens _ltrsTypeSummaries (\s a -> s {_ltrsTypeSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'typeSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTypeSummaries :: Lens.Lens' ListTypesResponse (Lude.Maybe [TypeSummary])
+ltrsTypeSummaries = Lens.lens (typeSummaries :: ListTypesResponse -> Lude.Maybe [TypeSummary]) (\s a -> s {typeSummaries = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsTypeSummaries "Use generic-lens or generic-optics with 'typeSummaries' instead." #-}
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
-ltrsNextToken :: Lens' ListTypesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTypesResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTypesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTypesResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

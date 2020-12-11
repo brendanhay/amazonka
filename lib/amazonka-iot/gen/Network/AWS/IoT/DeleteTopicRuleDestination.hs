@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,111 @@
 --
 -- Deletes a topic rule destination.
 module Network.AWS.IoT.DeleteTopicRuleDestination
-  ( -- * Creating a Request
-    deleteTopicRuleDestination,
-    DeleteTopicRuleDestination,
+  ( -- * Creating a request
+    DeleteTopicRuleDestination (..),
+    mkDeleteTopicRuleDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtrdArn,
 
-    -- * Destructuring the Response
-    deleteTopicRuleDestinationResponse,
-    DeleteTopicRuleDestinationResponse,
+    -- * Destructuring the response
+    DeleteTopicRuleDestinationResponse (..),
+    mkDeleteTopicRuleDestinationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrdrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTopicRuleDestination' smart constructor.
+-- | /See:/ 'mkDeleteTopicRuleDestination' smart constructor.
 newtype DeleteTopicRuleDestination = DeleteTopicRuleDestination'
-  { _dtrdArn ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTopicRuleDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrdArn' - The ARN of the topic rule destination to delete.
-deleteTopicRuleDestination ::
-  -- | 'dtrdArn'
-  Text ->
+-- * 'arn' - The ARN of the topic rule destination to delete.
+mkDeleteTopicRuleDestination ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteTopicRuleDestination
-deleteTopicRuleDestination pArn_ =
-  DeleteTopicRuleDestination' {_dtrdArn = pArn_}
+mkDeleteTopicRuleDestination pArn_ =
+  DeleteTopicRuleDestination' {arn = pArn_}
 
 -- | The ARN of the topic rule destination to delete.
-dtrdArn :: Lens' DeleteTopicRuleDestination Text
-dtrdArn = lens _dtrdArn (\s a -> s {_dtrdArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrdArn :: Lens.Lens' DeleteTopicRuleDestination Lude.Text
+dtrdArn = Lens.lens (arn :: DeleteTopicRuleDestination -> Lude.Text) (\s a -> s {arn = a} :: DeleteTopicRuleDestination)
+{-# DEPRECATED dtrdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteTopicRuleDestination where
+instance Lude.AWSRequest DeleteTopicRuleDestination where
   type
     Rs DeleteTopicRuleDestination =
       DeleteTopicRuleDestinationResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteTopicRuleDestinationResponse' <$> (pure (fromEnum s))
+          DeleteTopicRuleDestinationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTopicRuleDestination
+instance Lude.ToHeaders DeleteTopicRuleDestination where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTopicRuleDestination
-
-instance ToHeaders DeleteTopicRuleDestination where
-  toHeaders = const mempty
-
-instance ToPath DeleteTopicRuleDestination where
+instance Lude.ToPath DeleteTopicRuleDestination where
   toPath DeleteTopicRuleDestination' {..} =
-    mconcat ["/destinations/", toBS _dtrdArn]
+    Lude.mconcat ["/destinations/", Lude.toBS arn]
 
-instance ToQuery DeleteTopicRuleDestination where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTopicRuleDestination where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTopicRuleDestinationResponse' smart constructor.
+-- | /See:/ 'mkDeleteTopicRuleDestinationResponse' smart constructor.
 newtype DeleteTopicRuleDestinationResponse = DeleteTopicRuleDestinationResponse'
-  { _dtrdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTopicRuleDestinationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrdrsResponseStatus' - -- | The response status code.
-deleteTopicRuleDestinationResponse ::
-  -- | 'dtrdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTopicRuleDestinationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTopicRuleDestinationResponse
-deleteTopicRuleDestinationResponse pResponseStatus_ =
+mkDeleteTopicRuleDestinationResponse pResponseStatus_ =
   DeleteTopicRuleDestinationResponse'
-    { _dtrdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dtrdrsResponseStatus :: Lens' DeleteTopicRuleDestinationResponse Int
-dtrdrsResponseStatus = lens _dtrdrsResponseStatus (\s a -> s {_dtrdrsResponseStatus = a})
-
-instance NFData DeleteTopicRuleDestinationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrdrsResponseStatus :: Lens.Lens' DeleteTopicRuleDestinationResponse Lude.Int
+dtrdrsResponseStatus = Lens.lens (responseStatus :: DeleteTopicRuleDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTopicRuleDestinationResponse)
+{-# DEPRECATED dtrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

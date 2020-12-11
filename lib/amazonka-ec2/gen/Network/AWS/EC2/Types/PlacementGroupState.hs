@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PlacementGroupState where
+module Network.AWS.EC2.Types.PlacementGroupState
+  ( PlacementGroupState
+      ( PlacementGroupState',
+        PGSAvailable,
+        PGSDeleted,
+        PGSDeleting,
+        PGSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlacementGroupState
-  = PGSAvailable
-  | PGSDeleted
-  | PGSDeleting
-  | PGSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlacementGroupState = PlacementGroupState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlacementGroupState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure PGSAvailable
-      "deleted" -> pure PGSDeleted
-      "deleting" -> pure PGSDeleting
-      "pending" -> pure PGSPending
-      e ->
-        fromTextError $
-          "Failure parsing PlacementGroupState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending"
+pattern PGSAvailable :: PlacementGroupState
+pattern PGSAvailable = PlacementGroupState' "available"
 
-instance ToText PlacementGroupState where
-  toText = \case
-    PGSAvailable -> "available"
-    PGSDeleted -> "deleted"
-    PGSDeleting -> "deleting"
-    PGSPending -> "pending"
+pattern PGSDeleted :: PlacementGroupState
+pattern PGSDeleted = PlacementGroupState' "deleted"
 
-instance Hashable PlacementGroupState
+pattern PGSDeleting :: PlacementGroupState
+pattern PGSDeleting = PlacementGroupState' "deleting"
 
-instance NFData PlacementGroupState
+pattern PGSPending :: PlacementGroupState
+pattern PGSPending = PlacementGroupState' "pending"
 
-instance ToByteString PlacementGroupState
-
-instance ToQuery PlacementGroupState
-
-instance ToHeader PlacementGroupState
-
-instance FromXML PlacementGroupState where
-  parseXML = parseXMLText "PlacementGroupState"
+{-# COMPLETE
+  PGSAvailable,
+  PGSDeleted,
+  PGSDeleting,
+  PGSPending,
+  PlacementGroupState'
+  #-}

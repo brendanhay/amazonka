@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.RoutingProfileQueueReference where
+module Network.AWS.Connect.Types.RoutingProfileQueueReference
+  ( RoutingProfileQueueReference (..),
+
+    -- * Smart constructor
+    mkRoutingProfileQueueReference,
+
+    -- * Lenses
+    rpqrQueueId,
+    rpqrChannel,
+  )
+where
 
 import Network.AWS.Connect.Types.Channel
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the channel and queue identifier for a routing profile.
 --
---
---
--- /See:/ 'routingProfileQueueReference' smart constructor.
+-- /See:/ 'mkRoutingProfileQueueReference' smart constructor.
 data RoutingProfileQueueReference = RoutingProfileQueueReference'
-  { _rpqrQueueId ::
-      !Text,
-    _rpqrChannel :: !Channel
+  { queueId ::
+      Lude.Text,
+    channel :: Channel
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoutingProfileQueueReference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpqrQueueId' - The identifier of the queue.
---
--- * 'rpqrChannel' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
-routingProfileQueueReference ::
-  -- | 'rpqrQueueId'
-  Text ->
-  -- | 'rpqrChannel'
+-- * 'channel' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+-- * 'queueId' - The identifier of the queue.
+mkRoutingProfileQueueReference ::
+  -- | 'queueId'
+  Lude.Text ->
+  -- | 'channel'
   Channel ->
   RoutingProfileQueueReference
-routingProfileQueueReference pQueueId_ pChannel_ =
+mkRoutingProfileQueueReference pQueueId_ pChannel_ =
   RoutingProfileQueueReference'
-    { _rpqrQueueId = pQueueId_,
-      _rpqrChannel = pChannel_
+    { queueId = pQueueId_,
+      channel = pChannel_
     }
 
 -- | The identifier of the queue.
-rpqrQueueId :: Lens' RoutingProfileQueueReference Text
-rpqrQueueId = lens _rpqrQueueId (\s a -> s {_rpqrQueueId = a})
+--
+-- /Note:/ Consider using 'queueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpqrQueueId :: Lens.Lens' RoutingProfileQueueReference Lude.Text
+rpqrQueueId = Lens.lens (queueId :: RoutingProfileQueueReference -> Lude.Text) (\s a -> s {queueId = a} :: RoutingProfileQueueReference)
+{-# DEPRECATED rpqrQueueId "Use generic-lens or generic-optics with 'queueId' instead." #-}
 
 -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
-rpqrChannel :: Lens' RoutingProfileQueueReference Channel
-rpqrChannel = lens _rpqrChannel (\s a -> s {_rpqrChannel = a})
+--
+-- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpqrChannel :: Lens.Lens' RoutingProfileQueueReference Channel
+rpqrChannel = Lens.lens (channel :: RoutingProfileQueueReference -> Channel) (\s a -> s {channel = a} :: RoutingProfileQueueReference)
+{-# DEPRECATED rpqrChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
-instance Hashable RoutingProfileQueueReference
-
-instance NFData RoutingProfileQueueReference
-
-instance ToJSON RoutingProfileQueueReference where
+instance Lude.ToJSON RoutingProfileQueueReference where
   toJSON RoutingProfileQueueReference' {..} =
-    object
-      ( catMaybes
-          [ Just ("QueueId" .= _rpqrQueueId),
-            Just ("Channel" .= _rpqrChannel)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("QueueId" Lude..= queueId),
+            Lude.Just ("Channel" Lude..= channel)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,156 @@
 --
 -- Detaches the specified object from the specified index.
 module Network.AWS.CloudDirectory.DetachFromIndex
-  ( -- * Creating a Request
-    detachFromIndex,
-    DetachFromIndex,
+  ( -- * Creating a request
+    DetachFromIndex (..),
+    mkDetachFromIndex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfiDirectoryARN,
     dfiIndexReference,
     dfiTargetReference,
 
-    -- * Destructuring the Response
-    detachFromIndexResponse,
-    DetachFromIndexResponse,
+    -- * Destructuring the response
+    DetachFromIndexResponse (..),
+    mkDetachFromIndexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfirsDetachedObjectIdentifier,
     dfirsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachFromIndex' smart constructor.
+-- | /See:/ 'mkDetachFromIndex' smart constructor.
 data DetachFromIndex = DetachFromIndex'
-  { _dfiDirectoryARN :: !Text,
-    _dfiIndexReference :: !ObjectReference,
-    _dfiTargetReference :: !ObjectReference
+  { directoryARN :: Lude.Text,
+    indexReference :: ObjectReference,
+    targetReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachFromIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfiDirectoryARN' - The Amazon Resource Name (ARN) of the directory the index and object exist in.
---
--- * 'dfiIndexReference' - A reference to the index object.
---
--- * 'dfiTargetReference' - A reference to the object being detached from the index.
-detachFromIndex ::
-  -- | 'dfiDirectoryARN'
-  Text ->
-  -- | 'dfiIndexReference'
+-- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory the index and object exist in.
+-- * 'indexReference' - A reference to the index object.
+-- * 'targetReference' - A reference to the object being detached from the index.
+mkDetachFromIndex ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'indexReference'
   ObjectReference ->
-  -- | 'dfiTargetReference'
+  -- | 'targetReference'
   ObjectReference ->
   DetachFromIndex
-detachFromIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
+mkDetachFromIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
   DetachFromIndex'
-    { _dfiDirectoryARN = pDirectoryARN_,
-      _dfiIndexReference = pIndexReference_,
-      _dfiTargetReference = pTargetReference_
+    { directoryARN = pDirectoryARN_,
+      indexReference = pIndexReference_,
+      targetReference = pTargetReference_
     }
 
 -- | The Amazon Resource Name (ARN) of the directory the index and object exist in.
-dfiDirectoryARN :: Lens' DetachFromIndex Text
-dfiDirectoryARN = lens _dfiDirectoryARN (\s a -> s {_dfiDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiDirectoryARN :: Lens.Lens' DetachFromIndex Lude.Text
+dfiDirectoryARN = Lens.lens (directoryARN :: DetachFromIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachFromIndex)
+{-# DEPRECATED dfiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A reference to the index object.
-dfiIndexReference :: Lens' DetachFromIndex ObjectReference
-dfiIndexReference = lens _dfiIndexReference (\s a -> s {_dfiIndexReference = a})
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiIndexReference :: Lens.Lens' DetachFromIndex ObjectReference
+dfiIndexReference = Lens.lens (indexReference :: DetachFromIndex -> ObjectReference) (\s a -> s {indexReference = a} :: DetachFromIndex)
+{-# DEPRECATED dfiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | A reference to the object being detached from the index.
-dfiTargetReference :: Lens' DetachFromIndex ObjectReference
-dfiTargetReference = lens _dfiTargetReference (\s a -> s {_dfiTargetReference = a})
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiTargetReference :: Lens.Lens' DetachFromIndex ObjectReference
+dfiTargetReference = Lens.lens (targetReference :: DetachFromIndex -> ObjectReference) (\s a -> s {targetReference = a} :: DetachFromIndex)
+{-# DEPRECATED dfiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
-instance AWSRequest DetachFromIndex where
+instance Lude.AWSRequest DetachFromIndex where
   type Rs DetachFromIndex = DetachFromIndexResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetachFromIndexResponse'
-            <$> (x .?> "DetachedObjectIdentifier") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DetachedObjectIdentifier")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetachFromIndex
-
-instance NFData DetachFromIndex
-
-instance ToHeaders DetachFromIndex where
+instance Lude.ToHeaders DetachFromIndex where
   toHeaders DetachFromIndex' {..} =
-    mconcat ["x-amz-data-partition" =# _dfiDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON DetachFromIndex where
+instance Lude.ToJSON DetachFromIndex where
   toJSON DetachFromIndex' {..} =
-    object
-      ( catMaybes
-          [ Just ("IndexReference" .= _dfiIndexReference),
-            Just ("TargetReference" .= _dfiTargetReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("IndexReference" Lude..= indexReference),
+            Lude.Just ("TargetReference" Lude..= targetReference)
           ]
       )
 
-instance ToPath DetachFromIndex where
-  toPath = const "/amazonclouddirectory/2017-01-11/index/detach"
+instance Lude.ToPath DetachFromIndex where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/index/detach"
 
-instance ToQuery DetachFromIndex where
-  toQuery = const mempty
+instance Lude.ToQuery DetachFromIndex where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detachFromIndexResponse' smart constructor.
+-- | /See:/ 'mkDetachFromIndexResponse' smart constructor.
 data DetachFromIndexResponse = DetachFromIndexResponse'
-  { _dfirsDetachedObjectIdentifier ::
-      !(Maybe Text),
-    _dfirsResponseStatus :: !Int
+  { detachedObjectIdentifier ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachFromIndexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfirsDetachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was detached from the index.
---
--- * 'dfirsResponseStatus' - -- | The response status code.
-detachFromIndexResponse ::
-  -- | 'dfirsResponseStatus'
-  Int ->
+-- * 'detachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was detached from the index.
+-- * 'responseStatus' - The response status code.
+mkDetachFromIndexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetachFromIndexResponse
-detachFromIndexResponse pResponseStatus_ =
+mkDetachFromIndexResponse pResponseStatus_ =
   DetachFromIndexResponse'
-    { _dfirsDetachedObjectIdentifier =
-        Nothing,
-      _dfirsResponseStatus = pResponseStatus_
+    { detachedObjectIdentifier = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
-dfirsDetachedObjectIdentifier :: Lens' DetachFromIndexResponse (Maybe Text)
-dfirsDetachedObjectIdentifier = lens _dfirsDetachedObjectIdentifier (\s a -> s {_dfirsDetachedObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'detachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfirsDetachedObjectIdentifier :: Lens.Lens' DetachFromIndexResponse (Lude.Maybe Lude.Text)
+dfirsDetachedObjectIdentifier = Lens.lens (detachedObjectIdentifier :: DetachFromIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {detachedObjectIdentifier = a} :: DetachFromIndexResponse)
+{-# DEPRECATED dfirsDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
 
--- | -- | The response status code.
-dfirsResponseStatus :: Lens' DetachFromIndexResponse Int
-dfirsResponseStatus = lens _dfirsResponseStatus (\s a -> s {_dfirsResponseStatus = a})
-
-instance NFData DetachFromIndexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfirsResponseStatus :: Lens.Lens' DetachFromIndexResponse Lude.Int
+dfirsResponseStatus = Lens.lens (responseStatus :: DetachFromIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachFromIndexResponse)
+{-# DEPRECATED dfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

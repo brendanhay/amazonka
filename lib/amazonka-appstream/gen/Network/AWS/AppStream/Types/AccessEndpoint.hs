@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.AccessEndpoint where
+module Network.AWS.AppStream.Types.AccessEndpoint
+  ( AccessEndpoint (..),
+
+    -- * Smart constructor
+    mkAccessEndpoint,
+
+    -- * Lenses
+    aeVPCeId,
+    aeEndpointType,
+  )
+where
 
 import Network.AWS.AppStream.Types.AccessEndpointType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
 --
---
---
--- /See:/ 'accessEndpoint' smart constructor.
+-- /See:/ 'mkAccessEndpoint' smart constructor.
 data AccessEndpoint = AccessEndpoint'
-  { _aeVPCeId :: !(Maybe Text),
-    _aeEndpointType :: !AccessEndpointType
+  { vpceId ::
+      Lude.Maybe Lude.Text,
+    endpointType :: AccessEndpointType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeVPCeId' - The identifier (ID) of the VPC in which the interface endpoint is used.
---
--- * 'aeEndpointType' - The type of interface endpoint.
-accessEndpoint ::
-  -- | 'aeEndpointType'
+-- * 'endpointType' - The type of interface endpoint.
+-- * 'vpceId' - The identifier (ID) of the VPC in which the interface endpoint is used.
+mkAccessEndpoint ::
+  -- | 'endpointType'
   AccessEndpointType ->
   AccessEndpoint
-accessEndpoint pEndpointType_ =
+mkAccessEndpoint pEndpointType_ =
   AccessEndpoint'
-    { _aeVPCeId = Nothing,
-      _aeEndpointType = pEndpointType_
+    { vpceId = Lude.Nothing,
+      endpointType = pEndpointType_
     }
 
 -- | The identifier (ID) of the VPC in which the interface endpoint is used.
-aeVPCeId :: Lens' AccessEndpoint (Maybe Text)
-aeVPCeId = lens _aeVPCeId (\s a -> s {_aeVPCeId = a})
+--
+-- /Note:/ Consider using 'vpceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeVPCeId :: Lens.Lens' AccessEndpoint (Lude.Maybe Lude.Text)
+aeVPCeId = Lens.lens (vpceId :: AccessEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {vpceId = a} :: AccessEndpoint)
+{-# DEPRECATED aeVPCeId "Use generic-lens or generic-optics with 'vpceId' instead." #-}
 
 -- | The type of interface endpoint.
-aeEndpointType :: Lens' AccessEndpoint AccessEndpointType
-aeEndpointType = lens _aeEndpointType (\s a -> s {_aeEndpointType = a})
+--
+-- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeEndpointType :: Lens.Lens' AccessEndpoint AccessEndpointType
+aeEndpointType = Lens.lens (endpointType :: AccessEndpoint -> AccessEndpointType) (\s a -> s {endpointType = a} :: AccessEndpoint)
+{-# DEPRECATED aeEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
 
-instance FromJSON AccessEndpoint where
+instance Lude.FromJSON AccessEndpoint where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccessEndpoint"
       ( \x ->
-          AccessEndpoint' <$> (x .:? "VpceId") <*> (x .: "EndpointType")
+          AccessEndpoint'
+            Lude.<$> (x Lude..:? "VpceId") Lude.<*> (x Lude..: "EndpointType")
       )
 
-instance Hashable AccessEndpoint
-
-instance NFData AccessEndpoint
-
-instance ToJSON AccessEndpoint where
+instance Lude.ToJSON AccessEndpoint where
   toJSON AccessEndpoint' {..} =
-    object
-      ( catMaybes
-          [ ("VpceId" .=) <$> _aeVPCeId,
-            Just ("EndpointType" .= _aeEndpointType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VpceId" Lude..=) Lude.<$> vpceId,
+            Lude.Just ("EndpointType" Lude..= endpointType)
           ]
       )

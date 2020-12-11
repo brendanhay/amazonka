@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceActiveInput where
+module Network.AWS.MediaLive.Types.InputDeviceActiveInput
+  ( InputDeviceActiveInput
+      ( InputDeviceActiveInput',
+        Hdmi,
+        Sdi
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The source at the input device that is currently active.
-data InputDeviceActiveInput
-  = Hdmi
-  | Sdi
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputDeviceActiveInput = InputDeviceActiveInput' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputDeviceActiveInput where
-  parser =
-    takeLowerText >>= \case
-      "hdmi" -> pure Hdmi
-      "sdi" -> pure Sdi
-      e ->
-        fromTextError $
-          "Failure parsing InputDeviceActiveInput from value: '" <> e
-            <> "'. Accepted values: hdmi, sdi"
+pattern Hdmi :: InputDeviceActiveInput
+pattern Hdmi = InputDeviceActiveInput' "HDMI"
 
-instance ToText InputDeviceActiveInput where
-  toText = \case
-    Hdmi -> "HDMI"
-    Sdi -> "SDI"
+pattern Sdi :: InputDeviceActiveInput
+pattern Sdi = InputDeviceActiveInput' "SDI"
 
-instance Hashable InputDeviceActiveInput
-
-instance NFData InputDeviceActiveInput
-
-instance ToByteString InputDeviceActiveInput
-
-instance ToQuery InputDeviceActiveInput
-
-instance ToHeader InputDeviceActiveInput
-
-instance FromJSON InputDeviceActiveInput where
-  parseJSON = parseJSONText "InputDeviceActiveInput"
+{-# COMPLETE
+  Hdmi,
+  Sdi,
+  InputDeviceActiveInput'
+  #-}

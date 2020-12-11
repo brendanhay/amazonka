@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3AttenuationControl where
+module Network.AWS.MediaLive.Types.Eac3AttenuationControl
+  ( Eac3AttenuationControl
+      ( Eac3AttenuationControl',
+        EACAttenuate3DB,
+        EACNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Attenuation Control
-data Eac3AttenuationControl
-  = EACAttenuate3DB
-  | EACNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3AttenuationControl = Eac3AttenuationControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3AttenuationControl where
-  parser =
-    takeLowerText >>= \case
-      "attenuate_3_db" -> pure EACAttenuate3DB
-      "none" -> pure EACNone
-      e ->
-        fromTextError $
-          "Failure parsing Eac3AttenuationControl from value: '" <> e
-            <> "'. Accepted values: attenuate_3_db, none"
+pattern EACAttenuate3DB :: Eac3AttenuationControl
+pattern EACAttenuate3DB = Eac3AttenuationControl' "ATTENUATE_3_DB"
 
-instance ToText Eac3AttenuationControl where
-  toText = \case
-    EACAttenuate3DB -> "ATTENUATE_3_DB"
-    EACNone -> "NONE"
+pattern EACNone :: Eac3AttenuationControl
+pattern EACNone = Eac3AttenuationControl' "NONE"
 
-instance Hashable Eac3AttenuationControl
-
-instance NFData Eac3AttenuationControl
-
-instance ToByteString Eac3AttenuationControl
-
-instance ToQuery Eac3AttenuationControl
-
-instance ToHeader Eac3AttenuationControl
-
-instance ToJSON Eac3AttenuationControl where
-  toJSON = toJSONText
-
-instance FromJSON Eac3AttenuationControl where
-  parseJSON = parseJSONText "Eac3AttenuationControl"
+{-# COMPLETE
+  EACAttenuate3DB,
+  EACNone,
+  Eac3AttenuationControl'
+  #-}

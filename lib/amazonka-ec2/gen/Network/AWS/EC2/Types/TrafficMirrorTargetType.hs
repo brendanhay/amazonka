@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficMirrorTargetType where
+module Network.AWS.EC2.Types.TrafficMirrorTargetType
+  ( TrafficMirrorTargetType
+      ( TrafficMirrorTargetType',
+        NetworkInterface,
+        NetworkLoadBalancer
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficMirrorTargetType
-  = NetworkInterface
-  | NetworkLoadBalancer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficMirrorTargetType = TrafficMirrorTargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficMirrorTargetType where
-  parser =
-    takeLowerText >>= \case
-      "network-interface" -> pure NetworkInterface
-      "network-load-balancer" -> pure NetworkLoadBalancer
-      e ->
-        fromTextError $
-          "Failure parsing TrafficMirrorTargetType from value: '" <> e
-            <> "'. Accepted values: network-interface, network-load-balancer"
+pattern NetworkInterface :: TrafficMirrorTargetType
+pattern NetworkInterface = TrafficMirrorTargetType' "network-interface"
 
-instance ToText TrafficMirrorTargetType where
-  toText = \case
-    NetworkInterface -> "network-interface"
-    NetworkLoadBalancer -> "network-load-balancer"
+pattern NetworkLoadBalancer :: TrafficMirrorTargetType
+pattern NetworkLoadBalancer = TrafficMirrorTargetType' "network-load-balancer"
 
-instance Hashable TrafficMirrorTargetType
-
-instance NFData TrafficMirrorTargetType
-
-instance ToByteString TrafficMirrorTargetType
-
-instance ToQuery TrafficMirrorTargetType
-
-instance ToHeader TrafficMirrorTargetType
-
-instance FromXML TrafficMirrorTargetType where
-  parseXML = parseXMLText "TrafficMirrorTargetType"
+{-# COMPLETE
+  NetworkInterface,
+  NetworkLoadBalancer,
+  TrafficMirrorTargetType'
+  #-}

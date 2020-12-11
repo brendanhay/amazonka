@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,127 @@
 --
 -- Returns the content of a comment made on a change, file, or commit in a repository.
 module Network.AWS.CodeCommit.GetComment
-  ( -- * Creating a Request
-    getComment,
-    GetComment,
+  ( -- * Creating a request
+    GetComment (..),
+    mkGetComment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcCommentId,
 
-    -- * Destructuring the Response
-    getCommentResponse,
-    GetCommentResponse,
+    -- * Destructuring the response
+    GetCommentResponse (..),
+    mkGetCommentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gccrsComment,
     gccrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getComment' smart constructor.
-newtype GetComment = GetComment' {_gcCommentId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetComment' smart constructor.
+newtype GetComment = GetComment' {commentId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcCommentId' - The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-getComment ::
-  -- | 'gcCommentId'
-  Text ->
+-- * 'commentId' - The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+mkGetComment ::
+  -- | 'commentId'
+  Lude.Text ->
   GetComment
-getComment pCommentId_ = GetComment' {_gcCommentId = pCommentId_}
+mkGetComment pCommentId_ = GetComment' {commentId = pCommentId_}
 
 -- | The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-gcCommentId :: Lens' GetComment Text
-gcCommentId = lens _gcCommentId (\s a -> s {_gcCommentId = a})
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcCommentId :: Lens.Lens' GetComment Lude.Text
+gcCommentId = Lens.lens (commentId :: GetComment -> Lude.Text) (\s a -> s {commentId = a} :: GetComment)
+{-# DEPRECATED gcCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
-instance AWSRequest GetComment where
+instance Lude.AWSRequest GetComment where
   type Rs GetComment = GetCommentResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetCommentResponse' <$> (x .?> "comment") <*> (pure (fromEnum s))
+          GetCommentResponse'
+            Lude.<$> (x Lude..?> "comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetComment
-
-instance NFData GetComment
-
-instance ToHeaders GetComment where
+instance Lude.ToHeaders GetComment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.GetComment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.GetComment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetComment where
+instance Lude.ToJSON GetComment where
   toJSON GetComment' {..} =
-    object (catMaybes [Just ("commentId" .= _gcCommentId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("commentId" Lude..= commentId)])
 
-instance ToPath GetComment where
-  toPath = const "/"
+instance Lude.ToPath GetComment where
+  toPath = Lude.const "/"
 
-instance ToQuery GetComment where
-  toQuery = const mempty
+instance Lude.ToQuery GetComment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCommentResponse' smart constructor.
+-- | /See:/ 'mkGetCommentResponse' smart constructor.
 data GetCommentResponse = GetCommentResponse'
-  { _gccrsComment ::
-      !(Maybe Comment),
-    _gccrsResponseStatus :: !Int
+  { comment ::
+      Lude.Maybe Comment,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccrsComment' - The contents of the comment.
---
--- * 'gccrsResponseStatus' - -- | The response status code.
-getCommentResponse ::
-  -- | 'gccrsResponseStatus'
-  Int ->
+-- * 'comment' - The contents of the comment.
+-- * 'responseStatus' - The response status code.
+mkGetCommentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCommentResponse
-getCommentResponse pResponseStatus_ =
+mkGetCommentResponse pResponseStatus_ =
   GetCommentResponse'
-    { _gccrsComment = Nothing,
-      _gccrsResponseStatus = pResponseStatus_
+    { comment = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The contents of the comment.
-gccrsComment :: Lens' GetCommentResponse (Maybe Comment)
-gccrsComment = lens _gccrsComment (\s a -> s {_gccrsComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccrsComment :: Lens.Lens' GetCommentResponse (Lude.Maybe Comment)
+gccrsComment = Lens.lens (comment :: GetCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: GetCommentResponse)
+{-# DEPRECATED gccrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | -- | The response status code.
-gccrsResponseStatus :: Lens' GetCommentResponse Int
-gccrsResponseStatus = lens _gccrsResponseStatus (\s a -> s {_gccrsResponseStatus = a})
-
-instance NFData GetCommentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccrsResponseStatus :: Lens.Lens' GetCommentResponse Lude.Int
+gccrsResponseStatus = Lens.lens (responseStatus :: GetCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommentResponse)
+{-# DEPRECATED gccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

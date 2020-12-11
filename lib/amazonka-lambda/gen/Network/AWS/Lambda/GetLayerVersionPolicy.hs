@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns the permission policy for a version of an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> . For more information, see 'AddLayerVersionPermission' .
 module Network.AWS.Lambda.GetLayerVersionPolicy
-  ( -- * Creating a Request
-    getLayerVersionPolicy,
-    GetLayerVersionPolicy,
+  ( -- * Creating a request
+    GetLayerVersionPolicy (..),
+    mkGetLayerVersionPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glvpLayerName,
     glvpVersionNumber,
 
-    -- * Destructuring the Response
-    getLayerVersionPolicyResponse,
-    GetLayerVersionPolicyResponse,
+    -- * Destructuring the response
+    GetLayerVersionPolicyResponse (..),
+    mkGetLayerVersionPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glvprsPolicy,
     glvprsRevisionId,
     glvprsResponseStatus,
@@ -39,116 +34,134 @@ module Network.AWS.Lambda.GetLayerVersionPolicy
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLayerVersionPolicy' smart constructor.
+-- | /See:/ 'mkGetLayerVersionPolicy' smart constructor.
 data GetLayerVersionPolicy = GetLayerVersionPolicy'
-  { _glvpLayerName ::
-      !Text,
-    _glvpVersionNumber :: !Integer
+  { layerName ::
+      Lude.Text,
+    versionNumber :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLayerVersionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glvpLayerName' - The name or Amazon Resource Name (ARN) of the layer.
---
--- * 'glvpVersionNumber' - The version number.
-getLayerVersionPolicy ::
-  -- | 'glvpLayerName'
-  Text ->
-  -- | 'glvpVersionNumber'
-  Integer ->
+-- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
+-- * 'versionNumber' - The version number.
+mkGetLayerVersionPolicy ::
+  -- | 'layerName'
+  Lude.Text ->
+  -- | 'versionNumber'
+  Lude.Integer ->
   GetLayerVersionPolicy
-getLayerVersionPolicy pLayerName_ pVersionNumber_ =
+mkGetLayerVersionPolicy pLayerName_ pVersionNumber_ =
   GetLayerVersionPolicy'
-    { _glvpLayerName = pLayerName_,
-      _glvpVersionNumber = pVersionNumber_
+    { layerName = pLayerName_,
+      versionNumber = pVersionNumber_
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
-glvpLayerName :: Lens' GetLayerVersionPolicy Text
-glvpLayerName = lens _glvpLayerName (\s a -> s {_glvpLayerName = a})
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvpLayerName :: Lens.Lens' GetLayerVersionPolicy Lude.Text
+glvpLayerName = Lens.lens (layerName :: GetLayerVersionPolicy -> Lude.Text) (\s a -> s {layerName = a} :: GetLayerVersionPolicy)
+{-# DEPRECATED glvpLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The version number.
-glvpVersionNumber :: Lens' GetLayerVersionPolicy Integer
-glvpVersionNumber = lens _glvpVersionNumber (\s a -> s {_glvpVersionNumber = a})
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvpVersionNumber :: Lens.Lens' GetLayerVersionPolicy Lude.Integer
+glvpVersionNumber = Lens.lens (versionNumber :: GetLayerVersionPolicy -> Lude.Integer) (\s a -> s {versionNumber = a} :: GetLayerVersionPolicy)
+{-# DEPRECATED glvpVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
-instance AWSRequest GetLayerVersionPolicy where
+instance Lude.AWSRequest GetLayerVersionPolicy where
   type Rs GetLayerVersionPolicy = GetLayerVersionPolicyResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLayerVersionPolicyResponse'
-            <$> (x .?> "Policy") <*> (x .?> "RevisionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Policy")
+            Lude.<*> (x Lude..?> "RevisionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLayerVersionPolicy
+instance Lude.ToHeaders GetLayerVersionPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetLayerVersionPolicy
-
-instance ToHeaders GetLayerVersionPolicy where
-  toHeaders = const mempty
-
-instance ToPath GetLayerVersionPolicy where
+instance Lude.ToPath GetLayerVersionPolicy where
   toPath GetLayerVersionPolicy' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2018-10-31/layers/",
-        toBS _glvpLayerName,
+        Lude.toBS layerName,
         "/versions/",
-        toBS _glvpVersionNumber,
+        Lude.toBS versionNumber,
         "/policy"
       ]
 
-instance ToQuery GetLayerVersionPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetLayerVersionPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLayerVersionPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetLayerVersionPolicyResponse' smart constructor.
 data GetLayerVersionPolicyResponse = GetLayerVersionPolicyResponse'
-  { _glvprsPolicy ::
-      !(Maybe Text),
-    _glvprsRevisionId ::
-      !(Maybe Text),
-    _glvprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Lude.Text,
+    revisionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLayerVersionPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glvprsPolicy' - The policy document.
---
--- * 'glvprsRevisionId' - A unique identifier for the current revision of the policy.
---
--- * 'glvprsResponseStatus' - -- | The response status code.
-getLayerVersionPolicyResponse ::
-  -- | 'glvprsResponseStatus'
-  Int ->
+-- * 'policy' - The policy document.
+-- * 'responseStatus' - The response status code.
+-- * 'revisionId' - A unique identifier for the current revision of the policy.
+mkGetLayerVersionPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLayerVersionPolicyResponse
-getLayerVersionPolicyResponse pResponseStatus_ =
+mkGetLayerVersionPolicyResponse pResponseStatus_ =
   GetLayerVersionPolicyResponse'
-    { _glvprsPolicy = Nothing,
-      _glvprsRevisionId = Nothing,
-      _glvprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The policy document.
-glvprsPolicy :: Lens' GetLayerVersionPolicyResponse (Maybe Text)
-glvprsPolicy = lens _glvprsPolicy (\s a -> s {_glvprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvprsPolicy :: Lens.Lens' GetLayerVersionPolicyResponse (Lude.Maybe Lude.Text)
+glvprsPolicy = Lens.lens (policy :: GetLayerVersionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetLayerVersionPolicyResponse)
+{-# DEPRECATED glvprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | A unique identifier for the current revision of the policy.
-glvprsRevisionId :: Lens' GetLayerVersionPolicyResponse (Maybe Text)
-glvprsRevisionId = lens _glvprsRevisionId (\s a -> s {_glvprsRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvprsRevisionId :: Lens.Lens' GetLayerVersionPolicyResponse (Lude.Maybe Lude.Text)
+glvprsRevisionId = Lens.lens (revisionId :: GetLayerVersionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: GetLayerVersionPolicyResponse)
+{-# DEPRECATED glvprsRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | -- | The response status code.
-glvprsResponseStatus :: Lens' GetLayerVersionPolicyResponse Int
-glvprsResponseStatus = lens _glvprsResponseStatus (\s a -> s {_glvprsResponseStatus = a})
-
-instance NFData GetLayerVersionPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glvprsResponseStatus :: Lens.Lens' GetLayerVersionPolicyResponse Lude.Int
+glvprsResponseStatus = Lens.lens (responseStatus :: GetLayerVersionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLayerVersionPolicyResponse)
+{-# DEPRECATED glvprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

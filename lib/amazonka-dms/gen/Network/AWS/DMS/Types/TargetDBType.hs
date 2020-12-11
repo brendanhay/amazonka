@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.TargetDBType where
+module Network.AWS.DMS.Types.TargetDBType
+  ( TargetDBType
+      ( TargetDBType',
+        MultipleDatabases,
+        SpecificDatabase
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetDBType
-  = MultipleDatabases
-  | SpecificDatabase
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetDBType = TargetDBType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetDBType where
-  parser =
-    takeLowerText >>= \case
-      "multiple-databases" -> pure MultipleDatabases
-      "specific-database" -> pure SpecificDatabase
-      e ->
-        fromTextError $
-          "Failure parsing TargetDBType from value: '" <> e
-            <> "'. Accepted values: multiple-databases, specific-database"
+pattern MultipleDatabases :: TargetDBType
+pattern MultipleDatabases = TargetDBType' "multiple-databases"
 
-instance ToText TargetDBType where
-  toText = \case
-    MultipleDatabases -> "multiple-databases"
-    SpecificDatabase -> "specific-database"
+pattern SpecificDatabase :: TargetDBType
+pattern SpecificDatabase = TargetDBType' "specific-database"
 
-instance Hashable TargetDBType
-
-instance NFData TargetDBType
-
-instance ToByteString TargetDBType
-
-instance ToQuery TargetDBType
-
-instance ToHeader TargetDBType
-
-instance ToJSON TargetDBType where
-  toJSON = toJSONText
-
-instance FromJSON TargetDBType where
-  parseJSON = parseJSONText "TargetDBType"
+{-# COMPLETE
+  MultipleDatabases,
+  SpecificDatabase,
+  TargetDBType'
+  #-}

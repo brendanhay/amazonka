@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Create a new streaming distribution with tags.
 module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
-  ( -- * Creating a Request
-    createStreamingDistributionWithTags,
-    CreateStreamingDistributionWithTags,
+  ( -- * Creating a request
+    CreateStreamingDistributionWithTags (..),
+    mkCreateStreamingDistributionWithTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csdwtStreamingDistributionConfigWithTags,
 
-    -- * Destructuring the Response
-    createStreamingDistributionWithTagsResponse,
-    CreateStreamingDistributionWithTagsResponse,
+    -- * Destructuring the response
+    CreateStreamingDistributionWithTagsResponse (..),
+    mkCreateStreamingDistributionWithTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csdwtrsETag,
     csdwtrsLocation,
     csdwtrsStreamingDistribution,
@@ -39,144 +34,145 @@ module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to create a new streaming distribution with tags.
 --
---
---
--- /See:/ 'createStreamingDistributionWithTags' smart constructor.
+-- /See:/ 'mkCreateStreamingDistributionWithTags' smart constructor.
 newtype CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTags'
-  { _csdwtStreamingDistributionConfigWithTags ::
+  { streamingDistributionConfigWithTags ::
       StreamingDistributionConfigWithTags
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistributionWithTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdwtStreamingDistributionConfigWithTags' - The streaming distribution's configuration information.
-createStreamingDistributionWithTags ::
-  -- | 'csdwtStreamingDistributionConfigWithTags'
+-- * 'streamingDistributionConfigWithTags' - The streaming distribution's configuration information.
+mkCreateStreamingDistributionWithTags ::
+  -- | 'streamingDistributionConfigWithTags'
   StreamingDistributionConfigWithTags ->
   CreateStreamingDistributionWithTags
-createStreamingDistributionWithTags
+mkCreateStreamingDistributionWithTags
   pStreamingDistributionConfigWithTags_ =
     CreateStreamingDistributionWithTags'
-      { _csdwtStreamingDistributionConfigWithTags =
+      { streamingDistributionConfigWithTags =
           pStreamingDistributionConfigWithTags_
       }
 
 -- | The streaming distribution's configuration information.
-csdwtStreamingDistributionConfigWithTags :: Lens' CreateStreamingDistributionWithTags StreamingDistributionConfigWithTags
-csdwtStreamingDistributionConfigWithTags = lens _csdwtStreamingDistributionConfigWithTags (\s a -> s {_csdwtStreamingDistributionConfigWithTags = a})
+--
+-- /Note:/ Consider using 'streamingDistributionConfigWithTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdwtStreamingDistributionConfigWithTags :: Lens.Lens' CreateStreamingDistributionWithTags StreamingDistributionConfigWithTags
+csdwtStreamingDistributionConfigWithTags = Lens.lens (streamingDistributionConfigWithTags :: CreateStreamingDistributionWithTags -> StreamingDistributionConfigWithTags) (\s a -> s {streamingDistributionConfigWithTags = a} :: CreateStreamingDistributionWithTags)
+{-# DEPRECATED csdwtStreamingDistributionConfigWithTags "Use generic-lens or generic-optics with 'streamingDistributionConfigWithTags' instead." #-}
 
-instance AWSRequest CreateStreamingDistributionWithTags where
+instance Lude.AWSRequest CreateStreamingDistributionWithTags where
   type
     Rs CreateStreamingDistributionWithTags =
       CreateStreamingDistributionWithTagsResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateStreamingDistributionWithTagsResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Location")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateStreamingDistributionWithTags
-
-instance NFData CreateStreamingDistributionWithTags
-
-instance ToElement CreateStreamingDistributionWithTags where
+instance Lude.ToElement CreateStreamingDistributionWithTags where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfigWithTags"
-      . _csdwtStreamingDistributionConfigWithTags
+      Lude.. streamingDistributionConfigWithTags
 
-instance ToHeaders CreateStreamingDistributionWithTags where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateStreamingDistributionWithTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateStreamingDistributionWithTags where
-  toPath = const "/2020-05-31/streaming-distribution"
+instance Lude.ToPath CreateStreamingDistributionWithTags where
+  toPath = Lude.const "/2020-05-31/streaming-distribution"
 
-instance ToQuery CreateStreamingDistributionWithTags where
-  toQuery = const (mconcat ["WithTags"])
+instance Lude.ToQuery CreateStreamingDistributionWithTags where
+  toQuery = Lude.const (Lude.mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createStreamingDistributionWithTagsResponse' smart constructor.
+-- /See:/ 'mkCreateStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
-  { _csdwtrsETag ::
-      !( Maybe
-           Text
-       ),
-    _csdwtrsLocation ::
-      !( Maybe
-           Text
-       ),
-    _csdwtrsStreamingDistribution ::
-      !( Maybe
-           StreamingDistribution
-       ),
-    _csdwtrsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    location ::
+      Lude.Maybe
+        Lude.Text,
+    streamingDistribution ::
+      Lude.Maybe
+        StreamingDistribution,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistributionWithTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdwtrsETag' - The current version of the distribution created.
---
--- * 'csdwtrsLocation' - The fully qualified URI of the new streaming distribution resource just created.
---
--- * 'csdwtrsStreamingDistribution' - The streaming distribution's information.
---
--- * 'csdwtrsResponseStatus' - -- | The response status code.
-createStreamingDistributionWithTagsResponse ::
-  -- | 'csdwtrsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the distribution created.
+-- * 'location' - The fully qualified URI of the new streaming distribution resource just created.
+-- * 'responseStatus' - The response status code.
+-- * 'streamingDistribution' - The streaming distribution's information.
+mkCreateStreamingDistributionWithTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateStreamingDistributionWithTagsResponse
-createStreamingDistributionWithTagsResponse pResponseStatus_ =
+mkCreateStreamingDistributionWithTagsResponse pResponseStatus_ =
   CreateStreamingDistributionWithTagsResponse'
-    { _csdwtrsETag =
-        Nothing,
-      _csdwtrsLocation = Nothing,
-      _csdwtrsStreamingDistribution = Nothing,
-      _csdwtrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      location = Lude.Nothing,
+      streamingDistribution = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the distribution created.
-csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
-csdwtrsETag = lens _csdwtrsETag (\s a -> s {_csdwtrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdwtrsETag :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Lude.Maybe Lude.Text)
+csdwtrsETag = Lens.lens (eTag :: CreateStreamingDistributionWithTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateStreamingDistributionWithTagsResponse)
+{-# DEPRECATED csdwtrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new streaming distribution resource just created.
-csdwtrsLocation :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
-csdwtrsLocation = lens _csdwtrsLocation (\s a -> s {_csdwtrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdwtrsLocation :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Lude.Maybe Lude.Text)
+csdwtrsLocation = Lens.lens (location :: CreateStreamingDistributionWithTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateStreamingDistributionWithTagsResponse)
+{-# DEPRECATED csdwtrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The streaming distribution's information.
-csdwtrsStreamingDistribution :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe StreamingDistribution)
-csdwtrsStreamingDistribution = lens _csdwtrsStreamingDistribution (\s a -> s {_csdwtrsStreamingDistribution = a})
+--
+-- /Note:/ Consider using 'streamingDistribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdwtrsStreamingDistribution :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Lude.Maybe StreamingDistribution)
+csdwtrsStreamingDistribution = Lens.lens (streamingDistribution :: CreateStreamingDistributionWithTagsResponse -> Lude.Maybe StreamingDistribution) (\s a -> s {streamingDistribution = a} :: CreateStreamingDistributionWithTagsResponse)
+{-# DEPRECATED csdwtrsStreamingDistribution "Use generic-lens or generic-optics with 'streamingDistribution' instead." #-}
 
--- | -- | The response status code.
-csdwtrsResponseStatus :: Lens' CreateStreamingDistributionWithTagsResponse Int
-csdwtrsResponseStatus = lens _csdwtrsResponseStatus (\s a -> s {_csdwtrsResponseStatus = a})
-
-instance NFData CreateStreamingDistributionWithTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdwtrsResponseStatus :: Lens.Lens' CreateStreamingDistributionWithTagsResponse Lude.Int
+csdwtrsResponseStatus = Lens.lens (responseStatus :: CreateStreamingDistributionWithTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamingDistributionWithTagsResponse)
+{-# DEPRECATED csdwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

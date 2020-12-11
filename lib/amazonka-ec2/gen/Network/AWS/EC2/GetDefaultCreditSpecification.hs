@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,147 @@
 --
 -- Describes the default credit option for CPU usage of a burstable performance instance family.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable performance instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.GetDefaultCreditSpecification
-  ( -- * Creating a Request
-    getDefaultCreditSpecification,
-    GetDefaultCreditSpecification,
+  ( -- * Creating a request
+    GetDefaultCreditSpecification (..),
+    mkGetDefaultCreditSpecification,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdcsDryRun,
     gdcsInstanceFamily,
 
-    -- * Destructuring the Response
-    getDefaultCreditSpecificationResponse,
-    GetDefaultCreditSpecificationResponse,
+    -- * Destructuring the response
+    GetDefaultCreditSpecificationResponse (..),
+    mkGetDefaultCreditSpecificationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdcsrsInstanceFamilyCreditSpecification,
     gdcsrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDefaultCreditSpecification' smart constructor.
+-- | /See:/ 'mkGetDefaultCreditSpecification' smart constructor.
 data GetDefaultCreditSpecification = GetDefaultCreditSpecification'
-  { _gdcsDryRun ::
-      !(Maybe Bool),
-    _gdcsInstanceFamily ::
-      !UnlimitedSupportedInstanceFamily
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    instanceFamily ::
+      UnlimitedSupportedInstanceFamily
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultCreditSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'gdcsInstanceFamily' - The instance family.
-getDefaultCreditSpecification ::
-  -- | 'gdcsInstanceFamily'
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceFamily' - The instance family.
+mkGetDefaultCreditSpecification ::
+  -- | 'instanceFamily'
   UnlimitedSupportedInstanceFamily ->
   GetDefaultCreditSpecification
-getDefaultCreditSpecification pInstanceFamily_ =
+mkGetDefaultCreditSpecification pInstanceFamily_ =
   GetDefaultCreditSpecification'
-    { _gdcsDryRun = Nothing,
-      _gdcsInstanceFamily = pInstanceFamily_
+    { dryRun = Lude.Nothing,
+      instanceFamily = pInstanceFamily_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-gdcsDryRun :: Lens' GetDefaultCreditSpecification (Maybe Bool)
-gdcsDryRun = lens _gdcsDryRun (\s a -> s {_gdcsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcsDryRun :: Lens.Lens' GetDefaultCreditSpecification (Lude.Maybe Lude.Bool)
+gdcsDryRun = Lens.lens (dryRun :: GetDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetDefaultCreditSpecification)
+{-# DEPRECATED gdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The instance family.
-gdcsInstanceFamily :: Lens' GetDefaultCreditSpecification UnlimitedSupportedInstanceFamily
-gdcsInstanceFamily = lens _gdcsInstanceFamily (\s a -> s {_gdcsInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcsInstanceFamily :: Lens.Lens' GetDefaultCreditSpecification UnlimitedSupportedInstanceFamily
+gdcsInstanceFamily = Lens.lens (instanceFamily :: GetDefaultCreditSpecification -> UnlimitedSupportedInstanceFamily) (\s a -> s {instanceFamily = a} :: GetDefaultCreditSpecification)
+{-# DEPRECATED gdcsInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
-instance AWSRequest GetDefaultCreditSpecification where
+instance Lude.AWSRequest GetDefaultCreditSpecification where
   type
     Rs GetDefaultCreditSpecification =
       GetDefaultCreditSpecificationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetDefaultCreditSpecificationResponse'
-            <$> (x .@? "instanceFamilyCreditSpecification")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "instanceFamilyCreditSpecification")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDefaultCreditSpecification
+instance Lude.ToHeaders GetDefaultCreditSpecification where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetDefaultCreditSpecification
+instance Lude.ToPath GetDefaultCreditSpecification where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetDefaultCreditSpecification where
-  toHeaders = const mempty
-
-instance ToPath GetDefaultCreditSpecification where
-  toPath = const "/"
-
-instance ToQuery GetDefaultCreditSpecification where
+instance Lude.ToQuery GetDefaultCreditSpecification where
   toQuery GetDefaultCreditSpecification' {..} =
-    mconcat
-      [ "Action" =: ("GetDefaultCreditSpecification" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _gdcsDryRun,
-        "InstanceFamily" =: _gdcsInstanceFamily
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetDefaultCreditSpecification" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "InstanceFamily" Lude.=: instanceFamily
       ]
 
--- | /See:/ 'getDefaultCreditSpecificationResponse' smart constructor.
+-- | /See:/ 'mkGetDefaultCreditSpecificationResponse' smart constructor.
 data GetDefaultCreditSpecificationResponse = GetDefaultCreditSpecificationResponse'
-  { _gdcsrsInstanceFamilyCreditSpecification ::
-      !( Maybe
-           InstanceFamilyCreditSpecification
-       ),
-    _gdcsrsResponseStatus ::
-      !Int
+  { instanceFamilyCreditSpecification ::
+      Lude.Maybe
+        InstanceFamilyCreditSpecification,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultCreditSpecificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcsrsInstanceFamilyCreditSpecification' - The default credit option for CPU usage of the instance family.
---
--- * 'gdcsrsResponseStatus' - -- | The response status code.
-getDefaultCreditSpecificationResponse ::
-  -- | 'gdcsrsResponseStatus'
-  Int ->
+-- * 'instanceFamilyCreditSpecification' - The default credit option for CPU usage of the instance family.
+-- * 'responseStatus' - The response status code.
+mkGetDefaultCreditSpecificationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDefaultCreditSpecificationResponse
-getDefaultCreditSpecificationResponse pResponseStatus_ =
+mkGetDefaultCreditSpecificationResponse pResponseStatus_ =
   GetDefaultCreditSpecificationResponse'
-    { _gdcsrsInstanceFamilyCreditSpecification =
-        Nothing,
-      _gdcsrsResponseStatus = pResponseStatus_
+    { instanceFamilyCreditSpecification =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The default credit option for CPU usage of the instance family.
-gdcsrsInstanceFamilyCreditSpecification :: Lens' GetDefaultCreditSpecificationResponse (Maybe InstanceFamilyCreditSpecification)
-gdcsrsInstanceFamilyCreditSpecification = lens _gdcsrsInstanceFamilyCreditSpecification (\s a -> s {_gdcsrsInstanceFamilyCreditSpecification = a})
+--
+-- /Note:/ Consider using 'instanceFamilyCreditSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcsrsInstanceFamilyCreditSpecification :: Lens.Lens' GetDefaultCreditSpecificationResponse (Lude.Maybe InstanceFamilyCreditSpecification)
+gdcsrsInstanceFamilyCreditSpecification = Lens.lens (instanceFamilyCreditSpecification :: GetDefaultCreditSpecificationResponse -> Lude.Maybe InstanceFamilyCreditSpecification) (\s a -> s {instanceFamilyCreditSpecification = a} :: GetDefaultCreditSpecificationResponse)
+{-# DEPRECATED gdcsrsInstanceFamilyCreditSpecification "Use generic-lens or generic-optics with 'instanceFamilyCreditSpecification' instead." #-}
 
--- | -- | The response status code.
-gdcsrsResponseStatus :: Lens' GetDefaultCreditSpecificationResponse Int
-gdcsrsResponseStatus = lens _gdcsrsResponseStatus (\s a -> s {_gdcsrsResponseStatus = a})
-
-instance NFData GetDefaultCreditSpecificationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcsrsResponseStatus :: Lens.Lens' GetDefaultCreditSpecificationResponse Lude.Int
+gdcsrsResponseStatus = Lens.lens (responseStatus :: GetDefaultCreditSpecificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDefaultCreditSpecificationResponse)
+{-# DEPRECATED gdcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

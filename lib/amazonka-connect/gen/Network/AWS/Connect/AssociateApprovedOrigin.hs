@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,111 @@
 --
 -- Associates an approved origin to an Amazon Connect instance.
 module Network.AWS.Connect.AssociateApprovedOrigin
-  ( -- * Creating a Request
-    associateApprovedOrigin,
-    AssociateApprovedOrigin,
+  ( -- * Creating a request
+    AssociateApprovedOrigin (..),
+    mkAssociateApprovedOrigin,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aaoInstanceId,
     aaoOrigin,
 
-    -- * Destructuring the Response
-    associateApprovedOriginResponse,
-    AssociateApprovedOriginResponse,
+    -- * Destructuring the response
+    AssociateApprovedOriginResponse (..),
+    mkAssociateApprovedOriginResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateApprovedOrigin' smart constructor.
+-- | /See:/ 'mkAssociateApprovedOrigin' smart constructor.
 data AssociateApprovedOrigin = AssociateApprovedOrigin'
-  { _aaoInstanceId ::
-      !Text,
-    _aaoOrigin :: !Text
+  { instanceId ::
+      Lude.Text,
+    origin :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateApprovedOrigin' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaoInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'aaoOrigin' - The domain to add to your allow list.
-associateApprovedOrigin ::
-  -- | 'aaoInstanceId'
-  Text ->
-  -- | 'aaoOrigin'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'origin' - The domain to add to your allow list.
+mkAssociateApprovedOrigin ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'origin'
+  Lude.Text ->
   AssociateApprovedOrigin
-associateApprovedOrigin pInstanceId_ pOrigin_ =
+mkAssociateApprovedOrigin pInstanceId_ pOrigin_ =
   AssociateApprovedOrigin'
-    { _aaoInstanceId = pInstanceId_,
-      _aaoOrigin = pOrigin_
+    { instanceId = pInstanceId_,
+      origin = pOrigin_
     }
 
 -- | The identifier of the Amazon Connect instance.
-aaoInstanceId :: Lens' AssociateApprovedOrigin Text
-aaoInstanceId = lens _aaoInstanceId (\s a -> s {_aaoInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaoInstanceId :: Lens.Lens' AssociateApprovedOrigin Lude.Text
+aaoInstanceId = Lens.lens (instanceId :: AssociateApprovedOrigin -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateApprovedOrigin)
+{-# DEPRECATED aaoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The domain to add to your allow list.
-aaoOrigin :: Lens' AssociateApprovedOrigin Text
-aaoOrigin = lens _aaoOrigin (\s a -> s {_aaoOrigin = a})
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaoOrigin :: Lens.Lens' AssociateApprovedOrigin Lude.Text
+aaoOrigin = Lens.lens (origin :: AssociateApprovedOrigin -> Lude.Text) (\s a -> s {origin = a} :: AssociateApprovedOrigin)
+{-# DEPRECATED aaoOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
-instance AWSRequest AssociateApprovedOrigin where
+instance Lude.AWSRequest AssociateApprovedOrigin where
   type Rs AssociateApprovedOrigin = AssociateApprovedOriginResponse
-  request = putJSON connect
-  response = receiveNull AssociateApprovedOriginResponse'
+  request = Req.putJSON connectService
+  response = Res.receiveNull AssociateApprovedOriginResponse'
 
-instance Hashable AssociateApprovedOrigin
-
-instance NFData AssociateApprovedOrigin
-
-instance ToHeaders AssociateApprovedOrigin where
+instance Lude.ToHeaders AssociateApprovedOrigin where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON AssociateApprovedOrigin where
+instance Lude.ToJSON AssociateApprovedOrigin where
   toJSON AssociateApprovedOrigin' {..} =
-    object (catMaybes [Just ("Origin" .= _aaoOrigin)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Origin" Lude..= origin)])
 
-instance ToPath AssociateApprovedOrigin where
+instance Lude.ToPath AssociateApprovedOrigin where
   toPath AssociateApprovedOrigin' {..} =
-    mconcat ["/instance/", toBS _aaoInstanceId, "/approved-origin"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/approved-origin"]
 
-instance ToQuery AssociateApprovedOrigin where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateApprovedOrigin where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateApprovedOriginResponse' smart constructor.
+-- | /See:/ 'mkAssociateApprovedOriginResponse' smart constructor.
 data AssociateApprovedOriginResponse = AssociateApprovedOriginResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateApprovedOriginResponse' with the minimum fields required to make a request.
-associateApprovedOriginResponse ::
+mkAssociateApprovedOriginResponse ::
   AssociateApprovedOriginResponse
-associateApprovedOriginResponse = AssociateApprovedOriginResponse'
-
-instance NFData AssociateApprovedOriginResponse
+mkAssociateApprovedOriginResponse =
+  AssociateApprovedOriginResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionPlacementState where
+module Network.AWS.GameLift.Types.GameSessionPlacementState
+  ( GameSessionPlacementState
+      ( GameSessionPlacementState',
+        GSPSCancelled,
+        GSPSFailed,
+        GSPSFulfilled,
+        GSPSPending,
+        GSPSTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameSessionPlacementState
-  = GSPSCancelled
-  | GSPSFailed
-  | GSPSFulfilled
-  | GSPSPending
-  | GSPSTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameSessionPlacementState = GameSessionPlacementState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameSessionPlacementState where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure GSPSCancelled
-      "failed" -> pure GSPSFailed
-      "fulfilled" -> pure GSPSFulfilled
-      "pending" -> pure GSPSPending
-      "timed_out" -> pure GSPSTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing GameSessionPlacementState from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, fulfilled, pending, timed_out"
+pattern GSPSCancelled :: GameSessionPlacementState
+pattern GSPSCancelled = GameSessionPlacementState' "CANCELLED"
 
-instance ToText GameSessionPlacementState where
-  toText = \case
-    GSPSCancelled -> "CANCELLED"
-    GSPSFailed -> "FAILED"
-    GSPSFulfilled -> "FULFILLED"
-    GSPSPending -> "PENDING"
-    GSPSTimedOut -> "TIMED_OUT"
+pattern GSPSFailed :: GameSessionPlacementState
+pattern GSPSFailed = GameSessionPlacementState' "FAILED"
 
-instance Hashable GameSessionPlacementState
+pattern GSPSFulfilled :: GameSessionPlacementState
+pattern GSPSFulfilled = GameSessionPlacementState' "FULFILLED"
 
-instance NFData GameSessionPlacementState
+pattern GSPSPending :: GameSessionPlacementState
+pattern GSPSPending = GameSessionPlacementState' "PENDING"
 
-instance ToByteString GameSessionPlacementState
+pattern GSPSTimedOut :: GameSessionPlacementState
+pattern GSPSTimedOut = GameSessionPlacementState' "TIMED_OUT"
 
-instance ToQuery GameSessionPlacementState
-
-instance ToHeader GameSessionPlacementState
-
-instance FromJSON GameSessionPlacementState where
-  parseJSON = parseJSONText "GameSessionPlacementState"
+{-# COMPLETE
+  GSPSCancelled,
+  GSPSFailed,
+  GSPSFulfilled,
+  GSPSPending,
+  GSPSTimedOut,
+  GameSessionPlacementState'
+  #-}

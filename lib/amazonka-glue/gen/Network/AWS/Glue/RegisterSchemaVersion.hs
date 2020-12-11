@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.
 --
---
 -- If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the @GetSchemaVersion@ API with the @SchemaVersionId@ to check compatibility modes.
---
 -- If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.
 module Network.AWS.Glue.RegisterSchemaVersion
-  ( -- * Creating a Request
-    registerSchemaVersion,
-    RegisterSchemaVersion,
+  ( -- * Creating a request
+    RegisterSchemaVersion (..),
+    mkRegisterSchemaVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsvSchemaId,
     rsvSchemaDefinition,
 
-    -- * Destructuring the Response
-    registerSchemaVersionResponse,
-    RegisterSchemaVersionResponse,
+    -- * Destructuring the response
+    RegisterSchemaVersionResponse (..),
+    mkRegisterSchemaVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsvrsStatus,
     rsvrsSchemaVersionId,
     rsvrsVersionNumber,
@@ -45,136 +38,170 @@ module Network.AWS.Glue.RegisterSchemaVersion
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerSchemaVersion' smart constructor.
+-- | /See:/ 'mkRegisterSchemaVersion' smart constructor.
 data RegisterSchemaVersion = RegisterSchemaVersion'
-  { _rsvSchemaId ::
-      !SchemaId,
-    _rsvSchemaDefinition :: !Text
+  { schemaId ::
+      SchemaId,
+    schemaDefinition :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterSchemaVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'schemaDefinition' - The schema definition using the @DataFormat@ setting for the @SchemaName@ .
+-- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
--- * 'rsvSchemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
 --
--- * 'rsvSchemaDefinition' - The schema definition using the @DataFormat@ setting for the @SchemaName@ .
-registerSchemaVersion ::
-  -- | 'rsvSchemaId'
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+mkRegisterSchemaVersion ::
+  -- | 'schemaId'
   SchemaId ->
-  -- | 'rsvSchemaDefinition'
-  Text ->
+  -- | 'schemaDefinition'
+  Lude.Text ->
   RegisterSchemaVersion
-registerSchemaVersion pSchemaId_ pSchemaDefinition_ =
+mkRegisterSchemaVersion pSchemaId_ pSchemaDefinition_ =
   RegisterSchemaVersion'
-    { _rsvSchemaId = pSchemaId_,
-      _rsvSchemaDefinition = pSchemaDefinition_
+    { schemaId = pSchemaId_,
+      schemaDefinition = pSchemaDefinition_
     }
 
--- | This is a wrapper structure to contain schema identity fields. The structure contains:     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
-rsvSchemaId :: Lens' RegisterSchemaVersion SchemaId
-rsvSchemaId = lens _rsvSchemaId (\s a -> s {_rsvSchemaId = a})
+-- | This is a wrapper structure to contain schema identity fields. The structure contains:
+--
+--
+--     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvSchemaId :: Lens.Lens' RegisterSchemaVersion SchemaId
+rsvSchemaId = Lens.lens (schemaId :: RegisterSchemaVersion -> SchemaId) (\s a -> s {schemaId = a} :: RegisterSchemaVersion)
+{-# DEPRECATED rsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | The schema definition using the @DataFormat@ setting for the @SchemaName@ .
-rsvSchemaDefinition :: Lens' RegisterSchemaVersion Text
-rsvSchemaDefinition = lens _rsvSchemaDefinition (\s a -> s {_rsvSchemaDefinition = a})
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvSchemaDefinition :: Lens.Lens' RegisterSchemaVersion Lude.Text
+rsvSchemaDefinition = Lens.lens (schemaDefinition :: RegisterSchemaVersion -> Lude.Text) (\s a -> s {schemaDefinition = a} :: RegisterSchemaVersion)
+{-# DEPRECATED rsvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
-instance AWSRequest RegisterSchemaVersion where
+instance Lude.AWSRequest RegisterSchemaVersion where
   type Rs RegisterSchemaVersion = RegisterSchemaVersionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterSchemaVersionResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "SchemaVersionId")
-            <*> (x .?> "VersionNumber")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "SchemaVersionId")
+            Lude.<*> (x Lude..?> "VersionNumber")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterSchemaVersion
-
-instance NFData RegisterSchemaVersion
-
-instance ToHeaders RegisterSchemaVersion where
+instance Lude.ToHeaders RegisterSchemaVersion where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.RegisterSchemaVersion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.RegisterSchemaVersion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterSchemaVersion where
+instance Lude.ToJSON RegisterSchemaVersion where
   toJSON RegisterSchemaVersion' {..} =
-    object
-      ( catMaybes
-          [ Just ("SchemaId" .= _rsvSchemaId),
-            Just ("SchemaDefinition" .= _rsvSchemaDefinition)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SchemaId" Lude..= schemaId),
+            Lude.Just ("SchemaDefinition" Lude..= schemaDefinition)
           ]
       )
 
-instance ToPath RegisterSchemaVersion where
-  toPath = const "/"
+instance Lude.ToPath RegisterSchemaVersion where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterSchemaVersion where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterSchemaVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerSchemaVersionResponse' smart constructor.
+-- | /See:/ 'mkRegisterSchemaVersionResponse' smart constructor.
 data RegisterSchemaVersionResponse = RegisterSchemaVersionResponse'
-  { _rsvrsStatus ::
-      !(Maybe SchemaVersionStatus),
-    _rsvrsSchemaVersionId ::
-      !(Maybe Text),
-    _rsvrsVersionNumber ::
-      !(Maybe Nat),
-    _rsvrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe SchemaVersionStatus,
+    schemaVersionId ::
+      Lude.Maybe Lude.Text,
+    versionNumber ::
+      Lude.Maybe Lude.Natural,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterSchemaVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsvrsStatus' - The status of the schema version.
---
--- * 'rsvrsSchemaVersionId' - The unique ID that represents the version of this schema.
---
--- * 'rsvrsVersionNumber' - The version of this schema (for sync flow only, in case this is the first version).
---
--- * 'rsvrsResponseStatus' - -- | The response status code.
-registerSchemaVersionResponse ::
-  -- | 'rsvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'schemaVersionId' - The unique ID that represents the version of this schema.
+-- * 'status' - The status of the schema version.
+-- * 'versionNumber' - The version of this schema (for sync flow only, in case this is the first version).
+mkRegisterSchemaVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterSchemaVersionResponse
-registerSchemaVersionResponse pResponseStatus_ =
+mkRegisterSchemaVersionResponse pResponseStatus_ =
   RegisterSchemaVersionResponse'
-    { _rsvrsStatus = Nothing,
-      _rsvrsSchemaVersionId = Nothing,
-      _rsvrsVersionNumber = Nothing,
-      _rsvrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      schemaVersionId = Lude.Nothing,
+      versionNumber = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the schema version.
-rsvrsStatus :: Lens' RegisterSchemaVersionResponse (Maybe SchemaVersionStatus)
-rsvrsStatus = lens _rsvrsStatus (\s a -> s {_rsvrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvrsStatus :: Lens.Lens' RegisterSchemaVersionResponse (Lude.Maybe SchemaVersionStatus)
+rsvrsStatus = Lens.lens (status :: RegisterSchemaVersionResponse -> Lude.Maybe SchemaVersionStatus) (\s a -> s {status = a} :: RegisterSchemaVersionResponse)
+{-# DEPRECATED rsvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID that represents the version of this schema.
-rsvrsSchemaVersionId :: Lens' RegisterSchemaVersionResponse (Maybe Text)
-rsvrsSchemaVersionId = lens _rsvrsSchemaVersionId (\s a -> s {_rsvrsSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvrsSchemaVersionId :: Lens.Lens' RegisterSchemaVersionResponse (Lude.Maybe Lude.Text)
+rsvrsSchemaVersionId = Lens.lens (schemaVersionId :: RegisterSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: RegisterSchemaVersionResponse)
+{-# DEPRECATED rsvrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The version of this schema (for sync flow only, in case this is the first version).
-rsvrsVersionNumber :: Lens' RegisterSchemaVersionResponse (Maybe Natural)
-rsvrsVersionNumber = lens _rsvrsVersionNumber (\s a -> s {_rsvrsVersionNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvrsVersionNumber :: Lens.Lens' RegisterSchemaVersionResponse (Lude.Maybe Lude.Natural)
+rsvrsVersionNumber = Lens.lens (versionNumber :: RegisterSchemaVersionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: RegisterSchemaVersionResponse)
+{-# DEPRECATED rsvrsVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
--- | -- | The response status code.
-rsvrsResponseStatus :: Lens' RegisterSchemaVersionResponse Int
-rsvrsResponseStatus = lens _rsvrsResponseStatus (\s a -> s {_rsvrsResponseStatus = a})
-
-instance NFData RegisterSchemaVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvrsResponseStatus :: Lens.Lens' RegisterSchemaVersionResponse Lude.Int
+rsvrsResponseStatus = Lens.lens (responseStatus :: RegisterSchemaVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterSchemaVersionResponse)
+{-# DEPRECATED rsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

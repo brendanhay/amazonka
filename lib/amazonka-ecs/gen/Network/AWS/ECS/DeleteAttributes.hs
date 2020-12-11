@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,149 @@
 --
 -- Deletes one or more custom attributes from an Amazon ECS resource.
 module Network.AWS.ECS.DeleteAttributes
-  ( -- * Creating a Request
-    deleteAttributes,
-    DeleteAttributes,
+  ( -- * Creating a request
+    DeleteAttributes (..),
+    mkDeleteAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daCluster,
     daAttributes,
 
-    -- * Destructuring the Response
-    deleteAttributesResponse,
-    DeleteAttributesResponse,
+    -- * Destructuring the response
+    DeleteAttributesResponse (..),
+    mkDeleteAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsAttributes,
     darsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAttributes' smart constructor.
+-- | /See:/ 'mkDeleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { _daCluster ::
-      !(Maybe Text),
-    _daAttributes :: ![Attribute]
+  { cluster ::
+      Lude.Maybe Lude.Text,
+    attributes :: [Attribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
---
--- * 'daAttributes' - The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
-deleteAttributes ::
+-- * 'attributes' - The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
+mkDeleteAttributes ::
   DeleteAttributes
-deleteAttributes =
-  DeleteAttributes' {_daCluster = Nothing, _daAttributes = mempty}
+mkDeleteAttributes =
+  DeleteAttributes'
+    { cluster = Lude.Nothing,
+      attributes = Lude.mempty
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
-daCluster :: Lens' DeleteAttributes (Maybe Text)
-daCluster = lens _daCluster (\s a -> s {_daCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daCluster :: Lens.Lens' DeleteAttributes (Lude.Maybe Lude.Text)
+daCluster = Lens.lens (cluster :: DeleteAttributes -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DeleteAttributes)
+{-# DEPRECATED daCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
-daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\s a -> s {_daAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAttributes :: Lens.Lens' DeleteAttributes [Attribute]
+daAttributes = Lens.lens (attributes :: DeleteAttributes -> [Attribute]) (\s a -> s {attributes = a} :: DeleteAttributes)
+{-# DEPRECATED daAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest DeleteAttributes where
+instance Lude.AWSRequest DeleteAttributes where
   type Rs DeleteAttributes = DeleteAttributesResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteAttributesResponse'
-            <$> (x .?> "attributes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteAttributes
-
-instance NFData DeleteAttributes
-
-instance ToHeaders DeleteAttributes where
+instance Lude.ToHeaders DeleteAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.DeleteAttributes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAttributes where
+instance Lude.ToJSON DeleteAttributes where
   toJSON DeleteAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("cluster" .=) <$> _daCluster,
-            Just ("attributes" .= _daAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("attributes" Lude..= attributes)
           ]
       )
 
-instance ToPath DeleteAttributes where
-  toPath = const "/"
+instance Lude.ToPath DeleteAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAttributesResponse' smart constructor.
+-- | /See:/ 'mkDeleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
-  { _darsAttributes ::
-      !(Maybe [Attribute]),
-    _darsResponseStatus :: !Int
+  { attributes ::
+      Lude.Maybe [Attribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsAttributes' - A list of attribute objects that were successfully deleted from your resource.
---
--- * 'darsResponseStatus' - -- | The response status code.
-deleteAttributesResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'attributes' - A list of attribute objects that were successfully deleted from your resource.
+-- * 'responseStatus' - The response status code.
+mkDeleteAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAttributesResponse
-deleteAttributesResponse pResponseStatus_ =
+mkDeleteAttributesResponse pResponseStatus_ =
   DeleteAttributesResponse'
-    { _darsAttributes = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of attribute objects that were successfully deleted from your resource.
-darsAttributes :: Lens' DeleteAttributesResponse [Attribute]
-darsAttributes = lens _darsAttributes (\s a -> s {_darsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAttributes :: Lens.Lens' DeleteAttributesResponse (Lude.Maybe [Attribute])
+darsAttributes = Lens.lens (attributes :: DeleteAttributesResponse -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: DeleteAttributesResponse)
+{-# DEPRECATED darsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteAttributesResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DeleteAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DeleteAttributesResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAttributesResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

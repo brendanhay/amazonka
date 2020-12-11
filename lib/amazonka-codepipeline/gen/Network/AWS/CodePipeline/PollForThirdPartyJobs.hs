@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,155 @@
 --
 -- Determines whether there are any third party jobs for a job worker to act on. Used for partner actions only.
 --
---
 -- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
-  ( -- * Creating a Request
-    pollForThirdPartyJobs,
-    PollForThirdPartyJobs,
+  ( -- * Creating a request
+    PollForThirdPartyJobs (..),
+    mkPollForThirdPartyJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pftpjMaxBatchSize,
     pftpjActionTypeId,
 
-    -- * Destructuring the Response
-    pollForThirdPartyJobsResponse,
-    PollForThirdPartyJobsResponse,
+    -- * Destructuring the response
+    PollForThirdPartyJobsResponse (..),
+    mkPollForThirdPartyJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pftpjrsJobs,
     pftpjrsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @PollForThirdPartyJobs@ action.
 --
---
---
--- /See:/ 'pollForThirdPartyJobs' smart constructor.
+-- /See:/ 'mkPollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-  { _pftpjMaxBatchSize ::
-      !(Maybe Nat),
-    _pftpjActionTypeId :: !ActionTypeId
+  { maxBatchSize ::
+      Lude.Maybe Lude.Natural,
+    actionTypeId :: ActionTypeId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForThirdPartyJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pftpjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
---
--- * 'pftpjActionTypeId' - Represents information about an action type.
-pollForThirdPartyJobs ::
-  -- | 'pftpjActionTypeId'
+-- * 'actionTypeId' - Represents information about an action type.
+-- * 'maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
+mkPollForThirdPartyJobs ::
+  -- | 'actionTypeId'
   ActionTypeId ->
   PollForThirdPartyJobs
-pollForThirdPartyJobs pActionTypeId_ =
+mkPollForThirdPartyJobs pActionTypeId_ =
   PollForThirdPartyJobs'
-    { _pftpjMaxBatchSize = Nothing,
-      _pftpjActionTypeId = pActionTypeId_
+    { maxBatchSize = Lude.Nothing,
+      actionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
-pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\s a -> s {_pftpjMaxBatchSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxBatchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftpjMaxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Lude.Maybe Lude.Natural)
+pftpjMaxBatchSize = Lens.lens (maxBatchSize :: PollForThirdPartyJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxBatchSize = a} :: PollForThirdPartyJobs)
+{-# DEPRECATED pftpjMaxBatchSize "Use generic-lens or generic-optics with 'maxBatchSize' instead." #-}
 
 -- | Represents information about an action type.
-pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
-pftpjActionTypeId = lens _pftpjActionTypeId (\s a -> s {_pftpjActionTypeId = a})
+--
+-- /Note:/ Consider using 'actionTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftpjActionTypeId :: Lens.Lens' PollForThirdPartyJobs ActionTypeId
+pftpjActionTypeId = Lens.lens (actionTypeId :: PollForThirdPartyJobs -> ActionTypeId) (\s a -> s {actionTypeId = a} :: PollForThirdPartyJobs)
+{-# DEPRECATED pftpjActionTypeId "Use generic-lens or generic-optics with 'actionTypeId' instead." #-}
 
-instance AWSRequest PollForThirdPartyJobs where
+instance Lude.AWSRequest PollForThirdPartyJobs where
   type Rs PollForThirdPartyJobs = PollForThirdPartyJobsResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PollForThirdPartyJobsResponse'
-            <$> (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PollForThirdPartyJobs
-
-instance NFData PollForThirdPartyJobs
-
-instance ToHeaders PollForThirdPartyJobs where
+instance Lude.ToHeaders PollForThirdPartyJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.PollForThirdPartyJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.PollForThirdPartyJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PollForThirdPartyJobs where
+instance Lude.ToJSON PollForThirdPartyJobs where
   toJSON PollForThirdPartyJobs' {..} =
-    object
-      ( catMaybes
-          [ ("maxBatchSize" .=) <$> _pftpjMaxBatchSize,
-            Just ("actionTypeId" .= _pftpjActionTypeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maxBatchSize" Lude..=) Lude.<$> maxBatchSize,
+            Lude.Just ("actionTypeId" Lude..= actionTypeId)
           ]
       )
 
-instance ToPath PollForThirdPartyJobs where
-  toPath = const "/"
+instance Lude.ToPath PollForThirdPartyJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery PollForThirdPartyJobs where
-  toQuery = const mempty
+instance Lude.ToQuery PollForThirdPartyJobs where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @PollForThirdPartyJobs@ action.
 --
---
---
--- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
+-- /See:/ 'mkPollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-  { _pftpjrsJobs ::
-      !(Maybe [ThirdPartyJob]),
-    _pftpjrsResponseStatus :: !Int
+  { jobs ::
+      Lude.Maybe [ThirdPartyJob],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pftpjrsJobs' - Information about the jobs to take action on.
---
--- * 'pftpjrsResponseStatus' - -- | The response status code.
-pollForThirdPartyJobsResponse ::
-  -- | 'pftpjrsResponseStatus'
-  Int ->
+-- * 'jobs' - Information about the jobs to take action on.
+-- * 'responseStatus' - The response status code.
+mkPollForThirdPartyJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PollForThirdPartyJobsResponse
-pollForThirdPartyJobsResponse pResponseStatus_ =
+mkPollForThirdPartyJobsResponse pResponseStatus_ =
   PollForThirdPartyJobsResponse'
-    { _pftpjrsJobs = Nothing,
-      _pftpjrsResponseStatus = pResponseStatus_
+    { jobs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs to take action on.
-pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
-pftpjrsJobs = lens _pftpjrsJobs (\s a -> s {_pftpjrsJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftpjrsJobs :: Lens.Lens' PollForThirdPartyJobsResponse (Lude.Maybe [ThirdPartyJob])
+pftpjrsJobs = Lens.lens (jobs :: PollForThirdPartyJobsResponse -> Lude.Maybe [ThirdPartyJob]) (\s a -> s {jobs = a} :: PollForThirdPartyJobsResponse)
+{-# DEPRECATED pftpjrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
--- | -- | The response status code.
-pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
-pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\s a -> s {_pftpjrsResponseStatus = a})
-
-instance NFData PollForThirdPartyJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftpjrsResponseStatus :: Lens.Lens' PollForThirdPartyJobsResponse Lude.Int
+pftpjrsResponseStatus = Lens.lens (responseStatus :: PollForThirdPartyJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForThirdPartyJobsResponse)
+{-# DEPRECATED pftpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.AccessLogSettings where
+module Network.AWS.APIGateway.Types.AccessLogSettings
+  ( AccessLogSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccessLogSettings,
+
+    -- * Lenses
+    alsFormat,
+    alsDestinationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Access log settings, including the access log format and access log destination ARN.
 --
---
---
--- /See:/ 'accessLogSettings' smart constructor.
+-- /See:/ 'mkAccessLogSettings' smart constructor.
 data AccessLogSettings = AccessLogSettings'
-  { _alsFormat ::
-      !(Maybe Text),
-    _alsDestinationARN :: !(Maybe Text)
+  { format ::
+      Lude.Maybe Lude.Text,
+    destinationARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessLogSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'alsFormat' - A single line format of the access logs of data, as specified by selected <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference > context variables> . The format must include at least @> context.requestId@ .
---
--- * 'alsDestinationARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
-accessLogSettings ::
+-- * 'destinationARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
+-- * 'format' - A single line format of the access logs of data, as specified by selected <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference > context variables> . The format must include at least @> context.requestId@ .
+mkAccessLogSettings ::
   AccessLogSettings
-accessLogSettings =
+mkAccessLogSettings =
   AccessLogSettings'
-    { _alsFormat = Nothing,
-      _alsDestinationARN = Nothing
+    { format = Lude.Nothing,
+      destinationARN = Lude.Nothing
     }
 
 -- | A single line format of the access logs of data, as specified by selected <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference > context variables> . The format must include at least @> context.requestId@ .
-alsFormat :: Lens' AccessLogSettings (Maybe Text)
-alsFormat = lens _alsFormat (\s a -> s {_alsFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alsFormat :: Lens.Lens' AccessLogSettings (Lude.Maybe Lude.Text)
+alsFormat = Lens.lens (format :: AccessLogSettings -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: AccessLogSettings)
+{-# DEPRECATED alsFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
-alsDestinationARN :: Lens' AccessLogSettings (Maybe Text)
-alsDestinationARN = lens _alsDestinationARN (\s a -> s {_alsDestinationARN = a})
+--
+-- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alsDestinationARN :: Lens.Lens' AccessLogSettings (Lude.Maybe Lude.Text)
+alsDestinationARN = Lens.lens (destinationARN :: AccessLogSettings -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: AccessLogSettings)
+{-# DEPRECATED alsDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
 
-instance FromJSON AccessLogSettings where
+instance Lude.FromJSON AccessLogSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            <$> (x .:? "format") <*> (x .:? "destinationArn")
+            Lude.<$> (x Lude..:? "format") Lude.<*> (x Lude..:? "destinationArn")
       )
-
-instance Hashable AccessLogSettings
-
-instance NFData AccessLogSettings

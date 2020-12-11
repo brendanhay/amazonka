@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,93 @@
 --
 -- Deletes a specified stack. You must first delete all instances, layers, and apps or deregister registered instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Down a Stack> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeleteStack
-  ( -- * Creating a Request
-    deleteStack,
-    DeleteStack,
+  ( -- * Creating a request
+    DeleteStack (..),
+    mkDeleteStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsStackId,
 
-    -- * Destructuring the Response
-    deleteStackResponse,
-    DeleteStackResponse,
+    -- * Destructuring the response
+    DeleteStackResponse (..),
+    mkDeleteStackResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteStack' smart constructor.
-newtype DeleteStack = DeleteStack' {_dsStackId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteStack' smart constructor.
+newtype DeleteStack = DeleteStack' {stackId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsStackId' - The stack ID.
-deleteStack ::
-  -- | 'dsStackId'
-  Text ->
+-- * 'stackId' - The stack ID.
+mkDeleteStack ::
+  -- | 'stackId'
+  Lude.Text ->
   DeleteStack
-deleteStack pStackId_ = DeleteStack' {_dsStackId = pStackId_}
+mkDeleteStack pStackId_ = DeleteStack' {stackId = pStackId_}
 
 -- | The stack ID.
-dsStackId :: Lens' DeleteStack Text
-dsStackId = lens _dsStackId (\s a -> s {_dsStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStackId :: Lens.Lens' DeleteStack Lude.Text
+dsStackId = Lens.lens (stackId :: DeleteStack -> Lude.Text) (\s a -> s {stackId = a} :: DeleteStack)
+{-# DEPRECATED dsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DeleteStack where
+instance Lude.AWSRequest DeleteStack where
   type Rs DeleteStack = DeleteStackResponse
-  request = postJSON opsWorks
-  response = receiveNull DeleteStackResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeleteStackResponse'
 
-instance Hashable DeleteStack
-
-instance NFData DeleteStack
-
-instance ToHeaders DeleteStack where
+instance Lude.ToHeaders DeleteStack where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.DeleteStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.DeleteStack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteStack where
+instance Lude.ToJSON DeleteStack where
   toJSON DeleteStack' {..} =
-    object (catMaybes [Just ("StackId" .= _dsStackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
 
-instance ToPath DeleteStack where
-  toPath = const "/"
+instance Lude.ToPath DeleteStack where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteStack where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteStackResponse' smart constructor.
+-- | /See:/ 'mkDeleteStackResponse' smart constructor.
 data DeleteStackResponse = DeleteStackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
-deleteStackResponse ::
+mkDeleteStackResponse ::
   DeleteStackResponse
-deleteStackResponse = DeleteStackResponse'
-
-instance NFData DeleteStackResponse
+mkDeleteStackResponse = DeleteStackResponse'

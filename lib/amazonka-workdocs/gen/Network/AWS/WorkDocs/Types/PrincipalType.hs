@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.PrincipalType where
+module Network.AWS.WorkDocs.Types.PrincipalType
+  ( PrincipalType
+      ( PrincipalType',
+        Anonymous,
+        Group,
+        Invite,
+        Organization,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PrincipalType
-  = Anonymous
-  | Group
-  | Invite
-  | Organization
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PrincipalType = PrincipalType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PrincipalType where
-  parser =
-    takeLowerText >>= \case
-      "anonymous" -> pure Anonymous
-      "group" -> pure Group
-      "invite" -> pure Invite
-      "organization" -> pure Organization
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing PrincipalType from value: '" <> e
-            <> "'. Accepted values: anonymous, group, invite, organization, user"
+pattern Anonymous :: PrincipalType
+pattern Anonymous = PrincipalType' "ANONYMOUS"
 
-instance ToText PrincipalType where
-  toText = \case
-    Anonymous -> "ANONYMOUS"
-    Group -> "GROUP"
-    Invite -> "INVITE"
-    Organization -> "ORGANIZATION"
-    User -> "USER"
+pattern Group :: PrincipalType
+pattern Group = PrincipalType' "GROUP"
 
-instance Hashable PrincipalType
+pattern Invite :: PrincipalType
+pattern Invite = PrincipalType' "INVITE"
 
-instance NFData PrincipalType
+pattern Organization :: PrincipalType
+pattern Organization = PrincipalType' "ORGANIZATION"
 
-instance ToByteString PrincipalType
+pattern User :: PrincipalType
+pattern User = PrincipalType' "USER"
 
-instance ToQuery PrincipalType
-
-instance ToHeader PrincipalType
-
-instance ToJSON PrincipalType where
-  toJSON = toJSONText
-
-instance FromJSON PrincipalType where
-  parseJSON = parseJSONText "PrincipalType"
+{-# COMPLETE
+  Anonymous,
+  Group,
+  Invite,
+  Organization,
+  User,
+  PrincipalType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse where
+module Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse
+  ( JourneyExecutionMetricsResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJourneyExecutionMetricsResponse,
+
+    -- * Lenses
+    jemMetrics,
+    jemJourneyId,
+    jemLastEvaluatedTime,
+    jemApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.
 --
---
---
--- /See:/ 'journeyExecutionMetricsResponse' smart constructor.
+-- /See:/ 'mkJourneyExecutionMetricsResponse' smart constructor.
 data JourneyExecutionMetricsResponse = JourneyExecutionMetricsResponse'
-  { _jemMetrics ::
-      !(Map Text (Text)),
-    _jemJourneyId :: !Text,
-    _jemLastEvaluatedTime ::
-      !Text,
-    _jemApplicationId :: !Text
+  { metrics ::
+      Lude.HashMap
+        Lude.Text
+        (Lude.Text),
+    journeyId :: Lude.Text,
+    lastEvaluatedTime ::
+      Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyExecutionMetricsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jemMetrics' - A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
---
--- * 'jemJourneyId' - The unique identifier for the journey that the metric applies to.
---
--- * 'jemLastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
---
--- * 'jemApplicationId' - The unique identifier for the application that the metric applies to.
-journeyExecutionMetricsResponse ::
-  -- | 'jemJourneyId'
-  Text ->
-  -- | 'jemLastEvaluatedTime'
-  Text ->
-  -- | 'jemApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that the metric applies to.
+-- * 'journeyId' - The unique identifier for the journey that the metric applies to.
+-- * 'lastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
+-- * 'metrics' - A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+mkJourneyExecutionMetricsResponse ::
+  -- | 'journeyId'
+  Lude.Text ->
+  -- | 'lastEvaluatedTime'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   JourneyExecutionMetricsResponse
-journeyExecutionMetricsResponse
+mkJourneyExecutionMetricsResponse
   pJourneyId_
   pLastEvaluatedTime_
   pApplicationId_ =
     JourneyExecutionMetricsResponse'
-      { _jemMetrics = mempty,
-        _jemJourneyId = pJourneyId_,
-        _jemLastEvaluatedTime = pLastEvaluatedTime_,
-        _jemApplicationId = pApplicationId_
+      { metrics = Lude.mempty,
+        journeyId = pJourneyId_,
+        lastEvaluatedTime = pLastEvaluatedTime_,
+        applicationId = pApplicationId_
       }
 
 -- | A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-jemMetrics :: Lens' JourneyExecutionMetricsResponse (HashMap Text (Text))
-jemMetrics = lens _jemMetrics (\s a -> s {_jemMetrics = a}) . _Map
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemMetrics :: Lens.Lens' JourneyExecutionMetricsResponse (Lude.HashMap Lude.Text (Lude.Text))
+jemMetrics = Lens.lens (metrics :: JourneyExecutionMetricsResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metrics = a} :: JourneyExecutionMetricsResponse)
+{-# DEPRECATED jemMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The unique identifier for the journey that the metric applies to.
-jemJourneyId :: Lens' JourneyExecutionMetricsResponse Text
-jemJourneyId = lens _jemJourneyId (\s a -> s {_jemJourneyId = a})
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemJourneyId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
+jemJourneyId = Lens.lens (journeyId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyExecutionMetricsResponse)
+{-# DEPRECATED jemJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
-jemLastEvaluatedTime :: Lens' JourneyExecutionMetricsResponse Text
-jemLastEvaluatedTime = lens _jemLastEvaluatedTime (\s a -> s {_jemLastEvaluatedTime = a})
+--
+-- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemLastEvaluatedTime :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
+jemLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {lastEvaluatedTime = a} :: JourneyExecutionMetricsResponse)
+{-# DEPRECATED jemLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
 
 -- | The unique identifier for the application that the metric applies to.
-jemApplicationId :: Lens' JourneyExecutionMetricsResponse Text
-jemApplicationId = lens _jemApplicationId (\s a -> s {_jemApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemApplicationId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
+jemApplicationId = Lens.lens (applicationId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {applicationId = a} :: JourneyExecutionMetricsResponse)
+{-# DEPRECATED jemApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON JourneyExecutionMetricsResponse where
+instance Lude.FromJSON JourneyExecutionMetricsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyExecutionMetricsResponse"
       ( \x ->
           JourneyExecutionMetricsResponse'
-            <$> (x .:? "Metrics" .!= mempty)
-            <*> (x .: "JourneyId")
-            <*> (x .: "LastEvaluatedTime")
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "JourneyId")
+            Lude.<*> (x Lude..: "LastEvaluatedTime")
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable JourneyExecutionMetricsResponse
-
-instance NFData JourneyExecutionMetricsResponse

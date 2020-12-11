@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,124 @@
 --
 -- Gets room details by room ARN.
 module Network.AWS.AlexaBusiness.GetRoom
-  ( -- * Creating a Request
-    getRoom,
-    GetRoom,
+  ( -- * Creating a request
+    GetRoom (..),
+    mkGetRoom,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grRoomARN,
 
-    -- * Destructuring the Response
-    getRoomResponse,
-    GetRoomResponse,
+    -- * Destructuring the response
+    GetRoomResponse (..),
+    mkGetRoomResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsRoom,
     grrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRoom' smart constructor.
-newtype GetRoom = GetRoom' {_grRoomARN :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetRoom' smart constructor.
+newtype GetRoom = GetRoom' {roomARN :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRoom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grRoomARN' - The ARN of the room for which to request details. Required.
-getRoom ::
+-- * 'roomARN' - The ARN of the room for which to request details. Required.
+mkGetRoom ::
   GetRoom
-getRoom = GetRoom' {_grRoomARN = Nothing}
+mkGetRoom = GetRoom' {roomARN = Lude.Nothing}
 
 -- | The ARN of the room for which to request details. Required.
-grRoomARN :: Lens' GetRoom (Maybe Text)
-grRoomARN = lens _grRoomARN (\s a -> s {_grRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grRoomARN :: Lens.Lens' GetRoom (Lude.Maybe Lude.Text)
+grRoomARN = Lens.lens (roomARN :: GetRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: GetRoom)
+{-# DEPRECATED grRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
-instance AWSRequest GetRoom where
+instance Lude.AWSRequest GetRoom where
   type Rs GetRoom = GetRoomResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetRoomResponse' <$> (x .?> "Room") <*> (pure (fromEnum s))
+          GetRoomResponse'
+            Lude.<$> (x Lude..?> "Room") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRoom
-
-instance NFData GetRoom
-
-instance ToHeaders GetRoom where
+instance Lude.ToHeaders GetRoom where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.GetRoom" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.GetRoom" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRoom where
+instance Lude.ToJSON GetRoom where
   toJSON GetRoom' {..} =
-    object (catMaybes [("RoomArn" .=) <$> _grRoomARN])
+    Lude.object
+      (Lude.catMaybes [("RoomArn" Lude..=) Lude.<$> roomARN])
 
-instance ToPath GetRoom where
-  toPath = const "/"
+instance Lude.ToPath GetRoom where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRoom where
-  toQuery = const mempty
+instance Lude.ToQuery GetRoom where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRoomResponse' smart constructor.
+-- | /See:/ 'mkGetRoomResponse' smart constructor.
 data GetRoomResponse = GetRoomResponse'
-  { _grrsRoom :: !(Maybe Room),
-    _grrsResponseStatus :: !Int
+  { room :: Lude.Maybe Room,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRoomResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsRoom' - The details of the room requested.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-getRoomResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'room' - The details of the room requested.
+mkGetRoomResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRoomResponse
-getRoomResponse pResponseStatus_ =
+mkGetRoomResponse pResponseStatus_ =
   GetRoomResponse'
-    { _grrsRoom = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { room = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the room requested.
-grrsRoom :: Lens' GetRoomResponse (Maybe Room)
-grrsRoom = lens _grrsRoom (\s a -> s {_grrsRoom = a})
+--
+-- /Note:/ Consider using 'room' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRoom :: Lens.Lens' GetRoomResponse (Lude.Maybe Room)
+grrsRoom = Lens.lens (room :: GetRoomResponse -> Lude.Maybe Room) (\s a -> s {room = a} :: GetRoomResponse)
+{-# DEPRECATED grrsRoom "Use generic-lens or generic-optics with 'room' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRoomResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GetRoomResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetRoomResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRoomResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

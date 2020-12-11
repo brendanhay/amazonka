@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditCheckConfiguration where
+module Network.AWS.IoT.Types.AuditCheckConfiguration
+  ( AuditCheckConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAuditCheckConfiguration,
+
+    -- * Lenses
+    accEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Which audit checks are enabled and disabled for this account.
 --
---
---
--- /See:/ 'auditCheckConfiguration' smart constructor.
+-- /See:/ 'mkAuditCheckConfiguration' smart constructor.
 newtype AuditCheckConfiguration = AuditCheckConfiguration'
-  { _accEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditCheckConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'accEnabled' - True if this audit check is enabled for this account.
-auditCheckConfiguration ::
+-- * 'enabled' - True if this audit check is enabled for this account.
+mkAuditCheckConfiguration ::
   AuditCheckConfiguration
-auditCheckConfiguration =
-  AuditCheckConfiguration' {_accEnabled = Nothing}
+mkAuditCheckConfiguration =
+  AuditCheckConfiguration' {enabled = Lude.Nothing}
 
 -- | True if this audit check is enabled for this account.
-accEnabled :: Lens' AuditCheckConfiguration (Maybe Bool)
-accEnabled = lens _accEnabled (\s a -> s {_accEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+accEnabled :: Lens.Lens' AuditCheckConfiguration (Lude.Maybe Lude.Bool)
+accEnabled = Lens.lens (enabled :: AuditCheckConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AuditCheckConfiguration)
+{-# DEPRECATED accEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromJSON AuditCheckConfiguration where
+instance Lude.FromJSON AuditCheckConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditCheckConfiguration"
-      (\x -> AuditCheckConfiguration' <$> (x .:? "enabled"))
+      (\x -> AuditCheckConfiguration' Lude.<$> (x Lude..:? "enabled"))
 
-instance Hashable AuditCheckConfiguration
-
-instance NFData AuditCheckConfiguration
-
-instance ToJSON AuditCheckConfiguration where
+instance Lude.ToJSON AuditCheckConfiguration where
   toJSON AuditCheckConfiguration' {..} =
-    object (catMaybes [("enabled" .=) <$> _accEnabled])
+    Lude.object
+      (Lude.catMaybes [("enabled" Lude..=) Lude.<$> enabled])

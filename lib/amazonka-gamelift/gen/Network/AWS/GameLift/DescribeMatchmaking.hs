@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,156 @@
 --
 -- Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information, including--after a successful match is made--connection information for the resulting new game session.
 --
---
 -- To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request is successful, a ticket object is returned for each requested ID that currently exists.
---
 -- This operation is not designed to be continually called to track matchmaking ticket status. This practice can cause you to exceed your API limit, which results in errors. Instead, as a best practice, set up an Amazon Simple Notification Service (SNS) to receive notifications, and provide the topic ARN in the matchmaking configuration. Continuously poling ticket status with 'DescribeMatchmaking' should only be used for games in development with low matchmaking usage.
 --
---
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a Game Client>
---
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Set Up FlexMatch Event Notification>
---
 -- __Related operations__
 --
 --     * 'StartMatchmaking'
 --
+--
 --     * 'DescribeMatchmaking'
+--
 --
 --     * 'StopMatchmaking'
 --
+--
 --     * 'AcceptMatch'
+--
 --
 --     * 'StartMatchBackfill'
 module Network.AWS.GameLift.DescribeMatchmaking
-  ( -- * Creating a Request
-    describeMatchmaking,
-    DescribeMatchmaking,
+  ( -- * Creating a request
+    DescribeMatchmaking (..),
+    mkDescribeMatchmaking,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmTicketIds,
 
-    -- * Destructuring the Response
-    describeMatchmakingResponse,
-    DescribeMatchmakingResponse,
+    -- * Destructuring the response
+    DescribeMatchmakingResponse (..),
+    mkDescribeMatchmakingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmrsTicketList,
     dmrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeMatchmaking' smart constructor.
+-- /See:/ 'mkDescribeMatchmaking' smart constructor.
 newtype DescribeMatchmaking = DescribeMatchmaking'
-  { _dmTicketIds ::
-      [Text]
+  { ticketIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmaking' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmTicketIds' - A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
-describeMatchmaking ::
+-- * 'ticketIds' - A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
+mkDescribeMatchmaking ::
   DescribeMatchmaking
-describeMatchmaking = DescribeMatchmaking' {_dmTicketIds = mempty}
+mkDescribeMatchmaking =
+  DescribeMatchmaking' {ticketIds = Lude.mempty}
 
 -- | A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
-dmTicketIds :: Lens' DescribeMatchmaking [Text]
-dmTicketIds = lens _dmTicketIds (\s a -> s {_dmTicketIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ticketIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmTicketIds :: Lens.Lens' DescribeMatchmaking [Lude.Text]
+dmTicketIds = Lens.lens (ticketIds :: DescribeMatchmaking -> [Lude.Text]) (\s a -> s {ticketIds = a} :: DescribeMatchmaking)
+{-# DEPRECATED dmTicketIds "Use generic-lens or generic-optics with 'ticketIds' instead." #-}
 
-instance AWSRequest DescribeMatchmaking where
+instance Lude.AWSRequest DescribeMatchmaking where
   type Rs DescribeMatchmaking = DescribeMatchmakingResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMatchmakingResponse'
-            <$> (x .?> "TicketList" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TicketList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMatchmaking
-
-instance NFData DescribeMatchmaking
-
-instance ToHeaders DescribeMatchmaking where
+instance Lude.ToHeaders DescribeMatchmaking where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DescribeMatchmaking" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DescribeMatchmaking" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMatchmaking where
+instance Lude.ToJSON DescribeMatchmaking where
   toJSON DescribeMatchmaking' {..} =
-    object (catMaybes [Just ("TicketIds" .= _dmTicketIds)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TicketIds" Lude..= ticketIds)])
 
-instance ToPath DescribeMatchmaking where
-  toPath = const "/"
+instance Lude.ToPath DescribeMatchmaking where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMatchmaking where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMatchmaking where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeMatchmakingResponse' smart constructor.
+-- /See:/ 'mkDescribeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
-  { _dmrsTicketList ::
-      !(Maybe [MatchmakingTicket]),
-    _dmrsResponseStatus :: !Int
+  { ticketList ::
+      Lude.Maybe [MatchmakingTicket],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmrsTicketList' - A collection of existing matchmaking ticket objects matching the request.
---
--- * 'dmrsResponseStatus' - -- | The response status code.
-describeMatchmakingResponse ::
-  -- | 'dmrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'ticketList' - A collection of existing matchmaking ticket objects matching the request.
+mkDescribeMatchmakingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMatchmakingResponse
-describeMatchmakingResponse pResponseStatus_ =
+mkDescribeMatchmakingResponse pResponseStatus_ =
   DescribeMatchmakingResponse'
-    { _dmrsTicketList = Nothing,
-      _dmrsResponseStatus = pResponseStatus_
+    { ticketList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of existing matchmaking ticket objects matching the request.
-dmrsTicketList :: Lens' DescribeMatchmakingResponse [MatchmakingTicket]
-dmrsTicketList = lens _dmrsTicketList (\s a -> s {_dmrsTicketList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ticketList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsTicketList :: Lens.Lens' DescribeMatchmakingResponse (Lude.Maybe [MatchmakingTicket])
+dmrsTicketList = Lens.lens (ticketList :: DescribeMatchmakingResponse -> Lude.Maybe [MatchmakingTicket]) (\s a -> s {ticketList = a} :: DescribeMatchmakingResponse)
+{-# DEPRECATED dmrsTicketList "Use generic-lens or generic-optics with 'ticketList' instead." #-}
 
--- | -- | The response status code.
-dmrsResponseStatus :: Lens' DescribeMatchmakingResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\s a -> s {_dmrsResponseStatus = a})
-
-instance NFData DescribeMatchmakingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsResponseStatus :: Lens.Lens' DescribeMatchmakingResponse Lude.Int
+dmrsResponseStatus = Lens.lens (responseStatus :: DescribeMatchmakingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMatchmakingResponse)
+{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

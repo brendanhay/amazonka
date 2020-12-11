@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.SourceIPConditionConfig where
+module Network.AWS.ELBv2.Types.SourceIPConditionConfig
+  ( SourceIPConditionConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceIPConditionConfig,
+
+    -- * Lenses
+    siccValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a source IP condition.
 --
---
 -- You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 --
---
--- /See:/ 'sourceIPConditionConfig' smart constructor.
+-- /See:/ 'mkSourceIPConditionConfig' smart constructor.
 newtype SourceIPConditionConfig = SourceIPConditionConfig'
-  { _siccValues ::
-      Maybe [Text]
+  { values ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceIPConditionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'values' - One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 --
--- * 'siccValues' - One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use 'HttpHeaderConditionConfig' .
-sourceIPConditionConfig ::
+-- If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use 'HttpHeaderConditionConfig' .
+mkSourceIPConditionConfig ::
   SourceIPConditionConfig
-sourceIPConditionConfig =
-  SourceIPConditionConfig' {_siccValues = Nothing}
+mkSourceIPConditionConfig =
+  SourceIPConditionConfig' {values = Lude.Nothing}
 
--- | One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use 'HttpHeaderConditionConfig' .
-siccValues :: Lens' SourceIPConditionConfig [Text]
-siccValues = lens _siccValues (\s a -> s {_siccValues = a}) . _Default . _Coerce
+-- | One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+--
+-- If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use 'HttpHeaderConditionConfig' .
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siccValues :: Lens.Lens' SourceIPConditionConfig (Lude.Maybe [Lude.Text])
+siccValues = Lens.lens (values :: SourceIPConditionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: SourceIPConditionConfig)
+{-# DEPRECATED siccValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromXML SourceIPConditionConfig where
+instance Lude.FromXML SourceIPConditionConfig where
   parseXML x =
     SourceIPConditionConfig'
-      <$> (x .@? "Values" .!@ mempty >>= may (parseXMLList "member"))
+      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
 
-instance Hashable SourceIPConditionConfig
-
-instance NFData SourceIPConditionConfig
-
-instance ToQuery SourceIPConditionConfig where
+instance Lude.ToQuery SourceIPConditionConfig where
   toQuery SourceIPConditionConfig' {..} =
-    mconcat
-      ["Values" =: toQuery (toQueryList "member" <$> _siccValues)]
+    Lude.mconcat
+      [ "Values"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values)
+      ]

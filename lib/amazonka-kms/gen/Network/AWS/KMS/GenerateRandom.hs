@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,151 @@
 --
 -- Returns a random byte string that is cryptographically secure.
 --
---
 -- By default, the random byte string is generated in AWS KMS. To generate the byte string in the AWS CloudHSM cluster that is associated with a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , specify the custom key store ID.
---
 -- For more information about entropy and random number generation, see the <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details> whitepaper.
 module Network.AWS.KMS.GenerateRandom
-  ( -- * Creating a Request
-    generateRandom,
-    GenerateRandom,
+  ( -- * Creating a request
+    GenerateRandom (..),
+    mkGenerateRandom,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grNumberOfBytes,
     grCustomKeyStoreId,
 
-    -- * Destructuring the Response
-    generateRandomResponse,
-    GenerateRandomResponse,
+    -- * Destructuring the response
+    GenerateRandomResponse (..),
+    mkGenerateRandomResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsPlaintext,
     grrsResponseStatus,
   )
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'generateRandom' smart constructor.
+-- | /See:/ 'mkGenerateRandom' smart constructor.
 data GenerateRandom = GenerateRandom'
-  { _grNumberOfBytes ::
-      !(Maybe Nat),
-    _grCustomKeyStoreId :: !(Maybe Text)
+  { numberOfBytes ::
+      Lude.Maybe Lude.Natural,
+    customKeyStoreId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateRandom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grNumberOfBytes' - The length of the byte string.
---
--- * 'grCustomKeyStoreId' - Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> . To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-generateRandom ::
+-- * 'customKeyStoreId' - Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> . To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+-- * 'numberOfBytes' - The length of the byte string.
+mkGenerateRandom ::
   GenerateRandom
-generateRandom =
+mkGenerateRandom =
   GenerateRandom'
-    { _grNumberOfBytes = Nothing,
-      _grCustomKeyStoreId = Nothing
+    { numberOfBytes = Lude.Nothing,
+      customKeyStoreId = Lude.Nothing
     }
 
 -- | The length of the byte string.
-grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grNumberOfBytes = lens _grNumberOfBytes (\s a -> s {_grNumberOfBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grNumberOfBytes :: Lens.Lens' GenerateRandom (Lude.Maybe Lude.Natural)
+grNumberOfBytes = Lens.lens (numberOfBytes :: GenerateRandom -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfBytes = a} :: GenerateRandom)
+{-# DEPRECATED grNumberOfBytes "Use generic-lens or generic-optics with 'numberOfBytes' instead." #-}
 
 -- | Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> . To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-grCustomKeyStoreId :: Lens' GenerateRandom (Maybe Text)
-grCustomKeyStoreId = lens _grCustomKeyStoreId (\s a -> s {_grCustomKeyStoreId = a})
+--
+-- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grCustomKeyStoreId :: Lens.Lens' GenerateRandom (Lude.Maybe Lude.Text)
+grCustomKeyStoreId = Lens.lens (customKeyStoreId :: GenerateRandom -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: GenerateRandom)
+{-# DEPRECATED grCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
-instance AWSRequest GenerateRandom where
+instance Lude.AWSRequest GenerateRandom where
   type Rs GenerateRandom = GenerateRandomResponse
-  request = postJSON kms
+  request = Req.postJSON kmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GenerateRandomResponse'
-            <$> (x .?> "Plaintext") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Plaintext") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GenerateRandom
-
-instance NFData GenerateRandom
-
-instance ToHeaders GenerateRandom where
+instance Lude.ToHeaders GenerateRandom where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("TrentService.GenerateRandom" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("TrentService.GenerateRandom" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GenerateRandom where
+instance Lude.ToJSON GenerateRandom where
   toJSON GenerateRandom' {..} =
-    object
-      ( catMaybes
-          [ ("NumberOfBytes" .=) <$> _grNumberOfBytes,
-            ("CustomKeyStoreId" .=) <$> _grCustomKeyStoreId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NumberOfBytes" Lude..=) Lude.<$> numberOfBytes,
+            ("CustomKeyStoreId" Lude..=) Lude.<$> customKeyStoreId
           ]
       )
 
-instance ToPath GenerateRandom where
-  toPath = const "/"
+instance Lude.ToPath GenerateRandom where
+  toPath = Lude.const "/"
 
-instance ToQuery GenerateRandom where
-  toQuery = const mempty
+instance Lude.ToQuery GenerateRandom where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'generateRandomResponse' smart constructor.
+-- | /See:/ 'mkGenerateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-  { _grrsPlaintext ::
-      !(Maybe (Sensitive Base64)),
-    _grrsResponseStatus :: !Int
+  { plaintext ::
+      Lude.Maybe (Lude.Sensitive Lude.Base64),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsPlaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-generateRandomResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'plaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'responseStatus' - The response status code.
+mkGenerateRandomResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GenerateRandomResponse
-generateRandomResponse pResponseStatus_ =
+mkGenerateRandomResponse pResponseStatus_ =
   GenerateRandomResponse'
-    { _grrsPlaintext = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { plaintext = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
-grrsPlaintext = lens _grrsPlaintext (\s a -> s {_grrsPlaintext = a}) . mapping (_Sensitive . _Base64)
+-- | The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'plaintext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsPlaintext :: Lens.Lens' GenerateRandomResponse (Lude.Maybe (Lude.Sensitive Lude.Base64))
+grrsPlaintext = Lens.lens (plaintext :: GenerateRandomResponse -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {plaintext = a} :: GenerateRandomResponse)
+{-# DEPRECATED grrsPlaintext "Use generic-lens or generic-optics with 'plaintext' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GenerateRandomResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GenerateRandomResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GenerateRandomResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GenerateRandomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateRandomResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

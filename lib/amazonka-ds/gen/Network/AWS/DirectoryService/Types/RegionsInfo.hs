@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.RegionsInfo where
+module Network.AWS.DirectoryService.Types.RegionsInfo
+  ( RegionsInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRegionsInfo,
+
+    -- * Lenses
+    riPrimaryRegion,
+    riAdditionalRegions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the Regions that are configured for multi-Region replication.
 --
---
---
--- /See:/ 'regionsInfo' smart constructor.
+-- /See:/ 'mkRegionsInfo' smart constructor.
 data RegionsInfo = RegionsInfo'
-  { _riPrimaryRegion :: !(Maybe Text),
-    _riAdditionalRegions :: !(Maybe [Text])
+  { primaryRegion ::
+      Lude.Maybe Lude.Text,
+    additionalRegions :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionsInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riPrimaryRegion' - The Region from where the AWS Managed Microsoft AD directory was originally created.
---
--- * 'riAdditionalRegions' - Lists the Regions where the directory has been replicated, excluding the primary Region.
-regionsInfo ::
+-- * 'additionalRegions' - Lists the Regions where the directory has been replicated, excluding the primary Region.
+-- * 'primaryRegion' - The Region from where the AWS Managed Microsoft AD directory was originally created.
+mkRegionsInfo ::
   RegionsInfo
-regionsInfo =
+mkRegionsInfo =
   RegionsInfo'
-    { _riPrimaryRegion = Nothing,
-      _riAdditionalRegions = Nothing
+    { primaryRegion = Lude.Nothing,
+      additionalRegions = Lude.Nothing
     }
 
 -- | The Region from where the AWS Managed Microsoft AD directory was originally created.
-riPrimaryRegion :: Lens' RegionsInfo (Maybe Text)
-riPrimaryRegion = lens _riPrimaryRegion (\s a -> s {_riPrimaryRegion = a})
+--
+-- /Note:/ Consider using 'primaryRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPrimaryRegion :: Lens.Lens' RegionsInfo (Lude.Maybe Lude.Text)
+riPrimaryRegion = Lens.lens (primaryRegion :: RegionsInfo -> Lude.Maybe Lude.Text) (\s a -> s {primaryRegion = a} :: RegionsInfo)
+{-# DEPRECATED riPrimaryRegion "Use generic-lens or generic-optics with 'primaryRegion' instead." #-}
 
 -- | Lists the Regions where the directory has been replicated, excluding the primary Region.
-riAdditionalRegions :: Lens' RegionsInfo [Text]
-riAdditionalRegions = lens _riAdditionalRegions (\s a -> s {_riAdditionalRegions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'additionalRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riAdditionalRegions :: Lens.Lens' RegionsInfo (Lude.Maybe [Lude.Text])
+riAdditionalRegions = Lens.lens (additionalRegions :: RegionsInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {additionalRegions = a} :: RegionsInfo)
+{-# DEPRECATED riAdditionalRegions "Use generic-lens or generic-optics with 'additionalRegions' instead." #-}
 
-instance FromJSON RegionsInfo where
+instance Lude.FromJSON RegionsInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            <$> (x .:? "PrimaryRegion") <*> (x .:? "AdditionalRegions" .!= mempty)
+            Lude.<$> (x Lude..:? "PrimaryRegion")
+            Lude.<*> (x Lude..:? "AdditionalRegions" Lude..!= Lude.mempty)
       )
-
-instance Hashable RegionsInfo
-
-instance NFData RegionsInfo

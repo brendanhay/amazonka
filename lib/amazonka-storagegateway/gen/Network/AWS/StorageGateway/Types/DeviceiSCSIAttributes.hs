@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes where
+module Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
+  ( DeviceiSCSIAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeviceiSCSIAttributes,
+
+    -- * Lenses
+    dscsiaTargetARN,
+    dscsiaChapEnabled,
+    dscsiaNetworkInterfaceId,
+    dscsiaNetworkInterfacePort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Lists iSCSI information about a VTL device.
 --
---
---
--- /See:/ 'deviceiSCSIAttributes' smart constructor.
+-- /See:/ 'mkDeviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-  { _dscsiaTargetARN ::
-      !(Maybe Text),
-    _dscsiaChapEnabled :: !(Maybe Bool),
-    _dscsiaNetworkInterfaceId :: !(Maybe Text),
-    _dscsiaNetworkInterfacePort :: !(Maybe Int)
+  { targetARN ::
+      Lude.Maybe Lude.Text,
+    chapEnabled :: Lude.Maybe Lude.Bool,
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    networkInterfacePort :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceiSCSIAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscsiaTargetARN' - Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
---
--- * 'dscsiaChapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
---
--- * 'dscsiaNetworkInterfaceId' - The network interface identifier of the VTL device.
---
--- * 'dscsiaNetworkInterfacePort' - The port used to communicate with iSCSI VTL device targets.
-deviceiSCSIAttributes ::
+-- * 'chapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
+-- * 'networkInterfaceId' - The network interface identifier of the VTL device.
+-- * 'networkInterfacePort' - The port used to communicate with iSCSI VTL device targets.
+-- * 'targetARN' - Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
+mkDeviceiSCSIAttributes ::
   DeviceiSCSIAttributes
-deviceiSCSIAttributes =
+mkDeviceiSCSIAttributes =
   DeviceiSCSIAttributes'
-    { _dscsiaTargetARN = Nothing,
-      _dscsiaChapEnabled = Nothing,
-      _dscsiaNetworkInterfaceId = Nothing,
-      _dscsiaNetworkInterfacePort = Nothing
+    { targetARN = Lude.Nothing,
+      chapEnabled = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      networkInterfacePort = Lude.Nothing
     }
 
 -- | Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
-dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s {_dscsiaTargetARN = a})
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscsiaTargetARN :: Lens.Lens' DeviceiSCSIAttributes (Lude.Maybe Lude.Text)
+dscsiaTargetARN = Lens.lens (targetARN :: DeviceiSCSIAttributes -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: DeviceiSCSIAttributes)
+{-# DEPRECATED dscsiaTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
-dscsiaChapEnabled :: Lens' DeviceiSCSIAttributes (Maybe Bool)
-dscsiaChapEnabled = lens _dscsiaChapEnabled (\s a -> s {_dscsiaChapEnabled = a})
+--
+-- /Note:/ Consider using 'chapEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscsiaChapEnabled :: Lens.Lens' DeviceiSCSIAttributes (Lude.Maybe Lude.Bool)
+dscsiaChapEnabled = Lens.lens (chapEnabled :: DeviceiSCSIAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {chapEnabled = a} :: DeviceiSCSIAttributes)
+{-# DEPRECATED dscsiaChapEnabled "Use generic-lens or generic-optics with 'chapEnabled' instead." #-}
 
 -- | The network interface identifier of the VTL device.
-dscsiaNetworkInterfaceId :: Lens' DeviceiSCSIAttributes (Maybe Text)
-dscsiaNetworkInterfaceId = lens _dscsiaNetworkInterfaceId (\s a -> s {_dscsiaNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscsiaNetworkInterfaceId :: Lens.Lens' DeviceiSCSIAttributes (Lude.Maybe Lude.Text)
+dscsiaNetworkInterfaceId = Lens.lens (networkInterfaceId :: DeviceiSCSIAttributes -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: DeviceiSCSIAttributes)
+{-# DEPRECATED dscsiaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The port used to communicate with iSCSI VTL device targets.
-dscsiaNetworkInterfacePort :: Lens' DeviceiSCSIAttributes (Maybe Int)
-dscsiaNetworkInterfacePort = lens _dscsiaNetworkInterfacePort (\s a -> s {_dscsiaNetworkInterfacePort = a})
+--
+-- /Note:/ Consider using 'networkInterfacePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscsiaNetworkInterfacePort :: Lens.Lens' DeviceiSCSIAttributes (Lude.Maybe Lude.Int)
+dscsiaNetworkInterfacePort = Lens.lens (networkInterfacePort :: DeviceiSCSIAttributes -> Lude.Maybe Lude.Int) (\s a -> s {networkInterfacePort = a} :: DeviceiSCSIAttributes)
+{-# DEPRECATED dscsiaNetworkInterfacePort "Use generic-lens or generic-optics with 'networkInterfacePort' instead." #-}
 
-instance FromJSON DeviceiSCSIAttributes where
+instance Lude.FromJSON DeviceiSCSIAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceiSCSIAttributes"
       ( \x ->
           DeviceiSCSIAttributes'
-            <$> (x .:? "TargetARN")
-            <*> (x .:? "ChapEnabled")
-            <*> (x .:? "NetworkInterfaceId")
-            <*> (x .:? "NetworkInterfacePort")
+            Lude.<$> (x Lude..:? "TargetARN")
+            Lude.<*> (x Lude..:? "ChapEnabled")
+            Lude.<*> (x Lude..:? "NetworkInterfaceId")
+            Lude.<*> (x Lude..:? "NetworkInterfacePort")
       )
-
-instance Hashable DeviceiSCSIAttributes
-
-instance NFData DeviceiSCSIAttributes

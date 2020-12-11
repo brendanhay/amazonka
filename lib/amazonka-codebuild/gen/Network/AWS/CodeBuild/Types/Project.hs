@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.Project where
+module Network.AWS.CodeBuild.Types.Project
+  ( Project (..),
+
+    -- * Smart constructor
+    mkProject,
+
+    -- * Lenses
+    pSecondaryArtifacts,
+    pArn,
+    pArtifacts,
+    pEnvironment,
+    pCreated,
+    pSecondarySourceVersions,
+    pQueuedTimeoutInMinutes,
+    pCache,
+    pSecondarySources,
+    pSourceVersion,
+    pName,
+    pVpcConfig,
+    pSource,
+    pBadge,
+    pLogsConfig,
+    pFileSystemLocations,
+    pBuildBatchConfig,
+    pEncryptionKey,
+    pLastModified,
+    pWebhook,
+    pDescription,
+    pServiceRole,
+    pTags,
+    pTimeoutInMinutes,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.LogsConfig
 import Network.AWS.CodeBuild.Types.ProjectArtifacts
@@ -27,252 +53,340 @@ import Network.AWS.CodeBuild.Types.ProjectSourceVersion
 import Network.AWS.CodeBuild.Types.Tag
 import Network.AWS.CodeBuild.Types.VPCConfig
 import Network.AWS.CodeBuild.Types.Webhook
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a build project.
 --
---
---
--- /See:/ 'project' smart constructor.
+-- /See:/ 'mkProject' smart constructor.
 data Project = Project'
-  { _pSecondaryArtifacts ::
-      !(Maybe [ProjectArtifacts]),
-    _pArn :: !(Maybe Text),
-    _pArtifacts :: !(Maybe ProjectArtifacts),
-    _pEnvironment :: !(Maybe ProjectEnvironment),
-    _pCreated :: !(Maybe POSIX),
-    _pSecondarySourceVersions :: !(Maybe [ProjectSourceVersion]),
-    _pQueuedTimeoutInMinutes :: !(Maybe Nat),
-    _pCache :: !(Maybe ProjectCache),
-    _pSecondarySources :: !(Maybe [ProjectSource]),
-    _pSourceVersion :: !(Maybe Text),
-    _pName :: !(Maybe Text),
-    _pVpcConfig :: !(Maybe VPCConfig),
-    _pSource :: !(Maybe ProjectSource),
-    _pBadge :: !(Maybe ProjectBadge),
-    _pLogsConfig :: !(Maybe LogsConfig),
-    _pFileSystemLocations :: !(Maybe [ProjectFileSystemLocation]),
-    _pBuildBatchConfig :: !(Maybe ProjectBuildBatchConfig),
-    _pEncryptionKey :: !(Maybe Text),
-    _pLastModified :: !(Maybe POSIX),
-    _pWebhook :: !(Maybe Webhook),
-    _pDescription :: !(Maybe Text),
-    _pServiceRole :: !(Maybe Text),
-    _pTags :: !(Maybe [Tag]),
-    _pTimeoutInMinutes :: !(Maybe Nat)
+  { secondaryArtifacts ::
+      Lude.Maybe [ProjectArtifacts],
+    arn :: Lude.Maybe Lude.Text,
+    artifacts :: Lude.Maybe ProjectArtifacts,
+    environment :: Lude.Maybe ProjectEnvironment,
+    created :: Lude.Maybe Lude.Timestamp,
+    secondarySourceVersions :: Lude.Maybe [ProjectSourceVersion],
+    queuedTimeoutInMinutes :: Lude.Maybe Lude.Natural,
+    cache :: Lude.Maybe ProjectCache,
+    secondarySources :: Lude.Maybe [ProjectSource],
+    sourceVersion :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    source :: Lude.Maybe ProjectSource,
+    badge :: Lude.Maybe ProjectBadge,
+    logsConfig :: Lude.Maybe LogsConfig,
+    fileSystemLocations :: Lude.Maybe [ProjectFileSystemLocation],
+    buildBatchConfig :: Lude.Maybe ProjectBuildBatchConfig,
+    encryptionKey :: Lude.Maybe Lude.Text,
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    webhook :: Lude.Maybe Webhook,
+    description :: Lude.Maybe Lude.Text,
+    serviceRole :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    timeoutInMinutes :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Project' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the build project.
+-- * 'artifacts' - Information about the build output artifacts for the build project.
+-- * 'badge' - Information about the build badge for the build project.
+-- * 'buildBatchConfig' - A 'ProjectBuildBatchConfig' object that defines the batch build options for the project.
+-- * 'cache' - Information about the cache for the build project.
+-- * 'created' - When the build project was created, expressed in Unix time format.
+-- * 'description' - A description that makes the build project easy to identify.
+-- * 'encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
 --
--- * 'pSecondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+-- * 'environment' - Information about the build environment for this build project.
+-- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
+-- * 'lastModified' - When the build project's settings were last modified, expressed in Unix time format.
+-- * 'logsConfig' - Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
+-- * 'name' - The name of the build project.
+-- * 'queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
+-- * 'secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+-- * 'secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
+-- * 'secondarySources' - An array of @ProjectSource@ objects.
+-- * 'serviceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- * 'source' - Information about the build input source code for this build project.
+-- * 'sourceVersion' - A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
 --
--- * 'pArn' - The Amazon Resource Name (ARN) of the build project.
 --
--- * 'pArtifacts' - Information about the build output artifacts for the build project.
+--     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
 --
--- * 'pEnvironment' - Information about the build environment for this build project.
 --
--- * 'pCreated' - When the build project was created, expressed in Unix time format.
+--     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'pSecondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
 --
--- * 'pQueuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
+--     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'pCache' - Information about the cache for the build project.
 --
--- * 'pSecondarySources' - An array of @ProjectSource@ objects.
+--     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
 --
--- * 'pSourceVersion' - A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
 --
--- * 'pName' - The name of the build project.
+-- If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+-- * 'tags' - A list of tag key and value pairs associated with this build project.
 --
--- * 'pVpcConfig' - Information about the VPC configuration that AWS CodeBuild accesses.
---
--- * 'pSource' - Information about the build input source code for this build project.
---
--- * 'pBadge' - Information about the build badge for the build project.
---
--- * 'pLogsConfig' - Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
---
--- * 'pFileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
---
--- * 'pBuildBatchConfig' - A 'ProjectBuildBatchConfig' object that defines the batch build options for the project.
---
--- * 'pEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
---
--- * 'pLastModified' - When the build project's settings were last modified, expressed in Unix time format.
---
--- * 'pWebhook' - Information about a webhook that connects repository events to a build project in AWS CodeBuild.
---
--- * 'pDescription' - A description that makes the build project easy to identify.
---
--- * 'pServiceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
---
--- * 'pTags' - A list of tag key and value pairs associated with this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
---
--- * 'pTimeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes.
-project ::
+-- These tags are available for use by AWS services that support AWS CodeBuild build project tags.
+-- * 'timeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes.
+-- * 'vpcConfig' - Information about the VPC configuration that AWS CodeBuild accesses.
+-- * 'webhook' - Information about a webhook that connects repository events to a build project in AWS CodeBuild.
+mkProject ::
   Project
-project =
+mkProject =
   Project'
-    { _pSecondaryArtifacts = Nothing,
-      _pArn = Nothing,
-      _pArtifacts = Nothing,
-      _pEnvironment = Nothing,
-      _pCreated = Nothing,
-      _pSecondarySourceVersions = Nothing,
-      _pQueuedTimeoutInMinutes = Nothing,
-      _pCache = Nothing,
-      _pSecondarySources = Nothing,
-      _pSourceVersion = Nothing,
-      _pName = Nothing,
-      _pVpcConfig = Nothing,
-      _pSource = Nothing,
-      _pBadge = Nothing,
-      _pLogsConfig = Nothing,
-      _pFileSystemLocations = Nothing,
-      _pBuildBatchConfig = Nothing,
-      _pEncryptionKey = Nothing,
-      _pLastModified = Nothing,
-      _pWebhook = Nothing,
-      _pDescription = Nothing,
-      _pServiceRole = Nothing,
-      _pTags = Nothing,
-      _pTimeoutInMinutes = Nothing
+    { secondaryArtifacts = Lude.Nothing,
+      arn = Lude.Nothing,
+      artifacts = Lude.Nothing,
+      environment = Lude.Nothing,
+      created = Lude.Nothing,
+      secondarySourceVersions = Lude.Nothing,
+      queuedTimeoutInMinutes = Lude.Nothing,
+      cache = Lude.Nothing,
+      secondarySources = Lude.Nothing,
+      sourceVersion = Lude.Nothing,
+      name = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      source = Lude.Nothing,
+      badge = Lude.Nothing,
+      logsConfig = Lude.Nothing,
+      fileSystemLocations = Lude.Nothing,
+      buildBatchConfig = Lude.Nothing,
+      encryptionKey = Lude.Nothing,
+      lastModified = Lude.Nothing,
+      webhook = Lude.Nothing,
+      description = Lude.Nothing,
+      serviceRole = Lude.Nothing,
+      tags = Lude.Nothing,
+      timeoutInMinutes = Lude.Nothing
     }
 
 -- | An array of @ProjectArtifacts@ objects.
-pSecondaryArtifacts :: Lens' Project [ProjectArtifacts]
-pSecondaryArtifacts = lens _pSecondaryArtifacts (\s a -> s {_pSecondaryArtifacts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondaryArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSecondaryArtifacts :: Lens.Lens' Project (Lude.Maybe [ProjectArtifacts])
+pSecondaryArtifacts = Lens.lens (secondaryArtifacts :: Project -> Lude.Maybe [ProjectArtifacts]) (\s a -> s {secondaryArtifacts = a} :: Project)
+{-# DEPRECATED pSecondaryArtifacts "Use generic-lens or generic-optics with 'secondaryArtifacts' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the build project.
-pArn :: Lens' Project (Maybe Text)
-pArn = lens _pArn (\s a -> s {_pArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pArn :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pArn = Lens.lens (arn :: Project -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Project)
+{-# DEPRECATED pArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Information about the build output artifacts for the build project.
-pArtifacts :: Lens' Project (Maybe ProjectArtifacts)
-pArtifacts = lens _pArtifacts (\s a -> s {_pArtifacts = a})
+--
+-- /Note:/ Consider using 'artifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pArtifacts :: Lens.Lens' Project (Lude.Maybe ProjectArtifacts)
+pArtifacts = Lens.lens (artifacts :: Project -> Lude.Maybe ProjectArtifacts) (\s a -> s {artifacts = a} :: Project)
+{-# DEPRECATED pArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
 
 -- | Information about the build environment for this build project.
-pEnvironment :: Lens' Project (Maybe ProjectEnvironment)
-pEnvironment = lens _pEnvironment (\s a -> s {_pEnvironment = a})
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pEnvironment :: Lens.Lens' Project (Lude.Maybe ProjectEnvironment)
+pEnvironment = Lens.lens (environment :: Project -> Lude.Maybe ProjectEnvironment) (\s a -> s {environment = a} :: Project)
+{-# DEPRECATED pEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | When the build project was created, expressed in Unix time format.
-pCreated :: Lens' Project (Maybe UTCTime)
-pCreated = lens _pCreated (\s a -> s {_pCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCreated :: Lens.Lens' Project (Lude.Maybe Lude.Timestamp)
+pCreated = Lens.lens (created :: Project -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Project)
+{-# DEPRECATED pCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@ is specified at the build level, then they take over these @secondarySourceVersions@ (at the project level).
-pSecondarySourceVersions :: Lens' Project [ProjectSourceVersion]
-pSecondarySourceVersions = lens _pSecondarySourceVersions (\s a -> s {_pSecondarySourceVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySourceVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSecondarySourceVersions :: Lens.Lens' Project (Lude.Maybe [ProjectSourceVersion])
+pSecondarySourceVersions = Lens.lens (secondarySourceVersions :: Project -> Lude.Maybe [ProjectSourceVersion]) (\s a -> s {secondarySourceVersions = a} :: Project)
+{-# DEPRECATED pSecondarySourceVersions "Use generic-lens or generic-optics with 'secondarySourceVersions' instead." #-}
 
 -- | The number of minutes a build is allowed to be queued before it times out.
-pQueuedTimeoutInMinutes :: Lens' Project (Maybe Natural)
-pQueuedTimeoutInMinutes = lens _pQueuedTimeoutInMinutes (\s a -> s {_pQueuedTimeoutInMinutes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'queuedTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pQueuedTimeoutInMinutes :: Lens.Lens' Project (Lude.Maybe Lude.Natural)
+pQueuedTimeoutInMinutes = Lens.lens (queuedTimeoutInMinutes :: Project -> Lude.Maybe Lude.Natural) (\s a -> s {queuedTimeoutInMinutes = a} :: Project)
+{-# DEPRECATED pQueuedTimeoutInMinutes "Use generic-lens or generic-optics with 'queuedTimeoutInMinutes' instead." #-}
 
 -- | Information about the cache for the build project.
-pCache :: Lens' Project (Maybe ProjectCache)
-pCache = lens _pCache (\s a -> s {_pCache = a})
+--
+-- /Note:/ Consider using 'cache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCache :: Lens.Lens' Project (Lude.Maybe ProjectCache)
+pCache = Lens.lens (cache :: Project -> Lude.Maybe ProjectCache) (\s a -> s {cache = a} :: Project)
+{-# DEPRECATED pCache "Use generic-lens or generic-optics with 'cache' instead." #-}
 
 -- | An array of @ProjectSource@ objects.
-pSecondarySources :: Lens' Project [ProjectSource]
-pSecondarySources = lens _pSecondarySources (\s a -> s {_pSecondarySources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSecondarySources :: Lens.Lens' Project (Lude.Maybe [ProjectSource])
+pSecondarySources = Lens.lens (secondarySources :: Project -> Lude.Maybe [ProjectSource]) (\s a -> s {secondarySources = a} :: Project)
+{-# DEPRECATED pSecondarySources "Use generic-lens or generic-optics with 'secondarySources' instead." #-}
 
--- | A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
-pSourceVersion :: Lens' Project (Maybe Text)
-pSourceVersion = lens _pSourceVersion (\s a -> s {_pSourceVersion = a})
+-- | A version of the build input to be built for this project. If not specified, the latest version is used. If specified, it must be one of:
+--
+--
+--     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+--
+--
+--     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
+--
+--
+-- If @sourceVersion@ is specified at the build level, then that version takes precedence over this @sourceVersion@ (at the project level).
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+--
+-- /Note:/ Consider using 'sourceVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSourceVersion :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pSourceVersion = Lens.lens (sourceVersion :: Project -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: Project)
+{-# DEPRECATED pSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
 -- | The name of the build project.
-pName :: Lens' Project (Maybe Text)
-pName = lens _pName (\s a -> s {_pName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pName :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pName = Lens.lens (name :: Project -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Project)
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Information about the VPC configuration that AWS CodeBuild accesses.
-pVpcConfig :: Lens' Project (Maybe VPCConfig)
-pVpcConfig = lens _pVpcConfig (\s a -> s {_pVpcConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pVpcConfig :: Lens.Lens' Project (Lude.Maybe VPCConfig)
+pVpcConfig = Lens.lens (vpcConfig :: Project -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: Project)
+{-# DEPRECATED pVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | Information about the build input source code for this build project.
-pSource :: Lens' Project (Maybe ProjectSource)
-pSource = lens _pSource (\s a -> s {_pSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Project (Lude.Maybe ProjectSource)
+pSource = Lens.lens (source :: Project -> Lude.Maybe ProjectSource) (\s a -> s {source = a} :: Project)
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | Information about the build badge for the build project.
-pBadge :: Lens' Project (Maybe ProjectBadge)
-pBadge = lens _pBadge (\s a -> s {_pBadge = a})
+--
+-- /Note:/ Consider using 'badge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pBadge :: Lens.Lens' Project (Lude.Maybe ProjectBadge)
+pBadge = Lens.lens (badge :: Project -> Lude.Maybe ProjectBadge) (\s a -> s {badge = a} :: Project)
+{-# DEPRECATED pBadge "Use generic-lens or generic-optics with 'badge' instead." #-}
 
 -- | Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
-pLogsConfig :: Lens' Project (Maybe LogsConfig)
-pLogsConfig = lens _pLogsConfig (\s a -> s {_pLogsConfig = a})
+--
+-- /Note:/ Consider using 'logsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLogsConfig :: Lens.Lens' Project (Lude.Maybe LogsConfig)
+pLogsConfig = Lens.lens (logsConfig :: Project -> Lude.Maybe LogsConfig) (\s a -> s {logsConfig = a} :: Project)
+{-# DEPRECATED pLogsConfig "Use generic-lens or generic-optics with 'logsConfig' instead." #-}
 
 -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
-pFileSystemLocations :: Lens' Project [ProjectFileSystemLocation]
-pFileSystemLocations = lens _pFileSystemLocations (\s a -> s {_pFileSystemLocations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fileSystemLocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pFileSystemLocations :: Lens.Lens' Project (Lude.Maybe [ProjectFileSystemLocation])
+pFileSystemLocations = Lens.lens (fileSystemLocations :: Project -> Lude.Maybe [ProjectFileSystemLocation]) (\s a -> s {fileSystemLocations = a} :: Project)
+{-# DEPRECATED pFileSystemLocations "Use generic-lens or generic-optics with 'fileSystemLocations' instead." #-}
 
 -- | A 'ProjectBuildBatchConfig' object that defines the batch build options for the project.
-pBuildBatchConfig :: Lens' Project (Maybe ProjectBuildBatchConfig)
-pBuildBatchConfig = lens _pBuildBatchConfig (\s a -> s {_pBuildBatchConfig = a})
+--
+-- /Note:/ Consider using 'buildBatchConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pBuildBatchConfig :: Lens.Lens' Project (Lude.Maybe ProjectBuildBatchConfig)
+pBuildBatchConfig = Lens.lens (buildBatchConfig :: Project -> Lude.Maybe ProjectBuildBatchConfig) (\s a -> s {buildBatchConfig = a} :: Project)
+{-# DEPRECATED pBuildBatchConfig "Use generic-lens or generic-optics with 'buildBatchConfig' instead." #-}
 
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
-pEncryptionKey :: Lens' Project (Maybe Text)
-pEncryptionKey = lens _pEncryptionKey (\s a -> s {_pEncryptionKey = a})
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+--
+-- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pEncryptionKey :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pEncryptionKey = Lens.lens (encryptionKey :: Project -> Lude.Maybe Lude.Text) (\s a -> s {encryptionKey = a} :: Project)
+{-# DEPRECATED pEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
 
 -- | When the build project's settings were last modified, expressed in Unix time format.
-pLastModified :: Lens' Project (Maybe UTCTime)
-pLastModified = lens _pLastModified (\s a -> s {_pLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLastModified :: Lens.Lens' Project (Lude.Maybe Lude.Timestamp)
+pLastModified = Lens.lens (lastModified :: Project -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: Project)
+{-# DEPRECATED pLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | Information about a webhook that connects repository events to a build project in AWS CodeBuild.
-pWebhook :: Lens' Project (Maybe Webhook)
-pWebhook = lens _pWebhook (\s a -> s {_pWebhook = a})
+--
+-- /Note:/ Consider using 'webhook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pWebhook :: Lens.Lens' Project (Lude.Maybe Webhook)
+pWebhook = Lens.lens (webhook :: Project -> Lude.Maybe Webhook) (\s a -> s {webhook = a} :: Project)
+{-# DEPRECATED pWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
 
 -- | A description that makes the build project easy to identify.
-pDescription :: Lens' Project (Maybe Text)
-pDescription = lens _pDescription (\s a -> s {_pDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDescription :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pDescription = Lens.lens (description :: Project -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Project)
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-pServiceRole :: Lens' Project (Maybe Text)
-pServiceRole = lens _pServiceRole (\s a -> s {_pServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pServiceRole :: Lens.Lens' Project (Lude.Maybe Lude.Text)
+pServiceRole = Lens.lens (serviceRole :: Project -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: Project)
+{-# DEPRECATED pServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
--- | A list of tag key and value pairs associated with this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
-pTags :: Lens' Project [Tag]
-pTags = lens _pTags (\s a -> s {_pTags = a}) . _Default . _Coerce
+-- | A list of tag key and value pairs associated with this build project.
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild build project tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTags :: Lens.Lens' Project (Lude.Maybe [Tag])
+pTags = Lens.lens (tags :: Project -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Project)
+{-# DEPRECATED pTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed. The default is 60 minutes.
-pTimeoutInMinutes :: Lens' Project (Maybe Natural)
-pTimeoutInMinutes = lens _pTimeoutInMinutes (\s a -> s {_pTimeoutInMinutes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTimeoutInMinutes :: Lens.Lens' Project (Lude.Maybe Lude.Natural)
+pTimeoutInMinutes = Lens.lens (timeoutInMinutes :: Project -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInMinutes = a} :: Project)
+{-# DEPRECATED pTimeoutInMinutes "Use generic-lens or generic-optics with 'timeoutInMinutes' instead." #-}
 
-instance FromJSON Project where
+instance Lude.FromJSON Project where
   parseJSON =
-    withObject
+    Lude.withObject
       "Project"
       ( \x ->
           Project'
-            <$> (x .:? "secondaryArtifacts" .!= mempty)
-            <*> (x .:? "arn")
-            <*> (x .:? "artifacts")
-            <*> (x .:? "environment")
-            <*> (x .:? "created")
-            <*> (x .:? "secondarySourceVersions" .!= mempty)
-            <*> (x .:? "queuedTimeoutInMinutes")
-            <*> (x .:? "cache")
-            <*> (x .:? "secondarySources" .!= mempty)
-            <*> (x .:? "sourceVersion")
-            <*> (x .:? "name")
-            <*> (x .:? "vpcConfig")
-            <*> (x .:? "source")
-            <*> (x .:? "badge")
-            <*> (x .:? "logsConfig")
-            <*> (x .:? "fileSystemLocations" .!= mempty)
-            <*> (x .:? "buildBatchConfig")
-            <*> (x .:? "encryptionKey")
-            <*> (x .:? "lastModified")
-            <*> (x .:? "webhook")
-            <*> (x .:? "description")
-            <*> (x .:? "serviceRole")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .:? "timeoutInMinutes")
+            Lude.<$> (x Lude..:? "secondaryArtifacts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "artifacts")
+            Lude.<*> (x Lude..:? "environment")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "secondarySourceVersions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "queuedTimeoutInMinutes")
+            Lude.<*> (x Lude..:? "cache")
+            Lude.<*> (x Lude..:? "secondarySources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "sourceVersion")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "vpcConfig")
+            Lude.<*> (x Lude..:? "source")
+            Lude.<*> (x Lude..:? "badge")
+            Lude.<*> (x Lude..:? "logsConfig")
+            Lude.<*> (x Lude..:? "fileSystemLocations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "buildBatchConfig")
+            Lude.<*> (x Lude..:? "encryptionKey")
+            Lude.<*> (x Lude..:? "lastModified")
+            Lude.<*> (x Lude..:? "webhook")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "serviceRole")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "timeoutInMinutes")
       )
-
-instance Hashable Project
-
-instance NFData Project

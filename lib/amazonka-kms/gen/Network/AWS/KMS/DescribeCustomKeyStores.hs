@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,32 +14,27 @@
 --
 -- Gets information about <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key stores> in the account and region.
 --
---
 -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
---
 -- By default, this operation returns information about all custom key stores in the account and region. To get only information about a particular custom key store, use either the @CustomKeyStoreName@ or @CustomKeyStoreId@ parameter (but not both).
---
 -- To determine whether the custom key store is connected to its AWS CloudHSM cluster, use the @ConnectionState@ element in the response. If an attempt to connect the custom key store failed, the @ConnectionState@ value is @FAILED@ and the @ConnectionErrorCode@ element in the response indicates the cause of the failure. For help interpreting the @ConnectionErrorCode@ , see 'CustomKeyStoresListEntry' .
---
 -- Custom key stores have a @DISCONNECTED@ connection state if the key store has never been connected or you use the 'DisconnectCustomKeyStore' operation to disconnect it. If your custom key store state is @CONNECTED@ but you are having trouble using it, make sure that its associated AWS CloudHSM cluster is active and contains the minimum number of HSMs required for the operation, if any.
---
 -- For help repairing your custom key store, see the <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting Custom Key Stores> topic in the /AWS Key Management Service Developer Guide/ .
 module Network.AWS.KMS.DescribeCustomKeyStores
-  ( -- * Creating a Request
-    describeCustomKeyStores,
-    DescribeCustomKeyStores,
+  ( -- * Creating a request
+    DescribeCustomKeyStores (..),
+    mkDescribeCustomKeyStores,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dckssCustomKeyStoreName,
     dckssMarker,
     dckssLimit,
     dckssCustomKeyStoreId,
 
-    -- * Destructuring the Response
-    describeCustomKeyStoresResponse,
-    DescribeCustomKeyStoresResponse,
+    -- * Destructuring the response
+    DescribeCustomKeyStoresResponse (..),
+    mkDescribeCustomKeyStoresResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dckssrsTruncated,
     dckssrsNextMarker,
     dckssrsCustomKeyStores,
@@ -53,154 +43,183 @@ module Network.AWS.KMS.DescribeCustomKeyStores
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCustomKeyStores' smart constructor.
+-- | /See:/ 'mkDescribeCustomKeyStores' smart constructor.
 data DescribeCustomKeyStores = DescribeCustomKeyStores'
-  { _dckssCustomKeyStoreName ::
-      !(Maybe Text),
-    _dckssMarker :: !(Maybe Text),
-    _dckssLimit :: !(Maybe Nat),
-    _dckssCustomKeyStoreId :: !(Maybe Text)
+  { customKeyStoreName ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    customKeyStoreId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCustomKeyStores' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'customKeyStoreId' - Gets only information about the specified custom key store. Enter the key store ID.
 --
--- * 'dckssCustomKeyStoreName' - Gets only information about the specified custom key store. Enter the friendly name of the custom key store. By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
+-- By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
+-- * 'customKeyStoreName' - Gets only information about the specified custom key store. Enter the friendly name of the custom key store.
 --
--- * 'dckssMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- * 'dckssLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- * 'dckssCustomKeyStoreId' - Gets only information about the specified custom key store. Enter the key store ID. By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
-describeCustomKeyStores ::
+-- By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
+-- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+-- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+mkDescribeCustomKeyStores ::
   DescribeCustomKeyStores
-describeCustomKeyStores =
+mkDescribeCustomKeyStores =
   DescribeCustomKeyStores'
-    { _dckssCustomKeyStoreName = Nothing,
-      _dckssMarker = Nothing,
-      _dckssLimit = Nothing,
-      _dckssCustomKeyStoreId = Nothing
+    { customKeyStoreName = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      customKeyStoreId = Lude.Nothing
     }
 
--- | Gets only information about the specified custom key store. Enter the friendly name of the custom key store. By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
-dckssCustomKeyStoreName :: Lens' DescribeCustomKeyStores (Maybe Text)
-dckssCustomKeyStoreName = lens _dckssCustomKeyStoreName (\s a -> s {_dckssCustomKeyStoreName = a})
+-- | Gets only information about the specified custom key store. Enter the friendly name of the custom key store.
+--
+-- By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
+--
+-- /Note:/ Consider using 'customKeyStoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssCustomKeyStoreName :: Lens.Lens' DescribeCustomKeyStores (Lude.Maybe Lude.Text)
+dckssCustomKeyStoreName = Lens.lens (customKeyStoreName :: DescribeCustomKeyStores -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreName = a} :: DescribeCustomKeyStores)
+{-# DEPRECATED dckssCustomKeyStoreName "Use generic-lens or generic-optics with 'customKeyStoreName' instead." #-}
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-dckssMarker :: Lens' DescribeCustomKeyStores (Maybe Text)
-dckssMarker = lens _dckssMarker (\s a -> s {_dckssMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssMarker :: Lens.Lens' DescribeCustomKeyStores (Lude.Maybe Lude.Text)
+dckssMarker = Lens.lens (marker :: DescribeCustomKeyStores -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCustomKeyStores)
+{-# DEPRECATED dckssMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
-dckssLimit :: Lens' DescribeCustomKeyStores (Maybe Natural)
-dckssLimit = lens _dckssLimit (\s a -> s {_dckssLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssLimit :: Lens.Lens' DescribeCustomKeyStores (Lude.Maybe Lude.Natural)
+dckssLimit = Lens.lens (limit :: DescribeCustomKeyStores -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeCustomKeyStores)
+{-# DEPRECATED dckssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | Gets only information about the specified custom key store. Enter the key store ID. By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
-dckssCustomKeyStoreId :: Lens' DescribeCustomKeyStores (Maybe Text)
-dckssCustomKeyStoreId = lens _dckssCustomKeyStoreId (\s a -> s {_dckssCustomKeyStoreId = a})
+-- | Gets only information about the specified custom key store. Enter the key store ID.
+--
+-- By default, this operation gets information about all custom key stores in the account and region. To limit the output to a particular custom key store, you can use either the @CustomKeyStoreId@ or @CustomKeyStoreName@ parameter, but not both.
+--
+-- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssCustomKeyStoreId :: Lens.Lens' DescribeCustomKeyStores (Lude.Maybe Lude.Text)
+dckssCustomKeyStoreId = Lens.lens (customKeyStoreId :: DescribeCustomKeyStores -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: DescribeCustomKeyStores)
+{-# DEPRECATED dckssCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
-instance AWSRequest DescribeCustomKeyStores where
+instance Lude.AWSRequest DescribeCustomKeyStores where
   type Rs DescribeCustomKeyStores = DescribeCustomKeyStoresResponse
-  request = postJSON kms
+  request = Req.postJSON kmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCustomKeyStoresResponse'
-            <$> (x .?> "Truncated")
-            <*> (x .?> "NextMarker")
-            <*> (x .?> "CustomKeyStores" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Truncated")
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (x Lude..?> "CustomKeyStores" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCustomKeyStores
-
-instance NFData DescribeCustomKeyStores
-
-instance ToHeaders DescribeCustomKeyStores where
+instance Lude.ToHeaders DescribeCustomKeyStores where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("TrentService.DescribeCustomKeyStores" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("TrentService.DescribeCustomKeyStores" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCustomKeyStores where
+instance Lude.ToJSON DescribeCustomKeyStores where
   toJSON DescribeCustomKeyStores' {..} =
-    object
-      ( catMaybes
-          [ ("CustomKeyStoreName" .=) <$> _dckssCustomKeyStoreName,
-            ("Marker" .=) <$> _dckssMarker,
-            ("Limit" .=) <$> _dckssLimit,
-            ("CustomKeyStoreId" .=) <$> _dckssCustomKeyStoreId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CustomKeyStoreName" Lude..=) Lude.<$> customKeyStoreName,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("CustomKeyStoreId" Lude..=) Lude.<$> customKeyStoreId
           ]
       )
 
-instance ToPath DescribeCustomKeyStores where
-  toPath = const "/"
+instance Lude.ToPath DescribeCustomKeyStores where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCustomKeyStores where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCustomKeyStores where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCustomKeyStoresResponse' smart constructor.
+-- | /See:/ 'mkDescribeCustomKeyStoresResponse' smart constructor.
 data DescribeCustomKeyStoresResponse = DescribeCustomKeyStoresResponse'
-  { _dckssrsTruncated ::
-      !(Maybe Bool),
-    _dckssrsNextMarker ::
-      !(Maybe Text),
-    _dckssrsCustomKeyStores ::
-      !( Maybe
-           [CustomKeyStoresListEntry]
-       ),
-    _dckssrsResponseStatus ::
-      !Int
+  { truncated ::
+      Lude.Maybe Lude.Bool,
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    customKeyStores ::
+      Lude.Maybe
+        [CustomKeyStoresListEntry],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCustomKeyStoresResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dckssrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- * 'dckssrsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
---
--- * 'dckssrsCustomKeyStores' - Contains metadata about each custom key store.
---
--- * 'dckssrsResponseStatus' - -- | The response status code.
-describeCustomKeyStoresResponse ::
-  -- | 'dckssrsResponseStatus'
-  Int ->
+-- * 'customKeyStores' - Contains metadata about each custom key store.
+-- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+-- * 'responseStatus' - The response status code.
+-- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+mkDescribeCustomKeyStoresResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCustomKeyStoresResponse
-describeCustomKeyStoresResponse pResponseStatus_ =
+mkDescribeCustomKeyStoresResponse pResponseStatus_ =
   DescribeCustomKeyStoresResponse'
-    { _dckssrsTruncated = Nothing,
-      _dckssrsNextMarker = Nothing,
-      _dckssrsCustomKeyStores = Nothing,
-      _dckssrsResponseStatus = pResponseStatus_
+    { truncated = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      customKeyStores = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-dckssrsTruncated :: Lens' DescribeCustomKeyStoresResponse (Maybe Bool)
-dckssrsTruncated = lens _dckssrsTruncated (\s a -> s {_dckssrsTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssrsTruncated :: Lens.Lens' DescribeCustomKeyStoresResponse (Lude.Maybe Lude.Bool)
+dckssrsTruncated = Lens.lens (truncated :: DescribeCustomKeyStoresResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: DescribeCustomKeyStoresResponse)
+{-# DEPRECATED dckssrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-dckssrsNextMarker :: Lens' DescribeCustomKeyStoresResponse (Maybe Text)
-dckssrsNextMarker = lens _dckssrsNextMarker (\s a -> s {_dckssrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssrsNextMarker :: Lens.Lens' DescribeCustomKeyStoresResponse (Lude.Maybe Lude.Text)
+dckssrsNextMarker = Lens.lens (nextMarker :: DescribeCustomKeyStoresResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeCustomKeyStoresResponse)
+{-# DEPRECATED dckssrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Contains metadata about each custom key store.
-dckssrsCustomKeyStores :: Lens' DescribeCustomKeyStoresResponse [CustomKeyStoresListEntry]
-dckssrsCustomKeyStores = lens _dckssrsCustomKeyStores (\s a -> s {_dckssrsCustomKeyStores = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'customKeyStores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssrsCustomKeyStores :: Lens.Lens' DescribeCustomKeyStoresResponse (Lude.Maybe [CustomKeyStoresListEntry])
+dckssrsCustomKeyStores = Lens.lens (customKeyStores :: DescribeCustomKeyStoresResponse -> Lude.Maybe [CustomKeyStoresListEntry]) (\s a -> s {customKeyStores = a} :: DescribeCustomKeyStoresResponse)
+{-# DEPRECATED dckssrsCustomKeyStores "Use generic-lens or generic-optics with 'customKeyStores' instead." #-}
 
--- | -- | The response status code.
-dckssrsResponseStatus :: Lens' DescribeCustomKeyStoresResponse Int
-dckssrsResponseStatus = lens _dckssrsResponseStatus (\s a -> s {_dckssrsResponseStatus = a})
-
-instance NFData DescribeCustomKeyStoresResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dckssrsResponseStatus :: Lens.Lens' DescribeCustomKeyStoresResponse Lude.Int
+dckssrsResponseStatus = Lens.lens (responseStatus :: DescribeCustomKeyStoresResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCustomKeyStoresResponse)
+{-# DEPRECATED dckssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

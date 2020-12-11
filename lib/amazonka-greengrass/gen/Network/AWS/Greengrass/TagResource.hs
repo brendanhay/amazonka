@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,105 @@
 --
 -- Adds tags to a Greengrass resource. Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
 module Network.AWS.Greengrass.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trTags,
     trResourceARN,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A map of the key-value pairs for the resource tag.
 --
--- /See:/ 'tagResource' smart constructor.
+-- /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trTags ::
-      !(Maybe (Map Text (Text))),
-    _trResourceARN :: !Text
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trTags' - Undocumented member.
---
--- * 'trResourceARN' - The Amazon Resource Name (ARN) of the resource.
-tagResource ::
-  -- | 'trResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
+-- * 'tags' - Undocumented field.
+mkTagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   TagResource
-tagResource pResourceARN_ =
-  TagResource' {_trTags = Nothing, _trResourceARN = pResourceARN_}
+mkTagResource pResourceARN_ =
+  TagResource' {tags = Lude.Nothing, resourceARN = pResourceARN_}
 
--- | Undocumented member.
-trTags :: Lens' TagResource (HashMap Text (Text))
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+trTags = Lens.lens (tags :: TagResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\s a -> s {_trResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postJSON greengrass
-  response = receiveNull TagResourceResponse'
+  request = Req.postJSON greengrassService
+  response = Res.receiveNull TagResourceResponse'
 
-instance Hashable TagResource
-
-instance NFData TagResource
-
-instance ToHeaders TagResource where
+instance Lude.ToHeaders TagResource where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON TagResource where
+instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
-    object (catMaybes [("tags" .=) <$> _trTags])
+    Lude.object (Lude.catMaybes [("tags" Lude..=) Lude.<$> tags])
 
-instance ToPath TagResource where
-  toPath TagResource' {..} = mconcat ["/tags/", toBS _trResourceARN]
+instance Lude.ToPath TagResource where
+  toPath TagResource' {..} =
+    Lude.mconcat ["/tags/", Lude.toBS resourceARN]
 
-instance ToQuery TagResource where
-  toQuery = const mempty
+instance Lude.ToQuery TagResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
-tagResourceResponse ::
+mkTagResourceResponse ::
   TagResourceResponse
-tagResourceResponse = TagResourceResponse'
-
-instance NFData TagResourceResponse
+mkTagResourceResponse = TagResourceResponse'

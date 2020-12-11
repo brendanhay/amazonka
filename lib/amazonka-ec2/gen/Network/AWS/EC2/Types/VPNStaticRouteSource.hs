@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNStaticRouteSource where
+module Network.AWS.EC2.Types.VPNStaticRouteSource
+  ( VPNStaticRouteSource
+      ( VPNStaticRouteSource',
+        Static
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPNStaticRouteSource = Static
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPNStaticRouteSource = VPNStaticRouteSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPNStaticRouteSource where
-  parser =
-    takeLowerText >>= \case
-      "static" -> pure Static
-      e ->
-        fromTextError $
-          "Failure parsing VPNStaticRouteSource from value: '" <> e
-            <> "'. Accepted values: static"
+pattern Static :: VPNStaticRouteSource
+pattern Static = VPNStaticRouteSource' "Static"
 
-instance ToText VPNStaticRouteSource where
-  toText = \case
-    Static -> "Static"
-
-instance Hashable VPNStaticRouteSource
-
-instance NFData VPNStaticRouteSource
-
-instance ToByteString VPNStaticRouteSource
-
-instance ToQuery VPNStaticRouteSource
-
-instance ToHeader VPNStaticRouteSource
-
-instance FromXML VPNStaticRouteSource where
-  parseXML = parseXMLText "VPNStaticRouteSource"
+{-# COMPLETE
+  Static,
+  VPNStaticRouteSource'
+  #-}

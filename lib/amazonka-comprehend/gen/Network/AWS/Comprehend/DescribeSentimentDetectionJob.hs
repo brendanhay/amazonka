@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,138 @@
 --
 -- Gets the properties associated with a sentiment detection job. Use this operation to get the status of a detection job.
 module Network.AWS.Comprehend.DescribeSentimentDetectionJob
-  ( -- * Creating a Request
-    describeSentimentDetectionJob,
-    DescribeSentimentDetectionJob,
+  ( -- * Creating a request
+    DescribeSentimentDetectionJob (..),
+    mkDescribeSentimentDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsdjJobId,
 
-    -- * Destructuring the Response
-    describeSentimentDetectionJobResponse,
-    DescribeSentimentDetectionJobResponse,
+    -- * Destructuring the response
+    DescribeSentimentDetectionJobResponse (..),
+    mkDescribeSentimentDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsdjrsSentimentDetectionJobProperties,
     dsdjrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeSentimentDetectionJob' smart constructor.
+-- | /See:/ 'mkDescribeSentimentDetectionJob' smart constructor.
 newtype DescribeSentimentDetectionJob = DescribeSentimentDetectionJob'
-  { _dsdjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSentimentDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdjJobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-describeSentimentDetectionJob ::
-  -- | 'dsdjJobId'
-  Text ->
+-- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+mkDescribeSentimentDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeSentimentDetectionJob
-describeSentimentDetectionJob pJobId_ =
-  DescribeSentimentDetectionJob' {_dsdjJobId = pJobId_}
+mkDescribeSentimentDetectionJob pJobId_ =
+  DescribeSentimentDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-dsdjJobId :: Lens' DescribeSentimentDetectionJob Text
-dsdjJobId = lens _dsdjJobId (\s a -> s {_dsdjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdjJobId :: Lens.Lens' DescribeSentimentDetectionJob Lude.Text
+dsdjJobId = Lens.lens (jobId :: DescribeSentimentDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeSentimentDetectionJob)
+{-# DEPRECATED dsdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeSentimentDetectionJob where
+instance Lude.AWSRequest DescribeSentimentDetectionJob where
   type
     Rs DescribeSentimentDetectionJob =
       DescribeSentimentDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSentimentDetectionJobResponse'
-            <$> (x .?> "SentimentDetectionJobProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SentimentDetectionJobProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSentimentDetectionJob
-
-instance NFData DescribeSentimentDetectionJob
-
-instance ToHeaders DescribeSentimentDetectionJob where
+instance Lude.ToHeaders DescribeSentimentDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeSentimentDetectionJob where
+instance Lude.ToJSON DescribeSentimentDetectionJob where
   toJSON DescribeSentimentDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _dsdjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath DescribeSentimentDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeSentimentDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeSentimentDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSentimentDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeSentimentDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeSentimentDetectionJobResponse' smart constructor.
 data DescribeSentimentDetectionJobResponse = DescribeSentimentDetectionJobResponse'
-  { _dsdjrsSentimentDetectionJobProperties ::
-      !( Maybe
-           SentimentDetectionJobProperties
-       ),
-    _dsdjrsResponseStatus ::
-      !Int
+  { sentimentDetectionJobProperties ::
+      Lude.Maybe
+        SentimentDetectionJobProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSentimentDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdjrsSentimentDetectionJobProperties' - An object that contains the properties associated with a sentiment detection job.
---
--- * 'dsdjrsResponseStatus' - -- | The response status code.
-describeSentimentDetectionJobResponse ::
-  -- | 'dsdjrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sentimentDetectionJobProperties' - An object that contains the properties associated with a sentiment detection job.
+mkDescribeSentimentDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSentimentDetectionJobResponse
-describeSentimentDetectionJobResponse pResponseStatus_ =
+mkDescribeSentimentDetectionJobResponse pResponseStatus_ =
   DescribeSentimentDetectionJobResponse'
-    { _dsdjrsSentimentDetectionJobProperties =
-        Nothing,
-      _dsdjrsResponseStatus = pResponseStatus_
+    { sentimentDetectionJobProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains the properties associated with a sentiment detection job.
-dsdjrsSentimentDetectionJobProperties :: Lens' DescribeSentimentDetectionJobResponse (Maybe SentimentDetectionJobProperties)
-dsdjrsSentimentDetectionJobProperties = lens _dsdjrsSentimentDetectionJobProperties (\s a -> s {_dsdjrsSentimentDetectionJobProperties = a})
+--
+-- /Note:/ Consider using 'sentimentDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdjrsSentimentDetectionJobProperties :: Lens.Lens' DescribeSentimentDetectionJobResponse (Lude.Maybe SentimentDetectionJobProperties)
+dsdjrsSentimentDetectionJobProperties = Lens.lens (sentimentDetectionJobProperties :: DescribeSentimentDetectionJobResponse -> Lude.Maybe SentimentDetectionJobProperties) (\s a -> s {sentimentDetectionJobProperties = a} :: DescribeSentimentDetectionJobResponse)
+{-# DEPRECATED dsdjrsSentimentDetectionJobProperties "Use generic-lens or generic-optics with 'sentimentDetectionJobProperties' instead." #-}
 
--- | -- | The response status code.
-dsdjrsResponseStatus :: Lens' DescribeSentimentDetectionJobResponse Int
-dsdjrsResponseStatus = lens _dsdjrsResponseStatus (\s a -> s {_dsdjrsResponseStatus = a})
-
-instance NFData DescribeSentimentDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdjrsResponseStatus :: Lens.Lens' DescribeSentimentDetectionJobResponse Lude.Int
+dsdjrsResponseStatus = Lens.lens (responseStatus :: DescribeSentimentDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSentimentDetectionJobResponse)
+{-# DEPRECATED dsdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

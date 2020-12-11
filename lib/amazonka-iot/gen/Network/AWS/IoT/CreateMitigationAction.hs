@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html Mitigation actions> . Each mitigation action can apply only one type of change.
 module Network.AWS.IoT.CreateMitigationAction
-  ( -- * Creating a Request
-    createMitigationAction,
-    CreateMitigationAction,
+  ( -- * Creating a request
+    CreateMitigationAction (..),
+    mkCreateMitigationAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cTags,
     cActionName,
     cRoleARN,
     cActionParams,
 
-    -- * Destructuring the Response
-    createMitigationActionResponse,
-    CreateMitigationActionResponse,
+    -- * Destructuring the response
+    CreateMitigationActionResponse (..),
+    mkCreateMitigationActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmarsActionId,
     cmarsActionARN,
     cmarsResponseStatus,
@@ -41,138 +36,161 @@ module Network.AWS.IoT.CreateMitigationAction
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createMitigationAction' smart constructor.
+-- | /See:/ 'mkCreateMitigationAction' smart constructor.
 data CreateMitigationAction = CreateMitigationAction'
-  { _cTags ::
-      !(Maybe [Tag]),
-    _cActionName :: !Text,
-    _cRoleARN :: !Text,
-    _cActionParams :: !MitigationActionParams
+  { tags ::
+      Lude.Maybe [Tag],
+    actionName :: Lude.Text,
+    roleARN :: Lude.Text,
+    actionParams :: MitigationActionParams
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMitigationAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cTags' - Metadata that can be used to manage the mitigation action.
---
--- * 'cActionName' - A friendly name for the action. Choose a friendly name that accurately describes the action (for example, @EnableLoggingAction@ ).
---
--- * 'cRoleARN' - The ARN of the IAM role that is used to apply the mitigation action.
---
--- * 'cActionParams' - Defines the type of action and the parameters for that action.
-createMitigationAction ::
-  -- | 'cActionName'
-  Text ->
-  -- | 'cRoleARN'
-  Text ->
-  -- | 'cActionParams'
+-- * 'actionName' - A friendly name for the action. Choose a friendly name that accurately describes the action (for example, @EnableLoggingAction@ ).
+-- * 'actionParams' - Defines the type of action and the parameters for that action.
+-- * 'roleARN' - The ARN of the IAM role that is used to apply the mitigation action.
+-- * 'tags' - Metadata that can be used to manage the mitigation action.
+mkCreateMitigationAction ::
+  -- | 'actionName'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'actionParams'
   MitigationActionParams ->
   CreateMitigationAction
-createMitigationAction pActionName_ pRoleARN_ pActionParams_ =
+mkCreateMitigationAction pActionName_ pRoleARN_ pActionParams_ =
   CreateMitigationAction'
-    { _cTags = Nothing,
-      _cActionName = pActionName_,
-      _cRoleARN = pRoleARN_,
-      _cActionParams = pActionParams_
+    { tags = Lude.Nothing,
+      actionName = pActionName_,
+      roleARN = pRoleARN_,
+      actionParams = pActionParams_
     }
 
 -- | Metadata that can be used to manage the mitigation action.
-cTags :: Lens' CreateMitigationAction [Tag]
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CreateMitigationAction (Lude.Maybe [Tag])
+cTags = Lens.lens (tags :: CreateMitigationAction -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMitigationAction)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A friendly name for the action. Choose a friendly name that accurately describes the action (for example, @EnableLoggingAction@ ).
-cActionName :: Lens' CreateMitigationAction Text
-cActionName = lens _cActionName (\s a -> s {_cActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cActionName :: Lens.Lens' CreateMitigationAction Lude.Text
+cActionName = Lens.lens (actionName :: CreateMitigationAction -> Lude.Text) (\s a -> s {actionName = a} :: CreateMitigationAction)
+{-# DEPRECATED cActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The ARN of the IAM role that is used to apply the mitigation action.
-cRoleARN :: Lens' CreateMitigationAction Text
-cRoleARN = lens _cRoleARN (\s a -> s {_cRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRoleARN :: Lens.Lens' CreateMitigationAction Lude.Text
+cRoleARN = Lens.lens (roleARN :: CreateMitigationAction -> Lude.Text) (\s a -> s {roleARN = a} :: CreateMitigationAction)
+{-# DEPRECATED cRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Defines the type of action and the parameters for that action.
-cActionParams :: Lens' CreateMitigationAction MitigationActionParams
-cActionParams = lens _cActionParams (\s a -> s {_cActionParams = a})
+--
+-- /Note:/ Consider using 'actionParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cActionParams :: Lens.Lens' CreateMitigationAction MitigationActionParams
+cActionParams = Lens.lens (actionParams :: CreateMitigationAction -> MitigationActionParams) (\s a -> s {actionParams = a} :: CreateMitigationAction)
+{-# DEPRECATED cActionParams "Use generic-lens or generic-optics with 'actionParams' instead." #-}
 
-instance AWSRequest CreateMitigationAction where
+instance Lude.AWSRequest CreateMitigationAction where
   type Rs CreateMitigationAction = CreateMitigationActionResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateMitigationActionResponse'
-            <$> (x .?> "actionId") <*> (x .?> "actionArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "actionId")
+            Lude.<*> (x Lude..?> "actionArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMitigationAction
+instance Lude.ToHeaders CreateMitigationAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateMitigationAction
-
-instance ToHeaders CreateMitigationAction where
-  toHeaders = const mempty
-
-instance ToJSON CreateMitigationAction where
+instance Lude.ToJSON CreateMitigationAction where
   toJSON CreateMitigationAction' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _cTags,
-            Just ("roleArn" .= _cRoleARN),
-            Just ("actionParams" .= _cActionParams)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("roleArn" Lude..= roleARN),
+            Lude.Just ("actionParams" Lude..= actionParams)
           ]
       )
 
-instance ToPath CreateMitigationAction where
+instance Lude.ToPath CreateMitigationAction where
   toPath CreateMitigationAction' {..} =
-    mconcat ["/mitigationactions/actions/", toBS _cActionName]
+    Lude.mconcat
+      ["/mitigationactions/actions/", Lude.toBS actionName]
 
-instance ToQuery CreateMitigationAction where
-  toQuery = const mempty
+instance Lude.ToQuery CreateMitigationAction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createMitigationActionResponse' smart constructor.
+-- | /See:/ 'mkCreateMitigationActionResponse' smart constructor.
 data CreateMitigationActionResponse = CreateMitigationActionResponse'
-  { _cmarsActionId ::
-      !(Maybe Text),
-    _cmarsActionARN ::
-      !(Maybe Text),
-    _cmarsResponseStatus :: !Int
+  { actionId ::
+      Lude.Maybe Lude.Text,
+    actionARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMitigationActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmarsActionId' - A unique identifier for the new mitigation action.
---
--- * 'cmarsActionARN' - The ARN for the new mitigation action.
---
--- * 'cmarsResponseStatus' - -- | The response status code.
-createMitigationActionResponse ::
-  -- | 'cmarsResponseStatus'
-  Int ->
+-- * 'actionARN' - The ARN for the new mitigation action.
+-- * 'actionId' - A unique identifier for the new mitigation action.
+-- * 'responseStatus' - The response status code.
+mkCreateMitigationActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMitigationActionResponse
-createMitigationActionResponse pResponseStatus_ =
+mkCreateMitigationActionResponse pResponseStatus_ =
   CreateMitigationActionResponse'
-    { _cmarsActionId = Nothing,
-      _cmarsActionARN = Nothing,
-      _cmarsResponseStatus = pResponseStatus_
+    { actionId = Lude.Nothing,
+      actionARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique identifier for the new mitigation action.
-cmarsActionId :: Lens' CreateMitigationActionResponse (Maybe Text)
-cmarsActionId = lens _cmarsActionId (\s a -> s {_cmarsActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmarsActionId :: Lens.Lens' CreateMitigationActionResponse (Lude.Maybe Lude.Text)
+cmarsActionId = Lens.lens (actionId :: CreateMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: CreateMitigationActionResponse)
+{-# DEPRECATED cmarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The ARN for the new mitigation action.
-cmarsActionARN :: Lens' CreateMitigationActionResponse (Maybe Text)
-cmarsActionARN = lens _cmarsActionARN (\s a -> s {_cmarsActionARN = a})
+--
+-- /Note:/ Consider using 'actionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmarsActionARN :: Lens.Lens' CreateMitigationActionResponse (Lude.Maybe Lude.Text)
+cmarsActionARN = Lens.lens (actionARN :: CreateMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionARN = a} :: CreateMitigationActionResponse)
+{-# DEPRECATED cmarsActionARN "Use generic-lens or generic-optics with 'actionARN' instead." #-}
 
--- | -- | The response status code.
-cmarsResponseStatus :: Lens' CreateMitigationActionResponse Int
-cmarsResponseStatus = lens _cmarsResponseStatus (\s a -> s {_cmarsResponseStatus = a})
-
-instance NFData CreateMitigationActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmarsResponseStatus :: Lens.Lens' CreateMitigationActionResponse Lude.Int
+cmarsResponseStatus = Lens.lens (responseStatus :: CreateMitigationActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMitigationActionResponse)
+{-# DEPRECATED cmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

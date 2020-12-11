@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,180 @@
 --
 -- Updates a report group.
 module Network.AWS.CodeBuild.UpdateReportGroup
-  ( -- * Creating a Request
-    updateReportGroup,
-    UpdateReportGroup,
+  ( -- * Creating a request
+    UpdateReportGroup (..),
+    mkUpdateReportGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urgExportConfig,
     urgTags,
     urgArn,
 
-    -- * Destructuring the Response
-    updateReportGroupResponse,
-    UpdateReportGroupResponse,
+    -- * Destructuring the response
+    UpdateReportGroupResponse (..),
+    mkUpdateReportGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urgrsReportGroup,
     urgrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateReportGroup' smart constructor.
+-- | /See:/ 'mkUpdateReportGroup' smart constructor.
 data UpdateReportGroup = UpdateReportGroup'
-  { _urgExportConfig ::
-      !(Maybe ReportExportConfig),
-    _urgTags :: !(Maybe [Tag]),
-    _urgArn :: !Text
+  { exportConfig ::
+      Lude.Maybe ReportExportConfig,
+    tags :: Lude.Maybe [Tag],
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReportGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The ARN of the report group to update.
+-- * 'exportConfig' - Used to specify an updated export type. Valid values are:
 --
--- * 'urgExportConfig' - Used to specify an updated export type. Valid values are:      * @S3@ : The report results are exported to an S3 bucket.      * @NO_EXPORT@ : The report results are not exported.
 --
--- * 'urgTags' - An updated list of tag key and value pairs associated with this report group.  These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+--     * @S3@ : The report results are exported to an S3 bucket.
 --
--- * 'urgArn' - The ARN of the report group to update.
-updateReportGroup ::
-  -- | 'urgArn'
-  Text ->
+--
+--     * @NO_EXPORT@ : The report results are not exported.
+--
+--
+-- * 'tags' - An updated list of tag key and value pairs associated with this report group.
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+mkUpdateReportGroup ::
+  -- | 'arn'
+  Lude.Text ->
   UpdateReportGroup
-updateReportGroup pArn_ =
+mkUpdateReportGroup pArn_ =
   UpdateReportGroup'
-    { _urgExportConfig = Nothing,
-      _urgTags = Nothing,
-      _urgArn = pArn_
+    { exportConfig = Lude.Nothing,
+      tags = Lude.Nothing,
+      arn = pArn_
     }
 
--- | Used to specify an updated export type. Valid values are:      * @S3@ : The report results are exported to an S3 bucket.      * @NO_EXPORT@ : The report results are not exported.
-urgExportConfig :: Lens' UpdateReportGroup (Maybe ReportExportConfig)
-urgExportConfig = lens _urgExportConfig (\s a -> s {_urgExportConfig = a})
+-- | Used to specify an updated export type. Valid values are:
+--
+--
+--     * @S3@ : The report results are exported to an S3 bucket.
+--
+--
+--     * @NO_EXPORT@ : The report results are not exported.
+--
+--
+--
+-- /Note:/ Consider using 'exportConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgExportConfig :: Lens.Lens' UpdateReportGroup (Lude.Maybe ReportExportConfig)
+urgExportConfig = Lens.lens (exportConfig :: UpdateReportGroup -> Lude.Maybe ReportExportConfig) (\s a -> s {exportConfig = a} :: UpdateReportGroup)
+{-# DEPRECATED urgExportConfig "Use generic-lens or generic-optics with 'exportConfig' instead." #-}
 
--- | An updated list of tag key and value pairs associated with this report group.  These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-urgTags :: Lens' UpdateReportGroup [Tag]
-urgTags = lens _urgTags (\s a -> s {_urgTags = a}) . _Default . _Coerce
+-- | An updated list of tag key and value pairs associated with this report group.
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgTags :: Lens.Lens' UpdateReportGroup (Lude.Maybe [Tag])
+urgTags = Lens.lens (tags :: UpdateReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateReportGroup)
+{-# DEPRECATED urgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the report group to update.
-urgArn :: Lens' UpdateReportGroup Text
-urgArn = lens _urgArn (\s a -> s {_urgArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgArn :: Lens.Lens' UpdateReportGroup Lude.Text
+urgArn = Lens.lens (arn :: UpdateReportGroup -> Lude.Text) (\s a -> s {arn = a} :: UpdateReportGroup)
+{-# DEPRECATED urgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest UpdateReportGroup where
+instance Lude.AWSRequest UpdateReportGroup where
   type Rs UpdateReportGroup = UpdateReportGroupResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateReportGroupResponse'
-            <$> (x .?> "reportGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "reportGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateReportGroup
-
-instance NFData UpdateReportGroup
-
-instance ToHeaders UpdateReportGroup where
+instance Lude.ToHeaders UpdateReportGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.UpdateReportGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.UpdateReportGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateReportGroup where
+instance Lude.ToJSON UpdateReportGroup where
   toJSON UpdateReportGroup' {..} =
-    object
-      ( catMaybes
-          [ ("exportConfig" .=) <$> _urgExportConfig,
-            ("tags" .=) <$> _urgTags,
-            Just ("arn" .= _urgArn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("exportConfig" Lude..=) Lude.<$> exportConfig,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("arn" Lude..= arn)
           ]
       )
 
-instance ToPath UpdateReportGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateReportGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateReportGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateReportGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateReportGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateReportGroupResponse' smart constructor.
 data UpdateReportGroupResponse = UpdateReportGroupResponse'
-  { _urgrsReportGroup ::
-      !(Maybe ReportGroup),
-    _urgrsResponseStatus :: !Int
+  { reportGroup ::
+      Lude.Maybe ReportGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReportGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urgrsReportGroup' - Information about the updated report group.
---
--- * 'urgrsResponseStatus' - -- | The response status code.
-updateReportGroupResponse ::
-  -- | 'urgrsResponseStatus'
-  Int ->
+-- * 'reportGroup' - Information about the updated report group.
+-- * 'responseStatus' - The response status code.
+mkUpdateReportGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateReportGroupResponse
-updateReportGroupResponse pResponseStatus_ =
+mkUpdateReportGroupResponse pResponseStatus_ =
   UpdateReportGroupResponse'
-    { _urgrsReportGroup = Nothing,
-      _urgrsResponseStatus = pResponseStatus_
+    { reportGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the updated report group.
-urgrsReportGroup :: Lens' UpdateReportGroupResponse (Maybe ReportGroup)
-urgrsReportGroup = lens _urgrsReportGroup (\s a -> s {_urgrsReportGroup = a})
+--
+-- /Note:/ Consider using 'reportGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgrsReportGroup :: Lens.Lens' UpdateReportGroupResponse (Lude.Maybe ReportGroup)
+urgrsReportGroup = Lens.lens (reportGroup :: UpdateReportGroupResponse -> Lude.Maybe ReportGroup) (\s a -> s {reportGroup = a} :: UpdateReportGroupResponse)
+{-# DEPRECATED urgrsReportGroup "Use generic-lens or generic-optics with 'reportGroup' instead." #-}
 
--- | -- | The response status code.
-urgrsResponseStatus :: Lens' UpdateReportGroupResponse Int
-urgrsResponseStatus = lens _urgrsResponseStatus (\s a -> s {_urgrsResponseStatus = a})
-
-instance NFData UpdateReportGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgrsResponseStatus :: Lens.Lens' UpdateReportGroupResponse Lude.Int
+urgrsResponseStatus = Lens.lens (responseStatus :: UpdateReportGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateReportGroupResponse)
+{-# DEPRECATED urgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

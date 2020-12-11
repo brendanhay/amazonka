@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode where
+module Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
+  ( InstanceFleetStateChangeReasonCode
+      ( InstanceFleetStateChangeReasonCode',
+        IFSCRCClusterTerminated,
+        IFSCRCInstanceFailure,
+        IFSCRCInternalError,
+        IFSCRCValidationError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceFleetStateChangeReasonCode
-  = IFSCRCClusterTerminated
-  | IFSCRCInstanceFailure
-  | IFSCRCInternalError
-  | IFSCRCValidationError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceFleetStateChangeReasonCode = InstanceFleetStateChangeReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceFleetStateChangeReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "cluster_terminated" -> pure IFSCRCClusterTerminated
-      "instance_failure" -> pure IFSCRCInstanceFailure
-      "internal_error" -> pure IFSCRCInternalError
-      "validation_error" -> pure IFSCRCValidationError
-      e ->
-        fromTextError $
-          "Failure parsing InstanceFleetStateChangeReasonCode from value: '" <> e
-            <> "'. Accepted values: cluster_terminated, instance_failure, internal_error, validation_error"
+pattern IFSCRCClusterTerminated :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCClusterTerminated = InstanceFleetStateChangeReasonCode' "CLUSTER_TERMINATED"
 
-instance ToText InstanceFleetStateChangeReasonCode where
-  toText = \case
-    IFSCRCClusterTerminated -> "CLUSTER_TERMINATED"
-    IFSCRCInstanceFailure -> "INSTANCE_FAILURE"
-    IFSCRCInternalError -> "INTERNAL_ERROR"
-    IFSCRCValidationError -> "VALIDATION_ERROR"
+pattern IFSCRCInstanceFailure :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCInstanceFailure = InstanceFleetStateChangeReasonCode' "INSTANCE_FAILURE"
 
-instance Hashable InstanceFleetStateChangeReasonCode
+pattern IFSCRCInternalError :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCInternalError = InstanceFleetStateChangeReasonCode' "INTERNAL_ERROR"
 
-instance NFData InstanceFleetStateChangeReasonCode
+pattern IFSCRCValidationError :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCValidationError = InstanceFleetStateChangeReasonCode' "VALIDATION_ERROR"
 
-instance ToByteString InstanceFleetStateChangeReasonCode
-
-instance ToQuery InstanceFleetStateChangeReasonCode
-
-instance ToHeader InstanceFleetStateChangeReasonCode
-
-instance FromJSON InstanceFleetStateChangeReasonCode where
-  parseJSON = parseJSONText "InstanceFleetStateChangeReasonCode"
+{-# COMPLETE
+  IFSCRCClusterTerminated,
+  IFSCRCInstanceFailure,
+  IFSCRCInternalError,
+  IFSCRCValidationError,
+  InstanceFleetStateChangeReasonCode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.DestinationStatus where
+module Network.AWS.DynamoDB.Types.DestinationStatus
+  ( DestinationStatus
+      ( DestinationStatus',
+        DSActive,
+        DSDisabled,
+        DSDisabling,
+        DSEnableFailed,
+        DSEnabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DestinationStatus
-  = DSActive
-  | DSDisabled
-  | DSDisabling
-  | DSEnableFailed
-  | DSEnabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DestinationStatus = DestinationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DestinationStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DSActive
-      "disabled" -> pure DSDisabled
-      "disabling" -> pure DSDisabling
-      "enable_failed" -> pure DSEnableFailed
-      "enabling" -> pure DSEnabling
-      e ->
-        fromTextError $
-          "Failure parsing DestinationStatus from value: '" <> e
-            <> "'. Accepted values: active, disabled, disabling, enable_failed, enabling"
+pattern DSActive :: DestinationStatus
+pattern DSActive = DestinationStatus' "ACTIVE"
 
-instance ToText DestinationStatus where
-  toText = \case
-    DSActive -> "ACTIVE"
-    DSDisabled -> "DISABLED"
-    DSDisabling -> "DISABLING"
-    DSEnableFailed -> "ENABLE_FAILED"
-    DSEnabling -> "ENABLING"
+pattern DSDisabled :: DestinationStatus
+pattern DSDisabled = DestinationStatus' "DISABLED"
 
-instance Hashable DestinationStatus
+pattern DSDisabling :: DestinationStatus
+pattern DSDisabling = DestinationStatus' "DISABLING"
 
-instance NFData DestinationStatus
+pattern DSEnableFailed :: DestinationStatus
+pattern DSEnableFailed = DestinationStatus' "ENABLE_FAILED"
 
-instance ToByteString DestinationStatus
+pattern DSEnabling :: DestinationStatus
+pattern DSEnabling = DestinationStatus' "ENABLING"
 
-instance ToQuery DestinationStatus
-
-instance ToHeader DestinationStatus
-
-instance FromJSON DestinationStatus where
-  parseJSON = parseJSONText "DestinationStatus"
+{-# COMPLETE
+  DSActive,
+  DSDisabled,
+  DSDisabling,
+  DSEnableFailed,
+  DSEnabling,
+  DestinationStatus'
+  #-}

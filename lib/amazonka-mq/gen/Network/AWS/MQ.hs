@@ -13,8 +13,8 @@
 --
 -- Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
 module Network.AWS.MQ
-  ( -- * Service Configuration
-    mq,
+  ( -- * Service configuration
+    mqService,
 
     -- * Errors
     -- $errors
@@ -118,26 +118,26 @@ module Network.AWS.MQ
     SanitizationWarningReason (..),
 
     -- ** AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
 
     -- ** BrokerEngineType
-    BrokerEngineType,
-    brokerEngineType,
+    BrokerEngineType (..),
+    mkBrokerEngineType,
     betEngineVersions,
     betEngineType,
 
     -- ** BrokerInstance
-    BrokerInstance,
-    brokerInstance,
+    BrokerInstance (..),
+    mkBrokerInstance,
     biIPAddress,
     biConsoleURL,
     biEndpoints,
 
     -- ** BrokerInstanceOption
-    BrokerInstanceOption,
-    brokerInstanceOption,
+    BrokerInstanceOption (..),
+    mkBrokerInstanceOption,
     bioSupportedEngineVersions,
     bioAvailabilityZones,
     bioSupportedDeploymentModes,
@@ -146,8 +146,8 @@ module Network.AWS.MQ
     bioStorageType,
 
     -- ** BrokerSummary
-    BrokerSummary,
-    brokerSummary,
+    BrokerSummary (..),
+    mkBrokerSummary,
     bsBrokerName,
     bsBrokerState,
     bsCreated,
@@ -158,8 +158,8 @@ module Network.AWS.MQ
     bsHostInstanceType,
 
     -- ** Configuration
-    Configuration,
-    configuration,
+    Configuration (..),
+    mkConfiguration,
     cEngineVersion,
     cARN,
     cLatestRevision,
@@ -172,39 +172,39 @@ module Network.AWS.MQ
     cTags,
 
     -- ** ConfigurationId
-    ConfigurationId,
-    configurationId,
+    ConfigurationId (..),
+    mkConfigurationId,
     ciId,
     ciRevision,
 
     -- ** ConfigurationRevision
-    ConfigurationRevision,
-    configurationRevision,
+    ConfigurationRevision (..),
+    mkConfigurationRevision,
     crCreated,
     crRevision,
     crDescription,
 
     -- ** Configurations
-    Configurations,
-    configurations,
+    Configurations (..),
+    mkConfigurations,
     cPending,
     cHistory,
     cCurrent,
 
     -- ** EncryptionOptions
-    EncryptionOptions,
-    encryptionOptions,
+    EncryptionOptions (..),
+    mkEncryptionOptions,
     eoKMSKeyId,
     eoUseAWSOwnedKey,
 
     -- ** EngineVersion
-    EngineVersion,
-    engineVersion,
+    EngineVersion (..),
+    mkEngineVersion,
     evName,
 
     -- ** LdapServerMetadataInput
-    LdapServerMetadataInput,
-    ldapServerMetadataInput,
+    LdapServerMetadataInput (..),
+    mkLdapServerMetadataInput,
     lsmiUserBase,
     lsmiUserSearchMatching,
     lsmiUserRoleName,
@@ -218,8 +218,8 @@ module Network.AWS.MQ
     lsmiRoleBase,
 
     -- ** LdapServerMetadataOutput
-    LdapServerMetadataOutput,
-    ldapServerMetadataOutput,
+    LdapServerMetadataOutput (..),
+    mkLdapServerMetadataOutput,
     lsmoUserBase,
     lsmoUserSearchMatching,
     lsmoUserRoleName,
@@ -232,14 +232,14 @@ module Network.AWS.MQ
     lsmoRoleBase,
 
     -- ** Logs
-    Logs,
-    logs,
+    Logs (..),
+    mkLogs,
     lAudit,
     lGeneral,
 
     -- ** LogsSummary
-    LogsSummary,
-    logsSummary,
+    LogsSummary (..),
+    mkLogsSummary,
     lsPending,
     lsAudit,
     lsGeneral,
@@ -247,45 +247,56 @@ module Network.AWS.MQ
     lsAuditLogGroup,
 
     -- ** PendingLogs
-    PendingLogs,
-    pendingLogs,
+    PendingLogs (..),
+    mkPendingLogs,
     plAudit,
     plGeneral,
 
     -- ** SanitizationWarning
-    SanitizationWarning,
-    sanitizationWarning,
+    SanitizationWarning (..),
+    mkSanitizationWarning,
     swReason,
     swAttributeName,
     swElementName,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uGroups,
     uConsoleAccess,
     uUsername,
     uPassword,
 
     -- ** UserPendingChanges
-    UserPendingChanges,
-    userPendingChanges,
+    UserPendingChanges (..),
+    mkUserPendingChanges,
     upcGroups,
     upcConsoleAccess,
     upcPendingChange,
 
     -- ** UserSummary
-    UserSummary,
-    userSummary,
+    UserSummary (..),
+    mkUserSummary,
     usUsername,
     usPendingChange,
 
     -- ** WeeklyStartTime
-    WeeklyStartTime,
-    weeklyStartTime,
+    WeeklyStartTime (..),
+    mkWeeklyStartTime,
     wstTimeOfDay,
     wstTimeZone,
     wstDayOfWeek,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -313,6 +324,7 @@ import Network.AWS.MQ.UpdateBroker
 import Network.AWS.MQ.UpdateConfiguration
 import Network.AWS.MQ.UpdateUser
 import Network.AWS.MQ.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AvcIntraClass where
+module Network.AWS.MediaConvert.Types.AvcIntraClass
+  ( AvcIntraClass
+      ( AvcIntraClass',
+        Class100,
+        Class200,
+        Class50
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the AVC-Intra class of your output. The AVC-Intra class selection determines the output video bit rate depending on the frame rate of the output. Outputs with higher class values have higher bitrates and improved image quality.
-data AvcIntraClass
-  = Class100
-  | Class200
-  | Class50
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AvcIntraClass = AvcIntraClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AvcIntraClass where
-  parser =
-    takeLowerText >>= \case
-      "class_100" -> pure Class100
-      "class_200" -> pure Class200
-      "class_50" -> pure Class50
-      e ->
-        fromTextError $
-          "Failure parsing AvcIntraClass from value: '" <> e
-            <> "'. Accepted values: class_100, class_200, class_50"
+pattern Class100 :: AvcIntraClass
+pattern Class100 = AvcIntraClass' "CLASS_100"
 
-instance ToText AvcIntraClass where
-  toText = \case
-    Class100 -> "CLASS_100"
-    Class200 -> "CLASS_200"
-    Class50 -> "CLASS_50"
+pattern Class200 :: AvcIntraClass
+pattern Class200 = AvcIntraClass' "CLASS_200"
 
-instance Hashable AvcIntraClass
+pattern Class50 :: AvcIntraClass
+pattern Class50 = AvcIntraClass' "CLASS_50"
 
-instance NFData AvcIntraClass
-
-instance ToByteString AvcIntraClass
-
-instance ToQuery AvcIntraClass
-
-instance ToHeader AvcIntraClass
-
-instance ToJSON AvcIntraClass where
-  toJSON = toJSONText
-
-instance FromJSON AvcIntraClass where
-  parseJSON = parseJSONText "AvcIntraClass"
+{-# COMPLETE
+  Class100,
+  Class200,
+  Class50,
+  AvcIntraClass'
+  #-}

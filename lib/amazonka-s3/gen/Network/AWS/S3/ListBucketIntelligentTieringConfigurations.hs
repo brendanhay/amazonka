@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,34 +14,32 @@
 --
 -- Lists the S3 Intelligent-Tiering configuration from the specified bucket.
 --
---
 -- The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead. S3 Intelligent-Tiering delivers automatic cost savings by moving data between access tiers, when access patterns change.
---
 -- The S3 Intelligent-Tiering storage class is suitable for objects larger than 128 KB that you plan to store for at least 30 days. If the size of an object is less than 128 KB, it is not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the frequent access tier rates in the S3 Intelligent-Tiering storage class.
---
 -- If you delete an object before the end of the 30-day minimum storage duration period, you are charged for 30 days. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects> .
---
 -- Operations related to @ListBucketIntelligentTieringConfigurations@ include:
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html DeleteBucketIntelligentTieringConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketIntelligentTieringConfiguration.html PutBucketIntelligentTieringConfiguration>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html GetBucketIntelligentTieringConfiguration>
 module Network.AWS.S3.ListBucketIntelligentTieringConfigurations
-  ( -- * Creating a Request
-    listBucketIntelligentTieringConfigurations,
-    ListBucketIntelligentTieringConfigurations,
+  ( -- * Creating a request
+    ListBucketIntelligentTieringConfigurations (..),
+    mkListBucketIntelligentTieringConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbitcContinuationToken,
     lbitcBucket,
 
-    -- * Destructuring the Response
-    listBucketIntelligentTieringConfigurationsResponse,
-    ListBucketIntelligentTieringConfigurationsResponse,
+    -- * Destructuring the response
+    ListBucketIntelligentTieringConfigurationsResponse (..),
+    mkListBucketIntelligentTieringConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbitcrsIntelligentTieringConfigurationList,
     lbitcrsContinuationToken,
     lbitcrsNextContinuationToken,
@@ -55,165 +48,170 @@ module Network.AWS.S3.ListBucketIntelligentTieringConfigurations
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'listBucketIntelligentTieringConfigurations' smart constructor.
+-- | /See:/ 'mkListBucketIntelligentTieringConfigurations' smart constructor.
 data ListBucketIntelligentTieringConfigurations = ListBucketIntelligentTieringConfigurations'
-  { _lbitcContinuationToken ::
-      !( Maybe
-           Text
-       ),
-    _lbitcBucket ::
-      !BucketName
+  { continuationToken ::
+      Lude.Maybe
+        Lude.Text,
+    bucket ::
+      BucketName
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketIntelligentTieringConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbitcContinuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
---
--- * 'lbitcBucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
-listBucketIntelligentTieringConfigurations ::
-  -- | 'lbitcBucket'
+-- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+-- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
+mkListBucketIntelligentTieringConfigurations ::
+  -- | 'bucket'
   BucketName ->
   ListBucketIntelligentTieringConfigurations
-listBucketIntelligentTieringConfigurations pBucket_ =
+mkListBucketIntelligentTieringConfigurations pBucket_ =
   ListBucketIntelligentTieringConfigurations'
-    { _lbitcContinuationToken =
-        Nothing,
-      _lbitcBucket = pBucket_
+    { continuationToken =
+        Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The ContinuationToken that represents a placeholder from where this request should begin.
-lbitcContinuationToken :: Lens' ListBucketIntelligentTieringConfigurations (Maybe Text)
-lbitcContinuationToken = lens _lbitcContinuationToken (\s a -> s {_lbitcContinuationToken = a})
+--
+-- /Note:/ Consider using 'continuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcContinuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurations (Lude.Maybe Lude.Text)
+lbitcContinuationToken = Lens.lens (continuationToken :: ListBucketIntelligentTieringConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketIntelligentTieringConfigurations)
+{-# DEPRECATED lbitcContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
-lbitcBucket :: Lens' ListBucketIntelligentTieringConfigurations BucketName
-lbitcBucket = lens _lbitcBucket (\s a -> s {_lbitcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcBucket :: Lens.Lens' ListBucketIntelligentTieringConfigurations BucketName
+lbitcBucket = Lens.lens (bucket :: ListBucketIntelligentTieringConfigurations -> BucketName) (\s a -> s {bucket = a} :: ListBucketIntelligentTieringConfigurations)
+{-# DEPRECATED lbitcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest ListBucketIntelligentTieringConfigurations where
+instance Lude.AWSRequest ListBucketIntelligentTieringConfigurations where
   type
     Rs ListBucketIntelligentTieringConfigurations =
       ListBucketIntelligentTieringConfigurationsResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListBucketIntelligentTieringConfigurationsResponse'
-            <$> (may (parseXMLList "IntelligentTieringConfiguration") x)
-            <*> (x .@? "ContinuationToken")
-            <*> (x .@? "NextContinuationToken")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "IntelligentTieringConfiguration") x)
+            Lude.<*> (x Lude..@? "ContinuationToken")
+            Lude.<*> (x Lude..@? "NextContinuationToken")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBucketIntelligentTieringConfigurations
+instance Lude.ToHeaders ListBucketIntelligentTieringConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListBucketIntelligentTieringConfigurations
-
-instance ToHeaders ListBucketIntelligentTieringConfigurations where
-  toHeaders = const mempty
-
-instance ToPath ListBucketIntelligentTieringConfigurations where
+instance Lude.ToPath ListBucketIntelligentTieringConfigurations where
   toPath ListBucketIntelligentTieringConfigurations' {..} =
-    mconcat ["/", toBS _lbitcBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery ListBucketIntelligentTieringConfigurations where
+instance Lude.ToQuery ListBucketIntelligentTieringConfigurations where
   toQuery ListBucketIntelligentTieringConfigurations' {..} =
-    mconcat
-      [ "continuation-token" =: _lbitcContinuationToken,
+    Lude.mconcat
+      [ "continuation-token" Lude.=: continuationToken,
         "intelligent-tiering"
       ]
 
--- | /See:/ 'listBucketIntelligentTieringConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkListBucketIntelligentTieringConfigurationsResponse' smart constructor.
 data ListBucketIntelligentTieringConfigurationsResponse = ListBucketIntelligentTieringConfigurationsResponse'
-  { _lbitcrsIntelligentTieringConfigurationList ::
-      !( Maybe
-           [IntelligentTieringConfiguration]
-       ),
-    _lbitcrsContinuationToken ::
-      !( Maybe
-           Text
-       ),
-    _lbitcrsNextContinuationToken ::
-      !( Maybe
-           Text
-       ),
-    _lbitcrsIsTruncated ::
-      !( Maybe
-           Bool
-       ),
-    _lbitcrsResponseStatus ::
-      !Int
+  { intelligentTieringConfigurationList ::
+      Lude.Maybe
+        [IntelligentTieringConfiguration],
+    continuationToken ::
+      Lude.Maybe
+        Lude.Text,
+    nextContinuationToken ::
+      Lude.Maybe
+        Lude.Text,
+    isTruncated ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ListBucketIntelligentTieringConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbitcrsIntelligentTieringConfigurationList' - The list of S3 Intelligent-Tiering configurations for a bucket.
---
--- * 'lbitcrsContinuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
---
--- * 'lbitcrsNextContinuationToken' - The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
---
--- * 'lbitcrsIsTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
---
--- * 'lbitcrsResponseStatus' - -- | The response status code.
-listBucketIntelligentTieringConfigurationsResponse ::
-  -- | 'lbitcrsResponseStatus'
-  Int ->
+-- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
+-- * 'intelligentTieringConfigurationList' - The list of S3 Intelligent-Tiering configurations for a bucket.
+-- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+-- * 'nextContinuationToken' - The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'responseStatus' - The response status code.
+mkListBucketIntelligentTieringConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBucketIntelligentTieringConfigurationsResponse
-listBucketIntelligentTieringConfigurationsResponse pResponseStatus_ =
-  ListBucketIntelligentTieringConfigurationsResponse'
-    { _lbitcrsIntelligentTieringConfigurationList =
-        Nothing,
-      _lbitcrsContinuationToken = Nothing,
-      _lbitcrsNextContinuationToken = Nothing,
-      _lbitcrsIsTruncated = Nothing,
-      _lbitcrsResponseStatus = pResponseStatus_
-    }
+mkListBucketIntelligentTieringConfigurationsResponse
+  pResponseStatus_ =
+    ListBucketIntelligentTieringConfigurationsResponse'
+      { intelligentTieringConfigurationList =
+          Lude.Nothing,
+        continuationToken = Lude.Nothing,
+        nextContinuationToken = Lude.Nothing,
+        isTruncated = Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | The list of S3 Intelligent-Tiering configurations for a bucket.
-lbitcrsIntelligentTieringConfigurationList :: Lens' ListBucketIntelligentTieringConfigurationsResponse [IntelligentTieringConfiguration]
-lbitcrsIntelligentTieringConfigurationList = lens _lbitcrsIntelligentTieringConfigurationList (\s a -> s {_lbitcrsIntelligentTieringConfigurationList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'intelligentTieringConfigurationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcrsIntelligentTieringConfigurationList :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Lude.Maybe [IntelligentTieringConfiguration])
+lbitcrsIntelligentTieringConfigurationList = Lens.lens (intelligentTieringConfigurationList :: ListBucketIntelligentTieringConfigurationsResponse -> Lude.Maybe [IntelligentTieringConfiguration]) (\s a -> s {intelligentTieringConfigurationList = a} :: ListBucketIntelligentTieringConfigurationsResponse)
+{-# DEPRECATED lbitcrsIntelligentTieringConfigurationList "Use generic-lens or generic-optics with 'intelligentTieringConfigurationList' instead." #-}
 
 -- | The ContinuationToken that represents a placeholder from where this request should begin.
-lbitcrsContinuationToken :: Lens' ListBucketIntelligentTieringConfigurationsResponse (Maybe Text)
-lbitcrsContinuationToken = lens _lbitcrsContinuationToken (\s a -> s {_lbitcrsContinuationToken = a})
+--
+-- /Note:/ Consider using 'continuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcrsContinuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Lude.Maybe Lude.Text)
+lbitcrsContinuationToken = Lens.lens (continuationToken :: ListBucketIntelligentTieringConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketIntelligentTieringConfigurationsResponse)
+{-# DEPRECATED lbitcrsContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
 -- | The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
-lbitcrsNextContinuationToken :: Lens' ListBucketIntelligentTieringConfigurationsResponse (Maybe Text)
-lbitcrsNextContinuationToken = lens _lbitcrsNextContinuationToken (\s a -> s {_lbitcrsNextContinuationToken = a})
+--
+-- /Note:/ Consider using 'nextContinuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcrsNextContinuationToken :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Lude.Maybe Lude.Text)
+lbitcrsNextContinuationToken = Lens.lens (nextContinuationToken :: ListBucketIntelligentTieringConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextContinuationToken = a} :: ListBucketIntelligentTieringConfigurationsResponse)
+{-# DEPRECATED lbitcrsNextContinuationToken "Use generic-lens or generic-optics with 'nextContinuationToken' instead." #-}
 
 -- | Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
-lbitcrsIsTruncated :: Lens' ListBucketIntelligentTieringConfigurationsResponse (Maybe Bool)
-lbitcrsIsTruncated = lens _lbitcrsIsTruncated (\s a -> s {_lbitcrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcrsIsTruncated :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse (Lude.Maybe Lude.Bool)
+lbitcrsIsTruncated = Lens.lens (isTruncated :: ListBucketIntelligentTieringConfigurationsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListBucketIntelligentTieringConfigurationsResponse)
+{-# DEPRECATED lbitcrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-lbitcrsResponseStatus :: Lens' ListBucketIntelligentTieringConfigurationsResponse Int
-lbitcrsResponseStatus = lens _lbitcrsResponseStatus (\s a -> s {_lbitcrsResponseStatus = a})
-
-instance NFData ListBucketIntelligentTieringConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbitcrsResponseStatus :: Lens.Lens' ListBucketIntelligentTieringConfigurationsResponse Lude.Int
+lbitcrsResponseStatus = Lens.lens (responseStatus :: ListBucketIntelligentTieringConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBucketIntelligentTieringConfigurationsResponse)
+{-# DEPRECATED lbitcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

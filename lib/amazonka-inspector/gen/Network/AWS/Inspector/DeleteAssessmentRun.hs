@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,97 @@
 --
 -- Deletes the assessment run that is specified by the ARN of the assessment run.
 module Network.AWS.Inspector.DeleteAssessmentRun
-  ( -- * Creating a Request
-    deleteAssessmentRun,
-    DeleteAssessmentRun,
+  ( -- * Creating a request
+    DeleteAssessmentRun (..),
+    mkDeleteAssessmentRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     darAssessmentRunARN,
 
-    -- * Destructuring the Response
-    deleteAssessmentRunResponse,
-    DeleteAssessmentRunResponse,
+    -- * Destructuring the response
+    DeleteAssessmentRunResponse (..),
+    mkDeleteAssessmentRunResponse,
   )
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAssessmentRun' smart constructor.
+-- | /See:/ 'mkDeleteAssessmentRun' smart constructor.
 newtype DeleteAssessmentRun = DeleteAssessmentRun'
-  { _darAssessmentRunARN ::
-      Text
+  { assessmentRunARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssessmentRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darAssessmentRunARN' - The ARN that specifies the assessment run that you want to delete.
-deleteAssessmentRun ::
-  -- | 'darAssessmentRunARN'
-  Text ->
+-- * 'assessmentRunARN' - The ARN that specifies the assessment run that you want to delete.
+mkDeleteAssessmentRun ::
+  -- | 'assessmentRunARN'
+  Lude.Text ->
   DeleteAssessmentRun
-deleteAssessmentRun pAssessmentRunARN_ =
-  DeleteAssessmentRun' {_darAssessmentRunARN = pAssessmentRunARN_}
+mkDeleteAssessmentRun pAssessmentRunARN_ =
+  DeleteAssessmentRun' {assessmentRunARN = pAssessmentRunARN_}
 
 -- | The ARN that specifies the assessment run that you want to delete.
-darAssessmentRunARN :: Lens' DeleteAssessmentRun Text
-darAssessmentRunARN = lens _darAssessmentRunARN (\s a -> s {_darAssessmentRunARN = a})
+--
+-- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darAssessmentRunARN :: Lens.Lens' DeleteAssessmentRun Lude.Text
+darAssessmentRunARN = Lens.lens (assessmentRunARN :: DeleteAssessmentRun -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: DeleteAssessmentRun)
+{-# DEPRECATED darAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
 
-instance AWSRequest DeleteAssessmentRun where
+instance Lude.AWSRequest DeleteAssessmentRun where
   type Rs DeleteAssessmentRun = DeleteAssessmentRunResponse
-  request = postJSON inspector
-  response = receiveNull DeleteAssessmentRunResponse'
+  request = Req.postJSON inspectorService
+  response = Res.receiveNull DeleteAssessmentRunResponse'
 
-instance Hashable DeleteAssessmentRun
-
-instance NFData DeleteAssessmentRun
-
-instance ToHeaders DeleteAssessmentRun where
+instance Lude.ToHeaders DeleteAssessmentRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.DeleteAssessmentRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.DeleteAssessmentRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAssessmentRun where
+instance Lude.ToJSON DeleteAssessmentRun where
   toJSON DeleteAssessmentRun' {..} =
-    object
-      (catMaybes [Just ("assessmentRunArn" .= _darAssessmentRunARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN)]
+      )
 
-instance ToPath DeleteAssessmentRun where
-  toPath = const "/"
+instance Lude.ToPath DeleteAssessmentRun where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAssessmentRun where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAssessmentRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAssessmentRunResponse' smart constructor.
+-- | /See:/ 'mkDeleteAssessmentRunResponse' smart constructor.
 data DeleteAssessmentRunResponse = DeleteAssessmentRunResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssessmentRunResponse' with the minimum fields required to make a request.
-deleteAssessmentRunResponse ::
+mkDeleteAssessmentRunResponse ::
   DeleteAssessmentRunResponse
-deleteAssessmentRunResponse = DeleteAssessmentRunResponse'
-
-instance NFData DeleteAssessmentRunResponse
+mkDeleteAssessmentRunResponse = DeleteAssessmentRunResponse'

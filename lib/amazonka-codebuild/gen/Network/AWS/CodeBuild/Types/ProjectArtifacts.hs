@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,140 +7,359 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectArtifacts where
+module Network.AWS.CodeBuild.Types.ProjectArtifacts
+  ( ProjectArtifacts (..),
+
+    -- * Smart constructor
+    mkProjectArtifacts,
+
+    -- * Lenses
+    paPackaging,
+    paPath,
+    paLocation,
+    paName,
+    paEncryptionDisabled,
+    paOverrideArtifactName,
+    paArtifactIdentifier,
+    paNamespaceType,
+    paType,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.ArtifactNamespace
 import Network.AWS.CodeBuild.Types.ArtifactPackaging
 import Network.AWS.CodeBuild.Types.ArtifactsType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the build output artifacts for the build project.
 --
---
---
--- /See:/ 'projectArtifacts' smart constructor.
+-- /See:/ 'mkProjectArtifacts' smart constructor.
 data ProjectArtifacts = ProjectArtifacts'
-  { _paPackaging ::
-      !(Maybe ArtifactPackaging),
-    _paPath :: !(Maybe Text),
-    _paLocation :: !(Maybe Text),
-    _paName :: !(Maybe Text),
-    _paEncryptionDisabled :: !(Maybe Bool),
-    _paOverrideArtifactName :: !(Maybe Bool),
-    _paArtifactIdentifier :: !(Maybe Text),
-    _paNamespaceType :: !(Maybe ArtifactNamespace),
-    _paType :: !ArtifactsType
+  { packaging ::
+      Lude.Maybe ArtifactPackaging,
+    path :: Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    encryptionDisabled :: Lude.Maybe Lude.Bool,
+    overrideArtifactName :: Lude.Maybe Lude.Bool,
+    artifactIdentifier :: Lude.Maybe Lude.Text,
+    namespaceType :: Lude.Maybe ArtifactNamespace,
+    type' :: ArtifactsType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectArtifacts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'artifactIdentifier' - An identifier for this artifact definition.
+-- * 'encryptionDisabled' - Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an invalidInputException is thrown.
+-- * 'location' - Information about the build output artifact location:
 --
--- * 'paPackaging' - The type of build output artifact to create:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , valid values include:     * @NONE@ : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if @packaging@ is not specified.     * @ZIP@ : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
 --
--- * 'paPath' - Along with @namespaceType@ and @name@ , the pattern that AWS CodeBuild uses to name and store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the path to the output artifact. If @path@ is not specified, @path@ is not used. For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @NONE@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in the output bucket at @MyArtifacts/MyArtifact.zip@ .
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.
 --
--- * 'paLocation' - Information about the build output artifact location:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the name of the output bucket.
 --
--- * 'paName' - Along with @path@ and @namespaceType@ , the pattern that AWS CodeBuild uses to name and store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket. For example:     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , then the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .      * If @path@ is empty, @namespaceType@ is set to @NONE@ , and @name@ is set to "@/@ ", the output artifact is stored in the root of the output bucket.      * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to "@/@ ", the output artifact is stored in @MyArtifacts/<build-ID>@ .
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
 --
--- * 'paEncryptionDisabled' - Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an invalidInputException is thrown.
 --
--- * 'paOverrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
+--     * If @type@ is set to @S3@ , this is the name of the output bucket.
 --
--- * 'paArtifactIdentifier' - An identifier for this artifact definition.
 --
--- * 'paNamespaceType' - Along with @path@ and @name@ , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , valid values include:     * @BUILD_ID@ : Include the build ID in the location of the build output artifact.     * @NONE@ : Do not include the build ID. This is the default if @namespaceType@ is not specified. For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
+-- * 'name' - Along with @path@ and @namespaceType@ , the pattern that AWS CodeBuild uses to name and store the output artifact:
 --
--- * 'paType' - The type of build output artifact. Valid values include:     * @CODEPIPELINE@ : The build project has build output generated through AWS CodePipeline.      * @NO_ARTIFACTS@ : The build project does not produce any build output.     * @S3@ : The build project stores build output in Amazon Simple Storage Service (Amazon S3).
-projectArtifacts ::
-  -- | 'paType'
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+--
+--
+-- For example:
+--
+--     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , then the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
+--
+--
+--     * If @path@ is empty, @namespaceType@ is set to @NONE@ , and @name@ is set to "@/@ ", the output artifact is stored in the root of the output bucket.
+--
+--
+--     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to "@/@ ", the output artifact is stored in @MyArtifacts/<build-ID>@ .
+--
+--
+-- * 'namespaceType' - Along with @path@ and @name@ , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , valid values include:
+--
+--     * @BUILD_ID@ : Include the build ID in the location of the build output artifact.
+--
+--
+--     * @NONE@ : Do not include the build ID. This is the default if @namespaceType@ is not specified.
+--
+--
+--
+--
+-- For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
+-- * 'overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
+-- * 'packaging' - The type of build output artifact to create:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , valid values include:
+--
+--     * @NONE@ : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if @packaging@ is not specified.
+--
+--
+--     * @ZIP@ : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+--
+--
+--
+--
+-- * 'path' - Along with @namespaceType@ and @name@ , the pattern that AWS CodeBuild uses to name and store the output artifact:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , this is the path to the output artifact. If @path@ is not specified, @path@ is not used.
+--
+--
+-- For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @NONE@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in the output bucket at @MyArtifacts/MyArtifact.zip@ .
+-- * 'type'' - The type of build output artifact. Valid values include:
+--
+--
+--     * @CODEPIPELINE@ : The build project has build output generated through AWS CodePipeline.
+--
+--
+--     * @NO_ARTIFACTS@ : The build project does not produce any build output.
+--
+--
+--     * @S3@ : The build project stores build output in Amazon Simple Storage Service (Amazon S3).
+mkProjectArtifacts ::
+  -- | 'type''
   ArtifactsType ->
   ProjectArtifacts
-projectArtifacts pType_ =
+mkProjectArtifacts pType_ =
   ProjectArtifacts'
-    { _paPackaging = Nothing,
-      _paPath = Nothing,
-      _paLocation = Nothing,
-      _paName = Nothing,
-      _paEncryptionDisabled = Nothing,
-      _paOverrideArtifactName = Nothing,
-      _paArtifactIdentifier = Nothing,
-      _paNamespaceType = Nothing,
-      _paType = pType_
+    { packaging = Lude.Nothing,
+      path = Lude.Nothing,
+      location = Lude.Nothing,
+      name = Lude.Nothing,
+      encryptionDisabled = Lude.Nothing,
+      overrideArtifactName = Lude.Nothing,
+      artifactIdentifier = Lude.Nothing,
+      namespaceType = Lude.Nothing,
+      type' = pType_
     }
 
--- | The type of build output artifact to create:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , valid values include:     * @NONE@ : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if @packaging@ is not specified.     * @ZIP@ : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
-paPackaging :: Lens' ProjectArtifacts (Maybe ArtifactPackaging)
-paPackaging = lens _paPackaging (\s a -> s {_paPackaging = a})
+-- | The type of build output artifact to create:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , valid values include:
+--
+--     * @NONE@ : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if @packaging@ is not specified.
+--
+--
+--     * @ZIP@ : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'packaging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPackaging :: Lens.Lens' ProjectArtifacts (Lude.Maybe ArtifactPackaging)
+paPackaging = Lens.lens (packaging :: ProjectArtifacts -> Lude.Maybe ArtifactPackaging) (\s a -> s {packaging = a} :: ProjectArtifacts)
+{-# DEPRECATED paPackaging "Use generic-lens or generic-optics with 'packaging' instead." #-}
 
--- | Along with @namespaceType@ and @name@ , the pattern that AWS CodeBuild uses to name and store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the path to the output artifact. If @path@ is not specified, @path@ is not used. For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @NONE@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in the output bucket at @MyArtifacts/MyArtifact.zip@ .
-paPath :: Lens' ProjectArtifacts (Maybe Text)
-paPath = lens _paPath (\s a -> s {_paPath = a})
+-- | Along with @namespaceType@ and @name@ , the pattern that AWS CodeBuild uses to name and store the output artifact:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , this is the path to the output artifact. If @path@ is not specified, @path@ is not used.
+--
+--
+-- For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @NONE@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in the output bucket at @MyArtifacts/MyArtifact.zip@ .
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPath :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Text)
+paPath = Lens.lens (path :: ProjectArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: ProjectArtifacts)
+{-# DEPRECATED paPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | Information about the build output artifact location:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the name of the output bucket.
-paLocation :: Lens' ProjectArtifacts (Maybe Text)
-paLocation = lens _paLocation (\s a -> s {_paLocation = a})
+-- | Information about the build output artifact location:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , this is the name of the output bucket.
+--
+--
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paLocation :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Text)
+paLocation = Lens.lens (location :: ProjectArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ProjectArtifacts)
+{-# DEPRECATED paLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | Along with @path@ and @namespaceType@ , the pattern that AWS CodeBuild uses to name and store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket. For example:     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , then the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .      * If @path@ is empty, @namespaceType@ is set to @NONE@ , and @name@ is set to "@/@ ", the output artifact is stored in the root of the output bucket.      * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to "@/@ ", the output artifact is stored in @MyArtifacts/<build-ID>@ .
-paName :: Lens' ProjectArtifacts (Maybe Text)
-paName = lens _paName (\s a -> s {_paName = a})
+-- | Along with @path@ and @namespaceType@ , the pattern that AWS CodeBuild uses to name and store the output artifact:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , this is the name of the output artifact object. If you set the name to be a forward slash ("/"), the artifact is stored in the root of the output bucket.
+--
+--
+-- For example:
+--
+--     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , then the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
+--
+--
+--     * If @path@ is empty, @namespaceType@ is set to @NONE@ , and @name@ is set to "@/@ ", the output artifact is stored in the root of the output bucket.
+--
+--
+--     * If @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to "@/@ ", the output artifact is stored in @MyArtifacts/<build-ID>@ .
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paName :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Text)
+paName = Lens.lens (name :: ProjectArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProjectArtifacts)
+{-# DEPRECATED paName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an invalidInputException is thrown.
-paEncryptionDisabled :: Lens' ProjectArtifacts (Maybe Bool)
-paEncryptionDisabled = lens _paEncryptionDisabled (\s a -> s {_paEncryptionDisabled = a})
+--
+-- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paEncryptionDisabled :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Bool)
+paEncryptionDisabled = Lens.lens (encryptionDisabled :: ProjectArtifacts -> Lude.Maybe Lude.Bool) (\s a -> s {encryptionDisabled = a} :: ProjectArtifacts)
+{-# DEPRECATED paEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
 
 -- | If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
-paOverrideArtifactName :: Lens' ProjectArtifacts (Maybe Bool)
-paOverrideArtifactName = lens _paOverrideArtifactName (\s a -> s {_paOverrideArtifactName = a})
+--
+-- /Note:/ Consider using 'overrideArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paOverrideArtifactName :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Bool)
+paOverrideArtifactName = Lens.lens (overrideArtifactName :: ProjectArtifacts -> Lude.Maybe Lude.Bool) (\s a -> s {overrideArtifactName = a} :: ProjectArtifacts)
+{-# DEPRECATED paOverrideArtifactName "Use generic-lens or generic-optics with 'overrideArtifactName' instead." #-}
 
 -- | An identifier for this artifact definition.
-paArtifactIdentifier :: Lens' ProjectArtifacts (Maybe Text)
-paArtifactIdentifier = lens _paArtifactIdentifier (\s a -> s {_paArtifactIdentifier = a})
+--
+-- /Note:/ Consider using 'artifactIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paArtifactIdentifier :: Lens.Lens' ProjectArtifacts (Lude.Maybe Lude.Text)
+paArtifactIdentifier = Lens.lens (artifactIdentifier :: ProjectArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {artifactIdentifier = a} :: ProjectArtifacts)
+{-# DEPRECATED paArtifactIdentifier "Use generic-lens or generic-optics with 'artifactIdentifier' instead." #-}
 
--- | Along with @path@ and @name@ , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.     * If @type@ is set to @S3@ , valid values include:     * @BUILD_ID@ : Include the build ID in the location of the build output artifact.     * @NONE@ : Do not include the build ID. This is the default if @namespaceType@ is not specified. For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
-paNamespaceType :: Lens' ProjectArtifacts (Maybe ArtifactNamespace)
-paNamespaceType = lens _paNamespaceType (\s a -> s {_paNamespaceType = a})
+-- | Along with @path@ and @name@ , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:
+--
+--
+--     * If @type@ is set to @CODEPIPELINE@ , AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.
+--
+--
+--     * If @type@ is set to @NO_ARTIFACTS@ , this value is ignored if specified, because no build output is produced.
+--
+--
+--     * If @type@ is set to @S3@ , valid values include:
+--
+--     * @BUILD_ID@ : Include the build ID in the location of the build output artifact.
+--
+--
+--     * @NONE@ : Do not include the build ID. This is the default if @namespaceType@ is not specified.
+--
+--
+--
+--
+-- For example, if @path@ is set to @MyArtifacts@ , @namespaceType@ is set to @BUILD_ID@ , and @name@ is set to @MyArtifact.zip@ , the output artifact is stored in @MyArtifacts/<build-ID>/MyArtifact.zip@ .
+--
+-- /Note:/ Consider using 'namespaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paNamespaceType :: Lens.Lens' ProjectArtifacts (Lude.Maybe ArtifactNamespace)
+paNamespaceType = Lens.lens (namespaceType :: ProjectArtifacts -> Lude.Maybe ArtifactNamespace) (\s a -> s {namespaceType = a} :: ProjectArtifacts)
+{-# DEPRECATED paNamespaceType "Use generic-lens or generic-optics with 'namespaceType' instead." #-}
 
--- | The type of build output artifact. Valid values include:     * @CODEPIPELINE@ : The build project has build output generated through AWS CodePipeline.      * @NO_ARTIFACTS@ : The build project does not produce any build output.     * @S3@ : The build project stores build output in Amazon Simple Storage Service (Amazon S3).
-paType :: Lens' ProjectArtifacts ArtifactsType
-paType = lens _paType (\s a -> s {_paType = a})
+-- | The type of build output artifact. Valid values include:
+--
+--
+--     * @CODEPIPELINE@ : The build project has build output generated through AWS CodePipeline.
+--
+--
+--     * @NO_ARTIFACTS@ : The build project does not produce any build output.
+--
+--
+--     * @S3@ : The build project stores build output in Amazon Simple Storage Service (Amazon S3).
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paType :: Lens.Lens' ProjectArtifacts ArtifactsType
+paType = Lens.lens (type' :: ProjectArtifacts -> ArtifactsType) (\s a -> s {type' = a} :: ProjectArtifacts)
+{-# DEPRECATED paType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON ProjectArtifacts where
+instance Lude.FromJSON ProjectArtifacts where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectArtifacts"
       ( \x ->
           ProjectArtifacts'
-            <$> (x .:? "packaging")
-            <*> (x .:? "path")
-            <*> (x .:? "location")
-            <*> (x .:? "name")
-            <*> (x .:? "encryptionDisabled")
-            <*> (x .:? "overrideArtifactName")
-            <*> (x .:? "artifactIdentifier")
-            <*> (x .:? "namespaceType")
-            <*> (x .: "type")
+            Lude.<$> (x Lude..:? "packaging")
+            Lude.<*> (x Lude..:? "path")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "encryptionDisabled")
+            Lude.<*> (x Lude..:? "overrideArtifactName")
+            Lude.<*> (x Lude..:? "artifactIdentifier")
+            Lude.<*> (x Lude..:? "namespaceType")
+            Lude.<*> (x Lude..: "type")
       )
 
-instance Hashable ProjectArtifacts
-
-instance NFData ProjectArtifacts
-
-instance ToJSON ProjectArtifacts where
+instance Lude.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =
-    object
-      ( catMaybes
-          [ ("packaging" .=) <$> _paPackaging,
-            ("path" .=) <$> _paPath,
-            ("location" .=) <$> _paLocation,
-            ("name" .=) <$> _paName,
-            ("encryptionDisabled" .=) <$> _paEncryptionDisabled,
-            ("overrideArtifactName" .=) <$> _paOverrideArtifactName,
-            ("artifactIdentifier" .=) <$> _paArtifactIdentifier,
-            ("namespaceType" .=) <$> _paNamespaceType,
-            Just ("type" .= _paType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("packaging" Lude..=) Lude.<$> packaging,
+            ("path" Lude..=) Lude.<$> path,
+            ("location" Lude..=) Lude.<$> location,
+            ("name" Lude..=) Lude.<$> name,
+            ("encryptionDisabled" Lude..=) Lude.<$> encryptionDisabled,
+            ("overrideArtifactName" Lude..=) Lude.<$> overrideArtifactName,
+            ("artifactIdentifier" Lude..=) Lude.<$> artifactIdentifier,
+            ("namespaceType" Lude..=) Lude.<$> namespaceType,
+            Lude.Just ("type" Lude..= type')
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum where
+module Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
+  ( DedicatedTenancyModificationStateEnum
+      ( DedicatedTenancyModificationStateEnum',
+        Completed,
+        Failed,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DedicatedTenancyModificationStateEnum
-  = Completed
-  | Failed
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DedicatedTenancyModificationStateEnum = DedicatedTenancyModificationStateEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DedicatedTenancyModificationStateEnum where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing DedicatedTenancyModificationStateEnum from value: '" <> e
-            <> "'. Accepted values: completed, failed, pending"
+pattern Completed :: DedicatedTenancyModificationStateEnum
+pattern Completed = DedicatedTenancyModificationStateEnum' "COMPLETED"
 
-instance ToText DedicatedTenancyModificationStateEnum where
-  toText = \case
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
+pattern Failed :: DedicatedTenancyModificationStateEnum
+pattern Failed = DedicatedTenancyModificationStateEnum' "FAILED"
 
-instance Hashable DedicatedTenancyModificationStateEnum
+pattern Pending :: DedicatedTenancyModificationStateEnum
+pattern Pending = DedicatedTenancyModificationStateEnum' "PENDING"
 
-instance NFData DedicatedTenancyModificationStateEnum
-
-instance ToByteString DedicatedTenancyModificationStateEnum
-
-instance ToQuery DedicatedTenancyModificationStateEnum
-
-instance ToHeader DedicatedTenancyModificationStateEnum
-
-instance FromJSON DedicatedTenancyModificationStateEnum where
-  parseJSON = parseJSONText "DedicatedTenancyModificationStateEnum"
+{-# COMPLETE
+  Completed,
+  Failed,
+  Pending,
+  DedicatedTenancyModificationStateEnum'
+  #-}

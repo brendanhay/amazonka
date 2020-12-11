@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,161 @@
 --
 -- The @ListDomains@ operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by <#MaxNumberOfDomains MaxNumberOfDomains> . A <#NextToken NextToken> is returned if there are more than @MaxNumberOfDomains@ domains. Calling @ListDomains@ successive times with the @NextToken@ provided by the operation returns up to @MaxNumberOfDomains@ more domain names with each successive operation call.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SDB.ListDomains
-  ( -- * Creating a Request
-    listDomains,
-    ListDomains,
+  ( -- * Creating a request
+    ListDomains (..),
+    mkListDomains,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldMaxNumberOfDomains,
     ldNextToken,
 
-    -- * Destructuring the Response
-    listDomainsResponse,
-    ListDomainsResponse,
+    -- * Destructuring the response
+    ListDomainsResponse (..),
+    mkListDomainsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsDomainNames,
     ldrsNextToken,
     ldrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'listDomains' smart constructor.
+-- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { _ldMaxNumberOfDomains ::
-      !(Maybe Int),
-    _ldNextToken :: !(Maybe Text)
+  { maxNumberOfDomains ::
+      Lude.Maybe Lude.Int,
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldMaxNumberOfDomains' - The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
---
--- * 'ldNextToken' - A string informing Amazon SimpleDB where to start the next list of domain names.
-listDomains ::
+-- * 'maxNumberOfDomains' - The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
+-- * 'nextToken' - A string informing Amazon SimpleDB where to start the next list of domain names.
+mkListDomains ::
   ListDomains
-listDomains =
+mkListDomains =
   ListDomains'
-    { _ldMaxNumberOfDomains = Nothing,
-      _ldNextToken = Nothing
+    { maxNumberOfDomains = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
-ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
-ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\s a -> s {_ldMaxNumberOfDomains = a})
+--
+-- /Note:/ Consider using 'maxNumberOfDomains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxNumberOfDomains :: Lens.Lens' ListDomains (Lude.Maybe Lude.Int)
+ldMaxNumberOfDomains = Lens.lens (maxNumberOfDomains :: ListDomains -> Lude.Maybe Lude.Int) (\s a -> s {maxNumberOfDomains = a} :: ListDomains)
+{-# DEPRECATED ldMaxNumberOfDomains "Use generic-lens or generic-optics with 'maxNumberOfDomains' instead." #-}
 
 -- | A string informing Amazon SimpleDB where to start the next list of domain names.
-ldNextToken :: Lens' ListDomains (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDomains (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDomains -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomains)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListDomains where
+instance Page.AWSPager ListDomains where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDomainNames) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDomainNames) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDomains where
+instance Lude.AWSRequest ListDomains where
   type Rs ListDomains = ListDomainsResponse
-  request = postQuery sdb
+  request = Req.postQuery sdbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListDomainsResult"
       ( \s h x ->
           ListDomainsResponse'
-            <$> (may (parseXMLList "DomainName") x)
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "DomainName") x)
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDomains
+instance Lude.ToHeaders ListDomains where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDomains
+instance Lude.ToPath ListDomains where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListDomains where
-  toHeaders = const mempty
-
-instance ToPath ListDomains where
-  toPath = const "/"
-
-instance ToQuery ListDomains where
+instance Lude.ToQuery ListDomains where
   toQuery ListDomains' {..} =
-    mconcat
-      [ "Action" =: ("ListDomains" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "MaxNumberOfDomains" =: _ldMaxNumberOfDomains,
-        "NextToken" =: _ldNextToken
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListDomains" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "MaxNumberOfDomains" Lude.=: maxNumberOfDomains,
+        "NextToken" Lude.=: nextToken
       ]
 
--- | /See:/ 'listDomainsResponse' smart constructor.
+-- | /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { _ldrsDomainNames ::
-      !(Maybe [Text]),
-    _ldrsNextToken :: !(Maybe Text),
-    _ldrsResponseStatus :: !Int
+  { domainNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsDomainNames' - A list of domain names that match the expression.
---
--- * 'ldrsNextToken' - @MaxNumberOfDomains@
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDomainsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'domainNames' - A list of domain names that match the expression.
+-- * 'nextToken' - @MaxNumberOfDomains@
+-- * 'responseStatus' - The response status code.
+mkListDomainsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDomainsResponse
-listDomainsResponse pResponseStatus_ =
+mkListDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
-    { _ldrsDomainNames = Nothing,
-      _ldrsNextToken = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { domainNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of domain names that match the expression.
-ldrsDomainNames :: Lens' ListDomainsResponse [Text]
-ldrsDomainNames = lens _ldrsDomainNames (\s a -> s {_ldrsDomainNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDomainNames :: Lens.Lens' ListDomainsResponse (Lude.Maybe [Lude.Text])
+ldrsDomainNames = Lens.lens (domainNames :: ListDomainsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {domainNames = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
 -- | @MaxNumberOfDomains@
-ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDomainsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDomainsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDomainsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

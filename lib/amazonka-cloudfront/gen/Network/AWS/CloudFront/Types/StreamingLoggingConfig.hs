@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.StreamingLoggingConfig where
+module Network.AWS.CloudFront.Types.StreamingLoggingConfig
+  ( StreamingLoggingConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStreamingLoggingConfig,
+
+    -- * Lenses
+    slcEnabled,
+    slcBucket,
+    slcPrefix,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex type that controls whether access logs are written for this streaming distribution.
 --
---
---
--- /See:/ 'streamingLoggingConfig' smart constructor.
+-- /See:/ 'mkStreamingLoggingConfig' smart constructor.
 data StreamingLoggingConfig = StreamingLoggingConfig'
-  { _slcEnabled ::
-      !Bool,
-    _slcBucket :: !Text,
-    _slcPrefix :: !Text
+  { enabled ::
+      Lude.Bool,
+    bucket :: Lude.Text,
+    prefix :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamingLoggingConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slcEnabled' - Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify @false@ for @Enabled@ , and specify @empty Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
---
--- * 'slcBucket' - The Amazon S3 bucket to store the access logs in, for example, @myawslogbucket.s3.amazonaws.com@ .
---
--- * 'slcPrefix' - An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, @myprefix/@ . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty @Prefix@ element in the @Logging@ element.
-streamingLoggingConfig ::
-  -- | 'slcEnabled'
-  Bool ->
-  -- | 'slcBucket'
-  Text ->
-  -- | 'slcPrefix'
-  Text ->
+-- * 'bucket' - The Amazon S3 bucket to store the access logs in, for example, @myawslogbucket.s3.amazonaws.com@ .
+-- * 'enabled' - Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify @false@ for @Enabled@ , and specify @empty Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
+-- * 'prefix' - An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, @myprefix/@ . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty @Prefix@ element in the @Logging@ element.
+mkStreamingLoggingConfig ::
+  -- | 'enabled'
+  Lude.Bool ->
+  -- | 'bucket'
+  Lude.Text ->
+  -- | 'prefix'
+  Lude.Text ->
   StreamingLoggingConfig
-streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
+mkStreamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
   StreamingLoggingConfig'
-    { _slcEnabled = pEnabled_,
-      _slcBucket = pBucket_,
-      _slcPrefix = pPrefix_
+    { enabled = pEnabled_,
+      bucket = pBucket_,
+      prefix = pPrefix_
     }
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify @false@ for @Enabled@ , and specify @empty Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
-slcEnabled :: Lens' StreamingLoggingConfig Bool
-slcEnabled = lens _slcEnabled (\s a -> s {_slcEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcEnabled :: Lens.Lens' StreamingLoggingConfig Lude.Bool
+slcEnabled = Lens.lens (enabled :: StreamingLoggingConfig -> Lude.Bool) (\s a -> s {enabled = a} :: StreamingLoggingConfig)
+{-# DEPRECATED slcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The Amazon S3 bucket to store the access logs in, for example, @myawslogbucket.s3.amazonaws.com@ .
-slcBucket :: Lens' StreamingLoggingConfig Text
-slcBucket = lens _slcBucket (\s a -> s {_slcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcBucket :: Lens.Lens' StreamingLoggingConfig Lude.Text
+slcBucket = Lens.lens (bucket :: StreamingLoggingConfig -> Lude.Text) (\s a -> s {bucket = a} :: StreamingLoggingConfig)
+{-# DEPRECATED slcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, @myprefix/@ . If you want to enable logging, but you don't want to specify a prefix, you still must include an empty @Prefix@ element in the @Logging@ element.
-slcPrefix :: Lens' StreamingLoggingConfig Text
-slcPrefix = lens _slcPrefix (\s a -> s {_slcPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcPrefix :: Lens.Lens' StreamingLoggingConfig Lude.Text
+slcPrefix = Lens.lens (prefix :: StreamingLoggingConfig -> Lude.Text) (\s a -> s {prefix = a} :: StreamingLoggingConfig)
+{-# DEPRECATED slcPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
-instance FromXML StreamingLoggingConfig where
+instance Lude.FromXML StreamingLoggingConfig where
   parseXML x =
     StreamingLoggingConfig'
-      <$> (x .@ "Enabled") <*> (x .@ "Bucket") <*> (x .@ "Prefix")
+      Lude.<$> (x Lude..@ "Enabled")
+      Lude.<*> (x Lude..@ "Bucket")
+      Lude.<*> (x Lude..@ "Prefix")
 
-instance Hashable StreamingLoggingConfig
-
-instance NFData StreamingLoggingConfig
-
-instance ToXML StreamingLoggingConfig where
+instance Lude.ToXML StreamingLoggingConfig where
   toXML StreamingLoggingConfig' {..} =
-    mconcat
-      [ "Enabled" @= _slcEnabled,
-        "Bucket" @= _slcBucket,
-        "Prefix" @= _slcPrefix
+    Lude.mconcat
+      [ "Enabled" Lude.@= enabled,
+        "Bucket" Lude.@= bucket,
+        "Prefix" Lude.@= prefix
       ]

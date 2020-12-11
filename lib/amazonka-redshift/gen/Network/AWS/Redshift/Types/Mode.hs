@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.Mode where
+module Network.AWS.Redshift.Types.Mode
+  ( Mode
+      ( Mode',
+        HighPerformance,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data Mode
-  = HighPerformance
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mode = Mode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mode where
-  parser =
-    takeLowerText >>= \case
-      "high-performance" -> pure HighPerformance
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing Mode from value: '" <> e
-            <> "'. Accepted values: high-performance, standard"
+pattern HighPerformance :: Mode
+pattern HighPerformance = Mode' "high-performance"
 
-instance ToText Mode where
-  toText = \case
-    HighPerformance -> "high-performance"
-    Standard -> "standard"
+pattern Standard :: Mode
+pattern Standard = Mode' "standard"
 
-instance Hashable Mode
-
-instance NFData Mode
-
-instance ToByteString Mode
-
-instance ToQuery Mode
-
-instance ToHeader Mode
-
-instance FromXML Mode where
-  parseXML = parseXMLText "Mode"
+{-# COMPLETE
+  HighPerformance,
+  Standard,
+  Mode'
+  #-}

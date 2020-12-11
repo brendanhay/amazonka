@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,134 @@
 --
 -- Deletes the specified storage volume that you previously created using the 'CreateCachediSCSIVolume' or 'CreateStorediSCSIVolume' API. This operation is only supported in the cached volume and stored volume types. For stored volume gateways, the local disk that was configured as the storage volume is not deleted. You can reuse the local disk to create another storage volume.
 --
---
 -- Before you delete a volume, make sure there are no iSCSI connections to the volume you are deleting. You should also make sure there is no snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are deleting and check the snapshot status. For more information, go to <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
---
 -- In the request, you must provide the Amazon Resource Name (ARN) of the storage volume you want to delete.
 module Network.AWS.StorageGateway.DeleteVolume
-  ( -- * Creating a Request
-    deleteVolume,
-    DeleteVolume,
+  ( -- * Creating a request
+    DeleteVolume (..),
+    mkDeleteVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delVolumeARN,
 
-    -- * Destructuring the Response
-    deleteVolumeResponse,
-    DeleteVolumeResponse,
+    -- * Destructuring the response
+    DeleteVolumeResponse (..),
+    mkDeleteVolumeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvvrsVolumeARN,
     dvvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the 'DeleteVolumeInput$VolumeARN' to delete.
 --
---
---
--- /See:/ 'deleteVolume' smart constructor.
-newtype DeleteVolume = DeleteVolume' {_delVolumeARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteVolume' smart constructor.
+newtype DeleteVolume = DeleteVolume' {volumeARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
-deleteVolume ::
-  -- | 'delVolumeARN'
-  Text ->
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+mkDeleteVolume ::
+  -- | 'volumeARN'
+  Lude.Text ->
   DeleteVolume
-deleteVolume pVolumeARN_ =
-  DeleteVolume' {_delVolumeARN = pVolumeARN_}
+mkDeleteVolume pVolumeARN_ = DeleteVolume' {volumeARN = pVolumeARN_}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
-delVolumeARN :: Lens' DeleteVolume Text
-delVolumeARN = lens _delVolumeARN (\s a -> s {_delVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delVolumeARN :: Lens.Lens' DeleteVolume Lude.Text
+delVolumeARN = Lens.lens (volumeARN :: DeleteVolume -> Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolume)
+{-# DEPRECATED delVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
-instance AWSRequest DeleteVolume where
+instance Lude.AWSRequest DeleteVolume where
   type Rs DeleteVolume = DeleteVolumeResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteVolumeResponse'
-            <$> (x .?> "VolumeARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VolumeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVolume
-
-instance NFData DeleteVolume
-
-instance ToHeaders DeleteVolume where
+instance Lude.ToHeaders DeleteVolume where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DeleteVolume" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.DeleteVolume" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteVolume where
+instance Lude.ToJSON DeleteVolume where
   toJSON DeleteVolume' {..} =
-    object (catMaybes [Just ("VolumeARN" .= _delVolumeARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("VolumeARN" Lude..= volumeARN)])
 
-instance ToPath DeleteVolume where
-  toPath = const "/"
+instance Lude.ToPath DeleteVolume where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteVolume where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVolume where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the storage volume that was deleted.
 --
---
---
--- /See:/ 'deleteVolumeResponse' smart constructor.
+-- /See:/ 'mkDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  { _dvvrsVolumeARN ::
-      !(Maybe Text),
-    _dvvrsResponseStatus :: !Int
+  { volumeARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvvrsVolumeARN' - The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
---
--- * 'dvvrsResponseStatus' - -- | The response status code.
-deleteVolumeResponse ::
-  -- | 'dvvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
+mkDeleteVolumeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVolumeResponse
-deleteVolumeResponse pResponseStatus_ =
+mkDeleteVolumeResponse pResponseStatus_ =
   DeleteVolumeResponse'
-    { _dvvrsVolumeARN = Nothing,
-      _dvvrsResponseStatus = pResponseStatus_
+    { volumeARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
-dvvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
-dvvrsVolumeARN = lens _dvvrsVolumeARN (\s a -> s {_dvvrsVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvvrsVolumeARN :: Lens.Lens' DeleteVolumeResponse (Lude.Maybe Lude.Text)
+dvvrsVolumeARN = Lens.lens (volumeARN :: DeleteVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolumeResponse)
+{-# DEPRECATED dvvrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
--- | -- | The response status code.
-dvvrsResponseStatus :: Lens' DeleteVolumeResponse Int
-dvvrsResponseStatus = lens _dvvrsResponseStatus (\s a -> s {_dvvrsResponseStatus = a})
-
-instance NFData DeleteVolumeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvvrsResponseStatus :: Lens.Lens' DeleteVolumeResponse Lude.Int
+dvvrsResponseStatus = Lens.lens (responseStatus :: DeleteVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVolumeResponse)
+{-# DEPRECATED dvvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

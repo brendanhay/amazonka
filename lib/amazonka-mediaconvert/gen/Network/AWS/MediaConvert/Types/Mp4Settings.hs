@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,107 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp4Settings where
+module Network.AWS.MediaConvert.Types.Mp4Settings
+  ( Mp4Settings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMp4Settings,
+
+    -- * Lenses
+    mssMoovPlacement,
+    mssCttsVersion,
+    mssFreeSpaceBox,
+    mssAudioDuration,
+    mssMp4MajorBrand,
+    mssCslgAtom,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CmfcAudioDuration
 import Network.AWS.MediaConvert.Types.Mp4CslgAtom
 import Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox
 import Network.AWS.MediaConvert.Types.Mp4MoovPlacement
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for MP4 container. You can create audio-only AAC outputs with this container.
 --
--- /See:/ 'mp4Settings' smart constructor.
+-- /See:/ 'mkMp4Settings' smart constructor.
 data Mp4Settings = Mp4Settings'
-  { _mMoovPlacement ::
-      !(Maybe Mp4MoovPlacement),
-    _mCttsVersion :: !(Maybe Nat),
-    _mFreeSpaceBox :: !(Maybe Mp4FreeSpaceBox),
-    _mAudioDuration :: !(Maybe CmfcAudioDuration),
-    _mMp4MajorBrand :: !(Maybe Text),
-    _mCslgAtom :: !(Maybe Mp4CslgAtom)
+  { moovPlacement ::
+      Lude.Maybe Mp4MoovPlacement,
+    cttsVersion :: Lude.Maybe Lude.Natural,
+    freeSpaceBox :: Lude.Maybe Mp4FreeSpaceBox,
+    audioDuration :: Lude.Maybe CmfcAudioDuration,
+    mp4MajorBrand :: Lude.Maybe Lude.Text,
+    cslgAtom :: Lude.Maybe Mp4CslgAtom
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mp4Settings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mMoovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
---
--- * 'mCttsVersion' - Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
---
--- * 'mFreeSpaceBox' - Inserts a free-space box immediately after the moov box.
---
--- * 'mAudioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
---
--- * 'mMp4MajorBrand' - Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
---
--- * 'mCslgAtom' - When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-mp4Settings ::
+-- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+-- * 'cslgAtom' - When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+-- * 'cttsVersion' - Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
+-- * 'freeSpaceBox' - Inserts a free-space box immediately after the moov box.
+-- * 'moovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+-- * 'mp4MajorBrand' - Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
+mkMp4Settings ::
   Mp4Settings
-mp4Settings =
+mkMp4Settings =
   Mp4Settings'
-    { _mMoovPlacement = Nothing,
-      _mCttsVersion = Nothing,
-      _mFreeSpaceBox = Nothing,
-      _mAudioDuration = Nothing,
-      _mMp4MajorBrand = Nothing,
-      _mCslgAtom = Nothing
+    { moovPlacement = Lude.Nothing,
+      cttsVersion = Lude.Nothing,
+      freeSpaceBox = Lude.Nothing,
+      audioDuration = Lude.Nothing,
+      mp4MajorBrand = Lude.Nothing,
+      cslgAtom = Lude.Nothing
     }
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-mMoovPlacement :: Lens' Mp4Settings (Maybe Mp4MoovPlacement)
-mMoovPlacement = lens _mMoovPlacement (\s a -> s {_mMoovPlacement = a})
+--
+-- /Note:/ Consider using 'moovPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssMoovPlacement :: Lens.Lens' Mp4Settings (Lude.Maybe Mp4MoovPlacement)
+mssMoovPlacement = Lens.lens (moovPlacement :: Mp4Settings -> Lude.Maybe Mp4MoovPlacement) (\s a -> s {moovPlacement = a} :: Mp4Settings)
+{-# DEPRECATED mssMoovPlacement "Use generic-lens or generic-optics with 'moovPlacement' instead." #-}
 
 -- | Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
-mCttsVersion :: Lens' Mp4Settings (Maybe Natural)
-mCttsVersion = lens _mCttsVersion (\s a -> s {_mCttsVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'cttsVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssCttsVersion :: Lens.Lens' Mp4Settings (Lude.Maybe Lude.Natural)
+mssCttsVersion = Lens.lens (cttsVersion :: Mp4Settings -> Lude.Maybe Lude.Natural) (\s a -> s {cttsVersion = a} :: Mp4Settings)
+{-# DEPRECATED mssCttsVersion "Use generic-lens or generic-optics with 'cttsVersion' instead." #-}
 
 -- | Inserts a free-space box immediately after the moov box.
-mFreeSpaceBox :: Lens' Mp4Settings (Maybe Mp4FreeSpaceBox)
-mFreeSpaceBox = lens _mFreeSpaceBox (\s a -> s {_mFreeSpaceBox = a})
+--
+-- /Note:/ Consider using 'freeSpaceBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssFreeSpaceBox :: Lens.Lens' Mp4Settings (Lude.Maybe Mp4FreeSpaceBox)
+mssFreeSpaceBox = Lens.lens (freeSpaceBox :: Mp4Settings -> Lude.Maybe Mp4FreeSpaceBox) (\s a -> s {freeSpaceBox = a} :: Mp4Settings)
+{-# DEPRECATED mssFreeSpaceBox "Use generic-lens or generic-optics with 'freeSpaceBox' instead." #-}
 
 -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-mAudioDuration :: Lens' Mp4Settings (Maybe CmfcAudioDuration)
-mAudioDuration = lens _mAudioDuration (\s a -> s {_mAudioDuration = a})
+--
+-- /Note:/ Consider using 'audioDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssAudioDuration :: Lens.Lens' Mp4Settings (Lude.Maybe CmfcAudioDuration)
+mssAudioDuration = Lens.lens (audioDuration :: Mp4Settings -> Lude.Maybe CmfcAudioDuration) (\s a -> s {audioDuration = a} :: Mp4Settings)
+{-# DEPRECATED mssAudioDuration "Use generic-lens or generic-optics with 'audioDuration' instead." #-}
 
 -- | Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
-mMp4MajorBrand :: Lens' Mp4Settings (Maybe Text)
-mMp4MajorBrand = lens _mMp4MajorBrand (\s a -> s {_mMp4MajorBrand = a})
+--
+-- /Note:/ Consider using 'mp4MajorBrand' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssMp4MajorBrand :: Lens.Lens' Mp4Settings (Lude.Maybe Lude.Text)
+mssMp4MajorBrand = Lens.lens (mp4MajorBrand :: Mp4Settings -> Lude.Maybe Lude.Text) (\s a -> s {mp4MajorBrand = a} :: Mp4Settings)
+{-# DEPRECATED mssMp4MajorBrand "Use generic-lens or generic-optics with 'mp4MajorBrand' instead." #-}
 
 -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-mCslgAtom :: Lens' Mp4Settings (Maybe Mp4CslgAtom)
-mCslgAtom = lens _mCslgAtom (\s a -> s {_mCslgAtom = a})
+--
+-- /Note:/ Consider using 'cslgAtom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssCslgAtom :: Lens.Lens' Mp4Settings (Lude.Maybe Mp4CslgAtom)
+mssCslgAtom = Lens.lens (cslgAtom :: Mp4Settings -> Lude.Maybe Mp4CslgAtom) (\s a -> s {cslgAtom = a} :: Mp4Settings)
+{-# DEPRECATED mssCslgAtom "Use generic-lens or generic-optics with 'cslgAtom' instead." #-}
 
-instance FromJSON Mp4Settings where
+instance Lude.FromJSON Mp4Settings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mp4Settings"
       ( \x ->
           Mp4Settings'
-            <$> (x .:? "moovPlacement")
-            <*> (x .:? "cttsVersion")
-            <*> (x .:? "freeSpaceBox")
-            <*> (x .:? "audioDuration")
-            <*> (x .:? "mp4MajorBrand")
-            <*> (x .:? "cslgAtom")
+            Lude.<$> (x Lude..:? "moovPlacement")
+            Lude.<*> (x Lude..:? "cttsVersion")
+            Lude.<*> (x Lude..:? "freeSpaceBox")
+            Lude.<*> (x Lude..:? "audioDuration")
+            Lude.<*> (x Lude..:? "mp4MajorBrand")
+            Lude.<*> (x Lude..:? "cslgAtom")
       )
 
-instance Hashable Mp4Settings
-
-instance NFData Mp4Settings
-
-instance ToJSON Mp4Settings where
+instance Lude.ToJSON Mp4Settings where
   toJSON Mp4Settings' {..} =
-    object
-      ( catMaybes
-          [ ("moovPlacement" .=) <$> _mMoovPlacement,
-            ("cttsVersion" .=) <$> _mCttsVersion,
-            ("freeSpaceBox" .=) <$> _mFreeSpaceBox,
-            ("audioDuration" .=) <$> _mAudioDuration,
-            ("mp4MajorBrand" .=) <$> _mMp4MajorBrand,
-            ("cslgAtom" .=) <$> _mCslgAtom
+    Lude.object
+      ( Lude.catMaybes
+          [ ("moovPlacement" Lude..=) Lude.<$> moovPlacement,
+            ("cttsVersion" Lude..=) Lude.<$> cttsVersion,
+            ("freeSpaceBox" Lude..=) Lude.<$> freeSpaceBox,
+            ("audioDuration" Lude..=) Lude.<$> audioDuration,
+            ("mp4MajorBrand" Lude..=) Lude.<$> mp4MajorBrand,
+            ("cslgAtom" Lude..=) Lude.<$> cslgAtom
           ]
       )

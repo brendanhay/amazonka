@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes the specified EC2 Fleets or all of your EC2 Fleets.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeFleets
-  ( -- * Creating a Request
-    describeFleets,
-    DescribeFleets,
+  ( -- * Creating a request
+    DescribeFleets (..),
+    mkDescribeFleets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfsFilters,
     dfsNextToken,
     dfsFleetIds,
     dfsDryRun,
     dfsMaxResults,
 
-    -- * Destructuring the Response
-    describeFleetsResponse,
-    DescribeFleetsResponse,
+    -- * Destructuring the response
+    DescribeFleetsResponse (..),
+    mkDescribeFleetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfsrsNextToken,
     dfsrsFleets,
     dfsrsResponseStatus,
@@ -46,146 +39,207 @@ module Network.AWS.EC2.DescribeFleets
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFleets' smart constructor.
+-- | /See:/ 'mkDescribeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
-  { _dfsFilters ::
-      !(Maybe [Filter]),
-    _dfsNextToken :: !(Maybe Text),
-    _dfsFleetIds :: !(Maybe [Text]),
-    _dfsDryRun :: !(Maybe Bool),
-    _dfsMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken :: Lude.Maybe Lude.Text,
+    fleetIds :: Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - The filters.
 --
--- * 'dfsFilters' - The filters.     * @activity-status@ - The progress of the EC2 Fleet ( @error@ | @pending-fulfillment@ | @pending-termination@ | @fulfilled@ ).     * @excess-capacity-termination-policy@ - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (@true@ | @false@ ).     * @fleet-state@ - The state of the EC2 Fleet (@submitted@ | @active@ | @deleted@ | @failed@ | @deleted-running@ | @deleted-terminating@ | @modifying@ ).     * @replace-unhealthy-instances@ - Indicates whether EC2 Fleet should replace unhealthy instances (@true@ | @false@ ).     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
 --
--- * 'dfsNextToken' - The token for the next set of results.
+--     * @activity-status@ - The progress of the EC2 Fleet ( @error@ | @pending-fulfillment@ | @pending-termination@ | @fulfilled@ ).
 --
--- * 'dfsFleetIds' - The ID of the EC2 Fleets.
 --
--- * 'dfsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @excess-capacity-termination-policy@ - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (@true@ | @false@ ).
 --
--- * 'dfsMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-describeFleets ::
+--
+--     * @fleet-state@ - The state of the EC2 Fleet (@submitted@ | @active@ | @deleted@ | @failed@ | @deleted-running@ | @deleted-terminating@ | @modifying@ ).
+--
+--
+--     * @replace-unhealthy-instances@ - Indicates whether EC2 Fleet should replace unhealthy instances (@true@ | @false@ ).
+--
+--
+--     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
+--
+--
+-- * 'fleetIds' - The ID of the EC2 Fleets.
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - The token for the next set of results.
+mkDescribeFleets ::
   DescribeFleets
-describeFleets =
+mkDescribeFleets =
   DescribeFleets'
-    { _dfsFilters = Nothing,
-      _dfsNextToken = Nothing,
-      _dfsFleetIds = Nothing,
-      _dfsDryRun = Nothing,
-      _dfsMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      fleetIds = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | The filters.     * @activity-status@ - The progress of the EC2 Fleet ( @error@ | @pending-fulfillment@ | @pending-termination@ | @fulfilled@ ).     * @excess-capacity-termination-policy@ - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (@true@ | @false@ ).     * @fleet-state@ - The state of the EC2 Fleet (@submitted@ | @active@ | @deleted@ | @failed@ | @deleted-running@ | @deleted-terminating@ | @modifying@ ).     * @replace-unhealthy-instances@ - Indicates whether EC2 Fleet should replace unhealthy instances (@true@ | @false@ ).     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
-dfsFilters :: Lens' DescribeFleets [Filter]
-dfsFilters = lens _dfsFilters (\s a -> s {_dfsFilters = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @activity-status@ - The progress of the EC2 Fleet ( @error@ | @pending-fulfillment@ | @pending-termination@ | @fulfilled@ ).
+--
+--
+--     * @excess-capacity-termination-policy@ - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (@true@ | @false@ ).
+--
+--
+--     * @fleet-state@ - The state of the EC2 Fleet (@submitted@ | @active@ | @deleted@ | @failed@ | @deleted-running@ | @deleted-terminating@ | @modifying@ ).
+--
+--
+--     * @replace-unhealthy-instances@ - Indicates whether EC2 Fleet should replace unhealthy instances (@true@ | @false@ ).
+--
+--
+--     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsFilters :: Lens.Lens' DescribeFleets (Lude.Maybe [Filter])
+dfsFilters = Lens.lens (filters :: DescribeFleets -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeFleets)
+{-# DEPRECATED dfsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of results.
-dfsNextToken :: Lens' DescribeFleets (Maybe Text)
-dfsNextToken = lens _dfsNextToken (\s a -> s {_dfsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsNextToken :: Lens.Lens' DescribeFleets (Lude.Maybe Lude.Text)
+dfsNextToken = Lens.lens (nextToken :: DescribeFleets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleets)
+{-# DEPRECATED dfsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the EC2 Fleets.
-dfsFleetIds :: Lens' DescribeFleets [Text]
-dfsFleetIds = lens _dfsFleetIds (\s a -> s {_dfsFleetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fleetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsFleetIds :: Lens.Lens' DescribeFleets (Lude.Maybe [Lude.Text])
+dfsFleetIds = Lens.lens (fleetIds :: DescribeFleets -> Lude.Maybe [Lude.Text]) (\s a -> s {fleetIds = a} :: DescribeFleets)
+{-# DEPRECATED dfsFleetIds "Use generic-lens or generic-optics with 'fleetIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dfsDryRun :: Lens' DescribeFleets (Maybe Bool)
-dfsDryRun = lens _dfsDryRun (\s a -> s {_dfsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsDryRun :: Lens.Lens' DescribeFleets (Lude.Maybe Lude.Bool)
+dfsDryRun = Lens.lens (dryRun :: DescribeFleets -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFleets)
+{-# DEPRECATED dfsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-dfsMaxResults :: Lens' DescribeFleets (Maybe Int)
-dfsMaxResults = lens _dfsMaxResults (\s a -> s {_dfsMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsMaxResults :: Lens.Lens' DescribeFleets (Lude.Maybe Lude.Int)
+dfsMaxResults = Lens.lens (maxResults :: DescribeFleets -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFleets)
+{-# DEPRECATED dfsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeFleets where
+instance Page.AWSPager DescribeFleets where
   page rq rs
-    | stop (rs ^. dfsrsNextToken) = Nothing
-    | stop (rs ^. dfsrsFleets) = Nothing
-    | otherwise = Just $ rq & dfsNextToken .~ rs ^. dfsrsNextToken
+    | Page.stop (rs Lens.^. dfsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dfsrsFleets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dfsNextToken Lens..~ rs Lens.^. dfsrsNextToken
 
-instance AWSRequest DescribeFleets where
+instance Lude.AWSRequest DescribeFleets where
   type Rs DescribeFleets = DescribeFleetsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeFleetsResponse'
-            <$> (x .@? "nextToken")
-            <*> (x .@? "fleetSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "fleetSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeFleets
+instance Lude.ToHeaders DescribeFleets where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeFleets
+instance Lude.ToPath DescribeFleets where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeFleets where
-  toHeaders = const mempty
-
-instance ToPath DescribeFleets where
-  toPath = const "/"
-
-instance ToQuery DescribeFleets where
+instance Lude.ToQuery DescribeFleets where
   toQuery DescribeFleets' {..} =
-    mconcat
-      [ "Action" =: ("DescribeFleets" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dfsFilters),
-        "NextToken" =: _dfsNextToken,
-        toQuery (toQueryList "FleetId" <$> _dfsFleetIds),
-        "DryRun" =: _dfsDryRun,
-        "MaxResults" =: _dfsMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeFleets" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery (Lude.toQueryList "FleetId" Lude.<$> fleetIds),
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeFleetsResponse' smart constructor.
+-- | /See:/ 'mkDescribeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
-  { _dfsrsNextToken ::
-      !(Maybe Text),
-    _dfsrsFleets :: !(Maybe [FleetData]),
-    _dfsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    fleets :: Lude.Maybe [FleetData],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfsrsNextToken' - The token for the next set of results.
---
--- * 'dfsrsFleets' - Information about the EC2 Fleets.
---
--- * 'dfsrsResponseStatus' - -- | The response status code.
-describeFleetsResponse ::
-  -- | 'dfsrsResponseStatus'
-  Int ->
+-- * 'fleets' - Information about the EC2 Fleets.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkDescribeFleetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeFleetsResponse
-describeFleetsResponse pResponseStatus_ =
+mkDescribeFleetsResponse pResponseStatus_ =
   DescribeFleetsResponse'
-    { _dfsrsNextToken = Nothing,
-      _dfsrsFleets = Nothing,
-      _dfsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      fleets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of results.
-dfsrsNextToken :: Lens' DescribeFleetsResponse (Maybe Text)
-dfsrsNextToken = lens _dfsrsNextToken (\s a -> s {_dfsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsNextToken :: Lens.Lens' DescribeFleetsResponse (Lude.Maybe Lude.Text)
+dfsrsNextToken = Lens.lens (nextToken :: DescribeFleetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the EC2 Fleets.
-dfsrsFleets :: Lens' DescribeFleetsResponse [FleetData]
-dfsrsFleets = lens _dfsrsFleets (\s a -> s {_dfsrsFleets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fleets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsFleets :: Lens.Lens' DescribeFleetsResponse (Lude.Maybe [FleetData])
+dfsrsFleets = Lens.lens (fleets :: DescribeFleetsResponse -> Lude.Maybe [FleetData]) (\s a -> s {fleets = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsFleets "Use generic-lens or generic-optics with 'fleets' instead." #-}
 
--- | -- | The response status code.
-dfsrsResponseStatus :: Lens' DescribeFleetsResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\s a -> s {_dfsrsResponseStatus = a})
-
-instance NFData DescribeFleetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrsResponseStatus :: Lens.Lens' DescribeFleetsResponse Lude.Int
+dfsrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetsResponse)
+{-# DEPRECATED dfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

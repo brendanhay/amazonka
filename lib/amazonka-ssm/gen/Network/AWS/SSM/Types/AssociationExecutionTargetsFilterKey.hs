@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey where
+module Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
+  ( AssociationExecutionTargetsFilterKey
+      ( AssociationExecutionTargetsFilterKey',
+        AETFKResourceId,
+        AETFKResourceType,
+        AETFKStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationExecutionTargetsFilterKey
-  = AETFKResourceId
-  | AETFKResourceType
-  | AETFKStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationExecutionTargetsFilterKey = AssociationExecutionTargetsFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationExecutionTargetsFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "resourceid" -> pure AETFKResourceId
-      "resourcetype" -> pure AETFKResourceType
-      "status" -> pure AETFKStatus
-      e ->
-        fromTextError $
-          "Failure parsing AssociationExecutionTargetsFilterKey from value: '" <> e
-            <> "'. Accepted values: resourceid, resourcetype, status"
+pattern AETFKResourceId :: AssociationExecutionTargetsFilterKey
+pattern AETFKResourceId = AssociationExecutionTargetsFilterKey' "ResourceId"
 
-instance ToText AssociationExecutionTargetsFilterKey where
-  toText = \case
-    AETFKResourceId -> "ResourceId"
-    AETFKResourceType -> "ResourceType"
-    AETFKStatus -> "Status"
+pattern AETFKResourceType :: AssociationExecutionTargetsFilterKey
+pattern AETFKResourceType = AssociationExecutionTargetsFilterKey' "ResourceType"
 
-instance Hashable AssociationExecutionTargetsFilterKey
+pattern AETFKStatus :: AssociationExecutionTargetsFilterKey
+pattern AETFKStatus = AssociationExecutionTargetsFilterKey' "Status"
 
-instance NFData AssociationExecutionTargetsFilterKey
-
-instance ToByteString AssociationExecutionTargetsFilterKey
-
-instance ToQuery AssociationExecutionTargetsFilterKey
-
-instance ToHeader AssociationExecutionTargetsFilterKey
-
-instance ToJSON AssociationExecutionTargetsFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  AETFKResourceId,
+  AETFKResourceType,
+  AETFKStatus,
+  AssociationExecutionTargetsFilterKey'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.MessageAction where
+module Network.AWS.AppStream.Types.MessageAction
+  ( MessageAction
+      ( MessageAction',
+        Resend,
+        Suppress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageAction
-  = Resend
-  | Suppress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageAction = MessageAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageAction where
-  parser =
-    takeLowerText >>= \case
-      "resend" -> pure Resend
-      "suppress" -> pure Suppress
-      e ->
-        fromTextError $
-          "Failure parsing MessageAction from value: '" <> e
-            <> "'. Accepted values: resend, suppress"
+pattern Resend :: MessageAction
+pattern Resend = MessageAction' "RESEND"
 
-instance ToText MessageAction where
-  toText = \case
-    Resend -> "RESEND"
-    Suppress -> "SUPPRESS"
+pattern Suppress :: MessageAction
+pattern Suppress = MessageAction' "SUPPRESS"
 
-instance Hashable MessageAction
-
-instance NFData MessageAction
-
-instance ToByteString MessageAction
-
-instance ToQuery MessageAction
-
-instance ToHeader MessageAction
-
-instance ToJSON MessageAction where
-  toJSON = toJSONText
+{-# COMPLETE
+  Resend,
+  Suppress,
+  MessageAction'
+  #-}

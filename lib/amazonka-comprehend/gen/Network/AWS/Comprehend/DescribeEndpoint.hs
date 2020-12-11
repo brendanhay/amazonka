@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.
 module Network.AWS.Comprehend.DescribeEndpoint
-  ( -- * Creating a Request
-    describeEndpoint,
-    DescribeEndpoint,
+  ( -- * Creating a request
+    DescribeEndpoint (..),
+    mkDescribeEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desEndpointARN,
 
-    -- * Destructuring the Response
-    describeEndpointResponse,
-    DescribeEndpointResponse,
+    -- * Destructuring the response
+    DescribeEndpointResponse (..),
+    mkDescribeEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersEndpointProperties,
     dersResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEndpoint' smart constructor.
+-- | /See:/ 'mkDescribeEndpoint' smart constructor.
 newtype DescribeEndpoint = DescribeEndpoint'
-  { _desEndpointARN ::
-      Text
+  { endpointARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desEndpointARN' - The Amazon Resource Number (ARN) of the endpoint being described.
-describeEndpoint ::
-  -- | 'desEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint being described.
+mkDescribeEndpoint ::
+  -- | 'endpointARN'
+  Lude.Text ->
   DescribeEndpoint
-describeEndpoint pEndpointARN_ =
-  DescribeEndpoint' {_desEndpointARN = pEndpointARN_}
+mkDescribeEndpoint pEndpointARN_ =
+  DescribeEndpoint' {endpointARN = pEndpointARN_}
 
 -- | The Amazon Resource Number (ARN) of the endpoint being described.
-desEndpointARN :: Lens' DescribeEndpoint Text
-desEndpointARN = lens _desEndpointARN (\s a -> s {_desEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desEndpointARN :: Lens.Lens' DescribeEndpoint Lude.Text
+desEndpointARN = Lens.lens (endpointARN :: DescribeEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeEndpoint)
+{-# DEPRECATED desEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance AWSRequest DescribeEndpoint where
+instance Lude.AWSRequest DescribeEndpoint where
   type Rs DescribeEndpoint = DescribeEndpointResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            <$> (x .?> "EndpointProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EndpointProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEndpoint
-
-instance NFData DescribeEndpoint
-
-instance ToHeaders DescribeEndpoint where
+instance Lude.ToHeaders DescribeEndpoint where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DescribeEndpoint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.DescribeEndpoint" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEndpoint where
+instance Lude.ToJSON DescribeEndpoint where
   toJSON DescribeEndpoint' {..} =
-    object (catMaybes [Just ("EndpointArn" .= _desEndpointARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("EndpointArn" Lude..= endpointARN)])
 
-instance ToPath DescribeEndpoint where
-  toPath = const "/"
+instance Lude.ToPath DescribeEndpoint where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEndpointResponse' smart constructor.
+-- | /See:/ 'mkDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { _dersEndpointProperties ::
-      !(Maybe EndpointProperties),
-    _dersResponseStatus :: !Int
+  { endpointProperties ::
+      Lude.Maybe EndpointProperties,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersEndpointProperties' - Describes information associated with the specific endpoint.
---
--- * 'dersResponseStatus' - -- | The response status code.
-describeEndpointResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
+-- * 'endpointProperties' - Describes information associated with the specific endpoint.
+-- * 'responseStatus' - The response status code.
+mkDescribeEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEndpointResponse
-describeEndpointResponse pResponseStatus_ =
+mkDescribeEndpointResponse pResponseStatus_ =
   DescribeEndpointResponse'
-    { _dersEndpointProperties = Nothing,
-      _dersResponseStatus = pResponseStatus_
+    { endpointProperties = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes information associated with the specific endpoint.
-dersEndpointProperties :: Lens' DescribeEndpointResponse (Maybe EndpointProperties)
-dersEndpointProperties = lens _dersEndpointProperties (\s a -> s {_dersEndpointProperties = a})
+--
+-- /Note:/ Consider using 'endpointProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointProperties :: Lens.Lens' DescribeEndpointResponse (Lude.Maybe EndpointProperties)
+dersEndpointProperties = Lens.lens (endpointProperties :: DescribeEndpointResponse -> Lude.Maybe EndpointProperties) (\s a -> s {endpointProperties = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersEndpointProperties "Use generic-lens or generic-optics with 'endpointProperties' instead." #-}
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeEndpointResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
-
-instance NFData DescribeEndpointResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeEndpointResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

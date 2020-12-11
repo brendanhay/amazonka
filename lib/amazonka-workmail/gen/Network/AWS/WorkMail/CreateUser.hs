@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,171 @@
 --
 -- Creates a user who can be used in Amazon WorkMail by calling the 'RegisterToWorkMail' operation.
 module Network.AWS.WorkMail.CreateUser
-  ( -- * Creating a Request
-    createUser,
-    CreateUser,
+  ( -- * Creating a request
+    CreateUser (..),
+    mkCreateUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cuOrganizationId,
     cuName,
     cuDisplayName,
     cuPassword,
 
-    -- * Destructuring the Response
-    createUserResponse,
-    CreateUserResponse,
+    -- * Destructuring the response
+    CreateUserResponse (..),
+    mkCreateUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cursUserId,
     cursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'createUser' smart constructor.
+-- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuOrganizationId :: !Text,
-    _cuName :: !Text,
-    _cuDisplayName :: !Text,
-    _cuPassword :: !(Sensitive Text)
+  { organizationId :: Lude.Text,
+    name :: Lude.Text,
+    displayName :: Lude.Text,
+    password :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuOrganizationId' - The identifier of the organization for which the user is created.
---
--- * 'cuName' - The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
---
--- * 'cuDisplayName' - The display name for the new user.
---
--- * 'cuPassword' - The password for the new user.
-createUser ::
-  -- | 'cuOrganizationId'
-  Text ->
-  -- | 'cuName'
-  Text ->
-  -- | 'cuDisplayName'
-  Text ->
-  -- | 'cuPassword'
-  Text ->
+-- * 'displayName' - The display name for the new user.
+-- * 'name' - The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
+-- * 'organizationId' - The identifier of the organization for which the user is created.
+-- * 'password' - The password for the new user.
+mkCreateUser ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'displayName'
+  Lude.Text ->
+  -- | 'password'
+  Lude.Sensitive Lude.Text ->
   CreateUser
-createUser pOrganizationId_ pName_ pDisplayName_ pPassword_ =
+mkCreateUser pOrganizationId_ pName_ pDisplayName_ pPassword_ =
   CreateUser'
-    { _cuOrganizationId = pOrganizationId_,
-      _cuName = pName_,
-      _cuDisplayName = pDisplayName_,
-      _cuPassword = _Sensitive # pPassword_
+    { organizationId = pOrganizationId_,
+      name = pName_,
+      displayName = pDisplayName_,
+      password = pPassword_
     }
 
 -- | The identifier of the organization for which the user is created.
-cuOrganizationId :: Lens' CreateUser Text
-cuOrganizationId = lens _cuOrganizationId (\s a -> s {_cuOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuOrganizationId :: Lens.Lens' CreateUser Lude.Text
+cuOrganizationId = Lens.lens (organizationId :: CreateUser -> Lude.Text) (\s a -> s {organizationId = a} :: CreateUser)
+{-# DEPRECATED cuOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
-cuName :: Lens' CreateUser Text
-cuName = lens _cuName (\s a -> s {_cuName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuName :: Lens.Lens' CreateUser Lude.Text
+cuName = Lens.lens (name :: CreateUser -> Lude.Text) (\s a -> s {name = a} :: CreateUser)
+{-# DEPRECATED cuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The display name for the new user.
-cuDisplayName :: Lens' CreateUser Text
-cuDisplayName = lens _cuDisplayName (\s a -> s {_cuDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuDisplayName :: Lens.Lens' CreateUser Lude.Text
+cuDisplayName = Lens.lens (displayName :: CreateUser -> Lude.Text) (\s a -> s {displayName = a} :: CreateUser)
+{-# DEPRECATED cuDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The password for the new user.
-cuPassword :: Lens' CreateUser Text
-cuPassword = lens _cuPassword (\s a -> s {_cuPassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPassword :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
+cuPassword = Lens.lens (password :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateUser)
+{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance AWSRequest CreateUser where
+instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateUserResponse' <$> (x .?> "UserId") <*> (pure (fromEnum s))
+          CreateUserResponse'
+            Lude.<$> (x Lude..?> "UserId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateUser
-
-instance NFData CreateUser
-
-instance ToHeaders CreateUser where
+instance Lude.ToHeaders CreateUser where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.CreateUser" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.CreateUser" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUser where
+instance Lude.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _cuOrganizationId),
-            Just ("Name" .= _cuName),
-            Just ("DisplayName" .= _cuDisplayName),
-            Just ("Password" .= _cuPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("DisplayName" Lude..= displayName),
+            Lude.Just ("Password" Lude..= password)
           ]
       )
 
-instance ToPath CreateUser where
-  toPath = const "/"
+instance Lude.ToPath CreateUser where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUser where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserResponse' smart constructor.
+-- | /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { _cursUserId ::
-      !(Maybe Text),
-    _cursResponseStatus :: !Int
+  { userId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cursUserId' - The identifier for the new user.
---
--- * 'cursResponseStatus' - -- | The response status code.
-createUserResponse ::
-  -- | 'cursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userId' - The identifier for the new user.
+mkCreateUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserResponse
-createUserResponse pResponseStatus_ =
+mkCreateUserResponse pResponseStatus_ =
   CreateUserResponse'
-    { _cursUserId = Nothing,
-      _cursResponseStatus = pResponseStatus_
+    { userId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier for the new user.
-cursUserId :: Lens' CreateUserResponse (Maybe Text)
-cursUserId = lens _cursUserId (\s a -> s {_cursUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursUserId :: Lens.Lens' CreateUserResponse (Lude.Maybe Lude.Text)
+cursUserId = Lens.lens (userId :: CreateUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: CreateUserResponse)
+{-# DEPRECATED cursUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
--- | -- | The response status code.
-cursResponseStatus :: Lens' CreateUserResponse Int
-cursResponseStatus = lens _cursResponseStatus (\s a -> s {_cursResponseStatus = a})
-
-instance NFData CreateUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursResponseStatus :: Lens.Lens' CreateUserResponse Lude.Int
+cursResponseStatus = Lens.lens (responseStatus :: CreateUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserResponse)
+{-# DEPRECATED cursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

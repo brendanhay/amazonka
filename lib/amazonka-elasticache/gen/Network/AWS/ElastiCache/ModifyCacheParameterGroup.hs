@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,96 @@
 --
 -- Modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
-  ( -- * Creating a Request
-    modifyCacheParameterGroup,
-    ModifyCacheParameterGroup,
+  ( -- * Creating a request
+    ModifyCacheParameterGroup (..),
+    mkModifyCacheParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcpgCacheParameterGroupName,
     mcpgParameterNameValues,
 
-    -- * Destructuring the Response
-    cacheParameterGroupNameMessage,
-    CacheParameterGroupNameMessage,
+    -- * Destructuring the response
+    CacheParameterGroupNameMessage (..),
+    mkCacheParameterGroupNameMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpgnmCacheParameterGroupName,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ModifyCacheParameterGroup@ operation.
 --
---
---
--- /See:/ 'modifyCacheParameterGroup' smart constructor.
+-- /See:/ 'mkModifyCacheParameterGroup' smart constructor.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
-  { _mcpgCacheParameterGroupName ::
-      !Text,
-    _mcpgParameterNameValues ::
-      ![ParameterNameValue]
+  { cacheParameterGroupName ::
+      Lude.Text,
+    parameterNameValues ::
+      [ParameterNameValue]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCacheParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcpgCacheParameterGroupName' - The name of the cache parameter group to modify.
---
--- * 'mcpgParameterNameValues' - An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
-modifyCacheParameterGroup ::
-  -- | 'mcpgCacheParameterGroupName'
-  Text ->
+-- * 'cacheParameterGroupName' - The name of the cache parameter group to modify.
+-- * 'parameterNameValues' - An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
+mkModifyCacheParameterGroup ::
+  -- | 'cacheParameterGroupName'
+  Lude.Text ->
   ModifyCacheParameterGroup
-modifyCacheParameterGroup pCacheParameterGroupName_ =
+mkModifyCacheParameterGroup pCacheParameterGroupName_ =
   ModifyCacheParameterGroup'
-    { _mcpgCacheParameterGroupName =
+    { cacheParameterGroupName =
         pCacheParameterGroupName_,
-      _mcpgParameterNameValues = mempty
+      parameterNameValues = Lude.mempty
     }
 
 -- | The name of the cache parameter group to modify.
-mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
-mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\s a -> s {_mcpgCacheParameterGroupName = a})
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcpgCacheParameterGroupName :: Lens.Lens' ModifyCacheParameterGroup Lude.Text
+mcpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: ModifyCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: ModifyCacheParameterGroup)
+{-# DEPRECATED mcpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
-mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgParameterNameValues = lens _mcpgParameterNameValues (\s a -> s {_mcpgParameterNameValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcpgParameterNameValues :: Lens.Lens' ModifyCacheParameterGroup [ParameterNameValue]
+mcpgParameterNameValues = Lens.lens (parameterNameValues :: ModifyCacheParameterGroup -> [ParameterNameValue]) (\s a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup)
+{-# DEPRECATED mcpgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
 
-instance AWSRequest ModifyCacheParameterGroup where
+instance Lude.AWSRequest ModifyCacheParameterGroup where
   type Rs ModifyCacheParameterGroup = CacheParameterGroupNameMessage
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ModifyCacheParameterGroup
+instance Lude.ToHeaders ModifyCacheParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyCacheParameterGroup
+instance Lude.ToPath ModifyCacheParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyCacheParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyCacheParameterGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyCacheParameterGroup where
+instance Lude.ToQuery ModifyCacheParameterGroup where
   toQuery ModifyCacheParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyCacheParameterGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheParameterGroupName" =: _mcpgCacheParameterGroupName,
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyCacheParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
         "ParameterNameValues"
-          =: toQueryList "ParameterNameValue" _mcpgParameterNameValues
+          Lude.=: Lude.toQueryList "ParameterNameValue" parameterNameValues
       ]

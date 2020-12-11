@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsFilterOperatorType where
+module Network.AWS.SSM.Types.OpsFilterOperatorType
+  ( OpsFilterOperatorType
+      ( OpsFilterOperatorType',
+        BeginWith,
+        Equal,
+        Exists,
+        GreaterThan,
+        LessThan,
+        NotEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OpsFilterOperatorType
-  = BeginWith
-  | Equal
-  | Exists
-  | GreaterThan
-  | LessThan
-  | NotEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OpsFilterOperatorType = OpsFilterOperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OpsFilterOperatorType where
-  parser =
-    takeLowerText >>= \case
-      "beginwith" -> pure BeginWith
-      "equal" -> pure Equal
-      "exists" -> pure Exists
-      "greaterthan" -> pure GreaterThan
-      "lessthan" -> pure LessThan
-      "notequal" -> pure NotEqual
-      e ->
-        fromTextError $
-          "Failure parsing OpsFilterOperatorType from value: '" <> e
-            <> "'. Accepted values: beginwith, equal, exists, greaterthan, lessthan, notequal"
+pattern BeginWith :: OpsFilterOperatorType
+pattern BeginWith = OpsFilterOperatorType' "BeginWith"
 
-instance ToText OpsFilterOperatorType where
-  toText = \case
-    BeginWith -> "BeginWith"
-    Equal -> "Equal"
-    Exists -> "Exists"
-    GreaterThan -> "GreaterThan"
-    LessThan -> "LessThan"
-    NotEqual -> "NotEqual"
+pattern Equal :: OpsFilterOperatorType
+pattern Equal = OpsFilterOperatorType' "Equal"
 
-instance Hashable OpsFilterOperatorType
+pattern Exists :: OpsFilterOperatorType
+pattern Exists = OpsFilterOperatorType' "Exists"
 
-instance NFData OpsFilterOperatorType
+pattern GreaterThan :: OpsFilterOperatorType
+pattern GreaterThan = OpsFilterOperatorType' "GreaterThan"
 
-instance ToByteString OpsFilterOperatorType
+pattern LessThan :: OpsFilterOperatorType
+pattern LessThan = OpsFilterOperatorType' "LessThan"
 
-instance ToQuery OpsFilterOperatorType
+pattern NotEqual :: OpsFilterOperatorType
+pattern NotEqual = OpsFilterOperatorType' "NotEqual"
 
-instance ToHeader OpsFilterOperatorType
-
-instance ToJSON OpsFilterOperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  BeginWith,
+  Equal,
+  Exists,
+  GreaterThan,
+  LessThan,
+  NotEqual,
+  OpsFilterOperatorType'
+  #-}

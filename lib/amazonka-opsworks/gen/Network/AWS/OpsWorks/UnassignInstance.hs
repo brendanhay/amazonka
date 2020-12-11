@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,97 @@
 --
 -- Unassigns a registered instance from all layers that are using the instance. The instance remains in the stack as an unassigned instance, and can be assigned to another layer as needed. You cannot use this action with instances that were created with AWS OpsWorks Stacks.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UnassignInstance
-  ( -- * Creating a Request
-    unassignInstance,
-    UnassignInstance,
+  ( -- * Creating a request
+    UnassignInstance (..),
+    mkUnassignInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uInstanceId,
 
-    -- * Destructuring the Response
-    unassignInstanceResponse,
-    UnassignInstanceResponse,
+    -- * Destructuring the response
+    UnassignInstanceResponse (..),
+    mkUnassignInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'unassignInstance' smart constructor.
-newtype UnassignInstance = UnassignInstance' {_uInstanceId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkUnassignInstance' smart constructor.
+newtype UnassignInstance = UnassignInstance'
+  { instanceId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uInstanceId' - The instance ID.
-unassignInstance ::
-  -- | 'uInstanceId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+mkUnassignInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   UnassignInstance
-unassignInstance pInstanceId_ =
-  UnassignInstance' {_uInstanceId = pInstanceId_}
+mkUnassignInstance pInstanceId_ =
+  UnassignInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-uInstanceId :: Lens' UnassignInstance Text
-uInstanceId = lens _uInstanceId (\s a -> s {_uInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uInstanceId :: Lens.Lens' UnassignInstance Lude.Text
+uInstanceId = Lens.lens (instanceId :: UnassignInstance -> Lude.Text) (\s a -> s {instanceId = a} :: UnassignInstance)
+{-# DEPRECATED uInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest UnassignInstance where
+instance Lude.AWSRequest UnassignInstance where
   type Rs UnassignInstance = UnassignInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull UnassignInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull UnassignInstanceResponse'
 
-instance Hashable UnassignInstance
-
-instance NFData UnassignInstance
-
-instance ToHeaders UnassignInstance where
+instance Lude.ToHeaders UnassignInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.UnassignInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.UnassignInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UnassignInstance where
+instance Lude.ToJSON UnassignInstance where
   toJSON UnassignInstance' {..} =
-    object (catMaybes [Just ("InstanceId" .= _uInstanceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
 
-instance ToPath UnassignInstance where
-  toPath = const "/"
+instance Lude.ToPath UnassignInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery UnassignInstance where
-  toQuery = const mempty
+instance Lude.ToQuery UnassignInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unassignInstanceResponse' smart constructor.
+-- | /See:/ 'mkUnassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse = UnassignInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignInstanceResponse' with the minimum fields required to make a request.
-unassignInstanceResponse ::
+mkUnassignInstanceResponse ::
   UnassignInstanceResponse
-unassignInstanceResponse = UnassignInstanceResponse'
-
-instance NFData UnassignInstanceResponse
+mkUnassignInstanceResponse = UnassignInstanceResponse'

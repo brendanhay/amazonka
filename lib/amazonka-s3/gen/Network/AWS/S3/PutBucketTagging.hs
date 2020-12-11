@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Sets the tags for a bucket.
 --
---
 -- Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your billing information according to resources with the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Cost Allocation and Tagging> .
---
 -- To use this operation, you must have permissions to perform the @s3:PutBucketTagging@ action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- @PutBucketTagging@ has the following special errors:
 --
 --     * Error code: @InvalidTagError@
 --
 --     * Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For information about tag restrictions, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions> and <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html AWS-Generated Cost Allocation Tag Restrictions> .
+--
 --
 --
 --
@@ -38,9 +31,11 @@
 --
 --
 --
+--
 --     * Error code: @OperationAbortedError @
 --
 --     * Description: A conflicting conditional operation is currently in progress against this resource. Please try again.
+--
 --
 --
 --
@@ -51,120 +46,139 @@
 --
 --
 --
---
 -- The following operations are related to @PutBucketTagging@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html GetBucketTagging>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html DeleteBucketTagging>
 module Network.AWS.S3.PutBucketTagging
-  ( -- * Creating a Request
-    putBucketTagging,
-    PutBucketTagging,
+  ( -- * Creating a request
+    PutBucketTagging (..),
+    mkPutBucketTagging,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbtContentMD5,
     pbtExpectedBucketOwner,
     pbtBucket,
     pbtTagging,
 
-    -- * Destructuring the Response
-    putBucketTaggingResponse,
-    PutBucketTaggingResponse,
+    -- * Destructuring the response
+    PutBucketTaggingResponse (..),
+    mkPutBucketTaggingResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'putBucketTagging' smart constructor.
+-- | /See:/ 'mkPutBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-  { _pbtContentMD5 ::
-      !(Maybe Text),
-    _pbtExpectedBucketOwner :: !(Maybe Text),
-    _pbtBucket :: !BucketName,
-    _pbtTagging :: !Tagging
+  { contentMD5 ::
+      Lude.Maybe Lude.Text,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    tagging :: Tagging
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketTagging' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The bucket name.
+-- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
--- * 'pbtContentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> . For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
---
--- * 'pbtExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'pbtBucket' - The bucket name.
---
--- * 'pbtTagging' - Container for the @TagSet@ and @Tag@ elements.
-putBucketTagging ::
-  -- | 'pbtBucket'
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'tagging' - Container for the @TagSet@ and @Tag@ elements.
+mkPutBucketTagging ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'pbtTagging'
+  -- | 'tagging'
   Tagging ->
   PutBucketTagging
-putBucketTagging pBucket_ pTagging_ =
+mkPutBucketTagging pBucket_ pTagging_ =
   PutBucketTagging'
-    { _pbtContentMD5 = Nothing,
-      _pbtExpectedBucketOwner = Nothing,
-      _pbtBucket = pBucket_,
-      _pbtTagging = pTagging_
+    { contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_,
+      tagging = pTagging_
     }
 
--- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> . For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtContentMD5 = lens _pbtContentMD5 (\s a -> s {_pbtContentMD5 = a})
+-- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
+--
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+--
+-- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtContentMD5 :: Lens.Lens' PutBucketTagging (Lude.Maybe Lude.Text)
+pbtContentMD5 = Lens.lens (contentMD5 :: PutBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketTagging)
+{-# DEPRECATED pbtContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-pbtExpectedBucketOwner :: Lens' PutBucketTagging (Maybe Text)
-pbtExpectedBucketOwner = lens _pbtExpectedBucketOwner (\s a -> s {_pbtExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtExpectedBucketOwner :: Lens.Lens' PutBucketTagging (Lude.Maybe Lude.Text)
+pbtExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketTagging)
+{-# DEPRECATED pbtExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name.
-pbtBucket :: Lens' PutBucketTagging BucketName
-pbtBucket = lens _pbtBucket (\s a -> s {_pbtBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtBucket :: Lens.Lens' PutBucketTagging BucketName
+pbtBucket = Lens.lens (bucket :: PutBucketTagging -> BucketName) (\s a -> s {bucket = a} :: PutBucketTagging)
+{-# DEPRECATED pbtBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Container for the @TagSet@ and @Tag@ elements.
-pbtTagging :: Lens' PutBucketTagging Tagging
-pbtTagging = lens _pbtTagging (\s a -> s {_pbtTagging = a})
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtTagging :: Lens.Lens' PutBucketTagging Tagging
+pbtTagging = Lens.lens (tagging :: PutBucketTagging -> Tagging) (\s a -> s {tagging = a} :: PutBucketTagging)
+{-# DEPRECATED pbtTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
-instance AWSRequest PutBucketTagging where
+instance Lude.AWSRequest PutBucketTagging where
   type Rs PutBucketTagging = PutBucketTaggingResponse
-  request = contentMD5Header . putXML s3
-  response = receiveNull PutBucketTaggingResponse'
+  request = contentMD5Header Lude.. Req.putXML s3Service
+  response = Res.receiveNull PutBucketTaggingResponse'
 
-instance Hashable PutBucketTagging
-
-instance NFData PutBucketTagging
-
-instance ToElement PutBucketTagging where
+instance Lude.ToElement PutBucketTagging where
   toElement =
-    mkElement "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
-      . _pbtTagging
+    Lude.mkElement "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
+      Lude.. tagging
 
-instance ToHeaders PutBucketTagging where
+instance Lude.ToHeaders PutBucketTagging where
   toHeaders PutBucketTagging' {..} =
-    mconcat
-      [ "Content-MD5" =# _pbtContentMD5,
-        "x-amz-expected-bucket-owner" =# _pbtExpectedBucketOwner
+    Lude.mconcat
+      [ "Content-MD5" Lude.=# contentMD5,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath PutBucketTagging where
-  toPath PutBucketTagging' {..} = mconcat ["/", toBS _pbtBucket]
+instance Lude.ToPath PutBucketTagging where
+  toPath PutBucketTagging' {..} = Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery PutBucketTagging where
-  toQuery = const (mconcat ["tagging"])
+instance Lude.ToQuery PutBucketTagging where
+  toQuery = Lude.const (Lude.mconcat ["tagging"])
 
--- | /See:/ 'putBucketTaggingResponse' smart constructor.
+-- | /See:/ 'mkPutBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse = PutBucketTaggingResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketTaggingResponse' with the minimum fields required to make a request.
-putBucketTaggingResponse ::
+mkPutBucketTaggingResponse ::
   PutBucketTaggingResponse
-putBucketTaggingResponse = PutBucketTaggingResponse'
-
-instance NFData PutBucketTaggingResponse
+mkPutBucketTaggingResponse = PutBucketTaggingResponse'

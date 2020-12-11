@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DirectInternetAccess where
+module Network.AWS.SageMaker.Types.DirectInternetAccess
+  ( DirectInternetAccess
+      ( DirectInternetAccess',
+        DIADisabled,
+        DIAEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectInternetAccess
-  = DIADisabled
-  | DIAEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectInternetAccess = DirectInternetAccess' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectInternetAccess where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DIADisabled
-      "enabled" -> pure DIAEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DirectInternetAccess from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DIADisabled :: DirectInternetAccess
+pattern DIADisabled = DirectInternetAccess' "Disabled"
 
-instance ToText DirectInternetAccess where
-  toText = \case
-    DIADisabled -> "Disabled"
-    DIAEnabled -> "Enabled"
+pattern DIAEnabled :: DirectInternetAccess
+pattern DIAEnabled = DirectInternetAccess' "Enabled"
 
-instance Hashable DirectInternetAccess
-
-instance NFData DirectInternetAccess
-
-instance ToByteString DirectInternetAccess
-
-instance ToQuery DirectInternetAccess
-
-instance ToHeader DirectInternetAccess
-
-instance ToJSON DirectInternetAccess where
-  toJSON = toJSONText
-
-instance FromJSON DirectInternetAccess where
-  parseJSON = parseJSONText "DirectInternetAccess"
+{-# COMPLETE
+  DIADisabled,
+  DIAEnabled,
+  DirectInternetAccess'
+  #-}

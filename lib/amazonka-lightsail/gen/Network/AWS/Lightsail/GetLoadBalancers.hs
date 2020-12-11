@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,164 @@
 --
 -- Returns information about all load balancers in an account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetLoadBalancers
-  ( -- * Creating a Request
-    getLoadBalancers,
-    GetLoadBalancers,
+  ( -- * Creating a request
+    GetLoadBalancers (..),
+    mkGetLoadBalancers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glbPageToken,
 
-    -- * Destructuring the Response
-    getLoadBalancersResponse,
-    GetLoadBalancersResponse,
+    -- * Destructuring the response
+    GetLoadBalancersResponse (..),
+    mkGetLoadBalancersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glbsrsNextPageToken,
     glbsrsLoadBalancers,
     glbsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLoadBalancers' smart constructor.
+-- | /See:/ 'mkGetLoadBalancers' smart constructor.
 newtype GetLoadBalancers = GetLoadBalancers'
-  { _glbPageToken ::
-      Maybe Text
+  { pageToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoadBalancers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'glbPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetLoadBalancers@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getLoadBalancers ::
+-- To get a page token, perform an initial @GetLoadBalancers@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetLoadBalancers ::
   GetLoadBalancers
-getLoadBalancers = GetLoadBalancers' {_glbPageToken = Nothing}
+mkGetLoadBalancers = GetLoadBalancers' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetLoadBalancers@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-glbPageToken :: Lens' GetLoadBalancers (Maybe Text)
-glbPageToken = lens _glbPageToken (\s a -> s {_glbPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetLoadBalancers@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbPageToken :: Lens.Lens' GetLoadBalancers (Lude.Maybe Lude.Text)
+glbPageToken = Lens.lens (pageToken :: GetLoadBalancers -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetLoadBalancers)
+{-# DEPRECATED glbPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetLoadBalancers where
+instance Page.AWSPager GetLoadBalancers where
   page rq rs
-    | stop (rs ^. glbsrsNextPageToken) = Nothing
-    | stop (rs ^. glbsrsLoadBalancers) = Nothing
-    | otherwise = Just $ rq & glbPageToken .~ rs ^. glbsrsNextPageToken
+    | Page.stop (rs Lens.^. glbsrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. glbsrsLoadBalancers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& glbPageToken Lens..~ rs Lens.^. glbsrsNextPageToken
 
-instance AWSRequest GetLoadBalancers where
+instance Lude.AWSRequest GetLoadBalancers where
   type Rs GetLoadBalancers = GetLoadBalancersResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLoadBalancersResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "loadBalancers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "loadBalancers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLoadBalancers
-
-instance NFData GetLoadBalancers
-
-instance ToHeaders GetLoadBalancers where
+instance Lude.ToHeaders GetLoadBalancers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetLoadBalancers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetLoadBalancers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetLoadBalancers where
+instance Lude.ToJSON GetLoadBalancers where
   toJSON GetLoadBalancers' {..} =
-    object (catMaybes [("pageToken" .=) <$> _glbPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetLoadBalancers where
-  toPath = const "/"
+instance Lude.ToPath GetLoadBalancers where
+  toPath = Lude.const "/"
 
-instance ToQuery GetLoadBalancers where
-  toQuery = const mempty
+instance Lude.ToQuery GetLoadBalancers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLoadBalancersResponse' smart constructor.
+-- | /See:/ 'mkGetLoadBalancersResponse' smart constructor.
 data GetLoadBalancersResponse = GetLoadBalancersResponse'
-  { _glbsrsNextPageToken ::
-      !(Maybe Text),
-    _glbsrsLoadBalancers ::
-      !(Maybe [LoadBalancer]),
-    _glbsrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    loadBalancers ::
+      Lude.Maybe [LoadBalancer],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoadBalancersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'loadBalancers' - An array of LoadBalancer objects describing your load balancers.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'glbsrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetLoadBalancers@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'glbsrsLoadBalancers' - An array of LoadBalancer objects describing your load balancers.
---
--- * 'glbsrsResponseStatus' - -- | The response status code.
-getLoadBalancersResponse ::
-  -- | 'glbsrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetLoadBalancers@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetLoadBalancersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLoadBalancersResponse
-getLoadBalancersResponse pResponseStatus_ =
+mkGetLoadBalancersResponse pResponseStatus_ =
   GetLoadBalancersResponse'
-    { _glbsrsNextPageToken = Nothing,
-      _glbsrsLoadBalancers = Nothing,
-      _glbsrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      loadBalancers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetLoadBalancers@ request and specify the next page token using the @pageToken@ parameter.
-glbsrsNextPageToken :: Lens' GetLoadBalancersResponse (Maybe Text)
-glbsrsNextPageToken = lens _glbsrsNextPageToken (\s a -> s {_glbsrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetLoadBalancers@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbsrsNextPageToken :: Lens.Lens' GetLoadBalancersResponse (Lude.Maybe Lude.Text)
+glbsrsNextPageToken = Lens.lens (nextPageToken :: GetLoadBalancersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetLoadBalancersResponse)
+{-# DEPRECATED glbsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of LoadBalancer objects describing your load balancers.
-glbsrsLoadBalancers :: Lens' GetLoadBalancersResponse [LoadBalancer]
-glbsrsLoadBalancers = lens _glbsrsLoadBalancers (\s a -> s {_glbsrsLoadBalancers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbsrsLoadBalancers :: Lens.Lens' GetLoadBalancersResponse (Lude.Maybe [LoadBalancer])
+glbsrsLoadBalancers = Lens.lens (loadBalancers :: GetLoadBalancersResponse -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: GetLoadBalancersResponse)
+{-# DEPRECATED glbsrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
--- | -- | The response status code.
-glbsrsResponseStatus :: Lens' GetLoadBalancersResponse Int
-glbsrsResponseStatus = lens _glbsrsResponseStatus (\s a -> s {_glbsrsResponseStatus = a})
-
-instance NFData GetLoadBalancersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glbsrsResponseStatus :: Lens.Lens' GetLoadBalancersResponse Lude.Int
+glbsrsResponseStatus = Lens.lens (responseStatus :: GetLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoadBalancersResponse)
+{-# DEPRECATED glbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

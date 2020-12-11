@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,138 @@
 --
 -- Returns the settings for sending SMS messages from your account.
 --
---
 -- These settings are set with the @SetSMSAttributes@ action.
 module Network.AWS.SNS.GetSMSAttributes
-  ( -- * Creating a Request
-    getSMSAttributes,
-    GetSMSAttributes,
+  ( -- * Creating a request
+    GetSMSAttributes (..),
+    mkGetSMSAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsmsaAttributes,
 
-    -- * Destructuring the Response
-    getSMSAttributesResponse,
-    GetSMSAttributesResponse,
+    -- * Destructuring the response
+    GetSMSAttributesResponse (..),
+    mkGetSMSAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsmsarsAttributes,
     gsmsarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | The input for the @GetSMSAttributes@ request.
 --
---
---
--- /See:/ 'getSMSAttributes' smart constructor.
+-- /See:/ 'mkGetSMSAttributes' smart constructor.
 newtype GetSMSAttributes = GetSMSAttributes'
-  { _gsmsaAttributes ::
-      Maybe [Text]
+  { attributes ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSMSAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values.
 --
--- * 'gsmsaAttributes' - A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values. For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> . If you don't use this parameter, Amazon SNS returns all SMS attributes.
-getSMSAttributes ::
+-- For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> .
+-- If you don't use this parameter, Amazon SNS returns all SMS attributes.
+mkGetSMSAttributes ::
   GetSMSAttributes
-getSMSAttributes = GetSMSAttributes' {_gsmsaAttributes = Nothing}
+mkGetSMSAttributes = GetSMSAttributes' {attributes = Lude.Nothing}
 
--- | A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values. For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> . If you don't use this parameter, Amazon SNS returns all SMS attributes.
-gsmsaAttributes :: Lens' GetSMSAttributes [Text]
-gsmsaAttributes = lens _gsmsaAttributes (\s a -> s {_gsmsaAttributes = a}) . _Default . _Coerce
+-- | A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values.
+--
+-- For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> .
+-- If you don't use this parameter, Amazon SNS returns all SMS attributes.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsmsaAttributes :: Lens.Lens' GetSMSAttributes (Lude.Maybe [Lude.Text])
+gsmsaAttributes = Lens.lens (attributes :: GetSMSAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {attributes = a} :: GetSMSAttributes)
+{-# DEPRECATED gsmsaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest GetSMSAttributes where
+instance Lude.AWSRequest GetSMSAttributes where
   type Rs GetSMSAttributes = GetSMSAttributesResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetSMSAttributesResult"
       ( \s h x ->
           GetSMSAttributesResponse'
-            <$> ( x .@? "attributes" .!@ mempty
-                    >>= may (parseXMLMap "entry" "key" "value")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "attributes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSMSAttributes
+instance Lude.ToHeaders GetSMSAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetSMSAttributes
+instance Lude.ToPath GetSMSAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetSMSAttributes where
-  toHeaders = const mempty
-
-instance ToPath GetSMSAttributes where
-  toPath = const "/"
-
-instance ToQuery GetSMSAttributes where
+instance Lude.ToQuery GetSMSAttributes where
   toQuery GetSMSAttributes' {..} =
-    mconcat
-      [ "Action" =: ("GetSMSAttributes" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetSMSAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
         "attributes"
-          =: toQuery (toQueryList "member" <$> _gsmsaAttributes)
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> attributes)
       ]
 
 -- | The response from the @GetSMSAttributes@ request.
 --
---
---
--- /See:/ 'getSMSAttributesResponse' smart constructor.
+-- /See:/ 'mkGetSMSAttributesResponse' smart constructor.
 data GetSMSAttributesResponse = GetSMSAttributesResponse'
-  { _gsmsarsAttributes ::
-      !(Maybe (Map Text (Text))),
-    _gsmsarsResponseStatus :: !Int
+  { attributes ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSMSAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsmsarsAttributes' - The SMS attribute names and their values.
---
--- * 'gsmsarsResponseStatus' - -- | The response status code.
-getSMSAttributesResponse ::
-  -- | 'gsmsarsResponseStatus'
-  Int ->
+-- * 'attributes' - The SMS attribute names and their values.
+-- * 'responseStatus' - The response status code.
+mkGetSMSAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSMSAttributesResponse
-getSMSAttributesResponse pResponseStatus_ =
+mkGetSMSAttributesResponse pResponseStatus_ =
   GetSMSAttributesResponse'
-    { _gsmsarsAttributes = Nothing,
-      _gsmsarsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The SMS attribute names and their values.
-gsmsarsAttributes :: Lens' GetSMSAttributesResponse (HashMap Text (Text))
-gsmsarsAttributes = lens _gsmsarsAttributes (\s a -> s {_gsmsarsAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsmsarsAttributes :: Lens.Lens' GetSMSAttributesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gsmsarsAttributes = Lens.lens (attributes :: GetSMSAttributesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: GetSMSAttributesResponse)
+{-# DEPRECATED gsmsarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-gsmsarsResponseStatus :: Lens' GetSMSAttributesResponse Int
-gsmsarsResponseStatus = lens _gsmsarsResponseStatus (\s a -> s {_gsmsarsResponseStatus = a})
-
-instance NFData GetSMSAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsmsarsResponseStatus :: Lens.Lens' GetSMSAttributesResponse Lude.Int
+gsmsarsResponseStatus = Lens.lens (responseStatus :: GetSMSAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSMSAttributesResponse)
+{-# DEPRECATED gsmsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

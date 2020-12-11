@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,130 @@
 --
 -- Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
-  ( -- * Creating a Request
-    describeElasticsearchDomains,
-    DescribeElasticsearchDomains,
+  ( -- * Creating a request
+    DescribeElasticsearchDomains (..),
+    mkDescribeElasticsearchDomains,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dedDomainNames,
 
-    -- * Destructuring the Response
-    describeElasticsearchDomainsResponse,
-    DescribeElasticsearchDomainsResponse,
+    -- * Destructuring the response
+    DescribeElasticsearchDomainsResponse (..),
+    mkDescribeElasticsearchDomainsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dedsrsResponseStatus,
     dedsrsDomainStatusList,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DescribeElasticsearchDomains' @ operation. By default, the API returns the status of all Elasticsearch domains.
 --
---
---
--- /See:/ 'describeElasticsearchDomains' smart constructor.
+-- /See:/ 'mkDescribeElasticsearchDomains' smart constructor.
 newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
-  { _dedDomainNames ::
-      [Text]
+  { domainNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchDomains' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dedDomainNames' - The Elasticsearch domains for which you want information.
-describeElasticsearchDomains ::
+-- * 'domainNames' - The Elasticsearch domains for which you want information.
+mkDescribeElasticsearchDomains ::
   DescribeElasticsearchDomains
-describeElasticsearchDomains =
-  DescribeElasticsearchDomains' {_dedDomainNames = mempty}
+mkDescribeElasticsearchDomains =
+  DescribeElasticsearchDomains' {domainNames = Lude.mempty}
 
 -- | The Elasticsearch domains for which you want information.
-dedDomainNames :: Lens' DescribeElasticsearchDomains [Text]
-dedDomainNames = lens _dedDomainNames (\s a -> s {_dedDomainNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedDomainNames :: Lens.Lens' DescribeElasticsearchDomains [Lude.Text]
+dedDomainNames = Lens.lens (domainNames :: DescribeElasticsearchDomains -> [Lude.Text]) (\s a -> s {domainNames = a} :: DescribeElasticsearchDomains)
+{-# DEPRECATED dedDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
-instance AWSRequest DescribeElasticsearchDomains where
+instance Lude.AWSRequest DescribeElasticsearchDomains where
   type
     Rs DescribeElasticsearchDomains =
       DescribeElasticsearchDomainsResponse
-  request = postJSON elasticSearch
+  request = Req.postJSON elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeElasticsearchDomainsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "DomainStatusList" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "DomainStatusList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeElasticsearchDomains
+instance Lude.ToHeaders DescribeElasticsearchDomains where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeElasticsearchDomains
-
-instance ToHeaders DescribeElasticsearchDomains where
-  toHeaders = const mempty
-
-instance ToJSON DescribeElasticsearchDomains where
+instance Lude.ToJSON DescribeElasticsearchDomains where
   toJSON DescribeElasticsearchDomains' {..} =
-    object (catMaybes [Just ("DomainNames" .= _dedDomainNames)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainNames" Lude..= domainNames)])
 
-instance ToPath DescribeElasticsearchDomains where
-  toPath = const "/2015-01-01/es/domain-info"
+instance Lude.ToPath DescribeElasticsearchDomains where
+  toPath = Lude.const "/2015-01-01/es/domain-info"
 
-instance ToQuery DescribeElasticsearchDomains where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeElasticsearchDomains where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @DescribeElasticsearchDomains@ request. Contains the status of the specified domains or all domains owned by the account.
 --
---
---
--- /See:/ 'describeElasticsearchDomainsResponse' smart constructor.
+-- /See:/ 'mkDescribeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
-  { _dedsrsResponseStatus ::
-      !Int,
-    _dedsrsDomainStatusList ::
-      ![ElasticsearchDomainStatus]
+  { responseStatus ::
+      Lude.Int,
+    domainStatusList ::
+      [ElasticsearchDomainStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchDomainsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dedsrsResponseStatus' - -- | The response status code.
---
--- * 'dedsrsDomainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
-describeElasticsearchDomainsResponse ::
-  -- | 'dedsrsResponseStatus'
-  Int ->
+-- * 'domainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
+-- * 'responseStatus' - The response status code.
+mkDescribeElasticsearchDomainsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeElasticsearchDomainsResponse
-describeElasticsearchDomainsResponse pResponseStatus_ =
+mkDescribeElasticsearchDomainsResponse pResponseStatus_ =
   DescribeElasticsearchDomainsResponse'
-    { _dedsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _dedsrsDomainStatusList = mempty
+      domainStatusList = Lude.mempty
     }
 
--- | -- | The response status code.
-dedsrsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
-dedsrsResponseStatus = lens _dedsrsResponseStatus (\s a -> s {_dedsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedsrsResponseStatus :: Lens.Lens' DescribeElasticsearchDomainsResponse Lude.Int
+dedsrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticsearchDomainsResponse)
+{-# DEPRECATED dedsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
-dedsrsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-dedsrsDomainStatusList = lens _dedsrsDomainStatusList (\s a -> s {_dedsrsDomainStatusList = a}) . _Coerce
-
-instance NFData DescribeElasticsearchDomainsResponse
+--
+-- /Note:/ Consider using 'domainStatusList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedsrsDomainStatusList :: Lens.Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
+dedsrsDomainStatusList = Lens.lens (domainStatusList :: DescribeElasticsearchDomainsResponse -> [ElasticsearchDomainStatus]) (\s a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse)
+{-# DEPRECATED dedsrsDomainStatusList "Use generic-lens or generic-optics with 'domainStatusList' instead." #-}

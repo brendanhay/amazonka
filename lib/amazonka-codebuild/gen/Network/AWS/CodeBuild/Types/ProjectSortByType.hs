@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectSortByType where
+module Network.AWS.CodeBuild.Types.ProjectSortByType
+  ( ProjectSortByType
+      ( ProjectSortByType',
+        CreatedTime,
+        LastModifiedTime,
+        Name
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProjectSortByType
-  = CreatedTime
-  | LastModifiedTime
-  | Name
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProjectSortByType = ProjectSortByType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProjectSortByType where
-  parser =
-    takeLowerText >>= \case
-      "created_time" -> pure CreatedTime
-      "last_modified_time" -> pure LastModifiedTime
-      "name" -> pure Name
-      e ->
-        fromTextError $
-          "Failure parsing ProjectSortByType from value: '" <> e
-            <> "'. Accepted values: created_time, last_modified_time, name"
+pattern CreatedTime :: ProjectSortByType
+pattern CreatedTime = ProjectSortByType' "CREATED_TIME"
 
-instance ToText ProjectSortByType where
-  toText = \case
-    CreatedTime -> "CREATED_TIME"
-    LastModifiedTime -> "LAST_MODIFIED_TIME"
-    Name -> "NAME"
+pattern LastModifiedTime :: ProjectSortByType
+pattern LastModifiedTime = ProjectSortByType' "LAST_MODIFIED_TIME"
 
-instance Hashable ProjectSortByType
+pattern Name :: ProjectSortByType
+pattern Name = ProjectSortByType' "NAME"
 
-instance NFData ProjectSortByType
-
-instance ToByteString ProjectSortByType
-
-instance ToQuery ProjectSortByType
-
-instance ToHeader ProjectSortByType
-
-instance ToJSON ProjectSortByType where
-  toJSON = toJSONText
+{-# COMPLETE
+  CreatedTime,
+  LastModifiedTime,
+  Name,
+  ProjectSortByType'
+  #-}

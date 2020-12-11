@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CodeSigning where
+module Network.AWS.IoT.Types.CodeSigning
+  ( CodeSigning (..),
+
+    -- * Smart constructor
+    mkCodeSigning,
+
+    -- * Lenses
+    csCustomCodeSigning,
+    csStartSigningJobParameter,
+    csAwsSignerJobId,
+  )
+where
 
 import Network.AWS.IoT.Types.CustomCodeSigning
 import Network.AWS.IoT.Types.StartSigningJobParameter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the method to use when code signing a file.
 --
---
---
--- /See:/ 'codeSigning' smart constructor.
+-- /See:/ 'mkCodeSigning' smart constructor.
 data CodeSigning = CodeSigning'
-  { _csCustomCodeSigning ::
-      !(Maybe CustomCodeSigning),
-    _csStartSigningJobParameter :: !(Maybe StartSigningJobParameter),
-    _csAwsSignerJobId :: !(Maybe Text)
+  { customCodeSigning ::
+      Lude.Maybe CustomCodeSigning,
+    startSigningJobParameter :: Lude.Maybe StartSigningJobParameter,
+    awsSignerJobId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigning' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csCustomCodeSigning' - A custom method for code signing a file.
---
--- * 'csStartSigningJobParameter' - Describes the code-signing job.
---
--- * 'csAwsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
-codeSigning ::
+-- * 'awsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
+-- * 'customCodeSigning' - A custom method for code signing a file.
+-- * 'startSigningJobParameter' - Describes the code-signing job.
+mkCodeSigning ::
   CodeSigning
-codeSigning =
+mkCodeSigning =
   CodeSigning'
-    { _csCustomCodeSigning = Nothing,
-      _csStartSigningJobParameter = Nothing,
-      _csAwsSignerJobId = Nothing
+    { customCodeSigning = Lude.Nothing,
+      startSigningJobParameter = Lude.Nothing,
+      awsSignerJobId = Lude.Nothing
     }
 
 -- | A custom method for code signing a file.
-csCustomCodeSigning :: Lens' CodeSigning (Maybe CustomCodeSigning)
-csCustomCodeSigning = lens _csCustomCodeSigning (\s a -> s {_csCustomCodeSigning = a})
+--
+-- /Note:/ Consider using 'customCodeSigning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCustomCodeSigning :: Lens.Lens' CodeSigning (Lude.Maybe CustomCodeSigning)
+csCustomCodeSigning = Lens.lens (customCodeSigning :: CodeSigning -> Lude.Maybe CustomCodeSigning) (\s a -> s {customCodeSigning = a} :: CodeSigning)
+{-# DEPRECATED csCustomCodeSigning "Use generic-lens or generic-optics with 'customCodeSigning' instead." #-}
 
 -- | Describes the code-signing job.
-csStartSigningJobParameter :: Lens' CodeSigning (Maybe StartSigningJobParameter)
-csStartSigningJobParameter = lens _csStartSigningJobParameter (\s a -> s {_csStartSigningJobParameter = a})
+--
+-- /Note:/ Consider using 'startSigningJobParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStartSigningJobParameter :: Lens.Lens' CodeSigning (Lude.Maybe StartSigningJobParameter)
+csStartSigningJobParameter = Lens.lens (startSigningJobParameter :: CodeSigning -> Lude.Maybe StartSigningJobParameter) (\s a -> s {startSigningJobParameter = a} :: CodeSigning)
+{-# DEPRECATED csStartSigningJobParameter "Use generic-lens or generic-optics with 'startSigningJobParameter' instead." #-}
 
 -- | The ID of the AWSSignerJob which was created to sign the file.
-csAwsSignerJobId :: Lens' CodeSigning (Maybe Text)
-csAwsSignerJobId = lens _csAwsSignerJobId (\s a -> s {_csAwsSignerJobId = a})
+--
+-- /Note:/ Consider using 'awsSignerJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csAwsSignerJobId :: Lens.Lens' CodeSigning (Lude.Maybe Lude.Text)
+csAwsSignerJobId = Lens.lens (awsSignerJobId :: CodeSigning -> Lude.Maybe Lude.Text) (\s a -> s {awsSignerJobId = a} :: CodeSigning)
+{-# DEPRECATED csAwsSignerJobId "Use generic-lens or generic-optics with 'awsSignerJobId' instead." #-}
 
-instance FromJSON CodeSigning where
+instance Lude.FromJSON CodeSigning where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeSigning"
       ( \x ->
           CodeSigning'
-            <$> (x .:? "customCodeSigning")
-            <*> (x .:? "startSigningJobParameter")
-            <*> (x .:? "awsSignerJobId")
+            Lude.<$> (x Lude..:? "customCodeSigning")
+            Lude.<*> (x Lude..:? "startSigningJobParameter")
+            Lude.<*> (x Lude..:? "awsSignerJobId")
       )
 
-instance Hashable CodeSigning
-
-instance NFData CodeSigning
-
-instance ToJSON CodeSigning where
+instance Lude.ToJSON CodeSigning where
   toJSON CodeSigning' {..} =
-    object
-      ( catMaybes
-          [ ("customCodeSigning" .=) <$> _csCustomCodeSigning,
-            ("startSigningJobParameter" .=) <$> _csStartSigningJobParameter,
-            ("awsSignerJobId" .=) <$> _csAwsSignerJobId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("customCodeSigning" Lude..=) Lude.<$> customCodeSigning,
+            ("startSigningJobParameter" Lude..=)
+              Lude.<$> startSigningJobParameter,
+            ("awsSignerJobId" Lude..=) Lude.<$> awsSignerJobId
           ]
       )

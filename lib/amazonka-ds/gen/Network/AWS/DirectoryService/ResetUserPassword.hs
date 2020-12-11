@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,151 @@
 --
 -- Resets the password for any user in your AWS Managed Microsoft AD or Simple AD directory.
 --
---
 -- You can reset the password for any user in your directory with the following exceptions:
 --
 --     * For Simple AD, you cannot reset the password for any user that is a member of either the __Domain Admins__ or __Enterprise Admins__ group except for the administrator user.
 --
+--
 --     * For AWS Managed Microsoft AD, you can only reset the password for a user that is in an OU based off of the NetBIOS name that you typed when you created your directory. For example, you cannot reset the password for a user in the __AWS Reserved__ OU. For more information about the OU structure for an AWS Managed Microsoft AD directory, see <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html What Gets Created> in the /AWS Directory Service Administration Guide/ .
 module Network.AWS.DirectoryService.ResetUserPassword
-  ( -- * Creating a Request
-    resetUserPassword,
-    ResetUserPassword,
+  ( -- * Creating a request
+    ResetUserPassword (..),
+    mkResetUserPassword,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rupDirectoryId,
     rupUserName,
     rupNewPassword,
 
-    -- * Destructuring the Response
-    resetUserPasswordResponse,
-    ResetUserPasswordResponse,
+    -- * Destructuring the response
+    ResetUserPasswordResponse (..),
+    mkResetUserPasswordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ruprsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetUserPassword' smart constructor.
+-- | /See:/ 'mkResetUserPassword' smart constructor.
 data ResetUserPassword = ResetUserPassword'
-  { _rupDirectoryId ::
-      !Text,
-    _rupUserName :: !Text,
-    _rupNewPassword :: !(Sensitive Text)
+  { directoryId ::
+      Lude.Text,
+    userName :: Lude.Text,
+    newPassword :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetUserPassword' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rupDirectoryId' - Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides.
---
--- * 'rupUserName' - The user name of the user whose password will be reset.
---
--- * 'rupNewPassword' - The new password that will be reset.
-resetUserPassword ::
-  -- | 'rupDirectoryId'
-  Text ->
-  -- | 'rupUserName'
-  Text ->
-  -- | 'rupNewPassword'
-  Text ->
+-- * 'directoryId' - Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides.
+-- * 'newPassword' - The new password that will be reset.
+-- * 'userName' - The user name of the user whose password will be reset.
+mkResetUserPassword ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'newPassword'
+  Lude.Sensitive Lude.Text ->
   ResetUserPassword
-resetUserPassword pDirectoryId_ pUserName_ pNewPassword_ =
+mkResetUserPassword pDirectoryId_ pUserName_ pNewPassword_ =
   ResetUserPassword'
-    { _rupDirectoryId = pDirectoryId_,
-      _rupUserName = pUserName_,
-      _rupNewPassword = _Sensitive # pNewPassword_
+    { directoryId = pDirectoryId_,
+      userName = pUserName_,
+      newPassword = pNewPassword_
     }
 
 -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides.
-rupDirectoryId :: Lens' ResetUserPassword Text
-rupDirectoryId = lens _rupDirectoryId (\s a -> s {_rupDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rupDirectoryId :: Lens.Lens' ResetUserPassword Lude.Text
+rupDirectoryId = Lens.lens (directoryId :: ResetUserPassword -> Lude.Text) (\s a -> s {directoryId = a} :: ResetUserPassword)
+{-# DEPRECATED rupDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The user name of the user whose password will be reset.
-rupUserName :: Lens' ResetUserPassword Text
-rupUserName = lens _rupUserName (\s a -> s {_rupUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rupUserName :: Lens.Lens' ResetUserPassword Lude.Text
+rupUserName = Lens.lens (userName :: ResetUserPassword -> Lude.Text) (\s a -> s {userName = a} :: ResetUserPassword)
+{-# DEPRECATED rupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The new password that will be reset.
-rupNewPassword :: Lens' ResetUserPassword Text
-rupNewPassword = lens _rupNewPassword (\s a -> s {_rupNewPassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'newPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rupNewPassword :: Lens.Lens' ResetUserPassword (Lude.Sensitive Lude.Text)
+rupNewPassword = Lens.lens (newPassword :: ResetUserPassword -> Lude.Sensitive Lude.Text) (\s a -> s {newPassword = a} :: ResetUserPassword)
+{-# DEPRECATED rupNewPassword "Use generic-lens or generic-optics with 'newPassword' instead." #-}
 
-instance AWSRequest ResetUserPassword where
+instance Lude.AWSRequest ResetUserPassword where
   type Rs ResetUserPassword = ResetUserPasswordResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> ResetUserPasswordResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ResetUserPasswordResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ResetUserPassword
-
-instance NFData ResetUserPassword
-
-instance ToHeaders ResetUserPassword where
+instance Lude.ToHeaders ResetUserPassword where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.ResetUserPassword" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.ResetUserPassword" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResetUserPassword where
+instance Lude.ToJSON ResetUserPassword where
   toJSON ResetUserPassword' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _rupDirectoryId),
-            Just ("UserName" .= _rupUserName),
-            Just ("NewPassword" .= _rupNewPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("UserName" Lude..= userName),
+            Lude.Just ("NewPassword" Lude..= newPassword)
           ]
       )
 
-instance ToPath ResetUserPassword where
-  toPath = const "/"
+instance Lude.ToPath ResetUserPassword where
+  toPath = Lude.const "/"
 
-instance ToQuery ResetUserPassword where
-  toQuery = const mempty
+instance Lude.ToQuery ResetUserPassword where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetUserPasswordResponse' smart constructor.
+-- | /See:/ 'mkResetUserPasswordResponse' smart constructor.
 newtype ResetUserPasswordResponse = ResetUserPasswordResponse'
-  { _ruprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetUserPasswordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ruprsResponseStatus' - -- | The response status code.
-resetUserPasswordResponse ::
-  -- | 'ruprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkResetUserPasswordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetUserPasswordResponse
-resetUserPasswordResponse pResponseStatus_ =
-  ResetUserPasswordResponse'
-    { _ruprsResponseStatus =
-        pResponseStatus_
-    }
+mkResetUserPasswordResponse pResponseStatus_ =
+  ResetUserPasswordResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ruprsResponseStatus :: Lens' ResetUserPasswordResponse Int
-ruprsResponseStatus = lens _ruprsResponseStatus (\s a -> s {_ruprsResponseStatus = a})
-
-instance NFData ResetUserPasswordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruprsResponseStatus :: Lens.Lens' ResetUserPasswordResponse Lude.Int
+ruprsResponseStatus = Lens.lens (responseStatus :: ResetUserPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetUserPasswordResponse)
+{-# DEPRECATED ruprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

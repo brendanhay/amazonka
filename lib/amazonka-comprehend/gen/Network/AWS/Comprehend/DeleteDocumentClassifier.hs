@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,133 @@
 --
 -- Deletes a previously created document classifier
 --
---
 -- Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted. If an active inference job is using the model, a @ResourceInUseException@ will be returned.
---
 -- This is an asynchronous action that puts the classifier into a DELETING state, and it is then removed by a background job. Once removed, the classifier disappears from your account and is no longer available for use.
 module Network.AWS.Comprehend.DeleteDocumentClassifier
-  ( -- * Creating a Request
-    deleteDocumentClassifier,
-    DeleteDocumentClassifier,
+  ( -- * Creating a request
+    DeleteDocumentClassifier (..),
+    mkDeleteDocumentClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDocumentClassifierARN,
 
-    -- * Destructuring the Response
-    deleteDocumentClassifierResponse,
-    DeleteDocumentClassifierResponse,
+    -- * Destructuring the response
+    DeleteDocumentClassifierResponse (..),
+    mkDeleteDocumentClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcdrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDocumentClassifier' smart constructor.
+-- | /See:/ 'mkDeleteDocumentClassifier' smart constructor.
 newtype DeleteDocumentClassifier = DeleteDocumentClassifier'
-  { _dDocumentClassifierARN ::
-      Text
+  { documentClassifierARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDocumentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
-deleteDocumentClassifier ::
-  -- | 'dDocumentClassifierARN'
-  Text ->
+-- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
+mkDeleteDocumentClassifier ::
+  -- | 'documentClassifierARN'
+  Lude.Text ->
   DeleteDocumentClassifier
-deleteDocumentClassifier pDocumentClassifierARN_ =
+mkDeleteDocumentClassifier pDocumentClassifierARN_ =
   DeleteDocumentClassifier'
-    { _dDocumentClassifierARN =
+    { documentClassifierARN =
         pDocumentClassifierARN_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-dDocumentClassifierARN :: Lens' DeleteDocumentClassifier Text
-dDocumentClassifierARN = lens _dDocumentClassifierARN (\s a -> s {_dDocumentClassifierARN = a})
+--
+-- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDocumentClassifierARN :: Lens.Lens' DeleteDocumentClassifier Lude.Text
+dDocumentClassifierARN = Lens.lens (documentClassifierARN :: DeleteDocumentClassifier -> Lude.Text) (\s a -> s {documentClassifierARN = a} :: DeleteDocumentClassifier)
+{-# DEPRECATED dDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
 
-instance AWSRequest DeleteDocumentClassifier where
+instance Lude.AWSRequest DeleteDocumentClassifier where
   type Rs DeleteDocumentClassifier = DeleteDocumentClassifierResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteDocumentClassifierResponse' <$> (pure (fromEnum s))
+          DeleteDocumentClassifierResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDocumentClassifier
-
-instance NFData DeleteDocumentClassifier
-
-instance ToHeaders DeleteDocumentClassifier where
+instance Lude.ToHeaders DeleteDocumentClassifier where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DeleteDocumentClassifier" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DeleteDocumentClassifier" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDocumentClassifier where
+instance Lude.ToJSON DeleteDocumentClassifier where
   toJSON DeleteDocumentClassifier' {..} =
-    object
-      ( catMaybes
-          [Just ("DocumentClassifierArn" .= _dDocumentClassifierARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("DocumentClassifierArn" Lude..= documentClassifierARN)
+          ]
       )
 
-instance ToPath DeleteDocumentClassifier where
-  toPath = const "/"
+instance Lude.ToPath DeleteDocumentClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDocumentClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDocumentClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDocumentClassifierResponse' smart constructor.
+-- | /See:/ 'mkDeleteDocumentClassifierResponse' smart constructor.
 newtype DeleteDocumentClassifierResponse = DeleteDocumentClassifierResponse'
-  { _ddcdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcdrsResponseStatus' - -- | The response status code.
-deleteDocumentClassifierResponse ::
-  -- | 'ddcdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDocumentClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDocumentClassifierResponse
-deleteDocumentClassifierResponse pResponseStatus_ =
+mkDeleteDocumentClassifierResponse pResponseStatus_ =
   DeleteDocumentClassifierResponse'
-    { _ddcdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddcdrsResponseStatus :: Lens' DeleteDocumentClassifierResponse Int
-ddcdrsResponseStatus = lens _ddcdrsResponseStatus (\s a -> s {_ddcdrsResponseStatus = a})
-
-instance NFData DeleteDocumentClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcdrsResponseStatus :: Lens.Lens' DeleteDocumentClassifierResponse Lude.Int
+ddcdrsResponseStatus = Lens.lens (responseStatus :: DeleteDocumentClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDocumentClassifierResponse)
+{-# DEPRECATED ddcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

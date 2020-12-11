@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Payer where
+module Network.AWS.S3.Types.Payer
+  ( Payer
+      ( Payer',
+        BucketOwner,
+        Requester
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data Payer
-  = BucketOwner
-  | Requester
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Payer = Payer' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Payer where
-  parser =
-    takeLowerText >>= \case
-      "bucketowner" -> pure BucketOwner
-      "requester" -> pure Requester
-      e ->
-        fromTextError $
-          "Failure parsing Payer from value: '" <> e
-            <> "'. Accepted values: bucketowner, requester"
+pattern BucketOwner :: Payer
+pattern BucketOwner = Payer' "BucketOwner"
 
-instance ToText Payer where
-  toText = \case
-    BucketOwner -> "BucketOwner"
-    Requester -> "Requester"
+pattern Requester :: Payer
+pattern Requester = Payer' "Requester"
 
-instance Hashable Payer
-
-instance NFData Payer
-
-instance ToByteString Payer
-
-instance ToQuery Payer
-
-instance ToHeader Payer
-
-instance FromXML Payer where
-  parseXML = parseXMLText "Payer"
-
-instance ToXML Payer where
-  toXML = toXMLText
+{-# COMPLETE
+  BucketOwner,
+  Requester,
+  Payer'
+  #-}

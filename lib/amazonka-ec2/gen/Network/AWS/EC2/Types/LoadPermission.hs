@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LoadPermission where
+module Network.AWS.EC2.Types.LoadPermission
+  ( LoadPermission (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLoadPermission,
+
+    -- * Lenses
+    lpGroup,
+    lpUserId,
+  )
+where
+
 import Network.AWS.EC2.Types.PermissionGroup
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a load permission.
 --
---
---
--- /See:/ 'loadPermission' smart constructor.
+-- /See:/ 'mkLoadPermission' smart constructor.
 data LoadPermission = LoadPermission'
-  { _lpGroup ::
-      !(Maybe PermissionGroup),
-    _lpUserId :: !(Maybe Text)
+  { group ::
+      Lude.Maybe PermissionGroup,
+    userId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpGroup' - The name of the group.
---
--- * 'lpUserId' - The AWS account ID.
-loadPermission ::
+-- * 'group' - The name of the group.
+-- * 'userId' - The AWS account ID.
+mkLoadPermission ::
   LoadPermission
-loadPermission =
-  LoadPermission' {_lpGroup = Nothing, _lpUserId = Nothing}
+mkLoadPermission =
+  LoadPermission' {group = Lude.Nothing, userId = Lude.Nothing}
 
 -- | The name of the group.
-lpGroup :: Lens' LoadPermission (Maybe PermissionGroup)
-lpGroup = lens _lpGroup (\s a -> s {_lpGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpGroup :: Lens.Lens' LoadPermission (Lude.Maybe PermissionGroup)
+lpGroup = Lens.lens (group :: LoadPermission -> Lude.Maybe PermissionGroup) (\s a -> s {group = a} :: LoadPermission)
+{-# DEPRECATED lpGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The AWS account ID.
-lpUserId :: Lens' LoadPermission (Maybe Text)
-lpUserId = lens _lpUserId (\s a -> s {_lpUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpUserId :: Lens.Lens' LoadPermission (Lude.Maybe Lude.Text)
+lpUserId = Lens.lens (userId :: LoadPermission -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: LoadPermission)
+{-# DEPRECATED lpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance FromXML LoadPermission where
+instance Lude.FromXML LoadPermission where
   parseXML x =
-    LoadPermission' <$> (x .@? "group") <*> (x .@? "userId")
-
-instance Hashable LoadPermission
-
-instance NFData LoadPermission
+    LoadPermission'
+      Lude.<$> (x Lude..@? "group") Lude.<*> (x Lude..@? "userId")

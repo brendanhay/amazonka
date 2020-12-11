@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,146 @@
 --
 -- Creates a Selenium testing project. Projects are used to track 'TestGridSession' instances.
 module Network.AWS.DeviceFarm.CreateTestGridProject
-  ( -- * Creating a Request
-    createTestGridProject,
-    CreateTestGridProject,
+  ( -- * Creating a request
+    CreateTestGridProject (..),
+    mkCreateTestGridProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctgpDescription,
     ctgpName,
 
-    -- * Destructuring the Response
-    createTestGridProjectResponse,
-    CreateTestGridProjectResponse,
+    -- * Destructuring the response
+    CreateTestGridProjectResponse (..),
+    mkCreateTestGridProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctgprsTestGridProject,
     ctgprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTestGridProject' smart constructor.
+-- | /See:/ 'mkCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
-  { _ctgpDescription ::
-      !(Maybe Text),
-    _ctgpName :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgpDescription' - Human-readable description of the project.
---
--- * 'ctgpName' - Human-readable name of the Selenium testing project.
-createTestGridProject ::
-  -- | 'ctgpName'
-  Text ->
+-- * 'description' - Human-readable description of the project.
+-- * 'name' - Human-readable name of the Selenium testing project.
+mkCreateTestGridProject ::
+  -- | 'name'
+  Lude.Text ->
   CreateTestGridProject
-createTestGridProject pName_ =
-  CreateTestGridProject'
-    { _ctgpDescription = Nothing,
-      _ctgpName = pName_
-    }
+mkCreateTestGridProject pName_ =
+  CreateTestGridProject' {description = Lude.Nothing, name = pName_}
 
 -- | Human-readable description of the project.
-ctgpDescription :: Lens' CreateTestGridProject (Maybe Text)
-ctgpDescription = lens _ctgpDescription (\s a -> s {_ctgpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpDescription :: Lens.Lens' CreateTestGridProject (Lude.Maybe Lude.Text)
+ctgpDescription = Lens.lens (description :: CreateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTestGridProject)
+{-# DEPRECATED ctgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Human-readable name of the Selenium testing project.
-ctgpName :: Lens' CreateTestGridProject Text
-ctgpName = lens _ctgpName (\s a -> s {_ctgpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpName :: Lens.Lens' CreateTestGridProject Lude.Text
+ctgpName = Lens.lens (name :: CreateTestGridProject -> Lude.Text) (\s a -> s {name = a} :: CreateTestGridProject)
+{-# DEPRECATED ctgpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateTestGridProject where
+instance Lude.AWSRequest CreateTestGridProject where
   type Rs CreateTestGridProject = CreateTestGridProjectResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateTestGridProjectResponse'
-            <$> (x .?> "testGridProject") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "testGridProject")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTestGridProject
-
-instance NFData CreateTestGridProject
-
-instance ToHeaders CreateTestGridProject where
+instance Lude.ToHeaders CreateTestGridProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.CreateTestGridProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.CreateTestGridProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTestGridProject where
+instance Lude.ToJSON CreateTestGridProject where
   toJSON CreateTestGridProject' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _ctgpDescription,
-            Just ("name" .= _ctgpName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
-instance ToPath CreateTestGridProject where
-  toPath = const "/"
+instance Lude.ToPath CreateTestGridProject where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTestGridProject where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTestGridProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTestGridProjectResponse' smart constructor.
+-- | /See:/ 'mkCreateTestGridProjectResponse' smart constructor.
 data CreateTestGridProjectResponse = CreateTestGridProjectResponse'
-  { _ctgprsTestGridProject ::
-      !(Maybe TestGridProject),
-    _ctgprsResponseStatus :: !Int
+  { testGridProject ::
+      Lude.Maybe TestGridProject,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgprsTestGridProject' - ARN of the Selenium testing project that was created.
---
--- * 'ctgprsResponseStatus' - -- | The response status code.
-createTestGridProjectResponse ::
-  -- | 'ctgprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'testGridProject' - ARN of the Selenium testing project that was created.
+mkCreateTestGridProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTestGridProjectResponse
-createTestGridProjectResponse pResponseStatus_ =
+mkCreateTestGridProjectResponse pResponseStatus_ =
   CreateTestGridProjectResponse'
-    { _ctgprsTestGridProject = Nothing,
-      _ctgprsResponseStatus = pResponseStatus_
+    { testGridProject = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | ARN of the Selenium testing project that was created.
-ctgprsTestGridProject :: Lens' CreateTestGridProjectResponse (Maybe TestGridProject)
-ctgprsTestGridProject = lens _ctgprsTestGridProject (\s a -> s {_ctgprsTestGridProject = a})
+--
+-- /Note:/ Consider using 'testGridProject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgprsTestGridProject :: Lens.Lens' CreateTestGridProjectResponse (Lude.Maybe TestGridProject)
+ctgprsTestGridProject = Lens.lens (testGridProject :: CreateTestGridProjectResponse -> Lude.Maybe TestGridProject) (\s a -> s {testGridProject = a} :: CreateTestGridProjectResponse)
+{-# DEPRECATED ctgprsTestGridProject "Use generic-lens or generic-optics with 'testGridProject' instead." #-}
 
--- | -- | The response status code.
-ctgprsResponseStatus :: Lens' CreateTestGridProjectResponse Int
-ctgprsResponseStatus = lens _ctgprsResponseStatus (\s a -> s {_ctgprsResponseStatus = a})
-
-instance NFData CreateTestGridProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgprsResponseStatus :: Lens.Lens' CreateTestGridProjectResponse Lude.Int
+ctgprsResponseStatus = Lens.lens (responseStatus :: CreateTestGridProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTestGridProjectResponse)
+{-# DEPRECATED ctgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

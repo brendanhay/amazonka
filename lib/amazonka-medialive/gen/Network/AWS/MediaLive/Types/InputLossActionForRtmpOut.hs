@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossActionForRtmpOut where
+module Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
+  ( InputLossActionForRtmpOut
+      ( InputLossActionForRtmpOut',
+        ILAFROEmitOutput,
+        ILAFROPauseOutput
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Loss Action For Rtmp Out
-data InputLossActionForRtmpOut
-  = ILAFROEmitOutput
-  | ILAFROPauseOutput
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputLossActionForRtmpOut = InputLossActionForRtmpOut' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputLossActionForRtmpOut where
-  parser =
-    takeLowerText >>= \case
-      "emit_output" -> pure ILAFROEmitOutput
-      "pause_output" -> pure ILAFROPauseOutput
-      e ->
-        fromTextError $
-          "Failure parsing InputLossActionForRtmpOut from value: '" <> e
-            <> "'. Accepted values: emit_output, pause_output"
+pattern ILAFROEmitOutput :: InputLossActionForRtmpOut
+pattern ILAFROEmitOutput = InputLossActionForRtmpOut' "EMIT_OUTPUT"
 
-instance ToText InputLossActionForRtmpOut where
-  toText = \case
-    ILAFROEmitOutput -> "EMIT_OUTPUT"
-    ILAFROPauseOutput -> "PAUSE_OUTPUT"
+pattern ILAFROPauseOutput :: InputLossActionForRtmpOut
+pattern ILAFROPauseOutput = InputLossActionForRtmpOut' "PAUSE_OUTPUT"
 
-instance Hashable InputLossActionForRtmpOut
-
-instance NFData InputLossActionForRtmpOut
-
-instance ToByteString InputLossActionForRtmpOut
-
-instance ToQuery InputLossActionForRtmpOut
-
-instance ToHeader InputLossActionForRtmpOut
-
-instance ToJSON InputLossActionForRtmpOut where
-  toJSON = toJSONText
-
-instance FromJSON InputLossActionForRtmpOut where
-  parseJSON = parseJSONText "InputLossActionForRtmpOut"
+{-# COMPLETE
+  ILAFROEmitOutput,
+  ILAFROPauseOutput,
+  InputLossActionForRtmpOut'
+  #-}

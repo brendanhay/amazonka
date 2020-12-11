@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ExportFilter where
+module Network.AWS.Discovery.Types.ExportFilter
+  ( ExportFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExportFilter,
+
+    -- * Lenses
+    efName,
+    efValues,
+    efCondition,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used to select which agent's data is to be exported. A single agent ID may be selected for export using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html StartExportTask> action.
 --
---
---
--- /See:/ 'exportFilter' smart constructor.
+-- /See:/ 'mkExportFilter' smart constructor.
 data ExportFilter = ExportFilter'
-  { _efName :: !Text,
-    _efValues :: ![Text],
-    _efCondition :: !Text
+  { name :: Lude.Text,
+    values :: [Lude.Text],
+    condition :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efName' - A single @ExportFilter@ name. Supported filters: @agentId@ .
---
--- * 'efValues' - A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
---
--- * 'efCondition' - Supported condition: @EQUALS@
-exportFilter ::
-  -- | 'efName'
-  Text ->
-  -- | 'efCondition'
-  Text ->
+-- * 'condition' - Supported condition: @EQUALS@
+-- * 'name' - A single @ExportFilter@ name. Supported filters: @agentId@ .
+-- * 'values' - A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
+mkExportFilter ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'condition'
+  Lude.Text ->
   ExportFilter
-exportFilter pName_ pCondition_ =
+mkExportFilter pName_ pCondition_ =
   ExportFilter'
-    { _efName = pName_,
-      _efValues = mempty,
-      _efCondition = pCondition_
+    { name = pName_,
+      values = Lude.mempty,
+      condition = pCondition_
     }
 
 -- | A single @ExportFilter@ name. Supported filters: @agentId@ .
-efName :: Lens' ExportFilter Text
-efName = lens _efName (\s a -> s {_efName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efName :: Lens.Lens' ExportFilter Lude.Text
+efName = Lens.lens (name :: ExportFilter -> Lude.Text) (\s a -> s {name = a} :: ExportFilter)
+{-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
-efValues :: Lens' ExportFilter [Text]
-efValues = lens _efValues (\s a -> s {_efValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efValues :: Lens.Lens' ExportFilter [Lude.Text]
+efValues = Lens.lens (values :: ExportFilter -> [Lude.Text]) (\s a -> s {values = a} :: ExportFilter)
+{-# DEPRECATED efValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | Supported condition: @EQUALS@
-efCondition :: Lens' ExportFilter Text
-efCondition = lens _efCondition (\s a -> s {_efCondition = a})
+--
+-- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efCondition :: Lens.Lens' ExportFilter Lude.Text
+efCondition = Lens.lens (condition :: ExportFilter -> Lude.Text) (\s a -> s {condition = a} :: ExportFilter)
+{-# DEPRECATED efCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Hashable ExportFilter
-
-instance NFData ExportFilter
-
-instance ToJSON ExportFilter where
+instance Lude.ToJSON ExportFilter where
   toJSON ExportFilter' {..} =
-    object
-      ( catMaybes
-          [ Just ("name" .= _efName),
-            Just ("values" .= _efValues),
-            Just ("condition" .= _efCondition)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("values" Lude..= values),
+            Lude.Just ("condition" Lude..= condition)
           ]
       )

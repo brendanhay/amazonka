@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,102 @@
 --
 -- Deletes the specified snapshot.
 --
---
 -- When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.
---
 -- You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first de-register the AMI before you can delete the snapshot.
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.DeleteSnapshot
-  ( -- * Creating a Request
-    deleteSnapshot,
-    DeleteSnapshot,
+  ( -- * Creating a request
+    DeleteSnapshot (..),
+    mkDeleteSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deleDryRun,
     deleSnapshotId,
 
-    -- * Destructuring the Response
-    deleteSnapshotResponse,
-    DeleteSnapshotResponse,
+    -- * Destructuring the response
+    DeleteSnapshotResponse (..),
+    mkDeleteSnapshotResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSnapshot' smart constructor.
+-- | /See:/ 'mkDeleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
-  { _deleDryRun :: !(Maybe Bool),
-    _deleSnapshotId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    snapshotId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deleDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'deleSnapshotId' - The ID of the EBS snapshot.
-deleteSnapshot ::
-  -- | 'deleSnapshotId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'snapshotId' - The ID of the EBS snapshot.
+mkDeleteSnapshot ::
+  -- | 'snapshotId'
+  Lude.Text ->
   DeleteSnapshot
-deleteSnapshot pSnapshotId_ =
-  DeleteSnapshot'
-    { _deleDryRun = Nothing,
-      _deleSnapshotId = pSnapshotId_
-    }
+mkDeleteSnapshot pSnapshotId_ =
+  DeleteSnapshot' {dryRun = Lude.Nothing, snapshotId = pSnapshotId_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deleDryRun :: Lens' DeleteSnapshot (Maybe Bool)
-deleDryRun = lens _deleDryRun (\s a -> s {_deleDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deleDryRun :: Lens.Lens' DeleteSnapshot (Lude.Maybe Lude.Bool)
+deleDryRun = Lens.lens (dryRun :: DeleteSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSnapshot)
+{-# DEPRECATED deleDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the EBS snapshot.
-deleSnapshotId :: Lens' DeleteSnapshot Text
-deleSnapshotId = lens _deleSnapshotId (\s a -> s {_deleSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deleSnapshotId :: Lens.Lens' DeleteSnapshot Lude.Text
+deleSnapshotId = Lens.lens (snapshotId :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshot)
+{-# DEPRECATED deleSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance AWSRequest DeleteSnapshot where
+instance Lude.AWSRequest DeleteSnapshot where
   type Rs DeleteSnapshot = DeleteSnapshotResponse
-  request = postQuery ec2
-  response = receiveNull DeleteSnapshotResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteSnapshotResponse'
 
-instance Hashable DeleteSnapshot
+instance Lude.ToHeaders DeleteSnapshot where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSnapshot
+instance Lude.ToPath DeleteSnapshot where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteSnapshot where
-  toHeaders = const mempty
-
-instance ToPath DeleteSnapshot where
-  toPath = const "/"
-
-instance ToQuery DeleteSnapshot where
+instance Lude.ToQuery DeleteSnapshot where
   toQuery DeleteSnapshot' {..} =
-    mconcat
-      [ "Action" =: ("DeleteSnapshot" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _deleDryRun,
-        "SnapshotId" =: _deleSnapshotId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteSnapshot" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "SnapshotId" Lude.=: snapshotId
       ]
 
--- | /See:/ 'deleteSnapshotResponse' smart constructor.
+-- | /See:/ 'mkDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
-deleteSnapshotResponse ::
+mkDeleteSnapshotResponse ::
   DeleteSnapshotResponse
-deleteSnapshotResponse = DeleteSnapshotResponse'
-
-instance NFData DeleteSnapshotResponse
+mkDeleteSnapshotResponse = DeleteSnapshotResponse'

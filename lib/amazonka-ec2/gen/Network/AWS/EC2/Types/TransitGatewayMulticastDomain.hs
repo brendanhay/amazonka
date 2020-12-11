@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayMulticastDomain where
+module Network.AWS.EC2.Types.TransitGatewayMulticastDomain
+  ( TransitGatewayMulticastDomain (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayMulticastDomain,
+
+    -- * Lenses
+    tgmdCreationTime,
+    tgmdState,
+    tgmdTransitGatewayMulticastDomainId,
+    tgmdTransitGatewayId,
+    tgmdTags,
+  )
+where
+
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the transit gateway multicast domain.
 --
---
---
--- /See:/ 'transitGatewayMulticastDomain' smart constructor.
+-- /See:/ 'mkTransitGatewayMulticastDomain' smart constructor.
 data TransitGatewayMulticastDomain = TransitGatewayMulticastDomain'
-  { _tgmdCreationTime ::
-      !(Maybe ISO8601),
-    _tgmdState ::
-      !( Maybe
-           TransitGatewayMulticastDomainState
-       ),
-    _tgmdTransitGatewayMulticastDomainId ::
-      !(Maybe Text),
-    _tgmdTransitGatewayId ::
-      !(Maybe Text),
-    _tgmdTags :: !(Maybe [Tag])
+  { creationTime ::
+      Lude.Maybe Lude.ISO8601,
+    state ::
+      Lude.Maybe
+        TransitGatewayMulticastDomainState,
+    transitGatewayMulticastDomainId ::
+      Lude.Maybe Lude.Text,
+    transitGatewayId ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayMulticastDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgmdCreationTime' - The time the transit gateway multicast domain was created.
---
--- * 'tgmdState' - The state of the transit gateway multicast domain.
---
--- * 'tgmdTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- * 'tgmdTransitGatewayId' - The ID of the transit gateway.
---
--- * 'tgmdTags' - The tags for the transit gateway multicast domain.
-transitGatewayMulticastDomain ::
+-- * 'creationTime' - The time the transit gateway multicast domain was created.
+-- * 'state' - The state of the transit gateway multicast domain.
+-- * 'tags' - The tags for the transit gateway multicast domain.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkTransitGatewayMulticastDomain ::
   TransitGatewayMulticastDomain
-transitGatewayMulticastDomain =
+mkTransitGatewayMulticastDomain =
   TransitGatewayMulticastDomain'
-    { _tgmdCreationTime = Nothing,
-      _tgmdState = Nothing,
-      _tgmdTransitGatewayMulticastDomainId = Nothing,
-      _tgmdTransitGatewayId = Nothing,
-      _tgmdTags = Nothing
+    { creationTime = Lude.Nothing,
+      state = Lude.Nothing,
+      transitGatewayMulticastDomainId = Lude.Nothing,
+      transitGatewayId = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The time the transit gateway multicast domain was created.
-tgmdCreationTime :: Lens' TransitGatewayMulticastDomain (Maybe UTCTime)
-tgmdCreationTime = lens _tgmdCreationTime (\s a -> s {_tgmdCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdCreationTime :: Lens.Lens' TransitGatewayMulticastDomain (Lude.Maybe Lude.ISO8601)
+tgmdCreationTime = Lens.lens (creationTime :: TransitGatewayMulticastDomain -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationTime = a} :: TransitGatewayMulticastDomain)
+{-# DEPRECATED tgmdCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the transit gateway multicast domain.
-tgmdState :: Lens' TransitGatewayMulticastDomain (Maybe TransitGatewayMulticastDomainState)
-tgmdState = lens _tgmdState (\s a -> s {_tgmdState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdState :: Lens.Lens' TransitGatewayMulticastDomain (Lude.Maybe TransitGatewayMulticastDomainState)
+tgmdState = Lens.lens (state :: TransitGatewayMulticastDomain -> Lude.Maybe TransitGatewayMulticastDomainState) (\s a -> s {state = a} :: TransitGatewayMulticastDomain)
+{-# DEPRECATED tgmdState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
-tgmdTransitGatewayMulticastDomainId :: Lens' TransitGatewayMulticastDomain (Maybe Text)
-tgmdTransitGatewayMulticastDomainId = lens _tgmdTransitGatewayMulticastDomainId (\s a -> s {_tgmdTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdTransitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomain (Lude.Maybe Lude.Text)
+tgmdTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: TransitGatewayMulticastDomain -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastDomain)
+{-# DEPRECATED tgmdTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
 -- | The ID of the transit gateway.
-tgmdTransitGatewayId :: Lens' TransitGatewayMulticastDomain (Maybe Text)
-tgmdTransitGatewayId = lens _tgmdTransitGatewayId (\s a -> s {_tgmdTransitGatewayId = a})
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdTransitGatewayId :: Lens.Lens' TransitGatewayMulticastDomain (Lude.Maybe Lude.Text)
+tgmdTransitGatewayId = Lens.lens (transitGatewayId :: TransitGatewayMulticastDomain -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: TransitGatewayMulticastDomain)
+{-# DEPRECATED tgmdTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The tags for the transit gateway multicast domain.
-tgmdTags :: Lens' TransitGatewayMulticastDomain [Tag]
-tgmdTags = lens _tgmdTags (\s a -> s {_tgmdTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdTags :: Lens.Lens' TransitGatewayMulticastDomain (Lude.Maybe [Tag])
+tgmdTags = Lens.lens (tags :: TransitGatewayMulticastDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TransitGatewayMulticastDomain)
+{-# DEPRECATED tgmdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML TransitGatewayMulticastDomain where
+instance Lude.FromXML TransitGatewayMulticastDomain where
   parseXML x =
     TransitGatewayMulticastDomain'
-      <$> (x .@? "creationTime")
-      <*> (x .@? "state")
-      <*> (x .@? "transitGatewayMulticastDomainId")
-      <*> (x .@? "transitGatewayId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable TransitGatewayMulticastDomain
-
-instance NFData TransitGatewayMulticastDomain
+      Lude.<$> (x Lude..@? "creationTime")
+      Lude.<*> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "transitGatewayMulticastDomainId")
+      Lude.<*> (x Lude..@? "transitGatewayId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.AdvancedEventSelector where
+module Network.AWS.CloudTrail.Types.AdvancedEventSelector
+  ( AdvancedEventSelector (..),
+
+    -- * Smart constructor
+    mkAdvancedEventSelector,
+
+    -- * Lenses
+    aesName,
+    aesFieldSelectors,
+  )
+where
 
 import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'advancedEventSelector' smart constructor.
+-- | /See:/ 'mkAdvancedEventSelector' smart constructor.
 data AdvancedEventSelector = AdvancedEventSelector'
-  { _aesName ::
-      !Text,
-    _aesFieldSelectors ::
-      !(List1 AdvancedFieldSelector)
+  { name ::
+      Lude.Text,
+    fieldSelectors ::
+      Lude.NonEmpty AdvancedFieldSelector
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedEventSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aesName' - Undocumented member.
---
--- * 'aesFieldSelectors' - Undocumented member.
-advancedEventSelector ::
-  -- | 'aesName'
-  Text ->
-  -- | 'aesFieldSelectors'
-  NonEmpty AdvancedFieldSelector ->
+-- * 'fieldSelectors' - Undocumented field.
+-- * 'name' - Undocumented field.
+mkAdvancedEventSelector ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'fieldSelectors'
+  Lude.NonEmpty AdvancedFieldSelector ->
   AdvancedEventSelector
-advancedEventSelector pName_ pFieldSelectors_ =
+mkAdvancedEventSelector pName_ pFieldSelectors_ =
   AdvancedEventSelector'
-    { _aesName = pName_,
-      _aesFieldSelectors = _List1 # pFieldSelectors_
+    { name = pName_,
+      fieldSelectors = pFieldSelectors_
     }
 
--- | Undocumented member.
-aesName :: Lens' AdvancedEventSelector Text
-aesName = lens _aesName (\s a -> s {_aesName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesName :: Lens.Lens' AdvancedEventSelector Lude.Text
+aesName = Lens.lens (name :: AdvancedEventSelector -> Lude.Text) (\s a -> s {name = a} :: AdvancedEventSelector)
+{-# DEPRECATED aesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-aesFieldSelectors :: Lens' AdvancedEventSelector (NonEmpty AdvancedFieldSelector)
-aesFieldSelectors = lens _aesFieldSelectors (\s a -> s {_aesFieldSelectors = a}) . _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fieldSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesFieldSelectors :: Lens.Lens' AdvancedEventSelector (Lude.NonEmpty AdvancedFieldSelector)
+aesFieldSelectors = Lens.lens (fieldSelectors :: AdvancedEventSelector -> Lude.NonEmpty AdvancedFieldSelector) (\s a -> s {fieldSelectors = a} :: AdvancedEventSelector)
+{-# DEPRECATED aesFieldSelectors "Use generic-lens or generic-optics with 'fieldSelectors' instead." #-}
 
-instance FromJSON AdvancedEventSelector where
+instance Lude.FromJSON AdvancedEventSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "AdvancedEventSelector"
       ( \x ->
           AdvancedEventSelector'
-            <$> (x .: "Name") <*> (x .: "FieldSelectors")
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "FieldSelectors")
       )
 
-instance Hashable AdvancedEventSelector
-
-instance NFData AdvancedEventSelector
-
-instance ToJSON AdvancedEventSelector where
+instance Lude.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _aesName),
-            Just ("FieldSelectors" .= _aesFieldSelectors)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("FieldSelectors" Lude..= fieldSelectors)
           ]
       )

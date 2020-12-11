@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific to a particular DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots group can be obtained by providing the name as a parameter.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEvents
-  ( -- * Creating a Request
-    describeEvents,
-    DescribeEvents,
+  ( -- * Creating a request
+    DescribeEvents (..),
+    mkDescribeEvents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deStartTime,
     deSourceType,
     deFilters,
@@ -38,204 +31,307 @@ module Network.AWS.RDS.DescribeEvents
     deEndTime,
     deDuration,
 
-    -- * Destructuring the Response
-    describeEventsResponse,
-    DescribeEventsResponse,
+    -- * Destructuring the response
+    DescribeEventsResponse (..),
+    mkDescribeEventsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersEvents,
     dersMarker,
     dersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeEvents' smart constructor.
+-- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deStartTime ::
-      !(Maybe ISO8601),
-    _deSourceType :: !(Maybe SourceType),
-    _deFilters :: !(Maybe [Filter]),
-    _deSourceIdentifier :: !(Maybe Text),
-    _deEventCategories :: !(Maybe [Text]),
-    _deMarker :: !(Maybe Text),
-    _deMaxRecords :: !(Maybe Int),
-    _deEndTime :: !(Maybe ISO8601),
-    _deDuration :: !(Maybe Int)
+  { startTime ::
+      Lude.Maybe Lude.ISO8601,
+    sourceType :: Lude.Maybe SourceType,
+    filters :: Lude.Maybe [Filter],
+    sourceIdentifier :: Lude.Maybe Lude.Text,
+    eventCategories :: Lude.Maybe [Lude.Text],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    endTime :: Lude.Maybe Lude.ISO8601,
+    duration :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'duration' - The number of minutes to retrieve events for.
 --
--- * 'deStartTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: 2009-07-08T18:00Z
+-- Default: 60
+-- * 'endTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
--- * 'deSourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
+-- Example: 2009-07-08T18:00Z
+-- * 'eventCategories' - A list of event categories that trigger notifications for a event notification subscription.
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'marker' - An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
--- * 'deFilters' - This parameter isn't currently supported.
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'sourceIdentifier' - The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.
 --
--- * 'deSourceIdentifier' - The identifier of the event source for which events are returned. If not specified, then all sources are included in the response. Constraints:     * If @SourceIdentifier@ is supplied, @SourceType@ must also be provided.     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.     * Can't end with a hyphen or contain two consecutive hyphens.
+-- Constraints:
 --
--- * 'deEventCategories' - A list of event categories that trigger notifications for a event notification subscription.
+--     * If @SourceIdentifier@ is supplied, @SourceType@ must also be provided.
 --
--- * 'deMarker' - An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
+--     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
 --
--- * 'deEndTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: 2009-07-08T18:00Z
 --
--- * 'deDuration' - The number of minutes to retrieve events for. Default: 60
-describeEvents ::
+--     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
+-- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Example: 2009-07-08T18:00Z
+mkDescribeEvents ::
   DescribeEvents
-describeEvents =
+mkDescribeEvents =
   DescribeEvents'
-    { _deStartTime = Nothing,
-      _deSourceType = Nothing,
-      _deFilters = Nothing,
-      _deSourceIdentifier = Nothing,
-      _deEventCategories = Nothing,
-      _deMarker = Nothing,
-      _deMaxRecords = Nothing,
-      _deEndTime = Nothing,
-      _deDuration = Nothing
+    { startTime = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      filters = Lude.Nothing,
+      sourceIdentifier = Lude.Nothing,
+      eventCategories = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      endTime = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
--- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: 2009-07-08T18:00Z
-deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s {_deStartTime = a}) . mapping _Time
+-- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Example: 2009-07-08T18:00Z
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
+deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeEvents)
+{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The event source to retrieve events for. If no value is specified, all events are returned.
-deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\s a -> s {_deSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceType :: Lens.Lens' DescribeEvents (Lude.Maybe SourceType)
+deSourceType = Lens.lens (sourceType :: DescribeEvents -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: DescribeEvents)
+{-# DEPRECATED deSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | This parameter isn't currently supported.
-deFilters :: Lens' DescribeEvents [Filter]
-deFilters = lens _deFilters (\s a -> s {_deFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deFilters :: Lens.Lens' DescribeEvents (Lude.Maybe [Filter])
+deFilters = Lens.lens (filters :: DescribeEvents -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEvents)
+{-# DEPRECATED deFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The identifier of the event source for which events are returned. If not specified, then all sources are included in the response. Constraints:     * If @SourceIdentifier@ is supplied, @SourceType@ must also be provided.     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.     * Can't end with a hyphen or contain two consecutive hyphens.
-deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier = lens _deSourceIdentifier (\s a -> s {_deSourceIdentifier = a})
+-- | The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.
+--
+-- Constraints:
+--
+--     * If @SourceIdentifier@ is supplied, @SourceType@ must also be provided.
+--
+--
+--     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+--
+--
+--     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSourceIdentifier :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+deSourceIdentifier = Lens.lens (sourceIdentifier :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: DescribeEvents)
+{-# DEPRECATED deSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | A list of event categories that trigger notifications for a event notification subscription.
-deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories = lens _deEventCategories (\s a -> s {_deEventCategories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEventCategories :: Lens.Lens' DescribeEvents (Lude.Maybe [Lude.Text])
+deEventCategories = Lens.lens (eventCategories :: DescribeEvents -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: DescribeEvents)
+{-# DEPRECATED deEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\s a -> s {_deMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deMarker :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEvents)
+{-# DEPRECATED deMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\s a -> s {_deMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEvents)
+{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: 2009-07-08T18:00Z
-deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s {_deEndTime = a}) . mapping _Time
+-- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Example: 2009-07-08T18:00Z
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.ISO8601)
+deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeEvents)
+{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The number of minutes to retrieve events for. Default: 60
-deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\s a -> s {_deDuration = a})
+-- | The number of minutes to retrieve events for.
+--
+-- Default: 60
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDuration :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+deDuration = Lens.lens (duration :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeEvents)
+{-# DEPRECATED deDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance AWSPager DescribeEvents where
+instance Page.AWSPager DescribeEvents where
   page rq rs
-    | stop (rs ^. dersMarker) = Nothing
-    | stop (rs ^. dersEvents) = Nothing
-    | otherwise = Just $ rq & deMarker .~ rs ^. dersMarker
+    | Page.stop (rs Lens.^. dersMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dersEvents) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& deMarker Lens..~ rs Lens.^. dersMarker
 
-instance AWSRequest DescribeEvents where
+instance Lude.AWSRequest DescribeEvents where
   type Rs DescribeEvents = DescribeEventsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            <$> (x .@? "Events" .!@ mempty >>= may (parseXMLList "Event"))
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Events" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "Event")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEvents
+instance Lude.ToHeaders DescribeEvents where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeEvents
+instance Lude.ToPath DescribeEvents where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeEvents where
-  toHeaders = const mempty
-
-instance ToPath DescribeEvents where
-  toPath = const "/"
-
-instance ToQuery DescribeEvents where
+instance Lude.ToQuery DescribeEvents where
   toQuery DescribeEvents' {..} =
-    mconcat
-      [ "Action" =: ("DescribeEvents" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "StartTime" =: _deStartTime,
-        "SourceType" =: _deSourceType,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _deFilters),
-        "SourceIdentifier" =: _deSourceIdentifier,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeEvents" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "StartTime" Lude.=: startTime,
+        "SourceType" Lude.=: sourceType,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "SourceIdentifier" Lude.=: sourceIdentifier,
         "EventCategories"
-          =: toQuery (toQueryList "EventCategory" <$> _deEventCategories),
-        "Marker" =: _deMarker,
-        "MaxRecords" =: _deMaxRecords,
-        "EndTime" =: _deEndTime,
-        "Duration" =: _deDuration
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "EventCategory" Lude.<$> eventCategories),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "EndTime" Lude.=: endTime,
+        "Duration" Lude.=: duration
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeEvents@ action.
 --
---
---
--- /See:/ 'describeEventsResponse' smart constructor.
+-- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _dersEvents ::
-      !(Maybe [Event]),
-    _dersMarker :: !(Maybe Text),
-    _dersResponseStatus :: !Int
+  { events ::
+      Lude.Maybe [Event],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersEvents' - A list of @Event@ instances.
---
--- * 'dersMarker' - An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dersResponseStatus' - -- | The response status code.
-describeEventsResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
+-- * 'events' - A list of @Event@ instances.
+-- * 'marker' - An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeEventsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventsResponse
-describeEventsResponse pResponseStatus_ =
+mkDescribeEventsResponse pResponseStatus_ =
   DescribeEventsResponse'
-    { _dersEvents = Nothing,
-      _dersMarker = Nothing,
-      _dersResponseStatus = pResponseStatus_
+    { events = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @Event@ instances.
-dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\s a -> s {_dersEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEvents :: Lens.Lens' DescribeEventsResponse (Lude.Maybe [Event])
+dersEvents = Lens.lens (events :: DescribeEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeEventsResponse)
+{-# DEPRECATED dersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\s a -> s {_dersMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersMarker :: Lens.Lens' DescribeEventsResponse (Lude.Maybe Lude.Text)
+dersMarker = Lens.lens (marker :: DescribeEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventsResponse)
+{-# DEPRECATED dersMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeEventsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
-
-instance NFData DescribeEventsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeEventsResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

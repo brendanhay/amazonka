@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackDetail where
+module Network.AWS.Shield.Types.AttackDetail
+  ( AttackDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttackDetail,
+
+    -- * Lenses
+    adAttackId,
+    adStartTime,
+    adSubResources,
+    adMitigations,
+    adAttackProperties,
+    adAttackCounters,
+    adResourceARN,
+    adEndTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.AttackProperty
 import Network.AWS.Shield.Types.Mitigation
 import Network.AWS.Shield.Types.SubResourceSummary
@@ -24,102 +34,118 @@ import Network.AWS.Shield.Types.SummarizedCounter
 
 -- | The details of a DDoS attack.
 --
---
---
--- /See:/ 'attackDetail' smart constructor.
+-- /See:/ 'mkAttackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-  { _adAttackId :: !(Maybe Text),
-    _adStartTime :: !(Maybe POSIX),
-    _adSubResources :: !(Maybe [SubResourceSummary]),
-    _adMitigations :: !(Maybe [Mitigation]),
-    _adAttackProperties :: !(Maybe [AttackProperty]),
-    _adAttackCounters :: !(Maybe [SummarizedCounter]),
-    _adResourceARN :: !(Maybe Text),
-    _adEndTime :: !(Maybe POSIX)
+  { attackId :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    subResources :: Lude.Maybe [SubResourceSummary],
+    mitigations :: Lude.Maybe [Mitigation],
+    attackProperties :: Lude.Maybe [AttackProperty],
+    attackCounters :: Lude.Maybe [SummarizedCounter],
+    resourceARN :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adAttackId' - The unique identifier (ID) of the attack.
---
--- * 'adStartTime' - The time the attack started, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
---
--- * 'adSubResources' - If applicable, additional detail about the resource being attacked, for example, IP address or URL.
---
--- * 'adMitigations' - List of mitigation actions taken for the attack.
---
--- * 'adAttackProperties' - The array of 'AttackProperty' objects.
---
--- * 'adAttackCounters' - List of counters that describe the attack for the specified time period.
---
--- * 'adResourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
---
--- * 'adEndTime' - The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-attackDetail ::
+-- * 'attackCounters' - List of counters that describe the attack for the specified time period.
+-- * 'attackId' - The unique identifier (ID) of the attack.
+-- * 'attackProperties' - The array of 'AttackProperty' objects.
+-- * 'endTime' - The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- * 'mitigations' - List of mitigation actions taken for the attack.
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- * 'startTime' - The time the attack started, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- * 'subResources' - If applicable, additional detail about the resource being attacked, for example, IP address or URL.
+mkAttackDetail ::
   AttackDetail
-attackDetail =
+mkAttackDetail =
   AttackDetail'
-    { _adAttackId = Nothing,
-      _adStartTime = Nothing,
-      _adSubResources = Nothing,
-      _adMitigations = Nothing,
-      _adAttackProperties = Nothing,
-      _adAttackCounters = Nothing,
-      _adResourceARN = Nothing,
-      _adEndTime = Nothing
+    { attackId = Lude.Nothing,
+      startTime = Lude.Nothing,
+      subResources = Lude.Nothing,
+      mitigations = Lude.Nothing,
+      attackProperties = Lude.Nothing,
+      attackCounters = Lude.Nothing,
+      resourceARN = Lude.Nothing,
+      endTime = Lude.Nothing
     }
 
 -- | The unique identifier (ID) of the attack.
-adAttackId :: Lens' AttackDetail (Maybe Text)
-adAttackId = lens _adAttackId (\s a -> s {_adAttackId = a})
+--
+-- /Note:/ Consider using 'attackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttackId :: Lens.Lens' AttackDetail (Lude.Maybe Lude.Text)
+adAttackId = Lens.lens (attackId :: AttackDetail -> Lude.Maybe Lude.Text) (\s a -> s {attackId = a} :: AttackDetail)
+{-# DEPRECATED adAttackId "Use generic-lens or generic-optics with 'attackId' instead." #-}
 
 -- | The time the attack started, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-adStartTime :: Lens' AttackDetail (Maybe UTCTime)
-adStartTime = lens _adStartTime (\s a -> s {_adStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStartTime :: Lens.Lens' AttackDetail (Lude.Maybe Lude.Timestamp)
+adStartTime = Lens.lens (startTime :: AttackDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: AttackDetail)
+{-# DEPRECATED adStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | If applicable, additional detail about the resource being attacked, for example, IP address or URL.
-adSubResources :: Lens' AttackDetail [SubResourceSummary]
-adSubResources = lens _adSubResources (\s a -> s {_adSubResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adSubResources :: Lens.Lens' AttackDetail (Lude.Maybe [SubResourceSummary])
+adSubResources = Lens.lens (subResources :: AttackDetail -> Lude.Maybe [SubResourceSummary]) (\s a -> s {subResources = a} :: AttackDetail)
+{-# DEPRECATED adSubResources "Use generic-lens or generic-optics with 'subResources' instead." #-}
 
 -- | List of mitigation actions taken for the attack.
-adMitigations :: Lens' AttackDetail [Mitigation]
-adMitigations = lens _adMitigations (\s a -> s {_adMitigations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'mitigations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMitigations :: Lens.Lens' AttackDetail (Lude.Maybe [Mitigation])
+adMitigations = Lens.lens (mitigations :: AttackDetail -> Lude.Maybe [Mitigation]) (\s a -> s {mitigations = a} :: AttackDetail)
+{-# DEPRECATED adMitigations "Use generic-lens or generic-optics with 'mitigations' instead." #-}
 
 -- | The array of 'AttackProperty' objects.
-adAttackProperties :: Lens' AttackDetail [AttackProperty]
-adAttackProperties = lens _adAttackProperties (\s a -> s {_adAttackProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attackProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttackProperties :: Lens.Lens' AttackDetail (Lude.Maybe [AttackProperty])
+adAttackProperties = Lens.lens (attackProperties :: AttackDetail -> Lude.Maybe [AttackProperty]) (\s a -> s {attackProperties = a} :: AttackDetail)
+{-# DEPRECATED adAttackProperties "Use generic-lens or generic-optics with 'attackProperties' instead." #-}
 
 -- | List of counters that describe the attack for the specified time period.
-adAttackCounters :: Lens' AttackDetail [SummarizedCounter]
-adAttackCounters = lens _adAttackCounters (\s a -> s {_adAttackCounters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attackCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttackCounters :: Lens.Lens' AttackDetail (Lude.Maybe [SummarizedCounter])
+adAttackCounters = Lens.lens (attackCounters :: AttackDetail -> Lude.Maybe [SummarizedCounter]) (\s a -> s {attackCounters = a} :: AttackDetail)
+{-# DEPRECATED adAttackCounters "Use generic-lens or generic-optics with 'attackCounters' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the resource that was attacked.
-adResourceARN :: Lens' AttackDetail (Maybe Text)
-adResourceARN = lens _adResourceARN (\s a -> s {_adResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adResourceARN :: Lens.Lens' AttackDetail (Lude.Maybe Lude.Text)
+adResourceARN = Lens.lens (resourceARN :: AttackDetail -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: AttackDetail)
+{-# DEPRECATED adResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-adEndTime :: Lens' AttackDetail (Maybe UTCTime)
-adEndTime = lens _adEndTime (\s a -> s {_adEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adEndTime :: Lens.Lens' AttackDetail (Lude.Maybe Lude.Timestamp)
+adEndTime = Lens.lens (endTime :: AttackDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: AttackDetail)
+{-# DEPRECATED adEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance FromJSON AttackDetail where
+instance Lude.FromJSON AttackDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttackDetail"
       ( \x ->
           AttackDetail'
-            <$> (x .:? "AttackId")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "SubResources" .!= mempty)
-            <*> (x .:? "Mitigations" .!= mempty)
-            <*> (x .:? "AttackProperties" .!= mempty)
-            <*> (x .:? "AttackCounters" .!= mempty)
-            <*> (x .:? "ResourceArn")
-            <*> (x .:? "EndTime")
+            Lude.<$> (x Lude..:? "AttackId")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "SubResources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Mitigations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AttackProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AttackCounters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResourceArn")
+            Lude.<*> (x Lude..:? "EndTime")
       )
-
-instance Hashable AttackDetail
-
-instance NFData AttackDetail

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Provides summary information about the routing profiles for the specified Amazon Connect instance.
 --
---
 -- For more information about routing profiles, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html Routing Profiles> and <https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html Create a Routing Profile> in the /Amazon Connect Administrator Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListRoutingProfiles
-  ( -- * Creating a Request
-    listRoutingProfiles,
-    ListRoutingProfiles,
+  ( -- * Creating a request
+    ListRoutingProfiles (..),
+    mkListRoutingProfiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrpNextToken,
     lrpMaxResults,
     lrpInstanceId,
 
-    -- * Destructuring the Response
-    listRoutingProfilesResponse,
-    ListRoutingProfilesResponse,
+    -- * Destructuring the response
+    ListRoutingProfilesResponse (..),
+    mkListRoutingProfilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrprsRoutingProfileSummaryList,
     lrprsNextToken,
     lrprsResponseStatus,
@@ -46,131 +39,155 @@ module Network.AWS.Connect.ListRoutingProfiles
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRoutingProfiles' smart constructor.
+-- | /See:/ 'mkListRoutingProfiles' smart constructor.
 data ListRoutingProfiles = ListRoutingProfiles'
-  { _lrpNextToken ::
-      !(Maybe Text),
-    _lrpMaxResults :: !(Maybe Nat),
-    _lrpInstanceId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoutingProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrpNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'lrpMaxResults' - The maximimum number of results to return per page.
---
--- * 'lrpInstanceId' - The identifier of the Amazon Connect instance.
-listRoutingProfiles ::
-  -- | 'lrpInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+mkListRoutingProfiles ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListRoutingProfiles
-listRoutingProfiles pInstanceId_ =
+mkListRoutingProfiles pInstanceId_ =
   ListRoutingProfiles'
-    { _lrpNextToken = Nothing,
-      _lrpMaxResults = Nothing,
-      _lrpInstanceId = pInstanceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-lrpNextToken :: Lens' ListRoutingProfiles (Maybe Text)
-lrpNextToken = lens _lrpNextToken (\s a -> s {_lrpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpNextToken :: Lens.Lens' ListRoutingProfiles (Lude.Maybe Lude.Text)
+lrpNextToken = Lens.lens (nextToken :: ListRoutingProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRoutingProfiles)
+{-# DEPRECATED lrpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
-lrpMaxResults :: Lens' ListRoutingProfiles (Maybe Natural)
-lrpMaxResults = lens _lrpMaxResults (\s a -> s {_lrpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpMaxResults :: Lens.Lens' ListRoutingProfiles (Lude.Maybe Lude.Natural)
+lrpMaxResults = Lens.lens (maxResults :: ListRoutingProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListRoutingProfiles)
+{-# DEPRECATED lrpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-lrpInstanceId :: Lens' ListRoutingProfiles Text
-lrpInstanceId = lens _lrpInstanceId (\s a -> s {_lrpInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpInstanceId :: Lens.Lens' ListRoutingProfiles Lude.Text
+lrpInstanceId = Lens.lens (instanceId :: ListRoutingProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: ListRoutingProfiles)
+{-# DEPRECATED lrpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListRoutingProfiles where
+instance Page.AWSPager ListRoutingProfiles where
   page rq rs
-    | stop (rs ^. lrprsNextToken) = Nothing
-    | stop (rs ^. lrprsRoutingProfileSummaryList) = Nothing
-    | otherwise = Just $ rq & lrpNextToken .~ rs ^. lrprsNextToken
+    | Page.stop (rs Lens.^. lrprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrprsRoutingProfileSummaryList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrpNextToken Lens..~ rs Lens.^. lrprsNextToken
 
-instance AWSRequest ListRoutingProfiles where
+instance Lude.AWSRequest ListRoutingProfiles where
   type Rs ListRoutingProfiles = ListRoutingProfilesResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRoutingProfilesResponse'
-            <$> (x .?> "RoutingProfileSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RoutingProfileSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRoutingProfiles
-
-instance NFData ListRoutingProfiles
-
-instance ToHeaders ListRoutingProfiles where
+instance Lude.ToHeaders ListRoutingProfiles where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListRoutingProfiles where
+instance Lude.ToPath ListRoutingProfiles where
   toPath ListRoutingProfiles' {..} =
-    mconcat ["/routing-profiles-summary/", toBS _lrpInstanceId]
+    Lude.mconcat ["/routing-profiles-summary/", Lude.toBS instanceId]
 
-instance ToQuery ListRoutingProfiles where
+instance Lude.ToQuery ListRoutingProfiles where
   toQuery ListRoutingProfiles' {..} =
-    mconcat
-      ["nextToken" =: _lrpNextToken, "maxResults" =: _lrpMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listRoutingProfilesResponse' smart constructor.
+-- | /See:/ 'mkListRoutingProfilesResponse' smart constructor.
 data ListRoutingProfilesResponse = ListRoutingProfilesResponse'
-  { _lrprsRoutingProfileSummaryList ::
-      !(Maybe [RoutingProfileSummary]),
-    _lrprsNextToken :: !(Maybe Text),
-    _lrprsResponseStatus :: !Int
+  { routingProfileSummaryList ::
+      Lude.Maybe [RoutingProfileSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoutingProfilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrprsRoutingProfileSummaryList' - Information about the routing profiles.
---
--- * 'lrprsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'lrprsResponseStatus' - -- | The response status code.
-listRoutingProfilesResponse ::
-  -- | 'lrprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'responseStatus' - The response status code.
+-- * 'routingProfileSummaryList' - Information about the routing profiles.
+mkListRoutingProfilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRoutingProfilesResponse
-listRoutingProfilesResponse pResponseStatus_ =
+mkListRoutingProfilesResponse pResponseStatus_ =
   ListRoutingProfilesResponse'
-    { _lrprsRoutingProfileSummaryList =
-        Nothing,
-      _lrprsNextToken = Nothing,
-      _lrprsResponseStatus = pResponseStatus_
+    { routingProfileSummaryList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the routing profiles.
-lrprsRoutingProfileSummaryList :: Lens' ListRoutingProfilesResponse [RoutingProfileSummary]
-lrprsRoutingProfileSummaryList = lens _lrprsRoutingProfileSummaryList (\s a -> s {_lrprsRoutingProfileSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routingProfileSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsRoutingProfileSummaryList :: Lens.Lens' ListRoutingProfilesResponse (Lude.Maybe [RoutingProfileSummary])
+lrprsRoutingProfileSummaryList = Lens.lens (routingProfileSummaryList :: ListRoutingProfilesResponse -> Lude.Maybe [RoutingProfileSummary]) (\s a -> s {routingProfileSummaryList = a} :: ListRoutingProfilesResponse)
+{-# DEPRECATED lrprsRoutingProfileSummaryList "Use generic-lens or generic-optics with 'routingProfileSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
-lrprsNextToken :: Lens' ListRoutingProfilesResponse (Maybe Text)
-lrprsNextToken = lens _lrprsNextToken (\s a -> s {_lrprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsNextToken :: Lens.Lens' ListRoutingProfilesResponse (Lude.Maybe Lude.Text)
+lrprsNextToken = Lens.lens (nextToken :: ListRoutingProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRoutingProfilesResponse)
+{-# DEPRECATED lrprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrprsResponseStatus :: Lens' ListRoutingProfilesResponse Int
-lrprsResponseStatus = lens _lrprsResponseStatus (\s a -> s {_lrprsResponseStatus = a})
-
-instance NFData ListRoutingProfilesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprsResponseStatus :: Lens.Lens' ListRoutingProfilesResponse Lude.Int
+lrprsResponseStatus = Lens.lens (responseStatus :: ListRoutingProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRoutingProfilesResponse)
+{-# DEPRECATED lrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

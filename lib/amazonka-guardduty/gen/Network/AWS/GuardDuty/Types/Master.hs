@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Master where
+module Network.AWS.GuardDuty.Types.Master
+  ( Master (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaster,
+
+    -- * Lenses
+    masInvitedAt,
+    masRelationshipStatus,
+    masInvitationId,
+    masAccountId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the master account and invitation.
 --
---
---
--- /See:/ 'master' smart constructor.
+-- /See:/ 'mkMaster' smart constructor.
 data Master = Master'
-  { _masInvitedAt :: !(Maybe Text),
-    _masRelationshipStatus :: !(Maybe Text),
-    _masInvitationId :: !(Maybe Text),
-    _masAccountId :: !(Maybe Text)
+  { invitedAt :: Lude.Maybe Lude.Text,
+    relationshipStatus :: Lude.Maybe Lude.Text,
+    invitationId :: Lude.Maybe Lude.Text,
+    accountId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Master' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'masInvitedAt' - The timestamp when the invitation was sent.
---
--- * 'masRelationshipStatus' - The status of the relationship between the master and member accounts.
---
--- * 'masInvitationId' - The value used to validate the master account to the member account.
---
--- * 'masAccountId' - The ID of the account used as the master account.
-master ::
+-- * 'accountId' - The ID of the account used as the master account.
+-- * 'invitationId' - The value used to validate the master account to the member account.
+-- * 'invitedAt' - The timestamp when the invitation was sent.
+-- * 'relationshipStatus' - The status of the relationship between the master and member accounts.
+mkMaster ::
   Master
-master =
+mkMaster =
   Master'
-    { _masInvitedAt = Nothing,
-      _masRelationshipStatus = Nothing,
-      _masInvitationId = Nothing,
-      _masAccountId = Nothing
+    { invitedAt = Lude.Nothing,
+      relationshipStatus = Lude.Nothing,
+      invitationId = Lude.Nothing,
+      accountId = Lude.Nothing
     }
 
 -- | The timestamp when the invitation was sent.
-masInvitedAt :: Lens' Master (Maybe Text)
-masInvitedAt = lens _masInvitedAt (\s a -> s {_masInvitedAt = a})
+--
+-- /Note:/ Consider using 'invitedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masInvitedAt :: Lens.Lens' Master (Lude.Maybe Lude.Text)
+masInvitedAt = Lens.lens (invitedAt :: Master -> Lude.Maybe Lude.Text) (\s a -> s {invitedAt = a} :: Master)
+{-# DEPRECATED masInvitedAt "Use generic-lens or generic-optics with 'invitedAt' instead." #-}
 
 -- | The status of the relationship between the master and member accounts.
-masRelationshipStatus :: Lens' Master (Maybe Text)
-masRelationshipStatus = lens _masRelationshipStatus (\s a -> s {_masRelationshipStatus = a})
+--
+-- /Note:/ Consider using 'relationshipStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masRelationshipStatus :: Lens.Lens' Master (Lude.Maybe Lude.Text)
+masRelationshipStatus = Lens.lens (relationshipStatus :: Master -> Lude.Maybe Lude.Text) (\s a -> s {relationshipStatus = a} :: Master)
+{-# DEPRECATED masRelationshipStatus "Use generic-lens or generic-optics with 'relationshipStatus' instead." #-}
 
 -- | The value used to validate the master account to the member account.
-masInvitationId :: Lens' Master (Maybe Text)
-masInvitationId = lens _masInvitationId (\s a -> s {_masInvitationId = a})
+--
+-- /Note:/ Consider using 'invitationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masInvitationId :: Lens.Lens' Master (Lude.Maybe Lude.Text)
+masInvitationId = Lens.lens (invitationId :: Master -> Lude.Maybe Lude.Text) (\s a -> s {invitationId = a} :: Master)
+{-# DEPRECATED masInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
 
 -- | The ID of the account used as the master account.
-masAccountId :: Lens' Master (Maybe Text)
-masAccountId = lens _masAccountId (\s a -> s {_masAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masAccountId :: Lens.Lens' Master (Lude.Maybe Lude.Text)
+masAccountId = Lens.lens (accountId :: Master -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: Master)
+{-# DEPRECATED masAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance FromJSON Master where
+instance Lude.FromJSON Master where
   parseJSON =
-    withObject
+    Lude.withObject
       "Master"
       ( \x ->
           Master'
-            <$> (x .:? "invitedAt")
-            <*> (x .:? "relationshipStatus")
-            <*> (x .:? "invitationId")
-            <*> (x .:? "accountId")
+            Lude.<$> (x Lude..:? "invitedAt")
+            Lude.<*> (x Lude..:? "relationshipStatus")
+            Lude.<*> (x Lude..:? "invitationId")
+            Lude.<*> (x Lude..:? "accountId")
       )
-
-instance Hashable Master
-
-instance NFData Master

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProjectStatus where
+module Network.AWS.Rekognition.Types.ProjectStatus
+  ( ProjectStatus
+      ( ProjectStatus',
+        PSCreated,
+        PSCreating,
+        PSDeleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProjectStatus
-  = PSCreated
-  | PSCreating
-  | PSDeleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProjectStatus = ProjectStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProjectStatus where
-  parser =
-    takeLowerText >>= \case
-      "created" -> pure PSCreated
-      "creating" -> pure PSCreating
-      "deleting" -> pure PSDeleting
-      e ->
-        fromTextError $
-          "Failure parsing ProjectStatus from value: '" <> e
-            <> "'. Accepted values: created, creating, deleting"
+pattern PSCreated :: ProjectStatus
+pattern PSCreated = ProjectStatus' "CREATED"
 
-instance ToText ProjectStatus where
-  toText = \case
-    PSCreated -> "CREATED"
-    PSCreating -> "CREATING"
-    PSDeleting -> "DELETING"
+pattern PSCreating :: ProjectStatus
+pattern PSCreating = ProjectStatus' "CREATING"
 
-instance Hashable ProjectStatus
+pattern PSDeleting :: ProjectStatus
+pattern PSDeleting = ProjectStatus' "DELETING"
 
-instance NFData ProjectStatus
-
-instance ToByteString ProjectStatus
-
-instance ToQuery ProjectStatus
-
-instance ToHeader ProjectStatus
-
-instance FromJSON ProjectStatus where
-  parseJSON = parseJSONText "ProjectStatus"
+{-# COMPLETE
+  PSCreated,
+  PSCreating,
+  PSDeleting,
+  ProjectStatus'
+  #-}

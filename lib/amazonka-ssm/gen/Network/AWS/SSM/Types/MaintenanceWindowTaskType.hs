@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowTaskType where
+module Network.AWS.SSM.Types.MaintenanceWindowTaskType
+  ( MaintenanceWindowTaskType
+      ( MaintenanceWindowTaskType',
+        Automation,
+        Lambda,
+        RunCommand,
+        StepFunctions
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MaintenanceWindowTaskType
-  = Automation
-  | Lambda
-  | RunCommand
-  | StepFunctions
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MaintenanceWindowTaskType = MaintenanceWindowTaskType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MaintenanceWindowTaskType where
-  parser =
-    takeLowerText >>= \case
-      "automation" -> pure Automation
-      "lambda" -> pure Lambda
-      "run_command" -> pure RunCommand
-      "step_functions" -> pure StepFunctions
-      e ->
-        fromTextError $
-          "Failure parsing MaintenanceWindowTaskType from value: '" <> e
-            <> "'. Accepted values: automation, lambda, run_command, step_functions"
+pattern Automation :: MaintenanceWindowTaskType
+pattern Automation = MaintenanceWindowTaskType' "AUTOMATION"
 
-instance ToText MaintenanceWindowTaskType where
-  toText = \case
-    Automation -> "AUTOMATION"
-    Lambda -> "LAMBDA"
-    RunCommand -> "RUN_COMMAND"
-    StepFunctions -> "STEP_FUNCTIONS"
+pattern Lambda :: MaintenanceWindowTaskType
+pattern Lambda = MaintenanceWindowTaskType' "LAMBDA"
 
-instance Hashable MaintenanceWindowTaskType
+pattern RunCommand :: MaintenanceWindowTaskType
+pattern RunCommand = MaintenanceWindowTaskType' "RUN_COMMAND"
 
-instance NFData MaintenanceWindowTaskType
+pattern StepFunctions :: MaintenanceWindowTaskType
+pattern StepFunctions = MaintenanceWindowTaskType' "STEP_FUNCTIONS"
 
-instance ToByteString MaintenanceWindowTaskType
-
-instance ToQuery MaintenanceWindowTaskType
-
-instance ToHeader MaintenanceWindowTaskType
-
-instance ToJSON MaintenanceWindowTaskType where
-  toJSON = toJSONText
-
-instance FromJSON MaintenanceWindowTaskType where
-  parseJSON = parseJSONText "MaintenanceWindowTaskType"
+{-# COMPLETE
+  Automation,
+  Lambda,
+  RunCommand,
+  StepFunctions,
+  MaintenanceWindowTaskType'
+  #-}

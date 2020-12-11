@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about triggers configured for a repository.
 module Network.AWS.CodeCommit.GetRepositoryTriggers
-  ( -- * Creating a Request
-    getRepositoryTriggers,
-    GetRepositoryTriggers,
+  ( -- * Creating a request
+    GetRepositoryTriggers (..),
+    mkGetRepositoryTriggers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grtRepositoryName,
 
-    -- * Destructuring the Response
-    getRepositoryTriggersResponse,
-    GetRepositoryTriggersResponse,
+    -- * Destructuring the response
+    GetRepositoryTriggersResponse (..),
+    mkGetRepositoryTriggersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grtrsConfigurationId,
     grtrsTriggers,
     grtrsResponseStatus,
@@ -38,119 +33,132 @@ module Network.AWS.CodeCommit.GetRepositoryTriggers
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a get repository triggers operation.
 --
---
---
--- /See:/ 'getRepositoryTriggers' smart constructor.
+-- /See:/ 'mkGetRepositoryTriggers' smart constructor.
 newtype GetRepositoryTriggers = GetRepositoryTriggers'
-  { _grtRepositoryName ::
-      Text
+  { repositoryName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryTriggers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grtRepositoryName' - The name of the repository for which the trigger is configured.
-getRepositoryTriggers ::
-  -- | 'grtRepositoryName'
-  Text ->
+-- * 'repositoryName' - The name of the repository for which the trigger is configured.
+mkGetRepositoryTriggers ::
+  -- | 'repositoryName'
+  Lude.Text ->
   GetRepositoryTriggers
-getRepositoryTriggers pRepositoryName_ =
-  GetRepositoryTriggers' {_grtRepositoryName = pRepositoryName_}
+mkGetRepositoryTriggers pRepositoryName_ =
+  GetRepositoryTriggers' {repositoryName = pRepositoryName_}
 
 -- | The name of the repository for which the trigger is configured.
-grtRepositoryName :: Lens' GetRepositoryTriggers Text
-grtRepositoryName = lens _grtRepositoryName (\s a -> s {_grtRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grtRepositoryName :: Lens.Lens' GetRepositoryTriggers Lude.Text
+grtRepositoryName = Lens.lens (repositoryName :: GetRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: GetRepositoryTriggers)
+{-# DEPRECATED grtRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest GetRepositoryTriggers where
+instance Lude.AWSRequest GetRepositoryTriggers where
   type Rs GetRepositoryTriggers = GetRepositoryTriggersResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRepositoryTriggersResponse'
-            <$> (x .?> "configurationId")
-            <*> (x .?> "triggers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "configurationId")
+            Lude.<*> (x Lude..?> "triggers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRepositoryTriggers
-
-instance NFData GetRepositoryTriggers
-
-instance ToHeaders GetRepositoryTriggers where
+instance Lude.ToHeaders GetRepositoryTriggers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.GetRepositoryTriggers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.GetRepositoryTriggers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRepositoryTriggers where
+instance Lude.ToJSON GetRepositoryTriggers where
   toJSON GetRepositoryTriggers' {..} =
-    object
-      (catMaybes [Just ("repositoryName" .= _grtRepositoryName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("repositoryName" Lude..= repositoryName)]
+      )
 
-instance ToPath GetRepositoryTriggers where
-  toPath = const "/"
+instance Lude.ToPath GetRepositoryTriggers where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRepositoryTriggers where
-  toQuery = const mempty
+instance Lude.ToQuery GetRepositoryTriggers where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a get repository triggers operation.
 --
---
---
--- /See:/ 'getRepositoryTriggersResponse' smart constructor.
+-- /See:/ 'mkGetRepositoryTriggersResponse' smart constructor.
 data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
-  { _grtrsConfigurationId ::
-      !(Maybe Text),
-    _grtrsTriggers ::
-      !(Maybe [RepositoryTrigger]),
-    _grtrsResponseStatus :: !Int
+  { configurationId ::
+      Lude.Maybe Lude.Text,
+    triggers ::
+      Lude.Maybe [RepositoryTrigger],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grtrsConfigurationId' - The system-generated unique ID for the trigger.
---
--- * 'grtrsTriggers' - The JSON block of configuration information for each trigger.
---
--- * 'grtrsResponseStatus' - -- | The response status code.
-getRepositoryTriggersResponse ::
-  -- | 'grtrsResponseStatus'
-  Int ->
+-- * 'configurationId' - The system-generated unique ID for the trigger.
+-- * 'responseStatus' - The response status code.
+-- * 'triggers' - The JSON block of configuration information for each trigger.
+mkGetRepositoryTriggersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRepositoryTriggersResponse
-getRepositoryTriggersResponse pResponseStatus_ =
+mkGetRepositoryTriggersResponse pResponseStatus_ =
   GetRepositoryTriggersResponse'
-    { _grtrsConfigurationId = Nothing,
-      _grtrsTriggers = Nothing,
-      _grtrsResponseStatus = pResponseStatus_
+    { configurationId = Lude.Nothing,
+      triggers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The system-generated unique ID for the trigger.
-grtrsConfigurationId :: Lens' GetRepositoryTriggersResponse (Maybe Text)
-grtrsConfigurationId = lens _grtrsConfigurationId (\s a -> s {_grtrsConfigurationId = a})
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grtrsConfigurationId :: Lens.Lens' GetRepositoryTriggersResponse (Lude.Maybe Lude.Text)
+grtrsConfigurationId = Lens.lens (configurationId :: GetRepositoryTriggersResponse -> Lude.Maybe Lude.Text) (\s a -> s {configurationId = a} :: GetRepositoryTriggersResponse)
+{-# DEPRECATED grtrsConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | The JSON block of configuration information for each trigger.
-grtrsTriggers :: Lens' GetRepositoryTriggersResponse [RepositoryTrigger]
-grtrsTriggers = lens _grtrsTriggers (\s a -> s {_grtrsTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grtrsTriggers :: Lens.Lens' GetRepositoryTriggersResponse (Lude.Maybe [RepositoryTrigger])
+grtrsTriggers = Lens.lens (triggers :: GetRepositoryTriggersResponse -> Lude.Maybe [RepositoryTrigger]) (\s a -> s {triggers = a} :: GetRepositoryTriggersResponse)
+{-# DEPRECATED grtrsTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
 
--- | -- | The response status code.
-grtrsResponseStatus :: Lens' GetRepositoryTriggersResponse Int
-grtrsResponseStatus = lens _grtrsResponseStatus (\s a -> s {_grtrsResponseStatus = a})
-
-instance NFData GetRepositoryTriggersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grtrsResponseStatus :: Lens.Lens' GetRepositoryTriggersResponse Lude.Int
+grtrsResponseStatus = Lens.lens (responseStatus :: GetRepositoryTriggersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRepositoryTriggersResponse)
+{-# DEPRECATED grtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

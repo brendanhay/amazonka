@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexState where
+module Network.AWS.MediaLive.Types.MultiplexState
+  ( MultiplexState
+      ( MultiplexState',
+        MSCreateFailed,
+        MSCreating,
+        MSDeleted,
+        MSDeleting,
+        MSIdle,
+        MSRecovering,
+        MSRunning,
+        MSStarting,
+        MSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current state of the multiplex.
-data MultiplexState
-  = MSCreateFailed
-  | MSCreating
-  | MSDeleted
-  | MSDeleting
-  | MSIdle
-  | MSRecovering
-  | MSRunning
-  | MSStarting
-  | MSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MultiplexState = MultiplexState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MultiplexState where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure MSCreateFailed
-      "creating" -> pure MSCreating
-      "deleted" -> pure MSDeleted
-      "deleting" -> pure MSDeleting
-      "idle" -> pure MSIdle
-      "recovering" -> pure MSRecovering
-      "running" -> pure MSRunning
-      "starting" -> pure MSStarting
-      "stopping" -> pure MSStopping
-      e ->
-        fromTextError $
-          "Failure parsing MultiplexState from value: '" <> e
-            <> "'. Accepted values: create_failed, creating, deleted, deleting, idle, recovering, running, starting, stopping"
+pattern MSCreateFailed :: MultiplexState
+pattern MSCreateFailed = MultiplexState' "CREATE_FAILED"
 
-instance ToText MultiplexState where
-  toText = \case
-    MSCreateFailed -> "CREATE_FAILED"
-    MSCreating -> "CREATING"
-    MSDeleted -> "DELETED"
-    MSDeleting -> "DELETING"
-    MSIdle -> "IDLE"
-    MSRecovering -> "RECOVERING"
-    MSRunning -> "RUNNING"
-    MSStarting -> "STARTING"
-    MSStopping -> "STOPPING"
+pattern MSCreating :: MultiplexState
+pattern MSCreating = MultiplexState' "CREATING"
 
-instance Hashable MultiplexState
+pattern MSDeleted :: MultiplexState
+pattern MSDeleted = MultiplexState' "DELETED"
 
-instance NFData MultiplexState
+pattern MSDeleting :: MultiplexState
+pattern MSDeleting = MultiplexState' "DELETING"
 
-instance ToByteString MultiplexState
+pattern MSIdle :: MultiplexState
+pattern MSIdle = MultiplexState' "IDLE"
 
-instance ToQuery MultiplexState
+pattern MSRecovering :: MultiplexState
+pattern MSRecovering = MultiplexState' "RECOVERING"
 
-instance ToHeader MultiplexState
+pattern MSRunning :: MultiplexState
+pattern MSRunning = MultiplexState' "RUNNING"
 
-instance FromJSON MultiplexState where
-  parseJSON = parseJSONText "MultiplexState"
+pattern MSStarting :: MultiplexState
+pattern MSStarting = MultiplexState' "STARTING"
+
+pattern MSStopping :: MultiplexState
+pattern MSStopping = MultiplexState' "STOPPING"
+
+{-# COMPLETE
+  MSCreateFailed,
+  MSCreating,
+  MSDeleted,
+  MSDeleting,
+  MSIdle,
+  MSRecovering,
+  MSRunning,
+  MSStarting,
+  MSStopping,
+  MultiplexState'
+  #-}

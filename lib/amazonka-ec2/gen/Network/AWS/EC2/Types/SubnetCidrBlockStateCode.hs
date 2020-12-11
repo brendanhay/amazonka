@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SubnetCidrBlockStateCode where
+module Network.AWS.EC2.Types.SubnetCidrBlockStateCode
+  ( SubnetCidrBlockStateCode
+      ( SubnetCidrBlockStateCode',
+        SCBSCAssociated,
+        SCBSCAssociating,
+        SCBSCDisassociated,
+        SCBSCDisassociating,
+        SCBSCFailed,
+        SCBSCFailing
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SubnetCidrBlockStateCode
-  = SCBSCAssociated
-  | SCBSCAssociating
-  | SCBSCDisassociated
-  | SCBSCDisassociating
-  | SCBSCFailed
-  | SCBSCFailing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubnetCidrBlockStateCode = SubnetCidrBlockStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubnetCidrBlockStateCode where
-  parser =
-    takeLowerText >>= \case
-      "associated" -> pure SCBSCAssociated
-      "associating" -> pure SCBSCAssociating
-      "disassociated" -> pure SCBSCDisassociated
-      "disassociating" -> pure SCBSCDisassociating
-      "failed" -> pure SCBSCFailed
-      "failing" -> pure SCBSCFailing
-      e ->
-        fromTextError $
-          "Failure parsing SubnetCidrBlockStateCode from value: '" <> e
-            <> "'. Accepted values: associated, associating, disassociated, disassociating, failed, failing"
+pattern SCBSCAssociated :: SubnetCidrBlockStateCode
+pattern SCBSCAssociated = SubnetCidrBlockStateCode' "associated"
 
-instance ToText SubnetCidrBlockStateCode where
-  toText = \case
-    SCBSCAssociated -> "associated"
-    SCBSCAssociating -> "associating"
-    SCBSCDisassociated -> "disassociated"
-    SCBSCDisassociating -> "disassociating"
-    SCBSCFailed -> "failed"
-    SCBSCFailing -> "failing"
+pattern SCBSCAssociating :: SubnetCidrBlockStateCode
+pattern SCBSCAssociating = SubnetCidrBlockStateCode' "associating"
 
-instance Hashable SubnetCidrBlockStateCode
+pattern SCBSCDisassociated :: SubnetCidrBlockStateCode
+pattern SCBSCDisassociated = SubnetCidrBlockStateCode' "disassociated"
 
-instance NFData SubnetCidrBlockStateCode
+pattern SCBSCDisassociating :: SubnetCidrBlockStateCode
+pattern SCBSCDisassociating = SubnetCidrBlockStateCode' "disassociating"
 
-instance ToByteString SubnetCidrBlockStateCode
+pattern SCBSCFailed :: SubnetCidrBlockStateCode
+pattern SCBSCFailed = SubnetCidrBlockStateCode' "failed"
 
-instance ToQuery SubnetCidrBlockStateCode
+pattern SCBSCFailing :: SubnetCidrBlockStateCode
+pattern SCBSCFailing = SubnetCidrBlockStateCode' "failing"
 
-instance ToHeader SubnetCidrBlockStateCode
-
-instance FromXML SubnetCidrBlockStateCode where
-  parseXML = parseXMLText "SubnetCidrBlockStateCode"
+{-# COMPLETE
+  SCBSCAssociated,
+  SCBSCAssociating,
+  SCBSCDisassociated,
+  SCBSCDisassociating,
+  SCBSCFailed,
+  SCBSCFailing,
+  SubnetCidrBlockStateCode'
+  #-}

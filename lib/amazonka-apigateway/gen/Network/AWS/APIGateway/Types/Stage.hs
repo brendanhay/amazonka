@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,196 +7,257 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.Stage where
+module Network.AWS.APIGateway.Types.Stage
+  ( Stage (..),
+
+    -- * Smart constructor
+    mkStage,
+
+    -- * Lenses
+    sDeploymentId,
+    sVariables,
+    sAccessLogSettings,
+    sDocumentationVersion,
+    sClientCertificateId,
+    sTracingEnabled,
+    sCreatedDate,
+    sCacheClusterStatus,
+    sMethodSettings,
+    sLastUpdatedDate,
+    sCacheClusterSize,
+    sWebACLARN,
+    sCanarySettings,
+    sCacheClusterEnabled,
+    sStageName,
+    sDescription,
+    sTags,
+  )
+where
 
 import Network.AWS.APIGateway.Types.AccessLogSettings
 import Network.AWS.APIGateway.Types.CacheClusterSize
 import Network.AWS.APIGateway.Types.CacheClusterStatus
 import Network.AWS.APIGateway.Types.CanarySettings
 import Network.AWS.APIGateway.Types.MethodSetting
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a unique identifier for a version of a deployed 'RestApi' that is callable by users.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploy an API>
 --
--- /See:/ 'stage' smart constructor.
+-- /See:/ 'mkStage' smart constructor.
 data Stage = Stage'
-  { _sDeploymentId :: !(Maybe Text),
-    _sVariables :: !(Maybe (Map Text (Text))),
-    _sAccessLogSettings :: !(Maybe AccessLogSettings),
-    _sDocumentationVersion :: !(Maybe Text),
-    _sClientCertificateId :: !(Maybe Text),
-    _sTracingEnabled :: !(Maybe Bool),
-    _sCreatedDate :: !(Maybe POSIX),
-    _sCacheClusterStatus :: !(Maybe CacheClusterStatus),
-    _sMethodSettings :: !(Maybe (Map Text (MethodSetting))),
-    _sLastUpdatedDate :: !(Maybe POSIX),
-    _sCacheClusterSize :: !(Maybe CacheClusterSize),
-    _sWebACLARN :: !(Maybe Text),
-    _sCanarySettings :: !(Maybe CanarySettings),
-    _sCacheClusterEnabled :: !(Maybe Bool),
-    _sStageName :: !(Maybe Text),
-    _sDescription :: !(Maybe Text),
-    _sTags :: !(Maybe (Map Text (Text)))
+  { deploymentId :: Lude.Maybe Lude.Text,
+    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    accessLogSettings :: Lude.Maybe AccessLogSettings,
+    documentationVersion :: Lude.Maybe Lude.Text,
+    clientCertificateId :: Lude.Maybe Lude.Text,
+    tracingEnabled :: Lude.Maybe Lude.Bool,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    cacheClusterStatus :: Lude.Maybe CacheClusterStatus,
+    methodSettings ::
+      Lude.Maybe (Lude.HashMap Lude.Text (MethodSetting)),
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    cacheClusterSize :: Lude.Maybe CacheClusterSize,
+    webACLARN :: Lude.Maybe Lude.Text,
+    canarySettings :: Lude.Maybe CanarySettings,
+    cacheClusterEnabled :: Lude.Maybe Lude.Bool,
+    stageName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sDeploymentId' - The identifier of the 'Deployment' that the stage points to.
---
--- * 'sVariables' - A map that defines the stage variables for a 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
---
--- * 'sAccessLogSettings' - Settings for logging access in this stage.
---
--- * 'sDocumentationVersion' - The version of the associated API documentation.
---
--- * 'sClientCertificateId' - The identifier of a client certificate for an API stage.
---
--- * 'sTracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
---
--- * 'sCreatedDate' - The timestamp when the stage was created.
---
--- * 'sCacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
---
--- * 'sMethodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
---
--- * 'sLastUpdatedDate' - The timestamp when the stage last updated.
---
--- * 'sCacheClusterSize' - The size of the cache cluster for the stage, if enabled.
---
--- * 'sWebACLARN' - The ARN of the WebAcl associated with the 'Stage' .
---
--- * 'sCanarySettings' - Settings for the canary deployment in this stage.
---
--- * 'sCacheClusterEnabled' - Specifies whether a cache cluster is enabled for the stage.
---
--- * 'sStageName' - The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
---
--- * 'sDescription' - The stage's description.
---
--- * 'sTags' - The collection of tags. Each tag element is associated with a given resource.
-stage ::
+-- * 'accessLogSettings' - Settings for logging access in this stage.
+-- * 'cacheClusterEnabled' - Specifies whether a cache cluster is enabled for the stage.
+-- * 'cacheClusterSize' - The size of the cache cluster for the stage, if enabled.
+-- * 'cacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
+-- * 'canarySettings' - Settings for the canary deployment in this stage.
+-- * 'clientCertificateId' - The identifier of a client certificate for an API stage.
+-- * 'createdDate' - The timestamp when the stage was created.
+-- * 'deploymentId' - The identifier of the 'Deployment' that the stage points to.
+-- * 'description' - The stage's description.
+-- * 'documentationVersion' - The version of the associated API documentation.
+-- * 'lastUpdatedDate' - The timestamp when the stage last updated.
+-- * 'methodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
+-- * 'stageName' - The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+-- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
+-- * 'variables' - A map that defines the stage variables for a 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+-- * 'webACLARN' - The ARN of the WebAcl associated with the 'Stage' .
+mkStage ::
   Stage
-stage =
+mkStage =
   Stage'
-    { _sDeploymentId = Nothing,
-      _sVariables = Nothing,
-      _sAccessLogSettings = Nothing,
-      _sDocumentationVersion = Nothing,
-      _sClientCertificateId = Nothing,
-      _sTracingEnabled = Nothing,
-      _sCreatedDate = Nothing,
-      _sCacheClusterStatus = Nothing,
-      _sMethodSettings = Nothing,
-      _sLastUpdatedDate = Nothing,
-      _sCacheClusterSize = Nothing,
-      _sWebACLARN = Nothing,
-      _sCanarySettings = Nothing,
-      _sCacheClusterEnabled = Nothing,
-      _sStageName = Nothing,
-      _sDescription = Nothing,
-      _sTags = Nothing
+    { deploymentId = Lude.Nothing,
+      variables = Lude.Nothing,
+      accessLogSettings = Lude.Nothing,
+      documentationVersion = Lude.Nothing,
+      clientCertificateId = Lude.Nothing,
+      tracingEnabled = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      cacheClusterStatus = Lude.Nothing,
+      methodSettings = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      cacheClusterSize = Lude.Nothing,
+      webACLARN = Lude.Nothing,
+      canarySettings = Lude.Nothing,
+      cacheClusterEnabled = Lude.Nothing,
+      stageName = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The identifier of the 'Deployment' that the stage points to.
-sDeploymentId :: Lens' Stage (Maybe Text)
-sDeploymentId = lens _sDeploymentId (\s a -> s {_sDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDeploymentId :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sDeploymentId = Lens.lens (deploymentId :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: Stage)
+{-# DEPRECATED sDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | A map that defines the stage variables for a 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
-sVariables :: Lens' Stage (HashMap Text (Text))
-sVariables = lens _sVariables (\s a -> s {_sVariables = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVariables :: Lens.Lens' Stage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sVariables = Lens.lens (variables :: Stage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {variables = a} :: Stage)
+{-# DEPRECATED sVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | Settings for logging access in this stage.
-sAccessLogSettings :: Lens' Stage (Maybe AccessLogSettings)
-sAccessLogSettings = lens _sAccessLogSettings (\s a -> s {_sAccessLogSettings = a})
+--
+-- /Note:/ Consider using 'accessLogSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAccessLogSettings :: Lens.Lens' Stage (Lude.Maybe AccessLogSettings)
+sAccessLogSettings = Lens.lens (accessLogSettings :: Stage -> Lude.Maybe AccessLogSettings) (\s a -> s {accessLogSettings = a} :: Stage)
+{-# DEPRECATED sAccessLogSettings "Use generic-lens or generic-optics with 'accessLogSettings' instead." #-}
 
 -- | The version of the associated API documentation.
-sDocumentationVersion :: Lens' Stage (Maybe Text)
-sDocumentationVersion = lens _sDocumentationVersion (\s a -> s {_sDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDocumentationVersion :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sDocumentationVersion = Lens.lens (documentationVersion :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {documentationVersion = a} :: Stage)
+{-# DEPRECATED sDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
 -- | The identifier of a client certificate for an API stage.
-sClientCertificateId :: Lens' Stage (Maybe Text)
-sClientCertificateId = lens _sClientCertificateId (\s a -> s {_sClientCertificateId = a})
+--
+-- /Note:/ Consider using 'clientCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sClientCertificateId :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sClientCertificateId = Lens.lens (clientCertificateId :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {clientCertificateId = a} :: Stage)
+{-# DEPRECATED sClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
 
 -- | Specifies whether active tracing with X-ray is enabled for the 'Stage' .
-sTracingEnabled :: Lens' Stage (Maybe Bool)
-sTracingEnabled = lens _sTracingEnabled (\s a -> s {_sTracingEnabled = a})
+--
+-- /Note:/ Consider using 'tracingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTracingEnabled :: Lens.Lens' Stage (Lude.Maybe Lude.Bool)
+sTracingEnabled = Lens.lens (tracingEnabled :: Stage -> Lude.Maybe Lude.Bool) (\s a -> s {tracingEnabled = a} :: Stage)
+{-# DEPRECATED sTracingEnabled "Use generic-lens or generic-optics with 'tracingEnabled' instead." #-}
 
 -- | The timestamp when the stage was created.
-sCreatedDate :: Lens' Stage (Maybe UTCTime)
-sCreatedDate = lens _sCreatedDate (\s a -> s {_sCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreatedDate :: Lens.Lens' Stage (Lude.Maybe Lude.Timestamp)
+sCreatedDate = Lens.lens (createdDate :: Stage -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: Stage)
+{-# DEPRECATED sCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The status of the cache cluster for the stage, if enabled.
-sCacheClusterStatus :: Lens' Stage (Maybe CacheClusterStatus)
-sCacheClusterStatus = lens _sCacheClusterStatus (\s a -> s {_sCacheClusterStatus = a})
+--
+-- /Note:/ Consider using 'cacheClusterStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCacheClusterStatus :: Lens.Lens' Stage (Lude.Maybe CacheClusterStatus)
+sCacheClusterStatus = Lens.lens (cacheClusterStatus :: Stage -> Lude.Maybe CacheClusterStatus) (\s a -> s {cacheClusterStatus = a} :: Stage)
+{-# DEPRECATED sCacheClusterStatus "Use generic-lens or generic-optics with 'cacheClusterStatus' instead." #-}
 
 -- | A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
-sMethodSettings :: Lens' Stage (HashMap Text (MethodSetting))
-sMethodSettings = lens _sMethodSettings (\s a -> s {_sMethodSettings = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'methodSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMethodSettings :: Lens.Lens' Stage (Lude.Maybe (Lude.HashMap Lude.Text (MethodSetting)))
+sMethodSettings = Lens.lens (methodSettings :: Stage -> Lude.Maybe (Lude.HashMap Lude.Text (MethodSetting))) (\s a -> s {methodSettings = a} :: Stage)
+{-# DEPRECATED sMethodSettings "Use generic-lens or generic-optics with 'methodSettings' instead." #-}
 
 -- | The timestamp when the stage last updated.
-sLastUpdatedDate :: Lens' Stage (Maybe UTCTime)
-sLastUpdatedDate = lens _sLastUpdatedDate (\s a -> s {_sLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sLastUpdatedDate :: Lens.Lens' Stage (Lude.Maybe Lude.Timestamp)
+sLastUpdatedDate = Lens.lens (lastUpdatedDate :: Stage -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: Stage)
+{-# DEPRECATED sLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | The size of the cache cluster for the stage, if enabled.
-sCacheClusterSize :: Lens' Stage (Maybe CacheClusterSize)
-sCacheClusterSize = lens _sCacheClusterSize (\s a -> s {_sCacheClusterSize = a})
+--
+-- /Note:/ Consider using 'cacheClusterSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCacheClusterSize :: Lens.Lens' Stage (Lude.Maybe CacheClusterSize)
+sCacheClusterSize = Lens.lens (cacheClusterSize :: Stage -> Lude.Maybe CacheClusterSize) (\s a -> s {cacheClusterSize = a} :: Stage)
+{-# DEPRECATED sCacheClusterSize "Use generic-lens or generic-optics with 'cacheClusterSize' instead." #-}
 
 -- | The ARN of the WebAcl associated with the 'Stage' .
-sWebACLARN :: Lens' Stage (Maybe Text)
-sWebACLARN = lens _sWebACLARN (\s a -> s {_sWebACLARN = a})
+--
+-- /Note:/ Consider using 'webACLARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sWebACLARN :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sWebACLARN = Lens.lens (webACLARN :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {webACLARN = a} :: Stage)
+{-# DEPRECATED sWebACLARN "Use generic-lens or generic-optics with 'webACLARN' instead." #-}
 
 -- | Settings for the canary deployment in this stage.
-sCanarySettings :: Lens' Stage (Maybe CanarySettings)
-sCanarySettings = lens _sCanarySettings (\s a -> s {_sCanarySettings = a})
+--
+-- /Note:/ Consider using 'canarySettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCanarySettings :: Lens.Lens' Stage (Lude.Maybe CanarySettings)
+sCanarySettings = Lens.lens (canarySettings :: Stage -> Lude.Maybe CanarySettings) (\s a -> s {canarySettings = a} :: Stage)
+{-# DEPRECATED sCanarySettings "Use generic-lens or generic-optics with 'canarySettings' instead." #-}
 
 -- | Specifies whether a cache cluster is enabled for the stage.
-sCacheClusterEnabled :: Lens' Stage (Maybe Bool)
-sCacheClusterEnabled = lens _sCacheClusterEnabled (\s a -> s {_sCacheClusterEnabled = a})
+--
+-- /Note:/ Consider using 'cacheClusterEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCacheClusterEnabled :: Lens.Lens' Stage (Lude.Maybe Lude.Bool)
+sCacheClusterEnabled = Lens.lens (cacheClusterEnabled :: Stage -> Lude.Maybe Lude.Bool) (\s a -> s {cacheClusterEnabled = a} :: Stage)
+{-# DEPRECATED sCacheClusterEnabled "Use generic-lens or generic-optics with 'cacheClusterEnabled' instead." #-}
 
 -- | The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
-sStageName :: Lens' Stage (Maybe Text)
-sStageName = lens _sStageName (\s a -> s {_sStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStageName :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sStageName = Lens.lens (stageName :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {stageName = a} :: Stage)
+{-# DEPRECATED sStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | The stage's description.
-sDescription :: Lens' Stage (Maybe Text)
-sDescription = lens _sDescription (\s a -> s {_sDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDescription :: Lens.Lens' Stage (Lude.Maybe Lude.Text)
+sDescription = Lens.lens (description :: Stage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Stage)
+{-# DEPRECATED sDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The collection of tags. Each tag element is associated with a given resource.
-sTags :: Lens' Stage (HashMap Text (Text))
-sTags = lens _sTags (\s a -> s {_sTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTags :: Lens.Lens' Stage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sTags = Lens.lens (tags :: Stage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: Stage)
+{-# DEPRECATED sTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON Stage where
+instance Lude.FromJSON Stage where
   parseJSON =
-    withObject
+    Lude.withObject
       "Stage"
       ( \x ->
           Stage'
-            <$> (x .:? "deploymentId")
-            <*> (x .:? "variables" .!= mempty)
-            <*> (x .:? "accessLogSettings")
-            <*> (x .:? "documentationVersion")
-            <*> (x .:? "clientCertificateId")
-            <*> (x .:? "tracingEnabled")
-            <*> (x .:? "createdDate")
-            <*> (x .:? "cacheClusterStatus")
-            <*> (x .:? "methodSettings" .!= mempty)
-            <*> (x .:? "lastUpdatedDate")
-            <*> (x .:? "cacheClusterSize")
-            <*> (x .:? "webAclArn")
-            <*> (x .:? "canarySettings")
-            <*> (x .:? "cacheClusterEnabled")
-            <*> (x .:? "stageName")
-            <*> (x .:? "description")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "deploymentId")
+            Lude.<*> (x Lude..:? "variables" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "accessLogSettings")
+            Lude.<*> (x Lude..:? "documentationVersion")
+            Lude.<*> (x Lude..:? "clientCertificateId")
+            Lude.<*> (x Lude..:? "tracingEnabled")
+            Lude.<*> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "cacheClusterStatus")
+            Lude.<*> (x Lude..:? "methodSettings" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "lastUpdatedDate")
+            Lude.<*> (x Lude..:? "cacheClusterSize")
+            Lude.<*> (x Lude..:? "webAclArn")
+            Lude.<*> (x Lude..:? "canarySettings")
+            Lude.<*> (x Lude..:? "cacheClusterEnabled")
+            Lude.<*> (x Lude..:? "stageName")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable Stage
-
-instance NFData Stage

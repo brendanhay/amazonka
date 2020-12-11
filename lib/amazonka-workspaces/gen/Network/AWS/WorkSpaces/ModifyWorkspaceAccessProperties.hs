@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,148 @@
 --
 -- Specifies which devices and operating systems users can use to access their WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access Control Device Access> .
 module Network.AWS.WorkSpaces.ModifyWorkspaceAccessProperties
-  ( -- * Creating a Request
-    modifyWorkspaceAccessProperties,
-    ModifyWorkspaceAccessProperties,
+  ( -- * Creating a request
+    ModifyWorkspaceAccessProperties (..),
+    mkModifyWorkspaceAccessProperties,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mwapResourceId,
     mwapWorkspaceAccessProperties,
 
-    -- * Destructuring the Response
-    modifyWorkspaceAccessPropertiesResponse,
-    ModifyWorkspaceAccessPropertiesResponse,
+    -- * Destructuring the response
+    ModifyWorkspaceAccessPropertiesResponse (..),
+    mkModifyWorkspaceAccessPropertiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mwaprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'modifyWorkspaceAccessProperties' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceAccessProperties' smart constructor.
 data ModifyWorkspaceAccessProperties = ModifyWorkspaceAccessProperties'
-  { _mwapResourceId ::
-      !Text,
-    _mwapWorkspaceAccessProperties ::
-      !WorkspaceAccessProperties
+  { resourceId ::
+      Lude.Text,
+    workspaceAccessProperties ::
+      WorkspaceAccessProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceAccessProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwapResourceId' - The identifier of the directory.
---
--- * 'mwapWorkspaceAccessProperties' - The device types and operating systems to enable or disable for access.
-modifyWorkspaceAccessProperties ::
-  -- | 'mwapResourceId'
-  Text ->
-  -- | 'mwapWorkspaceAccessProperties'
+-- * 'resourceId' - The identifier of the directory.
+-- * 'workspaceAccessProperties' - The device types and operating systems to enable or disable for access.
+mkModifyWorkspaceAccessProperties ::
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'workspaceAccessProperties'
   WorkspaceAccessProperties ->
   ModifyWorkspaceAccessProperties
-modifyWorkspaceAccessProperties
+mkModifyWorkspaceAccessProperties
   pResourceId_
   pWorkspaceAccessProperties_ =
     ModifyWorkspaceAccessProperties'
-      { _mwapResourceId = pResourceId_,
-        _mwapWorkspaceAccessProperties = pWorkspaceAccessProperties_
+      { resourceId = pResourceId_,
+        workspaceAccessProperties = pWorkspaceAccessProperties_
       }
 
 -- | The identifier of the directory.
-mwapResourceId :: Lens' ModifyWorkspaceAccessProperties Text
-mwapResourceId = lens _mwapResourceId (\s a -> s {_mwapResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwapResourceId :: Lens.Lens' ModifyWorkspaceAccessProperties Lude.Text
+mwapResourceId = Lens.lens (resourceId :: ModifyWorkspaceAccessProperties -> Lude.Text) (\s a -> s {resourceId = a} :: ModifyWorkspaceAccessProperties)
+{-# DEPRECATED mwapResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The device types and operating systems to enable or disable for access.
-mwapWorkspaceAccessProperties :: Lens' ModifyWorkspaceAccessProperties WorkspaceAccessProperties
-mwapWorkspaceAccessProperties = lens _mwapWorkspaceAccessProperties (\s a -> s {_mwapWorkspaceAccessProperties = a})
+--
+-- /Note:/ Consider using 'workspaceAccessProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwapWorkspaceAccessProperties :: Lens.Lens' ModifyWorkspaceAccessProperties WorkspaceAccessProperties
+mwapWorkspaceAccessProperties = Lens.lens (workspaceAccessProperties :: ModifyWorkspaceAccessProperties -> WorkspaceAccessProperties) (\s a -> s {workspaceAccessProperties = a} :: ModifyWorkspaceAccessProperties)
+{-# DEPRECATED mwapWorkspaceAccessProperties "Use generic-lens or generic-optics with 'workspaceAccessProperties' instead." #-}
 
-instance AWSRequest ModifyWorkspaceAccessProperties where
+instance Lude.AWSRequest ModifyWorkspaceAccessProperties where
   type
     Rs ModifyWorkspaceAccessProperties =
       ModifyWorkspaceAccessPropertiesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          ModifyWorkspaceAccessPropertiesResponse' <$> (pure (fromEnum s))
+          ModifyWorkspaceAccessPropertiesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyWorkspaceAccessProperties
-
-instance NFData ModifyWorkspaceAccessProperties
-
-instance ToHeaders ModifyWorkspaceAccessProperties where
+instance Lude.ToHeaders ModifyWorkspaceAccessProperties where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "WorkspacesService.ModifyWorkspaceAccessProperties" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.ModifyWorkspaceAccessProperties" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyWorkspaceAccessProperties where
+instance Lude.ToJSON ModifyWorkspaceAccessProperties where
   toJSON ModifyWorkspaceAccessProperties' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceId" .= _mwapResourceId),
-            Just
-              ("WorkspaceAccessProperties" .= _mwapWorkspaceAccessProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just
+              ("WorkspaceAccessProperties" Lude..= workspaceAccessProperties)
           ]
       )
 
-instance ToPath ModifyWorkspaceAccessProperties where
-  toPath = const "/"
+instance Lude.ToPath ModifyWorkspaceAccessProperties where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyWorkspaceAccessProperties where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyWorkspaceAccessProperties where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyWorkspaceAccessPropertiesResponse' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceAccessPropertiesResponse' smart constructor.
 newtype ModifyWorkspaceAccessPropertiesResponse = ModifyWorkspaceAccessPropertiesResponse'
-  { _mwaprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceAccessPropertiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwaprsResponseStatus' - -- | The response status code.
-modifyWorkspaceAccessPropertiesResponse ::
-  -- | 'mwaprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkModifyWorkspaceAccessPropertiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyWorkspaceAccessPropertiesResponse
-modifyWorkspaceAccessPropertiesResponse pResponseStatus_ =
+mkModifyWorkspaceAccessPropertiesResponse pResponseStatus_ =
   ModifyWorkspaceAccessPropertiesResponse'
-    { _mwaprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-mwaprsResponseStatus :: Lens' ModifyWorkspaceAccessPropertiesResponse Int
-mwaprsResponseStatus = lens _mwaprsResponseStatus (\s a -> s {_mwaprsResponseStatus = a})
-
-instance NFData ModifyWorkspaceAccessPropertiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwaprsResponseStatus :: Lens.Lens' ModifyWorkspaceAccessPropertiesResponse Lude.Int
+mwaprsResponseStatus = Lens.lens (responseStatus :: ModifyWorkspaceAccessPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyWorkspaceAccessPropertiesResponse)
+{-# DEPRECATED mwaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

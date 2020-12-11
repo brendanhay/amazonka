@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,124 @@
 --
 -- Untags a resource.
 module Network.AWS.AppSync.UntagResource
-  ( -- * Creating a Request
-    untagResource,
-    UntagResource,
+  ( -- * Creating a request
+    UntagResource (..),
+    mkUntagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urResourceARN,
     urTagKeys,
 
-    -- * Destructuring the Response
-    untagResourceResponse,
-    UntagResourceResponse,
+    -- * Destructuring the response
+    UntagResourceResponse (..),
+    mkUntagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResourceARN :: !Text,
-    _urTagKeys :: !(List1 Text)
+  { resourceARN :: Lude.Text,
+    tagKeys :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urResourceARN' - The @GraphqlApi@ ARN.
---
--- * 'urTagKeys' - A list of @TagKey@ objects.
-untagResource ::
-  -- | 'urResourceARN'
-  Text ->
-  -- | 'urTagKeys'
-  NonEmpty Text ->
+-- * 'resourceARN' - The @GraphqlApi@ ARN.
+-- * 'tagKeys' - A list of @TagKey@ objects.
+mkUntagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
+  -- | 'tagKeys'
+  Lude.NonEmpty Lude.Text ->
   UntagResource
-untagResource pResourceARN_ pTagKeys_ =
-  UntagResource'
-    { _urResourceARN = pResourceARN_,
-      _urTagKeys = _List1 # pTagKeys_
-    }
+mkUntagResource pResourceARN_ pTagKeys_ =
+  UntagResource' {resourceARN = pResourceARN_, tagKeys = pTagKeys_}
 
 -- | The @GraphqlApi@ ARN.
-urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\s a -> s {_urResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource Lude.Text
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | A list of @TagKey@ objects.
-urTagKeys :: Lens' UntagResource (NonEmpty Text)
-urTagKeys = lens _urTagKeys (\s a -> s {_urTagKeys = a}) . _List1
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResource (Lude.NonEmpty Lude.Text)
+urTagKeys = Lens.lens (tagKeys :: UntagResource -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagResource)
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest UntagResource where
+instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> UntagResourceResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UntagResource
-
-instance NFData UntagResource
-
-instance ToHeaders UntagResource where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UntagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath UntagResource where
+instance Lude.ToHeaders UntagResource where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath UntagResource where
   toPath UntagResource' {..} =
-    mconcat ["/v1/tags/", toBS _urResourceARN]
+    Lude.mconcat ["/v1/tags/", Lude.toBS resourceARN]
 
-instance ToQuery UntagResource where
+instance Lude.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    mconcat ["tagKeys" =: toQueryList "member" _urTagKeys]
+    Lude.mconcat
+      ["tagKeys" Lude.=: Lude.toQueryList "member" tagKeys]
 
--- | /See:/ 'untagResourceResponse' smart constructor.
+-- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-untagResourceResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUntagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UntagResourceResponse
-untagResourceResponse pResponseStatus_ =
-  UntagResourceResponse' {_ursResponseStatus = pResponseStatus_}
+mkUntagResourceResponse pResponseStatus_ =
+  UntagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UntagResourceResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UntagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

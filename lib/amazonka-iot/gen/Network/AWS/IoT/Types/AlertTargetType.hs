@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AlertTargetType where
+module Network.AWS.IoT.Types.AlertTargetType
+  ( AlertTargetType
+      ( AlertTargetType',
+        SNS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of alert target: one of "SNS".
-data AlertTargetType = SNS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AlertTargetType = AlertTargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AlertTargetType where
-  parser =
-    takeLowerText >>= \case
-      "sns" -> pure SNS
-      e ->
-        fromTextError $
-          "Failure parsing AlertTargetType from value: '" <> e
-            <> "'. Accepted values: sns"
+pattern SNS :: AlertTargetType
+pattern SNS = AlertTargetType' "SNS"
 
-instance ToText AlertTargetType where
-  toText = \case
-    SNS -> "SNS"
-
-instance Hashable AlertTargetType
-
-instance NFData AlertTargetType
-
-instance ToByteString AlertTargetType
-
-instance ToQuery AlertTargetType
-
-instance ToHeader AlertTargetType
-
-instance ToJSON AlertTargetType where
-  toJSON = toJSONText
-
-instance FromJSON AlertTargetType where
-  parseJSON = parseJSONText "AlertTargetType"
+{-# COMPLETE
+  SNS,
+  AlertTargetType'
+  #-}

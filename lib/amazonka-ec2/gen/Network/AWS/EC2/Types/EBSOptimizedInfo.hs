@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EBSOptimizedInfo where
+module Network.AWS.EC2.Types.EBSOptimizedInfo
+  ( EBSOptimizedInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEBSOptimizedInfo,
+
+    -- * Lenses
+    eoiMaximumIOPS,
+    eoiBaselineIOPS,
+    eoiMaximumThroughputInMBps,
+    eoiMaximumBandwidthInMbps,
+    eoiBaselineBandwidthInMbps,
+    eoiBaselineThroughputInMBps,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the optimized EBS performance for supported instance types.
 --
---
---
--- /See:/ 'ebsOptimizedInfo' smart constructor.
+-- /See:/ 'mkEBSOptimizedInfo' smart constructor.
 data EBSOptimizedInfo = EBSOptimizedInfo'
-  { _eoiMaximumIOPS ::
-      !(Maybe Int),
-    _eoiBaselineIOPS :: !(Maybe Int),
-    _eoiMaximumThroughputInMBps :: !(Maybe Double),
-    _eoiMaximumBandwidthInMbps :: !(Maybe Int),
-    _eoiBaselineBandwidthInMbps :: !(Maybe Int),
-    _eoiBaselineThroughputInMBps :: !(Maybe Double)
+  { maximumIOPS ::
+      Lude.Maybe Lude.Int,
+    baselineIOPS :: Lude.Maybe Lude.Int,
+    maximumThroughputInMBps :: Lude.Maybe Lude.Double,
+    maximumBandwidthInMbps :: Lude.Maybe Lude.Int,
+    baselineBandwidthInMbps :: Lude.Maybe Lude.Int,
+    baselineThroughputInMBps :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSOptimizedInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eoiMaximumIOPS' - The maximum input/output storage operations per second for an EBS-optimized instance type.
---
--- * 'eoiBaselineIOPS' - The baseline input/output storage operations per seconds for an EBS-optimized instance type.
---
--- * 'eoiMaximumThroughputInMBps' - The maximum throughput performance for an EBS-optimized instance type, in MB/s.
---
--- * 'eoiMaximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
---
--- * 'eoiBaselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
---
--- * 'eoiBaselineThroughputInMBps' - The baseline throughput performance for an EBS-optimized instance type, in MB/s.
-ebsOptimizedInfo ::
+-- * 'baselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
+-- * 'baselineIOPS' - The baseline input/output storage operations per seconds for an EBS-optimized instance type.
+-- * 'baselineThroughputInMBps' - The baseline throughput performance for an EBS-optimized instance type, in MB/s.
+-- * 'maximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
+-- * 'maximumIOPS' - The maximum input/output storage operations per second for an EBS-optimized instance type.
+-- * 'maximumThroughputInMBps' - The maximum throughput performance for an EBS-optimized instance type, in MB/s.
+mkEBSOptimizedInfo ::
   EBSOptimizedInfo
-ebsOptimizedInfo =
+mkEBSOptimizedInfo =
   EBSOptimizedInfo'
-    { _eoiMaximumIOPS = Nothing,
-      _eoiBaselineIOPS = Nothing,
-      _eoiMaximumThroughputInMBps = Nothing,
-      _eoiMaximumBandwidthInMbps = Nothing,
-      _eoiBaselineBandwidthInMbps = Nothing,
-      _eoiBaselineThroughputInMBps = Nothing
+    { maximumIOPS = Lude.Nothing,
+      baselineIOPS = Lude.Nothing,
+      maximumThroughputInMBps = Lude.Nothing,
+      maximumBandwidthInMbps = Lude.Nothing,
+      baselineBandwidthInMbps = Lude.Nothing,
+      baselineThroughputInMBps = Lude.Nothing
     }
 
 -- | The maximum input/output storage operations per second for an EBS-optimized instance type.
-eoiMaximumIOPS :: Lens' EBSOptimizedInfo (Maybe Int)
-eoiMaximumIOPS = lens _eoiMaximumIOPS (\s a -> s {_eoiMaximumIOPS = a})
+--
+-- /Note:/ Consider using 'maximumIOPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiMaximumIOPS :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Int)
+eoiMaximumIOPS = Lens.lens (maximumIOPS :: EBSOptimizedInfo -> Lude.Maybe Lude.Int) (\s a -> s {maximumIOPS = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiMaximumIOPS "Use generic-lens or generic-optics with 'maximumIOPS' instead." #-}
 
 -- | The baseline input/output storage operations per seconds for an EBS-optimized instance type.
-eoiBaselineIOPS :: Lens' EBSOptimizedInfo (Maybe Int)
-eoiBaselineIOPS = lens _eoiBaselineIOPS (\s a -> s {_eoiBaselineIOPS = a})
+--
+-- /Note:/ Consider using 'baselineIOPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiBaselineIOPS :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Int)
+eoiBaselineIOPS = Lens.lens (baselineIOPS :: EBSOptimizedInfo -> Lude.Maybe Lude.Int) (\s a -> s {baselineIOPS = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiBaselineIOPS "Use generic-lens or generic-optics with 'baselineIOPS' instead." #-}
 
 -- | The maximum throughput performance for an EBS-optimized instance type, in MB/s.
-eoiMaximumThroughputInMBps :: Lens' EBSOptimizedInfo (Maybe Double)
-eoiMaximumThroughputInMBps = lens _eoiMaximumThroughputInMBps (\s a -> s {_eoiMaximumThroughputInMBps = a})
+--
+-- /Note:/ Consider using 'maximumThroughputInMBps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiMaximumThroughputInMBps :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Double)
+eoiMaximumThroughputInMBps = Lens.lens (maximumThroughputInMBps :: EBSOptimizedInfo -> Lude.Maybe Lude.Double) (\s a -> s {maximumThroughputInMBps = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiMaximumThroughputInMBps "Use generic-lens or generic-optics with 'maximumThroughputInMBps' instead." #-}
 
 -- | The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
-eoiMaximumBandwidthInMbps :: Lens' EBSOptimizedInfo (Maybe Int)
-eoiMaximumBandwidthInMbps = lens _eoiMaximumBandwidthInMbps (\s a -> s {_eoiMaximumBandwidthInMbps = a})
+--
+-- /Note:/ Consider using 'maximumBandwidthInMbps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiMaximumBandwidthInMbps :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Int)
+eoiMaximumBandwidthInMbps = Lens.lens (maximumBandwidthInMbps :: EBSOptimizedInfo -> Lude.Maybe Lude.Int) (\s a -> s {maximumBandwidthInMbps = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiMaximumBandwidthInMbps "Use generic-lens or generic-optics with 'maximumBandwidthInMbps' instead." #-}
 
 -- | The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
-eoiBaselineBandwidthInMbps :: Lens' EBSOptimizedInfo (Maybe Int)
-eoiBaselineBandwidthInMbps = lens _eoiBaselineBandwidthInMbps (\s a -> s {_eoiBaselineBandwidthInMbps = a})
+--
+-- /Note:/ Consider using 'baselineBandwidthInMbps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiBaselineBandwidthInMbps :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Int)
+eoiBaselineBandwidthInMbps = Lens.lens (baselineBandwidthInMbps :: EBSOptimizedInfo -> Lude.Maybe Lude.Int) (\s a -> s {baselineBandwidthInMbps = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiBaselineBandwidthInMbps "Use generic-lens or generic-optics with 'baselineBandwidthInMbps' instead." #-}
 
 -- | The baseline throughput performance for an EBS-optimized instance type, in MB/s.
-eoiBaselineThroughputInMBps :: Lens' EBSOptimizedInfo (Maybe Double)
-eoiBaselineThroughputInMBps = lens _eoiBaselineThroughputInMBps (\s a -> s {_eoiBaselineThroughputInMBps = a})
+--
+-- /Note:/ Consider using 'baselineThroughputInMBps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoiBaselineThroughputInMBps :: Lens.Lens' EBSOptimizedInfo (Lude.Maybe Lude.Double)
+eoiBaselineThroughputInMBps = Lens.lens (baselineThroughputInMBps :: EBSOptimizedInfo -> Lude.Maybe Lude.Double) (\s a -> s {baselineThroughputInMBps = a} :: EBSOptimizedInfo)
+{-# DEPRECATED eoiBaselineThroughputInMBps "Use generic-lens or generic-optics with 'baselineThroughputInMBps' instead." #-}
 
-instance FromXML EBSOptimizedInfo where
+instance Lude.FromXML EBSOptimizedInfo where
   parseXML x =
     EBSOptimizedInfo'
-      <$> (x .@? "maximumIops")
-      <*> (x .@? "baselineIops")
-      <*> (x .@? "maximumThroughputInMBps")
-      <*> (x .@? "maximumBandwidthInMbps")
-      <*> (x .@? "baselineBandwidthInMbps")
-      <*> (x .@? "baselineThroughputInMBps")
-
-instance Hashable EBSOptimizedInfo
-
-instance NFData EBSOptimizedInfo
+      Lude.<$> (x Lude..@? "maximumIops")
+      Lude.<*> (x Lude..@? "baselineIops")
+      Lude.<*> (x Lude..@? "maximumThroughputInMBps")
+      Lude.<*> (x Lude..@? "maximumBandwidthInMbps")
+      Lude.<*> (x Lude..@? "baselineBandwidthInMbps")
+      Lude.<*> (x Lude..@? "baselineThroughputInMBps")

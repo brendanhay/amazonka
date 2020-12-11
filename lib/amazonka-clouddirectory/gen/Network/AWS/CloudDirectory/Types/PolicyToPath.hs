@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.PolicyToPath where
+module Network.AWS.CloudDirectory.Types.PolicyToPath
+  ( PolicyToPath (..),
+
+    -- * Smart constructor
+    mkPolicyToPath,
+
+    -- * Lenses
+    ptpPath,
+    ptpPolicies,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.PolicyAttachment
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used when a regular object exists in a 'Directory' and you want to find all of the policies that are associated with that object and the parent to that object.
 --
---
---
--- /See:/ 'policyToPath' smart constructor.
+-- /See:/ 'mkPolicyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
-  { _ptpPath :: !(Maybe Text),
-    _ptpPolicies :: !(Maybe [PolicyAttachment])
+  { path :: Lude.Maybe Lude.Text,
+    policies :: Lude.Maybe [PolicyAttachment]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyToPath' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptpPath' - The path that is referenced from the root.
---
--- * 'ptpPolicies' - List of policy objects.
-policyToPath ::
+-- * 'path' - The path that is referenced from the root.
+-- * 'policies' - List of policy objects.
+mkPolicyToPath ::
   PolicyToPath
-policyToPath =
-  PolicyToPath' {_ptpPath = Nothing, _ptpPolicies = Nothing}
+mkPolicyToPath =
+  PolicyToPath' {path = Lude.Nothing, policies = Lude.Nothing}
 
 -- | The path that is referenced from the root.
-ptpPath :: Lens' PolicyToPath (Maybe Text)
-ptpPath = lens _ptpPath (\s a -> s {_ptpPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptpPath :: Lens.Lens' PolicyToPath (Lude.Maybe Lude.Text)
+ptpPath = Lens.lens (path :: PolicyToPath -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: PolicyToPath)
+{-# DEPRECATED ptpPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | List of policy objects.
-ptpPolicies :: Lens' PolicyToPath [PolicyAttachment]
-ptpPolicies = lens _ptpPolicies (\s a -> s {_ptpPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptpPolicies :: Lens.Lens' PolicyToPath (Lude.Maybe [PolicyAttachment])
+ptpPolicies = Lens.lens (policies :: PolicyToPath -> Lude.Maybe [PolicyAttachment]) (\s a -> s {policies = a} :: PolicyToPath)
+{-# DEPRECATED ptpPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance FromJSON PolicyToPath where
+instance Lude.FromJSON PolicyToPath where
   parseJSON =
-    withObject
+    Lude.withObject
       "PolicyToPath"
       ( \x ->
-          PolicyToPath' <$> (x .:? "Path") <*> (x .:? "Policies" .!= mempty)
+          PolicyToPath'
+            Lude.<$> (x Lude..:? "Path")
+            Lude.<*> (x Lude..:? "Policies" Lude..!= Lude.mempty)
       )
-
-instance Hashable PolicyToPath
-
-instance NFData PolicyToPath

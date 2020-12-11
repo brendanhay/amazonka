@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,88 @@
 --
 -- Disables AWS Health from working with AWS Organizations. To call this operation, you must sign in as an AWS Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not recommended) in the organization's master AWS account. For more information, see <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events> in the /AWS Health User Guide/ .
 --
---
 -- This operation doesn't remove the service-linked role (SLR) from the AWS master account in your organization. You must use the IAM console, API, or AWS Command Line Interface (AWS CLI) to remove the SLR. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role Deleting a Service-Linked Role> in the /IAM User Guide/ .
 module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
-  ( -- * Creating a Request
-    disableHealthServiceAccessForOrganization,
-    DisableHealthServiceAccessForOrganization,
+  ( -- * Creating a request
+    DisableHealthServiceAccessForOrganization (..),
+    mkDisableHealthServiceAccessForOrganization,
 
-    -- * Destructuring the Response
-    disableHealthServiceAccessForOrganizationResponse,
-    DisableHealthServiceAccessForOrganizationResponse,
+    -- * Destructuring the response
+    DisableHealthServiceAccessForOrganizationResponse (..),
+    mkDisableHealthServiceAccessForOrganizationResponse,
   )
 where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableHealthServiceAccessForOrganization' smart constructor.
+-- | /See:/ 'mkDisableHealthServiceAccessForOrganization' smart constructor.
 data DisableHealthServiceAccessForOrganization = DisableHealthServiceAccessForOrganization'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableHealthServiceAccessForOrganization' with the minimum fields required to make a request.
-disableHealthServiceAccessForOrganization ::
+mkDisableHealthServiceAccessForOrganization ::
   DisableHealthServiceAccessForOrganization
-disableHealthServiceAccessForOrganization =
+mkDisableHealthServiceAccessForOrganization =
   DisableHealthServiceAccessForOrganization'
 
-instance AWSRequest DisableHealthServiceAccessForOrganization where
+instance Lude.AWSRequest DisableHealthServiceAccessForOrganization where
   type
     Rs DisableHealthServiceAccessForOrganization =
       DisableHealthServiceAccessForOrganizationResponse
-  request = postJSON awsHealth
+  request = Req.postJSON awsHealthService
   response =
-    receiveNull DisableHealthServiceAccessForOrganizationResponse'
+    Res.receiveNull
+      DisableHealthServiceAccessForOrganizationResponse'
 
-instance Hashable DisableHealthServiceAccessForOrganization
-
-instance NFData DisableHealthServiceAccessForOrganization
-
-instance ToHeaders DisableHealthServiceAccessForOrganization where
+instance Lude.ToHeaders DisableHealthServiceAccessForOrganization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableHealthServiceAccessForOrganization where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisableHealthServiceAccessForOrganization where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisableHealthServiceAccessForOrganization where
-  toPath = const "/"
+instance Lude.ToPath DisableHealthServiceAccessForOrganization where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableHealthServiceAccessForOrganization where
-  toQuery = const mempty
+instance Lude.ToQuery DisableHealthServiceAccessForOrganization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableHealthServiceAccessForOrganizationResponse' smart constructor.
+-- | /See:/ 'mkDisableHealthServiceAccessForOrganizationResponse' smart constructor.
 data DisableHealthServiceAccessForOrganizationResponse = DisableHealthServiceAccessForOrganizationResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisableHealthServiceAccessForOrganizationResponse' with the minimum fields required to make a request.
-disableHealthServiceAccessForOrganizationResponse ::
+mkDisableHealthServiceAccessForOrganizationResponse ::
   DisableHealthServiceAccessForOrganizationResponse
-disableHealthServiceAccessForOrganizationResponse =
+mkDisableHealthServiceAccessForOrganizationResponse =
   DisableHealthServiceAccessForOrganizationResponse'
-
-instance NFData DisableHealthServiceAccessForOrganizationResponse

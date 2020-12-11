@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account.
 module Network.AWS.Mobile.ExportProject
-  ( -- * Creating a Request
-    exportProject,
-    ExportProject,
+  ( -- * Creating a request
+    ExportProject (..),
+    mkExportProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     epProjectId,
 
-    -- * Destructuring the Response
-    exportProjectResponse,
-    ExportProjectResponse,
+    -- * Destructuring the response
+    ExportProjectResponse (..),
+    mkExportProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eprsShareURL,
     eprsDownloadURL,
     eprsSnapshotId,
@@ -38,121 +33,135 @@ module Network.AWS.Mobile.ExportProject
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request structure used in requests to export project configuration details.
 --
---
---
--- /See:/ 'exportProject' smart constructor.
-newtype ExportProject = ExportProject' {_epProjectId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkExportProject' smart constructor.
+newtype ExportProject = ExportProject' {projectId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'epProjectId' - Unique project identifier.
-exportProject ::
-  -- | 'epProjectId'
-  Text ->
+-- * 'projectId' - Unique project identifier.
+mkExportProject ::
+  -- | 'projectId'
+  Lude.Text ->
   ExportProject
-exportProject pProjectId_ =
-  ExportProject' {_epProjectId = pProjectId_}
+mkExportProject pProjectId_ =
+  ExportProject' {projectId = pProjectId_}
 
 -- | Unique project identifier.
-epProjectId :: Lens' ExportProject Text
-epProjectId = lens _epProjectId (\s a -> s {_epProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epProjectId :: Lens.Lens' ExportProject Lude.Text
+epProjectId = Lens.lens (projectId :: ExportProject -> Lude.Text) (\s a -> s {projectId = a} :: ExportProject)
+{-# DEPRECATED epProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance AWSRequest ExportProject where
+instance Lude.AWSRequest ExportProject where
   type Rs ExportProject = ExportProjectResponse
-  request = postJSON mobile
+  request = Req.postJSON mobileService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ExportProjectResponse'
-            <$> (x .?> "shareUrl")
-            <*> (x .?> "downloadUrl")
-            <*> (x .?> "snapshotId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "shareUrl")
+            Lude.<*> (x Lude..?> "downloadUrl")
+            Lude.<*> (x Lude..?> "snapshotId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ExportProject
-
-instance NFData ExportProject
-
-instance ToHeaders ExportProject where
+instance Lude.ToHeaders ExportProject where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON ExportProject where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ExportProject where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath ExportProject where
+instance Lude.ToPath ExportProject where
   toPath ExportProject' {..} =
-    mconcat ["/exports/", toBS _epProjectId]
+    Lude.mconcat ["/exports/", Lude.toBS projectId]
 
-instance ToQuery ExportProject where
-  toQuery = const mempty
+instance Lude.ToQuery ExportProject where
+  toQuery = Lude.const Lude.mempty
 
 -- | Result structure used for requests to export project configuration details.
 --
---
---
--- /See:/ 'exportProjectResponse' smart constructor.
+-- /See:/ 'mkExportProjectResponse' smart constructor.
 data ExportProjectResponse = ExportProjectResponse'
-  { _eprsShareURL ::
-      !(Maybe Text),
-    _eprsDownloadURL :: !(Maybe Text),
-    _eprsSnapshotId :: !(Maybe Text),
-    _eprsResponseStatus :: !Int
+  { shareURL ::
+      Lude.Maybe Lude.Text,
+    downloadURL :: Lude.Maybe Lude.Text,
+    snapshotId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eprsShareURL' - URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
---
--- * 'eprsDownloadURL' - URL which can be used to download the exported project configuation file(s).
---
--- * 'eprsSnapshotId' - Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
---
--- * 'eprsResponseStatus' - -- | The response status code.
-exportProjectResponse ::
-  -- | 'eprsResponseStatus'
-  Int ->
+-- * 'downloadURL' - URL which can be used to download the exported project configuation file(s).
+-- * 'responseStatus' - The response status code.
+-- * 'shareURL' - URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
+-- * 'snapshotId' - Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
+mkExportProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ExportProjectResponse
-exportProjectResponse pResponseStatus_ =
+mkExportProjectResponse pResponseStatus_ =
   ExportProjectResponse'
-    { _eprsShareURL = Nothing,
-      _eprsDownloadURL = Nothing,
-      _eprsSnapshotId = Nothing,
-      _eprsResponseStatus = pResponseStatus_
+    { shareURL = Lude.Nothing,
+      downloadURL = Lude.Nothing,
+      snapshotId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
-eprsShareURL :: Lens' ExportProjectResponse (Maybe Text)
-eprsShareURL = lens _eprsShareURL (\s a -> s {_eprsShareURL = a})
+--
+-- /Note:/ Consider using 'shareURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprsShareURL :: Lens.Lens' ExportProjectResponse (Lude.Maybe Lude.Text)
+eprsShareURL = Lens.lens (shareURL :: ExportProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {shareURL = a} :: ExportProjectResponse)
+{-# DEPRECATED eprsShareURL "Use generic-lens or generic-optics with 'shareURL' instead." #-}
 
 -- | URL which can be used to download the exported project configuation file(s).
-eprsDownloadURL :: Lens' ExportProjectResponse (Maybe Text)
-eprsDownloadURL = lens _eprsDownloadURL (\s a -> s {_eprsDownloadURL = a})
+--
+-- /Note:/ Consider using 'downloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprsDownloadURL :: Lens.Lens' ExportProjectResponse (Lude.Maybe Lude.Text)
+eprsDownloadURL = Lens.lens (downloadURL :: ExportProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {downloadURL = a} :: ExportProjectResponse)
+{-# DEPRECATED eprsDownloadURL "Use generic-lens or generic-optics with 'downloadURL' instead." #-}
 
 -- | Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
-eprsSnapshotId :: Lens' ExportProjectResponse (Maybe Text)
-eprsSnapshotId = lens _eprsSnapshotId (\s a -> s {_eprsSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprsSnapshotId :: Lens.Lens' ExportProjectResponse (Lude.Maybe Lude.Text)
+eprsSnapshotId = Lens.lens (snapshotId :: ExportProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: ExportProjectResponse)
+{-# DEPRECATED eprsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
--- | -- | The response status code.
-eprsResponseStatus :: Lens' ExportProjectResponse Int
-eprsResponseStatus = lens _eprsResponseStatus (\s a -> s {_eprsResponseStatus = a})
-
-instance NFData ExportProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprsResponseStatus :: Lens.Lens' ExportProjectResponse Lude.Int
+eprsResponseStatus = Lens.lens (responseStatus :: ExportProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportProjectResponse)
+{-# DEPRECATED eprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

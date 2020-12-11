@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus where
+module Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus
+  ( DebugRuleEvaluationStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDebugRuleEvaluationStatus,
+
+    -- * Lenses
+    dresLastModifiedTime,
+    dresStatusDetails,
+    dresRuleEvaluationStatus,
+    dresRuleEvaluationJobARN,
+    dresRuleConfigurationName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.RuleEvaluationStatus
 
 -- | Information about the status of the rule evaluation.
 --
---
---
--- /See:/ 'debugRuleEvaluationStatus' smart constructor.
+-- /See:/ 'mkDebugRuleEvaluationStatus' smart constructor.
 data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
-  { _dresLastModifiedTime ::
-      !(Maybe POSIX),
-    _dresStatusDetails :: !(Maybe Text),
-    _dresRuleEvaluationStatus ::
-      !(Maybe RuleEvaluationStatus),
-    _dresRuleEvaluationJobARN ::
-      !(Maybe Text),
-    _dresRuleConfigurationName ::
-      !(Maybe Text)
+  { lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    statusDetails :: Lude.Maybe Lude.Text,
+    ruleEvaluationStatus ::
+      Lude.Maybe RuleEvaluationStatus,
+    ruleEvaluationJobARN ::
+      Lude.Maybe Lude.Text,
+    ruleConfigurationName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugRuleEvaluationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dresLastModifiedTime' - Timestamp when the rule evaluation status was last modified.
---
--- * 'dresStatusDetails' - Details from the rule evaluation.
---
--- * 'dresRuleEvaluationStatus' - Status of the rule evaluation.
---
--- * 'dresRuleEvaluationJobARN' - The Amazon Resource Name (ARN) of the rule evaluation job.
---
--- * 'dresRuleConfigurationName' - The name of the rule configuration
-debugRuleEvaluationStatus ::
+-- * 'lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
+-- * 'ruleConfigurationName' - The name of the rule configuration
+-- * 'ruleEvaluationJobARN' - The Amazon Resource Name (ARN) of the rule evaluation job.
+-- * 'ruleEvaluationStatus' - Status of the rule evaluation.
+-- * 'statusDetails' - Details from the rule evaluation.
+mkDebugRuleEvaluationStatus ::
   DebugRuleEvaluationStatus
-debugRuleEvaluationStatus =
+mkDebugRuleEvaluationStatus =
   DebugRuleEvaluationStatus'
-    { _dresLastModifiedTime = Nothing,
-      _dresStatusDetails = Nothing,
-      _dresRuleEvaluationStatus = Nothing,
-      _dresRuleEvaluationJobARN = Nothing,
-      _dresRuleConfigurationName = Nothing
+    { lastModifiedTime = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      ruleEvaluationStatus = Lude.Nothing,
+      ruleEvaluationJobARN = Lude.Nothing,
+      ruleConfigurationName = Lude.Nothing
     }
 
 -- | Timestamp when the rule evaluation status was last modified.
-dresLastModifiedTime :: Lens' DebugRuleEvaluationStatus (Maybe UTCTime)
-dresLastModifiedTime = lens _dresLastModifiedTime (\s a -> s {_dresLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresLastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Lude.Maybe Lude.Timestamp)
+dresLastModifiedTime = Lens.lens (lastModifiedTime :: DebugRuleEvaluationStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus)
+{-# DEPRECATED dresLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | Details from the rule evaluation.
-dresStatusDetails :: Lens' DebugRuleEvaluationStatus (Maybe Text)
-dresStatusDetails = lens _dresStatusDetails (\s a -> s {_dresStatusDetails = a})
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresStatusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Lude.Maybe Lude.Text)
+dresStatusDetails = Lens.lens (statusDetails :: DebugRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: DebugRuleEvaluationStatus)
+{-# DEPRECATED dresStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | Status of the rule evaluation.
-dresRuleEvaluationStatus :: Lens' DebugRuleEvaluationStatus (Maybe RuleEvaluationStatus)
-dresRuleEvaluationStatus = lens _dresRuleEvaluationStatus (\s a -> s {_dresRuleEvaluationStatus = a})
+--
+-- /Note:/ Consider using 'ruleEvaluationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresRuleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Lude.Maybe RuleEvaluationStatus)
+dresRuleEvaluationStatus = Lens.lens (ruleEvaluationStatus :: DebugRuleEvaluationStatus -> Lude.Maybe RuleEvaluationStatus) (\s a -> s {ruleEvaluationStatus = a} :: DebugRuleEvaluationStatus)
+{-# DEPRECATED dresRuleEvaluationStatus "Use generic-lens or generic-optics with 'ruleEvaluationStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the rule evaluation job.
-dresRuleEvaluationJobARN :: Lens' DebugRuleEvaluationStatus (Maybe Text)
-dresRuleEvaluationJobARN = lens _dresRuleEvaluationJobARN (\s a -> s {_dresRuleEvaluationJobARN = a})
+--
+-- /Note:/ Consider using 'ruleEvaluationJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresRuleEvaluationJobARN :: Lens.Lens' DebugRuleEvaluationStatus (Lude.Maybe Lude.Text)
+dresRuleEvaluationJobARN = Lens.lens (ruleEvaluationJobARN :: DebugRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {ruleEvaluationJobARN = a} :: DebugRuleEvaluationStatus)
+{-# DEPRECATED dresRuleEvaluationJobARN "Use generic-lens or generic-optics with 'ruleEvaluationJobARN' instead." #-}
 
 -- | The name of the rule configuration
-dresRuleConfigurationName :: Lens' DebugRuleEvaluationStatus (Maybe Text)
-dresRuleConfigurationName = lens _dresRuleConfigurationName (\s a -> s {_dresRuleConfigurationName = a})
+--
+-- /Note:/ Consider using 'ruleConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresRuleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Lude.Maybe Lude.Text)
+dresRuleConfigurationName = Lens.lens (ruleConfigurationName :: DebugRuleEvaluationStatus -> Lude.Maybe Lude.Text) (\s a -> s {ruleConfigurationName = a} :: DebugRuleEvaluationStatus)
+{-# DEPRECATED dresRuleConfigurationName "Use generic-lens or generic-optics with 'ruleConfigurationName' instead." #-}
 
-instance FromJSON DebugRuleEvaluationStatus where
+instance Lude.FromJSON DebugRuleEvaluationStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "DebugRuleEvaluationStatus"
       ( \x ->
           DebugRuleEvaluationStatus'
-            <$> (x .:? "LastModifiedTime")
-            <*> (x .:? "StatusDetails")
-            <*> (x .:? "RuleEvaluationStatus")
-            <*> (x .:? "RuleEvaluationJobArn")
-            <*> (x .:? "RuleConfigurationName")
+            Lude.<$> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "StatusDetails")
+            Lude.<*> (x Lude..:? "RuleEvaluationStatus")
+            Lude.<*> (x Lude..:? "RuleEvaluationJobArn")
+            Lude.<*> (x Lude..:? "RuleConfigurationName")
       )
-
-instance Hashable DebugRuleEvaluationStatus
-
-instance NFData DebugRuleEvaluationStatus

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionType where
+module Network.AWS.CodePipeline.Types.ActionType
+  ( ActionType (..),
+
+    -- * Smart constructor
+    mkActionType,
+
+    -- * Lenses
+    atSettings,
+    atActionConfigurationProperties,
+    atId,
+    atInputArtifactDetails,
+    atOutputArtifactDetails,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ActionConfigurationProperty
 import Network.AWS.CodePipeline.Types.ActionTypeId
 import Network.AWS.CodePipeline.Types.ActionTypeSettings
 import Network.AWS.CodePipeline.Types.ArtifactDetails
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the details of an action type.
 --
---
---
--- /See:/ 'actionType' smart constructor.
+-- /See:/ 'mkActionType' smart constructor.
 data ActionType = ActionType'
-  { _atSettings ::
-      !(Maybe ActionTypeSettings),
-    _atActionConfigurationProperties ::
-      !(Maybe [ActionConfigurationProperty]),
-    _atId :: !ActionTypeId,
-    _atInputArtifactDetails :: !ArtifactDetails,
-    _atOutputArtifactDetails :: !ArtifactDetails
+  { settings ::
+      Lude.Maybe ActionTypeSettings,
+    actionConfigurationProperties ::
+      Lude.Maybe [ActionConfigurationProperty],
+    id :: ActionTypeId,
+    inputArtifactDetails :: ArtifactDetails,
+    outputArtifactDetails :: ArtifactDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atSettings' - The settings for the action type.
---
--- * 'atActionConfigurationProperties' - The configuration properties for the action type.
---
--- * 'atId' - Represents information about an action type.
---
--- * 'atInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
---
--- * 'atOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
-actionType ::
-  -- | 'atId'
+-- * 'actionConfigurationProperties' - The configuration properties for the action type.
+-- * 'id' - Represents information about an action type.
+-- * 'inputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
+-- * 'outputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
+-- * 'settings' - The settings for the action type.
+mkActionType ::
+  -- | 'id'
   ActionTypeId ->
-  -- | 'atInputArtifactDetails'
+  -- | 'inputArtifactDetails'
   ArtifactDetails ->
-  -- | 'atOutputArtifactDetails'
+  -- | 'outputArtifactDetails'
   ArtifactDetails ->
   ActionType
-actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
+mkActionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
   ActionType'
-    { _atSettings = Nothing,
-      _atActionConfigurationProperties = Nothing,
-      _atId = pId_,
-      _atInputArtifactDetails = pInputArtifactDetails_,
-      _atOutputArtifactDetails = pOutputArtifactDetails_
+    { settings = Lude.Nothing,
+      actionConfigurationProperties = Lude.Nothing,
+      id = pId_,
+      inputArtifactDetails = pInputArtifactDetails_,
+      outputArtifactDetails = pOutputArtifactDetails_
     }
 
 -- | The settings for the action type.
-atSettings :: Lens' ActionType (Maybe ActionTypeSettings)
-atSettings = lens _atSettings (\s a -> s {_atSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atSettings :: Lens.Lens' ActionType (Lude.Maybe ActionTypeSettings)
+atSettings = Lens.lens (settings :: ActionType -> Lude.Maybe ActionTypeSettings) (\s a -> s {settings = a} :: ActionType)
+{-# DEPRECATED atSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The configuration properties for the action type.
-atActionConfigurationProperties :: Lens' ActionType [ActionConfigurationProperty]
-atActionConfigurationProperties = lens _atActionConfigurationProperties (\s a -> s {_atActionConfigurationProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actionConfigurationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atActionConfigurationProperties :: Lens.Lens' ActionType (Lude.Maybe [ActionConfigurationProperty])
+atActionConfigurationProperties = Lens.lens (actionConfigurationProperties :: ActionType -> Lude.Maybe [ActionConfigurationProperty]) (\s a -> s {actionConfigurationProperties = a} :: ActionType)
+{-# DEPRECATED atActionConfigurationProperties "Use generic-lens or generic-optics with 'actionConfigurationProperties' instead." #-}
 
 -- | Represents information about an action type.
-atId :: Lens' ActionType ActionTypeId
-atId = lens _atId (\s a -> s {_atId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atId :: Lens.Lens' ActionType ActionTypeId
+atId = Lens.lens (id :: ActionType -> ActionTypeId) (\s a -> s {id = a} :: ActionType)
+{-# DEPRECATED atId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The details of the input artifact for the action, such as its commit ID.
-atInputArtifactDetails :: Lens' ActionType ArtifactDetails
-atInputArtifactDetails = lens _atInputArtifactDetails (\s a -> s {_atInputArtifactDetails = a})
+--
+-- /Note:/ Consider using 'inputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atInputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
+atInputArtifactDetails = Lens.lens (inputArtifactDetails :: ActionType -> ArtifactDetails) (\s a -> s {inputArtifactDetails = a} :: ActionType)
+{-# DEPRECATED atInputArtifactDetails "Use generic-lens or generic-optics with 'inputArtifactDetails' instead." #-}
 
 -- | The details of the output artifact of the action, such as its commit ID.
-atOutputArtifactDetails :: Lens' ActionType ArtifactDetails
-atOutputArtifactDetails = lens _atOutputArtifactDetails (\s a -> s {_atOutputArtifactDetails = a})
+--
+-- /Note:/ Consider using 'outputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atOutputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
+atOutputArtifactDetails = Lens.lens (outputArtifactDetails :: ActionType -> ArtifactDetails) (\s a -> s {outputArtifactDetails = a} :: ActionType)
+{-# DEPRECATED atOutputArtifactDetails "Use generic-lens or generic-optics with 'outputArtifactDetails' instead." #-}
 
-instance FromJSON ActionType where
+instance Lude.FromJSON ActionType where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionType"
       ( \x ->
           ActionType'
-            <$> (x .:? "settings")
-            <*> (x .:? "actionConfigurationProperties" .!= mempty)
-            <*> (x .: "id")
-            <*> (x .: "inputArtifactDetails")
-            <*> (x .: "outputArtifactDetails")
+            Lude.<$> (x Lude..:? "settings")
+            Lude.<*> (x Lude..:? "actionConfigurationProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "id")
+            Lude.<*> (x Lude..: "inputArtifactDetails")
+            Lude.<*> (x Lude..: "outputArtifactDetails")
       )
-
-instance Hashable ActionType
-
-instance NFData ActionType

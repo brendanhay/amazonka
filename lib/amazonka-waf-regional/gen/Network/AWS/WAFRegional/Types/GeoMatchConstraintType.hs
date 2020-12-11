@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.GeoMatchConstraintType where
+module Network.AWS.WAFRegional.Types.GeoMatchConstraintType
+  ( GeoMatchConstraintType
+      ( GeoMatchConstraintType',
+        Country
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GeoMatchConstraintType = Country
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GeoMatchConstraintType = GeoMatchConstraintType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GeoMatchConstraintType where
-  parser =
-    takeLowerText >>= \case
-      "country" -> pure Country
-      e ->
-        fromTextError $
-          "Failure parsing GeoMatchConstraintType from value: '" <> e
-            <> "'. Accepted values: country"
+pattern Country :: GeoMatchConstraintType
+pattern Country = GeoMatchConstraintType' "Country"
 
-instance ToText GeoMatchConstraintType where
-  toText = \case
-    Country -> "Country"
-
-instance Hashable GeoMatchConstraintType
-
-instance NFData GeoMatchConstraintType
-
-instance ToByteString GeoMatchConstraintType
-
-instance ToQuery GeoMatchConstraintType
-
-instance ToHeader GeoMatchConstraintType
-
-instance ToJSON GeoMatchConstraintType where
-  toJSON = toJSONText
-
-instance FromJSON GeoMatchConstraintType where
-  parseJSON = parseJSONText "GeoMatchConstraintType"
+{-# COMPLETE
+  Country,
+  GeoMatchConstraintType'
+  #-}

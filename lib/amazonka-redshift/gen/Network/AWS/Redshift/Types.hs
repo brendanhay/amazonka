@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,12 +8,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types
-  ( -- * Service Configuration
-    redshift,
+  ( -- * Service configuration
+    redshiftService,
 
     -- * Errors
 
-    -- * Re-exported Types
+    -- * Re-exported types
     module Network.AWS.Redshift.Internal,
 
     -- * ActionType
@@ -73,31 +71,31 @@ module Network.AWS.Redshift.Types
     UsageLimitPeriod (..),
 
     -- * AccountAttribute
-    AccountAttribute,
-    accountAttribute,
+    AccountAttribute (..),
+    mkAccountAttribute,
     aaAttributeValues,
     aaAttributeName,
 
     -- * AccountWithRestoreAccess
-    AccountWithRestoreAccess,
-    accountWithRestoreAccess,
+    AccountWithRestoreAccess (..),
+    mkAccountWithRestoreAccess,
     awraAccountAlias,
     awraAccountId,
 
     -- * AttributeValueTarget
-    AttributeValueTarget,
-    attributeValueTarget,
+    AttributeValueTarget (..),
+    mkAttributeValueTarget,
     avtAttributeValue,
 
     -- * AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
     azSupportedPlatforms,
 
     -- * Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cResizeInfo,
     cRestoreStatus,
     cManualSnapshotRetentionPeriod,
@@ -147,63 +145,63 @@ module Network.AWS.Redshift.Types
     cDBName,
 
     -- * ClusterAssociatedToSchedule
-    ClusterAssociatedToSchedule,
-    clusterAssociatedToSchedule,
+    ClusterAssociatedToSchedule (..),
+    mkClusterAssociatedToSchedule,
     catsScheduleAssociationState,
     catsClusterIdentifier,
 
     -- * ClusterDBRevision
-    ClusterDBRevision,
-    clusterDBRevision,
+    ClusterDBRevision (..),
+    mkClusterDBRevision,
     cdrDatabaseRevisionReleaseDate,
     cdrClusterIdentifier,
     cdrCurrentDatabaseRevision,
     cdrRevisionTargets,
 
     -- * ClusterIAMRole
-    ClusterIAMRole,
-    clusterIAMRole,
+    ClusterIAMRole (..),
+    mkClusterIAMRole,
     cirIAMRoleARN,
     cirApplyStatus,
 
     -- * ClusterNode
-    ClusterNode,
-    clusterNode,
+    ClusterNode (..),
+    mkClusterNode,
     cnNodeRole,
     cnPrivateIPAddress,
     cnPublicIPAddress,
 
     -- * ClusterParameterGroup
-    ClusterParameterGroup,
-    clusterParameterGroup,
+    ClusterParameterGroup (..),
+    mkClusterParameterGroup,
     cpgParameterGroupFamily,
     cpgDescription,
     cpgTags,
     cpgParameterGroupName,
 
     -- * ClusterParameterGroupNameMessage
-    ClusterParameterGroupNameMessage,
-    clusterParameterGroupNameMessage,
+    ClusterParameterGroupNameMessage (..),
+    mkClusterParameterGroupNameMessage,
     cpgnmParameterGroupStatus,
     cpgnmParameterGroupName,
 
     -- * ClusterParameterGroupStatus
-    ClusterParameterGroupStatus,
-    clusterParameterGroupStatus,
+    ClusterParameterGroupStatus (..),
+    mkClusterParameterGroupStatus,
     cpgsClusterParameterStatusList,
     cpgsParameterApplyStatus,
     cpgsParameterGroupName,
 
     -- * ClusterParameterStatus
-    ClusterParameterStatus,
-    clusterParameterStatus,
+    ClusterParameterStatus (..),
+    mkClusterParameterStatus,
     cpsParameterApplyErrorDescription,
     cpsParameterName,
     cpsParameterApplyStatus,
 
     -- * ClusterSecurityGroup
-    ClusterSecurityGroup,
-    clusterSecurityGroup,
+    ClusterSecurityGroup (..),
+    mkClusterSecurityGroup,
     cluClusterSecurityGroupName,
     cluIPRanges,
     cluEC2SecurityGroups,
@@ -211,22 +209,22 @@ module Network.AWS.Redshift.Types
     cluTags,
 
     -- * ClusterSecurityGroupMembership
-    ClusterSecurityGroupMembership,
-    clusterSecurityGroupMembership,
+    ClusterSecurityGroupMembership (..),
+    mkClusterSecurityGroupMembership,
     csgmStatus,
     csgmClusterSecurityGroupName,
 
     -- * ClusterSnapshotCopyStatus
-    ClusterSnapshotCopyStatus,
-    clusterSnapshotCopyStatus,
+    ClusterSnapshotCopyStatus (..),
+    mkClusterSnapshotCopyStatus,
     cscsManualSnapshotRetentionPeriod,
     cscsRetentionPeriod,
     cscsDestinationRegion,
     cscsSnapshotCopyGrantName,
 
     -- * ClusterSubnetGroup
-    ClusterSubnetGroup,
-    clusterSubnetGroup,
+    ClusterSubnetGroup (..),
+    mkClusterSubnetGroup,
     csgVPCId,
     csgSubnets,
     csgClusterSubnetGroupName,
@@ -235,15 +233,15 @@ module Network.AWS.Redshift.Types
     csgTags,
 
     -- * ClusterVersion
-    ClusterVersion,
-    clusterVersion,
+    ClusterVersion (..),
+    mkClusterVersion,
     cvClusterParameterGroupFamily,
     cvClusterVersion,
     cvDescription,
 
     -- * DataTransferProgress
-    DataTransferProgress,
-    dataTransferProgress,
+    DataTransferProgress (..),
+    mkDataTransferProgress,
     dtpCurrentRateInMegaBytesPerSecond,
     dtpStatus,
     dtpEstimatedTimeToCompletionInSeconds,
@@ -252,48 +250,48 @@ module Network.AWS.Redshift.Types
     dtpElapsedTimeInSeconds,
 
     -- * DefaultClusterParameters
-    DefaultClusterParameters,
-    defaultClusterParameters,
+    DefaultClusterParameters (..),
+    mkDefaultClusterParameters,
     dcpMarker,
     dcpParameters,
     dcpParameterGroupFamily,
 
     -- * DeferredMaintenanceWindow
-    DeferredMaintenanceWindow,
-    deferredMaintenanceWindow,
+    DeferredMaintenanceWindow (..),
+    mkDeferredMaintenanceWindow,
     dmwDeferMaintenanceEndTime,
     dmwDeferMaintenanceStartTime,
     dmwDeferMaintenanceIdentifier,
 
     -- * DeleteClusterSnapshotMessage
-    DeleteClusterSnapshotMessage,
-    deleteClusterSnapshotMessage,
+    DeleteClusterSnapshotMessage (..),
+    mkDeleteClusterSnapshotMessage,
     dcsmSnapshotClusterIdentifier,
     dcsmSnapshotIdentifier,
 
     -- * EC2SecurityGroup
-    EC2SecurityGroup,
-    ec2SecurityGroup,
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
     esgStatus,
     esgEC2SecurityGroupOwnerId,
     esgEC2SecurityGroupName,
     esgTags,
 
     -- * ElasticIPStatus
-    ElasticIPStatus,
-    elasticIPStatus,
+    ElasticIPStatus (..),
+    mkElasticIPStatus,
     eisStatus,
     eisElasticIP,
 
     -- * Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eAddress,
     ePort,
 
     -- * Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceType,
     eSeverity,
     eSourceIdentifier,
@@ -303,22 +301,22 @@ module Network.AWS.Redshift.Types
     eEventId,
 
     -- * EventCategoriesMap
-    EventCategoriesMap,
-    eventCategoriesMap,
+    EventCategoriesMap (..),
+    mkEventCategoriesMap,
     ecmSourceType,
     ecmEvents,
 
     -- * EventInfoMap
-    EventInfoMap,
-    eventInfoMap,
+    EventInfoMap (..),
+    mkEventInfoMap,
     eimEventDescription,
     eimSeverity,
     eimEventCategories,
     eimEventId,
 
     -- * EventSubscription
-    EventSubscription,
-    eventSubscription,
+    EventSubscription (..),
+    mkEventSubscription,
     esStatus,
     esCustomerAWSId,
     esCustSubscriptionId,
@@ -332,15 +330,15 @@ module Network.AWS.Redshift.Types
     esSourceIdsList,
 
     -- * HSMClientCertificate
-    HSMClientCertificate,
-    hsmClientCertificate,
+    HSMClientCertificate (..),
+    mkHSMClientCertificate,
     hccHSMClientCertificateIdentifier,
     hccHSMClientCertificatePublicKey,
     hccTags,
 
     -- * HSMConfiguration
-    HSMConfiguration,
-    hsmConfiguration,
+    HSMConfiguration (..),
+    mkHSMConfiguration,
     hcHSMConfigurationIdentifier,
     hcHSMPartitionName,
     hcDescription,
@@ -348,22 +346,22 @@ module Network.AWS.Redshift.Types
     hcHSMIPAddress,
 
     -- * HSMStatus
-    HSMStatus,
-    hsmStatus,
+    HSMStatus (..),
+    mkHSMStatus,
     hsStatus,
     hsHSMConfigurationIdentifier,
     hsHSMClientCertificateIdentifier,
 
     -- * IPRange
-    IPRange,
-    ipRange,
+    IPRange (..),
+    mkIPRange,
     irStatus,
     irCIdRIP,
     irTags,
 
     -- * LoggingStatus
-    LoggingStatus,
-    loggingStatus,
+    LoggingStatus (..),
+    mkLoggingStatus,
     lsLastFailureTime,
     lsLastSuccessfulDeliveryTime,
     lsS3KeyPrefix,
@@ -372,38 +370,38 @@ module Network.AWS.Redshift.Types
     lsLastFailureMessage,
 
     -- * MaintenanceTrack
-    MaintenanceTrack,
-    maintenanceTrack,
+    MaintenanceTrack (..),
+    mkMaintenanceTrack,
     mtDatabaseVersion,
     mtMaintenanceTrackName,
     mtUpdateTargets,
 
     -- * NodeConfigurationOption
-    NodeConfigurationOption,
-    nodeConfigurationOption,
+    NodeConfigurationOption (..),
+    mkNodeConfigurationOption,
     ncoMode,
     ncoNumberOfNodes,
     ncoNodeType,
     ncoEstimatedDiskUtilizationPercent,
 
     -- * NodeConfigurationOptionsFilter
-    NodeConfigurationOptionsFilter,
-    nodeConfigurationOptionsFilter,
+    NodeConfigurationOptionsFilter (..),
+    mkNodeConfigurationOptionsFilter,
     ncofValues,
     ncofOperator,
     ncofName,
 
     -- * OrderableClusterOption
-    OrderableClusterOption,
-    orderableClusterOption,
+    OrderableClusterOption (..),
+    mkOrderableClusterOption,
     ocoAvailabilityZones,
     ocoClusterType,
     ocoClusterVersion,
     ocoNodeType,
 
     -- * Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pApplyType,
     pParameterValue,
     pMinimumEngineVersion,
@@ -415,13 +413,13 @@ module Network.AWS.Redshift.Types
     pDescription,
 
     -- * PauseClusterMessage
-    PauseClusterMessage,
-    pauseClusterMessage,
+    PauseClusterMessage (..),
+    mkPauseClusterMessage,
     pcmClusterIdentifier,
 
     -- * PendingModifiedValues
-    PendingModifiedValues,
-    pendingModifiedValues,
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
     pmvEncryptionType,
     pmvEnhancedVPCRouting,
     pmvMasterUserPassword,
@@ -435,14 +433,14 @@ module Network.AWS.Redshift.Types
     pmvNodeType,
 
     -- * RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- * ReservedNode
-    ReservedNode,
-    reservedNode,
+    ReservedNode (..),
+    mkReservedNode,
     rnReservedNodeOfferingType,
     rnState,
     rnCurrencyCode,
@@ -458,8 +456,8 @@ module Network.AWS.Redshift.Types
     rnDuration,
 
     -- * ReservedNodeOffering
-    ReservedNodeOffering,
-    reservedNodeOffering,
+    ReservedNodeOffering (..),
+    mkReservedNodeOffering,
     rnoReservedNodeOfferingType,
     rnoCurrencyCode,
     rnoReservedNodeOfferingId,
@@ -471,8 +469,8 @@ module Network.AWS.Redshift.Types
     rnoDuration,
 
     -- * ResizeClusterMessage
-    ResizeClusterMessage,
-    resizeClusterMessage,
+    ResizeClusterMessage (..),
+    mkResizeClusterMessage,
     rcmNumberOfNodes,
     rcmClassic,
     rcmClusterType,
@@ -480,14 +478,14 @@ module Network.AWS.Redshift.Types
     rcmClusterIdentifier,
 
     -- * ResizeInfo
-    ResizeInfo,
-    resizeInfo,
+    ResizeInfo (..),
+    mkResizeInfo,
     riAllowCancelResize,
     riResizeType,
 
     -- * ResizeProgressMessage
-    ResizeProgressMessage,
-    resizeProgressMessage,
+    ResizeProgressMessage (..),
+    mkResizeProgressMessage,
     rpmImportTablesNotStarted,
     rpmStatus,
     rpmEstimatedTimeToCompletionInSeconds,
@@ -506,8 +504,8 @@ module Network.AWS.Redshift.Types
     rpmElapsedTimeInSeconds,
 
     -- * RestoreStatus
-    RestoreStatus,
-    restoreStatus,
+    RestoreStatus (..),
+    mkRestoreStatus,
     rsStatus,
     rsEstimatedTimeToCompletionInSeconds,
     rsCurrentRestoreRateInMegaBytesPerSecond,
@@ -516,20 +514,20 @@ module Network.AWS.Redshift.Types
     rsSnapshotSizeInMegaBytes,
 
     -- * ResumeClusterMessage
-    ResumeClusterMessage,
-    resumeClusterMessage,
+    ResumeClusterMessage (..),
+    mkResumeClusterMessage,
     rClusterIdentifier,
 
     -- * RevisionTarget
-    RevisionTarget,
-    revisionTarget,
+    RevisionTarget (..),
+    mkRevisionTarget,
     rtDatabaseRevisionReleaseDate,
     rtDatabaseRevision,
     rtDescription,
 
     -- * ScheduledAction
-    ScheduledAction,
-    scheduledAction,
+    ScheduledAction (..),
+    mkScheduledAction,
     saState,
     saTargetAction,
     saStartTime,
@@ -541,21 +539,21 @@ module Network.AWS.Redshift.Types
     saIAMRole,
 
     -- * ScheduledActionFilter
-    ScheduledActionFilter,
-    scheduledActionFilter,
+    ScheduledActionFilter (..),
+    mkScheduledActionFilter,
     safName,
     safValues,
 
     -- * ScheduledActionType
-    ScheduledActionType,
-    scheduledActionType,
+    ScheduledActionType (..),
+    mkScheduledActionType,
     satResizeCluster,
     satResumeCluster,
     satPauseCluster,
 
     -- * Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sStatus,
     sRestorableNodeTypes,
     sAccountsWithRestoreAccess,
@@ -591,23 +589,23 @@ module Network.AWS.Redshift.Types
     sDBName,
 
     -- * SnapshotCopyGrant
-    SnapshotCopyGrant,
-    snapshotCopyGrant,
+    SnapshotCopyGrant (..),
+    mkSnapshotCopyGrant,
     scgKMSKeyId,
     scgSnapshotCopyGrantName,
     scgTags,
 
     -- * SnapshotErrorMessage
-    SnapshotErrorMessage,
-    snapshotErrorMessage,
+    SnapshotErrorMessage (..),
+    mkSnapshotErrorMessage,
     semFailureReason,
     semSnapshotIdentifier,
     semSnapshotClusterIdentifier,
     semFailureCode,
 
     -- * SnapshotSchedule
-    SnapshotSchedule,
-    snapshotSchedule,
+    SnapshotSchedule (..),
+    mkSnapshotSchedule,
     ssAssociatedClusters,
     ssNextInvocations,
     ssScheduleDefinitions,
@@ -617,31 +615,31 @@ module Network.AWS.Redshift.Types
     ssTags,
 
     -- * SnapshotSortingEntity
-    SnapshotSortingEntity,
-    snapshotSortingEntity,
+    SnapshotSortingEntity (..),
+    mkSnapshotSortingEntity,
     sseSortOrder,
     sseAttribute,
 
     -- * Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetStatus,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
 
     -- * SupportedOperation
-    SupportedOperation,
-    supportedOperation,
+    SupportedOperation (..),
+    mkSupportedOperation,
     soOperationName,
 
     -- * SupportedPlatform
-    SupportedPlatform,
-    supportedPlatform,
+    SupportedPlatform (..),
+    mkSupportedPlatform,
     spName,
 
     -- * TableRestoreStatus
-    TableRestoreStatus,
-    tableRestoreStatus,
+    TableRestoreStatus (..),
+    mkTableRestoreStatus,
     trsStatus,
     trsTargetSchemaName,
     trsSnapshotIdentifier,
@@ -658,28 +656,28 @@ module Network.AWS.Redshift.Types
     trsMessage,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TaggedResource
-    TaggedResource,
-    taggedResource,
+    TaggedResource (..),
+    mkTaggedResource,
     trTag,
     trResourceType,
     trResourceName,
 
     -- * UpdateTarget
-    UpdateTarget,
-    updateTarget,
+    UpdateTarget (..),
+    mkUpdateTarget,
     utDatabaseVersion,
     utMaintenanceTrackName,
     utSupportedOperations,
 
     -- * UsageLimit
-    UsageLimit,
-    usageLimit,
+    UsageLimit (..),
+    mkUsageLimit,
     ulAmount,
     ulLimitType,
     ulUsageLimitId,
@@ -690,15 +688,15 @@ module Network.AWS.Redshift.Types
     ulTags,
 
     -- * VPCSecurityGroupMembership
-    VPCSecurityGroupMembership,
-    vpcSecurityGroupMembership,
+    VPCSecurityGroupMembership (..),
+    mkVPCSecurityGroupMembership,
     vsgmStatus,
     vsgmVPCSecurityGroupId,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.AccountAttribute
 import Network.AWS.Redshift.Types.AccountWithRestoreAccess
@@ -785,46 +783,58 @@ import Network.AWS.Redshift.Types.UsageLimitFeatureType
 import Network.AWS.Redshift.Types.UsageLimitLimitType
 import Network.AWS.Redshift.Types.UsageLimitPeriod
 import Network.AWS.Redshift.Types.VPCSecurityGroupMembership
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-12-01@ of the Amazon Redshift SDK configuration.
-redshift :: Service
-redshift =
-  Service
-    { _svcAbbrev = "Redshift",
-      _svcSigner = v4,
-      _svcPrefix = "redshift",
-      _svcVersion = "2012-12-01",
-      _svcEndpoint = defaultEndpoint redshift,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "Redshift",
-      _svcRetry = retry
+redshiftService :: Lude.Service
+redshiftService =
+  Lude.Service
+    { Lude._svcAbbrev = "Redshift",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "redshift",
+      Lude._svcVersion = "2012-12-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint redshiftService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "Redshift",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

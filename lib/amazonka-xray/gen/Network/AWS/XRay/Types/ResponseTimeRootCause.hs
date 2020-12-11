@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ResponseTimeRootCause where
+module Network.AWS.XRay.Types.ResponseTimeRootCause
+  ( ResponseTimeRootCause (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResponseTimeRootCause,
+
+    -- * Lenses
+    rtrcClientImpacting,
+    rtrcServices,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ResponseTimeRootCauseService
 
 -- | The root cause information for a response time warning.
 --
---
---
--- /See:/ 'responseTimeRootCause' smart constructor.
+-- /See:/ 'mkResponseTimeRootCause' smart constructor.
 data ResponseTimeRootCause = ResponseTimeRootCause'
-  { _rtrcClientImpacting ::
-      !(Maybe Bool),
-    _rtrcServices ::
-      !(Maybe [ResponseTimeRootCauseService])
+  { clientImpacting ::
+      Lude.Maybe Lude.Bool,
+    services ::
+      Lude.Maybe [ResponseTimeRootCauseService]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseTimeRootCause' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtrcClientImpacting' - A flag that denotes that the root cause impacts the trace client.
---
--- * 'rtrcServices' - A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.
-responseTimeRootCause ::
+-- * 'clientImpacting' - A flag that denotes that the root cause impacts the trace client.
+-- * 'services' - A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.
+mkResponseTimeRootCause ::
   ResponseTimeRootCause
-responseTimeRootCause =
+mkResponseTimeRootCause =
   ResponseTimeRootCause'
-    { _rtrcClientImpacting = Nothing,
-      _rtrcServices = Nothing
+    { clientImpacting = Lude.Nothing,
+      services = Lude.Nothing
     }
 
 -- | A flag that denotes that the root cause impacts the trace client.
-rtrcClientImpacting :: Lens' ResponseTimeRootCause (Maybe Bool)
-rtrcClientImpacting = lens _rtrcClientImpacting (\s a -> s {_rtrcClientImpacting = a})
+--
+-- /Note:/ Consider using 'clientImpacting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcClientImpacting :: Lens.Lens' ResponseTimeRootCause (Lude.Maybe Lude.Bool)
+rtrcClientImpacting = Lens.lens (clientImpacting :: ResponseTimeRootCause -> Lude.Maybe Lude.Bool) (\s a -> s {clientImpacting = a} :: ResponseTimeRootCause)
+{-# DEPRECATED rtrcClientImpacting "Use generic-lens or generic-optics with 'clientImpacting' instead." #-}
 
 -- | A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.
-rtrcServices :: Lens' ResponseTimeRootCause [ResponseTimeRootCauseService]
-rtrcServices = lens _rtrcServices (\s a -> s {_rtrcServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcServices :: Lens.Lens' ResponseTimeRootCause (Lude.Maybe [ResponseTimeRootCauseService])
+rtrcServices = Lens.lens (services :: ResponseTimeRootCause -> Lude.Maybe [ResponseTimeRootCauseService]) (\s a -> s {services = a} :: ResponseTimeRootCause)
+{-# DEPRECATED rtrcServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance FromJSON ResponseTimeRootCause where
+instance Lude.FromJSON ResponseTimeRootCause where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResponseTimeRootCause"
       ( \x ->
           ResponseTimeRootCause'
-            <$> (x .:? "ClientImpacting") <*> (x .:? "Services" .!= mempty)
+            Lude.<$> (x Lude..:? "ClientImpacting")
+            Lude.<*> (x Lude..:? "Services" Lude..!= Lude.mempty)
       )
-
-instance Hashable ResponseTimeRootCause
-
-instance NFData ResponseTimeRootCause

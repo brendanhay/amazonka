@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,171 @@
 --
 -- Task runners call @EvaluateExpression@ to evaluate a string in the context of the specified object. For example, a task runner can evaluate SQL queries stored in Amazon S3.
 module Network.AWS.DataPipeline.EvaluateExpression
-  ( -- * Creating a Request
-    evaluateExpression,
-    EvaluateExpression,
+  ( -- * Creating a request
+    EvaluateExpression (..),
+    mkEvaluateExpression,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eePipelineId,
     eeObjectId,
     eeExpression,
 
-    -- * Destructuring the Response
-    evaluateExpressionResponse,
-    EvaluateExpressionResponse,
+    -- * Destructuring the response
+    EvaluateExpressionResponse (..),
+    mkEvaluateExpressionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eersResponseStatus,
     eersEvaluatedExpression,
   )
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for EvaluateExpression.
 --
---
---
--- /See:/ 'evaluateExpression' smart constructor.
+-- /See:/ 'mkEvaluateExpression' smart constructor.
 data EvaluateExpression = EvaluateExpression'
-  { _eePipelineId ::
-      !Text,
-    _eeObjectId :: !Text,
-    _eeExpression :: !Text
+  { pipelineId ::
+      Lude.Text,
+    objectId :: Lude.Text,
+    expression :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluateExpression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eePipelineId' - The ID of the pipeline.
---
--- * 'eeObjectId' - The ID of the object.
---
--- * 'eeExpression' - The expression to evaluate.
-evaluateExpression ::
-  -- | 'eePipelineId'
-  Text ->
-  -- | 'eeObjectId'
-  Text ->
-  -- | 'eeExpression'
-  Text ->
+-- * 'expression' - The expression to evaluate.
+-- * 'objectId' - The ID of the object.
+-- * 'pipelineId' - The ID of the pipeline.
+mkEvaluateExpression ::
+  -- | 'pipelineId'
+  Lude.Text ->
+  -- | 'objectId'
+  Lude.Text ->
+  -- | 'expression'
+  Lude.Text ->
   EvaluateExpression
-evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
+mkEvaluateExpression pPipelineId_ pObjectId_ pExpression_ =
   EvaluateExpression'
-    { _eePipelineId = pPipelineId_,
-      _eeObjectId = pObjectId_,
-      _eeExpression = pExpression_
+    { pipelineId = pPipelineId_,
+      objectId = pObjectId_,
+      expression = pExpression_
     }
 
 -- | The ID of the pipeline.
-eePipelineId :: Lens' EvaluateExpression Text
-eePipelineId = lens _eePipelineId (\s a -> s {_eePipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eePipelineId :: Lens.Lens' EvaluateExpression Lude.Text
+eePipelineId = Lens.lens (pipelineId :: EvaluateExpression -> Lude.Text) (\s a -> s {pipelineId = a} :: EvaluateExpression)
+{-# DEPRECATED eePipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The ID of the object.
-eeObjectId :: Lens' EvaluateExpression Text
-eeObjectId = lens _eeObjectId (\s a -> s {_eeObjectId = a})
+--
+-- /Note:/ Consider using 'objectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeObjectId :: Lens.Lens' EvaluateExpression Lude.Text
+eeObjectId = Lens.lens (objectId :: EvaluateExpression -> Lude.Text) (\s a -> s {objectId = a} :: EvaluateExpression)
+{-# DEPRECATED eeObjectId "Use generic-lens or generic-optics with 'objectId' instead." #-}
 
 -- | The expression to evaluate.
-eeExpression :: Lens' EvaluateExpression Text
-eeExpression = lens _eeExpression (\s a -> s {_eeExpression = a})
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeExpression :: Lens.Lens' EvaluateExpression Lude.Text
+eeExpression = Lens.lens (expression :: EvaluateExpression -> Lude.Text) (\s a -> s {expression = a} :: EvaluateExpression)
+{-# DEPRECATED eeExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
-instance AWSRequest EvaluateExpression where
+instance Lude.AWSRequest EvaluateExpression where
   type Rs EvaluateExpression = EvaluateExpressionResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           EvaluateExpressionResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "evaluatedExpression")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "evaluatedExpression")
       )
 
-instance Hashable EvaluateExpression
-
-instance NFData EvaluateExpression
-
-instance ToHeaders EvaluateExpression where
+instance Lude.ToHeaders EvaluateExpression where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DataPipeline.EvaluateExpression" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DataPipeline.EvaluateExpression" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EvaluateExpression where
+instance Lude.ToJSON EvaluateExpression where
   toJSON EvaluateExpression' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineId" .= _eePipelineId),
-            Just ("objectId" .= _eeObjectId),
-            Just ("expression" .= _eeExpression)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineId" Lude..= pipelineId),
+            Lude.Just ("objectId" Lude..= objectId),
+            Lude.Just ("expression" Lude..= expression)
           ]
       )
 
-instance ToPath EvaluateExpression where
-  toPath = const "/"
+instance Lude.ToPath EvaluateExpression where
+  toPath = Lude.const "/"
 
-instance ToQuery EvaluateExpression where
-  toQuery = const mempty
+instance Lude.ToQuery EvaluateExpression where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of EvaluateExpression.
 --
---
---
--- /See:/ 'evaluateExpressionResponse' smart constructor.
+-- /See:/ 'mkEvaluateExpressionResponse' smart constructor.
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-  { _eersResponseStatus ::
-      !Int,
-    _eersEvaluatedExpression :: !Text
+  { responseStatus ::
+      Lude.Int,
+    evaluatedExpression :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluateExpressionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eersResponseStatus' - -- | The response status code.
---
--- * 'eersEvaluatedExpression' - The evaluated expression.
-evaluateExpressionResponse ::
-  -- | 'eersResponseStatus'
-  Int ->
-  -- | 'eersEvaluatedExpression'
-  Text ->
+-- * 'evaluatedExpression' - The evaluated expression.
+-- * 'responseStatus' - The response status code.
+mkEvaluateExpressionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'evaluatedExpression'
+  Lude.Text ->
   EvaluateExpressionResponse
-evaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
+mkEvaluateExpressionResponse pResponseStatus_ pEvaluatedExpression_ =
   EvaluateExpressionResponse'
-    { _eersResponseStatus =
-        pResponseStatus_,
-      _eersEvaluatedExpression = pEvaluatedExpression_
+    { responseStatus = pResponseStatus_,
+      evaluatedExpression = pEvaluatedExpression_
     }
 
--- | -- | The response status code.
-eersResponseStatus :: Lens' EvaluateExpressionResponse Int
-eersResponseStatus = lens _eersResponseStatus (\s a -> s {_eersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eersResponseStatus :: Lens.Lens' EvaluateExpressionResponse Lude.Int
+eersResponseStatus = Lens.lens (responseStatus :: EvaluateExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EvaluateExpressionResponse)
+{-# DEPRECATED eersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The evaluated expression.
-eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
-eersEvaluatedExpression = lens _eersEvaluatedExpression (\s a -> s {_eersEvaluatedExpression = a})
-
-instance NFData EvaluateExpressionResponse
+--
+-- /Note:/ Consider using 'evaluatedExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eersEvaluatedExpression :: Lens.Lens' EvaluateExpressionResponse Lude.Text
+eersEvaluatedExpression = Lens.lens (evaluatedExpression :: EvaluateExpressionResponse -> Lude.Text) (\s a -> s {evaluatedExpression = a} :: EvaluateExpressionResponse)
+{-# DEPRECATED eersEvaluatedExpression "Use generic-lens or generic-optics with 'evaluatedExpression' instead." #-}

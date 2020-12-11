@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a virtual tape by using your own barcode. You write data to the virtual tape and then archive the tape. A barcode is unique and cannot be reused if it has already been used on a tape. This applies to barcodes used on deleted tapes. This operation is only supported in the tape gateway type.
 module Network.AWS.StorageGateway.CreateTapeWithBarcode
-  ( -- * Creating a Request
-    createTapeWithBarcode,
-    CreateTapeWithBarcode,
+  ( -- * Creating a request
+    CreateTapeWithBarcode (..),
+    mkCreateTapeWithBarcode,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctwbKMSKey,
     ctwbKMSEncrypted,
     ctwbPoolId,
@@ -33,191 +28,227 @@ module Network.AWS.StorageGateway.CreateTapeWithBarcode
     ctwbTapeSizeInBytes,
     ctwbTapeBarcode,
 
-    -- * Destructuring the Response
-    createTapeWithBarcodeResponse,
-    CreateTapeWithBarcodeResponse,
+    -- * Destructuring the response
+    CreateTapeWithBarcodeResponse (..),
+    mkCreateTapeWithBarcodeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctwbrsTapeARN,
     ctwbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | CreateTapeWithBarcodeInput
 --
---
---
--- /See:/ 'createTapeWithBarcode' smart constructor.
+-- /See:/ 'mkCreateTapeWithBarcode' smart constructor.
 data CreateTapeWithBarcode = CreateTapeWithBarcode'
-  { _ctwbKMSKey ::
-      !(Maybe Text),
-    _ctwbKMSEncrypted :: !(Maybe Bool),
-    _ctwbPoolId :: !(Maybe Text),
-    _ctwbWorm :: !(Maybe Bool),
-    _ctwbTags :: !(Maybe [Tag]),
-    _ctwbGatewayARN :: !Text,
-    _ctwbTapeSizeInBytes :: !Integer,
-    _ctwbTapeBarcode :: !Text
+  { kmsKey ::
+      Lude.Maybe Lude.Text,
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    poolId :: Lude.Maybe Lude.Text,
+    worm :: Lude.Maybe Lude.Bool,
+    tags :: Lude.Maybe [Tag],
+    gatewayARN :: Lude.Text,
+    tapeSizeInBytes :: Lude.Integer,
+    tapeBarcode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapeWithBarcode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
+-- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- * 'ctwbKMSKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- Valid Values: @true@ | @false@
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.
 --
--- * 'ctwbKMSEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
---
--- * 'ctwbPoolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
---
--- * 'ctwbWorm' - Set to @TRUE@ if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.
---
--- * 'ctwbTags' - A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.
---
--- * 'ctwbGatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
---
--- * 'ctwbTapeSizeInBytes' - The size, in bytes, of the virtual tape that you want to create.
---
--- * 'ctwbTapeBarcode' - The barcode that you want to assign to the tape.
-createTapeWithBarcode ::
-  -- | 'ctwbGatewayARN'
-  Text ->
-  -- | 'ctwbTapeSizeInBytes'
-  Integer ->
-  -- | 'ctwbTapeBarcode'
-  Text ->
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+-- * 'tags' - A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.
+-- * 'tapeBarcode' - The barcode that you want to assign to the tape.
+-- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tape that you want to create.
+-- * 'worm' - Set to @TRUE@ if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.
+mkCreateTapeWithBarcode ::
+  -- | 'gatewayARN'
+  Lude.Text ->
+  -- | 'tapeSizeInBytes'
+  Lude.Integer ->
+  -- | 'tapeBarcode'
+  Lude.Text ->
   CreateTapeWithBarcode
-createTapeWithBarcode pGatewayARN_ pTapeSizeInBytes_ pTapeBarcode_ =
-  CreateTapeWithBarcode'
-    { _ctwbKMSKey = Nothing,
-      _ctwbKMSEncrypted = Nothing,
-      _ctwbPoolId = Nothing,
-      _ctwbWorm = Nothing,
-      _ctwbTags = Nothing,
-      _ctwbGatewayARN = pGatewayARN_,
-      _ctwbTapeSizeInBytes = pTapeSizeInBytes_,
-      _ctwbTapeBarcode = pTapeBarcode_
-    }
+mkCreateTapeWithBarcode
+  pGatewayARN_
+  pTapeSizeInBytes_
+  pTapeBarcode_ =
+    CreateTapeWithBarcode'
+      { kmsKey = Lude.Nothing,
+        kmsEncrypted = Lude.Nothing,
+        poolId = Lude.Nothing,
+        worm = Lude.Nothing,
+        tags = Lude.Nothing,
+        gatewayARN = pGatewayARN_,
+        tapeSizeInBytes = pTapeSizeInBytes_,
+        tapeBarcode = pTapeBarcode_
+      }
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
-ctwbKMSKey :: Lens' CreateTapeWithBarcode (Maybe Text)
-ctwbKMSKey = lens _ctwbKMSKey (\s a -> s {_ctwbKMSKey = a})
+--
+-- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbKMSKey :: Lens.Lens' CreateTapeWithBarcode (Lude.Maybe Lude.Text)
+ctwbKMSKey = Lens.lens (kmsKey :: CreateTapeWithBarcode -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
-ctwbKMSEncrypted :: Lens' CreateTapeWithBarcode (Maybe Bool)
-ctwbKMSEncrypted = lens _ctwbKMSEncrypted (\s a -> s {_ctwbKMSEncrypted = a})
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbKMSEncrypted :: Lens.Lens' CreateTapeWithBarcode (Lude.Maybe Lude.Bool)
+ctwbKMSEncrypted = Lens.lens (kmsEncrypted :: CreateTapeWithBarcode -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
--- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-ctwbPoolId :: Lens' CreateTapeWithBarcode (Maybe Text)
-ctwbPoolId = lens _ctwbPoolId (\s a -> s {_ctwbPoolId = a})
+-- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.
+--
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbPoolId :: Lens.Lens' CreateTapeWithBarcode (Lude.Maybe Lude.Text)
+ctwbPoolId = Lens.lens (poolId :: CreateTapeWithBarcode -> Lude.Maybe Lude.Text) (\s a -> s {poolId = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | Set to @TRUE@ if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.
-ctwbWorm :: Lens' CreateTapeWithBarcode (Maybe Bool)
-ctwbWorm = lens _ctwbWorm (\s a -> s {_ctwbWorm = a})
+--
+-- /Note:/ Consider using 'worm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbWorm :: Lens.Lens' CreateTapeWithBarcode (Lude.Maybe Lude.Bool)
+ctwbWorm = Lens.lens (worm :: CreateTapeWithBarcode -> Lude.Maybe Lude.Bool) (\s a -> s {worm = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbWorm "Use generic-lens or generic-optics with 'worm' instead." #-}
 
 -- | A list of up to 50 tags that can be assigned to a virtual tape that has a barcode. Each tag is a key-value pair.
-ctwbTags :: Lens' CreateTapeWithBarcode [Tag]
-ctwbTags = lens _ctwbTags (\s a -> s {_ctwbTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbTags :: Lens.Lens' CreateTapeWithBarcode (Lude.Maybe [Tag])
+ctwbTags = Lens.lens (tags :: CreateTapeWithBarcode -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
-ctwbGatewayARN :: Lens' CreateTapeWithBarcode Text
-ctwbGatewayARN = lens _ctwbGatewayARN (\s a -> s {_ctwbGatewayARN = a})
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbGatewayARN :: Lens.Lens' CreateTapeWithBarcode Lude.Text
+ctwbGatewayARN = Lens.lens (gatewayARN :: CreateTapeWithBarcode -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The size, in bytes, of the virtual tape that you want to create.
-ctwbTapeSizeInBytes :: Lens' CreateTapeWithBarcode Integer
-ctwbTapeSizeInBytes = lens _ctwbTapeSizeInBytes (\s a -> s {_ctwbTapeSizeInBytes = a})
+--
+-- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbTapeSizeInBytes :: Lens.Lens' CreateTapeWithBarcode Lude.Integer
+ctwbTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: CreateTapeWithBarcode -> Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
 
 -- | The barcode that you want to assign to the tape.
-ctwbTapeBarcode :: Lens' CreateTapeWithBarcode Text
-ctwbTapeBarcode = lens _ctwbTapeBarcode (\s a -> s {_ctwbTapeBarcode = a})
+--
+-- /Note:/ Consider using 'tapeBarcode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbTapeBarcode :: Lens.Lens' CreateTapeWithBarcode Lude.Text
+ctwbTapeBarcode = Lens.lens (tapeBarcode :: CreateTapeWithBarcode -> Lude.Text) (\s a -> s {tapeBarcode = a} :: CreateTapeWithBarcode)
+{-# DEPRECATED ctwbTapeBarcode "Use generic-lens or generic-optics with 'tapeBarcode' instead." #-}
 
-instance AWSRequest CreateTapeWithBarcode where
+instance Lude.AWSRequest CreateTapeWithBarcode where
   type Rs CreateTapeWithBarcode = CreateTapeWithBarcodeResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateTapeWithBarcodeResponse'
-            <$> (x .?> "TapeARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TapeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTapeWithBarcode
-
-instance NFData CreateTapeWithBarcode
-
-instance ToHeaders CreateTapeWithBarcode where
+instance Lude.ToHeaders CreateTapeWithBarcode where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.CreateTapeWithBarcode" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.CreateTapeWithBarcode" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTapeWithBarcode where
+instance Lude.ToJSON CreateTapeWithBarcode where
   toJSON CreateTapeWithBarcode' {..} =
-    object
-      ( catMaybes
-          [ ("KMSKey" .=) <$> _ctwbKMSKey,
-            ("KMSEncrypted" .=) <$> _ctwbKMSEncrypted,
-            ("PoolId" .=) <$> _ctwbPoolId,
-            ("Worm" .=) <$> _ctwbWorm,
-            ("Tags" .=) <$> _ctwbTags,
-            Just ("GatewayARN" .= _ctwbGatewayARN),
-            Just ("TapeSizeInBytes" .= _ctwbTapeSizeInBytes),
-            Just ("TapeBarcode" .= _ctwbTapeBarcode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
+            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            ("PoolId" Lude..=) Lude.<$> poolId,
+            ("Worm" Lude..=) Lude.<$> worm,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("TapeSizeInBytes" Lude..= tapeSizeInBytes),
+            Lude.Just ("TapeBarcode" Lude..= tapeBarcode)
           ]
       )
 
-instance ToPath CreateTapeWithBarcode where
-  toPath = const "/"
+instance Lude.ToPath CreateTapeWithBarcode where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTapeWithBarcode where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTapeWithBarcode where
+  toQuery = Lude.const Lude.mempty
 
 -- | CreateTapeOutput
 --
---
---
--- /See:/ 'createTapeWithBarcodeResponse' smart constructor.
+-- /See:/ 'mkCreateTapeWithBarcodeResponse' smart constructor.
 data CreateTapeWithBarcodeResponse = CreateTapeWithBarcodeResponse'
-  { _ctwbrsTapeARN ::
-      !(Maybe Text),
-    _ctwbrsResponseStatus :: !Int
+  { tapeARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapeWithBarcodeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctwbrsTapeARN' - A unique Amazon Resource Name (ARN) that represents the virtual tape that was created.
---
--- * 'ctwbrsResponseStatus' - -- | The response status code.
-createTapeWithBarcodeResponse ::
-  -- | 'ctwbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tapeARN' - A unique Amazon Resource Name (ARN) that represents the virtual tape that was created.
+mkCreateTapeWithBarcodeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTapeWithBarcodeResponse
-createTapeWithBarcodeResponse pResponseStatus_ =
+mkCreateTapeWithBarcodeResponse pResponseStatus_ =
   CreateTapeWithBarcodeResponse'
-    { _ctwbrsTapeARN = Nothing,
-      _ctwbrsResponseStatus = pResponseStatus_
+    { tapeARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique Amazon Resource Name (ARN) that represents the virtual tape that was created.
-ctwbrsTapeARN :: Lens' CreateTapeWithBarcodeResponse (Maybe Text)
-ctwbrsTapeARN = lens _ctwbrsTapeARN (\s a -> s {_ctwbrsTapeARN = a})
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbrsTapeARN :: Lens.Lens' CreateTapeWithBarcodeResponse (Lude.Maybe Lude.Text)
+ctwbrsTapeARN = Lens.lens (tapeARN :: CreateTapeWithBarcodeResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: CreateTapeWithBarcodeResponse)
+{-# DEPRECATED ctwbrsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
--- | -- | The response status code.
-ctwbrsResponseStatus :: Lens' CreateTapeWithBarcodeResponse Int
-ctwbrsResponseStatus = lens _ctwbrsResponseStatus (\s a -> s {_ctwbrsResponseStatus = a})
-
-instance NFData CreateTapeWithBarcodeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctwbrsResponseStatus :: Lens.Lens' CreateTapeWithBarcodeResponse Lude.Int
+ctwbrsResponseStatus = Lens.lens (responseStatus :: CreateTapeWithBarcodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTapeWithBarcodeResponse)
+{-# DEPRECATED ctwbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

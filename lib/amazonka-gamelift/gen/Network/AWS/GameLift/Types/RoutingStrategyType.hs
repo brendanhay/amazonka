@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.RoutingStrategyType where
+module Network.AWS.GameLift.Types.RoutingStrategyType
+  ( RoutingStrategyType
+      ( RoutingStrategyType',
+        Simple,
+        Terminal
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RoutingStrategyType
-  = Simple
-  | Terminal
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RoutingStrategyType = RoutingStrategyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RoutingStrategyType where
-  parser =
-    takeLowerText >>= \case
-      "simple" -> pure Simple
-      "terminal" -> pure Terminal
-      e ->
-        fromTextError $
-          "Failure parsing RoutingStrategyType from value: '" <> e
-            <> "'. Accepted values: simple, terminal"
+pattern Simple :: RoutingStrategyType
+pattern Simple = RoutingStrategyType' "SIMPLE"
 
-instance ToText RoutingStrategyType where
-  toText = \case
-    Simple -> "SIMPLE"
-    Terminal -> "TERMINAL"
+pattern Terminal :: RoutingStrategyType
+pattern Terminal = RoutingStrategyType' "TERMINAL"
 
-instance Hashable RoutingStrategyType
-
-instance NFData RoutingStrategyType
-
-instance ToByteString RoutingStrategyType
-
-instance ToQuery RoutingStrategyType
-
-instance ToHeader RoutingStrategyType
-
-instance ToJSON RoutingStrategyType where
-  toJSON = toJSONText
-
-instance FromJSON RoutingStrategyType where
-  parseJSON = parseJSONText "RoutingStrategyType"
+{-# COMPLETE
+  Simple,
+  Terminal,
+  RoutingStrategyType'
+  #-}

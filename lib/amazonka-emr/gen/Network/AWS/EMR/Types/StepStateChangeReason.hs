@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepStateChangeReason where
+module Network.AWS.EMR.Types.StepStateChangeReason
+  ( StepStateChangeReason (..),
+
+    -- * Smart constructor
+    mkStepStateChangeReason,
+
+    -- * Lenses
+    sscrCode,
+    sscrMessage,
+  )
+where
 
 import Network.AWS.EMR.Types.StepStateChangeReasonCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of the step state change reason.
 --
---
---
--- /See:/ 'stepStateChangeReason' smart constructor.
+-- /See:/ 'mkStepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
-  { _sscrCode ::
-      !(Maybe StepStateChangeReasonCode),
-    _sscrMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe StepStateChangeReasonCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepStateChangeReason' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sscrCode' - The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
---
--- * 'sscrMessage' - The descriptive message for the state change reason.
-stepStateChangeReason ::
+-- * 'code' - The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
+-- * 'message' - The descriptive message for the state change reason.
+mkStepStateChangeReason ::
   StepStateChangeReason
-stepStateChangeReason =
+mkStepStateChangeReason =
   StepStateChangeReason'
-    { _sscrCode = Nothing,
-      _sscrMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
-sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
-sscrCode = lens _sscrCode (\s a -> s {_sscrCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscrCode :: Lens.Lens' StepStateChangeReason (Lude.Maybe StepStateChangeReasonCode)
+sscrCode = Lens.lens (code :: StepStateChangeReason -> Lude.Maybe StepStateChangeReasonCode) (\s a -> s {code = a} :: StepStateChangeReason)
+{-# DEPRECATED sscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The descriptive message for the state change reason.
-sscrMessage :: Lens' StepStateChangeReason (Maybe Text)
-sscrMessage = lens _sscrMessage (\s a -> s {_sscrMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscrMessage :: Lens.Lens' StepStateChangeReason (Lude.Maybe Lude.Text)
+sscrMessage = Lens.lens (message :: StepStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: StepStateChangeReason)
+{-# DEPRECATED sscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON StepStateChangeReason where
+instance Lude.FromJSON StepStateChangeReason where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepStateChangeReason"
       ( \x ->
-          StepStateChangeReason' <$> (x .:? "Code") <*> (x .:? "Message")
+          StepStateChangeReason'
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable StepStateChangeReason
-
-instance NFData StepStateChangeReason

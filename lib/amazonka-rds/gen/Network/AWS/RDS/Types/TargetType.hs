@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.TargetType where
+module Network.AWS.RDS.Types.TargetType
+  ( TargetType
+      ( TargetType',
+        RDSInstance,
+        RDSServerlessEndpoint,
+        TrackedCluster
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetType
-  = RDSInstance
-  | RDSServerlessEndpoint
-  | TrackedCluster
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetType = TargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetType where
-  parser =
-    takeLowerText >>= \case
-      "rds_instance" -> pure RDSInstance
-      "rds_serverless_endpoint" -> pure RDSServerlessEndpoint
-      "tracked_cluster" -> pure TrackedCluster
-      e ->
-        fromTextError $
-          "Failure parsing TargetType from value: '" <> e
-            <> "'. Accepted values: rds_instance, rds_serverless_endpoint, tracked_cluster"
+pattern RDSInstance :: TargetType
+pattern RDSInstance = TargetType' "RDS_INSTANCE"
 
-instance ToText TargetType where
-  toText = \case
-    RDSInstance -> "RDS_INSTANCE"
-    RDSServerlessEndpoint -> "RDS_SERVERLESS_ENDPOINT"
-    TrackedCluster -> "TRACKED_CLUSTER"
+pattern RDSServerlessEndpoint :: TargetType
+pattern RDSServerlessEndpoint = TargetType' "RDS_SERVERLESS_ENDPOINT"
 
-instance Hashable TargetType
+pattern TrackedCluster :: TargetType
+pattern TrackedCluster = TargetType' "TRACKED_CLUSTER"
 
-instance NFData TargetType
-
-instance ToByteString TargetType
-
-instance ToQuery TargetType
-
-instance ToHeader TargetType
-
-instance FromXML TargetType where
-  parseXML = parseXMLText "TargetType"
+{-# COMPLETE
+  RDSInstance,
+  RDSServerlessEndpoint,
+  TrackedCluster,
+  TargetType'
+  #-}

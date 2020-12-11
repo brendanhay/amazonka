@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,95 @@
 --
 -- Permanently deletes an AWS Firewall Manager protocols list.
 module Network.AWS.FMS.DeleteProtocolsList
-  ( -- * Creating a Request
-    deleteProtocolsList,
-    DeleteProtocolsList,
+  ( -- * Creating a request
+    DeleteProtocolsList (..),
+    mkDeleteProtocolsList,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dplListId,
 
-    -- * Destructuring the Response
-    deleteProtocolsListResponse,
-    DeleteProtocolsListResponse,
+    -- * Destructuring the response
+    DeleteProtocolsListResponse (..),
+    mkDeleteProtocolsListResponse,
   )
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteProtocolsList' smart constructor.
+-- | /See:/ 'mkDeleteProtocolsList' smart constructor.
 newtype DeleteProtocolsList = DeleteProtocolsList'
-  { _dplListId ::
-      Text
+  { listId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProtocolsList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dplListId' - The ID of the protocols list that you want to delete. You can retrieve this ID from @PutProtocolsList@ , @ListProtocolsLists@ , and @GetProtocolsLost@ .
-deleteProtocolsList ::
-  -- | 'dplListId'
-  Text ->
+-- * 'listId' - The ID of the protocols list that you want to delete. You can retrieve this ID from @PutProtocolsList@ , @ListProtocolsLists@ , and @GetProtocolsLost@ .
+mkDeleteProtocolsList ::
+  -- | 'listId'
+  Lude.Text ->
   DeleteProtocolsList
-deleteProtocolsList pListId_ =
-  DeleteProtocolsList' {_dplListId = pListId_}
+mkDeleteProtocolsList pListId_ =
+  DeleteProtocolsList' {listId = pListId_}
 
 -- | The ID of the protocols list that you want to delete. You can retrieve this ID from @PutProtocolsList@ , @ListProtocolsLists@ , and @GetProtocolsLost@ .
-dplListId :: Lens' DeleteProtocolsList Text
-dplListId = lens _dplListId (\s a -> s {_dplListId = a})
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dplListId :: Lens.Lens' DeleteProtocolsList Lude.Text
+dplListId = Lens.lens (listId :: DeleteProtocolsList -> Lude.Text) (\s a -> s {listId = a} :: DeleteProtocolsList)
+{-# DEPRECATED dplListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
-instance AWSRequest DeleteProtocolsList where
+instance Lude.AWSRequest DeleteProtocolsList where
   type Rs DeleteProtocolsList = DeleteProtocolsListResponse
-  request = postJSON fms
-  response = receiveNull DeleteProtocolsListResponse'
+  request = Req.postJSON fmsService
+  response = Res.receiveNull DeleteProtocolsListResponse'
 
-instance Hashable DeleteProtocolsList
-
-instance NFData DeleteProtocolsList
-
-instance ToHeaders DeleteProtocolsList where
+instance Lude.ToHeaders DeleteProtocolsList where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.DeleteProtocolsList" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.DeleteProtocolsList" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteProtocolsList where
+instance Lude.ToJSON DeleteProtocolsList where
   toJSON DeleteProtocolsList' {..} =
-    object (catMaybes [Just ("ListId" .= _dplListId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ListId" Lude..= listId)])
 
-instance ToPath DeleteProtocolsList where
-  toPath = const "/"
+instance Lude.ToPath DeleteProtocolsList where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteProtocolsList where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteProtocolsList where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteProtocolsListResponse' smart constructor.
+-- | /See:/ 'mkDeleteProtocolsListResponse' smart constructor.
 data DeleteProtocolsListResponse = DeleteProtocolsListResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProtocolsListResponse' with the minimum fields required to make a request.
-deleteProtocolsListResponse ::
+mkDeleteProtocolsListResponse ::
   DeleteProtocolsListResponse
-deleteProtocolsListResponse = DeleteProtocolsListResponse'
-
-instance NFData DeleteProtocolsListResponse
+mkDeleteProtocolsListResponse = DeleteProtocolsListResponse'

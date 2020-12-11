@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,167 +17,206 @@
 --
 --     * A @ByteMatchSet@ that matches the value @BadBot@ in the @User-Agent@ header
 --
+--
 --     * An @IPSet@ that matches the IP address @192.0.2.44@
 --
 --
---
 -- You then add the @Rule@ to a @WebACL@ and specify that you want to block requests that satisfy the @Rule@ . For a request to be blocked, the @User-Agent@ header in the request must contain the value @BadBot@ /and/ the request must originate from the IP address 192.0.2.44.
---
 -- To create and configure a @Rule@ , perform the following steps:
 --
 --     * Create and update the predicates that you want to include in the @Rule@ .
 --
+--
 --     * Create the @Rule@ . See 'CreateRule' .
+--
 --
 --     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateRule' request.
 --
+--
 --     * Submit an @UpdateRule@ request to add predicates to the @Rule@ .
+--
 --
 --     * Create and update a @WebACL@ that contains the @Rule@ . See 'CreateWebACL' .
 --
 --
---
 -- If you want to replace one @ByteMatchSet@ or @IPSet@ with another, you delete the existing one and add the new one.
---
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 module Network.AWS.WAF.UpdateRule
-  ( -- * Creating a Request
-    updateRule,
-    UpdateRule,
+  ( -- * Creating a request
+    UpdateRule (..),
+    mkUpdateRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urRuleId,
     urChangeToken,
     urUpdates,
 
-    -- * Destructuring the Response
-    updateRuleResponse,
-    UpdateRuleResponse,
+    -- * Destructuring the response
+    UpdateRuleResponse (..),
+    mkUpdateRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsChangeToken,
     urrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'updateRule' smart constructor.
+-- | /See:/ 'mkUpdateRule' smart constructor.
 data UpdateRule = UpdateRule'
-  { _urRuleId :: !Text,
-    _urChangeToken :: !Text,
-    _urUpdates :: ![RuleUpdate]
+  { ruleId :: Lude.Text,
+    changeToken :: Lude.Text,
+    updates :: [RuleUpdate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'ruleId' - The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
+-- * 'updates' - An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:
 --
--- * 'urRuleId' - The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
 --
--- * 'urChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
+--     * 'RuleUpdate' : Contains @Action@ and @Predicate@
 --
--- * 'urUpdates' - An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:     * 'RuleUpdate' : Contains @Action@ and @Predicate@      * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@      * 'FieldToMatch' : Contains @Data@ and @Type@
-updateRule ::
-  -- | 'urRuleId'
-  Text ->
-  -- | 'urChangeToken'
-  Text ->
+--
+--     * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+mkUpdateRule ::
+  -- | 'ruleId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   UpdateRule
-updateRule pRuleId_ pChangeToken_ =
+mkUpdateRule pRuleId_ pChangeToken_ =
   UpdateRule'
-    { _urRuleId = pRuleId_,
-      _urChangeToken = pChangeToken_,
-      _urUpdates = mempty
+    { ruleId = pRuleId_,
+      changeToken = pChangeToken_,
+      updates = Lude.mempty
     }
 
 -- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
-urRuleId :: Lens' UpdateRule Text
-urRuleId = lens _urRuleId (\s a -> s {_urRuleId = a})
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRuleId :: Lens.Lens' UpdateRule Lude.Text
+urRuleId = Lens.lens (ruleId :: UpdateRule -> Lude.Text) (\s a -> s {ruleId = a} :: UpdateRule)
+{-# DEPRECATED urRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-urChangeToken :: Lens' UpdateRule Text
-urChangeToken = lens _urChangeToken (\s a -> s {_urChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urChangeToken :: Lens.Lens' UpdateRule Lude.Text
+urChangeToken = Lens.lens (changeToken :: UpdateRule -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateRule)
+{-# DEPRECATED urChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:     * 'RuleUpdate' : Contains @Action@ and @Predicate@      * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@      * 'FieldToMatch' : Contains @Data@ and @Type@
-urUpdates :: Lens' UpdateRule [RuleUpdate]
-urUpdates = lens _urUpdates (\s a -> s {_urUpdates = a}) . _Coerce
+-- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'Rule' . For more information, see the applicable data types:
+--
+--
+--     * 'RuleUpdate' : Contains @Action@ and @Predicate@
+--
+--
+--     * 'Predicate' : Contains @DataId@ , @Negated@ , and @Type@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+--
+-- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urUpdates :: Lens.Lens' UpdateRule [RuleUpdate]
+urUpdates = Lens.lens (updates :: UpdateRule -> [RuleUpdate]) (\s a -> s {updates = a} :: UpdateRule)
+{-# DEPRECATED urUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
-instance AWSRequest UpdateRule where
+instance Lude.AWSRequest UpdateRule where
   type Rs UpdateRule = UpdateRuleResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRuleResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRule
-
-instance NFData UpdateRule
-
-instance ToHeaders UpdateRule where
+instance Lude.ToHeaders UpdateRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSWAF_20150824.UpdateRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSWAF_20150824.UpdateRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRule where
+instance Lude.ToJSON UpdateRule where
   toJSON UpdateRule' {..} =
-    object
-      ( catMaybes
-          [ Just ("RuleId" .= _urRuleId),
-            Just ("ChangeToken" .= _urChangeToken),
-            Just ("Updates" .= _urUpdates)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RuleId" Lude..= ruleId),
+            Lude.Just ("ChangeToken" Lude..= changeToken),
+            Lude.Just ("Updates" Lude..= updates)
           ]
       )
 
-instance ToPath UpdateRule where
-  toPath = const "/"
+instance Lude.ToPath UpdateRule where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRule where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRuleResponse' smart constructor.
+-- | /See:/ 'mkUpdateRuleResponse' smart constructor.
 data UpdateRuleResponse = UpdateRuleResponse'
-  { _urrsChangeToken ::
-      !(Maybe Text),
-    _urrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRuleResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkUpdateRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRuleResponse
-updateRuleResponse pResponseStatus_ =
+mkUpdateRuleResponse pResponseStatus_ =
   UpdateRuleResponse'
-    { _urrsChangeToken = Nothing,
-      _urrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-urrsChangeToken :: Lens' UpdateRuleResponse (Maybe Text)
-urrsChangeToken = lens _urrsChangeToken (\s a -> s {_urrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsChangeToken :: Lens.Lens' UpdateRuleResponse (Lude.Maybe Lude.Text)
+urrsChangeToken = Lens.lens (changeToken :: UpdateRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateRuleResponse)
+{-# DEPRECATED urrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRuleResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UpdateRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UpdateRuleResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UpdateRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRuleResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

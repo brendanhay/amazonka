@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkACLAssociation where
+module Network.AWS.EC2.Types.NetworkACLAssociation
+  ( NetworkACLAssociation (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkACLAssociation,
+
+    -- * Lenses
+    naaNetworkACLId,
+    naaSubnetId,
+    naaNetworkACLAssociationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an association between a network ACL and a subnet.
 --
---
---
--- /See:/ 'networkACLAssociation' smart constructor.
+-- /See:/ 'mkNetworkACLAssociation' smart constructor.
 data NetworkACLAssociation = NetworkACLAssociation'
-  { _naaNetworkACLId ::
-      !(Maybe Text),
-    _naaSubnetId :: !(Maybe Text),
-    _naaNetworkACLAssociationId :: !(Maybe Text)
+  { networkACLId ::
+      Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text,
+    networkACLAssociationId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkACLAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'naaNetworkACLId' - The ID of the network ACL.
---
--- * 'naaSubnetId' - The ID of the subnet.
---
--- * 'naaNetworkACLAssociationId' - The ID of the association between a network ACL and a subnet.
-networkACLAssociation ::
+-- * 'networkACLAssociationId' - The ID of the association between a network ACL and a subnet.
+-- * 'networkACLId' - The ID of the network ACL.
+-- * 'subnetId' - The ID of the subnet.
+mkNetworkACLAssociation ::
   NetworkACLAssociation
-networkACLAssociation =
+mkNetworkACLAssociation =
   NetworkACLAssociation'
-    { _naaNetworkACLId = Nothing,
-      _naaSubnetId = Nothing,
-      _naaNetworkACLAssociationId = Nothing
+    { networkACLId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      networkACLAssociationId = Lude.Nothing
     }
 
 -- | The ID of the network ACL.
-naaNetworkACLId :: Lens' NetworkACLAssociation (Maybe Text)
-naaNetworkACLId = lens _naaNetworkACLId (\s a -> s {_naaNetworkACLId = a})
+--
+-- /Note:/ Consider using 'networkACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+naaNetworkACLId :: Lens.Lens' NetworkACLAssociation (Lude.Maybe Lude.Text)
+naaNetworkACLId = Lens.lens (networkACLId :: NetworkACLAssociation -> Lude.Maybe Lude.Text) (\s a -> s {networkACLId = a} :: NetworkACLAssociation)
+{-# DEPRECATED naaNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
 
 -- | The ID of the subnet.
-naaSubnetId :: Lens' NetworkACLAssociation (Maybe Text)
-naaSubnetId = lens _naaSubnetId (\s a -> s {_naaSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+naaSubnetId :: Lens.Lens' NetworkACLAssociation (Lude.Maybe Lude.Text)
+naaSubnetId = Lens.lens (subnetId :: NetworkACLAssociation -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: NetworkACLAssociation)
+{-# DEPRECATED naaSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The ID of the association between a network ACL and a subnet.
-naaNetworkACLAssociationId :: Lens' NetworkACLAssociation (Maybe Text)
-naaNetworkACLAssociationId = lens _naaNetworkACLAssociationId (\s a -> s {_naaNetworkACLAssociationId = a})
+--
+-- /Note:/ Consider using 'networkACLAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+naaNetworkACLAssociationId :: Lens.Lens' NetworkACLAssociation (Lude.Maybe Lude.Text)
+naaNetworkACLAssociationId = Lens.lens (networkACLAssociationId :: NetworkACLAssociation -> Lude.Maybe Lude.Text) (\s a -> s {networkACLAssociationId = a} :: NetworkACLAssociation)
+{-# DEPRECATED naaNetworkACLAssociationId "Use generic-lens or generic-optics with 'networkACLAssociationId' instead." #-}
 
-instance FromXML NetworkACLAssociation where
+instance Lude.FromXML NetworkACLAssociation where
   parseXML x =
     NetworkACLAssociation'
-      <$> (x .@? "networkAclId")
-      <*> (x .@? "subnetId")
-      <*> (x .@? "networkAclAssociationId")
-
-instance Hashable NetworkACLAssociation
-
-instance NFData NetworkACLAssociation
+      Lude.<$> (x Lude..@? "networkAclId")
+      Lude.<*> (x Lude..@? "subnetId")
+      Lude.<*> (x Lude..@? "networkAclAssociationId")

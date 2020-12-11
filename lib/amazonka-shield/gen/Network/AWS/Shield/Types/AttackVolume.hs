@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackVolume where
+module Network.AWS.Shield.Types.AttackVolume
+  ( AttackVolume (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttackVolume,
+
+    -- * Lenses
+    avPacketsPerSecond,
+    avRequestsPerSecond,
+    avBitsPerSecond,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.AttackVolumeStatistics
 
 -- | Information about the volume of attacks during the time period, included in an 'AttackStatisticsDataItem' . If the accompanying @AttackCount@ in the statistics object is zero, this setting might be empty.
 --
---
---
--- /See:/ 'attackVolume' smart constructor.
+-- /See:/ 'mkAttackVolume' smart constructor.
 data AttackVolume = AttackVolume'
-  { _avPacketsPerSecond ::
-      !(Maybe AttackVolumeStatistics),
-    _avRequestsPerSecond :: !(Maybe AttackVolumeStatistics),
-    _avBitsPerSecond :: !(Maybe AttackVolumeStatistics)
+  { packetsPerSecond ::
+      Lude.Maybe AttackVolumeStatistics,
+    requestsPerSecond :: Lude.Maybe AttackVolumeStatistics,
+    bitsPerSecond :: Lude.Maybe AttackVolumeStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avPacketsPerSecond' - A statistics object that uses packets per second as the unit. This is included for network level attacks.
---
--- * 'avRequestsPerSecond' - A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.
---
--- * 'avBitsPerSecond' - A statistics object that uses bits per second as the unit. This is included for network level attacks.
-attackVolume ::
+-- * 'bitsPerSecond' - A statistics object that uses bits per second as the unit. This is included for network level attacks.
+-- * 'packetsPerSecond' - A statistics object that uses packets per second as the unit. This is included for network level attacks.
+-- * 'requestsPerSecond' - A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.
+mkAttackVolume ::
   AttackVolume
-attackVolume =
+mkAttackVolume =
   AttackVolume'
-    { _avPacketsPerSecond = Nothing,
-      _avRequestsPerSecond = Nothing,
-      _avBitsPerSecond = Nothing
+    { packetsPerSecond = Lude.Nothing,
+      requestsPerSecond = Lude.Nothing,
+      bitsPerSecond = Lude.Nothing
     }
 
 -- | A statistics object that uses packets per second as the unit. This is included for network level attacks.
-avPacketsPerSecond :: Lens' AttackVolume (Maybe AttackVolumeStatistics)
-avPacketsPerSecond = lens _avPacketsPerSecond (\s a -> s {_avPacketsPerSecond = a})
+--
+-- /Note:/ Consider using 'packetsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avPacketsPerSecond :: Lens.Lens' AttackVolume (Lude.Maybe AttackVolumeStatistics)
+avPacketsPerSecond = Lens.lens (packetsPerSecond :: AttackVolume -> Lude.Maybe AttackVolumeStatistics) (\s a -> s {packetsPerSecond = a} :: AttackVolume)
+{-# DEPRECATED avPacketsPerSecond "Use generic-lens or generic-optics with 'packetsPerSecond' instead." #-}
 
 -- | A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.
-avRequestsPerSecond :: Lens' AttackVolume (Maybe AttackVolumeStatistics)
-avRequestsPerSecond = lens _avRequestsPerSecond (\s a -> s {_avRequestsPerSecond = a})
+--
+-- /Note:/ Consider using 'requestsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avRequestsPerSecond :: Lens.Lens' AttackVolume (Lude.Maybe AttackVolumeStatistics)
+avRequestsPerSecond = Lens.lens (requestsPerSecond :: AttackVolume -> Lude.Maybe AttackVolumeStatistics) (\s a -> s {requestsPerSecond = a} :: AttackVolume)
+{-# DEPRECATED avRequestsPerSecond "Use generic-lens or generic-optics with 'requestsPerSecond' instead." #-}
 
 -- | A statistics object that uses bits per second as the unit. This is included for network level attacks.
-avBitsPerSecond :: Lens' AttackVolume (Maybe AttackVolumeStatistics)
-avBitsPerSecond = lens _avBitsPerSecond (\s a -> s {_avBitsPerSecond = a})
+--
+-- /Note:/ Consider using 'bitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avBitsPerSecond :: Lens.Lens' AttackVolume (Lude.Maybe AttackVolumeStatistics)
+avBitsPerSecond = Lens.lens (bitsPerSecond :: AttackVolume -> Lude.Maybe AttackVolumeStatistics) (\s a -> s {bitsPerSecond = a} :: AttackVolume)
+{-# DEPRECATED avBitsPerSecond "Use generic-lens or generic-optics with 'bitsPerSecond' instead." #-}
 
-instance FromJSON AttackVolume where
+instance Lude.FromJSON AttackVolume where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttackVolume"
       ( \x ->
           AttackVolume'
-            <$> (x .:? "PacketsPerSecond")
-            <*> (x .:? "RequestsPerSecond")
-            <*> (x .:? "BitsPerSecond")
+            Lude.<$> (x Lude..:? "PacketsPerSecond")
+            Lude.<*> (x Lude..:? "RequestsPerSecond")
+            Lude.<*> (x Lude..:? "BitsPerSecond")
       )
-
-instance Hashable AttackVolume
-
-instance NFData AttackVolume

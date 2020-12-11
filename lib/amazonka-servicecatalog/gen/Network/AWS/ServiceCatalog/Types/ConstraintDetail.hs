@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ConstraintDetail where
+module Network.AWS.ServiceCatalog.Types.ConstraintDetail
+  ( ConstraintDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConstraintDetail,
+
+    -- * Lenses
+    cdPortfolioId,
+    cdConstraintId,
+    cdOwner,
+    cdType,
+    cdDescription,
+    cdProductId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a constraint.
 --
---
---
--- /See:/ 'constraintDetail' smart constructor.
+-- /See:/ 'mkConstraintDetail' smart constructor.
 data ConstraintDetail = ConstraintDetail'
-  { _cdPortfolioId ::
-      !(Maybe Text),
-    _cdConstraintId :: !(Maybe Text),
-    _cdOwner :: !(Maybe Text),
-    _cdType :: !(Maybe Text),
-    _cdDescription :: !(Maybe Text),
-    _cdProductId :: !(Maybe Text)
+  { portfolioId ::
+      Lude.Maybe Lude.Text,
+    constraintId :: Lude.Maybe Lude.Text,
+    owner :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConstraintDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'constraintId' - The identifier of the constraint.
+-- * 'description' - The description of the constraint.
+-- * 'owner' - The owner of the constraint.
+-- * 'portfolioId' - The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+-- * 'productId' - The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+-- * 'type'' - The type of constraint.
 --
--- * 'cdPortfolioId' - The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
 --
--- * 'cdConstraintId' - The identifier of the constraint.
+--     * @LAUNCH@
 --
--- * 'cdOwner' - The owner of the constraint.
 --
--- * 'cdType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
+--     * @NOTIFICATION@
 --
--- * 'cdDescription' - The description of the constraint.
 --
--- * 'cdProductId' - The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
-constraintDetail ::
+--     * STACKSET
+--
+--
+--     * @TEMPLATE@
+mkConstraintDetail ::
   ConstraintDetail
-constraintDetail =
+mkConstraintDetail =
   ConstraintDetail'
-    { _cdPortfolioId = Nothing,
-      _cdConstraintId = Nothing,
-      _cdOwner = Nothing,
-      _cdType = Nothing,
-      _cdDescription = Nothing,
-      _cdProductId = Nothing
+    { portfolioId = Lude.Nothing,
+      constraintId = Lude.Nothing,
+      owner = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing,
+      productId = Lude.Nothing
     }
 
 -- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-cdPortfolioId :: Lens' ConstraintDetail (Maybe Text)
-cdPortfolioId = lens _cdPortfolioId (\s a -> s {_cdPortfolioId = a})
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdPortfolioId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdPortfolioId = Lens.lens (portfolioId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {portfolioId = a} :: ConstraintDetail)
+{-# DEPRECATED cdPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The identifier of the constraint.
-cdConstraintId :: Lens' ConstraintDetail (Maybe Text)
-cdConstraintId = lens _cdConstraintId (\s a -> s {_cdConstraintId = a})
+--
+-- /Note:/ Consider using 'constraintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdConstraintId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdConstraintId = Lens.lens (constraintId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {constraintId = a} :: ConstraintDetail)
+{-# DEPRECATED cdConstraintId "Use generic-lens or generic-optics with 'constraintId' instead." #-}
 
 -- | The owner of the constraint.
-cdOwner :: Lens' ConstraintDetail (Maybe Text)
-cdOwner = lens _cdOwner (\s a -> s {_cdOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdOwner :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdOwner = Lens.lens (owner :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: ConstraintDetail)
+{-# DEPRECATED cdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
-cdType :: Lens' ConstraintDetail (Maybe Text)
-cdType = lens _cdType (\s a -> s {_cdType = a})
+-- | The type of constraint.
+--
+--
+--     * @LAUNCH@
+--
+--
+--     * @NOTIFICATION@
+--
+--
+--     * STACKSET
+--
+--
+--     * @TEMPLATE@
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdType :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdType = Lens.lens (type' :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ConstraintDetail)
+{-# DEPRECATED cdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the constraint.
-cdDescription :: Lens' ConstraintDetail (Maybe Text)
-cdDescription = lens _cdDescription (\s a -> s {_cdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDescription :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdDescription = Lens.lens (description :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConstraintDetail)
+{-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
-cdProductId :: Lens' ConstraintDetail (Maybe Text)
-cdProductId = lens _cdProductId (\s a -> s {_cdProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdProductId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
+cdProductId = Lens.lens (productId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ConstraintDetail)
+{-# DEPRECATED cdProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance FromJSON ConstraintDetail where
+instance Lude.FromJSON ConstraintDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConstraintDetail"
       ( \x ->
           ConstraintDetail'
-            <$> (x .:? "PortfolioId")
-            <*> (x .:? "ConstraintId")
-            <*> (x .:? "Owner")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
-            <*> (x .:? "ProductId")
+            Lude.<$> (x Lude..:? "PortfolioId")
+            Lude.<*> (x Lude..:? "ConstraintId")
+            Lude.<*> (x Lude..:? "Owner")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ProductId")
       )
-
-instance Hashable ConstraintDetail
-
-instance NFData ConstraintDetail

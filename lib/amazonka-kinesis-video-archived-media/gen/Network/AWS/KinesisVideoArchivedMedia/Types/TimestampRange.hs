@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange where
+module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
+  ( TimestampRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimestampRange,
+
+    -- * Lenses
+    trStartTimestamp,
+    trEndTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The range of timestamps for which to return fragments.
 --
---
---
--- /See:/ 'timestampRange' smart constructor.
+-- /See:/ 'mkTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { _trStartTimestamp :: !POSIX,
-    _trEndTimestamp :: !POSIX
+  { startTimestamp ::
+      Lude.Timestamp,
+    endTimestamp :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trStartTimestamp' - The starting timestamp in the range of timestamps for which to return fragments.
---
--- * 'trEndTimestamp' - The ending timestamp in the range of timestamps for which to return fragments.
-timestampRange ::
-  -- | 'trStartTimestamp'
-  UTCTime ->
-  -- | 'trEndTimestamp'
-  UTCTime ->
+-- * 'endTimestamp' - The ending timestamp in the range of timestamps for which to return fragments.
+-- * 'startTimestamp' - The starting timestamp in the range of timestamps for which to return fragments.
+mkTimestampRange ::
+  -- | 'startTimestamp'
+  Lude.Timestamp ->
+  -- | 'endTimestamp'
+  Lude.Timestamp ->
   TimestampRange
-timestampRange pStartTimestamp_ pEndTimestamp_ =
+mkTimestampRange pStartTimestamp_ pEndTimestamp_ =
   TimestampRange'
-    { _trStartTimestamp = _Time # pStartTimestamp_,
-      _trEndTimestamp = _Time # pEndTimestamp_
+    { startTimestamp = pStartTimestamp_,
+      endTimestamp = pEndTimestamp_
     }
 
 -- | The starting timestamp in the range of timestamps for which to return fragments.
-trStartTimestamp :: Lens' TimestampRange UTCTime
-trStartTimestamp = lens _trStartTimestamp (\s a -> s {_trStartTimestamp = a}) . _Time
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trStartTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
+trStartTimestamp = Lens.lens (startTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {startTimestamp = a} :: TimestampRange)
+{-# DEPRECATED trStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
 -- | The ending timestamp in the range of timestamps for which to return fragments.
-trEndTimestamp :: Lens' TimestampRange UTCTime
-trEndTimestamp = lens _trEndTimestamp (\s a -> s {_trEndTimestamp = a}) . _Time
+--
+-- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trEndTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
+trEndTimestamp = Lens.lens (endTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {endTimestamp = a} :: TimestampRange)
+{-# DEPRECATED trEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
 
-instance Hashable TimestampRange
-
-instance NFData TimestampRange
-
-instance ToJSON TimestampRange where
+instance Lude.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
-    object
-      ( catMaybes
-          [ Just ("StartTimestamp" .= _trStartTimestamp),
-            Just ("EndTimestamp" .= _trEndTimestamp)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("StartTimestamp" Lude..= startTimestamp),
+            Lude.Just ("EndTimestamp" Lude..= endTimestamp)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult where
+module Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
+  ( DNSLogsConfigurationResult (..),
+
+    -- * Smart constructor
+    mkDNSLogsConfigurationResult,
+
+    -- * Lenses
+    dlcrStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.DataSourceStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the status of DNS logs as a data source.
 --
---
---
--- /See:/ 'dnsLogsConfigurationResult' smart constructor.
+-- /See:/ 'mkDNSLogsConfigurationResult' smart constructor.
 newtype DNSLogsConfigurationResult = DNSLogsConfigurationResult'
-  { _dlcrStatus ::
+  { status ::
       DataSourceStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSLogsConfigurationResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcrStatus' - Denotes whether DNS logs is enabled as a data source.
-dnsLogsConfigurationResult ::
-  -- | 'dlcrStatus'
+-- * 'status' - Denotes whether DNS logs is enabled as a data source.
+mkDNSLogsConfigurationResult ::
+  -- | 'status'
   DataSourceStatus ->
   DNSLogsConfigurationResult
-dnsLogsConfigurationResult pStatus_ =
-  DNSLogsConfigurationResult' {_dlcrStatus = pStatus_}
+mkDNSLogsConfigurationResult pStatus_ =
+  DNSLogsConfigurationResult' {status = pStatus_}
 
 -- | Denotes whether DNS logs is enabled as a data source.
-dlcrStatus :: Lens' DNSLogsConfigurationResult DataSourceStatus
-dlcrStatus = lens _dlcrStatus (\s a -> s {_dlcrStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrStatus :: Lens.Lens' DNSLogsConfigurationResult DataSourceStatus
+dlcrStatus = Lens.lens (status :: DNSLogsConfigurationResult -> DataSourceStatus) (\s a -> s {status = a} :: DNSLogsConfigurationResult)
+{-# DEPRECATED dlcrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON DNSLogsConfigurationResult where
+instance Lude.FromJSON DNSLogsConfigurationResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "DNSLogsConfigurationResult"
-      (\x -> DNSLogsConfigurationResult' <$> (x .: "status"))
-
-instance Hashable DNSLogsConfigurationResult
-
-instance NFData DNSLogsConfigurationResult
+      (\x -> DNSLogsConfigurationResult' Lude.<$> (x Lude..: "status"))

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,183 +17,208 @@
 --
 --     * Gets the list of the created artifacts while migration is taking place.
 --
+--
 --     * Shows the artifacts created by the migration tool that was associated by the @AssociateCreatedArtifact@ API.
+--
 --
 --     * Lists created artifacts in a paginated interface.
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListCreatedArtifacts
-  ( -- * Creating a Request
-    listCreatedArtifacts,
-    ListCreatedArtifacts,
+  ( -- * Creating a request
+    ListCreatedArtifacts (..),
+    mkListCreatedArtifacts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcaNextToken,
     lcaMaxResults,
     lcaProgressUpdateStream,
     lcaMigrationTaskName,
 
-    -- * Destructuring the Response
-    listCreatedArtifactsResponse,
-    ListCreatedArtifactsResponse,
+    -- * Destructuring the response
+    ListCreatedArtifactsResponse (..),
+    mkListCreatedArtifactsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcarsNextToken,
     lcarsCreatedArtifactList,
     lcarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCreatedArtifacts' smart constructor.
+-- | /See:/ 'mkListCreatedArtifacts' smart constructor.
 data ListCreatedArtifacts = ListCreatedArtifacts'
-  { _lcaNextToken ::
-      !(Maybe Text),
-    _lcaMaxResults :: !(Maybe Nat),
-    _lcaProgressUpdateStream :: !Text,
-    _lcaMigrationTaskName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    progressUpdateStream :: Lude.Text,
+    migrationTaskName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCreatedArtifacts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcaNextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
---
--- * 'lcaMaxResults' - Maximum number of results to be returned per page.
---
--- * 'lcaProgressUpdateStream' - The name of the ProgressUpdateStream.
---
--- * 'lcaMigrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
-listCreatedArtifacts ::
-  -- | 'lcaProgressUpdateStream'
-  Text ->
-  -- | 'lcaMigrationTaskName'
-  Text ->
+-- * 'maxResults' - Maximum number of results to be returned per page.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+-- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+mkListCreatedArtifacts ::
+  -- | 'progressUpdateStream'
+  Lude.Text ->
+  -- | 'migrationTaskName'
+  Lude.Text ->
   ListCreatedArtifacts
-listCreatedArtifacts pProgressUpdateStream_ pMigrationTaskName_ =
+mkListCreatedArtifacts pProgressUpdateStream_ pMigrationTaskName_ =
   ListCreatedArtifacts'
-    { _lcaNextToken = Nothing,
-      _lcaMaxResults = Nothing,
-      _lcaProgressUpdateStream = pProgressUpdateStream_,
-      _lcaMigrationTaskName = pMigrationTaskName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      progressUpdateStream = pProgressUpdateStream_,
+      migrationTaskName = pMigrationTaskName_
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
-lcaNextToken :: Lens' ListCreatedArtifacts (Maybe Text)
-lcaNextToken = lens _lcaNextToken (\s a -> s {_lcaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaNextToken :: Lens.Lens' ListCreatedArtifacts (Lude.Maybe Lude.Text)
+lcaNextToken = Lens.lens (nextToken :: ListCreatedArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCreatedArtifacts)
+{-# DEPRECATED lcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to be returned per page.
-lcaMaxResults :: Lens' ListCreatedArtifacts (Maybe Natural)
-lcaMaxResults = lens _lcaMaxResults (\s a -> s {_lcaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaMaxResults :: Lens.Lens' ListCreatedArtifacts (Lude.Maybe Lude.Natural)
+lcaMaxResults = Lens.lens (maxResults :: ListCreatedArtifacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCreatedArtifacts)
+{-# DEPRECATED lcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
-lcaProgressUpdateStream :: Lens' ListCreatedArtifacts Text
-lcaProgressUpdateStream = lens _lcaProgressUpdateStream (\s a -> s {_lcaProgressUpdateStream = a})
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaProgressUpdateStream :: Lens.Lens' ListCreatedArtifacts Lude.Text
+lcaProgressUpdateStream = Lens.lens (progressUpdateStream :: ListCreatedArtifacts -> Lude.Text) (\s a -> s {progressUpdateStream = a} :: ListCreatedArtifacts)
+{-# DEPRECATED lcaProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-lcaMigrationTaskName :: Lens' ListCreatedArtifacts Text
-lcaMigrationTaskName = lens _lcaMigrationTaskName (\s a -> s {_lcaMigrationTaskName = a})
+--
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaMigrationTaskName :: Lens.Lens' ListCreatedArtifacts Lude.Text
+lcaMigrationTaskName = Lens.lens (migrationTaskName :: ListCreatedArtifacts -> Lude.Text) (\s a -> s {migrationTaskName = a} :: ListCreatedArtifacts)
+{-# DEPRECATED lcaMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
-instance AWSPager ListCreatedArtifacts where
+instance Page.AWSPager ListCreatedArtifacts where
   page rq rs
-    | stop (rs ^. lcarsNextToken) = Nothing
-    | stop (rs ^. lcarsCreatedArtifactList) = Nothing
-    | otherwise = Just $ rq & lcaNextToken .~ rs ^. lcarsNextToken
+    | Page.stop (rs Lens.^. lcarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcarsCreatedArtifactList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcaNextToken Lens..~ rs Lens.^. lcarsNextToken
 
-instance AWSRequest ListCreatedArtifacts where
+instance Lude.AWSRequest ListCreatedArtifacts where
   type Rs ListCreatedArtifacts = ListCreatedArtifactsResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCreatedArtifactsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "CreatedArtifactList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "CreatedArtifactList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCreatedArtifacts
-
-instance NFData ListCreatedArtifacts
-
-instance ToHeaders ListCreatedArtifacts where
+instance Lude.ToHeaders ListCreatedArtifacts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.ListCreatedArtifacts" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.ListCreatedArtifacts" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCreatedArtifacts where
+instance Lude.ToJSON ListCreatedArtifacts where
   toJSON ListCreatedArtifacts' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcaNextToken,
-            ("MaxResults" .=) <$> _lcaMaxResults,
-            Just ("ProgressUpdateStream" .= _lcaProgressUpdateStream),
-            Just ("MigrationTaskName" .= _lcaMigrationTaskName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
+            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName)
           ]
       )
 
-instance ToPath ListCreatedArtifacts where
-  toPath = const "/"
+instance Lude.ToPath ListCreatedArtifacts where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCreatedArtifacts where
-  toQuery = const mempty
+instance Lude.ToQuery ListCreatedArtifacts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCreatedArtifactsResponse' smart constructor.
+-- | /See:/ 'mkListCreatedArtifactsResponse' smart constructor.
 data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
-  { _lcarsNextToken ::
-      !(Maybe Text),
-    _lcarsCreatedArtifactList ::
-      !(Maybe [CreatedArtifact]),
-    _lcarsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    createdArtifactList ::
+      Lude.Maybe [CreatedArtifact],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCreatedArtifactsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcarsNextToken' - If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
---
--- * 'lcarsCreatedArtifactList' - List of created artifacts up to the maximum number of results specified in the request.
---
--- * 'lcarsResponseStatus' - -- | The response status code.
-listCreatedArtifactsResponse ::
-  -- | 'lcarsResponseStatus'
-  Int ->
+-- * 'createdArtifactList' - List of created artifacts up to the maximum number of results specified in the request.
+-- * 'nextToken' - If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+-- * 'responseStatus' - The response status code.
+mkListCreatedArtifactsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCreatedArtifactsResponse
-listCreatedArtifactsResponse pResponseStatus_ =
+mkListCreatedArtifactsResponse pResponseStatus_ =
   ListCreatedArtifactsResponse'
-    { _lcarsNextToken = Nothing,
-      _lcarsCreatedArtifactList = Nothing,
-      _lcarsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      createdArtifactList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
-lcarsNextToken :: Lens' ListCreatedArtifactsResponse (Maybe Text)
-lcarsNextToken = lens _lcarsNextToken (\s a -> s {_lcarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsNextToken :: Lens.Lens' ListCreatedArtifactsResponse (Lude.Maybe Lude.Text)
+lcarsNextToken = Lens.lens (nextToken :: ListCreatedArtifactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCreatedArtifactsResponse)
+{-# DEPRECATED lcarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of created artifacts up to the maximum number of results specified in the request.
-lcarsCreatedArtifactList :: Lens' ListCreatedArtifactsResponse [CreatedArtifact]
-lcarsCreatedArtifactList = lens _lcarsCreatedArtifactList (\s a -> s {_lcarsCreatedArtifactList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'createdArtifactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsCreatedArtifactList :: Lens.Lens' ListCreatedArtifactsResponse (Lude.Maybe [CreatedArtifact])
+lcarsCreatedArtifactList = Lens.lens (createdArtifactList :: ListCreatedArtifactsResponse -> Lude.Maybe [CreatedArtifact]) (\s a -> s {createdArtifactList = a} :: ListCreatedArtifactsResponse)
+{-# DEPRECATED lcarsCreatedArtifactList "Use generic-lens or generic-optics with 'createdArtifactList' instead." #-}
 
--- | -- | The response status code.
-lcarsResponseStatus :: Lens' ListCreatedArtifactsResponse Int
-lcarsResponseStatus = lens _lcarsResponseStatus (\s a -> s {_lcarsResponseStatus = a})
-
-instance NFData ListCreatedArtifactsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsResponseStatus :: Lens.Lens' ListCreatedArtifactsResponse Lude.Int
+lcarsResponseStatus = Lens.lens (responseStatus :: ListCreatedArtifactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCreatedArtifactsResponse)
+{-# DEPRECATED lcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

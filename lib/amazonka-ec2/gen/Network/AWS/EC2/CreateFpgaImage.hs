@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).
 --
---
 -- The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.
---
 -- An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <https://github.com/aws/aws-fpga/ AWS FPGA Hardware Development Kit> .
 module Network.AWS.EC2.CreateFpgaImage
-  ( -- * Creating a Request
-    createFpgaImage,
-    CreateFpgaImage,
+  ( -- * Creating a request
+    CreateFpgaImage (..),
+    mkCreateFpgaImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     creClientToken,
     creLogsStorageLocation,
     creTagSpecifications,
@@ -37,11 +30,11 @@ module Network.AWS.EC2.CreateFpgaImage
     creDryRun,
     creInputStorageLocation,
 
-    -- * Destructuring the Response
-    createFpgaImageResponse,
-    CreateFpgaImageResponse,
+    -- * Destructuring the response
+    CreateFpgaImageResponse (..),
+    mkCreateFpgaImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cfirsFpgaImageId,
     cfirsFpgaImageGlobalId,
     cfirsResponseStatus,
@@ -49,159 +42,186 @@ module Network.AWS.EC2.CreateFpgaImage
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createFpgaImage' smart constructor.
+-- | /See:/ 'mkCreateFpgaImage' smart constructor.
 data CreateFpgaImage = CreateFpgaImage'
-  { _creClientToken ::
-      !(Maybe Text),
-    _creLogsStorageLocation :: !(Maybe StorageLocation),
-    _creTagSpecifications :: !(Maybe [TagSpecification]),
-    _creName :: !(Maybe Text),
-    _creDescription :: !(Maybe Text),
-    _creDryRun :: !(Maybe Bool),
-    _creInputStorageLocation :: !StorageLocation
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    logsStorageLocation :: Lude.Maybe StorageLocation,
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    inputStorageLocation :: StorageLocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFpgaImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'creClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- * 'creLogsStorageLocation' - The location in Amazon S3 for the output logs.
---
--- * 'creTagSpecifications' - The tags to apply to the FPGA image during creation.
---
--- * 'creName' - A name for the AFI.
---
--- * 'creDescription' - A description for the AFI.
---
--- * 'creDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'creInputStorageLocation' - The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
-createFpgaImage ::
-  -- | 'creInputStorageLocation'
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'description' - A description for the AFI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'inputStorageLocation' - The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
+-- * 'logsStorageLocation' - The location in Amazon S3 for the output logs.
+-- * 'name' - A name for the AFI.
+-- * 'tagSpecifications' - The tags to apply to the FPGA image during creation.
+mkCreateFpgaImage ::
+  -- | 'inputStorageLocation'
   StorageLocation ->
   CreateFpgaImage
-createFpgaImage pInputStorageLocation_ =
+mkCreateFpgaImage pInputStorageLocation_ =
   CreateFpgaImage'
-    { _creClientToken = Nothing,
-      _creLogsStorageLocation = Nothing,
-      _creTagSpecifications = Nothing,
-      _creName = Nothing,
-      _creDescription = Nothing,
-      _creDryRun = Nothing,
-      _creInputStorageLocation = pInputStorageLocation_
+    { clientToken = Lude.Nothing,
+      logsStorageLocation = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      inputStorageLocation = pInputStorageLocation_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
-creClientToken :: Lens' CreateFpgaImage (Maybe Text)
-creClientToken = lens _creClientToken (\s a -> s {_creClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creClientToken :: Lens.Lens' CreateFpgaImage (Lude.Maybe Lude.Text)
+creClientToken = Lens.lens (clientToken :: CreateFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateFpgaImage)
+{-# DEPRECATED creClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The location in Amazon S3 for the output logs.
-creLogsStorageLocation :: Lens' CreateFpgaImage (Maybe StorageLocation)
-creLogsStorageLocation = lens _creLogsStorageLocation (\s a -> s {_creLogsStorageLocation = a})
+--
+-- /Note:/ Consider using 'logsStorageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creLogsStorageLocation :: Lens.Lens' CreateFpgaImage (Lude.Maybe StorageLocation)
+creLogsStorageLocation = Lens.lens (logsStorageLocation :: CreateFpgaImage -> Lude.Maybe StorageLocation) (\s a -> s {logsStorageLocation = a} :: CreateFpgaImage)
+{-# DEPRECATED creLogsStorageLocation "Use generic-lens or generic-optics with 'logsStorageLocation' instead." #-}
 
 -- | The tags to apply to the FPGA image during creation.
-creTagSpecifications :: Lens' CreateFpgaImage [TagSpecification]
-creTagSpecifications = lens _creTagSpecifications (\s a -> s {_creTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creTagSpecifications :: Lens.Lens' CreateFpgaImage (Lude.Maybe [TagSpecification])
+creTagSpecifications = Lens.lens (tagSpecifications :: CreateFpgaImage -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateFpgaImage)
+{-# DEPRECATED creTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | A name for the AFI.
-creName :: Lens' CreateFpgaImage (Maybe Text)
-creName = lens _creName (\s a -> s {_creName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creName :: Lens.Lens' CreateFpgaImage (Lude.Maybe Lude.Text)
+creName = Lens.lens (name :: CreateFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateFpgaImage)
+{-# DEPRECATED creName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A description for the AFI.
-creDescription :: Lens' CreateFpgaImage (Maybe Text)
-creDescription = lens _creDescription (\s a -> s {_creDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creDescription :: Lens.Lens' CreateFpgaImage (Lude.Maybe Lude.Text)
+creDescription = Lens.lens (description :: CreateFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateFpgaImage)
+{-# DEPRECATED creDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-creDryRun :: Lens' CreateFpgaImage (Maybe Bool)
-creDryRun = lens _creDryRun (\s a -> s {_creDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creDryRun :: Lens.Lens' CreateFpgaImage (Lude.Maybe Lude.Bool)
+creDryRun = Lens.lens (dryRun :: CreateFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateFpgaImage)
+{-# DEPRECATED creDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
-creInputStorageLocation :: Lens' CreateFpgaImage StorageLocation
-creInputStorageLocation = lens _creInputStorageLocation (\s a -> s {_creInputStorageLocation = a})
+--
+-- /Note:/ Consider using 'inputStorageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creInputStorageLocation :: Lens.Lens' CreateFpgaImage StorageLocation
+creInputStorageLocation = Lens.lens (inputStorageLocation :: CreateFpgaImage -> StorageLocation) (\s a -> s {inputStorageLocation = a} :: CreateFpgaImage)
+{-# DEPRECATED creInputStorageLocation "Use generic-lens or generic-optics with 'inputStorageLocation' instead." #-}
 
-instance AWSRequest CreateFpgaImage where
+instance Lude.AWSRequest CreateFpgaImage where
   type Rs CreateFpgaImage = CreateFpgaImageResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateFpgaImageResponse'
-            <$> (x .@? "fpgaImageId")
-            <*> (x .@? "fpgaImageGlobalId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "fpgaImageId")
+            Lude.<*> (x Lude..@? "fpgaImageGlobalId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateFpgaImage
+instance Lude.ToHeaders CreateFpgaImage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateFpgaImage
+instance Lude.ToPath CreateFpgaImage where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateFpgaImage where
-  toHeaders = const mempty
-
-instance ToPath CreateFpgaImage where
-  toPath = const "/"
-
-instance ToQuery CreateFpgaImage where
+instance Lude.ToQuery CreateFpgaImage where
   toQuery CreateFpgaImage' {..} =
-    mconcat
-      [ "Action" =: ("CreateFpgaImage" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _creClientToken,
-        "LogsStorageLocation" =: _creLogsStorageLocation,
-        toQuery (toQueryList "TagSpecification" <$> _creTagSpecifications),
-        "Name" =: _creName,
-        "Description" =: _creDescription,
-        "DryRun" =: _creDryRun,
-        "InputStorageLocation" =: _creInputStorageLocation
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateFpgaImage" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "LogsStorageLocation" Lude.=: logsStorageLocation,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "Name" Lude.=: name,
+        "Description" Lude.=: description,
+        "DryRun" Lude.=: dryRun,
+        "InputStorageLocation" Lude.=: inputStorageLocation
       ]
 
--- | /See:/ 'createFpgaImageResponse' smart constructor.
+-- | /See:/ 'mkCreateFpgaImageResponse' smart constructor.
 data CreateFpgaImageResponse = CreateFpgaImageResponse'
-  { _cfirsFpgaImageId ::
-      !(Maybe Text),
-    _cfirsFpgaImageGlobalId :: !(Maybe Text),
-    _cfirsResponseStatus :: !Int
+  { fpgaImageId ::
+      Lude.Maybe Lude.Text,
+    fpgaImageGlobalId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFpgaImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfirsFpgaImageId' - The FPGA image identifier (AFI ID).
---
--- * 'cfirsFpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
---
--- * 'cfirsResponseStatus' - -- | The response status code.
-createFpgaImageResponse ::
-  -- | 'cfirsResponseStatus'
-  Int ->
+-- * 'fpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
+-- * 'fpgaImageId' - The FPGA image identifier (AFI ID).
+-- * 'responseStatus' - The response status code.
+mkCreateFpgaImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateFpgaImageResponse
-createFpgaImageResponse pResponseStatus_ =
+mkCreateFpgaImageResponse pResponseStatus_ =
   CreateFpgaImageResponse'
-    { _cfirsFpgaImageId = Nothing,
-      _cfirsFpgaImageGlobalId = Nothing,
-      _cfirsResponseStatus = pResponseStatus_
+    { fpgaImageId = Lude.Nothing,
+      fpgaImageGlobalId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The FPGA image identifier (AFI ID).
-cfirsFpgaImageId :: Lens' CreateFpgaImageResponse (Maybe Text)
-cfirsFpgaImageId = lens _cfirsFpgaImageId (\s a -> s {_cfirsFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfirsFpgaImageId :: Lens.Lens' CreateFpgaImageResponse (Lude.Maybe Lude.Text)
+cfirsFpgaImageId = Lens.lens (fpgaImageId :: CreateFpgaImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: CreateFpgaImageResponse)
+{-# DEPRECATED cfirsFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The global FPGA image identifier (AGFI ID).
-cfirsFpgaImageGlobalId :: Lens' CreateFpgaImageResponse (Maybe Text)
-cfirsFpgaImageGlobalId = lens _cfirsFpgaImageGlobalId (\s a -> s {_cfirsFpgaImageGlobalId = a})
+--
+-- /Note:/ Consider using 'fpgaImageGlobalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfirsFpgaImageGlobalId :: Lens.Lens' CreateFpgaImageResponse (Lude.Maybe Lude.Text)
+cfirsFpgaImageGlobalId = Lens.lens (fpgaImageGlobalId :: CreateFpgaImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageGlobalId = a} :: CreateFpgaImageResponse)
+{-# DEPRECATED cfirsFpgaImageGlobalId "Use generic-lens or generic-optics with 'fpgaImageGlobalId' instead." #-}
 
--- | -- | The response status code.
-cfirsResponseStatus :: Lens' CreateFpgaImageResponse Int
-cfirsResponseStatus = lens _cfirsResponseStatus (\s a -> s {_cfirsResponseStatus = a})
-
-instance NFData CreateFpgaImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfirsResponseStatus :: Lens.Lens' CreateFpgaImageResponse Lude.Int
+cfirsResponseStatus = Lens.lens (responseStatus :: CreateFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFpgaImageResponse)
+{-# DEPRECATED cfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentStatus where
+module Network.AWS.SSM.Types.DocumentStatus
+  ( DocumentStatus
+      ( DocumentStatus',
+        DSActive,
+        DSCreating,
+        DSDeleting,
+        DSFailed,
+        DSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of a document.
-data DocumentStatus
-  = DSActive
-  | DSCreating
-  | DSDeleting
-  | DSFailed
-  | DSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentStatus = DocumentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DSActive
-      "creating" -> pure DSCreating
-      "deleting" -> pure DSDeleting
-      "failed" -> pure DSFailed
-      "updating" -> pure DSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing DocumentStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, failed, updating"
+pattern DSActive :: DocumentStatus
+pattern DSActive = DocumentStatus' "Active"
 
-instance ToText DocumentStatus where
-  toText = \case
-    DSActive -> "Active"
-    DSCreating -> "Creating"
-    DSDeleting -> "Deleting"
-    DSFailed -> "Failed"
-    DSUpdating -> "Updating"
+pattern DSCreating :: DocumentStatus
+pattern DSCreating = DocumentStatus' "Creating"
 
-instance Hashable DocumentStatus
+pattern DSDeleting :: DocumentStatus
+pattern DSDeleting = DocumentStatus' "Deleting"
 
-instance NFData DocumentStatus
+pattern DSFailed :: DocumentStatus
+pattern DSFailed = DocumentStatus' "Failed"
 
-instance ToByteString DocumentStatus
+pattern DSUpdating :: DocumentStatus
+pattern DSUpdating = DocumentStatus' "Updating"
 
-instance ToQuery DocumentStatus
-
-instance ToHeader DocumentStatus
-
-instance FromJSON DocumentStatus where
-  parseJSON = parseJSONText "DocumentStatus"
+{-# COMPLETE
+  DSActive,
+  DSCreating,
+  DSDeleting,
+  DSFailed,
+  DSUpdating,
+  DocumentStatus'
+  #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,12 +8,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types
-  ( -- * Service Configuration
-    s3,
+  ( -- * Service configuration
+    s3Service,
 
     -- * Errors
 
-    -- * Re-exported Types
+    -- * Re-exported types
     module Network.AWS.S3.Internal,
 
     -- * AnalyticsS3ExportFileFormat
@@ -178,83 +176,83 @@ module Network.AWS.S3.Types
     Type (..),
 
     -- * AbortIncompleteMultipartUpload
-    AbortIncompleteMultipartUpload,
-    abortIncompleteMultipartUpload,
+    AbortIncompleteMultipartUpload (..),
+    mkAbortIncompleteMultipartUpload,
     aimuDaysAfterInitiation,
 
     -- * AccelerateConfiguration
-    AccelerateConfiguration,
-    accelerateConfiguration,
+    AccelerateConfiguration (..),
+    mkAccelerateConfiguration,
     acStatus,
 
     -- * AccessControlPolicy
-    AccessControlPolicy,
-    accessControlPolicy,
+    AccessControlPolicy (..),
+    mkAccessControlPolicy,
     acpGrants,
     acpOwner,
 
     -- * AccessControlTranslation
-    AccessControlTranslation,
-    accessControlTranslation,
+    AccessControlTranslation (..),
+    mkAccessControlTranslation,
     actOwner,
 
     -- * AnalyticsAndOperator
-    AnalyticsAndOperator,
-    analyticsAndOperator,
+    AnalyticsAndOperator (..),
+    mkAnalyticsAndOperator,
     aaoPrefix,
     aaoTags,
 
     -- * AnalyticsConfiguration
-    AnalyticsConfiguration,
-    analyticsConfiguration,
+    AnalyticsConfiguration (..),
+    mkAnalyticsConfiguration,
     acFilter,
     acId,
     acStorageClassAnalysis,
 
     -- * AnalyticsExportDestination
-    AnalyticsExportDestination,
-    analyticsExportDestination,
+    AnalyticsExportDestination (..),
+    mkAnalyticsExportDestination,
     aedS3BucketDestination,
 
     -- * AnalyticsFilter
-    AnalyticsFilter,
-    analyticsFilter,
+    AnalyticsFilter (..),
+    mkAnalyticsFilter,
     afTag,
     afPrefix,
     afAnd,
 
     -- * AnalyticsS3BucketDestination
-    AnalyticsS3BucketDestination,
-    analyticsS3BucketDestination,
+    AnalyticsS3BucketDestination (..),
+    mkAnalyticsS3BucketDestination,
     asbdBucketAccountId,
     asbdPrefix,
     asbdFormat,
     asbdBucket,
 
     -- * Bucket
-    Bucket,
-    bucket,
+    Bucket (..),
+    mkBucket,
     bCreationDate,
     bName,
 
     -- * BucketLifecycleConfiguration
-    BucketLifecycleConfiguration,
-    bucketLifecycleConfiguration,
+    BucketLifecycleConfiguration (..),
+    mkBucketLifecycleConfiguration,
     blcRules,
 
     -- * BucketLoggingStatus
-    BucketLoggingStatus,
-    bucketLoggingStatus,
+    BucketLoggingStatus (..),
+    mkBucketLoggingStatus,
     blsLoggingEnabled,
 
     -- * CORSConfiguration
-    CORSConfiguration,
-    corsConfiguration,
+    CORSConfiguration (..),
+    mkCORSConfiguration,
     ccCORSRules,
 
     -- * CORSRule
-    CORSRule,
-    corsRule,
+    CORSRule (..),
+    mkCORSRule,
     crMaxAgeSeconds,
     crAllowedHeaders,
     crExposeHeaders,
@@ -262,8 +260,8 @@ module Network.AWS.S3.Types
     crAllowedOrigins,
 
     -- * CSVInput
-    CSVInput,
-    csvInput,
+    CSVInput (..),
+    mkCSVInput,
     ciQuoteCharacter,
     ciRecordDelimiter,
     ciAllowQuotedRecordDelimiter,
@@ -273,8 +271,8 @@ module Network.AWS.S3.Types
     ciFieldDelimiter,
 
     -- * CSVOutput
-    CSVOutput,
-    csvOutput,
+    CSVOutput (..),
+    mkCSVOutput,
     coQuoteCharacter,
     coQuoteFields,
     coRecordDelimiter,
@@ -282,64 +280,64 @@ module Network.AWS.S3.Types
     coFieldDelimiter,
 
     -- * CommonPrefix
-    CommonPrefix,
-    commonPrefix,
+    CommonPrefix (..),
+    mkCommonPrefix,
     cpPrefix,
 
     -- * CompletedMultipartUpload
-    CompletedMultipartUpload,
-    completedMultipartUpload,
+    CompletedMultipartUpload (..),
+    mkCompletedMultipartUpload,
     cmuParts,
 
     -- * CompletedPart
-    CompletedPart,
-    completedPart,
+    CompletedPart (..),
+    mkCompletedPart,
     cpPartNumber,
     cpETag,
 
     -- * Condition
-    Condition,
-    condition,
+    Condition (..),
+    mkCondition,
     cKeyPrefixEquals,
     cHTTPErrorCodeReturnedEquals,
 
     -- * ContinuationEvent
-    ContinuationEvent,
-    continuationEvent,
+    ContinuationEvent (..),
+    mkContinuationEvent,
 
     -- * CopyObjectResult
-    CopyObjectResult,
-    copyObjectResult,
+    CopyObjectResult (..),
+    mkCopyObjectResult,
     corETag,
     corLastModified,
 
     -- * CopyPartResult
-    CopyPartResult,
-    copyPartResult,
+    CopyPartResult (..),
+    mkCopyPartResult,
     cprETag,
     cprLastModified,
 
     -- * CreateBucketConfiguration
-    CreateBucketConfiguration,
-    createBucketConfiguration,
+    CreateBucketConfiguration (..),
+    mkCreateBucketConfiguration,
     cbcLocationConstraint,
 
     -- * DefaultRetention
-    DefaultRetention,
-    defaultRetention,
+    DefaultRetention (..),
+    mkDefaultRetention,
     drDays,
     drMode,
     drYears,
 
     -- * Delete
-    Delete,
-    delete',
+    Delete (..),
+    mkDelete,
     dQuiet,
     dObjects,
 
     -- * DeleteMarkerEntry
-    DeleteMarkerEntry,
-    deleteMarkerEntry,
+    DeleteMarkerEntry (..),
+    mkDeleteMarkerEntry,
     dmeVersionId,
     dmeIsLatest,
     dmeOwner,
@@ -347,21 +345,21 @@ module Network.AWS.S3.Types
     dmeLastModified,
 
     -- * DeleteMarkerReplication
-    DeleteMarkerReplication,
-    deleteMarkerReplication,
+    DeleteMarkerReplication (..),
+    mkDeleteMarkerReplication,
     dmrStatus,
 
     -- * DeletedObject
-    DeletedObject,
-    deletedObject,
+    DeletedObject (..),
+    mkDeletedObject,
     dVersionId,
     dDeleteMarker,
     dDeleteMarkerVersionId,
     dKey,
 
     -- * Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dMetrics,
     dAccessControlTranslation,
     dAccount,
@@ -371,51 +369,51 @@ module Network.AWS.S3.Types
     dBucket,
 
     -- * Encryption
-    Encryption,
-    encryption,
+    Encryption (..),
+    mkEncryption,
     eKMSKeyId,
     eKMSContext,
     eEncryptionType,
 
     -- * EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecReplicaKMSKeyId,
 
     -- * EndEvent
-    EndEvent,
-    endEvent,
+    EndEvent (..),
+    mkEndEvent,
 
     -- * ErrorDocument
-    ErrorDocument,
-    errorDocument,
+    ErrorDocument (..),
+    mkErrorDocument,
     edKey,
 
     -- * ExistingObjectReplication
-    ExistingObjectReplication,
-    existingObjectReplication,
+    ExistingObjectReplication (..),
+    mkExistingObjectReplication,
     eorStatus,
 
     -- * FilterRule
-    FilterRule,
-    filterRule,
+    FilterRule (..),
+    mkFilterRule,
     frValue,
     frName,
 
     -- * GlacierJobParameters
-    GlacierJobParameters,
-    glacierJobParameters,
+    GlacierJobParameters (..),
+    mkGlacierJobParameters,
     gjpTier,
 
     -- * Grant
-    Grant,
-    grant,
+    Grant (..),
+    mkGrant,
     gPermission,
     gGrantee,
 
     -- * Grantee
-    Grantee,
-    grantee,
+    Grantee (..),
+    mkGrantee,
     gURI,
     gEmailAddress,
     gDisplayName,
@@ -423,48 +421,48 @@ module Network.AWS.S3.Types
     gType,
 
     -- * IndexDocument
-    IndexDocument,
-    indexDocument,
+    IndexDocument (..),
+    mkIndexDocument,
     idSuffix,
 
     -- * Initiator
-    Initiator,
-    initiator,
+    Initiator (..),
+    mkInitiator,
     iDisplayName,
     iId,
 
     -- * InputSerialization
-    InputSerialization,
-    inputSerialization,
+    InputSerialization (..),
+    mkInputSerialization,
     isJSON,
     isCSV,
     isParquet,
     isCompressionType,
 
     -- * IntelligentTieringAndOperator
-    IntelligentTieringAndOperator,
-    intelligentTieringAndOperator,
+    IntelligentTieringAndOperator (..),
+    mkIntelligentTieringAndOperator,
     itaoPrefix,
     itaoTags,
 
     -- * IntelligentTieringConfiguration
-    IntelligentTieringConfiguration,
-    intelligentTieringConfiguration,
+    IntelligentTieringConfiguration (..),
+    mkIntelligentTieringConfiguration,
     itcFilter,
     itcId,
     itcStatus,
     itcTierings,
 
     -- * IntelligentTieringFilter
-    IntelligentTieringFilter,
-    intelligentTieringFilter,
+    IntelligentTieringFilter (..),
+    mkIntelligentTieringFilter,
     itfTag,
     itfPrefix,
     itfAnd,
 
     -- * InventoryConfiguration
-    InventoryConfiguration,
-    inventoryConfiguration,
+    InventoryConfiguration (..),
+    mkInventoryConfiguration,
     icOptionalFields,
     icFilter,
     icDestination,
@@ -474,24 +472,24 @@ module Network.AWS.S3.Types
     icSchedule,
 
     -- * InventoryDestination
-    InventoryDestination,
-    inventoryDestination,
+    InventoryDestination (..),
+    mkInventoryDestination,
     idS3BucketDestination,
 
     -- * InventoryEncryption
-    InventoryEncryption,
-    inventoryEncryption,
+    InventoryEncryption (..),
+    mkInventoryEncryption,
     ieSSES3,
     ieSSEKMS,
 
     -- * InventoryFilter
-    InventoryFilter,
-    inventoryFilter,
+    InventoryFilter (..),
+    mkInventoryFilter,
     ifPrefix,
 
     -- * InventoryS3BucketDestination
-    InventoryS3BucketDestination,
-    inventoryS3BucketDestination,
+    InventoryS3BucketDestination (..),
+    mkInventoryS3BucketDestination,
     isbdPrefix,
     isbdAccountId,
     isbdEncryption,
@@ -499,38 +497,38 @@ module Network.AWS.S3.Types
     isbdFormat,
 
     -- * InventorySchedule
-    InventorySchedule,
-    inventorySchedule,
+    InventorySchedule (..),
+    mkInventorySchedule,
     isFrequency,
 
     -- * JSONInput
-    JSONInput,
-    jsonInput,
+    JSONInput (..),
+    mkJSONInput,
     jiType,
 
     -- * JSONOutput
-    JSONOutput,
-    jsonOutput,
+    JSONOutput (..),
+    mkJSONOutput,
     joRecordDelimiter,
 
     -- * LambdaFunctionConfiguration
-    LambdaFunctionConfiguration,
-    lambdaFunctionConfiguration,
+    LambdaFunctionConfiguration (..),
+    mkLambdaFunctionConfiguration,
     lfcId,
     lfcFilter,
     lfcLambdaFunctionARN,
     lfcEvents,
 
     -- * LifecycleExpiration
-    LifecycleExpiration,
-    lifecycleExpiration,
+    LifecycleExpiration (..),
+    mkLifecycleExpiration,
     leDays,
     leDate,
     leExpiredObjectDeleteMarker,
 
     -- * LifecycleRule
-    LifecycleRule,
-    lifecycleRule,
+    LifecycleRule (..),
+    mkLifecycleRule,
     lrTransitions,
     lrNoncurrentVersionExpiration,
     lrPrefix,
@@ -542,59 +540,59 @@ module Network.AWS.S3.Types
     lrStatus,
 
     -- * LifecycleRuleAndOperator
-    LifecycleRuleAndOperator,
-    lifecycleRuleAndOperator,
+    LifecycleRuleAndOperator (..),
+    mkLifecycleRuleAndOperator,
     lraoPrefix,
     lraoTags,
 
     -- * LifecycleRuleFilter
-    LifecycleRuleFilter,
-    lifecycleRuleFilter,
+    LifecycleRuleFilter (..),
+    mkLifecycleRuleFilter,
     lrfTag,
     lrfPrefix,
     lrfAnd,
 
     -- * LoggingEnabled
-    LoggingEnabled,
-    loggingEnabled,
+    LoggingEnabled (..),
+    mkLoggingEnabled,
     leTargetGrants,
     leTargetBucket,
     leTargetPrefix,
 
     -- * MetadataEntry
-    MetadataEntry,
-    metadataEntry,
+    MetadataEntry (..),
+    mkMetadataEntry,
     meValue,
     meName,
 
     -- * Metrics
-    Metrics,
-    metrics,
+    Metrics (..),
+    mkMetrics,
     mEventThreshold,
     mStatus,
 
     -- * MetricsAndOperator
-    MetricsAndOperator,
-    metricsAndOperator,
+    MetricsAndOperator (..),
+    mkMetricsAndOperator,
     maoPrefix,
     maoTags,
 
     -- * MetricsConfiguration
-    MetricsConfiguration,
-    metricsConfiguration,
+    MetricsConfiguration (..),
+    mkMetricsConfiguration,
     mcFilter,
     mcId,
 
     -- * MetricsFilter
-    MetricsFilter,
-    metricsFilter,
+    MetricsFilter (..),
+    mkMetricsFilter,
     mfTag,
     mfPrefix,
     mfAnd,
 
     -- * MultipartUpload
-    MultipartUpload,
-    multipartUpload,
+    MultipartUpload (..),
+    mkMultipartUpload,
     muInitiated,
     muInitiator,
     muOwner,
@@ -603,31 +601,31 @@ module Network.AWS.S3.Types
     muUploadId,
 
     -- * NoncurrentVersionExpiration
-    NoncurrentVersionExpiration,
-    noncurrentVersionExpiration,
+    NoncurrentVersionExpiration (..),
+    mkNoncurrentVersionExpiration,
     nveNoncurrentDays,
 
     -- * NoncurrentVersionTransition
-    NoncurrentVersionTransition,
-    noncurrentVersionTransition,
+    NoncurrentVersionTransition (..),
+    mkNoncurrentVersionTransition,
     nvtNoncurrentDays,
     nvtStorageClass,
 
     -- * NotificationConfiguration
-    NotificationConfiguration,
-    notificationConfiguration,
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
     ncQueueConfigurations,
     ncTopicConfigurations,
     ncLambdaFunctionConfigurations,
 
     -- * NotificationConfigurationFilter
-    NotificationConfigurationFilter,
-    notificationConfigurationFilter,
+    NotificationConfigurationFilter (..),
+    mkNotificationConfigurationFilter,
     ncfKey,
 
     -- * Object
-    Object,
-    object',
+    Object (..),
+    mkObject,
     oOwner,
     oETag,
     oSize,
@@ -636,36 +634,36 @@ module Network.AWS.S3.Types
     oLastModified,
 
     -- * ObjectIdentifier
-    ObjectIdentifier,
-    objectIdentifier,
+    ObjectIdentifier (..),
+    mkObjectIdentifier,
     oiVersionId,
     oiKey,
 
     -- * ObjectLockConfiguration
-    ObjectLockConfiguration,
-    objectLockConfiguration,
+    ObjectLockConfiguration (..),
+    mkObjectLockConfiguration,
     olcObjectLockEnabled,
     olcRule,
 
     -- * ObjectLockLegalHold
-    ObjectLockLegalHold,
-    objectLockLegalHold,
+    ObjectLockLegalHold (..),
+    mkObjectLockLegalHold,
     ollhStatus,
 
     -- * ObjectLockRetention
-    ObjectLockRetention,
-    objectLockRetention,
+    ObjectLockRetention (..),
+    mkObjectLockRetention,
     olrMode,
     olrRetainUntilDate,
 
     -- * ObjectLockRule
-    ObjectLockRule,
-    objectLockRule,
+    ObjectLockRule (..),
+    mkObjectLockRule,
     olrDefaultRetention,
 
     -- * ObjectVersion
-    ObjectVersion,
-    objectVersion,
+    ObjectVersion (..),
+    mkObjectVersion,
     ovETag,
     ovVersionId,
     ovSize,
@@ -676,85 +674,85 @@ module Network.AWS.S3.Types
     ovLastModified,
 
     -- * OutputLocation
-    OutputLocation,
-    outputLocation,
+    OutputLocation (..),
+    mkOutputLocation,
     olS3,
 
     -- * OutputSerialization
-    OutputSerialization,
-    outputSerialization,
+    OutputSerialization (..),
+    mkOutputSerialization,
     osJSON,
     osCSV,
 
     -- * Owner
-    Owner,
-    owner,
+    Owner (..),
+    mkOwner,
     oDisplayName,
     oId,
 
     -- * OwnershipControls
-    OwnershipControls,
-    ownershipControls,
+    OwnershipControls (..),
+    mkOwnershipControls,
     ocRules,
 
     -- * OwnershipControlsRule
-    OwnershipControlsRule,
-    ownershipControlsRule,
+    OwnershipControlsRule (..),
+    mkOwnershipControlsRule,
     ocrObjectOwnership,
 
     -- * ParquetInput
-    ParquetInput,
-    parquetInput,
+    ParquetInput (..),
+    mkParquetInput,
 
     -- * Part
-    Part,
-    part,
+    Part (..),
+    mkPart,
     pETag,
     pSize,
     pPartNumber,
     pLastModified,
 
     -- * PolicyStatus
-    PolicyStatus,
-    policyStatus,
+    PolicyStatus (..),
+    mkPolicyStatus,
     psIsPublic,
 
     -- * Progress
-    Progress,
-    progress,
+    Progress (..),
+    mkProgress,
     pBytesReturned,
     pBytesScanned,
     pBytesProcessed,
 
     -- * ProgressEvent
-    ProgressEvent,
-    progressEvent,
+    ProgressEvent (..),
+    mkProgressEvent,
     peDetails,
 
     -- * PublicAccessBlockConfiguration
-    PublicAccessBlockConfiguration,
-    publicAccessBlockConfiguration,
+    PublicAccessBlockConfiguration (..),
+    mkPublicAccessBlockConfiguration,
     pabcIgnorePublicACLs,
     pabcBlockPublicACLs,
     pabcRestrictPublicBuckets,
     pabcBlockPublicPolicy,
 
     -- * QueueConfiguration
-    QueueConfiguration,
-    queueConfiguration,
+    QueueConfiguration (..),
+    mkQueueConfiguration,
     qcId,
     qcFilter,
     qcQueueARN,
     qcEvents,
 
     -- * RecordsEvent
-    RecordsEvent,
-    recordsEvent,
+    RecordsEvent (..),
+    mkRecordsEvent,
     rePayload,
 
     -- * Redirect
-    Redirect,
-    redirect,
+    Redirect (..),
+    mkRedirect,
     rHostName,
     rProtocol,
     rHTTPRedirectCode,
@@ -762,20 +760,20 @@ module Network.AWS.S3.Types
     rReplaceKeyPrefixWith,
 
     -- * RedirectAllRequestsTo
-    RedirectAllRequestsTo,
-    redirectAllRequestsTo,
+    RedirectAllRequestsTo (..),
+    mkRedirectAllRequestsTo,
     rartProtocol,
     rartHostName,
 
     -- * ReplicationConfiguration
-    ReplicationConfiguration,
-    replicationConfiguration,
+    ReplicationConfiguration (..),
+    mkReplicationConfiguration,
     rcRole,
     rcRules,
 
     -- * ReplicationRule
-    ReplicationRule,
-    replicationRule,
+    ReplicationRule (..),
+    mkReplicationRule,
     rrDeleteMarkerReplication,
     rrPriority,
     rrPrefix,
@@ -787,42 +785,42 @@ module Network.AWS.S3.Types
     rrDestination,
 
     -- * ReplicationRuleAndOperator
-    ReplicationRuleAndOperator,
-    replicationRuleAndOperator,
+    ReplicationRuleAndOperator (..),
+    mkReplicationRuleAndOperator,
     rraoPrefix,
     rraoTags,
 
     -- * ReplicationRuleFilter
-    ReplicationRuleFilter,
-    replicationRuleFilter,
+    ReplicationRuleFilter (..),
+    mkReplicationRuleFilter,
     rrfTag,
     rrfPrefix,
     rrfAnd,
 
     -- * ReplicationTime
-    ReplicationTime,
-    replicationTime,
+    ReplicationTime (..),
+    mkReplicationTime,
     rtStatus,
     rtTime,
 
     -- * ReplicationTimeValue
-    ReplicationTimeValue,
-    replicationTimeValue,
+    ReplicationTimeValue (..),
+    mkReplicationTimeValue,
     rtvMinutes,
 
     -- * RequestPaymentConfiguration
-    RequestPaymentConfiguration,
-    requestPaymentConfiguration,
+    RequestPaymentConfiguration (..),
+    mkRequestPaymentConfiguration,
     rpcPayer,
 
     -- * RequestProgress
-    RequestProgress,
-    requestProgress,
+    RequestProgress (..),
+    mkRequestProgress,
     rpEnabled,
 
     -- * RestoreRequest
-    RestoreRequest,
-    restoreRequest,
+    RestoreRequest (..),
+    mkRestoreRequest,
     rrDays,
     rrSelectParameters,
     rrOutputLocation,
@@ -832,19 +830,19 @@ module Network.AWS.S3.Types
     rrDescription,
 
     -- * RoutingRule
-    RoutingRule,
-    routingRule,
+    RoutingRule (..),
+    mkRoutingRule,
     rrCondition,
     rrRedirect,
 
     -- * S3KeyFilter
-    S3KeyFilter,
-    s3KeyFilter,
+    S3KeyFilter (..),
+    mkS3KeyFilter,
     skfFilterRules,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slCannedACL,
     slAccessControlList,
     slUserMetadata,
@@ -855,31 +853,31 @@ module Network.AWS.S3.Types
     slPrefix,
 
     -- * S3ServiceError
-    S3ServiceError,
-    s3ServiceError,
+    S3ServiceError (..),
+    mkS3ServiceError,
     sseVersionId,
     sseKey,
     sseCode,
     sseMessage,
 
     -- * SSEKMS
-    SSEKMS,
-    sSEKMS,
+    SSEKMS (..),
+    mkSSEKMS,
     ssekKeyId,
 
     -- * SSES3
-    SSES3,
-    sSES3,
+    SSES3 (..),
+    mkSSES3,
 
     -- * ScanRange
-    ScanRange,
-    scanRange,
+    ScanRange (..),
+    mkScanRange,
     srStart,
     srEnd,
 
     -- * SelectObjectContentEventStream
-    SelectObjectContentEventStream,
-    selectObjectContentEventStream,
+    SelectObjectContentEventStream (..),
+    mkSelectObjectContentEventStream,
     socesProgress,
     socesRecords,
     socesCont,
@@ -887,109 +885,109 @@ module Network.AWS.S3.Types
     socesEnd,
 
     -- * SelectParameters
-    SelectParameters,
-    selectParameters,
+    SelectParameters (..),
+    mkSelectParameters,
     spInputSerialization,
     spExpressionType,
     spExpression,
     spOutputSerialization,
 
     -- * ServerSideEncryptionByDefault
-    ServerSideEncryptionByDefault,
-    serverSideEncryptionByDefault,
+    ServerSideEncryptionByDefault (..),
+    mkServerSideEncryptionByDefault,
     ssebdKMSMasterKeyId,
     ssebdSSEAlgorithm,
 
     -- * ServerSideEncryptionConfiguration
-    ServerSideEncryptionConfiguration,
-    serverSideEncryptionConfiguration,
+    ServerSideEncryptionConfiguration (..),
+    mkServerSideEncryptionConfiguration,
     ssecRules,
 
     -- * ServerSideEncryptionRule
-    ServerSideEncryptionRule,
-    serverSideEncryptionRule,
+    ServerSideEncryptionRule (..),
+    mkServerSideEncryptionRule,
     sserApplyServerSideEncryptionByDefault,
 
     -- * SourceSelectionCriteria
-    SourceSelectionCriteria,
-    sourceSelectionCriteria,
+    SourceSelectionCriteria (..),
+    mkSourceSelectionCriteria,
     sscSseKMSEncryptedObjects,
 
     -- * SseKMSEncryptedObjects
-    SseKMSEncryptedObjects,
-    sseKMSEncryptedObjects,
+    SseKMSEncryptedObjects (..),
+    mkSseKMSEncryptedObjects,
     skeoStatus,
 
     -- * Stats
-    Stats,
-    stats,
+    Stats (..),
+    mkStats,
     sBytesReturned,
     sBytesScanned,
     sBytesProcessed,
 
     -- * StatsEvent
-    StatsEvent,
-    statsEvent,
+    StatsEvent (..),
+    mkStatsEvent,
     seDetails,
 
     -- * StorageClassAnalysis
-    StorageClassAnalysis,
-    storageClassAnalysis,
+    StorageClassAnalysis (..),
+    mkStorageClassAnalysis,
     scaDataExport,
 
     -- * StorageClassAnalysisDataExport
-    StorageClassAnalysisDataExport,
-    storageClassAnalysisDataExport,
+    StorageClassAnalysisDataExport (..),
+    mkStorageClassAnalysisDataExport,
     scadeOutputSchemaVersion,
     scadeDestination,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Tagging
-    Tagging,
-    tagging,
+    Tagging (..),
+    mkTagging,
     tTagSet,
 
     -- * TargetGrant
-    TargetGrant,
-    targetGrant,
+    TargetGrant (..),
+    mkTargetGrant,
     tgPermission,
     tgGrantee,
 
     -- * Tiering
-    Tiering,
-    tiering,
+    Tiering (..),
+    mkTiering,
     tDays,
     tAccessTier,
 
     -- * TopicConfiguration
-    TopicConfiguration,
-    topicConfiguration,
+    TopicConfiguration (..),
+    mkTopicConfiguration,
     tcId,
     tcFilter,
     tcTopicARN,
     tcEvents,
 
     -- * Transition
-    Transition,
-    transition,
+    Transition (..),
+    mkTransition,
     traDays,
     traDate,
     traStorageClass,
 
     -- * VersioningConfiguration
-    VersioningConfiguration,
-    versioningConfiguration,
+    VersioningConfiguration (..),
+    mkVersioningConfiguration,
     vcStatus,
     vcMFADelete,
 
     -- * WebsiteConfiguration
-    WebsiteConfiguration,
-    websiteConfiguration,
+    WebsiteConfiguration (..),
+    mkWebsiteConfiguration,
     wcRedirectAllRequestsTo,
     wcErrorDocument,
     wcIndexDocument,
@@ -997,8 +995,8 @@ module Network.AWS.S3.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AbortIncompleteMultipartUpload
 import Network.AWS.S3.Types.AccelerateConfiguration
@@ -1179,49 +1177,64 @@ import Network.AWS.S3.Types.TransitionStorageClass
 import Network.AWS.S3.Types.Type
 import Network.AWS.S3.Types.VersioningConfiguration
 import Network.AWS.S3.Types.WebsiteConfiguration
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2006-03-01@ of the Amazon Simple Storage Service SDK configuration.
-s3 :: Service
-s3 =
-  Service
-    { _svcAbbrev = "S3",
-      _svcSigner = v4,
-      _svcPrefix = "s3",
-      _svcVersion = "2006-03-01",
-      _svcEndpoint = defaultEndpoint s3,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "S3",
-      _svcRetry = retry
+s3Service :: Lude.Service
+s3Service =
+  Lude.Service
+    { Lude._svcAbbrev = "S3",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "s3",
+      Lude._svcVersion = "2006-03-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint s3Service,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "S3",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasCode "RequestTimeout" . hasStatus 400) e =
-        Just "timeouts"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasCode "BadDigest" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "contentmd5"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has
+          (Lude.hasCode "RequestTimeout" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "timeouts"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,47 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.TagKeyOnly where
+module Network.AWS.ELB.Types.TagKeyOnly
+  ( TagKeyOnly (..),
+
+    -- * Smart constructor
+    mkTagKeyOnly,
+
+    -- * Lenses
+    tkoKey,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The key of a tag.
 --
---
---
--- /See:/ 'tagKeyOnly' smart constructor.
-newtype TagKeyOnly = TagKeyOnly' {_tkoKey :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTagKeyOnly' smart constructor.
+newtype TagKeyOnly = TagKeyOnly' {key :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagKeyOnly' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tkoKey' - The name of the key.
-tagKeyOnly ::
+-- * 'key' - The name of the key.
+mkTagKeyOnly ::
   TagKeyOnly
-tagKeyOnly = TagKeyOnly' {_tkoKey = Nothing}
+mkTagKeyOnly = TagKeyOnly' {key = Lude.Nothing}
 
 -- | The name of the key.
-tkoKey :: Lens' TagKeyOnly (Maybe Text)
-tkoKey = lens _tkoKey (\s a -> s {_tkoKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tkoKey :: Lens.Lens' TagKeyOnly (Lude.Maybe Lude.Text)
+tkoKey = Lens.lens (key :: TagKeyOnly -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagKeyOnly)
+{-# DEPRECATED tkoKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable TagKeyOnly
-
-instance NFData TagKeyOnly
-
-instance ToQuery TagKeyOnly where
-  toQuery TagKeyOnly' {..} = mconcat ["Key" =: _tkoKey]
+instance Lude.ToQuery TagKeyOnly where
+  toQuery TagKeyOnly' {..} = Lude.mconcat ["Key" Lude.=: key]

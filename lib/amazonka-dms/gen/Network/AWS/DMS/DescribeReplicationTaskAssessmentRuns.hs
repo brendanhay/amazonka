@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Returns a paginated list of premigration assessment runs based on filter settings.
 --
---
 -- These filter settings can specify a combination of premigration assessment runs, migration tasks, replication instances, and assessment run status values.
 module Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
-  ( -- * Creating a Request
-    describeReplicationTaskAssessmentRuns,
-    DescribeReplicationTaskAssessmentRuns,
+  ( -- * Creating a request
+    DescribeReplicationTaskAssessmentRuns (..),
+    mkDescribeReplicationTaskAssessmentRuns,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drtarFilters,
     drtarMarker,
     drtarMaxRecords,
 
-    -- * Destructuring the Response
-    describeReplicationTaskAssessmentRunsResponse,
-    DescribeReplicationTaskAssessmentRunsResponse,
+    -- * Destructuring the response
+    DescribeReplicationTaskAssessmentRunsResponse (..),
+    mkDescribeReplicationTaskAssessmentRunsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drtarsrsReplicationTaskAssessmentRuns,
     drtarsrsMarker,
     drtarsrsResponseStatus,
@@ -43,161 +37,175 @@ module Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTaskAssessmentRuns' smart constructor.
+-- /See:/ 'mkDescribeReplicationTaskAssessmentRuns' smart constructor.
 data DescribeReplicationTaskAssessmentRuns = DescribeReplicationTaskAssessmentRuns'
-  { _drtarFilters ::
-      !( Maybe
-           [Filter]
-       ),
-    _drtarMarker ::
-      !(Maybe Text),
-    _drtarMaxRecords ::
-      !(Maybe Int)
+  { filters ::
+      Lude.Maybe
+        [Filter],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxRecords ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskAssessmentRuns' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Filters applied to the premigration assessment runs described in the form of key-value pairs.
 --
--- * 'drtarFilters' - Filters applied to the premigration assessment runs described in the form of key-value pairs. Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
---
--- * 'drtarMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'drtarMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-describeReplicationTaskAssessmentRuns ::
+-- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+mkDescribeReplicationTaskAssessmentRuns ::
   DescribeReplicationTaskAssessmentRuns
-describeReplicationTaskAssessmentRuns =
+mkDescribeReplicationTaskAssessmentRuns =
   DescribeReplicationTaskAssessmentRuns'
-    { _drtarFilters = Nothing,
-      _drtarMarker = Nothing,
-      _drtarMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
--- | Filters applied to the premigration assessment runs described in the form of key-value pairs. Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
-drtarFilters :: Lens' DescribeReplicationTaskAssessmentRuns [Filter]
-drtarFilters = lens _drtarFilters (\s a -> s {_drtarFilters = a}) . _Default . _Coerce
+-- | Filters applied to the premigration assessment runs described in the form of key-value pairs.
+--
+-- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarFilters :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe [Filter])
+drtarFilters = Lens.lens (filters :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drtarMarker :: Lens' DescribeReplicationTaskAssessmentRuns (Maybe Text)
-drtarMarker = lens _drtarMarker (\s a -> s {_drtarMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarMarker :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Text)
+drtarMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-drtarMaxRecords :: Lens' DescribeReplicationTaskAssessmentRuns (Maybe Int)
-drtarMaxRecords = lens _drtarMaxRecords (\s a -> s {_drtarMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarMaxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Int)
+drtarMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSRequest DescribeReplicationTaskAssessmentRuns where
+instance Lude.AWSRequest DescribeReplicationTaskAssessmentRuns where
   type
     Rs DescribeReplicationTaskAssessmentRuns =
       DescribeReplicationTaskAssessmentRunsResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskAssessmentRunsResponse'
-            <$> (x .?> "ReplicationTaskAssessmentRuns" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTaskAssessmentRuns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReplicationTaskAssessmentRuns
-
-instance NFData DescribeReplicationTaskAssessmentRuns
-
-instance ToHeaders DescribeReplicationTaskAssessmentRuns where
+instance Lude.ToHeaders DescribeReplicationTaskAssessmentRuns where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeReplicationTaskAssessmentRuns where
+instance Lude.ToJSON DescribeReplicationTaskAssessmentRuns where
   toJSON DescribeReplicationTaskAssessmentRuns' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _drtarFilters,
-            ("Marker" .=) <$> _drtarMarker,
-            ("MaxRecords" .=) <$> _drtarMaxRecords
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords
           ]
       )
 
-instance ToPath DescribeReplicationTaskAssessmentRuns where
-  toPath = const "/"
+instance Lude.ToPath DescribeReplicationTaskAssessmentRuns where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeReplicationTaskAssessmentRuns where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeReplicationTaskAssessmentRuns where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTaskAssessmentRunsResponse' smart constructor.
+-- /See:/ 'mkDescribeReplicationTaskAssessmentRunsResponse' smart constructor.
 data DescribeReplicationTaskAssessmentRunsResponse = DescribeReplicationTaskAssessmentRunsResponse'
-  { _drtarsrsReplicationTaskAssessmentRuns ::
-      !( Maybe
-           [ReplicationTaskAssessmentRun]
-       ),
-    _drtarsrsMarker ::
-      !( Maybe
-           Text
-       ),
-    _drtarsrsResponseStatus ::
-      !Int
+  { replicationTaskAssessmentRuns ::
+      Lude.Maybe
+        [ReplicationTaskAssessmentRun],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeReplicationTaskAssessmentRunsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtarsrsReplicationTaskAssessmentRuns' - One or more premigration assessment runs as specified by @Filters@ .
---
--- * 'drtarsrsMarker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
---
--- * 'drtarsrsResponseStatus' - -- | The response status code.
-describeReplicationTaskAssessmentRunsResponse ::
-  -- | 'drtarsrsResponseStatus'
-  Int ->
+-- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+-- * 'replicationTaskAssessmentRuns' - One or more premigration assessment runs as specified by @Filters@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeReplicationTaskAssessmentRunsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReplicationTaskAssessmentRunsResponse
-describeReplicationTaskAssessmentRunsResponse pResponseStatus_ =
+mkDescribeReplicationTaskAssessmentRunsResponse pResponseStatus_ =
   DescribeReplicationTaskAssessmentRunsResponse'
-    { _drtarsrsReplicationTaskAssessmentRuns =
-        Nothing,
-      _drtarsrsMarker = Nothing,
-      _drtarsrsResponseStatus = pResponseStatus_
+    { replicationTaskAssessmentRuns =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | One or more premigration assessment runs as specified by @Filters@ .
-drtarsrsReplicationTaskAssessmentRuns :: Lens' DescribeReplicationTaskAssessmentRunsResponse [ReplicationTaskAssessmentRun]
-drtarsrsReplicationTaskAssessmentRuns = lens _drtarsrsReplicationTaskAssessmentRuns (\s a -> s {_drtarsrsReplicationTaskAssessmentRuns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarsrsReplicationTaskAssessmentRuns :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Lude.Maybe [ReplicationTaskAssessmentRun])
+drtarsrsReplicationTaskAssessmentRuns = Lens.lens (replicationTaskAssessmentRuns :: DescribeReplicationTaskAssessmentRunsResponse -> Lude.Maybe [ReplicationTaskAssessmentRun]) (\s a -> s {replicationTaskAssessmentRuns = a} :: DescribeReplicationTaskAssessmentRunsResponse)
+{-# DEPRECATED drtarsrsReplicationTaskAssessmentRuns "Use generic-lens or generic-optics with 'replicationTaskAssessmentRuns' instead." #-}
 
 -- | A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
-drtarsrsMarker :: Lens' DescribeReplicationTaskAssessmentRunsResponse (Maybe Text)
-drtarsrsMarker = lens _drtarsrsMarker (\s a -> s {_drtarsrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarsrsMarker :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse (Lude.Maybe Lude.Text)
+drtarsrsMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentRunsResponse)
+{-# DEPRECATED drtarsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-drtarsrsResponseStatus :: Lens' DescribeReplicationTaskAssessmentRunsResponse Int
-drtarsrsResponseStatus = lens _drtarsrsResponseStatus (\s a -> s {_drtarsrsResponseStatus = a})
-
-instance NFData DescribeReplicationTaskAssessmentRunsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtarsrsResponseStatus :: Lens.Lens' DescribeReplicationTaskAssessmentRunsResponse Lude.Int
+drtarsrsResponseStatus = Lens.lens (responseStatus :: DescribeReplicationTaskAssessmentRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReplicationTaskAssessmentRunsResponse)
+{-# DEPRECATED drtarsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.RegistrationStatus where
+module Network.AWS.CloudFormation.Types.RegistrationStatus
+  ( RegistrationStatus
+      ( RegistrationStatus',
+        RSComplete,
+        RSFailed,
+        RSInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RegistrationStatus
-  = RSComplete
-  | RSFailed
-  | RSInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RegistrationStatus = RegistrationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RegistrationStatus where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure RSComplete
-      "failed" -> pure RSFailed
-      "in_progress" -> pure RSInProgress
-      e ->
-        fromTextError $
-          "Failure parsing RegistrationStatus from value: '" <> e
-            <> "'. Accepted values: complete, failed, in_progress"
+pattern RSComplete :: RegistrationStatus
+pattern RSComplete = RegistrationStatus' "COMPLETE"
 
-instance ToText RegistrationStatus where
-  toText = \case
-    RSComplete -> "COMPLETE"
-    RSFailed -> "FAILED"
-    RSInProgress -> "IN_PROGRESS"
+pattern RSFailed :: RegistrationStatus
+pattern RSFailed = RegistrationStatus' "FAILED"
 
-instance Hashable RegistrationStatus
+pattern RSInProgress :: RegistrationStatus
+pattern RSInProgress = RegistrationStatus' "IN_PROGRESS"
 
-instance NFData RegistrationStatus
-
-instance ToByteString RegistrationStatus
-
-instance ToQuery RegistrationStatus
-
-instance ToHeader RegistrationStatus
-
-instance FromXML RegistrationStatus where
-  parseXML = parseXMLText "RegistrationStatus"
+{-# COMPLETE
+  RSComplete,
+  RSFailed,
+  RSInProgress,
+  RegistrationStatus'
+  #-}

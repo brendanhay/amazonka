@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Forgets smart home appliances associated to a room.
 module Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
-  ( -- * Creating a Request
-    forgetSmartHomeAppliances,
-    ForgetSmartHomeAppliances,
+  ( -- * Creating a request
+    ForgetSmartHomeAppliances (..),
+    mkForgetSmartHomeAppliances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     fshaRoomARN,
 
-    -- * Destructuring the Response
-    forgetSmartHomeAppliancesResponse,
-    ForgetSmartHomeAppliancesResponse,
+    -- * Destructuring the response
+    ForgetSmartHomeAppliancesResponse (..),
+    mkForgetSmartHomeAppliancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fsharsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'forgetSmartHomeAppliances' smart constructor.
+-- | /See:/ 'mkForgetSmartHomeAppliances' smart constructor.
 newtype ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
-  { _fshaRoomARN ::
-      Text
+  { roomARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetSmartHomeAppliances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fshaRoomARN' - The room that the appliances are associated with.
-forgetSmartHomeAppliances ::
-  -- | 'fshaRoomARN'
-  Text ->
+-- * 'roomARN' - The room that the appliances are associated with.
+mkForgetSmartHomeAppliances ::
+  -- | 'roomARN'
+  Lude.Text ->
   ForgetSmartHomeAppliances
-forgetSmartHomeAppliances pRoomARN_ =
-  ForgetSmartHomeAppliances' {_fshaRoomARN = pRoomARN_}
+mkForgetSmartHomeAppliances pRoomARN_ =
+  ForgetSmartHomeAppliances' {roomARN = pRoomARN_}
 
 -- | The room that the appliances are associated with.
-fshaRoomARN :: Lens' ForgetSmartHomeAppliances Text
-fshaRoomARN = lens _fshaRoomARN (\s a -> s {_fshaRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fshaRoomARN :: Lens.Lens' ForgetSmartHomeAppliances Lude.Text
+fshaRoomARN = Lens.lens (roomARN :: ForgetSmartHomeAppliances -> Lude.Text) (\s a -> s {roomARN = a} :: ForgetSmartHomeAppliances)
+{-# DEPRECATED fshaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
-instance AWSRequest ForgetSmartHomeAppliances where
+instance Lude.AWSRequest ForgetSmartHomeAppliances where
   type
     Rs ForgetSmartHomeAppliances =
       ForgetSmartHomeAppliancesResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          ForgetSmartHomeAppliancesResponse' <$> (pure (fromEnum s))
+          ForgetSmartHomeAppliancesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ForgetSmartHomeAppliances
-
-instance NFData ForgetSmartHomeAppliances
-
-instance ToHeaders ForgetSmartHomeAppliances where
+instance Lude.ToHeaders ForgetSmartHomeAppliances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.ForgetSmartHomeAppliances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.ForgetSmartHomeAppliances" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ForgetSmartHomeAppliances where
+instance Lude.ToJSON ForgetSmartHomeAppliances where
   toJSON ForgetSmartHomeAppliances' {..} =
-    object (catMaybes [Just ("RoomArn" .= _fshaRoomARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RoomArn" Lude..= roomARN)])
 
-instance ToPath ForgetSmartHomeAppliances where
-  toPath = const "/"
+instance Lude.ToPath ForgetSmartHomeAppliances where
+  toPath = Lude.const "/"
 
-instance ToQuery ForgetSmartHomeAppliances where
-  toQuery = const mempty
+instance Lude.ToQuery ForgetSmartHomeAppliances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'forgetSmartHomeAppliancesResponse' smart constructor.
+-- | /See:/ 'mkForgetSmartHomeAppliancesResponse' smart constructor.
 newtype ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
-  { _fsharsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetSmartHomeAppliancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsharsResponseStatus' - -- | The response status code.
-forgetSmartHomeAppliancesResponse ::
-  -- | 'fsharsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkForgetSmartHomeAppliancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ForgetSmartHomeAppliancesResponse
-forgetSmartHomeAppliancesResponse pResponseStatus_ =
+mkForgetSmartHomeAppliancesResponse pResponseStatus_ =
   ForgetSmartHomeAppliancesResponse'
-    { _fsharsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-fsharsResponseStatus :: Lens' ForgetSmartHomeAppliancesResponse Int
-fsharsResponseStatus = lens _fsharsResponseStatus (\s a -> s {_fsharsResponseStatus = a})
-
-instance NFData ForgetSmartHomeAppliancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsharsResponseStatus :: Lens.Lens' ForgetSmartHomeAppliancesResponse Lude.Int
+fsharsResponseStatus = Lens.lens (responseStatus :: ForgetSmartHomeAppliancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ForgetSmartHomeAppliancesResponse)
+{-# DEPRECATED fsharsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

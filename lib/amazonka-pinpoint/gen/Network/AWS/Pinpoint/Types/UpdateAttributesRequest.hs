@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.UpdateAttributesRequest where
+module Network.AWS.Pinpoint.Types.UpdateAttributesRequest
+  ( UpdateAttributesRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUpdateAttributesRequest,
+
+    -- * Lenses
+    uarBlacklist,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies one or more attributes to remove from all the endpoints that are associated with an application.
 --
---
---
--- /See:/ 'updateAttributesRequest' smart constructor.
+-- /See:/ 'mkUpdateAttributesRequest' smart constructor.
 newtype UpdateAttributesRequest = UpdateAttributesRequest'
-  { _uarBlacklist ::
-      Maybe [Text]
+  { blacklist ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAttributesRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uarBlacklist' - An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
-updateAttributesRequest ::
+-- * 'blacklist' - An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
+mkUpdateAttributesRequest ::
   UpdateAttributesRequest
-updateAttributesRequest =
-  UpdateAttributesRequest' {_uarBlacklist = Nothing}
+mkUpdateAttributesRequest =
+  UpdateAttributesRequest' {blacklist = Lude.Nothing}
 
 -- | An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
-uarBlacklist :: Lens' UpdateAttributesRequest [Text]
-uarBlacklist = lens _uarBlacklist (\s a -> s {_uarBlacklist = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blacklist' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarBlacklist :: Lens.Lens' UpdateAttributesRequest (Lude.Maybe [Lude.Text])
+uarBlacklist = Lens.lens (blacklist :: UpdateAttributesRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {blacklist = a} :: UpdateAttributesRequest)
+{-# DEPRECATED uarBlacklist "Use generic-lens or generic-optics with 'blacklist' instead." #-}
 
-instance Hashable UpdateAttributesRequest
-
-instance NFData UpdateAttributesRequest
-
-instance ToJSON UpdateAttributesRequest where
+instance Lude.ToJSON UpdateAttributesRequest where
   toJSON UpdateAttributesRequest' {..} =
-    object (catMaybes [("Blacklist" .=) <$> _uarBlacklist])
+    Lude.object
+      (Lude.catMaybes [("Blacklist" Lude..=) Lude.<$> blacklist])

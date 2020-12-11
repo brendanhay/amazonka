@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,129 @@
 --
 -- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the operation returns a 404 (@NoSuchEntity@ ) error.
 module Network.AWS.IAM.GetLoginProfile
-  ( -- * Creating a Request
-    getLoginProfile,
-    GetLoginProfile,
+  ( -- * Creating a request
+    GetLoginProfile (..),
+    mkGetLoginProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     glpUserName,
 
-    -- * Destructuring the Response
-    getLoginProfileResponse,
-    GetLoginProfileResponse,
+    -- * Destructuring the response
+    GetLoginProfileResponse (..),
+    mkGetLoginProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glprsResponseStatus,
     glprsLoginProfile,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLoginProfile' smart constructor.
-newtype GetLoginProfile = GetLoginProfile' {_glpUserName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetLoginProfile' smart constructor.
+newtype GetLoginProfile = GetLoginProfile' {userName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoginProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'userName' - The name of the user whose login profile you want to retrieve.
 --
--- * 'glpUserName' - The name of the user whose login profile you want to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getLoginProfile ::
-  -- | 'glpUserName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetLoginProfile ::
+  -- | 'userName'
+  Lude.Text ->
   GetLoginProfile
-getLoginProfile pUserName_ =
-  GetLoginProfile' {_glpUserName = pUserName_}
+mkGetLoginProfile pUserName_ =
+  GetLoginProfile' {userName = pUserName_}
 
--- | The name of the user whose login profile you want to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-glpUserName :: Lens' GetLoginProfile Text
-glpUserName = lens _glpUserName (\s a -> s {_glpUserName = a})
+-- | The name of the user whose login profile you want to retrieve.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glpUserName :: Lens.Lens' GetLoginProfile Lude.Text
+glpUserName = Lens.lens (userName :: GetLoginProfile -> Lude.Text) (\s a -> s {userName = a} :: GetLoginProfile)
+{-# DEPRECATED glpUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance AWSRequest GetLoginProfile where
+instance Lude.AWSRequest GetLoginProfile where
   type Rs GetLoginProfile = GetLoginProfileResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetLoginProfileResult"
       ( \s h x ->
           GetLoginProfileResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "LoginProfile")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "LoginProfile")
       )
 
-instance Hashable GetLoginProfile
+instance Lude.ToHeaders GetLoginProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetLoginProfile
+instance Lude.ToPath GetLoginProfile where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetLoginProfile where
-  toHeaders = const mempty
-
-instance ToPath GetLoginProfile where
-  toPath = const "/"
-
-instance ToQuery GetLoginProfile where
+instance Lude.ToQuery GetLoginProfile where
   toQuery GetLoginProfile' {..} =
-    mconcat
-      [ "Action" =: ("GetLoginProfile" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _glpUserName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetLoginProfile" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName
       ]
 
 -- | Contains the response to a successful 'GetLoginProfile' request.
 --
---
---
--- /See:/ 'getLoginProfileResponse' smart constructor.
+-- /See:/ 'mkGetLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
-  { _glprsResponseStatus ::
-      !Int,
-    _glprsLoginProfile :: !LoginProfile
+  { responseStatus ::
+      Lude.Int,
+    loginProfile :: LoginProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glprsResponseStatus' - -- | The response status code.
---
--- * 'glprsLoginProfile' - A structure containing the user name and password create date for the user.
-getLoginProfileResponse ::
-  -- | 'glprsResponseStatus'
-  Int ->
-  -- | 'glprsLoginProfile'
+-- * 'loginProfile' - A structure containing the user name and password create date for the user.
+-- * 'responseStatus' - The response status code.
+mkGetLoginProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'loginProfile'
   LoginProfile ->
   GetLoginProfileResponse
-getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
+mkGetLoginProfileResponse pResponseStatus_ pLoginProfile_ =
   GetLoginProfileResponse'
-    { _glprsResponseStatus = pResponseStatus_,
-      _glprsLoginProfile = pLoginProfile_
+    { responseStatus = pResponseStatus_,
+      loginProfile = pLoginProfile_
     }
 
--- | -- | The response status code.
-glprsResponseStatus :: Lens' GetLoginProfileResponse Int
-glprsResponseStatus = lens _glprsResponseStatus (\s a -> s {_glprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glprsResponseStatus :: Lens.Lens' GetLoginProfileResponse Lude.Int
+glprsResponseStatus = Lens.lens (responseStatus :: GetLoginProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoginProfileResponse)
+{-# DEPRECATED glprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing the user name and password create date for the user.
-glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
-glprsLoginProfile = lens _glprsLoginProfile (\s a -> s {_glprsLoginProfile = a})
-
-instance NFData GetLoginProfileResponse
+--
+-- /Note:/ Consider using 'loginProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glprsLoginProfile :: Lens.Lens' GetLoginProfileResponse LoginProfile
+glprsLoginProfile = Lens.lens (loginProfile :: GetLoginProfileResponse -> LoginProfile) (\s a -> s {loginProfile = a} :: GetLoginProfileResponse)
+{-# DEPRECATED glprsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}

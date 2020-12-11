@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,93 @@
 --
 -- Deletes the permissions boundary for the specified IAM user.
 --
---
 -- /Important:/ Deleting the permissions boundary for a user might increase its permissions by allowing the user to perform all the actions granted in its permissions policies.
 module Network.AWS.IAM.DeleteUserPermissionsBoundary
-  ( -- * Creating a Request
-    deleteUserPermissionsBoundary,
-    DeleteUserPermissionsBoundary,
+  ( -- * Creating a request
+    DeleteUserPermissionsBoundary (..),
+    mkDeleteUserPermissionsBoundary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupbUserName,
 
-    -- * Destructuring the Response
-    deleteUserPermissionsBoundaryResponse,
-    DeleteUserPermissionsBoundaryResponse,
+    -- * Destructuring the response
+    DeleteUserPermissionsBoundaryResponse (..),
+    mkDeleteUserPermissionsBoundaryResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserPermissionsBoundary' smart constructor.
+-- | /See:/ 'mkDeleteUserPermissionsBoundary' smart constructor.
 newtype DeleteUserPermissionsBoundary = DeleteUserPermissionsBoundary'
-  { _dupbUserName ::
-      Text
+  { userName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPermissionsBoundary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupbUserName' - The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.
-deleteUserPermissionsBoundary ::
-  -- | 'dupbUserName'
-  Text ->
+-- * 'userName' - The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.
+mkDeleteUserPermissionsBoundary ::
+  -- | 'userName'
+  Lude.Text ->
   DeleteUserPermissionsBoundary
-deleteUserPermissionsBoundary pUserName_ =
-  DeleteUserPermissionsBoundary' {_dupbUserName = pUserName_}
+mkDeleteUserPermissionsBoundary pUserName_ =
+  DeleteUserPermissionsBoundary' {userName = pUserName_}
 
 -- | The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.
-dupbUserName :: Lens' DeleteUserPermissionsBoundary Text
-dupbUserName = lens _dupbUserName (\s a -> s {_dupbUserName = a})
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupbUserName :: Lens.Lens' DeleteUserPermissionsBoundary Lude.Text
+dupbUserName = Lens.lens (userName :: DeleteUserPermissionsBoundary -> Lude.Text) (\s a -> s {userName = a} :: DeleteUserPermissionsBoundary)
+{-# DEPRECATED dupbUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance AWSRequest DeleteUserPermissionsBoundary where
+instance Lude.AWSRequest DeleteUserPermissionsBoundary where
   type
     Rs DeleteUserPermissionsBoundary =
       DeleteUserPermissionsBoundaryResponse
-  request = postQuery iam
-  response = receiveNull DeleteUserPermissionsBoundaryResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteUserPermissionsBoundaryResponse'
 
-instance Hashable DeleteUserPermissionsBoundary
+instance Lude.ToHeaders DeleteUserPermissionsBoundary where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteUserPermissionsBoundary
+instance Lude.ToPath DeleteUserPermissionsBoundary where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteUserPermissionsBoundary where
-  toHeaders = const mempty
-
-instance ToPath DeleteUserPermissionsBoundary where
-  toPath = const "/"
-
-instance ToQuery DeleteUserPermissionsBoundary where
+instance Lude.ToQuery DeleteUserPermissionsBoundary where
   toQuery DeleteUserPermissionsBoundary' {..} =
-    mconcat
-      [ "Action" =: ("DeleteUserPermissionsBoundary" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _dupbUserName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteUserPermissionsBoundary" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName
       ]
 
--- | /See:/ 'deleteUserPermissionsBoundaryResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserPermissionsBoundaryResponse' smart constructor.
 data DeleteUserPermissionsBoundaryResponse = DeleteUserPermissionsBoundaryResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPermissionsBoundaryResponse' with the minimum fields required to make a request.
-deleteUserPermissionsBoundaryResponse ::
+mkDeleteUserPermissionsBoundaryResponse ::
   DeleteUserPermissionsBoundaryResponse
-deleteUserPermissionsBoundaryResponse =
+mkDeleteUserPermissionsBoundaryResponse =
   DeleteUserPermissionsBoundaryResponse'
-
-instance NFData DeleteUserPermissionsBoundaryResponse

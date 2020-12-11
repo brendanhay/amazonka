@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Node where
+module Network.AWS.DAX.Types.Node
+  ( Node (..),
+
+    -- * Smart constructor
+    mkNode,
+
+    -- * Lenses
+    nNodeStatus,
+    nParameterGroupStatus,
+    nAvailabilityZone,
+    nNodeId,
+    nEndpoint,
+    nNodeCreateTime,
+  )
+where
 
 import Network.AWS.DAX.Types.Endpoint
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an individual node within a DAX cluster.
 --
---
---
--- /See:/ 'node' smart constructor.
+-- /See:/ 'mkNode' smart constructor.
 data Node = Node'
-  { _nNodeStatus :: !(Maybe Text),
-    _nParameterGroupStatus :: !(Maybe Text),
-    _nAvailabilityZone :: !(Maybe Text),
-    _nNodeId :: !(Maybe Text),
-    _nEndpoint :: !(Maybe Endpoint),
-    _nNodeCreateTime :: !(Maybe POSIX)
+  { nodeStatus :: Lude.Maybe Lude.Text,
+    parameterGroupStatus :: Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    nodeId :: Lude.Maybe Lude.Text,
+    endpoint :: Lude.Maybe Endpoint,
+    nodeCreateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Node' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nNodeStatus' - The current status of the node. For example: @available@ .
---
--- * 'nParameterGroupStatus' - The status of the parameter group associated with this node. For example, @in-sync@ .
---
--- * 'nAvailabilityZone' - The Availability Zone (AZ) in which the node has been deployed.
---
--- * 'nNodeId' - A system-generated identifier for the node.
---
--- * 'nEndpoint' - The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
---
--- * 'nNodeCreateTime' - The date and time (in UNIX epoch format) when the node was launched.
-node ::
+-- * 'availabilityZone' - The Availability Zone (AZ) in which the node has been deployed.
+-- * 'endpoint' - The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
+-- * 'nodeCreateTime' - The date and time (in UNIX epoch format) when the node was launched.
+-- * 'nodeId' - A system-generated identifier for the node.
+-- * 'nodeStatus' - The current status of the node. For example: @available@ .
+-- * 'parameterGroupStatus' - The status of the parameter group associated with this node. For example, @in-sync@ .
+mkNode ::
   Node
-node =
+mkNode =
   Node'
-    { _nNodeStatus = Nothing,
-      _nParameterGroupStatus = Nothing,
-      _nAvailabilityZone = Nothing,
-      _nNodeId = Nothing,
-      _nEndpoint = Nothing,
-      _nNodeCreateTime = Nothing
+    { nodeStatus = Lude.Nothing,
+      parameterGroupStatus = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      nodeId = Lude.Nothing,
+      endpoint = Lude.Nothing,
+      nodeCreateTime = Lude.Nothing
     }
 
 -- | The current status of the node. For example: @available@ .
-nNodeStatus :: Lens' Node (Maybe Text)
-nNodeStatus = lens _nNodeStatus (\s a -> s {_nNodeStatus = a})
+--
+-- /Note:/ Consider using 'nodeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nNodeStatus :: Lens.Lens' Node (Lude.Maybe Lude.Text)
+nNodeStatus = Lens.lens (nodeStatus :: Node -> Lude.Maybe Lude.Text) (\s a -> s {nodeStatus = a} :: Node)
+{-# DEPRECATED nNodeStatus "Use generic-lens or generic-optics with 'nodeStatus' instead." #-}
 
 -- | The status of the parameter group associated with this node. For example, @in-sync@ .
-nParameterGroupStatus :: Lens' Node (Maybe Text)
-nParameterGroupStatus = lens _nParameterGroupStatus (\s a -> s {_nParameterGroupStatus = a})
+--
+-- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nParameterGroupStatus :: Lens.Lens' Node (Lude.Maybe Lude.Text)
+nParameterGroupStatus = Lens.lens (parameterGroupStatus :: Node -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupStatus = a} :: Node)
+{-# DEPRECATED nParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
 
 -- | The Availability Zone (AZ) in which the node has been deployed.
-nAvailabilityZone :: Lens' Node (Maybe Text)
-nAvailabilityZone = lens _nAvailabilityZone (\s a -> s {_nAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nAvailabilityZone :: Lens.Lens' Node (Lude.Maybe Lude.Text)
+nAvailabilityZone = Lens.lens (availabilityZone :: Node -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Node)
+{-# DEPRECATED nAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | A system-generated identifier for the node.
-nNodeId :: Lens' Node (Maybe Text)
-nNodeId = lens _nNodeId (\s a -> s {_nNodeId = a})
+--
+-- /Note:/ Consider using 'nodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nNodeId :: Lens.Lens' Node (Lude.Maybe Lude.Text)
+nNodeId = Lens.lens (nodeId :: Node -> Lude.Maybe Lude.Text) (\s a -> s {nodeId = a} :: Node)
+{-# DEPRECATED nNodeId "Use generic-lens or generic-optics with 'nodeId' instead." #-}
 
 -- | The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
-nEndpoint :: Lens' Node (Maybe Endpoint)
-nEndpoint = lens _nEndpoint (\s a -> s {_nEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nEndpoint :: Lens.Lens' Node (Lude.Maybe Endpoint)
+nEndpoint = Lens.lens (endpoint :: Node -> Lude.Maybe Endpoint) (\s a -> s {endpoint = a} :: Node)
+{-# DEPRECATED nEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The date and time (in UNIX epoch format) when the node was launched.
-nNodeCreateTime :: Lens' Node (Maybe UTCTime)
-nNodeCreateTime = lens _nNodeCreateTime (\s a -> s {_nNodeCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'nodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nNodeCreateTime :: Lens.Lens' Node (Lude.Maybe Lude.Timestamp)
+nNodeCreateTime = Lens.lens (nodeCreateTime :: Node -> Lude.Maybe Lude.Timestamp) (\s a -> s {nodeCreateTime = a} :: Node)
+{-# DEPRECATED nNodeCreateTime "Use generic-lens or generic-optics with 'nodeCreateTime' instead." #-}
 
-instance FromJSON Node where
+instance Lude.FromJSON Node where
   parseJSON =
-    withObject
+    Lude.withObject
       "Node"
       ( \x ->
           Node'
-            <$> (x .:? "NodeStatus")
-            <*> (x .:? "ParameterGroupStatus")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "NodeId")
-            <*> (x .:? "Endpoint")
-            <*> (x .:? "NodeCreateTime")
+            Lude.<$> (x Lude..:? "NodeStatus")
+            Lude.<*> (x Lude..:? "ParameterGroupStatus")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "NodeId")
+            Lude.<*> (x Lude..:? "Endpoint")
+            Lude.<*> (x Lude..:? "NodeCreateTime")
       )
-
-instance Hashable Node
-
-instance NFData Node

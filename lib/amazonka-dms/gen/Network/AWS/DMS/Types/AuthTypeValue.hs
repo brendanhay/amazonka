@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.AuthTypeValue where
+module Network.AWS.DMS.Types.AuthTypeValue
+  ( AuthTypeValue
+      ( AuthTypeValue',
+        NO,
+        Password
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthTypeValue
-  = NO
-  | Password
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthTypeValue = AuthTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "no" -> pure NO
-      "password" -> pure Password
-      e ->
-        fromTextError $
-          "Failure parsing AuthTypeValue from value: '" <> e
-            <> "'. Accepted values: no, password"
+pattern NO :: AuthTypeValue
+pattern NO = AuthTypeValue' "no"
 
-instance ToText AuthTypeValue where
-  toText = \case
-    NO -> "no"
-    Password -> "password"
+pattern Password :: AuthTypeValue
+pattern Password = AuthTypeValue' "password"
 
-instance Hashable AuthTypeValue
-
-instance NFData AuthTypeValue
-
-instance ToByteString AuthTypeValue
-
-instance ToQuery AuthTypeValue
-
-instance ToHeader AuthTypeValue
-
-instance ToJSON AuthTypeValue where
-  toJSON = toJSONText
-
-instance FromJSON AuthTypeValue where
-  parseJSON = parseJSONText "AuthTypeValue"
+{-# COMPLETE
+  NO,
+  Password,
+  AuthTypeValue'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.PhoneNumberSummary where
+module Network.AWS.Connect.Types.PhoneNumberSummary
+  ( PhoneNumberSummary (..),
+
+    -- * Smart constructor
+    mkPhoneNumberSummary,
+
+    -- * Lenses
+    pnsPhoneNumberType,
+    pnsARN,
+    pnsPhoneNumber,
+    pnsPhoneNumberCountryCode,
+    pnsId,
+  )
+where
 
 import Network.AWS.Connect.Types.PhoneNumberCountryCode
 import Network.AWS.Connect.Types.PhoneNumberType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary information about a phone number for a contact center.
 --
---
---
--- /See:/ 'phoneNumberSummary' smart constructor.
+-- /See:/ 'mkPhoneNumberSummary' smart constructor.
 data PhoneNumberSummary = PhoneNumberSummary'
-  { _pnsPhoneNumberType ::
-      !(Maybe PhoneNumberType),
-    _pnsARN :: !(Maybe Text),
-    _pnsPhoneNumber :: !(Maybe Text),
-    _pnsPhoneNumberCountryCode ::
-      !(Maybe PhoneNumberCountryCode),
-    _pnsId :: !(Maybe Text)
+  { phoneNumberType ::
+      Lude.Maybe PhoneNumberType,
+    arn :: Lude.Maybe Lude.Text,
+    phoneNumber :: Lude.Maybe Lude.Text,
+    phoneNumberCountryCode ::
+      Lude.Maybe PhoneNumberCountryCode,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumberSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pnsPhoneNumberType' - The type of phone number.
---
--- * 'pnsARN' - The Amazon Resource Name (ARN) of the phone number.
---
--- * 'pnsPhoneNumber' - The phone number.
---
--- * 'pnsPhoneNumberCountryCode' - The ISO country code.
---
--- * 'pnsId' - The identifier of the phone number.
-phoneNumberSummary ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the phone number.
+-- * 'id' - The identifier of the phone number.
+-- * 'phoneNumber' - The phone number.
+-- * 'phoneNumberCountryCode' - The ISO country code.
+-- * 'phoneNumberType' - The type of phone number.
+mkPhoneNumberSummary ::
   PhoneNumberSummary
-phoneNumberSummary =
+mkPhoneNumberSummary =
   PhoneNumberSummary'
-    { _pnsPhoneNumberType = Nothing,
-      _pnsARN = Nothing,
-      _pnsPhoneNumber = Nothing,
-      _pnsPhoneNumberCountryCode = Nothing,
-      _pnsId = Nothing
+    { phoneNumberType = Lude.Nothing,
+      arn = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      phoneNumberCountryCode = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The type of phone number.
-pnsPhoneNumberType :: Lens' PhoneNumberSummary (Maybe PhoneNumberType)
-pnsPhoneNumberType = lens _pnsPhoneNumberType (\s a -> s {_pnsPhoneNumberType = a})
+--
+-- /Note:/ Consider using 'phoneNumberType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnsPhoneNumberType :: Lens.Lens' PhoneNumberSummary (Lude.Maybe PhoneNumberType)
+pnsPhoneNumberType = Lens.lens (phoneNumberType :: PhoneNumberSummary -> Lude.Maybe PhoneNumberType) (\s a -> s {phoneNumberType = a} :: PhoneNumberSummary)
+{-# DEPRECATED pnsPhoneNumberType "Use generic-lens or generic-optics with 'phoneNumberType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the phone number.
-pnsARN :: Lens' PhoneNumberSummary (Maybe Text)
-pnsARN = lens _pnsARN (\s a -> s {_pnsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnsARN :: Lens.Lens' PhoneNumberSummary (Lude.Maybe Lude.Text)
+pnsARN = Lens.lens (arn :: PhoneNumberSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PhoneNumberSummary)
+{-# DEPRECATED pnsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The phone number.
-pnsPhoneNumber :: Lens' PhoneNumberSummary (Maybe Text)
-pnsPhoneNumber = lens _pnsPhoneNumber (\s a -> s {_pnsPhoneNumber = a})
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnsPhoneNumber :: Lens.Lens' PhoneNumberSummary (Lude.Maybe Lude.Text)
+pnsPhoneNumber = Lens.lens (phoneNumber :: PhoneNumberSummary -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: PhoneNumberSummary)
+{-# DEPRECATED pnsPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The ISO country code.
-pnsPhoneNumberCountryCode :: Lens' PhoneNumberSummary (Maybe PhoneNumberCountryCode)
-pnsPhoneNumberCountryCode = lens _pnsPhoneNumberCountryCode (\s a -> s {_pnsPhoneNumberCountryCode = a})
+--
+-- /Note:/ Consider using 'phoneNumberCountryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnsPhoneNumberCountryCode :: Lens.Lens' PhoneNumberSummary (Lude.Maybe PhoneNumberCountryCode)
+pnsPhoneNumberCountryCode = Lens.lens (phoneNumberCountryCode :: PhoneNumberSummary -> Lude.Maybe PhoneNumberCountryCode) (\s a -> s {phoneNumberCountryCode = a} :: PhoneNumberSummary)
+{-# DEPRECATED pnsPhoneNumberCountryCode "Use generic-lens or generic-optics with 'phoneNumberCountryCode' instead." #-}
 
 -- | The identifier of the phone number.
-pnsId :: Lens' PhoneNumberSummary (Maybe Text)
-pnsId = lens _pnsId (\s a -> s {_pnsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnsId :: Lens.Lens' PhoneNumberSummary (Lude.Maybe Lude.Text)
+pnsId = Lens.lens (id :: PhoneNumberSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PhoneNumberSummary)
+{-# DEPRECATED pnsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON PhoneNumberSummary where
+instance Lude.FromJSON PhoneNumberSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "PhoneNumberSummary"
       ( \x ->
           PhoneNumberSummary'
-            <$> (x .:? "PhoneNumberType")
-            <*> (x .:? "Arn")
-            <*> (x .:? "PhoneNumber")
-            <*> (x .:? "PhoneNumberCountryCode")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "PhoneNumberType")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "PhoneNumber")
+            Lude.<*> (x Lude..:? "PhoneNumberCountryCode")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable PhoneNumberSummary
-
-instance NFData PhoneNumberSummary

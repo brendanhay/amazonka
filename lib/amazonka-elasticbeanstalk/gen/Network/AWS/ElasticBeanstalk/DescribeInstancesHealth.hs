@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk. This operation requires <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html enhanced health reporting> .
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
-  ( -- * Creating a Request
-    describeInstancesHealth,
-    DescribeInstancesHealth,
+  ( -- * Creating a request
+    DescribeInstancesHealth (..),
+    mkDescribeInstancesHealth,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dihNextToken,
     dihEnvironmentName,
     dihAttributeNames,
     dihEnvironmentId,
 
-    -- * Destructuring the Response
-    describeInstancesHealthResponse,
-    DescribeInstancesHealthResponse,
+    -- * Destructuring the response
+    DescribeInstancesHealthResponse (..),
+    mkDescribeInstancesHealthResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dihrsInstanceHealthList,
     dihrsNextToken,
     dihrsRefreshedAt,
@@ -42,158 +37,178 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Parameters for a call to @DescribeInstancesHealth@ .
 --
---
---
--- /See:/ 'describeInstancesHealth' smart constructor.
+-- /See:/ 'mkDescribeInstancesHealth' smart constructor.
 data DescribeInstancesHealth = DescribeInstancesHealth'
-  { _dihNextToken ::
-      !(Maybe Text),
-    _dihEnvironmentName :: !(Maybe Text),
-    _dihAttributeNames ::
-      !(Maybe [InstancesHealthAttribute]),
-    _dihEnvironmentId :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    environmentName :: Lude.Maybe Lude.Text,
+    attributeNames ::
+      Lude.Maybe [InstancesHealthAttribute],
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancesHealth' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dihNextToken' - Specify the pagination token returned by a previous call.
---
--- * 'dihEnvironmentName' - Specify the AWS Elastic Beanstalk environment by name.
---
--- * 'dihAttributeNames' - Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
---
--- * 'dihEnvironmentId' - Specify the AWS Elastic Beanstalk environment by ID.
-describeInstancesHealth ::
+-- * 'attributeNames' - Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
+-- * 'environmentId' - Specify the AWS Elastic Beanstalk environment by ID.
+-- * 'environmentName' - Specify the AWS Elastic Beanstalk environment by name.
+-- * 'nextToken' - Specify the pagination token returned by a previous call.
+mkDescribeInstancesHealth ::
   DescribeInstancesHealth
-describeInstancesHealth =
+mkDescribeInstancesHealth =
   DescribeInstancesHealth'
-    { _dihNextToken = Nothing,
-      _dihEnvironmentName = Nothing,
-      _dihAttributeNames = Nothing,
-      _dihEnvironmentId = Nothing
+    { nextToken = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      attributeNames = Lude.Nothing,
+      environmentId = Lude.Nothing
     }
 
 -- | Specify the pagination token returned by a previous call.
-dihNextToken :: Lens' DescribeInstancesHealth (Maybe Text)
-dihNextToken = lens _dihNextToken (\s a -> s {_dihNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihNextToken :: Lens.Lens' DescribeInstancesHealth (Lude.Maybe Lude.Text)
+dihNextToken = Lens.lens (nextToken :: DescribeInstancesHealth -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstancesHealth)
+{-# DEPRECATED dihNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specify the AWS Elastic Beanstalk environment by name.
-dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
-dihEnvironmentName = lens _dihEnvironmentName (\s a -> s {_dihEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihEnvironmentName :: Lens.Lens' DescribeInstancesHealth (Lude.Maybe Lude.Text)
+dihEnvironmentName = Lens.lens (environmentName :: DescribeInstancesHealth -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeInstancesHealth)
+{-# DEPRECATED dihEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
-dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
-dihAttributeNames = lens _dihAttributeNames (\s a -> s {_dihAttributeNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihAttributeNames :: Lens.Lens' DescribeInstancesHealth (Lude.Maybe [InstancesHealthAttribute])
+dihAttributeNames = Lens.lens (attributeNames :: DescribeInstancesHealth -> Lude.Maybe [InstancesHealthAttribute]) (\s a -> s {attributeNames = a} :: DescribeInstancesHealth)
+{-# DEPRECATED dihAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | Specify the AWS Elastic Beanstalk environment by ID.
-dihEnvironmentId :: Lens' DescribeInstancesHealth (Maybe Text)
-dihEnvironmentId = lens _dihEnvironmentId (\s a -> s {_dihEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihEnvironmentId :: Lens.Lens' DescribeInstancesHealth (Lude.Maybe Lude.Text)
+dihEnvironmentId = Lens.lens (environmentId :: DescribeInstancesHealth -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeInstancesHealth)
+{-# DEPRECATED dihEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance AWSRequest DescribeInstancesHealth where
+instance Lude.AWSRequest DescribeInstancesHealth where
   type Rs DescribeInstancesHealth = DescribeInstancesHealthResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeInstancesHealthResult"
       ( \s h x ->
           DescribeInstancesHealthResponse'
-            <$> ( x .@? "InstanceHealthList" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "NextToken")
-            <*> (x .@? "RefreshedAt")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "InstanceHealthList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (x Lude..@? "RefreshedAt")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstancesHealth
+instance Lude.ToHeaders DescribeInstancesHealth where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeInstancesHealth
+instance Lude.ToPath DescribeInstancesHealth where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeInstancesHealth where
-  toHeaders = const mempty
-
-instance ToPath DescribeInstancesHealth where
-  toPath = const "/"
-
-instance ToQuery DescribeInstancesHealth where
+instance Lude.ToQuery DescribeInstancesHealth where
   toQuery DescribeInstancesHealth' {..} =
-    mconcat
-      [ "Action" =: ("DescribeInstancesHealth" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "NextToken" =: _dihNextToken,
-        "EnvironmentName" =: _dihEnvironmentName,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeInstancesHealth" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "EnvironmentName" Lude.=: environmentName,
         "AttributeNames"
-          =: toQuery (toQueryList "member" <$> _dihAttributeNames),
-        "EnvironmentId" =: _dihEnvironmentId
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> attributeNames),
+        "EnvironmentId" Lude.=: environmentId
       ]
 
 -- | Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk environment.
 --
---
---
--- /See:/ 'describeInstancesHealthResponse' smart constructor.
+-- /See:/ 'mkDescribeInstancesHealthResponse' smart constructor.
 data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
-  { _dihrsInstanceHealthList ::
-      !( Maybe
-           [SingleInstanceHealth]
-       ),
-    _dihrsNextToken ::
-      !(Maybe Text),
-    _dihrsRefreshedAt ::
-      !(Maybe ISO8601),
-    _dihrsResponseStatus ::
-      !Int
+  { instanceHealthList ::
+      Lude.Maybe
+        [SingleInstanceHealth],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    refreshedAt ::
+      Lude.Maybe Lude.ISO8601,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancesHealthResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instanceHealthList' - Detailed health information about each instance.
 --
--- * 'dihrsInstanceHealthList' - Detailed health information about each instance. The output differs slightly between Linux and Windows environments. There is a difference in the members that are supported under the @<CPUUtilization>@ type.
---
--- * 'dihrsNextToken' - Pagination token for the next page of results, if available.
---
--- * 'dihrsRefreshedAt' - The date and time that the health information was retrieved.
---
--- * 'dihrsResponseStatus' - -- | The response status code.
-describeInstancesHealthResponse ::
-  -- | 'dihrsResponseStatus'
-  Int ->
+-- The output differs slightly between Linux and Windows environments. There is a difference in the members that are supported under the @<CPUUtilization>@ type.
+-- * 'nextToken' - Pagination token for the next page of results, if available.
+-- * 'refreshedAt' - The date and time that the health information was retrieved.
+-- * 'responseStatus' - The response status code.
+mkDescribeInstancesHealthResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstancesHealthResponse
-describeInstancesHealthResponse pResponseStatus_ =
+mkDescribeInstancesHealthResponse pResponseStatus_ =
   DescribeInstancesHealthResponse'
-    { _dihrsInstanceHealthList =
-        Nothing,
-      _dihrsNextToken = Nothing,
-      _dihrsRefreshedAt = Nothing,
-      _dihrsResponseStatus = pResponseStatus_
+    { instanceHealthList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      refreshedAt = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Detailed health information about each instance. The output differs slightly between Linux and Windows environments. There is a difference in the members that are supported under the @<CPUUtilization>@ type.
-dihrsInstanceHealthList :: Lens' DescribeInstancesHealthResponse [SingleInstanceHealth]
-dihrsInstanceHealthList = lens _dihrsInstanceHealthList (\s a -> s {_dihrsInstanceHealthList = a}) . _Default . _Coerce
+-- | Detailed health information about each instance.
+--
+-- The output differs slightly between Linux and Windows environments. There is a difference in the members that are supported under the @<CPUUtilization>@ type.
+--
+-- /Note:/ Consider using 'instanceHealthList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihrsInstanceHealthList :: Lens.Lens' DescribeInstancesHealthResponse (Lude.Maybe [SingleInstanceHealth])
+dihrsInstanceHealthList = Lens.lens (instanceHealthList :: DescribeInstancesHealthResponse -> Lude.Maybe [SingleInstanceHealth]) (\s a -> s {instanceHealthList = a} :: DescribeInstancesHealthResponse)
+{-# DEPRECATED dihrsInstanceHealthList "Use generic-lens or generic-optics with 'instanceHealthList' instead." #-}
 
 -- | Pagination token for the next page of results, if available.
-dihrsNextToken :: Lens' DescribeInstancesHealthResponse (Maybe Text)
-dihrsNextToken = lens _dihrsNextToken (\s a -> s {_dihrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihrsNextToken :: Lens.Lens' DescribeInstancesHealthResponse (Lude.Maybe Lude.Text)
+dihrsNextToken = Lens.lens (nextToken :: DescribeInstancesHealthResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstancesHealthResponse)
+{-# DEPRECATED dihrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The date and time that the health information was retrieved.
-dihrsRefreshedAt :: Lens' DescribeInstancesHealthResponse (Maybe UTCTime)
-dihrsRefreshedAt = lens _dihrsRefreshedAt (\s a -> s {_dihrsRefreshedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'refreshedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihrsRefreshedAt :: Lens.Lens' DescribeInstancesHealthResponse (Lude.Maybe Lude.ISO8601)
+dihrsRefreshedAt = Lens.lens (refreshedAt :: DescribeInstancesHealthResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {refreshedAt = a} :: DescribeInstancesHealthResponse)
+{-# DEPRECATED dihrsRefreshedAt "Use generic-lens or generic-optics with 'refreshedAt' instead." #-}
 
--- | -- | The response status code.
-dihrsResponseStatus :: Lens' DescribeInstancesHealthResponse Int
-dihrsResponseStatus = lens _dihrsResponseStatus (\s a -> s {_dihrsResponseStatus = a})
-
-instance NFData DescribeInstancesHealthResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihrsResponseStatus :: Lens.Lens' DescribeInstancesHealthResponse Lude.Int
+dihrsResponseStatus = Lens.lens (responseStatus :: DescribeInstancesHealthResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstancesHealthResponse)
+{-# DEPRECATED dihrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

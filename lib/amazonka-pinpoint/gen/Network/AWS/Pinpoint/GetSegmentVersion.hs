@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,161 @@
 --
 -- Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.
 module Network.AWS.Pinpoint.GetSegmentVersion
-  ( -- * Creating a Request
-    getSegmentVersion,
-    GetSegmentVersion,
+  ( -- * Creating a request
+    GetSegmentVersion (..),
+    mkGetSegmentVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gSegmentId,
     gVersion,
     gApplicationId,
 
-    -- * Destructuring the Response
-    getSegmentVersionResponse,
-    GetSegmentVersionResponse,
+    -- * Destructuring the response
+    GetSegmentVersionResponse (..),
+    mkGetSegmentVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsvrsResponseStatus,
     gsvrsSegmentResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSegmentVersion' smart constructor.
+-- | /See:/ 'mkGetSegmentVersion' smart constructor.
 data GetSegmentVersion = GetSegmentVersion'
-  { _gSegmentId :: !Text,
-    _gVersion :: !Text,
-    _gApplicationId :: !Text
+  { segmentId :: Lude.Text,
+    version :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gSegmentId' - The unique identifier for the segment.
---
--- * 'gVersion' - The unique version number (Version property) for the campaign version.
---
--- * 'gApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getSegmentVersion ::
-  -- | 'gSegmentId'
-  Text ->
-  -- | 'gVersion'
-  Text ->
-  -- | 'gApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'segmentId' - The unique identifier for the segment.
+-- * 'version' - The unique version number (Version property) for the campaign version.
+mkGetSegmentVersion ::
+  -- | 'segmentId'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   GetSegmentVersion
-getSegmentVersion pSegmentId_ pVersion_ pApplicationId_ =
+mkGetSegmentVersion pSegmentId_ pVersion_ pApplicationId_ =
   GetSegmentVersion'
-    { _gSegmentId = pSegmentId_,
-      _gVersion = pVersion_,
-      _gApplicationId = pApplicationId_
+    { segmentId = pSegmentId_,
+      version = pVersion_,
+      applicationId = pApplicationId_
     }
 
 -- | The unique identifier for the segment.
-gSegmentId :: Lens' GetSegmentVersion Text
-gSegmentId = lens _gSegmentId (\s a -> s {_gSegmentId = a})
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gSegmentId :: Lens.Lens' GetSegmentVersion Lude.Text
+gSegmentId = Lens.lens (segmentId :: GetSegmentVersion -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegmentVersion)
+{-# DEPRECATED gSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique version number (Version property) for the campaign version.
-gVersion :: Lens' GetSegmentVersion Text
-gVersion = lens _gVersion (\s a -> s {_gVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gVersion :: Lens.Lens' GetSegmentVersion Lude.Text
+gVersion = Lens.lens (version :: GetSegmentVersion -> Lude.Text) (\s a -> s {version = a} :: GetSegmentVersion)
+{-# DEPRECATED gVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gApplicationId :: Lens' GetSegmentVersion Text
-gApplicationId = lens _gApplicationId (\s a -> s {_gApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gApplicationId :: Lens.Lens' GetSegmentVersion Lude.Text
+gApplicationId = Lens.lens (applicationId :: GetSegmentVersion -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegmentVersion)
+{-# DEPRECATED gApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetSegmentVersion where
+instance Lude.AWSRequest GetSegmentVersion where
   type Rs GetSegmentVersion = GetSegmentVersionResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSegmentVersionResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetSegmentVersion
-
-instance NFData GetSegmentVersion
-
-instance ToHeaders GetSegmentVersion where
+instance Lude.ToHeaders GetSegmentVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSegmentVersion where
+instance Lude.ToPath GetSegmentVersion where
   toPath GetSegmentVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gApplicationId,
+        Lude.toBS applicationId,
         "/segments/",
-        toBS _gSegmentId,
+        Lude.toBS segmentId,
         "/versions/",
-        toBS _gVersion
+        Lude.toBS version
       ]
 
-instance ToQuery GetSegmentVersion where
-  toQuery = const mempty
+instance Lude.ToQuery GetSegmentVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSegmentVersionResponse' smart constructor.
+-- | /See:/ 'mkGetSegmentVersionResponse' smart constructor.
 data GetSegmentVersionResponse = GetSegmentVersionResponse'
-  { _gsvrsResponseStatus ::
-      !Int,
-    _gsvrsSegmentResponse ::
-      !SegmentResponse
+  { responseStatus ::
+      Lude.Int,
+    segmentResponse :: SegmentResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsvrsResponseStatus' - -- | The response status code.
---
--- * 'gsvrsSegmentResponse' - Undocumented member.
-getSegmentVersionResponse ::
-  -- | 'gsvrsResponseStatus'
-  Int ->
-  -- | 'gsvrsSegmentResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'segmentResponse' - Undocumented field.
+mkGetSegmentVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'segmentResponse'
   SegmentResponse ->
   GetSegmentVersionResponse
-getSegmentVersionResponse pResponseStatus_ pSegmentResponse_ =
+mkGetSegmentVersionResponse pResponseStatus_ pSegmentResponse_ =
   GetSegmentVersionResponse'
-    { _gsvrsResponseStatus =
-        pResponseStatus_,
-      _gsvrsSegmentResponse = pSegmentResponse_
+    { responseStatus = pResponseStatus_,
+      segmentResponse = pSegmentResponse_
     }
 
--- | -- | The response status code.
-gsvrsResponseStatus :: Lens' GetSegmentVersionResponse Int
-gsvrsResponseStatus = lens _gsvrsResponseStatus (\s a -> s {_gsvrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvrsResponseStatus :: Lens.Lens' GetSegmentVersionResponse Lude.Int
+gsvrsResponseStatus = Lens.lens (responseStatus :: GetSegmentVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentVersionResponse)
+{-# DEPRECATED gsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gsvrsSegmentResponse :: Lens' GetSegmentVersionResponse SegmentResponse
-gsvrsSegmentResponse = lens _gsvrsSegmentResponse (\s a -> s {_gsvrsSegmentResponse = a})
-
-instance NFData GetSegmentVersionResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvrsSegmentResponse :: Lens.Lens' GetSegmentVersionResponse SegmentResponse
+gsvrsSegmentResponse = Lens.lens (segmentResponse :: GetSegmentVersionResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: GetSegmentVersionResponse)
+{-# DEPRECATED gsvrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}

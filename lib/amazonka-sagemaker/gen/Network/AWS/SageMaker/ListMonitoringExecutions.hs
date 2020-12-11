@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns list of all monitoring job executions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListMonitoringExecutions
-  ( -- * Creating a Request
-    listMonitoringExecutions,
-    ListMonitoringExecutions,
+  ( -- * Creating a request
+    ListMonitoringExecutions (..),
+    mkListMonitoringExecutions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmeEndpointName,
     lmeLastModifiedTimeBefore,
     lmeScheduledTimeAfter,
@@ -42,247 +35,294 @@ module Network.AWS.SageMaker.ListMonitoringExecutions
     lmeMaxResults,
     lmeSortBy,
 
-    -- * Destructuring the Response
-    listMonitoringExecutionsResponse,
-    ListMonitoringExecutionsResponse,
+    -- * Destructuring the response
+    ListMonitoringExecutionsResponse (..),
+    mkListMonitoringExecutionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmersNextToken,
     lmersResponseStatus,
     lmersMonitoringExecutionSummaries,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listMonitoringExecutions' smart constructor.
+-- | /See:/ 'mkListMonitoringExecutions' smart constructor.
 data ListMonitoringExecutions = ListMonitoringExecutions'
-  { _lmeEndpointName ::
-      !(Maybe Text),
-    _lmeLastModifiedTimeBefore ::
-      !(Maybe POSIX),
-    _lmeScheduledTimeAfter :: !(Maybe POSIX),
-    _lmeCreationTimeAfter :: !(Maybe POSIX),
-    _lmeNextToken :: !(Maybe Text),
-    _lmeSortOrder :: !(Maybe SortOrder),
-    _lmeLastModifiedTimeAfter ::
-      !(Maybe POSIX),
-    _lmeCreationTimeBefore :: !(Maybe POSIX),
-    _lmeScheduledTimeBefore :: !(Maybe POSIX),
-    _lmeStatusEquals ::
-      !(Maybe ExecutionStatus),
-    _lmeMonitoringScheduleName ::
-      !(Maybe Text),
-    _lmeMaxResults :: !(Maybe Nat),
-    _lmeSortBy ::
-      !(Maybe MonitoringExecutionSortKey)
+  { endpointName ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTimeBefore ::
+      Lude.Maybe Lude.Timestamp,
+    scheduledTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    creationTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    lastModifiedTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    creationTimeBefore ::
+      Lude.Maybe Lude.Timestamp,
+    scheduledTimeBefore ::
+      Lude.Maybe Lude.Timestamp,
+    statusEquals ::
+      Lude.Maybe ExecutionStatus,
+    monitoringScheduleName ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy ::
+      Lude.Maybe MonitoringExecutionSortKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMonitoringExecutions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmeEndpointName' - Name of a specific endpoint to fetch jobs for.
---
--- * 'lmeLastModifiedTimeBefore' - A filter that returns only jobs modified after a specified time.
---
--- * 'lmeScheduledTimeAfter' - Filter for jobs scheduled after a specified time.
---
--- * 'lmeCreationTimeAfter' - A filter that returns only jobs created after a specified time.
---
--- * 'lmeNextToken' - The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.
---
--- * 'lmeSortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The default is @Descending@ .
---
--- * 'lmeLastModifiedTimeAfter' - A filter that returns only jobs modified before a specified time.
---
--- * 'lmeCreationTimeBefore' - A filter that returns only jobs created before a specified time.
---
--- * 'lmeScheduledTimeBefore' - Filter for jobs scheduled before a specified time.
---
--- * 'lmeStatusEquals' - A filter that retrieves only jobs with a specific status.
---
--- * 'lmeMonitoringScheduleName' - Name of a specific schedule to fetch jobs for.
---
--- * 'lmeMaxResults' - The maximum number of jobs to return in the response. The default value is 10.
---
--- * 'lmeSortBy' - Whether to sort results by @Status@ , @CreationTime@ , @ScheduledTime@ field. The default is @CreationTime@ .
-listMonitoringExecutions ::
+-- * 'creationTimeAfter' - A filter that returns only jobs created after a specified time.
+-- * 'creationTimeBefore' - A filter that returns only jobs created before a specified time.
+-- * 'endpointName' - Name of a specific endpoint to fetch jobs for.
+-- * 'lastModifiedTimeAfter' - A filter that returns only jobs modified before a specified time.
+-- * 'lastModifiedTimeBefore' - A filter that returns only jobs modified after a specified time.
+-- * 'maxResults' - The maximum number of jobs to return in the response. The default value is 10.
+-- * 'monitoringScheduleName' - Name of a specific schedule to fetch jobs for.
+-- * 'nextToken' - The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.
+-- * 'scheduledTimeAfter' - Filter for jobs scheduled after a specified time.
+-- * 'scheduledTimeBefore' - Filter for jobs scheduled before a specified time.
+-- * 'sortBy' - Whether to sort results by @Status@ , @CreationTime@ , @ScheduledTime@ field. The default is @CreationTime@ .
+-- * 'sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The default is @Descending@ .
+-- * 'statusEquals' - A filter that retrieves only jobs with a specific status.
+mkListMonitoringExecutions ::
   ListMonitoringExecutions
-listMonitoringExecutions =
+mkListMonitoringExecutions =
   ListMonitoringExecutions'
-    { _lmeEndpointName = Nothing,
-      _lmeLastModifiedTimeBefore = Nothing,
-      _lmeScheduledTimeAfter = Nothing,
-      _lmeCreationTimeAfter = Nothing,
-      _lmeNextToken = Nothing,
-      _lmeSortOrder = Nothing,
-      _lmeLastModifiedTimeAfter = Nothing,
-      _lmeCreationTimeBefore = Nothing,
-      _lmeScheduledTimeBefore = Nothing,
-      _lmeStatusEquals = Nothing,
-      _lmeMonitoringScheduleName = Nothing,
-      _lmeMaxResults = Nothing,
-      _lmeSortBy = Nothing
+    { endpointName = Lude.Nothing,
+      lastModifiedTimeBefore = Lude.Nothing,
+      scheduledTimeAfter = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      lastModifiedTimeAfter = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      scheduledTimeBefore = Lude.Nothing,
+      statusEquals = Lude.Nothing,
+      monitoringScheduleName = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | Name of a specific endpoint to fetch jobs for.
-lmeEndpointName :: Lens' ListMonitoringExecutions (Maybe Text)
-lmeEndpointName = lens _lmeEndpointName (\s a -> s {_lmeEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeEndpointName :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Text)
+lmeEndpointName = Lens.lens (endpointName :: ListMonitoringExecutions -> Lude.Maybe Lude.Text) (\s a -> s {endpointName = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | A filter that returns only jobs modified after a specified time.
-lmeLastModifiedTimeBefore :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeLastModifiedTimeBefore = lens _lmeLastModifiedTimeBefore (\s a -> s {_lmeLastModifiedTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeLastModifiedTimeBefore :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | Filter for jobs scheduled after a specified time.
-lmeScheduledTimeAfter :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeScheduledTimeAfter = lens _lmeScheduledTimeAfter (\s a -> s {_lmeScheduledTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'scheduledTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeScheduledTimeAfter :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeScheduledTimeAfter = Lens.lens (scheduledTimeAfter :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {scheduledTimeAfter = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeScheduledTimeAfter "Use generic-lens or generic-optics with 'scheduledTimeAfter' instead." #-}
 
 -- | A filter that returns only jobs created after a specified time.
-lmeCreationTimeAfter :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeCreationTimeAfter = lens _lmeCreationTimeAfter (\s a -> s {_lmeCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeCreationTimeAfter :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeCreationTimeAfter = Lens.lens (creationTimeAfter :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | The token returned if the response is truncated. To retrieve the next set of job executions, use it in the next request.
-lmeNextToken :: Lens' ListMonitoringExecutions (Maybe Text)
-lmeNextToken = lens _lmeNextToken (\s a -> s {_lmeNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeNextToken :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Text)
+lmeNextToken = Lens.lens (nextToken :: ListMonitoringExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Whether to sort the results in @Ascending@ or @Descending@ order. The default is @Descending@ .
-lmeSortOrder :: Lens' ListMonitoringExecutions (Maybe SortOrder)
-lmeSortOrder = lens _lmeSortOrder (\s a -> s {_lmeSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeSortOrder :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe SortOrder)
+lmeSortOrder = Lens.lens (sortOrder :: ListMonitoringExecutions -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only jobs modified before a specified time.
-lmeLastModifiedTimeAfter :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeLastModifiedTimeAfter = lens _lmeLastModifiedTimeAfter (\s a -> s {_lmeLastModifiedTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeLastModifiedTimeAfter :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only jobs created before a specified time.
-lmeCreationTimeBefore :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeCreationTimeBefore = lens _lmeCreationTimeBefore (\s a -> s {_lmeCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeCreationTimeBefore :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeCreationTimeBefore = Lens.lens (creationTimeBefore :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | Filter for jobs scheduled before a specified time.
-lmeScheduledTimeBefore :: Lens' ListMonitoringExecutions (Maybe UTCTime)
-lmeScheduledTimeBefore = lens _lmeScheduledTimeBefore (\s a -> s {_lmeScheduledTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'scheduledTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeScheduledTimeBefore :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Timestamp)
+lmeScheduledTimeBefore = Lens.lens (scheduledTimeBefore :: ListMonitoringExecutions -> Lude.Maybe Lude.Timestamp) (\s a -> s {scheduledTimeBefore = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeScheduledTimeBefore "Use generic-lens or generic-optics with 'scheduledTimeBefore' instead." #-}
 
 -- | A filter that retrieves only jobs with a specific status.
-lmeStatusEquals :: Lens' ListMonitoringExecutions (Maybe ExecutionStatus)
-lmeStatusEquals = lens _lmeStatusEquals (\s a -> s {_lmeStatusEquals = a})
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeStatusEquals :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe ExecutionStatus)
+lmeStatusEquals = Lens.lens (statusEquals :: ListMonitoringExecutions -> Lude.Maybe ExecutionStatus) (\s a -> s {statusEquals = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
 
 -- | Name of a specific schedule to fetch jobs for.
-lmeMonitoringScheduleName :: Lens' ListMonitoringExecutions (Maybe Text)
-lmeMonitoringScheduleName = lens _lmeMonitoringScheduleName (\s a -> s {_lmeMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeMonitoringScheduleName :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Text)
+lmeMonitoringScheduleName = Lens.lens (monitoringScheduleName :: ListMonitoringExecutions -> Lude.Maybe Lude.Text) (\s a -> s {monitoringScheduleName = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
 -- | The maximum number of jobs to return in the response. The default value is 10.
-lmeMaxResults :: Lens' ListMonitoringExecutions (Maybe Natural)
-lmeMaxResults = lens _lmeMaxResults (\s a -> s {_lmeMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeMaxResults :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe Lude.Natural)
+lmeMaxResults = Lens.lens (maxResults :: ListMonitoringExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Whether to sort results by @Status@ , @CreationTime@ , @ScheduledTime@ field. The default is @CreationTime@ .
-lmeSortBy :: Lens' ListMonitoringExecutions (Maybe MonitoringExecutionSortKey)
-lmeSortBy = lens _lmeSortBy (\s a -> s {_lmeSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmeSortBy :: Lens.Lens' ListMonitoringExecutions (Lude.Maybe MonitoringExecutionSortKey)
+lmeSortBy = Lens.lens (sortBy :: ListMonitoringExecutions -> Lude.Maybe MonitoringExecutionSortKey) (\s a -> s {sortBy = a} :: ListMonitoringExecutions)
+{-# DEPRECATED lmeSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListMonitoringExecutions where
+instance Page.AWSPager ListMonitoringExecutions where
   page rq rs
-    | stop (rs ^. lmersNextToken) = Nothing
-    | stop (rs ^. lmersMonitoringExecutionSummaries) = Nothing
-    | otherwise = Just $ rq & lmeNextToken .~ rs ^. lmersNextToken
+    | Page.stop (rs Lens.^. lmersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmersMonitoringExecutionSummaries) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmeNextToken Lens..~ rs Lens.^. lmersNextToken
 
-instance AWSRequest ListMonitoringExecutions where
+instance Lude.AWSRequest ListMonitoringExecutions where
   type Rs ListMonitoringExecutions = ListMonitoringExecutionsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListMonitoringExecutionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "MonitoringExecutionSummaries" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "MonitoringExecutionSummaries" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListMonitoringExecutions
-
-instance NFData ListMonitoringExecutions
-
-instance ToHeaders ListMonitoringExecutions where
+instance Lude.ToHeaders ListMonitoringExecutions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.ListMonitoringExecutions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.ListMonitoringExecutions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListMonitoringExecutions where
+instance Lude.ToJSON ListMonitoringExecutions where
   toJSON ListMonitoringExecutions' {..} =
-    object
-      ( catMaybes
-          [ ("EndpointName" .=) <$> _lmeEndpointName,
-            ("LastModifiedTimeBefore" .=) <$> _lmeLastModifiedTimeBefore,
-            ("ScheduledTimeAfter" .=) <$> _lmeScheduledTimeAfter,
-            ("CreationTimeAfter" .=) <$> _lmeCreationTimeAfter,
-            ("NextToken" .=) <$> _lmeNextToken,
-            ("SortOrder" .=) <$> _lmeSortOrder,
-            ("LastModifiedTimeAfter" .=) <$> _lmeLastModifiedTimeAfter,
-            ("CreationTimeBefore" .=) <$> _lmeCreationTimeBefore,
-            ("ScheduledTimeBefore" .=) <$> _lmeScheduledTimeBefore,
-            ("StatusEquals" .=) <$> _lmeStatusEquals,
-            ("MonitoringScheduleName" .=) <$> _lmeMonitoringScheduleName,
-            ("MaxResults" .=) <$> _lmeMaxResults,
-            ("SortBy" .=) <$> _lmeSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EndpointName" Lude..=) Lude.<$> endpointName,
+            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
+            ("ScheduledTimeAfter" Lude..=) Lude.<$> scheduledTimeAfter,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("ScheduledTimeBefore" Lude..=) Lude.<$> scheduledTimeBefore,
+            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
+            ("MonitoringScheduleName" Lude..=) Lude.<$> monitoringScheduleName,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListMonitoringExecutions where
-  toPath = const "/"
+instance Lude.ToPath ListMonitoringExecutions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListMonitoringExecutions where
-  toQuery = const mempty
+instance Lude.ToQuery ListMonitoringExecutions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listMonitoringExecutionsResponse' smart constructor.
+-- | /See:/ 'mkListMonitoringExecutionsResponse' smart constructor.
 data ListMonitoringExecutionsResponse = ListMonitoringExecutionsResponse'
-  { _lmersNextToken ::
-      !(Maybe Text),
-    _lmersResponseStatus ::
-      !Int,
-    _lmersMonitoringExecutionSummaries ::
-      ![MonitoringExecutionSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    monitoringExecutionSummaries ::
+      [MonitoringExecutionSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMonitoringExecutionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmersNextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs, use it in the subsequent reques
---
--- * 'lmersResponseStatus' - -- | The response status code.
---
--- * 'lmersMonitoringExecutionSummaries' - A JSON array in which each element is a summary for a monitoring execution.
-listMonitoringExecutionsResponse ::
-  -- | 'lmersResponseStatus'
-  Int ->
+-- * 'monitoringExecutionSummaries' - A JSON array in which each element is a summary for a monitoring execution.
+-- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs, use it in the subsequent reques
+-- * 'responseStatus' - The response status code.
+mkListMonitoringExecutionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMonitoringExecutionsResponse
-listMonitoringExecutionsResponse pResponseStatus_ =
+mkListMonitoringExecutionsResponse pResponseStatus_ =
   ListMonitoringExecutionsResponse'
-    { _lmersNextToken = Nothing,
-      _lmersResponseStatus = pResponseStatus_,
-      _lmersMonitoringExecutionSummaries = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      monitoringExecutionSummaries = Lude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of jobs, use it in the subsequent reques
-lmersNextToken :: Lens' ListMonitoringExecutionsResponse (Maybe Text)
-lmersNextToken = lens _lmersNextToken (\s a -> s {_lmersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmersNextToken :: Lens.Lens' ListMonitoringExecutionsResponse (Lude.Maybe Lude.Text)
+lmersNextToken = Lens.lens (nextToken :: ListMonitoringExecutionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMonitoringExecutionsResponse)
+{-# DEPRECATED lmersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lmersResponseStatus :: Lens' ListMonitoringExecutionsResponse Int
-lmersResponseStatus = lens _lmersResponseStatus (\s a -> s {_lmersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmersResponseStatus :: Lens.Lens' ListMonitoringExecutionsResponse Lude.Int
+lmersResponseStatus = Lens.lens (responseStatus :: ListMonitoringExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMonitoringExecutionsResponse)
+{-# DEPRECATED lmersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A JSON array in which each element is a summary for a monitoring execution.
-lmersMonitoringExecutionSummaries :: Lens' ListMonitoringExecutionsResponse [MonitoringExecutionSummary]
-lmersMonitoringExecutionSummaries = lens _lmersMonitoringExecutionSummaries (\s a -> s {_lmersMonitoringExecutionSummaries = a}) . _Coerce
-
-instance NFData ListMonitoringExecutionsResponse
+--
+-- /Note:/ Consider using 'monitoringExecutionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmersMonitoringExecutionSummaries :: Lens.Lens' ListMonitoringExecutionsResponse [MonitoringExecutionSummary]
+lmersMonitoringExecutionSummaries = Lens.lens (monitoringExecutionSummaries :: ListMonitoringExecutionsResponse -> [MonitoringExecutionSummary]) (\s a -> s {monitoringExecutionSummaries = a} :: ListMonitoringExecutionsResponse)
+{-# DEPRECATED lmersMonitoringExecutionSummaries "Use generic-lens or generic-optics with 'monitoringExecutionSummaries' instead." #-}

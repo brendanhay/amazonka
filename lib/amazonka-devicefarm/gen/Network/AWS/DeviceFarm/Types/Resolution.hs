@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Resolution where
+module Network.AWS.DeviceFarm.Types.Resolution
+  ( Resolution (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResolution,
+
+    -- * Lenses
+    rHeight,
+    rWidth,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the screen resolution of a device in height and width, expressed in pixels.
 --
---
---
--- /See:/ 'resolution' smart constructor.
+-- /See:/ 'mkResolution' smart constructor.
 data Resolution = Resolution'
-  { _rHeight :: !(Maybe Int),
-    _rWidth :: !(Maybe Int)
+  { height :: Lude.Maybe Lude.Int,
+    width :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resolution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rHeight' - The screen resolution's height, expressed in pixels.
---
--- * 'rWidth' - The screen resolution's width, expressed in pixels.
-resolution ::
+-- * 'height' - The screen resolution's height, expressed in pixels.
+-- * 'width' - The screen resolution's width, expressed in pixels.
+mkResolution ::
   Resolution
-resolution = Resolution' {_rHeight = Nothing, _rWidth = Nothing}
+mkResolution =
+  Resolution' {height = Lude.Nothing, width = Lude.Nothing}
 
 -- | The screen resolution's height, expressed in pixels.
-rHeight :: Lens' Resolution (Maybe Int)
-rHeight = lens _rHeight (\s a -> s {_rHeight = a})
+--
+-- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rHeight :: Lens.Lens' Resolution (Lude.Maybe Lude.Int)
+rHeight = Lens.lens (height :: Resolution -> Lude.Maybe Lude.Int) (\s a -> s {height = a} :: Resolution)
+{-# DEPRECATED rHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | The screen resolution's width, expressed in pixels.
-rWidth :: Lens' Resolution (Maybe Int)
-rWidth = lens _rWidth (\s a -> s {_rWidth = a})
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rWidth :: Lens.Lens' Resolution (Lude.Maybe Lude.Int)
+rWidth = Lens.lens (width :: Resolution -> Lude.Maybe Lude.Int) (\s a -> s {width = a} :: Resolution)
+{-# DEPRECATED rWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
-instance FromJSON Resolution where
+instance Lude.FromJSON Resolution where
   parseJSON =
-    withObject
+    Lude.withObject
       "Resolution"
-      (\x -> Resolution' <$> (x .:? "height") <*> (x .:? "width"))
-
-instance Hashable Resolution
-
-instance NFData Resolution
+      ( \x ->
+          Resolution'
+            Lude.<$> (x Lude..:? "height") Lude.<*> (x Lude..:? "width")
+      )

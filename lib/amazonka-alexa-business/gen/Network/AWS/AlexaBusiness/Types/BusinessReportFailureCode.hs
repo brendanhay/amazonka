@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode where
+module Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
+  ( BusinessReportFailureCode
+      ( BusinessReportFailureCode',
+        AccessDenied,
+        InternalFailure,
+        NoSuchBucket
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BusinessReportFailureCode
-  = AccessDenied
-  | InternalFailure
-  | NoSuchBucket
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BusinessReportFailureCode = BusinessReportFailureCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BusinessReportFailureCode where
-  parser =
-    takeLowerText >>= \case
-      "access_denied" -> pure AccessDenied
-      "internal_failure" -> pure InternalFailure
-      "no_such_bucket" -> pure NoSuchBucket
-      e ->
-        fromTextError $
-          "Failure parsing BusinessReportFailureCode from value: '" <> e
-            <> "'. Accepted values: access_denied, internal_failure, no_such_bucket"
+pattern AccessDenied :: BusinessReportFailureCode
+pattern AccessDenied = BusinessReportFailureCode' "ACCESS_DENIED"
 
-instance ToText BusinessReportFailureCode where
-  toText = \case
-    AccessDenied -> "ACCESS_DENIED"
-    InternalFailure -> "INTERNAL_FAILURE"
-    NoSuchBucket -> "NO_SUCH_BUCKET"
+pattern InternalFailure :: BusinessReportFailureCode
+pattern InternalFailure = BusinessReportFailureCode' "INTERNAL_FAILURE"
 
-instance Hashable BusinessReportFailureCode
+pattern NoSuchBucket :: BusinessReportFailureCode
+pattern NoSuchBucket = BusinessReportFailureCode' "NO_SUCH_BUCKET"
 
-instance NFData BusinessReportFailureCode
-
-instance ToByteString BusinessReportFailureCode
-
-instance ToQuery BusinessReportFailureCode
-
-instance ToHeader BusinessReportFailureCode
-
-instance FromJSON BusinessReportFailureCode where
-  parseJSON = parseJSONText "BusinessReportFailureCode"
+{-# COMPLETE
+  AccessDenied,
+  InternalFailure,
+  NoSuchBucket,
+  BusinessReportFailureCode'
+  #-}

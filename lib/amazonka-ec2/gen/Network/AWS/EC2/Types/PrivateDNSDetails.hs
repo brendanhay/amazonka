@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrivateDNSDetails where
+module Network.AWS.EC2.Types.PrivateDNSDetails
+  ( PrivateDNSDetails (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrivateDNSDetails,
+
+    -- * Lenses
+    pddPrivateDNSName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the Private DNS name for interface endpoints.
 --
---
---
--- /See:/ 'privateDNSDetails' smart constructor.
+-- /See:/ 'mkPrivateDNSDetails' smart constructor.
 newtype PrivateDNSDetails = PrivateDNSDetails'
-  { _pddPrivateDNSName ::
-      Maybe Text
+  { privateDNSName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateDNSDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pddPrivateDNSName' - The private DNS name assigned to the VPC endpoint service.
-privateDNSDetails ::
+-- * 'privateDNSName' - The private DNS name assigned to the VPC endpoint service.
+mkPrivateDNSDetails ::
   PrivateDNSDetails
-privateDNSDetails =
-  PrivateDNSDetails' {_pddPrivateDNSName = Nothing}
+mkPrivateDNSDetails =
+  PrivateDNSDetails' {privateDNSName = Lude.Nothing}
 
 -- | The private DNS name assigned to the VPC endpoint service.
-pddPrivateDNSName :: Lens' PrivateDNSDetails (Maybe Text)
-pddPrivateDNSName = lens _pddPrivateDNSName (\s a -> s {_pddPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pddPrivateDNSName :: Lens.Lens' PrivateDNSDetails (Lude.Maybe Lude.Text)
+pddPrivateDNSName = Lens.lens (privateDNSName :: PrivateDNSDetails -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: PrivateDNSDetails)
+{-# DEPRECATED pddPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
-instance FromXML PrivateDNSDetails where
-  parseXML x = PrivateDNSDetails' <$> (x .@? "privateDnsName")
-
-instance Hashable PrivateDNSDetails
-
-instance NFData PrivateDNSDetails
+instance Lude.FromXML PrivateDNSDetails where
+  parseXML x =
+    PrivateDNSDetails' Lude.<$> (x Lude..@? "privateDnsName")

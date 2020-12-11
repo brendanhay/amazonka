@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.BucketVersioningStatus where
+module Network.AWS.S3.Types.BucketVersioningStatus
+  ( BucketVersioningStatus
+      ( BucketVersioningStatus',
+        BVSEnabled,
+        BVSSuspended
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data BucketVersioningStatus
-  = BVSEnabled
-  | BVSSuspended
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BucketVersioningStatus = BucketVersioningStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BucketVersioningStatus where
-  parser =
-    takeLowerText >>= \case
-      "enabled" -> pure BVSEnabled
-      "suspended" -> pure BVSSuspended
-      e ->
-        fromTextError $
-          "Failure parsing BucketVersioningStatus from value: '" <> e
-            <> "'. Accepted values: enabled, suspended"
+pattern BVSEnabled :: BucketVersioningStatus
+pattern BVSEnabled = BucketVersioningStatus' "Enabled"
 
-instance ToText BucketVersioningStatus where
-  toText = \case
-    BVSEnabled -> "Enabled"
-    BVSSuspended -> "Suspended"
+pattern BVSSuspended :: BucketVersioningStatus
+pattern BVSSuspended = BucketVersioningStatus' "Suspended"
 
-instance Hashable BucketVersioningStatus
-
-instance NFData BucketVersioningStatus
-
-instance ToByteString BucketVersioningStatus
-
-instance ToQuery BucketVersioningStatus
-
-instance ToHeader BucketVersioningStatus
-
-instance FromXML BucketVersioningStatus where
-  parseXML = parseXMLText "BucketVersioningStatus"
-
-instance ToXML BucketVersioningStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  BVSEnabled,
+  BVSSuspended,
+  BucketVersioningStatus'
+  #-}

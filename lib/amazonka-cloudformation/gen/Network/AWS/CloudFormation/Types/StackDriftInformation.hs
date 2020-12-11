@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackDriftInformation where
+module Network.AWS.CloudFormation.Types.StackDriftInformation
+  ( StackDriftInformation (..),
+
+    -- * Smart constructor
+    mkStackDriftInformation,
+
+    -- * Lenses
+    sdiLastCheckTimestamp,
+    sdiStackDriftStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.StackDriftStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about whether the stack's actual configuration differs, or has /drifted/ , from its expected configuration, as defined in the stack template and any values specified as template parameters. A stack is considered to have drifted if one or more of its resources have drifted.
 --
---
---
--- /See:/ 'stackDriftInformation' smart constructor.
+-- /See:/ 'mkStackDriftInformation' smart constructor.
 data StackDriftInformation = StackDriftInformation'
-  { _sdiLastCheckTimestamp ::
-      !(Maybe ISO8601),
-    _sdiStackDriftStatus :: !StackDriftStatus
+  { lastCheckTimestamp ::
+      Lude.Maybe Lude.ISO8601,
+    stackDriftStatus :: StackDriftStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackDriftInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'lastCheckTimestamp' - Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
+-- * 'stackDriftStatus' - Status of the stack's actual configuration compared to its expected template configuration.
 --
--- * 'sdiLastCheckTimestamp' - Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
 --
--- * 'sdiStackDriftStatus' - Status of the stack's actual configuration compared to its expected template configuration.      * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.     * @UNKNOWN@ : This value is reserved for future use.
-stackDriftInformation ::
-  -- | 'sdiStackDriftStatus'
+--     * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
+--
+--
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.
+--
+--
+--     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.
+--
+--
+--     * @UNKNOWN@ : This value is reserved for future use.
+mkStackDriftInformation ::
+  -- | 'stackDriftStatus'
   StackDriftStatus ->
   StackDriftInformation
-stackDriftInformation pStackDriftStatus_ =
+mkStackDriftInformation pStackDriftStatus_ =
   StackDriftInformation'
-    { _sdiLastCheckTimestamp = Nothing,
-      _sdiStackDriftStatus = pStackDriftStatus_
+    { lastCheckTimestamp = Lude.Nothing,
+      stackDriftStatus = pStackDriftStatus_
     }
 
 -- | Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
-sdiLastCheckTimestamp :: Lens' StackDriftInformation (Maybe UTCTime)
-sdiLastCheckTimestamp = lens _sdiLastCheckTimestamp (\s a -> s {_sdiLastCheckTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiLastCheckTimestamp :: Lens.Lens' StackDriftInformation (Lude.Maybe Lude.ISO8601)
+sdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackDriftInformation -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastCheckTimestamp = a} :: StackDriftInformation)
+{-# DEPRECATED sdiLastCheckTimestamp "Use generic-lens or generic-optics with 'lastCheckTimestamp' instead." #-}
 
--- | Status of the stack's actual configuration compared to its expected template configuration.      * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.     * @UNKNOWN@ : This value is reserved for future use.
-sdiStackDriftStatus :: Lens' StackDriftInformation StackDriftStatus
-sdiStackDriftStatus = lens _sdiStackDriftStatus (\s a -> s {_sdiStackDriftStatus = a})
+-- | Status of the stack's actual configuration compared to its expected template configuration.
+--
+--
+--     * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
+--
+--
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.
+--
+--
+--     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.
+--
+--
+--     * @UNKNOWN@ : This value is reserved for future use.
+--
+--
+--
+-- /Note:/ Consider using 'stackDriftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiStackDriftStatus :: Lens.Lens' StackDriftInformation StackDriftStatus
+sdiStackDriftStatus = Lens.lens (stackDriftStatus :: StackDriftInformation -> StackDriftStatus) (\s a -> s {stackDriftStatus = a} :: StackDriftInformation)
+{-# DEPRECATED sdiStackDriftStatus "Use generic-lens or generic-optics with 'stackDriftStatus' instead." #-}
 
-instance FromXML StackDriftInformation where
+instance Lude.FromXML StackDriftInformation where
   parseXML x =
     StackDriftInformation'
-      <$> (x .@? "LastCheckTimestamp") <*> (x .@ "StackDriftStatus")
-
-instance Hashable StackDriftInformation
-
-instance NFData StackDriftInformation
+      Lude.<$> (x Lude..@? "LastCheckTimestamp")
+      Lude.<*> (x Lude..@ "StackDriftStatus")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.EC2SecurityGroup where
+module Network.AWS.Redshift.Types.EC2SecurityGroup
+  ( EC2SecurityGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEC2SecurityGroup,
+
+    -- * Lenses
+    esgStatus,
+    esgEC2SecurityGroupOwnerId,
+    esgEC2SecurityGroupName,
+    esgTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
 -- | Describes an Amazon EC2 security group.
 --
---
---
--- /See:/ 'ec2SecurityGroup' smart constructor.
+-- /See:/ 'mkEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { _esgStatus ::
-      !(Maybe Text),
-    _esgEC2SecurityGroupOwnerId :: !(Maybe Text),
-    _esgEC2SecurityGroupName :: !(Maybe Text),
-    _esgTags :: !(Maybe [Tag])
+  { status ::
+      Lude.Maybe Lude.Text,
+    ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    ec2SecurityGroupName :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esgStatus' - The status of the EC2 security group.
---
--- * 'esgEC2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
---
--- * 'esgEC2SecurityGroupName' - The name of the EC2 Security Group.
---
--- * 'esgTags' - The list of tags for the EC2 security group.
-ec2SecurityGroup ::
+-- * 'ec2SecurityGroupName' - The name of the EC2 Security Group.
+-- * 'ec2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
+-- * 'status' - The status of the EC2 security group.
+-- * 'tags' - The list of tags for the EC2 security group.
+mkEC2SecurityGroup ::
   EC2SecurityGroup
-ec2SecurityGroup =
+mkEC2SecurityGroup =
   EC2SecurityGroup'
-    { _esgStatus = Nothing,
-      _esgEC2SecurityGroupOwnerId = Nothing,
-      _esgEC2SecurityGroupName = Nothing,
-      _esgTags = Nothing
+    { status = Lude.Nothing,
+      ec2SecurityGroupOwnerId = Lude.Nothing,
+      ec2SecurityGroupName = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The status of the EC2 security group.
-esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
-esgStatus = lens _esgStatus (\s a -> s {_esgStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgStatus :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgStatus = Lens.lens (status :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
-esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
-esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\s a -> s {_esgEC2SecurityGroupOwnerId = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgEC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
 
 -- | The name of the EC2 Security Group.
-esgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
-esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\s a -> s {_esgEC2SecurityGroupName = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgEC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
 
 -- | The list of tags for the EC2 security group.
-esgTags :: Lens' EC2SecurityGroup [Tag]
-esgTags = lens _esgTags (\s a -> s {_esgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgTags :: Lens.Lens' EC2SecurityGroup (Lude.Maybe [Tag])
+esgTags = Lens.lens (tags :: EC2SecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML EC2SecurityGroup where
+instance Lude.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
-      <$> (x .@? "Status")
-      <*> (x .@? "EC2SecurityGroupOwnerId")
-      <*> (x .@? "EC2SecurityGroupName")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "Tag"))
-
-instance Hashable EC2SecurityGroup
-
-instance NFData EC2SecurityGroup
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "EC2SecurityGroupOwnerId")
+      Lude.<*> (x Lude..@? "EC2SecurityGroupName")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )

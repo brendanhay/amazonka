@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,158 @@
 --
 -- Retrieves information on VPC peering connections. Use this operation to get peering information for all fleets or for one specific fleet ID.
 --
---
 -- To retrieve connection information, call this operation from the AWS account that is used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty to retrieve all connection records. If successful, the retrieved information includes both active and pending connections. Active connections identify the IpV4 CIDR block that the VPC uses to connect.
 --
 --     * 'CreateVpcPeeringAuthorization'
 --
+--
 --     * 'DescribeVpcPeeringAuthorizations'
+--
 --
 --     * 'DeleteVpcPeeringAuthorization'
 --
+--
 --     * 'CreateVpcPeeringConnection'
+--
 --
 --     * 'DescribeVpcPeeringConnections'
 --
+--
 --     * 'DeleteVpcPeeringConnection'
 module Network.AWS.GameLift.DescribeVPCPeeringConnections
-  ( -- * Creating a Request
-    describeVPCPeeringConnections,
-    DescribeVPCPeeringConnections,
+  ( -- * Creating a request
+    DescribeVPCPeeringConnections (..),
+    mkDescribeVPCPeeringConnections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpcpcFleetId,
 
-    -- * Destructuring the Response
-    describeVPCPeeringConnectionsResponse,
-    DescribeVPCPeeringConnectionsResponse,
+    -- * Destructuring the response
+    DescribeVPCPeeringConnectionsResponse (..),
+    mkDescribeVPCPeeringConnectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcpcrsVPCPeeringConnections,
     dvpcpcrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeVPCPeeringConnections' smart constructor.
+-- /See:/ 'mkDescribeVPCPeeringConnections' smart constructor.
 newtype DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-  { _dvpcpcFleetId ::
-      Maybe Text
+  { fleetId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcpcFleetId' - A unique identifier for a fleet. You can use either the fleet ID or ARN value.
-describeVPCPeeringConnections ::
+-- * 'fleetId' - A unique identifier for a fleet. You can use either the fleet ID or ARN value.
+mkDescribeVPCPeeringConnections ::
   DescribeVPCPeeringConnections
-describeVPCPeeringConnections =
-  DescribeVPCPeeringConnections' {_dvpcpcFleetId = Nothing}
+mkDescribeVPCPeeringConnections =
+  DescribeVPCPeeringConnections' {fleetId = Lude.Nothing}
 
 -- | A unique identifier for a fleet. You can use either the fleet ID or ARN value.
-dvpcpcFleetId :: Lens' DescribeVPCPeeringConnections (Maybe Text)
-dvpcpcFleetId = lens _dvpcpcFleetId (\s a -> s {_dvpcpcFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcpcFleetId :: Lens.Lens' DescribeVPCPeeringConnections (Lude.Maybe Lude.Text)
+dvpcpcFleetId = Lens.lens (fleetId :: DescribeVPCPeeringConnections -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DescribeVPCPeeringConnections)
+{-# DEPRECATED dvpcpcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance AWSRequest DescribeVPCPeeringConnections where
+instance Lude.AWSRequest DescribeVPCPeeringConnections where
   type
     Rs DescribeVPCPeeringConnections =
       DescribeVPCPeeringConnectionsResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeVPCPeeringConnectionsResponse'
-            <$> (x .?> "VpcPeeringConnections" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VpcPeeringConnections" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCPeeringConnections
-
-instance NFData DescribeVPCPeeringConnections
-
-instance ToHeaders DescribeVPCPeeringConnections where
+instance Lude.ToHeaders DescribeVPCPeeringConnections where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeVpcPeeringConnections" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeVpcPeeringConnections" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeVPCPeeringConnections where
+instance Lude.ToJSON DescribeVPCPeeringConnections where
   toJSON DescribeVPCPeeringConnections' {..} =
-    object (catMaybes [("FleetId" .=) <$> _dvpcpcFleetId])
+    Lude.object
+      (Lude.catMaybes [("FleetId" Lude..=) Lude.<$> fleetId])
 
-instance ToPath DescribeVPCPeeringConnections where
-  toPath = const "/"
+instance Lude.ToPath DescribeVPCPeeringConnections where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeVPCPeeringConnections where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeVPCPeeringConnections where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
+-- /See:/ 'mkDescribeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
-  { _dvpcpcrsVPCPeeringConnections ::
-      !( Maybe
-           [VPCPeeringConnection]
-       ),
-    _dvpcpcrsResponseStatus ::
-      !Int
+  { vpcPeeringConnections ::
+      Lude.Maybe
+        [VPCPeeringConnection],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcpcrsVPCPeeringConnections' - A collection of VPC peering connection records that match the request.
---
--- * 'dvpcpcrsResponseStatus' - -- | The response status code.
-describeVPCPeeringConnectionsResponse ::
-  -- | 'dvpcpcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpcPeeringConnections' - A collection of VPC peering connection records that match the request.
+mkDescribeVPCPeeringConnectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse pResponseStatus_ =
+mkDescribeVPCPeeringConnectionsResponse pResponseStatus_ =
   DescribeVPCPeeringConnectionsResponse'
-    { _dvpcpcrsVPCPeeringConnections =
-        Nothing,
-      _dvpcpcrsResponseStatus = pResponseStatus_
+    { vpcPeeringConnections =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of VPC peering connection records that match the request.
-dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
-dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\s a -> s {_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcPeeringConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcpcrsVPCPeeringConnections :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe [VPCPeeringConnection])
+dvpcpcrsVPCPeeringConnections = Lens.lens (vpcPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe [VPCPeeringConnection]) (\s a -> s {vpcPeeringConnections = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcpcrsVPCPeeringConnections "Use generic-lens or generic-optics with 'vpcPeeringConnections' instead." #-}
 
--- | -- | The response status code.
-dvpcpcrsResponseStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
-dvpcpcrsResponseStatus = lens _dvpcpcrsResponseStatus (\s a -> s {_dvpcpcrsResponseStatus = a})
-
-instance NFData DescribeVPCPeeringConnectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcpcrsResponseStatus :: Lens.Lens' DescribeVPCPeeringConnectionsResponse Lude.Int
+dvpcpcrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

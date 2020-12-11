@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,138 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.Certificate where
+module Network.AWS.RDS.Types.Certificate
+  ( Certificate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCertificate,
+
+    -- * Lenses
+    cCertificateType,
+    cCustomerOverride,
+    cCertificateARN,
+    cCustomerOverrideValidTill,
+    cValidTill,
+    cCertificateIdentifier,
+    cThumbprint,
+    cValidFrom,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A CA certificate for an AWS account.
 --
---
---
--- /See:/ 'certificate' smart constructor.
+-- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { _cCertificateType :: !(Maybe Text),
-    _cCustomerOverride :: !(Maybe Bool),
-    _cCertificateARN :: !(Maybe Text),
-    _cCustomerOverrideValidTill :: !(Maybe ISO8601),
-    _cValidTill :: !(Maybe ISO8601),
-    _cCertificateIdentifier :: !(Maybe Text),
-    _cThumbprint :: !(Maybe Text),
-    _cValidFrom :: !(Maybe ISO8601)
+  { certificateType ::
+      Lude.Maybe Lude.Text,
+    customerOverride :: Lude.Maybe Lude.Bool,
+    certificateARN :: Lude.Maybe Lude.Text,
+    customerOverrideValidTill :: Lude.Maybe Lude.ISO8601,
+    validTill :: Lude.Maybe Lude.ISO8601,
+    certificateIdentifier :: Lude.Maybe Lude.Text,
+    thumbprint :: Lude.Maybe Lude.Text,
+    validFrom :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cCertificateType' - The type of the certificate.
---
--- * 'cCustomerOverride' - Whether there is an override for the default certificate identifier.
---
--- * 'cCertificateARN' - The Amazon Resource Name (ARN) for the certificate.
---
--- * 'cCustomerOverrideValidTill' - If there is an override for the default certificate identifier, when the override expires.
---
--- * 'cValidTill' - The final date that the certificate continues to be valid.
---
--- * 'cCertificateIdentifier' - The unique key that identifies a certificate.
---
--- * 'cThumbprint' - The thumbprint of the certificate.
---
--- * 'cValidFrom' - The starting date from which the certificate is valid.
-certificate ::
+-- * 'certificateARN' - The Amazon Resource Name (ARN) for the certificate.
+-- * 'certificateIdentifier' - The unique key that identifies a certificate.
+-- * 'certificateType' - The type of the certificate.
+-- * 'customerOverride' - Whether there is an override for the default certificate identifier.
+-- * 'customerOverrideValidTill' - If there is an override for the default certificate identifier, when the override expires.
+-- * 'thumbprint' - The thumbprint of the certificate.
+-- * 'validFrom' - The starting date from which the certificate is valid.
+-- * 'validTill' - The final date that the certificate continues to be valid.
+mkCertificate ::
   Certificate
-certificate =
+mkCertificate =
   Certificate'
-    { _cCertificateType = Nothing,
-      _cCustomerOverride = Nothing,
-      _cCertificateARN = Nothing,
-      _cCustomerOverrideValidTill = Nothing,
-      _cValidTill = Nothing,
-      _cCertificateIdentifier = Nothing,
-      _cThumbprint = Nothing,
-      _cValidFrom = Nothing
+    { certificateType = Lude.Nothing,
+      customerOverride = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      customerOverrideValidTill = Lude.Nothing,
+      validTill = Lude.Nothing,
+      certificateIdentifier = Lude.Nothing,
+      thumbprint = Lude.Nothing,
+      validFrom = Lude.Nothing
     }
 
 -- | The type of the certificate.
-cCertificateType :: Lens' Certificate (Maybe Text)
-cCertificateType = lens _cCertificateType (\s a -> s {_cCertificateType = a})
+--
+-- /Note:/ Consider using 'certificateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateType :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
+cCertificateType = Lens.lens (certificateType :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateType = a} :: Certificate)
+{-# DEPRECATED cCertificateType "Use generic-lens or generic-optics with 'certificateType' instead." #-}
 
 -- | Whether there is an override for the default certificate identifier.
-cCustomerOverride :: Lens' Certificate (Maybe Bool)
-cCustomerOverride = lens _cCustomerOverride (\s a -> s {_cCustomerOverride = a})
+--
+-- /Note:/ Consider using 'customerOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCustomerOverride :: Lens.Lens' Certificate (Lude.Maybe Lude.Bool)
+cCustomerOverride = Lens.lens (customerOverride :: Certificate -> Lude.Maybe Lude.Bool) (\s a -> s {customerOverride = a} :: Certificate)
+{-# DEPRECATED cCustomerOverride "Use generic-lens or generic-optics with 'customerOverride' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the certificate.
-cCertificateARN :: Lens' Certificate (Maybe Text)
-cCertificateARN = lens _cCertificateARN (\s a -> s {_cCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateARN :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
+cCertificateARN = Lens.lens (certificateARN :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: Certificate)
+{-# DEPRECATED cCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | If there is an override for the default certificate identifier, when the override expires.
-cCustomerOverrideValidTill :: Lens' Certificate (Maybe UTCTime)
-cCustomerOverrideValidTill = lens _cCustomerOverrideValidTill (\s a -> s {_cCustomerOverrideValidTill = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'customerOverrideValidTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCustomerOverrideValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
+cCustomerOverrideValidTill = Lens.lens (customerOverrideValidTill :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {customerOverrideValidTill = a} :: Certificate)
+{-# DEPRECATED cCustomerOverrideValidTill "Use generic-lens or generic-optics with 'customerOverrideValidTill' instead." #-}
 
 -- | The final date that the certificate continues to be valid.
-cValidTill :: Lens' Certificate (Maybe UTCTime)
-cValidTill = lens _cValidTill (\s a -> s {_cValidTill = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validTill' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cValidTill :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
+cValidTill = Lens.lens (validTill :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {validTill = a} :: Certificate)
+{-# DEPRECATED cValidTill "Use generic-lens or generic-optics with 'validTill' instead." #-}
 
 -- | The unique key that identifies a certificate.
-cCertificateIdentifier :: Lens' Certificate (Maybe Text)
-cCertificateIdentifier = lens _cCertificateIdentifier (\s a -> s {_cCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateIdentifier :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
+cCertificateIdentifier = Lens.lens (certificateIdentifier :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateIdentifier = a} :: Certificate)
+{-# DEPRECATED cCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
 
 -- | The thumbprint of the certificate.
-cThumbprint :: Lens' Certificate (Maybe Text)
-cThumbprint = lens _cThumbprint (\s a -> s {_cThumbprint = a})
+--
+-- /Note:/ Consider using 'thumbprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cThumbprint :: Lens.Lens' Certificate (Lude.Maybe Lude.Text)
+cThumbprint = Lens.lens (thumbprint :: Certificate -> Lude.Maybe Lude.Text) (\s a -> s {thumbprint = a} :: Certificate)
+{-# DEPRECATED cThumbprint "Use generic-lens or generic-optics with 'thumbprint' instead." #-}
 
 -- | The starting date from which the certificate is valid.
-cValidFrom :: Lens' Certificate (Maybe UTCTime)
-cValidFrom = lens _cValidFrom (\s a -> s {_cValidFrom = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cValidFrom :: Lens.Lens' Certificate (Lude.Maybe Lude.ISO8601)
+cValidFrom = Lens.lens (validFrom :: Certificate -> Lude.Maybe Lude.ISO8601) (\s a -> s {validFrom = a} :: Certificate)
+{-# DEPRECATED cValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
-instance FromXML Certificate where
+instance Lude.FromXML Certificate where
   parseXML x =
     Certificate'
-      <$> (x .@? "CertificateType")
-      <*> (x .@? "CustomerOverride")
-      <*> (x .@? "CertificateArn")
-      <*> (x .@? "CustomerOverrideValidTill")
-      <*> (x .@? "ValidTill")
-      <*> (x .@? "CertificateIdentifier")
-      <*> (x .@? "Thumbprint")
-      <*> (x .@? "ValidFrom")
-
-instance Hashable Certificate
-
-instance NFData Certificate
+      Lude.<$> (x Lude..@? "CertificateType")
+      Lude.<*> (x Lude..@? "CustomerOverride")
+      Lude.<*> (x Lude..@? "CertificateArn")
+      Lude.<*> (x Lude..@? "CustomerOverrideValidTill")
+      Lude.<*> (x Lude..@? "ValidTill")
+      Lude.<*> (x Lude..@? "CertificateIdentifier")
+      Lude.<*> (x Lude..@? "Thumbprint")
+      Lude.<*> (x Lude..@? "ValidFrom")

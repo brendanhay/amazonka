@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Denied where
+module Network.AWS.IoT.Types.Denied
+  ( Denied (..),
+
+    -- * Smart constructor
+    mkDenied,
+
+    -- * Lenses
+    dImplicitDeny,
+    dExplicitDeny,
+  )
+where
 
 import Network.AWS.IoT.Types.ExplicitDeny
 import Network.AWS.IoT.Types.ImplicitDeny
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information that denied the authorization.
 --
---
---
--- /See:/ 'denied' smart constructor.
+-- /See:/ 'mkDenied' smart constructor.
 data Denied = Denied'
-  { _dImplicitDeny :: !(Maybe ImplicitDeny),
-    _dExplicitDeny :: !(Maybe ExplicitDeny)
+  { implicitDeny :: Lude.Maybe ImplicitDeny,
+    explicitDeny :: Lude.Maybe ExplicitDeny
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Denied' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dImplicitDeny' - Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
---
--- * 'dExplicitDeny' - Information that explicitly denies the authorization.
-denied ::
+-- * 'explicitDeny' - Information that explicitly denies the authorization.
+-- * 'implicitDeny' - Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+mkDenied ::
   Denied
-denied =
-  Denied' {_dImplicitDeny = Nothing, _dExplicitDeny = Nothing}
+mkDenied =
+  Denied' {implicitDeny = Lude.Nothing, explicitDeny = Lude.Nothing}
 
 -- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
-dImplicitDeny :: Lens' Denied (Maybe ImplicitDeny)
-dImplicitDeny = lens _dImplicitDeny (\s a -> s {_dImplicitDeny = a})
+--
+-- /Note:/ Consider using 'implicitDeny' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dImplicitDeny :: Lens.Lens' Denied (Lude.Maybe ImplicitDeny)
+dImplicitDeny = Lens.lens (implicitDeny :: Denied -> Lude.Maybe ImplicitDeny) (\s a -> s {implicitDeny = a} :: Denied)
+{-# DEPRECATED dImplicitDeny "Use generic-lens or generic-optics with 'implicitDeny' instead." #-}
 
 -- | Information that explicitly denies the authorization.
-dExplicitDeny :: Lens' Denied (Maybe ExplicitDeny)
-dExplicitDeny = lens _dExplicitDeny (\s a -> s {_dExplicitDeny = a})
+--
+-- /Note:/ Consider using 'explicitDeny' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExplicitDeny :: Lens.Lens' Denied (Lude.Maybe ExplicitDeny)
+dExplicitDeny = Lens.lens (explicitDeny :: Denied -> Lude.Maybe ExplicitDeny) (\s a -> s {explicitDeny = a} :: Denied)
+{-# DEPRECATED dExplicitDeny "Use generic-lens or generic-optics with 'explicitDeny' instead." #-}
 
-instance FromJSON Denied where
+instance Lude.FromJSON Denied where
   parseJSON =
-    withObject
+    Lude.withObject
       "Denied"
       ( \x ->
-          Denied' <$> (x .:? "implicitDeny") <*> (x .:? "explicitDeny")
+          Denied'
+            Lude.<$> (x Lude..:? "implicitDeny") Lude.<*> (x Lude..:? "explicitDeny")
       )
-
-instance Hashable Denied
-
-instance NFData Denied

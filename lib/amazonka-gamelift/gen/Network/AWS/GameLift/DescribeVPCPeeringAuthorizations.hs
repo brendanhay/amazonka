@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,117 +17,133 @@
 --
 --     * 'CreateVpcPeeringAuthorization'
 --
+--
 --     * 'DescribeVpcPeeringAuthorizations'
+--
 --
 --     * 'DeleteVpcPeeringAuthorization'
 --
+--
 --     * 'CreateVpcPeeringConnection'
+--
 --
 --     * 'DescribeVpcPeeringConnections'
 --
+--
 --     * 'DeleteVpcPeeringConnection'
 module Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
-  ( -- * Creating a Request
-    describeVPCPeeringAuthorizations,
-    DescribeVPCPeeringAuthorizations,
+  ( -- * Creating a request
+    DescribeVPCPeeringAuthorizations (..),
+    mkDescribeVPCPeeringAuthorizations,
 
-    -- * Destructuring the Response
-    describeVPCPeeringAuthorizationsResponse,
-    DescribeVPCPeeringAuthorizationsResponse,
+    -- * Destructuring the response
+    DescribeVPCPeeringAuthorizationsResponse (..),
+    mkDescribeVPCPeeringAuthorizationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcparsVPCPeeringAuthorizations,
     dvpcparsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCPeeringAuthorizations' smart constructor.
+-- | /See:/ 'mkDescribeVPCPeeringAuthorizations' smart constructor.
 data DescribeVPCPeeringAuthorizations = DescribeVPCPeeringAuthorizations'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringAuthorizations' with the minimum fields required to make a request.
-describeVPCPeeringAuthorizations ::
+mkDescribeVPCPeeringAuthorizations ::
   DescribeVPCPeeringAuthorizations
-describeVPCPeeringAuthorizations =
+mkDescribeVPCPeeringAuthorizations =
   DescribeVPCPeeringAuthorizations'
 
-instance AWSRequest DescribeVPCPeeringAuthorizations where
+instance Lude.AWSRequest DescribeVPCPeeringAuthorizations where
   type
     Rs DescribeVPCPeeringAuthorizations =
       DescribeVPCPeeringAuthorizationsResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeVPCPeeringAuthorizationsResponse'
-            <$> (x .?> "VpcPeeringAuthorizations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VpcPeeringAuthorizations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCPeeringAuthorizations
-
-instance NFData DescribeVPCPeeringAuthorizations
-
-instance ToHeaders DescribeVPCPeeringAuthorizations where
+instance Lude.ToHeaders DescribeVPCPeeringAuthorizations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeVpcPeeringAuthorizations" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeVpcPeeringAuthorizations" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeVPCPeeringAuthorizations where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeVPCPeeringAuthorizations where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeVPCPeeringAuthorizations where
-  toPath = const "/"
+instance Lude.ToPath DescribeVPCPeeringAuthorizations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeVPCPeeringAuthorizations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeVPCPeeringAuthorizations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeVPCPeeringAuthorizationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCPeeringAuthorizationsResponse' smart constructor.
 data DescribeVPCPeeringAuthorizationsResponse = DescribeVPCPeeringAuthorizationsResponse'
-  { _dvpcparsVPCPeeringAuthorizations ::
-      !( Maybe
-           [VPCPeeringAuthorization]
-       ),
-    _dvpcparsResponseStatus ::
-      !Int
+  { vpcPeeringAuthorizations ::
+      Lude.Maybe
+        [VPCPeeringAuthorization],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringAuthorizationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcparsVPCPeeringAuthorizations' - A collection of objects that describe all valid VPC peering operations for the current AWS account.
---
--- * 'dvpcparsResponseStatus' - -- | The response status code.
-describeVPCPeeringAuthorizationsResponse ::
-  -- | 'dvpcparsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpcPeeringAuthorizations' - A collection of objects that describe all valid VPC peering operations for the current AWS account.
+mkDescribeVPCPeeringAuthorizationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCPeeringAuthorizationsResponse
-describeVPCPeeringAuthorizationsResponse pResponseStatus_ =
+mkDescribeVPCPeeringAuthorizationsResponse pResponseStatus_ =
   DescribeVPCPeeringAuthorizationsResponse'
-    { _dvpcparsVPCPeeringAuthorizations =
-        Nothing,
-      _dvpcparsResponseStatus = pResponseStatus_
+    { vpcPeeringAuthorizations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of objects that describe all valid VPC peering operations for the current AWS account.
-dvpcparsVPCPeeringAuthorizations :: Lens' DescribeVPCPeeringAuthorizationsResponse [VPCPeeringAuthorization]
-dvpcparsVPCPeeringAuthorizations = lens _dvpcparsVPCPeeringAuthorizations (\s a -> s {_dvpcparsVPCPeeringAuthorizations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcPeeringAuthorizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcparsVPCPeeringAuthorizations :: Lens.Lens' DescribeVPCPeeringAuthorizationsResponse (Lude.Maybe [VPCPeeringAuthorization])
+dvpcparsVPCPeeringAuthorizations = Lens.lens (vpcPeeringAuthorizations :: DescribeVPCPeeringAuthorizationsResponse -> Lude.Maybe [VPCPeeringAuthorization]) (\s a -> s {vpcPeeringAuthorizations = a} :: DescribeVPCPeeringAuthorizationsResponse)
+{-# DEPRECATED dvpcparsVPCPeeringAuthorizations "Use generic-lens or generic-optics with 'vpcPeeringAuthorizations' instead." #-}
 
--- | -- | The response status code.
-dvpcparsResponseStatus :: Lens' DescribeVPCPeeringAuthorizationsResponse Int
-dvpcparsResponseStatus = lens _dvpcparsResponseStatus (\s a -> s {_dvpcparsResponseStatus = a})
-
-instance NFData DescribeVPCPeeringAuthorizationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcparsResponseStatus :: Lens.Lens' DescribeVPCPeeringAuthorizationsResponse Lude.Int
+dvpcparsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringAuthorizationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringAuthorizationsResponse)
+{-# DEPRECATED dvpcparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

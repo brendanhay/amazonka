@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Updates the password policy settings for the AWS account.
 --
---
 -- For more information about using a password policy, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy> in the /IAM User Guide/ .
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
-  ( -- * Creating a Request
-    updateAccountPasswordPolicy,
-    UpdateAccountPasswordPolicy,
+  ( -- * Creating a request
+    UpdateAccountPasswordPolicy (..),
+    mkUpdateAccountPasswordPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uappMinimumPasswordLength,
     uappRequireNumbers,
     uappPasswordReusePrevention,
@@ -37,153 +31,218 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     uappRequireUppercaseCharacters,
     uappAllowUsersToChangePassword,
 
-    -- * Destructuring the Response
-    updateAccountPasswordPolicyResponse,
-    UpdateAccountPasswordPolicyResponse,
+    -- * Destructuring the response
+    UpdateAccountPasswordPolicyResponse (..),
+    mkUpdateAccountPasswordPolicyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
+-- | /See:/ 'mkUpdateAccountPasswordPolicy' smart constructor.
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-  { _uappMinimumPasswordLength ::
-      !(Maybe Nat),
-    _uappRequireNumbers ::
-      !(Maybe Bool),
-    _uappPasswordReusePrevention ::
-      !(Maybe Nat),
-    _uappRequireLowercaseCharacters ::
-      !(Maybe Bool),
-    _uappMaxPasswordAge :: !(Maybe Nat),
-    _uappHardExpiry :: !(Maybe Bool),
-    _uappRequireSymbols ::
-      !(Maybe Bool),
-    _uappRequireUppercaseCharacters ::
-      !(Maybe Bool),
-    _uappAllowUsersToChangePassword ::
-      !(Maybe Bool)
+  { minimumPasswordLength ::
+      Lude.Maybe Lude.Natural,
+    requireNumbers ::
+      Lude.Maybe Lude.Bool,
+    passwordReusePrevention ::
+      Lude.Maybe Lude.Natural,
+    requireLowercaseCharacters ::
+      Lude.Maybe Lude.Bool,
+    maxPasswordAge ::
+      Lude.Maybe Lude.Natural,
+    hardExpiry :: Lude.Maybe Lude.Bool,
+    requireSymbols ::
+      Lude.Maybe Lude.Bool,
+    requireUppercaseCharacters ::
+      Lude.Maybe Lude.Bool,
+    allowUsersToChangePassword ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountPasswordPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowUsersToChangePassword' - Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM Users Change Their Own Passwords> in the /IAM User Guide/ .
 --
--- * 'uappMinimumPasswordLength' - The minimum number of characters allowed in an IAM user password. If you do not specify a value for this parameter, then the operation uses the default value of @6@ .
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users in the account do not automatically have permissions to change their own password.
+-- * 'hardExpiry' - Prevents IAM users from setting a new password after their password has expired. The IAM user cannot be accessed until an administrator resets the password.
 --
--- * 'uappRequireNumbers' - Specifies whether IAM user passwords must contain at least one numeric character (0 to 9). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one numeric character.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users can change their passwords after they expire and continue to sign in as the user.
+-- * 'maxPasswordAge' - The number of days that an IAM user password is valid.
 --
--- * 'uappPasswordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented from reusing. If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM users are not prevented from reusing previous passwords.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM user passwords never expire.
+-- * 'minimumPasswordLength' - The minimum number of characters allowed in an IAM user password.
 --
--- * 'uappRequireLowercaseCharacters' - Specifies whether IAM user passwords must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one lowercase character.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @6@ .
+-- * 'passwordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented from reusing.
 --
--- * 'uappMaxPasswordAge' - The number of days that an IAM user password is valid. If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM user passwords never expire.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM users are not prevented from reusing previous passwords.
+-- * 'requireLowercaseCharacters' - Specifies whether IAM user passwords must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
 --
--- * 'uappHardExpiry' - Prevents IAM users from setting a new password after their password has expired. The IAM user cannot be accessed until an administrator resets the password. If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users can change their passwords after they expire and continue to sign in as the user.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one lowercase character.
+-- * 'requireNumbers' - Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).
 --
--- * 'uappRequireSymbols' - Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ & * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one numeric character.
+-- * 'requireSymbols' - Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
 --
--- * 'uappRequireUppercaseCharacters' - Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one uppercase character.
+-- ! @ # $ % ^ & * ( ) _ + - = [ ] { } | '
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
+-- * 'requireUppercaseCharacters' - Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
 --
--- * 'uappAllowUsersToChangePassword' - Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM Users Change Their Own Passwords> in the /IAM User Guide/ . If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users in the account do not automatically have permissions to change their own password.
-updateAccountPasswordPolicy ::
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one uppercase character.
+mkUpdateAccountPasswordPolicy ::
   UpdateAccountPasswordPolicy
-updateAccountPasswordPolicy =
+mkUpdateAccountPasswordPolicy =
   UpdateAccountPasswordPolicy'
-    { _uappMinimumPasswordLength =
-        Nothing,
-      _uappRequireNumbers = Nothing,
-      _uappPasswordReusePrevention = Nothing,
-      _uappRequireLowercaseCharacters = Nothing,
-      _uappMaxPasswordAge = Nothing,
-      _uappHardExpiry = Nothing,
-      _uappRequireSymbols = Nothing,
-      _uappRequireUppercaseCharacters = Nothing,
-      _uappAllowUsersToChangePassword = Nothing
+    { minimumPasswordLength =
+        Lude.Nothing,
+      requireNumbers = Lude.Nothing,
+      passwordReusePrevention = Lude.Nothing,
+      requireLowercaseCharacters = Lude.Nothing,
+      maxPasswordAge = Lude.Nothing,
+      hardExpiry = Lude.Nothing,
+      requireSymbols = Lude.Nothing,
+      requireUppercaseCharacters = Lude.Nothing,
+      allowUsersToChangePassword = Lude.Nothing
     }
 
--- | The minimum number of characters allowed in an IAM user password. If you do not specify a value for this parameter, then the operation uses the default value of @6@ .
-uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
-uappMinimumPasswordLength = lens _uappMinimumPasswordLength (\s a -> s {_uappMinimumPasswordLength = a}) . mapping _Nat
+-- | The minimum number of characters allowed in an IAM user password.
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @6@ .
+--
+-- /Note:/ Consider using 'minimumPasswordLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappMinimumPasswordLength :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Natural)
+uappMinimumPasswordLength = Lens.lens (minimumPasswordLength :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {minimumPasswordLength = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappMinimumPasswordLength "Use generic-lens or generic-optics with 'minimumPasswordLength' instead." #-}
 
--- | Specifies whether IAM user passwords must contain at least one numeric character (0 to 9). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one numeric character.
-uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappRequireNumbers = lens _uappRequireNumbers (\s a -> s {_uappRequireNumbers = a})
+-- | Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one numeric character.
+--
+-- /Note:/ Consider using 'requireNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappRequireNumbers :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappRequireNumbers = Lens.lens (requireNumbers :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {requireNumbers = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappRequireNumbers "Use generic-lens or generic-optics with 'requireNumbers' instead." #-}
 
--- | Specifies the number of previous passwords that IAM users are prevented from reusing. If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM users are not prevented from reusing previous passwords.
-uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
-uappPasswordReusePrevention = lens _uappPasswordReusePrevention (\s a -> s {_uappPasswordReusePrevention = a}) . mapping _Nat
+-- | Specifies the number of previous passwords that IAM users are prevented from reusing.
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM users are not prevented from reusing previous passwords.
+--
+-- /Note:/ Consider using 'passwordReusePrevention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappPasswordReusePrevention :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Natural)
+uappPasswordReusePrevention = Lens.lens (passwordReusePrevention :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {passwordReusePrevention = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappPasswordReusePrevention "Use generic-lens or generic-optics with 'passwordReusePrevention' instead." #-}
 
--- | Specifies whether IAM user passwords must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one lowercase character.
-uappRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappRequireLowercaseCharacters = lens _uappRequireLowercaseCharacters (\s a -> s {_uappRequireLowercaseCharacters = a})
+-- | Specifies whether IAM user passwords must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one lowercase character.
+--
+-- /Note:/ Consider using 'requireLowercaseCharacters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappRequireLowercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappRequireLowercaseCharacters = Lens.lens (requireLowercaseCharacters :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {requireLowercaseCharacters = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappRequireLowercaseCharacters "Use generic-lens or generic-optics with 'requireLowercaseCharacters' instead." #-}
 
--- | The number of days that an IAM user password is valid. If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM user passwords never expire.
-uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
-uappMaxPasswordAge = lens _uappMaxPasswordAge (\s a -> s {_uappMaxPasswordAge = a}) . mapping _Nat
+-- | The number of days that an IAM user password is valid.
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @0@ . The result is that IAM user passwords never expire.
+--
+-- /Note:/ Consider using 'maxPasswordAge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappMaxPasswordAge :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Natural)
+uappMaxPasswordAge = Lens.lens (maxPasswordAge :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxPasswordAge = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappMaxPasswordAge "Use generic-lens or generic-optics with 'maxPasswordAge' instead." #-}
 
--- | Prevents IAM users from setting a new password after their password has expired. The IAM user cannot be accessed until an administrator resets the password. If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users can change their passwords after they expire and continue to sign in as the user.
-uappHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappHardExpiry = lens _uappHardExpiry (\s a -> s {_uappHardExpiry = a})
+-- | Prevents IAM users from setting a new password after their password has expired. The IAM user cannot be accessed until an administrator resets the password.
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users can change their passwords after they expire and continue to sign in as the user.
+--
+-- /Note:/ Consider using 'hardExpiry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappHardExpiry :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappHardExpiry = Lens.lens (hardExpiry :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {hardExpiry = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappHardExpiry "Use generic-lens or generic-optics with 'hardExpiry' instead." #-}
 
--- | Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ & * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
-uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappRequireSymbols = lens _uappRequireSymbols (\s a -> s {_uappRequireSymbols = a})
+-- | Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:
+--
+-- ! @ # $ % ^ & * ( ) _ + - = [ ] { } | '
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
+--
+-- /Note:/ Consider using 'requireSymbols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappRequireSymbols :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappRequireSymbols = Lens.lens (requireSymbols :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {requireSymbols = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappRequireSymbols "Use generic-lens or generic-optics with 'requireSymbols' instead." #-}
 
--- | Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one uppercase character.
-uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappRequireUppercaseCharacters = lens _uappRequireUppercaseCharacters (\s a -> s {_uappRequireUppercaseCharacters = a})
+-- | Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one uppercase character.
+--
+-- /Note:/ Consider using 'requireUppercaseCharacters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappRequireUppercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappRequireUppercaseCharacters = Lens.lens (requireUppercaseCharacters :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {requireUppercaseCharacters = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappRequireUppercaseCharacters "Use generic-lens or generic-optics with 'requireUppercaseCharacters' instead." #-}
 
--- | Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM Users Change Their Own Passwords> in the /IAM User Guide/ . If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users in the account do not automatically have permissions to change their own password.
-uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
-uappAllowUsersToChangePassword = lens _uappAllowUsersToChangePassword (\s a -> s {_uappAllowUsersToChangePassword = a})
+-- | Allows all IAM users in your account to use the AWS Management Console to change their own passwords. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM Users Change Their Own Passwords> in the /IAM User Guide/ .
+--
+-- If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users in the account do not automatically have permissions to change their own password.
+--
+-- /Note:/ Consider using 'allowUsersToChangePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uappAllowUsersToChangePassword :: Lens.Lens' UpdateAccountPasswordPolicy (Lude.Maybe Lude.Bool)
+uappAllowUsersToChangePassword = Lens.lens (allowUsersToChangePassword :: UpdateAccountPasswordPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {allowUsersToChangePassword = a} :: UpdateAccountPasswordPolicy)
+{-# DEPRECATED uappAllowUsersToChangePassword "Use generic-lens or generic-optics with 'allowUsersToChangePassword' instead." #-}
 
-instance AWSRequest UpdateAccountPasswordPolicy where
+instance Lude.AWSRequest UpdateAccountPasswordPolicy where
   type
     Rs UpdateAccountPasswordPolicy =
       UpdateAccountPasswordPolicyResponse
-  request = postQuery iam
-  response = receiveNull UpdateAccountPasswordPolicyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull UpdateAccountPasswordPolicyResponse'
 
-instance Hashable UpdateAccountPasswordPolicy
+instance Lude.ToHeaders UpdateAccountPasswordPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateAccountPasswordPolicy
+instance Lude.ToPath UpdateAccountPasswordPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateAccountPasswordPolicy where
-  toHeaders = const mempty
-
-instance ToPath UpdateAccountPasswordPolicy where
-  toPath = const "/"
-
-instance ToQuery UpdateAccountPasswordPolicy where
+instance Lude.ToQuery UpdateAccountPasswordPolicy where
   toQuery UpdateAccountPasswordPolicy' {..} =
-    mconcat
-      [ "Action" =: ("UpdateAccountPasswordPolicy" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "MinimumPasswordLength" =: _uappMinimumPasswordLength,
-        "RequireNumbers" =: _uappRequireNumbers,
-        "PasswordReusePrevention" =: _uappPasswordReusePrevention,
-        "RequireLowercaseCharacters" =: _uappRequireLowercaseCharacters,
-        "MaxPasswordAge" =: _uappMaxPasswordAge,
-        "HardExpiry" =: _uappHardExpiry,
-        "RequireSymbols" =: _uappRequireSymbols,
-        "RequireUppercaseCharacters" =: _uappRequireUppercaseCharacters,
-        "AllowUsersToChangePassword" =: _uappAllowUsersToChangePassword
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("UpdateAccountPasswordPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "MinimumPasswordLength" Lude.=: minimumPasswordLength,
+        "RequireNumbers" Lude.=: requireNumbers,
+        "PasswordReusePrevention" Lude.=: passwordReusePrevention,
+        "RequireLowercaseCharacters" Lude.=: requireLowercaseCharacters,
+        "MaxPasswordAge" Lude.=: maxPasswordAge,
+        "HardExpiry" Lude.=: hardExpiry,
+        "RequireSymbols" Lude.=: requireSymbols,
+        "RequireUppercaseCharacters" Lude.=: requireUppercaseCharacters,
+        "AllowUsersToChangePassword" Lude.=: allowUsersToChangePassword
       ]
 
--- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
+-- | /See:/ 'mkUpdateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountPasswordPolicyResponse' with the minimum fields required to make a request.
-updateAccountPasswordPolicyResponse ::
+mkUpdateAccountPasswordPolicyResponse ::
   UpdateAccountPasswordPolicyResponse
-updateAccountPasswordPolicyResponse =
+mkUpdateAccountPasswordPolicyResponse =
   UpdateAccountPasswordPolicyResponse'
-
-instance NFData UpdateAccountPasswordPolicyResponse

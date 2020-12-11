@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,128 @@
 --
 -- Retrieves information about the status and settings of the APNs channel for an application.
 module Network.AWS.Pinpoint.GetAPNSChannel
-  ( -- * Creating a Request
-    getAPNSChannel,
-    GetAPNSChannel,
+  ( -- * Creating a request
+    GetAPNSChannel (..),
+    mkGetAPNSChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gacApplicationId,
 
-    -- * Destructuring the Response
-    getAPNSChannelResponse,
-    GetAPNSChannelResponse,
+    -- * Destructuring the response
+    GetAPNSChannelResponse (..),
+    mkGetAPNSChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gacrsResponseStatus,
     gacrsAPNSChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAPNSChannel' smart constructor.
-newtype GetAPNSChannel = GetAPNSChannel' {_gacApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetAPNSChannel' smart constructor.
+newtype GetAPNSChannel = GetAPNSChannel'
+  { applicationId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPNSChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getAPNSChannel ::
-  -- | 'gacApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetAPNSChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetAPNSChannel
-getAPNSChannel pApplicationId_ =
-  GetAPNSChannel' {_gacApplicationId = pApplicationId_}
+mkGetAPNSChannel pApplicationId_ =
+  GetAPNSChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gacApplicationId :: Lens' GetAPNSChannel Text
-gacApplicationId = lens _gacApplicationId (\s a -> s {_gacApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacApplicationId :: Lens.Lens' GetAPNSChannel Lude.Text
+gacApplicationId = Lens.lens (applicationId :: GetAPNSChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetAPNSChannel)
+{-# DEPRECATED gacApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetAPNSChannel where
+instance Lude.AWSRequest GetAPNSChannel where
   type Rs GetAPNSChannel = GetAPNSChannelResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAPNSChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetAPNSChannel
-
-instance NFData GetAPNSChannel
-
-instance ToHeaders GetAPNSChannel where
+instance Lude.ToHeaders GetAPNSChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetAPNSChannel where
+instance Lude.ToPath GetAPNSChannel where
   toPath GetAPNSChannel' {..} =
-    mconcat ["/v1/apps/", toBS _gacApplicationId, "/channels/apns"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/apns"]
 
-instance ToQuery GetAPNSChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetAPNSChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAPNSChannelResponse' smart constructor.
+-- | /See:/ 'mkGetAPNSChannelResponse' smart constructor.
 data GetAPNSChannelResponse = GetAPNSChannelResponse'
-  { _gacrsResponseStatus ::
-      !Int,
-    _gacrsAPNSChannelResponse ::
-      !APNSChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    apnsChannelResponse :: APNSChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPNSChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gacrsResponseStatus' - -- | The response status code.
---
--- * 'gacrsAPNSChannelResponse' - Undocumented member.
-getAPNSChannelResponse ::
-  -- | 'gacrsResponseStatus'
-  Int ->
-  -- | 'gacrsAPNSChannelResponse'
+-- * 'apnsChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAPNSChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'apnsChannelResponse'
   APNSChannelResponse ->
   GetAPNSChannelResponse
-getAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
+mkGetAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
   GetAPNSChannelResponse'
-    { _gacrsResponseStatus = pResponseStatus_,
-      _gacrsAPNSChannelResponse = pAPNSChannelResponse_
+    { responseStatus = pResponseStatus_,
+      apnsChannelResponse = pAPNSChannelResponse_
     }
 
--- | -- | The response status code.
-gacrsResponseStatus :: Lens' GetAPNSChannelResponse Int
-gacrsResponseStatus = lens _gacrsResponseStatus (\s a -> s {_gacrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrsResponseStatus :: Lens.Lens' GetAPNSChannelResponse Lude.Int
+gacrsResponseStatus = Lens.lens (responseStatus :: GetAPNSChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAPNSChannelResponse)
+{-# DEPRECATED gacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gacrsAPNSChannelResponse :: Lens' GetAPNSChannelResponse APNSChannelResponse
-gacrsAPNSChannelResponse = lens _gacrsAPNSChannelResponse (\s a -> s {_gacrsAPNSChannelResponse = a})
-
-instance NFData GetAPNSChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apnsChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gacrsAPNSChannelResponse :: Lens.Lens' GetAPNSChannelResponse APNSChannelResponse
+gacrsAPNSChannelResponse = Lens.lens (apnsChannelResponse :: GetAPNSChannelResponse -> APNSChannelResponse) (\s a -> s {apnsChannelResponse = a} :: GetAPNSChannelResponse)
+{-# DEPRECATED gacrsAPNSChannelResponse "Use generic-lens or generic-optics with 'apnsChannelResponse' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,139 @@
 --
 -- Returns the details of one or more remediation configurations.
 module Network.AWS.Config.DescribeRemediationConfigurations
-  ( -- * Creating a Request
-    describeRemediationConfigurations,
-    DescribeRemediationConfigurations,
+  ( -- * Creating a request
+    DescribeRemediationConfigurations (..),
+    mkDescribeRemediationConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drcConfigRuleNames,
 
-    -- * Destructuring the Response
-    describeRemediationConfigurationsResponse,
-    DescribeRemediationConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeRemediationConfigurationsResponse (..),
+    mkDescribeRemediationConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drcsrsRemediationConfigurations,
     drcsrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRemediationConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeRemediationConfigurations' smart constructor.
 newtype DescribeRemediationConfigurations = DescribeRemediationConfigurations'
-  { _drcConfigRuleNames ::
-      [Text]
+  { configRuleNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcConfigRuleNames' - A list of AWS Config rule names of remediation configurations for which you want details.
-describeRemediationConfigurations ::
+-- * 'configRuleNames' - A list of AWS Config rule names of remediation configurations for which you want details.
+mkDescribeRemediationConfigurations ::
   DescribeRemediationConfigurations
-describeRemediationConfigurations =
-  DescribeRemediationConfigurations' {_drcConfigRuleNames = mempty}
+mkDescribeRemediationConfigurations =
+  DescribeRemediationConfigurations' {configRuleNames = Lude.mempty}
 
 -- | A list of AWS Config rule names of remediation configurations for which you want details.
-drcConfigRuleNames :: Lens' DescribeRemediationConfigurations [Text]
-drcConfigRuleNames = lens _drcConfigRuleNames (\s a -> s {_drcConfigRuleNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcConfigRuleNames :: Lens.Lens' DescribeRemediationConfigurations [Lude.Text]
+drcConfigRuleNames = Lens.lens (configRuleNames :: DescribeRemediationConfigurations -> [Lude.Text]) (\s a -> s {configRuleNames = a} :: DescribeRemediationConfigurations)
+{-# DEPRECATED drcConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
-instance AWSRequest DescribeRemediationConfigurations where
+instance Lude.AWSRequest DescribeRemediationConfigurations where
   type
     Rs DescribeRemediationConfigurations =
       DescribeRemediationConfigurationsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRemediationConfigurationsResponse'
-            <$> (x .?> "RemediationConfigurations" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RemediationConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRemediationConfigurations
-
-instance NFData DescribeRemediationConfigurations
-
-instance ToHeaders DescribeRemediationConfigurations where
+instance Lude.ToHeaders DescribeRemediationConfigurations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeRemediationConfigurations" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeRemediationConfigurations" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRemediationConfigurations where
+instance Lude.ToJSON DescribeRemediationConfigurations where
   toJSON DescribeRemediationConfigurations' {..} =
-    object
-      (catMaybes [Just ("ConfigRuleNames" .= _drcConfigRuleNames)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ConfigRuleNames" Lude..= configRuleNames)]
+      )
 
-instance ToPath DescribeRemediationConfigurations where
-  toPath = const "/"
+instance Lude.ToPath DescribeRemediationConfigurations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRemediationConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRemediationConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRemediationConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeRemediationConfigurationsResponse' smart constructor.
 data DescribeRemediationConfigurationsResponse = DescribeRemediationConfigurationsResponse'
-  { _drcsrsRemediationConfigurations ::
-      !( Maybe
-           [RemediationConfiguration]
-       ),
-    _drcsrsResponseStatus ::
-      !Int
+  { remediationConfigurations ::
+      Lude.Maybe
+        [RemediationConfiguration],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcsrsRemediationConfigurations' - Returns a remediation configuration object.
---
--- * 'drcsrsResponseStatus' - -- | The response status code.
-describeRemediationConfigurationsResponse ::
-  -- | 'drcsrsResponseStatus'
-  Int ->
+-- * 'remediationConfigurations' - Returns a remediation configuration object.
+-- * 'responseStatus' - The response status code.
+mkDescribeRemediationConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRemediationConfigurationsResponse
-describeRemediationConfigurationsResponse pResponseStatus_ =
+mkDescribeRemediationConfigurationsResponse pResponseStatus_ =
   DescribeRemediationConfigurationsResponse'
-    { _drcsrsRemediationConfigurations =
-        Nothing,
-      _drcsrsResponseStatus = pResponseStatus_
+    { remediationConfigurations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a remediation configuration object.
-drcsrsRemediationConfigurations :: Lens' DescribeRemediationConfigurationsResponse [RemediationConfiguration]
-drcsrsRemediationConfigurations = lens _drcsrsRemediationConfigurations (\s a -> s {_drcsrsRemediationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remediationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcsrsRemediationConfigurations :: Lens.Lens' DescribeRemediationConfigurationsResponse (Lude.Maybe [RemediationConfiguration])
+drcsrsRemediationConfigurations = Lens.lens (remediationConfigurations :: DescribeRemediationConfigurationsResponse -> Lude.Maybe [RemediationConfiguration]) (\s a -> s {remediationConfigurations = a} :: DescribeRemediationConfigurationsResponse)
+{-# DEPRECATED drcsrsRemediationConfigurations "Use generic-lens or generic-optics with 'remediationConfigurations' instead." #-}
 
--- | -- | The response status code.
-drcsrsResponseStatus :: Lens' DescribeRemediationConfigurationsResponse Int
-drcsrsResponseStatus = lens _drcsrsResponseStatus (\s a -> s {_drcsrsResponseStatus = a})
-
-instance NFData DescribeRemediationConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcsrsResponseStatus :: Lens.Lens' DescribeRemediationConfigurationsResponse Lude.Int
+drcsrsResponseStatus = Lens.lens (responseStatus :: DescribeRemediationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRemediationConfigurationsResponse)
+{-# DEPRECATED drcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

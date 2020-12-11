@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSM.Types.ClientVersion where
+module Network.AWS.CloudHSM.Types.ClientVersion
+  ( ClientVersion
+      ( ClientVersion',
+        VD5_1,
+        VD5_3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVersion
-  = VD5_1
-  | VD5_3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVersion = ClientVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVersion where
-  parser =
-    takeLowerText >>= \case
-      "5.1" -> pure VD5_1
-      "5.3" -> pure VD5_3
-      e ->
-        fromTextError $
-          "Failure parsing ClientVersion from value: '" <> e
-            <> "'. Accepted values: 5.1, 5.3"
+pattern VD5_1 :: ClientVersion
+pattern VD5_1 = ClientVersion' "5.1"
 
-instance ToText ClientVersion where
-  toText = \case
-    VD5_1 -> "5.1"
-    VD5_3 -> "5.3"
+pattern VD5_3 :: ClientVersion
+pattern VD5_3 = ClientVersion' "5.3"
 
-instance Hashable ClientVersion
-
-instance NFData ClientVersion
-
-instance ToByteString ClientVersion
-
-instance ToQuery ClientVersion
-
-instance ToHeader ClientVersion
-
-instance ToJSON ClientVersion where
-  toJSON = toJSONText
+{-# COMPLETE
+  VD5_1,
+  VD5_3,
+  ClientVersion'
+  #-}

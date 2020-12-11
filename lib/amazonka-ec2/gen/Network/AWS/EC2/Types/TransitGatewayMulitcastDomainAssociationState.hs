@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState where
+module Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
+  ( TransitGatewayMulitcastDomainAssociationState
+      ( TransitGatewayMulitcastDomainAssociationState',
+        Associated,
+        Associating,
+        Disassociated,
+        Disassociating
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayMulitcastDomainAssociationState
-  = Associated
-  | Associating
-  | Disassociated
-  | Disassociating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayMulitcastDomainAssociationState = TransitGatewayMulitcastDomainAssociationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayMulitcastDomainAssociationState where
-  parser =
-    takeLowerText >>= \case
-      "associated" -> pure Associated
-      "associating" -> pure Associating
-      "disassociated" -> pure Disassociated
-      "disassociating" -> pure Disassociating
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayMulitcastDomainAssociationState from value: '" <> e
-            <> "'. Accepted values: associated, associating, disassociated, disassociating"
+pattern Associated :: TransitGatewayMulitcastDomainAssociationState
+pattern Associated = TransitGatewayMulitcastDomainAssociationState' "associated"
 
-instance ToText TransitGatewayMulitcastDomainAssociationState where
-  toText = \case
-    Associated -> "associated"
-    Associating -> "associating"
-    Disassociated -> "disassociated"
-    Disassociating -> "disassociating"
+pattern Associating :: TransitGatewayMulitcastDomainAssociationState
+pattern Associating = TransitGatewayMulitcastDomainAssociationState' "associating"
 
-instance Hashable TransitGatewayMulitcastDomainAssociationState
+pattern Disassociated :: TransitGatewayMulitcastDomainAssociationState
+pattern Disassociated = TransitGatewayMulitcastDomainAssociationState' "disassociated"
 
-instance NFData TransitGatewayMulitcastDomainAssociationState
+pattern Disassociating :: TransitGatewayMulitcastDomainAssociationState
+pattern Disassociating = TransitGatewayMulitcastDomainAssociationState' "disassociating"
 
-instance ToByteString TransitGatewayMulitcastDomainAssociationState
-
-instance ToQuery TransitGatewayMulitcastDomainAssociationState
-
-instance ToHeader TransitGatewayMulitcastDomainAssociationState
-
-instance FromXML TransitGatewayMulitcastDomainAssociationState where
-  parseXML = parseXMLText "TransitGatewayMulitcastDomainAssociationState"
+{-# COMPLETE
+  Associated,
+  Associating,
+  Disassociated,
+  Disassociating,
+  TransitGatewayMulitcastDomainAssociationState'
+  #-}

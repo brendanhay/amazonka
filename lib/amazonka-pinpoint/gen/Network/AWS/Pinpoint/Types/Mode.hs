@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Mode where
+module Network.AWS.Pinpoint.Types.Mode
+  ( Mode
+      ( Mode',
+        Delivery,
+        Filter
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Mode
-  = Delivery
-  | Filter
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mode = Mode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mode where
-  parser =
-    takeLowerText >>= \case
-      "delivery" -> pure Delivery
-      "filter" -> pure Filter
-      e ->
-        fromTextError $
-          "Failure parsing Mode from value: '" <> e
-            <> "'. Accepted values: delivery, filter"
+pattern Delivery :: Mode
+pattern Delivery = Mode' "DELIVERY"
 
-instance ToText Mode where
-  toText = \case
-    Delivery -> "DELIVERY"
-    Filter -> "FILTER"
+pattern Filter :: Mode
+pattern Filter = Mode' "FILTER"
 
-instance Hashable Mode
-
-instance NFData Mode
-
-instance ToByteString Mode
-
-instance ToQuery Mode
-
-instance ToHeader Mode
-
-instance ToJSON Mode where
-  toJSON = toJSONText
-
-instance FromJSON Mode where
-  parseJSON = parseJSONText "Mode"
+{-# COMPLETE
+  Delivery,
+  Filter,
+  Mode'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,102 @@
 --
 -- Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.
 --
---
 -- If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.
---
 -- For more information about troubleshooting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting console output and rebooting instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.RebootInstances
-  ( -- * Creating a Request
-    rebootInstances,
-    RebootInstances,
+  ( -- * Creating a request
+    RebootInstances (..),
+    mkRebootInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rDryRun,
     rInstanceIds,
 
-    -- * Destructuring the Response
-    rebootInstancesResponse,
-    RebootInstancesResponse,
+    -- * Destructuring the response
+    RebootInstancesResponse (..),
+    mkRebootInstancesResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootInstances' smart constructor.
+-- | /See:/ 'mkRebootInstances' smart constructor.
 data RebootInstances = RebootInstances'
-  { _rDryRun :: !(Maybe Bool),
-    _rInstanceIds :: ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    instanceIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rInstanceIds' - The instance IDs.
-rebootInstances ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceIds' - The instance IDs.
+mkRebootInstances ::
   RebootInstances
-rebootInstances =
-  RebootInstances' {_rDryRun = Nothing, _rInstanceIds = mempty}
+mkRebootInstances =
+  RebootInstances'
+    { dryRun = Lude.Nothing,
+      instanceIds = Lude.mempty
+    }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rDryRun :: Lens' RebootInstances (Maybe Bool)
-rDryRun = lens _rDryRun (\s a -> s {_rDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDryRun :: Lens.Lens' RebootInstances (Lude.Maybe Lude.Bool)
+rDryRun = Lens.lens (dryRun :: RebootInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RebootInstances)
+{-# DEPRECATED rDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The instance IDs.
-rInstanceIds :: Lens' RebootInstances [Text]
-rInstanceIds = lens _rInstanceIds (\s a -> s {_rInstanceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstanceIds :: Lens.Lens' RebootInstances [Lude.Text]
+rInstanceIds = Lens.lens (instanceIds :: RebootInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: RebootInstances)
+{-# DEPRECATED rInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance AWSRequest RebootInstances where
+instance Lude.AWSRequest RebootInstances where
   type Rs RebootInstances = RebootInstancesResponse
-  request = postQuery ec2
-  response = receiveNull RebootInstancesResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull RebootInstancesResponse'
 
-instance Hashable RebootInstances
+instance Lude.ToHeaders RebootInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RebootInstances
+instance Lude.ToPath RebootInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders RebootInstances where
-  toHeaders = const mempty
-
-instance ToPath RebootInstances where
-  toPath = const "/"
-
-instance ToQuery RebootInstances where
+instance Lude.ToQuery RebootInstances where
   toQuery RebootInstances' {..} =
-    mconcat
-      [ "Action" =: ("RebootInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _rDryRun,
-        toQueryList "InstanceId" _rInstanceIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("RebootInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "InstanceId" instanceIds
       ]
 
--- | /See:/ 'rebootInstancesResponse' smart constructor.
+-- | /See:/ 'mkRebootInstancesResponse' smart constructor.
 data RebootInstancesResponse = RebootInstancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstancesResponse' with the minimum fields required to make a request.
-rebootInstancesResponse ::
+mkRebootInstancesResponse ::
   RebootInstancesResponse
-rebootInstancesResponse = RebootInstancesResponse'
-
-instance NFData RebootInstancesResponse
+mkRebootInstancesResponse = RebootInstancesResponse'

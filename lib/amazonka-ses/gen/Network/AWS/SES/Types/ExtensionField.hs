@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.ExtensionField where
+module Network.AWS.SES.Types.ExtensionField
+  ( ExtensionField (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExtensionField,
+
+    -- * Lenses
+    efName,
+    efValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
---
 -- For information about receiving email through Amazon SES, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'extensionField' smart constructor.
+-- /See:/ 'mkExtensionField' smart constructor.
 data ExtensionField = ExtensionField'
-  { _efName :: !Text,
-    _efValue :: !Text
+  { name :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExtensionField' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
---
--- * 'efValue' - The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
-extensionField ::
-  -- | 'efName'
-  Text ->
-  -- | 'efValue'
-  Text ->
+-- * 'name' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+-- * 'value' - The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+mkExtensionField ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   ExtensionField
-extensionField pName_ pValue_ =
-  ExtensionField' {_efName = pName_, _efValue = pValue_}
+mkExtensionField pName_ pValue_ =
+  ExtensionField' {name = pName_, value = pValue_}
 
 -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
-efName :: Lens' ExtensionField Text
-efName = lens _efName (\s a -> s {_efName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efName :: Lens.Lens' ExtensionField Lude.Text
+efName = Lens.lens (name :: ExtensionField -> Lude.Text) (\s a -> s {name = a} :: ExtensionField)
+{-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
-efValue :: Lens' ExtensionField Text
-efValue = lens _efValue (\s a -> s {_efValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efValue :: Lens.Lens' ExtensionField Lude.Text
+efValue = Lens.lens (value :: ExtensionField -> Lude.Text) (\s a -> s {value = a} :: ExtensionField)
+{-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable ExtensionField
-
-instance NFData ExtensionField
-
-instance ToQuery ExtensionField where
+instance Lude.ToQuery ExtensionField where
   toQuery ExtensionField' {..} =
-    mconcat ["Name" =: _efName, "Value" =: _efValue]
+    Lude.mconcat ["Name" Lude.=: name, "Value" Lude.=: value]

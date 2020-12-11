@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
 --
---
 -- To grant permission to another account, specify the account ID as the @Principal@ . For AWS services, the principal is a domain-style identifier defined by the service, like @s3.amazonaws.com@ or @sns.amazonaws.com@ . For AWS services, you can also specify the ARN of the associated resource as the @SourceArn@ . If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
---
 -- This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html Lambda Function Policies> .
 module Network.AWS.Lambda.AddPermission
-  ( -- * Creating a Request
-    addPermission,
-    AddPermission,
+  ( -- * Creating a request
+    AddPermission (..),
+    mkAddPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apSourceAccount,
     apEventSourceToken,
     apSourceARN,
@@ -39,187 +32,242 @@ module Network.AWS.Lambda.AddPermission
     apAction,
     apPrincipal,
 
-    -- * Destructuring the Response
-    addPermissionResponse,
-    AddPermissionResponse,
+    -- * Destructuring the response
+    AddPermissionResponse (..),
+    mkAddPermissionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aprsStatement,
     aprsResponseStatus,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addPermission' smart constructor.
+-- | /See:/ 'mkAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { _apSourceAccount ::
-      !(Maybe Text),
-    _apEventSourceToken :: !(Maybe Text),
-    _apSourceARN :: !(Maybe Text),
-    _apQualifier :: !(Maybe Text),
-    _apRevisionId :: !(Maybe Text),
-    _apFunctionName :: !Text,
-    _apStatementId :: !Text,
-    _apAction :: !Text,
-    _apPrincipal :: !Text
+  { sourceAccount ::
+      Lude.Maybe Lude.Text,
+    eventSourceToken :: Lude.Maybe Lude.Text,
+    sourceARN :: Lude.Maybe Lude.Text,
+    qualifier :: Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text,
+    statementId :: Lude.Text,
+    action :: Lude.Text,
+    principal :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The action that the principal can use on the function. For example, @lambda:InvokeFunction@ or @lambda:GetFunction@ .
+-- * 'eventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the invoker.
+-- * 'functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'apSourceAccount' - For Amazon S3, the ID of the account that owns the resource. Use this together with @SourceArn@ to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+-- __Name formats__
 --
--- * 'apEventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the invoker.
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
 --
--- * 'apSourceARN' - For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
 --
--- * 'apQualifier' - Specify a version or alias to add permissions to a published version of the function.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
 --
--- * 'apRevisionId' - Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
 --
--- * 'apFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
 --
--- * 'apStatementId' - A statement identifier that differentiates the statement from others in the same policy.
 --
--- * 'apAction' - The action that the principal can use on the function. For example, @lambda:InvokeFunction@ or @lambda:GetFunction@ .
---
--- * 'apPrincipal' - The AWS service or account that invokes the function. If you specify a service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the function through that service.
-addPermission ::
-  -- | 'apFunctionName'
-  Text ->
-  -- | 'apStatementId'
-  Text ->
-  -- | 'apAction'
-  Text ->
-  -- | 'apPrincipal'
-  Text ->
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'principal' - The AWS service or account that invokes the function. If you specify a service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the function through that service.
+-- * 'qualifier' - Specify a version or alias to add permissions to a published version of the function.
+-- * 'revisionId' - Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
+-- * 'sourceARN' - For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+-- * 'sourceAccount' - For Amazon S3, the ID of the account that owns the resource. Use this together with @SourceArn@ to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+-- * 'statementId' - A statement identifier that differentiates the statement from others in the same policy.
+mkAddPermission ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'statementId'
+  Lude.Text ->
+  -- | 'action'
+  Lude.Text ->
+  -- | 'principal'
+  Lude.Text ->
   AddPermission
-addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
+mkAddPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
   AddPermission'
-    { _apSourceAccount = Nothing,
-      _apEventSourceToken = Nothing,
-      _apSourceARN = Nothing,
-      _apQualifier = Nothing,
-      _apRevisionId = Nothing,
-      _apFunctionName = pFunctionName_,
-      _apStatementId = pStatementId_,
-      _apAction = pAction_,
-      _apPrincipal = pPrincipal_
+    { sourceAccount = Lude.Nothing,
+      eventSourceToken = Lude.Nothing,
+      sourceARN = Lude.Nothing,
+      qualifier = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      functionName = pFunctionName_,
+      statementId = pStatementId_,
+      action = pAction_,
+      principal = pPrincipal_
     }
 
 -- | For Amazon S3, the ID of the account that owns the resource. Use this together with @SourceArn@ to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
-apSourceAccount :: Lens' AddPermission (Maybe Text)
-apSourceAccount = lens _apSourceAccount (\s a -> s {_apSourceAccount = a})
+--
+-- /Note:/ Consider using 'sourceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apSourceAccount :: Lens.Lens' AddPermission (Lude.Maybe Lude.Text)
+apSourceAccount = Lens.lens (sourceAccount :: AddPermission -> Lude.Maybe Lude.Text) (\s a -> s {sourceAccount = a} :: AddPermission)
+{-# DEPRECATED apSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
 
 -- | For Alexa Smart Home functions, a token that must be supplied by the invoker.
-apEventSourceToken :: Lens' AddPermission (Maybe Text)
-apEventSourceToken = lens _apEventSourceToken (\s a -> s {_apEventSourceToken = a})
+--
+-- /Note:/ Consider using 'eventSourceToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apEventSourceToken :: Lens.Lens' AddPermission (Lude.Maybe Lude.Text)
+apEventSourceToken = Lens.lens (eventSourceToken :: AddPermission -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceToken = a} :: AddPermission)
+{-# DEPRECATED apEventSourceToken "Use generic-lens or generic-optics with 'eventSourceToken' instead." #-}
 
 -- | For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
-apSourceARN :: Lens' AddPermission (Maybe Text)
-apSourceARN = lens _apSourceARN (\s a -> s {_apSourceARN = a})
+--
+-- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apSourceARN :: Lens.Lens' AddPermission (Lude.Maybe Lude.Text)
+apSourceARN = Lens.lens (sourceARN :: AddPermission -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: AddPermission)
+{-# DEPRECATED apSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
 
 -- | Specify a version or alias to add permissions to a published version of the function.
-apQualifier :: Lens' AddPermission (Maybe Text)
-apQualifier = lens _apQualifier (\s a -> s {_apQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apQualifier :: Lens.Lens' AddPermission (Lude.Maybe Lude.Text)
+apQualifier = Lens.lens (qualifier :: AddPermission -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: AddPermission)
+{-# DEPRECATED apQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
-apRevisionId :: Lens' AddPermission (Maybe Text)
-apRevisionId = lens _apRevisionId (\s a -> s {_apRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apRevisionId :: Lens.Lens' AddPermission (Lude.Maybe Lude.Text)
+apRevisionId = Lens.lens (revisionId :: AddPermission -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: AddPermission)
+{-# DEPRECATED apRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-apFunctionName :: Lens' AddPermission Text
-apFunctionName = lens _apFunctionName (\s a -> s {_apFunctionName = a})
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apFunctionName :: Lens.Lens' AddPermission Lude.Text
+apFunctionName = Lens.lens (functionName :: AddPermission -> Lude.Text) (\s a -> s {functionName = a} :: AddPermission)
+{-# DEPRECATED apFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | A statement identifier that differentiates the statement from others in the same policy.
-apStatementId :: Lens' AddPermission Text
-apStatementId = lens _apStatementId (\s a -> s {_apStatementId = a})
+--
+-- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apStatementId :: Lens.Lens' AddPermission Lude.Text
+apStatementId = Lens.lens (statementId :: AddPermission -> Lude.Text) (\s a -> s {statementId = a} :: AddPermission)
+{-# DEPRECATED apStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
 
 -- | The action that the principal can use on the function. For example, @lambda:InvokeFunction@ or @lambda:GetFunction@ .
-apAction :: Lens' AddPermission Text
-apAction = lens _apAction (\s a -> s {_apAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAction :: Lens.Lens' AddPermission Lude.Text
+apAction = Lens.lens (action :: AddPermission -> Lude.Text) (\s a -> s {action = a} :: AddPermission)
+{-# DEPRECATED apAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The AWS service or account that invokes the function. If you specify a service, use @SourceArn@ or @SourceAccount@ to limit who can invoke the function through that service.
-apPrincipal :: Lens' AddPermission Text
-apPrincipal = lens _apPrincipal (\s a -> s {_apPrincipal = a})
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPrincipal :: Lens.Lens' AddPermission Lude.Text
+apPrincipal = Lens.lens (principal :: AddPermission -> Lude.Text) (\s a -> s {principal = a} :: AddPermission)
+{-# DEPRECATED apPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance AWSRequest AddPermission where
+instance Lude.AWSRequest AddPermission where
   type Rs AddPermission = AddPermissionResponse
-  request = postJSON lambda
+  request = Req.postJSON lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AddPermissionResponse'
-            <$> (x .?> "Statement") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Statement") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddPermission
+instance Lude.ToHeaders AddPermission where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddPermission
-
-instance ToHeaders AddPermission where
-  toHeaders = const mempty
-
-instance ToJSON AddPermission where
+instance Lude.ToJSON AddPermission where
   toJSON AddPermission' {..} =
-    object
-      ( catMaybes
-          [ ("SourceAccount" .=) <$> _apSourceAccount,
-            ("EventSourceToken" .=) <$> _apEventSourceToken,
-            ("SourceArn" .=) <$> _apSourceARN,
-            ("RevisionId" .=) <$> _apRevisionId,
-            Just ("StatementId" .= _apStatementId),
-            Just ("Action" .= _apAction),
-            Just ("Principal" .= _apPrincipal)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SourceAccount" Lude..=) Lude.<$> sourceAccount,
+            ("EventSourceToken" Lude..=) Lude.<$> eventSourceToken,
+            ("SourceArn" Lude..=) Lude.<$> sourceARN,
+            ("RevisionId" Lude..=) Lude.<$> revisionId,
+            Lude.Just ("StatementId" Lude..= statementId),
+            Lude.Just ("Action" Lude..= action),
+            Lude.Just ("Principal" Lude..= principal)
           ]
       )
 
-instance ToPath AddPermission where
+instance Lude.ToPath AddPermission where
   toPath AddPermission' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _apFunctionName, "/policy"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/policy"]
 
-instance ToQuery AddPermission where
-  toQuery AddPermission' {..} = mconcat ["Qualifier" =: _apQualifier]
+instance Lude.ToQuery AddPermission where
+  toQuery AddPermission' {..} =
+    Lude.mconcat ["Qualifier" Lude.=: qualifier]
 
--- | /See:/ 'addPermissionResponse' smart constructor.
+-- | /See:/ 'mkAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-  { _aprsStatement ::
-      !(Maybe Text),
-    _aprsResponseStatus :: !Int
+  { statement ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aprsStatement' - The permission statement that's added to the function policy.
---
--- * 'aprsResponseStatus' - -- | The response status code.
-addPermissionResponse ::
-  -- | 'aprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'statement' - The permission statement that's added to the function policy.
+mkAddPermissionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddPermissionResponse
-addPermissionResponse pResponseStatus_ =
+mkAddPermissionResponse pResponseStatus_ =
   AddPermissionResponse'
-    { _aprsStatement = Nothing,
-      _aprsResponseStatus = pResponseStatus_
+    { statement = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The permission statement that's added to the function policy.
-aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
-aprsStatement = lens _aprsStatement (\s a -> s {_aprsStatement = a})
+--
+-- /Note:/ Consider using 'statement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aprsStatement :: Lens.Lens' AddPermissionResponse (Lude.Maybe Lude.Text)
+aprsStatement = Lens.lens (statement :: AddPermissionResponse -> Lude.Maybe Lude.Text) (\s a -> s {statement = a} :: AddPermissionResponse)
+{-# DEPRECATED aprsStatement "Use generic-lens or generic-optics with 'statement' instead." #-}
 
--- | -- | The response status code.
-aprsResponseStatus :: Lens' AddPermissionResponse Int
-aprsResponseStatus = lens _aprsResponseStatus (\s a -> s {_aprsResponseStatus = a})
-
-instance NFData AddPermissionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aprsResponseStatus :: Lens.Lens' AddPermissionResponse Lude.Int
+aprsResponseStatus = Lens.lens (responseStatus :: AddPermissionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddPermissionResponse)
+{-# DEPRECATED aprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

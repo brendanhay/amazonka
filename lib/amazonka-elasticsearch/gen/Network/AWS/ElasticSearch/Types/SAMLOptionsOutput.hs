@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.SAMLOptionsOutput where
+module Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
+  ( SAMLOptionsOutput (..),
+
+    -- * Smart constructor
+    mkSAMLOptionsOutput,
+
+    -- * Lenses
+    samlooEnabled,
+    samlooIdp,
+    samlooRolesKey,
+    samlooSessionTimeoutMinutes,
+    samlooSubjectKey,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.SAMLIdp
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the SAML application configured for the domain.
 --
---
---
--- /See:/ 'sAMLOptionsOutput' smart constructor.
+-- /See:/ 'mkSAMLOptionsOutput' smart constructor.
 data SAMLOptionsOutput = SAMLOptionsOutput'
-  { _samlooEnabled ::
-      !(Maybe Bool),
-    _samlooIdp :: !(Maybe SAMLIdp),
-    _samlooRolesKey :: !(Maybe Text),
-    _samlooSessionTimeoutMinutes :: !(Maybe Int),
-    _samlooSubjectKey :: !(Maybe Text)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    idp :: Lude.Maybe SAMLIdp,
+    rolesKey :: Lude.Maybe Lude.Text,
+    sessionTimeoutMinutes :: Lude.Maybe Lude.Int,
+    subjectKey :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLOptionsOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'samlooEnabled' - True if SAML is enabled.
---
--- * 'samlooIdp' - Describes the SAML Identity Provider's information.
---
--- * 'samlooRolesKey' - The key used for matching the SAML Roles attribute.
---
--- * 'samlooSessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
---
--- * 'samlooSubjectKey' - The key used for matching the SAML Subject attribute.
-sAMLOptionsOutput ::
+-- * 'enabled' - True if SAML is enabled.
+-- * 'idp' - Describes the SAML Identity Provider's information.
+-- * 'rolesKey' - The key used for matching the SAML Roles attribute.
+-- * 'sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
+-- * 'subjectKey' - The key used for matching the SAML Subject attribute.
+mkSAMLOptionsOutput ::
   SAMLOptionsOutput
-sAMLOptionsOutput =
+mkSAMLOptionsOutput =
   SAMLOptionsOutput'
-    { _samlooEnabled = Nothing,
-      _samlooIdp = Nothing,
-      _samlooRolesKey = Nothing,
-      _samlooSessionTimeoutMinutes = Nothing,
-      _samlooSubjectKey = Nothing
+    { enabled = Lude.Nothing,
+      idp = Lude.Nothing,
+      rolesKey = Lude.Nothing,
+      sessionTimeoutMinutes = Lude.Nothing,
+      subjectKey = Lude.Nothing
     }
 
 -- | True if SAML is enabled.
-samlooEnabled :: Lens' SAMLOptionsOutput (Maybe Bool)
-samlooEnabled = lens _samlooEnabled (\s a -> s {_samlooEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlooEnabled :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Bool)
+samlooEnabled = Lens.lens (enabled :: SAMLOptionsOutput -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SAMLOptionsOutput)
+{-# DEPRECATED samlooEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Describes the SAML Identity Provider's information.
-samlooIdp :: Lens' SAMLOptionsOutput (Maybe SAMLIdp)
-samlooIdp = lens _samlooIdp (\s a -> s {_samlooIdp = a})
+--
+-- /Note:/ Consider using 'idp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlooIdp :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe SAMLIdp)
+samlooIdp = Lens.lens (idp :: SAMLOptionsOutput -> Lude.Maybe SAMLIdp) (\s a -> s {idp = a} :: SAMLOptionsOutput)
+{-# DEPRECATED samlooIdp "Use generic-lens or generic-optics with 'idp' instead." #-}
 
 -- | The key used for matching the SAML Roles attribute.
-samlooRolesKey :: Lens' SAMLOptionsOutput (Maybe Text)
-samlooRolesKey = lens _samlooRolesKey (\s a -> s {_samlooRolesKey = a})
+--
+-- /Note:/ Consider using 'rolesKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlooRolesKey :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Text)
+samlooRolesKey = Lens.lens (rolesKey :: SAMLOptionsOutput -> Lude.Maybe Lude.Text) (\s a -> s {rolesKey = a} :: SAMLOptionsOutput)
+{-# DEPRECATED samlooRolesKey "Use generic-lens or generic-optics with 'rolesKey' instead." #-}
 
 -- | The duration, in minutes, after which a user session becomes inactive.
-samlooSessionTimeoutMinutes :: Lens' SAMLOptionsOutput (Maybe Int)
-samlooSessionTimeoutMinutes = lens _samlooSessionTimeoutMinutes (\s a -> s {_samlooSessionTimeoutMinutes = a})
+--
+-- /Note:/ Consider using 'sessionTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlooSessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Int)
+samlooSessionTimeoutMinutes = Lens.lens (sessionTimeoutMinutes :: SAMLOptionsOutput -> Lude.Maybe Lude.Int) (\s a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsOutput)
+{-# DEPRECATED samlooSessionTimeoutMinutes "Use generic-lens or generic-optics with 'sessionTimeoutMinutes' instead." #-}
 
 -- | The key used for matching the SAML Subject attribute.
-samlooSubjectKey :: Lens' SAMLOptionsOutput (Maybe Text)
-samlooSubjectKey = lens _samlooSubjectKey (\s a -> s {_samlooSubjectKey = a})
+--
+-- /Note:/ Consider using 'subjectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlooSubjectKey :: Lens.Lens' SAMLOptionsOutput (Lude.Maybe Lude.Text)
+samlooSubjectKey = Lens.lens (subjectKey :: SAMLOptionsOutput -> Lude.Maybe Lude.Text) (\s a -> s {subjectKey = a} :: SAMLOptionsOutput)
+{-# DEPRECATED samlooSubjectKey "Use generic-lens or generic-optics with 'subjectKey' instead." #-}
 
-instance FromJSON SAMLOptionsOutput where
+instance Lude.FromJSON SAMLOptionsOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "SAMLOptionsOutput"
       ( \x ->
           SAMLOptionsOutput'
-            <$> (x .:? "Enabled")
-            <*> (x .:? "Idp")
-            <*> (x .:? "RolesKey")
-            <*> (x .:? "SessionTimeoutMinutes")
-            <*> (x .:? "SubjectKey")
+            Lude.<$> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "Idp")
+            Lude.<*> (x Lude..:? "RolesKey")
+            Lude.<*> (x Lude..:? "SessionTimeoutMinutes")
+            Lude.<*> (x Lude..:? "SubjectKey")
       )
-
-instance Hashable SAMLOptionsOutput
-
-instance NFData SAMLOptionsOutput

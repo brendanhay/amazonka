@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,128 @@
 --
 -- Deletes a previously provisioned DAX cluster. /DeleteCluster/ deletes all associated nodes, node endpoints and the DAX cluster itself. When you receive a successful response from this action, DAX immediately begins deleting the cluster; you cannot cancel or revert this action.
 module Network.AWS.DAX.DeleteCluster
-  ( -- * Creating a Request
-    deleteCluster,
-    DeleteCluster,
+  ( -- * Creating a request
+    DeleteCluster (..),
+    mkDeleteCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcClusterName,
 
-    -- * Destructuring the Response
-    deleteClusterResponse,
-    DeleteClusterResponse,
+    -- * Destructuring the response
+    DeleteClusterResponse (..),
+    mkDeleteClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsCluster,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCluster' smart constructor.
-newtype DeleteCluster = DeleteCluster' {_dcClusterName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteCluster' smart constructor.
+newtype DeleteCluster = DeleteCluster' {clusterName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcClusterName' - The name of the cluster to be deleted.
-deleteCluster ::
-  -- | 'dcClusterName'
-  Text ->
+-- * 'clusterName' - The name of the cluster to be deleted.
+mkDeleteCluster ::
+  -- | 'clusterName'
+  Lude.Text ->
   DeleteCluster
-deleteCluster pClusterName_ =
-  DeleteCluster' {_dcClusterName = pClusterName_}
+mkDeleteCluster pClusterName_ =
+  DeleteCluster' {clusterName = pClusterName_}
 
 -- | The name of the cluster to be deleted.
-dcClusterName :: Lens' DeleteCluster Text
-dcClusterName = lens _dcClusterName (\s a -> s {_dcClusterName = a})
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcClusterName :: Lens.Lens' DeleteCluster Lude.Text
+dcClusterName = Lens.lens (clusterName :: DeleteCluster -> Lude.Text) (\s a -> s {clusterName = a} :: DeleteCluster)
+{-# DEPRECATED dcClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
-instance AWSRequest DeleteCluster where
+instance Lude.AWSRequest DeleteCluster where
   type Rs DeleteCluster = DeleteClusterResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            <$> (x .?> "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCluster
-
-instance NFData DeleteCluster
-
-instance ToHeaders DeleteCluster where
+instance Lude.ToHeaders DeleteCluster where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.DeleteCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.DeleteCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCluster where
+instance Lude.ToJSON DeleteCluster where
   toJSON DeleteCluster' {..} =
-    object (catMaybes [Just ("ClusterName" .= _dcClusterName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ClusterName" Lude..= clusterName)])
 
-instance ToPath DeleteCluster where
-  toPath = const "/"
+instance Lude.ToPath DeleteCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCluster where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteClusterResponse' smart constructor.
+-- | /See:/ 'mkDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-  { _drsCluster ::
-      !(Maybe Cluster),
-    _drsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsCluster' - A description of the DAX cluster that is being deleted.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteClusterResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'cluster' - A description of the DAX cluster that is being deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteClusterResponse
-deleteClusterResponse pResponseStatus_ =
+mkDeleteClusterResponse pResponseStatus_ =
   DeleteClusterResponse'
-    { _drsCluster = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A description of the DAX cluster that is being deleted.
-drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-drsCluster = lens _drsCluster (\s a -> s {_drsCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCluster :: Lens.Lens' DeleteClusterResponse (Lude.Maybe Cluster)
+drsCluster = Lens.lens (cluster :: DeleteClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: DeleteClusterResponse)
+{-# DEPRECATED drsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteClusterResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteClusterResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClusterResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

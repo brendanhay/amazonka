@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.GroupSummary where
+module Network.AWS.XRay.Types.GroupSummary
+  ( GroupSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupSummary,
+
+    -- * Lenses
+    gsFilterExpression,
+    gsInsightsConfiguration,
+    gsGroupARN,
+    gsGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.InsightsConfiguration
 
 -- | Details for a group without metadata.
 --
---
---
--- /See:/ 'groupSummary' smart constructor.
+-- /See:/ 'mkGroupSummary' smart constructor.
 data GroupSummary = GroupSummary'
-  { _gsFilterExpression ::
-      !(Maybe Text),
-    _gsInsightsConfiguration :: !(Maybe InsightsConfiguration),
-    _gsGroupARN :: !(Maybe Text),
-    _gsGroupName :: !(Maybe Text)
+  { filterExpression ::
+      Lude.Maybe Lude.Text,
+    insightsConfiguration :: Lude.Maybe InsightsConfiguration,
+    groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filterExpression' - The filter expression defining the parameters to include traces.
+-- * 'groupARN' - The ARN of the group generated based on the GroupName.
+-- * 'groupName' - The unique case-sensitive name of the group.
+-- * 'insightsConfiguration' - The structure containing configurations related to insights.
 --
--- * 'gsFilterExpression' - The filter expression defining the parameters to include traces.
 --
--- * 'gsInsightsConfiguration' - The structure containing configurations related to insights.     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.     * The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
 --
--- * 'gsGroupARN' - The ARN of the group generated based on the GroupName.
 --
--- * 'gsGroupName' - The unique case-sensitive name of the group.
-groupSummary ::
+--     * The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+mkGroupSummary ::
   GroupSummary
-groupSummary =
+mkGroupSummary =
   GroupSummary'
-    { _gsFilterExpression = Nothing,
-      _gsInsightsConfiguration = Nothing,
-      _gsGroupARN = Nothing,
-      _gsGroupName = Nothing
+    { filterExpression = Lude.Nothing,
+      insightsConfiguration = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing
     }
 
 -- | The filter expression defining the parameters to include traces.
-gsFilterExpression :: Lens' GroupSummary (Maybe Text)
-gsFilterExpression = lens _gsFilterExpression (\s a -> s {_gsFilterExpression = a})
+--
+-- /Note:/ Consider using 'filterExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsFilterExpression :: Lens.Lens' GroupSummary (Lude.Maybe Lude.Text)
+gsFilterExpression = Lens.lens (filterExpression :: GroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {filterExpression = a} :: GroupSummary)
+{-# DEPRECATED gsFilterExpression "Use generic-lens or generic-optics with 'filterExpression' instead." #-}
 
--- | The structure containing configurations related to insights.     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.     * The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
-gsInsightsConfiguration :: Lens' GroupSummary (Maybe InsightsConfiguration)
-gsInsightsConfiguration = lens _gsInsightsConfiguration (\s a -> s {_gsInsightsConfiguration = a})
+-- | The structure containing configurations related to insights.
+--
+--
+--     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+--
+--
+--     * The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--
+--
+--
+-- /Note:/ Consider using 'insightsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsInsightsConfiguration :: Lens.Lens' GroupSummary (Lude.Maybe InsightsConfiguration)
+gsInsightsConfiguration = Lens.lens (insightsConfiguration :: GroupSummary -> Lude.Maybe InsightsConfiguration) (\s a -> s {insightsConfiguration = a} :: GroupSummary)
+{-# DEPRECATED gsInsightsConfiguration "Use generic-lens or generic-optics with 'insightsConfiguration' instead." #-}
 
 -- | The ARN of the group generated based on the GroupName.
-gsGroupARN :: Lens' GroupSummary (Maybe Text)
-gsGroupARN = lens _gsGroupARN (\s a -> s {_gsGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGroupARN :: Lens.Lens' GroupSummary (Lude.Maybe Lude.Text)
+gsGroupARN = Lens.lens (groupARN :: GroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GroupSummary)
+{-# DEPRECATED gsGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The unique case-sensitive name of the group.
-gsGroupName :: Lens' GroupSummary (Maybe Text)
-gsGroupName = lens _gsGroupName (\s a -> s {_gsGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGroupName :: Lens.Lens' GroupSummary (Lude.Maybe Lude.Text)
+gsGroupName = Lens.lens (groupName :: GroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupSummary)
+{-# DEPRECATED gsGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance FromJSON GroupSummary where
+instance Lude.FromJSON GroupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            <$> (x .:? "FilterExpression")
-            <*> (x .:? "InsightsConfiguration")
-            <*> (x .:? "GroupARN")
-            <*> (x .:? "GroupName")
+            Lude.<$> (x Lude..:? "FilterExpression")
+            Lude.<*> (x Lude..:? "InsightsConfiguration")
+            Lude.<*> (x Lude..:? "GroupARN")
+            Lude.<*> (x Lude..:? "GroupName")
       )
-
-instance Hashable GroupSummary
-
-instance NFData GroupSummary

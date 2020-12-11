@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists your Device Defender audit listings.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditSuppressions
-  ( -- * Creating a Request
-    listAuditSuppressions,
-    ListAuditSuppressions,
+  ( -- * Creating a request
+    ListAuditSuppressions (..),
+    mkListAuditSuppressions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lasCheckName,
     lasNextToken,
     lasAscendingOrder,
     lasMaxResults,
     lasResourceIdentifier,
 
-    -- * Destructuring the Response
-    listAuditSuppressionsResponse,
-    ListAuditSuppressionsResponse,
+    -- * Destructuring the response
+    ListAuditSuppressionsResponse (..),
+    mkListAuditSuppressionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lasrsNextToken,
     lasrsSuppressions,
     lasrsResponseStatus,
@@ -46,151 +39,176 @@ module Network.AWS.IoT.ListAuditSuppressions
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAuditSuppressions' smart constructor.
+-- | /See:/ 'mkListAuditSuppressions' smart constructor.
 data ListAuditSuppressions = ListAuditSuppressions'
-  { _lasCheckName ::
-      !(Maybe Text),
-    _lasNextToken :: !(Maybe Text),
-    _lasAscendingOrder :: !(Maybe Bool),
-    _lasMaxResults :: !(Maybe Nat),
-    _lasResourceIdentifier ::
-      !(Maybe ResourceIdentifier)
+  { checkName ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    ascendingOrder :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural,
+    resourceIdentifier ::
+      Lude.Maybe ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditSuppressions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lasCheckName' - Undocumented member.
---
--- * 'lasNextToken' - The token for the next set of results.
---
--- * 'lasAscendingOrder' - Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
---
--- * 'lasMaxResults' - The maximum number of results to return at one time. The default is 25.
---
--- * 'lasResourceIdentifier' - Undocumented member.
-listAuditSuppressions ::
+-- * 'ascendingOrder' - Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
+-- * 'checkName' - Undocumented field.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'resourceIdentifier' - Undocumented field.
+mkListAuditSuppressions ::
   ListAuditSuppressions
-listAuditSuppressions =
+mkListAuditSuppressions =
   ListAuditSuppressions'
-    { _lasCheckName = Nothing,
-      _lasNextToken = Nothing,
-      _lasAscendingOrder = Nothing,
-      _lasMaxResults = Nothing,
-      _lasResourceIdentifier = Nothing
+    { checkName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      ascendingOrder = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      resourceIdentifier = Lude.Nothing
     }
 
--- | Undocumented member.
-lasCheckName :: Lens' ListAuditSuppressions (Maybe Text)
-lasCheckName = lens _lasCheckName (\s a -> s {_lasCheckName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasCheckName :: Lens.Lens' ListAuditSuppressions (Lude.Maybe Lude.Text)
+lasCheckName = Lens.lens (checkName :: ListAuditSuppressions -> Lude.Maybe Lude.Text) (\s a -> s {checkName = a} :: ListAuditSuppressions)
+{-# DEPRECATED lasCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | The token for the next set of results.
-lasNextToken :: Lens' ListAuditSuppressions (Maybe Text)
-lasNextToken = lens _lasNextToken (\s a -> s {_lasNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasNextToken :: Lens.Lens' ListAuditSuppressions (Lude.Maybe Lude.Text)
+lasNextToken = Lens.lens (nextToken :: ListAuditSuppressions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditSuppressions)
+{-# DEPRECATED lasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
-lasAscendingOrder :: Lens' ListAuditSuppressions (Maybe Bool)
-lasAscendingOrder = lens _lasAscendingOrder (\s a -> s {_lasAscendingOrder = a})
+--
+-- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasAscendingOrder :: Lens.Lens' ListAuditSuppressions (Lude.Maybe Lude.Bool)
+lasAscendingOrder = Lens.lens (ascendingOrder :: ListAuditSuppressions -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListAuditSuppressions)
+{-# DEPRECATED lasAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
-lasMaxResults :: Lens' ListAuditSuppressions (Maybe Natural)
-lasMaxResults = lens _lasMaxResults (\s a -> s {_lasMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasMaxResults :: Lens.Lens' ListAuditSuppressions (Lude.Maybe Lude.Natural)
+lasMaxResults = Lens.lens (maxResults :: ListAuditSuppressions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAuditSuppressions)
+{-# DEPRECATED lasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | Undocumented member.
-lasResourceIdentifier :: Lens' ListAuditSuppressions (Maybe ResourceIdentifier)
-lasResourceIdentifier = lens _lasResourceIdentifier (\s a -> s {_lasResourceIdentifier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasResourceIdentifier :: Lens.Lens' ListAuditSuppressions (Lude.Maybe ResourceIdentifier)
+lasResourceIdentifier = Lens.lens (resourceIdentifier :: ListAuditSuppressions -> Lude.Maybe ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: ListAuditSuppressions)
+{-# DEPRECATED lasResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance AWSPager ListAuditSuppressions where
+instance Page.AWSPager ListAuditSuppressions where
   page rq rs
-    | stop (rs ^. lasrsNextToken) = Nothing
-    | stop (rs ^. lasrsSuppressions) = Nothing
-    | otherwise = Just $ rq & lasNextToken .~ rs ^. lasrsNextToken
+    | Page.stop (rs Lens.^. lasrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lasrsSuppressions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lasNextToken Lens..~ rs Lens.^. lasrsNextToken
 
-instance AWSRequest ListAuditSuppressions where
+instance Lude.AWSRequest ListAuditSuppressions where
   type Rs ListAuditSuppressions = ListAuditSuppressionsResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAuditSuppressionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "suppressions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "suppressions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAuditSuppressions
+instance Lude.ToHeaders ListAuditSuppressions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAuditSuppressions
-
-instance ToHeaders ListAuditSuppressions where
-  toHeaders = const mempty
-
-instance ToJSON ListAuditSuppressions where
+instance Lude.ToJSON ListAuditSuppressions where
   toJSON ListAuditSuppressions' {..} =
-    object
-      ( catMaybes
-          [ ("checkName" .=) <$> _lasCheckName,
-            ("nextToken" .=) <$> _lasNextToken,
-            ("ascendingOrder" .=) <$> _lasAscendingOrder,
-            ("maxResults" .=) <$> _lasMaxResults,
-            ("resourceIdentifier" .=) <$> _lasResourceIdentifier
+    Lude.object
+      ( Lude.catMaybes
+          [ ("checkName" Lude..=) Lude.<$> checkName,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("ascendingOrder" Lude..=) Lude.<$> ascendingOrder,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            ("resourceIdentifier" Lude..=) Lude.<$> resourceIdentifier
           ]
       )
 
-instance ToPath ListAuditSuppressions where
-  toPath = const "/audit/suppressions/list"
+instance Lude.ToPath ListAuditSuppressions where
+  toPath = Lude.const "/audit/suppressions/list"
 
-instance ToQuery ListAuditSuppressions where
-  toQuery = const mempty
+instance Lude.ToQuery ListAuditSuppressions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAuditSuppressionsResponse' smart constructor.
+-- | /See:/ 'mkListAuditSuppressionsResponse' smart constructor.
 data ListAuditSuppressionsResponse = ListAuditSuppressionsResponse'
-  { _lasrsNextToken ::
-      !(Maybe Text),
-    _lasrsSuppressions ::
-      !(Maybe [AuditSuppression]),
-    _lasrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    suppressions ::
+      Lude.Maybe [AuditSuppression],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditSuppressionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lasrsNextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
---
--- * 'lasrsSuppressions' - List of audit suppressions.
---
--- * 'lasrsResponseStatus' - -- | The response status code.
-listAuditSuppressionsResponse ::
-  -- | 'lasrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'suppressions' - List of audit suppressions.
+mkListAuditSuppressionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAuditSuppressionsResponse
-listAuditSuppressionsResponse pResponseStatus_ =
+mkListAuditSuppressionsResponse pResponseStatus_ =
   ListAuditSuppressionsResponse'
-    { _lasrsNextToken = Nothing,
-      _lasrsSuppressions = Nothing,
-      _lasrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      suppressions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-lasrsNextToken :: Lens' ListAuditSuppressionsResponse (Maybe Text)
-lasrsNextToken = lens _lasrsNextToken (\s a -> s {_lasrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasrsNextToken :: Lens.Lens' ListAuditSuppressionsResponse (Lude.Maybe Lude.Text)
+lasrsNextToken = Lens.lens (nextToken :: ListAuditSuppressionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditSuppressionsResponse)
+{-# DEPRECATED lasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of audit suppressions.
-lasrsSuppressions :: Lens' ListAuditSuppressionsResponse [AuditSuppression]
-lasrsSuppressions = lens _lasrsSuppressions (\s a -> s {_lasrsSuppressions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'suppressions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasrsSuppressions :: Lens.Lens' ListAuditSuppressionsResponse (Lude.Maybe [AuditSuppression])
+lasrsSuppressions = Lens.lens (suppressions :: ListAuditSuppressionsResponse -> Lude.Maybe [AuditSuppression]) (\s a -> s {suppressions = a} :: ListAuditSuppressionsResponse)
+{-# DEPRECATED lasrsSuppressions "Use generic-lens or generic-optics with 'suppressions' instead." #-}
 
--- | -- | The response status code.
-lasrsResponseStatus :: Lens' ListAuditSuppressionsResponse Int
-lasrsResponseStatus = lens _lasrsResponseStatus (\s a -> s {_lasrsResponseStatus = a})
-
-instance NFData ListAuditSuppressionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasrsResponseStatus :: Lens.Lens' ListAuditSuppressionsResponse Lude.Int
+lasrsResponseStatus = Lens.lens (responseStatus :: ListAuditSuppressionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAuditSuppressionsResponse)
+{-# DEPRECATED lasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

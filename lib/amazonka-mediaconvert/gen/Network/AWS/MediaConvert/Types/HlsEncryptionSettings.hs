@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,126 +7,156 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsEncryptionSettings where
+module Network.AWS.MediaConvert.Types.HlsEncryptionSettings
+  ( HlsEncryptionSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsEncryptionSettings,
+
+    -- * Lenses
+    hesOfflineEncrypted,
+    hesEncryptionMethod,
+    hesConstantInitializationVector,
+    hesType,
+    hesStaticKeyProvider,
+    hesSpekeKeyProvider,
+    hesInitializationVectorInManifest,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.HlsEncryptionType
 import Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
 import Network.AWS.MediaConvert.Types.HlsKeyProviderType
 import Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
 import Network.AWS.MediaConvert.Types.SpekeKeyProvider
 import Network.AWS.MediaConvert.Types.StaticKeyProvider
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for HLS encryption
 --
--- /See:/ 'hlsEncryptionSettings' smart constructor.
+-- /See:/ 'mkHlsEncryptionSettings' smart constructor.
 data HlsEncryptionSettings = HlsEncryptionSettings'
-  { _hesOfflineEncrypted ::
-      !(Maybe HlsOfflineEncrypted),
-    _hesEncryptionMethod ::
-      !(Maybe HlsEncryptionType),
-    _hesConstantInitializationVector ::
-      !(Maybe Text),
-    _hesType :: !(Maybe HlsKeyProviderType),
-    _hesStaticKeyProvider ::
-      !(Maybe StaticKeyProvider),
-    _hesSpekeKeyProvider ::
-      !(Maybe SpekeKeyProvider),
-    _hesInitializationVectorInManifest ::
-      !(Maybe HlsInitializationVectorInManifest)
+  { offlineEncrypted ::
+      Lude.Maybe HlsOfflineEncrypted,
+    encryptionMethod ::
+      Lude.Maybe HlsEncryptionType,
+    constantInitializationVector ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe HlsKeyProviderType,
+    staticKeyProvider ::
+      Lude.Maybe StaticKeyProvider,
+    spekeKeyProvider :: Lude.Maybe SpekeKeyProvider,
+    initializationVectorInManifest ::
+      Lude.Maybe HlsInitializationVectorInManifest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsEncryptionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hesOfflineEncrypted' - Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
---
--- * 'hesEncryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
---
--- * 'hesConstantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
---
--- * 'hesType' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
---
--- * 'hesStaticKeyProvider' - Use these settings to set up encryption with a static key provider.
---
--- * 'hesSpekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
---
--- * 'hesInitializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
-hlsEncryptionSettings ::
+-- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
+-- * 'encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+-- * 'initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
+-- * 'offlineEncrypted' - Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
+-- * 'spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+-- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'type'' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+mkHlsEncryptionSettings ::
   HlsEncryptionSettings
-hlsEncryptionSettings =
+mkHlsEncryptionSettings =
   HlsEncryptionSettings'
-    { _hesOfflineEncrypted = Nothing,
-      _hesEncryptionMethod = Nothing,
-      _hesConstantInitializationVector = Nothing,
-      _hesType = Nothing,
-      _hesStaticKeyProvider = Nothing,
-      _hesSpekeKeyProvider = Nothing,
-      _hesInitializationVectorInManifest = Nothing
+    { offlineEncrypted = Lude.Nothing,
+      encryptionMethod = Lude.Nothing,
+      constantInitializationVector = Lude.Nothing,
+      type' = Lude.Nothing,
+      staticKeyProvider = Lude.Nothing,
+      spekeKeyProvider = Lude.Nothing,
+      initializationVectorInManifest = Lude.Nothing
     }
 
 -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
-hesOfflineEncrypted :: Lens' HlsEncryptionSettings (Maybe HlsOfflineEncrypted)
-hesOfflineEncrypted = lens _hesOfflineEncrypted (\s a -> s {_hesOfflineEncrypted = a})
+--
+-- /Note:/ Consider using 'offlineEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesOfflineEncrypted :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe HlsOfflineEncrypted)
+hesOfflineEncrypted = Lens.lens (offlineEncrypted :: HlsEncryptionSettings -> Lude.Maybe HlsOfflineEncrypted) (\s a -> s {offlineEncrypted = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesOfflineEncrypted "Use generic-lens or generic-optics with 'offlineEncrypted' instead." #-}
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
-hesEncryptionMethod :: Lens' HlsEncryptionSettings (Maybe HlsEncryptionType)
-hesEncryptionMethod = lens _hesEncryptionMethod (\s a -> s {_hesEncryptionMethod = a})
+--
+-- /Note:/ Consider using 'encryptionMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesEncryptionMethod :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe HlsEncryptionType)
+hesEncryptionMethod = Lens.lens (encryptionMethod :: HlsEncryptionSettings -> Lude.Maybe HlsEncryptionType) (\s a -> s {encryptionMethod = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesEncryptionMethod "Use generic-lens or generic-optics with 'encryptionMethod' instead." #-}
 
 -- | This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
-hesConstantInitializationVector :: Lens' HlsEncryptionSettings (Maybe Text)
-hesConstantInitializationVector = lens _hesConstantInitializationVector (\s a -> s {_hesConstantInitializationVector = a})
+--
+-- /Note:/ Consider using 'constantInitializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesConstantInitializationVector :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe Lude.Text)
+hesConstantInitializationVector = Lens.lens (constantInitializationVector :: HlsEncryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {constantInitializationVector = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesConstantInitializationVector "Use generic-lens or generic-optics with 'constantInitializationVector' instead." #-}
 
 -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
-hesType :: Lens' HlsEncryptionSettings (Maybe HlsKeyProviderType)
-hesType = lens _hesType (\s a -> s {_hesType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesType :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe HlsKeyProviderType)
+hesType = Lens.lens (type' :: HlsEncryptionSettings -> Lude.Maybe HlsKeyProviderType) (\s a -> s {type' = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Use these settings to set up encryption with a static key provider.
-hesStaticKeyProvider :: Lens' HlsEncryptionSettings (Maybe StaticKeyProvider)
-hesStaticKeyProvider = lens _hesStaticKeyProvider (\s a -> s {_hesStaticKeyProvider = a})
+--
+-- /Note:/ Consider using 'staticKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesStaticKeyProvider :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe StaticKeyProvider)
+hesStaticKeyProvider = Lens.lens (staticKeyProvider :: HlsEncryptionSettings -> Lude.Maybe StaticKeyProvider) (\s a -> s {staticKeyProvider = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesStaticKeyProvider "Use generic-lens or generic-optics with 'staticKeyProvider' instead." #-}
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
-hesSpekeKeyProvider :: Lens' HlsEncryptionSettings (Maybe SpekeKeyProvider)
-hesSpekeKeyProvider = lens _hesSpekeKeyProvider (\s a -> s {_hesSpekeKeyProvider = a})
+--
+-- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesSpekeKeyProvider :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe SpekeKeyProvider)
+hesSpekeKeyProvider = Lens.lens (spekeKeyProvider :: HlsEncryptionSettings -> Lude.Maybe SpekeKeyProvider) (\s a -> s {spekeKeyProvider = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
 -- | The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
-hesInitializationVectorInManifest :: Lens' HlsEncryptionSettings (Maybe HlsInitializationVectorInManifest)
-hesInitializationVectorInManifest = lens _hesInitializationVectorInManifest (\s a -> s {_hesInitializationVectorInManifest = a})
+--
+-- /Note:/ Consider using 'initializationVectorInManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hesInitializationVectorInManifest :: Lens.Lens' HlsEncryptionSettings (Lude.Maybe HlsInitializationVectorInManifest)
+hesInitializationVectorInManifest = Lens.lens (initializationVectorInManifest :: HlsEncryptionSettings -> Lude.Maybe HlsInitializationVectorInManifest) (\s a -> s {initializationVectorInManifest = a} :: HlsEncryptionSettings)
+{-# DEPRECATED hesInitializationVectorInManifest "Use generic-lens or generic-optics with 'initializationVectorInManifest' instead." #-}
 
-instance FromJSON HlsEncryptionSettings where
+instance Lude.FromJSON HlsEncryptionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsEncryptionSettings"
       ( \x ->
           HlsEncryptionSettings'
-            <$> (x .:? "offlineEncrypted")
-            <*> (x .:? "encryptionMethod")
-            <*> (x .:? "constantInitializationVector")
-            <*> (x .:? "type")
-            <*> (x .:? "staticKeyProvider")
-            <*> (x .:? "spekeKeyProvider")
-            <*> (x .:? "initializationVectorInManifest")
+            Lude.<$> (x Lude..:? "offlineEncrypted")
+            Lude.<*> (x Lude..:? "encryptionMethod")
+            Lude.<*> (x Lude..:? "constantInitializationVector")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "staticKeyProvider")
+            Lude.<*> (x Lude..:? "spekeKeyProvider")
+            Lude.<*> (x Lude..:? "initializationVectorInManifest")
       )
 
-instance Hashable HlsEncryptionSettings
-
-instance NFData HlsEncryptionSettings
-
-instance ToJSON HlsEncryptionSettings where
+instance Lude.ToJSON HlsEncryptionSettings where
   toJSON HlsEncryptionSettings' {..} =
-    object
-      ( catMaybes
-          [ ("offlineEncrypted" .=) <$> _hesOfflineEncrypted,
-            ("encryptionMethod" .=) <$> _hesEncryptionMethod,
-            ("constantInitializationVector" .=)
-              <$> _hesConstantInitializationVector,
-            ("type" .=) <$> _hesType,
-            ("staticKeyProvider" .=) <$> _hesStaticKeyProvider,
-            ("spekeKeyProvider" .=) <$> _hesSpekeKeyProvider,
-            ("initializationVectorInManifest" .=)
-              <$> _hesInitializationVectorInManifest
+    Lude.object
+      ( Lude.catMaybes
+          [ ("offlineEncrypted" Lude..=) Lude.<$> offlineEncrypted,
+            ("encryptionMethod" Lude..=) Lude.<$> encryptionMethod,
+            ("constantInitializationVector" Lude..=)
+              Lude.<$> constantInitializationVector,
+            ("type" Lude..=) Lude.<$> type',
+            ("staticKeyProvider" Lude..=) Lude.<$> staticKeyProvider,
+            ("spekeKeyProvider" Lude..=) Lude.<$> spekeKeyProvider,
+            ("initializationVectorInManifest" Lude..=)
+              Lude.<$> initializationVectorInManifest
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,157 @@
 --
 -- Modifies the list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
---
 -- A cluster can have up to 10 IAM roles associated at any time.
 module Network.AWS.Redshift.ModifyClusterIAMRoles
-  ( -- * Creating a Request
-    modifyClusterIAMRoles,
-    ModifyClusterIAMRoles,
+  ( -- * Creating a request
+    ModifyClusterIAMRoles (..),
+    mkModifyClusterIAMRoles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcirRemoveIAMRoles,
     mcirAddIAMRoles,
     mcirClusterIdentifier,
 
-    -- * Destructuring the Response
-    modifyClusterIAMRolesResponse,
-    ModifyClusterIAMRolesResponse,
+    -- * Destructuring the response
+    ModifyClusterIAMRolesResponse (..),
+    mkModifyClusterIAMRolesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcirrsCluster,
     mcirrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyClusterIAMRoles' smart constructor.
+-- /See:/ 'mkModifyClusterIAMRoles' smart constructor.
 data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
-  { _mcirRemoveIAMRoles ::
-      !(Maybe [Text]),
-    _mcirAddIAMRoles :: !(Maybe [Text]),
-    _mcirClusterIdentifier :: !Text
+  { removeIAMRoles ::
+      Lude.Maybe [Lude.Text],
+    addIAMRoles :: Lude.Maybe [Lude.Text],
+    clusterIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterIAMRoles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcirRemoveIAMRoles' - Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
---
--- * 'mcirAddIAMRoles' - Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
---
--- * 'mcirClusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
-modifyClusterIAMRoles ::
-  -- | 'mcirClusterIdentifier'
-  Text ->
+-- * 'addIAMRoles' - Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
+-- * 'clusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
+-- * 'removeIAMRoles' - Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
+mkModifyClusterIAMRoles ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   ModifyClusterIAMRoles
-modifyClusterIAMRoles pClusterIdentifier_ =
+mkModifyClusterIAMRoles pClusterIdentifier_ =
   ModifyClusterIAMRoles'
-    { _mcirRemoveIAMRoles = Nothing,
-      _mcirAddIAMRoles = Nothing,
-      _mcirClusterIdentifier = pClusterIdentifier_
+    { removeIAMRoles = Lude.Nothing,
+      addIAMRoles = Lude.Nothing,
+      clusterIdentifier = pClusterIdentifier_
     }
 
 -- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
-mcirRemoveIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
-mcirRemoveIAMRoles = lens _mcirRemoveIAMRoles (\s a -> s {_mcirRemoveIAMRoles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeIAMRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirRemoveIAMRoles :: Lens.Lens' ModifyClusterIAMRoles (Lude.Maybe [Lude.Text])
+mcirRemoveIAMRoles = Lens.lens (removeIAMRoles :: ModifyClusterIAMRoles -> Lude.Maybe [Lude.Text]) (\s a -> s {removeIAMRoles = a} :: ModifyClusterIAMRoles)
+{-# DEPRECATED mcirRemoveIAMRoles "Use generic-lens or generic-optics with 'removeIAMRoles' instead." #-}
 
 -- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
-mcirAddIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
-mcirAddIAMRoles = lens _mcirAddIAMRoles (\s a -> s {_mcirAddIAMRoles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addIAMRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirAddIAMRoles :: Lens.Lens' ModifyClusterIAMRoles (Lude.Maybe [Lude.Text])
+mcirAddIAMRoles = Lens.lens (addIAMRoles :: ModifyClusterIAMRoles -> Lude.Maybe [Lude.Text]) (\s a -> s {addIAMRoles = a} :: ModifyClusterIAMRoles)
+{-# DEPRECATED mcirAddIAMRoles "Use generic-lens or generic-optics with 'addIAMRoles' instead." #-}
 
 -- | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
-mcirClusterIdentifier :: Lens' ModifyClusterIAMRoles Text
-mcirClusterIdentifier = lens _mcirClusterIdentifier (\s a -> s {_mcirClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirClusterIdentifier :: Lens.Lens' ModifyClusterIAMRoles Lude.Text
+mcirClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterIAMRoles -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterIAMRoles)
+{-# DEPRECATED mcirClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest ModifyClusterIAMRoles where
+instance Lude.AWSRequest ModifyClusterIAMRoles where
   type Rs ModifyClusterIAMRoles = ModifyClusterIAMRolesResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyClusterIamRolesResult"
       ( \s h x ->
           ModifyClusterIAMRolesResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyClusterIAMRoles
+instance Lude.ToHeaders ModifyClusterIAMRoles where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyClusterIAMRoles
+instance Lude.ToPath ModifyClusterIAMRoles where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyClusterIAMRoles where
-  toHeaders = const mempty
-
-instance ToPath ModifyClusterIAMRoles where
-  toPath = const "/"
-
-instance ToQuery ModifyClusterIAMRoles where
+instance Lude.ToQuery ModifyClusterIAMRoles where
   toQuery ModifyClusterIAMRoles' {..} =
-    mconcat
-      [ "Action" =: ("ModifyClusterIamRoles" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyClusterIamRoles" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "RemoveIamRoles"
-          =: toQuery (toQueryList "IamRoleArn" <$> _mcirRemoveIAMRoles),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "IamRoleArn" Lude.<$> removeIAMRoles),
         "AddIamRoles"
-          =: toQuery (toQueryList "IamRoleArn" <$> _mcirAddIAMRoles),
-        "ClusterIdentifier" =: _mcirClusterIdentifier
+          Lude.=: Lude.toQuery (Lude.toQueryList "IamRoleArn" Lude.<$> addIAMRoles),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'modifyClusterIAMRolesResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterIAMRolesResponse' smart constructor.
 data ModifyClusterIAMRolesResponse = ModifyClusterIAMRolesResponse'
-  { _mcirrsCluster ::
-      !(Maybe Cluster),
-    _mcirrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterIAMRolesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcirrsCluster' - Undocumented member.
---
--- * 'mcirrsResponseStatus' - -- | The response status code.
-modifyClusterIAMRolesResponse ::
-  -- | 'mcirrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyClusterIAMRolesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterIAMRolesResponse
-modifyClusterIAMRolesResponse pResponseStatus_ =
+mkModifyClusterIAMRolesResponse pResponseStatus_ =
   ModifyClusterIAMRolesResponse'
-    { _mcirrsCluster = Nothing,
-      _mcirrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mcirrsCluster :: Lens' ModifyClusterIAMRolesResponse (Maybe Cluster)
-mcirrsCluster = lens _mcirrsCluster (\s a -> s {_mcirrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirrsCluster :: Lens.Lens' ModifyClusterIAMRolesResponse (Lude.Maybe Cluster)
+mcirrsCluster = Lens.lens (cluster :: ModifyClusterIAMRolesResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ModifyClusterIAMRolesResponse)
+{-# DEPRECATED mcirrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-mcirrsResponseStatus :: Lens' ModifyClusterIAMRolesResponse Int
-mcirrsResponseStatus = lens _mcirrsResponseStatus (\s a -> s {_mcirrsResponseStatus = a})
-
-instance NFData ModifyClusterIAMRolesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirrsResponseStatus :: Lens.Lens' ModifyClusterIAMRolesResponse Lude.Int
+mcirrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterIAMRolesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterIAMRolesResponse)
+{-# DEPRECATED mcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

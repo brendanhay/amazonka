@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.StopScope where
+module Network.AWS.SES.Types.StopScope
+  ( StopScope
+      ( StopScope',
+        RuleSet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StopScope = RuleSet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StopScope = StopScope' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StopScope where
-  parser =
-    takeLowerText >>= \case
-      "ruleset" -> pure RuleSet
-      e ->
-        fromTextError $
-          "Failure parsing StopScope from value: '" <> e
-            <> "'. Accepted values: ruleset"
+pattern RuleSet :: StopScope
+pattern RuleSet = StopScope' "RuleSet"
 
-instance ToText StopScope where
-  toText = \case
-    RuleSet -> "RuleSet"
-
-instance Hashable StopScope
-
-instance NFData StopScope
-
-instance ToByteString StopScope
-
-instance ToQuery StopScope
-
-instance ToHeader StopScope
-
-instance FromXML StopScope where
-  parseXML = parseXMLText "StopScope"
+{-# COMPLETE
+  RuleSet,
+  StopScope'
+  #-}

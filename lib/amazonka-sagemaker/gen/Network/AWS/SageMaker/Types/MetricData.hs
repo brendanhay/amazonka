@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MetricData where
+module Network.AWS.SageMaker.Types.MetricData
+  ( MetricData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricData,
+
+    -- * Lenses
+    mdMetricName,
+    mdValue,
+    mdTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.
 --
---
---
--- /See:/ 'metricData' smart constructor.
+-- /See:/ 'mkMetricData' smart constructor.
 data MetricData = MetricData'
-  { _mdMetricName :: !(Maybe Text),
-    _mdValue :: !(Maybe Double),
-    _mdTimestamp :: !(Maybe POSIX)
+  { metricName :: Lude.Maybe Lude.Text,
+    value :: Lude.Maybe Lude.Double,
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdMetricName' - The name of the metric.
---
--- * 'mdValue' - The value of the metric.
---
--- * 'mdTimestamp' - The date and time that the algorithm emitted the metric.
-metricData ::
+-- * 'metricName' - The name of the metric.
+-- * 'timestamp' - The date and time that the algorithm emitted the metric.
+-- * 'value' - The value of the metric.
+mkMetricData ::
   MetricData
-metricData =
+mkMetricData =
   MetricData'
-    { _mdMetricName = Nothing,
-      _mdValue = Nothing,
-      _mdTimestamp = Nothing
+    { metricName = Lude.Nothing,
+      value = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The name of the metric.
-mdMetricName :: Lens' MetricData (Maybe Text)
-mdMetricName = lens _mdMetricName (\s a -> s {_mdMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdMetricName :: Lens.Lens' MetricData (Lude.Maybe Lude.Text)
+mdMetricName = Lens.lens (metricName :: MetricData -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: MetricData)
+{-# DEPRECATED mdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The value of the metric.
-mdValue :: Lens' MetricData (Maybe Double)
-mdValue = lens _mdValue (\s a -> s {_mdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdValue :: Lens.Lens' MetricData (Lude.Maybe Lude.Double)
+mdValue = Lens.lens (value :: MetricData -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: MetricData)
+{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The date and time that the algorithm emitted the metric.
-mdTimestamp :: Lens' MetricData (Maybe UTCTime)
-mdTimestamp = lens _mdTimestamp (\s a -> s {_mdTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdTimestamp :: Lens.Lens' MetricData (Lude.Maybe Lude.Timestamp)
+mdTimestamp = Lens.lens (timestamp :: MetricData -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: MetricData)
+{-# DEPRECATED mdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON MetricData where
+instance Lude.FromJSON MetricData where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricData"
       ( \x ->
           MetricData'
-            <$> (x .:? "MetricName") <*> (x .:? "Value") <*> (x .:? "Timestamp")
+            Lude.<$> (x Lude..:? "MetricName")
+            Lude.<*> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Timestamp")
       )
-
-instance Hashable MetricData
-
-instance NFData MetricData

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,30 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse where
+module Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
+  ( BatchDetachPolicyResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchDetachPolicyResponse,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'DetachPolicy' response operation.
 --
---
---
--- /See:/ 'batchDetachPolicyResponse' smart constructor.
+-- /See:/ 'mkBatchDetachPolicyResponse' smart constructor.
 data BatchDetachPolicyResponse = BatchDetachPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetachPolicyResponse' with the minimum fields required to make a request.
-batchDetachPolicyResponse ::
+mkBatchDetachPolicyResponse ::
   BatchDetachPolicyResponse
-batchDetachPolicyResponse = BatchDetachPolicyResponse'
+mkBatchDetachPolicyResponse = BatchDetachPolicyResponse'
 
-instance FromJSON BatchDetachPolicyResponse where
+instance Lude.FromJSON BatchDetachPolicyResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDetachPolicyResponse"
-      (\x -> pure BatchDetachPolicyResponse')
-
-instance Hashable BatchDetachPolicyResponse
-
-instance NFData BatchDetachPolicyResponse
+      (\x -> Lude.pure BatchDetachPolicyResponse')

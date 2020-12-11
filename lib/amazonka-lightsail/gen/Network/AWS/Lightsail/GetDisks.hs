@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,160 @@
 --
 -- Returns information about all block storage disks in your AWS account and region.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDisks
-  ( -- * Creating a Request
-    getDisks,
-    GetDisks,
+  ( -- * Creating a request
+    GetDisks (..),
+    mkGetDisks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     getPageToken,
 
-    -- * Destructuring the Response
-    getDisksResponse,
-    GetDisksResponse,
+    -- * Destructuring the response
+    GetDisksResponse (..),
+    mkGetDisksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     getersNextPageToken,
     getersDisks,
     getersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDisks' smart constructor.
-newtype GetDisks = GetDisks' {_getPageToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetDisks' smart constructor.
+newtype GetDisks = GetDisks' {pageToken :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDisks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'getPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getDisks ::
+-- To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetDisks ::
   GetDisks
-getDisks = GetDisks' {_getPageToken = Nothing}
+mkGetDisks = GetDisks' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getPageToken :: Lens' GetDisks (Maybe Text)
-getPageToken = lens _getPageToken (\s a -> s {_getPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getPageToken :: Lens.Lens' GetDisks (Lude.Maybe Lude.Text)
+getPageToken = Lens.lens (pageToken :: GetDisks -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDisks)
+{-# DEPRECATED getPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetDisks where
+instance Page.AWSPager GetDisks where
   page rq rs
-    | stop (rs ^. getersNextPageToken) = Nothing
-    | stop (rs ^. getersDisks) = Nothing
-    | otherwise = Just $ rq & getPageToken .~ rs ^. getersNextPageToken
+    | Page.stop (rs Lens.^. getersNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. getersDisks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& getPageToken Lens..~ rs Lens.^. getersNextPageToken
 
-instance AWSRequest GetDisks where
+instance Lude.AWSRequest GetDisks where
   type Rs GetDisks = GetDisksResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDisksResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "disks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "disks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDisks
-
-instance NFData GetDisks
-
-instance ToHeaders GetDisks where
+instance Lude.ToHeaders GetDisks where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.GetDisks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.GetDisks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDisks where
+instance Lude.ToJSON GetDisks where
   toJSON GetDisks' {..} =
-    object (catMaybes [("pageToken" .=) <$> _getPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetDisks where
-  toPath = const "/"
+instance Lude.ToPath GetDisks where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDisks where
-  toQuery = const mempty
+instance Lude.ToQuery GetDisks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDisksResponse' smart constructor.
+-- | /See:/ 'mkGetDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
-  { _getersNextPageToken ::
-      !(Maybe Text),
-    _getersDisks :: !(Maybe [Disk]),
-    _getersResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    disks :: Lude.Maybe [Disk],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDisksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'disks' - An array of objects containing information about all block storage disks.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'getersNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'getersDisks' - An array of objects containing information about all block storage disks.
---
--- * 'getersResponseStatus' - -- | The response status code.
-getDisksResponse ::
-  -- | 'getersResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetDisksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDisksResponse
-getDisksResponse pResponseStatus_ =
+mkGetDisksResponse pResponseStatus_ =
   GetDisksResponse'
-    { _getersNextPageToken = Nothing,
-      _getersDisks = Nothing,
-      _getersResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      disks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
-getersNextPageToken :: Lens' GetDisksResponse (Maybe Text)
-getersNextPageToken = lens _getersNextPageToken (\s a -> s {_getersNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getersNextPageToken :: Lens.Lens' GetDisksResponse (Lude.Maybe Lude.Text)
+getersNextPageToken = Lens.lens (nextPageToken :: GetDisksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDisksResponse)
+{-# DEPRECATED getersNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects containing information about all block storage disks.
-getersDisks :: Lens' GetDisksResponse [Disk]
-getersDisks = lens _getersDisks (\s a -> s {_getersDisks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'disks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getersDisks :: Lens.Lens' GetDisksResponse (Lude.Maybe [Disk])
+getersDisks = Lens.lens (disks :: GetDisksResponse -> Lude.Maybe [Disk]) (\s a -> s {disks = a} :: GetDisksResponse)
+{-# DEPRECATED getersDisks "Use generic-lens or generic-optics with 'disks' instead." #-}
 
--- | -- | The response status code.
-getersResponseStatus :: Lens' GetDisksResponse Int
-getersResponseStatus = lens _getersResponseStatus (\s a -> s {_getersResponseStatus = a})
-
-instance NFData GetDisksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getersResponseStatus :: Lens.Lens' GetDisksResponse Lude.Int
+getersResponseStatus = Lens.lens (responseStatus :: GetDisksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDisksResponse)
+{-# DEPRECATED getersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

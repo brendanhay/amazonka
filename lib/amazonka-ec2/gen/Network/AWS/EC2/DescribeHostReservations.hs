@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Describes reservations that are associated with Dedicated Hosts in your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeHostReservations
-  ( -- * Creating a Request
-    describeHostReservations,
-    DescribeHostReservations,
+  ( -- * Creating a request
+    DescribeHostReservations (..),
+    mkDescribeHostReservations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhrNextToken,
     dhrHostReservationIdSet,
     dhrFilter,
     dhrMaxResults,
 
-    -- * Destructuring the Response
-    describeHostReservationsResponse,
-    DescribeHostReservationsResponse,
+    -- * Destructuring the response
+    DescribeHostReservationsResponse (..),
+    mkDescribeHostReservationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhrrsNextToken,
     dhrrsHostReservationSet,
     dhrrsResponseStatus,
@@ -45,145 +38,203 @@ module Network.AWS.EC2.DescribeHostReservations
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeHostReservations' smart constructor.
+-- | /See:/ 'mkDescribeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
-  { _dhrNextToken ::
-      !(Maybe Text),
-    _dhrHostReservationIdSet ::
-      !(Maybe [Text]),
-    _dhrFilter :: !(Maybe [Filter]),
-    _dhrMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    hostReservationIdSet ::
+      Lude.Maybe [Lude.Text],
+    filter :: Lude.Maybe [Filter],
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - The filters.
 --
--- * 'dhrNextToken' - The token to use to retrieve the next page of results.
 --
--- * 'dhrHostReservationIdSet' - The host reservation IDs.
+--     * @instance-family@ - The instance family (for example, @m4@ ).
 --
--- * 'dhrFilter' - The filters.     * @instance-family@ - The instance family (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
--- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
-describeHostReservations ::
+--     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+--
+--
+--     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+-- * 'hostReservationIdSet' - The host reservation IDs.
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+-- * 'nextToken' - The token to use to retrieve the next page of results.
+mkDescribeHostReservations ::
   DescribeHostReservations
-describeHostReservations =
+mkDescribeHostReservations =
   DescribeHostReservations'
-    { _dhrNextToken = Nothing,
-      _dhrHostReservationIdSet = Nothing,
-      _dhrFilter = Nothing,
-      _dhrMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      hostReservationIdSet = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token to use to retrieve the next page of results.
-dhrNextToken :: Lens' DescribeHostReservations (Maybe Text)
-dhrNextToken = lens _dhrNextToken (\s a -> s {_dhrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrNextToken :: Lens.Lens' DescribeHostReservations (Lude.Maybe Lude.Text)
+dhrNextToken = Lens.lens (nextToken :: DescribeHostReservations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeHostReservations)
+{-# DEPRECATED dhrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The host reservation IDs.
-dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
-dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\s a -> s {_dhrHostReservationIdSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hostReservationIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrHostReservationIdSet :: Lens.Lens' DescribeHostReservations (Lude.Maybe [Lude.Text])
+dhrHostReservationIdSet = Lens.lens (hostReservationIdSet :: DescribeHostReservations -> Lude.Maybe [Lude.Text]) (\s a -> s {hostReservationIdSet = a} :: DescribeHostReservations)
+{-# DEPRECATED dhrHostReservationIdSet "Use generic-lens or generic-optics with 'hostReservationIdSet' instead." #-}
 
--- | The filters.     * @instance-family@ - The instance family (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-dhrFilter :: Lens' DescribeHostReservations [Filter]
-dhrFilter = lens _dhrFilter (\s a -> s {_dhrFilter = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @instance-family@ - The instance family (for example, @m4@ ).
+--
+--
+--     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+--
+--
+--     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrFilter :: Lens.Lens' DescribeHostReservations (Lude.Maybe [Filter])
+dhrFilter = Lens.lens (filter :: DescribeHostReservations -> Lude.Maybe [Filter]) (\s a -> s {filter = a} :: DescribeHostReservations)
+{-# DEPRECATED dhrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
-dhrMaxResults :: Lens' DescribeHostReservations (Maybe Int)
-dhrMaxResults = lens _dhrMaxResults (\s a -> s {_dhrMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrMaxResults :: Lens.Lens' DescribeHostReservations (Lude.Maybe Lude.Int)
+dhrMaxResults = Lens.lens (maxResults :: DescribeHostReservations -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeHostReservations)
+{-# DEPRECATED dhrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeHostReservations where
+instance Page.AWSPager DescribeHostReservations where
   page rq rs
-    | stop (rs ^. dhrrsNextToken) = Nothing
-    | stop (rs ^. dhrrsHostReservationSet) = Nothing
-    | otherwise = Just $ rq & dhrNextToken .~ rs ^. dhrrsNextToken
+    | Page.stop (rs Lens.^. dhrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dhrrsHostReservationSet) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dhrNextToken Lens..~ rs Lens.^. dhrrsNextToken
 
-instance AWSRequest DescribeHostReservations where
+instance Lude.AWSRequest DescribeHostReservations where
   type Rs DescribeHostReservations = DescribeHostReservationsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeHostReservationsResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "hostReservationSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "hostReservationSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeHostReservations
+instance Lude.ToHeaders DescribeHostReservations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeHostReservations
+instance Lude.ToPath DescribeHostReservations where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeHostReservations where
-  toHeaders = const mempty
-
-instance ToPath DescribeHostReservations where
-  toPath = const "/"
-
-instance ToQuery DescribeHostReservations where
+instance Lude.ToQuery DescribeHostReservations where
   toQuery DescribeHostReservations' {..} =
-    mconcat
-      [ "Action" =: ("DescribeHostReservations" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NextToken" =: _dhrNextToken,
-        toQuery
-          (toQueryList "HostReservationIdSet" <$> _dhrHostReservationIdSet),
-        toQuery (toQueryList "Filter" <$> _dhrFilter),
-        "MaxResults" =: _dhrMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeHostReservations" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery
+          ( Lude.toQueryList "HostReservationIdSet"
+              Lude.<$> hostReservationIdSet
+          ),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filter),
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeHostReservationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
-  { _dhrrsNextToken ::
-      !(Maybe Text),
-    _dhrrsHostReservationSet ::
-      !( Maybe
-           [HostReservation]
-       ),
-    _dhrrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    hostReservationSet ::
+      Lude.Maybe
+        [HostReservation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhrrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dhrrsHostReservationSet' - Details about the reservation's configuration.
---
--- * 'dhrrsResponseStatus' - -- | The response status code.
-describeHostReservationsResponse ::
-  -- | 'dhrrsResponseStatus'
-  Int ->
+-- * 'hostReservationSet' - Details about the reservation's configuration.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeHostReservationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeHostReservationsResponse
-describeHostReservationsResponse pResponseStatus_ =
+mkDescribeHostReservationsResponse pResponseStatus_ =
   DescribeHostReservationsResponse'
-    { _dhrrsNextToken = Nothing,
-      _dhrrsHostReservationSet = Nothing,
-      _dhrrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      hostReservationSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dhrrsNextToken :: Lens' DescribeHostReservationsResponse (Maybe Text)
-dhrrsNextToken = lens _dhrrsNextToken (\s a -> s {_dhrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrrsNextToken :: Lens.Lens' DescribeHostReservationsResponse (Lude.Maybe Lude.Text)
+dhrrsNextToken = Lens.lens (nextToken :: DescribeHostReservationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeHostReservationsResponse)
+{-# DEPRECATED dhrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Details about the reservation's configuration.
-dhrrsHostReservationSet :: Lens' DescribeHostReservationsResponse [HostReservation]
-dhrrsHostReservationSet = lens _dhrrsHostReservationSet (\s a -> s {_dhrrsHostReservationSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hostReservationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrrsHostReservationSet :: Lens.Lens' DescribeHostReservationsResponse (Lude.Maybe [HostReservation])
+dhrrsHostReservationSet = Lens.lens (hostReservationSet :: DescribeHostReservationsResponse -> Lude.Maybe [HostReservation]) (\s a -> s {hostReservationSet = a} :: DescribeHostReservationsResponse)
+{-# DEPRECATED dhrrsHostReservationSet "Use generic-lens or generic-optics with 'hostReservationSet' instead." #-}
 
--- | -- | The response status code.
-dhrrsResponseStatus :: Lens' DescribeHostReservationsResponse Int
-dhrrsResponseStatus = lens _dhrrsResponseStatus (\s a -> s {_dhrrsResponseStatus = a})
-
-instance NFData DescribeHostReservationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrrsResponseStatus :: Lens.Lens' DescribeHostReservationsResponse Lude.Int
+dhrrsResponseStatus = Lens.lens (responseStatus :: DescribeHostReservationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHostReservationsResponse)
+{-# DEPRECATED dhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

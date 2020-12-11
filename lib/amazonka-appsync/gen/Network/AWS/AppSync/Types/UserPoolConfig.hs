@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.UserPoolConfig where
+module Network.AWS.AppSync.Types.UserPoolConfig
+  ( UserPoolConfig (..),
+
+    -- * Smart constructor
+    mkUserPoolConfig,
+
+    -- * Lenses
+    upcAppIdClientRegex,
+    upcUserPoolId,
+    upcAwsRegion,
+    upcDefaultAction,
+  )
+where
 
 import Network.AWS.AppSync.Types.DefaultAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon Cognito user pool configuration.
 --
---
---
--- /See:/ 'userPoolConfig' smart constructor.
+-- /See:/ 'mkUserPoolConfig' smart constructor.
 data UserPoolConfig = UserPoolConfig'
-  { _upcAppIdClientRegex ::
-      !(Maybe Text),
-    _upcUserPoolId :: !Text,
-    _upcAwsRegion :: !Text,
-    _upcDefaultAction :: !DefaultAction
+  { appIdClientRegex ::
+      Lude.Maybe Lude.Text,
+    userPoolId :: Lude.Text,
+    awsRegion :: Lude.Text,
+    defaultAction :: DefaultAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upcAppIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
---
--- * 'upcUserPoolId' - The user pool ID.
---
--- * 'upcAwsRegion' - The AWS Region in which the user pool was created.
---
--- * 'upcDefaultAction' - The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
-userPoolConfig ::
-  -- | 'upcUserPoolId'
-  Text ->
-  -- | 'upcAwsRegion'
-  Text ->
-  -- | 'upcDefaultAction'
+-- * 'appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+-- * 'awsRegion' - The AWS Region in which the user pool was created.
+-- * 'defaultAction' - The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+-- * 'userPoolId' - The user pool ID.
+mkUserPoolConfig ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'awsRegion'
+  Lude.Text ->
+  -- | 'defaultAction'
   DefaultAction ->
   UserPoolConfig
-userPoolConfig pUserPoolId_ pAwsRegion_ pDefaultAction_ =
+mkUserPoolConfig pUserPoolId_ pAwsRegion_ pDefaultAction_ =
   UserPoolConfig'
-    { _upcAppIdClientRegex = Nothing,
-      _upcUserPoolId = pUserPoolId_,
-      _upcAwsRegion = pAwsRegion_,
-      _upcDefaultAction = pDefaultAction_
+    { appIdClientRegex = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      awsRegion = pAwsRegion_,
+      defaultAction = pDefaultAction_
     }
 
 -- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-upcAppIdClientRegex :: Lens' UserPoolConfig (Maybe Text)
-upcAppIdClientRegex = lens _upcAppIdClientRegex (\s a -> s {_upcAppIdClientRegex = a})
+--
+-- /Note:/ Consider using 'appIdClientRegex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcAppIdClientRegex :: Lens.Lens' UserPoolConfig (Lude.Maybe Lude.Text)
+upcAppIdClientRegex = Lens.lens (appIdClientRegex :: UserPoolConfig -> Lude.Maybe Lude.Text) (\s a -> s {appIdClientRegex = a} :: UserPoolConfig)
+{-# DEPRECATED upcAppIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead." #-}
 
 -- | The user pool ID.
-upcUserPoolId :: Lens' UserPoolConfig Text
-upcUserPoolId = lens _upcUserPoolId (\s a -> s {_upcUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcUserPoolId :: Lens.Lens' UserPoolConfig Lude.Text
+upcUserPoolId = Lens.lens (userPoolId :: UserPoolConfig -> Lude.Text) (\s a -> s {userPoolId = a} :: UserPoolConfig)
+{-# DEPRECATED upcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The AWS Region in which the user pool was created.
-upcAwsRegion :: Lens' UserPoolConfig Text
-upcAwsRegion = lens _upcAwsRegion (\s a -> s {_upcAwsRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcAwsRegion :: Lens.Lens' UserPoolConfig Lude.Text
+upcAwsRegion = Lens.lens (awsRegion :: UserPoolConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: UserPoolConfig)
+{-# DEPRECATED upcAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
-upcDefaultAction :: Lens' UserPoolConfig DefaultAction
-upcDefaultAction = lens _upcDefaultAction (\s a -> s {_upcDefaultAction = a})
+--
+-- /Note:/ Consider using 'defaultAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcDefaultAction :: Lens.Lens' UserPoolConfig DefaultAction
+upcDefaultAction = Lens.lens (defaultAction :: UserPoolConfig -> DefaultAction) (\s a -> s {defaultAction = a} :: UserPoolConfig)
+{-# DEPRECATED upcDefaultAction "Use generic-lens or generic-optics with 'defaultAction' instead." #-}
 
-instance FromJSON UserPoolConfig where
+instance Lude.FromJSON UserPoolConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPoolConfig"
       ( \x ->
           UserPoolConfig'
-            <$> (x .:? "appIdClientRegex")
-            <*> (x .: "userPoolId")
-            <*> (x .: "awsRegion")
-            <*> (x .: "defaultAction")
+            Lude.<$> (x Lude..:? "appIdClientRegex")
+            Lude.<*> (x Lude..: "userPoolId")
+            Lude.<*> (x Lude..: "awsRegion")
+            Lude.<*> (x Lude..: "defaultAction")
       )
 
-instance Hashable UserPoolConfig
-
-instance NFData UserPoolConfig
-
-instance ToJSON UserPoolConfig where
+instance Lude.ToJSON UserPoolConfig where
   toJSON UserPoolConfig' {..} =
-    object
-      ( catMaybes
-          [ ("appIdClientRegex" .=) <$> _upcAppIdClientRegex,
-            Just ("userPoolId" .= _upcUserPoolId),
-            Just ("awsRegion" .= _upcAwsRegion),
-            Just ("defaultAction" .= _upcDefaultAction)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("appIdClientRegex" Lude..=) Lude.<$> appIdClientRegex,
+            Lude.Just ("userPoolId" Lude..= userPoolId),
+            Lude.Just ("awsRegion" Lude..= awsRegion),
+            Lude.Just ("defaultAction" Lude..= defaultAction)
           ]
       )

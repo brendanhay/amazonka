@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError where
+module Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
+  ( BatchAssociateApprovalRuleTemplateWithRepositoriesError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchAssociateApprovalRuleTemplateWithRepositoriesError,
+
+    -- * Lenses
+    baartwreErrorCode,
+    baartwreRepositoryName,
+    baartwreErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.
 --
---
---
--- /See:/ 'batchAssociateApprovalRuleTemplateWithRepositoriesError' smart constructor.
+-- /See:/ 'mkBatchAssociateApprovalRuleTemplateWithRepositoriesError' smart constructor.
 data BatchAssociateApprovalRuleTemplateWithRepositoriesError = BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-  { _baartwreErrorCode ::
-      !( Maybe
-           Text
-       ),
-    _baartwreRepositoryName ::
-      !( Maybe
-           Text
-       ),
-    _baartwreErrorMessage ::
-      !( Maybe
-           Text
-       )
+  { errorCode ::
+      Lude.Maybe
+        Lude.Text,
+    repositoryName ::
+      Lude.Maybe
+        Lude.Text,
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'BatchAssociateApprovalRuleTemplateWithRepositoriesError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'baartwreErrorCode' - An error code that specifies whether the repository name was not valid or not found.
---
--- * 'baartwreRepositoryName' - The name of the repository where the association was not made.
---
--- * 'baartwreErrorMessage' - An error message that provides details about why the repository name was not found or not valid.
-batchAssociateApprovalRuleTemplateWithRepositoriesError ::
+-- * 'errorCode' - An error code that specifies whether the repository name was not valid or not found.
+-- * 'errorMessage' - An error message that provides details about why the repository name was not found or not valid.
+-- * 'repositoryName' - The name of the repository where the association was not made.
+mkBatchAssociateApprovalRuleTemplateWithRepositoriesError ::
   BatchAssociateApprovalRuleTemplateWithRepositoriesError
-batchAssociateApprovalRuleTemplateWithRepositoriesError =
+mkBatchAssociateApprovalRuleTemplateWithRepositoriesError =
   BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-    { _baartwreErrorCode =
-        Nothing,
-      _baartwreRepositoryName = Nothing,
-      _baartwreErrorMessage = Nothing
+    { errorCode =
+        Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | An error code that specifies whether the repository name was not valid or not found.
-baartwreErrorCode :: Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Maybe Text)
-baartwreErrorCode = lens _baartwreErrorCode (\s a -> s {_baartwreErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baartwreErrorCode :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Lude.Maybe Lude.Text)
+baartwreErrorCode = Lens.lens (errorCode :: BatchAssociateApprovalRuleTemplateWithRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
+{-# DEPRECATED baartwreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The name of the repository where the association was not made.
-baartwreRepositoryName :: Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Maybe Text)
-baartwreRepositoryName = lens _baartwreRepositoryName (\s a -> s {_baartwreRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baartwreRepositoryName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Lude.Maybe Lude.Text)
+baartwreRepositoryName = Lens.lens (repositoryName :: BatchAssociateApprovalRuleTemplateWithRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
+{-# DEPRECATED baartwreRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | An error message that provides details about why the repository name was not found or not valid.
-baartwreErrorMessage :: Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Maybe Text)
-baartwreErrorMessage = lens _baartwreErrorMessage (\s a -> s {_baartwreErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baartwreErrorMessage :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesError (Lude.Maybe Lude.Text)
+baartwreErrorMessage = Lens.lens (errorMessage :: BatchAssociateApprovalRuleTemplateWithRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesError)
+{-# DEPRECATED baartwreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 instance
-  FromJSON
+  Lude.FromJSON
     BatchAssociateApprovalRuleTemplateWithRepositoriesError
   where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchAssociateApprovalRuleTemplateWithRepositoriesError"
       ( \x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesError'
-            <$> (x .:? "errorCode")
-            <*> (x .:? "repositoryName")
-            <*> (x .:? "errorMessage")
+            Lude.<$> (x Lude..:? "errorCode")
+            Lude.<*> (x Lude..:? "repositoryName")
+            Lude.<*> (x Lude..:? "errorMessage")
       )
-
-instance
-  Hashable
-    BatchAssociateApprovalRuleTemplateWithRepositoriesError
-
-instance
-  NFData
-    BatchAssociateApprovalRuleTemplateWithRepositoriesError

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,113 @@
 --
 -- Deletes the specified subscription from the specified organization.
 module Network.AWS.WorkDocs.DeleteNotificationSubscription
-  ( -- * Creating a Request
-    deleteNotificationSubscription,
-    DeleteNotificationSubscription,
+  ( -- * Creating a request
+    DeleteNotificationSubscription (..),
+    mkDeleteNotificationSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnsSubscriptionId,
     dnsOrganizationId,
 
-    -- * Destructuring the Response
-    deleteNotificationSubscriptionResponse,
-    DeleteNotificationSubscriptionResponse,
+    -- * Destructuring the response
+    DeleteNotificationSubscriptionResponse (..),
+    mkDeleteNotificationSubscriptionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'deleteNotificationSubscription' smart constructor.
+-- | /See:/ 'mkDeleteNotificationSubscription' smart constructor.
 data DeleteNotificationSubscription = DeleteNotificationSubscription'
-  { _dnsSubscriptionId ::
-      !Text,
-    _dnsOrganizationId :: !Text
+  { subscriptionId ::
+      Lude.Text,
+    organizationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnsSubscriptionId' - The ID of the subscription.
---
--- * 'dnsOrganizationId' - The ID of the organization.
-deleteNotificationSubscription ::
-  -- | 'dnsSubscriptionId'
-  Text ->
-  -- | 'dnsOrganizationId'
-  Text ->
+-- * 'organizationId' - The ID of the organization.
+-- * 'subscriptionId' - The ID of the subscription.
+mkDeleteNotificationSubscription ::
+  -- | 'subscriptionId'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DeleteNotificationSubscription
-deleteNotificationSubscription pSubscriptionId_ pOrganizationId_ =
+mkDeleteNotificationSubscription pSubscriptionId_ pOrganizationId_ =
   DeleteNotificationSubscription'
-    { _dnsSubscriptionId =
+    { subscriptionId =
         pSubscriptionId_,
-      _dnsOrganizationId = pOrganizationId_
+      organizationId = pOrganizationId_
     }
 
 -- | The ID of the subscription.
-dnsSubscriptionId :: Lens' DeleteNotificationSubscription Text
-dnsSubscriptionId = lens _dnsSubscriptionId (\s a -> s {_dnsSubscriptionId = a})
+--
+-- /Note:/ Consider using 'subscriptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnsSubscriptionId :: Lens.Lens' DeleteNotificationSubscription Lude.Text
+dnsSubscriptionId = Lens.lens (subscriptionId :: DeleteNotificationSubscription -> Lude.Text) (\s a -> s {subscriptionId = a} :: DeleteNotificationSubscription)
+{-# DEPRECATED dnsSubscriptionId "Use generic-lens or generic-optics with 'subscriptionId' instead." #-}
 
 -- | The ID of the organization.
-dnsOrganizationId :: Lens' DeleteNotificationSubscription Text
-dnsOrganizationId = lens _dnsOrganizationId (\s a -> s {_dnsOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnsOrganizationId :: Lens.Lens' DeleteNotificationSubscription Lude.Text
+dnsOrganizationId = Lens.lens (organizationId :: DeleteNotificationSubscription -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteNotificationSubscription)
+{-# DEPRECATED dnsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest DeleteNotificationSubscription where
+instance Lude.AWSRequest DeleteNotificationSubscription where
   type
     Rs DeleteNotificationSubscription =
       DeleteNotificationSubscriptionResponse
-  request = delete workDocs
-  response = receiveNull DeleteNotificationSubscriptionResponse'
+  request = Req.delete workDocsService
+  response = Res.receiveNull DeleteNotificationSubscriptionResponse'
 
-instance Hashable DeleteNotificationSubscription
-
-instance NFData DeleteNotificationSubscription
-
-instance ToHeaders DeleteNotificationSubscription where
+instance Lude.ToHeaders DeleteNotificationSubscription where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteNotificationSubscription where
+instance Lude.ToPath DeleteNotificationSubscription where
   toPath DeleteNotificationSubscription' {..} =
-    mconcat
+    Lude.mconcat
       [ "/api/v1/organizations/",
-        toBS _dnsOrganizationId,
+        Lude.toBS organizationId,
         "/subscriptions/",
-        toBS _dnsSubscriptionId
+        Lude.toBS subscriptionId
       ]
 
-instance ToQuery DeleteNotificationSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteNotificationSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteNotificationSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkDeleteNotificationSubscriptionResponse' smart constructor.
 data DeleteNotificationSubscriptionResponse = DeleteNotificationSubscriptionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationSubscriptionResponse' with the minimum fields required to make a request.
-deleteNotificationSubscriptionResponse ::
+mkDeleteNotificationSubscriptionResponse ::
   DeleteNotificationSubscriptionResponse
-deleteNotificationSubscriptionResponse =
+mkDeleteNotificationSubscriptionResponse =
   DeleteNotificationSubscriptionResponse'
-
-instance NFData DeleteNotificationSubscriptionResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,162 @@
 --
 -- Lists the email templates present in your Amazon SES account in the current AWS Region.
 --
---
 -- You can execute this operation no more than once per second.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SES.ListTemplates
-  ( -- * Creating a Request
-    listTemplates,
-    ListTemplates,
+  ( -- * Creating a request
+    ListTemplates (..),
+    mkListTemplates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxItems,
 
-    -- * Destructuring the Response
-    listTemplatesResponse,
-    ListTemplatesResponse,
+    -- * Destructuring the response
+    ListTemplatesResponse (..),
+    mkListTemplatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTemplatesMetadata,
     ltrsNextToken,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'listTemplates' smart constructor.
+-- | /See:/ 'mkListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { _ltNextToken :: !(Maybe Text),
-    _ltMaxItems :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
---
--- * 'ltMaxItems' - The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
-listTemplates ::
+-- * 'maxItems' - The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
+-- * 'nextToken' - A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
+mkListTemplates ::
   ListTemplates
-listTemplates =
-  ListTemplates' {_ltNextToken = Nothing, _ltMaxItems = Nothing}
+mkListTemplates =
+  ListTemplates' {nextToken = Lude.Nothing, maxItems = Lude.Nothing}
 
 -- | A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
-ltNextToken :: Lens' ListTemplates (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTemplates)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
-ltMaxItems :: Lens' ListTemplates (Maybe Int)
-ltMaxItems = lens _ltMaxItems (\s a -> s {_ltMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxItems :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Int)
+ltMaxItems = Lens.lens (maxItems :: ListTemplates -> Lude.Maybe Lude.Int) (\s a -> s {maxItems = a} :: ListTemplates)
+{-# DEPRECATED ltMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListTemplates where
+instance Page.AWSPager ListTemplates where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTemplatesMetadata) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTemplatesMetadata) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTemplates where
+instance Lude.AWSRequest ListTemplates where
   type Rs ListTemplates = ListTemplatesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTemplatesResult"
       ( \s h x ->
           ListTemplatesResponse'
-            <$> ( x .@? "TemplatesMetadata" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "TemplatesMetadata" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTemplates
+instance Lude.ToHeaders ListTemplates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTemplates
+instance Lude.ToPath ListTemplates where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTemplates where
-  toHeaders = const mempty
-
-instance ToPath ListTemplates where
-  toPath = const "/"
-
-instance ToQuery ListTemplates where
+instance Lude.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
-    mconcat
-      [ "Action" =: ("ListTemplates" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "NextToken" =: _ltNextToken,
-        "MaxItems" =: _ltMaxItems
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTemplates" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "MaxItems" Lude.=: maxItems
       ]
 
--- | /See:/ 'listTemplatesResponse' smart constructor.
+-- | /See:/ 'mkListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { _ltrsTemplatesMetadata ::
-      !(Maybe [TemplateMetadata]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { templatesMetadata ::
+      Lude.Maybe [TemplateMetadata],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTemplatesMetadata' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
---
--- * 'ltrsNextToken' - A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTemplatesResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
+-- * 'responseStatus' - The response status code.
+-- * 'templatesMetadata' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
+mkListTemplatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTemplatesResponse
-listTemplatesResponse pResponseStatus_ =
+mkListTemplatesResponse pResponseStatus_ =
   ListTemplatesResponse'
-    { _ltrsTemplatesMetadata = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { templatesMetadata = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
-ltrsTemplatesMetadata :: Lens' ListTemplatesResponse [TemplateMetadata]
-ltrsTemplatesMetadata = lens _ltrsTemplatesMetadata (\s a -> s {_ltrsTemplatesMetadata = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'templatesMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTemplatesMetadata :: Lens.Lens' ListTemplatesResponse (Lude.Maybe [TemplateMetadata])
+ltrsTemplatesMetadata = Lens.lens (templatesMetadata :: ListTemplatesResponse -> Lude.Maybe [TemplateMetadata]) (\s a -> s {templatesMetadata = a} :: ListTemplatesResponse)
+{-# DEPRECATED ltrsTemplatesMetadata "Use generic-lens or generic-optics with 'templatesMetadata' instead." #-}
 
 -- | A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
-ltrsNextToken :: Lens' ListTemplatesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTemplatesResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTemplatesResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTemplatesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTemplatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTemplatesResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTemplatesResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

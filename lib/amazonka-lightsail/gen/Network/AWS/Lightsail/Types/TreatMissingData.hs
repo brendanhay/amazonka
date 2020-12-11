@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.TreatMissingData where
+module Network.AWS.Lightsail.Types.TreatMissingData
+  ( TreatMissingData
+      ( TreatMissingData',
+        Breaching,
+        Ignore,
+        Missing,
+        NotBreaching
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TreatMissingData
-  = Breaching
-  | Ignore
-  | Missing
-  | NotBreaching
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TreatMissingData = TreatMissingData' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TreatMissingData where
-  parser =
-    takeLowerText >>= \case
-      "breaching" -> pure Breaching
-      "ignore" -> pure Ignore
-      "missing" -> pure Missing
-      "notbreaching" -> pure NotBreaching
-      e ->
-        fromTextError $
-          "Failure parsing TreatMissingData from value: '" <> e
-            <> "'. Accepted values: breaching, ignore, missing, notbreaching"
+pattern Breaching :: TreatMissingData
+pattern Breaching = TreatMissingData' "breaching"
 
-instance ToText TreatMissingData where
-  toText = \case
-    Breaching -> "breaching"
-    Ignore -> "ignore"
-    Missing -> "missing"
-    NotBreaching -> "notBreaching"
+pattern Ignore :: TreatMissingData
+pattern Ignore = TreatMissingData' "ignore"
 
-instance Hashable TreatMissingData
+pattern Missing :: TreatMissingData
+pattern Missing = TreatMissingData' "missing"
 
-instance NFData TreatMissingData
+pattern NotBreaching :: TreatMissingData
+pattern NotBreaching = TreatMissingData' "notBreaching"
 
-instance ToByteString TreatMissingData
-
-instance ToQuery TreatMissingData
-
-instance ToHeader TreatMissingData
-
-instance ToJSON TreatMissingData where
-  toJSON = toJSONText
-
-instance FromJSON TreatMissingData where
-  parseJSON = parseJSONText "TreatMissingData"
+{-# COMPLETE
+  Breaching,
+  Ignore,
+  Missing,
+  NotBreaching,
+  TreatMissingData'
+  #-}

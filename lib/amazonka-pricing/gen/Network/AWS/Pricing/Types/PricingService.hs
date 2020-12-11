@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pricing.Types.PricingService where
+module Network.AWS.Pricing.Types.PricingService
+  ( PricingService (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPricingService,
+
+    -- * Lenses
+    psAttributeNames,
+    psServiceCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata for a service, such as the service code and available attribute names.
 --
---
---
--- /See:/ 'pricingService' smart constructor.
+-- /See:/ 'mkPricingService' smart constructor.
 data PricingService = PricingService'
-  { _psAttributeNames ::
-      !(Maybe [Text]),
-    _psServiceCode :: !(Maybe Text)
+  { attributeNames ::
+      Lude.Maybe [Lude.Text],
+    serviceCode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PricingService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psAttributeNames' - The attributes that are available for this service.
---
--- * 'psServiceCode' - The code for the AWS service.
-pricingService ::
+-- * 'attributeNames' - The attributes that are available for this service.
+-- * 'serviceCode' - The code for the AWS service.
+mkPricingService ::
   PricingService
-pricingService =
+mkPricingService =
   PricingService'
-    { _psAttributeNames = Nothing,
-      _psServiceCode = Nothing
+    { attributeNames = Lude.Nothing,
+      serviceCode = Lude.Nothing
     }
 
 -- | The attributes that are available for this service.
-psAttributeNames :: Lens' PricingService [Text]
-psAttributeNames = lens _psAttributeNames (\s a -> s {_psAttributeNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psAttributeNames :: Lens.Lens' PricingService (Lude.Maybe [Lude.Text])
+psAttributeNames = Lens.lens (attributeNames :: PricingService -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeNames = a} :: PricingService)
+{-# DEPRECATED psAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | The code for the AWS service.
-psServiceCode :: Lens' PricingService (Maybe Text)
-psServiceCode = lens _psServiceCode (\s a -> s {_psServiceCode = a})
+--
+-- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psServiceCode :: Lens.Lens' PricingService (Lude.Maybe Lude.Text)
+psServiceCode = Lens.lens (serviceCode :: PricingService -> Lude.Maybe Lude.Text) (\s a -> s {serviceCode = a} :: PricingService)
+{-# DEPRECATED psServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
 
-instance FromJSON PricingService where
+instance Lude.FromJSON PricingService where
   parseJSON =
-    withObject
+    Lude.withObject
       "PricingService"
       ( \x ->
           PricingService'
-            <$> (x .:? "AttributeNames" .!= mempty) <*> (x .:? "ServiceCode")
+            Lude.<$> (x Lude..:? "AttributeNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ServiceCode")
       )
-
-instance Hashable PricingService
-
-instance NFData PricingService

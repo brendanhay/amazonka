@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your AWS account, and you must own the image. For more information about creating BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
 module Network.AWS.WorkSpaces.ImportWorkspaceImage
-  ( -- * Creating a Request
-    importWorkspaceImage,
-    ImportWorkspaceImage,
+  ( -- * Creating a request
+    ImportWorkspaceImage (..),
+    mkImportWorkspaceImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     iwiApplications,
     iwiTags,
     iwiEC2ImageId,
@@ -31,172 +26,195 @@ module Network.AWS.WorkSpaces.ImportWorkspaceImage
     iwiImageName,
     iwiImageDescription,
 
-    -- * Destructuring the Response
-    importWorkspaceImageResponse,
-    ImportWorkspaceImageResponse,
+    -- * Destructuring the response
+    ImportWorkspaceImageResponse (..),
+    mkImportWorkspaceImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iwirsImageId,
     iwirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'importWorkspaceImage' smart constructor.
+-- | /See:/ 'mkImportWorkspaceImage' smart constructor.
 data ImportWorkspaceImage = ImportWorkspaceImage'
-  { _iwiApplications ::
-      !(Maybe (List1 Application)),
-    _iwiTags :: !(Maybe [Tag]),
-    _iwiEC2ImageId :: !Text,
-    _iwiIngestionProcess ::
-      !WorkspaceImageIngestionProcess,
-    _iwiImageName :: !Text,
-    _iwiImageDescription :: !Text
+  { applications ::
+      Lude.Maybe (Lude.NonEmpty Application),
+    tags :: Lude.Maybe [Tag],
+    ec2ImageId :: Lude.Text,
+    ingestionProcess ::
+      WorkspaceImageIngestionProcess,
+    imageName :: Lude.Text,
+    imageDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportWorkspaceImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iwiApplications' - If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
---
--- * 'iwiTags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
---
--- * 'iwiEC2ImageId' - The identifier of the EC2 image.
---
--- * 'iwiIngestionProcess' - The ingestion process to be used when importing the image. For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify @BYOL_REGULAR@ .
---
--- * 'iwiImageName' - The name of the WorkSpace image.
---
--- * 'iwiImageDescription' - The description of the WorkSpace image.
-importWorkspaceImage ::
-  -- | 'iwiEC2ImageId'
-  Text ->
-  -- | 'iwiIngestionProcess'
+-- * 'applications' - If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
+-- * 'ec2ImageId' - The identifier of the EC2 image.
+-- * 'imageDescription' - The description of the WorkSpace image.
+-- * 'imageName' - The name of the WorkSpace image.
+-- * 'ingestionProcess' - The ingestion process to be used when importing the image. For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify @BYOL_REGULAR@ .
+-- * 'tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+mkImportWorkspaceImage ::
+  -- | 'ec2ImageId'
+  Lude.Text ->
+  -- | 'ingestionProcess'
   WorkspaceImageIngestionProcess ->
-  -- | 'iwiImageName'
-  Text ->
-  -- | 'iwiImageDescription'
-  Text ->
+  -- | 'imageName'
+  Lude.Text ->
+  -- | 'imageDescription'
+  Lude.Text ->
   ImportWorkspaceImage
-importWorkspaceImage
+mkImportWorkspaceImage
   pEC2ImageId_
   pIngestionProcess_
   pImageName_
   pImageDescription_ =
     ImportWorkspaceImage'
-      { _iwiApplications = Nothing,
-        _iwiTags = Nothing,
-        _iwiEC2ImageId = pEC2ImageId_,
-        _iwiIngestionProcess = pIngestionProcess_,
-        _iwiImageName = pImageName_,
-        _iwiImageDescription = pImageDescription_
+      { applications = Lude.Nothing,
+        tags = Lude.Nothing,
+        ec2ImageId = pEC2ImageId_,
+        ingestionProcess = pIngestionProcess_,
+        imageName = pImageName_,
+        imageDescription = pImageDescription_
       }
 
 -- | If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
-iwiApplications :: Lens' ImportWorkspaceImage (Maybe (NonEmpty Application))
-iwiApplications = lens _iwiApplications (\s a -> s {_iwiApplications = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiApplications :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe (Lude.NonEmpty Application))
+iwiApplications = Lens.lens (applications :: ImportWorkspaceImage -> Lude.Maybe (Lude.NonEmpty Application)) (\s a -> s {applications = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-iwiTags :: Lens' ImportWorkspaceImage [Tag]
-iwiTags = lens _iwiTags (\s a -> s {_iwiTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiTags :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe [Tag])
+iwiTags = Lens.lens (tags :: ImportWorkspaceImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier of the EC2 image.
-iwiEC2ImageId :: Lens' ImportWorkspaceImage Text
-iwiEC2ImageId = lens _iwiEC2ImageId (\s a -> s {_iwiEC2ImageId = a})
+--
+-- /Note:/ Consider using 'ec2ImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiEC2ImageId :: Lens.Lens' ImportWorkspaceImage Lude.Text
+iwiEC2ImageId = Lens.lens (ec2ImageId :: ImportWorkspaceImage -> Lude.Text) (\s a -> s {ec2ImageId = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiEC2ImageId "Use generic-lens or generic-optics with 'ec2ImageId' instead." #-}
 
 -- | The ingestion process to be used when importing the image. For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify @BYOL_REGULAR@ .
-iwiIngestionProcess :: Lens' ImportWorkspaceImage WorkspaceImageIngestionProcess
-iwiIngestionProcess = lens _iwiIngestionProcess (\s a -> s {_iwiIngestionProcess = a})
+--
+-- /Note:/ Consider using 'ingestionProcess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiIngestionProcess :: Lens.Lens' ImportWorkspaceImage WorkspaceImageIngestionProcess
+iwiIngestionProcess = Lens.lens (ingestionProcess :: ImportWorkspaceImage -> WorkspaceImageIngestionProcess) (\s a -> s {ingestionProcess = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiIngestionProcess "Use generic-lens or generic-optics with 'ingestionProcess' instead." #-}
 
 -- | The name of the WorkSpace image.
-iwiImageName :: Lens' ImportWorkspaceImage Text
-iwiImageName = lens _iwiImageName (\s a -> s {_iwiImageName = a})
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiImageName :: Lens.Lens' ImportWorkspaceImage Lude.Text
+iwiImageName = Lens.lens (imageName :: ImportWorkspaceImage -> Lude.Text) (\s a -> s {imageName = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 -- | The description of the WorkSpace image.
-iwiImageDescription :: Lens' ImportWorkspaceImage Text
-iwiImageDescription = lens _iwiImageDescription (\s a -> s {_iwiImageDescription = a})
+--
+-- /Note:/ Consider using 'imageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiImageDescription :: Lens.Lens' ImportWorkspaceImage Lude.Text
+iwiImageDescription = Lens.lens (imageDescription :: ImportWorkspaceImage -> Lude.Text) (\s a -> s {imageDescription = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiImageDescription "Use generic-lens or generic-optics with 'imageDescription' instead." #-}
 
-instance AWSRequest ImportWorkspaceImage where
+instance Lude.AWSRequest ImportWorkspaceImage where
   type Rs ImportWorkspaceImage = ImportWorkspaceImageResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ImportWorkspaceImageResponse'
-            <$> (x .?> "ImageId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ImportWorkspaceImage
-
-instance NFData ImportWorkspaceImage
-
-instance ToHeaders ImportWorkspaceImage where
+instance Lude.ToHeaders ImportWorkspaceImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.ImportWorkspaceImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.ImportWorkspaceImage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportWorkspaceImage where
+instance Lude.ToJSON ImportWorkspaceImage where
   toJSON ImportWorkspaceImage' {..} =
-    object
-      ( catMaybes
-          [ ("Applications" .=) <$> _iwiApplications,
-            ("Tags" .=) <$> _iwiTags,
-            Just ("Ec2ImageId" .= _iwiEC2ImageId),
-            Just ("IngestionProcess" .= _iwiIngestionProcess),
-            Just ("ImageName" .= _iwiImageName),
-            Just ("ImageDescription" .= _iwiImageDescription)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Applications" Lude..=) Lude.<$> applications,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Ec2ImageId" Lude..= ec2ImageId),
+            Lude.Just ("IngestionProcess" Lude..= ingestionProcess),
+            Lude.Just ("ImageName" Lude..= imageName),
+            Lude.Just ("ImageDescription" Lude..= imageDescription)
           ]
       )
 
-instance ToPath ImportWorkspaceImage where
-  toPath = const "/"
+instance Lude.ToPath ImportWorkspaceImage where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportWorkspaceImage where
-  toQuery = const mempty
+instance Lude.ToQuery ImportWorkspaceImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importWorkspaceImageResponse' smart constructor.
+-- | /See:/ 'mkImportWorkspaceImageResponse' smart constructor.
 data ImportWorkspaceImageResponse = ImportWorkspaceImageResponse'
-  { _iwirsImageId ::
-      !(Maybe Text),
-    _iwirsResponseStatus :: !Int
+  { imageId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportWorkspaceImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iwirsImageId' - The identifier of the WorkSpace image.
---
--- * 'iwirsResponseStatus' - -- | The response status code.
-importWorkspaceImageResponse ::
-  -- | 'iwirsResponseStatus'
-  Int ->
+-- * 'imageId' - The identifier of the WorkSpace image.
+-- * 'responseStatus' - The response status code.
+mkImportWorkspaceImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportWorkspaceImageResponse
-importWorkspaceImageResponse pResponseStatus_ =
+mkImportWorkspaceImageResponse pResponseStatus_ =
   ImportWorkspaceImageResponse'
-    { _iwirsImageId = Nothing,
-      _iwirsResponseStatus = pResponseStatus_
+    { imageId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the WorkSpace image.
-iwirsImageId :: Lens' ImportWorkspaceImageResponse (Maybe Text)
-iwirsImageId = lens _iwirsImageId (\s a -> s {_iwirsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwirsImageId :: Lens.Lens' ImportWorkspaceImageResponse (Lude.Maybe Lude.Text)
+iwirsImageId = Lens.lens (imageId :: ImportWorkspaceImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: ImportWorkspaceImageResponse)
+{-# DEPRECATED iwirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | -- | The response status code.
-iwirsResponseStatus :: Lens' ImportWorkspaceImageResponse Int
-iwirsResponseStatus = lens _iwirsResponseStatus (\s a -> s {_iwirsResponseStatus = a})
-
-instance NFData ImportWorkspaceImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwirsResponseStatus :: Lens.Lens' ImportWorkspaceImageResponse Lude.Int
+iwirsResponseStatus = Lens.lens (responseStatus :: ImportWorkspaceImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportWorkspaceImageResponse)
+{-# DEPRECATED iwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

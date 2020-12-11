@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.NetworkInterface where
+module Network.AWS.ECS.Types.NetworkInterface
+  ( NetworkInterface (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNetworkInterface,
+
+    -- * Lenses
+    niIpv6Address,
+    niPrivateIPv4Address,
+    niAttachmentId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the elastic network interface for tasks that use the @awsvpc@ network mode.
 --
---
---
--- /See:/ 'networkInterface' smart constructor.
+-- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { _niIpv6Address ::
-      !(Maybe Text),
-    _niPrivateIPv4Address :: !(Maybe Text),
-    _niAttachmentId :: !(Maybe Text)
+  { ipv6Address ::
+      Lude.Maybe Lude.Text,
+    privateIPv4Address :: Lude.Maybe Lude.Text,
+    attachmentId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'niIpv6Address' - The private IPv6 address for the network interface.
---
--- * 'niPrivateIPv4Address' - The private IPv4 address for the network interface.
---
--- * 'niAttachmentId' - The attachment ID for the network interface.
-networkInterface ::
+-- * 'attachmentId' - The attachment ID for the network interface.
+-- * 'ipv6Address' - The private IPv6 address for the network interface.
+-- * 'privateIPv4Address' - The private IPv4 address for the network interface.
+mkNetworkInterface ::
   NetworkInterface
-networkInterface =
+mkNetworkInterface =
   NetworkInterface'
-    { _niIpv6Address = Nothing,
-      _niPrivateIPv4Address = Nothing,
-      _niAttachmentId = Nothing
+    { ipv6Address = Lude.Nothing,
+      privateIPv4Address = Lude.Nothing,
+      attachmentId = Lude.Nothing
     }
 
 -- | The private IPv6 address for the network interface.
-niIpv6Address :: Lens' NetworkInterface (Maybe Text)
-niIpv6Address = lens _niIpv6Address (\s a -> s {_niIpv6Address = a})
+--
+-- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niIpv6Address :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
+niIpv6Address = Lens.lens (ipv6Address :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: NetworkInterface)
+{-# DEPRECATED niIpv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
 
 -- | The private IPv4 address for the network interface.
-niPrivateIPv4Address :: Lens' NetworkInterface (Maybe Text)
-niPrivateIPv4Address = lens _niPrivateIPv4Address (\s a -> s {_niPrivateIPv4Address = a})
+--
+-- /Note:/ Consider using 'privateIPv4Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPrivateIPv4Address :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
+niPrivateIPv4Address = Lens.lens (privateIPv4Address :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateIPv4Address = a} :: NetworkInterface)
+{-# DEPRECATED niPrivateIPv4Address "Use generic-lens or generic-optics with 'privateIPv4Address' instead." #-}
 
 -- | The attachment ID for the network interface.
-niAttachmentId :: Lens' NetworkInterface (Maybe Text)
-niAttachmentId = lens _niAttachmentId (\s a -> s {_niAttachmentId = a})
+--
+-- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niAttachmentId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
+niAttachmentId = Lens.lens (attachmentId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {attachmentId = a} :: NetworkInterface)
+{-# DEPRECATED niAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
 
-instance FromJSON NetworkInterface where
+instance Lude.FromJSON NetworkInterface where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            <$> (x .:? "ipv6Address")
-            <*> (x .:? "privateIpv4Address")
-            <*> (x .:? "attachmentId")
+            Lude.<$> (x Lude..:? "ipv6Address")
+            Lude.<*> (x Lude..:? "privateIpv4Address")
+            Lude.<*> (x Lude..:? "attachmentId")
       )
-
-instance Hashable NetworkInterface
-
-instance NFData NetworkInterface

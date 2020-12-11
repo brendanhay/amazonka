@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,141 @@
 --
 -- Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.
 module Network.AWS.MigrationHub.CreateProgressUpdateStream
-  ( -- * Creating a Request
-    createProgressUpdateStream,
-    CreateProgressUpdateStream,
+  ( -- * Creating a request
+    CreateProgressUpdateStream (..),
+    mkCreateProgressUpdateStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpusDryRun,
     cpusProgressUpdateStreamName,
 
-    -- * Destructuring the Response
-    createProgressUpdateStreamResponse,
-    CreateProgressUpdateStreamResponse,
+    -- * Destructuring the response
+    CreateProgressUpdateStreamResponse (..),
+    mkCreateProgressUpdateStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpusrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createProgressUpdateStream' smart constructor.
+-- | /See:/ 'mkCreateProgressUpdateStream' smart constructor.
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
-  { _cpusDryRun ::
-      !(Maybe Bool),
-    _cpusProgressUpdateStreamName ::
-      !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    progressUpdateStreamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProgressUpdateStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpusDryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
---
--- * 'cpusProgressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
-createProgressUpdateStream ::
-  -- | 'cpusProgressUpdateStreamName'
-  Text ->
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- * 'progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
+mkCreateProgressUpdateStream ::
+  -- | 'progressUpdateStreamName'
+  Lude.Text ->
   CreateProgressUpdateStream
-createProgressUpdateStream pProgressUpdateStreamName_ =
+mkCreateProgressUpdateStream pProgressUpdateStreamName_ =
   CreateProgressUpdateStream'
-    { _cpusDryRun = Nothing,
-      _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
+    { dryRun = Lude.Nothing,
+      progressUpdateStreamName = pProgressUpdateStreamName_
     }
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-cpusDryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
-cpusDryRun = lens _cpusDryRun (\s a -> s {_cpusDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpusDryRun :: Lens.Lens' CreateProgressUpdateStream (Lude.Maybe Lude.Bool)
+cpusDryRun = Lens.lens (dryRun :: CreateProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateProgressUpdateStream)
+{-# DEPRECATED cpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
-cpusProgressUpdateStreamName :: Lens' CreateProgressUpdateStream Text
-cpusProgressUpdateStreamName = lens _cpusProgressUpdateStreamName (\s a -> s {_cpusProgressUpdateStreamName = a})
+--
+-- /Note:/ Consider using 'progressUpdateStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpusProgressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Lude.Text
+cpusProgressUpdateStreamName = Lens.lens (progressUpdateStreamName :: CreateProgressUpdateStream -> Lude.Text) (\s a -> s {progressUpdateStreamName = a} :: CreateProgressUpdateStream)
+{-# DEPRECATED cpusProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
 
-instance AWSRequest CreateProgressUpdateStream where
+instance Lude.AWSRequest CreateProgressUpdateStream where
   type
     Rs CreateProgressUpdateStream =
       CreateProgressUpdateStreamResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          CreateProgressUpdateStreamResponse' <$> (pure (fromEnum s))
+          CreateProgressUpdateStreamResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProgressUpdateStream
-
-instance NFData CreateProgressUpdateStream
-
-instance ToHeaders CreateProgressUpdateStream where
+instance Lude.ToHeaders CreateProgressUpdateStream where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.CreateProgressUpdateStream" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.CreateProgressUpdateStream" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProgressUpdateStream where
+instance Lude.ToJSON CreateProgressUpdateStream where
   toJSON CreateProgressUpdateStream' {..} =
-    object
-      ( catMaybes
-          [ ("DryRun" .=) <$> _cpusDryRun,
-            Just
-              ("ProgressUpdateStreamName" .= _cpusProgressUpdateStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+            Lude.Just
+              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName)
           ]
       )
 
-instance ToPath CreateProgressUpdateStream where
-  toPath = const "/"
+instance Lude.ToPath CreateProgressUpdateStream where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProgressUpdateStream where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProgressUpdateStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProgressUpdateStreamResponse' smart constructor.
+-- | /See:/ 'mkCreateProgressUpdateStreamResponse' smart constructor.
 newtype CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
-  { _cpusrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProgressUpdateStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpusrsResponseStatus' - -- | The response status code.
-createProgressUpdateStreamResponse ::
-  -- | 'cpusrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateProgressUpdateStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProgressUpdateStreamResponse
-createProgressUpdateStreamResponse pResponseStatus_ =
+mkCreateProgressUpdateStreamResponse pResponseStatus_ =
   CreateProgressUpdateStreamResponse'
-    { _cpusrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-cpusrsResponseStatus :: Lens' CreateProgressUpdateStreamResponse Int
-cpusrsResponseStatus = lens _cpusrsResponseStatus (\s a -> s {_cpusrsResponseStatus = a})
-
-instance NFData CreateProgressUpdateStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpusrsResponseStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Lude.Int
+cpusrsResponseStatus = Lens.lens (responseStatus :: CreateProgressUpdateStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProgressUpdateStreamResponse)
+{-# DEPRECATED cpusrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

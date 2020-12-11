@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.ArtifactType where
+module Network.AWS.DeviceFarm.Types.ArtifactType
+  ( ArtifactType
+      ( ArtifactType',
+        ATAppiumJavaOutput,
+        ATAppiumJavaXMLOutput,
+        ATAppiumPythonOutput,
+        ATAppiumPythonXMLOutput,
+        ATAppiumServerOutput,
+        ATApplicationCrashReport,
+        ATAutomationOutput,
+        ATCalabashJSONOutput,
+        ATCalabashJavaXMLOutput,
+        ATCalabashPrettyOutput,
+        ATCalabashStandardOutput,
+        ATCustomerArtifact,
+        ATCustomerArtifactLog,
+        ATDeviceLog,
+        ATExerciserMonkeyOutput,
+        ATExplorerEventLog,
+        ATExplorerSummaryLog,
+        ATInstrumentationOutput,
+        ATMessageLog,
+        ATResultLog,
+        ATScreenshot,
+        ATServiceLog,
+        ATTestspecOutput,
+        ATUnknown,
+        ATVideo,
+        ATVideoLog,
+        ATWebkitLog,
+        ATXctestLog
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArtifactType
-  = ATAppiumJavaOutput
-  | ATAppiumJavaXMLOutput
-  | ATAppiumPythonOutput
-  | ATAppiumPythonXMLOutput
-  | ATAppiumServerOutput
-  | ATApplicationCrashReport
-  | ATAutomationOutput
-  | ATCalabashJSONOutput
-  | ATCalabashJavaXMLOutput
-  | ATCalabashPrettyOutput
-  | ATCalabashStandardOutput
-  | ATCustomerArtifact
-  | ATCustomerArtifactLog
-  | ATDeviceLog
-  | ATExerciserMonkeyOutput
-  | ATExplorerEventLog
-  | ATExplorerSummaryLog
-  | ATInstrumentationOutput
-  | ATMessageLog
-  | ATResultLog
-  | ATScreenshot
-  | ATServiceLog
-  | ATTestspecOutput
-  | ATUnknown
-  | ATVideo
-  | ATVideoLog
-  | ATWebkitLog
-  | ATXctestLog
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArtifactType = ArtifactType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArtifactType where
-  parser =
-    takeLowerText >>= \case
-      "appium_java_output" -> pure ATAppiumJavaOutput
-      "appium_java_xml_output" -> pure ATAppiumJavaXMLOutput
-      "appium_python_output" -> pure ATAppiumPythonOutput
-      "appium_python_xml_output" -> pure ATAppiumPythonXMLOutput
-      "appium_server_output" -> pure ATAppiumServerOutput
-      "application_crash_report" -> pure ATApplicationCrashReport
-      "automation_output" -> pure ATAutomationOutput
-      "calabash_json_output" -> pure ATCalabashJSONOutput
-      "calabash_java_xml_output" -> pure ATCalabashJavaXMLOutput
-      "calabash_pretty_output" -> pure ATCalabashPrettyOutput
-      "calabash_standard_output" -> pure ATCalabashStandardOutput
-      "customer_artifact" -> pure ATCustomerArtifact
-      "customer_artifact_log" -> pure ATCustomerArtifactLog
-      "device_log" -> pure ATDeviceLog
-      "exerciser_monkey_output" -> pure ATExerciserMonkeyOutput
-      "explorer_event_log" -> pure ATExplorerEventLog
-      "explorer_summary_log" -> pure ATExplorerSummaryLog
-      "instrumentation_output" -> pure ATInstrumentationOutput
-      "message_log" -> pure ATMessageLog
-      "result_log" -> pure ATResultLog
-      "screenshot" -> pure ATScreenshot
-      "service_log" -> pure ATServiceLog
-      "testspec_output" -> pure ATTestspecOutput
-      "unknown" -> pure ATUnknown
-      "video" -> pure ATVideo
-      "video_log" -> pure ATVideoLog
-      "webkit_log" -> pure ATWebkitLog
-      "xctest_log" -> pure ATXctestLog
-      e ->
-        fromTextError $
-          "Failure parsing ArtifactType from value: '" <> e
-            <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, customer_artifact, customer_artifact_log, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, testspec_output, unknown, video, video_log, webkit_log, xctest_log"
+pattern ATAppiumJavaOutput :: ArtifactType
+pattern ATAppiumJavaOutput = ArtifactType' "APPIUM_JAVA_OUTPUT"
 
-instance ToText ArtifactType where
-  toText = \case
-    ATAppiumJavaOutput -> "APPIUM_JAVA_OUTPUT"
-    ATAppiumJavaXMLOutput -> "APPIUM_JAVA_XML_OUTPUT"
-    ATAppiumPythonOutput -> "APPIUM_PYTHON_OUTPUT"
-    ATAppiumPythonXMLOutput -> "APPIUM_PYTHON_XML_OUTPUT"
-    ATAppiumServerOutput -> "APPIUM_SERVER_OUTPUT"
-    ATApplicationCrashReport -> "APPLICATION_CRASH_REPORT"
-    ATAutomationOutput -> "AUTOMATION_OUTPUT"
-    ATCalabashJSONOutput -> "CALABASH_JSON_OUTPUT"
-    ATCalabashJavaXMLOutput -> "CALABASH_JAVA_XML_OUTPUT"
-    ATCalabashPrettyOutput -> "CALABASH_PRETTY_OUTPUT"
-    ATCalabashStandardOutput -> "CALABASH_STANDARD_OUTPUT"
-    ATCustomerArtifact -> "CUSTOMER_ARTIFACT"
-    ATCustomerArtifactLog -> "CUSTOMER_ARTIFACT_LOG"
-    ATDeviceLog -> "DEVICE_LOG"
-    ATExerciserMonkeyOutput -> "EXERCISER_MONKEY_OUTPUT"
-    ATExplorerEventLog -> "EXPLORER_EVENT_LOG"
-    ATExplorerSummaryLog -> "EXPLORER_SUMMARY_LOG"
-    ATInstrumentationOutput -> "INSTRUMENTATION_OUTPUT"
-    ATMessageLog -> "MESSAGE_LOG"
-    ATResultLog -> "RESULT_LOG"
-    ATScreenshot -> "SCREENSHOT"
-    ATServiceLog -> "SERVICE_LOG"
-    ATTestspecOutput -> "TESTSPEC_OUTPUT"
-    ATUnknown -> "UNKNOWN"
-    ATVideo -> "VIDEO"
-    ATVideoLog -> "VIDEO_LOG"
-    ATWebkitLog -> "WEBKIT_LOG"
-    ATXctestLog -> "XCTEST_LOG"
+pattern ATAppiumJavaXMLOutput :: ArtifactType
+pattern ATAppiumJavaXMLOutput = ArtifactType' "APPIUM_JAVA_XML_OUTPUT"
 
-instance Hashable ArtifactType
+pattern ATAppiumPythonOutput :: ArtifactType
+pattern ATAppiumPythonOutput = ArtifactType' "APPIUM_PYTHON_OUTPUT"
 
-instance NFData ArtifactType
+pattern ATAppiumPythonXMLOutput :: ArtifactType
+pattern ATAppiumPythonXMLOutput = ArtifactType' "APPIUM_PYTHON_XML_OUTPUT"
 
-instance ToByteString ArtifactType
+pattern ATAppiumServerOutput :: ArtifactType
+pattern ATAppiumServerOutput = ArtifactType' "APPIUM_SERVER_OUTPUT"
 
-instance ToQuery ArtifactType
+pattern ATApplicationCrashReport :: ArtifactType
+pattern ATApplicationCrashReport = ArtifactType' "APPLICATION_CRASH_REPORT"
 
-instance ToHeader ArtifactType
+pattern ATAutomationOutput :: ArtifactType
+pattern ATAutomationOutput = ArtifactType' "AUTOMATION_OUTPUT"
 
-instance FromJSON ArtifactType where
-  parseJSON = parseJSONText "ArtifactType"
+pattern ATCalabashJSONOutput :: ArtifactType
+pattern ATCalabashJSONOutput = ArtifactType' "CALABASH_JSON_OUTPUT"
+
+pattern ATCalabashJavaXMLOutput :: ArtifactType
+pattern ATCalabashJavaXMLOutput = ArtifactType' "CALABASH_JAVA_XML_OUTPUT"
+
+pattern ATCalabashPrettyOutput :: ArtifactType
+pattern ATCalabashPrettyOutput = ArtifactType' "CALABASH_PRETTY_OUTPUT"
+
+pattern ATCalabashStandardOutput :: ArtifactType
+pattern ATCalabashStandardOutput = ArtifactType' "CALABASH_STANDARD_OUTPUT"
+
+pattern ATCustomerArtifact :: ArtifactType
+pattern ATCustomerArtifact = ArtifactType' "CUSTOMER_ARTIFACT"
+
+pattern ATCustomerArtifactLog :: ArtifactType
+pattern ATCustomerArtifactLog = ArtifactType' "CUSTOMER_ARTIFACT_LOG"
+
+pattern ATDeviceLog :: ArtifactType
+pattern ATDeviceLog = ArtifactType' "DEVICE_LOG"
+
+pattern ATExerciserMonkeyOutput :: ArtifactType
+pattern ATExerciserMonkeyOutput = ArtifactType' "EXERCISER_MONKEY_OUTPUT"
+
+pattern ATExplorerEventLog :: ArtifactType
+pattern ATExplorerEventLog = ArtifactType' "EXPLORER_EVENT_LOG"
+
+pattern ATExplorerSummaryLog :: ArtifactType
+pattern ATExplorerSummaryLog = ArtifactType' "EXPLORER_SUMMARY_LOG"
+
+pattern ATInstrumentationOutput :: ArtifactType
+pattern ATInstrumentationOutput = ArtifactType' "INSTRUMENTATION_OUTPUT"
+
+pattern ATMessageLog :: ArtifactType
+pattern ATMessageLog = ArtifactType' "MESSAGE_LOG"
+
+pattern ATResultLog :: ArtifactType
+pattern ATResultLog = ArtifactType' "RESULT_LOG"
+
+pattern ATScreenshot :: ArtifactType
+pattern ATScreenshot = ArtifactType' "SCREENSHOT"
+
+pattern ATServiceLog :: ArtifactType
+pattern ATServiceLog = ArtifactType' "SERVICE_LOG"
+
+pattern ATTestspecOutput :: ArtifactType
+pattern ATTestspecOutput = ArtifactType' "TESTSPEC_OUTPUT"
+
+pattern ATUnknown :: ArtifactType
+pattern ATUnknown = ArtifactType' "UNKNOWN"
+
+pattern ATVideo :: ArtifactType
+pattern ATVideo = ArtifactType' "VIDEO"
+
+pattern ATVideoLog :: ArtifactType
+pattern ATVideoLog = ArtifactType' "VIDEO_LOG"
+
+pattern ATWebkitLog :: ArtifactType
+pattern ATWebkitLog = ArtifactType' "WEBKIT_LOG"
+
+pattern ATXctestLog :: ArtifactType
+pattern ATXctestLog = ArtifactType' "XCTEST_LOG"
+
+{-# COMPLETE
+  ATAppiumJavaOutput,
+  ATAppiumJavaXMLOutput,
+  ATAppiumPythonOutput,
+  ATAppiumPythonXMLOutput,
+  ATAppiumServerOutput,
+  ATApplicationCrashReport,
+  ATAutomationOutput,
+  ATCalabashJSONOutput,
+  ATCalabashJavaXMLOutput,
+  ATCalabashPrettyOutput,
+  ATCalabashStandardOutput,
+  ATCustomerArtifact,
+  ATCustomerArtifactLog,
+  ATDeviceLog,
+  ATExerciserMonkeyOutput,
+  ATExplorerEventLog,
+  ATExplorerSummaryLog,
+  ATInstrumentationOutput,
+  ATMessageLog,
+  ATResultLog,
+  ATScreenshot,
+  ATServiceLog,
+  ATTestspecOutput,
+  ATUnknown,
+  ATVideo,
+  ATVideoLog,
+  ATWebkitLog,
+  ATXctestLog,
+  ArtifactType'
+  #-}

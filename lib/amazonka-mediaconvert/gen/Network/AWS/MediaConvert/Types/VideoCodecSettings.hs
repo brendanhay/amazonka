@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoCodecSettings where
+module Network.AWS.MediaConvert.Types.VideoCodecSettings
+  ( VideoCodecSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkVideoCodecSettings,
+
+    -- * Lenses
+    vcsFrameCaptureSettings,
+    vcsAv1Settings,
+    vcsCodec,
+    vcsH265Settings,
+    vcsProresSettings,
+    vcsVp9Settings,
+    vcsH264Settings,
+    vcsMpeg2Settings,
+    vcsVp8Settings,
+    vcsVc3Settings,
+    vcsAvcIntraSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Av1Settings
 import Network.AWS.MediaConvert.Types.AvcIntraSettings
 import Network.AWS.MediaConvert.Types.FrameCaptureSettings
@@ -27,150 +40,174 @@ import Network.AWS.MediaConvert.Types.Vc3Settings
 import Network.AWS.MediaConvert.Types.VideoCodec
 import Network.AWS.MediaConvert.Types.Vp8Settings
 import Network.AWS.MediaConvert.Types.Vp9Settings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings
 --
--- /See:/ 'videoCodecSettings' smart constructor.
+-- /See:/ 'mkVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
-  { _vcsFrameCaptureSettings ::
-      !(Maybe FrameCaptureSettings),
-    _vcsAv1Settings :: !(Maybe Av1Settings),
-    _vcsCodec :: !(Maybe VideoCodec),
-    _vcsH265Settings :: !(Maybe H265Settings),
-    _vcsProresSettings :: !(Maybe ProresSettings),
-    _vcsVp9Settings :: !(Maybe Vp9Settings),
-    _vcsH264Settings :: !(Maybe H264Settings),
-    _vcsMpeg2Settings :: !(Maybe Mpeg2Settings),
-    _vcsVp8Settings :: !(Maybe Vp8Settings),
-    _vcsVc3Settings :: !(Maybe Vc3Settings),
-    _vcsAvcIntraSettings :: !(Maybe AvcIntraSettings)
+  { frameCaptureSettings ::
+      Lude.Maybe FrameCaptureSettings,
+    av1Settings :: Lude.Maybe Av1Settings,
+    codec :: Lude.Maybe VideoCodec,
+    h265Settings :: Lude.Maybe H265Settings,
+    proresSettings :: Lude.Maybe ProresSettings,
+    vp9Settings :: Lude.Maybe Vp9Settings,
+    h264Settings :: Lude.Maybe H264Settings,
+    mpeg2Settings :: Lude.Maybe Mpeg2Settings,
+    vp8Settings :: Lude.Maybe Vp8Settings,
+    vc3Settings :: Lude.Maybe Vc3Settings,
+    avcIntraSettings :: Lude.Maybe AvcIntraSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoCodecSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vcsFrameCaptureSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
---
--- * 'vcsAv1Settings' - Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
---
--- * 'vcsCodec' - Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
---
--- * 'vcsH265Settings' - Settings for H265 codec
---
--- * 'vcsProresSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
---
--- * 'vcsVp9Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
---
--- * 'vcsH264Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
---
--- * 'vcsMpeg2Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
---
--- * 'vcsVp8Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
---
--- * 'vcsVc3Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
---
--- * 'vcsAvcIntraSettings' - Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
-videoCodecSettings ::
+-- * 'av1Settings' - Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
+-- * 'avcIntraSettings' - Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
+-- * 'codec' - Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
+-- * 'frameCaptureSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
+-- * 'h264Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
+-- * 'h265Settings' - Settings for H265 codec
+-- * 'mpeg2Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
+-- * 'proresSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
+-- * 'vc3Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
+-- * 'vp8Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
+-- * 'vp9Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
+mkVideoCodecSettings ::
   VideoCodecSettings
-videoCodecSettings =
+mkVideoCodecSettings =
   VideoCodecSettings'
-    { _vcsFrameCaptureSettings = Nothing,
-      _vcsAv1Settings = Nothing,
-      _vcsCodec = Nothing,
-      _vcsH265Settings = Nothing,
-      _vcsProresSettings = Nothing,
-      _vcsVp9Settings = Nothing,
-      _vcsH264Settings = Nothing,
-      _vcsMpeg2Settings = Nothing,
-      _vcsVp8Settings = Nothing,
-      _vcsVc3Settings = Nothing,
-      _vcsAvcIntraSettings = Nothing
+    { frameCaptureSettings = Lude.Nothing,
+      av1Settings = Lude.Nothing,
+      codec = Lude.Nothing,
+      h265Settings = Lude.Nothing,
+      proresSettings = Lude.Nothing,
+      vp9Settings = Lude.Nothing,
+      h264Settings = Lude.Nothing,
+      mpeg2Settings = Lude.Nothing,
+      vp8Settings = Lude.Nothing,
+      vc3Settings = Lude.Nothing,
+      avcIntraSettings = Lude.Nothing
     }
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
-vcsFrameCaptureSettings :: Lens' VideoCodecSettings (Maybe FrameCaptureSettings)
-vcsFrameCaptureSettings = lens _vcsFrameCaptureSettings (\s a -> s {_vcsFrameCaptureSettings = a})
+--
+-- /Note:/ Consider using 'frameCaptureSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsFrameCaptureSettings :: Lens.Lens' VideoCodecSettings (Lude.Maybe FrameCaptureSettings)
+vcsFrameCaptureSettings = Lens.lens (frameCaptureSettings :: VideoCodecSettings -> Lude.Maybe FrameCaptureSettings) (\s a -> s {frameCaptureSettings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsFrameCaptureSettings "Use generic-lens or generic-optics with 'frameCaptureSettings' instead." #-}
 
 -- | Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
-vcsAv1Settings :: Lens' VideoCodecSettings (Maybe Av1Settings)
-vcsAv1Settings = lens _vcsAv1Settings (\s a -> s {_vcsAv1Settings = a})
+--
+-- /Note:/ Consider using 'av1Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsAv1Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Av1Settings)
+vcsAv1Settings = Lens.lens (av1Settings :: VideoCodecSettings -> Lude.Maybe Av1Settings) (\s a -> s {av1Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsAv1Settings "Use generic-lens or generic-optics with 'av1Settings' instead." #-}
 
 -- | Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
-vcsCodec :: Lens' VideoCodecSettings (Maybe VideoCodec)
-vcsCodec = lens _vcsCodec (\s a -> s {_vcsCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsCodec :: Lens.Lens' VideoCodecSettings (Lude.Maybe VideoCodec)
+vcsCodec = Lens.lens (codec :: VideoCodecSettings -> Lude.Maybe VideoCodec) (\s a -> s {codec = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | Settings for H265 codec
-vcsH265Settings :: Lens' VideoCodecSettings (Maybe H265Settings)
-vcsH265Settings = lens _vcsH265Settings (\s a -> s {_vcsH265Settings = a})
+--
+-- /Note:/ Consider using 'h265Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsH265Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe H265Settings)
+vcsH265Settings = Lens.lens (h265Settings :: VideoCodecSettings -> Lude.Maybe H265Settings) (\s a -> s {h265Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsH265Settings "Use generic-lens or generic-optics with 'h265Settings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
-vcsProresSettings :: Lens' VideoCodecSettings (Maybe ProresSettings)
-vcsProresSettings = lens _vcsProresSettings (\s a -> s {_vcsProresSettings = a})
+--
+-- /Note:/ Consider using 'proresSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsProresSettings :: Lens.Lens' VideoCodecSettings (Lude.Maybe ProresSettings)
+vcsProresSettings = Lens.lens (proresSettings :: VideoCodecSettings -> Lude.Maybe ProresSettings) (\s a -> s {proresSettings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsProresSettings "Use generic-lens or generic-optics with 'proresSettings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
-vcsVp9Settings :: Lens' VideoCodecSettings (Maybe Vp9Settings)
-vcsVp9Settings = lens _vcsVp9Settings (\s a -> s {_vcsVp9Settings = a})
+--
+-- /Note:/ Consider using 'vp9Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsVp9Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Vp9Settings)
+vcsVp9Settings = Lens.lens (vp9Settings :: VideoCodecSettings -> Lude.Maybe Vp9Settings) (\s a -> s {vp9Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsVp9Settings "Use generic-lens or generic-optics with 'vp9Settings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
-vcsH264Settings :: Lens' VideoCodecSettings (Maybe H264Settings)
-vcsH264Settings = lens _vcsH264Settings (\s a -> s {_vcsH264Settings = a})
+--
+-- /Note:/ Consider using 'h264Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsH264Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe H264Settings)
+vcsH264Settings = Lens.lens (h264Settings :: VideoCodecSettings -> Lude.Maybe H264Settings) (\s a -> s {h264Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsH264Settings "Use generic-lens or generic-optics with 'h264Settings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
-vcsMpeg2Settings :: Lens' VideoCodecSettings (Maybe Mpeg2Settings)
-vcsMpeg2Settings = lens _vcsMpeg2Settings (\s a -> s {_vcsMpeg2Settings = a})
+--
+-- /Note:/ Consider using 'mpeg2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsMpeg2Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Mpeg2Settings)
+vcsMpeg2Settings = Lens.lens (mpeg2Settings :: VideoCodecSettings -> Lude.Maybe Mpeg2Settings) (\s a -> s {mpeg2Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsMpeg2Settings "Use generic-lens or generic-optics with 'mpeg2Settings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
-vcsVp8Settings :: Lens' VideoCodecSettings (Maybe Vp8Settings)
-vcsVp8Settings = lens _vcsVp8Settings (\s a -> s {_vcsVp8Settings = a})
+--
+-- /Note:/ Consider using 'vp8Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsVp8Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Vp8Settings)
+vcsVp8Settings = Lens.lens (vp8Settings :: VideoCodecSettings -> Lude.Maybe Vp8Settings) (\s a -> s {vp8Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsVp8Settings "Use generic-lens or generic-optics with 'vp8Settings' instead." #-}
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
-vcsVc3Settings :: Lens' VideoCodecSettings (Maybe Vc3Settings)
-vcsVc3Settings = lens _vcsVc3Settings (\s a -> s {_vcsVc3Settings = a})
+--
+-- /Note:/ Consider using 'vc3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsVc3Settings :: Lens.Lens' VideoCodecSettings (Lude.Maybe Vc3Settings)
+vcsVc3Settings = Lens.lens (vc3Settings :: VideoCodecSettings -> Lude.Maybe Vc3Settings) (\s a -> s {vc3Settings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsVc3Settings "Use generic-lens or generic-optics with 'vc3Settings' instead." #-}
 
 -- | Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
-vcsAvcIntraSettings :: Lens' VideoCodecSettings (Maybe AvcIntraSettings)
-vcsAvcIntraSettings = lens _vcsAvcIntraSettings (\s a -> s {_vcsAvcIntraSettings = a})
+--
+-- /Note:/ Consider using 'avcIntraSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsAvcIntraSettings :: Lens.Lens' VideoCodecSettings (Lude.Maybe AvcIntraSettings)
+vcsAvcIntraSettings = Lens.lens (avcIntraSettings :: VideoCodecSettings -> Lude.Maybe AvcIntraSettings) (\s a -> s {avcIntraSettings = a} :: VideoCodecSettings)
+{-# DEPRECATED vcsAvcIntraSettings "Use generic-lens or generic-optics with 'avcIntraSettings' instead." #-}
 
-instance FromJSON VideoCodecSettings where
+instance Lude.FromJSON VideoCodecSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "VideoCodecSettings"
       ( \x ->
           VideoCodecSettings'
-            <$> (x .:? "frameCaptureSettings")
-            <*> (x .:? "av1Settings")
-            <*> (x .:? "codec")
-            <*> (x .:? "h265Settings")
-            <*> (x .:? "proresSettings")
-            <*> (x .:? "vp9Settings")
-            <*> (x .:? "h264Settings")
-            <*> (x .:? "mpeg2Settings")
-            <*> (x .:? "vp8Settings")
-            <*> (x .:? "vc3Settings")
-            <*> (x .:? "avcIntraSettings")
+            Lude.<$> (x Lude..:? "frameCaptureSettings")
+            Lude.<*> (x Lude..:? "av1Settings")
+            Lude.<*> (x Lude..:? "codec")
+            Lude.<*> (x Lude..:? "h265Settings")
+            Lude.<*> (x Lude..:? "proresSettings")
+            Lude.<*> (x Lude..:? "vp9Settings")
+            Lude.<*> (x Lude..:? "h264Settings")
+            Lude.<*> (x Lude..:? "mpeg2Settings")
+            Lude.<*> (x Lude..:? "vp8Settings")
+            Lude.<*> (x Lude..:? "vc3Settings")
+            Lude.<*> (x Lude..:? "avcIntraSettings")
       )
 
-instance Hashable VideoCodecSettings
-
-instance NFData VideoCodecSettings
-
-instance ToJSON VideoCodecSettings where
+instance Lude.ToJSON VideoCodecSettings where
   toJSON VideoCodecSettings' {..} =
-    object
-      ( catMaybes
-          [ ("frameCaptureSettings" .=) <$> _vcsFrameCaptureSettings,
-            ("av1Settings" .=) <$> _vcsAv1Settings,
-            ("codec" .=) <$> _vcsCodec,
-            ("h265Settings" .=) <$> _vcsH265Settings,
-            ("proresSettings" .=) <$> _vcsProresSettings,
-            ("vp9Settings" .=) <$> _vcsVp9Settings,
-            ("h264Settings" .=) <$> _vcsH264Settings,
-            ("mpeg2Settings" .=) <$> _vcsMpeg2Settings,
-            ("vp8Settings" .=) <$> _vcsVp8Settings,
-            ("vc3Settings" .=) <$> _vcsVc3Settings,
-            ("avcIntraSettings" .=) <$> _vcsAvcIntraSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("frameCaptureSettings" Lude..=) Lude.<$> frameCaptureSettings,
+            ("av1Settings" Lude..=) Lude.<$> av1Settings,
+            ("codec" Lude..=) Lude.<$> codec,
+            ("h265Settings" Lude..=) Lude.<$> h265Settings,
+            ("proresSettings" Lude..=) Lude.<$> proresSettings,
+            ("vp9Settings" Lude..=) Lude.<$> vp9Settings,
+            ("h264Settings" Lude..=) Lude.<$> h264Settings,
+            ("mpeg2Settings" Lude..=) Lude.<$> mpeg2Settings,
+            ("vp8Settings" Lude..=) Lude.<$> vp8Settings,
+            ("vc3Settings" Lude..=) Lude.<$> vc3Settings,
+            ("avcIntraSettings" Lude..=) Lude.<$> avcIntraSettings
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.CompatibleImage where
+module Network.AWS.Snowball.Types.CompatibleImage
+  ( CompatibleImage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCompatibleImage,
+
+    -- * Lenses
+    ciName,
+    ciAMIId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A JSON-formatted object that describes a compatible Amazon Machine Image (AMI), including the ID and name for a Snow device AMI. This AMI is compatible with the device's physical hardware requirements, and it should be able to be run in an SBE1 instance on the device.
 --
---
---
--- /See:/ 'compatibleImage' smart constructor.
+-- /See:/ 'mkCompatibleImage' smart constructor.
 data CompatibleImage = CompatibleImage'
-  { _ciName :: !(Maybe Text),
-    _ciAMIId :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    amiId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompatibleImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciName' - The optional name of a compatible image.
---
--- * 'ciAMIId' - The unique identifier for an individual Snow device AMI.
-compatibleImage ::
+-- * 'amiId' - The unique identifier for an individual Snow device AMI.
+-- * 'name' - The optional name of a compatible image.
+mkCompatibleImage ::
   CompatibleImage
-compatibleImage =
-  CompatibleImage' {_ciName = Nothing, _ciAMIId = Nothing}
+mkCompatibleImage =
+  CompatibleImage' {name = Lude.Nothing, amiId = Lude.Nothing}
 
 -- | The optional name of a compatible image.
-ciName :: Lens' CompatibleImage (Maybe Text)
-ciName = lens _ciName (\s a -> s {_ciName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciName :: Lens.Lens' CompatibleImage (Lude.Maybe Lude.Text)
+ciName = Lens.lens (name :: CompatibleImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CompatibleImage)
+{-# DEPRECATED ciName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique identifier for an individual Snow device AMI.
-ciAMIId :: Lens' CompatibleImage (Maybe Text)
-ciAMIId = lens _ciAMIId (\s a -> s {_ciAMIId = a})
+--
+-- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAMIId :: Lens.Lens' CompatibleImage (Lude.Maybe Lude.Text)
+ciAMIId = Lens.lens (amiId :: CompatibleImage -> Lude.Maybe Lude.Text) (\s a -> s {amiId = a} :: CompatibleImage)
+{-# DEPRECATED ciAMIId "Use generic-lens or generic-optics with 'amiId' instead." #-}
 
-instance FromJSON CompatibleImage where
+instance Lude.FromJSON CompatibleImage where
   parseJSON =
-    withObject
+    Lude.withObject
       "CompatibleImage"
-      (\x -> CompatibleImage' <$> (x .:? "Name") <*> (x .:? "AmiId"))
-
-instance Hashable CompatibleImage
-
-instance NFData CompatibleImage
+      ( \x ->
+          CompatibleImage'
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "AmiId")
+      )

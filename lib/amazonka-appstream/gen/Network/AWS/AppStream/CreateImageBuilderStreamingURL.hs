@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Creates a URL to start an image builder streaming session.
 module Network.AWS.AppStream.CreateImageBuilderStreamingURL
-  ( -- * Creating a Request
-    createImageBuilderStreamingURL,
-    CreateImageBuilderStreamingURL,
+  ( -- * Creating a request
+    CreateImageBuilderStreamingURL (..),
+    mkCreateImageBuilderStreamingURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cibsuValidity,
     cibsuName,
 
-    -- * Destructuring the Response
-    createImageBuilderStreamingURLResponse,
-    CreateImageBuilderStreamingURLResponse,
+    -- * Destructuring the response
+    CreateImageBuilderStreamingURLResponse (..),
+    mkCreateImageBuilderStreamingURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cibsursStreamingURL,
     cibsursExpires,
     cibsursResponseStatus,
@@ -39,131 +34,150 @@ module Network.AWS.AppStream.CreateImageBuilderStreamingURL
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createImageBuilderStreamingURL' smart constructor.
+-- | /See:/ 'mkCreateImageBuilderStreamingURL' smart constructor.
 data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
-  { _cibsuValidity ::
-      !(Maybe Integer),
-    _cibsuName :: !Text
+  { validity ::
+      Lude.Maybe Lude.Integer,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilderStreamingURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cibsuValidity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
---
--- * 'cibsuName' - The name of the image builder.
-createImageBuilderStreamingURL ::
-  -- | 'cibsuName'
-  Text ->
+-- * 'name' - The name of the image builder.
+-- * 'validity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+mkCreateImageBuilderStreamingURL ::
+  -- | 'name'
+  Lude.Text ->
   CreateImageBuilderStreamingURL
-createImageBuilderStreamingURL pName_ =
+mkCreateImageBuilderStreamingURL pName_ =
   CreateImageBuilderStreamingURL'
-    { _cibsuValidity = Nothing,
-      _cibsuName = pName_
+    { validity = Lude.Nothing,
+      name = pName_
     }
 
 -- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
-cibsuValidity :: Lens' CreateImageBuilderStreamingURL (Maybe Integer)
-cibsuValidity = lens _cibsuValidity (\s a -> s {_cibsuValidity = a})
+--
+-- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsuValidity :: Lens.Lens' CreateImageBuilderStreamingURL (Lude.Maybe Lude.Integer)
+cibsuValidity = Lens.lens (validity :: CreateImageBuilderStreamingURL -> Lude.Maybe Lude.Integer) (\s a -> s {validity = a} :: CreateImageBuilderStreamingURL)
+{-# DEPRECATED cibsuValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
 
 -- | The name of the image builder.
-cibsuName :: Lens' CreateImageBuilderStreamingURL Text
-cibsuName = lens _cibsuName (\s a -> s {_cibsuName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsuName :: Lens.Lens' CreateImageBuilderStreamingURL Lude.Text
+cibsuName = Lens.lens (name :: CreateImageBuilderStreamingURL -> Lude.Text) (\s a -> s {name = a} :: CreateImageBuilderStreamingURL)
+{-# DEPRECATED cibsuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateImageBuilderStreamingURL where
+instance Lude.AWSRequest CreateImageBuilderStreamingURL where
   type
     Rs CreateImageBuilderStreamingURL =
       CreateImageBuilderStreamingURLResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateImageBuilderStreamingURLResponse'
-            <$> (x .?> "StreamingURL")
-            <*> (x .?> "Expires")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StreamingURL")
+            Lude.<*> (x Lude..?> "Expires")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateImageBuilderStreamingURL
-
-instance NFData CreateImageBuilderStreamingURL
-
-instance ToHeaders CreateImageBuilderStreamingURL where
+instance Lude.ToHeaders CreateImageBuilderStreamingURL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateImageBuilderStreamingURL where
+instance Lude.ToJSON CreateImageBuilderStreamingURL where
   toJSON CreateImageBuilderStreamingURL' {..} =
-    object
-      ( catMaybes
-          [("Validity" .=) <$> _cibsuValidity, Just ("Name" .= _cibsuName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Validity" Lude..=) Lude.<$> validity,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )
 
-instance ToPath CreateImageBuilderStreamingURL where
-  toPath = const "/"
+instance Lude.ToPath CreateImageBuilderStreamingURL where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateImageBuilderStreamingURL where
-  toQuery = const mempty
+instance Lude.ToQuery CreateImageBuilderStreamingURL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createImageBuilderStreamingURLResponse' smart constructor.
+-- | /See:/ 'mkCreateImageBuilderStreamingURLResponse' smart constructor.
 data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
-  { _cibsursStreamingURL ::
-      !(Maybe Text),
-    _cibsursExpires ::
-      !( Maybe
-           POSIX
-       ),
-    _cibsursResponseStatus ::
-      !Int
+  { streamingURL ::
+      Lude.Maybe
+        Lude.Text,
+    expires ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilderStreamingURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cibsursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
---
--- * 'cibsursExpires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
---
--- * 'cibsursResponseStatus' - -- | The response status code.
-createImageBuilderStreamingURLResponse ::
-  -- | 'cibsursResponseStatus'
-  Int ->
+-- * 'expires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
+-- * 'responseStatus' - The response status code.
+-- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
+mkCreateImageBuilderStreamingURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateImageBuilderStreamingURLResponse
-createImageBuilderStreamingURLResponse pResponseStatus_ =
+mkCreateImageBuilderStreamingURLResponse pResponseStatus_ =
   CreateImageBuilderStreamingURLResponse'
-    { _cibsursStreamingURL =
-        Nothing,
-      _cibsursExpires = Nothing,
-      _cibsursResponseStatus = pResponseStatus_
+    { streamingURL =
+        Lude.Nothing,
+      expires = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The URL to start the AppStream 2.0 streaming session.
-cibsursStreamingURL :: Lens' CreateImageBuilderStreamingURLResponse (Maybe Text)
-cibsursStreamingURL = lens _cibsursStreamingURL (\s a -> s {_cibsursStreamingURL = a})
+--
+-- /Note:/ Consider using 'streamingURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsursStreamingURL :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Lude.Maybe Lude.Text)
+cibsursStreamingURL = Lens.lens (streamingURL :: CreateImageBuilderStreamingURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamingURL = a} :: CreateImageBuilderStreamingURLResponse)
+{-# DEPRECATED cibsursStreamingURL "Use generic-lens or generic-optics with 'streamingURL' instead." #-}
 
 -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
-cibsursExpires :: Lens' CreateImageBuilderStreamingURLResponse (Maybe UTCTime)
-cibsursExpires = lens _cibsursExpires (\s a -> s {_cibsursExpires = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsursExpires :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Lude.Maybe Lude.Timestamp)
+cibsursExpires = Lens.lens (expires :: CreateImageBuilderStreamingURLResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse)
+{-# DEPRECATED cibsursExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
--- | -- | The response status code.
-cibsursResponseStatus :: Lens' CreateImageBuilderStreamingURLResponse Int
-cibsursResponseStatus = lens _cibsursResponseStatus (\s a -> s {_cibsursResponseStatus = a})
-
-instance NFData CreateImageBuilderStreamingURLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsursResponseStatus :: Lens.Lens' CreateImageBuilderStreamingURLResponse Lude.Int
+cibsursResponseStatus = Lens.lens (responseStatus :: CreateImageBuilderStreamingURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateImageBuilderStreamingURLResponse)
+{-# DEPRECATED cibsursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

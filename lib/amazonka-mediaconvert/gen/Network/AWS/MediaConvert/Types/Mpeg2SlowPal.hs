@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2SlowPal where
+module Network.AWS.MediaConvert.Types.Mpeg2SlowPal
+  ( Mpeg2SlowPal
+      ( Mpeg2SlowPal',
+        MSPDisabled,
+        MSPEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
-data Mpeg2SlowPal
-  = MSPDisabled
-  | MSPEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2SlowPal = Mpeg2SlowPal' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2SlowPal where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure MSPDisabled
-      "enabled" -> pure MSPEnabled
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2SlowPal from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern MSPDisabled :: Mpeg2SlowPal
+pattern MSPDisabled = Mpeg2SlowPal' "DISABLED"
 
-instance ToText Mpeg2SlowPal where
-  toText = \case
-    MSPDisabled -> "DISABLED"
-    MSPEnabled -> "ENABLED"
+pattern MSPEnabled :: Mpeg2SlowPal
+pattern MSPEnabled = Mpeg2SlowPal' "ENABLED"
 
-instance Hashable Mpeg2SlowPal
-
-instance NFData Mpeg2SlowPal
-
-instance ToByteString Mpeg2SlowPal
-
-instance ToQuery Mpeg2SlowPal
-
-instance ToHeader Mpeg2SlowPal
-
-instance ToJSON Mpeg2SlowPal where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2SlowPal where
-  parseJSON = parseJSONText "Mpeg2SlowPal"
+{-# COMPLETE
+  MSPDisabled,
+  MSPEnabled,
+  Mpeg2SlowPal'
+  #-}

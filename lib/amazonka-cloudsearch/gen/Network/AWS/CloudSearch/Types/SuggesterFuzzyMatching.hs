@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching where
+module Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
+  ( SuggesterFuzzyMatching
+      ( SuggesterFuzzyMatching',
+        High,
+        Low,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SuggesterFuzzyMatching
-  = High
-  | Low
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SuggesterFuzzyMatching = SuggesterFuzzyMatching' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SuggesterFuzzyMatching where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure High
-      "low" -> pure Low
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing SuggesterFuzzyMatching from value: '" <> e
-            <> "'. Accepted values: high, low, none"
+pattern High :: SuggesterFuzzyMatching
+pattern High = SuggesterFuzzyMatching' "high"
 
-instance ToText SuggesterFuzzyMatching where
-  toText = \case
-    High -> "high"
-    Low -> "low"
-    None -> "none"
+pattern Low :: SuggesterFuzzyMatching
+pattern Low = SuggesterFuzzyMatching' "low"
 
-instance Hashable SuggesterFuzzyMatching
+pattern None :: SuggesterFuzzyMatching
+pattern None = SuggesterFuzzyMatching' "none"
 
-instance NFData SuggesterFuzzyMatching
-
-instance ToByteString SuggesterFuzzyMatching
-
-instance ToQuery SuggesterFuzzyMatching
-
-instance ToHeader SuggesterFuzzyMatching
-
-instance FromXML SuggesterFuzzyMatching where
-  parseXML = parseXMLText "SuggesterFuzzyMatching"
+{-# COMPLETE
+  High,
+  Low,
+  None,
+  SuggesterFuzzyMatching'
+  #-}

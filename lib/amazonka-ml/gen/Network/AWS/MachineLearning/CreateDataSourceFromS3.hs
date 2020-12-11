@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,211 @@
 --
 -- Creates a @DataSource@ object. A @DataSource@ references data that can be used to perform @CreateMLModel@ , @CreateEvaluation@ , or @CreateBatchPrediction@ operations.
 --
---
 -- @CreateDataSourceFromS3@ is an asynchronous operation. In response to @CreateDataSourceFromS3@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the @DataSource@ status to @PENDING@ . After the @DataSource@ has been created and is ready for use, Amazon ML sets the @Status@ parameter to @COMPLETED@ . @DataSource@ in the @COMPLETED@ or @PENDING@ state can be used to perform only @CreateMLModel@ , @CreateEvaluation@ or @CreateBatchPrediction@ operations.
---
 -- If Amazon ML can't accept the input source, it sets the @Status@ parameter to @FAILED@ and includes an error message in the @Message@ attribute of the @GetDataSource@ operation response.
---
 -- The observation data used in a @DataSource@ should be ready to use; that is, it should have a consistent structure, and missing data values should be kept to a minimum. The observation data must reside in one or more .csv files in an Amazon Simple Storage Service (Amazon S3) location, along with a schema that describes the data items by name and type. The same schema must be used for all of the data files referenced by the @DataSource@ .
---
 -- After the @DataSource@ has been created, it's ready to use in evaluations and batch predictions. If you plan to use the @DataSource@ to train an @MLModel@ , the @DataSource@ also needs a recipe. A recipe describes how each input variable will be used in training an @MLModel@ . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
 module Network.AWS.MachineLearning.CreateDataSourceFromS3
-  ( -- * Creating a Request
-    createDataSourceFromS3,
-    CreateDataSourceFromS3,
+  ( -- * Creating a request
+    CreateDataSourceFromS3 (..),
+    mkCreateDataSourceFromS3,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdsfsDataSourceName,
     cdsfsComputeStatistics,
     cdsfsDataSourceId,
     cdsfsDataSpec,
 
-    -- * Destructuring the Response
-    createDataSourceFromS3Response,
-    CreateDataSourceFromS3Response,
+    -- * Destructuring the response
+    CreateDataSourceFromS3Response (..),
+    mkCreateDataSourceFromS3Response,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdsfsrsDataSourceId,
     cdsfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDataSourceFromS3' smart constructor.
+-- | /See:/ 'mkCreateDataSourceFromS3' smart constructor.
 data CreateDataSourceFromS3 = CreateDataSourceFromS3'
-  { _cdsfsDataSourceName ::
-      !(Maybe Text),
-    _cdsfsComputeStatistics :: !(Maybe Bool),
-    _cdsfsDataSourceId :: !Text,
-    _cdsfsDataSpec :: !S3DataSpec
+  { dataSourceName ::
+      Lude.Maybe Lude.Text,
+    computeStatistics :: Lude.Maybe Lude.Bool,
+    dataSourceId :: Lude.Text,
+    dataSpec :: S3DataSpec
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSourceFromS3' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'computeStatistics' - The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
+-- * 'dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@ .
+-- * 'dataSourceName' - A user-supplied name or description of the @DataSource@ .
+-- * 'dataSpec' - The data specification of a @DataSource@ :
 --
--- * 'cdsfsDataSourceName' - A user-supplied name or description of the @DataSource@ .
 --
--- * 'cdsfsComputeStatistics' - The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
+--     * DataLocationS3 - The Amazon S3 location of the observation data.
 --
--- * 'cdsfsDataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@ .
 --
--- * 'cdsfsDataSpec' - The data specification of a @DataSource@ :     * DataLocationS3 - The Amazon S3 location of the observation data.     * DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@ .     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.      * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .  Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
-createDataSourceFromS3 ::
-  -- | 'cdsfsDataSourceId'
-  Text ->
-  -- | 'cdsfsDataSpec'
+--     * DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@ .
+--
+--
+--     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
+--
+--
+--     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .
+-- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
+mkCreateDataSourceFromS3 ::
+  -- | 'dataSourceId'
+  Lude.Text ->
+  -- | 'dataSpec'
   S3DataSpec ->
   CreateDataSourceFromS3
-createDataSourceFromS3 pDataSourceId_ pDataSpec_ =
+mkCreateDataSourceFromS3 pDataSourceId_ pDataSpec_ =
   CreateDataSourceFromS3'
-    { _cdsfsDataSourceName = Nothing,
-      _cdsfsComputeStatistics = Nothing,
-      _cdsfsDataSourceId = pDataSourceId_,
-      _cdsfsDataSpec = pDataSpec_
+    { dataSourceName = Lude.Nothing,
+      computeStatistics = Lude.Nothing,
+      dataSourceId = pDataSourceId_,
+      dataSpec = pDataSpec_
     }
 
 -- | A user-supplied name or description of the @DataSource@ .
-cdsfsDataSourceName :: Lens' CreateDataSourceFromS3 (Maybe Text)
-cdsfsDataSourceName = lens _cdsfsDataSourceName (\s a -> s {_cdsfsDataSourceName = a})
+--
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsDataSourceName :: Lens.Lens' CreateDataSourceFromS3 (Lude.Maybe Lude.Text)
+cdsfsDataSourceName = Lens.lens (dataSourceName :: CreateDataSourceFromS3 -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: CreateDataSourceFromS3)
+{-# DEPRECATED cdsfsDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
-cdsfsComputeStatistics :: Lens' CreateDataSourceFromS3 (Maybe Bool)
-cdsfsComputeStatistics = lens _cdsfsComputeStatistics (\s a -> s {_cdsfsComputeStatistics = a})
+--
+-- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsComputeStatistics :: Lens.Lens' CreateDataSourceFromS3 (Lude.Maybe Lude.Bool)
+cdsfsComputeStatistics = Lens.lens (computeStatistics :: CreateDataSourceFromS3 -> Lude.Maybe Lude.Bool) (\s a -> s {computeStatistics = a} :: CreateDataSourceFromS3)
+{-# DEPRECATED cdsfsComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@ .
-cdsfsDataSourceId :: Lens' CreateDataSourceFromS3 Text
-cdsfsDataSourceId = lens _cdsfsDataSourceId (\s a -> s {_cdsfsDataSourceId = a})
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsDataSourceId :: Lens.Lens' CreateDataSourceFromS3 Lude.Text
+cdsfsDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromS3 -> Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromS3)
+{-# DEPRECATED cdsfsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
--- | The data specification of a @DataSource@ :     * DataLocationS3 - The Amazon S3 location of the observation data.     * DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@ .     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.      * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .  Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
-cdsfsDataSpec :: Lens' CreateDataSourceFromS3 S3DataSpec
-cdsfsDataSpec = lens _cdsfsDataSpec (\s a -> s {_cdsfsDataSpec = a})
+-- | The data specification of a @DataSource@ :
+--
+--
+--     * DataLocationS3 - The Amazon S3 location of the observation data.
+--
+--
+--     * DataSchemaLocationS3 - The Amazon S3 location of the @DataSchema@ .
+--
+--
+--     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
+--
+--
+--     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .
+-- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
+--
+--
+--
+-- /Note:/ Consider using 'dataSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsDataSpec :: Lens.Lens' CreateDataSourceFromS3 S3DataSpec
+cdsfsDataSpec = Lens.lens (dataSpec :: CreateDataSourceFromS3 -> S3DataSpec) (\s a -> s {dataSpec = a} :: CreateDataSourceFromS3)
+{-# DEPRECATED cdsfsDataSpec "Use generic-lens or generic-optics with 'dataSpec' instead." #-}
 
-instance AWSRequest CreateDataSourceFromS3 where
+instance Lude.AWSRequest CreateDataSourceFromS3 where
   type Rs CreateDataSourceFromS3 = CreateDataSourceFromS3Response
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDataSourceFromS3Response'
-            <$> (x .?> "DataSourceId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DataSourceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDataSourceFromS3
-
-instance NFData CreateDataSourceFromS3
-
-instance ToHeaders CreateDataSourceFromS3 where
+instance Lude.ToHeaders CreateDataSourceFromS3 where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.CreateDataSourceFromS3" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.CreateDataSourceFromS3" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDataSourceFromS3 where
+instance Lude.ToJSON CreateDataSourceFromS3 where
   toJSON CreateDataSourceFromS3' {..} =
-    object
-      ( catMaybes
-          [ ("DataSourceName" .=) <$> _cdsfsDataSourceName,
-            ("ComputeStatistics" .=) <$> _cdsfsComputeStatistics,
-            Just ("DataSourceId" .= _cdsfsDataSourceId),
-            Just ("DataSpec" .= _cdsfsDataSpec)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DataSourceName" Lude..=) Lude.<$> dataSourceName,
+            ("ComputeStatistics" Lude..=) Lude.<$> computeStatistics,
+            Lude.Just ("DataSourceId" Lude..= dataSourceId),
+            Lude.Just ("DataSpec" Lude..= dataSpec)
           ]
       )
 
-instance ToPath CreateDataSourceFromS3 where
-  toPath = const "/"
+instance Lude.ToPath CreateDataSourceFromS3 where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDataSourceFromS3 where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDataSourceFromS3 where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromS3@ operation, and is an acknowledgement that Amazon ML received the request.
 --
---
 -- The @CreateDataSourceFromS3@ operation is asynchronous. You can poll for updates by using the @GetBatchPrediction@ operation and checking the @Status@ parameter.
 --
---
--- /See:/ 'createDataSourceFromS3Response' smart constructor.
+-- /See:/ 'mkCreateDataSourceFromS3Response' smart constructor.
 data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'
-  { _cdsfsrsDataSourceId ::
-      !(Maybe Text),
-    _cdsfsrsResponseStatus ::
-      !Int
+  { dataSourceId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSourceFromS3Response' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdsfsrsDataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
---
--- * 'cdsfsrsResponseStatus' - -- | The response status code.
-createDataSourceFromS3Response ::
-  -- | 'cdsfsrsResponseStatus'
-  Int ->
+-- * 'dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
+-- * 'responseStatus' - The response status code.
+mkCreateDataSourceFromS3Response ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDataSourceFromS3Response
-createDataSourceFromS3Response pResponseStatus_ =
+mkCreateDataSourceFromS3Response pResponseStatus_ =
   CreateDataSourceFromS3Response'
-    { _cdsfsrsDataSourceId = Nothing,
-      _cdsfsrsResponseStatus = pResponseStatus_
+    { dataSourceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
-cdsfsrsDataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
-cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\s a -> s {_cdsfsrsDataSourceId = a})
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsrsDataSourceId :: Lens.Lens' CreateDataSourceFromS3Response (Lude.Maybe Lude.Text)
+cdsfsrsDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromS3Response -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromS3Response)
+{-# DEPRECATED cdsfsrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
--- | -- | The response status code.
-cdsfsrsResponseStatus :: Lens' CreateDataSourceFromS3Response Int
-cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\s a -> s {_cdsfsrsResponseStatus = a})
-
-instance NFData CreateDataSourceFromS3Response
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfsrsResponseStatus :: Lens.Lens' CreateDataSourceFromS3Response Lude.Int
+cdsfsrsResponseStatus = Lens.lens (responseStatus :: CreateDataSourceFromS3Response -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDataSourceFromS3Response)
+{-# DEPRECATED cdsfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

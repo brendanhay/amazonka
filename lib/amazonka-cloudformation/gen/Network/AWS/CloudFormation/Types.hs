@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types
-  ( -- * Service Configuration
-    cloudFormation,
+  ( -- * Service configuration
+    cloudFormationService,
 
     -- * Errors
 
@@ -130,32 +128,32 @@ module Network.AWS.CloudFormation.Types
     Visibility (..),
 
     -- * AccountGateResult
-    AccountGateResult,
-    accountGateResult,
+    AccountGateResult (..),
+    mkAccountGateResult,
     agrStatus,
     agrStatusReason,
 
     -- * AccountLimit
-    AccountLimit,
-    accountLimit,
+    AccountLimit (..),
+    mkAccountLimit,
     alValue,
     alName,
 
     -- * AutoDeployment
-    AutoDeployment,
-    autoDeployment,
+    AutoDeployment (..),
+    mkAutoDeployment,
     adEnabled,
     adRetainStacksOnAccountRemoval,
 
     -- * Change
-    Change,
-    change,
+    Change (..),
+    mkChange,
     cResourceChange,
     cType,
 
     -- * ChangeSetSummary
-    ChangeSetSummary,
-    changeSetSummary,
+    ChangeSetSummary (..),
+    mkChangeSetSummary,
     cCreationTime,
     cStatus,
     cParentChangeSetId,
@@ -170,54 +168,54 @@ module Network.AWS.CloudFormation.Types
     cStackName,
 
     -- * DeploymentTargets
-    DeploymentTargets,
-    deploymentTargets,
+    DeploymentTargets (..),
+    mkDeploymentTargets,
     dtAccounts,
     dtOrganizationalUnitIds,
 
     -- * Export
-    Export,
-    export',
+    Export (..),
+    mkExport,
     eValue,
     eExportingStackId,
     eName,
 
     -- * LoggingConfig
-    LoggingConfig,
-    loggingConfig,
+    LoggingConfig (..),
+    mkLoggingConfig,
     lcLogRoleARN,
     lcLogGroupName,
 
     -- * ModuleInfo
-    ModuleInfo,
-    moduleInfo,
+    ModuleInfo (..),
+    mkModuleInfo,
     miTypeHierarchy,
     miLogicalIdHierarchy,
 
     -- * Output
-    Output,
-    output,
+    Output (..),
+    mkOutput,
     oOutputValue,
     oOutputKey,
     oExportName,
     oDescription,
 
     -- * Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pParameterValue,
     pResolvedValue,
     pParameterKey,
     pUsePreviousValue,
 
     -- * ParameterConstraints
-    ParameterConstraints,
-    parameterConstraints,
+    ParameterConstraints (..),
+    mkParameterConstraints,
     pcAllowedValues,
 
     -- * ParameterDeclaration
-    ParameterDeclaration,
-    parameterDeclaration,
+    ParameterDeclaration (..),
+    mkParameterDeclaration,
     pdParameterKey,
     pdParameterType,
     pdParameterConstraints,
@@ -226,22 +224,22 @@ module Network.AWS.CloudFormation.Types
     pdDescription,
 
     -- * PhysicalResourceIdContextKeyValuePair
-    PhysicalResourceIdContextKeyValuePair,
-    physicalResourceIdContextKeyValuePair,
+    PhysicalResourceIdContextKeyValuePair (..),
+    mkPhysicalResourceIdContextKeyValuePair,
     prickvpKey,
     prickvpValue,
 
     -- * PropertyDifference
-    PropertyDifference,
-    propertyDifference,
+    PropertyDifference (..),
+    mkPropertyDifference,
     pdPropertyPath,
     pdExpectedValue,
     pdActualValue,
     pdDifferenceType,
 
     -- * ResourceChange
-    ResourceChange,
-    resourceChange,
+    ResourceChange (..),
+    mkResourceChange,
     rcLogicalResourceId,
     rcPhysicalResourceId,
     rcResourceType,
@@ -253,49 +251,49 @@ module Network.AWS.CloudFormation.Types
     rcReplacement,
 
     -- * ResourceChangeDetail
-    ResourceChangeDetail,
-    resourceChangeDetail,
+    ResourceChangeDetail (..),
+    mkResourceChangeDetail,
     rcdCausingEntity,
     rcdChangeSource,
     rcdEvaluation,
     rcdTarget,
 
     -- * ResourceIdentifierSummary
-    ResourceIdentifierSummary,
-    resourceIdentifierSummary,
+    ResourceIdentifierSummary (..),
+    mkResourceIdentifierSummary,
     risResourceType,
     risLogicalResourceIds,
     risResourceIdentifiers,
 
     -- * ResourceTargetDefinition
-    ResourceTargetDefinition,
-    resourceTargetDefinition,
+    ResourceTargetDefinition (..),
+    mkResourceTargetDefinition,
     rtdAttribute,
     rtdRequiresRecreation,
     rtdName,
 
     -- * ResourceToImport
-    ResourceToImport,
-    resourceToImport,
+    ResourceToImport (..),
+    mkResourceToImport,
     rtiResourceType,
     rtiLogicalResourceId,
     rtiResourceIdentifier,
 
     -- * RollbackConfiguration
-    RollbackConfiguration,
-    rollbackConfiguration,
+    RollbackConfiguration (..),
+    mkRollbackConfiguration,
     rcRollbackTriggers,
     rcMonitoringTimeInMinutes,
 
     -- * RollbackTrigger
-    RollbackTrigger,
-    rollbackTrigger,
+    RollbackTrigger (..),
+    mkRollbackTrigger,
     rtARN,
     rtType,
 
     -- * Stack
-    Stack,
-    stack,
+    Stack (..),
+    mkStack,
     staDisableRollback,
     staLastUpdatedTime,
     staRootId,
@@ -320,20 +318,20 @@ module Network.AWS.CloudFormation.Types
     staStackStatus,
 
     -- * StackDriftInformation
-    StackDriftInformation,
-    stackDriftInformation,
+    StackDriftInformation (..),
+    mkStackDriftInformation,
     sdiLastCheckTimestamp,
     sdiStackDriftStatus,
 
     -- * StackDriftInformationSummary
-    StackDriftInformationSummary,
-    stackDriftInformationSummary,
+    StackDriftInformationSummary (..),
+    mkStackDriftInformationSummary,
     sdisLastCheckTimestamp,
     sdisStackDriftStatus,
 
     -- * StackEvent
-    StackEvent,
-    stackEvent,
+    StackEvent (..),
+    mkStackEvent,
     seLogicalResourceId,
     sePhysicalResourceId,
     seResourceType,
@@ -347,8 +345,8 @@ module Network.AWS.CloudFormation.Types
     seTimestamp,
 
     -- * StackInstance
-    StackInstance,
-    stackInstance,
+    StackInstance (..),
+    mkStackInstance,
     siStatus,
     siLastDriftCheckTimestamp,
     siAccount,
@@ -362,19 +360,19 @@ module Network.AWS.CloudFormation.Types
     siStackSetId,
 
     -- * StackInstanceComprehensiveStatus
-    StackInstanceComprehensiveStatus,
-    stackInstanceComprehensiveStatus,
+    StackInstanceComprehensiveStatus (..),
+    mkStackInstanceComprehensiveStatus,
     sicsDetailedStatus,
 
     -- * StackInstanceFilter
-    StackInstanceFilter,
-    stackInstanceFilter,
+    StackInstanceFilter (..),
+    mkStackInstanceFilter,
     sifValues,
     sifName,
 
     -- * StackInstanceSummary
-    StackInstanceSummary,
-    stackInstanceSummary,
+    StackInstanceSummary (..),
+    mkStackInstanceSummary,
     sisStatus,
     sisLastDriftCheckTimestamp,
     sisAccount,
@@ -387,8 +385,8 @@ module Network.AWS.CloudFormation.Types
     sisStackSetId,
 
     -- * StackResource
-    StackResource,
-    stackResource,
+    StackResource (..),
+    mkStackResource,
     srPhysicalResourceId,
     srResourceStatusReason,
     srDriftInformation,
@@ -402,8 +400,8 @@ module Network.AWS.CloudFormation.Types
     srResourceStatus,
 
     -- * StackResourceDetail
-    StackResourceDetail,
-    stackResourceDetail,
+    StackResourceDetail (..),
+    mkStackResourceDetail,
     sPhysicalResourceId,
     sResourceStatusReason,
     sDriftInformation,
@@ -418,8 +416,8 @@ module Network.AWS.CloudFormation.Types
     sResourceStatus,
 
     -- * StackResourceDrift
-    StackResourceDrift,
-    stackResourceDrift,
+    StackResourceDrift (..),
+    mkStackResourceDrift,
     srdActualProperties,
     srdPhysicalResourceId,
     srdPhysicalResourceIdContext,
@@ -433,20 +431,20 @@ module Network.AWS.CloudFormation.Types
     srdTimestamp,
 
     -- * StackResourceDriftInformation
-    StackResourceDriftInformation,
-    stackResourceDriftInformation,
+    StackResourceDriftInformation (..),
+    mkStackResourceDriftInformation,
     srdiLastCheckTimestamp,
     srdiStackResourceDriftStatus,
 
     -- * StackResourceDriftInformationSummary
-    StackResourceDriftInformationSummary,
-    stackResourceDriftInformationSummary,
+    StackResourceDriftInformationSummary (..),
+    mkStackResourceDriftInformationSummary,
     srdisLastCheckTimestamp,
     srdisStackResourceDriftStatus,
 
     -- * StackResourceSummary
-    StackResourceSummary,
-    stackResourceSummary,
+    StackResourceSummary (..),
+    mkStackResourceSummary,
     srsPhysicalResourceId,
     srsResourceStatusReason,
     srsDriftInformation,
@@ -457,8 +455,8 @@ module Network.AWS.CloudFormation.Types
     srsResourceStatus,
 
     -- * StackSet
-    StackSet,
-    stackSet,
+    StackSet (..),
+    mkStackSet,
     ssStackSetDriftDetectionDetails,
     ssStatus,
     ssAdministrationRoleARN,
@@ -476,8 +474,8 @@ module Network.AWS.CloudFormation.Types
     ssExecutionRoleName,
 
     -- * StackSetDriftDetectionDetails
-    StackSetDriftDetectionDetails,
-    stackSetDriftDetectionDetails,
+    StackSetDriftDetectionDetails (..),
+    mkStackSetDriftDetectionDetails,
     ssdddLastDriftCheckTimestamp,
     ssdddTotalStackInstancesCount,
     ssdddInProgressStackInstancesCount,
@@ -488,8 +486,8 @@ module Network.AWS.CloudFormation.Types
     ssdddInSyncStackInstancesCount,
 
     -- * StackSetOperation
-    StackSetOperation,
-    stackSetOperation,
+    StackSetOperation (..),
+    mkStackSetOperation,
     ssoStackSetDriftDetectionDetails,
     ssoStatus,
     ssoAdministrationRoleARN,
@@ -504,8 +502,8 @@ module Network.AWS.CloudFormation.Types
     ssoExecutionRoleName,
 
     -- * StackSetOperationPreferences
-    StackSetOperationPreferences,
-    stackSetOperationPreferences,
+    StackSetOperationPreferences (..),
+    mkStackSetOperationPreferences,
     ssopRegionOrder,
     ssopMaxConcurrentCount,
     ssopMaxConcurrentPercentage,
@@ -513,8 +511,8 @@ module Network.AWS.CloudFormation.Types
     ssopFailureTolerancePercentage,
 
     -- * StackSetOperationResultSummary
-    StackSetOperationResultSummary,
-    stackSetOperationResultSummary,
+    StackSetOperationResultSummary (..),
+    mkStackSetOperationResultSummary,
     ssorsStatus,
     ssorsAccount,
     ssorsAccountGateResult,
@@ -523,8 +521,8 @@ module Network.AWS.CloudFormation.Types
     ssorsStatusReason,
 
     -- * StackSetOperationSummary
-    StackSetOperationSummary,
-    stackSetOperationSummary,
+    StackSetOperationSummary (..),
+    mkStackSetOperationSummary,
     ssosStatus,
     ssosAction,
     ssosEndTimestamp,
@@ -532,8 +530,8 @@ module Network.AWS.CloudFormation.Types
     ssosOperationId,
 
     -- * StackSetSummary
-    StackSetSummary,
-    stackSetSummary,
+    StackSetSummary (..),
+    mkStackSetSummary,
     sssStatus,
     sssLastDriftCheckTimestamp,
     sssAutoDeployment,
@@ -544,8 +542,8 @@ module Network.AWS.CloudFormation.Types
     sssStackSetId,
 
     -- * StackSummary
-    StackSummary,
-    stackSummary,
+    StackSummary (..),
+    mkStackSummary,
     ssLastUpdatedTime,
     ssRootId,
     ssStackStatusReason,
@@ -559,22 +557,22 @@ module Network.AWS.CloudFormation.Types
     ssStackStatus,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TemplateParameter
-    TemplateParameter,
-    templateParameter,
+    TemplateParameter (..),
+    mkTemplateParameter,
     tpParameterKey,
     tpDefaultValue,
     tpNoEcho,
     tpDescription,
 
     -- * TypeSummary
-    TypeSummary,
-    typeSummary,
+    TypeSummary (..),
+    mkTypeSummary,
     tsLastUpdated,
     tsTypeName,
     tsDefaultVersionId,
@@ -583,8 +581,8 @@ module Network.AWS.CloudFormation.Types
     tsDescription,
 
     -- * TypeVersionSummary
-    TypeVersionSummary,
-    typeVersionSummary,
+    TypeVersionSummary (..),
+    mkTypeVersionSummary,
     tvsVersionId,
     tvsTypeName,
     tvsARN,
@@ -681,48 +679,60 @@ import Network.AWS.CloudFormation.Types.TemplateStage
 import Network.AWS.CloudFormation.Types.TypeSummary
 import Network.AWS.CloudFormation.Types.TypeVersionSummary
 import Network.AWS.CloudFormation.Types.Visibility
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-05-15@ of the Amazon CloudFormation SDK configuration.
-cloudFormation :: Service
-cloudFormation =
-  Service
-    { _svcAbbrev = "CloudFormation",
-      _svcSigner = v4,
-      _svcPrefix = "cloudformation",
-      _svcVersion = "2010-05-15",
-      _svcEndpoint = defaultEndpoint cloudFormation,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "CloudFormation",
-      _svcRetry = retry
+cloudFormationService :: Lude.Service
+cloudFormationService =
+  Lude.Service
+    { Lude._svcAbbrev = "CloudFormation",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "cloudformation",
+      Lude._svcVersion = "2010-05-15",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloudFormationService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "CloudFormation",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

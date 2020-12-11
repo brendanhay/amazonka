@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Starts a Synchronous Express state machine execution.
 module Network.AWS.StepFunctions.StartSyncExecution
-  ( -- * Creating a Request
-    startSyncExecution,
-    StartSyncExecution,
+  ( -- * Creating a request
+    StartSyncExecution (..),
+    mkStartSyncExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sseInput,
     sseName,
     sseTraceHeader,
     sseStateMachineARN,
 
-    -- * Destructuring the Response
-    startSyncExecutionResponse,
-    StartSyncExecutionResponse,
+    -- * Destructuring the response
+    StartSyncExecutionResponse (..),
+    mkStartSyncExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ssersInputDetails,
     ssersError,
     ssersInput,
@@ -52,275 +47,312 @@ module Network.AWS.StepFunctions.StartSyncExecution
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StepFunctions.Types
 
--- | /See:/ 'startSyncExecution' smart constructor.
+-- | /See:/ 'mkStartSyncExecution' smart constructor.
 data StartSyncExecution = StartSyncExecution'
-  { _sseInput ::
-      !(Maybe (Sensitive Text)),
-    _sseName :: !(Maybe Text),
-    _sseTraceHeader :: !(Maybe Text),
-    _sseStateMachineARN :: !Text
+  { input ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text,
+    traceHeader :: Lude.Maybe Lude.Text,
+    stateMachineARN :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSyncExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'input' - The string that contains the JSON input data for the execution, for example:
 --
--- * 'sseInput' - The string that contains the JSON input data for the execution, for example: @"input": "{\"first_name\" : \"test\"}"@  Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- * 'sseName' - The name of the execution.
---
--- * 'sseTraceHeader' - Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
---
--- * 'sseStateMachineARN' - The Amazon Resource Name (ARN) of the state machine to execute.
-startSyncExecution ::
-  -- | 'sseStateMachineARN'
-  Text ->
+-- @"input": "{\"first_name\" : \"test\"}"@
+-- Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'name' - The name of the execution.
+-- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine to execute.
+-- * 'traceHeader' - Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
+mkStartSyncExecution ::
+  -- | 'stateMachineARN'
+  Lude.Text ->
   StartSyncExecution
-startSyncExecution pStateMachineARN_ =
+mkStartSyncExecution pStateMachineARN_ =
   StartSyncExecution'
-    { _sseInput = Nothing,
-      _sseName = Nothing,
-      _sseTraceHeader = Nothing,
-      _sseStateMachineARN = pStateMachineARN_
+    { input = Lude.Nothing,
+      name = Lude.Nothing,
+      traceHeader = Lude.Nothing,
+      stateMachineARN = pStateMachineARN_
     }
 
--- | The string that contains the JSON input data for the execution, for example: @"input": "{\"first_name\" : \"test\"}"@  Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-sseInput :: Lens' StartSyncExecution (Maybe Text)
-sseInput = lens _sseInput (\s a -> s {_sseInput = a}) . mapping _Sensitive
+-- | The string that contains the JSON input data for the execution, for example:
+--
+-- @"input": "{\"first_name\" : \"test\"}"@
+-- Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseInput :: Lens.Lens' StartSyncExecution (Lude.Maybe (Lude.Sensitive Lude.Text))
+sseInput = Lens.lens (input :: StartSyncExecution -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: StartSyncExecution)
+{-# DEPRECATED sseInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The name of the execution.
-sseName :: Lens' StartSyncExecution (Maybe Text)
-sseName = lens _sseName (\s a -> s {_sseName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseName :: Lens.Lens' StartSyncExecution (Lude.Maybe Lude.Text)
+sseName = Lens.lens (name :: StartSyncExecution -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartSyncExecution)
+{-# DEPRECATED sseName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
-sseTraceHeader :: Lens' StartSyncExecution (Maybe Text)
-sseTraceHeader = lens _sseTraceHeader (\s a -> s {_sseTraceHeader = a})
+--
+-- /Note:/ Consider using 'traceHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseTraceHeader :: Lens.Lens' StartSyncExecution (Lude.Maybe Lude.Text)
+sseTraceHeader = Lens.lens (traceHeader :: StartSyncExecution -> Lude.Maybe Lude.Text) (\s a -> s {traceHeader = a} :: StartSyncExecution)
+{-# DEPRECATED sseTraceHeader "Use generic-lens or generic-optics with 'traceHeader' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the state machine to execute.
-sseStateMachineARN :: Lens' StartSyncExecution Text
-sseStateMachineARN = lens _sseStateMachineARN (\s a -> s {_sseStateMachineARN = a})
+--
+-- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseStateMachineARN :: Lens.Lens' StartSyncExecution Lude.Text
+sseStateMachineARN = Lens.lens (stateMachineARN :: StartSyncExecution -> Lude.Text) (\s a -> s {stateMachineARN = a} :: StartSyncExecution)
+{-# DEPRECATED sseStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
-instance AWSRequest StartSyncExecution where
+instance Lude.AWSRequest StartSyncExecution where
   type Rs StartSyncExecution = StartSyncExecutionResponse
-  request = postJSON stepFunctions
+  request = Req.postJSON stepFunctionsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartSyncExecutionResponse'
-            <$> (x .?> "inputDetails")
-            <*> (x .?> "error")
-            <*> (x .?> "input")
-            <*> (x .?> "cause")
-            <*> (x .?> "name")
-            <*> (x .?> "stateMachineArn")
-            <*> (x .?> "output")
-            <*> (x .?> "outputDetails")
-            <*> (x .?> "traceHeader")
-            <*> (x .?> "billingDetails")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "executionArn")
-            <*> (x .:> "startDate")
-            <*> (x .:> "stopDate")
-            <*> (x .:> "status")
+            Lude.<$> (x Lude..?> "inputDetails")
+            Lude.<*> (x Lude..?> "error")
+            Lude.<*> (x Lude..?> "input")
+            Lude.<*> (x Lude..?> "cause")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "stateMachineArn")
+            Lude.<*> (x Lude..?> "output")
+            Lude.<*> (x Lude..?> "outputDetails")
+            Lude.<*> (x Lude..?> "traceHeader")
+            Lude.<*> (x Lude..?> "billingDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "executionArn")
+            Lude.<*> (x Lude..:> "startDate")
+            Lude.<*> (x Lude..:> "stopDate")
+            Lude.<*> (x Lude..:> "status")
       )
 
-instance Hashable StartSyncExecution
-
-instance NFData StartSyncExecution
-
-instance ToHeaders StartSyncExecution where
+instance Lude.ToHeaders StartSyncExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSStepFunctions.StartSyncExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("AWSStepFunctions.StartSyncExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartSyncExecution where
+instance Lude.ToJSON StartSyncExecution where
   toJSON StartSyncExecution' {..} =
-    object
-      ( catMaybes
-          [ ("input" .=) <$> _sseInput,
-            ("name" .=) <$> _sseName,
-            ("traceHeader" .=) <$> _sseTraceHeader,
-            Just ("stateMachineArn" .= _sseStateMachineARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("input" Lude..=) Lude.<$> input,
+            ("name" Lude..=) Lude.<$> name,
+            ("traceHeader" Lude..=) Lude.<$> traceHeader,
+            Lude.Just ("stateMachineArn" Lude..= stateMachineARN)
           ]
       )
 
-instance ToPath StartSyncExecution where
-  toPath = const "/"
+instance Lude.ToPath StartSyncExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery StartSyncExecution where
-  toQuery = const mempty
+instance Lude.ToQuery StartSyncExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startSyncExecutionResponse' smart constructor.
+-- | /See:/ 'mkStartSyncExecutionResponse' smart constructor.
 data StartSyncExecutionResponse = StartSyncExecutionResponse'
-  { _ssersInputDetails ::
-      !( Maybe
-           CloudWatchEventsExecutionDataDetails
-       ),
-    _ssersError ::
-      !(Maybe (Sensitive Text)),
-    _ssersInput ::
-      !(Maybe (Sensitive Text)),
-    _ssersCause ::
-      !(Maybe (Sensitive Text)),
-    _ssersName :: !(Maybe Text),
-    _ssersStateMachineARN ::
-      !(Maybe Text),
-    _ssersOutput ::
-      !(Maybe (Sensitive Text)),
-    _ssersOutputDetails ::
-      !( Maybe
-           CloudWatchEventsExecutionDataDetails
-       ),
-    _ssersTraceHeader :: !(Maybe Text),
-    _ssersBillingDetails ::
-      !(Maybe BillingDetails),
-    _ssersResponseStatus :: !Int,
-    _ssersExecutionARN :: !Text,
-    _ssersStartDate :: !POSIX,
-    _ssersStopDate :: !POSIX,
-    _ssersStatus :: !SyncExecutionStatus
+  { inputDetails ::
+      Lude.Maybe
+        CloudWatchEventsExecutionDataDetails,
+    error ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    input ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text,
+    stateMachineARN ::
+      Lude.Maybe Lude.Text,
+    output ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    outputDetails ::
+      Lude.Maybe
+        CloudWatchEventsExecutionDataDetails,
+    traceHeader :: Lude.Maybe Lude.Text,
+    billingDetails ::
+      Lude.Maybe BillingDetails,
+    responseStatus :: Lude.Int,
+    executionARN :: Lude.Text,
+    startDate :: Lude.Timestamp,
+    stopDate :: Lude.Timestamp,
+    status :: SyncExecutionStatus
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSyncExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssersInputDetails' - Undocumented member.
---
--- * 'ssersError' - The error code of the failure.
---
--- * 'ssersInput' - The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- * 'ssersCause' - A more detailed explanation of the cause of the failure.
---
--- * 'ssersName' - The name of the execution.
---
--- * 'ssersStateMachineARN' - The Amazon Resource Name (ARN) that identifies the state machine.
---
--- * 'ssersOutput' - The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- * 'ssersOutputDetails' - Undocumented member.
---
--- * 'ssersTraceHeader' - The AWS X-Ray trace header that was passed to the execution.
---
--- * 'ssersBillingDetails' - An object that describes workflow billing details, including billed duration and memory use.
---
--- * 'ssersResponseStatus' - -- | The response status code.
---
--- * 'ssersExecutionARN' - The Amazon Resource Name (ARN) that identifies the execution.
---
--- * 'ssersStartDate' - The date the execution is started.
---
--- * 'ssersStopDate' - If the execution has already ended, the date the execution stopped.
---
--- * 'ssersStatus' - The current status of the execution.
-startSyncExecutionResponse ::
-  -- | 'ssersResponseStatus'
-  Int ->
-  -- | 'ssersExecutionARN'
-  Text ->
-  -- | 'ssersStartDate'
-  UTCTime ->
-  -- | 'ssersStopDate'
-  UTCTime ->
-  -- | 'ssersStatus'
+-- * 'billingDetails' - An object that describes workflow billing details, including billed duration and memory use.
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'error' - The error code of the failure.
+-- * 'executionARN' - The Amazon Resource Name (ARN) that identifies the execution.
+-- * 'input' - The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'inputDetails' - Undocumented field.
+-- * 'name' - The name of the execution.
+-- * 'output' - The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'outputDetails' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'startDate' - The date the execution is started.
+-- * 'stateMachineARN' - The Amazon Resource Name (ARN) that identifies the state machine.
+-- * 'status' - The current status of the execution.
+-- * 'stopDate' - If the execution has already ended, the date the execution stopped.
+-- * 'traceHeader' - The AWS X-Ray trace header that was passed to the execution.
+mkStartSyncExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'executionARN'
+  Lude.Text ->
+  -- | 'startDate'
+  Lude.Timestamp ->
+  -- | 'stopDate'
+  Lude.Timestamp ->
+  -- | 'status'
   SyncExecutionStatus ->
   StartSyncExecutionResponse
-startSyncExecutionResponse
+mkStartSyncExecutionResponse
   pResponseStatus_
   pExecutionARN_
   pStartDate_
   pStopDate_
   pStatus_ =
     StartSyncExecutionResponse'
-      { _ssersInputDetails = Nothing,
-        _ssersError = Nothing,
-        _ssersInput = Nothing,
-        _ssersCause = Nothing,
-        _ssersName = Nothing,
-        _ssersStateMachineARN = Nothing,
-        _ssersOutput = Nothing,
-        _ssersOutputDetails = Nothing,
-        _ssersTraceHeader = Nothing,
-        _ssersBillingDetails = Nothing,
-        _ssersResponseStatus = pResponseStatus_,
-        _ssersExecutionARN = pExecutionARN_,
-        _ssersStartDate = _Time # pStartDate_,
-        _ssersStopDate = _Time # pStopDate_,
-        _ssersStatus = pStatus_
+      { inputDetails = Lude.Nothing,
+        error = Lude.Nothing,
+        input = Lude.Nothing,
+        cause = Lude.Nothing,
+        name = Lude.Nothing,
+        stateMachineARN = Lude.Nothing,
+        output = Lude.Nothing,
+        outputDetails = Lude.Nothing,
+        traceHeader = Lude.Nothing,
+        billingDetails = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        executionARN = pExecutionARN_,
+        startDate = pStartDate_,
+        stopDate = pStopDate_,
+        status = pStatus_
       }
 
--- | Undocumented member.
-ssersInputDetails :: Lens' StartSyncExecutionResponse (Maybe CloudWatchEventsExecutionDataDetails)
-ssersInputDetails = lens _ssersInputDetails (\s a -> s {_ssersInputDetails = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'inputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersInputDetails :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe CloudWatchEventsExecutionDataDetails)
+ssersInputDetails = Lens.lens (inputDetails :: StartSyncExecutionResponse -> Lude.Maybe CloudWatchEventsExecutionDataDetails) (\s a -> s {inputDetails = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersInputDetails "Use generic-lens or generic-optics with 'inputDetails' instead." #-}
 
 -- | The error code of the failure.
-ssersError :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersError = lens _ssersError (\s a -> s {_ssersError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersError :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+ssersError = Lens.lens (error :: StartSyncExecutionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-ssersInput :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersInput = lens _ssersInput (\s a -> s {_ssersInput = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersInput :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+ssersInput = Lens.lens (input :: StartSyncExecutionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
-ssersCause :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersCause = lens _ssersCause (\s a -> s {_ssersCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersCause :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+ssersCause = Lens.lens (cause :: StartSyncExecutionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The name of the execution.
-ssersName :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersName = lens _ssersName (\s a -> s {_ssersName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersName :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe Lude.Text)
+ssersName = Lens.lens (name :: StartSyncExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
-ssersStateMachineARN :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersStateMachineARN = lens _ssersStateMachineARN (\s a -> s {_ssersStateMachineARN = a})
+--
+-- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersStateMachineARN :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe Lude.Text)
+ssersStateMachineARN = Lens.lens (stateMachineARN :: StartSyncExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {stateMachineARN = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
 -- | The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-ssersOutput :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersOutput = lens _ssersOutput (\s a -> s {_ssersOutput = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersOutput :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+ssersOutput = Lens.lens (output :: StartSyncExecutionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
--- | Undocumented member.
-ssersOutputDetails :: Lens' StartSyncExecutionResponse (Maybe CloudWatchEventsExecutionDataDetails)
-ssersOutputDetails = lens _ssersOutputDetails (\s a -> s {_ssersOutputDetails = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersOutputDetails :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe CloudWatchEventsExecutionDataDetails)
+ssersOutputDetails = Lens.lens (outputDetails :: StartSyncExecutionResponse -> Lude.Maybe CloudWatchEventsExecutionDataDetails) (\s a -> s {outputDetails = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
 -- | The AWS X-Ray trace header that was passed to the execution.
-ssersTraceHeader :: Lens' StartSyncExecutionResponse (Maybe Text)
-ssersTraceHeader = lens _ssersTraceHeader (\s a -> s {_ssersTraceHeader = a})
+--
+-- /Note:/ Consider using 'traceHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersTraceHeader :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe Lude.Text)
+ssersTraceHeader = Lens.lens (traceHeader :: StartSyncExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {traceHeader = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersTraceHeader "Use generic-lens or generic-optics with 'traceHeader' instead." #-}
 
 -- | An object that describes workflow billing details, including billed duration and memory use.
-ssersBillingDetails :: Lens' StartSyncExecutionResponse (Maybe BillingDetails)
-ssersBillingDetails = lens _ssersBillingDetails (\s a -> s {_ssersBillingDetails = a})
+--
+-- /Note:/ Consider using 'billingDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersBillingDetails :: Lens.Lens' StartSyncExecutionResponse (Lude.Maybe BillingDetails)
+ssersBillingDetails = Lens.lens (billingDetails :: StartSyncExecutionResponse -> Lude.Maybe BillingDetails) (\s a -> s {billingDetails = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersBillingDetails "Use generic-lens or generic-optics with 'billingDetails' instead." #-}
 
--- | -- | The response status code.
-ssersResponseStatus :: Lens' StartSyncExecutionResponse Int
-ssersResponseStatus = lens _ssersResponseStatus (\s a -> s {_ssersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersResponseStatus :: Lens.Lens' StartSyncExecutionResponse Lude.Int
+ssersResponseStatus = Lens.lens (responseStatus :: StartSyncExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the execution.
-ssersExecutionARN :: Lens' StartSyncExecutionResponse Text
-ssersExecutionARN = lens _ssersExecutionARN (\s a -> s {_ssersExecutionARN = a})
+--
+-- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersExecutionARN :: Lens.Lens' StartSyncExecutionResponse Lude.Text
+ssersExecutionARN = Lens.lens (executionARN :: StartSyncExecutionResponse -> Lude.Text) (\s a -> s {executionARN = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
 
 -- | The date the execution is started.
-ssersStartDate :: Lens' StartSyncExecutionResponse UTCTime
-ssersStartDate = lens _ssersStartDate (\s a -> s {_ssersStartDate = a}) . _Time
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersStartDate :: Lens.Lens' StartSyncExecutionResponse Lude.Timestamp
+ssersStartDate = Lens.lens (startDate :: StartSyncExecutionResponse -> Lude.Timestamp) (\s a -> s {startDate = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | If the execution has already ended, the date the execution stopped.
-ssersStopDate :: Lens' StartSyncExecutionResponse UTCTime
-ssersStopDate = lens _ssersStopDate (\s a -> s {_ssersStopDate = a}) . _Time
+--
+-- /Note:/ Consider using 'stopDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersStopDate :: Lens.Lens' StartSyncExecutionResponse Lude.Timestamp
+ssersStopDate = Lens.lens (stopDate :: StartSyncExecutionResponse -> Lude.Timestamp) (\s a -> s {stopDate = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersStopDate "Use generic-lens or generic-optics with 'stopDate' instead." #-}
 
 -- | The current status of the execution.
-ssersStatus :: Lens' StartSyncExecutionResponse SyncExecutionStatus
-ssersStatus = lens _ssersStatus (\s a -> s {_ssersStatus = a})
-
-instance NFData StartSyncExecutionResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssersStatus :: Lens.Lens' StartSyncExecutionResponse SyncExecutionStatus
+ssersStatus = Lens.lens (status :: StartSyncExecutionResponse -> SyncExecutionStatus) (\s a -> s {status = a} :: StartSyncExecutionResponse)
+{-# DEPRECATED ssersStatus "Use generic-lens or generic-optics with 'status' instead." #-}

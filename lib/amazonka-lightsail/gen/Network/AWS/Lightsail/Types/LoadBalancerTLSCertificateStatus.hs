@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateStatus where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateStatus
+  ( LoadBalancerTLSCertificateStatus
+      ( LoadBalancerTLSCertificateStatus',
+        LBTCSExpired,
+        LBTCSFailed,
+        LBTCSInactive,
+        LBTCSIssued,
+        LBTCSPendingValidation,
+        LBTCSRevoked,
+        LBTCSUnknown,
+        LBTCSValidationTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerTLSCertificateStatus
-  = LBTCSExpired
-  | LBTCSFailed
-  | LBTCSInactive
-  | LBTCSIssued
-  | LBTCSPendingValidation
-  | LBTCSRevoked
-  | LBTCSUnknown
-  | LBTCSValidationTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerTLSCertificateStatus = LoadBalancerTLSCertificateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerTLSCertificateStatus where
-  parser =
-    takeLowerText >>= \case
-      "expired" -> pure LBTCSExpired
-      "failed" -> pure LBTCSFailed
-      "inactive" -> pure LBTCSInactive
-      "issued" -> pure LBTCSIssued
-      "pending_validation" -> pure LBTCSPendingValidation
-      "revoked" -> pure LBTCSRevoked
-      "unknown" -> pure LBTCSUnknown
-      "validation_timed_out" -> pure LBTCSValidationTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerTLSCertificateStatus from value: '" <> e
-            <> "'. Accepted values: expired, failed, inactive, issued, pending_validation, revoked, unknown, validation_timed_out"
+pattern LBTCSExpired :: LoadBalancerTLSCertificateStatus
+pattern LBTCSExpired = LoadBalancerTLSCertificateStatus' "EXPIRED"
 
-instance ToText LoadBalancerTLSCertificateStatus where
-  toText = \case
-    LBTCSExpired -> "EXPIRED"
-    LBTCSFailed -> "FAILED"
-    LBTCSInactive -> "INACTIVE"
-    LBTCSIssued -> "ISSUED"
-    LBTCSPendingValidation -> "PENDING_VALIDATION"
-    LBTCSRevoked -> "REVOKED"
-    LBTCSUnknown -> "UNKNOWN"
-    LBTCSValidationTimedOut -> "VALIDATION_TIMED_OUT"
+pattern LBTCSFailed :: LoadBalancerTLSCertificateStatus
+pattern LBTCSFailed = LoadBalancerTLSCertificateStatus' "FAILED"
 
-instance Hashable LoadBalancerTLSCertificateStatus
+pattern LBTCSInactive :: LoadBalancerTLSCertificateStatus
+pattern LBTCSInactive = LoadBalancerTLSCertificateStatus' "INACTIVE"
 
-instance NFData LoadBalancerTLSCertificateStatus
+pattern LBTCSIssued :: LoadBalancerTLSCertificateStatus
+pattern LBTCSIssued = LoadBalancerTLSCertificateStatus' "ISSUED"
 
-instance ToByteString LoadBalancerTLSCertificateStatus
+pattern LBTCSPendingValidation :: LoadBalancerTLSCertificateStatus
+pattern LBTCSPendingValidation = LoadBalancerTLSCertificateStatus' "PENDING_VALIDATION"
 
-instance ToQuery LoadBalancerTLSCertificateStatus
+pattern LBTCSRevoked :: LoadBalancerTLSCertificateStatus
+pattern LBTCSRevoked = LoadBalancerTLSCertificateStatus' "REVOKED"
 
-instance ToHeader LoadBalancerTLSCertificateStatus
+pattern LBTCSUnknown :: LoadBalancerTLSCertificateStatus
+pattern LBTCSUnknown = LoadBalancerTLSCertificateStatus' "UNKNOWN"
 
-instance FromJSON LoadBalancerTLSCertificateStatus where
-  parseJSON = parseJSONText "LoadBalancerTLSCertificateStatus"
+pattern LBTCSValidationTimedOut :: LoadBalancerTLSCertificateStatus
+pattern LBTCSValidationTimedOut = LoadBalancerTLSCertificateStatus' "VALIDATION_TIMED_OUT"
+
+{-# COMPLETE
+  LBTCSExpired,
+  LBTCSFailed,
+  LBTCSInactive,
+  LBTCSIssued,
+  LBTCSPendingValidation,
+  LBTCSRevoked,
+  LBTCSUnknown,
+  LBTCSValidationTimedOut,
+  LoadBalancerTLSCertificateStatus'
+  #-}

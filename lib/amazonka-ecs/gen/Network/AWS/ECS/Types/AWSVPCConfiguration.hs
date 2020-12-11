@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.AWSVPCConfiguration where
+module Network.AWS.ECS.Types.AWSVPCConfiguration
+  ( AWSVPCConfiguration (..),
+
+    -- * Smart constructor
+    mkAWSVPCConfiguration,
+
+    -- * Lenses
+    avcSecurityGroups,
+    avcAssignPublicIP,
+    avcSubnets,
+  )
+where
 
 import Network.AWS.ECS.Types.AssignPublicIP
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the networking details for a task or service.
 --
---
---
--- /See:/ 'awsVPCConfiguration' smart constructor.
+-- /See:/ 'mkAWSVPCConfiguration' smart constructor.
 data AWSVPCConfiguration = AWSVPCConfiguration'
-  { _avcSecurityGroups ::
-      !(Maybe [Text]),
-    _avcAssignPublicIP :: !(Maybe AssignPublicIP),
-    _avcSubnets :: ![Text]
+  { securityGroups ::
+      Lude.Maybe [Lude.Text],
+    assignPublicIP :: Lude.Maybe AssignPublicIP,
+    subnets :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSVPCConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avcSecurityGroups' - The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
---
--- * 'avcAssignPublicIP' - Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
---
--- * 'avcSubnets' - The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
-awsVPCConfiguration ::
+-- * 'assignPublicIP' - Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
+-- * 'securityGroups' - The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
+-- * 'subnets' - The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
+mkAWSVPCConfiguration ::
   AWSVPCConfiguration
-awsVPCConfiguration =
+mkAWSVPCConfiguration =
   AWSVPCConfiguration'
-    { _avcSecurityGroups = Nothing,
-      _avcAssignPublicIP = Nothing,
-      _avcSubnets = mempty
+    { securityGroups = Lude.Nothing,
+      assignPublicIP = Lude.Nothing,
+      subnets = Lude.mempty
     }
 
 -- | The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
-avcSecurityGroups :: Lens' AWSVPCConfiguration [Text]
-avcSecurityGroups = lens _avcSecurityGroups (\s a -> s {_avcSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcSecurityGroups :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe [Lude.Text])
+avcSecurityGroups = Lens.lens (securityGroups :: AWSVPCConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: AWSVPCConfiguration)
+{-# DEPRECATED avcSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
-avcAssignPublicIP :: Lens' AWSVPCConfiguration (Maybe AssignPublicIP)
-avcAssignPublicIP = lens _avcAssignPublicIP (\s a -> s {_avcAssignPublicIP = a})
+--
+-- /Note:/ Consider using 'assignPublicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcAssignPublicIP :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe AssignPublicIP)
+avcAssignPublicIP = Lens.lens (assignPublicIP :: AWSVPCConfiguration -> Lude.Maybe AssignPublicIP) (\s a -> s {assignPublicIP = a} :: AWSVPCConfiguration)
+{-# DEPRECATED avcAssignPublicIP "Use generic-lens or generic-optics with 'assignPublicIP' instead." #-}
 
 -- | The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
-avcSubnets :: Lens' AWSVPCConfiguration [Text]
-avcSubnets = lens _avcSubnets (\s a -> s {_avcSubnets = a}) . _Coerce
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcSubnets :: Lens.Lens' AWSVPCConfiguration [Lude.Text]
+avcSubnets = Lens.lens (subnets :: AWSVPCConfiguration -> [Lude.Text]) (\s a -> s {subnets = a} :: AWSVPCConfiguration)
+{-# DEPRECATED avcSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
-instance FromJSON AWSVPCConfiguration where
+instance Lude.FromJSON AWSVPCConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSVPCConfiguration"
       ( \x ->
           AWSVPCConfiguration'
-            <$> (x .:? "securityGroups" .!= mempty)
-            <*> (x .:? "assignPublicIp")
-            <*> (x .:? "subnets" .!= mempty)
+            Lude.<$> (x Lude..:? "securityGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "assignPublicIp")
+            Lude.<*> (x Lude..:? "subnets" Lude..!= Lude.mempty)
       )
 
-instance Hashable AWSVPCConfiguration
-
-instance NFData AWSVPCConfiguration
-
-instance ToJSON AWSVPCConfiguration where
+instance Lude.ToJSON AWSVPCConfiguration where
   toJSON AWSVPCConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("securityGroups" .=) <$> _avcSecurityGroups,
-            ("assignPublicIp" .=) <$> _avcAssignPublicIP,
-            Just ("subnets" .= _avcSubnets)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("securityGroups" Lude..=) Lude.<$> securityGroups,
+            ("assignPublicIp" Lude..=) Lude.<$> assignPublicIP,
+            Lude.Just ("subnets" Lude..= subnets)
           ]
       )

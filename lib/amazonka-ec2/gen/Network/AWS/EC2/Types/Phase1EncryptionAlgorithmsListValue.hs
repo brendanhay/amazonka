@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsListValue where
+module Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsListValue
+  ( Phase1EncryptionAlgorithmsListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhase1EncryptionAlgorithmsListValue,
+
+    -- * Lenses
+    pealveValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The encryption algorithm for phase 1 IKE negotiations.
 --
---
---
--- /See:/ 'phase1EncryptionAlgorithmsListValue' smart constructor.
+-- /See:/ 'mkPhase1EncryptionAlgorithmsListValue' smart constructor.
 newtype Phase1EncryptionAlgorithmsListValue = Phase1EncryptionAlgorithmsListValue'
-  { _pealveValue ::
-      Maybe Text
+  { value ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1EncryptionAlgorithmsListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pealveValue' - The value for the encryption algorithm.
-phase1EncryptionAlgorithmsListValue ::
+-- * 'value' - The value for the encryption algorithm.
+mkPhase1EncryptionAlgorithmsListValue ::
   Phase1EncryptionAlgorithmsListValue
-phase1EncryptionAlgorithmsListValue =
-  Phase1EncryptionAlgorithmsListValue' {_pealveValue = Nothing}
+mkPhase1EncryptionAlgorithmsListValue =
+  Phase1EncryptionAlgorithmsListValue' {value = Lude.Nothing}
 
 -- | The value for the encryption algorithm.
-pealveValue :: Lens' Phase1EncryptionAlgorithmsListValue (Maybe Text)
-pealveValue = lens _pealveValue (\s a -> s {_pealveValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pealveValue :: Lens.Lens' Phase1EncryptionAlgorithmsListValue (Lude.Maybe Lude.Text)
+pealveValue = Lens.lens (value :: Phase1EncryptionAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1EncryptionAlgorithmsListValue)
+{-# DEPRECATED pealveValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML Phase1EncryptionAlgorithmsListValue where
+instance Lude.FromXML Phase1EncryptionAlgorithmsListValue where
   parseXML x =
-    Phase1EncryptionAlgorithmsListValue' <$> (x .@? "value")
-
-instance Hashable Phase1EncryptionAlgorithmsListValue
-
-instance NFData Phase1EncryptionAlgorithmsListValue
+    Phase1EncryptionAlgorithmsListValue'
+      Lude.<$> (x Lude..@? "value")

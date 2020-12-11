@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.MessageSystemAttributeNameForSends where
+module Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
+  ( MessageSystemAttributeNameForSends
+      ( MessageSystemAttributeNameForSends',
+        AWSTraceHeader
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageSystemAttributeNameForSends = AWSTraceHeader
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageSystemAttributeNameForSends = MessageSystemAttributeNameForSends' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageSystemAttributeNameForSends where
-  parser =
-    takeLowerText >>= \case
-      "awstraceheader" -> pure AWSTraceHeader
-      e ->
-        fromTextError $
-          "Failure parsing MessageSystemAttributeNameForSends from value: '" <> e
-            <> "'. Accepted values: awstraceheader"
+pattern AWSTraceHeader :: MessageSystemAttributeNameForSends
+pattern AWSTraceHeader = MessageSystemAttributeNameForSends' "AWSTraceHeader"
 
-instance ToText MessageSystemAttributeNameForSends where
-  toText = \case
-    AWSTraceHeader -> "AWSTraceHeader"
-
-instance Hashable MessageSystemAttributeNameForSends
-
-instance NFData MessageSystemAttributeNameForSends
-
-instance ToByteString MessageSystemAttributeNameForSends
-
-instance ToQuery MessageSystemAttributeNameForSends
-
-instance ToHeader MessageSystemAttributeNameForSends
+{-# COMPLETE
+  AWSTraceHeader,
+  MessageSystemAttributeNameForSends'
+  #-}

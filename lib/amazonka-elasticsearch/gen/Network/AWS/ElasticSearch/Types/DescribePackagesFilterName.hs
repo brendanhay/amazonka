@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.DescribePackagesFilterName where
+module Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
+  ( DescribePackagesFilterName
+      ( DescribePackagesFilterName',
+        PackageId,
+        PackageName,
+        PackageStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DescribePackagesFilterName
-  = PackageId
-  | PackageName
-  | PackageStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DescribePackagesFilterName = DescribePackagesFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DescribePackagesFilterName where
-  parser =
-    takeLowerText >>= \case
-      "packageid" -> pure PackageId
-      "packagename" -> pure PackageName
-      "packagestatus" -> pure PackageStatus
-      e ->
-        fromTextError $
-          "Failure parsing DescribePackagesFilterName from value: '" <> e
-            <> "'. Accepted values: packageid, packagename, packagestatus"
+pattern PackageId :: DescribePackagesFilterName
+pattern PackageId = DescribePackagesFilterName' "PackageID"
 
-instance ToText DescribePackagesFilterName where
-  toText = \case
-    PackageId -> "PackageID"
-    PackageName -> "PackageName"
-    PackageStatus -> "PackageStatus"
+pattern PackageName :: DescribePackagesFilterName
+pattern PackageName = DescribePackagesFilterName' "PackageName"
 
-instance Hashable DescribePackagesFilterName
+pattern PackageStatus :: DescribePackagesFilterName
+pattern PackageStatus = DescribePackagesFilterName' "PackageStatus"
 
-instance NFData DescribePackagesFilterName
-
-instance ToByteString DescribePackagesFilterName
-
-instance ToQuery DescribePackagesFilterName
-
-instance ToHeader DescribePackagesFilterName
-
-instance ToJSON DescribePackagesFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  PackageId,
+  PackageName,
+  PackageStatus,
+  DescribePackagesFilterName'
+  #-}

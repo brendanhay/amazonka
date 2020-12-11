@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,118 @@
 --
 -- Deletes the specified image from your account. To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts.
 module Network.AWS.WorkSpaces.DeleteWorkspaceImage
-  ( -- * Creating a Request
-    deleteWorkspaceImage,
-    DeleteWorkspaceImage,
+  ( -- * Creating a request
+    DeleteWorkspaceImage (..),
+    mkDeleteWorkspaceImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwiImageId,
 
-    -- * Destructuring the Response
-    deleteWorkspaceImageResponse,
-    DeleteWorkspaceImageResponse,
+    -- * Destructuring the response
+    DeleteWorkspaceImageResponse (..),
+    mkDeleteWorkspaceImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'deleteWorkspaceImage' smart constructor.
+-- | /See:/ 'mkDeleteWorkspaceImage' smart constructor.
 newtype DeleteWorkspaceImage = DeleteWorkspaceImage'
-  { _dwiImageId ::
-      Text
+  { imageId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkspaceImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwiImageId' - The identifier of the image.
-deleteWorkspaceImage ::
-  -- | 'dwiImageId'
-  Text ->
+-- * 'imageId' - The identifier of the image.
+mkDeleteWorkspaceImage ::
+  -- | 'imageId'
+  Lude.Text ->
   DeleteWorkspaceImage
-deleteWorkspaceImage pImageId_ =
-  DeleteWorkspaceImage' {_dwiImageId = pImageId_}
+mkDeleteWorkspaceImage pImageId_ =
+  DeleteWorkspaceImage' {imageId = pImageId_}
 
 -- | The identifier of the image.
-dwiImageId :: Lens' DeleteWorkspaceImage Text
-dwiImageId = lens _dwiImageId (\s a -> s {_dwiImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwiImageId :: Lens.Lens' DeleteWorkspaceImage Lude.Text
+dwiImageId = Lens.lens (imageId :: DeleteWorkspaceImage -> Lude.Text) (\s a -> s {imageId = a} :: DeleteWorkspaceImage)
+{-# DEPRECATED dwiImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance AWSRequest DeleteWorkspaceImage where
+instance Lude.AWSRequest DeleteWorkspaceImage where
   type Rs DeleteWorkspaceImage = DeleteWorkspaceImageResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> DeleteWorkspaceImageResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteWorkspaceImageResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteWorkspaceImage
-
-instance NFData DeleteWorkspaceImage
-
-instance ToHeaders DeleteWorkspaceImage where
+instance Lude.ToHeaders DeleteWorkspaceImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DeleteWorkspaceImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DeleteWorkspaceImage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteWorkspaceImage where
+instance Lude.ToJSON DeleteWorkspaceImage where
   toJSON DeleteWorkspaceImage' {..} =
-    object (catMaybes [Just ("ImageId" .= _dwiImageId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ImageId" Lude..= imageId)])
 
-instance ToPath DeleteWorkspaceImage where
-  toPath = const "/"
+instance Lude.ToPath DeleteWorkspaceImage where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteWorkspaceImage where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteWorkspaceImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteWorkspaceImageResponse' smart constructor.
+-- | /See:/ 'mkDeleteWorkspaceImageResponse' smart constructor.
 newtype DeleteWorkspaceImageResponse = DeleteWorkspaceImageResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkspaceImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteWorkspaceImageResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteWorkspaceImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteWorkspaceImageResponse
-deleteWorkspaceImageResponse pResponseStatus_ =
-  DeleteWorkspaceImageResponse'
-    { _delrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteWorkspaceImageResponse pResponseStatus_ =
+  DeleteWorkspaceImageResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteWorkspaceImageResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteWorkspaceImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteWorkspaceImageResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkspaceImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkspaceImageResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

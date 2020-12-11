@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.InsufficientDataHealthStatus where
+module Network.AWS.Route53.Types.InsufficientDataHealthStatus
+  ( InsufficientDataHealthStatus
+      ( InsufficientDataHealthStatus',
+        Healthy,
+        LastKnownStatus,
+        Unhealthy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data InsufficientDataHealthStatus
-  = Healthy
-  | LastKnownStatus
-  | Unhealthy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InsufficientDataHealthStatus where
-  parser =
-    takeLowerText >>= \case
-      "healthy" -> pure Healthy
-      "lastknownstatus" -> pure LastKnownStatus
-      "unhealthy" -> pure Unhealthy
-      e ->
-        fromTextError $
-          "Failure parsing InsufficientDataHealthStatus from value: '" <> e
-            <> "'. Accepted values: healthy, lastknownstatus, unhealthy"
+pattern Healthy :: InsufficientDataHealthStatus
+pattern Healthy = InsufficientDataHealthStatus' "Healthy"
 
-instance ToText InsufficientDataHealthStatus where
-  toText = \case
-    Healthy -> "Healthy"
-    LastKnownStatus -> "LastKnownStatus"
-    Unhealthy -> "Unhealthy"
+pattern LastKnownStatus :: InsufficientDataHealthStatus
+pattern LastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
 
-instance Hashable InsufficientDataHealthStatus
+pattern Unhealthy :: InsufficientDataHealthStatus
+pattern Unhealthy = InsufficientDataHealthStatus' "Unhealthy"
 
-instance NFData InsufficientDataHealthStatus
-
-instance ToByteString InsufficientDataHealthStatus
-
-instance ToQuery InsufficientDataHealthStatus
-
-instance ToHeader InsufficientDataHealthStatus
-
-instance FromXML InsufficientDataHealthStatus where
-  parseXML = parseXMLText "InsufficientDataHealthStatus"
-
-instance ToXML InsufficientDataHealthStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  Healthy,
+  LastKnownStatus,
+  Unhealthy,
+  InsufficientDataHealthStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DiskType where
+module Network.AWS.EC2.Types.DiskType
+  ( DiskType
+      ( DiskType',
+        Hdd,
+        Ssd
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DiskType
-  = Hdd
-  | Ssd
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DiskType = DiskType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DiskType where
-  parser =
-    takeLowerText >>= \case
-      "hdd" -> pure Hdd
-      "ssd" -> pure Ssd
-      e ->
-        fromTextError $
-          "Failure parsing DiskType from value: '" <> e
-            <> "'. Accepted values: hdd, ssd"
+pattern Hdd :: DiskType
+pattern Hdd = DiskType' "hdd"
 
-instance ToText DiskType where
-  toText = \case
-    Hdd -> "hdd"
-    Ssd -> "ssd"
+pattern Ssd :: DiskType
+pattern Ssd = DiskType' "ssd"
 
-instance Hashable DiskType
-
-instance NFData DiskType
-
-instance ToByteString DiskType
-
-instance ToQuery DiskType
-
-instance ToHeader DiskType
-
-instance FromXML DiskType where
-  parseXML = parseXMLText "DiskType"
+{-# COMPLETE
+  Hdd,
+  Ssd,
+  DiskType'
+  #-}

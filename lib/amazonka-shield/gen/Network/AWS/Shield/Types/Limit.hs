@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Limit where
+module Network.AWS.Shield.Types.Limit
+  ( Limit (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLimit,
+
+    -- * Lenses
+    lMax,
+    lType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies how many protections of a given type you can create.
 --
---
---
--- /See:/ 'limit' smart constructor.
+-- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
-  { _lMax :: !(Maybe Integer),
-    _lType :: !(Maybe Text)
+  { max :: Lude.Maybe Lude.Integer,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lMax' - The maximum number of protections that can be created for the specified @Type@ .
---
--- * 'lType' - The type of protection.
-limit ::
+-- * 'max' - The maximum number of protections that can be created for the specified @Type@ .
+-- * 'type'' - The type of protection.
+mkLimit ::
   Limit
-limit = Limit' {_lMax = Nothing, _lType = Nothing}
+mkLimit = Limit' {max = Lude.Nothing, type' = Lude.Nothing}
 
 -- | The maximum number of protections that can be created for the specified @Type@ .
-lMax :: Lens' Limit (Maybe Integer)
-lMax = lens _lMax (\s a -> s {_lMax = a})
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMax :: Lens.Lens' Limit (Lude.Maybe Lude.Integer)
+lMax = Lens.lens (max :: Limit -> Lude.Maybe Lude.Integer) (\s a -> s {max = a} :: Limit)
+{-# DEPRECATED lMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The type of protection.
-lType :: Lens' Limit (Maybe Text)
-lType = lens _lType (\s a -> s {_lType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lType :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
+lType = Lens.lens (type' :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Limit)
+{-# DEPRECATED lType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Limit where
+instance Lude.FromJSON Limit where
   parseJSON =
-    withObject
+    Lude.withObject
       "Limit"
-      (\x -> Limit' <$> (x .:? "Max") <*> (x .:? "Type"))
-
-instance Hashable Limit
-
-instance NFData Limit
+      ( \x ->
+          Limit' Lude.<$> (x Lude..:? "Max") Lude.<*> (x Lude..:? "Type")
+      )

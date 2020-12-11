@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Get the configuration information about a distribution.
 module Network.AWS.CloudFront.GetDistributionConfig
-  ( -- * Creating a Request
-    getDistributionConfig,
-    GetDistributionConfig,
+  ( -- * Creating a request
+    GetDistributionConfig (..),
+    mkGetDistributionConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdcId,
 
-    -- * Destructuring the Response
-    getDistributionConfigResponse,
-    GetDistributionConfigResponse,
+    -- * Destructuring the response
+    GetDistributionConfigResponse (..),
+    mkGetDistributionConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdcrsETag,
     gdcrsDistributionConfig,
     gdcrsResponseStatus,
@@ -38,105 +33,112 @@ module Network.AWS.CloudFront.GetDistributionConfig
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to get a distribution configuration.
 --
---
---
--- /See:/ 'getDistributionConfig' smart constructor.
+-- /See:/ 'mkGetDistributionConfig' smart constructor.
 newtype GetDistributionConfig = GetDistributionConfig'
-  { _gdcId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcId' - The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
-getDistributionConfig ::
-  -- | 'gdcId'
-  Text ->
+-- * 'id' - The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
+mkGetDistributionConfig ::
+  -- | 'id'
+  Lude.Text ->
   GetDistributionConfig
-getDistributionConfig pId_ = GetDistributionConfig' {_gdcId = pId_}
+mkGetDistributionConfig pId_ = GetDistributionConfig' {id = pId_}
 
 -- | The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
-gdcId :: Lens' GetDistributionConfig Text
-gdcId = lens _gdcId (\s a -> s {_gdcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcId :: Lens.Lens' GetDistributionConfig Lude.Text
+gdcId = Lens.lens (id :: GetDistributionConfig -> Lude.Text) (\s a -> s {id = a} :: GetDistributionConfig)
+{-# DEPRECATED gdcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetDistributionConfig where
+instance Lude.AWSRequest GetDistributionConfig where
   type Rs GetDistributionConfig = GetDistributionConfigResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetDistributionConfigResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDistributionConfig
+instance Lude.ToHeaders GetDistributionConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetDistributionConfig
-
-instance ToHeaders GetDistributionConfig where
-  toHeaders = const mempty
-
-instance ToPath GetDistributionConfig where
+instance Lude.ToPath GetDistributionConfig where
   toPath GetDistributionConfig' {..} =
-    mconcat ["/2020-05-31/distribution/", toBS _gdcId, "/config"]
+    Lude.mconcat
+      ["/2020-05-31/distribution/", Lude.toBS id, "/config"]
 
-instance ToQuery GetDistributionConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetDistributionConfig where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'getDistributionConfigResponse' smart constructor.
+-- /See:/ 'mkGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-  { _gdcrsETag ::
-      !(Maybe Text),
-    _gdcrsDistributionConfig ::
-      !(Maybe DistributionConfig),
-    _gdcrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    distributionConfig ::
+      Lude.Maybe DistributionConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'gdcrsDistributionConfig' - The distribution's configuration information.
---
--- * 'gdcrsResponseStatus' - -- | The response status code.
-getDistributionConfigResponse ::
-  -- | 'gdcrsResponseStatus'
-  Int ->
+-- * 'distributionConfig' - The distribution's configuration information.
+-- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+-- * 'responseStatus' - The response status code.
+mkGetDistributionConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDistributionConfigResponse
-getDistributionConfigResponse pResponseStatus_ =
+mkGetDistributionConfigResponse pResponseStatus_ =
   GetDistributionConfigResponse'
-    { _gdcrsETag = Nothing,
-      _gdcrsDistributionConfig = Nothing,
-      _gdcrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      distributionConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrsETag = lens _gdcrsETag (\s a -> s {_gdcrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsETag :: Lens.Lens' GetDistributionConfigResponse (Lude.Maybe Lude.Text)
+gdcrsETag = Lens.lens (eTag :: GetDistributionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetDistributionConfigResponse)
+{-# DEPRECATED gdcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's configuration information.
-gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\s a -> s {_gdcrsDistributionConfig = a})
+--
+-- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsDistributionConfig :: Lens.Lens' GetDistributionConfigResponse (Lude.Maybe DistributionConfig)
+gdcrsDistributionConfig = Lens.lens (distributionConfig :: GetDistributionConfigResponse -> Lude.Maybe DistributionConfig) (\s a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
+{-# DEPRECATED gdcrsDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
--- | -- | The response status code.
-gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\s a -> s {_gdcrsResponseStatus = a})
-
-instance NFData GetDistributionConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsResponseStatus :: Lens.Lens' GetDistributionConfigResponse Lude.Int
+gdcrsResponseStatus = Lens.lens (responseStatus :: GetDistributionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDistributionConfigResponse)
+{-# DEPRECATED gdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

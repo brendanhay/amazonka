@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.BounceType where
+module Network.AWS.SES.Types.BounceType
+  ( BounceType
+      ( BounceType',
+        ContentRejected,
+        DoesNotExist,
+        ExceededQuota,
+        MessageTooLarge,
+        TemporaryFailure,
+        Undefined
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BounceType
-  = ContentRejected
-  | DoesNotExist
-  | ExceededQuota
-  | MessageTooLarge
-  | TemporaryFailure
-  | Undefined
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BounceType = BounceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BounceType where
-  parser =
-    takeLowerText >>= \case
-      "contentrejected" -> pure ContentRejected
-      "doesnotexist" -> pure DoesNotExist
-      "exceededquota" -> pure ExceededQuota
-      "messagetoolarge" -> pure MessageTooLarge
-      "temporaryfailure" -> pure TemporaryFailure
-      "undefined" -> pure Undefined
-      e ->
-        fromTextError $
-          "Failure parsing BounceType from value: '" <> e
-            <> "'. Accepted values: contentrejected, doesnotexist, exceededquota, messagetoolarge, temporaryfailure, undefined"
+pattern ContentRejected :: BounceType
+pattern ContentRejected = BounceType' "ContentRejected"
 
-instance ToText BounceType where
-  toText = \case
-    ContentRejected -> "ContentRejected"
-    DoesNotExist -> "DoesNotExist"
-    ExceededQuota -> "ExceededQuota"
-    MessageTooLarge -> "MessageTooLarge"
-    TemporaryFailure -> "TemporaryFailure"
-    Undefined -> "Undefined"
+pattern DoesNotExist :: BounceType
+pattern DoesNotExist = BounceType' "DoesNotExist"
 
-instance Hashable BounceType
+pattern ExceededQuota :: BounceType
+pattern ExceededQuota = BounceType' "ExceededQuota"
 
-instance NFData BounceType
+pattern MessageTooLarge :: BounceType
+pattern MessageTooLarge = BounceType' "MessageTooLarge"
 
-instance ToByteString BounceType
+pattern TemporaryFailure :: BounceType
+pattern TemporaryFailure = BounceType' "TemporaryFailure"
 
-instance ToQuery BounceType
+pattern Undefined :: BounceType
+pattern Undefined = BounceType' "Undefined"
 
-instance ToHeader BounceType
+{-# COMPLETE
+  ContentRejected,
+  DoesNotExist,
+  ExceededQuota,
+  MessageTooLarge,
+  TemporaryFailure,
+  Undefined,
+  BounceType'
+  #-}

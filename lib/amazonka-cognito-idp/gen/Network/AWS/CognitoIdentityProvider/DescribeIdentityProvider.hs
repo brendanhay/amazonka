@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,159 @@
 --
 -- Gets information about a specific identity provider.
 module Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
-  ( -- * Creating a Request
-    describeIdentityProvider,
-    DescribeIdentityProvider,
+  ( -- * Creating a request
+    DescribeIdentityProvider (..),
+    mkDescribeIdentityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipUserPoolId,
     dipProviderName,
 
-    -- * Destructuring the Response
-    describeIdentityProviderResponse,
-    DescribeIdentityProviderResponse,
+    -- * Destructuring the response
+    DescribeIdentityProviderResponse (..),
+    mkDescribeIdentityProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diprsResponseStatus,
     diprsIdentityProvider,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeIdentityProvider' smart constructor.
+-- | /See:/ 'mkDescribeIdentityProvider' smart constructor.
 data DescribeIdentityProvider = DescribeIdentityProvider'
-  { _dipUserPoolId ::
-      !Text,
-    _dipProviderName :: !Text
+  { userPoolId ::
+      Lude.Text,
+    providerName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipUserPoolId' - The user pool ID.
---
--- * 'dipProviderName' - The identity provider name.
-describeIdentityProvider ::
-  -- | 'dipUserPoolId'
-  Text ->
-  -- | 'dipProviderName'
-  Text ->
+-- * 'providerName' - The identity provider name.
+-- * 'userPoolId' - The user pool ID.
+mkDescribeIdentityProvider ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'providerName'
+  Lude.Text ->
   DescribeIdentityProvider
-describeIdentityProvider pUserPoolId_ pProviderName_ =
+mkDescribeIdentityProvider pUserPoolId_ pProviderName_ =
   DescribeIdentityProvider'
-    { _dipUserPoolId = pUserPoolId_,
-      _dipProviderName = pProviderName_
+    { userPoolId = pUserPoolId_,
+      providerName = pProviderName_
     }
 
 -- | The user pool ID.
-dipUserPoolId :: Lens' DescribeIdentityProvider Text
-dipUserPoolId = lens _dipUserPoolId (\s a -> s {_dipUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipUserPoolId :: Lens.Lens' DescribeIdentityProvider Lude.Text
+dipUserPoolId = Lens.lens (userPoolId :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeIdentityProvider)
+{-# DEPRECATED dipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
-dipProviderName :: Lens' DescribeIdentityProvider Text
-dipProviderName = lens _dipProviderName (\s a -> s {_dipProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipProviderName :: Lens.Lens' DescribeIdentityProvider Lude.Text
+dipProviderName = Lens.lens (providerName :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DescribeIdentityProvider)
+{-# DEPRECATED dipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance AWSRequest DescribeIdentityProvider where
+instance Lude.AWSRequest DescribeIdentityProvider where
   type Rs DescribeIdentityProvider = DescribeIdentityProviderResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "IdentityProvider")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "IdentityProvider")
       )
 
-instance Hashable DescribeIdentityProvider
-
-instance NFData DescribeIdentityProvider
-
-instance ToHeaders DescribeIdentityProvider where
+instance Lude.ToHeaders DescribeIdentityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeIdentityProvider where
+instance Lude.ToJSON DescribeIdentityProvider where
   toJSON DescribeIdentityProvider' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _dipUserPoolId),
-            Just ("ProviderName" .= _dipProviderName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("ProviderName" Lude..= providerName)
           ]
       )
 
-instance ToPath DescribeIdentityProvider where
-  toPath = const "/"
+instance Lude.ToPath DescribeIdentityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeIdentityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeIdentityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeIdentityProviderResponse' smart constructor.
+-- | /See:/ 'mkDescribeIdentityProviderResponse' smart constructor.
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
-  { _diprsResponseStatus ::
-      !Int,
-    _diprsIdentityProvider ::
-      !IdentityProviderType
+  { responseStatus ::
+      Lude.Int,
+    identityProvider ::
+      IdentityProviderType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diprsResponseStatus' - -- | The response status code.
---
--- * 'diprsIdentityProvider' - The identity provider that was deleted.
-describeIdentityProviderResponse ::
-  -- | 'diprsResponseStatus'
-  Int ->
-  -- | 'diprsIdentityProvider'
+-- * 'identityProvider' - The identity provider that was deleted.
+-- * 'responseStatus' - The response status code.
+mkDescribeIdentityProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'identityProvider'
   IdentityProviderType ->
   DescribeIdentityProviderResponse
-describeIdentityProviderResponse
+mkDescribeIdentityProviderResponse
   pResponseStatus_
   pIdentityProvider_ =
     DescribeIdentityProviderResponse'
-      { _diprsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _diprsIdentityProvider = pIdentityProvider_
+        identityProvider = pIdentityProvider_
       }
 
--- | -- | The response status code.
-diprsResponseStatus :: Lens' DescribeIdentityProviderResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\s a -> s {_diprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsResponseStatus :: Lens.Lens' DescribeIdentityProviderResponse Lude.Int
+diprsResponseStatus = Lens.lens (responseStatus :: DescribeIdentityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdentityProviderResponse)
+{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The identity provider that was deleted.
-diprsIdentityProvider :: Lens' DescribeIdentityProviderResponse IdentityProviderType
-diprsIdentityProvider = lens _diprsIdentityProvider (\s a -> s {_diprsIdentityProvider = a})
-
-instance NFData DescribeIdentityProviderResponse
+--
+-- /Note:/ Consider using 'identityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsIdentityProvider :: Lens.Lens' DescribeIdentityProviderResponse IdentityProviderType
+diprsIdentityProvider = Lens.lens (identityProvider :: DescribeIdentityProviderResponse -> IdentityProviderType) (\s a -> s {identityProvider = a} :: DescribeIdentityProviderResponse)
+{-# DEPRECATED diprsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}

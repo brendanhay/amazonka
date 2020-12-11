@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.ConsumerStatus where
+module Network.AWS.Kinesis.Types.ConsumerStatus
+  ( ConsumerStatus
+      ( ConsumerStatus',
+        Active,
+        Creating,
+        Deleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConsumerStatus
-  = Active
-  | Creating
-  | Deleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConsumerStatus = ConsumerStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConsumerStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      e ->
-        fromTextError $
-          "Failure parsing ConsumerStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting"
+pattern Active :: ConsumerStatus
+pattern Active = ConsumerStatus' "ACTIVE"
 
-instance ToText ConsumerStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    Deleting -> "DELETING"
+pattern Creating :: ConsumerStatus
+pattern Creating = ConsumerStatus' "CREATING"
 
-instance Hashable ConsumerStatus
+pattern Deleting :: ConsumerStatus
+pattern Deleting = ConsumerStatus' "DELETING"
 
-instance NFData ConsumerStatus
-
-instance ToByteString ConsumerStatus
-
-instance ToQuery ConsumerStatus
-
-instance ToHeader ConsumerStatus
-
-instance FromJSON ConsumerStatus where
-  parseJSON = parseJSONText "ConsumerStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  Deleting,
+  ConsumerStatus'
+  #-}

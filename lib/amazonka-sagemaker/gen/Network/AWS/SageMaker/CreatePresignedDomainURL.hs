@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,166 @@
 --
 -- Creates a URL for a specified UserProfile in a Domain. When accessed in a web browser, the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume. This operation can only be called when the authentication mode equals IAM.
 module Network.AWS.SageMaker.CreatePresignedDomainURL
-  ( -- * Creating a Request
-    createPresignedDomainURL,
-    CreatePresignedDomainURL,
+  ( -- * Creating a request
+    CreatePresignedDomainURL (..),
+    mkCreatePresignedDomainURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpduSessionExpirationDurationInSeconds,
     cpduDomainId,
     cpduUserProfileName,
 
-    -- * Destructuring the Response
-    createPresignedDomainURLResponse,
-    CreatePresignedDomainURLResponse,
+    -- * Destructuring the response
+    CreatePresignedDomainURLResponse (..),
+    mkCreatePresignedDomainURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpdursAuthorizedURL,
     cpdursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createPresignedDomainURL' smart constructor.
+-- | /See:/ 'mkCreatePresignedDomainURL' smart constructor.
 data CreatePresignedDomainURL = CreatePresignedDomainURL'
-  { _cpduSessionExpirationDurationInSeconds ::
-      !(Maybe Nat),
-    _cpduDomainId :: !Text,
-    _cpduUserProfileName :: !Text
+  { sessionExpirationDurationInSeconds ::
+      Lude.Maybe Lude.Natural,
+    domainId :: Lude.Text,
+    userProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresignedDomainURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpduSessionExpirationDurationInSeconds' - The session expiration duration in seconds.
---
--- * 'cpduDomainId' - The domain ID.
---
--- * 'cpduUserProfileName' - The name of the UserProfile to sign-in as.
-createPresignedDomainURL ::
-  -- | 'cpduDomainId'
-  Text ->
-  -- | 'cpduUserProfileName'
-  Text ->
+-- * 'domainId' - The domain ID.
+-- * 'sessionExpirationDurationInSeconds' - The session expiration duration in seconds.
+-- * 'userProfileName' - The name of the UserProfile to sign-in as.
+mkCreatePresignedDomainURL ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
   CreatePresignedDomainURL
-createPresignedDomainURL pDomainId_ pUserProfileName_ =
+mkCreatePresignedDomainURL pDomainId_ pUserProfileName_ =
   CreatePresignedDomainURL'
-    { _cpduSessionExpirationDurationInSeconds =
-        Nothing,
-      _cpduDomainId = pDomainId_,
-      _cpduUserProfileName = pUserProfileName_
+    { sessionExpirationDurationInSeconds =
+        Lude.Nothing,
+      domainId = pDomainId_,
+      userProfileName = pUserProfileName_
     }
 
 -- | The session expiration duration in seconds.
-cpduSessionExpirationDurationInSeconds :: Lens' CreatePresignedDomainURL (Maybe Natural)
-cpduSessionExpirationDurationInSeconds = lens _cpduSessionExpirationDurationInSeconds (\s a -> s {_cpduSessionExpirationDurationInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sessionExpirationDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpduSessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedDomainURL (Lude.Maybe Lude.Natural)
+cpduSessionExpirationDurationInSeconds = Lens.lens (sessionExpirationDurationInSeconds :: CreatePresignedDomainURL -> Lude.Maybe Lude.Natural) (\s a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedDomainURL)
+{-# DEPRECATED cpduSessionExpirationDurationInSeconds "Use generic-lens or generic-optics with 'sessionExpirationDurationInSeconds' instead." #-}
 
 -- | The domain ID.
-cpduDomainId :: Lens' CreatePresignedDomainURL Text
-cpduDomainId = lens _cpduDomainId (\s a -> s {_cpduDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpduDomainId :: Lens.Lens' CreatePresignedDomainURL Lude.Text
+cpduDomainId = Lens.lens (domainId :: CreatePresignedDomainURL -> Lude.Text) (\s a -> s {domainId = a} :: CreatePresignedDomainURL)
+{-# DEPRECATED cpduDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The name of the UserProfile to sign-in as.
-cpduUserProfileName :: Lens' CreatePresignedDomainURL Text
-cpduUserProfileName = lens _cpduUserProfileName (\s a -> s {_cpduUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpduUserProfileName :: Lens.Lens' CreatePresignedDomainURL Lude.Text
+cpduUserProfileName = Lens.lens (userProfileName :: CreatePresignedDomainURL -> Lude.Text) (\s a -> s {userProfileName = a} :: CreatePresignedDomainURL)
+{-# DEPRECATED cpduUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
-instance AWSRequest CreatePresignedDomainURL where
+instance Lude.AWSRequest CreatePresignedDomainURL where
   type Rs CreatePresignedDomainURL = CreatePresignedDomainURLResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePresignedDomainURLResponse'
-            <$> (x .?> "AuthorizedUrl") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AuthorizedUrl")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePresignedDomainURL
-
-instance NFData CreatePresignedDomainURL
-
-instance ToHeaders CreatePresignedDomainURL where
+instance Lude.ToHeaders CreatePresignedDomainURL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.CreatePresignedDomainUrl" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.CreatePresignedDomainUrl" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePresignedDomainURL where
+instance Lude.ToJSON CreatePresignedDomainURL where
   toJSON CreatePresignedDomainURL' {..} =
-    object
-      ( catMaybes
-          [ ("SessionExpirationDurationInSeconds" .=)
-              <$> _cpduSessionExpirationDurationInSeconds,
-            Just ("DomainId" .= _cpduDomainId),
-            Just ("UserProfileName" .= _cpduUserProfileName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SessionExpirationDurationInSeconds" Lude..=)
+              Lude.<$> sessionExpirationDurationInSeconds,
+            Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName)
           ]
       )
 
-instance ToPath CreatePresignedDomainURL where
-  toPath = const "/"
+instance Lude.ToPath CreatePresignedDomainURL where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePresignedDomainURL where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePresignedDomainURL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPresignedDomainURLResponse' smart constructor.
+-- | /See:/ 'mkCreatePresignedDomainURLResponse' smart constructor.
 data CreatePresignedDomainURLResponse = CreatePresignedDomainURLResponse'
-  { _cpdursAuthorizedURL ::
-      !(Maybe Text),
-    _cpdursResponseStatus ::
-      !Int
+  { authorizedURL ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresignedDomainURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpdursAuthorizedURL' - The presigned URL.
---
--- * 'cpdursResponseStatus' - -- | The response status code.
-createPresignedDomainURLResponse ::
-  -- | 'cpdursResponseStatus'
-  Int ->
+-- * 'authorizedURL' - The presigned URL.
+-- * 'responseStatus' - The response status code.
+mkCreatePresignedDomainURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePresignedDomainURLResponse
-createPresignedDomainURLResponse pResponseStatus_ =
+mkCreatePresignedDomainURLResponse pResponseStatus_ =
   CreatePresignedDomainURLResponse'
-    { _cpdursAuthorizedURL = Nothing,
-      _cpdursResponseStatus = pResponseStatus_
+    { authorizedURL = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The presigned URL.
-cpdursAuthorizedURL :: Lens' CreatePresignedDomainURLResponse (Maybe Text)
-cpdursAuthorizedURL = lens _cpdursAuthorizedURL (\s a -> s {_cpdursAuthorizedURL = a})
+--
+-- /Note:/ Consider using 'authorizedURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdursAuthorizedURL :: Lens.Lens' CreatePresignedDomainURLResponse (Lude.Maybe Lude.Text)
+cpdursAuthorizedURL = Lens.lens (authorizedURL :: CreatePresignedDomainURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {authorizedURL = a} :: CreatePresignedDomainURLResponse)
+{-# DEPRECATED cpdursAuthorizedURL "Use generic-lens or generic-optics with 'authorizedURL' instead." #-}
 
--- | -- | The response status code.
-cpdursResponseStatus :: Lens' CreatePresignedDomainURLResponse Int
-cpdursResponseStatus = lens _cpdursResponseStatus (\s a -> s {_cpdursResponseStatus = a})
-
-instance NFData CreatePresignedDomainURLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdursResponseStatus :: Lens.Lens' CreatePresignedDomainURLResponse Lude.Int
+cpdursResponseStatus = Lens.lens (responseStatus :: CreatePresignedDomainURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePresignedDomainURLResponse)
+{-# DEPRECATED cpdursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

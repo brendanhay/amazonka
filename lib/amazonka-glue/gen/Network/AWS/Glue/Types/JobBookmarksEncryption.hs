@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobBookmarksEncryption where
+module Network.AWS.Glue.Types.JobBookmarksEncryption
+  ( JobBookmarksEncryption (..),
+
+    -- * Smart constructor
+    mkJobBookmarksEncryption,
+
+    -- * Lenses
+    jbeJobBookmarksEncryptionMode,
+    jbeKMSKeyARN,
+  )
+where
 
 import Network.AWS.Glue.Types.JobBookmarksEncryptionMode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies how job bookmark data should be encrypted.
 --
---
---
--- /See:/ 'jobBookmarksEncryption' smart constructor.
+-- /See:/ 'mkJobBookmarksEncryption' smart constructor.
 data JobBookmarksEncryption = JobBookmarksEncryption'
-  { _jbeJobBookmarksEncryptionMode ::
-      !(Maybe JobBookmarksEncryptionMode),
-    _jbeKMSKeyARN :: !(Maybe Text)
+  { jobBookmarksEncryptionMode ::
+      Lude.Maybe JobBookmarksEncryptionMode,
+    kmsKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobBookmarksEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jbeJobBookmarksEncryptionMode' - The encryption mode to use for job bookmarks data.
---
--- * 'jbeKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-jobBookmarksEncryption ::
+-- * 'jobBookmarksEncryptionMode' - The encryption mode to use for job bookmarks data.
+-- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+mkJobBookmarksEncryption ::
   JobBookmarksEncryption
-jobBookmarksEncryption =
+mkJobBookmarksEncryption =
   JobBookmarksEncryption'
-    { _jbeJobBookmarksEncryptionMode = Nothing,
-      _jbeKMSKeyARN = Nothing
+    { jobBookmarksEncryptionMode =
+        Lude.Nothing,
+      kmsKeyARN = Lude.Nothing
     }
 
 -- | The encryption mode to use for job bookmarks data.
-jbeJobBookmarksEncryptionMode :: Lens' JobBookmarksEncryption (Maybe JobBookmarksEncryptionMode)
-jbeJobBookmarksEncryptionMode = lens _jbeJobBookmarksEncryptionMode (\s a -> s {_jbeJobBookmarksEncryptionMode = a})
+--
+-- /Note:/ Consider using 'jobBookmarksEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeJobBookmarksEncryptionMode :: Lens.Lens' JobBookmarksEncryption (Lude.Maybe JobBookmarksEncryptionMode)
+jbeJobBookmarksEncryptionMode = Lens.lens (jobBookmarksEncryptionMode :: JobBookmarksEncryption -> Lude.Maybe JobBookmarksEncryptionMode) (\s a -> s {jobBookmarksEncryptionMode = a} :: JobBookmarksEncryption)
+{-# DEPRECATED jbeJobBookmarksEncryptionMode "Use generic-lens or generic-optics with 'jobBookmarksEncryptionMode' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-jbeKMSKeyARN :: Lens' JobBookmarksEncryption (Maybe Text)
-jbeKMSKeyARN = lens _jbeKMSKeyARN (\s a -> s {_jbeKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeKMSKeyARN :: Lens.Lens' JobBookmarksEncryption (Lude.Maybe Lude.Text)
+jbeKMSKeyARN = Lens.lens (kmsKeyARN :: JobBookmarksEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: JobBookmarksEncryption)
+{-# DEPRECATED jbeKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
-instance FromJSON JobBookmarksEncryption where
+instance Lude.FromJSON JobBookmarksEncryption where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobBookmarksEncryption"
       ( \x ->
           JobBookmarksEncryption'
-            <$> (x .:? "JobBookmarksEncryptionMode") <*> (x .:? "KmsKeyArn")
+            Lude.<$> (x Lude..:? "JobBookmarksEncryptionMode")
+            Lude.<*> (x Lude..:? "KmsKeyArn")
       )
 
-instance Hashable JobBookmarksEncryption
-
-instance NFData JobBookmarksEncryption
-
-instance ToJSON JobBookmarksEncryption where
+instance Lude.ToJSON JobBookmarksEncryption where
   toJSON JobBookmarksEncryption' {..} =
-    object
-      ( catMaybes
-          [ ("JobBookmarksEncryptionMode" .=)
-              <$> _jbeJobBookmarksEncryptionMode,
-            ("KmsKeyArn" .=) <$> _jbeKMSKeyARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobBookmarksEncryptionMode" Lude..=)
+              Lude.<$> jobBookmarksEncryptionMode,
+            ("KmsKeyArn" Lude..=) Lude.<$> kmsKeyARN
           ]
       )

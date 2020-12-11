@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UserSettings where
+module Network.AWS.SageMaker.Types.UserSettings
+  ( UserSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserSettings,
+
+    -- * Lenses
+    usTensorBoardAppSettings,
+    usKernelGatewayAppSettings,
+    usSecurityGroups,
+    usJupyterServerAppSettings,
+    usSharingSettings,
+    usExecutionRole,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.JupyterServerAppSettings
 import Network.AWS.SageMaker.Types.KernelGatewayAppSettings
 import Network.AWS.SageMaker.Types.SharingSettings
@@ -24,98 +32,119 @@ import Network.AWS.SageMaker.Types.TensorBoardAppSettings
 
 -- | A collection of settings.
 --
---
---
--- /See:/ 'userSettings' smart constructor.
+-- /See:/ 'mkUserSettings' smart constructor.
 data UserSettings = UserSettings'
-  { _usTensorBoardAppSettings ::
-      !(Maybe TensorBoardAppSettings),
-    _usKernelGatewayAppSettings :: !(Maybe KernelGatewayAppSettings),
-    _usSecurityGroups :: !(Maybe [Text]),
-    _usJupyterServerAppSettings :: !(Maybe JupyterServerAppSettings),
-    _usSharingSettings :: !(Maybe SharingSettings),
-    _usExecutionRole :: !(Maybe Text)
+  { tensorBoardAppSettings ::
+      Lude.Maybe TensorBoardAppSettings,
+    kernelGatewayAppSettings :: Lude.Maybe KernelGatewayAppSettings,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    jupyterServerAppSettings :: Lude.Maybe JupyterServerAppSettings,
+    sharingSettings :: Lude.Maybe SharingSettings,
+    executionRole :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'executionRole' - The execution role for the user.
+-- * 'jupyterServerAppSettings' - The Jupyter server's app settings.
+-- * 'kernelGatewayAppSettings' - The kernel gateway app settings.
+-- * 'securityGroups' - The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 --
--- * 'usTensorBoardAppSettings' - The TensorBoard app settings.
---
--- * 'usKernelGatewayAppSettings' - The kernel gateway app settings.
---
--- * 'usSecurityGroups' - The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication. Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ . Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
---
--- * 'usJupyterServerAppSettings' - The Jupyter server's app settings.
---
--- * 'usSharingSettings' - The sharing settings.
---
--- * 'usExecutionRole' - The execution role for the user.
-userSettings ::
+-- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
+-- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
+-- * 'sharingSettings' - The sharing settings.
+-- * 'tensorBoardAppSettings' - The TensorBoard app settings.
+mkUserSettings ::
   UserSettings
-userSettings =
+mkUserSettings =
   UserSettings'
-    { _usTensorBoardAppSettings = Nothing,
-      _usKernelGatewayAppSettings = Nothing,
-      _usSecurityGroups = Nothing,
-      _usJupyterServerAppSettings = Nothing,
-      _usSharingSettings = Nothing,
-      _usExecutionRole = Nothing
+    { tensorBoardAppSettings = Lude.Nothing,
+      kernelGatewayAppSettings = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      jupyterServerAppSettings = Lude.Nothing,
+      sharingSettings = Lude.Nothing,
+      executionRole = Lude.Nothing
     }
 
 -- | The TensorBoard app settings.
-usTensorBoardAppSettings :: Lens' UserSettings (Maybe TensorBoardAppSettings)
-usTensorBoardAppSettings = lens _usTensorBoardAppSettings (\s a -> s {_usTensorBoardAppSettings = a})
+--
+-- /Note:/ Consider using 'tensorBoardAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usTensorBoardAppSettings :: Lens.Lens' UserSettings (Lude.Maybe TensorBoardAppSettings)
+usTensorBoardAppSettings = Lens.lens (tensorBoardAppSettings :: UserSettings -> Lude.Maybe TensorBoardAppSettings) (\s a -> s {tensorBoardAppSettings = a} :: UserSettings)
+{-# DEPRECATED usTensorBoardAppSettings "Use generic-lens or generic-optics with 'tensorBoardAppSettings' instead." #-}
 
 -- | The kernel gateway app settings.
-usKernelGatewayAppSettings :: Lens' UserSettings (Maybe KernelGatewayAppSettings)
-usKernelGatewayAppSettings = lens _usKernelGatewayAppSettings (\s a -> s {_usKernelGatewayAppSettings = a})
+--
+-- /Note:/ Consider using 'kernelGatewayAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usKernelGatewayAppSettings :: Lens.Lens' UserSettings (Lude.Maybe KernelGatewayAppSettings)
+usKernelGatewayAppSettings = Lens.lens (kernelGatewayAppSettings :: UserSettings -> Lude.Maybe KernelGatewayAppSettings) (\s a -> s {kernelGatewayAppSettings = a} :: UserSettings)
+{-# DEPRECATED usKernelGatewayAppSettings "Use generic-lens or generic-optics with 'kernelGatewayAppSettings' instead." #-}
 
--- | The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication. Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ . Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
-usSecurityGroups :: Lens' UserSettings [Text]
-usSecurityGroups = lens _usSecurityGroups (\s a -> s {_usSecurityGroups = a}) . _Default . _Coerce
+-- | The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+--
+-- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
+-- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSecurityGroups :: Lens.Lens' UserSettings (Lude.Maybe [Lude.Text])
+usSecurityGroups = Lens.lens (securityGroups :: UserSettings -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: UserSettings)
+{-# DEPRECATED usSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The Jupyter server's app settings.
-usJupyterServerAppSettings :: Lens' UserSettings (Maybe JupyterServerAppSettings)
-usJupyterServerAppSettings = lens _usJupyterServerAppSettings (\s a -> s {_usJupyterServerAppSettings = a})
+--
+-- /Note:/ Consider using 'jupyterServerAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usJupyterServerAppSettings :: Lens.Lens' UserSettings (Lude.Maybe JupyterServerAppSettings)
+usJupyterServerAppSettings = Lens.lens (jupyterServerAppSettings :: UserSettings -> Lude.Maybe JupyterServerAppSettings) (\s a -> s {jupyterServerAppSettings = a} :: UserSettings)
+{-# DEPRECATED usJupyterServerAppSettings "Use generic-lens or generic-optics with 'jupyterServerAppSettings' instead." #-}
 
 -- | The sharing settings.
-usSharingSettings :: Lens' UserSettings (Maybe SharingSettings)
-usSharingSettings = lens _usSharingSettings (\s a -> s {_usSharingSettings = a})
+--
+-- /Note:/ Consider using 'sharingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSharingSettings :: Lens.Lens' UserSettings (Lude.Maybe SharingSettings)
+usSharingSettings = Lens.lens (sharingSettings :: UserSettings -> Lude.Maybe SharingSettings) (\s a -> s {sharingSettings = a} :: UserSettings)
+{-# DEPRECATED usSharingSettings "Use generic-lens or generic-optics with 'sharingSettings' instead." #-}
 
 -- | The execution role for the user.
-usExecutionRole :: Lens' UserSettings (Maybe Text)
-usExecutionRole = lens _usExecutionRole (\s a -> s {_usExecutionRole = a})
+--
+-- /Note:/ Consider using 'executionRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usExecutionRole :: Lens.Lens' UserSettings (Lude.Maybe Lude.Text)
+usExecutionRole = Lens.lens (executionRole :: UserSettings -> Lude.Maybe Lude.Text) (\s a -> s {executionRole = a} :: UserSettings)
+{-# DEPRECATED usExecutionRole "Use generic-lens or generic-optics with 'executionRole' instead." #-}
 
-instance FromJSON UserSettings where
+instance Lude.FromJSON UserSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserSettings"
       ( \x ->
           UserSettings'
-            <$> (x .:? "TensorBoardAppSettings")
-            <*> (x .:? "KernelGatewayAppSettings")
-            <*> (x .:? "SecurityGroups" .!= mempty)
-            <*> (x .:? "JupyterServerAppSettings")
-            <*> (x .:? "SharingSettings")
-            <*> (x .:? "ExecutionRole")
+            Lude.<$> (x Lude..:? "TensorBoardAppSettings")
+            Lude.<*> (x Lude..:? "KernelGatewayAppSettings")
+            Lude.<*> (x Lude..:? "SecurityGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "JupyterServerAppSettings")
+            Lude.<*> (x Lude..:? "SharingSettings")
+            Lude.<*> (x Lude..:? "ExecutionRole")
       )
 
-instance Hashable UserSettings
-
-instance NFData UserSettings
-
-instance ToJSON UserSettings where
+instance Lude.ToJSON UserSettings where
   toJSON UserSettings' {..} =
-    object
-      ( catMaybes
-          [ ("TensorBoardAppSettings" .=) <$> _usTensorBoardAppSettings,
-            ("KernelGatewayAppSettings" .=) <$> _usKernelGatewayAppSettings,
-            ("SecurityGroups" .=) <$> _usSecurityGroups,
-            ("JupyterServerAppSettings" .=) <$> _usJupyterServerAppSettings,
-            ("SharingSettings" .=) <$> _usSharingSettings,
-            ("ExecutionRole" .=) <$> _usExecutionRole
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TensorBoardAppSettings" Lude..=)
+              Lude.<$> tensorBoardAppSettings,
+            ("KernelGatewayAppSettings" Lude..=)
+              Lude.<$> kernelGatewayAppSettings,
+            ("SecurityGroups" Lude..=) Lude.<$> securityGroups,
+            ("JupyterServerAppSettings" Lude..=)
+              Lude.<$> jupyterServerAppSettings,
+            ("SharingSettings" Lude..=) Lude.<$> sharingSettings,
+            ("ExecutionRole" Lude..=) Lude.<$> executionRole
           ]
       )

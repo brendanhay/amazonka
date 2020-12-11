@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.Status where
+module Network.AWS.MediaPackage.Types.Status
+  ( Status
+      ( Status',
+        Failed,
+        InProgress,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Status
-  = Failed
-  | InProgress
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Status = Status' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Status where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing Status from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, succeeded"
+pattern Failed :: Status
+pattern Failed = Status' "FAILED"
 
-instance ToText Status where
-  toText = \case
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Succeeded -> "SUCCEEDED"
+pattern InProgress :: Status
+pattern InProgress = Status' "IN_PROGRESS"
 
-instance Hashable Status
+pattern Succeeded :: Status
+pattern Succeeded = Status' "SUCCEEDED"
 
-instance NFData Status
-
-instance ToByteString Status
-
-instance ToQuery Status
-
-instance ToHeader Status
-
-instance FromJSON Status where
-  parseJSON = parseJSONText "Status"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Succeeded,
+  Status'
+  #-}

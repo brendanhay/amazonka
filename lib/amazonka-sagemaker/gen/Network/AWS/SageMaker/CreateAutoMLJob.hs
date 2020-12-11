@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates an Autopilot job.
 --
---
 -- Find the best performing model after you run an Autopilot job by calling . Deploy that model by following the steps described in <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html Step 6.1: Deploy the Model to Amazon SageMaker Hosting Services> .
---
 -- For information about how to use Autopilot, see <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html Automate Model Development with Amazon SageMaker Autopilot> .
 module Network.AWS.SageMaker.CreateAutoMLJob
-  ( -- * Creating a Request
-    createAutoMLJob,
-    CreateAutoMLJob,
+  ( -- * Creating a request
+    CreateAutoMLJob (..),
+    mkCreateAutoMLJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     camljGenerateCandidateDefinitionsOnly,
     camljProblemType,
     camljAutoMLJobConfig,
@@ -39,202 +32,230 @@ module Network.AWS.SageMaker.CreateAutoMLJob
     camljOutputDataConfig,
     camljRoleARN,
 
-    -- * Destructuring the Response
-    createAutoMLJobResponse,
-    CreateAutoMLJobResponse,
+    -- * Destructuring the response
+    CreateAutoMLJobResponse (..),
+    mkCreateAutoMLJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     camljrsResponseStatus,
     camljrsAutoMLJobARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createAutoMLJob' smart constructor.
+-- | /See:/ 'mkCreateAutoMLJob' smart constructor.
 data CreateAutoMLJob = CreateAutoMLJob'
-  { _camljGenerateCandidateDefinitionsOnly ::
-      !(Maybe Bool),
-    _camljProblemType :: !(Maybe ProblemType),
-    _camljAutoMLJobConfig :: !(Maybe AutoMLJobConfig),
-    _camljAutoMLJobObjective :: !(Maybe AutoMLJobObjective),
-    _camljTags :: !(Maybe [Tag]),
-    _camljAutoMLJobName :: !Text,
-    _camljInputDataConfig :: !(List1 AutoMLChannel),
-    _camljOutputDataConfig :: !AutoMLOutputDataConfig,
-    _camljRoleARN :: !Text
+  { generateCandidateDefinitionsOnly ::
+      Lude.Maybe Lude.Bool,
+    problemType :: Lude.Maybe ProblemType,
+    autoMLJobConfig :: Lude.Maybe AutoMLJobConfig,
+    autoMLJobObjective :: Lude.Maybe AutoMLJobObjective,
+    tags :: Lude.Maybe [Tag],
+    autoMLJobName :: Lude.Text,
+    inputDataConfig :: Lude.NonEmpty AutoMLChannel,
+    outputDataConfig :: AutoMLOutputDataConfig,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAutoMLJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'camljGenerateCandidateDefinitionsOnly' - Generates possible candidates without training a model. A candidate is a combination of data preprocessors, algorithms, and algorithm parameter settings.
---
--- * 'camljProblemType' - Defines the kind of preprocessing and algorithms intended for the candidates. Options include: BinaryClassification, MulticlassClassification, and Regression.
---
--- * 'camljAutoMLJobConfig' - Contains CompletionCriteria and SecurityConfig.
---
--- * 'camljAutoMLJobObjective' - Defines the objective of a an AutoML job. You provide a 'AutoMLJobObjective$MetricName' and Autopilot infers whether to minimize or maximize it. If a metric is not specified, the most commonly used ObjectiveMetric for problem type is automaically selected.
---
--- * 'camljTags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
---
--- * 'camljAutoMLJobName' - Identifies an Autopilot job. Must be unique to your account and is case-insensitive.
---
--- * 'camljInputDataConfig' - Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum of 500 rows.
---
--- * 'camljOutputDataConfig' - Similar to OutputDataConfig supported by Tuning. Format(s) supported: CSV.
---
--- * 'camljRoleARN' - The ARN of the role that is used to access the data.
-createAutoMLJob ::
-  -- | 'camljAutoMLJobName'
-  Text ->
-  -- | 'camljInputDataConfig'
-  NonEmpty AutoMLChannel ->
-  -- | 'camljOutputDataConfig'
+-- * 'autoMLJobConfig' - Contains CompletionCriteria and SecurityConfig.
+-- * 'autoMLJobName' - Identifies an Autopilot job. Must be unique to your account and is case-insensitive.
+-- * 'autoMLJobObjective' - Defines the objective of a an AutoML job. You provide a 'AutoMLJobObjective$MetricName' and Autopilot infers whether to minimize or maximize it. If a metric is not specified, the most commonly used ObjectiveMetric for problem type is automaically selected.
+-- * 'generateCandidateDefinitionsOnly' - Generates possible candidates without training a model. A candidate is a combination of data preprocessors, algorithms, and algorithm parameter settings.
+-- * 'inputDataConfig' - Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum of 500 rows.
+-- * 'outputDataConfig' - Similar to OutputDataConfig supported by Tuning. Format(s) supported: CSV.
+-- * 'problemType' - Defines the kind of preprocessing and algorithms intended for the candidates. Options include: BinaryClassification, MulticlassClassification, and Regression.
+-- * 'roleARN' - The ARN of the role that is used to access the data.
+-- * 'tags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+mkCreateAutoMLJob ::
+  -- | 'autoMLJobName'
+  Lude.Text ->
+  -- | 'inputDataConfig'
+  Lude.NonEmpty AutoMLChannel ->
+  -- | 'outputDataConfig'
   AutoMLOutputDataConfig ->
-  -- | 'camljRoleARN'
-  Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateAutoMLJob
-createAutoMLJob
+mkCreateAutoMLJob
   pAutoMLJobName_
   pInputDataConfig_
   pOutputDataConfig_
   pRoleARN_ =
     CreateAutoMLJob'
-      { _camljGenerateCandidateDefinitionsOnly =
-          Nothing,
-        _camljProblemType = Nothing,
-        _camljAutoMLJobConfig = Nothing,
-        _camljAutoMLJobObjective = Nothing,
-        _camljTags = Nothing,
-        _camljAutoMLJobName = pAutoMLJobName_,
-        _camljInputDataConfig = _List1 # pInputDataConfig_,
-        _camljOutputDataConfig = pOutputDataConfig_,
-        _camljRoleARN = pRoleARN_
+      { generateCandidateDefinitionsOnly = Lude.Nothing,
+        problemType = Lude.Nothing,
+        autoMLJobConfig = Lude.Nothing,
+        autoMLJobObjective = Lude.Nothing,
+        tags = Lude.Nothing,
+        autoMLJobName = pAutoMLJobName_,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        roleARN = pRoleARN_
       }
 
 -- | Generates possible candidates without training a model. A candidate is a combination of data preprocessors, algorithms, and algorithm parameter settings.
-camljGenerateCandidateDefinitionsOnly :: Lens' CreateAutoMLJob (Maybe Bool)
-camljGenerateCandidateDefinitionsOnly = lens _camljGenerateCandidateDefinitionsOnly (\s a -> s {_camljGenerateCandidateDefinitionsOnly = a})
+--
+-- /Note:/ Consider using 'generateCandidateDefinitionsOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljGenerateCandidateDefinitionsOnly :: Lens.Lens' CreateAutoMLJob (Lude.Maybe Lude.Bool)
+camljGenerateCandidateDefinitionsOnly = Lens.lens (generateCandidateDefinitionsOnly :: CreateAutoMLJob -> Lude.Maybe Lude.Bool) (\s a -> s {generateCandidateDefinitionsOnly = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljGenerateCandidateDefinitionsOnly "Use generic-lens or generic-optics with 'generateCandidateDefinitionsOnly' instead." #-}
 
 -- | Defines the kind of preprocessing and algorithms intended for the candidates. Options include: BinaryClassification, MulticlassClassification, and Regression.
-camljProblemType :: Lens' CreateAutoMLJob (Maybe ProblemType)
-camljProblemType = lens _camljProblemType (\s a -> s {_camljProblemType = a})
+--
+-- /Note:/ Consider using 'problemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljProblemType :: Lens.Lens' CreateAutoMLJob (Lude.Maybe ProblemType)
+camljProblemType = Lens.lens (problemType :: CreateAutoMLJob -> Lude.Maybe ProblemType) (\s a -> s {problemType = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljProblemType "Use generic-lens or generic-optics with 'problemType' instead." #-}
 
 -- | Contains CompletionCriteria and SecurityConfig.
-camljAutoMLJobConfig :: Lens' CreateAutoMLJob (Maybe AutoMLJobConfig)
-camljAutoMLJobConfig = lens _camljAutoMLJobConfig (\s a -> s {_camljAutoMLJobConfig = a})
+--
+-- /Note:/ Consider using 'autoMLJobConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljAutoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Lude.Maybe AutoMLJobConfig)
+camljAutoMLJobConfig = Lens.lens (autoMLJobConfig :: CreateAutoMLJob -> Lude.Maybe AutoMLJobConfig) (\s a -> s {autoMLJobConfig = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljAutoMLJobConfig "Use generic-lens or generic-optics with 'autoMLJobConfig' instead." #-}
 
 -- | Defines the objective of a an AutoML job. You provide a 'AutoMLJobObjective$MetricName' and Autopilot infers whether to minimize or maximize it. If a metric is not specified, the most commonly used ObjectiveMetric for problem type is automaically selected.
-camljAutoMLJobObjective :: Lens' CreateAutoMLJob (Maybe AutoMLJobObjective)
-camljAutoMLJobObjective = lens _camljAutoMLJobObjective (\s a -> s {_camljAutoMLJobObjective = a})
+--
+-- /Note:/ Consider using 'autoMLJobObjective' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljAutoMLJobObjective :: Lens.Lens' CreateAutoMLJob (Lude.Maybe AutoMLJobObjective)
+camljAutoMLJobObjective = Lens.lens (autoMLJobObjective :: CreateAutoMLJob -> Lude.Maybe AutoMLJobObjective) (\s a -> s {autoMLJobObjective = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljAutoMLJobObjective "Use generic-lens or generic-optics with 'autoMLJobObjective' instead." #-}
 
 -- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-camljTags :: Lens' CreateAutoMLJob [Tag]
-camljTags = lens _camljTags (\s a -> s {_camljTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljTags :: Lens.Lens' CreateAutoMLJob (Lude.Maybe [Tag])
+camljTags = Lens.lens (tags :: CreateAutoMLJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Identifies an Autopilot job. Must be unique to your account and is case-insensitive.
-camljAutoMLJobName :: Lens' CreateAutoMLJob Text
-camljAutoMLJobName = lens _camljAutoMLJobName (\s a -> s {_camljAutoMLJobName = a})
+--
+-- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljAutoMLJobName :: Lens.Lens' CreateAutoMLJob Lude.Text
+camljAutoMLJobName = Lens.lens (autoMLJobName :: CreateAutoMLJob -> Lude.Text) (\s a -> s {autoMLJobName = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
 
 -- | Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum of 500 rows.
-camljInputDataConfig :: Lens' CreateAutoMLJob (NonEmpty AutoMLChannel)
-camljInputDataConfig = lens _camljInputDataConfig (\s a -> s {_camljInputDataConfig = a}) . _List1
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljInputDataConfig :: Lens.Lens' CreateAutoMLJob (Lude.NonEmpty AutoMLChannel)
+camljInputDataConfig = Lens.lens (inputDataConfig :: CreateAutoMLJob -> Lude.NonEmpty AutoMLChannel) (\s a -> s {inputDataConfig = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Similar to OutputDataConfig supported by Tuning. Format(s) supported: CSV.
-camljOutputDataConfig :: Lens' CreateAutoMLJob AutoMLOutputDataConfig
-camljOutputDataConfig = lens _camljOutputDataConfig (\s a -> s {_camljOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljOutputDataConfig :: Lens.Lens' CreateAutoMLJob AutoMLOutputDataConfig
+camljOutputDataConfig = Lens.lens (outputDataConfig :: CreateAutoMLJob -> AutoMLOutputDataConfig) (\s a -> s {outputDataConfig = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The ARN of the role that is used to access the data.
-camljRoleARN :: Lens' CreateAutoMLJob Text
-camljRoleARN = lens _camljRoleARN (\s a -> s {_camljRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljRoleARN :: Lens.Lens' CreateAutoMLJob Lude.Text
+camljRoleARN = Lens.lens (roleARN :: CreateAutoMLJob -> Lude.Text) (\s a -> s {roleARN = a} :: CreateAutoMLJob)
+{-# DEPRECATED camljRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateAutoMLJob where
+instance Lude.AWSRequest CreateAutoMLJob where
   type Rs CreateAutoMLJob = CreateAutoMLJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAutoMLJobResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "AutoMLJobArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "AutoMLJobArn")
       )
 
-instance Hashable CreateAutoMLJob
-
-instance NFData CreateAutoMLJob
-
-instance ToHeaders CreateAutoMLJob where
+instance Lude.ToHeaders CreateAutoMLJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateAutoMLJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateAutoMLJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAutoMLJob where
+instance Lude.ToJSON CreateAutoMLJob where
   toJSON CreateAutoMLJob' {..} =
-    object
-      ( catMaybes
-          [ ("GenerateCandidateDefinitionsOnly" .=)
-              <$> _camljGenerateCandidateDefinitionsOnly,
-            ("ProblemType" .=) <$> _camljProblemType,
-            ("AutoMLJobConfig" .=) <$> _camljAutoMLJobConfig,
-            ("AutoMLJobObjective" .=) <$> _camljAutoMLJobObjective,
-            ("Tags" .=) <$> _camljTags,
-            Just ("AutoMLJobName" .= _camljAutoMLJobName),
-            Just ("InputDataConfig" .= _camljInputDataConfig),
-            Just ("OutputDataConfig" .= _camljOutputDataConfig),
-            Just ("RoleArn" .= _camljRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GenerateCandidateDefinitionsOnly" Lude..=)
+              Lude.<$> generateCandidateDefinitionsOnly,
+            ("ProblemType" Lude..=) Lude.<$> problemType,
+            ("AutoMLJobConfig" Lude..=) Lude.<$> autoMLJobConfig,
+            ("AutoMLJobObjective" Lude..=) Lude.<$> autoMLJobObjective,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("AutoMLJobName" Lude..= autoMLJobName),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath CreateAutoMLJob where
-  toPath = const "/"
+instance Lude.ToPath CreateAutoMLJob where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAutoMLJob where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAutoMLJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAutoMLJobResponse' smart constructor.
+-- | /See:/ 'mkCreateAutoMLJobResponse' smart constructor.
 data CreateAutoMLJobResponse = CreateAutoMLJobResponse'
-  { _camljrsResponseStatus ::
-      !Int,
-    _camljrsAutoMLJobARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    autoMLJobARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAutoMLJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'camljrsResponseStatus' - -- | The response status code.
---
--- * 'camljrsAutoMLJobARN' - When a job is created, it is assigned a unique ARN.
-createAutoMLJobResponse ::
-  -- | 'camljrsResponseStatus'
-  Int ->
-  -- | 'camljrsAutoMLJobARN'
-  Text ->
+-- * 'autoMLJobARN' - When a job is created, it is assigned a unique ARN.
+-- * 'responseStatus' - The response status code.
+mkCreateAutoMLJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'autoMLJobARN'
+  Lude.Text ->
   CreateAutoMLJobResponse
-createAutoMLJobResponse pResponseStatus_ pAutoMLJobARN_ =
+mkCreateAutoMLJobResponse pResponseStatus_ pAutoMLJobARN_ =
   CreateAutoMLJobResponse'
-    { _camljrsResponseStatus =
-        pResponseStatus_,
-      _camljrsAutoMLJobARN = pAutoMLJobARN_
+    { responseStatus = pResponseStatus_,
+      autoMLJobARN = pAutoMLJobARN_
     }
 
--- | -- | The response status code.
-camljrsResponseStatus :: Lens' CreateAutoMLJobResponse Int
-camljrsResponseStatus = lens _camljrsResponseStatus (\s a -> s {_camljrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljrsResponseStatus :: Lens.Lens' CreateAutoMLJobResponse Lude.Int
+camljrsResponseStatus = Lens.lens (responseStatus :: CreateAutoMLJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAutoMLJobResponse)
+{-# DEPRECATED camljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | When a job is created, it is assigned a unique ARN.
-camljrsAutoMLJobARN :: Lens' CreateAutoMLJobResponse Text
-camljrsAutoMLJobARN = lens _camljrsAutoMLJobARN (\s a -> s {_camljrsAutoMLJobARN = a})
-
-instance NFData CreateAutoMLJobResponse
+--
+-- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camljrsAutoMLJobARN :: Lens.Lens' CreateAutoMLJobResponse Lude.Text
+camljrsAutoMLJobARN = Lens.lens (autoMLJobARN :: CreateAutoMLJobResponse -> Lude.Text) (\s a -> s {autoMLJobARN = a} :: CreateAutoMLJobResponse)
+{-# DEPRECATED camljrsAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}

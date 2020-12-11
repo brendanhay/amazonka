@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,130 @@
 --
 -- Updates the identity information for the specified user.
 --
---
 -- /Important:/ Someone with the ability to invoke @UpdateUserIndentityInfo@ can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. We strongly recommend limiting who has the ability to invoke @UpdateUserIndentityInfo@ . For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html Best Practices for Security Profiles> in the /Amazon Connect Administrator Guide/ .
 module Network.AWS.Connect.UpdateUserIdentityInfo
-  ( -- * Creating a Request
-    updateUserIdentityInfo,
-    UpdateUserIdentityInfo,
+  ( -- * Creating a request
+    UpdateUserIdentityInfo (..),
+    mkUpdateUserIdentityInfo,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuiiIdentityInfo,
     uuiiUserId,
     uuiiInstanceId,
 
-    -- * Destructuring the Response
-    updateUserIdentityInfoResponse,
-    UpdateUserIdentityInfoResponse,
+    -- * Destructuring the response
+    UpdateUserIdentityInfoResponse (..),
+    mkUpdateUserIdentityInfoResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateUserIdentityInfo' smart constructor.
+-- | /See:/ 'mkUpdateUserIdentityInfo' smart constructor.
 data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
-  { _uuiiIdentityInfo ::
-      !UserIdentityInfo,
-    _uuiiUserId :: !Text,
-    _uuiiInstanceId :: !Text
+  { identityInfo ::
+      UserIdentityInfo,
+    userId :: Lude.Text,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserIdentityInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuiiIdentityInfo' - The identity information for the user.
---
--- * 'uuiiUserId' - The identifier of the user account.
---
--- * 'uuiiInstanceId' - The identifier of the Amazon Connect instance.
-updateUserIdentityInfo ::
-  -- | 'uuiiIdentityInfo'
+-- * 'identityInfo' - The identity information for the user.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'userId' - The identifier of the user account.
+mkUpdateUserIdentityInfo ::
+  -- | 'identityInfo'
   UserIdentityInfo ->
-  -- | 'uuiiUserId'
-  Text ->
-  -- | 'uuiiInstanceId'
-  Text ->
+  -- | 'userId'
+  Lude.Text ->
+  -- | 'instanceId'
+  Lude.Text ->
   UpdateUserIdentityInfo
-updateUserIdentityInfo pIdentityInfo_ pUserId_ pInstanceId_ =
+mkUpdateUserIdentityInfo pIdentityInfo_ pUserId_ pInstanceId_ =
   UpdateUserIdentityInfo'
-    { _uuiiIdentityInfo = pIdentityInfo_,
-      _uuiiUserId = pUserId_,
-      _uuiiInstanceId = pInstanceId_
+    { identityInfo = pIdentityInfo_,
+      userId = pUserId_,
+      instanceId = pInstanceId_
     }
 
 -- | The identity information for the user.
-uuiiIdentityInfo :: Lens' UpdateUserIdentityInfo UserIdentityInfo
-uuiiIdentityInfo = lens _uuiiIdentityInfo (\s a -> s {_uuiiIdentityInfo = a})
+--
+-- /Note:/ Consider using 'identityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuiiIdentityInfo :: Lens.Lens' UpdateUserIdentityInfo UserIdentityInfo
+uuiiIdentityInfo = Lens.lens (identityInfo :: UpdateUserIdentityInfo -> UserIdentityInfo) (\s a -> s {identityInfo = a} :: UpdateUserIdentityInfo)
+{-# DEPRECATED uuiiIdentityInfo "Use generic-lens or generic-optics with 'identityInfo' instead." #-}
 
 -- | The identifier of the user account.
-uuiiUserId :: Lens' UpdateUserIdentityInfo Text
-uuiiUserId = lens _uuiiUserId (\s a -> s {_uuiiUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuiiUserId :: Lens.Lens' UpdateUserIdentityInfo Lude.Text
+uuiiUserId = Lens.lens (userId :: UpdateUserIdentityInfo -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserIdentityInfo)
+{-# DEPRECATED uuiiUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-uuiiInstanceId :: Lens' UpdateUserIdentityInfo Text
-uuiiInstanceId = lens _uuiiInstanceId (\s a -> s {_uuiiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuiiInstanceId :: Lens.Lens' UpdateUserIdentityInfo Lude.Text
+uuiiInstanceId = Lens.lens (instanceId :: UpdateUserIdentityInfo -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserIdentityInfo)
+{-# DEPRECATED uuiiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest UpdateUserIdentityInfo where
+instance Lude.AWSRequest UpdateUserIdentityInfo where
   type Rs UpdateUserIdentityInfo = UpdateUserIdentityInfoResponse
-  request = postJSON connect
-  response = receiveNull UpdateUserIdentityInfoResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateUserIdentityInfoResponse'
 
-instance Hashable UpdateUserIdentityInfo
-
-instance NFData UpdateUserIdentityInfo
-
-instance ToHeaders UpdateUserIdentityInfo where
+instance Lude.ToHeaders UpdateUserIdentityInfo where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateUserIdentityInfo where
+instance Lude.ToJSON UpdateUserIdentityInfo where
   toJSON UpdateUserIdentityInfo' {..} =
-    object (catMaybes [Just ("IdentityInfo" .= _uuiiIdentityInfo)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("IdentityInfo" Lude..= identityInfo)])
 
-instance ToPath UpdateUserIdentityInfo where
+instance Lude.ToPath UpdateUserIdentityInfo where
   toPath UpdateUserIdentityInfo' {..} =
-    mconcat
+    Lude.mconcat
       [ "/users/",
-        toBS _uuiiInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _uuiiUserId,
+        Lude.toBS userId,
         "/identity-info"
       ]
 
-instance ToQuery UpdateUserIdentityInfo where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserIdentityInfo where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserIdentityInfoResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserIdentityInfoResponse' smart constructor.
 data UpdateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserIdentityInfoResponse' with the minimum fields required to make a request.
-updateUserIdentityInfoResponse ::
+mkUpdateUserIdentityInfoResponse ::
   UpdateUserIdentityInfoResponse
-updateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'
-
-instance NFData UpdateUserIdentityInfoResponse
+mkUpdateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'

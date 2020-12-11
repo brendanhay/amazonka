@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType where
+module Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType
+  ( AudioOnlyHlsSegmentType
+      ( AudioOnlyHlsSegmentType',
+        Aac,
+        FMP4
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Only Hls Segment Type
-data AudioOnlyHlsSegmentType
-  = Aac
-  | FMP4
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioOnlyHlsSegmentType = AudioOnlyHlsSegmentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioOnlyHlsSegmentType where
-  parser =
-    takeLowerText >>= \case
-      "aac" -> pure Aac
-      "fmp4" -> pure FMP4
-      e ->
-        fromTextError $
-          "Failure parsing AudioOnlyHlsSegmentType from value: '" <> e
-            <> "'. Accepted values: aac, fmp4"
+pattern Aac :: AudioOnlyHlsSegmentType
+pattern Aac = AudioOnlyHlsSegmentType' "AAC"
 
-instance ToText AudioOnlyHlsSegmentType where
-  toText = \case
-    Aac -> "AAC"
-    FMP4 -> "FMP4"
+pattern FMP4 :: AudioOnlyHlsSegmentType
+pattern FMP4 = AudioOnlyHlsSegmentType' "FMP4"
 
-instance Hashable AudioOnlyHlsSegmentType
-
-instance NFData AudioOnlyHlsSegmentType
-
-instance ToByteString AudioOnlyHlsSegmentType
-
-instance ToQuery AudioOnlyHlsSegmentType
-
-instance ToHeader AudioOnlyHlsSegmentType
-
-instance ToJSON AudioOnlyHlsSegmentType where
-  toJSON = toJSONText
-
-instance FromJSON AudioOnlyHlsSegmentType where
-  parseJSON = parseJSONText "AudioOnlyHlsSegmentType"
+{-# COMPLETE
+  Aac,
+  FMP4,
+  AudioOnlyHlsSegmentType'
+  #-}

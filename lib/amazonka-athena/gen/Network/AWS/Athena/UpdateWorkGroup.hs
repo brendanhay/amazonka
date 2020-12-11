@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,159 @@
 --
 -- Updates the workgroup with the specified name. The workgroup's name cannot be changed.
 module Network.AWS.Athena.UpdateWorkGroup
-  ( -- * Creating a Request
-    updateWorkGroup,
-    UpdateWorkGroup,
+  ( -- * Creating a request
+    UpdateWorkGroup (..),
+    mkUpdateWorkGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uwgState,
     uwgConfigurationUpdates,
     uwgDescription,
     uwgWorkGroup,
 
-    -- * Destructuring the Response
-    updateWorkGroupResponse,
-    UpdateWorkGroupResponse,
+    -- * Destructuring the response
+    UpdateWorkGroupResponse (..),
+    mkUpdateWorkGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uwgrsResponseStatus,
   )
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateWorkGroup' smart constructor.
+-- | /See:/ 'mkUpdateWorkGroup' smart constructor.
 data UpdateWorkGroup = UpdateWorkGroup'
-  { _uwgState ::
-      !(Maybe WorkGroupState),
-    _uwgConfigurationUpdates ::
-      !(Maybe WorkGroupConfigurationUpdates),
-    _uwgDescription :: !(Maybe Text),
-    _uwgWorkGroup :: !Text
+  { state ::
+      Lude.Maybe WorkGroupState,
+    configurationUpdates ::
+      Lude.Maybe WorkGroupConfigurationUpdates,
+    description :: Lude.Maybe Lude.Text,
+    workGroup :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwgState' - The workgroup state that will be updated for the given workgroup.
---
--- * 'uwgConfigurationUpdates' - The workgroup configuration that will be updated for the given workgroup.
---
--- * 'uwgDescription' - The workgroup description.
---
--- * 'uwgWorkGroup' - The specified workgroup that will be updated.
-updateWorkGroup ::
-  -- | 'uwgWorkGroup'
-  Text ->
+-- * 'configurationUpdates' - The workgroup configuration that will be updated for the given workgroup.
+-- * 'description' - The workgroup description.
+-- * 'state' - The workgroup state that will be updated for the given workgroup.
+-- * 'workGroup' - The specified workgroup that will be updated.
+mkUpdateWorkGroup ::
+  -- | 'workGroup'
+  Lude.Text ->
   UpdateWorkGroup
-updateWorkGroup pWorkGroup_ =
+mkUpdateWorkGroup pWorkGroup_ =
   UpdateWorkGroup'
-    { _uwgState = Nothing,
-      _uwgConfigurationUpdates = Nothing,
-      _uwgDescription = Nothing,
-      _uwgWorkGroup = pWorkGroup_
+    { state = Lude.Nothing,
+      configurationUpdates = Lude.Nothing,
+      description = Lude.Nothing,
+      workGroup = pWorkGroup_
     }
 
 -- | The workgroup state that will be updated for the given workgroup.
-uwgState :: Lens' UpdateWorkGroup (Maybe WorkGroupState)
-uwgState = lens _uwgState (\s a -> s {_uwgState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwgState :: Lens.Lens' UpdateWorkGroup (Lude.Maybe WorkGroupState)
+uwgState = Lens.lens (state :: UpdateWorkGroup -> Lude.Maybe WorkGroupState) (\s a -> s {state = a} :: UpdateWorkGroup)
+{-# DEPRECATED uwgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The workgroup configuration that will be updated for the given workgroup.
-uwgConfigurationUpdates :: Lens' UpdateWorkGroup (Maybe WorkGroupConfigurationUpdates)
-uwgConfigurationUpdates = lens _uwgConfigurationUpdates (\s a -> s {_uwgConfigurationUpdates = a})
+--
+-- /Note:/ Consider using 'configurationUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwgConfigurationUpdates :: Lens.Lens' UpdateWorkGroup (Lude.Maybe WorkGroupConfigurationUpdates)
+uwgConfigurationUpdates = Lens.lens (configurationUpdates :: UpdateWorkGroup -> Lude.Maybe WorkGroupConfigurationUpdates) (\s a -> s {configurationUpdates = a} :: UpdateWorkGroup)
+{-# DEPRECATED uwgConfigurationUpdates "Use generic-lens or generic-optics with 'configurationUpdates' instead." #-}
 
 -- | The workgroup description.
-uwgDescription :: Lens' UpdateWorkGroup (Maybe Text)
-uwgDescription = lens _uwgDescription (\s a -> s {_uwgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwgDescription :: Lens.Lens' UpdateWorkGroup (Lude.Maybe Lude.Text)
+uwgDescription = Lens.lens (description :: UpdateWorkGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateWorkGroup)
+{-# DEPRECATED uwgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The specified workgroup that will be updated.
-uwgWorkGroup :: Lens' UpdateWorkGroup Text
-uwgWorkGroup = lens _uwgWorkGroup (\s a -> s {_uwgWorkGroup = a})
+--
+-- /Note:/ Consider using 'workGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwgWorkGroup :: Lens.Lens' UpdateWorkGroup Lude.Text
+uwgWorkGroup = Lens.lens (workGroup :: UpdateWorkGroup -> Lude.Text) (\s a -> s {workGroup = a} :: UpdateWorkGroup)
+{-# DEPRECATED uwgWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
 
-instance AWSRequest UpdateWorkGroup where
+instance Lude.AWSRequest UpdateWorkGroup where
   type Rs UpdateWorkGroup = UpdateWorkGroupResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveEmpty
-      (\s h x -> UpdateWorkGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateWorkGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateWorkGroup
-
-instance NFData UpdateWorkGroup
-
-instance ToHeaders UpdateWorkGroup where
+instance Lude.ToHeaders UpdateWorkGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonAthena.UpdateWorkGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonAthena.UpdateWorkGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateWorkGroup where
+instance Lude.ToJSON UpdateWorkGroup where
   toJSON UpdateWorkGroup' {..} =
-    object
-      ( catMaybes
-          [ ("State" .=) <$> _uwgState,
-            ("ConfigurationUpdates" .=) <$> _uwgConfigurationUpdates,
-            ("Description" .=) <$> _uwgDescription,
-            Just ("WorkGroup" .= _uwgWorkGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("State" Lude..=) Lude.<$> state,
+            ("ConfigurationUpdates" Lude..=) Lude.<$> configurationUpdates,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("WorkGroup" Lude..= workGroup)
           ]
       )
 
-instance ToPath UpdateWorkGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateWorkGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateWorkGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateWorkGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateWorkGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateWorkGroupResponse' smart constructor.
 newtype UpdateWorkGroupResponse = UpdateWorkGroupResponse'
-  { _uwgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwgrsResponseStatus' - -- | The response status code.
-updateWorkGroupResponse ::
-  -- | 'uwgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateWorkGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateWorkGroupResponse
-updateWorkGroupResponse pResponseStatus_ =
-  UpdateWorkGroupResponse' {_uwgrsResponseStatus = pResponseStatus_}
+mkUpdateWorkGroupResponse pResponseStatus_ =
+  UpdateWorkGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uwgrsResponseStatus :: Lens' UpdateWorkGroupResponse Int
-uwgrsResponseStatus = lens _uwgrsResponseStatus (\s a -> s {_uwgrsResponseStatus = a})
-
-instance NFData UpdateWorkGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwgrsResponseStatus :: Lens.Lens' UpdateWorkGroupResponse Lude.Int
+uwgrsResponseStatus = Lens.lens (responseStatus :: UpdateWorkGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateWorkGroupResponse)
+{-# DEPRECATED uwgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

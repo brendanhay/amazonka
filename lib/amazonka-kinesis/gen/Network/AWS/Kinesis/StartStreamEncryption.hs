@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,166 @@
 --
 -- Enables or updates server-side encryption using an AWS KMS key for a specified stream.
 --
---
 -- Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to @UPDATING@ . After the update is complete, Kinesis Data Streams sets the status of the stream back to @ACTIVE@ . Updating or applying encryption normally takes a few seconds to complete, but it can take minutes. You can continue to read and write data to your stream while its status is @UPDATING@ . Once the status of the stream is @ACTIVE@ , encryption begins for records written to the stream.
---
 -- API Limits: You can successfully apply a new AWS KMS key for server-side encryption 25 times in a rolling 24-hour period.
---
 -- Note: It can take up to 5 seconds after the stream is in an @ACTIVE@ status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from @PutRecord@ or @PutRecords@ .
 module Network.AWS.Kinesis.StartStreamEncryption
-  ( -- * Creating a Request
-    startStreamEncryption,
-    StartStreamEncryption,
+  ( -- * Creating a request
+    StartStreamEncryption (..),
+    mkStartStreamEncryption,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sStreamName,
     sEncryptionType,
     sKeyId,
 
-    -- * Destructuring the Response
-    startStreamEncryptionResponse,
-    StartStreamEncryptionResponse,
+    -- * Destructuring the response
+    StartStreamEncryptionResponse (..),
+    mkStartStreamEncryptionResponse,
   )
 where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startStreamEncryption' smart constructor.
+-- | /See:/ 'mkStartStreamEncryption' smart constructor.
 data StartStreamEncryption = StartStreamEncryption'
-  { _sStreamName ::
-      !Text,
-    _sEncryptionType :: !EncryptionType,
-    _sKeyId :: !Text
+  { streamName ::
+      Lude.Text,
+    encryptionType :: EncryptionType,
+    keyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encryptionType' - The encryption type to use. The only valid value is @KMS@ .
+-- * 'keyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
 --
--- * 'sStreamName' - The name of the stream for which to start encrypting records.
 --
--- * 'sEncryptionType' - The encryption type to use. The only valid value is @KMS@ .
+--     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
--- * 'sKeyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
-startStreamEncryption ::
-  -- | 'sStreamName'
-  Text ->
-  -- | 'sEncryptionType'
+--
+--     * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@
+--
+--
+--     * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias name example: @alias/MyAliasName@
+--
+--
+--     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--
+--
+-- * 'streamName' - The name of the stream for which to start encrypting records.
+mkStartStreamEncryption ::
+  -- | 'streamName'
+  Lude.Text ->
+  -- | 'encryptionType'
   EncryptionType ->
-  -- | 'sKeyId'
-  Text ->
+  -- | 'keyId'
+  Lude.Text ->
   StartStreamEncryption
-startStreamEncryption pStreamName_ pEncryptionType_ pKeyId_ =
+mkStartStreamEncryption pStreamName_ pEncryptionType_ pKeyId_ =
   StartStreamEncryption'
-    { _sStreamName = pStreamName_,
-      _sEncryptionType = pEncryptionType_,
-      _sKeyId = pKeyId_
+    { streamName = pStreamName_,
+      encryptionType = pEncryptionType_,
+      keyId = pKeyId_
     }
 
 -- | The name of the stream for which to start encrypting records.
-sStreamName :: Lens' StartStreamEncryption Text
-sStreamName = lens _sStreamName (\s a -> s {_sStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStreamName :: Lens.Lens' StartStreamEncryption Lude.Text
+sStreamName = Lens.lens (streamName :: StartStreamEncryption -> Lude.Text) (\s a -> s {streamName = a} :: StartStreamEncryption)
+{-# DEPRECATED sStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The encryption type to use. The only valid value is @KMS@ .
-sEncryptionType :: Lens' StartStreamEncryption EncryptionType
-sEncryptionType = lens _sEncryptionType (\s a -> s {_sEncryptionType = a})
+--
+-- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEncryptionType :: Lens.Lens' StartStreamEncryption EncryptionType
+sEncryptionType = Lens.lens (encryptionType :: StartStreamEncryption -> EncryptionType) (\s a -> s {encryptionType = a} :: StartStreamEncryption)
+{-# DEPRECATED sEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
--- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
-sKeyId :: Lens' StartStreamEncryption Text
-sKeyId = lens _sKeyId (\s a -> s {_sKeyId = a})
+-- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
+--
+--
+--     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@
+--
+--
+--     * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@
+--
+--
+--     * Alias name example: @alias/MyAliasName@
+--
+--
+--     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--
+--
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sKeyId :: Lens.Lens' StartStreamEncryption Lude.Text
+sKeyId = Lens.lens (keyId :: StartStreamEncryption -> Lude.Text) (\s a -> s {keyId = a} :: StartStreamEncryption)
+{-# DEPRECATED sKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance AWSRequest StartStreamEncryption where
+instance Lude.AWSRequest StartStreamEncryption where
   type Rs StartStreamEncryption = StartStreamEncryptionResponse
-  request = postJSON kinesis
-  response = receiveNull StartStreamEncryptionResponse'
+  request = Req.postJSON kinesisService
+  response = Res.receiveNull StartStreamEncryptionResponse'
 
-instance Hashable StartStreamEncryption
-
-instance NFData StartStreamEncryption
-
-instance ToHeaders StartStreamEncryption where
+instance Lude.ToHeaders StartStreamEncryption where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Kinesis_20131202.StartStreamEncryption" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Kinesis_20131202.StartStreamEncryption" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartStreamEncryption where
+instance Lude.ToJSON StartStreamEncryption where
   toJSON StartStreamEncryption' {..} =
-    object
-      ( catMaybes
-          [ Just ("StreamName" .= _sStreamName),
-            Just ("EncryptionType" .= _sEncryptionType),
-            Just ("KeyId" .= _sKeyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("StreamName" Lude..= streamName),
+            Lude.Just ("EncryptionType" Lude..= encryptionType),
+            Lude.Just ("KeyId" Lude..= keyId)
           ]
       )
 
-instance ToPath StartStreamEncryption where
-  toPath = const "/"
+instance Lude.ToPath StartStreamEncryption where
+  toPath = Lude.const "/"
 
-instance ToQuery StartStreamEncryption where
-  toQuery = const mempty
+instance Lude.ToQuery StartStreamEncryption where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startStreamEncryptionResponse' smart constructor.
+-- | /See:/ 'mkStartStreamEncryptionResponse' smart constructor.
 data StartStreamEncryptionResponse = StartStreamEncryptionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamEncryptionResponse' with the minimum fields required to make a request.
-startStreamEncryptionResponse ::
+mkStartStreamEncryptionResponse ::
   StartStreamEncryptionResponse
-startStreamEncryptionResponse = StartStreamEncryptionResponse'
-
-instance NFData StartStreamEncryptionResponse
+mkStartStreamEncryptionResponse = StartStreamEncryptionResponse'

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types
-  ( -- * Service Configuration
-    cloudWatchEvents,
+  ( -- * Service configuration
+    cloudWatchEventsService,
 
     -- * Errors
 
@@ -34,15 +32,15 @@ module Network.AWS.CloudWatchEvents.Types
     RuleState (..),
 
     -- * AWSVPCConfiguration
-    AWSVPCConfiguration,
-    awsVPCConfiguration,
+    AWSVPCConfiguration (..),
+    mkAWSVPCConfiguration,
     avcSecurityGroups,
     avcAssignPublicIP,
     avcSubnets,
 
     -- * Archive
-    Archive,
-    archive,
+    Archive (..),
+    mkArchive,
     aCreationTime,
     aSizeBytes,
     aEventSourceARN,
@@ -53,38 +51,38 @@ module Network.AWS.CloudWatchEvents.Types
     aStateReason,
 
     -- * BatchArrayProperties
-    BatchArrayProperties,
-    batchArrayProperties,
+    BatchArrayProperties (..),
+    mkBatchArrayProperties,
     bapSize,
 
     -- * BatchParameters
-    BatchParameters,
-    batchParameters,
+    BatchParameters (..),
+    mkBatchParameters,
     bpRetryStrategy,
     bpArrayProperties,
     bpJobDefinition,
     bpJobName,
 
     -- * BatchRetryStrategy
-    BatchRetryStrategy,
-    batchRetryStrategy,
+    BatchRetryStrategy (..),
+    mkBatchRetryStrategy,
     brsAttempts,
 
     -- * Condition
-    Condition,
-    condition,
+    Condition (..),
+    mkCondition,
     cType,
     cKey,
     cValue,
 
     -- * DeadLetterConfig
-    DeadLetterConfig,
-    deadLetterConfig,
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
     dlcARN,
 
     -- * EcsParameters
-    EcsParameters,
-    ecsParameters,
+    EcsParameters (..),
+    mkEcsParameters,
     epGroup,
     epPlatformVersion,
     epLaunchType,
@@ -93,15 +91,15 @@ module Network.AWS.CloudWatchEvents.Types
     epTaskDefinitionARN,
 
     -- * EventBus
-    EventBus,
-    eventBus,
+    EventBus (..),
+    mkEventBus,
     ebARN,
     ebName,
     ebPolicy,
 
     -- * EventSource
-    EventSource,
-    eventSource,
+    EventSource (..),
+    mkEventSource,
     esCreationTime,
     esState,
     esARN,
@@ -110,45 +108,45 @@ module Network.AWS.CloudWatchEvents.Types
     esExpirationTime,
 
     -- * HTTPParameters
-    HTTPParameters,
-    hTTPParameters,
+    HTTPParameters (..),
+    mkHTTPParameters,
     httppPathParameterValues,
     httppQueryStringParameters,
     httppHeaderParameters,
 
     -- * InputTransformer
-    InputTransformer,
-    inputTransformer,
+    InputTransformer (..),
+    mkInputTransformer,
     itInputPathsMap,
     itInputTemplate,
 
     -- * KinesisParameters
-    KinesisParameters,
-    kinesisParameters,
+    KinesisParameters (..),
+    mkKinesisParameters,
     kpPartitionKeyPath,
 
     -- * NetworkConfiguration
-    NetworkConfiguration,
-    networkConfiguration,
+    NetworkConfiguration (..),
+    mkNetworkConfiguration,
     ncAwsvpcConfiguration,
 
     -- * PartnerEventSource
-    PartnerEventSource,
-    partnerEventSource,
+    PartnerEventSource (..),
+    mkPartnerEventSource,
     pesARN,
     pesName,
 
     -- * PartnerEventSourceAccount
-    PartnerEventSourceAccount,
-    partnerEventSourceAccount,
+    PartnerEventSourceAccount (..),
+    mkPartnerEventSourceAccount,
     pesaCreationTime,
     pesaState,
     pesaAccount,
     pesaExpirationTime,
 
     -- * PutEventsRequestEntry
-    PutEventsRequestEntry,
-    putEventsRequestEntry,
+    PutEventsRequestEntry (..),
+    mkPutEventsRequestEntry,
     pereTime,
     pereDetailType,
     pereResources,
@@ -157,15 +155,15 @@ module Network.AWS.CloudWatchEvents.Types
     pereDetail,
 
     -- * PutEventsResultEntry
-    PutEventsResultEntry,
-    putEventsResultEntry,
+    PutEventsResultEntry (..),
+    mkPutEventsResultEntry,
     pereErrorCode,
     pereErrorMessage,
     pereEventId,
 
     -- * PutPartnerEventsRequestEntry
-    PutPartnerEventsRequestEntry,
-    putPartnerEventsRequestEntry,
+    PutPartnerEventsRequestEntry (..),
+    mkPutPartnerEventsRequestEntry,
     ppereTime,
     ppereDetailType,
     ppereResources,
@@ -173,22 +171,22 @@ module Network.AWS.CloudWatchEvents.Types
     ppereDetail,
 
     -- * PutPartnerEventsResultEntry
-    PutPartnerEventsResultEntry,
-    putPartnerEventsResultEntry,
+    PutPartnerEventsResultEntry (..),
+    mkPutPartnerEventsResultEntry,
     ppereErrorCode,
     ppereErrorMessage,
     ppereEventId,
 
     -- * PutTargetsResultEntry
-    PutTargetsResultEntry,
-    putTargetsResultEntry,
+    PutTargetsResultEntry (..),
+    mkPutTargetsResultEntry,
     ptreTargetId,
     ptreErrorCode,
     ptreErrorMessage,
 
     -- * RedshiftDataParameters
-    RedshiftDataParameters,
-    redshiftDataParameters,
+    RedshiftDataParameters (..),
+    mkRedshiftDataParameters,
     rdpDBUser,
     rdpSecretManagerARN,
     rdpStatementName,
@@ -197,15 +195,15 @@ module Network.AWS.CloudWatchEvents.Types
     rdpSql,
 
     -- * RemoveTargetsResultEntry
-    RemoveTargetsResultEntry,
-    removeTargetsResultEntry,
+    RemoveTargetsResultEntry (..),
+    mkRemoveTargetsResultEntry,
     rtreTargetId,
     rtreErrorCode,
     rtreErrorMessage,
 
     -- * Replay
-    Replay,
-    replay,
+    Replay (..),
+    mkReplay,
     repEventSourceARN,
     repState,
     repEventEndTime,
@@ -217,20 +215,20 @@ module Network.AWS.CloudWatchEvents.Types
     repStateReason,
 
     -- * ReplayDestination
-    ReplayDestination,
-    replayDestination,
+    ReplayDestination (..),
+    mkReplayDestination,
     rdFilterARNs,
     rdARN,
 
     -- * RetryPolicy
-    RetryPolicy,
-    retryPolicy,
+    RetryPolicy (..),
+    mkRetryPolicy,
     rpMaximumEventAgeInSeconds,
     rpMaximumRetryAttempts,
 
     -- * Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rEventPattern,
     rState,
     rARN,
@@ -242,30 +240,30 @@ module Network.AWS.CloudWatchEvents.Types
     rRoleARN,
 
     -- * RunCommandParameters
-    RunCommandParameters,
-    runCommandParameters,
+    RunCommandParameters (..),
+    mkRunCommandParameters,
     rcpRunCommandTargets,
 
     -- * RunCommandTarget
-    RunCommandTarget,
-    runCommandTarget,
+    RunCommandTarget (..),
+    mkRunCommandTarget,
     rctKey,
     rctValues,
 
     -- * SqsParameters
-    SqsParameters,
-    sqsParameters,
+    SqsParameters (..),
+    mkSqsParameters,
     spMessageGroupId,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Target
-    Target,
-    target,
+    Target (..),
+    mkTarget,
     tRunCommandParameters,
     tHTTPParameters,
     tKinesisParameters,
@@ -322,48 +320,60 @@ import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
 import Network.AWS.CloudWatchEvents.Types.SqsParameters
 import Network.AWS.CloudWatchEvents.Types.Tag
 import Network.AWS.CloudWatchEvents.Types.Target
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-10-07@ of the Amazon EventBridge SDK configuration.
-cloudWatchEvents :: Service
-cloudWatchEvents =
-  Service
-    { _svcAbbrev = "CloudWatchEvents",
-      _svcSigner = v4,
-      _svcPrefix = "events",
-      _svcVersion = "2015-10-07",
-      _svcEndpoint = defaultEndpoint cloudWatchEvents,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CloudWatchEvents",
-      _svcRetry = retry
+cloudWatchEventsService :: Lude.Service
+cloudWatchEventsService =
+  Lude.Service
+    { Lude._svcAbbrev = "CloudWatchEvents",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "events",
+      Lude._svcVersion = "2015-10-07",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloudWatchEventsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CloudWatchEvents",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

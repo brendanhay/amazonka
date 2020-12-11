@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,146 @@
 --
 -- Retrieves information about the settings and attributes of a specific endpoint for an application.
 module Network.AWS.Pinpoint.GetEndpoint
-  ( -- * Creating a Request
-    getEndpoint,
-    GetEndpoint,
+  ( -- * Creating a request
+    GetEndpoint (..),
+    mkGetEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     geApplicationId,
     geEndpointId,
 
-    -- * Destructuring the Response
-    getEndpointResponse,
-    GetEndpointResponse,
+    -- * Destructuring the response
+    GetEndpointResponse (..),
+    mkGetEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gersResponseStatus,
     gersEndpointResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getEndpoint' smart constructor.
+-- | /See:/ 'mkGetEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-  { _geApplicationId :: !Text,
-    _geEndpointId :: !Text
+  { applicationId :: Lude.Text,
+    endpointId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'geApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'geEndpointId' - The unique identifier for the endpoint.
-getEndpoint ::
-  -- | 'geApplicationId'
-  Text ->
-  -- | 'geEndpointId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'endpointId' - The unique identifier for the endpoint.
+mkGetEndpoint ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'endpointId'
+  Lude.Text ->
   GetEndpoint
-getEndpoint pApplicationId_ pEndpointId_ =
+mkGetEndpoint pApplicationId_ pEndpointId_ =
   GetEndpoint'
-    { _geApplicationId = pApplicationId_,
-      _geEndpointId = pEndpointId_
+    { applicationId = pApplicationId_,
+      endpointId = pEndpointId_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-geApplicationId :: Lens' GetEndpoint Text
-geApplicationId = lens _geApplicationId (\s a -> s {_geApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geApplicationId :: Lens.Lens' GetEndpoint Lude.Text
+geApplicationId = Lens.lens (applicationId :: GetEndpoint -> Lude.Text) (\s a -> s {applicationId = a} :: GetEndpoint)
+{-# DEPRECATED geApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the endpoint.
-geEndpointId :: Lens' GetEndpoint Text
-geEndpointId = lens _geEndpointId (\s a -> s {_geEndpointId = a})
+--
+-- /Note:/ Consider using 'endpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geEndpointId :: Lens.Lens' GetEndpoint Lude.Text
+geEndpointId = Lens.lens (endpointId :: GetEndpoint -> Lude.Text) (\s a -> s {endpointId = a} :: GetEndpoint)
+{-# DEPRECATED geEndpointId "Use generic-lens or generic-optics with 'endpointId' instead." #-}
 
-instance AWSRequest GetEndpoint where
+instance Lude.AWSRequest GetEndpoint where
   type Rs GetEndpoint = GetEndpointResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetEndpointResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetEndpoint
-
-instance NFData GetEndpoint
-
-instance ToHeaders GetEndpoint where
+instance Lude.ToHeaders GetEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetEndpoint where
+instance Lude.ToPath GetEndpoint where
   toPath GetEndpoint' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _geApplicationId,
+        Lude.toBS applicationId,
         "/endpoints/",
-        toBS _geEndpointId
+        Lude.toBS endpointId
       ]
 
-instance ToQuery GetEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery GetEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getEndpointResponse' smart constructor.
+-- | /See:/ 'mkGetEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
-  { _gersResponseStatus ::
-      !Int,
-    _gersEndpointResponse :: !EndpointResponse
+  { responseStatus ::
+      Lude.Int,
+    endpointResponse :: EndpointResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gersResponseStatus' - -- | The response status code.
---
--- * 'gersEndpointResponse' - Undocumented member.
-getEndpointResponse ::
-  -- | 'gersResponseStatus'
-  Int ->
-  -- | 'gersEndpointResponse'
+-- * 'endpointResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointResponse'
   EndpointResponse ->
   GetEndpointResponse
-getEndpointResponse pResponseStatus_ pEndpointResponse_ =
+mkGetEndpointResponse pResponseStatus_ pEndpointResponse_ =
   GetEndpointResponse'
-    { _gersResponseStatus = pResponseStatus_,
-      _gersEndpointResponse = pEndpointResponse_
+    { responseStatus = pResponseStatus_,
+      endpointResponse = pEndpointResponse_
     }
 
--- | -- | The response status code.
-gersResponseStatus :: Lens' GetEndpointResponse Int
-gersResponseStatus = lens _gersResponseStatus (\s a -> s {_gersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersResponseStatus :: Lens.Lens' GetEndpointResponse Lude.Int
+gersResponseStatus = Lens.lens (responseStatus :: GetEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEndpointResponse)
+{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gersEndpointResponse :: Lens' GetEndpointResponse EndpointResponse
-gersEndpointResponse = lens _gersEndpointResponse (\s a -> s {_gersEndpointResponse = a})
-
-instance NFData GetEndpointResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpointResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersEndpointResponse :: Lens.Lens' GetEndpointResponse EndpointResponse
+gersEndpointResponse = Lens.lens (endpointResponse :: GetEndpointResponse -> EndpointResponse) (\s a -> s {endpointResponse = a} :: GetEndpointResponse)
+{-# DEPRECATED gersEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}

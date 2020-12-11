@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,134 @@
 --
 -- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC route tables have existing routes for address ranges within the @10.0.0.0/8@ IP address range, excluding local routes for VPCs in the @10.0.0.0/16@ and @10.1.0.0/16@ IP address ranges. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.EnableVPCClassicLink
-  ( -- * Creating a Request
-    enableVPCClassicLink,
-    EnableVPCClassicLink,
+  ( -- * Creating a request
+    EnableVPCClassicLink (..),
+    mkEnableVPCClassicLink,
 
-    -- * Request Lenses
+    -- ** Request lenses
     evclDryRun,
     evclVPCId,
 
-    -- * Destructuring the Response
-    enableVPCClassicLinkResponse,
-    EnableVPCClassicLinkResponse,
+    -- * Destructuring the response
+    EnableVPCClassicLinkResponse (..),
+    mkEnableVPCClassicLinkResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     evclrsReturn,
     evclrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableVPCClassicLink' smart constructor.
+-- | /See:/ 'mkEnableVPCClassicLink' smart constructor.
 data EnableVPCClassicLink = EnableVPCClassicLink'
-  { _evclDryRun ::
-      !(Maybe Bool),
-    _evclVPCId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableVPCClassicLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evclDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'evclVPCId' - The ID of the VPC.
-enableVPCClassicLink ::
-  -- | 'evclVPCId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcId' - The ID of the VPC.
+mkEnableVPCClassicLink ::
+  -- | 'vpcId'
+  Lude.Text ->
   EnableVPCClassicLink
-enableVPCClassicLink pVPCId_ =
-  EnableVPCClassicLink'
-    { _evclDryRun = Nothing,
-      _evclVPCId = pVPCId_
-    }
+mkEnableVPCClassicLink pVPCId_ =
+  EnableVPCClassicLink' {dryRun = Lude.Nothing, vpcId = pVPCId_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
-evclDryRun = lens _evclDryRun (\s a -> s {_evclDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evclDryRun :: Lens.Lens' EnableVPCClassicLink (Lude.Maybe Lude.Bool)
+evclDryRun = Lens.lens (dryRun :: EnableVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableVPCClassicLink)
+{-# DEPRECATED evclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC.
-evclVPCId :: Lens' EnableVPCClassicLink Text
-evclVPCId = lens _evclVPCId (\s a -> s {_evclVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evclVPCId :: Lens.Lens' EnableVPCClassicLink Lude.Text
+evclVPCId = Lens.lens (vpcId :: EnableVPCClassicLink -> Lude.Text) (\s a -> s {vpcId = a} :: EnableVPCClassicLink)
+{-# DEPRECATED evclVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest EnableVPCClassicLink where
+instance Lude.AWSRequest EnableVPCClassicLink where
   type Rs EnableVPCClassicLink = EnableVPCClassicLinkResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           EnableVPCClassicLinkResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableVPCClassicLink
+instance Lude.ToHeaders EnableVPCClassicLink where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData EnableVPCClassicLink
+instance Lude.ToPath EnableVPCClassicLink where
+  toPath = Lude.const "/"
 
-instance ToHeaders EnableVPCClassicLink where
-  toHeaders = const mempty
-
-instance ToPath EnableVPCClassicLink where
-  toPath = const "/"
-
-instance ToQuery EnableVPCClassicLink where
+instance Lude.ToQuery EnableVPCClassicLink where
   toQuery EnableVPCClassicLink' {..} =
-    mconcat
-      [ "Action" =: ("EnableVpcClassicLink" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _evclDryRun,
-        "VpcId" =: _evclVPCId
+    Lude.mconcat
+      [ "Action" Lude.=: ("EnableVpcClassicLink" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'enableVPCClassicLinkResponse' smart constructor.
+-- | /See:/ 'mkEnableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
-  { _evclrsReturn ::
-      !(Maybe Bool),
-    _evclrsResponseStatus :: !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evclrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'evclrsResponseStatus' - -- | The response status code.
-enableVPCClassicLinkResponse ::
-  -- | 'evclrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkEnableVPCClassicLinkResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse pResponseStatus_ =
+mkEnableVPCClassicLinkResponse pResponseStatus_ =
   EnableVPCClassicLinkResponse'
-    { _evclrsReturn = Nothing,
-      _evclrsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
-evclrsReturn = lens _evclrsReturn (\s a -> s {_evclrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evclrsReturn :: Lens.Lens' EnableVPCClassicLinkResponse (Lude.Maybe Lude.Bool)
+evclrsReturn = Lens.lens (return :: EnableVPCClassicLinkResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: EnableVPCClassicLinkResponse)
+{-# DEPRECATED evclrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
-evclrsResponseStatus = lens _evclrsResponseStatus (\s a -> s {_evclrsResponseStatus = a})
-
-instance NFData EnableVPCClassicLinkResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evclrsResponseStatus :: Lens.Lens' EnableVPCClassicLinkResponse Lude.Int
+evclrsResponseStatus = Lens.lens (responseStatus :: EnableVPCClassicLinkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableVPCClassicLinkResponse)
+{-# DEPRECATED evclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

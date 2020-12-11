@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a room with the specified details.
 module Network.AWS.AlexaBusiness.CreateRoom
-  ( -- * Creating a Request
-    createRoom,
-    CreateRoom,
+  ( -- * Creating a request
+    CreateRoom (..),
+    mkCreateRoom,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crProfileARN,
     crProviderCalendarId,
     crClientRequestToken,
@@ -31,158 +26,183 @@ module Network.AWS.AlexaBusiness.CreateRoom
     crTags,
     crRoomName,
 
-    -- * Destructuring the Response
-    createRoomResponse,
-    CreateRoomResponse,
+    -- * Destructuring the response
+    CreateRoomResponse (..),
+    mkCreateRoomResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsRoomARN,
     crrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createRoom' smart constructor.
+-- | /See:/ 'mkCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
-  { _crProfileARN :: !(Maybe Text),
-    _crProviderCalendarId :: !(Maybe Text),
-    _crClientRequestToken :: !(Maybe Text),
-    _crDescription :: !(Maybe Text),
-    _crTags :: !(Maybe [Tag]),
-    _crRoomName :: !Text
+  { profileARN :: Lude.Maybe Lude.Text,
+    providerCalendarId :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    roomName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crProfileARN' - The profile ARN for the room. This is required.
---
--- * 'crProviderCalendarId' - The calendar ARN for the room.
---
--- * 'crClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
---
--- * 'crDescription' - The description for the room.
---
--- * 'crTags' - The tags for the room.
---
--- * 'crRoomName' - The name for the room.
-createRoom ::
-  -- | 'crRoomName'
-  Text ->
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- * 'description' - The description for the room.
+-- * 'profileARN' - The profile ARN for the room. This is required.
+-- * 'providerCalendarId' - The calendar ARN for the room.
+-- * 'roomName' - The name for the room.
+-- * 'tags' - The tags for the room.
+mkCreateRoom ::
+  -- | 'roomName'
+  Lude.Text ->
   CreateRoom
-createRoom pRoomName_ =
+mkCreateRoom pRoomName_ =
   CreateRoom'
-    { _crProfileARN = Nothing,
-      _crProviderCalendarId = Nothing,
-      _crClientRequestToken = Nothing,
-      _crDescription = Nothing,
-      _crTags = Nothing,
-      _crRoomName = pRoomName_
+    { profileARN = Lude.Nothing,
+      providerCalendarId = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      roomName = pRoomName_
     }
 
 -- | The profile ARN for the room. This is required.
-crProfileARN :: Lens' CreateRoom (Maybe Text)
-crProfileARN = lens _crProfileARN (\s a -> s {_crProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crProfileARN :: Lens.Lens' CreateRoom (Lude.Maybe Lude.Text)
+crProfileARN = Lens.lens (profileARN :: CreateRoom -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: CreateRoom)
+{-# DEPRECATED crProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
 -- | The calendar ARN for the room.
-crProviderCalendarId :: Lens' CreateRoom (Maybe Text)
-crProviderCalendarId = lens _crProviderCalendarId (\s a -> s {_crProviderCalendarId = a})
+--
+-- /Note:/ Consider using 'providerCalendarId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crProviderCalendarId :: Lens.Lens' CreateRoom (Lude.Maybe Lude.Text)
+crProviderCalendarId = Lens.lens (providerCalendarId :: CreateRoom -> Lude.Maybe Lude.Text) (\s a -> s {providerCalendarId = a} :: CreateRoom)
+{-# DEPRECATED crProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
 
 -- | A unique, user-specified identifier for this request that ensures idempotency.
-crClientRequestToken :: Lens' CreateRoom (Maybe Text)
-crClientRequestToken = lens _crClientRequestToken (\s a -> s {_crClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crClientRequestToken :: Lens.Lens' CreateRoom (Lude.Maybe Lude.Text)
+crClientRequestToken = Lens.lens (clientRequestToken :: CreateRoom -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateRoom)
+{-# DEPRECATED crClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The description for the room.
-crDescription :: Lens' CreateRoom (Maybe Text)
-crDescription = lens _crDescription (\s a -> s {_crDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDescription :: Lens.Lens' CreateRoom (Lude.Maybe Lude.Text)
+crDescription = Lens.lens (description :: CreateRoom -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateRoom)
+{-# DEPRECATED crDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the room.
-crTags :: Lens' CreateRoom [Tag]
-crTags = lens _crTags (\s a -> s {_crTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRoom (Lude.Maybe [Tag])
+crTags = Lens.lens (tags :: CreateRoom -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRoom)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the room.
-crRoomName :: Lens' CreateRoom Text
-crRoomName = lens _crRoomName (\s a -> s {_crRoomName = a})
+--
+-- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRoomName :: Lens.Lens' CreateRoom Lude.Text
+crRoomName = Lens.lens (roomName :: CreateRoom -> Lude.Text) (\s a -> s {roomName = a} :: CreateRoom)
+{-# DEPRECATED crRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
-instance AWSRequest CreateRoom where
+instance Lude.AWSRequest CreateRoom where
   type Rs CreateRoom = CreateRoomResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateRoomResponse' <$> (x .?> "RoomArn") <*> (pure (fromEnum s))
+          CreateRoomResponse'
+            Lude.<$> (x Lude..?> "RoomArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRoom
-
-instance NFData CreateRoom
-
-instance ToHeaders CreateRoom where
+instance Lude.ToHeaders CreateRoom where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.CreateRoom" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.CreateRoom" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateRoom where
+instance Lude.ToJSON CreateRoom where
   toJSON CreateRoom' {..} =
-    object
-      ( catMaybes
-          [ ("ProfileArn" .=) <$> _crProfileARN,
-            ("ProviderCalendarId" .=) <$> _crProviderCalendarId,
-            ("ClientRequestToken" .=) <$> _crClientRequestToken,
-            ("Description" .=) <$> _crDescription,
-            ("Tags" .=) <$> _crTags,
-            Just ("RoomName" .= _crRoomName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProfileArn" Lude..=) Lude.<$> profileARN,
+            ("ProviderCalendarId" Lude..=) Lude.<$> providerCalendarId,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("RoomName" Lude..= roomName)
           ]
       )
 
-instance ToPath CreateRoom where
-  toPath = const "/"
+instance Lude.ToPath CreateRoom where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateRoom where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRoom where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createRoomResponse' smart constructor.
+-- | /See:/ 'mkCreateRoomResponse' smart constructor.
 data CreateRoomResponse = CreateRoomResponse'
-  { _crrsRoomARN ::
-      !(Maybe Text),
-    _crrsResponseStatus :: !Int
+  { roomARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoomResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsRoomARN' - The ARN of the newly created room in the response.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createRoomResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'roomARN' - The ARN of the newly created room in the response.
+mkCreateRoomResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRoomResponse
-createRoomResponse pResponseStatus_ =
+mkCreateRoomResponse pResponseStatus_ =
   CreateRoomResponse'
-    { _crrsRoomARN = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { roomARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly created room in the response.
-crrsRoomARN :: Lens' CreateRoomResponse (Maybe Text)
-crrsRoomARN = lens _crrsRoomARN (\s a -> s {_crrsRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRoomARN :: Lens.Lens' CreateRoomResponse (Lude.Maybe Lude.Text)
+crrsRoomARN = Lens.lens (roomARN :: CreateRoomResponse -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: CreateRoomResponse)
+{-# DEPRECATED crrsRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRoomResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateRoomResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateRoomResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRoomResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

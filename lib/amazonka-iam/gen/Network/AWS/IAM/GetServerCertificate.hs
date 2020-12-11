@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,139 @@
 --
 -- Retrieves information about the specified server certificate stored in IAM.
 --
---
 -- For more information about working with server certificates, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ . This topic includes a list of AWS services that can use the server certificates that you manage with IAM.
 module Network.AWS.IAM.GetServerCertificate
-  ( -- * Creating a Request
-    getServerCertificate,
-    GetServerCertificate,
+  ( -- * Creating a request
+    GetServerCertificate (..),
+    mkGetServerCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gscServerCertificateName,
 
-    -- * Destructuring the Response
-    getServerCertificateResponse,
-    GetServerCertificateResponse,
+    -- * Destructuring the response
+    GetServerCertificateResponse (..),
+    mkGetServerCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gscrsResponseStatus,
     gscrsServerCertificate,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getServerCertificate' smart constructor.
+-- | /See:/ 'mkGetServerCertificate' smart constructor.
 newtype GetServerCertificate = GetServerCertificate'
-  { _gscServerCertificateName ::
-      Text
+  { serverCertificateName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServerCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'serverCertificateName' - The name of the server certificate you want to retrieve information about.
 --
--- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getServerCertificate ::
-  -- | 'gscServerCertificateName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetServerCertificate ::
+  -- | 'serverCertificateName'
+  Lude.Text ->
   GetServerCertificate
-getServerCertificate pServerCertificateName_ =
+mkGetServerCertificate pServerCertificateName_ =
   GetServerCertificate'
-    { _gscServerCertificateName =
+    { serverCertificateName =
         pServerCertificateName_
     }
 
--- | The name of the server certificate you want to retrieve information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-gscServerCertificateName :: Lens' GetServerCertificate Text
-gscServerCertificateName = lens _gscServerCertificateName (\s a -> s {_gscServerCertificateName = a})
+-- | The name of the server certificate you want to retrieve information about.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'serverCertificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscServerCertificateName :: Lens.Lens' GetServerCertificate Lude.Text
+gscServerCertificateName = Lens.lens (serverCertificateName :: GetServerCertificate -> Lude.Text) (\s a -> s {serverCertificateName = a} :: GetServerCertificate)
+{-# DEPRECATED gscServerCertificateName "Use generic-lens or generic-optics with 'serverCertificateName' instead." #-}
 
-instance AWSRequest GetServerCertificate where
+instance Lude.AWSRequest GetServerCertificate where
   type Rs GetServerCertificate = GetServerCertificateResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetServerCertificateResult"
       ( \s h x ->
           GetServerCertificateResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "ServerCertificate")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "ServerCertificate")
       )
 
-instance Hashable GetServerCertificate
+instance Lude.ToHeaders GetServerCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetServerCertificate
+instance Lude.ToPath GetServerCertificate where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetServerCertificate where
-  toHeaders = const mempty
-
-instance ToPath GetServerCertificate where
-  toPath = const "/"
-
-instance ToQuery GetServerCertificate where
+instance Lude.ToQuery GetServerCertificate where
   toQuery GetServerCertificate' {..} =
-    mconcat
-      [ "Action" =: ("GetServerCertificate" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "ServerCertificateName" =: _gscServerCertificateName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetServerCertificate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "ServerCertificateName" Lude.=: serverCertificateName
       ]
 
 -- | Contains the response to a successful 'GetServerCertificate' request.
 --
---
---
--- /See:/ 'getServerCertificateResponse' smart constructor.
+-- /See:/ 'mkGetServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
-  { _gscrsResponseStatus ::
-      !Int,
-    _gscrsServerCertificate ::
-      !ServerCertificate
+  { responseStatus ::
+      Lude.Int,
+    serverCertificate ::
+      ServerCertificate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServerCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscrsResponseStatus' - -- | The response status code.
---
--- * 'gscrsServerCertificate' - A structure containing details about the server certificate.
-getServerCertificateResponse ::
-  -- | 'gscrsResponseStatus'
-  Int ->
-  -- | 'gscrsServerCertificate'
+-- * 'responseStatus' - The response status code.
+-- * 'serverCertificate' - A structure containing details about the server certificate.
+mkGetServerCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'serverCertificate'
   ServerCertificate ->
   GetServerCertificateResponse
-getServerCertificateResponse pResponseStatus_ pServerCertificate_ =
+mkGetServerCertificateResponse pResponseStatus_ pServerCertificate_ =
   GetServerCertificateResponse'
-    { _gscrsResponseStatus =
-        pResponseStatus_,
-      _gscrsServerCertificate = pServerCertificate_
+    { responseStatus = pResponseStatus_,
+      serverCertificate = pServerCertificate_
     }
 
--- | -- | The response status code.
-gscrsResponseStatus :: Lens' GetServerCertificateResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\s a -> s {_gscrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsResponseStatus :: Lens.Lens' GetServerCertificateResponse Lude.Int
+gscrsResponseStatus = Lens.lens (responseStatus :: GetServerCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServerCertificateResponse)
+{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the server certificate.
-gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
-gscrsServerCertificate = lens _gscrsServerCertificate (\s a -> s {_gscrsServerCertificate = a})
-
-instance NFData GetServerCertificateResponse
+--
+-- /Note:/ Consider using 'serverCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsServerCertificate :: Lens.Lens' GetServerCertificateResponse ServerCertificate
+gscrsServerCertificate = Lens.lens (serverCertificate :: GetServerCertificateResponse -> ServerCertificate) (\s a -> s {serverCertificate = a} :: GetServerCertificateResponse)
+{-# DEPRECATED gscrsServerCertificate "Use generic-lens or generic-optics with 'serverCertificate' instead." #-}

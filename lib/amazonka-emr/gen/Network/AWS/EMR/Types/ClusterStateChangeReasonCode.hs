@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ClusterStateChangeReasonCode where
+module Network.AWS.EMR.Types.ClusterStateChangeReasonCode
+  ( ClusterStateChangeReasonCode
+      ( ClusterStateChangeReasonCode',
+        CSCRCAllStepsCompleted,
+        CSCRCBootstrapFailure,
+        CSCRCInstanceFailure,
+        CSCRCInstanceFleetTimeout,
+        CSCRCInternalError,
+        CSCRCStepFailure,
+        CSCRCUserRequest,
+        CSCRCValidationError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClusterStateChangeReasonCode
-  = CSCRCAllStepsCompleted
-  | CSCRCBootstrapFailure
-  | CSCRCInstanceFailure
-  | CSCRCInstanceFleetTimeout
-  | CSCRCInternalError
-  | CSCRCStepFailure
-  | CSCRCUserRequest
-  | CSCRCValidationError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClusterStateChangeReasonCode = ClusterStateChangeReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClusterStateChangeReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "all_steps_completed" -> pure CSCRCAllStepsCompleted
-      "bootstrap_failure" -> pure CSCRCBootstrapFailure
-      "instance_failure" -> pure CSCRCInstanceFailure
-      "instance_fleet_timeout" -> pure CSCRCInstanceFleetTimeout
-      "internal_error" -> pure CSCRCInternalError
-      "step_failure" -> pure CSCRCStepFailure
-      "user_request" -> pure CSCRCUserRequest
-      "validation_error" -> pure CSCRCValidationError
-      e ->
-        fromTextError $
-          "Failure parsing ClusterStateChangeReasonCode from value: '" <> e
-            <> "'. Accepted values: all_steps_completed, bootstrap_failure, instance_failure, instance_fleet_timeout, internal_error, step_failure, user_request, validation_error"
+pattern CSCRCAllStepsCompleted :: ClusterStateChangeReasonCode
+pattern CSCRCAllStepsCompleted = ClusterStateChangeReasonCode' "ALL_STEPS_COMPLETED"
 
-instance ToText ClusterStateChangeReasonCode where
-  toText = \case
-    CSCRCAllStepsCompleted -> "ALL_STEPS_COMPLETED"
-    CSCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
-    CSCRCInstanceFailure -> "INSTANCE_FAILURE"
-    CSCRCInstanceFleetTimeout -> "INSTANCE_FLEET_TIMEOUT"
-    CSCRCInternalError -> "INTERNAL_ERROR"
-    CSCRCStepFailure -> "STEP_FAILURE"
-    CSCRCUserRequest -> "USER_REQUEST"
-    CSCRCValidationError -> "VALIDATION_ERROR"
+pattern CSCRCBootstrapFailure :: ClusterStateChangeReasonCode
+pattern CSCRCBootstrapFailure = ClusterStateChangeReasonCode' "BOOTSTRAP_FAILURE"
 
-instance Hashable ClusterStateChangeReasonCode
+pattern CSCRCInstanceFailure :: ClusterStateChangeReasonCode
+pattern CSCRCInstanceFailure = ClusterStateChangeReasonCode' "INSTANCE_FAILURE"
 
-instance NFData ClusterStateChangeReasonCode
+pattern CSCRCInstanceFleetTimeout :: ClusterStateChangeReasonCode
+pattern CSCRCInstanceFleetTimeout = ClusterStateChangeReasonCode' "INSTANCE_FLEET_TIMEOUT"
 
-instance ToByteString ClusterStateChangeReasonCode
+pattern CSCRCInternalError :: ClusterStateChangeReasonCode
+pattern CSCRCInternalError = ClusterStateChangeReasonCode' "INTERNAL_ERROR"
 
-instance ToQuery ClusterStateChangeReasonCode
+pattern CSCRCStepFailure :: ClusterStateChangeReasonCode
+pattern CSCRCStepFailure = ClusterStateChangeReasonCode' "STEP_FAILURE"
 
-instance ToHeader ClusterStateChangeReasonCode
+pattern CSCRCUserRequest :: ClusterStateChangeReasonCode
+pattern CSCRCUserRequest = ClusterStateChangeReasonCode' "USER_REQUEST"
 
-instance FromJSON ClusterStateChangeReasonCode where
-  parseJSON = parseJSONText "ClusterStateChangeReasonCode"
+pattern CSCRCValidationError :: ClusterStateChangeReasonCode
+pattern CSCRCValidationError = ClusterStateChangeReasonCode' "VALIDATION_ERROR"
+
+{-# COMPLETE
+  CSCRCAllStepsCompleted,
+  CSCRCBootstrapFailure,
+  CSCRCInstanceFailure,
+  CSCRCInstanceFleetTimeout,
+  CSCRCInternalError,
+  CSCRCStepFailure,
+  CSCRCUserRequest,
+  CSCRCValidationError,
+  ClusterStateChangeReasonCode'
+  #-}

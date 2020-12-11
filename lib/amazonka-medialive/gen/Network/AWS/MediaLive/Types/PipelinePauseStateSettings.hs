@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.PipelinePauseStateSettings where
+module Network.AWS.MediaLive.Types.PipelinePauseStateSettings
+  ( PipelinePauseStateSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPipelinePauseStateSettings,
+
+    -- * Lenses
+    ppssPipelineId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelineId
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for pausing a pipeline.
 --
--- /See:/ 'pipelinePauseStateSettings' smart constructor.
+-- /See:/ 'mkPipelinePauseStateSettings' smart constructor.
 newtype PipelinePauseStateSettings = PipelinePauseStateSettings'
-  { _ppssPipelineId ::
+  { pipelineId ::
       PipelineId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelinePauseStateSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppssPipelineId' - Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
-pipelinePauseStateSettings ::
-  -- | 'ppssPipelineId'
+-- * 'pipelineId' - Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
+mkPipelinePauseStateSettings ::
+  -- | 'pipelineId'
   PipelineId ->
   PipelinePauseStateSettings
-pipelinePauseStateSettings pPipelineId_ =
-  PipelinePauseStateSettings' {_ppssPipelineId = pPipelineId_}
+mkPipelinePauseStateSettings pPipelineId_ =
+  PipelinePauseStateSettings' {pipelineId = pPipelineId_}
 
 -- | Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
-ppssPipelineId :: Lens' PipelinePauseStateSettings PipelineId
-ppssPipelineId = lens _ppssPipelineId (\s a -> s {_ppssPipelineId = a})
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppssPipelineId :: Lens.Lens' PipelinePauseStateSettings PipelineId
+ppssPipelineId = Lens.lens (pipelineId :: PipelinePauseStateSettings -> PipelineId) (\s a -> s {pipelineId = a} :: PipelinePauseStateSettings)
+{-# DEPRECATED ppssPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
-instance FromJSON PipelinePauseStateSettings where
+instance Lude.FromJSON PipelinePauseStateSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "PipelinePauseStateSettings"
-      (\x -> PipelinePauseStateSettings' <$> (x .: "pipelineId"))
+      ( \x ->
+          PipelinePauseStateSettings' Lude.<$> (x Lude..: "pipelineId")
+      )
 
-instance Hashable PipelinePauseStateSettings
-
-instance NFData PipelinePauseStateSettings
-
-instance ToJSON PipelinePauseStateSettings where
+instance Lude.ToJSON PipelinePauseStateSettings where
   toJSON PipelinePauseStateSettings' {..} =
-    object (catMaybes [Just ("pipelineId" .= _ppssPipelineId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("pipelineId" Lude..= pipelineId)])

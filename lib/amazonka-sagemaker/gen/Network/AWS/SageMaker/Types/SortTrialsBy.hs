@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SortTrialsBy where
+module Network.AWS.SageMaker.Types.SortTrialsBy
+  ( SortTrialsBy
+      ( SortTrialsBy',
+        STBCreationTime,
+        STBName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SortTrialsBy
-  = STBCreationTime
-  | STBName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SortTrialsBy = SortTrialsBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SortTrialsBy where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure STBCreationTime
-      "name" -> pure STBName
-      e ->
-        fromTextError $
-          "Failure parsing SortTrialsBy from value: '" <> e
-            <> "'. Accepted values: creationtime, name"
+pattern STBCreationTime :: SortTrialsBy
+pattern STBCreationTime = SortTrialsBy' "CreationTime"
 
-instance ToText SortTrialsBy where
-  toText = \case
-    STBCreationTime -> "CreationTime"
-    STBName -> "Name"
+pattern STBName :: SortTrialsBy
+pattern STBName = SortTrialsBy' "Name"
 
-instance Hashable SortTrialsBy
-
-instance NFData SortTrialsBy
-
-instance ToByteString SortTrialsBy
-
-instance ToQuery SortTrialsBy
-
-instance ToHeader SortTrialsBy
-
-instance ToJSON SortTrialsBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  STBCreationTime,
+  STBName,
+  SortTrialsBy'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,104 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MappingEntry where
+module Network.AWS.Glue.Types.MappingEntry
+  ( MappingEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMappingEntry,
+
+    -- * Lenses
+    meTargetTable,
+    meSourceType,
+    meSourceTable,
+    meTargetType,
+    meTargetPath,
+    meSourcePath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines a mapping.
 --
---
---
--- /See:/ 'mappingEntry' smart constructor.
+-- /See:/ 'mkMappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { _meTargetTable :: !(Maybe Text),
-    _meSourceType :: !(Maybe Text),
-    _meSourceTable :: !(Maybe Text),
-    _meTargetType :: !(Maybe Text),
-    _meTargetPath :: !(Maybe Text),
-    _meSourcePath :: !(Maybe Text)
+  { targetTable ::
+      Lude.Maybe Lude.Text,
+    sourceType :: Lude.Maybe Lude.Text,
+    sourceTable :: Lude.Maybe Lude.Text,
+    targetType :: Lude.Maybe Lude.Text,
+    targetPath :: Lude.Maybe Lude.Text,
+    sourcePath :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MappingEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'meTargetTable' - The target table.
---
--- * 'meSourceType' - The source type.
---
--- * 'meSourceTable' - The name of the source table.
---
--- * 'meTargetType' - The target type.
---
--- * 'meTargetPath' - The target path.
---
--- * 'meSourcePath' - The source path.
-mappingEntry ::
+-- * 'sourcePath' - The source path.
+-- * 'sourceTable' - The name of the source table.
+-- * 'sourceType' - The source type.
+-- * 'targetPath' - The target path.
+-- * 'targetTable' - The target table.
+-- * 'targetType' - The target type.
+mkMappingEntry ::
   MappingEntry
-mappingEntry =
+mkMappingEntry =
   MappingEntry'
-    { _meTargetTable = Nothing,
-      _meSourceType = Nothing,
-      _meSourceTable = Nothing,
-      _meTargetType = Nothing,
-      _meTargetPath = Nothing,
-      _meSourcePath = Nothing
+    { targetTable = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      sourceTable = Lude.Nothing,
+      targetType = Lude.Nothing,
+      targetPath = Lude.Nothing,
+      sourcePath = Lude.Nothing
     }
 
 -- | The target table.
-meTargetTable :: Lens' MappingEntry (Maybe Text)
-meTargetTable = lens _meTargetTable (\s a -> s {_meTargetTable = a})
+--
+-- /Note:/ Consider using 'targetTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetTable :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meTargetTable = Lens.lens (targetTable :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetTable = a} :: MappingEntry)
+{-# DEPRECATED meTargetTable "Use generic-lens or generic-optics with 'targetTable' instead." #-}
 
 -- | The source type.
-meSourceType :: Lens' MappingEntry (Maybe Text)
-meSourceType = lens _meSourceType (\s a -> s {_meSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meSourceType :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meSourceType = Lens.lens (sourceType :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: MappingEntry)
+{-# DEPRECATED meSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The name of the source table.
-meSourceTable :: Lens' MappingEntry (Maybe Text)
-meSourceTable = lens _meSourceTable (\s a -> s {_meSourceTable = a})
+--
+-- /Note:/ Consider using 'sourceTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meSourceTable :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meSourceTable = Lens.lens (sourceTable :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourceTable = a} :: MappingEntry)
+{-# DEPRECATED meSourceTable "Use generic-lens or generic-optics with 'sourceTable' instead." #-}
 
 -- | The target type.
-meTargetType :: Lens' MappingEntry (Maybe Text)
-meTargetType = lens _meTargetType (\s a -> s {_meTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetType :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meTargetType = Lens.lens (targetType :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: MappingEntry)
+{-# DEPRECATED meTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | The target path.
-meTargetPath :: Lens' MappingEntry (Maybe Text)
-meTargetPath = lens _meTargetPath (\s a -> s {_meTargetPath = a})
+--
+-- /Note:/ Consider using 'targetPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetPath :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meTargetPath = Lens.lens (targetPath :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetPath = a} :: MappingEntry)
+{-# DEPRECATED meTargetPath "Use generic-lens or generic-optics with 'targetPath' instead." #-}
 
 -- | The source path.
-meSourcePath :: Lens' MappingEntry (Maybe Text)
-meSourcePath = lens _meSourcePath (\s a -> s {_meSourcePath = a})
+--
+-- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meSourcePath :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
+meSourcePath = Lens.lens (sourcePath :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: MappingEntry)
+{-# DEPRECATED meSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance FromJSON MappingEntry where
+instance Lude.FromJSON MappingEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "MappingEntry"
       ( \x ->
           MappingEntry'
-            <$> (x .:? "TargetTable")
-            <*> (x .:? "SourceType")
-            <*> (x .:? "SourceTable")
-            <*> (x .:? "TargetType")
-            <*> (x .:? "TargetPath")
-            <*> (x .:? "SourcePath")
+            Lude.<$> (x Lude..:? "TargetTable")
+            Lude.<*> (x Lude..:? "SourceType")
+            Lude.<*> (x Lude..:? "SourceTable")
+            Lude.<*> (x Lude..:? "TargetType")
+            Lude.<*> (x Lude..:? "TargetPath")
+            Lude.<*> (x Lude..:? "SourcePath")
       )
 
-instance Hashable MappingEntry
-
-instance NFData MappingEntry
-
-instance ToJSON MappingEntry where
+instance Lude.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =
-    object
-      ( catMaybes
-          [ ("TargetTable" .=) <$> _meTargetTable,
-            ("SourceType" .=) <$> _meSourceType,
-            ("SourceTable" .=) <$> _meSourceTable,
-            ("TargetType" .=) <$> _meTargetType,
-            ("TargetPath" .=) <$> _meTargetPath,
-            ("SourcePath" .=) <$> _meSourcePath
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TargetTable" Lude..=) Lude.<$> targetTable,
+            ("SourceType" Lude..=) Lude.<$> sourceType,
+            ("SourceTable" Lude..=) Lude.<$> sourceTable,
+            ("TargetType" Lude..=) Lude.<$> targetType,
+            ("TargetPath" Lude..=) Lude.<$> targetPath,
+            ("SourcePath" Lude..=) Lude.<$> sourcePath
           ]
       )

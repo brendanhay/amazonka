@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Lists parent objects that are associated with a given object in pagination fashion.
 module Network.AWS.CloudDirectory.ListObjectParents
-  ( -- * Creating a Request
-    listObjectParents,
-    ListObjectParents,
+  ( -- * Creating a request
+    ListObjectParents (..),
+    mkListObjectParents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lopConsistencyLevel,
     lopIncludeAllLinksToEachParent,
     lopNextToken,
@@ -31,11 +26,11 @@ module Network.AWS.CloudDirectory.ListObjectParents
     lopDirectoryARN,
     lopObjectReference,
 
-    -- * Destructuring the Response
-    listObjectParentsResponse,
-    ListObjectParentsResponse,
+    -- * Destructuring the response
+    ListObjectParentsResponse (..),
+    mkListObjectParentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsNextToken,
     lrsParents,
     lrsParentLinks,
@@ -44,171 +39,198 @@ module Network.AWS.CloudDirectory.ListObjectParents
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listObjectParents' smart constructor.
+-- | /See:/ 'mkListObjectParents' smart constructor.
 data ListObjectParents = ListObjectParents'
-  { _lopConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _lopIncludeAllLinksToEachParent :: !(Maybe Bool),
-    _lopNextToken :: !(Maybe Text),
-    _lopMaxResults :: !(Maybe Nat),
-    _lopDirectoryARN :: !Text,
-    _lopObjectReference :: !ObjectReference
+  { consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    includeAllLinksToEachParent :: Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lopConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- * 'lopIncludeAllLinksToEachParent' - When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
---
--- * 'lopNextToken' - The pagination token.
---
--- * 'lopMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- * 'lopDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
---
--- * 'lopObjectReference' - The reference that identifies the object for which parent objects are being listed.
-listObjectParents ::
-  -- | 'lopDirectoryARN'
-  Text ->
-  -- | 'lopObjectReference'
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'includeAllLinksToEachParent' - When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - The reference that identifies the object for which parent objects are being listed.
+mkListObjectParents ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'objectReference'
   ObjectReference ->
   ListObjectParents
-listObjectParents pDirectoryARN_ pObjectReference_ =
+mkListObjectParents pDirectoryARN_ pObjectReference_ =
   ListObjectParents'
-    { _lopConsistencyLevel = Nothing,
-      _lopIncludeAllLinksToEachParent = Nothing,
-      _lopNextToken = Nothing,
-      _lopMaxResults = Nothing,
-      _lopDirectoryARN = pDirectoryARN_,
-      _lopObjectReference = pObjectReference_
+    { consistencyLevel = Lude.Nothing,
+      includeAllLinksToEachParent = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      objectReference = pObjectReference_
     }
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-lopConsistencyLevel :: Lens' ListObjectParents (Maybe ConsistencyLevel)
-lopConsistencyLevel = lens _lopConsistencyLevel (\s a -> s {_lopConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopConsistencyLevel :: Lens.Lens' ListObjectParents (Lude.Maybe ConsistencyLevel)
+lopConsistencyLevel = Lens.lens (consistencyLevel :: ListObjectParents -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListObjectParents)
+{-# DEPRECATED lopConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
-lopIncludeAllLinksToEachParent :: Lens' ListObjectParents (Maybe Bool)
-lopIncludeAllLinksToEachParent = lens _lopIncludeAllLinksToEachParent (\s a -> s {_lopIncludeAllLinksToEachParent = a})
+--
+-- /Note:/ Consider using 'includeAllLinksToEachParent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopIncludeAllLinksToEachParent :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Bool)
+lopIncludeAllLinksToEachParent = Lens.lens (includeAllLinksToEachParent :: ListObjectParents -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllLinksToEachParent = a} :: ListObjectParents)
+{-# DEPRECATED lopIncludeAllLinksToEachParent "Use generic-lens or generic-optics with 'includeAllLinksToEachParent' instead." #-}
 
 -- | The pagination token.
-lopNextToken :: Lens' ListObjectParents (Maybe Text)
-lopNextToken = lens _lopNextToken (\s a -> s {_lopNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopNextToken :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Text)
+lopNextToken = Lens.lens (nextToken :: ListObjectParents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectParents)
+{-# DEPRECATED lopNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-lopMaxResults :: Lens' ListObjectParents (Maybe Natural)
-lopMaxResults = lens _lopMaxResults (\s a -> s {_lopMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopMaxResults :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Natural)
+lopMaxResults = Lens.lens (maxResults :: ListObjectParents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectParents)
+{-# DEPRECATED lopMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-lopDirectoryARN :: Lens' ListObjectParents Text
-lopDirectoryARN = lens _lopDirectoryARN (\s a -> s {_lopDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopDirectoryARN :: Lens.Lens' ListObjectParents Lude.Text
+lopDirectoryARN = Lens.lens (directoryARN :: ListObjectParents -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectParents)
+{-# DEPRECATED lopDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The reference that identifies the object for which parent objects are being listed.
-lopObjectReference :: Lens' ListObjectParents ObjectReference
-lopObjectReference = lens _lopObjectReference (\s a -> s {_lopObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopObjectReference :: Lens.Lens' ListObjectParents ObjectReference
+lopObjectReference = Lens.lens (objectReference :: ListObjectParents -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectParents)
+{-# DEPRECATED lopObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance AWSRequest ListObjectParents where
+instance Lude.AWSRequest ListObjectParents where
   type Rs ListObjectParents = ListObjectParentsResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListObjectParentsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Parents" .!@ mempty)
-            <*> (x .?> "ParentLinks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Parents" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ParentLinks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListObjectParents
-
-instance NFData ListObjectParents
-
-instance ToHeaders ListObjectParents where
+instance Lude.ToHeaders ListObjectParents where
   toHeaders ListObjectParents' {..} =
-    mconcat
-      [ "x-amz-consistency-level" =# _lopConsistencyLevel,
-        "x-amz-data-partition" =# _lopDirectoryARN
+    Lude.mconcat
+      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
+        "x-amz-data-partition" Lude.=# directoryARN
       ]
 
-instance ToJSON ListObjectParents where
+instance Lude.ToJSON ListObjectParents where
   toJSON ListObjectParents' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeAllLinksToEachParent" .=)
-              <$> _lopIncludeAllLinksToEachParent,
-            ("NextToken" .=) <$> _lopNextToken,
-            ("MaxResults" .=) <$> _lopMaxResults,
-            Just ("ObjectReference" .= _lopObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeAllLinksToEachParent" Lude..=)
+              Lude.<$> includeAllLinksToEachParent,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
-instance ToPath ListObjectParents where
-  toPath = const "/amazonclouddirectory/2017-01-11/object/parent"
+instance Lude.ToPath ListObjectParents where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/object/parent"
 
-instance ToQuery ListObjectParents where
-  toQuery = const mempty
+instance Lude.ToQuery ListObjectParents where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listObjectParentsResponse' smart constructor.
+-- | /See:/ 'mkListObjectParentsResponse' smart constructor.
 data ListObjectParentsResponse = ListObjectParentsResponse'
-  { _lrsNextToken ::
-      !(Maybe Text),
-    _lrsParents ::
-      !(Maybe (Map Text (Text))),
-    _lrsParentLinks ::
-      !( Maybe
-           [ObjectIdentifierAndLinkNameTuple]
-       ),
-    _lrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    parents ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    parentLinks ::
+      Lude.Maybe
+        [ObjectIdentifierAndLinkNameTuple],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsNextToken' - The pagination token.
---
--- * 'lrsParents' - The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
---
--- * 'lrsParentLinks' - Returns a list of parent reference and LinkName Tuples.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listObjectParentsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token.
+-- * 'parentLinks' - Returns a list of parent reference and LinkName Tuples.
+-- * 'parents' - The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
+-- * 'responseStatus' - The response status code.
+mkListObjectParentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListObjectParentsResponse
-listObjectParentsResponse pResponseStatus_ =
+mkListObjectParentsResponse pResponseStatus_ =
   ListObjectParentsResponse'
-    { _lrsNextToken = Nothing,
-      _lrsParents = Nothing,
-      _lrsParentLinks = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      parents = Lude.Nothing,
+      parentLinks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token.
-lrsNextToken :: Lens' ListObjectParentsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListObjectParentsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListObjectParentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectParentsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
-lrsParents :: Lens' ListObjectParentsResponse (HashMap Text (Text))
-lrsParents = lens _lrsParents (\s a -> s {_lrsParents = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsParents :: Lens.Lens' ListObjectParentsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+lrsParents = Lens.lens (parents :: ListObjectParentsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parents = a} :: ListObjectParentsResponse)
+{-# DEPRECATED lrsParents "Use generic-lens or generic-optics with 'parents' instead." #-}
 
 -- | Returns a list of parent reference and LinkName Tuples.
-lrsParentLinks :: Lens' ListObjectParentsResponse [ObjectIdentifierAndLinkNameTuple]
-lrsParentLinks = lens _lrsParentLinks (\s a -> s {_lrsParentLinks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parentLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsParentLinks :: Lens.Lens' ListObjectParentsResponse (Lude.Maybe [ObjectIdentifierAndLinkNameTuple])
+lrsParentLinks = Lens.lens (parentLinks :: ListObjectParentsResponse -> Lude.Maybe [ObjectIdentifierAndLinkNameTuple]) (\s a -> s {parentLinks = a} :: ListObjectParentsResponse)
+{-# DEPRECATED lrsParentLinks "Use generic-lens or generic-optics with 'parentLinks' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListObjectParentsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListObjectParentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListObjectParentsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListObjectParentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectParentsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

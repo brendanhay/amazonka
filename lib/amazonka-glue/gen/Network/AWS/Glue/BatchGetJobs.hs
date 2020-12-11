@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns a list of resource metadata for a given list of job names. After calling the @ListJobs@ operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
 module Network.AWS.Glue.BatchGetJobs
-  ( -- * Creating a Request
-    batchGetJobs,
-    BatchGetJobs,
+  ( -- * Creating a request
+    BatchGetJobs (..),
+    mkBatchGetJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgjJobNames,
 
-    -- * Destructuring the Response
-    batchGetJobsResponse,
-    BatchGetJobsResponse,
+    -- * Destructuring the response
+    BatchGetJobsResponse (..),
+    mkBatchGetJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgjrsJobs,
     bgjrsJobsNotFound,
     bgjrsResponseStatus,
@@ -38,102 +33,119 @@ module Network.AWS.Glue.BatchGetJobs
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetJobs' smart constructor.
-newtype BatchGetJobs = BatchGetJobs' {_bgjJobNames :: [Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkBatchGetJobs' smart constructor.
+newtype BatchGetJobs = BatchGetJobs' {jobNames :: [Lude.Text]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgjJobNames' - A list of job names, which might be the names returned from the @ListJobs@ operation.
-batchGetJobs ::
+-- * 'jobNames' - A list of job names, which might be the names returned from the @ListJobs@ operation.
+mkBatchGetJobs ::
   BatchGetJobs
-batchGetJobs = BatchGetJobs' {_bgjJobNames = mempty}
+mkBatchGetJobs = BatchGetJobs' {jobNames = Lude.mempty}
 
 -- | A list of job names, which might be the names returned from the @ListJobs@ operation.
-bgjJobNames :: Lens' BatchGetJobs [Text]
-bgjJobNames = lens _bgjJobNames (\s a -> s {_bgjJobNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'jobNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgjJobNames :: Lens.Lens' BatchGetJobs [Lude.Text]
+bgjJobNames = Lens.lens (jobNames :: BatchGetJobs -> [Lude.Text]) (\s a -> s {jobNames = a} :: BatchGetJobs)
+{-# DEPRECATED bgjJobNames "Use generic-lens or generic-optics with 'jobNames' instead." #-}
 
-instance AWSRequest BatchGetJobs where
+instance Lude.AWSRequest BatchGetJobs where
   type Rs BatchGetJobs = BatchGetJobsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetJobsResponse'
-            <$> (x .?> "Jobs" .!@ mempty)
-            <*> (x .?> "JobsNotFound" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Jobs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "JobsNotFound" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetJobs
-
-instance NFData BatchGetJobs
-
-instance ToHeaders BatchGetJobs where
+instance Lude.ToHeaders BatchGetJobs where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.BatchGetJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.BatchGetJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetJobs where
+instance Lude.ToJSON BatchGetJobs where
   toJSON BatchGetJobs' {..} =
-    object (catMaybes [Just ("JobNames" .= _bgjJobNames)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("JobNames" Lude..= jobNames)])
 
-instance ToPath BatchGetJobs where
-  toPath = const "/"
+instance Lude.ToPath BatchGetJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetJobs where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetJobsResponse' smart constructor.
+-- | /See:/ 'mkBatchGetJobsResponse' smart constructor.
 data BatchGetJobsResponse = BatchGetJobsResponse'
-  { _bgjrsJobs ::
-      !(Maybe [Job]),
-    _bgjrsJobsNotFound :: !(Maybe [Text]),
-    _bgjrsResponseStatus :: !Int
+  { jobs ::
+      Lude.Maybe [Job],
+    jobsNotFound :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgjrsJobs' - A list of job definitions.
---
--- * 'bgjrsJobsNotFound' - A list of names of jobs not found.
---
--- * 'bgjrsResponseStatus' - -- | The response status code.
-batchGetJobsResponse ::
-  -- | 'bgjrsResponseStatus'
-  Int ->
+-- * 'jobs' - A list of job definitions.
+-- * 'jobsNotFound' - A list of names of jobs not found.
+-- * 'responseStatus' - The response status code.
+mkBatchGetJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetJobsResponse
-batchGetJobsResponse pResponseStatus_ =
+mkBatchGetJobsResponse pResponseStatus_ =
   BatchGetJobsResponse'
-    { _bgjrsJobs = Nothing,
-      _bgjrsJobsNotFound = Nothing,
-      _bgjrsResponseStatus = pResponseStatus_
+    { jobs = Lude.Nothing,
+      jobsNotFound = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of job definitions.
-bgjrsJobs :: Lens' BatchGetJobsResponse [Job]
-bgjrsJobs = lens _bgjrsJobs (\s a -> s {_bgjrsJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgjrsJobs :: Lens.Lens' BatchGetJobsResponse (Lude.Maybe [Job])
+bgjrsJobs = Lens.lens (jobs :: BatchGetJobsResponse -> Lude.Maybe [Job]) (\s a -> s {jobs = a} :: BatchGetJobsResponse)
+{-# DEPRECATED bgjrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | A list of names of jobs not found.
-bgjrsJobsNotFound :: Lens' BatchGetJobsResponse [Text]
-bgjrsJobsNotFound = lens _bgjrsJobsNotFound (\s a -> s {_bgjrsJobsNotFound = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgjrsJobsNotFound :: Lens.Lens' BatchGetJobsResponse (Lude.Maybe [Lude.Text])
+bgjrsJobsNotFound = Lens.lens (jobsNotFound :: BatchGetJobsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {jobsNotFound = a} :: BatchGetJobsResponse)
+{-# DEPRECATED bgjrsJobsNotFound "Use generic-lens or generic-optics with 'jobsNotFound' instead." #-}
 
--- | -- | The response status code.
-bgjrsResponseStatus :: Lens' BatchGetJobsResponse Int
-bgjrsResponseStatus = lens _bgjrsResponseStatus (\s a -> s {_bgjrsResponseStatus = a})
-
-instance NFData BatchGetJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgjrsResponseStatus :: Lens.Lens' BatchGetJobsResponse Lude.Int
+bgjrsResponseStatus = Lens.lens (responseStatus :: BatchGetJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetJobsResponse)
+{-# DEPRECATED bgjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

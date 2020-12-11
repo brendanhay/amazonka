@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.RetentionPeriod where
+module Network.AWS.IoTAnalytics.Types.RetentionPeriod
+  ( RetentionPeriod (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRetentionPeriod,
+
+    -- * Lenses
+    rpUnlimited,
+    rpNumberOfDays,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | How long, in days, message data is kept.
 --
---
---
--- /See:/ 'retentionPeriod' smart constructor.
+-- /See:/ 'mkRetentionPeriod' smart constructor.
 data RetentionPeriod = RetentionPeriod'
-  { _rpUnlimited ::
-      !(Maybe Bool),
-    _rpNumberOfDays :: !(Maybe Nat)
+  { unlimited ::
+      Lude.Maybe Lude.Bool,
+    numberOfDays :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetentionPeriod' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpUnlimited' - If true, message data is kept indefinitely.
---
--- * 'rpNumberOfDays' - The number of days that message data is kept. The @unlimited@ parameter must be false.
-retentionPeriod ::
+-- * 'numberOfDays' - The number of days that message data is kept. The @unlimited@ parameter must be false.
+-- * 'unlimited' - If true, message data is kept indefinitely.
+mkRetentionPeriod ::
   RetentionPeriod
-retentionPeriod =
+mkRetentionPeriod =
   RetentionPeriod'
-    { _rpUnlimited = Nothing,
-      _rpNumberOfDays = Nothing
+    { unlimited = Lude.Nothing,
+      numberOfDays = Lude.Nothing
     }
 
 -- | If true, message data is kept indefinitely.
-rpUnlimited :: Lens' RetentionPeriod (Maybe Bool)
-rpUnlimited = lens _rpUnlimited (\s a -> s {_rpUnlimited = a})
+--
+-- /Note:/ Consider using 'unlimited' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpUnlimited :: Lens.Lens' RetentionPeriod (Lude.Maybe Lude.Bool)
+rpUnlimited = Lens.lens (unlimited :: RetentionPeriod -> Lude.Maybe Lude.Bool) (\s a -> s {unlimited = a} :: RetentionPeriod)
+{-# DEPRECATED rpUnlimited "Use generic-lens or generic-optics with 'unlimited' instead." #-}
 
 -- | The number of days that message data is kept. The @unlimited@ parameter must be false.
-rpNumberOfDays :: Lens' RetentionPeriod (Maybe Natural)
-rpNumberOfDays = lens _rpNumberOfDays (\s a -> s {_rpNumberOfDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpNumberOfDays :: Lens.Lens' RetentionPeriod (Lude.Maybe Lude.Natural)
+rpNumberOfDays = Lens.lens (numberOfDays :: RetentionPeriod -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfDays = a} :: RetentionPeriod)
+{-# DEPRECATED rpNumberOfDays "Use generic-lens or generic-optics with 'numberOfDays' instead." #-}
 
-instance FromJSON RetentionPeriod where
+instance Lude.FromJSON RetentionPeriod where
   parseJSON =
-    withObject
+    Lude.withObject
       "RetentionPeriod"
       ( \x ->
           RetentionPeriod'
-            <$> (x .:? "unlimited") <*> (x .:? "numberOfDays")
+            Lude.<$> (x Lude..:? "unlimited") Lude.<*> (x Lude..:? "numberOfDays")
       )
 
-instance Hashable RetentionPeriod
-
-instance NFData RetentionPeriod
-
-instance ToJSON RetentionPeriod where
+instance Lude.ToJSON RetentionPeriod where
   toJSON RetentionPeriod' {..} =
-    object
-      ( catMaybes
-          [ ("unlimited" .=) <$> _rpUnlimited,
-            ("numberOfDays" .=) <$> _rpNumberOfDays
+    Lude.object
+      ( Lude.catMaybes
+          [ ("unlimited" Lude..=) Lude.<$> unlimited,
+            ("numberOfDays" Lude..=) Lude.<$> numberOfDays
           ]
       )

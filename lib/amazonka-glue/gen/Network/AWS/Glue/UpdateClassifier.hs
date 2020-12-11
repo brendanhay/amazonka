@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,156 @@
 --
 -- Modifies an existing classifier (a @GrokClassifier@ , an @XMLClassifier@ , a @JsonClassifier@ , or a @CsvClassifier@ , depending on which field is present).
 module Network.AWS.Glue.UpdateClassifier
-  ( -- * Creating a Request
-    updateClassifier,
-    UpdateClassifier,
+  ( -- * Creating a request
+    UpdateClassifier (..),
+    mkUpdateClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucGrokClassifier,
     ucXMLClassifier,
     ucCSVClassifier,
     ucJSONClassifier,
 
-    -- * Destructuring the Response
-    updateClassifierResponse,
-    UpdateClassifierResponse,
+    -- * Destructuring the response
+    UpdateClassifierResponse (..),
+    mkUpdateClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateClassifier' smart constructor.
+-- | /See:/ 'mkUpdateClassifier' smart constructor.
 data UpdateClassifier = UpdateClassifier'
-  { _ucGrokClassifier ::
-      !(Maybe UpdateGrokClassifierRequest),
-    _ucXMLClassifier :: !(Maybe UpdateXMLClassifierRequest),
-    _ucCSVClassifier :: !(Maybe UpdateCSVClassifierRequest),
-    _ucJSONClassifier :: !(Maybe UpdateJSONClassifierRequest)
+  { grokClassifier ::
+      Lude.Maybe UpdateGrokClassifierRequest,
+    xmlClassifier :: Lude.Maybe UpdateXMLClassifierRequest,
+    csvClassifier :: Lude.Maybe UpdateCSVClassifierRequest,
+    jsonClassifier :: Lude.Maybe UpdateJSONClassifierRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucGrokClassifier' - A @GrokClassifier@ object with updated fields.
---
--- * 'ucXMLClassifier' - An @XMLClassifier@ object with updated fields.
---
--- * 'ucCSVClassifier' - A @CsvClassifier@ object with updated fields.
---
--- * 'ucJSONClassifier' - A @JsonClassifier@ object with updated fields.
-updateClassifier ::
+-- * 'csvClassifier' - A @CsvClassifier@ object with updated fields.
+-- * 'grokClassifier' - A @GrokClassifier@ object with updated fields.
+-- * 'jsonClassifier' - A @JsonClassifier@ object with updated fields.
+-- * 'xmlClassifier' - An @XMLClassifier@ object with updated fields.
+mkUpdateClassifier ::
   UpdateClassifier
-updateClassifier =
+mkUpdateClassifier =
   UpdateClassifier'
-    { _ucGrokClassifier = Nothing,
-      _ucXMLClassifier = Nothing,
-      _ucCSVClassifier = Nothing,
-      _ucJSONClassifier = Nothing
+    { grokClassifier = Lude.Nothing,
+      xmlClassifier = Lude.Nothing,
+      csvClassifier = Lude.Nothing,
+      jsonClassifier = Lude.Nothing
     }
 
 -- | A @GrokClassifier@ object with updated fields.
-ucGrokClassifier :: Lens' UpdateClassifier (Maybe UpdateGrokClassifierRequest)
-ucGrokClassifier = lens _ucGrokClassifier (\s a -> s {_ucGrokClassifier = a})
+--
+-- /Note:/ Consider using 'grokClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucGrokClassifier :: Lens.Lens' UpdateClassifier (Lude.Maybe UpdateGrokClassifierRequest)
+ucGrokClassifier = Lens.lens (grokClassifier :: UpdateClassifier -> Lude.Maybe UpdateGrokClassifierRequest) (\s a -> s {grokClassifier = a} :: UpdateClassifier)
+{-# DEPRECATED ucGrokClassifier "Use generic-lens or generic-optics with 'grokClassifier' instead." #-}
 
 -- | An @XMLClassifier@ object with updated fields.
-ucXMLClassifier :: Lens' UpdateClassifier (Maybe UpdateXMLClassifierRequest)
-ucXMLClassifier = lens _ucXMLClassifier (\s a -> s {_ucXMLClassifier = a})
+--
+-- /Note:/ Consider using 'xmlClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucXMLClassifier :: Lens.Lens' UpdateClassifier (Lude.Maybe UpdateXMLClassifierRequest)
+ucXMLClassifier = Lens.lens (xmlClassifier :: UpdateClassifier -> Lude.Maybe UpdateXMLClassifierRequest) (\s a -> s {xmlClassifier = a} :: UpdateClassifier)
+{-# DEPRECATED ucXMLClassifier "Use generic-lens or generic-optics with 'xmlClassifier' instead." #-}
 
 -- | A @CsvClassifier@ object with updated fields.
-ucCSVClassifier :: Lens' UpdateClassifier (Maybe UpdateCSVClassifierRequest)
-ucCSVClassifier = lens _ucCSVClassifier (\s a -> s {_ucCSVClassifier = a})
+--
+-- /Note:/ Consider using 'csvClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCSVClassifier :: Lens.Lens' UpdateClassifier (Lude.Maybe UpdateCSVClassifierRequest)
+ucCSVClassifier = Lens.lens (csvClassifier :: UpdateClassifier -> Lude.Maybe UpdateCSVClassifierRequest) (\s a -> s {csvClassifier = a} :: UpdateClassifier)
+{-# DEPRECATED ucCSVClassifier "Use generic-lens or generic-optics with 'csvClassifier' instead." #-}
 
 -- | A @JsonClassifier@ object with updated fields.
-ucJSONClassifier :: Lens' UpdateClassifier (Maybe UpdateJSONClassifierRequest)
-ucJSONClassifier = lens _ucJSONClassifier (\s a -> s {_ucJSONClassifier = a})
+--
+-- /Note:/ Consider using 'jsonClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucJSONClassifier :: Lens.Lens' UpdateClassifier (Lude.Maybe UpdateJSONClassifierRequest)
+ucJSONClassifier = Lens.lens (jsonClassifier :: UpdateClassifier -> Lude.Maybe UpdateJSONClassifierRequest) (\s a -> s {jsonClassifier = a} :: UpdateClassifier)
+{-# DEPRECATED ucJSONClassifier "Use generic-lens or generic-optics with 'jsonClassifier' instead." #-}
 
-instance AWSRequest UpdateClassifier where
+instance Lude.AWSRequest UpdateClassifier where
   type Rs UpdateClassifier = UpdateClassifierResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> UpdateClassifierResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateClassifierResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateClassifier
-
-instance NFData UpdateClassifier
-
-instance ToHeaders UpdateClassifier where
+instance Lude.ToHeaders UpdateClassifier where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateClassifier" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdateClassifier" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateClassifier where
+instance Lude.ToJSON UpdateClassifier where
   toJSON UpdateClassifier' {..} =
-    object
-      ( catMaybes
-          [ ("GrokClassifier" .=) <$> _ucGrokClassifier,
-            ("XMLClassifier" .=) <$> _ucXMLClassifier,
-            ("CsvClassifier" .=) <$> _ucCSVClassifier,
-            ("JsonClassifier" .=) <$> _ucJSONClassifier
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GrokClassifier" Lude..=) Lude.<$> grokClassifier,
+            ("XMLClassifier" Lude..=) Lude.<$> xmlClassifier,
+            ("CsvClassifier" Lude..=) Lude.<$> csvClassifier,
+            ("JsonClassifier" Lude..=) Lude.<$> jsonClassifier
           ]
       )
 
-instance ToPath UpdateClassifier where
-  toPath = const "/"
+instance Lude.ToPath UpdateClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateClassifierResponse' smart constructor.
+-- | /See:/ 'mkUpdateClassifierResponse' smart constructor.
 newtype UpdateClassifierResponse = UpdateClassifierResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-updateClassifierResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateClassifierResponse
-updateClassifierResponse pResponseStatus_ =
-  UpdateClassifierResponse' {_ursResponseStatus = pResponseStatus_}
+mkUpdateClassifierResponse pResponseStatus_ =
+  UpdateClassifierResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UpdateClassifierResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UpdateClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UpdateClassifierResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UpdateClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateClassifierResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

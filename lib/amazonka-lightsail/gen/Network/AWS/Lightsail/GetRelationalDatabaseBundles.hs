@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,175 @@
 --
 -- Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the performance specifications for a database.
 --
---
 -- You can use a bundle ID to create a new database with explicit performance specifications.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetRelationalDatabaseBundles
-  ( -- * Creating a Request
-    getRelationalDatabaseBundles,
-    GetRelationalDatabaseBundles,
+  ( -- * Creating a request
+    GetRelationalDatabaseBundles (..),
+    mkGetRelationalDatabaseBundles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdbsPageToken,
 
-    -- * Destructuring the Response
-    getRelationalDatabaseBundlesResponse,
-    GetRelationalDatabaseBundlesResponse,
+    -- * Destructuring the response
+    GetRelationalDatabaseBundlesResponse (..),
+    mkGetRelationalDatabaseBundlesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdbrsNextPageToken,
     grdbrsBundles,
     grdbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabaseBundles' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseBundles' smart constructor.
 newtype GetRelationalDatabaseBundles = GetRelationalDatabaseBundles'
-  { _grdbsPageToken ::
-      Maybe Text
+  { pageToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseBundles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdbsPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabaseBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getRelationalDatabaseBundles ::
+-- To get a page token, perform an initial @GetRelationalDatabaseBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetRelationalDatabaseBundles ::
   GetRelationalDatabaseBundles
-getRelationalDatabaseBundles =
-  GetRelationalDatabaseBundles' {_grdbsPageToken = Nothing}
+mkGetRelationalDatabaseBundles =
+  GetRelationalDatabaseBundles' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabaseBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-grdbsPageToken :: Lens' GetRelationalDatabaseBundles (Maybe Text)
-grdbsPageToken = lens _grdbsPageToken (\s a -> s {_grdbsPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetRelationalDatabaseBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdbsPageToken :: Lens.Lens' GetRelationalDatabaseBundles (Lude.Maybe Lude.Text)
+grdbsPageToken = Lens.lens (pageToken :: GetRelationalDatabaseBundles -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetRelationalDatabaseBundles)
+{-# DEPRECATED grdbsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetRelationalDatabaseBundles where
+instance Page.AWSPager GetRelationalDatabaseBundles where
   page rq rs
-    | stop (rs ^. grdbrsNextPageToken) = Nothing
-    | stop (rs ^. grdbrsBundles) = Nothing
-    | otherwise =
-      Just $ rq & grdbsPageToken .~ rs ^. grdbrsNextPageToken
+    | Page.stop (rs Lens.^. grdbrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grdbrsBundles) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grdbsPageToken Lens..~ rs Lens.^. grdbrsNextPageToken
 
-instance AWSRequest GetRelationalDatabaseBundles where
+instance Lude.AWSRequest GetRelationalDatabaseBundles where
   type
     Rs GetRelationalDatabaseBundles =
       GetRelationalDatabaseBundlesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseBundlesResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "bundles" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "bundles" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabaseBundles
-
-instance NFData GetRelationalDatabaseBundles
-
-instance ToHeaders GetRelationalDatabaseBundles where
+instance Lude.ToHeaders GetRelationalDatabaseBundles where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetRelationalDatabaseBundles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseBundles" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabaseBundles where
+instance Lude.ToJSON GetRelationalDatabaseBundles where
   toJSON GetRelationalDatabaseBundles' {..} =
-    object (catMaybes [("pageToken" .=) <$> _grdbsPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetRelationalDatabaseBundles where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabaseBundles where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabaseBundles where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabaseBundles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabaseBundlesResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseBundlesResponse' smart constructor.
 data GetRelationalDatabaseBundlesResponse = GetRelationalDatabaseBundlesResponse'
-  { _grdbrsNextPageToken ::
-      !(Maybe Text),
-    _grdbrsBundles ::
-      !( Maybe
-           [RelationalDatabaseBundle]
-       ),
-    _grdbrsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    bundles ::
+      Lude.Maybe
+        [RelationalDatabaseBundle],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseBundlesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bundles' - An object describing the result of your get relational database bundles request.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdbrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabaseBundles@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'grdbrsBundles' - An object describing the result of your get relational database bundles request.
---
--- * 'grdbrsResponseStatus' - -- | The response status code.
-getRelationalDatabaseBundlesResponse ::
-  -- | 'grdbrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabaseBundles@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabaseBundlesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabaseBundlesResponse
-getRelationalDatabaseBundlesResponse pResponseStatus_ =
+mkGetRelationalDatabaseBundlesResponse pResponseStatus_ =
   GetRelationalDatabaseBundlesResponse'
-    { _grdbrsNextPageToken =
-        Nothing,
-      _grdbrsBundles = Nothing,
-      _grdbrsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Lude.Nothing,
+      bundles = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabaseBundles@ request and specify the next page token using the @pageToken@ parameter.
-grdbrsNextPageToken :: Lens' GetRelationalDatabaseBundlesResponse (Maybe Text)
-grdbrsNextPageToken = lens _grdbrsNextPageToken (\s a -> s {_grdbrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabaseBundles@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdbrsNextPageToken :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Lude.Maybe Lude.Text)
+grdbrsNextPageToken = Lens.lens (nextPageToken :: GetRelationalDatabaseBundlesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRelationalDatabaseBundlesResponse)
+{-# DEPRECATED grdbrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An object describing the result of your get relational database bundles request.
-grdbrsBundles :: Lens' GetRelationalDatabaseBundlesResponse [RelationalDatabaseBundle]
-grdbrsBundles = lens _grdbrsBundles (\s a -> s {_grdbrsBundles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bundles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdbrsBundles :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Lude.Maybe [RelationalDatabaseBundle])
+grdbrsBundles = Lens.lens (bundles :: GetRelationalDatabaseBundlesResponse -> Lude.Maybe [RelationalDatabaseBundle]) (\s a -> s {bundles = a} :: GetRelationalDatabaseBundlesResponse)
+{-# DEPRECATED grdbrsBundles "Use generic-lens or generic-optics with 'bundles' instead." #-}
 
--- | -- | The response status code.
-grdbrsResponseStatus :: Lens' GetRelationalDatabaseBundlesResponse Int
-grdbrsResponseStatus = lens _grdbrsResponseStatus (\s a -> s {_grdbrsResponseStatus = a})
-
-instance NFData GetRelationalDatabaseBundlesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdbrsResponseStatus :: Lens.Lens' GetRelationalDatabaseBundlesResponse Lude.Int
+grdbrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseBundlesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseBundlesResponse)
+{-# DEPRECATED grdbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

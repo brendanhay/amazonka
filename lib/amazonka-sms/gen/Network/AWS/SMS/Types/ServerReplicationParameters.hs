@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,118 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerReplicationParameters where
+module Network.AWS.SMS.Types.ServerReplicationParameters
+  ( ServerReplicationParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerReplicationParameters,
+
+    -- * Lenses
+    srpFrequency,
+    srpNumberOfRecentAMIsToKeep,
+    srpSeedTime,
+    srpLicenseType,
+    srpEncrypted,
+    srpKmsKeyId,
+    srpRunOnce,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.LicenseType
 
 -- | The replication parameters for replicating a server.
 --
---
---
--- /See:/ 'serverReplicationParameters' smart constructor.
+-- /See:/ 'mkServerReplicationParameters' smart constructor.
 data ServerReplicationParameters = ServerReplicationParameters'
-  { _srpFrequency ::
-      !(Maybe Int),
-    _srpNumberOfRecentAMIsToKeep ::
-      !(Maybe Int),
-    _srpSeedTime :: !(Maybe POSIX),
-    _srpLicenseType ::
-      !(Maybe LicenseType),
-    _srpEncrypted :: !(Maybe Bool),
-    _srpKmsKeyId :: !(Maybe Text),
-    _srpRunOnce :: !(Maybe Bool)
+  { frequency ::
+      Lude.Maybe Lude.Int,
+    numberOfRecentAMIsToKeep ::
+      Lude.Maybe Lude.Int,
+    seedTime ::
+      Lude.Maybe Lude.Timestamp,
+    licenseType ::
+      Lude.Maybe LicenseType,
+    encrypted :: Lude.Maybe Lude.Bool,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    runOnce :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerReplicationParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encrypted' - Indicates whether the replication job produces encrypted AMIs.
+-- * 'frequency' - The frequency of creating replication jobs for the server.
+-- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
--- * 'srpFrequency' - The frequency of creating replication jobs for the server.
 --
--- * 'srpNumberOfRecentAMIsToKeep' - The number of recent AMIs to keep when creating a replication job for this server.
+--     * KMS key ID
 --
--- * 'srpSeedTime' - The seed time for creating a replication job for the server.
 --
--- * 'srpLicenseType' - The license type for creating a replication job for the server.
+--     * KMS key alias
 --
--- * 'srpEncrypted' - Indicates whether the replication job produces encrypted AMIs.
 --
--- * 'srpKmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:     * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+--     * ARN referring to the KMS key ID
 --
--- * 'srpRunOnce' - Indicates whether to run the replication job one time.
-serverReplicationParameters ::
+--
+--     * ARN referring to the KMS key alias
+--
+--
+-- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+-- * 'licenseType' - The license type for creating a replication job for the server.
+-- * 'numberOfRecentAMIsToKeep' - The number of recent AMIs to keep when creating a replication job for this server.
+-- * 'runOnce' - Indicates whether to run the replication job one time.
+-- * 'seedTime' - The seed time for creating a replication job for the server.
+mkServerReplicationParameters ::
   ServerReplicationParameters
-serverReplicationParameters =
+mkServerReplicationParameters =
   ServerReplicationParameters'
-    { _srpFrequency = Nothing,
-      _srpNumberOfRecentAMIsToKeep = Nothing,
-      _srpSeedTime = Nothing,
-      _srpLicenseType = Nothing,
-      _srpEncrypted = Nothing,
-      _srpKmsKeyId = Nothing,
-      _srpRunOnce = Nothing
+    { frequency = Lude.Nothing,
+      numberOfRecentAMIsToKeep = Lude.Nothing,
+      seedTime = Lude.Nothing,
+      licenseType = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      runOnce = Lude.Nothing
     }
 
 -- | The frequency of creating replication jobs for the server.
-srpFrequency :: Lens' ServerReplicationParameters (Maybe Int)
-srpFrequency = lens _srpFrequency (\s a -> s {_srpFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpFrequency :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Int)
+srpFrequency = Lens.lens (frequency :: ServerReplicationParameters -> Lude.Maybe Lude.Int) (\s a -> s {frequency = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The number of recent AMIs to keep when creating a replication job for this server.
-srpNumberOfRecentAMIsToKeep :: Lens' ServerReplicationParameters (Maybe Int)
-srpNumberOfRecentAMIsToKeep = lens _srpNumberOfRecentAMIsToKeep (\s a -> s {_srpNumberOfRecentAMIsToKeep = a})
+--
+-- /Note:/ Consider using 'numberOfRecentAMIsToKeep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpNumberOfRecentAMIsToKeep :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Int)
+srpNumberOfRecentAMIsToKeep = Lens.lens (numberOfRecentAMIsToKeep :: ServerReplicationParameters -> Lude.Maybe Lude.Int) (\s a -> s {numberOfRecentAMIsToKeep = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpNumberOfRecentAMIsToKeep "Use generic-lens or generic-optics with 'numberOfRecentAMIsToKeep' instead." #-}
 
 -- | The seed time for creating a replication job for the server.
-srpSeedTime :: Lens' ServerReplicationParameters (Maybe UTCTime)
-srpSeedTime = lens _srpSeedTime (\s a -> s {_srpSeedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'seedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpSeedTime :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Timestamp)
+srpSeedTime = Lens.lens (seedTime :: ServerReplicationParameters -> Lude.Maybe Lude.Timestamp) (\s a -> s {seedTime = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpSeedTime "Use generic-lens or generic-optics with 'seedTime' instead." #-}
 
 -- | The license type for creating a replication job for the server.
-srpLicenseType :: Lens' ServerReplicationParameters (Maybe LicenseType)
-srpLicenseType = lens _srpLicenseType (\s a -> s {_srpLicenseType = a})
+--
+-- /Note:/ Consider using 'licenseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpLicenseType :: Lens.Lens' ServerReplicationParameters (Lude.Maybe LicenseType)
+srpLicenseType = Lens.lens (licenseType :: ServerReplicationParameters -> Lude.Maybe LicenseType) (\s a -> s {licenseType = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpLicenseType "Use generic-lens or generic-optics with 'licenseType' instead." #-}
 
 -- | Indicates whether the replication job produces encrypted AMIs.
-srpEncrypted :: Lens' ServerReplicationParameters (Maybe Bool)
-srpEncrypted = lens _srpEncrypted (\s a -> s {_srpEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpEncrypted :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Bool)
+srpEncrypted = Lens.lens (encrypted :: ServerReplicationParameters -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
--- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:     * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
-srpKmsKeyId :: Lens' ServerReplicationParameters (Maybe Text)
-srpKmsKeyId = lens _srpKmsKeyId (\s a -> s {_srpKmsKeyId = a})
+-- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+--
+--
+--     * KMS key ID
+--
+--
+--     * KMS key alias
+--
+--
+--     * ARN referring to the KMS key ID
+--
+--
+--     * ARN referring to the KMS key alias
+--
+--
+-- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpKmsKeyId :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Text)
+srpKmsKeyId = Lens.lens (kmsKeyId :: ServerReplicationParameters -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Indicates whether to run the replication job one time.
-srpRunOnce :: Lens' ServerReplicationParameters (Maybe Bool)
-srpRunOnce = lens _srpRunOnce (\s a -> s {_srpRunOnce = a})
+--
+-- /Note:/ Consider using 'runOnce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpRunOnce :: Lens.Lens' ServerReplicationParameters (Lude.Maybe Lude.Bool)
+srpRunOnce = Lens.lens (runOnce :: ServerReplicationParameters -> Lude.Maybe Lude.Bool) (\s a -> s {runOnce = a} :: ServerReplicationParameters)
+{-# DEPRECATED srpRunOnce "Use generic-lens or generic-optics with 'runOnce' instead." #-}
 
-instance FromJSON ServerReplicationParameters where
+instance Lude.FromJSON ServerReplicationParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerReplicationParameters"
       ( \x ->
           ServerReplicationParameters'
-            <$> (x .:? "frequency")
-            <*> (x .:? "numberOfRecentAmisToKeep")
-            <*> (x .:? "seedTime")
-            <*> (x .:? "licenseType")
-            <*> (x .:? "encrypted")
-            <*> (x .:? "kmsKeyId")
-            <*> (x .:? "runOnce")
+            Lude.<$> (x Lude..:? "frequency")
+            Lude.<*> (x Lude..:? "numberOfRecentAmisToKeep")
+            Lude.<*> (x Lude..:? "seedTime")
+            Lude.<*> (x Lude..:? "licenseType")
+            Lude.<*> (x Lude..:? "encrypted")
+            Lude.<*> (x Lude..:? "kmsKeyId")
+            Lude.<*> (x Lude..:? "runOnce")
       )
 
-instance Hashable ServerReplicationParameters
-
-instance NFData ServerReplicationParameters
-
-instance ToJSON ServerReplicationParameters where
+instance Lude.ToJSON ServerReplicationParameters where
   toJSON ServerReplicationParameters' {..} =
-    object
-      ( catMaybes
-          [ ("frequency" .=) <$> _srpFrequency,
-            ("numberOfRecentAmisToKeep" .=) <$> _srpNumberOfRecentAMIsToKeep,
-            ("seedTime" .=) <$> _srpSeedTime,
-            ("licenseType" .=) <$> _srpLicenseType,
-            ("encrypted" .=) <$> _srpEncrypted,
-            ("kmsKeyId" .=) <$> _srpKmsKeyId,
-            ("runOnce" .=) <$> _srpRunOnce
+    Lude.object
+      ( Lude.catMaybes
+          [ ("frequency" Lude..=) Lude.<$> frequency,
+            ("numberOfRecentAmisToKeep" Lude..=)
+              Lude.<$> numberOfRecentAMIsToKeep,
+            ("seedTime" Lude..=) Lude.<$> seedTime,
+            ("licenseType" Lude..=) Lude.<$> licenseType,
+            ("encrypted" Lude..=) Lude.<$> encrypted,
+            ("kmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            ("runOnce" Lude..=) Lude.<$> runOnce
           ]
       )

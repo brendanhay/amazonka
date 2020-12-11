@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,128 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.HostOffering where
+module Network.AWS.EC2.Types.HostOffering
+  ( HostOffering (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkHostOffering,
+
+    -- * Lenses
+    hoInstanceFamily,
+    hoCurrencyCode,
+    hoHourlyPrice,
+    hoUpfrontPrice,
+    hoOfferingId,
+    hoDuration,
+    hoPaymentOption,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.PaymentOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the Dedicated Host Reservation offering.
 --
---
---
--- /See:/ 'hostOffering' smart constructor.
+-- /See:/ 'mkHostOffering' smart constructor.
 data HostOffering = HostOffering'
-  { _hoInstanceFamily ::
-      !(Maybe Text),
-    _hoCurrencyCode :: !(Maybe CurrencyCodeValues),
-    _hoHourlyPrice :: !(Maybe Text),
-    _hoUpfrontPrice :: !(Maybe Text),
-    _hoOfferingId :: !(Maybe Text),
-    _hoDuration :: !(Maybe Int),
-    _hoPaymentOption :: !(Maybe PaymentOption)
+  { instanceFamily ::
+      Lude.Maybe Lude.Text,
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    hourlyPrice :: Lude.Maybe Lude.Text,
+    upfrontPrice :: Lude.Maybe Lude.Text,
+    offeringId :: Lude.Maybe Lude.Text,
+    duration :: Lude.Maybe Lude.Int,
+    paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hoInstanceFamily' - The instance family of the offering.
---
--- * 'hoCurrencyCode' - The currency of the offering.
---
--- * 'hoHourlyPrice' - The hourly price of the offering.
---
--- * 'hoUpfrontPrice' - The upfront price of the offering. Does not apply to No Upfront offerings.
---
--- * 'hoOfferingId' - The ID of the offering.
---
--- * 'hoDuration' - The duration of the offering (in seconds).
---
--- * 'hoPaymentOption' - The available payment option.
-hostOffering ::
+-- * 'currencyCode' - The currency of the offering.
+-- * 'duration' - The duration of the offering (in seconds).
+-- * 'hourlyPrice' - The hourly price of the offering.
+-- * 'instanceFamily' - The instance family of the offering.
+-- * 'offeringId' - The ID of the offering.
+-- * 'paymentOption' - The available payment option.
+-- * 'upfrontPrice' - The upfront price of the offering. Does not apply to No Upfront offerings.
+mkHostOffering ::
   HostOffering
-hostOffering =
+mkHostOffering =
   HostOffering'
-    { _hoInstanceFamily = Nothing,
-      _hoCurrencyCode = Nothing,
-      _hoHourlyPrice = Nothing,
-      _hoUpfrontPrice = Nothing,
-      _hoOfferingId = Nothing,
-      _hoDuration = Nothing,
-      _hoPaymentOption = Nothing
+    { instanceFamily = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      hourlyPrice = Lude.Nothing,
+      upfrontPrice = Lude.Nothing,
+      offeringId = Lude.Nothing,
+      duration = Lude.Nothing,
+      paymentOption = Lude.Nothing
     }
 
 -- | The instance family of the offering.
-hoInstanceFamily :: Lens' HostOffering (Maybe Text)
-hoInstanceFamily = lens _hoInstanceFamily (\s a -> s {_hoInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoInstanceFamily :: Lens.Lens' HostOffering (Lude.Maybe Lude.Text)
+hoInstanceFamily = Lens.lens (instanceFamily :: HostOffering -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: HostOffering)
+{-# DEPRECATED hoInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The currency of the offering.
-hoCurrencyCode :: Lens' HostOffering (Maybe CurrencyCodeValues)
-hoCurrencyCode = lens _hoCurrencyCode (\s a -> s {_hoCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoCurrencyCode :: Lens.Lens' HostOffering (Lude.Maybe CurrencyCodeValues)
+hoCurrencyCode = Lens.lens (currencyCode :: HostOffering -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: HostOffering)
+{-# DEPRECATED hoCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The hourly price of the offering.
-hoHourlyPrice :: Lens' HostOffering (Maybe Text)
-hoHourlyPrice = lens _hoHourlyPrice (\s a -> s {_hoHourlyPrice = a})
+--
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoHourlyPrice :: Lens.Lens' HostOffering (Lude.Maybe Lude.Text)
+hoHourlyPrice = Lens.lens (hourlyPrice :: HostOffering -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: HostOffering)
+{-# DEPRECATED hoHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The upfront price of the offering. Does not apply to No Upfront offerings.
-hoUpfrontPrice :: Lens' HostOffering (Maybe Text)
-hoUpfrontPrice = lens _hoUpfrontPrice (\s a -> s {_hoUpfrontPrice = a})
+--
+-- /Note:/ Consider using 'upfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoUpfrontPrice :: Lens.Lens' HostOffering (Lude.Maybe Lude.Text)
+hoUpfrontPrice = Lens.lens (upfrontPrice :: HostOffering -> Lude.Maybe Lude.Text) (\s a -> s {upfrontPrice = a} :: HostOffering)
+{-# DEPRECATED hoUpfrontPrice "Use generic-lens or generic-optics with 'upfrontPrice' instead." #-}
 
 -- | The ID of the offering.
-hoOfferingId :: Lens' HostOffering (Maybe Text)
-hoOfferingId = lens _hoOfferingId (\s a -> s {_hoOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoOfferingId :: Lens.Lens' HostOffering (Lude.Maybe Lude.Text)
+hoOfferingId = Lens.lens (offeringId :: HostOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: HostOffering)
+{-# DEPRECATED hoOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | The duration of the offering (in seconds).
-hoDuration :: Lens' HostOffering (Maybe Int)
-hoDuration = lens _hoDuration (\s a -> s {_hoDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoDuration :: Lens.Lens' HostOffering (Lude.Maybe Lude.Int)
+hoDuration = Lens.lens (duration :: HostOffering -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: HostOffering)
+{-# DEPRECATED hoDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The available payment option.
-hoPaymentOption :: Lens' HostOffering (Maybe PaymentOption)
-hoPaymentOption = lens _hoPaymentOption (\s a -> s {_hoPaymentOption = a})
+--
+-- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hoPaymentOption :: Lens.Lens' HostOffering (Lude.Maybe PaymentOption)
+hoPaymentOption = Lens.lens (paymentOption :: HostOffering -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: HostOffering)
+{-# DEPRECATED hoPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
-instance FromXML HostOffering where
+instance Lude.FromXML HostOffering where
   parseXML x =
     HostOffering'
-      <$> (x .@? "instanceFamily")
-      <*> (x .@? "currencyCode")
-      <*> (x .@? "hourlyPrice")
-      <*> (x .@? "upfrontPrice")
-      <*> (x .@? "offeringId")
-      <*> (x .@? "duration")
-      <*> (x .@? "paymentOption")
-
-instance Hashable HostOffering
-
-instance NFData HostOffering
+      Lude.<$> (x Lude..@? "instanceFamily")
+      Lude.<*> (x Lude..@? "currencyCode")
+      Lude.<*> (x Lude..@? "hourlyPrice")
+      Lude.<*> (x Lude..@? "upfrontPrice")
+      Lude.<*> (x Lude..@? "offeringId")
+      Lude.<*> (x Lude..@? "duration")
+      Lude.<*> (x Lude..@? "paymentOption")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,104 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ViolationEvent where
+module Network.AWS.IoT.Types.ViolationEvent
+  ( ViolationEvent (..),
+
+    -- * Smart constructor
+    mkViolationEvent,
+
+    -- * Lenses
+    veViolationEventType,
+    veViolationId,
+    veBehavior,
+    veMetricValue,
+    veSecurityProfileName,
+    veViolationEventTime,
+    veThingName,
+  )
+where
 
 import Network.AWS.IoT.Types.Behavior
 import Network.AWS.IoT.Types.MetricValue
 import Network.AWS.IoT.Types.ViolationEventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a Device Defender security profile behavior violation.
 --
---
---
--- /See:/ 'violationEvent' smart constructor.
+-- /See:/ 'mkViolationEvent' smart constructor.
 data ViolationEvent = ViolationEvent'
-  { _veViolationEventType ::
-      !(Maybe ViolationEventType),
-    _veViolationId :: !(Maybe Text),
-    _veBehavior :: !(Maybe Behavior),
-    _veMetricValue :: !(Maybe MetricValue),
-    _veSecurityProfileName :: !(Maybe Text),
-    _veViolationEventTime :: !(Maybe POSIX),
-    _veThingName :: !(Maybe Text)
+  { violationEventType ::
+      Lude.Maybe ViolationEventType,
+    violationId :: Lude.Maybe Lude.Text,
+    behavior :: Lude.Maybe Behavior,
+    metricValue :: Lude.Maybe MetricValue,
+    securityProfileName :: Lude.Maybe Lude.Text,
+    violationEventTime :: Lude.Maybe Lude.Timestamp,
+    thingName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ViolationEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'veViolationEventType' - The type of violation event.
---
--- * 'veViolationId' - The ID of the violation event.
---
--- * 'veBehavior' - The behavior which was violated.
---
--- * 'veMetricValue' - The value of the metric (the measurement).
---
--- * 'veSecurityProfileName' - The name of the security profile whose behavior was violated.
---
--- * 'veViolationEventTime' - The time the violation event occurred.
---
--- * 'veThingName' - The name of the thing responsible for the violation event.
-violationEvent ::
+-- * 'behavior' - The behavior which was violated.
+-- * 'metricValue' - The value of the metric (the measurement).
+-- * 'securityProfileName' - The name of the security profile whose behavior was violated.
+-- * 'thingName' - The name of the thing responsible for the violation event.
+-- * 'violationEventTime' - The time the violation event occurred.
+-- * 'violationEventType' - The type of violation event.
+-- * 'violationId' - The ID of the violation event.
+mkViolationEvent ::
   ViolationEvent
-violationEvent =
+mkViolationEvent =
   ViolationEvent'
-    { _veViolationEventType = Nothing,
-      _veViolationId = Nothing,
-      _veBehavior = Nothing,
-      _veMetricValue = Nothing,
-      _veSecurityProfileName = Nothing,
-      _veViolationEventTime = Nothing,
-      _veThingName = Nothing
+    { violationEventType = Lude.Nothing,
+      violationId = Lude.Nothing,
+      behavior = Lude.Nothing,
+      metricValue = Lude.Nothing,
+      securityProfileName = Lude.Nothing,
+      violationEventTime = Lude.Nothing,
+      thingName = Lude.Nothing
     }
 
 -- | The type of violation event.
-veViolationEventType :: Lens' ViolationEvent (Maybe ViolationEventType)
-veViolationEventType = lens _veViolationEventType (\s a -> s {_veViolationEventType = a})
+--
+-- /Note:/ Consider using 'violationEventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veViolationEventType :: Lens.Lens' ViolationEvent (Lude.Maybe ViolationEventType)
+veViolationEventType = Lens.lens (violationEventType :: ViolationEvent -> Lude.Maybe ViolationEventType) (\s a -> s {violationEventType = a} :: ViolationEvent)
+{-# DEPRECATED veViolationEventType "Use generic-lens or generic-optics with 'violationEventType' instead." #-}
 
 -- | The ID of the violation event.
-veViolationId :: Lens' ViolationEvent (Maybe Text)
-veViolationId = lens _veViolationId (\s a -> s {_veViolationId = a})
+--
+-- /Note:/ Consider using 'violationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veViolationId :: Lens.Lens' ViolationEvent (Lude.Maybe Lude.Text)
+veViolationId = Lens.lens (violationId :: ViolationEvent -> Lude.Maybe Lude.Text) (\s a -> s {violationId = a} :: ViolationEvent)
+{-# DEPRECATED veViolationId "Use generic-lens or generic-optics with 'violationId' instead." #-}
 
 -- | The behavior which was violated.
-veBehavior :: Lens' ViolationEvent (Maybe Behavior)
-veBehavior = lens _veBehavior (\s a -> s {_veBehavior = a})
+--
+-- /Note:/ Consider using 'behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veBehavior :: Lens.Lens' ViolationEvent (Lude.Maybe Behavior)
+veBehavior = Lens.lens (behavior :: ViolationEvent -> Lude.Maybe Behavior) (\s a -> s {behavior = a} :: ViolationEvent)
+{-# DEPRECATED veBehavior "Use generic-lens or generic-optics with 'behavior' instead." #-}
 
 -- | The value of the metric (the measurement).
-veMetricValue :: Lens' ViolationEvent (Maybe MetricValue)
-veMetricValue = lens _veMetricValue (\s a -> s {_veMetricValue = a})
+--
+-- /Note:/ Consider using 'metricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veMetricValue :: Lens.Lens' ViolationEvent (Lude.Maybe MetricValue)
+veMetricValue = Lens.lens (metricValue :: ViolationEvent -> Lude.Maybe MetricValue) (\s a -> s {metricValue = a} :: ViolationEvent)
+{-# DEPRECATED veMetricValue "Use generic-lens or generic-optics with 'metricValue' instead." #-}
 
 -- | The name of the security profile whose behavior was violated.
-veSecurityProfileName :: Lens' ViolationEvent (Maybe Text)
-veSecurityProfileName = lens _veSecurityProfileName (\s a -> s {_veSecurityProfileName = a})
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veSecurityProfileName :: Lens.Lens' ViolationEvent (Lude.Maybe Lude.Text)
+veSecurityProfileName = Lens.lens (securityProfileName :: ViolationEvent -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileName = a} :: ViolationEvent)
+{-# DEPRECATED veSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The time the violation event occurred.
-veViolationEventTime :: Lens' ViolationEvent (Maybe UTCTime)
-veViolationEventTime = lens _veViolationEventTime (\s a -> s {_veViolationEventTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'violationEventTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veViolationEventTime :: Lens.Lens' ViolationEvent (Lude.Maybe Lude.Timestamp)
+veViolationEventTime = Lens.lens (violationEventTime :: ViolationEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {violationEventTime = a} :: ViolationEvent)
+{-# DEPRECATED veViolationEventTime "Use generic-lens or generic-optics with 'violationEventTime' instead." #-}
 
 -- | The name of the thing responsible for the violation event.
-veThingName :: Lens' ViolationEvent (Maybe Text)
-veThingName = lens _veThingName (\s a -> s {_veThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veThingName :: Lens.Lens' ViolationEvent (Lude.Maybe Lude.Text)
+veThingName = Lens.lens (thingName :: ViolationEvent -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: ViolationEvent)
+{-# DEPRECATED veThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance FromJSON ViolationEvent where
+instance Lude.FromJSON ViolationEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "ViolationEvent"
       ( \x ->
           ViolationEvent'
-            <$> (x .:? "violationEventType")
-            <*> (x .:? "violationId")
-            <*> (x .:? "behavior")
-            <*> (x .:? "metricValue")
-            <*> (x .:? "securityProfileName")
-            <*> (x .:? "violationEventTime")
-            <*> (x .:? "thingName")
+            Lude.<$> (x Lude..:? "violationEventType")
+            Lude.<*> (x Lude..:? "violationId")
+            Lude.<*> (x Lude..:? "behavior")
+            Lude.<*> (x Lude..:? "metricValue")
+            Lude.<*> (x Lude..:? "securityProfileName")
+            Lude.<*> (x Lude..:? "violationEventTime")
+            Lude.<*> (x Lude..:? "thingName")
       )
-
-instance Hashable ViolationEvent
-
-instance NFData ViolationEvent

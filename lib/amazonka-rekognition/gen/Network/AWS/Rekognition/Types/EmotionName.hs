@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.EmotionName where
+module Network.AWS.Rekognition.Types.EmotionName
+  ( EmotionName
+      ( EmotionName',
+        Angry,
+        Calm,
+        Confused,
+        Disgusted,
+        Fear,
+        Happy,
+        Sad,
+        Surprised,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EmotionName
-  = Angry
-  | Calm
-  | Confused
-  | Disgusted
-  | Fear
-  | Happy
-  | Sad
-  | Surprised
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EmotionName = EmotionName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EmotionName where
-  parser =
-    takeLowerText >>= \case
-      "angry" -> pure Angry
-      "calm" -> pure Calm
-      "confused" -> pure Confused
-      "disgusted" -> pure Disgusted
-      "fear" -> pure Fear
-      "happy" -> pure Happy
-      "sad" -> pure Sad
-      "surprised" -> pure Surprised
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing EmotionName from value: '" <> e
-            <> "'. Accepted values: angry, calm, confused, disgusted, fear, happy, sad, surprised, unknown"
+pattern Angry :: EmotionName
+pattern Angry = EmotionName' "ANGRY"
 
-instance ToText EmotionName where
-  toText = \case
-    Angry -> "ANGRY"
-    Calm -> "CALM"
-    Confused -> "CONFUSED"
-    Disgusted -> "DISGUSTED"
-    Fear -> "FEAR"
-    Happy -> "HAPPY"
-    Sad -> "SAD"
-    Surprised -> "SURPRISED"
-    Unknown -> "UNKNOWN"
+pattern Calm :: EmotionName
+pattern Calm = EmotionName' "CALM"
 
-instance Hashable EmotionName
+pattern Confused :: EmotionName
+pattern Confused = EmotionName' "CONFUSED"
 
-instance NFData EmotionName
+pattern Disgusted :: EmotionName
+pattern Disgusted = EmotionName' "DISGUSTED"
 
-instance ToByteString EmotionName
+pattern Fear :: EmotionName
+pattern Fear = EmotionName' "FEAR"
 
-instance ToQuery EmotionName
+pattern Happy :: EmotionName
+pattern Happy = EmotionName' "HAPPY"
 
-instance ToHeader EmotionName
+pattern Sad :: EmotionName
+pattern Sad = EmotionName' "SAD"
 
-instance FromJSON EmotionName where
-  parseJSON = parseJSONText "EmotionName"
+pattern Surprised :: EmotionName
+pattern Surprised = EmotionName' "SURPRISED"
+
+pattern Unknown :: EmotionName
+pattern Unknown = EmotionName' "UNKNOWN"
+
+{-# COMPLETE
+  Angry,
+  Calm,
+  Confused,
+  Disgusted,
+  Fear,
+  Happy,
+  Sad,
+  Surprised,
+  Unknown,
+  EmotionName'
+  #-}

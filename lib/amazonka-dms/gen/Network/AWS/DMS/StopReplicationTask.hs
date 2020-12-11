@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,138 @@
 --
 -- Stops the replication task.
 module Network.AWS.DMS.StopReplicationTask
-  ( -- * Creating a Request
-    stopReplicationTask,
-    StopReplicationTask,
+  ( -- * Creating a request
+    StopReplicationTask (..),
+    mkStopReplicationTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sReplicationTaskARN,
 
-    -- * Destructuring the Response
-    stopReplicationTaskResponse,
-    StopReplicationTaskResponse,
+    -- * Destructuring the response
+    StopReplicationTaskResponse (..),
+    mkStopReplicationTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsReplicationTask,
     srsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'stopReplicationTask' smart constructor.
+-- /See:/ 'mkStopReplicationTask' smart constructor.
 newtype StopReplicationTask = StopReplicationTask'
-  { _sReplicationTaskARN ::
-      Text
+  { replicationTaskARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopReplicationTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sReplicationTaskARN' - The Amazon Resource Name(ARN) of the replication task to be stopped.
-stopReplicationTask ::
-  -- | 'sReplicationTaskARN'
-  Text ->
+-- * 'replicationTaskARN' - The Amazon Resource Name(ARN) of the replication task to be stopped.
+mkStopReplicationTask ::
+  -- | 'replicationTaskARN'
+  Lude.Text ->
   StopReplicationTask
-stopReplicationTask pReplicationTaskARN_ =
-  StopReplicationTask' {_sReplicationTaskARN = pReplicationTaskARN_}
+mkStopReplicationTask pReplicationTaskARN_ =
+  StopReplicationTask' {replicationTaskARN = pReplicationTaskARN_}
 
 -- | The Amazon Resource Name(ARN) of the replication task to be stopped.
-sReplicationTaskARN :: Lens' StopReplicationTask Text
-sReplicationTaskARN = lens _sReplicationTaskARN (\s a -> s {_sReplicationTaskARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sReplicationTaskARN :: Lens.Lens' StopReplicationTask Lude.Text
+sReplicationTaskARN = Lens.lens (replicationTaskARN :: StopReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: StopReplicationTask)
+{-# DEPRECATED sReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
-instance AWSRequest StopReplicationTask where
+instance Lude.AWSRequest StopReplicationTask where
   type Rs StopReplicationTask = StopReplicationTaskResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopReplicationTaskResponse'
-            <$> (x .?> "ReplicationTask") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTask")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopReplicationTask
-
-instance NFData StopReplicationTask
-
-instance ToHeaders StopReplicationTask where
+instance Lude.ToHeaders StopReplicationTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.StopReplicationTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.StopReplicationTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopReplicationTask where
+instance Lude.ToJSON StopReplicationTask where
   toJSON StopReplicationTask' {..} =
-    object
-      (catMaybes [Just ("ReplicationTaskArn" .= _sReplicationTaskARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)]
+      )
 
-instance ToPath StopReplicationTask where
-  toPath = const "/"
+instance Lude.ToPath StopReplicationTask where
+  toPath = Lude.const "/"
 
-instance ToQuery StopReplicationTask where
-  toQuery = const mempty
+instance Lude.ToQuery StopReplicationTask where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'stopReplicationTaskResponse' smart constructor.
+-- /See:/ 'mkStopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
-  { _srsReplicationTask ::
-      !(Maybe ReplicationTask),
-    _srsResponseStatus :: !Int
+  { replicationTask ::
+      Lude.Maybe ReplicationTask,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopReplicationTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsReplicationTask' - The replication task stopped.
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopReplicationTaskResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'replicationTask' - The replication task stopped.
+-- * 'responseStatus' - The response status code.
+mkStopReplicationTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopReplicationTaskResponse
-stopReplicationTaskResponse pResponseStatus_ =
+mkStopReplicationTaskResponse pResponseStatus_ =
   StopReplicationTaskResponse'
-    { _srsReplicationTask = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { replicationTask = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The replication task stopped.
-srsReplicationTask :: Lens' StopReplicationTaskResponse (Maybe ReplicationTask)
-srsReplicationTask = lens _srsReplicationTask (\s a -> s {_srsReplicationTask = a})
+--
+-- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsReplicationTask :: Lens.Lens' StopReplicationTaskResponse (Lude.Maybe ReplicationTask)
+srsReplicationTask = Lens.lens (replicationTask :: StopReplicationTaskResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: StopReplicationTaskResponse)
+{-# DEPRECATED srsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopReplicationTaskResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopReplicationTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopReplicationTaskResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopReplicationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopReplicationTaskResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

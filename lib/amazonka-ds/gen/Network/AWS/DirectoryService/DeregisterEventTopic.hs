@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,143 @@
 --
 -- Removes the specified directory as a publisher to the specified SNS topic.
 module Network.AWS.DirectoryService.DeregisterEventTopic
-  ( -- * Creating a Request
-    deregisterEventTopic,
-    DeregisterEventTopic,
+  ( -- * Creating a request
+    DeregisterEventTopic (..),
+    mkDeregisterEventTopic,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detDirectoryId,
     detTopicName,
 
-    -- * Destructuring the Response
-    deregisterEventTopicResponse,
-    DeregisterEventTopicResponse,
+    -- * Destructuring the response
+    DeregisterEventTopicResponse (..),
+    mkDeregisterEventTopicResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     derrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Removes the specified directory as a publisher to the specified SNS topic.
 --
---
---
--- /See:/ 'deregisterEventTopic' smart constructor.
+-- /See:/ 'mkDeregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
-  { _detDirectoryId ::
-      !Text,
-    _detTopicName :: !Text
+  { directoryId ::
+      Lude.Text,
+    topicName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEventTopic' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detDirectoryId' - The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
---
--- * 'detTopicName' - The name of the SNS topic from which to remove the directory as a publisher.
-deregisterEventTopic ::
-  -- | 'detDirectoryId'
-  Text ->
-  -- | 'detTopicName'
-  Text ->
+-- * 'directoryId' - The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
+-- * 'topicName' - The name of the SNS topic from which to remove the directory as a publisher.
+mkDeregisterEventTopic ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'topicName'
+  Lude.Text ->
   DeregisterEventTopic
-deregisterEventTopic pDirectoryId_ pTopicName_ =
+mkDeregisterEventTopic pDirectoryId_ pTopicName_ =
   DeregisterEventTopic'
-    { _detDirectoryId = pDirectoryId_,
-      _detTopicName = pTopicName_
+    { directoryId = pDirectoryId_,
+      topicName = pTopicName_
     }
 
 -- | The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
-detDirectoryId :: Lens' DeregisterEventTopic Text
-detDirectoryId = lens _detDirectoryId (\s a -> s {_detDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detDirectoryId :: Lens.Lens' DeregisterEventTopic Lude.Text
+detDirectoryId = Lens.lens (directoryId :: DeregisterEventTopic -> Lude.Text) (\s a -> s {directoryId = a} :: DeregisterEventTopic)
+{-# DEPRECATED detDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the SNS topic from which to remove the directory as a publisher.
-detTopicName :: Lens' DeregisterEventTopic Text
-detTopicName = lens _detTopicName (\s a -> s {_detTopicName = a})
+--
+-- /Note:/ Consider using 'topicName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detTopicName :: Lens.Lens' DeregisterEventTopic Lude.Text
+detTopicName = Lens.lens (topicName :: DeregisterEventTopic -> Lude.Text) (\s a -> s {topicName = a} :: DeregisterEventTopic)
+{-# DEPRECATED detTopicName "Use generic-lens or generic-optics with 'topicName' instead." #-}
 
-instance AWSRequest DeregisterEventTopic where
+instance Lude.AWSRequest DeregisterEventTopic where
   type Rs DeregisterEventTopic = DeregisterEventTopicResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> DeregisterEventTopicResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeregisterEventTopicResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeregisterEventTopic
-
-instance NFData DeregisterEventTopic
-
-instance ToHeaders DeregisterEventTopic where
+instance Lude.ToHeaders DeregisterEventTopic where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.DeregisterEventTopic" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DeregisterEventTopic" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterEventTopic where
+instance Lude.ToJSON DeregisterEventTopic where
   toJSON DeregisterEventTopic' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _detDirectoryId),
-            Just ("TopicName" .= _detTopicName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("TopicName" Lude..= topicName)
           ]
       )
 
-instance ToPath DeregisterEventTopic where
-  toPath = const "/"
+instance Lude.ToPath DeregisterEventTopic where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterEventTopic where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterEventTopic where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a DeregisterEventTopic request.
 --
---
---
--- /See:/ 'deregisterEventTopicResponse' smart constructor.
+-- /See:/ 'mkDeregisterEventTopicResponse' smart constructor.
 newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
-  { _derrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEventTopicResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derrsResponseStatus' - -- | The response status code.
-deregisterEventTopicResponse ::
-  -- | 'derrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterEventTopicResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterEventTopicResponse
-deregisterEventTopicResponse pResponseStatus_ =
-  DeregisterEventTopicResponse'
-    { _derrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeregisterEventTopicResponse pResponseStatus_ =
+  DeregisterEventTopicResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\s a -> s {_derrsResponseStatus = a})
-
-instance NFData DeregisterEventTopicResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsResponseStatus :: Lens.Lens' DeregisterEventTopicResponse Lude.Int
+derrsResponseStatus = Lens.lens (responseStatus :: DeregisterEventTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterEventTopicResponse)
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

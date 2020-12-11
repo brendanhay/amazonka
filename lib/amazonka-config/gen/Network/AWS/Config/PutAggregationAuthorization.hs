@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,172 @@
 --
 -- Authorizes the aggregator account and region to collect data from the source account and region.
 module Network.AWS.Config.PutAggregationAuthorization
-  ( -- * Creating a Request
-    putAggregationAuthorization,
-    PutAggregationAuthorization,
+  ( -- * Creating a request
+    PutAggregationAuthorization (..),
+    mkPutAggregationAuthorization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     paaTags,
     paaAuthorizedAccountId,
     paaAuthorizedAWSRegion,
 
-    -- * Destructuring the Response
-    putAggregationAuthorizationResponse,
-    PutAggregationAuthorizationResponse,
+    -- * Destructuring the response
+    PutAggregationAuthorizationResponse (..),
+    mkPutAggregationAuthorizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     paarsAggregationAuthorization,
     paarsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putAggregationAuthorization' smart constructor.
+-- | /See:/ 'mkPutAggregationAuthorization' smart constructor.
 data PutAggregationAuthorization = PutAggregationAuthorization'
-  { _paaTags ::
-      !(Maybe [Tag]),
-    _paaAuthorizedAccountId :: !Text,
-    _paaAuthorizedAWSRegion :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    authorizedAccountId :: Lude.Text,
+    authorizedAWSRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAggregationAuthorization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paaTags' - An array of tag object.
---
--- * 'paaAuthorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
---
--- * 'paaAuthorizedAWSRegion' - The region authorized to collect aggregated data.
-putAggregationAuthorization ::
-  -- | 'paaAuthorizedAccountId'
-  Text ->
-  -- | 'paaAuthorizedAWSRegion'
-  Text ->
+-- * 'authorizedAWSRegion' - The region authorized to collect aggregated data.
+-- * 'authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
+-- * 'tags' - An array of tag object.
+mkPutAggregationAuthorization ::
+  -- | 'authorizedAccountId'
+  Lude.Text ->
+  -- | 'authorizedAWSRegion'
+  Lude.Text ->
   PutAggregationAuthorization
-putAggregationAuthorization
+mkPutAggregationAuthorization
   pAuthorizedAccountId_
   pAuthorizedAWSRegion_ =
     PutAggregationAuthorization'
-      { _paaTags = Nothing,
-        _paaAuthorizedAccountId = pAuthorizedAccountId_,
-        _paaAuthorizedAWSRegion = pAuthorizedAWSRegion_
+      { tags = Lude.Nothing,
+        authorizedAccountId = pAuthorizedAccountId_,
+        authorizedAWSRegion = pAuthorizedAWSRegion_
       }
 
 -- | An array of tag object.
-paaTags :: Lens' PutAggregationAuthorization [Tag]
-paaTags = lens _paaTags (\s a -> s {_paaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paaTags :: Lens.Lens' PutAggregationAuthorization (Lude.Maybe [Tag])
+paaTags = Lens.lens (tags :: PutAggregationAuthorization -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutAggregationAuthorization)
+{-# DEPRECATED paaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
-paaAuthorizedAccountId :: Lens' PutAggregationAuthorization Text
-paaAuthorizedAccountId = lens _paaAuthorizedAccountId (\s a -> s {_paaAuthorizedAccountId = a})
+--
+-- /Note:/ Consider using 'authorizedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paaAuthorizedAccountId :: Lens.Lens' PutAggregationAuthorization Lude.Text
+paaAuthorizedAccountId = Lens.lens (authorizedAccountId :: PutAggregationAuthorization -> Lude.Text) (\s a -> s {authorizedAccountId = a} :: PutAggregationAuthorization)
+{-# DEPRECATED paaAuthorizedAccountId "Use generic-lens or generic-optics with 'authorizedAccountId' instead." #-}
 
 -- | The region authorized to collect aggregated data.
-paaAuthorizedAWSRegion :: Lens' PutAggregationAuthorization Text
-paaAuthorizedAWSRegion = lens _paaAuthorizedAWSRegion (\s a -> s {_paaAuthorizedAWSRegion = a})
+--
+-- /Note:/ Consider using 'authorizedAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paaAuthorizedAWSRegion :: Lens.Lens' PutAggregationAuthorization Lude.Text
+paaAuthorizedAWSRegion = Lens.lens (authorizedAWSRegion :: PutAggregationAuthorization -> Lude.Text) (\s a -> s {authorizedAWSRegion = a} :: PutAggregationAuthorization)
+{-# DEPRECATED paaAuthorizedAWSRegion "Use generic-lens or generic-optics with 'authorizedAWSRegion' instead." #-}
 
-instance AWSRequest PutAggregationAuthorization where
+instance Lude.AWSRequest PutAggregationAuthorization where
   type
     Rs PutAggregationAuthorization =
       PutAggregationAuthorizationResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutAggregationAuthorizationResponse'
-            <$> (x .?> "AggregationAuthorization") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AggregationAuthorization")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutAggregationAuthorization
-
-instance NFData PutAggregationAuthorization
-
-instance ToHeaders PutAggregationAuthorization where
+instance Lude.ToHeaders PutAggregationAuthorization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.PutAggregationAuthorization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.PutAggregationAuthorization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAggregationAuthorization where
+instance Lude.ToJSON PutAggregationAuthorization where
   toJSON PutAggregationAuthorization' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _paaTags,
-            Just ("AuthorizedAccountId" .= _paaAuthorizedAccountId),
-            Just ("AuthorizedAwsRegion" .= _paaAuthorizedAWSRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("AuthorizedAccountId" Lude..= authorizedAccountId),
+            Lude.Just ("AuthorizedAwsRegion" Lude..= authorizedAWSRegion)
           ]
       )
 
-instance ToPath PutAggregationAuthorization where
-  toPath = const "/"
+instance Lude.ToPath PutAggregationAuthorization where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAggregationAuthorization where
-  toQuery = const mempty
+instance Lude.ToQuery PutAggregationAuthorization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAggregationAuthorizationResponse' smart constructor.
+-- | /See:/ 'mkPutAggregationAuthorizationResponse' smart constructor.
 data PutAggregationAuthorizationResponse = PutAggregationAuthorizationResponse'
-  { _paarsAggregationAuthorization ::
-      !( Maybe
-           AggregationAuthorization
-       ),
-    _paarsResponseStatus ::
-      !Int
+  { aggregationAuthorization ::
+      Lude.Maybe
+        AggregationAuthorization,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAggregationAuthorizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paarsAggregationAuthorization' - Returns an AggregationAuthorization object.
---
--- * 'paarsResponseStatus' - -- | The response status code.
-putAggregationAuthorizationResponse ::
-  -- | 'paarsResponseStatus'
-  Int ->
+-- * 'aggregationAuthorization' - Returns an AggregationAuthorization object.
+-- * 'responseStatus' - The response status code.
+mkPutAggregationAuthorizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAggregationAuthorizationResponse
-putAggregationAuthorizationResponse pResponseStatus_ =
+mkPutAggregationAuthorizationResponse pResponseStatus_ =
   PutAggregationAuthorizationResponse'
-    { _paarsAggregationAuthorization =
-        Nothing,
-      _paarsResponseStatus = pResponseStatus_
+    { aggregationAuthorization =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns an AggregationAuthorization object.
-paarsAggregationAuthorization :: Lens' PutAggregationAuthorizationResponse (Maybe AggregationAuthorization)
-paarsAggregationAuthorization = lens _paarsAggregationAuthorization (\s a -> s {_paarsAggregationAuthorization = a})
+--
+-- /Note:/ Consider using 'aggregationAuthorization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paarsAggregationAuthorization :: Lens.Lens' PutAggregationAuthorizationResponse (Lude.Maybe AggregationAuthorization)
+paarsAggregationAuthorization = Lens.lens (aggregationAuthorization :: PutAggregationAuthorizationResponse -> Lude.Maybe AggregationAuthorization) (\s a -> s {aggregationAuthorization = a} :: PutAggregationAuthorizationResponse)
+{-# DEPRECATED paarsAggregationAuthorization "Use generic-lens or generic-optics with 'aggregationAuthorization' instead." #-}
 
--- | -- | The response status code.
-paarsResponseStatus :: Lens' PutAggregationAuthorizationResponse Int
-paarsResponseStatus = lens _paarsResponseStatus (\s a -> s {_paarsResponseStatus = a})
-
-instance NFData PutAggregationAuthorizationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paarsResponseStatus :: Lens.Lens' PutAggregationAuthorizationResponse Lude.Int
+paarsResponseStatus = Lens.lens (responseStatus :: PutAggregationAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAggregationAuthorizationResponse)
+{-# DEPRECATED paarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

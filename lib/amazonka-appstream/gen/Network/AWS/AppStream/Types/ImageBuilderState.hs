@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ImageBuilderState where
+module Network.AWS.AppStream.Types.ImageBuilderState
+  ( ImageBuilderState
+      ( ImageBuilderState',
+        IBSDeleting,
+        IBSFailed,
+        IBSPending,
+        IBSRebooting,
+        IBSRunning,
+        IBSSnapshotting,
+        IBSStopped,
+        IBSStopping,
+        IBSUpdatingAgent
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageBuilderState
-  = IBSDeleting
-  | IBSFailed
-  | IBSPending
-  | IBSRebooting
-  | IBSRunning
-  | IBSSnapshotting
-  | IBSStopped
-  | IBSStopping
-  | IBSUpdatingAgent
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageBuilderState = ImageBuilderState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageBuilderState where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure IBSDeleting
-      "failed" -> pure IBSFailed
-      "pending" -> pure IBSPending
-      "rebooting" -> pure IBSRebooting
-      "running" -> pure IBSRunning
-      "snapshotting" -> pure IBSSnapshotting
-      "stopped" -> pure IBSStopped
-      "stopping" -> pure IBSStopping
-      "updating_agent" -> pure IBSUpdatingAgent
-      e ->
-        fromTextError $
-          "Failure parsing ImageBuilderState from value: '" <> e
-            <> "'. Accepted values: deleting, failed, pending, rebooting, running, snapshotting, stopped, stopping, updating_agent"
+pattern IBSDeleting :: ImageBuilderState
+pattern IBSDeleting = ImageBuilderState' "DELETING"
 
-instance ToText ImageBuilderState where
-  toText = \case
-    IBSDeleting -> "DELETING"
-    IBSFailed -> "FAILED"
-    IBSPending -> "PENDING"
-    IBSRebooting -> "REBOOTING"
-    IBSRunning -> "RUNNING"
-    IBSSnapshotting -> "SNAPSHOTTING"
-    IBSStopped -> "STOPPED"
-    IBSStopping -> "STOPPING"
-    IBSUpdatingAgent -> "UPDATING_AGENT"
+pattern IBSFailed :: ImageBuilderState
+pattern IBSFailed = ImageBuilderState' "FAILED"
 
-instance Hashable ImageBuilderState
+pattern IBSPending :: ImageBuilderState
+pattern IBSPending = ImageBuilderState' "PENDING"
 
-instance NFData ImageBuilderState
+pattern IBSRebooting :: ImageBuilderState
+pattern IBSRebooting = ImageBuilderState' "REBOOTING"
 
-instance ToByteString ImageBuilderState
+pattern IBSRunning :: ImageBuilderState
+pattern IBSRunning = ImageBuilderState' "RUNNING"
 
-instance ToQuery ImageBuilderState
+pattern IBSSnapshotting :: ImageBuilderState
+pattern IBSSnapshotting = ImageBuilderState' "SNAPSHOTTING"
 
-instance ToHeader ImageBuilderState
+pattern IBSStopped :: ImageBuilderState
+pattern IBSStopped = ImageBuilderState' "STOPPED"
 
-instance FromJSON ImageBuilderState where
-  parseJSON = parseJSONText "ImageBuilderState"
+pattern IBSStopping :: ImageBuilderState
+pattern IBSStopping = ImageBuilderState' "STOPPING"
+
+pattern IBSUpdatingAgent :: ImageBuilderState
+pattern IBSUpdatingAgent = ImageBuilderState' "UPDATING_AGENT"
+
+{-# COMPLETE
+  IBSDeleting,
+  IBSFailed,
+  IBSPending,
+  IBSRebooting,
+  IBSRunning,
+  IBSSnapshotting,
+  IBSStopped,
+  IBSStopping,
+  IBSUpdatingAgent,
+  ImageBuilderState'
+  #-}

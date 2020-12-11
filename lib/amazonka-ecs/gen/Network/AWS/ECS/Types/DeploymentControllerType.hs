@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.DeploymentControllerType where
+module Network.AWS.ECS.Types.DeploymentControllerType
+  ( DeploymentControllerType
+      ( DeploymentControllerType',
+        CodeDeploy,
+        Ecs,
+        External
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentControllerType
-  = CodeDeploy
-  | Ecs
-  | External
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentControllerType = DeploymentControllerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentControllerType where
-  parser =
-    takeLowerText >>= \case
-      "code_deploy" -> pure CodeDeploy
-      "ecs" -> pure Ecs
-      "external" -> pure External
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentControllerType from value: '" <> e
-            <> "'. Accepted values: code_deploy, ecs, external"
+pattern CodeDeploy :: DeploymentControllerType
+pattern CodeDeploy = DeploymentControllerType' "CODE_DEPLOY"
 
-instance ToText DeploymentControllerType where
-  toText = \case
-    CodeDeploy -> "CODE_DEPLOY"
-    Ecs -> "ECS"
-    External -> "EXTERNAL"
+pattern Ecs :: DeploymentControllerType
+pattern Ecs = DeploymentControllerType' "ECS"
 
-instance Hashable DeploymentControllerType
+pattern External :: DeploymentControllerType
+pattern External = DeploymentControllerType' "EXTERNAL"
 
-instance NFData DeploymentControllerType
-
-instance ToByteString DeploymentControllerType
-
-instance ToQuery DeploymentControllerType
-
-instance ToHeader DeploymentControllerType
-
-instance ToJSON DeploymentControllerType where
-  toJSON = toJSONText
-
-instance FromJSON DeploymentControllerType where
-  parseJSON = parseJSONText "DeploymentControllerType"
+{-# COMPLETE
+  CodeDeploy,
+  Ecs,
+  External,
+  DeploymentControllerType'
+  #-}

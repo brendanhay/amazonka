@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSettings where
+module Network.AWS.MediaLive.Types.InputSettings
+  ( InputSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputSettings,
+
+    -- * Lenses
+    isVideoSelector,
+    isSmpte2038DataPreference,
+    isNetworkInputSettings,
+    isAudioSelectors,
+    isDeblockFilter,
+    isDenoiseFilter,
+    isFilterStrength,
+    isCaptionSelectors,
+    isInputFilter,
+    isSourceEndBehavior,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioSelector
 import Network.AWS.MediaLive.Types.CaptionSelector
 import Network.AWS.MediaLive.Types.InputDeblockFilter
@@ -25,140 +37,177 @@ import Network.AWS.MediaLive.Types.InputSourceEndBehavior
 import Network.AWS.MediaLive.Types.NetworkInputSettings
 import Network.AWS.MediaLive.Types.Smpte2038DataPreference
 import Network.AWS.MediaLive.Types.VideoSelector
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Live Event input parameters. There can be multiple inputs in a single Live Event.
 --
--- /See:/ 'inputSettings' smart constructor.
+-- /See:/ 'mkInputSettings' smart constructor.
 data InputSettings = InputSettings'
-  { _isVideoSelector ::
-      !(Maybe VideoSelector),
-    _isSmpte2038DataPreference :: !(Maybe Smpte2038DataPreference),
-    _isNetworkInputSettings :: !(Maybe NetworkInputSettings),
-    _isAudioSelectors :: !(Maybe [AudioSelector]),
-    _isDeblockFilter :: !(Maybe InputDeblockFilter),
-    _isDenoiseFilter :: !(Maybe InputDenoiseFilter),
-    _isFilterStrength :: !(Maybe Nat),
-    _isCaptionSelectors :: !(Maybe [CaptionSelector]),
-    _isInputFilter :: !(Maybe InputFilter),
-    _isSourceEndBehavior :: !(Maybe InputSourceEndBehavior)
+  { videoSelector ::
+      Lude.Maybe VideoSelector,
+    smpte2038DataPreference :: Lude.Maybe Smpte2038DataPreference,
+    networkInputSettings :: Lude.Maybe NetworkInputSettings,
+    audioSelectors :: Lude.Maybe [AudioSelector],
+    deblockFilter :: Lude.Maybe InputDeblockFilter,
+    denoiseFilter :: Lude.Maybe InputDenoiseFilter,
+    filterStrength :: Lude.Maybe Lude.Natural,
+    captionSelectors :: Lude.Maybe [CaptionSelector],
+    inputFilter :: Lude.Maybe InputFilter,
+    sourceEndBehavior :: Lude.Maybe InputSourceEndBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'audioSelectors' - Used to select the audio stream to decode for inputs that have multiple available.
+-- * 'captionSelectors' - Used to select the caption input to use for inputs that have multiple available.
+-- * 'deblockFilter' - Enable or disable the deblock filter when filtering.
+-- * 'denoiseFilter' - Enable or disable the denoise filter when filtering.
+-- * 'filterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+-- * 'inputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default.
 --
--- * 'isVideoSelector' - Informs which video elementary stream to decode for input types that have multiple available.
+-- 1) auto - filtering will be applied depending on input type/quality
+-- 2) disabled - no filtering will be applied to the input
+-- 3) forced - filtering will be applied regardless of input type
+-- * 'networkInputSettings' - Input settings.
+-- * 'smpte2038DataPreference' - Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
 --
--- * 'isSmpte2038DataPreference' - Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any). - IGNORE: Never extract any ancillary data from SMPTE-2038.
---
--- * 'isNetworkInputSettings' - Input settings.
---
--- * 'isAudioSelectors' - Used to select the audio stream to decode for inputs that have multiple available.
---
--- * 'isDeblockFilter' - Enable or disable the deblock filter when filtering.
---
--- * 'isDenoiseFilter' - Enable or disable the denoise filter when filtering.
---
--- * 'isFilterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
---
--- * 'isCaptionSelectors' - Used to select the caption input to use for inputs that have multiple available.
---
--- * 'isInputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default. 1) auto - filtering will be applied depending on input type/quality 2) disabled - no filtering will be applied to the input 3) forced - filtering will be applied regardless of input type
---
--- * 'isSourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed indefinitely.
-inputSettings ::
+-- - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
+-- - IGNORE: Never extract any ancillary data from SMPTE-2038.
+-- * 'sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed indefinitely.
+-- * 'videoSelector' - Informs which video elementary stream to decode for input types that have multiple available.
+mkInputSettings ::
   InputSettings
-inputSettings =
+mkInputSettings =
   InputSettings'
-    { _isVideoSelector = Nothing,
-      _isSmpte2038DataPreference = Nothing,
-      _isNetworkInputSettings = Nothing,
-      _isAudioSelectors = Nothing,
-      _isDeblockFilter = Nothing,
-      _isDenoiseFilter = Nothing,
-      _isFilterStrength = Nothing,
-      _isCaptionSelectors = Nothing,
-      _isInputFilter = Nothing,
-      _isSourceEndBehavior = Nothing
+    { videoSelector = Lude.Nothing,
+      smpte2038DataPreference = Lude.Nothing,
+      networkInputSettings = Lude.Nothing,
+      audioSelectors = Lude.Nothing,
+      deblockFilter = Lude.Nothing,
+      denoiseFilter = Lude.Nothing,
+      filterStrength = Lude.Nothing,
+      captionSelectors = Lude.Nothing,
+      inputFilter = Lude.Nothing,
+      sourceEndBehavior = Lude.Nothing
     }
 
 -- | Informs which video elementary stream to decode for input types that have multiple available.
-isVideoSelector :: Lens' InputSettings (Maybe VideoSelector)
-isVideoSelector = lens _isVideoSelector (\s a -> s {_isVideoSelector = a})
+--
+-- /Note:/ Consider using 'videoSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isVideoSelector :: Lens.Lens' InputSettings (Lude.Maybe VideoSelector)
+isVideoSelector = Lens.lens (videoSelector :: InputSettings -> Lude.Maybe VideoSelector) (\s a -> s {videoSelector = a} :: InputSettings)
+{-# DEPRECATED isVideoSelector "Use generic-lens or generic-optics with 'videoSelector' instead." #-}
 
--- | Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any). - IGNORE: Never extract any ancillary data from SMPTE-2038.
-isSmpte2038DataPreference :: Lens' InputSettings (Maybe Smpte2038DataPreference)
-isSmpte2038DataPreference = lens _isSmpte2038DataPreference (\s a -> s {_isSmpte2038DataPreference = a})
+-- | Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
+--
+-- - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
+-- - IGNORE: Never extract any ancillary data from SMPTE-2038.
+--
+-- /Note:/ Consider using 'smpte2038DataPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isSmpte2038DataPreference :: Lens.Lens' InputSettings (Lude.Maybe Smpte2038DataPreference)
+isSmpte2038DataPreference = Lens.lens (smpte2038DataPreference :: InputSettings -> Lude.Maybe Smpte2038DataPreference) (\s a -> s {smpte2038DataPreference = a} :: InputSettings)
+{-# DEPRECATED isSmpte2038DataPreference "Use generic-lens or generic-optics with 'smpte2038DataPreference' instead." #-}
 
 -- | Input settings.
-isNetworkInputSettings :: Lens' InputSettings (Maybe NetworkInputSettings)
-isNetworkInputSettings = lens _isNetworkInputSettings (\s a -> s {_isNetworkInputSettings = a})
+--
+-- /Note:/ Consider using 'networkInputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isNetworkInputSettings :: Lens.Lens' InputSettings (Lude.Maybe NetworkInputSettings)
+isNetworkInputSettings = Lens.lens (networkInputSettings :: InputSettings -> Lude.Maybe NetworkInputSettings) (\s a -> s {networkInputSettings = a} :: InputSettings)
+{-# DEPRECATED isNetworkInputSettings "Use generic-lens or generic-optics with 'networkInputSettings' instead." #-}
 
 -- | Used to select the audio stream to decode for inputs that have multiple available.
-isAudioSelectors :: Lens' InputSettings [AudioSelector]
-isAudioSelectors = lens _isAudioSelectors (\s a -> s {_isAudioSelectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'audioSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isAudioSelectors :: Lens.Lens' InputSettings (Lude.Maybe [AudioSelector])
+isAudioSelectors = Lens.lens (audioSelectors :: InputSettings -> Lude.Maybe [AudioSelector]) (\s a -> s {audioSelectors = a} :: InputSettings)
+{-# DEPRECATED isAudioSelectors "Use generic-lens or generic-optics with 'audioSelectors' instead." #-}
 
 -- | Enable or disable the deblock filter when filtering.
-isDeblockFilter :: Lens' InputSettings (Maybe InputDeblockFilter)
-isDeblockFilter = lens _isDeblockFilter (\s a -> s {_isDeblockFilter = a})
+--
+-- /Note:/ Consider using 'deblockFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isDeblockFilter :: Lens.Lens' InputSettings (Lude.Maybe InputDeblockFilter)
+isDeblockFilter = Lens.lens (deblockFilter :: InputSettings -> Lude.Maybe InputDeblockFilter) (\s a -> s {deblockFilter = a} :: InputSettings)
+{-# DEPRECATED isDeblockFilter "Use generic-lens or generic-optics with 'deblockFilter' instead." #-}
 
 -- | Enable or disable the denoise filter when filtering.
-isDenoiseFilter :: Lens' InputSettings (Maybe InputDenoiseFilter)
-isDenoiseFilter = lens _isDenoiseFilter (\s a -> s {_isDenoiseFilter = a})
+--
+-- /Note:/ Consider using 'denoiseFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isDenoiseFilter :: Lens.Lens' InputSettings (Lude.Maybe InputDenoiseFilter)
+isDenoiseFilter = Lens.lens (denoiseFilter :: InputSettings -> Lude.Maybe InputDenoiseFilter) (\s a -> s {denoiseFilter = a} :: InputSettings)
+{-# DEPRECATED isDenoiseFilter "Use generic-lens or generic-optics with 'denoiseFilter' instead." #-}
 
 -- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-isFilterStrength :: Lens' InputSettings (Maybe Natural)
-isFilterStrength = lens _isFilterStrength (\s a -> s {_isFilterStrength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'filterStrength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isFilterStrength :: Lens.Lens' InputSettings (Lude.Maybe Lude.Natural)
+isFilterStrength = Lens.lens (filterStrength :: InputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {filterStrength = a} :: InputSettings)
+{-# DEPRECATED isFilterStrength "Use generic-lens or generic-optics with 'filterStrength' instead." #-}
 
 -- | Used to select the caption input to use for inputs that have multiple available.
-isCaptionSelectors :: Lens' InputSettings [CaptionSelector]
-isCaptionSelectors = lens _isCaptionSelectors (\s a -> s {_isCaptionSelectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'captionSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isCaptionSelectors :: Lens.Lens' InputSettings (Lude.Maybe [CaptionSelector])
+isCaptionSelectors = Lens.lens (captionSelectors :: InputSettings -> Lude.Maybe [CaptionSelector]) (\s a -> s {captionSelectors = a} :: InputSettings)
+{-# DEPRECATED isCaptionSelectors "Use generic-lens or generic-optics with 'captionSelectors' instead." #-}
 
--- | Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default. 1) auto - filtering will be applied depending on input type/quality 2) disabled - no filtering will be applied to the input 3) forced - filtering will be applied regardless of input type
-isInputFilter :: Lens' InputSettings (Maybe InputFilter)
-isInputFilter = lens _isInputFilter (\s a -> s {_isInputFilter = a})
+-- | Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default.
+--
+-- 1) auto - filtering will be applied depending on input type/quality
+-- 2) disabled - no filtering will be applied to the input
+-- 3) forced - filtering will be applied regardless of input type
+--
+-- /Note:/ Consider using 'inputFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isInputFilter :: Lens.Lens' InputSettings (Lude.Maybe InputFilter)
+isInputFilter = Lens.lens (inputFilter :: InputSettings -> Lude.Maybe InputFilter) (\s a -> s {inputFilter = a} :: InputSettings)
+{-# DEPRECATED isInputFilter "Use generic-lens or generic-optics with 'inputFilter' instead." #-}
 
 -- | Loop input if it is a file. This allows a file input to be streamed indefinitely.
-isSourceEndBehavior :: Lens' InputSettings (Maybe InputSourceEndBehavior)
-isSourceEndBehavior = lens _isSourceEndBehavior (\s a -> s {_isSourceEndBehavior = a})
+--
+-- /Note:/ Consider using 'sourceEndBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isSourceEndBehavior :: Lens.Lens' InputSettings (Lude.Maybe InputSourceEndBehavior)
+isSourceEndBehavior = Lens.lens (sourceEndBehavior :: InputSettings -> Lude.Maybe InputSourceEndBehavior) (\s a -> s {sourceEndBehavior = a} :: InputSettings)
+{-# DEPRECATED isSourceEndBehavior "Use generic-lens or generic-optics with 'sourceEndBehavior' instead." #-}
 
-instance FromJSON InputSettings where
+instance Lude.FromJSON InputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputSettings"
       ( \x ->
           InputSettings'
-            <$> (x .:? "videoSelector")
-            <*> (x .:? "smpte2038DataPreference")
-            <*> (x .:? "networkInputSettings")
-            <*> (x .:? "audioSelectors" .!= mempty)
-            <*> (x .:? "deblockFilter")
-            <*> (x .:? "denoiseFilter")
-            <*> (x .:? "filterStrength")
-            <*> (x .:? "captionSelectors" .!= mempty)
-            <*> (x .:? "inputFilter")
-            <*> (x .:? "sourceEndBehavior")
+            Lude.<$> (x Lude..:? "videoSelector")
+            Lude.<*> (x Lude..:? "smpte2038DataPreference")
+            Lude.<*> (x Lude..:? "networkInputSettings")
+            Lude.<*> (x Lude..:? "audioSelectors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "deblockFilter")
+            Lude.<*> (x Lude..:? "denoiseFilter")
+            Lude.<*> (x Lude..:? "filterStrength")
+            Lude.<*> (x Lude..:? "captionSelectors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "inputFilter")
+            Lude.<*> (x Lude..:? "sourceEndBehavior")
       )
 
-instance Hashable InputSettings
-
-instance NFData InputSettings
-
-instance ToJSON InputSettings where
+instance Lude.ToJSON InputSettings where
   toJSON InputSettings' {..} =
-    object
-      ( catMaybes
-          [ ("videoSelector" .=) <$> _isVideoSelector,
-            ("smpte2038DataPreference" .=) <$> _isSmpte2038DataPreference,
-            ("networkInputSettings" .=) <$> _isNetworkInputSettings,
-            ("audioSelectors" .=) <$> _isAudioSelectors,
-            ("deblockFilter" .=) <$> _isDeblockFilter,
-            ("denoiseFilter" .=) <$> _isDenoiseFilter,
-            ("filterStrength" .=) <$> _isFilterStrength,
-            ("captionSelectors" .=) <$> _isCaptionSelectors,
-            ("inputFilter" .=) <$> _isInputFilter,
-            ("sourceEndBehavior" .=) <$> _isSourceEndBehavior
+    Lude.object
+      ( Lude.catMaybes
+          [ ("videoSelector" Lude..=) Lude.<$> videoSelector,
+            ("smpte2038DataPreference" Lude..=)
+              Lude.<$> smpte2038DataPreference,
+            ("networkInputSettings" Lude..=) Lude.<$> networkInputSettings,
+            ("audioSelectors" Lude..=) Lude.<$> audioSelectors,
+            ("deblockFilter" Lude..=) Lude.<$> deblockFilter,
+            ("denoiseFilter" Lude..=) Lude.<$> denoiseFilter,
+            ("filterStrength" Lude..=) Lude.<$> filterStrength,
+            ("captionSelectors" Lude..=) Lude.<$> captionSelectors,
+            ("inputFilter" Lude..=) Lude.<$> inputFilter,
+            ("sourceEndBehavior" Lude..=) Lude.<$> sourceEndBehavior
           ]
       )

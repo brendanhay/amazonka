@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a vocabulary.
 module Network.AWS.Transcribe.GetVocabulary
-  ( -- * Creating a Request
-    getVocabulary,
-    GetVocabulary,
+  ( -- * Creating a request
+    GetVocabulary (..),
+    mkGetVocabulary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gvVocabularyName,
 
-    -- * Destructuring the Response
-    getVocabularyResponse,
-    GetVocabularyResponse,
+    -- * Destructuring the response
+    GetVocabularyResponse (..),
+    mkGetVocabularyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gvrsFailureReason,
     gvrsLanguageCode,
     gvrsDownloadURI,
@@ -41,143 +36,169 @@ module Network.AWS.Transcribe.GetVocabulary
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'getVocabulary' smart constructor.
-newtype GetVocabulary = GetVocabulary' {_gvVocabularyName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetVocabulary' smart constructor.
+newtype GetVocabulary = GetVocabulary' {vocabularyName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabulary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gvVocabularyName' - The name of the vocabulary to return information about. The name is case sensitive.
-getVocabulary ::
-  -- | 'gvVocabularyName'
-  Text ->
+-- * 'vocabularyName' - The name of the vocabulary to return information about. The name is case sensitive.
+mkGetVocabulary ::
+  -- | 'vocabularyName'
+  Lude.Text ->
   GetVocabulary
-getVocabulary pVocabularyName_ =
-  GetVocabulary' {_gvVocabularyName = pVocabularyName_}
+mkGetVocabulary pVocabularyName_ =
+  GetVocabulary' {vocabularyName = pVocabularyName_}
 
 -- | The name of the vocabulary to return information about. The name is case sensitive.
-gvVocabularyName :: Lens' GetVocabulary Text
-gvVocabularyName = lens _gvVocabularyName (\s a -> s {_gvVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvVocabularyName :: Lens.Lens' GetVocabulary Lude.Text
+gvVocabularyName = Lens.lens (vocabularyName :: GetVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: GetVocabulary)
+{-# DEPRECATED gvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
-instance AWSRequest GetVocabulary where
+instance Lude.AWSRequest GetVocabulary where
   type Rs GetVocabulary = GetVocabularyResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetVocabularyResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "LanguageCode")
-            <*> (x .?> "DownloadUri")
-            <*> (x .?> "VocabularyName")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "VocabularyState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "LanguageCode")
+            Lude.<*> (x Lude..?> "DownloadUri")
+            Lude.<*> (x Lude..?> "VocabularyName")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "VocabularyState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetVocabulary
-
-instance NFData GetVocabulary
-
-instance ToHeaders GetVocabulary where
+instance Lude.ToHeaders GetVocabulary where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Transcribe.GetVocabulary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Transcribe.GetVocabulary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetVocabulary where
+instance Lude.ToJSON GetVocabulary where
   toJSON GetVocabulary' {..} =
-    object (catMaybes [Just ("VocabularyName" .= _gvVocabularyName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("VocabularyName" Lude..= vocabularyName)]
+      )
 
-instance ToPath GetVocabulary where
-  toPath = const "/"
+instance Lude.ToPath GetVocabulary where
+  toPath = Lude.const "/"
 
-instance ToQuery GetVocabulary where
-  toQuery = const mempty
+instance Lude.ToQuery GetVocabulary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getVocabularyResponse' smart constructor.
+-- | /See:/ 'mkGetVocabularyResponse' smart constructor.
 data GetVocabularyResponse = GetVocabularyResponse'
-  { _gvrsFailureReason ::
-      !(Maybe Text),
-    _gvrsLanguageCode :: !(Maybe LanguageCode),
-    _gvrsDownloadURI :: !(Maybe Text),
-    _gvrsVocabularyName :: !(Maybe Text),
-    _gvrsLastModifiedTime :: !(Maybe POSIX),
-    _gvrsVocabularyState ::
-      !(Maybe VocabularyState),
-    _gvrsResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    languageCode :: Lude.Maybe LanguageCode,
+    downloadURI :: Lude.Maybe Lude.Text,
+    vocabularyName :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    vocabularyState :: Lude.Maybe VocabularyState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabularyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gvrsFailureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
---
--- * 'gvrsLanguageCode' - The language code of the vocabulary entries.
---
--- * 'gvrsDownloadURI' - The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
---
--- * 'gvrsVocabularyName' - The name of the vocabulary to return.
---
--- * 'gvrsLastModifiedTime' - The date and time that the vocabulary was last modified.
---
--- * 'gvrsVocabularyState' - The processing state of the vocabulary.
---
--- * 'gvrsResponseStatus' - -- | The response status code.
-getVocabularyResponse ::
-  -- | 'gvrsResponseStatus'
-  Int ->
+-- * 'downloadURI' - The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
+-- * 'failureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
+-- * 'languageCode' - The language code of the vocabulary entries.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
+-- * 'responseStatus' - The response status code.
+-- * 'vocabularyName' - The name of the vocabulary to return.
+-- * 'vocabularyState' - The processing state of the vocabulary.
+mkGetVocabularyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetVocabularyResponse
-getVocabularyResponse pResponseStatus_ =
+mkGetVocabularyResponse pResponseStatus_ =
   GetVocabularyResponse'
-    { _gvrsFailureReason = Nothing,
-      _gvrsLanguageCode = Nothing,
-      _gvrsDownloadURI = Nothing,
-      _gvrsVocabularyName = Nothing,
-      _gvrsLastModifiedTime = Nothing,
-      _gvrsVocabularyState = Nothing,
-      _gvrsResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      downloadURI = Lude.Nothing,
+      vocabularyName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      vocabularyState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
-gvrsFailureReason :: Lens' GetVocabularyResponse (Maybe Text)
-gvrsFailureReason = lens _gvrsFailureReason (\s a -> s {_gvrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsFailureReason :: Lens.Lens' GetVocabularyResponse (Lude.Maybe Lude.Text)
+gvrsFailureReason = Lens.lens (failureReason :: GetVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The language code of the vocabulary entries.
-gvrsLanguageCode :: Lens' GetVocabularyResponse (Maybe LanguageCode)
-gvrsLanguageCode = lens _gvrsLanguageCode (\s a -> s {_gvrsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsLanguageCode :: Lens.Lens' GetVocabularyResponse (Lude.Maybe LanguageCode)
+gvrsLanguageCode = Lens.lens (languageCode :: GetVocabularyResponse -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
-gvrsDownloadURI :: Lens' GetVocabularyResponse (Maybe Text)
-gvrsDownloadURI = lens _gvrsDownloadURI (\s a -> s {_gvrsDownloadURI = a})
+--
+-- /Note:/ Consider using 'downloadURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsDownloadURI :: Lens.Lens' GetVocabularyResponse (Lude.Maybe Lude.Text)
+gvrsDownloadURI = Lens.lens (downloadURI :: GetVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {downloadURI = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsDownloadURI "Use generic-lens or generic-optics with 'downloadURI' instead." #-}
 
 -- | The name of the vocabulary to return.
-gvrsVocabularyName :: Lens' GetVocabularyResponse (Maybe Text)
-gvrsVocabularyName = lens _gvrsVocabularyName (\s a -> s {_gvrsVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsVocabularyName :: Lens.Lens' GetVocabularyResponse (Lude.Maybe Lude.Text)
+gvrsVocabularyName = Lens.lens (vocabularyName :: GetVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The date and time that the vocabulary was last modified.
-gvrsLastModifiedTime :: Lens' GetVocabularyResponse (Maybe UTCTime)
-gvrsLastModifiedTime = lens _gvrsLastModifiedTime (\s a -> s {_gvrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsLastModifiedTime :: Lens.Lens' GetVocabularyResponse (Lude.Maybe Lude.Timestamp)
+gvrsLastModifiedTime = Lens.lens (lastModifiedTime :: GetVocabularyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The processing state of the vocabulary.
-gvrsVocabularyState :: Lens' GetVocabularyResponse (Maybe VocabularyState)
-gvrsVocabularyState = lens _gvrsVocabularyState (\s a -> s {_gvrsVocabularyState = a})
+--
+-- /Note:/ Consider using 'vocabularyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsVocabularyState :: Lens.Lens' GetVocabularyResponse (Lude.Maybe VocabularyState)
+gvrsVocabularyState = Lens.lens (vocabularyState :: GetVocabularyResponse -> Lude.Maybe VocabularyState) (\s a -> s {vocabularyState = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
 
--- | -- | The response status code.
-gvrsResponseStatus :: Lens' GetVocabularyResponse Int
-gvrsResponseStatus = lens _gvrsResponseStatus (\s a -> s {_gvrsResponseStatus = a})
-
-instance NFData GetVocabularyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvrsResponseStatus :: Lens.Lens' GetVocabularyResponse Lude.Int
+gvrsResponseStatus = Lens.lens (responseStatus :: GetVocabularyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVocabularyResponse)
+{-# DEPRECATED gvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

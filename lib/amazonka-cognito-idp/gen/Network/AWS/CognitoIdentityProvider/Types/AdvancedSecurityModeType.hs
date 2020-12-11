@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType where
+module Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
+  ( AdvancedSecurityModeType
+      ( AdvancedSecurityModeType',
+        Audit,
+        Enforced,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AdvancedSecurityModeType
-  = Audit
-  | Enforced
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AdvancedSecurityModeType = AdvancedSecurityModeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AdvancedSecurityModeType where
-  parser =
-    takeLowerText >>= \case
-      "audit" -> pure Audit
-      "enforced" -> pure Enforced
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing AdvancedSecurityModeType from value: '" <> e
-            <> "'. Accepted values: audit, enforced, off"
+pattern Audit :: AdvancedSecurityModeType
+pattern Audit = AdvancedSecurityModeType' "AUDIT"
 
-instance ToText AdvancedSecurityModeType where
-  toText = \case
-    Audit -> "AUDIT"
-    Enforced -> "ENFORCED"
-    Off -> "OFF"
+pattern Enforced :: AdvancedSecurityModeType
+pattern Enforced = AdvancedSecurityModeType' "ENFORCED"
 
-instance Hashable AdvancedSecurityModeType
+pattern Off :: AdvancedSecurityModeType
+pattern Off = AdvancedSecurityModeType' "OFF"
 
-instance NFData AdvancedSecurityModeType
-
-instance ToByteString AdvancedSecurityModeType
-
-instance ToQuery AdvancedSecurityModeType
-
-instance ToHeader AdvancedSecurityModeType
-
-instance ToJSON AdvancedSecurityModeType where
-  toJSON = toJSONText
-
-instance FromJSON AdvancedSecurityModeType where
-  parseJSON = parseJSONText "AdvancedSecurityModeType"
+{-# COMPLETE
+  Audit,
+  Enforced,
+  Off,
+  AdvancedSecurityModeType'
+  #-}

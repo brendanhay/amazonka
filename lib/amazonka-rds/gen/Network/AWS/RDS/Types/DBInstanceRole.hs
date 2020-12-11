@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBInstanceRole where
+module Network.AWS.RDS.Types.DBInstanceRole
+  ( DBInstanceRole (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBInstanceRole,
+
+    -- * Lenses
+    dirStatus,
+    dirFeatureName,
+    dirRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
 --
---
---
--- /See:/ 'dbInstanceRole' smart constructor.
+-- /See:/ 'mkDBInstanceRole' smart constructor.
 data DBInstanceRole = DBInstanceRole'
-  { _dirStatus :: !(Maybe Text),
-    _dirFeatureName :: !(Maybe Text),
-    _dirRoleARN :: !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    featureName :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBInstanceRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'featureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see @DBEngineVersion@ .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+-- * 'status' - Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:
 --
--- * 'dirStatus' - Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB instance.     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
 --
--- * 'dirFeatureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see @DBEngineVersion@ .
+--     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.
 --
--- * 'dirRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-dbInstanceRole ::
+--
+--     * @PENDING@ - the IAM role ARN is being associated with the DB instance.
+--
+--
+--     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
+mkDBInstanceRole ::
   DBInstanceRole
-dbInstanceRole =
+mkDBInstanceRole =
   DBInstanceRole'
-    { _dirStatus = Nothing,
-      _dirFeatureName = Nothing,
-      _dirRoleARN = Nothing
+    { status = Lude.Nothing,
+      featureName = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
--- | Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB instance.     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
-dirStatus :: Lens' DBInstanceRole (Maybe Text)
-dirStatus = lens _dirStatus (\s a -> s {_dirStatus = a})
+-- | Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:
+--
+--
+--     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.
+--
+--
+--     * @PENDING@ - the IAM role ARN is being associated with the DB instance.
+--
+--
+--     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirStatus :: Lens.Lens' DBInstanceRole (Lude.Maybe Lude.Text)
+dirStatus = Lens.lens (status :: DBInstanceRole -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBInstanceRole)
+{-# DEPRECATED dirStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see @DBEngineVersion@ .
-dirFeatureName :: Lens' DBInstanceRole (Maybe Text)
-dirFeatureName = lens _dirFeatureName (\s a -> s {_dirFeatureName = a})
+--
+-- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirFeatureName :: Lens.Lens' DBInstanceRole (Lude.Maybe Lude.Text)
+dirFeatureName = Lens.lens (featureName :: DBInstanceRole -> Lude.Maybe Lude.Text) (\s a -> s {featureName = a} :: DBInstanceRole)
+{-# DEPRECATED dirFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-dirRoleARN :: Lens' DBInstanceRole (Maybe Text)
-dirRoleARN = lens _dirRoleARN (\s a -> s {_dirRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirRoleARN :: Lens.Lens' DBInstanceRole (Lude.Maybe Lude.Text)
+dirRoleARN = Lens.lens (roleARN :: DBInstanceRole -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DBInstanceRole)
+{-# DEPRECATED dirRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromXML DBInstanceRole where
+instance Lude.FromXML DBInstanceRole where
   parseXML x =
     DBInstanceRole'
-      <$> (x .@? "Status") <*> (x .@? "FeatureName") <*> (x .@? "RoleArn")
-
-instance Hashable DBInstanceRole
-
-instance NFData DBInstanceRole
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "FeatureName")
+      Lude.<*> (x Lude..@? "RoleArn")

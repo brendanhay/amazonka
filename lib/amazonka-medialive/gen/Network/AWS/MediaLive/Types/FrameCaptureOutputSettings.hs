@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FrameCaptureOutputSettings where
+module Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
+  ( FrameCaptureOutputSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFrameCaptureOutputSettings,
+
+    -- * Lenses
+    fcosNameModifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Frame Capture Output Settings
 --
--- /See:/ 'frameCaptureOutputSettings' smart constructor.
+-- /See:/ 'mkFrameCaptureOutputSettings' smart constructor.
 newtype FrameCaptureOutputSettings = FrameCaptureOutputSettings'
-  { _fcosNameModifier ::
-      Maybe Text
+  { nameModifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FrameCaptureOutputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcosNameModifier' - Required if the output group contains more than one output. This modifier forms part of the output file name.
-frameCaptureOutputSettings ::
+-- * 'nameModifier' - Required if the output group contains more than one output. This modifier forms part of the output file name.
+mkFrameCaptureOutputSettings ::
   FrameCaptureOutputSettings
-frameCaptureOutputSettings =
-  FrameCaptureOutputSettings' {_fcosNameModifier = Nothing}
+mkFrameCaptureOutputSettings =
+  FrameCaptureOutputSettings' {nameModifier = Lude.Nothing}
 
 -- | Required if the output group contains more than one output. This modifier forms part of the output file name.
-fcosNameModifier :: Lens' FrameCaptureOutputSettings (Maybe Text)
-fcosNameModifier = lens _fcosNameModifier (\s a -> s {_fcosNameModifier = a})
+--
+-- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcosNameModifier :: Lens.Lens' FrameCaptureOutputSettings (Lude.Maybe Lude.Text)
+fcosNameModifier = Lens.lens (nameModifier :: FrameCaptureOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: FrameCaptureOutputSettings)
+{-# DEPRECATED fcosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
-instance FromJSON FrameCaptureOutputSettings where
+instance Lude.FromJSON FrameCaptureOutputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FrameCaptureOutputSettings"
-      (\x -> FrameCaptureOutputSettings' <$> (x .:? "nameModifier"))
+      ( \x ->
+          FrameCaptureOutputSettings' Lude.<$> (x Lude..:? "nameModifier")
+      )
 
-instance Hashable FrameCaptureOutputSettings
-
-instance NFData FrameCaptureOutputSettings
-
-instance ToJSON FrameCaptureOutputSettings where
+instance Lude.ToJSON FrameCaptureOutputSettings where
   toJSON FrameCaptureOutputSettings' {..} =
-    object (catMaybes [("nameModifier" .=) <$> _fcosNameModifier])
+    Lude.object
+      (Lude.catMaybes [("nameModifier" Lude..=) Lude.<$> nameModifier])

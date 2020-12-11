@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CoverageByTime where
+module Network.AWS.CostExplorer.Types.CoverageByTime
+  ( CoverageByTime (..),
+
+    -- * Smart constructor
+    mkCoverageByTime,
+
+    -- * Lenses
+    cbtGroups,
+    cbtTimePeriod,
+    cbtTotal,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.Coverage
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.ReservationCoverageGroup
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Reservation coverage for a specified period, in hours.
 --
---
---
--- /See:/ 'coverageByTime' smart constructor.
+-- /See:/ 'mkCoverageByTime' smart constructor.
 data CoverageByTime = CoverageByTime'
-  { _cbtGroups ::
-      !(Maybe [ReservationCoverageGroup]),
-    _cbtTimePeriod :: !(Maybe DateInterval),
-    _cbtTotal :: !(Maybe Coverage)
+  { groups ::
+      Lude.Maybe [ReservationCoverageGroup],
+    timePeriod :: Lude.Maybe DateInterval,
+    total :: Lude.Maybe Coverage
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageByTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbtGroups' - The groups of instances that the reservation covered.
---
--- * 'cbtTimePeriod' - The period that this coverage was used over.
---
--- * 'cbtTotal' - The total reservation coverage, in hours.
-coverageByTime ::
+-- * 'groups' - The groups of instances that the reservation covered.
+-- * 'timePeriod' - The period that this coverage was used over.
+-- * 'total' - The total reservation coverage, in hours.
+mkCoverageByTime ::
   CoverageByTime
-coverageByTime =
+mkCoverageByTime =
   CoverageByTime'
-    { _cbtGroups = Nothing,
-      _cbtTimePeriod = Nothing,
-      _cbtTotal = Nothing
+    { groups = Lude.Nothing,
+      timePeriod = Lude.Nothing,
+      total = Lude.Nothing
     }
 
 -- | The groups of instances that the reservation covered.
-cbtGroups :: Lens' CoverageByTime [ReservationCoverageGroup]
-cbtGroups = lens _cbtGroups (\s a -> s {_cbtGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtGroups :: Lens.Lens' CoverageByTime (Lude.Maybe [ReservationCoverageGroup])
+cbtGroups = Lens.lens (groups :: CoverageByTime -> Lude.Maybe [ReservationCoverageGroup]) (\s a -> s {groups = a} :: CoverageByTime)
+{-# DEPRECATED cbtGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The period that this coverage was used over.
-cbtTimePeriod :: Lens' CoverageByTime (Maybe DateInterval)
-cbtTimePeriod = lens _cbtTimePeriod (\s a -> s {_cbtTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtTimePeriod :: Lens.Lens' CoverageByTime (Lude.Maybe DateInterval)
+cbtTimePeriod = Lens.lens (timePeriod :: CoverageByTime -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: CoverageByTime)
+{-# DEPRECATED cbtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The total reservation coverage, in hours.
-cbtTotal :: Lens' CoverageByTime (Maybe Coverage)
-cbtTotal = lens _cbtTotal (\s a -> s {_cbtTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtTotal :: Lens.Lens' CoverageByTime (Lude.Maybe Coverage)
+cbtTotal = Lens.lens (total :: CoverageByTime -> Lude.Maybe Coverage) (\s a -> s {total = a} :: CoverageByTime)
+{-# DEPRECATED cbtTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance FromJSON CoverageByTime where
+instance Lude.FromJSON CoverageByTime where
   parseJSON =
-    withObject
+    Lude.withObject
       "CoverageByTime"
       ( \x ->
           CoverageByTime'
-            <$> (x .:? "Groups" .!= mempty)
-            <*> (x .:? "TimePeriod")
-            <*> (x .:? "Total")
+            Lude.<$> (x Lude..:? "Groups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TimePeriod")
+            Lude.<*> (x Lude..:? "Total")
       )
-
-instance Hashable CoverageByTime
-
-instance NFData CoverageByTime

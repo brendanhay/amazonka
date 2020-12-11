@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,186 @@
 --
 -- Adds, edits, or deletes tags for a health check or a hosted zone.
 --
---
 -- For information about using tags for cost allocation, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 module Network.AWS.Route53.ChangeTagsForResource
-  ( -- * Creating a Request
-    changeTagsForResource,
-    ChangeTagsForResource,
+  ( -- * Creating a request
+    ChangeTagsForResource (..),
+    mkChangeTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctfrRemoveTagKeys,
     ctfrAddTags,
     ctfrResourceType,
     ctfrResourceId,
 
-    -- * Destructuring the Response
-    changeTagsForResourceResponse,
-    ChangeTagsForResourceResponse,
+    -- * Destructuring the response
+    ChangeTagsForResourceResponse (..),
+    mkChangeTagsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the tags that you want to add, edit, or delete.
 --
---
---
--- /See:/ 'changeTagsForResource' smart constructor.
+-- /See:/ 'mkChangeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
-  { _ctfrRemoveTagKeys ::
-      !(Maybe (List1 Text)),
-    _ctfrAddTags :: !(Maybe (List1 Tag)),
-    _ctfrResourceType :: !TagResourceType,
-    _ctfrResourceId :: !Text
+  { removeTagKeys ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    addTags :: Lude.Maybe (Lude.NonEmpty Tag),
+    resourceType :: TagResourceType,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addTags' - A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for.
 --
--- * 'ctfrRemoveTagKeys' - A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
+-- You can add a maximum of 10 tags to a health check or a hosted zone.
+-- * 'removeTagKeys' - A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
+-- * 'resourceId' - The ID of the resource for which you want to add, change, or delete tags.
+-- * 'resourceType' - The type of the resource.
 --
--- * 'ctfrAddTags' - A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for. You can add a maximum of 10 tags to a health check or a hosted zone.
 --
--- * 'ctfrResourceType' - The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
+--     * The resource type for health checks is @healthcheck@ .
 --
--- * 'ctfrResourceId' - The ID of the resource for which you want to add, change, or delete tags.
-changeTagsForResource ::
-  -- | 'ctfrResourceType'
+--
+--     * The resource type for hosted zones is @hostedzone@ .
+mkChangeTagsForResource ::
+  -- | 'resourceType'
   TagResourceType ->
-  -- | 'ctfrResourceId'
-  Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   ChangeTagsForResource
-changeTagsForResource pResourceType_ pResourceId_ =
+mkChangeTagsForResource pResourceType_ pResourceId_ =
   ChangeTagsForResource'
-    { _ctfrRemoveTagKeys = Nothing,
-      _ctfrAddTags = Nothing,
-      _ctfrResourceType = pResourceType_,
-      _ctfrResourceId = pResourceId_
+    { removeTagKeys = Lude.Nothing,
+      addTags = Lude.Nothing,
+      resourceType = pResourceType_,
+      resourceId = pResourceId_
     }
 
 -- | A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
-ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
-ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\s a -> s {_ctfrRemoveTagKeys = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'removeTagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctfrRemoveTagKeys :: Lens.Lens' ChangeTagsForResource (Lude.Maybe (Lude.NonEmpty Lude.Text))
+ctfrRemoveTagKeys = Lens.lens (removeTagKeys :: ChangeTagsForResource -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {removeTagKeys = a} :: ChangeTagsForResource)
+{-# DEPRECATED ctfrRemoveTagKeys "Use generic-lens or generic-optics with 'removeTagKeys' instead." #-}
 
--- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for. You can add a maximum of 10 tags to a health check or a hosted zone.
-ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
-ctfrAddTags = lens _ctfrAddTags (\s a -> s {_ctfrAddTags = a}) . mapping _List1
+-- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags that you want to edit @Value@ for.
+--
+-- You can add a maximum of 10 tags to a health check or a hosted zone.
+--
+-- /Note:/ Consider using 'addTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctfrAddTags :: Lens.Lens' ChangeTagsForResource (Lude.Maybe (Lude.NonEmpty Tag))
+ctfrAddTags = Lens.lens (addTags :: ChangeTagsForResource -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {addTags = a} :: ChangeTagsForResource)
+{-# DEPRECATED ctfrAddTags "Use generic-lens or generic-optics with 'addTags' instead." #-}
 
--- | The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
-ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
-ctfrResourceType = lens _ctfrResourceType (\s a -> s {_ctfrResourceType = a})
+-- | The type of the resource.
+--
+--
+--     * The resource type for health checks is @healthcheck@ .
+--
+--
+--     * The resource type for hosted zones is @hostedzone@ .
+--
+--
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctfrResourceType :: Lens.Lens' ChangeTagsForResource TagResourceType
+ctfrResourceType = Lens.lens (resourceType :: ChangeTagsForResource -> TagResourceType) (\s a -> s {resourceType = a} :: ChangeTagsForResource)
+{-# DEPRECATED ctfrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the resource for which you want to add, change, or delete tags.
-ctfrResourceId :: Lens' ChangeTagsForResource Text
-ctfrResourceId = lens _ctfrResourceId (\s a -> s {_ctfrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctfrResourceId :: Lens.Lens' ChangeTagsForResource Lude.Text
+ctfrResourceId = Lens.lens (resourceId :: ChangeTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ChangeTagsForResource)
+{-# DEPRECATED ctfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest ChangeTagsForResource where
+instance Lude.AWSRequest ChangeTagsForResource where
   type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
-  request = postXML route53
+  request = Req.postXML route53Service
   response =
-    receiveEmpty
-      (\s h x -> ChangeTagsForResourceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ChangeTagsForResourceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ChangeTagsForResource
-
-instance NFData ChangeTagsForResource
-
-instance ToElement ChangeTagsForResource where
+instance Lude.ToElement ChangeTagsForResource where
   toElement =
-    mkElement
+    Lude.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeTagsForResourceRequest"
 
-instance ToHeaders ChangeTagsForResource where
-  toHeaders = const mempty
+instance Lude.ToHeaders ChangeTagsForResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath ChangeTagsForResource where
+instance Lude.ToPath ChangeTagsForResource where
   toPath ChangeTagsForResource' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2013-04-01/tags/",
-        toBS _ctfrResourceType,
+        Lude.toBS resourceType,
         "/",
-        toBS _ctfrResourceId
+        Lude.toBS resourceId
       ]
 
-instance ToQuery ChangeTagsForResource where
-  toQuery = const mempty
+instance Lude.ToQuery ChangeTagsForResource where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML ChangeTagsForResource where
+instance Lude.ToXML ChangeTagsForResource where
   toXML ChangeTagsForResource' {..} =
-    mconcat
-      [ "RemoveTagKeys" @= toXML (toXMLList "Key" <$> _ctfrRemoveTagKeys),
-        "AddTags" @= toXML (toXMLList "Tag" <$> _ctfrAddTags)
+    Lude.mconcat
+      [ "RemoveTagKeys"
+          Lude.@= Lude.toXML (Lude.toXMLList "Key" Lude.<$> removeTagKeys),
+        "AddTags"
+          Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> addTags)
       ]
 
 -- | Empty response for the request.
 --
---
---
--- /See:/ 'changeTagsForResourceResponse' smart constructor.
+-- /See:/ 'mkChangeTagsForResourceResponse' smart constructor.
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
-  { _ctfrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctfrrsResponseStatus' - -- | The response status code.
-changeTagsForResourceResponse ::
-  -- | 'ctfrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkChangeTagsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ChangeTagsForResourceResponse
-changeTagsForResourceResponse pResponseStatus_ =
-  ChangeTagsForResourceResponse'
-    { _ctfrrsResponseStatus =
-        pResponseStatus_
-    }
+mkChangeTagsForResourceResponse pResponseStatus_ =
+  ChangeTagsForResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
-ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\s a -> s {_ctfrrsResponseStatus = a})
-
-instance NFData ChangeTagsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctfrrsResponseStatus :: Lens.Lens' ChangeTagsForResourceResponse Lude.Int
+ctfrrsResponseStatus = Lens.lens (responseStatus :: ChangeTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ChangeTagsForResourceResponse)
+{-# DEPRECATED ctfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

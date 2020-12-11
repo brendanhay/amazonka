@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,179 @@
 --
 -- Gets a list of the batch translation jobs that you have submitted.
 module Network.AWS.Translate.ListTextTranslationJobs
-  ( -- * Creating a Request
-    listTextTranslationJobs,
-    ListTextTranslationJobs,
+  ( -- * Creating a request
+    ListTextTranslationJobs (..),
+    mkListTextTranslationJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lttjNextToken,
     lttjFilter,
     lttjMaxResults,
 
-    -- * Destructuring the Response
-    listTextTranslationJobsResponse,
-    ListTextTranslationJobsResponse,
+    -- * Destructuring the response
+    ListTextTranslationJobsResponse (..),
+    mkListTextTranslationJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lttjrsTextTranslationJobPropertiesList,
     lttjrsNextToken,
     lttjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
--- | /See:/ 'listTextTranslationJobs' smart constructor.
+-- | /See:/ 'mkListTextTranslationJobs' smart constructor.
 data ListTextTranslationJobs = ListTextTranslationJobs'
-  { _lttjNextToken ::
-      !(Maybe Text),
-    _lttjFilter ::
-      !(Maybe TextTranslationJobFilter),
-    _lttjMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe TextTranslationJobFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTextTranslationJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lttjNextToken' - The token to request the next page of results.
---
--- * 'lttjFilter' - The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.
---
--- * 'lttjMaxResults' - The maximum number of results to return in each page. The default value is 100.
-listTextTranslationJobs ::
+-- * 'filter' - The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default value is 100.
+-- * 'nextToken' - The token to request the next page of results.
+mkListTextTranslationJobs ::
   ListTextTranslationJobs
-listTextTranslationJobs =
+mkListTextTranslationJobs =
   ListTextTranslationJobs'
-    { _lttjNextToken = Nothing,
-      _lttjFilter = Nothing,
-      _lttjMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token to request the next page of results.
-lttjNextToken :: Lens' ListTextTranslationJobs (Maybe Text)
-lttjNextToken = lens _lttjNextToken (\s a -> s {_lttjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjNextToken :: Lens.Lens' ListTextTranslationJobs (Lude.Maybe Lude.Text)
+lttjNextToken = Lens.lens (nextToken :: ListTextTranslationJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTextTranslationJobs)
+{-# DEPRECATED lttjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.
-lttjFilter :: Lens' ListTextTranslationJobs (Maybe TextTranslationJobFilter)
-lttjFilter = lens _lttjFilter (\s a -> s {_lttjFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjFilter :: Lens.Lens' ListTextTranslationJobs (Lude.Maybe TextTranslationJobFilter)
+lttjFilter = Lens.lens (filter :: ListTextTranslationJobs -> Lude.Maybe TextTranslationJobFilter) (\s a -> s {filter = a} :: ListTextTranslationJobs)
+{-# DEPRECATED lttjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default value is 100.
-lttjMaxResults :: Lens' ListTextTranslationJobs (Maybe Natural)
-lttjMaxResults = lens _lttjMaxResults (\s a -> s {_lttjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjMaxResults :: Lens.Lens' ListTextTranslationJobs (Lude.Maybe Lude.Natural)
+lttjMaxResults = Lens.lens (maxResults :: ListTextTranslationJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTextTranslationJobs)
+{-# DEPRECATED lttjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListTextTranslationJobs where
+instance Lude.AWSRequest ListTextTranslationJobs where
   type Rs ListTextTranslationJobs = ListTextTranslationJobsResponse
-  request = postJSON translate
+  request = Req.postJSON translateService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTextTranslationJobsResponse'
-            <$> (x .?> "TextTranslationJobPropertiesList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "TextTranslationJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTextTranslationJobs
-
-instance NFData ListTextTranslationJobs
-
-instance ToHeaders ListTextTranslationJobs where
+instance Lude.ToHeaders ListTextTranslationJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSShineFrontendService_20170701.ListTextTranslationJobs" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShineFrontendService_20170701.ListTextTranslationJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTextTranslationJobs where
+instance Lude.ToJSON ListTextTranslationJobs where
   toJSON ListTextTranslationJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lttjNextToken,
-            ("Filter" .=) <$> _lttjFilter,
-            ("MaxResults" .=) <$> _lttjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListTextTranslationJobs where
-  toPath = const "/"
+instance Lude.ToPath ListTextTranslationJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTextTranslationJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListTextTranslationJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTextTranslationJobsResponse' smart constructor.
+-- | /See:/ 'mkListTextTranslationJobsResponse' smart constructor.
 data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
-  { _lttjrsTextTranslationJobPropertiesList ::
-      !( Maybe
-           [TextTranslationJobProperties]
-       ),
-    _lttjrsNextToken ::
-      !(Maybe Text),
-    _lttjrsResponseStatus ::
-      !Int
+  { textTranslationJobPropertiesList ::
+      Lude.Maybe
+        [TextTranslationJobProperties],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTextTranslationJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lttjrsTextTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'lttjrsNextToken' - The token to use to retreive the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'lttjrsResponseStatus' - -- | The response status code.
-listTextTranslationJobsResponse ::
-  -- | 'lttjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retreive the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
+mkListTextTranslationJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTextTranslationJobsResponse
-listTextTranslationJobsResponse pResponseStatus_ =
+mkListTextTranslationJobsResponse pResponseStatus_ =
   ListTextTranslationJobsResponse'
-    { _lttjrsTextTranslationJobPropertiesList =
-        Nothing,
-      _lttjrsNextToken = Nothing,
-      _lttjrsResponseStatus = pResponseStatus_
+    { textTranslationJobPropertiesList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list containing the properties of each job that is returned.
-lttjrsTextTranslationJobPropertiesList :: Lens' ListTextTranslationJobsResponse [TextTranslationJobProperties]
-lttjrsTextTranslationJobPropertiesList = lens _lttjrsTextTranslationJobPropertiesList (\s a -> s {_lttjrsTextTranslationJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'textTranslationJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjrsTextTranslationJobPropertiesList :: Lens.Lens' ListTextTranslationJobsResponse (Lude.Maybe [TextTranslationJobProperties])
+lttjrsTextTranslationJobPropertiesList = Lens.lens (textTranslationJobPropertiesList :: ListTextTranslationJobsResponse -> Lude.Maybe [TextTranslationJobProperties]) (\s a -> s {textTranslationJobPropertiesList = a} :: ListTextTranslationJobsResponse)
+{-# DEPRECATED lttjrsTextTranslationJobPropertiesList "Use generic-lens or generic-optics with 'textTranslationJobPropertiesList' instead." #-}
 
 -- | The token to use to retreive the next page of results. This value is @null@ when there are no more results to return.
-lttjrsNextToken :: Lens' ListTextTranslationJobsResponse (Maybe Text)
-lttjrsNextToken = lens _lttjrsNextToken (\s a -> s {_lttjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjrsNextToken :: Lens.Lens' ListTextTranslationJobsResponse (Lude.Maybe Lude.Text)
+lttjrsNextToken = Lens.lens (nextToken :: ListTextTranslationJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTextTranslationJobsResponse)
+{-# DEPRECATED lttjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lttjrsResponseStatus :: Lens' ListTextTranslationJobsResponse Int
-lttjrsResponseStatus = lens _lttjrsResponseStatus (\s a -> s {_lttjrsResponseStatus = a})
-
-instance NFData ListTextTranslationJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttjrsResponseStatus :: Lens.Lens' ListTextTranslationJobsResponse Lude.Int
+lttjrsResponseStatus = Lens.lens (responseStatus :: ListTextTranslationJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTextTranslationJobsResponse)
+{-# DEPRECATED lttjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

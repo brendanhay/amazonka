@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.CaseSensitivity where
+module Network.AWS.StorageGateway.Types.CaseSensitivity
+  ( CaseSensitivity
+      ( CaseSensitivity',
+        CaseSensitive,
+        ClientSpecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CaseSensitivity
-  = CaseSensitive
-  | ClientSpecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CaseSensitivity = CaseSensitivity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CaseSensitivity where
-  parser =
-    takeLowerText >>= \case
-      "casesensitive" -> pure CaseSensitive
-      "clientspecified" -> pure ClientSpecified
-      e ->
-        fromTextError $
-          "Failure parsing CaseSensitivity from value: '" <> e
-            <> "'. Accepted values: casesensitive, clientspecified"
+pattern CaseSensitive :: CaseSensitivity
+pattern CaseSensitive = CaseSensitivity' "CaseSensitive"
 
-instance ToText CaseSensitivity where
-  toText = \case
-    CaseSensitive -> "CaseSensitive"
-    ClientSpecified -> "ClientSpecified"
+pattern ClientSpecified :: CaseSensitivity
+pattern ClientSpecified = CaseSensitivity' "ClientSpecified"
 
-instance Hashable CaseSensitivity
-
-instance NFData CaseSensitivity
-
-instance ToByteString CaseSensitivity
-
-instance ToQuery CaseSensitivity
-
-instance ToHeader CaseSensitivity
-
-instance ToJSON CaseSensitivity where
-  toJSON = toJSONText
-
-instance FromJSON CaseSensitivity where
-  parseJSON = parseJSONText "CaseSensitivity"
+{-# COMPLETE
+  CaseSensitive,
+  ClientSpecified,
+  CaseSensitivity'
+  #-}

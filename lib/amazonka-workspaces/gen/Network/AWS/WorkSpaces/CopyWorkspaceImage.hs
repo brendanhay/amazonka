@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,170 +14,190 @@
 --
 -- Copies the specified image from the specified Region to the current Region. For more information about copying images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html Copy a Custom WorkSpaces Image> .
 --
---
 -- /Important:/ Before copying a shared image, be sure to verify that it has been shared from the correct AWS account. To determine if an image has been shared and to see the AWS account ID that owns an image, use the <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html DescribeWorkSpaceImages> and <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html DescribeWorkspaceImagePermissions> API operations.
 module Network.AWS.WorkSpaces.CopyWorkspaceImage
-  ( -- * Creating a Request
-    copyWorkspaceImage,
-    CopyWorkspaceImage,
+  ( -- * Creating a request
+    CopyWorkspaceImage (..),
+    mkCopyWorkspaceImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cwiDescription,
     cwiTags,
     cwiName,
     cwiSourceImageId,
     cwiSourceRegion,
 
-    -- * Destructuring the Response
-    copyWorkspaceImageResponse,
-    CopyWorkspaceImageResponse,
+    -- * Destructuring the response
+    CopyWorkspaceImageResponse (..),
+    mkCopyWorkspaceImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cwirsImageId,
     cwirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'copyWorkspaceImage' smart constructor.
+-- | /See:/ 'mkCopyWorkspaceImage' smart constructor.
 data CopyWorkspaceImage = CopyWorkspaceImage'
-  { _cwiDescription ::
-      !(Maybe Text),
-    _cwiTags :: !(Maybe [Tag]),
-    _cwiName :: !Text,
-    _cwiSourceImageId :: !Text,
-    _cwiSourceRegion :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text,
+    sourceImageId :: Lude.Text,
+    sourceRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyWorkspaceImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwiDescription' - A description of the image.
---
--- * 'cwiTags' - The tags for the image.
---
--- * 'cwiName' - The name of the image.
---
--- * 'cwiSourceImageId' - The identifier of the source image.
---
--- * 'cwiSourceRegion' - The identifier of the source Region.
-copyWorkspaceImage ::
-  -- | 'cwiName'
-  Text ->
-  -- | 'cwiSourceImageId'
-  Text ->
-  -- | 'cwiSourceRegion'
-  Text ->
+-- * 'description' - A description of the image.
+-- * 'name' - The name of the image.
+-- * 'sourceImageId' - The identifier of the source image.
+-- * 'sourceRegion' - The identifier of the source Region.
+-- * 'tags' - The tags for the image.
+mkCopyWorkspaceImage ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'sourceImageId'
+  Lude.Text ->
+  -- | 'sourceRegion'
+  Lude.Text ->
   CopyWorkspaceImage
-copyWorkspaceImage pName_ pSourceImageId_ pSourceRegion_ =
+mkCopyWorkspaceImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyWorkspaceImage'
-    { _cwiDescription = Nothing,
-      _cwiTags = Nothing,
-      _cwiName = pName_,
-      _cwiSourceImageId = pSourceImageId_,
-      _cwiSourceRegion = pSourceRegion_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      sourceImageId = pSourceImageId_,
+      sourceRegion = pSourceRegion_
     }
 
 -- | A description of the image.
-cwiDescription :: Lens' CopyWorkspaceImage (Maybe Text)
-cwiDescription = lens _cwiDescription (\s a -> s {_cwiDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwiDescription :: Lens.Lens' CopyWorkspaceImage (Lude.Maybe Lude.Text)
+cwiDescription = Lens.lens (description :: CopyWorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopyWorkspaceImage)
+{-# DEPRECATED cwiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the image.
-cwiTags :: Lens' CopyWorkspaceImage [Tag]
-cwiTags = lens _cwiTags (\s a -> s {_cwiTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwiTags :: Lens.Lens' CopyWorkspaceImage (Lude.Maybe [Tag])
+cwiTags = Lens.lens (tags :: CopyWorkspaceImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopyWorkspaceImage)
+{-# DEPRECATED cwiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the image.
-cwiName :: Lens' CopyWorkspaceImage Text
-cwiName = lens _cwiName (\s a -> s {_cwiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwiName :: Lens.Lens' CopyWorkspaceImage Lude.Text
+cwiName = Lens.lens (name :: CopyWorkspaceImage -> Lude.Text) (\s a -> s {name = a} :: CopyWorkspaceImage)
+{-# DEPRECATED cwiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the source image.
-cwiSourceImageId :: Lens' CopyWorkspaceImage Text
-cwiSourceImageId = lens _cwiSourceImageId (\s a -> s {_cwiSourceImageId = a})
+--
+-- /Note:/ Consider using 'sourceImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwiSourceImageId :: Lens.Lens' CopyWorkspaceImage Lude.Text
+cwiSourceImageId = Lens.lens (sourceImageId :: CopyWorkspaceImage -> Lude.Text) (\s a -> s {sourceImageId = a} :: CopyWorkspaceImage)
+{-# DEPRECATED cwiSourceImageId "Use generic-lens or generic-optics with 'sourceImageId' instead." #-}
 
 -- | The identifier of the source Region.
-cwiSourceRegion :: Lens' CopyWorkspaceImage Text
-cwiSourceRegion = lens _cwiSourceRegion (\s a -> s {_cwiSourceRegion = a})
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwiSourceRegion :: Lens.Lens' CopyWorkspaceImage Lude.Text
+cwiSourceRegion = Lens.lens (sourceRegion :: CopyWorkspaceImage -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopyWorkspaceImage)
+{-# DEPRECATED cwiSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
-instance AWSRequest CopyWorkspaceImage where
+instance Lude.AWSRequest CopyWorkspaceImage where
   type Rs CopyWorkspaceImage = CopyWorkspaceImageResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CopyWorkspaceImageResponse'
-            <$> (x .?> "ImageId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopyWorkspaceImage
-
-instance NFData CopyWorkspaceImage
-
-instance ToHeaders CopyWorkspaceImage where
+instance Lude.ToHeaders CopyWorkspaceImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.CopyWorkspaceImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.CopyWorkspaceImage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CopyWorkspaceImage where
+instance Lude.ToJSON CopyWorkspaceImage where
   toJSON CopyWorkspaceImage' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _cwiDescription,
-            ("Tags" .=) <$> _cwiTags,
-            Just ("Name" .= _cwiName),
-            Just ("SourceImageId" .= _cwiSourceImageId),
-            Just ("SourceRegion" .= _cwiSourceRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("SourceImageId" Lude..= sourceImageId),
+            Lude.Just ("SourceRegion" Lude..= sourceRegion)
           ]
       )
 
-instance ToPath CopyWorkspaceImage where
-  toPath = const "/"
+instance Lude.ToPath CopyWorkspaceImage where
+  toPath = Lude.const "/"
 
-instance ToQuery CopyWorkspaceImage where
-  toQuery = const mempty
+instance Lude.ToQuery CopyWorkspaceImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copyWorkspaceImageResponse' smart constructor.
+-- | /See:/ 'mkCopyWorkspaceImageResponse' smart constructor.
 data CopyWorkspaceImageResponse = CopyWorkspaceImageResponse'
-  { _cwirsImageId ::
-      !(Maybe Text),
-    _cwirsResponseStatus :: !Int
+  { imageId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyWorkspaceImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwirsImageId' - The identifier of the image.
---
--- * 'cwirsResponseStatus' - -- | The response status code.
-copyWorkspaceImageResponse ::
-  -- | 'cwirsResponseStatus'
-  Int ->
+-- * 'imageId' - The identifier of the image.
+-- * 'responseStatus' - The response status code.
+mkCopyWorkspaceImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopyWorkspaceImageResponse
-copyWorkspaceImageResponse pResponseStatus_ =
+mkCopyWorkspaceImageResponse pResponseStatus_ =
   CopyWorkspaceImageResponse'
-    { _cwirsImageId = Nothing,
-      _cwirsResponseStatus = pResponseStatus_
+    { imageId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the image.
-cwirsImageId :: Lens' CopyWorkspaceImageResponse (Maybe Text)
-cwirsImageId = lens _cwirsImageId (\s a -> s {_cwirsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwirsImageId :: Lens.Lens' CopyWorkspaceImageResponse (Lude.Maybe Lude.Text)
+cwirsImageId = Lens.lens (imageId :: CopyWorkspaceImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: CopyWorkspaceImageResponse)
+{-# DEPRECATED cwirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | -- | The response status code.
-cwirsResponseStatus :: Lens' CopyWorkspaceImageResponse Int
-cwirsResponseStatus = lens _cwirsResponseStatus (\s a -> s {_cwirsResponseStatus = a})
-
-instance NFData CopyWorkspaceImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwirsResponseStatus :: Lens.Lens' CopyWorkspaceImageResponse Lude.Int
+cwirsResponseStatus = Lens.lens (responseStatus :: CopyWorkspaceImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyWorkspaceImageResponse)
+{-# DEPRECATED cwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

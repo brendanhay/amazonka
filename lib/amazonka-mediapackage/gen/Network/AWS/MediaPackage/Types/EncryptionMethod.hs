@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.EncryptionMethod where
+module Network.AWS.MediaPackage.Types.EncryptionMethod
+  ( EncryptionMethod
+      ( EncryptionMethod',
+        AES128,
+        SampleAES
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncryptionMethod
-  = AES128
-  | SampleAES
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncryptionMethod = EncryptionMethod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncryptionMethod where
-  parser =
-    takeLowerText >>= \case
-      "aes_128" -> pure AES128
-      "sample_aes" -> pure SampleAES
-      e ->
-        fromTextError $
-          "Failure parsing EncryptionMethod from value: '" <> e
-            <> "'. Accepted values: aes_128, sample_aes"
+pattern AES128 :: EncryptionMethod
+pattern AES128 = EncryptionMethod' "AES_128"
 
-instance ToText EncryptionMethod where
-  toText = \case
-    AES128 -> "AES_128"
-    SampleAES -> "SAMPLE_AES"
+pattern SampleAES :: EncryptionMethod
+pattern SampleAES = EncryptionMethod' "SAMPLE_AES"
 
-instance Hashable EncryptionMethod
-
-instance NFData EncryptionMethod
-
-instance ToByteString EncryptionMethod
-
-instance ToQuery EncryptionMethod
-
-instance ToHeader EncryptionMethod
-
-instance ToJSON EncryptionMethod where
-  toJSON = toJSONText
-
-instance FromJSON EncryptionMethod where
-  parseJSON = parseJSONText "EncryptionMethod"
+{-# COMPLETE
+  AES128,
+  SampleAES,
+  EncryptionMethod'
+  #-}

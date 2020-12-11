@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus where
+module Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
+  ( PendingAutomaticFailoverStatus
+      ( PendingAutomaticFailoverStatus',
+        PAFSDisabled,
+        PAFSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PendingAutomaticFailoverStatus
-  = PAFSDisabled
-  | PAFSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PendingAutomaticFailoverStatus = PendingAutomaticFailoverStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PendingAutomaticFailoverStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure PAFSDisabled
-      "enabled" -> pure PAFSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing PendingAutomaticFailoverStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern PAFSDisabled :: PendingAutomaticFailoverStatus
+pattern PAFSDisabled = PendingAutomaticFailoverStatus' "disabled"
 
-instance ToText PendingAutomaticFailoverStatus where
-  toText = \case
-    PAFSDisabled -> "disabled"
-    PAFSEnabled -> "enabled"
+pattern PAFSEnabled :: PendingAutomaticFailoverStatus
+pattern PAFSEnabled = PendingAutomaticFailoverStatus' "enabled"
 
-instance Hashable PendingAutomaticFailoverStatus
-
-instance NFData PendingAutomaticFailoverStatus
-
-instance ToByteString PendingAutomaticFailoverStatus
-
-instance ToQuery PendingAutomaticFailoverStatus
-
-instance ToHeader PendingAutomaticFailoverStatus
-
-instance FromXML PendingAutomaticFailoverStatus where
-  parseXML = parseXMLText "PendingAutomaticFailoverStatus"
+{-# COMPLETE
+  PAFSDisabled,
+  PAFSEnabled,
+  PendingAutomaticFailoverStatus'
+  #-}

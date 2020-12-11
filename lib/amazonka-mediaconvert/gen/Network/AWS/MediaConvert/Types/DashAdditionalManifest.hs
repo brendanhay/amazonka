@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashAdditionalManifest where
+module Network.AWS.MediaConvert.Types.DashAdditionalManifest
+  ( DashAdditionalManifest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDashAdditionalManifest,
+
+    -- * Lenses
+    damManifestNameModifier,
+    damSelectedOutputs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the details for each additional DASH manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
 --
--- /See:/ 'dashAdditionalManifest' smart constructor.
+-- /See:/ 'mkDashAdditionalManifest' smart constructor.
 data DashAdditionalManifest = DashAdditionalManifest'
-  { _damManifestNameModifier ::
-      !(Maybe Text),
-    _damSelectedOutputs :: !(Maybe [Text])
+  { manifestNameModifier ::
+      Lude.Maybe Lude.Text,
+    selectedOutputs :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashAdditionalManifest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damManifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd.
---
--- * 'damSelectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
-dashAdditionalManifest ::
+-- * 'manifestNameModifier' - Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd.
+-- * 'selectedOutputs' - Specify the outputs that you want this additional top-level manifest to reference.
+mkDashAdditionalManifest ::
   DashAdditionalManifest
-dashAdditionalManifest =
+mkDashAdditionalManifest =
   DashAdditionalManifest'
-    { _damManifestNameModifier = Nothing,
-      _damSelectedOutputs = Nothing
+    { manifestNameModifier = Lude.Nothing,
+      selectedOutputs = Lude.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd.
-damManifestNameModifier :: Lens' DashAdditionalManifest (Maybe Text)
-damManifestNameModifier = lens _damManifestNameModifier (\s a -> s {_damManifestNameModifier = a})
+--
+-- /Note:/ Consider using 'manifestNameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damManifestNameModifier :: Lens.Lens' DashAdditionalManifest (Lude.Maybe Lude.Text)
+damManifestNameModifier = Lens.lens (manifestNameModifier :: DashAdditionalManifest -> Lude.Maybe Lude.Text) (\s a -> s {manifestNameModifier = a} :: DashAdditionalManifest)
+{-# DEPRECATED damManifestNameModifier "Use generic-lens or generic-optics with 'manifestNameModifier' instead." #-}
 
 -- | Specify the outputs that you want this additional top-level manifest to reference.
-damSelectedOutputs :: Lens' DashAdditionalManifest [Text]
-damSelectedOutputs = lens _damSelectedOutputs (\s a -> s {_damSelectedOutputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'selectedOutputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damSelectedOutputs :: Lens.Lens' DashAdditionalManifest (Lude.Maybe [Lude.Text])
+damSelectedOutputs = Lens.lens (selectedOutputs :: DashAdditionalManifest -> Lude.Maybe [Lude.Text]) (\s a -> s {selectedOutputs = a} :: DashAdditionalManifest)
+{-# DEPRECATED damSelectedOutputs "Use generic-lens or generic-optics with 'selectedOutputs' instead." #-}
 
-instance FromJSON DashAdditionalManifest where
+instance Lude.FromJSON DashAdditionalManifest where
   parseJSON =
-    withObject
+    Lude.withObject
       "DashAdditionalManifest"
       ( \x ->
           DashAdditionalManifest'
-            <$> (x .:? "manifestNameModifier")
-            <*> (x .:? "selectedOutputs" .!= mempty)
+            Lude.<$> (x Lude..:? "manifestNameModifier")
+            Lude.<*> (x Lude..:? "selectedOutputs" Lude..!= Lude.mempty)
       )
 
-instance Hashable DashAdditionalManifest
-
-instance NFData DashAdditionalManifest
-
-instance ToJSON DashAdditionalManifest where
+instance Lude.ToJSON DashAdditionalManifest where
   toJSON DashAdditionalManifest' {..} =
-    object
-      ( catMaybes
-          [ ("manifestNameModifier" .=) <$> _damManifestNameModifier,
-            ("selectedOutputs" .=) <$> _damSelectedOutputs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("manifestNameModifier" Lude..=) Lude.<$> manifestNameModifier,
+            ("selectedOutputs" Lude..=) Lude.<$> selectedOutputs
           ]
       )

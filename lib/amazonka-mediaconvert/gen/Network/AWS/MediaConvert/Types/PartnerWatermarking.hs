@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.PartnerWatermarking where
+module Network.AWS.MediaConvert.Types.PartnerWatermarking
+  ( PartnerWatermarking (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPartnerWatermarking,
+
+    -- * Lenses
+    pwNexguardFileMarkerSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
 --
--- /See:/ 'partnerWatermarking' smart constructor.
+-- /See:/ 'mkPartnerWatermarking' smart constructor.
 newtype PartnerWatermarking = PartnerWatermarking'
-  { _pwNexguardFileMarkerSettings ::
-      Maybe NexGuardFileMarkerSettings
+  { nexguardFileMarkerSettings ::
+      Lude.Maybe NexGuardFileMarkerSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartnerWatermarking' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pwNexguardFileMarkerSettings' - For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
-partnerWatermarking ::
+-- * 'nexguardFileMarkerSettings' - For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
+mkPartnerWatermarking ::
   PartnerWatermarking
-partnerWatermarking =
-  PartnerWatermarking' {_pwNexguardFileMarkerSettings = Nothing}
+mkPartnerWatermarking =
+  PartnerWatermarking' {nexguardFileMarkerSettings = Lude.Nothing}
 
 -- | For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
-pwNexguardFileMarkerSettings :: Lens' PartnerWatermarking (Maybe NexGuardFileMarkerSettings)
-pwNexguardFileMarkerSettings = lens _pwNexguardFileMarkerSettings (\s a -> s {_pwNexguardFileMarkerSettings = a})
+--
+-- /Note:/ Consider using 'nexguardFileMarkerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pwNexguardFileMarkerSettings :: Lens.Lens' PartnerWatermarking (Lude.Maybe NexGuardFileMarkerSettings)
+pwNexguardFileMarkerSettings = Lens.lens (nexguardFileMarkerSettings :: PartnerWatermarking -> Lude.Maybe NexGuardFileMarkerSettings) (\s a -> s {nexguardFileMarkerSettings = a} :: PartnerWatermarking)
+{-# DEPRECATED pwNexguardFileMarkerSettings "Use generic-lens or generic-optics with 'nexguardFileMarkerSettings' instead." #-}
 
-instance FromJSON PartnerWatermarking where
+instance Lude.FromJSON PartnerWatermarking where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartnerWatermarking"
       ( \x ->
-          PartnerWatermarking' <$> (x .:? "nexguardFileMarkerSettings")
+          PartnerWatermarking'
+            Lude.<$> (x Lude..:? "nexguardFileMarkerSettings")
       )
 
-instance Hashable PartnerWatermarking
-
-instance NFData PartnerWatermarking
-
-instance ToJSON PartnerWatermarking where
+instance Lude.ToJSON PartnerWatermarking where
   toJSON PartnerWatermarking' {..} =
-    object
-      ( catMaybes
-          [ ("nexguardFileMarkerSettings" .=)
-              <$> _pwNexguardFileMarkerSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nexguardFileMarkerSettings" Lude..=)
+              Lude.<$> nexguardFileMarkerSettings
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EventsRequest where
+module Network.AWS.Pinpoint.Types.EventsRequest
+  ( EventsRequest (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEventsRequest,
+
+    -- * Lenses
+    erBatchItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventsBatch
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a batch of events to process.
 --
---
---
--- /See:/ 'eventsRequest' smart constructor.
+-- /See:/ 'mkEventsRequest' smart constructor.
 newtype EventsRequest = EventsRequest'
-  { _erBatchItem ::
-      Map Text (EventsBatch)
+  { batchItem ::
+      Lude.HashMap Lude.Text (EventsBatch)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erBatchItem' - The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
-eventsRequest ::
+-- * 'batchItem' - The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
+mkEventsRequest ::
   EventsRequest
-eventsRequest = EventsRequest' {_erBatchItem = mempty}
+mkEventsRequest = EventsRequest' {batchItem = Lude.mempty}
 
 -- | The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
-erBatchItem :: Lens' EventsRequest (HashMap Text (EventsBatch))
-erBatchItem = lens _erBatchItem (\s a -> s {_erBatchItem = a}) . _Map
+--
+-- /Note:/ Consider using 'batchItem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erBatchItem :: Lens.Lens' EventsRequest (Lude.HashMap Lude.Text (EventsBatch))
+erBatchItem = Lens.lens (batchItem :: EventsRequest -> Lude.HashMap Lude.Text (EventsBatch)) (\s a -> s {batchItem = a} :: EventsRequest)
+{-# DEPRECATED erBatchItem "Use generic-lens or generic-optics with 'batchItem' instead." #-}
 
-instance Hashable EventsRequest
-
-instance NFData EventsRequest
-
-instance ToJSON EventsRequest where
+instance Lude.ToJSON EventsRequest where
   toJSON EventsRequest' {..} =
-    object (catMaybes [Just ("BatchItem" .= _erBatchItem)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BatchItem" Lude..= batchItem)])

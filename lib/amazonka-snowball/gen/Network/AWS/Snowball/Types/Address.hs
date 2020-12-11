@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,184 +7,234 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.Address where
+module Network.AWS.Snowball.Types.Address
+  ( Address (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAddress,
+
+    -- * Lenses
+    aIsRestricted,
+    aStreet3,
+    aLandmark,
+    aPostalCode,
+    aCountry,
+    aStateOrProvince,
+    aStreet2,
+    aAddressId,
+    aCity,
+    aPhoneNumber,
+    aCompany,
+    aName,
+    aPrefectureOrDistrict,
+    aStreet1,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The address that you want the Snow device(s) associated with a specific job to be shipped to. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. Although no individual elements of the @Address@ are required, if the address is invalid or unsupported, then an exception is thrown.
 --
---
---
--- /See:/ 'address' smart constructor.
+-- /See:/ 'mkAddress' smart constructor.
 data Address = Address'
-  { _aIsRestricted :: !(Maybe Bool),
-    _aStreet3 :: !(Maybe Text),
-    _aLandmark :: !(Maybe Text),
-    _aPostalCode :: !(Maybe Text),
-    _aCountry :: !(Maybe Text),
-    _aStateOrProvince :: !(Maybe Text),
-    _aStreet2 :: !(Maybe Text),
-    _aAddressId :: !(Maybe Text),
-    _aCity :: !(Maybe Text),
-    _aPhoneNumber :: !(Maybe Text),
-    _aCompany :: !(Maybe Text),
-    _aName :: !(Maybe Text),
-    _aPrefectureOrDistrict :: !(Maybe Text),
-    _aStreet1 :: !(Maybe Text)
+  { isRestricted :: Lude.Maybe Lude.Bool,
+    street3 :: Lude.Maybe Lude.Text,
+    landmark :: Lude.Maybe Lude.Text,
+    postalCode :: Lude.Maybe Lude.Text,
+    country :: Lude.Maybe Lude.Text,
+    stateOrProvince :: Lude.Maybe Lude.Text,
+    street2 :: Lude.Maybe Lude.Text,
+    addressId :: Lude.Maybe Lude.Text,
+    city :: Lude.Maybe Lude.Text,
+    phoneNumber :: Lude.Maybe Lude.Text,
+    company :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    prefectureOrDistrict :: Lude.Maybe Lude.Text,
+    street1 :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Address' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aIsRestricted' - If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
---
--- * 'aStreet3' - The third line in a street address that a Snow device is to be delivered to.
---
--- * 'aLandmark' - This field is no longer used and the value is ignored.
---
--- * 'aPostalCode' - The postal code in an address that a Snow device is to be delivered to.
---
--- * 'aCountry' - The country in an address that a Snow device is to be delivered to.
---
--- * 'aStateOrProvince' - The state or province in an address that a Snow device is to be delivered to.
---
--- * 'aStreet2' - The second line in a street address that a Snow device is to be delivered to.
---
--- * 'aAddressId' - The unique ID for an address.
---
--- * 'aCity' - The city in an address that a Snow device is to be delivered to.
---
--- * 'aPhoneNumber' - The phone number associated with an address that a Snow device is to be delivered to.
---
--- * 'aCompany' - The name of the company to receive a Snow device at an address.
---
--- * 'aName' - The name of a person to receive a Snow device at an address.
---
--- * 'aPrefectureOrDistrict' - This field is no longer used and the value is ignored.
---
--- * 'aStreet1' - The first line in a street address that a Snow device is to be delivered to.
-address ::
+-- * 'addressId' - The unique ID for an address.
+-- * 'city' - The city in an address that a Snow device is to be delivered to.
+-- * 'company' - The name of the company to receive a Snow device at an address.
+-- * 'country' - The country in an address that a Snow device is to be delivered to.
+-- * 'isRestricted' - If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
+-- * 'landmark' - This field is no longer used and the value is ignored.
+-- * 'name' - The name of a person to receive a Snow device at an address.
+-- * 'phoneNumber' - The phone number associated with an address that a Snow device is to be delivered to.
+-- * 'postalCode' - The postal code in an address that a Snow device is to be delivered to.
+-- * 'prefectureOrDistrict' - This field is no longer used and the value is ignored.
+-- * 'stateOrProvince' - The state or province in an address that a Snow device is to be delivered to.
+-- * 'street1' - The first line in a street address that a Snow device is to be delivered to.
+-- * 'street2' - The second line in a street address that a Snow device is to be delivered to.
+-- * 'street3' - The third line in a street address that a Snow device is to be delivered to.
+mkAddress ::
   Address
-address =
+mkAddress =
   Address'
-    { _aIsRestricted = Nothing,
-      _aStreet3 = Nothing,
-      _aLandmark = Nothing,
-      _aPostalCode = Nothing,
-      _aCountry = Nothing,
-      _aStateOrProvince = Nothing,
-      _aStreet2 = Nothing,
-      _aAddressId = Nothing,
-      _aCity = Nothing,
-      _aPhoneNumber = Nothing,
-      _aCompany = Nothing,
-      _aName = Nothing,
-      _aPrefectureOrDistrict = Nothing,
-      _aStreet1 = Nothing
+    { isRestricted = Lude.Nothing,
+      street3 = Lude.Nothing,
+      landmark = Lude.Nothing,
+      postalCode = Lude.Nothing,
+      country = Lude.Nothing,
+      stateOrProvince = Lude.Nothing,
+      street2 = Lude.Nothing,
+      addressId = Lude.Nothing,
+      city = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      company = Lude.Nothing,
+      name = Lude.Nothing,
+      prefectureOrDistrict = Lude.Nothing,
+      street1 = Lude.Nothing
     }
 
 -- | If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
-aIsRestricted :: Lens' Address (Maybe Bool)
-aIsRestricted = lens _aIsRestricted (\s a -> s {_aIsRestricted = a})
+--
+-- /Note:/ Consider using 'isRestricted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aIsRestricted :: Lens.Lens' Address (Lude.Maybe Lude.Bool)
+aIsRestricted = Lens.lens (isRestricted :: Address -> Lude.Maybe Lude.Bool) (\s a -> s {isRestricted = a} :: Address)
+{-# DEPRECATED aIsRestricted "Use generic-lens or generic-optics with 'isRestricted' instead." #-}
 
 -- | The third line in a street address that a Snow device is to be delivered to.
-aStreet3 :: Lens' Address (Maybe Text)
-aStreet3 = lens _aStreet3 (\s a -> s {_aStreet3 = a})
+--
+-- /Note:/ Consider using 'street3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStreet3 :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aStreet3 = Lens.lens (street3 :: Address -> Lude.Maybe Lude.Text) (\s a -> s {street3 = a} :: Address)
+{-# DEPRECATED aStreet3 "Use generic-lens or generic-optics with 'street3' instead." #-}
 
 -- | This field is no longer used and the value is ignored.
-aLandmark :: Lens' Address (Maybe Text)
-aLandmark = lens _aLandmark (\s a -> s {_aLandmark = a})
+--
+-- /Note:/ Consider using 'landmark' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLandmark :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aLandmark = Lens.lens (landmark :: Address -> Lude.Maybe Lude.Text) (\s a -> s {landmark = a} :: Address)
+{-# DEPRECATED aLandmark "Use generic-lens or generic-optics with 'landmark' instead." #-}
 
 -- | The postal code in an address that a Snow device is to be delivered to.
-aPostalCode :: Lens' Address (Maybe Text)
-aPostalCode = lens _aPostalCode (\s a -> s {_aPostalCode = a})
+--
+-- /Note:/ Consider using 'postalCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPostalCode :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aPostalCode = Lens.lens (postalCode :: Address -> Lude.Maybe Lude.Text) (\s a -> s {postalCode = a} :: Address)
+{-# DEPRECATED aPostalCode "Use generic-lens or generic-optics with 'postalCode' instead." #-}
 
 -- | The country in an address that a Snow device is to be delivered to.
-aCountry :: Lens' Address (Maybe Text)
-aCountry = lens _aCountry (\s a -> s {_aCountry = a})
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCountry :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aCountry = Lens.lens (country :: Address -> Lude.Maybe Lude.Text) (\s a -> s {country = a} :: Address)
+{-# DEPRECATED aCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The state or province in an address that a Snow device is to be delivered to.
-aStateOrProvince :: Lens' Address (Maybe Text)
-aStateOrProvince = lens _aStateOrProvince (\s a -> s {_aStateOrProvince = a})
+--
+-- /Note:/ Consider using 'stateOrProvince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStateOrProvince :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aStateOrProvince = Lens.lens (stateOrProvince :: Address -> Lude.Maybe Lude.Text) (\s a -> s {stateOrProvince = a} :: Address)
+{-# DEPRECATED aStateOrProvince "Use generic-lens or generic-optics with 'stateOrProvince' instead." #-}
 
 -- | The second line in a street address that a Snow device is to be delivered to.
-aStreet2 :: Lens' Address (Maybe Text)
-aStreet2 = lens _aStreet2 (\s a -> s {_aStreet2 = a})
+--
+-- /Note:/ Consider using 'street2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStreet2 :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aStreet2 = Lens.lens (street2 :: Address -> Lude.Maybe Lude.Text) (\s a -> s {street2 = a} :: Address)
+{-# DEPRECATED aStreet2 "Use generic-lens or generic-optics with 'street2' instead." #-}
 
 -- | The unique ID for an address.
-aAddressId :: Lens' Address (Maybe Text)
-aAddressId = lens _aAddressId (\s a -> s {_aAddressId = a})
+--
+-- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAddressId :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aAddressId = Lens.lens (addressId :: Address -> Lude.Maybe Lude.Text) (\s a -> s {addressId = a} :: Address)
+{-# DEPRECATED aAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
 -- | The city in an address that a Snow device is to be delivered to.
-aCity :: Lens' Address (Maybe Text)
-aCity = lens _aCity (\s a -> s {_aCity = a})
+--
+-- /Note:/ Consider using 'city' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCity :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aCity = Lens.lens (city :: Address -> Lude.Maybe Lude.Text) (\s a -> s {city = a} :: Address)
+{-# DEPRECATED aCity "Use generic-lens or generic-optics with 'city' instead." #-}
 
 -- | The phone number associated with an address that a Snow device is to be delivered to.
-aPhoneNumber :: Lens' Address (Maybe Text)
-aPhoneNumber = lens _aPhoneNumber (\s a -> s {_aPhoneNumber = a})
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPhoneNumber :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aPhoneNumber = Lens.lens (phoneNumber :: Address -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: Address)
+{-# DEPRECATED aPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The name of the company to receive a Snow device at an address.
-aCompany :: Lens' Address (Maybe Text)
-aCompany = lens _aCompany (\s a -> s {_aCompany = a})
+--
+-- /Note:/ Consider using 'company' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCompany :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aCompany = Lens.lens (company :: Address -> Lude.Maybe Lude.Text) (\s a -> s {company = a} :: Address)
+{-# DEPRECATED aCompany "Use generic-lens or generic-optics with 'company' instead." #-}
 
 -- | The name of a person to receive a Snow device at an address.
-aName :: Lens' Address (Maybe Text)
-aName = lens _aName (\s a -> s {_aName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aName = Lens.lens (name :: Address -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Address)
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | This field is no longer used and the value is ignored.
-aPrefectureOrDistrict :: Lens' Address (Maybe Text)
-aPrefectureOrDistrict = lens _aPrefectureOrDistrict (\s a -> s {_aPrefectureOrDistrict = a})
+--
+-- /Note:/ Consider using 'prefectureOrDistrict' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPrefectureOrDistrict :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aPrefectureOrDistrict = Lens.lens (prefectureOrDistrict :: Address -> Lude.Maybe Lude.Text) (\s a -> s {prefectureOrDistrict = a} :: Address)
+{-# DEPRECATED aPrefectureOrDistrict "Use generic-lens or generic-optics with 'prefectureOrDistrict' instead." #-}
 
 -- | The first line in a street address that a Snow device is to be delivered to.
-aStreet1 :: Lens' Address (Maybe Text)
-aStreet1 = lens _aStreet1 (\s a -> s {_aStreet1 = a})
+--
+-- /Note:/ Consider using 'street1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStreet1 :: Lens.Lens' Address (Lude.Maybe Lude.Text)
+aStreet1 = Lens.lens (street1 :: Address -> Lude.Maybe Lude.Text) (\s a -> s {street1 = a} :: Address)
+{-# DEPRECATED aStreet1 "Use generic-lens or generic-optics with 'street1' instead." #-}
 
-instance FromJSON Address where
+instance Lude.FromJSON Address where
   parseJSON =
-    withObject
+    Lude.withObject
       "Address"
       ( \x ->
           Address'
-            <$> (x .:? "IsRestricted")
-            <*> (x .:? "Street3")
-            <*> (x .:? "Landmark")
-            <*> (x .:? "PostalCode")
-            <*> (x .:? "Country")
-            <*> (x .:? "StateOrProvince")
-            <*> (x .:? "Street2")
-            <*> (x .:? "AddressId")
-            <*> (x .:? "City")
-            <*> (x .:? "PhoneNumber")
-            <*> (x .:? "Company")
-            <*> (x .:? "Name")
-            <*> (x .:? "PrefectureOrDistrict")
-            <*> (x .:? "Street1")
+            Lude.<$> (x Lude..:? "IsRestricted")
+            Lude.<*> (x Lude..:? "Street3")
+            Lude.<*> (x Lude..:? "Landmark")
+            Lude.<*> (x Lude..:? "PostalCode")
+            Lude.<*> (x Lude..:? "Country")
+            Lude.<*> (x Lude..:? "StateOrProvince")
+            Lude.<*> (x Lude..:? "Street2")
+            Lude.<*> (x Lude..:? "AddressId")
+            Lude.<*> (x Lude..:? "City")
+            Lude.<*> (x Lude..:? "PhoneNumber")
+            Lude.<*> (x Lude..:? "Company")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "PrefectureOrDistrict")
+            Lude.<*> (x Lude..:? "Street1")
       )
 
-instance Hashable Address
-
-instance NFData Address
-
-instance ToJSON Address where
+instance Lude.ToJSON Address where
   toJSON Address' {..} =
-    object
-      ( catMaybes
-          [ ("IsRestricted" .=) <$> _aIsRestricted,
-            ("Street3" .=) <$> _aStreet3,
-            ("Landmark" .=) <$> _aLandmark,
-            ("PostalCode" .=) <$> _aPostalCode,
-            ("Country" .=) <$> _aCountry,
-            ("StateOrProvince" .=) <$> _aStateOrProvince,
-            ("Street2" .=) <$> _aStreet2,
-            ("AddressId" .=) <$> _aAddressId,
-            ("City" .=) <$> _aCity,
-            ("PhoneNumber" .=) <$> _aPhoneNumber,
-            ("Company" .=) <$> _aCompany,
-            ("Name" .=) <$> _aName,
-            ("PrefectureOrDistrict" .=) <$> _aPrefectureOrDistrict,
-            ("Street1" .=) <$> _aStreet1
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IsRestricted" Lude..=) Lude.<$> isRestricted,
+            ("Street3" Lude..=) Lude.<$> street3,
+            ("Landmark" Lude..=) Lude.<$> landmark,
+            ("PostalCode" Lude..=) Lude.<$> postalCode,
+            ("Country" Lude..=) Lude.<$> country,
+            ("StateOrProvince" Lude..=) Lude.<$> stateOrProvince,
+            ("Street2" Lude..=) Lude.<$> street2,
+            ("AddressId" Lude..=) Lude.<$> addressId,
+            ("City" Lude..=) Lude.<$> city,
+            ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
+            ("Company" Lude..=) Lude.<$> company,
+            ("Name" Lude..=) Lude.<$> name,
+            ("PrefectureOrDistrict" Lude..=) Lude.<$> prefectureOrDistrict,
+            ("Street1" Lude..=) Lude.<$> street1
           ]
       )

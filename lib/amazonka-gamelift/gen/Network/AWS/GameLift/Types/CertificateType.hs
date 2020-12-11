@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.CertificateType where
+module Network.AWS.GameLift.Types.CertificateType
+  ( CertificateType
+      ( CertificateType',
+        Disabled,
+        Generated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateType
-  = Disabled
-  | Generated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateType = CertificateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateType where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "generated" -> pure Generated
-      e ->
-        fromTextError $
-          "Failure parsing CertificateType from value: '" <> e
-            <> "'. Accepted values: disabled, generated"
+pattern Disabled :: CertificateType
+pattern Disabled = CertificateType' "DISABLED"
 
-instance ToText CertificateType where
-  toText = \case
-    Disabled -> "DISABLED"
-    Generated -> "GENERATED"
+pattern Generated :: CertificateType
+pattern Generated = CertificateType' "GENERATED"
 
-instance Hashable CertificateType
-
-instance NFData CertificateType
-
-instance ToByteString CertificateType
-
-instance ToQuery CertificateType
-
-instance ToHeader CertificateType
-
-instance ToJSON CertificateType where
-  toJSON = toJSONText
-
-instance FromJSON CertificateType where
-  parseJSON = parseJSONText "CertificateType"
+{-# COMPLETE
+  Disabled,
+  Generated,
+  CertificateType'
+  #-}

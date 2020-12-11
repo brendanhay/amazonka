@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnclaveOptionsRequest where
+module Network.AWS.EC2.Types.EnclaveOptionsRequest
+  ( EnclaveOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnclaveOptionsRequest,
+
+    -- * Lenses
+    eorEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is AWS Nitro Enclaves?> in the /AWS Nitro Enclaves User Guide/ .
 --
---
---
--- /See:/ 'enclaveOptionsRequest' smart constructor.
+-- /See:/ 'mkEnclaveOptionsRequest' smart constructor.
 newtype EnclaveOptionsRequest = EnclaveOptionsRequest'
-  { _eorEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnclaveOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eorEnabled' - To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ .
-enclaveOptionsRequest ::
+-- * 'enabled' - To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ .
+mkEnclaveOptionsRequest ::
   EnclaveOptionsRequest
-enclaveOptionsRequest =
-  EnclaveOptionsRequest' {_eorEnabled = Nothing}
+mkEnclaveOptionsRequest =
+  EnclaveOptionsRequest' {enabled = Lude.Nothing}
 
 -- | To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ .
-eorEnabled :: Lens' EnclaveOptionsRequest (Maybe Bool)
-eorEnabled = lens _eorEnabled (\s a -> s {_eorEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eorEnabled :: Lens.Lens' EnclaveOptionsRequest (Lude.Maybe Lude.Bool)
+eorEnabled = Lens.lens (enabled :: EnclaveOptionsRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EnclaveOptionsRequest)
+{-# DEPRECATED eorEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Hashable EnclaveOptionsRequest
-
-instance NFData EnclaveOptionsRequest
-
-instance ToQuery EnclaveOptionsRequest where
+instance Lude.ToQuery EnclaveOptionsRequest where
   toQuery EnclaveOptionsRequest' {..} =
-    mconcat ["Enabled" =: _eorEnabled]
+    Lude.mconcat ["Enabled" Lude.=: enabled]

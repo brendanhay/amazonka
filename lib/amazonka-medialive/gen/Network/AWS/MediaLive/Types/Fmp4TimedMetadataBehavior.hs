@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior where
+module Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
+  ( Fmp4TimedMetadataBehavior
+      ( Fmp4TimedMetadataBehavior',
+        FTMBNoPassthrough,
+        FTMBPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Fmp4 Timed Metadata Behavior
-data Fmp4TimedMetadataBehavior
-  = FTMBNoPassthrough
-  | FTMBPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Fmp4TimedMetadataBehavior = Fmp4TimedMetadataBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Fmp4TimedMetadataBehavior where
-  parser =
-    takeLowerText >>= \case
-      "no_passthrough" -> pure FTMBNoPassthrough
-      "passthrough" -> pure FTMBPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing Fmp4TimedMetadataBehavior from value: '" <> e
-            <> "'. Accepted values: no_passthrough, passthrough"
+pattern FTMBNoPassthrough :: Fmp4TimedMetadataBehavior
+pattern FTMBNoPassthrough = Fmp4TimedMetadataBehavior' "NO_PASSTHROUGH"
 
-instance ToText Fmp4TimedMetadataBehavior where
-  toText = \case
-    FTMBNoPassthrough -> "NO_PASSTHROUGH"
-    FTMBPassthrough -> "PASSTHROUGH"
+pattern FTMBPassthrough :: Fmp4TimedMetadataBehavior
+pattern FTMBPassthrough = Fmp4TimedMetadataBehavior' "PASSTHROUGH"
 
-instance Hashable Fmp4TimedMetadataBehavior
-
-instance NFData Fmp4TimedMetadataBehavior
-
-instance ToByteString Fmp4TimedMetadataBehavior
-
-instance ToQuery Fmp4TimedMetadataBehavior
-
-instance ToHeader Fmp4TimedMetadataBehavior
-
-instance ToJSON Fmp4TimedMetadataBehavior where
-  toJSON = toJSONText
-
-instance FromJSON Fmp4TimedMetadataBehavior where
-  parseJSON = parseJSONText "Fmp4TimedMetadataBehavior"
+{-# COMPLETE
+  FTMBNoPassthrough,
+  FTMBPassthrough,
+  Fmp4TimedMetadataBehavior'
+  #-}

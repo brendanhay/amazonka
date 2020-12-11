@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Job where
+module Network.AWS.IoT.Types.Job
+  ( Job (..),
+
+    -- * Smart constructor
+    mkJob,
+
+    -- * Lenses
+    jStatus,
+    jJobExecutionsRolloutConfig,
+    jJobId,
+    jLastUpdatedAt,
+    jJobARN,
+    jCreatedAt,
+    jAbortConfig,
+    jJobProcessDetails,
+    jNamespaceId,
+    jReasonCode,
+    jPresignedURLConfig,
+    jForceCanceled,
+    jTargets,
+    jCompletedAt,
+    jComment,
+    jDescription,
+    jTargetSelection,
+    jTimeoutConfig,
+  )
+where
 
 import Network.AWS.IoT.Types.AbortConfig
 import Network.AWS.IoT.Types.JobExecutionsRolloutConfig
@@ -22,198 +42,240 @@ import Network.AWS.IoT.Types.JobStatus
 import Network.AWS.IoT.Types.PresignedURLConfig
 import Network.AWS.IoT.Types.TargetSelection
 import Network.AWS.IoT.Types.TimeoutConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @Job@ object contains details about a job.
 --
---
---
--- /See:/ 'job' smart constructor.
+-- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { _jobStatus :: !(Maybe JobStatus),
-    _jobJobExecutionsRolloutConfig ::
-      !(Maybe JobExecutionsRolloutConfig),
-    _jobJobId :: !(Maybe Text),
-    _jobLastUpdatedAt :: !(Maybe POSIX),
-    _jobJobARN :: !(Maybe Text),
-    _jobCreatedAt :: !(Maybe POSIX),
-    _jobAbortConfig :: !(Maybe AbortConfig),
-    _jobJobProcessDetails :: !(Maybe JobProcessDetails),
-    _jobNamespaceId :: !(Maybe Text),
-    _jobReasonCode :: !(Maybe Text),
-    _jobPresignedURLConfig :: !(Maybe PresignedURLConfig),
-    _jobForceCanceled :: !(Maybe Bool),
-    _jobTargets :: !(Maybe (List1 Text)),
-    _jobCompletedAt :: !(Maybe POSIX),
-    _jobComment :: !(Maybe Text),
-    _jobDescription :: !(Maybe Text),
-    _jobTargetSelection :: !(Maybe TargetSelection),
-    _jobTimeoutConfig :: !(Maybe TimeoutConfig)
+  { status :: Lude.Maybe JobStatus,
+    jobExecutionsRolloutConfig ::
+      Lude.Maybe JobExecutionsRolloutConfig,
+    jobId :: Lude.Maybe Lude.Text,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    jobARN :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    abortConfig :: Lude.Maybe AbortConfig,
+    jobProcessDetails :: Lude.Maybe JobProcessDetails,
+    namespaceId :: Lude.Maybe Lude.Text,
+    reasonCode :: Lude.Maybe Lude.Text,
+    presignedURLConfig :: Lude.Maybe PresignedURLConfig,
+    forceCanceled :: Lude.Maybe Lude.Bool,
+    targets :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    completedAt :: Lude.Maybe Lude.Timestamp,
+    comment :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    targetSelection :: Lude.Maybe TargetSelection,
+    timeoutConfig :: Lude.Maybe TimeoutConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'abortConfig' - Configuration for criteria to abort the job.
+-- * 'comment' - If the job was updated, describes the reason for the update.
+-- * 'completedAt' - The time, in seconds since the epoch, when the job was completed.
+-- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
+-- * 'description' - A short text description of the job.
+-- * 'forceCanceled' - Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
+-- * 'jobARN' - An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
+-- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of a job.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'jobProcessDetails' - Details about the job process.
+-- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
+-- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- * 'jobStatus' - The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
---
--- * 'jobJobExecutionsRolloutConfig' - Allows you to create a staged rollout of a job.
---
--- * 'jobJobId' - The unique identifier you assigned to this job when it was created.
---
--- * 'jobLastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
---
--- * 'jobJobARN' - An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
---
--- * 'jobCreatedAt' - The time, in seconds since the epoch, when the job was created.
---
--- * 'jobAbortConfig' - Configuration for criteria to abort the job.
---
--- * 'jobJobProcessDetails' - Details about the job process.
---
--- * 'jobNamespaceId' - The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
---
--- * 'jobReasonCode' - If the job was updated, provides the reason code for the update.
---
--- * 'jobPresignedURLConfig' - Configuration for pre-signed S3 URLs.
---
--- * 'jobForceCanceled' - Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
---
--- * 'jobTargets' - A list of IoT things and thing groups to which the job should be sent.
---
--- * 'jobCompletedAt' - The time, in seconds since the epoch, when the job was completed.
---
--- * 'jobComment' - If the job was updated, describes the reason for the update.
---
--- * 'jobDescription' - A short text description of the job.
---
--- * 'jobTargetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
---
--- * 'jobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
-job ::
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+-- * 'presignedURLConfig' - Configuration for pre-signed S3 URLs.
+-- * 'reasonCode' - If the job was updated, provides the reason code for the update.
+-- * 'status' - The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
+-- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
+-- * 'targets' - A list of IoT things and thing groups to which the job should be sent.
+-- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
+mkJob ::
   Job
-job =
+mkJob =
   Job'
-    { _jobStatus = Nothing,
-      _jobJobExecutionsRolloutConfig = Nothing,
-      _jobJobId = Nothing,
-      _jobLastUpdatedAt = Nothing,
-      _jobJobARN = Nothing,
-      _jobCreatedAt = Nothing,
-      _jobAbortConfig = Nothing,
-      _jobJobProcessDetails = Nothing,
-      _jobNamespaceId = Nothing,
-      _jobReasonCode = Nothing,
-      _jobPresignedURLConfig = Nothing,
-      _jobForceCanceled = Nothing,
-      _jobTargets = Nothing,
-      _jobCompletedAt = Nothing,
-      _jobComment = Nothing,
-      _jobDescription = Nothing,
-      _jobTargetSelection = Nothing,
-      _jobTimeoutConfig = Nothing
+    { status = Lude.Nothing,
+      jobExecutionsRolloutConfig = Lude.Nothing,
+      jobId = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      jobARN = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      abortConfig = Lude.Nothing,
+      jobProcessDetails = Lude.Nothing,
+      namespaceId = Lude.Nothing,
+      reasonCode = Lude.Nothing,
+      presignedURLConfig = Lude.Nothing,
+      forceCanceled = Lude.Nothing,
+      targets = Lude.Nothing,
+      completedAt = Lude.Nothing,
+      comment = Lude.Nothing,
+      description = Lude.Nothing,
+      targetSelection = Lude.Nothing,
+      timeoutConfig = Lude.Nothing
     }
 
 -- | The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
-jobStatus :: Lens' Job (Maybe JobStatus)
-jobStatus = lens _jobStatus (\s a -> s {_jobStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jStatus :: Lens.Lens' Job (Lude.Maybe JobStatus)
+jStatus = Lens.lens (status :: Job -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: Job)
+{-# DEPRECATED jStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Allows you to create a staged rollout of a job.
-jobJobExecutionsRolloutConfig :: Lens' Job (Maybe JobExecutionsRolloutConfig)
-jobJobExecutionsRolloutConfig = lens _jobJobExecutionsRolloutConfig (\s a -> s {_jobJobExecutionsRolloutConfig = a})
+--
+-- /Note:/ Consider using 'jobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobExecutionsRolloutConfig :: Lens.Lens' Job (Lude.Maybe JobExecutionsRolloutConfig)
+jJobExecutionsRolloutConfig = Lens.lens (jobExecutionsRolloutConfig :: Job -> Lude.Maybe JobExecutionsRolloutConfig) (\s a -> s {jobExecutionsRolloutConfig = a} :: Job)
+{-# DEPRECATED jJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
-jobJobId :: Lens' Job (Maybe Text)
-jobJobId = lens _jobJobId (\s a -> s {_jobJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobId :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jJobId = Lens.lens (jobId :: Job -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: Job)
+{-# DEPRECATED jJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job was last updated.
-jobLastUpdatedAt :: Lens' Job (Maybe UTCTime)
-jobLastUpdatedAt = lens _jobLastUpdatedAt (\s a -> s {_jobLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jLastUpdatedAt :: Lens.Lens' Job (Lude.Maybe Lude.Timestamp)
+jLastUpdatedAt = Lens.lens (lastUpdatedAt :: Job -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: Job)
+{-# DEPRECATED jLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
-jobJobARN :: Lens' Job (Maybe Text)
-jobJobARN = lens _jobJobARN (\s a -> s {_jobJobARN = a})
+--
+-- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobARN :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jJobARN = Lens.lens (jobARN :: Job -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: Job)
+{-# DEPRECATED jJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job was created.
-jobCreatedAt :: Lens' Job (Maybe UTCTime)
-jobCreatedAt = lens _jobCreatedAt (\s a -> s {_jobCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jCreatedAt :: Lens.Lens' Job (Lude.Maybe Lude.Timestamp)
+jCreatedAt = Lens.lens (createdAt :: Job -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Job)
+{-# DEPRECATED jCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | Configuration for criteria to abort the job.
-jobAbortConfig :: Lens' Job (Maybe AbortConfig)
-jobAbortConfig = lens _jobAbortConfig (\s a -> s {_jobAbortConfig = a})
+--
+-- /Note:/ Consider using 'abortConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jAbortConfig :: Lens.Lens' Job (Lude.Maybe AbortConfig)
+jAbortConfig = Lens.lens (abortConfig :: Job -> Lude.Maybe AbortConfig) (\s a -> s {abortConfig = a} :: Job)
+{-# DEPRECATED jAbortConfig "Use generic-lens or generic-optics with 'abortConfig' instead." #-}
 
 -- | Details about the job process.
-jobJobProcessDetails :: Lens' Job (Maybe JobProcessDetails)
-jobJobProcessDetails = lens _jobJobProcessDetails (\s a -> s {_jobJobProcessDetails = a})
+--
+-- /Note:/ Consider using 'jobProcessDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jJobProcessDetails :: Lens.Lens' Job (Lude.Maybe JobProcessDetails)
+jJobProcessDetails = Lens.lens (jobProcessDetails :: Job -> Lude.Maybe JobProcessDetails) (\s a -> s {jobProcessDetails = a} :: Job)
+{-# DEPRECATED jJobProcessDetails "Use generic-lens or generic-optics with 'jobProcessDetails' instead." #-}
 
--- | The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-jobNamespaceId :: Lens' Job (Maybe Text)
-jobNamespaceId = lens _jobNamespaceId (\s a -> s {_jobNamespaceId = a})
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+--
+-- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jNamespaceId :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jNamespaceId = Lens.lens (namespaceId :: Job -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: Job)
+{-# DEPRECATED jNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | If the job was updated, provides the reason code for the update.
-jobReasonCode :: Lens' Job (Maybe Text)
-jobReasonCode = lens _jobReasonCode (\s a -> s {_jobReasonCode = a})
+--
+-- /Note:/ Consider using 'reasonCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jReasonCode :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jReasonCode = Lens.lens (reasonCode :: Job -> Lude.Maybe Lude.Text) (\s a -> s {reasonCode = a} :: Job)
+{-# DEPRECATED jReasonCode "Use generic-lens or generic-optics with 'reasonCode' instead." #-}
 
 -- | Configuration for pre-signed S3 URLs.
-jobPresignedURLConfig :: Lens' Job (Maybe PresignedURLConfig)
-jobPresignedURLConfig = lens _jobPresignedURLConfig (\s a -> s {_jobPresignedURLConfig = a})
+--
+-- /Note:/ Consider using 'presignedURLConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jPresignedURLConfig :: Lens.Lens' Job (Lude.Maybe PresignedURLConfig)
+jPresignedURLConfig = Lens.lens (presignedURLConfig :: Job -> Lude.Maybe PresignedURLConfig) (\s a -> s {presignedURLConfig = a} :: Job)
+{-# DEPRECATED jPresignedURLConfig "Use generic-lens or generic-optics with 'presignedURLConfig' instead." #-}
 
 -- | Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
-jobForceCanceled :: Lens' Job (Maybe Bool)
-jobForceCanceled = lens _jobForceCanceled (\s a -> s {_jobForceCanceled = a})
+--
+-- /Note:/ Consider using 'forceCanceled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jForceCanceled :: Lens.Lens' Job (Lude.Maybe Lude.Bool)
+jForceCanceled = Lens.lens (forceCanceled :: Job -> Lude.Maybe Lude.Bool) (\s a -> s {forceCanceled = a} :: Job)
+{-# DEPRECATED jForceCanceled "Use generic-lens or generic-optics with 'forceCanceled' instead." #-}
 
 -- | A list of IoT things and thing groups to which the job should be sent.
-jobTargets :: Lens' Job (Maybe (NonEmpty Text))
-jobTargets = lens _jobTargets (\s a -> s {_jobTargets = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jTargets :: Lens.Lens' Job (Lude.Maybe (Lude.NonEmpty Lude.Text))
+jTargets = Lens.lens (targets :: Job -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {targets = a} :: Job)
+{-# DEPRECATED jTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The time, in seconds since the epoch, when the job was completed.
-jobCompletedAt :: Lens' Job (Maybe UTCTime)
-jobCompletedAt = lens _jobCompletedAt (\s a -> s {_jobCompletedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jCompletedAt :: Lens.Lens' Job (Lude.Maybe Lude.Timestamp)
+jCompletedAt = Lens.lens (completedAt :: Job -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedAt = a} :: Job)
+{-# DEPRECATED jCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
 
 -- | If the job was updated, describes the reason for the update.
-jobComment :: Lens' Job (Maybe Text)
-jobComment = lens _jobComment (\s a -> s {_jobComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jComment :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jComment = Lens.lens (comment :: Job -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: Job)
+{-# DEPRECATED jComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | A short text description of the job.
-jobDescription :: Lens' Job (Maybe Text)
-jobDescription = lens _jobDescription (\s a -> s {_jobDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jDescription :: Lens.Lens' Job (Lude.Maybe Lude.Text)
+jDescription = Lens.lens (description :: Job -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Job)
+{-# DEPRECATED jDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
-jobTargetSelection :: Lens' Job (Maybe TargetSelection)
-jobTargetSelection = lens _jobTargetSelection (\s a -> s {_jobTargetSelection = a})
+--
+-- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jTargetSelection :: Lens.Lens' Job (Lude.Maybe TargetSelection)
+jTargetSelection = Lens.lens (targetSelection :: Job -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: Job)
+{-# DEPRECATED jTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
 -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
-jobTimeoutConfig :: Lens' Job (Maybe TimeoutConfig)
-jobTimeoutConfig = lens _jobTimeoutConfig (\s a -> s {_jobTimeoutConfig = a})
+--
+-- /Note:/ Consider using 'timeoutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jTimeoutConfig :: Lens.Lens' Job (Lude.Maybe TimeoutConfig)
+jTimeoutConfig = Lens.lens (timeoutConfig :: Job -> Lude.Maybe TimeoutConfig) (\s a -> s {timeoutConfig = a} :: Job)
+{-# DEPRECATED jTimeoutConfig "Use generic-lens or generic-optics with 'timeoutConfig' instead." #-}
 
-instance FromJSON Job where
+instance Lude.FromJSON Job where
   parseJSON =
-    withObject
+    Lude.withObject
       "Job"
       ( \x ->
           Job'
-            <$> (x .:? "status")
-            <*> (x .:? "jobExecutionsRolloutConfig")
-            <*> (x .:? "jobId")
-            <*> (x .:? "lastUpdatedAt")
-            <*> (x .:? "jobArn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "abortConfig")
-            <*> (x .:? "jobProcessDetails")
-            <*> (x .:? "namespaceId")
-            <*> (x .:? "reasonCode")
-            <*> (x .:? "presignedUrlConfig")
-            <*> (x .:? "forceCanceled")
-            <*> (x .:? "targets")
-            <*> (x .:? "completedAt")
-            <*> (x .:? "comment")
-            <*> (x .:? "description")
-            <*> (x .:? "targetSelection")
-            <*> (x .:? "timeoutConfig")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "jobExecutionsRolloutConfig")
+            Lude.<*> (x Lude..:? "jobId")
+            Lude.<*> (x Lude..:? "lastUpdatedAt")
+            Lude.<*> (x Lude..:? "jobArn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "abortConfig")
+            Lude.<*> (x Lude..:? "jobProcessDetails")
+            Lude.<*> (x Lude..:? "namespaceId")
+            Lude.<*> (x Lude..:? "reasonCode")
+            Lude.<*> (x Lude..:? "presignedUrlConfig")
+            Lude.<*> (x Lude..:? "forceCanceled")
+            Lude.<*> (x Lude..:? "targets")
+            Lude.<*> (x Lude..:? "completedAt")
+            Lude.<*> (x Lude..:? "comment")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "targetSelection")
+            Lude.<*> (x Lude..:? "timeoutConfig")
       )
-
-instance Hashable Job
-
-instance NFData Job

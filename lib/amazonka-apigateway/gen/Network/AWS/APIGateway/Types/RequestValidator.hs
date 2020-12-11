@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.RequestValidator where
+module Network.AWS.APIGateway.Types.RequestValidator
+  ( RequestValidator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRequestValidator,
+
+    -- * Lenses
+    rvValidateRequestParameters,
+    rvName,
+    rvValidateRequestBody,
+    rvId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of validation rules for incoming 'Method' requests.
 --
---
 -- In OpenAPI, a 'RequestValidator' of an API is defined by the <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.requestValidator.html x-amazon-apigateway-request-validators.requestValidator> object. It the referenced using the <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validator x-amazon-apigateway-request-validator> property.
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
 --
--- /See:/ 'requestValidator' smart constructor.
+-- /See:/ 'mkRequestValidator' smart constructor.
 data RequestValidator = RequestValidator'
-  { _rvValidateRequestParameters ::
-      !(Maybe Bool),
-    _rvName :: !(Maybe Text),
-    _rvValidateRequestBody :: !(Maybe Bool),
-    _rvId :: !(Maybe Text)
+  { validateRequestParameters ::
+      Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    validateRequestBody :: Lude.Maybe Lude.Bool,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestValidator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvValidateRequestParameters' - A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
---
--- * 'rvName' - The name of this 'RequestValidator'
---
--- * 'rvValidateRequestBody' - A Boolean flag to indicate whether to validate a request body according to the configured 'Model' schema.
---
--- * 'rvId' - The identifier of this 'RequestValidator' .
-requestValidator ::
+-- * 'id' - The identifier of this 'RequestValidator' .
+-- * 'name' - The name of this 'RequestValidator'
+-- * 'validateRequestBody' - A Boolean flag to indicate whether to validate a request body according to the configured 'Model' schema.
+-- * 'validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
+mkRequestValidator ::
   RequestValidator
-requestValidator =
+mkRequestValidator =
   RequestValidator'
-    { _rvValidateRequestParameters = Nothing,
-      _rvName = Nothing,
-      _rvValidateRequestBody = Nothing,
-      _rvId = Nothing
+    { validateRequestParameters = Lude.Nothing,
+      name = Lude.Nothing,
+      validateRequestBody = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
-rvValidateRequestParameters :: Lens' RequestValidator (Maybe Bool)
-rvValidateRequestParameters = lens _rvValidateRequestParameters (\s a -> s {_rvValidateRequestParameters = a})
+--
+-- /Note:/ Consider using 'validateRequestParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvValidateRequestParameters :: Lens.Lens' RequestValidator (Lude.Maybe Lude.Bool)
+rvValidateRequestParameters = Lens.lens (validateRequestParameters :: RequestValidator -> Lude.Maybe Lude.Bool) (\s a -> s {validateRequestParameters = a} :: RequestValidator)
+{-# DEPRECATED rvValidateRequestParameters "Use generic-lens or generic-optics with 'validateRequestParameters' instead." #-}
 
 -- | The name of this 'RequestValidator'
-rvName :: Lens' RequestValidator (Maybe Text)
-rvName = lens _rvName (\s a -> s {_rvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvName :: Lens.Lens' RequestValidator (Lude.Maybe Lude.Text)
+rvName = Lens.lens (name :: RequestValidator -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RequestValidator)
+{-# DEPRECATED rvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A Boolean flag to indicate whether to validate a request body according to the configured 'Model' schema.
-rvValidateRequestBody :: Lens' RequestValidator (Maybe Bool)
-rvValidateRequestBody = lens _rvValidateRequestBody (\s a -> s {_rvValidateRequestBody = a})
+--
+-- /Note:/ Consider using 'validateRequestBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvValidateRequestBody :: Lens.Lens' RequestValidator (Lude.Maybe Lude.Bool)
+rvValidateRequestBody = Lens.lens (validateRequestBody :: RequestValidator -> Lude.Maybe Lude.Bool) (\s a -> s {validateRequestBody = a} :: RequestValidator)
+{-# DEPRECATED rvValidateRequestBody "Use generic-lens or generic-optics with 'validateRequestBody' instead." #-}
 
 -- | The identifier of this 'RequestValidator' .
-rvId :: Lens' RequestValidator (Maybe Text)
-rvId = lens _rvId (\s a -> s {_rvId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvId :: Lens.Lens' RequestValidator (Lude.Maybe Lude.Text)
+rvId = Lens.lens (id :: RequestValidator -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: RequestValidator)
+{-# DEPRECATED rvId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON RequestValidator where
+instance Lude.FromJSON RequestValidator where
   parseJSON =
-    withObject
+    Lude.withObject
       "RequestValidator"
       ( \x ->
           RequestValidator'
-            <$> (x .:? "validateRequestParameters")
-            <*> (x .:? "name")
-            <*> (x .:? "validateRequestBody")
-            <*> (x .:? "id")
+            Lude.<$> (x Lude..:? "validateRequestParameters")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "validateRequestBody")
+            Lude.<*> (x Lude..:? "id")
       )
-
-instance Hashable RequestValidator
-
-instance NFData RequestValidator

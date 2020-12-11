@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.AvailabilityZone where
+module Network.AWS.Redshift.Types.AvailabilityZone
+  ( AvailabilityZone (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAvailabilityZone,
+
+    -- * Lenses
+    azName,
+    azSupportedPlatforms,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SupportedPlatform
 
 -- | Describes an availability zone.
 --
---
---
--- /See:/ 'availabilityZone' smart constructor.
+-- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { _azName :: !(Maybe Text),
-    _azSupportedPlatforms :: !(Maybe [SupportedPlatform])
+  { name ::
+      Lude.Maybe Lude.Text,
+    supportedPlatforms :: Lude.Maybe [SupportedPlatform]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'azName' - The name of the availability zone.
---
--- * 'azSupportedPlatforms' -
-availabilityZone ::
+-- * 'name' - The name of the availability zone.
+-- * 'supportedPlatforms' -
+mkAvailabilityZone ::
   AvailabilityZone
-availabilityZone =
+mkAvailabilityZone =
   AvailabilityZone'
-    { _azName = Nothing,
-      _azSupportedPlatforms = Nothing
+    { name = Lude.Nothing,
+      supportedPlatforms = Lude.Nothing
     }
 
 -- | The name of the availability zone.
-azName :: Lens' AvailabilityZone (Maybe Text)
-azName = lens _azName (\s a -> s {_azName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azName = Lens.lens (name :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailabilityZone)
+{-# DEPRECATED azName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- |
-azSupportedPlatforms :: Lens' AvailabilityZone [SupportedPlatform]
-azSupportedPlatforms = lens _azSupportedPlatforms (\s a -> s {_azSupportedPlatforms = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedPlatforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azSupportedPlatforms :: Lens.Lens' AvailabilityZone (Lude.Maybe [SupportedPlatform])
+azSupportedPlatforms = Lens.lens (supportedPlatforms :: AvailabilityZone -> Lude.Maybe [SupportedPlatform]) (\s a -> s {supportedPlatforms = a} :: AvailabilityZone)
+{-# DEPRECATED azSupportedPlatforms "Use generic-lens or generic-optics with 'supportedPlatforms' instead." #-}
 
-instance FromXML AvailabilityZone where
+instance Lude.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      <$> (x .@? "Name")
-      <*> ( x .@? "SupportedPlatforms" .!@ mempty
-              >>= may (parseXMLList "SupportedPlatform")
-          )
-
-instance Hashable AvailabilityZone
-
-instance NFData AvailabilityZone
+      Lude.<$> (x Lude..@? "Name")
+      Lude.<*> ( x Lude..@? "SupportedPlatforms" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "SupportedPlatform")
+               )

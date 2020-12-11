@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AlarmState where
+module Network.AWS.Lightsail.Types.AlarmState
+  ( AlarmState
+      ( AlarmState',
+        Alarm,
+        InsufficientData,
+        OK
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AlarmState
-  = Alarm
-  | InsufficientData
-  | OK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AlarmState = AlarmState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AlarmState where
-  parser =
-    takeLowerText >>= \case
-      "alarm" -> pure Alarm
-      "insufficient_data" -> pure InsufficientData
-      "ok" -> pure OK
-      e ->
-        fromTextError $
-          "Failure parsing AlarmState from value: '" <> e
-            <> "'. Accepted values: alarm, insufficient_data, ok"
+pattern Alarm :: AlarmState
+pattern Alarm = AlarmState' "ALARM"
 
-instance ToText AlarmState where
-  toText = \case
-    Alarm -> "ALARM"
-    InsufficientData -> "INSUFFICIENT_DATA"
-    OK -> "OK"
+pattern InsufficientData :: AlarmState
+pattern InsufficientData = AlarmState' "INSUFFICIENT_DATA"
 
-instance Hashable AlarmState
+pattern OK :: AlarmState
+pattern OK = AlarmState' "OK"
 
-instance NFData AlarmState
-
-instance ToByteString AlarmState
-
-instance ToQuery AlarmState
-
-instance ToHeader AlarmState
-
-instance ToJSON AlarmState where
-  toJSON = toJSONText
-
-instance FromJSON AlarmState where
-  parseJSON = parseJSONText "AlarmState"
+{-# COMPLETE
+  Alarm,
+  InsufficientData,
+  OK,
+  AlarmState'
+  #-}

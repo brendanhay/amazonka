@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,97 @@
 --
 -- Stops a processing job.
 module Network.AWS.SageMaker.StopProcessingJob
-  ( -- * Creating a Request
-    stopProcessingJob,
-    StopProcessingJob,
+  ( -- * Creating a request
+    StopProcessingJob (..),
+    mkStopProcessingJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spjProcessingJobName,
 
-    -- * Destructuring the Response
-    stopProcessingJobResponse,
-    StopProcessingJobResponse,
+    -- * Destructuring the response
+    StopProcessingJobResponse (..),
+    mkStopProcessingJobResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopProcessingJob' smart constructor.
+-- | /See:/ 'mkStopProcessingJob' smart constructor.
 newtype StopProcessingJob = StopProcessingJob'
-  { _spjProcessingJobName ::
-      Text
+  { processingJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopProcessingJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spjProcessingJobName' - The name of the processing job to stop.
-stopProcessingJob ::
-  -- | 'spjProcessingJobName'
-  Text ->
+-- * 'processingJobName' - The name of the processing job to stop.
+mkStopProcessingJob ::
+  -- | 'processingJobName'
+  Lude.Text ->
   StopProcessingJob
-stopProcessingJob pProcessingJobName_ =
-  StopProcessingJob' {_spjProcessingJobName = pProcessingJobName_}
+mkStopProcessingJob pProcessingJobName_ =
+  StopProcessingJob' {processingJobName = pProcessingJobName_}
 
 -- | The name of the processing job to stop.
-spjProcessingJobName :: Lens' StopProcessingJob Text
-spjProcessingJobName = lens _spjProcessingJobName (\s a -> s {_spjProcessingJobName = a})
+--
+-- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spjProcessingJobName :: Lens.Lens' StopProcessingJob Lude.Text
+spjProcessingJobName = Lens.lens (processingJobName :: StopProcessingJob -> Lude.Text) (\s a -> s {processingJobName = a} :: StopProcessingJob)
+{-# DEPRECATED spjProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
 
-instance AWSRequest StopProcessingJob where
+instance Lude.AWSRequest StopProcessingJob where
   type Rs StopProcessingJob = StopProcessingJobResponse
-  request = postJSON sageMaker
-  response = receiveNull StopProcessingJobResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopProcessingJobResponse'
 
-instance Hashable StopProcessingJob
-
-instance NFData StopProcessingJob
-
-instance ToHeaders StopProcessingJob where
+instance Lude.ToHeaders StopProcessingJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.StopProcessingJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.StopProcessingJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopProcessingJob where
+instance Lude.ToJSON StopProcessingJob where
   toJSON StopProcessingJob' {..} =
-    object
-      (catMaybes [Just ("ProcessingJobName" .= _spjProcessingJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ProcessingJobName" Lude..= processingJobName)]
+      )
 
-instance ToPath StopProcessingJob where
-  toPath = const "/"
+instance Lude.ToPath StopProcessingJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopProcessingJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopProcessingJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopProcessingJobResponse' smart constructor.
+-- | /See:/ 'mkStopProcessingJobResponse' smart constructor.
 data StopProcessingJobResponse = StopProcessingJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopProcessingJobResponse' with the minimum fields required to make a request.
-stopProcessingJobResponse ::
+mkStopProcessingJobResponse ::
   StopProcessingJobResponse
-stopProcessingJobResponse = StopProcessingJobResponse'
-
-instance NFData StopProcessingJobResponse
+mkStopProcessingJobResponse = StopProcessingJobResponse'

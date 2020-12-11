@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.ExtendedKeyUsage where
+module Network.AWS.CertificateManager.Types.ExtendedKeyUsage
+  ( ExtendedKeyUsage (..),
+
+    -- * Smart constructor
+    mkExtendedKeyUsage,
+
+    -- * Lenses
+    ekuOId,
+    ekuName,
+  )
+where
 
 import Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension.
 --
---
---
--- /See:/ 'extendedKeyUsage' smart constructor.
+-- /See:/ 'mkExtendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
-  { _ekuOId :: !(Maybe Text),
-    _ekuName :: !(Maybe ExtendedKeyUsageName)
+  { oId ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe ExtendedKeyUsageName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExtendedKeyUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of an Extended Key Usage value.
+-- * 'oId' - An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.
 --
--- * 'ekuOId' - An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
 --
--- * 'ekuName' - The name of an Extended Key Usage value.
-extendedKeyUsage ::
+--     * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+mkExtendedKeyUsage ::
   ExtendedKeyUsage
-extendedKeyUsage =
-  ExtendedKeyUsage' {_ekuOId = Nothing, _ekuName = Nothing}
+mkExtendedKeyUsage =
+  ExtendedKeyUsage' {oId = Lude.Nothing, name = Lude.Nothing}
 
--- | An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
-ekuOId :: Lens' ExtendedKeyUsage (Maybe Text)
-ekuOId = lens _ekuOId (\s a -> s {_ekuOId = a})
+-- | An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.
+--
+--
+--     * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
+--
+--
+--     * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+--
+--
+--
+-- /Note:/ Consider using 'oId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ekuOId :: Lens.Lens' ExtendedKeyUsage (Lude.Maybe Lude.Text)
+ekuOId = Lens.lens (oId :: ExtendedKeyUsage -> Lude.Maybe Lude.Text) (\s a -> s {oId = a} :: ExtendedKeyUsage)
+{-# DEPRECATED ekuOId "Use generic-lens or generic-optics with 'oId' instead." #-}
 
 -- | The name of an Extended Key Usage value.
-ekuName :: Lens' ExtendedKeyUsage (Maybe ExtendedKeyUsageName)
-ekuName = lens _ekuName (\s a -> s {_ekuName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ekuName :: Lens.Lens' ExtendedKeyUsage (Lude.Maybe ExtendedKeyUsageName)
+ekuName = Lens.lens (name :: ExtendedKeyUsage -> Lude.Maybe ExtendedKeyUsageName) (\s a -> s {name = a} :: ExtendedKeyUsage)
+{-# DEPRECATED ekuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ExtendedKeyUsage where
+instance Lude.FromJSON ExtendedKeyUsage where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExtendedKeyUsage"
-      (\x -> ExtendedKeyUsage' <$> (x .:? "OID") <*> (x .:? "Name"))
-
-instance Hashable ExtendedKeyUsage
-
-instance NFData ExtendedKeyUsage
+      ( \x ->
+          ExtendedKeyUsage'
+            Lude.<$> (x Lude..:? "OID") Lude.<*> (x Lude..:? "Name")
+      )

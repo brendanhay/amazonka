@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.MessageAttribute where
+module Network.AWS.SQS.Types.MessageAttribute
+  ( MessageAttribute
+      ( MessageAttribute',
+        All,
+        ApproximateFirstReceiveTimestamp,
+        ApproximateReceiveCount,
+        SenderId,
+        SentTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageAttribute
-  = All
-  | ApproximateFirstReceiveTimestamp
-  | ApproximateReceiveCount
-  | SenderId
-  | SentTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageAttribute = MessageAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageAttribute where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "approximatefirstreceivetimestamp" -> pure ApproximateFirstReceiveTimestamp
-      "approximatereceivecount" -> pure ApproximateReceiveCount
-      "senderid" -> pure SenderId
-      "senttimestamp" -> pure SentTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing MessageAttribute from value: '" <> e
-            <> "'. Accepted values: all, approximatefirstreceivetimestamp, approximatereceivecount, senderid, senttimestamp"
+pattern All :: MessageAttribute
+pattern All = MessageAttribute' "All"
 
-instance ToText MessageAttribute where
-  toText = \case
-    All -> "All"
-    ApproximateFirstReceiveTimestamp -> "ApproximateFirstReceiveTimestamp"
-    ApproximateReceiveCount -> "ApproximateReceiveCount"
-    SenderId -> "SenderId"
-    SentTimestamp -> "SentTimestamp"
+pattern ApproximateFirstReceiveTimestamp :: MessageAttribute
+pattern ApproximateFirstReceiveTimestamp = MessageAttribute' "ApproximateFirstReceiveTimestamp"
 
-instance Hashable MessageAttribute
+pattern ApproximateReceiveCount :: MessageAttribute
+pattern ApproximateReceiveCount = MessageAttribute' "ApproximateReceiveCount"
 
-instance NFData MessageAttribute
+pattern SenderId :: MessageAttribute
+pattern SenderId = MessageAttribute' "SenderId"
 
-instance ToByteString MessageAttribute
+pattern SentTimestamp :: MessageAttribute
+pattern SentTimestamp = MessageAttribute' "SentTimestamp"
 
-instance ToQuery MessageAttribute
-
-instance ToHeader MessageAttribute
-
-instance FromXML MessageAttribute where
-  parseXML = parseXMLText "MessageAttribute"
+{-# COMPLETE
+  All,
+  ApproximateFirstReceiveTimestamp,
+  ApproximateReceiveCount,
+  SenderId,
+  SentTimestamp,
+  MessageAttribute'
+  #-}

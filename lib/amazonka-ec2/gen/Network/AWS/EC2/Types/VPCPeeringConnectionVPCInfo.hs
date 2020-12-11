@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,136 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCPeeringConnectionVPCInfo where
+module Network.AWS.EC2.Types.VPCPeeringConnectionVPCInfo
+  ( VPCPeeringConnectionVPCInfo (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPCPeeringConnectionVPCInfo,
+
+    -- * Lenses
+    vpcviCidrBlockSet,
+    vpcviVPCId,
+    vpcviOwnerId,
+    vpcviPeeringOptions,
+    vpcviCidrBlock,
+    vpcviRegion,
+    vpcviIPv6CidrBlockSet,
+  )
+where
+
 import Network.AWS.EC2.Types.CidrBlock
 import Network.AWS.EC2.Types.IPv6CidrBlock
 import Network.AWS.EC2.Types.VPCPeeringConnectionOptionsDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a VPC in a VPC peering connection.
 --
---
---
--- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
+-- /See:/ 'mkVPCPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-  { _vpcviCidrBlockSet ::
-      !(Maybe [CidrBlock]),
-    _vpcviVPCId :: !(Maybe Text),
-    _vpcviOwnerId :: !(Maybe Text),
-    _vpcviPeeringOptions ::
-      !( Maybe
-           VPCPeeringConnectionOptionsDescription
-       ),
-    _vpcviCidrBlock :: !(Maybe Text),
-    _vpcviRegion :: !(Maybe Text),
-    _vpcviIPv6CidrBlockSet ::
-      !(Maybe [IPv6CidrBlock])
+  { cidrBlockSet ::
+      Lude.Maybe [CidrBlock],
+    vpcId :: Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    peeringOptions ::
+      Lude.Maybe
+        VPCPeeringConnectionOptionsDescription,
+    cidrBlock :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    ipv6CidrBlockSet ::
+      Lude.Maybe [IPv6CidrBlock]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vpcviCidrBlockSet' - Information about the IPv4 CIDR blocks for the VPC.
---
--- * 'vpcviVPCId' - The ID of the VPC.
---
--- * 'vpcviOwnerId' - The AWS account ID of the VPC owner.
---
--- * 'vpcviPeeringOptions' - Information about the VPC peering connection options for the accepter or requester VPC.
---
--- * 'vpcviCidrBlock' - The IPv4 CIDR block for the VPC.
---
--- * 'vpcviRegion' - The Region in which the VPC is located.
---
--- * 'vpcviIPv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
-vpcPeeringConnectionVPCInfo ::
+-- * 'cidrBlock' - The IPv4 CIDR block for the VPC.
+-- * 'cidrBlockSet' - Information about the IPv4 CIDR blocks for the VPC.
+-- * 'ipv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
+-- * 'ownerId' - The AWS account ID of the VPC owner.
+-- * 'peeringOptions' - Information about the VPC peering connection options for the accepter or requester VPC.
+-- * 'region' - The Region in which the VPC is located.
+-- * 'vpcId' - The ID of the VPC.
+mkVPCPeeringConnectionVPCInfo ::
   VPCPeeringConnectionVPCInfo
-vpcPeeringConnectionVPCInfo =
+mkVPCPeeringConnectionVPCInfo =
   VPCPeeringConnectionVPCInfo'
-    { _vpcviCidrBlockSet = Nothing,
-      _vpcviVPCId = Nothing,
-      _vpcviOwnerId = Nothing,
-      _vpcviPeeringOptions = Nothing,
-      _vpcviCidrBlock = Nothing,
-      _vpcviRegion = Nothing,
-      _vpcviIPv6CidrBlockSet = Nothing
+    { cidrBlockSet = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      peeringOptions = Lude.Nothing,
+      cidrBlock = Lude.Nothing,
+      region = Lude.Nothing,
+      ipv6CidrBlockSet = Lude.Nothing
     }
 
 -- | Information about the IPv4 CIDR blocks for the VPC.
-vpcviCidrBlockSet :: Lens' VPCPeeringConnectionVPCInfo [CidrBlock]
-vpcviCidrBlockSet = lens _vpcviCidrBlockSet (\s a -> s {_vpcviCidrBlockSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cidrBlockSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviCidrBlockSet :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe [CidrBlock])
+vpcviCidrBlockSet = Lens.lens (cidrBlockSet :: VPCPeeringConnectionVPCInfo -> Lude.Maybe [CidrBlock]) (\s a -> s {cidrBlockSet = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviCidrBlockSet "Use generic-lens or generic-optics with 'cidrBlockSet' instead." #-}
 
 -- | The ID of the VPC.
-vpcviVPCId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviVPCId = lens _vpcviVPCId (\s a -> s {_vpcviVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviVPCId :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe Lude.Text)
+vpcviVPCId = Lens.lens (vpcId :: VPCPeeringConnectionVPCInfo -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The AWS account ID of the VPC owner.
-vpcviOwnerId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviOwnerId = lens _vpcviOwnerId (\s a -> s {_vpcviOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviOwnerId :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe Lude.Text)
+vpcviOwnerId = Lens.lens (ownerId :: VPCPeeringConnectionVPCInfo -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | Information about the VPC peering connection options for the accepter or requester VPC.
-vpcviPeeringOptions :: Lens' VPCPeeringConnectionVPCInfo (Maybe VPCPeeringConnectionOptionsDescription)
-vpcviPeeringOptions = lens _vpcviPeeringOptions (\s a -> s {_vpcviPeeringOptions = a})
+--
+-- /Note:/ Consider using 'peeringOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviPeeringOptions :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe VPCPeeringConnectionOptionsDescription)
+vpcviPeeringOptions = Lens.lens (peeringOptions :: VPCPeeringConnectionVPCInfo -> Lude.Maybe VPCPeeringConnectionOptionsDescription) (\s a -> s {peeringOptions = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviPeeringOptions "Use generic-lens or generic-optics with 'peeringOptions' instead." #-}
 
 -- | The IPv4 CIDR block for the VPC.
-vpcviCidrBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviCidrBlock = lens _vpcviCidrBlock (\s a -> s {_vpcviCidrBlock = a})
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviCidrBlock :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe Lude.Text)
+vpcviCidrBlock = Lens.lens (cidrBlock :: VPCPeeringConnectionVPCInfo -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
 -- | The Region in which the VPC is located.
-vpcviRegion :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviRegion = lens _vpcviRegion (\s a -> s {_vpcviRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviRegion :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe Lude.Text)
+vpcviRegion = Lens.lens (region :: VPCPeeringConnectionVPCInfo -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The IPv6 CIDR block for the VPC.
-vpcviIPv6CidrBlockSet :: Lens' VPCPeeringConnectionVPCInfo [IPv6CidrBlock]
-vpcviIPv6CidrBlockSet = lens _vpcviIPv6CidrBlockSet (\s a -> s {_vpcviIPv6CidrBlockSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipv6CidrBlockSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcviIPv6CidrBlockSet :: Lens.Lens' VPCPeeringConnectionVPCInfo (Lude.Maybe [IPv6CidrBlock])
+vpcviIPv6CidrBlockSet = Lens.lens (ipv6CidrBlockSet :: VPCPeeringConnectionVPCInfo -> Lude.Maybe [IPv6CidrBlock]) (\s a -> s {ipv6CidrBlockSet = a} :: VPCPeeringConnectionVPCInfo)
+{-# DEPRECATED vpcviIPv6CidrBlockSet "Use generic-lens or generic-optics with 'ipv6CidrBlockSet' instead." #-}
 
-instance FromXML VPCPeeringConnectionVPCInfo where
+instance Lude.FromXML VPCPeeringConnectionVPCInfo where
   parseXML x =
     VPCPeeringConnectionVPCInfo'
-      <$> (x .@? "cidrBlockSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "vpcId")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "peeringOptions")
-      <*> (x .@? "cidrBlock")
-      <*> (x .@? "region")
-      <*> (x .@? "ipv6CidrBlockSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable VPCPeeringConnectionVPCInfo
-
-instance NFData VPCPeeringConnectionVPCInfo
+      Lude.<$> ( x Lude..@? "cidrBlockSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "vpcId")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "peeringOptions")
+      Lude.<*> (x Lude..@? "cidrBlock")
+      Lude.<*> (x Lude..@? "region")
+      Lude.<*> ( x Lude..@? "ipv6CidrBlockSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

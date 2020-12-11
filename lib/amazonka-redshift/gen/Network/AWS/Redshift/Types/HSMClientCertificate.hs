@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.HSMClientCertificate where
+module Network.AWS.Redshift.Types.HSMClientCertificate
+  ( HSMClientCertificate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHSMClientCertificate,
+
+    -- * Lenses
+    hccHSMClientCertificateIdentifier,
+    hccHSMClientCertificatePublicKey,
+    hccTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Tag
 
 -- | Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.
 --
---
---
--- /See:/ 'hsmClientCertificate' smart constructor.
+-- /See:/ 'mkHSMClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
-  { _hccHSMClientCertificateIdentifier ::
-      !(Maybe Text),
-    _hccHSMClientCertificatePublicKey ::
-      !(Maybe Text),
-    _hccTags :: !(Maybe [Tag])
+  { hsmClientCertificateIdentifier ::
+      Lude.Maybe Lude.Text,
+    hsmClientCertificatePublicKey ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hccHSMClientCertificateIdentifier' - The identifier of the HSM client certificate.
---
--- * 'hccHSMClientCertificatePublicKey' - The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
---
--- * 'hccTags' - The list of tags for the HSM client certificate.
-hsmClientCertificate ::
+-- * 'hsmClientCertificateIdentifier' - The identifier of the HSM client certificate.
+-- * 'hsmClientCertificatePublicKey' - The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
+-- * 'tags' - The list of tags for the HSM client certificate.
+mkHSMClientCertificate ::
   HSMClientCertificate
-hsmClientCertificate =
+mkHSMClientCertificate =
   HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier =
-        Nothing,
-      _hccHSMClientCertificatePublicKey = Nothing,
-      _hccTags = Nothing
+    { hsmClientCertificateIdentifier =
+        Lude.Nothing,
+      hsmClientCertificatePublicKey = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The identifier of the HSM client certificate.
-hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
-hccHSMClientCertificateIdentifier = lens _hccHSMClientCertificateIdentifier (\s a -> s {_hccHSMClientCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmClientCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hccHSMClientCertificateIdentifier :: Lens.Lens' HSMClientCertificate (Lude.Maybe Lude.Text)
+hccHSMClientCertificateIdentifier = Lens.lens (hsmClientCertificateIdentifier :: HSMClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {hsmClientCertificateIdentifier = a} :: HSMClientCertificate)
+{-# DEPRECATED hccHSMClientCertificateIdentifier "Use generic-lens or generic-optics with 'hsmClientCertificateIdentifier' instead." #-}
 
 -- | The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-hccHSMClientCertificatePublicKey :: Lens' HSMClientCertificate (Maybe Text)
-hccHSMClientCertificatePublicKey = lens _hccHSMClientCertificatePublicKey (\s a -> s {_hccHSMClientCertificatePublicKey = a})
+--
+-- /Note:/ Consider using 'hsmClientCertificatePublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hccHSMClientCertificatePublicKey :: Lens.Lens' HSMClientCertificate (Lude.Maybe Lude.Text)
+hccHSMClientCertificatePublicKey = Lens.lens (hsmClientCertificatePublicKey :: HSMClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {hsmClientCertificatePublicKey = a} :: HSMClientCertificate)
+{-# DEPRECATED hccHSMClientCertificatePublicKey "Use generic-lens or generic-optics with 'hsmClientCertificatePublicKey' instead." #-}
 
 -- | The list of tags for the HSM client certificate.
-hccTags :: Lens' HSMClientCertificate [Tag]
-hccTags = lens _hccTags (\s a -> s {_hccTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hccTags :: Lens.Lens' HSMClientCertificate (Lude.Maybe [Tag])
+hccTags = Lens.lens (tags :: HSMClientCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: HSMClientCertificate)
+{-# DEPRECATED hccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML HSMClientCertificate where
+instance Lude.FromXML HSMClientCertificate where
   parseXML x =
     HSMClientCertificate'
-      <$> (x .@? "HsmClientCertificateIdentifier")
-      <*> (x .@? "HsmClientCertificatePublicKey")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "Tag"))
-
-instance Hashable HSMClientCertificate
-
-instance NFData HSMClientCertificate
+      Lude.<$> (x Lude..@? "HsmClientCertificateIdentifier")
+      Lude.<*> (x Lude..@? "HsmClientCertificatePublicKey")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )

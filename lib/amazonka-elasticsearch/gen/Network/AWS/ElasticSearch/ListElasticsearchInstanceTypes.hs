@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- List all Elasticsearch instance types that are supported for given ElasticsearchVersion
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
-  ( -- * Creating a Request
-    listElasticsearchInstanceTypes,
-    ListElasticsearchInstanceTypes,
+  ( -- * Creating a request
+    ListElasticsearchInstanceTypes (..),
+    mkListElasticsearchInstanceTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     leitNextToken,
     leitDomainName,
     leitMaxResults,
     leitElasticsearchVersion,
 
-    -- * Destructuring the Response
-    listElasticsearchInstanceTypesResponse,
-    ListElasticsearchInstanceTypesResponse,
+    -- * Destructuring the response
+    ListElasticsearchInstanceTypesResponse (..),
+    mkListElasticsearchInstanceTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     leitrsElasticsearchInstanceTypes,
     leitrsNextToken,
     leitrsResponseStatus,
@@ -45,156 +38,176 @@ module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'ListElasticsearchInstanceTypes' @ operation.
 --
---
---
--- /See:/ 'listElasticsearchInstanceTypes' smart constructor.
+-- /See:/ 'mkListElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
-  { _leitNextToken ::
-      !(Maybe Text),
-    _leitDomainName ::
-      !(Maybe Text),
-    _leitMaxResults ::
-      !(Maybe Int),
-    _leitElasticsearchVersion ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    domainName ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Int,
+    elasticsearchVersion ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListElasticsearchInstanceTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leitNextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
---
--- * 'leitDomainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
---
--- * 'leitMaxResults' - Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
---
--- * 'leitElasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
-listElasticsearchInstanceTypes ::
-  -- | 'leitElasticsearchVersion'
-  Text ->
+-- * 'domainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
+-- * 'elasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
+-- * 'maxResults' - Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
+-- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+mkListElasticsearchInstanceTypes ::
+  -- | 'elasticsearchVersion'
+  Lude.Text ->
   ListElasticsearchInstanceTypes
-listElasticsearchInstanceTypes pElasticsearchVersion_ =
+mkListElasticsearchInstanceTypes pElasticsearchVersion_ =
   ListElasticsearchInstanceTypes'
-    { _leitNextToken = Nothing,
-      _leitDomainName = Nothing,
-      _leitMaxResults = Nothing,
-      _leitElasticsearchVersion = pElasticsearchVersion_
+    { nextToken = Lude.Nothing,
+      domainName = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      elasticsearchVersion = pElasticsearchVersion_
     }
 
 -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
-leitNextToken :: Lens' ListElasticsearchInstanceTypes (Maybe Text)
-leitNextToken = lens _leitNextToken (\s a -> s {_leitNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitNextToken :: Lens.Lens' ListElasticsearchInstanceTypes (Lude.Maybe Lude.Text)
+leitNextToken = Lens.lens (nextToken :: ListElasticsearchInstanceTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListElasticsearchInstanceTypes)
+{-# DEPRECATED leitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
-leitDomainName :: Lens' ListElasticsearchInstanceTypes (Maybe Text)
-leitDomainName = lens _leitDomainName (\s a -> s {_leitDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitDomainName :: Lens.Lens' ListElasticsearchInstanceTypes (Lude.Maybe Lude.Text)
+leitDomainName = Lens.lens (domainName :: ListElasticsearchInstanceTypes -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: ListElasticsearchInstanceTypes)
+{-# DEPRECATED leitDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
-leitMaxResults :: Lens' ListElasticsearchInstanceTypes (Maybe Int)
-leitMaxResults = lens _leitMaxResults (\s a -> s {_leitMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitMaxResults :: Lens.Lens' ListElasticsearchInstanceTypes (Lude.Maybe Lude.Int)
+leitMaxResults = Lens.lens (maxResults :: ListElasticsearchInstanceTypes -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListElasticsearchInstanceTypes)
+{-# DEPRECATED leitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
-leitElasticsearchVersion :: Lens' ListElasticsearchInstanceTypes Text
-leitElasticsearchVersion = lens _leitElasticsearchVersion (\s a -> s {_leitElasticsearchVersion = a})
+--
+-- /Note:/ Consider using 'elasticsearchVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitElasticsearchVersion :: Lens.Lens' ListElasticsearchInstanceTypes Lude.Text
+leitElasticsearchVersion = Lens.lens (elasticsearchVersion :: ListElasticsearchInstanceTypes -> Lude.Text) (\s a -> s {elasticsearchVersion = a} :: ListElasticsearchInstanceTypes)
+{-# DEPRECATED leitElasticsearchVersion "Use generic-lens or generic-optics with 'elasticsearchVersion' instead." #-}
 
-instance AWSPager ListElasticsearchInstanceTypes where
+instance Page.AWSPager ListElasticsearchInstanceTypes where
   page rq rs
-    | stop (rs ^. leitrsNextToken) = Nothing
-    | stop (rs ^. leitrsElasticsearchInstanceTypes) = Nothing
-    | otherwise = Just $ rq & leitNextToken .~ rs ^. leitrsNextToken
+    | Page.stop (rs Lens.^. leitrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. leitrsElasticsearchInstanceTypes) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& leitNextToken Lens..~ rs Lens.^. leitrsNextToken
 
-instance AWSRequest ListElasticsearchInstanceTypes where
+instance Lude.AWSRequest ListElasticsearchInstanceTypes where
   type
     Rs ListElasticsearchInstanceTypes =
       ListElasticsearchInstanceTypesResponse
-  request = get elasticSearch
+  request = Req.get elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListElasticsearchInstanceTypesResponse'
-            <$> (x .?> "ElasticsearchInstanceTypes" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ElasticsearchInstanceTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListElasticsearchInstanceTypes
+instance Lude.ToHeaders ListElasticsearchInstanceTypes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListElasticsearchInstanceTypes
-
-instance ToHeaders ListElasticsearchInstanceTypes where
-  toHeaders = const mempty
-
-instance ToPath ListElasticsearchInstanceTypes where
+instance Lude.ToPath ListElasticsearchInstanceTypes where
   toPath ListElasticsearchInstanceTypes' {..} =
-    mconcat
-      ["/2015-01-01/es/instanceTypes/", toBS _leitElasticsearchVersion]
+    Lude.mconcat
+      ["/2015-01-01/es/instanceTypes/", Lude.toBS elasticsearchVersion]
 
-instance ToQuery ListElasticsearchInstanceTypes where
+instance Lude.ToQuery ListElasticsearchInstanceTypes where
   toQuery ListElasticsearchInstanceTypes' {..} =
-    mconcat
-      [ "nextToken" =: _leitNextToken,
-        "domainName" =: _leitDomainName,
-        "maxResults" =: _leitMaxResults
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "domainName" Lude.=: domainName,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | Container for the parameters returned by @'ListElasticsearchInstanceTypes' @ operation.
 --
---
---
--- /See:/ 'listElasticsearchInstanceTypesResponse' smart constructor.
+-- /See:/ 'mkListElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-  { _leitrsElasticsearchInstanceTypes ::
-      !( Maybe
-           [ESPartitionInstanceType]
-       ),
-    _leitrsNextToken ::
-      !(Maybe Text),
-    _leitrsResponseStatus ::
-      !Int
+  { elasticsearchInstanceTypes ::
+      Lude.Maybe
+        [ESPartitionInstanceType],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListElasticsearchInstanceTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leitrsElasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for given @'ElasticsearchVersion' @
---
--- * 'leitrsNextToken' - In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results.
---
--- * 'leitrsResponseStatus' - -- | The response status code.
-listElasticsearchInstanceTypesResponse ::
-  -- | 'leitrsResponseStatus'
-  Int ->
+-- * 'elasticsearchInstanceTypes' - List of instance types supported by Amazon Elasticsearch service for given @'ElasticsearchVersion' @
+-- * 'nextToken' - In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results.
+-- * 'responseStatus' - The response status code.
+mkListElasticsearchInstanceTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListElasticsearchInstanceTypesResponse
-listElasticsearchInstanceTypesResponse pResponseStatus_ =
+mkListElasticsearchInstanceTypesResponse pResponseStatus_ =
   ListElasticsearchInstanceTypesResponse'
-    { _leitrsElasticsearchInstanceTypes =
-        Nothing,
-      _leitrsNextToken = Nothing,
-      _leitrsResponseStatus = pResponseStatus_
+    { elasticsearchInstanceTypes =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of instance types supported by Amazon Elasticsearch service for given @'ElasticsearchVersion' @
-leitrsElasticsearchInstanceTypes :: Lens' ListElasticsearchInstanceTypesResponse [ESPartitionInstanceType]
-leitrsElasticsearchInstanceTypes = lens _leitrsElasticsearchInstanceTypes (\s a -> s {_leitrsElasticsearchInstanceTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticsearchInstanceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitrsElasticsearchInstanceTypes :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Lude.Maybe [ESPartitionInstanceType])
+leitrsElasticsearchInstanceTypes = Lens.lens (elasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> Lude.Maybe [ESPartitionInstanceType]) (\s a -> s {elasticsearchInstanceTypes = a} :: ListElasticsearchInstanceTypesResponse)
+{-# DEPRECATED leitrsElasticsearchInstanceTypes "Use generic-lens or generic-optics with 'elasticsearchInstanceTypes' instead." #-}
 
 -- | In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results.
-leitrsNextToken :: Lens' ListElasticsearchInstanceTypesResponse (Maybe Text)
-leitrsNextToken = lens _leitrsNextToken (\s a -> s {_leitrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitrsNextToken :: Lens.Lens' ListElasticsearchInstanceTypesResponse (Lude.Maybe Lude.Text)
+leitrsNextToken = Lens.lens (nextToken :: ListElasticsearchInstanceTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListElasticsearchInstanceTypesResponse)
+{-# DEPRECATED leitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-leitrsResponseStatus :: Lens' ListElasticsearchInstanceTypesResponse Int
-leitrsResponseStatus = lens _leitrsResponseStatus (\s a -> s {_leitrsResponseStatus = a})
-
-instance NFData ListElasticsearchInstanceTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leitrsResponseStatus :: Lens.Lens' ListElasticsearchInstanceTypesResponse Lude.Int
+leitrsResponseStatus = Lens.lens (responseStatus :: ListElasticsearchInstanceTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListElasticsearchInstanceTypesResponse)
+{-# DEPRECATED leitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AacVbrQuality where
+module Network.AWS.MediaConvert.Types.AacVbrQuality
+  ( AacVbrQuality
+      ( AacVbrQuality',
+        AVQHigh,
+        AVQLow,
+        AVQMediumHigh,
+        AVQMediumLow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | VBR Quality Level - Only used if rate_control_mode is VBR.
-data AacVbrQuality
-  = AVQHigh
-  | AVQLow
-  | AVQMediumHigh
-  | AVQMediumLow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacVbrQuality = AacVbrQuality' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacVbrQuality where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure AVQHigh
-      "low" -> pure AVQLow
-      "medium_high" -> pure AVQMediumHigh
-      "medium_low" -> pure AVQMediumLow
-      e ->
-        fromTextError $
-          "Failure parsing AacVbrQuality from value: '" <> e
-            <> "'. Accepted values: high, low, medium_high, medium_low"
+pattern AVQHigh :: AacVbrQuality
+pattern AVQHigh = AacVbrQuality' "HIGH"
 
-instance ToText AacVbrQuality where
-  toText = \case
-    AVQHigh -> "HIGH"
-    AVQLow -> "LOW"
-    AVQMediumHigh -> "MEDIUM_HIGH"
-    AVQMediumLow -> "MEDIUM_LOW"
+pattern AVQLow :: AacVbrQuality
+pattern AVQLow = AacVbrQuality' "LOW"
 
-instance Hashable AacVbrQuality
+pattern AVQMediumHigh :: AacVbrQuality
+pattern AVQMediumHigh = AacVbrQuality' "MEDIUM_HIGH"
 
-instance NFData AacVbrQuality
+pattern AVQMediumLow :: AacVbrQuality
+pattern AVQMediumLow = AacVbrQuality' "MEDIUM_LOW"
 
-instance ToByteString AacVbrQuality
-
-instance ToQuery AacVbrQuality
-
-instance ToHeader AacVbrQuality
-
-instance ToJSON AacVbrQuality where
-  toJSON = toJSONText
-
-instance FromJSON AacVbrQuality where
-  parseJSON = parseJSONText "AacVbrQuality"
+{-# COMPLETE
+  AVQHigh,
+  AVQLow,
+  AVQMediumHigh,
+  AVQMediumLow,
+  AacVbrQuality'
+  #-}

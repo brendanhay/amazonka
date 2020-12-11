@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,124 @@
 --
 -- Creates a 'TypedLinkFacet' . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 module Network.AWS.CloudDirectory.CreateTypedLinkFacet
-  ( -- * Creating a Request
-    createTypedLinkFacet,
-    CreateTypedLinkFacet,
+  ( -- * Creating a request
+    CreateTypedLinkFacet (..),
+    mkCreateTypedLinkFacet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctlfSchemaARN,
     ctlfFacet,
 
-    -- * Destructuring the Response
-    createTypedLinkFacetResponse,
-    CreateTypedLinkFacetResponse,
+    -- * Destructuring the response
+    CreateTypedLinkFacetResponse (..),
+    mkCreateTypedLinkFacetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctlfrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTypedLinkFacet' smart constructor.
+-- | /See:/ 'mkCreateTypedLinkFacet' smart constructor.
 data CreateTypedLinkFacet = CreateTypedLinkFacet'
-  { _ctlfSchemaARN ::
-      !Text,
-    _ctlfFacet :: !TypedLinkFacet
+  { schemaARN ::
+      Lude.Text,
+    facet :: TypedLinkFacet
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTypedLinkFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctlfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
---
--- * 'ctlfFacet' - 'Facet' structure that is associated with the typed link facet.
-createTypedLinkFacet ::
-  -- | 'ctlfSchemaARN'
-  Text ->
-  -- | 'ctlfFacet'
+-- * 'facet' - 'Facet' structure that is associated with the typed link facet.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+mkCreateTypedLinkFacet ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'facet'
   TypedLinkFacet ->
   CreateTypedLinkFacet
-createTypedLinkFacet pSchemaARN_ pFacet_ =
-  CreateTypedLinkFacet'
-    { _ctlfSchemaARN = pSchemaARN_,
-      _ctlfFacet = pFacet_
-    }
+mkCreateTypedLinkFacet pSchemaARN_ pFacet_ =
+  CreateTypedLinkFacet' {schemaARN = pSchemaARN_, facet = pFacet_}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-ctlfSchemaARN :: Lens' CreateTypedLinkFacet Text
-ctlfSchemaARN = lens _ctlfSchemaARN (\s a -> s {_ctlfSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctlfSchemaARN :: Lens.Lens' CreateTypedLinkFacet Lude.Text
+ctlfSchemaARN = Lens.lens (schemaARN :: CreateTypedLinkFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: CreateTypedLinkFacet)
+{-# DEPRECATED ctlfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | 'Facet' structure that is associated with the typed link facet.
-ctlfFacet :: Lens' CreateTypedLinkFacet TypedLinkFacet
-ctlfFacet = lens _ctlfFacet (\s a -> s {_ctlfFacet = a})
+--
+-- /Note:/ Consider using 'facet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctlfFacet :: Lens.Lens' CreateTypedLinkFacet TypedLinkFacet
+ctlfFacet = Lens.lens (facet :: CreateTypedLinkFacet -> TypedLinkFacet) (\s a -> s {facet = a} :: CreateTypedLinkFacet)
+{-# DEPRECATED ctlfFacet "Use generic-lens or generic-optics with 'facet' instead." #-}
 
-instance AWSRequest CreateTypedLinkFacet where
+instance Lude.AWSRequest CreateTypedLinkFacet where
   type Rs CreateTypedLinkFacet = CreateTypedLinkFacetResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveEmpty
-      (\s h x -> CreateTypedLinkFacetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateTypedLinkFacetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateTypedLinkFacet
-
-instance NFData CreateTypedLinkFacet
-
-instance ToHeaders CreateTypedLinkFacet where
+instance Lude.ToHeaders CreateTypedLinkFacet where
   toHeaders CreateTypedLinkFacet' {..} =
-    mconcat ["x-amz-data-partition" =# _ctlfSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON CreateTypedLinkFacet where
+instance Lude.ToJSON CreateTypedLinkFacet where
   toJSON CreateTypedLinkFacet' {..} =
-    object (catMaybes [Just ("Facet" .= _ctlfFacet)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Facet" Lude..= facet)])
 
-instance ToPath CreateTypedLinkFacet where
+instance Lude.ToPath CreateTypedLinkFacet where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
+    Lude.const
+      "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
 
-instance ToQuery CreateTypedLinkFacet where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTypedLinkFacet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTypedLinkFacetResponse' smart constructor.
+-- | /See:/ 'mkCreateTypedLinkFacetResponse' smart constructor.
 newtype CreateTypedLinkFacetResponse = CreateTypedLinkFacetResponse'
-  { _ctlfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTypedLinkFacetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctlfrsResponseStatus' - -- | The response status code.
-createTypedLinkFacetResponse ::
-  -- | 'ctlfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateTypedLinkFacetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTypedLinkFacetResponse
-createTypedLinkFacetResponse pResponseStatus_ =
-  CreateTypedLinkFacetResponse'
-    { _ctlfrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateTypedLinkFacetResponse pResponseStatus_ =
+  CreateTypedLinkFacetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ctlfrsResponseStatus :: Lens' CreateTypedLinkFacetResponse Int
-ctlfrsResponseStatus = lens _ctlfrsResponseStatus (\s a -> s {_ctlfrsResponseStatus = a})
-
-instance NFData CreateTypedLinkFacetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctlfrsResponseStatus :: Lens.Lens' CreateTypedLinkFacetResponse Lude.Int
+ctlfrsResponseStatus = Lens.lens (responseStatus :: CreateTypedLinkFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTypedLinkFacetResponse)
+{-# DEPRECATED ctlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

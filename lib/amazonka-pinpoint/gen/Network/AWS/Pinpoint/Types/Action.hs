@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Action where
+module Network.AWS.Pinpoint.Types.Action
+  ( Action
+      ( Action',
+        DeepLink,
+        OpenApp,
+        URL
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Action
-  = DeepLink
-  | OpenApp
-  | URL
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Action = Action' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Action where
-  parser =
-    takeLowerText >>= \case
-      "deep_link" -> pure DeepLink
-      "open_app" -> pure OpenApp
-      "url" -> pure URL
-      e ->
-        fromTextError $
-          "Failure parsing Action from value: '" <> e
-            <> "'. Accepted values: deep_link, open_app, url"
+pattern DeepLink :: Action
+pattern DeepLink = Action' "DEEP_LINK"
 
-instance ToText Action where
-  toText = \case
-    DeepLink -> "DEEP_LINK"
-    OpenApp -> "OPEN_APP"
-    URL -> "URL"
+pattern OpenApp :: Action
+pattern OpenApp = Action' "OPEN_APP"
 
-instance Hashable Action
+pattern URL :: Action
+pattern URL = Action' "URL"
 
-instance NFData Action
-
-instance ToByteString Action
-
-instance ToQuery Action
-
-instance ToHeader Action
-
-instance ToJSON Action where
-  toJSON = toJSONText
-
-instance FromJSON Action where
-  parseJSON = parseJSONText "Action"
+{-# COMPLETE
+  DeepLink,
+  OpenApp,
+  URL,
+  Action'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup where
+module Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup
+  ( AutoScalingGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoScalingGroup,
+
+    -- * Lenses
+    asgName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Auto Scaling launch configuration.
 --
---
---
--- /See:/ 'autoScalingGroup' smart constructor.
+-- /See:/ 'mkAutoScalingGroup' smart constructor.
 newtype AutoScalingGroup = AutoScalingGroup'
-  { _asgName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgName' - The name of the @AutoScalingGroup@ .
-autoScalingGroup ::
+-- * 'name' - The name of the @AutoScalingGroup@ .
+mkAutoScalingGroup ::
   AutoScalingGroup
-autoScalingGroup = AutoScalingGroup' {_asgName = Nothing}
+mkAutoScalingGroup = AutoScalingGroup' {name = Lude.Nothing}
 
 -- | The name of the @AutoScalingGroup@ .
-asgName :: Lens' AutoScalingGroup (Maybe Text)
-asgName = lens _asgName (\s a -> s {_asgName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgName :: Lens.Lens' AutoScalingGroup (Lude.Maybe Lude.Text)
+asgName = Lens.lens (name :: AutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AutoScalingGroup)
+{-# DEPRECATED asgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML AutoScalingGroup where
-  parseXML x = AutoScalingGroup' <$> (x .@? "Name")
-
-instance Hashable AutoScalingGroup
-
-instance NFData AutoScalingGroup
+instance Lude.FromXML AutoScalingGroup where
+  parseXML x = AutoScalingGroup' Lude.<$> (x Lude..@? "Name")

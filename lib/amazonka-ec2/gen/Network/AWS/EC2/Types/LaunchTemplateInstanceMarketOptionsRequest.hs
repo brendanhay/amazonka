@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest where
+module Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest
+  ( LaunchTemplateInstanceMarketOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateInstanceMarketOptionsRequest,
+
+    -- * Lenses
+    ltimorMarketType,
+    ltimorSpotOptions,
+  )
+where
+
 import Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
 import Network.AWS.EC2.Types.MarketType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The market (purchasing) option for the instances.
 --
---
---
--- /See:/ 'launchTemplateInstanceMarketOptionsRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateInstanceMarketOptionsRequest' smart constructor.
 data LaunchTemplateInstanceMarketOptionsRequest = LaunchTemplateInstanceMarketOptionsRequest'
-  { _ltimorMarketType ::
-      !( Maybe
-           MarketType
-       ),
-    _ltimorSpotOptions ::
-      !( Maybe
-           LaunchTemplateSpotMarketOptionsRequest
-       )
+  { marketType ::
+      Lude.Maybe
+        MarketType,
+    spotOptions ::
+      Lude.Maybe
+        LaunchTemplateSpotMarketOptionsRequest
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateInstanceMarketOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltimorMarketType' - The market type.
---
--- * 'ltimorSpotOptions' - The options for Spot Instances.
-launchTemplateInstanceMarketOptionsRequest ::
+-- * 'marketType' - The market type.
+-- * 'spotOptions' - The options for Spot Instances.
+mkLaunchTemplateInstanceMarketOptionsRequest ::
   LaunchTemplateInstanceMarketOptionsRequest
-launchTemplateInstanceMarketOptionsRequest =
+mkLaunchTemplateInstanceMarketOptionsRequest =
   LaunchTemplateInstanceMarketOptionsRequest'
-    { _ltimorMarketType =
-        Nothing,
-      _ltimorSpotOptions = Nothing
+    { marketType =
+        Lude.Nothing,
+      spotOptions = Lude.Nothing
     }
 
 -- | The market type.
-ltimorMarketType :: Lens' LaunchTemplateInstanceMarketOptionsRequest (Maybe MarketType)
-ltimorMarketType = lens _ltimorMarketType (\s a -> s {_ltimorMarketType = a})
+--
+-- /Note:/ Consider using 'marketType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltimorMarketType :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Lude.Maybe MarketType)
+ltimorMarketType = Lens.lens (marketType :: LaunchTemplateInstanceMarketOptionsRequest -> Lude.Maybe MarketType) (\s a -> s {marketType = a} :: LaunchTemplateInstanceMarketOptionsRequest)
+{-# DEPRECATED ltimorMarketType "Use generic-lens or generic-optics with 'marketType' instead." #-}
 
 -- | The options for Spot Instances.
-ltimorSpotOptions :: Lens' LaunchTemplateInstanceMarketOptionsRequest (Maybe LaunchTemplateSpotMarketOptionsRequest)
-ltimorSpotOptions = lens _ltimorSpotOptions (\s a -> s {_ltimorSpotOptions = a})
+--
+-- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltimorSpotOptions :: Lens.Lens' LaunchTemplateInstanceMarketOptionsRequest (Lude.Maybe LaunchTemplateSpotMarketOptionsRequest)
+ltimorSpotOptions = Lens.lens (spotOptions :: LaunchTemplateInstanceMarketOptionsRequest -> Lude.Maybe LaunchTemplateSpotMarketOptionsRequest) (\s a -> s {spotOptions = a} :: LaunchTemplateInstanceMarketOptionsRequest)
+{-# DEPRECATED ltimorSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
 
-instance Hashable LaunchTemplateInstanceMarketOptionsRequest
-
-instance NFData LaunchTemplateInstanceMarketOptionsRequest
-
-instance ToQuery LaunchTemplateInstanceMarketOptionsRequest where
+instance Lude.ToQuery LaunchTemplateInstanceMarketOptionsRequest where
   toQuery LaunchTemplateInstanceMarketOptionsRequest' {..} =
-    mconcat
-      [ "MarketType" =: _ltimorMarketType,
-        "SpotOptions" =: _ltimorSpotOptions
+    Lude.mconcat
+      [ "MarketType" Lude.=: marketType,
+        "SpotOptions" Lude.=: spotOptions
       ]

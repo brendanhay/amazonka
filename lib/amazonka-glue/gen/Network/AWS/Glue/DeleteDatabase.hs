@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,131 @@
 --
 -- Removes a specified database from a Data Catalog.
 module Network.AWS.Glue.DeleteDatabase
-  ( -- * Creating a Request
-    deleteDatabase,
-    DeleteDatabase,
+  ( -- * Creating a request
+    DeleteDatabase (..),
+    mkDeleteDatabase,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddCatalogId,
     ddName,
 
-    -- * Destructuring the Response
-    deleteDatabaseResponse,
-    DeleteDatabaseResponse,
+    -- * Destructuring the response
+    DeleteDatabaseResponse (..),
+    mkDeleteDatabaseResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDatabase' smart constructor.
+-- | /See:/ 'mkDeleteDatabase' smart constructor.
 data DeleteDatabase = DeleteDatabase'
-  { _ddCatalogId ::
-      !(Maybe Text),
-    _ddName :: !Text
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddCatalogId' - The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
---
--- * 'ddName' - The name of the database to delete. For Hive compatibility, this must be all lowercase.
-deleteDatabase ::
-  -- | 'ddName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
+-- * 'name' - The name of the database to delete. For Hive compatibility, this must be all lowercase.
+mkDeleteDatabase ::
+  -- | 'name'
+  Lude.Text ->
   DeleteDatabase
-deleteDatabase pName_ =
-  DeleteDatabase' {_ddCatalogId = Nothing, _ddName = pName_}
+mkDeleteDatabase pName_ =
+  DeleteDatabase' {catalogId = Lude.Nothing, name = pName_}
 
 -- | The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
-ddCatalogId :: Lens' DeleteDatabase (Maybe Text)
-ddCatalogId = lens _ddCatalogId (\s a -> s {_ddCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddCatalogId :: Lens.Lens' DeleteDatabase (Lude.Maybe Lude.Text)
+ddCatalogId = Lens.lens (catalogId :: DeleteDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteDatabase)
+{-# DEPRECATED ddCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the database to delete. For Hive compatibility, this must be all lowercase.
-ddName :: Lens' DeleteDatabase Text
-ddName = lens _ddName (\s a -> s {_ddName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddName :: Lens.Lens' DeleteDatabase Lude.Text
+ddName = Lens.lens (name :: DeleteDatabase -> Lude.Text) (\s a -> s {name = a} :: DeleteDatabase)
+{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteDatabase where
+instance Lude.AWSRequest DeleteDatabase where
   type Rs DeleteDatabase = DeleteDatabaseResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> DeleteDatabaseResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteDatabaseResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteDatabase
-
-instance NFData DeleteDatabase
-
-instance ToHeaders DeleteDatabase where
+instance Lude.ToHeaders DeleteDatabase where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.DeleteDatabase" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.DeleteDatabase" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDatabase where
+instance Lude.ToJSON DeleteDatabase where
   toJSON DeleteDatabase' {..} =
-    object
-      ( catMaybes
-          [("CatalogId" .=) <$> _ddCatalogId, Just ("Name" .= _ddName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )
 
-instance ToPath DeleteDatabase where
-  toPath = const "/"
+instance Lude.ToPath DeleteDatabase where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDatabase where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDatabase where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDatabaseResponse' smart constructor.
+-- | /See:/ 'mkDeleteDatabaseResponse' smart constructor.
 newtype DeleteDatabaseResponse = DeleteDatabaseResponse'
-  { _ddrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatabaseResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDatabaseResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDatabaseResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDatabaseResponse
-deleteDatabaseResponse pResponseStatus_ =
-  DeleteDatabaseResponse' {_ddrsResponseStatus = pResponseStatus_}
+mkDeleteDatabaseResponse pResponseStatus_ =
+  DeleteDatabaseResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDatabaseResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DeleteDatabaseResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDatabaseResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDatabaseResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

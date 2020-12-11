@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpCacheFullBehavior where
+module Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
+  ( RtmpCacheFullBehavior
+      ( RtmpCacheFullBehavior',
+        DisconnectImmediately,
+        WaitForServer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rtmp Cache Full Behavior
-data RtmpCacheFullBehavior
-  = DisconnectImmediately
-  | WaitForServer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RtmpCacheFullBehavior = RtmpCacheFullBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RtmpCacheFullBehavior where
-  parser =
-    takeLowerText >>= \case
-      "disconnect_immediately" -> pure DisconnectImmediately
-      "wait_for_server" -> pure WaitForServer
-      e ->
-        fromTextError $
-          "Failure parsing RtmpCacheFullBehavior from value: '" <> e
-            <> "'. Accepted values: disconnect_immediately, wait_for_server"
+pattern DisconnectImmediately :: RtmpCacheFullBehavior
+pattern DisconnectImmediately = RtmpCacheFullBehavior' "DISCONNECT_IMMEDIATELY"
 
-instance ToText RtmpCacheFullBehavior where
-  toText = \case
-    DisconnectImmediately -> "DISCONNECT_IMMEDIATELY"
-    WaitForServer -> "WAIT_FOR_SERVER"
+pattern WaitForServer :: RtmpCacheFullBehavior
+pattern WaitForServer = RtmpCacheFullBehavior' "WAIT_FOR_SERVER"
 
-instance Hashable RtmpCacheFullBehavior
-
-instance NFData RtmpCacheFullBehavior
-
-instance ToByteString RtmpCacheFullBehavior
-
-instance ToQuery RtmpCacheFullBehavior
-
-instance ToHeader RtmpCacheFullBehavior
-
-instance ToJSON RtmpCacheFullBehavior where
-  toJSON = toJSONText
-
-instance FromJSON RtmpCacheFullBehavior where
-  parseJSON = parseJSONText "RtmpCacheFullBehavior"
+{-# COMPLETE
+  DisconnectImmediately,
+  WaitForServer,
+  RtmpCacheFullBehavior'
+  #-}

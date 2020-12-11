@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,180 @@
 --
 -- Uploads the specified certificate.
 module Network.AWS.DMS.ImportCertificate
-  ( -- * Creating a Request
-    importCertificate,
-    ImportCertificate,
+  ( -- * Creating a request
+    ImportCertificate (..),
+    mkImportCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     icCertificatePem,
     icCertificateWallet,
     icTags,
     icCertificateIdentifier,
 
-    -- * Destructuring the Response
-    importCertificateResponse,
-    ImportCertificateResponse,
+    -- * Destructuring the response
+    ImportCertificateResponse (..),
+    mkImportCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     icrsCertificate,
     icrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'importCertificate' smart constructor.
+-- | /See:/ 'mkImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { _icCertificatePem ::
-      !(Maybe Text),
-    _icCertificateWallet :: !(Maybe Base64),
-    _icTags :: !(Maybe [Tag]),
-    _icCertificateIdentifier :: !Text
+  { certificatePem ::
+      Lude.Maybe Lude.Text,
+    certificateWallet :: Lude.Maybe Lude.Base64,
+    tags :: Lude.Maybe [Tag],
+    certificateIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icCertificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
---
--- * 'icCertificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'icTags' - The tags associated with the certificate.
---
--- * 'icCertificateIdentifier' - A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-importCertificate ::
-  -- | 'icCertificateIdentifier'
-  Text ->
+-- * 'certificateIdentifier' - A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+-- * 'certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
+-- * 'certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'tags' - The tags associated with the certificate.
+mkImportCertificate ::
+  -- | 'certificateIdentifier'
+  Lude.Text ->
   ImportCertificate
-importCertificate pCertificateIdentifier_ =
+mkImportCertificate pCertificateIdentifier_ =
   ImportCertificate'
-    { _icCertificatePem = Nothing,
-      _icCertificateWallet = Nothing,
-      _icTags = Nothing,
-      _icCertificateIdentifier = pCertificateIdentifier_
+    { certificatePem = Lude.Nothing,
+      certificateWallet = Lude.Nothing,
+      tags = Lude.Nothing,
+      certificateIdentifier = pCertificateIdentifier_
     }
 
 -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-icCertificatePem :: Lens' ImportCertificate (Maybe Text)
-icCertificatePem = lens _icCertificatePem (\s a -> s {_icCertificatePem = a})
+--
+-- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCertificatePem :: Lens.Lens' ImportCertificate (Lude.Maybe Lude.Text)
+icCertificatePem = Lens.lens (certificatePem :: ImportCertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificatePem = a} :: ImportCertificate)
+{-# DEPRECATED icCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
--- | The location of an imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icCertificateWallet :: Lens' ImportCertificate (Maybe ByteString)
-icCertificateWallet = lens _icCertificateWallet (\s a -> s {_icCertificateWallet = a}) . mapping _Base64
+-- | The location of an imported Oracle Wallet certificate for use with SSL.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'certificateWallet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCertificateWallet :: Lens.Lens' ImportCertificate (Lude.Maybe Lude.Base64)
+icCertificateWallet = Lens.lens (certificateWallet :: ImportCertificate -> Lude.Maybe Lude.Base64) (\s a -> s {certificateWallet = a} :: ImportCertificate)
+{-# DEPRECATED icCertificateWallet "Use generic-lens or generic-optics with 'certificateWallet' instead." #-}
 
 -- | The tags associated with the certificate.
-icTags :: Lens' ImportCertificate [Tag]
-icTags = lens _icTags (\s a -> s {_icTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icTags :: Lens.Lens' ImportCertificate (Lude.Maybe [Tag])
+icTags = Lens.lens (tags :: ImportCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportCertificate)
+{-# DEPRECATED icTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-icCertificateIdentifier :: Lens' ImportCertificate Text
-icCertificateIdentifier = lens _icCertificateIdentifier (\s a -> s {_icCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCertificateIdentifier :: Lens.Lens' ImportCertificate Lude.Text
+icCertificateIdentifier = Lens.lens (certificateIdentifier :: ImportCertificate -> Lude.Text) (\s a -> s {certificateIdentifier = a} :: ImportCertificate)
+{-# DEPRECATED icCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
 
-instance AWSRequest ImportCertificate where
+instance Lude.AWSRequest ImportCertificate where
   type Rs ImportCertificate = ImportCertificateResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ImportCertificateResponse'
-            <$> (x .?> "Certificate") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Certificate") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ImportCertificate
-
-instance NFData ImportCertificate
-
-instance ToHeaders ImportCertificate where
+instance Lude.ToHeaders ImportCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.ImportCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.ImportCertificate" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportCertificate where
+instance Lude.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
-    object
-      ( catMaybes
-          [ ("CertificatePem" .=) <$> _icCertificatePem,
-            ("CertificateWallet" .=) <$> _icCertificateWallet,
-            ("Tags" .=) <$> _icTags,
-            Just ("CertificateIdentifier" .= _icCertificateIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CertificatePem" Lude..=) Lude.<$> certificatePem,
+            ("CertificateWallet" Lude..=) Lude.<$> certificateWallet,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("CertificateIdentifier" Lude..= certificateIdentifier)
           ]
       )
 
-instance ToPath ImportCertificate where
-  toPath = const "/"
+instance Lude.ToPath ImportCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery ImportCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importCertificateResponse' smart constructor.
+-- | /See:/ 'mkImportCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
-  { _icrsCertificate ::
-      !(Maybe Certificate),
-    _icrsResponseStatus :: !Int
+  { certificate ::
+      Lude.Maybe Certificate,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icrsCertificate' - The certificate to be uploaded.
---
--- * 'icrsResponseStatus' - -- | The response status code.
-importCertificateResponse ::
-  -- | 'icrsResponseStatus'
-  Int ->
+-- * 'certificate' - The certificate to be uploaded.
+-- * 'responseStatus' - The response status code.
+mkImportCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportCertificateResponse
-importCertificateResponse pResponseStatus_ =
+mkImportCertificateResponse pResponseStatus_ =
   ImportCertificateResponse'
-    { _icrsCertificate = Nothing,
-      _icrsResponseStatus = pResponseStatus_
+    { certificate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The certificate to be uploaded.
-icrsCertificate :: Lens' ImportCertificateResponse (Maybe Certificate)
-icrsCertificate = lens _icrsCertificate (\s a -> s {_icrsCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrsCertificate :: Lens.Lens' ImportCertificateResponse (Lude.Maybe Certificate)
+icrsCertificate = Lens.lens (certificate :: ImportCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: ImportCertificateResponse)
+{-# DEPRECATED icrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
--- | -- | The response status code.
-icrsResponseStatus :: Lens' ImportCertificateResponse Int
-icrsResponseStatus = lens _icrsResponseStatus (\s a -> s {_icrsResponseStatus = a})
-
-instance NFData ImportCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrsResponseStatus :: Lens.Lens' ImportCertificateResponse Lude.Int
+icrsResponseStatus = Lens.lens (responseStatus :: ImportCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportCertificateResponse)
+{-# DEPRECATED icrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

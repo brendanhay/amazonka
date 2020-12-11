@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists all classifier objects in the Data Catalog.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetClassifiers
-  ( -- * Creating a Request
-    getClassifiers,
-    GetClassifiers,
+  ( -- * Creating a request
+    GetClassifiers (..),
+    mkGetClassifiers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcNextToken,
     gcMaxResults,
 
-    -- * Destructuring the Response
-    getClassifiersResponse,
-    GetClassifiersResponse,
+    -- * Destructuring the response
+    GetClassifiersResponse (..),
+    mkGetClassifiersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcsrsNextToken,
     gcsrsClassifiers,
     gcsrsResponseStatus,
@@ -43,125 +36,149 @@ module Network.AWS.Glue.GetClassifiers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getClassifiers' smart constructor.
+-- | /See:/ 'mkGetClassifiers' smart constructor.
 data GetClassifiers = GetClassifiers'
-  { _gcNextToken ::
-      !(Maybe Text),
-    _gcMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifiers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcNextToken' - An optional continuation token.
---
--- * 'gcMaxResults' - The size of the list to return (optional).
-getClassifiers ::
+-- * 'maxResults' - The size of the list to return (optional).
+-- * 'nextToken' - An optional continuation token.
+mkGetClassifiers ::
   GetClassifiers
-getClassifiers =
-  GetClassifiers' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
+mkGetClassifiers =
+  GetClassifiers'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | An optional continuation token.
-gcNextToken :: Lens' GetClassifiers (Maybe Text)
-gcNextToken = lens _gcNextToken (\s a -> s {_gcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcNextToken :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Text)
+gcNextToken = Lens.lens (nextToken :: GetClassifiers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetClassifiers)
+{-# DEPRECATED gcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The size of the list to return (optional).
-gcMaxResults :: Lens' GetClassifiers (Maybe Natural)
-gcMaxResults = lens _gcMaxResults (\s a -> s {_gcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcMaxResults :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Natural)
+gcMaxResults = Lens.lens (maxResults :: GetClassifiers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetClassifiers)
+{-# DEPRECATED gcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetClassifiers where
+instance Page.AWSPager GetClassifiers where
   page rq rs
-    | stop (rs ^. gcsrsNextToken) = Nothing
-    | stop (rs ^. gcsrsClassifiers) = Nothing
-    | otherwise = Just $ rq & gcNextToken .~ rs ^. gcsrsNextToken
+    | Page.stop (rs Lens.^. gcsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcsrsClassifiers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gcNextToken Lens..~ rs Lens.^. gcsrsNextToken
 
-instance AWSRequest GetClassifiers where
+instance Lude.AWSRequest GetClassifiers where
   type Rs GetClassifiers = GetClassifiersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetClassifiersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Classifiers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Classifiers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetClassifiers
-
-instance NFData GetClassifiers
-
-instance ToHeaders GetClassifiers where
+instance Lude.ToHeaders GetClassifiers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetClassifiers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetClassifiers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetClassifiers where
+instance Lude.ToJSON GetClassifiers where
   toJSON GetClassifiers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gcNextToken,
-            ("MaxResults" .=) <$> _gcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetClassifiers where
-  toPath = const "/"
+instance Lude.ToPath GetClassifiers where
+  toPath = Lude.const "/"
 
-instance ToQuery GetClassifiers where
-  toQuery = const mempty
+instance Lude.ToQuery GetClassifiers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getClassifiersResponse' smart constructor.
+-- | /See:/ 'mkGetClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
-  { _gcsrsNextToken ::
-      !(Maybe Text),
-    _gcsrsClassifiers :: !(Maybe [Classifier]),
-    _gcsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    classifiers :: Lude.Maybe [Classifier],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifiersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsrsNextToken' - A continuation token.
---
--- * 'gcsrsClassifiers' - The requested list of classifier objects.
---
--- * 'gcsrsResponseStatus' - -- | The response status code.
-getClassifiersResponse ::
-  -- | 'gcsrsResponseStatus'
-  Int ->
+-- * 'classifiers' - The requested list of classifier objects.
+-- * 'nextToken' - A continuation token.
+-- * 'responseStatus' - The response status code.
+mkGetClassifiersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetClassifiersResponse
-getClassifiersResponse pResponseStatus_ =
+mkGetClassifiersResponse pResponseStatus_ =
   GetClassifiersResponse'
-    { _gcsrsNextToken = Nothing,
-      _gcsrsClassifiers = Nothing,
-      _gcsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      classifiers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token.
-gcsrsNextToken :: Lens' GetClassifiersResponse (Maybe Text)
-gcsrsNextToken = lens _gcsrsNextToken (\s a -> s {_gcsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsNextToken :: Lens.Lens' GetClassifiersResponse (Lude.Maybe Lude.Text)
+gcsrsNextToken = Lens.lens (nextToken :: GetClassifiersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetClassifiersResponse)
+{-# DEPRECATED gcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The requested list of classifier objects.
-gcsrsClassifiers :: Lens' GetClassifiersResponse [Classifier]
-gcsrsClassifiers = lens _gcsrsClassifiers (\s a -> s {_gcsrsClassifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'classifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsClassifiers :: Lens.Lens' GetClassifiersResponse (Lude.Maybe [Classifier])
+gcsrsClassifiers = Lens.lens (classifiers :: GetClassifiersResponse -> Lude.Maybe [Classifier]) (\s a -> s {classifiers = a} :: GetClassifiersResponse)
+{-# DEPRECATED gcsrsClassifiers "Use generic-lens or generic-optics with 'classifiers' instead." #-}
 
--- | -- | The response status code.
-gcsrsResponseStatus :: Lens' GetClassifiersResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\s a -> s {_gcsrsResponseStatus = a})
-
-instance NFData GetClassifiersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsResponseStatus :: Lens.Lens' GetClassifiersResponse Lude.Int
+gcsrsResponseStatus = Lens.lens (responseStatus :: GetClassifiersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetClassifiersResponse)
+{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

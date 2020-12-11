@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,207 @@
 --
 -- Query inventory information.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.GetInventory
-  ( -- * Creating a Request
-    getInventory,
-    GetInventory,
+  ( -- * Creating a request
+    GetInventory (..),
+    mkGetInventory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giAggregators,
     giFilters,
     giResultAttributes,
     giNextToken,
     giMaxResults,
 
-    -- * Destructuring the Response
-    getInventoryResponse,
-    GetInventoryResponse,
+    -- * Destructuring the response
+    GetInventoryResponse (..),
+    mkGetInventoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     girsEntities,
     girsNextToken,
     girsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getInventory' smart constructor.
+-- | /See:/ 'mkGetInventory' smart constructor.
 data GetInventory = GetInventory'
-  { _giAggregators ::
-      !(Maybe (List1 InventoryAggregator)),
-    _giFilters :: !(Maybe (List1 InventoryFilter)),
-    _giResultAttributes :: !(Maybe (List1 ResultAttribute)),
-    _giNextToken :: !(Maybe Text),
-    _giMaxResults :: !(Maybe Nat)
+  { aggregators ::
+      Lude.Maybe (Lude.NonEmpty InventoryAggregator),
+    filters :: Lude.Maybe (Lude.NonEmpty InventoryFilter),
+    resultAttributes :: Lude.Maybe (Lude.NonEmpty ResultAttribute),
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInventory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giAggregators' - Returns counts of inventory types based on one or more expressions. For example, if you aggregate by using an expression that uses the @AWS:InstanceInformation.PlatformType@ type, you can see a count of how many Windows and Linux instances exist in your inventoried fleet.
---
--- * 'giFilters' - One or more filters. Use a filter to return a more specific list of results.
---
--- * 'giResultAttributes' - The list of inventory item types to return.
---
--- * 'giNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'giMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-getInventory ::
+-- * 'aggregators' - Returns counts of inventory types based on one or more expressions. For example, if you aggregate by using an expression that uses the @AWS:InstanceInformation.PlatformType@ type, you can see a count of how many Windows and Linux instances exist in your inventoried fleet.
+-- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'resultAttributes' - The list of inventory item types to return.
+mkGetInventory ::
   GetInventory
-getInventory =
+mkGetInventory =
   GetInventory'
-    { _giAggregators = Nothing,
-      _giFilters = Nothing,
-      _giResultAttributes = Nothing,
-      _giNextToken = Nothing,
-      _giMaxResults = Nothing
+    { aggregators = Lude.Nothing,
+      filters = Lude.Nothing,
+      resultAttributes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Returns counts of inventory types based on one or more expressions. For example, if you aggregate by using an expression that uses the @AWS:InstanceInformation.PlatformType@ type, you can see a count of how many Windows and Linux instances exist in your inventoried fleet.
-giAggregators :: Lens' GetInventory (Maybe (NonEmpty InventoryAggregator))
-giAggregators = lens _giAggregators (\s a -> s {_giAggregators = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'aggregators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giAggregators :: Lens.Lens' GetInventory (Lude.Maybe (Lude.NonEmpty InventoryAggregator))
+giAggregators = Lens.lens (aggregators :: GetInventory -> Lude.Maybe (Lude.NonEmpty InventoryAggregator)) (\s a -> s {aggregators = a} :: GetInventory)
+{-# DEPRECATED giAggregators "Use generic-lens or generic-optics with 'aggregators' instead." #-}
 
 -- | One or more filters. Use a filter to return a more specific list of results.
-giFilters :: Lens' GetInventory (Maybe (NonEmpty InventoryFilter))
-giFilters = lens _giFilters (\s a -> s {_giFilters = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giFilters :: Lens.Lens' GetInventory (Lude.Maybe (Lude.NonEmpty InventoryFilter))
+giFilters = Lens.lens (filters :: GetInventory -> Lude.Maybe (Lude.NonEmpty InventoryFilter)) (\s a -> s {filters = a} :: GetInventory)
+{-# DEPRECATED giFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The list of inventory item types to return.
-giResultAttributes :: Lens' GetInventory (Maybe (NonEmpty ResultAttribute))
-giResultAttributes = lens _giResultAttributes (\s a -> s {_giResultAttributes = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'resultAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giResultAttributes :: Lens.Lens' GetInventory (Lude.Maybe (Lude.NonEmpty ResultAttribute))
+giResultAttributes = Lens.lens (resultAttributes :: GetInventory -> Lude.Maybe (Lude.NonEmpty ResultAttribute)) (\s a -> s {resultAttributes = a} :: GetInventory)
+{-# DEPRECATED giResultAttributes "Use generic-lens or generic-optics with 'resultAttributes' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-giNextToken :: Lens' GetInventory (Maybe Text)
-giNextToken = lens _giNextToken (\s a -> s {_giNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giNextToken :: Lens.Lens' GetInventory (Lude.Maybe Lude.Text)
+giNextToken = Lens.lens (nextToken :: GetInventory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInventory)
+{-# DEPRECATED giNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-giMaxResults :: Lens' GetInventory (Maybe Natural)
-giMaxResults = lens _giMaxResults (\s a -> s {_giMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giMaxResults :: Lens.Lens' GetInventory (Lude.Maybe Lude.Natural)
+giMaxResults = Lens.lens (maxResults :: GetInventory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInventory)
+{-# DEPRECATED giMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetInventory where
+instance Page.AWSPager GetInventory where
   page rq rs
-    | stop (rs ^. girsNextToken) = Nothing
-    | stop (rs ^. girsEntities) = Nothing
-    | otherwise = Just $ rq & giNextToken .~ rs ^. girsNextToken
+    | Page.stop (rs Lens.^. girsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. girsEntities) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& giNextToken Lens..~ rs Lens.^. girsNextToken
 
-instance AWSRequest GetInventory where
+instance Lude.AWSRequest GetInventory where
   type Rs GetInventory = GetInventoryResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInventoryResponse'
-            <$> (x .?> "Entities" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Entities" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInventory
-
-instance NFData GetInventory
-
-instance ToHeaders GetInventory where
+instance Lude.ToHeaders GetInventory where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.GetInventory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.GetInventory" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetInventory where
+instance Lude.ToJSON GetInventory where
   toJSON GetInventory' {..} =
-    object
-      ( catMaybes
-          [ ("Aggregators" .=) <$> _giAggregators,
-            ("Filters" .=) <$> _giFilters,
-            ("ResultAttributes" .=) <$> _giResultAttributes,
-            ("NextToken" .=) <$> _giNextToken,
-            ("MaxResults" .=) <$> _giMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Aggregators" Lude..=) Lude.<$> aggregators,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("ResultAttributes" Lude..=) Lude.<$> resultAttributes,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetInventory where
-  toPath = const "/"
+instance Lude.ToPath GetInventory where
+  toPath = Lude.const "/"
 
-instance ToQuery GetInventory where
-  toQuery = const mempty
+instance Lude.ToQuery GetInventory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInventoryResponse' smart constructor.
+-- | /See:/ 'mkGetInventoryResponse' smart constructor.
 data GetInventoryResponse = GetInventoryResponse'
-  { _girsEntities ::
-      !(Maybe [InventoryResultEntity]),
-    _girsNextToken :: !(Maybe Text),
-    _girsResponseStatus :: !Int
+  { entities ::
+      Lude.Maybe [InventoryResultEntity],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInventoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'girsEntities' - Collection of inventory entities such as a collection of instance inventory.
---
--- * 'girsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'girsResponseStatus' - -- | The response status code.
-getInventoryResponse ::
-  -- | 'girsResponseStatus'
-  Int ->
+-- * 'entities' - Collection of inventory entities such as a collection of instance inventory.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkGetInventoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInventoryResponse
-getInventoryResponse pResponseStatus_ =
+mkGetInventoryResponse pResponseStatus_ =
   GetInventoryResponse'
-    { _girsEntities = Nothing,
-      _girsNextToken = Nothing,
-      _girsResponseStatus = pResponseStatus_
+    { entities = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Collection of inventory entities such as a collection of instance inventory.
-girsEntities :: Lens' GetInventoryResponse [InventoryResultEntity]
-girsEntities = lens _girsEntities (\s a -> s {_girsEntities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsEntities :: Lens.Lens' GetInventoryResponse (Lude.Maybe [InventoryResultEntity])
+girsEntities = Lens.lens (entities :: GetInventoryResponse -> Lude.Maybe [InventoryResultEntity]) (\s a -> s {entities = a} :: GetInventoryResponse)
+{-# DEPRECATED girsEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-girsNextToken :: Lens' GetInventoryResponse (Maybe Text)
-girsNextToken = lens _girsNextToken (\s a -> s {_girsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsNextToken :: Lens.Lens' GetInventoryResponse (Lude.Maybe Lude.Text)
+girsNextToken = Lens.lens (nextToken :: GetInventoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInventoryResponse)
+{-# DEPRECATED girsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetInventoryResponse Int
-girsResponseStatus = lens _girsResponseStatus (\s a -> s {_girsResponseStatus = a})
-
-instance NFData GetInventoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsResponseStatus :: Lens.Lens' GetInventoryResponse Lude.Int
+girsResponseStatus = Lens.lens (responseStatus :: GetInventoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInventoryResponse)
+{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

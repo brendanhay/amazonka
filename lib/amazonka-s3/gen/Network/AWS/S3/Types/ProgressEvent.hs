@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ProgressEvent where
+module Network.AWS.S3.Types.ProgressEvent
+  ( ProgressEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProgressEvent,
+
+    -- * Lenses
+    peDetails,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Progress
 
 -- | This data type contains information about the progress event of an operation.
 --
---
---
--- /See:/ 'progressEvent' smart constructor.
+-- /See:/ 'mkProgressEvent' smart constructor.
 newtype ProgressEvent = ProgressEvent'
-  { _peDetails ::
-      Maybe Progress
+  { details ::
+      Lude.Maybe Progress
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProgressEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'peDetails' - The Progress event details.
-progressEvent ::
+-- * 'details' - The Progress event details.
+mkProgressEvent ::
   ProgressEvent
-progressEvent = ProgressEvent' {_peDetails = Nothing}
+mkProgressEvent = ProgressEvent' {details = Lude.Nothing}
 
 -- | The Progress event details.
-peDetails :: Lens' ProgressEvent (Maybe Progress)
-peDetails = lens _peDetails (\s a -> s {_peDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peDetails :: Lens.Lens' ProgressEvent (Lude.Maybe Progress)
+peDetails = Lens.lens (details :: ProgressEvent -> Lude.Maybe Progress) (\s a -> s {details = a} :: ProgressEvent)
+{-# DEPRECATED peDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance FromXML ProgressEvent where
-  parseXML x = ProgressEvent' <$> (x .@? "Details")
-
-instance Hashable ProgressEvent
-
-instance NFData ProgressEvent
+instance Lude.FromXML ProgressEvent where
+  parseXML x = ProgressEvent' Lude.<$> (x Lude..@? "Details")

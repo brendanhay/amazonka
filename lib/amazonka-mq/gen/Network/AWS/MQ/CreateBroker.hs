@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a broker. Note: This API is asynchronous.
 module Network.AWS.MQ.CreateBroker
-  ( -- * Creating a Request
-    createBroker,
-    CreateBroker,
+  ( -- * Creating a request
+    CreateBroker (..),
+    mkCreateBroker,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbBrokerName,
     cbEngineVersion,
     cbPubliclyAccessible,
@@ -44,284 +39,340 @@ module Network.AWS.MQ.CreateBroker
     cbHostInstanceType,
     cbStorageType,
 
-    -- * Destructuring the Response
-    createBrokerResponse,
-    CreateBrokerResponse,
+    -- * Destructuring the response
+    CreateBrokerResponse (..),
+    mkCreateBrokerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cbrsBrokerId,
     cbrsBrokerARN,
     cbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates a broker using the specified properties.
 --
--- /See:/ 'createBroker' smart constructor.
+-- /See:/ 'mkCreateBroker' smart constructor.
 data CreateBroker = CreateBroker'
-  { _cbBrokerName :: !(Maybe Text),
-    _cbEngineVersion :: !(Maybe Text),
-    _cbPubliclyAccessible :: !(Maybe Bool),
-    _cbAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _cbSecurityGroups :: !(Maybe [Text]),
-    _cbUsers :: !(Maybe [User]),
-    _cbSubnetIds :: !(Maybe [Text]),
-    _cbCreatorRequestId :: !(Maybe Text),
-    _cbAuthenticationStrategy :: !(Maybe AuthenticationStrategy),
-    _cbLdapServerMetadata :: !(Maybe LdapServerMetadataInput),
-    _cbMaintenanceWindowStartTime :: !(Maybe WeeklyStartTime),
-    _cbLogs :: !(Maybe Logs),
-    _cbEncryptionOptions :: !(Maybe EncryptionOptions),
-    _cbDeploymentMode :: !(Maybe DeploymentMode),
-    _cbConfiguration :: !(Maybe ConfigurationId),
-    _cbEngineType :: !(Maybe EngineType),
-    _cbTags :: !(Maybe (Map Text (Text))),
-    _cbHostInstanceType :: !(Maybe Text),
-    _cbStorageType :: !(Maybe BrokerStorageType)
+  { brokerName ::
+      Lude.Maybe Lude.Text,
+    engineVersion :: Lude.Maybe Lude.Text,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    users :: Lude.Maybe [User],
+    subnetIds :: Lude.Maybe [Lude.Text],
+    creatorRequestId :: Lude.Maybe Lude.Text,
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    ldapServerMetadata :: Lude.Maybe LdapServerMetadataInput,
+    maintenanceWindowStartTime :: Lude.Maybe WeeklyStartTime,
+    logs :: Lude.Maybe Logs,
+    encryptionOptions :: Lude.Maybe EncryptionOptions,
+    deploymentMode :: Lude.Maybe DeploymentMode,
+    configuration :: Lude.Maybe ConfigurationId,
+    engineType :: Lude.Maybe EngineType,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    storageType :: Lude.Maybe BrokerStorageType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBroker' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbBrokerName' - Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
---
--- * 'cbEngineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'cbPubliclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
---
--- * 'cbAutoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
---
--- * 'cbSecurityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
---
--- * 'cbUsers' - Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'cbSubnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
---
--- * 'cbCreatorRequestId' - The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
---
--- * 'cbAuthenticationStrategy' - The authentication strategy used to secure the broker.
---
--- * 'cbLdapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
---
--- * 'cbMaintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
---
--- * 'cbLogs' - Enables Amazon CloudWatch logging for brokers.
---
--- * 'cbEncryptionOptions' - Encryption options for the broker.
---
--- * 'cbDeploymentMode' - Required. The deployment mode of the broker.
---
--- * 'cbConfiguration' - A list of information about the configuration.
---
--- * 'cbEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
---
--- * 'cbTags' - Create tags when creating the broker.
---
--- * 'cbHostInstanceType' - Required. The broker's instance type.
---
--- * 'cbStorageType' - The broker's storage type.
-createBroker ::
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+-- * 'brokerName' - Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+-- * 'configuration' - A list of information about the configuration.
+-- * 'creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
+-- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'encryptionOptions' - Encryption options for the broker.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'hostInstanceType' - Required. The broker's instance type.
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'logs' - Enables Amazon CloudWatch logging for brokers.
+-- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+-- * 'publiclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+-- * 'storageType' - The broker's storage type.
+-- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+-- * 'tags' - Create tags when creating the broker.
+-- * 'users' - Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+mkCreateBroker ::
   CreateBroker
-createBroker =
+mkCreateBroker =
   CreateBroker'
-    { _cbBrokerName = Nothing,
-      _cbEngineVersion = Nothing,
-      _cbPubliclyAccessible = Nothing,
-      _cbAutoMinorVersionUpgrade = Nothing,
-      _cbSecurityGroups = Nothing,
-      _cbUsers = Nothing,
-      _cbSubnetIds = Nothing,
-      _cbCreatorRequestId = Nothing,
-      _cbAuthenticationStrategy = Nothing,
-      _cbLdapServerMetadata = Nothing,
-      _cbMaintenanceWindowStartTime = Nothing,
-      _cbLogs = Nothing,
-      _cbEncryptionOptions = Nothing,
-      _cbDeploymentMode = Nothing,
-      _cbConfiguration = Nothing,
-      _cbEngineType = Nothing,
-      _cbTags = Nothing,
-      _cbHostInstanceType = Nothing,
-      _cbStorageType = Nothing
+    { brokerName = Lude.Nothing,
+      engineVersion = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      users = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      creatorRequestId = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      ldapServerMetadata = Lude.Nothing,
+      maintenanceWindowStartTime = Lude.Nothing,
+      logs = Lude.Nothing,
+      encryptionOptions = Lude.Nothing,
+      deploymentMode = Lude.Nothing,
+      configuration = Lude.Nothing,
+      engineType = Lude.Nothing,
+      tags = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      storageType = Lude.Nothing
     }
 
 -- | Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
-cbBrokerName :: Lens' CreateBroker (Maybe Text)
-cbBrokerName = lens _cbBrokerName (\s a -> s {_cbBrokerName = a})
+--
+-- /Note:/ Consider using 'brokerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbBrokerName :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Text)
+cbBrokerName = Lens.lens (brokerName :: CreateBroker -> Lude.Maybe Lude.Text) (\s a -> s {brokerName = a} :: CreateBroker)
+{-# DEPRECATED cbBrokerName "Use generic-lens or generic-optics with 'brokerName' instead." #-}
 
 -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-cbEngineVersion :: Lens' CreateBroker (Maybe Text)
-cbEngineVersion = lens _cbEngineVersion (\s a -> s {_cbEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbEngineVersion :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Text)
+cbEngineVersion = Lens.lens (engineVersion :: CreateBroker -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: CreateBroker)
+{-# DEPRECATED cbEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
-cbPubliclyAccessible :: Lens' CreateBroker (Maybe Bool)
-cbPubliclyAccessible = lens _cbPubliclyAccessible (\s a -> s {_cbPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbPubliclyAccessible :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Bool)
+cbPubliclyAccessible = Lens.lens (publiclyAccessible :: CreateBroker -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: CreateBroker)
+{-# DEPRECATED cbPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
-cbAutoMinorVersionUpgrade :: Lens' CreateBroker (Maybe Bool)
-cbAutoMinorVersionUpgrade = lens _cbAutoMinorVersionUpgrade (\s a -> s {_cbAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbAutoMinorVersionUpgrade :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Bool)
+cbAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: CreateBroker -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: CreateBroker)
+{-# DEPRECATED cbAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-cbSecurityGroups :: Lens' CreateBroker [Text]
-cbSecurityGroups = lens _cbSecurityGroups (\s a -> s {_cbSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbSecurityGroups :: Lens.Lens' CreateBroker (Lude.Maybe [Lude.Text])
+cbSecurityGroups = Lens.lens (securityGroups :: CreateBroker -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: CreateBroker)
+{-# DEPRECATED cbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-cbUsers :: Lens' CreateBroker [User]
-cbUsers = lens _cbUsers (\s a -> s {_cbUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbUsers :: Lens.Lens' CreateBroker (Lude.Maybe [User])
+cbUsers = Lens.lens (users :: CreateBroker -> Lude.Maybe [User]) (\s a -> s {users = a} :: CreateBroker)
+{-# DEPRECATED cbUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
-cbSubnetIds :: Lens' CreateBroker [Text]
-cbSubnetIds = lens _cbSubnetIds (\s a -> s {_cbSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbSubnetIds :: Lens.Lens' CreateBroker (Lude.Maybe [Lude.Text])
+cbSubnetIds = Lens.lens (subnetIds :: CreateBroker -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateBroker)
+{-# DEPRECATED cbSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
-cbCreatorRequestId :: Lens' CreateBroker (Maybe Text)
-cbCreatorRequestId = lens _cbCreatorRequestId (\s a -> s {_cbCreatorRequestId = a})
+--
+-- /Note:/ Consider using 'creatorRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbCreatorRequestId :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Text)
+cbCreatorRequestId = Lens.lens (creatorRequestId :: CreateBroker -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: CreateBroker)
+{-# DEPRECATED cbCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
 
 -- | The authentication strategy used to secure the broker.
-cbAuthenticationStrategy :: Lens' CreateBroker (Maybe AuthenticationStrategy)
-cbAuthenticationStrategy = lens _cbAuthenticationStrategy (\s a -> s {_cbAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbAuthenticationStrategy :: Lens.Lens' CreateBroker (Lude.Maybe AuthenticationStrategy)
+cbAuthenticationStrategy = Lens.lens (authenticationStrategy :: CreateBroker -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: CreateBroker)
+{-# DEPRECATED cbAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-cbLdapServerMetadata :: Lens' CreateBroker (Maybe LdapServerMetadataInput)
-cbLdapServerMetadata = lens _cbLdapServerMetadata (\s a -> s {_cbLdapServerMetadata = a})
+--
+-- /Note:/ Consider using 'ldapServerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbLdapServerMetadata :: Lens.Lens' CreateBroker (Lude.Maybe LdapServerMetadataInput)
+cbLdapServerMetadata = Lens.lens (ldapServerMetadata :: CreateBroker -> Lude.Maybe LdapServerMetadataInput) (\s a -> s {ldapServerMetadata = a} :: CreateBroker)
+{-# DEPRECATED cbLdapServerMetadata "Use generic-lens or generic-optics with 'ldapServerMetadata' instead." #-}
 
 -- | The parameters that determine the WeeklyStartTime.
-cbMaintenanceWindowStartTime :: Lens' CreateBroker (Maybe WeeklyStartTime)
-cbMaintenanceWindowStartTime = lens _cbMaintenanceWindowStartTime (\s a -> s {_cbMaintenanceWindowStartTime = a})
+--
+-- /Note:/ Consider using 'maintenanceWindowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbMaintenanceWindowStartTime :: Lens.Lens' CreateBroker (Lude.Maybe WeeklyStartTime)
+cbMaintenanceWindowStartTime = Lens.lens (maintenanceWindowStartTime :: CreateBroker -> Lude.Maybe WeeklyStartTime) (\s a -> s {maintenanceWindowStartTime = a} :: CreateBroker)
+{-# DEPRECATED cbMaintenanceWindowStartTime "Use generic-lens or generic-optics with 'maintenanceWindowStartTime' instead." #-}
 
 -- | Enables Amazon CloudWatch logging for brokers.
-cbLogs :: Lens' CreateBroker (Maybe Logs)
-cbLogs = lens _cbLogs (\s a -> s {_cbLogs = a})
+--
+-- /Note:/ Consider using 'logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbLogs :: Lens.Lens' CreateBroker (Lude.Maybe Logs)
+cbLogs = Lens.lens (logs :: CreateBroker -> Lude.Maybe Logs) (\s a -> s {logs = a} :: CreateBroker)
+{-# DEPRECATED cbLogs "Use generic-lens or generic-optics with 'logs' instead." #-}
 
 -- | Encryption options for the broker.
-cbEncryptionOptions :: Lens' CreateBroker (Maybe EncryptionOptions)
-cbEncryptionOptions = lens _cbEncryptionOptions (\s a -> s {_cbEncryptionOptions = a})
+--
+-- /Note:/ Consider using 'encryptionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbEncryptionOptions :: Lens.Lens' CreateBroker (Lude.Maybe EncryptionOptions)
+cbEncryptionOptions = Lens.lens (encryptionOptions :: CreateBroker -> Lude.Maybe EncryptionOptions) (\s a -> s {encryptionOptions = a} :: CreateBroker)
+{-# DEPRECATED cbEncryptionOptions "Use generic-lens or generic-optics with 'encryptionOptions' instead." #-}
 
 -- | Required. The deployment mode of the broker.
-cbDeploymentMode :: Lens' CreateBroker (Maybe DeploymentMode)
-cbDeploymentMode = lens _cbDeploymentMode (\s a -> s {_cbDeploymentMode = a})
+--
+-- /Note:/ Consider using 'deploymentMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbDeploymentMode :: Lens.Lens' CreateBroker (Lude.Maybe DeploymentMode)
+cbDeploymentMode = Lens.lens (deploymentMode :: CreateBroker -> Lude.Maybe DeploymentMode) (\s a -> s {deploymentMode = a} :: CreateBroker)
+{-# DEPRECATED cbDeploymentMode "Use generic-lens or generic-optics with 'deploymentMode' instead." #-}
 
 -- | A list of information about the configuration.
-cbConfiguration :: Lens' CreateBroker (Maybe ConfigurationId)
-cbConfiguration = lens _cbConfiguration (\s a -> s {_cbConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbConfiguration :: Lens.Lens' CreateBroker (Lude.Maybe ConfigurationId)
+cbConfiguration = Lens.lens (configuration :: CreateBroker -> Lude.Maybe ConfigurationId) (\s a -> s {configuration = a} :: CreateBroker)
+{-# DEPRECATED cbConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-cbEngineType :: Lens' CreateBroker (Maybe EngineType)
-cbEngineType = lens _cbEngineType (\s a -> s {_cbEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbEngineType :: Lens.Lens' CreateBroker (Lude.Maybe EngineType)
+cbEngineType = Lens.lens (engineType :: CreateBroker -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: CreateBroker)
+{-# DEPRECATED cbEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | Create tags when creating the broker.
-cbTags :: Lens' CreateBroker (HashMap Text (Text))
-cbTags = lens _cbTags (\s a -> s {_cbTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbTags :: Lens.Lens' CreateBroker (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cbTags = Lens.lens (tags :: CreateBroker -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateBroker)
+{-# DEPRECATED cbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Required. The broker's instance type.
-cbHostInstanceType :: Lens' CreateBroker (Maybe Text)
-cbHostInstanceType = lens _cbHostInstanceType (\s a -> s {_cbHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbHostInstanceType :: Lens.Lens' CreateBroker (Lude.Maybe Lude.Text)
+cbHostInstanceType = Lens.lens (hostInstanceType :: CreateBroker -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: CreateBroker)
+{-# DEPRECATED cbHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 -- | The broker's storage type.
-cbStorageType :: Lens' CreateBroker (Maybe BrokerStorageType)
-cbStorageType = lens _cbStorageType (\s a -> s {_cbStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbStorageType :: Lens.Lens' CreateBroker (Lude.Maybe BrokerStorageType)
+cbStorageType = Lens.lens (storageType :: CreateBroker -> Lude.Maybe BrokerStorageType) (\s a -> s {storageType = a} :: CreateBroker)
+{-# DEPRECATED cbStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance AWSRequest CreateBroker where
+instance Lude.AWSRequest CreateBroker where
   type Rs CreateBroker = CreateBrokerResponse
-  request = postJSON mq
+  request = Req.postJSON mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateBrokerResponse'
-            <$> (x .?> "brokerId") <*> (x .?> "brokerArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "brokerId")
+            Lude.<*> (x Lude..?> "brokerArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateBroker
-
-instance NFData CreateBroker
-
-instance ToHeaders CreateBroker where
+instance Lude.ToHeaders CreateBroker where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateBroker where
-  toJSON CreateBroker' {..} =
-    object
-      ( catMaybes
-          [ ("brokerName" .=) <$> _cbBrokerName,
-            ("engineVersion" .=) <$> _cbEngineVersion,
-            ("publiclyAccessible" .=) <$> _cbPubliclyAccessible,
-            ("autoMinorVersionUpgrade" .=) <$> _cbAutoMinorVersionUpgrade,
-            ("securityGroups" .=) <$> _cbSecurityGroups,
-            ("users" .=) <$> _cbUsers,
-            ("subnetIds" .=) <$> _cbSubnetIds,
-            ("creatorRequestId" .=) <$> _cbCreatorRequestId,
-            ("authenticationStrategy" .=) <$> _cbAuthenticationStrategy,
-            ("ldapServerMetadata" .=) <$> _cbLdapServerMetadata,
-            ("maintenanceWindowStartTime" .=)
-              <$> _cbMaintenanceWindowStartTime,
-            ("logs" .=) <$> _cbLogs,
-            ("encryptionOptions" .=) <$> _cbEncryptionOptions,
-            ("deploymentMode" .=) <$> _cbDeploymentMode,
-            ("configuration" .=) <$> _cbConfiguration,
-            ("engineType" .=) <$> _cbEngineType,
-            ("tags" .=) <$> _cbTags,
-            ("hostInstanceType" .=) <$> _cbHostInstanceType,
-            ("storageType" .=) <$> _cbStorageType
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateBroker where
-  toPath = const "/v1/brokers"
+instance Lude.ToJSON CreateBroker where
+  toJSON CreateBroker' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("brokerName" Lude..=) Lude.<$> brokerName,
+            ("engineVersion" Lude..=) Lude.<$> engineVersion,
+            ("publiclyAccessible" Lude..=) Lude.<$> publiclyAccessible,
+            ("autoMinorVersionUpgrade" Lude..=)
+              Lude.<$> autoMinorVersionUpgrade,
+            ("securityGroups" Lude..=) Lude.<$> securityGroups,
+            ("users" Lude..=) Lude.<$> users,
+            ("subnetIds" Lude..=) Lude.<$> subnetIds,
+            ("creatorRequestId" Lude..=) Lude.<$> creatorRequestId,
+            ("authenticationStrategy" Lude..=) Lude.<$> authenticationStrategy,
+            ("ldapServerMetadata" Lude..=) Lude.<$> ldapServerMetadata,
+            ("maintenanceWindowStartTime" Lude..=)
+              Lude.<$> maintenanceWindowStartTime,
+            ("logs" Lude..=) Lude.<$> logs,
+            ("encryptionOptions" Lude..=) Lude.<$> encryptionOptions,
+            ("deploymentMode" Lude..=) Lude.<$> deploymentMode,
+            ("configuration" Lude..=) Lude.<$> configuration,
+            ("engineType" Lude..=) Lude.<$> engineType,
+            ("tags" Lude..=) Lude.<$> tags,
+            ("hostInstanceType" Lude..=) Lude.<$> hostInstanceType,
+            ("storageType" Lude..=) Lude.<$> storageType
+          ]
+      )
 
-instance ToQuery CreateBroker where
-  toQuery = const mempty
+instance Lude.ToPath CreateBroker where
+  toPath = Lude.const "/v1/brokers"
 
--- | /See:/ 'createBrokerResponse' smart constructor.
+instance Lude.ToQuery CreateBroker where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateBrokerResponse' smart constructor.
 data CreateBrokerResponse = CreateBrokerResponse'
-  { _cbrsBrokerId ::
-      !(Maybe Text),
-    _cbrsBrokerARN :: !(Maybe Text),
-    _cbrsResponseStatus :: !Int
+  { brokerId ::
+      Lude.Maybe Lude.Text,
+    brokerARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBrokerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbrsBrokerId' - The unique ID that Amazon MQ generates for the broker.
---
--- * 'cbrsBrokerARN' - The Amazon Resource Name (ARN) of the broker.
---
--- * 'cbrsResponseStatus' - -- | The response status code.
-createBrokerResponse ::
-  -- | 'cbrsResponseStatus'
-  Int ->
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'responseStatus' - The response status code.
+mkCreateBrokerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateBrokerResponse
-createBrokerResponse pResponseStatus_ =
+mkCreateBrokerResponse pResponseStatus_ =
   CreateBrokerResponse'
-    { _cbrsBrokerId = Nothing,
-      _cbrsBrokerARN = Nothing,
-      _cbrsResponseStatus = pResponseStatus_
+    { brokerId = Lude.Nothing,
+      brokerARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ID that Amazon MQ generates for the broker.
-cbrsBrokerId :: Lens' CreateBrokerResponse (Maybe Text)
-cbrsBrokerId = lens _cbrsBrokerId (\s a -> s {_cbrsBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsBrokerId :: Lens.Lens' CreateBrokerResponse (Lude.Maybe Lude.Text)
+cbrsBrokerId = Lens.lens (brokerId :: CreateBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: CreateBrokerResponse)
+{-# DEPRECATED cbrsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the broker.
-cbrsBrokerARN :: Lens' CreateBrokerResponse (Maybe Text)
-cbrsBrokerARN = lens _cbrsBrokerARN (\s a -> s {_cbrsBrokerARN = a})
+--
+-- /Note:/ Consider using 'brokerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsBrokerARN :: Lens.Lens' CreateBrokerResponse (Lude.Maybe Lude.Text)
+cbrsBrokerARN = Lens.lens (brokerARN :: CreateBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerARN = a} :: CreateBrokerResponse)
+{-# DEPRECATED cbrsBrokerARN "Use generic-lens or generic-optics with 'brokerARN' instead." #-}
 
--- | -- | The response status code.
-cbrsResponseStatus :: Lens' CreateBrokerResponse Int
-cbrsResponseStatus = lens _cbrsResponseStatus (\s a -> s {_cbrsResponseStatus = a})
-
-instance NFData CreateBrokerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsResponseStatus :: Lens.Lens' CreateBrokerResponse Lude.Int
+cbrsResponseStatus = Lens.lens (responseStatus :: CreateBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBrokerResponse)
+{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

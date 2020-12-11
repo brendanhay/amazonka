@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,158 @@
 --
 -- Adds or updates a sending authorization policy for the specified identity (an email address or a domain).
 --
---
 -- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.PutIdentityPolicy
-  ( -- * Creating a Request
-    putIdentityPolicy,
-    PutIdentityPolicy,
+  ( -- * Creating a request
+    PutIdentityPolicy (..),
+    mkPutIdentityPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pipIdentity,
     pipPolicyName,
     pipPolicy,
 
-    -- * Destructuring the Response
-    putIdentityPolicyResponse,
-    PutIdentityPolicyResponse,
+    -- * Destructuring the response
+    PutIdentityPolicyResponse (..),
+    mkPutIdentityPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     piprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'putIdentityPolicy' smart constructor.
+-- /See:/ 'mkPutIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
-  { _pipIdentity :: !Text,
-    _pipPolicyName :: !Text,
-    _pipPolicy :: !Text
+  { identity :: Lude.Text,
+    policyName :: Lude.Text,
+    policy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIdentityPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'identity' - The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
--- * 'pipIdentity' - The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
+-- To successfully call this API, you must own the identity.
+-- * 'policy' - The text of the policy in JSON format. The policy cannot exceed 4 KB.
 --
--- * 'pipPolicyName' - The name of the policy. The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
+-- For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
+-- * 'policyName' - The name of the policy.
 --
--- * 'pipPolicy' - The text of the policy in JSON format. The policy cannot exceed 4 KB. For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
-putIdentityPolicy ::
-  -- | 'pipIdentity'
-  Text ->
-  -- | 'pipPolicyName'
-  Text ->
-  -- | 'pipPolicy'
-  Text ->
+-- The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
+mkPutIdentityPolicy ::
+  -- | 'identity'
+  Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'policy'
+  Lude.Text ->
   PutIdentityPolicy
-putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
+mkPutIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
   PutIdentityPolicy'
-    { _pipIdentity = pIdentity_,
-      _pipPolicyName = pPolicyName_,
-      _pipPolicy = pPolicy_
+    { identity = pIdentity_,
+      policyName = pPolicyName_,
+      policy = pPolicy_
     }
 
--- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
-pipIdentity :: Lens' PutIdentityPolicy Text
-pipIdentity = lens _pipIdentity (\s a -> s {_pipIdentity = a})
+-- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipIdentity :: Lens.Lens' PutIdentityPolicy Lude.Text
+pipIdentity = Lens.lens (identity :: PutIdentityPolicy -> Lude.Text) (\s a -> s {identity = a} :: PutIdentityPolicy)
+{-# DEPRECATED pipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
--- | The name of the policy. The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
-pipPolicyName :: Lens' PutIdentityPolicy Text
-pipPolicyName = lens _pipPolicyName (\s a -> s {_pipPolicyName = a})
+-- | The name of the policy.
+--
+-- The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipPolicyName :: Lens.Lens' PutIdentityPolicy Lude.Text
+pipPolicyName = Lens.lens (policyName :: PutIdentityPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutIdentityPolicy)
+{-# DEPRECATED pipPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
--- | The text of the policy in JSON format. The policy cannot exceed 4 KB. For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
-pipPolicy :: Lens' PutIdentityPolicy Text
-pipPolicy = lens _pipPolicy (\s a -> s {_pipPolicy = a})
+-- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
+--
+-- For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipPolicy :: Lens.Lens' PutIdentityPolicy Lude.Text
+pipPolicy = Lens.lens (policy :: PutIdentityPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutIdentityPolicy)
+{-# DEPRECATED pipPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance AWSRequest PutIdentityPolicy where
+instance Lude.AWSRequest PutIdentityPolicy where
   type Rs PutIdentityPolicy = PutIdentityPolicyResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PutIdentityPolicyResult"
-      (\s h x -> PutIdentityPolicyResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          PutIdentityPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutIdentityPolicy
+instance Lude.ToHeaders PutIdentityPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutIdentityPolicy
+instance Lude.ToPath PutIdentityPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders PutIdentityPolicy where
-  toHeaders = const mempty
-
-instance ToPath PutIdentityPolicy where
-  toPath = const "/"
-
-instance ToQuery PutIdentityPolicy where
+instance Lude.ToQuery PutIdentityPolicy where
   toQuery PutIdentityPolicy' {..} =
-    mconcat
-      [ "Action" =: ("PutIdentityPolicy" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identity" =: _pipIdentity,
-        "PolicyName" =: _pipPolicyName,
-        "Policy" =: _pipPolicy
+    Lude.mconcat
+      [ "Action" Lude.=: ("PutIdentityPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identity" Lude.=: identity,
+        "PolicyName" Lude.=: policyName,
+        "Policy" Lude.=: policy
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'putIdentityPolicyResponse' smart constructor.
+-- /See:/ 'mkPutIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
-  { _piprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIdentityPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piprsResponseStatus' - -- | The response status code.
-putIdentityPolicyResponse ::
-  -- | 'piprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutIdentityPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutIdentityPolicyResponse
-putIdentityPolicyResponse pResponseStatus_ =
-  PutIdentityPolicyResponse'
-    { _piprsResponseStatus =
-        pResponseStatus_
-    }
+mkPutIdentityPolicyResponse pResponseStatus_ =
+  PutIdentityPolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-piprsResponseStatus :: Lens' PutIdentityPolicyResponse Int
-piprsResponseStatus = lens _piprsResponseStatus (\s a -> s {_piprsResponseStatus = a})
-
-instance NFData PutIdentityPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piprsResponseStatus :: Lens.Lens' PutIdentityPolicyResponse Lude.Int
+piprsResponseStatus = Lens.lens (responseStatus :: PutIdentityPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutIdentityPolicyResponse)
+{-# DEPRECATED piprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

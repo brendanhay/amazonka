@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.FacetAttributeType where
+module Network.AWS.CloudDirectory.Types.FacetAttributeType
+  ( FacetAttributeType
+      ( FacetAttributeType',
+        Binary,
+        Boolean,
+        Datetime,
+        Number,
+        String,
+        Variant
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FacetAttributeType
-  = Binary
-  | Boolean
-  | Datetime
-  | Number
-  | String
-  | Variant
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FacetAttributeType = FacetAttributeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FacetAttributeType where
-  parser =
-    takeLowerText >>= \case
-      "binary" -> pure Binary
-      "boolean" -> pure Boolean
-      "datetime" -> pure Datetime
-      "number" -> pure Number
-      "string" -> pure String
-      "variant" -> pure Variant
-      e ->
-        fromTextError $
-          "Failure parsing FacetAttributeType from value: '" <> e
-            <> "'. Accepted values: binary, boolean, datetime, number, string, variant"
+pattern Binary :: FacetAttributeType
+pattern Binary = FacetAttributeType' "BINARY"
 
-instance ToText FacetAttributeType where
-  toText = \case
-    Binary -> "BINARY"
-    Boolean -> "BOOLEAN"
-    Datetime -> "DATETIME"
-    Number -> "NUMBER"
-    String -> "STRING"
-    Variant -> "VARIANT"
+pattern Boolean :: FacetAttributeType
+pattern Boolean = FacetAttributeType' "BOOLEAN"
 
-instance Hashable FacetAttributeType
+pattern Datetime :: FacetAttributeType
+pattern Datetime = FacetAttributeType' "DATETIME"
 
-instance NFData FacetAttributeType
+pattern Number :: FacetAttributeType
+pattern Number = FacetAttributeType' "NUMBER"
 
-instance ToByteString FacetAttributeType
+pattern String :: FacetAttributeType
+pattern String = FacetAttributeType' "STRING"
 
-instance ToQuery FacetAttributeType
+pattern Variant :: FacetAttributeType
+pattern Variant = FacetAttributeType' "VARIANT"
 
-instance ToHeader FacetAttributeType
-
-instance ToJSON FacetAttributeType where
-  toJSON = toJSONText
-
-instance FromJSON FacetAttributeType where
-  parseJSON = parseJSONText "FacetAttributeType"
+{-# COMPLETE
+  Binary,
+  Boolean,
+  Datetime,
+  Number,
+  String,
+  Variant,
+  FacetAttributeType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectType where
+module Network.AWS.CloudDirectory.Types.ObjectType
+  ( ObjectType
+      ( ObjectType',
+        Index,
+        LeafNode,
+        Node,
+        Policy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ObjectType
-  = Index
-  | LeafNode
-  | Node
-  | Policy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectType = ObjectType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectType where
-  parser =
-    takeLowerText >>= \case
-      "index" -> pure Index
-      "leaf_node" -> pure LeafNode
-      "node" -> pure Node
-      "policy" -> pure Policy
-      e ->
-        fromTextError $
-          "Failure parsing ObjectType from value: '" <> e
-            <> "'. Accepted values: index, leaf_node, node, policy"
+pattern Index :: ObjectType
+pattern Index = ObjectType' "INDEX"
 
-instance ToText ObjectType where
-  toText = \case
-    Index -> "INDEX"
-    LeafNode -> "LEAF_NODE"
-    Node -> "NODE"
-    Policy -> "POLICY"
+pattern LeafNode :: ObjectType
+pattern LeafNode = ObjectType' "LEAF_NODE"
 
-instance Hashable ObjectType
+pattern Node :: ObjectType
+pattern Node = ObjectType' "NODE"
 
-instance NFData ObjectType
+pattern Policy :: ObjectType
+pattern Policy = ObjectType' "POLICY"
 
-instance ToByteString ObjectType
-
-instance ToQuery ObjectType
-
-instance ToHeader ObjectType
-
-instance ToJSON ObjectType where
-  toJSON = toJSONText
-
-instance FromJSON ObjectType where
-  parseJSON = parseJSONText "ObjectType"
+{-# COMPLETE
+  Index,
+  LeafNode,
+  Node,
+  Policy,
+  ObjectType'
+  #-}

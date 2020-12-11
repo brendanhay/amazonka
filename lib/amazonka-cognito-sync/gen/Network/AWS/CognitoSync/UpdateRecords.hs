@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,15 @@
 --
 -- Posts updates to records and adds and deletes records for a dataset and user.
 --
---
 -- The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.
---
 -- For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.
---
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
 module Network.AWS.CognitoSync.UpdateRecords
-  ( -- * Creating a Request
-    updateRecords,
-    UpdateRecords,
+  ( -- * Creating a request
+    UpdateRecords (..),
+    mkUpdateRecords,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urRecordPatches,
     urDeviceId,
     urClientContext,
@@ -39,185 +31,211 @@ module Network.AWS.CognitoSync.UpdateRecords
     urDatasetName,
     urSyncSessionToken,
 
-    -- * Destructuring the Response
-    updateRecordsResponse,
-    UpdateRecordsResponse,
+    -- * Destructuring the response
+    UpdateRecordsResponse (..),
+    mkUpdateRecordsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsRecords,
     urrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to post updates to records or add and delete records for a dataset and user.
 --
--- /See:/ 'updateRecords' smart constructor.
+-- /See:/ 'mkUpdateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
-  { _urRecordPatches ::
-      !(Maybe [RecordPatch]),
-    _urDeviceId :: !(Maybe Text),
-    _urClientContext :: !(Maybe Text),
-    _urIdentityPoolId :: !Text,
-    _urIdentityId :: !Text,
-    _urDatasetName :: !Text,
-    _urSyncSessionToken :: !Text
+  { recordPatches ::
+      Lude.Maybe [RecordPatch],
+    deviceId :: Lude.Maybe Lude.Text,
+    clientContext :: Lude.Maybe Lude.Text,
+    identityPoolId :: Lude.Text,
+    identityId :: Lude.Text,
+    datasetName :: Lude.Text,
+    syncSessionToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRecords' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urRecordPatches' - A list of patch operations.
---
--- * 'urDeviceId' - The unique ID generated for this device by Cognito.
---
--- * 'urClientContext' - Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
---
--- * 'urIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'urIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'urDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
---
--- * 'urSyncSessionToken' - The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
-updateRecords ::
-  -- | 'urIdentityPoolId'
-  Text ->
-  -- | 'urIdentityId'
-  Text ->
-  -- | 'urDatasetName'
-  Text ->
-  -- | 'urSyncSessionToken'
-  Text ->
+-- * 'clientContext' - Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
+-- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- * 'deviceId' - The unique ID generated for this device by Cognito.
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'recordPatches' - A list of patch operations.
+-- * 'syncSessionToken' - The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
+mkUpdateRecords ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'datasetName'
+  Lude.Text ->
+  -- | 'syncSessionToken'
+  Lude.Text ->
   UpdateRecords
-updateRecords
+mkUpdateRecords
   pIdentityPoolId_
   pIdentityId_
   pDatasetName_
   pSyncSessionToken_ =
     UpdateRecords'
-      { _urRecordPatches = Nothing,
-        _urDeviceId = Nothing,
-        _urClientContext = Nothing,
-        _urIdentityPoolId = pIdentityPoolId_,
-        _urIdentityId = pIdentityId_,
-        _urDatasetName = pDatasetName_,
-        _urSyncSessionToken = pSyncSessionToken_
+      { recordPatches = Lude.Nothing,
+        deviceId = Lude.Nothing,
+        clientContext = Lude.Nothing,
+        identityPoolId = pIdentityPoolId_,
+        identityId = pIdentityId_,
+        datasetName = pDatasetName_,
+        syncSessionToken = pSyncSessionToken_
       }
 
 -- | A list of patch operations.
-urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\s a -> s {_urRecordPatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recordPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRecordPatches :: Lens.Lens' UpdateRecords (Lude.Maybe [RecordPatch])
+urRecordPatches = Lens.lens (recordPatches :: UpdateRecords -> Lude.Maybe [RecordPatch]) (\s a -> s {recordPatches = a} :: UpdateRecords)
+{-# DEPRECATED urRecordPatches "Use generic-lens or generic-optics with 'recordPatches' instead." #-}
 
 -- | The unique ID generated for this device by Cognito.
-urDeviceId :: Lens' UpdateRecords (Maybe Text)
-urDeviceId = lens _urDeviceId (\s a -> s {_urDeviceId = a})
+--
+-- /Note:/ Consider using 'deviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDeviceId :: Lens.Lens' UpdateRecords (Lude.Maybe Lude.Text)
+urDeviceId = Lens.lens (deviceId :: UpdateRecords -> Lude.Maybe Lude.Text) (\s a -> s {deviceId = a} :: UpdateRecords)
+{-# DEPRECATED urDeviceId "Use generic-lens or generic-optics with 'deviceId' instead." #-}
 
 -- | Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
-urClientContext :: Lens' UpdateRecords (Maybe Text)
-urClientContext = lens _urClientContext (\s a -> s {_urClientContext = a})
+--
+-- /Note:/ Consider using 'clientContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urClientContext :: Lens.Lens' UpdateRecords (Lude.Maybe Lude.Text)
+urClientContext = Lens.lens (clientContext :: UpdateRecords -> Lude.Maybe Lude.Text) (\s a -> s {clientContext = a} :: UpdateRecords)
+{-# DEPRECATED urClientContext "Use generic-lens or generic-optics with 'clientContext' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-urIdentityPoolId :: Lens' UpdateRecords Text
-urIdentityPoolId = lens _urIdentityPoolId (\s a -> s {_urIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urIdentityPoolId :: Lens.Lens' UpdateRecords Lude.Text
+urIdentityPoolId = Lens.lens (identityPoolId :: UpdateRecords -> Lude.Text) (\s a -> s {identityPoolId = a} :: UpdateRecords)
+{-# DEPRECATED urIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-urIdentityId :: Lens' UpdateRecords Text
-urIdentityId = lens _urIdentityId (\s a -> s {_urIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urIdentityId :: Lens.Lens' UpdateRecords Lude.Text
+urIdentityId = Lens.lens (identityId :: UpdateRecords -> Lude.Text) (\s a -> s {identityId = a} :: UpdateRecords)
+{-# DEPRECATED urIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-urDatasetName :: Lens' UpdateRecords Text
-urDatasetName = lens _urDatasetName (\s a -> s {_urDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDatasetName :: Lens.Lens' UpdateRecords Lude.Text
+urDatasetName = Lens.lens (datasetName :: UpdateRecords -> Lude.Text) (\s a -> s {datasetName = a} :: UpdateRecords)
+{-# DEPRECATED urDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
-urSyncSessionToken :: Lens' UpdateRecords Text
-urSyncSessionToken = lens _urSyncSessionToken (\s a -> s {_urSyncSessionToken = a})
+--
+-- /Note:/ Consider using 'syncSessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urSyncSessionToken :: Lens.Lens' UpdateRecords Lude.Text
+urSyncSessionToken = Lens.lens (syncSessionToken :: UpdateRecords -> Lude.Text) (\s a -> s {syncSessionToken = a} :: UpdateRecords)
+{-# DEPRECATED urSyncSessionToken "Use generic-lens or generic-optics with 'syncSessionToken' instead." #-}
 
-instance AWSRequest UpdateRecords where
+instance Lude.AWSRequest UpdateRecords where
   type Rs UpdateRecords = UpdateRecordsResponse
-  request = postJSON cognitoSync
+  request = Req.postJSON cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRecordsResponse'
-            <$> (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Records" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRecords
-
-instance NFData UpdateRecords
-
-instance ToHeaders UpdateRecords where
+instance Lude.ToHeaders UpdateRecords where
   toHeaders UpdateRecords' {..} =
-    mconcat
-      [ "x-amz-Client-Context" =# _urClientContext,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "x-amz-Client-Context" Lude.=# clientContext,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON UpdateRecords where
+instance Lude.ToJSON UpdateRecords where
   toJSON UpdateRecords' {..} =
-    object
-      ( catMaybes
-          [ ("RecordPatches" .=) <$> _urRecordPatches,
-            ("DeviceId" .=) <$> _urDeviceId,
-            Just ("SyncSessionToken" .= _urSyncSessionToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RecordPatches" Lude..=) Lude.<$> recordPatches,
+            ("DeviceId" Lude..=) Lude.<$> deviceId,
+            Lude.Just ("SyncSessionToken" Lude..= syncSessionToken)
           ]
       )
 
-instance ToPath UpdateRecords where
+instance Lude.ToPath UpdateRecords where
   toPath UpdateRecords' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _urIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identities/",
-        toBS _urIdentityId,
+        Lude.toBS identityId,
         "/datasets/",
-        toBS _urDatasetName
+        Lude.toBS datasetName
       ]
 
-instance ToQuery UpdateRecords where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRecords where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returned for a successful UpdateRecordsRequest.
 --
--- /See:/ 'updateRecordsResponse' smart constructor.
+-- /See:/ 'mkUpdateRecordsResponse' smart constructor.
 data UpdateRecordsResponse = UpdateRecordsResponse'
-  { _urrsRecords ::
-      !(Maybe [Record]),
-    _urrsResponseStatus :: !Int
+  { records ::
+      Lude.Maybe [Record],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRecordsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsRecords' - A list of records that have been updated.
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRecordsResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'records' - A list of records that have been updated.
+-- * 'responseStatus' - The response status code.
+mkUpdateRecordsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRecordsResponse
-updateRecordsResponse pResponseStatus_ =
+mkUpdateRecordsResponse pResponseStatus_ =
   UpdateRecordsResponse'
-    { _urrsRecords = Nothing,
-      _urrsResponseStatus = pResponseStatus_
+    { records = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of records that have been updated.
-urrsRecords :: Lens' UpdateRecordsResponse [Record]
-urrsRecords = lens _urrsRecords (\s a -> s {_urrsRecords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsRecords :: Lens.Lens' UpdateRecordsResponse (Lude.Maybe [Record])
+urrsRecords = Lens.lens (records :: UpdateRecordsResponse -> Lude.Maybe [Record]) (\s a -> s {records = a} :: UpdateRecordsResponse)
+{-# DEPRECATED urrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRecordsResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UpdateRecordsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UpdateRecordsResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UpdateRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRecordsResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

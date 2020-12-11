@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.OrganizationNode where
+module Network.AWS.ServiceCatalog.Types.OrganizationNode
+  ( OrganizationNode (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationNode,
+
+    -- * Lenses
+    onValue,
+    onType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.OrganizationNodeType
 
 -- | Information about the organization node.
 --
---
---
--- /See:/ 'organizationNode' smart constructor.
+-- /See:/ 'mkOrganizationNode' smart constructor.
 data OrganizationNode = OrganizationNode'
-  { _onValue ::
-      !(Maybe Text),
-    _onType :: !(Maybe OrganizationNodeType)
+  { value ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe OrganizationNodeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationNode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'onValue' - The identifier of the organization node.
---
--- * 'onType' - The organization node type.
-organizationNode ::
+-- * 'type'' - The organization node type.
+-- * 'value' - The identifier of the organization node.
+mkOrganizationNode ::
   OrganizationNode
-organizationNode =
-  OrganizationNode' {_onValue = Nothing, _onType = Nothing}
+mkOrganizationNode =
+  OrganizationNode' {value = Lude.Nothing, type' = Lude.Nothing}
 
 -- | The identifier of the organization node.
-onValue :: Lens' OrganizationNode (Maybe Text)
-onValue = lens _onValue (\s a -> s {_onValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+onValue :: Lens.Lens' OrganizationNode (Lude.Maybe Lude.Text)
+onValue = Lens.lens (value :: OrganizationNode -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: OrganizationNode)
+{-# DEPRECATED onValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The organization node type.
-onType :: Lens' OrganizationNode (Maybe OrganizationNodeType)
-onType = lens _onType (\s a -> s {_onType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+onType :: Lens.Lens' OrganizationNode (Lude.Maybe OrganizationNodeType)
+onType = Lens.lens (type' :: OrganizationNode -> Lude.Maybe OrganizationNodeType) (\s a -> s {type' = a} :: OrganizationNode)
+{-# DEPRECATED onType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON OrganizationNode where
+instance Lude.FromJSON OrganizationNode where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationNode"
-      (\x -> OrganizationNode' <$> (x .:? "Value") <*> (x .:? "Type"))
+      ( \x ->
+          OrganizationNode'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
+      )
 
-instance Hashable OrganizationNode
-
-instance NFData OrganizationNode
-
-instance ToJSON OrganizationNode where
+instance Lude.ToJSON OrganizationNode where
   toJSON OrganizationNode' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _onValue, ("Type" .=) <$> _onType])
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Value" Lude..=) Lude.<$> value,
+            ("Type" Lude..=) Lude.<$> type'
+          ]
+      )

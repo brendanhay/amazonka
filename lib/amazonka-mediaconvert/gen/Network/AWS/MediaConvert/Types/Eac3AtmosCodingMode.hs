@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode where
+module Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
+  ( Eac3AtmosCodingMode
+      ( Eac3AtmosCodingMode',
+        CodingMode916
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6 (CODING_MODE_9_1_6).
-data Eac3AtmosCodingMode = CodingMode916
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3AtmosCodingMode = Eac3AtmosCodingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3AtmosCodingMode where
-  parser =
-    takeLowerText >>= \case
-      "coding_mode_9_1_6" -> pure CodingMode916
-      e ->
-        fromTextError $
-          "Failure parsing Eac3AtmosCodingMode from value: '" <> e
-            <> "'. Accepted values: coding_mode_9_1_6"
+pattern CodingMode916 :: Eac3AtmosCodingMode
+pattern CodingMode916 = Eac3AtmosCodingMode' "CODING_MODE_9_1_6"
 
-instance ToText Eac3AtmosCodingMode where
-  toText = \case
-    CodingMode916 -> "CODING_MODE_9_1_6"
-
-instance Hashable Eac3AtmosCodingMode
-
-instance NFData Eac3AtmosCodingMode
-
-instance ToByteString Eac3AtmosCodingMode
-
-instance ToQuery Eac3AtmosCodingMode
-
-instance ToHeader Eac3AtmosCodingMode
-
-instance ToJSON Eac3AtmosCodingMode where
-  toJSON = toJSONText
-
-instance FromJSON Eac3AtmosCodingMode where
-  parseJSON = parseJSONText "Eac3AtmosCodingMode"
+{-# COMPLETE
+  CodingMode916,
+  Eac3AtmosCodingMode'
+  #-}

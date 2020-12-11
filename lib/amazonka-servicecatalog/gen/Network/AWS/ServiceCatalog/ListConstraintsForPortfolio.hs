@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,195 +14,240 @@
 --
 -- Lists the constraints for the specified portfolio and product.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
-  ( -- * Creating a Request
-    listConstraintsForPortfolio,
-    ListConstraintsForPortfolio,
+  ( -- * Creating a request
+    ListConstraintsForPortfolio (..),
+    mkListConstraintsForPortfolio,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcfpAcceptLanguage,
     lcfpPageToken,
     lcfpPageSize,
     lcfpProductId,
     lcfpPortfolioId,
 
-    -- * Destructuring the Response
-    listConstraintsForPortfolioResponse,
-    ListConstraintsForPortfolioResponse,
+    -- * Destructuring the response
+    ListConstraintsForPortfolioResponse (..),
+    mkListConstraintsForPortfolioResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcfprsNextPageToken,
     lcfprsConstraintDetails,
     lcfprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listConstraintsForPortfolio' smart constructor.
+-- | /See:/ 'mkListConstraintsForPortfolio' smart constructor.
 data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
-  { _lcfpAcceptLanguage ::
-      !(Maybe Text),
-    _lcfpPageToken :: !(Maybe Text),
-    _lcfpPageSize :: !(Maybe Nat),
-    _lcfpProductId :: !(Maybe Text),
-    _lcfpPortfolioId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    productId :: Lude.Maybe Lude.Text,
+    portfolioId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConstraintsForPortfolio' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'lcfpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lcfpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'lcfpPageSize' - The maximum number of items to return with this call.
 --
--- * 'lcfpProductId' - The product identifier.
+--     * @jp@ - Japanese
 --
--- * 'lcfpPortfolioId' - The portfolio identifier.
-listConstraintsForPortfolio ::
-  -- | 'lcfpPortfolioId'
-  Text ->
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'productId' - The product identifier.
+mkListConstraintsForPortfolio ::
+  -- | 'portfolioId'
+  Lude.Text ->
   ListConstraintsForPortfolio
-listConstraintsForPortfolio pPortfolioId_ =
+mkListConstraintsForPortfolio pPortfolioId_ =
   ListConstraintsForPortfolio'
-    { _lcfpAcceptLanguage = Nothing,
-      _lcfpPageToken = Nothing,
-      _lcfpPageSize = Nothing,
-      _lcfpProductId = Nothing,
-      _lcfpPortfolioId = pPortfolioId_
+    { acceptLanguage = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      productId = Lude.Nothing,
+      portfolioId = pPortfolioId_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lcfpAcceptLanguage :: Lens' ListConstraintsForPortfolio (Maybe Text)
-lcfpAcceptLanguage = lens _lcfpAcceptLanguage (\s a -> s {_lcfpAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpAcceptLanguage :: Lens.Lens' ListConstraintsForPortfolio (Lude.Maybe Lude.Text)
+lcfpAcceptLanguage = Lens.lens (acceptLanguage :: ListConstraintsForPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lcfpPageToken :: Lens' ListConstraintsForPortfolio (Maybe Text)
-lcfpPageToken = lens _lcfpPageToken (\s a -> s {_lcfpPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpPageToken :: Lens.Lens' ListConstraintsForPortfolio (Lude.Maybe Lude.Text)
+lcfpPageToken = Lens.lens (pageToken :: ListConstraintsForPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-lcfpPageSize :: Lens' ListConstraintsForPortfolio (Maybe Natural)
-lcfpPageSize = lens _lcfpPageSize (\s a -> s {_lcfpPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpPageSize :: Lens.Lens' ListConstraintsForPortfolio (Lude.Maybe Lude.Natural)
+lcfpPageSize = Lens.lens (pageSize :: ListConstraintsForPortfolio -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The product identifier.
-lcfpProductId :: Lens' ListConstraintsForPortfolio (Maybe Text)
-lcfpProductId = lens _lcfpProductId (\s a -> s {_lcfpProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpProductId :: Lens.Lens' ListConstraintsForPortfolio (Lude.Maybe Lude.Text)
+lcfpProductId = Lens.lens (productId :: ListConstraintsForPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The portfolio identifier.
-lcfpPortfolioId :: Lens' ListConstraintsForPortfolio Text
-lcfpPortfolioId = lens _lcfpPortfolioId (\s a -> s {_lcfpPortfolioId = a})
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpPortfolioId :: Lens.Lens' ListConstraintsForPortfolio Lude.Text
+lcfpPortfolioId = Lens.lens (portfolioId :: ListConstraintsForPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
-instance AWSPager ListConstraintsForPortfolio where
+instance Page.AWSPager ListConstraintsForPortfolio where
   page rq rs
-    | stop (rs ^. lcfprsNextPageToken) = Nothing
-    | stop (rs ^. lcfprsConstraintDetails) = Nothing
-    | otherwise =
-      Just $ rq & lcfpPageToken .~ rs ^. lcfprsNextPageToken
+    | Page.stop (rs Lens.^. lcfprsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcfprsConstraintDetails) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcfpPageToken Lens..~ rs Lens.^. lcfprsNextPageToken
 
-instance AWSRequest ListConstraintsForPortfolio where
+instance Lude.AWSRequest ListConstraintsForPortfolio where
   type
     Rs ListConstraintsForPortfolio =
       ListConstraintsForPortfolioResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListConstraintsForPortfolioResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "ConstraintDetails" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "ConstraintDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListConstraintsForPortfolio
-
-instance NFData ListConstraintsForPortfolio
-
-instance ToHeaders ListConstraintsForPortfolio where
+instance Lude.ToHeaders ListConstraintsForPortfolio where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListConstraintsForPortfolio where
+instance Lude.ToJSON ListConstraintsForPortfolio where
   toJSON ListConstraintsForPortfolio' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _lcfpAcceptLanguage,
-            ("PageToken" .=) <$> _lcfpPageToken,
-            ("PageSize" .=) <$> _lcfpPageSize,
-            ("ProductId" .=) <$> _lcfpProductId,
-            Just ("PortfolioId" .= _lcfpPortfolioId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            ("ProductId" Lude..=) Lude.<$> productId,
+            Lude.Just ("PortfolioId" Lude..= portfolioId)
           ]
       )
 
-instance ToPath ListConstraintsForPortfolio where
-  toPath = const "/"
+instance Lude.ToPath ListConstraintsForPortfolio where
+  toPath = Lude.const "/"
 
-instance ToQuery ListConstraintsForPortfolio where
-  toQuery = const mempty
+instance Lude.ToQuery ListConstraintsForPortfolio where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listConstraintsForPortfolioResponse' smart constructor.
+-- | /See:/ 'mkListConstraintsForPortfolioResponse' smart constructor.
 data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
-  { _lcfprsNextPageToken ::
-      !(Maybe Text),
-    _lcfprsConstraintDetails ::
-      !( Maybe
-           [ConstraintDetail]
-       ),
-    _lcfprsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe
+        Lude.Text,
+    constraintDetails ::
+      Lude.Maybe
+        [ConstraintDetail],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConstraintsForPortfolioResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcfprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'lcfprsConstraintDetails' - Information about the constraints.
---
--- * 'lcfprsResponseStatus' - -- | The response status code.
-listConstraintsForPortfolioResponse ::
-  -- | 'lcfprsResponseStatus'
-  Int ->
+-- * 'constraintDetails' - Information about the constraints.
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'responseStatus' - The response status code.
+mkListConstraintsForPortfolioResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListConstraintsForPortfolioResponse
-listConstraintsForPortfolioResponse pResponseStatus_ =
+mkListConstraintsForPortfolioResponse pResponseStatus_ =
   ListConstraintsForPortfolioResponse'
-    { _lcfprsNextPageToken =
-        Nothing,
-      _lcfprsConstraintDetails = Nothing,
-      _lcfprsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Lude.Nothing,
+      constraintDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lcfprsNextPageToken :: Lens' ListConstraintsForPortfolioResponse (Maybe Text)
-lcfprsNextPageToken = lens _lcfprsNextPageToken (\s a -> s {_lcfprsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfprsNextPageToken :: Lens.Lens' ListConstraintsForPortfolioResponse (Lude.Maybe Lude.Text)
+lcfprsNextPageToken = Lens.lens (nextPageToken :: ListConstraintsForPortfolioResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListConstraintsForPortfolioResponse)
+{-# DEPRECATED lcfprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the constraints.
-lcfprsConstraintDetails :: Lens' ListConstraintsForPortfolioResponse [ConstraintDetail]
-lcfprsConstraintDetails = lens _lcfprsConstraintDetails (\s a -> s {_lcfprsConstraintDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'constraintDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfprsConstraintDetails :: Lens.Lens' ListConstraintsForPortfolioResponse (Lude.Maybe [ConstraintDetail])
+lcfprsConstraintDetails = Lens.lens (constraintDetails :: ListConstraintsForPortfolioResponse -> Lude.Maybe [ConstraintDetail]) (\s a -> s {constraintDetails = a} :: ListConstraintsForPortfolioResponse)
+{-# DEPRECATED lcfprsConstraintDetails "Use generic-lens or generic-optics with 'constraintDetails' instead." #-}
 
--- | -- | The response status code.
-lcfprsResponseStatus :: Lens' ListConstraintsForPortfolioResponse Int
-lcfprsResponseStatus = lens _lcfprsResponseStatus (\s a -> s {_lcfprsResponseStatus = a})
-
-instance NFData ListConstraintsForPortfolioResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfprsResponseStatus :: Lens.Lens' ListConstraintsForPortfolioResponse Lude.Int
+lcfprsResponseStatus = Lens.lens (responseStatus :: ListConstraintsForPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConstraintsForPortfolioResponse)
+{-# DEPRECATED lcfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

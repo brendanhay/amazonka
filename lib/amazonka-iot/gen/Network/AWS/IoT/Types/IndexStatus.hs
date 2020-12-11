@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.IndexStatus where
+module Network.AWS.IoT.Types.IndexStatus
+  ( IndexStatus
+      ( IndexStatus',
+        ISActive,
+        ISBuilding,
+        ISRebuilding
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IndexStatus
-  = ISActive
-  | ISBuilding
-  | ISRebuilding
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IndexStatus = IndexStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IndexStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure ISActive
-      "building" -> pure ISBuilding
-      "rebuilding" -> pure ISRebuilding
-      e ->
-        fromTextError $
-          "Failure parsing IndexStatus from value: '" <> e
-            <> "'. Accepted values: active, building, rebuilding"
+pattern ISActive :: IndexStatus
+pattern ISActive = IndexStatus' "ACTIVE"
 
-instance ToText IndexStatus where
-  toText = \case
-    ISActive -> "ACTIVE"
-    ISBuilding -> "BUILDING"
-    ISRebuilding -> "REBUILDING"
+pattern ISBuilding :: IndexStatus
+pattern ISBuilding = IndexStatus' "BUILDING"
 
-instance Hashable IndexStatus
+pattern ISRebuilding :: IndexStatus
+pattern ISRebuilding = IndexStatus' "REBUILDING"
 
-instance NFData IndexStatus
-
-instance ToByteString IndexStatus
-
-instance ToQuery IndexStatus
-
-instance ToHeader IndexStatus
-
-instance FromJSON IndexStatus where
-  parseJSON = parseJSONText "IndexStatus"
+{-# COMPLETE
+  ISActive,
+  ISBuilding,
+  ISRebuilding,
+  IndexStatus'
+  #-}

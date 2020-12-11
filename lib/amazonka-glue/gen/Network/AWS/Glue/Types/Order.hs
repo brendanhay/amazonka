@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Order where
+module Network.AWS.Glue.Types.Order
+  ( Order (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrder,
+
+    -- * Lenses
+    oColumn,
+    oSortOrder,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the sort order of a sorted column.
 --
---
---
--- /See:/ 'order' smart constructor.
-data Order = Order' {_oColumn :: !Text, _oSortOrder :: !Nat}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkOrder' smart constructor.
+data Order = Order' {column :: Lude.Text, sortOrder :: Lude.Natural}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Order' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oColumn' - The name of the column.
---
--- * 'oSortOrder' - Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
-order ::
-  -- | 'oColumn'
-  Text ->
-  -- | 'oSortOrder'
-  Natural ->
+-- * 'column' - The name of the column.
+-- * 'sortOrder' - Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
+mkOrder ::
+  -- | 'column'
+  Lude.Text ->
+  -- | 'sortOrder'
+  Lude.Natural ->
   Order
-order pColumn_ pSortOrder_ =
-  Order' {_oColumn = pColumn_, _oSortOrder = _Nat # pSortOrder_}
+mkOrder pColumn_ pSortOrder_ =
+  Order' {column = pColumn_, sortOrder = pSortOrder_}
 
 -- | The name of the column.
-oColumn :: Lens' Order Text
-oColumn = lens _oColumn (\s a -> s {_oColumn = a})
+--
+-- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oColumn :: Lens.Lens' Order Lude.Text
+oColumn = Lens.lens (column :: Order -> Lude.Text) (\s a -> s {column = a} :: Order)
+{-# DEPRECATED oColumn "Use generic-lens or generic-optics with 'column' instead." #-}
 
 -- | Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
-oSortOrder :: Lens' Order Natural
-oSortOrder = lens _oSortOrder (\s a -> s {_oSortOrder = a}) . _Nat
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oSortOrder :: Lens.Lens' Order Lude.Natural
+oSortOrder = Lens.lens (sortOrder :: Order -> Lude.Natural) (\s a -> s {sortOrder = a} :: Order)
+{-# DEPRECATED oSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance FromJSON Order where
+instance Lude.FromJSON Order where
   parseJSON =
-    withObject
+    Lude.withObject
       "Order"
-      (\x -> Order' <$> (x .: "Column") <*> (x .: "SortOrder"))
+      ( \x ->
+          Order'
+            Lude.<$> (x Lude..: "Column") Lude.<*> (x Lude..: "SortOrder")
+      )
 
-instance Hashable Order
-
-instance NFData Order
-
-instance ToJSON Order where
+instance Lude.ToJSON Order where
   toJSON Order' {..} =
-    object
-      ( catMaybes
-          [Just ("Column" .= _oColumn), Just ("SortOrder" .= _oSortOrder)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Column" Lude..= column),
+            Lude.Just ("SortOrder" Lude..= sortOrder)
+          ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.AccountScope where
+module Network.AWS.CostExplorer.Types.AccountScope
+  ( AccountScope
+      ( AccountScope',
+        Linked,
+        Payer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccountScope
-  = Linked
-  | Payer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountScope = AccountScope' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountScope where
-  parser =
-    takeLowerText >>= \case
-      "linked" -> pure Linked
-      "payer" -> pure Payer
-      e ->
-        fromTextError $
-          "Failure parsing AccountScope from value: '" <> e
-            <> "'. Accepted values: linked, payer"
+pattern Linked :: AccountScope
+pattern Linked = AccountScope' "LINKED"
 
-instance ToText AccountScope where
-  toText = \case
-    Linked -> "LINKED"
-    Payer -> "PAYER"
+pattern Payer :: AccountScope
+pattern Payer = AccountScope' "PAYER"
 
-instance Hashable AccountScope
-
-instance NFData AccountScope
-
-instance ToByteString AccountScope
-
-instance ToQuery AccountScope
-
-instance ToHeader AccountScope
-
-instance ToJSON AccountScope where
-  toJSON = toJSONText
-
-instance FromJSON AccountScope where
-  parseJSON = parseJSONText "AccountScope"
+{-# COMPLETE
+  Linked,
+  Payer,
+  AccountScope'
+  #-}

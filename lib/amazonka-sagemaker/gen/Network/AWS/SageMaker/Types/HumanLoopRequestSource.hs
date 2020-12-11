@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HumanLoopRequestSource where
+module Network.AWS.SageMaker.Types.HumanLoopRequestSource
+  ( HumanLoopRequestSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHumanLoopRequestSource,
+
+    -- * Lenses
+    hlrsAWSManagedHumanLoopRequestSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AWSManagedHumanLoopRequestSource
 
 -- | Container for configuring the source of human task requests.
 --
---
---
--- /See:/ 'humanLoopRequestSource' smart constructor.
+-- /See:/ 'mkHumanLoopRequestSource' smart constructor.
 newtype HumanLoopRequestSource = HumanLoopRequestSource'
-  { _hlrsAWSManagedHumanLoopRequestSource ::
+  { awsManagedHumanLoopRequestSource ::
       AWSManagedHumanLoopRequestSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopRequestSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hlrsAWSManagedHumanLoopRequestSource' - Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:
-humanLoopRequestSource ::
-  -- | 'hlrsAWSManagedHumanLoopRequestSource'
+-- * 'awsManagedHumanLoopRequestSource' - Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:
+mkHumanLoopRequestSource ::
+  -- | 'awsManagedHumanLoopRequestSource'
   AWSManagedHumanLoopRequestSource ->
   HumanLoopRequestSource
-humanLoopRequestSource pAWSManagedHumanLoopRequestSource_ =
+mkHumanLoopRequestSource pAWSManagedHumanLoopRequestSource_ =
   HumanLoopRequestSource'
-    { _hlrsAWSManagedHumanLoopRequestSource =
+    { awsManagedHumanLoopRequestSource =
         pAWSManagedHumanLoopRequestSource_
     }
 
 -- | Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:
-hlrsAWSManagedHumanLoopRequestSource :: Lens' HumanLoopRequestSource AWSManagedHumanLoopRequestSource
-hlrsAWSManagedHumanLoopRequestSource = lens _hlrsAWSManagedHumanLoopRequestSource (\s a -> s {_hlrsAWSManagedHumanLoopRequestSource = a})
+--
+-- /Note:/ Consider using 'awsManagedHumanLoopRequestSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hlrsAWSManagedHumanLoopRequestSource :: Lens.Lens' HumanLoopRequestSource AWSManagedHumanLoopRequestSource
+hlrsAWSManagedHumanLoopRequestSource = Lens.lens (awsManagedHumanLoopRequestSource :: HumanLoopRequestSource -> AWSManagedHumanLoopRequestSource) (\s a -> s {awsManagedHumanLoopRequestSource = a} :: HumanLoopRequestSource)
+{-# DEPRECATED hlrsAWSManagedHumanLoopRequestSource "Use generic-lens or generic-optics with 'awsManagedHumanLoopRequestSource' instead." #-}
 
-instance FromJSON HumanLoopRequestSource where
+instance Lude.FromJSON HumanLoopRequestSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "HumanLoopRequestSource"
       ( \x ->
           HumanLoopRequestSource'
-            <$> (x .: "AwsManagedHumanLoopRequestSource")
+            Lude.<$> (x Lude..: "AwsManagedHumanLoopRequestSource")
       )
 
-instance Hashable HumanLoopRequestSource
-
-instance NFData HumanLoopRequestSource
-
-instance ToJSON HumanLoopRequestSource where
+instance Lude.ToJSON HumanLoopRequestSource where
   toJSON HumanLoopRequestSource' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "AwsManagedHumanLoopRequestSource"
-                  .= _hlrsAWSManagedHumanLoopRequestSource
+                  Lude..= awsManagedHumanLoopRequestSource
               )
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,131 +7,169 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CodeCoverage where
+module Network.AWS.CodeBuild.Types.CodeCoverage
+  ( CodeCoverage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeCoverage,
+
+    -- * Lenses
+    ccExpired,
+    ccBranchesMissed,
+    ccLinesMissed,
+    ccFilePath,
+    ccBranchesCovered,
+    ccLinesCovered,
+    ccBranchCoveragePercentage,
+    ccId,
+    ccLineCoveragePercentage,
+    ccReportARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains code coverage report information.
 --
---
 -- Line coverage measures how many statements your tests cover. A statement is a single instruction, not including comments, conditionals, etc.
---
 -- Branch coverage determines if your tests cover every possible branch of a control structure, such as an @if@ or @case@ statement.
 --
---
--- /See:/ 'codeCoverage' smart constructor.
+-- /See:/ 'mkCodeCoverage' smart constructor.
 data CodeCoverage = CodeCoverage'
-  { _ccExpired :: !(Maybe POSIX),
-    _ccBranchesMissed :: !(Maybe Nat),
-    _ccLinesMissed :: !(Maybe Nat),
-    _ccFilePath :: !(Maybe Text),
-    _ccBranchesCovered :: !(Maybe Nat),
-    _ccLinesCovered :: !(Maybe Nat),
-    _ccBranchCoveragePercentage :: !(Maybe Double),
-    _ccId :: !(Maybe Text),
-    _ccLineCoveragePercentage :: !(Maybe Double),
-    _ccReportARN :: !(Maybe Text)
+  { expired ::
+      Lude.Maybe Lude.Timestamp,
+    branchesMissed :: Lude.Maybe Lude.Natural,
+    linesMissed :: Lude.Maybe Lude.Natural,
+    filePath :: Lude.Maybe Lude.Text,
+    branchesCovered :: Lude.Maybe Lude.Natural,
+    linesCovered :: Lude.Maybe Lude.Natural,
+    branchCoveragePercentage :: Lude.Maybe Lude.Double,
+    id :: Lude.Maybe Lude.Text,
+    lineCoveragePercentage :: Lude.Maybe Lude.Double,
+    reportARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeCoverage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccExpired' - The date and time that the tests were run.
---
--- * 'ccBranchesMissed' - The number of conditional branches that are not covered by your tests.
---
--- * 'ccLinesMissed' - The number of lines that are not covered by your tests.
---
--- * 'ccFilePath' - The path of the test report file.
---
--- * 'ccBranchesCovered' - The number of conditional branches that are covered by your tests.
---
--- * 'ccLinesCovered' - The number of lines that are covered by your tests.
---
--- * 'ccBranchCoveragePercentage' - The percentage of branches that are covered by your tests.
---
--- * 'ccId' - The identifier of the code coverage report.
---
--- * 'ccLineCoveragePercentage' - The percentage of lines that are covered by your tests.
---
--- * 'ccReportARN' - The ARN of the report.
-codeCoverage ::
+-- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
+-- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
+-- * 'branchesMissed' - The number of conditional branches that are not covered by your tests.
+-- * 'expired' - The date and time that the tests were run.
+-- * 'filePath' - The path of the test report file.
+-- * 'id' - The identifier of the code coverage report.
+-- * 'lineCoveragePercentage' - The percentage of lines that are covered by your tests.
+-- * 'linesCovered' - The number of lines that are covered by your tests.
+-- * 'linesMissed' - The number of lines that are not covered by your tests.
+-- * 'reportARN' - The ARN of the report.
+mkCodeCoverage ::
   CodeCoverage
-codeCoverage =
+mkCodeCoverage =
   CodeCoverage'
-    { _ccExpired = Nothing,
-      _ccBranchesMissed = Nothing,
-      _ccLinesMissed = Nothing,
-      _ccFilePath = Nothing,
-      _ccBranchesCovered = Nothing,
-      _ccLinesCovered = Nothing,
-      _ccBranchCoveragePercentage = Nothing,
-      _ccId = Nothing,
-      _ccLineCoveragePercentage = Nothing,
-      _ccReportARN = Nothing
+    { expired = Lude.Nothing,
+      branchesMissed = Lude.Nothing,
+      linesMissed = Lude.Nothing,
+      filePath = Lude.Nothing,
+      branchesCovered = Lude.Nothing,
+      linesCovered = Lude.Nothing,
+      branchCoveragePercentage = Lude.Nothing,
+      id = Lude.Nothing,
+      lineCoveragePercentage = Lude.Nothing,
+      reportARN = Lude.Nothing
     }
 
 -- | The date and time that the tests were run.
-ccExpired :: Lens' CodeCoverage (Maybe UTCTime)
-ccExpired = lens _ccExpired (\s a -> s {_ccExpired = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccExpired :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Timestamp)
+ccExpired = Lens.lens (expired :: CodeCoverage -> Lude.Maybe Lude.Timestamp) (\s a -> s {expired = a} :: CodeCoverage)
+{-# DEPRECATED ccExpired "Use generic-lens or generic-optics with 'expired' instead." #-}
 
 -- | The number of conditional branches that are not covered by your tests.
-ccBranchesMissed :: Lens' CodeCoverage (Maybe Natural)
-ccBranchesMissed = lens _ccBranchesMissed (\s a -> s {_ccBranchesMissed = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'branchesMissed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBranchesMissed :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Natural)
+ccBranchesMissed = Lens.lens (branchesMissed :: CodeCoverage -> Lude.Maybe Lude.Natural) (\s a -> s {branchesMissed = a} :: CodeCoverage)
+{-# DEPRECATED ccBranchesMissed "Use generic-lens or generic-optics with 'branchesMissed' instead." #-}
 
 -- | The number of lines that are not covered by your tests.
-ccLinesMissed :: Lens' CodeCoverage (Maybe Natural)
-ccLinesMissed = lens _ccLinesMissed (\s a -> s {_ccLinesMissed = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'linesMissed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLinesMissed :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Natural)
+ccLinesMissed = Lens.lens (linesMissed :: CodeCoverage -> Lude.Maybe Lude.Natural) (\s a -> s {linesMissed = a} :: CodeCoverage)
+{-# DEPRECATED ccLinesMissed "Use generic-lens or generic-optics with 'linesMissed' instead." #-}
 
 -- | The path of the test report file.
-ccFilePath :: Lens' CodeCoverage (Maybe Text)
-ccFilePath = lens _ccFilePath (\s a -> s {_ccFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccFilePath :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Text)
+ccFilePath = Lens.lens (filePath :: CodeCoverage -> Lude.Maybe Lude.Text) (\s a -> s {filePath = a} :: CodeCoverage)
+{-# DEPRECATED ccFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | The number of conditional branches that are covered by your tests.
-ccBranchesCovered :: Lens' CodeCoverage (Maybe Natural)
-ccBranchesCovered = lens _ccBranchesCovered (\s a -> s {_ccBranchesCovered = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'branchesCovered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBranchesCovered :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Natural)
+ccBranchesCovered = Lens.lens (branchesCovered :: CodeCoverage -> Lude.Maybe Lude.Natural) (\s a -> s {branchesCovered = a} :: CodeCoverage)
+{-# DEPRECATED ccBranchesCovered "Use generic-lens or generic-optics with 'branchesCovered' instead." #-}
 
 -- | The number of lines that are covered by your tests.
-ccLinesCovered :: Lens' CodeCoverage (Maybe Natural)
-ccLinesCovered = lens _ccLinesCovered (\s a -> s {_ccLinesCovered = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'linesCovered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLinesCovered :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Natural)
+ccLinesCovered = Lens.lens (linesCovered :: CodeCoverage -> Lude.Maybe Lude.Natural) (\s a -> s {linesCovered = a} :: CodeCoverage)
+{-# DEPRECATED ccLinesCovered "Use generic-lens or generic-optics with 'linesCovered' instead." #-}
 
 -- | The percentage of branches that are covered by your tests.
-ccBranchCoveragePercentage :: Lens' CodeCoverage (Maybe Double)
-ccBranchCoveragePercentage = lens _ccBranchCoveragePercentage (\s a -> s {_ccBranchCoveragePercentage = a})
+--
+-- /Note:/ Consider using 'branchCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBranchCoveragePercentage :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Double)
+ccBranchCoveragePercentage = Lens.lens (branchCoveragePercentage :: CodeCoverage -> Lude.Maybe Lude.Double) (\s a -> s {branchCoveragePercentage = a} :: CodeCoverage)
+{-# DEPRECATED ccBranchCoveragePercentage "Use generic-lens or generic-optics with 'branchCoveragePercentage' instead." #-}
 
 -- | The identifier of the code coverage report.
-ccId :: Lens' CodeCoverage (Maybe Text)
-ccId = lens _ccId (\s a -> s {_ccId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccId :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Text)
+ccId = Lens.lens (id :: CodeCoverage -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CodeCoverage)
+{-# DEPRECATED ccId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The percentage of lines that are covered by your tests.
-ccLineCoveragePercentage :: Lens' CodeCoverage (Maybe Double)
-ccLineCoveragePercentage = lens _ccLineCoveragePercentage (\s a -> s {_ccLineCoveragePercentage = a})
+--
+-- /Note:/ Consider using 'lineCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLineCoveragePercentage :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Double)
+ccLineCoveragePercentage = Lens.lens (lineCoveragePercentage :: CodeCoverage -> Lude.Maybe Lude.Double) (\s a -> s {lineCoveragePercentage = a} :: CodeCoverage)
+{-# DEPRECATED ccLineCoveragePercentage "Use generic-lens or generic-optics with 'lineCoveragePercentage' instead." #-}
 
 -- | The ARN of the report.
-ccReportARN :: Lens' CodeCoverage (Maybe Text)
-ccReportARN = lens _ccReportARN (\s a -> s {_ccReportARN = a})
+--
+-- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccReportARN :: Lens.Lens' CodeCoverage (Lude.Maybe Lude.Text)
+ccReportARN = Lens.lens (reportARN :: CodeCoverage -> Lude.Maybe Lude.Text) (\s a -> s {reportARN = a} :: CodeCoverage)
+{-# DEPRECATED ccReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
 
-instance FromJSON CodeCoverage where
+instance Lude.FromJSON CodeCoverage where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeCoverage"
       ( \x ->
           CodeCoverage'
-            <$> (x .:? "expired")
-            <*> (x .:? "branchesMissed")
-            <*> (x .:? "linesMissed")
-            <*> (x .:? "filePath")
-            <*> (x .:? "branchesCovered")
-            <*> (x .:? "linesCovered")
-            <*> (x .:? "branchCoveragePercentage")
-            <*> (x .:? "id")
-            <*> (x .:? "lineCoveragePercentage")
-            <*> (x .:? "reportARN")
+            Lude.<$> (x Lude..:? "expired")
+            Lude.<*> (x Lude..:? "branchesMissed")
+            Lude.<*> (x Lude..:? "linesMissed")
+            Lude.<*> (x Lude..:? "filePath")
+            Lude.<*> (x Lude..:? "branchesCovered")
+            Lude.<*> (x Lude..:? "linesCovered")
+            Lude.<*> (x Lude..:? "branchCoveragePercentage")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "lineCoveragePercentage")
+            Lude.<*> (x Lude..:? "reportARN")
       )
-
-instance Hashable CodeCoverage
-
-instance NFData CodeCoverage

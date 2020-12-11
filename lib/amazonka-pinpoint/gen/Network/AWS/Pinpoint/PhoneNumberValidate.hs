@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,141 @@
 --
 -- Retrieves information about a phone number.
 module Network.AWS.Pinpoint.PhoneNumberValidate
-  ( -- * Creating a Request
-    phoneNumberValidate,
-    PhoneNumberValidate,
+  ( -- * Creating a request
+    PhoneNumberValidate (..),
+    mkPhoneNumberValidate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pnvNumberValidateRequest,
 
-    -- * Destructuring the Response
-    phoneNumberValidateResponse,
-    PhoneNumberValidateResponse,
+    -- * Destructuring the response
+    PhoneNumberValidateResponse (..),
+    mkPhoneNumberValidateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pnvrsResponseStatus,
     pnvrsNumberValidateResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'phoneNumberValidate' smart constructor.
+-- | /See:/ 'mkPhoneNumberValidate' smart constructor.
 newtype PhoneNumberValidate = PhoneNumberValidate'
-  { _pnvNumberValidateRequest ::
+  { numberValidateRequest ::
       NumberValidateRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumberValidate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pnvNumberValidateRequest' - Undocumented member.
-phoneNumberValidate ::
-  -- | 'pnvNumberValidateRequest'
+-- * 'numberValidateRequest' - Undocumented field.
+mkPhoneNumberValidate ::
+  -- | 'numberValidateRequest'
   NumberValidateRequest ->
   PhoneNumberValidate
-phoneNumberValidate pNumberValidateRequest_ =
+mkPhoneNumberValidate pNumberValidateRequest_ =
   PhoneNumberValidate'
-    { _pnvNumberValidateRequest =
+    { numberValidateRequest =
         pNumberValidateRequest_
     }
 
--- | Undocumented member.
-pnvNumberValidateRequest :: Lens' PhoneNumberValidate NumberValidateRequest
-pnvNumberValidateRequest = lens _pnvNumberValidateRequest (\s a -> s {_pnvNumberValidateRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'numberValidateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvNumberValidateRequest :: Lens.Lens' PhoneNumberValidate NumberValidateRequest
+pnvNumberValidateRequest = Lens.lens (numberValidateRequest :: PhoneNumberValidate -> NumberValidateRequest) (\s a -> s {numberValidateRequest = a} :: PhoneNumberValidate)
+{-# DEPRECATED pnvNumberValidateRequest "Use generic-lens or generic-optics with 'numberValidateRequest' instead." #-}
 
-instance AWSRequest PhoneNumberValidate where
+instance Lude.AWSRequest PhoneNumberValidate where
   type Rs PhoneNumberValidate = PhoneNumberValidateResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PhoneNumberValidateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable PhoneNumberValidate
-
-instance NFData PhoneNumberValidate
-
-instance ToHeaders PhoneNumberValidate where
+instance Lude.ToHeaders PhoneNumberValidate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON PhoneNumberValidate where
+instance Lude.ToJSON PhoneNumberValidate where
   toJSON PhoneNumberValidate' {..} =
-    object
-      ( catMaybes
-          [Just ("NumberValidateRequest" .= _pnvNumberValidateRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("NumberValidateRequest" Lude..= numberValidateRequest)
+          ]
       )
 
-instance ToPath PhoneNumberValidate where
-  toPath = const "/v1/phone/number/validate"
+instance Lude.ToPath PhoneNumberValidate where
+  toPath = Lude.const "/v1/phone/number/validate"
 
-instance ToQuery PhoneNumberValidate where
-  toQuery = const mempty
+instance Lude.ToQuery PhoneNumberValidate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'phoneNumberValidateResponse' smart constructor.
+-- | /See:/ 'mkPhoneNumberValidateResponse' smart constructor.
 data PhoneNumberValidateResponse = PhoneNumberValidateResponse'
-  { _pnvrsResponseStatus ::
-      !Int,
-    _pnvrsNumberValidateResponse ::
-      !NumberValidateResponse
+  { responseStatus ::
+      Lude.Int,
+    numberValidateResponse ::
+      NumberValidateResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumberValidateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pnvrsResponseStatus' - -- | The response status code.
---
--- * 'pnvrsNumberValidateResponse' - Undocumented member.
-phoneNumberValidateResponse ::
-  -- | 'pnvrsResponseStatus'
-  Int ->
-  -- | 'pnvrsNumberValidateResponse'
+-- * 'numberValidateResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkPhoneNumberValidateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'numberValidateResponse'
   NumberValidateResponse ->
   PhoneNumberValidateResponse
-phoneNumberValidateResponse
+mkPhoneNumberValidateResponse
   pResponseStatus_
   pNumberValidateResponse_ =
     PhoneNumberValidateResponse'
-      { _pnvrsResponseStatus =
-          pResponseStatus_,
-        _pnvrsNumberValidateResponse = pNumberValidateResponse_
+      { responseStatus = pResponseStatus_,
+        numberValidateResponse = pNumberValidateResponse_
       }
 
--- | -- | The response status code.
-pnvrsResponseStatus :: Lens' PhoneNumberValidateResponse Int
-pnvrsResponseStatus = lens _pnvrsResponseStatus (\s a -> s {_pnvrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvrsResponseStatus :: Lens.Lens' PhoneNumberValidateResponse Lude.Int
+pnvrsResponseStatus = Lens.lens (responseStatus :: PhoneNumberValidateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PhoneNumberValidateResponse)
+{-# DEPRECATED pnvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-pnvrsNumberValidateResponse :: Lens' PhoneNumberValidateResponse NumberValidateResponse
-pnvrsNumberValidateResponse = lens _pnvrsNumberValidateResponse (\s a -> s {_pnvrsNumberValidateResponse = a})
-
-instance NFData PhoneNumberValidateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'numberValidateResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvrsNumberValidateResponse :: Lens.Lens' PhoneNumberValidateResponse NumberValidateResponse
+pnvrsNumberValidateResponse = Lens.lens (numberValidateResponse :: PhoneNumberValidateResponse -> NumberValidateResponse) (\s a -> s {numberValidateResponse = a} :: PhoneNumberValidateResponse)
+{-# DEPRECATED pnvrsNumberValidateResponse "Use generic-lens or generic-optics with 'numberValidateResponse' instead." #-}

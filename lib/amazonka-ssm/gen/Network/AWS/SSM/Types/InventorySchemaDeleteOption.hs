@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventorySchemaDeleteOption where
+module Network.AWS.SSM.Types.InventorySchemaDeleteOption
+  ( InventorySchemaDeleteOption
+      ( InventorySchemaDeleteOption',
+        DeleteSchema,
+        DisableSchema
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InventorySchemaDeleteOption
-  = DeleteSchema
-  | DisableSchema
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InventorySchemaDeleteOption = InventorySchemaDeleteOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InventorySchemaDeleteOption where
-  parser =
-    takeLowerText >>= \case
-      "deleteschema" -> pure DeleteSchema
-      "disableschema" -> pure DisableSchema
-      e ->
-        fromTextError $
-          "Failure parsing InventorySchemaDeleteOption from value: '" <> e
-            <> "'. Accepted values: deleteschema, disableschema"
+pattern DeleteSchema :: InventorySchemaDeleteOption
+pattern DeleteSchema = InventorySchemaDeleteOption' "DeleteSchema"
 
-instance ToText InventorySchemaDeleteOption where
-  toText = \case
-    DeleteSchema -> "DeleteSchema"
-    DisableSchema -> "DisableSchema"
+pattern DisableSchema :: InventorySchemaDeleteOption
+pattern DisableSchema = InventorySchemaDeleteOption' "DisableSchema"
 
-instance Hashable InventorySchemaDeleteOption
-
-instance NFData InventorySchemaDeleteOption
-
-instance ToByteString InventorySchemaDeleteOption
-
-instance ToQuery InventorySchemaDeleteOption
-
-instance ToHeader InventorySchemaDeleteOption
-
-instance ToJSON InventorySchemaDeleteOption where
-  toJSON = toJSONText
+{-# COMPLETE
+  DeleteSchema,
+  DisableSchema,
+  InventorySchemaDeleteOption'
+  #-}

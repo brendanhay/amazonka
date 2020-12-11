@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.WafActionType where
+module Network.AWS.WAF.Types.WafActionType
+  ( WafActionType
+      ( WafActionType',
+        Allow,
+        Block,
+        Count
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WafActionType
-  = Allow
-  | Block
-  | Count
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WafActionType = WafActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WafActionType where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "block" -> pure Block
-      "count" -> pure Count
-      e ->
-        fromTextError $
-          "Failure parsing WafActionType from value: '" <> e
-            <> "'. Accepted values: allow, block, count"
+pattern Allow :: WafActionType
+pattern Allow = WafActionType' "ALLOW"
 
-instance ToText WafActionType where
-  toText = \case
-    Allow -> "ALLOW"
-    Block -> "BLOCK"
-    Count -> "COUNT"
+pattern Block :: WafActionType
+pattern Block = WafActionType' "BLOCK"
 
-instance Hashable WafActionType
+pattern Count :: WafActionType
+pattern Count = WafActionType' "COUNT"
 
-instance NFData WafActionType
-
-instance ToByteString WafActionType
-
-instance ToQuery WafActionType
-
-instance ToHeader WafActionType
-
-instance ToJSON WafActionType where
-  toJSON = toJSONText
-
-instance FromJSON WafActionType where
-  parseJSON = parseJSONText "WafActionType"
+{-# COMPLETE
+  Allow,
+  Block,
+  Count,
+  WafActionType'
+  #-}

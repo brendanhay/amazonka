@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,142 @@
 --
 -- Disassociates a skill from a skill group.
 module Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
-  ( -- * Creating a Request
-    disassociateSkillFromSkillGroup,
-    DisassociateSkillFromSkillGroup,
+  ( -- * Creating a request
+    DisassociateSkillFromSkillGroup (..),
+    mkDisassociateSkillFromSkillGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsfsgSkillGroupARN,
     dsfsgSkillId,
 
-    -- * Destructuring the Response
-    disassociateSkillFromSkillGroupResponse,
-    DisassociateSkillFromSkillGroupResponse,
+    -- * Destructuring the response
+    DisassociateSkillFromSkillGroupResponse (..),
+    mkDisassociateSkillFromSkillGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsfsgrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateSkillFromSkillGroup' smart constructor.
+-- | /See:/ 'mkDisassociateSkillFromSkillGroup' smart constructor.
 data DisassociateSkillFromSkillGroup = DisassociateSkillFromSkillGroup'
-  { _dsfsgSkillGroupARN ::
-      !(Maybe Text),
-    _dsfsgSkillId :: !Text
+  { skillGroupARN ::
+      Lude.Maybe Lude.Text,
+    skillId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateSkillFromSkillGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsfsgSkillGroupARN' - The unique identifier of a skill. Required.
---
--- * 'dsfsgSkillId' - The ARN of a skill group to associate to a skill.
-disassociateSkillFromSkillGroup ::
-  -- | 'dsfsgSkillId'
-  Text ->
+-- * 'skillGroupARN' - The unique identifier of a skill. Required.
+-- * 'skillId' - The ARN of a skill group to associate to a skill.
+mkDisassociateSkillFromSkillGroup ::
+  -- | 'skillId'
+  Lude.Text ->
   DisassociateSkillFromSkillGroup
-disassociateSkillFromSkillGroup pSkillId_ =
+mkDisassociateSkillFromSkillGroup pSkillId_ =
   DisassociateSkillFromSkillGroup'
-    { _dsfsgSkillGroupARN = Nothing,
-      _dsfsgSkillId = pSkillId_
+    { skillGroupARN = Lude.Nothing,
+      skillId = pSkillId_
     }
 
 -- | The unique identifier of a skill. Required.
-dsfsgSkillGroupARN :: Lens' DisassociateSkillFromSkillGroup (Maybe Text)
-dsfsgSkillGroupARN = lens _dsfsgSkillGroupARN (\s a -> s {_dsfsgSkillGroupARN = a})
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfsgSkillGroupARN :: Lens.Lens' DisassociateSkillFromSkillGroup (Lude.Maybe Lude.Text)
+dsfsgSkillGroupARN = Lens.lens (skillGroupARN :: DisassociateSkillFromSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DisassociateSkillFromSkillGroup)
+{-# DEPRECATED dsfsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The ARN of a skill group to associate to a skill.
-dsfsgSkillId :: Lens' DisassociateSkillFromSkillGroup Text
-dsfsgSkillId = lens _dsfsgSkillId (\s a -> s {_dsfsgSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfsgSkillId :: Lens.Lens' DisassociateSkillFromSkillGroup Lude.Text
+dsfsgSkillId = Lens.lens (skillId :: DisassociateSkillFromSkillGroup -> Lude.Text) (\s a -> s {skillId = a} :: DisassociateSkillFromSkillGroup)
+{-# DEPRECATED dsfsgSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest DisassociateSkillFromSkillGroup where
+instance Lude.AWSRequest DisassociateSkillFromSkillGroup where
   type
     Rs DisassociateSkillFromSkillGroup =
       DisassociateSkillFromSkillGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateSkillFromSkillGroupResponse' <$> (pure (fromEnum s))
+          DisassociateSkillFromSkillGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateSkillFromSkillGroup
-
-instance NFData DisassociateSkillFromSkillGroup
-
-instance ToHeaders DisassociateSkillFromSkillGroup where
+instance Lude.ToHeaders DisassociateSkillFromSkillGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DisassociateSkillFromSkillGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.DisassociateSkillFromSkillGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateSkillFromSkillGroup where
+instance Lude.ToJSON DisassociateSkillFromSkillGroup where
   toJSON DisassociateSkillFromSkillGroup' {..} =
-    object
-      ( catMaybes
-          [ ("SkillGroupArn" .=) <$> _dsfsgSkillGroupARN,
-            Just ("SkillId" .= _dsfsgSkillId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
+            Lude.Just ("SkillId" Lude..= skillId)
           ]
       )
 
-instance ToPath DisassociateSkillFromSkillGroup where
-  toPath = const "/"
+instance Lude.ToPath DisassociateSkillFromSkillGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateSkillFromSkillGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateSkillFromSkillGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateSkillFromSkillGroupResponse' smart constructor.
+-- | /See:/ 'mkDisassociateSkillFromSkillGroupResponse' smart constructor.
 newtype DisassociateSkillFromSkillGroupResponse = DisassociateSkillFromSkillGroupResponse'
-  { _dsfsgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateSkillFromSkillGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsfsgrsResponseStatus' - -- | The response status code.
-disassociateSkillFromSkillGroupResponse ::
-  -- | 'dsfsgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateSkillFromSkillGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateSkillFromSkillGroupResponse
-disassociateSkillFromSkillGroupResponse pResponseStatus_ =
+mkDisassociateSkillFromSkillGroupResponse pResponseStatus_ =
   DisassociateSkillFromSkillGroupResponse'
-    { _dsfsgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dsfsgrsResponseStatus :: Lens' DisassociateSkillFromSkillGroupResponse Int
-dsfsgrsResponseStatus = lens _dsfsgrsResponseStatus (\s a -> s {_dsfsgrsResponseStatus = a})
-
-instance NFData DisassociateSkillFromSkillGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfsgrsResponseStatus :: Lens.Lens' DisassociateSkillFromSkillGroupResponse Lude.Int
+dsfsgrsResponseStatus = Lens.lens (responseStatus :: DisassociateSkillFromSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateSkillFromSkillGroupResponse)
+{-# DEPRECATED dsfsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

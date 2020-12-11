@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary where
+module Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
+  ( ProgressUpdateStreamSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProgressUpdateStreamSummary,
+
+    -- * Lenses
+    pussProgressUpdateStreamName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary of the AWS resource used for access control that is implicitly linked to your AWS account.
 --
---
---
--- /See:/ 'progressUpdateStreamSummary' smart constructor.
+-- /See:/ 'mkProgressUpdateStreamSummary' smart constructor.
 newtype ProgressUpdateStreamSummary = ProgressUpdateStreamSummary'
-  { _pussProgressUpdateStreamName ::
-      Maybe Text
+  { progressUpdateStreamName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProgressUpdateStreamSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pussProgressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
-progressUpdateStreamSummary ::
+-- * 'progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
+mkProgressUpdateStreamSummary ::
   ProgressUpdateStreamSummary
-progressUpdateStreamSummary =
+mkProgressUpdateStreamSummary =
   ProgressUpdateStreamSummary'
-    { _pussProgressUpdateStreamName =
-        Nothing
+    { progressUpdateStreamName =
+        Lude.Nothing
     }
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
-pussProgressUpdateStreamName :: Lens' ProgressUpdateStreamSummary (Maybe Text)
-pussProgressUpdateStreamName = lens _pussProgressUpdateStreamName (\s a -> s {_pussProgressUpdateStreamName = a})
+--
+-- /Note:/ Consider using 'progressUpdateStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pussProgressUpdateStreamName :: Lens.Lens' ProgressUpdateStreamSummary (Lude.Maybe Lude.Text)
+pussProgressUpdateStreamName = Lens.lens (progressUpdateStreamName :: ProgressUpdateStreamSummary -> Lude.Maybe Lude.Text) (\s a -> s {progressUpdateStreamName = a} :: ProgressUpdateStreamSummary)
+{-# DEPRECATED pussProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
 
-instance FromJSON ProgressUpdateStreamSummary where
+instance Lude.FromJSON ProgressUpdateStreamSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProgressUpdateStreamSummary"
       ( \x ->
           ProgressUpdateStreamSummary'
-            <$> (x .:? "ProgressUpdateStreamName")
+            Lude.<$> (x Lude..:? "ProgressUpdateStreamName")
       )
-
-instance Hashable ProgressUpdateStreamSummary
-
-instance NFData ProgressUpdateStreamSummary

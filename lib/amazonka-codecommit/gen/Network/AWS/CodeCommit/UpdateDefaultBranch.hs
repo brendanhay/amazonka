@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,116 @@
 --
 -- Sets or changes the default branch name for the specified repository.
 module Network.AWS.CodeCommit.UpdateDefaultBranch
-  ( -- * Creating a Request
-    updateDefaultBranch,
-    UpdateDefaultBranch,
+  ( -- * Creating a request
+    UpdateDefaultBranch (..),
+    mkUpdateDefaultBranch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udbRepositoryName,
     udbDefaultBranchName,
 
-    -- * Destructuring the Response
-    updateDefaultBranchResponse,
-    UpdateDefaultBranchResponse,
+    -- * Destructuring the response
+    UpdateDefaultBranchResponse (..),
+    mkUpdateDefaultBranchResponse,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of an update default branch operation.
 --
---
---
--- /See:/ 'updateDefaultBranch' smart constructor.
+-- /See:/ 'mkUpdateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
-  { _udbRepositoryName ::
-      !Text,
-    _udbDefaultBranchName :: !Text
+  { repositoryName ::
+      Lude.Text,
+    defaultBranchName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDefaultBranch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udbRepositoryName' - The name of the repository to set or change the default branch for.
---
--- * 'udbDefaultBranchName' - The name of the branch to set as the default.
-updateDefaultBranch ::
-  -- | 'udbRepositoryName'
-  Text ->
-  -- | 'udbDefaultBranchName'
-  Text ->
+-- * 'defaultBranchName' - The name of the branch to set as the default.
+-- * 'repositoryName' - The name of the repository to set or change the default branch for.
+mkUpdateDefaultBranch ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'defaultBranchName'
+  Lude.Text ->
   UpdateDefaultBranch
-updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
+mkUpdateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
   UpdateDefaultBranch'
-    { _udbRepositoryName = pRepositoryName_,
-      _udbDefaultBranchName = pDefaultBranchName_
+    { repositoryName = pRepositoryName_,
+      defaultBranchName = pDefaultBranchName_
     }
 
 -- | The name of the repository to set or change the default branch for.
-udbRepositoryName :: Lens' UpdateDefaultBranch Text
-udbRepositoryName = lens _udbRepositoryName (\s a -> s {_udbRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udbRepositoryName :: Lens.Lens' UpdateDefaultBranch Lude.Text
+udbRepositoryName = Lens.lens (repositoryName :: UpdateDefaultBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: UpdateDefaultBranch)
+{-# DEPRECATED udbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The name of the branch to set as the default.
-udbDefaultBranchName :: Lens' UpdateDefaultBranch Text
-udbDefaultBranchName = lens _udbDefaultBranchName (\s a -> s {_udbDefaultBranchName = a})
+--
+-- /Note:/ Consider using 'defaultBranchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udbDefaultBranchName :: Lens.Lens' UpdateDefaultBranch Lude.Text
+udbDefaultBranchName = Lens.lens (defaultBranchName :: UpdateDefaultBranch -> Lude.Text) (\s a -> s {defaultBranchName = a} :: UpdateDefaultBranch)
+{-# DEPRECATED udbDefaultBranchName "Use generic-lens or generic-optics with 'defaultBranchName' instead." #-}
 
-instance AWSRequest UpdateDefaultBranch where
+instance Lude.AWSRequest UpdateDefaultBranch where
   type Rs UpdateDefaultBranch = UpdateDefaultBranchResponse
-  request = postJSON codeCommit
-  response = receiveNull UpdateDefaultBranchResponse'
+  request = Req.postJSON codeCommitService
+  response = Res.receiveNull UpdateDefaultBranchResponse'
 
-instance Hashable UpdateDefaultBranch
-
-instance NFData UpdateDefaultBranch
-
-instance ToHeaders UpdateDefaultBranch where
+instance Lude.ToHeaders UpdateDefaultBranch where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.UpdateDefaultBranch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.UpdateDefaultBranch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDefaultBranch where
+instance Lude.ToJSON UpdateDefaultBranch where
   toJSON UpdateDefaultBranch' {..} =
-    object
-      ( catMaybes
-          [ Just ("repositoryName" .= _udbRepositoryName),
-            Just ("defaultBranchName" .= _udbDefaultBranchName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("defaultBranchName" Lude..= defaultBranchName)
           ]
       )
 
-instance ToPath UpdateDefaultBranch where
-  toPath = const "/"
+instance Lude.ToPath UpdateDefaultBranch where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDefaultBranch where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDefaultBranch where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDefaultBranchResponse' smart constructor.
+-- | /See:/ 'mkUpdateDefaultBranchResponse' smart constructor.
 data UpdateDefaultBranchResponse = UpdateDefaultBranchResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDefaultBranchResponse' with the minimum fields required to make a request.
-updateDefaultBranchResponse ::
+mkUpdateDefaultBranchResponse ::
   UpdateDefaultBranchResponse
-updateDefaultBranchResponse = UpdateDefaultBranchResponse'
-
-instance NFData UpdateDefaultBranchResponse
+mkUpdateDefaultBranchResponse = UpdateDefaultBranchResponse'

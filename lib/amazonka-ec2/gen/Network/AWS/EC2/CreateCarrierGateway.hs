@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,164 @@
 --
 -- Creates a carrier gateway. For more information about carrier gateways, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway Carrier gateways> in the /AWS Wavelength Developer Guide/ .
 module Network.AWS.EC2.CreateCarrierGateway
-  ( -- * Creating a Request
-    createCarrierGateway,
-    CreateCarrierGateway,
+  ( -- * Creating a request
+    CreateCarrierGateway (..),
+    mkCreateCarrierGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccgcClientToken,
     ccgcTagSpecifications,
     ccgcDryRun,
     ccgcVPCId,
 
-    -- * Destructuring the Response
-    createCarrierGatewayResponse,
-    CreateCarrierGatewayResponse,
+    -- * Destructuring the response
+    CreateCarrierGatewayResponse (..),
+    mkCreateCarrierGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccgcrsCarrierGateway,
     ccgcrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createCarrierGateway' smart constructor.
+-- | /See:/ 'mkCreateCarrierGateway' smart constructor.
 data CreateCarrierGateway = CreateCarrierGateway'
-  { _ccgcClientToken ::
-      !(Maybe Text),
-    _ccgcTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _ccgcDryRun :: !(Maybe Bool),
-    _ccgcVPCId :: !Text
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe [TagSpecification],
+    dryRun :: Lude.Maybe Lude.Bool,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCarrierGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccgcClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'ccgcTagSpecifications' - The tags to associate with the carrier gateway.
---
--- * 'ccgcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'ccgcVPCId' - The ID of the VPC to associate with the carrier gateway.
-createCarrierGateway ::
-  -- | 'ccgcVPCId'
-  Text ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'tagSpecifications' - The tags to associate with the carrier gateway.
+-- * 'vpcId' - The ID of the VPC to associate with the carrier gateway.
+mkCreateCarrierGateway ::
+  -- | 'vpcId'
+  Lude.Text ->
   CreateCarrierGateway
-createCarrierGateway pVPCId_ =
+mkCreateCarrierGateway pVPCId_ =
   CreateCarrierGateway'
-    { _ccgcClientToken = Nothing,
-      _ccgcTagSpecifications = Nothing,
-      _ccgcDryRun = Nothing,
-      _ccgcVPCId = pVPCId_
+    { clientToken = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      vpcId = pVPCId_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-ccgcClientToken :: Lens' CreateCarrierGateway (Maybe Text)
-ccgcClientToken = lens _ccgcClientToken (\s a -> s {_ccgcClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcClientToken :: Lens.Lens' CreateCarrierGateway (Lude.Maybe Lude.Text)
+ccgcClientToken = Lens.lens (clientToken :: CreateCarrierGateway -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateCarrierGateway)
+{-# DEPRECATED ccgcClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The tags to associate with the carrier gateway.
-ccgcTagSpecifications :: Lens' CreateCarrierGateway [TagSpecification]
-ccgcTagSpecifications = lens _ccgcTagSpecifications (\s a -> s {_ccgcTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcTagSpecifications :: Lens.Lens' CreateCarrierGateway (Lude.Maybe [TagSpecification])
+ccgcTagSpecifications = Lens.lens (tagSpecifications :: CreateCarrierGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateCarrierGateway)
+{-# DEPRECATED ccgcTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-ccgcDryRun :: Lens' CreateCarrierGateway (Maybe Bool)
-ccgcDryRun = lens _ccgcDryRun (\s a -> s {_ccgcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcDryRun :: Lens.Lens' CreateCarrierGateway (Lude.Maybe Lude.Bool)
+ccgcDryRun = Lens.lens (dryRun :: CreateCarrierGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateCarrierGateway)
+{-# DEPRECATED ccgcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC to associate with the carrier gateway.
-ccgcVPCId :: Lens' CreateCarrierGateway Text
-ccgcVPCId = lens _ccgcVPCId (\s a -> s {_ccgcVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcVPCId :: Lens.Lens' CreateCarrierGateway Lude.Text
+ccgcVPCId = Lens.lens (vpcId :: CreateCarrierGateway -> Lude.Text) (\s a -> s {vpcId = a} :: CreateCarrierGateway)
+{-# DEPRECATED ccgcVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest CreateCarrierGateway where
+instance Lude.AWSRequest CreateCarrierGateway where
   type Rs CreateCarrierGateway = CreateCarrierGatewayResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateCarrierGatewayResponse'
-            <$> (x .@? "carrierGateway") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "carrierGateway")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateCarrierGateway
+instance Lude.ToHeaders CreateCarrierGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateCarrierGateway
+instance Lude.ToPath CreateCarrierGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateCarrierGateway where
-  toHeaders = const mempty
-
-instance ToPath CreateCarrierGateway where
-  toPath = const "/"
-
-instance ToQuery CreateCarrierGateway where
+instance Lude.ToQuery CreateCarrierGateway where
   toQuery CreateCarrierGateway' {..} =
-    mconcat
-      [ "Action" =: ("CreateCarrierGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _ccgcClientToken,
-        toQuery
-          (toQueryList "TagSpecification" <$> _ccgcTagSpecifications),
-        "DryRun" =: _ccgcDryRun,
-        "VpcId" =: _ccgcVPCId
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateCarrierGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "DryRun" Lude.=: dryRun,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'createCarrierGatewayResponse' smart constructor.
+-- | /See:/ 'mkCreateCarrierGatewayResponse' smart constructor.
 data CreateCarrierGatewayResponse = CreateCarrierGatewayResponse'
-  { _ccgcrsCarrierGateway ::
-      !(Maybe CarrierGateway),
-    _ccgcrsResponseStatus :: !Int
+  { carrierGateway ::
+      Lude.Maybe CarrierGateway,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCarrierGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccgcrsCarrierGateway' - Information about the carrier gateway.
---
--- * 'ccgcrsResponseStatus' - -- | The response status code.
-createCarrierGatewayResponse ::
-  -- | 'ccgcrsResponseStatus'
-  Int ->
+-- * 'carrierGateway' - Information about the carrier gateway.
+-- * 'responseStatus' - The response status code.
+mkCreateCarrierGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCarrierGatewayResponse
-createCarrierGatewayResponse pResponseStatus_ =
+mkCreateCarrierGatewayResponse pResponseStatus_ =
   CreateCarrierGatewayResponse'
-    { _ccgcrsCarrierGateway = Nothing,
-      _ccgcrsResponseStatus = pResponseStatus_
+    { carrierGateway = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the carrier gateway.
-ccgcrsCarrierGateway :: Lens' CreateCarrierGatewayResponse (Maybe CarrierGateway)
-ccgcrsCarrierGateway = lens _ccgcrsCarrierGateway (\s a -> s {_ccgcrsCarrierGateway = a})
+--
+-- /Note:/ Consider using 'carrierGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcrsCarrierGateway :: Lens.Lens' CreateCarrierGatewayResponse (Lude.Maybe CarrierGateway)
+ccgcrsCarrierGateway = Lens.lens (carrierGateway :: CreateCarrierGatewayResponse -> Lude.Maybe CarrierGateway) (\s a -> s {carrierGateway = a} :: CreateCarrierGatewayResponse)
+{-# DEPRECATED ccgcrsCarrierGateway "Use generic-lens or generic-optics with 'carrierGateway' instead." #-}
 
--- | -- | The response status code.
-ccgcrsResponseStatus :: Lens' CreateCarrierGatewayResponse Int
-ccgcrsResponseStatus = lens _ccgcrsResponseStatus (\s a -> s {_ccgcrsResponseStatus = a})
-
-instance NFData CreateCarrierGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgcrsResponseStatus :: Lens.Lens' CreateCarrierGatewayResponse Lude.Int
+ccgcrsResponseStatus = Lens.lens (responseStatus :: CreateCarrierGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCarrierGatewayResponse)
+{-# DEPRECATED ccgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

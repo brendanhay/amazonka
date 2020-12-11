@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType where
+module Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
+  ( RiskExceptionConfigurationType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRiskExceptionConfigurationType,
+
+    -- * Lenses
+    rectSkippedIPRangeList,
+    rectBlockedIPRangeList,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of the configuration to override the risk decision.
 --
---
---
--- /See:/ 'riskExceptionConfigurationType' smart constructor.
+-- /See:/ 'mkRiskExceptionConfigurationType' smart constructor.
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
-  { _rectSkippedIPRangeList ::
-      !(Maybe [Text]),
-    _rectBlockedIPRangeList ::
-      !(Maybe [Text])
+  { skippedIPRangeList ::
+      Lude.Maybe [Lude.Text],
+    blockedIPRangeList ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RiskExceptionConfigurationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rectSkippedIPRangeList' - Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
---
--- * 'rectBlockedIPRangeList' - Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
-riskExceptionConfigurationType ::
+-- * 'blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+-- * 'skippedIPRangeList' - Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+mkRiskExceptionConfigurationType ::
   RiskExceptionConfigurationType
-riskExceptionConfigurationType =
+mkRiskExceptionConfigurationType =
   RiskExceptionConfigurationType'
-    { _rectSkippedIPRangeList =
-        Nothing,
-      _rectBlockedIPRangeList = Nothing
+    { skippedIPRangeList =
+        Lude.Nothing,
+      blockedIPRangeList = Lude.Nothing
     }
 
 -- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
-rectSkippedIPRangeList :: Lens' RiskExceptionConfigurationType [Text]
-rectSkippedIPRangeList = lens _rectSkippedIPRangeList (\s a -> s {_rectSkippedIPRangeList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'skippedIPRangeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rectSkippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Lude.Maybe [Lude.Text])
+rectSkippedIPRangeList = Lens.lens (skippedIPRangeList :: RiskExceptionConfigurationType -> Lude.Maybe [Lude.Text]) (\s a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType)
+{-# DEPRECATED rectSkippedIPRangeList "Use generic-lens or generic-optics with 'skippedIPRangeList' instead." #-}
 
 -- | Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
-rectBlockedIPRangeList :: Lens' RiskExceptionConfigurationType [Text]
-rectBlockedIPRangeList = lens _rectBlockedIPRangeList (\s a -> s {_rectBlockedIPRangeList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockedIPRangeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rectBlockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Lude.Maybe [Lude.Text])
+rectBlockedIPRangeList = Lens.lens (blockedIPRangeList :: RiskExceptionConfigurationType -> Lude.Maybe [Lude.Text]) (\s a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType)
+{-# DEPRECATED rectBlockedIPRangeList "Use generic-lens or generic-optics with 'blockedIPRangeList' instead." #-}
 
-instance FromJSON RiskExceptionConfigurationType where
+instance Lude.FromJSON RiskExceptionConfigurationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "RiskExceptionConfigurationType"
       ( \x ->
           RiskExceptionConfigurationType'
-            <$> (x .:? "SkippedIPRangeList" .!= mempty)
-            <*> (x .:? "BlockedIPRangeList" .!= mempty)
+            Lude.<$> (x Lude..:? "SkippedIPRangeList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "BlockedIPRangeList" Lude..!= Lude.mempty)
       )
 
-instance Hashable RiskExceptionConfigurationType
-
-instance NFData RiskExceptionConfigurationType
-
-instance ToJSON RiskExceptionConfigurationType where
+instance Lude.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =
-    object
-      ( catMaybes
-          [ ("SkippedIPRangeList" .=) <$> _rectSkippedIPRangeList,
-            ("BlockedIPRangeList" .=) <$> _rectBlockedIPRangeList
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SkippedIPRangeList" Lude..=) Lude.<$> skippedIPRangeList,
+            ("BlockedIPRangeList" Lude..=) Lude.<$> blockedIPRangeList
           ]
       )

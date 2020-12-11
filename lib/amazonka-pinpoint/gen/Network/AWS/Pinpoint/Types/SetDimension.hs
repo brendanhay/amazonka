@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SetDimension where
+module Network.AWS.Pinpoint.Types.SetDimension
+  ( SetDimension (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkSetDimension,
+
+    -- * Lenses
+    sdDimensionType,
+    sdValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DimensionType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the dimension type and values for a segment dimension.
 --
---
---
--- /See:/ 'setDimension' smart constructor.
+-- /See:/ 'mkSetDimension' smart constructor.
 data SetDimension = SetDimension'
-  { _sdDimensionType ::
-      !(Maybe DimensionType),
-    _sdValues :: ![Text]
+  { dimensionType ::
+      Lude.Maybe DimensionType,
+    values :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdDimensionType' - The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
---
--- * 'sdValues' - The criteria values to use for the segment dimension. Depending on the value of the DimensionType property, endpoints are included or excluded from the segment if their values match the criteria values.
-setDimension ::
+-- * 'dimensionType' - The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
+-- * 'values' - The criteria values to use for the segment dimension. Depending on the value of the DimensionType property, endpoints are included or excluded from the segment if their values match the criteria values.
+mkSetDimension ::
   SetDimension
-setDimension =
-  SetDimension' {_sdDimensionType = Nothing, _sdValues = mempty}
+mkSetDimension =
+  SetDimension' {dimensionType = Lude.Nothing, values = Lude.mempty}
 
 -- | The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.
-sdDimensionType :: Lens' SetDimension (Maybe DimensionType)
-sdDimensionType = lens _sdDimensionType (\s a -> s {_sdDimensionType = a})
+--
+-- /Note:/ Consider using 'dimensionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDimensionType :: Lens.Lens' SetDimension (Lude.Maybe DimensionType)
+sdDimensionType = Lens.lens (dimensionType :: SetDimension -> Lude.Maybe DimensionType) (\s a -> s {dimensionType = a} :: SetDimension)
+{-# DEPRECATED sdDimensionType "Use generic-lens or generic-optics with 'dimensionType' instead." #-}
 
 -- | The criteria values to use for the segment dimension. Depending on the value of the DimensionType property, endpoints are included or excluded from the segment if their values match the criteria values.
-sdValues :: Lens' SetDimension [Text]
-sdValues = lens _sdValues (\s a -> s {_sdValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdValues :: Lens.Lens' SetDimension [Lude.Text]
+sdValues = Lens.lens (values :: SetDimension -> [Lude.Text]) (\s a -> s {values = a} :: SetDimension)
+{-# DEPRECATED sdValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromJSON SetDimension where
+instance Lude.FromJSON SetDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "SetDimension"
       ( \x ->
           SetDimension'
-            <$> (x .:? "DimensionType") <*> (x .:? "Values" .!= mempty)
+            Lude.<$> (x Lude..:? "DimensionType")
+            Lude.<*> (x Lude..:? "Values" Lude..!= Lude.mempty)
       )
 
-instance Hashable SetDimension
-
-instance NFData SetDimension
-
-instance ToJSON SetDimension where
+instance Lude.ToJSON SetDimension where
   toJSON SetDimension' {..} =
-    object
-      ( catMaybes
-          [ ("DimensionType" .=) <$> _sdDimensionType,
-            Just ("Values" .= _sdValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DimensionType" Lude..=) Lude.<$> dimensionType,
+            Lude.Just ("Values" Lude..= values)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FlowLogsResourceType where
+module Network.AWS.EC2.Types.FlowLogsResourceType
+  ( FlowLogsResourceType
+      ( FlowLogsResourceType',
+        FLRTNetworkInterface,
+        FLRTSubnet,
+        FLRTVPC
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FlowLogsResourceType
-  = FLRTNetworkInterface
-  | FLRTSubnet
-  | FLRTVPC
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FlowLogsResourceType = FlowLogsResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FlowLogsResourceType where
-  parser =
-    takeLowerText >>= \case
-      "networkinterface" -> pure FLRTNetworkInterface
-      "subnet" -> pure FLRTSubnet
-      "vpc" -> pure FLRTVPC
-      e ->
-        fromTextError $
-          "Failure parsing FlowLogsResourceType from value: '" <> e
-            <> "'. Accepted values: networkinterface, subnet, vpc"
+pattern FLRTNetworkInterface :: FlowLogsResourceType
+pattern FLRTNetworkInterface = FlowLogsResourceType' "NetworkInterface"
 
-instance ToText FlowLogsResourceType where
-  toText = \case
-    FLRTNetworkInterface -> "NetworkInterface"
-    FLRTSubnet -> "Subnet"
-    FLRTVPC -> "VPC"
+pattern FLRTSubnet :: FlowLogsResourceType
+pattern FLRTSubnet = FlowLogsResourceType' "Subnet"
 
-instance Hashable FlowLogsResourceType
+pattern FLRTVPC :: FlowLogsResourceType
+pattern FLRTVPC = FlowLogsResourceType' "VPC"
 
-instance NFData FlowLogsResourceType
-
-instance ToByteString FlowLogsResourceType
-
-instance ToQuery FlowLogsResourceType
-
-instance ToHeader FlowLogsResourceType
+{-# COMPLETE
+  FLRTNetworkInterface,
+  FLRTSubnet,
+  FLRTVPC,
+  FlowLogsResourceType'
+  #-}

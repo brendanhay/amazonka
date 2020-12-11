@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,120 @@
 --
 -- Deletes the specified log subscription.
 module Network.AWS.DirectoryService.DeleteLogSubscription
-  ( -- * Creating a Request
-    deleteLogSubscription,
-    DeleteLogSubscription,
+  ( -- * Creating a request
+    DeleteLogSubscription (..),
+    mkDeleteLogSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlsDirectoryId,
 
-    -- * Destructuring the Response
-    deleteLogSubscriptionResponse,
-    DeleteLogSubscriptionResponse,
+    -- * Destructuring the response
+    DeleteLogSubscriptionResponse (..),
+    mkDeleteLogSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlsrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLogSubscription' smart constructor.
+-- | /See:/ 'mkDeleteLogSubscription' smart constructor.
 newtype DeleteLogSubscription = DeleteLogSubscription'
-  { _dlsDirectoryId ::
-      Text
+  { directoryId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLogSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlsDirectoryId' - Identifier of the directory whose log subscription you want to delete.
-deleteLogSubscription ::
-  -- | 'dlsDirectoryId'
-  Text ->
+-- * 'directoryId' - Identifier of the directory whose log subscription you want to delete.
+mkDeleteLogSubscription ::
+  -- | 'directoryId'
+  Lude.Text ->
   DeleteLogSubscription
-deleteLogSubscription pDirectoryId_ =
-  DeleteLogSubscription' {_dlsDirectoryId = pDirectoryId_}
+mkDeleteLogSubscription pDirectoryId_ =
+  DeleteLogSubscription' {directoryId = pDirectoryId_}
 
 -- | Identifier of the directory whose log subscription you want to delete.
-dlsDirectoryId :: Lens' DeleteLogSubscription Text
-dlsDirectoryId = lens _dlsDirectoryId (\s a -> s {_dlsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsDirectoryId :: Lens.Lens' DeleteLogSubscription Lude.Text
+dlsDirectoryId = Lens.lens (directoryId :: DeleteLogSubscription -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteLogSubscription)
+{-# DEPRECATED dlsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSRequest DeleteLogSubscription where
+instance Lude.AWSRequest DeleteLogSubscription where
   type Rs DeleteLogSubscription = DeleteLogSubscriptionResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> DeleteLogSubscriptionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteLogSubscriptionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteLogSubscription
-
-instance NFData DeleteLogSubscription
-
-instance ToHeaders DeleteLogSubscription where
+instance Lude.ToHeaders DeleteLogSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.DeleteLogSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLogSubscription where
+instance Lude.ToJSON DeleteLogSubscription where
   toJSON DeleteLogSubscription' {..} =
-    object (catMaybes [Just ("DirectoryId" .= _dlsDirectoryId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
 
-instance ToPath DeleteLogSubscription where
-  toPath = const "/"
+instance Lude.ToPath DeleteLogSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLogSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLogSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLogSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkDeleteLogSubscriptionResponse' smart constructor.
 newtype DeleteLogSubscriptionResponse = DeleteLogSubscriptionResponse'
-  { _dlsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLogSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlsrsResponseStatus' - -- | The response status code.
-deleteLogSubscriptionResponse ::
-  -- | 'dlsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLogSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLogSubscriptionResponse
-deleteLogSubscriptionResponse pResponseStatus_ =
-  DeleteLogSubscriptionResponse'
-    { _dlsrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteLogSubscriptionResponse pResponseStatus_ =
+  DeleteLogSubscriptionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dlsrsResponseStatus :: Lens' DeleteLogSubscriptionResponse Int
-dlsrsResponseStatus = lens _dlsrsResponseStatus (\s a -> s {_dlsrsResponseStatus = a})
-
-instance NFData DeleteLogSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsrsResponseStatus :: Lens.Lens' DeleteLogSubscriptionResponse Lude.Int
+dlsrsResponseStatus = Lens.lens (responseStatus :: DeleteLogSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLogSubscriptionResponse)
+{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

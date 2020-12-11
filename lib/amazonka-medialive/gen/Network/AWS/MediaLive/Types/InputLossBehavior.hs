@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossBehavior where
+module Network.AWS.MediaLive.Types.InputLossBehavior
+  ( InputLossBehavior (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputLossBehavior,
+
+    -- * Lenses
+    ilbInputLossImageColor,
+    ilbBlackFrameMsec,
+    ilbRepeatFrameMsec,
+    ilbInputLossImageType,
+    ilbInputLossImageSlate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputLocation
 import Network.AWS.MediaLive.Types.InputLossImageType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Loss Behavior
 --
--- /See:/ 'inputLossBehavior' smart constructor.
+-- /See:/ 'mkInputLossBehavior' smart constructor.
 data InputLossBehavior = InputLossBehavior'
-  { _ilbInputLossImageColor ::
-      !(Maybe Text),
-    _ilbBlackFrameMsec :: !(Maybe Nat),
-    _ilbRepeatFrameMsec :: !(Maybe Nat),
-    _ilbInputLossImageType :: !(Maybe InputLossImageType),
-    _ilbInputLossImageSlate :: !(Maybe InputLocation)
+  { inputLossImageColor ::
+      Lude.Maybe Lude.Text,
+    blackFrameMsec :: Lude.Maybe Lude.Natural,
+    repeatFrameMsec :: Lude.Maybe Lude.Natural,
+    inputLossImageType :: Lude.Maybe InputLossImageType,
+    inputLossImageSlate :: Lude.Maybe InputLocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputLossBehavior' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ilbInputLossImageColor' - When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
---
--- * 'ilbBlackFrameMsec' - Documentation update needed
---
--- * 'ilbRepeatFrameMsec' - Documentation update needed
---
--- * 'ilbInputLossImageType' - Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
---
--- * 'ilbInputLossImageSlate' - When input loss image type is "slate" these fields specify the parameters for accessing the slate.
-inputLossBehavior ::
+-- * 'blackFrameMsec' - Documentation update needed
+-- * 'inputLossImageColor' - When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+-- * 'inputLossImageSlate' - When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+-- * 'inputLossImageType' - Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+-- * 'repeatFrameMsec' - Documentation update needed
+mkInputLossBehavior ::
   InputLossBehavior
-inputLossBehavior =
+mkInputLossBehavior =
   InputLossBehavior'
-    { _ilbInputLossImageColor = Nothing,
-      _ilbBlackFrameMsec = Nothing,
-      _ilbRepeatFrameMsec = Nothing,
-      _ilbInputLossImageType = Nothing,
-      _ilbInputLossImageSlate = Nothing
+    { inputLossImageColor = Lude.Nothing,
+      blackFrameMsec = Lude.Nothing,
+      repeatFrameMsec = Lude.Nothing,
+      inputLossImageType = Lude.Nothing,
+      inputLossImageSlate = Lude.Nothing
     }
 
 -- | When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
-ilbInputLossImageColor :: Lens' InputLossBehavior (Maybe Text)
-ilbInputLossImageColor = lens _ilbInputLossImageColor (\s a -> s {_ilbInputLossImageColor = a})
+--
+-- /Note:/ Consider using 'inputLossImageColor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilbInputLossImageColor :: Lens.Lens' InputLossBehavior (Lude.Maybe Lude.Text)
+ilbInputLossImageColor = Lens.lens (inputLossImageColor :: InputLossBehavior -> Lude.Maybe Lude.Text) (\s a -> s {inputLossImageColor = a} :: InputLossBehavior)
+{-# DEPRECATED ilbInputLossImageColor "Use generic-lens or generic-optics with 'inputLossImageColor' instead." #-}
 
 -- | Documentation update needed
-ilbBlackFrameMsec :: Lens' InputLossBehavior (Maybe Natural)
-ilbBlackFrameMsec = lens _ilbBlackFrameMsec (\s a -> s {_ilbBlackFrameMsec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'blackFrameMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilbBlackFrameMsec :: Lens.Lens' InputLossBehavior (Lude.Maybe Lude.Natural)
+ilbBlackFrameMsec = Lens.lens (blackFrameMsec :: InputLossBehavior -> Lude.Maybe Lude.Natural) (\s a -> s {blackFrameMsec = a} :: InputLossBehavior)
+{-# DEPRECATED ilbBlackFrameMsec "Use generic-lens or generic-optics with 'blackFrameMsec' instead." #-}
 
 -- | Documentation update needed
-ilbRepeatFrameMsec :: Lens' InputLossBehavior (Maybe Natural)
-ilbRepeatFrameMsec = lens _ilbRepeatFrameMsec (\s a -> s {_ilbRepeatFrameMsec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'repeatFrameMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilbRepeatFrameMsec :: Lens.Lens' InputLossBehavior (Lude.Maybe Lude.Natural)
+ilbRepeatFrameMsec = Lens.lens (repeatFrameMsec :: InputLossBehavior -> Lude.Maybe Lude.Natural) (\s a -> s {repeatFrameMsec = a} :: InputLossBehavior)
+{-# DEPRECATED ilbRepeatFrameMsec "Use generic-lens or generic-optics with 'repeatFrameMsec' instead." #-}
 
 -- | Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
-ilbInputLossImageType :: Lens' InputLossBehavior (Maybe InputLossImageType)
-ilbInputLossImageType = lens _ilbInputLossImageType (\s a -> s {_ilbInputLossImageType = a})
+--
+-- /Note:/ Consider using 'inputLossImageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilbInputLossImageType :: Lens.Lens' InputLossBehavior (Lude.Maybe InputLossImageType)
+ilbInputLossImageType = Lens.lens (inputLossImageType :: InputLossBehavior -> Lude.Maybe InputLossImageType) (\s a -> s {inputLossImageType = a} :: InputLossBehavior)
+{-# DEPRECATED ilbInputLossImageType "Use generic-lens or generic-optics with 'inputLossImageType' instead." #-}
 
 -- | When input loss image type is "slate" these fields specify the parameters for accessing the slate.
-ilbInputLossImageSlate :: Lens' InputLossBehavior (Maybe InputLocation)
-ilbInputLossImageSlate = lens _ilbInputLossImageSlate (\s a -> s {_ilbInputLossImageSlate = a})
+--
+-- /Note:/ Consider using 'inputLossImageSlate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilbInputLossImageSlate :: Lens.Lens' InputLossBehavior (Lude.Maybe InputLocation)
+ilbInputLossImageSlate = Lens.lens (inputLossImageSlate :: InputLossBehavior -> Lude.Maybe InputLocation) (\s a -> s {inputLossImageSlate = a} :: InputLossBehavior)
+{-# DEPRECATED ilbInputLossImageSlate "Use generic-lens or generic-optics with 'inputLossImageSlate' instead." #-}
 
-instance FromJSON InputLossBehavior where
+instance Lude.FromJSON InputLossBehavior where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputLossBehavior"
       ( \x ->
           InputLossBehavior'
-            <$> (x .:? "inputLossImageColor")
-            <*> (x .:? "blackFrameMsec")
-            <*> (x .:? "repeatFrameMsec")
-            <*> (x .:? "inputLossImageType")
-            <*> (x .:? "inputLossImageSlate")
+            Lude.<$> (x Lude..:? "inputLossImageColor")
+            Lude.<*> (x Lude..:? "blackFrameMsec")
+            Lude.<*> (x Lude..:? "repeatFrameMsec")
+            Lude.<*> (x Lude..:? "inputLossImageType")
+            Lude.<*> (x Lude..:? "inputLossImageSlate")
       )
 
-instance Hashable InputLossBehavior
-
-instance NFData InputLossBehavior
-
-instance ToJSON InputLossBehavior where
+instance Lude.ToJSON InputLossBehavior where
   toJSON InputLossBehavior' {..} =
-    object
-      ( catMaybes
-          [ ("inputLossImageColor" .=) <$> _ilbInputLossImageColor,
-            ("blackFrameMsec" .=) <$> _ilbBlackFrameMsec,
-            ("repeatFrameMsec" .=) <$> _ilbRepeatFrameMsec,
-            ("inputLossImageType" .=) <$> _ilbInputLossImageType,
-            ("inputLossImageSlate" .=) <$> _ilbInputLossImageSlate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("inputLossImageColor" Lude..=) Lude.<$> inputLossImageColor,
+            ("blackFrameMsec" Lude..=) Lude.<$> blackFrameMsec,
+            ("repeatFrameMsec" Lude..=) Lude.<$> repeatFrameMsec,
+            ("inputLossImageType" Lude..=) Lude.<$> inputLossImageType,
+            ("inputLossImageSlate" Lude..=) Lude.<$> inputLossImageSlate
           ]
       )

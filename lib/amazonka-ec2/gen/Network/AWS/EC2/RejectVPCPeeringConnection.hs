@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,141 @@
 --
 -- Rejects a VPC peering connection request. The VPC peering connection must be in the @pending-acceptance@ state. Use the 'DescribeVpcPeeringConnections' request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use 'DeleteVpcPeeringConnection' .
 module Network.AWS.EC2.RejectVPCPeeringConnection
-  ( -- * Creating a Request
-    rejectVPCPeeringConnection,
-    RejectVPCPeeringConnection,
+  ( -- * Creating a request
+    RejectVPCPeeringConnection (..),
+    mkRejectVPCPeeringConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rvpcDryRun,
     rvpcVPCPeeringConnectionId,
 
-    -- * Destructuring the Response
-    rejectVPCPeeringConnectionResponse,
-    RejectVPCPeeringConnectionResponse,
+    -- * Destructuring the response
+    RejectVPCPeeringConnectionResponse (..),
+    mkRejectVPCPeeringConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rvpcrsReturn,
     rvpcrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectVPCPeeringConnection' smart constructor.
+-- | /See:/ 'mkRejectVPCPeeringConnection' smart constructor.
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
-  { _rvpcDryRun ::
-      !(Maybe Bool),
-    _rvpcVPCPeeringConnectionId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcPeeringConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rvpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
-rejectVPCPeeringConnection ::
-  -- | 'rvpcVPCPeeringConnectionId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
+mkRejectVPCPeeringConnection ::
+  -- | 'vpcPeeringConnectionId'
+  Lude.Text ->
   RejectVPCPeeringConnection
-rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
+mkRejectVPCPeeringConnection pVPCPeeringConnectionId_ =
   RejectVPCPeeringConnection'
-    { _rvpcDryRun = Nothing,
-      _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { dryRun = Lude.Nothing,
+      vpcPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
-rvpcDryRun = lens _rvpcDryRun (\s a -> s {_rvpcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvpcDryRun :: Lens.Lens' RejectVPCPeeringConnection (Lude.Maybe Lude.Bool)
+rvpcDryRun = Lens.lens (dryRun :: RejectVPCPeeringConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RejectVPCPeeringConnection)
+{-# DEPRECATED rvpcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC peering connection.
-rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
-rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\s a -> s {_rvpcVPCPeeringConnectionId = a})
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvpcVPCPeeringConnectionId :: Lens.Lens' RejectVPCPeeringConnection Lude.Text
+rvpcVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: RejectVPCPeeringConnection -> Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: RejectVPCPeeringConnection)
+{-# DEPRECATED rvpcVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
 
-instance AWSRequest RejectVPCPeeringConnection where
+instance Lude.AWSRequest RejectVPCPeeringConnection where
   type
     Rs RejectVPCPeeringConnection =
       RejectVPCPeeringConnectionResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           RejectVPCPeeringConnectionResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RejectVPCPeeringConnection
+instance Lude.ToHeaders RejectVPCPeeringConnection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RejectVPCPeeringConnection
+instance Lude.ToPath RejectVPCPeeringConnection where
+  toPath = Lude.const "/"
 
-instance ToHeaders RejectVPCPeeringConnection where
-  toHeaders = const mempty
-
-instance ToPath RejectVPCPeeringConnection where
-  toPath = const "/"
-
-instance ToQuery RejectVPCPeeringConnection where
+instance Lude.ToQuery RejectVPCPeeringConnection where
   toQuery RejectVPCPeeringConnection' {..} =
-    mconcat
-      [ "Action" =: ("RejectVpcPeeringConnection" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _rvpcDryRun,
-        "VpcPeeringConnectionId" =: _rvpcVPCPeeringConnectionId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("RejectVpcPeeringConnection" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId
       ]
 
--- | /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'mkRejectVPCPeeringConnectionResponse' smart constructor.
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
-  { _rvpcrsReturn ::
-      !(Maybe Bool),
-    _rvpcrsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvpcrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'rvpcrsResponseStatus' - -- | The response status code.
-rejectVPCPeeringConnectionResponse ::
-  -- | 'rvpcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkRejectVPCPeeringConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse pResponseStatus_ =
+mkRejectVPCPeeringConnectionResponse pResponseStatus_ =
   RejectVPCPeeringConnectionResponse'
-    { _rvpcrsReturn = Nothing,
-      _rvpcrsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
-rvpcrsReturn = lens _rvpcrsReturn (\s a -> s {_rvpcrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvpcrsReturn :: Lens.Lens' RejectVPCPeeringConnectionResponse (Lude.Maybe Lude.Bool)
+rvpcrsReturn = Lens.lens (return :: RejectVPCPeeringConnectionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: RejectVPCPeeringConnectionResponse)
+{-# DEPRECATED rvpcrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
-rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\s a -> s {_rvpcrsResponseStatus = a})
-
-instance NFData RejectVPCPeeringConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvpcrsResponseStatus :: Lens.Lens' RejectVPCPeeringConnectionResponse Lude.Int
+rvpcrsResponseStatus = Lens.lens (responseStatus :: RejectVPCPeeringConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectVPCPeeringConnectionResponse)
+{-# DEPRECATED rvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

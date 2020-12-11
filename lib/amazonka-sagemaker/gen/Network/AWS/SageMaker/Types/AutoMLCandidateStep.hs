@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLCandidateStep where
+module Network.AWS.SageMaker.Types.AutoMLCandidateStep
+  ( AutoMLCandidateStep (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoMLCandidateStep,
+
+    -- * Lenses
+    amlcsCandidateStepType,
+    amlcsCandidateStepARN,
+    amlcsCandidateStepName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.CandidateStepType
 
 -- | Information about the steps for a Candidate, and what step it is working on.
 --
---
---
--- /See:/ 'autoMLCandidateStep' smart constructor.
+-- /See:/ 'mkAutoMLCandidateStep' smart constructor.
 data AutoMLCandidateStep = AutoMLCandidateStep'
-  { _amlcsCandidateStepType ::
-      !CandidateStepType,
-    _amlcsCandidateStepARN :: !Text,
-    _amlcsCandidateStepName :: !Text
+  { candidateStepType ::
+      CandidateStepType,
+    candidateStepARN :: Lude.Text,
+    candidateStepName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLCandidateStep' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amlcsCandidateStepType' - Whether the Candidate is at the transform, training, or processing step.
---
--- * 'amlcsCandidateStepARN' - The ARN for the Candidate's step.
---
--- * 'amlcsCandidateStepName' - The name for the Candidate's step.
-autoMLCandidateStep ::
-  -- | 'amlcsCandidateStepType'
+-- * 'candidateStepARN' - The ARN for the Candidate's step.
+-- * 'candidateStepName' - The name for the Candidate's step.
+-- * 'candidateStepType' - Whether the Candidate is at the transform, training, or processing step.
+mkAutoMLCandidateStep ::
+  -- | 'candidateStepType'
   CandidateStepType ->
-  -- | 'amlcsCandidateStepARN'
-  Text ->
-  -- | 'amlcsCandidateStepName'
-  Text ->
+  -- | 'candidateStepARN'
+  Lude.Text ->
+  -- | 'candidateStepName'
+  Lude.Text ->
   AutoMLCandidateStep
-autoMLCandidateStep
+mkAutoMLCandidateStep
   pCandidateStepType_
   pCandidateStepARN_
   pCandidateStepName_ =
     AutoMLCandidateStep'
-      { _amlcsCandidateStepType =
-          pCandidateStepType_,
-        _amlcsCandidateStepARN = pCandidateStepARN_,
-        _amlcsCandidateStepName = pCandidateStepName_
+      { candidateStepType = pCandidateStepType_,
+        candidateStepARN = pCandidateStepARN_,
+        candidateStepName = pCandidateStepName_
       }
 
 -- | Whether the Candidate is at the transform, training, or processing step.
-amlcsCandidateStepType :: Lens' AutoMLCandidateStep CandidateStepType
-amlcsCandidateStepType = lens _amlcsCandidateStepType (\s a -> s {_amlcsCandidateStepType = a})
+--
+-- /Note:/ Consider using 'candidateStepType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcsCandidateStepType :: Lens.Lens' AutoMLCandidateStep CandidateStepType
+amlcsCandidateStepType = Lens.lens (candidateStepType :: AutoMLCandidateStep -> CandidateStepType) (\s a -> s {candidateStepType = a} :: AutoMLCandidateStep)
+{-# DEPRECATED amlcsCandidateStepType "Use generic-lens or generic-optics with 'candidateStepType' instead." #-}
 
 -- | The ARN for the Candidate's step.
-amlcsCandidateStepARN :: Lens' AutoMLCandidateStep Text
-amlcsCandidateStepARN = lens _amlcsCandidateStepARN (\s a -> s {_amlcsCandidateStepARN = a})
+--
+-- /Note:/ Consider using 'candidateStepARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcsCandidateStepARN :: Lens.Lens' AutoMLCandidateStep Lude.Text
+amlcsCandidateStepARN = Lens.lens (candidateStepARN :: AutoMLCandidateStep -> Lude.Text) (\s a -> s {candidateStepARN = a} :: AutoMLCandidateStep)
+{-# DEPRECATED amlcsCandidateStepARN "Use generic-lens or generic-optics with 'candidateStepARN' instead." #-}
 
 -- | The name for the Candidate's step.
-amlcsCandidateStepName :: Lens' AutoMLCandidateStep Text
-amlcsCandidateStepName = lens _amlcsCandidateStepName (\s a -> s {_amlcsCandidateStepName = a})
+--
+-- /Note:/ Consider using 'candidateStepName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcsCandidateStepName :: Lens.Lens' AutoMLCandidateStep Lude.Text
+amlcsCandidateStepName = Lens.lens (candidateStepName :: AutoMLCandidateStep -> Lude.Text) (\s a -> s {candidateStepName = a} :: AutoMLCandidateStep)
+{-# DEPRECATED amlcsCandidateStepName "Use generic-lens or generic-optics with 'candidateStepName' instead." #-}
 
-instance FromJSON AutoMLCandidateStep where
+instance Lude.FromJSON AutoMLCandidateStep where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoMLCandidateStep"
       ( \x ->
           AutoMLCandidateStep'
-            <$> (x .: "CandidateStepType")
-            <*> (x .: "CandidateStepArn")
-            <*> (x .: "CandidateStepName")
+            Lude.<$> (x Lude..: "CandidateStepType")
+            Lude.<*> (x Lude..: "CandidateStepArn")
+            Lude.<*> (x Lude..: "CandidateStepName")
       )
-
-instance Hashable AutoMLCandidateStep
-
-instance NFData AutoMLCandidateStep

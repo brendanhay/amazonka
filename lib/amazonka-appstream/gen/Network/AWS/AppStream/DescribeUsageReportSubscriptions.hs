@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves a list that describes one or more usage report subscriptions.
 module Network.AWS.AppStream.DescribeUsageReportSubscriptions
-  ( -- * Creating a Request
-    describeUsageReportSubscriptions,
-    DescribeUsageReportSubscriptions,
+  ( -- * Creating a request
+    DescribeUsageReportSubscriptions (..),
+    mkDescribeUsageReportSubscriptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     durssNextToken,
     durssMaxResults,
 
-    -- * Destructuring the Response
-    describeUsageReportSubscriptionsResponse,
-    DescribeUsageReportSubscriptionsResponse,
+    -- * Destructuring the response
+    DescribeUsageReportSubscriptionsResponse (..),
+    mkDescribeUsageReportSubscriptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     durssrsUsageReportSubscriptions,
     durssrsNextToken,
     durssrsResponseStatus,
@@ -39,134 +34,149 @@ module Network.AWS.AppStream.DescribeUsageReportSubscriptions
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeUsageReportSubscriptions' smart constructor.
+-- | /See:/ 'mkDescribeUsageReportSubscriptions' smart constructor.
 data DescribeUsageReportSubscriptions = DescribeUsageReportSubscriptions'
-  { _durssNextToken ::
-      !(Maybe Text),
-    _durssMaxResults ::
-      !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsageReportSubscriptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'durssNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- * 'durssMaxResults' - The maximum size of each page of results.
-describeUsageReportSubscriptions ::
+-- * 'maxResults' - The maximum size of each page of results.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+mkDescribeUsageReportSubscriptions ::
   DescribeUsageReportSubscriptions
-describeUsageReportSubscriptions =
+mkDescribeUsageReportSubscriptions =
   DescribeUsageReportSubscriptions'
-    { _durssNextToken = Nothing,
-      _durssMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-durssNextToken :: Lens' DescribeUsageReportSubscriptions (Maybe Text)
-durssNextToken = lens _durssNextToken (\s a -> s {_durssNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durssNextToken :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Text)
+durssNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptions)
+{-# DEPRECATED durssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of each page of results.
-durssMaxResults :: Lens' DescribeUsageReportSubscriptions (Maybe Int)
-durssMaxResults = lens _durssMaxResults (\s a -> s {_durssMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durssMaxResults :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Int)
+durssMaxResults = Lens.lens (maxResults :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeUsageReportSubscriptions)
+{-# DEPRECATED durssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest DescribeUsageReportSubscriptions where
+instance Lude.AWSRequest DescribeUsageReportSubscriptions where
   type
     Rs DescribeUsageReportSubscriptions =
       DescribeUsageReportSubscriptionsResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUsageReportSubscriptionsResponse'
-            <$> (x .?> "UsageReportSubscriptions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UsageReportSubscriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUsageReportSubscriptions
-
-instance NFData DescribeUsageReportSubscriptions
-
-instance ToHeaders DescribeUsageReportSubscriptions where
+instance Lude.ToHeaders DescribeUsageReportSubscriptions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "PhotonAdminProxyService.DescribeUsageReportSubscriptions" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "PhotonAdminProxyService.DescribeUsageReportSubscriptions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUsageReportSubscriptions where
+instance Lude.ToJSON DescribeUsageReportSubscriptions where
   toJSON DescribeUsageReportSubscriptions' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _durssNextToken,
-            ("MaxResults" .=) <$> _durssMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeUsageReportSubscriptions where
-  toPath = const "/"
+instance Lude.ToPath DescribeUsageReportSubscriptions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUsageReportSubscriptions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUsageReportSubscriptions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeUsageReportSubscriptionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeUsageReportSubscriptionsResponse' smart constructor.
 data DescribeUsageReportSubscriptionsResponse = DescribeUsageReportSubscriptionsResponse'
-  { _durssrsUsageReportSubscriptions ::
-      !( Maybe
-           [UsageReportSubscription]
-       ),
-    _durssrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _durssrsResponseStatus ::
-      !Int
+  { usageReportSubscriptions ::
+      Lude.Maybe
+        [UsageReportSubscription],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsageReportSubscriptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'durssrsUsageReportSubscriptions' - Information about the usage report subscription.
---
--- * 'durssrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- * 'durssrsResponseStatus' - -- | The response status code.
-describeUsageReportSubscriptionsResponse ::
-  -- | 'durssrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'usageReportSubscriptions' - Information about the usage report subscription.
+mkDescribeUsageReportSubscriptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUsageReportSubscriptionsResponse
-describeUsageReportSubscriptionsResponse pResponseStatus_ =
+mkDescribeUsageReportSubscriptionsResponse pResponseStatus_ =
   DescribeUsageReportSubscriptionsResponse'
-    { _durssrsUsageReportSubscriptions =
-        Nothing,
-      _durssrsNextToken = Nothing,
-      _durssrsResponseStatus = pResponseStatus_
+    { usageReportSubscriptions =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the usage report subscription.
-durssrsUsageReportSubscriptions :: Lens' DescribeUsageReportSubscriptionsResponse [UsageReportSubscription]
-durssrsUsageReportSubscriptions = lens _durssrsUsageReportSubscriptions (\s a -> s {_durssrsUsageReportSubscriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'usageReportSubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durssrsUsageReportSubscriptions :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe [UsageReportSubscription])
+durssrsUsageReportSubscriptions = Lens.lens (usageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe [UsageReportSubscription]) (\s a -> s {usageReportSubscriptions = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED durssrsUsageReportSubscriptions "Use generic-lens or generic-optics with 'usageReportSubscriptions' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-durssrsNextToken :: Lens' DescribeUsageReportSubscriptionsResponse (Maybe Text)
-durssrsNextToken = lens _durssrsNextToken (\s a -> s {_durssrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durssrsNextToken :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe Lude.Text)
+durssrsNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED durssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-durssrsResponseStatus :: Lens' DescribeUsageReportSubscriptionsResponse Int
-durssrsResponseStatus = lens _durssrsResponseStatus (\s a -> s {_durssrsResponseStatus = a})
-
-instance NFData DescribeUsageReportSubscriptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durssrsResponseStatus :: Lens.Lens' DescribeUsageReportSubscriptionsResponse Lude.Int
+durssrsResponseStatus = Lens.lens (responseStatus :: DescribeUsageReportSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED durssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

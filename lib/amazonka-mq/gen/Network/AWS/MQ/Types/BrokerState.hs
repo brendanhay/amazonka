@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.BrokerState where
+module Network.AWS.MQ.Types.BrokerState
+  ( BrokerState
+      ( BrokerState',
+        CreationFailed,
+        CreationInProgress,
+        DeletionInProgress,
+        RebootInProgress,
+        Running
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of the broker.
-data BrokerState
-  = CreationFailed
-  | CreationInProgress
-  | DeletionInProgress
-  | RebootInProgress
-  | Running
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BrokerState = BrokerState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BrokerState where
-  parser =
-    takeLowerText >>= \case
-      "creation_failed" -> pure CreationFailed
-      "creation_in_progress" -> pure CreationInProgress
-      "deletion_in_progress" -> pure DeletionInProgress
-      "reboot_in_progress" -> pure RebootInProgress
-      "running" -> pure Running
-      e ->
-        fromTextError $
-          "Failure parsing BrokerState from value: '" <> e
-            <> "'. Accepted values: creation_failed, creation_in_progress, deletion_in_progress, reboot_in_progress, running"
+pattern CreationFailed :: BrokerState
+pattern CreationFailed = BrokerState' "CREATION_FAILED"
 
-instance ToText BrokerState where
-  toText = \case
-    CreationFailed -> "CREATION_FAILED"
-    CreationInProgress -> "CREATION_IN_PROGRESS"
-    DeletionInProgress -> "DELETION_IN_PROGRESS"
-    RebootInProgress -> "REBOOT_IN_PROGRESS"
-    Running -> "RUNNING"
+pattern CreationInProgress :: BrokerState
+pattern CreationInProgress = BrokerState' "CREATION_IN_PROGRESS"
 
-instance Hashable BrokerState
+pattern DeletionInProgress :: BrokerState
+pattern DeletionInProgress = BrokerState' "DELETION_IN_PROGRESS"
 
-instance NFData BrokerState
+pattern RebootInProgress :: BrokerState
+pattern RebootInProgress = BrokerState' "REBOOT_IN_PROGRESS"
 
-instance ToByteString BrokerState
+pattern Running :: BrokerState
+pattern Running = BrokerState' "RUNNING"
 
-instance ToQuery BrokerState
-
-instance ToHeader BrokerState
-
-instance FromJSON BrokerState where
-  parseJSON = parseJSONText "BrokerState"
+{-# COMPLETE
+  CreationFailed,
+  CreationInProgress,
+  DeletionInProgress,
+  RebootInProgress,
+  Running,
+  BrokerState'
+  #-}

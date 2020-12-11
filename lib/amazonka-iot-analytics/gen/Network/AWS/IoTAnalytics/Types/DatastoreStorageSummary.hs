@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary where
+module Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary
+  ( DatastoreStorageSummary (..),
+
+    -- * Smart constructor
+    mkDatastoreStorageSummary,
+
+    -- * Lenses
+    dssServiceManagedS3,
+    dssCustomerManagedS3,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
 import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Where data store data is stored.
 --
---
---
--- /See:/ 'datastoreStorageSummary' smart constructor.
+-- /See:/ 'mkDatastoreStorageSummary' smart constructor.
 data DatastoreStorageSummary = DatastoreStorageSummary'
-  { _dssServiceManagedS3 ::
-      !( Maybe
-           ServiceManagedDatastoreS3StorageSummary
-       ),
-    _dssCustomerManagedS3 ::
-      !( Maybe
-           CustomerManagedDatastoreS3StorageSummary
-       )
+  { serviceManagedS3 ::
+      Lude.Maybe
+        ServiceManagedDatastoreS3StorageSummary,
+    customerManagedS3 ::
+      Lude.Maybe
+        CustomerManagedDatastoreS3StorageSummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreStorageSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssServiceManagedS3' - Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
---
--- * 'dssCustomerManagedS3' - Used to store data store data in an S3 bucket that you manage.
-datastoreStorageSummary ::
+-- * 'customerManagedS3' - Used to store data store data in an S3 bucket that you manage.
+-- * 'serviceManagedS3' - Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
+mkDatastoreStorageSummary ::
   DatastoreStorageSummary
-datastoreStorageSummary =
+mkDatastoreStorageSummary =
   DatastoreStorageSummary'
-    { _dssServiceManagedS3 = Nothing,
-      _dssCustomerManagedS3 = Nothing
+    { serviceManagedS3 = Lude.Nothing,
+      customerManagedS3 = Lude.Nothing
     }
 
 -- | Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
-dssServiceManagedS3 :: Lens' DatastoreStorageSummary (Maybe ServiceManagedDatastoreS3StorageSummary)
-dssServiceManagedS3 = lens _dssServiceManagedS3 (\s a -> s {_dssServiceManagedS3 = a})
+--
+-- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssServiceManagedS3 :: Lens.Lens' DatastoreStorageSummary (Lude.Maybe ServiceManagedDatastoreS3StorageSummary)
+dssServiceManagedS3 = Lens.lens (serviceManagedS3 :: DatastoreStorageSummary -> Lude.Maybe ServiceManagedDatastoreS3StorageSummary) (\s a -> s {serviceManagedS3 = a} :: DatastoreStorageSummary)
+{-# DEPRECATED dssServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
 -- | Used to store data store data in an S3 bucket that you manage.
-dssCustomerManagedS3 :: Lens' DatastoreStorageSummary (Maybe CustomerManagedDatastoreS3StorageSummary)
-dssCustomerManagedS3 = lens _dssCustomerManagedS3 (\s a -> s {_dssCustomerManagedS3 = a})
+--
+-- /Note:/ Consider using 'customerManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssCustomerManagedS3 :: Lens.Lens' DatastoreStorageSummary (Lude.Maybe CustomerManagedDatastoreS3StorageSummary)
+dssCustomerManagedS3 = Lens.lens (customerManagedS3 :: DatastoreStorageSummary -> Lude.Maybe CustomerManagedDatastoreS3StorageSummary) (\s a -> s {customerManagedS3 = a} :: DatastoreStorageSummary)
+{-# DEPRECATED dssCustomerManagedS3 "Use generic-lens or generic-optics with 'customerManagedS3' instead." #-}
 
-instance FromJSON DatastoreStorageSummary where
+instance Lude.FromJSON DatastoreStorageSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatastoreStorageSummary"
       ( \x ->
           DatastoreStorageSummary'
-            <$> (x .:? "serviceManagedS3") <*> (x .:? "customerManagedS3")
+            Lude.<$> (x Lude..:? "serviceManagedS3")
+            Lude.<*> (x Lude..:? "customerManagedS3")
       )
-
-instance Hashable DatastoreStorageSummary
-
-instance NFData DatastoreStorageSummary

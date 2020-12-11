@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayPropagation where
+module Network.AWS.EC2.Types.TransitGatewayPropagation
+  ( TransitGatewayPropagation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayPropagation,
+
+    -- * Lenses
+    tgpState,
+    tgpResourceId,
+    tgpResourceType,
+    tgpTransitGatewayRouteTableId,
+    tgpTransitGatewayAttachmentId,
+  )
+where
+
 import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
 import Network.AWS.EC2.Types.TransitGatewayPropagationState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes route propagation.
 --
---
---
--- /See:/ 'transitGatewayPropagation' smart constructor.
+-- /See:/ 'mkTransitGatewayPropagation' smart constructor.
 data TransitGatewayPropagation = TransitGatewayPropagation'
-  { _tgpState ::
-      !(Maybe TransitGatewayPropagationState),
-    _tgpResourceId :: !(Maybe Text),
-    _tgpResourceType ::
-      !( Maybe
-           TransitGatewayAttachmentResourceType
-       ),
-    _tgpTransitGatewayRouteTableId ::
-      !(Maybe Text),
-    _tgpTransitGatewayAttachmentId ::
-      !(Maybe Text)
+  { state ::
+      Lude.Maybe
+        TransitGatewayPropagationState,
+    resourceId :: Lude.Maybe Lude.Text,
+    resourceType ::
+      Lude.Maybe
+        TransitGatewayAttachmentResourceType,
+    transitGatewayRouteTableId ::
+      Lude.Maybe Lude.Text,
+    transitGatewayAttachmentId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayPropagation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgpState' - The state.
---
--- * 'tgpResourceId' - The ID of the resource.
---
--- * 'tgpResourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
---
--- * 'tgpTransitGatewayRouteTableId' - The ID of the transit gateway route table.
---
--- * 'tgpTransitGatewayAttachmentId' - The ID of the attachment.
-transitGatewayPropagation ::
+-- * 'resourceId' - The ID of the resource.
+-- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+-- * 'state' - The state.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+mkTransitGatewayPropagation ::
   TransitGatewayPropagation
-transitGatewayPropagation =
+mkTransitGatewayPropagation =
   TransitGatewayPropagation'
-    { _tgpState = Nothing,
-      _tgpResourceId = Nothing,
-      _tgpResourceType = Nothing,
-      _tgpTransitGatewayRouteTableId = Nothing,
-      _tgpTransitGatewayAttachmentId = Nothing
+    { state = Lude.Nothing,
+      resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      transitGatewayRouteTableId = Lude.Nothing,
+      transitGatewayAttachmentId = Lude.Nothing
     }
 
 -- | The state.
-tgpState :: Lens' TransitGatewayPropagation (Maybe TransitGatewayPropagationState)
-tgpState = lens _tgpState (\s a -> s {_tgpState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpState :: Lens.Lens' TransitGatewayPropagation (Lude.Maybe TransitGatewayPropagationState)
+tgpState = Lens.lens (state :: TransitGatewayPropagation -> Lude.Maybe TransitGatewayPropagationState) (\s a -> s {state = a} :: TransitGatewayPropagation)
+{-# DEPRECATED tgpState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the resource.
-tgpResourceId :: Lens' TransitGatewayPropagation (Maybe Text)
-tgpResourceId = lens _tgpResourceId (\s a -> s {_tgpResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpResourceId :: Lens.Lens' TransitGatewayPropagation (Lude.Maybe Lude.Text)
+tgpResourceId = Lens.lens (resourceId :: TransitGatewayPropagation -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayPropagation)
+{-# DEPRECATED tgpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
-tgpResourceType :: Lens' TransitGatewayPropagation (Maybe TransitGatewayAttachmentResourceType)
-tgpResourceType = lens _tgpResourceType (\s a -> s {_tgpResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpResourceType :: Lens.Lens' TransitGatewayPropagation (Lude.Maybe TransitGatewayAttachmentResourceType)
+tgpResourceType = Lens.lens (resourceType :: TransitGatewayPropagation -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayPropagation)
+{-# DEPRECATED tgpResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the transit gateway route table.
-tgpTransitGatewayRouteTableId :: Lens' TransitGatewayPropagation (Maybe Text)
-tgpTransitGatewayRouteTableId = lens _tgpTransitGatewayRouteTableId (\s a -> s {_tgpTransitGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayPropagation (Lude.Maybe Lude.Text)
+tgpTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: TransitGatewayPropagation -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPropagation)
+{-# DEPRECATED tgpTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | The ID of the attachment.
-tgpTransitGatewayAttachmentId :: Lens' TransitGatewayPropagation (Maybe Text)
-tgpTransitGatewayAttachmentId = lens _tgpTransitGatewayAttachmentId (\s a -> s {_tgpTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPropagation (Lude.Maybe Lude.Text)
+tgpTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayPropagation -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPropagation)
+{-# DEPRECATED tgpTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance FromXML TransitGatewayPropagation where
+instance Lude.FromXML TransitGatewayPropagation where
   parseXML x =
     TransitGatewayPropagation'
-      <$> (x .@? "state")
-      <*> (x .@? "resourceId")
-      <*> (x .@? "resourceType")
-      <*> (x .@? "transitGatewayRouteTableId")
-      <*> (x .@? "transitGatewayAttachmentId")
-
-instance Hashable TransitGatewayPropagation
-
-instance NFData TransitGatewayPropagation
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "resourceId")
+      Lude.<*> (x Lude..@? "resourceType")
+      Lude.<*> (x Lude..@? "transitGatewayRouteTableId")
+      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")

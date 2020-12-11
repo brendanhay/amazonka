@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TimeBasedCanary where
+module Network.AWS.CodeDeploy.Types.TimeBasedCanary
+  ( TimeBasedCanary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeBasedCanary,
+
+    -- * Lenses
+    tbcCanaryInterval,
+    tbcCanaryPercentage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 --
---
---
--- /See:/ 'timeBasedCanary' smart constructor.
+-- /See:/ 'mkTimeBasedCanary' smart constructor.
 data TimeBasedCanary = TimeBasedCanary'
-  { _tbcCanaryInterval ::
-      !(Maybe Int),
-    _tbcCanaryPercentage :: !(Maybe Int)
+  { canaryInterval ::
+      Lude.Maybe Lude.Int,
+    canaryPercentage :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeBasedCanary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tbcCanaryInterval' - The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
---
--- * 'tbcCanaryPercentage' - The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
-timeBasedCanary ::
+-- * 'canaryInterval' - The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
+-- * 'canaryPercentage' - The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
+mkTimeBasedCanary ::
   TimeBasedCanary
-timeBasedCanary =
+mkTimeBasedCanary =
   TimeBasedCanary'
-    { _tbcCanaryInterval = Nothing,
-      _tbcCanaryPercentage = Nothing
+    { canaryInterval = Lude.Nothing,
+      canaryPercentage = Lude.Nothing
     }
 
 -- | The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
-tbcCanaryInterval :: Lens' TimeBasedCanary (Maybe Int)
-tbcCanaryInterval = lens _tbcCanaryInterval (\s a -> s {_tbcCanaryInterval = a})
+--
+-- /Note:/ Consider using 'canaryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tbcCanaryInterval :: Lens.Lens' TimeBasedCanary (Lude.Maybe Lude.Int)
+tbcCanaryInterval = Lens.lens (canaryInterval :: TimeBasedCanary -> Lude.Maybe Lude.Int) (\s a -> s {canaryInterval = a} :: TimeBasedCanary)
+{-# DEPRECATED tbcCanaryInterval "Use generic-lens or generic-optics with 'canaryInterval' instead." #-}
 
 -- | The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
-tbcCanaryPercentage :: Lens' TimeBasedCanary (Maybe Int)
-tbcCanaryPercentage = lens _tbcCanaryPercentage (\s a -> s {_tbcCanaryPercentage = a})
+--
+-- /Note:/ Consider using 'canaryPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tbcCanaryPercentage :: Lens.Lens' TimeBasedCanary (Lude.Maybe Lude.Int)
+tbcCanaryPercentage = Lens.lens (canaryPercentage :: TimeBasedCanary -> Lude.Maybe Lude.Int) (\s a -> s {canaryPercentage = a} :: TimeBasedCanary)
+{-# DEPRECATED tbcCanaryPercentage "Use generic-lens or generic-optics with 'canaryPercentage' instead." #-}
 
-instance FromJSON TimeBasedCanary where
+instance Lude.FromJSON TimeBasedCanary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeBasedCanary"
       ( \x ->
           TimeBasedCanary'
-            <$> (x .:? "canaryInterval") <*> (x .:? "canaryPercentage")
+            Lude.<$> (x Lude..:? "canaryInterval")
+            Lude.<*> (x Lude..:? "canaryPercentage")
       )
 
-instance Hashable TimeBasedCanary
-
-instance NFData TimeBasedCanary
-
-instance ToJSON TimeBasedCanary where
+instance Lude.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =
-    object
-      ( catMaybes
-          [ ("canaryInterval" .=) <$> _tbcCanaryInterval,
-            ("canaryPercentage" .=) <$> _tbcCanaryPercentage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("canaryInterval" Lude..=) Lude.<$> canaryInterval,
+            ("canaryPercentage" Lude..=) Lude.<$> canaryPercentage
           ]
       )

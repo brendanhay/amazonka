@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNAuthenticationType where
+module Network.AWS.EC2.Types.ClientVPNAuthenticationType
+  ( ClientVPNAuthenticationType
+      ( ClientVPNAuthenticationType',
+        CertificateAuthentication,
+        DirectoryServiceAuthentication,
+        FederatedAuthentication
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVPNAuthenticationType
-  = CertificateAuthentication
-  | DirectoryServiceAuthentication
-  | FederatedAuthentication
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVPNAuthenticationType = ClientVPNAuthenticationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVPNAuthenticationType where
-  parser =
-    takeLowerText >>= \case
-      "certificate-authentication" -> pure CertificateAuthentication
-      "directory-service-authentication" -> pure DirectoryServiceAuthentication
-      "federated-authentication" -> pure FederatedAuthentication
-      e ->
-        fromTextError $
-          "Failure parsing ClientVPNAuthenticationType from value: '" <> e
-            <> "'. Accepted values: certificate-authentication, directory-service-authentication, federated-authentication"
+pattern CertificateAuthentication :: ClientVPNAuthenticationType
+pattern CertificateAuthentication = ClientVPNAuthenticationType' "certificate-authentication"
 
-instance ToText ClientVPNAuthenticationType where
-  toText = \case
-    CertificateAuthentication -> "certificate-authentication"
-    DirectoryServiceAuthentication -> "directory-service-authentication"
-    FederatedAuthentication -> "federated-authentication"
+pattern DirectoryServiceAuthentication :: ClientVPNAuthenticationType
+pattern DirectoryServiceAuthentication = ClientVPNAuthenticationType' "directory-service-authentication"
 
-instance Hashable ClientVPNAuthenticationType
+pattern FederatedAuthentication :: ClientVPNAuthenticationType
+pattern FederatedAuthentication = ClientVPNAuthenticationType' "federated-authentication"
 
-instance NFData ClientVPNAuthenticationType
-
-instance ToByteString ClientVPNAuthenticationType
-
-instance ToQuery ClientVPNAuthenticationType
-
-instance ToHeader ClientVPNAuthenticationType
-
-instance FromXML ClientVPNAuthenticationType where
-  parseXML = parseXMLText "ClientVPNAuthenticationType"
+{-# COMPLETE
+  CertificateAuthentication,
+  DirectoryServiceAuthentication,
+  FederatedAuthentication,
+  ClientVPNAuthenticationType'
+  #-}

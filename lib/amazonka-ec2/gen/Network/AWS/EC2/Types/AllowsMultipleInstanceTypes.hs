@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AllowsMultipleInstanceTypes where
+module Network.AWS.EC2.Types.AllowsMultipleInstanceTypes
+  ( AllowsMultipleInstanceTypes
+      ( AllowsMultipleInstanceTypes',
+        ON,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AllowsMultipleInstanceTypes
-  = ON
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AllowsMultipleInstanceTypes = AllowsMultipleInstanceTypes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AllowsMultipleInstanceTypes where
-  parser =
-    takeLowerText >>= \case
-      "on" -> pure ON
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing AllowsMultipleInstanceTypes from value: '" <> e
-            <> "'. Accepted values: on, off"
+pattern ON :: AllowsMultipleInstanceTypes
+pattern ON = AllowsMultipleInstanceTypes' "on"
 
-instance ToText AllowsMultipleInstanceTypes where
-  toText = \case
-    ON -> "on"
-    Off -> "off"
+pattern Off :: AllowsMultipleInstanceTypes
+pattern Off = AllowsMultipleInstanceTypes' "off"
 
-instance Hashable AllowsMultipleInstanceTypes
-
-instance NFData AllowsMultipleInstanceTypes
-
-instance ToByteString AllowsMultipleInstanceTypes
-
-instance ToQuery AllowsMultipleInstanceTypes
-
-instance ToHeader AllowsMultipleInstanceTypes
-
-instance FromXML AllowsMultipleInstanceTypes where
-  parseXML = parseXMLText "AllowsMultipleInstanceTypes"
+{-# COMPLETE
+  ON,
+  Off,
+  AllowsMultipleInstanceTypes'
+  #-}

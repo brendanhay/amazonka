@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,149 @@
 --
 -- Information on the shipping label of a Snow device that is being returned to AWS.
 module Network.AWS.Snowball.DescribeReturnShippingLabel
-  ( -- * Creating a Request
-    describeReturnShippingLabel,
-    DescribeReturnShippingLabel,
+  ( -- * Creating a request
+    DescribeReturnShippingLabel (..),
+    mkDescribeReturnShippingLabel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drslJobId,
 
-    -- * Destructuring the Response
-    describeReturnShippingLabelResponse,
-    DescribeReturnShippingLabelResponse,
+    -- * Destructuring the response
+    DescribeReturnShippingLabelResponse (..),
+    mkDescribeReturnShippingLabelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drslrsStatus,
     drslrsExpirationDate,
     drslrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'describeReturnShippingLabel' smart constructor.
+-- | /See:/ 'mkDescribeReturnShippingLabel' smart constructor.
 newtype DescribeReturnShippingLabel = DescribeReturnShippingLabel'
-  { _drslJobId ::
-      Maybe Text
+  { jobId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReturnShippingLabel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drslJobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-describeReturnShippingLabel ::
+-- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+mkDescribeReturnShippingLabel ::
   DescribeReturnShippingLabel
-describeReturnShippingLabel =
-  DescribeReturnShippingLabel' {_drslJobId = Nothing}
+mkDescribeReturnShippingLabel =
+  DescribeReturnShippingLabel' {jobId = Lude.Nothing}
 
 -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-drslJobId :: Lens' DescribeReturnShippingLabel (Maybe Text)
-drslJobId = lens _drslJobId (\s a -> s {_drslJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drslJobId :: Lens.Lens' DescribeReturnShippingLabel (Lude.Maybe Lude.Text)
+drslJobId = Lens.lens (jobId :: DescribeReturnShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: DescribeReturnShippingLabel)
+{-# DEPRECATED drslJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeReturnShippingLabel where
+instance Lude.AWSRequest DescribeReturnShippingLabel where
   type
     Rs DescribeReturnShippingLabel =
       DescribeReturnShippingLabelResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeReturnShippingLabelResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "ExpirationDate")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "ExpirationDate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReturnShippingLabel
-
-instance NFData DescribeReturnShippingLabel
-
-instance ToHeaders DescribeReturnShippingLabel where
+instance Lude.ToHeaders DescribeReturnShippingLabel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeReturnShippingLabel where
+instance Lude.ToJSON DescribeReturnShippingLabel where
   toJSON DescribeReturnShippingLabel' {..} =
-    object (catMaybes [("JobId" .=) <$> _drslJobId])
+    Lude.object (Lude.catMaybes [("JobId" Lude..=) Lude.<$> jobId])
 
-instance ToPath DescribeReturnShippingLabel where
-  toPath = const "/"
+instance Lude.ToPath DescribeReturnShippingLabel where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeReturnShippingLabel where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeReturnShippingLabel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeReturnShippingLabelResponse' smart constructor.
+-- | /See:/ 'mkDescribeReturnShippingLabelResponse' smart constructor.
 data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
-  { _drslrsStatus ::
-      !( Maybe
-           ShippingLabelStatus
-       ),
-    _drslrsExpirationDate ::
-      !(Maybe POSIX),
-    _drslrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        ShippingLabelStatus,
+    expirationDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReturnShippingLabelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drslrsStatus' - The status information of the task on a Snow device that is being returned to AWS.
---
--- * 'drslrsExpirationDate' - The expiration date of the current return shipping label.
---
--- * 'drslrsResponseStatus' - -- | The response status code.
-describeReturnShippingLabelResponse ::
-  -- | 'drslrsResponseStatus'
-  Int ->
+-- * 'expirationDate' - The expiration date of the current return shipping label.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status information of the task on a Snow device that is being returned to AWS.
+mkDescribeReturnShippingLabelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReturnShippingLabelResponse
-describeReturnShippingLabelResponse pResponseStatus_ =
+mkDescribeReturnShippingLabelResponse pResponseStatus_ =
   DescribeReturnShippingLabelResponse'
-    { _drslrsStatus = Nothing,
-      _drslrsExpirationDate = Nothing,
-      _drslrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      expirationDate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status information of the task on a Snow device that is being returned to AWS.
-drslrsStatus :: Lens' DescribeReturnShippingLabelResponse (Maybe ShippingLabelStatus)
-drslrsStatus = lens _drslrsStatus (\s a -> s {_drslrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drslrsStatus :: Lens.Lens' DescribeReturnShippingLabelResponse (Lude.Maybe ShippingLabelStatus)
+drslrsStatus = Lens.lens (status :: DescribeReturnShippingLabelResponse -> Lude.Maybe ShippingLabelStatus) (\s a -> s {status = a} :: DescribeReturnShippingLabelResponse)
+{-# DEPRECATED drslrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The expiration date of the current return shipping label.
-drslrsExpirationDate :: Lens' DescribeReturnShippingLabelResponse (Maybe UTCTime)
-drslrsExpirationDate = lens _drslrsExpirationDate (\s a -> s {_drslrsExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drslrsExpirationDate :: Lens.Lens' DescribeReturnShippingLabelResponse (Lude.Maybe Lude.Timestamp)
+drslrsExpirationDate = Lens.lens (expirationDate :: DescribeReturnShippingLabelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: DescribeReturnShippingLabelResponse)
+{-# DEPRECATED drslrsExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
--- | -- | The response status code.
-drslrsResponseStatus :: Lens' DescribeReturnShippingLabelResponse Int
-drslrsResponseStatus = lens _drslrsResponseStatus (\s a -> s {_drslrsResponseStatus = a})
-
-instance NFData DescribeReturnShippingLabelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drslrsResponseStatus :: Lens.Lens' DescribeReturnShippingLabelResponse Lude.Int
+drslrsResponseStatus = Lens.lens (responseStatus :: DescribeReturnShippingLabelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReturnShippingLabelResponse)
+{-# DEPRECATED drslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

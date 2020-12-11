@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,111 @@
 --
 -- Deletes an email template.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DeleteTemplate
-  ( -- * Creating a Request
-    deleteTemplate,
-    DeleteTemplate,
+  ( -- * Creating a request
+    DeleteTemplate (..),
+    mkDeleteTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtTemplateName,
 
-    -- * Destructuring the Response
-    deleteTemplateResponse,
-    DeleteTemplateResponse,
+    -- * Destructuring the response
+    DeleteTemplateResponse (..),
+    mkDeleteTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to delete an email template. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'deleteTemplate' smart constructor.
-newtype DeleteTemplate = DeleteTemplate' {_dtTemplateName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteTemplate' smart constructor.
+newtype DeleteTemplate = DeleteTemplate' {templateName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtTemplateName' - The name of the template to be deleted.
-deleteTemplate ::
-  -- | 'dtTemplateName'
-  Text ->
+-- * 'templateName' - The name of the template to be deleted.
+mkDeleteTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   DeleteTemplate
-deleteTemplate pTemplateName_ =
-  DeleteTemplate' {_dtTemplateName = pTemplateName_}
+mkDeleteTemplate pTemplateName_ =
+  DeleteTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template to be deleted.
-dtTemplateName :: Lens' DeleteTemplate Text
-dtTemplateName = lens _dtTemplateName (\s a -> s {_dtTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTemplateName :: Lens.Lens' DeleteTemplate Lude.Text
+dtTemplateName = Lens.lens (templateName :: DeleteTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteTemplate)
+{-# DEPRECATED dtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest DeleteTemplate where
+instance Lude.AWSRequest DeleteTemplate where
   type Rs DeleteTemplate = DeleteTemplateResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteTemplateResult"
-      (\s h x -> DeleteTemplateResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteTemplate
+instance Lude.ToHeaders DeleteTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTemplate
+instance Lude.ToPath DeleteTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteTemplate where
-  toHeaders = const mempty
-
-instance ToPath DeleteTemplate where
-  toPath = const "/"
-
-instance ToQuery DeleteTemplate where
+instance Lude.ToQuery DeleteTemplate where
   toQuery DeleteTemplate' {..} =
-    mconcat
-      [ "Action" =: ("DeleteTemplate" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "TemplateName" =: _dtTemplateName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "TemplateName" Lude.=: templateName
       ]
 
--- | /See:/ 'deleteTemplateResponse' smart constructor.
+-- | /See:/ 'mkDeleteTemplateResponse' smart constructor.
 newtype DeleteTemplateResponse = DeleteTemplateResponse'
-  { _dtrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTemplateResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTemplateResponse
-deleteTemplateResponse pResponseStatus_ =
-  DeleteTemplateResponse' {_dtrsResponseStatus = pResponseStatus_}
+mkDeleteTemplateResponse pResponseStatus_ =
+  DeleteTemplateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTemplateResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DeleteTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DeleteTemplateResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DeleteTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTemplateResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

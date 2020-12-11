@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,134 @@
 --
 -- Provides cluster-level details including status, hardware and software configuration, VPC settings, and so on.
 module Network.AWS.EMR.DescribeCluster
-  ( -- * Creating a Request
-    describeCluster,
-    DescribeCluster,
+  ( -- * Creating a request
+    DescribeCluster (..),
+    mkDescribeCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcClusterId,
 
-    -- * Destructuring the Response
-    describeClusterResponse,
-    DescribeClusterResponse,
+    -- * Destructuring the response
+    DescribeClusterResponse (..),
+    mkDescribeClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsResponseStatus,
     dcrsCluster,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | This input determines which cluster to describe.
 --
---
---
--- /See:/ 'describeCluster' smart constructor.
-newtype DescribeCluster = DescribeCluster' {_dcClusterId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeCluster' smart constructor.
+newtype DescribeCluster = DescribeCluster' {clusterId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcClusterId' - The identifier of the cluster to describe.
-describeCluster ::
-  -- | 'dcClusterId'
-  Text ->
+-- * 'clusterId' - The identifier of the cluster to describe.
+mkDescribeCluster ::
+  -- | 'clusterId'
+  Lude.Text ->
   DescribeCluster
-describeCluster pClusterId_ =
-  DescribeCluster' {_dcClusterId = pClusterId_}
+mkDescribeCluster pClusterId_ =
+  DescribeCluster' {clusterId = pClusterId_}
 
 -- | The identifier of the cluster to describe.
-dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\s a -> s {_dcClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcClusterId :: Lens.Lens' DescribeCluster Lude.Text
+dcClusterId = Lens.lens (clusterId :: DescribeCluster -> Lude.Text) (\s a -> s {clusterId = a} :: DescribeCluster)
+{-# DEPRECATED dcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest DescribeCluster where
+instance Lude.AWSRequest DescribeCluster where
   type Rs DescribeCluster = DescribeClusterResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "Cluster")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Cluster")
       )
 
-instance Hashable DescribeCluster
-
-instance NFData DescribeCluster
-
-instance ToHeaders DescribeCluster where
+instance Lude.ToHeaders DescribeCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.DescribeCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.DescribeCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCluster where
+instance Lude.ToJSON DescribeCluster where
   toJSON DescribeCluster' {..} =
-    object (catMaybes [Just ("ClusterId" .= _dcClusterId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ClusterId" Lude..= clusterId)])
 
-instance ToPath DescribeCluster where
-  toPath = const "/"
+instance Lude.ToPath DescribeCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCluster where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCluster where
+  toQuery = Lude.const Lude.mempty
 
 -- | This output contains the description of the cluster.
 --
---
---
--- /See:/ 'describeClusterResponse' smart constructor.
+-- /See:/ 'mkDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-  { _dcrsResponseStatus ::
-      !Int,
-    _dcrsCluster :: !Cluster
+  { responseStatus ::
+      Lude.Int,
+    cluster :: Cluster
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsResponseStatus' - -- | The response status code.
---
--- * 'dcrsCluster' - This output contains the details for the requested cluster.
-describeClusterResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
-  -- | 'dcrsCluster'
+-- * 'cluster' - This output contains the details for the requested cluster.
+-- * 'responseStatus' - The response status code.
+mkDescribeClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'cluster'
   Cluster ->
   DescribeClusterResponse
-describeClusterResponse pResponseStatus_ pCluster_ =
+mkDescribeClusterResponse pResponseStatus_ pCluster_ =
   DescribeClusterResponse'
-    { _dcrsResponseStatus = pResponseStatus_,
-      _dcrsCluster = pCluster_
+    { responseStatus = pResponseStatus_,
+      cluster = pCluster_
     }
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeClusterResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeClusterResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | This output contains the details for the requested cluster.
-dcrsCluster :: Lens' DescribeClusterResponse Cluster
-dcrsCluster = lens _dcrsCluster (\s a -> s {_dcrsCluster = a})
-
-instance NFData DescribeClusterResponse
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCluster :: Lens.Lens' DescribeClusterResponse Cluster
+dcrsCluster = Lens.lens (cluster :: DescribeClusterResponse -> Cluster) (\s a -> s {cluster = a} :: DescribeClusterResponse)
+{-# DEPRECATED dcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}

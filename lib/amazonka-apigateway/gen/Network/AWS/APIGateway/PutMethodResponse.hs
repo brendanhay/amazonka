@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Adds a 'MethodResponse' to an existing 'Method' resource.
 module Network.AWS.APIGateway.PutMethodResponse
-  ( -- * Creating a Request
-    putMethodResponse,
-    PutMethodResponse,
+  ( -- * Creating a request
+    PutMethodResponse (..),
+    mkPutMethodResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pmResponseModels,
     pmResponseParameters,
     pmRestAPIId,
@@ -31,11 +26,11 @@ module Network.AWS.APIGateway.PutMethodResponse
     pmHttpMethod,
     pmStatusCode,
 
-    -- * Destructuring the Response
-    methodResponse,
-    MethodResponse,
+    -- * Destructuring the response
+    MethodResponse (..),
+    mkMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mResponseModels,
     mStatusCode,
     mResponseParameters,
@@ -43,124 +38,140 @@ module Network.AWS.APIGateway.PutMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to add a 'MethodResponse' to an existing 'Method' resource.
 --
---
---
--- /See:/ 'putMethodResponse' smart constructor.
+-- /See:/ 'mkPutMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
-  { _pmResponseModels ::
-      !(Maybe (Map Text (Text))),
-    _pmResponseParameters :: !(Maybe (Map Text (Bool))),
-    _pmRestAPIId :: !Text,
-    _pmResourceId :: !Text,
-    _pmHttpMethod :: !Text,
-    _pmStatusCode :: !Text
+  { responseModels ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Bool)),
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text,
+    statusCode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmResponseModels' - Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
---
--- * 'pmResponseParameters' - A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in @integration.response.header.{name}@ , a static value enclosed within a pair of single quotes (e.g., @'application/json'@ ), or a JSON expression from the back-end response payload in the form of @integration.response.body.{JSON-expression}@ , where @JSON-expression@ is a valid JSON expression without the @> @ prefix.)
---
--- * 'pmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'pmResourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
---
--- * 'pmHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
---
--- * 'pmStatusCode' - [Required] The method response's status code.
-putMethodResponse ::
-  -- | 'pmRestAPIId'
-  Text ->
-  -- | 'pmResourceId'
-  Text ->
-  -- | 'pmHttpMethod'
-  Text ->
-  -- | 'pmStatusCode'
-  Text ->
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
+-- * 'resourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- * 'responseModels' - Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
+-- * 'responseParameters' - A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in @integration.response.header.{name}@ , a static value enclosed within a pair of single quotes (e.g., @'application/json'@ ), or a JSON expression from the back-end response payload in the form of @integration.response.body.{JSON-expression}@ , where @JSON-expression@ is a valid JSON expression without the @> @ prefix.)
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'statusCode' - [Required] The method response's status code.
+mkPutMethodResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'statusCode'
+  Lude.Text ->
   PutMethodResponse
-putMethodResponse
+mkPutMethodResponse
   pRestAPIId_
   pResourceId_
   pHttpMethod_
   pStatusCode_ =
     PutMethodResponse'
-      { _pmResponseModels = Nothing,
-        _pmResponseParameters = Nothing,
-        _pmRestAPIId = pRestAPIId_,
-        _pmResourceId = pResourceId_,
-        _pmHttpMethod = pHttpMethod_,
-        _pmStatusCode = pStatusCode_
+      { responseModels = Lude.Nothing,
+        responseParameters = Lude.Nothing,
+        restAPIId = pRestAPIId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
       }
 
 -- | Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
-pmResponseModels :: Lens' PutMethodResponse (HashMap Text (Text))
-pmResponseModels = lens _pmResponseModels (\s a -> s {_pmResponseModels = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'responseModels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmResponseModels :: Lens.Lens' PutMethodResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+pmResponseModels = Lens.lens (responseModels :: PutMethodResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {responseModels = a} :: PutMethodResponse)
+{-# DEPRECATED pmResponseModels "Use generic-lens or generic-optics with 'responseModels' instead." #-}
 
 -- | A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in @integration.response.header.{name}@ , a static value enclosed within a pair of single quotes (e.g., @'application/json'@ ), or a JSON expression from the back-end response payload in the form of @integration.response.body.{JSON-expression}@ , where @JSON-expression@ is a valid JSON expression without the @> @ prefix.)
-pmResponseParameters :: Lens' PutMethodResponse (HashMap Text (Bool))
-pmResponseParameters = lens _pmResponseParameters (\s a -> s {_pmResponseParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'responseParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmResponseParameters :: Lens.Lens' PutMethodResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Bool)))
+pmResponseParameters = Lens.lens (responseParameters :: PutMethodResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Bool))) (\s a -> s {responseParameters = a} :: PutMethodResponse)
+{-# DEPRECATED pmResponseParameters "Use generic-lens or generic-optics with 'responseParameters' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-pmRestAPIId :: Lens' PutMethodResponse Text
-pmRestAPIId = lens _pmRestAPIId (\s a -> s {_pmRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmRestAPIId :: Lens.Lens' PutMethodResponse Lude.Text
+pmRestAPIId = Lens.lens (restAPIId :: PutMethodResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: PutMethodResponse)
+{-# DEPRECATED pmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'Method' resource.
-pmResourceId :: Lens' PutMethodResponse Text
-pmResourceId = lens _pmResourceId (\s a -> s {_pmResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmResourceId :: Lens.Lens' PutMethodResponse Lude.Text
+pmResourceId = Lens.lens (resourceId :: PutMethodResponse -> Lude.Text) (\s a -> s {resourceId = a} :: PutMethodResponse)
+{-# DEPRECATED pmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The HTTP verb of the 'Method' resource.
-pmHttpMethod :: Lens' PutMethodResponse Text
-pmHttpMethod = lens _pmHttpMethod (\s a -> s {_pmHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmHttpMethod :: Lens.Lens' PutMethodResponse Lude.Text
+pmHttpMethod = Lens.lens (httpMethod :: PutMethodResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: PutMethodResponse)
+{-# DEPRECATED pmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
 -- | [Required] The method response's status code.
-pmStatusCode :: Lens' PutMethodResponse Text
-pmStatusCode = lens _pmStatusCode (\s a -> s {_pmStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmStatusCode :: Lens.Lens' PutMethodResponse Lude.Text
+pmStatusCode = Lens.lens (statusCode :: PutMethodResponse -> Lude.Text) (\s a -> s {statusCode = a} :: PutMethodResponse)
+{-# DEPRECATED pmStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSRequest PutMethodResponse where
+instance Lude.AWSRequest PutMethodResponse where
   type Rs PutMethodResponse = MethodResponse
-  request = putJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.putJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable PutMethodResponse
-
-instance NFData PutMethodResponse
-
-instance ToHeaders PutMethodResponse where
+instance Lude.ToHeaders PutMethodResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON PutMethodResponse where
+instance Lude.ToJSON PutMethodResponse where
   toJSON PutMethodResponse' {..} =
-    object
-      ( catMaybes
-          [ ("responseModels" .=) <$> _pmResponseModels,
-            ("responseParameters" .=) <$> _pmResponseParameters
+    Lude.object
+      ( Lude.catMaybes
+          [ ("responseModels" Lude..=) Lude.<$> responseModels,
+            ("responseParameters" Lude..=) Lude.<$> responseParameters
           ]
       )
 
-instance ToPath PutMethodResponse where
+instance Lude.ToPath PutMethodResponse where
   toPath PutMethodResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _pmRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _pmResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _pmHttpMethod,
+        Lude.toBS httpMethod,
         "/responses/",
-        toBS _pmStatusCode
+        Lude.toBS statusCode
       ]
 
-instance ToQuery PutMethodResponse where
-  toQuery = const mempty
+instance Lude.ToQuery PutMethodResponse where
+  toQuery = Lude.const Lude.mempty

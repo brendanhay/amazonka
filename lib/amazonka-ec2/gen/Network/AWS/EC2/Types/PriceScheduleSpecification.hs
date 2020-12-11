@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PriceScheduleSpecification where
+module Network.AWS.EC2.Types.PriceScheduleSpecification
+  ( PriceScheduleSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkPriceScheduleSpecification,
+
+    -- * Lenses
+    pssCurrencyCode,
+    pssTerm,
+    pssPrice,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the price for a Reserved Instance.
 --
---
---
--- /See:/ 'priceScheduleSpecification' smart constructor.
+-- /See:/ 'mkPriceScheduleSpecification' smart constructor.
 data PriceScheduleSpecification = PriceScheduleSpecification'
-  { _pssCurrencyCode ::
-      !(Maybe CurrencyCodeValues),
-    _pssTerm :: !(Maybe Integer),
-    _pssPrice :: !(Maybe Double)
+  { currencyCode ::
+      Lude.Maybe CurrencyCodeValues,
+    term :: Lude.Maybe Lude.Integer,
+    price :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PriceScheduleSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pssCurrencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
---
--- * 'pssTerm' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
---
--- * 'pssPrice' - The fixed price for the term.
-priceScheduleSpecification ::
+-- * 'currencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
+-- * 'price' - The fixed price for the term.
+-- * 'term' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
+mkPriceScheduleSpecification ::
   PriceScheduleSpecification
-priceScheduleSpecification =
+mkPriceScheduleSpecification =
   PriceScheduleSpecification'
-    { _pssCurrencyCode = Nothing,
-      _pssTerm = Nothing,
-      _pssPrice = Nothing
+    { currencyCode = Lude.Nothing,
+      term = Lude.Nothing,
+      price = Lude.Nothing
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
-pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
-pssCurrencyCode = lens _pssCurrencyCode (\s a -> s {_pssCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pssCurrencyCode :: Lens.Lens' PriceScheduleSpecification (Lude.Maybe CurrencyCodeValues)
+pssCurrencyCode = Lens.lens (currencyCode :: PriceScheduleSpecification -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: PriceScheduleSpecification)
+{-# DEPRECATED pssCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
-pssTerm :: Lens' PriceScheduleSpecification (Maybe Integer)
-pssTerm = lens _pssTerm (\s a -> s {_pssTerm = a})
+--
+-- /Note:/ Consider using 'term' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pssTerm :: Lens.Lens' PriceScheduleSpecification (Lude.Maybe Lude.Integer)
+pssTerm = Lens.lens (term :: PriceScheduleSpecification -> Lude.Maybe Lude.Integer) (\s a -> s {term = a} :: PriceScheduleSpecification)
+{-# DEPRECATED pssTerm "Use generic-lens or generic-optics with 'term' instead." #-}
 
 -- | The fixed price for the term.
-pssPrice :: Lens' PriceScheduleSpecification (Maybe Double)
-pssPrice = lens _pssPrice (\s a -> s {_pssPrice = a})
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pssPrice :: Lens.Lens' PriceScheduleSpecification (Lude.Maybe Lude.Double)
+pssPrice = Lens.lens (price :: PriceScheduleSpecification -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: PriceScheduleSpecification)
+{-# DEPRECATED pssPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
-instance Hashable PriceScheduleSpecification
-
-instance NFData PriceScheduleSpecification
-
-instance ToQuery PriceScheduleSpecification where
+instance Lude.ToQuery PriceScheduleSpecification where
   toQuery PriceScheduleSpecification' {..} =
-    mconcat
-      [ "CurrencyCode" =: _pssCurrencyCode,
-        "Term" =: _pssTerm,
-        "Price" =: _pssPrice
+    Lude.mconcat
+      [ "CurrencyCode" Lude.=: currencyCode,
+        "Term" Lude.=: term,
+        "Price" Lude.=: price
       ]

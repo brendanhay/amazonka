@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RightsizingType where
+module Network.AWS.CostExplorer.Types.RightsizingType
+  ( RightsizingType
+      ( RightsizingType',
+        Modify,
+        Terminate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RightsizingType
-  = Modify
-  | Terminate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RightsizingType = RightsizingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RightsizingType where
-  parser =
-    takeLowerText >>= \case
-      "modify" -> pure Modify
-      "terminate" -> pure Terminate
-      e ->
-        fromTextError $
-          "Failure parsing RightsizingType from value: '" <> e
-            <> "'. Accepted values: modify, terminate"
+pattern Modify :: RightsizingType
+pattern Modify = RightsizingType' "MODIFY"
 
-instance ToText RightsizingType where
-  toText = \case
-    Modify -> "MODIFY"
-    Terminate -> "TERMINATE"
+pattern Terminate :: RightsizingType
+pattern Terminate = RightsizingType' "TERMINATE"
 
-instance Hashable RightsizingType
-
-instance NFData RightsizingType
-
-instance ToByteString RightsizingType
-
-instance ToQuery RightsizingType
-
-instance ToHeader RightsizingType
-
-instance FromJSON RightsizingType where
-  parseJSON = parseJSONText "RightsizingType"
+{-# COMPLETE
+  Modify,
+  Terminate,
+  RightsizingType'
+  #-}

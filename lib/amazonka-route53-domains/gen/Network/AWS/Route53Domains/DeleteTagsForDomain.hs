@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,141 @@
 --
 -- This operation deletes the specified tags for a domain.
 --
---
 -- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
 module Network.AWS.Route53Domains.DeleteTagsForDomain
-  ( -- * Creating a Request
-    deleteTagsForDomain,
-    DeleteTagsForDomain,
+  ( -- * Creating a request
+    DeleteTagsForDomain (..),
+    mkDeleteTagsForDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtfdDomainName,
     dtfdTagsToDelete,
 
-    -- * Destructuring the Response
-    deleteTagsForDomainResponse,
-    DeleteTagsForDomainResponse,
+    -- * Destructuring the response
+    DeleteTagsForDomainResponse (..),
+    mkDeleteTagsForDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtfdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The DeleteTagsForDomainRequest includes the following elements.
 --
---
---
--- /See:/ 'deleteTagsForDomain' smart constructor.
+-- /See:/ 'mkDeleteTagsForDomain' smart constructor.
 data DeleteTagsForDomain = DeleteTagsForDomain'
-  { _dtfdDomainName ::
-      !Text,
-    _dtfdTagsToDelete :: ![Text]
+  { domainName ::
+      Lude.Text,
+    tagsToDelete :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsForDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfdDomainName' - The domain for which you want to delete one or more tags.
---
--- * 'dtfdTagsToDelete' - A list of tag keys to delete.
-deleteTagsForDomain ::
-  -- | 'dtfdDomainName'
-  Text ->
+-- * 'domainName' - The domain for which you want to delete one or more tags.
+-- * 'tagsToDelete' - A list of tag keys to delete.
+mkDeleteTagsForDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   DeleteTagsForDomain
-deleteTagsForDomain pDomainName_ =
+mkDeleteTagsForDomain pDomainName_ =
   DeleteTagsForDomain'
-    { _dtfdDomainName = pDomainName_,
-      _dtfdTagsToDelete = mempty
+    { domainName = pDomainName_,
+      tagsToDelete = Lude.mempty
     }
 
 -- | The domain for which you want to delete one or more tags.
-dtfdDomainName :: Lens' DeleteTagsForDomain Text
-dtfdDomainName = lens _dtfdDomainName (\s a -> s {_dtfdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfdDomainName :: Lens.Lens' DeleteTagsForDomain Lude.Text
+dtfdDomainName = Lens.lens (domainName :: DeleteTagsForDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteTagsForDomain)
+{-# DEPRECATED dtfdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | A list of tag keys to delete.
-dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
-dtfdTagsToDelete = lens _dtfdTagsToDelete (\s a -> s {_dtfdTagsToDelete = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagsToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfdTagsToDelete :: Lens.Lens' DeleteTagsForDomain [Lude.Text]
+dtfdTagsToDelete = Lens.lens (tagsToDelete :: DeleteTagsForDomain -> [Lude.Text]) (\s a -> s {tagsToDelete = a} :: DeleteTagsForDomain)
+{-# DEPRECATED dtfdTagsToDelete "Use generic-lens or generic-optics with 'tagsToDelete' instead." #-}
 
-instance AWSRequest DeleteTagsForDomain where
+instance Lude.AWSRequest DeleteTagsForDomain where
   type Rs DeleteTagsForDomain = DeleteTagsForDomainResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteTagsForDomainResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteTagsForDomain
-
-instance NFData DeleteTagsForDomain
-
-instance ToHeaders DeleteTagsForDomain where
+instance Lude.ToHeaders DeleteTagsForDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53Domains_v20140515.DeleteTagsForDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.DeleteTagsForDomain" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteTagsForDomain where
+instance Lude.ToJSON DeleteTagsForDomain where
   toJSON DeleteTagsForDomain' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainName" .= _dtfdDomainName),
-            Just ("TagsToDelete" .= _dtfdTagsToDelete)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("TagsToDelete" Lude..= tagsToDelete)
           ]
       )
 
-instance ToPath DeleteTagsForDomain where
-  toPath = const "/"
+instance Lude.ToPath DeleteTagsForDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteTagsForDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTagsForDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTagsForDomainResponse' smart constructor.
+-- | /See:/ 'mkDeleteTagsForDomainResponse' smart constructor.
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
-  { _dtfdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsForDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfdrsResponseStatus' - -- | The response status code.
-deleteTagsForDomainResponse ::
-  -- | 'dtfdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTagsForDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTagsForDomainResponse
-deleteTagsForDomainResponse pResponseStatus_ =
-  DeleteTagsForDomainResponse'
-    { _dtfdrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteTagsForDomainResponse pResponseStatus_ =
+  DeleteTagsForDomainResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtfdrsResponseStatus :: Lens' DeleteTagsForDomainResponse Int
-dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\s a -> s {_dtfdrsResponseStatus = a})
-
-instance NFData DeleteTagsForDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfdrsResponseStatus :: Lens.Lens' DeleteTagsForDomainResponse Lude.Int
+dtfdrsResponseStatus = Lens.lens (responseStatus :: DeleteTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTagsForDomainResponse)
+{-# DEPRECATED dtfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

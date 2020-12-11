@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails where
+module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+  ( HistoryEventExecutionDataDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHistoryEventExecutionDataDetails,
+
+    -- * Lenses
+    heeddTruncated,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides details about input or output in an execution history event.
 --
---
---
--- /See:/ 'historyEventExecutionDataDetails' smart constructor.
+-- /See:/ 'mkHistoryEventExecutionDataDetails' smart constructor.
 newtype HistoryEventExecutionDataDetails = HistoryEventExecutionDataDetails'
-  { _heeddTruncated ::
-      Maybe Bool
+  { truncated ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoryEventExecutionDataDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'heeddTruncated' - Indicates whether input or output was truncated in the response. Always @false@ for API calls.
-historyEventExecutionDataDetails ::
+-- * 'truncated' - Indicates whether input or output was truncated in the response. Always @false@ for API calls.
+mkHistoryEventExecutionDataDetails ::
   HistoryEventExecutionDataDetails
-historyEventExecutionDataDetails =
-  HistoryEventExecutionDataDetails' {_heeddTruncated = Nothing}
+mkHistoryEventExecutionDataDetails =
+  HistoryEventExecutionDataDetails' {truncated = Lude.Nothing}
 
 -- | Indicates whether input or output was truncated in the response. Always @false@ for API calls.
-heeddTruncated :: Lens' HistoryEventExecutionDataDetails (Maybe Bool)
-heeddTruncated = lens _heeddTruncated (\s a -> s {_heeddTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heeddTruncated :: Lens.Lens' HistoryEventExecutionDataDetails (Lude.Maybe Lude.Bool)
+heeddTruncated = Lens.lens (truncated :: HistoryEventExecutionDataDetails -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: HistoryEventExecutionDataDetails)
+{-# DEPRECATED heeddTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
-instance FromJSON HistoryEventExecutionDataDetails where
+instance Lude.FromJSON HistoryEventExecutionDataDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "HistoryEventExecutionDataDetails"
-      (\x -> HistoryEventExecutionDataDetails' <$> (x .:? "truncated"))
-
-instance Hashable HistoryEventExecutionDataDetails
-
-instance NFData HistoryEventExecutionDataDetails
+      ( \x ->
+          HistoryEventExecutionDataDetails'
+            Lude.<$> (x Lude..:? "truncated")
+      )

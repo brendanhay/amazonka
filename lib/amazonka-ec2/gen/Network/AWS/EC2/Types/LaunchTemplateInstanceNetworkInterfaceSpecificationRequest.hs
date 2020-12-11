@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,241 +7,280 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest where
+module Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+  ( LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
+
+    -- * Lenses
+    ltinisrGroups,
+    ltinisrPrivateIPAddresses,
+    ltinisrDeleteOnTermination,
+    ltinisrAssociateCarrierIPAddress,
+    ltinisrAssociatePublicIPAddress,
+    ltinisrInterfaceType,
+    ltinisrNetworkInterfaceId,
+    ltinisrSubnetId,
+    ltinisrIPv6AddressCount,
+    ltinisrNetworkCardIndex,
+    ltinisrPrivateIPAddress,
+    ltinisrSecondaryPrivateIPAddressCount,
+    ltinisrDescription,
+    ltinisrDeviceIndex,
+    ltinisrIPv6Addresses,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceIPv6AddressRequest
 import Network.AWS.EC2.Types.PrivateIPAddressSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The parameters for a network interface.
 --
---
---
--- /See:/ 'launchTemplateInstanceNetworkInterfaceSpecificationRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest' smart constructor.
 data LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = LaunchTemplateInstanceNetworkInterfaceSpecificationRequest'
-  { _ltinisrGroups ::
-      !( Maybe
-           [Text]
-       ),
-    _ltinisrPrivateIPAddresses ::
-      !( Maybe
-           [PrivateIPAddressSpecification]
-       ),
-    _ltinisrDeleteOnTermination ::
-      !( Maybe
-           Bool
-       ),
-    _ltinisrAssociateCarrierIPAddress ::
-      !( Maybe
-           Bool
-       ),
-    _ltinisrAssociatePublicIPAddress ::
-      !( Maybe
-           Bool
-       ),
-    _ltinisrInterfaceType ::
-      !( Maybe
-           Text
-       ),
-    _ltinisrNetworkInterfaceId ::
-      !( Maybe
-           Text
-       ),
-    _ltinisrSubnetId ::
-      !( Maybe
-           Text
-       ),
-    _ltinisrIPv6AddressCount ::
-      !( Maybe
-           Int
-       ),
-    _ltinisrNetworkCardIndex ::
-      !( Maybe
-           Int
-       ),
-    _ltinisrPrivateIPAddress ::
-      !( Maybe
-           Text
-       ),
-    _ltinisrSecondaryPrivateIPAddressCount ::
-      !( Maybe
-           Int
-       ),
-    _ltinisrDescription ::
-      !( Maybe
-           Text
-       ),
-    _ltinisrDeviceIndex ::
-      !( Maybe
-           Int
-       ),
-    _ltinisrIPv6Addresses ::
-      !( Maybe
-           [InstanceIPv6AddressRequest]
-       )
+  { groups ::
+      Lude.Maybe
+        [Lude.Text],
+    privateIPAddresses ::
+      Lude.Maybe
+        [PrivateIPAddressSpecification],
+    deleteOnTermination ::
+      Lude.Maybe
+        Lude.Bool,
+    associateCarrierIPAddress ::
+      Lude.Maybe
+        Lude.Bool,
+    associatePublicIPAddress ::
+      Lude.Maybe
+        Lude.Bool,
+    interfaceType ::
+      Lude.Maybe
+        Lude.Text,
+    networkInterfaceId ::
+      Lude.Maybe
+        Lude.Text,
+    subnetId ::
+      Lude.Maybe
+        Lude.Text,
+    ipv6AddressCount ::
+      Lude.Maybe
+        Lude.Int,
+    networkCardIndex ::
+      Lude.Maybe
+        Lude.Int,
+    privateIPAddress ::
+      Lude.Maybe
+        Lude.Text,
+    secondaryPrivateIPAddressCount ::
+      Lude.Maybe
+        Lude.Int,
+    description ::
+      Lude.Maybe
+        Lude.Text,
+    deviceIndex ::
+      Lude.Maybe
+        Lude.Int,
+    ipv6Addresses ::
+      Lude.Maybe
+        [InstanceIPv6AddressRequest]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'associateCarrierIPAddress' - Associates a Carrier IP address with eth0 for a new network interface.
 --
--- * 'ltinisrGroups' - The IDs of one or more security groups.
+-- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
+-- * 'associatePublicIPAddress' - Associates a public IPv4 address with eth0 for a new network interface.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+-- * 'description' - A description for the network interface.
+-- * 'deviceIndex' - The device index for the network interface attachment.
+-- * 'groups' - The IDs of one or more security groups.
+-- * 'interfaceType' - The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'ltinisrPrivateIPAddresses' - One or more private IPv4 addresses.
---
--- * 'ltinisrDeleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
---
--- * 'ltinisrAssociateCarrierIPAddress' - Associates a Carrier IP address with eth0 for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
---
--- * 'ltinisrAssociatePublicIPAddress' - Associates a public IPv4 address with eth0 for a new network interface.
---
--- * 'ltinisrInterfaceType' - The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ . If you are not creating an EFA, specify @interface@ or omit this parameter. Valid values: @interface@ | @efa@
---
--- * 'ltinisrNetworkInterfaceId' - The ID of the network interface.
---
--- * 'ltinisrSubnetId' - The ID of the subnet for the network interface.
---
--- * 'ltinisrIPv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
---
--- * 'ltinisrNetworkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
---
--- * 'ltinisrPrivateIPAddress' - The primary private IPv4 address of the network interface.
---
--- * 'ltinisrSecondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface.
---
--- * 'ltinisrDescription' - A description for the network interface.
---
--- * 'ltinisrDeviceIndex' - The device index for the network interface attachment.
---
--- * 'ltinisrIPv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-launchTemplateInstanceNetworkInterfaceSpecificationRequest ::
+-- If you are not creating an EFA, specify @interface@ or omit this parameter.
+-- Valid values: @interface@ | @efa@
+-- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+-- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+-- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'privateIPAddress' - The primary private IPv4 address of the network interface.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses.
+-- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface.
+-- * 'subnetId' - The ID of the subnet for the network interface.
+mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest ::
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-launchTemplateInstanceNetworkInterfaceSpecificationRequest =
+mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest =
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest'
-    { _ltinisrGroups =
-        Nothing,
-      _ltinisrPrivateIPAddresses =
-        Nothing,
-      _ltinisrDeleteOnTermination =
-        Nothing,
-      _ltinisrAssociateCarrierIPAddress =
-        Nothing,
-      _ltinisrAssociatePublicIPAddress =
-        Nothing,
-      _ltinisrInterfaceType = Nothing,
-      _ltinisrNetworkInterfaceId =
-        Nothing,
-      _ltinisrSubnetId = Nothing,
-      _ltinisrIPv6AddressCount = Nothing,
-      _ltinisrNetworkCardIndex = Nothing,
-      _ltinisrPrivateIPAddress = Nothing,
-      _ltinisrSecondaryPrivateIPAddressCount =
-        Nothing,
-      _ltinisrDescription = Nothing,
-      _ltinisrDeviceIndex = Nothing,
-      _ltinisrIPv6Addresses = Nothing
+    { groups =
+        Lude.Nothing,
+      privateIPAddresses = Lude.Nothing,
+      deleteOnTermination = Lude.Nothing,
+      associateCarrierIPAddress =
+        Lude.Nothing,
+      associatePublicIPAddress =
+        Lude.Nothing,
+      interfaceType = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      ipv6AddressCount = Lude.Nothing,
+      networkCardIndex = Lude.Nothing,
+      privateIPAddress = Lude.Nothing,
+      secondaryPrivateIPAddressCount =
+        Lude.Nothing,
+      description = Lude.Nothing,
+      deviceIndex = Lude.Nothing,
+      ipv6Addresses = Lude.Nothing
     }
 
 -- | The IDs of one or more security groups.
-ltinisrGroups :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest [Text]
-ltinisrGroups = lens _ltinisrGroups (\s a -> s {_ltinisrGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrGroups :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe [Lude.Text])
+ltinisrGroups = Lens.lens (groups :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | One or more private IPv4 addresses.
-ltinisrPrivateIPAddresses :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest [PrivateIPAddressSpecification]
-ltinisrPrivateIPAddresses = lens _ltinisrPrivateIPAddresses (\s a -> s {_ltinisrPrivateIPAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrPrivateIPAddresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe [PrivateIPAddressSpecification])
+ltinisrPrivateIPAddresses = Lens.lens (privateIPAddresses :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe [PrivateIPAddressSpecification]) (\s a -> s {privateIPAddresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
 
 -- | Indicates whether the network interface is deleted when the instance is terminated.
-ltinisrDeleteOnTermination :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Bool)
-ltinisrDeleteOnTermination = lens _ltinisrDeleteOnTermination (\s a -> s {_ltinisrDeleteOnTermination = a})
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrDeleteOnTermination :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Bool)
+ltinisrDeleteOnTermination = Lens.lens (deleteOnTermination :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
--- | Associates a Carrier IP address with eth0 for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
-ltinisrAssociateCarrierIPAddress :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Bool)
-ltinisrAssociateCarrierIPAddress = lens _ltinisrAssociateCarrierIPAddress (\s a -> s {_ltinisrAssociateCarrierIPAddress = a})
+-- | Associates a Carrier IP address with eth0 for a new network interface.
+--
+-- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
+--
+-- /Note:/ Consider using 'associateCarrierIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrAssociateCarrierIPAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Bool)
+ltinisrAssociateCarrierIPAddress = Lens.lens (associateCarrierIPAddress :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Bool) (\s a -> s {associateCarrierIPAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrAssociateCarrierIPAddress "Use generic-lens or generic-optics with 'associateCarrierIPAddress' instead." #-}
 
 -- | Associates a public IPv4 address with eth0 for a new network interface.
-ltinisrAssociatePublicIPAddress :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Bool)
-ltinisrAssociatePublicIPAddress = lens _ltinisrAssociatePublicIPAddress (\s a -> s {_ltinisrAssociatePublicIPAddress = a})
+--
+-- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrAssociatePublicIPAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Bool)
+ltinisrAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
 
--- | The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ . If you are not creating an EFA, specify @interface@ or omit this parameter. Valid values: @interface@ | @efa@
-ltinisrInterfaceType :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Text)
-ltinisrInterfaceType = lens _ltinisrInterfaceType (\s a -> s {_ltinisrInterfaceType = a})
+-- | The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- If you are not creating an EFA, specify @interface@ or omit this parameter.
+-- Valid values: @interface@ | @efa@
+--
+-- /Note:/ Consider using 'interfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrInterfaceType :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Text)
+ltinisrInterfaceType = Lens.lens (interfaceType :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {interfaceType = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
 
 -- | The ID of the network interface.
-ltinisrNetworkInterfaceId :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Text)
-ltinisrNetworkInterfaceId = lens _ltinisrNetworkInterfaceId (\s a -> s {_ltinisrNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrNetworkInterfaceId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Text)
+ltinisrNetworkInterfaceId = Lens.lens (networkInterfaceId :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The ID of the subnet for the network interface.
-ltinisrSubnetId :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Text)
-ltinisrSubnetId = lens _ltinisrSubnetId (\s a -> s {_ltinisrSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrSubnetId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Text)
+ltinisrSubnetId = Lens.lens (subnetId :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
-ltinisrIPv6AddressCount :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Int)
-ltinisrIPv6AddressCount = lens _ltinisrIPv6AddressCount (\s a -> s {_ltinisrIPv6AddressCount = a})
+--
+-- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrIPv6AddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Int)
+ltinisrIPv6AddressCount = Lens.lens (ipv6AddressCount :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {ipv6AddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrIPv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
 
 -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-ltinisrNetworkCardIndex :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Int)
-ltinisrNetworkCardIndex = lens _ltinisrNetworkCardIndex (\s a -> s {_ltinisrNetworkCardIndex = a})
+--
+-- /Note:/ Consider using 'networkCardIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrNetworkCardIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Int)
+ltinisrNetworkCardIndex = Lens.lens (networkCardIndex :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {networkCardIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrNetworkCardIndex "Use generic-lens or generic-optics with 'networkCardIndex' instead." #-}
 
 -- | The primary private IPv4 address of the network interface.
-ltinisrPrivateIPAddress :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Text)
-ltinisrPrivateIPAddress = lens _ltinisrPrivateIPAddress (\s a -> s {_ltinisrPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrPrivateIPAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Text)
+ltinisrPrivateIPAddress = Lens.lens (privateIPAddress :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The number of secondary private IPv4 addresses to assign to a network interface.
-ltinisrSecondaryPrivateIPAddressCount :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Int)
-ltinisrSecondaryPrivateIPAddressCount = lens _ltinisrSecondaryPrivateIPAddressCount (\s a -> s {_ltinisrSecondaryPrivateIPAddressCount = a})
+--
+-- /Note:/ Consider using 'secondaryPrivateIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrSecondaryPrivateIPAddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Int)
+ltinisrSecondaryPrivateIPAddressCount = Lens.lens (secondaryPrivateIPAddressCount :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {secondaryPrivateIPAddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrSecondaryPrivateIPAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIPAddressCount' instead." #-}
 
 -- | A description for the network interface.
-ltinisrDescription :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Text)
-ltinisrDescription = lens _ltinisrDescription (\s a -> s {_ltinisrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrDescription :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Text)
+ltinisrDescription = Lens.lens (description :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The device index for the network interface attachment.
-ltinisrDeviceIndex :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Maybe Int)
-ltinisrDeviceIndex = lens _ltinisrDeviceIndex (\s a -> s {_ltinisrDeviceIndex = a})
+--
+-- /Note:/ Consider using 'deviceIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrDeviceIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe Lude.Int)
+ltinisrDeviceIndex = Lens.lens (deviceIndex :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {deviceIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
 
 -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-ltinisrIPv6Addresses :: Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest [InstanceIPv6AddressRequest]
-ltinisrIPv6Addresses = lens _ltinisrIPv6Addresses (\s a -> s {_ltinisrIPv6Addresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltinisrIPv6Addresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (Lude.Maybe [InstanceIPv6AddressRequest])
+ltinisrIPv6Addresses = Lens.lens (ipv6Addresses :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest -> Lude.Maybe [InstanceIPv6AddressRequest]) (\s a -> s {ipv6Addresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest)
+{-# DEPRECATED ltinisrIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
 instance
-  Hashable
-    LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-
-instance
-  NFData
-    LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-
-instance
-  ToQuery
+  Lude.ToQuery
     LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   where
   toQuery
     LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {..} =
-      mconcat
-        [ toQuery (toQueryList "SecurityGroupId" <$> _ltinisrGroups),
-          toQuery
-            (toQueryList "PrivateIpAddresses" <$> _ltinisrPrivateIPAddresses),
-          "DeleteOnTermination" =: _ltinisrDeleteOnTermination,
-          "AssociateCarrierIpAddress" =: _ltinisrAssociateCarrierIPAddress,
-          "AssociatePublicIpAddress" =: _ltinisrAssociatePublicIPAddress,
-          "InterfaceType" =: _ltinisrInterfaceType,
-          "NetworkInterfaceId" =: _ltinisrNetworkInterfaceId,
-          "SubnetId" =: _ltinisrSubnetId,
-          "Ipv6AddressCount" =: _ltinisrIPv6AddressCount,
-          "NetworkCardIndex" =: _ltinisrNetworkCardIndex,
-          "PrivateIpAddress" =: _ltinisrPrivateIPAddress,
+      Lude.mconcat
+        [ Lude.toQuery (Lude.toQueryList "SecurityGroupId" Lude.<$> groups),
+          Lude.toQuery
+            ( Lude.toQueryList "PrivateIpAddresses"
+                Lude.<$> privateIPAddresses
+            ),
+          "DeleteOnTermination" Lude.=: deleteOnTermination,
+          "AssociateCarrierIpAddress" Lude.=: associateCarrierIPAddress,
+          "AssociatePublicIpAddress" Lude.=: associatePublicIPAddress,
+          "InterfaceType" Lude.=: interfaceType,
+          "NetworkInterfaceId" Lude.=: networkInterfaceId,
+          "SubnetId" Lude.=: subnetId,
+          "Ipv6AddressCount" Lude.=: ipv6AddressCount,
+          "NetworkCardIndex" Lude.=: networkCardIndex,
+          "PrivateIpAddress" Lude.=: privateIPAddress,
           "SecondaryPrivateIpAddressCount"
-            =: _ltinisrSecondaryPrivateIPAddressCount,
-          "Description" =: _ltinisrDescription,
-          "DeviceIndex" =: _ltinisrDeviceIndex,
-          toQuery (toQueryList "Ipv6Addresses" <$> _ltinisrIPv6Addresses)
+            Lude.=: secondaryPrivateIPAddressCount,
+          "Description" Lude.=: description,
+          "DeviceIndex" Lude.=: deviceIndex,
+          Lude.toQuery
+            (Lude.toQueryList "Ipv6Addresses" Lude.<$> ipv6Addresses)
         ]

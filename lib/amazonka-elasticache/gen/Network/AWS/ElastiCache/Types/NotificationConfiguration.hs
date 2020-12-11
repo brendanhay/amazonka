@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NotificationConfiguration where
+module Network.AWS.ElastiCache.Types.NotificationConfiguration
+  ( NotificationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotificationConfiguration,
+
+    -- * Lenses
+    ncTopicStatus,
+    ncTopicARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
 --
---
---
--- /See:/ 'notificationConfiguration' smart constructor.
+-- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { _ncTopicStatus ::
-      !(Maybe Text),
-    _ncTopicARN :: !(Maybe Text)
+  { topicStatus ::
+      Lude.Maybe Lude.Text,
+    topicARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncTopicStatus' - The current state of the topic.
---
--- * 'ncTopicARN' - The Amazon Resource Name (ARN) that identifies the topic.
-notificationConfiguration ::
+-- * 'topicARN' - The Amazon Resource Name (ARN) that identifies the topic.
+-- * 'topicStatus' - The current state of the topic.
+mkNotificationConfiguration ::
   NotificationConfiguration
-notificationConfiguration =
+mkNotificationConfiguration =
   NotificationConfiguration'
-    { _ncTopicStatus = Nothing,
-      _ncTopicARN = Nothing
+    { topicStatus = Lude.Nothing,
+      topicARN = Lude.Nothing
     }
 
 -- | The current state of the topic.
-ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicStatus = lens _ncTopicStatus (\s a -> s {_ncTopicStatus = a})
+--
+-- /Note:/ Consider using 'topicStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncTopicStatus :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
+ncTopicStatus = Lens.lens (topicStatus :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {topicStatus = a} :: NotificationConfiguration)
+{-# DEPRECATED ncTopicStatus "Use generic-lens or generic-optics with 'topicStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
-ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
-ncTopicARN = lens _ncTopicARN (\s a -> s {_ncTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncTopicARN :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
+ncTopicARN = Lens.lens (topicARN :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: NotificationConfiguration)
+{-# DEPRECATED ncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
-instance FromXML NotificationConfiguration where
+instance Lude.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      <$> (x .@? "TopicStatus") <*> (x .@? "TopicArn")
-
-instance Hashable NotificationConfiguration
-
-instance NFData NotificationConfiguration
+      Lude.<$> (x Lude..@? "TopicStatus") Lude.<*> (x Lude..@? "TopicArn")

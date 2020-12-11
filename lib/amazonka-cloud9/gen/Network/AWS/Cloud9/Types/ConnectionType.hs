@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Cloud9.Types.ConnectionType where
+module Network.AWS.Cloud9.Types.ConnectionType
+  ( ConnectionType
+      ( ConnectionType',
+        ConnectSSH,
+        ConnectSsm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConnectionType
-  = ConnectSSH
-  | ConnectSsm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConnectionType = ConnectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConnectionType where
-  parser =
-    takeLowerText >>= \case
-      "connect_ssh" -> pure ConnectSSH
-      "connect_ssm" -> pure ConnectSsm
-      e ->
-        fromTextError $
-          "Failure parsing ConnectionType from value: '" <> e
-            <> "'. Accepted values: connect_ssh, connect_ssm"
+pattern ConnectSSH :: ConnectionType
+pattern ConnectSSH = ConnectionType' "CONNECT_SSH"
 
-instance ToText ConnectionType where
-  toText = \case
-    ConnectSSH -> "CONNECT_SSH"
-    ConnectSsm -> "CONNECT_SSM"
+pattern ConnectSsm :: ConnectionType
+pattern ConnectSsm = ConnectionType' "CONNECT_SSM"
 
-instance Hashable ConnectionType
-
-instance NFData ConnectionType
-
-instance ToByteString ConnectionType
-
-instance ToQuery ConnectionType
-
-instance ToHeader ConnectionType
-
-instance ToJSON ConnectionType where
-  toJSON = toJSONText
-
-instance FromJSON ConnectionType where
-  parseJSON = parseJSONText "ConnectionType"
+{-# COMPLETE
+  ConnectSSH,
+  ConnectSsm,
+  ConnectionType'
+  #-}

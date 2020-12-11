@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration where
+module Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
+  ( LaunchConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchConfiguration,
+
+    -- * Lenses
+    lcName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Auto Scaling launch configuration.
 --
---
---
--- /See:/ 'launchConfiguration' smart constructor.
+-- /See:/ 'mkLaunchConfiguration' smart constructor.
 newtype LaunchConfiguration = LaunchConfiguration'
-  { _lcName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcName' - The name of the launch configuration.
-launchConfiguration ::
+-- * 'name' - The name of the launch configuration.
+mkLaunchConfiguration ::
   LaunchConfiguration
-launchConfiguration = LaunchConfiguration' {_lcName = Nothing}
+mkLaunchConfiguration = LaunchConfiguration' {name = Lude.Nothing}
 
 -- | The name of the launch configuration.
-lcName :: Lens' LaunchConfiguration (Maybe Text)
-lcName = lens _lcName (\s a -> s {_lcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcName :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcName = Lens.lens (name :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchConfiguration)
+{-# DEPRECATED lcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML LaunchConfiguration where
-  parseXML x = LaunchConfiguration' <$> (x .@? "Name")
-
-instance Hashable LaunchConfiguration
-
-instance NFData LaunchConfiguration
+instance Lude.FromXML LaunchConfiguration where
+  parseXML x = LaunchConfiguration' Lude.<$> (x Lude..@? "Name")

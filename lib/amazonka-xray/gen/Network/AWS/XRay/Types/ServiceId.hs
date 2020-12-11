@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ServiceId where
+module Network.AWS.XRay.Types.ServiceId
+  ( ServiceId (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceId,
+
+    -- * Lenses
+    siAccountId,
+    siNames,
+    siName,
+    siType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- |
 --
---
---
--- /See:/ 'serviceId' smart constructor.
+-- /See:/ 'mkServiceId' smart constructor.
 data ServiceId = ServiceId'
-  { _siAccountId :: !(Maybe Text),
-    _siNames :: !(Maybe [Text]),
-    _siName :: !(Maybe Text),
-    _siType :: !(Maybe Text)
+  { accountId :: Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siAccountId' -
---
--- * 'siNames' -
---
--- * 'siName' -
---
--- * 'siType' -
-serviceId ::
+-- * 'accountId' -
+-- * 'name' -
+-- * 'names' -
+-- * 'type'' -
+mkServiceId ::
   ServiceId
-serviceId =
+mkServiceId =
   ServiceId'
-    { _siAccountId = Nothing,
-      _siNames = Nothing,
-      _siName = Nothing,
-      _siType = Nothing
+    { accountId = Lude.Nothing,
+      names = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- |
-siAccountId :: Lens' ServiceId (Maybe Text)
-siAccountId = lens _siAccountId (\s a -> s {_siAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siAccountId :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
+siAccountId = Lens.lens (accountId :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ServiceId)
+{-# DEPRECATED siAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- |
-siNames :: Lens' ServiceId [Text]
-siNames = lens _siNames (\s a -> s {_siNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siNames :: Lens.Lens' ServiceId (Lude.Maybe [Lude.Text])
+siNames = Lens.lens (names :: ServiceId -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: ServiceId)
+{-# DEPRECATED siNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- |
-siName :: Lens' ServiceId (Maybe Text)
-siName = lens _siName (\s a -> s {_siName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siName :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
+siName = Lens.lens (name :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServiceId)
+{-# DEPRECATED siName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- |
-siType :: Lens' ServiceId (Maybe Text)
-siType = lens _siType (\s a -> s {_siType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siType :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
+siType = Lens.lens (type' :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ServiceId)
+{-# DEPRECATED siType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON ServiceId where
+instance Lude.FromJSON ServiceId where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceId"
       ( \x ->
           ServiceId'
-            <$> (x .:? "AccountId")
-            <*> (x .:? "Names" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "AccountId")
+            Lude.<*> (x Lude..:? "Names" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable ServiceId
-
-instance NFData ServiceId

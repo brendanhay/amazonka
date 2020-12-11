@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.TranscriptionJobStatus where
+module Network.AWS.Transcribe.Types.TranscriptionJobStatus
+  ( TranscriptionJobStatus
+      ( TranscriptionJobStatus',
+        TJSCompleted,
+        TJSFailed,
+        TJSInProgress,
+        TJSQueued
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TranscriptionJobStatus
-  = TJSCompleted
-  | TJSFailed
-  | TJSInProgress
-  | TJSQueued
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TranscriptionJobStatus = TranscriptionJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TranscriptionJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure TJSCompleted
-      "failed" -> pure TJSFailed
-      "in_progress" -> pure TJSInProgress
-      "queued" -> pure TJSQueued
-      e ->
-        fromTextError $
-          "Failure parsing TranscriptionJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, in_progress, queued"
+pattern TJSCompleted :: TranscriptionJobStatus
+pattern TJSCompleted = TranscriptionJobStatus' "COMPLETED"
 
-instance ToText TranscriptionJobStatus where
-  toText = \case
-    TJSCompleted -> "COMPLETED"
-    TJSFailed -> "FAILED"
-    TJSInProgress -> "IN_PROGRESS"
-    TJSQueued -> "QUEUED"
+pattern TJSFailed :: TranscriptionJobStatus
+pattern TJSFailed = TranscriptionJobStatus' "FAILED"
 
-instance Hashable TranscriptionJobStatus
+pattern TJSInProgress :: TranscriptionJobStatus
+pattern TJSInProgress = TranscriptionJobStatus' "IN_PROGRESS"
 
-instance NFData TranscriptionJobStatus
+pattern TJSQueued :: TranscriptionJobStatus
+pattern TJSQueued = TranscriptionJobStatus' "QUEUED"
 
-instance ToByteString TranscriptionJobStatus
-
-instance ToQuery TranscriptionJobStatus
-
-instance ToHeader TranscriptionJobStatus
-
-instance ToJSON TranscriptionJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON TranscriptionJobStatus where
-  parseJSON = parseJSONText "TranscriptionJobStatus"
+{-# COMPLETE
+  TJSCompleted,
+  TJSFailed,
+  TJSInProgress,
+  TJSQueued,
+  TranscriptionJobStatus'
+  #-}

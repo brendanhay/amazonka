@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,219 @@
 --
 -- Describes one or more of your virtual private gateways.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html AWS Site-to-Site VPN> in the /AWS Site-to-Site VPN User Guide/ .
 module Network.AWS.EC2.DescribeVPNGateways
-  ( -- * Creating a Request
-    describeVPNGateways,
-    DescribeVPNGateways,
+  ( -- * Creating a request
+    DescribeVPNGateways (..),
+    mkDescribeVPNGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvgsFilters,
     dvgsVPNGatewayIds,
     dvgsDryRun,
 
-    -- * Destructuring the Response
-    describeVPNGatewaysResponse,
-    DescribeVPNGatewaysResponse,
+    -- * Destructuring the response
+    DescribeVPNGatewaysResponse (..),
+    mkDescribeVPNGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvgrsVPNGateways,
     dvgrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeVpnGateways.
 --
---
---
--- /See:/ 'describeVPNGateways' smart constructor.
+-- /See:/ 'mkDescribeVPNGateways' smart constructor.
 data DescribeVPNGateways = DescribeVPNGateways'
-  { _dvgsFilters ::
-      !(Maybe [Filter]),
-    _dvgsVPNGatewayIds :: !(Maybe [Text]),
-    _dvgsDryRun :: !(Maybe Bool)
+  { filters ::
+      Lude.Maybe [Filter],
+    vpnGatewayIds :: Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPNGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
 --
--- * 'dvgsFilters' - One or more filters.     * @amazon-side-asn@ - The Autonomous System Number (ASN) for the Amazon side of the gateway.     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).     * @attachment.vpc-id@ - The ID of an attached VPC.     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .     * @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
--- * 'dvgsVPNGatewayIds' - One or more virtual private gateway IDs. Default: Describes all your virtual private gateways.
+--     * @amazon-side-asn@ - The Autonomous System Number (ASN) for the Amazon side of the gateway.
 --
--- * 'dvgsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeVPNGateways ::
+--
+--     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).
+--
+--
+--     * @attachment.vpc-id@ - The ID of an attached VPC.
+--
+--
+--     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).
+--
+--
+--     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .
+--
+--
+--     * @vpn-gateway-id@ - The ID of the virtual private gateway.
+--
+--
+-- * 'vpnGatewayIds' - One or more virtual private gateway IDs.
+--
+-- Default: Describes all your virtual private gateways.
+mkDescribeVPNGateways ::
   DescribeVPNGateways
-describeVPNGateways =
+mkDescribeVPNGateways =
   DescribeVPNGateways'
-    { _dvgsFilters = Nothing,
-      _dvgsVPNGatewayIds = Nothing,
-      _dvgsDryRun = Nothing
+    { filters = Lude.Nothing,
+      vpnGatewayIds = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
--- | One or more filters.     * @amazon-side-asn@ - The Autonomous System Number (ASN) for the Amazon side of the gateway.     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).     * @attachment.vpc-id@ - The ID of an attached VPC.     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .     * @vpn-gateway-id@ - The ID of the virtual private gateway.
-dvgsFilters :: Lens' DescribeVPNGateways [Filter]
-dvgsFilters = lens _dvgsFilters (\s a -> s {_dvgsFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @amazon-side-asn@ - The Autonomous System Number (ASN) for the Amazon side of the gateway.
+--
+--
+--     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).
+--
+--
+--     * @attachment.vpc-id@ - The ID of an attached VPC.
+--
+--
+--     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).
+--
+--
+--     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .
+--
+--
+--     * @vpn-gateway-id@ - The ID of the virtual private gateway.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgsFilters :: Lens.Lens' DescribeVPNGateways (Lude.Maybe [Filter])
+dvgsFilters = Lens.lens (filters :: DescribeVPNGateways -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPNGateways)
+{-# DEPRECATED dvgsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | One or more virtual private gateway IDs. Default: Describes all your virtual private gateways.
-dvgsVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
-dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\s a -> s {_dvgsVPNGatewayIds = a}) . _Default . _Coerce
+-- | One or more virtual private gateway IDs.
+--
+-- Default: Describes all your virtual private gateways.
+--
+-- /Note:/ Consider using 'vpnGatewayIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgsVPNGatewayIds :: Lens.Lens' DescribeVPNGateways (Lude.Maybe [Lude.Text])
+dvgsVPNGatewayIds = Lens.lens (vpnGatewayIds :: DescribeVPNGateways -> Lude.Maybe [Lude.Text]) (\s a -> s {vpnGatewayIds = a} :: DescribeVPNGateways)
+{-# DEPRECATED dvgsVPNGatewayIds "Use generic-lens or generic-optics with 'vpnGatewayIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvgsDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
-dvgsDryRun = lens _dvgsDryRun (\s a -> s {_dvgsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgsDryRun :: Lens.Lens' DescribeVPNGateways (Lude.Maybe Lude.Bool)
+dvgsDryRun = Lens.lens (dryRun :: DescribeVPNGateways -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPNGateways)
+{-# DEPRECATED dvgsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DescribeVPNGateways where
+instance Lude.AWSRequest DescribeVPNGateways where
   type Rs DescribeVPNGateways = DescribeVPNGatewaysResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPNGatewaysResponse'
-            <$> (x .@? "vpnGatewaySet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "vpnGatewaySet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPNGateways
+instance Lude.ToHeaders DescribeVPNGateways where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPNGateways
+instance Lude.ToPath DescribeVPNGateways where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPNGateways where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPNGateways where
-  toPath = const "/"
-
-instance ToQuery DescribeVPNGateways where
+instance Lude.ToQuery DescribeVPNGateways where
   toQuery DescribeVPNGateways' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpnGateways" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvgsFilters),
-        toQuery (toQueryList "VpnGatewayId" <$> _dvgsVPNGatewayIds),
-        "DryRun" =: _dvgsDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeVpnGateways" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        Lude.toQuery
+          (Lude.toQueryList "VpnGatewayId" Lude.<$> vpnGatewayIds),
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of DescribeVpnGateways.
 --
---
---
--- /See:/ 'describeVPNGatewaysResponse' smart constructor.
+-- /See:/ 'mkDescribeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-  { _dvgrsVPNGateways ::
-      !(Maybe [VPNGateway]),
-    _dvgrsResponseStatus :: !Int
+  { vpnGateways ::
+      Lude.Maybe [VPNGateway],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPNGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvgrsVPNGateways' - Information about one or more virtual private gateways.
---
--- * 'dvgrsResponseStatus' - -- | The response status code.
-describeVPNGatewaysResponse ::
-  -- | 'dvgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpnGateways' - Information about one or more virtual private gateways.
+mkDescribeVPNGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse pResponseStatus_ =
+mkDescribeVPNGatewaysResponse pResponseStatus_ =
   DescribeVPNGatewaysResponse'
-    { _dvgrsVPNGateways = Nothing,
-      _dvgrsResponseStatus = pResponseStatus_
+    { vpnGateways = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about one or more virtual private gateways.
-dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
-dvgrsVPNGateways = lens _dvgrsVPNGateways (\s a -> s {_dvgrsVPNGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpnGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgrsVPNGateways :: Lens.Lens' DescribeVPNGatewaysResponse (Lude.Maybe [VPNGateway])
+dvgrsVPNGateways = Lens.lens (vpnGateways :: DescribeVPNGatewaysResponse -> Lude.Maybe [VPNGateway]) (\s a -> s {vpnGateways = a} :: DescribeVPNGatewaysResponse)
+{-# DEPRECATED dvgrsVPNGateways "Use generic-lens or generic-optics with 'vpnGateways' instead." #-}
 
--- | -- | The response status code.
-dvgrsResponseStatus :: Lens' DescribeVPNGatewaysResponse Int
-dvgrsResponseStatus = lens _dvgrsResponseStatus (\s a -> s {_dvgrsResponseStatus = a})
-
-instance NFData DescribeVPNGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgrsResponseStatus :: Lens.Lens' DescribeVPNGatewaysResponse Lude.Int
+dvgrsResponseStatus = Lens.lens (responseStatus :: DescribeVPNGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPNGatewaysResponse)
+{-# DEPRECATED dvgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.SSLPolicy where
+module Network.AWS.ELBv2.Types.SSLPolicy
+  ( SSLPolicy (..),
+
+    -- * Smart constructor
+    mkSSLPolicy,
+
+    -- * Lenses
+    spCiphers,
+    spName,
+    spSSLProtocols,
+  )
+where
 
 import Network.AWS.ELBv2.Types.Cipher
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a policy used for SSL negotiation.
 --
---
---
--- /See:/ 'sslPolicy' smart constructor.
+-- /See:/ 'mkSSLPolicy' smart constructor.
 data SSLPolicy = SSLPolicy'
-  { _spCiphers :: !(Maybe [Cipher]),
-    _spName :: !(Maybe Text),
-    _spSSLProtocols :: !(Maybe [Text])
+  { ciphers :: Lude.Maybe [Cipher],
+    name :: Lude.Maybe Lude.Text,
+    sslProtocols :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSLPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spCiphers' - The ciphers.
---
--- * 'spName' - The name of the policy.
---
--- * 'spSSLProtocols' - The protocols.
-sslPolicy ::
+-- * 'ciphers' - The ciphers.
+-- * 'name' - The name of the policy.
+-- * 'sslProtocols' - The protocols.
+mkSSLPolicy ::
   SSLPolicy
-sslPolicy =
+mkSSLPolicy =
   SSLPolicy'
-    { _spCiphers = Nothing,
-      _spName = Nothing,
-      _spSSLProtocols = Nothing
+    { ciphers = Lude.Nothing,
+      name = Lude.Nothing,
+      sslProtocols = Lude.Nothing
     }
 
 -- | The ciphers.
-spCiphers :: Lens' SSLPolicy [Cipher]
-spCiphers = lens _spCiphers (\s a -> s {_spCiphers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ciphers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spCiphers :: Lens.Lens' SSLPolicy (Lude.Maybe [Cipher])
+spCiphers = Lens.lens (ciphers :: SSLPolicy -> Lude.Maybe [Cipher]) (\s a -> s {ciphers = a} :: SSLPolicy)
+{-# DEPRECATED spCiphers "Use generic-lens or generic-optics with 'ciphers' instead." #-}
 
 -- | The name of the policy.
-spName :: Lens' SSLPolicy (Maybe Text)
-spName = lens _spName (\s a -> s {_spName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spName :: Lens.Lens' SSLPolicy (Lude.Maybe Lude.Text)
+spName = Lens.lens (name :: SSLPolicy -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SSLPolicy)
+{-# DEPRECATED spName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The protocols.
-spSSLProtocols :: Lens' SSLPolicy [Text]
-spSSLProtocols = lens _spSSLProtocols (\s a -> s {_spSSLProtocols = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sslProtocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spSSLProtocols :: Lens.Lens' SSLPolicy (Lude.Maybe [Lude.Text])
+spSSLProtocols = Lens.lens (sslProtocols :: SSLPolicy -> Lude.Maybe [Lude.Text]) (\s a -> s {sslProtocols = a} :: SSLPolicy)
+{-# DEPRECATED spSSLProtocols "Use generic-lens or generic-optics with 'sslProtocols' instead." #-}
 
-instance FromXML SSLPolicy where
+instance Lude.FromXML SSLPolicy where
   parseXML x =
     SSLPolicy'
-      <$> (x .@? "Ciphers" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Name")
-      <*> (x .@? "SslProtocols" .!@ mempty >>= may (parseXMLList "member"))
-
-instance Hashable SSLPolicy
-
-instance NFData SSLPolicy
+      Lude.<$> ( x Lude..@? "Ciphers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Name")
+      Lude.<*> ( x Lude..@? "SslProtocols" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

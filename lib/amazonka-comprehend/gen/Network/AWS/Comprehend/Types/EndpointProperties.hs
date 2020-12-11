@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EndpointProperties where
+module Network.AWS.Comprehend.Types.EndpointProperties
+  ( EndpointProperties (..),
+
+    -- * Smart constructor
+    mkEndpointProperties,
+
+    -- * Lenses
+    epCreationTime,
+    epStatus,
+    epModelARN,
+    epLastModifiedTime,
+    epDesiredInferenceUnits,
+    epCurrentInferenceUnits,
+    epMessage,
+    epEndpointARN,
+  )
+where
 
 import Network.AWS.Comprehend.Types.EndpointStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies information about the specified endpoint.
 --
---
---
--- /See:/ 'endpointProperties' smart constructor.
+-- /See:/ 'mkEndpointProperties' smart constructor.
 data EndpointProperties = EndpointProperties'
-  { _epCreationTime ::
-      !(Maybe POSIX),
-    _epStatus :: !(Maybe EndpointStatus),
-    _epModelARN :: !(Maybe Text),
-    _epLastModifiedTime :: !(Maybe POSIX),
-    _epDesiredInferenceUnits :: !(Maybe Nat),
-    _epCurrentInferenceUnits :: !(Maybe Nat),
-    _epMessage :: !(Maybe Text),
-    _epEndpointARN :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe EndpointStatus,
+    modelARN :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    desiredInferenceUnits :: Lude.Maybe Lude.Natural,
+    currentInferenceUnits :: Lude.Maybe Lude.Natural,
+    message :: Lude.Maybe Lude.Text,
+    endpointARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'epCreationTime' - The creation date and time of the endpoint.
---
--- * 'epStatus' - Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be @Ready@ status before making inference requests.
---
--- * 'epModelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
---
--- * 'epLastModifiedTime' - The date and time that the endpoint was last modified.
---
--- * 'epDesiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
---
--- * 'epCurrentInferenceUnits' - The number of inference units currently used by the model using this endpoint.
---
--- * 'epMessage' - Specifies a reason for failure in cases of @Failed@ status.
---
--- * 'epEndpointARN' - The Amazon Resource Number (ARN) of the endpoint.
-endpointProperties ::
+-- * 'creationTime' - The creation date and time of the endpoint.
+-- * 'currentInferenceUnits' - The number of inference units currently used by the model using this endpoint.
+-- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
+-- * 'lastModifiedTime' - The date and time that the endpoint was last modified.
+-- * 'message' - Specifies a reason for failure in cases of @Failed@ status.
+-- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
+-- * 'status' - Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be @Ready@ status before making inference requests.
+mkEndpointProperties ::
   EndpointProperties
-endpointProperties =
+mkEndpointProperties =
   EndpointProperties'
-    { _epCreationTime = Nothing,
-      _epStatus = Nothing,
-      _epModelARN = Nothing,
-      _epLastModifiedTime = Nothing,
-      _epDesiredInferenceUnits = Nothing,
-      _epCurrentInferenceUnits = Nothing,
-      _epMessage = Nothing,
-      _epEndpointARN = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      modelARN = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      desiredInferenceUnits = Lude.Nothing,
+      currentInferenceUnits = Lude.Nothing,
+      message = Lude.Nothing,
+      endpointARN = Lude.Nothing
     }
 
 -- | The creation date and time of the endpoint.
-epCreationTime :: Lens' EndpointProperties (Maybe UTCTime)
-epCreationTime = lens _epCreationTime (\s a -> s {_epCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epCreationTime :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Timestamp)
+epCreationTime = Lens.lens (creationTime :: EndpointProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: EndpointProperties)
+{-# DEPRECATED epCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be @Ready@ status before making inference requests.
-epStatus :: Lens' EndpointProperties (Maybe EndpointStatus)
-epStatus = lens _epStatus (\s a -> s {_epStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epStatus :: Lens.Lens' EndpointProperties (Lude.Maybe EndpointStatus)
+epStatus = Lens.lens (status :: EndpointProperties -> Lude.Maybe EndpointStatus) (\s a -> s {status = a} :: EndpointProperties)
+{-# DEPRECATED epStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
-epModelARN :: Lens' EndpointProperties (Maybe Text)
-epModelARN = lens _epModelARN (\s a -> s {_epModelARN = a})
+--
+-- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epModelARN :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Text)
+epModelARN = Lens.lens (modelARN :: EndpointProperties -> Lude.Maybe Lude.Text) (\s a -> s {modelARN = a} :: EndpointProperties)
+{-# DEPRECATED epModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
 
 -- | The date and time that the endpoint was last modified.
-epLastModifiedTime :: Lens' EndpointProperties (Maybe UTCTime)
-epLastModifiedTime = lens _epLastModifiedTime (\s a -> s {_epLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epLastModifiedTime :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Timestamp)
+epLastModifiedTime = Lens.lens (lastModifiedTime :: EndpointProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: EndpointProperties)
+{-# DEPRECATED epLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
-epDesiredInferenceUnits :: Lens' EndpointProperties (Maybe Natural)
-epDesiredInferenceUnits = lens _epDesiredInferenceUnits (\s a -> s {_epDesiredInferenceUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'desiredInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epDesiredInferenceUnits :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Natural)
+epDesiredInferenceUnits = Lens.lens (desiredInferenceUnits :: EndpointProperties -> Lude.Maybe Lude.Natural) (\s a -> s {desiredInferenceUnits = a} :: EndpointProperties)
+{-# DEPRECATED epDesiredInferenceUnits "Use generic-lens or generic-optics with 'desiredInferenceUnits' instead." #-}
 
 -- | The number of inference units currently used by the model using this endpoint.
-epCurrentInferenceUnits :: Lens' EndpointProperties (Maybe Natural)
-epCurrentInferenceUnits = lens _epCurrentInferenceUnits (\s a -> s {_epCurrentInferenceUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'currentInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epCurrentInferenceUnits :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Natural)
+epCurrentInferenceUnits = Lens.lens (currentInferenceUnits :: EndpointProperties -> Lude.Maybe Lude.Natural) (\s a -> s {currentInferenceUnits = a} :: EndpointProperties)
+{-# DEPRECATED epCurrentInferenceUnits "Use generic-lens or generic-optics with 'currentInferenceUnits' instead." #-}
 
 -- | Specifies a reason for failure in cases of @Failed@ status.
-epMessage :: Lens' EndpointProperties (Maybe Text)
-epMessage = lens _epMessage (\s a -> s {_epMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epMessage :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Text)
+epMessage = Lens.lens (message :: EndpointProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EndpointProperties)
+{-# DEPRECATED epMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The Amazon Resource Number (ARN) of the endpoint.
-epEndpointARN :: Lens' EndpointProperties (Maybe Text)
-epEndpointARN = lens _epEndpointARN (\s a -> s {_epEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epEndpointARN :: Lens.Lens' EndpointProperties (Lude.Maybe Lude.Text)
+epEndpointARN = Lens.lens (endpointARN :: EndpointProperties -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: EndpointProperties)
+{-# DEPRECATED epEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance FromJSON EndpointProperties where
+instance Lude.FromJSON EndpointProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "EndpointProperties"
       ( \x ->
           EndpointProperties'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "ModelArn")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "DesiredInferenceUnits")
-            <*> (x .:? "CurrentInferenceUnits")
-            <*> (x .:? "Message")
-            <*> (x .:? "EndpointArn")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ModelArn")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "DesiredInferenceUnits")
+            Lude.<*> (x Lude..:? "CurrentInferenceUnits")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "EndpointArn")
       )
-
-instance Hashable EndpointProperties
-
-instance NFData EndpointProperties

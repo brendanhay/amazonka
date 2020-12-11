@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.AgentVersion where
+module Network.AWS.OpsWorks.Types.AgentVersion
+  ( AgentVersion (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAgentVersion,
+
+    -- * Lenses
+    avVersion,
+    avConfigurationManager,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.StackConfigurationManager
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an agent version.
 --
---
---
--- /See:/ 'agentVersion' smart constructor.
+-- /See:/ 'mkAgentVersion' smart constructor.
 data AgentVersion = AgentVersion'
-  { _avVersion :: !(Maybe Text),
-    _avConfigurationManager :: !(Maybe StackConfigurationManager)
+  { version :: Lude.Maybe Lude.Text,
+    configurationManager :: Lude.Maybe StackConfigurationManager
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avVersion' - The agent version.
---
--- * 'avConfigurationManager' - The configuration manager.
-agentVersion ::
+-- * 'configurationManager' - The configuration manager.
+-- * 'version' - The agent version.
+mkAgentVersion ::
   AgentVersion
-agentVersion =
+mkAgentVersion =
   AgentVersion'
-    { _avVersion = Nothing,
-      _avConfigurationManager = Nothing
+    { version = Lude.Nothing,
+      configurationManager = Lude.Nothing
     }
 
 -- | The agent version.
-avVersion :: Lens' AgentVersion (Maybe Text)
-avVersion = lens _avVersion (\s a -> s {_avVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avVersion :: Lens.Lens' AgentVersion (Lude.Maybe Lude.Text)
+avVersion = Lens.lens (version :: AgentVersion -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: AgentVersion)
+{-# DEPRECATED avVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The configuration manager.
-avConfigurationManager :: Lens' AgentVersion (Maybe StackConfigurationManager)
-avConfigurationManager = lens _avConfigurationManager (\s a -> s {_avConfigurationManager = a})
+--
+-- /Note:/ Consider using 'configurationManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avConfigurationManager :: Lens.Lens' AgentVersion (Lude.Maybe StackConfigurationManager)
+avConfigurationManager = Lens.lens (configurationManager :: AgentVersion -> Lude.Maybe StackConfigurationManager) (\s a -> s {configurationManager = a} :: AgentVersion)
+{-# DEPRECATED avConfigurationManager "Use generic-lens or generic-optics with 'configurationManager' instead." #-}
 
-instance FromJSON AgentVersion where
+instance Lude.FromJSON AgentVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "AgentVersion"
       ( \x ->
           AgentVersion'
-            <$> (x .:? "Version") <*> (x .:? "ConfigurationManager")
+            Lude.<$> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "ConfigurationManager")
       )
-
-instance Hashable AgentVersion
-
-instance NFData AgentVersion

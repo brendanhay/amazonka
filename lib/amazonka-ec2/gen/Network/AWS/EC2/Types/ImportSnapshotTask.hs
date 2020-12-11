@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportSnapshotTask where
+module Network.AWS.EC2.Types.ImportSnapshotTask
+  ( ImportSnapshotTask (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkImportSnapshotTask,
+
+    -- * Lenses
+    istSnapshotTaskDetail,
+    istImportTaskId,
+    istDescription,
+    istTags,
+  )
+where
+
 import Network.AWS.EC2.Types.SnapshotTaskDetail
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an import snapshot task.
 --
---
---
--- /See:/ 'importSnapshotTask' smart constructor.
+-- /See:/ 'mkImportSnapshotTask' smart constructor.
 data ImportSnapshotTask = ImportSnapshotTask'
-  { _istSnapshotTaskDetail ::
-      !(Maybe SnapshotTaskDetail),
-    _istImportTaskId :: !(Maybe Text),
-    _istDescription :: !(Maybe Text),
-    _istTags :: !(Maybe [Tag])
+  { snapshotTaskDetail ::
+      Lude.Maybe SnapshotTaskDetail,
+    importTaskId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportSnapshotTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'istSnapshotTaskDetail' - Describes an import snapshot task.
---
--- * 'istImportTaskId' - The ID of the import snapshot task.
---
--- * 'istDescription' - A description of the import snapshot task.
---
--- * 'istTags' - The tags for the import snapshot task.
-importSnapshotTask ::
+-- * 'description' - A description of the import snapshot task.
+-- * 'importTaskId' - The ID of the import snapshot task.
+-- * 'snapshotTaskDetail' - Describes an import snapshot task.
+-- * 'tags' - The tags for the import snapshot task.
+mkImportSnapshotTask ::
   ImportSnapshotTask
-importSnapshotTask =
+mkImportSnapshotTask =
   ImportSnapshotTask'
-    { _istSnapshotTaskDetail = Nothing,
-      _istImportTaskId = Nothing,
-      _istDescription = Nothing,
-      _istTags = Nothing
+    { snapshotTaskDetail = Lude.Nothing,
+      importTaskId = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Describes an import snapshot task.
-istSnapshotTaskDetail :: Lens' ImportSnapshotTask (Maybe SnapshotTaskDetail)
-istSnapshotTaskDetail = lens _istSnapshotTaskDetail (\s a -> s {_istSnapshotTaskDetail = a})
+--
+-- /Note:/ Consider using 'snapshotTaskDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+istSnapshotTaskDetail :: Lens.Lens' ImportSnapshotTask (Lude.Maybe SnapshotTaskDetail)
+istSnapshotTaskDetail = Lens.lens (snapshotTaskDetail :: ImportSnapshotTask -> Lude.Maybe SnapshotTaskDetail) (\s a -> s {snapshotTaskDetail = a} :: ImportSnapshotTask)
+{-# DEPRECATED istSnapshotTaskDetail "Use generic-lens or generic-optics with 'snapshotTaskDetail' instead." #-}
 
 -- | The ID of the import snapshot task.
-istImportTaskId :: Lens' ImportSnapshotTask (Maybe Text)
-istImportTaskId = lens _istImportTaskId (\s a -> s {_istImportTaskId = a})
+--
+-- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+istImportTaskId :: Lens.Lens' ImportSnapshotTask (Lude.Maybe Lude.Text)
+istImportTaskId = Lens.lens (importTaskId :: ImportSnapshotTask -> Lude.Maybe Lude.Text) (\s a -> s {importTaskId = a} :: ImportSnapshotTask)
+{-# DEPRECATED istImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
 
 -- | A description of the import snapshot task.
-istDescription :: Lens' ImportSnapshotTask (Maybe Text)
-istDescription = lens _istDescription (\s a -> s {_istDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+istDescription :: Lens.Lens' ImportSnapshotTask (Lude.Maybe Lude.Text)
+istDescription = Lens.lens (description :: ImportSnapshotTask -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportSnapshotTask)
+{-# DEPRECATED istDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the import snapshot task.
-istTags :: Lens' ImportSnapshotTask [Tag]
-istTags = lens _istTags (\s a -> s {_istTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+istTags :: Lens.Lens' ImportSnapshotTask (Lude.Maybe [Tag])
+istTags = Lens.lens (tags :: ImportSnapshotTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportSnapshotTask)
+{-# DEPRECATED istTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML ImportSnapshotTask where
+instance Lude.FromXML ImportSnapshotTask where
   parseXML x =
     ImportSnapshotTask'
-      <$> (x .@? "snapshotTaskDetail")
-      <*> (x .@? "importTaskId")
-      <*> (x .@? "description")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable ImportSnapshotTask
-
-instance NFData ImportSnapshotTask
+      Lude.<$> (x Lude..@? "snapshotTaskDetail")
+      Lude.<*> (x Lude..@? "importTaskId")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

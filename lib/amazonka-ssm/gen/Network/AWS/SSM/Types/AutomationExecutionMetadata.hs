@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationExecutionMetadata where
+module Network.AWS.SSM.Types.AutomationExecutionMetadata
+  ( AutomationExecutionMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutomationExecutionMetadata,
+
+    -- * Lenses
+    aemCurrentStepName,
+    aemTargetParameterName,
+    aemLogFile,
+    aemExecutedBy,
+    aemDocumentName,
+    aemExecutionEndTime,
+    aemFailureMessage,
+    aemMode,
+    aemTargetMaps,
+    aemAutomationExecutionStatus,
+    aemParentAutomationExecutionId,
+    aemOutputs,
+    aemMaxErrors,
+    aemExecutionStartTime,
+    aemAutomationType,
+    aemCurrentAction,
+    aemTargets,
+    aemResolvedTargets,
+    aemDocumentVersion,
+    aemAutomationExecutionId,
+    aemMaxConcurrency,
+    aemTarget,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AutomationExecutionStatus
 import Network.AWS.SSM.Types.AutomationType
 import Network.AWS.SSM.Types.ExecutionMode
@@ -25,240 +49,297 @@ import Network.AWS.SSM.Types.Target
 
 -- | Details about a specific Automation execution.
 --
---
---
--- /See:/ 'automationExecutionMetadata' smart constructor.
+-- /See:/ 'mkAutomationExecutionMetadata' smart constructor.
 data AutomationExecutionMetadata = AutomationExecutionMetadata'
-  { _aemCurrentStepName ::
-      !(Maybe Text),
-    _aemTargetParameterName ::
-      !(Maybe Text),
-    _aemLogFile :: !(Maybe Text),
-    _aemExecutedBy :: !(Maybe Text),
-    _aemDocumentName :: !(Maybe Text),
-    _aemExecutionEndTime ::
-      !(Maybe POSIX),
-    _aemFailureMessage :: !(Maybe Text),
-    _aemMode :: !(Maybe ExecutionMode),
-    _aemTargetMaps ::
-      !(Maybe [Map Text ([Text])]),
-    _aemAutomationExecutionStatus ::
-      !(Maybe AutomationExecutionStatus),
-    _aemParentAutomationExecutionId ::
-      !(Maybe Text),
-    _aemOutputs ::
-      !(Maybe (Map Text ([Text]))),
-    _aemMaxErrors :: !(Maybe Text),
-    _aemExecutionStartTime ::
-      !(Maybe POSIX),
-    _aemAutomationType ::
-      !(Maybe AutomationType),
-    _aemCurrentAction :: !(Maybe Text),
-    _aemTargets :: !(Maybe [Target]),
-    _aemResolvedTargets ::
-      !(Maybe ResolvedTargets),
-    _aemDocumentVersion ::
-      !(Maybe Text),
-    _aemAutomationExecutionId ::
-      !(Maybe Text),
-    _aemMaxConcurrency :: !(Maybe Text),
-    _aemTarget :: !(Maybe Text)
+  { currentStepName ::
+      Lude.Maybe Lude.Text,
+    targetParameterName ::
+      Lude.Maybe Lude.Text,
+    logFile :: Lude.Maybe Lude.Text,
+    executedBy :: Lude.Maybe Lude.Text,
+    documentName ::
+      Lude.Maybe Lude.Text,
+    executionEndTime ::
+      Lude.Maybe Lude.Timestamp,
+    failureMessage ::
+      Lude.Maybe Lude.Text,
+    mode :: Lude.Maybe ExecutionMode,
+    targetMaps ::
+      Lude.Maybe
+        [ Lude.HashMap
+            Lude.Text
+            ([Lude.Text])
+        ],
+    automationExecutionStatus ::
+      Lude.Maybe
+        AutomationExecutionStatus,
+    parentAutomationExecutionId ::
+      Lude.Maybe Lude.Text,
+    outputs ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            ([Lude.Text])
+        ),
+    maxErrors :: Lude.Maybe Lude.Text,
+    executionStartTime ::
+      Lude.Maybe Lude.Timestamp,
+    automationType ::
+      Lude.Maybe AutomationType,
+    currentAction ::
+      Lude.Maybe Lude.Text,
+    targets :: Lude.Maybe [Target],
+    resolvedTargets ::
+      Lude.Maybe ResolvedTargets,
+    documentVersion ::
+      Lude.Maybe Lude.Text,
+    automationExecutionId ::
+      Lude.Maybe Lude.Text,
+    maxConcurrency ::
+      Lude.Maybe Lude.Text,
+    target :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomationExecutionMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aemCurrentStepName' - The name of the step that is currently running.
---
--- * 'aemTargetParameterName' - The list of execution outputs as defined in the Automation document.
---
--- * 'aemLogFile' - An S3 bucket where execution information is stored.
---
--- * 'aemExecutedBy' - The IAM role ARN of the user who ran the Automation.
---
--- * 'aemDocumentName' - The name of the Automation document used during execution.
---
--- * 'aemExecutionEndTime' - The time the execution finished. This is not populated if the execution is still in progress.
---
--- * 'aemFailureMessage' - The list of execution outputs as defined in the Automation document.
---
--- * 'aemMode' - The Automation execution mode.
---
--- * 'aemTargetMaps' - The specified key-value mapping of document parameters to target resources.
---
--- * 'aemAutomationExecutionStatus' - The status of the execution.
---
--- * 'aemParentAutomationExecutionId' - The ExecutionId of the parent Automation.
---
--- * 'aemOutputs' - The list of execution outputs as defined in the Automation document.
---
--- * 'aemMaxErrors' - The MaxErrors value specified by the user when starting the Automation.
---
--- * 'aemExecutionStartTime' - The time the execution started.
---
--- * 'aemAutomationType' - Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
---
--- * 'aemCurrentAction' - The action of the step that is currently running.
---
--- * 'aemTargets' - The targets defined by the user when starting the Automation.
---
--- * 'aemResolvedTargets' - A list of targets that resolved during the execution.
---
--- * 'aemDocumentVersion' - The document version used during the execution.
---
--- * 'aemAutomationExecutionId' - The execution ID.
---
--- * 'aemMaxConcurrency' - The MaxConcurrency value specified by the user when starting the Automation.
---
--- * 'aemTarget' - The list of execution outputs as defined in the Automation document.
-automationExecutionMetadata ::
+-- * 'automationExecutionId' - The execution ID.
+-- * 'automationExecutionStatus' - The status of the execution.
+-- * 'automationType' - Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
+-- * 'currentAction' - The action of the step that is currently running.
+-- * 'currentStepName' - The name of the step that is currently running.
+-- * 'documentName' - The name of the Automation document used during execution.
+-- * 'documentVersion' - The document version used during the execution.
+-- * 'executedBy' - The IAM role ARN of the user who ran the Automation.
+-- * 'executionEndTime' - The time the execution finished. This is not populated if the execution is still in progress.
+-- * 'executionStartTime' - The time the execution started.
+-- * 'failureMessage' - The list of execution outputs as defined in the Automation document.
+-- * 'logFile' - An S3 bucket where execution information is stored.
+-- * 'maxConcurrency' - The MaxConcurrency value specified by the user when starting the Automation.
+-- * 'maxErrors' - The MaxErrors value specified by the user when starting the Automation.
+-- * 'mode' - The Automation execution mode.
+-- * 'outputs' - The list of execution outputs as defined in the Automation document.
+-- * 'parentAutomationExecutionId' - The ExecutionId of the parent Automation.
+-- * 'resolvedTargets' - A list of targets that resolved during the execution.
+-- * 'target' - The list of execution outputs as defined in the Automation document.
+-- * 'targetMaps' - The specified key-value mapping of document parameters to target resources.
+-- * 'targetParameterName' - The list of execution outputs as defined in the Automation document.
+-- * 'targets' - The targets defined by the user when starting the Automation.
+mkAutomationExecutionMetadata ::
   AutomationExecutionMetadata
-automationExecutionMetadata =
+mkAutomationExecutionMetadata =
   AutomationExecutionMetadata'
-    { _aemCurrentStepName = Nothing,
-      _aemTargetParameterName = Nothing,
-      _aemLogFile = Nothing,
-      _aemExecutedBy = Nothing,
-      _aemDocumentName = Nothing,
-      _aemExecutionEndTime = Nothing,
-      _aemFailureMessage = Nothing,
-      _aemMode = Nothing,
-      _aemTargetMaps = Nothing,
-      _aemAutomationExecutionStatus = Nothing,
-      _aemParentAutomationExecutionId = Nothing,
-      _aemOutputs = Nothing,
-      _aemMaxErrors = Nothing,
-      _aemExecutionStartTime = Nothing,
-      _aemAutomationType = Nothing,
-      _aemCurrentAction = Nothing,
-      _aemTargets = Nothing,
-      _aemResolvedTargets = Nothing,
-      _aemDocumentVersion = Nothing,
-      _aemAutomationExecutionId = Nothing,
-      _aemMaxConcurrency = Nothing,
-      _aemTarget = Nothing
+    { currentStepName = Lude.Nothing,
+      targetParameterName = Lude.Nothing,
+      logFile = Lude.Nothing,
+      executedBy = Lude.Nothing,
+      documentName = Lude.Nothing,
+      executionEndTime = Lude.Nothing,
+      failureMessage = Lude.Nothing,
+      mode = Lude.Nothing,
+      targetMaps = Lude.Nothing,
+      automationExecutionStatus = Lude.Nothing,
+      parentAutomationExecutionId = Lude.Nothing,
+      outputs = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      executionStartTime = Lude.Nothing,
+      automationType = Lude.Nothing,
+      currentAction = Lude.Nothing,
+      targets = Lude.Nothing,
+      resolvedTargets = Lude.Nothing,
+      documentVersion = Lude.Nothing,
+      automationExecutionId = Lude.Nothing,
+      maxConcurrency = Lude.Nothing,
+      target = Lude.Nothing
     }
 
 -- | The name of the step that is currently running.
-aemCurrentStepName :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemCurrentStepName = lens _aemCurrentStepName (\s a -> s {_aemCurrentStepName = a})
+--
+-- /Note:/ Consider using 'currentStepName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemCurrentStepName :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemCurrentStepName = Lens.lens (currentStepName :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {currentStepName = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemCurrentStepName "Use generic-lens or generic-optics with 'currentStepName' instead." #-}
 
 -- | The list of execution outputs as defined in the Automation document.
-aemTargetParameterName :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemTargetParameterName = lens _aemTargetParameterName (\s a -> s {_aemTargetParameterName = a})
+--
+-- /Note:/ Consider using 'targetParameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemTargetParameterName :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemTargetParameterName = Lens.lens (targetParameterName :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {targetParameterName = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemTargetParameterName "Use generic-lens or generic-optics with 'targetParameterName' instead." #-}
 
 -- | An S3 bucket where execution information is stored.
-aemLogFile :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemLogFile = lens _aemLogFile (\s a -> s {_aemLogFile = a})
+--
+-- /Note:/ Consider using 'logFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemLogFile :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemLogFile = Lens.lens (logFile :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {logFile = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemLogFile "Use generic-lens or generic-optics with 'logFile' instead." #-}
 
 -- | The IAM role ARN of the user who ran the Automation.
-aemExecutedBy :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemExecutedBy = lens _aemExecutedBy (\s a -> s {_aemExecutedBy = a})
+--
+-- /Note:/ Consider using 'executedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemExecutedBy :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemExecutedBy = Lens.lens (executedBy :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {executedBy = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemExecutedBy "Use generic-lens or generic-optics with 'executedBy' instead." #-}
 
 -- | The name of the Automation document used during execution.
-aemDocumentName :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemDocumentName = lens _aemDocumentName (\s a -> s {_aemDocumentName = a})
+--
+-- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemDocumentName :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemDocumentName = Lens.lens (documentName :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {documentName = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
 
 -- | The time the execution finished. This is not populated if the execution is still in progress.
-aemExecutionEndTime :: Lens' AutomationExecutionMetadata (Maybe UTCTime)
-aemExecutionEndTime = lens _aemExecutionEndTime (\s a -> s {_aemExecutionEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemExecutionEndTime :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Timestamp)
+aemExecutionEndTime = Lens.lens (executionEndTime :: AutomationExecutionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionEndTime = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemExecutionEndTime "Use generic-lens or generic-optics with 'executionEndTime' instead." #-}
 
 -- | The list of execution outputs as defined in the Automation document.
-aemFailureMessage :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemFailureMessage = lens _aemFailureMessage (\s a -> s {_aemFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemFailureMessage :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemFailureMessage = Lens.lens (failureMessage :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | The Automation execution mode.
-aemMode :: Lens' AutomationExecutionMetadata (Maybe ExecutionMode)
-aemMode = lens _aemMode (\s a -> s {_aemMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemMode :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe ExecutionMode)
+aemMode = Lens.lens (mode :: AutomationExecutionMetadata -> Lude.Maybe ExecutionMode) (\s a -> s {mode = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The specified key-value mapping of document parameters to target resources.
-aemTargetMaps :: Lens' AutomationExecutionMetadata [HashMap Text ([Text])]
-aemTargetMaps = lens _aemTargetMaps (\s a -> s {_aemTargetMaps = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetMaps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemTargetMaps :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])])
+aemTargetMaps = Lens.lens (targetMaps :: AutomationExecutionMetadata -> Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])]) (\s a -> s {targetMaps = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemTargetMaps "Use generic-lens or generic-optics with 'targetMaps' instead." #-}
 
 -- | The status of the execution.
-aemAutomationExecutionStatus :: Lens' AutomationExecutionMetadata (Maybe AutomationExecutionStatus)
-aemAutomationExecutionStatus = lens _aemAutomationExecutionStatus (\s a -> s {_aemAutomationExecutionStatus = a})
+--
+-- /Note:/ Consider using 'automationExecutionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemAutomationExecutionStatus :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe AutomationExecutionStatus)
+aemAutomationExecutionStatus = Lens.lens (automationExecutionStatus :: AutomationExecutionMetadata -> Lude.Maybe AutomationExecutionStatus) (\s a -> s {automationExecutionStatus = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemAutomationExecutionStatus "Use generic-lens or generic-optics with 'automationExecutionStatus' instead." #-}
 
 -- | The ExecutionId of the parent Automation.
-aemParentAutomationExecutionId :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemParentAutomationExecutionId = lens _aemParentAutomationExecutionId (\s a -> s {_aemParentAutomationExecutionId = a})
+--
+-- /Note:/ Consider using 'parentAutomationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemParentAutomationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemParentAutomationExecutionId = Lens.lens (parentAutomationExecutionId :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {parentAutomationExecutionId = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemParentAutomationExecutionId "Use generic-lens or generic-optics with 'parentAutomationExecutionId' instead." #-}
 
 -- | The list of execution outputs as defined in the Automation document.
-aemOutputs :: Lens' AutomationExecutionMetadata (HashMap Text ([Text]))
-aemOutputs = lens _aemOutputs (\s a -> s {_aemOutputs = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemOutputs :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+aemOutputs = Lens.lens (outputs :: AutomationExecutionMetadata -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {outputs = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | The MaxErrors value specified by the user when starting the Automation.
-aemMaxErrors :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemMaxErrors = lens _aemMaxErrors (\s a -> s {_aemMaxErrors = a})
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemMaxErrors :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemMaxErrors = Lens.lens (maxErrors :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
 -- | The time the execution started.
-aemExecutionStartTime :: Lens' AutomationExecutionMetadata (Maybe UTCTime)
-aemExecutionStartTime = lens _aemExecutionStartTime (\s a -> s {_aemExecutionStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemExecutionStartTime :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Timestamp)
+aemExecutionStartTime = Lens.lens (executionStartTime :: AutomationExecutionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionStartTime = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemExecutionStartTime "Use generic-lens or generic-optics with 'executionStartTime' instead." #-}
 
 -- | Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
-aemAutomationType :: Lens' AutomationExecutionMetadata (Maybe AutomationType)
-aemAutomationType = lens _aemAutomationType (\s a -> s {_aemAutomationType = a})
+--
+-- /Note:/ Consider using 'automationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemAutomationType :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe AutomationType)
+aemAutomationType = Lens.lens (automationType :: AutomationExecutionMetadata -> Lude.Maybe AutomationType) (\s a -> s {automationType = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemAutomationType "Use generic-lens or generic-optics with 'automationType' instead." #-}
 
 -- | The action of the step that is currently running.
-aemCurrentAction :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemCurrentAction = lens _aemCurrentAction (\s a -> s {_aemCurrentAction = a})
+--
+-- /Note:/ Consider using 'currentAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemCurrentAction :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemCurrentAction = Lens.lens (currentAction :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {currentAction = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemCurrentAction "Use generic-lens or generic-optics with 'currentAction' instead." #-}
 
 -- | The targets defined by the user when starting the Automation.
-aemTargets :: Lens' AutomationExecutionMetadata [Target]
-aemTargets = lens _aemTargets (\s a -> s {_aemTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemTargets :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe [Target])
+aemTargets = Lens.lens (targets :: AutomationExecutionMetadata -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | A list of targets that resolved during the execution.
-aemResolvedTargets :: Lens' AutomationExecutionMetadata (Maybe ResolvedTargets)
-aemResolvedTargets = lens _aemResolvedTargets (\s a -> s {_aemResolvedTargets = a})
+--
+-- /Note:/ Consider using 'resolvedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemResolvedTargets :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe ResolvedTargets)
+aemResolvedTargets = Lens.lens (resolvedTargets :: AutomationExecutionMetadata -> Lude.Maybe ResolvedTargets) (\s a -> s {resolvedTargets = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemResolvedTargets "Use generic-lens or generic-optics with 'resolvedTargets' instead." #-}
 
 -- | The document version used during the execution.
-aemDocumentVersion :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemDocumentVersion = lens _aemDocumentVersion (\s a -> s {_aemDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemDocumentVersion :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemDocumentVersion = Lens.lens (documentVersion :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | The execution ID.
-aemAutomationExecutionId :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemAutomationExecutionId = lens _aemAutomationExecutionId (\s a -> s {_aemAutomationExecutionId = a})
+--
+-- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemAutomationExecutionId :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemAutomationExecutionId = Lens.lens (automationExecutionId :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {automationExecutionId = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
 
 -- | The MaxConcurrency value specified by the user when starting the Automation.
-aemMaxConcurrency :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemMaxConcurrency = lens _aemMaxConcurrency (\s a -> s {_aemMaxConcurrency = a})
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemMaxConcurrency :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemMaxConcurrency = Lens.lens (maxConcurrency :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
 -- | The list of execution outputs as defined in the Automation document.
-aemTarget :: Lens' AutomationExecutionMetadata (Maybe Text)
-aemTarget = lens _aemTarget (\s a -> s {_aemTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemTarget :: Lens.Lens' AutomationExecutionMetadata (Lude.Maybe Lude.Text)
+aemTarget = Lens.lens (target :: AutomationExecutionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {target = a} :: AutomationExecutionMetadata)
+{-# DEPRECATED aemTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance FromJSON AutomationExecutionMetadata where
+instance Lude.FromJSON AutomationExecutionMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutomationExecutionMetadata"
       ( \x ->
           AutomationExecutionMetadata'
-            <$> (x .:? "CurrentStepName")
-            <*> (x .:? "TargetParameterName")
-            <*> (x .:? "LogFile")
-            <*> (x .:? "ExecutedBy")
-            <*> (x .:? "DocumentName")
-            <*> (x .:? "ExecutionEndTime")
-            <*> (x .:? "FailureMessage")
-            <*> (x .:? "Mode")
-            <*> (x .:? "TargetMaps" .!= mempty)
-            <*> (x .:? "AutomationExecutionStatus")
-            <*> (x .:? "ParentAutomationExecutionId")
-            <*> (x .:? "Outputs" .!= mempty)
-            <*> (x .:? "MaxErrors")
-            <*> (x .:? "ExecutionStartTime")
-            <*> (x .:? "AutomationType")
-            <*> (x .:? "CurrentAction")
-            <*> (x .:? "Targets" .!= mempty)
-            <*> (x .:? "ResolvedTargets")
-            <*> (x .:? "DocumentVersion")
-            <*> (x .:? "AutomationExecutionId")
-            <*> (x .:? "MaxConcurrency")
-            <*> (x .:? "Target")
+            Lude.<$> (x Lude..:? "CurrentStepName")
+            Lude.<*> (x Lude..:? "TargetParameterName")
+            Lude.<*> (x Lude..:? "LogFile")
+            Lude.<*> (x Lude..:? "ExecutedBy")
+            Lude.<*> (x Lude..:? "DocumentName")
+            Lude.<*> (x Lude..:? "ExecutionEndTime")
+            Lude.<*> (x Lude..:? "FailureMessage")
+            Lude.<*> (x Lude..:? "Mode")
+            Lude.<*> (x Lude..:? "TargetMaps" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AutomationExecutionStatus")
+            Lude.<*> (x Lude..:? "ParentAutomationExecutionId")
+            Lude.<*> (x Lude..:? "Outputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MaxErrors")
+            Lude.<*> (x Lude..:? "ExecutionStartTime")
+            Lude.<*> (x Lude..:? "AutomationType")
+            Lude.<*> (x Lude..:? "CurrentAction")
+            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResolvedTargets")
+            Lude.<*> (x Lude..:? "DocumentVersion")
+            Lude.<*> (x Lude..:? "AutomationExecutionId")
+            Lude.<*> (x Lude..:? "MaxConcurrency")
+            Lude.<*> (x Lude..:? "Target")
       )
-
-instance Hashable AutomationExecutionMetadata
-
-instance NFData AutomationExecutionMetadata

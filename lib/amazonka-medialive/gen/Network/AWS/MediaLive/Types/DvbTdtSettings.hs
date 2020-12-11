@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbTdtSettings where
+module Network.AWS.MediaLive.Types.DvbTdtSettings
+  ( DvbTdtSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDvbTdtSettings,
+
+    -- * Lenses
+    dtsRepInterval,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | DVB Time and Date Table (SDT)
 --
--- /See:/ 'dvbTdtSettings' smart constructor.
+-- /See:/ 'mkDvbTdtSettings' smart constructor.
 newtype DvbTdtSettings = DvbTdtSettings'
-  { _dtsRepInterval ::
-      Maybe Nat
+  { repInterval ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DvbTdtSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtsRepInterval' - The number of milliseconds between instances of this table in the output transport stream.
-dvbTdtSettings ::
+-- * 'repInterval' - The number of milliseconds between instances of this table in the output transport stream.
+mkDvbTdtSettings ::
   DvbTdtSettings
-dvbTdtSettings = DvbTdtSettings' {_dtsRepInterval = Nothing}
+mkDvbTdtSettings = DvbTdtSettings' {repInterval = Lude.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output transport stream.
-dtsRepInterval :: Lens' DvbTdtSettings (Maybe Natural)
-dtsRepInterval = lens _dtsRepInterval (\s a -> s {_dtsRepInterval = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'repInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsRepInterval :: Lens.Lens' DvbTdtSettings (Lude.Maybe Lude.Natural)
+dtsRepInterval = Lens.lens (repInterval :: DvbTdtSettings -> Lude.Maybe Lude.Natural) (\s a -> s {repInterval = a} :: DvbTdtSettings)
+{-# DEPRECATED dtsRepInterval "Use generic-lens or generic-optics with 'repInterval' instead." #-}
 
-instance FromJSON DvbTdtSettings where
+instance Lude.FromJSON DvbTdtSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "DvbTdtSettings"
-      (\x -> DvbTdtSettings' <$> (x .:? "repInterval"))
+      (\x -> DvbTdtSettings' Lude.<$> (x Lude..:? "repInterval"))
 
-instance Hashable DvbTdtSettings
-
-instance NFData DvbTdtSettings
-
-instance ToJSON DvbTdtSettings where
+instance Lude.ToJSON DvbTdtSettings where
   toJSON DvbTdtSettings' {..} =
-    object (catMaybes [("repInterval" .=) <$> _dtsRepInterval])
+    Lude.object
+      (Lude.catMaybes [("repInterval" Lude..=) Lude.<$> repInterval])

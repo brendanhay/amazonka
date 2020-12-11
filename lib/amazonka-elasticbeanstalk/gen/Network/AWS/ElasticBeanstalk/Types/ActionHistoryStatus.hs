@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus where
+module Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
+  ( ActionHistoryStatus
+      ( ActionHistoryStatus',
+        AHSCompleted,
+        AHSFailed,
+        AHSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionHistoryStatus
-  = AHSCompleted
-  | AHSFailed
-  | AHSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionHistoryStatus = ActionHistoryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionHistoryStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure AHSCompleted
-      "failed" -> pure AHSFailed
-      "unknown" -> pure AHSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing ActionHistoryStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, unknown"
+pattern AHSCompleted :: ActionHistoryStatus
+pattern AHSCompleted = ActionHistoryStatus' "Completed"
 
-instance ToText ActionHistoryStatus where
-  toText = \case
-    AHSCompleted -> "Completed"
-    AHSFailed -> "Failed"
-    AHSUnknown -> "Unknown"
+pattern AHSFailed :: ActionHistoryStatus
+pattern AHSFailed = ActionHistoryStatus' "Failed"
 
-instance Hashable ActionHistoryStatus
+pattern AHSUnknown :: ActionHistoryStatus
+pattern AHSUnknown = ActionHistoryStatus' "Unknown"
 
-instance NFData ActionHistoryStatus
-
-instance ToByteString ActionHistoryStatus
-
-instance ToQuery ActionHistoryStatus
-
-instance ToHeader ActionHistoryStatus
-
-instance FromXML ActionHistoryStatus where
-  parseXML = parseXMLText "ActionHistoryStatus"
+{-# COMPLETE
+  AHSCompleted,
+  AHSFailed,
+  AHSUnknown,
+  ActionHistoryStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ImageConfig where
+module Network.AWS.SageMaker.Types.ImageConfig
+  ( ImageConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImageConfig,
+
+    -- * Lenses
+    icRepositoryAccessMode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.RepositoryAccessMode
 
 -- | Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 --
---
---
--- /See:/ 'imageConfig' smart constructor.
+-- /See:/ 'mkImageConfig' smart constructor.
 newtype ImageConfig = ImageConfig'
-  { _icRepositoryAccessMode ::
+  { repositoryAccessMode ::
       RepositoryAccessMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'repositoryAccessMode' - Set this to one of the following values:
 --
--- * 'icRepositoryAccessMode' - Set this to one of the following values:     * @Platform@ - The model image is hosted in Amazon ECR.     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
-imageConfig ::
-  -- | 'icRepositoryAccessMode'
+--
+--     * @Platform@ - The model image is hosted in Amazon ECR.
+--
+--
+--     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
+mkImageConfig ::
+  -- | 'repositoryAccessMode'
   RepositoryAccessMode ->
   ImageConfig
-imageConfig pRepositoryAccessMode_ =
-  ImageConfig' {_icRepositoryAccessMode = pRepositoryAccessMode_}
+mkImageConfig pRepositoryAccessMode_ =
+  ImageConfig' {repositoryAccessMode = pRepositoryAccessMode_}
 
--- | Set this to one of the following values:     * @Platform@ - The model image is hosted in Amazon ECR.     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
-icRepositoryAccessMode :: Lens' ImageConfig RepositoryAccessMode
-icRepositoryAccessMode = lens _icRepositoryAccessMode (\s a -> s {_icRepositoryAccessMode = a})
+-- | Set this to one of the following values:
+--
+--
+--     * @Platform@ - The model image is hosted in Amazon ECR.
+--
+--
+--     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
+--
+--
+--
+-- /Note:/ Consider using 'repositoryAccessMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icRepositoryAccessMode :: Lens.Lens' ImageConfig RepositoryAccessMode
+icRepositoryAccessMode = Lens.lens (repositoryAccessMode :: ImageConfig -> RepositoryAccessMode) (\s a -> s {repositoryAccessMode = a} :: ImageConfig)
+{-# DEPRECATED icRepositoryAccessMode "Use generic-lens or generic-optics with 'repositoryAccessMode' instead." #-}
 
-instance FromJSON ImageConfig where
+instance Lude.FromJSON ImageConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageConfig"
-      (\x -> ImageConfig' <$> (x .: "RepositoryAccessMode"))
+      (\x -> ImageConfig' Lude.<$> (x Lude..: "RepositoryAccessMode"))
 
-instance Hashable ImageConfig
-
-instance NFData ImageConfig
-
-instance ToJSON ImageConfig where
+instance Lude.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
-    object
-      ( catMaybes
-          [Just ("RepositoryAccessMode" .= _icRepositoryAccessMode)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("RepositoryAccessMode" Lude..= repositoryAccessMode)]
       )

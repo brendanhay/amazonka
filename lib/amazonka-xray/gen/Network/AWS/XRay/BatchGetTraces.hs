@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use @GetTraceSummaries@ to get a list of trace IDs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.XRay.BatchGetTraces
-  ( -- * Creating a Request
-    batchGetTraces,
-    BatchGetTraces,
+  ( -- * Creating a request
+    BatchGetTraces (..),
+    mkBatchGetTraces,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgtNextToken,
     bgtTraceIds,
 
-    -- * Destructuring the Response
-    batchGetTracesResponse,
-    BatchGetTracesResponse,
+    -- * Destructuring the response
+    BatchGetTracesResponse (..),
+    mkBatchGetTracesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgtrsNextToken,
     bgtrsTraces,
     bgtrsUnprocessedTraceIds,
@@ -43,129 +36,150 @@ module Network.AWS.XRay.BatchGetTraces
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'batchGetTraces' smart constructor.
+-- | /See:/ 'mkBatchGetTraces' smart constructor.
 data BatchGetTraces = BatchGetTraces'
-  { _bgtNextToken ::
-      !(Maybe Text),
-    _bgtTraceIds :: ![Text]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    traceIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetTraces' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgtNextToken' - Pagination token.
---
--- * 'bgtTraceIds' - Specify the trace IDs of requests for which to retrieve segments.
-batchGetTraces ::
+-- * 'nextToken' - Pagination token.
+-- * 'traceIds' - Specify the trace IDs of requests for which to retrieve segments.
+mkBatchGetTraces ::
   BatchGetTraces
-batchGetTraces =
-  BatchGetTraces' {_bgtNextToken = Nothing, _bgtTraceIds = mempty}
+mkBatchGetTraces =
+  BatchGetTraces' {nextToken = Lude.Nothing, traceIds = Lude.mempty}
 
 -- | Pagination token.
-bgtNextToken :: Lens' BatchGetTraces (Maybe Text)
-bgtNextToken = lens _bgtNextToken (\s a -> s {_bgtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtNextToken :: Lens.Lens' BatchGetTraces (Lude.Maybe Lude.Text)
+bgtNextToken = Lens.lens (nextToken :: BatchGetTraces -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchGetTraces)
+{-# DEPRECATED bgtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specify the trace IDs of requests for which to retrieve segments.
-bgtTraceIds :: Lens' BatchGetTraces [Text]
-bgtTraceIds = lens _bgtTraceIds (\s a -> s {_bgtTraceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'traceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtTraceIds :: Lens.Lens' BatchGetTraces [Lude.Text]
+bgtTraceIds = Lens.lens (traceIds :: BatchGetTraces -> [Lude.Text]) (\s a -> s {traceIds = a} :: BatchGetTraces)
+{-# DEPRECATED bgtTraceIds "Use generic-lens or generic-optics with 'traceIds' instead." #-}
 
-instance AWSPager BatchGetTraces where
+instance Page.AWSPager BatchGetTraces where
   page rq rs
-    | stop (rs ^. bgtrsNextToken) = Nothing
-    | stop (rs ^. bgtrsTraces) = Nothing
-    | otherwise = Just $ rq & bgtNextToken .~ rs ^. bgtrsNextToken
+    | Page.stop (rs Lens.^. bgtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. bgtrsTraces) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& bgtNextToken Lens..~ rs Lens.^. bgtrsNextToken
 
-instance AWSRequest BatchGetTraces where
+instance Lude.AWSRequest BatchGetTraces where
   type Rs BatchGetTraces = BatchGetTracesResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetTracesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Traces" .!@ mempty)
-            <*> (x .?> "UnprocessedTraceIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Traces" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "UnprocessedTraceIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetTraces
+instance Lude.ToHeaders BatchGetTraces where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BatchGetTraces
-
-instance ToHeaders BatchGetTraces where
-  toHeaders = const mempty
-
-instance ToJSON BatchGetTraces where
+instance Lude.ToJSON BatchGetTraces where
   toJSON BatchGetTraces' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _bgtNextToken,
-            Just ("TraceIds" .= _bgtTraceIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("TraceIds" Lude..= traceIds)
           ]
       )
 
-instance ToPath BatchGetTraces where
-  toPath = const "/Traces"
+instance Lude.ToPath BatchGetTraces where
+  toPath = Lude.const "/Traces"
 
-instance ToQuery BatchGetTraces where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetTraces where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetTracesResponse' smart constructor.
+-- | /See:/ 'mkBatchGetTracesResponse' smart constructor.
 data BatchGetTracesResponse = BatchGetTracesResponse'
-  { _bgtrsNextToken ::
-      !(Maybe Text),
-    _bgtrsTraces :: !(Maybe [Trace]),
-    _bgtrsUnprocessedTraceIds :: !(Maybe [Text]),
-    _bgtrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    traces :: Lude.Maybe [Trace],
+    unprocessedTraceIds :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetTracesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgtrsNextToken' - Pagination token.
---
--- * 'bgtrsTraces' - Full traces for the specified requests.
---
--- * 'bgtrsUnprocessedTraceIds' - Trace IDs of requests that haven't been processed.
---
--- * 'bgtrsResponseStatus' - -- | The response status code.
-batchGetTracesResponse ::
-  -- | 'bgtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'traces' - Full traces for the specified requests.
+-- * 'unprocessedTraceIds' - Trace IDs of requests that haven't been processed.
+mkBatchGetTracesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetTracesResponse
-batchGetTracesResponse pResponseStatus_ =
+mkBatchGetTracesResponse pResponseStatus_ =
   BatchGetTracesResponse'
-    { _bgtrsNextToken = Nothing,
-      _bgtrsTraces = Nothing,
-      _bgtrsUnprocessedTraceIds = Nothing,
-      _bgtrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      traces = Lude.Nothing,
+      unprocessedTraceIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Pagination token.
-bgtrsNextToken :: Lens' BatchGetTracesResponse (Maybe Text)
-bgtrsNextToken = lens _bgtrsNextToken (\s a -> s {_bgtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsNextToken :: Lens.Lens' BatchGetTracesResponse (Lude.Maybe Lude.Text)
+bgtrsNextToken = Lens.lens (nextToken :: BatchGetTracesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchGetTracesResponse)
+{-# DEPRECATED bgtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Full traces for the specified requests.
-bgtrsTraces :: Lens' BatchGetTracesResponse [Trace]
-bgtrsTraces = lens _bgtrsTraces (\s a -> s {_bgtrsTraces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'traces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsTraces :: Lens.Lens' BatchGetTracesResponse (Lude.Maybe [Trace])
+bgtrsTraces = Lens.lens (traces :: BatchGetTracesResponse -> Lude.Maybe [Trace]) (\s a -> s {traces = a} :: BatchGetTracesResponse)
+{-# DEPRECATED bgtrsTraces "Use generic-lens or generic-optics with 'traces' instead." #-}
 
 -- | Trace IDs of requests that haven't been processed.
-bgtrsUnprocessedTraceIds :: Lens' BatchGetTracesResponse [Text]
-bgtrsUnprocessedTraceIds = lens _bgtrsUnprocessedTraceIds (\s a -> s {_bgtrsUnprocessedTraceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedTraceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsUnprocessedTraceIds :: Lens.Lens' BatchGetTracesResponse (Lude.Maybe [Lude.Text])
+bgtrsUnprocessedTraceIds = Lens.lens (unprocessedTraceIds :: BatchGetTracesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {unprocessedTraceIds = a} :: BatchGetTracesResponse)
+{-# DEPRECATED bgtrsUnprocessedTraceIds "Use generic-lens or generic-optics with 'unprocessedTraceIds' instead." #-}
 
--- | -- | The response status code.
-bgtrsResponseStatus :: Lens' BatchGetTracesResponse Int
-bgtrsResponseStatus = lens _bgtrsResponseStatus (\s a -> s {_bgtrsResponseStatus = a})
-
-instance NFData BatchGetTracesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgtrsResponseStatus :: Lens.Lens' BatchGetTracesResponse Lude.Int
+bgtrsResponseStatus = Lens.lens (responseStatus :: BatchGetTracesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetTracesResponse)
+{-# DEPRECATED bgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

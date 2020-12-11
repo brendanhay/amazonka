@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters where
+module Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
+  ( MaintenanceWindowAutomationParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceWindowAutomationParameters,
+
+    -- * Lenses
+    mwapParameters,
+    mwapDocumentVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The parameters for an AUTOMATION task type.
 --
---
---
--- /See:/ 'maintenanceWindowAutomationParameters' smart constructor.
+-- /See:/ 'mkMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-  { _mwapParameters ::
-      !( Maybe
-           ( Map
-               Text
-               ([Text])
-           )
-       ),
-    _mwapDocumentVersion ::
-      !(Maybe Text)
+  { parameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            ([Lude.Text])
+        ),
+    documentVersion ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowAutomationParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'documentVersion' - The version of an Automation document to use during task execution.
+-- * 'parameters' - The parameters for the AUTOMATION task.
 --
--- * 'mwapParameters' - The parameters for the AUTOMATION task. For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
---
--- * 'mwapDocumentVersion' - The version of an Automation document to use during task execution.
-maintenanceWindowAutomationParameters ::
+-- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
+mkMaintenanceWindowAutomationParameters ::
   MaintenanceWindowAutomationParameters
-maintenanceWindowAutomationParameters =
+mkMaintenanceWindowAutomationParameters =
   MaintenanceWindowAutomationParameters'
-    { _mwapParameters = Nothing,
-      _mwapDocumentVersion = Nothing
+    { parameters = Lude.Nothing,
+      documentVersion = Lude.Nothing
     }
 
--- | The parameters for the AUTOMATION task. For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
-mwapParameters :: Lens' MaintenanceWindowAutomationParameters (HashMap Text ([Text]))
-mwapParameters = lens _mwapParameters (\s a -> s {_mwapParameters = a}) . _Default . _Map
+-- | The parameters for the AUTOMATION task.
+--
+-- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwapParameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+mwapParameters = Lens.lens (parameters :: MaintenanceWindowAutomationParameters -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {parameters = a} :: MaintenanceWindowAutomationParameters)
+{-# DEPRECATED mwapParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The version of an Automation document to use during task execution.
-mwapDocumentVersion :: Lens' MaintenanceWindowAutomationParameters (Maybe Text)
-mwapDocumentVersion = lens _mwapDocumentVersion (\s a -> s {_mwapDocumentVersion = a})
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwapDocumentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Lude.Maybe Lude.Text)
+mwapDocumentVersion = Lens.lens (documentVersion :: MaintenanceWindowAutomationParameters -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
+{-# DEPRECATED mwapDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
-instance FromJSON MaintenanceWindowAutomationParameters where
+instance Lude.FromJSON MaintenanceWindowAutomationParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "MaintenanceWindowAutomationParameters"
       ( \x ->
           MaintenanceWindowAutomationParameters'
-            <$> (x .:? "Parameters" .!= mempty) <*> (x .:? "DocumentVersion")
+            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DocumentVersion")
       )
 
-instance Hashable MaintenanceWindowAutomationParameters
-
-instance NFData MaintenanceWindowAutomationParameters
-
-instance ToJSON MaintenanceWindowAutomationParameters where
+instance Lude.ToJSON MaintenanceWindowAutomationParameters where
   toJSON MaintenanceWindowAutomationParameters' {..} =
-    object
-      ( catMaybes
-          [ ("Parameters" .=) <$> _mwapParameters,
-            ("DocumentVersion" .=) <$> _mwapDocumentVersion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
           ]
       )

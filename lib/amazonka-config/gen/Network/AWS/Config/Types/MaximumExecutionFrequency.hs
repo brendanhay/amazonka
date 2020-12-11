@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.MaximumExecutionFrequency where
+module Network.AWS.Config.Types.MaximumExecutionFrequency
+  ( MaximumExecutionFrequency
+      ( MaximumExecutionFrequency',
+        OneHour,
+        SixHours,
+        ThreeHours,
+        TwelveHours,
+        TwentyFourHours
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MaximumExecutionFrequency
-  = OneHour
-  | SixHours
-  | ThreeHours
-  | TwelveHours
-  | TwentyFourHours
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MaximumExecutionFrequency = MaximumExecutionFrequency' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MaximumExecutionFrequency where
-  parser =
-    takeLowerText >>= \case
-      "one_hour" -> pure OneHour
-      "six_hours" -> pure SixHours
-      "three_hours" -> pure ThreeHours
-      "twelve_hours" -> pure TwelveHours
-      "twentyfour_hours" -> pure TwentyFourHours
-      e ->
-        fromTextError $
-          "Failure parsing MaximumExecutionFrequency from value: '" <> e
-            <> "'. Accepted values: one_hour, six_hours, three_hours, twelve_hours, twentyfour_hours"
+pattern OneHour :: MaximumExecutionFrequency
+pattern OneHour = MaximumExecutionFrequency' "One_Hour"
 
-instance ToText MaximumExecutionFrequency where
-  toText = \case
-    OneHour -> "One_Hour"
-    SixHours -> "Six_Hours"
-    ThreeHours -> "Three_Hours"
-    TwelveHours -> "Twelve_Hours"
-    TwentyFourHours -> "TwentyFour_Hours"
+pattern SixHours :: MaximumExecutionFrequency
+pattern SixHours = MaximumExecutionFrequency' "Six_Hours"
 
-instance Hashable MaximumExecutionFrequency
+pattern ThreeHours :: MaximumExecutionFrequency
+pattern ThreeHours = MaximumExecutionFrequency' "Three_Hours"
 
-instance NFData MaximumExecutionFrequency
+pattern TwelveHours :: MaximumExecutionFrequency
+pattern TwelveHours = MaximumExecutionFrequency' "Twelve_Hours"
 
-instance ToByteString MaximumExecutionFrequency
+pattern TwentyFourHours :: MaximumExecutionFrequency
+pattern TwentyFourHours = MaximumExecutionFrequency' "TwentyFour_Hours"
 
-instance ToQuery MaximumExecutionFrequency
-
-instance ToHeader MaximumExecutionFrequency
-
-instance ToJSON MaximumExecutionFrequency where
-  toJSON = toJSONText
-
-instance FromJSON MaximumExecutionFrequency where
-  parseJSON = parseJSONText "MaximumExecutionFrequency"
+{-# COMPLETE
+  OneHour,
+  SixHours,
+  ThreeHours,
+  TwelveHours,
+  TwentyFourHours,
+  MaximumExecutionFrequency'
+  #-}

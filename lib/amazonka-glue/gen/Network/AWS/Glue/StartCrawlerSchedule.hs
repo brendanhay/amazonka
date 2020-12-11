@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,118 @@
 --
 -- Changes the schedule state of the specified crawler to @SCHEDULED@ , unless the crawler is already running or the schedule state is already @SCHEDULED@ .
 module Network.AWS.Glue.StartCrawlerSchedule
-  ( -- * Creating a Request
-    startCrawlerSchedule,
-    StartCrawlerSchedule,
+  ( -- * Creating a request
+    StartCrawlerSchedule (..),
+    mkStartCrawlerSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     scsCrawlerName,
 
-    -- * Destructuring the Response
-    startCrawlerScheduleResponse,
-    StartCrawlerScheduleResponse,
+    -- * Destructuring the response
+    StartCrawlerScheduleResponse (..),
+    mkStartCrawlerScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     scsrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startCrawlerSchedule' smart constructor.
+-- | /See:/ 'mkStartCrawlerSchedule' smart constructor.
 newtype StartCrawlerSchedule = StartCrawlerSchedule'
-  { _scsCrawlerName ::
-      Text
+  { crawlerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartCrawlerSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scsCrawlerName' - Name of the crawler to schedule.
-startCrawlerSchedule ::
-  -- | 'scsCrawlerName'
-  Text ->
+-- * 'crawlerName' - Name of the crawler to schedule.
+mkStartCrawlerSchedule ::
+  -- | 'crawlerName'
+  Lude.Text ->
   StartCrawlerSchedule
-startCrawlerSchedule pCrawlerName_ =
-  StartCrawlerSchedule' {_scsCrawlerName = pCrawlerName_}
+mkStartCrawlerSchedule pCrawlerName_ =
+  StartCrawlerSchedule' {crawlerName = pCrawlerName_}
 
 -- | Name of the crawler to schedule.
-scsCrawlerName :: Lens' StartCrawlerSchedule Text
-scsCrawlerName = lens _scsCrawlerName (\s a -> s {_scsCrawlerName = a})
+--
+-- /Note:/ Consider using 'crawlerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsCrawlerName :: Lens.Lens' StartCrawlerSchedule Lude.Text
+scsCrawlerName = Lens.lens (crawlerName :: StartCrawlerSchedule -> Lude.Text) (\s a -> s {crawlerName = a} :: StartCrawlerSchedule)
+{-# DEPRECATED scsCrawlerName "Use generic-lens or generic-optics with 'crawlerName' instead." #-}
 
-instance AWSRequest StartCrawlerSchedule where
+instance Lude.AWSRequest StartCrawlerSchedule where
   type Rs StartCrawlerSchedule = StartCrawlerScheduleResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> StartCrawlerScheduleResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StartCrawlerScheduleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StartCrawlerSchedule
-
-instance NFData StartCrawlerSchedule
-
-instance ToHeaders StartCrawlerSchedule where
+instance Lude.ToHeaders StartCrawlerSchedule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.StartCrawlerSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.StartCrawlerSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartCrawlerSchedule where
+instance Lude.ToJSON StartCrawlerSchedule where
   toJSON StartCrawlerSchedule' {..} =
-    object (catMaybes [Just ("CrawlerName" .= _scsCrawlerName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("CrawlerName" Lude..= crawlerName)])
 
-instance ToPath StartCrawlerSchedule where
-  toPath = const "/"
+instance Lude.ToPath StartCrawlerSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery StartCrawlerSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery StartCrawlerSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startCrawlerScheduleResponse' smart constructor.
+-- | /See:/ 'mkStartCrawlerScheduleResponse' smart constructor.
 newtype StartCrawlerScheduleResponse = StartCrawlerScheduleResponse'
-  { _scsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartCrawlerScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scsrsResponseStatus' - -- | The response status code.
-startCrawlerScheduleResponse ::
-  -- | 'scsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartCrawlerScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartCrawlerScheduleResponse
-startCrawlerScheduleResponse pResponseStatus_ =
-  StartCrawlerScheduleResponse'
-    { _scsrsResponseStatus =
-        pResponseStatus_
-    }
+mkStartCrawlerScheduleResponse pResponseStatus_ =
+  StartCrawlerScheduleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-scsrsResponseStatus :: Lens' StartCrawlerScheduleResponse Int
-scsrsResponseStatus = lens _scsrsResponseStatus (\s a -> s {_scsrsResponseStatus = a})
-
-instance NFData StartCrawlerScheduleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsrsResponseStatus :: Lens.Lens' StartCrawlerScheduleResponse Lude.Int
+scsrsResponseStatus = Lens.lens (responseStatus :: StartCrawlerScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartCrawlerScheduleResponse)
+{-# DEPRECATED scsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

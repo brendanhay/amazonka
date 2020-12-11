@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,135 @@
 --
 -- Disables server-side encryption (SSE) for the delivery stream.
 --
---
 -- This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream to @DISABLING@ , and then to @DISABLED@ . You can continue to read and write data to your stream while its status is @DISABLING@ . It can take up to 5 seconds after the encryption status changes to @DISABLED@ before all records written to the delivery stream are no longer subject to encryption. To find out whether a record or a batch of records was encrypted, check the response elements 'PutRecordOutput$Encrypted' and 'PutRecordBatchOutput$Encrypted' , respectively.
---
 -- To check the encryption state of a delivery stream, use 'DescribeDeliveryStream' .
---
 -- If SSE is enabled using a customer managed CMK and then you invoke @StopDeliveryStreamEncryption@ , Kinesis Data Firehose schedules the related KMS grant for retirement and then retires it after it ensures that it is finished delivering records to the destination.
---
 -- The @StartDeliveryStreamEncryption@ and @StopDeliveryStreamEncryption@ operations have a combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call @StartDeliveryStreamEncryption@ 13 times and @StopDeliveryStreamEncryption@ 12 times for the same delivery stream in a 24-hour period.
 module Network.AWS.Firehose.StopDeliveryStreamEncryption
-  ( -- * Creating a Request
-    stopDeliveryStreamEncryption,
-    StopDeliveryStreamEncryption,
+  ( -- * Creating a request
+    StopDeliveryStreamEncryption (..),
+    mkStopDeliveryStreamEncryption,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdseDeliveryStreamName,
 
-    -- * Destructuring the Response
-    stopDeliveryStreamEncryptionResponse,
-    StopDeliveryStreamEncryptionResponse,
+    -- * Destructuring the response
+    StopDeliveryStreamEncryptionResponse (..),
+    mkStopDeliveryStreamEncryptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdsersResponseStatus,
   )
 where
 
 import Network.AWS.Firehose.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopDeliveryStreamEncryption' smart constructor.
+-- | /See:/ 'mkStopDeliveryStreamEncryption' smart constructor.
 newtype StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'
-  { _sdseDeliveryStreamName ::
-      Text
+  { deliveryStreamName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDeliveryStreamEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdseDeliveryStreamName' - The name of the delivery stream for which you want to disable server-side encryption (SSE).
-stopDeliveryStreamEncryption ::
-  -- | 'sdseDeliveryStreamName'
-  Text ->
+-- * 'deliveryStreamName' - The name of the delivery stream for which you want to disable server-side encryption (SSE).
+mkStopDeliveryStreamEncryption ::
+  -- | 'deliveryStreamName'
+  Lude.Text ->
   StopDeliveryStreamEncryption
-stopDeliveryStreamEncryption pDeliveryStreamName_ =
+mkStopDeliveryStreamEncryption pDeliveryStreamName_ =
   StopDeliveryStreamEncryption'
-    { _sdseDeliveryStreamName =
+    { deliveryStreamName =
         pDeliveryStreamName_
     }
 
 -- | The name of the delivery stream for which you want to disable server-side encryption (SSE).
-sdseDeliveryStreamName :: Lens' StopDeliveryStreamEncryption Text
-sdseDeliveryStreamName = lens _sdseDeliveryStreamName (\s a -> s {_sdseDeliveryStreamName = a})
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdseDeliveryStreamName :: Lens.Lens' StopDeliveryStreamEncryption Lude.Text
+sdseDeliveryStreamName = Lens.lens (deliveryStreamName :: StopDeliveryStreamEncryption -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: StopDeliveryStreamEncryption)
+{-# DEPRECATED sdseDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
-instance AWSRequest StopDeliveryStreamEncryption where
+instance Lude.AWSRequest StopDeliveryStreamEncryption where
   type
     Rs StopDeliveryStreamEncryption =
       StopDeliveryStreamEncryptionResponse
-  request = postJSON firehose
+  request = Req.postJSON firehoseService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StopDeliveryStreamEncryptionResponse' <$> (pure (fromEnum s))
+          StopDeliveryStreamEncryptionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopDeliveryStreamEncryption
-
-instance NFData StopDeliveryStreamEncryption
-
-instance ToHeaders StopDeliveryStreamEncryption where
+instance Lude.ToHeaders StopDeliveryStreamEncryption where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Firehose_20150804.StopDeliveryStreamEncryption" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopDeliveryStreamEncryption where
+instance Lude.ToJSON StopDeliveryStreamEncryption where
   toJSON StopDeliveryStreamEncryption' {..} =
-    object
-      ( catMaybes
-          [Just ("DeliveryStreamName" .= _sdseDeliveryStreamName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)]
       )
 
-instance ToPath StopDeliveryStreamEncryption where
-  toPath = const "/"
+instance Lude.ToPath StopDeliveryStreamEncryption where
+  toPath = Lude.const "/"
 
-instance ToQuery StopDeliveryStreamEncryption where
-  toQuery = const mempty
+instance Lude.ToQuery StopDeliveryStreamEncryption where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopDeliveryStreamEncryptionResponse' smart constructor.
+-- | /See:/ 'mkStopDeliveryStreamEncryptionResponse' smart constructor.
 newtype StopDeliveryStreamEncryptionResponse = StopDeliveryStreamEncryptionResponse'
-  { _sdsersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDeliveryStreamEncryptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdsersResponseStatus' - -- | The response status code.
-stopDeliveryStreamEncryptionResponse ::
-  -- | 'sdsersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopDeliveryStreamEncryptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopDeliveryStreamEncryptionResponse
-stopDeliveryStreamEncryptionResponse pResponseStatus_ =
+mkStopDeliveryStreamEncryptionResponse pResponseStatus_ =
   StopDeliveryStreamEncryptionResponse'
-    { _sdsersResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sdsersResponseStatus :: Lens' StopDeliveryStreamEncryptionResponse Int
-sdsersResponseStatus = lens _sdsersResponseStatus (\s a -> s {_sdsersResponseStatus = a})
-
-instance NFData StopDeliveryStreamEncryptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsersResponseStatus :: Lens.Lens' StopDeliveryStreamEncryptionResponse Lude.Int
+sdsersResponseStatus = Lens.lens (responseStatus :: StopDeliveryStreamEncryptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDeliveryStreamEncryptionResponse)
+{-# DEPRECATED sdsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

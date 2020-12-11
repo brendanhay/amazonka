@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,132 +7,176 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservedInstancesListing where
+module Network.AWS.EC2.Types.ReservedInstancesListing
+  ( ReservedInstancesListing (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkReservedInstancesListing,
+
+    -- * Lenses
+    rilStatus,
+    rilClientToken,
+    rilUpdateDate,
+    rilCreateDate,
+    rilPriceSchedules,
+    rilStatusMessage,
+    rilReservedInstancesId,
+    rilTags,
+    rilInstanceCounts,
+    rilReservedInstancesListingId,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceCount
 import Network.AWS.EC2.Types.ListingStatus
 import Network.AWS.EC2.Types.PriceSchedule
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Reserved Instance listing.
 --
---
---
--- /See:/ 'reservedInstancesListing' smart constructor.
+-- /See:/ 'mkReservedInstancesListing' smart constructor.
 data ReservedInstancesListing = ReservedInstancesListing'
-  { _rilStatus ::
-      !(Maybe ListingStatus),
-    _rilClientToken :: !(Maybe Text),
-    _rilUpdateDate :: !(Maybe ISO8601),
-    _rilCreateDate :: !(Maybe ISO8601),
-    _rilPriceSchedules ::
-      !(Maybe [PriceSchedule]),
-    _rilStatusMessage :: !(Maybe Text),
-    _rilReservedInstancesId :: !(Maybe Text),
-    _rilTags :: !(Maybe [Tag]),
-    _rilInstanceCounts ::
-      !(Maybe [InstanceCount]),
-    _rilReservedInstancesListingId ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe ListingStatus,
+    clientToken :: Lude.Maybe Lude.Text,
+    updateDate :: Lude.Maybe Lude.ISO8601,
+    createDate :: Lude.Maybe Lude.ISO8601,
+    priceSchedules ::
+      Lude.Maybe [PriceSchedule],
+    statusMessage :: Lude.Maybe Lude.Text,
+    reservedInstancesId ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    instanceCounts ::
+      Lude.Maybe [InstanceCount],
+    reservedInstancesListingId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesListing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rilStatus' - The status of the Reserved Instance listing.
---
--- * 'rilClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- * 'rilUpdateDate' - The last modified timestamp of the listing.
---
--- * 'rilCreateDate' - The time the listing was created.
---
--- * 'rilPriceSchedules' - The price of the Reserved Instance listing.
---
--- * 'rilStatusMessage' - The reason for the current status of the Reserved Instance listing. The response can be blank.
---
--- * 'rilReservedInstancesId' - The ID of the Reserved Instance.
---
--- * 'rilTags' - Any tags assigned to the resource.
---
--- * 'rilInstanceCounts' - The number of instances in this state.
---
--- * 'rilReservedInstancesListingId' - The ID of the Reserved Instance listing.
-reservedInstancesListing ::
+-- * 'clientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'createDate' - The time the listing was created.
+-- * 'instanceCounts' - The number of instances in this state.
+-- * 'priceSchedules' - The price of the Reserved Instance listing.
+-- * 'reservedInstancesId' - The ID of the Reserved Instance.
+-- * 'reservedInstancesListingId' - The ID of the Reserved Instance listing.
+-- * 'status' - The status of the Reserved Instance listing.
+-- * 'statusMessage' - The reason for the current status of the Reserved Instance listing. The response can be blank.
+-- * 'tags' - Any tags assigned to the resource.
+-- * 'updateDate' - The last modified timestamp of the listing.
+mkReservedInstancesListing ::
   ReservedInstancesListing
-reservedInstancesListing =
+mkReservedInstancesListing =
   ReservedInstancesListing'
-    { _rilStatus = Nothing,
-      _rilClientToken = Nothing,
-      _rilUpdateDate = Nothing,
-      _rilCreateDate = Nothing,
-      _rilPriceSchedules = Nothing,
-      _rilStatusMessage = Nothing,
-      _rilReservedInstancesId = Nothing,
-      _rilTags = Nothing,
-      _rilInstanceCounts = Nothing,
-      _rilReservedInstancesListingId = Nothing
+    { status = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      updateDate = Lude.Nothing,
+      createDate = Lude.Nothing,
+      priceSchedules = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      reservedInstancesId = Lude.Nothing,
+      tags = Lude.Nothing,
+      instanceCounts = Lude.Nothing,
+      reservedInstancesListingId = Lude.Nothing
     }
 
 -- | The status of the Reserved Instance listing.
-rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
-rilStatus = lens _rilStatus (\s a -> s {_rilStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilStatus :: Lens.Lens' ReservedInstancesListing (Lude.Maybe ListingStatus)
+rilStatus = Lens.lens (status :: ReservedInstancesListing -> Lude.Maybe ListingStatus) (\s a -> s {status = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-rilClientToken :: Lens' ReservedInstancesListing (Maybe Text)
-rilClientToken = lens _rilClientToken (\s a -> s {_rilClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilClientToken :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.Text)
+rilClientToken = Lens.lens (clientToken :: ReservedInstancesListing -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The last modified timestamp of the listing.
-rilUpdateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
-rilUpdateDate = lens _rilUpdateDate (\s a -> s {_rilUpdateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilUpdateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.ISO8601)
+rilUpdateDate = Lens.lens (updateDate :: ReservedInstancesListing -> Lude.Maybe Lude.ISO8601) (\s a -> s {updateDate = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The time the listing was created.
-rilCreateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
-rilCreateDate = lens _rilCreateDate (\s a -> s {_rilCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilCreateDate :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.ISO8601)
+rilCreateDate = Lens.lens (createDate :: ReservedInstancesListing -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The price of the Reserved Instance listing.
-rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
-rilPriceSchedules = lens _rilPriceSchedules (\s a -> s {_rilPriceSchedules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'priceSchedules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilPriceSchedules :: Lens.Lens' ReservedInstancesListing (Lude.Maybe [PriceSchedule])
+rilPriceSchedules = Lens.lens (priceSchedules :: ReservedInstancesListing -> Lude.Maybe [PriceSchedule]) (\s a -> s {priceSchedules = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilPriceSchedules "Use generic-lens or generic-optics with 'priceSchedules' instead." #-}
 
 -- | The reason for the current status of the Reserved Instance listing. The response can be blank.
-rilStatusMessage :: Lens' ReservedInstancesListing (Maybe Text)
-rilStatusMessage = lens _rilStatusMessage (\s a -> s {_rilStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilStatusMessage :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.Text)
+rilStatusMessage = Lens.lens (statusMessage :: ReservedInstancesListing -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The ID of the Reserved Instance.
-rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
-rilReservedInstancesId = lens _rilReservedInstancesId (\s a -> s {_rilReservedInstancesId = a})
+--
+-- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilReservedInstancesId :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.Text)
+rilReservedInstancesId = Lens.lens (reservedInstancesId :: ReservedInstancesListing -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
 -- | Any tags assigned to the resource.
-rilTags :: Lens' ReservedInstancesListing [Tag]
-rilTags = lens _rilTags (\s a -> s {_rilTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilTags :: Lens.Lens' ReservedInstancesListing (Lude.Maybe [Tag])
+rilTags = Lens.lens (tags :: ReservedInstancesListing -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The number of instances in this state.
-rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
-rilInstanceCounts = lens _rilInstanceCounts (\s a -> s {_rilInstanceCounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilInstanceCounts :: Lens.Lens' ReservedInstancesListing (Lude.Maybe [InstanceCount])
+rilInstanceCounts = Lens.lens (instanceCounts :: ReservedInstancesListing -> Lude.Maybe [InstanceCount]) (\s a -> s {instanceCounts = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilInstanceCounts "Use generic-lens or generic-optics with 'instanceCounts' instead." #-}
 
 -- | The ID of the Reserved Instance listing.
-rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
-rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\s a -> s {_rilReservedInstancesListingId = a})
+--
+-- /Note:/ Consider using 'reservedInstancesListingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rilReservedInstancesListingId :: Lens.Lens' ReservedInstancesListing (Lude.Maybe Lude.Text)
+rilReservedInstancesListingId = Lens.lens (reservedInstancesListingId :: ReservedInstancesListing -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesListingId = a} :: ReservedInstancesListing)
+{-# DEPRECATED rilReservedInstancesListingId "Use generic-lens or generic-optics with 'reservedInstancesListingId' instead." #-}
 
-instance FromXML ReservedInstancesListing where
+instance Lude.FromXML ReservedInstancesListing where
   parseXML x =
     ReservedInstancesListing'
-      <$> (x .@? "status")
-      <*> (x .@? "clientToken")
-      <*> (x .@? "updateDate")
-      <*> (x .@? "createDate")
-      <*> (x .@? "priceSchedules" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "statusMessage")
-      <*> (x .@? "reservedInstancesId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "instanceCounts" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "reservedInstancesListingId")
-
-instance Hashable ReservedInstancesListing
-
-instance NFData ReservedInstancesListing
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "clientToken")
+      Lude.<*> (x Lude..@? "updateDate")
+      Lude.<*> (x Lude..@? "createDate")
+      Lude.<*> ( x Lude..@? "priceSchedules" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "statusMessage")
+      Lude.<*> (x Lude..@? "reservedInstancesId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "instanceCounts" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "reservedInstancesListingId")

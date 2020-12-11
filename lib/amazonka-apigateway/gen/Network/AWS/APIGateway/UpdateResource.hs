@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Changes information about a 'Resource' resource.
 module Network.AWS.APIGateway.UpdateResource
-  ( -- * Creating a Request
-    updateResource,
-    UpdateResource,
+  ( -- * Creating a request
+    UpdateResource (..),
+    mkUpdateResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urPatchOperations,
     urRestAPIId,
     urResourceId,
 
-    -- * Destructuring the Response
-    resource,
-    Resource,
+    -- * Destructuring the response
+    Resource (..),
+    mkResource,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rPathPart,
     rPath,
     rId,
@@ -42,84 +37,95 @@ module Network.AWS.APIGateway.UpdateResource
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to change information about a 'Resource' resource.
 --
---
---
--- /See:/ 'updateResource' smart constructor.
+-- /See:/ 'mkUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { _urPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _urRestAPIId :: !Text,
-    _urResourceId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'urRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'urResourceId' - [Required] The identifier of the 'Resource' resource.
-updateResource ::
-  -- | 'urRestAPIId'
-  Text ->
-  -- | 'urResourceId'
-  Text ->
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'resourceId' - [Required] The identifier of the 'Resource' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateResource ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   UpdateResource
-updateResource pRestAPIId_ pResourceId_ =
+mkUpdateResource pRestAPIId_ pResourceId_ =
   UpdateResource'
-    { _urPatchOperations = Nothing,
-      _urRestAPIId = pRestAPIId_,
-      _urResourceId = pResourceId_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      resourceId = pResourceId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-urPatchOperations :: Lens' UpdateResource [PatchOperation]
-urPatchOperations = lens _urPatchOperations (\s a -> s {_urPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urPatchOperations :: Lens.Lens' UpdateResource (Lude.Maybe [PatchOperation])
+urPatchOperations = Lens.lens (patchOperations :: UpdateResource -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateResource)
+{-# DEPRECATED urPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-urRestAPIId :: Lens' UpdateResource Text
-urRestAPIId = lens _urRestAPIId (\s a -> s {_urRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRestAPIId :: Lens.Lens' UpdateResource Lude.Text
+urRestAPIId = Lens.lens (restAPIId :: UpdateResource -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateResource)
+{-# DEPRECATED urRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Resource' resource.
-urResourceId :: Lens' UpdateResource Text
-urResourceId = lens _urResourceId (\s a -> s {_urResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceId :: Lens.Lens' UpdateResource Lude.Text
+urResourceId = Lens.lens (resourceId :: UpdateResource -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateResource)
+{-# DEPRECATED urResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest UpdateResource where
+instance Lude.AWSRequest UpdateResource where
   type Rs UpdateResource = Resource
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateResource
-
-instance NFData UpdateResource
-
-instance ToHeaders UpdateResource where
+instance Lude.ToHeaders UpdateResource where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateResource where
+instance Lude.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _urPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateResource where
+instance Lude.ToPath UpdateResource where
   toPath UpdateResource' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _urRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _urResourceId
+        Lude.toBS resourceId
       ]
 
-instance ToQuery UpdateResource where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateResource where
+  toQuery = Lude.const Lude.mempty

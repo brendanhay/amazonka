@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotCapacityRebalance where
+module Network.AWS.EC2.Types.SpotCapacityRebalance
+  ( SpotCapacityRebalance (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotCapacityRebalance,
+
+    -- * Lenses
+    scrReplacementStrategy,
+  )
+where
+
 import Network.AWS.EC2.Types.ReplacementStrategy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance Capacity rebalancing> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
---
---
--- /See:/ 'spotCapacityRebalance' smart constructor.
+-- /See:/ 'mkSpotCapacityRebalance' smart constructor.
 newtype SpotCapacityRebalance = SpotCapacityRebalance'
-  { _scrReplacementStrategy ::
-      Maybe ReplacementStrategy
+  { replacementStrategy ::
+      Lude.Maybe ReplacementStrategy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotCapacityRebalance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'replacementStrategy' - The replacement strategy to use. Only available for fleets of type @maintain@ . You must specify a value, otherwise you get an error.
 --
--- * 'scrReplacementStrategy' - The replacement strategy to use. Only available for fleets of type @maintain@ . You must specify a value, otherwise you get an error. To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify @launch@ .
-spotCapacityRebalance ::
+-- To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify @launch@ .
+mkSpotCapacityRebalance ::
   SpotCapacityRebalance
-spotCapacityRebalance =
-  SpotCapacityRebalance' {_scrReplacementStrategy = Nothing}
+mkSpotCapacityRebalance =
+  SpotCapacityRebalance' {replacementStrategy = Lude.Nothing}
 
--- | The replacement strategy to use. Only available for fleets of type @maintain@ . You must specify a value, otherwise you get an error. To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify @launch@ .
-scrReplacementStrategy :: Lens' SpotCapacityRebalance (Maybe ReplacementStrategy)
-scrReplacementStrategy = lens _scrReplacementStrategy (\s a -> s {_scrReplacementStrategy = a})
+-- | The replacement strategy to use. Only available for fleets of type @maintain@ . You must specify a value, otherwise you get an error.
+--
+-- To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify @launch@ .
+--
+-- /Note:/ Consider using 'replacementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrReplacementStrategy :: Lens.Lens' SpotCapacityRebalance (Lude.Maybe ReplacementStrategy)
+scrReplacementStrategy = Lens.lens (replacementStrategy :: SpotCapacityRebalance -> Lude.Maybe ReplacementStrategy) (\s a -> s {replacementStrategy = a} :: SpotCapacityRebalance)
+{-# DEPRECATED scrReplacementStrategy "Use generic-lens or generic-optics with 'replacementStrategy' instead." #-}
 
-instance FromXML SpotCapacityRebalance where
+instance Lude.FromXML SpotCapacityRebalance where
   parseXML x =
-    SpotCapacityRebalance' <$> (x .@? "replacementStrategy")
+    SpotCapacityRebalance'
+      Lude.<$> (x Lude..@? "replacementStrategy")
 
-instance Hashable SpotCapacityRebalance
-
-instance NFData SpotCapacityRebalance
-
-instance ToQuery SpotCapacityRebalance where
+instance Lude.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =
-    mconcat ["ReplacementStrategy" =: _scrReplacementStrategy]
+    Lude.mconcat ["ReplacementStrategy" Lude.=: replacementStrategy]

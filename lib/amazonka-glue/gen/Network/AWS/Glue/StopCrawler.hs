@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,111 @@
 --
 -- If the specified crawler is running, stops the crawl.
 module Network.AWS.Glue.StopCrawler
-  ( -- * Creating a Request
-    stopCrawler,
-    StopCrawler,
+  ( -- * Creating a request
+    StopCrawler (..),
+    mkStopCrawler,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stoName,
 
-    -- * Destructuring the Response
-    stopCrawlerResponse,
-    StopCrawlerResponse,
+    -- * Destructuring the response
+    StopCrawlerResponse (..),
+    mkStopCrawlerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopCrawler' smart constructor.
-newtype StopCrawler = StopCrawler' {_stoName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStopCrawler' smart constructor.
+newtype StopCrawler = StopCrawler' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopCrawler' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stoName' - Name of the crawler to stop.
-stopCrawler ::
-  -- | 'stoName'
-  Text ->
+-- * 'name' - Name of the crawler to stop.
+mkStopCrawler ::
+  -- | 'name'
+  Lude.Text ->
   StopCrawler
-stopCrawler pName_ = StopCrawler' {_stoName = pName_}
+mkStopCrawler pName_ = StopCrawler' {name = pName_}
 
 -- | Name of the crawler to stop.
-stoName :: Lens' StopCrawler Text
-stoName = lens _stoName (\s a -> s {_stoName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stoName :: Lens.Lens' StopCrawler Lude.Text
+stoName = Lens.lens (name :: StopCrawler -> Lude.Text) (\s a -> s {name = a} :: StopCrawler)
+{-# DEPRECATED stoName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StopCrawler where
+instance Lude.AWSRequest StopCrawler where
   type Rs StopCrawler = StopCrawlerResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> StopCrawlerResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StopCrawlerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopCrawler
-
-instance NFData StopCrawler
-
-instance ToHeaders StopCrawler where
+instance Lude.ToHeaders StopCrawler where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.StopCrawler" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.StopCrawler" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopCrawler where
+instance Lude.ToJSON StopCrawler where
   toJSON StopCrawler' {..} =
-    object (catMaybes [Just ("Name" .= _stoName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath StopCrawler where
-  toPath = const "/"
+instance Lude.ToPath StopCrawler where
+  toPath = Lude.const "/"
 
-instance ToQuery StopCrawler where
-  toQuery = const mempty
+instance Lude.ToQuery StopCrawler where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopCrawlerResponse' smart constructor.
+-- | /See:/ 'mkStopCrawlerResponse' smart constructor.
 newtype StopCrawlerResponse = StopCrawlerResponse'
-  { _srsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopCrawlerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopCrawlerResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopCrawlerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopCrawlerResponse
-stopCrawlerResponse pResponseStatus_ =
-  StopCrawlerResponse' {_srsResponseStatus = pResponseStatus_}
+mkStopCrawlerResponse pResponseStatus_ =
+  StopCrawlerResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopCrawlerResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopCrawlerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopCrawlerResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopCrawlerResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

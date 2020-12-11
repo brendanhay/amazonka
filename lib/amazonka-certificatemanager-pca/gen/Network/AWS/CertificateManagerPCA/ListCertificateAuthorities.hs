@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the private certificate authorities that you created by using the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
-  ( -- * Creating a Request
-    listCertificateAuthorities,
-    ListCertificateAuthorities,
+  ( -- * Creating a request
+    ListCertificateAuthorities (..),
+    mkListCertificateAuthorities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcaNextToken,
     lcaResourceOwner,
     lcaMaxResults,
 
-    -- * Destructuring the Response
-    listCertificateAuthoritiesResponse,
-    ListCertificateAuthoritiesResponse,
+    -- * Destructuring the response
+    ListCertificateAuthoritiesResponse (..),
+    mkListCertificateAuthoritiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcarsCertificateAuthorities,
     lcarsNextToken,
     lcarsResponseStatus,
@@ -44,146 +37,167 @@ module Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCertificateAuthorities' smart constructor.
+-- | /See:/ 'mkListCertificateAuthorities' smart constructor.
 data ListCertificateAuthorities = ListCertificateAuthorities'
-  { _lcaNextToken ::
-      !(Maybe Text),
-    _lcaResourceOwner ::
-      !(Maybe ResourceOwner),
-    _lcaMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    resourceOwner ::
+      Lude.Maybe ResourceOwner,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificateAuthorities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcaNextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
---
--- * 'lcaResourceOwner' - Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.
---
--- * 'lcaMaxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-listCertificateAuthorities ::
+-- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
+-- * 'nextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
+-- * 'resourceOwner' - Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.
+mkListCertificateAuthorities ::
   ListCertificateAuthorities
-listCertificateAuthorities =
+mkListCertificateAuthorities =
   ListCertificateAuthorities'
-    { _lcaNextToken = Nothing,
-      _lcaResourceOwner = Nothing,
-      _lcaMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      resourceOwner = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
-lcaNextToken :: Lens' ListCertificateAuthorities (Maybe Text)
-lcaNextToken = lens _lcaNextToken (\s a -> s {_lcaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaNextToken :: Lens.Lens' ListCertificateAuthorities (Lude.Maybe Lude.Text)
+lcaNextToken = Lens.lens (nextToken :: ListCertificateAuthorities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificateAuthorities)
+{-# DEPRECATED lcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.
-lcaResourceOwner :: Lens' ListCertificateAuthorities (Maybe ResourceOwner)
-lcaResourceOwner = lens _lcaResourceOwner (\s a -> s {_lcaResourceOwner = a})
+--
+-- /Note:/ Consider using 'resourceOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaResourceOwner :: Lens.Lens' ListCertificateAuthorities (Lude.Maybe ResourceOwner)
+lcaResourceOwner = Lens.lens (resourceOwner :: ListCertificateAuthorities -> Lude.Maybe ResourceOwner) (\s a -> s {resourceOwner = a} :: ListCertificateAuthorities)
+{-# DEPRECATED lcaResourceOwner "Use generic-lens or generic-optics with 'resourceOwner' instead." #-}
 
 -- | Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-lcaMaxResults :: Lens' ListCertificateAuthorities (Maybe Natural)
-lcaMaxResults = lens _lcaMaxResults (\s a -> s {_lcaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaMaxResults :: Lens.Lens' ListCertificateAuthorities (Lude.Maybe Lude.Natural)
+lcaMaxResults = Lens.lens (maxResults :: ListCertificateAuthorities -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCertificateAuthorities)
+{-# DEPRECATED lcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListCertificateAuthorities where
+instance Page.AWSPager ListCertificateAuthorities where
   page rq rs
-    | stop (rs ^. lcarsNextToken) = Nothing
-    | stop (rs ^. lcarsCertificateAuthorities) = Nothing
-    | otherwise = Just $ rq & lcaNextToken .~ rs ^. lcarsNextToken
+    | Page.stop (rs Lens.^. lcarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcarsCertificateAuthorities) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcaNextToken Lens..~ rs Lens.^. lcarsNextToken
 
-instance AWSRequest ListCertificateAuthorities where
+instance Lude.AWSRequest ListCertificateAuthorities where
   type
     Rs ListCertificateAuthorities =
       ListCertificateAuthoritiesResponse
-  request = postJSON certificateManagerPCA
+  request = Req.postJSON certificateManagerPCAService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCertificateAuthoritiesResponse'
-            <$> (x .?> "CertificateAuthorities" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CertificateAuthorities" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCertificateAuthorities
-
-instance NFData ListCertificateAuthorities
-
-instance ToHeaders ListCertificateAuthorities where
+instance Lude.ToHeaders ListCertificateAuthorities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ACMPrivateCA.ListCertificateAuthorities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ACMPrivateCA.ListCertificateAuthorities" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCertificateAuthorities where
+instance Lude.ToJSON ListCertificateAuthorities where
   toJSON ListCertificateAuthorities' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcaNextToken,
-            ("ResourceOwner" .=) <$> _lcaResourceOwner,
-            ("MaxResults" .=) <$> _lcaMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("ResourceOwner" Lude..=) Lude.<$> resourceOwner,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListCertificateAuthorities where
-  toPath = const "/"
+instance Lude.ToPath ListCertificateAuthorities where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCertificateAuthorities where
-  toQuery = const mempty
+instance Lude.ToQuery ListCertificateAuthorities where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCertificateAuthoritiesResponse' smart constructor.
+-- | /See:/ 'mkListCertificateAuthoritiesResponse' smart constructor.
 data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
-  { _lcarsCertificateAuthorities ::
-      !( Maybe
-           [CertificateAuthority]
-       ),
-    _lcarsNextToken ::
-      !(Maybe Text),
-    _lcarsResponseStatus ::
-      !Int
+  { certificateAuthorities ::
+      Lude.Maybe
+        [CertificateAuthority],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificateAuthoritiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcarsCertificateAuthorities' - Summary information about each certificate authority you have created.
---
--- * 'lcarsNextToken' - When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
---
--- * 'lcarsResponseStatus' - -- | The response status code.
-listCertificateAuthoritiesResponse ::
-  -- | 'lcarsResponseStatus'
-  Int ->
+-- * 'certificateAuthorities' - Summary information about each certificate authority you have created.
+-- * 'nextToken' - When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+mkListCertificateAuthoritiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCertificateAuthoritiesResponse
-listCertificateAuthoritiesResponse pResponseStatus_ =
+mkListCertificateAuthoritiesResponse pResponseStatus_ =
   ListCertificateAuthoritiesResponse'
-    { _lcarsCertificateAuthorities =
-        Nothing,
-      _lcarsNextToken = Nothing,
-      _lcarsResponseStatus = pResponseStatus_
+    { certificateAuthorities =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Summary information about each certificate authority you have created.
-lcarsCertificateAuthorities :: Lens' ListCertificateAuthoritiesResponse [CertificateAuthority]
-lcarsCertificateAuthorities = lens _lcarsCertificateAuthorities (\s a -> s {_lcarsCertificateAuthorities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificateAuthorities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsCertificateAuthorities :: Lens.Lens' ListCertificateAuthoritiesResponse (Lude.Maybe [CertificateAuthority])
+lcarsCertificateAuthorities = Lens.lens (certificateAuthorities :: ListCertificateAuthoritiesResponse -> Lude.Maybe [CertificateAuthority]) (\s a -> s {certificateAuthorities = a} :: ListCertificateAuthoritiesResponse)
+{-# DEPRECATED lcarsCertificateAuthorities "Use generic-lens or generic-optics with 'certificateAuthorities' instead." #-}
 
 -- | When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
-lcarsNextToken :: Lens' ListCertificateAuthoritiesResponse (Maybe Text)
-lcarsNextToken = lens _lcarsNextToken (\s a -> s {_lcarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsNextToken :: Lens.Lens' ListCertificateAuthoritiesResponse (Lude.Maybe Lude.Text)
+lcarsNextToken = Lens.lens (nextToken :: ListCertificateAuthoritiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificateAuthoritiesResponse)
+{-# DEPRECATED lcarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcarsResponseStatus :: Lens' ListCertificateAuthoritiesResponse Int
-lcarsResponseStatus = lens _lcarsResponseStatus (\s a -> s {_lcarsResponseStatus = a})
-
-instance NFData ListCertificateAuthoritiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcarsResponseStatus :: Lens.Lens' ListCertificateAuthoritiesResponse Lude.Int
+lcarsResponseStatus = Lens.lens (responseStatus :: ListCertificateAuthoritiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCertificateAuthoritiesResponse)
+{-# DEPRECATED lcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

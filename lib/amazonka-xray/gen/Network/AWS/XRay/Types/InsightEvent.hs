@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightEvent where
+module Network.AWS.XRay.Types.InsightEvent
+  ( InsightEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInsightEvent,
+
+    -- * Lenses
+    ieSummary,
+    ieEventTime,
+    ieRootCauseServiceRequestImpactStatistics,
+    ieTopAnomalousServices,
+    ieClientRequestImpactStatistics,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.AnomalousService
 import Network.AWS.XRay.Types.RequestImpactStatistics
 
 -- | X-Ray reevaluates insights periodically until they are resolved, and records each intermediate state in an event. You can review incident events in the Impact Timeline on the Inspect page in the X-Ray console.
 --
---
---
--- /See:/ 'insightEvent' smart constructor.
+-- /See:/ 'mkInsightEvent' smart constructor.
 data InsightEvent = InsightEvent'
-  { _ieSummary :: !(Maybe Text),
-    _ieEventTime :: !(Maybe POSIX),
-    _ieRootCauseServiceRequestImpactStatistics ::
-      !(Maybe RequestImpactStatistics),
-    _ieTopAnomalousServices :: !(Maybe [AnomalousService]),
-    _ieClientRequestImpactStatistics ::
-      !(Maybe RequestImpactStatistics)
+  { summary :: Lude.Maybe Lude.Text,
+    eventTime :: Lude.Maybe Lude.Timestamp,
+    rootCauseServiceRequestImpactStatistics ::
+      Lude.Maybe RequestImpactStatistics,
+    topAnomalousServices :: Lude.Maybe [AnomalousService],
+    clientRequestImpactStatistics ::
+      Lude.Maybe RequestImpactStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ieSummary' - A brief description of the event.
---
--- * 'ieEventTime' - The time, in Unix seconds, at which the event was recorded.
---
--- * 'ieRootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
---
--- * 'ieTopAnomalousServices' - The service during the event that is most impacted by the incident.
---
--- * 'ieClientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
-insightEvent ::
+-- * 'clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'eventTime' - The time, in Unix seconds, at which the event was recorded.
+-- * 'rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'summary' - A brief description of the event.
+-- * 'topAnomalousServices' - The service during the event that is most impacted by the incident.
+mkInsightEvent ::
   InsightEvent
-insightEvent =
+mkInsightEvent =
   InsightEvent'
-    { _ieSummary = Nothing,
-      _ieEventTime = Nothing,
-      _ieRootCauseServiceRequestImpactStatistics = Nothing,
-      _ieTopAnomalousServices = Nothing,
-      _ieClientRequestImpactStatistics = Nothing
+    { summary = Lude.Nothing,
+      eventTime = Lude.Nothing,
+      rootCauseServiceRequestImpactStatistics = Lude.Nothing,
+      topAnomalousServices = Lude.Nothing,
+      clientRequestImpactStatistics = Lude.Nothing
     }
 
 -- | A brief description of the event.
-ieSummary :: Lens' InsightEvent (Maybe Text)
-ieSummary = lens _ieSummary (\s a -> s {_ieSummary = a})
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieSummary :: Lens.Lens' InsightEvent (Lude.Maybe Lude.Text)
+ieSummary = Lens.lens (summary :: InsightEvent -> Lude.Maybe Lude.Text) (\s a -> s {summary = a} :: InsightEvent)
+{-# DEPRECATED ieSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
 
 -- | The time, in Unix seconds, at which the event was recorded.
-ieEventTime :: Lens' InsightEvent (Maybe UTCTime)
-ieEventTime = lens _ieEventTime (\s a -> s {_ieEventTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieEventTime :: Lens.Lens' InsightEvent (Lude.Maybe Lude.Timestamp)
+ieEventTime = Lens.lens (eventTime :: InsightEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventTime = a} :: InsightEvent)
+{-# DEPRECATED ieEventTime "Use generic-lens or generic-optics with 'eventTime' instead." #-}
 
 -- | The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
-ieRootCauseServiceRequestImpactStatistics :: Lens' InsightEvent (Maybe RequestImpactStatistics)
-ieRootCauseServiceRequestImpactStatistics = lens _ieRootCauseServiceRequestImpactStatistics (\s a -> s {_ieRootCauseServiceRequestImpactStatistics = a})
+--
+-- /Note:/ Consider using 'rootCauseServiceRequestImpactStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieRootCauseServiceRequestImpactStatistics :: Lens.Lens' InsightEvent (Lude.Maybe RequestImpactStatistics)
+ieRootCauseServiceRequestImpactStatistics = Lens.lens (rootCauseServiceRequestImpactStatistics :: InsightEvent -> Lude.Maybe RequestImpactStatistics) (\s a -> s {rootCauseServiceRequestImpactStatistics = a} :: InsightEvent)
+{-# DEPRECATED ieRootCauseServiceRequestImpactStatistics "Use generic-lens or generic-optics with 'rootCauseServiceRequestImpactStatistics' instead." #-}
 
 -- | The service during the event that is most impacted by the incident.
-ieTopAnomalousServices :: Lens' InsightEvent [AnomalousService]
-ieTopAnomalousServices = lens _ieTopAnomalousServices (\s a -> s {_ieTopAnomalousServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'topAnomalousServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieTopAnomalousServices :: Lens.Lens' InsightEvent (Lude.Maybe [AnomalousService])
+ieTopAnomalousServices = Lens.lens (topAnomalousServices :: InsightEvent -> Lude.Maybe [AnomalousService]) (\s a -> s {topAnomalousServices = a} :: InsightEvent)
+{-# DEPRECATED ieTopAnomalousServices "Use generic-lens or generic-optics with 'topAnomalousServices' instead." #-}
 
 -- | The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
-ieClientRequestImpactStatistics :: Lens' InsightEvent (Maybe RequestImpactStatistics)
-ieClientRequestImpactStatistics = lens _ieClientRequestImpactStatistics (\s a -> s {_ieClientRequestImpactStatistics = a})
+--
+-- /Note:/ Consider using 'clientRequestImpactStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieClientRequestImpactStatistics :: Lens.Lens' InsightEvent (Lude.Maybe RequestImpactStatistics)
+ieClientRequestImpactStatistics = Lens.lens (clientRequestImpactStatistics :: InsightEvent -> Lude.Maybe RequestImpactStatistics) (\s a -> s {clientRequestImpactStatistics = a} :: InsightEvent)
+{-# DEPRECATED ieClientRequestImpactStatistics "Use generic-lens or generic-optics with 'clientRequestImpactStatistics' instead." #-}
 
-instance FromJSON InsightEvent where
+instance Lude.FromJSON InsightEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "InsightEvent"
       ( \x ->
           InsightEvent'
-            <$> (x .:? "Summary")
-            <*> (x .:? "EventTime")
-            <*> (x .:? "RootCauseServiceRequestImpactStatistics")
-            <*> (x .:? "TopAnomalousServices" .!= mempty)
-            <*> (x .:? "ClientRequestImpactStatistics")
+            Lude.<$> (x Lude..:? "Summary")
+            Lude.<*> (x Lude..:? "EventTime")
+            Lude.<*> (x Lude..:? "RootCauseServiceRequestImpactStatistics")
+            Lude.<*> (x Lude..:? "TopAnomalousServices" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ClientRequestImpactStatistics")
       )
-
-instance Hashable InsightEvent
-
-instance NFData InsightEvent

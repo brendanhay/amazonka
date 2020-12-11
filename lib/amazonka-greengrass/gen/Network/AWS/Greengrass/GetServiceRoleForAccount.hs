@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Retrieves the service role that is attached to your account.
 module Network.AWS.Greengrass.GetServiceRoleForAccount
-  ( -- * Creating a Request
-    getServiceRoleForAccount,
-    GetServiceRoleForAccount,
+  ( -- * Creating a request
+    GetServiceRoleForAccount (..),
+    mkGetServiceRoleForAccount,
 
-    -- * Destructuring the Response
-    getServiceRoleForAccountResponse,
-    GetServiceRoleForAccountResponse,
+    -- * Destructuring the response
+    GetServiceRoleForAccountResponse (..),
+    mkGetServiceRoleForAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrfarsAssociatedAt,
     gsrfarsRoleARN,
     gsrfarsResponseStatus,
@@ -35,90 +30,105 @@ module Network.AWS.Greengrass.GetServiceRoleForAccount
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getServiceRoleForAccount' smart constructor.
+-- | /See:/ 'mkGetServiceRoleForAccount' smart constructor.
 data GetServiceRoleForAccount = GetServiceRoleForAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceRoleForAccount' with the minimum fields required to make a request.
-getServiceRoleForAccount ::
+mkGetServiceRoleForAccount ::
   GetServiceRoleForAccount
-getServiceRoleForAccount = GetServiceRoleForAccount'
+mkGetServiceRoleForAccount = GetServiceRoleForAccount'
 
-instance AWSRequest GetServiceRoleForAccount where
+instance Lude.AWSRequest GetServiceRoleForAccount where
   type Rs GetServiceRoleForAccount = GetServiceRoleForAccountResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetServiceRoleForAccountResponse'
-            <$> (x .?> "AssociatedAt")
-            <*> (x .?> "RoleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AssociatedAt")
+            Lude.<*> (x Lude..?> "RoleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetServiceRoleForAccount
-
-instance NFData GetServiceRoleForAccount
-
-instance ToHeaders GetServiceRoleForAccount where
+instance Lude.ToHeaders GetServiceRoleForAccount where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetServiceRoleForAccount where
-  toPath = const "/greengrass/servicerole"
+instance Lude.ToPath GetServiceRoleForAccount where
+  toPath = Lude.const "/greengrass/servicerole"
 
-instance ToQuery GetServiceRoleForAccount where
-  toQuery = const mempty
+instance Lude.ToQuery GetServiceRoleForAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getServiceRoleForAccountResponse' smart constructor.
+-- | /See:/ 'mkGetServiceRoleForAccountResponse' smart constructor.
 data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
-  { _gsrfarsAssociatedAt ::
-      !(Maybe Text),
-    _gsrfarsRoleARN ::
-      !(Maybe Text),
-    _gsrfarsResponseStatus ::
-      !Int
+  { associatedAt ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceRoleForAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrfarsAssociatedAt' - The time when the service role was associated with the account.
---
--- * 'gsrfarsRoleARN' - The ARN of the role which is associated with the account.
---
--- * 'gsrfarsResponseStatus' - -- | The response status code.
-getServiceRoleForAccountResponse ::
-  -- | 'gsrfarsResponseStatus'
-  Int ->
+-- * 'associatedAt' - The time when the service role was associated with the account.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The ARN of the role which is associated with the account.
+mkGetServiceRoleForAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServiceRoleForAccountResponse
-getServiceRoleForAccountResponse pResponseStatus_ =
+mkGetServiceRoleForAccountResponse pResponseStatus_ =
   GetServiceRoleForAccountResponse'
-    { _gsrfarsAssociatedAt = Nothing,
-      _gsrfarsRoleARN = Nothing,
-      _gsrfarsResponseStatus = pResponseStatus_
+    { associatedAt = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time when the service role was associated with the account.
-gsrfarsAssociatedAt :: Lens' GetServiceRoleForAccountResponse (Maybe Text)
-gsrfarsAssociatedAt = lens _gsrfarsAssociatedAt (\s a -> s {_gsrfarsAssociatedAt = a})
+--
+-- /Note:/ Consider using 'associatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrfarsAssociatedAt :: Lens.Lens' GetServiceRoleForAccountResponse (Lude.Maybe Lude.Text)
+gsrfarsAssociatedAt = Lens.lens (associatedAt :: GetServiceRoleForAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {associatedAt = a} :: GetServiceRoleForAccountResponse)
+{-# DEPRECATED gsrfarsAssociatedAt "Use generic-lens or generic-optics with 'associatedAt' instead." #-}
 
 -- | The ARN of the role which is associated with the account.
-gsrfarsRoleARN :: Lens' GetServiceRoleForAccountResponse (Maybe Text)
-gsrfarsRoleARN = lens _gsrfarsRoleARN (\s a -> s {_gsrfarsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrfarsRoleARN :: Lens.Lens' GetServiceRoleForAccountResponse (Lude.Maybe Lude.Text)
+gsrfarsRoleARN = Lens.lens (roleARN :: GetServiceRoleForAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: GetServiceRoleForAccountResponse)
+{-# DEPRECATED gsrfarsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-gsrfarsResponseStatus :: Lens' GetServiceRoleForAccountResponse Int
-gsrfarsResponseStatus = lens _gsrfarsResponseStatus (\s a -> s {_gsrfarsResponseStatus = a})
-
-instance NFData GetServiceRoleForAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrfarsResponseStatus :: Lens.Lens' GetServiceRoleForAccountResponse Lude.Int
+gsrfarsResponseStatus = Lens.lens (responseStatus :: GetServiceRoleForAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceRoleForAccountResponse)
+{-# DEPRECATED gsrfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

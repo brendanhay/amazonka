@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightState where
+module Network.AWS.XRay.Types.InsightState
+  ( InsightState
+      ( InsightState',
+        ISActive,
+        ISClosed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InsightState
-  = ISActive
-  | ISClosed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InsightState = InsightState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InsightState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure ISActive
-      "closed" -> pure ISClosed
-      e ->
-        fromTextError $
-          "Failure parsing InsightState from value: '" <> e
-            <> "'. Accepted values: active, closed"
+pattern ISActive :: InsightState
+pattern ISActive = InsightState' "ACTIVE"
 
-instance ToText InsightState where
-  toText = \case
-    ISActive -> "ACTIVE"
-    ISClosed -> "CLOSED"
+pattern ISClosed :: InsightState
+pattern ISClosed = InsightState' "CLOSED"
 
-instance Hashable InsightState
-
-instance NFData InsightState
-
-instance ToByteString InsightState
-
-instance ToQuery InsightState
-
-instance ToHeader InsightState
-
-instance ToJSON InsightState where
-  toJSON = toJSONText
-
-instance FromJSON InsightState where
-  parseJSON = parseJSONText "InsightState"
+{-# COMPLETE
+  ISActive,
+  ISClosed,
+  InsightState'
+  #-}

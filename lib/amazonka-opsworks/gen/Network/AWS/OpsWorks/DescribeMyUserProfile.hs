@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,115 @@
 --
 -- Describes a user's SSH information.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeMyUserProfile
-  ( -- * Creating a Request
-    describeMyUserProfile,
-    DescribeMyUserProfile,
+  ( -- * Creating a request
+    DescribeMyUserProfile (..),
+    mkDescribeMyUserProfile,
 
-    -- * Destructuring the Response
-    describeMyUserProfileResponse,
-    DescribeMyUserProfileResponse,
+    -- * Destructuring the response
+    DescribeMyUserProfileResponse (..),
+    mkDescribeMyUserProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmuprsUserProfile,
     dmuprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeMyUserProfile' smart constructor.
+-- | /See:/ 'mkDescribeMyUserProfile' smart constructor.
 data DescribeMyUserProfile = DescribeMyUserProfile'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMyUserProfile' with the minimum fields required to make a request.
-describeMyUserProfile ::
+mkDescribeMyUserProfile ::
   DescribeMyUserProfile
-describeMyUserProfile = DescribeMyUserProfile'
+mkDescribeMyUserProfile = DescribeMyUserProfile'
 
-instance AWSRequest DescribeMyUserProfile where
+instance Lude.AWSRequest DescribeMyUserProfile where
   type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMyUserProfileResponse'
-            <$> (x .?> "UserProfile") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserProfile") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMyUserProfile
-
-instance NFData DescribeMyUserProfile
-
-instance ToHeaders DescribeMyUserProfile where
+instance Lude.ToHeaders DescribeMyUserProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeMyUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeMyUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMyUserProfile where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeMyUserProfile where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeMyUserProfile where
-  toPath = const "/"
+instance Lude.ToPath DescribeMyUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMyUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMyUserProfile where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.
 --
---
---
--- /See:/ 'describeMyUserProfileResponse' smart constructor.
+-- /See:/ 'mkDescribeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-  { _dmuprsUserProfile ::
-      !(Maybe SelfUserProfile),
-    _dmuprsResponseStatus :: !Int
+  { userProfile ::
+      Lude.Maybe SelfUserProfile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmuprsUserProfile' - A @UserProfile@ object that describes the user's SSH information.
---
--- * 'dmuprsResponseStatus' - -- | The response status code.
-describeMyUserProfileResponse ::
-  -- | 'dmuprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userProfile' - A @UserProfile@ object that describes the user's SSH information.
+mkDescribeMyUserProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMyUserProfileResponse
-describeMyUserProfileResponse pResponseStatus_ =
+mkDescribeMyUserProfileResponse pResponseStatus_ =
   DescribeMyUserProfileResponse'
-    { _dmuprsUserProfile = Nothing,
-      _dmuprsResponseStatus = pResponseStatus_
+    { userProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A @UserProfile@ object that describes the user's SSH information.
-dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprsUserProfile = lens _dmuprsUserProfile (\s a -> s {_dmuprsUserProfile = a})
+--
+-- /Note:/ Consider using 'userProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmuprsUserProfile :: Lens.Lens' DescribeMyUserProfileResponse (Lude.Maybe SelfUserProfile)
+dmuprsUserProfile = Lens.lens (userProfile :: DescribeMyUserProfileResponse -> Lude.Maybe SelfUserProfile) (\s a -> s {userProfile = a} :: DescribeMyUserProfileResponse)
+{-# DEPRECATED dmuprsUserProfile "Use generic-lens or generic-optics with 'userProfile' instead." #-}
 
--- | -- | The response status code.
-dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprsResponseStatus = lens _dmuprsResponseStatus (\s a -> s {_dmuprsResponseStatus = a})
-
-instance NFData DescribeMyUserProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmuprsResponseStatus :: Lens.Lens' DescribeMyUserProfileResponse Lude.Int
+dmuprsResponseStatus = Lens.lens (responseStatus :: DescribeMyUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMyUserProfileResponse)
+{-# DEPRECATED dmuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

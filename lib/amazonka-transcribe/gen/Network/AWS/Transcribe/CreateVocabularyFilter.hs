@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a new vocabulary filter that you can use to filter words, such as profane words, from the output of a transcription job.
 module Network.AWS.Transcribe.CreateVocabularyFilter
-  ( -- * Creating a Request
-    createVocabularyFilter,
-    CreateVocabularyFilter,
+  ( -- * Creating a request
+    CreateVocabularyFilter (..),
+    mkCreateVocabularyFilter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvfVocabularyFilterFileURI,
     cvfWords,
     cvfVocabularyFilterName,
     cvfLanguageCode,
 
-    -- * Destructuring the Response
-    createVocabularyFilterResponse,
-    CreateVocabularyFilterResponse,
+    -- * Destructuring the response
+    CreateVocabularyFilterResponse (..),
+    mkCreateVocabularyFilterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvfrsLanguageCode,
     cvfrsLastModifiedTime,
     cvfrsVocabularyFilterName,
@@ -41,156 +36,190 @@ module Network.AWS.Transcribe.CreateVocabularyFilter
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'createVocabularyFilter' smart constructor.
+-- | /See:/ 'mkCreateVocabularyFilter' smart constructor.
 data CreateVocabularyFilter = CreateVocabularyFilter'
-  { _cvfVocabularyFilterFileURI ::
-      !(Maybe Text),
-    _cvfWords :: !(Maybe (List1 Text)),
-    _cvfVocabularyFilterName :: !Text,
-    _cvfLanguageCode :: !LanguageCode
+  { vocabularyFilterFileURI ::
+      Lude.Maybe Lude.Text,
+    words :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    vocabularyFilterName :: Lude.Text,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVocabularyFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'languageCode' - The language code of the words in the vocabulary filter. All words in the filter must be in the same language. The vocabulary filter can only be used with transcription jobs in the specified language.
+-- * 'vocabularyFilterFileURI' - The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> .
 --
--- * 'cvfVocabularyFilterFileURI' - The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> . The specified file must be less than 50 KB of UTF-8 characters. If you provide the location of a list of words in the @VocabularyFilterFileUri@ parameter, you can't use the @Words@ parameter.
+-- The specified file must be less than 50 KB of UTF-8 characters.
+-- If you provide the location of a list of words in the @VocabularyFilterFileUri@ parameter, you can't use the @Words@ parameter.
+-- * 'vocabularyFilterName' - The vocabulary filter name. The name must be unique within the account that contains it. If you try to create a vocabulary filter with the same name as another vocabulary filter, you get a @ConflictException@ error.
+-- * 'words' - The words to use in the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> .
 --
--- * 'cvfWords' - The words to use in the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> . If you provide a list of words in the @Words@ parameter, you can't use the @VocabularyFilterFileUri@ parameter.
---
--- * 'cvfVocabularyFilterName' - The vocabulary filter name. The name must be unique within the account that contains it. If you try to create a vocabulary filter with the same name as another vocabulary filter, you get a @ConflictException@ error.
---
--- * 'cvfLanguageCode' - The language code of the words in the vocabulary filter. All words in the filter must be in the same language. The vocabulary filter can only be used with transcription jobs in the specified language.
-createVocabularyFilter ::
-  -- | 'cvfVocabularyFilterName'
-  Text ->
-  -- | 'cvfLanguageCode'
+-- If you provide a list of words in the @Words@ parameter, you can't use the @VocabularyFilterFileUri@ parameter.
+mkCreateVocabularyFilter ::
+  -- | 'vocabularyFilterName'
+  Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
   CreateVocabularyFilter
-createVocabularyFilter pVocabularyFilterName_ pLanguageCode_ =
+mkCreateVocabularyFilter pVocabularyFilterName_ pLanguageCode_ =
   CreateVocabularyFilter'
-    { _cvfVocabularyFilterFileURI = Nothing,
-      _cvfWords = Nothing,
-      _cvfVocabularyFilterName = pVocabularyFilterName_,
-      _cvfLanguageCode = pLanguageCode_
+    { vocabularyFilterFileURI = Lude.Nothing,
+      words = Lude.Nothing,
+      vocabularyFilterName = pVocabularyFilterName_,
+      languageCode = pLanguageCode_
     }
 
--- | The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> . The specified file must be less than 50 KB of UTF-8 characters. If you provide the location of a list of words in the @VocabularyFilterFileUri@ parameter, you can't use the @Words@ parameter.
-cvfVocabularyFilterFileURI :: Lens' CreateVocabularyFilter (Maybe Text)
-cvfVocabularyFilterFileURI = lens _cvfVocabularyFilterFileURI (\s a -> s {_cvfVocabularyFilterFileURI = a})
+-- | The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> .
+--
+-- The specified file must be less than 50 KB of UTF-8 characters.
+-- If you provide the location of a list of words in the @VocabularyFilterFileUri@ parameter, you can't use the @Words@ parameter.
+--
+-- /Note:/ Consider using 'vocabularyFilterFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfVocabularyFilterFileURI :: Lens.Lens' CreateVocabularyFilter (Lude.Maybe Lude.Text)
+cvfVocabularyFilterFileURI = Lens.lens (vocabularyFilterFileURI :: CreateVocabularyFilter -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFilterFileURI = a} :: CreateVocabularyFilter)
+{-# DEPRECATED cvfVocabularyFilterFileURI "Use generic-lens or generic-optics with 'vocabularyFilterFileURI' instead." #-}
 
--- | The words to use in the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> . If you provide a list of words in the @Words@ parameter, you can't use the @VocabularyFilterFileUri@ parameter.
-cvfWords :: Lens' CreateVocabularyFilter (Maybe (NonEmpty Text))
-cvfWords = lens _cvfWords (\s a -> s {_cvfWords = a}) . mapping _List1
+-- | The words to use in the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies> .
+--
+-- If you provide a list of words in the @Words@ parameter, you can't use the @VocabularyFilterFileUri@ parameter.
+--
+-- /Note:/ Consider using 'words' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfWords :: Lens.Lens' CreateVocabularyFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
+cvfWords = Lens.lens (words :: CreateVocabularyFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {words = a} :: CreateVocabularyFilter)
+{-# DEPRECATED cvfWords "Use generic-lens or generic-optics with 'words' instead." #-}
 
 -- | The vocabulary filter name. The name must be unique within the account that contains it. If you try to create a vocabulary filter with the same name as another vocabulary filter, you get a @ConflictException@ error.
-cvfVocabularyFilterName :: Lens' CreateVocabularyFilter Text
-cvfVocabularyFilterName = lens _cvfVocabularyFilterName (\s a -> s {_cvfVocabularyFilterName = a})
+--
+-- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfVocabularyFilterName :: Lens.Lens' CreateVocabularyFilter Lude.Text
+cvfVocabularyFilterName = Lens.lens (vocabularyFilterName :: CreateVocabularyFilter -> Lude.Text) (\s a -> s {vocabularyFilterName = a} :: CreateVocabularyFilter)
+{-# DEPRECATED cvfVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
 
 -- | The language code of the words in the vocabulary filter. All words in the filter must be in the same language. The vocabulary filter can only be used with transcription jobs in the specified language.
-cvfLanguageCode :: Lens' CreateVocabularyFilter LanguageCode
-cvfLanguageCode = lens _cvfLanguageCode (\s a -> s {_cvfLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfLanguageCode :: Lens.Lens' CreateVocabularyFilter LanguageCode
+cvfLanguageCode = Lens.lens (languageCode :: CreateVocabularyFilter -> LanguageCode) (\s a -> s {languageCode = a} :: CreateVocabularyFilter)
+{-# DEPRECATED cvfLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest CreateVocabularyFilter where
+instance Lude.AWSRequest CreateVocabularyFilter where
   type Rs CreateVocabularyFilter = CreateVocabularyFilterResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateVocabularyFilterResponse'
-            <$> (x .?> "LanguageCode")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "VocabularyFilterName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LanguageCode")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "VocabularyFilterName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVocabularyFilter
-
-instance NFData CreateVocabularyFilter
-
-instance ToHeaders CreateVocabularyFilter where
+instance Lude.ToHeaders CreateVocabularyFilter where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.CreateVocabularyFilter" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.CreateVocabularyFilter" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateVocabularyFilter where
+instance Lude.ToJSON CreateVocabularyFilter where
   toJSON CreateVocabularyFilter' {..} =
-    object
-      ( catMaybes
-          [ ("VocabularyFilterFileUri" .=) <$> _cvfVocabularyFilterFileURI,
-            ("Words" .=) <$> _cvfWords,
-            Just ("VocabularyFilterName" .= _cvfVocabularyFilterName),
-            Just ("LanguageCode" .= _cvfLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VocabularyFilterFileUri" Lude..=)
+              Lude.<$> vocabularyFilterFileURI,
+            ("Words" Lude..=) Lude.<$> words,
+            Lude.Just ("VocabularyFilterName" Lude..= vocabularyFilterName),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath CreateVocabularyFilter where
-  toPath = const "/"
+instance Lude.ToPath CreateVocabularyFilter where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateVocabularyFilter where
-  toQuery = const mempty
+instance Lude.ToQuery CreateVocabularyFilter where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createVocabularyFilterResponse' smart constructor.
+-- | /See:/ 'mkCreateVocabularyFilterResponse' smart constructor.
 data CreateVocabularyFilterResponse = CreateVocabularyFilterResponse'
-  { _cvfrsLanguageCode ::
-      !(Maybe LanguageCode),
-    _cvfrsLastModifiedTime ::
-      !(Maybe POSIX),
-    _cvfrsVocabularyFilterName ::
-      !(Maybe Text),
-    _cvfrsResponseStatus :: !Int
+  { languageCode ::
+      Lude.Maybe LanguageCode,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    vocabularyFilterName ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVocabularyFilterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvfrsLanguageCode' - The language code of the words in the collection.
---
--- * 'cvfrsLastModifiedTime' - The date and time that the vocabulary filter was modified.
---
--- * 'cvfrsVocabularyFilterName' - The name of the vocabulary filter.
---
--- * 'cvfrsResponseStatus' - -- | The response status code.
-createVocabularyFilterResponse ::
-  -- | 'cvfrsResponseStatus'
-  Int ->
+-- * 'languageCode' - The language code of the words in the collection.
+-- * 'lastModifiedTime' - The date and time that the vocabulary filter was modified.
+-- * 'responseStatus' - The response status code.
+-- * 'vocabularyFilterName' - The name of the vocabulary filter.
+mkCreateVocabularyFilterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVocabularyFilterResponse
-createVocabularyFilterResponse pResponseStatus_ =
+mkCreateVocabularyFilterResponse pResponseStatus_ =
   CreateVocabularyFilterResponse'
-    { _cvfrsLanguageCode = Nothing,
-      _cvfrsLastModifiedTime = Nothing,
-      _cvfrsVocabularyFilterName = Nothing,
-      _cvfrsResponseStatus = pResponseStatus_
+    { languageCode = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      vocabularyFilterName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The language code of the words in the collection.
-cvfrsLanguageCode :: Lens' CreateVocabularyFilterResponse (Maybe LanguageCode)
-cvfrsLanguageCode = lens _cvfrsLanguageCode (\s a -> s {_cvfrsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfrsLanguageCode :: Lens.Lens' CreateVocabularyFilterResponse (Lude.Maybe LanguageCode)
+cvfrsLanguageCode = Lens.lens (languageCode :: CreateVocabularyFilterResponse -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: CreateVocabularyFilterResponse)
+{-# DEPRECATED cvfrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The date and time that the vocabulary filter was modified.
-cvfrsLastModifiedTime :: Lens' CreateVocabularyFilterResponse (Maybe UTCTime)
-cvfrsLastModifiedTime = lens _cvfrsLastModifiedTime (\s a -> s {_cvfrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfrsLastModifiedTime :: Lens.Lens' CreateVocabularyFilterResponse (Lude.Maybe Lude.Timestamp)
+cvfrsLastModifiedTime = Lens.lens (lastModifiedTime :: CreateVocabularyFilterResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: CreateVocabularyFilterResponse)
+{-# DEPRECATED cvfrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the vocabulary filter.
-cvfrsVocabularyFilterName :: Lens' CreateVocabularyFilterResponse (Maybe Text)
-cvfrsVocabularyFilterName = lens _cvfrsVocabularyFilterName (\s a -> s {_cvfrsVocabularyFilterName = a})
+--
+-- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfrsVocabularyFilterName :: Lens.Lens' CreateVocabularyFilterResponse (Lude.Maybe Lude.Text)
+cvfrsVocabularyFilterName = Lens.lens (vocabularyFilterName :: CreateVocabularyFilterResponse -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFilterName = a} :: CreateVocabularyFilterResponse)
+{-# DEPRECATED cvfrsVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
 
--- | -- | The response status code.
-cvfrsResponseStatus :: Lens' CreateVocabularyFilterResponse Int
-cvfrsResponseStatus = lens _cvfrsResponseStatus (\s a -> s {_cvfrsResponseStatus = a})
-
-instance NFData CreateVocabularyFilterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfrsResponseStatus :: Lens.Lens' CreateVocabularyFilterResponse Lude.Int
+cvfrsResponseStatus = Lens.lens (responseStatus :: CreateVocabularyFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVocabularyFilterResponse)
+{-# DEPRECATED cvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

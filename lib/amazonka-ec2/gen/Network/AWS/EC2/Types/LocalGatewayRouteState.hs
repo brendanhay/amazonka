@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LocalGatewayRouteState where
+module Network.AWS.EC2.Types.LocalGatewayRouteState
+  ( LocalGatewayRouteState
+      ( LocalGatewayRouteState',
+        LGRSActive,
+        LGRSBlackhole,
+        LGRSDeleted,
+        LGRSDeleting,
+        LGRSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LocalGatewayRouteState
-  = LGRSActive
-  | LGRSBlackhole
-  | LGRSDeleted
-  | LGRSDeleting
-  | LGRSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LocalGatewayRouteState = LocalGatewayRouteState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LocalGatewayRouteState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure LGRSActive
-      "blackhole" -> pure LGRSBlackhole
-      "deleted" -> pure LGRSDeleted
-      "deleting" -> pure LGRSDeleting
-      "pending" -> pure LGRSPending
-      e ->
-        fromTextError $
-          "Failure parsing LocalGatewayRouteState from value: '" <> e
-            <> "'. Accepted values: active, blackhole, deleted, deleting, pending"
+pattern LGRSActive :: LocalGatewayRouteState
+pattern LGRSActive = LocalGatewayRouteState' "active"
 
-instance ToText LocalGatewayRouteState where
-  toText = \case
-    LGRSActive -> "active"
-    LGRSBlackhole -> "blackhole"
-    LGRSDeleted -> "deleted"
-    LGRSDeleting -> "deleting"
-    LGRSPending -> "pending"
+pattern LGRSBlackhole :: LocalGatewayRouteState
+pattern LGRSBlackhole = LocalGatewayRouteState' "blackhole"
 
-instance Hashable LocalGatewayRouteState
+pattern LGRSDeleted :: LocalGatewayRouteState
+pattern LGRSDeleted = LocalGatewayRouteState' "deleted"
 
-instance NFData LocalGatewayRouteState
+pattern LGRSDeleting :: LocalGatewayRouteState
+pattern LGRSDeleting = LocalGatewayRouteState' "deleting"
 
-instance ToByteString LocalGatewayRouteState
+pattern LGRSPending :: LocalGatewayRouteState
+pattern LGRSPending = LocalGatewayRouteState' "pending"
 
-instance ToQuery LocalGatewayRouteState
-
-instance ToHeader LocalGatewayRouteState
-
-instance FromXML LocalGatewayRouteState where
-  parseXML = parseXMLText "LocalGatewayRouteState"
+{-# COMPLETE
+  LGRSActive,
+  LGRSBlackhole,
+  LGRSDeleted,
+  LGRSDeleting,
+  LGRSPending,
+  LocalGatewayRouteState'
+  #-}

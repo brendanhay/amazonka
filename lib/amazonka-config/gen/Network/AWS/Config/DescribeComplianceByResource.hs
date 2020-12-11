@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,38 +14,37 @@
 --
 -- Indicates whether the specified AWS resources are compliant. If a resource is noncompliant, this action returns the number of AWS Config rules that the resource does not comply with.
 --
---
 -- A resource is compliant if it complies with all the AWS Config rules that evaluate it. It is noncompliant if it does not comply with one or more of these rules.
---
 -- If AWS Config has no current evaluation results for the resource, it returns @INSUFFICIENT_DATA@ . This result might indicate one of the following conditions about the rules that evaluate the resource:
 --
 --     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .
 --
+--
 --     * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.
+--
 --
 --     * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByResource
-  ( -- * Creating a Request
-    describeComplianceByResource,
-    DescribeComplianceByResource,
+  ( -- * Creating a request
+    DescribeComplianceByResource (..),
+    mkDescribeComplianceByResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcbrResourceId,
     dcbrResourceType,
     dcbrComplianceTypes,
     dcbrNextToken,
     dcbrLimit,
 
-    -- * Destructuring the Response
-    describeComplianceByResourceResponse,
-    DescribeComplianceByResourceResponse,
+    -- * Destructuring the response
+    DescribeComplianceByResourceResponse (..),
+    mkDescribeComplianceByResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcbrrsComplianceByResources,
     dcbrrsNextToken,
     dcbrrsResponseStatus,
@@ -58,173 +52,201 @@ module Network.AWS.Config.DescribeComplianceByResource
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeComplianceByResource' smart constructor.
+-- /See:/ 'mkDescribeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-  { _dcbrResourceId ::
-      !(Maybe Text),
-    _dcbrResourceType ::
-      !(Maybe Text),
-    _dcbrComplianceTypes ::
-      !(Maybe [ComplianceType]),
-    _dcbrNextToken :: !(Maybe Text),
-    _dcbrLimit :: !(Maybe Nat)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType ::
+      Lude.Maybe Lude.Text,
+    complianceTypes ::
+      Lude.Maybe [ComplianceType],
+    nextToken :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'complianceTypes' - Filters the results by compliance.
 --
--- * 'dcbrResourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
---
--- * 'dcbrResourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
---
--- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
---
--- * 'dcbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-describeComplianceByResource ::
+-- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'resourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
+-- * 'resourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+mkDescribeComplianceByResource ::
   DescribeComplianceByResource
-describeComplianceByResource =
+mkDescribeComplianceByResource =
   DescribeComplianceByResource'
-    { _dcbrResourceId = Nothing,
-      _dcbrResourceType = Nothing,
-      _dcbrComplianceTypes = Nothing,
-      _dcbrNextToken = Nothing,
-      _dcbrLimit = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      complianceTypes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
-dcbrResourceId :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceId = lens _dcbrResourceId (\s a -> s {_dcbrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrResourceId :: Lens.Lens' DescribeComplianceByResource (Lude.Maybe Lude.Text)
+dcbrResourceId = Lens.lens (resourceId :: DescribeComplianceByResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeComplianceByResource)
+{-# DEPRECATED dcbrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
-dcbrResourceType :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrResourceType = lens _dcbrResourceType (\s a -> s {_dcbrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrResourceType :: Lens.Lens' DescribeComplianceByResource (Lude.Maybe Lude.Text)
+dcbrResourceType = Lens.lens (resourceType :: DescribeComplianceByResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: DescribeComplianceByResource)
+{-# DEPRECATED dcbrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
-dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
-dcbrComplianceTypes = lens _dcbrComplianceTypes (\s a -> s {_dcbrComplianceTypes = a}) . _Default . _Coerce
+-- | Filters the results by compliance.
+--
+-- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+--
+-- /Note:/ Consider using 'complianceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrComplianceTypes :: Lens.Lens' DescribeComplianceByResource (Lude.Maybe [ComplianceType])
+dcbrComplianceTypes = Lens.lens (complianceTypes :: DescribeComplianceByResource -> Lude.Maybe [ComplianceType]) (\s a -> s {complianceTypes = a} :: DescribeComplianceByResource)
+{-# DEPRECATED dcbrComplianceTypes "Use generic-lens or generic-optics with 'complianceTypes' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dcbrNextToken :: Lens' DescribeComplianceByResource (Maybe Text)
-dcbrNextToken = lens _dcbrNextToken (\s a -> s {_dcbrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrNextToken :: Lens.Lens' DescribeComplianceByResource (Lude.Maybe Lude.Text)
+dcbrNextToken = Lens.lens (nextToken :: DescribeComplianceByResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComplianceByResource)
+{-# DEPRECATED dcbrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-dcbrLimit :: Lens' DescribeComplianceByResource (Maybe Natural)
-dcbrLimit = lens _dcbrLimit (\s a -> s {_dcbrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrLimit :: Lens.Lens' DescribeComplianceByResource (Lude.Maybe Lude.Natural)
+dcbrLimit = Lens.lens (limit :: DescribeComplianceByResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeComplianceByResource)
+{-# DEPRECATED dcbrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeComplianceByResource where
+instance Page.AWSPager DescribeComplianceByResource where
   page rq rs
-    | stop (rs ^. dcbrrsNextToken) = Nothing
-    | stop (rs ^. dcbrrsComplianceByResources) = Nothing
-    | otherwise = Just $ rq & dcbrNextToken .~ rs ^. dcbrrsNextToken
+    | Page.stop (rs Lens.^. dcbrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcbrrsComplianceByResources) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcbrNextToken Lens..~ rs Lens.^. dcbrrsNextToken
 
-instance AWSRequest DescribeComplianceByResource where
+instance Lude.AWSRequest DescribeComplianceByResource where
   type
     Rs DescribeComplianceByResource =
       DescribeComplianceByResourceResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            <$> (x .?> "ComplianceByResources" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ComplianceByResources" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeComplianceByResource
-
-instance NFData DescribeComplianceByResource
-
-instance ToHeaders DescribeComplianceByResource where
+instance Lude.ToHeaders DescribeComplianceByResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DescribeComplianceByResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeComplianceByResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeComplianceByResource where
+instance Lude.ToJSON DescribeComplianceByResource where
   toJSON DescribeComplianceByResource' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceId" .=) <$> _dcbrResourceId,
-            ("ResourceType" .=) <$> _dcbrResourceType,
-            ("ComplianceTypes" .=) <$> _dcbrComplianceTypes,
-            ("NextToken" .=) <$> _dcbrNextToken,
-            ("Limit" .=) <$> _dcbrLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceId" Lude..=) Lude.<$> resourceId,
+            ("ResourceType" Lude..=) Lude.<$> resourceType,
+            ("ComplianceTypes" Lude..=) Lude.<$> complianceTypes,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeComplianceByResource where
-  toPath = const "/"
+instance Lude.ToPath DescribeComplianceByResource where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeComplianceByResource where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeComplianceByResource where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeComplianceByResourceResponse' smart constructor.
+-- /See:/ 'mkDescribeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-  { _dcbrrsComplianceByResources ::
-      !( Maybe
-           [ComplianceByResource]
-       ),
-    _dcbrrsNextToken ::
-      !(Maybe Text),
-    _dcbrrsResponseStatus ::
-      !Int
+  { complianceByResources ::
+      Lude.Maybe
+        [ComplianceByResource],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcbrrsComplianceByResources' - Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
---
--- * 'dcbrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'dcbrrsResponseStatus' - -- | The response status code.
-describeComplianceByResourceResponse ::
-  -- | 'dcbrrsResponseStatus'
-  Int ->
+-- * 'complianceByResources' - Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkDescribeComplianceByResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeComplianceByResourceResponse
-describeComplianceByResourceResponse pResponseStatus_ =
+mkDescribeComplianceByResourceResponse pResponseStatus_ =
   DescribeComplianceByResourceResponse'
-    { _dcbrrsComplianceByResources =
-        Nothing,
-      _dcbrrsNextToken = Nothing,
-      _dcbrrsResponseStatus = pResponseStatus_
+    { complianceByResources =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
-dcbrrsComplianceByResources :: Lens' DescribeComplianceByResourceResponse [ComplianceByResource]
-dcbrrsComplianceByResources = lens _dcbrrsComplianceByResources (\s a -> s {_dcbrrsComplianceByResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'complianceByResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrrsComplianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Lude.Maybe [ComplianceByResource])
+dcbrrsComplianceByResources = Lens.lens (complianceByResources :: DescribeComplianceByResourceResponse -> Lude.Maybe [ComplianceByResource]) (\s a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse)
+{-# DEPRECATED dcbrrsComplianceByResources "Use generic-lens or generic-optics with 'complianceByResources' instead." #-}
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-dcbrrsNextToken :: Lens' DescribeComplianceByResourceResponse (Maybe Text)
-dcbrrsNextToken = lens _dcbrrsNextToken (\s a -> s {_dcbrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrrsNextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Lude.Maybe Lude.Text)
+dcbrrsNextToken = Lens.lens (nextToken :: DescribeComplianceByResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComplianceByResourceResponse)
+{-# DEPRECATED dcbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
-dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\s a -> s {_dcbrrsResponseStatus = a})
-
-instance NFData DescribeComplianceByResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbrrsResponseStatus :: Lens.Lens' DescribeComplianceByResourceResponse Lude.Int
+dcbrrsResponseStatus = Lens.lens (responseStatus :: DescribeComplianceByResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeComplianceByResourceResponse)
+{-# DEPRECATED dcbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

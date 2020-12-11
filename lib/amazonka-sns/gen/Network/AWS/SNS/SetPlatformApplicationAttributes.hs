@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,171 @@
 --
 -- Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> . For information on configuring attributes for message delivery status, see <https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html Using Amazon SNS Application Attributes for Message Delivery Status> .
 module Network.AWS.SNS.SetPlatformApplicationAttributes
-  ( -- * Creating a Request
-    setPlatformApplicationAttributes,
-    SetPlatformApplicationAttributes,
+  ( -- * Creating a request
+    SetPlatformApplicationAttributes (..),
+    mkSetPlatformApplicationAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spaaPlatformApplicationARN,
     spaaAttributes,
 
-    -- * Destructuring the Response
-    setPlatformApplicationAttributesResponse,
-    SetPlatformApplicationAttributesResponse,
+    -- * Destructuring the response
+    SetPlatformApplicationAttributesResponse (..),
+    mkSetPlatformApplicationAttributesResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | Input for SetPlatformApplicationAttributes action.
 --
---
---
--- /See:/ 'setPlatformApplicationAttributes' smart constructor.
+-- /See:/ 'mkSetPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-  { _spaaPlatformApplicationARN ::
-      !Text,
-    _spaaAttributes ::
-      !(Map Text (Text))
+  { platformApplicationARN ::
+      Lude.Text,
+    attributes ::
+      Lude.HashMap
+        Lude.Text
+        (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPlatformApplicationAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - A map of the platform application attributes. Attributes in this map include the following:
 --
--- * 'spaaPlatformApplicationARN' - PlatformApplicationArn for SetPlatformApplicationAttributes action.
 --
--- * 'spaaAttributes' - A map of the platform application attributes. Attributes in this map include the following:     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
-setPlatformApplicationAttributes ::
-  -- | 'spaaPlatformApplicationARN'
-  Text ->
+--     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .
+--
+--
+--     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .
+--
+--
+--     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.
+--
+--
+--     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.
+--
+--
+--     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.
+--
+--
+--     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
+--
+--
+--     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+--
+--
+--     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+--
+--
+--     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
+--
+--
+-- * 'platformApplicationARN' - PlatformApplicationArn for SetPlatformApplicationAttributes action.
+mkSetPlatformApplicationAttributes ::
+  -- | 'platformApplicationARN'
+  Lude.Text ->
   SetPlatformApplicationAttributes
-setPlatformApplicationAttributes pPlatformApplicationARN_ =
+mkSetPlatformApplicationAttributes pPlatformApplicationARN_ =
   SetPlatformApplicationAttributes'
-    { _spaaPlatformApplicationARN =
+    { platformApplicationARN =
         pPlatformApplicationARN_,
-      _spaaAttributes = mempty
+      attributes = Lude.mempty
     }
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text
-spaaPlatformApplicationARN = lens _spaaPlatformApplicationARN (\s a -> s {_spaaPlatformApplicationARN = a})
+--
+-- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spaaPlatformApplicationARN :: Lens.Lens' SetPlatformApplicationAttributes Lude.Text
+spaaPlatformApplicationARN = Lens.lens (platformApplicationARN :: SetPlatformApplicationAttributes -> Lude.Text) (\s a -> s {platformApplicationARN = a} :: SetPlatformApplicationAttributes)
+{-# DEPRECATED spaaPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
 
--- | A map of the platform application attributes. Attributes in this map include the following:     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
-spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text (Text))
-spaaAttributes = lens _spaaAttributes (\s a -> s {_spaaAttributes = a}) . _Map
+-- | A map of the platform application attributes. Attributes in this map include the following:
+--
+--
+--     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .
+--
+--
+--     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .
+--
+--
+--     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.
+--
+--
+--     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.
+--
+--
+--     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.
+--
+--
+--     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
+--
+--
+--     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+--
+--
+--     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+--
+--
+--     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
+--
+--
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spaaAttributes :: Lens.Lens' SetPlatformApplicationAttributes (Lude.HashMap Lude.Text (Lude.Text))
+spaaAttributes = Lens.lens (attributes :: SetPlatformApplicationAttributes -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: SetPlatformApplicationAttributes)
+{-# DEPRECATED spaaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest SetPlatformApplicationAttributes where
+instance Lude.AWSRequest SetPlatformApplicationAttributes where
   type
     Rs SetPlatformApplicationAttributes =
       SetPlatformApplicationAttributesResponse
-  request = postQuery sns
-  response = receiveNull SetPlatformApplicationAttributesResponse'
+  request = Req.postQuery snsService
+  response =
+    Res.receiveNull SetPlatformApplicationAttributesResponse'
 
-instance Hashable SetPlatformApplicationAttributes
+instance Lude.ToHeaders SetPlatformApplicationAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetPlatformApplicationAttributes
+instance Lude.ToPath SetPlatformApplicationAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetPlatformApplicationAttributes where
-  toHeaders = const mempty
-
-instance ToPath SetPlatformApplicationAttributes where
-  toPath = const "/"
-
-instance ToQuery SetPlatformApplicationAttributes where
+instance Lude.ToQuery SetPlatformApplicationAttributes where
   toQuery SetPlatformApplicationAttributes' {..} =
-    mconcat
-      [ "Action" =: ("SetPlatformApplicationAttributes" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "PlatformApplicationArn" =: _spaaPlatformApplicationARN,
-        "Attributes" =: toQueryMap "entry" "key" "value" _spaaAttributes
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("SetPlatformApplicationAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "PlatformApplicationArn" Lude.=: platformApplicationARN,
+        "Attributes"
+          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes
       ]
 
--- | /See:/ 'setPlatformApplicationAttributesResponse' smart constructor.
+-- | /See:/ 'mkSetPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
-setPlatformApplicationAttributesResponse ::
+mkSetPlatformApplicationAttributesResponse ::
   SetPlatformApplicationAttributesResponse
-setPlatformApplicationAttributesResponse =
+mkSetPlatformApplicationAttributesResponse =
   SetPlatformApplicationAttributesResponse'
-
-instance NFData SetPlatformApplicationAttributesResponse

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,159 @@
 --
 -- Creates a new table definition in the Data Catalog.
 module Network.AWS.Glue.CreateTable
-  ( -- * Creating a Request
-    createTable,
-    CreateTable,
+  ( -- * Creating a request
+    CreateTable (..),
+    mkCreateTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cPartitionIndexes,
     cCatalogId,
     cDatabaseName,
     cTableInput,
 
-    -- * Destructuring the Response
-    createTableResponse,
-    CreateTableResponse,
+    -- * Destructuring the response
+    CreateTableResponse (..),
+    mkCreateTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cttrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTable' smart constructor.
+-- | /See:/ 'mkCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { _cPartitionIndexes ::
-      !(Maybe [PartitionIndex]),
-    _cCatalogId :: !(Maybe Text),
-    _cDatabaseName :: !Text,
-    _cTableInput :: !TableInput
+  { partitionIndexes ::
+      Lude.Maybe [PartitionIndex],
+    catalogId :: Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableInput :: TableInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cPartitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in the table.
---
--- * 'cCatalogId' - The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
---
--- * 'cDatabaseName' - The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
---
--- * 'cTableInput' - The @TableInput@ object that defines the metadata table to create in the catalog.
-createTable ::
-  -- | 'cDatabaseName'
-  Text ->
-  -- | 'cTableInput'
+-- * 'catalogId' - The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
+-- * 'databaseName' - The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
+-- * 'partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in the table.
+-- * 'tableInput' - The @TableInput@ object that defines the metadata table to create in the catalog.
+mkCreateTable ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableInput'
   TableInput ->
   CreateTable
-createTable pDatabaseName_ pTableInput_ =
+mkCreateTable pDatabaseName_ pTableInput_ =
   CreateTable'
-    { _cPartitionIndexes = Nothing,
-      _cCatalogId = Nothing,
-      _cDatabaseName = pDatabaseName_,
-      _cTableInput = pTableInput_
+    { partitionIndexes = Lude.Nothing,
+      catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableInput = pTableInput_
     }
 
 -- | A list of partition indexes, @PartitionIndex@ structures, to create in the table.
-cPartitionIndexes :: Lens' CreateTable [PartitionIndex]
-cPartitionIndexes = lens _cPartitionIndexes (\s a -> s {_cPartitionIndexes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPartitionIndexes :: Lens.Lens' CreateTable (Lude.Maybe [PartitionIndex])
+cPartitionIndexes = Lens.lens (partitionIndexes :: CreateTable -> Lude.Maybe [PartitionIndex]) (\s a -> s {partitionIndexes = a} :: CreateTable)
+{-# DEPRECATED cPartitionIndexes "Use generic-lens or generic-optics with 'partitionIndexes' instead." #-}
 
 -- | The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
-cCatalogId :: Lens' CreateTable (Maybe Text)
-cCatalogId = lens _cCatalogId (\s a -> s {_cCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCatalogId :: Lens.Lens' CreateTable (Lude.Maybe Lude.Text)
+cCatalogId = Lens.lens (catalogId :: CreateTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateTable)
+{-# DEPRECATED cCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
-cDatabaseName :: Lens' CreateTable Text
-cDatabaseName = lens _cDatabaseName (\s a -> s {_cDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDatabaseName :: Lens.Lens' CreateTable Lude.Text
+cDatabaseName = Lens.lens (databaseName :: CreateTable -> Lude.Text) (\s a -> s {databaseName = a} :: CreateTable)
+{-# DEPRECATED cDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The @TableInput@ object that defines the metadata table to create in the catalog.
-cTableInput :: Lens' CreateTable TableInput
-cTableInput = lens _cTableInput (\s a -> s {_cTableInput = a})
+--
+-- /Note:/ Consider using 'tableInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTableInput :: Lens.Lens' CreateTable TableInput
+cTableInput = Lens.lens (tableInput :: CreateTable -> TableInput) (\s a -> s {tableInput = a} :: CreateTable)
+{-# DEPRECATED cTableInput "Use generic-lens or generic-optics with 'tableInput' instead." #-}
 
-instance AWSRequest CreateTable where
+instance Lude.AWSRequest CreateTable where
   type Rs CreateTable = CreateTableResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> CreateTableResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateTableResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateTable
-
-instance NFData CreateTable
-
-instance ToHeaders CreateTable where
+instance Lude.ToHeaders CreateTable where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateTable" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.CreateTable" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTable where
+instance Lude.ToJSON CreateTable where
   toJSON CreateTable' {..} =
-    object
-      ( catMaybes
-          [ ("PartitionIndexes" .=) <$> _cPartitionIndexes,
-            ("CatalogId" .=) <$> _cCatalogId,
-            Just ("DatabaseName" .= _cDatabaseName),
-            Just ("TableInput" .= _cTableInput)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PartitionIndexes" Lude..=) Lude.<$> partitionIndexes,
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableInput" Lude..= tableInput)
           ]
       )
 
-instance ToPath CreateTable where
-  toPath = const "/"
+instance Lude.ToPath CreateTable where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTable where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTable where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTableResponse' smart constructor.
+-- | /See:/ 'mkCreateTableResponse' smart constructor.
 newtype CreateTableResponse = CreateTableResponse'
-  { _cttrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cttrsResponseStatus' - -- | The response status code.
-createTableResponse ::
-  -- | 'cttrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTableResponse
-createTableResponse pResponseStatus_ =
-  CreateTableResponse' {_cttrsResponseStatus = pResponseStatus_}
+mkCreateTableResponse pResponseStatus_ =
+  CreateTableResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cttrsResponseStatus :: Lens' CreateTableResponse Int
-cttrsResponseStatus = lens _cttrsResponseStatus (\s a -> s {_cttrsResponseStatus = a})
-
-instance NFData CreateTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttrsResponseStatus :: Lens.Lens' CreateTableResponse Lude.Int
+cttrsResponseStatus = Lens.lens (responseStatus :: CreateTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTableResponse)
+{-# DEPRECATED cttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

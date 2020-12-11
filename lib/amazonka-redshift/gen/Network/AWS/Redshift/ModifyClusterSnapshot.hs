@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,160 @@
 --
 -- Modifies the settings for a snapshot.
 --
---
 -- This exanmple modifies the manual retention period setting for a cluster snapshot.
 module Network.AWS.Redshift.ModifyClusterSnapshot
-  ( -- * Creating a Request
-    modifyClusterSnapshot,
-    ModifyClusterSnapshot,
+  ( -- * Creating a request
+    ModifyClusterSnapshot (..),
+    mkModifyClusterSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcsManualSnapshotRetentionPeriod,
     mcsForce,
     mcsSnapshotIdentifier,
 
-    -- * Destructuring the Response
-    modifyClusterSnapshotResponse,
-    ModifyClusterSnapshotResponse,
+    -- * Destructuring the response
+    ModifyClusterSnapshotResponse (..),
+    mkModifyClusterSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcsrsSnapshot,
     mcsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyClusterSnapshot' smart constructor.
+-- | /See:/ 'mkModifyClusterSnapshot' smart constructor.
 data ModifyClusterSnapshot = ModifyClusterSnapshot'
-  { _mcsManualSnapshotRetentionPeriod ::
-      !(Maybe Int),
-    _mcsForce :: !(Maybe Bool),
-    _mcsSnapshotIdentifier :: !Text
+  { manualSnapshotRetentionPeriod ::
+      Lude.Maybe Lude.Int,
+    force :: Lude.Maybe Lude.Bool,
+    snapshotIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'force' - A Boolean option to override an exception if the retention period has already passed.
+-- * 'manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
 --
--- * 'mcsManualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot. The value must be either -1 or an integer between 1 and 3,653.
---
--- * 'mcsForce' - A Boolean option to override an exception if the retention period has already passed.
---
--- * 'mcsSnapshotIdentifier' - The identifier of the snapshot whose setting you want to modify.
-modifyClusterSnapshot ::
-  -- | 'mcsSnapshotIdentifier'
-  Text ->
+-- If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- * 'snapshotIdentifier' - The identifier of the snapshot whose setting you want to modify.
+mkModifyClusterSnapshot ::
+  -- | 'snapshotIdentifier'
+  Lude.Text ->
   ModifyClusterSnapshot
-modifyClusterSnapshot pSnapshotIdentifier_ =
+mkModifyClusterSnapshot pSnapshotIdentifier_ =
   ModifyClusterSnapshot'
-    { _mcsManualSnapshotRetentionPeriod =
-        Nothing,
-      _mcsForce = Nothing,
-      _mcsSnapshotIdentifier = pSnapshotIdentifier_
+    { manualSnapshotRetentionPeriod =
+        Lude.Nothing,
+      force = Lude.Nothing,
+      snapshotIdentifier = pSnapshotIdentifier_
     }
 
--- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot. The value must be either -1 or an integer between 1 and 3,653.
-mcsManualSnapshotRetentionPeriod :: Lens' ModifyClusterSnapshot (Maybe Int)
-mcsManualSnapshotRetentionPeriod = lens _mcsManualSnapshotRetentionPeriod (\s a -> s {_mcsManualSnapshotRetentionPeriod = a})
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsManualSnapshotRetentionPeriod :: Lens.Lens' ModifyClusterSnapshot (Lude.Maybe Lude.Int)
+mcsManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: ModifyClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: ModifyClusterSnapshot)
+{-# DEPRECATED mcsManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
 -- | A Boolean option to override an exception if the retention period has already passed.
-mcsForce :: Lens' ModifyClusterSnapshot (Maybe Bool)
-mcsForce = lens _mcsForce (\s a -> s {_mcsForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsForce :: Lens.Lens' ModifyClusterSnapshot (Lude.Maybe Lude.Bool)
+mcsForce = Lens.lens (force :: ModifyClusterSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: ModifyClusterSnapshot)
+{-# DEPRECATED mcsForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The identifier of the snapshot whose setting you want to modify.
-mcsSnapshotIdentifier :: Lens' ModifyClusterSnapshot Text
-mcsSnapshotIdentifier = lens _mcsSnapshotIdentifier (\s a -> s {_mcsSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsSnapshotIdentifier :: Lens.Lens' ModifyClusterSnapshot Lude.Text
+mcsSnapshotIdentifier = Lens.lens (snapshotIdentifier :: ModifyClusterSnapshot -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: ModifyClusterSnapshot)
+{-# DEPRECATED mcsSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
-instance AWSRequest ModifyClusterSnapshot where
+instance Lude.AWSRequest ModifyClusterSnapshot where
   type Rs ModifyClusterSnapshot = ModifyClusterSnapshotResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyClusterSnapshotResult"
       ( \s h x ->
           ModifyClusterSnapshotResponse'
-            <$> (x .@? "Snapshot") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Snapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyClusterSnapshot
+instance Lude.ToHeaders ModifyClusterSnapshot where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyClusterSnapshot
+instance Lude.ToPath ModifyClusterSnapshot where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyClusterSnapshot where
-  toHeaders = const mempty
-
-instance ToPath ModifyClusterSnapshot where
-  toPath = const "/"
-
-instance ToQuery ModifyClusterSnapshot where
+instance Lude.ToQuery ModifyClusterSnapshot where
   toQuery ModifyClusterSnapshot' {..} =
-    mconcat
-      [ "Action" =: ("ModifyClusterSnapshot" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyClusterSnapshot" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          =: _mcsManualSnapshotRetentionPeriod,
-        "Force" =: _mcsForce,
-        "SnapshotIdentifier" =: _mcsSnapshotIdentifier
+          Lude.=: manualSnapshotRetentionPeriod,
+        "Force" Lude.=: force,
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier
       ]
 
--- | /See:/ 'modifyClusterSnapshotResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterSnapshotResponse' smart constructor.
 data ModifyClusterSnapshotResponse = ModifyClusterSnapshotResponse'
-  { _mcsrsSnapshot ::
-      !(Maybe Snapshot),
-    _mcsrsResponseStatus :: !Int
+  { snapshot ::
+      Lude.Maybe Snapshot,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcsrsSnapshot' - Undocumented member.
---
--- * 'mcsrsResponseStatus' - -- | The response status code.
-modifyClusterSnapshotResponse ::
-  -- | 'mcsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snapshot' - Undocumented field.
+mkModifyClusterSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterSnapshotResponse
-modifyClusterSnapshotResponse pResponseStatus_ =
+mkModifyClusterSnapshotResponse pResponseStatus_ =
   ModifyClusterSnapshotResponse'
-    { _mcsrsSnapshot = Nothing,
-      _mcsrsResponseStatus = pResponseStatus_
+    { snapshot = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mcsrsSnapshot :: Lens' ModifyClusterSnapshotResponse (Maybe Snapshot)
-mcsrsSnapshot = lens _mcsrsSnapshot (\s a -> s {_mcsrsSnapshot = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsrsSnapshot :: Lens.Lens' ModifyClusterSnapshotResponse (Lude.Maybe Snapshot)
+mcsrsSnapshot = Lens.lens (snapshot :: ModifyClusterSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: ModifyClusterSnapshotResponse)
+{-# DEPRECATED mcsrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
--- | -- | The response status code.
-mcsrsResponseStatus :: Lens' ModifyClusterSnapshotResponse Int
-mcsrsResponseStatus = lens _mcsrsResponseStatus (\s a -> s {_mcsrsResponseStatus = a})
-
-instance NFData ModifyClusterSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsrsResponseStatus :: Lens.Lens' ModifyClusterSnapshotResponse Lude.Int
+mcsrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterSnapshotResponse)
+{-# DEPRECATED mcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

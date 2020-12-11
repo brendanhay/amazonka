@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput
+  ( ProvisioningArtifactOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningArtifactOutput,
+
+    -- * Lenses
+    paoKey,
+    paoDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provisioning artifact output.
 --
---
---
--- /See:/ 'provisioningArtifactOutput' smart constructor.
+-- /See:/ 'mkProvisioningArtifactOutput' smart constructor.
 data ProvisioningArtifactOutput = ProvisioningArtifactOutput'
-  { _paoKey ::
-      !(Maybe Text),
-    _paoDescription :: !(Maybe Text)
+  { key ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paoKey' - The provisioning artifact output key.
---
--- * 'paoDescription' - Description of the provisioning artifact output key.
-provisioningArtifactOutput ::
+-- * 'description' - Description of the provisioning artifact output key.
+-- * 'key' - The provisioning artifact output key.
+mkProvisioningArtifactOutput ::
   ProvisioningArtifactOutput
-provisioningArtifactOutput =
+mkProvisioningArtifactOutput =
   ProvisioningArtifactOutput'
-    { _paoKey = Nothing,
-      _paoDescription = Nothing
+    { key = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The provisioning artifact output key.
-paoKey :: Lens' ProvisioningArtifactOutput (Maybe Text)
-paoKey = lens _paoKey (\s a -> s {_paoKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paoKey :: Lens.Lens' ProvisioningArtifactOutput (Lude.Maybe Lude.Text)
+paoKey = Lens.lens (key :: ProvisioningArtifactOutput -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ProvisioningArtifactOutput)
+{-# DEPRECATED paoKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Description of the provisioning artifact output key.
-paoDescription :: Lens' ProvisioningArtifactOutput (Maybe Text)
-paoDescription = lens _paoDescription (\s a -> s {_paoDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paoDescription :: Lens.Lens' ProvisioningArtifactOutput (Lude.Maybe Lude.Text)
+paoDescription = Lens.lens (description :: ProvisioningArtifactOutput -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactOutput)
+{-# DEPRECATED paoDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ProvisioningArtifactOutput where
+instance Lude.FromJSON ProvisioningArtifactOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningArtifactOutput"
       ( \x ->
           ProvisioningArtifactOutput'
-            <$> (x .:? "Key") <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Key") Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ProvisioningArtifactOutput
-
-instance NFData ProvisioningArtifactOutput

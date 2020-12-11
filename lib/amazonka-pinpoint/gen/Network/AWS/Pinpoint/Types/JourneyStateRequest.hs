@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyStateRequest where
+module Network.AWS.Pinpoint.Types.JourneyStateRequest
+  ( JourneyStateRequest (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkJourneyStateRequest,
+
+    -- * Lenses
+    jsrState,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.State
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Changes the status of a journey.
 --
---
---
--- /See:/ 'journeyStateRequest' smart constructor.
+-- /See:/ 'mkJourneyStateRequest' smart constructor.
 newtype JourneyStateRequest = JourneyStateRequest'
-  { _jsrState ::
-      Maybe State
+  { state ::
+      Lude.Maybe State
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyStateRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'state' - The status of the journey. Currently, the only supported value is CANCELLED.
 --
--- * 'jsrState' - The status of the journey. Currently, the only supported value is CANCELLED. If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey. After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.
-journeyStateRequest ::
+-- If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.
+-- After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.
+mkJourneyStateRequest ::
   JourneyStateRequest
-journeyStateRequest = JourneyStateRequest' {_jsrState = Nothing}
+mkJourneyStateRequest = JourneyStateRequest' {state = Lude.Nothing}
 
--- | The status of the journey. Currently, the only supported value is CANCELLED. If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey. After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.
-jsrState :: Lens' JourneyStateRequest (Maybe State)
-jsrState = lens _jsrState (\s a -> s {_jsrState = a})
+-- | The status of the journey. Currently, the only supported value is CANCELLED.
+--
+-- If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.
+-- After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsrState :: Lens.Lens' JourneyStateRequest (Lude.Maybe State)
+jsrState = Lens.lens (state :: JourneyStateRequest -> Lude.Maybe State) (\s a -> s {state = a} :: JourneyStateRequest)
+{-# DEPRECATED jsrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance Hashable JourneyStateRequest
-
-instance NFData JourneyStateRequest
-
-instance ToJSON JourneyStateRequest where
+instance Lude.ToJSON JourneyStateRequest where
   toJSON JourneyStateRequest' {..} =
-    object (catMaybes [("State" .=) <$> _jsrState])
+    Lude.object (Lude.catMaybes [("State" Lude..=) Lude.<$> state])

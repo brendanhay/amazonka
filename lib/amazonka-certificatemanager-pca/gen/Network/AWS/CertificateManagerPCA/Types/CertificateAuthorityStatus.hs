@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus where
+module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
+  ( CertificateAuthorityStatus
+      ( CertificateAuthorityStatus',
+        Active,
+        Creating,
+        Deleted,
+        Disabled,
+        Expired,
+        Failed,
+        PendingCertificate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateAuthorityStatus
-  = Active
-  | Creating
-  | Deleted
-  | Disabled
-  | Expired
-  | Failed
-  | PendingCertificate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateAuthorityStatus = CertificateAuthorityStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateAuthorityStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "disabled" -> pure Disabled
-      "expired" -> pure Expired
-      "failed" -> pure Failed
-      "pending_certificate" -> pure PendingCertificate
-      e ->
-        fromTextError $
-          "Failure parsing CertificateAuthorityStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleted, disabled, expired, failed, pending_certificate"
+pattern Active :: CertificateAuthorityStatus
+pattern Active = CertificateAuthorityStatus' "ACTIVE"
 
-instance ToText CertificateAuthorityStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    Deleted -> "DELETED"
-    Disabled -> "DISABLED"
-    Expired -> "EXPIRED"
-    Failed -> "FAILED"
-    PendingCertificate -> "PENDING_CERTIFICATE"
+pattern Creating :: CertificateAuthorityStatus
+pattern Creating = CertificateAuthorityStatus' "CREATING"
 
-instance Hashable CertificateAuthorityStatus
+pattern Deleted :: CertificateAuthorityStatus
+pattern Deleted = CertificateAuthorityStatus' "DELETED"
 
-instance NFData CertificateAuthorityStatus
+pattern Disabled :: CertificateAuthorityStatus
+pattern Disabled = CertificateAuthorityStatus' "DISABLED"
 
-instance ToByteString CertificateAuthorityStatus
+pattern Expired :: CertificateAuthorityStatus
+pattern Expired = CertificateAuthorityStatus' "EXPIRED"
 
-instance ToQuery CertificateAuthorityStatus
+pattern Failed :: CertificateAuthorityStatus
+pattern Failed = CertificateAuthorityStatus' "FAILED"
 
-instance ToHeader CertificateAuthorityStatus
+pattern PendingCertificate :: CertificateAuthorityStatus
+pattern PendingCertificate = CertificateAuthorityStatus' "PENDING_CERTIFICATE"
 
-instance ToJSON CertificateAuthorityStatus where
-  toJSON = toJSONText
-
-instance FromJSON CertificateAuthorityStatus where
-  parseJSON = parseJSONText "CertificateAuthorityStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  Deleted,
+  Disabled,
+  Expired,
+  Failed,
+  PendingCertificate,
+  CertificateAuthorityStatus'
+  #-}

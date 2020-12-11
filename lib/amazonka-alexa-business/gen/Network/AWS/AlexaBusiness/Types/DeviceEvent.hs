@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceEvent where
+module Network.AWS.AlexaBusiness.Types.DeviceEvent
+  ( DeviceEvent (..),
+
+    -- * Smart constructor
+    mkDeviceEvent,
+
+    -- * Lenses
+    deValue,
+    deType,
+    deTimestamp,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.DeviceEventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The list of device events.
 --
---
---
--- /See:/ 'deviceEvent' smart constructor.
+-- /See:/ 'mkDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
-  { _deValue :: !(Maybe Text),
-    _deType :: !(Maybe DeviceEventType),
-    _deTimestamp :: !(Maybe POSIX)
+  { value :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe DeviceEventType,
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deValue' - The value of the event.
---
--- * 'deType' - The type of device event.
---
--- * 'deTimestamp' - The time (in epoch) when the event occurred.
-deviceEvent ::
+-- * 'timestamp' - The time (in epoch) when the event occurred.
+-- * 'type'' - The type of device event.
+-- * 'value' - The value of the event.
+mkDeviceEvent ::
   DeviceEvent
-deviceEvent =
+mkDeviceEvent =
   DeviceEvent'
-    { _deValue = Nothing,
-      _deType = Nothing,
-      _deTimestamp = Nothing
+    { value = Lude.Nothing,
+      type' = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The value of the event.
-deValue :: Lens' DeviceEvent (Maybe Text)
-deValue = lens _deValue (\s a -> s {_deValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deValue :: Lens.Lens' DeviceEvent (Lude.Maybe Lude.Text)
+deValue = Lens.lens (value :: DeviceEvent -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: DeviceEvent)
+{-# DEPRECATED deValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of device event.
-deType :: Lens' DeviceEvent (Maybe DeviceEventType)
-deType = lens _deType (\s a -> s {_deType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deType :: Lens.Lens' DeviceEvent (Lude.Maybe DeviceEventType)
+deType = Lens.lens (type' :: DeviceEvent -> Lude.Maybe DeviceEventType) (\s a -> s {type' = a} :: DeviceEvent)
+{-# DEPRECATED deType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The time (in epoch) when the event occurred.
-deTimestamp :: Lens' DeviceEvent (Maybe UTCTime)
-deTimestamp = lens _deTimestamp (\s a -> s {_deTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deTimestamp :: Lens.Lens' DeviceEvent (Lude.Maybe Lude.Timestamp)
+deTimestamp = Lens.lens (timestamp :: DeviceEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: DeviceEvent)
+{-# DEPRECATED deTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON DeviceEvent where
+instance Lude.FromJSON DeviceEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceEvent"
       ( \x ->
           DeviceEvent'
-            <$> (x .:? "Value") <*> (x .:? "Type") <*> (x .:? "Timestamp")
+            Lude.<$> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Timestamp")
       )
-
-instance Hashable DeviceEvent
-
-instance NFData DeviceEvent

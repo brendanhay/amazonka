@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.VersionInfo where
+module Network.AWS.ECS.Types.VersionInfo
+  ( VersionInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVersionInfo,
+
+    -- * Lenses
+    viAgentHash,
+    viAgentVersion,
+    viDockerVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Docker and Amazon ECS container agent version information about a container instance.
 --
---
---
--- /See:/ 'versionInfo' smart constructor.
+-- /See:/ 'mkVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { _viAgentHash :: !(Maybe Text),
-    _viAgentVersion :: !(Maybe Text),
-    _viDockerVersion :: !(Maybe Text)
+  { agentHash :: Lude.Maybe Lude.Text,
+    agentVersion :: Lude.Maybe Lude.Text,
+    dockerVersion :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersionInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'viAgentHash' - The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
---
--- * 'viAgentVersion' - The version number of the Amazon ECS container agent.
---
--- * 'viDockerVersion' - The Docker version running on the container instance.
-versionInfo ::
+-- * 'agentHash' - The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
+-- * 'agentVersion' - The version number of the Amazon ECS container agent.
+-- * 'dockerVersion' - The Docker version running on the container instance.
+mkVersionInfo ::
   VersionInfo
-versionInfo =
+mkVersionInfo =
   VersionInfo'
-    { _viAgentHash = Nothing,
-      _viAgentVersion = Nothing,
-      _viDockerVersion = Nothing
+    { agentHash = Lude.Nothing,
+      agentVersion = Lude.Nothing,
+      dockerVersion = Lude.Nothing
     }
 
 -- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
-viAgentHash :: Lens' VersionInfo (Maybe Text)
-viAgentHash = lens _viAgentHash (\s a -> s {_viAgentHash = a})
+--
+-- /Note:/ Consider using 'agentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAgentHash :: Lens.Lens' VersionInfo (Lude.Maybe Lude.Text)
+viAgentHash = Lens.lens (agentHash :: VersionInfo -> Lude.Maybe Lude.Text) (\s a -> s {agentHash = a} :: VersionInfo)
+{-# DEPRECATED viAgentHash "Use generic-lens or generic-optics with 'agentHash' instead." #-}
 
 -- | The version number of the Amazon ECS container agent.
-viAgentVersion :: Lens' VersionInfo (Maybe Text)
-viAgentVersion = lens _viAgentVersion (\s a -> s {_viAgentVersion = a})
+--
+-- /Note:/ Consider using 'agentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viAgentVersion :: Lens.Lens' VersionInfo (Lude.Maybe Lude.Text)
+viAgentVersion = Lens.lens (agentVersion :: VersionInfo -> Lude.Maybe Lude.Text) (\s a -> s {agentVersion = a} :: VersionInfo)
+{-# DEPRECATED viAgentVersion "Use generic-lens or generic-optics with 'agentVersion' instead." #-}
 
 -- | The Docker version running on the container instance.
-viDockerVersion :: Lens' VersionInfo (Maybe Text)
-viDockerVersion = lens _viDockerVersion (\s a -> s {_viDockerVersion = a})
+--
+-- /Note:/ Consider using 'dockerVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viDockerVersion :: Lens.Lens' VersionInfo (Lude.Maybe Lude.Text)
+viDockerVersion = Lens.lens (dockerVersion :: VersionInfo -> Lude.Maybe Lude.Text) (\s a -> s {dockerVersion = a} :: VersionInfo)
+{-# DEPRECATED viDockerVersion "Use generic-lens or generic-optics with 'dockerVersion' instead." #-}
 
-instance FromJSON VersionInfo where
+instance Lude.FromJSON VersionInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            <$> (x .:? "agentHash")
-            <*> (x .:? "agentVersion")
-            <*> (x .:? "dockerVersion")
+            Lude.<$> (x Lude..:? "agentHash")
+            Lude.<*> (x Lude..:? "agentVersion")
+            Lude.<*> (x Lude..:? "dockerVersion")
       )
 
-instance Hashable VersionInfo
-
-instance NFData VersionInfo
-
-instance ToJSON VersionInfo where
+instance Lude.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
-    object
-      ( catMaybes
-          [ ("agentHash" .=) <$> _viAgentHash,
-            ("agentVersion" .=) <$> _viAgentVersion,
-            ("dockerVersion" .=) <$> _viDockerVersion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("agentHash" Lude..=) Lude.<$> agentHash,
+            ("agentVersion" Lude..=) Lude.<$> agentVersion,
+            ("dockerVersion" Lude..=) Lude.<$> dockerVersion
           ]
       )

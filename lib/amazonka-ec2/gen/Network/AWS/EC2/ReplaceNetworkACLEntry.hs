@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Replaces an entry (rule) in a network ACL. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.ReplaceNetworkACLEntry
-  ( -- * Creating a Request
-    replaceNetworkACLEntry,
-    ReplaceNetworkACLEntry,
+  ( -- * Creating a request
+    ReplaceNetworkACLEntry (..),
+    mkReplaceNetworkACLEntry,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rnaeIPv6CidrBlock,
     rnaeICMPTypeCode,
     rnaePortRange,
@@ -35,167 +30,198 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     rnaeRuleAction,
     rnaeRuleNumber,
 
-    -- * Destructuring the Response
-    replaceNetworkACLEntryResponse,
-    ReplaceNetworkACLEntryResponse,
+    -- * Destructuring the response
+    ReplaceNetworkACLEntryResponse (..),
+    mkReplaceNetworkACLEntryResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'replaceNetworkACLEntry' smart constructor.
+-- | /See:/ 'mkReplaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
-  { _rnaeIPv6CidrBlock ::
-      !(Maybe Text),
-    _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode),
-    _rnaePortRange :: !(Maybe PortRange),
-    _rnaeCidrBlock :: !(Maybe Text),
-    _rnaeDryRun :: !(Maybe Bool),
-    _rnaeEgress :: !Bool,
-    _rnaeNetworkACLId :: !Text,
-    _rnaeProtocol :: !Text,
-    _rnaeRuleAction :: !RuleAction,
-    _rnaeRuleNumber :: !Int
+  { ipv6CidrBlock ::
+      Lude.Maybe Lude.Text,
+    icmpTypeCode :: Lude.Maybe ICMPTypeCode,
+    portRange :: Lude.Maybe PortRange,
+    cidrBlock :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    egress :: Lude.Bool,
+    networkACLId :: Lude.Text,
+    protocol :: Lude.Text,
+    ruleAction :: RuleAction,
+    ruleNumber :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceNetworkACLEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'egress' - Indicates whether to replace the egress rule.
 --
--- * 'rnaeIPv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
---
--- * 'rnaeICMPTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
---
--- * 'rnaePortRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
---
--- * 'rnaeCidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
---
--- * 'rnaeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rnaeEgress' - Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
---
--- * 'rnaeNetworkACLId' - The ID of the ACL.
---
--- * 'rnaeProtocol' - The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
---
--- * 'rnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
---
--- * 'rnaeRuleNumber' - The rule number of the entry to replace.
-replaceNetworkACLEntry ::
-  -- | 'rnaeEgress'
-  Bool ->
-  -- | 'rnaeNetworkACLId'
-  Text ->
-  -- | 'rnaeProtocol'
-  Text ->
-  -- | 'rnaeRuleAction'
+-- Default: If no value is specified, we replace the ingress rule.
+-- * 'icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
+-- * 'ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
+-- * 'networkACLId' - The ID of the ACL.
+-- * 'portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
+-- * 'protocol' - The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- * 'ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.
+-- * 'ruleNumber' - The rule number of the entry to replace.
+mkReplaceNetworkACLEntry ::
+  -- | 'egress'
+  Lude.Bool ->
+  -- | 'networkACLId'
+  Lude.Text ->
+  -- | 'protocol'
+  Lude.Text ->
+  -- | 'ruleAction'
   RuleAction ->
-  -- | 'rnaeRuleNumber'
-  Int ->
+  -- | 'ruleNumber'
+  Lude.Int ->
   ReplaceNetworkACLEntry
-replaceNetworkACLEntry
+mkReplaceNetworkACLEntry
   pEgress_
   pNetworkACLId_
   pProtocol_
   pRuleAction_
   pRuleNumber_ =
     ReplaceNetworkACLEntry'
-      { _rnaeIPv6CidrBlock = Nothing,
-        _rnaeICMPTypeCode = Nothing,
-        _rnaePortRange = Nothing,
-        _rnaeCidrBlock = Nothing,
-        _rnaeDryRun = Nothing,
-        _rnaeEgress = pEgress_,
-        _rnaeNetworkACLId = pNetworkACLId_,
-        _rnaeProtocol = pProtocol_,
-        _rnaeRuleAction = pRuleAction_,
-        _rnaeRuleNumber = pRuleNumber_
+      { ipv6CidrBlock = Lude.Nothing,
+        icmpTypeCode = Lude.Nothing,
+        portRange = Lude.Nothing,
+        cidrBlock = Lude.Nothing,
+        dryRun = Lude.Nothing,
+        egress = pEgress_,
+        networkACLId = pNetworkACLId_,
+        protocol = pProtocol_,
+        ruleAction = pRuleAction_,
+        ruleNumber = pRuleNumber_
       }
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
-rnaeIPv6CidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
-rnaeIPv6CidrBlock = lens _rnaeIPv6CidrBlock (\s a -> s {_rnaeIPv6CidrBlock = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeIPv6CidrBlock :: Lens.Lens' ReplaceNetworkACLEntry (Lude.Maybe Lude.Text)
+rnaeIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: ReplaceNetworkACLEntry -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
-rnaeICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
-rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\s a -> s {_rnaeICMPTypeCode = a})
+--
+-- /Note:/ Consider using 'icmpTypeCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeICMPTypeCode :: Lens.Lens' ReplaceNetworkACLEntry (Lude.Maybe ICMPTypeCode)
+rnaeICMPTypeCode = Lens.lens (icmpTypeCode :: ReplaceNetworkACLEntry -> Lude.Maybe ICMPTypeCode) (\s a -> s {icmpTypeCode = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeICMPTypeCode "Use generic-lens or generic-optics with 'icmpTypeCode' instead." #-}
 
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
-rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
-rnaePortRange = lens _rnaePortRange (\s a -> s {_rnaePortRange = a})
+--
+-- /Note:/ Consider using 'portRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaePortRange :: Lens.Lens' ReplaceNetworkACLEntry (Lude.Maybe PortRange)
+rnaePortRange = Lens.lens (portRange :: ReplaceNetworkACLEntry -> Lude.Maybe PortRange) (\s a -> s {portRange = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaePortRange "Use generic-lens or generic-optics with 'portRange' instead." #-}
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
-rnaeCidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
-rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s {_rnaeCidrBlock = a})
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeCidrBlock :: Lens.Lens' ReplaceNetworkACLEntry (Lude.Maybe Lude.Text)
+rnaeCidrBlock = Lens.lens (cidrBlock :: ReplaceNetworkACLEntry -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
-rnaeDryRun = lens _rnaeDryRun (\s a -> s {_rnaeDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeDryRun :: Lens.Lens' ReplaceNetworkACLEntry (Lude.Maybe Lude.Bool)
+rnaeDryRun = Lens.lens (dryRun :: ReplaceNetworkACLEntry -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
-rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
-rnaeEgress = lens _rnaeEgress (\s a -> s {_rnaeEgress = a})
+-- | Indicates whether to replace the egress rule.
+--
+-- Default: If no value is specified, we replace the ingress rule.
+--
+-- /Note:/ Consider using 'egress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeEgress :: Lens.Lens' ReplaceNetworkACLEntry Lude.Bool
+rnaeEgress = Lens.lens (egress :: ReplaceNetworkACLEntry -> Lude.Bool) (\s a -> s {egress = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeEgress "Use generic-lens or generic-optics with 'egress' instead." #-}
 
 -- | The ID of the ACL.
-rnaeNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
-rnaeNetworkACLId = lens _rnaeNetworkACLId (\s a -> s {_rnaeNetworkACLId = a})
+--
+-- /Note:/ Consider using 'networkACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeNetworkACLId :: Lens.Lens' ReplaceNetworkACLEntry Lude.Text
+rnaeNetworkACLId = Lens.lens (networkACLId :: ReplaceNetworkACLEntry -> Lude.Text) (\s a -> s {networkACLId = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
 
 -- | The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
-rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
-rnaeProtocol = lens _rnaeProtocol (\s a -> s {_rnaeProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeProtocol :: Lens.Lens' ReplaceNetworkACLEntry Lude.Text
+rnaeProtocol = Lens.lens (protocol :: ReplaceNetworkACLEntry -> Lude.Text) (\s a -> s {protocol = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaeRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
-rnaeRuleAction = lens _rnaeRuleAction (\s a -> s {_rnaeRuleAction = a})
+--
+-- /Note:/ Consider using 'ruleAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeRuleAction :: Lens.Lens' ReplaceNetworkACLEntry RuleAction
+rnaeRuleAction = Lens.lens (ruleAction :: ReplaceNetworkACLEntry -> RuleAction) (\s a -> s {ruleAction = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeRuleAction "Use generic-lens or generic-optics with 'ruleAction' instead." #-}
 
 -- | The rule number of the entry to replace.
-rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
-rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s {_rnaeRuleNumber = a})
+--
+-- /Note:/ Consider using 'ruleNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaeRuleNumber :: Lens.Lens' ReplaceNetworkACLEntry Lude.Int
+rnaeRuleNumber = Lens.lens (ruleNumber :: ReplaceNetworkACLEntry -> Lude.Int) (\s a -> s {ruleNumber = a} :: ReplaceNetworkACLEntry)
+{-# DEPRECATED rnaeRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
 
-instance AWSRequest ReplaceNetworkACLEntry where
+instance Lude.AWSRequest ReplaceNetworkACLEntry where
   type Rs ReplaceNetworkACLEntry = ReplaceNetworkACLEntryResponse
-  request = postQuery ec2
-  response = receiveNull ReplaceNetworkACLEntryResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ReplaceNetworkACLEntryResponse'
 
-instance Hashable ReplaceNetworkACLEntry
+instance Lude.ToHeaders ReplaceNetworkACLEntry where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReplaceNetworkACLEntry
+instance Lude.ToPath ReplaceNetworkACLEntry where
+  toPath = Lude.const "/"
 
-instance ToHeaders ReplaceNetworkACLEntry where
-  toHeaders = const mempty
-
-instance ToPath ReplaceNetworkACLEntry where
-  toPath = const "/"
-
-instance ToQuery ReplaceNetworkACLEntry where
+instance Lude.ToQuery ReplaceNetworkACLEntry where
   toQuery ReplaceNetworkACLEntry' {..} =
-    mconcat
-      [ "Action" =: ("ReplaceNetworkAclEntry" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Ipv6CidrBlock" =: _rnaeIPv6CidrBlock,
-        "Icmp" =: _rnaeICMPTypeCode,
-        "PortRange" =: _rnaePortRange,
-        "CidrBlock" =: _rnaeCidrBlock,
-        "DryRun" =: _rnaeDryRun,
-        "Egress" =: _rnaeEgress,
-        "NetworkAclId" =: _rnaeNetworkACLId,
-        "Protocol" =: _rnaeProtocol,
-        "RuleAction" =: _rnaeRuleAction,
-        "RuleNumber" =: _rnaeRuleNumber
+    Lude.mconcat
+      [ "Action" Lude.=: ("ReplaceNetworkAclEntry" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Ipv6CidrBlock" Lude.=: ipv6CidrBlock,
+        "Icmp" Lude.=: icmpTypeCode,
+        "PortRange" Lude.=: portRange,
+        "CidrBlock" Lude.=: cidrBlock,
+        "DryRun" Lude.=: dryRun,
+        "Egress" Lude.=: egress,
+        "NetworkAclId" Lude.=: networkACLId,
+        "Protocol" Lude.=: protocol,
+        "RuleAction" Lude.=: ruleAction,
+        "RuleNumber" Lude.=: ruleNumber
       ]
 
--- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
+-- | /See:/ 'mkReplaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceNetworkACLEntryResponse' with the minimum fields required to make a request.
-replaceNetworkACLEntryResponse ::
+mkReplaceNetworkACLEntryResponse ::
   ReplaceNetworkACLEntryResponse
-replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
-
-instance NFData ReplaceNetworkACLEntryResponse
+mkReplaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'

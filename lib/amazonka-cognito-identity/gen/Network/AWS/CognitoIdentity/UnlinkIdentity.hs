@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,127 @@
 --
 -- Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.
 --
---
 -- This is a public API. You do not need any credentials to call this API.
 module Network.AWS.CognitoIdentity.UnlinkIdentity
-  ( -- * Creating a Request
-    unlinkIdentity,
-    UnlinkIdentity,
+  ( -- * Creating a request
+    UnlinkIdentity (..),
+    mkUnlinkIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uiIdentityId,
     uiLogins,
     uiLoginsToRemove,
 
-    -- * Destructuring the Response
-    unlinkIdentityResponse,
-    UnlinkIdentityResponse,
+    -- * Destructuring the response
+    UnlinkIdentityResponse (..),
+    mkUnlinkIdentityResponse,
   )
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the UnlinkIdentity action.
 --
---
---
--- /See:/ 'unlinkIdentity' smart constructor.
+-- /See:/ 'mkUnlinkIdentity' smart constructor.
 data UnlinkIdentity = UnlinkIdentity'
-  { _uiIdentityId :: !Text,
-    _uiLogins :: !(Map Text (Text)),
-    _uiLoginsToRemove :: ![Text]
+  { identityId :: Lude.Text,
+    logins :: Lude.HashMap Lude.Text (Lude.Text),
+    loginsToRemove :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnlinkIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiIdentityId' - A unique identifier in the format REGION:GUID.
---
--- * 'uiLogins' - A set of optional name-value pairs that map provider names to provider tokens.
---
--- * 'uiLoginsToRemove' - Provider names to unlink from this identity.
-unlinkIdentity ::
-  -- | 'uiIdentityId'
-  Text ->
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens.
+-- * 'loginsToRemove' - Provider names to unlink from this identity.
+mkUnlinkIdentity ::
+  -- | 'identityId'
+  Lude.Text ->
   UnlinkIdentity
-unlinkIdentity pIdentityId_ =
+mkUnlinkIdentity pIdentityId_ =
   UnlinkIdentity'
-    { _uiIdentityId = pIdentityId_,
-      _uiLogins = mempty,
-      _uiLoginsToRemove = mempty
+    { identityId = pIdentityId_,
+      logins = Lude.mempty,
+      loginsToRemove = Lude.mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
-uiIdentityId :: Lens' UnlinkIdentity Text
-uiIdentityId = lens _uiIdentityId (\s a -> s {_uiIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiIdentityId :: Lens.Lens' UnlinkIdentity Lude.Text
+uiIdentityId = Lens.lens (identityId :: UnlinkIdentity -> Lude.Text) (\s a -> s {identityId = a} :: UnlinkIdentity)
+{-# DEPRECATED uiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
-uiLogins :: Lens' UnlinkIdentity (HashMap Text (Text))
-uiLogins = lens _uiLogins (\s a -> s {_uiLogins = a}) . _Map
+--
+-- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiLogins :: Lens.Lens' UnlinkIdentity (Lude.HashMap Lude.Text (Lude.Text))
+uiLogins = Lens.lens (logins :: UnlinkIdentity -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {logins = a} :: UnlinkIdentity)
+{-# DEPRECATED uiLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
 -- | Provider names to unlink from this identity.
-uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s {_uiLoginsToRemove = a}) . _Coerce
+--
+-- /Note:/ Consider using 'loginsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiLoginsToRemove :: Lens.Lens' UnlinkIdentity [Lude.Text]
+uiLoginsToRemove = Lens.lens (loginsToRemove :: UnlinkIdentity -> [Lude.Text]) (\s a -> s {loginsToRemove = a} :: UnlinkIdentity)
+{-# DEPRECATED uiLoginsToRemove "Use generic-lens or generic-optics with 'loginsToRemove' instead." #-}
 
-instance AWSRequest UnlinkIdentity where
+instance Lude.AWSRequest UnlinkIdentity where
   type Rs UnlinkIdentity = UnlinkIdentityResponse
-  request = postJSON cognitoIdentity
-  response = receiveNull UnlinkIdentityResponse'
+  request = Req.postJSON cognitoIdentityService
+  response = Res.receiveNull UnlinkIdentityResponse'
 
-instance Hashable UnlinkIdentity
-
-instance NFData UnlinkIdentity
-
-instance ToHeaders UnlinkIdentity where
+instance Lude.ToHeaders UnlinkIdentity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.UnlinkIdentity" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.UnlinkIdentity" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UnlinkIdentity where
+instance Lude.ToJSON UnlinkIdentity where
   toJSON UnlinkIdentity' {..} =
-    object
-      ( catMaybes
-          [ Just ("IdentityId" .= _uiIdentityId),
-            Just ("Logins" .= _uiLogins),
-            Just ("LoginsToRemove" .= _uiLoginsToRemove)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("IdentityId" Lude..= identityId),
+            Lude.Just ("Logins" Lude..= logins),
+            Lude.Just ("LoginsToRemove" Lude..= loginsToRemove)
           ]
       )
 
-instance ToPath UnlinkIdentity where
-  toPath = const "/"
+instance Lude.ToPath UnlinkIdentity where
+  toPath = Lude.const "/"
 
-instance ToQuery UnlinkIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery UnlinkIdentity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unlinkIdentityResponse' smart constructor.
+-- | /See:/ 'mkUnlinkIdentityResponse' smart constructor.
 data UnlinkIdentityResponse = UnlinkIdentityResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnlinkIdentityResponse' with the minimum fields required to make a request.
-unlinkIdentityResponse ::
+mkUnlinkIdentityResponse ::
   UnlinkIdentityResponse
-unlinkIdentityResponse = UnlinkIdentityResponse'
-
-instance NFData UnlinkIdentityResponse
+mkUnlinkIdentityResponse = UnlinkIdentityResponse'

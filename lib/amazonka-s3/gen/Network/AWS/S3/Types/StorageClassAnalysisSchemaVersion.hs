@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion where
+module Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
+  ( StorageClassAnalysisSchemaVersion
+      ( StorageClassAnalysisSchemaVersion',
+        V1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data StorageClassAnalysisSchemaVersion = V1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StorageClassAnalysisSchemaVersion = StorageClassAnalysisSchemaVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StorageClassAnalysisSchemaVersion where
-  parser =
-    takeLowerText >>= \case
-      "v_1" -> pure V1
-      e ->
-        fromTextError $
-          "Failure parsing StorageClassAnalysisSchemaVersion from value: '" <> e
-            <> "'. Accepted values: v_1"
+pattern V1 :: StorageClassAnalysisSchemaVersion
+pattern V1 = StorageClassAnalysisSchemaVersion' "V_1"
 
-instance ToText StorageClassAnalysisSchemaVersion where
-  toText = \case
-    V1 -> "V_1"
-
-instance Hashable StorageClassAnalysisSchemaVersion
-
-instance NFData StorageClassAnalysisSchemaVersion
-
-instance ToByteString StorageClassAnalysisSchemaVersion
-
-instance ToQuery StorageClassAnalysisSchemaVersion
-
-instance ToHeader StorageClassAnalysisSchemaVersion
-
-instance FromXML StorageClassAnalysisSchemaVersion where
-  parseXML = parseXMLText "StorageClassAnalysisSchemaVersion"
-
-instance ToXML StorageClassAnalysisSchemaVersion where
-  toXML = toXMLText
+{-# COMPLETE
+  V1,
+  StorageClassAnalysisSchemaVersion'
+  #-}

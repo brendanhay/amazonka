@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDenoiseFilter where
+module Network.AWS.MediaLive.Types.InputDenoiseFilter
+  ( InputDenoiseFilter
+      ( InputDenoiseFilter',
+        IDisabled,
+        IEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Denoise Filter
-data InputDenoiseFilter
-  = IDisabled
-  | IEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputDenoiseFilter = InputDenoiseFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputDenoiseFilter where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure IDisabled
-      "enabled" -> pure IEnabled
-      e ->
-        fromTextError $
-          "Failure parsing InputDenoiseFilter from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern IDisabled :: InputDenoiseFilter
+pattern IDisabled = InputDenoiseFilter' "DISABLED"
 
-instance ToText InputDenoiseFilter where
-  toText = \case
-    IDisabled -> "DISABLED"
-    IEnabled -> "ENABLED"
+pattern IEnabled :: InputDenoiseFilter
+pattern IEnabled = InputDenoiseFilter' "ENABLED"
 
-instance Hashable InputDenoiseFilter
-
-instance NFData InputDenoiseFilter
-
-instance ToByteString InputDenoiseFilter
-
-instance ToQuery InputDenoiseFilter
-
-instance ToHeader InputDenoiseFilter
-
-instance ToJSON InputDenoiseFilter where
-  toJSON = toJSONText
-
-instance FromJSON InputDenoiseFilter where
-  parseJSON = parseJSONText "InputDenoiseFilter"
+{-# COMPLETE
+  IDisabled,
+  IEnabled,
+  InputDenoiseFilter'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Counters where
+module Network.AWS.DeviceFarm.Types.Counters
+  ( Counters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCounters,
+
+    -- * Lenses
+    cPassed,
+    cSkipped,
+    cWarned,
+    cStopped,
+    cTotal,
+    cFailed,
+    cErrored,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents entity counters.
 --
---
---
--- /See:/ 'counters' smart constructor.
+-- /See:/ 'mkCounters' smart constructor.
 data Counters = Counters'
-  { _cPassed :: !(Maybe Int),
-    _cSkipped :: !(Maybe Int),
-    _cWarned :: !(Maybe Int),
-    _cStopped :: !(Maybe Int),
-    _cTotal :: !(Maybe Int),
-    _cFailed :: !(Maybe Int),
-    _cErrored :: !(Maybe Int)
+  { passed :: Lude.Maybe Lude.Int,
+    skipped :: Lude.Maybe Lude.Int,
+    warned :: Lude.Maybe Lude.Int,
+    stopped :: Lude.Maybe Lude.Int,
+    total :: Lude.Maybe Lude.Int,
+    failed :: Lude.Maybe Lude.Int,
+    errored :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Counters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cPassed' - The number of passed entities.
---
--- * 'cSkipped' - The number of skipped entities.
---
--- * 'cWarned' - The number of warned entities.
---
--- * 'cStopped' - The number of stopped entities.
---
--- * 'cTotal' - The total number of entities.
---
--- * 'cFailed' - The number of failed entities.
---
--- * 'cErrored' - The number of errored entities.
-counters ::
+-- * 'errored' - The number of errored entities.
+-- * 'failed' - The number of failed entities.
+-- * 'passed' - The number of passed entities.
+-- * 'skipped' - The number of skipped entities.
+-- * 'stopped' - The number of stopped entities.
+-- * 'total' - The total number of entities.
+-- * 'warned' - The number of warned entities.
+mkCounters ::
   Counters
-counters =
+mkCounters =
   Counters'
-    { _cPassed = Nothing,
-      _cSkipped = Nothing,
-      _cWarned = Nothing,
-      _cStopped = Nothing,
-      _cTotal = Nothing,
-      _cFailed = Nothing,
-      _cErrored = Nothing
+    { passed = Lude.Nothing,
+      skipped = Lude.Nothing,
+      warned = Lude.Nothing,
+      stopped = Lude.Nothing,
+      total = Lude.Nothing,
+      failed = Lude.Nothing,
+      errored = Lude.Nothing
     }
 
 -- | The number of passed entities.
-cPassed :: Lens' Counters (Maybe Int)
-cPassed = lens _cPassed (\s a -> s {_cPassed = a})
+--
+-- /Note:/ Consider using 'passed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPassed :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cPassed = Lens.lens (passed :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {passed = a} :: Counters)
+{-# DEPRECATED cPassed "Use generic-lens or generic-optics with 'passed' instead." #-}
 
 -- | The number of skipped entities.
-cSkipped :: Lens' Counters (Maybe Int)
-cSkipped = lens _cSkipped (\s a -> s {_cSkipped = a})
+--
+-- /Note:/ Consider using 'skipped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSkipped :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cSkipped = Lens.lens (skipped :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {skipped = a} :: Counters)
+{-# DEPRECATED cSkipped "Use generic-lens or generic-optics with 'skipped' instead." #-}
 
 -- | The number of warned entities.
-cWarned :: Lens' Counters (Maybe Int)
-cWarned = lens _cWarned (\s a -> s {_cWarned = a})
+--
+-- /Note:/ Consider using 'warned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cWarned :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cWarned = Lens.lens (warned :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {warned = a} :: Counters)
+{-# DEPRECATED cWarned "Use generic-lens or generic-optics with 'warned' instead." #-}
 
 -- | The number of stopped entities.
-cStopped :: Lens' Counters (Maybe Int)
-cStopped = lens _cStopped (\s a -> s {_cStopped = a})
+--
+-- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStopped :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cStopped = Lens.lens (stopped :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {stopped = a} :: Counters)
+{-# DEPRECATED cStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
 
 -- | The total number of entities.
-cTotal :: Lens' Counters (Maybe Int)
-cTotal = lens _cTotal (\s a -> s {_cTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTotal :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cTotal = Lens.lens (total :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {total = a} :: Counters)
+{-# DEPRECATED cTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The number of failed entities.
-cFailed :: Lens' Counters (Maybe Int)
-cFailed = lens _cFailed (\s a -> s {_cFailed = a})
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cFailed :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cFailed = Lens.lens (failed :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {failed = a} :: Counters)
+{-# DEPRECATED cFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
 -- | The number of errored entities.
-cErrored :: Lens' Counters (Maybe Int)
-cErrored = lens _cErrored (\s a -> s {_cErrored = a})
+--
+-- /Note:/ Consider using 'errored' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cErrored :: Lens.Lens' Counters (Lude.Maybe Lude.Int)
+cErrored = Lens.lens (errored :: Counters -> Lude.Maybe Lude.Int) (\s a -> s {errored = a} :: Counters)
+{-# DEPRECATED cErrored "Use generic-lens or generic-optics with 'errored' instead." #-}
 
-instance FromJSON Counters where
+instance Lude.FromJSON Counters where
   parseJSON =
-    withObject
+    Lude.withObject
       "Counters"
       ( \x ->
           Counters'
-            <$> (x .:? "passed")
-            <*> (x .:? "skipped")
-            <*> (x .:? "warned")
-            <*> (x .:? "stopped")
-            <*> (x .:? "total")
-            <*> (x .:? "failed")
-            <*> (x .:? "errored")
+            Lude.<$> (x Lude..:? "passed")
+            Lude.<*> (x Lude..:? "skipped")
+            Lude.<*> (x Lude..:? "warned")
+            Lude.<*> (x Lude..:? "stopped")
+            Lude.<*> (x Lude..:? "total")
+            Lude.<*> (x Lude..:? "failed")
+            Lude.<*> (x Lude..:? "errored")
       )
-
-instance Hashable Counters
-
-instance NFData Counters

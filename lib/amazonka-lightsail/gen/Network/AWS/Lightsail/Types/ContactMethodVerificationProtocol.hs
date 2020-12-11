@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol where
+module Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol
+  ( ContactMethodVerificationProtocol
+      ( ContactMethodVerificationProtocol',
+        CMVPEmail
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContactMethodVerificationProtocol = CMVPEmail
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContactMethodVerificationProtocol = ContactMethodVerificationProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContactMethodVerificationProtocol where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure CMVPEmail
-      e ->
-        fromTextError $
-          "Failure parsing ContactMethodVerificationProtocol from value: '" <> e
-            <> "'. Accepted values: email"
+pattern CMVPEmail :: ContactMethodVerificationProtocol
+pattern CMVPEmail = ContactMethodVerificationProtocol' "Email"
 
-instance ToText ContactMethodVerificationProtocol where
-  toText = \case
-    CMVPEmail -> "Email"
-
-instance Hashable ContactMethodVerificationProtocol
-
-instance NFData ContactMethodVerificationProtocol
-
-instance ToByteString ContactMethodVerificationProtocol
-
-instance ToQuery ContactMethodVerificationProtocol
-
-instance ToHeader ContactMethodVerificationProtocol
-
-instance ToJSON ContactMethodVerificationProtocol where
-  toJSON = toJSONText
+{-# COMPLETE
+  CMVPEmail,
+  ContactMethodVerificationProtocol'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,86 +14,97 @@
 --
 -- Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues> in the /Amazon Simple Queue Service Developer Guide/ .
 module Network.AWS.SQS.UntagQueue
-  ( -- * Creating a Request
-    untagQueue,
-    UntagQueue,
+  ( -- * Creating a request
+    UntagQueue (..),
+    mkUntagQueue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uqQueueURL,
     uqTagKeys,
 
-    -- * Destructuring the Response
-    untagQueueResponse,
-    UntagQueueResponse,
+    -- * Destructuring the response
+    UntagQueueResponse (..),
+    mkUntagQueueResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
--- | /See:/ 'untagQueue' smart constructor.
+-- | /See:/ 'mkUntagQueue' smart constructor.
 data UntagQueue = UntagQueue'
-  { _uqQueueURL :: !Text,
-    _uqTagKeys :: ![Text]
+  { queueURL :: Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uqQueueURL' - The URL of the queue.
---
--- * 'uqTagKeys' - The list of tags to be removed from the specified queue.
-untagQueue ::
-  -- | 'uqQueueURL'
-  Text ->
+-- * 'queueURL' - The URL of the queue.
+-- * 'tagKeys' - The list of tags to be removed from the specified queue.
+mkUntagQueue ::
+  -- | 'queueURL'
+  Lude.Text ->
   UntagQueue
-untagQueue pQueueURL_ =
-  UntagQueue' {_uqQueueURL = pQueueURL_, _uqTagKeys = mempty}
+mkUntagQueue pQueueURL_ =
+  UntagQueue' {queueURL = pQueueURL_, tagKeys = Lude.mempty}
 
 -- | The URL of the queue.
-uqQueueURL :: Lens' UntagQueue Text
-uqQueueURL = lens _uqQueueURL (\s a -> s {_uqQueueURL = a})
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqQueueURL :: Lens.Lens' UntagQueue Lude.Text
+uqQueueURL = Lens.lens (queueURL :: UntagQueue -> Lude.Text) (\s a -> s {queueURL = a} :: UntagQueue)
+{-# DEPRECATED uqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
 -- | The list of tags to be removed from the specified queue.
-uqTagKeys :: Lens' UntagQueue [Text]
-uqTagKeys = lens _uqTagKeys (\s a -> s {_uqTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqTagKeys :: Lens.Lens' UntagQueue [Lude.Text]
+uqTagKeys = Lens.lens (tagKeys :: UntagQueue -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagQueue)
+{-# DEPRECATED uqTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest UntagQueue where
+instance Lude.AWSRequest UntagQueue where
   type Rs UntagQueue = UntagQueueResponse
-  request = postQuery sqs
-  response = receiveNull UntagQueueResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull UntagQueueResponse'
 
-instance Hashable UntagQueue
+instance Lude.ToHeaders UntagQueue where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UntagQueue
+instance Lude.ToPath UntagQueue where
+  toPath = Lude.const "/"
 
-instance ToHeaders UntagQueue where
-  toHeaders = const mempty
-
-instance ToPath UntagQueue where
-  toPath = const "/"
-
-instance ToQuery UntagQueue where
+instance Lude.ToQuery UntagQueue where
   toQuery UntagQueue' {..} =
-    mconcat
-      [ "Action" =: ("UntagQueue" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _uqQueueURL,
-        toQueryList "TagKey" _uqTagKeys
+    Lude.mconcat
+      [ "Action" Lude.=: ("UntagQueue" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL,
+        Lude.toQueryList "TagKey" tagKeys
       ]
 
--- | /See:/ 'untagQueueResponse' smart constructor.
+-- | /See:/ 'mkUntagQueueResponse' smart constructor.
 data UntagQueueResponse = UntagQueueResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagQueueResponse' with the minimum fields required to make a request.
-untagQueueResponse ::
+mkUntagQueueResponse ::
   UntagQueueResponse
-untagQueueResponse = UntagQueueResponse'
-
-instance NFData UntagQueueResponse
+mkUntagQueueResponse = UntagQueueResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.CoreDefinitionVersion where
+module Network.AWS.Greengrass.Types.CoreDefinitionVersion
+  ( CoreDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkCoreDefinitionVersion,
+
+    -- * Lenses
+    cdvCores,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Core
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a core definition version.
 --
--- /See:/ 'coreDefinitionVersion' smart constructor.
+-- /See:/ 'mkCoreDefinitionVersion' smart constructor.
 newtype CoreDefinitionVersion = CoreDefinitionVersion'
-  { _cdvCores ::
-      Maybe [Core]
+  { cores ::
+      Lude.Maybe [Core]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoreDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdvCores' - A list of cores in the core definition version.
-coreDefinitionVersion ::
+-- * 'cores' - A list of cores in the core definition version.
+mkCoreDefinitionVersion ::
   CoreDefinitionVersion
-coreDefinitionVersion = CoreDefinitionVersion' {_cdvCores = Nothing}
+mkCoreDefinitionVersion =
+  CoreDefinitionVersion' {cores = Lude.Nothing}
 
 -- | A list of cores in the core definition version.
-cdvCores :: Lens' CoreDefinitionVersion [Core]
-cdvCores = lens _cdvCores (\s a -> s {_cdvCores = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvCores :: Lens.Lens' CoreDefinitionVersion (Lude.Maybe [Core])
+cdvCores = Lens.lens (cores :: CoreDefinitionVersion -> Lude.Maybe [Core]) (\s a -> s {cores = a} :: CoreDefinitionVersion)
+{-# DEPRECATED cdvCores "Use generic-lens or generic-optics with 'cores' instead." #-}
 
-instance FromJSON CoreDefinitionVersion where
+instance Lude.FromJSON CoreDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "CoreDefinitionVersion"
-      (\x -> CoreDefinitionVersion' <$> (x .:? "Cores" .!= mempty))
+      ( \x ->
+          CoreDefinitionVersion'
+            Lude.<$> (x Lude..:? "Cores" Lude..!= Lude.mempty)
+      )
 
-instance Hashable CoreDefinitionVersion
-
-instance NFData CoreDefinitionVersion
-
-instance ToJSON CoreDefinitionVersion where
+instance Lude.ToJSON CoreDefinitionVersion where
   toJSON CoreDefinitionVersion' {..} =
-    object (catMaybes [("Cores" .=) <$> _cdvCores])
+    Lude.object (Lude.catMaybes [("Cores" Lude..=) Lude.<$> cores])

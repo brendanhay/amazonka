@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceFleetModifyConfig where
+module Network.AWS.EMR.Types.InstanceFleetModifyConfig
+  ( InstanceFleetModifyConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceFleetModifyConfig,
+
+    -- * Lenses
+    ifmcTargetOnDemandCapacity,
+    ifmcTargetSpotCapacity,
+    ifmcInstanceFleetId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration parameters for an instance fleet modification request.
 --
---
---
--- /See:/ 'instanceFleetModifyConfig' smart constructor.
+-- /See:/ 'mkInstanceFleetModifyConfig' smart constructor.
 data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
-  { _ifmcTargetOnDemandCapacity ::
-      !(Maybe Nat),
-    _ifmcTargetSpotCapacity :: !(Maybe Nat),
-    _ifmcInstanceFleetId :: !Text
+  { targetOnDemandCapacity ::
+      Lude.Maybe Lude.Natural,
+    targetSpotCapacity ::
+      Lude.Maybe Lude.Natural,
+    instanceFleetId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceFleetModifyConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ifmcTargetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
---
--- * 'ifmcTargetSpotCapacity' - The target capacity of Spot units for the instance fleet. For more information, see 'InstanceFleetConfig$TargetSpotCapacity' .
---
--- * 'ifmcInstanceFleetId' - A unique identifier for the instance fleet.
-instanceFleetModifyConfig ::
-  -- | 'ifmcInstanceFleetId'
-  Text ->
+-- * 'instanceFleetId' - A unique identifier for the instance fleet.
+-- * 'targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
+-- * 'targetSpotCapacity' - The target capacity of Spot units for the instance fleet. For more information, see 'InstanceFleetConfig$TargetSpotCapacity' .
+mkInstanceFleetModifyConfig ::
+  -- | 'instanceFleetId'
+  Lude.Text ->
   InstanceFleetModifyConfig
-instanceFleetModifyConfig pInstanceFleetId_ =
+mkInstanceFleetModifyConfig pInstanceFleetId_ =
   InstanceFleetModifyConfig'
-    { _ifmcTargetOnDemandCapacity = Nothing,
-      _ifmcTargetSpotCapacity = Nothing,
-      _ifmcInstanceFleetId = pInstanceFleetId_
+    { targetOnDemandCapacity = Lude.Nothing,
+      targetSpotCapacity = Lude.Nothing,
+      instanceFleetId = pInstanceFleetId_
     }
 
 -- | The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
-ifmcTargetOnDemandCapacity :: Lens' InstanceFleetModifyConfig (Maybe Natural)
-ifmcTargetOnDemandCapacity = lens _ifmcTargetOnDemandCapacity (\s a -> s {_ifmcTargetOnDemandCapacity = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'targetOnDemandCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifmcTargetOnDemandCapacity :: Lens.Lens' InstanceFleetModifyConfig (Lude.Maybe Lude.Natural)
+ifmcTargetOnDemandCapacity = Lens.lens (targetOnDemandCapacity :: InstanceFleetModifyConfig -> Lude.Maybe Lude.Natural) (\s a -> s {targetOnDemandCapacity = a} :: InstanceFleetModifyConfig)
+{-# DEPRECATED ifmcTargetOnDemandCapacity "Use generic-lens or generic-optics with 'targetOnDemandCapacity' instead." #-}
 
 -- | The target capacity of Spot units for the instance fleet. For more information, see 'InstanceFleetConfig$TargetSpotCapacity' .
-ifmcTargetSpotCapacity :: Lens' InstanceFleetModifyConfig (Maybe Natural)
-ifmcTargetSpotCapacity = lens _ifmcTargetSpotCapacity (\s a -> s {_ifmcTargetSpotCapacity = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'targetSpotCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifmcTargetSpotCapacity :: Lens.Lens' InstanceFleetModifyConfig (Lude.Maybe Lude.Natural)
+ifmcTargetSpotCapacity = Lens.lens (targetSpotCapacity :: InstanceFleetModifyConfig -> Lude.Maybe Lude.Natural) (\s a -> s {targetSpotCapacity = a} :: InstanceFleetModifyConfig)
+{-# DEPRECATED ifmcTargetSpotCapacity "Use generic-lens or generic-optics with 'targetSpotCapacity' instead." #-}
 
 -- | A unique identifier for the instance fleet.
-ifmcInstanceFleetId :: Lens' InstanceFleetModifyConfig Text
-ifmcInstanceFleetId = lens _ifmcInstanceFleetId (\s a -> s {_ifmcInstanceFleetId = a})
+--
+-- /Note:/ Consider using 'instanceFleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifmcInstanceFleetId :: Lens.Lens' InstanceFleetModifyConfig Lude.Text
+ifmcInstanceFleetId = Lens.lens (instanceFleetId :: InstanceFleetModifyConfig -> Lude.Text) (\s a -> s {instanceFleetId = a} :: InstanceFleetModifyConfig)
+{-# DEPRECATED ifmcInstanceFleetId "Use generic-lens or generic-optics with 'instanceFleetId' instead." #-}
 
-instance Hashable InstanceFleetModifyConfig
-
-instance NFData InstanceFleetModifyConfig
-
-instance ToJSON InstanceFleetModifyConfig where
+instance Lude.ToJSON InstanceFleetModifyConfig where
   toJSON InstanceFleetModifyConfig' {..} =
-    object
-      ( catMaybes
-          [ ("TargetOnDemandCapacity" .=) <$> _ifmcTargetOnDemandCapacity,
-            ("TargetSpotCapacity" .=) <$> _ifmcTargetSpotCapacity,
-            Just ("InstanceFleetId" .= _ifmcInstanceFleetId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TargetOnDemandCapacity" Lude..=)
+              Lude.<$> targetOnDemandCapacity,
+            ("TargetSpotCapacity" Lude..=) Lude.<$> targetSpotCapacity,
+            Lude.Just ("InstanceFleetId" Lude..= instanceFleetId)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.XSSMatchSetSummary where
+module Network.AWS.WAF.Types.XSSMatchSetSummary
+  ( XSSMatchSetSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkXSSMatchSetSummary,
+
+    -- * Lenses
+    xmssXSSMatchSetId,
+    xmssName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @Id@ and @Name@ of an @XssMatchSet@ .
 --
---
---
--- /See:/ 'xssMatchSetSummary' smart constructor.
+-- /See:/ 'mkXSSMatchSetSummary' smart constructor.
 data XSSMatchSetSummary = XSSMatchSetSummary'
-  { _xmssXSSMatchSetId ::
-      !Text,
-    _xmssName :: !Text
+  { xssMatchSetId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'XSSMatchSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the @XssMatchSet@ , if any, specified by @Id@ .
+-- * 'xssMatchSetId' - A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about a @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ).
 --
--- * 'xmssXSSMatchSetId' - A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about a @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ). @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
---
--- * 'xmssName' - The name of the @XssMatchSet@ , if any, specified by @Id@ .
-xssMatchSetSummary ::
-  -- | 'xmssXSSMatchSetId'
-  Text ->
-  -- | 'xmssName'
-  Text ->
+-- @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+mkXSSMatchSetSummary ::
+  -- | 'xssMatchSetId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   XSSMatchSetSummary
-xssMatchSetSummary pXSSMatchSetId_ pName_ =
+mkXSSMatchSetSummary pXSSMatchSetId_ pName_ =
   XSSMatchSetSummary'
-    { _xmssXSSMatchSetId = pXSSMatchSetId_,
-      _xmssName = pName_
+    { xssMatchSetId = pXSSMatchSetId_,
+      name = pName_
     }
 
--- | A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about a @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ). @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
-xmssXSSMatchSetId :: Lens' XSSMatchSetSummary Text
-xmssXSSMatchSetId = lens _xmssXSSMatchSetId (\s a -> s {_xmssXSSMatchSetId = a})
+-- | A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about a @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ).
+--
+-- @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+--
+-- /Note:/ Consider using 'xssMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmssXSSMatchSetId :: Lens.Lens' XSSMatchSetSummary Lude.Text
+xmssXSSMatchSetId = Lens.lens (xssMatchSetId :: XSSMatchSetSummary -> Lude.Text) (\s a -> s {xssMatchSetId = a} :: XSSMatchSetSummary)
+{-# DEPRECATED xmssXSSMatchSetId "Use generic-lens or generic-optics with 'xssMatchSetId' instead." #-}
 
 -- | The name of the @XssMatchSet@ , if any, specified by @Id@ .
-xmssName :: Lens' XSSMatchSetSummary Text
-xmssName = lens _xmssName (\s a -> s {_xmssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmssName :: Lens.Lens' XSSMatchSetSummary Lude.Text
+xmssName = Lens.lens (name :: XSSMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: XSSMatchSetSummary)
+{-# DEPRECATED xmssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON XSSMatchSetSummary where
+instance Lude.FromJSON XSSMatchSetSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "XSSMatchSetSummary"
       ( \x ->
-          XSSMatchSetSummary' <$> (x .: "XssMatchSetId") <*> (x .: "Name")
+          XSSMatchSetSummary'
+            Lude.<$> (x Lude..: "XssMatchSetId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable XSSMatchSetSummary
-
-instance NFData XSSMatchSetSummary

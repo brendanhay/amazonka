@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types
-  ( -- * Service Configuration
-    snowball,
+  ( -- * Service configuration
+    snowballService,
 
     -- * Errors
 
@@ -40,8 +38,8 @@ module Network.AWS.Snowball.Types
     SnowballType (..),
 
     -- * Address
-    Address,
-    address,
+    Address (..),
+    mkAddress,
     aIsRestricted,
     aStreet3,
     aLandmark,
@@ -58,16 +56,16 @@ module Network.AWS.Snowball.Types
     aStreet1,
 
     -- * ClusterListEntry
-    ClusterListEntry,
-    clusterListEntry,
+    ClusterListEntry (..),
+    mkClusterListEntry,
     cleClusterState,
     cleClusterId,
     cleCreationDate,
     cleDescription,
 
     -- * ClusterMetadata
-    ClusterMetadata,
-    clusterMetadata,
+    ClusterMetadata (..),
+    mkClusterMetadata,
     cmJobType,
     cmKMSKeyARN,
     cmClusterState,
@@ -84,43 +82,43 @@ module Network.AWS.Snowball.Types
     cmRoleARN,
 
     -- * CompatibleImage
-    CompatibleImage,
-    compatibleImage,
+    CompatibleImage (..),
+    mkCompatibleImage,
     ciName,
     ciAMIId,
 
     -- * DataTransfer
-    DataTransfer,
-    dataTransfer,
+    DataTransfer (..),
+    mkDataTransfer,
     dtTotalObjects,
     dtTotalBytes,
     dtObjectsTransferred,
     dtBytesTransferred,
 
     -- * DeviceConfiguration
-    DeviceConfiguration,
-    deviceConfiguration,
+    DeviceConfiguration (..),
+    mkDeviceConfiguration,
     dcSnowconeDeviceConfiguration,
 
     -- * EC2AMIResource
-    EC2AMIResource,
-    ec2AMIResource,
+    EC2AMIResource (..),
+    mkEC2AMIResource,
     earSnowballAMIId,
     earAMIId,
 
     -- * EventTriggerDefinition
-    EventTriggerDefinition,
-    eventTriggerDefinition,
+    EventTriggerDefinition (..),
+    mkEventTriggerDefinition,
     etdEventResourceARN,
 
     -- * INDTaxDocuments
-    INDTaxDocuments,
-    iNDTaxDocuments,
+    INDTaxDocuments (..),
+    mkINDTaxDocuments,
     indtdGSTIN,
 
     -- * JobListEntry
-    JobListEntry,
-    jobListEntry,
+    JobListEntry (..),
+    mkJobListEntry,
     jleJobType,
     jleJobId,
     jleJobState,
@@ -130,15 +128,15 @@ module Network.AWS.Snowball.Types
     jleIsMaster,
 
     -- * JobLogs
-    JobLogs,
-    jobLogs,
+    JobLogs (..),
+    mkJobLogs,
     jlJobFailureLogURI,
     jlJobCompletionReportURI,
     jlJobSuccessLogURI,
 
     -- * JobMetadata
-    JobMetadata,
-    jobMetadata,
+    JobMetadata (..),
+    mkJobMetadata,
     jmJobType,
     jmKMSKeyARN,
     jmJobId,
@@ -160,70 +158,70 @@ module Network.AWS.Snowball.Types
     jmSnowballCapacityPreference,
 
     -- * JobResource
-    JobResource,
-    jobResource,
+    JobResource (..),
+    mkJobResource,
     jrEC2AMIResources,
     jrLambdaResources,
     jrS3Resources,
 
     -- * KeyRange
-    KeyRange,
-    keyRange,
+    KeyRange (..),
+    mkKeyRange,
     krEndMarker,
     krBeginMarker,
 
     -- * LambdaResource
-    LambdaResource,
-    lambdaResource,
+    LambdaResource (..),
+    mkLambdaResource,
     lrEventTriggers,
     lrLambdaARN,
 
     -- * Notification
-    Notification,
-    notification,
+    Notification (..),
+    mkNotification,
     nNotifyAll,
     nSNSTopicARN,
     nJobStatesToNotify,
 
     -- * S3Resource
-    S3Resource,
-    s3Resource,
+    S3Resource (..),
+    mkS3Resource,
     srKeyRange,
     srBucketARN,
 
     -- * Shipment
-    Shipment,
-    shipment,
+    Shipment (..),
+    mkShipment,
     sStatus,
     sTrackingNumber,
 
     -- * ShippingDetails
-    ShippingDetails,
-    shippingDetails,
+    ShippingDetails (..),
+    mkShippingDetails,
     sdShippingOption,
     sdOutboundShipment,
     sdInboundShipment,
 
     -- * SnowconeDeviceConfiguration
-    SnowconeDeviceConfiguration,
-    snowconeDeviceConfiguration,
+    SnowconeDeviceConfiguration (..),
+    mkSnowconeDeviceConfiguration,
     sdcWirelessConnection,
 
     -- * TaxDocuments
-    TaxDocuments,
-    taxDocuments,
+    TaxDocuments (..),
+    mkTaxDocuments,
     tdIND,
 
     -- * WirelessConnection
-    WirelessConnection,
-    wirelessConnection,
+    WirelessConnection (..),
+    mkWirelessConnection,
     wcIsWifiEnabled,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.Snowball.Types.Address
 import Network.AWS.Snowball.Types.ClusterListEntry
 import Network.AWS.Snowball.Types.ClusterMetadata
@@ -256,43 +254,55 @@ import Network.AWS.Snowball.Types.TaxDocuments
 import Network.AWS.Snowball.Types.WirelessConnection
 
 -- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
-snowball :: Service
-snowball =
-  Service
-    { _svcAbbrev = "Snowball",
-      _svcSigner = v4,
-      _svcPrefix = "snowball",
-      _svcVersion = "2016-06-30",
-      _svcEndpoint = defaultEndpoint snowball,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Snowball",
-      _svcRetry = retry
+snowballService :: Lude.Service
+snowballService =
+  Lude.Service
+    { Lude._svcAbbrev = "Snowball",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "snowball",
+      Lude._svcVersion = "2016-06-30",
+      Lude._svcEndpoint = Lude.defaultEndpoint snowballService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Snowball",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

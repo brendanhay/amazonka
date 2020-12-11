@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types.CognitoStreams where
+module Network.AWS.CognitoSync.Types.CognitoStreams
+  ( CognitoStreams (..),
+
+    -- * Smart constructor
+    mkCognitoStreams,
+
+    -- * Lenses
+    csStreamingStatus,
+    csStreamName,
+    csRoleARN,
+  )
+where
 
 import Network.AWS.CognitoSync.Types.StreamingStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration options for configure Cognito streams.
 --
--- /See:/ 'cognitoStreams' smart constructor.
+-- /See:/ 'mkCognitoStreams' smart constructor.
 data CognitoStreams = CognitoStreams'
-  { _csStreamingStatus ::
-      !(Maybe StreamingStatus),
-    _csStreamName :: !(Maybe Text),
-    _csRoleARN :: !(Maybe Text)
+  { streamingStatus ::
+      Lude.Maybe StreamingStatus,
+    streamName :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoStreams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'roleARN' - The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
+-- * 'streamName' - The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
+-- * 'streamingStatus' - Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled.
 --
--- * 'csStreamingStatus' - Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
---
--- * 'csStreamName' - The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
---
--- * 'csRoleARN' - The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
-cognitoStreams ::
+-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+mkCognitoStreams ::
   CognitoStreams
-cognitoStreams =
+mkCognitoStreams =
   CognitoStreams'
-    { _csStreamingStatus = Nothing,
-      _csStreamName = Nothing,
-      _csRoleARN = Nothing
+    { streamingStatus = Lude.Nothing,
+      streamName = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
--- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
-csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
-csStreamingStatus = lens _csStreamingStatus (\s a -> s {_csStreamingStatus = a})
+-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled.
+--
+-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+--
+-- /Note:/ Consider using 'streamingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStreamingStatus :: Lens.Lens' CognitoStreams (Lude.Maybe StreamingStatus)
+csStreamingStatus = Lens.lens (streamingStatus :: CognitoStreams -> Lude.Maybe StreamingStatus) (\s a -> s {streamingStatus = a} :: CognitoStreams)
+{-# DEPRECATED csStreamingStatus "Use generic-lens or generic-optics with 'streamingStatus' instead." #-}
 
 -- | The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
-csStreamName :: Lens' CognitoStreams (Maybe Text)
-csStreamName = lens _csStreamName (\s a -> s {_csStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStreamName :: Lens.Lens' CognitoStreams (Lude.Maybe Lude.Text)
+csStreamName = Lens.lens (streamName :: CognitoStreams -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: CognitoStreams)
+{-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
-csRoleARN :: Lens' CognitoStreams (Maybe Text)
-csRoleARN = lens _csRoleARN (\s a -> s {_csRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRoleARN :: Lens.Lens' CognitoStreams (Lude.Maybe Lude.Text)
+csRoleARN = Lens.lens (roleARN :: CognitoStreams -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: CognitoStreams)
+{-# DEPRECATED csRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON CognitoStreams where
+instance Lude.FromJSON CognitoStreams where
   parseJSON =
-    withObject
+    Lude.withObject
       "CognitoStreams"
       ( \x ->
           CognitoStreams'
-            <$> (x .:? "StreamingStatus")
-            <*> (x .:? "StreamName")
-            <*> (x .:? "RoleArn")
+            Lude.<$> (x Lude..:? "StreamingStatus")
+            Lude.<*> (x Lude..:? "StreamName")
+            Lude.<*> (x Lude..:? "RoleArn")
       )
 
-instance Hashable CognitoStreams
-
-instance NFData CognitoStreams
-
-instance ToJSON CognitoStreams where
+instance Lude.ToJSON CognitoStreams where
   toJSON CognitoStreams' {..} =
-    object
-      ( catMaybes
-          [ ("StreamingStatus" .=) <$> _csStreamingStatus,
-            ("StreamName" .=) <$> _csStreamName,
-            ("RoleArn" .=) <$> _csRoleARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StreamingStatus" Lude..=) Lude.<$> streamingStatus,
+            ("StreamName" Lude..=) Lude.<$> streamName,
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.ExtendedKeyUsageName where
+module Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
+  ( ExtendedKeyUsageName
+      ( ExtendedKeyUsageName',
+        Any,
+        CodeSigning,
+        Custom,
+        EmailProtection,
+        IPsecEndSystem,
+        IPsecTunnel,
+        IPsecUser,
+        None,
+        OcspSigning,
+        TLSWebClientAuthentication,
+        TLSWebServerAuthentication,
+        TimeStamping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExtendedKeyUsageName
-  = Any
-  | CodeSigning
-  | Custom
-  | EmailProtection
-  | IPsecEndSystem
-  | IPsecTunnel
-  | IPsecUser
-  | None
-  | OcspSigning
-  | TLSWebClientAuthentication
-  | TLSWebServerAuthentication
-  | TimeStamping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExtendedKeyUsageName = ExtendedKeyUsageName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExtendedKeyUsageName where
-  parser =
-    takeLowerText >>= \case
-      "any" -> pure Any
-      "code_signing" -> pure CodeSigning
-      "custom" -> pure Custom
-      "email_protection" -> pure EmailProtection
-      "ipsec_end_system" -> pure IPsecEndSystem
-      "ipsec_tunnel" -> pure IPsecTunnel
-      "ipsec_user" -> pure IPsecUser
-      "none" -> pure None
-      "ocsp_signing" -> pure OcspSigning
-      "tls_web_client_authentication" -> pure TLSWebClientAuthentication
-      "tls_web_server_authentication" -> pure TLSWebServerAuthentication
-      "time_stamping" -> pure TimeStamping
-      e ->
-        fromTextError $
-          "Failure parsing ExtendedKeyUsageName from value: '" <> e
-            <> "'. Accepted values: any, code_signing, custom, email_protection, ipsec_end_system, ipsec_tunnel, ipsec_user, none, ocsp_signing, tls_web_client_authentication, tls_web_server_authentication, time_stamping"
+pattern Any :: ExtendedKeyUsageName
+pattern Any = ExtendedKeyUsageName' "ANY"
 
-instance ToText ExtendedKeyUsageName where
-  toText = \case
-    Any -> "ANY"
-    CodeSigning -> "CODE_SIGNING"
-    Custom -> "CUSTOM"
-    EmailProtection -> "EMAIL_PROTECTION"
-    IPsecEndSystem -> "IPSEC_END_SYSTEM"
-    IPsecTunnel -> "IPSEC_TUNNEL"
-    IPsecUser -> "IPSEC_USER"
-    None -> "NONE"
-    OcspSigning -> "OCSP_SIGNING"
-    TLSWebClientAuthentication -> "TLS_WEB_CLIENT_AUTHENTICATION"
-    TLSWebServerAuthentication -> "TLS_WEB_SERVER_AUTHENTICATION"
-    TimeStamping -> "TIME_STAMPING"
+pattern CodeSigning :: ExtendedKeyUsageName
+pattern CodeSigning = ExtendedKeyUsageName' "CODE_SIGNING"
 
-instance Hashable ExtendedKeyUsageName
+pattern Custom :: ExtendedKeyUsageName
+pattern Custom = ExtendedKeyUsageName' "CUSTOM"
 
-instance NFData ExtendedKeyUsageName
+pattern EmailProtection :: ExtendedKeyUsageName
+pattern EmailProtection = ExtendedKeyUsageName' "EMAIL_PROTECTION"
 
-instance ToByteString ExtendedKeyUsageName
+pattern IPsecEndSystem :: ExtendedKeyUsageName
+pattern IPsecEndSystem = ExtendedKeyUsageName' "IPSEC_END_SYSTEM"
 
-instance ToQuery ExtendedKeyUsageName
+pattern IPsecTunnel :: ExtendedKeyUsageName
+pattern IPsecTunnel = ExtendedKeyUsageName' "IPSEC_TUNNEL"
 
-instance ToHeader ExtendedKeyUsageName
+pattern IPsecUser :: ExtendedKeyUsageName
+pattern IPsecUser = ExtendedKeyUsageName' "IPSEC_USER"
 
-instance ToJSON ExtendedKeyUsageName where
-  toJSON = toJSONText
+pattern None :: ExtendedKeyUsageName
+pattern None = ExtendedKeyUsageName' "NONE"
 
-instance FromJSON ExtendedKeyUsageName where
-  parseJSON = parseJSONText "ExtendedKeyUsageName"
+pattern OcspSigning :: ExtendedKeyUsageName
+pattern OcspSigning = ExtendedKeyUsageName' "OCSP_SIGNING"
+
+pattern TLSWebClientAuthentication :: ExtendedKeyUsageName
+pattern TLSWebClientAuthentication = ExtendedKeyUsageName' "TLS_WEB_CLIENT_AUTHENTICATION"
+
+pattern TLSWebServerAuthentication :: ExtendedKeyUsageName
+pattern TLSWebServerAuthentication = ExtendedKeyUsageName' "TLS_WEB_SERVER_AUTHENTICATION"
+
+pattern TimeStamping :: ExtendedKeyUsageName
+pattern TimeStamping = ExtendedKeyUsageName' "TIME_STAMPING"
+
+{-# COMPLETE
+  Any,
+  CodeSigning,
+  Custom,
+  EmailProtection,
+  IPsecEndSystem,
+  IPsecTunnel,
+  IPsecUser,
+  None,
+  OcspSigning,
+  TLSWebClientAuthentication,
+  TLSWebServerAuthentication,
+  TimeStamping,
+  ExtendedKeyUsageName'
+  #-}

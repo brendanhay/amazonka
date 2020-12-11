@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,139 @@
 --
 -- Given a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.
 --
---
 -- This operation is throttled at one request per second and can only get notification attributes for up to 100 identities at a time.
---
 -- For more information about using notifications with Amazon SES, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
 module Network.AWS.SES.GetIdentityNotificationAttributes
-  ( -- * Creating a Request
-    getIdentityNotificationAttributes,
-    GetIdentityNotificationAttributes,
+  ( -- * Creating a request
+    GetIdentityNotificationAttributes (..),
+    mkGetIdentityNotificationAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ginaIdentities,
 
-    -- * Destructuring the Response
-    getIdentityNotificationAttributesResponse,
-    GetIdentityNotificationAttributesResponse,
+    -- * Destructuring the response
+    GetIdentityNotificationAttributesResponse (..),
+    mkGetIdentityNotificationAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ginarsResponseStatus,
     ginarsNotificationAttributes,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'getIdentityNotificationAttributes' smart constructor.
+-- /See:/ 'mkGetIdentityNotificationAttributes' smart constructor.
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
-  { _ginaIdentities ::
-      [Text]
+  { identities ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityNotificationAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ginaIdentities' - A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
-getIdentityNotificationAttributes ::
+-- * 'identities' - A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+mkGetIdentityNotificationAttributes ::
   GetIdentityNotificationAttributes
-getIdentityNotificationAttributes =
-  GetIdentityNotificationAttributes' {_ginaIdentities = mempty}
+mkGetIdentityNotificationAttributes =
+  GetIdentityNotificationAttributes' {identities = Lude.mempty}
 
 -- | A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
-ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\s a -> s {_ginaIdentities = a}) . _Coerce
+--
+-- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ginaIdentities :: Lens.Lens' GetIdentityNotificationAttributes [Lude.Text]
+ginaIdentities = Lens.lens (identities :: GetIdentityNotificationAttributes -> [Lude.Text]) (\s a -> s {identities = a} :: GetIdentityNotificationAttributes)
+{-# DEPRECATED ginaIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
 
-instance AWSRequest GetIdentityNotificationAttributes where
+instance Lude.AWSRequest GetIdentityNotificationAttributes where
   type
     Rs GetIdentityNotificationAttributes =
       GetIdentityNotificationAttributesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetIdentityNotificationAttributesResult"
       ( \s h x ->
           GetIdentityNotificationAttributesResponse'
-            <$> (pure (fromEnum s))
-            <*> ( x .@? "NotificationAttributes" .!@ mempty
-                    >>= parseXMLMap "entry" "key" "value"
-                )
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "NotificationAttributes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLMap "entry" "key" "value"
+                     )
       )
 
-instance Hashable GetIdentityNotificationAttributes
+instance Lude.ToHeaders GetIdentityNotificationAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetIdentityNotificationAttributes
+instance Lude.ToPath GetIdentityNotificationAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetIdentityNotificationAttributes where
-  toHeaders = const mempty
-
-instance ToPath GetIdentityNotificationAttributes where
-  toPath = const "/"
-
-instance ToQuery GetIdentityNotificationAttributes where
+instance Lude.ToQuery GetIdentityNotificationAttributes where
   toQuery GetIdentityNotificationAttributes' {..} =
-    mconcat
-      [ "Action" =: ("GetIdentityNotificationAttributes" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identities" =: toQueryList "member" _ginaIdentities
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetIdentityNotificationAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identities" Lude.=: Lude.toQueryList "member" identities
       ]
 
 -- | Represents the notification attributes for a list of identities.
 --
---
---
--- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
+-- /See:/ 'mkGetIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-  { _ginarsResponseStatus ::
-      !Int,
-    _ginarsNotificationAttributes ::
-      !( Map
-           Text
-           (IdentityNotificationAttributes)
-       )
+  { responseStatus ::
+      Lude.Int,
+    notificationAttributes ::
+      Lude.HashMap
+        Lude.Text
+        (IdentityNotificationAttributes)
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityNotificationAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ginarsResponseStatus' - -- | The response status code.
---
--- * 'ginarsNotificationAttributes' - A map of Identity to IdentityNotificationAttributes.
-getIdentityNotificationAttributesResponse ::
-  -- | 'ginarsResponseStatus'
-  Int ->
+-- * 'notificationAttributes' - A map of Identity to IdentityNotificationAttributes.
+-- * 'responseStatus' - The response status code.
+mkGetIdentityNotificationAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse pResponseStatus_ =
+mkGetIdentityNotificationAttributesResponse pResponseStatus_ =
   GetIdentityNotificationAttributesResponse'
-    { _ginarsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _ginarsNotificationAttributes = mempty
+      notificationAttributes = Lude.mempty
     }
 
--- | -- | The response status code.
-ginarsResponseStatus :: Lens' GetIdentityNotificationAttributesResponse Int
-ginarsResponseStatus = lens _ginarsResponseStatus (\s a -> s {_ginarsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ginarsResponseStatus :: Lens.Lens' GetIdentityNotificationAttributesResponse Lude.Int
+ginarsResponseStatus = Lens.lens (responseStatus :: GetIdentityNotificationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityNotificationAttributesResponse)
+{-# DEPRECATED ginarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text (IdentityNotificationAttributes))
-ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\s a -> s {_ginarsNotificationAttributes = a}) . _Map
-
-instance NFData GetIdentityNotificationAttributesResponse
+--
+-- /Note:/ Consider using 'notificationAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ginarsNotificationAttributes :: Lens.Lens' GetIdentityNotificationAttributesResponse (Lude.HashMap Lude.Text (IdentityNotificationAttributes))
+ginarsNotificationAttributes = Lens.lens (notificationAttributes :: GetIdentityNotificationAttributesResponse -> Lude.HashMap Lude.Text (IdentityNotificationAttributes)) (\s a -> s {notificationAttributes = a} :: GetIdentityNotificationAttributesResponse)
+{-# DEPRECATED ginarsNotificationAttributes "Use generic-lens or generic-optics with 'notificationAttributes' instead." #-}

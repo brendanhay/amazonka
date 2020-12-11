@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateFailureReason where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateFailureReason
+  ( LoadBalancerTLSCertificateFailureReason
+      ( LoadBalancerTLSCertificateFailureReason',
+        AdditionalVerificationRequired,
+        DomainNotAllowed,
+        InvalidPublicDomain,
+        NoAvailableContacts,
+        Other
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerTLSCertificateFailureReason
-  = AdditionalVerificationRequired
-  | DomainNotAllowed
-  | InvalidPublicDomain
-  | NoAvailableContacts
-  | Other
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerTLSCertificateFailureReason = LoadBalancerTLSCertificateFailureReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerTLSCertificateFailureReason where
-  parser =
-    takeLowerText >>= \case
-      "additional_verification_required" -> pure AdditionalVerificationRequired
-      "domain_not_allowed" -> pure DomainNotAllowed
-      "invalid_public_domain" -> pure InvalidPublicDomain
-      "no_available_contacts" -> pure NoAvailableContacts
-      "other" -> pure Other
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerTLSCertificateFailureReason from value: '" <> e
-            <> "'. Accepted values: additional_verification_required, domain_not_allowed, invalid_public_domain, no_available_contacts, other"
+pattern AdditionalVerificationRequired :: LoadBalancerTLSCertificateFailureReason
+pattern AdditionalVerificationRequired = LoadBalancerTLSCertificateFailureReason' "ADDITIONAL_VERIFICATION_REQUIRED"
 
-instance ToText LoadBalancerTLSCertificateFailureReason where
-  toText = \case
-    AdditionalVerificationRequired -> "ADDITIONAL_VERIFICATION_REQUIRED"
-    DomainNotAllowed -> "DOMAIN_NOT_ALLOWED"
-    InvalidPublicDomain -> "INVALID_PUBLIC_DOMAIN"
-    NoAvailableContacts -> "NO_AVAILABLE_CONTACTS"
-    Other -> "OTHER"
+pattern DomainNotAllowed :: LoadBalancerTLSCertificateFailureReason
+pattern DomainNotAllowed = LoadBalancerTLSCertificateFailureReason' "DOMAIN_NOT_ALLOWED"
 
-instance Hashable LoadBalancerTLSCertificateFailureReason
+pattern InvalidPublicDomain :: LoadBalancerTLSCertificateFailureReason
+pattern InvalidPublicDomain = LoadBalancerTLSCertificateFailureReason' "INVALID_PUBLIC_DOMAIN"
 
-instance NFData LoadBalancerTLSCertificateFailureReason
+pattern NoAvailableContacts :: LoadBalancerTLSCertificateFailureReason
+pattern NoAvailableContacts = LoadBalancerTLSCertificateFailureReason' "NO_AVAILABLE_CONTACTS"
 
-instance ToByteString LoadBalancerTLSCertificateFailureReason
+pattern Other :: LoadBalancerTLSCertificateFailureReason
+pattern Other = LoadBalancerTLSCertificateFailureReason' "OTHER"
 
-instance ToQuery LoadBalancerTLSCertificateFailureReason
-
-instance ToHeader LoadBalancerTLSCertificateFailureReason
-
-instance FromJSON LoadBalancerTLSCertificateFailureReason where
-  parseJSON = parseJSONText "LoadBalancerTLSCertificateFailureReason"
+{-# COMPLETE
+  AdditionalVerificationRequired,
+  DomainNotAllowed,
+  InvalidPublicDomain,
+  NoAvailableContacts,
+  Other,
+  LoadBalancerTLSCertificateFailureReason'
+  #-}

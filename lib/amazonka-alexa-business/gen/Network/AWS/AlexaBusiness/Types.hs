@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types
-  ( -- * Service Configuration
-    alexaBusiness,
+  ( -- * Service configuration
+    alexaBusinessService,
 
     -- * Errors
 
@@ -100,28 +98,28 @@ module Network.AWS.AlexaBusiness.Types
     WakeWord (..),
 
     -- * AddressBook
-    AddressBook,
-    addressBook,
+    AddressBook (..),
+    mkAddressBook,
     abAddressBookARN,
     abName,
     abDescription,
 
     -- * AddressBookData
-    AddressBookData,
-    addressBookData,
+    AddressBookData (..),
+    mkAddressBookData,
     abdAddressBookARN,
     abdName,
     abdDescription,
 
     -- * Audio
-    Audio,
-    audio,
+    Audio (..),
+    mkAudio,
     aLocale,
     aLocation,
 
     -- * BusinessReport
-    BusinessReport,
-    businessReport,
+    BusinessReport (..),
+    mkBusinessReport,
     brStatus,
     brFailureCode,
     brDeliveryTime,
@@ -129,24 +127,24 @@ module Network.AWS.AlexaBusiness.Types
     brS3Location,
 
     -- * BusinessReportContentRange
-    BusinessReportContentRange,
-    businessReportContentRange,
+    BusinessReportContentRange (..),
+    mkBusinessReportContentRange,
     brcrInterval,
 
     -- * BusinessReportRecurrence
-    BusinessReportRecurrence,
-    businessReportRecurrence,
+    BusinessReportRecurrence (..),
+    mkBusinessReportRecurrence,
     brrStartDate,
 
     -- * BusinessReportS3Location
-    BusinessReportS3Location,
-    businessReportS3Location,
+    BusinessReportS3Location (..),
+    mkBusinessReportS3Location,
     brslPath,
     brslBucketName,
 
     -- * BusinessReportSchedule
-    BusinessReportSchedule,
-    businessReportSchedule,
+    BusinessReportSchedule (..),
+    mkBusinessReportSchedule,
     brsS3KeyPrefix,
     brsLastBusinessReport,
     brsFormat,
@@ -157,19 +155,19 @@ module Network.AWS.AlexaBusiness.Types
     brsS3BucketName,
 
     -- * Category
-    Category,
-    category,
+    Category (..),
+    mkCategory,
     cCategoryName,
     cCategoryId,
 
     -- * ConferencePreference
-    ConferencePreference,
-    conferencePreference,
+    ConferencePreference (..),
+    mkConferencePreference,
     cpDefaultConferenceProviderARN,
 
     -- * ConferenceProvider
-    ConferenceProvider,
-    conferenceProvider,
+    ConferenceProvider (..),
+    mkConferenceProvider,
     cpMeetingSetting,
     cpARN,
     cpPSTNDialIn,
@@ -178,8 +176,8 @@ module Network.AWS.AlexaBusiness.Types
     cpIPDialIn,
 
     -- * Contact
-    Contact,
-    contact,
+    Contact (..),
+    mkContact,
     cLastName,
     cContactARN,
     cPhoneNumbers,
@@ -189,8 +187,8 @@ module Network.AWS.AlexaBusiness.Types
     cDisplayName,
 
     -- * ContactData
-    ContactData,
-    contactData,
+    ContactData (..),
+    mkContactData,
     cdLastName,
     cdContactARN,
     cdPhoneNumbers,
@@ -200,50 +198,50 @@ module Network.AWS.AlexaBusiness.Types
     cdDisplayName,
 
     -- * Content
-    Content,
-    content,
+    Content (..),
+    mkContent,
     cAudioList,
     cTextList,
     cSsmlList,
 
     -- * CreateEndOfMeetingReminder
-    CreateEndOfMeetingReminder,
-    createEndOfMeetingReminder,
+    CreateEndOfMeetingReminder (..),
+    mkCreateEndOfMeetingReminder,
     ceomrReminderAtMinutes,
     ceomrReminderType,
     ceomrEnabled,
 
     -- * CreateInstantBooking
-    CreateInstantBooking,
-    createInstantBooking,
+    CreateInstantBooking (..),
+    mkCreateInstantBooking,
     cibDurationInMinutes,
     cibEnabled,
 
     -- * CreateMeetingRoomConfiguration
-    CreateMeetingRoomConfiguration,
-    createMeetingRoomConfiguration,
+    CreateMeetingRoomConfiguration (..),
+    mkCreateMeetingRoomConfiguration,
     cmrcInstantBooking,
     cmrcEndOfMeetingReminder,
     cmrcRequireCheckIn,
     cmrcRoomUtilizationMetricsEnabled,
 
     -- * CreateRequireCheckIn
-    CreateRequireCheckIn,
-    createRequireCheckIn,
+    CreateRequireCheckIn (..),
+    mkCreateRequireCheckIn,
     crciReleaseAfterMinutes,
     crciEnabled,
 
     -- * DeveloperInfo
-    DeveloperInfo,
-    developerInfo,
+    DeveloperInfo (..),
+    mkDeveloperInfo,
     diEmail,
     diURL,
     diPrivacyPolicy,
     diDeveloperName,
 
     -- * Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dDeviceStatus,
     dDeviceStatusInfo,
     dDeviceARN,
@@ -256,8 +254,8 @@ module Network.AWS.AlexaBusiness.Types
     dDeviceSerialNumber,
 
     -- * DeviceData
-    DeviceData,
-    deviceData,
+    DeviceData (..),
+    mkDeviceData,
     ddDeviceStatus,
     ddNetworkProfileName,
     ddDeviceStatusInfo,
@@ -273,48 +271,48 @@ module Network.AWS.AlexaBusiness.Types
     ddDeviceSerialNumber,
 
     -- * DeviceEvent
-    DeviceEvent,
-    deviceEvent,
+    DeviceEvent (..),
+    mkDeviceEvent,
     deValue,
     deType,
     deTimestamp,
 
     -- * DeviceNetworkProfileInfo
-    DeviceNetworkProfileInfo,
-    deviceNetworkProfileInfo,
+    DeviceNetworkProfileInfo (..),
+    mkDeviceNetworkProfileInfo,
     dnpiCertificateARN,
     dnpiNetworkProfileARN,
     dnpiCertificateExpirationTime,
 
     -- * DeviceStatusDetail
-    DeviceStatusDetail,
-    deviceStatusDetail,
+    DeviceStatusDetail (..),
+    mkDeviceStatusDetail,
     dsdFeature,
     dsdCode,
 
     -- * DeviceStatusInfo
-    DeviceStatusInfo,
-    deviceStatusInfo,
+    DeviceStatusInfo (..),
+    mkDeviceStatusInfo,
     dsiConnectionStatusUpdatedTime,
     dsiDeviceStatusDetails,
     dsiConnectionStatus,
 
     -- * EndOfMeetingReminder
-    EndOfMeetingReminder,
-    endOfMeetingReminder,
+    EndOfMeetingReminder (..),
+    mkEndOfMeetingReminder,
     eomrEnabled,
     eomrReminderAtMinutes,
     eomrReminderType,
 
     -- * Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fKey,
     fValues,
 
     -- * Gateway
-    Gateway,
-    gateway,
+    Gateway (..),
+    mkGateway,
     gARN,
     gName,
     gGatewayGroupARN,
@@ -322,22 +320,22 @@ module Network.AWS.AlexaBusiness.Types
     gDescription,
 
     -- * GatewayGroup
-    GatewayGroup,
-    gatewayGroup,
+    GatewayGroup (..),
+    mkGatewayGroup,
     ggARN,
     ggName,
     ggDescription,
 
     -- * GatewayGroupSummary
-    GatewayGroupSummary,
-    gatewayGroupSummary,
+    GatewayGroupSummary (..),
+    mkGatewayGroupSummary,
     ggsARN,
     ggsName,
     ggsDescription,
 
     -- * GatewaySummary
-    GatewaySummary,
-    gatewaySummary,
+    GatewaySummary (..),
+    mkGatewaySummary,
     gsARN,
     gsName,
     gsGatewayGroupARN,
@@ -345,33 +343,33 @@ module Network.AWS.AlexaBusiness.Types
     gsDescription,
 
     -- * IPDialIn
-    IPDialIn,
-    ipDialIn,
+    IPDialIn (..),
+    mkIPDialIn,
     idiEndpoint,
     idiCommsProtocol,
 
     -- * InstantBooking
-    InstantBooking,
-    instantBooking,
+    InstantBooking (..),
+    mkInstantBooking,
     ibEnabled,
     ibDurationInMinutes,
 
     -- * MeetingRoomConfiguration
-    MeetingRoomConfiguration,
-    meetingRoomConfiguration,
+    MeetingRoomConfiguration (..),
+    mkMeetingRoomConfiguration,
     mrcInstantBooking,
     mrcEndOfMeetingReminder,
     mrcRequireCheckIn,
     mrcRoomUtilizationMetricsEnabled,
 
     -- * MeetingSetting
-    MeetingSetting,
-    meetingSetting,
+    MeetingSetting (..),
+    mkMeetingSetting,
     msRequirePin,
 
     -- * NetworkProfile
-    NetworkProfile,
-    networkProfile,
+    NetworkProfile (..),
+    mkNetworkProfile,
     npNetworkProfileName,
     npSsid,
     npNetworkProfileARN,
@@ -384,8 +382,8 @@ module Network.AWS.AlexaBusiness.Types
     npCertificateAuthorityARN,
 
     -- * NetworkProfileData
-    NetworkProfileData,
-    networkProfileData,
+    NetworkProfileData (..),
+    mkNetworkProfileData,
     npdNetworkProfileName,
     npdSsid,
     npdNetworkProfileARN,
@@ -395,22 +393,22 @@ module Network.AWS.AlexaBusiness.Types
     npdCertificateAuthorityARN,
 
     -- * PSTNDialIn
-    PSTNDialIn,
-    pSTNDialIn,
+    PSTNDialIn (..),
+    mkPSTNDialIn,
     pstndiCountryCode,
     pstndiPhoneNumber,
     pstndiOneClickIdDelay,
     pstndiOneClickPinDelay,
 
     -- * PhoneNumber
-    PhoneNumber,
-    phoneNumber,
+    PhoneNumber (..),
+    mkPhoneNumber,
     pnNumber,
     pnType,
 
     -- * Profile
-    Profile,
-    profile,
+    Profile (..),
+    mkProfile,
     pSetupModeDisabled,
     pPSTNEnabled,
     pAddressBookARN,
@@ -427,8 +425,8 @@ module Network.AWS.AlexaBusiness.Types
     pIsDefault,
 
     -- * ProfileData
-    ProfileData,
-    profileData,
+    ProfileData (..),
+    mkProfileData,
     pdDistanceUnit,
     pdLocale,
     pdAddress,
@@ -440,14 +438,14 @@ module Network.AWS.AlexaBusiness.Types
     pdIsDefault,
 
     -- * RequireCheckIn
-    RequireCheckIn,
-    requireCheckIn,
+    RequireCheckIn (..),
+    mkRequireCheckIn,
     rciEnabled,
     rciReleaseAfterMinutes,
 
     -- * Room
-    Room,
-    room,
+    Room (..),
+    mkRoom,
     rProfileARN,
     rProviderCalendarId,
     rRoomARN,
@@ -455,8 +453,8 @@ module Network.AWS.AlexaBusiness.Types
     rDescription,
 
     -- * RoomData
-    RoomData,
-    roomData,
+    RoomData (..),
+    mkRoomData,
     rdProfileARN,
     rdProviderCalendarId,
     rdProfileName,
@@ -465,20 +463,20 @@ module Network.AWS.AlexaBusiness.Types
     rdDescription,
 
     -- * RoomSkillParameter
-    RoomSkillParameter,
-    roomSkillParameter,
+    RoomSkillParameter (..),
+    mkRoomSkillParameter,
     rspParameterKey,
     rspParameterValue,
 
     -- * SipAddress
-    SipAddress,
-    sipAddress,
+    SipAddress (..),
+    mkSipAddress,
     saURI,
     saType,
 
     -- * SkillDetails
-    SkillDetails,
-    skillDetails,
+    SkillDetails (..),
+    mkSkillDetails,
     sdSkillTypes,
     sdProductDescription,
     sdInvocationPhrase,
@@ -491,22 +489,22 @@ module Network.AWS.AlexaBusiness.Types
     sdBulletPoints,
 
     -- * SkillGroup
-    SkillGroup,
-    skillGroup,
+    SkillGroup (..),
+    mkSkillGroup,
     sgSkillGroupARN,
     sgDescription,
     sgSkillGroupName,
 
     -- * SkillGroupData
-    SkillGroupData,
-    skillGroupData,
+    SkillGroupData (..),
+    mkSkillGroupData,
     sgdSkillGroupARN,
     sgdDescription,
     sgdSkillGroupName,
 
     -- * SkillSummary
-    SkillSummary,
-    skillSummary,
+    SkillSummary (..),
+    mkSkillSummary,
     ssSkillId,
     ssSupportsLinking,
     ssSkillType,
@@ -514,8 +512,8 @@ module Network.AWS.AlexaBusiness.Types
     ssSkillName,
 
     -- * SkillsStoreSkill
-    SkillsStoreSkill,
-    skillsStoreSkill,
+    SkillsStoreSkill (..),
+    mkSkillsStoreSkill,
     sssSkillId,
     sssSupportsLinking,
     sssSampleUtterances,
@@ -525,66 +523,66 @@ module Network.AWS.AlexaBusiness.Types
     sssSkillName,
 
     -- * SmartHomeAppliance
-    SmartHomeAppliance,
-    smartHomeAppliance,
+    SmartHomeAppliance (..),
+    mkSmartHomeAppliance,
     shaFriendlyName,
     shaManufacturerName,
     shaDescription,
 
     -- * Sort
-    Sort,
-    sort,
+    Sort (..),
+    mkSort,
     sKey,
     sValue,
 
     -- * Ssml
-    Ssml,
-    ssml,
+    Ssml (..),
+    mkSsml,
     ssmLocale,
     ssmValue,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TextMessage
-    TextMessage,
-    textMessage,
+    TextMessage (..),
+    mkTextMessage,
     tmLocale,
     tmValue,
 
     -- * UpdateEndOfMeetingReminder
-    UpdateEndOfMeetingReminder,
-    updateEndOfMeetingReminder,
+    UpdateEndOfMeetingReminder (..),
+    mkUpdateEndOfMeetingReminder,
     ueomrEnabled,
     ueomrReminderAtMinutes,
     ueomrReminderType,
 
     -- * UpdateInstantBooking
-    UpdateInstantBooking,
-    updateInstantBooking,
+    UpdateInstantBooking (..),
+    mkUpdateInstantBooking,
     uibEnabled,
     uibDurationInMinutes,
 
     -- * UpdateMeetingRoomConfiguration
-    UpdateMeetingRoomConfiguration,
-    updateMeetingRoomConfiguration,
+    UpdateMeetingRoomConfiguration (..),
+    mkUpdateMeetingRoomConfiguration,
     umrcInstantBooking,
     umrcEndOfMeetingReminder,
     umrcRequireCheckIn,
     umrcRoomUtilizationMetricsEnabled,
 
     -- * UpdateRequireCheckIn
-    UpdateRequireCheckIn,
-    updateRequireCheckIn,
+    UpdateRequireCheckIn (..),
+    mkUpdateRequireCheckIn,
     urciEnabled,
     urciReleaseAfterMinutes,
 
     -- * UserData
-    UserData,
-    userData,
+    UserData (..),
+    mkUserData,
     udEmail,
     udLastName,
     udEnrollmentId,
@@ -683,48 +681,60 @@ import Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
 import Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
 import Network.AWS.AlexaBusiness.Types.UserData
 import Network.AWS.AlexaBusiness.Types.WakeWord
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-09@ of the Amazon Alexa For Business SDK configuration.
-alexaBusiness :: Service
-alexaBusiness =
-  Service
-    { _svcAbbrev = "AlexaBusiness",
-      _svcSigner = v4,
-      _svcPrefix = "a4b",
-      _svcVersion = "2017-11-09",
-      _svcEndpoint = defaultEndpoint alexaBusiness,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "AlexaBusiness",
-      _svcRetry = retry
+alexaBusinessService :: Lude.Service
+alexaBusinessService =
+  Lude.Service
+    { Lude._svcAbbrev = "AlexaBusiness",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "a4b",
+      Lude._svcVersion = "2017-11-09",
+      Lude._svcEndpoint = Lude.defaultEndpoint alexaBusinessService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "AlexaBusiness",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

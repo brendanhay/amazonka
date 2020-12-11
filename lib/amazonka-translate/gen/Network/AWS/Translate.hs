@@ -13,8 +13,8 @@
 --
 -- Provides translation between one source language and another of the same set of languages.
 module Network.AWS.Translate
-  ( -- * Service Configuration
-    translate,
+  ( -- * Service configuration
+    translateService,
 
     -- * Errors
     -- $errors
@@ -88,50 +88,50 @@ module Network.AWS.Translate
     TerminologyDataFormat (..),
 
     -- ** AppliedTerminology
-    AppliedTerminology,
-    appliedTerminology,
+    AppliedTerminology (..),
+    mkAppliedTerminology,
     atTerms,
     atName,
 
     -- ** EncryptionKey
-    EncryptionKey,
-    encryptionKey,
+    EncryptionKey (..),
+    mkEncryptionKey,
     ekType,
     ekId,
 
     -- ** InputDataConfig
-    InputDataConfig,
-    inputDataConfig,
+    InputDataConfig (..),
+    mkInputDataConfig,
     idcS3URI,
     idcContentType,
 
     -- ** JobDetails
-    JobDetails,
-    jobDetails,
+    JobDetails (..),
+    mkJobDetails,
     jdTranslatedDocumentsCount,
     jdDocumentsWithErrorsCount,
     jdInputDocumentsCount,
 
     -- ** OutputDataConfig
-    OutputDataConfig,
-    outputDataConfig,
+    OutputDataConfig (..),
+    mkOutputDataConfig,
     odcS3URI,
 
     -- ** ParallelDataConfig
-    ParallelDataConfig,
-    parallelDataConfig,
+    ParallelDataConfig (..),
+    mkParallelDataConfig,
     pdcS3URI,
     pdcFormat,
 
     -- ** ParallelDataDataLocation
-    ParallelDataDataLocation,
-    parallelDataDataLocation,
+    ParallelDataDataLocation (..),
+    mkParallelDataDataLocation,
     pddlRepositoryType,
     pddlLocation,
 
     -- ** ParallelDataProperties
-    ParallelDataProperties,
-    parallelDataProperties,
+    ParallelDataProperties (..),
+    mkParallelDataProperties,
     pdpStatus,
     pdpLastUpdatedAt,
     pdpImportedRecordCount,
@@ -151,26 +151,26 @@ module Network.AWS.Translate
     pdpParallelDataConfig,
 
     -- ** Term
-    Term,
-    term,
+    Term (..),
+    mkTerm,
     tTargetText,
     tSourceText,
 
     -- ** TerminologyData
-    TerminologyData,
-    terminologyData,
+    TerminologyData (..),
+    mkTerminologyData,
     tdFile,
     tdFormat,
 
     -- ** TerminologyDataLocation
-    TerminologyDataLocation,
-    terminologyDataLocation,
+    TerminologyDataLocation (..),
+    mkTerminologyDataLocation,
     tdlRepositoryType,
     tdlLocation,
 
     -- ** TerminologyProperties
-    TerminologyProperties,
-    terminologyProperties,
+    TerminologyProperties (..),
+    mkTerminologyProperties,
     tpSizeBytes,
     tpLastUpdatedAt,
     tpARN,
@@ -183,16 +183,16 @@ module Network.AWS.Translate
     tpDescription,
 
     -- ** TextTranslationJobFilter
-    TextTranslationJobFilter,
-    textTranslationJobFilter,
+    TextTranslationJobFilter (..),
+    mkTextTranslationJobFilter,
     ttjfSubmittedBeforeTime,
     ttjfSubmittedAfterTime,
     ttjfJobName,
     ttjfJobStatus,
 
     -- ** TextTranslationJobProperties
-    TextTranslationJobProperties,
-    textTranslationJobProperties,
+    TextTranslationJobProperties (..),
+    mkTextTranslationJobProperties,
     ttjpJobId,
     ttjpTargetLanguageCodes,
     ttjpJobName,
@@ -207,9 +207,21 @@ module Network.AWS.Translate
     ttjpDataAccessRoleARN,
     ttjpJobStatus,
     ttjpMessage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Translate.CreateParallelData
 import Network.AWS.Translate.DeleteParallelData
 import Network.AWS.Translate.DeleteTerminology

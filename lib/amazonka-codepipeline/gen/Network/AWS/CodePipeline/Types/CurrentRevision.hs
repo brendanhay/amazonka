@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.CurrentRevision where
+module Network.AWS.CodePipeline.Types.CurrentRevision
+  ( CurrentRevision (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCurrentRevision,
+
+    -- * Lenses
+    crRevisionSummary,
+    crCreated,
+    crRevision,
+    crChangeIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about a current revision.
 --
---
---
--- /See:/ 'currentRevision' smart constructor.
+-- /See:/ 'mkCurrentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
-  { _crRevisionSummary ::
-      !(Maybe Text),
-    _crCreated :: !(Maybe POSIX),
-    _crRevision :: !Text,
-    _crChangeIdentifier :: !Text
+  { revisionSummary ::
+      Lude.Maybe Lude.Text,
+    created :: Lude.Maybe Lude.Timestamp,
+    revision :: Lude.Text,
+    changeIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CurrentRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crRevisionSummary' - The summary of the most recent revision of the artifact.
---
--- * 'crCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
---
--- * 'crRevision' - The revision ID of the current version of an artifact.
---
--- * 'crChangeIdentifier' - The change identifier for the current revision.
-currentRevision ::
-  -- | 'crRevision'
-  Text ->
-  -- | 'crChangeIdentifier'
-  Text ->
+-- * 'changeIdentifier' - The change identifier for the current revision.
+-- * 'created' - The date and time when the most recent revision of the artifact was created, in timestamp format.
+-- * 'revision' - The revision ID of the current version of an artifact.
+-- * 'revisionSummary' - The summary of the most recent revision of the artifact.
+mkCurrentRevision ::
+  -- | 'revision'
+  Lude.Text ->
+  -- | 'changeIdentifier'
+  Lude.Text ->
   CurrentRevision
-currentRevision pRevision_ pChangeIdentifier_ =
+mkCurrentRevision pRevision_ pChangeIdentifier_ =
   CurrentRevision'
-    { _crRevisionSummary = Nothing,
-      _crCreated = Nothing,
-      _crRevision = pRevision_,
-      _crChangeIdentifier = pChangeIdentifier_
+    { revisionSummary = Lude.Nothing,
+      created = Lude.Nothing,
+      revision = pRevision_,
+      changeIdentifier = pChangeIdentifier_
     }
 
 -- | The summary of the most recent revision of the artifact.
-crRevisionSummary :: Lens' CurrentRevision (Maybe Text)
-crRevisionSummary = lens _crRevisionSummary (\s a -> s {_crRevisionSummary = a})
+--
+-- /Note:/ Consider using 'revisionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRevisionSummary :: Lens.Lens' CurrentRevision (Lude.Maybe Lude.Text)
+crRevisionSummary = Lens.lens (revisionSummary :: CurrentRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionSummary = a} :: CurrentRevision)
+{-# DEPRECATED crRevisionSummary "Use generic-lens or generic-optics with 'revisionSummary' instead." #-}
 
 -- | The date and time when the most recent revision of the artifact was created, in timestamp format.
-crCreated :: Lens' CurrentRevision (Maybe UTCTime)
-crCreated = lens _crCreated (\s a -> s {_crCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crCreated :: Lens.Lens' CurrentRevision (Lude.Maybe Lude.Timestamp)
+crCreated = Lens.lens (created :: CurrentRevision -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: CurrentRevision)
+{-# DEPRECATED crCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The revision ID of the current version of an artifact.
-crRevision :: Lens' CurrentRevision Text
-crRevision = lens _crRevision (\s a -> s {_crRevision = a})
+--
+-- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRevision :: Lens.Lens' CurrentRevision Lude.Text
+crRevision = Lens.lens (revision :: CurrentRevision -> Lude.Text) (\s a -> s {revision = a} :: CurrentRevision)
+{-# DEPRECATED crRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
 -- | The change identifier for the current revision.
-crChangeIdentifier :: Lens' CurrentRevision Text
-crChangeIdentifier = lens _crChangeIdentifier (\s a -> s {_crChangeIdentifier = a})
+--
+-- /Note:/ Consider using 'changeIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crChangeIdentifier :: Lens.Lens' CurrentRevision Lude.Text
+crChangeIdentifier = Lens.lens (changeIdentifier :: CurrentRevision -> Lude.Text) (\s a -> s {changeIdentifier = a} :: CurrentRevision)
+{-# DEPRECATED crChangeIdentifier "Use generic-lens or generic-optics with 'changeIdentifier' instead." #-}
 
-instance Hashable CurrentRevision
-
-instance NFData CurrentRevision
-
-instance ToJSON CurrentRevision where
+instance Lude.ToJSON CurrentRevision where
   toJSON CurrentRevision' {..} =
-    object
-      ( catMaybes
-          [ ("revisionSummary" .=) <$> _crRevisionSummary,
-            ("created" .=) <$> _crCreated,
-            Just ("revision" .= _crRevision),
-            Just ("changeIdentifier" .= _crChangeIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("revisionSummary" Lude..=) Lude.<$> revisionSummary,
+            ("created" Lude..=) Lude.<$> created,
+            Lude.Just ("revision" Lude..= revision),
+            Lude.Just ("changeIdentifier" Lude..= changeIdentifier)
           ]
       )

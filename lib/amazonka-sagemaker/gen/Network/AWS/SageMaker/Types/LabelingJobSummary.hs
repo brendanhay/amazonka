@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobSummary where
+module Network.AWS.SageMaker.Types.LabelingJobSummary
+  ( LabelingJobSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobSummary,
+
+    -- * Lenses
+    ljsFailureReason,
+    ljsAnnotationConsolidationLambdaARN,
+    ljsInputConfig,
+    ljsLabelingJobOutput,
+    ljsLabelingJobName,
+    ljsLabelingJobARN,
+    ljsCreationTime,
+    ljsLastModifiedTime,
+    ljsLabelingJobStatus,
+    ljsLabelCounters,
+    ljsWorkteamARN,
+    ljsPreHumanTaskLambdaARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.LabelCounters
 import Network.AWS.SageMaker.Types.LabelingJobInputConfig
 import Network.AWS.SageMaker.Types.LabelingJobOutput
@@ -24,72 +38,65 @@ import Network.AWS.SageMaker.Types.LabelingJobStatus
 
 -- | Provides summary information about a labeling job.
 --
---
---
--- /See:/ 'labelingJobSummary' smart constructor.
+-- /See:/ 'mkLabelingJobSummary' smart constructor.
 data LabelingJobSummary = LabelingJobSummary'
-  { _ljsFailureReason ::
-      !(Maybe Text),
-    _ljsAnnotationConsolidationLambdaARN :: !(Maybe Text),
-    _ljsInputConfig :: !(Maybe LabelingJobInputConfig),
-    _ljsLabelingJobOutput :: !(Maybe LabelingJobOutput),
-    _ljsLabelingJobName :: !Text,
-    _ljsLabelingJobARN :: !Text,
-    _ljsCreationTime :: !POSIX,
-    _ljsLastModifiedTime :: !POSIX,
-    _ljsLabelingJobStatus :: !LabelingJobStatus,
-    _ljsLabelCounters :: !LabelCounters,
-    _ljsWorkteamARN :: !Text,
-    _ljsPreHumanTaskLambdaARN :: !Text
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    annotationConsolidationLambdaARN ::
+      Lude.Maybe Lude.Text,
+    inputConfig :: Lude.Maybe LabelingJobInputConfig,
+    labelingJobOutput :: Lude.Maybe LabelingJobOutput,
+    labelingJobName :: Lude.Text,
+    labelingJobARN :: Lude.Text,
+    creationTime :: Lude.Timestamp,
+    lastModifiedTime :: Lude.Timestamp,
+    labelingJobStatus :: LabelingJobStatus,
+    labelCounters :: LabelCounters,
+    workteamARN :: Lude.Text,
+    preHumanTaskLambdaARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljsFailureReason' - If the @LabelingJobStatus@ field is @Failed@ , this field contains a description of the error.
---
--- * 'ljsAnnotationConsolidationLambdaARN' - The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html Annotation Consolidation> .
---
--- * 'ljsInputConfig' - Input configuration for the labeling job.
---
--- * 'ljsLabelingJobOutput' - The location of the output produced by the labeling job.
---
--- * 'ljsLabelingJobName' - The name of the labeling job.
---
--- * 'ljsLabelingJobARN' - The Amazon Resource Name (ARN) assigned to the labeling job when it was created.
---
--- * 'ljsCreationTime' - The date and time that the job was created (timestamp).
---
--- * 'ljsLastModifiedTime' - The date and time that the job was last modified (timestamp).
---
--- * 'ljsLabelingJobStatus' - The current status of the labeling job.
---
--- * 'ljsLabelCounters' - Counts showing the progress of the labeling job.
---
--- * 'ljsWorkteamARN' - The Amazon Resource Name (ARN) of the work team assigned to the job.
---
--- * 'ljsPreHumanTaskLambdaARN' - The Amazon Resource Name (ARN) of a Lambda function. The function is run before each data object is sent to a worker.
-labelingJobSummary ::
-  -- | 'ljsLabelingJobName'
-  Text ->
-  -- | 'ljsLabelingJobARN'
-  Text ->
-  -- | 'ljsCreationTime'
-  UTCTime ->
-  -- | 'ljsLastModifiedTime'
-  UTCTime ->
-  -- | 'ljsLabelingJobStatus'
+-- * 'annotationConsolidationLambdaARN' - The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html Annotation Consolidation> .
+-- * 'creationTime' - The date and time that the job was created (timestamp).
+-- * 'failureReason' - If the @LabelingJobStatus@ field is @Failed@ , this field contains a description of the error.
+-- * 'inputConfig' - Input configuration for the labeling job.
+-- * 'labelCounters' - Counts showing the progress of the labeling job.
+-- * 'labelingJobARN' - The Amazon Resource Name (ARN) assigned to the labeling job when it was created.
+-- * 'labelingJobName' - The name of the labeling job.
+-- * 'labelingJobOutput' - The location of the output produced by the labeling job.
+-- * 'labelingJobStatus' - The current status of the labeling job.
+-- * 'lastModifiedTime' - The date and time that the job was last modified (timestamp).
+-- * 'preHumanTaskLambdaARN' - The Amazon Resource Name (ARN) of a Lambda function. The function is run before each data object is sent to a worker.
+-- * 'workteamARN' - The Amazon Resource Name (ARN) of the work team assigned to the job.
+mkLabelingJobSummary ::
+  -- | 'labelingJobName'
+  Lude.Text ->
+  -- | 'labelingJobARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'labelingJobStatus'
   LabelingJobStatus ->
-  -- | 'ljsLabelCounters'
+  -- | 'labelCounters'
   LabelCounters ->
-  -- | 'ljsWorkteamARN'
-  Text ->
-  -- | 'ljsPreHumanTaskLambdaARN'
-  Text ->
+  -- | 'workteamARN'
+  Lude.Text ->
+  -- | 'preHumanTaskLambdaARN'
+  Lude.Text ->
   LabelingJobSummary
-labelingJobSummary
+mkLabelingJobSummary
   pLabelingJobName_
   pLabelingJobARN_
   pCreationTime_
@@ -99,88 +106,120 @@ labelingJobSummary
   pWorkteamARN_
   pPreHumanTaskLambdaARN_ =
     LabelingJobSummary'
-      { _ljsFailureReason = Nothing,
-        _ljsAnnotationConsolidationLambdaARN = Nothing,
-        _ljsInputConfig = Nothing,
-        _ljsLabelingJobOutput = Nothing,
-        _ljsLabelingJobName = pLabelingJobName_,
-        _ljsLabelingJobARN = pLabelingJobARN_,
-        _ljsCreationTime = _Time # pCreationTime_,
-        _ljsLastModifiedTime = _Time # pLastModifiedTime_,
-        _ljsLabelingJobStatus = pLabelingJobStatus_,
-        _ljsLabelCounters = pLabelCounters_,
-        _ljsWorkteamARN = pWorkteamARN_,
-        _ljsPreHumanTaskLambdaARN = pPreHumanTaskLambdaARN_
+      { failureReason = Lude.Nothing,
+        annotationConsolidationLambdaARN = Lude.Nothing,
+        inputConfig = Lude.Nothing,
+        labelingJobOutput = Lude.Nothing,
+        labelingJobName = pLabelingJobName_,
+        labelingJobARN = pLabelingJobARN_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        labelingJobStatus = pLabelingJobStatus_,
+        labelCounters = pLabelCounters_,
+        workteamARN = pWorkteamARN_,
+        preHumanTaskLambdaARN = pPreHumanTaskLambdaARN_
       }
 
 -- | If the @LabelingJobStatus@ field is @Failed@ , this field contains a description of the error.
-ljsFailureReason :: Lens' LabelingJobSummary (Maybe Text)
-ljsFailureReason = lens _ljsFailureReason (\s a -> s {_ljsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsFailureReason :: Lens.Lens' LabelingJobSummary (Lude.Maybe Lude.Text)
+ljsFailureReason = Lens.lens (failureReason :: LabelingJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html Annotation Consolidation> .
-ljsAnnotationConsolidationLambdaARN :: Lens' LabelingJobSummary (Maybe Text)
-ljsAnnotationConsolidationLambdaARN = lens _ljsAnnotationConsolidationLambdaARN (\s a -> s {_ljsAnnotationConsolidationLambdaARN = a})
+--
+-- /Note:/ Consider using 'annotationConsolidationLambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsAnnotationConsolidationLambdaARN :: Lens.Lens' LabelingJobSummary (Lude.Maybe Lude.Text)
+ljsAnnotationConsolidationLambdaARN = Lens.lens (annotationConsolidationLambdaARN :: LabelingJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {annotationConsolidationLambdaARN = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsAnnotationConsolidationLambdaARN "Use generic-lens or generic-optics with 'annotationConsolidationLambdaARN' instead." #-}
 
 -- | Input configuration for the labeling job.
-ljsInputConfig :: Lens' LabelingJobSummary (Maybe LabelingJobInputConfig)
-ljsInputConfig = lens _ljsInputConfig (\s a -> s {_ljsInputConfig = a})
+--
+-- /Note:/ Consider using 'inputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsInputConfig :: Lens.Lens' LabelingJobSummary (Lude.Maybe LabelingJobInputConfig)
+ljsInputConfig = Lens.lens (inputConfig :: LabelingJobSummary -> Lude.Maybe LabelingJobInputConfig) (\s a -> s {inputConfig = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsInputConfig "Use generic-lens or generic-optics with 'inputConfig' instead." #-}
 
 -- | The location of the output produced by the labeling job.
-ljsLabelingJobOutput :: Lens' LabelingJobSummary (Maybe LabelingJobOutput)
-ljsLabelingJobOutput = lens _ljsLabelingJobOutput (\s a -> s {_ljsLabelingJobOutput = a})
+--
+-- /Note:/ Consider using 'labelingJobOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLabelingJobOutput :: Lens.Lens' LabelingJobSummary (Lude.Maybe LabelingJobOutput)
+ljsLabelingJobOutput = Lens.lens (labelingJobOutput :: LabelingJobSummary -> Lude.Maybe LabelingJobOutput) (\s a -> s {labelingJobOutput = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLabelingJobOutput "Use generic-lens or generic-optics with 'labelingJobOutput' instead." #-}
 
 -- | The name of the labeling job.
-ljsLabelingJobName :: Lens' LabelingJobSummary Text
-ljsLabelingJobName = lens _ljsLabelingJobName (\s a -> s {_ljsLabelingJobName = a})
+--
+-- /Note:/ Consider using 'labelingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLabelingJobName :: Lens.Lens' LabelingJobSummary Lude.Text
+ljsLabelingJobName = Lens.lens (labelingJobName :: LabelingJobSummary -> Lude.Text) (\s a -> s {labelingJobName = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLabelingJobName "Use generic-lens or generic-optics with 'labelingJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the labeling job when it was created.
-ljsLabelingJobARN :: Lens' LabelingJobSummary Text
-ljsLabelingJobARN = lens _ljsLabelingJobARN (\s a -> s {_ljsLabelingJobARN = a})
+--
+-- /Note:/ Consider using 'labelingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLabelingJobARN :: Lens.Lens' LabelingJobSummary Lude.Text
+ljsLabelingJobARN = Lens.lens (labelingJobARN :: LabelingJobSummary -> Lude.Text) (\s a -> s {labelingJobARN = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLabelingJobARN "Use generic-lens or generic-optics with 'labelingJobARN' instead." #-}
 
 -- | The date and time that the job was created (timestamp).
-ljsCreationTime :: Lens' LabelingJobSummary UTCTime
-ljsCreationTime = lens _ljsCreationTime (\s a -> s {_ljsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsCreationTime :: Lens.Lens' LabelingJobSummary Lude.Timestamp
+ljsCreationTime = Lens.lens (creationTime :: LabelingJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The date and time that the job was last modified (timestamp).
-ljsLastModifiedTime :: Lens' LabelingJobSummary UTCTime
-ljsLastModifiedTime = lens _ljsLastModifiedTime (\s a -> s {_ljsLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLastModifiedTime :: Lens.Lens' LabelingJobSummary Lude.Timestamp
+ljsLastModifiedTime = Lens.lens (lastModifiedTime :: LabelingJobSummary -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The current status of the labeling job.
-ljsLabelingJobStatus :: Lens' LabelingJobSummary LabelingJobStatus
-ljsLabelingJobStatus = lens _ljsLabelingJobStatus (\s a -> s {_ljsLabelingJobStatus = a})
+--
+-- /Note:/ Consider using 'labelingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLabelingJobStatus :: Lens.Lens' LabelingJobSummary LabelingJobStatus
+ljsLabelingJobStatus = Lens.lens (labelingJobStatus :: LabelingJobSummary -> LabelingJobStatus) (\s a -> s {labelingJobStatus = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLabelingJobStatus "Use generic-lens or generic-optics with 'labelingJobStatus' instead." #-}
 
 -- | Counts showing the progress of the labeling job.
-ljsLabelCounters :: Lens' LabelingJobSummary LabelCounters
-ljsLabelCounters = lens _ljsLabelCounters (\s a -> s {_ljsLabelCounters = a})
+--
+-- /Note:/ Consider using 'labelCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsLabelCounters :: Lens.Lens' LabelingJobSummary LabelCounters
+ljsLabelCounters = Lens.lens (labelCounters :: LabelingJobSummary -> LabelCounters) (\s a -> s {labelCounters = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsLabelCounters "Use generic-lens or generic-optics with 'labelCounters' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the work team assigned to the job.
-ljsWorkteamARN :: Lens' LabelingJobSummary Text
-ljsWorkteamARN = lens _ljsWorkteamARN (\s a -> s {_ljsWorkteamARN = a})
+--
+-- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsWorkteamARN :: Lens.Lens' LabelingJobSummary Lude.Text
+ljsWorkteamARN = Lens.lens (workteamARN :: LabelingJobSummary -> Lude.Text) (\s a -> s {workteamARN = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a Lambda function. The function is run before each data object is sent to a worker.
-ljsPreHumanTaskLambdaARN :: Lens' LabelingJobSummary Text
-ljsPreHumanTaskLambdaARN = lens _ljsPreHumanTaskLambdaARN (\s a -> s {_ljsPreHumanTaskLambdaARN = a})
+--
+-- /Note:/ Consider using 'preHumanTaskLambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsPreHumanTaskLambdaARN :: Lens.Lens' LabelingJobSummary Lude.Text
+ljsPreHumanTaskLambdaARN = Lens.lens (preHumanTaskLambdaARN :: LabelingJobSummary -> Lude.Text) (\s a -> s {preHumanTaskLambdaARN = a} :: LabelingJobSummary)
+{-# DEPRECATED ljsPreHumanTaskLambdaARN "Use generic-lens or generic-optics with 'preHumanTaskLambdaARN' instead." #-}
 
-instance FromJSON LabelingJobSummary where
+instance Lude.FromJSON LabelingJobSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobSummary"
       ( \x ->
           LabelingJobSummary'
-            <$> (x .:? "FailureReason")
-            <*> (x .:? "AnnotationConsolidationLambdaArn")
-            <*> (x .:? "InputConfig")
-            <*> (x .:? "LabelingJobOutput")
-            <*> (x .: "LabelingJobName")
-            <*> (x .: "LabelingJobArn")
-            <*> (x .: "CreationTime")
-            <*> (x .: "LastModifiedTime")
-            <*> (x .: "LabelingJobStatus")
-            <*> (x .: "LabelCounters")
-            <*> (x .: "WorkteamArn")
-            <*> (x .: "PreHumanTaskLambdaArn")
+            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "AnnotationConsolidationLambdaArn")
+            Lude.<*> (x Lude..:? "InputConfig")
+            Lude.<*> (x Lude..:? "LabelingJobOutput")
+            Lude.<*> (x Lude..: "LabelingJobName")
+            Lude.<*> (x Lude..: "LabelingJobArn")
+            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "LastModifiedTime")
+            Lude.<*> (x Lude..: "LabelingJobStatus")
+            Lude.<*> (x Lude..: "LabelCounters")
+            Lude.<*> (x Lude..: "WorkteamArn")
+            Lude.<*> (x Lude..: "PreHumanTaskLambdaArn")
       )
-
-instance Hashable LabelingJobSummary
-
-instance NFData LabelingJobSummary

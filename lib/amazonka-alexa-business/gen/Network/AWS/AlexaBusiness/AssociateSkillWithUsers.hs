@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,121 @@
 --
 -- Makes a private skill available for enrolled users to enable on their devices.
 module Network.AWS.AlexaBusiness.AssociateSkillWithUsers
-  ( -- * Creating a Request
-    associateSkillWithUsers,
-    AssociateSkillWithUsers,
+  ( -- * Creating a request
+    AssociateSkillWithUsers (..),
+    mkAssociateSkillWithUsers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aswuSkillId,
 
-    -- * Destructuring the Response
-    associateSkillWithUsersResponse,
-    AssociateSkillWithUsersResponse,
+    -- * Destructuring the response
+    AssociateSkillWithUsersResponse (..),
+    mkAssociateSkillWithUsersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aswursResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateSkillWithUsers' smart constructor.
+-- | /See:/ 'mkAssociateSkillWithUsers' smart constructor.
 newtype AssociateSkillWithUsers = AssociateSkillWithUsers'
-  { _aswuSkillId ::
-      Text
+  { skillId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillWithUsers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aswuSkillId' - The private skill ID you want to make available to enrolled users.
-associateSkillWithUsers ::
-  -- | 'aswuSkillId'
-  Text ->
+-- * 'skillId' - The private skill ID you want to make available to enrolled users.
+mkAssociateSkillWithUsers ::
+  -- | 'skillId'
+  Lude.Text ->
   AssociateSkillWithUsers
-associateSkillWithUsers pSkillId_ =
-  AssociateSkillWithUsers' {_aswuSkillId = pSkillId_}
+mkAssociateSkillWithUsers pSkillId_ =
+  AssociateSkillWithUsers' {skillId = pSkillId_}
 
 -- | The private skill ID you want to make available to enrolled users.
-aswuSkillId :: Lens' AssociateSkillWithUsers Text
-aswuSkillId = lens _aswuSkillId (\s a -> s {_aswuSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aswuSkillId :: Lens.Lens' AssociateSkillWithUsers Lude.Text
+aswuSkillId = Lens.lens (skillId :: AssociateSkillWithUsers -> Lude.Text) (\s a -> s {skillId = a} :: AssociateSkillWithUsers)
+{-# DEPRECATED aswuSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest AssociateSkillWithUsers where
+instance Lude.AWSRequest AssociateSkillWithUsers where
   type Rs AssociateSkillWithUsers = AssociateSkillWithUsersResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateSkillWithUsersResponse' <$> (pure (fromEnum s))
+          AssociateSkillWithUsersResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateSkillWithUsers
-
-instance NFData AssociateSkillWithUsers
-
-instance ToHeaders AssociateSkillWithUsers where
+instance Lude.ToHeaders AssociateSkillWithUsers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.AssociateSkillWithUsers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.AssociateSkillWithUsers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateSkillWithUsers where
+instance Lude.ToJSON AssociateSkillWithUsers where
   toJSON AssociateSkillWithUsers' {..} =
-    object (catMaybes [Just ("SkillId" .= _aswuSkillId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SkillId" Lude..= skillId)])
 
-instance ToPath AssociateSkillWithUsers where
-  toPath = const "/"
+instance Lude.ToPath AssociateSkillWithUsers where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateSkillWithUsers where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateSkillWithUsers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateSkillWithUsersResponse' smart constructor.
+-- | /See:/ 'mkAssociateSkillWithUsersResponse' smart constructor.
 newtype AssociateSkillWithUsersResponse = AssociateSkillWithUsersResponse'
-  { _aswursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillWithUsersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aswursResponseStatus' - -- | The response status code.
-associateSkillWithUsersResponse ::
-  -- | 'aswursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateSkillWithUsersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateSkillWithUsersResponse
-associateSkillWithUsersResponse pResponseStatus_ =
+mkAssociateSkillWithUsersResponse pResponseStatus_ =
   AssociateSkillWithUsersResponse'
-    { _aswursResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-aswursResponseStatus :: Lens' AssociateSkillWithUsersResponse Int
-aswursResponseStatus = lens _aswursResponseStatus (\s a -> s {_aswursResponseStatus = a})
-
-instance NFData AssociateSkillWithUsersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aswursResponseStatus :: Lens.Lens' AssociateSkillWithUsersResponse Lude.Int
+aswursResponseStatus = Lens.lens (responseStatus :: AssociateSkillWithUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSkillWithUsersResponse)
+{-# DEPRECATED aswursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.LanguageType where
+module Network.AWS.CodeBuild.Types.LanguageType
+  ( LanguageType
+      ( LanguageType',
+        Android,
+        Base,
+        Docker,
+        Dotnet,
+        Golang,
+        Java,
+        NodeJs,
+        PHP,
+        Python,
+        Ruby
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LanguageType
-  = Android
-  | Base
-  | Docker
-  | Dotnet
-  | Golang
-  | Java
-  | NodeJs
-  | PHP
-  | Python
-  | Ruby
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LanguageType = LanguageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LanguageType where
-  parser =
-    takeLowerText >>= \case
-      "android" -> pure Android
-      "base" -> pure Base
-      "docker" -> pure Docker
-      "dotnet" -> pure Dotnet
-      "golang" -> pure Golang
-      "java" -> pure Java
-      "node_js" -> pure NodeJs
-      "php" -> pure PHP
-      "python" -> pure Python
-      "ruby" -> pure Ruby
-      e ->
-        fromTextError $
-          "Failure parsing LanguageType from value: '" <> e
-            <> "'. Accepted values: android, base, docker, dotnet, golang, java, node_js, php, python, ruby"
+pattern Android :: LanguageType
+pattern Android = LanguageType' "ANDROID"
 
-instance ToText LanguageType where
-  toText = \case
-    Android -> "ANDROID"
-    Base -> "BASE"
-    Docker -> "DOCKER"
-    Dotnet -> "DOTNET"
-    Golang -> "GOLANG"
-    Java -> "JAVA"
-    NodeJs -> "NODE_JS"
-    PHP -> "PHP"
-    Python -> "PYTHON"
-    Ruby -> "RUBY"
+pattern Base :: LanguageType
+pattern Base = LanguageType' "BASE"
 
-instance Hashable LanguageType
+pattern Docker :: LanguageType
+pattern Docker = LanguageType' "DOCKER"
 
-instance NFData LanguageType
+pattern Dotnet :: LanguageType
+pattern Dotnet = LanguageType' "DOTNET"
 
-instance ToByteString LanguageType
+pattern Golang :: LanguageType
+pattern Golang = LanguageType' "GOLANG"
 
-instance ToQuery LanguageType
+pattern Java :: LanguageType
+pattern Java = LanguageType' "JAVA"
 
-instance ToHeader LanguageType
+pattern NodeJs :: LanguageType
+pattern NodeJs = LanguageType' "NODE_JS"
 
-instance FromJSON LanguageType where
-  parseJSON = parseJSONText "LanguageType"
+pattern PHP :: LanguageType
+pattern PHP = LanguageType' "PHP"
+
+pattern Python :: LanguageType
+pattern Python = LanguageType' "PYTHON"
+
+pattern Ruby :: LanguageType
+pattern Ruby = LanguageType' "RUBY"
+
+{-# COMPLETE
+  Android,
+  Base,
+  Docker,
+  Dotnet,
+  Golang,
+  Java,
+  NodeJs,
+  PHP,
+  Python,
+  Ruby,
+  LanguageType'
+  #-}

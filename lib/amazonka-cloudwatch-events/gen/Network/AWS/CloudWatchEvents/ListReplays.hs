@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Lists your replays. You can either list all the replays or you can provide a prefix to match to the replay names. Filter parameters are exclusive.
 module Network.AWS.CloudWatchEvents.ListReplays
-  ( -- * Creating a Request
-    listReplays,
-    ListReplays,
+  ( -- * Creating a request
+    ListReplays (..),
+    mkListReplays,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lEventSourceARN,
     lState,
     lNextToken,
     lNamePrefix,
     lLimit,
 
-    -- * Destructuring the Response
-    listReplaysResponse,
-    ListReplaysResponse,
+    -- * Destructuring the response
+    ListReplaysResponse (..),
+    mkListReplaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsReplays,
     lrsNextToken,
     lrsResponseStatus,
@@ -42,147 +37,172 @@ module Network.AWS.CloudWatchEvents.ListReplays
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listReplays' smart constructor.
+-- | /See:/ 'mkListReplays' smart constructor.
 data ListReplays = ListReplays'
-  { _lEventSourceARN :: !(Maybe Text),
-    _lState :: !(Maybe ReplayState),
-    _lNextToken :: !(Maybe Text),
-    _lNamePrefix :: !(Maybe Text),
-    _lLimit :: !(Maybe Nat)
+  { eventSourceARN ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe ReplayState,
+    nextToken :: Lude.Maybe Lude.Text,
+    namePrefix :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReplays' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lEventSourceARN' - The ARN of the event source associated with the replay.
---
--- * 'lState' - The state of the replay.
---
--- * 'lNextToken' - The token returned by a previous call to retrieve the next set of results.
---
--- * 'lNamePrefix' - A name prefix to filter the replays returned. Only replays with name that match the prefix are returned.
---
--- * 'lLimit' - The maximum number of replays to retrieve.
-listReplays ::
+-- * 'eventSourceARN' - The ARN of the event source associated with the replay.
+-- * 'limit' - The maximum number of replays to retrieve.
+-- * 'namePrefix' - A name prefix to filter the replays returned. Only replays with name that match the prefix are returned.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'state' - The state of the replay.
+mkListReplays ::
   ListReplays
-listReplays =
+mkListReplays =
   ListReplays'
-    { _lEventSourceARN = Nothing,
-      _lState = Nothing,
-      _lNextToken = Nothing,
-      _lNamePrefix = Nothing,
-      _lLimit = Nothing
+    { eventSourceARN = Lude.Nothing,
+      state = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      namePrefix = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The ARN of the event source associated with the replay.
-lEventSourceARN :: Lens' ListReplays (Maybe Text)
-lEventSourceARN = lens _lEventSourceARN (\s a -> s {_lEventSourceARN = a})
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lEventSourceARN :: Lens.Lens' ListReplays (Lude.Maybe Lude.Text)
+lEventSourceARN = Lens.lens (eventSourceARN :: ListReplays -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: ListReplays)
+{-# DEPRECATED lEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
 -- | The state of the replay.
-lState :: Lens' ListReplays (Maybe ReplayState)
-lState = lens _lState (\s a -> s {_lState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lState :: Lens.Lens' ListReplays (Lude.Maybe ReplayState)
+lState = Lens.lens (state :: ListReplays -> Lude.Maybe ReplayState) (\s a -> s {state = a} :: ListReplays)
+{-# DEPRECATED lState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The token returned by a previous call to retrieve the next set of results.
-lNextToken :: Lens' ListReplays (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListReplays (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListReplays -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReplays)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A name prefix to filter the replays returned. Only replays with name that match the prefix are returned.
-lNamePrefix :: Lens' ListReplays (Maybe Text)
-lNamePrefix = lens _lNamePrefix (\s a -> s {_lNamePrefix = a})
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNamePrefix :: Lens.Lens' ListReplays (Lude.Maybe Lude.Text)
+lNamePrefix = Lens.lens (namePrefix :: ListReplays -> Lude.Maybe Lude.Text) (\s a -> s {namePrefix = a} :: ListReplays)
+{-# DEPRECATED lNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
 
 -- | The maximum number of replays to retrieve.
-lLimit :: Lens' ListReplays (Maybe Natural)
-lLimit = lens _lLimit (\s a -> s {_lLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLimit :: Lens.Lens' ListReplays (Lude.Maybe Lude.Natural)
+lLimit = Lens.lens (limit :: ListReplays -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListReplays)
+{-# DEPRECATED lLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSRequest ListReplays where
+instance Lude.AWSRequest ListReplays where
   type Rs ListReplays = ListReplaysResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListReplaysResponse'
-            <$> (x .?> "Replays" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Replays" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListReplays
-
-instance NFData ListReplays
-
-instance ToHeaders ListReplays where
+instance Lude.ToHeaders ListReplays where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.ListReplays" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.ListReplays" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListReplays where
+instance Lude.ToJSON ListReplays where
   toJSON ListReplays' {..} =
-    object
-      ( catMaybes
-          [ ("EventSourceArn" .=) <$> _lEventSourceARN,
-            ("State" .=) <$> _lState,
-            ("NextToken" .=) <$> _lNextToken,
-            ("NamePrefix" .=) <$> _lNamePrefix,
-            ("Limit" .=) <$> _lLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventSourceArn" Lude..=) Lude.<$> eventSourceARN,
+            ("State" Lude..=) Lude.<$> state,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("NamePrefix" Lude..=) Lude.<$> namePrefix,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListReplays where
-  toPath = const "/"
+instance Lude.ToPath ListReplays where
+  toPath = Lude.const "/"
 
-instance ToQuery ListReplays where
-  toQuery = const mempty
+instance Lude.ToQuery ListReplays where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listReplaysResponse' smart constructor.
+-- | /See:/ 'mkListReplaysResponse' smart constructor.
 data ListReplaysResponse = ListReplaysResponse'
-  { _lrsReplays ::
-      !(Maybe [Replay]),
-    _lrsNextToken :: !(Maybe Text),
-    _lrsResponseStatus :: !Int
+  { replays ::
+      Lude.Maybe [Replay],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReplaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsReplays' - An array of @Replay@ objects that contain information about the replay.
---
--- * 'lrsNextToken' - The token returned by a previous call to retrieve the next set of results.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listReplaysResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'replays' - An array of @Replay@ objects that contain information about the replay.
+-- * 'responseStatus' - The response status code.
+mkListReplaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListReplaysResponse
-listReplaysResponse pResponseStatus_ =
+mkListReplaysResponse pResponseStatus_ =
   ListReplaysResponse'
-    { _lrsReplays = Nothing,
-      _lrsNextToken = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { replays = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @Replay@ objects that contain information about the replay.
-lrsReplays :: Lens' ListReplaysResponse [Replay]
-lrsReplays = lens _lrsReplays (\s a -> s {_lrsReplays = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsReplays :: Lens.Lens' ListReplaysResponse (Lude.Maybe [Replay])
+lrsReplays = Lens.lens (replays :: ListReplaysResponse -> Lude.Maybe [Replay]) (\s a -> s {replays = a} :: ListReplaysResponse)
+{-# DEPRECATED lrsReplays "Use generic-lens or generic-optics with 'replays' instead." #-}
 
 -- | The token returned by a previous call to retrieve the next set of results.
-lrsNextToken :: Lens' ListReplaysResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListReplaysResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListReplaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReplaysResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListReplaysResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListReplaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListReplaysResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListReplaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListReplaysResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

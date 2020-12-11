@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,140 +7,185 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ParameterMetadata where
+module Network.AWS.SSM.Types.ParameterMetadata
+  ( ParameterMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterMetadata,
+
+    -- * Lenses
+    pmLastModifiedDate,
+    pmKeyId,
+    pmName,
+    pmTier,
+    pmVersion,
+    pmLastModifiedUser,
+    pmAllowedPattern,
+    pmType,
+    pmDataType,
+    pmDescription,
+    pmPolicies,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ParameterInlinePolicy
 import Network.AWS.SSM.Types.ParameterTier
 import Network.AWS.SSM.Types.ParameterType
 
 -- | Metadata includes information like the ARN of the last user and the date/time the parameter was last used.
 --
---
---
--- /See:/ 'parameterMetadata' smart constructor.
+-- /See:/ 'mkParameterMetadata' smart constructor.
 data ParameterMetadata = ParameterMetadata'
-  { _pmLastModifiedDate ::
-      !(Maybe POSIX),
-    _pmKeyId :: !(Maybe Text),
-    _pmName :: !(Maybe Text),
-    _pmTier :: !(Maybe ParameterTier),
-    _pmVersion :: !(Maybe Integer),
-    _pmLastModifiedUser :: !(Maybe Text),
-    _pmAllowedPattern :: !(Maybe Text),
-    _pmType :: !(Maybe ParameterType),
-    _pmDataType :: !(Maybe Text),
-    _pmDescription :: !(Maybe Text),
-    _pmPolicies :: !(Maybe [ParameterInlinePolicy])
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    keyId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    tier :: Lude.Maybe ParameterTier,
+    version :: Lude.Maybe Lude.Integer,
+    lastModifiedUser :: Lude.Maybe Lude.Text,
+    allowedPattern :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe ParameterType,
+    dataType :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    policies :: Lude.Maybe [ParameterInlinePolicy]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowedPattern' - A parameter name can include only the following letters and symbols.
 --
--- * 'pmLastModifiedDate' - Date the parameter was last changed or updated.
---
--- * 'pmKeyId' - The ID of the query key used for this parameter.
---
--- * 'pmName' - The parameter name.
---
--- * 'pmTier' - The parameter tier.
---
--- * 'pmVersion' - The parameter version.
---
--- * 'pmLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
---
--- * 'pmAllowedPattern' - A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
---
--- * 'pmType' - The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
---
--- * 'pmDataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
---
--- * 'pmDescription' - Description of the parameter actions.
---
--- * 'pmPolicies' - A list of policies associated with a parameter.
-parameterMetadata ::
+-- a-zA-Z0-9_.-
+-- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
+-- * 'description' - Description of the parameter actions.
+-- * 'keyId' - The ID of the query key used for this parameter.
+-- * 'lastModifiedDate' - Date the parameter was last changed or updated.
+-- * 'lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
+-- * 'name' - The parameter name.
+-- * 'policies' - A list of policies associated with a parameter.
+-- * 'tier' - The parameter tier.
+-- * 'type'' - The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
+-- * 'version' - The parameter version.
+mkParameterMetadata ::
   ParameterMetadata
-parameterMetadata =
+mkParameterMetadata =
   ParameterMetadata'
-    { _pmLastModifiedDate = Nothing,
-      _pmKeyId = Nothing,
-      _pmName = Nothing,
-      _pmTier = Nothing,
-      _pmVersion = Nothing,
-      _pmLastModifiedUser = Nothing,
-      _pmAllowedPattern = Nothing,
-      _pmType = Nothing,
-      _pmDataType = Nothing,
-      _pmDescription = Nothing,
-      _pmPolicies = Nothing
+    { lastModifiedDate = Lude.Nothing,
+      keyId = Lude.Nothing,
+      name = Lude.Nothing,
+      tier = Lude.Nothing,
+      version = Lude.Nothing,
+      lastModifiedUser = Lude.Nothing,
+      allowedPattern = Lude.Nothing,
+      type' = Lude.Nothing,
+      dataType = Lude.Nothing,
+      description = Lude.Nothing,
+      policies = Lude.Nothing
     }
 
 -- | Date the parameter was last changed or updated.
-pmLastModifiedDate :: Lens' ParameterMetadata (Maybe UTCTime)
-pmLastModifiedDate = lens _pmLastModifiedDate (\s a -> s {_pmLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmLastModifiedDate :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Timestamp)
+pmLastModifiedDate = Lens.lens (lastModifiedDate :: ParameterMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: ParameterMetadata)
+{-# DEPRECATED pmLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The ID of the query key used for this parameter.
-pmKeyId :: Lens' ParameterMetadata (Maybe Text)
-pmKeyId = lens _pmKeyId (\s a -> s {_pmKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmKeyId :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmKeyId = Lens.lens (keyId :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: ParameterMetadata)
+{-# DEPRECATED pmKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The parameter name.
-pmName :: Lens' ParameterMetadata (Maybe Text)
-pmName = lens _pmName (\s a -> s {_pmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmName :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmName = Lens.lens (name :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ParameterMetadata)
+{-# DEPRECATED pmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The parameter tier.
-pmTier :: Lens' ParameterMetadata (Maybe ParameterTier)
-pmTier = lens _pmTier (\s a -> s {_pmTier = a})
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmTier :: Lens.Lens' ParameterMetadata (Lude.Maybe ParameterTier)
+pmTier = Lens.lens (tier :: ParameterMetadata -> Lude.Maybe ParameterTier) (\s a -> s {tier = a} :: ParameterMetadata)
+{-# DEPRECATED pmTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
 -- | The parameter version.
-pmVersion :: Lens' ParameterMetadata (Maybe Integer)
-pmVersion = lens _pmVersion (\s a -> s {_pmVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmVersion :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Integer)
+pmVersion = Lens.lens (version :: ParameterMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: ParameterMetadata)
+{-# DEPRECATED pmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
-pmLastModifiedUser :: Lens' ParameterMetadata (Maybe Text)
-pmLastModifiedUser = lens _pmLastModifiedUser (\s a -> s {_pmLastModifiedUser = a})
+--
+-- /Note:/ Consider using 'lastModifiedUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmLastModifiedUser :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmLastModifiedUser = Lens.lens (lastModifiedUser :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedUser = a} :: ParameterMetadata)
+{-# DEPRECATED pmLastModifiedUser "Use generic-lens or generic-optics with 'lastModifiedUser' instead." #-}
 
--- | A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
-pmAllowedPattern :: Lens' ParameterMetadata (Maybe Text)
-pmAllowedPattern = lens _pmAllowedPattern (\s a -> s {_pmAllowedPattern = a})
+-- | A parameter name can include only the following letters and symbols.
+--
+-- a-zA-Z0-9_.-
+--
+-- /Note:/ Consider using 'allowedPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmAllowedPattern :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmAllowedPattern = Lens.lens (allowedPattern :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {allowedPattern = a} :: ParameterMetadata)
+{-# DEPRECATED pmAllowedPattern "Use generic-lens or generic-optics with 'allowedPattern' instead." #-}
 
 -- | The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
-pmType :: Lens' ParameterMetadata (Maybe ParameterType)
-pmType = lens _pmType (\s a -> s {_pmType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmType :: Lens.Lens' ParameterMetadata (Lude.Maybe ParameterType)
+pmType = Lens.lens (type' :: ParameterMetadata -> Lude.Maybe ParameterType) (\s a -> s {type' = a} :: ParameterMetadata)
+{-# DEPRECATED pmType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
-pmDataType :: Lens' ParameterMetadata (Maybe Text)
-pmDataType = lens _pmDataType (\s a -> s {_pmDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmDataType :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmDataType = Lens.lens (dataType :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: ParameterMetadata)
+{-# DEPRECATED pmDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | Description of the parameter actions.
-pmDescription :: Lens' ParameterMetadata (Maybe Text)
-pmDescription = lens _pmDescription (\s a -> s {_pmDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmDescription :: Lens.Lens' ParameterMetadata (Lude.Maybe Lude.Text)
+pmDescription = Lens.lens (description :: ParameterMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ParameterMetadata)
+{-# DEPRECATED pmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of policies associated with a parameter.
-pmPolicies :: Lens' ParameterMetadata [ParameterInlinePolicy]
-pmPolicies = lens _pmPolicies (\s a -> s {_pmPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmPolicies :: Lens.Lens' ParameterMetadata (Lude.Maybe [ParameterInlinePolicy])
+pmPolicies = Lens.lens (policies :: ParameterMetadata -> Lude.Maybe [ParameterInlinePolicy]) (\s a -> s {policies = a} :: ParameterMetadata)
+{-# DEPRECATED pmPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance FromJSON ParameterMetadata where
+instance Lude.FromJSON ParameterMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterMetadata"
       ( \x ->
           ParameterMetadata'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "KeyId")
-            <*> (x .:? "Name")
-            <*> (x .:? "Tier")
-            <*> (x .:? "Version")
-            <*> (x .:? "LastModifiedUser")
-            <*> (x .:? "AllowedPattern")
-            <*> (x .:? "Type")
-            <*> (x .:? "DataType")
-            <*> (x .:? "Description")
-            <*> (x .:? "Policies" .!= mempty)
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "KeyId")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Tier")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "LastModifiedUser")
+            Lude.<*> (x Lude..:? "AllowedPattern")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "DataType")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "Policies" Lude..!= Lude.mempty)
       )
-
-instance Hashable ParameterMetadata
-
-instance NFData ParameterMetadata

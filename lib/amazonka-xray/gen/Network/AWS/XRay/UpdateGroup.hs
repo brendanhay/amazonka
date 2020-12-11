@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,176 @@
 --
 -- Updates a group resource.
 module Network.AWS.XRay.UpdateGroup
-  ( -- * Creating a Request
-    updateGroup,
-    UpdateGroup,
+  ( -- * Creating a request
+    UpdateGroup (..),
+    mkUpdateGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugFilterExpression,
     ugInsightsConfiguration,
     ugGroupARN,
     ugGroupName,
 
-    -- * Destructuring the Response
-    updateGroupResponse,
-    UpdateGroupResponse,
+    -- * Destructuring the response
+    UpdateGroupResponse (..),
+    mkUpdateGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugrsGroup,
     ugrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'updateGroup' smart constructor.
+-- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugFilterExpression ::
-      !(Maybe Text),
-    _ugInsightsConfiguration :: !(Maybe InsightsConfiguration),
-    _ugGroupARN :: !(Maybe Text),
-    _ugGroupName :: !(Maybe Text)
+  { filterExpression ::
+      Lude.Maybe Lude.Text,
+    insightsConfiguration :: Lude.Maybe InsightsConfiguration,
+    groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filterExpression' - The updated filter expression defining criteria by which to group traces.
+-- * 'groupARN' - The ARN that was generated upon creation.
+-- * 'groupName' - The case-sensitive name of the group.
+-- * 'insightsConfiguration' - The structure containing configurations related to insights.
 --
--- * 'ugFilterExpression' - The updated filter expression defining criteria by which to group traces.
 --
--- * 'ugInsightsConfiguration' - The structure containing configurations related to insights.     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
 --
--- * 'ugGroupARN' - The ARN that was generated upon creation.
 --
--- * 'ugGroupName' - The case-sensitive name of the group.
-updateGroup ::
+--     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
+mkUpdateGroup ::
   UpdateGroup
-updateGroup =
+mkUpdateGroup =
   UpdateGroup'
-    { _ugFilterExpression = Nothing,
-      _ugInsightsConfiguration = Nothing,
-      _ugGroupARN = Nothing,
-      _ugGroupName = Nothing
+    { filterExpression = Lude.Nothing,
+      insightsConfiguration = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing
     }
 
 -- | The updated filter expression defining criteria by which to group traces.
-ugFilterExpression :: Lens' UpdateGroup (Maybe Text)
-ugFilterExpression = lens _ugFilterExpression (\s a -> s {_ugFilterExpression = a})
+--
+-- /Note:/ Consider using 'filterExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugFilterExpression :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugFilterExpression = Lens.lens (filterExpression :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {filterExpression = a} :: UpdateGroup)
+{-# DEPRECATED ugFilterExpression "Use generic-lens or generic-optics with 'filterExpression' instead." #-}
 
--- | The structure containing configurations related to insights.     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
-ugInsightsConfiguration :: Lens' UpdateGroup (Maybe InsightsConfiguration)
-ugInsightsConfiguration = lens _ugInsightsConfiguration (\s a -> s {_ugInsightsConfiguration = a})
+-- | The structure containing configurations related to insights.
+--
+--
+--     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+--
+--
+--     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--
+--
+--
+-- /Note:/ Consider using 'insightsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugInsightsConfiguration :: Lens.Lens' UpdateGroup (Lude.Maybe InsightsConfiguration)
+ugInsightsConfiguration = Lens.lens (insightsConfiguration :: UpdateGroup -> Lude.Maybe InsightsConfiguration) (\s a -> s {insightsConfiguration = a} :: UpdateGroup)
+{-# DEPRECATED ugInsightsConfiguration "Use generic-lens or generic-optics with 'insightsConfiguration' instead." #-}
 
 -- | The ARN that was generated upon creation.
-ugGroupARN :: Lens' UpdateGroup (Maybe Text)
-ugGroupARN = lens _ugGroupARN (\s a -> s {_ugGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGroupARN :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugGroupARN = Lens.lens (groupARN :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: UpdateGroup)
+{-# DEPRECATED ugGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The case-sensitive name of the group.
-ugGroupName :: Lens' UpdateGroup (Maybe Text)
-ugGroupName = lens _ugGroupName (\s a -> s {_ugGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGroupName :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
+{-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest UpdateGroup where
+instance Lude.AWSRequest UpdateGroup where
   type Rs UpdateGroup = UpdateGroupResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateGroupResponse' <$> (x .?> "Group") <*> (pure (fromEnum s))
+          UpdateGroupResponse'
+            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGroup
+instance Lude.ToHeaders UpdateGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateGroup
-
-instance ToHeaders UpdateGroup where
-  toHeaders = const mempty
-
-instance ToJSON UpdateGroup where
+instance Lude.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
-    object
-      ( catMaybes
-          [ ("FilterExpression" .=) <$> _ugFilterExpression,
-            ("InsightsConfiguration" .=) <$> _ugInsightsConfiguration,
-            ("GroupARN" .=) <$> _ugGroupARN,
-            ("GroupName" .=) <$> _ugGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FilterExpression" Lude..=) Lude.<$> filterExpression,
+            ("InsightsConfiguration" Lude..=) Lude.<$> insightsConfiguration,
+            ("GroupARN" Lude..=) Lude.<$> groupARN,
+            ("GroupName" Lude..=) Lude.<$> groupName
           ]
       )
 
-instance ToPath UpdateGroup where
-  toPath = const "/UpdateGroup"
+instance Lude.ToPath UpdateGroup where
+  toPath = Lude.const "/UpdateGroup"
 
-instance ToQuery UpdateGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsGroup ::
-      !(Maybe Group),
-    _ugrsResponseStatus :: !Int
+  { group ::
+      Lude.Maybe Group,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugrsGroup' - The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.
---
--- * 'ugrsResponseStatus' - -- | The response status code.
-updateGroupResponse ::
-  -- | 'ugrsResponseStatus'
-  Int ->
+-- * 'group' - The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.
+-- * 'responseStatus' - The response status code.
+mkUpdateGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGroupResponse
-updateGroupResponse pResponseStatus_ =
+mkUpdateGroupResponse pResponseStatus_ =
   UpdateGroupResponse'
-    { _ugrsGroup = Nothing,
-      _ugrsResponseStatus = pResponseStatus_
+    { group = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.
-ugrsGroup :: Lens' UpdateGroupResponse (Maybe Group)
-ugrsGroup = lens _ugrsGroup (\s a -> s {_ugrsGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsGroup :: Lens.Lens' UpdateGroupResponse (Lude.Maybe Group)
+ugrsGroup = Lens.lens (group :: UpdateGroupResponse -> Lude.Maybe Group) (\s a -> s {group = a} :: UpdateGroupResponse)
+{-# DEPRECATED ugrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
--- | -- | The response status code.
-ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\s a -> s {_ugrsResponseStatus = a})
-
-instance NFData UpdateGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsResponseStatus :: Lens.Lens' UpdateGroupResponse Lude.Int
+ugrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupResponse)
+{-# DEPRECATED ugrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

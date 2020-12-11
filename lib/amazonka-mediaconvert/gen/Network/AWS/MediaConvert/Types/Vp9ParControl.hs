@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp9ParControl where
+module Network.AWS.MediaConvert.Types.Vp9ParControl
+  ( Vp9ParControl
+      ( Vp9ParControl',
+        VPCInitializeFromSource,
+        VPCSpecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
-data Vp9ParControl
-  = VPCInitializeFromSource
-  | VPCSpecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Vp9ParControl = Vp9ParControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Vp9ParControl where
-  parser =
-    takeLowerText >>= \case
-      "initialize_from_source" -> pure VPCInitializeFromSource
-      "specified" -> pure VPCSpecified
-      e ->
-        fromTextError $
-          "Failure parsing Vp9ParControl from value: '" <> e
-            <> "'. Accepted values: initialize_from_source, specified"
+pattern VPCInitializeFromSource :: Vp9ParControl
+pattern VPCInitializeFromSource = Vp9ParControl' "INITIALIZE_FROM_SOURCE"
 
-instance ToText Vp9ParControl where
-  toText = \case
-    VPCInitializeFromSource -> "INITIALIZE_FROM_SOURCE"
-    VPCSpecified -> "SPECIFIED"
+pattern VPCSpecified :: Vp9ParControl
+pattern VPCSpecified = Vp9ParControl' "SPECIFIED"
 
-instance Hashable Vp9ParControl
-
-instance NFData Vp9ParControl
-
-instance ToByteString Vp9ParControl
-
-instance ToQuery Vp9ParControl
-
-instance ToHeader Vp9ParControl
-
-instance ToJSON Vp9ParControl where
-  toJSON = toJSONText
-
-instance FromJSON Vp9ParControl where
-  parseJSON = parseJSONText "Vp9ParControl"
+{-# COMPLETE
+  VPCInitializeFromSource,
+  VPCSpecified,
+  Vp9ParControl'
+  #-}

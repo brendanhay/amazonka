@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.LogType where
+module Network.AWS.Lambda.Types.LogType
+  ( LogType
+      ( LogType',
+        None,
+        Tail
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogType
-  = None
-  | Tail
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogType = LogType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogType where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure None
-      "tail" -> pure Tail
-      e ->
-        fromTextError $
-          "Failure parsing LogType from value: '" <> e
-            <> "'. Accepted values: none, tail"
+pattern None :: LogType
+pattern None = LogType' "None"
 
-instance ToText LogType where
-  toText = \case
-    None -> "None"
-    Tail -> "Tail"
+pattern Tail :: LogType
+pattern Tail = LogType' "Tail"
 
-instance Hashable LogType
-
-instance NFData LogType
-
-instance ToByteString LogType
-
-instance ToQuery LogType
-
-instance ToHeader LogType
-
-instance ToJSON LogType where
-  toJSON = toJSONText
+{-# COMPLETE
+  None,
+  Tail,
+  LogType'
+  #-}

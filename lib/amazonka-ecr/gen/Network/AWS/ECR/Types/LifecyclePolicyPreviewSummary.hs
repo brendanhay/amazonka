@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary where
+module Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
+  ( LifecyclePolicyPreviewSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLifecyclePolicyPreviewSummary,
+
+    -- * Lenses
+    lppsExpiringImageTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The summary of the lifecycle policy preview request.
 --
---
---
--- /See:/ 'lifecyclePolicyPreviewSummary' smart constructor.
+-- /See:/ 'mkLifecyclePolicyPreviewSummary' smart constructor.
 newtype LifecyclePolicyPreviewSummary = LifecyclePolicyPreviewSummary'
-  { _lppsExpiringImageTotalCount ::
-      Maybe Nat
+  { expiringImageTotalCount ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicyPreviewSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lppsExpiringImageTotalCount' - The number of expiring images.
-lifecyclePolicyPreviewSummary ::
+-- * 'expiringImageTotalCount' - The number of expiring images.
+mkLifecyclePolicyPreviewSummary ::
   LifecyclePolicyPreviewSummary
-lifecyclePolicyPreviewSummary =
+mkLifecyclePolicyPreviewSummary =
   LifecyclePolicyPreviewSummary'
-    { _lppsExpiringImageTotalCount =
-        Nothing
+    { expiringImageTotalCount =
+        Lude.Nothing
     }
 
 -- | The number of expiring images.
-lppsExpiringImageTotalCount :: Lens' LifecyclePolicyPreviewSummary (Maybe Natural)
-lppsExpiringImageTotalCount = lens _lppsExpiringImageTotalCount (\s a -> s {_lppsExpiringImageTotalCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'expiringImageTotalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lppsExpiringImageTotalCount :: Lens.Lens' LifecyclePolicyPreviewSummary (Lude.Maybe Lude.Natural)
+lppsExpiringImageTotalCount = Lens.lens (expiringImageTotalCount :: LifecyclePolicyPreviewSummary -> Lude.Maybe Lude.Natural) (\s a -> s {expiringImageTotalCount = a} :: LifecyclePolicyPreviewSummary)
+{-# DEPRECATED lppsExpiringImageTotalCount "Use generic-lens or generic-optics with 'expiringImageTotalCount' instead." #-}
 
-instance FromJSON LifecyclePolicyPreviewSummary where
+instance Lude.FromJSON LifecyclePolicyPreviewSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "LifecyclePolicyPreviewSummary"
       ( \x ->
           LifecyclePolicyPreviewSummary'
-            <$> (x .:? "expiringImageTotalCount")
+            Lude.<$> (x Lude..:? "expiringImageTotalCount")
       )
-
-instance Hashable LifecyclePolicyPreviewSummary
-
-instance NFData LifecyclePolicyPreviewSummary

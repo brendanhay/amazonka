@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.ResourceCollectionType where
+module Network.AWS.WorkDocs.Types.ResourceCollectionType
+  ( ResourceCollectionType
+      ( ResourceCollectionType',
+        SharedWithMe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceCollectionType = SharedWithMe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceCollectionType = ResourceCollectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceCollectionType where
-  parser =
-    takeLowerText >>= \case
-      "shared_with_me" -> pure SharedWithMe
-      e ->
-        fromTextError $
-          "Failure parsing ResourceCollectionType from value: '" <> e
-            <> "'. Accepted values: shared_with_me"
+pattern SharedWithMe :: ResourceCollectionType
+pattern SharedWithMe = ResourceCollectionType' "SHARED_WITH_ME"
 
-instance ToText ResourceCollectionType where
-  toText = \case
-    SharedWithMe -> "SHARED_WITH_ME"
-
-instance Hashable ResourceCollectionType
-
-instance NFData ResourceCollectionType
-
-instance ToByteString ResourceCollectionType
-
-instance ToQuery ResourceCollectionType
-
-instance ToHeader ResourceCollectionType
-
-instance ToJSON ResourceCollectionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  SharedWithMe,
+  ResourceCollectionType'
+  #-}

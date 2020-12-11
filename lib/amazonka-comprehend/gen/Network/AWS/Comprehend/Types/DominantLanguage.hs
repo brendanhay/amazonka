@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.DominantLanguage where
+module Network.AWS.Comprehend.Types.DominantLanguage
+  ( DominantLanguage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDominantLanguage,
+
+    -- * Lenses
+    dlLanguageCode,
+    dlScore,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns the code for the dominant language in the input text and the level of confidence that Amazon Comprehend has in the accuracy of the detection.
 --
---
---
--- /See:/ 'dominantLanguage' smart constructor.
+-- /See:/ 'mkDominantLanguage' smart constructor.
 data DominantLanguage = DominantLanguage'
-  { _dlLanguageCode ::
-      !(Maybe Text),
-    _dlScore :: !(Maybe Double)
+  { languageCode ::
+      Lude.Maybe Lude.Text,
+    score :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DominantLanguage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlLanguageCode' - The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
---
--- * 'dlScore' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
-dominantLanguage ::
+-- * 'languageCode' - The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- * 'score' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
+mkDominantLanguage ::
   DominantLanguage
-dominantLanguage =
-  DominantLanguage' {_dlLanguageCode = Nothing, _dlScore = Nothing}
+mkDominantLanguage =
+  DominantLanguage'
+    { languageCode = Lude.Nothing,
+      score = Lude.Nothing
+    }
 
 -- | The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
-dlLanguageCode :: Lens' DominantLanguage (Maybe Text)
-dlLanguageCode = lens _dlLanguageCode (\s a -> s {_dlLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlLanguageCode :: Lens.Lens' DominantLanguage (Lude.Maybe Lude.Text)
+dlLanguageCode = Lens.lens (languageCode :: DominantLanguage -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: DominantLanguage)
+{-# DEPRECATED dlLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
-dlScore :: Lens' DominantLanguage (Maybe Double)
-dlScore = lens _dlScore (\s a -> s {_dlScore = a})
+--
+-- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlScore :: Lens.Lens' DominantLanguage (Lude.Maybe Lude.Double)
+dlScore = Lens.lens (score :: DominantLanguage -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: DominantLanguage)
+{-# DEPRECATED dlScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
-instance FromJSON DominantLanguage where
+instance Lude.FromJSON DominantLanguage where
   parseJSON =
-    withObject
+    Lude.withObject
       "DominantLanguage"
       ( \x ->
-          DominantLanguage' <$> (x .:? "LanguageCode") <*> (x .:? "Score")
+          DominantLanguage'
+            Lude.<$> (x Lude..:? "LanguageCode") Lude.<*> (x Lude..:? "Score")
       )
-
-instance Hashable DominantLanguage
-
-instance NFData DominantLanguage

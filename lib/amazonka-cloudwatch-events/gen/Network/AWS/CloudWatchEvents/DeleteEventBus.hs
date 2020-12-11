@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,79 +14,90 @@
 --
 -- Deletes the specified custom event bus or partner event bus. All rules associated with this event bus need to be deleted. You can't delete your account's default event bus.
 module Network.AWS.CloudWatchEvents.DeleteEventBus
-  ( -- * Creating a Request
-    deleteEventBus,
-    DeleteEventBus,
+  ( -- * Creating a request
+    DeleteEventBus (..),
+    mkDeleteEventBus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     debsName,
 
-    -- * Destructuring the Response
-    deleteEventBusResponse,
-    DeleteEventBusResponse,
+    -- * Destructuring the response
+    DeleteEventBusResponse (..),
+    mkDeleteEventBusResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteEventBus' smart constructor.
-newtype DeleteEventBus = DeleteEventBus' {_debsName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteEventBus' smart constructor.
+newtype DeleteEventBus = DeleteEventBus' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventBus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'debsName' - The name of the event bus to delete.
-deleteEventBus ::
-  -- | 'debsName'
-  Text ->
+-- * 'name' - The name of the event bus to delete.
+mkDeleteEventBus ::
+  -- | 'name'
+  Lude.Text ->
   DeleteEventBus
-deleteEventBus pName_ = DeleteEventBus' {_debsName = pName_}
+mkDeleteEventBus pName_ = DeleteEventBus' {name = pName_}
 
 -- | The name of the event bus to delete.
-debsName :: Lens' DeleteEventBus Text
-debsName = lens _debsName (\s a -> s {_debsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debsName :: Lens.Lens' DeleteEventBus Lude.Text
+debsName = Lens.lens (name :: DeleteEventBus -> Lude.Text) (\s a -> s {name = a} :: DeleteEventBus)
+{-# DEPRECATED debsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteEventBus where
+instance Lude.AWSRequest DeleteEventBus where
   type Rs DeleteEventBus = DeleteEventBusResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull DeleteEventBusResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull DeleteEventBusResponse'
 
-instance Hashable DeleteEventBus
-
-instance NFData DeleteEventBus
-
-instance ToHeaders DeleteEventBus where
+instance Lude.ToHeaders DeleteEventBus where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DeleteEventBus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DeleteEventBus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteEventBus where
+instance Lude.ToJSON DeleteEventBus where
   toJSON DeleteEventBus' {..} =
-    object (catMaybes [Just ("Name" .= _debsName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteEventBus where
-  toPath = const "/"
+instance Lude.ToPath DeleteEventBus where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteEventBus where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEventBus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteEventBusResponse' smart constructor.
+-- | /See:/ 'mkDeleteEventBusResponse' smart constructor.
 data DeleteEventBusResponse = DeleteEventBusResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventBusResponse' with the minimum fields required to make a request.
-deleteEventBusResponse ::
+mkDeleteEventBusResponse ::
   DeleteEventBusResponse
-deleteEventBusResponse = DeleteEventBusResponse'
-
-instance NFData DeleteEventBusResponse
+mkDeleteEventBusResponse = DeleteEventBusResponse'

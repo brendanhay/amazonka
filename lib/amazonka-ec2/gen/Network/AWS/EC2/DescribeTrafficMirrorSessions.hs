@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeTrafficMirrorSessions
-  ( -- * Creating a Request
-    describeTrafficMirrorSessions,
-    DescribeTrafficMirrorSessions,
+  ( -- * Creating a request
+    DescribeTrafficMirrorSessions (..),
+    mkDescribeTrafficMirrorSessions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtmsFilters,
     dtmsNextToken,
     dtmsTrafficMirrorSessionIds,
     dtmsDryRun,
     dtmsMaxResults,
 
-    -- * Destructuring the Response
-    describeTrafficMirrorSessionsResponse,
-    DescribeTrafficMirrorSessionsResponse,
+    -- * Destructuring the response
+    DescribeTrafficMirrorSessionsResponse (..),
+    mkDescribeTrafficMirrorSessionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtmsrsNextToken,
     dtmsrsTrafficMirrorSessions,
     dtmsrsResponseStatus,
@@ -46,159 +39,244 @@ module Network.AWS.EC2.DescribeTrafficMirrorSessions
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTrafficMirrorSessions' smart constructor.
+-- | /See:/ 'mkDescribeTrafficMirrorSessions' smart constructor.
 data DescribeTrafficMirrorSessions = DescribeTrafficMirrorSessions'
-  { _dtmsFilters ::
-      !(Maybe [Filter]),
-    _dtmsNextToken :: !(Maybe Text),
-    _dtmsTrafficMirrorSessionIds ::
-      !(Maybe [Text]),
-    _dtmsDryRun :: !(Maybe Bool),
-    _dtmsMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    trafficMirrorSessionIds ::
+      Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrafficMirrorSessions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters. The possible values are:
 --
--- * 'dtmsFilters' - One or more filters. The possible values are:     * @description@ : The Traffic Mirror session description.     * @network-interface-id@ : The ID of the Traffic Mirror session network interface.     * @owner-id@ : The ID of the account that owns the Traffic Mirror session.     * @packet-length@ : The assigned number of packets to mirror.      * @session-number@ : The assigned session number.      * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.     * @traffic-mirror-session-id@ : The ID of the Traffic Mirror session.     * @traffic-mirror-target-id@ : The ID of the Traffic Mirror target.     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
 --
--- * 'dtmsNextToken' - The token for the next page of results.
+--     * @description@ : The Traffic Mirror session description.
 --
--- * 'dtmsTrafficMirrorSessionIds' - The ID of the Traffic Mirror session.
 --
--- * 'dtmsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @network-interface-id@ : The ID of the Traffic Mirror session network interface.
 --
--- * 'dtmsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeTrafficMirrorSessions ::
+--
+--     * @owner-id@ : The ID of the account that owns the Traffic Mirror session.
+--
+--
+--     * @packet-length@ : The assigned number of packets to mirror.
+--
+--
+--     * @session-number@ : The assigned session number.
+--
+--
+--     * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.
+--
+--
+--     * @traffic-mirror-session-id@ : The ID of the Traffic Mirror session.
+--
+--
+--     * @traffic-mirror-target-id@ : The ID of the Traffic Mirror target.
+--
+--
+--     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'trafficMirrorSessionIds' - The ID of the Traffic Mirror session.
+mkDescribeTrafficMirrorSessions ::
   DescribeTrafficMirrorSessions
-describeTrafficMirrorSessions =
+mkDescribeTrafficMirrorSessions =
   DescribeTrafficMirrorSessions'
-    { _dtmsFilters = Nothing,
-      _dtmsNextToken = Nothing,
-      _dtmsTrafficMirrorSessionIds = Nothing,
-      _dtmsDryRun = Nothing,
-      _dtmsMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      trafficMirrorSessionIds = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters. The possible values are:     * @description@ : The Traffic Mirror session description.     * @network-interface-id@ : The ID of the Traffic Mirror session network interface.     * @owner-id@ : The ID of the account that owns the Traffic Mirror session.     * @packet-length@ : The assigned number of packets to mirror.      * @session-number@ : The assigned session number.      * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.     * @traffic-mirror-session-id@ : The ID of the Traffic Mirror session.     * @traffic-mirror-target-id@ : The ID of the Traffic Mirror target.     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
-dtmsFilters :: Lens' DescribeTrafficMirrorSessions [Filter]
-dtmsFilters = lens _dtmsFilters (\s a -> s {_dtmsFilters = a}) . _Default . _Coerce
+-- | One or more filters. The possible values are:
+--
+--
+--     * @description@ : The Traffic Mirror session description.
+--
+--
+--     * @network-interface-id@ : The ID of the Traffic Mirror session network interface.
+--
+--
+--     * @owner-id@ : The ID of the account that owns the Traffic Mirror session.
+--
+--
+--     * @packet-length@ : The assigned number of packets to mirror.
+--
+--
+--     * @session-number@ : The assigned session number.
+--
+--
+--     * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.
+--
+--
+--     * @traffic-mirror-session-id@ : The ID of the Traffic Mirror session.
+--
+--
+--     * @traffic-mirror-target-id@ : The ID of the Traffic Mirror target.
+--
+--
+--     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsFilters :: Lens.Lens' DescribeTrafficMirrorSessions (Lude.Maybe [Filter])
+dtmsFilters = Lens.lens (filters :: DescribeTrafficMirrorSessions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTrafficMirrorSessions)
+{-# DEPRECATED dtmsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next page of results.
-dtmsNextToken :: Lens' DescribeTrafficMirrorSessions (Maybe Text)
-dtmsNextToken = lens _dtmsNextToken (\s a -> s {_dtmsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsNextToken :: Lens.Lens' DescribeTrafficMirrorSessions (Lude.Maybe Lude.Text)
+dtmsNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorSessions)
+{-# DEPRECATED dtmsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the Traffic Mirror session.
-dtmsTrafficMirrorSessionIds :: Lens' DescribeTrafficMirrorSessions [Text]
-dtmsTrafficMirrorSessionIds = lens _dtmsTrafficMirrorSessionIds (\s a -> s {_dtmsTrafficMirrorSessionIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'trafficMirrorSessionIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsTrafficMirrorSessionIds :: Lens.Lens' DescribeTrafficMirrorSessions (Lude.Maybe [Lude.Text])
+dtmsTrafficMirrorSessionIds = Lens.lens (trafficMirrorSessionIds :: DescribeTrafficMirrorSessions -> Lude.Maybe [Lude.Text]) (\s a -> s {trafficMirrorSessionIds = a} :: DescribeTrafficMirrorSessions)
+{-# DEPRECATED dtmsTrafficMirrorSessionIds "Use generic-lens or generic-optics with 'trafficMirrorSessionIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtmsDryRun :: Lens' DescribeTrafficMirrorSessions (Maybe Bool)
-dtmsDryRun = lens _dtmsDryRun (\s a -> s {_dtmsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsDryRun :: Lens.Lens' DescribeTrafficMirrorSessions (Lude.Maybe Lude.Bool)
+dtmsDryRun = Lens.lens (dryRun :: DescribeTrafficMirrorSessions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeTrafficMirrorSessions)
+{-# DEPRECATED dtmsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dtmsMaxResults :: Lens' DescribeTrafficMirrorSessions (Maybe Natural)
-dtmsMaxResults = lens _dtmsMaxResults (\s a -> s {_dtmsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsMaxResults :: Lens.Lens' DescribeTrafficMirrorSessions (Lude.Maybe Lude.Natural)
+dtmsMaxResults = Lens.lens (maxResults :: DescribeTrafficMirrorSessions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTrafficMirrorSessions)
+{-# DEPRECATED dtmsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeTrafficMirrorSessions where
+instance Page.AWSPager DescribeTrafficMirrorSessions where
   page rq rs
-    | stop (rs ^. dtmsrsNextToken) = Nothing
-    | stop (rs ^. dtmsrsTrafficMirrorSessions) = Nothing
-    | otherwise = Just $ rq & dtmsNextToken .~ rs ^. dtmsrsNextToken
+    | Page.stop (rs Lens.^. dtmsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtmsrsTrafficMirrorSessions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dtmsNextToken Lens..~ rs Lens.^. dtmsrsNextToken
 
-instance AWSRequest DescribeTrafficMirrorSessions where
+instance Lude.AWSRequest DescribeTrafficMirrorSessions where
   type
     Rs DescribeTrafficMirrorSessions =
       DescribeTrafficMirrorSessionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorSessionsResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "trafficMirrorSessionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "trafficMirrorSessionSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTrafficMirrorSessions
+instance Lude.ToHeaders DescribeTrafficMirrorSessions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeTrafficMirrorSessions
+instance Lude.ToPath DescribeTrafficMirrorSessions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeTrafficMirrorSessions where
-  toHeaders = const mempty
-
-instance ToPath DescribeTrafficMirrorSessions where
-  toPath = const "/"
-
-instance ToQuery DescribeTrafficMirrorSessions where
+instance Lude.ToQuery DescribeTrafficMirrorSessions where
   toQuery DescribeTrafficMirrorSessions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeTrafficMirrorSessions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dtmsFilters),
-        "NextToken" =: _dtmsNextToken,
-        toQuery
-          ( toQueryList "TrafficMirrorSessionId"
-              <$> _dtmsTrafficMirrorSessionIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeTrafficMirrorSessions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery
+          ( Lude.toQueryList "TrafficMirrorSessionId"
+              Lude.<$> trafficMirrorSessionIds
           ),
-        "DryRun" =: _dtmsDryRun,
-        "MaxResults" =: _dtmsMaxResults
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeTrafficMirrorSessionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeTrafficMirrorSessionsResponse' smart constructor.
 data DescribeTrafficMirrorSessionsResponse = DescribeTrafficMirrorSessionsResponse'
-  { _dtmsrsNextToken ::
-      !(Maybe Text),
-    _dtmsrsTrafficMirrorSessions ::
-      !( Maybe
-           [TrafficMirrorSession]
-       ),
-    _dtmsrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    trafficMirrorSessions ::
+      Lude.Maybe
+        [TrafficMirrorSession],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrafficMirrorSessionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtmsrsNextToken' - The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
---
--- * 'dtmsrsTrafficMirrorSessions' - Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
---
--- * 'dtmsrsResponseStatus' - -- | The response status code.
-describeTrafficMirrorSessionsResponse ::
-  -- | 'dtmsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'trafficMirrorSessions' - Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
+mkDescribeTrafficMirrorSessionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTrafficMirrorSessionsResponse
-describeTrafficMirrorSessionsResponse pResponseStatus_ =
+mkDescribeTrafficMirrorSessionsResponse pResponseStatus_ =
   DescribeTrafficMirrorSessionsResponse'
-    { _dtmsrsNextToken =
-        Nothing,
-      _dtmsrsTrafficMirrorSessions = Nothing,
-      _dtmsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      trafficMirrorSessions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
-dtmsrsNextToken :: Lens' DescribeTrafficMirrorSessionsResponse (Maybe Text)
-dtmsrsNextToken = lens _dtmsrsNextToken (\s a -> s {_dtmsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsrsNextToken :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe Lude.Text)
+dtmsrsNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
-dtmsrsTrafficMirrorSessions :: Lens' DescribeTrafficMirrorSessionsResponse [TrafficMirrorSession]
-dtmsrsTrafficMirrorSessions = lens _dtmsrsTrafficMirrorSessions (\s a -> s {_dtmsrsTrafficMirrorSessions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'trafficMirrorSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsrsTrafficMirrorSessions :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe [TrafficMirrorSession])
+dtmsrsTrafficMirrorSessions = Lens.lens (trafficMirrorSessions :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe [TrafficMirrorSession]) (\s a -> s {trafficMirrorSessions = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmsrsTrafficMirrorSessions "Use generic-lens or generic-optics with 'trafficMirrorSessions' instead." #-}
 
--- | -- | The response status code.
-dtmsrsResponseStatus :: Lens' DescribeTrafficMirrorSessionsResponse Int
-dtmsrsResponseStatus = lens _dtmsrsResponseStatus (\s a -> s {_dtmsrsResponseStatus = a})
-
-instance NFData DescribeTrafficMirrorSessionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmsrsResponseStatus :: Lens.Lens' DescribeTrafficMirrorSessionsResponse Lude.Int
+dtmsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrafficMirrorSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemDataType where
+module Network.AWS.SSM.Types.OpsItemDataType
+  ( OpsItemDataType
+      ( OpsItemDataType',
+        SearchableString,
+        String
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OpsItemDataType
-  = SearchableString
-  | String
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OpsItemDataType = OpsItemDataType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OpsItemDataType where
-  parser =
-    takeLowerText >>= \case
-      "searchablestring" -> pure SearchableString
-      "string" -> pure String
-      e ->
-        fromTextError $
-          "Failure parsing OpsItemDataType from value: '" <> e
-            <> "'. Accepted values: searchablestring, string"
+pattern SearchableString :: OpsItemDataType
+pattern SearchableString = OpsItemDataType' "SearchableString"
 
-instance ToText OpsItemDataType where
-  toText = \case
-    SearchableString -> "SearchableString"
-    String -> "String"
+pattern String :: OpsItemDataType
+pattern String = OpsItemDataType' "String"
 
-instance Hashable OpsItemDataType
-
-instance NFData OpsItemDataType
-
-instance ToByteString OpsItemDataType
-
-instance ToQuery OpsItemDataType
-
-instance ToHeader OpsItemDataType
-
-instance ToJSON OpsItemDataType where
-  toJSON = toJSONText
-
-instance FromJSON OpsItemDataType where
-  parseJSON = parseJSONText "OpsItemDataType"
+{-# COMPLETE
+  SearchableString,
+  String,
+  OpsItemDataType'
+  #-}

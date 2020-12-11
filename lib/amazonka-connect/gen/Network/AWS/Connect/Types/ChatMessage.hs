@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.ChatMessage where
+module Network.AWS.Connect.Types.ChatMessage
+  ( ChatMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChatMessage,
+
+    -- * Lenses
+    cmContentType,
+    cmContent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A chat message.
 --
---
---
--- /See:/ 'chatMessage' smart constructor.
+-- /See:/ 'mkChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
-  { _cmContentType :: !Text,
-    _cmContent :: !Text
+  { contentType :: Lude.Text,
+    content :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChatMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmContentType' - The type of the content. Supported types are text/plain.
---
--- * 'cmContent' - The content of the chat message.
-chatMessage ::
-  -- | 'cmContentType'
-  Text ->
-  -- | 'cmContent'
-  Text ->
+-- * 'content' - The content of the chat message.
+-- * 'contentType' - The type of the content. Supported types are text/plain.
+mkChatMessage ::
+  -- | 'contentType'
+  Lude.Text ->
+  -- | 'content'
+  Lude.Text ->
   ChatMessage
-chatMessage pContentType_ pContent_ =
-  ChatMessage'
-    { _cmContentType = pContentType_,
-      _cmContent = pContent_
-    }
+mkChatMessage pContentType_ pContent_ =
+  ChatMessage' {contentType = pContentType_, content = pContent_}
 
 -- | The type of the content. Supported types are text/plain.
-cmContentType :: Lens' ChatMessage Text
-cmContentType = lens _cmContentType (\s a -> s {_cmContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContentType :: Lens.Lens' ChatMessage Lude.Text
+cmContentType = Lens.lens (contentType :: ChatMessage -> Lude.Text) (\s a -> s {contentType = a} :: ChatMessage)
+{-# DEPRECATED cmContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | The content of the chat message.
-cmContent :: Lens' ChatMessage Text
-cmContent = lens _cmContent (\s a -> s {_cmContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContent :: Lens.Lens' ChatMessage Lude.Text
+cmContent = Lens.lens (content :: ChatMessage -> Lude.Text) (\s a -> s {content = a} :: ChatMessage)
+{-# DEPRECATED cmContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance Hashable ChatMessage
-
-instance NFData ChatMessage
-
-instance ToJSON ChatMessage where
+instance Lude.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =
-    object
-      ( catMaybes
-          [ Just ("ContentType" .= _cmContentType),
-            Just ("Content" .= _cmContent)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ContentType" Lude..= contentType),
+            Lude.Just ("Content" Lude..= content)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,208 @@
 --
 -- Returns information about custom Availability Zones (AZs).
 --
---
 -- A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.
---
 -- For more information about RDS on VMware, see the <https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html /RDS on VMware User Guide./ >
---
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeCustomAvailabilityZones
-  ( -- * Creating a Request
-    describeCustomAvailabilityZones,
-    DescribeCustomAvailabilityZones,
+  ( -- * Creating a request
+    DescribeCustomAvailabilityZones (..),
+    mkDescribeCustomAvailabilityZones,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcazFilters,
     dcazCustomAvailabilityZoneId,
     dcazMarker,
     dcazMaxRecords,
 
-    -- * Destructuring the Response
-    describeCustomAvailabilityZonesResponse,
-    DescribeCustomAvailabilityZonesResponse,
+    -- * Destructuring the response
+    DescribeCustomAvailabilityZonesResponse (..),
+    mkDescribeCustomAvailabilityZonesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcazrsCustomAvailabilityZones,
     dcazrsMarker,
     dcazrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCustomAvailabilityZones' smart constructor.
+-- | /See:/ 'mkDescribeCustomAvailabilityZones' smart constructor.
 data DescribeCustomAvailabilityZones = DescribeCustomAvailabilityZones'
-  { _dcazFilters ::
-      !(Maybe [Filter]),
-    _dcazCustomAvailabilityZoneId ::
-      !(Maybe Text),
-    _dcazMarker ::
-      !(Maybe Text),
-    _dcazMaxRecords ::
-      !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    customAvailabilityZoneId ::
+      Lude.Maybe Lude.Text,
+    marker ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCustomAvailabilityZones' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'customAvailabilityZoneId' - The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.
+-- * 'filters' - A filter that specifies one or more custom AZs to describe.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
--- * 'dcazFilters' - A filter that specifies one or more custom AZs to describe.
---
--- * 'dcazCustomAvailabilityZoneId' - The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.
---
--- * 'dcazMarker' - An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcazMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100.
-describeCustomAvailabilityZones ::
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+mkDescribeCustomAvailabilityZones ::
   DescribeCustomAvailabilityZones
-describeCustomAvailabilityZones =
+mkDescribeCustomAvailabilityZones =
   DescribeCustomAvailabilityZones'
-    { _dcazFilters = Nothing,
-      _dcazCustomAvailabilityZoneId = Nothing,
-      _dcazMarker = Nothing,
-      _dcazMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      customAvailabilityZoneId = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | A filter that specifies one or more custom AZs to describe.
-dcazFilters :: Lens' DescribeCustomAvailabilityZones [Filter]
-dcazFilters = lens _dcazFilters (\s a -> s {_dcazFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazFilters :: Lens.Lens' DescribeCustomAvailabilityZones (Lude.Maybe [Filter])
+dcazFilters = Lens.lens (filters :: DescribeCustomAvailabilityZones -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeCustomAvailabilityZones)
+{-# DEPRECATED dcazFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The custom AZ identifier. If this parameter is specified, information from only the specific custom AZ is returned.
-dcazCustomAvailabilityZoneId :: Lens' DescribeCustomAvailabilityZones (Maybe Text)
-dcazCustomAvailabilityZoneId = lens _dcazCustomAvailabilityZoneId (\s a -> s {_dcazCustomAvailabilityZoneId = a})
+--
+-- /Note:/ Consider using 'customAvailabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazCustomAvailabilityZoneId :: Lens.Lens' DescribeCustomAvailabilityZones (Lude.Maybe Lude.Text)
+dcazCustomAvailabilityZoneId = Lens.lens (customAvailabilityZoneId :: DescribeCustomAvailabilityZones -> Lude.Maybe Lude.Text) (\s a -> s {customAvailabilityZoneId = a} :: DescribeCustomAvailabilityZones)
+{-# DEPRECATED dcazCustomAvailabilityZoneId "Use generic-lens or generic-optics with 'customAvailabilityZoneId' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcazMarker :: Lens' DescribeCustomAvailabilityZones (Maybe Text)
-dcazMarker = lens _dcazMarker (\s a -> s {_dcazMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazMarker :: Lens.Lens' DescribeCustomAvailabilityZones (Lude.Maybe Lude.Text)
+dcazMarker = Lens.lens (marker :: DescribeCustomAvailabilityZones -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCustomAvailabilityZones)
+{-# DEPRECATED dcazMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results. Default: 100 Constraints: Minimum 20, maximum 100.
-dcazMaxRecords :: Lens' DescribeCustomAvailabilityZones (Maybe Int)
-dcazMaxRecords = lens _dcazMaxRecords (\s a -> s {_dcazMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazMaxRecords :: Lens.Lens' DescribeCustomAvailabilityZones (Lude.Maybe Lude.Int)
+dcazMaxRecords = Lens.lens (maxRecords :: DescribeCustomAvailabilityZones -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCustomAvailabilityZones)
+{-# DEPRECATED dcazMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeCustomAvailabilityZones where
+instance Page.AWSPager DescribeCustomAvailabilityZones where
   page rq rs
-    | stop (rs ^. dcazrsMarker) = Nothing
-    | stop (rs ^. dcazrsCustomAvailabilityZones) = Nothing
-    | otherwise = Just $ rq & dcazMarker .~ rs ^. dcazrsMarker
+    | Page.stop (rs Lens.^. dcazrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcazrsCustomAvailabilityZones) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcazMarker Lens..~ rs Lens.^. dcazrsMarker
 
-instance AWSRequest DescribeCustomAvailabilityZones where
+instance Lude.AWSRequest DescribeCustomAvailabilityZones where
   type
     Rs DescribeCustomAvailabilityZones =
       DescribeCustomAvailabilityZonesResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeCustomAvailabilityZonesResult"
       ( \s h x ->
           DescribeCustomAvailabilityZonesResponse'
-            <$> ( x .@? "CustomAvailabilityZones" .!@ mempty
-                    >>= may (parseXMLList "CustomAvailabilityZone")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "CustomAvailabilityZones" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "CustomAvailabilityZone")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCustomAvailabilityZones
+instance Lude.ToHeaders DescribeCustomAvailabilityZones where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeCustomAvailabilityZones
+instance Lude.ToPath DescribeCustomAvailabilityZones where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeCustomAvailabilityZones where
-  toHeaders = const mempty
-
-instance ToPath DescribeCustomAvailabilityZones where
-  toPath = const "/"
-
-instance ToQuery DescribeCustomAvailabilityZones where
+instance Lude.ToQuery DescribeCustomAvailabilityZones where
   toQuery DescribeCustomAvailabilityZones' {..} =
-    mconcat
-      [ "Action" =: ("DescribeCustomAvailabilityZones" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dcazFilters),
-        "CustomAvailabilityZoneId" =: _dcazCustomAvailabilityZoneId,
-        "Marker" =: _dcazMarker,
-        "MaxRecords" =: _dcazMaxRecords
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeCustomAvailabilityZones" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "CustomAvailabilityZoneId" Lude.=: customAvailabilityZoneId,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'describeCustomAvailabilityZonesResponse' smart constructor.
+-- | /See:/ 'mkDescribeCustomAvailabilityZonesResponse' smart constructor.
 data DescribeCustomAvailabilityZonesResponse = DescribeCustomAvailabilityZonesResponse'
-  { _dcazrsCustomAvailabilityZones ::
-      !( Maybe
-           [CustomAvailabilityZone]
-       ),
-    _dcazrsMarker ::
-      !( Maybe
-           Text
-       ),
-    _dcazrsResponseStatus ::
-      !Int
+  { customAvailabilityZones ::
+      Lude.Maybe
+        [CustomAvailabilityZone],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCustomAvailabilityZonesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcazrsCustomAvailabilityZones' - The list of 'CustomAvailabilityZone' objects for the AWS account.
---
--- * 'dcazrsMarker' - An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcazrsResponseStatus' - -- | The response status code.
-describeCustomAvailabilityZonesResponse ::
-  -- | 'dcazrsResponseStatus'
-  Int ->
+-- * 'customAvailabilityZones' - The list of 'CustomAvailabilityZone' objects for the AWS account.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeCustomAvailabilityZonesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCustomAvailabilityZonesResponse
-describeCustomAvailabilityZonesResponse pResponseStatus_ =
+mkDescribeCustomAvailabilityZonesResponse pResponseStatus_ =
   DescribeCustomAvailabilityZonesResponse'
-    { _dcazrsCustomAvailabilityZones =
-        Nothing,
-      _dcazrsMarker = Nothing,
-      _dcazrsResponseStatus = pResponseStatus_
+    { customAvailabilityZones =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of 'CustomAvailabilityZone' objects for the AWS account.
-dcazrsCustomAvailabilityZones :: Lens' DescribeCustomAvailabilityZonesResponse [CustomAvailabilityZone]
-dcazrsCustomAvailabilityZones = lens _dcazrsCustomAvailabilityZones (\s a -> s {_dcazrsCustomAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'customAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazrsCustomAvailabilityZones :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Lude.Maybe [CustomAvailabilityZone])
+dcazrsCustomAvailabilityZones = Lens.lens (customAvailabilityZones :: DescribeCustomAvailabilityZonesResponse -> Lude.Maybe [CustomAvailabilityZone]) (\s a -> s {customAvailabilityZones = a} :: DescribeCustomAvailabilityZonesResponse)
+{-# DEPRECATED dcazrsCustomAvailabilityZones "Use generic-lens or generic-optics with 'customAvailabilityZones' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeCustomAvailabilityZones@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcazrsMarker :: Lens' DescribeCustomAvailabilityZonesResponse (Maybe Text)
-dcazrsMarker = lens _dcazrsMarker (\s a -> s {_dcazrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazrsMarker :: Lens.Lens' DescribeCustomAvailabilityZonesResponse (Lude.Maybe Lude.Text)
+dcazrsMarker = Lens.lens (marker :: DescribeCustomAvailabilityZonesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCustomAvailabilityZonesResponse)
+{-# DEPRECATED dcazrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dcazrsResponseStatus :: Lens' DescribeCustomAvailabilityZonesResponse Int
-dcazrsResponseStatus = lens _dcazrsResponseStatus (\s a -> s {_dcazrsResponseStatus = a})
-
-instance NFData DescribeCustomAvailabilityZonesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcazrsResponseStatus :: Lens.Lens' DescribeCustomAvailabilityZonesResponse Lude.Int
+dcazrsResponseStatus = Lens.lens (responseStatus :: DescribeCustomAvailabilityZonesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCustomAvailabilityZonesResponse)
+{-# DEPRECATED dcazrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

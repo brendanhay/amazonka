@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,129 +7,161 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ContainerOverride where
+module Network.AWS.ECS.Types.ContainerOverride
+  ( ContainerOverride (..),
+
+    -- * Smart constructor
+    mkContainerOverride,
+
+    -- * Lenses
+    coCommand,
+    coEnvironment,
+    coEnvironmentFiles,
+    coResourceRequirements,
+    coMemory,
+    coName,
+    coCpu,
+    coMemoryReservation,
+  )
+where
 
 import Network.AWS.ECS.Types.EnvironmentFile
 import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.ResourceRequirement
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The overrides that should be sent to a container. An empty container override can be passed in. An example of an empty container override would be @{"containerOverrides": [ ] }@ . If a non-empty container override is specified, the @name@ parameter must be included.
 --
---
---
--- /See:/ 'containerOverride' smart constructor.
+-- /See:/ 'mkContainerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-  { _coCommand ::
-      !(Maybe [Text]),
-    _coEnvironment :: !(Maybe [KeyValuePair]),
-    _coEnvironmentFiles :: !(Maybe [EnvironmentFile]),
-    _coResourceRequirements ::
-      !(Maybe [ResourceRequirement]),
-    _coMemory :: !(Maybe Int),
-    _coName :: !(Maybe Text),
-    _coCpu :: !(Maybe Int),
-    _coMemoryReservation :: !(Maybe Int)
+  { command ::
+      Lude.Maybe [Lude.Text],
+    environment :: Lude.Maybe [KeyValuePair],
+    environmentFiles :: Lude.Maybe [EnvironmentFile],
+    resourceRequirements ::
+      Lude.Maybe [ResourceRequirement],
+    memory :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text,
+    cpu :: Lude.Maybe Lude.Int,
+    memoryReservation :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerOverride' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coCommand' - The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
---
--- * 'coEnvironment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
---
--- * 'coEnvironmentFiles' - A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
---
--- * 'coResourceRequirements' - The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
---
--- * 'coMemory' - The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
---
--- * 'coName' - The name of the container that receives the override. This parameter is required if any override is specified.
---
--- * 'coCpu' - The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
---
--- * 'coMemoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-containerOverride ::
+-- * 'command' - The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+-- * 'cpu' - The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+-- * 'environment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
+-- * 'environmentFiles' - A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
+-- * 'memory' - The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+-- * 'memoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+-- * 'name' - The name of the container that receives the override. This parameter is required if any override is specified.
+-- * 'resourceRequirements' - The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
+mkContainerOverride ::
   ContainerOverride
-containerOverride =
+mkContainerOverride =
   ContainerOverride'
-    { _coCommand = Nothing,
-      _coEnvironment = Nothing,
-      _coEnvironmentFiles = Nothing,
-      _coResourceRequirements = Nothing,
-      _coMemory = Nothing,
-      _coName = Nothing,
-      _coCpu = Nothing,
-      _coMemoryReservation = Nothing
+    { command = Lude.Nothing,
+      environment = Lude.Nothing,
+      environmentFiles = Lude.Nothing,
+      resourceRequirements = Lude.Nothing,
+      memory = Lude.Nothing,
+      name = Lude.Nothing,
+      cpu = Lude.Nothing,
+      memoryReservation = Lude.Nothing
     }
 
 -- | The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-coCommand :: Lens' ContainerOverride [Text]
-coCommand = lens _coCommand (\s a -> s {_coCommand = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCommand :: Lens.Lens' ContainerOverride (Lude.Maybe [Lude.Text])
+coCommand = Lens.lens (command :: ContainerOverride -> Lude.Maybe [Lude.Text]) (\s a -> s {command = a} :: ContainerOverride)
+{-# DEPRECATED coCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
-coEnvironment :: Lens' ContainerOverride [KeyValuePair]
-coEnvironment = lens _coEnvironment (\s a -> s {_coEnvironment = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coEnvironment :: Lens.Lens' ContainerOverride (Lude.Maybe [KeyValuePair])
+coEnvironment = Lens.lens (environment :: ContainerOverride -> Lude.Maybe [KeyValuePair]) (\s a -> s {environment = a} :: ContainerOverride)
+{-# DEPRECATED coEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
-coEnvironmentFiles :: Lens' ContainerOverride [EnvironmentFile]
-coEnvironmentFiles = lens _coEnvironmentFiles (\s a -> s {_coEnvironmentFiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environmentFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coEnvironmentFiles :: Lens.Lens' ContainerOverride (Lude.Maybe [EnvironmentFile])
+coEnvironmentFiles = Lens.lens (environmentFiles :: ContainerOverride -> Lude.Maybe [EnvironmentFile]) (\s a -> s {environmentFiles = a} :: ContainerOverride)
+{-# DEPRECATED coEnvironmentFiles "Use generic-lens or generic-optics with 'environmentFiles' instead." #-}
 
 -- | The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
-coResourceRequirements :: Lens' ContainerOverride [ResourceRequirement]
-coResourceRequirements = lens _coResourceRequirements (\s a -> s {_coResourceRequirements = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceRequirements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coResourceRequirements :: Lens.Lens' ContainerOverride (Lude.Maybe [ResourceRequirement])
+coResourceRequirements = Lens.lens (resourceRequirements :: ContainerOverride -> Lude.Maybe [ResourceRequirement]) (\s a -> s {resourceRequirements = a} :: ContainerOverride)
+{-# DEPRECATED coResourceRequirements "Use generic-lens or generic-optics with 'resourceRequirements' instead." #-}
 
 -- | The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-coMemory :: Lens' ContainerOverride (Maybe Int)
-coMemory = lens _coMemory (\s a -> s {_coMemory = a})
+--
+-- /Note:/ Consider using 'memory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coMemory :: Lens.Lens' ContainerOverride (Lude.Maybe Lude.Int)
+coMemory = Lens.lens (memory :: ContainerOverride -> Lude.Maybe Lude.Int) (\s a -> s {memory = a} :: ContainerOverride)
+{-# DEPRECATED coMemory "Use generic-lens or generic-optics with 'memory' instead." #-}
 
 -- | The name of the container that receives the override. This parameter is required if any override is specified.
-coName :: Lens' ContainerOverride (Maybe Text)
-coName = lens _coName (\s a -> s {_coName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coName :: Lens.Lens' ContainerOverride (Lude.Maybe Lude.Text)
+coName = Lens.lens (name :: ContainerOverride -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ContainerOverride)
+{-# DEPRECATED coName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-coCpu :: Lens' ContainerOverride (Maybe Int)
-coCpu = lens _coCpu (\s a -> s {_coCpu = a})
+--
+-- /Note:/ Consider using 'cpu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCpu :: Lens.Lens' ContainerOverride (Lude.Maybe Lude.Int)
+coCpu = Lens.lens (cpu :: ContainerOverride -> Lude.Maybe Lude.Int) (\s a -> s {cpu = a} :: ContainerOverride)
+{-# DEPRECATED coCpu "Use generic-lens or generic-optics with 'cpu' instead." #-}
 
 -- | The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-coMemoryReservation :: Lens' ContainerOverride (Maybe Int)
-coMemoryReservation = lens _coMemoryReservation (\s a -> s {_coMemoryReservation = a})
+--
+-- /Note:/ Consider using 'memoryReservation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coMemoryReservation :: Lens.Lens' ContainerOverride (Lude.Maybe Lude.Int)
+coMemoryReservation = Lens.lens (memoryReservation :: ContainerOverride -> Lude.Maybe Lude.Int) (\s a -> s {memoryReservation = a} :: ContainerOverride)
+{-# DEPRECATED coMemoryReservation "Use generic-lens or generic-optics with 'memoryReservation' instead." #-}
 
-instance FromJSON ContainerOverride where
+instance Lude.FromJSON ContainerOverride where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerOverride"
       ( \x ->
           ContainerOverride'
-            <$> (x .:? "command" .!= mempty)
-            <*> (x .:? "environment" .!= mempty)
-            <*> (x .:? "environmentFiles" .!= mempty)
-            <*> (x .:? "resourceRequirements" .!= mempty)
-            <*> (x .:? "memory")
-            <*> (x .:? "name")
-            <*> (x .:? "cpu")
-            <*> (x .:? "memoryReservation")
+            Lude.<$> (x Lude..:? "command" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "environment" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "environmentFiles" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "resourceRequirements" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "memory")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "cpu")
+            Lude.<*> (x Lude..:? "memoryReservation")
       )
 
-instance Hashable ContainerOverride
-
-instance NFData ContainerOverride
-
-instance ToJSON ContainerOverride where
+instance Lude.ToJSON ContainerOverride where
   toJSON ContainerOverride' {..} =
-    object
-      ( catMaybes
-          [ ("command" .=) <$> _coCommand,
-            ("environment" .=) <$> _coEnvironment,
-            ("environmentFiles" .=) <$> _coEnvironmentFiles,
-            ("resourceRequirements" .=) <$> _coResourceRequirements,
-            ("memory" .=) <$> _coMemory,
-            ("name" .=) <$> _coName,
-            ("cpu" .=) <$> _coCpu,
-            ("memoryReservation" .=) <$> _coMemoryReservation
+    Lude.object
+      ( Lude.catMaybes
+          [ ("command" Lude..=) Lude.<$> command,
+            ("environment" Lude..=) Lude.<$> environment,
+            ("environmentFiles" Lude..=) Lude.<$> environmentFiles,
+            ("resourceRequirements" Lude..=) Lude.<$> resourceRequirements,
+            ("memory" Lude..=) Lude.<$> memory,
+            ("name" Lude..=) Lude.<$> name,
+            ("cpu" Lude..=) Lude.<$> cpu,
+            ("memoryReservation" Lude..=) Lude.<$> memoryReservation
           ]
       )

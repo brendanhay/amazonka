@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DirectConnect.DescribeDirectConnectGateways
-  ( -- * Creating a Request
-    describeDirectConnectGateways,
-    DescribeDirectConnectGateways,
+  ( -- * Creating a request
+    DescribeDirectConnectGateways (..),
+    mkDescribeDirectConnectGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcgDirectConnectGatewayId,
     ddcgNextToken,
     ddcgMaxResults,
 
-    -- * Destructuring the Response
-    describeDirectConnectGatewaysResponse,
-    DescribeDirectConnectGatewaysResponse,
+    -- * Destructuring the response
+    DescribeDirectConnectGatewaysResponse (..),
+    mkDescribeDirectConnectGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcgrsDirectConnectGateways,
     ddcgrsNextToken,
     ddcgrsResponseStatus,
@@ -44,146 +37,177 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGateways
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDirectConnectGateways' smart constructor.
+-- | /See:/ 'mkDescribeDirectConnectGateways' smart constructor.
 data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
-  { _ddcgDirectConnectGatewayId ::
-      !(Maybe Text),
-    _ddcgNextToken :: !(Maybe Text),
-    _ddcgMaxResults :: !(Maybe Int)
+  { directConnectGatewayId ::
+      Lude.Maybe Lude.Text,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
--- * 'ddcgDirectConnectGatewayId' - The ID of the Direct Connect gateway.
---
--- * 'ddcgNextToken' - The token provided in the previous call to retrieve the next page.
---
--- * 'ddcgMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
-describeDirectConnectGateways ::
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+-- * 'nextToken' - The token provided in the previous call to retrieve the next page.
+mkDescribeDirectConnectGateways ::
   DescribeDirectConnectGateways
-describeDirectConnectGateways =
+mkDescribeDirectConnectGateways =
   DescribeDirectConnectGateways'
-    { _ddcgDirectConnectGatewayId =
-        Nothing,
-      _ddcgNextToken = Nothing,
-      _ddcgMaxResults = Nothing
+    { directConnectGatewayId =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The ID of the Direct Connect gateway.
-ddcgDirectConnectGatewayId :: Lens' DescribeDirectConnectGateways (Maybe Text)
-ddcgDirectConnectGatewayId = lens _ddcgDirectConnectGatewayId (\s a -> s {_ddcgDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgDirectConnectGatewayId :: Lens.Lens' DescribeDirectConnectGateways (Lude.Maybe Lude.Text)
+ddcgDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DescribeDirectConnectGateways -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGateways)
+{-# DEPRECATED ddcgDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The token provided in the previous call to retrieve the next page.
-ddcgNextToken :: Lens' DescribeDirectConnectGateways (Maybe Text)
-ddcgNextToken = lens _ddcgNextToken (\s a -> s {_ddcgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgNextToken :: Lens.Lens' DescribeDirectConnectGateways (Lude.Maybe Lude.Text)
+ddcgNextToken = Lens.lens (nextToken :: DescribeDirectConnectGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectConnectGateways)
+{-# DEPRECATED ddcgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
-ddcgMaxResults :: Lens' DescribeDirectConnectGateways (Maybe Int)
-ddcgMaxResults = lens _ddcgMaxResults (\s a -> s {_ddcgMaxResults = a})
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+--
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgMaxResults :: Lens.Lens' DescribeDirectConnectGateways (Lude.Maybe Lude.Int)
+ddcgMaxResults = Lens.lens (maxResults :: DescribeDirectConnectGateways -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeDirectConnectGateways)
+{-# DEPRECATED ddcgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeDirectConnectGateways where
+instance Page.AWSPager DescribeDirectConnectGateways where
   page rq rs
-    | stop (rs ^. ddcgrsNextToken) = Nothing
-    | stop (rs ^. ddcgrsDirectConnectGateways) = Nothing
-    | otherwise = Just $ rq & ddcgNextToken .~ rs ^. ddcgrsNextToken
+    | Page.stop (rs Lens.^. ddcgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddcgrsDirectConnectGateways) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddcgNextToken Lens..~ rs Lens.^. ddcgrsNextToken
 
-instance AWSRequest DescribeDirectConnectGateways where
+instance Lude.AWSRequest DescribeDirectConnectGateways where
   type
     Rs DescribeDirectConnectGateways =
       DescribeDirectConnectGatewaysResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewaysResponse'
-            <$> (x .?> "directConnectGateways" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "directConnectGateways" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDirectConnectGateways
-
-instance NFData DescribeDirectConnectGateways
-
-instance ToHeaders DescribeDirectConnectGateways where
+instance Lude.ToHeaders DescribeDirectConnectGateways where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DescribeDirectConnectGateways" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.DescribeDirectConnectGateways" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDirectConnectGateways where
+instance Lude.ToJSON DescribeDirectConnectGateways where
   toJSON DescribeDirectConnectGateways' {..} =
-    object
-      ( catMaybes
-          [ ("directConnectGatewayId" .=) <$> _ddcgDirectConnectGatewayId,
-            ("nextToken" .=) <$> _ddcgNextToken,
-            ("maxResults" .=) <$> _ddcgMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("directConnectGatewayId" Lude..=)
+              Lude.<$> directConnectGatewayId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeDirectConnectGateways where
-  toPath = const "/"
+instance Lude.ToPath DescribeDirectConnectGateways where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDirectConnectGateways where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDirectConnectGateways where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDirectConnectGatewaysResponse' smart constructor.
+-- | /See:/ 'mkDescribeDirectConnectGatewaysResponse' smart constructor.
 data DescribeDirectConnectGatewaysResponse = DescribeDirectConnectGatewaysResponse'
-  { _ddcgrsDirectConnectGateways ::
-      !( Maybe
-           [DirectConnectGateway]
-       ),
-    _ddcgrsNextToken ::
-      !(Maybe Text),
-    _ddcgrsResponseStatus ::
-      !Int
+  { directConnectGateways ::
+      Lude.Maybe
+        [DirectConnectGateway],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcgrsDirectConnectGateways' - The Direct Connect gateways.
---
--- * 'ddcgrsNextToken' - The token to retrieve the next page.
---
--- * 'ddcgrsResponseStatus' - -- | The response status code.
-describeDirectConnectGatewaysResponse ::
-  -- | 'ddcgrsResponseStatus'
-  Int ->
+-- * 'directConnectGateways' - The Direct Connect gateways.
+-- * 'nextToken' - The token to retrieve the next page.
+-- * 'responseStatus' - The response status code.
+mkDescribeDirectConnectGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDirectConnectGatewaysResponse
-describeDirectConnectGatewaysResponse pResponseStatus_ =
+mkDescribeDirectConnectGatewaysResponse pResponseStatus_ =
   DescribeDirectConnectGatewaysResponse'
-    { _ddcgrsDirectConnectGateways =
-        Nothing,
-      _ddcgrsNextToken = Nothing,
-      _ddcgrsResponseStatus = pResponseStatus_
+    { directConnectGateways =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Direct Connect gateways.
-ddcgrsDirectConnectGateways :: Lens' DescribeDirectConnectGatewaysResponse [DirectConnectGateway]
-ddcgrsDirectConnectGateways = lens _ddcgrsDirectConnectGateways (\s a -> s {_ddcgrsDirectConnectGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'directConnectGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgrsDirectConnectGateways :: Lens.Lens' DescribeDirectConnectGatewaysResponse (Lude.Maybe [DirectConnectGateway])
+ddcgrsDirectConnectGateways = Lens.lens (directConnectGateways :: DescribeDirectConnectGatewaysResponse -> Lude.Maybe [DirectConnectGateway]) (\s a -> s {directConnectGateways = a} :: DescribeDirectConnectGatewaysResponse)
+{-# DEPRECATED ddcgrsDirectConnectGateways "Use generic-lens or generic-optics with 'directConnectGateways' instead." #-}
 
 -- | The token to retrieve the next page.
-ddcgrsNextToken :: Lens' DescribeDirectConnectGatewaysResponse (Maybe Text)
-ddcgrsNextToken = lens _ddcgrsNextToken (\s a -> s {_ddcgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgrsNextToken :: Lens.Lens' DescribeDirectConnectGatewaysResponse (Lude.Maybe Lude.Text)
+ddcgrsNextToken = Lens.lens (nextToken :: DescribeDirectConnectGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectConnectGatewaysResponse)
+{-# DEPRECATED ddcgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ddcgrsResponseStatus :: Lens' DescribeDirectConnectGatewaysResponse Int
-ddcgrsResponseStatus = lens _ddcgrsResponseStatus (\s a -> s {_ddcgrsResponseStatus = a})
-
-instance NFData DescribeDirectConnectGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgrsResponseStatus :: Lens.Lens' DescribeDirectConnectGatewaysResponse Lude.Int
+ddcgrsResponseStatus = Lens.lens (responseStatus :: DescribeDirectConnectGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDirectConnectGatewaysResponse)
+{-# DEPRECATED ddcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

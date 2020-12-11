@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,144 @@
 --
 -- Deletes an environment member from an AWS Cloud9 development environment.
 module Network.AWS.Cloud9.DeleteEnvironmentMembership
-  ( -- * Creating a Request
-    deleteEnvironmentMembership,
-    DeleteEnvironmentMembership,
+  ( -- * Creating a request
+    DeleteEnvironmentMembership (..),
+    mkDeleteEnvironmentMembership,
 
-    -- * Request Lenses
+    -- ** Request lenses
     demEnvironmentId,
     demUserARN,
 
-    -- * Destructuring the Response
-    deleteEnvironmentMembershipResponse,
-    DeleteEnvironmentMembershipResponse,
+    -- * Destructuring the response
+    DeleteEnvironmentMembershipResponse (..),
+    mkDeleteEnvironmentMembershipResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     demrsResponseStatus,
   )
 where
 
 import Network.AWS.Cloud9.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteEnvironmentMembership' smart constructor.
+-- | /See:/ 'mkDeleteEnvironmentMembership' smart constructor.
 data DeleteEnvironmentMembership = DeleteEnvironmentMembership'
-  { _demEnvironmentId ::
-      !Text,
-    _demUserARN :: !Text
+  { environmentId ::
+      Lude.Text,
+    userARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironmentMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'demEnvironmentId' - The ID of the environment to delete the environment member from.
---
--- * 'demUserARN' - The Amazon Resource Name (ARN) of the environment member to delete from the environment.
-deleteEnvironmentMembership ::
-  -- | 'demEnvironmentId'
-  Text ->
-  -- | 'demUserARN'
-  Text ->
+-- * 'environmentId' - The ID of the environment to delete the environment member from.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the environment member to delete from the environment.
+mkDeleteEnvironmentMembership ::
+  -- | 'environmentId'
+  Lude.Text ->
+  -- | 'userARN'
+  Lude.Text ->
   DeleteEnvironmentMembership
-deleteEnvironmentMembership pEnvironmentId_ pUserARN_ =
+mkDeleteEnvironmentMembership pEnvironmentId_ pUserARN_ =
   DeleteEnvironmentMembership'
-    { _demEnvironmentId = pEnvironmentId_,
-      _demUserARN = pUserARN_
+    { environmentId = pEnvironmentId_,
+      userARN = pUserARN_
     }
 
 -- | The ID of the environment to delete the environment member from.
-demEnvironmentId :: Lens' DeleteEnvironmentMembership Text
-demEnvironmentId = lens _demEnvironmentId (\s a -> s {_demEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demEnvironmentId :: Lens.Lens' DeleteEnvironmentMembership Lude.Text
+demEnvironmentId = Lens.lens (environmentId :: DeleteEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: DeleteEnvironmentMembership)
+{-# DEPRECATED demEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment member to delete from the environment.
-demUserARN :: Lens' DeleteEnvironmentMembership Text
-demUserARN = lens _demUserARN (\s a -> s {_demUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demUserARN :: Lens.Lens' DeleteEnvironmentMembership Lude.Text
+demUserARN = Lens.lens (userARN :: DeleteEnvironmentMembership -> Lude.Text) (\s a -> s {userARN = a} :: DeleteEnvironmentMembership)
+{-# DEPRECATED demUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
-instance AWSRequest DeleteEnvironmentMembership where
+instance Lude.AWSRequest DeleteEnvironmentMembership where
   type
     Rs DeleteEnvironmentMembership =
       DeleteEnvironmentMembershipResponse
-  request = postJSON cloud9
+  request = Req.postJSON cloud9Service
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteEnvironmentMembershipResponse' <$> (pure (fromEnum s))
+          DeleteEnvironmentMembershipResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteEnvironmentMembership
-
-instance NFData DeleteEnvironmentMembership
-
-instance ToHeaders DeleteEnvironmentMembership where
+instance Lude.ToHeaders DeleteEnvironmentMembership where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteEnvironmentMembership where
+instance Lude.ToJSON DeleteEnvironmentMembership where
   toJSON DeleteEnvironmentMembership' {..} =
-    object
-      ( catMaybes
-          [ Just ("environmentId" .= _demEnvironmentId),
-            Just ("userArn" .= _demUserARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("environmentId" Lude..= environmentId),
+            Lude.Just ("userArn" Lude..= userARN)
           ]
       )
 
-instance ToPath DeleteEnvironmentMembership where
-  toPath = const "/"
+instance Lude.ToPath DeleteEnvironmentMembership where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteEnvironmentMembership where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEnvironmentMembership where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteEnvironmentMembershipResponse' smart constructor.
+-- | /See:/ 'mkDeleteEnvironmentMembershipResponse' smart constructor.
 newtype DeleteEnvironmentMembershipResponse = DeleteEnvironmentMembershipResponse'
-  { _demrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironmentMembershipResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'demrsResponseStatus' - -- | The response status code.
-deleteEnvironmentMembershipResponse ::
-  -- | 'demrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteEnvironmentMembershipResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteEnvironmentMembershipResponse
-deleteEnvironmentMembershipResponse pResponseStatus_ =
+mkDeleteEnvironmentMembershipResponse pResponseStatus_ =
   DeleteEnvironmentMembershipResponse'
-    { _demrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-demrsResponseStatus :: Lens' DeleteEnvironmentMembershipResponse Int
-demrsResponseStatus = lens _demrsResponseStatus (\s a -> s {_demrsResponseStatus = a})
-
-instance NFData DeleteEnvironmentMembershipResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demrsResponseStatus :: Lens.Lens' DeleteEnvironmentMembershipResponse Lude.Int
+demrsResponseStatus = Lens.lens (responseStatus :: DeleteEnvironmentMembershipResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEnvironmentMembershipResponse)
+{-# DEPRECATED demrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

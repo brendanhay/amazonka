@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,176 @@
 --
 -- Removes an ingress authorization rule from a Client VPN endpoint.
 module Network.AWS.EC2.RevokeClientVPNIngress
-  ( -- * Creating a Request
-    revokeClientVPNIngress,
-    RevokeClientVPNIngress,
+  ( -- * Creating a request
+    RevokeClientVPNIngress (..),
+    mkRevokeClientVPNIngress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcviAccessGroupId,
     rcviRevokeAllGroups,
     rcviDryRun,
     rcviClientVPNEndpointId,
     rcviTargetNetworkCidr,
 
-    -- * Destructuring the Response
-    revokeClientVPNIngressResponse,
-    RevokeClientVPNIngressResponse,
+    -- * Destructuring the response
+    RevokeClientVPNIngressResponse (..),
+    mkRevokeClientVPNIngressResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcvirsStatus,
     rcvirsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'revokeClientVPNIngress' smart constructor.
+-- | /See:/ 'mkRevokeClientVPNIngress' smart constructor.
 data RevokeClientVPNIngress = RevokeClientVPNIngress'
-  { _rcviAccessGroupId ::
-      !(Maybe Text),
-    _rcviRevokeAllGroups :: !(Maybe Bool),
-    _rcviDryRun :: !(Maybe Bool),
-    _rcviClientVPNEndpointId :: !Text,
-    _rcviTargetNetworkCidr :: !Text
+  { accessGroupId ::
+      Lude.Maybe Lude.Text,
+    revokeAllGroups :: Lude.Maybe Lude.Bool,
+    dryRun :: Lude.Maybe Lude.Bool,
+    clientVPNEndpointId :: Lude.Text,
+    targetNetworkCidr :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeClientVPNIngress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcviAccessGroupId' - The ID of the Active Directory group for which to revoke access.
---
--- * 'rcviRevokeAllGroups' - Indicates whether access should be revoked for all clients.
---
--- * 'rcviDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'rcviClientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
---
--- * 'rcviTargetNetworkCidr' - The IPv4 address range, in CIDR notation, of the network for which access is being removed.
-revokeClientVPNIngress ::
-  -- | 'rcviClientVPNEndpointId'
-  Text ->
-  -- | 'rcviTargetNetworkCidr'
-  Text ->
+-- * 'accessGroupId' - The ID of the Active Directory group for which to revoke access.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'revokeAllGroups' - Indicates whether access should be revoked for all clients.
+-- * 'targetNetworkCidr' - The IPv4 address range, in CIDR notation, of the network for which access is being removed.
+mkRevokeClientVPNIngress ::
+  -- | 'clientVPNEndpointId'
+  Lude.Text ->
+  -- | 'targetNetworkCidr'
+  Lude.Text ->
   RevokeClientVPNIngress
-revokeClientVPNIngress pClientVPNEndpointId_ pTargetNetworkCidr_ =
+mkRevokeClientVPNIngress pClientVPNEndpointId_ pTargetNetworkCidr_ =
   RevokeClientVPNIngress'
-    { _rcviAccessGroupId = Nothing,
-      _rcviRevokeAllGroups = Nothing,
-      _rcviDryRun = Nothing,
-      _rcviClientVPNEndpointId = pClientVPNEndpointId_,
-      _rcviTargetNetworkCidr = pTargetNetworkCidr_
+    { accessGroupId = Lude.Nothing,
+      revokeAllGroups = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      clientVPNEndpointId = pClientVPNEndpointId_,
+      targetNetworkCidr = pTargetNetworkCidr_
     }
 
 -- | The ID of the Active Directory group for which to revoke access.
-rcviAccessGroupId :: Lens' RevokeClientVPNIngress (Maybe Text)
-rcviAccessGroupId = lens _rcviAccessGroupId (\s a -> s {_rcviAccessGroupId = a})
+--
+-- /Note:/ Consider using 'accessGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcviAccessGroupId :: Lens.Lens' RevokeClientVPNIngress (Lude.Maybe Lude.Text)
+rcviAccessGroupId = Lens.lens (accessGroupId :: RevokeClientVPNIngress -> Lude.Maybe Lude.Text) (\s a -> s {accessGroupId = a} :: RevokeClientVPNIngress)
+{-# DEPRECATED rcviAccessGroupId "Use generic-lens or generic-optics with 'accessGroupId' instead." #-}
 
 -- | Indicates whether access should be revoked for all clients.
-rcviRevokeAllGroups :: Lens' RevokeClientVPNIngress (Maybe Bool)
-rcviRevokeAllGroups = lens _rcviRevokeAllGroups (\s a -> s {_rcviRevokeAllGroups = a})
+--
+-- /Note:/ Consider using 'revokeAllGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcviRevokeAllGroups :: Lens.Lens' RevokeClientVPNIngress (Lude.Maybe Lude.Bool)
+rcviRevokeAllGroups = Lens.lens (revokeAllGroups :: RevokeClientVPNIngress -> Lude.Maybe Lude.Bool) (\s a -> s {revokeAllGroups = a} :: RevokeClientVPNIngress)
+{-# DEPRECATED rcviRevokeAllGroups "Use generic-lens or generic-optics with 'revokeAllGroups' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-rcviDryRun :: Lens' RevokeClientVPNIngress (Maybe Bool)
-rcviDryRun = lens _rcviDryRun (\s a -> s {_rcviDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcviDryRun :: Lens.Lens' RevokeClientVPNIngress (Lude.Maybe Lude.Bool)
+rcviDryRun = Lens.lens (dryRun :: RevokeClientVPNIngress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RevokeClientVPNIngress)
+{-# DEPRECATED rcviDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint with which the authorization rule is associated.
-rcviClientVPNEndpointId :: Lens' RevokeClientVPNIngress Text
-rcviClientVPNEndpointId = lens _rcviClientVPNEndpointId (\s a -> s {_rcviClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcviClientVPNEndpointId :: Lens.Lens' RevokeClientVPNIngress Lude.Text
+rcviClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: RevokeClientVPNIngress -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: RevokeClientVPNIngress)
+{-# DEPRECATED rcviClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The IPv4 address range, in CIDR notation, of the network for which access is being removed.
-rcviTargetNetworkCidr :: Lens' RevokeClientVPNIngress Text
-rcviTargetNetworkCidr = lens _rcviTargetNetworkCidr (\s a -> s {_rcviTargetNetworkCidr = a})
+--
+-- /Note:/ Consider using 'targetNetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcviTargetNetworkCidr :: Lens.Lens' RevokeClientVPNIngress Lude.Text
+rcviTargetNetworkCidr = Lens.lens (targetNetworkCidr :: RevokeClientVPNIngress -> Lude.Text) (\s a -> s {targetNetworkCidr = a} :: RevokeClientVPNIngress)
+{-# DEPRECATED rcviTargetNetworkCidr "Use generic-lens or generic-optics with 'targetNetworkCidr' instead." #-}
 
-instance AWSRequest RevokeClientVPNIngress where
+instance Lude.AWSRequest RevokeClientVPNIngress where
   type Rs RevokeClientVPNIngress = RevokeClientVPNIngressResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           RevokeClientVPNIngressResponse'
-            <$> (x .@? "status") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RevokeClientVPNIngress
+instance Lude.ToHeaders RevokeClientVPNIngress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RevokeClientVPNIngress
+instance Lude.ToPath RevokeClientVPNIngress where
+  toPath = Lude.const "/"
 
-instance ToHeaders RevokeClientVPNIngress where
-  toHeaders = const mempty
-
-instance ToPath RevokeClientVPNIngress where
-  toPath = const "/"
-
-instance ToQuery RevokeClientVPNIngress where
+instance Lude.ToQuery RevokeClientVPNIngress where
   toQuery RevokeClientVPNIngress' {..} =
-    mconcat
-      [ "Action" =: ("RevokeClientVpnIngress" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "AccessGroupId" =: _rcviAccessGroupId,
-        "RevokeAllGroups" =: _rcviRevokeAllGroups,
-        "DryRun" =: _rcviDryRun,
-        "ClientVpnEndpointId" =: _rcviClientVPNEndpointId,
-        "TargetNetworkCidr" =: _rcviTargetNetworkCidr
+    Lude.mconcat
+      [ "Action" Lude.=: ("RevokeClientVpnIngress" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "AccessGroupId" Lude.=: accessGroupId,
+        "RevokeAllGroups" Lude.=: revokeAllGroups,
+        "DryRun" Lude.=: dryRun,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "TargetNetworkCidr" Lude.=: targetNetworkCidr
       ]
 
--- | /See:/ 'revokeClientVPNIngressResponse' smart constructor.
+-- | /See:/ 'mkRevokeClientVPNIngressResponse' smart constructor.
 data RevokeClientVPNIngressResponse = RevokeClientVPNIngressResponse'
-  { _rcvirsStatus ::
-      !( Maybe
-           ClientVPNAuthorizationRuleStatus
-       ),
-    _rcvirsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe
+        ClientVPNAuthorizationRuleStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeClientVPNIngressResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcvirsStatus' - The current state of the authorization rule.
---
--- * 'rcvirsResponseStatus' - -- | The response status code.
-revokeClientVPNIngressResponse ::
-  -- | 'rcvirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current state of the authorization rule.
+mkRevokeClientVPNIngressResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RevokeClientVPNIngressResponse
-revokeClientVPNIngressResponse pResponseStatus_ =
+mkRevokeClientVPNIngressResponse pResponseStatus_ =
   RevokeClientVPNIngressResponse'
-    { _rcvirsStatus = Nothing,
-      _rcvirsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the authorization rule.
-rcvirsStatus :: Lens' RevokeClientVPNIngressResponse (Maybe ClientVPNAuthorizationRuleStatus)
-rcvirsStatus = lens _rcvirsStatus (\s a -> s {_rcvirsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcvirsStatus :: Lens.Lens' RevokeClientVPNIngressResponse (Lude.Maybe ClientVPNAuthorizationRuleStatus)
+rcvirsStatus = Lens.lens (status :: RevokeClientVPNIngressResponse -> Lude.Maybe ClientVPNAuthorizationRuleStatus) (\s a -> s {status = a} :: RevokeClientVPNIngressResponse)
+{-# DEPRECATED rcvirsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-rcvirsResponseStatus :: Lens' RevokeClientVPNIngressResponse Int
-rcvirsResponseStatus = lens _rcvirsResponseStatus (\s a -> s {_rcvirsResponseStatus = a})
-
-instance NFData RevokeClientVPNIngressResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcvirsResponseStatus :: Lens.Lens' RevokeClientVPNIngressResponse Lude.Int
+rcvirsResponseStatus = Lens.lens (responseStatus :: RevokeClientVPNIngressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RevokeClientVPNIngressResponse)
+{-# DEPRECATED rcvirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

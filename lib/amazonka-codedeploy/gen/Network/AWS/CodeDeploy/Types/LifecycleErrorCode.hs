@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.LifecycleErrorCode where
+module Network.AWS.CodeDeploy.Types.LifecycleErrorCode
+  ( LifecycleErrorCode
+      ( LifecycleErrorCode',
+        ScriptFailed,
+        ScriptMissing,
+        ScriptNotExecutable,
+        ScriptTimedOut,
+        Success,
+        UnknownError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LifecycleErrorCode
-  = ScriptFailed
-  | ScriptMissing
-  | ScriptNotExecutable
-  | ScriptTimedOut
-  | Success
-  | UnknownError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LifecycleErrorCode = LifecycleErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LifecycleErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "scriptfailed" -> pure ScriptFailed
-      "scriptmissing" -> pure ScriptMissing
-      "scriptnotexecutable" -> pure ScriptNotExecutable
-      "scripttimedout" -> pure ScriptTimedOut
-      "success" -> pure Success
-      "unknownerror" -> pure UnknownError
-      e ->
-        fromTextError $
-          "Failure parsing LifecycleErrorCode from value: '" <> e
-            <> "'. Accepted values: scriptfailed, scriptmissing, scriptnotexecutable, scripttimedout, success, unknownerror"
+pattern ScriptFailed :: LifecycleErrorCode
+pattern ScriptFailed = LifecycleErrorCode' "ScriptFailed"
 
-instance ToText LifecycleErrorCode where
-  toText = \case
-    ScriptFailed -> "ScriptFailed"
-    ScriptMissing -> "ScriptMissing"
-    ScriptNotExecutable -> "ScriptNotExecutable"
-    ScriptTimedOut -> "ScriptTimedOut"
-    Success -> "Success"
-    UnknownError -> "UnknownError"
+pattern ScriptMissing :: LifecycleErrorCode
+pattern ScriptMissing = LifecycleErrorCode' "ScriptMissing"
 
-instance Hashable LifecycleErrorCode
+pattern ScriptNotExecutable :: LifecycleErrorCode
+pattern ScriptNotExecutable = LifecycleErrorCode' "ScriptNotExecutable"
 
-instance NFData LifecycleErrorCode
+pattern ScriptTimedOut :: LifecycleErrorCode
+pattern ScriptTimedOut = LifecycleErrorCode' "ScriptTimedOut"
 
-instance ToByteString LifecycleErrorCode
+pattern Success :: LifecycleErrorCode
+pattern Success = LifecycleErrorCode' "Success"
 
-instance ToQuery LifecycleErrorCode
+pattern UnknownError :: LifecycleErrorCode
+pattern UnknownError = LifecycleErrorCode' "UnknownError"
 
-instance ToHeader LifecycleErrorCode
-
-instance FromJSON LifecycleErrorCode where
-  parseJSON = parseJSONText "LifecycleErrorCode"
+{-# COMPLETE
+  ScriptFailed,
+  ScriptMissing,
+  ScriptNotExecutable,
+  ScriptTimedOut,
+  Success,
+  UnknownError,
+  LifecycleErrorCode'
+  #-}

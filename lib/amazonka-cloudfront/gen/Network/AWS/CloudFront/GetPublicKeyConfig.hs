@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets a public key configuration.
 module Network.AWS.CloudFront.GetPublicKeyConfig
-  ( -- * Creating a Request
-    getPublicKeyConfig,
-    GetPublicKeyConfig,
+  ( -- * Creating a request
+    GetPublicKeyConfig (..),
+    mkGetPublicKeyConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpkcId,
 
-    -- * Destructuring the Response
-    getPublicKeyConfigResponse,
-    GetPublicKeyConfigResponse,
+    -- * Destructuring the response
+    GetPublicKeyConfigResponse (..),
+    mkGetPublicKeyConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpkcrsETag,
     gpkcrsPublicKeyConfig,
     gpkcrsResponseStatus,
@@ -38,94 +33,110 @@ module Network.AWS.CloudFront.GetPublicKeyConfig
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPublicKeyConfig' smart constructor.
-newtype GetPublicKeyConfig = GetPublicKeyConfig' {_gpkcId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetPublicKeyConfig' smart constructor.
+newtype GetPublicKeyConfig = GetPublicKeyConfig' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKeyConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpkcId' - The identifier of the public key whose configuration you are getting.
-getPublicKeyConfig ::
-  -- | 'gpkcId'
-  Text ->
+-- * 'id' - The identifier of the public key whose configuration you are getting.
+mkGetPublicKeyConfig ::
+  -- | 'id'
+  Lude.Text ->
   GetPublicKeyConfig
-getPublicKeyConfig pId_ = GetPublicKeyConfig' {_gpkcId = pId_}
+mkGetPublicKeyConfig pId_ = GetPublicKeyConfig' {id = pId_}
 
 -- | The identifier of the public key whose configuration you are getting.
-gpkcId :: Lens' GetPublicKeyConfig Text
-gpkcId = lens _gpkcId (\s a -> s {_gpkcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkcId :: Lens.Lens' GetPublicKeyConfig Lude.Text
+gpkcId = Lens.lens (id :: GetPublicKeyConfig -> Lude.Text) (\s a -> s {id = a} :: GetPublicKeyConfig)
+{-# DEPRECATED gpkcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetPublicKeyConfig where
+instance Lude.AWSRequest GetPublicKeyConfig where
   type Rs GetPublicKeyConfig = GetPublicKeyConfigResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetPublicKeyConfigResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPublicKeyConfig
+instance Lude.ToHeaders GetPublicKeyConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPublicKeyConfig
-
-instance ToHeaders GetPublicKeyConfig where
-  toHeaders = const mempty
-
-instance ToPath GetPublicKeyConfig where
+instance Lude.ToPath GetPublicKeyConfig where
   toPath GetPublicKeyConfig' {..} =
-    mconcat ["/2020-05-31/public-key/", toBS _gpkcId, "/config"]
+    Lude.mconcat ["/2020-05-31/public-key/", Lude.toBS id, "/config"]
 
-instance ToQuery GetPublicKeyConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetPublicKeyConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPublicKeyConfigResponse' smart constructor.
+-- | /See:/ 'mkGetPublicKeyConfigResponse' smart constructor.
 data GetPublicKeyConfigResponse = GetPublicKeyConfigResponse'
-  { _gpkcrsETag ::
-      !(Maybe Text),
-    _gpkcrsPublicKeyConfig ::
-      !(Maybe PublicKeyConfig),
-    _gpkcrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    publicKeyConfig ::
+      Lude.Maybe PublicKeyConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKeyConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpkcrsETag' - The identifier for this version of the public key configuration.
---
--- * 'gpkcrsPublicKeyConfig' - A public key configuration.
---
--- * 'gpkcrsResponseStatus' - -- | The response status code.
-getPublicKeyConfigResponse ::
-  -- | 'gpkcrsResponseStatus'
-  Int ->
+-- * 'eTag' - The identifier for this version of the public key configuration.
+-- * 'publicKeyConfig' - A public key configuration.
+-- * 'responseStatus' - The response status code.
+mkGetPublicKeyConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPublicKeyConfigResponse
-getPublicKeyConfigResponse pResponseStatus_ =
+mkGetPublicKeyConfigResponse pResponseStatus_ =
   GetPublicKeyConfigResponse'
-    { _gpkcrsETag = Nothing,
-      _gpkcrsPublicKeyConfig = Nothing,
-      _gpkcrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      publicKeyConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier for this version of the public key configuration.
-gpkcrsETag :: Lens' GetPublicKeyConfigResponse (Maybe Text)
-gpkcrsETag = lens _gpkcrsETag (\s a -> s {_gpkcrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkcrsETag :: Lens.Lens' GetPublicKeyConfigResponse (Lude.Maybe Lude.Text)
+gpkcrsETag = Lens.lens (eTag :: GetPublicKeyConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetPublicKeyConfigResponse)
+{-# DEPRECATED gpkcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | A public key configuration.
-gpkcrsPublicKeyConfig :: Lens' GetPublicKeyConfigResponse (Maybe PublicKeyConfig)
-gpkcrsPublicKeyConfig = lens _gpkcrsPublicKeyConfig (\s a -> s {_gpkcrsPublicKeyConfig = a})
+--
+-- /Note:/ Consider using 'publicKeyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkcrsPublicKeyConfig :: Lens.Lens' GetPublicKeyConfigResponse (Lude.Maybe PublicKeyConfig)
+gpkcrsPublicKeyConfig = Lens.lens (publicKeyConfig :: GetPublicKeyConfigResponse -> Lude.Maybe PublicKeyConfig) (\s a -> s {publicKeyConfig = a} :: GetPublicKeyConfigResponse)
+{-# DEPRECATED gpkcrsPublicKeyConfig "Use generic-lens or generic-optics with 'publicKeyConfig' instead." #-}
 
--- | -- | The response status code.
-gpkcrsResponseStatus :: Lens' GetPublicKeyConfigResponse Int
-gpkcrsResponseStatus = lens _gpkcrsResponseStatus (\s a -> s {_gpkcrsResponseStatus = a})
-
-instance NFData GetPublicKeyConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkcrsResponseStatus :: Lens.Lens' GetPublicKeyConfigResponse Lude.Int
+gpkcrsResponseStatus = Lens.lens (responseStatus :: GetPublicKeyConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPublicKeyConfigResponse)
+{-# DEPRECATED gpkcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

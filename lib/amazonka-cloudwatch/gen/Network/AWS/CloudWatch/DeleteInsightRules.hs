@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Permanently deletes the specified Contributor Insights rules.
 --
---
 -- If you create a rule, delete it, and then re-create it with the same name, historical data from the first time the rule was created might not be available.
 module Network.AWS.CloudWatch.DeleteInsightRules
-  ( -- * Creating a Request
-    deleteInsightRules,
-    DeleteInsightRules,
+  ( -- * Creating a request
+    DeleteInsightRules (..),
+    mkDeleteInsightRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dRuleNames,
 
-    -- * Destructuring the Response
-    deleteInsightRulesResponse,
-    DeleteInsightRulesResponse,
+    -- * Destructuring the response
+    DeleteInsightRulesResponse (..),
+    mkDeleteInsightRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsrsFailures,
     dirsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteInsightRules' smart constructor.
+-- | /See:/ 'mkDeleteInsightRules' smart constructor.
 newtype DeleteInsightRules = DeleteInsightRules'
-  { _dRuleNames ::
-      [Text]
+  { ruleNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInsightRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dRuleNames' - An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-deleteInsightRules ::
+-- * 'ruleNames' - An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
+mkDeleteInsightRules ::
   DeleteInsightRules
-deleteInsightRules = DeleteInsightRules' {_dRuleNames = mempty}
+mkDeleteInsightRules = DeleteInsightRules' {ruleNames = Lude.mempty}
 
 -- | An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-dRuleNames :: Lens' DeleteInsightRules [Text]
-dRuleNames = lens _dRuleNames (\s a -> s {_dRuleNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRuleNames :: Lens.Lens' DeleteInsightRules [Lude.Text]
+dRuleNames = Lens.lens (ruleNames :: DeleteInsightRules -> [Lude.Text]) (\s a -> s {ruleNames = a} :: DeleteInsightRules)
+{-# DEPRECATED dRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
-instance AWSRequest DeleteInsightRules where
+instance Lude.AWSRequest DeleteInsightRules where
   type Rs DeleteInsightRules = DeleteInsightRulesResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteInsightRulesResult"
       ( \s h x ->
           DeleteInsightRulesResponse'
-            <$> (x .@? "Failures" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Failures" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteInsightRules
+instance Lude.ToHeaders DeleteInsightRules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteInsightRules
+instance Lude.ToPath DeleteInsightRules where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteInsightRules where
-  toHeaders = const mempty
-
-instance ToPath DeleteInsightRules where
-  toPath = const "/"
-
-instance ToQuery DeleteInsightRules where
+instance Lude.ToQuery DeleteInsightRules where
   toQuery DeleteInsightRules' {..} =
-    mconcat
-      [ "Action" =: ("DeleteInsightRules" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "RuleNames" =: toQueryList "member" _dRuleNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteInsightRules" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
       ]
 
--- | /See:/ 'deleteInsightRulesResponse' smart constructor.
+-- | /See:/ 'mkDeleteInsightRulesResponse' smart constructor.
 data DeleteInsightRulesResponse = DeleteInsightRulesResponse'
-  { _dirsrsFailures ::
-      !(Maybe [PartialFailure]),
-    _dirsrsResponseStatus :: !Int
+  { failures ::
+      Lude.Maybe [PartialFailure],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInsightRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsrsFailures' - An array listing the rules that could not be deleted. You cannot delete built-in rules.
---
--- * 'dirsrsResponseStatus' - -- | The response status code.
-deleteInsightRulesResponse ::
-  -- | 'dirsrsResponseStatus'
-  Int ->
+-- * 'failures' - An array listing the rules that could not be deleted. You cannot delete built-in rules.
+-- * 'responseStatus' - The response status code.
+mkDeleteInsightRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInsightRulesResponse
-deleteInsightRulesResponse pResponseStatus_ =
+mkDeleteInsightRulesResponse pResponseStatus_ =
   DeleteInsightRulesResponse'
-    { _dirsrsFailures = Nothing,
-      _dirsrsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array listing the rules that could not be deleted. You cannot delete built-in rules.
-dirsrsFailures :: Lens' DeleteInsightRulesResponse [PartialFailure]
-dirsrsFailures = lens _dirsrsFailures (\s a -> s {_dirsrsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsrsFailures :: Lens.Lens' DeleteInsightRulesResponse (Lude.Maybe [PartialFailure])
+dirsrsFailures = Lens.lens (failures :: DeleteInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: DeleteInsightRulesResponse)
+{-# DEPRECATED dirsrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
--- | -- | The response status code.
-dirsrsResponseStatus :: Lens' DeleteInsightRulesResponse Int
-dirsrsResponseStatus = lens _dirsrsResponseStatus (\s a -> s {_dirsrsResponseStatus = a})
-
-instance NFData DeleteInsightRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsrsResponseStatus :: Lens.Lens' DeleteInsightRulesResponse Lude.Int
+dirsrsResponseStatus = Lens.lens (responseStatus :: DeleteInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInsightRulesResponse)
+{-# DEPRECATED dirsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,30 +14,26 @@
 --
 -- Obtains information about the directories that belong to this account.
 --
---
 -- You can retrieve information about specific directories by passing the directory identifiers in the @DirectoryIds@ parameter. Otherwise, all directories that belong to the current account are returned.
---
 -- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @DescribeDirectoriesResult.NextToken@ member contains a token that you pass in the next call to 'DescribeDirectories' to retrieve the next set of items.
---
 -- You can also specify a maximum number of return results with the @Limit@ parameter.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.DirectoryService.DescribeDirectories
-  ( -- * Creating a Request
-    describeDirectories,
-    DescribeDirectories,
+  ( -- * Creating a request
+    DescribeDirectories (..),
+    mkDescribeDirectories,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddNextToken,
     ddDirectoryIds,
     ddLimit,
 
-    -- * Destructuring the Response
-    describeDirectoriesResponse,
-    DescribeDirectoriesResponse,
+    -- * Destructuring the response
+    DescribeDirectoriesResponse (..),
+    mkDescribeDirectoriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsDirectoryDescriptions,
     ddrsNextToken,
     ddrsResponseStatus,
@@ -50,147 +41,169 @@ module Network.AWS.DirectoryService.DescribeDirectories
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'DescribeDirectories' operation.
 --
---
---
--- /See:/ 'describeDirectories' smart constructor.
+-- /See:/ 'mkDescribeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
-  { _ddNextToken ::
-      !(Maybe Text),
-    _ddDirectoryIds :: !(Maybe [Text]),
-    _ddLimit :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    directoryIds :: Lude.Maybe [Lude.Text],
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectories' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'directoryIds' - A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.
 --
--- * 'ddNextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
---
--- * 'ddDirectoryIds' - A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned. An empty list results in an @InvalidParameterException@ being thrown.
---
--- * 'ddLimit' - The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
-describeDirectories ::
+-- An empty list results in an @InvalidParameterException@ being thrown.
+-- * 'limit' - The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
+-- * 'nextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
+mkDescribeDirectories ::
   DescribeDirectories
-describeDirectories =
+mkDescribeDirectories =
   DescribeDirectories'
-    { _ddNextToken = Nothing,
-      _ddDirectoryIds = Nothing,
-      _ddLimit = Nothing
+    { nextToken = Lude.Nothing,
+      directoryIds = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
-ddNextToken :: Lens' DescribeDirectories (Maybe Text)
-ddNextToken = lens _ddNextToken (\s a -> s {_ddNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddNextToken :: Lens.Lens' DescribeDirectories (Lude.Maybe Lude.Text)
+ddNextToken = Lens.lens (nextToken :: DescribeDirectories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectories)
+{-# DEPRECATED ddNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned. An empty list results in an @InvalidParameterException@ being thrown.
-ddDirectoryIds :: Lens' DescribeDirectories [Text]
-ddDirectoryIds = lens _ddDirectoryIds (\s a -> s {_ddDirectoryIds = a}) . _Default . _Coerce
+-- | A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.
+--
+-- An empty list results in an @InvalidParameterException@ being thrown.
+--
+-- /Note:/ Consider using 'directoryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDirectoryIds :: Lens.Lens' DescribeDirectories (Lude.Maybe [Lude.Text])
+ddDirectoryIds = Lens.lens (directoryIds :: DescribeDirectories -> Lude.Maybe [Lude.Text]) (\s a -> s {directoryIds = a} :: DescribeDirectories)
+{-# DEPRECATED ddDirectoryIds "Use generic-lens or generic-optics with 'directoryIds' instead." #-}
 
 -- | The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
-ddLimit :: Lens' DescribeDirectories (Maybe Natural)
-ddLimit = lens _ddLimit (\s a -> s {_ddLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddLimit :: Lens.Lens' DescribeDirectories (Lude.Maybe Lude.Natural)
+ddLimit = Lens.lens (limit :: DescribeDirectories -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDirectories)
+{-# DEPRECATED ddLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeDirectories where
+instance Page.AWSPager DescribeDirectories where
   page rq rs
-    | stop (rs ^. ddrsNextToken) = Nothing
-    | stop (rs ^. ddrsDirectoryDescriptions) = Nothing
-    | otherwise = Just $ rq & ddNextToken .~ rs ^. ddrsNextToken
+    | Page.stop (rs Lens.^. ddrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddrsDirectoryDescriptions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddNextToken Lens..~ rs Lens.^. ddrsNextToken
 
-instance AWSRequest DescribeDirectories where
+instance Lude.AWSRequest DescribeDirectories where
   type Rs DescribeDirectories = DescribeDirectoriesResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDirectoriesResponse'
-            <$> (x .?> "DirectoryDescriptions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryDescriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDirectories
-
-instance NFData DescribeDirectories
-
-instance ToHeaders DescribeDirectories where
+instance Lude.ToHeaders DescribeDirectories where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.DescribeDirectories" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DescribeDirectories" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDirectories where
+instance Lude.ToJSON DescribeDirectories where
   toJSON DescribeDirectories' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ddNextToken,
-            ("DirectoryIds" .=) <$> _ddDirectoryIds,
-            ("Limit" .=) <$> _ddLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("DirectoryIds" Lude..=) Lude.<$> directoryIds,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeDirectories where
-  toPath = const "/"
+instance Lude.ToPath DescribeDirectories where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDirectories where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDirectories where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'DescribeDirectories' operation.
 --
---
---
--- /See:/ 'describeDirectoriesResponse' smart constructor.
+-- /See:/ 'mkDescribeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-  { _ddrsDirectoryDescriptions ::
-      !(Maybe [DirectoryDescription]),
-    _ddrsNextToken :: !(Maybe Text),
-    _ddrsResponseStatus :: !Int
+  { directoryDescriptions ::
+      Lude.Maybe [DirectoryDescription],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectoriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'directoryDescriptions' - The list of 'DirectoryDescription' objects that were retrieved.
 --
--- * 'ddrsDirectoryDescriptions' - The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
---
--- * 'ddrsNextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDirectoriesResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- * 'nextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
+-- * 'responseStatus' - The response status code.
+mkDescribeDirectoriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDirectoriesResponse
-describeDirectoriesResponse pResponseStatus_ =
+mkDescribeDirectoriesResponse pResponseStatus_ =
   DescribeDirectoriesResponse'
-    { _ddrsDirectoryDescriptions =
-        Nothing,
-      _ddrsNextToken = Nothing,
-      _ddrsResponseStatus = pResponseStatus_
+    { directoryDescriptions =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
-ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
-ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\s a -> s {_ddrsDirectoryDescriptions = a}) . _Default . _Coerce
+-- | The list of 'DirectoryDescription' objects that were retrieved.
+--
+-- It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+--
+-- /Note:/ Consider using 'directoryDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDirectoryDescriptions :: Lens.Lens' DescribeDirectoriesResponse (Lude.Maybe [DirectoryDescription])
+ddrsDirectoryDescriptions = Lens.lens (directoryDescriptions :: DescribeDirectoriesResponse -> Lude.Maybe [DirectoryDescription]) (\s a -> s {directoryDescriptions = a} :: DescribeDirectoriesResponse)
+{-# DEPRECATED ddrsDirectoryDescriptions "Use generic-lens or generic-optics with 'directoryDescriptions' instead." #-}
 
 -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
-ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
-ddrsNextToken = lens _ddrsNextToken (\s a -> s {_ddrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsNextToken :: Lens.Lens' DescribeDirectoriesResponse (Lude.Maybe Lude.Text)
+ddrsNextToken = Lens.lens (nextToken :: DescribeDirectoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectoriesResponse)
+{-# DEPRECATED ddrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDirectoriesResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DescribeDirectoriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DescribeDirectoriesResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDirectoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDirectoriesResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

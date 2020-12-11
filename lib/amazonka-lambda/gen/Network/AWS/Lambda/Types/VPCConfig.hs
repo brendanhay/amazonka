@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.VPCConfig where
+module Network.AWS.Lambda.Types.VPCConfig
+  ( VPCConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVPCConfig,
+
+    -- * Lenses
+    vpccSecurityGroupIds,
+    vpccSubnetIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The VPC security groups and subnets that are attached to a Lambda function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 --
---
---
--- /See:/ 'vpcConfig' smart constructor.
+-- /See:/ 'mkVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { _vpccSecurityGroupIds ::
-      !(Maybe [Text]),
-    _vpccSubnetIds :: !(Maybe [Text])
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    subnetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vpccSecurityGroupIds' - A list of VPC security groups IDs.
---
--- * 'vpccSubnetIds' - A list of VPC subnet IDs.
-vpcConfig ::
+-- * 'securityGroupIds' - A list of VPC security groups IDs.
+-- * 'subnetIds' - A list of VPC subnet IDs.
+mkVPCConfig ::
   VPCConfig
-vpcConfig =
+mkVPCConfig =
   VPCConfig'
-    { _vpccSecurityGroupIds = Nothing,
-      _vpccSubnetIds = Nothing
+    { securityGroupIds = Lude.Nothing,
+      subnetIds = Lude.Nothing
     }
 
 -- | A list of VPC security groups IDs.
-vpccSecurityGroupIds :: Lens' VPCConfig [Text]
-vpccSecurityGroupIds = lens _vpccSecurityGroupIds (\s a -> s {_vpccSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpccSecurityGroupIds :: Lens.Lens' VPCConfig (Lude.Maybe [Lude.Text])
+vpccSecurityGroupIds = Lens.lens (securityGroupIds :: VPCConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCConfig)
+{-# DEPRECATED vpccSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | A list of VPC subnet IDs.
-vpccSubnetIds :: Lens' VPCConfig [Text]
-vpccSubnetIds = lens _vpccSubnetIds (\s a -> s {_vpccSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpccSubnetIds :: Lens.Lens' VPCConfig (Lude.Maybe [Lude.Text])
+vpccSubnetIds = Lens.lens (subnetIds :: VPCConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCConfig)
+{-# DEPRECATED vpccSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance Hashable VPCConfig
-
-instance NFData VPCConfig
-
-instance ToJSON VPCConfig where
+instance Lude.ToJSON VPCConfig where
   toJSON VPCConfig' {..} =
-    object
-      ( catMaybes
-          [ ("SecurityGroupIds" .=) <$> _vpccSecurityGroupIds,
-            ("SubnetIds" .=) <$> _vpccSubnetIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+            ("SubnetIds" Lude..=) Lude.<$> subnetIds
           ]
       )

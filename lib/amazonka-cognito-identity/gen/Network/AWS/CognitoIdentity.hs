@@ -14,15 +14,12 @@
 -- __Amazon Cognito Federated Identities__
 --
 -- Amazon Cognito Federated Identities is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. It uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.
---
 -- Using Amazon Cognito Federated Identities, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon) or an Amazon Cognito user pool, and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.
---
 -- For a description of the authentication flow from the Amazon Cognito Developer Guide see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Authentication Flow> .
---
 -- For more information see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html Amazon Cognito Federated Identities> .
 module Network.AWS.CognitoIdentity
-  ( -- * Service Configuration
-    cognitoIdentity,
+  ( -- * Service configuration
+    cognitoIdentityService,
 
     -- * Errors
     -- $errors
@@ -111,31 +108,31 @@ module Network.AWS.CognitoIdentity
     RoleMappingType (..),
 
     -- ** CognitoIdentityProvider
-    CognitoIdentityProvider,
-    cognitoIdentityProvider,
+    CognitoIdentityProvider (..),
+    mkCognitoIdentityProvider,
     cipClientId,
     cipServerSideTokenCheck,
     cipProviderName,
 
     -- ** Credentials
-    Credentials,
-    credentials,
+    Credentials (..),
+    mkCredentials,
     cSessionToken,
     cExpiration,
     cSecretKey,
     cAccessKeyId,
 
     -- ** IdentityDescription
-    IdentityDescription,
-    identityDescription,
+    IdentityDescription (..),
+    mkIdentityDescription,
     idLastModifiedDate,
     idCreationDate,
     idLogins,
     idIdentityId,
 
     -- ** IdentityPool
-    IdentityPool,
-    identityPool,
+    IdentityPool (..),
+    mkIdentityPool,
     ipSamlProviderARNs,
     ipSupportedLoginProviders,
     ipAllowClassicFlow,
@@ -148,36 +145,47 @@ module Network.AWS.CognitoIdentity
     ipAllowUnauthenticatedIdentities,
 
     -- ** IdentityPoolShortDescription
-    IdentityPoolShortDescription,
-    identityPoolShortDescription,
+    IdentityPoolShortDescription (..),
+    mkIdentityPoolShortDescription,
     ipsdIdentityPoolId,
     ipsdIdentityPoolName,
 
     -- ** MappingRule
-    MappingRule,
-    mappingRule,
+    MappingRule (..),
+    mkMappingRule,
     mrClaim,
     mrMatchType,
     mrValue,
     mrRoleARN,
 
     -- ** RoleMapping
-    RoleMapping,
-    roleMapping,
+    RoleMapping (..),
+    mkRoleMapping,
     rmRulesConfiguration,
     rmAmbiguousRoleResolution,
     rmType,
 
     -- ** RulesConfigurationType
-    RulesConfigurationType,
-    rulesConfigurationType,
+    RulesConfigurationType (..),
+    mkRulesConfigurationType,
     rctRules,
 
     -- ** UnprocessedIdentityId
-    UnprocessedIdentityId,
-    unprocessedIdentityId,
+    UnprocessedIdentityId (..),
+    mkUnprocessedIdentityId,
     uiiErrorCode,
     uiiIdentityId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -204,6 +212,7 @@ import Network.AWS.CognitoIdentity.UnlinkIdentity
 import Network.AWS.CognitoIdentity.UntagResource
 import Network.AWS.CognitoIdentity.UpdateIdentityPool
 import Network.AWS.CognitoIdentity.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

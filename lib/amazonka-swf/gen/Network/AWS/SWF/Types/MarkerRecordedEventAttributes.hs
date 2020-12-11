@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.MarkerRecordedEventAttributes where
+module Network.AWS.SWF.Types.MarkerRecordedEventAttributes
+  ( MarkerRecordedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMarkerRecordedEventAttributes,
+
+    -- * Lenses
+    mreaDetails,
+    mreaMarkerName,
+    mreaDecisionTaskCompletedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @MarkerRecorded@ event.
 --
---
---
--- /See:/ 'markerRecordedEventAttributes' smart constructor.
+-- /See:/ 'mkMarkerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
-  { _mreaDetails ::
-      !(Maybe Text),
-    _mreaMarkerName :: !Text,
-    _mreaDecisionTaskCompletedEventId ::
-      !Integer
+  { details ::
+      Lude.Maybe Lude.Text,
+    markerName :: Lude.Text,
+    decisionTaskCompletedEventId ::
+      Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MarkerRecordedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mreaDetails' - The details of the marker.
---
--- * 'mreaMarkerName' - The name of the marker.
---
--- * 'mreaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-markerRecordedEventAttributes ::
-  -- | 'mreaMarkerName'
-  Text ->
-  -- | 'mreaDecisionTaskCompletedEventId'
-  Integer ->
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'details' - The details of the marker.
+-- * 'markerName' - The name of the marker.
+mkMarkerRecordedEventAttributes ::
+  -- | 'markerName'
+  Lude.Text ->
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
   MarkerRecordedEventAttributes
-markerRecordedEventAttributes
+mkMarkerRecordedEventAttributes
   pMarkerName_
   pDecisionTaskCompletedEventId_ =
     MarkerRecordedEventAttributes'
-      { _mreaDetails = Nothing,
-        _mreaMarkerName = pMarkerName_,
-        _mreaDecisionTaskCompletedEventId =
-          pDecisionTaskCompletedEventId_
+      { details = Lude.Nothing,
+        markerName = pMarkerName_,
+        decisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
       }
 
 -- | The details of the marker.
-mreaDetails :: Lens' MarkerRecordedEventAttributes (Maybe Text)
-mreaDetails = lens _mreaDetails (\s a -> s {_mreaDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mreaDetails :: Lens.Lens' MarkerRecordedEventAttributes (Lude.Maybe Lude.Text)
+mreaDetails = Lens.lens (details :: MarkerRecordedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: MarkerRecordedEventAttributes)
+{-# DEPRECATED mreaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The name of the marker.
-mreaMarkerName :: Lens' MarkerRecordedEventAttributes Text
-mreaMarkerName = lens _mreaMarkerName (\s a -> s {_mreaMarkerName = a})
+--
+-- /Note:/ Consider using 'markerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mreaMarkerName :: Lens.Lens' MarkerRecordedEventAttributes Lude.Text
+mreaMarkerName = Lens.lens (markerName :: MarkerRecordedEventAttributes -> Lude.Text) (\s a -> s {markerName = a} :: MarkerRecordedEventAttributes)
+{-# DEPRECATED mreaMarkerName "Use generic-lens or generic-optics with 'markerName' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-mreaDecisionTaskCompletedEventId :: Lens' MarkerRecordedEventAttributes Integer
-mreaDecisionTaskCompletedEventId = lens _mreaDecisionTaskCompletedEventId (\s a -> s {_mreaDecisionTaskCompletedEventId = a})
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mreaDecisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Lude.Integer
+mreaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: MarkerRecordedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: MarkerRecordedEventAttributes)
+{-# DEPRECATED mreaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
-instance FromJSON MarkerRecordedEventAttributes where
+instance Lude.FromJSON MarkerRecordedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "MarkerRecordedEventAttributes"
       ( \x ->
           MarkerRecordedEventAttributes'
-            <$> (x .:? "details")
-            <*> (x .: "markerName")
-            <*> (x .: "decisionTaskCompletedEventId")
+            Lude.<$> (x Lude..:? "details")
+            Lude.<*> (x Lude..: "markerName")
+            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )
-
-instance Hashable MarkerRecordedEventAttributes
-
-instance NFData MarkerRecordedEventAttributes

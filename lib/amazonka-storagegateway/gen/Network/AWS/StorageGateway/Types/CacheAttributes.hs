@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.CacheAttributes where
+module Network.AWS.StorageGateway.Types.CacheAttributes
+  ( CacheAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCacheAttributes,
+
+    -- * Lenses
+    caCacheStaleTimeoutInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Lists refresh cache information.
 --
---
---
--- /See:/ 'cacheAttributes' smart constructor.
+-- /See:/ 'mkCacheAttributes' smart constructor.
 newtype CacheAttributes = CacheAttributes'
-  { _caCacheStaleTimeoutInSeconds ::
-      Maybe Int
+  { cacheStaleTimeoutInSeconds ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheStaleTimeoutInSeconds' - Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time since the last refresh after which access to the directory would cause the file gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration is in seconds.
 --
--- * 'caCacheStaleTimeoutInSeconds' - Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time since the last refresh after which access to the directory would cause the file gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration is in seconds. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-cacheAttributes ::
+-- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+mkCacheAttributes ::
   CacheAttributes
-cacheAttributes =
-  CacheAttributes' {_caCacheStaleTimeoutInSeconds = Nothing}
+mkCacheAttributes =
+  CacheAttributes' {cacheStaleTimeoutInSeconds = Lude.Nothing}
 
--- | Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time since the last refresh after which access to the directory would cause the file gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration is in seconds. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-caCacheStaleTimeoutInSeconds :: Lens' CacheAttributes (Maybe Int)
-caCacheStaleTimeoutInSeconds = lens _caCacheStaleTimeoutInSeconds (\s a -> s {_caCacheStaleTimeoutInSeconds = a})
+-- | Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time since the last refresh after which access to the directory would cause the file gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration is in seconds.
+--
+-- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+--
+-- /Note:/ Consider using 'cacheStaleTimeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Lude.Maybe Lude.Int)
+caCacheStaleTimeoutInSeconds = Lens.lens (cacheStaleTimeoutInSeconds :: CacheAttributes -> Lude.Maybe Lude.Int) (\s a -> s {cacheStaleTimeoutInSeconds = a} :: CacheAttributes)
+{-# DEPRECATED caCacheStaleTimeoutInSeconds "Use generic-lens or generic-optics with 'cacheStaleTimeoutInSeconds' instead." #-}
 
-instance FromJSON CacheAttributes where
+instance Lude.FromJSON CacheAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "CacheAttributes"
-      (\x -> CacheAttributes' <$> (x .:? "CacheStaleTimeoutInSeconds"))
+      ( \x ->
+          CacheAttributes'
+            Lude.<$> (x Lude..:? "CacheStaleTimeoutInSeconds")
+      )
 
-instance Hashable CacheAttributes
-
-instance NFData CacheAttributes
-
-instance ToJSON CacheAttributes where
+instance Lude.ToJSON CacheAttributes where
   toJSON CacheAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("CacheStaleTimeoutInSeconds" .=)
-              <$> _caCacheStaleTimeoutInSeconds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CacheStaleTimeoutInSeconds" Lude..=)
+              Lude.<$> cacheStaleTimeoutInSeconds
           ]
       )

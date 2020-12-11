@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceAttributeName where
+module Network.AWS.EC2.Types.InstanceAttributeName
+  ( InstanceAttributeName
+      ( InstanceAttributeName',
+        IANBlockDeviceMapping,
+        IANDisableAPITermination,
+        IANEBSOptimized,
+        IANEnaSupport,
+        IANEnclaveOptions,
+        IANGroupSet,
+        IANInstanceInitiatedShutdownBehavior,
+        IANInstanceType,
+        IANKernel,
+        IANProductCodes,
+        IANRAMDisk,
+        IANRootDeviceName,
+        IANSRIOVNetSupport,
+        IANSourceDestCheck,
+        IANUserData
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceAttributeName
-  = IANBlockDeviceMapping
-  | IANDisableAPITermination
-  | IANEBSOptimized
-  | IANEnaSupport
-  | IANEnclaveOptions
-  | IANGroupSet
-  | IANInstanceInitiatedShutdownBehavior
-  | IANInstanceType
-  | IANKernel
-  | IANProductCodes
-  | IANRAMDisk
-  | IANRootDeviceName
-  | IANSRIOVNetSupport
-  | IANSourceDestCheck
-  | IANUserData
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceAttributeName = InstanceAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "blockdevicemapping" -> pure IANBlockDeviceMapping
-      "disableapitermination" -> pure IANDisableAPITermination
-      "ebsoptimized" -> pure IANEBSOptimized
-      "enasupport" -> pure IANEnaSupport
-      "enclaveoptions" -> pure IANEnclaveOptions
-      "groupset" -> pure IANGroupSet
-      "instanceinitiatedshutdownbehavior" -> pure IANInstanceInitiatedShutdownBehavior
-      "instancetype" -> pure IANInstanceType
-      "kernel" -> pure IANKernel
-      "productcodes" -> pure IANProductCodes
-      "ramdisk" -> pure IANRAMDisk
-      "rootdevicename" -> pure IANRootDeviceName
-      "sriovnetsupport" -> pure IANSRIOVNetSupport
-      "sourcedestcheck" -> pure IANSourceDestCheck
-      "userdata" -> pure IANUserData
-      e ->
-        fromTextError $
-          "Failure parsing InstanceAttributeName from value: '" <> e
-            <> "'. Accepted values: blockdevicemapping, disableapitermination, ebsoptimized, enasupport, enclaveoptions, groupset, instanceinitiatedshutdownbehavior, instancetype, kernel, productcodes, ramdisk, rootdevicename, sriovnetsupport, sourcedestcheck, userdata"
+pattern IANBlockDeviceMapping :: InstanceAttributeName
+pattern IANBlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
 
-instance ToText InstanceAttributeName where
-  toText = \case
-    IANBlockDeviceMapping -> "blockDeviceMapping"
-    IANDisableAPITermination -> "disableApiTermination"
-    IANEBSOptimized -> "ebsOptimized"
-    IANEnaSupport -> "enaSupport"
-    IANEnclaveOptions -> "enclaveOptions"
-    IANGroupSet -> "groupSet"
-    IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
-    IANInstanceType -> "instanceType"
-    IANKernel -> "kernel"
-    IANProductCodes -> "productCodes"
-    IANRAMDisk -> "ramdisk"
-    IANRootDeviceName -> "rootDeviceName"
-    IANSRIOVNetSupport -> "sriovNetSupport"
-    IANSourceDestCheck -> "sourceDestCheck"
-    IANUserData -> "userData"
+pattern IANDisableAPITermination :: InstanceAttributeName
+pattern IANDisableAPITermination = InstanceAttributeName' "disableApiTermination"
 
-instance Hashable InstanceAttributeName
+pattern IANEBSOptimized :: InstanceAttributeName
+pattern IANEBSOptimized = InstanceAttributeName' "ebsOptimized"
 
-instance NFData InstanceAttributeName
+pattern IANEnaSupport :: InstanceAttributeName
+pattern IANEnaSupport = InstanceAttributeName' "enaSupport"
 
-instance ToByteString InstanceAttributeName
+pattern IANEnclaveOptions :: InstanceAttributeName
+pattern IANEnclaveOptions = InstanceAttributeName' "enclaveOptions"
 
-instance ToQuery InstanceAttributeName
+pattern IANGroupSet :: InstanceAttributeName
+pattern IANGroupSet = InstanceAttributeName' "groupSet"
 
-instance ToHeader InstanceAttributeName
+pattern IANInstanceInitiatedShutdownBehavior :: InstanceAttributeName
+pattern IANInstanceInitiatedShutdownBehavior = InstanceAttributeName' "instanceInitiatedShutdownBehavior"
+
+pattern IANInstanceType :: InstanceAttributeName
+pattern IANInstanceType = InstanceAttributeName' "instanceType"
+
+pattern IANKernel :: InstanceAttributeName
+pattern IANKernel = InstanceAttributeName' "kernel"
+
+pattern IANProductCodes :: InstanceAttributeName
+pattern IANProductCodes = InstanceAttributeName' "productCodes"
+
+pattern IANRAMDisk :: InstanceAttributeName
+pattern IANRAMDisk = InstanceAttributeName' "ramdisk"
+
+pattern IANRootDeviceName :: InstanceAttributeName
+pattern IANRootDeviceName = InstanceAttributeName' "rootDeviceName"
+
+pattern IANSRIOVNetSupport :: InstanceAttributeName
+pattern IANSRIOVNetSupport = InstanceAttributeName' "sriovNetSupport"
+
+pattern IANSourceDestCheck :: InstanceAttributeName
+pattern IANSourceDestCheck = InstanceAttributeName' "sourceDestCheck"
+
+pattern IANUserData :: InstanceAttributeName
+pattern IANUserData = InstanceAttributeName' "userData"
+
+{-# COMPLETE
+  IANBlockDeviceMapping,
+  IANDisableAPITermination,
+  IANEBSOptimized,
+  IANEnaSupport,
+  IANEnclaveOptions,
+  IANGroupSet,
+  IANInstanceInitiatedShutdownBehavior,
+  IANInstanceType,
+  IANKernel,
+  IANProductCodes,
+  IANRAMDisk,
+  IANRootDeviceName,
+  IANSRIOVNetSupport,
+  IANSourceDestCheck,
+  IANUserData,
+  InstanceAttributeName'
+  #-}

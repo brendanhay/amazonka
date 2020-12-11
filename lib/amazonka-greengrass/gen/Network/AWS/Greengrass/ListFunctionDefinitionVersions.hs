@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListFunctionDefinitionVersions
-  ( -- * Creating a Request
-    listFunctionDefinitionVersions,
-    ListFunctionDefinitionVersions,
+  ( -- * Creating a request
+    ListFunctionDefinitionVersions (..),
+    mkListFunctionDefinitionVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lfdvNextToken,
     lfdvMaxResults,
     lfdvFunctionDefinitionId,
 
-    -- * Destructuring the Response
-    listFunctionDefinitionVersionsResponse,
-    ListFunctionDefinitionVersionsResponse,
+    -- * Destructuring the response
+    ListFunctionDefinitionVersionsResponse (..),
+    mkListFunctionDefinitionVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lfdvrsVersions,
     lfdvrsNextToken,
     lfdvrsResponseStatus,
@@ -42,143 +37,165 @@ module Network.AWS.Greengrass.ListFunctionDefinitionVersions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listFunctionDefinitionVersions' smart constructor.
+-- | /See:/ 'mkListFunctionDefinitionVersions' smart constructor.
 data ListFunctionDefinitionVersions = ListFunctionDefinitionVersions'
-  { _lfdvNextToken ::
-      !(Maybe Text),
-    _lfdvMaxResults ::
-      !(Maybe Text),
-    _lfdvFunctionDefinitionId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Text,
+    functionDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionDefinitionVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lfdvMaxResults' - The maximum number of results to be returned per request.
---
--- * 'lfdvFunctionDefinitionId' - The ID of the Lambda function definition.
-listFunctionDefinitionVersions ::
-  -- | 'lfdvFunctionDefinitionId'
-  Text ->
+-- * 'functionDefinitionId' - The ID of the Lambda function definition.
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListFunctionDefinitionVersions ::
+  -- | 'functionDefinitionId'
+  Lude.Text ->
   ListFunctionDefinitionVersions
-listFunctionDefinitionVersions pFunctionDefinitionId_ =
+mkListFunctionDefinitionVersions pFunctionDefinitionId_ =
   ListFunctionDefinitionVersions'
-    { _lfdvNextToken = Nothing,
-      _lfdvMaxResults = Nothing,
-      _lfdvFunctionDefinitionId = pFunctionDefinitionId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      functionDefinitionId = pFunctionDefinitionId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lfdvNextToken :: Lens' ListFunctionDefinitionVersions (Maybe Text)
-lfdvNextToken = lens _lfdvNextToken (\s a -> s {_lfdvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvNextToken :: Lens.Lens' ListFunctionDefinitionVersions (Lude.Maybe Lude.Text)
+lfdvNextToken = Lens.lens (nextToken :: ListFunctionDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFunctionDefinitionVersions)
+{-# DEPRECATED lfdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lfdvMaxResults :: Lens' ListFunctionDefinitionVersions (Maybe Text)
-lfdvMaxResults = lens _lfdvMaxResults (\s a -> s {_lfdvMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvMaxResults :: Lens.Lens' ListFunctionDefinitionVersions (Lude.Maybe Lude.Text)
+lfdvMaxResults = Lens.lens (maxResults :: ListFunctionDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListFunctionDefinitionVersions)
+{-# DEPRECATED lfdvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the Lambda function definition.
-lfdvFunctionDefinitionId :: Lens' ListFunctionDefinitionVersions Text
-lfdvFunctionDefinitionId = lens _lfdvFunctionDefinitionId (\s a -> s {_lfdvFunctionDefinitionId = a})
+--
+-- /Note:/ Consider using 'functionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvFunctionDefinitionId :: Lens.Lens' ListFunctionDefinitionVersions Lude.Text
+lfdvFunctionDefinitionId = Lens.lens (functionDefinitionId :: ListFunctionDefinitionVersions -> Lude.Text) (\s a -> s {functionDefinitionId = a} :: ListFunctionDefinitionVersions)
+{-# DEPRECATED lfdvFunctionDefinitionId "Use generic-lens or generic-optics with 'functionDefinitionId' instead." #-}
 
-instance AWSPager ListFunctionDefinitionVersions where
+instance Page.AWSPager ListFunctionDefinitionVersions where
   page rq rs
-    | stop (rs ^. lfdvrsNextToken) = Nothing
-    | stop (rs ^. lfdvrsVersions) = Nothing
-    | otherwise = Just $ rq & lfdvNextToken .~ rs ^. lfdvrsNextToken
+    | Page.stop (rs Lens.^. lfdvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lfdvrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lfdvNextToken Lens..~ rs Lens.^. lfdvrsNextToken
 
-instance AWSRequest ListFunctionDefinitionVersions where
+instance Lude.AWSRequest ListFunctionDefinitionVersions where
   type
     Rs ListFunctionDefinitionVersions =
       ListFunctionDefinitionVersionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListFunctionDefinitionVersionsResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListFunctionDefinitionVersions
-
-instance NFData ListFunctionDefinitionVersions
-
-instance ToHeaders ListFunctionDefinitionVersions where
+instance Lude.ToHeaders ListFunctionDefinitionVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListFunctionDefinitionVersions where
+instance Lude.ToPath ListFunctionDefinitionVersions where
   toPath ListFunctionDefinitionVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/functions/",
-        toBS _lfdvFunctionDefinitionId,
+        Lude.toBS functionDefinitionId,
         "/versions"
       ]
 
-instance ToQuery ListFunctionDefinitionVersions where
+instance Lude.ToQuery ListFunctionDefinitionVersions where
   toQuery ListFunctionDefinitionVersions' {..} =
-    mconcat
-      ["NextToken" =: _lfdvNextToken, "MaxResults" =: _lfdvMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listFunctionDefinitionVersionsResponse' smart constructor.
+-- | /See:/ 'mkListFunctionDefinitionVersionsResponse' smart constructor.
 data ListFunctionDefinitionVersionsResponse = ListFunctionDefinitionVersionsResponse'
-  { _lfdvrsVersions ::
-      !( Maybe
-           [VersionInformation]
-       ),
-    _lfdvrsNextToken ::
-      !(Maybe Text),
-    _lfdvrsResponseStatus ::
-      !Int
+  { versions ::
+      Lude.Maybe
+        [VersionInformation],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfdvrsVersions' - Information about a version.
---
--- * 'lfdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lfdvrsResponseStatus' - -- | The response status code.
-listFunctionDefinitionVersionsResponse ::
-  -- | 'lfdvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - Information about a version.
+mkListFunctionDefinitionVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFunctionDefinitionVersionsResponse
-listFunctionDefinitionVersionsResponse pResponseStatus_ =
+mkListFunctionDefinitionVersionsResponse pResponseStatus_ =
   ListFunctionDefinitionVersionsResponse'
-    { _lfdvrsVersions =
-        Nothing,
-      _lfdvrsNextToken = Nothing,
-      _lfdvrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a version.
-lfdvrsVersions :: Lens' ListFunctionDefinitionVersionsResponse [VersionInformation]
-lfdvrsVersions = lens _lfdvrsVersions (\s a -> s {_lfdvrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvrsVersions :: Lens.Lens' ListFunctionDefinitionVersionsResponse (Lude.Maybe [VersionInformation])
+lfdvrsVersions = Lens.lens (versions :: ListFunctionDefinitionVersionsResponse -> Lude.Maybe [VersionInformation]) (\s a -> s {versions = a} :: ListFunctionDefinitionVersionsResponse)
+{-# DEPRECATED lfdvrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lfdvrsNextToken :: Lens' ListFunctionDefinitionVersionsResponse (Maybe Text)
-lfdvrsNextToken = lens _lfdvrsNextToken (\s a -> s {_lfdvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvrsNextToken :: Lens.Lens' ListFunctionDefinitionVersionsResponse (Lude.Maybe Lude.Text)
+lfdvrsNextToken = Lens.lens (nextToken :: ListFunctionDefinitionVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFunctionDefinitionVersionsResponse)
+{-# DEPRECATED lfdvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lfdvrsResponseStatus :: Lens' ListFunctionDefinitionVersionsResponse Int
-lfdvrsResponseStatus = lens _lfdvrsResponseStatus (\s a -> s {_lfdvrsResponseStatus = a})
-
-instance NFData ListFunctionDefinitionVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdvrsResponseStatus :: Lens.Lens' ListFunctionDefinitionVersionsResponse Lude.Int
+lfdvrsResponseStatus = Lens.lens (responseStatus :: ListFunctionDefinitionVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFunctionDefinitionVersionsResponse)
+{-# DEPRECATED lfdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

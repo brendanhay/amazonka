@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,146 @@
 --
 -- Specifies the health check settings to use when evaluating the health state of your EC2 instances.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.ConfigureHealthCheck
-  ( -- * Creating a Request
-    configureHealthCheck,
-    ConfigureHealthCheck,
+  ( -- * Creating a request
+    ConfigureHealthCheck (..),
+    mkConfigureHealthCheck,
 
-    -- * Request Lenses
+    -- ** Request lenses
     chcLoadBalancerName,
     chcHealthCheck,
 
-    -- * Destructuring the Response
-    configureHealthCheckResponse,
-    ConfigureHealthCheckResponse,
+    -- * Destructuring the response
+    ConfigureHealthCheckResponse (..),
+    mkConfigureHealthCheckResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     chcrsHealthCheck,
     chcrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ConfigureHealthCheck.
 --
---
---
--- /See:/ 'configureHealthCheck' smart constructor.
+-- /See:/ 'mkConfigureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
-  { _chcLoadBalancerName ::
-      !Text,
-    _chcHealthCheck :: !HealthCheck
+  { loadBalancerName ::
+      Lude.Text,
+    healthCheck :: HealthCheck
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chcLoadBalancerName' - The name of the load balancer.
---
--- * 'chcHealthCheck' - The configuration information.
-configureHealthCheck ::
-  -- | 'chcLoadBalancerName'
-  Text ->
-  -- | 'chcHealthCheck'
+-- * 'healthCheck' - The configuration information.
+-- * 'loadBalancerName' - The name of the load balancer.
+mkConfigureHealthCheck ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'healthCheck'
   HealthCheck ->
   ConfigureHealthCheck
-configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
+mkConfigureHealthCheck pLoadBalancerName_ pHealthCheck_ =
   ConfigureHealthCheck'
-    { _chcLoadBalancerName = pLoadBalancerName_,
-      _chcHealthCheck = pHealthCheck_
+    { loadBalancerName = pLoadBalancerName_,
+      healthCheck = pHealthCheck_
     }
 
 -- | The name of the load balancer.
-chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcLoadBalancerName = lens _chcLoadBalancerName (\s a -> s {_chcLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcLoadBalancerName :: Lens.Lens' ConfigureHealthCheck Lude.Text
+chcLoadBalancerName = Lens.lens (loadBalancerName :: ConfigureHealthCheck -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ConfigureHealthCheck)
+{-# DEPRECATED chcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The configuration information.
-chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\s a -> s {_chcHealthCheck = a})
+--
+-- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcHealthCheck :: Lens.Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = Lens.lens (healthCheck :: ConfigureHealthCheck -> HealthCheck) (\s a -> s {healthCheck = a} :: ConfigureHealthCheck)
+{-# DEPRECATED chcHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
-instance AWSRequest ConfigureHealthCheck where
+instance Lude.AWSRequest ConfigureHealthCheck where
   type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ConfigureHealthCheckResult"
       ( \s h x ->
           ConfigureHealthCheckResponse'
-            <$> (x .@? "HealthCheck") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "HealthCheck") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ConfigureHealthCheck
+instance Lude.ToHeaders ConfigureHealthCheck where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ConfigureHealthCheck
+instance Lude.ToPath ConfigureHealthCheck where
+  toPath = Lude.const "/"
 
-instance ToHeaders ConfigureHealthCheck where
-  toHeaders = const mempty
-
-instance ToPath ConfigureHealthCheck where
-  toPath = const "/"
-
-instance ToQuery ConfigureHealthCheck where
+instance Lude.ToQuery ConfigureHealthCheck where
   toQuery ConfigureHealthCheck' {..} =
-    mconcat
-      [ "Action" =: ("ConfigureHealthCheck" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _chcLoadBalancerName,
-        "HealthCheck" =: _chcHealthCheck
+    Lude.mconcat
+      [ "Action" Lude.=: ("ConfigureHealthCheck" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "HealthCheck" Lude.=: healthCheck
       ]
 
 -- | Contains the output of ConfigureHealthCheck.
 --
---
---
--- /See:/ 'configureHealthCheckResponse' smart constructor.
+-- /See:/ 'mkConfigureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-  { _chcrsHealthCheck ::
-      !(Maybe HealthCheck),
-    _chcrsResponseStatus :: !Int
+  { healthCheck ::
+      Lude.Maybe HealthCheck,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chcrsHealthCheck' - The updated health check.
---
--- * 'chcrsResponseStatus' - -- | The response status code.
-configureHealthCheckResponse ::
-  -- | 'chcrsResponseStatus'
-  Int ->
+-- * 'healthCheck' - The updated health check.
+-- * 'responseStatus' - The response status code.
+mkConfigureHealthCheckResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ConfigureHealthCheckResponse
-configureHealthCheckResponse pResponseStatus_ =
+mkConfigureHealthCheckResponse pResponseStatus_ =
   ConfigureHealthCheckResponse'
-    { _chcrsHealthCheck = Nothing,
-      _chcrsResponseStatus = pResponseStatus_
+    { healthCheck = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated health check.
-chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrsHealthCheck = lens _chcrsHealthCheck (\s a -> s {_chcrsHealthCheck = a})
+--
+-- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcrsHealthCheck :: Lens.Lens' ConfigureHealthCheckResponse (Lude.Maybe HealthCheck)
+chcrsHealthCheck = Lens.lens (healthCheck :: ConfigureHealthCheckResponse -> Lude.Maybe HealthCheck) (\s a -> s {healthCheck = a} :: ConfigureHealthCheckResponse)
+{-# DEPRECATED chcrsHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
--- | -- | The response status code.
-chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
-chcrsResponseStatus = lens _chcrsResponseStatus (\s a -> s {_chcrsResponseStatus = a})
-
-instance NFData ConfigureHealthCheckResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcrsResponseStatus :: Lens.Lens' ConfigureHealthCheckResponse Lude.Int
+chcrsResponseStatus = Lens.lens (responseStatus :: ConfigureHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfigureHealthCheckResponse)
+{-# DEPRECATED chcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

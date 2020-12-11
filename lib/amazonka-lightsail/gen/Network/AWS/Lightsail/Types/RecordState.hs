@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RecordState where
+module Network.AWS.Lightsail.Types.RecordState
+  ( RecordState
+      ( RecordState',
+        RFailed,
+        RStarted,
+        RSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordState
-  = RFailed
-  | RStarted
-  | RSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordState = RecordState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure RFailed
-      "started" -> pure RStarted
-      "succeeded" -> pure RSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing RecordState from value: '" <> e
-            <> "'. Accepted values: failed, started, succeeded"
+pattern RFailed :: RecordState
+pattern RFailed = RecordState' "Failed"
 
-instance ToText RecordState where
-  toText = \case
-    RFailed -> "Failed"
-    RStarted -> "Started"
-    RSucceeded -> "Succeeded"
+pattern RStarted :: RecordState
+pattern RStarted = RecordState' "Started"
 
-instance Hashable RecordState
+pattern RSucceeded :: RecordState
+pattern RSucceeded = RecordState' "Succeeded"
 
-instance NFData RecordState
-
-instance ToByteString RecordState
-
-instance ToQuery RecordState
-
-instance ToHeader RecordState
-
-instance FromJSON RecordState where
-  parseJSON = parseJSONText "RecordState"
+{-# COMPLETE
+  RFailed,
+  RStarted,
+  RSucceeded,
+  RecordState'
+  #-}

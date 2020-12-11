@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types
-  ( -- * Service Configuration
-    comprehend,
+  ( -- * Service configuration
+    comprehendService,
 
     -- * Errors
 
@@ -61,52 +59,52 @@ module Network.AWS.Comprehend.Types
     SyntaxLanguageCode (..),
 
     -- * AugmentedManifestsListItem
-    AugmentedManifestsListItem,
-    augmentedManifestsListItem,
+    AugmentedManifestsListItem (..),
+    mkAugmentedManifestsListItem,
     amliS3URI,
     amliAttributeNames,
 
     -- * BatchDetectDominantLanguageItemResult
-    BatchDetectDominantLanguageItemResult,
-    batchDetectDominantLanguageItemResult,
+    BatchDetectDominantLanguageItemResult (..),
+    mkBatchDetectDominantLanguageItemResult,
     bddlirLanguages,
     bddlirIndex,
 
     -- * BatchDetectEntitiesItemResult
-    BatchDetectEntitiesItemResult,
-    batchDetectEntitiesItemResult,
+    BatchDetectEntitiesItemResult (..),
+    mkBatchDetectEntitiesItemResult,
     bdeirEntities,
     bdeirIndex,
 
     -- * BatchDetectKeyPhrasesItemResult
-    BatchDetectKeyPhrasesItemResult,
-    batchDetectKeyPhrasesItemResult,
+    BatchDetectKeyPhrasesItemResult (..),
+    mkBatchDetectKeyPhrasesItemResult,
     bdkpirIndex,
     bdkpirKeyPhrases,
 
     -- * BatchDetectSentimentItemResult
-    BatchDetectSentimentItemResult,
-    batchDetectSentimentItemResult,
+    BatchDetectSentimentItemResult (..),
+    mkBatchDetectSentimentItemResult,
     bSentiment,
     bSentimentScore,
     bIndex,
 
     -- * BatchDetectSyntaxItemResult
-    BatchDetectSyntaxItemResult,
-    batchDetectSyntaxItemResult,
+    BatchDetectSyntaxItemResult (..),
+    mkBatchDetectSyntaxItemResult,
     bdsirIndex,
     bdsirSyntaxTokens,
 
     -- * BatchItemError
-    BatchItemError,
-    batchItemError,
+    BatchItemError (..),
+    mkBatchItemError,
     bieErrorCode,
     bieErrorMessage,
     bieIndex,
 
     -- * ClassifierEvaluationMetrics
-    ClassifierEvaluationMetrics,
-    classifierEvaluationMetrics,
+    ClassifierEvaluationMetrics (..),
+    mkClassifierEvaluationMetrics,
     cemMicroPrecision,
     cemMicroF1Score,
     cemRecall,
@@ -117,30 +115,30 @@ module Network.AWS.Comprehend.Types
     cemAccuracy,
 
     -- * ClassifierMetadata
-    ClassifierMetadata,
-    classifierMetadata,
+    ClassifierMetadata (..),
+    mkClassifierMetadata,
     cmNumberOfLabels,
     cmEvaluationMetrics,
     cmNumberOfTrainedDocuments,
     cmNumberOfTestDocuments,
 
     -- * DocumentClass
-    DocumentClass,
-    documentClass,
+    DocumentClass (..),
+    mkDocumentClass,
     dcScore,
     dcName,
 
     -- * DocumentClassificationJobFilter
-    DocumentClassificationJobFilter,
-    documentClassificationJobFilter,
+    DocumentClassificationJobFilter (..),
+    mkDocumentClassificationJobFilter,
     dcjfSubmitTimeAfter,
     dcjfSubmitTimeBefore,
     dcjfJobName,
     dcjfJobStatus,
 
     -- * DocumentClassificationJobProperties
-    DocumentClassificationJobProperties,
-    documentClassificationJobProperties,
+    DocumentClassificationJobProperties (..),
+    mkDocumentClassificationJobProperties,
     dcjpJobId,
     dcjpDocumentClassifierARN,
     dcjpJobName,
@@ -155,29 +153,29 @@ module Network.AWS.Comprehend.Types
     dcjpSubmitTime,
 
     -- * DocumentClassifierFilter
-    DocumentClassifierFilter,
-    documentClassifierFilter,
+    DocumentClassifierFilter (..),
+    mkDocumentClassifierFilter,
     dcfStatus,
     dcfSubmitTimeAfter,
     dcfSubmitTimeBefore,
 
     -- * DocumentClassifierInputDataConfig
-    DocumentClassifierInputDataConfig,
-    documentClassifierInputDataConfig,
+    DocumentClassifierInputDataConfig (..),
+    mkDocumentClassifierInputDataConfig,
     dcidcAugmentedManifests,
     dcidcDataFormat,
     dcidcLabelDelimiter,
     dcidcS3URI,
 
     -- * DocumentClassifierOutputDataConfig
-    DocumentClassifierOutputDataConfig,
-    documentClassifierOutputDataConfig,
+    DocumentClassifierOutputDataConfig (..),
+    mkDocumentClassifierOutputDataConfig,
     dcodcKMSKeyId,
     dcodcS3URI,
 
     -- * DocumentClassifierProperties
-    DocumentClassifierProperties,
-    documentClassifierProperties,
+    DocumentClassifierProperties (..),
+    mkDocumentClassifierProperties,
     dcpStatus,
     dcpLanguageCode,
     dcpClassifierMetadata,
@@ -195,28 +193,28 @@ module Network.AWS.Comprehend.Types
     dcpSubmitTime,
 
     -- * DocumentLabel
-    DocumentLabel,
-    documentLabel,
+    DocumentLabel (..),
+    mkDocumentLabel,
     dScore,
     dName,
 
     -- * DominantLanguage
-    DominantLanguage,
-    dominantLanguage,
+    DominantLanguage (..),
+    mkDominantLanguage,
     dlLanguageCode,
     dlScore,
 
     -- * DominantLanguageDetectionJobFilter
-    DominantLanguageDetectionJobFilter,
-    dominantLanguageDetectionJobFilter,
+    DominantLanguageDetectionJobFilter (..),
+    mkDominantLanguageDetectionJobFilter,
     dldjfSubmitTimeAfter,
     dldjfSubmitTimeBefore,
     dldjfJobName,
     dldjfJobStatus,
 
     -- * DominantLanguageDetectionJobProperties
-    DominantLanguageDetectionJobProperties,
-    dominantLanguageDetectionJobProperties,
+    DominantLanguageDetectionJobProperties (..),
+    mkDominantLanguageDetectionJobProperties,
     dldjpJobId,
     dldjpJobName,
     dldjpInputDataConfig,
@@ -230,16 +228,16 @@ module Network.AWS.Comprehend.Types
     dldjpSubmitTime,
 
     -- * EndpointFilter
-    EndpointFilter,
-    endpointFilter,
+    EndpointFilter (..),
+    mkEndpointFilter,
     efStatus,
     efModelARN,
     efCreationTimeAfter,
     efCreationTimeBefore,
 
     -- * EndpointProperties
-    EndpointProperties,
-    endpointProperties,
+    EndpointProperties (..),
+    mkEndpointProperties,
     epCreationTime,
     epStatus,
     epModelARN,
@@ -250,16 +248,16 @@ module Network.AWS.Comprehend.Types
     epEndpointARN,
 
     -- * EntitiesDetectionJobFilter
-    EntitiesDetectionJobFilter,
-    entitiesDetectionJobFilter,
+    EntitiesDetectionJobFilter (..),
+    mkEntitiesDetectionJobFilter,
     edjfSubmitTimeAfter,
     edjfSubmitTimeBefore,
     edjfJobName,
     edjfJobStatus,
 
     -- * EntitiesDetectionJobProperties
-    EntitiesDetectionJobProperties,
-    entitiesDetectionJobProperties,
+    EntitiesDetectionJobProperties (..),
+    mkEntitiesDetectionJobProperties,
     edjpsLanguageCode,
     edjpsJobId,
     edjpsEntityRecognizerARN,
@@ -275,8 +273,8 @@ module Network.AWS.Comprehend.Types
     edjpsSubmitTime,
 
     -- * Entity
-    Entity,
-    entity,
+    Entity (..),
+    mkEntity,
     eBeginOffset,
     eText,
     eScore,
@@ -284,37 +282,37 @@ module Network.AWS.Comprehend.Types
     eType,
 
     -- * EntityRecognizerAnnotations
-    EntityRecognizerAnnotations,
-    entityRecognizerAnnotations,
+    EntityRecognizerAnnotations (..),
+    mkEntityRecognizerAnnotations,
     eraS3URI,
 
     -- * EntityRecognizerDocuments
-    EntityRecognizerDocuments,
-    entityRecognizerDocuments,
+    EntityRecognizerDocuments (..),
+    mkEntityRecognizerDocuments,
     erdS3URI,
 
     -- * EntityRecognizerEntityList
-    EntityRecognizerEntityList,
-    entityRecognizerEntityList,
+    EntityRecognizerEntityList (..),
+    mkEntityRecognizerEntityList,
     erelS3URI,
 
     -- * EntityRecognizerEvaluationMetrics
-    EntityRecognizerEvaluationMetrics,
-    entityRecognizerEvaluationMetrics,
+    EntityRecognizerEvaluationMetrics (..),
+    mkEntityRecognizerEvaluationMetrics,
     eremRecall,
     eremPrecision,
     eremF1Score,
 
     -- * EntityRecognizerFilter
-    EntityRecognizerFilter,
-    entityRecognizerFilter,
+    EntityRecognizerFilter (..),
+    mkEntityRecognizerFilter,
     erfStatus,
     erfSubmitTimeAfter,
     erfSubmitTimeBefore,
 
     -- * EntityRecognizerInputDataConfig
-    EntityRecognizerInputDataConfig,
-    entityRecognizerInputDataConfig,
+    EntityRecognizerInputDataConfig (..),
+    mkEntityRecognizerInputDataConfig,
     eridcAugmentedManifests,
     eridcAnnotations,
     eridcDataFormat,
@@ -323,23 +321,23 @@ module Network.AWS.Comprehend.Types
     eridcEntityTypes,
 
     -- * EntityRecognizerMetadata
-    EntityRecognizerMetadata,
-    entityRecognizerMetadata,
+    EntityRecognizerMetadata (..),
+    mkEntityRecognizerMetadata,
     ermEntityTypes,
     ermEvaluationMetrics,
     ermNumberOfTrainedDocuments,
     ermNumberOfTestDocuments,
 
     -- * EntityRecognizerMetadataEntityTypesListItem
-    EntityRecognizerMetadataEntityTypesListItem,
-    entityRecognizerMetadataEntityTypesListItem,
+    EntityRecognizerMetadataEntityTypesListItem (..),
+    mkEntityRecognizerMetadataEntityTypesListItem,
     ermetliEvaluationMetrics,
     ermetliType,
     ermetliNumberOfTrainMentions,
 
     -- * EntityRecognizerProperties
-    EntityRecognizerProperties,
-    entityRecognizerProperties,
+    EntityRecognizerProperties (..),
+    mkEntityRecognizerProperties,
     erpStatus,
     erpLanguageCode,
     erpTrainingEndTime,
@@ -355,28 +353,28 @@ module Network.AWS.Comprehend.Types
     erpSubmitTime,
 
     -- * EntityTypesEvaluationMetrics
-    EntityTypesEvaluationMetrics,
-    entityTypesEvaluationMetrics,
+    EntityTypesEvaluationMetrics (..),
+    mkEntityTypesEvaluationMetrics,
     etemRecall,
     etemPrecision,
     etemF1Score,
 
     -- * EntityTypesListItem
-    EntityTypesListItem,
-    entityTypesListItem,
+    EntityTypesListItem (..),
+    mkEntityTypesListItem,
     etliType,
 
     -- * EventsDetectionJobFilter
-    EventsDetectionJobFilter,
-    eventsDetectionJobFilter,
+    EventsDetectionJobFilter (..),
+    mkEventsDetectionJobFilter,
     eSubmitTimeAfter,
     eSubmitTimeBefore,
     eJobName,
     eJobStatus,
 
     -- * EventsDetectionJobProperties
-    EventsDetectionJobProperties,
-    eventsDetectionJobProperties,
+    EventsDetectionJobProperties (..),
+    mkEventsDetectionJobProperties,
     edjpLanguageCode,
     edjpJobId,
     edjpJobName,
@@ -390,30 +388,30 @@ module Network.AWS.Comprehend.Types
     edjpSubmitTime,
 
     -- * InputDataConfig
-    InputDataConfig,
-    inputDataConfig,
+    InputDataConfig (..),
+    mkInputDataConfig,
     idcInputFormat,
     idcS3URI,
 
     -- * KeyPhrase
-    KeyPhrase,
-    keyPhrase,
+    KeyPhrase (..),
+    mkKeyPhrase,
     kpBeginOffset,
     kpText,
     kpScore,
     kpEndOffset,
 
     -- * KeyPhrasesDetectionJobFilter
-    KeyPhrasesDetectionJobFilter,
-    keyPhrasesDetectionJobFilter,
+    KeyPhrasesDetectionJobFilter (..),
+    mkKeyPhrasesDetectionJobFilter,
     kpdjfSubmitTimeAfter,
     kpdjfSubmitTimeBefore,
     kpdjfJobName,
     kpdjfJobStatus,
 
     -- * KeyPhrasesDetectionJobProperties
-    KeyPhrasesDetectionJobProperties,
-    keyPhrasesDetectionJobProperties,
+    KeyPhrasesDetectionJobProperties (..),
+    mkKeyPhrasesDetectionJobProperties,
     kpdjpLanguageCode,
     kpdjpJobId,
     kpdjpJobName,
@@ -428,28 +426,28 @@ module Network.AWS.Comprehend.Types
     kpdjpSubmitTime,
 
     -- * OutputDataConfig
-    OutputDataConfig,
-    outputDataConfig,
+    OutputDataConfig (..),
+    mkOutputDataConfig,
     odcKMSKeyId,
     odcS3URI,
 
     -- * PartOfSpeechTag
-    PartOfSpeechTag,
-    partOfSpeechTag,
+    PartOfSpeechTag (..),
+    mkPartOfSpeechTag,
     postTag,
     postScore,
 
     -- * PiiEntitiesDetectionJobFilter
-    PiiEntitiesDetectionJobFilter,
-    piiEntitiesDetectionJobFilter,
+    PiiEntitiesDetectionJobFilter (..),
+    mkPiiEntitiesDetectionJobFilter,
     pedjfSubmitTimeAfter,
     pedjfSubmitTimeBefore,
     pedjfJobName,
     pedjfJobStatus,
 
     -- * PiiEntitiesDetectionJobProperties
-    PiiEntitiesDetectionJobProperties,
-    piiEntitiesDetectionJobProperties,
+    PiiEntitiesDetectionJobProperties (..),
+    mkPiiEntitiesDetectionJobProperties,
     pedjpLanguageCode,
     pedjpJobId,
     pedjpJobName,
@@ -464,37 +462,37 @@ module Network.AWS.Comprehend.Types
     pedjpSubmitTime,
 
     -- * PiiEntity
-    PiiEntity,
-    piiEntity,
+    PiiEntity (..),
+    mkPiiEntity,
     peBeginOffset,
     peScore,
     peEndOffset,
     peType,
 
     -- * PiiOutputDataConfig
-    PiiOutputDataConfig,
-    piiOutputDataConfig,
+    PiiOutputDataConfig (..),
+    mkPiiOutputDataConfig,
     podcKMSKeyId,
     podcS3URI,
 
     -- * RedactionConfig
-    RedactionConfig,
-    redactionConfig,
+    RedactionConfig (..),
+    mkRedactionConfig,
     rcMaskCharacter,
     rcMaskMode,
     rcPiiEntityTypes,
 
     -- * SentimentDetectionJobFilter
-    SentimentDetectionJobFilter,
-    sentimentDetectionJobFilter,
+    SentimentDetectionJobFilter (..),
+    mkSentimentDetectionJobFilter,
     sdjfSubmitTimeAfter,
     sdjfSubmitTimeBefore,
     sdjfJobName,
     sdjfJobStatus,
 
     -- * SentimentDetectionJobProperties
-    SentimentDetectionJobProperties,
-    sentimentDetectionJobProperties,
+    SentimentDetectionJobProperties (..),
+    mkSentimentDetectionJobProperties,
     sdjpLanguageCode,
     sdjpJobId,
     sdjpJobName,
@@ -509,16 +507,16 @@ module Network.AWS.Comprehend.Types
     sdjpSubmitTime,
 
     -- * SentimentScore
-    SentimentScore,
-    sentimentScore,
+    SentimentScore (..),
+    mkSentimentScore,
     ssMixed,
     ssNegative,
     ssNeutral,
     ssPositive,
 
     -- * SyntaxToken
-    SyntaxToken,
-    syntaxToken,
+    SyntaxToken (..),
+    mkSyntaxToken,
     stBeginOffset,
     stText,
     stTokenId,
@@ -526,22 +524,22 @@ module Network.AWS.Comprehend.Types
     stPartOfSpeech,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TopicsDetectionJobFilter
-    TopicsDetectionJobFilter,
-    topicsDetectionJobFilter,
+    TopicsDetectionJobFilter (..),
+    mkTopicsDetectionJobFilter,
     tdjfSubmitTimeAfter,
     tdjfSubmitTimeBefore,
     tdjfJobName,
     tdjfJobStatus,
 
     -- * TopicsDetectionJobProperties
-    TopicsDetectionJobProperties,
-    topicsDetectionJobProperties,
+    TopicsDetectionJobProperties (..),
+    mkTopicsDetectionJobProperties,
     tdjpJobId,
     tdjpJobName,
     tdjpInputDataConfig,
@@ -556,8 +554,8 @@ module Network.AWS.Comprehend.Types
     tdjpSubmitTime,
 
     -- * VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vcSecurityGroupIds,
     vcSubnets,
   )
@@ -635,48 +633,60 @@ import Network.AWS.Comprehend.Types.Tag
 import Network.AWS.Comprehend.Types.TopicsDetectionJobFilter
 import Network.AWS.Comprehend.Types.TopicsDetectionJobProperties
 import Network.AWS.Comprehend.Types.VPCConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon Comprehend SDK configuration.
-comprehend :: Service
-comprehend =
-  Service
-    { _svcAbbrev = "Comprehend",
-      _svcSigner = v4,
-      _svcPrefix = "comprehend",
-      _svcVersion = "2017-11-27",
-      _svcEndpoint = defaultEndpoint comprehend,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Comprehend",
-      _svcRetry = retry
+comprehendService :: Lude.Service
+comprehendService =
+  Lude.Service
+    { Lude._svcAbbrev = "Comprehend",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "comprehend",
+      Lude._svcVersion = "2017-11-27",
+      Lude._svcEndpoint = Lude.defaultEndpoint comprehendService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Comprehend",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

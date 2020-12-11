@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Updates a previously created parallel data resource by importing a new input file from Amazon S3.
 module Network.AWS.Translate.UpdateParallelData
-  ( -- * Creating a Request
-    updateParallelData,
-    UpdateParallelData,
+  ( -- * Creating a request
+    UpdateParallelData (..),
+    mkUpdateParallelData,
 
-    -- * Request Lenses
+    -- ** Request lenses
     updDescription,
     updName,
     updParallelDataConfig,
     updClientToken,
 
-    -- * Destructuring the Response
-    updateParallelDataResponse,
-    UpdateParallelDataResponse,
+    -- * Destructuring the response
+    UpdateParallelDataResponse (..),
+    mkUpdateParallelDataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     updrsStatus,
     updrsName,
     updrsLatestUpdateAttemptAt,
@@ -42,169 +37,194 @@ module Network.AWS.Translate.UpdateParallelData
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
--- | /See:/ 'updateParallelData' smart constructor.
+-- | /See:/ 'mkUpdateParallelData' smart constructor.
 data UpdateParallelData = UpdateParallelData'
-  { _updDescription ::
-      !(Maybe Text),
-    _updName :: !Text,
-    _updParallelDataConfig :: !ParallelDataConfig,
-    _updClientToken :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    parallelDataConfig :: ParallelDataConfig,
+    clientToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateParallelData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updDescription' - A custom description for the parallel data resource in Amazon Translate.
---
--- * 'updName' - The name of the parallel data resource being updated.
---
--- * 'updParallelDataConfig' - Specifies the format and S3 location of the parallel data input file.
---
--- * 'updClientToken' - A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
-updateParallelData ::
-  -- | 'updName'
-  Text ->
-  -- | 'updParallelDataConfig'
+-- * 'clientToken' - A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
+-- * 'description' - A custom description for the parallel data resource in Amazon Translate.
+-- * 'name' - The name of the parallel data resource being updated.
+-- * 'parallelDataConfig' - Specifies the format and S3 location of the parallel data input file.
+mkUpdateParallelData ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'parallelDataConfig'
   ParallelDataConfig ->
-  -- | 'updClientToken'
-  Text ->
+  -- | 'clientToken'
+  Lude.Text ->
   UpdateParallelData
-updateParallelData pName_ pParallelDataConfig_ pClientToken_ =
+mkUpdateParallelData pName_ pParallelDataConfig_ pClientToken_ =
   UpdateParallelData'
-    { _updDescription = Nothing,
-      _updName = pName_,
-      _updParallelDataConfig = pParallelDataConfig_,
-      _updClientToken = pClientToken_
+    { description = Lude.Nothing,
+      name = pName_,
+      parallelDataConfig = pParallelDataConfig_,
+      clientToken = pClientToken_
     }
 
 -- | A custom description for the parallel data resource in Amazon Translate.
-updDescription :: Lens' UpdateParallelData (Maybe Text)
-updDescription = lens _updDescription (\s a -> s {_updDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updDescription :: Lens.Lens' UpdateParallelData (Lude.Maybe Lude.Text)
+updDescription = Lens.lens (description :: UpdateParallelData -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateParallelData)
+{-# DEPRECATED updDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the parallel data resource being updated.
-updName :: Lens' UpdateParallelData Text
-updName = lens _updName (\s a -> s {_updName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updName :: Lens.Lens' UpdateParallelData Lude.Text
+updName = Lens.lens (name :: UpdateParallelData -> Lude.Text) (\s a -> s {name = a} :: UpdateParallelData)
+{-# DEPRECATED updName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies the format and S3 location of the parallel data input file.
-updParallelDataConfig :: Lens' UpdateParallelData ParallelDataConfig
-updParallelDataConfig = lens _updParallelDataConfig (\s a -> s {_updParallelDataConfig = a})
+--
+-- /Note:/ Consider using 'parallelDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updParallelDataConfig :: Lens.Lens' UpdateParallelData ParallelDataConfig
+updParallelDataConfig = Lens.lens (parallelDataConfig :: UpdateParallelData -> ParallelDataConfig) (\s a -> s {parallelDataConfig = a} :: UpdateParallelData)
+{-# DEPRECATED updParallelDataConfig "Use generic-lens or generic-optics with 'parallelDataConfig' instead." #-}
 
 -- | A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
-updClientToken :: Lens' UpdateParallelData Text
-updClientToken = lens _updClientToken (\s a -> s {_updClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updClientToken :: Lens.Lens' UpdateParallelData Lude.Text
+updClientToken = Lens.lens (clientToken :: UpdateParallelData -> Lude.Text) (\s a -> s {clientToken = a} :: UpdateParallelData)
+{-# DEPRECATED updClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
-instance AWSRequest UpdateParallelData where
+instance Lude.AWSRequest UpdateParallelData where
   type Rs UpdateParallelData = UpdateParallelDataResponse
-  request = postJSON translate
+  request = Req.postJSON translateService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateParallelDataResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "Name")
-            <*> (x .?> "LatestUpdateAttemptAt")
-            <*> (x .?> "LatestUpdateAttemptStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "LatestUpdateAttemptAt")
+            Lude.<*> (x Lude..?> "LatestUpdateAttemptStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateParallelData
-
-instance NFData UpdateParallelData
-
-instance ToHeaders UpdateParallelData where
+instance Lude.ToHeaders UpdateParallelData where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShineFrontendService_20170701.UpdateParallelData" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateParallelData where
+instance Lude.ToJSON UpdateParallelData where
   toJSON UpdateParallelData' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _updDescription,
-            Just ("Name" .= _updName),
-            Just ("ParallelDataConfig" .= _updParallelDataConfig),
-            Just ("ClientToken" .= _updClientToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ParallelDataConfig" Lude..= parallelDataConfig),
+            Lude.Just ("ClientToken" Lude..= clientToken)
           ]
       )
 
-instance ToPath UpdateParallelData where
-  toPath = const "/"
+instance Lude.ToPath UpdateParallelData where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateParallelData where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateParallelData where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateParallelDataResponse' smart constructor.
+-- | /See:/ 'mkUpdateParallelDataResponse' smart constructor.
 data UpdateParallelDataResponse = UpdateParallelDataResponse'
-  { _updrsStatus ::
-      !(Maybe ParallelDataStatus),
-    _updrsName :: !(Maybe Text),
-    _updrsLatestUpdateAttemptAt ::
-      !(Maybe POSIX),
-    _updrsLatestUpdateAttemptStatus ::
-      !(Maybe ParallelDataStatus),
-    _updrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe ParallelDataStatus,
+    name :: Lude.Maybe Lude.Text,
+    latestUpdateAttemptAt ::
+      Lude.Maybe Lude.Timestamp,
+    latestUpdateAttemptStatus ::
+      Lude.Maybe ParallelDataStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateParallelDataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updrsStatus' - The status of the parallel data resource that you are attempting to update. Your update request is accepted only if this status is either @ACTIVE@ or @FAILED@ .
---
--- * 'updrsName' - The name of the parallel data resource being updated.
---
--- * 'updrsLatestUpdateAttemptAt' - The time that the most recent update was attempted.
---
--- * 'updrsLatestUpdateAttemptStatus' - The status of the parallel data update attempt. When the updated parallel data resource is ready for you to use, the status is @ACTIVE@ .
---
--- * 'updrsResponseStatus' - -- | The response status code.
-updateParallelDataResponse ::
-  -- | 'updrsResponseStatus'
-  Int ->
+-- * 'latestUpdateAttemptAt' - The time that the most recent update was attempted.
+-- * 'latestUpdateAttemptStatus' - The status of the parallel data update attempt. When the updated parallel data resource is ready for you to use, the status is @ACTIVE@ .
+-- * 'name' - The name of the parallel data resource being updated.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the parallel data resource that you are attempting to update. Your update request is accepted only if this status is either @ACTIVE@ or @FAILED@ .
+mkUpdateParallelDataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateParallelDataResponse
-updateParallelDataResponse pResponseStatus_ =
+mkUpdateParallelDataResponse pResponseStatus_ =
   UpdateParallelDataResponse'
-    { _updrsStatus = Nothing,
-      _updrsName = Nothing,
-      _updrsLatestUpdateAttemptAt = Nothing,
-      _updrsLatestUpdateAttemptStatus = Nothing,
-      _updrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      name = Lude.Nothing,
+      latestUpdateAttemptAt = Lude.Nothing,
+      latestUpdateAttemptStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the parallel data resource that you are attempting to update. Your update request is accepted only if this status is either @ACTIVE@ or @FAILED@ .
-updrsStatus :: Lens' UpdateParallelDataResponse (Maybe ParallelDataStatus)
-updrsStatus = lens _updrsStatus (\s a -> s {_updrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsStatus :: Lens.Lens' UpdateParallelDataResponse (Lude.Maybe ParallelDataStatus)
+updrsStatus = Lens.lens (status :: UpdateParallelDataResponse -> Lude.Maybe ParallelDataStatus) (\s a -> s {status = a} :: UpdateParallelDataResponse)
+{-# DEPRECATED updrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the parallel data resource being updated.
-updrsName :: Lens' UpdateParallelDataResponse (Maybe Text)
-updrsName = lens _updrsName (\s a -> s {_updrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsName :: Lens.Lens' UpdateParallelDataResponse (Lude.Maybe Lude.Text)
+updrsName = Lens.lens (name :: UpdateParallelDataResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateParallelDataResponse)
+{-# DEPRECATED updrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time that the most recent update was attempted.
-updrsLatestUpdateAttemptAt :: Lens' UpdateParallelDataResponse (Maybe UTCTime)
-updrsLatestUpdateAttemptAt = lens _updrsLatestUpdateAttemptAt (\s a -> s {_updrsLatestUpdateAttemptAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestUpdateAttemptAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsLatestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Lude.Maybe Lude.Timestamp)
+updrsLatestUpdateAttemptAt = Lens.lens (latestUpdateAttemptAt :: UpdateParallelDataResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse)
+{-# DEPRECATED updrsLatestUpdateAttemptAt "Use generic-lens or generic-optics with 'latestUpdateAttemptAt' instead." #-}
 
 -- | The status of the parallel data update attempt. When the updated parallel data resource is ready for you to use, the status is @ACTIVE@ .
-updrsLatestUpdateAttemptStatus :: Lens' UpdateParallelDataResponse (Maybe ParallelDataStatus)
-updrsLatestUpdateAttemptStatus = lens _updrsLatestUpdateAttemptStatus (\s a -> s {_updrsLatestUpdateAttemptStatus = a})
+--
+-- /Note:/ Consider using 'latestUpdateAttemptStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsLatestUpdateAttemptStatus :: Lens.Lens' UpdateParallelDataResponse (Lude.Maybe ParallelDataStatus)
+updrsLatestUpdateAttemptStatus = Lens.lens (latestUpdateAttemptStatus :: UpdateParallelDataResponse -> Lude.Maybe ParallelDataStatus) (\s a -> s {latestUpdateAttemptStatus = a} :: UpdateParallelDataResponse)
+{-# DEPRECATED updrsLatestUpdateAttemptStatus "Use generic-lens or generic-optics with 'latestUpdateAttemptStatus' instead." #-}
 
--- | -- | The response status code.
-updrsResponseStatus :: Lens' UpdateParallelDataResponse Int
-updrsResponseStatus = lens _updrsResponseStatus (\s a -> s {_updrsResponseStatus = a})
-
-instance NFData UpdateParallelDataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updrsResponseStatus :: Lens.Lens' UpdateParallelDataResponse Lude.Int
+updrsResponseStatus = Lens.lens (responseStatus :: UpdateParallelDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateParallelDataResponse)
+{-# DEPRECATED updrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

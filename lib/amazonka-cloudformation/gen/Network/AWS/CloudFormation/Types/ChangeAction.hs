@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ChangeAction where
+module Network.AWS.CloudFormation.Types.ChangeAction
+  ( ChangeAction
+      ( ChangeAction',
+        Add,
+        Dynamic,
+        Import,
+        Modify,
+        Remove
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeAction
-  = Add
-  | Dynamic
-  | Import
-  | Modify
-  | Remove
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeAction = ChangeAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeAction where
-  parser =
-    takeLowerText >>= \case
-      "add" -> pure Add
-      "dynamic" -> pure Dynamic
-      "import" -> pure Import
-      "modify" -> pure Modify
-      "remove" -> pure Remove
-      e ->
-        fromTextError $
-          "Failure parsing ChangeAction from value: '" <> e
-            <> "'. Accepted values: add, dynamic, import, modify, remove"
+pattern Add :: ChangeAction
+pattern Add = ChangeAction' "Add"
 
-instance ToText ChangeAction where
-  toText = \case
-    Add -> "Add"
-    Dynamic -> "Dynamic"
-    Import -> "Import"
-    Modify -> "Modify"
-    Remove -> "Remove"
+pattern Dynamic :: ChangeAction
+pattern Dynamic = ChangeAction' "Dynamic"
 
-instance Hashable ChangeAction
+pattern Import :: ChangeAction
+pattern Import = ChangeAction' "Import"
 
-instance NFData ChangeAction
+pattern Modify :: ChangeAction
+pattern Modify = ChangeAction' "Modify"
 
-instance ToByteString ChangeAction
+pattern Remove :: ChangeAction
+pattern Remove = ChangeAction' "Remove"
 
-instance ToQuery ChangeAction
-
-instance ToHeader ChangeAction
-
-instance FromXML ChangeAction where
-  parseXML = parseXMLText "ChangeAction"
+{-# COMPLETE
+  Add,
+  Dynamic,
+  Import,
+  Modify,
+  Remove,
+  ChangeAction'
+  #-}

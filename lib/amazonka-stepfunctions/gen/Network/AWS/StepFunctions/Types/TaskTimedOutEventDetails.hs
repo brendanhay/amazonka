@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails where
+module Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
+  ( TaskTimedOutEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskTimedOutEventDetails,
+
+    -- * Lenses
+    ttoedError,
+    ttoedCause,
+    ttoedResourceType,
+    ttoedResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about a resource timeout that occurred during an execution.
 --
---
---
--- /See:/ 'taskTimedOutEventDetails' smart constructor.
+-- /See:/ 'mkTaskTimedOutEventDetails' smart constructor.
 data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
-  { _ttoedError ::
-      !(Maybe (Sensitive Text)),
-    _ttoedCause :: !(Maybe (Sensitive Text)),
-    _ttoedResourceType :: !Text,
-    _ttoedResource :: !Text
+  { error ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceType :: Lude.Text,
+    resource :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskTimedOutEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ttoedError' - The error code of the failure.
---
--- * 'ttoedCause' - A more detailed explanation of the cause of the failure.
---
--- * 'ttoedResourceType' - The action of the resource called by a task state.
---
--- * 'ttoedResource' - The service name of the resource in a task state.
-taskTimedOutEventDetails ::
-  -- | 'ttoedResourceType'
-  Text ->
-  -- | 'ttoedResource'
-  Text ->
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'error' - The error code of the failure.
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+mkTaskTimedOutEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
   TaskTimedOutEventDetails
-taskTimedOutEventDetails pResourceType_ pResource_ =
+mkTaskTimedOutEventDetails pResourceType_ pResource_ =
   TaskTimedOutEventDetails'
-    { _ttoedError = Nothing,
-      _ttoedCause = Nothing,
-      _ttoedResourceType = pResourceType_,
-      _ttoedResource = pResource_
+    { error = Lude.Nothing,
+      cause = Lude.Nothing,
+      resourceType = pResourceType_,
+      resource = pResource_
     }
 
 -- | The error code of the failure.
-ttoedError :: Lens' TaskTimedOutEventDetails (Maybe Text)
-ttoedError = lens _ttoedError (\s a -> s {_ttoedError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedError :: Lens.Lens' TaskTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+ttoedError = Lens.lens (error :: TaskTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: TaskTimedOutEventDetails)
+{-# DEPRECATED ttoedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
-ttoedCause :: Lens' TaskTimedOutEventDetails (Maybe Text)
-ttoedCause = lens _ttoedCause (\s a -> s {_ttoedCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedCause :: Lens.Lens' TaskTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+ttoedCause = Lens.lens (cause :: TaskTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskTimedOutEventDetails)
+{-# DEPRECATED ttoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The action of the resource called by a task state.
-ttoedResourceType :: Lens' TaskTimedOutEventDetails Text
-ttoedResourceType = lens _ttoedResourceType (\s a -> s {_ttoedResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedResourceType :: Lens.Lens' TaskTimedOutEventDetails Lude.Text
+ttoedResourceType = Lens.lens (resourceType :: TaskTimedOutEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskTimedOutEventDetails)
+{-# DEPRECATED ttoedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-ttoedResource :: Lens' TaskTimedOutEventDetails Text
-ttoedResource = lens _ttoedResource (\s a -> s {_ttoedResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedResource :: Lens.Lens' TaskTimedOutEventDetails Lude.Text
+ttoedResource = Lens.lens (resource :: TaskTimedOutEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskTimedOutEventDetails)
+{-# DEPRECATED ttoedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON TaskTimedOutEventDetails where
+instance Lude.FromJSON TaskTimedOutEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskTimedOutEventDetails"
       ( \x ->
           TaskTimedOutEventDetails'
-            <$> (x .:? "error")
-            <*> (x .:? "cause")
-            <*> (x .: "resourceType")
-            <*> (x .: "resource")
+            Lude.<$> (x Lude..:? "error")
+            Lude.<*> (x Lude..:? "cause")
+            Lude.<*> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..: "resource")
       )
-
-instance Hashable TaskTimedOutEventDetails
-
-instance NFData TaskTimedOutEventDetails

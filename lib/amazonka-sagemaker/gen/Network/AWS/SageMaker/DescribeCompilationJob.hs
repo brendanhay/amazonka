@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns information about a model compilation job.
 --
---
 -- To create a model compilation job, use 'CreateCompilationJob' . To get information about multiple model compilation jobs, use 'ListCompilationJobs' .
 module Network.AWS.SageMaker.DescribeCompilationJob
-  ( -- * Creating a Request
-    describeCompilationJob,
-    DescribeCompilationJob,
+  ( -- * Creating a request
+    DescribeCompilationJob (..),
+    mkDescribeCompilationJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcjCompilationJobName,
 
-    -- * Destructuring the Response
-    describeCompilationJobResponse,
-    DescribeCompilationJobResponse,
+    -- * Destructuring the response
+    DescribeCompilationJobResponse (..),
+    mkDescribeCompilationJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcjrsCompilationStartTime,
     dcjrsCompilationEndTime,
     dcjrsResponseStatus,
@@ -51,173 +45,173 @@ module Network.AWS.SageMaker.DescribeCompilationJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeCompilationJob' smart constructor.
+-- | /See:/ 'mkDescribeCompilationJob' smart constructor.
 newtype DescribeCompilationJob = DescribeCompilationJob'
-  { _dcjCompilationJobName ::
-      Text
+  { compilationJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCompilationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcjCompilationJobName' - The name of the model compilation job that you want information about.
-describeCompilationJob ::
-  -- | 'dcjCompilationJobName'
-  Text ->
+-- * 'compilationJobName' - The name of the model compilation job that you want information about.
+mkDescribeCompilationJob ::
+  -- | 'compilationJobName'
+  Lude.Text ->
   DescribeCompilationJob
-describeCompilationJob pCompilationJobName_ =
+mkDescribeCompilationJob pCompilationJobName_ =
   DescribeCompilationJob'
-    { _dcjCompilationJobName =
+    { compilationJobName =
         pCompilationJobName_
     }
 
 -- | The name of the model compilation job that you want information about.
-dcjCompilationJobName :: Lens' DescribeCompilationJob Text
-dcjCompilationJobName = lens _dcjCompilationJobName (\s a -> s {_dcjCompilationJobName = a})
+--
+-- /Note:/ Consider using 'compilationJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjCompilationJobName :: Lens.Lens' DescribeCompilationJob Lude.Text
+dcjCompilationJobName = Lens.lens (compilationJobName :: DescribeCompilationJob -> Lude.Text) (\s a -> s {compilationJobName = a} :: DescribeCompilationJob)
+{-# DEPRECATED dcjCompilationJobName "Use generic-lens or generic-optics with 'compilationJobName' instead." #-}
 
-instance AWSRequest DescribeCompilationJob where
+instance Lude.AWSRequest DescribeCompilationJob where
   type Rs DescribeCompilationJob = DescribeCompilationJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCompilationJobResponse'
-            <$> (x .?> "CompilationStartTime")
-            <*> (x .?> "CompilationEndTime")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "CompilationJobName")
-            <*> (x .:> "CompilationJobArn")
-            <*> (x .:> "CompilationJobStatus")
-            <*> (x .:> "StoppingCondition")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
-            <*> (x .:> "FailureReason")
-            <*> (x .:> "ModelArtifacts")
-            <*> (x .:> "RoleArn")
-            <*> (x .:> "InputConfig")
-            <*> (x .:> "OutputConfig")
+            Lude.<$> (x Lude..?> "CompilationStartTime")
+            Lude.<*> (x Lude..?> "CompilationEndTime")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CompilationJobName")
+            Lude.<*> (x Lude..:> "CompilationJobArn")
+            Lude.<*> (x Lude..:> "CompilationJobStatus")
+            Lude.<*> (x Lude..:> "StoppingCondition")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
+            Lude.<*> (x Lude..:> "FailureReason")
+            Lude.<*> (x Lude..:> "ModelArtifacts")
+            Lude.<*> (x Lude..:> "RoleArn")
+            Lude.<*> (x Lude..:> "InputConfig")
+            Lude.<*> (x Lude..:> "OutputConfig")
       )
 
-instance Hashable DescribeCompilationJob
-
-instance NFData DescribeCompilationJob
-
-instance ToHeaders DescribeCompilationJob where
+instance Lude.ToHeaders DescribeCompilationJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeCompilationJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeCompilationJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCompilationJob where
+instance Lude.ToJSON DescribeCompilationJob where
   toJSON DescribeCompilationJob' {..} =
-    object
-      (catMaybes [Just ("CompilationJobName" .= _dcjCompilationJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CompilationJobName" Lude..= compilationJobName)]
+      )
 
-instance ToPath DescribeCompilationJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeCompilationJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCompilationJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCompilationJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCompilationJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeCompilationJobResponse' smart constructor.
 data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
-  { _dcjrsCompilationStartTime ::
-      !(Maybe POSIX),
-    _dcjrsCompilationEndTime ::
-      !(Maybe POSIX),
-    _dcjrsResponseStatus :: !Int,
-    _dcjrsCompilationJobName ::
-      !Text,
-    _dcjrsCompilationJobARN ::
-      !Text,
-    _dcjrsCompilationJobStatus ::
-      !CompilationJobStatus,
-    _dcjrsStoppingCondition ::
-      !StoppingCondition,
-    _dcjrsCreationTime :: !POSIX,
-    _dcjrsLastModifiedTime ::
-      !POSIX,
-    _dcjrsFailureReason :: !Text,
-    _dcjrsModelArtifacts ::
-      !ModelArtifacts,
-    _dcjrsRoleARN :: !Text,
-    _dcjrsInputConfig ::
-      !InputConfig,
-    _dcjrsOutputConfig ::
-      !OutputConfig
+  { compilationStartTime ::
+      Lude.Maybe Lude.Timestamp,
+    compilationEndTime ::
+      Lude.Maybe Lude.Timestamp,
+    responseStatus :: Lude.Int,
+    compilationJobName ::
+      Lude.Text,
+    compilationJobARN ::
+      Lude.Text,
+    compilationJobStatus ::
+      CompilationJobStatus,
+    stoppingCondition ::
+      StoppingCondition,
+    creationTime ::
+      Lude.Timestamp,
+    lastModifiedTime ::
+      Lude.Timestamp,
+    failureReason :: Lude.Text,
+    modelArtifacts ::
+      ModelArtifacts,
+    roleARN :: Lude.Text,
+    inputConfig :: InputConfig,
+    outputConfig :: OutputConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCompilationJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'compilationEndTime' - The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker detected that the job failed.
+-- * 'compilationJobARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model compilation job.
+-- * 'compilationJobName' - The name of the model compilation job.
+-- * 'compilationJobStatus' - The status of the model compilation job.
+-- * 'compilationStartTime' - The time when the model compilation job started the @CompilationJob@ instances.
 --
--- * 'dcjrsCompilationStartTime' - The time when the model compilation job started the @CompilationJob@ instances.  You are billed for the time between this timestamp and the timestamp in the 'DescribeCompilationJobResponse$CompilationEndTime' field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container.
---
--- * 'dcjrsCompilationEndTime' - The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker detected that the job failed.
---
--- * 'dcjrsResponseStatus' - -- | The response status code.
---
--- * 'dcjrsCompilationJobName' - The name of the model compilation job.
---
--- * 'dcjrsCompilationJobARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model compilation job.
---
--- * 'dcjrsCompilationJobStatus' - The status of the model compilation job.
---
--- * 'dcjrsStoppingCondition' - Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
---
--- * 'dcjrsCreationTime' - The time that the model compilation job was created.
---
--- * 'dcjrsLastModifiedTime' - The time that the status of the model compilation job was last modified.
---
--- * 'dcjrsFailureReason' - If a model compilation job failed, the reason it failed.
---
--- * 'dcjrsModelArtifacts' - Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.
---
--- * 'dcjrsRoleARN' - The Amazon Resource Name (ARN) of the model compilation job.
---
--- * 'dcjrsInputConfig' - Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
---
--- * 'dcjrsOutputConfig' - Information about the output location for the compiled model and the target device that the model runs on.
-describeCompilationJobResponse ::
-  -- | 'dcjrsResponseStatus'
-  Int ->
-  -- | 'dcjrsCompilationJobName'
-  Text ->
-  -- | 'dcjrsCompilationJobARN'
-  Text ->
-  -- | 'dcjrsCompilationJobStatus'
+-- You are billed for the time between this timestamp and the timestamp in the 'DescribeCompilationJobResponse$CompilationEndTime' field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container.
+-- * 'creationTime' - The time that the model compilation job was created.
+-- * 'failureReason' - If a model compilation job failed, the reason it failed.
+-- * 'inputConfig' - Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
+-- * 'lastModifiedTime' - The time that the status of the model compilation job was last modified.
+-- * 'modelArtifacts' - Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.
+-- * 'outputConfig' - Information about the output location for the compiled model and the target device that the model runs on.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the model compilation job.
+-- * 'stoppingCondition' - Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
+mkDescribeCompilationJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'compilationJobName'
+  Lude.Text ->
+  -- | 'compilationJobARN'
+  Lude.Text ->
+  -- | 'compilationJobStatus'
   CompilationJobStatus ->
-  -- | 'dcjrsStoppingCondition'
+  -- | 'stoppingCondition'
   StoppingCondition ->
-  -- | 'dcjrsCreationTime'
-  UTCTime ->
-  -- | 'dcjrsLastModifiedTime'
-  UTCTime ->
-  -- | 'dcjrsFailureReason'
-  Text ->
-  -- | 'dcjrsModelArtifacts'
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
+  -- | 'failureReason'
+  Lude.Text ->
+  -- | 'modelArtifacts'
   ModelArtifacts ->
-  -- | 'dcjrsRoleARN'
-  Text ->
-  -- | 'dcjrsInputConfig'
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'inputConfig'
   InputConfig ->
-  -- | 'dcjrsOutputConfig'
+  -- | 'outputConfig'
   OutputConfig ->
   DescribeCompilationJobResponse
-describeCompilationJobResponse
+mkDescribeCompilationJobResponse
   pResponseStatus_
   pCompilationJobName_
   pCompilationJobARN_
@@ -231,77 +225,119 @@ describeCompilationJobResponse
   pInputConfig_
   pOutputConfig_ =
     DescribeCompilationJobResponse'
-      { _dcjrsCompilationStartTime =
-          Nothing,
-        _dcjrsCompilationEndTime = Nothing,
-        _dcjrsResponseStatus = pResponseStatus_,
-        _dcjrsCompilationJobName = pCompilationJobName_,
-        _dcjrsCompilationJobARN = pCompilationJobARN_,
-        _dcjrsCompilationJobStatus = pCompilationJobStatus_,
-        _dcjrsStoppingCondition = pStoppingCondition_,
-        _dcjrsCreationTime = _Time # pCreationTime_,
-        _dcjrsLastModifiedTime = _Time # pLastModifiedTime_,
-        _dcjrsFailureReason = pFailureReason_,
-        _dcjrsModelArtifacts = pModelArtifacts_,
-        _dcjrsRoleARN = pRoleARN_,
-        _dcjrsInputConfig = pInputConfig_,
-        _dcjrsOutputConfig = pOutputConfig_
+      { compilationStartTime =
+          Lude.Nothing,
+        compilationEndTime = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        compilationJobName = pCompilationJobName_,
+        compilationJobARN = pCompilationJobARN_,
+        compilationJobStatus = pCompilationJobStatus_,
+        stoppingCondition = pStoppingCondition_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_,
+        failureReason = pFailureReason_,
+        modelArtifacts = pModelArtifacts_,
+        roleARN = pRoleARN_,
+        inputConfig = pInputConfig_,
+        outputConfig = pOutputConfig_
       }
 
--- | The time when the model compilation job started the @CompilationJob@ instances.  You are billed for the time between this timestamp and the timestamp in the 'DescribeCompilationJobResponse$CompilationEndTime' field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container.
-dcjrsCompilationStartTime :: Lens' DescribeCompilationJobResponse (Maybe UTCTime)
-dcjrsCompilationStartTime = lens _dcjrsCompilationStartTime (\s a -> s {_dcjrsCompilationStartTime = a}) . mapping _Time
+-- | The time when the model compilation job started the @CompilationJob@ instances.
+--
+-- You are billed for the time between this timestamp and the timestamp in the 'DescribeCompilationJobResponse$CompilationEndTime' field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container.
+--
+-- /Note:/ Consider using 'compilationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCompilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Lude.Maybe Lude.Timestamp)
+dcjrsCompilationStartTime = Lens.lens (compilationStartTime :: DescribeCompilationJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCompilationStartTime "Use generic-lens or generic-optics with 'compilationStartTime' instead." #-}
 
 -- | The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker detected that the job failed.
-dcjrsCompilationEndTime :: Lens' DescribeCompilationJobResponse (Maybe UTCTime)
-dcjrsCompilationEndTime = lens _dcjrsCompilationEndTime (\s a -> s {_dcjrsCompilationEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'compilationEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCompilationEndTime :: Lens.Lens' DescribeCompilationJobResponse (Lude.Maybe Lude.Timestamp)
+dcjrsCompilationEndTime = Lens.lens (compilationEndTime :: DescribeCompilationJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {compilationEndTime = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCompilationEndTime "Use generic-lens or generic-optics with 'compilationEndTime' instead." #-}
 
--- | -- | The response status code.
-dcjrsResponseStatus :: Lens' DescribeCompilationJobResponse Int
-dcjrsResponseStatus = lens _dcjrsResponseStatus (\s a -> s {_dcjrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsResponseStatus :: Lens.Lens' DescribeCompilationJobResponse Lude.Int
+dcjrsResponseStatus = Lens.lens (responseStatus :: DescribeCompilationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the model compilation job.
-dcjrsCompilationJobName :: Lens' DescribeCompilationJobResponse Text
-dcjrsCompilationJobName = lens _dcjrsCompilationJobName (\s a -> s {_dcjrsCompilationJobName = a})
+--
+-- /Note:/ Consider using 'compilationJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCompilationJobName :: Lens.Lens' DescribeCompilationJobResponse Lude.Text
+dcjrsCompilationJobName = Lens.lens (compilationJobName :: DescribeCompilationJobResponse -> Lude.Text) (\s a -> s {compilationJobName = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCompilationJobName "Use generic-lens or generic-optics with 'compilationJobName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform the model compilation job.
-dcjrsCompilationJobARN :: Lens' DescribeCompilationJobResponse Text
-dcjrsCompilationJobARN = lens _dcjrsCompilationJobARN (\s a -> s {_dcjrsCompilationJobARN = a})
+--
+-- /Note:/ Consider using 'compilationJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCompilationJobARN :: Lens.Lens' DescribeCompilationJobResponse Lude.Text
+dcjrsCompilationJobARN = Lens.lens (compilationJobARN :: DescribeCompilationJobResponse -> Lude.Text) (\s a -> s {compilationJobARN = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCompilationJobARN "Use generic-lens or generic-optics with 'compilationJobARN' instead." #-}
 
 -- | The status of the model compilation job.
-dcjrsCompilationJobStatus :: Lens' DescribeCompilationJobResponse CompilationJobStatus
-dcjrsCompilationJobStatus = lens _dcjrsCompilationJobStatus (\s a -> s {_dcjrsCompilationJobStatus = a})
+--
+-- /Note:/ Consider using 'compilationJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCompilationJobStatus :: Lens.Lens' DescribeCompilationJobResponse CompilationJobStatus
+dcjrsCompilationJobStatus = Lens.lens (compilationJobStatus :: DescribeCompilationJobResponse -> CompilationJobStatus) (\s a -> s {compilationJobStatus = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCompilationJobStatus "Use generic-lens or generic-optics with 'compilationJobStatus' instead." #-}
 
 -- | Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
-dcjrsStoppingCondition :: Lens' DescribeCompilationJobResponse StoppingCondition
-dcjrsStoppingCondition = lens _dcjrsStoppingCondition (\s a -> s {_dcjrsStoppingCondition = a})
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsStoppingCondition :: Lens.Lens' DescribeCompilationJobResponse StoppingCondition
+dcjrsStoppingCondition = Lens.lens (stoppingCondition :: DescribeCompilationJobResponse -> StoppingCondition) (\s a -> s {stoppingCondition = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | The time that the model compilation job was created.
-dcjrsCreationTime :: Lens' DescribeCompilationJobResponse UTCTime
-dcjrsCreationTime = lens _dcjrsCreationTime (\s a -> s {_dcjrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsCreationTime :: Lens.Lens' DescribeCompilationJobResponse Lude.Timestamp
+dcjrsCreationTime = Lens.lens (creationTime :: DescribeCompilationJobResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The time that the status of the model compilation job was last modified.
-dcjrsLastModifiedTime :: Lens' DescribeCompilationJobResponse UTCTime
-dcjrsLastModifiedTime = lens _dcjrsLastModifiedTime (\s a -> s {_dcjrsLastModifiedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsLastModifiedTime :: Lens.Lens' DescribeCompilationJobResponse Lude.Timestamp
+dcjrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeCompilationJobResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | If a model compilation job failed, the reason it failed.
-dcjrsFailureReason :: Lens' DescribeCompilationJobResponse Text
-dcjrsFailureReason = lens _dcjrsFailureReason (\s a -> s {_dcjrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsFailureReason :: Lens.Lens' DescribeCompilationJobResponse Lude.Text
+dcjrsFailureReason = Lens.lens (failureReason :: DescribeCompilationJobResponse -> Lude.Text) (\s a -> s {failureReason = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.
-dcjrsModelArtifacts :: Lens' DescribeCompilationJobResponse ModelArtifacts
-dcjrsModelArtifacts = lens _dcjrsModelArtifacts (\s a -> s {_dcjrsModelArtifacts = a})
+--
+-- /Note:/ Consider using 'modelArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsModelArtifacts :: Lens.Lens' DescribeCompilationJobResponse ModelArtifacts
+dcjrsModelArtifacts = Lens.lens (modelArtifacts :: DescribeCompilationJobResponse -> ModelArtifacts) (\s a -> s {modelArtifacts = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsModelArtifacts "Use generic-lens or generic-optics with 'modelArtifacts' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the model compilation job.
-dcjrsRoleARN :: Lens' DescribeCompilationJobResponse Text
-dcjrsRoleARN = lens _dcjrsRoleARN (\s a -> s {_dcjrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsRoleARN :: Lens.Lens' DescribeCompilationJobResponse Lude.Text
+dcjrsRoleARN = Lens.lens (roleARN :: DescribeCompilationJobResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
-dcjrsInputConfig :: Lens' DescribeCompilationJobResponse InputConfig
-dcjrsInputConfig = lens _dcjrsInputConfig (\s a -> s {_dcjrsInputConfig = a})
+--
+-- /Note:/ Consider using 'inputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsInputConfig :: Lens.Lens' DescribeCompilationJobResponse InputConfig
+dcjrsInputConfig = Lens.lens (inputConfig :: DescribeCompilationJobResponse -> InputConfig) (\s a -> s {inputConfig = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsInputConfig "Use generic-lens or generic-optics with 'inputConfig' instead." #-}
 
 -- | Information about the output location for the compiled model and the target device that the model runs on.
-dcjrsOutputConfig :: Lens' DescribeCompilationJobResponse OutputConfig
-dcjrsOutputConfig = lens _dcjrsOutputConfig (\s a -> s {_dcjrsOutputConfig = a})
-
-instance NFData DescribeCompilationJobResponse
+--
+-- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjrsOutputConfig :: Lens.Lens' DescribeCompilationJobResponse OutputConfig
+dcjrsOutputConfig = Lens.lens (outputConfig :: DescribeCompilationJobResponse -> OutputConfig) (\s a -> s {outputConfig = a} :: DescribeCompilationJobResponse)
+{-# DEPRECATED dcjrsOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}

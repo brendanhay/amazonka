@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see 'how-syntax' .
 module Network.AWS.Comprehend.BatchDetectSyntax
-  ( -- * Creating a Request
-    batchDetectSyntax,
-    BatchDetectSyntax,
+  ( -- * Creating a request
+    BatchDetectSyntax (..),
+    mkBatchDetectSyntax,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bTextList,
     bLanguageCode,
 
-    -- * Destructuring the Response
-    batchDetectSyntaxResponse,
-    BatchDetectSyntaxResponse,
+    -- * Destructuring the response
+    BatchDetectSyntaxResponse (..),
+    mkBatchDetectSyntaxResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     brsResponseStatus,
     brsResultList,
     brsErrorList,
@@ -39,125 +34,136 @@ module Network.AWS.Comprehend.BatchDetectSyntax
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchDetectSyntax' smart constructor.
+-- | /See:/ 'mkBatchDetectSyntax' smart constructor.
 data BatchDetectSyntax = BatchDetectSyntax'
-  { _bTextList ::
-      !(Sensitive [Sensitive Text]),
-    _bLanguageCode :: !SyntaxLanguageCode
+  { textList ::
+      [Lude.Sensitive Lude.Text],
+    languageCode :: SyntaxLanguageCode
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectSyntax' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bTextList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
---
--- * 'bLanguageCode' - The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
-batchDetectSyntax ::
-  -- | 'bLanguageCode'
+-- * 'languageCode' - The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
+-- * 'textList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+mkBatchDetectSyntax ::
+  -- | 'languageCode'
   SyntaxLanguageCode ->
   BatchDetectSyntax
-batchDetectSyntax pLanguageCode_ =
+mkBatchDetectSyntax pLanguageCode_ =
   BatchDetectSyntax'
-    { _bTextList = mempty,
-      _bLanguageCode = pLanguageCode_
+    { textList = Lude.mempty,
+      languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-bTextList :: Lens' BatchDetectSyntax [Text]
-bTextList = lens _bTextList (\s a -> s {_bTextList = a}) . _Sensitive . _Coerce
+--
+-- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bTextList :: Lens.Lens' BatchDetectSyntax [Lude.Sensitive Lude.Text]
+bTextList = Lens.lens (textList :: BatchDetectSyntax -> [Lude.Sensitive Lude.Text]) (\s a -> s {textList = a} :: BatchDetectSyntax)
+{-# DEPRECATED bTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
 -- | The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
-bLanguageCode :: Lens' BatchDetectSyntax SyntaxLanguageCode
-bLanguageCode = lens _bLanguageCode (\s a -> s {_bLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bLanguageCode :: Lens.Lens' BatchDetectSyntax SyntaxLanguageCode
+bLanguageCode = Lens.lens (languageCode :: BatchDetectSyntax -> SyntaxLanguageCode) (\s a -> s {languageCode = a} :: BatchDetectSyntax)
+{-# DEPRECATED bLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest BatchDetectSyntax where
+instance Lude.AWSRequest BatchDetectSyntax where
   type Rs BatchDetectSyntax = BatchDetectSyntaxResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDetectSyntaxResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "ResultList" .!@ mempty)
-            <*> (x .?> "ErrorList" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "ResultList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ErrorList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable BatchDetectSyntax
-
-instance NFData BatchDetectSyntax
-
-instance ToHeaders BatchDetectSyntax where
+instance Lude.ToHeaders BatchDetectSyntax where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.BatchDetectSyntax" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.BatchDetectSyntax" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDetectSyntax where
+instance Lude.ToJSON BatchDetectSyntax where
   toJSON BatchDetectSyntax' {..} =
-    object
-      ( catMaybes
-          [ Just ("TextList" .= _bTextList),
-            Just ("LanguageCode" .= _bLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TextList" Lude..= textList),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath BatchDetectSyntax where
-  toPath = const "/"
+instance Lude.ToPath BatchDetectSyntax where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDetectSyntax where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDetectSyntax where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDetectSyntaxResponse' smart constructor.
+-- | /See:/ 'mkBatchDetectSyntaxResponse' smart constructor.
 data BatchDetectSyntaxResponse = BatchDetectSyntaxResponse'
-  { _brsResponseStatus ::
-      !Int,
-    _brsResultList ::
-      ![BatchDetectSyntaxItemResult],
-    _brsErrorList :: ![BatchItemError]
+  { responseStatus ::
+      Lude.Int,
+    resultList ::
+      [BatchDetectSyntaxItemResult],
+    errorList :: [BatchItemError]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectSyntaxResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brsResponseStatus' - -- | The response status code.
---
--- * 'brsResultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
---
--- * 'brsErrorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-batchDetectSyntaxResponse ::
-  -- | 'brsResponseStatus'
-  Int ->
+-- * 'errorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+-- * 'responseStatus' - The response status code.
+-- * 'resultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
+mkBatchDetectSyntaxResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDetectSyntaxResponse
-batchDetectSyntaxResponse pResponseStatus_ =
+mkBatchDetectSyntaxResponse pResponseStatus_ =
   BatchDetectSyntaxResponse'
-    { _brsResponseStatus = pResponseStatus_,
-      _brsResultList = mempty,
-      _brsErrorList = mempty
+    { responseStatus = pResponseStatus_,
+      resultList = Lude.mempty,
+      errorList = Lude.mempty
     }
 
--- | -- | The response status code.
-brsResponseStatus :: Lens' BatchDetectSyntaxResponse Int
-brsResponseStatus = lens _brsResponseStatus (\s a -> s {_brsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsResponseStatus :: Lens.Lens' BatchDetectSyntaxResponse Lude.Int
+brsResponseStatus = Lens.lens (responseStatus :: BatchDetectSyntaxResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDetectSyntaxResponse)
+{-# DEPRECATED brsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-brsResultList :: Lens' BatchDetectSyntaxResponse [BatchDetectSyntaxItemResult]
-brsResultList = lens _brsResultList (\s a -> s {_brsResultList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'resultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsResultList :: Lens.Lens' BatchDetectSyntaxResponse [BatchDetectSyntaxItemResult]
+brsResultList = Lens.lens (resultList :: BatchDetectSyntaxResponse -> [BatchDetectSyntaxItemResult]) (\s a -> s {resultList = a} :: BatchDetectSyntaxResponse)
+{-# DEPRECATED brsResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
 
 -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-brsErrorList :: Lens' BatchDetectSyntaxResponse [BatchItemError]
-brsErrorList = lens _brsErrorList (\s a -> s {_brsErrorList = a}) . _Coerce
-
-instance NFData BatchDetectSyntaxResponse
+--
+-- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brsErrorList :: Lens.Lens' BatchDetectSyntaxResponse [BatchItemError]
+brsErrorList = Lens.lens (errorList :: BatchDetectSyntaxResponse -> [BatchItemError]) (\s a -> s {errorList = a} :: BatchDetectSyntaxResponse)
+{-# DEPRECATED brsErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}

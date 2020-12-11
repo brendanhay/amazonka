@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.DomainJoinInfo where
+module Network.AWS.AppStream.Types.DomainJoinInfo
+  ( DomainJoinInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainJoinInfo,
+
+    -- * Lenses
+    djiOrganizationalUnitDistinguishedName,
+    djiDirectoryName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
 --
---
---
--- /See:/ 'domainJoinInfo' smart constructor.
+-- /See:/ 'mkDomainJoinInfo' smart constructor.
 data DomainJoinInfo = DomainJoinInfo'
-  { _djiOrganizationalUnitDistinguishedName ::
-      !(Maybe Text),
-    _djiDirectoryName :: !(Maybe Text)
+  { organizationalUnitDistinguishedName ::
+      Lude.Maybe Lude.Text,
+    directoryName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainJoinInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djiOrganizationalUnitDistinguishedName' - The distinguished name of the organizational unit for computer accounts.
---
--- * 'djiDirectoryName' - The fully qualified name of the directory (for example, corp.example.com).
-domainJoinInfo ::
+-- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
+-- * 'organizationalUnitDistinguishedName' - The distinguished name of the organizational unit for computer accounts.
+mkDomainJoinInfo ::
   DomainJoinInfo
-domainJoinInfo =
+mkDomainJoinInfo =
   DomainJoinInfo'
-    { _djiOrganizationalUnitDistinguishedName =
-        Nothing,
-      _djiDirectoryName = Nothing
+    { organizationalUnitDistinguishedName =
+        Lude.Nothing,
+      directoryName = Lude.Nothing
     }
 
 -- | The distinguished name of the organizational unit for computer accounts.
-djiOrganizationalUnitDistinguishedName :: Lens' DomainJoinInfo (Maybe Text)
-djiOrganizationalUnitDistinguishedName = lens _djiOrganizationalUnitDistinguishedName (\s a -> s {_djiOrganizationalUnitDistinguishedName = a})
+--
+-- /Note:/ Consider using 'organizationalUnitDistinguishedName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djiOrganizationalUnitDistinguishedName :: Lens.Lens' DomainJoinInfo (Lude.Maybe Lude.Text)
+djiOrganizationalUnitDistinguishedName = Lens.lens (organizationalUnitDistinguishedName :: DomainJoinInfo -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitDistinguishedName = a} :: DomainJoinInfo)
+{-# DEPRECATED djiOrganizationalUnitDistinguishedName "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedName' instead." #-}
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
-djiDirectoryName :: Lens' DomainJoinInfo (Maybe Text)
-djiDirectoryName = lens _djiDirectoryName (\s a -> s {_djiDirectoryName = a})
+--
+-- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djiDirectoryName :: Lens.Lens' DomainJoinInfo (Lude.Maybe Lude.Text)
+djiDirectoryName = Lens.lens (directoryName :: DomainJoinInfo -> Lude.Maybe Lude.Text) (\s a -> s {directoryName = a} :: DomainJoinInfo)
+{-# DEPRECATED djiDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
-instance FromJSON DomainJoinInfo where
+instance Lude.FromJSON DomainJoinInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainJoinInfo"
       ( \x ->
           DomainJoinInfo'
-            <$> (x .:? "OrganizationalUnitDistinguishedName")
-            <*> (x .:? "DirectoryName")
+            Lude.<$> (x Lude..:? "OrganizationalUnitDistinguishedName")
+            Lude.<*> (x Lude..:? "DirectoryName")
       )
 
-instance Hashable DomainJoinInfo
-
-instance NFData DomainJoinInfo
-
-instance ToJSON DomainJoinInfo where
+instance Lude.ToJSON DomainJoinInfo where
   toJSON DomainJoinInfo' {..} =
-    object
-      ( catMaybes
-          [ ("OrganizationalUnitDistinguishedName" .=)
-              <$> _djiOrganizationalUnitDistinguishedName,
-            ("DirectoryName" .=) <$> _djiDirectoryName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OrganizationalUnitDistinguishedName" Lude..=)
+              Lude.<$> organizationalUnitDistinguishedName,
+            ("DirectoryName" Lude..=) Lude.<$> directoryName
           ]
       )

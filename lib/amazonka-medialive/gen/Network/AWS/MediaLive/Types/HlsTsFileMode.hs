@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsTsFileMode where
+module Network.AWS.MediaLive.Types.HlsTsFileMode
+  ( HlsTsFileMode
+      ( HlsTsFileMode',
+        SegmentedFiles,
+        SingleFile
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Ts File Mode
-data HlsTsFileMode
-  = SegmentedFiles
-  | SingleFile
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsTsFileMode = HlsTsFileMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsTsFileMode where
-  parser =
-    takeLowerText >>= \case
-      "segmented_files" -> pure SegmentedFiles
-      "single_file" -> pure SingleFile
-      e ->
-        fromTextError $
-          "Failure parsing HlsTsFileMode from value: '" <> e
-            <> "'. Accepted values: segmented_files, single_file"
+pattern SegmentedFiles :: HlsTsFileMode
+pattern SegmentedFiles = HlsTsFileMode' "SEGMENTED_FILES"
 
-instance ToText HlsTsFileMode where
-  toText = \case
-    SegmentedFiles -> "SEGMENTED_FILES"
-    SingleFile -> "SINGLE_FILE"
+pattern SingleFile :: HlsTsFileMode
+pattern SingleFile = HlsTsFileMode' "SINGLE_FILE"
 
-instance Hashable HlsTsFileMode
-
-instance NFData HlsTsFileMode
-
-instance ToByteString HlsTsFileMode
-
-instance ToQuery HlsTsFileMode
-
-instance ToHeader HlsTsFileMode
-
-instance ToJSON HlsTsFileMode where
-  toJSON = toJSONText
-
-instance FromJSON HlsTsFileMode where
-  parseJSON = parseJSONText "HlsTsFileMode"
+{-# COMPLETE
+  SegmentedFiles,
+  SingleFile,
+  HlsTsFileMode'
+  #-}

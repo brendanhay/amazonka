@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,123 @@
 --
 -- Describes a list of AWS Batch jobs.
 module Network.AWS.Batch.DescribeJobs
-  ( -- * Creating a Request
-    describeJobs,
-    DescribeJobs,
+  ( -- * Creating a request
+    DescribeJobs (..),
+    mkDescribeJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     djJobs,
 
-    -- * Destructuring the Response
-    describeJobsResponse,
-    DescribeJobsResponse,
+    -- * Destructuring the response
+    DescribeJobsResponse (..),
+    mkDescribeJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     djrsJobs,
     djrsResponseStatus,
   )
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeJobs' smart constructor.
-newtype DescribeJobs = DescribeJobs' {_djJobs :: [Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeJobs' smart constructor.
+newtype DescribeJobs = DescribeJobs' {jobs :: [Lude.Text]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djJobs' - A list of up to 100 job IDs.
-describeJobs ::
+-- * 'jobs' - A list of up to 100 job IDs.
+mkDescribeJobs ::
   DescribeJobs
-describeJobs = DescribeJobs' {_djJobs = mempty}
+mkDescribeJobs = DescribeJobs' {jobs = Lude.mempty}
 
 -- | A list of up to 100 job IDs.
-djJobs :: Lens' DescribeJobs [Text]
-djJobs = lens _djJobs (\s a -> s {_djJobs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djJobs :: Lens.Lens' DescribeJobs [Lude.Text]
+djJobs = Lens.lens (jobs :: DescribeJobs -> [Lude.Text]) (\s a -> s {jobs = a} :: DescribeJobs)
+{-# DEPRECATED djJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
-instance AWSRequest DescribeJobs where
+instance Lude.AWSRequest DescribeJobs where
   type Rs DescribeJobs = DescribeJobsResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeJobsResponse'
-            <$> (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeJobs
-
-instance NFData DescribeJobs
-
-instance ToHeaders DescribeJobs where
+instance Lude.ToHeaders DescribeJobs where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DescribeJobs where
+instance Lude.ToJSON DescribeJobs where
   toJSON DescribeJobs' {..} =
-    object (catMaybes [Just ("jobs" .= _djJobs)])
+    Lude.object (Lude.catMaybes [Lude.Just ("jobs" Lude..= jobs)])
 
-instance ToPath DescribeJobs where
-  toPath = const "/v1/describejobs"
+instance Lude.ToPath DescribeJobs where
+  toPath = Lude.const "/v1/describejobs"
 
-instance ToQuery DescribeJobs where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeJobsResponse' smart constructor.
+-- | /See:/ 'mkDescribeJobsResponse' smart constructor.
 data DescribeJobsResponse = DescribeJobsResponse'
-  { _djrsJobs ::
-      !(Maybe [JobDetail]),
-    _djrsResponseStatus :: !Int
+  { jobs ::
+      Lude.Maybe [JobDetail],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djrsJobs' - The list of jobs.
---
--- * 'djrsResponseStatus' - -- | The response status code.
-describeJobsResponse ::
-  -- | 'djrsResponseStatus'
-  Int ->
+-- * 'jobs' - The list of jobs.
+-- * 'responseStatus' - The response status code.
+mkDescribeJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeJobsResponse
-describeJobsResponse pResponseStatus_ =
+mkDescribeJobsResponse pResponseStatus_ =
   DescribeJobsResponse'
-    { _djrsJobs = Nothing,
-      _djrsResponseStatus = pResponseStatus_
+    { jobs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of jobs.
-djrsJobs :: Lens' DescribeJobsResponse [JobDetail]
-djrsJobs = lens _djrsJobs (\s a -> s {_djrsJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsJobs :: Lens.Lens' DescribeJobsResponse (Lude.Maybe [JobDetail])
+djrsJobs = Lens.lens (jobs :: DescribeJobsResponse -> Lude.Maybe [JobDetail]) (\s a -> s {jobs = a} :: DescribeJobsResponse)
+{-# DEPRECATED djrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
--- | -- | The response status code.
-djrsResponseStatus :: Lens' DescribeJobsResponse Int
-djrsResponseStatus = lens _djrsResponseStatus (\s a -> s {_djrsResponseStatus = a})
-
-instance NFData DescribeJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsResponseStatus :: Lens.Lens' DescribeJobsResponse Lude.Int
+djrsResponseStatus = Lens.lens (responseStatus :: DescribeJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobsResponse)
+{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

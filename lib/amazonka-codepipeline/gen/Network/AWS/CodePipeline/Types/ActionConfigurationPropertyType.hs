@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType where
+module Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
+  ( ActionConfigurationPropertyType
+      ( ActionConfigurationPropertyType',
+        Boolean,
+        Number,
+        String
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionConfigurationPropertyType
-  = Boolean
-  | Number
-  | String
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionConfigurationPropertyType = ActionConfigurationPropertyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionConfigurationPropertyType where
-  parser =
-    takeLowerText >>= \case
-      "boolean" -> pure Boolean
-      "number" -> pure Number
-      "string" -> pure String
-      e ->
-        fromTextError $
-          "Failure parsing ActionConfigurationPropertyType from value: '" <> e
-            <> "'. Accepted values: boolean, number, string"
+pattern Boolean :: ActionConfigurationPropertyType
+pattern Boolean = ActionConfigurationPropertyType' "Boolean"
 
-instance ToText ActionConfigurationPropertyType where
-  toText = \case
-    Boolean -> "Boolean"
-    Number -> "Number"
-    String -> "String"
+pattern Number :: ActionConfigurationPropertyType
+pattern Number = ActionConfigurationPropertyType' "Number"
 
-instance Hashable ActionConfigurationPropertyType
+pattern String :: ActionConfigurationPropertyType
+pattern String = ActionConfigurationPropertyType' "String"
 
-instance NFData ActionConfigurationPropertyType
-
-instance ToByteString ActionConfigurationPropertyType
-
-instance ToQuery ActionConfigurationPropertyType
-
-instance ToHeader ActionConfigurationPropertyType
-
-instance ToJSON ActionConfigurationPropertyType where
-  toJSON = toJSONText
-
-instance FromJSON ActionConfigurationPropertyType where
-  parseJSON = parseJSONText "ActionConfigurationPropertyType"
+{-# COMPLETE
+  Boolean,
+  Number,
+  String,
+  ActionConfigurationPropertyType'
+  #-}

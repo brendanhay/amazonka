@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategoryStatus where
+module Network.AWS.CostExplorer.Types.CostCategoryStatus
+  ( CostCategoryStatus
+      ( CostCategoryStatus',
+        Applied,
+        Processing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CostCategoryStatus
-  = Applied
-  | Processing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CostCategoryStatus = CostCategoryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CostCategoryStatus where
-  parser =
-    takeLowerText >>= \case
-      "applied" -> pure Applied
-      "processing" -> pure Processing
-      e ->
-        fromTextError $
-          "Failure parsing CostCategoryStatus from value: '" <> e
-            <> "'. Accepted values: applied, processing"
+pattern Applied :: CostCategoryStatus
+pattern Applied = CostCategoryStatus' "APPLIED"
 
-instance ToText CostCategoryStatus where
-  toText = \case
-    Applied -> "APPLIED"
-    Processing -> "PROCESSING"
+pattern Processing :: CostCategoryStatus
+pattern Processing = CostCategoryStatus' "PROCESSING"
 
-instance Hashable CostCategoryStatus
-
-instance NFData CostCategoryStatus
-
-instance ToByteString CostCategoryStatus
-
-instance ToQuery CostCategoryStatus
-
-instance ToHeader CostCategoryStatus
-
-instance FromJSON CostCategoryStatus where
-  parseJSON = parseJSONText "CostCategoryStatus"
+{-# COMPLETE
+  Applied,
+  Processing,
+  CostCategoryStatus'
+  #-}

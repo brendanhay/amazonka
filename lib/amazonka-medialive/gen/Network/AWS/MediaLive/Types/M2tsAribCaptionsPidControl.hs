@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl where
+module Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl
+  ( M2tsAribCaptionsPidControl
+      ( M2tsAribCaptionsPidControl',
+        MACPCAuto,
+        MACPCUseConfigured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Arib Captions Pid Control
-data M2tsAribCaptionsPidControl
-  = MACPCAuto
-  | MACPCUseConfigured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsAribCaptionsPidControl = M2tsAribCaptionsPidControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsAribCaptionsPidControl where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure MACPCAuto
-      "use_configured" -> pure MACPCUseConfigured
-      e ->
-        fromTextError $
-          "Failure parsing M2tsAribCaptionsPidControl from value: '" <> e
-            <> "'. Accepted values: auto, use_configured"
+pattern MACPCAuto :: M2tsAribCaptionsPidControl
+pattern MACPCAuto = M2tsAribCaptionsPidControl' "AUTO"
 
-instance ToText M2tsAribCaptionsPidControl where
-  toText = \case
-    MACPCAuto -> "AUTO"
-    MACPCUseConfigured -> "USE_CONFIGURED"
+pattern MACPCUseConfigured :: M2tsAribCaptionsPidControl
+pattern MACPCUseConfigured = M2tsAribCaptionsPidControl' "USE_CONFIGURED"
 
-instance Hashable M2tsAribCaptionsPidControl
-
-instance NFData M2tsAribCaptionsPidControl
-
-instance ToByteString M2tsAribCaptionsPidControl
-
-instance ToQuery M2tsAribCaptionsPidControl
-
-instance ToHeader M2tsAribCaptionsPidControl
-
-instance ToJSON M2tsAribCaptionsPidControl where
-  toJSON = toJSONText
-
-instance FromJSON M2tsAribCaptionsPidControl where
-  parseJSON = parseJSONText "M2tsAribCaptionsPidControl"
+{-# COMPLETE
+  MACPCAuto,
+  MACPCUseConfigured,
+  M2tsAribCaptionsPidControl'
+  #-}

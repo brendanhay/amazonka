@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CertificateSource where
+module Network.AWS.CloudFront.Types.CertificateSource
+  ( CertificateSource
+      ( CertificateSource',
+        Acm,
+        Cloudfront,
+        IAM
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateSource
-  = Acm
-  | Cloudfront
-  | IAM
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateSource = CertificateSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateSource where
-  parser =
-    takeLowerText >>= \case
-      "acm" -> pure Acm
-      "cloudfront" -> pure Cloudfront
-      "iam" -> pure IAM
-      e ->
-        fromTextError $
-          "Failure parsing CertificateSource from value: '" <> e
-            <> "'. Accepted values: acm, cloudfront, iam"
+pattern Acm :: CertificateSource
+pattern Acm = CertificateSource' "acm"
 
-instance ToText CertificateSource where
-  toText = \case
-    Acm -> "acm"
-    Cloudfront -> "cloudfront"
-    IAM -> "iam"
+pattern Cloudfront :: CertificateSource
+pattern Cloudfront = CertificateSource' "cloudfront"
 
-instance Hashable CertificateSource
+pattern IAM :: CertificateSource
+pattern IAM = CertificateSource' "iam"
 
-instance NFData CertificateSource
-
-instance ToByteString CertificateSource
-
-instance ToQuery CertificateSource
-
-instance ToHeader CertificateSource
-
-instance FromXML CertificateSource where
-  parseXML = parseXMLText "CertificateSource"
-
-instance ToXML CertificateSource where
-  toXML = toXMLText
+{-# COMPLETE
+  Acm,
+  Cloudfront,
+  IAM,
+  CertificateSource'
+  #-}

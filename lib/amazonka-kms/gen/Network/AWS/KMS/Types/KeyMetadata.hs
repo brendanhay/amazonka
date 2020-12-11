@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.KeyMetadata where
+module Network.AWS.KMS.Types.KeyMetadata
+  ( KeyMetadata (..),
+
+    -- * Smart constructor
+    mkKeyMetadata,
+
+    -- * Lenses
+    kmOrigin,
+    kmExpirationModel,
+    kmKeyManager,
+    kmCustomerMasterKeySpec,
+    kmEnabled,
+    kmValidTo,
+    kmARN,
+    kmKeyState,
+    kmEncryptionAlgorithms,
+    kmAWSAccountId,
+    kmSigningAlgorithms,
+    kmKeyUsage,
+    kmCreationDate,
+    kmDeletionDate,
+    kmCloudHSMClusterId,
+    kmDescription,
+    kmCustomKeyStoreId,
+    kmKeyId,
+  )
+where
 
 import Network.AWS.KMS.Types.CustomerMasterKeySpec
 import Network.AWS.KMS.Types.EncryptionAlgorithmSpec
@@ -23,201 +43,249 @@ import Network.AWS.KMS.Types.KeyState
 import Network.AWS.KMS.Types.KeyUsageType
 import Network.AWS.KMS.Types.OriginType
 import Network.AWS.KMS.Types.SigningAlgorithmSpec
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains metadata about a customer master key (CMK).
 --
---
 -- This data type is used as a response element for the 'CreateKey' and 'DescribeKey' operations.
 --
---
--- /See:/ 'keyMetadata' smart constructor.
+-- /See:/ 'mkKeyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-  { _kmOrigin :: !(Maybe OriginType),
-    _kmExpirationModel :: !(Maybe ExpirationModelType),
-    _kmKeyManager :: !(Maybe KeyManagerType),
-    _kmCustomerMasterKeySpec :: !(Maybe CustomerMasterKeySpec),
-    _kmEnabled :: !(Maybe Bool),
-    _kmValidTo :: !(Maybe POSIX),
-    _kmARN :: !(Maybe Text),
-    _kmKeyState :: !(Maybe KeyState),
-    _kmEncryptionAlgorithms :: !(Maybe [EncryptionAlgorithmSpec]),
-    _kmAWSAccountId :: !(Maybe Text),
-    _kmSigningAlgorithms :: !(Maybe [SigningAlgorithmSpec]),
-    _kmKeyUsage :: !(Maybe KeyUsageType),
-    _kmCreationDate :: !(Maybe POSIX),
-    _kmDeletionDate :: !(Maybe POSIX),
-    _kmCloudHSMClusterId :: !(Maybe Text),
-    _kmDescription :: !(Maybe Text),
-    _kmCustomKeyStoreId :: !(Maybe Text),
-    _kmKeyId :: !Text
+  { origin :: Lude.Maybe OriginType,
+    expirationModel :: Lude.Maybe ExpirationModelType,
+    keyManager :: Lude.Maybe KeyManagerType,
+    customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+    enabled :: Lude.Maybe Lude.Bool,
+    validTo :: Lude.Maybe Lude.Timestamp,
+    arn :: Lude.Maybe Lude.Text,
+    keyState :: Lude.Maybe KeyState,
+    encryptionAlgorithms :: Lude.Maybe [EncryptionAlgorithmSpec],
+    awsAccountId :: Lude.Maybe Lude.Text,
+    signingAlgorithms :: Lude.Maybe [SigningAlgorithmSpec],
+    keyUsage :: Lude.Maybe KeyUsageType,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    deletionDate :: Lude.Maybe Lude.Timestamp,
+    cloudHSMClusterId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    customKeyStoreId :: Lude.Maybe Lude.Text,
+    keyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
+-- * 'awsAccountId' - The twelve-digit account ID of the AWS account that owns the CMK.
+-- * 'cloudHSMClusterId' - The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
+-- * 'creationDate' - The date and time when the CMK was created.
+-- * 'customKeyStoreId' - A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
+-- * 'customerMasterKeySpec' - Describes the type of key material in the CMK.
+-- * 'deletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
+-- * 'description' - The description of the CMK.
+-- * 'enabled' - Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
+-- * 'encryptionAlgorithms' - The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.
 --
--- * 'kmOrigin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
+-- This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
+-- * 'expirationModel' - Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
+-- * 'keyId' - The globally unique identifier for the CMK.
+-- * 'keyManager' - The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
+-- * 'keyState' - The current status of the CMK.
 --
--- * 'kmExpirationModel' - Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
+-- For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
+-- * 'keyUsage' - The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
+-- * 'origin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
+-- * 'signingAlgorithms' - The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.
 --
--- * 'kmKeyManager' - The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
---
--- * 'kmCustomerMasterKeySpec' - Describes the type of key material in the CMK.
---
--- * 'kmEnabled' - Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
---
--- * 'kmValidTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
---
--- * 'kmARN' - The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
---
--- * 'kmKeyState' - The current status of the CMK. For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
---
--- * 'kmEncryptionAlgorithms' - The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS. This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
---
--- * 'kmAWSAccountId' - The twelve-digit account ID of the AWS account that owns the CMK.
---
--- * 'kmSigningAlgorithms' - The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS. This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
---
--- * 'kmKeyUsage' - The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
---
--- * 'kmCreationDate' - The date and time when the CMK was created.
---
--- * 'kmDeletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
---
--- * 'kmCloudHSMClusterId' - The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
---
--- * 'kmDescription' - The description of the CMK.
---
--- * 'kmCustomKeyStoreId' - A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
---
--- * 'kmKeyId' - The globally unique identifier for the CMK.
-keyMetadata ::
-  -- | 'kmKeyId'
-  Text ->
+-- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
+-- * 'validTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
+mkKeyMetadata ::
+  -- | 'keyId'
+  Lude.Text ->
   KeyMetadata
-keyMetadata pKeyId_ =
+mkKeyMetadata pKeyId_ =
   KeyMetadata'
-    { _kmOrigin = Nothing,
-      _kmExpirationModel = Nothing,
-      _kmKeyManager = Nothing,
-      _kmCustomerMasterKeySpec = Nothing,
-      _kmEnabled = Nothing,
-      _kmValidTo = Nothing,
-      _kmARN = Nothing,
-      _kmKeyState = Nothing,
-      _kmEncryptionAlgorithms = Nothing,
-      _kmAWSAccountId = Nothing,
-      _kmSigningAlgorithms = Nothing,
-      _kmKeyUsage = Nothing,
-      _kmCreationDate = Nothing,
-      _kmDeletionDate = Nothing,
-      _kmCloudHSMClusterId = Nothing,
-      _kmDescription = Nothing,
-      _kmCustomKeyStoreId = Nothing,
-      _kmKeyId = pKeyId_
+    { origin = Lude.Nothing,
+      expirationModel = Lude.Nothing,
+      keyManager = Lude.Nothing,
+      customerMasterKeySpec = Lude.Nothing,
+      enabled = Lude.Nothing,
+      validTo = Lude.Nothing,
+      arn = Lude.Nothing,
+      keyState = Lude.Nothing,
+      encryptionAlgorithms = Lude.Nothing,
+      awsAccountId = Lude.Nothing,
+      signingAlgorithms = Lude.Nothing,
+      keyUsage = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      deletionDate = Lude.Nothing,
+      cloudHSMClusterId = Lude.Nothing,
+      description = Lude.Nothing,
+      customKeyStoreId = Lude.Nothing,
+      keyId = pKeyId_
     }
 
 -- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
-kmOrigin :: Lens' KeyMetadata (Maybe OriginType)
-kmOrigin = lens _kmOrigin (\s a -> s {_kmOrigin = a})
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmOrigin :: Lens.Lens' KeyMetadata (Lude.Maybe OriginType)
+kmOrigin = Lens.lens (origin :: KeyMetadata -> Lude.Maybe OriginType) (\s a -> s {origin = a} :: KeyMetadata)
+{-# DEPRECATED kmOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
 -- | Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
-kmExpirationModel :: Lens' KeyMetadata (Maybe ExpirationModelType)
-kmExpirationModel = lens _kmExpirationModel (\s a -> s {_kmExpirationModel = a})
+--
+-- /Note:/ Consider using 'expirationModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmExpirationModel :: Lens.Lens' KeyMetadata (Lude.Maybe ExpirationModelType)
+kmExpirationModel = Lens.lens (expirationModel :: KeyMetadata -> Lude.Maybe ExpirationModelType) (\s a -> s {expirationModel = a} :: KeyMetadata)
+{-# DEPRECATED kmExpirationModel "Use generic-lens or generic-optics with 'expirationModel' instead." #-}
 
 -- | The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
-kmKeyManager :: Lens' KeyMetadata (Maybe KeyManagerType)
-kmKeyManager = lens _kmKeyManager (\s a -> s {_kmKeyManager = a})
+--
+-- /Note:/ Consider using 'keyManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmKeyManager :: Lens.Lens' KeyMetadata (Lude.Maybe KeyManagerType)
+kmKeyManager = Lens.lens (keyManager :: KeyMetadata -> Lude.Maybe KeyManagerType) (\s a -> s {keyManager = a} :: KeyMetadata)
+{-# DEPRECATED kmKeyManager "Use generic-lens or generic-optics with 'keyManager' instead." #-}
 
 -- | Describes the type of key material in the CMK.
-kmCustomerMasterKeySpec :: Lens' KeyMetadata (Maybe CustomerMasterKeySpec)
-kmCustomerMasterKeySpec = lens _kmCustomerMasterKeySpec (\s a -> s {_kmCustomerMasterKeySpec = a})
+--
+-- /Note:/ Consider using 'customerMasterKeySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmCustomerMasterKeySpec :: Lens.Lens' KeyMetadata (Lude.Maybe CustomerMasterKeySpec)
+kmCustomerMasterKeySpec = Lens.lens (customerMasterKeySpec :: KeyMetadata -> Lude.Maybe CustomerMasterKeySpec) (\s a -> s {customerMasterKeySpec = a} :: KeyMetadata)
+{-# DEPRECATED kmCustomerMasterKeySpec "Use generic-lens or generic-optics with 'customerMasterKeySpec' instead." #-}
 
 -- | Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
-kmEnabled :: Lens' KeyMetadata (Maybe Bool)
-kmEnabled = lens _kmEnabled (\s a -> s {_kmEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmEnabled :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Bool)
+kmEnabled = Lens.lens (enabled :: KeyMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: KeyMetadata)
+{-# DEPRECATED kmEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
-kmValidTo :: Lens' KeyMetadata (Maybe UTCTime)
-kmValidTo = lens _kmValidTo (\s a -> s {_kmValidTo = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmValidTo :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Timestamp)
+kmValidTo = Lens.lens (validTo :: KeyMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {validTo = a} :: KeyMetadata)
+{-# DEPRECATED kmValidTo "Use generic-lens or generic-optics with 'validTo' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
-kmARN :: Lens' KeyMetadata (Maybe Text)
-kmARN = lens _kmARN (\s a -> s {_kmARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmARN :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
+kmARN = Lens.lens (arn :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: KeyMetadata)
+{-# DEPRECATED kmARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The current status of the CMK. For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
-kmKeyState :: Lens' KeyMetadata (Maybe KeyState)
-kmKeyState = lens _kmKeyState (\s a -> s {_kmKeyState = a})
+-- | The current status of the CMK.
+--
+-- For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'keyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmKeyState :: Lens.Lens' KeyMetadata (Lude.Maybe KeyState)
+kmKeyState = Lens.lens (keyState :: KeyMetadata -> Lude.Maybe KeyState) (\s a -> s {keyState = a} :: KeyMetadata)
+{-# DEPRECATED kmKeyState "Use generic-lens or generic-optics with 'keyState' instead." #-}
 
--- | The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS. This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
-kmEncryptionAlgorithms :: Lens' KeyMetadata [EncryptionAlgorithmSpec]
-kmEncryptionAlgorithms = lens _kmEncryptionAlgorithms (\s a -> s {_kmEncryptionAlgorithms = a}) . _Default . _Coerce
+-- | The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.
+--
+-- This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
+--
+-- /Note:/ Consider using 'encryptionAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmEncryptionAlgorithms :: Lens.Lens' KeyMetadata (Lude.Maybe [EncryptionAlgorithmSpec])
+kmEncryptionAlgorithms = Lens.lens (encryptionAlgorithms :: KeyMetadata -> Lude.Maybe [EncryptionAlgorithmSpec]) (\s a -> s {encryptionAlgorithms = a} :: KeyMetadata)
+{-# DEPRECATED kmEncryptionAlgorithms "Use generic-lens or generic-optics with 'encryptionAlgorithms' instead." #-}
 
 -- | The twelve-digit account ID of the AWS account that owns the CMK.
-kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
-kmAWSAccountId = lens _kmAWSAccountId (\s a -> s {_kmAWSAccountId = a})
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmAWSAccountId :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
+kmAWSAccountId = Lens.lens (awsAccountId :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: KeyMetadata)
+{-# DEPRECATED kmAWSAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
--- | The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS. This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
-kmSigningAlgorithms :: Lens' KeyMetadata [SigningAlgorithmSpec]
-kmSigningAlgorithms = lens _kmSigningAlgorithms (\s a -> s {_kmSigningAlgorithms = a}) . _Default . _Coerce
+-- | The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.
+--
+-- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
+--
+-- /Note:/ Consider using 'signingAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmSigningAlgorithms :: Lens.Lens' KeyMetadata (Lude.Maybe [SigningAlgorithmSpec])
+kmSigningAlgorithms = Lens.lens (signingAlgorithms :: KeyMetadata -> Lude.Maybe [SigningAlgorithmSpec]) (\s a -> s {signingAlgorithms = a} :: KeyMetadata)
+{-# DEPRECATED kmSigningAlgorithms "Use generic-lens or generic-optics with 'signingAlgorithms' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
-kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
-kmKeyUsage = lens _kmKeyUsage (\s a -> s {_kmKeyUsage = a})
+--
+-- /Note:/ Consider using 'keyUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmKeyUsage :: Lens.Lens' KeyMetadata (Lude.Maybe KeyUsageType)
+kmKeyUsage = Lens.lens (keyUsage :: KeyMetadata -> Lude.Maybe KeyUsageType) (\s a -> s {keyUsage = a} :: KeyMetadata)
+{-# DEPRECATED kmKeyUsage "Use generic-lens or generic-optics with 'keyUsage' instead." #-}
 
 -- | The date and time when the CMK was created.
-kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
-kmCreationDate = lens _kmCreationDate (\s a -> s {_kmCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmCreationDate :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Timestamp)
+kmCreationDate = Lens.lens (creationDate :: KeyMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: KeyMetadata)
+{-# DEPRECATED kmCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
-kmDeletionDate :: Lens' KeyMetadata (Maybe UTCTime)
-kmDeletionDate = lens _kmDeletionDate (\s a -> s {_kmDeletionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmDeletionDate :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Timestamp)
+kmDeletionDate = Lens.lens (deletionDate :: KeyMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {deletionDate = a} :: KeyMetadata)
+{-# DEPRECATED kmDeletionDate "Use generic-lens or generic-optics with 'deletionDate' instead." #-}
 
 -- | The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
-kmCloudHSMClusterId :: Lens' KeyMetadata (Maybe Text)
-kmCloudHSMClusterId = lens _kmCloudHSMClusterId (\s a -> s {_kmCloudHSMClusterId = a})
+--
+-- /Note:/ Consider using 'cloudHSMClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmCloudHSMClusterId :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
+kmCloudHSMClusterId = Lens.lens (cloudHSMClusterId :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {cloudHSMClusterId = a} :: KeyMetadata)
+{-# DEPRECATED kmCloudHSMClusterId "Use generic-lens or generic-optics with 'cloudHSMClusterId' instead." #-}
 
 -- | The description of the CMK.
-kmDescription :: Lens' KeyMetadata (Maybe Text)
-kmDescription = lens _kmDescription (\s a -> s {_kmDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmDescription :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
+kmDescription = Lens.lens (description :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: KeyMetadata)
+{-# DEPRECATED kmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
-kmCustomKeyStoreId :: Lens' KeyMetadata (Maybe Text)
-kmCustomKeyStoreId = lens _kmCustomKeyStoreId (\s a -> s {_kmCustomKeyStoreId = a})
+--
+-- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmCustomKeyStoreId :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
+kmCustomKeyStoreId = Lens.lens (customKeyStoreId :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: KeyMetadata)
+{-# DEPRECATED kmCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
 -- | The globally unique identifier for the CMK.
-kmKeyId :: Lens' KeyMetadata Text
-kmKeyId = lens _kmKeyId (\s a -> s {_kmKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmKeyId :: Lens.Lens' KeyMetadata Lude.Text
+kmKeyId = Lens.lens (keyId :: KeyMetadata -> Lude.Text) (\s a -> s {keyId = a} :: KeyMetadata)
+{-# DEPRECATED kmKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance FromJSON KeyMetadata where
+instance Lude.FromJSON KeyMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "KeyMetadata"
       ( \x ->
           KeyMetadata'
-            <$> (x .:? "Origin")
-            <*> (x .:? "ExpirationModel")
-            <*> (x .:? "KeyManager")
-            <*> (x .:? "CustomerMasterKeySpec")
-            <*> (x .:? "Enabled")
-            <*> (x .:? "ValidTo")
-            <*> (x .:? "Arn")
-            <*> (x .:? "KeyState")
-            <*> (x .:? "EncryptionAlgorithms" .!= mempty)
-            <*> (x .:? "AWSAccountId")
-            <*> (x .:? "SigningAlgorithms" .!= mempty)
-            <*> (x .:? "KeyUsage")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "DeletionDate")
-            <*> (x .:? "CloudHsmClusterId")
-            <*> (x .:? "Description")
-            <*> (x .:? "CustomKeyStoreId")
-            <*> (x .: "KeyId")
+            Lude.<$> (x Lude..:? "Origin")
+            Lude.<*> (x Lude..:? "ExpirationModel")
+            Lude.<*> (x Lude..:? "KeyManager")
+            Lude.<*> (x Lude..:? "CustomerMasterKeySpec")
+            Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "ValidTo")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "KeyState")
+            Lude.<*> (x Lude..:? "EncryptionAlgorithms" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AWSAccountId")
+            Lude.<*> (x Lude..:? "SigningAlgorithms" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "KeyUsage")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "DeletionDate")
+            Lude.<*> (x Lude..:? "CloudHsmClusterId")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "CustomKeyStoreId")
+            Lude.<*> (x Lude..: "KeyId")
       )
-
-instance Hashable KeyMetadata
-
-instance NFData KeyMetadata

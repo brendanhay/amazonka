@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,157 @@
 --
 -- The @GetQualificationScore@ operation returns the value of a Worker's Qualification for a given Qualification type.
 --
---
 -- To get a Worker's Qualification, you must know the Worker's ID. The Worker's ID is included in the assignment data returned by the @ListAssignmentsForHIT@ operation.
---
 -- Only the owner of a Qualification type can query the value of a Worker's Qualification of that type.
 module Network.AWS.MechanicalTurk.GetQualificationScore
-  ( -- * Creating a Request
-    getQualificationScore,
-    GetQualificationScore,
+  ( -- * Creating a request
+    GetQualificationScore (..),
+    mkGetQualificationScore,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gqsQualificationTypeId,
     gqsWorkerId,
 
-    -- * Destructuring the Response
-    getQualificationScoreResponse,
-    GetQualificationScoreResponse,
+    -- * Destructuring the response
+    GetQualificationScoreResponse (..),
+    mkGetQualificationScoreResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gqsrsQualification,
     gqsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getQualificationScore' smart constructor.
+-- | /See:/ 'mkGetQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'
-  { _gqsQualificationTypeId ::
-      !Text,
-    _gqsWorkerId :: !Text
+  { qualificationTypeId ::
+      Lude.Text,
+    workerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQualificationScore' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqsQualificationTypeId' - The ID of the QualificationType.
---
--- * 'gqsWorkerId' - The ID of the Worker whose Qualification is being updated.
-getQualificationScore ::
-  -- | 'gqsQualificationTypeId'
-  Text ->
-  -- | 'gqsWorkerId'
-  Text ->
+-- * 'qualificationTypeId' - The ID of the QualificationType.
+-- * 'workerId' - The ID of the Worker whose Qualification is being updated.
+mkGetQualificationScore ::
+  -- | 'qualificationTypeId'
+  Lude.Text ->
+  -- | 'workerId'
+  Lude.Text ->
   GetQualificationScore
-getQualificationScore pQualificationTypeId_ pWorkerId_ =
+mkGetQualificationScore pQualificationTypeId_ pWorkerId_ =
   GetQualificationScore'
-    { _gqsQualificationTypeId =
+    { qualificationTypeId =
         pQualificationTypeId_,
-      _gqsWorkerId = pWorkerId_
+      workerId = pWorkerId_
     }
 
 -- | The ID of the QualificationType.
-gqsQualificationTypeId :: Lens' GetQualificationScore Text
-gqsQualificationTypeId = lens _gqsQualificationTypeId (\s a -> s {_gqsQualificationTypeId = a})
+--
+-- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqsQualificationTypeId :: Lens.Lens' GetQualificationScore Lude.Text
+gqsQualificationTypeId = Lens.lens (qualificationTypeId :: GetQualificationScore -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: GetQualificationScore)
+{-# DEPRECATED gqsQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
 -- | The ID of the Worker whose Qualification is being updated.
-gqsWorkerId :: Lens' GetQualificationScore Text
-gqsWorkerId = lens _gqsWorkerId (\s a -> s {_gqsWorkerId = a})
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqsWorkerId :: Lens.Lens' GetQualificationScore Lude.Text
+gqsWorkerId = Lens.lens (workerId :: GetQualificationScore -> Lude.Text) (\s a -> s {workerId = a} :: GetQualificationScore)
+{-# DEPRECATED gqsWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance AWSRequest GetQualificationScore where
+instance Lude.AWSRequest GetQualificationScore where
   type Rs GetQualificationScore = GetQualificationScoreResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetQualificationScoreResponse'
-            <$> (x .?> "Qualification") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Qualification")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetQualificationScore
-
-instance NFData GetQualificationScore
-
-instance ToHeaders GetQualificationScore where
+instance Lude.ToHeaders GetQualificationScore where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.GetQualificationScore" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.GetQualificationScore" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetQualificationScore where
+instance Lude.ToJSON GetQualificationScore where
   toJSON GetQualificationScore' {..} =
-    object
-      ( catMaybes
-          [ Just ("QualificationTypeId" .= _gqsQualificationTypeId),
-            Just ("WorkerId" .= _gqsWorkerId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
+            Lude.Just ("WorkerId" Lude..= workerId)
           ]
       )
 
-instance ToPath GetQualificationScore where
-  toPath = const "/"
+instance Lude.ToPath GetQualificationScore where
+  toPath = Lude.const "/"
 
-instance ToQuery GetQualificationScore where
-  toQuery = const mempty
+instance Lude.ToQuery GetQualificationScore where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getQualificationScoreResponse' smart constructor.
+-- | /See:/ 'mkGetQualificationScoreResponse' smart constructor.
 data GetQualificationScoreResponse = GetQualificationScoreResponse'
-  { _gqsrsQualification ::
-      !(Maybe Qualification),
-    _gqsrsResponseStatus :: !Int
+  { qualification ::
+      Lude.Maybe Qualification,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQualificationScoreResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqsrsQualification' - The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
---
--- * 'gqsrsResponseStatus' - -- | The response status code.
-getQualificationScoreResponse ::
-  -- | 'gqsrsResponseStatus'
-  Int ->
+-- * 'qualification' - The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
+-- * 'responseStatus' - The response status code.
+mkGetQualificationScoreResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetQualificationScoreResponse
-getQualificationScoreResponse pResponseStatus_ =
+mkGetQualificationScoreResponse pResponseStatus_ =
   GetQualificationScoreResponse'
-    { _gqsrsQualification = Nothing,
-      _gqsrsResponseStatus = pResponseStatus_
+    { qualification = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
-gqsrsQualification :: Lens' GetQualificationScoreResponse (Maybe Qualification)
-gqsrsQualification = lens _gqsrsQualification (\s a -> s {_gqsrsQualification = a})
+--
+-- /Note:/ Consider using 'qualification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqsrsQualification :: Lens.Lens' GetQualificationScoreResponse (Lude.Maybe Qualification)
+gqsrsQualification = Lens.lens (qualification :: GetQualificationScoreResponse -> Lude.Maybe Qualification) (\s a -> s {qualification = a} :: GetQualificationScoreResponse)
+{-# DEPRECATED gqsrsQualification "Use generic-lens or generic-optics with 'qualification' instead." #-}
 
--- | -- | The response status code.
-gqsrsResponseStatus :: Lens' GetQualificationScoreResponse Int
-gqsrsResponseStatus = lens _gqsrsResponseStatus (\s a -> s {_gqsrsResponseStatus = a})
-
-instance NFData GetQualificationScoreResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqsrsResponseStatus :: Lens.Lens' GetQualificationScoreResponse Lude.Int
+gqsrsResponseStatus = Lens.lens (responseStatus :: GetQualificationScoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQualificationScoreResponse)
+{-# DEPRECATED gqsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNStaticRoute where
+module Network.AWS.EC2.Types.VPNStaticRoute
+  ( VPNStaticRoute (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPNStaticRoute,
+
+    -- * Lenses
+    vsrState,
+    vsrSource,
+    vsrDestinationCidrBlock,
+  )
+where
+
 import Network.AWS.EC2.Types.VPNState
 import Network.AWS.EC2.Types.VPNStaticRouteSource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a static route for a VPN connection.
 --
---
---
--- /See:/ 'vpnStaticRoute' smart constructor.
+-- /See:/ 'mkVPNStaticRoute' smart constructor.
 data VPNStaticRoute = VPNStaticRoute'
-  { _vsrState ::
-      !(Maybe VPNState),
-    _vsrSource :: !(Maybe VPNStaticRouteSource),
-    _vsrDestinationCidrBlock :: !(Maybe Text)
+  { state :: Lude.Maybe VPNState,
+    source :: Lude.Maybe VPNStaticRouteSource,
+    destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNStaticRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsrState' - The current state of the static route.
---
--- * 'vsrSource' - Indicates how the routes were provided.
---
--- * 'vsrDestinationCidrBlock' - The CIDR block associated with the local subnet of the customer data center.
-vpnStaticRoute ::
+-- * 'destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data center.
+-- * 'source' - Indicates how the routes were provided.
+-- * 'state' - The current state of the static route.
+mkVPNStaticRoute ::
   VPNStaticRoute
-vpnStaticRoute =
+mkVPNStaticRoute =
   VPNStaticRoute'
-    { _vsrState = Nothing,
-      _vsrSource = Nothing,
-      _vsrDestinationCidrBlock = Nothing
+    { state = Lude.Nothing,
+      source = Lude.Nothing,
+      destinationCidrBlock = Lude.Nothing
     }
 
 -- | The current state of the static route.
-vsrState :: Lens' VPNStaticRoute (Maybe VPNState)
-vsrState = lens _vsrState (\s a -> s {_vsrState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsrState :: Lens.Lens' VPNStaticRoute (Lude.Maybe VPNState)
+vsrState = Lens.lens (state :: VPNStaticRoute -> Lude.Maybe VPNState) (\s a -> s {state = a} :: VPNStaticRoute)
+{-# DEPRECATED vsrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Indicates how the routes were provided.
-vsrSource :: Lens' VPNStaticRoute (Maybe VPNStaticRouteSource)
-vsrSource = lens _vsrSource (\s a -> s {_vsrSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsrSource :: Lens.Lens' VPNStaticRoute (Lude.Maybe VPNStaticRouteSource)
+vsrSource = Lens.lens (source :: VPNStaticRoute -> Lude.Maybe VPNStaticRouteSource) (\s a -> s {source = a} :: VPNStaticRoute)
+{-# DEPRECATED vsrSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The CIDR block associated with the local subnet of the customer data center.
-vsrDestinationCidrBlock :: Lens' VPNStaticRoute (Maybe Text)
-vsrDestinationCidrBlock = lens _vsrDestinationCidrBlock (\s a -> s {_vsrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsrDestinationCidrBlock :: Lens.Lens' VPNStaticRoute (Lude.Maybe Lude.Text)
+vsrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: VPNStaticRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: VPNStaticRoute)
+{-# DEPRECATED vsrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance FromXML VPNStaticRoute where
+instance Lude.FromXML VPNStaticRoute where
   parseXML x =
     VPNStaticRoute'
-      <$> (x .@? "state")
-      <*> (x .@? "source")
-      <*> (x .@? "destinationCidrBlock")
-
-instance Hashable VPNStaticRoute
-
-instance NFData VPNStaticRoute
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "source")
+      Lude.<*> (x Lude..@? "destinationCidrBlock")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,128 @@
 --
 -- Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.BuildSuggesters
-  ( -- * Creating a Request
-    buildSuggesters,
-    BuildSuggesters,
+  ( -- * Creating a request
+    BuildSuggesters (..),
+    mkBuildSuggesters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bsDomainName,
 
-    -- * Destructuring the Response
-    buildSuggestersResponse,
-    BuildSuggestersResponse,
+    -- * Destructuring the response
+    BuildSuggestersResponse (..),
+    mkBuildSuggestersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bsrsFieldNames,
     bsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'BuildSuggester' @ operation. Specifies the name of the domain you want to update.
 --
---
---
--- /See:/ 'buildSuggesters' smart constructor.
-newtype BuildSuggesters = BuildSuggesters' {_bsDomainName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkBuildSuggesters' smart constructor.
+newtype BuildSuggesters = BuildSuggesters' {domainName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildSuggesters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsDomainName' - Undocumented member.
-buildSuggesters ::
-  -- | 'bsDomainName'
-  Text ->
+-- * 'domainName' - Undocumented field.
+mkBuildSuggesters ::
+  -- | 'domainName'
+  Lude.Text ->
   BuildSuggesters
-buildSuggesters pDomainName_ =
-  BuildSuggesters' {_bsDomainName = pDomainName_}
+mkBuildSuggesters pDomainName_ =
+  BuildSuggesters' {domainName = pDomainName_}
 
--- | Undocumented member.
-bsDomainName :: Lens' BuildSuggesters Text
-bsDomainName = lens _bsDomainName (\s a -> s {_bsDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsDomainName :: Lens.Lens' BuildSuggesters Lude.Text
+bsDomainName = Lens.lens (domainName :: BuildSuggesters -> Lude.Text) (\s a -> s {domainName = a} :: BuildSuggesters)
+{-# DEPRECATED bsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest BuildSuggesters where
+instance Lude.AWSRequest BuildSuggesters where
   type Rs BuildSuggesters = BuildSuggestersResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "BuildSuggestersResult"
       ( \s h x ->
           BuildSuggestersResponse'
-            <$> (x .@? "FieldNames" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "FieldNames" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BuildSuggesters
+instance Lude.ToHeaders BuildSuggesters where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData BuildSuggesters
+instance Lude.ToPath BuildSuggesters where
+  toPath = Lude.const "/"
 
-instance ToHeaders BuildSuggesters where
-  toHeaders = const mempty
-
-instance ToPath BuildSuggesters where
-  toPath = const "/"
-
-instance ToQuery BuildSuggesters where
+instance Lude.ToQuery BuildSuggesters where
   toQuery BuildSuggesters' {..} =
-    mconcat
-      [ "Action" =: ("BuildSuggesters" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainName" =: _bsDomainName
+    Lude.mconcat
+      [ "Action" Lude.=: ("BuildSuggesters" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @BuildSuggester@ request. Contains a list of the fields used for suggestions.
 --
---
---
--- /See:/ 'buildSuggestersResponse' smart constructor.
+-- /See:/ 'mkBuildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'
-  { _bsrsFieldNames ::
-      !(Maybe [Text]),
-    _bsrsResponseStatus :: !Int
+  { fieldNames ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildSuggestersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsrsFieldNames' - Undocumented member.
---
--- * 'bsrsResponseStatus' - -- | The response status code.
-buildSuggestersResponse ::
-  -- | 'bsrsResponseStatus'
-  Int ->
+-- * 'fieldNames' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkBuildSuggestersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BuildSuggestersResponse
-buildSuggestersResponse pResponseStatus_ =
+mkBuildSuggestersResponse pResponseStatus_ =
   BuildSuggestersResponse'
-    { _bsrsFieldNames = Nothing,
-      _bsrsResponseStatus = pResponseStatus_
+    { fieldNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrsFieldNames = lens _bsrsFieldNames (\s a -> s {_bsrsFieldNames = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fieldNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrsFieldNames :: Lens.Lens' BuildSuggestersResponse (Lude.Maybe [Lude.Text])
+bsrsFieldNames = Lens.lens (fieldNames :: BuildSuggestersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {fieldNames = a} :: BuildSuggestersResponse)
+{-# DEPRECATED bsrsFieldNames "Use generic-lens or generic-optics with 'fieldNames' instead." #-}
 
--- | -- | The response status code.
-bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
-bsrsResponseStatus = lens _bsrsResponseStatus (\s a -> s {_bsrsResponseStatus = a})
-
-instance NFData BuildSuggestersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrsResponseStatus :: Lens.Lens' BuildSuggestersResponse Lude.Int
+bsrsResponseStatus = Lens.lens (responseStatus :: BuildSuggestersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BuildSuggestersResponse)
+{-# DEPRECATED bsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

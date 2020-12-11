@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringS3Output where
+module Network.AWS.SageMaker.Types.MonitoringS3Output
+  ( MonitoringS3Output (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringS3Output,
+
+    -- * Lenses
+    msoS3UploadMode,
+    msoS3URI,
+    msoLocalPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingS3UploadMode
 
 -- | Information about where and how you want to store the results of a monitoring job.
 --
---
---
--- /See:/ 'monitoringS3Output' smart constructor.
+-- /See:/ 'mkMonitoringS3Output' smart constructor.
 data MonitoringS3Output = MonitoringS3Output'
-  { _msoS3UploadMode ::
-      !(Maybe ProcessingS3UploadMode),
-    _msoS3URI :: !Text,
-    _msoLocalPath :: !Text
+  { s3UploadMode ::
+      Lude.Maybe ProcessingS3UploadMode,
+    s3URI :: Lude.Text,
+    localPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringS3Output' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msoS3UploadMode' - Whether to upload the results of the monitoring job continuously or after the job completes.
---
--- * 'msoS3URI' - A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
---
--- * 'msoLocalPath' - The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-monitoringS3Output ::
-  -- | 'msoS3URI'
-  Text ->
-  -- | 'msoLocalPath'
-  Text ->
+-- * 'localPath' - The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+-- * 's3URI' - A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+-- * 's3UploadMode' - Whether to upload the results of the monitoring job continuously or after the job completes.
+mkMonitoringS3Output ::
+  -- | 's3URI'
+  Lude.Text ->
+  -- | 'localPath'
+  Lude.Text ->
   MonitoringS3Output
-monitoringS3Output pS3URI_ pLocalPath_ =
+mkMonitoringS3Output pS3URI_ pLocalPath_ =
   MonitoringS3Output'
-    { _msoS3UploadMode = Nothing,
-      _msoS3URI = pS3URI_,
-      _msoLocalPath = pLocalPath_
+    { s3UploadMode = Lude.Nothing,
+      s3URI = pS3URI_,
+      localPath = pLocalPath_
     }
 
 -- | Whether to upload the results of the monitoring job continuously or after the job completes.
-msoS3UploadMode :: Lens' MonitoringS3Output (Maybe ProcessingS3UploadMode)
-msoS3UploadMode = lens _msoS3UploadMode (\s a -> s {_msoS3UploadMode = a})
+--
+-- /Note:/ Consider using 's3UploadMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msoS3UploadMode :: Lens.Lens' MonitoringS3Output (Lude.Maybe ProcessingS3UploadMode)
+msoS3UploadMode = Lens.lens (s3UploadMode :: MonitoringS3Output -> Lude.Maybe ProcessingS3UploadMode) (\s a -> s {s3UploadMode = a} :: MonitoringS3Output)
+{-# DEPRECATED msoS3UploadMode "Use generic-lens or generic-optics with 's3UploadMode' instead." #-}
 
 -- | A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-msoS3URI :: Lens' MonitoringS3Output Text
-msoS3URI = lens _msoS3URI (\s a -> s {_msoS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msoS3URI :: Lens.Lens' MonitoringS3Output Lude.Text
+msoS3URI = Lens.lens (s3URI :: MonitoringS3Output -> Lude.Text) (\s a -> s {s3URI = a} :: MonitoringS3Output)
+{-# DEPRECATED msoS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
 -- | The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-msoLocalPath :: Lens' MonitoringS3Output Text
-msoLocalPath = lens _msoLocalPath (\s a -> s {_msoLocalPath = a})
+--
+-- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msoLocalPath :: Lens.Lens' MonitoringS3Output Lude.Text
+msoLocalPath = Lens.lens (localPath :: MonitoringS3Output -> Lude.Text) (\s a -> s {localPath = a} :: MonitoringS3Output)
+{-# DEPRECATED msoLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
-instance FromJSON MonitoringS3Output where
+instance Lude.FromJSON MonitoringS3Output where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringS3Output"
       ( \x ->
           MonitoringS3Output'
-            <$> (x .:? "S3UploadMode") <*> (x .: "S3Uri") <*> (x .: "LocalPath")
+            Lude.<$> (x Lude..:? "S3UploadMode")
+            Lude.<*> (x Lude..: "S3Uri")
+            Lude.<*> (x Lude..: "LocalPath")
       )
 
-instance Hashable MonitoringS3Output
-
-instance NFData MonitoringS3Output
-
-instance ToJSON MonitoringS3Output where
+instance Lude.ToJSON MonitoringS3Output where
   toJSON MonitoringS3Output' {..} =
-    object
-      ( catMaybes
-          [ ("S3UploadMode" .=) <$> _msoS3UploadMode,
-            Just ("S3Uri" .= _msoS3URI),
-            Just ("LocalPath" .= _msoLocalPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3UploadMode" Lude..=) Lude.<$> s3UploadMode,
+            Lude.Just ("S3Uri" Lude..= s3URI),
+            Lude.Just ("LocalPath" Lude..= localPath)
           ]
       )

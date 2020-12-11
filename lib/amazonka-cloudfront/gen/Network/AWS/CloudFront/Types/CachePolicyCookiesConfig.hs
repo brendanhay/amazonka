@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyCookiesConfig where
+module Network.AWS.CloudFront.Types.CachePolicyCookiesConfig
+  ( CachePolicyCookiesConfig (..),
+
+    -- * Smart constructor
+    mkCachePolicyCookiesConfig,
+
+    -- * Lenses
+    cpccCookies,
+    cpccCookieBehavior,
+  )
+where
 
 import Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
 import Network.AWS.CloudFront.Types.CookieNames
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 --
---
---
--- /See:/ 'cachePolicyCookiesConfig' smart constructor.
+-- /See:/ 'mkCachePolicyCookiesConfig' smart constructor.
 data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
-  { _cpccCookies ::
-      !(Maybe CookieNames),
-    _cpccCookieBehavior ::
-      !CachePolicyCookieBehavior
+  { cookies ::
+      Lude.Maybe CookieNames,
+    cookieBehavior ::
+      CachePolicyCookieBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicyCookiesConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cookieBehavior' - Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
 --
--- * 'cpccCookies' - Undocumented member.
 --
--- * 'cpccCookieBehavior' - Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:     * @none@ – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.     * @allExcept@ – All cookies in viewer requests that are /__not__ / listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-cachePolicyCookiesConfig ::
-  -- | 'cpccCookieBehavior'
+--     * @none@ – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
+--
+--
+--     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+--
+--
+--     * @allExcept@ – All cookies in viewer requests that are /__not__ / listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+--
+--
+--     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+--
+--
+-- * 'cookies' - Undocumented field.
+mkCachePolicyCookiesConfig ::
+  -- | 'cookieBehavior'
   CachePolicyCookieBehavior ->
   CachePolicyCookiesConfig
-cachePolicyCookiesConfig pCookieBehavior_ =
+mkCachePolicyCookiesConfig pCookieBehavior_ =
   CachePolicyCookiesConfig'
-    { _cpccCookies = Nothing,
-      _cpccCookieBehavior = pCookieBehavior_
+    { cookies = Lude.Nothing,
+      cookieBehavior = pCookieBehavior_
     }
 
--- | Undocumented member.
-cpccCookies :: Lens' CachePolicyCookiesConfig (Maybe CookieNames)
-cpccCookies = lens _cpccCookies (\s a -> s {_cpccCookies = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cookies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpccCookies :: Lens.Lens' CachePolicyCookiesConfig (Lude.Maybe CookieNames)
+cpccCookies = Lens.lens (cookies :: CachePolicyCookiesConfig -> Lude.Maybe CookieNames) (\s a -> s {cookies = a} :: CachePolicyCookiesConfig)
+{-# DEPRECATED cpccCookies "Use generic-lens or generic-optics with 'cookies' instead." #-}
 
--- | Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:     * @none@ – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.     * @allExcept@ – All cookies in viewer requests that are /__not__ / listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-cpccCookieBehavior :: Lens' CachePolicyCookiesConfig CachePolicyCookieBehavior
-cpccCookieBehavior = lens _cpccCookieBehavior (\s a -> s {_cpccCookieBehavior = a})
+-- | Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
+--
+--
+--     * @none@ – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
+--
+--
+--     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+--
+--
+--     * @allExcept@ – All cookies in viewer requests that are /__not__ / listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+--
+--
+--     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+--
+--
+--
+-- /Note:/ Consider using 'cookieBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpccCookieBehavior :: Lens.Lens' CachePolicyCookiesConfig CachePolicyCookieBehavior
+cpccCookieBehavior = Lens.lens (cookieBehavior :: CachePolicyCookiesConfig -> CachePolicyCookieBehavior) (\s a -> s {cookieBehavior = a} :: CachePolicyCookiesConfig)
+{-# DEPRECATED cpccCookieBehavior "Use generic-lens or generic-optics with 'cookieBehavior' instead." #-}
 
-instance FromXML CachePolicyCookiesConfig where
+instance Lude.FromXML CachePolicyCookiesConfig where
   parseXML x =
     CachePolicyCookiesConfig'
-      <$> (x .@? "Cookies") <*> (x .@ "CookieBehavior")
+      Lude.<$> (x Lude..@? "Cookies") Lude.<*> (x Lude..@ "CookieBehavior")
 
-instance Hashable CachePolicyCookiesConfig
-
-instance NFData CachePolicyCookiesConfig
-
-instance ToXML CachePolicyCookiesConfig where
+instance Lude.ToXML CachePolicyCookiesConfig where
   toXML CachePolicyCookiesConfig' {..} =
-    mconcat
-      [ "Cookies" @= _cpccCookies,
-        "CookieBehavior" @= _cpccCookieBehavior
+    Lude.mconcat
+      [ "Cookies" Lude.@= cookies,
+        "CookieBehavior" Lude.@= cookieBehavior
       ]

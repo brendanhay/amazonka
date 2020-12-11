@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Architecture where
+module Network.AWS.OpsWorks.Types.Architecture
+  ( Architecture
+      ( Architecture',
+        I386,
+        X86_64
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Architecture
-  = I386
-  | X86_64
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Architecture = Architecture' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Architecture where
-  parser =
-    takeLowerText >>= \case
-      "i386" -> pure I386
-      "x86_64" -> pure X86_64
-      e ->
-        fromTextError $
-          "Failure parsing Architecture from value: '" <> e
-            <> "'. Accepted values: i386, x86_64"
+pattern I386 :: Architecture
+pattern I386 = Architecture' "i386"
 
-instance ToText Architecture where
-  toText = \case
-    I386 -> "i386"
-    X86_64 -> "x86_64"
+pattern X86_64 :: Architecture
+pattern X86_64 = Architecture' "x86_64"
 
-instance Hashable Architecture
-
-instance NFData Architecture
-
-instance ToByteString Architecture
-
-instance ToQuery Architecture
-
-instance ToHeader Architecture
-
-instance ToJSON Architecture where
-  toJSON = toJSONText
-
-instance FromJSON Architecture where
-  parseJSON = parseJSONText "Architecture"
+{-# COMPLETE
+  I386,
+  X86_64,
+  Architecture'
+  #-}

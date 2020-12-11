@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsInputSettings where
+module Network.AWS.MediaLive.Types.HlsInputSettings
+  ( HlsInputSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHlsInputSettings,
+
+    -- * Lenses
+    hisBufferSegments,
+    hisRetries,
+    hisRetryInterval,
+    hisBandwidth,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Input Settings
 --
--- /See:/ 'hlsInputSettings' smart constructor.
+-- /See:/ 'mkHlsInputSettings' smart constructor.
 data HlsInputSettings = HlsInputSettings'
-  { _hisBufferSegments ::
-      !(Maybe Nat),
-    _hisRetries :: !(Maybe Nat),
-    _hisRetryInterval :: !(Maybe Nat),
-    _hisBandwidth :: !(Maybe Nat)
+  { bufferSegments ::
+      Lude.Maybe Lude.Natural,
+    retries :: Lude.Maybe Lude.Natural,
+    retryInterval :: Lude.Maybe Lude.Natural,
+    bandwidth :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsInputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hisBufferSegments' - When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
---
--- * 'hisRetries' - The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
---
--- * 'hisRetryInterval' - The number of seconds between retries when an attempt to read a manifest or segment fails.
---
--- * 'hisBandwidth' - When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
-hlsInputSettings ::
+-- * 'bandwidth' - When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
+-- * 'bufferSegments' - When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
+-- * 'retries' - The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+-- * 'retryInterval' - The number of seconds between retries when an attempt to read a manifest or segment fails.
+mkHlsInputSettings ::
   HlsInputSettings
-hlsInputSettings =
+mkHlsInputSettings =
   HlsInputSettings'
-    { _hisBufferSegments = Nothing,
-      _hisRetries = Nothing,
-      _hisRetryInterval = Nothing,
-      _hisBandwidth = Nothing
+    { bufferSegments = Lude.Nothing,
+      retries = Lude.Nothing,
+      retryInterval = Lude.Nothing,
+      bandwidth = Lude.Nothing
     }
 
 -- | When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
-hisBufferSegments :: Lens' HlsInputSettings (Maybe Natural)
-hisBufferSegments = lens _hisBufferSegments (\s a -> s {_hisBufferSegments = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bufferSegments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hisBufferSegments :: Lens.Lens' HlsInputSettings (Lude.Maybe Lude.Natural)
+hisBufferSegments = Lens.lens (bufferSegments :: HlsInputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bufferSegments = a} :: HlsInputSettings)
+{-# DEPRECATED hisBufferSegments "Use generic-lens or generic-optics with 'bufferSegments' instead." #-}
 
 -- | The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-hisRetries :: Lens' HlsInputSettings (Maybe Natural)
-hisRetries = lens _hisRetries (\s a -> s {_hisRetries = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'retries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hisRetries :: Lens.Lens' HlsInputSettings (Lude.Maybe Lude.Natural)
+hisRetries = Lens.lens (retries :: HlsInputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {retries = a} :: HlsInputSettings)
+{-# DEPRECATED hisRetries "Use generic-lens or generic-optics with 'retries' instead." #-}
 
 -- | The number of seconds between retries when an attempt to read a manifest or segment fails.
-hisRetryInterval :: Lens' HlsInputSettings (Maybe Natural)
-hisRetryInterval = lens _hisRetryInterval (\s a -> s {_hisRetryInterval = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'retryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hisRetryInterval :: Lens.Lens' HlsInputSettings (Lude.Maybe Lude.Natural)
+hisRetryInterval = Lens.lens (retryInterval :: HlsInputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {retryInterval = a} :: HlsInputSettings)
+{-# DEPRECATED hisRetryInterval "Use generic-lens or generic-optics with 'retryInterval' instead." #-}
 
 -- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
-hisBandwidth :: Lens' HlsInputSettings (Maybe Natural)
-hisBandwidth = lens _hisBandwidth (\s a -> s {_hisBandwidth = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hisBandwidth :: Lens.Lens' HlsInputSettings (Lude.Maybe Lude.Natural)
+hisBandwidth = Lens.lens (bandwidth :: HlsInputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bandwidth = a} :: HlsInputSettings)
+{-# DEPRECATED hisBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
 
-instance FromJSON HlsInputSettings where
+instance Lude.FromJSON HlsInputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsInputSettings"
       ( \x ->
           HlsInputSettings'
-            <$> (x .:? "bufferSegments")
-            <*> (x .:? "retries")
-            <*> (x .:? "retryInterval")
-            <*> (x .:? "bandwidth")
+            Lude.<$> (x Lude..:? "bufferSegments")
+            Lude.<*> (x Lude..:? "retries")
+            Lude.<*> (x Lude..:? "retryInterval")
+            Lude.<*> (x Lude..:? "bandwidth")
       )
 
-instance Hashable HlsInputSettings
-
-instance NFData HlsInputSettings
-
-instance ToJSON HlsInputSettings where
+instance Lude.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =
-    object
-      ( catMaybes
-          [ ("bufferSegments" .=) <$> _hisBufferSegments,
-            ("retries" .=) <$> _hisRetries,
-            ("retryInterval" .=) <$> _hisRetryInterval,
-            ("bandwidth" .=) <$> _hisBandwidth
+    Lude.object
+      ( Lude.catMaybes
+          [ ("bufferSegments" Lude..=) Lude.<$> bufferSegments,
+            ("retries" Lude..=) Lude.<$> retries,
+            ("retryInterval" Lude..=) Lude.<$> retryInterval,
+            ("bandwidth" Lude..=) Lude.<$> bandwidth
           ]
       )

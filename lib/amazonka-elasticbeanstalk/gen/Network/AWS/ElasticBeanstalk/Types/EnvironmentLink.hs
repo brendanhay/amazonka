@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentLink where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
+  ( EnvironmentLink (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnvironmentLink,
+
+    -- * Lenses
+    elLinkName,
+    elEnvironmentName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
---
---
--- /See:/ 'environmentLink' smart constructor.
+-- /See:/ 'mkEnvironmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
-  { _elLinkName ::
-      !(Maybe Text),
-    _elEnvironmentName :: !(Maybe Text)
+  { linkName ::
+      Lude.Maybe Lude.Text,
+    environmentName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'elLinkName' - The name of the link.
---
--- * 'elEnvironmentName' - The name of the linked environment (the dependency).
-environmentLink ::
+-- * 'environmentName' - The name of the linked environment (the dependency).
+-- * 'linkName' - The name of the link.
+mkEnvironmentLink ::
   EnvironmentLink
-environmentLink =
+mkEnvironmentLink =
   EnvironmentLink'
-    { _elLinkName = Nothing,
-      _elEnvironmentName = Nothing
+    { linkName = Lude.Nothing,
+      environmentName = Lude.Nothing
     }
 
 -- | The name of the link.
-elLinkName :: Lens' EnvironmentLink (Maybe Text)
-elLinkName = lens _elLinkName (\s a -> s {_elLinkName = a})
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elLinkName :: Lens.Lens' EnvironmentLink (Lude.Maybe Lude.Text)
+elLinkName = Lens.lens (linkName :: EnvironmentLink -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: EnvironmentLink)
+{-# DEPRECATED elLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | The name of the linked environment (the dependency).
-elEnvironmentName :: Lens' EnvironmentLink (Maybe Text)
-elEnvironmentName = lens _elEnvironmentName (\s a -> s {_elEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elEnvironmentName :: Lens.Lens' EnvironmentLink (Lude.Maybe Lude.Text)
+elEnvironmentName = Lens.lens (environmentName :: EnvironmentLink -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: EnvironmentLink)
+{-# DEPRECATED elEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
-instance FromXML EnvironmentLink where
+instance Lude.FromXML EnvironmentLink where
   parseXML x =
     EnvironmentLink'
-      <$> (x .@? "LinkName") <*> (x .@? "EnvironmentName")
-
-instance Hashable EnvironmentLink
-
-instance NFData EnvironmentLink
+      Lude.<$> (x Lude..@? "LinkName") Lude.<*> (x Lude..@? "EnvironmentName")

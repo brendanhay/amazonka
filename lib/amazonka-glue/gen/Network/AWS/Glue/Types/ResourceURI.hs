@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ResourceURI where
+module Network.AWS.Glue.Types.ResourceURI
+  ( ResourceURI (..),
+
+    -- * Smart constructor
+    mkResourceURI,
+
+    -- * Lenses
+    ruResourceType,
+    ruURI,
+  )
+where
 
 import Network.AWS.Glue.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The URIs for function resources.
 --
---
---
--- /See:/ 'resourceURI' smart constructor.
+-- /See:/ 'mkResourceURI' smart constructor.
 data ResourceURI = ResourceURI'
-  { _ruResourceType ::
-      !(Maybe ResourceType),
-    _ruURI :: !(Maybe Text)
+  { resourceType ::
+      Lude.Maybe ResourceType,
+    uri :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceURI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ruResourceType' - The type of the resource.
---
--- * 'ruURI' - The URI for accessing the resource.
-resourceURI ::
+-- * 'resourceType' - The type of the resource.
+-- * 'uri' - The URI for accessing the resource.
+mkResourceURI ::
   ResourceURI
-resourceURI =
-  ResourceURI' {_ruResourceType = Nothing, _ruURI = Nothing}
+mkResourceURI =
+  ResourceURI' {resourceType = Lude.Nothing, uri = Lude.Nothing}
 
 -- | The type of the resource.
-ruResourceType :: Lens' ResourceURI (Maybe ResourceType)
-ruResourceType = lens _ruResourceType (\s a -> s {_ruResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruResourceType :: Lens.Lens' ResourceURI (Lude.Maybe ResourceType)
+ruResourceType = Lens.lens (resourceType :: ResourceURI -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ResourceURI)
+{-# DEPRECATED ruResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The URI for accessing the resource.
-ruURI :: Lens' ResourceURI (Maybe Text)
-ruURI = lens _ruURI (\s a -> s {_ruURI = a})
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruURI :: Lens.Lens' ResourceURI (Lude.Maybe Lude.Text)
+ruURI = Lens.lens (uri :: ResourceURI -> Lude.Maybe Lude.Text) (\s a -> s {uri = a} :: ResourceURI)
+{-# DEPRECATED ruURI "Use generic-lens or generic-optics with 'uri' instead." #-}
 
-instance FromJSON ResourceURI where
+instance Lude.FromJSON ResourceURI where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceURI"
-      (\x -> ResourceURI' <$> (x .:? "ResourceType") <*> (x .:? "Uri"))
+      ( \x ->
+          ResourceURI'
+            Lude.<$> (x Lude..:? "ResourceType") Lude.<*> (x Lude..:? "Uri")
+      )
 
-instance Hashable ResourceURI
-
-instance NFData ResourceURI
-
-instance ToJSON ResourceURI where
+instance Lude.ToJSON ResourceURI where
   toJSON ResourceURI' {..} =
-    object
-      ( catMaybes
-          [("ResourceType" .=) <$> _ruResourceType, ("Uri" .=) <$> _ruURI]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+            ("Uri" Lude..=) Lude.<$> uri
+          ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Tmpfs where
+module Network.AWS.ECS.Types.Tmpfs
+  ( Tmpfs (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTmpfs,
+
+    -- * Lenses
+    tMountOptions,
+    tContainerPath,
+    tSize,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The container path, mount options, and size of the tmpfs mount.
 --
---
---
--- /See:/ 'tmpfs' smart constructor.
+-- /See:/ 'mkTmpfs' smart constructor.
 data Tmpfs = Tmpfs'
-  { _tMountOptions :: !(Maybe [Text]),
-    _tContainerPath :: !Text,
-    _tSize :: !Int
+  { mountOptions :: Lude.Maybe [Lude.Text],
+    containerPath :: Lude.Text,
+    size :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tmpfs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'containerPath' - The absolute file path where the tmpfs volume is to be mounted.
+-- * 'mountOptions' - The list of tmpfs volume mount options.
 --
--- * 'tMountOptions' - The list of tmpfs volume mount options. Valid values: @"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"@
---
--- * 'tContainerPath' - The absolute file path where the tmpfs volume is to be mounted.
---
--- * 'tSize' - The maximum size (in MiB) of the tmpfs volume.
-tmpfs ::
-  -- | 'tContainerPath'
-  Text ->
-  -- | 'tSize'
-  Int ->
+-- Valid values: @"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"@
+-- * 'size' - The maximum size (in MiB) of the tmpfs volume.
+mkTmpfs ::
+  -- | 'containerPath'
+  Lude.Text ->
+  -- | 'size'
+  Lude.Int ->
   Tmpfs
-tmpfs pContainerPath_ pSize_ =
+mkTmpfs pContainerPath_ pSize_ =
   Tmpfs'
-    { _tMountOptions = Nothing,
-      _tContainerPath = pContainerPath_,
-      _tSize = pSize_
+    { mountOptions = Lude.Nothing,
+      containerPath = pContainerPath_,
+      size = pSize_
     }
 
--- | The list of tmpfs volume mount options. Valid values: @"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"@
-tMountOptions :: Lens' Tmpfs [Text]
-tMountOptions = lens _tMountOptions (\s a -> s {_tMountOptions = a}) . _Default . _Coerce
+-- | The list of tmpfs volume mount options.
+--
+-- Valid values: @"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"@
+--
+-- /Note:/ Consider using 'mountOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tMountOptions :: Lens.Lens' Tmpfs (Lude.Maybe [Lude.Text])
+tMountOptions = Lens.lens (mountOptions :: Tmpfs -> Lude.Maybe [Lude.Text]) (\s a -> s {mountOptions = a} :: Tmpfs)
+{-# DEPRECATED tMountOptions "Use generic-lens or generic-optics with 'mountOptions' instead." #-}
 
 -- | The absolute file path where the tmpfs volume is to be mounted.
-tContainerPath :: Lens' Tmpfs Text
-tContainerPath = lens _tContainerPath (\s a -> s {_tContainerPath = a})
+--
+-- /Note:/ Consider using 'containerPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tContainerPath :: Lens.Lens' Tmpfs Lude.Text
+tContainerPath = Lens.lens (containerPath :: Tmpfs -> Lude.Text) (\s a -> s {containerPath = a} :: Tmpfs)
+{-# DEPRECATED tContainerPath "Use generic-lens or generic-optics with 'containerPath' instead." #-}
 
 -- | The maximum size (in MiB) of the tmpfs volume.
-tSize :: Lens' Tmpfs Int
-tSize = lens _tSize (\s a -> s {_tSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSize :: Lens.Lens' Tmpfs Lude.Int
+tSize = Lens.lens (size :: Tmpfs -> Lude.Int) (\s a -> s {size = a} :: Tmpfs)
+{-# DEPRECATED tSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance FromJSON Tmpfs where
+instance Lude.FromJSON Tmpfs where
   parseJSON =
-    withObject
+    Lude.withObject
       "Tmpfs"
       ( \x ->
           Tmpfs'
-            <$> (x .:? "mountOptions" .!= mempty)
-            <*> (x .: "containerPath")
-            <*> (x .: "size")
+            Lude.<$> (x Lude..:? "mountOptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "containerPath")
+            Lude.<*> (x Lude..: "size")
       )
 
-instance Hashable Tmpfs
-
-instance NFData Tmpfs
-
-instance ToJSON Tmpfs where
+instance Lude.ToJSON Tmpfs where
   toJSON Tmpfs' {..} =
-    object
-      ( catMaybes
-          [ ("mountOptions" .=) <$> _tMountOptions,
-            Just ("containerPath" .= _tContainerPath),
-            Just ("size" .= _tSize)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("mountOptions" Lude..=) Lude.<$> mountOptions,
+            Lude.Just ("containerPath" Lude..= containerPath),
+            Lude.Just ("size" Lude..= size)
           ]
       )

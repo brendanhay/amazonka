@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Describes the specified attribute of the specified volume. You can specify only one attribute at a time.
 --
---
 -- For more information about EBS volumes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.DescribeVolumeAttribute
-  ( -- * Creating a Request
-    describeVolumeAttribute,
-    DescribeVolumeAttribute,
+  ( -- * Creating a request
+    DescribeVolumeAttribute (..),
+    mkDescribeVolumeAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvaDryRun,
     dvaAttribute,
     dvaVolumeId,
 
-    -- * Destructuring the Response
-    describeVolumeAttributeResponse,
-    DescribeVolumeAttributeResponse,
+    -- * Destructuring the response
+    DescribeVolumeAttributeResponse (..),
+    mkDescribeVolumeAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvarsVolumeId,
     dvarsProductCodes,
     dvarsAutoEnableIO,
@@ -44,139 +38,159 @@ module Network.AWS.EC2.DescribeVolumeAttribute
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVolumeAttribute' smart constructor.
+-- | /See:/ 'mkDescribeVolumeAttribute' smart constructor.
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-  { _dvaDryRun ::
-      !(Maybe Bool),
-    _dvaAttribute :: !VolumeAttributeName,
-    _dvaVolumeId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: VolumeAttributeName,
+    volumeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumeAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvaAttribute' - The attribute of the volume. This parameter is required.
---
--- * 'dvaVolumeId' - The ID of the volume.
-describeVolumeAttribute ::
-  -- | 'dvaAttribute'
+-- * 'attribute' - The attribute of the volume. This parameter is required.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'volumeId' - The ID of the volume.
+mkDescribeVolumeAttribute ::
+  -- | 'attribute'
   VolumeAttributeName ->
-  -- | 'dvaVolumeId'
-  Text ->
+  -- | 'volumeId'
+  Lude.Text ->
   DescribeVolumeAttribute
-describeVolumeAttribute pAttribute_ pVolumeId_ =
+mkDescribeVolumeAttribute pAttribute_ pVolumeId_ =
   DescribeVolumeAttribute'
-    { _dvaDryRun = Nothing,
-      _dvaAttribute = pAttribute_,
-      _dvaVolumeId = pVolumeId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      volumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
-dvaDryRun = lens _dvaDryRun (\s a -> s {_dvaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvaDryRun :: Lens.Lens' DescribeVolumeAttribute (Lude.Maybe Lude.Bool)
+dvaDryRun = Lens.lens (dryRun :: DescribeVolumeAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVolumeAttribute)
+{-# DEPRECATED dvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The attribute of the volume. This parameter is required.
-dvaAttribute :: Lens' DescribeVolumeAttribute VolumeAttributeName
-dvaAttribute = lens _dvaAttribute (\s a -> s {_dvaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvaAttribute :: Lens.Lens' DescribeVolumeAttribute VolumeAttributeName
+dvaAttribute = Lens.lens (attribute :: DescribeVolumeAttribute -> VolumeAttributeName) (\s a -> s {attribute = a} :: DescribeVolumeAttribute)
+{-# DEPRECATED dvaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the volume.
-dvaVolumeId :: Lens' DescribeVolumeAttribute Text
-dvaVolumeId = lens _dvaVolumeId (\s a -> s {_dvaVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvaVolumeId :: Lens.Lens' DescribeVolumeAttribute Lude.Text
+dvaVolumeId = Lens.lens (volumeId :: DescribeVolumeAttribute -> Lude.Text) (\s a -> s {volumeId = a} :: DescribeVolumeAttribute)
+{-# DEPRECATED dvaVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest DescribeVolumeAttribute where
+instance Lude.AWSRequest DescribeVolumeAttribute where
   type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVolumeAttributeResponse'
-            <$> (x .@? "volumeId")
-            <*> (x .@? "productCodes" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "autoEnableIO")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "volumeId")
+            Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "autoEnableIO")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVolumeAttribute
+instance Lude.ToHeaders DescribeVolumeAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVolumeAttribute
+instance Lude.ToPath DescribeVolumeAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVolumeAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeVolumeAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeVolumeAttribute where
+instance Lude.ToQuery DescribeVolumeAttribute where
   toQuery DescribeVolumeAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVolumeAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvaDryRun,
-        "Attribute" =: _dvaAttribute,
-        "VolumeId" =: _dvaVolumeId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeVolumeAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "VolumeId" Lude.=: volumeId
       ]
 
--- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
+-- | /See:/ 'mkDescribeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-  { _dvarsVolumeId ::
-      !(Maybe Text),
-    _dvarsProductCodes ::
-      !(Maybe [ProductCode]),
-    _dvarsAutoEnableIO ::
-      !( Maybe
-           AttributeBooleanValue
-       ),
-    _dvarsResponseStatus ::
-      !Int
+  { volumeId ::
+      Lude.Maybe Lude.Text,
+    productCodes ::
+      Lude.Maybe [ProductCode],
+    autoEnableIO ::
+      Lude.Maybe
+        AttributeBooleanValue,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvarsVolumeId' - The ID of the volume.
---
--- * 'dvarsProductCodes' - A list of product codes.
---
--- * 'dvarsAutoEnableIO' - The state of @autoEnableIO@ attribute.
---
--- * 'dvarsResponseStatus' - -- | The response status code.
-describeVolumeAttributeResponse ::
-  -- | 'dvarsResponseStatus'
-  Int ->
+-- * 'autoEnableIO' - The state of @autoEnableIO@ attribute.
+-- * 'productCodes' - A list of product codes.
+-- * 'responseStatus' - The response status code.
+-- * 'volumeId' - The ID of the volume.
+mkDescribeVolumeAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pResponseStatus_ =
+mkDescribeVolumeAttributeResponse pResponseStatus_ =
   DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId = Nothing,
-      _dvarsProductCodes = Nothing,
-      _dvarsAutoEnableIO = Nothing,
-      _dvarsResponseStatus = pResponseStatus_
+    { volumeId = Lude.Nothing,
+      productCodes = Lude.Nothing,
+      autoEnableIO = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the volume.
-dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
-dvarsVolumeId = lens _dvarsVolumeId (\s a -> s {_dvarsVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvarsVolumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Lude.Maybe Lude.Text)
+dvarsVolumeId = Lens.lens (volumeId :: DescribeVolumeAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: DescribeVolumeAttributeResponse)
+{-# DEPRECATED dvarsVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | A list of product codes.
-dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarsProductCodes = lens _dvarsProductCodes (\s a -> s {_dvarsProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvarsProductCodes :: Lens.Lens' DescribeVolumeAttributeResponse (Lude.Maybe [ProductCode])
+dvarsProductCodes = Lens.lens (productCodes :: DescribeVolumeAttributeResponse -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: DescribeVolumeAttributeResponse)
+{-# DEPRECATED dvarsProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | The state of @autoEnableIO@ attribute.
-dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\s a -> s {_dvarsAutoEnableIO = a})
+--
+-- /Note:/ Consider using 'autoEnableIO' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvarsAutoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Lude.Maybe AttributeBooleanValue)
+dvarsAutoEnableIO = Lens.lens (autoEnableIO :: DescribeVolumeAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {autoEnableIO = a} :: DescribeVolumeAttributeResponse)
+{-# DEPRECATED dvarsAutoEnableIO "Use generic-lens or generic-optics with 'autoEnableIO' instead." #-}
 
--- | -- | The response status code.
-dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
-dvarsResponseStatus = lens _dvarsResponseStatus (\s a -> s {_dvarsResponseStatus = a})
-
-instance NFData DescribeVolumeAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvarsResponseStatus :: Lens.Lens' DescribeVolumeAttributeResponse Lude.Int
+dvarsResponseStatus = Lens.lens (responseStatus :: DescribeVolumeAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVolumeAttributeResponse)
+{-# DEPRECATED dvarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

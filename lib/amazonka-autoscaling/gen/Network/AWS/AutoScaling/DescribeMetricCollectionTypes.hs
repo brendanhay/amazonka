@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,17 @@
 --
 -- Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
 --
---
 -- The @GroupStandbyInstances@ metric is not returned by default. You must explicitly request this metric when calling the 'EnableMetricsCollection' API.
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
-  ( -- * Creating a Request
-    describeMetricCollectionTypes,
-    DescribeMetricCollectionTypes,
+  ( -- * Creating a request
+    DescribeMetricCollectionTypes (..),
+    mkDescribeMetricCollectionTypes,
 
-    -- * Destructuring the Response
-    describeMetricCollectionTypesResponse,
-    DescribeMetricCollectionTypesResponse,
+    -- * Destructuring the response
+    DescribeMetricCollectionTypesResponse (..),
+    mkDescribeMetricCollectionTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmctrsMetrics,
     dmctrsGranularities,
     dmctrsResponseStatus,
@@ -38,99 +32,115 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeMetricCollectionTypes' smart constructor.
+-- | /See:/ 'mkDescribeMetricCollectionTypes' smart constructor.
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricCollectionTypes' with the minimum fields required to make a request.
-describeMetricCollectionTypes ::
+mkDescribeMetricCollectionTypes ::
   DescribeMetricCollectionTypes
-describeMetricCollectionTypes = DescribeMetricCollectionTypes'
+mkDescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
-instance AWSRequest DescribeMetricCollectionTypes where
+instance Lude.AWSRequest DescribeMetricCollectionTypes where
   type
     Rs DescribeMetricCollectionTypes =
       DescribeMetricCollectionTypesResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            <$> (x .@? "Metrics" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "Granularities" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Metrics" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> ( x Lude..@? "Granularities" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMetricCollectionTypes
+instance Lude.ToHeaders DescribeMetricCollectionTypes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeMetricCollectionTypes
+instance Lude.ToPath DescribeMetricCollectionTypes where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeMetricCollectionTypes where
-  toHeaders = const mempty
-
-instance ToPath DescribeMetricCollectionTypes where
-  toPath = const "/"
-
-instance ToQuery DescribeMetricCollectionTypes where
+instance Lude.ToQuery DescribeMetricCollectionTypes where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DescribeMetricCollectionTypes" :: ByteString),
-            "Version" =: ("2011-01-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("DescribeMetricCollectionTypes" :: Lude.ByteString),
+            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
+-- | /See:/ 'mkDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-  { _dmctrsMetrics ::
-      !( Maybe
-           [MetricCollectionType]
-       ),
-    _dmctrsGranularities ::
-      !( Maybe
-           [MetricGranularityType]
-       ),
-    _dmctrsResponseStatus ::
-      !Int
+  { metrics ::
+      Lude.Maybe
+        [MetricCollectionType],
+    granularities ::
+      Lude.Maybe
+        [MetricGranularityType],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricCollectionTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmctrsMetrics' - One or more metrics.
---
--- * 'dmctrsGranularities' - The granularities for the metrics.
---
--- * 'dmctrsResponseStatus' - -- | The response status code.
-describeMetricCollectionTypesResponse ::
-  -- | 'dmctrsResponseStatus'
-  Int ->
+-- * 'granularities' - The granularities for the metrics.
+-- * 'metrics' - One or more metrics.
+-- * 'responseStatus' - The response status code.
+mkDescribeMetricCollectionTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse pResponseStatus_ =
+mkDescribeMetricCollectionTypesResponse pResponseStatus_ =
   DescribeMetricCollectionTypesResponse'
-    { _dmctrsMetrics = Nothing,
-      _dmctrsGranularities = Nothing,
-      _dmctrsResponseStatus = pResponseStatus_
+    { metrics = Lude.Nothing,
+      granularities = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | One or more metrics.
-dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrsMetrics = lens _dmctrsMetrics (\s a -> s {_dmctrsMetrics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmctrsMetrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Lude.Maybe [MetricCollectionType])
+dmctrsMetrics = Lens.lens (metrics :: DescribeMetricCollectionTypesResponse -> Lude.Maybe [MetricCollectionType]) (\s a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse)
+{-# DEPRECATED dmctrsMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The granularities for the metrics.
-dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrsGranularities = lens _dmctrsGranularities (\s a -> s {_dmctrsGranularities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'granularities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmctrsGranularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Lude.Maybe [MetricGranularityType])
+dmctrsGranularities = Lens.lens (granularities :: DescribeMetricCollectionTypesResponse -> Lude.Maybe [MetricGranularityType]) (\s a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse)
+{-# DEPRECATED dmctrsGranularities "Use generic-lens or generic-optics with 'granularities' instead." #-}
 
--- | -- | The response status code.
-dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
-dmctrsResponseStatus = lens _dmctrsResponseStatus (\s a -> s {_dmctrsResponseStatus = a})
-
-instance NFData DescribeMetricCollectionTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmctrsResponseStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Lude.Int
+dmctrsResponseStatus = Lens.lens (responseStatus :: DescribeMetricCollectionTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMetricCollectionTypesResponse)
+{-# DEPRECATED dmctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

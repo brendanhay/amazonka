@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Reason where
+module Network.AWS.Rekognition.Types.Reason
+  ( Reason
+      ( Reason',
+        ExceedsMaxFaces,
+        ExtremePose,
+        LowBrightness,
+        LowConfidence,
+        LowFaceQuality,
+        LowSharpness,
+        SmallBoundingBox
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Reason
-  = ExceedsMaxFaces
-  | ExtremePose
-  | LowBrightness
-  | LowConfidence
-  | LowFaceQuality
-  | LowSharpness
-  | SmallBoundingBox
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Reason = Reason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Reason where
-  parser =
-    takeLowerText >>= \case
-      "exceeds_max_faces" -> pure ExceedsMaxFaces
-      "extreme_pose" -> pure ExtremePose
-      "low_brightness" -> pure LowBrightness
-      "low_confidence" -> pure LowConfidence
-      "low_face_quality" -> pure LowFaceQuality
-      "low_sharpness" -> pure LowSharpness
-      "small_bounding_box" -> pure SmallBoundingBox
-      e ->
-        fromTextError $
-          "Failure parsing Reason from value: '" <> e
-            <> "'. Accepted values: exceeds_max_faces, extreme_pose, low_brightness, low_confidence, low_face_quality, low_sharpness, small_bounding_box"
+pattern ExceedsMaxFaces :: Reason
+pattern ExceedsMaxFaces = Reason' "EXCEEDS_MAX_FACES"
 
-instance ToText Reason where
-  toText = \case
-    ExceedsMaxFaces -> "EXCEEDS_MAX_FACES"
-    ExtremePose -> "EXTREME_POSE"
-    LowBrightness -> "LOW_BRIGHTNESS"
-    LowConfidence -> "LOW_CONFIDENCE"
-    LowFaceQuality -> "LOW_FACE_QUALITY"
-    LowSharpness -> "LOW_SHARPNESS"
-    SmallBoundingBox -> "SMALL_BOUNDING_BOX"
+pattern ExtremePose :: Reason
+pattern ExtremePose = Reason' "EXTREME_POSE"
 
-instance Hashable Reason
+pattern LowBrightness :: Reason
+pattern LowBrightness = Reason' "LOW_BRIGHTNESS"
 
-instance NFData Reason
+pattern LowConfidence :: Reason
+pattern LowConfidence = Reason' "LOW_CONFIDENCE"
 
-instance ToByteString Reason
+pattern LowFaceQuality :: Reason
+pattern LowFaceQuality = Reason' "LOW_FACE_QUALITY"
 
-instance ToQuery Reason
+pattern LowSharpness :: Reason
+pattern LowSharpness = Reason' "LOW_SHARPNESS"
 
-instance ToHeader Reason
+pattern SmallBoundingBox :: Reason
+pattern SmallBoundingBox = Reason' "SMALL_BOUNDING_BOX"
 
-instance FromJSON Reason where
-  parseJSON = parseJSONText "Reason"
+{-# COMPLETE
+  ExceedsMaxFaces,
+  ExtremePose,
+  LowBrightness,
+  LowConfidence,
+  LowFaceQuality,
+  LowSharpness,
+  SmallBoundingBox,
+  Reason'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceSpecification where
+module Network.AWS.EC2.Types.InstanceSpecification
+  ( InstanceSpecification (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceSpecification,
+
+    -- * Lenses
+    isInstanceId,
+    isExcludeBootVolume,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The instance details to specify which volumes should be snapshotted.
 --
---
---
--- /See:/ 'instanceSpecification' smart constructor.
+-- /See:/ 'mkInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { _isInstanceId ::
-      !(Maybe Text),
-    _isExcludeBootVolume :: !(Maybe Bool)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    excludeBootVolume :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isInstanceId' - The instance to specify which volumes should be snapshotted.
---
--- * 'isExcludeBootVolume' - Excludes the root volume from being snapshotted.
-instanceSpecification ::
+-- * 'excludeBootVolume' - Excludes the root volume from being snapshotted.
+-- * 'instanceId' - The instance to specify which volumes should be snapshotted.
+mkInstanceSpecification ::
   InstanceSpecification
-instanceSpecification =
+mkInstanceSpecification =
   InstanceSpecification'
-    { _isInstanceId = Nothing,
-      _isExcludeBootVolume = Nothing
+    { instanceId = Lude.Nothing,
+      excludeBootVolume = Lude.Nothing
     }
 
 -- | The instance to specify which volumes should be snapshotted.
-isInstanceId :: Lens' InstanceSpecification (Maybe Text)
-isInstanceId = lens _isInstanceId (\s a -> s {_isInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isInstanceId :: Lens.Lens' InstanceSpecification (Lude.Maybe Lude.Text)
+isInstanceId = Lens.lens (instanceId :: InstanceSpecification -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceSpecification)
+{-# DEPRECATED isInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Excludes the root volume from being snapshotted.
-isExcludeBootVolume :: Lens' InstanceSpecification (Maybe Bool)
-isExcludeBootVolume = lens _isExcludeBootVolume (\s a -> s {_isExcludeBootVolume = a})
+--
+-- /Note:/ Consider using 'excludeBootVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isExcludeBootVolume :: Lens.Lens' InstanceSpecification (Lude.Maybe Lude.Bool)
+isExcludeBootVolume = Lens.lens (excludeBootVolume :: InstanceSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {excludeBootVolume = a} :: InstanceSpecification)
+{-# DEPRECATED isExcludeBootVolume "Use generic-lens or generic-optics with 'excludeBootVolume' instead." #-}
 
-instance Hashable InstanceSpecification
-
-instance NFData InstanceSpecification
-
-instance ToQuery InstanceSpecification where
+instance Lude.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =
-    mconcat
-      [ "InstanceId" =: _isInstanceId,
-        "ExcludeBootVolume" =: _isExcludeBootVolume
+    Lude.mconcat
+      [ "InstanceId" Lude.=: instanceId,
+        "ExcludeBootVolume" Lude.=: excludeBootVolume
       ]

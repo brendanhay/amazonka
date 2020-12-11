@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Lists the virtual interface failover test history.
 module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
-  ( -- * Creating a Request
-    listVirtualInterfaceTestHistory,
-    ListVirtualInterfaceTestHistory,
+  ( -- * Creating a request
+    ListVirtualInterfaceTestHistory (..),
+    mkListVirtualInterfaceTestHistory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvithBgpPeers,
     lvithStatus,
     lvithTestId,
@@ -31,11 +26,11 @@ module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
     lvithMaxResults,
     lvithVirtualInterfaceId,
 
-    -- * Destructuring the Response
-    listVirtualInterfaceTestHistoryResponse,
-    ListVirtualInterfaceTestHistoryResponse,
+    -- * Destructuring the response
+    ListVirtualInterfaceTestHistoryResponse (..),
+    mkListVirtualInterfaceTestHistoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvithrsNextToken,
     lvithrsVirtualInterfaceTestHistory,
     lvithrsResponseStatus,
@@ -43,172 +38,201 @@ module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listVirtualInterfaceTestHistory' smart constructor.
+-- | /See:/ 'mkListVirtualInterfaceTestHistory' smart constructor.
 data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
-  { _lvithBgpPeers ::
-      !(Maybe [Text]),
-    _lvithStatus ::
-      !(Maybe Text),
-    _lvithTestId ::
-      !(Maybe Text),
-    _lvithNextToken ::
-      !(Maybe Text),
-    _lvithMaxResults ::
-      !(Maybe Int),
-    _lvithVirtualInterfaceId ::
-      !(Maybe Text)
+  { bgpPeers ::
+      Lude.Maybe [Lude.Text],
+    status ::
+      Lude.Maybe Lude.Text,
+    testId ::
+      Lude.Maybe Lude.Text,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Int,
+    virtualInterfaceId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVirtualInterfaceTestHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bgpPeers' - The BGP peers that were placed in the DOWN state during the virtual interface failover test.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
--- * 'lvithBgpPeers' - The BGP peers that were placed in the DOWN state during the virtual interface failover test.
---
--- * 'lvithStatus' - The status of the virtual interface failover test.
---
--- * 'lvithTestId' - The ID of the virtual interface failover test.
---
--- * 'lvithNextToken' - The token for the next page of results.
---
--- * 'lvithMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
---
--- * 'lvithVirtualInterfaceId' - The ID of the virtual interface that was tested.
-listVirtualInterfaceTestHistory ::
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'status' - The status of the virtual interface failover test.
+-- * 'testId' - The ID of the virtual interface failover test.
+-- * 'virtualInterfaceId' - The ID of the virtual interface that was tested.
+mkListVirtualInterfaceTestHistory ::
   ListVirtualInterfaceTestHistory
-listVirtualInterfaceTestHistory =
+mkListVirtualInterfaceTestHistory =
   ListVirtualInterfaceTestHistory'
-    { _lvithBgpPeers = Nothing,
-      _lvithStatus = Nothing,
-      _lvithTestId = Nothing,
-      _lvithNextToken = Nothing,
-      _lvithMaxResults = Nothing,
-      _lvithVirtualInterfaceId = Nothing
+    { bgpPeers = Lude.Nothing,
+      status = Lude.Nothing,
+      testId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      virtualInterfaceId = Lude.Nothing
     }
 
 -- | The BGP peers that were placed in the DOWN state during the virtual interface failover test.
-lvithBgpPeers :: Lens' ListVirtualInterfaceTestHistory [Text]
-lvithBgpPeers = lens _lvithBgpPeers (\s a -> s {_lvithBgpPeers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bgpPeers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithBgpPeers :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe [Lude.Text])
+lvithBgpPeers = Lens.lens (bgpPeers :: ListVirtualInterfaceTestHistory -> Lude.Maybe [Lude.Text]) (\s a -> s {bgpPeers = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithBgpPeers "Use generic-lens or generic-optics with 'bgpPeers' instead." #-}
 
 -- | The status of the virtual interface failover test.
-lvithStatus :: Lens' ListVirtualInterfaceTestHistory (Maybe Text)
-lvithStatus = lens _lvithStatus (\s a -> s {_lvithStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithStatus :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
+lvithStatus = Lens.lens (status :: ListVirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the virtual interface failover test.
-lvithTestId :: Lens' ListVirtualInterfaceTestHistory (Maybe Text)
-lvithTestId = lens _lvithTestId (\s a -> s {_lvithTestId = a})
+--
+-- /Note:/ Consider using 'testId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithTestId :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
+lvithTestId = Lens.lens (testId :: ListVirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {testId = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithTestId "Use generic-lens or generic-optics with 'testId' instead." #-}
 
 -- | The token for the next page of results.
-lvithNextToken :: Lens' ListVirtualInterfaceTestHistory (Maybe Text)
-lvithNextToken = lens _lvithNextToken (\s a -> s {_lvithNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithNextToken :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
+lvithNextToken = Lens.lens (nextToken :: ListVirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
-lvithMaxResults :: Lens' ListVirtualInterfaceTestHistory (Maybe Int)
-lvithMaxResults = lens _lvithMaxResults (\s a -> s {_lvithMaxResults = a})
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+--
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithMaxResults :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe Lude.Int)
+lvithMaxResults = Lens.lens (maxResults :: ListVirtualInterfaceTestHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the virtual interface that was tested.
-lvithVirtualInterfaceId :: Lens' ListVirtualInterfaceTestHistory (Maybe Text)
-lvithVirtualInterfaceId = lens _lvithVirtualInterfaceId (\s a -> s {_lvithVirtualInterfaceId = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithVirtualInterfaceId :: Lens.Lens' ListVirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
+lvithVirtualInterfaceId = Lens.lens (virtualInterfaceId :: ListVirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: ListVirtualInterfaceTestHistory)
+{-# DEPRECATED lvithVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance AWSRequest ListVirtualInterfaceTestHistory where
+instance Lude.AWSRequest ListVirtualInterfaceTestHistory where
   type
     Rs ListVirtualInterfaceTestHistory =
       ListVirtualInterfaceTestHistoryResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVirtualInterfaceTestHistoryResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "virtualInterfaceTestHistory" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "virtualInterfaceTestHistory" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVirtualInterfaceTestHistory
-
-instance NFData ListVirtualInterfaceTestHistory
-
-instance ToHeaders ListVirtualInterfaceTestHistory where
+instance Lude.ToHeaders ListVirtualInterfaceTestHistory where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.ListVirtualInterfaceTestHistory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.ListVirtualInterfaceTestHistory" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListVirtualInterfaceTestHistory where
+instance Lude.ToJSON ListVirtualInterfaceTestHistory where
   toJSON ListVirtualInterfaceTestHistory' {..} =
-    object
-      ( catMaybes
-          [ ("bgpPeers" .=) <$> _lvithBgpPeers,
-            ("status" .=) <$> _lvithStatus,
-            ("testId" .=) <$> _lvithTestId,
-            ("nextToken" .=) <$> _lvithNextToken,
-            ("maxResults" .=) <$> _lvithMaxResults,
-            ("virtualInterfaceId" .=) <$> _lvithVirtualInterfaceId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("bgpPeers" Lude..=) Lude.<$> bgpPeers,
+            ("status" Lude..=) Lude.<$> status,
+            ("testId" Lude..=) Lude.<$> testId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            ("virtualInterfaceId" Lude..=) Lude.<$> virtualInterfaceId
           ]
       )
 
-instance ToPath ListVirtualInterfaceTestHistory where
-  toPath = const "/"
+instance Lude.ToPath ListVirtualInterfaceTestHistory where
+  toPath = Lude.const "/"
 
-instance ToQuery ListVirtualInterfaceTestHistory where
-  toQuery = const mempty
+instance Lude.ToQuery ListVirtualInterfaceTestHistory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listVirtualInterfaceTestHistoryResponse' smart constructor.
+-- | /See:/ 'mkListVirtualInterfaceTestHistoryResponse' smart constructor.
 data ListVirtualInterfaceTestHistoryResponse = ListVirtualInterfaceTestHistoryResponse'
-  { _lvithrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _lvithrsVirtualInterfaceTestHistory ::
-      !( Maybe
-           [VirtualInterfaceTestHistory]
-       ),
-    _lvithrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    virtualInterfaceTestHistory ::
+      Lude.Maybe
+        [VirtualInterfaceTestHistory],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVirtualInterfaceTestHistoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvithrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'lvithrsVirtualInterfaceTestHistory' - The ID of the tested virtual interface.
---
--- * 'lvithrsResponseStatus' - -- | The response status code.
-listVirtualInterfaceTestHistoryResponse ::
-  -- | 'lvithrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'virtualInterfaceTestHistory' - The ID of the tested virtual interface.
+mkListVirtualInterfaceTestHistoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVirtualInterfaceTestHistoryResponse
-listVirtualInterfaceTestHistoryResponse pResponseStatus_ =
+mkListVirtualInterfaceTestHistoryResponse pResponseStatus_ =
   ListVirtualInterfaceTestHistoryResponse'
-    { _lvithrsNextToken =
-        Nothing,
-      _lvithrsVirtualInterfaceTestHistory = Nothing,
-      _lvithrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      virtualInterfaceTestHistory = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-lvithrsNextToken :: Lens' ListVirtualInterfaceTestHistoryResponse (Maybe Text)
-lvithrsNextToken = lens _lvithrsNextToken (\s a -> s {_lvithrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithrsNextToken :: Lens.Lens' ListVirtualInterfaceTestHistoryResponse (Lude.Maybe Lude.Text)
+lvithrsNextToken = Lens.lens (nextToken :: ListVirtualInterfaceTestHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVirtualInterfaceTestHistoryResponse)
+{-# DEPRECATED lvithrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the tested virtual interface.
-lvithrsVirtualInterfaceTestHistory :: Lens' ListVirtualInterfaceTestHistoryResponse [VirtualInterfaceTestHistory]
-lvithrsVirtualInterfaceTestHistory = lens _lvithrsVirtualInterfaceTestHistory (\s a -> s {_lvithrsVirtualInterfaceTestHistory = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'virtualInterfaceTestHistory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithrsVirtualInterfaceTestHistory :: Lens.Lens' ListVirtualInterfaceTestHistoryResponse (Lude.Maybe [VirtualInterfaceTestHistory])
+lvithrsVirtualInterfaceTestHistory = Lens.lens (virtualInterfaceTestHistory :: ListVirtualInterfaceTestHistoryResponse -> Lude.Maybe [VirtualInterfaceTestHistory]) (\s a -> s {virtualInterfaceTestHistory = a} :: ListVirtualInterfaceTestHistoryResponse)
+{-# DEPRECATED lvithrsVirtualInterfaceTestHistory "Use generic-lens or generic-optics with 'virtualInterfaceTestHistory' instead." #-}
 
--- | -- | The response status code.
-lvithrsResponseStatus :: Lens' ListVirtualInterfaceTestHistoryResponse Int
-lvithrsResponseStatus = lens _lvithrsResponseStatus (\s a -> s {_lvithrsResponseStatus = a})
-
-instance NFData ListVirtualInterfaceTestHistoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvithrsResponseStatus :: Lens.Lens' ListVirtualInterfaceTestHistoryResponse Lude.Int
+lvithrsResponseStatus = Lens.lens (responseStatus :: ListVirtualInterfaceTestHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVirtualInterfaceTestHistoryResponse)
+{-# DEPRECATED lvithrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

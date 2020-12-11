@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Gets information about a namespace.
 module Network.AWS.Route53AutoNaming.GetNamespace
-  ( -- * Creating a Request
-    getNamespace,
-    GetNamespace,
+  ( -- * Creating a request
+    GetNamespace (..),
+    mkGetNamespace,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gnId,
 
-    -- * Destructuring the Response
-    getNamespaceResponse,
-    GetNamespaceResponse,
+    -- * Destructuring the response
+    GetNamespaceResponse (..),
+    mkGetNamespaceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gnrsNamespace,
     gnrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'getNamespace' smart constructor.
-newtype GetNamespace = GetNamespace' {_gnId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetNamespace' smart constructor.
+newtype GetNamespace = GetNamespace' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNamespace' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gnId' - The ID of the namespace that you want to get information about.
-getNamespace ::
-  -- | 'gnId'
-  Text ->
+-- * 'id' - The ID of the namespace that you want to get information about.
+mkGetNamespace ::
+  -- | 'id'
+  Lude.Text ->
   GetNamespace
-getNamespace pId_ = GetNamespace' {_gnId = pId_}
+mkGetNamespace pId_ = GetNamespace' {id = pId_}
 
 -- | The ID of the namespace that you want to get information about.
-gnId :: Lens' GetNamespace Text
-gnId = lens _gnId (\s a -> s {_gnId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnId :: Lens.Lens' GetNamespace Lude.Text
+gnId = Lens.lens (id :: GetNamespace -> Lude.Text) (\s a -> s {id = a} :: GetNamespace)
+{-# DEPRECATED gnId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetNamespace where
+instance Lude.AWSRequest GetNamespace where
   type Rs GetNamespace = GetNamespaceResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetNamespaceResponse'
-            <$> (x .?> "Namespace") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Namespace") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetNamespace
-
-instance NFData GetNamespace
-
-instance ToHeaders GetNamespace where
+instance Lude.ToHeaders GetNamespace where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.GetNamespace" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.GetNamespace" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetNamespace where
+instance Lude.ToJSON GetNamespace where
   toJSON GetNamespace' {..} =
-    object (catMaybes [Just ("Id" .= _gnId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
 
-instance ToPath GetNamespace where
-  toPath = const "/"
+instance Lude.ToPath GetNamespace where
+  toPath = Lude.const "/"
 
-instance ToQuery GetNamespace where
-  toQuery = const mempty
+instance Lude.ToQuery GetNamespace where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getNamespaceResponse' smart constructor.
+-- | /See:/ 'mkGetNamespaceResponse' smart constructor.
 data GetNamespaceResponse = GetNamespaceResponse'
-  { _gnrsNamespace ::
-      !(Maybe Namespace),
-    _gnrsResponseStatus :: !Int
+  { namespace ::
+      Lude.Maybe Namespace,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNamespaceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gnrsNamespace' - A complex type that contains information about the specified namespace.
---
--- * 'gnrsResponseStatus' - -- | The response status code.
-getNamespaceResponse ::
-  -- | 'gnrsResponseStatus'
-  Int ->
+-- * 'namespace' - A complex type that contains information about the specified namespace.
+-- * 'responseStatus' - The response status code.
+mkGetNamespaceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetNamespaceResponse
-getNamespaceResponse pResponseStatus_ =
+mkGetNamespaceResponse pResponseStatus_ =
   GetNamespaceResponse'
-    { _gnrsNamespace = Nothing,
-      _gnrsResponseStatus = pResponseStatus_
+    { namespace = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains information about the specified namespace.
-gnrsNamespace :: Lens' GetNamespaceResponse (Maybe Namespace)
-gnrsNamespace = lens _gnrsNamespace (\s a -> s {_gnrsNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnrsNamespace :: Lens.Lens' GetNamespaceResponse (Lude.Maybe Namespace)
+gnrsNamespace = Lens.lens (namespace :: GetNamespaceResponse -> Lude.Maybe Namespace) (\s a -> s {namespace = a} :: GetNamespaceResponse)
+{-# DEPRECATED gnrsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
--- | -- | The response status code.
-gnrsResponseStatus :: Lens' GetNamespaceResponse Int
-gnrsResponseStatus = lens _gnrsResponseStatus (\s a -> s {_gnrsResponseStatus = a})
-
-instance NFData GetNamespaceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gnrsResponseStatus :: Lens.Lens' GetNamespaceResponse Lude.Int
+gnrsResponseStatus = Lens.lens (responseStatus :: GetNamespaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetNamespaceResponse)
+{-# DEPRECATED gnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

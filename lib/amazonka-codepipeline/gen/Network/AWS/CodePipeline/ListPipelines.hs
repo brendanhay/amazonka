@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Gets a summary of all of the pipelines associated with your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodePipeline.ListPipelines
-  ( -- * Creating a Request
-    listPipelines,
-    ListPipelines,
+  ( -- * Creating a request
+    ListPipelines (..),
+    mkListPipelines,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpNextToken,
 
-    -- * Destructuring the Response
-    listPipelinesResponse,
-    ListPipelinesResponse,
+    -- * Destructuring the response
+    ListPipelinesResponse (..),
+    mkListPipelinesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsPipelines,
     lprsNextToken,
     lprsResponseStatus,
@@ -42,118 +35,136 @@ module Network.AWS.CodePipeline.ListPipelines
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @ListPipelines@ action.
 --
---
---
--- /See:/ 'listPipelines' smart constructor.
-newtype ListPipelines = ListPipelines' {_lpNextToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkListPipelines' smart constructor.
+newtype ListPipelines = ListPipelines'
+  { nextToken ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpNextToken' - An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list.
-listPipelines ::
+-- * 'nextToken' - An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list.
+mkListPipelines ::
   ListPipelines
-listPipelines = ListPipelines' {_lpNextToken = Nothing}
+mkListPipelines = ListPipelines' {nextToken = Lude.Nothing}
 
 -- | An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list.
-lpNextToken :: Lens' ListPipelines (Maybe Text)
-lpNextToken = lens _lpNextToken (\s a -> s {_lpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: ListPipelines -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelines)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListPipelines where
+instance Page.AWSPager ListPipelines where
   page rq rs
-    | stop (rs ^. lprsNextToken) = Nothing
-    | stop (rs ^. lprsPipelines) = Nothing
-    | otherwise = Just $ rq & lpNextToken .~ rs ^. lprsNextToken
+    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsPipelines) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
 
-instance AWSRequest ListPipelines where
+instance Lude.AWSRequest ListPipelines where
   type Rs ListPipelines = ListPipelinesResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            <$> (x .?> "pipelines" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "pipelines" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPipelines
-
-instance NFData ListPipelines
-
-instance ToHeaders ListPipelines where
+instance Lude.ToHeaders ListPipelines where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.ListPipelines" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.ListPipelines" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPipelines where
+instance Lude.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
-    object (catMaybes [("nextToken" .=) <$> _lpNextToken])
+    Lude.object
+      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListPipelines where
-  toPath = const "/"
+instance Lude.ToPath ListPipelines where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPipelines where
-  toQuery = const mempty
+instance Lude.ToQuery ListPipelines where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @ListPipelines@ action.
 --
---
---
--- /See:/ 'listPipelinesResponse' smart constructor.
+-- /See:/ 'mkListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { _lprsPipelines ::
-      !(Maybe [PipelineSummary]),
-    _lprsNextToken :: !(Maybe Text),
-    _lprsResponseStatus :: !Int
+  { pipelines ::
+      Lude.Maybe [PipelineSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsPipelines' - The list of pipelines.
---
--- * 'lprsNextToken' - If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listPipelinesResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
+-- * 'pipelines' - The list of pipelines.
+-- * 'responseStatus' - The response status code.
+mkListPipelinesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPipelinesResponse
-listPipelinesResponse pResponseStatus_ =
+mkListPipelinesResponse pResponseStatus_ =
   ListPipelinesResponse'
-    { _lprsPipelines = Nothing,
-      _lprsNextToken = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { pipelines = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of pipelines.
-lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
-lprsPipelines = lens _lprsPipelines (\s a -> s {_lprsPipelines = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pipelines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsPipelines :: Lens.Lens' ListPipelinesResponse (Lude.Maybe [PipelineSummary])
+lprsPipelines = Lens.lens (pipelines :: ListPipelinesResponse -> Lude.Maybe [PipelineSummary]) (\s a -> s {pipelines = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsPipelines "Use generic-lens or generic-optics with 'pipelines' instead." #-}
 
 -- | If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
-lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\s a -> s {_lprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextToken :: Lens.Lens' ListPipelinesResponse (Lude.Maybe Lude.Text)
+lprsNextToken = Lens.lens (nextToken :: ListPipelinesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPipelinesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListPipelinesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListPipelinesResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListPipelinesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPipelinesResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

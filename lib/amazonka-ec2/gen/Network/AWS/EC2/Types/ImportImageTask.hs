@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,178 +7,240 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportImageTask where
+module Network.AWS.EC2.Types.ImportImageTask
+  ( ImportImageTask (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkImportImageTask,
+
+    -- * Lenses
+    iitStatus,
+    iitHypervisor,
+    iitPlatform,
+    iitProgress,
+    iitLicenseSpecifications,
+    iitLicenseType,
+    iitSnapshotDetails,
+    iitEncrypted,
+    iitKMSKeyId,
+    iitStatusMessage,
+    iitImageId,
+    iitImportTaskId,
+    iitArchitecture,
+    iitDescription,
+    iitTags,
+  )
+where
+
 import Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse
 import Network.AWS.EC2.Types.SnapshotDetail
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an import image task.
 --
---
---
--- /See:/ 'importImageTask' smart constructor.
+-- /See:/ 'mkImportImageTask' smart constructor.
 data ImportImageTask = ImportImageTask'
-  { _iitStatus ::
-      !(Maybe Text),
-    _iitHypervisor :: !(Maybe Text),
-    _iitPlatform :: !(Maybe Text),
-    _iitProgress :: !(Maybe Text),
-    _iitLicenseSpecifications ::
-      !(Maybe [ImportImageLicenseConfigurationResponse]),
-    _iitLicenseType :: !(Maybe Text),
-    _iitSnapshotDetails :: !(Maybe [SnapshotDetail]),
-    _iitEncrypted :: !(Maybe Bool),
-    _iitKMSKeyId :: !(Maybe Text),
-    _iitStatusMessage :: !(Maybe Text),
-    _iitImageId :: !(Maybe Text),
-    _iitImportTaskId :: !(Maybe Text),
-    _iitArchitecture :: !(Maybe Text),
-    _iitDescription :: !(Maybe Text),
-    _iitTags :: !(Maybe [Tag])
+  { status ::
+      Lude.Maybe Lude.Text,
+    hypervisor :: Lude.Maybe Lude.Text,
+    platform :: Lude.Maybe Lude.Text,
+    progress :: Lude.Maybe Lude.Text,
+    licenseSpecifications ::
+      Lude.Maybe [ImportImageLicenseConfigurationResponse],
+    licenseType :: Lude.Maybe Lude.Text,
+    snapshotDetails :: Lude.Maybe [SnapshotDetail],
+    encrypted :: Lude.Maybe Lude.Bool,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    statusMessage :: Lude.Maybe Lude.Text,
+    imageId :: Lude.Maybe Lude.Text,
+    importTaskId :: Lude.Maybe Lude.Text,
+    architecture :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImageTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'architecture' - The architecture of the virtual machine.
 --
--- * 'iitStatus' - A brief status for the import image task.
+-- Valid values: @i386@ | @x86_64@ | @arm64@
+-- * 'description' - A description of the import task.
+-- * 'encrypted' - Indicates whether the image is encrypted.
+-- * 'hypervisor' - The target hypervisor for the import task.
 --
--- * 'iitHypervisor' - The target hypervisor for the import task. Valid values: @xen@
---
--- * 'iitPlatform' - The description string for the import image task.
---
--- * 'iitProgress' - The percentage of progress of the import image task.
---
--- * 'iitLicenseSpecifications' - The ARNs of the license configurations that are associated with the import image task.
---
--- * 'iitLicenseType' - The license type of the virtual machine.
---
--- * 'iitSnapshotDetails' - Information about the snapshots.
---
--- * 'iitEncrypted' - Indicates whether the image is encrypted.
---
--- * 'iitKMSKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
---
--- * 'iitStatusMessage' - A descriptive status message for the import image task.
---
--- * 'iitImageId' - The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
---
--- * 'iitImportTaskId' - The ID of the import image task.
---
--- * 'iitArchitecture' - The architecture of the virtual machine. Valid values: @i386@ | @x86_64@ | @arm64@
---
--- * 'iitDescription' - A description of the import task.
---
--- * 'iitTags' - The tags for the import image task.
-importImageTask ::
+-- Valid values: @xen@
+-- * 'imageId' - The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
+-- * 'importTaskId' - The ID of the import image task.
+-- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
+-- * 'licenseSpecifications' - The ARNs of the license configurations that are associated with the import image task.
+-- * 'licenseType' - The license type of the virtual machine.
+-- * 'platform' - The description string for the import image task.
+-- * 'progress' - The percentage of progress of the import image task.
+-- * 'snapshotDetails' - Information about the snapshots.
+-- * 'status' - A brief status for the import image task.
+-- * 'statusMessage' - A descriptive status message for the import image task.
+-- * 'tags' - The tags for the import image task.
+mkImportImageTask ::
   ImportImageTask
-importImageTask =
+mkImportImageTask =
   ImportImageTask'
-    { _iitStatus = Nothing,
-      _iitHypervisor = Nothing,
-      _iitPlatform = Nothing,
-      _iitProgress = Nothing,
-      _iitLicenseSpecifications = Nothing,
-      _iitLicenseType = Nothing,
-      _iitSnapshotDetails = Nothing,
-      _iitEncrypted = Nothing,
-      _iitKMSKeyId = Nothing,
-      _iitStatusMessage = Nothing,
-      _iitImageId = Nothing,
-      _iitImportTaskId = Nothing,
-      _iitArchitecture = Nothing,
-      _iitDescription = Nothing,
-      _iitTags = Nothing
+    { status = Lude.Nothing,
+      hypervisor = Lude.Nothing,
+      platform = Lude.Nothing,
+      progress = Lude.Nothing,
+      licenseSpecifications = Lude.Nothing,
+      licenseType = Lude.Nothing,
+      snapshotDetails = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      imageId = Lude.Nothing,
+      importTaskId = Lude.Nothing,
+      architecture = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A brief status for the import image task.
-iitStatus :: Lens' ImportImageTask (Maybe Text)
-iitStatus = lens _iitStatus (\s a -> s {_iitStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitStatus :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitStatus = Lens.lens (status :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ImportImageTask)
+{-# DEPRECATED iitStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The target hypervisor for the import task. Valid values: @xen@
-iitHypervisor :: Lens' ImportImageTask (Maybe Text)
-iitHypervisor = lens _iitHypervisor (\s a -> s {_iitHypervisor = a})
+-- | The target hypervisor for the import task.
+--
+-- Valid values: @xen@
+--
+-- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitHypervisor :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitHypervisor = Lens.lens (hypervisor :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {hypervisor = a} :: ImportImageTask)
+{-# DEPRECATED iitHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
 
 -- | The description string for the import image task.
-iitPlatform :: Lens' ImportImageTask (Maybe Text)
-iitPlatform = lens _iitPlatform (\s a -> s {_iitPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitPlatform :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitPlatform = Lens.lens (platform :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ImportImageTask)
+{-# DEPRECATED iitPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The percentage of progress of the import image task.
-iitProgress :: Lens' ImportImageTask (Maybe Text)
-iitProgress = lens _iitProgress (\s a -> s {_iitProgress = a})
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitProgress :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitProgress = Lens.lens (progress :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {progress = a} :: ImportImageTask)
+{-# DEPRECATED iitProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The ARNs of the license configurations that are associated with the import image task.
-iitLicenseSpecifications :: Lens' ImportImageTask [ImportImageLicenseConfigurationResponse]
-iitLicenseSpecifications = lens _iitLicenseSpecifications (\s a -> s {_iitLicenseSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'licenseSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitLicenseSpecifications :: Lens.Lens' ImportImageTask (Lude.Maybe [ImportImageLicenseConfigurationResponse])
+iitLicenseSpecifications = Lens.lens (licenseSpecifications :: ImportImageTask -> Lude.Maybe [ImportImageLicenseConfigurationResponse]) (\s a -> s {licenseSpecifications = a} :: ImportImageTask)
+{-# DEPRECATED iitLicenseSpecifications "Use generic-lens or generic-optics with 'licenseSpecifications' instead." #-}
 
 -- | The license type of the virtual machine.
-iitLicenseType :: Lens' ImportImageTask (Maybe Text)
-iitLicenseType = lens _iitLicenseType (\s a -> s {_iitLicenseType = a})
+--
+-- /Note:/ Consider using 'licenseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitLicenseType :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitLicenseType = Lens.lens (licenseType :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {licenseType = a} :: ImportImageTask)
+{-# DEPRECATED iitLicenseType "Use generic-lens or generic-optics with 'licenseType' instead." #-}
 
 -- | Information about the snapshots.
-iitSnapshotDetails :: Lens' ImportImageTask [SnapshotDetail]
-iitSnapshotDetails = lens _iitSnapshotDetails (\s a -> s {_iitSnapshotDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'snapshotDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitSnapshotDetails :: Lens.Lens' ImportImageTask (Lude.Maybe [SnapshotDetail])
+iitSnapshotDetails = Lens.lens (snapshotDetails :: ImportImageTask -> Lude.Maybe [SnapshotDetail]) (\s a -> s {snapshotDetails = a} :: ImportImageTask)
+{-# DEPRECATED iitSnapshotDetails "Use generic-lens or generic-optics with 'snapshotDetails' instead." #-}
 
 -- | Indicates whether the image is encrypted.
-iitEncrypted :: Lens' ImportImageTask (Maybe Bool)
-iitEncrypted = lens _iitEncrypted (\s a -> s {_iitEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitEncrypted :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Bool)
+iitEncrypted = Lens.lens (encrypted :: ImportImageTask -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ImportImageTask)
+{-# DEPRECATED iitEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
-iitKMSKeyId :: Lens' ImportImageTask (Maybe Text)
-iitKMSKeyId = lens _iitKMSKeyId (\s a -> s {_iitKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitKMSKeyId :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitKMSKeyId = Lens.lens (kmsKeyId :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ImportImageTask)
+{-# DEPRECATED iitKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | A descriptive status message for the import image task.
-iitStatusMessage :: Lens' ImportImageTask (Maybe Text)
-iitStatusMessage = lens _iitStatusMessage (\s a -> s {_iitStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitStatusMessage :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitStatusMessage = Lens.lens (statusMessage :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ImportImageTask)
+{-# DEPRECATED iitStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
-iitImageId :: Lens' ImportImageTask (Maybe Text)
-iitImageId = lens _iitImageId (\s a -> s {_iitImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitImageId :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitImageId = Lens.lens (imageId :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: ImportImageTask)
+{-# DEPRECATED iitImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The ID of the import image task.
-iitImportTaskId :: Lens' ImportImageTask (Maybe Text)
-iitImportTaskId = lens _iitImportTaskId (\s a -> s {_iitImportTaskId = a})
+--
+-- /Note:/ Consider using 'importTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitImportTaskId :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitImportTaskId = Lens.lens (importTaskId :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {importTaskId = a} :: ImportImageTask)
+{-# DEPRECATED iitImportTaskId "Use generic-lens or generic-optics with 'importTaskId' instead." #-}
 
--- | The architecture of the virtual machine. Valid values: @i386@ | @x86_64@ | @arm64@
-iitArchitecture :: Lens' ImportImageTask (Maybe Text)
-iitArchitecture = lens _iitArchitecture (\s a -> s {_iitArchitecture = a})
+-- | The architecture of the virtual machine.
+--
+-- Valid values: @i386@ | @x86_64@ | @arm64@
+--
+-- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitArchitecture :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitArchitecture = Lens.lens (architecture :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {architecture = a} :: ImportImageTask)
+{-# DEPRECATED iitArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
 
 -- | A description of the import task.
-iitDescription :: Lens' ImportImageTask (Maybe Text)
-iitDescription = lens _iitDescription (\s a -> s {_iitDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitDescription :: Lens.Lens' ImportImageTask (Lude.Maybe Lude.Text)
+iitDescription = Lens.lens (description :: ImportImageTask -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportImageTask)
+{-# DEPRECATED iitDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the import image task.
-iitTags :: Lens' ImportImageTask [Tag]
-iitTags = lens _iitTags (\s a -> s {_iitTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iitTags :: Lens.Lens' ImportImageTask (Lude.Maybe [Tag])
+iitTags = Lens.lens (tags :: ImportImageTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportImageTask)
+{-# DEPRECATED iitTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML ImportImageTask where
+instance Lude.FromXML ImportImageTask where
   parseXML x =
     ImportImageTask'
-      <$> (x .@? "status")
-      <*> (x .@? "hypervisor")
-      <*> (x .@? "platform")
-      <*> (x .@? "progress")
-      <*> ( x .@? "licenseSpecifications" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "licenseType")
-      <*> ( x .@? "snapshotDetailSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "encrypted")
-      <*> (x .@? "kmsKeyId")
-      <*> (x .@? "statusMessage")
-      <*> (x .@? "imageId")
-      <*> (x .@? "importTaskId")
-      <*> (x .@? "architecture")
-      <*> (x .@? "description")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable ImportImageTask
-
-instance NFData ImportImageTask
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "hypervisor")
+      Lude.<*> (x Lude..@? "platform")
+      Lude.<*> (x Lude..@? "progress")
+      Lude.<*> ( x Lude..@? "licenseSpecifications" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "licenseType")
+      Lude.<*> ( x Lude..@? "snapshotDetailSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "encrypted")
+      Lude.<*> (x Lude..@? "kmsKeyId")
+      Lude.<*> (x Lude..@? "statusMessage")
+      Lude.<*> (x Lude..@? "imageId")
+      Lude.<*> (x Lude..@? "importTaskId")
+      Lude.<*> (x Lude..@? "architecture")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

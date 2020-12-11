@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.UserIdentityInfo where
+module Network.AWS.Connect.Types.UserIdentityInfo
+  ( UserIdentityInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserIdentityInfo,
+
+    -- * Lenses
+    uiiEmail,
+    uiiLastName,
+    uiiFirstName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the identity of a user.
 --
---
---
--- /See:/ 'userIdentityInfo' smart constructor.
+-- /See:/ 'mkUserIdentityInfo' smart constructor.
 data UserIdentityInfo = UserIdentityInfo'
-  { _uiiEmail ::
-      !(Maybe Text),
-    _uiiLastName :: !(Maybe Text),
-    _uiiFirstName :: !(Maybe Text)
+  { email ::
+      Lude.Maybe Lude.Text,
+    lastName :: Lude.Maybe Lude.Text,
+    firstName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserIdentityInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiiEmail' - The email address. If you are using SAML for identity management and include this parameter, an error is returned.
---
--- * 'uiiLastName' - The last name. This is required if you are using Amazon Connect or SAML for identity management.
---
--- * 'uiiFirstName' - The first name. This is required if you are using Amazon Connect or SAML for identity management.
-userIdentityInfo ::
+-- * 'email' - The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+-- * 'firstName' - The first name. This is required if you are using Amazon Connect or SAML for identity management.
+-- * 'lastName' - The last name. This is required if you are using Amazon Connect or SAML for identity management.
+mkUserIdentityInfo ::
   UserIdentityInfo
-userIdentityInfo =
+mkUserIdentityInfo =
   UserIdentityInfo'
-    { _uiiEmail = Nothing,
-      _uiiLastName = Nothing,
-      _uiiFirstName = Nothing
+    { email = Lude.Nothing,
+      lastName = Lude.Nothing,
+      firstName = Lude.Nothing
     }
 
 -- | The email address. If you are using SAML for identity management and include this parameter, an error is returned.
-uiiEmail :: Lens' UserIdentityInfo (Maybe Text)
-uiiEmail = lens _uiiEmail (\s a -> s {_uiiEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiiEmail :: Lens.Lens' UserIdentityInfo (Lude.Maybe Lude.Text)
+uiiEmail = Lens.lens (email :: UserIdentityInfo -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: UserIdentityInfo)
+{-# DEPRECATED uiiEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The last name. This is required if you are using Amazon Connect or SAML for identity management.
-uiiLastName :: Lens' UserIdentityInfo (Maybe Text)
-uiiLastName = lens _uiiLastName (\s a -> s {_uiiLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiiLastName :: Lens.Lens' UserIdentityInfo (Lude.Maybe Lude.Text)
+uiiLastName = Lens.lens (lastName :: UserIdentityInfo -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: UserIdentityInfo)
+{-# DEPRECATED uiiLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The first name. This is required if you are using Amazon Connect or SAML for identity management.
-uiiFirstName :: Lens' UserIdentityInfo (Maybe Text)
-uiiFirstName = lens _uiiFirstName (\s a -> s {_uiiFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiiFirstName :: Lens.Lens' UserIdentityInfo (Lude.Maybe Lude.Text)
+uiiFirstName = Lens.lens (firstName :: UserIdentityInfo -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: UserIdentityInfo)
+{-# DEPRECATED uiiFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
-instance FromJSON UserIdentityInfo where
+instance Lude.FromJSON UserIdentityInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserIdentityInfo"
       ( \x ->
           UserIdentityInfo'
-            <$> (x .:? "Email") <*> (x .:? "LastName") <*> (x .:? "FirstName")
+            Lude.<$> (x Lude..:? "Email")
+            Lude.<*> (x Lude..:? "LastName")
+            Lude.<*> (x Lude..:? "FirstName")
       )
 
-instance Hashable UserIdentityInfo
-
-instance NFData UserIdentityInfo
-
-instance ToJSON UserIdentityInfo where
+instance Lude.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =
-    object
-      ( catMaybes
-          [ ("Email" .=) <$> _uiiEmail,
-            ("LastName" .=) <$> _uiiLastName,
-            ("FirstName" .=) <$> _uiiFirstName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Email" Lude..=) Lude.<$> email,
+            ("LastName" Lude..=) Lude.<$> lastName,
+            ("FirstName" Lude..=) Lude.<$> firstName
           ]
       )

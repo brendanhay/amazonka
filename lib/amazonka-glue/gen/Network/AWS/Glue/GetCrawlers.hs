@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves metadata for all crawlers defined in the customer account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetCrawlers
-  ( -- * Creating a Request
-    getCrawlers,
-    GetCrawlers,
+  ( -- * Creating a request
+    GetCrawlers (..),
+    mkGetCrawlers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gNextToken,
     gMaxResults,
 
-    -- * Destructuring the Response
-    getCrawlersResponse,
-    GetCrawlersResponse,
+    -- * Destructuring the response
+    GetCrawlersResponse (..),
+    mkGetCrawlersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsNextToken,
     grsCrawlers,
     grsResponseStatus,
@@ -43,124 +36,144 @@ module Network.AWS.Glue.GetCrawlers
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCrawlers' smart constructor.
+-- | /See:/ 'mkGetCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-  { _gNextToken :: !(Maybe Text),
-    _gMaxResults :: !(Maybe Nat)
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gNextToken' - A continuation token, if this is a continuation request.
---
--- * 'gMaxResults' - The number of crawlers to return on each call.
-getCrawlers ::
+-- * 'maxResults' - The number of crawlers to return on each call.
+-- * 'nextToken' - A continuation token, if this is a continuation request.
+mkGetCrawlers ::
   GetCrawlers
-getCrawlers =
-  GetCrawlers' {_gNextToken = Nothing, _gMaxResults = Nothing}
+mkGetCrawlers =
+  GetCrawlers' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
 
 -- | A continuation token, if this is a continuation request.
-gNextToken :: Lens' GetCrawlers (Maybe Text)
-gNextToken = lens _gNextToken (\s a -> s {_gNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gNextToken :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Text)
+gNextToken = Lens.lens (nextToken :: GetCrawlers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCrawlers)
+{-# DEPRECATED gNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of crawlers to return on each call.
-gMaxResults :: Lens' GetCrawlers (Maybe Natural)
-gMaxResults = lens _gMaxResults (\s a -> s {_gMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gMaxResults :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Natural)
+gMaxResults = Lens.lens (maxResults :: GetCrawlers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCrawlers)
+{-# DEPRECATED gMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetCrawlers where
+instance Page.AWSPager GetCrawlers where
   page rq rs
-    | stop (rs ^. grsNextToken) = Nothing
-    | stop (rs ^. grsCrawlers) = Nothing
-    | otherwise = Just $ rq & gNextToken .~ rs ^. grsNextToken
+    | Page.stop (rs Lens.^. grsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grsCrawlers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gNextToken Lens..~ rs Lens.^. grsNextToken
 
-instance AWSRequest GetCrawlers where
+instance Lude.AWSRequest GetCrawlers where
   type Rs GetCrawlers = GetCrawlersResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCrawlersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Crawlers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Crawlers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCrawlers
-
-instance NFData GetCrawlers
-
-instance ToHeaders GetCrawlers where
+instance Lude.ToHeaders GetCrawlers where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetCrawlers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetCrawlers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCrawlers where
+instance Lude.ToJSON GetCrawlers where
   toJSON GetCrawlers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gNextToken,
-            ("MaxResults" .=) <$> _gMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath GetCrawlers where
-  toPath = const "/"
+instance Lude.ToPath GetCrawlers where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCrawlers where
-  toQuery = const mempty
+instance Lude.ToQuery GetCrawlers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCrawlersResponse' smart constructor.
+-- | /See:/ 'mkGetCrawlersResponse' smart constructor.
 data GetCrawlersResponse = GetCrawlersResponse'
-  { _grsNextToken ::
-      !(Maybe Text),
-    _grsCrawlers :: !(Maybe [Crawler]),
-    _grsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    crawlers :: Lude.Maybe [Crawler],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsNextToken' - A continuation token, if the returned list has not reached the end of those defined in this customer account.
---
--- * 'grsCrawlers' - A list of crawler metadata.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getCrawlersResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'crawlers' - A list of crawler metadata.
+-- * 'nextToken' - A continuation token, if the returned list has not reached the end of those defined in this customer account.
+-- * 'responseStatus' - The response status code.
+mkGetCrawlersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCrawlersResponse
-getCrawlersResponse pResponseStatus_ =
+mkGetCrawlersResponse pResponseStatus_ =
   GetCrawlersResponse'
-    { _grsNextToken = Nothing,
-      _grsCrawlers = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      crawlers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if the returned list has not reached the end of those defined in this customer account.
-grsNextToken :: Lens' GetCrawlersResponse (Maybe Text)
-grsNextToken = lens _grsNextToken (\s a -> s {_grsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsNextToken :: Lens.Lens' GetCrawlersResponse (Lude.Maybe Lude.Text)
+grsNextToken = Lens.lens (nextToken :: GetCrawlersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCrawlersResponse)
+{-# DEPRECATED grsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of crawler metadata.
-grsCrawlers :: Lens' GetCrawlersResponse [Crawler]
-grsCrawlers = lens _grsCrawlers (\s a -> s {_grsCrawlers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'crawlers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsCrawlers :: Lens.Lens' GetCrawlersResponse (Lude.Maybe [Crawler])
+grsCrawlers = Lens.lens (crawlers :: GetCrawlersResponse -> Lude.Maybe [Crawler]) (\s a -> s {crawlers = a} :: GetCrawlersResponse)
+{-# DEPRECATED grsCrawlers "Use generic-lens or generic-optics with 'crawlers' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetCrawlersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetCrawlersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetCrawlersResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetCrawlersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCrawlersResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,159 @@
 --
 -- Creates a code signing configuration. A <https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html code signing configuration> defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
 module Network.AWS.Lambda.CreateCodeSigningConfig
-  ( -- * Creating a Request
-    createCodeSigningConfig,
-    CreateCodeSigningConfig,
+  ( -- * Creating a request
+    CreateCodeSigningConfig (..),
+    mkCreateCodeSigningConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccscCodeSigningPolicies,
     ccscDescription,
     ccscAllowedPublishers,
 
-    -- * Destructuring the Response
-    createCodeSigningConfigResponse,
-    CreateCodeSigningConfigResponse,
+    -- * Destructuring the response
+    CreateCodeSigningConfigResponse (..),
+    mkCreateCodeSigningConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccscrsResponseStatus,
     ccscrsCodeSigningConfig,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createCodeSigningConfig' smart constructor.
+-- | /See:/ 'mkCreateCodeSigningConfig' smart constructor.
 data CreateCodeSigningConfig = CreateCodeSigningConfig'
-  { _ccscCodeSigningPolicies ::
-      !(Maybe CodeSigningPolicies),
-    _ccscDescription :: !(Maybe Text),
-    _ccscAllowedPublishers ::
-      !AllowedPublishers
+  { codeSigningPolicies ::
+      Lude.Maybe CodeSigningPolicies,
+    description :: Lude.Maybe Lude.Text,
+    allowedPublishers :: AllowedPublishers
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCodeSigningConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccscCodeSigningPolicies' - The code signing policies define the actions to take if the validation checks fail.
---
--- * 'ccscDescription' - Descriptive name for this code signing configuration.
---
--- * 'ccscAllowedPublishers' - Signing profiles for this code signing configuration.
-createCodeSigningConfig ::
-  -- | 'ccscAllowedPublishers'
+-- * 'allowedPublishers' - Signing profiles for this code signing configuration.
+-- * 'codeSigningPolicies' - The code signing policies define the actions to take if the validation checks fail.
+-- * 'description' - Descriptive name for this code signing configuration.
+mkCreateCodeSigningConfig ::
+  -- | 'allowedPublishers'
   AllowedPublishers ->
   CreateCodeSigningConfig
-createCodeSigningConfig pAllowedPublishers_ =
+mkCreateCodeSigningConfig pAllowedPublishers_ =
   CreateCodeSigningConfig'
-    { _ccscCodeSigningPolicies = Nothing,
-      _ccscDescription = Nothing,
-      _ccscAllowedPublishers = pAllowedPublishers_
+    { codeSigningPolicies = Lude.Nothing,
+      description = Lude.Nothing,
+      allowedPublishers = pAllowedPublishers_
     }
 
 -- | The code signing policies define the actions to take if the validation checks fail.
-ccscCodeSigningPolicies :: Lens' CreateCodeSigningConfig (Maybe CodeSigningPolicies)
-ccscCodeSigningPolicies = lens _ccscCodeSigningPolicies (\s a -> s {_ccscCodeSigningPolicies = a})
+--
+-- /Note:/ Consider using 'codeSigningPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscCodeSigningPolicies :: Lens.Lens' CreateCodeSigningConfig (Lude.Maybe CodeSigningPolicies)
+ccscCodeSigningPolicies = Lens.lens (codeSigningPolicies :: CreateCodeSigningConfig -> Lude.Maybe CodeSigningPolicies) (\s a -> s {codeSigningPolicies = a} :: CreateCodeSigningConfig)
+{-# DEPRECATED ccscCodeSigningPolicies "Use generic-lens or generic-optics with 'codeSigningPolicies' instead." #-}
 
 -- | Descriptive name for this code signing configuration.
-ccscDescription :: Lens' CreateCodeSigningConfig (Maybe Text)
-ccscDescription = lens _ccscDescription (\s a -> s {_ccscDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscDescription :: Lens.Lens' CreateCodeSigningConfig (Lude.Maybe Lude.Text)
+ccscDescription = Lens.lens (description :: CreateCodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCodeSigningConfig)
+{-# DEPRECATED ccscDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Signing profiles for this code signing configuration.
-ccscAllowedPublishers :: Lens' CreateCodeSigningConfig AllowedPublishers
-ccscAllowedPublishers = lens _ccscAllowedPublishers (\s a -> s {_ccscAllowedPublishers = a})
+--
+-- /Note:/ Consider using 'allowedPublishers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscAllowedPublishers :: Lens.Lens' CreateCodeSigningConfig AllowedPublishers
+ccscAllowedPublishers = Lens.lens (allowedPublishers :: CreateCodeSigningConfig -> AllowedPublishers) (\s a -> s {allowedPublishers = a} :: CreateCodeSigningConfig)
+{-# DEPRECATED ccscAllowedPublishers "Use generic-lens or generic-optics with 'allowedPublishers' instead." #-}
 
-instance AWSRequest CreateCodeSigningConfig where
+instance Lude.AWSRequest CreateCodeSigningConfig where
   type Rs CreateCodeSigningConfig = CreateCodeSigningConfigResponse
-  request = postJSON lambda
+  request = Req.postJSON lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCodeSigningConfigResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "CodeSigningConfig")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CodeSigningConfig")
       )
 
-instance Hashable CreateCodeSigningConfig
+instance Lude.ToHeaders CreateCodeSigningConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateCodeSigningConfig
-
-instance ToHeaders CreateCodeSigningConfig where
-  toHeaders = const mempty
-
-instance ToJSON CreateCodeSigningConfig where
+instance Lude.ToJSON CreateCodeSigningConfig where
   toJSON CreateCodeSigningConfig' {..} =
-    object
-      ( catMaybes
-          [ ("CodeSigningPolicies" .=) <$> _ccscCodeSigningPolicies,
-            ("Description" .=) <$> _ccscDescription,
-            Just ("AllowedPublishers" .= _ccscAllowedPublishers)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CodeSigningPolicies" Lude..=) Lude.<$> codeSigningPolicies,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("AllowedPublishers" Lude..= allowedPublishers)
           ]
       )
 
-instance ToPath CreateCodeSigningConfig where
-  toPath = const "/2020-04-22/code-signing-configs/"
+instance Lude.ToPath CreateCodeSigningConfig where
+  toPath = Lude.const "/2020-04-22/code-signing-configs/"
 
-instance ToQuery CreateCodeSigningConfig where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCodeSigningConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCodeSigningConfigResponse' smart constructor.
+-- | /See:/ 'mkCreateCodeSigningConfigResponse' smart constructor.
 data CreateCodeSigningConfigResponse = CreateCodeSigningConfigResponse'
-  { _ccscrsResponseStatus ::
-      !Int,
-    _ccscrsCodeSigningConfig ::
-      !CodeSigningConfig
+  { responseStatus ::
+      Lude.Int,
+    codeSigningConfig ::
+      CodeSigningConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCodeSigningConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccscrsResponseStatus' - -- | The response status code.
---
--- * 'ccscrsCodeSigningConfig' - The code signing configuration.
-createCodeSigningConfigResponse ::
-  -- | 'ccscrsResponseStatus'
-  Int ->
-  -- | 'ccscrsCodeSigningConfig'
+-- * 'codeSigningConfig' - The code signing configuration.
+-- * 'responseStatus' - The response status code.
+mkCreateCodeSigningConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'codeSigningConfig'
   CodeSigningConfig ->
   CreateCodeSigningConfigResponse
-createCodeSigningConfigResponse
+mkCreateCodeSigningConfigResponse
   pResponseStatus_
   pCodeSigningConfig_ =
     CreateCodeSigningConfigResponse'
-      { _ccscrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _ccscrsCodeSigningConfig = pCodeSigningConfig_
+        codeSigningConfig = pCodeSigningConfig_
       }
 
--- | -- | The response status code.
-ccscrsResponseStatus :: Lens' CreateCodeSigningConfigResponse Int
-ccscrsResponseStatus = lens _ccscrsResponseStatus (\s a -> s {_ccscrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscrsResponseStatus :: Lens.Lens' CreateCodeSigningConfigResponse Lude.Int
+ccscrsResponseStatus = Lens.lens (responseStatus :: CreateCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCodeSigningConfigResponse)
+{-# DEPRECATED ccscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The code signing configuration.
-ccscrsCodeSigningConfig :: Lens' CreateCodeSigningConfigResponse CodeSigningConfig
-ccscrsCodeSigningConfig = lens _ccscrsCodeSigningConfig (\s a -> s {_ccscrsCodeSigningConfig = a})
-
-instance NFData CreateCodeSigningConfigResponse
+--
+-- /Note:/ Consider using 'codeSigningConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscrsCodeSigningConfig :: Lens.Lens' CreateCodeSigningConfigResponse CodeSigningConfig
+ccscrsCodeSigningConfig = Lens.lens (codeSigningConfig :: CreateCodeSigningConfigResponse -> CodeSigningConfig) (\s a -> s {codeSigningConfig = a} :: CreateCodeSigningConfigResponse)
+{-# DEPRECATED ccscrsCodeSigningConfig "Use generic-lens or generic-optics with 'codeSigningConfig' instead." #-}

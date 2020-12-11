@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- This operation returns information about a job, including where the job is in the processing pipeline, the status of the results, and the signature value associated with the job. You can only return information about jobs you own.
 module Network.AWS.ImportExport.GetStatus
-  ( -- * Creating a Request
-    getStatus,
-    GetStatus,
+  ( -- * Creating a request
+    GetStatus (..),
+    mkGetStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsAPIVersion,
     gsJobId,
 
-    -- * Destructuring the Response
-    getStatusResponse,
-    GetStatusResponse,
+    -- * Destructuring the response
+    GetStatusResponse (..),
+    mkGetStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrsCarrier,
     gsrsTrackingNumber,
     gsrsSignature,
@@ -53,242 +48,288 @@ module Network.AWS.ImportExport.GetStatus
 where
 
 import Network.AWS.ImportExport.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input structure for the GetStatus operation.
 --
--- /See:/ 'getStatus' smart constructor.
+-- /See:/ 'mkGetStatus' smart constructor.
 data GetStatus = GetStatus'
-  { _gsAPIVersion :: !(Maybe Text),
-    _gsJobId :: !Text
+  { apiVersion :: Lude.Maybe Lude.Text,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsAPIVersion' - Undocumented member.
---
--- * 'gsJobId' - Undocumented member.
-getStatus ::
-  -- | 'gsJobId'
-  Text ->
+-- * 'apiVersion' - Undocumented field.
+-- * 'jobId' - Undocumented field.
+mkGetStatus ::
+  -- | 'jobId'
+  Lude.Text ->
   GetStatus
-getStatus pJobId_ =
-  GetStatus' {_gsAPIVersion = Nothing, _gsJobId = pJobId_}
+mkGetStatus pJobId_ =
+  GetStatus' {apiVersion = Lude.Nothing, jobId = pJobId_}
 
--- | Undocumented member.
-gsAPIVersion :: Lens' GetStatus (Maybe Text)
-gsAPIVersion = lens _gsAPIVersion (\s a -> s {_gsAPIVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsAPIVersion :: Lens.Lens' GetStatus (Lude.Maybe Lude.Text)
+gsAPIVersion = Lens.lens (apiVersion :: GetStatus -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: GetStatus)
+{-# DEPRECATED gsAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
 
--- | Undocumented member.
-gsJobId :: Lens' GetStatus Text
-gsJobId = lens _gsJobId (\s a -> s {_gsJobId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsJobId :: Lens.Lens' GetStatus Lude.Text
+gsJobId = Lens.lens (jobId :: GetStatus -> Lude.Text) (\s a -> s {jobId = a} :: GetStatus)
+{-# DEPRECATED gsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetStatus where
+instance Lude.AWSRequest GetStatus where
   type Rs GetStatus = GetStatusResponse
-  request = postQuery importExport
+  request = Req.postQuery importExportService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetStatusResult"
       ( \s h x ->
           GetStatusResponse'
-            <$> (x .@? "Carrier")
-            <*> (x .@? "TrackingNumber")
-            <*> (x .@? "Signature")
-            <*> (x .@? "JobType")
-            <*> (x .@? "JobId")
-            <*> (x .@? "SignatureFileContents")
-            <*> (x .@? "ErrorCount")
-            <*> (x .@? "CurrentManifest")
-            <*> (x .@? "ArtifactList" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "LogBucket")
-            <*> (x .@? "CreationDate")
-            <*> (x .@? "ProgressCode")
-            <*> (x .@? "LocationCode")
-            <*> (x .@? "LogKey")
-            <*> (x .@? "LocationMessage")
-            <*> (x .@? "ProgressMessage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Carrier")
+            Lude.<*> (x Lude..@? "TrackingNumber")
+            Lude.<*> (x Lude..@? "Signature")
+            Lude.<*> (x Lude..@? "JobType")
+            Lude.<*> (x Lude..@? "JobId")
+            Lude.<*> (x Lude..@? "SignatureFileContents")
+            Lude.<*> (x Lude..@? "ErrorCount")
+            Lude.<*> (x Lude..@? "CurrentManifest")
+            Lude.<*> ( x Lude..@? "ArtifactList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "LogBucket")
+            Lude.<*> (x Lude..@? "CreationDate")
+            Lude.<*> (x Lude..@? "ProgressCode")
+            Lude.<*> (x Lude..@? "LocationCode")
+            Lude.<*> (x Lude..@? "LogKey")
+            Lude.<*> (x Lude..@? "LocationMessage")
+            Lude.<*> (x Lude..@? "ProgressMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetStatus
+instance Lude.ToHeaders GetStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetStatus
+instance Lude.ToPath GetStatus where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetStatus where
-  toHeaders = const mempty
-
-instance ToPath GetStatus where
-  toPath = const "/"
-
-instance ToQuery GetStatus where
+instance Lude.ToQuery GetStatus where
   toQuery GetStatus' {..} =
-    mconcat
+    Lude.mconcat
       [ "Operation=GetStatus",
-        "Action" =: ("GetStatus" :: ByteString),
-        "Version" =: ("2010-06-01" :: ByteString),
-        "APIVersion" =: _gsAPIVersion,
-        "JobId" =: _gsJobId
+        "Action" Lude.=: ("GetStatus" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
+        "APIVersion" Lude.=: apiVersion,
+        "JobId" Lude.=: jobId
       ]
 
 -- | Output structure for the GetStatus operation.
 --
--- /See:/ 'getStatusResponse' smart constructor.
+-- /See:/ 'mkGetStatusResponse' smart constructor.
 data GetStatusResponse = GetStatusResponse'
-  { _gsrsCarrier ::
-      !(Maybe Text),
-    _gsrsTrackingNumber :: !(Maybe Text),
-    _gsrsSignature :: !(Maybe Text),
-    _gsrsJobType :: !(Maybe JobType),
-    _gsrsJobId :: !(Maybe Text),
-    _gsrsSignatureFileContents :: !(Maybe Text),
-    _gsrsErrorCount :: !(Maybe Int),
-    _gsrsCurrentManifest :: !(Maybe Text),
-    _gsrsArtifactList :: !(Maybe [Artifact]),
-    _gsrsLogBucket :: !(Maybe Text),
-    _gsrsCreationDate :: !(Maybe ISO8601),
-    _gsrsProgressCode :: !(Maybe Text),
-    _gsrsLocationCode :: !(Maybe Text),
-    _gsrsLogKey :: !(Maybe Text),
-    _gsrsLocationMessage :: !(Maybe Text),
-    _gsrsProgressMessage :: !(Maybe Text),
-    _gsrsResponseStatus :: !Int
+  { carrier ::
+      Lude.Maybe Lude.Text,
+    trackingNumber :: Lude.Maybe Lude.Text,
+    signature :: Lude.Maybe Lude.Text,
+    jobType :: Lude.Maybe JobType,
+    jobId :: Lude.Maybe Lude.Text,
+    signatureFileContents :: Lude.Maybe Lude.Text,
+    errorCount :: Lude.Maybe Lude.Int,
+    currentManifest :: Lude.Maybe Lude.Text,
+    artifactList :: Lude.Maybe [Artifact],
+    logBucket :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.ISO8601,
+    progressCode :: Lude.Maybe Lude.Text,
+    locationCode :: Lude.Maybe Lude.Text,
+    logKey :: Lude.Maybe Lude.Text,
+    locationMessage :: Lude.Maybe Lude.Text,
+    progressMessage :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrsCarrier' - Undocumented member.
---
--- * 'gsrsTrackingNumber' - Undocumented member.
---
--- * 'gsrsSignature' - Undocumented member.
---
--- * 'gsrsJobType' - Undocumented member.
---
--- * 'gsrsJobId' - Undocumented member.
---
--- * 'gsrsSignatureFileContents' - Undocumented member.
---
--- * 'gsrsErrorCount' - Undocumented member.
---
--- * 'gsrsCurrentManifest' - Undocumented member.
---
--- * 'gsrsArtifactList' - Undocumented member.
---
--- * 'gsrsLogBucket' - Undocumented member.
---
--- * 'gsrsCreationDate' - Undocumented member.
---
--- * 'gsrsProgressCode' - Undocumented member.
---
--- * 'gsrsLocationCode' - Undocumented member.
---
--- * 'gsrsLogKey' - Undocumented member.
---
--- * 'gsrsLocationMessage' - Undocumented member.
---
--- * 'gsrsProgressMessage' - Undocumented member.
---
--- * 'gsrsResponseStatus' - -- | The response status code.
-getStatusResponse ::
-  -- | 'gsrsResponseStatus'
-  Int ->
+-- * 'artifactList' - Undocumented field.
+-- * 'carrier' - Undocumented field.
+-- * 'creationDate' - Undocumented field.
+-- * 'currentManifest' - Undocumented field.
+-- * 'errorCount' - Undocumented field.
+-- * 'jobId' - Undocumented field.
+-- * 'jobType' - Undocumented field.
+-- * 'locationCode' - Undocumented field.
+-- * 'locationMessage' - Undocumented field.
+-- * 'logBucket' - Undocumented field.
+-- * 'logKey' - Undocumented field.
+-- * 'progressCode' - Undocumented field.
+-- * 'progressMessage' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'signature' - Undocumented field.
+-- * 'signatureFileContents' - Undocumented field.
+-- * 'trackingNumber' - Undocumented field.
+mkGetStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetStatusResponse
-getStatusResponse pResponseStatus_ =
+mkGetStatusResponse pResponseStatus_ =
   GetStatusResponse'
-    { _gsrsCarrier = Nothing,
-      _gsrsTrackingNumber = Nothing,
-      _gsrsSignature = Nothing,
-      _gsrsJobType = Nothing,
-      _gsrsJobId = Nothing,
-      _gsrsSignatureFileContents = Nothing,
-      _gsrsErrorCount = Nothing,
-      _gsrsCurrentManifest = Nothing,
-      _gsrsArtifactList = Nothing,
-      _gsrsLogBucket = Nothing,
-      _gsrsCreationDate = Nothing,
-      _gsrsProgressCode = Nothing,
-      _gsrsLocationCode = Nothing,
-      _gsrsLogKey = Nothing,
-      _gsrsLocationMessage = Nothing,
-      _gsrsProgressMessage = Nothing,
-      _gsrsResponseStatus = pResponseStatus_
+    { carrier = Lude.Nothing,
+      trackingNumber = Lude.Nothing,
+      signature = Lude.Nothing,
+      jobType = Lude.Nothing,
+      jobId = Lude.Nothing,
+      signatureFileContents = Lude.Nothing,
+      errorCount = Lude.Nothing,
+      currentManifest = Lude.Nothing,
+      artifactList = Lude.Nothing,
+      logBucket = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      progressCode = Lude.Nothing,
+      locationCode = Lude.Nothing,
+      logKey = Lude.Nothing,
+      locationMessage = Lude.Nothing,
+      progressMessage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gsrsCarrier :: Lens' GetStatusResponse (Maybe Text)
-gsrsCarrier = lens _gsrsCarrier (\s a -> s {_gsrsCarrier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'carrier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsCarrier :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsCarrier = Lens.lens (carrier :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {carrier = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsCarrier "Use generic-lens or generic-optics with 'carrier' instead." #-}
 
--- | Undocumented member.
-gsrsTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
-gsrsTrackingNumber = lens _gsrsTrackingNumber (\s a -> s {_gsrsTrackingNumber = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'trackingNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsTrackingNumber :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsTrackingNumber = Lens.lens (trackingNumber :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {trackingNumber = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsTrackingNumber "Use generic-lens or generic-optics with 'trackingNumber' instead." #-}
 
--- | Undocumented member.
-gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
-gsrsSignature = lens _gsrsSignature (\s a -> s {_gsrsSignature = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSignature :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsSignature = Lens.lens (signature :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
--- | Undocumented member.
-gsrsJobType :: Lens' GetStatusResponse (Maybe JobType)
-gsrsJobType = lens _gsrsJobType (\s a -> s {_gsrsJobType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsJobType :: Lens.Lens' GetStatusResponse (Lude.Maybe JobType)
+gsrsJobType = Lens.lens (jobType :: GetStatusResponse -> Lude.Maybe JobType) (\s a -> s {jobType = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
--- | Undocumented member.
-gsrsJobId :: Lens' GetStatusResponse (Maybe Text)
-gsrsJobId = lens _gsrsJobId (\s a -> s {_gsrsJobId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsJobId :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsJobId = Lens.lens (jobId :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | Undocumented member.
-gsrsSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
-gsrsSignatureFileContents = lens _gsrsSignatureFileContents (\s a -> s {_gsrsSignatureFileContents = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'signatureFileContents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsSignatureFileContents :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsSignatureFileContents = Lens.lens (signatureFileContents :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {signatureFileContents = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsSignatureFileContents "Use generic-lens or generic-optics with 'signatureFileContents' instead." #-}
 
--- | Undocumented member.
-gsrsErrorCount :: Lens' GetStatusResponse (Maybe Int)
-gsrsErrorCount = lens _gsrsErrorCount (\s a -> s {_gsrsErrorCount = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'errorCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsErrorCount :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Int)
+gsrsErrorCount = Lens.lens (errorCount :: GetStatusResponse -> Lude.Maybe Lude.Int) (\s a -> s {errorCount = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsErrorCount "Use generic-lens or generic-optics with 'errorCount' instead." #-}
 
--- | Undocumented member.
-gsrsCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
-gsrsCurrentManifest = lens _gsrsCurrentManifest (\s a -> s {_gsrsCurrentManifest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'currentManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsCurrentManifest :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsCurrentManifest = Lens.lens (currentManifest :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {currentManifest = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsCurrentManifest "Use generic-lens or generic-optics with 'currentManifest' instead." #-}
 
--- | Undocumented member.
-gsrsArtifactList :: Lens' GetStatusResponse [Artifact]
-gsrsArtifactList = lens _gsrsArtifactList (\s a -> s {_gsrsArtifactList = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'artifactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsArtifactList :: Lens.Lens' GetStatusResponse (Lude.Maybe [Artifact])
+gsrsArtifactList = Lens.lens (artifactList :: GetStatusResponse -> Lude.Maybe [Artifact]) (\s a -> s {artifactList = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsArtifactList "Use generic-lens or generic-optics with 'artifactList' instead." #-}
 
--- | Undocumented member.
-gsrsLogBucket :: Lens' GetStatusResponse (Maybe Text)
-gsrsLogBucket = lens _gsrsLogBucket (\s a -> s {_gsrsLogBucket = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'logBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsLogBucket :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsLogBucket = Lens.lens (logBucket :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {logBucket = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsLogBucket "Use generic-lens or generic-optics with 'logBucket' instead." #-}
 
--- | Undocumented member.
-gsrsCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
-gsrsCreationDate = lens _gsrsCreationDate (\s a -> s {_gsrsCreationDate = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsCreationDate :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.ISO8601)
+gsrsCreationDate = Lens.lens (creationDate :: GetStatusResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {creationDate = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | Undocumented member.
-gsrsProgressCode :: Lens' GetStatusResponse (Maybe Text)
-gsrsProgressCode = lens _gsrsProgressCode (\s a -> s {_gsrsProgressCode = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'progressCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsProgressCode :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsProgressCode = Lens.lens (progressCode :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {progressCode = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsProgressCode "Use generic-lens or generic-optics with 'progressCode' instead." #-}
 
--- | Undocumented member.
-gsrsLocationCode :: Lens' GetStatusResponse (Maybe Text)
-gsrsLocationCode = lens _gsrsLocationCode (\s a -> s {_gsrsLocationCode = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'locationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsLocationCode :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsLocationCode = Lens.lens (locationCode :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {locationCode = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsLocationCode "Use generic-lens or generic-optics with 'locationCode' instead." #-}
 
--- | Undocumented member.
-gsrsLogKey :: Lens' GetStatusResponse (Maybe Text)
-gsrsLogKey = lens _gsrsLogKey (\s a -> s {_gsrsLogKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'logKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsLogKey :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsLogKey = Lens.lens (logKey :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {logKey = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsLogKey "Use generic-lens or generic-optics with 'logKey' instead." #-}
 
--- | Undocumented member.
-gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrsLocationMessage = lens _gsrsLocationMessage (\s a -> s {_gsrsLocationMessage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'locationMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsLocationMessage :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsLocationMessage = Lens.lens (locationMessage :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {locationMessage = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsLocationMessage "Use generic-lens or generic-optics with 'locationMessage' instead." #-}
 
--- | Undocumented member.
-gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
-gsrsProgressMessage = lens _gsrsProgressMessage (\s a -> s {_gsrsProgressMessage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'progressMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsProgressMessage :: Lens.Lens' GetStatusResponse (Lude.Maybe Lude.Text)
+gsrsProgressMessage = Lens.lens (progressMessage :: GetStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {progressMessage = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsProgressMessage "Use generic-lens or generic-optics with 'progressMessage' instead." #-}
 
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetStatusResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\s a -> s {_gsrsResponseStatus = a})
-
-instance NFData GetStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetStatusResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStatusResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

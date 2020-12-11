@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentReadyAction where
+module Network.AWS.CodeDeploy.Types.DeploymentReadyAction
+  ( DeploymentReadyAction
+      ( DeploymentReadyAction',
+        ContinueDeployment,
+        StopDeployment
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentReadyAction
-  = ContinueDeployment
-  | StopDeployment
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentReadyAction = DeploymentReadyAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentReadyAction where
-  parser =
-    takeLowerText >>= \case
-      "continue_deployment" -> pure ContinueDeployment
-      "stop_deployment" -> pure StopDeployment
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentReadyAction from value: '" <> e
-            <> "'. Accepted values: continue_deployment, stop_deployment"
+pattern ContinueDeployment :: DeploymentReadyAction
+pattern ContinueDeployment = DeploymentReadyAction' "CONTINUE_DEPLOYMENT"
 
-instance ToText DeploymentReadyAction where
-  toText = \case
-    ContinueDeployment -> "CONTINUE_DEPLOYMENT"
-    StopDeployment -> "STOP_DEPLOYMENT"
+pattern StopDeployment :: DeploymentReadyAction
+pattern StopDeployment = DeploymentReadyAction' "STOP_DEPLOYMENT"
 
-instance Hashable DeploymentReadyAction
-
-instance NFData DeploymentReadyAction
-
-instance ToByteString DeploymentReadyAction
-
-instance ToQuery DeploymentReadyAction
-
-instance ToHeader DeploymentReadyAction
-
-instance ToJSON DeploymentReadyAction where
-  toJSON = toJSONText
-
-instance FromJSON DeploymentReadyAction where
-  parseJSON = parseJSONText "DeploymentReadyAction"
+{-# COMPLETE
+  ContinueDeployment,
+  StopDeployment,
+  DeploymentReadyAction'
+  #-}

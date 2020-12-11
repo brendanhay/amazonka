@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientConnectResponseOptions where
+module Network.AWS.EC2.Types.ClientConnectResponseOptions
+  ( ClientConnectResponseOptions (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientConnectResponseOptions,
+
+    -- * Lenses
+    ccroStatus,
+    ccroEnabled,
+    ccroLambdaFunctionARN,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNEndpointAttributeStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The options for managing connection authorization for new client connections.
 --
---
---
--- /See:/ 'clientConnectResponseOptions' smart constructor.
+-- /See:/ 'mkClientConnectResponseOptions' smart constructor.
 data ClientConnectResponseOptions = ClientConnectResponseOptions'
-  { _ccroStatus ::
-      !( Maybe
-           ClientVPNEndpointAttributeStatus
-       ),
-    _ccroEnabled :: !(Maybe Bool),
-    _ccroLambdaFunctionARN ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe
+        ClientVPNEndpointAttributeStatus,
+    enabled :: Lude.Maybe Lude.Bool,
+    lambdaFunctionARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientConnectResponseOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccroStatus' - The status of any updates to the client connect options.
---
--- * 'ccroEnabled' - Indicates whether client connect options are enabled.
---
--- * 'ccroLambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-clientConnectResponseOptions ::
+-- * 'enabled' - Indicates whether client connect options are enabled.
+-- * 'lambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+-- * 'status' - The status of any updates to the client connect options.
+mkClientConnectResponseOptions ::
   ClientConnectResponseOptions
-clientConnectResponseOptions =
+mkClientConnectResponseOptions =
   ClientConnectResponseOptions'
-    { _ccroStatus = Nothing,
-      _ccroEnabled = Nothing,
-      _ccroLambdaFunctionARN = Nothing
+    { status = Lude.Nothing,
+      enabled = Lude.Nothing,
+      lambdaFunctionARN = Lude.Nothing
     }
 
 -- | The status of any updates to the client connect options.
-ccroStatus :: Lens' ClientConnectResponseOptions (Maybe ClientVPNEndpointAttributeStatus)
-ccroStatus = lens _ccroStatus (\s a -> s {_ccroStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccroStatus :: Lens.Lens' ClientConnectResponseOptions (Lude.Maybe ClientVPNEndpointAttributeStatus)
+ccroStatus = Lens.lens (status :: ClientConnectResponseOptions -> Lude.Maybe ClientVPNEndpointAttributeStatus) (\s a -> s {status = a} :: ClientConnectResponseOptions)
+{-# DEPRECATED ccroStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indicates whether client connect options are enabled.
-ccroEnabled :: Lens' ClientConnectResponseOptions (Maybe Bool)
-ccroEnabled = lens _ccroEnabled (\s a -> s {_ccroEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccroEnabled :: Lens.Lens' ClientConnectResponseOptions (Lude.Maybe Lude.Bool)
+ccroEnabled = Lens.lens (enabled :: ClientConnectResponseOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ClientConnectResponseOptions)
+{-# DEPRECATED ccroEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-ccroLambdaFunctionARN :: Lens' ClientConnectResponseOptions (Maybe Text)
-ccroLambdaFunctionARN = lens _ccroLambdaFunctionARN (\s a -> s {_ccroLambdaFunctionARN = a})
+--
+-- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccroLambdaFunctionARN :: Lens.Lens' ClientConnectResponseOptions (Lude.Maybe Lude.Text)
+ccroLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: ClientConnectResponseOptions -> Lude.Maybe Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: ClientConnectResponseOptions)
+{-# DEPRECATED ccroLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
 
-instance FromXML ClientConnectResponseOptions where
+instance Lude.FromXML ClientConnectResponseOptions where
   parseXML x =
     ClientConnectResponseOptions'
-      <$> (x .@? "status")
-      <*> (x .@? "enabled")
-      <*> (x .@? "lambdaFunctionArn")
-
-instance Hashable ClientConnectResponseOptions
-
-instance NFData ClientConnectResponseOptions
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "enabled")
+      Lude.<*> (x Lude..@? "lambdaFunctionArn")

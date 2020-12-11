@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryAttributeDataType where
+module Network.AWS.SSM.Types.InventoryAttributeDataType
+  ( InventoryAttributeDataType
+      ( InventoryAttributeDataType',
+        IADTNumber,
+        IADTString
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InventoryAttributeDataType
-  = IADTNumber
-  | IADTString
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InventoryAttributeDataType = InventoryAttributeDataType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InventoryAttributeDataType where
-  parser =
-    takeLowerText >>= \case
-      "number" -> pure IADTNumber
-      "string" -> pure IADTString
-      e ->
-        fromTextError $
-          "Failure parsing InventoryAttributeDataType from value: '" <> e
-            <> "'. Accepted values: number, string"
+pattern IADTNumber :: InventoryAttributeDataType
+pattern IADTNumber = InventoryAttributeDataType' "number"
 
-instance ToText InventoryAttributeDataType where
-  toText = \case
-    IADTNumber -> "number"
-    IADTString -> "string"
+pattern IADTString :: InventoryAttributeDataType
+pattern IADTString = InventoryAttributeDataType' "string"
 
-instance Hashable InventoryAttributeDataType
-
-instance NFData InventoryAttributeDataType
-
-instance ToByteString InventoryAttributeDataType
-
-instance ToQuery InventoryAttributeDataType
-
-instance ToHeader InventoryAttributeDataType
-
-instance FromJSON InventoryAttributeDataType where
-  parseJSON = parseJSONText "InventoryAttributeDataType"
+{-# COMPLETE
+  IADTNumber,
+  IADTString,
+  InventoryAttributeDataType'
+  #-}

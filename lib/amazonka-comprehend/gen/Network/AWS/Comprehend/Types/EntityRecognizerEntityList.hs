@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerEntityList where
+module Network.AWS.Comprehend.Types.EntityRecognizerEntityList
+  ( EntityRecognizerEntityList (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityRecognizerEntityList,
+
+    -- * Lenses
+    erelS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the entity recognizer submitted with an entity recognizer.
 --
---
---
--- /See:/ 'entityRecognizerEntityList' smart constructor.
+-- /See:/ 'mkEntityRecognizerEntityList' smart constructor.
 newtype EntityRecognizerEntityList = EntityRecognizerEntityList'
-  { _erelS3URI ::
-      Text
+  { s3URI ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerEntityList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erelS3URI' - Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
-entityRecognizerEntityList ::
-  -- | 'erelS3URI'
-  Text ->
+-- * 's3URI' - Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
+mkEntityRecognizerEntityList ::
+  -- | 's3URI'
+  Lude.Text ->
   EntityRecognizerEntityList
-entityRecognizerEntityList pS3URI_ =
-  EntityRecognizerEntityList' {_erelS3URI = pS3URI_}
+mkEntityRecognizerEntityList pS3URI_ =
+  EntityRecognizerEntityList' {s3URI = pS3URI_}
 
 -- | Specifies the Amazon S3 location where the entity list is located. The URI must be in the same region as the API endpoint that you are calling.
-erelS3URI :: Lens' EntityRecognizerEntityList Text
-erelS3URI = lens _erelS3URI (\s a -> s {_erelS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erelS3URI :: Lens.Lens' EntityRecognizerEntityList Lude.Text
+erelS3URI = Lens.lens (s3URI :: EntityRecognizerEntityList -> Lude.Text) (\s a -> s {s3URI = a} :: EntityRecognizerEntityList)
+{-# DEPRECATED erelS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON EntityRecognizerEntityList where
+instance Lude.FromJSON EntityRecognizerEntityList where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityRecognizerEntityList"
-      (\x -> EntityRecognizerEntityList' <$> (x .: "S3Uri"))
+      (\x -> EntityRecognizerEntityList' Lude.<$> (x Lude..: "S3Uri"))
 
-instance Hashable EntityRecognizerEntityList
-
-instance NFData EntityRecognizerEntityList
-
-instance ToJSON EntityRecognizerEntityList where
+instance Lude.ToJSON EntityRecognizerEntityList where
   toJSON EntityRecognizerEntityList' {..} =
-    object (catMaybes [Just ("S3Uri" .= _erelS3URI)])
+    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])

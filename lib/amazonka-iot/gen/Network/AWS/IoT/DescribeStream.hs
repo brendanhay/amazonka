@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,116 @@
 --
 -- Gets information about a stream.
 module Network.AWS.IoT.DescribeStream
-  ( -- * Creating a Request
-    describeStream,
-    DescribeStream,
+  ( -- * Creating a request
+    DescribeStream (..),
+    mkDescribeStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dStreamId,
 
-    -- * Destructuring the Response
-    describeStreamResponse,
-    DescribeStreamResponse,
+    -- * Destructuring the response
+    DescribeStreamResponse (..),
+    mkDescribeStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssrsStreamInfo,
     dssrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStream' smart constructor.
-newtype DescribeStream = DescribeStream' {_dStreamId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeStream' smart constructor.
+newtype DescribeStream = DescribeStream' {streamId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dStreamId' - The stream ID.
-describeStream ::
-  -- | 'dStreamId'
-  Text ->
+-- * 'streamId' - The stream ID.
+mkDescribeStream ::
+  -- | 'streamId'
+  Lude.Text ->
   DescribeStream
-describeStream pStreamId_ =
-  DescribeStream' {_dStreamId = pStreamId_}
+mkDescribeStream pStreamId_ =
+  DescribeStream' {streamId = pStreamId_}
 
 -- | The stream ID.
-dStreamId :: Lens' DescribeStream Text
-dStreamId = lens _dStreamId (\s a -> s {_dStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStreamId :: Lens.Lens' DescribeStream Lude.Text
+dStreamId = Lens.lens (streamId :: DescribeStream -> Lude.Text) (\s a -> s {streamId = a} :: DescribeStream)
+{-# DEPRECATED dStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
-instance AWSRequest DescribeStream where
+instance Lude.AWSRequest DescribeStream where
   type Rs DescribeStream = DescribeStreamResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            <$> (x .?> "streamInfo") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "streamInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStream
+instance Lude.ToHeaders DescribeStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStream
+instance Lude.ToPath DescribeStream where
+  toPath DescribeStream' {..} =
+    Lude.mconcat ["/streams/", Lude.toBS streamId]
 
-instance ToHeaders DescribeStream where
-  toHeaders = const mempty
+instance Lude.ToQuery DescribeStream where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DescribeStream where
-  toPath DescribeStream' {..} = mconcat ["/streams/", toBS _dStreamId]
-
-instance ToQuery DescribeStream where
-  toQuery = const mempty
-
--- | /See:/ 'describeStreamResponse' smart constructor.
+-- | /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { _dssrsStreamInfo ::
-      !(Maybe StreamInfo),
-    _dssrsResponseStatus :: !Int
+  { streamInfo ::
+      Lude.Maybe StreamInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssrsStreamInfo' - Information about the stream.
---
--- * 'dssrsResponseStatus' - -- | The response status code.
-describeStreamResponse ::
-  -- | 'dssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'streamInfo' - Information about the stream.
+mkDescribeStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStreamResponse
-describeStreamResponse pResponseStatus_ =
+mkDescribeStreamResponse pResponseStatus_ =
   DescribeStreamResponse'
-    { _dssrsStreamInfo = Nothing,
-      _dssrsResponseStatus = pResponseStatus_
+    { streamInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the stream.
-dssrsStreamInfo :: Lens' DescribeStreamResponse (Maybe StreamInfo)
-dssrsStreamInfo = lens _dssrsStreamInfo (\s a -> s {_dssrsStreamInfo = a})
+--
+-- /Note:/ Consider using 'streamInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
+dssrsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
+{-# DEPRECATED dssrsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeStreamResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\s a -> s {_dssrsResponseStatus = a})
-
-instance NFData DescribeStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

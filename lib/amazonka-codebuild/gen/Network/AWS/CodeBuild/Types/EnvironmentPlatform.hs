@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.EnvironmentPlatform where
+module Network.AWS.CodeBuild.Types.EnvironmentPlatform
+  ( EnvironmentPlatform (..),
+
+    -- * Smart constructor
+    mkEnvironmentPlatform,
+
+    -- * Lenses
+    epPlatform,
+    epLanguages,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.EnvironmentLanguage
 import Network.AWS.CodeBuild.Types.PlatformType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of Docker images that are related by platform and are managed by AWS CodeBuild.
 --
---
---
--- /See:/ 'environmentPlatform' smart constructor.
+-- /See:/ 'mkEnvironmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'
-  { _epPlatform ::
-      !(Maybe PlatformType),
-    _epLanguages :: !(Maybe [EnvironmentLanguage])
+  { platform ::
+      Lude.Maybe PlatformType,
+    languages :: Lude.Maybe [EnvironmentLanguage]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentPlatform' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'epPlatform' - The platform's name.
---
--- * 'epLanguages' - The list of programming languages that are available for the specified platform.
-environmentPlatform ::
+-- * 'languages' - The list of programming languages that are available for the specified platform.
+-- * 'platform' - The platform's name.
+mkEnvironmentPlatform ::
   EnvironmentPlatform
-environmentPlatform =
+mkEnvironmentPlatform =
   EnvironmentPlatform'
-    { _epPlatform = Nothing,
-      _epLanguages = Nothing
+    { platform = Lude.Nothing,
+      languages = Lude.Nothing
     }
 
 -- | The platform's name.
-epPlatform :: Lens' EnvironmentPlatform (Maybe PlatformType)
-epPlatform = lens _epPlatform (\s a -> s {_epPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epPlatform :: Lens.Lens' EnvironmentPlatform (Lude.Maybe PlatformType)
+epPlatform = Lens.lens (platform :: EnvironmentPlatform -> Lude.Maybe PlatformType) (\s a -> s {platform = a} :: EnvironmentPlatform)
+{-# DEPRECATED epPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The list of programming languages that are available for the specified platform.
-epLanguages :: Lens' EnvironmentPlatform [EnvironmentLanguage]
-epLanguages = lens _epLanguages (\s a -> s {_epLanguages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'languages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epLanguages :: Lens.Lens' EnvironmentPlatform (Lude.Maybe [EnvironmentLanguage])
+epLanguages = Lens.lens (languages :: EnvironmentPlatform -> Lude.Maybe [EnvironmentLanguage]) (\s a -> s {languages = a} :: EnvironmentPlatform)
+{-# DEPRECATED epLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
 
-instance FromJSON EnvironmentPlatform where
+instance Lude.FromJSON EnvironmentPlatform where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnvironmentPlatform"
       ( \x ->
           EnvironmentPlatform'
-            <$> (x .:? "platform") <*> (x .:? "languages" .!= mempty)
+            Lude.<$> (x Lude..:? "platform")
+            Lude.<*> (x Lude..:? "languages" Lude..!= Lude.mempty)
       )
-
-instance Hashable EnvironmentPlatform
-
-instance NFData EnvironmentPlatform

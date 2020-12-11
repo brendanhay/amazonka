@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.GetContextKeysForPolicyResponse where
+module Network.AWS.IAM.Types.GetContextKeysForPolicyResponse
+  ( GetContextKeysForPolicyResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGetContextKeysForPolicyResponse,
+
+    -- * Lenses
+    gckfpContextKeyNames,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the response to a successful 'GetContextKeysForPrincipalPolicy' or 'GetContextKeysForCustomPolicy' request.
 --
---
---
--- /See:/ 'getContextKeysForPolicyResponse' smart constructor.
+-- /See:/ 'mkGetContextKeysForPolicyResponse' smart constructor.
 newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
-  { _gckfpContextKeyNames ::
-      Maybe [Text]
+  { contextKeyNames ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContextKeysForPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gckfpContextKeyNames' - The list of context keys that are referenced in the input policies.
-getContextKeysForPolicyResponse ::
+-- * 'contextKeyNames' - The list of context keys that are referenced in the input policies.
+mkGetContextKeysForPolicyResponse ::
   GetContextKeysForPolicyResponse
-getContextKeysForPolicyResponse =
-  GetContextKeysForPolicyResponse' {_gckfpContextKeyNames = Nothing}
+mkGetContextKeysForPolicyResponse =
+  GetContextKeysForPolicyResponse' {contextKeyNames = Lude.Nothing}
 
 -- | The list of context keys that are referenced in the input policies.
-gckfpContextKeyNames :: Lens' GetContextKeysForPolicyResponse [Text]
-gckfpContextKeyNames = lens _gckfpContextKeyNames (\s a -> s {_gckfpContextKeyNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contextKeyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gckfpContextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Lude.Maybe [Lude.Text])
+gckfpContextKeyNames = Lens.lens (contextKeyNames :: GetContextKeysForPolicyResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse)
+{-# DEPRECATED gckfpContextKeyNames "Use generic-lens or generic-optics with 'contextKeyNames' instead." #-}
 
-instance FromXML GetContextKeysForPolicyResponse where
+instance Lude.FromXML GetContextKeysForPolicyResponse where
   parseXML x =
     GetContextKeysForPolicyResponse'
-      <$> ( x .@? "ContextKeyNames" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable GetContextKeysForPolicyResponse
-
-instance NFData GetContextKeysForPolicyResponse
+      Lude.<$> ( x Lude..@? "ContextKeyNames" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

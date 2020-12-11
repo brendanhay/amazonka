@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetDriftStatus where
+module Network.AWS.CloudFormation.Types.StackSetDriftStatus
+  ( StackSetDriftStatus
+      ( StackSetDriftStatus',
+        Drifted,
+        InSync,
+        NotChecked
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackSetDriftStatus
-  = Drifted
-  | InSync
-  | NotChecked
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackSetDriftStatus = StackSetDriftStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackSetDriftStatus where
-  parser =
-    takeLowerText >>= \case
-      "drifted" -> pure Drifted
-      "in_sync" -> pure InSync
-      "not_checked" -> pure NotChecked
-      e ->
-        fromTextError $
-          "Failure parsing StackSetDriftStatus from value: '" <> e
-            <> "'. Accepted values: drifted, in_sync, not_checked"
+pattern Drifted :: StackSetDriftStatus
+pattern Drifted = StackSetDriftStatus' "DRIFTED"
 
-instance ToText StackSetDriftStatus where
-  toText = \case
-    Drifted -> "DRIFTED"
-    InSync -> "IN_SYNC"
-    NotChecked -> "NOT_CHECKED"
+pattern InSync :: StackSetDriftStatus
+pattern InSync = StackSetDriftStatus' "IN_SYNC"
 
-instance Hashable StackSetDriftStatus
+pattern NotChecked :: StackSetDriftStatus
+pattern NotChecked = StackSetDriftStatus' "NOT_CHECKED"
 
-instance NFData StackSetDriftStatus
-
-instance ToByteString StackSetDriftStatus
-
-instance ToQuery StackSetDriftStatus
-
-instance ToHeader StackSetDriftStatus
-
-instance FromXML StackSetDriftStatus where
-  parseXML = parseXMLText "StackSetDriftStatus"
+{-# COMPLETE
+  Drifted,
+  InSync,
+  NotChecked,
+  StackSetDriftStatus'
+  #-}

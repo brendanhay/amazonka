@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ResourceAttribute where
+module Network.AWS.MigrationHub.Types.ResourceAttribute
+  ( ResourceAttribute (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkResourceAttribute,
+
+    -- * Lenses
+    raType,
+    raValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ResourceAttributeType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Attribute associated with a resource.
 --
---
 -- Note the corresponding format required per type listed below:
 --
---     * IPV4    * @x.x.x.x@
+--     * IPV4
 --
+--     * @x.x.x.x@
 -- /where x is an integer in the range [0,255]/
 --
---     * IPV6    * @y : y : y : y : y : y : y : y@
 --
+--     * IPV6
+--
+--     * @y : y : y : y : y : y : y : y@
 -- /where y is a hexadecimal between 0 and FFFF. [0, FFFF]/
 --
---     * MAC_ADDRESS    * @^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$@
 --
---     * FQDN    * @^[^<>{}\\\\/?,=\\p{Cntrl}]{1,256}$@
+--     * MAC_ADDRESS
+--
+--     * @^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$@
+--
+--
+--     * FQDN
+--
+--     * @^[^<>{}\\\\/?,=\\p{Cntrl}]{1,256}$@
 --
 --
 --
---
--- /See:/ 'resourceAttribute' smart constructor.
+-- /See:/ 'mkResourceAttribute' smart constructor.
 data ResourceAttribute = ResourceAttribute'
-  { _raType ::
-      !ResourceAttributeType,
-    _raValue :: !Text
+  { type' ::
+      ResourceAttributeType,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raType' - Type of resource.
---
--- * 'raValue' - Value of the resource type.
-resourceAttribute ::
-  -- | 'raType'
+-- * 'type'' - Type of resource.
+-- * 'value' - Value of the resource type.
+mkResourceAttribute ::
+  -- | 'type''
   ResourceAttributeType ->
-  -- | 'raValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   ResourceAttribute
-resourceAttribute pType_ pValue_ =
-  ResourceAttribute' {_raType = pType_, _raValue = pValue_}
+mkResourceAttribute pType_ pValue_ =
+  ResourceAttribute' {type' = pType_, value = pValue_}
 
 -- | Type of resource.
-raType :: Lens' ResourceAttribute ResourceAttributeType
-raType = lens _raType (\s a -> s {_raType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raType :: Lens.Lens' ResourceAttribute ResourceAttributeType
+raType = Lens.lens (type' :: ResourceAttribute -> ResourceAttributeType) (\s a -> s {type' = a} :: ResourceAttribute)
+{-# DEPRECATED raType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Value of the resource type.
-raValue :: Lens' ResourceAttribute Text
-raValue = lens _raValue (\s a -> s {_raValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raValue :: Lens.Lens' ResourceAttribute Lude.Text
+raValue = Lens.lens (value :: ResourceAttribute -> Lude.Text) (\s a -> s {value = a} :: ResourceAttribute)
+{-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON ResourceAttribute where
+instance Lude.FromJSON ResourceAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceAttribute"
-      (\x -> ResourceAttribute' <$> (x .: "Type") <*> (x .: "Value"))
+      ( \x ->
+          ResourceAttribute'
+            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Value")
+      )
 
-instance Hashable ResourceAttribute
-
-instance NFData ResourceAttribute
-
-instance ToJSON ResourceAttribute where
+instance Lude.ToJSON ResourceAttribute where
   toJSON ResourceAttribute' {..} =
-    object
-      (catMaybes [Just ("Type" .= _raType), Just ("Value" .= _raValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("Value" Lude..= value)
+          ]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBParameterGroup where
+module Network.AWS.RDS.Types.DBParameterGroup
+  ( DBParameterGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBParameterGroup,
+
+    -- * Lenses
+    dpgDBParameterGroupARN,
+    dpgDBParameterGroupFamily,
+    dpgDBParameterGroupName,
+    dpgDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the details of an Amazon RDS DB parameter group.
 --
---
 -- This data type is used as a response element in the @DescribeDBParameterGroups@ action.
 --
---
--- /See:/ 'dbParameterGroup' smart constructor.
+-- /See:/ 'mkDBParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-  { _dpgDBParameterGroupARN ::
-      !(Maybe Text),
-    _dpgDBParameterGroupFamily :: !(Maybe Text),
-    _dpgDBParameterGroupName :: !(Maybe Text),
-    _dpgDescription :: !(Maybe Text)
+  { dbParameterGroupARN ::
+      Lude.Maybe Lude.Text,
+    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    dbParameterGroupName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgDBParameterGroupARN' - The Amazon Resource Name (ARN) for the DB parameter group.
---
--- * 'dpgDBParameterGroupFamily' - The name of the DB parameter group family that this DB parameter group is compatible with.
---
--- * 'dpgDBParameterGroupName' - The name of the DB parameter group.
---
--- * 'dpgDescription' - Provides the customer-specified description for this DB parameter group.
-dbParameterGroup ::
+-- * 'dbParameterGroupARN' - The Amazon Resource Name (ARN) for the DB parameter group.
+-- * 'dbParameterGroupFamily' - The name of the DB parameter group family that this DB parameter group is compatible with.
+-- * 'dbParameterGroupName' - The name of the DB parameter group.
+-- * 'description' - Provides the customer-specified description for this DB parameter group.
+mkDBParameterGroup ::
   DBParameterGroup
-dbParameterGroup =
+mkDBParameterGroup =
   DBParameterGroup'
-    { _dpgDBParameterGroupARN = Nothing,
-      _dpgDBParameterGroupFamily = Nothing,
-      _dpgDBParameterGroupName = Nothing,
-      _dpgDescription = Nothing
+    { dbParameterGroupARN = Lude.Nothing,
+      dbParameterGroupFamily = Lude.Nothing,
+      dbParameterGroupName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the DB parameter group.
-dpgDBParameterGroupARN :: Lens' DBParameterGroup (Maybe Text)
-dpgDBParameterGroupARN = lens _dpgDBParameterGroupARN (\s a -> s {_dpgDBParameterGroupARN = a})
+--
+-- /Note:/ Consider using 'dbParameterGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgDBParameterGroupARN :: Lens.Lens' DBParameterGroup (Lude.Maybe Lude.Text)
+dpgDBParameterGroupARN = Lens.lens (dbParameterGroupARN :: DBParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupARN = a} :: DBParameterGroup)
+{-# DEPRECATED dpgDBParameterGroupARN "Use generic-lens or generic-optics with 'dbParameterGroupARN' instead." #-}
 
 -- | The name of the DB parameter group family that this DB parameter group is compatible with.
-dpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
-dpgDBParameterGroupFamily = lens _dpgDBParameterGroupFamily (\s a -> s {_dpgDBParameterGroupFamily = a})
+--
+-- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgDBParameterGroupFamily :: Lens.Lens' DBParameterGroup (Lude.Maybe Lude.Text)
+dpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DBParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DBParameterGroup)
+{-# DEPRECATED dpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | The name of the DB parameter group.
-dpgDBParameterGroupName :: Lens' DBParameterGroup (Maybe Text)
-dpgDBParameterGroupName = lens _dpgDBParameterGroupName (\s a -> s {_dpgDBParameterGroupName = a})
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgDBParameterGroupName :: Lens.Lens' DBParameterGroup (Lude.Maybe Lude.Text)
+dpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: DBParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DBParameterGroup)
+{-# DEPRECATED dpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
 -- | Provides the customer-specified description for this DB parameter group.
-dpgDescription :: Lens' DBParameterGroup (Maybe Text)
-dpgDescription = lens _dpgDescription (\s a -> s {_dpgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgDescription :: Lens.Lens' DBParameterGroup (Lude.Maybe Lude.Text)
+dpgDescription = Lens.lens (description :: DBParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DBParameterGroup)
+{-# DEPRECATED dpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML DBParameterGroup where
+instance Lude.FromXML DBParameterGroup where
   parseXML x =
     DBParameterGroup'
-      <$> (x .@? "DBParameterGroupArn")
-      <*> (x .@? "DBParameterGroupFamily")
-      <*> (x .@? "DBParameterGroupName")
-      <*> (x .@? "Description")
-
-instance Hashable DBParameterGroup
-
-instance NFData DBParameterGroup
+      Lude.<$> (x Lude..@? "DBParameterGroupArn")
+      Lude.<*> (x Lude..@? "DBParameterGroupFamily")
+      Lude.<*> (x Lude..@? "DBParameterGroupName")
+      Lude.<*> (x Lude..@? "Description")

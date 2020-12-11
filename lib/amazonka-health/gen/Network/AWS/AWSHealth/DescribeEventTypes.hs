@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEventTypes
-  ( -- * Creating a Request
-    describeEventTypes,
-    DescribeEventTypes,
+  ( -- * Creating a request
+    DescribeEventTypes (..),
+    mkDescribeEventTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detLocale,
     detNextToken,
     detFilter,
     detMaxResults,
 
-    -- * Destructuring the Response
-    describeEventTypesResponse,
-    DescribeEventTypesResponse,
+    -- * Destructuring the response
+    DescribeEventTypesResponse (..),
+    mkDescribeEventTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     detrsEventTypes,
     detrsNextToken,
     detrsResponseStatus,
@@ -45,147 +38,171 @@ module Network.AWS.AWSHealth.DescribeEventTypes
 where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEventTypes' smart constructor.
+-- | /See:/ 'mkDescribeEventTypes' smart constructor.
 data DescribeEventTypes = DescribeEventTypes'
-  { _detLocale ::
-      !(Maybe Text),
-    _detNextToken :: !(Maybe Text),
-    _detFilter :: !(Maybe EventTypeFilter),
-    _detMaxResults :: !(Maybe Nat)
+  { locale ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe EventTypeFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
---
--- * 'detNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- * 'detFilter' - Values to narrow the results returned.
---
--- * 'detMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
-describeEventTypes ::
+-- * 'filter' - Values to narrow the results returned.
+-- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
+-- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+mkDescribeEventTypes ::
   DescribeEventTypes
-describeEventTypes =
+mkDescribeEventTypes =
   DescribeEventTypes'
-    { _detLocale = Nothing,
-      _detNextToken = Nothing,
-      _detFilter = Nothing,
-      _detMaxResults = Nothing
+    { locale = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-detLocale :: Lens' DescribeEventTypes (Maybe Text)
-detLocale = lens _detLocale (\s a -> s {_detLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detLocale :: Lens.Lens' DescribeEventTypes (Lude.Maybe Lude.Text)
+detLocale = Lens.lens (locale :: DescribeEventTypes -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeEventTypes)
+{-# DEPRECATED detLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-detNextToken :: Lens' DescribeEventTypes (Maybe Text)
-detNextToken = lens _detNextToken (\s a -> s {_detNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detNextToken :: Lens.Lens' DescribeEventTypes (Lude.Maybe Lude.Text)
+detNextToken = Lens.lens (nextToken :: DescribeEventTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventTypes)
+{-# DEPRECATED detNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Values to narrow the results returned.
-detFilter :: Lens' DescribeEventTypes (Maybe EventTypeFilter)
-detFilter = lens _detFilter (\s a -> s {_detFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detFilter :: Lens.Lens' DescribeEventTypes (Lude.Maybe EventTypeFilter)
+detFilter = Lens.lens (filter :: DescribeEventTypes -> Lude.Maybe EventTypeFilter) (\s a -> s {filter = a} :: DescribeEventTypes)
+{-# DEPRECATED detFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-detMaxResults :: Lens' DescribeEventTypes (Maybe Natural)
-detMaxResults = lens _detMaxResults (\s a -> s {_detMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detMaxResults :: Lens.Lens' DescribeEventTypes (Lude.Maybe Lude.Natural)
+detMaxResults = Lens.lens (maxResults :: DescribeEventTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEventTypes)
+{-# DEPRECATED detMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeEventTypes where
+instance Page.AWSPager DescribeEventTypes where
   page rq rs
-    | stop (rs ^. detrsNextToken) = Nothing
-    | stop (rs ^. detrsEventTypes) = Nothing
-    | otherwise = Just $ rq & detNextToken .~ rs ^. detrsNextToken
+    | Page.stop (rs Lens.^. detrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. detrsEventTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& detNextToken Lens..~ rs Lens.^. detrsNextToken
 
-instance AWSRequest DescribeEventTypes where
+instance Lude.AWSRequest DescribeEventTypes where
   type Rs DescribeEventTypes = DescribeEventTypesResponse
-  request = postJSON awsHealth
+  request = Req.postJSON awsHealthService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventTypesResponse'
-            <$> (x .?> "eventTypes" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "eventTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventTypes
-
-instance NFData DescribeEventTypes
-
-instance ToHeaders DescribeEventTypes where
+instance Lude.ToHeaders DescribeEventTypes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSHealth_20160804.DescribeEventTypes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSHealth_20160804.DescribeEventTypes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEventTypes where
+instance Lude.ToJSON DescribeEventTypes where
   toJSON DescribeEventTypes' {..} =
-    object
-      ( catMaybes
-          [ ("locale" .=) <$> _detLocale,
-            ("nextToken" .=) <$> _detNextToken,
-            ("filter" .=) <$> _detFilter,
-            ("maxResults" .=) <$> _detMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("locale" Lude..=) Lude.<$> locale,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeEventTypes where
-  toPath = const "/"
+instance Lude.ToPath DescribeEventTypes where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEventTypes where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEventTypes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEventTypesResponse' smart constructor.
+-- | /See:/ 'mkDescribeEventTypesResponse' smart constructor.
 data DescribeEventTypesResponse = DescribeEventTypesResponse'
-  { _detrsEventTypes ::
-      !(Maybe [EventType]),
-    _detrsNextToken :: !(Maybe Text),
-    _detrsResponseStatus :: !Int
+  { eventTypes ::
+      Lude.Maybe [EventType],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsEventTypes' - A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
---
--- * 'detrsNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- * 'detrsResponseStatus' - -- | The response status code.
-describeEventTypesResponse ::
-  -- | 'detrsResponseStatus'
-  Int ->
+-- * 'eventTypes' - A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
+-- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventTypesResponse
-describeEventTypesResponse pResponseStatus_ =
+mkDescribeEventTypesResponse pResponseStatus_ =
   DescribeEventTypesResponse'
-    { _detrsEventTypes = Nothing,
-      _detrsNextToken = Nothing,
-      _detrsResponseStatus = pResponseStatus_
+    { eventTypes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
-detrsEventTypes :: Lens' DescribeEventTypesResponse [EventType]
-detrsEventTypes = lens _detrsEventTypes (\s a -> s {_detrsEventTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsEventTypes :: Lens.Lens' DescribeEventTypesResponse (Lude.Maybe [EventType])
+detrsEventTypes = Lens.lens (eventTypes :: DescribeEventTypesResponse -> Lude.Maybe [EventType]) (\s a -> s {eventTypes = a} :: DescribeEventTypesResponse)
+{-# DEPRECATED detrsEventTypes "Use generic-lens or generic-optics with 'eventTypes' instead." #-}
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-detrsNextToken :: Lens' DescribeEventTypesResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\s a -> s {_detrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsNextToken :: Lens.Lens' DescribeEventTypesResponse (Lude.Maybe Lude.Text)
+detrsNextToken = Lens.lens (nextToken :: DescribeEventTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventTypesResponse)
+{-# DEPRECATED detrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeEventTypesResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\s a -> s {_detrsResponseStatus = a})
-
-instance NFData DescribeEventTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsResponseStatus :: Lens.Lens' DescribeEventTypesResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DescribeEventTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventTypesResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

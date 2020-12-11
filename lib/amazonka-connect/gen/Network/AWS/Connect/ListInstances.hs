@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListInstances
-  ( -- * Creating a Request
-    listInstances,
-    ListInstances,
+  ( -- * Creating a request
+    ListInstances (..),
+    mkListInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liNextToken,
     liMaxResults,
 
-    -- * Destructuring the Response
-    listInstancesResponse,
-    ListInstancesResponse,
+    -- * Destructuring the response
+    ListInstancesResponse (..),
+    mkListInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsInstanceSummaryList,
     lirsNextToken,
     lirsResponseStatus,
@@ -43,115 +36,134 @@ module Network.AWS.Connect.ListInstances
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listInstances' smart constructor.
+-- | /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { _liNextToken :: !(Maybe Text),
-    _liMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'liMaxResults' - The maximimum number of results to return per page.
-listInstances ::
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+mkListInstances ::
   ListInstances
-listInstances =
-  ListInstances' {_liNextToken = Nothing, _liMaxResults = Nothing}
+mkListInstances =
+  ListInstances'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-liNextToken :: Lens' ListInstances (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s {_liNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
+liNextToken = Lens.lens (nextToken :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstances)
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
-liMaxResults :: Lens' ListInstances (Maybe Natural)
-liMaxResults = lens _liMaxResults (\s a -> s {_liMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListInstances (Lude.Maybe Lude.Natural)
+liMaxResults = Lens.lens (maxResults :: ListInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstances)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListInstances where
+instance Page.AWSPager ListInstances where
   page rq rs
-    | stop (rs ^. lirsNextToken) = Nothing
-    | stop (rs ^. lirsInstanceSummaryList) = Nothing
-    | otherwise = Just $ rq & liNextToken .~ rs ^. lirsNextToken
+    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirsInstanceSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
 
-instance AWSRequest ListInstances where
+instance Lude.AWSRequest ListInstances where
   type Rs ListInstances = ListInstancesResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            <$> (x .?> "InstanceSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InstanceSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInstances
-
-instance NFData ListInstances
-
-instance ToHeaders ListInstances where
+instance Lude.ToHeaders ListInstances where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListInstances where
-  toPath = const "/instance"
+instance Lude.ToPath ListInstances where
+  toPath = Lude.const "/instance"
 
-instance ToQuery ListInstances where
+instance Lude.ToQuery ListInstances where
   toQuery ListInstances' {..} =
-    mconcat
-      ["nextToken" =: _liNextToken, "maxResults" =: _liMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listInstancesResponse' smart constructor.
+-- | /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { _lirsInstanceSummaryList ::
-      !(Maybe [InstanceSummary]),
-    _lirsNextToken :: !(Maybe Text),
-    _lirsResponseStatus :: !Int
+  { instanceSummaryList ::
+      Lude.Maybe [InstanceSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsInstanceSummaryList' - Information about the instances.
---
--- * 'lirsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listInstancesResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'instanceSummaryList' - Information about the instances.
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'responseStatus' - The response status code.
+mkListInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInstancesResponse
-listInstancesResponse pResponseStatus_ =
+mkListInstancesResponse pResponseStatus_ =
   ListInstancesResponse'
-    { _lirsInstanceSummaryList = Nothing,
-      _lirsNextToken = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { instanceSummaryList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the instances.
-lirsInstanceSummaryList :: Lens' ListInstancesResponse [InstanceSummary]
-lirsInstanceSummaryList = lens _lirsInstanceSummaryList (\s a -> s {_lirsInstanceSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsInstanceSummaryList :: Lens.Lens' ListInstancesResponse (Lude.Maybe [InstanceSummary])
+lirsInstanceSummaryList = Lens.lens (instanceSummaryList :: ListInstancesResponse -> Lude.Maybe [InstanceSummary]) (\s a -> s {instanceSummaryList = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsInstanceSummaryList "Use generic-lens or generic-optics with 'instanceSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
-lirsNextToken :: Lens' ListInstancesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s {_lirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsNextToken :: Lens.Lens' ListInstancesResponse (Lude.Maybe Lude.Text)
+lirsNextToken = Lens.lens (nextToken :: ListInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListInstancesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListInstancesResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

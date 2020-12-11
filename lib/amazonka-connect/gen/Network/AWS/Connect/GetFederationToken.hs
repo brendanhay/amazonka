@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,119 @@
 --
 -- Retrieves a token for federation.
 module Network.AWS.Connect.GetFederationToken
-  ( -- * Creating a Request
-    getFederationToken,
-    GetFederationToken,
+  ( -- * Creating a request
+    GetFederationToken (..),
+    mkGetFederationToken,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gftInstanceId,
 
-    -- * Destructuring the Response
-    getFederationTokenResponse,
-    GetFederationTokenResponse,
+    -- * Destructuring the response
+    GetFederationTokenResponse (..),
+    mkGetFederationTokenResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gftrsCredentials,
     gftrsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFederationToken' smart constructor.
+-- | /See:/ 'mkGetFederationToken' smart constructor.
 newtype GetFederationToken = GetFederationToken'
-  { _gftInstanceId ::
-      Text
+  { instanceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFederationToken' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gftInstanceId' - The identifier of the Amazon Connect instance.
-getFederationToken ::
-  -- | 'gftInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkGetFederationToken ::
+  -- | 'instanceId'
+  Lude.Text ->
   GetFederationToken
-getFederationToken pInstanceId_ =
-  GetFederationToken' {_gftInstanceId = pInstanceId_}
+mkGetFederationToken pInstanceId_ =
+  GetFederationToken' {instanceId = pInstanceId_}
 
 -- | The identifier of the Amazon Connect instance.
-gftInstanceId :: Lens' GetFederationToken Text
-gftInstanceId = lens _gftInstanceId (\s a -> s {_gftInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gftInstanceId :: Lens.Lens' GetFederationToken Lude.Text
+gftInstanceId = Lens.lens (instanceId :: GetFederationToken -> Lude.Text) (\s a -> s {instanceId = a} :: GetFederationToken)
+{-# DEPRECATED gftInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest GetFederationToken where
+instance Lude.AWSRequest GetFederationToken where
   type Rs GetFederationToken = GetFederationTokenResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFederationTokenResponse'
-            <$> (x .?> "Credentials") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Credentials") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFederationToken
-
-instance NFData GetFederationToken
-
-instance ToHeaders GetFederationToken where
+instance Lude.ToHeaders GetFederationToken where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetFederationToken where
+instance Lude.ToPath GetFederationToken where
   toPath GetFederationToken' {..} =
-    mconcat ["/user/federate/", toBS _gftInstanceId]
+    Lude.mconcat ["/user/federate/", Lude.toBS instanceId]
 
-instance ToQuery GetFederationToken where
-  toQuery = const mempty
+instance Lude.ToQuery GetFederationToken where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFederationTokenResponse' smart constructor.
+-- | /See:/ 'mkGetFederationTokenResponse' smart constructor.
 data GetFederationTokenResponse = GetFederationTokenResponse'
-  { _gftrsCredentials ::
-      !(Maybe Credentials),
-    _gftrsResponseStatus :: !Int
+  { credentials ::
+      Lude.Maybe Credentials,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gftrsCredentials' - The credentials to use for federation.
---
--- * 'gftrsResponseStatus' - -- | The response status code.
-getFederationTokenResponse ::
-  -- | 'gftrsResponseStatus'
-  Int ->
+-- * 'credentials' - The credentials to use for federation.
+-- * 'responseStatus' - The response status code.
+mkGetFederationTokenResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFederationTokenResponse
-getFederationTokenResponse pResponseStatus_ =
+mkGetFederationTokenResponse pResponseStatus_ =
   GetFederationTokenResponse'
-    { _gftrsCredentials = Nothing,
-      _gftrsResponseStatus = pResponseStatus_
+    { credentials = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The credentials to use for federation.
-gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
-gftrsCredentials = lens _gftrsCredentials (\s a -> s {_gftrsCredentials = a})
+--
+-- /Note:/ Consider using 'credentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gftrsCredentials :: Lens.Lens' GetFederationTokenResponse (Lude.Maybe Credentials)
+gftrsCredentials = Lens.lens (credentials :: GetFederationTokenResponse -> Lude.Maybe Credentials) (\s a -> s {credentials = a} :: GetFederationTokenResponse)
+{-# DEPRECATED gftrsCredentials "Use generic-lens or generic-optics with 'credentials' instead." #-}
 
--- | -- | The response status code.
-gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
-gftrsResponseStatus = lens _gftrsResponseStatus (\s a -> s {_gftrsResponseStatus = a})
-
-instance NFData GetFederationTokenResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gftrsResponseStatus :: Lens.Lens' GetFederationTokenResponse Lude.Int
+gftrsResponseStatus = Lens.lens (responseStatus :: GetFederationTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFederationTokenResponse)
+{-# DEPRECATED gftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

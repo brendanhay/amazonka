@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns high-level aggregated patch compliance state for a patch group.
 module Network.AWS.SSM.DescribePatchGroupState
-  ( -- * Creating a Request
-    describePatchGroupState,
-    DescribePatchGroupState,
+  ( -- * Creating a request
+    DescribePatchGroupState (..),
+    mkDescribePatchGroupState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpgsPatchGroup,
 
-    -- * Destructuring the Response
-    describePatchGroupStateResponse,
-    DescribePatchGroupStateResponse,
+    -- * Destructuring the response
+    DescribePatchGroupStateResponse (..),
+    mkDescribePatchGroupStateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpgsrsInstancesWithMissingPatches,
     dpgsrsInstancesWithInstalledOtherPatches,
     dpgsrsInstancesWithNotApplicablePatches,
@@ -44,183 +39,212 @@ module Network.AWS.SSM.DescribePatchGroupState
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describePatchGroupState' smart constructor.
+-- | /See:/ 'mkDescribePatchGroupState' smart constructor.
 newtype DescribePatchGroupState = DescribePatchGroupState'
-  { _dpgsPatchGroup ::
-      Text
+  { patchGroup ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroupState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgsPatchGroup' - The name of the patch group whose patch snapshot should be retrieved.
-describePatchGroupState ::
-  -- | 'dpgsPatchGroup'
-  Text ->
+-- * 'patchGroup' - The name of the patch group whose patch snapshot should be retrieved.
+mkDescribePatchGroupState ::
+  -- | 'patchGroup'
+  Lude.Text ->
   DescribePatchGroupState
-describePatchGroupState pPatchGroup_ =
-  DescribePatchGroupState' {_dpgsPatchGroup = pPatchGroup_}
+mkDescribePatchGroupState pPatchGroup_ =
+  DescribePatchGroupState' {patchGroup = pPatchGroup_}
 
 -- | The name of the patch group whose patch snapshot should be retrieved.
-dpgsPatchGroup :: Lens' DescribePatchGroupState Text
-dpgsPatchGroup = lens _dpgsPatchGroup (\s a -> s {_dpgsPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsPatchGroup :: Lens.Lens' DescribePatchGroupState Lude.Text
+dpgsPatchGroup = Lens.lens (patchGroup :: DescribePatchGroupState -> Lude.Text) (\s a -> s {patchGroup = a} :: DescribePatchGroupState)
+{-# DEPRECATED dpgsPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
-instance AWSRequest DescribePatchGroupState where
+instance Lude.AWSRequest DescribePatchGroupState where
   type Rs DescribePatchGroupState = DescribePatchGroupStateResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribePatchGroupStateResponse'
-            <$> (x .?> "InstancesWithMissingPatches")
-            <*> (x .?> "InstancesWithInstalledOtherPatches")
-            <*> (x .?> "InstancesWithNotApplicablePatches")
-            <*> (x .?> "InstancesWithInstalledPatches")
-            <*> (x .?> "InstancesWithInstalledRejectedPatches")
-            <*> (x .?> "InstancesWithInstalledPendingRebootPatches")
-            <*> (x .?> "InstancesWithUnreportedNotApplicablePatches")
-            <*> (x .?> "Instances")
-            <*> (x .?> "InstancesWithFailedPatches")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InstancesWithMissingPatches")
+            Lude.<*> (x Lude..?> "InstancesWithInstalledOtherPatches")
+            Lude.<*> (x Lude..?> "InstancesWithNotApplicablePatches")
+            Lude.<*> (x Lude..?> "InstancesWithInstalledPatches")
+            Lude.<*> (x Lude..?> "InstancesWithInstalledRejectedPatches")
+            Lude.<*> (x Lude..?> "InstancesWithInstalledPendingRebootPatches")
+            Lude.<*> (x Lude..?> "InstancesWithUnreportedNotApplicablePatches")
+            Lude.<*> (x Lude..?> "Instances")
+            Lude.<*> (x Lude..?> "InstancesWithFailedPatches")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePatchGroupState
-
-instance NFData DescribePatchGroupState
-
-instance ToHeaders DescribePatchGroupState where
+instance Lude.ToHeaders DescribePatchGroupState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribePatchGroupState" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribePatchGroupState" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribePatchGroupState where
+instance Lude.ToJSON DescribePatchGroupState where
   toJSON DescribePatchGroupState' {..} =
-    object (catMaybes [Just ("PatchGroup" .= _dpgsPatchGroup)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PatchGroup" Lude..= patchGroup)])
 
-instance ToPath DescribePatchGroupState where
-  toPath = const "/"
+instance Lude.ToPath DescribePatchGroupState where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribePatchGroupState where
-  toQuery = const mempty
+instance Lude.ToQuery DescribePatchGroupState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describePatchGroupStateResponse' smart constructor.
+-- | /See:/ 'mkDescribePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
-  { _dpgsrsInstancesWithMissingPatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithInstalledOtherPatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithNotApplicablePatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithInstalledPatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithInstalledRejectedPatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithInstalledPendingRebootPatches ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithUnreportedNotApplicablePatches ::
-      !(Maybe Int),
-    _dpgsrsInstances ::
-      !(Maybe Int),
-    _dpgsrsInstancesWithFailedPatches ::
-      !(Maybe Int),
-    _dpgsrsResponseStatus ::
-      !Int
+  { instancesWithMissingPatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithInstalledOtherPatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithNotApplicablePatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithInstalledPatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithInstalledRejectedPatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithInstalledPendingRebootPatches ::
+      Lude.Maybe Lude.Int,
+    instancesWithUnreportedNotApplicablePatches ::
+      Lude.Maybe Lude.Int,
+    instances ::
+      Lude.Maybe Lude.Int,
+    instancesWithFailedPatches ::
+      Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroupStateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgsrsInstancesWithMissingPatches' - The number of instances with missing patches from the patch baseline.
---
--- * 'dpgsrsInstancesWithInstalledOtherPatches' - The number of instances with patches installed that aren't defined in the patch baseline.
---
--- * 'dpgsrsInstancesWithNotApplicablePatches' - The number of instances with patches that aren't applicable.
---
--- * 'dpgsrsInstancesWithInstalledPatches' - The number of instances with installed patches.
---
--- * 'dpgsrsInstancesWithInstalledRejectedPatches' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
---
--- * 'dpgsrsInstancesWithInstalledPendingRebootPatches' - The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
---
--- * 'dpgsrsInstancesWithUnreportedNotApplicablePatches' - The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
---
--- * 'dpgsrsInstances' - The number of instances in the patch group.
---
--- * 'dpgsrsInstancesWithFailedPatches' - The number of instances with patches from the patch baseline that failed to install.
---
--- * 'dpgsrsResponseStatus' - -- | The response status code.
-describePatchGroupStateResponse ::
-  -- | 'dpgsrsResponseStatus'
-  Int ->
+-- * 'instances' - The number of instances in the patch group.
+-- * 'instancesWithFailedPatches' - The number of instances with patches from the patch baseline that failed to install.
+-- * 'instancesWithInstalledOtherPatches' - The number of instances with patches installed that aren't defined in the patch baseline.
+-- * 'instancesWithInstalledPatches' - The number of instances with installed patches.
+-- * 'instancesWithInstalledPendingRebootPatches' - The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
+-- * 'instancesWithInstalledRejectedPatches' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
+-- * 'instancesWithMissingPatches' - The number of instances with missing patches from the patch baseline.
+-- * 'instancesWithNotApplicablePatches' - The number of instances with patches that aren't applicable.
+-- * 'instancesWithUnreportedNotApplicablePatches' - The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
+-- * 'responseStatus' - The response status code.
+mkDescribePatchGroupStateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePatchGroupStateResponse
-describePatchGroupStateResponse pResponseStatus_ =
+mkDescribePatchGroupStateResponse pResponseStatus_ =
   DescribePatchGroupStateResponse'
-    { _dpgsrsInstancesWithMissingPatches =
-        Nothing,
-      _dpgsrsInstancesWithInstalledOtherPatches = Nothing,
-      _dpgsrsInstancesWithNotApplicablePatches = Nothing,
-      _dpgsrsInstancesWithInstalledPatches = Nothing,
-      _dpgsrsInstancesWithInstalledRejectedPatches = Nothing,
-      _dpgsrsInstancesWithInstalledPendingRebootPatches = Nothing,
-      _dpgsrsInstancesWithUnreportedNotApplicablePatches = Nothing,
-      _dpgsrsInstances = Nothing,
-      _dpgsrsInstancesWithFailedPatches = Nothing,
-      _dpgsrsResponseStatus = pResponseStatus_
+    { instancesWithMissingPatches =
+        Lude.Nothing,
+      instancesWithInstalledOtherPatches = Lude.Nothing,
+      instancesWithNotApplicablePatches = Lude.Nothing,
+      instancesWithInstalledPatches = Lude.Nothing,
+      instancesWithInstalledRejectedPatches = Lude.Nothing,
+      instancesWithInstalledPendingRebootPatches = Lude.Nothing,
+      instancesWithUnreportedNotApplicablePatches = Lude.Nothing,
+      instances = Lude.Nothing,
+      instancesWithFailedPatches = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of instances with missing patches from the patch baseline.
-dpgsrsInstancesWithMissingPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithMissingPatches = lens _dpgsrsInstancesWithMissingPatches (\s a -> s {_dpgsrsInstancesWithMissingPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithMissingPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithMissingPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithMissingPatches = Lens.lens (instancesWithMissingPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithMissingPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithMissingPatches "Use generic-lens or generic-optics with 'instancesWithMissingPatches' instead." #-}
 
 -- | The number of instances with patches installed that aren't defined in the patch baseline.
-dpgsrsInstancesWithInstalledOtherPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledOtherPatches = lens _dpgsrsInstancesWithInstalledOtherPatches (\s a -> s {_dpgsrsInstancesWithInstalledOtherPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithInstalledOtherPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithInstalledOtherPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithInstalledOtherPatches = Lens.lens (instancesWithInstalledOtherPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithInstalledOtherPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithInstalledOtherPatches "Use generic-lens or generic-optics with 'instancesWithInstalledOtherPatches' instead." #-}
 
 -- | The number of instances with patches that aren't applicable.
-dpgsrsInstancesWithNotApplicablePatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithNotApplicablePatches = lens _dpgsrsInstancesWithNotApplicablePatches (\s a -> s {_dpgsrsInstancesWithNotApplicablePatches = a})
+--
+-- /Note:/ Consider using 'instancesWithNotApplicablePatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithNotApplicablePatches = Lens.lens (instancesWithNotApplicablePatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithNotApplicablePatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithNotApplicablePatches "Use generic-lens or generic-optics with 'instancesWithNotApplicablePatches' instead." #-}
 
 -- | The number of instances with installed patches.
-dpgsrsInstancesWithInstalledPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledPatches = lens _dpgsrsInstancesWithInstalledPatches (\s a -> s {_dpgsrsInstancesWithInstalledPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithInstalledPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithInstalledPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithInstalledPatches = Lens.lens (instancesWithInstalledPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithInstalledPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithInstalledPatches "Use generic-lens or generic-optics with 'instancesWithInstalledPatches' instead." #-}
 
 -- | The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
-dpgsrsInstancesWithInstalledRejectedPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledRejectedPatches = lens _dpgsrsInstancesWithInstalledRejectedPatches (\s a -> s {_dpgsrsInstancesWithInstalledRejectedPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithInstalledRejectedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithInstalledRejectedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithInstalledRejectedPatches = Lens.lens (instancesWithInstalledRejectedPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithInstalledRejectedPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithInstalledRejectedPatches "Use generic-lens or generic-optics with 'instancesWithInstalledRejectedPatches' instead." #-}
 
 -- | The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
-dpgsrsInstancesWithInstalledPendingRebootPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithInstalledPendingRebootPatches = lens _dpgsrsInstancesWithInstalledPendingRebootPatches (\s a -> s {_dpgsrsInstancesWithInstalledPendingRebootPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithInstalledPendingRebootPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithInstalledPendingRebootPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithInstalledPendingRebootPatches = Lens.lens (instancesWithInstalledPendingRebootPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithInstalledPendingRebootPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithInstalledPendingRebootPatches "Use generic-lens or generic-optics with 'instancesWithInstalledPendingRebootPatches' instead." #-}
 
 -- | The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
-dpgsrsInstancesWithUnreportedNotApplicablePatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithUnreportedNotApplicablePatches = lens _dpgsrsInstancesWithUnreportedNotApplicablePatches (\s a -> s {_dpgsrsInstancesWithUnreportedNotApplicablePatches = a})
+--
+-- /Note:/ Consider using 'instancesWithUnreportedNotApplicablePatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithUnreportedNotApplicablePatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithUnreportedNotApplicablePatches = Lens.lens (instancesWithUnreportedNotApplicablePatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithUnreportedNotApplicablePatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithUnreportedNotApplicablePatches "Use generic-lens or generic-optics with 'instancesWithUnreportedNotApplicablePatches' instead." #-}
 
 -- | The number of instances in the patch group.
-dpgsrsInstances :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstances = lens _dpgsrsInstances (\s a -> s {_dpgsrsInstances = a})
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstances :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstances = Lens.lens (instances :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instances = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The number of instances with patches from the patch baseline that failed to install.
-dpgsrsInstancesWithFailedPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
-dpgsrsInstancesWithFailedPatches = lens _dpgsrsInstancesWithFailedPatches (\s a -> s {_dpgsrsInstancesWithFailedPatches = a})
+--
+-- /Note:/ Consider using 'instancesWithFailedPatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsInstancesWithFailedPatches :: Lens.Lens' DescribePatchGroupStateResponse (Lude.Maybe Lude.Int)
+dpgsrsInstancesWithFailedPatches = Lens.lens (instancesWithFailedPatches :: DescribePatchGroupStateResponse -> Lude.Maybe Lude.Int) (\s a -> s {instancesWithFailedPatches = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsInstancesWithFailedPatches "Use generic-lens or generic-optics with 'instancesWithFailedPatches' instead." #-}
 
--- | -- | The response status code.
-dpgsrsResponseStatus :: Lens' DescribePatchGroupStateResponse Int
-dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\s a -> s {_dpgsrsResponseStatus = a})
-
-instance NFData DescribePatchGroupStateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgsrsResponseStatus :: Lens.Lens' DescribePatchGroupStateResponse Lude.Int
+dpgsrsResponseStatus = Lens.lens (responseStatus :: DescribePatchGroupStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePatchGroupStateResponse)
+{-# DEPRECATED dpgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

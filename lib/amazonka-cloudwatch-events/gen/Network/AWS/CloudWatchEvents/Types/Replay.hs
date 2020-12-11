@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,154 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.Replay where
+module Network.AWS.CloudWatchEvents.Types.Replay
+  ( Replay (..),
+
+    -- * Smart constructor
+    mkReplay,
+
+    -- * Lenses
+    repEventSourceARN,
+    repState,
+    repEventEndTime,
+    repReplayStartTime,
+    repReplayEndTime,
+    repEventLastReplayedTime,
+    repEventStartTime,
+    repReplayName,
+    repStateReason,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types.ReplayState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A @Replay@ object that contains details about a replay.
 --
---
---
--- /See:/ 'replay' smart constructor.
+-- /See:/ 'mkReplay' smart constructor.
 data Replay = Replay'
-  { _repEventSourceARN :: !(Maybe Text),
-    _repState :: !(Maybe ReplayState),
-    _repEventEndTime :: !(Maybe POSIX),
-    _repReplayStartTime :: !(Maybe POSIX),
-    _repReplayEndTime :: !(Maybe POSIX),
-    _repEventLastReplayedTime :: !(Maybe POSIX),
-    _repEventStartTime :: !(Maybe POSIX),
-    _repReplayName :: !(Maybe Text),
-    _repStateReason :: !(Maybe Text)
+  { eventSourceARN :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe ReplayState,
+    eventEndTime :: Lude.Maybe Lude.Timestamp,
+    replayStartTime :: Lude.Maybe Lude.Timestamp,
+    replayEndTime :: Lude.Maybe Lude.Timestamp,
+    eventLastReplayedTime :: Lude.Maybe Lude.Timestamp,
+    eventStartTime :: Lude.Maybe Lude.Timestamp,
+    replayName :: Lude.Maybe Lude.Text,
+    stateReason :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Replay' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'repEventSourceARN' - The ARN of the archive to replay event from.
---
--- * 'repState' - The current state of the replay.
---
--- * 'repEventEndTime' - A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
---
--- * 'repReplayStartTime' - A time stamp for the time that the replay started.
---
--- * 'repReplayEndTime' - A time stamp for the time that the replay completed.
---
--- * 'repEventLastReplayedTime' - A time stamp for the time that the last event was replayed.
---
--- * 'repEventStartTime' - A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
---
--- * 'repReplayName' - The name of the replay.
---
--- * 'repStateReason' - A description of why the replay is in the current state.
-replay ::
+-- * 'eventEndTime' - A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
+-- * 'eventLastReplayedTime' - A time stamp for the time that the last event was replayed.
+-- * 'eventSourceARN' - The ARN of the archive to replay event from.
+-- * 'eventStartTime' - A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
+-- * 'replayEndTime' - A time stamp for the time that the replay completed.
+-- * 'replayName' - The name of the replay.
+-- * 'replayStartTime' - A time stamp for the time that the replay started.
+-- * 'state' - The current state of the replay.
+-- * 'stateReason' - A description of why the replay is in the current state.
+mkReplay ::
   Replay
-replay =
+mkReplay =
   Replay'
-    { _repEventSourceARN = Nothing,
-      _repState = Nothing,
-      _repEventEndTime = Nothing,
-      _repReplayStartTime = Nothing,
-      _repReplayEndTime = Nothing,
-      _repEventLastReplayedTime = Nothing,
-      _repEventStartTime = Nothing,
-      _repReplayName = Nothing,
-      _repStateReason = Nothing
+    { eventSourceARN = Lude.Nothing,
+      state = Lude.Nothing,
+      eventEndTime = Lude.Nothing,
+      replayStartTime = Lude.Nothing,
+      replayEndTime = Lude.Nothing,
+      eventLastReplayedTime = Lude.Nothing,
+      eventStartTime = Lude.Nothing,
+      replayName = Lude.Nothing,
+      stateReason = Lude.Nothing
     }
 
 -- | The ARN of the archive to replay event from.
-repEventSourceARN :: Lens' Replay (Maybe Text)
-repEventSourceARN = lens _repEventSourceARN (\s a -> s {_repEventSourceARN = a})
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repEventSourceARN :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
+repEventSourceARN = Lens.lens (eventSourceARN :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: Replay)
+{-# DEPRECATED repEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
 -- | The current state of the replay.
-repState :: Lens' Replay (Maybe ReplayState)
-repState = lens _repState (\s a -> s {_repState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repState :: Lens.Lens' Replay (Lude.Maybe ReplayState)
+repState = Lens.lens (state :: Replay -> Lude.Maybe ReplayState) (\s a -> s {state = a} :: Replay)
+{-# DEPRECATED repState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
-repEventEndTime :: Lens' Replay (Maybe UTCTime)
-repEventEndTime = lens _repEventEndTime (\s a -> s {_repEventEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repEventEndTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
+repEventEndTime = Lens.lens (eventEndTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventEndTime = a} :: Replay)
+{-# DEPRECATED repEventEndTime "Use generic-lens or generic-optics with 'eventEndTime' instead." #-}
 
 -- | A time stamp for the time that the replay started.
-repReplayStartTime :: Lens' Replay (Maybe UTCTime)
-repReplayStartTime = lens _repReplayStartTime (\s a -> s {_repReplayStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'replayStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repReplayStartTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
+repReplayStartTime = Lens.lens (replayStartTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {replayStartTime = a} :: Replay)
+{-# DEPRECATED repReplayStartTime "Use generic-lens or generic-optics with 'replayStartTime' instead." #-}
 
 -- | A time stamp for the time that the replay completed.
-repReplayEndTime :: Lens' Replay (Maybe UTCTime)
-repReplayEndTime = lens _repReplayEndTime (\s a -> s {_repReplayEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'replayEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repReplayEndTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
+repReplayEndTime = Lens.lens (replayEndTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {replayEndTime = a} :: Replay)
+{-# DEPRECATED repReplayEndTime "Use generic-lens or generic-optics with 'replayEndTime' instead." #-}
 
 -- | A time stamp for the time that the last event was replayed.
-repEventLastReplayedTime :: Lens' Replay (Maybe UTCTime)
-repEventLastReplayedTime = lens _repEventLastReplayedTime (\s a -> s {_repEventLastReplayedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventLastReplayedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repEventLastReplayedTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
+repEventLastReplayedTime = Lens.lens (eventLastReplayedTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventLastReplayedTime = a} :: Replay)
+{-# DEPRECATED repEventLastReplayedTime "Use generic-lens or generic-optics with 'eventLastReplayedTime' instead." #-}
 
 -- | A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
-repEventStartTime :: Lens' Replay (Maybe UTCTime)
-repEventStartTime = lens _repEventStartTime (\s a -> s {_repEventStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repEventStartTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
+repEventStartTime = Lens.lens (eventStartTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventStartTime = a} :: Replay)
+{-# DEPRECATED repEventStartTime "Use generic-lens or generic-optics with 'eventStartTime' instead." #-}
 
 -- | The name of the replay.
-repReplayName :: Lens' Replay (Maybe Text)
-repReplayName = lens _repReplayName (\s a -> s {_repReplayName = a})
+--
+-- /Note:/ Consider using 'replayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repReplayName :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
+repReplayName = Lens.lens (replayName :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {replayName = a} :: Replay)
+{-# DEPRECATED repReplayName "Use generic-lens or generic-optics with 'replayName' instead." #-}
 
 -- | A description of why the replay is in the current state.
-repStateReason :: Lens' Replay (Maybe Text)
-repStateReason = lens _repStateReason (\s a -> s {_repStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+repStateReason :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
+repStateReason = Lens.lens (stateReason :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: Replay)
+{-# DEPRECATED repStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
-instance FromJSON Replay where
+instance Lude.FromJSON Replay where
   parseJSON =
-    withObject
+    Lude.withObject
       "Replay"
       ( \x ->
           Replay'
-            <$> (x .:? "EventSourceArn")
-            <*> (x .:? "State")
-            <*> (x .:? "EventEndTime")
-            <*> (x .:? "ReplayStartTime")
-            <*> (x .:? "ReplayEndTime")
-            <*> (x .:? "EventLastReplayedTime")
-            <*> (x .:? "EventStartTime")
-            <*> (x .:? "ReplayName")
-            <*> (x .:? "StateReason")
+            Lude.<$> (x Lude..:? "EventSourceArn")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "EventEndTime")
+            Lude.<*> (x Lude..:? "ReplayStartTime")
+            Lude.<*> (x Lude..:? "ReplayEndTime")
+            Lude.<*> (x Lude..:? "EventLastReplayedTime")
+            Lude.<*> (x Lude..:? "EventStartTime")
+            Lude.<*> (x Lude..:? "ReplayName")
+            Lude.<*> (x Lude..:? "StateReason")
       )
-
-instance Hashable Replay
-
-instance NFData Replay

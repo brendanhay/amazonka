@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.GroundTruthManifest where
+module Network.AWS.Rekognition.Types.GroundTruthManifest
+  ( GroundTruthManifest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroundTruthManifest,
+
+    -- * Lenses
+    gtmS3Object,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.S3Object
 
 -- | The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
 --
---
---
--- /See:/ 'groundTruthManifest' smart constructor.
+-- /See:/ 'mkGroundTruthManifest' smart constructor.
 newtype GroundTruthManifest = GroundTruthManifest'
-  { _gtmS3Object ::
-      Maybe S3Object
+  { s3Object ::
+      Lude.Maybe S3Object
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroundTruthManifest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtmS3Object' - Undocumented member.
-groundTruthManifest ::
+-- * 's3Object' - Undocumented field.
+mkGroundTruthManifest ::
   GroundTruthManifest
-groundTruthManifest = GroundTruthManifest' {_gtmS3Object = Nothing}
+mkGroundTruthManifest =
+  GroundTruthManifest' {s3Object = Lude.Nothing}
 
--- | Undocumented member.
-gtmS3Object :: Lens' GroundTruthManifest (Maybe S3Object)
-gtmS3Object = lens _gtmS3Object (\s a -> s {_gtmS3Object = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtmS3Object :: Lens.Lens' GroundTruthManifest (Lude.Maybe S3Object)
+gtmS3Object = Lens.lens (s3Object :: GroundTruthManifest -> Lude.Maybe S3Object) (\s a -> s {s3Object = a} :: GroundTruthManifest)
+{-# DEPRECATED gtmS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
 
-instance FromJSON GroundTruthManifest where
+instance Lude.FromJSON GroundTruthManifest where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroundTruthManifest"
-      (\x -> GroundTruthManifest' <$> (x .:? "S3Object"))
+      (\x -> GroundTruthManifest' Lude.<$> (x Lude..:? "S3Object"))
 
-instance Hashable GroundTruthManifest
-
-instance NFData GroundTruthManifest
-
-instance ToJSON GroundTruthManifest where
+instance Lude.ToJSON GroundTruthManifest where
   toJSON GroundTruthManifest' {..} =
-    object (catMaybes [("S3Object" .=) <$> _gtmS3Object])
+    Lude.object
+      (Lude.catMaybes [("S3Object" Lude..=) Lude.<$> s3Object])

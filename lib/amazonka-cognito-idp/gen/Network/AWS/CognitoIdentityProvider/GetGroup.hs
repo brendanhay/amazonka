@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,148 @@
 --
 -- Gets a group.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.GetGroup
-  ( -- * Creating a Request
-    getGroup,
-    GetGroup,
+  ( -- * Creating a request
+    GetGroup (..),
+    mkGetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggGroupName,
     ggUserPoolId,
 
-    -- * Destructuring the Response
-    getGroupResponse,
-    GetGroupResponse,
+    -- * Destructuring the response
+    GetGroupResponse (..),
+    mkGetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrsGroup,
     ggrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGroup' smart constructor.
+-- | /See:/ 'mkGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { _ggGroupName :: !Text,
-    _ggUserPoolId :: !Text
+  { groupName :: Lude.Text,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggGroupName' - The name of the group.
---
--- * 'ggUserPoolId' - The user pool ID for the user pool.
-getGroup ::
-  -- | 'ggGroupName'
-  Text ->
-  -- | 'ggUserPoolId'
-  Text ->
+-- * 'groupName' - The name of the group.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkGetGroup ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   GetGroup
-getGroup pGroupName_ pUserPoolId_ =
-  GetGroup'
-    { _ggGroupName = pGroupName_,
-      _ggUserPoolId = pUserPoolId_
-    }
+mkGetGroup pGroupName_ pUserPoolId_ =
+  GetGroup' {groupName = pGroupName_, userPoolId = pUserPoolId_}
 
 -- | The name of the group.
-ggGroupName :: Lens' GetGroup Text
-ggGroupName = lens _ggGroupName (\s a -> s {_ggGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggGroupName :: Lens.Lens' GetGroup Lude.Text
+ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Text) (\s a -> s {groupName = a} :: GetGroup)
+{-# DEPRECATED ggGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The user pool ID for the user pool.
-ggUserPoolId :: Lens' GetGroup Text
-ggUserPoolId = lens _ggUserPoolId (\s a -> s {_ggUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggUserPoolId :: Lens.Lens' GetGroup Lude.Text
+ggUserPoolId = Lens.lens (userPoolId :: GetGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: GetGroup)
+{-# DEPRECATED ggUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest GetGroup where
+instance Lude.AWSRequest GetGroup where
   type Rs GetGroup = GetGroupResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetGroupResponse' <$> (x .?> "Group") <*> (pure (fromEnum s))
+          GetGroupResponse'
+            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGroup
-
-instance NFData GetGroup
-
-instance ToHeaders GetGroup where
+instance Lude.ToHeaders GetGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.GetGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityProviderService.GetGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetGroup where
+instance Lude.ToJSON GetGroup where
   toJSON GetGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("GroupName" .= _ggGroupName),
-            Just ("UserPoolId" .= _ggUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GroupName" Lude..= groupName),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath GetGroup where
-  toPath = const "/"
+instance Lude.ToPath GetGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGroupResponse' smart constructor.
+-- | /See:/ 'mkGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsGroup ::
-      !(Maybe GroupType),
-    _ggrsResponseStatus :: !Int
+  { group ::
+      Lude.Maybe GroupType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrsGroup' - The group object for the group.
---
--- * 'ggrsResponseStatus' - -- | The response status code.
-getGroupResponse ::
-  -- | 'ggrsResponseStatus'
-  Int ->
+-- * 'group' - The group object for the group.
+-- * 'responseStatus' - The response status code.
+mkGetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGroupResponse
-getGroupResponse pResponseStatus_ =
+mkGetGroupResponse pResponseStatus_ =
   GetGroupResponse'
-    { _ggrsGroup = Nothing,
-      _ggrsResponseStatus = pResponseStatus_
+    { group = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The group object for the group.
-ggrsGroup :: Lens' GetGroupResponse (Maybe GroupType)
-ggrsGroup = lens _ggrsGroup (\s a -> s {_ggrsGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsGroup :: Lens.Lens' GetGroupResponse (Lude.Maybe GroupType)
+ggrsGroup = Lens.lens (group :: GetGroupResponse -> Lude.Maybe GroupType) (\s a -> s {group = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetGroupResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\s a -> s {_ggrsResponseStatus = a})
-
-instance NFData GetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsResponseStatus :: Lens.Lens' GetGroupResponse Lude.Int
+ggrsResponseStatus = Lens.lens (responseStatus :: GetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

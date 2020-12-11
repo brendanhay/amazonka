@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DirectoryServiceAuthentication where
+module Network.AWS.EC2.Types.DirectoryServiceAuthentication
+  ( DirectoryServiceAuthentication (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDirectoryServiceAuthentication,
+
+    -- * Lenses
+    dsaDirectoryId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Active Directory.
 --
---
---
--- /See:/ 'directoryServiceAuthentication' smart constructor.
+-- /See:/ 'mkDirectoryServiceAuthentication' smart constructor.
 newtype DirectoryServiceAuthentication = DirectoryServiceAuthentication'
-  { _dsaDirectoryId ::
-      Maybe Text
+  { directoryId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryServiceAuthentication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaDirectoryId' - The ID of the Active Directory used for authentication.
-directoryServiceAuthentication ::
+-- * 'directoryId' - The ID of the Active Directory used for authentication.
+mkDirectoryServiceAuthentication ::
   DirectoryServiceAuthentication
-directoryServiceAuthentication =
-  DirectoryServiceAuthentication' {_dsaDirectoryId = Nothing}
+mkDirectoryServiceAuthentication =
+  DirectoryServiceAuthentication' {directoryId = Lude.Nothing}
 
 -- | The ID of the Active Directory used for authentication.
-dsaDirectoryId :: Lens' DirectoryServiceAuthentication (Maybe Text)
-dsaDirectoryId = lens _dsaDirectoryId (\s a -> s {_dsaDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaDirectoryId :: Lens.Lens' DirectoryServiceAuthentication (Lude.Maybe Lude.Text)
+dsaDirectoryId = Lens.lens (directoryId :: DirectoryServiceAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DirectoryServiceAuthentication)
+{-# DEPRECATED dsaDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance FromXML DirectoryServiceAuthentication where
+instance Lude.FromXML DirectoryServiceAuthentication where
   parseXML x =
-    DirectoryServiceAuthentication' <$> (x .@? "directoryId")
-
-instance Hashable DirectoryServiceAuthentication
-
-instance NFData DirectoryServiceAuthentication
+    DirectoryServiceAuthentication'
+      Lude.<$> (x Lude..@? "directoryId")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns the default system parameter information for the DAX caching software.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DAX.DescribeDefaultParameters
-  ( -- * Creating a Request
-    describeDefaultParameters,
-    DescribeDefaultParameters,
+  ( -- * Creating a request
+    DescribeDefaultParameters (..),
+    mkDescribeDefaultParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddpNextToken,
     ddpMaxResults,
 
-    -- * Destructuring the Response
-    describeDefaultParametersResponse,
-    DescribeDefaultParametersResponse,
+    -- * Destructuring the response
+    DescribeDefaultParametersResponse (..),
+    mkDescribeDefaultParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddprsNextToken,
     ddprsParameters,
     ddprsResponseStatus,
@@ -43,133 +36,157 @@ module Network.AWS.DAX.DescribeDefaultParameters
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDefaultParameters' smart constructor.
+-- | /See:/ 'mkDescribeDefaultParameters' smart constructor.
 data DescribeDefaultParameters = DescribeDefaultParameters'
-  { _ddpNextToken ::
-      !(Maybe Text),
-    _ddpMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
--- * 'ddpNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'ddpMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-describeDefaultParameters ::
+-- The value for @MaxResults@ must be between 20 and 100.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+mkDescribeDefaultParameters ::
   DescribeDefaultParameters
-describeDefaultParameters =
+mkDescribeDefaultParameters =
   DescribeDefaultParameters'
-    { _ddpNextToken = Nothing,
-      _ddpMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-ddpNextToken :: Lens' DescribeDefaultParameters (Maybe Text)
-ddpNextToken = lens _ddpNextToken (\s a -> s {_ddpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpNextToken :: Lens.Lens' DescribeDefaultParameters (Lude.Maybe Lude.Text)
+ddpNextToken = Lens.lens (nextToken :: DescribeDefaultParameters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDefaultParameters)
+{-# DEPRECATED ddpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-ddpMaxResults :: Lens' DescribeDefaultParameters (Maybe Int)
-ddpMaxResults = lens _ddpMaxResults (\s a -> s {_ddpMaxResults = a})
+-- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpMaxResults :: Lens.Lens' DescribeDefaultParameters (Lude.Maybe Lude.Int)
+ddpMaxResults = Lens.lens (maxResults :: DescribeDefaultParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeDefaultParameters)
+{-# DEPRECATED ddpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeDefaultParameters where
+instance Page.AWSPager DescribeDefaultParameters where
   page rq rs
-    | stop (rs ^. ddprsNextToken) = Nothing
-    | stop (rs ^. ddprsParameters) = Nothing
-    | otherwise = Just $ rq & ddpNextToken .~ rs ^. ddprsNextToken
+    | Page.stop (rs Lens.^. ddprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddprsParameters) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddpNextToken Lens..~ rs Lens.^. ddprsNextToken
 
-instance AWSRequest DescribeDefaultParameters where
+instance Lude.AWSRequest DescribeDefaultParameters where
   type
     Rs DescribeDefaultParameters =
       DescribeDefaultParametersResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDefaultParametersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Parameters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDefaultParameters
-
-instance NFData DescribeDefaultParameters
-
-instance ToHeaders DescribeDefaultParameters where
+instance Lude.ToHeaders DescribeDefaultParameters where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDAXV3.DescribeDefaultParameters" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDAXV3.DescribeDefaultParameters" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDefaultParameters where
+instance Lude.ToJSON DescribeDefaultParameters where
   toJSON DescribeDefaultParameters' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ddpNextToken,
-            ("MaxResults" .=) <$> _ddpMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeDefaultParameters where
-  toPath = const "/"
+instance Lude.ToPath DescribeDefaultParameters where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDefaultParameters where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDefaultParameters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDefaultParametersResponse' smart constructor.
+-- | /See:/ 'mkDescribeDefaultParametersResponse' smart constructor.
 data DescribeDefaultParametersResponse = DescribeDefaultParametersResponse'
-  { _ddprsNextToken ::
-      !(Maybe Text),
-    _ddprsParameters ::
-      !(Maybe [Parameter]),
-    _ddprsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    parameters ::
+      Lude.Maybe [Parameter],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddprsNextToken' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'ddprsParameters' - A list of parameters. Each element in the list represents one parameter.
---
--- * 'ddprsResponseStatus' - -- | The response status code.
-describeDefaultParametersResponse ::
-  -- | 'ddprsResponseStatus'
-  Int ->
+-- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- * 'parameters' - A list of parameters. Each element in the list represents one parameter.
+-- * 'responseStatus' - The response status code.
+mkDescribeDefaultParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDefaultParametersResponse
-describeDefaultParametersResponse pResponseStatus_ =
+mkDescribeDefaultParametersResponse pResponseStatus_ =
   DescribeDefaultParametersResponse'
-    { _ddprsNextToken = Nothing,
-      _ddprsParameters = Nothing,
-      _ddprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      parameters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-ddprsNextToken :: Lens' DescribeDefaultParametersResponse (Maybe Text)
-ddprsNextToken = lens _ddprsNextToken (\s a -> s {_ddprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsNextToken :: Lens.Lens' DescribeDefaultParametersResponse (Lude.Maybe Lude.Text)
+ddprsNextToken = Lens.lens (nextToken :: DescribeDefaultParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDefaultParametersResponse)
+{-# DEPRECATED ddprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of parameters. Each element in the list represents one parameter.
-ddprsParameters :: Lens' DescribeDefaultParametersResponse [Parameter]
-ddprsParameters = lens _ddprsParameters (\s a -> s {_ddprsParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsParameters :: Lens.Lens' DescribeDefaultParametersResponse (Lude.Maybe [Parameter])
+ddprsParameters = Lens.lens (parameters :: DescribeDefaultParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: DescribeDefaultParametersResponse)
+{-# DEPRECATED ddprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | -- | The response status code.
-ddprsResponseStatus :: Lens' DescribeDefaultParametersResponse Int
-ddprsResponseStatus = lens _ddprsResponseStatus (\s a -> s {_ddprsResponseStatus = a})
-
-instance NFData DescribeDefaultParametersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddprsResponseStatus :: Lens.Lens' DescribeDefaultParametersResponse Lude.Int
+ddprsResponseStatus = Lens.lens (responseStatus :: DescribeDefaultParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDefaultParametersResponse)
+{-# DEPRECATED ddprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

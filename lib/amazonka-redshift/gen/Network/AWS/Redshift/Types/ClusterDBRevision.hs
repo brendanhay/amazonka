@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterDBRevision where
+module Network.AWS.Redshift.Types.ClusterDBRevision
+  ( ClusterDBRevision (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterDBRevision,
+
+    -- * Lenses
+    cdrDatabaseRevisionReleaseDate,
+    cdrClusterIdentifier,
+    cdrCurrentDatabaseRevision,
+    cdrRevisionTargets,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.RevisionTarget
 
 -- | Describes a @ClusterDbRevision@ .
 --
---
---
--- /See:/ 'clusterDBRevision' smart constructor.
+-- /See:/ 'mkClusterDBRevision' smart constructor.
 data ClusterDBRevision = ClusterDBRevision'
-  { _cdrDatabaseRevisionReleaseDate ::
-      !(Maybe ISO8601),
-    _cdrClusterIdentifier :: !(Maybe Text),
-    _cdrCurrentDatabaseRevision :: !(Maybe Text),
-    _cdrRevisionTargets :: !(Maybe [RevisionTarget])
+  { databaseRevisionReleaseDate ::
+      Lude.Maybe Lude.ISO8601,
+    clusterIdentifier :: Lude.Maybe Lude.Text,
+    currentDatabaseRevision :: Lude.Maybe Lude.Text,
+    revisionTargets :: Lude.Maybe [RevisionTarget]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterDBRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrDatabaseRevisionReleaseDate' - The date on which the database revision was released.
---
--- * 'cdrClusterIdentifier' - The unique identifier of the cluster.
---
--- * 'cdrCurrentDatabaseRevision' - A string representing the current cluster version.
---
--- * 'cdrRevisionTargets' - A list of @RevisionTarget@ objects, where each object describes the database revision that a cluster can be updated to.
-clusterDBRevision ::
+-- * 'clusterIdentifier' - The unique identifier of the cluster.
+-- * 'currentDatabaseRevision' - A string representing the current cluster version.
+-- * 'databaseRevisionReleaseDate' - The date on which the database revision was released.
+-- * 'revisionTargets' - A list of @RevisionTarget@ objects, where each object describes the database revision that a cluster can be updated to.
+mkClusterDBRevision ::
   ClusterDBRevision
-clusterDBRevision =
+mkClusterDBRevision =
   ClusterDBRevision'
-    { _cdrDatabaseRevisionReleaseDate = Nothing,
-      _cdrClusterIdentifier = Nothing,
-      _cdrCurrentDatabaseRevision = Nothing,
-      _cdrRevisionTargets = Nothing
+    { databaseRevisionReleaseDate = Lude.Nothing,
+      clusterIdentifier = Lude.Nothing,
+      currentDatabaseRevision = Lude.Nothing,
+      revisionTargets = Lude.Nothing
     }
 
 -- | The date on which the database revision was released.
-cdrDatabaseRevisionReleaseDate :: Lens' ClusterDBRevision (Maybe UTCTime)
-cdrDatabaseRevisionReleaseDate = lens _cdrDatabaseRevisionReleaseDate (\s a -> s {_cdrDatabaseRevisionReleaseDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'databaseRevisionReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrDatabaseRevisionReleaseDate :: Lens.Lens' ClusterDBRevision (Lude.Maybe Lude.ISO8601)
+cdrDatabaseRevisionReleaseDate = Lens.lens (databaseRevisionReleaseDate :: ClusterDBRevision -> Lude.Maybe Lude.ISO8601) (\s a -> s {databaseRevisionReleaseDate = a} :: ClusterDBRevision)
+{-# DEPRECATED cdrDatabaseRevisionReleaseDate "Use generic-lens or generic-optics with 'databaseRevisionReleaseDate' instead." #-}
 
 -- | The unique identifier of the cluster.
-cdrClusterIdentifier :: Lens' ClusterDBRevision (Maybe Text)
-cdrClusterIdentifier = lens _cdrClusterIdentifier (\s a -> s {_cdrClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrClusterIdentifier :: Lens.Lens' ClusterDBRevision (Lude.Maybe Lude.Text)
+cdrClusterIdentifier = Lens.lens (clusterIdentifier :: ClusterDBRevision -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: ClusterDBRevision)
+{-# DEPRECATED cdrClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | A string representing the current cluster version.
-cdrCurrentDatabaseRevision :: Lens' ClusterDBRevision (Maybe Text)
-cdrCurrentDatabaseRevision = lens _cdrCurrentDatabaseRevision (\s a -> s {_cdrCurrentDatabaseRevision = a})
+--
+-- /Note:/ Consider using 'currentDatabaseRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrCurrentDatabaseRevision :: Lens.Lens' ClusterDBRevision (Lude.Maybe Lude.Text)
+cdrCurrentDatabaseRevision = Lens.lens (currentDatabaseRevision :: ClusterDBRevision -> Lude.Maybe Lude.Text) (\s a -> s {currentDatabaseRevision = a} :: ClusterDBRevision)
+{-# DEPRECATED cdrCurrentDatabaseRevision "Use generic-lens or generic-optics with 'currentDatabaseRevision' instead." #-}
 
 -- | A list of @RevisionTarget@ objects, where each object describes the database revision that a cluster can be updated to.
-cdrRevisionTargets :: Lens' ClusterDBRevision [RevisionTarget]
-cdrRevisionTargets = lens _cdrRevisionTargets (\s a -> s {_cdrRevisionTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'revisionTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrRevisionTargets :: Lens.Lens' ClusterDBRevision (Lude.Maybe [RevisionTarget])
+cdrRevisionTargets = Lens.lens (revisionTargets :: ClusterDBRevision -> Lude.Maybe [RevisionTarget]) (\s a -> s {revisionTargets = a} :: ClusterDBRevision)
+{-# DEPRECATED cdrRevisionTargets "Use generic-lens or generic-optics with 'revisionTargets' instead." #-}
 
-instance FromXML ClusterDBRevision where
+instance Lude.FromXML ClusterDBRevision where
   parseXML x =
     ClusterDBRevision'
-      <$> (x .@? "DatabaseRevisionReleaseDate")
-      <*> (x .@? "ClusterIdentifier")
-      <*> (x .@? "CurrentDatabaseRevision")
-      <*> ( x .@? "RevisionTargets" .!@ mempty
-              >>= may (parseXMLList "RevisionTarget")
-          )
-
-instance Hashable ClusterDBRevision
-
-instance NFData ClusterDBRevision
+      Lude.<$> (x Lude..@? "DatabaseRevisionReleaseDate")
+      Lude.<*> (x Lude..@? "ClusterIdentifier")
+      Lude.<*> (x Lude..@? "CurrentDatabaseRevision")
+      Lude.<*> ( x Lude..@? "RevisionTargets" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "RevisionTarget")
+               )

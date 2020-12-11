@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,125 @@
 --
 -- Initiates the discovery of any smart home appliances associated with the room.
 module Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
-  ( -- * Creating a Request
-    startSmartHomeApplianceDiscovery,
-    StartSmartHomeApplianceDiscovery,
+  ( -- * Creating a request
+    StartSmartHomeApplianceDiscovery (..),
+    mkStartSmartHomeApplianceDiscovery,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sshadRoomARN,
 
-    -- * Destructuring the Response
-    startSmartHomeApplianceDiscoveryResponse,
-    StartSmartHomeApplianceDiscoveryResponse,
+    -- * Destructuring the response
+    StartSmartHomeApplianceDiscoveryResponse (..),
+    mkStartSmartHomeApplianceDiscoveryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sshadrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startSmartHomeApplianceDiscovery' smart constructor.
+-- | /See:/ 'mkStartSmartHomeApplianceDiscovery' smart constructor.
 newtype StartSmartHomeApplianceDiscovery = StartSmartHomeApplianceDiscovery'
-  { _sshadRoomARN ::
-      Text
+  { roomARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSmartHomeApplianceDiscovery' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sshadRoomARN' - The room where smart home appliance discovery was initiated.
-startSmartHomeApplianceDiscovery ::
-  -- | 'sshadRoomARN'
-  Text ->
+-- * 'roomARN' - The room where smart home appliance discovery was initiated.
+mkStartSmartHomeApplianceDiscovery ::
+  -- | 'roomARN'
+  Lude.Text ->
   StartSmartHomeApplianceDiscovery
-startSmartHomeApplianceDiscovery pRoomARN_ =
-  StartSmartHomeApplianceDiscovery' {_sshadRoomARN = pRoomARN_}
+mkStartSmartHomeApplianceDiscovery pRoomARN_ =
+  StartSmartHomeApplianceDiscovery' {roomARN = pRoomARN_}
 
 -- | The room where smart home appliance discovery was initiated.
-sshadRoomARN :: Lens' StartSmartHomeApplianceDiscovery Text
-sshadRoomARN = lens _sshadRoomARN (\s a -> s {_sshadRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshadRoomARN :: Lens.Lens' StartSmartHomeApplianceDiscovery Lude.Text
+sshadRoomARN = Lens.lens (roomARN :: StartSmartHomeApplianceDiscovery -> Lude.Text) (\s a -> s {roomARN = a} :: StartSmartHomeApplianceDiscovery)
+{-# DEPRECATED sshadRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
-instance AWSRequest StartSmartHomeApplianceDiscovery where
+instance Lude.AWSRequest StartSmartHomeApplianceDiscovery where
   type
     Rs StartSmartHomeApplianceDiscovery =
       StartSmartHomeApplianceDiscoveryResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StartSmartHomeApplianceDiscoveryResponse' <$> (pure (fromEnum s))
+          StartSmartHomeApplianceDiscoveryResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartSmartHomeApplianceDiscovery
-
-instance NFData StartSmartHomeApplianceDiscovery
-
-instance ToHeaders StartSmartHomeApplianceDiscovery where
+instance Lude.ToHeaders StartSmartHomeApplianceDiscovery where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartSmartHomeApplianceDiscovery where
+instance Lude.ToJSON StartSmartHomeApplianceDiscovery where
   toJSON StartSmartHomeApplianceDiscovery' {..} =
-    object (catMaybes [Just ("RoomArn" .= _sshadRoomARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RoomArn" Lude..= roomARN)])
 
-instance ToPath StartSmartHomeApplianceDiscovery where
-  toPath = const "/"
+instance Lude.ToPath StartSmartHomeApplianceDiscovery where
+  toPath = Lude.const "/"
 
-instance ToQuery StartSmartHomeApplianceDiscovery where
-  toQuery = const mempty
+instance Lude.ToQuery StartSmartHomeApplianceDiscovery where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startSmartHomeApplianceDiscoveryResponse' smart constructor.
+-- | /See:/ 'mkStartSmartHomeApplianceDiscoveryResponse' smart constructor.
 newtype StartSmartHomeApplianceDiscoveryResponse = StartSmartHomeApplianceDiscoveryResponse'
-  { _sshadrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSmartHomeApplianceDiscoveryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sshadrsResponseStatus' - -- | The response status code.
-startSmartHomeApplianceDiscoveryResponse ::
-  -- | 'sshadrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartSmartHomeApplianceDiscoveryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartSmartHomeApplianceDiscoveryResponse
-startSmartHomeApplianceDiscoveryResponse pResponseStatus_ =
+mkStartSmartHomeApplianceDiscoveryResponse pResponseStatus_ =
   StartSmartHomeApplianceDiscoveryResponse'
-    { _sshadrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sshadrsResponseStatus :: Lens' StartSmartHomeApplianceDiscoveryResponse Int
-sshadrsResponseStatus = lens _sshadrsResponseStatus (\s a -> s {_sshadrsResponseStatus = a})
-
-instance NFData StartSmartHomeApplianceDiscoveryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshadrsResponseStatus :: Lens.Lens' StartSmartHomeApplianceDiscoveryResponse Lude.Int
+sshadrsResponseStatus = Lens.lens (responseStatus :: StartSmartHomeApplianceDiscoveryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSmartHomeApplianceDiscoveryResponse)
+{-# DEPRECATED sshadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

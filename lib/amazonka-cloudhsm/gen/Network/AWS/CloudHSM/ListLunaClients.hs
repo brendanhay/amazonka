@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,24 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Lists all of the clients.
---
 -- This operation supports pagination with the use of the @NextToken@ member. If more results are available, the @NextToken@ member of the response contains a token that you pass in the next call to @ListLunaClients@ to retrieve the next set of items.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudHSM.ListLunaClients
-  ( -- * Creating a Request
-    listLunaClients,
-    ListLunaClients,
+  ( -- * Creating a request
+    ListLunaClients (..),
+    mkListLunaClients,
 
-    -- * Request Lenses
+    -- ** Request lenses
     llcNextToken,
 
-    -- * Destructuring the Response
-    listLunaClientsResponse,
-    ListLunaClientsResponse,
+    -- * Destructuring the response
+    ListLunaClientsResponse (..),
+    mkListLunaClientsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     llcrsNextToken,
     llcrsResponseStatus,
     llcrsClientList,
@@ -48,113 +39,132 @@ module Network.AWS.CloudHSM.ListLunaClients
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listLunaClients' smart constructor.
+-- | /See:/ 'mkListLunaClients' smart constructor.
 newtype ListLunaClients = ListLunaClients'
-  { _llcNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLunaClients' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llcNextToken' - The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
-listLunaClients ::
+-- * 'nextToken' - The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
+mkListLunaClients ::
   ListLunaClients
-listLunaClients = ListLunaClients' {_llcNextToken = Nothing}
+mkListLunaClients = ListLunaClients' {nextToken = Lude.Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
-llcNextToken :: Lens' ListLunaClients (Maybe Text)
-llcNextToken = lens _llcNextToken (\s a -> s {_llcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llcNextToken :: Lens.Lens' ListLunaClients (Lude.Maybe Lude.Text)
+llcNextToken = Lens.lens (nextToken :: ListLunaClients -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLunaClients)
+{-# DEPRECATED llcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListLunaClients where
+instance Page.AWSPager ListLunaClients where
   page rq rs
-    | stop (rs ^. llcrsNextToken) = Nothing
-    | stop (rs ^. llcrsClientList) = Nothing
-    | otherwise = Just $ rq & llcNextToken .~ rs ^. llcrsNextToken
+    | Page.stop (rs Lens.^. llcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. llcrsClientList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& llcNextToken Lens..~ rs Lens.^. llcrsNextToken
 
-instance AWSRequest ListLunaClients where
+instance Lude.AWSRequest ListLunaClients where
   type Rs ListLunaClients = ListLunaClientsResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLunaClientsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "ClientList" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "ClientList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListLunaClients
-
-instance NFData ListLunaClients
-
-instance ToHeaders ListLunaClients where
+instance Lude.ToHeaders ListLunaClients where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.ListLunaClients" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.ListLunaClients" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListLunaClients where
+instance Lude.ToJSON ListLunaClients where
   toJSON ListLunaClients' {..} =
-    object (catMaybes [("NextToken" .=) <$> _llcNextToken])
+    Lude.object
+      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListLunaClients where
-  toPath = const "/"
+instance Lude.ToPath ListLunaClients where
+  toPath = Lude.const "/"
 
-instance ToQuery ListLunaClients where
-  toQuery = const mempty
+instance Lude.ToQuery ListLunaClients where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listLunaClientsResponse' smart constructor.
+-- | /See:/ 'mkListLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
-  { _llcrsNextToken ::
-      !(Maybe Text),
-    _llcrsResponseStatus :: !Int,
-    _llcrsClientList :: ![Text]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    clientList :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLunaClientsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llcrsNextToken' - If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
---
--- * 'llcrsResponseStatus' - -- | The response status code.
---
--- * 'llcrsClientList' - The list of clients.
-listLunaClientsResponse ::
-  -- | 'llcrsResponseStatus'
-  Int ->
+-- * 'clientList' - The list of clients.
+-- * 'nextToken' - If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
+-- * 'responseStatus' - The response status code.
+mkListLunaClientsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLunaClientsResponse
-listLunaClientsResponse pResponseStatus_ =
+mkListLunaClientsResponse pResponseStatus_ =
   ListLunaClientsResponse'
-    { _llcrsNextToken = Nothing,
-      _llcrsResponseStatus = pResponseStatus_,
-      _llcrsClientList = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      clientList = Lude.mempty
     }
 
 -- | If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
-llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
-llcrsNextToken = lens _llcrsNextToken (\s a -> s {_llcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llcrsNextToken :: Lens.Lens' ListLunaClientsResponse (Lude.Maybe Lude.Text)
+llcrsNextToken = Lens.lens (nextToken :: ListLunaClientsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLunaClientsResponse)
+{-# DEPRECATED llcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-llcrsResponseStatus :: Lens' ListLunaClientsResponse Int
-llcrsResponseStatus = lens _llcrsResponseStatus (\s a -> s {_llcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llcrsResponseStatus :: Lens.Lens' ListLunaClientsResponse Lude.Int
+llcrsResponseStatus = Lens.lens (responseStatus :: ListLunaClientsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLunaClientsResponse)
+{-# DEPRECATED llcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The list of clients.
-llcrsClientList :: Lens' ListLunaClientsResponse [Text]
-llcrsClientList = lens _llcrsClientList (\s a -> s {_llcrsClientList = a}) . _Coerce
-
-instance NFData ListLunaClientsResponse
+--
+-- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llcrsClientList :: Lens.Lens' ListLunaClientsResponse [Lude.Text]
+llcrsClientList = Lens.lens (clientList :: ListLunaClientsResponse -> [Lude.Text]) (\s a -> s {clientList = a} :: ListLunaClientsResponse)
+{-# DEPRECATED llcrsClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}

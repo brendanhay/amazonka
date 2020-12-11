@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CaptionSelector where
+module Network.AWS.MediaLive.Types.CaptionSelector
+  ( CaptionSelector (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCaptionSelector,
+
+    -- * Lenses
+    cLanguageCode,
+    cSelectorSettings,
+    cName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.CaptionSelectorSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Output groups for this Live Event. Output groups contain information about where streams should be distributed.
 --
--- /See:/ 'captionSelector' smart constructor.
+-- /See:/ 'mkCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
-  { _cLanguageCode ::
-      !(Maybe Text),
-    _cSelectorSettings :: !(Maybe CaptionSelectorSettings),
-    _cName :: !Text
+  { languageCode ::
+      Lude.Maybe Lude.Text,
+    selectorSettings :: Lude.Maybe CaptionSelectorSettings,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cLanguageCode' - When specified this field indicates the three letter language code of the caption track to extract from the source.
---
--- * 'cSelectorSettings' - Caption selector settings.
---
--- * 'cName' - Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
-captionSelector ::
-  -- | 'cName'
-  Text ->
+-- * 'languageCode' - When specified this field indicates the three letter language code of the caption track to extract from the source.
+-- * 'name' - Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
+-- * 'selectorSettings' - Caption selector settings.
+mkCaptionSelector ::
+  -- | 'name'
+  Lude.Text ->
   CaptionSelector
-captionSelector pName_ =
+mkCaptionSelector pName_ =
   CaptionSelector'
-    { _cLanguageCode = Nothing,
-      _cSelectorSettings = Nothing,
-      _cName = pName_
+    { languageCode = Lude.Nothing,
+      selectorSettings = Lude.Nothing,
+      name = pName_
     }
 
 -- | When specified this field indicates the three letter language code of the caption track to extract from the source.
-cLanguageCode :: Lens' CaptionSelector (Maybe Text)
-cLanguageCode = lens _cLanguageCode (\s a -> s {_cLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLanguageCode :: Lens.Lens' CaptionSelector (Lude.Maybe Lude.Text)
+cLanguageCode = Lens.lens (languageCode :: CaptionSelector -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: CaptionSelector)
+{-# DEPRECATED cLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Caption selector settings.
-cSelectorSettings :: Lens' CaptionSelector (Maybe CaptionSelectorSettings)
-cSelectorSettings = lens _cSelectorSettings (\s a -> s {_cSelectorSettings = a})
+--
+-- /Note:/ Consider using 'selectorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSelectorSettings :: Lens.Lens' CaptionSelector (Lude.Maybe CaptionSelectorSettings)
+cSelectorSettings = Lens.lens (selectorSettings :: CaptionSelector -> Lude.Maybe CaptionSelectorSettings) (\s a -> s {selectorSettings = a} :: CaptionSelector)
+{-# DEPRECATED cSelectorSettings "Use generic-lens or generic-optics with 'selectorSettings' instead." #-}
 
 -- | Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
-cName :: Lens' CaptionSelector Text
-cName = lens _cName (\s a -> s {_cName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' CaptionSelector Lude.Text
+cName = Lens.lens (name :: CaptionSelector -> Lude.Text) (\s a -> s {name = a} :: CaptionSelector)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON CaptionSelector where
+instance Lude.FromJSON CaptionSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "CaptionSelector"
       ( \x ->
           CaptionSelector'
-            <$> (x .:? "languageCode")
-            <*> (x .:? "selectorSettings")
-            <*> (x .: "name")
+            Lude.<$> (x Lude..:? "languageCode")
+            Lude.<*> (x Lude..:? "selectorSettings")
+            Lude.<*> (x Lude..: "name")
       )
 
-instance Hashable CaptionSelector
-
-instance NFData CaptionSelector
-
-instance ToJSON CaptionSelector where
+instance Lude.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =
-    object
-      ( catMaybes
-          [ ("languageCode" .=) <$> _cLanguageCode,
-            ("selectorSettings" .=) <$> _cSelectorSettings,
-            Just ("name" .= _cName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("languageCode" Lude..=) Lude.<$> languageCode,
+            ("selectorSettings" Lude..=) Lude.<$> selectorSettings,
+            Lude.Just ("name" Lude..= name)
           ]
       )

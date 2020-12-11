@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns a list of snapshot schedules.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeSnapshotSchedules
-  ( -- * Creating a Request
-    describeSnapshotSchedules,
-    DescribeSnapshotSchedules,
+  ( -- * Creating a request
+    DescribeSnapshotSchedules (..),
+    mkDescribeSnapshotSchedules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dssTagValues,
     dssTagKeys,
     dssClusterIdentifier,
@@ -35,177 +28,205 @@ module Network.AWS.Redshift.DescribeSnapshotSchedules
     dssMaxRecords,
     dssScheduleIdentifier,
 
-    -- * Destructuring the Response
-    describeSnapshotSchedulesResponse,
-    DescribeSnapshotSchedulesResponse,
+    -- * Destructuring the response
+    DescribeSnapshotSchedulesResponse (..),
+    mkDescribeSnapshotSchedulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssrsSnapshotSchedules,
     dssrsMarker,
     dssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeSnapshotSchedules' smart constructor.
+-- | /See:/ 'mkDescribeSnapshotSchedules' smart constructor.
 data DescribeSnapshotSchedules = DescribeSnapshotSchedules'
-  { _dssTagValues ::
-      !(Maybe [Text]),
-    _dssTagKeys :: !(Maybe [Text]),
-    _dssClusterIdentifier :: !(Maybe Text),
-    _dssMarker :: !(Maybe Text),
-    _dssMaxRecords :: !(Maybe Int),
-    _dssScheduleIdentifier :: !(Maybe Text)
+  { tagValues ::
+      Lude.Maybe [Lude.Text],
+    tagKeys :: Lude.Maybe [Lude.Text],
+    clusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    scheduleIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotSchedules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssTagValues' - The value corresponding to the key of the snapshot schedule tag.
---
--- * 'dssTagKeys' - The key value for a snapshot schedule tag.
---
--- * 'dssClusterIdentifier' - The unique identifier for the cluster whose snapshot schedules you want to view.
---
--- * 'dssMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
---
--- * 'dssMaxRecords' - The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
---
--- * 'dssScheduleIdentifier' - A unique identifier for a snapshot schedule.
-describeSnapshotSchedules ::
+-- * 'clusterIdentifier' - The unique identifier for the cluster whose snapshot schedules you want to view.
+-- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
+-- * 'maxRecords' - The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
+-- * 'scheduleIdentifier' - A unique identifier for a snapshot schedule.
+-- * 'tagKeys' - The key value for a snapshot schedule tag.
+-- * 'tagValues' - The value corresponding to the key of the snapshot schedule tag.
+mkDescribeSnapshotSchedules ::
   DescribeSnapshotSchedules
-describeSnapshotSchedules =
+mkDescribeSnapshotSchedules =
   DescribeSnapshotSchedules'
-    { _dssTagValues = Nothing,
-      _dssTagKeys = Nothing,
-      _dssClusterIdentifier = Nothing,
-      _dssMarker = Nothing,
-      _dssMaxRecords = Nothing,
-      _dssScheduleIdentifier = Nothing
+    { tagValues = Lude.Nothing,
+      tagKeys = Lude.Nothing,
+      clusterIdentifier = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      scheduleIdentifier = Lude.Nothing
     }
 
 -- | The value corresponding to the key of the snapshot schedule tag.
-dssTagValues :: Lens' DescribeSnapshotSchedules [Text]
-dssTagValues = lens _dssTagValues (\s a -> s {_dssTagValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssTagValues :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe [Lude.Text])
+dssTagValues = Lens.lens (tagValues :: DescribeSnapshotSchedules -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
 
 -- | The key value for a snapshot schedule tag.
-dssTagKeys :: Lens' DescribeSnapshotSchedules [Text]
-dssTagKeys = lens _dssTagKeys (\s a -> s {_dssTagKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssTagKeys :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe [Lude.Text])
+dssTagKeys = Lens.lens (tagKeys :: DescribeSnapshotSchedules -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | The unique identifier for the cluster whose snapshot schedules you want to view.
-dssClusterIdentifier :: Lens' DescribeSnapshotSchedules (Maybe Text)
-dssClusterIdentifier = lens _dssClusterIdentifier (\s a -> s {_dssClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssClusterIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe Lude.Text)
+dssClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeSnapshotSchedules -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
-dssMarker :: Lens' DescribeSnapshotSchedules (Maybe Text)
-dssMarker = lens _dssMarker (\s a -> s {_dssMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssMarker :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe Lude.Text)
+dssMarker = Lens.lens (marker :: DescribeSnapshotSchedules -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
-dssMaxRecords :: Lens' DescribeSnapshotSchedules (Maybe Int)
-dssMaxRecords = lens _dssMaxRecords (\s a -> s {_dssMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssMaxRecords :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe Lude.Int)
+dssMaxRecords = Lens.lens (maxRecords :: DescribeSnapshotSchedules -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | A unique identifier for a snapshot schedule.
-dssScheduleIdentifier :: Lens' DescribeSnapshotSchedules (Maybe Text)
-dssScheduleIdentifier = lens _dssScheduleIdentifier (\s a -> s {_dssScheduleIdentifier = a})
+--
+-- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssScheduleIdentifier :: Lens.Lens' DescribeSnapshotSchedules (Lude.Maybe Lude.Text)
+dssScheduleIdentifier = Lens.lens (scheduleIdentifier :: DescribeSnapshotSchedules -> Lude.Maybe Lude.Text) (\s a -> s {scheduleIdentifier = a} :: DescribeSnapshotSchedules)
+{-# DEPRECATED dssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
 
-instance AWSPager DescribeSnapshotSchedules where
+instance Page.AWSPager DescribeSnapshotSchedules where
   page rq rs
-    | stop (rs ^. dssrsMarker) = Nothing
-    | stop (rs ^. dssrsSnapshotSchedules) = Nothing
-    | otherwise = Just $ rq & dssMarker .~ rs ^. dssrsMarker
+    | Page.stop (rs Lens.^. dssrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dssrsSnapshotSchedules) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dssMarker Lens..~ rs Lens.^. dssrsMarker
 
-instance AWSRequest DescribeSnapshotSchedules where
+instance Lude.AWSRequest DescribeSnapshotSchedules where
   type
     Rs DescribeSnapshotSchedules =
       DescribeSnapshotSchedulesResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeSnapshotSchedulesResult"
       ( \s h x ->
           DescribeSnapshotSchedulesResponse'
-            <$> ( x .@? "SnapshotSchedules" .!@ mempty
-                    >>= may (parseXMLList "SnapshotSchedule")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "SnapshotSchedules" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "SnapshotSchedule")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSnapshotSchedules
+instance Lude.ToHeaders DescribeSnapshotSchedules where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeSnapshotSchedules
+instance Lude.ToPath DescribeSnapshotSchedules where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeSnapshotSchedules where
-  toHeaders = const mempty
-
-instance ToPath DescribeSnapshotSchedules where
-  toPath = const "/"
-
-instance ToQuery DescribeSnapshotSchedules where
+instance Lude.ToQuery DescribeSnapshotSchedules where
   toQuery DescribeSnapshotSchedules' {..} =
-    mconcat
-      [ "Action" =: ("DescribeSnapshotSchedules" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "TagValues" =: toQuery (toQueryList "TagValue" <$> _dssTagValues),
-        "TagKeys" =: toQuery (toQueryList "TagKey" <$> _dssTagKeys),
-        "ClusterIdentifier" =: _dssClusterIdentifier,
-        "Marker" =: _dssMarker,
-        "MaxRecords" =: _dssMaxRecords,
-        "ScheduleIdentifier" =: _dssScheduleIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeSnapshotSchedules" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "TagValues"
+          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
+        "TagKeys"
+          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "ScheduleIdentifier" Lude.=: scheduleIdentifier
       ]
 
--- | /See:/ 'describeSnapshotSchedulesResponse' smart constructor.
+-- | /See:/ 'mkDescribeSnapshotSchedulesResponse' smart constructor.
 data DescribeSnapshotSchedulesResponse = DescribeSnapshotSchedulesResponse'
-  { _dssrsSnapshotSchedules ::
-      !( Maybe
-           [SnapshotSchedule]
-       ),
-    _dssrsMarker ::
-      !(Maybe Text),
-    _dssrsResponseStatus ::
-      !Int
+  { snapshotSchedules ::
+      Lude.Maybe
+        [SnapshotSchedule],
+    marker ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotSchedulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssrsSnapshotSchedules' - A list of SnapshotSchedules.
---
--- * 'dssrsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
---
--- * 'dssrsResponseStatus' - -- | The response status code.
-describeSnapshotSchedulesResponse ::
-  -- | 'dssrsResponseStatus'
-  Int ->
+-- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
+-- * 'responseStatus' - The response status code.
+-- * 'snapshotSchedules' - A list of SnapshotSchedules.
+mkDescribeSnapshotSchedulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSnapshotSchedulesResponse
-describeSnapshotSchedulesResponse pResponseStatus_ =
+mkDescribeSnapshotSchedulesResponse pResponseStatus_ =
   DescribeSnapshotSchedulesResponse'
-    { _dssrsSnapshotSchedules =
-        Nothing,
-      _dssrsMarker = Nothing,
-      _dssrsResponseStatus = pResponseStatus_
+    { snapshotSchedules =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of SnapshotSchedules.
-dssrsSnapshotSchedules :: Lens' DescribeSnapshotSchedulesResponse [SnapshotSchedule]
-dssrsSnapshotSchedules = lens _dssrsSnapshotSchedules (\s a -> s {_dssrsSnapshotSchedules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'snapshotSchedules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsSnapshotSchedules :: Lens.Lens' DescribeSnapshotSchedulesResponse (Lude.Maybe [SnapshotSchedule])
+dssrsSnapshotSchedules = Lens.lens (snapshotSchedules :: DescribeSnapshotSchedulesResponse -> Lude.Maybe [SnapshotSchedule]) (\s a -> s {snapshotSchedules = a} :: DescribeSnapshotSchedulesResponse)
+{-# DEPRECATED dssrsSnapshotSchedules "Use generic-lens or generic-optics with 'snapshotSchedules' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
-dssrsMarker :: Lens' DescribeSnapshotSchedulesResponse (Maybe Text)
-dssrsMarker = lens _dssrsMarker (\s a -> s {_dssrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsMarker :: Lens.Lens' DescribeSnapshotSchedulesResponse (Lude.Maybe Lude.Text)
+dssrsMarker = Lens.lens (marker :: DescribeSnapshotSchedulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshotSchedulesResponse)
+{-# DEPRECATED dssrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeSnapshotSchedulesResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\s a -> s {_dssrsResponseStatus = a})
-
-instance NFData DescribeSnapshotSchedulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DescribeSnapshotSchedulesResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DescribeSnapshotSchedulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSnapshotSchedulesResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

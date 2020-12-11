@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservedInstancesConfiguration where
+module Network.AWS.EC2.Types.ReservedInstancesConfiguration
+  ( ReservedInstancesConfiguration (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkReservedInstancesConfiguration,
+
+    -- * Lenses
+    ricPlatform,
+    ricInstanceCount,
+    ricInstanceType,
+    ricAvailabilityZone,
+    ricScope,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.Scope
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the configuration settings for the modified Reserved Instances.
 --
---
---
--- /See:/ 'reservedInstancesConfiguration' smart constructor.
+-- /See:/ 'mkReservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
-  { _ricPlatform ::
-      !(Maybe Text),
-    _ricInstanceCount ::
-      !(Maybe Int),
-    _ricInstanceType ::
-      !(Maybe InstanceType),
-    _ricAvailabilityZone ::
-      !(Maybe Text),
-    _ricScope :: !(Maybe Scope)
+  { platform ::
+      Lude.Maybe Lude.Text,
+    instanceCount ::
+      Lude.Maybe Lude.Int,
+    instanceType ::
+      Lude.Maybe InstanceType,
+    availabilityZone ::
+      Lude.Maybe Lude.Text,
+    scope :: Lude.Maybe Scope
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ricPlatform' - The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
---
--- * 'ricInstanceCount' - The number of modified Reserved Instances.
---
--- * 'ricInstanceType' - The instance type for the modified Reserved Instances.
---
--- * 'ricAvailabilityZone' - The Availability Zone for the modified Reserved Instances.
---
--- * 'ricScope' - Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
-reservedInstancesConfiguration ::
+-- * 'availabilityZone' - The Availability Zone for the modified Reserved Instances.
+-- * 'instanceCount' - The number of modified Reserved Instances.
+-- * 'instanceType' - The instance type for the modified Reserved Instances.
+-- * 'platform' - The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
+-- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
+mkReservedInstancesConfiguration ::
   ReservedInstancesConfiguration
-reservedInstancesConfiguration =
+mkReservedInstancesConfiguration =
   ReservedInstancesConfiguration'
-    { _ricPlatform = Nothing,
-      _ricInstanceCount = Nothing,
-      _ricInstanceType = Nothing,
-      _ricAvailabilityZone = Nothing,
-      _ricScope = Nothing
+    { platform = Lude.Nothing,
+      instanceCount = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      scope = Lude.Nothing
     }
 
 -- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
-ricPlatform :: Lens' ReservedInstancesConfiguration (Maybe Text)
-ricPlatform = lens _ricPlatform (\s a -> s {_ricPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricPlatform :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Text)
+ricPlatform = Lens.lens (platform :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ReservedInstancesConfiguration)
+{-# DEPRECATED ricPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The number of modified Reserved Instances.
-ricInstanceCount :: Lens' ReservedInstancesConfiguration (Maybe Int)
-ricInstanceCount = lens _ricInstanceCount (\s a -> s {_ricInstanceCount = a})
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricInstanceCount :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Int)
+ricInstanceCount = Lens.lens (instanceCount :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: ReservedInstancesConfiguration)
+{-# DEPRECATED ricInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The instance type for the modified Reserved Instances.
-ricInstanceType :: Lens' ReservedInstancesConfiguration (Maybe InstanceType)
-ricInstanceType = lens _ricInstanceType (\s a -> s {_ricInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricInstanceType :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe InstanceType)
+ricInstanceType = Lens.lens (instanceType :: ReservedInstancesConfiguration -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: ReservedInstancesConfiguration)
+{-# DEPRECATED ricInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The Availability Zone for the modified Reserved Instances.
-ricAvailabilityZone :: Lens' ReservedInstancesConfiguration (Maybe Text)
-ricAvailabilityZone = lens _ricAvailabilityZone (\s a -> s {_ricAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricAvailabilityZone :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Text)
+ricAvailabilityZone = Lens.lens (availabilityZone :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ReservedInstancesConfiguration)
+{-# DEPRECATED ricAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
-ricScope :: Lens' ReservedInstancesConfiguration (Maybe Scope)
-ricScope = lens _ricScope (\s a -> s {_ricScope = a})
+--
+-- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricScope :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Scope)
+ricScope = Lens.lens (scope :: ReservedInstancesConfiguration -> Lude.Maybe Scope) (\s a -> s {scope = a} :: ReservedInstancesConfiguration)
+{-# DEPRECATED ricScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
-instance FromXML ReservedInstancesConfiguration where
+instance Lude.FromXML ReservedInstancesConfiguration where
   parseXML x =
     ReservedInstancesConfiguration'
-      <$> (x .@? "platform")
-      <*> (x .@? "instanceCount")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "availabilityZone")
-      <*> (x .@? "scope")
+      Lude.<$> (x Lude..@? "platform")
+      Lude.<*> (x Lude..@? "instanceCount")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> (x Lude..@? "scope")
 
-instance Hashable ReservedInstancesConfiguration
-
-instance NFData ReservedInstancesConfiguration
-
-instance ToQuery ReservedInstancesConfiguration where
+instance Lude.ToQuery ReservedInstancesConfiguration where
   toQuery ReservedInstancesConfiguration' {..} =
-    mconcat
-      [ "Platform" =: _ricPlatform,
-        "InstanceCount" =: _ricInstanceCount,
-        "InstanceType" =: _ricInstanceType,
-        "AvailabilityZone" =: _ricAvailabilityZone,
-        "Scope" =: _ricScope
+    Lude.mconcat
+      [ "Platform" Lude.=: platform,
+        "InstanceCount" Lude.=: instanceCount,
+        "InstanceType" Lude.=: instanceType,
+        "AvailabilityZone" Lude.=: availabilityZone,
+        "Scope" Lude.=: scope
       ]

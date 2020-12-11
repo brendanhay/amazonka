@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Provides information about a parallel data resource.
 module Network.AWS.Translate.GetParallelData
-  ( -- * Creating a Request
-    getParallelData,
-    GetParallelData,
+  ( -- * Creating a request
+    GetParallelData (..),
+    mkGetParallelData,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpdName,
 
-    -- * Destructuring the Response
-    getParallelDataResponse,
-    GetParallelDataResponse,
+    -- * Destructuring the response
+    GetParallelDataResponse (..),
+    mkGetParallelDataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpdrsParallelDataProperties,
     gpdrsDataLocation,
     gpdrsAuxiliaryDataLocation,
@@ -39,127 +34,148 @@ module Network.AWS.Translate.GetParallelData
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
--- | /See:/ 'getParallelData' smart constructor.
-newtype GetParallelData = GetParallelData' {_gpdName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetParallelData' smart constructor.
+newtype GetParallelData = GetParallelData' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParallelData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpdName' - The name of the parallel data resource that is being retrieved.
-getParallelData ::
-  -- | 'gpdName'
-  Text ->
+-- * 'name' - The name of the parallel data resource that is being retrieved.
+mkGetParallelData ::
+  -- | 'name'
+  Lude.Text ->
   GetParallelData
-getParallelData pName_ = GetParallelData' {_gpdName = pName_}
+mkGetParallelData pName_ = GetParallelData' {name = pName_}
 
 -- | The name of the parallel data resource that is being retrieved.
-gpdName :: Lens' GetParallelData Text
-gpdName = lens _gpdName (\s a -> s {_gpdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdName :: Lens.Lens' GetParallelData Lude.Text
+gpdName = Lens.lens (name :: GetParallelData -> Lude.Text) (\s a -> s {name = a} :: GetParallelData)
+{-# DEPRECATED gpdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetParallelData where
+instance Lude.AWSRequest GetParallelData where
   type Rs GetParallelData = GetParallelDataResponse
-  request = postJSON translate
+  request = Req.postJSON translateService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetParallelDataResponse'
-            <$> (x .?> "ParallelDataProperties")
-            <*> (x .?> "DataLocation")
-            <*> (x .?> "AuxiliaryDataLocation")
-            <*> (x .?> "LatestUpdateAttemptAuxiliaryDataLocation")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ParallelDataProperties")
+            Lude.<*> (x Lude..?> "DataLocation")
+            Lude.<*> (x Lude..?> "AuxiliaryDataLocation")
+            Lude.<*> (x Lude..?> "LatestUpdateAttemptAuxiliaryDataLocation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetParallelData
-
-instance NFData GetParallelData
-
-instance ToHeaders GetParallelData where
+instance Lude.ToHeaders GetParallelData where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShineFrontendService_20170701.GetParallelData" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShineFrontendService_20170701.GetParallelData" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetParallelData where
+instance Lude.ToJSON GetParallelData where
   toJSON GetParallelData' {..} =
-    object (catMaybes [Just ("Name" .= _gpdName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath GetParallelData where
-  toPath = const "/"
+instance Lude.ToPath GetParallelData where
+  toPath = Lude.const "/"
 
-instance ToQuery GetParallelData where
-  toQuery = const mempty
+instance Lude.ToQuery GetParallelData where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getParallelDataResponse' smart constructor.
+-- | /See:/ 'mkGetParallelDataResponse' smart constructor.
 data GetParallelDataResponse = GetParallelDataResponse'
-  { _gpdrsParallelDataProperties ::
-      !(Maybe ParallelDataProperties),
-    _gpdrsDataLocation ::
-      !(Maybe ParallelDataDataLocation),
-    _gpdrsAuxiliaryDataLocation ::
-      !(Maybe ParallelDataDataLocation),
-    _gpdrsLatestUpdateAttemptAuxiliaryDataLocation ::
-      !(Maybe ParallelDataDataLocation),
-    _gpdrsResponseStatus :: !Int
+  { parallelDataProperties ::
+      Lude.Maybe ParallelDataProperties,
+    dataLocation ::
+      Lude.Maybe ParallelDataDataLocation,
+    auxiliaryDataLocation ::
+      Lude.Maybe ParallelDataDataLocation,
+    latestUpdateAttemptAuxiliaryDataLocation ::
+      Lude.Maybe ParallelDataDataLocation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParallelDataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpdrsParallelDataProperties' - The properties of the parallel data resource that is being retrieved.
---
--- * 'gpdrsDataLocation' - The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
---
--- * 'gpdrsAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
---
--- * 'gpdrsLatestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
---
--- * 'gpdrsResponseStatus' - -- | The response status code.
-getParallelDataResponse ::
-  -- | 'gpdrsResponseStatus'
-  Int ->
+-- * 'auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
+-- * 'dataLocation' - The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
+-- * 'latestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
+-- * 'parallelDataProperties' - The properties of the parallel data resource that is being retrieved.
+-- * 'responseStatus' - The response status code.
+mkGetParallelDataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetParallelDataResponse
-getParallelDataResponse pResponseStatus_ =
+mkGetParallelDataResponse pResponseStatus_ =
   GetParallelDataResponse'
-    { _gpdrsParallelDataProperties = Nothing,
-      _gpdrsDataLocation = Nothing,
-      _gpdrsAuxiliaryDataLocation = Nothing,
-      _gpdrsLatestUpdateAttemptAuxiliaryDataLocation = Nothing,
-      _gpdrsResponseStatus = pResponseStatus_
+    { parallelDataProperties = Lude.Nothing,
+      dataLocation = Lude.Nothing,
+      auxiliaryDataLocation = Lude.Nothing,
+      latestUpdateAttemptAuxiliaryDataLocation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The properties of the parallel data resource that is being retrieved.
-gpdrsParallelDataProperties :: Lens' GetParallelDataResponse (Maybe ParallelDataProperties)
-gpdrsParallelDataProperties = lens _gpdrsParallelDataProperties (\s a -> s {_gpdrsParallelDataProperties = a})
+--
+-- /Note:/ Consider using 'parallelDataProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsParallelDataProperties :: Lens.Lens' GetParallelDataResponse (Lude.Maybe ParallelDataProperties)
+gpdrsParallelDataProperties = Lens.lens (parallelDataProperties :: GetParallelDataResponse -> Lude.Maybe ParallelDataProperties) (\s a -> s {parallelDataProperties = a} :: GetParallelDataResponse)
+{-# DEPRECATED gpdrsParallelDataProperties "Use generic-lens or generic-optics with 'parallelDataProperties' instead." #-}
 
 -- | The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
-gpdrsDataLocation :: Lens' GetParallelDataResponse (Maybe ParallelDataDataLocation)
-gpdrsDataLocation = lens _gpdrsDataLocation (\s a -> s {_gpdrsDataLocation = a})
+--
+-- /Note:/ Consider using 'dataLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsDataLocation :: Lens.Lens' GetParallelDataResponse (Lude.Maybe ParallelDataDataLocation)
+gpdrsDataLocation = Lens.lens (dataLocation :: GetParallelDataResponse -> Lude.Maybe ParallelDataDataLocation) (\s a -> s {dataLocation = a} :: GetParallelDataResponse)
+{-# DEPRECATED gpdrsDataLocation "Use generic-lens or generic-optics with 'dataLocation' instead." #-}
 
 -- | The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
-gpdrsAuxiliaryDataLocation :: Lens' GetParallelDataResponse (Maybe ParallelDataDataLocation)
-gpdrsAuxiliaryDataLocation = lens _gpdrsAuxiliaryDataLocation (\s a -> s {_gpdrsAuxiliaryDataLocation = a})
+--
+-- /Note:/ Consider using 'auxiliaryDataLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsAuxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Lude.Maybe ParallelDataDataLocation)
+gpdrsAuxiliaryDataLocation = Lens.lens (auxiliaryDataLocation :: GetParallelDataResponse -> Lude.Maybe ParallelDataDataLocation) (\s a -> s {auxiliaryDataLocation = a} :: GetParallelDataResponse)
+{-# DEPRECATED gpdrsAuxiliaryDataLocation "Use generic-lens or generic-optics with 'auxiliaryDataLocation' instead." #-}
 
 -- | The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
-gpdrsLatestUpdateAttemptAuxiliaryDataLocation :: Lens' GetParallelDataResponse (Maybe ParallelDataDataLocation)
-gpdrsLatestUpdateAttemptAuxiliaryDataLocation = lens _gpdrsLatestUpdateAttemptAuxiliaryDataLocation (\s a -> s {_gpdrsLatestUpdateAttemptAuxiliaryDataLocation = a})
+--
+-- /Note:/ Consider using 'latestUpdateAttemptAuxiliaryDataLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsLatestUpdateAttemptAuxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Lude.Maybe ParallelDataDataLocation)
+gpdrsLatestUpdateAttemptAuxiliaryDataLocation = Lens.lens (latestUpdateAttemptAuxiliaryDataLocation :: GetParallelDataResponse -> Lude.Maybe ParallelDataDataLocation) (\s a -> s {latestUpdateAttemptAuxiliaryDataLocation = a} :: GetParallelDataResponse)
+{-# DEPRECATED gpdrsLatestUpdateAttemptAuxiliaryDataLocation "Use generic-lens or generic-optics with 'latestUpdateAttemptAuxiliaryDataLocation' instead." #-}
 
--- | -- | The response status code.
-gpdrsResponseStatus :: Lens' GetParallelDataResponse Int
-gpdrsResponseStatus = lens _gpdrsResponseStatus (\s a -> s {_gpdrsResponseStatus = a})
-
-instance NFData GetParallelDataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdrsResponseStatus :: Lens.Lens' GetParallelDataResponse Lude.Int
+gpdrsResponseStatus = Lens.lens (responseStatus :: GetParallelDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParallelDataResponse)
+{-# DEPRECATED gpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

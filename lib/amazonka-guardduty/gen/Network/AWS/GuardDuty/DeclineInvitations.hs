@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,131 @@
 --
 -- Declines invitations sent to the current member account by AWS accounts specified by their account IDs.
 module Network.AWS.GuardDuty.DeclineInvitations
-  ( -- * Creating a Request
-    declineInvitations,
-    DeclineInvitations,
+  ( -- * Creating a request
+    DeclineInvitations (..),
+    mkDeclineInvitations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAccountIds,
 
-    -- * Destructuring the Response
-    declineInvitationsResponse,
-    DeclineInvitationsResponse,
+    -- * Destructuring the response
+    DeclineInvitationsResponse (..),
+    mkDeclineInvitationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     disrsResponseStatus,
     disrsUnprocessedAccounts,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'declineInvitations' smart constructor.
+-- | /See:/ 'mkDeclineInvitations' smart constructor.
 newtype DeclineInvitations = DeclineInvitations'
-  { _dAccountIds ::
-      List1 Text
+  { accountIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeclineInvitations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAccountIds' - A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
-declineInvitations ::
-  -- | 'dAccountIds'
-  NonEmpty Text ->
+-- * 'accountIds' - A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
+mkDeclineInvitations ::
+  -- | 'accountIds'
+  Lude.NonEmpty Lude.Text ->
   DeclineInvitations
-declineInvitations pAccountIds_ =
-  DeclineInvitations' {_dAccountIds = _List1 # pAccountIds_}
+mkDeclineInvitations pAccountIds_ =
+  DeclineInvitations' {accountIds = pAccountIds_}
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
-dAccountIds :: Lens' DeclineInvitations (NonEmpty Text)
-dAccountIds = lens _dAccountIds (\s a -> s {_dAccountIds = a}) . _List1
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAccountIds :: Lens.Lens' DeclineInvitations (Lude.NonEmpty Lude.Text)
+dAccountIds = Lens.lens (accountIds :: DeclineInvitations -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeclineInvitations)
+{-# DEPRECATED dAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
-instance AWSRequest DeclineInvitations where
+instance Lude.AWSRequest DeclineInvitations where
   type Rs DeclineInvitations = DeclineInvitationsResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeclineInvitationsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "unprocessedAccounts" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DeclineInvitations
-
-instance NFData DeclineInvitations
-
-instance ToHeaders DeclineInvitations where
+instance Lude.ToHeaders DeclineInvitations where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DeclineInvitations where
+instance Lude.ToJSON DeclineInvitations where
   toJSON DeclineInvitations' {..} =
-    object (catMaybes [Just ("accountIds" .= _dAccountIds)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("accountIds" Lude..= accountIds)])
 
-instance ToPath DeclineInvitations where
-  toPath = const "/invitation/decline"
+instance Lude.ToPath DeclineInvitations where
+  toPath = Lude.const "/invitation/decline"
 
-instance ToQuery DeclineInvitations where
-  toQuery = const mempty
+instance Lude.ToQuery DeclineInvitations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'declineInvitationsResponse' smart constructor.
+-- | /See:/ 'mkDeclineInvitationsResponse' smart constructor.
 data DeclineInvitationsResponse = DeclineInvitationsResponse'
-  { _disrsResponseStatus ::
-      !Int,
-    _disrsUnprocessedAccounts ::
-      ![UnprocessedAccount]
+  { responseStatus ::
+      Lude.Int,
+    unprocessedAccounts ::
+      [UnprocessedAccount]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeclineInvitationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disrsResponseStatus' - -- | The response status code.
---
--- * 'disrsUnprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
-declineInvitationsResponse ::
-  -- | 'disrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+mkDeclineInvitationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeclineInvitationsResponse
-declineInvitationsResponse pResponseStatus_ =
+mkDeclineInvitationsResponse pResponseStatus_ =
   DeclineInvitationsResponse'
-    { _disrsResponseStatus =
-        pResponseStatus_,
-      _disrsUnprocessedAccounts = mempty
+    { responseStatus = pResponseStatus_,
+      unprocessedAccounts = Lude.mempty
     }
 
--- | -- | The response status code.
-disrsResponseStatus :: Lens' DeclineInvitationsResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\s a -> s {_disrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsResponseStatus :: Lens.Lens' DeclineInvitationsResponse Lude.Int
+disrsResponseStatus = Lens.lens (responseStatus :: DeclineInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeclineInvitationsResponse)
+{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
-disrsUnprocessedAccounts :: Lens' DeclineInvitationsResponse [UnprocessedAccount]
-disrsUnprocessedAccounts = lens _disrsUnprocessedAccounts (\s a -> s {_disrsUnprocessedAccounts = a}) . _Coerce
-
-instance NFData DeclineInvitationsResponse
+--
+-- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsUnprocessedAccounts :: Lens.Lens' DeclineInvitationsResponse [UnprocessedAccount]
+disrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DeclineInvitationsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse)
+{-# DEPRECATED disrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}

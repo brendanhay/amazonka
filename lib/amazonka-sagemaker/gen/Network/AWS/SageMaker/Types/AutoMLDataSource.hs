@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLDataSource where
+module Network.AWS.SageMaker.Types.AutoMLDataSource
+  ( AutoMLDataSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoMLDataSource,
+
+    -- * Lenses
+    amldsS3DataSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AutoMLS3DataSource
 
 -- | The data source for the Autopilot job.
 --
---
---
--- /See:/ 'autoMLDataSource' smart constructor.
+-- /See:/ 'mkAutoMLDataSource' smart constructor.
 newtype AutoMLDataSource = AutoMLDataSource'
-  { _amldsS3DataSource ::
+  { s3DataSource ::
       AutoMLS3DataSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amldsS3DataSource' - The Amazon S3 location of the input data.
-autoMLDataSource ::
-  -- | 'amldsS3DataSource'
+-- * 's3DataSource' - The Amazon S3 location of the input data.
+mkAutoMLDataSource ::
+  -- | 's3DataSource'
   AutoMLS3DataSource ->
   AutoMLDataSource
-autoMLDataSource pS3DataSource_ =
-  AutoMLDataSource' {_amldsS3DataSource = pS3DataSource_}
+mkAutoMLDataSource pS3DataSource_ =
+  AutoMLDataSource' {s3DataSource = pS3DataSource_}
 
 -- | The Amazon S3 location of the input data.
-amldsS3DataSource :: Lens' AutoMLDataSource AutoMLS3DataSource
-amldsS3DataSource = lens _amldsS3DataSource (\s a -> s {_amldsS3DataSource = a})
+--
+-- /Note:/ Consider using 's3DataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amldsS3DataSource :: Lens.Lens' AutoMLDataSource AutoMLS3DataSource
+amldsS3DataSource = Lens.lens (s3DataSource :: AutoMLDataSource -> AutoMLS3DataSource) (\s a -> s {s3DataSource = a} :: AutoMLDataSource)
+{-# DEPRECATED amldsS3DataSource "Use generic-lens or generic-optics with 's3DataSource' instead." #-}
 
-instance FromJSON AutoMLDataSource where
+instance Lude.FromJSON AutoMLDataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoMLDataSource"
-      (\x -> AutoMLDataSource' <$> (x .: "S3DataSource"))
+      (\x -> AutoMLDataSource' Lude.<$> (x Lude..: "S3DataSource"))
 
-instance Hashable AutoMLDataSource
-
-instance NFData AutoMLDataSource
-
-instance ToJSON AutoMLDataSource where
+instance Lude.ToJSON AutoMLDataSource where
   toJSON AutoMLDataSource' {..} =
-    object (catMaybes [Just ("S3DataSource" .= _amldsS3DataSource)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("S3DataSource" Lude..= s3DataSource)])

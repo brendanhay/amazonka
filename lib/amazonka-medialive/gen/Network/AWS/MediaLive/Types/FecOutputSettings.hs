@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FecOutputSettings where
+module Network.AWS.MediaLive.Types.FecOutputSettings
+  ( FecOutputSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFecOutputSettings,
+
+    -- * Lenses
+    fosRowLength,
+    fosIncludeFec,
+    fosColumnDepth,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FecOutputIncludeFec
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Fec Output Settings
 --
--- /See:/ 'fecOutputSettings' smart constructor.
+-- /See:/ 'mkFecOutputSettings' smart constructor.
 data FecOutputSettings = FecOutputSettings'
-  { _fosRowLength ::
-      !(Maybe Nat),
-    _fosIncludeFec :: !(Maybe FecOutputIncludeFec),
-    _fosColumnDepth :: !(Maybe Nat)
+  { rowLength ::
+      Lude.Maybe Lude.Natural,
+    includeFec :: Lude.Maybe FecOutputIncludeFec,
+    columnDepth :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FecOutputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fosRowLength' - Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
---
--- * 'fosIncludeFec' - Enables column only or column and row based FEC
---
--- * 'fosColumnDepth' - Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
-fecOutputSettings ::
+-- * 'columnDepth' - Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
+-- * 'includeFec' - Enables column only or column and row based FEC
+-- * 'rowLength' - Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
+mkFecOutputSettings ::
   FecOutputSettings
-fecOutputSettings =
+mkFecOutputSettings =
   FecOutputSettings'
-    { _fosRowLength = Nothing,
-      _fosIncludeFec = Nothing,
-      _fosColumnDepth = Nothing
+    { rowLength = Lude.Nothing,
+      includeFec = Lude.Nothing,
+      columnDepth = Lude.Nothing
     }
 
 -- | Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
-fosRowLength :: Lens' FecOutputSettings (Maybe Natural)
-fosRowLength = lens _fosRowLength (\s a -> s {_fosRowLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'rowLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fosRowLength :: Lens.Lens' FecOutputSettings (Lude.Maybe Lude.Natural)
+fosRowLength = Lens.lens (rowLength :: FecOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {rowLength = a} :: FecOutputSettings)
+{-# DEPRECATED fosRowLength "Use generic-lens or generic-optics with 'rowLength' instead." #-}
 
 -- | Enables column only or column and row based FEC
-fosIncludeFec :: Lens' FecOutputSettings (Maybe FecOutputIncludeFec)
-fosIncludeFec = lens _fosIncludeFec (\s a -> s {_fosIncludeFec = a})
+--
+-- /Note:/ Consider using 'includeFec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fosIncludeFec :: Lens.Lens' FecOutputSettings (Lude.Maybe FecOutputIncludeFec)
+fosIncludeFec = Lens.lens (includeFec :: FecOutputSettings -> Lude.Maybe FecOutputIncludeFec) (\s a -> s {includeFec = a} :: FecOutputSettings)
+{-# DEPRECATED fosIncludeFec "Use generic-lens or generic-optics with 'includeFec' instead." #-}
 
 -- | Parameter D from SMPTE 2022-1. The height of the FEC protection matrix.  The number of transport stream packets per column error correction packet. Must be between 4 and 20, inclusive.
-fosColumnDepth :: Lens' FecOutputSettings (Maybe Natural)
-fosColumnDepth = lens _fosColumnDepth (\s a -> s {_fosColumnDepth = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'columnDepth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fosColumnDepth :: Lens.Lens' FecOutputSettings (Lude.Maybe Lude.Natural)
+fosColumnDepth = Lens.lens (columnDepth :: FecOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {columnDepth = a} :: FecOutputSettings)
+{-# DEPRECATED fosColumnDepth "Use generic-lens or generic-optics with 'columnDepth' instead." #-}
 
-instance FromJSON FecOutputSettings where
+instance Lude.FromJSON FecOutputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FecOutputSettings"
       ( \x ->
           FecOutputSettings'
-            <$> (x .:? "rowLength")
-            <*> (x .:? "includeFec")
-            <*> (x .:? "columnDepth")
+            Lude.<$> (x Lude..:? "rowLength")
+            Lude.<*> (x Lude..:? "includeFec")
+            Lude.<*> (x Lude..:? "columnDepth")
       )
 
-instance Hashable FecOutputSettings
-
-instance NFData FecOutputSettings
-
-instance ToJSON FecOutputSettings where
+instance Lude.ToJSON FecOutputSettings where
   toJSON FecOutputSettings' {..} =
-    object
-      ( catMaybes
-          [ ("rowLength" .=) <$> _fosRowLength,
-            ("includeFec" .=) <$> _fosIncludeFec,
-            ("columnDepth" .=) <$> _fosColumnDepth
+    Lude.object
+      ( Lude.catMaybes
+          [ ("rowLength" Lude..=) Lude.<$> rowLength,
+            ("includeFec" Lude..=) Lude.<$> includeFec,
+            ("columnDepth" Lude..=) Lude.<$> columnDepth
           ]
       )

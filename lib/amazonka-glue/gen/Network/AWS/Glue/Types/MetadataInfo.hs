@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MetadataInfo where
+module Network.AWS.Glue.Types.MetadataInfo
+  ( MetadataInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetadataInfo,
+
+    -- * Lenses
+    miCreatedTime,
+    miMetadataValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure containing metadata information for a schema version.
 --
---
---
--- /See:/ 'metadataInfo' smart constructor.
+-- /See:/ 'mkMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
-  { _miCreatedTime :: !(Maybe Text),
-    _miMetadataValue :: !(Maybe Text)
+  { createdTime ::
+      Lude.Maybe Lude.Text,
+    metadataValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetadataInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miCreatedTime' - The time at which the entry was created.
---
--- * 'miMetadataValue' - The metadata key’s corresponding value.
-metadataInfo ::
+-- * 'createdTime' - The time at which the entry was created.
+-- * 'metadataValue' - The metadata key’s corresponding value.
+mkMetadataInfo ::
   MetadataInfo
-metadataInfo =
+mkMetadataInfo =
   MetadataInfo'
-    { _miCreatedTime = Nothing,
-      _miMetadataValue = Nothing
+    { createdTime = Lude.Nothing,
+      metadataValue = Lude.Nothing
     }
 
 -- | The time at which the entry was created.
-miCreatedTime :: Lens' MetadataInfo (Maybe Text)
-miCreatedTime = lens _miCreatedTime (\s a -> s {_miCreatedTime = a})
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miCreatedTime :: Lens.Lens' MetadataInfo (Lude.Maybe Lude.Text)
+miCreatedTime = Lens.lens (createdTime :: MetadataInfo -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: MetadataInfo)
+{-# DEPRECATED miCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The metadata key’s corresponding value.
-miMetadataValue :: Lens' MetadataInfo (Maybe Text)
-miMetadataValue = lens _miMetadataValue (\s a -> s {_miMetadataValue = a})
+--
+-- /Note:/ Consider using 'metadataValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miMetadataValue :: Lens.Lens' MetadataInfo (Lude.Maybe Lude.Text)
+miMetadataValue = Lens.lens (metadataValue :: MetadataInfo -> Lude.Maybe Lude.Text) (\s a -> s {metadataValue = a} :: MetadataInfo)
+{-# DEPRECATED miMetadataValue "Use generic-lens or generic-optics with 'metadataValue' instead." #-}
 
-instance FromJSON MetadataInfo where
+instance Lude.FromJSON MetadataInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            <$> (x .:? "CreatedTime") <*> (x .:? "MetadataValue")
+            Lude.<$> (x Lude..:? "CreatedTime") Lude.<*> (x Lude..:? "MetadataValue")
       )
-
-instance Hashable MetadataInfo
-
-instance NFData MetadataInfo

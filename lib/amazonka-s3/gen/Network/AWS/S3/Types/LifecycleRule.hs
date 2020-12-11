@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.LifecycleRule where
+module Network.AWS.S3.Types.LifecycleRule
+  ( LifecycleRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLifecycleRule,
+
+    -- * Lenses
+    lrTransitions,
+    lrNoncurrentVersionExpiration,
+    lrPrefix,
+    lrNoncurrentVersionTransitions,
+    lrExpiration,
+    lrId,
+    lrFilter,
+    lrAbortIncompleteMultipartUpload,
+    lrStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AbortIncompleteMultipartUpload
 import Network.AWS.S3.Types.ExpirationStatus
@@ -28,131 +39,149 @@ import Network.AWS.S3.Types.Transition
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 --
---
---
--- /See:/ 'lifecycleRule' smart constructor.
+-- /See:/ 'mkLifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
-  { _lrTransitions ::
-      !(Maybe [Transition]),
-    _lrNoncurrentVersionExpiration ::
-      !(Maybe NoncurrentVersionExpiration),
-    _lrPrefix :: !(Maybe Text),
-    _lrNoncurrentVersionTransitions ::
-      !(Maybe [NoncurrentVersionTransition]),
-    _lrExpiration :: !(Maybe LifecycleExpiration),
-    _lrId :: !(Maybe Text),
-    _lrFilter :: !(Maybe LifecycleRuleFilter),
-    _lrAbortIncompleteMultipartUpload ::
-      !(Maybe AbortIncompleteMultipartUpload),
-    _lrStatus :: !ExpirationStatus
+  { transitions ::
+      Lude.Maybe [Transition],
+    noncurrentVersionExpiration ::
+      Lude.Maybe NoncurrentVersionExpiration,
+    prefix :: Lude.Maybe Lude.Text,
+    noncurrentVersionTransitions ::
+      Lude.Maybe [NoncurrentVersionTransition],
+    expiration :: Lude.Maybe LifecycleExpiration,
+    id :: Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe LifecycleRuleFilter,
+    abortIncompleteMultipartUpload ::
+      Lude.Maybe AbortIncompleteMultipartUpload,
+    status :: ExpirationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrTransitions' - Specifies when an Amazon S3 object transitions to a specified storage class.
---
--- * 'lrNoncurrentVersionExpiration' - Undocumented member.
---
--- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies. This is No longer used; use @Filter@ instead.
---
--- * 'lrNoncurrentVersionTransitions' - Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.
---
--- * 'lrExpiration' - Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
---
--- * 'lrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
---
--- * 'lrFilter' - Undocumented member.
---
--- * 'lrAbortIncompleteMultipartUpload' - Undocumented member.
---
--- * 'lrStatus' - If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
-lifecycleRule ::
-  -- | 'lrStatus'
+-- * 'abortIncompleteMultipartUpload' - Undocumented field.
+-- * 'expiration' - Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
+-- * 'filter' - Undocumented field.
+-- * 'id' - Unique identifier for the rule. The value cannot be longer than 255 characters.
+-- * 'noncurrentVersionExpiration' - Undocumented field.
+-- * 'noncurrentVersionTransitions' - Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.
+-- * 'prefix' - Prefix identifying one or more objects to which the rule applies. This is No longer used; use @Filter@ instead.
+-- * 'status' - If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+-- * 'transitions' - Specifies when an Amazon S3 object transitions to a specified storage class.
+mkLifecycleRule ::
+  -- | 'status'
   ExpirationStatus ->
   LifecycleRule
-lifecycleRule pStatus_ =
+mkLifecycleRule pStatus_ =
   LifecycleRule'
-    { _lrTransitions = Nothing,
-      _lrNoncurrentVersionExpiration = Nothing,
-      _lrPrefix = Nothing,
-      _lrNoncurrentVersionTransitions = Nothing,
-      _lrExpiration = Nothing,
-      _lrId = Nothing,
-      _lrFilter = Nothing,
-      _lrAbortIncompleteMultipartUpload = Nothing,
-      _lrStatus = pStatus_
+    { transitions = Lude.Nothing,
+      noncurrentVersionExpiration = Lude.Nothing,
+      prefix = Lude.Nothing,
+      noncurrentVersionTransitions = Lude.Nothing,
+      expiration = Lude.Nothing,
+      id = Lude.Nothing,
+      filter = Lude.Nothing,
+      abortIncompleteMultipartUpload = Lude.Nothing,
+      status = pStatus_
     }
 
 -- | Specifies when an Amazon S3 object transitions to a specified storage class.
-lrTransitions :: Lens' LifecycleRule [Transition]
-lrTransitions = lens _lrTransitions (\s a -> s {_lrTransitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'transitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrTransitions :: Lens.Lens' LifecycleRule (Lude.Maybe [Transition])
+lrTransitions = Lens.lens (transitions :: LifecycleRule -> Lude.Maybe [Transition]) (\s a -> s {transitions = a} :: LifecycleRule)
+{-# DEPRECATED lrTransitions "Use generic-lens or generic-optics with 'transitions' instead." #-}
 
--- | Undocumented member.
-lrNoncurrentVersionExpiration :: Lens' LifecycleRule (Maybe NoncurrentVersionExpiration)
-lrNoncurrentVersionExpiration = lens _lrNoncurrentVersionExpiration (\s a -> s {_lrNoncurrentVersionExpiration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'noncurrentVersionExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNoncurrentVersionExpiration :: Lens.Lens' LifecycleRule (Lude.Maybe NoncurrentVersionExpiration)
+lrNoncurrentVersionExpiration = Lens.lens (noncurrentVersionExpiration :: LifecycleRule -> Lude.Maybe NoncurrentVersionExpiration) (\s a -> s {noncurrentVersionExpiration = a} :: LifecycleRule)
+{-# DEPRECATED lrNoncurrentVersionExpiration "Use generic-lens or generic-optics with 'noncurrentVersionExpiration' instead." #-}
 
 -- | Prefix identifying one or more objects to which the rule applies. This is No longer used; use @Filter@ instead.
-lrPrefix :: Lens' LifecycleRule (Maybe Text)
-lrPrefix = lens _lrPrefix (\s a -> s {_lrPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrPrefix :: Lens.Lens' LifecycleRule (Lude.Maybe Lude.Text)
+lrPrefix = Lens.lens (prefix :: LifecycleRule -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: LifecycleRule)
+{-# DEPRECATED lrPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.
-lrNoncurrentVersionTransitions :: Lens' LifecycleRule [NoncurrentVersionTransition]
-lrNoncurrentVersionTransitions = lens _lrNoncurrentVersionTransitions (\s a -> s {_lrNoncurrentVersionTransitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'noncurrentVersionTransitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNoncurrentVersionTransitions :: Lens.Lens' LifecycleRule (Lude.Maybe [NoncurrentVersionTransition])
+lrNoncurrentVersionTransitions = Lens.lens (noncurrentVersionTransitions :: LifecycleRule -> Lude.Maybe [NoncurrentVersionTransition]) (\s a -> s {noncurrentVersionTransitions = a} :: LifecycleRule)
+{-# DEPRECATED lrNoncurrentVersionTransitions "Use generic-lens or generic-optics with 'noncurrentVersionTransitions' instead." #-}
 
 -- | Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
-lrExpiration :: Lens' LifecycleRule (Maybe LifecycleExpiration)
-lrExpiration = lens _lrExpiration (\s a -> s {_lrExpiration = a})
+--
+-- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrExpiration :: Lens.Lens' LifecycleRule (Lude.Maybe LifecycleExpiration)
+lrExpiration = Lens.lens (expiration :: LifecycleRule -> Lude.Maybe LifecycleExpiration) (\s a -> s {expiration = a} :: LifecycleRule)
+{-# DEPRECATED lrExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | Unique identifier for the rule. The value cannot be longer than 255 characters.
-lrId :: Lens' LifecycleRule (Maybe Text)
-lrId = lens _lrId (\s a -> s {_lrId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrId :: Lens.Lens' LifecycleRule (Lude.Maybe Lude.Text)
+lrId = Lens.lens (id :: LifecycleRule -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LifecycleRule)
+{-# DEPRECATED lrId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Undocumented member.
-lrFilter :: Lens' LifecycleRule (Maybe LifecycleRuleFilter)
-lrFilter = lens _lrFilter (\s a -> s {_lrFilter = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrFilter :: Lens.Lens' LifecycleRule (Lude.Maybe LifecycleRuleFilter)
+lrFilter = Lens.lens (filter :: LifecycleRule -> Lude.Maybe LifecycleRuleFilter) (\s a -> s {filter = a} :: LifecycleRule)
+{-# DEPRECATED lrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | Undocumented member.
-lrAbortIncompleteMultipartUpload :: Lens' LifecycleRule (Maybe AbortIncompleteMultipartUpload)
-lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\s a -> s {_lrAbortIncompleteMultipartUpload = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'abortIncompleteMultipartUpload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrAbortIncompleteMultipartUpload :: Lens.Lens' LifecycleRule (Lude.Maybe AbortIncompleteMultipartUpload)
+lrAbortIncompleteMultipartUpload = Lens.lens (abortIncompleteMultipartUpload :: LifecycleRule -> Lude.Maybe AbortIncompleteMultipartUpload) (\s a -> s {abortIncompleteMultipartUpload = a} :: LifecycleRule)
+{-# DEPRECATED lrAbortIncompleteMultipartUpload "Use generic-lens or generic-optics with 'abortIncompleteMultipartUpload' instead." #-}
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
-lrStatus :: Lens' LifecycleRule ExpirationStatus
-lrStatus = lens _lrStatus (\s a -> s {_lrStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrStatus :: Lens.Lens' LifecycleRule ExpirationStatus
+lrStatus = Lens.lens (status :: LifecycleRule -> ExpirationStatus) (\s a -> s {status = a} :: LifecycleRule)
+{-# DEPRECATED lrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML LifecycleRule where
+instance Lude.FromXML LifecycleRule where
   parseXML x =
     LifecycleRule'
-      <$> (may (parseXMLList "Transition") x)
-      <*> (x .@? "NoncurrentVersionExpiration")
-      <*> (x .@? "Prefix")
-      <*> (may (parseXMLList "NoncurrentVersionTransition") x)
-      <*> (x .@? "Expiration")
-      <*> (x .@? "ID")
-      <*> (x .@? "Filter")
-      <*> (x .@? "AbortIncompleteMultipartUpload")
-      <*> (x .@ "Status")
+      Lude.<$> (Lude.may (Lude.parseXMLList "Transition") x)
+      Lude.<*> (x Lude..@? "NoncurrentVersionExpiration")
+      Lude.<*> (x Lude..@? "Prefix")
+      Lude.<*> (Lude.may (Lude.parseXMLList "NoncurrentVersionTransition") x)
+      Lude.<*> (x Lude..@? "Expiration")
+      Lude.<*> (x Lude..@? "ID")
+      Lude.<*> (x Lude..@? "Filter")
+      Lude.<*> (x Lude..@? "AbortIncompleteMultipartUpload")
+      Lude.<*> (x Lude..@ "Status")
 
-instance Hashable LifecycleRule
-
-instance NFData LifecycleRule
-
-instance ToXML LifecycleRule where
+instance Lude.ToXML LifecycleRule where
   toXML LifecycleRule' {..} =
-    mconcat
-      [ toXML (toXMLList "Transition" <$> _lrTransitions),
-        "NoncurrentVersionExpiration" @= _lrNoncurrentVersionExpiration,
-        "Prefix" @= _lrPrefix,
-        toXML
-          ( toXMLList "NoncurrentVersionTransition"
-              <$> _lrNoncurrentVersionTransitions
+    Lude.mconcat
+      [ Lude.toXML (Lude.toXMLList "Transition" Lude.<$> transitions),
+        "NoncurrentVersionExpiration" Lude.@= noncurrentVersionExpiration,
+        "Prefix" Lude.@= prefix,
+        Lude.toXML
+          ( Lude.toXMLList "NoncurrentVersionTransition"
+              Lude.<$> noncurrentVersionTransitions
           ),
-        "Expiration" @= _lrExpiration,
-        "ID" @= _lrId,
-        "Filter" @= _lrFilter,
+        "Expiration" Lude.@= expiration,
+        "ID" Lude.@= id,
+        "Filter" Lude.@= filter,
         "AbortIncompleteMultipartUpload"
-          @= _lrAbortIncompleteMultipartUpload,
-        "Status" @= _lrStatus
+          Lude.@= abortIncompleteMultipartUpload,
+        "Status" Lude.@= status
       ]

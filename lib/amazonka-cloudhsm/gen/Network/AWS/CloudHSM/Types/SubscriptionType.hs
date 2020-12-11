@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSM.Types.SubscriptionType where
+module Network.AWS.CloudHSM.Types.SubscriptionType
+  ( SubscriptionType
+      ( SubscriptionType',
+        Production
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the type of subscription for the HSM.
 --
 --
 --     * __PRODUCTION__ - The HSM is being used in a production environment.
 --
+--
 --     * __TRIAL__ - The HSM is being used in a product trial.
-data SubscriptionType = Production
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubscriptionType = SubscriptionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubscriptionType where
-  parser =
-    takeLowerText >>= \case
-      "production" -> pure Production
-      e ->
-        fromTextError $
-          "Failure parsing SubscriptionType from value: '" <> e
-            <> "'. Accepted values: production"
+pattern Production :: SubscriptionType
+pattern Production = SubscriptionType' "PRODUCTION"
 
-instance ToText SubscriptionType where
-  toText = \case
-    Production -> "PRODUCTION"
-
-instance Hashable SubscriptionType
-
-instance NFData SubscriptionType
-
-instance ToByteString SubscriptionType
-
-instance ToQuery SubscriptionType
-
-instance ToHeader SubscriptionType
-
-instance ToJSON SubscriptionType where
-  toJSON = toJSONText
-
-instance FromJSON SubscriptionType where
-  parseJSON = parseJSONText "SubscriptionType"
+{-# COMPLETE
+  Production,
+  SubscriptionType'
+  #-}

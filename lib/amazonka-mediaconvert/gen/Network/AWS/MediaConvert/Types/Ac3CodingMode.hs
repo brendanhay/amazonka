@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Ac3CodingMode where
+module Network.AWS.MediaConvert.Types.Ac3CodingMode
+  ( Ac3CodingMode
+      ( Ac3CodingMode',
+        CodingMode10,
+        CodingMode11,
+        CodingMode20,
+        CodingMode32Lfe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dolby Digital coding mode. Determines number of channels.
-data Ac3CodingMode
-  = CodingMode10
-  | CodingMode11
-  | CodingMode20
-  | CodingMode32Lfe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Ac3CodingMode = Ac3CodingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Ac3CodingMode where
-  parser =
-    takeLowerText >>= \case
-      "coding_mode_1_0" -> pure CodingMode10
-      "coding_mode_1_1" -> pure CodingMode11
-      "coding_mode_2_0" -> pure CodingMode20
-      "coding_mode_3_2_lfe" -> pure CodingMode32Lfe
-      e ->
-        fromTextError $
-          "Failure parsing Ac3CodingMode from value: '" <> e
-            <> "'. Accepted values: coding_mode_1_0, coding_mode_1_1, coding_mode_2_0, coding_mode_3_2_lfe"
+pattern CodingMode10 :: Ac3CodingMode
+pattern CodingMode10 = Ac3CodingMode' "CODING_MODE_1_0"
 
-instance ToText Ac3CodingMode where
-  toText = \case
-    CodingMode10 -> "CODING_MODE_1_0"
-    CodingMode11 -> "CODING_MODE_1_1"
-    CodingMode20 -> "CODING_MODE_2_0"
-    CodingMode32Lfe -> "CODING_MODE_3_2_LFE"
+pattern CodingMode11 :: Ac3CodingMode
+pattern CodingMode11 = Ac3CodingMode' "CODING_MODE_1_1"
 
-instance Hashable Ac3CodingMode
+pattern CodingMode20 :: Ac3CodingMode
+pattern CodingMode20 = Ac3CodingMode' "CODING_MODE_2_0"
 
-instance NFData Ac3CodingMode
+pattern CodingMode32Lfe :: Ac3CodingMode
+pattern CodingMode32Lfe = Ac3CodingMode' "CODING_MODE_3_2_LFE"
 
-instance ToByteString Ac3CodingMode
-
-instance ToQuery Ac3CodingMode
-
-instance ToHeader Ac3CodingMode
-
-instance ToJSON Ac3CodingMode where
-  toJSON = toJSONText
-
-instance FromJSON Ac3CodingMode where
-  parseJSON = parseJSONText "Ac3CodingMode"
+{-# COMPLETE
+  CodingMode10,
+  CodingMode11,
+  CodingMode20,
+  CodingMode32Lfe,
+  Ac3CodingMode'
+  #-}

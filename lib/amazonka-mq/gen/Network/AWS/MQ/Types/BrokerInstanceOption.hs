@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.BrokerInstanceOption where
+module Network.AWS.MQ.Types.BrokerInstanceOption
+  ( BrokerInstanceOption (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBrokerInstanceOption,
+
+    -- * Lenses
+    bioSupportedEngineVersions,
+    bioAvailabilityZones,
+    bioSupportedDeploymentModes,
+    bioEngineType,
+    bioHostInstanceType,
+    bioStorageType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.AvailabilityZone
 import Network.AWS.MQ.Types.BrokerStorageType
 import Network.AWS.MQ.Types.DeploymentMode
 import Network.AWS.MQ.Types.EngineType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Option for host instance type.
 --
--- /See:/ 'brokerInstanceOption' smart constructor.
+-- /See:/ 'mkBrokerInstanceOption' smart constructor.
 data BrokerInstanceOption = BrokerInstanceOption'
-  { _bioSupportedEngineVersions ::
-      !(Maybe [Text]),
-    _bioAvailabilityZones ::
-      !(Maybe [AvailabilityZone]),
-    _bioSupportedDeploymentModes ::
-      !(Maybe [DeploymentMode]),
-    _bioEngineType :: !(Maybe EngineType),
-    _bioHostInstanceType :: !(Maybe Text),
-    _bioStorageType :: !(Maybe BrokerStorageType)
+  { supportedEngineVersions ::
+      Lude.Maybe [Lude.Text],
+    availabilityZones ::
+      Lude.Maybe [AvailabilityZone],
+    supportedDeploymentModes ::
+      Lude.Maybe [DeploymentMode],
+    engineType :: Lude.Maybe EngineType,
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    storageType :: Lude.Maybe BrokerStorageType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerInstanceOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bioSupportedEngineVersions' - The list of supported engine versions.
---
--- * 'bioAvailabilityZones' - The list of available az.
---
--- * 'bioSupportedDeploymentModes' - The list of supported deployment modes.
---
--- * 'bioEngineType' - The type of broker engine.
---
--- * 'bioHostInstanceType' - The type of broker instance.
---
--- * 'bioStorageType' - The broker's storage type.
-brokerInstanceOption ::
+-- * 'availabilityZones' - The list of available az.
+-- * 'engineType' - The type of broker engine.
+-- * 'hostInstanceType' - The type of broker instance.
+-- * 'storageType' - The broker's storage type.
+-- * 'supportedDeploymentModes' - The list of supported deployment modes.
+-- * 'supportedEngineVersions' - The list of supported engine versions.
+mkBrokerInstanceOption ::
   BrokerInstanceOption
-brokerInstanceOption =
+mkBrokerInstanceOption =
   BrokerInstanceOption'
-    { _bioSupportedEngineVersions = Nothing,
-      _bioAvailabilityZones = Nothing,
-      _bioSupportedDeploymentModes = Nothing,
-      _bioEngineType = Nothing,
-      _bioHostInstanceType = Nothing,
-      _bioStorageType = Nothing
+    { supportedEngineVersions = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      supportedDeploymentModes = Lude.Nothing,
+      engineType = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      storageType = Lude.Nothing
     }
 
 -- | The list of supported engine versions.
-bioSupportedEngineVersions :: Lens' BrokerInstanceOption [Text]
-bioSupportedEngineVersions = lens _bioSupportedEngineVersions (\s a -> s {_bioSupportedEngineVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedEngineVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioSupportedEngineVersions :: Lens.Lens' BrokerInstanceOption (Lude.Maybe [Lude.Text])
+bioSupportedEngineVersions = Lens.lens (supportedEngineVersions :: BrokerInstanceOption -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedEngineVersions = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioSupportedEngineVersions "Use generic-lens or generic-optics with 'supportedEngineVersions' instead." #-}
 
 -- | The list of available az.
-bioAvailabilityZones :: Lens' BrokerInstanceOption [AvailabilityZone]
-bioAvailabilityZones = lens _bioAvailabilityZones (\s a -> s {_bioAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioAvailabilityZones :: Lens.Lens' BrokerInstanceOption (Lude.Maybe [AvailabilityZone])
+bioAvailabilityZones = Lens.lens (availabilityZones :: BrokerInstanceOption -> Lude.Maybe [AvailabilityZone]) (\s a -> s {availabilityZones = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The list of supported deployment modes.
-bioSupportedDeploymentModes :: Lens' BrokerInstanceOption [DeploymentMode]
-bioSupportedDeploymentModes = lens _bioSupportedDeploymentModes (\s a -> s {_bioSupportedDeploymentModes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedDeploymentModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioSupportedDeploymentModes :: Lens.Lens' BrokerInstanceOption (Lude.Maybe [DeploymentMode])
+bioSupportedDeploymentModes = Lens.lens (supportedDeploymentModes :: BrokerInstanceOption -> Lude.Maybe [DeploymentMode]) (\s a -> s {supportedDeploymentModes = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioSupportedDeploymentModes "Use generic-lens or generic-optics with 'supportedDeploymentModes' instead." #-}
 
 -- | The type of broker engine.
-bioEngineType :: Lens' BrokerInstanceOption (Maybe EngineType)
-bioEngineType = lens _bioEngineType (\s a -> s {_bioEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioEngineType :: Lens.Lens' BrokerInstanceOption (Lude.Maybe EngineType)
+bioEngineType = Lens.lens (engineType :: BrokerInstanceOption -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The type of broker instance.
-bioHostInstanceType :: Lens' BrokerInstanceOption (Maybe Text)
-bioHostInstanceType = lens _bioHostInstanceType (\s a -> s {_bioHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioHostInstanceType :: Lens.Lens' BrokerInstanceOption (Lude.Maybe Lude.Text)
+bioHostInstanceType = Lens.lens (hostInstanceType :: BrokerInstanceOption -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 -- | The broker's storage type.
-bioStorageType :: Lens' BrokerInstanceOption (Maybe BrokerStorageType)
-bioStorageType = lens _bioStorageType (\s a -> s {_bioStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bioStorageType :: Lens.Lens' BrokerInstanceOption (Lude.Maybe BrokerStorageType)
+bioStorageType = Lens.lens (storageType :: BrokerInstanceOption -> Lude.Maybe BrokerStorageType) (\s a -> s {storageType = a} :: BrokerInstanceOption)
+{-# DEPRECATED bioStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance FromJSON BrokerInstanceOption where
+instance Lude.FromJSON BrokerInstanceOption where
   parseJSON =
-    withObject
+    Lude.withObject
       "BrokerInstanceOption"
       ( \x ->
           BrokerInstanceOption'
-            <$> (x .:? "supportedEngineVersions" .!= mempty)
-            <*> (x .:? "availabilityZones" .!= mempty)
-            <*> (x .:? "supportedDeploymentModes" .!= mempty)
-            <*> (x .:? "engineType")
-            <*> (x .:? "hostInstanceType")
-            <*> (x .:? "storageType")
+            Lude.<$> (x Lude..:? "supportedEngineVersions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "availabilityZones" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "supportedDeploymentModes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "engineType")
+            Lude.<*> (x Lude..:? "hostInstanceType")
+            Lude.<*> (x Lude..:? "storageType")
       )
-
-instance Hashable BrokerInstanceOption
-
-instance NFData BrokerInstanceOption

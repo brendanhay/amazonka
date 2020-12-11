@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,142 @@
 --
 -- Starts an on-demand replication run for the specified application.
 module Network.AWS.SMS.StartOnDemandAppReplication
-  ( -- * Creating a Request
-    startOnDemandAppReplication,
-    StartOnDemandAppReplication,
+  ( -- * Creating a request
+    StartOnDemandAppReplication (..),
+    mkStartOnDemandAppReplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sodarDescription,
     sodarAppId,
 
-    -- * Destructuring the Response
-    startOnDemandAppReplicationResponse,
-    StartOnDemandAppReplicationResponse,
+    -- * Destructuring the response
+    StartOnDemandAppReplicationResponse (..),
+    mkStartOnDemandAppReplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sodarrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'startOnDemandAppReplication' smart constructor.
+-- | /See:/ 'mkStartOnDemandAppReplication' smart constructor.
 data StartOnDemandAppReplication = StartOnDemandAppReplication'
-  { _sodarDescription ::
-      !(Maybe Text),
-    _sodarAppId :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    appId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAppReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodarDescription' - The description of the replication run.
---
--- * 'sodarAppId' - The ID of the application.
-startOnDemandAppReplication ::
-  -- | 'sodarAppId'
-  Text ->
+-- * 'appId' - The ID of the application.
+-- * 'description' - The description of the replication run.
+mkStartOnDemandAppReplication ::
+  -- | 'appId'
+  Lude.Text ->
   StartOnDemandAppReplication
-startOnDemandAppReplication pAppId_ =
+mkStartOnDemandAppReplication pAppId_ =
   StartOnDemandAppReplication'
-    { _sodarDescription = Nothing,
-      _sodarAppId = pAppId_
+    { description = Lude.Nothing,
+      appId = pAppId_
     }
 
 -- | The description of the replication run.
-sodarDescription :: Lens' StartOnDemandAppReplication (Maybe Text)
-sodarDescription = lens _sodarDescription (\s a -> s {_sodarDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodarDescription :: Lens.Lens' StartOnDemandAppReplication (Lude.Maybe Lude.Text)
+sodarDescription = Lens.lens (description :: StartOnDemandAppReplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandAppReplication)
+{-# DEPRECATED sodarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the application.
-sodarAppId :: Lens' StartOnDemandAppReplication Text
-sodarAppId = lens _sodarAppId (\s a -> s {_sodarAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodarAppId :: Lens.Lens' StartOnDemandAppReplication Lude.Text
+sodarAppId = Lens.lens (appId :: StartOnDemandAppReplication -> Lude.Text) (\s a -> s {appId = a} :: StartOnDemandAppReplication)
+{-# DEPRECATED sodarAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest StartOnDemandAppReplication where
+instance Lude.AWSRequest StartOnDemandAppReplication where
   type
     Rs StartOnDemandAppReplication =
       StartOnDemandAppReplicationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StartOnDemandAppReplicationResponse' <$> (pure (fromEnum s))
+          StartOnDemandAppReplicationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartOnDemandAppReplication
-
-instance NFData StartOnDemandAppReplication
-
-instance ToHeaders StartOnDemandAppReplication where
+instance Lude.ToHeaders StartOnDemandAppReplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartOnDemandAppReplication where
+instance Lude.ToJSON StartOnDemandAppReplication where
   toJSON StartOnDemandAppReplication' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _sodarDescription,
-            Just ("appId" .= _sodarAppId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("appId" Lude..= appId)
           ]
       )
 
-instance ToPath StartOnDemandAppReplication where
-  toPath = const "/"
+instance Lude.ToPath StartOnDemandAppReplication where
+  toPath = Lude.const "/"
 
-instance ToQuery StartOnDemandAppReplication where
-  toQuery = const mempty
+instance Lude.ToQuery StartOnDemandAppReplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startOnDemandAppReplicationResponse' smart constructor.
+-- | /See:/ 'mkStartOnDemandAppReplicationResponse' smart constructor.
 newtype StartOnDemandAppReplicationResponse = StartOnDemandAppReplicationResponse'
-  { _sodarrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAppReplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodarrsResponseStatus' - -- | The response status code.
-startOnDemandAppReplicationResponse ::
-  -- | 'sodarrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartOnDemandAppReplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartOnDemandAppReplicationResponse
-startOnDemandAppReplicationResponse pResponseStatus_ =
+mkStartOnDemandAppReplicationResponse pResponseStatus_ =
   StartOnDemandAppReplicationResponse'
-    { _sodarrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sodarrsResponseStatus :: Lens' StartOnDemandAppReplicationResponse Int
-sodarrsResponseStatus = lens _sodarrsResponseStatus (\s a -> s {_sodarrsResponseStatus = a})
-
-instance NFData StartOnDemandAppReplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodarrsResponseStatus :: Lens.Lens' StartOnDemandAppReplicationResponse Lude.Int
+sodarrsResponseStatus = Lens.lens (responseStatus :: StartOnDemandAppReplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartOnDemandAppReplicationResponse)
+{-# DEPRECATED sodarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

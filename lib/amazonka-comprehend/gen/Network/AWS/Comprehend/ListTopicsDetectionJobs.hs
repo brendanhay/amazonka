@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of the topic detection jobs that you have submitted.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Comprehend.ListTopicsDetectionJobs
-  ( -- * Creating a Request
-    listTopicsDetectionJobs,
-    ListTopicsDetectionJobs,
+  ( -- * Creating a request
+    ListTopicsDetectionJobs (..),
+    mkListTopicsDetectionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltdjNextToken,
     ltdjFilter,
     ltdjMaxResults,
 
-    -- * Destructuring the Response
-    listTopicsDetectionJobsResponse,
-    ListTopicsDetectionJobsResponse,
+    -- * Destructuring the response
+    ListTopicsDetectionJobsResponse (..),
+    mkListTopicsDetectionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltdjrsNextToken,
     ltdjrsTopicsDetectionJobPropertiesList,
     ltdjrsResponseStatus,
@@ -44,143 +37,166 @@ module Network.AWS.Comprehend.ListTopicsDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTopicsDetectionJobs' smart constructor.
+-- | /See:/ 'mkListTopicsDetectionJobs' smart constructor.
 data ListTopicsDetectionJobs = ListTopicsDetectionJobs'
-  { _ltdjNextToken ::
-      !(Maybe Text),
-    _ltdjFilter ::
-      !(Maybe TopicsDetectionJobFilter),
-    _ltdjMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe TopicsDetectionJobFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsDetectionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltdjNextToken' - Identifies the next page of results to return.
---
--- * 'ltdjFilter' - Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.
---
--- * 'ltdjMaxResults' - The maximum number of results to return in each page. The default is 100.
-listTopicsDetectionJobs ::
+-- * 'filter' - Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListTopicsDetectionJobs ::
   ListTopicsDetectionJobs
-listTopicsDetectionJobs =
+mkListTopicsDetectionJobs =
   ListTopicsDetectionJobs'
-    { _ltdjNextToken = Nothing,
-      _ltdjFilter = Nothing,
-      _ltdjMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-ltdjNextToken :: Lens' ListTopicsDetectionJobs (Maybe Text)
-ltdjNextToken = lens _ltdjNextToken (\s a -> s {_ltdjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjNextToken :: Lens.Lens' ListTopicsDetectionJobs (Lude.Maybe Lude.Text)
+ltdjNextToken = Lens.lens (nextToken :: ListTopicsDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicsDetectionJobs)
+{-# DEPRECATED ltdjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.
-ltdjFilter :: Lens' ListTopicsDetectionJobs (Maybe TopicsDetectionJobFilter)
-ltdjFilter = lens _ltdjFilter (\s a -> s {_ltdjFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjFilter :: Lens.Lens' ListTopicsDetectionJobs (Lude.Maybe TopicsDetectionJobFilter)
+ltdjFilter = Lens.lens (filter :: ListTopicsDetectionJobs -> Lude.Maybe TopicsDetectionJobFilter) (\s a -> s {filter = a} :: ListTopicsDetectionJobs)
+{-# DEPRECATED ltdjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-ltdjMaxResults :: Lens' ListTopicsDetectionJobs (Maybe Natural)
-ltdjMaxResults = lens _ltdjMaxResults (\s a -> s {_ltdjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjMaxResults :: Lens.Lens' ListTopicsDetectionJobs (Lude.Maybe Lude.Natural)
+ltdjMaxResults = Lens.lens (maxResults :: ListTopicsDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTopicsDetectionJobs)
+{-# DEPRECATED ltdjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListTopicsDetectionJobs where
+instance Page.AWSPager ListTopicsDetectionJobs where
   page rq rs
-    | stop (rs ^. ltdjrsNextToken) = Nothing
-    | stop (rs ^. ltdjrsTopicsDetectionJobPropertiesList) = Nothing
-    | otherwise = Just $ rq & ltdjNextToken .~ rs ^. ltdjrsNextToken
+    | Page.stop (rs Lens.^. ltdjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltdjrsTopicsDetectionJobPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltdjNextToken Lens..~ rs Lens.^. ltdjrsNextToken
 
-instance AWSRequest ListTopicsDetectionJobs where
+instance Lude.AWSRequest ListTopicsDetectionJobs where
   type Rs ListTopicsDetectionJobs = ListTopicsDetectionJobsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTopicsDetectionJobsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "TopicsDetectionJobPropertiesList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> ( x Lude..?> "TopicsDetectionJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTopicsDetectionJobs
-
-instance NFData ListTopicsDetectionJobs
-
-instance ToHeaders ListTopicsDetectionJobs where
+instance Lude.ToHeaders ListTopicsDetectionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListTopicsDetectionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.ListTopicsDetectionJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTopicsDetectionJobs where
+instance Lude.ToJSON ListTopicsDetectionJobs where
   toJSON ListTopicsDetectionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltdjNextToken,
-            ("Filter" .=) <$> _ltdjFilter,
-            ("MaxResults" .=) <$> _ltdjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListTopicsDetectionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListTopicsDetectionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTopicsDetectionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListTopicsDetectionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTopicsDetectionJobsResponse' smart constructor.
+-- | /See:/ 'mkListTopicsDetectionJobsResponse' smart constructor.
 data ListTopicsDetectionJobsResponse = ListTopicsDetectionJobsResponse'
-  { _ltdjrsNextToken ::
-      !(Maybe Text),
-    _ltdjrsTopicsDetectionJobPropertiesList ::
-      !( Maybe
-           [TopicsDetectionJobProperties]
-       ),
-    _ltdjrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    topicsDetectionJobPropertiesList ::
+      Lude.Maybe
+        [TopicsDetectionJobProperties],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsDetectionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltdjrsNextToken' - Identifies the next page of results to return.
---
--- * 'ltdjrsTopicsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'ltdjrsResponseStatus' - -- | The response status code.
-listTopicsDetectionJobsResponse ::
-  -- | 'ltdjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'topicsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+mkListTopicsDetectionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTopicsDetectionJobsResponse
-listTopicsDetectionJobsResponse pResponseStatus_ =
+mkListTopicsDetectionJobsResponse pResponseStatus_ =
   ListTopicsDetectionJobsResponse'
-    { _ltdjrsNextToken = Nothing,
-      _ltdjrsTopicsDetectionJobPropertiesList = Nothing,
-      _ltdjrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      topicsDetectionJobPropertiesList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifies the next page of results to return.
-ltdjrsNextToken :: Lens' ListTopicsDetectionJobsResponse (Maybe Text)
-ltdjrsNextToken = lens _ltdjrsNextToken (\s a -> s {_ltdjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjrsNextToken :: Lens.Lens' ListTopicsDetectionJobsResponse (Lude.Maybe Lude.Text)
+ltdjrsNextToken = Lens.lens (nextToken :: ListTopicsDetectionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicsDetectionJobsResponse)
+{-# DEPRECATED ltdjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list containing the properties of each job that is returned.
-ltdjrsTopicsDetectionJobPropertiesList :: Lens' ListTopicsDetectionJobsResponse [TopicsDetectionJobProperties]
-ltdjrsTopicsDetectionJobPropertiesList = lens _ltdjrsTopicsDetectionJobPropertiesList (\s a -> s {_ltdjrsTopicsDetectionJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'topicsDetectionJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjrsTopicsDetectionJobPropertiesList :: Lens.Lens' ListTopicsDetectionJobsResponse (Lude.Maybe [TopicsDetectionJobProperties])
+ltdjrsTopicsDetectionJobPropertiesList = Lens.lens (topicsDetectionJobPropertiesList :: ListTopicsDetectionJobsResponse -> Lude.Maybe [TopicsDetectionJobProperties]) (\s a -> s {topicsDetectionJobPropertiesList = a} :: ListTopicsDetectionJobsResponse)
+{-# DEPRECATED ltdjrsTopicsDetectionJobPropertiesList "Use generic-lens or generic-optics with 'topicsDetectionJobPropertiesList' instead." #-}
 
--- | -- | The response status code.
-ltdjrsResponseStatus :: Lens' ListTopicsDetectionJobsResponse Int
-ltdjrsResponseStatus = lens _ltdjrsResponseStatus (\s a -> s {_ltdjrsResponseStatus = a})
-
-instance NFData ListTopicsDetectionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltdjrsResponseStatus :: Lens.Lens' ListTopicsDetectionJobsResponse Lude.Int
+ltdjrsResponseStatus = Lens.lens (responseStatus :: ListTopicsDetectionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTopicsDetectionJobsResponse)
+{-# DEPRECATED ltdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

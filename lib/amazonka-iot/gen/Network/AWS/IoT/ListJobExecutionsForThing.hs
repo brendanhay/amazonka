@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the job executions for the specified thing.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListJobExecutionsForThing
-  ( -- * Creating a Request
-    listJobExecutionsForThing,
-    ListJobExecutionsForThing,
+  ( -- * Creating a request
+    ListJobExecutionsForThing (..),
+    mkListJobExecutionsForThing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljeftStatus,
     ljeftNamespaceId,
     ljeftNextToken,
     ljeftMaxResults,
     ljeftThingName,
 
-    -- * Destructuring the Response
-    listJobExecutionsForThingResponse,
-    ListJobExecutionsForThingResponse,
+    -- * Destructuring the response
+    ListJobExecutionsForThingResponse (..),
+    mkListJobExecutionsForThingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljeftrsExecutionSummaries,
     ljeftrsNextToken,
     ljeftrsResponseStatus,
@@ -46,153 +39,183 @@ module Network.AWS.IoT.ListJobExecutionsForThing
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listJobExecutionsForThing' smart constructor.
+-- | /See:/ 'mkListJobExecutionsForThing' smart constructor.
 data ListJobExecutionsForThing = ListJobExecutionsForThing'
-  { _ljeftStatus ::
-      !(Maybe JobExecutionStatus),
-    _ljeftNamespaceId :: !(Maybe Text),
-    _ljeftNextToken :: !(Maybe Text),
-    _ljeftMaxResults :: !(Maybe Nat),
-    _ljeftThingName :: !Text
+  { status ::
+      Lude.Maybe JobExecutionStatus,
+    namespaceId :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForThing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- * 'ljeftStatus' - An optional filter that lets you search for jobs that have the specified status.
---
--- * 'ljeftNamespaceId' - The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
---
--- * 'ljeftNextToken' - The token to retrieve the next set of results.
---
--- * 'ljeftMaxResults' - The maximum number of results to be returned per request.
---
--- * 'ljeftThingName' - The thing name.
-listJobExecutionsForThing ::
-  -- | 'ljeftThingName'
-  Text ->
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+-- * 'nextToken' - The token to retrieve the next set of results.
+-- * 'status' - An optional filter that lets you search for jobs that have the specified status.
+-- * 'thingName' - The thing name.
+mkListJobExecutionsForThing ::
+  -- | 'thingName'
+  Lude.Text ->
   ListJobExecutionsForThing
-listJobExecutionsForThing pThingName_ =
+mkListJobExecutionsForThing pThingName_ =
   ListJobExecutionsForThing'
-    { _ljeftStatus = Nothing,
-      _ljeftNamespaceId = Nothing,
-      _ljeftNextToken = Nothing,
-      _ljeftMaxResults = Nothing,
-      _ljeftThingName = pThingName_
+    { status = Lude.Nothing,
+      namespaceId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | An optional filter that lets you search for jobs that have the specified status.
-ljeftStatus :: Lens' ListJobExecutionsForThing (Maybe JobExecutionStatus)
-ljeftStatus = lens _ljeftStatus (\s a -> s {_ljeftStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftStatus :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe JobExecutionStatus)
+ljeftStatus = Lens.lens (status :: ListJobExecutionsForThing -> Lude.Maybe JobExecutionStatus) (\s a -> s {status = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-ljeftNamespaceId :: Lens' ListJobExecutionsForThing (Maybe Text)
-ljeftNamespaceId = lens _ljeftNamespaceId (\s a -> s {_ljeftNamespaceId = a})
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+--
+-- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftNamespaceId :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Text)
+ljeftNamespaceId = Lens.lens (namespaceId :: ListJobExecutionsForThing -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | The token to retrieve the next set of results.
-ljeftNextToken :: Lens' ListJobExecutionsForThing (Maybe Text)
-ljeftNextToken = lens _ljeftNextToken (\s a -> s {_ljeftNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftNextToken :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Text)
+ljeftNextToken = Lens.lens (nextToken :: ListJobExecutionsForThing -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-ljeftMaxResults :: Lens' ListJobExecutionsForThing (Maybe Natural)
-ljeftMaxResults = lens _ljeftMaxResults (\s a -> s {_ljeftMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftMaxResults :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Natural)
+ljeftMaxResults = Lens.lens (maxResults :: ListJobExecutionsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The thing name.
-ljeftThingName :: Lens' ListJobExecutionsForThing Text
-ljeftThingName = lens _ljeftThingName (\s a -> s {_ljeftThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftThingName :: Lens.Lens' ListJobExecutionsForThing Lude.Text
+ljeftThingName = Lens.lens (thingName :: ListJobExecutionsForThing -> Lude.Text) (\s a -> s {thingName = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSPager ListJobExecutionsForThing where
+instance Page.AWSPager ListJobExecutionsForThing where
   page rq rs
-    | stop (rs ^. ljeftrsNextToken) = Nothing
-    | stop (rs ^. ljeftrsExecutionSummaries) = Nothing
-    | otherwise = Just $ rq & ljeftNextToken .~ rs ^. ljeftrsNextToken
+    | Page.stop (rs Lens.^. ljeftrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ljeftrsExecutionSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ljeftNextToken Lens..~ rs Lens.^. ljeftrsNextToken
 
-instance AWSRequest ListJobExecutionsForThing where
+instance Lude.AWSRequest ListJobExecutionsForThing where
   type
     Rs ListJobExecutionsForThing =
       ListJobExecutionsForThingResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJobExecutionsForThingResponse'
-            <$> (x .?> "executionSummaries" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "executionSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListJobExecutionsForThing
+instance Lude.ToHeaders ListJobExecutionsForThing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListJobExecutionsForThing
-
-instance ToHeaders ListJobExecutionsForThing where
-  toHeaders = const mempty
-
-instance ToPath ListJobExecutionsForThing where
+instance Lude.ToPath ListJobExecutionsForThing where
   toPath ListJobExecutionsForThing' {..} =
-    mconcat ["/things/", toBS _ljeftThingName, "/jobs"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/jobs"]
 
-instance ToQuery ListJobExecutionsForThing where
+instance Lude.ToQuery ListJobExecutionsForThing where
   toQuery ListJobExecutionsForThing' {..} =
-    mconcat
-      [ "status" =: _ljeftStatus,
-        "namespaceId" =: _ljeftNamespaceId,
-        "nextToken" =: _ljeftNextToken,
-        "maxResults" =: _ljeftMaxResults
+    Lude.mconcat
+      [ "status" Lude.=: status,
+        "namespaceId" Lude.=: namespaceId,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listJobExecutionsForThingResponse' smart constructor.
+-- | /See:/ 'mkListJobExecutionsForThingResponse' smart constructor.
 data ListJobExecutionsForThingResponse = ListJobExecutionsForThingResponse'
-  { _ljeftrsExecutionSummaries ::
-      !( Maybe
-           [JobExecutionSummaryForThing]
-       ),
-    _ljeftrsNextToken ::
-      !(Maybe Text),
-    _ljeftrsResponseStatus ::
-      !Int
+  { executionSummaries ::
+      Lude.Maybe
+        [JobExecutionSummaryForThing],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForThingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljeftrsExecutionSummaries' - A list of job execution summaries.
---
--- * 'ljeftrsNextToken' - The token for the next set of results, or __null__ if there are no additional results.
---
--- * 'ljeftrsResponseStatus' - -- | The response status code.
-listJobExecutionsForThingResponse ::
-  -- | 'ljeftrsResponseStatus'
-  Int ->
+-- * 'executionSummaries' - A list of job execution summaries.
+-- * 'nextToken' - The token for the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListJobExecutionsForThingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListJobExecutionsForThingResponse
-listJobExecutionsForThingResponse pResponseStatus_ =
+mkListJobExecutionsForThingResponse pResponseStatus_ =
   ListJobExecutionsForThingResponse'
-    { _ljeftrsExecutionSummaries =
-        Nothing,
-      _ljeftrsNextToken = Nothing,
-      _ljeftrsResponseStatus = pResponseStatus_
+    { executionSummaries =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of job execution summaries.
-ljeftrsExecutionSummaries :: Lens' ListJobExecutionsForThingResponse [JobExecutionSummaryForThing]
-ljeftrsExecutionSummaries = lens _ljeftrsExecutionSummaries (\s a -> s {_ljeftrsExecutionSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'executionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftrsExecutionSummaries :: Lens.Lens' ListJobExecutionsForThingResponse (Lude.Maybe [JobExecutionSummaryForThing])
+ljeftrsExecutionSummaries = Lens.lens (executionSummaries :: ListJobExecutionsForThingResponse -> Lude.Maybe [JobExecutionSummaryForThing]) (\s a -> s {executionSummaries = a} :: ListJobExecutionsForThingResponse)
+{-# DEPRECATED ljeftrsExecutionSummaries "Use generic-lens or generic-optics with 'executionSummaries' instead." #-}
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
-ljeftrsNextToken :: Lens' ListJobExecutionsForThingResponse (Maybe Text)
-ljeftrsNextToken = lens _ljeftrsNextToken (\s a -> s {_ljeftrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftrsNextToken :: Lens.Lens' ListJobExecutionsForThingResponse (Lude.Maybe Lude.Text)
+ljeftrsNextToken = Lens.lens (nextToken :: ListJobExecutionsForThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobExecutionsForThingResponse)
+{-# DEPRECATED ljeftrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ljeftrsResponseStatus :: Lens' ListJobExecutionsForThingResponse Int
-ljeftrsResponseStatus = lens _ljeftrsResponseStatus (\s a -> s {_ljeftrsResponseStatus = a})
-
-instance NFData ListJobExecutionsForThingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftrsResponseStatus :: Lens.Lens' ListJobExecutionsForThingResponse Lude.Int
+ljeftrsResponseStatus = Lens.lens (responseStatus :: ListJobExecutionsForThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobExecutionsForThingResponse)
+{-# DEPRECATED ljeftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

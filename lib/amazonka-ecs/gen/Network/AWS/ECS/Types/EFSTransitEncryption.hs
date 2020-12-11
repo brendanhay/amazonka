@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.EFSTransitEncryption where
+module Network.AWS.ECS.Types.EFSTransitEncryption
+  ( EFSTransitEncryption
+      ( EFSTransitEncryption',
+        EFSTEDisabled,
+        EFSTEEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EFSTransitEncryption
-  = EFSTEDisabled
-  | EFSTEEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EFSTransitEncryption = EFSTransitEncryption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EFSTransitEncryption where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure EFSTEDisabled
-      "enabled" -> pure EFSTEEnabled
-      e ->
-        fromTextError $
-          "Failure parsing EFSTransitEncryption from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern EFSTEDisabled :: EFSTransitEncryption
+pattern EFSTEDisabled = EFSTransitEncryption' "DISABLED"
 
-instance ToText EFSTransitEncryption where
-  toText = \case
-    EFSTEDisabled -> "DISABLED"
-    EFSTEEnabled -> "ENABLED"
+pattern EFSTEEnabled :: EFSTransitEncryption
+pattern EFSTEEnabled = EFSTransitEncryption' "ENABLED"
 
-instance Hashable EFSTransitEncryption
-
-instance NFData EFSTransitEncryption
-
-instance ToByteString EFSTransitEncryption
-
-instance ToQuery EFSTransitEncryption
-
-instance ToHeader EFSTransitEncryption
-
-instance ToJSON EFSTransitEncryption where
-  toJSON = toJSONText
-
-instance FromJSON EFSTransitEncryption where
-  parseJSON = parseJSONText "EFSTransitEncryption"
+{-# COMPLETE
+  EFSTEDisabled,
+  EFSTEEnabled,
+  EFSTransitEncryption'
+  #-}

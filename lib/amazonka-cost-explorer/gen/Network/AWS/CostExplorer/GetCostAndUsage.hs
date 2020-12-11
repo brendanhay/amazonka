@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric, such as @BlendedCosts@ or @UsageQuantity@ , that you want the request to return. You can also filter and group your data by various dimensions, such as @SERVICE@ or @AZ@ , in a specific time range. For a complete list of valid dimensions, see the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html GetDimensionValues> operation. Management account in an organization in AWS Organizations have access to all member accounts.
 --
---
 -- For information about filter limitations, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html Quotas and restrictions> in the /Billing and Cost Management User Guide/ .
 module Network.AWS.CostExplorer.GetCostAndUsage
-  ( -- * Creating a Request
-    getCostAndUsage,
-    GetCostAndUsage,
+  ( -- * Creating a request
+    GetCostAndUsage (..),
+    mkGetCostAndUsage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcauGroupBy,
     gcauNextPageToken,
     gcauGranularity,
@@ -34,11 +28,11 @@ module Network.AWS.CostExplorer.GetCostAndUsage
     gcauTimePeriod,
     gcauMetrics,
 
-    -- * Destructuring the Response
-    getCostAndUsageResponse,
-    GetCostAndUsageResponse,
+    -- * Destructuring the response
+    GetCostAndUsageResponse (..),
+    mkGetCostAndUsageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcaursResultsByTime,
     gcaursNextPageToken,
     gcaursGroupDefinitions,
@@ -47,170 +41,209 @@ module Network.AWS.CostExplorer.GetCostAndUsage
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCostAndUsage' smart constructor.
+-- | /See:/ 'mkGetCostAndUsage' smart constructor.
 data GetCostAndUsage = GetCostAndUsage'
-  { _gcauGroupBy ::
-      !(Maybe [GroupDefinition]),
-    _gcauNextPageToken :: !(Maybe Text),
-    _gcauGranularity :: !(Maybe Granularity),
-    _gcauFilter :: !(Maybe Expression),
-    _gcauTimePeriod :: !DateInterval,
-    _gcauMetrics :: ![Text]
+  { groupBy ::
+      Lude.Maybe [GroupDefinition],
+    nextPageToken :: Lude.Maybe Lude.Text,
+    granularity :: Lude.Maybe Granularity,
+    filter :: Lude.Maybe Expression,
+    timePeriod :: DateInterval,
+    metrics :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCostAndUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
+-- * 'granularity' - Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
+-- * 'groupBy' - You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.
 --
--- * 'gcauGroupBy' - You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types. When you group by tag key, you get all tag values, including empty strings. Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
+-- When you group by tag key, you get all tag values, including empty strings.
+-- Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
+-- * 'metrics' - Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
 --
--- * 'gcauNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gcauGranularity' - Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
---
--- * 'gcauFilter' - Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
---
--- * 'gcauTimePeriod' - Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
---
--- * 'gcauMetrics' - Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .  Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .  @Metrics@ is required for @GetCostAndUsage@ requests.
-getCostAndUsage ::
-  -- | 'gcauTimePeriod'
+-- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
+-- @Metrics@ is required for @GetCostAndUsage@ requests.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'timePeriod' - Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+mkGetCostAndUsage ::
+  -- | 'timePeriod'
   DateInterval ->
   GetCostAndUsage
-getCostAndUsage pTimePeriod_ =
+mkGetCostAndUsage pTimePeriod_ =
   GetCostAndUsage'
-    { _gcauGroupBy = Nothing,
-      _gcauNextPageToken = Nothing,
-      _gcauGranularity = Nothing,
-      _gcauFilter = Nothing,
-      _gcauTimePeriod = pTimePeriod_,
-      _gcauMetrics = mempty
+    { groupBy = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      granularity = Lude.Nothing,
+      filter = Lude.Nothing,
+      timePeriod = pTimePeriod_,
+      metrics = Lude.mempty
     }
 
--- | You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types. When you group by tag key, you get all tag values, including empty strings. Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
-gcauGroupBy :: Lens' GetCostAndUsage [GroupDefinition]
-gcauGroupBy = lens _gcauGroupBy (\s a -> s {_gcauGroupBy = a}) . _Default . _Coerce
+-- | You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.
+--
+-- When you group by tag key, you get all tag values, including empty strings.
+-- Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
+--
+-- /Note:/ Consider using 'groupBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauGroupBy :: Lens.Lens' GetCostAndUsage (Lude.Maybe [GroupDefinition])
+gcauGroupBy = Lens.lens (groupBy :: GetCostAndUsage -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupBy = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauGroupBy "Use generic-lens or generic-optics with 'groupBy' instead." #-}
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gcauNextPageToken :: Lens' GetCostAndUsage (Maybe Text)
-gcauNextPageToken = lens _gcauNextPageToken (\s a -> s {_gcauNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauNextPageToken :: Lens.Lens' GetCostAndUsage (Lude.Maybe Lude.Text)
+gcauNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsage -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
-gcauGranularity :: Lens' GetCostAndUsage (Maybe Granularity)
-gcauGranularity = lens _gcauGranularity (\s a -> s {_gcauGranularity = a})
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauGranularity :: Lens.Lens' GetCostAndUsage (Lude.Maybe Granularity)
+gcauGranularity = Lens.lens (granularity :: GetCostAndUsage -> Lude.Maybe Granularity) (\s a -> s {granularity = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
-gcauFilter :: Lens' GetCostAndUsage (Maybe Expression)
-gcauFilter = lens _gcauFilter (\s a -> s {_gcauFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauFilter :: Lens.Lens' GetCostAndUsage (Lude.Maybe Expression)
+gcauFilter = Lens.lens (filter :: GetCostAndUsage -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-gcauTimePeriod :: Lens' GetCostAndUsage DateInterval
-gcauTimePeriod = lens _gcauTimePeriod (\s a -> s {_gcauTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauTimePeriod :: Lens.Lens' GetCostAndUsage DateInterval
+gcauTimePeriod = Lens.lens (timePeriod :: GetCostAndUsage -> DateInterval) (\s a -> s {timePeriod = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
--- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .  Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .  @Metrics@ is required for @GetCostAndUsage@ requests.
-gcauMetrics :: Lens' GetCostAndUsage [Text]
-gcauMetrics = lens _gcauMetrics (\s a -> s {_gcauMetrics = a}) . _Coerce
+-- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
+--
+-- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
+-- @Metrics@ is required for @GetCostAndUsage@ requests.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauMetrics :: Lens.Lens' GetCostAndUsage [Lude.Text]
+gcauMetrics = Lens.lens (metrics :: GetCostAndUsage -> [Lude.Text]) (\s a -> s {metrics = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
-instance AWSRequest GetCostAndUsage where
+instance Lude.AWSRequest GetCostAndUsage where
   type Rs GetCostAndUsage = GetCostAndUsageResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCostAndUsageResponse'
-            <$> (x .?> "ResultsByTime" .!@ mempty)
-            <*> (x .?> "NextPageToken")
-            <*> (x .?> "GroupDefinitions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResultsByTime" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "GroupDefinitions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCostAndUsage
-
-instance NFData GetCostAndUsage
-
-instance ToHeaders GetCostAndUsage where
+instance Lude.ToHeaders GetCostAndUsage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetCostAndUsage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSInsightsIndexService.GetCostAndUsage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCostAndUsage where
+instance Lude.ToJSON GetCostAndUsage where
   toJSON GetCostAndUsage' {..} =
-    object
-      ( catMaybes
-          [ ("GroupBy" .=) <$> _gcauGroupBy,
-            ("NextPageToken" .=) <$> _gcauNextPageToken,
-            ("Granularity" .=) <$> _gcauGranularity,
-            ("Filter" .=) <$> _gcauFilter,
-            Just ("TimePeriod" .= _gcauTimePeriod),
-            Just ("Metrics" .= _gcauMetrics)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupBy" Lude..=) Lude.<$> groupBy,
+            ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("Granularity" Lude..=) Lude.<$> granularity,
+            ("Filter" Lude..=) Lude.<$> filter,
+            Lude.Just ("TimePeriod" Lude..= timePeriod),
+            Lude.Just ("Metrics" Lude..= metrics)
           ]
       )
 
-instance ToPath GetCostAndUsage where
-  toPath = const "/"
+instance Lude.ToPath GetCostAndUsage where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCostAndUsage where
-  toQuery = const mempty
+instance Lude.ToQuery GetCostAndUsage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCostAndUsageResponse' smart constructor.
+-- | /See:/ 'mkGetCostAndUsageResponse' smart constructor.
 data GetCostAndUsageResponse = GetCostAndUsageResponse'
-  { _gcaursResultsByTime ::
-      !(Maybe [ResultByTime]),
-    _gcaursNextPageToken :: !(Maybe Text),
-    _gcaursGroupDefinitions ::
-      !(Maybe [GroupDefinition]),
-    _gcaursResponseStatus :: !Int
+  { resultsByTime ::
+      Lude.Maybe [ResultByTime],
+    nextPageToken :: Lude.Maybe Lude.Text,
+    groupDefinitions ::
+      Lude.Maybe [GroupDefinition],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCostAndUsageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcaursResultsByTime' - The time period that is covered by the results in the response.
---
--- * 'gcaursNextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gcaursGroupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
---
--- * 'gcaursResponseStatus' - -- | The response status code.
-getCostAndUsageResponse ::
-  -- | 'gcaursResponseStatus'
-  Int ->
+-- * 'groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
+-- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+-- * 'resultsByTime' - The time period that is covered by the results in the response.
+mkGetCostAndUsageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCostAndUsageResponse
-getCostAndUsageResponse pResponseStatus_ =
+mkGetCostAndUsageResponse pResponseStatus_ =
   GetCostAndUsageResponse'
-    { _gcaursResultsByTime = Nothing,
-      _gcaursNextPageToken = Nothing,
-      _gcaursGroupDefinitions = Nothing,
-      _gcaursResponseStatus = pResponseStatus_
+    { resultsByTime = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      groupDefinitions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time period that is covered by the results in the response.
-gcaursResultsByTime :: Lens' GetCostAndUsageResponse [ResultByTime]
-gcaursResultsByTime = lens _gcaursResultsByTime (\s a -> s {_gcaursResultsByTime = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resultsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaursResultsByTime :: Lens.Lens' GetCostAndUsageResponse (Lude.Maybe [ResultByTime])
+gcaursResultsByTime = Lens.lens (resultsByTime :: GetCostAndUsageResponse -> Lude.Maybe [ResultByTime]) (\s a -> s {resultsByTime = a} :: GetCostAndUsageResponse)
+{-# DEPRECATED gcaursResultsByTime "Use generic-lens or generic-optics with 'resultsByTime' instead." #-}
 
 -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gcaursNextPageToken :: Lens' GetCostAndUsageResponse (Maybe Text)
-gcaursNextPageToken = lens _gcaursNextPageToken (\s a -> s {_gcaursNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaursNextPageToken :: Lens.Lens' GetCostAndUsageResponse (Lude.Maybe Lude.Text)
+gcaursNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsageResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCostAndUsageResponse)
+{-# DEPRECATED gcaursNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
-gcaursGroupDefinitions :: Lens' GetCostAndUsageResponse [GroupDefinition]
-gcaursGroupDefinitions = lens _gcaursGroupDefinitions (\s a -> s {_gcaursGroupDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaursGroupDefinitions :: Lens.Lens' GetCostAndUsageResponse (Lude.Maybe [GroupDefinition])
+gcaursGroupDefinitions = Lens.lens (groupDefinitions :: GetCostAndUsageResponse -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupDefinitions = a} :: GetCostAndUsageResponse)
+{-# DEPRECATED gcaursGroupDefinitions "Use generic-lens or generic-optics with 'groupDefinitions' instead." #-}
 
--- | -- | The response status code.
-gcaursResponseStatus :: Lens' GetCostAndUsageResponse Int
-gcaursResponseStatus = lens _gcaursResponseStatus (\s a -> s {_gcaursResponseStatus = a})
-
-instance NFData GetCostAndUsageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaursResponseStatus :: Lens.Lens' GetCostAndUsageResponse Lude.Int
+gcaursResponseStatus = Lens.lens (responseStatus :: GetCostAndUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCostAndUsageResponse)
+{-# DEPRECATED gcaursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

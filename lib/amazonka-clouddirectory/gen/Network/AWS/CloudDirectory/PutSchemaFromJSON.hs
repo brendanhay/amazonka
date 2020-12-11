@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,138 @@
 --
 -- Allows a schema to be updated using JSON upload. Only available for development schemas. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format> for more information.
 module Network.AWS.CloudDirectory.PutSchemaFromJSON
-  ( -- * Creating a Request
-    putSchemaFromJSON,
-    PutSchemaFromJSON,
+  ( -- * Creating a request
+    PutSchemaFromJSON (..),
+    mkPutSchemaFromJSON,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psfjSchemaARN,
     psfjDocument,
 
-    -- * Destructuring the Response
-    putSchemaFromJSONResponse,
-    PutSchemaFromJSONResponse,
+    -- * Destructuring the response
+    PutSchemaFromJSONResponse (..),
+    mkPutSchemaFromJSONResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psfjrsARN,
     psfjrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putSchemaFromJSON' smart constructor.
+-- | /See:/ 'mkPutSchemaFromJSON' smart constructor.
 data PutSchemaFromJSON = PutSchemaFromJSON'
-  { _psfjSchemaARN ::
-      !Text,
-    _psfjDocument :: !Text
+  { schemaARN :: Lude.Text,
+    document :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSchemaFromJSON' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psfjSchemaARN' - The ARN of the schema to update.
---
--- * 'psfjDocument' - The replacement JSON schema.
-putSchemaFromJSON ::
-  -- | 'psfjSchemaARN'
-  Text ->
-  -- | 'psfjDocument'
-  Text ->
+-- * 'document' - The replacement JSON schema.
+-- * 'schemaARN' - The ARN of the schema to update.
+mkPutSchemaFromJSON ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'document'
+  Lude.Text ->
   PutSchemaFromJSON
-putSchemaFromJSON pSchemaARN_ pDocument_ =
+mkPutSchemaFromJSON pSchemaARN_ pDocument_ =
   PutSchemaFromJSON'
-    { _psfjSchemaARN = pSchemaARN_,
-      _psfjDocument = pDocument_
+    { schemaARN = pSchemaARN_,
+      document = pDocument_
     }
 
 -- | The ARN of the schema to update.
-psfjSchemaARN :: Lens' PutSchemaFromJSON Text
-psfjSchemaARN = lens _psfjSchemaARN (\s a -> s {_psfjSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfjSchemaARN :: Lens.Lens' PutSchemaFromJSON Lude.Text
+psfjSchemaARN = Lens.lens (schemaARN :: PutSchemaFromJSON -> Lude.Text) (\s a -> s {schemaARN = a} :: PutSchemaFromJSON)
+{-# DEPRECATED psfjSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The replacement JSON schema.
-psfjDocument :: Lens' PutSchemaFromJSON Text
-psfjDocument = lens _psfjDocument (\s a -> s {_psfjDocument = a})
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfjDocument :: Lens.Lens' PutSchemaFromJSON Lude.Text
+psfjDocument = Lens.lens (document :: PutSchemaFromJSON -> Lude.Text) (\s a -> s {document = a} :: PutSchemaFromJSON)
+{-# DEPRECATED psfjDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
-instance AWSRequest PutSchemaFromJSON where
+instance Lude.AWSRequest PutSchemaFromJSON where
   type Rs PutSchemaFromJSON = PutSchemaFromJSONResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutSchemaFromJSONResponse'
-            <$> (x .?> "Arn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutSchemaFromJSON
-
-instance NFData PutSchemaFromJSON
-
-instance ToHeaders PutSchemaFromJSON where
+instance Lude.ToHeaders PutSchemaFromJSON where
   toHeaders PutSchemaFromJSON' {..} =
-    mconcat ["x-amz-data-partition" =# _psfjSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON PutSchemaFromJSON where
+instance Lude.ToJSON PutSchemaFromJSON where
   toJSON PutSchemaFromJSON' {..} =
-    object (catMaybes [Just ("Document" .= _psfjDocument)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Document" Lude..= document)])
 
-instance ToPath PutSchemaFromJSON where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema/json"
+instance Lude.ToPath PutSchemaFromJSON where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/schema/json"
 
-instance ToQuery PutSchemaFromJSON where
-  toQuery = const mempty
+instance Lude.ToQuery PutSchemaFromJSON where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putSchemaFromJSONResponse' smart constructor.
+-- | /See:/ 'mkPutSchemaFromJSONResponse' smart constructor.
 data PutSchemaFromJSONResponse = PutSchemaFromJSONResponse'
-  { _psfjrsARN ::
-      !(Maybe Text),
-    _psfjrsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSchemaFromJSONResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psfjrsARN' - The ARN of the schema to update.
---
--- * 'psfjrsResponseStatus' - -- | The response status code.
-putSchemaFromJSONResponse ::
-  -- | 'psfjrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the schema to update.
+-- * 'responseStatus' - The response status code.
+mkPutSchemaFromJSONResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutSchemaFromJSONResponse
-putSchemaFromJSONResponse pResponseStatus_ =
+mkPutSchemaFromJSONResponse pResponseStatus_ =
   PutSchemaFromJSONResponse'
-    { _psfjrsARN = Nothing,
-      _psfjrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the schema to update.
-psfjrsARN :: Lens' PutSchemaFromJSONResponse (Maybe Text)
-psfjrsARN = lens _psfjrsARN (\s a -> s {_psfjrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfjrsARN :: Lens.Lens' PutSchemaFromJSONResponse (Lude.Maybe Lude.Text)
+psfjrsARN = Lens.lens (arn :: PutSchemaFromJSONResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PutSchemaFromJSONResponse)
+{-# DEPRECATED psfjrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | -- | The response status code.
-psfjrsResponseStatus :: Lens' PutSchemaFromJSONResponse Int
-psfjrsResponseStatus = lens _psfjrsResponseStatus (\s a -> s {_psfjrsResponseStatus = a})
-
-instance NFData PutSchemaFromJSONResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfjrsResponseStatus :: Lens.Lens' PutSchemaFromJSONResponse Lude.Int
+psfjrsResponseStatus = Lens.lens (responseStatus :: PutSchemaFromJSONResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutSchemaFromJSONResponse)
+{-# DEPRECATED psfjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

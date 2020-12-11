@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.StartLambdaFunctionFailedCause where
+module Network.AWS.SWF.Types.StartLambdaFunctionFailedCause
+  ( StartLambdaFunctionFailedCause
+      ( StartLambdaFunctionFailedCause',
+        AssumeRoleFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StartLambdaFunctionFailedCause = AssumeRoleFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StartLambdaFunctionFailedCause = StartLambdaFunctionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StartLambdaFunctionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "assume_role_failed" -> pure AssumeRoleFailed
-      e ->
-        fromTextError $
-          "Failure parsing StartLambdaFunctionFailedCause from value: '" <> e
-            <> "'. Accepted values: assume_role_failed"
+pattern AssumeRoleFailed :: StartLambdaFunctionFailedCause
+pattern AssumeRoleFailed = StartLambdaFunctionFailedCause' "ASSUME_ROLE_FAILED"
 
-instance ToText StartLambdaFunctionFailedCause where
-  toText = \case
-    AssumeRoleFailed -> "ASSUME_ROLE_FAILED"
-
-instance Hashable StartLambdaFunctionFailedCause
-
-instance NFData StartLambdaFunctionFailedCause
-
-instance ToByteString StartLambdaFunctionFailedCause
-
-instance ToQuery StartLambdaFunctionFailedCause
-
-instance ToHeader StartLambdaFunctionFailedCause
-
-instance FromJSON StartLambdaFunctionFailedCause where
-  parseJSON = parseJSONText "StartLambdaFunctionFailedCause"
+{-# COMPLETE
+  AssumeRoleFailed,
+  StartLambdaFunctionFailedCause'
+  #-}

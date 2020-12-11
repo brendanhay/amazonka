@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types
-  ( -- * Service Configuration
-    lexModels,
+  ( -- * Service configuration
+    lexModelsService,
 
     -- * Errors
 
@@ -70,8 +68,8 @@ module Network.AWS.LexModels.Types
     StatusType (..),
 
     -- * BotAliasMetadata
-    BotAliasMetadata,
-    botAliasMetadata,
+    BotAliasMetadata (..),
+    mkBotAliasMetadata,
     bamChecksum,
     bamBotVersion,
     bamBotName,
@@ -82,8 +80,8 @@ module Network.AWS.LexModels.Types
     bamDescription,
 
     -- * BotChannelAssociation
-    BotChannelAssociation,
-    botChannelAssociation,
+    BotChannelAssociation (..),
+    mkBotChannelAssociation,
     bcaFailureReason,
     bcaStatus,
     bcaBotAlias,
@@ -95,8 +93,8 @@ module Network.AWS.LexModels.Types
     bcaDescription,
 
     -- * BotMetadata
-    BotMetadata,
-    botMetadata,
+    BotMetadata (..),
+    mkBotMetadata,
     bmStatus,
     bmCreatedDate,
     bmName,
@@ -105,72 +103,72 @@ module Network.AWS.LexModels.Types
     bmDescription,
 
     -- * BuiltinIntentMetadata
-    BuiltinIntentMetadata,
-    builtinIntentMetadata,
+    BuiltinIntentMetadata (..),
+    mkBuiltinIntentMetadata,
     bimSignature,
     bimSupportedLocales,
 
     -- * BuiltinIntentSlot
-    BuiltinIntentSlot,
-    builtinIntentSlot,
+    BuiltinIntentSlot (..),
+    mkBuiltinIntentSlot,
     bisName,
 
     -- * BuiltinSlotTypeMetadata
-    BuiltinSlotTypeMetadata,
-    builtinSlotTypeMetadata,
+    BuiltinSlotTypeMetadata (..),
+    mkBuiltinSlotTypeMetadata,
     bstmSignature,
     bstmSupportedLocales,
 
     -- * CodeHook
-    CodeHook,
-    codeHook,
+    CodeHook (..),
+    mkCodeHook,
     chUri,
     chMessageVersion,
 
     -- * ConversationLogsRequest
-    ConversationLogsRequest,
-    conversationLogsRequest,
+    ConversationLogsRequest (..),
+    mkConversationLogsRequest,
     clrLogSettings,
     clrIamRoleARN,
 
     -- * ConversationLogsResponse
-    ConversationLogsResponse,
-    conversationLogsResponse,
+    ConversationLogsResponse (..),
+    mkConversationLogsResponse,
     clIamRoleARN,
     clLogSettings,
 
     -- * EnumerationValue
-    EnumerationValue,
-    enumerationValue,
+    EnumerationValue (..),
+    mkEnumerationValue,
     evSynonyms,
     evValue,
 
     -- * FollowUpPrompt
-    FollowUpPrompt,
-    followUpPrompt,
+    FollowUpPrompt (..),
+    mkFollowUpPrompt,
     fupPrompt,
     fupRejectionStatement,
 
     -- * FulfillmentActivity
-    FulfillmentActivity,
-    fulfillmentActivity,
+    FulfillmentActivity (..),
+    mkFulfillmentActivity,
     faCodeHook,
     faType,
 
     -- * InputContext
-    InputContext,
-    inputContext,
+    InputContext (..),
+    mkInputContext,
     icName,
 
     -- * Intent
-    Intent,
-    intent,
+    Intent (..),
+    mkIntent,
     iIntentName,
     iIntentVersion,
 
     -- * IntentMetadata
-    IntentMetadata,
-    intentMetadata,
+    IntentMetadata (..),
+    mkIntentMetadata,
     imCreatedDate,
     imName,
     imVersion,
@@ -178,23 +176,23 @@ module Network.AWS.LexModels.Types
     imDescription,
 
     -- * KendraConfiguration
-    KendraConfiguration,
-    kendraConfiguration,
+    KendraConfiguration (..),
+    mkKendraConfiguration,
     kcQueryFilterString,
     kcKendraIndex,
     kcRole,
 
     -- * LogSettingsRequest
-    LogSettingsRequest,
-    logSettingsRequest,
+    LogSettingsRequest (..),
+    mkLogSettingsRequest,
     lsrKmsKeyARN,
     lsrLogType,
     lsrDestination,
     lsrResourceARN,
 
     -- * LogSettingsResponse
-    LogSettingsResponse,
-    logSettingsResponse,
+    LogSettingsResponse (..),
+    mkLogSettingsResponse,
     lsDestination,
     lsKmsKeyARN,
     lsLogType,
@@ -202,29 +200,29 @@ module Network.AWS.LexModels.Types
     lsResourcePrefix,
 
     -- * Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mGroupNumber,
     mContentType,
     mContent,
 
     -- * OutputContext
-    OutputContext,
-    outputContext,
+    OutputContext (..),
+    mkOutputContext,
     ocName,
     ocTimeToLiveInSeconds,
     ocTurnsToLive,
 
     -- * Prompt
-    Prompt,
-    prompt,
+    Prompt (..),
+    mkPrompt,
     pResponseCard,
     pMessages,
     pMaxAttempts,
 
     -- * Slot
-    Slot,
-    slot,
+    Slot (..),
+    mkSlot,
     sSlotType,
     sValueElicitationPrompt,
     sResponseCard,
@@ -238,23 +236,23 @@ module Network.AWS.LexModels.Types
     sSlotConstraint,
 
     -- * SlotDefaultValue
-    SlotDefaultValue,
-    slotDefaultValue,
+    SlotDefaultValue (..),
+    mkSlotDefaultValue,
     sdvDefaultValue,
 
     -- * SlotDefaultValueSpec
-    SlotDefaultValueSpec,
-    slotDefaultValueSpec,
+    SlotDefaultValueSpec (..),
+    mkSlotDefaultValueSpec,
     sdvsDefaultValueList,
 
     -- * SlotTypeConfiguration
-    SlotTypeConfiguration,
-    slotTypeConfiguration,
+    SlotTypeConfiguration (..),
+    mkSlotTypeConfiguration,
     stcRegexConfiguration,
 
     -- * SlotTypeMetadata
-    SlotTypeMetadata,
-    slotTypeMetadata,
+    SlotTypeMetadata (..),
+    mkSlotTypeMetadata,
     stmCreatedDate,
     stmName,
     stmVersion,
@@ -262,25 +260,25 @@ module Network.AWS.LexModels.Types
     stmDescription,
 
     -- * SlotTypeRegexConfiguration
-    SlotTypeRegexConfiguration,
-    slotTypeRegexConfiguration,
+    SlotTypeRegexConfiguration (..),
+    mkSlotTypeRegexConfiguration,
     strcPattern,
 
     -- * Statement
-    Statement,
-    statement,
+    Statement (..),
+    mkStatement,
     staResponseCard,
     staMessages,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * UtteranceData
-    UtteranceData,
-    utteranceData,
+    UtteranceData (..),
+    mkUtteranceData,
     udFirstUtteredDate,
     udCount,
     udUtteranceString,
@@ -288,14 +286,14 @@ module Network.AWS.LexModels.Types
     udDistinctUsers,
 
     -- * UtteranceList
-    UtteranceList,
-    utteranceList,
+    UtteranceList (..),
+    mkUtteranceList,
     ulBotVersion,
     ulUtterances,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.BotAliasMetadata
 import Network.AWS.LexModels.Types.BotChannelAssociation
 import Network.AWS.LexModels.Types.BotMetadata
@@ -345,47 +343,59 @@ import Network.AWS.LexModels.Types.StatusType
 import Network.AWS.LexModels.Types.Tag
 import Network.AWS.LexModels.Types.UtteranceData
 import Network.AWS.LexModels.Types.UtteranceList
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-04-19@ of the Amazon Lex Model Building Service SDK configuration.
-lexModels :: Service
-lexModels =
-  Service
-    { _svcAbbrev = "LexModels",
-      _svcSigner = v4,
-      _svcPrefix = "models.lex",
-      _svcVersion = "2017-04-19",
-      _svcEndpoint = defaultEndpoint lexModels,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "LexModels",
-      _svcRetry = retry
+lexModelsService :: Lude.Service
+lexModelsService =
+  Lude.Service
+    { Lude._svcAbbrev = "LexModels",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "models.lex",
+      Lude._svcVersion = "2017-04-19",
+      Lude._svcEndpoint = Lude.defaultEndpoint lexModelsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "LexModels",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

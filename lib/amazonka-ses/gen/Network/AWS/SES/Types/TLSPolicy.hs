@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.TLSPolicy where
+module Network.AWS.SES.Types.TLSPolicy
+  ( TLSPolicy
+      ( TLSPolicy',
+        Optional,
+        Require
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TLSPolicy
-  = Optional
-  | Require
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TLSPolicy = TLSPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TLSPolicy where
-  parser =
-    takeLowerText >>= \case
-      "optional" -> pure Optional
-      "require" -> pure Require
-      e ->
-        fromTextError $
-          "Failure parsing TLSPolicy from value: '" <> e
-            <> "'. Accepted values: optional, require"
+pattern Optional :: TLSPolicy
+pattern Optional = TLSPolicy' "Optional"
 
-instance ToText TLSPolicy where
-  toText = \case
-    Optional -> "Optional"
-    Require -> "Require"
+pattern Require :: TLSPolicy
+pattern Require = TLSPolicy' "Require"
 
-instance Hashable TLSPolicy
-
-instance NFData TLSPolicy
-
-instance ToByteString TLSPolicy
-
-instance ToQuery TLSPolicy
-
-instance ToHeader TLSPolicy
-
-instance FromXML TLSPolicy where
-  parseXML = parseXMLText "TLSPolicy"
+{-# COMPLETE
+  Optional,
+  Require,
+  TLSPolicy'
+  #-}

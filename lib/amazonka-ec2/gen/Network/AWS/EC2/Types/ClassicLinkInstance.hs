@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClassicLinkInstance where
+module Network.AWS.EC2.Types.ClassicLinkInstance
+  ( ClassicLinkInstance (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClassicLinkInstance,
+
+    -- * Lenses
+    cliInstanceId,
+    cliGroups,
+    cliVPCId,
+    cliTags,
+  )
+where
+
 import Network.AWS.EC2.Types.GroupIdentifier
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a linked EC2-Classic instance.
 --
---
---
--- /See:/ 'classicLinkInstance' smart constructor.
+-- /See:/ 'mkClassicLinkInstance' smart constructor.
 data ClassicLinkInstance = ClassicLinkInstance'
-  { _cliInstanceId ::
-      !(Maybe Text),
-    _cliGroups :: !(Maybe [GroupIdentifier]),
-    _cliVPCId :: !(Maybe Text),
-    _cliTags :: !(Maybe [Tag])
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    groups :: Lude.Maybe [GroupIdentifier],
+    vpcId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassicLinkInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cliInstanceId' - The ID of the instance.
---
--- * 'cliGroups' - A list of security groups.
---
--- * 'cliVPCId' - The ID of the VPC.
---
--- * 'cliTags' - Any tags assigned to the instance.
-classicLinkInstance ::
+-- * 'groups' - A list of security groups.
+-- * 'instanceId' - The ID of the instance.
+-- * 'tags' - Any tags assigned to the instance.
+-- * 'vpcId' - The ID of the VPC.
+mkClassicLinkInstance ::
   ClassicLinkInstance
-classicLinkInstance =
+mkClassicLinkInstance =
   ClassicLinkInstance'
-    { _cliInstanceId = Nothing,
-      _cliGroups = Nothing,
-      _cliVPCId = Nothing,
-      _cliTags = Nothing
+    { instanceId = Lude.Nothing,
+      groups = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The ID of the instance.
-cliInstanceId :: Lens' ClassicLinkInstance (Maybe Text)
-cliInstanceId = lens _cliInstanceId (\s a -> s {_cliInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliInstanceId :: Lens.Lens' ClassicLinkInstance (Lude.Maybe Lude.Text)
+cliInstanceId = Lens.lens (instanceId :: ClassicLinkInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ClassicLinkInstance)
+{-# DEPRECATED cliInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A list of security groups.
-cliGroups :: Lens' ClassicLinkInstance [GroupIdentifier]
-cliGroups = lens _cliGroups (\s a -> s {_cliGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliGroups :: Lens.Lens' ClassicLinkInstance (Lude.Maybe [GroupIdentifier])
+cliGroups = Lens.lens (groups :: ClassicLinkInstance -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: ClassicLinkInstance)
+{-# DEPRECATED cliGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The ID of the VPC.
-cliVPCId :: Lens' ClassicLinkInstance (Maybe Text)
-cliVPCId = lens _cliVPCId (\s a -> s {_cliVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliVPCId :: Lens.Lens' ClassicLinkInstance (Lude.Maybe Lude.Text)
+cliVPCId = Lens.lens (vpcId :: ClassicLinkInstance -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: ClassicLinkInstance)
+{-# DEPRECATED cliVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Any tags assigned to the instance.
-cliTags :: Lens' ClassicLinkInstance [Tag]
-cliTags = lens _cliTags (\s a -> s {_cliTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliTags :: Lens.Lens' ClassicLinkInstance (Lude.Maybe [Tag])
+cliTags = Lens.lens (tags :: ClassicLinkInstance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClassicLinkInstance)
+{-# DEPRECATED cliTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML ClassicLinkInstance where
+instance Lude.FromXML ClassicLinkInstance where
   parseXML x =
     ClassicLinkInstance'
-      <$> (x .@? "instanceId")
-      <*> (x .@? "groupSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "vpcId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable ClassicLinkInstance
-
-instance NFData ClassicLinkInstance
+      Lude.<$> (x Lude..@? "instanceId")
+      Lude.<*> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "vpcId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

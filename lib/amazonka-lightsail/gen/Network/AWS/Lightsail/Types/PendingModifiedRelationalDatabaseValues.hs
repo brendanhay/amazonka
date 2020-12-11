@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues where
+module Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues
+  ( PendingModifiedRelationalDatabaseValues (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingModifiedRelationalDatabaseValues,
+
+    -- * Lenses
+    pmrdvEngineVersion,
+    pmrdvMasterUserPassword,
+    pmrdvBackupRetentionEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a pending database value modification.
 --
---
---
--- /See:/ 'pendingModifiedRelationalDatabaseValues' smart constructor.
+-- /See:/ 'mkPendingModifiedRelationalDatabaseValues' smart constructor.
 data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabaseValues'
-  { _pmrdvEngineVersion ::
-      !( Maybe
-           Text
-       ),
-    _pmrdvMasterUserPassword ::
-      !( Maybe
-           Text
-       ),
-    _pmrdvBackupRetentionEnabled ::
-      !( Maybe
-           Bool
-       )
+  { engineVersion ::
+      Lude.Maybe
+        Lude.Text,
+    masterUserPassword ::
+      Lude.Maybe
+        Lude.Text,
+    backupRetentionEnabled ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedRelationalDatabaseValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmrdvEngineVersion' - The database engine version.
---
--- * 'pmrdvMasterUserPassword' - The password for the master user of the database.
---
--- * 'pmrdvBackupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled.
-pendingModifiedRelationalDatabaseValues ::
+-- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled.
+-- * 'engineVersion' - The database engine version.
+-- * 'masterUserPassword' - The password for the master user of the database.
+mkPendingModifiedRelationalDatabaseValues ::
   PendingModifiedRelationalDatabaseValues
-pendingModifiedRelationalDatabaseValues =
+mkPendingModifiedRelationalDatabaseValues =
   PendingModifiedRelationalDatabaseValues'
-    { _pmrdvEngineVersion =
-        Nothing,
-      _pmrdvMasterUserPassword = Nothing,
-      _pmrdvBackupRetentionEnabled = Nothing
+    { engineVersion =
+        Lude.Nothing,
+      masterUserPassword = Lude.Nothing,
+      backupRetentionEnabled = Lude.Nothing
     }
 
 -- | The database engine version.
-pmrdvEngineVersion :: Lens' PendingModifiedRelationalDatabaseValues (Maybe Text)
-pmrdvEngineVersion = lens _pmrdvEngineVersion (\s a -> s {_pmrdvEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmrdvEngineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Text)
+pmrdvEngineVersion = Lens.lens (engineVersion :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
+{-# DEPRECATED pmrdvEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The password for the master user of the database.
-pmrdvMasterUserPassword :: Lens' PendingModifiedRelationalDatabaseValues (Maybe Text)
-pmrdvMasterUserPassword = lens _pmrdvMasterUserPassword (\s a -> s {_pmrdvMasterUserPassword = a})
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmrdvMasterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Text)
+pmrdvMasterUserPassword = Lens.lens (masterUserPassword :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Text) (\s a -> s {masterUserPassword = a} :: PendingModifiedRelationalDatabaseValues)
+{-# DEPRECATED pmrdvMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
 -- | A Boolean value indicating whether automated backup retention is enabled.
-pmrdvBackupRetentionEnabled :: Lens' PendingModifiedRelationalDatabaseValues (Maybe Bool)
-pmrdvBackupRetentionEnabled = lens _pmrdvBackupRetentionEnabled (\s a -> s {_pmrdvBackupRetentionEnabled = a})
+--
+-- /Note:/ Consider using 'backupRetentionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmrdvBackupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Bool)
+pmrdvBackupRetentionEnabled = Lens.lens (backupRetentionEnabled :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Bool) (\s a -> s {backupRetentionEnabled = a} :: PendingModifiedRelationalDatabaseValues)
+{-# DEPRECATED pmrdvBackupRetentionEnabled "Use generic-lens or generic-optics with 'backupRetentionEnabled' instead." #-}
 
-instance FromJSON PendingModifiedRelationalDatabaseValues where
+instance Lude.FromJSON PendingModifiedRelationalDatabaseValues where
   parseJSON =
-    withObject
+    Lude.withObject
       "PendingModifiedRelationalDatabaseValues"
       ( \x ->
           PendingModifiedRelationalDatabaseValues'
-            <$> (x .:? "engineVersion")
-            <*> (x .:? "masterUserPassword")
-            <*> (x .:? "backupRetentionEnabled")
+            Lude.<$> (x Lude..:? "engineVersion")
+            Lude.<*> (x Lude..:? "masterUserPassword")
+            Lude.<*> (x Lude..:? "backupRetentionEnabled")
       )
-
-instance Hashable PendingModifiedRelationalDatabaseValues
-
-instance NFData PendingModifiedRelationalDatabaseValues

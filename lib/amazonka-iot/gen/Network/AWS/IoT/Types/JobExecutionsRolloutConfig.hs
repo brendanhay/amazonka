@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.JobExecutionsRolloutConfig where
+module Network.AWS.IoT.Types.JobExecutionsRolloutConfig
+  ( JobExecutionsRolloutConfig (..),
+
+    -- * Smart constructor
+    mkJobExecutionsRolloutConfig,
+
+    -- * Lenses
+    jercExponentialRate,
+    jercMaximumPerMinute,
+  )
+where
 
 import Network.AWS.IoT.Types.ExponentialRolloutRate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Allows you to create a staged rollout of a job.
 --
---
---
--- /See:/ 'jobExecutionsRolloutConfig' smart constructor.
+-- /See:/ 'mkJobExecutionsRolloutConfig' smart constructor.
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
-  { _jercExponentialRate ::
-      !(Maybe ExponentialRolloutRate),
-    _jercMaximumPerMinute :: !(Maybe Nat)
+  { exponentialRate ::
+      Lude.Maybe ExponentialRolloutRate,
+    maximumPerMinute ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionsRolloutConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jercExponentialRate' - The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
---
--- * 'jercMaximumPerMinute' - The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
-jobExecutionsRolloutConfig ::
+-- * 'exponentialRate' - The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+-- * 'maximumPerMinute' - The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+mkJobExecutionsRolloutConfig ::
   JobExecutionsRolloutConfig
-jobExecutionsRolloutConfig =
+mkJobExecutionsRolloutConfig =
   JobExecutionsRolloutConfig'
-    { _jercExponentialRate = Nothing,
-      _jercMaximumPerMinute = Nothing
+    { exponentialRate = Lude.Nothing,
+      maximumPerMinute = Lude.Nothing
     }
 
 -- | The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
-jercExponentialRate :: Lens' JobExecutionsRolloutConfig (Maybe ExponentialRolloutRate)
-jercExponentialRate = lens _jercExponentialRate (\s a -> s {_jercExponentialRate = a})
+--
+-- /Note:/ Consider using 'exponentialRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jercExponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Lude.Maybe ExponentialRolloutRate)
+jercExponentialRate = Lens.lens (exponentialRate :: JobExecutionsRolloutConfig -> Lude.Maybe ExponentialRolloutRate) (\s a -> s {exponentialRate = a} :: JobExecutionsRolloutConfig)
+{-# DEPRECATED jercExponentialRate "Use generic-lens or generic-optics with 'exponentialRate' instead." #-}
 
 -- | The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
-jercMaximumPerMinute :: Lens' JobExecutionsRolloutConfig (Maybe Natural)
-jercMaximumPerMinute = lens _jercMaximumPerMinute (\s a -> s {_jercMaximumPerMinute = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumPerMinute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jercMaximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Lude.Maybe Lude.Natural)
+jercMaximumPerMinute = Lens.lens (maximumPerMinute :: JobExecutionsRolloutConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
+{-# DEPRECATED jercMaximumPerMinute "Use generic-lens or generic-optics with 'maximumPerMinute' instead." #-}
 
-instance FromJSON JobExecutionsRolloutConfig where
+instance Lude.FromJSON JobExecutionsRolloutConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobExecutionsRolloutConfig"
       ( \x ->
           JobExecutionsRolloutConfig'
-            <$> (x .:? "exponentialRate") <*> (x .:? "maximumPerMinute")
+            Lude.<$> (x Lude..:? "exponentialRate")
+            Lude.<*> (x Lude..:? "maximumPerMinute")
       )
 
-instance Hashable JobExecutionsRolloutConfig
-
-instance NFData JobExecutionsRolloutConfig
-
-instance ToJSON JobExecutionsRolloutConfig where
+instance Lude.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =
-    object
-      ( catMaybes
-          [ ("exponentialRate" .=) <$> _jercExponentialRate,
-            ("maximumPerMinute" .=) <$> _jercMaximumPerMinute
+    Lude.object
+      ( Lude.catMaybes
+          [ ("exponentialRate" Lude..=) Lude.<$> exponentialRate,
+            ("maximumPerMinute" Lude..=) Lude.<$> maximumPerMinute
           ]
       )

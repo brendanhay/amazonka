@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.Limit where
+module Network.AWS.ELB.Types.Limit
+  ( Limit (..),
+
+    -- * Smart constructor
+    mkLimit,
+
+    -- * Lenses
+    lMax,
+    lName,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an Elastic Load Balancing resource limit for your AWS account.
 --
---
---
--- /See:/ 'limit' smart constructor.
+-- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
-  { _lMax :: !(Maybe Text),
-    _lName :: !(Maybe Text)
+  { max :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'max' - The maximum value of the limit.
+-- * 'name' - The name of the limit. The possible values are:
 --
--- * 'lMax' - The maximum value of the limit.
 --
--- * 'lName' - The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers     * classic-registered-instances
-limit ::
+--     * classic-listeners
+--
+--
+--     * classic-load-balancers
+--
+--
+--     * classic-registered-instances
+mkLimit ::
   Limit
-limit = Limit' {_lMax = Nothing, _lName = Nothing}
+mkLimit = Limit' {max = Lude.Nothing, name = Lude.Nothing}
 
 -- | The maximum value of the limit.
-lMax :: Lens' Limit (Maybe Text)
-lMax = lens _lMax (\s a -> s {_lMax = a})
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMax :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
+lMax = Lens.lens (max :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {max = a} :: Limit)
+{-# DEPRECATED lMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
--- | The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers     * classic-registered-instances
-lName :: Lens' Limit (Maybe Text)
-lName = lens _lName (\s a -> s {_lName = a})
+-- | The name of the limit. The possible values are:
+--
+--
+--     * classic-listeners
+--
+--
+--     * classic-load-balancers
+--
+--
+--     * classic-registered-instances
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lName :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
+lName = Lens.lens (name :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Limit)
+{-# DEPRECATED lName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML Limit where
-  parseXML x = Limit' <$> (x .@? "Max") <*> (x .@? "Name")
-
-instance Hashable Limit
-
-instance NFData Limit
+instance Lude.FromXML Limit where
+  parseXML x =
+    Limit' Lude.<$> (x Lude..@? "Max") Lude.<*> (x Lude..@? "Name")

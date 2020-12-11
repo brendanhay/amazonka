@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsAudioInterval where
+module Network.AWS.MediaLive.Types.M2tsAudioInterval
+  ( M2tsAudioInterval
+      ( M2tsAudioInterval',
+        VideoAndFixedIntervals,
+        VideoInterval
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Audio Interval
-data M2tsAudioInterval
-  = VideoAndFixedIntervals
-  | VideoInterval
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsAudioInterval = M2tsAudioInterval' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsAudioInterval where
-  parser =
-    takeLowerText >>= \case
-      "video_and_fixed_intervals" -> pure VideoAndFixedIntervals
-      "video_interval" -> pure VideoInterval
-      e ->
-        fromTextError $
-          "Failure parsing M2tsAudioInterval from value: '" <> e
-            <> "'. Accepted values: video_and_fixed_intervals, video_interval"
+pattern VideoAndFixedIntervals :: M2tsAudioInterval
+pattern VideoAndFixedIntervals = M2tsAudioInterval' "VIDEO_AND_FIXED_INTERVALS"
 
-instance ToText M2tsAudioInterval where
-  toText = \case
-    VideoAndFixedIntervals -> "VIDEO_AND_FIXED_INTERVALS"
-    VideoInterval -> "VIDEO_INTERVAL"
+pattern VideoInterval :: M2tsAudioInterval
+pattern VideoInterval = M2tsAudioInterval' "VIDEO_INTERVAL"
 
-instance Hashable M2tsAudioInterval
-
-instance NFData M2tsAudioInterval
-
-instance ToByteString M2tsAudioInterval
-
-instance ToQuery M2tsAudioInterval
-
-instance ToHeader M2tsAudioInterval
-
-instance ToJSON M2tsAudioInterval where
-  toJSON = toJSONText
-
-instance FromJSON M2tsAudioInterval where
-  parseJSON = parseJSONText "M2tsAudioInterval"
+{-# COMPLETE
+  VideoAndFixedIntervals,
+  VideoInterval,
+  M2tsAudioInterval'
+  #-}

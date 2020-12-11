@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DesiredWeightAndCapacity where
+module Network.AWS.SageMaker.Types.DesiredWeightAndCapacity
+  ( DesiredWeightAndCapacity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDesiredWeightAndCapacity,
+
+    -- * Lenses
+    dwacDesiredInstanceCount,
+    dwacDesiredWeight,
+    dwacVariantName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies weight and capacity values for a production variant.
 --
---
---
--- /See:/ 'desiredWeightAndCapacity' smart constructor.
+-- /See:/ 'mkDesiredWeightAndCapacity' smart constructor.
 data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
-  { _dwacDesiredInstanceCount ::
-      !(Maybe Nat),
-    _dwacDesiredWeight :: !(Maybe Double),
-    _dwacVariantName :: !Text
+  { desiredInstanceCount ::
+      Lude.Maybe Lude.Natural,
+    desiredWeight :: Lude.Maybe Lude.Double,
+    variantName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DesiredWeightAndCapacity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwacDesiredInstanceCount' - The variant's capacity.
---
--- * 'dwacDesiredWeight' - The variant's weight.
---
--- * 'dwacVariantName' - The name of the variant to update.
-desiredWeightAndCapacity ::
-  -- | 'dwacVariantName'
-  Text ->
+-- * 'desiredInstanceCount' - The variant's capacity.
+-- * 'desiredWeight' - The variant's weight.
+-- * 'variantName' - The name of the variant to update.
+mkDesiredWeightAndCapacity ::
+  -- | 'variantName'
+  Lude.Text ->
   DesiredWeightAndCapacity
-desiredWeightAndCapacity pVariantName_ =
+mkDesiredWeightAndCapacity pVariantName_ =
   DesiredWeightAndCapacity'
-    { _dwacDesiredInstanceCount = Nothing,
-      _dwacDesiredWeight = Nothing,
-      _dwacVariantName = pVariantName_
+    { desiredInstanceCount = Lude.Nothing,
+      desiredWeight = Lude.Nothing,
+      variantName = pVariantName_
     }
 
 -- | The variant's capacity.
-dwacDesiredInstanceCount :: Lens' DesiredWeightAndCapacity (Maybe Natural)
-dwacDesiredInstanceCount = lens _dwacDesiredInstanceCount (\s a -> s {_dwacDesiredInstanceCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'desiredInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwacDesiredInstanceCount :: Lens.Lens' DesiredWeightAndCapacity (Lude.Maybe Lude.Natural)
+dwacDesiredInstanceCount = Lens.lens (desiredInstanceCount :: DesiredWeightAndCapacity -> Lude.Maybe Lude.Natural) (\s a -> s {desiredInstanceCount = a} :: DesiredWeightAndCapacity)
+{-# DEPRECATED dwacDesiredInstanceCount "Use generic-lens or generic-optics with 'desiredInstanceCount' instead." #-}
 
 -- | The variant's weight.
-dwacDesiredWeight :: Lens' DesiredWeightAndCapacity (Maybe Double)
-dwacDesiredWeight = lens _dwacDesiredWeight (\s a -> s {_dwacDesiredWeight = a})
+--
+-- /Note:/ Consider using 'desiredWeight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwacDesiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Lude.Maybe Lude.Double)
+dwacDesiredWeight = Lens.lens (desiredWeight :: DesiredWeightAndCapacity -> Lude.Maybe Lude.Double) (\s a -> s {desiredWeight = a} :: DesiredWeightAndCapacity)
+{-# DEPRECATED dwacDesiredWeight "Use generic-lens or generic-optics with 'desiredWeight' instead." #-}
 
 -- | The name of the variant to update.
-dwacVariantName :: Lens' DesiredWeightAndCapacity Text
-dwacVariantName = lens _dwacVariantName (\s a -> s {_dwacVariantName = a})
+--
+-- /Note:/ Consider using 'variantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwacVariantName :: Lens.Lens' DesiredWeightAndCapacity Lude.Text
+dwacVariantName = Lens.lens (variantName :: DesiredWeightAndCapacity -> Lude.Text) (\s a -> s {variantName = a} :: DesiredWeightAndCapacity)
+{-# DEPRECATED dwacVariantName "Use generic-lens or generic-optics with 'variantName' instead." #-}
 
-instance Hashable DesiredWeightAndCapacity
-
-instance NFData DesiredWeightAndCapacity
-
-instance ToJSON DesiredWeightAndCapacity where
+instance Lude.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =
-    object
-      ( catMaybes
-          [ ("DesiredInstanceCount" .=) <$> _dwacDesiredInstanceCount,
-            ("DesiredWeight" .=) <$> _dwacDesiredWeight,
-            Just ("VariantName" .= _dwacVariantName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DesiredInstanceCount" Lude..=) Lude.<$> desiredInstanceCount,
+            ("DesiredWeight" Lude..=) Lude.<$> desiredWeight,
+            Lude.Just ("VariantName" Lude..= variantName)
           ]
       )

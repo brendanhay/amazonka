@@ -15,8 +15,8 @@
 --
 -- Amazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications.
 module Network.AWS.LexModels
-  ( -- * Service Configuration
-    lexModels,
+  ( -- * Service configuration
+    lexModelsService,
 
     -- * Errors
     -- $errors
@@ -201,8 +201,8 @@ module Network.AWS.LexModels
     StatusType (..),
 
     -- ** BotAliasMetadata
-    BotAliasMetadata,
-    botAliasMetadata,
+    BotAliasMetadata (..),
+    mkBotAliasMetadata,
     bamChecksum,
     bamBotVersion,
     bamBotName,
@@ -213,8 +213,8 @@ module Network.AWS.LexModels
     bamDescription,
 
     -- ** BotChannelAssociation
-    BotChannelAssociation,
-    botChannelAssociation,
+    BotChannelAssociation (..),
+    mkBotChannelAssociation,
     bcaFailureReason,
     bcaStatus,
     bcaBotAlias,
@@ -226,8 +226,8 @@ module Network.AWS.LexModels
     bcaDescription,
 
     -- ** BotMetadata
-    BotMetadata,
-    botMetadata,
+    BotMetadata (..),
+    mkBotMetadata,
     bmStatus,
     bmCreatedDate,
     bmName,
@@ -236,72 +236,72 @@ module Network.AWS.LexModels
     bmDescription,
 
     -- ** BuiltinIntentMetadata
-    BuiltinIntentMetadata,
-    builtinIntentMetadata,
+    BuiltinIntentMetadata (..),
+    mkBuiltinIntentMetadata,
     bimSignature,
     bimSupportedLocales,
 
     -- ** BuiltinIntentSlot
-    BuiltinIntentSlot,
-    builtinIntentSlot,
+    BuiltinIntentSlot (..),
+    mkBuiltinIntentSlot,
     bisName,
 
     -- ** BuiltinSlotTypeMetadata
-    BuiltinSlotTypeMetadata,
-    builtinSlotTypeMetadata,
+    BuiltinSlotTypeMetadata (..),
+    mkBuiltinSlotTypeMetadata,
     bstmSignature,
     bstmSupportedLocales,
 
     -- ** CodeHook
-    CodeHook,
-    codeHook,
+    CodeHook (..),
+    mkCodeHook,
     chUri,
     chMessageVersion,
 
     -- ** ConversationLogsRequest
-    ConversationLogsRequest,
-    conversationLogsRequest,
+    ConversationLogsRequest (..),
+    mkConversationLogsRequest,
     clrLogSettings,
     clrIamRoleARN,
 
     -- ** ConversationLogsResponse
-    ConversationLogsResponse,
-    conversationLogsResponse,
+    ConversationLogsResponse (..),
+    mkConversationLogsResponse,
     clIamRoleARN,
     clLogSettings,
 
     -- ** EnumerationValue
-    EnumerationValue,
-    enumerationValue,
+    EnumerationValue (..),
+    mkEnumerationValue,
     evSynonyms,
     evValue,
 
     -- ** FollowUpPrompt
-    FollowUpPrompt,
-    followUpPrompt,
+    FollowUpPrompt (..),
+    mkFollowUpPrompt,
     fupPrompt,
     fupRejectionStatement,
 
     -- ** FulfillmentActivity
-    FulfillmentActivity,
-    fulfillmentActivity,
+    FulfillmentActivity (..),
+    mkFulfillmentActivity,
     faCodeHook,
     faType,
 
     -- ** InputContext
-    InputContext,
-    inputContext,
+    InputContext (..),
+    mkInputContext,
     icName,
 
     -- ** Intent
-    Intent,
-    intent,
+    Intent (..),
+    mkIntent,
     iIntentName,
     iIntentVersion,
 
     -- ** IntentMetadata
-    IntentMetadata,
-    intentMetadata,
+    IntentMetadata (..),
+    mkIntentMetadata,
     imCreatedDate,
     imName,
     imVersion,
@@ -309,23 +309,23 @@ module Network.AWS.LexModels
     imDescription,
 
     -- ** KendraConfiguration
-    KendraConfiguration,
-    kendraConfiguration,
+    KendraConfiguration (..),
+    mkKendraConfiguration,
     kcQueryFilterString,
     kcKendraIndex,
     kcRole,
 
     -- ** LogSettingsRequest
-    LogSettingsRequest,
-    logSettingsRequest,
+    LogSettingsRequest (..),
+    mkLogSettingsRequest,
     lsrKmsKeyARN,
     lsrLogType,
     lsrDestination,
     lsrResourceARN,
 
     -- ** LogSettingsResponse
-    LogSettingsResponse,
-    logSettingsResponse,
+    LogSettingsResponse (..),
+    mkLogSettingsResponse,
     lsDestination,
     lsKmsKeyARN,
     lsLogType,
@@ -333,29 +333,29 @@ module Network.AWS.LexModels
     lsResourcePrefix,
 
     -- ** Message
-    Message,
-    message,
+    Message (..),
+    mkMessage,
     mGroupNumber,
     mContentType,
     mContent,
 
     -- ** OutputContext
-    OutputContext,
-    outputContext,
+    OutputContext (..),
+    mkOutputContext,
     ocName,
     ocTimeToLiveInSeconds,
     ocTurnsToLive,
 
     -- ** Prompt
-    Prompt,
-    prompt,
+    Prompt (..),
+    mkPrompt,
     pResponseCard,
     pMessages,
     pMaxAttempts,
 
     -- ** Slot
-    Slot,
-    slot,
+    Slot (..),
+    mkSlot,
     sSlotType,
     sValueElicitationPrompt,
     sResponseCard,
@@ -369,23 +369,23 @@ module Network.AWS.LexModels
     sSlotConstraint,
 
     -- ** SlotDefaultValue
-    SlotDefaultValue,
-    slotDefaultValue,
+    SlotDefaultValue (..),
+    mkSlotDefaultValue,
     sdvDefaultValue,
 
     -- ** SlotDefaultValueSpec
-    SlotDefaultValueSpec,
-    slotDefaultValueSpec,
+    SlotDefaultValueSpec (..),
+    mkSlotDefaultValueSpec,
     sdvsDefaultValueList,
 
     -- ** SlotTypeConfiguration
-    SlotTypeConfiguration,
-    slotTypeConfiguration,
+    SlotTypeConfiguration (..),
+    mkSlotTypeConfiguration,
     stcRegexConfiguration,
 
     -- ** SlotTypeMetadata
-    SlotTypeMetadata,
-    slotTypeMetadata,
+    SlotTypeMetadata (..),
+    mkSlotTypeMetadata,
     stmCreatedDate,
     stmName,
     stmVersion,
@@ -393,25 +393,25 @@ module Network.AWS.LexModels
     stmDescription,
 
     -- ** SlotTypeRegexConfiguration
-    SlotTypeRegexConfiguration,
-    slotTypeRegexConfiguration,
+    SlotTypeRegexConfiguration (..),
+    mkSlotTypeRegexConfiguration,
     strcPattern,
 
     -- ** Statement
-    Statement,
-    statement,
+    Statement (..),
+    mkStatement,
     staResponseCard,
     staMessages,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** UtteranceData
-    UtteranceData,
-    utteranceData,
+    UtteranceData (..),
+    mkUtteranceData,
     udFirstUtteredDate,
     udCount,
     udUtteranceString,
@@ -419,10 +419,21 @@ module Network.AWS.LexModels
     udDistinctUsers,
 
     -- ** UtteranceList
-    UtteranceList,
-    utteranceList,
+    UtteranceList (..),
+    mkUtteranceList,
     ulBotVersion,
     ulUtterances,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -467,6 +478,7 @@ import Network.AWS.LexModels.TagResource
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.UntagResource
 import Network.AWS.LexModels.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

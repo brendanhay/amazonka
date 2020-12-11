@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReplicaSettingsUpdate where
+module Network.AWS.DynamoDB.Types.ReplicaSettingsUpdate
+  ( ReplicaSettingsUpdate (..),
+
+    -- * Smart constructor
+    mkReplicaSettingsUpdate,
+
+    -- * Lenses
+    rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+    rsuReplicaProvisionedReadCapacityUnits,
+    rsuReplicaGlobalSecondaryIndexSettingsUpdate,
+    rsuRegionName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the settings for a global table in a Region that will be modified.
 --
---
---
--- /See:/ 'replicaSettingsUpdate' smart constructor.
+-- /See:/ 'mkReplicaSettingsUpdate' smart constructor.
 data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
-  { _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate ::
-      !(Maybe AutoScalingSettingsUpdate),
-    _rsuReplicaProvisionedReadCapacityUnits ::
-      !(Maybe Nat),
-    _rsuReplicaGlobalSecondaryIndexSettingsUpdate ::
-      !( Maybe
-           ( List1
-               ReplicaGlobalSecondaryIndexSettingsUpdate
-           )
-       ),
-    _rsuRegionName :: !Text
+  { replicaProvisionedReadCapacityAutoScalingSettingsUpdate ::
+      Lude.Maybe AutoScalingSettingsUpdate,
+    replicaProvisionedReadCapacityUnits ::
+      Lude.Maybe Lude.Natural,
+    replicaGlobalSecondaryIndexSettingsUpdate ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ReplicaGlobalSecondaryIndexSettingsUpdate
+        ),
+    regionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaSettingsUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global table replica's read capacity units.
---
--- * 'rsuReplicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
---
--- * 'rsuReplicaGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
---
--- * 'rsuRegionName' - The Region of the replica to be added.
-replicaSettingsUpdate ::
-  -- | 'rsuRegionName'
-  Text ->
+-- * 'regionName' - The Region of the replica to be added.
+-- * 'replicaGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
+-- * 'replicaProvisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global table replica's read capacity units.
+-- * 'replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+mkReplicaSettingsUpdate ::
+  -- | 'regionName'
+  Lude.Text ->
   ReplicaSettingsUpdate
-replicaSettingsUpdate pRegionName_ =
+mkReplicaSettingsUpdate pRegionName_ =
   ReplicaSettingsUpdate'
-    { _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate =
-        Nothing,
-      _rsuReplicaProvisionedReadCapacityUnits = Nothing,
-      _rsuReplicaGlobalSecondaryIndexSettingsUpdate = Nothing,
-      _rsuRegionName = pRegionName_
+    { replicaProvisionedReadCapacityAutoScalingSettingsUpdate =
+        Lude.Nothing,
+      replicaProvisionedReadCapacityUnits = Lude.Nothing,
+      replicaGlobalSecondaryIndexSettingsUpdate = Lude.Nothing,
+      regionName = pRegionName_
     }
 
 -- | Auto scaling settings for managing a global table replica's read capacity units.
-rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens' ReplicaSettingsUpdate (Maybe AutoScalingSettingsUpdate)
-rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = lens _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate (\s a -> s {_rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = a})
+--
+-- /Note:/ Consider using 'replicaProvisionedReadCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Lude.Maybe AutoScalingSettingsUpdate)
+rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: ReplicaSettingsUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {replicaProvisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaSettingsUpdate)
+{-# DEPRECATED rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingSettingsUpdate' instead." #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
-rsuReplicaProvisionedReadCapacityUnits :: Lens' ReplicaSettingsUpdate (Maybe Natural)
-rsuReplicaProvisionedReadCapacityUnits = lens _rsuReplicaProvisionedReadCapacityUnits (\s a -> s {_rsuReplicaProvisionedReadCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'replicaProvisionedReadCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsuReplicaProvisionedReadCapacityUnits :: Lens.Lens' ReplicaSettingsUpdate (Lude.Maybe Lude.Natural)
+rsuReplicaProvisionedReadCapacityUnits = Lens.lens (replicaProvisionedReadCapacityUnits :: ReplicaSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {replicaProvisionedReadCapacityUnits = a} :: ReplicaSettingsUpdate)
+{-# DEPRECATED rsuReplicaProvisionedReadCapacityUnits "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityUnits' instead." #-}
 
 -- | Represents the settings of a global secondary index for a global table that will be modified.
-rsuReplicaGlobalSecondaryIndexSettingsUpdate :: Lens' ReplicaSettingsUpdate (Maybe (NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate))
-rsuReplicaGlobalSecondaryIndexSettingsUpdate = lens _rsuReplicaGlobalSecondaryIndexSettingsUpdate (\s a -> s {_rsuReplicaGlobalSecondaryIndexSettingsUpdate = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'replicaGlobalSecondaryIndexSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsuReplicaGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate (Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate))
+rsuReplicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (replicaGlobalSecondaryIndexSettingsUpdate :: ReplicaSettingsUpdate -> Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate)) (\s a -> s {replicaGlobalSecondaryIndexSettingsUpdate = a} :: ReplicaSettingsUpdate)
+{-# DEPRECATED rsuReplicaGlobalSecondaryIndexSettingsUpdate "Use generic-lens or generic-optics with 'replicaGlobalSecondaryIndexSettingsUpdate' instead." #-}
 
 -- | The Region of the replica to be added.
-rsuRegionName :: Lens' ReplicaSettingsUpdate Text
-rsuRegionName = lens _rsuRegionName (\s a -> s {_rsuRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsuRegionName :: Lens.Lens' ReplicaSettingsUpdate Lude.Text
+rsuRegionName = Lens.lens (regionName :: ReplicaSettingsUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaSettingsUpdate)
+{-# DEPRECATED rsuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Hashable ReplicaSettingsUpdate
-
-instance NFData ReplicaSettingsUpdate
-
-instance ToJSON ReplicaSettingsUpdate where
+instance Lude.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" .=)
-              <$> _rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
-            ("ReplicaProvisionedReadCapacityUnits" .=)
-              <$> _rsuReplicaProvisionedReadCapacityUnits,
-            ("ReplicaGlobalSecondaryIndexSettingsUpdate" .=)
-              <$> _rsuReplicaGlobalSecondaryIndexSettingsUpdate,
-            Just ("RegionName" .= _rsuRegionName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ( "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
+                Lude..=
+            )
+              Lude.<$> replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+            ("ReplicaProvisionedReadCapacityUnits" Lude..=)
+              Lude.<$> replicaProvisionedReadCapacityUnits,
+            ("ReplicaGlobalSecondaryIndexSettingsUpdate" Lude..=)
+              Lude.<$> replicaGlobalSecondaryIndexSettingsUpdate,
+            Lude.Just ("RegionName" Lude..= regionName)
           ]
       )

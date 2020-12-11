@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,104 @@
 --
 -- Sends the provided data to the specified connection.
 module Network.AWS.APIGatewayManagementAPI.PostToConnection
-  ( -- * Creating a Request
-    postToConnection,
-    PostToConnection,
+  ( -- * Creating a request
+    PostToConnection (..),
+    mkPostToConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ptcConnectionId,
     ptcData,
 
-    -- * Destructuring the Response
-    postToConnectionResponse,
-    PostToConnectionResponse,
+    -- * Destructuring the response
+    PostToConnectionResponse (..),
+    mkPostToConnectionResponse,
   )
 where
 
 import Network.AWS.APIGatewayManagementAPI.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'postToConnection' smart constructor.
+-- | /See:/ 'mkPostToConnection' smart constructor.
 data PostToConnection = PostToConnection'
-  { _ptcConnectionId ::
-      !Text,
-    _ptcData :: !ByteString
+  { connectionId ::
+      Lude.Text,
+    data' :: Lude.ByteString
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostToConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptcConnectionId' - The identifier of the connection that a specific client is using.
---
--- * 'ptcData' - The data to be sent to the client specified by its connection id.
-postToConnection ::
-  -- | 'ptcConnectionId'
-  Text ->
-  -- | 'ptcData'
-  ByteString ->
+-- * 'connectionId' - The identifier of the connection that a specific client is using.
+-- * 'data'' - The data to be sent to the client specified by its connection id.
+mkPostToConnection ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'data''
+  Lude.ByteString ->
   PostToConnection
-postToConnection pConnectionId_ pData_ =
-  PostToConnection'
-    { _ptcConnectionId = pConnectionId_,
-      _ptcData = pData_
-    }
+mkPostToConnection pConnectionId_ pData_ =
+  PostToConnection' {connectionId = pConnectionId_, data' = pData_}
 
 -- | The identifier of the connection that a specific client is using.
-ptcConnectionId :: Lens' PostToConnection Text
-ptcConnectionId = lens _ptcConnectionId (\s a -> s {_ptcConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptcConnectionId :: Lens.Lens' PostToConnection Lude.Text
+ptcConnectionId = Lens.lens (connectionId :: PostToConnection -> Lude.Text) (\s a -> s {connectionId = a} :: PostToConnection)
+{-# DEPRECATED ptcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The data to be sent to the client specified by its connection id.
-ptcData :: Lens' PostToConnection ByteString
-ptcData = lens _ptcData (\s a -> s {_ptcData = a})
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptcData :: Lens.Lens' PostToConnection Lude.ByteString
+ptcData = Lens.lens (data' :: PostToConnection -> Lude.ByteString) (\s a -> s {data' = a} :: PostToConnection)
+{-# DEPRECATED ptcData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance AWSRequest PostToConnection where
+instance Lude.AWSRequest PostToConnection where
   type Rs PostToConnection = PostToConnectionResponse
-  request = postBody apiGatewayManagementAPI
-  response = receiveNull PostToConnectionResponse'
+  request = Req.postBody apiGatewayManagementAPIService
+  response = Res.receiveNull PostToConnectionResponse'
 
-instance Hashable PostToConnection
+instance Lude.ToBody PostToConnection where
+  toBody = Lude.toBody Lude.. data'
 
-instance NFData PostToConnection
-
-instance ToBody PostToConnection where
-  toBody = toBody . _ptcData
-
-instance ToHeaders PostToConnection where
+instance Lude.ToHeaders PostToConnection where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath PostToConnection where
+instance Lude.ToPath PostToConnection where
   toPath PostToConnection' {..} =
-    mconcat ["/@connections/", toBS _ptcConnectionId]
+    Lude.mconcat ["/@connections/", Lude.toBS connectionId]
 
-instance ToQuery PostToConnection where
-  toQuery = const mempty
+instance Lude.ToQuery PostToConnection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'postToConnectionResponse' smart constructor.
+-- | /See:/ 'mkPostToConnectionResponse' smart constructor.
 data PostToConnectionResponse = PostToConnectionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostToConnectionResponse' with the minimum fields required to make a request.
-postToConnectionResponse ::
+mkPostToConnectionResponse ::
   PostToConnectionResponse
-postToConnectionResponse = PostToConnectionResponse'
-
-instance NFData PostToConnectionResponse
+mkPostToConnectionResponse = PostToConnectionResponse'

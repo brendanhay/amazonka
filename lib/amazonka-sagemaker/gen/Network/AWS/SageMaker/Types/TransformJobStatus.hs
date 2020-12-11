@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TransformJobStatus where
+module Network.AWS.SageMaker.Types.TransformJobStatus
+  ( TransformJobStatus
+      ( TransformJobStatus',
+        TCompleted,
+        TFailed,
+        TInProgress,
+        TStopped,
+        TStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransformJobStatus
-  = TCompleted
-  | TFailed
-  | TInProgress
-  | TStopped
-  | TStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransformJobStatus = TransformJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransformJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure TCompleted
-      "failed" -> pure TFailed
-      "inprogress" -> pure TInProgress
-      "stopped" -> pure TStopped
-      "stopping" -> pure TStopping
-      e ->
-        fromTextError $
-          "Failure parsing TransformJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern TCompleted :: TransformJobStatus
+pattern TCompleted = TransformJobStatus' "Completed"
 
-instance ToText TransformJobStatus where
-  toText = \case
-    TCompleted -> "Completed"
-    TFailed -> "Failed"
-    TInProgress -> "InProgress"
-    TStopped -> "Stopped"
-    TStopping -> "Stopping"
+pattern TFailed :: TransformJobStatus
+pattern TFailed = TransformJobStatus' "Failed"
 
-instance Hashable TransformJobStatus
+pattern TInProgress :: TransformJobStatus
+pattern TInProgress = TransformJobStatus' "InProgress"
 
-instance NFData TransformJobStatus
+pattern TStopped :: TransformJobStatus
+pattern TStopped = TransformJobStatus' "Stopped"
 
-instance ToByteString TransformJobStatus
+pattern TStopping :: TransformJobStatus
+pattern TStopping = TransformJobStatus' "Stopping"
 
-instance ToQuery TransformJobStatus
-
-instance ToHeader TransformJobStatus
-
-instance ToJSON TransformJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON TransformJobStatus where
-  parseJSON = parseJSONText "TransformJobStatus"
+{-# COMPLETE
+  TCompleted,
+  TFailed,
+  TInProgress,
+  TStopped,
+  TStopping,
+  TransformJobStatus'
+  #-}

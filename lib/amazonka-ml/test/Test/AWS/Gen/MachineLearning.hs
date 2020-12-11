@@ -28,175 +28,175 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestUpdateDataSource $
---             updateDataSource
+--             mkUpdateDataSource
 --
 --         , requestDeleteDataSource $
---             deleteDataSource
+--             mkDeleteDataSource
 --
 --         , requestDescribeTags $
---             describeTags
+--             mkDescribeTags
 --
 --         , requestCreateDataSourceFromRedshift $
---             createDataSourceFromRedshift
+--             mkCreateDataSourceFromRedshift
 --
 --         , requestCreateDataSourceFromS3 $
---             createDataSourceFromS3
+--             mkCreateDataSourceFromS3
 --
 --         , requestCreateMLModel $
---             createMLModel
+--             mkCreateMLModel
 --
 --         , requestDeleteTags $
---             deleteTags
+--             mkDeleteTags
 --
 --         , requestDeleteBatchPrediction $
---             deleteBatchPrediction
+--             mkDeleteBatchPrediction
 --
 --         , requestUpdateBatchPrediction $
---             updateBatchPrediction
+--             mkUpdateBatchPrediction
 --
 --         , requestGetMLModel $
---             getMLModel
+--             mkGetMLModel
 --
 --         , requestGetDataSource $
---             getDataSource
+--             mkGetDataSource
 --
 --         , requestUpdateEvaluation $
---             updateEvaluation
+--             mkUpdateEvaluation
 --
 --         , requestDeleteEvaluation $
---             deleteEvaluation
+--             mkDeleteEvaluation
 --
 --         , requestDeleteMLModel $
---             deleteMLModel
+--             mkDeleteMLModel
 --
 --         , requestUpdateMLModel $
---             updateMLModel
+--             mkUpdateMLModel
 --
 --         , requestGetBatchPrediction $
---             getBatchPrediction
+--             mkGetBatchPrediction
 --
 --         , requestDescribeBatchPredictions $
---             describeBatchPredictions
+--             mkDescribeBatchPredictions
 --
 --         , requestCreateDataSourceFromRDS $
---             createDataSourceFromRDS
+--             mkCreateDataSourceFromRDS
 --
 --         , requestCreateEvaluation $
---             createEvaluation
+--             mkCreateEvaluation
 --
 --         , requestPredict $
---             predict
+--             mkPredict
 --
 --         , requestDeleteRealtimeEndpoint $
---             deleteRealtimeEndpoint
+--             mkDeleteRealtimeEndpoint
 --
 --         , requestCreateBatchPrediction $
---             createBatchPrediction
+--             mkCreateBatchPrediction
 --
 --         , requestGetEvaluation $
---             getEvaluation
+--             mkGetEvaluation
 --
 --         , requestDescribeEvaluations $
---             describeEvaluations
+--             mkDescribeEvaluations
 --
 --         , requestCreateRealtimeEndpoint $
---             createRealtimeEndpoint
+--             mkCreateRealtimeEndpoint
 --
 --         , requestAddTags $
---             addTags
+--             mkAddTags
 --
 --         , requestDescribeMLModels $
---             describeMLModels
+--             mkDescribeMLModels
 --
 --         , requestDescribeDataSources $
---             describeDataSources
+--             mkDescribeDataSources
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseUpdateDataSource $
---             updateDataSourceResponse
+--             mkUpdateDataSourceResponse
 --
 --         , responseDeleteDataSource $
---             deleteDataSourceResponse
+--             mkDeleteDataSourceResponse
 --
 --         , responseDescribeTags $
---             describeTagsResponse
+--             mkDescribeTagsResponse
 --
 --         , responseCreateDataSourceFromRedshift $
---             createDataSourceFromRedshiftResponse
+--             mkCreateDataSourceFromRedshiftResponse
 --
 --         , responseCreateDataSourceFromS3 $
---             createDataSourceFromS3Response
+--             mkCreateDataSourceFromS3Response
 --
 --         , responseCreateMLModel $
---             createMLModelResponse
+--             mkCreateMLModelResponse
 --
 --         , responseDeleteTags $
---             deleteTagsResponse
+--             mkDeleteTagsResponse
 --
 --         , responseDeleteBatchPrediction $
---             deleteBatchPredictionResponse
+--             mkDeleteBatchPredictionResponse
 --
 --         , responseUpdateBatchPrediction $
---             updateBatchPredictionResponse
+--             mkUpdateBatchPredictionResponse
 --
 --         , responseGetMLModel $
---             getMLModelResponse
+--             mkGetMLModelResponse
 --
 --         , responseGetDataSource $
---             getDataSourceResponse
+--             mkGetDataSourceResponse
 --
 --         , responseUpdateEvaluation $
---             updateEvaluationResponse
+--             mkUpdateEvaluationResponse
 --
 --         , responseDeleteEvaluation $
---             deleteEvaluationResponse
+--             mkDeleteEvaluationResponse
 --
 --         , responseDeleteMLModel $
---             deleteMLModelResponse
+--             mkDeleteMLModelResponse
 --
 --         , responseUpdateMLModel $
---             updateMLModelResponse
+--             mkUpdateMLModelResponse
 --
 --         , responseGetBatchPrediction $
---             getBatchPredictionResponse
+--             mkGetBatchPredictionResponse
 --
 --         , responseDescribeBatchPredictions $
---             describeBatchPredictionsResponse
+--             mkDescribeBatchPredictionsResponse
 --
 --         , responseCreateDataSourceFromRDS $
---             createDataSourceFromRDSResponse
+--             mkCreateDataSourceFromRDSResponse
 --
 --         , responseCreateEvaluation $
---             createEvaluationResponse
+--             mkCreateEvaluationResponse
 --
 --         , responsePredict $
---             predictResponse
+--             mkPredictResponse
 --
 --         , responseDeleteRealtimeEndpoint $
---             deleteRealtimeEndpointResponse
+--             mkDeleteRealtimeEndpointResponse
 --
 --         , responseCreateBatchPrediction $
---             createBatchPredictionResponse
+--             mkCreateBatchPredictionResponse
 --
 --         , responseGetEvaluation $
---             getEvaluationResponse
+--             mkGetEvaluationResponse
 --
 --         , responseDescribeEvaluations $
---             describeEvaluationsResponse
+--             mkDescribeEvaluationsResponse
 --
 --         , responseCreateRealtimeEndpoint $
---             createRealtimeEndpointResponse
+--             mkCreateRealtimeEndpointResponse
 --
 --         , responseAddTags $
---             addTagsResponse
+--             mkAddTagsResponse
 --
 --         , responseDescribeMLModels $
---             describeMLModelsResponse
+--             mkDescribeMLModelsResponse
 --
 --         , responseDescribeDataSources $
---             describeDataSourcesResponse
+--             mkDescribeDataSourcesResponse
 --
 --           ]
 --     ]
@@ -378,7 +378,7 @@ responseUpdateDataSource =
   res
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
@@ -386,7 +386,7 @@ responseDeleteDataSource =
   res
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteDataSource)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -394,7 +394,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DescribeTags)
 
 responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
@@ -402,7 +402,7 @@ responseCreateDataSourceFromRedshift =
   res
     "CreateDataSourceFromRedshiftResponse"
     "fixture/CreateDataSourceFromRedshiftResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
 responseCreateDataSourceFromS3 :: CreateDataSourceFromS3Response -> TestTree
@@ -410,7 +410,7 @@ responseCreateDataSourceFromS3 =
   res
     "CreateDataSourceFromS3Response"
     "fixture/CreateDataSourceFromS3Response.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateDataSourceFromS3)
 
 responseCreateMLModel :: CreateMLModelResponse -> TestTree
@@ -418,7 +418,7 @@ responseCreateMLModel =
   res
     "CreateMLModelResponse"
     "fixture/CreateMLModelResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateMLModel)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -426,7 +426,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteTags)
 
 responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
@@ -434,7 +434,7 @@ responseDeleteBatchPrediction =
   res
     "DeleteBatchPredictionResponse"
     "fixture/DeleteBatchPredictionResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteBatchPrediction)
 
 responseUpdateBatchPrediction :: UpdateBatchPredictionResponse -> TestTree
@@ -442,7 +442,7 @@ responseUpdateBatchPrediction =
   res
     "UpdateBatchPredictionResponse"
     "fixture/UpdateBatchPredictionResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy UpdateBatchPrediction)
 
 responseGetMLModel :: GetMLModelResponse -> TestTree
@@ -450,7 +450,7 @@ responseGetMLModel =
   res
     "GetMLModelResponse"
     "fixture/GetMLModelResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy GetMLModel)
 
 responseGetDataSource :: GetDataSourceResponse -> TestTree
@@ -458,7 +458,7 @@ responseGetDataSource =
   res
     "GetDataSourceResponse"
     "fixture/GetDataSourceResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy GetDataSource)
 
 responseUpdateEvaluation :: UpdateEvaluationResponse -> TestTree
@@ -466,7 +466,7 @@ responseUpdateEvaluation =
   res
     "UpdateEvaluationResponse"
     "fixture/UpdateEvaluationResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy UpdateEvaluation)
 
 responseDeleteEvaluation :: DeleteEvaluationResponse -> TestTree
@@ -474,7 +474,7 @@ responseDeleteEvaluation =
   res
     "DeleteEvaluationResponse"
     "fixture/DeleteEvaluationResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteEvaluation)
 
 responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
@@ -482,7 +482,7 @@ responseDeleteMLModel =
   res
     "DeleteMLModelResponse"
     "fixture/DeleteMLModelResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteMLModel)
 
 responseUpdateMLModel :: UpdateMLModelResponse -> TestTree
@@ -490,7 +490,7 @@ responseUpdateMLModel =
   res
     "UpdateMLModelResponse"
     "fixture/UpdateMLModelResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy UpdateMLModel)
 
 responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
@@ -498,7 +498,7 @@ responseGetBatchPrediction =
   res
     "GetBatchPredictionResponse"
     "fixture/GetBatchPredictionResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy GetBatchPrediction)
 
 responseDescribeBatchPredictions :: DescribeBatchPredictionsResponse -> TestTree
@@ -506,7 +506,7 @@ responseDescribeBatchPredictions =
   res
     "DescribeBatchPredictionsResponse"
     "fixture/DescribeBatchPredictionsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DescribeBatchPredictions)
 
 responseCreateDataSourceFromRDS :: CreateDataSourceFromRDSResponse -> TestTree
@@ -514,7 +514,7 @@ responseCreateDataSourceFromRDS =
   res
     "CreateDataSourceFromRDSResponse"
     "fixture/CreateDataSourceFromRDSResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateDataSourceFromRDS)
 
 responseCreateEvaluation :: CreateEvaluationResponse -> TestTree
@@ -522,7 +522,7 @@ responseCreateEvaluation =
   res
     "CreateEvaluationResponse"
     "fixture/CreateEvaluationResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateEvaluation)
 
 responsePredict :: PredictResponse -> TestTree
@@ -530,7 +530,7 @@ responsePredict =
   res
     "PredictResponse"
     "fixture/PredictResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy Predict)
 
 responseDeleteRealtimeEndpoint :: DeleteRealtimeEndpointResponse -> TestTree
@@ -538,7 +538,7 @@ responseDeleteRealtimeEndpoint =
   res
     "DeleteRealtimeEndpointResponse"
     "fixture/DeleteRealtimeEndpointResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DeleteRealtimeEndpoint)
 
 responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
@@ -546,7 +546,7 @@ responseCreateBatchPrediction =
   res
     "CreateBatchPredictionResponse"
     "fixture/CreateBatchPredictionResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateBatchPrediction)
 
 responseGetEvaluation :: GetEvaluationResponse -> TestTree
@@ -554,7 +554,7 @@ responseGetEvaluation =
   res
     "GetEvaluationResponse"
     "fixture/GetEvaluationResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy GetEvaluation)
 
 responseDescribeEvaluations :: DescribeEvaluationsResponse -> TestTree
@@ -562,7 +562,7 @@ responseDescribeEvaluations =
   res
     "DescribeEvaluationsResponse"
     "fixture/DescribeEvaluationsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DescribeEvaluations)
 
 responseCreateRealtimeEndpoint :: CreateRealtimeEndpointResponse -> TestTree
@@ -570,7 +570,7 @@ responseCreateRealtimeEndpoint =
   res
     "CreateRealtimeEndpointResponse"
     "fixture/CreateRealtimeEndpointResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy CreateRealtimeEndpoint)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -578,7 +578,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy AddTags)
 
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
@@ -586,7 +586,7 @@ responseDescribeMLModels =
   res
     "DescribeMLModelsResponse"
     "fixture/DescribeMLModelsResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DescribeMLModels)
 
 responseDescribeDataSources :: DescribeDataSourcesResponse -> TestTree
@@ -594,5 +594,5 @@ responseDescribeDataSources =
   res
     "DescribeDataSourcesResponse"
     "fixture/DescribeDataSourcesResponse.proto"
-    machineLearning
+    machineLearningService
     (Proxy :: Proxy DescribeDataSources)

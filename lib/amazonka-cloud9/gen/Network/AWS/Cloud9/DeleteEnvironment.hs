@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,121 @@
 --
 -- Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.
 module Network.AWS.Cloud9.DeleteEnvironment
-  ( -- * Creating a Request
-    deleteEnvironment,
-    DeleteEnvironment,
+  ( -- * Creating a request
+    DeleteEnvironment (..),
+    mkDeleteEnvironment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deEnvironmentId,
 
-    -- * Destructuring the Response
-    deleteEnvironmentResponse,
-    DeleteEnvironmentResponse,
+    -- * Destructuring the response
+    DeleteEnvironmentResponse (..),
+    mkDeleteEnvironmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersResponseStatus,
   )
 where
 
 import Network.AWS.Cloud9.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteEnvironment' smart constructor.
+-- | /See:/ 'mkDeleteEnvironment' smart constructor.
 newtype DeleteEnvironment = DeleteEnvironment'
-  { _deEnvironmentId ::
-      Text
+  { environmentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deEnvironmentId' - The ID of the environment to delete.
-deleteEnvironment ::
-  -- | 'deEnvironmentId'
-  Text ->
+-- * 'environmentId' - The ID of the environment to delete.
+mkDeleteEnvironment ::
+  -- | 'environmentId'
+  Lude.Text ->
   DeleteEnvironment
-deleteEnvironment pEnvironmentId_ =
-  DeleteEnvironment' {_deEnvironmentId = pEnvironmentId_}
+mkDeleteEnvironment pEnvironmentId_ =
+  DeleteEnvironment' {environmentId = pEnvironmentId_}
 
 -- | The ID of the environment to delete.
-deEnvironmentId :: Lens' DeleteEnvironment Text
-deEnvironmentId = lens _deEnvironmentId (\s a -> s {_deEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEnvironmentId :: Lens.Lens' DeleteEnvironment Lude.Text
+deEnvironmentId = Lens.lens (environmentId :: DeleteEnvironment -> Lude.Text) (\s a -> s {environmentId = a} :: DeleteEnvironment)
+{-# DEPRECATED deEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance AWSRequest DeleteEnvironment where
+instance Lude.AWSRequest DeleteEnvironment where
   type Rs DeleteEnvironment = DeleteEnvironmentResponse
-  request = postJSON cloud9
+  request = Req.postJSON cloud9Service
   response =
-    receiveEmpty
-      (\s h x -> DeleteEnvironmentResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteEnvironmentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteEnvironment
-
-instance NFData DeleteEnvironment
-
-instance ToHeaders DeleteEnvironment where
+instance Lude.ToHeaders DeleteEnvironment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironment" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironment" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteEnvironment where
+instance Lude.ToJSON DeleteEnvironment where
   toJSON DeleteEnvironment' {..} =
-    object (catMaybes [Just ("environmentId" .= _deEnvironmentId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("environmentId" Lude..= environmentId)]
+      )
 
-instance ToPath DeleteEnvironment where
-  toPath = const "/"
+instance Lude.ToPath DeleteEnvironment where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteEnvironment where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEnvironment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteEnvironmentResponse' smart constructor.
+-- | /See:/ 'mkDeleteEnvironmentResponse' smart constructor.
 newtype DeleteEnvironmentResponse = DeleteEnvironmentResponse'
-  { _dersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersResponseStatus' - -- | The response status code.
-deleteEnvironmentResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteEnvironmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteEnvironmentResponse
-deleteEnvironmentResponse pResponseStatus_ =
-  DeleteEnvironmentResponse'
-    { _dersResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteEnvironmentResponse pResponseStatus_ =
+  DeleteEnvironmentResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DeleteEnvironmentResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
-
-instance NFData DeleteEnvironmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DeleteEnvironmentResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DeleteEnvironmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEnvironmentResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

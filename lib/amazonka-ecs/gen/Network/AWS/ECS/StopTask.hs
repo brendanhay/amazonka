@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,160 @@
 --
 -- Stops a running task. Any tags associated with the task will be deleted.
 --
---
 -- When 'StopTask' is called on a task, the equivalent of @docker stop@ is issued to the containers running in the task. This results in a @SIGTERM@ value and a default 30-second timeout, after which the @SIGKILL@ value is sent and the containers are forcibly stopped. If the container handles the @SIGTERM@ value gracefully and exits within 30 seconds from receiving it, no @SIGKILL@ value is sent.
 module Network.AWS.ECS.StopTask
-  ( -- * Creating a Request
-    stopTask,
-    StopTask,
+  ( -- * Creating a request
+    StopTask (..),
+    mkStopTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stCluster,
     stReason,
     stTask,
 
-    -- * Destructuring the Response
-    stopTaskResponse,
-    StopTaskResponse,
+    -- * Destructuring the response
+    StopTaskResponse (..),
+    mkStopTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsTask,
     srsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopTask' smart constructor.
+-- | /See:/ 'mkStopTask' smart constructor.
 data StopTask = StopTask'
-  { _stCluster :: !(Maybe Text),
-    _stReason :: !(Maybe Text),
-    _stTask :: !Text
+  { cluster :: Lude.Maybe Lude.Text,
+    reason :: Lude.Maybe Lude.Text,
+    task :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
---
--- * 'stReason' - An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
---
--- * 'stTask' - The task ID or full Amazon Resource Name (ARN) of the task to stop.
-stopTask ::
-  -- | 'stTask'
-  Text ->
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
+-- * 'reason' - An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
+-- * 'task' - The task ID or full Amazon Resource Name (ARN) of the task to stop.
+mkStopTask ::
+  -- | 'task'
+  Lude.Text ->
   StopTask
-stopTask pTask_ =
+mkStopTask pTask_ =
   StopTask'
-    { _stCluster = Nothing,
-      _stReason = Nothing,
-      _stTask = pTask_
+    { cluster = Lude.Nothing,
+      reason = Lude.Nothing,
+      task = pTask_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
-stCluster :: Lens' StopTask (Maybe Text)
-stCluster = lens _stCluster (\s a -> s {_stCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stCluster :: Lens.Lens' StopTask (Lude.Maybe Lude.Text)
+stCluster = Lens.lens (cluster :: StopTask -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: StopTask)
+{-# DEPRECATED stCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
-stReason :: Lens' StopTask (Maybe Text)
-stReason = lens _stReason (\s a -> s {_stReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stReason :: Lens.Lens' StopTask (Lude.Maybe Lude.Text)
+stReason = Lens.lens (reason :: StopTask -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: StopTask)
+{-# DEPRECATED stReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
-stTask :: Lens' StopTask Text
-stTask = lens _stTask (\s a -> s {_stTask = a})
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stTask :: Lens.Lens' StopTask Lude.Text
+stTask = Lens.lens (task :: StopTask -> Lude.Text) (\s a -> s {task = a} :: StopTask)
+{-# DEPRECATED stTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
-instance AWSRequest StopTask where
+instance Lude.AWSRequest StopTask where
   type Rs StopTask = StopTaskResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          StopTaskResponse' <$> (x .?> "task") <*> (pure (fromEnum s))
+          StopTaskResponse'
+            Lude.<$> (x Lude..?> "task") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopTask
-
-instance NFData StopTask
-
-instance ToHeaders StopTask where
+instance Lude.ToHeaders StopTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonEC2ContainerServiceV20141113.StopTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonEC2ContainerServiceV20141113.StopTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopTask where
+instance Lude.ToJSON StopTask where
   toJSON StopTask' {..} =
-    object
-      ( catMaybes
-          [ ("cluster" .=) <$> _stCluster,
-            ("reason" .=) <$> _stReason,
-            Just ("task" .= _stTask)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cluster" Lude..=) Lude.<$> cluster,
+            ("reason" Lude..=) Lude.<$> reason,
+            Lude.Just ("task" Lude..= task)
           ]
       )
 
-instance ToPath StopTask where
-  toPath = const "/"
+instance Lude.ToPath StopTask where
+  toPath = Lude.const "/"
 
-instance ToQuery StopTask where
-  toQuery = const mempty
+instance Lude.ToQuery StopTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopTaskResponse' smart constructor.
+-- | /See:/ 'mkStopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
-  { _srsTask ::
-      !(Maybe Task),
-    _srsResponseStatus :: !Int
+  { task :: Lude.Maybe Task,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsTask' - The task that was stopped.
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopTaskResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'task' - The task that was stopped.
+mkStopTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopTaskResponse
-stopTaskResponse pResponseStatus_ =
+mkStopTaskResponse pResponseStatus_ =
   StopTaskResponse'
-    { _srsTask = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { task = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The task that was stopped.
-srsTask :: Lens' StopTaskResponse (Maybe Task)
-srsTask = lens _srsTask (\s a -> s {_srsTask = a})
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsTask :: Lens.Lens' StopTaskResponse (Lude.Maybe Task)
+srsTask = Lens.lens (task :: StopTaskResponse -> Lude.Maybe Task) (\s a -> s {task = a} :: StopTaskResponse)
+{-# DEPRECATED srsTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopTaskResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopTaskResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTaskResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.SubscriptionType where
+module Network.AWS.WorkDocs.Types.SubscriptionType
+  ( SubscriptionType
+      ( SubscriptionType',
+        STAll
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SubscriptionType = STAll
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubscriptionType = SubscriptionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubscriptionType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure STAll
-      e ->
-        fromTextError $
-          "Failure parsing SubscriptionType from value: '" <> e
-            <> "'. Accepted values: all"
+pattern STAll :: SubscriptionType
+pattern STAll = SubscriptionType' "ALL"
 
-instance ToText SubscriptionType where
-  toText = \case
-    STAll -> "ALL"
-
-instance Hashable SubscriptionType
-
-instance NFData SubscriptionType
-
-instance ToByteString SubscriptionType
-
-instance ToQuery SubscriptionType
-
-instance ToHeader SubscriptionType
-
-instance ToJSON SubscriptionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  STAll,
+  SubscriptionType'
+  #-}

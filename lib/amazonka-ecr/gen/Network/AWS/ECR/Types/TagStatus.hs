@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.TagStatus where
+module Network.AWS.ECR.Types.TagStatus
+  ( TagStatus
+      ( TagStatus',
+        Any,
+        Tagged,
+        Untagged
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TagStatus
-  = Any
-  | Tagged
-  | Untagged
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TagStatus = TagStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TagStatus where
-  parser =
-    takeLowerText >>= \case
-      "any" -> pure Any
-      "tagged" -> pure Tagged
-      "untagged" -> pure Untagged
-      e ->
-        fromTextError $
-          "Failure parsing TagStatus from value: '" <> e
-            <> "'. Accepted values: any, tagged, untagged"
+pattern Any :: TagStatus
+pattern Any = TagStatus' "ANY"
 
-instance ToText TagStatus where
-  toText = \case
-    Any -> "ANY"
-    Tagged -> "TAGGED"
-    Untagged -> "UNTAGGED"
+pattern Tagged :: TagStatus
+pattern Tagged = TagStatus' "TAGGED"
 
-instance Hashable TagStatus
+pattern Untagged :: TagStatus
+pattern Untagged = TagStatus' "UNTAGGED"
 
-instance NFData TagStatus
-
-instance ToByteString TagStatus
-
-instance ToQuery TagStatus
-
-instance ToHeader TagStatus
-
-instance ToJSON TagStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  Any,
+  Tagged,
+  Untagged,
+  TagStatus'
+  #-}

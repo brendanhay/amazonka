@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.PoolStatus where
+module Network.AWS.StorageGateway.Types.PoolStatus
+  ( PoolStatus
+      ( PoolStatus',
+        Active,
+        Deleted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PoolStatus
-  = Active
-  | Deleted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PoolStatus = PoolStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PoolStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "deleted" -> pure Deleted
-      e ->
-        fromTextError $
-          "Failure parsing PoolStatus from value: '" <> e
-            <> "'. Accepted values: active, deleted"
+pattern Active :: PoolStatus
+pattern Active = PoolStatus' "ACTIVE"
 
-instance ToText PoolStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Deleted -> "DELETED"
+pattern Deleted :: PoolStatus
+pattern Deleted = PoolStatus' "DELETED"
 
-instance Hashable PoolStatus
-
-instance NFData PoolStatus
-
-instance ToByteString PoolStatus
-
-instance ToQuery PoolStatus
-
-instance ToHeader PoolStatus
-
-instance FromJSON PoolStatus where
-  parseJSON = parseJSONText "PoolStatus"
+{-# COMPLETE
+  Active,
+  Deleted,
+  PoolStatus'
+  #-}

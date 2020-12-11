@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,169 @@
 --
 -- Returns an array of IP addresses currently being blocked by the 'RateBasedRule' that is specified by the @RuleId@ . The maximum number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the 10,000 addresses with the highest rates will be blocked.
 module Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
-  ( -- * Creating a Request
-    getRateBasedRuleManagedKeys,
-    GetRateBasedRuleManagedKeys,
+  ( -- * Creating a request
+    GetRateBasedRuleManagedKeys (..),
+    mkGetRateBasedRuleManagedKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grbrmkNextMarker,
     grbrmkRuleId,
 
-    -- * Destructuring the Response
-    getRateBasedRuleManagedKeysResponse,
-    GetRateBasedRuleManagedKeysResponse,
+    -- * Destructuring the response
+    GetRateBasedRuleManagedKeysResponse (..),
+    mkGetRateBasedRuleManagedKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grbrmkrsNextMarker,
     grbrmkrsManagedKeys,
     grbrmkrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getRateBasedRuleManagedKeys' smart constructor.
+-- | /See:/ 'mkGetRateBasedRuleManagedKeys' smart constructor.
 data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
-  { _grbrmkNextMarker ::
-      !(Maybe Text),
-    _grbrmkRuleId :: !Text
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    ruleId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grbrmkNextMarker' - A null value and not currently used. Do not include this in your request.
---
--- * 'grbrmkRuleId' - The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
-getRateBasedRuleManagedKeys ::
-  -- | 'grbrmkRuleId'
-  Text ->
+-- * 'nextMarker' - A null value and not currently used. Do not include this in your request.
+-- * 'ruleId' - The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
+mkGetRateBasedRuleManagedKeys ::
+  -- | 'ruleId'
+  Lude.Text ->
   GetRateBasedRuleManagedKeys
-getRateBasedRuleManagedKeys pRuleId_ =
+mkGetRateBasedRuleManagedKeys pRuleId_ =
   GetRateBasedRuleManagedKeys'
-    { _grbrmkNextMarker = Nothing,
-      _grbrmkRuleId = pRuleId_
+    { nextMarker = Lude.Nothing,
+      ruleId = pRuleId_
     }
 
 -- | A null value and not currently used. Do not include this in your request.
-grbrmkNextMarker :: Lens' GetRateBasedRuleManagedKeys (Maybe Text)
-grbrmkNextMarker = lens _grbrmkNextMarker (\s a -> s {_grbrmkNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkNextMarker :: Lens.Lens' GetRateBasedRuleManagedKeys (Lude.Maybe Lude.Text)
+grbrmkNextMarker = Lens.lens (nextMarker :: GetRateBasedRuleManagedKeys -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeys)
+{-# DEPRECATED grbrmkNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
-grbrmkRuleId :: Lens' GetRateBasedRuleManagedKeys Text
-grbrmkRuleId = lens _grbrmkRuleId (\s a -> s {_grbrmkRuleId = a})
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkRuleId :: Lens.Lens' GetRateBasedRuleManagedKeys Lude.Text
+grbrmkRuleId = Lens.lens (ruleId :: GetRateBasedRuleManagedKeys -> Lude.Text) (\s a -> s {ruleId = a} :: GetRateBasedRuleManagedKeys)
+{-# DEPRECATED grbrmkRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
-instance AWSRequest GetRateBasedRuleManagedKeys where
+instance Lude.AWSRequest GetRateBasedRuleManagedKeys where
   type
     Rs GetRateBasedRuleManagedKeys =
       GetRateBasedRuleManagedKeysResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRateBasedRuleManagedKeysResponse'
-            <$> (x .?> "NextMarker")
-            <*> (x .?> "ManagedKeys" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextMarker")
+            Lude.<*> (x Lude..?> "ManagedKeys" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRateBasedRuleManagedKeys
-
-instance NFData GetRateBasedRuleManagedKeys
-
-instance ToHeaders GetRateBasedRuleManagedKeys where
+instance Lude.ToHeaders GetRateBasedRuleManagedKeys where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRateBasedRuleManagedKeys where
+instance Lude.ToJSON GetRateBasedRuleManagedKeys where
   toJSON GetRateBasedRuleManagedKeys' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _grbrmkNextMarker,
-            Just ("RuleId" .= _grbrmkRuleId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            Lude.Just ("RuleId" Lude..= ruleId)
           ]
       )
 
-instance ToPath GetRateBasedRuleManagedKeys where
-  toPath = const "/"
+instance Lude.ToPath GetRateBasedRuleManagedKeys where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRateBasedRuleManagedKeys where
-  toQuery = const mempty
+instance Lude.ToQuery GetRateBasedRuleManagedKeys where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRateBasedRuleManagedKeysResponse' smart constructor.
+-- | /See:/ 'mkGetRateBasedRuleManagedKeysResponse' smart constructor.
 data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
-  { _grbrmkrsNextMarker ::
-      !(Maybe Text),
-    _grbrmkrsManagedKeys ::
-      !(Maybe [Text]),
-    _grbrmkrsResponseStatus ::
-      !Int
+  { nextMarker ::
+      Lude.Maybe
+        Lude.Text,
+    managedKeys ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grbrmkrsNextMarker' - A null value and not currently used.
---
--- * 'grbrmkrsManagedKeys' - An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
---
--- * 'grbrmkrsResponseStatus' - -- | The response status code.
-getRateBasedRuleManagedKeysResponse ::
-  -- | 'grbrmkrsResponseStatus'
-  Int ->
+-- * 'managedKeys' - An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
+-- * 'nextMarker' - A null value and not currently used.
+-- * 'responseStatus' - The response status code.
+mkGetRateBasedRuleManagedKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRateBasedRuleManagedKeysResponse
-getRateBasedRuleManagedKeysResponse pResponseStatus_ =
+mkGetRateBasedRuleManagedKeysResponse pResponseStatus_ =
   GetRateBasedRuleManagedKeysResponse'
-    { _grbrmkrsNextMarker =
-        Nothing,
-      _grbrmkrsManagedKeys = Nothing,
-      _grbrmkrsResponseStatus = pResponseStatus_
+    { nextMarker = Lude.Nothing,
+      managedKeys = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A null value and not currently used.
-grbrmkrsNextMarker :: Lens' GetRateBasedRuleManagedKeysResponse (Maybe Text)
-grbrmkrsNextMarker = lens _grbrmkrsNextMarker (\s a -> s {_grbrmkrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkrsNextMarker :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Lude.Maybe Lude.Text)
+grbrmkrsNextMarker = Lens.lens (nextMarker :: GetRateBasedRuleManagedKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeysResponse)
+{-# DEPRECATED grbrmkrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
-grbrmkrsManagedKeys :: Lens' GetRateBasedRuleManagedKeysResponse [Text]
-grbrmkrsManagedKeys = lens _grbrmkrsManagedKeys (\s a -> s {_grbrmkrsManagedKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'managedKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkrsManagedKeys :: Lens.Lens' GetRateBasedRuleManagedKeysResponse (Lude.Maybe [Lude.Text])
+grbrmkrsManagedKeys = Lens.lens (managedKeys :: GetRateBasedRuleManagedKeysResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {managedKeys = a} :: GetRateBasedRuleManagedKeysResponse)
+{-# DEPRECATED grbrmkrsManagedKeys "Use generic-lens or generic-optics with 'managedKeys' instead." #-}
 
--- | -- | The response status code.
-grbrmkrsResponseStatus :: Lens' GetRateBasedRuleManagedKeysResponse Int
-grbrmkrsResponseStatus = lens _grbrmkrsResponseStatus (\s a -> s {_grbrmkrsResponseStatus = a})
-
-instance NFData GetRateBasedRuleManagedKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkrsResponseStatus :: Lens.Lens' GetRateBasedRuleManagedKeysResponse Lude.Int
+grbrmkrsResponseStatus = Lens.lens (responseStatus :: GetRateBasedRuleManagedKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRateBasedRuleManagedKeysResponse)
+{-# DEPRECATED grbrmkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

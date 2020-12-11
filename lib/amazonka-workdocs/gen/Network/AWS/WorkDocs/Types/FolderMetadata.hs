@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,138 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.FolderMetadata where
+module Network.AWS.WorkDocs.Types.FolderMetadata
+  ( FolderMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFolderMetadata,
+
+    -- * Lenses
+    fmSignature,
+    fmParentFolderId,
+    fmSize,
+    fmLatestVersionSize,
+    fmName,
+    fmModifiedTimestamp,
+    fmId,
+    fmLabels,
+    fmResourceState,
+    fmCreatedTimestamp,
+    fmCreatorId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.Types.ResourceStateType
 
 -- | Describes a folder.
 --
---
---
--- /See:/ 'folderMetadata' smart constructor.
+-- /See:/ 'mkFolderMetadata' smart constructor.
 data FolderMetadata = FolderMetadata'
-  { _fmSignature ::
-      !(Maybe Text),
-    _fmParentFolderId :: !(Maybe Text),
-    _fmSize :: !(Maybe Integer),
-    _fmLatestVersionSize :: !(Maybe Integer),
-    _fmName :: !(Maybe Text),
-    _fmModifiedTimestamp :: !(Maybe POSIX),
-    _fmId :: !(Maybe Text),
-    _fmLabels :: !(Maybe [Text]),
-    _fmResourceState :: !(Maybe ResourceStateType),
-    _fmCreatedTimestamp :: !(Maybe POSIX),
-    _fmCreatorId :: !(Maybe Text)
+  { signature ::
+      Lude.Maybe Lude.Text,
+    parentFolderId :: Lude.Maybe Lude.Text,
+    size :: Lude.Maybe Lude.Integer,
+    latestVersionSize :: Lude.Maybe Lude.Integer,
+    name :: Lude.Maybe Lude.Text,
+    modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    id :: Lude.Maybe Lude.Text,
+    labels :: Lude.Maybe [Lude.Text],
+    resourceState :: Lude.Maybe ResourceStateType,
+    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    creatorId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FolderMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fmSignature' - The unique identifier created from the subfolders and documents of the folder.
---
--- * 'fmParentFolderId' - The ID of the parent folder.
---
--- * 'fmSize' - The size of the folder metadata.
---
--- * 'fmLatestVersionSize' - The size of the latest version of the folder metadata.
---
--- * 'fmName' - The name of the folder.
---
--- * 'fmModifiedTimestamp' - The time when the folder was updated.
---
--- * 'fmId' - The ID of the folder.
---
--- * 'fmLabels' - List of labels on the folder.
---
--- * 'fmResourceState' - The resource state of the folder.
---
--- * 'fmCreatedTimestamp' - The time when the folder was created.
---
--- * 'fmCreatorId' - The ID of the creator.
-folderMetadata ::
+-- * 'createdTimestamp' - The time when the folder was created.
+-- * 'creatorId' - The ID of the creator.
+-- * 'id' - The ID of the folder.
+-- * 'labels' - List of labels on the folder.
+-- * 'latestVersionSize' - The size of the latest version of the folder metadata.
+-- * 'modifiedTimestamp' - The time when the folder was updated.
+-- * 'name' - The name of the folder.
+-- * 'parentFolderId' - The ID of the parent folder.
+-- * 'resourceState' - The resource state of the folder.
+-- * 'signature' - The unique identifier created from the subfolders and documents of the folder.
+-- * 'size' - The size of the folder metadata.
+mkFolderMetadata ::
   FolderMetadata
-folderMetadata =
+mkFolderMetadata =
   FolderMetadata'
-    { _fmSignature = Nothing,
-      _fmParentFolderId = Nothing,
-      _fmSize = Nothing,
-      _fmLatestVersionSize = Nothing,
-      _fmName = Nothing,
-      _fmModifiedTimestamp = Nothing,
-      _fmId = Nothing,
-      _fmLabels = Nothing,
-      _fmResourceState = Nothing,
-      _fmCreatedTimestamp = Nothing,
-      _fmCreatorId = Nothing
+    { signature = Lude.Nothing,
+      parentFolderId = Lude.Nothing,
+      size = Lude.Nothing,
+      latestVersionSize = Lude.Nothing,
+      name = Lude.Nothing,
+      modifiedTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      labels = Lude.Nothing,
+      resourceState = Lude.Nothing,
+      createdTimestamp = Lude.Nothing,
+      creatorId = Lude.Nothing
     }
 
 -- | The unique identifier created from the subfolders and documents of the folder.
-fmSignature :: Lens' FolderMetadata (Maybe Text)
-fmSignature = lens _fmSignature (\s a -> s {_fmSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmSignature :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Text)
+fmSignature = Lens.lens (signature :: FolderMetadata -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: FolderMetadata)
+{-# DEPRECATED fmSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | The ID of the parent folder.
-fmParentFolderId :: Lens' FolderMetadata (Maybe Text)
-fmParentFolderId = lens _fmParentFolderId (\s a -> s {_fmParentFolderId = a})
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmParentFolderId :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Text)
+fmParentFolderId = Lens.lens (parentFolderId :: FolderMetadata -> Lude.Maybe Lude.Text) (\s a -> s {parentFolderId = a} :: FolderMetadata)
+{-# DEPRECATED fmParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
 -- | The size of the folder metadata.
-fmSize :: Lens' FolderMetadata (Maybe Integer)
-fmSize = lens _fmSize (\s a -> s {_fmSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmSize :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Integer)
+fmSize = Lens.lens (size :: FolderMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: FolderMetadata)
+{-# DEPRECATED fmSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The size of the latest version of the folder metadata.
-fmLatestVersionSize :: Lens' FolderMetadata (Maybe Integer)
-fmLatestVersionSize = lens _fmLatestVersionSize (\s a -> s {_fmLatestVersionSize = a})
+--
+-- /Note:/ Consider using 'latestVersionSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmLatestVersionSize :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Integer)
+fmLatestVersionSize = Lens.lens (latestVersionSize :: FolderMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {latestVersionSize = a} :: FolderMetadata)
+{-# DEPRECATED fmLatestVersionSize "Use generic-lens or generic-optics with 'latestVersionSize' instead." #-}
 
 -- | The name of the folder.
-fmName :: Lens' FolderMetadata (Maybe Text)
-fmName = lens _fmName (\s a -> s {_fmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmName :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Text)
+fmName = Lens.lens (name :: FolderMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FolderMetadata)
+{-# DEPRECATED fmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time when the folder was updated.
-fmModifiedTimestamp :: Lens' FolderMetadata (Maybe UTCTime)
-fmModifiedTimestamp = lens _fmModifiedTimestamp (\s a -> s {_fmModifiedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmModifiedTimestamp :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Timestamp)
+fmModifiedTimestamp = Lens.lens (modifiedTimestamp :: FolderMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedTimestamp = a} :: FolderMetadata)
+{-# DEPRECATED fmModifiedTimestamp "Use generic-lens or generic-optics with 'modifiedTimestamp' instead." #-}
 
 -- | The ID of the folder.
-fmId :: Lens' FolderMetadata (Maybe Text)
-fmId = lens _fmId (\s a -> s {_fmId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmId :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Text)
+fmId = Lens.lens (id :: FolderMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: FolderMetadata)
+{-# DEPRECATED fmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | List of labels on the folder.
-fmLabels :: Lens' FolderMetadata [Text]
-fmLabels = lens _fmLabels (\s a -> s {_fmLabels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmLabels :: Lens.Lens' FolderMetadata (Lude.Maybe [Lude.Text])
+fmLabels = Lens.lens (labels :: FolderMetadata -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: FolderMetadata)
+{-# DEPRECATED fmLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The resource state of the folder.
-fmResourceState :: Lens' FolderMetadata (Maybe ResourceStateType)
-fmResourceState = lens _fmResourceState (\s a -> s {_fmResourceState = a})
+--
+-- /Note:/ Consider using 'resourceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmResourceState :: Lens.Lens' FolderMetadata (Lude.Maybe ResourceStateType)
+fmResourceState = Lens.lens (resourceState :: FolderMetadata -> Lude.Maybe ResourceStateType) (\s a -> s {resourceState = a} :: FolderMetadata)
+{-# DEPRECATED fmResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
 
 -- | The time when the folder was created.
-fmCreatedTimestamp :: Lens' FolderMetadata (Maybe UTCTime)
-fmCreatedTimestamp = lens _fmCreatedTimestamp (\s a -> s {_fmCreatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmCreatedTimestamp :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Timestamp)
+fmCreatedTimestamp = Lens.lens (createdTimestamp :: FolderMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: FolderMetadata)
+{-# DEPRECATED fmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The ID of the creator.
-fmCreatorId :: Lens' FolderMetadata (Maybe Text)
-fmCreatorId = lens _fmCreatorId (\s a -> s {_fmCreatorId = a})
+--
+-- /Note:/ Consider using 'creatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmCreatorId :: Lens.Lens' FolderMetadata (Lude.Maybe Lude.Text)
+fmCreatorId = Lens.lens (creatorId :: FolderMetadata -> Lude.Maybe Lude.Text) (\s a -> s {creatorId = a} :: FolderMetadata)
+{-# DEPRECATED fmCreatorId "Use generic-lens or generic-optics with 'creatorId' instead." #-}
 
-instance FromJSON FolderMetadata where
+instance Lude.FromJSON FolderMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "FolderMetadata"
       ( \x ->
           FolderMetadata'
-            <$> (x .:? "Signature")
-            <*> (x .:? "ParentFolderId")
-            <*> (x .:? "Size")
-            <*> (x .:? "LatestVersionSize")
-            <*> (x .:? "Name")
-            <*> (x .:? "ModifiedTimestamp")
-            <*> (x .:? "Id")
-            <*> (x .:? "Labels" .!= mempty)
-            <*> (x .:? "ResourceState")
-            <*> (x .:? "CreatedTimestamp")
-            <*> (x .:? "CreatorId")
+            Lude.<$> (x Lude..:? "Signature")
+            Lude.<*> (x Lude..:? "ParentFolderId")
+            Lude.<*> (x Lude..:? "Size")
+            Lude.<*> (x Lude..:? "LatestVersionSize")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ModifiedTimestamp")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Labels" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResourceState")
+            Lude.<*> (x Lude..:? "CreatedTimestamp")
+            Lude.<*> (x Lude..:? "CreatorId")
       )
-
-instance Hashable FolderMetadata
-
-instance NFData FolderMetadata

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.MetricFilter where
+module Network.AWS.CloudWatchLogs.Types.MetricFilter
+  ( MetricFilter (..),
+
+    -- * Smart constructor
+    mkMetricFilter,
+
+    -- * Lenses
+    mfCreationTime,
+    mfFilterName,
+    mfLogGroupName,
+    mfFilterPattern,
+    mfMetricTransformations,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types.MetricTransformation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.
 --
---
---
--- /See:/ 'metricFilter' smart constructor.
+-- /See:/ 'mkMetricFilter' smart constructor.
 data MetricFilter = MetricFilter'
-  { _mfCreationTime :: !(Maybe Nat),
-    _mfFilterName :: !(Maybe Text),
-    _mfLogGroupName :: !(Maybe Text),
-    _mfFilterPattern :: !(Maybe Text),
-    _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
+  { creationTime ::
+      Lude.Maybe Lude.Natural,
+    filterName :: Lude.Maybe Lude.Text,
+    logGroupName :: Lude.Maybe Lude.Text,
+    filterPattern :: Lude.Maybe Lude.Text,
+    metricTransformations ::
+      Lude.Maybe (Lude.NonEmpty MetricTransformation)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mfCreationTime' - The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'mfFilterName' - The name of the metric filter.
---
--- * 'mfLogGroupName' - The name of the log group.
---
--- * 'mfFilterPattern' - Undocumented member.
---
--- * 'mfMetricTransformations' - The metric transformations.
-metricFilter ::
+-- * 'creationTime' - The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'filterName' - The name of the metric filter.
+-- * 'filterPattern' - Undocumented field.
+-- * 'logGroupName' - The name of the log group.
+-- * 'metricTransformations' - The metric transformations.
+mkMetricFilter ::
   MetricFilter
-metricFilter =
+mkMetricFilter =
   MetricFilter'
-    { _mfCreationTime = Nothing,
-      _mfFilterName = Nothing,
-      _mfLogGroupName = Nothing,
-      _mfFilterPattern = Nothing,
-      _mfMetricTransformations = Nothing
+    { creationTime = Lude.Nothing,
+      filterName = Lude.Nothing,
+      logGroupName = Lude.Nothing,
+      filterPattern = Lude.Nothing,
+      metricTransformations = Lude.Nothing
     }
 
 -- | The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-mfCreationTime :: Lens' MetricFilter (Maybe Natural)
-mfCreationTime = lens _mfCreationTime (\s a -> s {_mfCreationTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfCreationTime :: Lens.Lens' MetricFilter (Lude.Maybe Lude.Natural)
+mfCreationTime = Lens.lens (creationTime :: MetricFilter -> Lude.Maybe Lude.Natural) (\s a -> s {creationTime = a} :: MetricFilter)
+{-# DEPRECATED mfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the metric filter.
-mfFilterName :: Lens' MetricFilter (Maybe Text)
-mfFilterName = lens _mfFilterName (\s a -> s {_mfFilterName = a})
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfFilterName :: Lens.Lens' MetricFilter (Lude.Maybe Lude.Text)
+mfFilterName = Lens.lens (filterName :: MetricFilter -> Lude.Maybe Lude.Text) (\s a -> s {filterName = a} :: MetricFilter)
+{-# DEPRECATED mfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
 
 -- | The name of the log group.
-mfLogGroupName :: Lens' MetricFilter (Maybe Text)
-mfLogGroupName = lens _mfLogGroupName (\s a -> s {_mfLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfLogGroupName :: Lens.Lens' MetricFilter (Lude.Maybe Lude.Text)
+mfLogGroupName = Lens.lens (logGroupName :: MetricFilter -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: MetricFilter)
+{-# DEPRECATED mfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | Undocumented member.
-mfFilterPattern :: Lens' MetricFilter (Maybe Text)
-mfFilterPattern = lens _mfFilterPattern (\s a -> s {_mfFilterPattern = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfFilterPattern :: Lens.Lens' MetricFilter (Lude.Maybe Lude.Text)
+mfFilterPattern = Lens.lens (filterPattern :: MetricFilter -> Lude.Maybe Lude.Text) (\s a -> s {filterPattern = a} :: MetricFilter)
+{-# DEPRECATED mfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
 
 -- | The metric transformations.
-mfMetricTransformations :: Lens' MetricFilter (Maybe (NonEmpty MetricTransformation))
-mfMetricTransformations = lens _mfMetricTransformations (\s a -> s {_mfMetricTransformations = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'metricTransformations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfMetricTransformations :: Lens.Lens' MetricFilter (Lude.Maybe (Lude.NonEmpty MetricTransformation))
+mfMetricTransformations = Lens.lens (metricTransformations :: MetricFilter -> Lude.Maybe (Lude.NonEmpty MetricTransformation)) (\s a -> s {metricTransformations = a} :: MetricFilter)
+{-# DEPRECATED mfMetricTransformations "Use generic-lens or generic-optics with 'metricTransformations' instead." #-}
 
-instance FromJSON MetricFilter where
+instance Lude.FromJSON MetricFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricFilter"
       ( \x ->
           MetricFilter'
-            <$> (x .:? "creationTime")
-            <*> (x .:? "filterName")
-            <*> (x .:? "logGroupName")
-            <*> (x .:? "filterPattern")
-            <*> (x .:? "metricTransformations")
+            Lude.<$> (x Lude..:? "creationTime")
+            Lude.<*> (x Lude..:? "filterName")
+            Lude.<*> (x Lude..:? "logGroupName")
+            Lude.<*> (x Lude..:? "filterPattern")
+            Lude.<*> (x Lude..:? "metricTransformations")
       )
-
-instance Hashable MetricFilter
-
-instance NFData MetricFilter

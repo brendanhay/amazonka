@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.IAMUserAccessToBilling where
+module Network.AWS.Organizations.Types.IAMUserAccessToBilling
+  ( IAMUserAccessToBilling
+      ( IAMUserAccessToBilling',
+        Allow,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IAMUserAccessToBilling
-  = Allow
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IAMUserAccessToBilling = IAMUserAccessToBilling' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IAMUserAccessToBilling where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing IAMUserAccessToBilling from value: '" <> e
-            <> "'. Accepted values: allow, deny"
+pattern Allow :: IAMUserAccessToBilling
+pattern Allow = IAMUserAccessToBilling' "ALLOW"
 
-instance ToText IAMUserAccessToBilling where
-  toText = \case
-    Allow -> "ALLOW"
-    Deny -> "DENY"
+pattern Deny :: IAMUserAccessToBilling
+pattern Deny = IAMUserAccessToBilling' "DENY"
 
-instance Hashable IAMUserAccessToBilling
-
-instance NFData IAMUserAccessToBilling
-
-instance ToByteString IAMUserAccessToBilling
-
-instance ToQuery IAMUserAccessToBilling
-
-instance ToHeader IAMUserAccessToBilling
-
-instance ToJSON IAMUserAccessToBilling where
-  toJSON = toJSONText
+{-# COMPLETE
+  Allow,
+  Deny,
+  IAMUserAccessToBilling'
+  #-}

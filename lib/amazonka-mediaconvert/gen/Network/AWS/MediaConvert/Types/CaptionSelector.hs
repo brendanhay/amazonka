@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionSelector where
+module Network.AWS.MediaConvert.Types.CaptionSelector
+  ( CaptionSelector (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCaptionSelector,
+
+    -- * Lenses
+    csCustomLanguageCode,
+    csLanguageCode,
+    csSourceSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CaptionSourceSettings
 import Network.AWS.MediaConvert.Types.LanguageCode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Set up captions in your outputs by first selecting them from your input here.
 --
--- /See:/ 'captionSelector' smart constructor.
+-- /See:/ 'mkCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
-  { _csCustomLanguageCode ::
-      !(Maybe Text),
-    _csLanguageCode :: !(Maybe LanguageCode),
-    _csSourceSettings :: !(Maybe CaptionSourceSettings)
+  { customLanguageCode ::
+      Lude.Maybe Lude.Text,
+    languageCode :: Lude.Maybe LanguageCode,
+    sourceSettings :: Lude.Maybe CaptionSourceSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csCustomLanguageCode' - The specific language to extract from source, using the ISO 639-2 or ISO 639-3 three-letter language code. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
---
--- * 'csLanguageCode' - The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
---
--- * 'csSourceSettings' - If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
-captionSelector ::
+-- * 'customLanguageCode' - The specific language to extract from source, using the ISO 639-2 or ISO 639-3 three-letter language code. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
+-- * 'languageCode' - The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
+-- * 'sourceSettings' - If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+mkCaptionSelector ::
   CaptionSelector
-captionSelector =
+mkCaptionSelector =
   CaptionSelector'
-    { _csCustomLanguageCode = Nothing,
-      _csLanguageCode = Nothing,
-      _csSourceSettings = Nothing
+    { customLanguageCode = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      sourceSettings = Lude.Nothing
     }
 
 -- | The specific language to extract from source, using the ISO 639-2 or ISO 639-3 three-letter language code. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
-csCustomLanguageCode :: Lens' CaptionSelector (Maybe Text)
-csCustomLanguageCode = lens _csCustomLanguageCode (\s a -> s {_csCustomLanguageCode = a})
+--
+-- /Note:/ Consider using 'customLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCustomLanguageCode :: Lens.Lens' CaptionSelector (Lude.Maybe Lude.Text)
+csCustomLanguageCode = Lens.lens (customLanguageCode :: CaptionSelector -> Lude.Maybe Lude.Text) (\s a -> s {customLanguageCode = a} :: CaptionSelector)
+{-# DEPRECATED csCustomLanguageCode "Use generic-lens or generic-optics with 'customLanguageCode' instead." #-}
 
 -- | The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
-csLanguageCode :: Lens' CaptionSelector (Maybe LanguageCode)
-csLanguageCode = lens _csLanguageCode (\s a -> s {_csLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLanguageCode :: Lens.Lens' CaptionSelector (Lude.Maybe LanguageCode)
+csLanguageCode = Lens.lens (languageCode :: CaptionSelector -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: CaptionSelector)
+{-# DEPRECATED csLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
-csSourceSettings :: Lens' CaptionSelector (Maybe CaptionSourceSettings)
-csSourceSettings = lens _csSourceSettings (\s a -> s {_csSourceSettings = a})
+--
+-- /Note:/ Consider using 'sourceSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSourceSettings :: Lens.Lens' CaptionSelector (Lude.Maybe CaptionSourceSettings)
+csSourceSettings = Lens.lens (sourceSettings :: CaptionSelector -> Lude.Maybe CaptionSourceSettings) (\s a -> s {sourceSettings = a} :: CaptionSelector)
+{-# DEPRECATED csSourceSettings "Use generic-lens or generic-optics with 'sourceSettings' instead." #-}
 
-instance FromJSON CaptionSelector where
+instance Lude.FromJSON CaptionSelector where
   parseJSON =
-    withObject
+    Lude.withObject
       "CaptionSelector"
       ( \x ->
           CaptionSelector'
-            <$> (x .:? "customLanguageCode")
-            <*> (x .:? "languageCode")
-            <*> (x .:? "sourceSettings")
+            Lude.<$> (x Lude..:? "customLanguageCode")
+            Lude.<*> (x Lude..:? "languageCode")
+            Lude.<*> (x Lude..:? "sourceSettings")
       )
 
-instance Hashable CaptionSelector
-
-instance NFData CaptionSelector
-
-instance ToJSON CaptionSelector where
+instance Lude.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =
-    object
-      ( catMaybes
-          [ ("customLanguageCode" .=) <$> _csCustomLanguageCode,
-            ("languageCode" .=) <$> _csLanguageCode,
-            ("sourceSettings" .=) <$> _csSourceSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("customLanguageCode" Lude..=) Lude.<$> customLanguageCode,
+            ("languageCode" Lude..=) Lude.<$> languageCode,
+            ("sourceSettings" Lude..=) Lude.<$> sourceSettings
           ]
       )

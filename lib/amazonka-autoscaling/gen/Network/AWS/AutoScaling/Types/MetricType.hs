@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.MetricType where
+module Network.AWS.AutoScaling.Types.MetricType
+  ( MetricType
+      ( MetricType',
+        ALBRequestCountPerTarget,
+        ASGAverageCPUUtilization,
+        ASGAverageNetworkIn,
+        ASGAverageNetworkOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricType
-  = ALBRequestCountPerTarget
-  | ASGAverageCPUUtilization
-  | ASGAverageNetworkIn
-  | ASGAverageNetworkOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricType = MetricType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricType where
-  parser =
-    takeLowerText >>= \case
-      "albrequestcountpertarget" -> pure ALBRequestCountPerTarget
-      "asgaveragecpuutilization" -> pure ASGAverageCPUUtilization
-      "asgaveragenetworkin" -> pure ASGAverageNetworkIn
-      "asgaveragenetworkout" -> pure ASGAverageNetworkOut
-      e ->
-        fromTextError $
-          "Failure parsing MetricType from value: '" <> e
-            <> "'. Accepted values: albrequestcountpertarget, asgaveragecpuutilization, asgaveragenetworkin, asgaveragenetworkout"
+pattern ALBRequestCountPerTarget :: MetricType
+pattern ALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
 
-instance ToText MetricType where
-  toText = \case
-    ALBRequestCountPerTarget -> "ALBRequestCountPerTarget"
-    ASGAverageCPUUtilization -> "ASGAverageCPUUtilization"
-    ASGAverageNetworkIn -> "ASGAverageNetworkIn"
-    ASGAverageNetworkOut -> "ASGAverageNetworkOut"
+pattern ASGAverageCPUUtilization :: MetricType
+pattern ASGAverageCPUUtilization = MetricType' "ASGAverageCPUUtilization"
 
-instance Hashable MetricType
+pattern ASGAverageNetworkIn :: MetricType
+pattern ASGAverageNetworkIn = MetricType' "ASGAverageNetworkIn"
 
-instance NFData MetricType
+pattern ASGAverageNetworkOut :: MetricType
+pattern ASGAverageNetworkOut = MetricType' "ASGAverageNetworkOut"
 
-instance ToByteString MetricType
-
-instance ToQuery MetricType
-
-instance ToHeader MetricType
-
-instance FromXML MetricType where
-  parseXML = parseXMLText "MetricType"
+{-# COMPLETE
+  ALBRequestCountPerTarget,
+  ASGAverageCPUUtilization,
+  ASGAverageNetworkIn,
+  ASGAverageNetworkOut,
+  MetricType'
+  #-}

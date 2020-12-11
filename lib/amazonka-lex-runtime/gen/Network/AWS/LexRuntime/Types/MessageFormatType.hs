@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.MessageFormatType where
+module Network.AWS.LexRuntime.Types.MessageFormatType
+  ( MessageFormatType
+      ( MessageFormatType',
+        Composite,
+        CustomPayload,
+        PlainText,
+        Ssml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageFormatType
-  = Composite
-  | CustomPayload
-  | PlainText
-  | Ssml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageFormatType = MessageFormatType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageFormatType where
-  parser =
-    takeLowerText >>= \case
-      "composite" -> pure Composite
-      "custompayload" -> pure CustomPayload
-      "plaintext" -> pure PlainText
-      "ssml" -> pure Ssml
-      e ->
-        fromTextError $
-          "Failure parsing MessageFormatType from value: '" <> e
-            <> "'. Accepted values: composite, custompayload, plaintext, ssml"
+pattern Composite :: MessageFormatType
+pattern Composite = MessageFormatType' "Composite"
 
-instance ToText MessageFormatType where
-  toText = \case
-    Composite -> "Composite"
-    CustomPayload -> "CustomPayload"
-    PlainText -> "PlainText"
-    Ssml -> "SSML"
+pattern CustomPayload :: MessageFormatType
+pattern CustomPayload = MessageFormatType' "CustomPayload"
 
-instance Hashable MessageFormatType
+pattern PlainText :: MessageFormatType
+pattern PlainText = MessageFormatType' "PlainText"
 
-instance NFData MessageFormatType
+pattern Ssml :: MessageFormatType
+pattern Ssml = MessageFormatType' "SSML"
 
-instance ToByteString MessageFormatType
-
-instance ToQuery MessageFormatType
-
-instance ToHeader MessageFormatType
-
-instance ToJSON MessageFormatType where
-  toJSON = toJSONText
-
-instance FromJSON MessageFormatType where
-  parseJSON = parseJSONText "MessageFormatType"
+{-# COMPLETE
+  Composite,
+  CustomPayload,
+  PlainText,
+  Ssml,
+  MessageFormatType'
+  #-}

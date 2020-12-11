@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.
 module Network.AWS.CostExplorer.DeleteCostCategoryDefinition
-  ( -- * Creating a Request
-    deleteCostCategoryDefinition,
-    DeleteCostCategoryDefinition,
+  ( -- * Creating a request
+    DeleteCostCategoryDefinition (..),
+    mkDeleteCostCategoryDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dccdCostCategoryARN,
 
-    -- * Destructuring the Response
-    deleteCostCategoryDefinitionResponse,
-    DeleteCostCategoryDefinitionResponse,
+    -- * Destructuring the response
+    DeleteCostCategoryDefinitionResponse (..),
+    mkDeleteCostCategoryDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dccdrsCostCategoryARN,
     dccdrsEffectiveEnd,
     dccdrsResponseStatus,
@@ -38,120 +33,139 @@ module Network.AWS.CostExplorer.DeleteCostCategoryDefinition
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCostCategoryDefinition' smart constructor.
+-- | /See:/ 'mkDeleteCostCategoryDefinition' smart constructor.
 newtype DeleteCostCategoryDefinition = DeleteCostCategoryDefinition'
-  { _dccdCostCategoryARN ::
-      Text
+  { costCategoryARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCostCategoryDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccdCostCategoryARN' - The unique identifier for your Cost Category.
-deleteCostCategoryDefinition ::
-  -- | 'dccdCostCategoryARN'
-  Text ->
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
+mkDeleteCostCategoryDefinition ::
+  -- | 'costCategoryARN'
+  Lude.Text ->
   DeleteCostCategoryDefinition
-deleteCostCategoryDefinition pCostCategoryARN_ =
+mkDeleteCostCategoryDefinition pCostCategoryARN_ =
   DeleteCostCategoryDefinition'
-    { _dccdCostCategoryARN =
+    { costCategoryARN =
         pCostCategoryARN_
     }
 
 -- | The unique identifier for your Cost Category.
-dccdCostCategoryARN :: Lens' DeleteCostCategoryDefinition Text
-dccdCostCategoryARN = lens _dccdCostCategoryARN (\s a -> s {_dccdCostCategoryARN = a})
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccdCostCategoryARN :: Lens.Lens' DeleteCostCategoryDefinition Lude.Text
+dccdCostCategoryARN = Lens.lens (costCategoryARN :: DeleteCostCategoryDefinition -> Lude.Text) (\s a -> s {costCategoryARN = a} :: DeleteCostCategoryDefinition)
+{-# DEPRECATED dccdCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
-instance AWSRequest DeleteCostCategoryDefinition where
+instance Lude.AWSRequest DeleteCostCategoryDefinition where
   type
     Rs DeleteCostCategoryDefinition =
       DeleteCostCategoryDefinitionResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteCostCategoryDefinitionResponse'
-            <$> (x .?> "CostCategoryArn")
-            <*> (x .?> "EffectiveEnd")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CostCategoryArn")
+            Lude.<*> (x Lude..?> "EffectiveEnd")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCostCategoryDefinition
-
-instance NFData DeleteCostCategoryDefinition
-
-instance ToHeaders DeleteCostCategoryDefinition where
+instance Lude.ToHeaders DeleteCostCategoryDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.DeleteCostCategoryDefinition" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.DeleteCostCategoryDefinition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCostCategoryDefinition where
+instance Lude.ToJSON DeleteCostCategoryDefinition where
   toJSON DeleteCostCategoryDefinition' {..} =
-    object
-      (catMaybes [Just ("CostCategoryArn" .= _dccdCostCategoryARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CostCategoryArn" Lude..= costCategoryARN)]
+      )
 
-instance ToPath DeleteCostCategoryDefinition where
-  toPath = const "/"
+instance Lude.ToPath DeleteCostCategoryDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCostCategoryDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCostCategoryDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCostCategoryDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteCostCategoryDefinitionResponse' smart constructor.
 data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse'
-  { _dccdrsCostCategoryARN ::
-      !(Maybe Text),
-    _dccdrsEffectiveEnd ::
-      !(Maybe Text),
-    _dccdrsResponseStatus ::
-      !Int
+  { costCategoryARN ::
+      Lude.Maybe
+        Lude.Text,
+    effectiveEnd ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCostCategoryDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccdrsCostCategoryARN' - The unique identifier for your Cost Category.
---
--- * 'dccdrsEffectiveEnd' - The effective end date of the Cost Category as a result of deleting it. No costs after this date will be categorized by the deleted Cost Category.
---
--- * 'dccdrsResponseStatus' - -- | The response status code.
-deleteCostCategoryDefinitionResponse ::
-  -- | 'dccdrsResponseStatus'
-  Int ->
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
+-- * 'effectiveEnd' - The effective end date of the Cost Category as a result of deleting it. No costs after this date will be categorized by the deleted Cost Category.
+-- * 'responseStatus' - The response status code.
+mkDeleteCostCategoryDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCostCategoryDefinitionResponse
-deleteCostCategoryDefinitionResponse pResponseStatus_ =
+mkDeleteCostCategoryDefinitionResponse pResponseStatus_ =
   DeleteCostCategoryDefinitionResponse'
-    { _dccdrsCostCategoryARN =
-        Nothing,
-      _dccdrsEffectiveEnd = Nothing,
-      _dccdrsResponseStatus = pResponseStatus_
+    { costCategoryARN =
+        Lude.Nothing,
+      effectiveEnd = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier for your Cost Category.
-dccdrsCostCategoryARN :: Lens' DeleteCostCategoryDefinitionResponse (Maybe Text)
-dccdrsCostCategoryARN = lens _dccdrsCostCategoryARN (\s a -> s {_dccdrsCostCategoryARN = a})
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccdrsCostCategoryARN :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
+dccdrsCostCategoryARN = Lens.lens (costCategoryARN :: DeleteCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {costCategoryARN = a} :: DeleteCostCategoryDefinitionResponse)
+{-# DEPRECATED dccdrsCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
 -- | The effective end date of the Cost Category as a result of deleting it. No costs after this date will be categorized by the deleted Cost Category.
-dccdrsEffectiveEnd :: Lens' DeleteCostCategoryDefinitionResponse (Maybe Text)
-dccdrsEffectiveEnd = lens _dccdrsEffectiveEnd (\s a -> s {_dccdrsEffectiveEnd = a})
+--
+-- /Note:/ Consider using 'effectiveEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccdrsEffectiveEnd :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
+dccdrsEffectiveEnd = Lens.lens (effectiveEnd :: DeleteCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {effectiveEnd = a} :: DeleteCostCategoryDefinitionResponse)
+{-# DEPRECATED dccdrsEffectiveEnd "Use generic-lens or generic-optics with 'effectiveEnd' instead." #-}
 
--- | -- | The response status code.
-dccdrsResponseStatus :: Lens' DeleteCostCategoryDefinitionResponse Int
-dccdrsResponseStatus = lens _dccdrsResponseStatus (\s a -> s {_dccdrsResponseStatus = a})
-
-instance NFData DeleteCostCategoryDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccdrsResponseStatus :: Lens.Lens' DeleteCostCategoryDefinitionResponse Lude.Int
+dccdrsResponseStatus = Lens.lens (responseStatus :: DeleteCostCategoryDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCostCategoryDefinitionResponse)
+{-# DEPRECATED dccdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

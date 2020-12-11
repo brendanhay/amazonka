@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.F4vSettings where
+module Network.AWS.MediaConvert.Types.F4vSettings
+  ( F4vSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkF4vSettings,
+
+    -- * Lenses
+    fsMoovPlacement,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.F4vMoovPlacement
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for F4v container
 --
--- /See:/ 'f4vSettings' smart constructor.
+-- /See:/ 'mkF4vSettings' smart constructor.
 newtype F4vSettings = F4vSettings'
-  { _fsMoovPlacement ::
-      Maybe F4vMoovPlacement
+  { moovPlacement ::
+      Lude.Maybe F4vMoovPlacement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'F4vSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsMoovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-f4vSettings ::
+-- * 'moovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+mkF4vSettings ::
   F4vSettings
-f4vSettings = F4vSettings' {_fsMoovPlacement = Nothing}
+mkF4vSettings = F4vSettings' {moovPlacement = Lude.Nothing}
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-fsMoovPlacement :: Lens' F4vSettings (Maybe F4vMoovPlacement)
-fsMoovPlacement = lens _fsMoovPlacement (\s a -> s {_fsMoovPlacement = a})
+--
+-- /Note:/ Consider using 'moovPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsMoovPlacement :: Lens.Lens' F4vSettings (Lude.Maybe F4vMoovPlacement)
+fsMoovPlacement = Lens.lens (moovPlacement :: F4vSettings -> Lude.Maybe F4vMoovPlacement) (\s a -> s {moovPlacement = a} :: F4vSettings)
+{-# DEPRECATED fsMoovPlacement "Use generic-lens or generic-optics with 'moovPlacement' instead." #-}
 
-instance FromJSON F4vSettings where
+instance Lude.FromJSON F4vSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "F4vSettings"
-      (\x -> F4vSettings' <$> (x .:? "moovPlacement"))
+      (\x -> F4vSettings' Lude.<$> (x Lude..:? "moovPlacement"))
 
-instance Hashable F4vSettings
-
-instance NFData F4vSettings
-
-instance ToJSON F4vSettings where
+instance Lude.ToJSON F4vSettings where
   toJSON F4vSettings' {..} =
-    object (catMaybes [("moovPlacement" .=) <$> _fsMoovPlacement])
+    Lude.object
+      (Lude.catMaybes [("moovPlacement" Lude..=) Lude.<$> moovPlacement])

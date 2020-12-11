@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.CloudWatchDestination where
+module Network.AWS.SES.Types.CloudWatchDestination
+  ( CloudWatchDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchDestination,
+
+    -- * Lenses
+    cwdDimensionConfigurations,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.CloudWatchDimensionConfiguration
 
 -- | Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.
 --
---
 -- Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'cloudWatchDestination' smart constructor.
+-- /See:/ 'mkCloudWatchDestination' smart constructor.
 newtype CloudWatchDestination = CloudWatchDestination'
-  { _cwdDimensionConfigurations ::
+  { dimensionConfigurations ::
       [CloudWatchDimensionConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwdDimensionConfigurations' - A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
-cloudWatchDestination ::
+-- * 'dimensionConfigurations' - A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+mkCloudWatchDestination ::
   CloudWatchDestination
-cloudWatchDestination =
-  CloudWatchDestination' {_cwdDimensionConfigurations = mempty}
+mkCloudWatchDestination =
+  CloudWatchDestination' {dimensionConfigurations = Lude.mempty}
 
 -- | A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
-cwdDimensionConfigurations :: Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
-cwdDimensionConfigurations = lens _cwdDimensionConfigurations (\s a -> s {_cwdDimensionConfigurations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'dimensionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwdDimensionConfigurations :: Lens.Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
+cwdDimensionConfigurations = Lens.lens (dimensionConfigurations :: CloudWatchDestination -> [CloudWatchDimensionConfiguration]) (\s a -> s {dimensionConfigurations = a} :: CloudWatchDestination)
+{-# DEPRECATED cwdDimensionConfigurations "Use generic-lens or generic-optics with 'dimensionConfigurations' instead." #-}
 
-instance FromXML CloudWatchDestination where
+instance Lude.FromXML CloudWatchDestination where
   parseXML x =
     CloudWatchDestination'
-      <$> ( x .@? "DimensionConfigurations" .!@ mempty
-              >>= parseXMLList "member"
-          )
+      Lude.<$> ( x Lude..@? "DimensionConfigurations" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "member"
+               )
 
-instance Hashable CloudWatchDestination
-
-instance NFData CloudWatchDestination
-
-instance ToQuery CloudWatchDestination where
+instance Lude.ToQuery CloudWatchDestination where
   toQuery CloudWatchDestination' {..} =
-    mconcat
+    Lude.mconcat
       [ "DimensionConfigurations"
-          =: toQueryList "member" _cwdDimensionConfigurations
+          Lude.=: Lude.toQueryList "member" dimensionConfigurations
       ]

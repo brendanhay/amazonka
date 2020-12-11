@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Accepts a structured query language (SQL) @SELECT@ command, performs the corresponding search, and returns resource configurations matching the properties.
 --
---
 -- For more information about query components, see the <https://docs.aws.amazon.com/config/latest/developerguide/query-components.html __Query Components__ > section in the AWS Config Developer Guide.
 module Network.AWS.Config.SelectResourceConfig
-  ( -- * Creating a Request
-    selectResourceConfig,
-    SelectResourceConfig,
+  ( -- * Creating a request
+    SelectResourceConfig (..),
+    mkSelectResourceConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srcNextToken,
     srcLimit,
     srcExpression,
 
-    -- * Destructuring the Response
-    selectResourceConfigResponse,
-    SelectResourceConfigResponse,
+    -- * Destructuring the response
+    SelectResourceConfigResponse (..),
+    mkSelectResourceConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srcrsResults,
     srcrsQueryInfo,
     srcrsNextToken,
@@ -44,143 +38,163 @@ module Network.AWS.Config.SelectResourceConfig
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'selectResourceConfig' smart constructor.
+-- | /See:/ 'mkSelectResourceConfig' smart constructor.
 data SelectResourceConfig = SelectResourceConfig'
-  { _srcNextToken ::
-      !(Maybe Text),
-    _srcLimit :: !(Maybe Nat),
-    _srcExpression :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    expression :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srcNextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
---
--- * 'srcLimit' - The maximum number of query results returned on each page.
---
--- * 'srcExpression' - The SQL query @SELECT@ command.
-selectResourceConfig ::
-  -- | 'srcExpression'
-  Text ->
+-- * 'expression' - The SQL query @SELECT@ command.
+-- * 'limit' - The maximum number of query results returned on each page.
+-- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+mkSelectResourceConfig ::
+  -- | 'expression'
+  Lude.Text ->
   SelectResourceConfig
-selectResourceConfig pExpression_ =
+mkSelectResourceConfig pExpression_ =
   SelectResourceConfig'
-    { _srcNextToken = Nothing,
-      _srcLimit = Nothing,
-      _srcExpression = pExpression_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      expression = pExpression_
     }
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
-srcNextToken :: Lens' SelectResourceConfig (Maybe Text)
-srcNextToken = lens _srcNextToken (\s a -> s {_srcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcNextToken :: Lens.Lens' SelectResourceConfig (Lude.Maybe Lude.Text)
+srcNextToken = Lens.lens (nextToken :: SelectResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectResourceConfig)
+{-# DEPRECATED srcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of query results returned on each page.
-srcLimit :: Lens' SelectResourceConfig (Maybe Natural)
-srcLimit = lens _srcLimit (\s a -> s {_srcLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcLimit :: Lens.Lens' SelectResourceConfig (Lude.Maybe Lude.Natural)
+srcLimit = Lens.lens (limit :: SelectResourceConfig -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: SelectResourceConfig)
+{-# DEPRECATED srcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The SQL query @SELECT@ command.
-srcExpression :: Lens' SelectResourceConfig Text
-srcExpression = lens _srcExpression (\s a -> s {_srcExpression = a})
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcExpression :: Lens.Lens' SelectResourceConfig Lude.Text
+srcExpression = Lens.lens (expression :: SelectResourceConfig -> Lude.Text) (\s a -> s {expression = a} :: SelectResourceConfig)
+{-# DEPRECATED srcExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
-instance AWSRequest SelectResourceConfig where
+instance Lude.AWSRequest SelectResourceConfig where
   type Rs SelectResourceConfig = SelectResourceConfigResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SelectResourceConfigResponse'
-            <$> (x .?> "Results" .!@ mempty)
-            <*> (x .?> "QueryInfo")
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Results" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "QueryInfo")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SelectResourceConfig
-
-instance NFData SelectResourceConfig
-
-instance ToHeaders SelectResourceConfig where
+instance Lude.ToHeaders SelectResourceConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.SelectResourceConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.SelectResourceConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SelectResourceConfig where
+instance Lude.ToJSON SelectResourceConfig where
   toJSON SelectResourceConfig' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _srcNextToken,
-            ("Limit" .=) <$> _srcLimit,
-            Just ("Expression" .= _srcExpression)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("Expression" Lude..= expression)
           ]
       )
 
-instance ToPath SelectResourceConfig where
-  toPath = const "/"
+instance Lude.ToPath SelectResourceConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery SelectResourceConfig where
-  toQuery = const mempty
+instance Lude.ToQuery SelectResourceConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'selectResourceConfigResponse' smart constructor.
+-- | /See:/ 'mkSelectResourceConfigResponse' smart constructor.
 data SelectResourceConfigResponse = SelectResourceConfigResponse'
-  { _srcrsResults ::
-      !(Maybe [Text]),
-    _srcrsQueryInfo ::
-      !(Maybe QueryInfo),
-    _srcrsNextToken :: !(Maybe Text),
-    _srcrsResponseStatus :: !Int
+  { results ::
+      Lude.Maybe [Lude.Text],
+    queryInfo :: Lude.Maybe QueryInfo,
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResourceConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srcrsResults' - Returns the results for the SQL query.
---
--- * 'srcrsQueryInfo' - Returns the @QueryInfo@ object.
---
--- * 'srcrsNextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
---
--- * 'srcrsResponseStatus' - -- | The response status code.
-selectResourceConfigResponse ::
-  -- | 'srcrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'queryInfo' - Returns the @QueryInfo@ object.
+-- * 'responseStatus' - The response status code.
+-- * 'results' - Returns the results for the SQL query.
+mkSelectResourceConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SelectResourceConfigResponse
-selectResourceConfigResponse pResponseStatus_ =
+mkSelectResourceConfigResponse pResponseStatus_ =
   SelectResourceConfigResponse'
-    { _srcrsResults = Nothing,
-      _srcrsQueryInfo = Nothing,
-      _srcrsNextToken = Nothing,
-      _srcrsResponseStatus = pResponseStatus_
+    { results = Lude.Nothing,
+      queryInfo = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns the results for the SQL query.
-srcrsResults :: Lens' SelectResourceConfigResponse [Text]
-srcrsResults = lens _srcrsResults (\s a -> s {_srcrsResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcrsResults :: Lens.Lens' SelectResourceConfigResponse (Lude.Maybe [Lude.Text])
+srcrsResults = Lens.lens (results :: SelectResourceConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {results = a} :: SelectResourceConfigResponse)
+{-# DEPRECATED srcrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | Returns the @QueryInfo@ object.
-srcrsQueryInfo :: Lens' SelectResourceConfigResponse (Maybe QueryInfo)
-srcrsQueryInfo = lens _srcrsQueryInfo (\s a -> s {_srcrsQueryInfo = a})
+--
+-- /Note:/ Consider using 'queryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcrsQueryInfo :: Lens.Lens' SelectResourceConfigResponse (Lude.Maybe QueryInfo)
+srcrsQueryInfo = Lens.lens (queryInfo :: SelectResourceConfigResponse -> Lude.Maybe QueryInfo) (\s a -> s {queryInfo = a} :: SelectResourceConfigResponse)
+{-# DEPRECATED srcrsQueryInfo "Use generic-lens or generic-optics with 'queryInfo' instead." #-}
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
-srcrsNextToken :: Lens' SelectResourceConfigResponse (Maybe Text)
-srcrsNextToken = lens _srcrsNextToken (\s a -> s {_srcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcrsNextToken :: Lens.Lens' SelectResourceConfigResponse (Lude.Maybe Lude.Text)
+srcrsNextToken = Lens.lens (nextToken :: SelectResourceConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectResourceConfigResponse)
+{-# DEPRECATED srcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-srcrsResponseStatus :: Lens' SelectResourceConfigResponse Int
-srcrsResponseStatus = lens _srcrsResponseStatus (\s a -> s {_srcrsResponseStatus = a})
-
-instance NFData SelectResourceConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcrsResponseStatus :: Lens.Lens' SelectResourceConfigResponse Lude.Int
+srcrsResponseStatus = Lens.lens (responseStatus :: SelectResourceConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SelectResourceConfigResponse)
+{-# DEPRECATED srcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,25 @@
 --
 -- For a given input face ID, searches for matching faces in the collection the face belongs to. You get a face ID when you add a face to the collection using the 'IndexFaces' operation. The operation compares the features of the input face with faces in the specified collection.
 --
---
 -- The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a @confidence@ value for each face match, indicating the confidence that the specific face matches the input face.
---
 -- For an example, see Searching for a Face Using Its Face ID in the Amazon Rekognition Developer Guide.
---
 -- This operation requires permissions to perform the @rekognition:SearchFaces@ action.
 module Network.AWS.Rekognition.SearchFaces
-  ( -- * Creating a Request
-    searchFaces,
-    SearchFaces,
+  ( -- * Creating a request
+    SearchFaces (..),
+    mkSearchFaces,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sfFaceMatchThreshold,
     sfMaxFaces,
     sfCollectionId,
     sfFaceId,
 
-    -- * Destructuring the Response
-    searchFacesResponse,
-    SearchFacesResponse,
+    -- * Destructuring the response
+    SearchFacesResponse (..),
+    mkSearchFacesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sfrsFaceMatches,
     sfrsFaceModelVersion,
     sfrsSearchedFaceId,
@@ -48,154 +40,177 @@ module Network.AWS.Rekognition.SearchFaces
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchFaces' smart constructor.
+-- | /See:/ 'mkSearchFaces' smart constructor.
 data SearchFaces = SearchFaces'
-  { _sfFaceMatchThreshold ::
-      !(Maybe Double),
-    _sfMaxFaces :: !(Maybe Nat),
-    _sfCollectionId :: !Text,
-    _sfFaceId :: !Text
+  { faceMatchThreshold ::
+      Lude.Maybe Lude.Double,
+    maxFaces :: Lude.Maybe Lude.Natural,
+    collectionId :: Lude.Text,
+    faceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchFaces' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfFaceMatchThreshold' - Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
---
--- * 'sfMaxFaces' - Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
---
--- * 'sfCollectionId' - ID of the collection the face belongs to.
---
--- * 'sfFaceId' - ID of a face to find matches for in the collection.
-searchFaces ::
-  -- | 'sfCollectionId'
-  Text ->
-  -- | 'sfFaceId'
-  Text ->
+-- * 'collectionId' - ID of the collection the face belongs to.
+-- * 'faceId' - ID of a face to find matches for in the collection.
+-- * 'faceMatchThreshold' - Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
+-- * 'maxFaces' - Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
+mkSearchFaces ::
+  -- | 'collectionId'
+  Lude.Text ->
+  -- | 'faceId'
+  Lude.Text ->
   SearchFaces
-searchFaces pCollectionId_ pFaceId_ =
+mkSearchFaces pCollectionId_ pFaceId_ =
   SearchFaces'
-    { _sfFaceMatchThreshold = Nothing,
-      _sfMaxFaces = Nothing,
-      _sfCollectionId = pCollectionId_,
-      _sfFaceId = pFaceId_
+    { faceMatchThreshold = Lude.Nothing,
+      maxFaces = Lude.Nothing,
+      collectionId = pCollectionId_,
+      faceId = pFaceId_
     }
 
 -- | Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
-sfFaceMatchThreshold :: Lens' SearchFaces (Maybe Double)
-sfFaceMatchThreshold = lens _sfFaceMatchThreshold (\s a -> s {_sfFaceMatchThreshold = a})
+--
+-- /Note:/ Consider using 'faceMatchThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfFaceMatchThreshold :: Lens.Lens' SearchFaces (Lude.Maybe Lude.Double)
+sfFaceMatchThreshold = Lens.lens (faceMatchThreshold :: SearchFaces -> Lude.Maybe Lude.Double) (\s a -> s {faceMatchThreshold = a} :: SearchFaces)
+{-# DEPRECATED sfFaceMatchThreshold "Use generic-lens or generic-optics with 'faceMatchThreshold' instead." #-}
 
 -- | Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
-sfMaxFaces :: Lens' SearchFaces (Maybe Natural)
-sfMaxFaces = lens _sfMaxFaces (\s a -> s {_sfMaxFaces = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfMaxFaces :: Lens.Lens' SearchFaces (Lude.Maybe Lude.Natural)
+sfMaxFaces = Lens.lens (maxFaces :: SearchFaces -> Lude.Maybe Lude.Natural) (\s a -> s {maxFaces = a} :: SearchFaces)
+{-# DEPRECATED sfMaxFaces "Use generic-lens or generic-optics with 'maxFaces' instead." #-}
 
 -- | ID of the collection the face belongs to.
-sfCollectionId :: Lens' SearchFaces Text
-sfCollectionId = lens _sfCollectionId (\s a -> s {_sfCollectionId = a})
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfCollectionId :: Lens.Lens' SearchFaces Lude.Text
+sfCollectionId = Lens.lens (collectionId :: SearchFaces -> Lude.Text) (\s a -> s {collectionId = a} :: SearchFaces)
+{-# DEPRECATED sfCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 -- | ID of a face to find matches for in the collection.
-sfFaceId :: Lens' SearchFaces Text
-sfFaceId = lens _sfFaceId (\s a -> s {_sfFaceId = a})
+--
+-- /Note:/ Consider using 'faceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfFaceId :: Lens.Lens' SearchFaces Lude.Text
+sfFaceId = Lens.lens (faceId :: SearchFaces -> Lude.Text) (\s a -> s {faceId = a} :: SearchFaces)
+{-# DEPRECATED sfFaceId "Use generic-lens or generic-optics with 'faceId' instead." #-}
 
-instance AWSRequest SearchFaces where
+instance Lude.AWSRequest SearchFaces where
   type Rs SearchFaces = SearchFacesResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchFacesResponse'
-            <$> (x .?> "FaceMatches" .!@ mempty)
-            <*> (x .?> "FaceModelVersion")
-            <*> (x .?> "SearchedFaceId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FaceMatches" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "FaceModelVersion")
+            Lude.<*> (x Lude..?> "SearchedFaceId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchFaces
-
-instance NFData SearchFaces
-
-instance ToHeaders SearchFaces where
+instance Lude.ToHeaders SearchFaces where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.SearchFaces" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.SearchFaces" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchFaces where
+instance Lude.ToJSON SearchFaces where
   toJSON SearchFaces' {..} =
-    object
-      ( catMaybes
-          [ ("FaceMatchThreshold" .=) <$> _sfFaceMatchThreshold,
-            ("MaxFaces" .=) <$> _sfMaxFaces,
-            Just ("CollectionId" .= _sfCollectionId),
-            Just ("FaceId" .= _sfFaceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FaceMatchThreshold" Lude..=) Lude.<$> faceMatchThreshold,
+            ("MaxFaces" Lude..=) Lude.<$> maxFaces,
+            Lude.Just ("CollectionId" Lude..= collectionId),
+            Lude.Just ("FaceId" Lude..= faceId)
           ]
       )
 
-instance ToPath SearchFaces where
-  toPath = const "/"
+instance Lude.ToPath SearchFaces where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchFaces where
-  toQuery = const mempty
+instance Lude.ToQuery SearchFaces where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchFacesResponse' smart constructor.
+-- | /See:/ 'mkSearchFacesResponse' smart constructor.
 data SearchFacesResponse = SearchFacesResponse'
-  { _sfrsFaceMatches ::
-      !(Maybe [FaceMatch]),
-    _sfrsFaceModelVersion :: !(Maybe Text),
-    _sfrsSearchedFaceId :: !(Maybe Text),
-    _sfrsResponseStatus :: !Int
+  { faceMatches ::
+      Lude.Maybe [FaceMatch],
+    faceModelVersion :: Lude.Maybe Lude.Text,
+    searchedFaceId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchFacesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfrsFaceMatches' - An array of faces that matched the input face, along with the confidence in the match.
---
--- * 'sfrsFaceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
---
--- * 'sfrsSearchedFaceId' - ID of the face that was searched for matches in a collection.
---
--- * 'sfrsResponseStatus' - -- | The response status code.
-searchFacesResponse ::
-  -- | 'sfrsResponseStatus'
-  Int ->
+-- * 'faceMatches' - An array of faces that matched the input face, along with the confidence in the match.
+-- * 'faceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
+-- * 'responseStatus' - The response status code.
+-- * 'searchedFaceId' - ID of the face that was searched for matches in a collection.
+mkSearchFacesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchFacesResponse
-searchFacesResponse pResponseStatus_ =
+mkSearchFacesResponse pResponseStatus_ =
   SearchFacesResponse'
-    { _sfrsFaceMatches = Nothing,
-      _sfrsFaceModelVersion = Nothing,
-      _sfrsSearchedFaceId = Nothing,
-      _sfrsResponseStatus = pResponseStatus_
+    { faceMatches = Lude.Nothing,
+      faceModelVersion = Lude.Nothing,
+      searchedFaceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of faces that matched the input face, along with the confidence in the match.
-sfrsFaceMatches :: Lens' SearchFacesResponse [FaceMatch]
-sfrsFaceMatches = lens _sfrsFaceMatches (\s a -> s {_sfrsFaceMatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'faceMatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrsFaceMatches :: Lens.Lens' SearchFacesResponse (Lude.Maybe [FaceMatch])
+sfrsFaceMatches = Lens.lens (faceMatches :: SearchFacesResponse -> Lude.Maybe [FaceMatch]) (\s a -> s {faceMatches = a} :: SearchFacesResponse)
+{-# DEPRECATED sfrsFaceMatches "Use generic-lens or generic-optics with 'faceMatches' instead." #-}
 
 -- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
-sfrsFaceModelVersion :: Lens' SearchFacesResponse (Maybe Text)
-sfrsFaceModelVersion = lens _sfrsFaceModelVersion (\s a -> s {_sfrsFaceModelVersion = a})
+--
+-- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrsFaceModelVersion :: Lens.Lens' SearchFacesResponse (Lude.Maybe Lude.Text)
+sfrsFaceModelVersion = Lens.lens (faceModelVersion :: SearchFacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: SearchFacesResponse)
+{-# DEPRECATED sfrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | ID of the face that was searched for matches in a collection.
-sfrsSearchedFaceId :: Lens' SearchFacesResponse (Maybe Text)
-sfrsSearchedFaceId = lens _sfrsSearchedFaceId (\s a -> s {_sfrsSearchedFaceId = a})
+--
+-- /Note:/ Consider using 'searchedFaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrsSearchedFaceId :: Lens.Lens' SearchFacesResponse (Lude.Maybe Lude.Text)
+sfrsSearchedFaceId = Lens.lens (searchedFaceId :: SearchFacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {searchedFaceId = a} :: SearchFacesResponse)
+{-# DEPRECATED sfrsSearchedFaceId "Use generic-lens or generic-optics with 'searchedFaceId' instead." #-}
 
--- | -- | The response status code.
-sfrsResponseStatus :: Lens' SearchFacesResponse Int
-sfrsResponseStatus = lens _sfrsResponseStatus (\s a -> s {_sfrsResponseStatus = a})
-
-instance NFData SearchFacesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfrsResponseStatus :: Lens.Lens' SearchFacesResponse Lude.Int
+sfrsResponseStatus = Lens.lens (responseStatus :: SearchFacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchFacesResponse)
+{-# DEPRECATED sfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

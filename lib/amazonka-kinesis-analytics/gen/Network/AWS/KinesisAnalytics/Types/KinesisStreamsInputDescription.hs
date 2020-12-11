@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription where
+module Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription
+  ( KinesisStreamsInputDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisStreamsInputDescription,
+
+    -- * Lenses
+    ksidResourceARN,
+    ksidRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Amazon Kinesis stream that is configured as the streaming source in the application input configuration.
 --
---
---
--- /See:/ 'kinesisStreamsInputDescription' smart constructor.
+-- /See:/ 'mkKinesisStreamsInputDescription' smart constructor.
 data KinesisStreamsInputDescription = KinesisStreamsInputDescription'
-  { _ksidResourceARN ::
-      !(Maybe Text),
-    _ksidRoleARN :: !(Maybe Text)
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamsInputDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ksidResourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis stream.
---
--- * 'ksidRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
-kinesisStreamsInputDescription ::
+-- * 'resourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis stream.
+-- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
+mkKinesisStreamsInputDescription ::
   KinesisStreamsInputDescription
-kinesisStreamsInputDescription =
+mkKinesisStreamsInputDescription =
   KinesisStreamsInputDescription'
-    { _ksidResourceARN = Nothing,
-      _ksidRoleARN = Nothing
+    { resourceARN = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-ksidResourceARN :: Lens' KinesisStreamsInputDescription (Maybe Text)
-ksidResourceARN = lens _ksidResourceARN (\s a -> s {_ksidResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksidResourceARN :: Lens.Lens' KinesisStreamsInputDescription (Lude.Maybe Lude.Text)
+ksidResourceARN = Lens.lens (resourceARN :: KinesisStreamsInputDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: KinesisStreamsInputDescription)
+{-# DEPRECATED ksidResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
-ksidRoleARN :: Lens' KinesisStreamsInputDescription (Maybe Text)
-ksidRoleARN = lens _ksidRoleARN (\s a -> s {_ksidRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksidRoleARN :: Lens.Lens' KinesisStreamsInputDescription (Lude.Maybe Lude.Text)
+ksidRoleARN = Lens.lens (roleARN :: KinesisStreamsInputDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: KinesisStreamsInputDescription)
+{-# DEPRECATED ksidRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON KinesisStreamsInputDescription where
+instance Lude.FromJSON KinesisStreamsInputDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisStreamsInputDescription"
       ( \x ->
           KinesisStreamsInputDescription'
-            <$> (x .:? "ResourceARN") <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable KinesisStreamsInputDescription
-
-instance NFData KinesisStreamsInputDescription

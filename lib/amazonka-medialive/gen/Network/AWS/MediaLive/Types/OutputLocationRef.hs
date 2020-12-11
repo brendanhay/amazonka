@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputLocationRef where
+module Network.AWS.MediaLive.Types.OutputLocationRef
+  ( OutputLocationRef (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputLocationRef,
+
+    -- * Lenses
+    olrDestinationRefId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Reference to an OutputDestination ID defined in the channel
 --
--- /See:/ 'outputLocationRef' smart constructor.
+-- /See:/ 'mkOutputLocationRef' smart constructor.
 newtype OutputLocationRef = OutputLocationRef'
-  { _olrDestinationRefId ::
-      Maybe Text
+  { destinationRefId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputLocationRef' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'olrDestinationRefId' - Undocumented member.
-outputLocationRef ::
+-- * 'destinationRefId' - Undocumented field.
+mkOutputLocationRef ::
   OutputLocationRef
-outputLocationRef =
-  OutputLocationRef' {_olrDestinationRefId = Nothing}
+mkOutputLocationRef =
+  OutputLocationRef' {destinationRefId = Lude.Nothing}
 
--- | Undocumented member.
-olrDestinationRefId :: Lens' OutputLocationRef (Maybe Text)
-olrDestinationRefId = lens _olrDestinationRefId (\s a -> s {_olrDestinationRefId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'destinationRefId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olrDestinationRefId :: Lens.Lens' OutputLocationRef (Lude.Maybe Lude.Text)
+olrDestinationRefId = Lens.lens (destinationRefId :: OutputLocationRef -> Lude.Maybe Lude.Text) (\s a -> s {destinationRefId = a} :: OutputLocationRef)
+{-# DEPRECATED olrDestinationRefId "Use generic-lens or generic-optics with 'destinationRefId' instead." #-}
 
-instance FromJSON OutputLocationRef where
+instance Lude.FromJSON OutputLocationRef where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputLocationRef"
-      (\x -> OutputLocationRef' <$> (x .:? "destinationRefId"))
+      ( \x ->
+          OutputLocationRef' Lude.<$> (x Lude..:? "destinationRefId")
+      )
 
-instance Hashable OutputLocationRef
-
-instance NFData OutputLocationRef
-
-instance ToJSON OutputLocationRef where
+instance Lude.ToJSON OutputLocationRef where
   toJSON OutputLocationRef' {..} =
-    object
-      (catMaybes [("destinationRefId" .=) <$> _olrDestinationRefId])
+    Lude.object
+      ( Lude.catMaybes
+          [("destinationRefId" Lude..=) Lude.<$> destinationRefId]
+      )

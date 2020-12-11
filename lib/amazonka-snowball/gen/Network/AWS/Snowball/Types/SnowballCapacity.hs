@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.SnowballCapacity where
+module Network.AWS.Snowball.Types.SnowballCapacity
+  ( SnowballCapacity
+      ( SnowballCapacity',
+        NoPreference,
+        T100,
+        T42,
+        T50,
+        T8,
+        T80,
+        T98
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SnowballCapacity
-  = NoPreference
-  | T100
-  | T42
-  | T50
-  | T8
-  | T80
-  | T98
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SnowballCapacity = SnowballCapacity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SnowballCapacity where
-  parser =
-    takeLowerText >>= \case
-      "nopreference" -> pure NoPreference
-      "t100" -> pure T100
-      "t42" -> pure T42
-      "t50" -> pure T50
-      "t8" -> pure T8
-      "t80" -> pure T80
-      "t98" -> pure T98
-      e ->
-        fromTextError $
-          "Failure parsing SnowballCapacity from value: '" <> e
-            <> "'. Accepted values: nopreference, t100, t42, t50, t8, t80, t98"
+pattern NoPreference :: SnowballCapacity
+pattern NoPreference = SnowballCapacity' "NoPreference"
 
-instance ToText SnowballCapacity where
-  toText = \case
-    NoPreference -> "NoPreference"
-    T100 -> "T100"
-    T42 -> "T42"
-    T50 -> "T50"
-    T8 -> "T8"
-    T80 -> "T80"
-    T98 -> "T98"
+pattern T100 :: SnowballCapacity
+pattern T100 = SnowballCapacity' "T100"
 
-instance Hashable SnowballCapacity
+pattern T42 :: SnowballCapacity
+pattern T42 = SnowballCapacity' "T42"
 
-instance NFData SnowballCapacity
+pattern T50 :: SnowballCapacity
+pattern T50 = SnowballCapacity' "T50"
 
-instance ToByteString SnowballCapacity
+pattern T8 :: SnowballCapacity
+pattern T8 = SnowballCapacity' "T8"
 
-instance ToQuery SnowballCapacity
+pattern T80 :: SnowballCapacity
+pattern T80 = SnowballCapacity' "T80"
 
-instance ToHeader SnowballCapacity
+pattern T98 :: SnowballCapacity
+pattern T98 = SnowballCapacity' "T98"
 
-instance ToJSON SnowballCapacity where
-  toJSON = toJSONText
-
-instance FromJSON SnowballCapacity where
-  parseJSON = parseJSONText "SnowballCapacity"
+{-# COMPLETE
+  NoPreference,
+  T100,
+  T42,
+  T50,
+  T8,
+  T80,
+  T98,
+  SnowballCapacity'
+  #-}

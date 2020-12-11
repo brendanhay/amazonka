@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,113 @@
 --
 -- ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.
 module Network.AWS.EMR.ModifyInstanceGroups
-  ( -- * Creating a Request
-    modifyInstanceGroups,
-    ModifyInstanceGroups,
+  ( -- * Creating a request
+    ModifyInstanceGroups (..),
+    mkModifyInstanceGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     migClusterId,
     migInstanceGroups,
 
-    -- * Destructuring the Response
-    modifyInstanceGroupsResponse,
-    ModifyInstanceGroupsResponse,
+    -- * Destructuring the response
+    ModifyInstanceGroupsResponse (..),
+    mkModifyInstanceGroupsResponse,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Change the size of some instance groups.
 --
---
---
--- /See:/ 'modifyInstanceGroups' smart constructor.
+-- /See:/ 'mkModifyInstanceGroups' smart constructor.
 data ModifyInstanceGroups = ModifyInstanceGroups'
-  { _migClusterId ::
-      !(Maybe Text),
-    _migInstanceGroups ::
-      !(Maybe [InstanceGroupModifyConfig])
+  { clusterId ::
+      Lude.Maybe Lude.Text,
+    instanceGroups ::
+      Lude.Maybe [InstanceGroupModifyConfig]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'migClusterId' - The ID of the cluster to which the instance group belongs.
---
--- * 'migInstanceGroups' - Instance groups to change.
-modifyInstanceGroups ::
+-- * 'clusterId' - The ID of the cluster to which the instance group belongs.
+-- * 'instanceGroups' - Instance groups to change.
+mkModifyInstanceGroups ::
   ModifyInstanceGroups
-modifyInstanceGroups =
+mkModifyInstanceGroups =
   ModifyInstanceGroups'
-    { _migClusterId = Nothing,
-      _migInstanceGroups = Nothing
+    { clusterId = Lude.Nothing,
+      instanceGroups = Lude.Nothing
     }
 
 -- | The ID of the cluster to which the instance group belongs.
-migClusterId :: Lens' ModifyInstanceGroups (Maybe Text)
-migClusterId = lens _migClusterId (\s a -> s {_migClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+migClusterId :: Lens.Lens' ModifyInstanceGroups (Lude.Maybe Lude.Text)
+migClusterId = Lens.lens (clusterId :: ModifyInstanceGroups -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: ModifyInstanceGroups)
+{-# DEPRECATED migClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Instance groups to change.
-migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
-migInstanceGroups = lens _migInstanceGroups (\s a -> s {_migInstanceGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+migInstanceGroups :: Lens.Lens' ModifyInstanceGroups (Lude.Maybe [InstanceGroupModifyConfig])
+migInstanceGroups = Lens.lens (instanceGroups :: ModifyInstanceGroups -> Lude.Maybe [InstanceGroupModifyConfig]) (\s a -> s {instanceGroups = a} :: ModifyInstanceGroups)
+{-# DEPRECATED migInstanceGroups "Use generic-lens or generic-optics with 'instanceGroups' instead." #-}
 
-instance AWSRequest ModifyInstanceGroups where
+instance Lude.AWSRequest ModifyInstanceGroups where
   type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
-  request = postJSON emr
-  response = receiveNull ModifyInstanceGroupsResponse'
+  request = Req.postJSON emrService
+  response = Res.receiveNull ModifyInstanceGroupsResponse'
 
-instance Hashable ModifyInstanceGroups
-
-instance NFData ModifyInstanceGroups
-
-instance ToHeaders ModifyInstanceGroups where
+instance Lude.ToHeaders ModifyInstanceGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.ModifyInstanceGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.ModifyInstanceGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyInstanceGroups where
+instance Lude.ToJSON ModifyInstanceGroups where
   toJSON ModifyInstanceGroups' {..} =
-    object
-      ( catMaybes
-          [ ("ClusterId" .=) <$> _migClusterId,
-            ("InstanceGroups" .=) <$> _migInstanceGroups
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClusterId" Lude..=) Lude.<$> clusterId,
+            ("InstanceGroups" Lude..=) Lude.<$> instanceGroups
           ]
       )
 
-instance ToPath ModifyInstanceGroups where
-  toPath = const "/"
+instance Lude.ToPath ModifyInstanceGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyInstanceGroups where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyInstanceGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
+-- | /See:/ 'mkModifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceGroupsResponse' with the minimum fields required to make a request.
-modifyInstanceGroupsResponse ::
+mkModifyInstanceGroupsResponse ::
   ModifyInstanceGroupsResponse
-modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
-
-instance NFData ModifyInstanceGroupsResponse
+mkModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'

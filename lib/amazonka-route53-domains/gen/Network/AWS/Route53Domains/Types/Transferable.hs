@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.Transferable where
+module Network.AWS.Route53Domains.Types.Transferable
+  ( Transferable
+      ( Transferable',
+        DontKnow,
+        Transferable,
+        Untransferable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Whether the domain name can be transferred to Route 53.
 --
---
 -- Valid values:
 --
---     * TRANSFERABLE    * The domain name can be transferred to Route 53.
+--     * TRANSFERABLE
 --
---     * UNTRANSFERRABLE    * The domain name can't be transferred to Route 53.
+--     * The domain name can be transferred to Route 53.
 --
---     * DONT_KNOW    * Reserved for future use.
-data Transferable
-  = DontKnow
-  | Transferable
-  | Untransferable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+--
+--     * UNTRANSFERRABLE
+--
+--     * The domain name can't be transferred to Route 53.
+--
+--
+--     * DONT_KNOW
+--
+--     * Reserved for future use.
+newtype Transferable = Transferable' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Transferable where
-  parser =
-    takeLowerText >>= \case
-      "dont_know" -> pure DontKnow
-      "transferable" -> pure Transferable
-      "untransferable" -> pure Untransferable
-      e ->
-        fromTextError $
-          "Failure parsing Transferable from value: '" <> e
-            <> "'. Accepted values: dont_know, transferable, untransferable"
+pattern DontKnow :: Transferable
+pattern DontKnow = Transferable' "DONT_KNOW"
 
-instance ToText Transferable where
-  toText = \case
-    DontKnow -> "DONT_KNOW"
-    Transferable -> "TRANSFERABLE"
-    Untransferable -> "UNTRANSFERABLE"
+pattern Transferable :: Transferable
+pattern Transferable = Transferable' "TRANSFERABLE"
 
-instance Hashable Transferable
+pattern Untransferable :: Transferable
+pattern Untransferable = Transferable' "UNTRANSFERABLE"
 
-instance NFData Transferable
-
-instance ToByteString Transferable
-
-instance ToQuery Transferable
-
-instance ToHeader Transferable
-
-instance FromJSON Transferable where
-  parseJSON = parseJSONText "Transferable"
+{-# COMPLETE
+  DontKnow,
+  Transferable,
+  Untransferable,
+  Transferable'
+  #-}

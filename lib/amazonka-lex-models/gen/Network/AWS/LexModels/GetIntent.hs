@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Returns information about an intent. In addition to the intent name, you must specify the intent version.
 --
---
 -- This operation requires permissions to perform the @lex:GetIntent@ action.
 module Network.AWS.LexModels.GetIntent
-  ( -- * Creating a Request
-    getIntent,
-    GetIntent,
+  ( -- * Creating a request
+    GetIntent (..),
+    mkGetIntent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giName,
     giVersion,
 
-    -- * Destructuring the Response
-    getIntentResponse,
-    GetIntentResponse,
+    -- * Destructuring the response
+    GetIntentResponse (..),
+    mkGetIntentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     getrsFulfillmentActivity,
     getrsSlots,
     getrsRejectionStatement,
@@ -57,255 +51,307 @@ module Network.AWS.LexModels.GetIntent
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getIntent' smart constructor.
-data GetIntent = GetIntent' {_giName :: !Text, _giVersion :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetIntent' smart constructor.
+data GetIntent = GetIntent'
+  { name :: Lude.Text,
+    version :: Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giName' - The name of the intent. The name is case sensitive.
---
--- * 'giVersion' - The version of the intent.
-getIntent ::
-  -- | 'giName'
-  Text ->
-  -- | 'giVersion'
-  Text ->
+-- * 'name' - The name of the intent. The name is case sensitive.
+-- * 'version' - The version of the intent.
+mkGetIntent ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   GetIntent
-getIntent pName_ pVersion_ =
-  GetIntent' {_giName = pName_, _giVersion = pVersion_}
+mkGetIntent pName_ pVersion_ =
+  GetIntent' {name = pName_, version = pVersion_}
 
 -- | The name of the intent. The name is case sensitive.
-giName :: Lens' GetIntent Text
-giName = lens _giName (\s a -> s {_giName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giName :: Lens.Lens' GetIntent Lude.Text
+giName = Lens.lens (name :: GetIntent -> Lude.Text) (\s a -> s {name = a} :: GetIntent)
+{-# DEPRECATED giName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent.
-giVersion :: Lens' GetIntent Text
-giVersion = lens _giVersion (\s a -> s {_giVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giVersion :: Lens.Lens' GetIntent Lude.Text
+giVersion = Lens.lens (version :: GetIntent -> Lude.Text) (\s a -> s {version = a} :: GetIntent)
+{-# DEPRECATED giVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance AWSRequest GetIntent where
+instance Lude.AWSRequest GetIntent where
   type Rs GetIntent = GetIntentResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetIntentResponse'
-            <$> (x .?> "fulfillmentActivity")
-            <*> (x .?> "slots" .!@ mempty)
-            <*> (x .?> "rejectionStatement")
-            <*> (x .?> "checksum")
-            <*> (x .?> "conclusionStatement")
-            <*> (x .?> "sampleUtterances" .!@ mempty)
-            <*> (x .?> "parentIntentSignature")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "kendraConfiguration")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "inputContexts" .!@ mempty)
-            <*> (x .?> "followUpPrompt")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "outputContexts" .!@ mempty)
-            <*> (x .?> "confirmationPrompt")
-            <*> (x .?> "dialogCodeHook")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "fulfillmentActivity")
+            Lude.<*> (x Lude..?> "slots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "rejectionStatement")
+            Lude.<*> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "conclusionStatement")
+            Lude.<*> (x Lude..?> "sampleUtterances" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "parentIntentSignature")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "kendraConfiguration")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "inputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "followUpPrompt")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "outputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "confirmationPrompt")
+            Lude.<*> (x Lude..?> "dialogCodeHook")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetIntent
-
-instance NFData GetIntent
-
-instance ToHeaders GetIntent where
+instance Lude.ToHeaders GetIntent where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetIntent where
+instance Lude.ToPath GetIntent where
   toPath GetIntent' {..} =
-    mconcat
-      ["/intents/", toBS _giName, "/versions/", toBS _giVersion]
+    Lude.mconcat
+      ["/intents/", Lude.toBS name, "/versions/", Lude.toBS version]
 
-instance ToQuery GetIntent where
-  toQuery = const mempty
+instance Lude.ToQuery GetIntent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getIntentResponse' smart constructor.
+-- | /See:/ 'mkGetIntentResponse' smart constructor.
 data GetIntentResponse = GetIntentResponse'
-  { _getrsFulfillmentActivity ::
-      !(Maybe FulfillmentActivity),
-    _getrsSlots :: !(Maybe [Slot]),
-    _getrsRejectionStatement :: !(Maybe Statement),
-    _getrsChecksum :: !(Maybe Text),
-    _getrsConclusionStatement :: !(Maybe Statement),
-    _getrsSampleUtterances :: !(Maybe [Text]),
-    _getrsParentIntentSignature :: !(Maybe Text),
-    _getrsCreatedDate :: !(Maybe POSIX),
-    _getrsKendraConfiguration ::
-      !(Maybe KendraConfiguration),
-    _getrsName :: !(Maybe Text),
-    _getrsVersion :: !(Maybe Text),
-    _getrsInputContexts :: !(Maybe [InputContext]),
-    _getrsFollowUpPrompt :: !(Maybe FollowUpPrompt),
-    _getrsLastUpdatedDate :: !(Maybe POSIX),
-    _getrsOutputContexts :: !(Maybe [OutputContext]),
-    _getrsConfirmationPrompt :: !(Maybe Prompt),
-    _getrsDialogCodeHook :: !(Maybe CodeHook),
-    _getrsDescription :: !(Maybe Text),
-    _getrsResponseStatus :: !Int
+  { fulfillmentActivity ::
+      Lude.Maybe FulfillmentActivity,
+    slots :: Lude.Maybe [Slot],
+    rejectionStatement :: Lude.Maybe Statement,
+    checksum :: Lude.Maybe Lude.Text,
+    conclusionStatement :: Lude.Maybe Statement,
+    sampleUtterances :: Lude.Maybe [Lude.Text],
+    parentIntentSignature :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    kendraConfiguration :: Lude.Maybe KendraConfiguration,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    inputContexts :: Lude.Maybe [InputContext],
+    followUpPrompt :: Lude.Maybe FollowUpPrompt,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    outputContexts :: Lude.Maybe [OutputContext],
+    confirmationPrompt :: Lude.Maybe Prompt,
+    dialogCodeHook :: Lude.Maybe CodeHook,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'getrsFulfillmentActivity' - Describes how the intent is fulfilled. For more information, see 'PutIntent' .
---
--- * 'getrsSlots' - An array of intent slots configured for the intent.
---
--- * 'getrsRejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
---
--- * 'getrsChecksum' - Checksum of the intent.
---
--- * 'getrsConclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
---
--- * 'getrsSampleUtterances' - An array of sample utterances configured for the intent.
---
--- * 'getrsParentIntentSignature' - A unique identifier for a built-in intent.
---
--- * 'getrsCreatedDate' - The date that the intent was created.
---
--- * 'getrsKendraConfiguration' - Configuration information, if any, to connect to an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
---
--- * 'getrsName' - The name of the intent.
---
--- * 'getrsVersion' - The version of the intent.
---
--- * 'getrsInputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
---
--- * 'getrsFollowUpPrompt' - If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
---
--- * 'getrsLastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
---
--- * 'getrsOutputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
---
--- * 'getrsConfirmationPrompt' - If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
---
--- * 'getrsDialogCodeHook' - If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
---
--- * 'getrsDescription' - A description of the intent.
---
--- * 'getrsResponseStatus' - -- | The response status code.
-getIntentResponse ::
-  -- | 'getrsResponseStatus'
-  Int ->
+-- * 'checksum' - Checksum of the intent.
+-- * 'conclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
+-- * 'confirmationPrompt' - If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
+-- * 'createdDate' - The date that the intent was created.
+-- * 'description' - A description of the intent.
+-- * 'dialogCodeHook' - If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
+-- * 'followUpPrompt' - If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
+-- * 'fulfillmentActivity' - Describes how the intent is fulfilled. For more information, see 'PutIntent' .
+-- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+-- * 'kendraConfiguration' - Configuration information, if any, to connect to an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
+-- * 'lastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
+-- * 'name' - The name of the intent.
+-- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+-- * 'parentIntentSignature' - A unique identifier for a built-in intent.
+-- * 'rejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- * 'responseStatus' - The response status code.
+-- * 'sampleUtterances' - An array of sample utterances configured for the intent.
+-- * 'slots' - An array of intent slots configured for the intent.
+-- * 'version' - The version of the intent.
+mkGetIntentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIntentResponse
-getIntentResponse pResponseStatus_ =
+mkGetIntentResponse pResponseStatus_ =
   GetIntentResponse'
-    { _getrsFulfillmentActivity = Nothing,
-      _getrsSlots = Nothing,
-      _getrsRejectionStatement = Nothing,
-      _getrsChecksum = Nothing,
-      _getrsConclusionStatement = Nothing,
-      _getrsSampleUtterances = Nothing,
-      _getrsParentIntentSignature = Nothing,
-      _getrsCreatedDate = Nothing,
-      _getrsKendraConfiguration = Nothing,
-      _getrsName = Nothing,
-      _getrsVersion = Nothing,
-      _getrsInputContexts = Nothing,
-      _getrsFollowUpPrompt = Nothing,
-      _getrsLastUpdatedDate = Nothing,
-      _getrsOutputContexts = Nothing,
-      _getrsConfirmationPrompt = Nothing,
-      _getrsDialogCodeHook = Nothing,
-      _getrsDescription = Nothing,
-      _getrsResponseStatus = pResponseStatus_
+    { fulfillmentActivity = Lude.Nothing,
+      slots = Lude.Nothing,
+      rejectionStatement = Lude.Nothing,
+      checksum = Lude.Nothing,
+      conclusionStatement = Lude.Nothing,
+      sampleUtterances = Lude.Nothing,
+      parentIntentSignature = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      kendraConfiguration = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      inputContexts = Lude.Nothing,
+      followUpPrompt = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      outputContexts = Lude.Nothing,
+      confirmationPrompt = Lude.Nothing,
+      dialogCodeHook = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes how the intent is fulfilled. For more information, see 'PutIntent' .
-getrsFulfillmentActivity :: Lens' GetIntentResponse (Maybe FulfillmentActivity)
-getrsFulfillmentActivity = lens _getrsFulfillmentActivity (\s a -> s {_getrsFulfillmentActivity = a})
+--
+-- /Note:/ Consider using 'fulfillmentActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsFulfillmentActivity :: Lens.Lens' GetIntentResponse (Lude.Maybe FulfillmentActivity)
+getrsFulfillmentActivity = Lens.lens (fulfillmentActivity :: GetIntentResponse -> Lude.Maybe FulfillmentActivity) (\s a -> s {fulfillmentActivity = a} :: GetIntentResponse)
+{-# DEPRECATED getrsFulfillmentActivity "Use generic-lens or generic-optics with 'fulfillmentActivity' instead." #-}
 
 -- | An array of intent slots configured for the intent.
-getrsSlots :: Lens' GetIntentResponse [Slot]
-getrsSlots = lens _getrsSlots (\s a -> s {_getrsSlots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsSlots :: Lens.Lens' GetIntentResponse (Lude.Maybe [Slot])
+getrsSlots = Lens.lens (slots :: GetIntentResponse -> Lude.Maybe [Slot]) (\s a -> s {slots = a} :: GetIntentResponse)
+{-# DEPRECATED getrsSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-getrsRejectionStatement :: Lens' GetIntentResponse (Maybe Statement)
-getrsRejectionStatement = lens _getrsRejectionStatement (\s a -> s {_getrsRejectionStatement = a})
+--
+-- /Note:/ Consider using 'rejectionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsRejectionStatement :: Lens.Lens' GetIntentResponse (Lude.Maybe Statement)
+getrsRejectionStatement = Lens.lens (rejectionStatement :: GetIntentResponse -> Lude.Maybe Statement) (\s a -> s {rejectionStatement = a} :: GetIntentResponse)
+{-# DEPRECATED getrsRejectionStatement "Use generic-lens or generic-optics with 'rejectionStatement' instead." #-}
 
 -- | Checksum of the intent.
-getrsChecksum :: Lens' GetIntentResponse (Maybe Text)
-getrsChecksum = lens _getrsChecksum (\s a -> s {_getrsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsChecksum :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Text)
+getrsChecksum = Lens.lens (checksum :: GetIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: GetIntentResponse)
+{-# DEPRECATED getrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | After the Lambda function specified in the @fulfillmentActivity@ element fulfills the intent, Amazon Lex conveys this statement to the user.
-getrsConclusionStatement :: Lens' GetIntentResponse (Maybe Statement)
-getrsConclusionStatement = lens _getrsConclusionStatement (\s a -> s {_getrsConclusionStatement = a})
+--
+-- /Note:/ Consider using 'conclusionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsConclusionStatement :: Lens.Lens' GetIntentResponse (Lude.Maybe Statement)
+getrsConclusionStatement = Lens.lens (conclusionStatement :: GetIntentResponse -> Lude.Maybe Statement) (\s a -> s {conclusionStatement = a} :: GetIntentResponse)
+{-# DEPRECATED getrsConclusionStatement "Use generic-lens or generic-optics with 'conclusionStatement' instead." #-}
 
 -- | An array of sample utterances configured for the intent.
-getrsSampleUtterances :: Lens' GetIntentResponse [Text]
-getrsSampleUtterances = lens _getrsSampleUtterances (\s a -> s {_getrsSampleUtterances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsSampleUtterances :: Lens.Lens' GetIntentResponse (Lude.Maybe [Lude.Text])
+getrsSampleUtterances = Lens.lens (sampleUtterances :: GetIntentResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: GetIntentResponse)
+{-# DEPRECATED getrsSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
 -- | A unique identifier for a built-in intent.
-getrsParentIntentSignature :: Lens' GetIntentResponse (Maybe Text)
-getrsParentIntentSignature = lens _getrsParentIntentSignature (\s a -> s {_getrsParentIntentSignature = a})
+--
+-- /Note:/ Consider using 'parentIntentSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsParentIntentSignature :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Text)
+getrsParentIntentSignature = Lens.lens (parentIntentSignature :: GetIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentIntentSignature = a} :: GetIntentResponse)
+{-# DEPRECATED getrsParentIntentSignature "Use generic-lens or generic-optics with 'parentIntentSignature' instead." #-}
 
 -- | The date that the intent was created.
-getrsCreatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
-getrsCreatedDate = lens _getrsCreatedDate (\s a -> s {_getrsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsCreatedDate :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Timestamp)
+getrsCreatedDate = Lens.lens (createdDate :: GetIntentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetIntentResponse)
+{-# DEPRECATED getrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | Configuration information, if any, to connect to an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
-getrsKendraConfiguration :: Lens' GetIntentResponse (Maybe KendraConfiguration)
-getrsKendraConfiguration = lens _getrsKendraConfiguration (\s a -> s {_getrsKendraConfiguration = a})
+--
+-- /Note:/ Consider using 'kendraConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsKendraConfiguration :: Lens.Lens' GetIntentResponse (Lude.Maybe KendraConfiguration)
+getrsKendraConfiguration = Lens.lens (kendraConfiguration :: GetIntentResponse -> Lude.Maybe KendraConfiguration) (\s a -> s {kendraConfiguration = a} :: GetIntentResponse)
+{-# DEPRECATED getrsKendraConfiguration "Use generic-lens or generic-optics with 'kendraConfiguration' instead." #-}
 
 -- | The name of the intent.
-getrsName :: Lens' GetIntentResponse (Maybe Text)
-getrsName = lens _getrsName (\s a -> s {_getrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsName :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Text)
+getrsName = Lens.lens (name :: GetIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetIntentResponse)
+{-# DEPRECATED getrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent.
-getrsVersion :: Lens' GetIntentResponse (Maybe Text)
-getrsVersion = lens _getrsVersion (\s a -> s {_getrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsVersion :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Text)
+getrsVersion = Lens.lens (version :: GetIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetIntentResponse)
+{-# DEPRECATED getrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
-getrsInputContexts :: Lens' GetIntentResponse [InputContext]
-getrsInputContexts = lens _getrsInputContexts (\s a -> s {_getrsInputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsInputContexts :: Lens.Lens' GetIntentResponse (Lude.Maybe [InputContext])
+getrsInputContexts = Lens.lens (inputContexts :: GetIntentResponse -> Lude.Maybe [InputContext]) (\s a -> s {inputContexts = a} :: GetIntentResponse)
+{-# DEPRECATED getrsInputContexts "Use generic-lens or generic-optics with 'inputContexts' instead." #-}
 
 -- | If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see 'PutIntent' .
-getrsFollowUpPrompt :: Lens' GetIntentResponse (Maybe FollowUpPrompt)
-getrsFollowUpPrompt = lens _getrsFollowUpPrompt (\s a -> s {_getrsFollowUpPrompt = a})
+--
+-- /Note:/ Consider using 'followUpPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsFollowUpPrompt :: Lens.Lens' GetIntentResponse (Lude.Maybe FollowUpPrompt)
+getrsFollowUpPrompt = Lens.lens (followUpPrompt :: GetIntentResponse -> Lude.Maybe FollowUpPrompt) (\s a -> s {followUpPrompt = a} :: GetIntentResponse)
+{-# DEPRECATED getrsFollowUpPrompt "Use generic-lens or generic-optics with 'followUpPrompt' instead." #-}
 
 -- | The date that the intent was updated. When you create a resource, the creation date and the last updated date are the same.
-getrsLastUpdatedDate :: Lens' GetIntentResponse (Maybe UTCTime)
-getrsLastUpdatedDate = lens _getrsLastUpdatedDate (\s a -> s {_getrsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsLastUpdatedDate :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Timestamp)
+getrsLastUpdatedDate = Lens.lens (lastUpdatedDate :: GetIntentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: GetIntentResponse)
+{-# DEPRECATED getrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
-getrsOutputContexts :: Lens' GetIntentResponse [OutputContext]
-getrsOutputContexts = lens _getrsOutputContexts (\s a -> s {_getrsOutputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsOutputContexts :: Lens.Lens' GetIntentResponse (Lude.Maybe [OutputContext])
+getrsOutputContexts = Lens.lens (outputContexts :: GetIntentResponse -> Lude.Maybe [OutputContext]) (\s a -> s {outputContexts = a} :: GetIntentResponse)
+{-# DEPRECATED getrsOutputContexts "Use generic-lens or generic-optics with 'outputContexts' instead." #-}
 
 -- | If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see 'PutIntent' .
-getrsConfirmationPrompt :: Lens' GetIntentResponse (Maybe Prompt)
-getrsConfirmationPrompt = lens _getrsConfirmationPrompt (\s a -> s {_getrsConfirmationPrompt = a})
+--
+-- /Note:/ Consider using 'confirmationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsConfirmationPrompt :: Lens.Lens' GetIntentResponse (Lude.Maybe Prompt)
+getrsConfirmationPrompt = Lens.lens (confirmationPrompt :: GetIntentResponse -> Lude.Maybe Prompt) (\s a -> s {confirmationPrompt = a} :: GetIntentResponse)
+{-# DEPRECATED getrsConfirmationPrompt "Use generic-lens or generic-optics with 'confirmationPrompt' instead." #-}
 
 -- | If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see 'PutIntent' .
-getrsDialogCodeHook :: Lens' GetIntentResponse (Maybe CodeHook)
-getrsDialogCodeHook = lens _getrsDialogCodeHook (\s a -> s {_getrsDialogCodeHook = a})
+--
+-- /Note:/ Consider using 'dialogCodeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsDialogCodeHook :: Lens.Lens' GetIntentResponse (Lude.Maybe CodeHook)
+getrsDialogCodeHook = Lens.lens (dialogCodeHook :: GetIntentResponse -> Lude.Maybe CodeHook) (\s a -> s {dialogCodeHook = a} :: GetIntentResponse)
+{-# DEPRECATED getrsDialogCodeHook "Use generic-lens or generic-optics with 'dialogCodeHook' instead." #-}
 
 -- | A description of the intent.
-getrsDescription :: Lens' GetIntentResponse (Maybe Text)
-getrsDescription = lens _getrsDescription (\s a -> s {_getrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsDescription :: Lens.Lens' GetIntentResponse (Lude.Maybe Lude.Text)
+getrsDescription = Lens.lens (description :: GetIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetIntentResponse)
+{-# DEPRECATED getrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-getrsResponseStatus :: Lens' GetIntentResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\s a -> s {_getrsResponseStatus = a})
-
-instance NFData GetIntentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsResponseStatus :: Lens.Lens' GetIntentResponse Lude.Int
+getrsResponseStatus = Lens.lens (responseStatus :: GetIntentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIntentResponse)
+{-# DEPRECATED getrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

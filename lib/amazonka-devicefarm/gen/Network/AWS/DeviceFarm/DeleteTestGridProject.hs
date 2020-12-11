@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,120 @@
 --
 -- Deletes a Selenium testing project and all content generated under it.
 --
---
 -- /Important:/ You cannot undo this operation.
 module Network.AWS.DeviceFarm.DeleteTestGridProject
-  ( -- * Creating a Request
-    deleteTestGridProject,
-    DeleteTestGridProject,
+  ( -- * Creating a request
+    DeleteTestGridProject (..),
+    mkDeleteTestGridProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgpProjectARN,
 
-    -- * Destructuring the Response
-    deleteTestGridProjectResponse,
-    DeleteTestGridProjectResponse,
+    -- * Destructuring the response
+    DeleteTestGridProjectResponse (..),
+    mkDeleteTestGridProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTestGridProject' smart constructor.
+-- | /See:/ 'mkDeleteTestGridProject' smart constructor.
 newtype DeleteTestGridProject = DeleteTestGridProject'
-  { _dtgpProjectARN ::
-      Text
+  { projectARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTestGridProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgpProjectARN' - The ARN of the project to delete, from 'CreateTestGridProject' or 'ListTestGridProjects' .
-deleteTestGridProject ::
-  -- | 'dtgpProjectARN'
-  Text ->
+-- * 'projectARN' - The ARN of the project to delete, from 'CreateTestGridProject' or 'ListTestGridProjects' .
+mkDeleteTestGridProject ::
+  -- | 'projectARN'
+  Lude.Text ->
   DeleteTestGridProject
-deleteTestGridProject pProjectARN_ =
-  DeleteTestGridProject' {_dtgpProjectARN = pProjectARN_}
+mkDeleteTestGridProject pProjectARN_ =
+  DeleteTestGridProject' {projectARN = pProjectARN_}
 
 -- | The ARN of the project to delete, from 'CreateTestGridProject' or 'ListTestGridProjects' .
-dtgpProjectARN :: Lens' DeleteTestGridProject Text
-dtgpProjectARN = lens _dtgpProjectARN (\s a -> s {_dtgpProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgpProjectARN :: Lens.Lens' DeleteTestGridProject Lude.Text
+dtgpProjectARN = Lens.lens (projectARN :: DeleteTestGridProject -> Lude.Text) (\s a -> s {projectARN = a} :: DeleteTestGridProject)
+{-# DEPRECATED dtgpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
-instance AWSRequest DeleteTestGridProject where
+instance Lude.AWSRequest DeleteTestGridProject where
   type Rs DeleteTestGridProject = DeleteTestGridProjectResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
-      (\s h x -> DeleteTestGridProjectResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteTestGridProjectResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteTestGridProject
-
-instance NFData DeleteTestGridProject
-
-instance ToHeaders DeleteTestGridProject where
+instance Lude.ToHeaders DeleteTestGridProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.DeleteTestGridProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.DeleteTestGridProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteTestGridProject where
+instance Lude.ToJSON DeleteTestGridProject where
   toJSON DeleteTestGridProject' {..} =
-    object (catMaybes [Just ("projectArn" .= _dtgpProjectARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("projectArn" Lude..= projectARN)])
 
-instance ToPath DeleteTestGridProject where
-  toPath = const "/"
+instance Lude.ToPath DeleteTestGridProject where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteTestGridProject where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTestGridProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTestGridProjectResponse' smart constructor.
+-- | /See:/ 'mkDeleteTestGridProjectResponse' smart constructor.
 newtype DeleteTestGridProjectResponse = DeleteTestGridProjectResponse'
-  { _dtgprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTestGridProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgprsResponseStatus' - -- | The response status code.
-deleteTestGridProjectResponse ::
-  -- | 'dtgprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTestGridProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTestGridProjectResponse
-deleteTestGridProjectResponse pResponseStatus_ =
-  DeleteTestGridProjectResponse'
-    { _dtgprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteTestGridProjectResponse pResponseStatus_ =
+  DeleteTestGridProjectResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtgprsResponseStatus :: Lens' DeleteTestGridProjectResponse Int
-dtgprsResponseStatus = lens _dtgprsResponseStatus (\s a -> s {_dtgprsResponseStatus = a})
-
-instance NFData DeleteTestGridProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgprsResponseStatus :: Lens.Lens' DeleteTestGridProjectResponse Lude.Int
+dtgprsResponseStatus = Lens.lens (responseStatus :: DeleteTestGridProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTestGridProjectResponse)
+{-# DEPRECATED dtgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

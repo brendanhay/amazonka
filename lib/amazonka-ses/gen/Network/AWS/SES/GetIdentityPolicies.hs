@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,153 @@
 --
 -- Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.
 --
---
 -- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.GetIdentityPolicies
-  ( -- * Creating a Request
-    getIdentityPolicies,
-    GetIdentityPolicies,
+  ( -- * Creating a request
+    GetIdentityPolicies (..),
+    mkGetIdentityPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipIdentity,
     gipPolicyNames,
 
-    -- * Destructuring the Response
-    getIdentityPoliciesResponse,
-    GetIdentityPoliciesResponse,
+    -- * Destructuring the response
+    GetIdentityPoliciesResponse (..),
+    mkGetIdentityPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     giprsResponseStatus,
     giprsPolicies,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'getIdentityPolicies' smart constructor.
+-- /See:/ 'mkGetIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
-  { _gipIdentity ::
-      !Text,
-    _gipPolicyNames :: ![Text]
+  { identity ::
+      Lude.Text,
+    policyNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'identity' - The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
--- * 'gipIdentity' - The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
---
--- * 'gipPolicyNames' - A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
-getIdentityPolicies ::
-  -- | 'gipIdentity'
-  Text ->
+-- To successfully call this API, you must own the identity.
+-- * 'policyNames' - A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
+mkGetIdentityPolicies ::
+  -- | 'identity'
+  Lude.Text ->
   GetIdentityPolicies
-getIdentityPolicies pIdentity_ =
+mkGetIdentityPolicies pIdentity_ =
   GetIdentityPolicies'
-    { _gipIdentity = pIdentity_,
-      _gipPolicyNames = mempty
+    { identity = pIdentity_,
+      policyNames = Lude.mempty
     }
 
--- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
-gipIdentity :: Lens' GetIdentityPolicies Text
-gipIdentity = lens _gipIdentity (\s a -> s {_gipIdentity = a})
+-- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipIdentity :: Lens.Lens' GetIdentityPolicies Lude.Text
+gipIdentity = Lens.lens (identity :: GetIdentityPolicies -> Lude.Text) (\s a -> s {identity = a} :: GetIdentityPolicies)
+{-# DEPRECATED gipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
-gipPolicyNames :: Lens' GetIdentityPolicies [Text]
-gipPolicyNames = lens _gipPolicyNames (\s a -> s {_gipPolicyNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipPolicyNames :: Lens.Lens' GetIdentityPolicies [Lude.Text]
+gipPolicyNames = Lens.lens (policyNames :: GetIdentityPolicies -> [Lude.Text]) (\s a -> s {policyNames = a} :: GetIdentityPolicies)
+{-# DEPRECATED gipPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
-instance AWSRequest GetIdentityPolicies where
+instance Lude.AWSRequest GetIdentityPolicies where
   type Rs GetIdentityPolicies = GetIdentityPoliciesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetIdentityPoliciesResult"
       ( \s h x ->
           GetIdentityPoliciesResponse'
-            <$> (pure (fromEnum s))
-            <*> ( x .@? "Policies" .!@ mempty
-                    >>= parseXMLMap "entry" "key" "value"
-                )
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Policies" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLMap "entry" "key" "value"
+                     )
       )
 
-instance Hashable GetIdentityPolicies
+instance Lude.ToHeaders GetIdentityPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetIdentityPolicies
+instance Lude.ToPath GetIdentityPolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetIdentityPolicies where
-  toHeaders = const mempty
-
-instance ToPath GetIdentityPolicies where
-  toPath = const "/"
-
-instance ToQuery GetIdentityPolicies where
+instance Lude.ToQuery GetIdentityPolicies where
   toQuery GetIdentityPolicies' {..} =
-    mconcat
-      [ "Action" =: ("GetIdentityPolicies" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identity" =: _gipIdentity,
-        "PolicyNames" =: toQueryList "member" _gipPolicyNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetIdentityPolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identity" Lude.=: identity,
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
       ]
 
 -- | Represents the requested sending authorization policies.
 --
---
---
--- /See:/ 'getIdentityPoliciesResponse' smart constructor.
+-- /See:/ 'mkGetIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-  { _giprsResponseStatus ::
-      !Int,
-    _giprsPolicies ::
-      !(Map Text (Text))
+  { responseStatus ::
+      Lude.Int,
+    policies ::
+      Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giprsResponseStatus' - -- | The response status code.
---
--- * 'giprsPolicies' - A map of policy names to policies.
-getIdentityPoliciesResponse ::
-  -- | 'giprsResponseStatus'
-  Int ->
+-- * 'policies' - A map of policy names to policies.
+-- * 'responseStatus' - The response status code.
+mkGetIdentityPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIdentityPoliciesResponse
-getIdentityPoliciesResponse pResponseStatus_ =
+mkGetIdentityPoliciesResponse pResponseStatus_ =
   GetIdentityPoliciesResponse'
-    { _giprsResponseStatus =
-        pResponseStatus_,
-      _giprsPolicies = mempty
+    { responseStatus = pResponseStatus_,
+      policies = Lude.mempty
     }
 
--- | -- | The response status code.
-giprsResponseStatus :: Lens' GetIdentityPoliciesResponse Int
-giprsResponseStatus = lens _giprsResponseStatus (\s a -> s {_giprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsResponseStatus :: Lens.Lens' GetIdentityPoliciesResponse Lude.Int
+giprsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityPoliciesResponse)
+{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of policy names to policies.
-giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text (Text))
-giprsPolicies = lens _giprsPolicies (\s a -> s {_giprsPolicies = a}) . _Map
-
-instance NFData GetIdentityPoliciesResponse
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsPolicies :: Lens.Lens' GetIdentityPoliciesResponse (Lude.HashMap Lude.Text (Lude.Text))
+giprsPolicies = Lens.lens (policies :: GetIdentityPoliciesResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {policies = a} :: GetIdentityPoliciesResponse)
+{-# DEPRECATED giprsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}

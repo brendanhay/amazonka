@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ConnectorCapability where
+module Network.AWS.SMS.Types.ConnectorCapability
+  ( ConnectorCapability
+      ( ConnectorCapability',
+        CCHypervManager,
+        CCScvmm,
+        CCSmsOptimized,
+        CCSnapshotBatching,
+        CCVsphere
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConnectorCapability
-  = CCHypervManager
-  | CCScvmm
-  | CCSmsOptimized
-  | CCSnapshotBatching
-  | CCVsphere
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConnectorCapability = ConnectorCapability' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConnectorCapability where
-  parser =
-    takeLowerText >>= \case
-      "hyperv-manager" -> pure CCHypervManager
-      "scvmm" -> pure CCScvmm
-      "sms_optimized" -> pure CCSmsOptimized
-      "snapshot_batching" -> pure CCSnapshotBatching
-      "vsphere" -> pure CCVsphere
-      e ->
-        fromTextError $
-          "Failure parsing ConnectorCapability from value: '" <> e
-            <> "'. Accepted values: hyperv-manager, scvmm, sms_optimized, snapshot_batching, vsphere"
+pattern CCHypervManager :: ConnectorCapability
+pattern CCHypervManager = ConnectorCapability' "HYPERV-MANAGER"
 
-instance ToText ConnectorCapability where
-  toText = \case
-    CCHypervManager -> "HYPERV-MANAGER"
-    CCScvmm -> "SCVMM"
-    CCSmsOptimized -> "SMS_OPTIMIZED"
-    CCSnapshotBatching -> "SNAPSHOT_BATCHING"
-    CCVsphere -> "VSPHERE"
+pattern CCScvmm :: ConnectorCapability
+pattern CCScvmm = ConnectorCapability' "SCVMM"
 
-instance Hashable ConnectorCapability
+pattern CCSmsOptimized :: ConnectorCapability
+pattern CCSmsOptimized = ConnectorCapability' "SMS_OPTIMIZED"
 
-instance NFData ConnectorCapability
+pattern CCSnapshotBatching :: ConnectorCapability
+pattern CCSnapshotBatching = ConnectorCapability' "SNAPSHOT_BATCHING"
 
-instance ToByteString ConnectorCapability
+pattern CCVsphere :: ConnectorCapability
+pattern CCVsphere = ConnectorCapability' "VSPHERE"
 
-instance ToQuery ConnectorCapability
-
-instance ToHeader ConnectorCapability
-
-instance FromJSON ConnectorCapability where
-  parseJSON = parseJSONText "ConnectorCapability"
+{-# COMPLETE
+  CCHypervManager,
+  CCScvmm,
+  CCSmsOptimized,
+  CCSnapshotBatching,
+  CCVsphere,
+  ConnectorCapability'
+  #-}

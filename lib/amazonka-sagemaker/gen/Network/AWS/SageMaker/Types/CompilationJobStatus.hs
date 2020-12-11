@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.CompilationJobStatus where
+module Network.AWS.SageMaker.Types.CompilationJobStatus
+  ( CompilationJobStatus
+      ( CompilationJobStatus',
+        CJSCompleted,
+        CJSFailed,
+        CJSInprogress,
+        CJSStarting,
+        CJSStopped,
+        CJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CompilationJobStatus
-  = CJSCompleted
-  | CJSFailed
-  | CJSInprogress
-  | CJSStarting
-  | CJSStopped
-  | CJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompilationJobStatus = CompilationJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompilationJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure CJSCompleted
-      "failed" -> pure CJSFailed
-      "inprogress" -> pure CJSInprogress
-      "starting" -> pure CJSStarting
-      "stopped" -> pure CJSStopped
-      "stopping" -> pure CJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing CompilationJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, starting, stopped, stopping"
+pattern CJSCompleted :: CompilationJobStatus
+pattern CJSCompleted = CompilationJobStatus' "COMPLETED"
 
-instance ToText CompilationJobStatus where
-  toText = \case
-    CJSCompleted -> "COMPLETED"
-    CJSFailed -> "FAILED"
-    CJSInprogress -> "INPROGRESS"
-    CJSStarting -> "STARTING"
-    CJSStopped -> "STOPPED"
-    CJSStopping -> "STOPPING"
+pattern CJSFailed :: CompilationJobStatus
+pattern CJSFailed = CompilationJobStatus' "FAILED"
 
-instance Hashable CompilationJobStatus
+pattern CJSInprogress :: CompilationJobStatus
+pattern CJSInprogress = CompilationJobStatus' "INPROGRESS"
 
-instance NFData CompilationJobStatus
+pattern CJSStarting :: CompilationJobStatus
+pattern CJSStarting = CompilationJobStatus' "STARTING"
 
-instance ToByteString CompilationJobStatus
+pattern CJSStopped :: CompilationJobStatus
+pattern CJSStopped = CompilationJobStatus' "STOPPED"
 
-instance ToQuery CompilationJobStatus
+pattern CJSStopping :: CompilationJobStatus
+pattern CJSStopping = CompilationJobStatus' "STOPPING"
 
-instance ToHeader CompilationJobStatus
-
-instance ToJSON CompilationJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON CompilationJobStatus where
-  parseJSON = parseJSONText "CompilationJobStatus"
+{-# COMPLETE
+  CJSCompleted,
+  CJSFailed,
+  CJSInprogress,
+  CJSStarting,
+  CJSStopped,
+  CJSStopping,
+  CompilationJobStatus'
+  #-}

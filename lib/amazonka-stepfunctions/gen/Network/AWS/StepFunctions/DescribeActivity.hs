@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes an activity.
 module Network.AWS.StepFunctions.DescribeActivity
-  ( -- * Creating a Request
-    describeActivity,
-    DescribeActivity,
+  ( -- * Creating a request
+    DescribeActivity (..),
+    mkDescribeActivity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dActivityARN,
 
-    -- * Destructuring the Response
-    describeActivityResponse,
-    DescribeActivityResponse,
+    -- * Destructuring the response
+    DescribeActivityResponse (..),
+    mkDescribeActivityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsResponseStatus,
     desrsActivityARN,
     desrsName,
@@ -38,127 +33,185 @@ module Network.AWS.StepFunctions.DescribeActivity
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StepFunctions.Types
 
--- | /See:/ 'describeActivity' smart constructor.
-newtype DescribeActivity = DescribeActivity' {_dActivityARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeActivity' smart constructor.
+newtype DescribeActivity = DescribeActivity'
+  { activityARN ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dActivityARN' - The Amazon Resource Name (ARN) of the activity to describe.
-describeActivity ::
-  -- | 'dActivityARN'
-  Text ->
+-- * 'activityARN' - The Amazon Resource Name (ARN) of the activity to describe.
+mkDescribeActivity ::
+  -- | 'activityARN'
+  Lude.Text ->
   DescribeActivity
-describeActivity pActivityARN_ =
-  DescribeActivity' {_dActivityARN = pActivityARN_}
+mkDescribeActivity pActivityARN_ =
+  DescribeActivity' {activityARN = pActivityARN_}
 
 -- | The Amazon Resource Name (ARN) of the activity to describe.
-dActivityARN :: Lens' DescribeActivity Text
-dActivityARN = lens _dActivityARN (\s a -> s {_dActivityARN = a})
+--
+-- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dActivityARN :: Lens.Lens' DescribeActivity Lude.Text
+dActivityARN = Lens.lens (activityARN :: DescribeActivity -> Lude.Text) (\s a -> s {activityARN = a} :: DescribeActivity)
+{-# DEPRECATED dActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
 
-instance AWSRequest DescribeActivity where
+instance Lude.AWSRequest DescribeActivity where
   type Rs DescribeActivity = DescribeActivityResponse
-  request = postJSON stepFunctions
+  request = Req.postJSON stepFunctionsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeActivityResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "activityArn")
-            <*> (x .:> "name")
-            <*> (x .:> "creationDate")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "activityArn")
+            Lude.<*> (x Lude..:> "name")
+            Lude.<*> (x Lude..:> "creationDate")
       )
 
-instance Hashable DescribeActivity
-
-instance NFData DescribeActivity
-
-instance ToHeaders DescribeActivity where
+instance Lude.ToHeaders DescribeActivity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSStepFunctions.DescribeActivity" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("AWSStepFunctions.DescribeActivity" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeActivity where
+instance Lude.ToJSON DescribeActivity where
   toJSON DescribeActivity' {..} =
-    object (catMaybes [Just ("activityArn" .= _dActivityARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("activityArn" Lude..= activityARN)])
 
-instance ToPath DescribeActivity where
-  toPath = const "/"
+instance Lude.ToPath DescribeActivity where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeActivity where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeActivity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeActivityResponse' smart constructor.
+-- | /See:/ 'mkDescribeActivityResponse' smart constructor.
 data DescribeActivityResponse = DescribeActivityResponse'
-  { _desrsResponseStatus ::
-      !Int,
-    _desrsActivityARN :: !Text,
-    _desrsName :: !Text,
-    _desrsCreationDate :: !POSIX
+  { responseStatus ::
+      Lude.Int,
+    activityARN :: Lude.Text,
+    name :: Lude.Text,
+    creationDate :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'activityARN' - The Amazon Resource Name (ARN) that identifies the activity.
+-- * 'creationDate' - The date the activity is created.
+-- * 'name' - The name of the activity.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
+-- A name must /not/ contain:
 --
--- * 'desrsActivityARN' - The Amazon Resource Name (ARN) that identifies the activity.
+--     * white space
 --
--- * 'desrsName' - The name of the activity. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 --
--- * 'desrsCreationDate' - The date the activity is created.
-describeActivityResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
-  -- | 'desrsActivityARN'
-  Text ->
-  -- | 'desrsName'
-  Text ->
-  -- | 'desrsCreationDate'
-  UTCTime ->
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+-- * 'responseStatus' - The response status code.
+mkDescribeActivityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'activityARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'creationDate'
+  Lude.Timestamp ->
   DescribeActivityResponse
-describeActivityResponse
+mkDescribeActivityResponse
   pResponseStatus_
   pActivityARN_
   pName_
   pCreationDate_ =
     DescribeActivityResponse'
-      { _desrsResponseStatus =
-          pResponseStatus_,
-        _desrsActivityARN = pActivityARN_,
-        _desrsName = pName_,
-        _desrsCreationDate = _Time # pCreationDate_
+      { responseStatus = pResponseStatus_,
+        activityARN = pActivityARN_,
+        name = pName_,
+        creationDate = pCreationDate_
       }
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeActivityResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeActivityResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeActivityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeActivityResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
-desrsActivityARN :: Lens' DescribeActivityResponse Text
-desrsActivityARN = lens _desrsActivityARN (\s a -> s {_desrsActivityARN = a})
+--
+-- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsActivityARN :: Lens.Lens' DescribeActivityResponse Lude.Text
+desrsActivityARN = Lens.lens (activityARN :: DescribeActivityResponse -> Lude.Text) (\s a -> s {activityARN = a} :: DescribeActivityResponse)
+{-# DEPRECATED desrsActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
 
--- | The name of the activity. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-desrsName :: Lens' DescribeActivityResponse Text
-desrsName = lens _desrsName (\s a -> s {_desrsName = a})
+-- | The name of the activity.
+--
+-- A name must /not/ contain:
+--
+--     * white space
+--
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsName :: Lens.Lens' DescribeActivityResponse Lude.Text
+desrsName = Lens.lens (name :: DescribeActivityResponse -> Lude.Text) (\s a -> s {name = a} :: DescribeActivityResponse)
+{-# DEPRECATED desrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date the activity is created.
-desrsCreationDate :: Lens' DescribeActivityResponse UTCTime
-desrsCreationDate = lens _desrsCreationDate (\s a -> s {_desrsCreationDate = a}) . _Time
-
-instance NFData DescribeActivityResponse
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsCreationDate :: Lens.Lens' DescribeActivityResponse Lude.Timestamp
+desrsCreationDate = Lens.lens (creationDate :: DescribeActivityResponse -> Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeActivityResponse)
+{-# DEPRECATED desrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}

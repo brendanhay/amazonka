@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyList where
+module Network.AWS.CloudFront.Types.CachePolicyList
+  ( CachePolicyList (..),
+
+    -- * Smart constructor
+    mkCachePolicyList,
+
+    -- * Lenses
+    cplItems,
+    cplNextMarker,
+    cplMaxItems,
+    cplQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.CachePolicySummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of cache policies.
 --
---
---
--- /See:/ 'cachePolicyList' smart constructor.
+-- /See:/ 'mkCachePolicyList' smart constructor.
 data CachePolicyList = CachePolicyList'
-  { _cplItems ::
-      !(Maybe [CachePolicySummary]),
-    _cplNextMarker :: !(Maybe Text),
-    _cplMaxItems :: !Int,
-    _cplQuantity :: !Int
+  { items ::
+      Lude.Maybe [CachePolicySummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Int,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicyList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cplItems' - Contains the cache policies in the list.
---
--- * 'cplNextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing cache policies where you left off.
---
--- * 'cplMaxItems' - The maximum number of cache policies requested.
---
--- * 'cplQuantity' - The total number of cache policies returned in the response.
-cachePolicyList ::
-  -- | 'cplMaxItems'
-  Int ->
-  -- | 'cplQuantity'
-  Int ->
+-- * 'items' - Contains the cache policies in the list.
+-- * 'maxItems' - The maximum number of cache policies requested.
+-- * 'nextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing cache policies where you left off.
+-- * 'quantity' - The total number of cache policies returned in the response.
+mkCachePolicyList ::
+  -- | 'maxItems'
+  Lude.Int ->
+  -- | 'quantity'
+  Lude.Int ->
   CachePolicyList
-cachePolicyList pMaxItems_ pQuantity_ =
+mkCachePolicyList pMaxItems_ pQuantity_ =
   CachePolicyList'
-    { _cplItems = Nothing,
-      _cplNextMarker = Nothing,
-      _cplMaxItems = pMaxItems_,
-      _cplQuantity = pQuantity_
+    { items = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      maxItems = pMaxItems_,
+      quantity = pQuantity_
     }
 
 -- | Contains the cache policies in the list.
-cplItems :: Lens' CachePolicyList [CachePolicySummary]
-cplItems = lens _cplItems (\s a -> s {_cplItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cplItems :: Lens.Lens' CachePolicyList (Lude.Maybe [CachePolicySummary])
+cplItems = Lens.lens (items :: CachePolicyList -> Lude.Maybe [CachePolicySummary]) (\s a -> s {items = a} :: CachePolicyList)
+{-# DEPRECATED cplItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing cache policies where you left off.
-cplNextMarker :: Lens' CachePolicyList (Maybe Text)
-cplNextMarker = lens _cplNextMarker (\s a -> s {_cplNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cplNextMarker :: Lens.Lens' CachePolicyList (Lude.Maybe Lude.Text)
+cplNextMarker = Lens.lens (nextMarker :: CachePolicyList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: CachePolicyList)
+{-# DEPRECATED cplNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The maximum number of cache policies requested.
-cplMaxItems :: Lens' CachePolicyList Int
-cplMaxItems = lens _cplMaxItems (\s a -> s {_cplMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cplMaxItems :: Lens.Lens' CachePolicyList Lude.Int
+cplMaxItems = Lens.lens (maxItems :: CachePolicyList -> Lude.Int) (\s a -> s {maxItems = a} :: CachePolicyList)
+{-# DEPRECATED cplMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The total number of cache policies returned in the response.
-cplQuantity :: Lens' CachePolicyList Int
-cplQuantity = lens _cplQuantity (\s a -> s {_cplQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cplQuantity :: Lens.Lens' CachePolicyList Lude.Int
+cplQuantity = Lens.lens (quantity :: CachePolicyList -> Lude.Int) (\s a -> s {quantity = a} :: CachePolicyList)
+{-# DEPRECATED cplQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML CachePolicyList where
+instance Lude.FromXML CachePolicyList where
   parseXML x =
     CachePolicyList'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "CachePolicySummary")
-          )
-      <*> (x .@? "NextMarker")
-      <*> (x .@ "MaxItems")
-      <*> (x .@ "Quantity")
-
-instance Hashable CachePolicyList
-
-instance NFData CachePolicyList
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "CachePolicySummary")
+               )
+      Lude.<*> (x Lude..@? "NextMarker")
+      Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@ "Quantity")

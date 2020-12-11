@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.ReplayState where
+module Network.AWS.CloudWatchEvents.Types.ReplayState
+  ( ReplayState
+      ( ReplayState',
+        Cancelled,
+        Cancelling,
+        Completed,
+        Failed,
+        Running,
+        Starting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplayState
-  = Cancelled
-  | Cancelling
-  | Completed
-  | Failed
-  | Running
-  | Starting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplayState = ReplayState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplayState where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure Cancelled
-      "cancelling" -> pure Cancelling
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "starting" -> pure Starting
-      e ->
-        fromTextError $
-          "Failure parsing ReplayState from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, completed, failed, running, starting"
+pattern Cancelled :: ReplayState
+pattern Cancelled = ReplayState' "CANCELLED"
 
-instance ToText ReplayState where
-  toText = \case
-    Cancelled -> "CANCELLED"
-    Cancelling -> "CANCELLING"
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    Running -> "RUNNING"
-    Starting -> "STARTING"
+pattern Cancelling :: ReplayState
+pattern Cancelling = ReplayState' "CANCELLING"
 
-instance Hashable ReplayState
+pattern Completed :: ReplayState
+pattern Completed = ReplayState' "COMPLETED"
 
-instance NFData ReplayState
+pattern Failed :: ReplayState
+pattern Failed = ReplayState' "FAILED"
 
-instance ToByteString ReplayState
+pattern Running :: ReplayState
+pattern Running = ReplayState' "RUNNING"
 
-instance ToQuery ReplayState
+pattern Starting :: ReplayState
+pattern Starting = ReplayState' "STARTING"
 
-instance ToHeader ReplayState
-
-instance ToJSON ReplayState where
-  toJSON = toJSONText
-
-instance FromJSON ReplayState where
-  parseJSON = parseJSONText "ReplayState"
+{-# COMPLETE
+  Cancelled,
+  Cancelling,
+  Completed,
+  Failed,
+  Running,
+  Starting,
+  ReplayState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,136 @@
 --
 -- Deletes a GitHub account connection.
 module Network.AWS.CodeDeploy.DeleteGitHubAccountToken
-  ( -- * Creating a Request
-    deleteGitHubAccountToken,
-    DeleteGitHubAccountToken,
+  ( -- * Creating a request
+    DeleteGitHubAccountToken (..),
+    mkDeleteGitHubAccountToken,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dghatTokenName,
 
-    -- * Destructuring the Response
-    deleteGitHubAccountTokenResponse,
-    DeleteGitHubAccountTokenResponse,
+    -- * Destructuring the response
+    DeleteGitHubAccountTokenResponse (..),
+    mkDeleteGitHubAccountTokenResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dghatrsTokenName,
     dghatrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DeleteGitHubAccount@ operation.
 --
---
---
--- /See:/ 'deleteGitHubAccountToken' smart constructor.
+-- /See:/ 'mkDeleteGitHubAccountToken' smart constructor.
 newtype DeleteGitHubAccountToken = DeleteGitHubAccountToken'
-  { _dghatTokenName ::
-      Maybe Text
+  { tokenName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGitHubAccountToken' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dghatTokenName' - The name of the GitHub account connection to delete.
-deleteGitHubAccountToken ::
+-- * 'tokenName' - The name of the GitHub account connection to delete.
+mkDeleteGitHubAccountToken ::
   DeleteGitHubAccountToken
-deleteGitHubAccountToken =
-  DeleteGitHubAccountToken' {_dghatTokenName = Nothing}
+mkDeleteGitHubAccountToken =
+  DeleteGitHubAccountToken' {tokenName = Lude.Nothing}
 
 -- | The name of the GitHub account connection to delete.
-dghatTokenName :: Lens' DeleteGitHubAccountToken (Maybe Text)
-dghatTokenName = lens _dghatTokenName (\s a -> s {_dghatTokenName = a})
+--
+-- /Note:/ Consider using 'tokenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dghatTokenName :: Lens.Lens' DeleteGitHubAccountToken (Lude.Maybe Lude.Text)
+dghatTokenName = Lens.lens (tokenName :: DeleteGitHubAccountToken -> Lude.Maybe Lude.Text) (\s a -> s {tokenName = a} :: DeleteGitHubAccountToken)
+{-# DEPRECATED dghatTokenName "Use generic-lens or generic-optics with 'tokenName' instead." #-}
 
-instance AWSRequest DeleteGitHubAccountToken where
+instance Lude.AWSRequest DeleteGitHubAccountToken where
   type Rs DeleteGitHubAccountToken = DeleteGitHubAccountTokenResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteGitHubAccountTokenResponse'
-            <$> (x .?> "tokenName") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tokenName") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteGitHubAccountToken
-
-instance NFData DeleteGitHubAccountToken
-
-instance ToHeaders DeleteGitHubAccountToken where
+instance Lude.ToHeaders DeleteGitHubAccountToken where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.DeleteGitHubAccountToken" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.DeleteGitHubAccountToken" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteGitHubAccountToken where
+instance Lude.ToJSON DeleteGitHubAccountToken where
   toJSON DeleteGitHubAccountToken' {..} =
-    object (catMaybes [("tokenName" .=) <$> _dghatTokenName])
+    Lude.object
+      (Lude.catMaybes [("tokenName" Lude..=) Lude.<$> tokenName])
 
-instance ToPath DeleteGitHubAccountToken where
-  toPath = const "/"
+instance Lude.ToPath DeleteGitHubAccountToken where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteGitHubAccountToken where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteGitHubAccountToken where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteGitHubAccountToken@ operation.
 --
---
---
--- /See:/ 'deleteGitHubAccountTokenResponse' smart constructor.
+-- /See:/ 'mkDeleteGitHubAccountTokenResponse' smart constructor.
 data DeleteGitHubAccountTokenResponse = DeleteGitHubAccountTokenResponse'
-  { _dghatrsTokenName ::
-      !(Maybe Text),
-    _dghatrsResponseStatus ::
-      !Int
+  { tokenName ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGitHubAccountTokenResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dghatrsTokenName' - The name of the GitHub account connection that was deleted.
---
--- * 'dghatrsResponseStatus' - -- | The response status code.
-deleteGitHubAccountTokenResponse ::
-  -- | 'dghatrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tokenName' - The name of the GitHub account connection that was deleted.
+mkDeleteGitHubAccountTokenResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteGitHubAccountTokenResponse
-deleteGitHubAccountTokenResponse pResponseStatus_ =
+mkDeleteGitHubAccountTokenResponse pResponseStatus_ =
   DeleteGitHubAccountTokenResponse'
-    { _dghatrsTokenName = Nothing,
-      _dghatrsResponseStatus = pResponseStatus_
+    { tokenName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the GitHub account connection that was deleted.
-dghatrsTokenName :: Lens' DeleteGitHubAccountTokenResponse (Maybe Text)
-dghatrsTokenName = lens _dghatrsTokenName (\s a -> s {_dghatrsTokenName = a})
+--
+-- /Note:/ Consider using 'tokenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dghatrsTokenName :: Lens.Lens' DeleteGitHubAccountTokenResponse (Lude.Maybe Lude.Text)
+dghatrsTokenName = Lens.lens (tokenName :: DeleteGitHubAccountTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {tokenName = a} :: DeleteGitHubAccountTokenResponse)
+{-# DEPRECATED dghatrsTokenName "Use generic-lens or generic-optics with 'tokenName' instead." #-}
 
--- | -- | The response status code.
-dghatrsResponseStatus :: Lens' DeleteGitHubAccountTokenResponse Int
-dghatrsResponseStatus = lens _dghatrsResponseStatus (\s a -> s {_dghatrsResponseStatus = a})
-
-instance NFData DeleteGitHubAccountTokenResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dghatrsResponseStatus :: Lens.Lens' DeleteGitHubAccountTokenResponse Lude.Int
+dghatrsResponseStatus = Lens.lens (responseStatus :: DeleteGitHubAccountTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGitHubAccountTokenResponse)
+{-# DEPRECATED dghatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

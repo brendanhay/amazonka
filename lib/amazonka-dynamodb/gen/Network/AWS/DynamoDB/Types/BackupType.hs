@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BackupType where
+module Network.AWS.DynamoDB.Types.BackupType
+  ( BackupType
+      ( BackupType',
+        AWSBackup,
+        System,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupType
-  = AWSBackup
-  | System
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupType = BackupType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupType where
-  parser =
-    takeLowerText >>= \case
-      "aws_backup" -> pure AWSBackup
-      "system" -> pure System
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing BackupType from value: '" <> e
-            <> "'. Accepted values: aws_backup, system, user"
+pattern AWSBackup :: BackupType
+pattern AWSBackup = BackupType' "AWS_BACKUP"
 
-instance ToText BackupType where
-  toText = \case
-    AWSBackup -> "AWS_BACKUP"
-    System -> "SYSTEM"
-    User -> "USER"
+pattern System :: BackupType
+pattern System = BackupType' "SYSTEM"
 
-instance Hashable BackupType
+pattern User :: BackupType
+pattern User = BackupType' "USER"
 
-instance NFData BackupType
-
-instance ToByteString BackupType
-
-instance ToQuery BackupType
-
-instance ToHeader BackupType
-
-instance FromJSON BackupType where
-  parseJSON = parseJSONText "BackupType"
+{-# COMPLETE
+  AWSBackup,
+  System,
+  User,
+  BackupType'
+  #-}

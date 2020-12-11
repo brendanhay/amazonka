@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.AppAttributesKeys where
+module Network.AWS.OpsWorks.Types.AppAttributesKeys
+  ( AppAttributesKeys
+      ( AppAttributesKeys',
+        AWSFlowRubySettings,
+        AutoBundleOnDeploy,
+        DocumentRoot,
+        RailsEnv
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppAttributesKeys
-  = AWSFlowRubySettings
-  | AutoBundleOnDeploy
-  | DocumentRoot
-  | RailsEnv
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppAttributesKeys = AppAttributesKeys' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppAttributesKeys where
-  parser =
-    takeLowerText >>= \case
-      "awsflowrubysettings" -> pure AWSFlowRubySettings
-      "autobundleondeploy" -> pure AutoBundleOnDeploy
-      "documentroot" -> pure DocumentRoot
-      "railsenv" -> pure RailsEnv
-      e ->
-        fromTextError $
-          "Failure parsing AppAttributesKeys from value: '" <> e
-            <> "'. Accepted values: awsflowrubysettings, autobundleondeploy, documentroot, railsenv"
+pattern AWSFlowRubySettings :: AppAttributesKeys
+pattern AWSFlowRubySettings = AppAttributesKeys' "AwsFlowRubySettings"
 
-instance ToText AppAttributesKeys where
-  toText = \case
-    AWSFlowRubySettings -> "AwsFlowRubySettings"
-    AutoBundleOnDeploy -> "AutoBundleOnDeploy"
-    DocumentRoot -> "DocumentRoot"
-    RailsEnv -> "RailsEnv"
+pattern AutoBundleOnDeploy :: AppAttributesKeys
+pattern AutoBundleOnDeploy = AppAttributesKeys' "AutoBundleOnDeploy"
 
-instance Hashable AppAttributesKeys
+pattern DocumentRoot :: AppAttributesKeys
+pattern DocumentRoot = AppAttributesKeys' "DocumentRoot"
 
-instance NFData AppAttributesKeys
+pattern RailsEnv :: AppAttributesKeys
+pattern RailsEnv = AppAttributesKeys' "RailsEnv"
 
-instance ToByteString AppAttributesKeys
-
-instance ToQuery AppAttributesKeys
-
-instance ToHeader AppAttributesKeys
-
-instance ToJSON AppAttributesKeys where
-  toJSON = toJSONText
-
-instance FromJSON AppAttributesKeys where
-  parseJSON = parseJSONText "AppAttributesKeys"
+{-# COMPLETE
+  AWSFlowRubySettings,
+  AutoBundleOnDeploy,
+  DocumentRoot,
+  RailsEnv,
+  AppAttributesKeys'
+  #-}

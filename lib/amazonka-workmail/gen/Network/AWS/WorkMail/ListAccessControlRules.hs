@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,135 @@
 --
 -- Lists the access control rules for the specified organization.
 module Network.AWS.WorkMail.ListAccessControlRules
-  ( -- * Creating a Request
-    listAccessControlRules,
-    ListAccessControlRules,
+  ( -- * Creating a request
+    ListAccessControlRules (..),
+    mkListAccessControlRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lacrOrganizationId,
 
-    -- * Destructuring the Response
-    listAccessControlRulesResponse,
-    ListAccessControlRulesResponse,
+    -- * Destructuring the response
+    ListAccessControlRulesResponse (..),
+    mkListAccessControlRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lacrrsRules,
     lacrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'listAccessControlRules' smart constructor.
+-- | /See:/ 'mkListAccessControlRules' smart constructor.
 newtype ListAccessControlRules = ListAccessControlRules'
-  { _lacrOrganizationId ::
-      Text
+  { organizationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccessControlRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lacrOrganizationId' - The identifier for the organization.
-listAccessControlRules ::
-  -- | 'lacrOrganizationId'
-  Text ->
+-- * 'organizationId' - The identifier for the organization.
+mkListAccessControlRules ::
+  -- | 'organizationId'
+  Lude.Text ->
   ListAccessControlRules
-listAccessControlRules pOrganizationId_ =
-  ListAccessControlRules' {_lacrOrganizationId = pOrganizationId_}
+mkListAccessControlRules pOrganizationId_ =
+  ListAccessControlRules' {organizationId = pOrganizationId_}
 
 -- | The identifier for the organization.
-lacrOrganizationId :: Lens' ListAccessControlRules Text
-lacrOrganizationId = lens _lacrOrganizationId (\s a -> s {_lacrOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lacrOrganizationId :: Lens.Lens' ListAccessControlRules Lude.Text
+lacrOrganizationId = Lens.lens (organizationId :: ListAccessControlRules -> Lude.Text) (\s a -> s {organizationId = a} :: ListAccessControlRules)
+{-# DEPRECATED lacrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest ListAccessControlRules where
+instance Lude.AWSRequest ListAccessControlRules where
   type Rs ListAccessControlRules = ListAccessControlRulesResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAccessControlRulesResponse'
-            <$> (x .?> "Rules" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Rules" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAccessControlRules
-
-instance NFData ListAccessControlRules
-
-instance ToHeaders ListAccessControlRules where
+instance Lude.ToHeaders ListAccessControlRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.ListAccessControlRules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.ListAccessControlRules" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAccessControlRules where
+instance Lude.ToJSON ListAccessControlRules where
   toJSON ListAccessControlRules' {..} =
-    object
-      (catMaybes [Just ("OrganizationId" .= _lacrOrganizationId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("OrganizationId" Lude..= organizationId)]
+      )
 
-instance ToPath ListAccessControlRules where
-  toPath = const "/"
+instance Lude.ToPath ListAccessControlRules where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAccessControlRules where
-  toQuery = const mempty
+instance Lude.ToQuery ListAccessControlRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAccessControlRulesResponse' smart constructor.
+-- | /See:/ 'mkListAccessControlRulesResponse' smart constructor.
 data ListAccessControlRulesResponse = ListAccessControlRulesResponse'
-  { _lacrrsRules ::
-      !(Maybe [AccessControlRule]),
-    _lacrrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe
+        [AccessControlRule],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccessControlRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lacrrsRules' - The access control rules.
---
--- * 'lacrrsResponseStatus' - -- | The response status code.
-listAccessControlRulesResponse ::
-  -- | 'lacrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - The access control rules.
+mkListAccessControlRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAccessControlRulesResponse
-listAccessControlRulesResponse pResponseStatus_ =
+mkListAccessControlRulesResponse pResponseStatus_ =
   ListAccessControlRulesResponse'
-    { _lacrrsRules = Nothing,
-      _lacrrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The access control rules.
-lacrrsRules :: Lens' ListAccessControlRulesResponse [AccessControlRule]
-lacrrsRules = lens _lacrrsRules (\s a -> s {_lacrrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lacrrsRules :: Lens.Lens' ListAccessControlRulesResponse (Lude.Maybe [AccessControlRule])
+lacrrsRules = Lens.lens (rules :: ListAccessControlRulesResponse -> Lude.Maybe [AccessControlRule]) (\s a -> s {rules = a} :: ListAccessControlRulesResponse)
+{-# DEPRECATED lacrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
--- | -- | The response status code.
-lacrrsResponseStatus :: Lens' ListAccessControlRulesResponse Int
-lacrrsResponseStatus = lens _lacrrsResponseStatus (\s a -> s {_lacrrsResponseStatus = a})
-
-instance NFData ListAccessControlRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lacrrsResponseStatus :: Lens.Lens' ListAccessControlRulesResponse Lude.Int
+lacrrsResponseStatus = Lens.lens (responseStatus :: ListAccessControlRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccessControlRulesResponse)
+{-# DEPRECATED lacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

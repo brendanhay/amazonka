@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,105 @@
 --
 -- Deletes an authorizer.
 module Network.AWS.IoT.DeleteAuthorizer
-  ( -- * Creating a Request
-    deleteAuthorizer,
-    DeleteAuthorizer,
+  ( -- * Creating a request
+    DeleteAuthorizer (..),
+    mkDeleteAuthorizer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAuthorizerName,
 
-    -- * Destructuring the Response
-    deleteAuthorizerResponse,
-    DeleteAuthorizerResponse,
+    -- * Destructuring the response
+    DeleteAuthorizerResponse (..),
+    mkDeleteAuthorizerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daarsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAuthorizer' smart constructor.
+-- | /See:/ 'mkDeleteAuthorizer' smart constructor.
 newtype DeleteAuthorizer = DeleteAuthorizer'
-  { _dAuthorizerName ::
-      Text
+  { authorizerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuthorizer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAuthorizerName' - The name of the authorizer to delete.
-deleteAuthorizer ::
-  -- | 'dAuthorizerName'
-  Text ->
+-- * 'authorizerName' - The name of the authorizer to delete.
+mkDeleteAuthorizer ::
+  -- | 'authorizerName'
+  Lude.Text ->
   DeleteAuthorizer
-deleteAuthorizer pAuthorizerName_ =
-  DeleteAuthorizer' {_dAuthorizerName = pAuthorizerName_}
+mkDeleteAuthorizer pAuthorizerName_ =
+  DeleteAuthorizer' {authorizerName = pAuthorizerName_}
 
 -- | The name of the authorizer to delete.
-dAuthorizerName :: Lens' DeleteAuthorizer Text
-dAuthorizerName = lens _dAuthorizerName (\s a -> s {_dAuthorizerName = a})
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAuthorizerName :: Lens.Lens' DeleteAuthorizer Lude.Text
+dAuthorizerName = Lens.lens (authorizerName :: DeleteAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: DeleteAuthorizer)
+{-# DEPRECATED dAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
-instance AWSRequest DeleteAuthorizer where
+instance Lude.AWSRequest DeleteAuthorizer where
   type Rs DeleteAuthorizer = DeleteAuthorizerResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteAuthorizerResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteAuthorizerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteAuthorizer
+instance Lude.ToHeaders DeleteAuthorizer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAuthorizer
-
-instance ToHeaders DeleteAuthorizer where
-  toHeaders = const mempty
-
-instance ToPath DeleteAuthorizer where
+instance Lude.ToPath DeleteAuthorizer where
   toPath DeleteAuthorizer' {..} =
-    mconcat ["/authorizer/", toBS _dAuthorizerName]
+    Lude.mconcat ["/authorizer/", Lude.toBS authorizerName]
 
-instance ToQuery DeleteAuthorizer where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAuthorizer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAuthorizerResponse' smart constructor.
+-- | /See:/ 'mkDeleteAuthorizerResponse' smart constructor.
 newtype DeleteAuthorizerResponse = DeleteAuthorizerResponse'
-  { _daarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuthorizerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daarsResponseStatus' - -- | The response status code.
-deleteAuthorizerResponse ::
-  -- | 'daarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAuthorizerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAuthorizerResponse
-deleteAuthorizerResponse pResponseStatus_ =
-  DeleteAuthorizerResponse'
-    { _daarsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteAuthorizerResponse pResponseStatus_ =
+  DeleteAuthorizerResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-daarsResponseStatus :: Lens' DeleteAuthorizerResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\s a -> s {_daarsResponseStatus = a})
-
-instance NFData DeleteAuthorizerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daarsResponseStatus :: Lens.Lens' DeleteAuthorizerResponse Lude.Int
+daarsResponseStatus = Lens.lens (responseStatus :: DeleteAuthorizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAuthorizerResponse)
+{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

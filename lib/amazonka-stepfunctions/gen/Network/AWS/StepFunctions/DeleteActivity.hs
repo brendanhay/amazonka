@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,114 @@
 --
 -- Deletes an activity.
 module Network.AWS.StepFunctions.DeleteActivity
-  ( -- * Creating a Request
-    deleteActivity,
-    DeleteActivity,
+  ( -- * Creating a request
+    DeleteActivity (..),
+    mkDeleteActivity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daActivityARN,
 
-    -- * Destructuring the Response
-    deleteActivityResponse,
-    DeleteActivityResponse,
+    -- * Destructuring the response
+    DeleteActivityResponse (..),
+    mkDeleteActivityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StepFunctions.Types
 
--- | /See:/ 'deleteActivity' smart constructor.
-newtype DeleteActivity = DeleteActivity' {_daActivityARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteActivity' smart constructor.
+newtype DeleteActivity = DeleteActivity' {activityARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daActivityARN' - The Amazon Resource Name (ARN) of the activity to delete.
-deleteActivity ::
-  -- | 'daActivityARN'
-  Text ->
+-- * 'activityARN' - The Amazon Resource Name (ARN) of the activity to delete.
+mkDeleteActivity ::
+  -- | 'activityARN'
+  Lude.Text ->
   DeleteActivity
-deleteActivity pActivityARN_ =
-  DeleteActivity' {_daActivityARN = pActivityARN_}
+mkDeleteActivity pActivityARN_ =
+  DeleteActivity' {activityARN = pActivityARN_}
 
 -- | The Amazon Resource Name (ARN) of the activity to delete.
-daActivityARN :: Lens' DeleteActivity Text
-daActivityARN = lens _daActivityARN (\s a -> s {_daActivityARN = a})
+--
+-- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daActivityARN :: Lens.Lens' DeleteActivity Lude.Text
+daActivityARN = Lens.lens (activityARN :: DeleteActivity -> Lude.Text) (\s a -> s {activityARN = a} :: DeleteActivity)
+{-# DEPRECATED daActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
 
-instance AWSRequest DeleteActivity where
+instance Lude.AWSRequest DeleteActivity where
   type Rs DeleteActivity = DeleteActivityResponse
-  request = postJSON stepFunctions
+  request = Req.postJSON stepFunctionsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteActivityResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteActivityResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteActivity
-
-instance NFData DeleteActivity
-
-instance ToHeaders DeleteActivity where
+instance Lude.ToHeaders DeleteActivity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSStepFunctions.DeleteActivity" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("AWSStepFunctions.DeleteActivity" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteActivity where
+instance Lude.ToJSON DeleteActivity where
   toJSON DeleteActivity' {..} =
-    object (catMaybes [Just ("activityArn" .= _daActivityARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("activityArn" Lude..= activityARN)])
 
-instance ToPath DeleteActivity where
-  toPath = const "/"
+instance Lude.ToPath DeleteActivity where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteActivity where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteActivity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteActivityResponse' smart constructor.
+-- | /See:/ 'mkDeleteActivityResponse' smart constructor.
 newtype DeleteActivityResponse = DeleteActivityResponse'
-  { _darsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteActivityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsResponseStatus' - -- | The response status code.
-deleteActivityResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteActivityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteActivityResponse
-deleteActivityResponse pResponseStatus_ =
-  DeleteActivityResponse' {_darsResponseStatus = pResponseStatus_}
+mkDeleteActivityResponse pResponseStatus_ =
+  DeleteActivityResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteActivityResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DeleteActivityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DeleteActivityResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteActivityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteActivityResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

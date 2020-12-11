@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Information about the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.
 module Network.AWS.FMS.GetNotificationChannel
-  ( -- * Creating a Request
-    getNotificationChannel,
-    GetNotificationChannel,
+  ( -- * Creating a request
+    GetNotificationChannel (..),
+    mkGetNotificationChannel,
 
-    -- * Destructuring the Response
-    getNotificationChannelResponse,
-    GetNotificationChannelResponse,
+    -- * Destructuring the response
+    GetNotificationChannelResponse (..),
+    mkGetNotificationChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gncrsSNSTopicARN,
     gncrsSNSRoleName,
     gncrsResponseStatus,
@@ -35,95 +30,109 @@ module Network.AWS.FMS.GetNotificationChannel
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getNotificationChannel' smart constructor.
+-- | /See:/ 'mkGetNotificationChannel' smart constructor.
 data GetNotificationChannel = GetNotificationChannel'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNotificationChannel' with the minimum fields required to make a request.
-getNotificationChannel ::
+mkGetNotificationChannel ::
   GetNotificationChannel
-getNotificationChannel = GetNotificationChannel'
+mkGetNotificationChannel = GetNotificationChannel'
 
-instance AWSRequest GetNotificationChannel where
+instance Lude.AWSRequest GetNotificationChannel where
   type Rs GetNotificationChannel = GetNotificationChannelResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetNotificationChannelResponse'
-            <$> (x .?> "SnsTopicArn")
-            <*> (x .?> "SnsRoleName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SnsTopicArn")
+            Lude.<*> (x Lude..?> "SnsRoleName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetNotificationChannel
-
-instance NFData GetNotificationChannel
-
-instance ToHeaders GetNotificationChannel where
+instance Lude.ToHeaders GetNotificationChannel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.GetNotificationChannel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.GetNotificationChannel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetNotificationChannel where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetNotificationChannel where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetNotificationChannel where
-  toPath = const "/"
+instance Lude.ToPath GetNotificationChannel where
+  toPath = Lude.const "/"
 
-instance ToQuery GetNotificationChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetNotificationChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getNotificationChannelResponse' smart constructor.
+-- | /See:/ 'mkGetNotificationChannelResponse' smart constructor.
 data GetNotificationChannelResponse = GetNotificationChannelResponse'
-  { _gncrsSNSTopicARN ::
-      !(Maybe Text),
-    _gncrsSNSRoleName ::
-      !(Maybe Text),
-    _gncrsResponseStatus :: !Int
+  { snsTopicARN ::
+      Lude.Maybe Lude.Text,
+    snsRoleName ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetNotificationChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gncrsSNSTopicARN' - The SNS topic that records AWS Firewall Manager activity.
---
--- * 'gncrsSNSRoleName' - The IAM role that is used by AWS Firewall Manager to record activity to SNS.
---
--- * 'gncrsResponseStatus' - -- | The response status code.
-getNotificationChannelResponse ::
-  -- | 'gncrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'snsRoleName' - The IAM role that is used by AWS Firewall Manager to record activity to SNS.
+-- * 'snsTopicARN' - The SNS topic that records AWS Firewall Manager activity.
+mkGetNotificationChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetNotificationChannelResponse
-getNotificationChannelResponse pResponseStatus_ =
+mkGetNotificationChannelResponse pResponseStatus_ =
   GetNotificationChannelResponse'
-    { _gncrsSNSTopicARN = Nothing,
-      _gncrsSNSRoleName = Nothing,
-      _gncrsResponseStatus = pResponseStatus_
+    { snsTopicARN = Lude.Nothing,
+      snsRoleName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The SNS topic that records AWS Firewall Manager activity.
-gncrsSNSTopicARN :: Lens' GetNotificationChannelResponse (Maybe Text)
-gncrsSNSTopicARN = lens _gncrsSNSTopicARN (\s a -> s {_gncrsSNSTopicARN = a})
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gncrsSNSTopicARN :: Lens.Lens' GetNotificationChannelResponse (Lude.Maybe Lude.Text)
+gncrsSNSTopicARN = Lens.lens (snsTopicARN :: GetNotificationChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: GetNotificationChannelResponse)
+{-# DEPRECATED gncrsSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
 -- | The IAM role that is used by AWS Firewall Manager to record activity to SNS.
-gncrsSNSRoleName :: Lens' GetNotificationChannelResponse (Maybe Text)
-gncrsSNSRoleName = lens _gncrsSNSRoleName (\s a -> s {_gncrsSNSRoleName = a})
+--
+-- /Note:/ Consider using 'snsRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gncrsSNSRoleName :: Lens.Lens' GetNotificationChannelResponse (Lude.Maybe Lude.Text)
+gncrsSNSRoleName = Lens.lens (snsRoleName :: GetNotificationChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {snsRoleName = a} :: GetNotificationChannelResponse)
+{-# DEPRECATED gncrsSNSRoleName "Use generic-lens or generic-optics with 'snsRoleName' instead." #-}
 
--- | -- | The response status code.
-gncrsResponseStatus :: Lens' GetNotificationChannelResponse Int
-gncrsResponseStatus = lens _gncrsResponseStatus (\s a -> s {_gncrsResponseStatus = a})
-
-instance NFData GetNotificationChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gncrsResponseStatus :: Lens.Lens' GetNotificationChannelResponse Lude.Int
+gncrsResponseStatus = Lens.lens (responseStatus :: GetNotificationChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetNotificationChannelResponse)
+{-# DEPRECATED gncrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

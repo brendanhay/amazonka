@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,135 @@
 --
 -- Updates a Lambda function definition.
 module Network.AWS.Greengrass.UpdateFunctionDefinition
-  ( -- * Creating a Request
-    updateFunctionDefinition,
-    UpdateFunctionDefinition,
+  ( -- * Creating a request
+    UpdateFunctionDefinition (..),
+    mkUpdateFunctionDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufdName,
     ufdFunctionDefinitionId,
 
-    -- * Destructuring the Response
-    updateFunctionDefinitionResponse,
-    UpdateFunctionDefinitionResponse,
+    -- * Destructuring the response
+    UpdateFunctionDefinitionResponse (..),
+    mkUpdateFunctionDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufdrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFunctionDefinition' smart constructor.
+-- | /See:/ 'mkUpdateFunctionDefinition' smart constructor.
 data UpdateFunctionDefinition = UpdateFunctionDefinition'
-  { _ufdName ::
-      !(Maybe Text),
-    _ufdFunctionDefinitionId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    functionDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunctionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufdName' - The name of the definition.
---
--- * 'ufdFunctionDefinitionId' - The ID of the Lambda function definition.
-updateFunctionDefinition ::
-  -- | 'ufdFunctionDefinitionId'
-  Text ->
+-- * 'functionDefinitionId' - The ID of the Lambda function definition.
+-- * 'name' - The name of the definition.
+mkUpdateFunctionDefinition ::
+  -- | 'functionDefinitionId'
+  Lude.Text ->
   UpdateFunctionDefinition
-updateFunctionDefinition pFunctionDefinitionId_ =
+mkUpdateFunctionDefinition pFunctionDefinitionId_ =
   UpdateFunctionDefinition'
-    { _ufdName = Nothing,
-      _ufdFunctionDefinitionId = pFunctionDefinitionId_
+    { name = Lude.Nothing,
+      functionDefinitionId = pFunctionDefinitionId_
     }
 
 -- | The name of the definition.
-ufdName :: Lens' UpdateFunctionDefinition (Maybe Text)
-ufdName = lens _ufdName (\s a -> s {_ufdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdName :: Lens.Lens' UpdateFunctionDefinition (Lude.Maybe Lude.Text)
+ufdName = Lens.lens (name :: UpdateFunctionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateFunctionDefinition)
+{-# DEPRECATED ufdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the Lambda function definition.
-ufdFunctionDefinitionId :: Lens' UpdateFunctionDefinition Text
-ufdFunctionDefinitionId = lens _ufdFunctionDefinitionId (\s a -> s {_ufdFunctionDefinitionId = a})
+--
+-- /Note:/ Consider using 'functionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdFunctionDefinitionId :: Lens.Lens' UpdateFunctionDefinition Lude.Text
+ufdFunctionDefinitionId = Lens.lens (functionDefinitionId :: UpdateFunctionDefinition -> Lude.Text) (\s a -> s {functionDefinitionId = a} :: UpdateFunctionDefinition)
+{-# DEPRECATED ufdFunctionDefinitionId "Use generic-lens or generic-optics with 'functionDefinitionId' instead." #-}
 
-instance AWSRequest UpdateFunctionDefinition where
+instance Lude.AWSRequest UpdateFunctionDefinition where
   type Rs UpdateFunctionDefinition = UpdateFunctionDefinitionResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateFunctionDefinitionResponse' <$> (pure (fromEnum s))
+          UpdateFunctionDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateFunctionDefinition
-
-instance NFData UpdateFunctionDefinition
-
-instance ToHeaders UpdateFunctionDefinition where
+instance Lude.ToHeaders UpdateFunctionDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateFunctionDefinition where
+instance Lude.ToJSON UpdateFunctionDefinition where
   toJSON UpdateFunctionDefinition' {..} =
-    object (catMaybes [("Name" .=) <$> _ufdName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateFunctionDefinition where
+instance Lude.ToPath UpdateFunctionDefinition where
   toPath UpdateFunctionDefinition' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/functions/",
-        toBS _ufdFunctionDefinitionId
+        Lude.toBS functionDefinitionId
       ]
 
-instance ToQuery UpdateFunctionDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFunctionDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFunctionDefinitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateFunctionDefinitionResponse' smart constructor.
 newtype UpdateFunctionDefinitionResponse = UpdateFunctionDefinitionResponse'
-  { _ufdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunctionDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufdrsResponseStatus' - -- | The response status code.
-updateFunctionDefinitionResponse ::
-  -- | 'ufdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateFunctionDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFunctionDefinitionResponse
-updateFunctionDefinitionResponse pResponseStatus_ =
+mkUpdateFunctionDefinitionResponse pResponseStatus_ =
   UpdateFunctionDefinitionResponse'
-    { _ufdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ufdrsResponseStatus :: Lens' UpdateFunctionDefinitionResponse Int
-ufdrsResponseStatus = lens _ufdrsResponseStatus (\s a -> s {_ufdrsResponseStatus = a})
-
-instance NFData UpdateFunctionDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufdrsResponseStatus :: Lens.Lens' UpdateFunctionDefinitionResponse Lude.Int
+ufdrsResponseStatus = Lens.lens (responseStatus :: UpdateFunctionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFunctionDefinitionResponse)
+{-# DEPRECATED ufdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

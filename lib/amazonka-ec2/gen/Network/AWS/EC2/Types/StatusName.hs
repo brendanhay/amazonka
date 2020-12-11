@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.StatusName where
+module Network.AWS.EC2.Types.StatusName
+  ( StatusName
+      ( StatusName',
+        Reachability
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusName = Reachability
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusName = StatusName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusName where
-  parser =
-    takeLowerText >>= \case
-      "reachability" -> pure Reachability
-      e ->
-        fromTextError $
-          "Failure parsing StatusName from value: '" <> e
-            <> "'. Accepted values: reachability"
+pattern Reachability :: StatusName
+pattern Reachability = StatusName' "reachability"
 
-instance ToText StatusName where
-  toText = \case
-    Reachability -> "reachability"
-
-instance Hashable StatusName
-
-instance NFData StatusName
-
-instance ToByteString StatusName
-
-instance ToQuery StatusName
-
-instance ToHeader StatusName
-
-instance FromXML StatusName where
-  parseXML = parseXMLText "StatusName"
+{-# COMPLETE
+  Reachability,
+  StatusName'
+  #-}

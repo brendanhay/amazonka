@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.NotificationChannel where
+module Network.AWS.Rekognition.Types.NotificationChannel
+  ( NotificationChannel (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotificationChannel,
+
+    -- * Lenses
+    ncSNSTopicARN,
+    ncRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see 'api-video' .
 --
---
---
--- /See:/ 'notificationChannel' smart constructor.
+-- /See:/ 'mkNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'
-  { _ncSNSTopicARN ::
-      !Text,
-    _ncRoleARN :: !Text
+  { snsTopicARN ::
+      Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncSNSTopicARN' - The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
---
--- * 'ncRoleARN' - The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
-notificationChannel ::
-  -- | 'ncSNSTopicARN'
-  Text ->
-  -- | 'ncRoleARN'
-  Text ->
+-- * 'roleARN' - The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
+-- * 'snsTopicARN' - The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
+mkNotificationChannel ::
+  -- | 'snsTopicARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   NotificationChannel
-notificationChannel pSNSTopicARN_ pRoleARN_ =
+mkNotificationChannel pSNSTopicARN_ pRoleARN_ =
   NotificationChannel'
-    { _ncSNSTopicARN = pSNSTopicARN_,
-      _ncRoleARN = pRoleARN_
+    { snsTopicARN = pSNSTopicARN_,
+      roleARN = pRoleARN_
     }
 
 -- | The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
-ncSNSTopicARN :: Lens' NotificationChannel Text
-ncSNSTopicARN = lens _ncSNSTopicARN (\s a -> s {_ncSNSTopicARN = a})
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncSNSTopicARN :: Lens.Lens' NotificationChannel Lude.Text
+ncSNSTopicARN = Lens.lens (snsTopicARN :: NotificationChannel -> Lude.Text) (\s a -> s {snsTopicARN = a} :: NotificationChannel)
+{-# DEPRECATED ncSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
 -- | The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
-ncRoleARN :: Lens' NotificationChannel Text
-ncRoleARN = lens _ncRoleARN (\s a -> s {_ncRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncRoleARN :: Lens.Lens' NotificationChannel Lude.Text
+ncRoleARN = Lens.lens (roleARN :: NotificationChannel -> Lude.Text) (\s a -> s {roleARN = a} :: NotificationChannel)
+{-# DEPRECATED ncRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Hashable NotificationChannel
-
-instance NFData NotificationChannel
-
-instance ToJSON NotificationChannel where
+instance Lude.ToJSON NotificationChannel where
   toJSON NotificationChannel' {..} =
-    object
-      ( catMaybes
-          [ Just ("SNSTopicArn" .= _ncSNSTopicARN),
-            Just ("RoleArn" .= _ncRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SNSTopicArn" Lude..= snsTopicARN),
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )

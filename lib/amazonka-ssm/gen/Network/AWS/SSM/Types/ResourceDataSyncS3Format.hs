@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceDataSyncS3Format where
+module Network.AWS.SSM.Types.ResourceDataSyncS3Format
+  ( ResourceDataSyncS3Format
+      ( ResourceDataSyncS3Format',
+        JSONSerDe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceDataSyncS3Format = JSONSerDe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceDataSyncS3Format = ResourceDataSyncS3Format' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceDataSyncS3Format where
-  parser =
-    takeLowerText >>= \case
-      "jsonserde" -> pure JSONSerDe
-      e ->
-        fromTextError $
-          "Failure parsing ResourceDataSyncS3Format from value: '" <> e
-            <> "'. Accepted values: jsonserde"
+pattern JSONSerDe :: ResourceDataSyncS3Format
+pattern JSONSerDe = ResourceDataSyncS3Format' "JsonSerDe"
 
-instance ToText ResourceDataSyncS3Format where
-  toText = \case
-    JSONSerDe -> "JsonSerDe"
-
-instance Hashable ResourceDataSyncS3Format
-
-instance NFData ResourceDataSyncS3Format
-
-instance ToByteString ResourceDataSyncS3Format
-
-instance ToQuery ResourceDataSyncS3Format
-
-instance ToHeader ResourceDataSyncS3Format
-
-instance ToJSON ResourceDataSyncS3Format where
-  toJSON = toJSONText
-
-instance FromJSON ResourceDataSyncS3Format where
-  parseJSON = parseJSONText "ResourceDataSyncS3Format"
+{-# COMPLETE
+  JSONSerDe,
+  ResourceDataSyncS3Format'
+  #-}

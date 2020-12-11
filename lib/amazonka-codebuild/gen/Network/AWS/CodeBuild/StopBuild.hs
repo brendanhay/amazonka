@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,126 @@
 --
 -- Attempts to stop running a build.
 module Network.AWS.CodeBuild.StopBuild
-  ( -- * Creating a Request
-    stopBuild,
-    StopBuild,
+  ( -- * Creating a request
+    StopBuild (..),
+    mkStopBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbId,
 
-    -- * Destructuring the Response
-    stopBuildResponse,
-    StopBuildResponse,
+    -- * Destructuring the response
+    StopBuildResponse (..),
+    mkStopBuildResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sbrsBuild,
     sbrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopBuild' smart constructor.
-newtype StopBuild = StopBuild' {_sbId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStopBuild' smart constructor.
+newtype StopBuild = StopBuild' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbId' - The ID of the build.
-stopBuild ::
-  -- | 'sbId'
-  Text ->
+-- * 'id' - The ID of the build.
+mkStopBuild ::
+  -- | 'id'
+  Lude.Text ->
   StopBuild
-stopBuild pId_ = StopBuild' {_sbId = pId_}
+mkStopBuild pId_ = StopBuild' {id = pId_}
 
 -- | The ID of the build.
-sbId :: Lens' StopBuild Text
-sbId = lens _sbId (\s a -> s {_sbId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbId :: Lens.Lens' StopBuild Lude.Text
+sbId = Lens.lens (id :: StopBuild -> Lude.Text) (\s a -> s {id = a} :: StopBuild)
+{-# DEPRECATED sbId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest StopBuild where
+instance Lude.AWSRequest StopBuild where
   type Rs StopBuild = StopBuildResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          StopBuildResponse' <$> (x .?> "build") <*> (pure (fromEnum s))
+          StopBuildResponse'
+            Lude.<$> (x Lude..?> "build") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopBuild
-
-instance NFData StopBuild
-
-instance ToHeaders StopBuild where
+instance Lude.ToHeaders StopBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeBuild_20161006.StopBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeBuild_20161006.StopBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopBuild where
-  toJSON StopBuild' {..} = object (catMaybes [Just ("id" .= _sbId)])
+instance Lude.ToJSON StopBuild where
+  toJSON StopBuild' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("id" Lude..= id)])
 
-instance ToPath StopBuild where
-  toPath = const "/"
+instance Lude.ToPath StopBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery StopBuild where
-  toQuery = const mempty
+instance Lude.ToQuery StopBuild where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopBuildResponse' smart constructor.
+-- | /See:/ 'mkStopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
-  { _sbrsBuild ::
-      !(Maybe Build),
-    _sbrsResponseStatus :: !Int
+  { build ::
+      Lude.Maybe Build,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBuildResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbrsBuild' - Information about the build.
---
--- * 'sbrsResponseStatus' - -- | The response status code.
-stopBuildResponse ::
-  -- | 'sbrsResponseStatus'
-  Int ->
+-- * 'build' - Information about the build.
+-- * 'responseStatus' - The response status code.
+mkStopBuildResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopBuildResponse
-stopBuildResponse pResponseStatus_ =
+mkStopBuildResponse pResponseStatus_ =
   StopBuildResponse'
-    { _sbrsBuild = Nothing,
-      _sbrsResponseStatus = pResponseStatus_
+    { build = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the build.
-sbrsBuild :: Lens' StopBuildResponse (Maybe Build)
-sbrsBuild = lens _sbrsBuild (\s a -> s {_sbrsBuild = a})
+--
+-- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbrsBuild :: Lens.Lens' StopBuildResponse (Lude.Maybe Build)
+sbrsBuild = Lens.lens (build :: StopBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StopBuildResponse)
+{-# DEPRECATED sbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
--- | -- | The response status code.
-sbrsResponseStatus :: Lens' StopBuildResponse Int
-sbrsResponseStatus = lens _sbrsResponseStatus (\s a -> s {_sbrsResponseStatus = a})
-
-instance NFData StopBuildResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbrsResponseStatus :: Lens.Lens' StopBuildResponse Lude.Int
+sbrsResponseStatus = Lens.lens (responseStatus :: StopBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBuildResponse)
+{-# DEPRECATED sbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

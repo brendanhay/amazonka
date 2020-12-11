@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SubnetCidrBlockState where
+module Network.AWS.EC2.Types.SubnetCidrBlockState
+  ( SubnetCidrBlockState (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSubnetCidrBlockState,
+
+    -- * Lenses
+    scbsState,
+    scbsStatusMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.SubnetCidrBlockStateCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of a CIDR block.
 --
---
---
--- /See:/ 'subnetCidrBlockState' smart constructor.
+-- /See:/ 'mkSubnetCidrBlockState' smart constructor.
 data SubnetCidrBlockState = SubnetCidrBlockState'
-  { _scbsState ::
-      !(Maybe SubnetCidrBlockStateCode),
-    _scbsStatusMessage :: !(Maybe Text)
+  { state ::
+      Lude.Maybe SubnetCidrBlockStateCode,
+    statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetCidrBlockState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scbsState' - The state of a CIDR block.
---
--- * 'scbsStatusMessage' - A message about the status of the CIDR block, if applicable.
-subnetCidrBlockState ::
+-- * 'state' - The state of a CIDR block.
+-- * 'statusMessage' - A message about the status of the CIDR block, if applicable.
+mkSubnetCidrBlockState ::
   SubnetCidrBlockState
-subnetCidrBlockState =
+mkSubnetCidrBlockState =
   SubnetCidrBlockState'
-    { _scbsState = Nothing,
-      _scbsStatusMessage = Nothing
+    { state = Lude.Nothing,
+      statusMessage = Lude.Nothing
     }
 
 -- | The state of a CIDR block.
-scbsState :: Lens' SubnetCidrBlockState (Maybe SubnetCidrBlockStateCode)
-scbsState = lens _scbsState (\s a -> s {_scbsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scbsState :: Lens.Lens' SubnetCidrBlockState (Lude.Maybe SubnetCidrBlockStateCode)
+scbsState = Lens.lens (state :: SubnetCidrBlockState -> Lude.Maybe SubnetCidrBlockStateCode) (\s a -> s {state = a} :: SubnetCidrBlockState)
+{-# DEPRECATED scbsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A message about the status of the CIDR block, if applicable.
-scbsStatusMessage :: Lens' SubnetCidrBlockState (Maybe Text)
-scbsStatusMessage = lens _scbsStatusMessage (\s a -> s {_scbsStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scbsStatusMessage :: Lens.Lens' SubnetCidrBlockState (Lude.Maybe Lude.Text)
+scbsStatusMessage = Lens.lens (statusMessage :: SubnetCidrBlockState -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: SubnetCidrBlockState)
+{-# DEPRECATED scbsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
-instance FromXML SubnetCidrBlockState where
+instance Lude.FromXML SubnetCidrBlockState where
   parseXML x =
     SubnetCidrBlockState'
-      <$> (x .@? "state") <*> (x .@? "statusMessage")
-
-instance Hashable SubnetCidrBlockState
-
-instance NFData SubnetCidrBlockState
+      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "statusMessage")

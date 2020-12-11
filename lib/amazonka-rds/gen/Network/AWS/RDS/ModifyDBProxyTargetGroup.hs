@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,168 @@
 --
 -- Modifies the properties of a @DBProxyTargetGroup@ .
 module Network.AWS.RDS.ModifyDBProxyTargetGroup
-  ( -- * Creating a Request
-    modifyDBProxyTargetGroup,
-    ModifyDBProxyTargetGroup,
+  ( -- * Creating a request
+    ModifyDBProxyTargetGroup (..),
+    mkModifyDBProxyTargetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mdptgConnectionPoolConfig,
     mdptgNewName,
     mdptgTargetGroupName,
     mdptgDBProxyName,
 
-    -- * Destructuring the Response
-    modifyDBProxyTargetGroupResponse,
-    ModifyDBProxyTargetGroupResponse,
+    -- * Destructuring the response
+    ModifyDBProxyTargetGroupResponse (..),
+    mkModifyDBProxyTargetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mdptgrsDBProxyTargetGroup,
     mdptgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyDBProxyTargetGroup' smart constructor.
+-- | /See:/ 'mkModifyDBProxyTargetGroup' smart constructor.
 data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
-  { _mdptgConnectionPoolConfig ::
-      !(Maybe ConnectionPoolConfiguration),
-    _mdptgNewName :: !(Maybe Text),
-    _mdptgTargetGroupName :: !Text,
-    _mdptgDBProxyName :: !Text
+  { connectionPoolConfig ::
+      Lude.Maybe ConnectionPoolConfiguration,
+    newName :: Lude.Maybe Lude.Text,
+    targetGroupName :: Lude.Text,
+    dbProxyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBProxyTargetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdptgConnectionPoolConfig' - The settings that determine the size and behavior of the connection pool for the target group.
---
--- * 'mdptgNewName' - The new name for the modified @DBProxyTarget@ . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
---
--- * 'mdptgTargetGroupName' - The name of the new target group to assign to the proxy.
---
--- * 'mdptgDBProxyName' - The name of the new proxy to which to assign the target group.
-modifyDBProxyTargetGroup ::
-  -- | 'mdptgTargetGroupName'
-  Text ->
-  -- | 'mdptgDBProxyName'
-  Text ->
+-- * 'connectionPoolConfig' - The settings that determine the size and behavior of the connection pool for the target group.
+-- * 'dbProxyName' - The name of the new proxy to which to assign the target group.
+-- * 'newName' - The new name for the modified @DBProxyTarget@ . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+-- * 'targetGroupName' - The name of the new target group to assign to the proxy.
+mkModifyDBProxyTargetGroup ::
+  -- | 'targetGroupName'
+  Lude.Text ->
+  -- | 'dbProxyName'
+  Lude.Text ->
   ModifyDBProxyTargetGroup
-modifyDBProxyTargetGroup pTargetGroupName_ pDBProxyName_ =
+mkModifyDBProxyTargetGroup pTargetGroupName_ pDBProxyName_ =
   ModifyDBProxyTargetGroup'
-    { _mdptgConnectionPoolConfig = Nothing,
-      _mdptgNewName = Nothing,
-      _mdptgTargetGroupName = pTargetGroupName_,
-      _mdptgDBProxyName = pDBProxyName_
+    { connectionPoolConfig = Lude.Nothing,
+      newName = Lude.Nothing,
+      targetGroupName = pTargetGroupName_,
+      dbProxyName = pDBProxyName_
     }
 
 -- | The settings that determine the size and behavior of the connection pool for the target group.
-mdptgConnectionPoolConfig :: Lens' ModifyDBProxyTargetGroup (Maybe ConnectionPoolConfiguration)
-mdptgConnectionPoolConfig = lens _mdptgConnectionPoolConfig (\s a -> s {_mdptgConnectionPoolConfig = a})
+--
+-- /Note:/ Consider using 'connectionPoolConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgConnectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Lude.Maybe ConnectionPoolConfiguration)
+mdptgConnectionPoolConfig = Lens.lens (connectionPoolConfig :: ModifyDBProxyTargetGroup -> Lude.Maybe ConnectionPoolConfiguration) (\s a -> s {connectionPoolConfig = a} :: ModifyDBProxyTargetGroup)
+{-# DEPRECATED mdptgConnectionPoolConfig "Use generic-lens or generic-optics with 'connectionPoolConfig' instead." #-}
 
 -- | The new name for the modified @DBProxyTarget@ . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-mdptgNewName :: Lens' ModifyDBProxyTargetGroup (Maybe Text)
-mdptgNewName = lens _mdptgNewName (\s a -> s {_mdptgNewName = a})
+--
+-- /Note:/ Consider using 'newName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgNewName :: Lens.Lens' ModifyDBProxyTargetGroup (Lude.Maybe Lude.Text)
+mdptgNewName = Lens.lens (newName :: ModifyDBProxyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {newName = a} :: ModifyDBProxyTargetGroup)
+{-# DEPRECATED mdptgNewName "Use generic-lens or generic-optics with 'newName' instead." #-}
 
 -- | The name of the new target group to assign to the proxy.
-mdptgTargetGroupName :: Lens' ModifyDBProxyTargetGroup Text
-mdptgTargetGroupName = lens _mdptgTargetGroupName (\s a -> s {_mdptgTargetGroupName = a})
+--
+-- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgTargetGroupName :: Lens.Lens' ModifyDBProxyTargetGroup Lude.Text
+mdptgTargetGroupName = Lens.lens (targetGroupName :: ModifyDBProxyTargetGroup -> Lude.Text) (\s a -> s {targetGroupName = a} :: ModifyDBProxyTargetGroup)
+{-# DEPRECATED mdptgTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
 
 -- | The name of the new proxy to which to assign the target group.
-mdptgDBProxyName :: Lens' ModifyDBProxyTargetGroup Text
-mdptgDBProxyName = lens _mdptgDBProxyName (\s a -> s {_mdptgDBProxyName = a})
+--
+-- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgDBProxyName :: Lens.Lens' ModifyDBProxyTargetGroup Lude.Text
+mdptgDBProxyName = Lens.lens (dbProxyName :: ModifyDBProxyTargetGroup -> Lude.Text) (\s a -> s {dbProxyName = a} :: ModifyDBProxyTargetGroup)
+{-# DEPRECATED mdptgDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
 
-instance AWSRequest ModifyDBProxyTargetGroup where
+instance Lude.AWSRequest ModifyDBProxyTargetGroup where
   type Rs ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyDBProxyTargetGroupResult"
       ( \s h x ->
           ModifyDBProxyTargetGroupResponse'
-            <$> (x .@? "DBProxyTargetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBProxyTargetGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyDBProxyTargetGroup
+instance Lude.ToHeaders ModifyDBProxyTargetGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyDBProxyTargetGroup
+instance Lude.ToPath ModifyDBProxyTargetGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyDBProxyTargetGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyDBProxyTargetGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyDBProxyTargetGroup where
+instance Lude.ToQuery ModifyDBProxyTargetGroup where
   toQuery ModifyDBProxyTargetGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyDBProxyTargetGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "ConnectionPoolConfig" =: _mdptgConnectionPoolConfig,
-        "NewName" =: _mdptgNewName,
-        "TargetGroupName" =: _mdptgTargetGroupName,
-        "DBProxyName" =: _mdptgDBProxyName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyDBProxyTargetGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "ConnectionPoolConfig" Lude.=: connectionPoolConfig,
+        "NewName" Lude.=: newName,
+        "TargetGroupName" Lude.=: targetGroupName,
+        "DBProxyName" Lude.=: dbProxyName
       ]
 
--- | /See:/ 'modifyDBProxyTargetGroupResponse' smart constructor.
+-- | /See:/ 'mkModifyDBProxyTargetGroupResponse' smart constructor.
 data ModifyDBProxyTargetGroupResponse = ModifyDBProxyTargetGroupResponse'
-  { _mdptgrsDBProxyTargetGroup ::
-      !( Maybe
-           DBProxyTargetGroup
-       ),
-    _mdptgrsResponseStatus ::
-      !Int
+  { dbProxyTargetGroup ::
+      Lude.Maybe
+        DBProxyTargetGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBProxyTargetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdptgrsDBProxyTargetGroup' - The settings of the modified @DBProxyTarget@ .
---
--- * 'mdptgrsResponseStatus' - -- | The response status code.
-modifyDBProxyTargetGroupResponse ::
-  -- | 'mdptgrsResponseStatus'
-  Int ->
+-- * 'dbProxyTargetGroup' - The settings of the modified @DBProxyTarget@ .
+-- * 'responseStatus' - The response status code.
+mkModifyDBProxyTargetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyDBProxyTargetGroupResponse
-modifyDBProxyTargetGroupResponse pResponseStatus_ =
+mkModifyDBProxyTargetGroupResponse pResponseStatus_ =
   ModifyDBProxyTargetGroupResponse'
-    { _mdptgrsDBProxyTargetGroup =
-        Nothing,
-      _mdptgrsResponseStatus = pResponseStatus_
+    { dbProxyTargetGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The settings of the modified @DBProxyTarget@ .
-mdptgrsDBProxyTargetGroup :: Lens' ModifyDBProxyTargetGroupResponse (Maybe DBProxyTargetGroup)
-mdptgrsDBProxyTargetGroup = lens _mdptgrsDBProxyTargetGroup (\s a -> s {_mdptgrsDBProxyTargetGroup = a})
+--
+-- /Note:/ Consider using 'dbProxyTargetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgrsDBProxyTargetGroup :: Lens.Lens' ModifyDBProxyTargetGroupResponse (Lude.Maybe DBProxyTargetGroup)
+mdptgrsDBProxyTargetGroup = Lens.lens (dbProxyTargetGroup :: ModifyDBProxyTargetGroupResponse -> Lude.Maybe DBProxyTargetGroup) (\s a -> s {dbProxyTargetGroup = a} :: ModifyDBProxyTargetGroupResponse)
+{-# DEPRECATED mdptgrsDBProxyTargetGroup "Use generic-lens or generic-optics with 'dbProxyTargetGroup' instead." #-}
 
--- | -- | The response status code.
-mdptgrsResponseStatus :: Lens' ModifyDBProxyTargetGroupResponse Int
-mdptgrsResponseStatus = lens _mdptgrsResponseStatus (\s a -> s {_mdptgrsResponseStatus = a})
-
-instance NFData ModifyDBProxyTargetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdptgrsResponseStatus :: Lens.Lens' ModifyDBProxyTargetGroupResponse Lude.Int
+mdptgrsResponseStatus = Lens.lens (responseStatus :: ModifyDBProxyTargetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDBProxyTargetGroupResponse)
+{-# DEPRECATED mdptgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

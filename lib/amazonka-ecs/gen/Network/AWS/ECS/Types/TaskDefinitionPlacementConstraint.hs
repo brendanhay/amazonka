@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint where
+module Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint
+  ( TaskDefinitionPlacementConstraint (..),
+
+    -- * Smart constructor
+    mkTaskDefinitionPlacementConstraint,
+
+    -- * Lenses
+    tdpcExpression,
+    tdpcType,
+  )
+where
 
 import Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing a constraint on task placement in the task definition. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints> in the /Amazon Elastic Container Service Developer Guide/ .
 --
---
---
--- /See:/ 'taskDefinitionPlacementConstraint' smart constructor.
+-- /See:/ 'mkTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
-  { _tdpcExpression ::
-      !(Maybe Text),
-    _tdpcType ::
-      !( Maybe
-           TaskDefinitionPlacementConstraintType
-       )
+  { expression ::
+      Lude.Maybe Lude.Text,
+    type' ::
+      Lude.Maybe
+        TaskDefinitionPlacementConstraintType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskDefinitionPlacementConstraint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdpcExpression' - A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
---
--- * 'tdpcType' - The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
-taskDefinitionPlacementConstraint ::
+-- * 'expression' - A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'type'' - The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
+mkTaskDefinitionPlacementConstraint ::
   TaskDefinitionPlacementConstraint
-taskDefinitionPlacementConstraint =
+mkTaskDefinitionPlacementConstraint =
   TaskDefinitionPlacementConstraint'
-    { _tdpcExpression = Nothing,
-      _tdpcType = Nothing
+    { expression = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
-tdpcExpression :: Lens' TaskDefinitionPlacementConstraint (Maybe Text)
-tdpcExpression = lens _tdpcExpression (\s a -> s {_tdpcExpression = a})
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdpcExpression :: Lens.Lens' TaskDefinitionPlacementConstraint (Lude.Maybe Lude.Text)
+tdpcExpression = Lens.lens (expression :: TaskDefinitionPlacementConstraint -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: TaskDefinitionPlacementConstraint)
+{-# DEPRECATED tdpcExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
-tdpcType :: Lens' TaskDefinitionPlacementConstraint (Maybe TaskDefinitionPlacementConstraintType)
-tdpcType = lens _tdpcType (\s a -> s {_tdpcType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdpcType :: Lens.Lens' TaskDefinitionPlacementConstraint (Lude.Maybe TaskDefinitionPlacementConstraintType)
+tdpcType = Lens.lens (type' :: TaskDefinitionPlacementConstraint -> Lude.Maybe TaskDefinitionPlacementConstraintType) (\s a -> s {type' = a} :: TaskDefinitionPlacementConstraint)
+{-# DEPRECATED tdpcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON TaskDefinitionPlacementConstraint where
+instance Lude.FromJSON TaskDefinitionPlacementConstraint where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskDefinitionPlacementConstraint"
       ( \x ->
           TaskDefinitionPlacementConstraint'
-            <$> (x .:? "expression") <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "expression") Lude.<*> (x Lude..:? "type")
       )
 
-instance Hashable TaskDefinitionPlacementConstraint
-
-instance NFData TaskDefinitionPlacementConstraint
-
-instance ToJSON TaskDefinitionPlacementConstraint where
+instance Lude.ToJSON TaskDefinitionPlacementConstraint where
   toJSON TaskDefinitionPlacementConstraint' {..} =
-    object
-      ( catMaybes
-          [("expression" .=) <$> _tdpcExpression, ("type" .=) <$> _tdpcType]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expression" Lude..=) Lude.<$> expression,
+            ("type" Lude..=) Lude.<$> type'
+          ]
       )

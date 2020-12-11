@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.StatusType where
+module Network.AWS.IAM.Types.StatusType
+  ( StatusType
+      ( StatusType',
+        Active,
+        Inactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusType
-  = Active
-  | Inactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusType = StatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "inactive" -> pure Inactive
-      e ->
-        fromTextError $
-          "Failure parsing StatusType from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern Active :: StatusType
+pattern Active = StatusType' "Active"
 
-instance ToText StatusType where
-  toText = \case
-    Active -> "Active"
-    Inactive -> "Inactive"
+pattern Inactive :: StatusType
+pattern Inactive = StatusType' "Inactive"
 
-instance Hashable StatusType
-
-instance NFData StatusType
-
-instance ToByteString StatusType
-
-instance ToQuery StatusType
-
-instance ToHeader StatusType
-
-instance FromXML StatusType where
-  parseXML = parseXMLText "StatusType"
+{-# COMPLETE
+  Active,
+  Inactive,
+  StatusType'
+  #-}

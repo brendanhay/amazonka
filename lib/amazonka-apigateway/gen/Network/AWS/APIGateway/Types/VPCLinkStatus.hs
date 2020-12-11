@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.VPCLinkStatus where
+module Network.AWS.APIGateway.Types.VPCLinkStatus
+  ( VPCLinkStatus
+      ( VPCLinkStatus',
+        VLSAvailable,
+        VLSDeleting,
+        VLSFailed,
+        VLSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPCLinkStatus
-  = VLSAvailable
-  | VLSDeleting
-  | VLSFailed
-  | VLSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPCLinkStatus = VPCLinkStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPCLinkStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure VLSAvailable
-      "deleting" -> pure VLSDeleting
-      "failed" -> pure VLSFailed
-      "pending" -> pure VLSPending
-      e ->
-        fromTextError $
-          "Failure parsing VPCLinkStatus from value: '" <> e
-            <> "'. Accepted values: available, deleting, failed, pending"
+pattern VLSAvailable :: VPCLinkStatus
+pattern VLSAvailable = VPCLinkStatus' "AVAILABLE"
 
-instance ToText VPCLinkStatus where
-  toText = \case
-    VLSAvailable -> "AVAILABLE"
-    VLSDeleting -> "DELETING"
-    VLSFailed -> "FAILED"
-    VLSPending -> "PENDING"
+pattern VLSDeleting :: VPCLinkStatus
+pattern VLSDeleting = VPCLinkStatus' "DELETING"
 
-instance Hashable VPCLinkStatus
+pattern VLSFailed :: VPCLinkStatus
+pattern VLSFailed = VPCLinkStatus' "FAILED"
 
-instance NFData VPCLinkStatus
+pattern VLSPending :: VPCLinkStatus
+pattern VLSPending = VPCLinkStatus' "PENDING"
 
-instance ToByteString VPCLinkStatus
-
-instance ToQuery VPCLinkStatus
-
-instance ToHeader VPCLinkStatus
-
-instance FromJSON VPCLinkStatus where
-  parseJSON = parseJSONText "VPCLinkStatus"
+{-# COMPLETE
+  VLSAvailable,
+  VLSDeleting,
+  VLSFailed,
+  VLSPending,
+  VPCLinkStatus'
+  #-}

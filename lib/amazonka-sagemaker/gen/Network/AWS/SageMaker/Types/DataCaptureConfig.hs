@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,117 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DataCaptureConfig where
+module Network.AWS.SageMaker.Types.DataCaptureConfig
+  ( DataCaptureConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDataCaptureConfig,
+
+    -- * Lenses
+    dccCaptureContentTypeHeader,
+    dccKMSKeyId,
+    dccEnableCapture,
+    dccInitialSamplingPercentage,
+    dccDestinationS3URI,
+    dccCaptureOptions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.CaptureContentTypeHeader
 import Network.AWS.SageMaker.Types.CaptureOption
 
 -- |
 --
---
---
--- /See:/ 'dataCaptureConfig' smart constructor.
+-- /See:/ 'mkDataCaptureConfig' smart constructor.
 data DataCaptureConfig = DataCaptureConfig'
-  { _dccCaptureContentTypeHeader ::
-      !(Maybe CaptureContentTypeHeader),
-    _dccKMSKeyId :: !(Maybe Text),
-    _dccEnableCapture :: !(Maybe Bool),
-    _dccInitialSamplingPercentage :: !Nat,
-    _dccDestinationS3URI :: !Text,
-    _dccCaptureOptions :: !(List1 CaptureOption)
+  { captureContentTypeHeader ::
+      Lude.Maybe CaptureContentTypeHeader,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    enableCapture :: Lude.Maybe Lude.Bool,
+    initialSamplingPercentage :: Lude.Natural,
+    destinationS3URI :: Lude.Text,
+    captureOptions :: Lude.NonEmpty CaptureOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataCaptureConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dccCaptureContentTypeHeader' -
---
--- * 'dccKMSKeyId' -
---
--- * 'dccEnableCapture' -
---
--- * 'dccInitialSamplingPercentage' -
---
--- * 'dccDestinationS3URI' -
---
--- * 'dccCaptureOptions' -
-dataCaptureConfig ::
-  -- | 'dccInitialSamplingPercentage'
-  Natural ->
-  -- | 'dccDestinationS3URI'
-  Text ->
-  -- | 'dccCaptureOptions'
-  NonEmpty CaptureOption ->
+-- * 'captureContentTypeHeader' -
+-- * 'captureOptions' -
+-- * 'destinationS3URI' -
+-- * 'enableCapture' -
+-- * 'initialSamplingPercentage' -
+-- * 'kmsKeyId' -
+mkDataCaptureConfig ::
+  -- | 'initialSamplingPercentage'
+  Lude.Natural ->
+  -- | 'destinationS3URI'
+  Lude.Text ->
+  -- | 'captureOptions'
+  Lude.NonEmpty CaptureOption ->
   DataCaptureConfig
-dataCaptureConfig
+mkDataCaptureConfig
   pInitialSamplingPercentage_
   pDestinationS3URI_
   pCaptureOptions_ =
     DataCaptureConfig'
-      { _dccCaptureContentTypeHeader = Nothing,
-        _dccKMSKeyId = Nothing,
-        _dccEnableCapture = Nothing,
-        _dccInitialSamplingPercentage = _Nat # pInitialSamplingPercentage_,
-        _dccDestinationS3URI = pDestinationS3URI_,
-        _dccCaptureOptions = _List1 # pCaptureOptions_
+      { captureContentTypeHeader = Lude.Nothing,
+        kmsKeyId = Lude.Nothing,
+        enableCapture = Lude.Nothing,
+        initialSamplingPercentage = pInitialSamplingPercentage_,
+        destinationS3URI = pDestinationS3URI_,
+        captureOptions = pCaptureOptions_
       }
 
 -- |
-dccCaptureContentTypeHeader :: Lens' DataCaptureConfig (Maybe CaptureContentTypeHeader)
-dccCaptureContentTypeHeader = lens _dccCaptureContentTypeHeader (\s a -> s {_dccCaptureContentTypeHeader = a})
+--
+-- /Note:/ Consider using 'captureContentTypeHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccCaptureContentTypeHeader :: Lens.Lens' DataCaptureConfig (Lude.Maybe CaptureContentTypeHeader)
+dccCaptureContentTypeHeader = Lens.lens (captureContentTypeHeader :: DataCaptureConfig -> Lude.Maybe CaptureContentTypeHeader) (\s a -> s {captureContentTypeHeader = a} :: DataCaptureConfig)
+{-# DEPRECATED dccCaptureContentTypeHeader "Use generic-lens or generic-optics with 'captureContentTypeHeader' instead." #-}
 
 -- |
-dccKMSKeyId :: Lens' DataCaptureConfig (Maybe Text)
-dccKMSKeyId = lens _dccKMSKeyId (\s a -> s {_dccKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccKMSKeyId :: Lens.Lens' DataCaptureConfig (Lude.Maybe Lude.Text)
+dccKMSKeyId = Lens.lens (kmsKeyId :: DataCaptureConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: DataCaptureConfig)
+{-# DEPRECATED dccKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- |
-dccEnableCapture :: Lens' DataCaptureConfig (Maybe Bool)
-dccEnableCapture = lens _dccEnableCapture (\s a -> s {_dccEnableCapture = a})
+--
+-- /Note:/ Consider using 'enableCapture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccEnableCapture :: Lens.Lens' DataCaptureConfig (Lude.Maybe Lude.Bool)
+dccEnableCapture = Lens.lens (enableCapture :: DataCaptureConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enableCapture = a} :: DataCaptureConfig)
+{-# DEPRECATED dccEnableCapture "Use generic-lens or generic-optics with 'enableCapture' instead." #-}
 
 -- |
-dccInitialSamplingPercentage :: Lens' DataCaptureConfig Natural
-dccInitialSamplingPercentage = lens _dccInitialSamplingPercentage (\s a -> s {_dccInitialSamplingPercentage = a}) . _Nat
+--
+-- /Note:/ Consider using 'initialSamplingPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccInitialSamplingPercentage :: Lens.Lens' DataCaptureConfig Lude.Natural
+dccInitialSamplingPercentage = Lens.lens (initialSamplingPercentage :: DataCaptureConfig -> Lude.Natural) (\s a -> s {initialSamplingPercentage = a} :: DataCaptureConfig)
+{-# DEPRECATED dccInitialSamplingPercentage "Use generic-lens or generic-optics with 'initialSamplingPercentage' instead." #-}
 
 -- |
-dccDestinationS3URI :: Lens' DataCaptureConfig Text
-dccDestinationS3URI = lens _dccDestinationS3URI (\s a -> s {_dccDestinationS3URI = a})
+--
+-- /Note:/ Consider using 'destinationS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccDestinationS3URI :: Lens.Lens' DataCaptureConfig Lude.Text
+dccDestinationS3URI = Lens.lens (destinationS3URI :: DataCaptureConfig -> Lude.Text) (\s a -> s {destinationS3URI = a} :: DataCaptureConfig)
+{-# DEPRECATED dccDestinationS3URI "Use generic-lens or generic-optics with 'destinationS3URI' instead." #-}
 
 -- |
-dccCaptureOptions :: Lens' DataCaptureConfig (NonEmpty CaptureOption)
-dccCaptureOptions = lens _dccCaptureOptions (\s a -> s {_dccCaptureOptions = a}) . _List1
+--
+-- /Note:/ Consider using 'captureOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccCaptureOptions :: Lens.Lens' DataCaptureConfig (Lude.NonEmpty CaptureOption)
+dccCaptureOptions = Lens.lens (captureOptions :: DataCaptureConfig -> Lude.NonEmpty CaptureOption) (\s a -> s {captureOptions = a} :: DataCaptureConfig)
+{-# DEPRECATED dccCaptureOptions "Use generic-lens or generic-optics with 'captureOptions' instead." #-}
 
-instance FromJSON DataCaptureConfig where
+instance Lude.FromJSON DataCaptureConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "DataCaptureConfig"
       ( \x ->
           DataCaptureConfig'
-            <$> (x .:? "CaptureContentTypeHeader")
-            <*> (x .:? "KmsKeyId")
-            <*> (x .:? "EnableCapture")
-            <*> (x .: "InitialSamplingPercentage")
-            <*> (x .: "DestinationS3Uri")
-            <*> (x .: "CaptureOptions")
+            Lude.<$> (x Lude..:? "CaptureContentTypeHeader")
+            Lude.<*> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "EnableCapture")
+            Lude.<*> (x Lude..: "InitialSamplingPercentage")
+            Lude.<*> (x Lude..: "DestinationS3Uri")
+            Lude.<*> (x Lude..: "CaptureOptions")
       )
 
-instance Hashable DataCaptureConfig
-
-instance NFData DataCaptureConfig
-
-instance ToJSON DataCaptureConfig where
+instance Lude.ToJSON DataCaptureConfig where
   toJSON DataCaptureConfig' {..} =
-    object
-      ( catMaybes
-          [ ("CaptureContentTypeHeader" .=) <$> _dccCaptureContentTypeHeader,
-            ("KmsKeyId" .=) <$> _dccKMSKeyId,
-            ("EnableCapture" .=) <$> _dccEnableCapture,
-            Just
-              ("InitialSamplingPercentage" .= _dccInitialSamplingPercentage),
-            Just ("DestinationS3Uri" .= _dccDestinationS3URI),
-            Just ("CaptureOptions" .= _dccCaptureOptions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CaptureContentTypeHeader" Lude..=)
+              Lude.<$> captureContentTypeHeader,
+            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            ("EnableCapture" Lude..=) Lude.<$> enableCapture,
+            Lude.Just
+              ("InitialSamplingPercentage" Lude..= initialSamplingPercentage),
+            Lude.Just ("DestinationS3Uri" Lude..= destinationS3URI),
+            Lude.Just ("CaptureOptions" Lude..= captureOptions)
           ]
       )

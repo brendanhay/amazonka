@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates an AWS Glue machine learning transform. This operation creates the transform and all the necessary parameters to train it.
 --
---
 -- Call this operation as the first step in the process of using a machine learning transform (such as the @FindMatches@ transform) for deduplicating data. You can provide an optional @Description@ , in addition to the parameters that you want to use for your algorithm.
---
 -- You must also specify certain parameters for the tasks that AWS Glue runs on your behalf as part of learning from your data and creating a high-quality machine learning transform. These parameters include @Role@ , and optionally, @AllocatedCapacity@ , @Timeout@ , and @MaxRetries@ . For more information, see <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html Jobs> .
 module Network.AWS.Glue.CreateMLTransform
-  ( -- * Creating a Request
-    createMLTransform,
-    CreateMLTransform,
+  ( -- * Creating a request
+    CreateMLTransform (..),
+    mkCreateMLTransform,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmltNumberOfWorkers,
     cmltWorkerType,
     cmltGlueVersion,
@@ -43,228 +36,367 @@ module Network.AWS.Glue.CreateMLTransform
     cmltParameters,
     cmltRole,
 
-    -- * Destructuring the Response
-    createMLTransformResponse,
-    CreateMLTransformResponse,
+    -- * Destructuring the response
+    CreateMLTransformResponse (..),
+    mkCreateMLTransformResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmltrsTransformId,
     cmltrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createMLTransform' smart constructor.
+-- | /See:/ 'mkCreateMLTransform' smart constructor.
 data CreateMLTransform = CreateMLTransform'
-  { _cmltNumberOfWorkers ::
-      !(Maybe Int),
-    _cmltWorkerType :: !(Maybe WorkerType),
-    _cmltGlueVersion :: !(Maybe Text),
-    _cmltMaxRetries :: !(Maybe Int),
-    _cmltMaxCapacity :: !(Maybe Double),
-    _cmltTimeout :: !(Maybe Nat),
-    _cmltTransformEncryption ::
-      !(Maybe TransformEncryption),
-    _cmltDescription :: !(Maybe Text),
-    _cmltTags :: !(Maybe (Map Text (Text))),
-    _cmltName :: !Text,
-    _cmltInputRecordTables :: ![GlueTable],
-    _cmltParameters :: !TransformParameters,
-    _cmltRole :: !Text
+  { numberOfWorkers ::
+      Lude.Maybe Lude.Int,
+    workerType :: Lude.Maybe WorkerType,
+    glueVersion :: Lude.Maybe Lude.Text,
+    maxRetries :: Lude.Maybe Lude.Int,
+    maxCapacity :: Lude.Maybe Lude.Double,
+    timeout :: Lude.Maybe Lude.Natural,
+    transformEncryption :: Lude.Maybe TransformEncryption,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Text,
+    inputRecordTables :: [GlueTable],
+    parameters :: TransformParameters,
+    role' :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMLTransform' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description of the machine learning transform that is being defined. The default is an empty string.
+-- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
+-- * 'inputRecordTables' - A list of AWS Glue table definitions used by the transform.
+-- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
--- * 'cmltNumberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when this task runs. If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .
 --
--- * 'cmltWorkerType' - The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+--     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.
 --
--- * 'cmltGlueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
 --
--- * 'cmltMaxRetries' - The maximum number of times to retry a task for this transform after a task run fails.
+--     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.
 --
--- * 'cmltMaxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .  @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1. When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only. When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
 --
--- * 'cmltTimeout' - The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+--     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
 --
--- * 'cmltTransformEncryption' - The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
 --
--- * 'cmltDescription' - A description of the machine learning transform that is being defined. The default is an empty string.
+--     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
 --
--- * 'cmltTags' - The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
 --
--- * 'cmltName' - The unique name that you give the transform when you create it.
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+-- * 'maxRetries' - The maximum number of times to retry a task for this transform after a task run fails.
+-- * 'name' - The unique name that you give the transform when you create it.
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when this task runs.
 --
--- * 'cmltInputRecordTables' - A list of AWS Glue table definitions used by the transform.
+-- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+-- * 'parameters' - The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type.
+-- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.
 --
--- * 'cmltParameters' - The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type.
 --
--- * 'cmltRole' - The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.      * This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue> .     * This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
-createMLTransform ::
-  -- | 'cmltName'
-  Text ->
-  -- | 'cmltParameters'
+--     * This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue> .
+--
+--
+--     * This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
+--
+--
+-- * 'tags' - The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+-- * 'timeout' - The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+-- * 'transformEncryption' - The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
+-- * 'workerType' - The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
+--
+--
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+--
+--
+--     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+--
+--
+--     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+--
+--
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .
+--
+--     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.
+--
+--
+--     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.
+--
+--
+--     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+--
+--
+--     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+mkCreateMLTransform ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'parameters'
   TransformParameters ->
-  -- | 'cmltRole'
-  Text ->
+  -- | 'role''
+  Lude.Text ->
   CreateMLTransform
-createMLTransform pName_ pParameters_ pRole_ =
+mkCreateMLTransform pName_ pParameters_ pRole_ =
   CreateMLTransform'
-    { _cmltNumberOfWorkers = Nothing,
-      _cmltWorkerType = Nothing,
-      _cmltGlueVersion = Nothing,
-      _cmltMaxRetries = Nothing,
-      _cmltMaxCapacity = Nothing,
-      _cmltTimeout = Nothing,
-      _cmltTransformEncryption = Nothing,
-      _cmltDescription = Nothing,
-      _cmltTags = Nothing,
-      _cmltName = pName_,
-      _cmltInputRecordTables = mempty,
-      _cmltParameters = pParameters_,
-      _cmltRole = pRole_
+    { numberOfWorkers = Lude.Nothing,
+      workerType = Lude.Nothing,
+      glueVersion = Lude.Nothing,
+      maxRetries = Lude.Nothing,
+      maxCapacity = Lude.Nothing,
+      timeout = Lude.Nothing,
+      transformEncryption = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      inputRecordTables = Lude.mempty,
+      parameters = pParameters_,
+      role' = pRole_
     }
 
--- | The number of workers of a defined @workerType@ that are allocated when this task runs. If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
-cmltNumberOfWorkers :: Lens' CreateMLTransform (Maybe Int)
-cmltNumberOfWorkers = lens _cmltNumberOfWorkers (\s a -> s {_cmltNumberOfWorkers = a})
+-- | The number of workers of a defined @workerType@ that are allocated when this task runs.
+--
+-- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+--
+-- /Note:/ Consider using 'numberOfWorkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltNumberOfWorkers :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Int)
+cmltNumberOfWorkers = Lens.lens (numberOfWorkers :: CreateMLTransform -> Lude.Maybe Lude.Int) (\s a -> s {numberOfWorkers = a} :: CreateMLTransform)
+{-# DEPRECATED cmltNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
 
--- | The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker. @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
-cmltWorkerType :: Lens' CreateMLTransform (Maybe WorkerType)
-cmltWorkerType = lens _cmltWorkerType (\s a -> s {_cmltWorkerType = a})
+-- | The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
+--
+--
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+--
+--
+--     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+--
+--
+--     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+--
+--
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .
+--
+--     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.
+--
+--
+--     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.
+--
+--
+--     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+--
+--
+--     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+--
+--
+--
+-- /Note:/ Consider using 'workerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltWorkerType :: Lens.Lens' CreateMLTransform (Lude.Maybe WorkerType)
+cmltWorkerType = Lens.lens (workerType :: CreateMLTransform -> Lude.Maybe WorkerType) (\s a -> s {workerType = a} :: CreateMLTransform)
+{-# DEPRECATED cmltWorkerType "Use generic-lens or generic-optics with 'workerType' instead." #-}
 
 -- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
-cmltGlueVersion :: Lens' CreateMLTransform (Maybe Text)
-cmltGlueVersion = lens _cmltGlueVersion (\s a -> s {_cmltGlueVersion = a})
+--
+-- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltGlueVersion :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Text)
+cmltGlueVersion = Lens.lens (glueVersion :: CreateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {glueVersion = a} :: CreateMLTransform)
+{-# DEPRECATED cmltGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
 
 -- | The maximum number of times to retry a task for this transform after a task run fails.
-cmltMaxRetries :: Lens' CreateMLTransform (Maybe Int)
-cmltMaxRetries = lens _cmltMaxRetries (\s a -> s {_cmltMaxRetries = a})
+--
+-- /Note:/ Consider using 'maxRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltMaxRetries :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Int)
+cmltMaxRetries = Lens.lens (maxRetries :: CreateMLTransform -> Lude.Maybe Lude.Int) (\s a -> s {maxRetries = a} :: CreateMLTransform)
+{-# DEPRECATED cmltMaxRetries "Use generic-lens or generic-optics with 'maxRetries' instead." #-}
 
--- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .  @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1. When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only. When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
-cmltMaxCapacity :: Lens' CreateMLTransform (Maybe Double)
-cmltMaxCapacity = lens _cmltMaxCapacity (\s a -> s {_cmltMaxCapacity = a})
+-- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and @WorkerType@ .
+--
+--     * If either @NumberOfWorkers@ or @WorkerType@ is set, then @MaxCapacity@ cannot be set.
+--
+--
+--     * If @MaxCapacity@ is set then neither @NumberOfWorkers@ or @WorkerType@ can be set.
+--
+--
+--     * If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice versa).
+--
+--
+--     * @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+--
+--
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+--
+-- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltMaxCapacity :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Double)
+cmltMaxCapacity = Lens.lens (maxCapacity :: CreateMLTransform -> Lude.Maybe Lude.Double) (\s a -> s {maxCapacity = a} :: CreateMLTransform)
+{-# DEPRECATED cmltMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
 -- | The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
-cmltTimeout :: Lens' CreateMLTransform (Maybe Natural)
-cmltTimeout = lens _cmltTimeout (\s a -> s {_cmltTimeout = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltTimeout :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Natural)
+cmltTimeout = Lens.lens (timeout :: CreateMLTransform -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: CreateMLTransform)
+{-# DEPRECATED cmltTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
 -- | The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
-cmltTransformEncryption :: Lens' CreateMLTransform (Maybe TransformEncryption)
-cmltTransformEncryption = lens _cmltTransformEncryption (\s a -> s {_cmltTransformEncryption = a})
+--
+-- /Note:/ Consider using 'transformEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltTransformEncryption :: Lens.Lens' CreateMLTransform (Lude.Maybe TransformEncryption)
+cmltTransformEncryption = Lens.lens (transformEncryption :: CreateMLTransform -> Lude.Maybe TransformEncryption) (\s a -> s {transformEncryption = a} :: CreateMLTransform)
+{-# DEPRECATED cmltTransformEncryption "Use generic-lens or generic-optics with 'transformEncryption' instead." #-}
 
 -- | A description of the machine learning transform that is being defined. The default is an empty string.
-cmltDescription :: Lens' CreateMLTransform (Maybe Text)
-cmltDescription = lens _cmltDescription (\s a -> s {_cmltDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltDescription :: Lens.Lens' CreateMLTransform (Lude.Maybe Lude.Text)
+cmltDescription = Lens.lens (description :: CreateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateMLTransform)
+{-# DEPRECATED cmltDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
-cmltTags :: Lens' CreateMLTransform (HashMap Text (Text))
-cmltTags = lens _cmltTags (\s a -> s {_cmltTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltTags :: Lens.Lens' CreateMLTransform (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cmltTags = Lens.lens (tags :: CreateMLTransform -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateMLTransform)
+{-# DEPRECATED cmltTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique name that you give the transform when you create it.
-cmltName :: Lens' CreateMLTransform Text
-cmltName = lens _cmltName (\s a -> s {_cmltName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltName :: Lens.Lens' CreateMLTransform Lude.Text
+cmltName = Lens.lens (name :: CreateMLTransform -> Lude.Text) (\s a -> s {name = a} :: CreateMLTransform)
+{-# DEPRECATED cmltName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of AWS Glue table definitions used by the transform.
-cmltInputRecordTables :: Lens' CreateMLTransform [GlueTable]
-cmltInputRecordTables = lens _cmltInputRecordTables (\s a -> s {_cmltInputRecordTables = a}) . _Coerce
+--
+-- /Note:/ Consider using 'inputRecordTables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltInputRecordTables :: Lens.Lens' CreateMLTransform [GlueTable]
+cmltInputRecordTables = Lens.lens (inputRecordTables :: CreateMLTransform -> [GlueTable]) (\s a -> s {inputRecordTables = a} :: CreateMLTransform)
+{-# DEPRECATED cmltInputRecordTables "Use generic-lens or generic-optics with 'inputRecordTables' instead." #-}
 
 -- | The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type.
-cmltParameters :: Lens' CreateMLTransform TransformParameters
-cmltParameters = lens _cmltParameters (\s a -> s {_cmltParameters = a})
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltParameters :: Lens.Lens' CreateMLTransform TransformParameters
+cmltParameters = Lens.lens (parameters :: CreateMLTransform -> TransformParameters) (\s a -> s {parameters = a} :: CreateMLTransform)
+{-# DEPRECATED cmltParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.      * This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue> .     * This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
-cmltRole :: Lens' CreateMLTransform Text
-cmltRole = lens _cmltRole (\s a -> s {_cmltRole = a})
+-- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.
+--
+--
+--     * This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue> .
+--
+--
+--     * This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
+--
+--
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltRole :: Lens.Lens' CreateMLTransform Lude.Text
+cmltRole = Lens.lens (role' :: CreateMLTransform -> Lude.Text) (\s a -> s {role' = a} :: CreateMLTransform)
+{-# DEPRECATED cmltRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
-instance AWSRequest CreateMLTransform where
+instance Lude.AWSRequest CreateMLTransform where
   type Rs CreateMLTransform = CreateMLTransformResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateMLTransformResponse'
-            <$> (x .?> "TransformId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TransformId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMLTransform
-
-instance NFData CreateMLTransform
-
-instance ToHeaders CreateMLTransform where
+instance Lude.ToHeaders CreateMLTransform where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateMLTransform" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateMLTransform" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateMLTransform where
+instance Lude.ToJSON CreateMLTransform where
   toJSON CreateMLTransform' {..} =
-    object
-      ( catMaybes
-          [ ("NumberOfWorkers" .=) <$> _cmltNumberOfWorkers,
-            ("WorkerType" .=) <$> _cmltWorkerType,
-            ("GlueVersion" .=) <$> _cmltGlueVersion,
-            ("MaxRetries" .=) <$> _cmltMaxRetries,
-            ("MaxCapacity" .=) <$> _cmltMaxCapacity,
-            ("Timeout" .=) <$> _cmltTimeout,
-            ("TransformEncryption" .=) <$> _cmltTransformEncryption,
-            ("Description" .=) <$> _cmltDescription,
-            ("Tags" .=) <$> _cmltTags,
-            Just ("Name" .= _cmltName),
-            Just ("InputRecordTables" .= _cmltInputRecordTables),
-            Just ("Parameters" .= _cmltParameters),
-            Just ("Role" .= _cmltRole)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NumberOfWorkers" Lude..=) Lude.<$> numberOfWorkers,
+            ("WorkerType" Lude..=) Lude.<$> workerType,
+            ("GlueVersion" Lude..=) Lude.<$> glueVersion,
+            ("MaxRetries" Lude..=) Lude.<$> maxRetries,
+            ("MaxCapacity" Lude..=) Lude.<$> maxCapacity,
+            ("Timeout" Lude..=) Lude.<$> timeout,
+            ("TransformEncryption" Lude..=) Lude.<$> transformEncryption,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("InputRecordTables" Lude..= inputRecordTables),
+            Lude.Just ("Parameters" Lude..= parameters),
+            Lude.Just ("Role" Lude..= role')
           ]
       )
 
-instance ToPath CreateMLTransform where
-  toPath = const "/"
+instance Lude.ToPath CreateMLTransform where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateMLTransform where
-  toQuery = const mempty
+instance Lude.ToQuery CreateMLTransform where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createMLTransformResponse' smart constructor.
+-- | /See:/ 'mkCreateMLTransformResponse' smart constructor.
 data CreateMLTransformResponse = CreateMLTransformResponse'
-  { _cmltrsTransformId ::
-      !(Maybe Text),
-    _cmltrsResponseStatus :: !Int
+  { transformId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMLTransformResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmltrsTransformId' - A unique identifier that is generated for the transform.
---
--- * 'cmltrsResponseStatus' - -- | The response status code.
-createMLTransformResponse ::
-  -- | 'cmltrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transformId' - A unique identifier that is generated for the transform.
+mkCreateMLTransformResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMLTransformResponse
-createMLTransformResponse pResponseStatus_ =
+mkCreateMLTransformResponse pResponseStatus_ =
   CreateMLTransformResponse'
-    { _cmltrsTransformId = Nothing,
-      _cmltrsResponseStatus = pResponseStatus_
+    { transformId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique identifier that is generated for the transform.
-cmltrsTransformId :: Lens' CreateMLTransformResponse (Maybe Text)
-cmltrsTransformId = lens _cmltrsTransformId (\s a -> s {_cmltrsTransformId = a})
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrsTransformId :: Lens.Lens' CreateMLTransformResponse (Lude.Maybe Lude.Text)
+cmltrsTransformId = Lens.lens (transformId :: CreateMLTransformResponse -> Lude.Maybe Lude.Text) (\s a -> s {transformId = a} :: CreateMLTransformResponse)
+{-# DEPRECATED cmltrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
--- | -- | The response status code.
-cmltrsResponseStatus :: Lens' CreateMLTransformResponse Int
-cmltrsResponseStatus = lens _cmltrsResponseStatus (\s a -> s {_cmltrsResponseStatus = a})
-
-instance NFData CreateMLTransformResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrsResponseStatus :: Lens.Lens' CreateMLTransformResponse Lude.Int
+cmltrsResponseStatus = Lens.lens (responseStatus :: CreateMLTransformResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMLTransformResponse)
+{-# DEPRECATED cmltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

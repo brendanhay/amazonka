@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.FileSystemConfig where
+module Network.AWS.Lambda.Types.FileSystemConfig
+  ( FileSystemConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFileSystemConfig,
+
+    -- * Lenses
+    fscARN,
+    fscLocalMountPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the connection between a Lambda function and an Amazon EFS file system.
 --
---
---
--- /See:/ 'fileSystemConfig' smart constructor.
+-- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
-  { _fscARN :: !Text,
-    _fscLocalMountPath :: !Text
+  { arn :: Lude.Text,
+    localMountPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fscARN' - The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
---
--- * 'fscLocalMountPath' - The path where the function can access the file system, starting with @/mnt/@ .
-fileSystemConfig ::
-  -- | 'fscARN'
-  Text ->
-  -- | 'fscLocalMountPath'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+-- * 'localMountPath' - The path where the function can access the file system, starting with @/mnt/@ .
+mkFileSystemConfig ::
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'localMountPath'
+  Lude.Text ->
   FileSystemConfig
-fileSystemConfig pARN_ pLocalMountPath_ =
-  FileSystemConfig'
-    { _fscARN = pARN_,
-      _fscLocalMountPath = pLocalMountPath_
-    }
+mkFileSystemConfig pARN_ pLocalMountPath_ =
+  FileSystemConfig' {arn = pARN_, localMountPath = pLocalMountPath_}
 
 -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-fscARN :: Lens' FileSystemConfig Text
-fscARN = lens _fscARN (\s a -> s {_fscARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscARN :: Lens.Lens' FileSystemConfig Lude.Text
+fscARN = Lens.lens (arn :: FileSystemConfig -> Lude.Text) (\s a -> s {arn = a} :: FileSystemConfig)
+{-# DEPRECATED fscARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The path where the function can access the file system, starting with @/mnt/@ .
-fscLocalMountPath :: Lens' FileSystemConfig Text
-fscLocalMountPath = lens _fscLocalMountPath (\s a -> s {_fscLocalMountPath = a})
+--
+-- /Note:/ Consider using 'localMountPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscLocalMountPath :: Lens.Lens' FileSystemConfig Lude.Text
+fscLocalMountPath = Lens.lens (localMountPath :: FileSystemConfig -> Lude.Text) (\s a -> s {localMountPath = a} :: FileSystemConfig)
+{-# DEPRECATED fscLocalMountPath "Use generic-lens or generic-optics with 'localMountPath' instead." #-}
 
-instance FromJSON FileSystemConfig where
+instance Lude.FromJSON FileSystemConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileSystemConfig"
       ( \x ->
-          FileSystemConfig' <$> (x .: "Arn") <*> (x .: "LocalMountPath")
+          FileSystemConfig'
+            Lude.<$> (x Lude..: "Arn") Lude.<*> (x Lude..: "LocalMountPath")
       )
 
-instance Hashable FileSystemConfig
-
-instance NFData FileSystemConfig
-
-instance ToJSON FileSystemConfig where
+instance Lude.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("Arn" .= _fscARN),
-            Just ("LocalMountPath" .= _fscLocalMountPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Arn" Lude..= arn),
+            Lude.Just ("LocalMountPath" Lude..= localMountPath)
           ]
       )

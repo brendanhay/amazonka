@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,175 +7,232 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.PendingModifiedValues where
+module Network.AWS.RDS.Types.PendingModifiedValues
+  ( PendingModifiedValues (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingModifiedValues,
+
+    -- * Lenses
+    pmvEngineVersion,
+    pmvMasterUserPassword,
+    pmvDBSubnetGroupName,
+    pmvIOPS,
+    pmvProcessorFeatures,
+    pmvDBInstanceClass,
+    pmvLicenseModel,
+    pmvCACertificateIdentifier,
+    pmvDBInstanceIdentifier,
+    pmvPendingCloudwatchLogsExports,
+    pmvBackupRetentionPeriod,
+    pmvMultiAZ,
+    pmvAllocatedStorage,
+    pmvPort,
+    pmvStorageType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.PendingCloudwatchLogsExports
 import Network.AWS.RDS.Types.ProcessorFeature
 
 -- | This data type is used as a response element in the @ModifyDBInstance@ action.
 --
---
---
--- /See:/ 'pendingModifiedValues' smart constructor.
+-- /See:/ 'mkPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEngineVersion ::
-      !(Maybe Text),
-    _pmvMasterUserPassword :: !(Maybe Text),
-    _pmvDBSubnetGroupName :: !(Maybe Text),
-    _pmvIOPS :: !(Maybe Int),
-    _pmvProcessorFeatures ::
-      !(Maybe [ProcessorFeature]),
-    _pmvDBInstanceClass :: !(Maybe Text),
-    _pmvLicenseModel :: !(Maybe Text),
-    _pmvCACertificateIdentifier :: !(Maybe Text),
-    _pmvDBInstanceIdentifier :: !(Maybe Text),
-    _pmvPendingCloudwatchLogsExports ::
-      !(Maybe PendingCloudwatchLogsExports),
-    _pmvBackupRetentionPeriod :: !(Maybe Int),
-    _pmvMultiAZ :: !(Maybe Bool),
-    _pmvAllocatedStorage :: !(Maybe Int),
-    _pmvPort :: !(Maybe Int),
-    _pmvStorageType :: !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    masterUserPassword :: Lude.Maybe Lude.Text,
+    dbSubnetGroupName :: Lude.Maybe Lude.Text,
+    iops :: Lude.Maybe Lude.Int,
+    processorFeatures ::
+      Lude.Maybe [ProcessorFeature],
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    licenseModel :: Lude.Maybe Lude.Text,
+    cACertificateIdentifier :: Lude.Maybe Lude.Text,
+    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    pendingCloudwatchLogsExports ::
+      Lude.Maybe PendingCloudwatchLogsExports,
+    backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    multiAZ :: Lude.Maybe Lude.Bool,
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    port :: Lude.Maybe Lude.Int,
+    storageType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
+-- * 'backupRetentionPeriod' - Specifies the pending number of days for which automated backups are retained.
+-- * 'cACertificateIdentifier' - Specifies the identifier of the CA certificate for the DB instance.
+-- * 'dbInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
+-- * 'dbInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
+-- * 'dbSubnetGroupName' - The new DB subnet group for the DB instance.
+-- * 'engineVersion' - Indicates the database engine version.
+-- * 'iops' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
+-- * 'licenseModel' - The license model for the DB instance.
 --
--- * 'pmvEngineVersion' - Indicates the database engine version.
---
--- * 'pmvMasterUserPassword' - Contains the pending or currently-in-progress change of the master credentials for the DB instance.
---
--- * 'pmvDBSubnetGroupName' - The new DB subnet group for the DB instance.
---
--- * 'pmvIOPS' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
---
--- * 'pmvProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
---
--- * 'pmvDBInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
---
--- * 'pmvLicenseModel' - The license model for the DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
---
--- * 'pmvCACertificateIdentifier' - Specifies the identifier of the CA certificate for the DB instance.
---
--- * 'pmvDBInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
---
--- * 'pmvPendingCloudwatchLogsExports' - Undocumented member.
---
--- * 'pmvBackupRetentionPeriod' - Specifies the pending number of days for which automated backups are retained.
---
--- * 'pmvMultiAZ' - Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
---
--- * 'pmvAllocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
---
--- * 'pmvPort' - Specifies the pending port for the DB instance.
---
--- * 'pmvStorageType' - Specifies the storage type to be associated with the DB instance.
-pendingModifiedValues ::
+-- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+-- * 'masterUserPassword' - Contains the pending or currently-in-progress change of the master credentials for the DB instance.
+-- * 'multiAZ' - Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
+-- * 'pendingCloudwatchLogsExports' - Undocumented field.
+-- * 'port' - Specifies the pending port for the DB instance.
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'storageType' - Specifies the storage type to be associated with the DB instance.
+mkPendingModifiedValues ::
   PendingModifiedValues
-pendingModifiedValues =
+mkPendingModifiedValues =
   PendingModifiedValues'
-    { _pmvEngineVersion = Nothing,
-      _pmvMasterUserPassword = Nothing,
-      _pmvDBSubnetGroupName = Nothing,
-      _pmvIOPS = Nothing,
-      _pmvProcessorFeatures = Nothing,
-      _pmvDBInstanceClass = Nothing,
-      _pmvLicenseModel = Nothing,
-      _pmvCACertificateIdentifier = Nothing,
-      _pmvDBInstanceIdentifier = Nothing,
-      _pmvPendingCloudwatchLogsExports = Nothing,
-      _pmvBackupRetentionPeriod = Nothing,
-      _pmvMultiAZ = Nothing,
-      _pmvAllocatedStorage = Nothing,
-      _pmvPort = Nothing,
-      _pmvStorageType = Nothing
+    { engineVersion = Lude.Nothing,
+      masterUserPassword = Lude.Nothing,
+      dbSubnetGroupName = Lude.Nothing,
+      iops = Lude.Nothing,
+      processorFeatures = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      licenseModel = Lude.Nothing,
+      cACertificateIdentifier = Lude.Nothing,
+      dbInstanceIdentifier = Lude.Nothing,
+      pendingCloudwatchLogsExports = Lude.Nothing,
+      backupRetentionPeriod = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      allocatedStorage = Lude.Nothing,
+      port = Lude.Nothing,
+      storageType = Lude.Nothing
     }
 
 -- | Indicates the database engine version.
-pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
-pmvEngineVersion = lens _pmvEngineVersion (\s a -> s {_pmvEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvEngineVersion :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvEngineVersion = Lens.lens (engineVersion :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Contains the pending or currently-in-progress change of the master credentials for the DB instance.
-pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
-pmvMasterUserPassword = lens _pmvMasterUserPassword (\s a -> s {_pmvMasterUserPassword = a})
+--
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvMasterUserPassword :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvMasterUserPassword = Lens.lens (masterUserPassword :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {masterUserPassword = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
 -- | The new DB subnet group for the DB instance.
-pmvDBSubnetGroupName :: Lens' PendingModifiedValues (Maybe Text)
-pmvDBSubnetGroupName = lens _pmvDBSubnetGroupName (\s a -> s {_pmvDBSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'dbSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvDBSubnetGroupName :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupName = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvDBSubnetGroupName "Use generic-lens or generic-optics with 'dbSubnetGroupName' instead." #-}
 
 -- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
-pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
-pmvIOPS = lens _pmvIOPS (\s a -> s {_pmvIOPS = a})
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvIOPS :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvIOPS = Lens.lens (iops :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-pmvProcessorFeatures :: Lens' PendingModifiedValues [ProcessorFeature]
-pmvProcessorFeatures = lens _pmvProcessorFeatures (\s a -> s {_pmvProcessorFeatures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvProcessorFeatures :: Lens.Lens' PendingModifiedValues (Lude.Maybe [ProcessorFeature])
+pmvProcessorFeatures = Lens.lens (processorFeatures :: PendingModifiedValues -> Lude.Maybe [ProcessorFeature]) (\s a -> s {processorFeatures = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvProcessorFeatures "Use generic-lens or generic-optics with 'processorFeatures' instead." #-}
 
 -- | Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
-pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
-pmvDBInstanceClass = lens _pmvDBInstanceClass (\s a -> s {_pmvDBInstanceClass = a})
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvDBInstanceClass :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvDBInstanceClass = Lens.lens (dbInstanceClass :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
--- | The license model for the DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
-pmvLicenseModel :: Lens' PendingModifiedValues (Maybe Text)
-pmvLicenseModel = lens _pmvLicenseModel (\s a -> s {_pmvLicenseModel = a})
+-- | The license model for the DB instance.
+--
+-- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvLicenseModel :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvLicenseModel = Lens.lens (licenseModel :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
 
 -- | Specifies the identifier of the CA certificate for the DB instance.
-pmvCACertificateIdentifier :: Lens' PendingModifiedValues (Maybe Text)
-pmvCACertificateIdentifier = lens _pmvCACertificateIdentifier (\s a -> s {_pmvCACertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'cACertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvCACertificateIdentifier :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvCACertificateIdentifier = Lens.lens (cACertificateIdentifier :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {cACertificateIdentifier = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvCACertificateIdentifier "Use generic-lens or generic-optics with 'cACertificateIdentifier' instead." #-}
 
 -- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
-pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
-pmvDBInstanceIdentifier = lens _pmvDBInstanceIdentifier (\s a -> s {_pmvDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvDBInstanceIdentifier :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
--- | Undocumented member.
-pmvPendingCloudwatchLogsExports :: Lens' PendingModifiedValues (Maybe PendingCloudwatchLogsExports)
-pmvPendingCloudwatchLogsExports = lens _pmvPendingCloudwatchLogsExports (\s a -> s {_pmvPendingCloudwatchLogsExports = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'pendingCloudwatchLogsExports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvPendingCloudwatchLogsExports :: Lens.Lens' PendingModifiedValues (Lude.Maybe PendingCloudwatchLogsExports)
+pmvPendingCloudwatchLogsExports = Lens.lens (pendingCloudwatchLogsExports :: PendingModifiedValues -> Lude.Maybe PendingCloudwatchLogsExports) (\s a -> s {pendingCloudwatchLogsExports = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvPendingCloudwatchLogsExports "Use generic-lens or generic-optics with 'pendingCloudwatchLogsExports' instead." #-}
 
 -- | Specifies the pending number of days for which automated backups are retained.
-pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
-pmvBackupRetentionPeriod = lens _pmvBackupRetentionPeriod (\s a -> s {_pmvBackupRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'backupRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvBackupRetentionPeriod :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvBackupRetentionPeriod = Lens.lens (backupRetentionPeriod :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionPeriod = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvBackupRetentionPeriod "Use generic-lens or generic-optics with 'backupRetentionPeriod' instead." #-}
 
 -- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
-pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
-pmvMultiAZ = lens _pmvMultiAZ (\s a -> s {_pmvMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvMultiAZ :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Bool)
+pmvMultiAZ = Lens.lens (multiAZ :: PendingModifiedValues -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
-pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
-pmvAllocatedStorage = lens _pmvAllocatedStorage (\s a -> s {_pmvAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvAllocatedStorage :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvAllocatedStorage = Lens.lens (allocatedStorage :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | Specifies the pending port for the DB instance.
-pmvPort :: Lens' PendingModifiedValues (Maybe Int)
-pmvPort = lens _pmvPort (\s a -> s {_pmvPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvPort :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Int)
+pmvPort = Lens.lens (port :: PendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
 -- | Specifies the storage type to be associated with the DB instance.
-pmvStorageType :: Lens' PendingModifiedValues (Maybe Text)
-pmvStorageType = lens _pmvStorageType (\s a -> s {_pmvStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmvStorageType :: Lens.Lens' PendingModifiedValues (Lude.Maybe Lude.Text)
+pmvStorageType = Lens.lens (storageType :: PendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {storageType = a} :: PendingModifiedValues)
+{-# DEPRECATED pmvStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance FromXML PendingModifiedValues where
+instance Lude.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "MasterUserPassword")
-      <*> (x .@? "DBSubnetGroupName")
-      <*> (x .@? "Iops")
-      <*> ( x .@? "ProcessorFeatures" .!@ mempty
-              >>= may (parseXMLList "ProcessorFeature")
-          )
-      <*> (x .@? "DBInstanceClass")
-      <*> (x .@? "LicenseModel")
-      <*> (x .@? "CACertificateIdentifier")
-      <*> (x .@? "DBInstanceIdentifier")
-      <*> (x .@? "PendingCloudwatchLogsExports")
-      <*> (x .@? "BackupRetentionPeriod")
-      <*> (x .@? "MultiAZ")
-      <*> (x .@? "AllocatedStorage")
-      <*> (x .@? "Port")
-      <*> (x .@? "StorageType")
-
-instance Hashable PendingModifiedValues
-
-instance NFData PendingModifiedValues
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "MasterUserPassword")
+      Lude.<*> (x Lude..@? "DBSubnetGroupName")
+      Lude.<*> (x Lude..@? "Iops")
+      Lude.<*> ( x Lude..@? "ProcessorFeatures" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ProcessorFeature")
+               )
+      Lude.<*> (x Lude..@? "DBInstanceClass")
+      Lude.<*> (x Lude..@? "LicenseModel")
+      Lude.<*> (x Lude..@? "CACertificateIdentifier")
+      Lude.<*> (x Lude..@? "DBInstanceIdentifier")
+      Lude.<*> (x Lude..@? "PendingCloudwatchLogsExports")
+      Lude.<*> (x Lude..@? "BackupRetentionPeriod")
+      Lude.<*> (x Lude..@? "MultiAZ")
+      Lude.<*> (x Lude..@? "AllocatedStorage")
+      Lude.<*> (x Lude..@? "Port")
+      Lude.<*> (x Lude..@? "StorageType")

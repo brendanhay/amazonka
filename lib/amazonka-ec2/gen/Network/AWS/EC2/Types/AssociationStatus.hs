@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AssociationStatus where
+module Network.AWS.EC2.Types.AssociationStatus
+  ( AssociationStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkAssociationStatus,
+
+    -- * Lenses
+    asCode,
+    asMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.AssociationStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of a target network association.
 --
---
---
--- /See:/ 'associationStatus' smart constructor.
+-- /See:/ 'mkAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
-  { _asCode ::
-      !(Maybe AssociationStatusCode),
-    _asMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe AssociationStatusCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asCode' - The state of the target network association.
---
--- * 'asMessage' - A message about the status of the target network association, if applicable.
-associationStatus ::
+-- * 'code' - The state of the target network association.
+-- * 'message' - A message about the status of the target network association, if applicable.
+mkAssociationStatus ::
   AssociationStatus
-associationStatus =
-  AssociationStatus' {_asCode = Nothing, _asMessage = Nothing}
+mkAssociationStatus =
+  AssociationStatus' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The state of the target network association.
-asCode :: Lens' AssociationStatus (Maybe AssociationStatusCode)
-asCode = lens _asCode (\s a -> s {_asCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCode :: Lens.Lens' AssociationStatus (Lude.Maybe AssociationStatusCode)
+asCode = Lens.lens (code :: AssociationStatus -> Lude.Maybe AssociationStatusCode) (\s a -> s {code = a} :: AssociationStatus)
+{-# DEPRECATED asCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the target network association, if applicable.
-asMessage :: Lens' AssociationStatus (Maybe Text)
-asMessage = lens _asMessage (\s a -> s {_asMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asMessage :: Lens.Lens' AssociationStatus (Lude.Maybe Lude.Text)
+asMessage = Lens.lens (message :: AssociationStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AssociationStatus)
+{-# DEPRECATED asMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML AssociationStatus where
+instance Lude.FromXML AssociationStatus where
   parseXML x =
-    AssociationStatus' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable AssociationStatus
-
-instance NFData AssociationStatus
+    AssociationStatus'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

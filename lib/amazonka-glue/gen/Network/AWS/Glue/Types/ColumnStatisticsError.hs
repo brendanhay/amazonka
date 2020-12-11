@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ColumnStatisticsError where
+module Network.AWS.Glue.Types.ColumnStatisticsError
+  ( ColumnStatisticsError (..),
+
+    -- * Smart constructor
+    mkColumnStatisticsError,
+
+    -- * Lenses
+    cseError,
+    cseColumnStatistics,
+  )
+where
 
 import Network.AWS.Glue.Types.ColumnStatistics
 import Network.AWS.Glue.Types.ErrorDetail
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encapsulates a @ColumnStatistics@ object that failed and the reason for failure.
 --
---
---
--- /See:/ 'columnStatisticsError' smart constructor.
+-- /See:/ 'mkColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
-  { _cseError ::
-      !(Maybe ErrorDetail),
-    _cseColumnStatistics ::
-      !(Maybe ColumnStatistics)
+  { error ::
+      Lude.Maybe ErrorDetail,
+    columnStatistics :: Lude.Maybe ColumnStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColumnStatisticsError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cseError' - An error message with the reason for the failure of an operation.
---
--- * 'cseColumnStatistics' - The @ColumnStatistics@ of the column.
-columnStatisticsError ::
+-- * 'columnStatistics' - The @ColumnStatistics@ of the column.
+-- * 'error' - An error message with the reason for the failure of an operation.
+mkColumnStatisticsError ::
   ColumnStatisticsError
-columnStatisticsError =
+mkColumnStatisticsError =
   ColumnStatisticsError'
-    { _cseError = Nothing,
-      _cseColumnStatistics = Nothing
+    { error = Lude.Nothing,
+      columnStatistics = Lude.Nothing
     }
 
 -- | An error message with the reason for the failure of an operation.
-cseError :: Lens' ColumnStatisticsError (Maybe ErrorDetail)
-cseError = lens _cseError (\s a -> s {_cseError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseError :: Lens.Lens' ColumnStatisticsError (Lude.Maybe ErrorDetail)
+cseError = Lens.lens (error :: ColumnStatisticsError -> Lude.Maybe ErrorDetail) (\s a -> s {error = a} :: ColumnStatisticsError)
+{-# DEPRECATED cseError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The @ColumnStatistics@ of the column.
-cseColumnStatistics :: Lens' ColumnStatisticsError (Maybe ColumnStatistics)
-cseColumnStatistics = lens _cseColumnStatistics (\s a -> s {_cseColumnStatistics = a})
+--
+-- /Note:/ Consider using 'columnStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cseColumnStatistics :: Lens.Lens' ColumnStatisticsError (Lude.Maybe ColumnStatistics)
+cseColumnStatistics = Lens.lens (columnStatistics :: ColumnStatisticsError -> Lude.Maybe ColumnStatistics) (\s a -> s {columnStatistics = a} :: ColumnStatisticsError)
+{-# DEPRECATED cseColumnStatistics "Use generic-lens or generic-optics with 'columnStatistics' instead." #-}
 
-instance FromJSON ColumnStatisticsError where
+instance Lude.FromJSON ColumnStatisticsError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ColumnStatisticsError"
       ( \x ->
           ColumnStatisticsError'
-            <$> (x .:? "Error") <*> (x .:? "ColumnStatistics")
+            Lude.<$> (x Lude..:? "Error") Lude.<*> (x Lude..:? "ColumnStatistics")
       )
-
-instance Hashable ColumnStatisticsError
-
-instance NFData ColumnStatisticsError

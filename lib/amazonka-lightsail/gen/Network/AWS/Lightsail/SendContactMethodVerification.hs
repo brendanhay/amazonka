@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,142 @@
 --
 -- Sends a verification request to an email contact method to ensure it's owned by the requester. SMS contact methods don't need to be verified.
 --
---
 -- A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each AWS Region. However, SMS text messaging is not supported in some AWS Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
---
 -- A verification request is sent to the contact method when you initially create it. Use this action to send another verification request if a previous verification request was deleted, or has expired.
---
 -- /Important:/ Notifications are not sent to an email contact method until after it is verified, and confirmed as valid.
 module Network.AWS.Lightsail.SendContactMethodVerification
-  ( -- * Creating a Request
-    sendContactMethodVerification,
-    SendContactMethodVerification,
+  ( -- * Creating a request
+    SendContactMethodVerification (..),
+    mkSendContactMethodVerification,
 
-    -- * Request Lenses
+    -- ** Request lenses
     scmvProtocol,
 
-    -- * Destructuring the Response
-    sendContactMethodVerificationResponse,
-    SendContactMethodVerificationResponse,
+    -- * Destructuring the response
+    SendContactMethodVerificationResponse (..),
+    mkSendContactMethodVerificationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     scmvrsOperations,
     scmvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'sendContactMethodVerification' smart constructor.
+-- | /See:/ 'mkSendContactMethodVerification' smart constructor.
 newtype SendContactMethodVerification = SendContactMethodVerification'
-  { _scmvProtocol ::
+  { protocol ::
       ContactMethodVerificationProtocol
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendContactMethodVerification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scmvProtocol' - The protocol to verify, such as @Email@ or @SMS@ (text messaging).
-sendContactMethodVerification ::
-  -- | 'scmvProtocol'
+-- * 'protocol' - The protocol to verify, such as @Email@ or @SMS@ (text messaging).
+mkSendContactMethodVerification ::
+  -- | 'protocol'
   ContactMethodVerificationProtocol ->
   SendContactMethodVerification
-sendContactMethodVerification pProtocol_ =
-  SendContactMethodVerification' {_scmvProtocol = pProtocol_}
+mkSendContactMethodVerification pProtocol_ =
+  SendContactMethodVerification' {protocol = pProtocol_}
 
 -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
-scmvProtocol :: Lens' SendContactMethodVerification ContactMethodVerificationProtocol
-scmvProtocol = lens _scmvProtocol (\s a -> s {_scmvProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scmvProtocol :: Lens.Lens' SendContactMethodVerification ContactMethodVerificationProtocol
+scmvProtocol = Lens.lens (protocol :: SendContactMethodVerification -> ContactMethodVerificationProtocol) (\s a -> s {protocol = a} :: SendContactMethodVerification)
+{-# DEPRECATED scmvProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
-instance AWSRequest SendContactMethodVerification where
+instance Lude.AWSRequest SendContactMethodVerification where
   type
     Rs SendContactMethodVerification =
       SendContactMethodVerificationResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SendContactMethodVerificationResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SendContactMethodVerification
-
-instance NFData SendContactMethodVerification
-
-instance ToHeaders SendContactMethodVerification where
+instance Lude.ToHeaders SendContactMethodVerification where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.SendContactMethodVerification" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.SendContactMethodVerification" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SendContactMethodVerification where
+instance Lude.ToJSON SendContactMethodVerification where
   toJSON SendContactMethodVerification' {..} =
-    object (catMaybes [Just ("protocol" .= _scmvProtocol)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("protocol" Lude..= protocol)])
 
-instance ToPath SendContactMethodVerification where
-  toPath = const "/"
+instance Lude.ToPath SendContactMethodVerification where
+  toPath = Lude.const "/"
 
-instance ToQuery SendContactMethodVerification where
-  toQuery = const mempty
+instance Lude.ToQuery SendContactMethodVerification where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'sendContactMethodVerificationResponse' smart constructor.
+-- | /See:/ 'mkSendContactMethodVerificationResponse' smart constructor.
 data SendContactMethodVerificationResponse = SendContactMethodVerificationResponse'
-  { _scmvrsOperations ::
-      !( Maybe
-           [Operation]
-       ),
-    _scmvrsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe
+        [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendContactMethodVerificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scmvrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'scmvrsResponseStatus' - -- | The response status code.
-sendContactMethodVerificationResponse ::
-  -- | 'scmvrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkSendContactMethodVerificationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SendContactMethodVerificationResponse
-sendContactMethodVerificationResponse pResponseStatus_ =
+mkSendContactMethodVerificationResponse pResponseStatus_ =
   SendContactMethodVerificationResponse'
-    { _scmvrsOperations =
-        Nothing,
-      _scmvrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-scmvrsOperations :: Lens' SendContactMethodVerificationResponse [Operation]
-scmvrsOperations = lens _scmvrsOperations (\s a -> s {_scmvrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scmvrsOperations :: Lens.Lens' SendContactMethodVerificationResponse (Lude.Maybe [Operation])
+scmvrsOperations = Lens.lens (operations :: SendContactMethodVerificationResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: SendContactMethodVerificationResponse)
+{-# DEPRECATED scmvrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-scmvrsResponseStatus :: Lens' SendContactMethodVerificationResponse Int
-scmvrsResponseStatus = lens _scmvrsResponseStatus (\s a -> s {_scmvrsResponseStatus = a})
-
-instance NFData SendContactMethodVerificationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scmvrsResponseStatus :: Lens.Lens' SendContactMethodVerificationResponse Lude.Int
+scmvrsResponseStatus = Lens.lens (responseStatus :: SendContactMethodVerificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendContactMethodVerificationResponse)
+{-# DEPRECATED scmvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

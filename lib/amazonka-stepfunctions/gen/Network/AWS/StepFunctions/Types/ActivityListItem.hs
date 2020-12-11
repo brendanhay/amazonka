@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ActivityListItem where
+module Network.AWS.StepFunctions.Types.ActivityListItem
+  ( ActivityListItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivityListItem,
+
+    -- * Lenses
+    aliActivityARN,
+    aliName,
+    aliCreationDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about an activity.
 --
---
---
--- /See:/ 'activityListItem' smart constructor.
+-- /See:/ 'mkActivityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
-  { _aliActivityARN :: !Text,
-    _aliName :: !Text,
-    _aliCreationDate :: !POSIX
+  { activityARN :: Lude.Text,
+    name :: Lude.Text,
+    creationDate :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityListItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'activityARN' - The Amazon Resource Name (ARN) that identifies the activity.
+-- * 'creationDate' - The date the activity is created.
+-- * 'name' - The name of the activity.
 --
--- * 'aliActivityARN' - The Amazon Resource Name (ARN) that identifies the activity.
+-- A name must /not/ contain:
 --
--- * 'aliName' - The name of the activity. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+--     * white space
 --
--- * 'aliCreationDate' - The date the activity is created.
-activityListItem ::
-  -- | 'aliActivityARN'
-  Text ->
-  -- | 'aliName'
-  Text ->
-  -- | 'aliCreationDate'
-  UTCTime ->
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+mkActivityListItem ::
+  -- | 'activityARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'creationDate'
+  Lude.Timestamp ->
   ActivityListItem
-activityListItem pActivityARN_ pName_ pCreationDate_ =
+mkActivityListItem pActivityARN_ pName_ pCreationDate_ =
   ActivityListItem'
-    { _aliActivityARN = pActivityARN_,
-      _aliName = pName_,
-      _aliCreationDate = _Time # pCreationDate_
+    { activityARN = pActivityARN_,
+      name = pName_,
+      creationDate = pCreationDate_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
-aliActivityARN :: Lens' ActivityListItem Text
-aliActivityARN = lens _aliActivityARN (\s a -> s {_aliActivityARN = a})
+--
+-- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aliActivityARN :: Lens.Lens' ActivityListItem Lude.Text
+aliActivityARN = Lens.lens (activityARN :: ActivityListItem -> Lude.Text) (\s a -> s {activityARN = a} :: ActivityListItem)
+{-# DEPRECATED aliActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
 
--- | The name of the activity. A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-aliName :: Lens' ActivityListItem Text
-aliName = lens _aliName (\s a -> s {_aliName = a})
+-- | The name of the activity.
+--
+-- A name must /not/ contain:
+--
+--     * white space
+--
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aliName :: Lens.Lens' ActivityListItem Lude.Text
+aliName = Lens.lens (name :: ActivityListItem -> Lude.Text) (\s a -> s {name = a} :: ActivityListItem)
+{-# DEPRECATED aliName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date the activity is created.
-aliCreationDate :: Lens' ActivityListItem UTCTime
-aliCreationDate = lens _aliCreationDate (\s a -> s {_aliCreationDate = a}) . _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aliCreationDate :: Lens.Lens' ActivityListItem Lude.Timestamp
+aliCreationDate = Lens.lens (creationDate :: ActivityListItem -> Lude.Timestamp) (\s a -> s {creationDate = a} :: ActivityListItem)
+{-# DEPRECATED aliCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance FromJSON ActivityListItem where
+instance Lude.FromJSON ActivityListItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActivityListItem"
       ( \x ->
           ActivityListItem'
-            <$> (x .: "activityArn") <*> (x .: "name") <*> (x .: "creationDate")
+            Lude.<$> (x Lude..: "activityArn")
+            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..: "creationDate")
       )
-
-instance Hashable ActivityListItem
-
-instance NFData ActivityListItem

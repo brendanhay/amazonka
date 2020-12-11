@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,146 @@
 --
 -- Reboots a single node of a DAX cluster. The reboot action takes place as soon as possible. During the reboot, the node status is set to REBOOTING.
 module Network.AWS.DAX.RebootNode
-  ( -- * Creating a Request
-    rebootNode,
-    RebootNode,
+  ( -- * Creating a request
+    RebootNode (..),
+    mkRebootNode,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rnClusterName,
     rnNodeId,
 
-    -- * Destructuring the Response
-    rebootNodeResponse,
-    RebootNodeResponse,
+    -- * Destructuring the response
+    RebootNodeResponse (..),
+    mkRebootNodeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rnrsCluster,
     rnrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootNode' smart constructor.
+-- | /See:/ 'mkRebootNode' smart constructor.
 data RebootNode = RebootNode'
-  { _rnClusterName :: !Text,
-    _rnNodeId :: !Text
+  { clusterName :: Lude.Text,
+    nodeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootNode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rnClusterName' - The name of the DAX cluster containing the node to be rebooted.
---
--- * 'rnNodeId' - The system-assigned ID of the node to be rebooted.
-rebootNode ::
-  -- | 'rnClusterName'
-  Text ->
-  -- | 'rnNodeId'
-  Text ->
+-- * 'clusterName' - The name of the DAX cluster containing the node to be rebooted.
+-- * 'nodeId' - The system-assigned ID of the node to be rebooted.
+mkRebootNode ::
+  -- | 'clusterName'
+  Lude.Text ->
+  -- | 'nodeId'
+  Lude.Text ->
   RebootNode
-rebootNode pClusterName_ pNodeId_ =
-  RebootNode' {_rnClusterName = pClusterName_, _rnNodeId = pNodeId_}
+mkRebootNode pClusterName_ pNodeId_ =
+  RebootNode' {clusterName = pClusterName_, nodeId = pNodeId_}
 
 -- | The name of the DAX cluster containing the node to be rebooted.
-rnClusterName :: Lens' RebootNode Text
-rnClusterName = lens _rnClusterName (\s a -> s {_rnClusterName = a})
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnClusterName :: Lens.Lens' RebootNode Lude.Text
+rnClusterName = Lens.lens (clusterName :: RebootNode -> Lude.Text) (\s a -> s {clusterName = a} :: RebootNode)
+{-# DEPRECATED rnClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
 -- | The system-assigned ID of the node to be rebooted.
-rnNodeId :: Lens' RebootNode Text
-rnNodeId = lens _rnNodeId (\s a -> s {_rnNodeId = a})
+--
+-- /Note:/ Consider using 'nodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnNodeId :: Lens.Lens' RebootNode Lude.Text
+rnNodeId = Lens.lens (nodeId :: RebootNode -> Lude.Text) (\s a -> s {nodeId = a} :: RebootNode)
+{-# DEPRECATED rnNodeId "Use generic-lens or generic-optics with 'nodeId' instead." #-}
 
-instance AWSRequest RebootNode where
+instance Lude.AWSRequest RebootNode where
   type Rs RebootNode = RebootNodeResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          RebootNodeResponse' <$> (x .?> "Cluster") <*> (pure (fromEnum s))
+          RebootNodeResponse'
+            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebootNode
-
-instance NFData RebootNode
-
-instance ToHeaders RebootNode where
+instance Lude.ToHeaders RebootNode where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.RebootNode" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.RebootNode" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RebootNode where
+instance Lude.ToJSON RebootNode where
   toJSON RebootNode' {..} =
-    object
-      ( catMaybes
-          [ Just ("ClusterName" .= _rnClusterName),
-            Just ("NodeId" .= _rnNodeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClusterName" Lude..= clusterName),
+            Lude.Just ("NodeId" Lude..= nodeId)
           ]
       )
 
-instance ToPath RebootNode where
-  toPath = const "/"
+instance Lude.ToPath RebootNode where
+  toPath = Lude.const "/"
 
-instance ToQuery RebootNode where
-  toQuery = const mempty
+instance Lude.ToQuery RebootNode where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rebootNodeResponse' smart constructor.
+-- | /See:/ 'mkRebootNodeResponse' smart constructor.
 data RebootNodeResponse = RebootNodeResponse'
-  { _rnrsCluster ::
-      !(Maybe Cluster),
-    _rnrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootNodeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rnrsCluster' - A description of the DAX cluster after a node has been rebooted.
---
--- * 'rnrsResponseStatus' - -- | The response status code.
-rebootNodeResponse ::
-  -- | 'rnrsResponseStatus'
-  Int ->
+-- * 'cluster' - A description of the DAX cluster after a node has been rebooted.
+-- * 'responseStatus' - The response status code.
+mkRebootNodeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebootNodeResponse
-rebootNodeResponse pResponseStatus_ =
+mkRebootNodeResponse pResponseStatus_ =
   RebootNodeResponse'
-    { _rnrsCluster = Nothing,
-      _rnrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A description of the DAX cluster after a node has been rebooted.
-rnrsCluster :: Lens' RebootNodeResponse (Maybe Cluster)
-rnrsCluster = lens _rnrsCluster (\s a -> s {_rnrsCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnrsCluster :: Lens.Lens' RebootNodeResponse (Lude.Maybe Cluster)
+rnrsCluster = Lens.lens (cluster :: RebootNodeResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: RebootNodeResponse)
+{-# DEPRECATED rnrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-rnrsResponseStatus :: Lens' RebootNodeResponse Int
-rnrsResponseStatus = lens _rnrsResponseStatus (\s a -> s {_rnrsResponseStatus = a})
-
-instance NFData RebootNodeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnrsResponseStatus :: Lens.Lens' RebootNodeResponse Lude.Int
+rnrsResponseStatus = Lens.lens (responseStatus :: RebootNodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootNodeResponse)
+{-# DEPRECATED rnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

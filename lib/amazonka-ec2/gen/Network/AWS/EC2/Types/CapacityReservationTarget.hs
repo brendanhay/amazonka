@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationTarget where
+module Network.AWS.EC2.Types.CapacityReservationTarget
+  ( CapacityReservationTarget (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCapacityReservationTarget,
+
+    -- * Lenses
+    crtCapacityReservationId,
+    crtCapacityReservationResourceGroupARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a target Capacity Reservation or Capacity Reservation group.
 --
---
---
--- /See:/ 'capacityReservationTarget' smart constructor.
+-- /See:/ 'mkCapacityReservationTarget' smart constructor.
 data CapacityReservationTarget = CapacityReservationTarget'
-  { _crtCapacityReservationId ::
-      !(Maybe Text),
-    _crtCapacityReservationResourceGroupARN ::
-      !(Maybe Text)
+  { capacityReservationId ::
+      Lude.Maybe Lude.Text,
+    capacityReservationResourceGroupARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservationTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crtCapacityReservationId' - The ID of the Capacity Reservation in which to run the instance.
---
--- * 'crtCapacityReservationResourceGroupARN' - The ARN of the Capacity Reservation resource group in which to run the instance.
-capacityReservationTarget ::
+-- * 'capacityReservationId' - The ID of the Capacity Reservation in which to run the instance.
+-- * 'capacityReservationResourceGroupARN' - The ARN of the Capacity Reservation resource group in which to run the instance.
+mkCapacityReservationTarget ::
   CapacityReservationTarget
-capacityReservationTarget =
+mkCapacityReservationTarget =
   CapacityReservationTarget'
-    { _crtCapacityReservationId = Nothing,
-      _crtCapacityReservationResourceGroupARN = Nothing
+    { capacityReservationId = Lude.Nothing,
+      capacityReservationResourceGroupARN = Lude.Nothing
     }
 
 -- | The ID of the Capacity Reservation in which to run the instance.
-crtCapacityReservationId :: Lens' CapacityReservationTarget (Maybe Text)
-crtCapacityReservationId = lens _crtCapacityReservationId (\s a -> s {_crtCapacityReservationId = a})
+--
+-- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtCapacityReservationId :: Lens.Lens' CapacityReservationTarget (Lude.Maybe Lude.Text)
+crtCapacityReservationId = Lens.lens (capacityReservationId :: CapacityReservationTarget -> Lude.Maybe Lude.Text) (\s a -> s {capacityReservationId = a} :: CapacityReservationTarget)
+{-# DEPRECATED crtCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 -- | The ARN of the Capacity Reservation resource group in which to run the instance.
-crtCapacityReservationResourceGroupARN :: Lens' CapacityReservationTarget (Maybe Text)
-crtCapacityReservationResourceGroupARN = lens _crtCapacityReservationResourceGroupARN (\s a -> s {_crtCapacityReservationResourceGroupARN = a})
+--
+-- /Note:/ Consider using 'capacityReservationResourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtCapacityReservationResourceGroupARN :: Lens.Lens' CapacityReservationTarget (Lude.Maybe Lude.Text)
+crtCapacityReservationResourceGroupARN = Lens.lens (capacityReservationResourceGroupARN :: CapacityReservationTarget -> Lude.Maybe Lude.Text) (\s a -> s {capacityReservationResourceGroupARN = a} :: CapacityReservationTarget)
+{-# DEPRECATED crtCapacityReservationResourceGroupARN "Use generic-lens or generic-optics with 'capacityReservationResourceGroupARN' instead." #-}
 
-instance Hashable CapacityReservationTarget
-
-instance NFData CapacityReservationTarget
-
-instance ToQuery CapacityReservationTarget where
+instance Lude.ToQuery CapacityReservationTarget where
   toQuery CapacityReservationTarget' {..} =
-    mconcat
-      [ "CapacityReservationId" =: _crtCapacityReservationId,
+    Lude.mconcat
+      [ "CapacityReservationId" Lude.=: capacityReservationId,
         "CapacityReservationResourceGroupArn"
-          =: _crtCapacityReservationResourceGroupARN
+          Lude.=: capacityReservationResourceGroupARN
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
-  ( -- * Creating a Request
-    listDevelopmentSchemaARNs,
-    ListDevelopmentSchemaARNs,
+  ( -- * Creating a request
+    ListDevelopmentSchemaARNs (..),
+    mkListDevelopmentSchemaARNs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldsaNextToken,
     ldsaMaxResults,
 
-    -- * Destructuring the Response
-    listDevelopmentSchemaARNsResponse,
-    ListDevelopmentSchemaARNsResponse,
+    -- * Destructuring the response
+    ListDevelopmentSchemaARNsResponse (..),
+    mkListDevelopmentSchemaARNsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldsarsSchemaARNs,
     ldsarsNextToken,
     ldsarsResponseStatus,
@@ -43,127 +36,146 @@ module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDevelopmentSchemaARNs' smart constructor.
+-- | /See:/ 'mkListDevelopmentSchemaARNs' smart constructor.
 data ListDevelopmentSchemaARNs = ListDevelopmentSchemaARNs'
-  { _ldsaNextToken ::
-      !(Maybe Text),
-    _ldsaMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevelopmentSchemaARNs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldsaNextToken' - The pagination token.
---
--- * 'ldsaMaxResults' - The maximum number of results to retrieve.
-listDevelopmentSchemaARNs ::
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+mkListDevelopmentSchemaARNs ::
   ListDevelopmentSchemaARNs
-listDevelopmentSchemaARNs =
+mkListDevelopmentSchemaARNs =
   ListDevelopmentSchemaARNs'
-    { _ldsaNextToken = Nothing,
-      _ldsaMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
-ldsaNextToken :: Lens' ListDevelopmentSchemaARNs (Maybe Text)
-ldsaNextToken = lens _ldsaNextToken (\s a -> s {_ldsaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsaNextToken :: Lens.Lens' ListDevelopmentSchemaARNs (Lude.Maybe Lude.Text)
+ldsaNextToken = Lens.lens (nextToken :: ListDevelopmentSchemaARNs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevelopmentSchemaARNs)
+{-# DEPRECATED ldsaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to retrieve.
-ldsaMaxResults :: Lens' ListDevelopmentSchemaARNs (Maybe Natural)
-ldsaMaxResults = lens _ldsaMaxResults (\s a -> s {_ldsaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsaMaxResults :: Lens.Lens' ListDevelopmentSchemaARNs (Lude.Maybe Lude.Natural)
+ldsaMaxResults = Lens.lens (maxResults :: ListDevelopmentSchemaARNs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDevelopmentSchemaARNs)
+{-# DEPRECATED ldsaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDevelopmentSchemaARNs where
+instance Page.AWSPager ListDevelopmentSchemaARNs where
   page rq rs
-    | stop (rs ^. ldsarsNextToken) = Nothing
-    | stop (rs ^. ldsarsSchemaARNs) = Nothing
-    | otherwise = Just $ rq & ldsaNextToken .~ rs ^. ldsarsNextToken
+    | Page.stop (rs Lens.^. ldsarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldsarsSchemaARNs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldsaNextToken Lens..~ rs Lens.^. ldsarsNextToken
 
-instance AWSRequest ListDevelopmentSchemaARNs where
+instance Lude.AWSRequest ListDevelopmentSchemaARNs where
   type
     Rs ListDevelopmentSchemaARNs =
       ListDevelopmentSchemaARNsResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDevelopmentSchemaARNsResponse'
-            <$> (x .?> "SchemaArns" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SchemaArns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDevelopmentSchemaARNs
+instance Lude.ToHeaders ListDevelopmentSchemaARNs where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDevelopmentSchemaARNs
-
-instance ToHeaders ListDevelopmentSchemaARNs where
-  toHeaders = const mempty
-
-instance ToJSON ListDevelopmentSchemaARNs where
+instance Lude.ToJSON ListDevelopmentSchemaARNs where
   toJSON ListDevelopmentSchemaARNs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ldsaNextToken,
-            ("MaxResults" .=) <$> _ldsaMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListDevelopmentSchemaARNs where
+instance Lude.ToPath ListDevelopmentSchemaARNs where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/schema/development"
+    Lude.const "/amazonclouddirectory/2017-01-11/schema/development"
 
-instance ToQuery ListDevelopmentSchemaARNs where
-  toQuery = const mempty
+instance Lude.ToQuery ListDevelopmentSchemaARNs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDevelopmentSchemaARNsResponse' smart constructor.
+-- | /See:/ 'mkListDevelopmentSchemaARNsResponse' smart constructor.
 data ListDevelopmentSchemaARNsResponse = ListDevelopmentSchemaARNsResponse'
-  { _ldsarsSchemaARNs ::
-      !(Maybe [Text]),
-    _ldsarsNextToken ::
-      !(Maybe Text),
-    _ldsarsResponseStatus ::
-      !Int
+  { schemaARNs ::
+      Lude.Maybe [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevelopmentSchemaARNsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldsarsSchemaARNs' - The ARNs of retrieved development schemas.
---
--- * 'ldsarsNextToken' - The pagination token.
---
--- * 'ldsarsResponseStatus' - -- | The response status code.
-listDevelopmentSchemaARNsResponse ::
-  -- | 'ldsarsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARNs' - The ARNs of retrieved development schemas.
+mkListDevelopmentSchemaARNsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDevelopmentSchemaARNsResponse
-listDevelopmentSchemaARNsResponse pResponseStatus_ =
+mkListDevelopmentSchemaARNsResponse pResponseStatus_ =
   ListDevelopmentSchemaARNsResponse'
-    { _ldsarsSchemaARNs = Nothing,
-      _ldsarsNextToken = Nothing,
-      _ldsarsResponseStatus = pResponseStatus_
+    { schemaARNs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARNs of retrieved development schemas.
-ldsarsSchemaARNs :: Lens' ListDevelopmentSchemaARNsResponse [Text]
-ldsarsSchemaARNs = lens _ldsarsSchemaARNs (\s a -> s {_ldsarsSchemaARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'schemaARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsarsSchemaARNs :: Lens.Lens' ListDevelopmentSchemaARNsResponse (Lude.Maybe [Lude.Text])
+ldsarsSchemaARNs = Lens.lens (schemaARNs :: ListDevelopmentSchemaARNsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {schemaARNs = a} :: ListDevelopmentSchemaARNsResponse)
+{-# DEPRECATED ldsarsSchemaARNs "Use generic-lens or generic-optics with 'schemaARNs' instead." #-}
 
 -- | The pagination token.
-ldsarsNextToken :: Lens' ListDevelopmentSchemaARNsResponse (Maybe Text)
-ldsarsNextToken = lens _ldsarsNextToken (\s a -> s {_ldsarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsarsNextToken :: Lens.Lens' ListDevelopmentSchemaARNsResponse (Lude.Maybe Lude.Text)
+ldsarsNextToken = Lens.lens (nextToken :: ListDevelopmentSchemaARNsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevelopmentSchemaARNsResponse)
+{-# DEPRECATED ldsarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldsarsResponseStatus :: Lens' ListDevelopmentSchemaARNsResponse Int
-ldsarsResponseStatus = lens _ldsarsResponseStatus (\s a -> s {_ldsarsResponseStatus = a})
-
-instance NFData ListDevelopmentSchemaARNsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsarsResponseStatus :: Lens.Lens' ListDevelopmentSchemaARNsResponse Lude.Int
+ldsarsResponseStatus = Lens.lens (responseStatus :: ListDevelopmentSchemaARNsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDevelopmentSchemaARNsResponse)
+{-# DEPRECATED ldsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

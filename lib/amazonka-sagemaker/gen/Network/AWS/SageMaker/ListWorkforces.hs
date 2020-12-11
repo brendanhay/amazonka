@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,207 @@
 --
 -- Use this operation to list all private and vendor workforces in an AWS Region. Note that you can only have one private workforce per AWS Region.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListWorkforces
-  ( -- * Creating a Request
-    listWorkforces,
-    ListWorkforces,
+  ( -- * Creating a request
+    ListWorkforces (..),
+    mkListWorkforces,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lwsNameContains,
     lwsNextToken,
     lwsSortOrder,
     lwsMaxResults,
     lwsSortBy,
 
-    -- * Destructuring the Response
-    listWorkforcesResponse,
-    ListWorkforcesResponse,
+    -- * Destructuring the response
+    ListWorkforcesResponse (..),
+    mkListWorkforcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lwrsNextToken,
     lwrsResponseStatus,
     lwrsWorkforces,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listWorkforces' smart constructor.
+-- | /See:/ 'mkListWorkforces' smart constructor.
 data ListWorkforces = ListWorkforces'
-  { _lwsNameContains ::
-      !(Maybe Text),
-    _lwsNextToken :: !(Maybe Text),
-    _lwsSortOrder :: !(Maybe SortOrder),
-    _lwsMaxResults :: !(Maybe Nat),
-    _lwsSortBy :: !(Maybe ListWorkforcesSortByOptions)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe ListWorkforcesSortByOptions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkforces' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwsNameContains' - A filter you can use to search for workforces using part of the workforce name.
---
--- * 'lwsNextToken' - A token to resume pagination.
---
--- * 'lwsSortOrder' - Sort workforces in ascending or descending order.
---
--- * 'lwsMaxResults' - The maximum number of workforces returned in the response.
---
--- * 'lwsSortBy' - Sort workforces using the workforce name or creation date.
-listWorkforces ::
+-- * 'maxResults' - The maximum number of workforces returned in the response.
+-- * 'nameContains' - A filter you can use to search for workforces using part of the workforce name.
+-- * 'nextToken' - A token to resume pagination.
+-- * 'sortBy' - Sort workforces using the workforce name or creation date.
+-- * 'sortOrder' - Sort workforces in ascending or descending order.
+mkListWorkforces ::
   ListWorkforces
-listWorkforces =
+mkListWorkforces =
   ListWorkforces'
-    { _lwsNameContains = Nothing,
-      _lwsNextToken = Nothing,
-      _lwsSortOrder = Nothing,
-      _lwsMaxResults = Nothing,
-      _lwsSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A filter you can use to search for workforces using part of the workforce name.
-lwsNameContains :: Lens' ListWorkforces (Maybe Text)
-lwsNameContains = lens _lwsNameContains (\s a -> s {_lwsNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsNameContains :: Lens.Lens' ListWorkforces (Lude.Maybe Lude.Text)
+lwsNameContains = Lens.lens (nameContains :: ListWorkforces -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListWorkforces)
+{-# DEPRECATED lwsNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A token to resume pagination.
-lwsNextToken :: Lens' ListWorkforces (Maybe Text)
-lwsNextToken = lens _lwsNextToken (\s a -> s {_lwsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsNextToken :: Lens.Lens' ListWorkforces (Lude.Maybe Lude.Text)
+lwsNextToken = Lens.lens (nextToken :: ListWorkforces -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkforces)
+{-# DEPRECATED lwsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Sort workforces in ascending or descending order.
-lwsSortOrder :: Lens' ListWorkforces (Maybe SortOrder)
-lwsSortOrder = lens _lwsSortOrder (\s a -> s {_lwsSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsSortOrder :: Lens.Lens' ListWorkforces (Lude.Maybe SortOrder)
+lwsSortOrder = Lens.lens (sortOrder :: ListWorkforces -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListWorkforces)
+{-# DEPRECATED lwsSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | The maximum number of workforces returned in the response.
-lwsMaxResults :: Lens' ListWorkforces (Maybe Natural)
-lwsMaxResults = lens _lwsMaxResults (\s a -> s {_lwsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsMaxResults :: Lens.Lens' ListWorkforces (Lude.Maybe Lude.Natural)
+lwsMaxResults = Lens.lens (maxResults :: ListWorkforces -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkforces)
+{-# DEPRECATED lwsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Sort workforces using the workforce name or creation date.
-lwsSortBy :: Lens' ListWorkforces (Maybe ListWorkforcesSortByOptions)
-lwsSortBy = lens _lwsSortBy (\s a -> s {_lwsSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsSortBy :: Lens.Lens' ListWorkforces (Lude.Maybe ListWorkforcesSortByOptions)
+lwsSortBy = Lens.lens (sortBy :: ListWorkforces -> Lude.Maybe ListWorkforcesSortByOptions) (\s a -> s {sortBy = a} :: ListWorkforces)
+{-# DEPRECATED lwsSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListWorkforces where
+instance Page.AWSPager ListWorkforces where
   page rq rs
-    | stop (rs ^. lwrsNextToken) = Nothing
-    | stop (rs ^. lwrsWorkforces) = Nothing
-    | otherwise = Just $ rq & lwsNextToken .~ rs ^. lwrsNextToken
+    | Page.stop (rs Lens.^. lwrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lwrsWorkforces) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lwsNextToken Lens..~ rs Lens.^. lwrsNextToken
 
-instance AWSRequest ListWorkforces where
+instance Lude.AWSRequest ListWorkforces where
   type Rs ListWorkforces = ListWorkforcesResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListWorkforcesResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Workforces" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Workforces" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListWorkforces
-
-instance NFData ListWorkforces
-
-instance ToHeaders ListWorkforces where
+instance Lude.ToHeaders ListWorkforces where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListWorkforces" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListWorkforces" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListWorkforces where
+instance Lude.ToJSON ListWorkforces where
   toJSON ListWorkforces' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _lwsNameContains,
-            ("NextToken" .=) <$> _lwsNextToken,
-            ("SortOrder" .=) <$> _lwsSortOrder,
-            ("MaxResults" .=) <$> _lwsMaxResults,
-            ("SortBy" .=) <$> _lwsSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListWorkforces where
-  toPath = const "/"
+instance Lude.ToPath ListWorkforces where
+  toPath = Lude.const "/"
 
-instance ToQuery ListWorkforces where
-  toQuery = const mempty
+instance Lude.ToQuery ListWorkforces where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listWorkforcesResponse' smart constructor.
+-- | /See:/ 'mkListWorkforcesResponse' smart constructor.
 data ListWorkforcesResponse = ListWorkforcesResponse'
-  { _lwrsNextToken ::
-      !(Maybe Text),
-    _lwrsResponseStatus :: !Int,
-    _lwrsWorkforces :: ![Workforce]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    workforces :: [Workforce]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkforcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwrsNextToken' - A token to resume pagination.
---
--- * 'lwrsResponseStatus' - -- | The response status code.
---
--- * 'lwrsWorkforces' - A list containing information about your workforce.
-listWorkforcesResponse ::
-  -- | 'lwrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token to resume pagination.
+-- * 'responseStatus' - The response status code.
+-- * 'workforces' - A list containing information about your workforce.
+mkListWorkforcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListWorkforcesResponse
-listWorkforcesResponse pResponseStatus_ =
+mkListWorkforcesResponse pResponseStatus_ =
   ListWorkforcesResponse'
-    { _lwrsNextToken = Nothing,
-      _lwrsResponseStatus = pResponseStatus_,
-      _lwrsWorkforces = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      workforces = Lude.mempty
     }
 
 -- | A token to resume pagination.
-lwrsNextToken :: Lens' ListWorkforcesResponse (Maybe Text)
-lwrsNextToken = lens _lwrsNextToken (\s a -> s {_lwrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwrsNextToken :: Lens.Lens' ListWorkforcesResponse (Lude.Maybe Lude.Text)
+lwrsNextToken = Lens.lens (nextToken :: ListWorkforcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkforcesResponse)
+{-# DEPRECATED lwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lwrsResponseStatus :: Lens' ListWorkforcesResponse Int
-lwrsResponseStatus = lens _lwrsResponseStatus (\s a -> s {_lwrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwrsResponseStatus :: Lens.Lens' ListWorkforcesResponse Lude.Int
+lwrsResponseStatus = Lens.lens (responseStatus :: ListWorkforcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkforcesResponse)
+{-# DEPRECATED lwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list containing information about your workforce.
-lwrsWorkforces :: Lens' ListWorkforcesResponse [Workforce]
-lwrsWorkforces = lens _lwrsWorkforces (\s a -> s {_lwrsWorkforces = a}) . _Coerce
-
-instance NFData ListWorkforcesResponse
+--
+-- /Note:/ Consider using 'workforces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwrsWorkforces :: Lens.Lens' ListWorkforcesResponse [Workforce]
+lwrsWorkforces = Lens.lens (workforces :: ListWorkforcesResponse -> [Workforce]) (\s a -> s {workforces = a} :: ListWorkforcesResponse)
+{-# DEPRECATED lwrsWorkforces "Use generic-lens or generic-optics with 'workforces' instead." #-}

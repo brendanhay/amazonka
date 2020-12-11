@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.ConfigurationSetAttribute where
+module Network.AWS.SES.Types.ConfigurationSetAttribute
+  ( ConfigurationSetAttribute
+      ( ConfigurationSetAttribute',
+        DeliveryOptions,
+        EventDestinations,
+        ReputationOptions,
+        TrackingOptions
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigurationSetAttribute
-  = DeliveryOptions
-  | EventDestinations
-  | ReputationOptions
-  | TrackingOptions
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigurationSetAttribute = ConfigurationSetAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigurationSetAttribute where
-  parser =
-    takeLowerText >>= \case
-      "deliveryoptions" -> pure DeliveryOptions
-      "eventdestinations" -> pure EventDestinations
-      "reputationoptions" -> pure ReputationOptions
-      "trackingoptions" -> pure TrackingOptions
-      e ->
-        fromTextError $
-          "Failure parsing ConfigurationSetAttribute from value: '" <> e
-            <> "'. Accepted values: deliveryoptions, eventdestinations, reputationoptions, trackingoptions"
+pattern DeliveryOptions :: ConfigurationSetAttribute
+pattern DeliveryOptions = ConfigurationSetAttribute' "deliveryOptions"
 
-instance ToText ConfigurationSetAttribute where
-  toText = \case
-    DeliveryOptions -> "deliveryOptions"
-    EventDestinations -> "eventDestinations"
-    ReputationOptions -> "reputationOptions"
-    TrackingOptions -> "trackingOptions"
+pattern EventDestinations :: ConfigurationSetAttribute
+pattern EventDestinations = ConfigurationSetAttribute' "eventDestinations"
 
-instance Hashable ConfigurationSetAttribute
+pattern ReputationOptions :: ConfigurationSetAttribute
+pattern ReputationOptions = ConfigurationSetAttribute' "reputationOptions"
 
-instance NFData ConfigurationSetAttribute
+pattern TrackingOptions :: ConfigurationSetAttribute
+pattern TrackingOptions = ConfigurationSetAttribute' "trackingOptions"
 
-instance ToByteString ConfigurationSetAttribute
-
-instance ToQuery ConfigurationSetAttribute
-
-instance ToHeader ConfigurationSetAttribute
+{-# COMPLETE
+  DeliveryOptions,
+  EventDestinations,
+  ReputationOptions,
+  TrackingOptions,
+  ConfigurationSetAttribute'
+  #-}

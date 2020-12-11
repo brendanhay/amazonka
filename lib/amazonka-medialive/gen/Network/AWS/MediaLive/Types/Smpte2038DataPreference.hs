@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Smpte2038DataPreference where
+module Network.AWS.MediaLive.Types.Smpte2038DataPreference
+  ( Smpte2038DataPreference
+      ( Smpte2038DataPreference',
+        Ignore,
+        Prefer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smpte2038 Data Preference
-data Smpte2038DataPreference
-  = Ignore
-  | Prefer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Smpte2038DataPreference = Smpte2038DataPreference' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Smpte2038DataPreference where
-  parser =
-    takeLowerText >>= \case
-      "ignore" -> pure Ignore
-      "prefer" -> pure Prefer
-      e ->
-        fromTextError $
-          "Failure parsing Smpte2038DataPreference from value: '" <> e
-            <> "'. Accepted values: ignore, prefer"
+pattern Ignore :: Smpte2038DataPreference
+pattern Ignore = Smpte2038DataPreference' "IGNORE"
 
-instance ToText Smpte2038DataPreference where
-  toText = \case
-    Ignore -> "IGNORE"
-    Prefer -> "PREFER"
+pattern Prefer :: Smpte2038DataPreference
+pattern Prefer = Smpte2038DataPreference' "PREFER"
 
-instance Hashable Smpte2038DataPreference
-
-instance NFData Smpte2038DataPreference
-
-instance ToByteString Smpte2038DataPreference
-
-instance ToQuery Smpte2038DataPreference
-
-instance ToHeader Smpte2038DataPreference
-
-instance ToJSON Smpte2038DataPreference where
-  toJSON = toJSONText
-
-instance FromJSON Smpte2038DataPreference where
-  parseJSON = parseJSONText "Smpte2038DataPreference"
+{-# COMPLETE
+  Ignore,
+  Prefer,
+  Smpte2038DataPreference'
+  #-}

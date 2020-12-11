@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,193 @@
 --
 -- Lists the configurations for DNS query logging that are associated with the current AWS account or the configuration that is associated with a specified hosted zone.
 --
---
 -- For more information about DNS query logs, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html CreateQueryLoggingConfig> . Additional information, including the format of DNS query logs, appears in <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html Logging DNS Queries> in the /Amazon Route 53 Developer Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListQueryLoggingConfigs
-  ( -- * Creating a Request
-    listQueryLoggingConfigs,
-    ListQueryLoggingConfigs,
+  ( -- * Creating a request
+    ListQueryLoggingConfigs (..),
+    mkListQueryLoggingConfigs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lqlcHostedZoneId,
     lqlcNextToken,
     lqlcMaxResults,
 
-    -- * Destructuring the Response
-    listQueryLoggingConfigsResponse,
-    ListQueryLoggingConfigsResponse,
+    -- * Destructuring the response
+    ListQueryLoggingConfigsResponse (..),
+    mkListQueryLoggingConfigsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lqlcrsNextToken,
     lqlcrsResponseStatus,
     lqlcrsQueryLoggingConfigs,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
--- | /See:/ 'listQueryLoggingConfigs' smart constructor.
+-- | /See:/ 'mkListQueryLoggingConfigs' smart constructor.
 data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
-  { _lqlcHostedZoneId ::
-      !(Maybe ResourceId),
-    _lqlcNextToken :: !(Maybe Text),
-    _lqlcMaxResults :: !(Maybe Text)
+  { hostedZoneId ::
+      Lude.Maybe ResourceId,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueryLoggingConfigs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'hostedZoneId' - (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in @HostedZoneId@ .
 --
--- * 'lqlcHostedZoneId' - (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in @HostedZoneId@ .  If you don't specify a hosted zone ID, @ListQueryLoggingConfigs@ returns all of the configurations that are associated with the current AWS account.
+-- If you don't specify a hosted zone ID, @ListQueryLoggingConfigs@ returns all of the configurations that are associated with the current AWS account.
+-- * 'maxResults' - (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax NextToken> in the response to get the next page of results.
 --
--- * 'lqlcNextToken' - (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results. For the first @ListQueryLoggingConfigs@ request, omit this value. For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
+-- If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
+-- * 'nextToken' - (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results.
 --
--- * 'lqlcMaxResults' - (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax NextToken> in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
-listQueryLoggingConfigs ::
+-- For the first @ListQueryLoggingConfigs@ request, omit this value.
+-- For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
+mkListQueryLoggingConfigs ::
   ListQueryLoggingConfigs
-listQueryLoggingConfigs =
+mkListQueryLoggingConfigs =
   ListQueryLoggingConfigs'
-    { _lqlcHostedZoneId = Nothing,
-      _lqlcNextToken = Nothing,
-      _lqlcMaxResults = Nothing
+    { hostedZoneId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in @HostedZoneId@ .  If you don't specify a hosted zone ID, @ListQueryLoggingConfigs@ returns all of the configurations that are associated with the current AWS account.
-lqlcHostedZoneId :: Lens' ListQueryLoggingConfigs (Maybe ResourceId)
-lqlcHostedZoneId = lens _lqlcHostedZoneId (\s a -> s {_lqlcHostedZoneId = a})
+-- | (Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in @HostedZoneId@ .
+--
+-- If you don't specify a hosted zone ID, @ListQueryLoggingConfigs@ returns all of the configurations that are associated with the current AWS account.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcHostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Lude.Maybe ResourceId)
+lqlcHostedZoneId = Lens.lens (hostedZoneId :: ListQueryLoggingConfigs -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneId = a} :: ListQueryLoggingConfigs)
+{-# DEPRECATED lqlcHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
--- | (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results. For the first @ListQueryLoggingConfigs@ request, omit this value. For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
-lqlcNextToken :: Lens' ListQueryLoggingConfigs (Maybe Text)
-lqlcNextToken = lens _lqlcNextToken (\s a -> s {_lqlcNextToken = a})
+-- | (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results.
+--
+-- For the first @ListQueryLoggingConfigs@ request, omit this value.
+-- For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcNextToken :: Lens.Lens' ListQueryLoggingConfigs (Lude.Maybe Lude.Text)
+lqlcNextToken = Lens.lens (nextToken :: ListQueryLoggingConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueryLoggingConfigs)
+{-# DEPRECATED lqlcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax NextToken> in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
-lqlcMaxResults :: Lens' ListQueryLoggingConfigs (Maybe Text)
-lqlcMaxResults = lens _lqlcMaxResults (\s a -> s {_lqlcMaxResults = a})
+-- | (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax NextToken> in the response to get the next page of results.
+--
+-- If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcMaxResults :: Lens.Lens' ListQueryLoggingConfigs (Lude.Maybe Lude.Text)
+lqlcMaxResults = Lens.lens (maxResults :: ListQueryLoggingConfigs -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListQueryLoggingConfigs)
+{-# DEPRECATED lqlcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListQueryLoggingConfigs where
+instance Page.AWSPager ListQueryLoggingConfigs where
   page rq rs
-    | stop (rs ^. lqlcrsNextToken) = Nothing
-    | stop (rs ^. lqlcrsQueryLoggingConfigs) = Nothing
-    | otherwise = Just $ rq & lqlcNextToken .~ rs ^. lqlcrsNextToken
+    | Page.stop (rs Lens.^. lqlcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lqlcrsQueryLoggingConfigs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lqlcNextToken Lens..~ rs Lens.^. lqlcrsNextToken
 
-instance AWSRequest ListQueryLoggingConfigs where
+instance Lude.AWSRequest ListQueryLoggingConfigs where
   type Rs ListQueryLoggingConfigs = ListQueryLoggingConfigsResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListQueryLoggingConfigsResponse'
-            <$> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
-            <*> ( x .@? "QueryLoggingConfigs" .!@ mempty
-                    >>= parseXMLList "QueryLoggingConfig"
-                )
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "QueryLoggingConfigs" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "QueryLoggingConfig"
+                     )
       )
 
-instance Hashable ListQueryLoggingConfigs
+instance Lude.ToHeaders ListQueryLoggingConfigs where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListQueryLoggingConfigs
+instance Lude.ToPath ListQueryLoggingConfigs where
+  toPath = Lude.const "/2013-04-01/queryloggingconfig"
 
-instance ToHeaders ListQueryLoggingConfigs where
-  toHeaders = const mempty
-
-instance ToPath ListQueryLoggingConfigs where
-  toPath = const "/2013-04-01/queryloggingconfig"
-
-instance ToQuery ListQueryLoggingConfigs where
+instance Lude.ToQuery ListQueryLoggingConfigs where
   toQuery ListQueryLoggingConfigs' {..} =
-    mconcat
-      [ "hostedzoneid" =: _lqlcHostedZoneId,
-        "nexttoken" =: _lqlcNextToken,
-        "maxresults" =: _lqlcMaxResults
+    Lude.mconcat
+      [ "hostedzoneid" Lude.=: hostedZoneId,
+        "nexttoken" Lude.=: nextToken,
+        "maxresults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listQueryLoggingConfigsResponse' smart constructor.
+-- | /See:/ 'mkListQueryLoggingConfigsResponse' smart constructor.
 data ListQueryLoggingConfigsResponse = ListQueryLoggingConfigsResponse'
-  { _lqlcrsNextToken ::
-      !(Maybe Text),
-    _lqlcrsResponseStatus ::
-      !Int,
-    _lqlcrsQueryLoggingConfigs ::
-      ![QueryLoggingConfig]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    queryLoggingConfigs ::
+      [QueryLoggingConfig]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueryLoggingConfigsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextToken' - If a response includes the last of the query logging configurations that are associated with the current AWS account, @NextToken@ doesn't appear in the response.
 --
--- * 'lqlcrsNextToken' - If a response includes the last of the query logging configurations that are associated with the current AWS account, @NextToken@ doesn't appear in the response. If a response doesn't include the last of the configurations, you can get more configurations by submitting another <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs> request. Get the value of @NextToken@ that Amazon Route 53 returned in the previous response and include it in @NextToken@ in the next request.
---
--- * 'lqlcrsResponseStatus' - -- | The response status code.
---
--- * 'lqlcrsQueryLoggingConfigs' - An array that contains one <https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html QueryLoggingConfig> element for each configuration for DNS query logging that is associated with the current AWS account.
-listQueryLoggingConfigsResponse ::
-  -- | 'lqlcrsResponseStatus'
-  Int ->
+-- If a response doesn't include the last of the configurations, you can get more configurations by submitting another <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs> request. Get the value of @NextToken@ that Amazon Route 53 returned in the previous response and include it in @NextToken@ in the next request.
+-- * 'queryLoggingConfigs' - An array that contains one <https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html QueryLoggingConfig> element for each configuration for DNS query logging that is associated with the current AWS account.
+-- * 'responseStatus' - The response status code.
+mkListQueryLoggingConfigsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListQueryLoggingConfigsResponse
-listQueryLoggingConfigsResponse pResponseStatus_ =
+mkListQueryLoggingConfigsResponse pResponseStatus_ =
   ListQueryLoggingConfigsResponse'
-    { _lqlcrsNextToken = Nothing,
-      _lqlcrsResponseStatus = pResponseStatus_,
-      _lqlcrsQueryLoggingConfigs = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      queryLoggingConfigs = Lude.mempty
     }
 
--- | If a response includes the last of the query logging configurations that are associated with the current AWS account, @NextToken@ doesn't appear in the response. If a response doesn't include the last of the configurations, you can get more configurations by submitting another <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs> request. Get the value of @NextToken@ that Amazon Route 53 returned in the previous response and include it in @NextToken@ in the next request.
-lqlcrsNextToken :: Lens' ListQueryLoggingConfigsResponse (Maybe Text)
-lqlcrsNextToken = lens _lqlcrsNextToken (\s a -> s {_lqlcrsNextToken = a})
+-- | If a response includes the last of the query logging configurations that are associated with the current AWS account, @NextToken@ doesn't appear in the response.
+--
+-- If a response doesn't include the last of the configurations, you can get more configurations by submitting another <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html ListQueryLoggingConfigs> request. Get the value of @NextToken@ that Amazon Route 53 returned in the previous response and include it in @NextToken@ in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcrsNextToken :: Lens.Lens' ListQueryLoggingConfigsResponse (Lude.Maybe Lude.Text)
+lqlcrsNextToken = Lens.lens (nextToken :: ListQueryLoggingConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueryLoggingConfigsResponse)
+{-# DEPRECATED lqlcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lqlcrsResponseStatus :: Lens' ListQueryLoggingConfigsResponse Int
-lqlcrsResponseStatus = lens _lqlcrsResponseStatus (\s a -> s {_lqlcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcrsResponseStatus :: Lens.Lens' ListQueryLoggingConfigsResponse Lude.Int
+lqlcrsResponseStatus = Lens.lens (responseStatus :: ListQueryLoggingConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQueryLoggingConfigsResponse)
+{-# DEPRECATED lqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array that contains one <https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html QueryLoggingConfig> element for each configuration for DNS query logging that is associated with the current AWS account.
-lqlcrsQueryLoggingConfigs :: Lens' ListQueryLoggingConfigsResponse [QueryLoggingConfig]
-lqlcrsQueryLoggingConfigs = lens _lqlcrsQueryLoggingConfigs (\s a -> s {_lqlcrsQueryLoggingConfigs = a}) . _Coerce
-
-instance NFData ListQueryLoggingConfigsResponse
+--
+-- /Note:/ Consider using 'queryLoggingConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqlcrsQueryLoggingConfigs :: Lens.Lens' ListQueryLoggingConfigsResponse [QueryLoggingConfig]
+lqlcrsQueryLoggingConfigs = Lens.lens (queryLoggingConfigs :: ListQueryLoggingConfigsResponse -> [QueryLoggingConfig]) (\s a -> s {queryLoggingConfigs = a} :: ListQueryLoggingConfigsResponse)
+{-# DEPRECATED lqlcrsQueryLoggingConfigs "Use generic-lens or generic-optics with 'queryLoggingConfigs' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.PhaseContext where
+module Network.AWS.CodeBuild.Types.PhaseContext
+  ( PhaseContext (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhaseContext,
+
+    -- * Lenses
+    pcMessage,
+    pcStatusCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Additional information about a build phase that has an error. You can use this information for troubleshooting.
 --
---
---
--- /See:/ 'phaseContext' smart constructor.
+-- /See:/ 'mkPhaseContext' smart constructor.
 data PhaseContext = PhaseContext'
-  { _pcMessage :: !(Maybe Text),
-    _pcStatusCode :: !(Maybe Text)
+  { message :: Lude.Maybe Lude.Text,
+    statusCode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhaseContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcMessage' - An explanation of the build phase's context. This might include a command ID and an exit code.
---
--- * 'pcStatusCode' - The status code for the context of the build phase.
-phaseContext ::
+-- * 'message' - An explanation of the build phase's context. This might include a command ID and an exit code.
+-- * 'statusCode' - The status code for the context of the build phase.
+mkPhaseContext ::
   PhaseContext
-phaseContext =
-  PhaseContext' {_pcMessage = Nothing, _pcStatusCode = Nothing}
+mkPhaseContext =
+  PhaseContext' {message = Lude.Nothing, statusCode = Lude.Nothing}
 
 -- | An explanation of the build phase's context. This might include a command ID and an exit code.
-pcMessage :: Lens' PhaseContext (Maybe Text)
-pcMessage = lens _pcMessage (\s a -> s {_pcMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcMessage :: Lens.Lens' PhaseContext (Lude.Maybe Lude.Text)
+pcMessage = Lens.lens (message :: PhaseContext -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PhaseContext)
+{-# DEPRECATED pcMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code for the context of the build phase.
-pcStatusCode :: Lens' PhaseContext (Maybe Text)
-pcStatusCode = lens _pcStatusCode (\s a -> s {_pcStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcStatusCode :: Lens.Lens' PhaseContext (Lude.Maybe Lude.Text)
+pcStatusCode = Lens.lens (statusCode :: PhaseContext -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: PhaseContext)
+{-# DEPRECATED pcStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON PhaseContext where
+instance Lude.FromJSON PhaseContext where
   parseJSON =
-    withObject
+    Lude.withObject
       "PhaseContext"
       ( \x ->
-          PhaseContext' <$> (x .:? "message") <*> (x .:? "statusCode")
+          PhaseContext'
+            Lude.<$> (x Lude..:? "message") Lude.<*> (x Lude..:? "statusCode")
       )
-
-instance Hashable PhaseContext
-
-instance NFData PhaseContext

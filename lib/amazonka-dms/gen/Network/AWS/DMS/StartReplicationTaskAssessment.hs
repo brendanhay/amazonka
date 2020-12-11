@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,148 @@
 --
 -- Starts the replication task assessment for unsupported data types in the source database.
 module Network.AWS.DMS.StartReplicationTaskAssessment
-  ( -- * Creating a Request
-    startReplicationTaskAssessment,
-    StartReplicationTaskAssessment,
+  ( -- * Creating a request
+    StartReplicationTaskAssessment (..),
+    mkStartReplicationTaskAssessment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srtaReplicationTaskARN,
 
-    -- * Destructuring the Response
-    startReplicationTaskAssessmentResponse,
-    StartReplicationTaskAssessmentResponse,
+    -- * Destructuring the response
+    StartReplicationTaskAssessmentResponse (..),
+    mkStartReplicationTaskAssessmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srtarsReplicationTask,
     srtarsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTaskAssessment' smart constructor.
+-- /See:/ 'mkStartReplicationTaskAssessment' smart constructor.
 newtype StartReplicationTaskAssessment = StartReplicationTaskAssessment'
-  { _srtaReplicationTaskARN ::
-      Text
+  { replicationTaskARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReplicationTaskAssessment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srtaReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
-startReplicationTaskAssessment ::
-  -- | 'srtaReplicationTaskARN'
-  Text ->
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
+mkStartReplicationTaskAssessment ::
+  -- | 'replicationTaskARN'
+  Lude.Text ->
   StartReplicationTaskAssessment
-startReplicationTaskAssessment pReplicationTaskARN_ =
+mkStartReplicationTaskAssessment pReplicationTaskARN_ =
   StartReplicationTaskAssessment'
-    { _srtaReplicationTaskARN =
+    { replicationTaskARN =
         pReplicationTaskARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-srtaReplicationTaskARN :: Lens' StartReplicationTaskAssessment Text
-srtaReplicationTaskARN = lens _srtaReplicationTaskARN (\s a -> s {_srtaReplicationTaskARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtaReplicationTaskARN :: Lens.Lens' StartReplicationTaskAssessment Lude.Text
+srtaReplicationTaskARN = Lens.lens (replicationTaskARN :: StartReplicationTaskAssessment -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: StartReplicationTaskAssessment)
+{-# DEPRECATED srtaReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
-instance AWSRequest StartReplicationTaskAssessment where
+instance Lude.AWSRequest StartReplicationTaskAssessment where
   type
     Rs StartReplicationTaskAssessment =
       StartReplicationTaskAssessmentResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartReplicationTaskAssessmentResponse'
-            <$> (x .?> "ReplicationTask") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationTask")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartReplicationTaskAssessment
-
-instance NFData StartReplicationTaskAssessment
-
-instance ToHeaders StartReplicationTaskAssessment where
+instance Lude.ToHeaders StartReplicationTaskAssessment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.StartReplicationTaskAssessment" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessment" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartReplicationTaskAssessment where
+instance Lude.ToJSON StartReplicationTaskAssessment where
   toJSON StartReplicationTaskAssessment' {..} =
-    object
-      ( catMaybes
-          [Just ("ReplicationTaskArn" .= _srtaReplicationTaskARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)]
       )
 
-instance ToPath StartReplicationTaskAssessment where
-  toPath = const "/"
+instance Lude.ToPath StartReplicationTaskAssessment where
+  toPath = Lude.const "/"
 
-instance ToQuery StartReplicationTaskAssessment where
-  toQuery = const mempty
+instance Lude.ToQuery StartReplicationTaskAssessment where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTaskAssessmentResponse' smart constructor.
+-- /See:/ 'mkStartReplicationTaskAssessmentResponse' smart constructor.
 data StartReplicationTaskAssessmentResponse = StartReplicationTaskAssessmentResponse'
-  { _srtarsReplicationTask ::
-      !( Maybe
-           ReplicationTask
-       ),
-    _srtarsResponseStatus ::
-      !Int
+  { replicationTask ::
+      Lude.Maybe
+        ReplicationTask,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReplicationTaskAssessmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srtarsReplicationTask' - The assessed replication task.
---
--- * 'srtarsResponseStatus' - -- | The response status code.
-startReplicationTaskAssessmentResponse ::
-  -- | 'srtarsResponseStatus'
-  Int ->
+-- * 'replicationTask' - The assessed replication task.
+-- * 'responseStatus' - The response status code.
+mkStartReplicationTaskAssessmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartReplicationTaskAssessmentResponse
-startReplicationTaskAssessmentResponse pResponseStatus_ =
+mkStartReplicationTaskAssessmentResponse pResponseStatus_ =
   StartReplicationTaskAssessmentResponse'
-    { _srtarsReplicationTask =
-        Nothing,
-      _srtarsResponseStatus = pResponseStatus_
+    { replicationTask =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The assessed replication task.
-srtarsReplicationTask :: Lens' StartReplicationTaskAssessmentResponse (Maybe ReplicationTask)
-srtarsReplicationTask = lens _srtarsReplicationTask (\s a -> s {_srtarsReplicationTask = a})
+--
+-- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarsReplicationTask :: Lens.Lens' StartReplicationTaskAssessmentResponse (Lude.Maybe ReplicationTask)
+srtarsReplicationTask = Lens.lens (replicationTask :: StartReplicationTaskAssessmentResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: StartReplicationTaskAssessmentResponse)
+{-# DEPRECATED srtarsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
--- | -- | The response status code.
-srtarsResponseStatus :: Lens' StartReplicationTaskAssessmentResponse Int
-srtarsResponseStatus = lens _srtarsResponseStatus (\s a -> s {_srtarsResponseStatus = a})
-
-instance NFData StartReplicationTaskAssessmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtarsResponseStatus :: Lens.Lens' StartReplicationTaskAssessmentResponse Lude.Int
+srtarsResponseStatus = Lens.lens (responseStatus :: StartReplicationTaskAssessmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartReplicationTaskAssessmentResponse)
+{-# DEPRECATED srtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

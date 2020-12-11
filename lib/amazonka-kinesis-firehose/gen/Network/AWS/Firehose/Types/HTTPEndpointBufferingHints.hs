@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HTTPEndpointBufferingHints where
+module Network.AWS.Firehose.Types.HTTPEndpointBufferingHints
+  ( HTTPEndpointBufferingHints (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPEndpointBufferingHints,
+
+    -- * Lenses
+    httpebhSizeInMBs,
+    httpebhIntervalInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the buffering options that can be applied before data is delivered to the HTTP endpoint destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
 --
---
---
--- /See:/ 'hTTPEndpointBufferingHints' smart constructor.
+-- /See:/ 'mkHTTPEndpointBufferingHints' smart constructor.
 data HTTPEndpointBufferingHints = HTTPEndpointBufferingHints'
-  { _httpebhSizeInMBs ::
-      !(Maybe Nat),
-    _httpebhIntervalInSeconds ::
-      !(Maybe Nat)
+  { sizeInMBs ::
+      Lude.Maybe Lude.Natural,
+    intervalInSeconds ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointBufferingHints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+-- * 'sizeInMBs' - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 --
--- * 'httpebhSizeInMBs' - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.  We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
---
--- * 'httpebhIntervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
-hTTPEndpointBufferingHints ::
+-- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+mkHTTPEndpointBufferingHints ::
   HTTPEndpointBufferingHints
-hTTPEndpointBufferingHints =
+mkHTTPEndpointBufferingHints =
   HTTPEndpointBufferingHints'
-    { _httpebhSizeInMBs = Nothing,
-      _httpebhIntervalInSeconds = Nothing
+    { sizeInMBs = Lude.Nothing,
+      intervalInSeconds = Lude.Nothing
     }
 
--- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.  We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
-httpebhSizeInMBs :: Lens' HTTPEndpointBufferingHints (Maybe Natural)
-httpebhSizeInMBs = lens _httpebhSizeInMBs (\s a -> s {_httpebhSizeInMBs = a}) . mapping _Nat
+-- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+--
+-- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+--
+-- /Note:/ Consider using 'sizeInMBs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpebhSizeInMBs :: Lens.Lens' HTTPEndpointBufferingHints (Lude.Maybe Lude.Natural)
+httpebhSizeInMBs = Lens.lens (sizeInMBs :: HTTPEndpointBufferingHints -> Lude.Maybe Lude.Natural) (\s a -> s {sizeInMBs = a} :: HTTPEndpointBufferingHints)
+{-# DEPRECATED httpebhSizeInMBs "Use generic-lens or generic-optics with 'sizeInMBs' instead." #-}
 
 -- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
-httpebhIntervalInSeconds :: Lens' HTTPEndpointBufferingHints (Maybe Natural)
-httpebhIntervalInSeconds = lens _httpebhIntervalInSeconds (\s a -> s {_httpebhIntervalInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'intervalInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpebhIntervalInSeconds :: Lens.Lens' HTTPEndpointBufferingHints (Lude.Maybe Lude.Natural)
+httpebhIntervalInSeconds = Lens.lens (intervalInSeconds :: HTTPEndpointBufferingHints -> Lude.Maybe Lude.Natural) (\s a -> s {intervalInSeconds = a} :: HTTPEndpointBufferingHints)
+{-# DEPRECATED httpebhIntervalInSeconds "Use generic-lens or generic-optics with 'intervalInSeconds' instead." #-}
 
-instance FromJSON HTTPEndpointBufferingHints where
+instance Lude.FromJSON HTTPEndpointBufferingHints where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPEndpointBufferingHints"
       ( \x ->
           HTTPEndpointBufferingHints'
-            <$> (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds")
+            Lude.<$> (x Lude..:? "SizeInMBs") Lude.<*> (x Lude..:? "IntervalInSeconds")
       )
 
-instance Hashable HTTPEndpointBufferingHints
-
-instance NFData HTTPEndpointBufferingHints
-
-instance ToJSON HTTPEndpointBufferingHints where
+instance Lude.ToJSON HTTPEndpointBufferingHints where
   toJSON HTTPEndpointBufferingHints' {..} =
-    object
-      ( catMaybes
-          [ ("SizeInMBs" .=) <$> _httpebhSizeInMBs,
-            ("IntervalInSeconds" .=) <$> _httpebhIntervalInSeconds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SizeInMBs" Lude..=) Lude.<$> sizeInMBs,
+            ("IntervalInSeconds" Lude..=) Lude.<$> intervalInSeconds
           ]
       )

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types
-  ( -- * Service Configuration
-    stepFunctions,
+  ( -- * Service configuration
+    stepFunctionsService,
 
     -- * Errors
 
@@ -34,27 +32,27 @@ module Network.AWS.StepFunctions.Types
     SyncExecutionStatus (..),
 
     -- * ActivityFailedEventDetails
-    ActivityFailedEventDetails,
-    activityFailedEventDetails,
+    ActivityFailedEventDetails (..),
+    mkActivityFailedEventDetails,
     afedError,
     afedCause,
 
     -- * ActivityListItem
-    ActivityListItem,
-    activityListItem,
+    ActivityListItem (..),
+    mkActivityListItem,
     aliActivityARN,
     aliName,
     aliCreationDate,
 
     -- * ActivityScheduleFailedEventDetails
-    ActivityScheduleFailedEventDetails,
-    activityScheduleFailedEventDetails,
+    ActivityScheduleFailedEventDetails (..),
+    mkActivityScheduleFailedEventDetails,
     asfedError,
     asfedCause,
 
     -- * ActivityScheduledEventDetails
-    ActivityScheduledEventDetails,
-    activityScheduledEventDetails,
+    ActivityScheduledEventDetails (..),
+    mkActivityScheduledEventDetails,
     asedHeartbeatInSeconds,
     asedInputDetails,
     asedInput,
@@ -62,53 +60,53 @@ module Network.AWS.StepFunctions.Types
     asedResource,
 
     -- * ActivityStartedEventDetails
-    ActivityStartedEventDetails,
-    activityStartedEventDetails,
+    ActivityStartedEventDetails (..),
+    mkActivityStartedEventDetails,
     asedWorkerName,
 
     -- * ActivitySucceededEventDetails
-    ActivitySucceededEventDetails,
-    activitySucceededEventDetails,
+    ActivitySucceededEventDetails (..),
+    mkActivitySucceededEventDetails,
     asedOutput,
     asedOutputDetails,
 
     -- * ActivityTimedOutEventDetails
-    ActivityTimedOutEventDetails,
-    activityTimedOutEventDetails,
+    ActivityTimedOutEventDetails (..),
+    mkActivityTimedOutEventDetails,
     atoedError,
     atoedCause,
 
     -- * BillingDetails
-    BillingDetails,
-    billingDetails,
+    BillingDetails (..),
+    mkBillingDetails,
     bdBilledMemoryUsedInMB,
     bdBilledDurationInMilliseconds,
 
     -- * CloudWatchEventsExecutionDataDetails
-    CloudWatchEventsExecutionDataDetails,
-    cloudWatchEventsExecutionDataDetails,
+    CloudWatchEventsExecutionDataDetails (..),
+    mkCloudWatchEventsExecutionDataDetails,
     cweeddIncluded,
 
     -- * CloudWatchLogsLogGroup
-    CloudWatchLogsLogGroup,
-    cloudWatchLogsLogGroup,
+    CloudWatchLogsLogGroup (..),
+    mkCloudWatchLogsLogGroup,
     cwllgLogGroupARN,
 
     -- * ExecutionAbortedEventDetails
-    ExecutionAbortedEventDetails,
-    executionAbortedEventDetails,
+    ExecutionAbortedEventDetails (..),
+    mkExecutionAbortedEventDetails,
     eaedError,
     eaedCause,
 
     -- * ExecutionFailedEventDetails
-    ExecutionFailedEventDetails,
-    executionFailedEventDetails,
+    ExecutionFailedEventDetails (..),
+    mkExecutionFailedEventDetails,
     efedError,
     efedCause,
 
     -- * ExecutionListItem
-    ExecutionListItem,
-    executionListItem,
+    ExecutionListItem (..),
+    mkExecutionListItem,
     eliStopDate,
     eliExecutionARN,
     eliStateMachineARN,
@@ -117,27 +115,27 @@ module Network.AWS.StepFunctions.Types
     eliStartDate,
 
     -- * ExecutionStartedEventDetails
-    ExecutionStartedEventDetails,
-    executionStartedEventDetails,
+    ExecutionStartedEventDetails (..),
+    mkExecutionStartedEventDetails,
     esedInputDetails,
     esedInput,
     esedRoleARN,
 
     -- * ExecutionSucceededEventDetails
-    ExecutionSucceededEventDetails,
-    executionSucceededEventDetails,
+    ExecutionSucceededEventDetails (..),
+    mkExecutionSucceededEventDetails,
     esedOutput,
     esedOutputDetails,
 
     -- * ExecutionTimedOutEventDetails
-    ExecutionTimedOutEventDetails,
-    executionTimedOutEventDetails,
+    ExecutionTimedOutEventDetails (..),
+    mkExecutionTimedOutEventDetails,
     etoedError,
     etoedCause,
 
     -- * HistoryEvent
-    HistoryEvent,
-    historyEvent,
+    HistoryEvent (..),
+    mkHistoryEvent,
     heMapStateStartedEventDetails,
     heTaskSubmitFailedEventDetails,
     heTaskStartedEventDetails,
@@ -176,110 +174,110 @@ module Network.AWS.StepFunctions.Types
     heId,
 
     -- * HistoryEventExecutionDataDetails
-    HistoryEventExecutionDataDetails,
-    historyEventExecutionDataDetails,
+    HistoryEventExecutionDataDetails (..),
+    mkHistoryEventExecutionDataDetails,
     heeddTruncated,
 
     -- * LambdaFunctionFailedEventDetails
-    LambdaFunctionFailedEventDetails,
-    lambdaFunctionFailedEventDetails,
+    LambdaFunctionFailedEventDetails (..),
+    mkLambdaFunctionFailedEventDetails,
     lffedError,
     lffedCause,
 
     -- * LambdaFunctionScheduleFailedEventDetails
-    LambdaFunctionScheduleFailedEventDetails,
-    lambdaFunctionScheduleFailedEventDetails,
+    LambdaFunctionScheduleFailedEventDetails (..),
+    mkLambdaFunctionScheduleFailedEventDetails,
     lError,
     lCause,
 
     -- * LambdaFunctionScheduledEventDetails
-    LambdaFunctionScheduledEventDetails,
-    lambdaFunctionScheduledEventDetails,
+    LambdaFunctionScheduledEventDetails (..),
+    mkLambdaFunctionScheduledEventDetails,
     lfsedInputDetails,
     lfsedInput,
     lfsedTimeoutInSeconds,
     lfsedResource,
 
     -- * LambdaFunctionStartFailedEventDetails
-    LambdaFunctionStartFailedEventDetails,
-    lambdaFunctionStartFailedEventDetails,
+    LambdaFunctionStartFailedEventDetails (..),
+    mkLambdaFunctionStartFailedEventDetails,
     lfsfedError,
     lfsfedCause,
 
     -- * LambdaFunctionSucceededEventDetails
-    LambdaFunctionSucceededEventDetails,
-    lambdaFunctionSucceededEventDetails,
+    LambdaFunctionSucceededEventDetails (..),
+    mkLambdaFunctionSucceededEventDetails,
     lfsedOutput,
     lfsedOutputDetails,
 
     -- * LambdaFunctionTimedOutEventDetails
-    LambdaFunctionTimedOutEventDetails,
-    lambdaFunctionTimedOutEventDetails,
+    LambdaFunctionTimedOutEventDetails (..),
+    mkLambdaFunctionTimedOutEventDetails,
     lftoedError,
     lftoedCause,
 
     -- * LogDestination
-    LogDestination,
-    logDestination,
+    LogDestination (..),
+    mkLogDestination,
     ldCloudWatchLogsLogGroup,
 
     -- * LoggingConfiguration
-    LoggingConfiguration,
-    loggingConfiguration,
+    LoggingConfiguration (..),
+    mkLoggingConfiguration,
     lcIncludeExecutionData,
     lcDestinations,
     lcLevel,
 
     -- * MapIterationEventDetails
-    MapIterationEventDetails,
-    mapIterationEventDetails,
+    MapIterationEventDetails (..),
+    mkMapIterationEventDetails,
     miedName,
     miedIndex,
 
     -- * MapStateStartedEventDetails
-    MapStateStartedEventDetails,
-    mapStateStartedEventDetails,
+    MapStateStartedEventDetails (..),
+    mkMapStateStartedEventDetails,
     mssedLength,
 
     -- * StateEnteredEventDetails
-    StateEnteredEventDetails,
-    stateEnteredEventDetails,
+    StateEnteredEventDetails (..),
+    mkStateEnteredEventDetails,
     sInputDetails,
     sInput,
     sName,
 
     -- * StateExitedEventDetails
-    StateExitedEventDetails,
-    stateExitedEventDetails,
+    StateExitedEventDetails (..),
+    mkStateExitedEventDetails,
     seedOutput,
     seedOutputDetails,
     seedName,
 
     -- * StateMachineListItem
-    StateMachineListItem,
-    stateMachineListItem,
+    StateMachineListItem (..),
+    mkStateMachineListItem,
     smliStateMachineARN,
     smliName,
     smliType,
     smliCreationDate,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TaskFailedEventDetails
-    TaskFailedEventDetails,
-    taskFailedEventDetails,
+    TaskFailedEventDetails (..),
+    mkTaskFailedEventDetails,
     tfedError,
     tfedCause,
     tfedResourceType,
     tfedResource,
 
     -- * TaskScheduledEventDetails
-    TaskScheduledEventDetails,
-    taskScheduledEventDetails,
+    TaskScheduledEventDetails (..),
+    mkTaskScheduledEventDetails,
     tasHeartbeatInSeconds,
     tasTimeoutInSeconds,
     tasResourceType,
@@ -288,61 +286,61 @@ module Network.AWS.StepFunctions.Types
     tasParameters,
 
     -- * TaskStartFailedEventDetails
-    TaskStartFailedEventDetails,
-    taskStartFailedEventDetails,
+    TaskStartFailedEventDetails (..),
+    mkTaskStartFailedEventDetails,
     tsfedsError,
     tsfedsCause,
     tsfedsResourceType,
     tsfedsResource,
 
     -- * TaskStartedEventDetails
-    TaskStartedEventDetails,
-    taskStartedEventDetails,
+    TaskStartedEventDetails (..),
+    mkTaskStartedEventDetails,
     tsedResourceType,
     tsedResource,
 
     -- * TaskSubmitFailedEventDetails
-    TaskSubmitFailedEventDetails,
-    taskSubmitFailedEventDetails,
+    TaskSubmitFailedEventDetails (..),
+    mkTaskSubmitFailedEventDetails,
     tsfedError,
     tsfedCause,
     tsfedResourceType,
     tsfedResource,
 
     -- * TaskSubmittedEventDetails
-    TaskSubmittedEventDetails,
-    taskSubmittedEventDetails,
+    TaskSubmittedEventDetails (..),
+    mkTaskSubmittedEventDetails,
     tOutput,
     tOutputDetails,
     tResourceType,
     tResource,
 
     -- * TaskSucceededEventDetails
-    TaskSucceededEventDetails,
-    taskSucceededEventDetails,
+    TaskSucceededEventDetails (..),
+    mkTaskSucceededEventDetails,
     tsedsOutput,
     tsedsOutputDetails,
     tsedsResourceType,
     tsedsResource,
 
     -- * TaskTimedOutEventDetails
-    TaskTimedOutEventDetails,
-    taskTimedOutEventDetails,
+    TaskTimedOutEventDetails (..),
+    mkTaskTimedOutEventDetails,
     ttoedError,
     ttoedCause,
     ttoedResourceType,
     ttoedResource,
 
     -- * TracingConfiguration
-    TracingConfiguration,
-    tracingConfiguration,
+    TracingConfiguration (..),
+    mkTracingConfiguration,
     tcEnabled,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
 import Network.AWS.StepFunctions.Types.ActivityListItem
 import Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
@@ -392,43 +390,55 @@ import Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
 import Network.AWS.StepFunctions.Types.TracingConfiguration
 
 -- | API version @2016-11-23@ of the Amazon Step Functions SDK configuration.
-stepFunctions :: Service
-stepFunctions =
-  Service
-    { _svcAbbrev = "StepFunctions",
-      _svcSigner = v4,
-      _svcPrefix = "states",
-      _svcVersion = "2016-11-23",
-      _svcEndpoint = defaultEndpoint stepFunctions,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "StepFunctions",
-      _svcRetry = retry
+stepFunctionsService :: Lude.Service
+stepFunctionsService =
+  Lude.Service
+    { Lude._svcAbbrev = "StepFunctions",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "states",
+      Lude._svcVersion = "2016-11-23",
+      Lude._svcEndpoint = Lude.defaultEndpoint stepFunctionsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "StepFunctions",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

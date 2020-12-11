@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.LabelDetectionSortBy where
+module Network.AWS.Rekognition.Types.LabelDetectionSortBy
+  ( LabelDetectionSortBy
+      ( LabelDetectionSortBy',
+        LDSBName,
+        LDSBTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LabelDetectionSortBy
-  = LDSBName
-  | LDSBTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LabelDetectionSortBy = LabelDetectionSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LabelDetectionSortBy where
-  parser =
-    takeLowerText >>= \case
-      "name" -> pure LDSBName
-      "timestamp" -> pure LDSBTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing LabelDetectionSortBy from value: '" <> e
-            <> "'. Accepted values: name, timestamp"
+pattern LDSBName :: LabelDetectionSortBy
+pattern LDSBName = LabelDetectionSortBy' "NAME"
 
-instance ToText LabelDetectionSortBy where
-  toText = \case
-    LDSBName -> "NAME"
-    LDSBTimestamp -> "TIMESTAMP"
+pattern LDSBTimestamp :: LabelDetectionSortBy
+pattern LDSBTimestamp = LabelDetectionSortBy' "TIMESTAMP"
 
-instance Hashable LabelDetectionSortBy
-
-instance NFData LabelDetectionSortBy
-
-instance ToByteString LabelDetectionSortBy
-
-instance ToQuery LabelDetectionSortBy
-
-instance ToHeader LabelDetectionSortBy
-
-instance ToJSON LabelDetectionSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  LDSBName,
+  LDSBTimestamp,
+  LabelDetectionSortBy'
+  #-}

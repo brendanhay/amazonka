@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,132 @@
 --
 -- Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
 module Network.AWS.DynamoDB.DescribeTable
-  ( -- * Creating a Request
-    describeTable,
-    DescribeTable,
+  ( -- * Creating a request
+    DescribeTable (..),
+    mkDescribeTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desTableName,
 
-    -- * Destructuring the Response
-    describeTableResponse,
-    DescribeTableResponse,
+    -- * Destructuring the response
+    DescribeTableResponse (..),
+    mkDescribeTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsTable,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DescribeTable@ operation.
 --
---
---
--- /See:/ 'describeTable' smart constructor.
-newtype DescribeTable = DescribeTable' {_desTableName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDescribeTable' smart constructor.
+newtype DescribeTable = DescribeTable' {tableName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desTableName' - The name of the table to describe.
-describeTable ::
-  -- | 'desTableName'
-  Text ->
+-- * 'tableName' - The name of the table to describe.
+mkDescribeTable ::
+  -- | 'tableName'
+  Lude.Text ->
   DescribeTable
-describeTable pTableName_ =
-  DescribeTable' {_desTableName = pTableName_}
+mkDescribeTable pTableName_ =
+  DescribeTable' {tableName = pTableName_}
 
 -- | The name of the table to describe.
-desTableName :: Lens' DescribeTable Text
-desTableName = lens _desTableName (\s a -> s {_desTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desTableName :: Lens.Lens' DescribeTable Lude.Text
+desTableName = Lens.lens (tableName :: DescribeTable -> Lude.Text) (\s a -> s {tableName = a} :: DescribeTable)
+{-# DEPRECATED desTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest DescribeTable where
+instance Lude.AWSRequest DescribeTable where
   type Rs DescribeTable = DescribeTableResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DescribeTableResponse' <$> (x .?> "Table") <*> (pure (fromEnum s))
+          DescribeTableResponse'
+            Lude.<$> (x Lude..?> "Table") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTable
-
-instance NFData DescribeTable
-
-instance ToHeaders DescribeTable where
+instance Lude.ToHeaders DescribeTable where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeTable" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.DescribeTable" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTable where
+instance Lude.ToJSON DescribeTable where
   toJSON DescribeTable' {..} =
-    object (catMaybes [Just ("TableName" .= _desTableName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
 
-instance ToPath DescribeTable where
-  toPath = const "/"
+instance Lude.ToPath DescribeTable where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTable where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTable where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DescribeTable@ operation.
 --
---
---
--- /See:/ 'describeTableResponse' smart constructor.
+-- /See:/ 'mkDescribeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
-  { _drsTable ::
-      !(Maybe TableDescription),
-    _drsResponseStatus :: !Int
+  { table ::
+      Lude.Maybe TableDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsTable' - The properties of the table.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeTableResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'table' - The properties of the table.
+mkDescribeTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTableResponse
-describeTableResponse pResponseStatus_ =
+mkDescribeTableResponse pResponseStatus_ =
   DescribeTableResponse'
-    { _drsTable = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { table = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The properties of the table.
-drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-drsTable = lens _drsTable (\s a -> s {_drsTable = a})
+--
+-- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsTable :: Lens.Lens' DescribeTableResponse (Lude.Maybe TableDescription)
+drsTable = Lens.lens (table :: DescribeTableResponse -> Lude.Maybe TableDescription) (\s a -> s {table = a} :: DescribeTableResponse)
+{-# DEPRECATED drsTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeTableResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeTableResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

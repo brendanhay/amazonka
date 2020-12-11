@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,142 @@
 --
 -- Allows you to programatically update your report preferences.
 module Network.AWS.CostAndUsageReport.ModifyReportDefinition
-  ( -- * Creating a Request
-    modifyReportDefinition,
-    ModifyReportDefinition,
+  ( -- * Creating a request
+    ModifyReportDefinition (..),
+    mkModifyReportDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mrdReportName,
     mrdReportDefinition,
 
-    -- * Destructuring the Response
-    modifyReportDefinitionResponse,
-    ModifyReportDefinitionResponse,
+    -- * Destructuring the response
+    ModifyReportDefinitionResponse (..),
+    mkModifyReportDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mrdrsResponseStatus,
   )
 where
 
 import Network.AWS.CostAndUsageReport.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyReportDefinition' smart constructor.
+-- | /See:/ 'mkModifyReportDefinition' smart constructor.
 data ModifyReportDefinition = ModifyReportDefinition'
-  { _mrdReportName ::
-      !Text,
-    _mrdReportDefinition :: !ReportDefinition
+  { reportName ::
+      Lude.Text,
+    reportDefinition :: ReportDefinition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReportDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrdReportName' - Undocumented member.
---
--- * 'mrdReportDefinition' - Undocumented member.
-modifyReportDefinition ::
-  -- | 'mrdReportName'
-  Text ->
-  -- | 'mrdReportDefinition'
+-- * 'reportDefinition' - Undocumented field.
+-- * 'reportName' - Undocumented field.
+mkModifyReportDefinition ::
+  -- | 'reportName'
+  Lude.Text ->
+  -- | 'reportDefinition'
   ReportDefinition ->
   ModifyReportDefinition
-modifyReportDefinition pReportName_ pReportDefinition_ =
+mkModifyReportDefinition pReportName_ pReportDefinition_ =
   ModifyReportDefinition'
-    { _mrdReportName = pReportName_,
-      _mrdReportDefinition = pReportDefinition_
+    { reportName = pReportName_,
+      reportDefinition = pReportDefinition_
     }
 
--- | Undocumented member.
-mrdReportName :: Lens' ModifyReportDefinition Text
-mrdReportName = lens _mrdReportName (\s a -> s {_mrdReportName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrdReportName :: Lens.Lens' ModifyReportDefinition Lude.Text
+mrdReportName = Lens.lens (reportName :: ModifyReportDefinition -> Lude.Text) (\s a -> s {reportName = a} :: ModifyReportDefinition)
+{-# DEPRECATED mrdReportName "Use generic-lens or generic-optics with 'reportName' instead." #-}
 
--- | Undocumented member.
-mrdReportDefinition :: Lens' ModifyReportDefinition ReportDefinition
-mrdReportDefinition = lens _mrdReportDefinition (\s a -> s {_mrdReportDefinition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reportDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrdReportDefinition :: Lens.Lens' ModifyReportDefinition ReportDefinition
+mrdReportDefinition = Lens.lens (reportDefinition :: ModifyReportDefinition -> ReportDefinition) (\s a -> s {reportDefinition = a} :: ModifyReportDefinition)
+{-# DEPRECATED mrdReportDefinition "Use generic-lens or generic-optics with 'reportDefinition' instead." #-}
 
-instance AWSRequest ModifyReportDefinition where
+instance Lude.AWSRequest ModifyReportDefinition where
   type Rs ModifyReportDefinition = ModifyReportDefinitionResponse
-  request = postJSON costAndUsageReport
+  request = Req.postJSON costAndUsageReportService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          ModifyReportDefinitionResponse' <$> (pure (fromEnum s))
+          ModifyReportDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyReportDefinition
-
-instance NFData ModifyReportDefinition
-
-instance ToHeaders ModifyReportDefinition where
+instance Lude.ToHeaders ModifyReportDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSOrigamiServiceGatewayService.ModifyReportDefinition" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrigamiServiceGatewayService.ModifyReportDefinition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyReportDefinition where
+instance Lude.ToJSON ModifyReportDefinition where
   toJSON ModifyReportDefinition' {..} =
-    object
-      ( catMaybes
-          [ Just ("ReportName" .= _mrdReportName),
-            Just ("ReportDefinition" .= _mrdReportDefinition)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ReportName" Lude..= reportName),
+            Lude.Just ("ReportDefinition" Lude..= reportDefinition)
           ]
       )
 
-instance ToPath ModifyReportDefinition where
-  toPath = const "/"
+instance Lude.ToPath ModifyReportDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyReportDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyReportDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyReportDefinitionResponse' smart constructor.
+-- | /See:/ 'mkModifyReportDefinitionResponse' smart constructor.
 newtype ModifyReportDefinitionResponse = ModifyReportDefinitionResponse'
-  { _mrdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReportDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrdrsResponseStatus' - -- | The response status code.
-modifyReportDefinitionResponse ::
-  -- | 'mrdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkModifyReportDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyReportDefinitionResponse
-modifyReportDefinitionResponse pResponseStatus_ =
+mkModifyReportDefinitionResponse pResponseStatus_ =
   ModifyReportDefinitionResponse'
-    { _mrdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-mrdrsResponseStatus :: Lens' ModifyReportDefinitionResponse Int
-mrdrsResponseStatus = lens _mrdrsResponseStatus (\s a -> s {_mrdrsResponseStatus = a})
-
-instance NFData ModifyReportDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrdrsResponseStatus :: Lens.Lens' ModifyReportDefinitionResponse Lude.Int
+mrdrsResponseStatus = Lens.lens (responseStatus :: ModifyReportDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyReportDefinitionResponse)
+{-# DEPRECATED mrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode where
+module Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
+  ( DeleteQueuedReservedInstancesErrorCode
+      ( DeleteQueuedReservedInstancesErrorCode',
+        DQRIECReservedInstancesIdInvalid,
+        DQRIECReservedInstancesNotInQueuedState,
+        DQRIECUnexpectedError
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeleteQueuedReservedInstancesErrorCode
-  = DQRIECReservedInstancesIdInvalid
-  | DQRIECReservedInstancesNotInQueuedState
-  | DQRIECUnexpectedError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeleteQueuedReservedInstancesErrorCode = DeleteQueuedReservedInstancesErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeleteQueuedReservedInstancesErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "reserved-instances-id-invalid" -> pure DQRIECReservedInstancesIdInvalid
-      "reserved-instances-not-in-queued-state" -> pure DQRIECReservedInstancesNotInQueuedState
-      "unexpected-error" -> pure DQRIECUnexpectedError
-      e ->
-        fromTextError $
-          "Failure parsing DeleteQueuedReservedInstancesErrorCode from value: '" <> e
-            <> "'. Accepted values: reserved-instances-id-invalid, reserved-instances-not-in-queued-state, unexpected-error"
+pattern DQRIECReservedInstancesIdInvalid :: DeleteQueuedReservedInstancesErrorCode
+pattern DQRIECReservedInstancesIdInvalid = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-id-invalid"
 
-instance ToText DeleteQueuedReservedInstancesErrorCode where
-  toText = \case
-    DQRIECReservedInstancesIdInvalid -> "reserved-instances-id-invalid"
-    DQRIECReservedInstancesNotInQueuedState -> "reserved-instances-not-in-queued-state"
-    DQRIECUnexpectedError -> "unexpected-error"
+pattern DQRIECReservedInstancesNotInQueuedState :: DeleteQueuedReservedInstancesErrorCode
+pattern DQRIECReservedInstancesNotInQueuedState = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-not-in-queued-state"
 
-instance Hashable DeleteQueuedReservedInstancesErrorCode
+pattern DQRIECUnexpectedError :: DeleteQueuedReservedInstancesErrorCode
+pattern DQRIECUnexpectedError = DeleteQueuedReservedInstancesErrorCode' "unexpected-error"
 
-instance NFData DeleteQueuedReservedInstancesErrorCode
-
-instance ToByteString DeleteQueuedReservedInstancesErrorCode
-
-instance ToQuery DeleteQueuedReservedInstancesErrorCode
-
-instance ToHeader DeleteQueuedReservedInstancesErrorCode
-
-instance FromXML DeleteQueuedReservedInstancesErrorCode where
-  parseXML = parseXMLText "DeleteQueuedReservedInstancesErrorCode"
+{-# COMPLETE
+  DQRIECReservedInstancesIdInvalid,
+  DQRIECReservedInstancesNotInQueuedState,
+  DQRIECUnexpectedError,
+  DeleteQueuedReservedInstancesErrorCode'
+  #-}

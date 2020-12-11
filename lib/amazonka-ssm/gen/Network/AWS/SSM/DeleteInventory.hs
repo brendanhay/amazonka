@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Delete a custom inventory type or the data associated with a custom Inventory type. Deleting a custom inventory type is also referred to as deleting a custom inventory schema.
 module Network.AWS.SSM.DeleteInventory
-  ( -- * Creating a Request
-    deleteInventory,
-    DeleteInventory,
+  ( -- * Creating a request
+    DeleteInventory (..),
+    mkDeleteInventory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diClientToken,
     diSchemaDeleteOption,
     diDryRun,
     diTypeName,
 
-    -- * Destructuring the Response
-    deleteInventoryResponse,
-    DeleteInventoryResponse,
+    -- * Destructuring the response
+    DeleteInventoryResponse (..),
+    mkDeleteInventoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsTypeName,
     dirsDeletionSummary,
     dirsDeletionId,
@@ -41,153 +36,183 @@ module Network.AWS.SSM.DeleteInventory
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deleteInventory' smart constructor.
+-- | /See:/ 'mkDeleteInventory' smart constructor.
 data DeleteInventory = DeleteInventory'
-  { _diClientToken ::
-      !(Maybe Text),
-    _diSchemaDeleteOption ::
-      !(Maybe InventorySchemaDeleteOption),
-    _diDryRun :: !(Maybe Bool),
-    _diTypeName :: !Text
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    schemaDeleteOption ::
+      Lude.Maybe InventorySchemaDeleteOption,
+    dryRun :: Lude.Maybe Lude.Bool,
+    typeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInventory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientToken' - User-provided idempotency token.
+-- * 'dryRun' - Use this option to view a summary of the deletion request without deleting any data or the data type. This option is useful when you only want to understand what will be deleted. Once you validate that the data to be deleted is what you intend to delete, you can run the same command without specifying the @DryRun@ option.
+-- * 'schemaDeleteOption' - Use the @SchemaDeleteOption@ to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options:
 --
--- * 'diClientToken' - User-provided idempotency token.
---
--- * 'diSchemaDeleteOption' - Use the @SchemaDeleteOption@ to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options: DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the @PutInventory@ action for a version greater than the disabled version. DeleteSchema: This option deletes the specified custom type from the Inventory service. You can recreate the schema later, if you want.
---
--- * 'diDryRun' - Use this option to view a summary of the deletion request without deleting any data or the data type. This option is useful when you only want to understand what will be deleted. Once you validate that the data to be deleted is what you intend to delete, you can run the same command without specifying the @DryRun@ option.
---
--- * 'diTypeName' - The name of the custom inventory type for which you want to delete either all previously collected data or the inventory type itself.
-deleteInventory ::
-  -- | 'diTypeName'
-  Text ->
+-- DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the @PutInventory@ action for a version greater than the disabled version.
+-- DeleteSchema: This option deletes the specified custom type from the Inventory service. You can recreate the schema later, if you want.
+-- * 'typeName' - The name of the custom inventory type for which you want to delete either all previously collected data or the inventory type itself.
+mkDeleteInventory ::
+  -- | 'typeName'
+  Lude.Text ->
   DeleteInventory
-deleteInventory pTypeName_ =
+mkDeleteInventory pTypeName_ =
   DeleteInventory'
-    { _diClientToken = Nothing,
-      _diSchemaDeleteOption = Nothing,
-      _diDryRun = Nothing,
-      _diTypeName = pTypeName_
+    { clientToken = Lude.Nothing,
+      schemaDeleteOption = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      typeName = pTypeName_
     }
 
 -- | User-provided idempotency token.
-diClientToken :: Lens' DeleteInventory (Maybe Text)
-diClientToken = lens _diClientToken (\s a -> s {_diClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diClientToken :: Lens.Lens' DeleteInventory (Lude.Maybe Lude.Text)
+diClientToken = Lens.lens (clientToken :: DeleteInventory -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: DeleteInventory)
+{-# DEPRECATED diClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | Use the @SchemaDeleteOption@ to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options: DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the @PutInventory@ action for a version greater than the disabled version. DeleteSchema: This option deletes the specified custom type from the Inventory service. You can recreate the schema later, if you want.
-diSchemaDeleteOption :: Lens' DeleteInventory (Maybe InventorySchemaDeleteOption)
-diSchemaDeleteOption = lens _diSchemaDeleteOption (\s a -> s {_diSchemaDeleteOption = a})
+-- | Use the @SchemaDeleteOption@ to delete a custom inventory type (schema). If you don't choose this option, the system only deletes existing inventory data associated with the custom inventory type. Choose one of the following options:
+--
+-- DisableSchema: If you choose this option, the system ignores all inventory data for the specified version, and any earlier versions. To enable this schema again, you must call the @PutInventory@ action for a version greater than the disabled version.
+-- DeleteSchema: This option deletes the specified custom type from the Inventory service. You can recreate the schema later, if you want.
+--
+-- /Note:/ Consider using 'schemaDeleteOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diSchemaDeleteOption :: Lens.Lens' DeleteInventory (Lude.Maybe InventorySchemaDeleteOption)
+diSchemaDeleteOption = Lens.lens (schemaDeleteOption :: DeleteInventory -> Lude.Maybe InventorySchemaDeleteOption) (\s a -> s {schemaDeleteOption = a} :: DeleteInventory)
+{-# DEPRECATED diSchemaDeleteOption "Use generic-lens or generic-optics with 'schemaDeleteOption' instead." #-}
 
 -- | Use this option to view a summary of the deletion request without deleting any data or the data type. This option is useful when you only want to understand what will be deleted. Once you validate that the data to be deleted is what you intend to delete, you can run the same command without specifying the @DryRun@ option.
-diDryRun :: Lens' DeleteInventory (Maybe Bool)
-diDryRun = lens _diDryRun (\s a -> s {_diDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDryRun :: Lens.Lens' DeleteInventory (Lude.Maybe Lude.Bool)
+diDryRun = Lens.lens (dryRun :: DeleteInventory -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteInventory)
+{-# DEPRECATED diDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the custom inventory type for which you want to delete either all previously collected data or the inventory type itself.
-diTypeName :: Lens' DeleteInventory Text
-diTypeName = lens _diTypeName (\s a -> s {_diTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTypeName :: Lens.Lens' DeleteInventory Lude.Text
+diTypeName = Lens.lens (typeName :: DeleteInventory -> Lude.Text) (\s a -> s {typeName = a} :: DeleteInventory)
+{-# DEPRECATED diTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
-instance AWSRequest DeleteInventory where
+instance Lude.AWSRequest DeleteInventory where
   type Rs DeleteInventory = DeleteInventoryResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteInventoryResponse'
-            <$> (x .?> "TypeName")
-            <*> (x .?> "DeletionSummary")
-            <*> (x .?> "DeletionId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TypeName")
+            Lude.<*> (x Lude..?> "DeletionSummary")
+            Lude.<*> (x Lude..?> "DeletionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteInventory
-
-instance NFData DeleteInventory
-
-instance ToHeaders DeleteInventory where
+instance Lude.ToHeaders DeleteInventory where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.DeleteInventory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.DeleteInventory" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteInventory where
+instance Lude.ToJSON DeleteInventory where
   toJSON DeleteInventory' {..} =
-    object
-      ( catMaybes
-          [ ("ClientToken" .=) <$> _diClientToken,
-            ("SchemaDeleteOption" .=) <$> _diSchemaDeleteOption,
-            ("DryRun" .=) <$> _diDryRun,
-            Just ("TypeName" .= _diTypeName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+            ("SchemaDeleteOption" Lude..=) Lude.<$> schemaDeleteOption,
+            ("DryRun" Lude..=) Lude.<$> dryRun,
+            Lude.Just ("TypeName" Lude..= typeName)
           ]
       )
 
-instance ToPath DeleteInventory where
-  toPath = const "/"
+instance Lude.ToPath DeleteInventory where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteInventory where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteInventory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteInventoryResponse' smart constructor.
+-- | /See:/ 'mkDeleteInventoryResponse' smart constructor.
 data DeleteInventoryResponse = DeleteInventoryResponse'
-  { _dirsTypeName ::
-      !(Maybe Text),
-    _dirsDeletionSummary ::
-      !(Maybe InventoryDeletionSummary),
-    _dirsDeletionId :: !(Maybe Text),
-    _dirsResponseStatus :: !Int
+  { typeName ::
+      Lude.Maybe Lude.Text,
+    deletionSummary ::
+      Lude.Maybe InventoryDeletionSummary,
+    deletionId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInventoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsTypeName' - The name of the inventory data type specified in the request.
---
--- * 'dirsDeletionSummary' - A summary of the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory> in the /AWS Systems Manager User Guide/ .
---
--- * 'dirsDeletionId' - Every @DeleteInventory@ action is assigned a unique ID. This option returns a unique ID. You can use this ID to query the status of a delete operation. This option is useful for ensuring that a delete operation has completed before you begin other actions.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-deleteInventoryResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'deletionId' - Every @DeleteInventory@ action is assigned a unique ID. This option returns a unique ID. You can use this ID to query the status of a delete operation. This option is useful for ensuring that a delete operation has completed before you begin other actions.
+-- * 'deletionSummary' - A summary of the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory> in the /AWS Systems Manager User Guide/ .
+-- * 'responseStatus' - The response status code.
+-- * 'typeName' - The name of the inventory data type specified in the request.
+mkDeleteInventoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInventoryResponse
-deleteInventoryResponse pResponseStatus_ =
+mkDeleteInventoryResponse pResponseStatus_ =
   DeleteInventoryResponse'
-    { _dirsTypeName = Nothing,
-      _dirsDeletionSummary = Nothing,
-      _dirsDeletionId = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { typeName = Lude.Nothing,
+      deletionSummary = Lude.Nothing,
+      deletionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the inventory data type specified in the request.
-dirsTypeName :: Lens' DeleteInventoryResponse (Maybe Text)
-dirsTypeName = lens _dirsTypeName (\s a -> s {_dirsTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsTypeName :: Lens.Lens' DeleteInventoryResponse (Lude.Maybe Lude.Text)
+dirsTypeName = Lens.lens (typeName :: DeleteInventoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: DeleteInventoryResponse)
+{-# DEPRECATED dirsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | A summary of the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory> in the /AWS Systems Manager User Guide/ .
-dirsDeletionSummary :: Lens' DeleteInventoryResponse (Maybe InventoryDeletionSummary)
-dirsDeletionSummary = lens _dirsDeletionSummary (\s a -> s {_dirsDeletionSummary = a})
+--
+-- /Note:/ Consider using 'deletionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsDeletionSummary :: Lens.Lens' DeleteInventoryResponse (Lude.Maybe InventoryDeletionSummary)
+dirsDeletionSummary = Lens.lens (deletionSummary :: DeleteInventoryResponse -> Lude.Maybe InventoryDeletionSummary) (\s a -> s {deletionSummary = a} :: DeleteInventoryResponse)
+{-# DEPRECATED dirsDeletionSummary "Use generic-lens or generic-optics with 'deletionSummary' instead." #-}
 
 -- | Every @DeleteInventory@ action is assigned a unique ID. This option returns a unique ID. You can use this ID to query the status of a delete operation. This option is useful for ensuring that a delete operation has completed before you begin other actions.
-dirsDeletionId :: Lens' DeleteInventoryResponse (Maybe Text)
-dirsDeletionId = lens _dirsDeletionId (\s a -> s {_dirsDeletionId = a})
+--
+-- /Note:/ Consider using 'deletionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsDeletionId :: Lens.Lens' DeleteInventoryResponse (Lude.Maybe Lude.Text)
+dirsDeletionId = Lens.lens (deletionId :: DeleteInventoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {deletionId = a} :: DeleteInventoryResponse)
+{-# DEPRECATED dirsDeletionId "Use generic-lens or generic-optics with 'deletionId' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DeleteInventoryResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DeleteInventoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DeleteInventoryResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DeleteInventoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInventoryResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

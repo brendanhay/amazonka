@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about a scheduled audit.
 module Network.AWS.IoT.DescribeScheduledAudit
-  ( -- * Creating a Request
-    describeScheduledAudit,
-    DescribeScheduledAudit,
+  ( -- * Creating a request
+    DescribeScheduledAudit (..),
+    mkDescribeScheduledAudit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dScheduledAuditName,
 
-    -- * Destructuring the Response
-    describeScheduledAuditResponse,
-    DescribeScheduledAuditResponse,
+    -- * Destructuring the response
+    DescribeScheduledAuditResponse (..),
+    mkDescribeScheduledAuditResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsarsFrequency,
     dsarsScheduledAuditName,
     dsarsDayOfMonth,
@@ -42,143 +37,166 @@ module Network.AWS.IoT.DescribeScheduledAudit
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeScheduledAudit' smart constructor.
+-- | /See:/ 'mkDescribeScheduledAudit' smart constructor.
 newtype DescribeScheduledAudit = DescribeScheduledAudit'
-  { _dScheduledAuditName ::
-      Text
+  { scheduledAuditName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledAudit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dScheduledAuditName' - The name of the scheduled audit whose information you want to get.
-describeScheduledAudit ::
-  -- | 'dScheduledAuditName'
-  Text ->
+-- * 'scheduledAuditName' - The name of the scheduled audit whose information you want to get.
+mkDescribeScheduledAudit ::
+  -- | 'scheduledAuditName'
+  Lude.Text ->
   DescribeScheduledAudit
-describeScheduledAudit pScheduledAuditName_ =
+mkDescribeScheduledAudit pScheduledAuditName_ =
   DescribeScheduledAudit'
-    { _dScheduledAuditName =
+    { scheduledAuditName =
         pScheduledAuditName_
     }
 
 -- | The name of the scheduled audit whose information you want to get.
-dScheduledAuditName :: Lens' DescribeScheduledAudit Text
-dScheduledAuditName = lens _dScheduledAuditName (\s a -> s {_dScheduledAuditName = a})
+--
+-- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScheduledAuditName :: Lens.Lens' DescribeScheduledAudit Lude.Text
+dScheduledAuditName = Lens.lens (scheduledAuditName :: DescribeScheduledAudit -> Lude.Text) (\s a -> s {scheduledAuditName = a} :: DescribeScheduledAudit)
+{-# DEPRECATED dScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
-instance AWSRequest DescribeScheduledAudit where
+instance Lude.AWSRequest DescribeScheduledAudit where
   type Rs DescribeScheduledAudit = DescribeScheduledAuditResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeScheduledAuditResponse'
-            <$> (x .?> "frequency")
-            <*> (x .?> "scheduledAuditName")
-            <*> (x .?> "dayOfMonth")
-            <*> (x .?> "targetCheckNames" .!@ mempty)
-            <*> (x .?> "dayOfWeek")
-            <*> (x .?> "scheduledAuditArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "frequency")
+            Lude.<*> (x Lude..?> "scheduledAuditName")
+            Lude.<*> (x Lude..?> "dayOfMonth")
+            Lude.<*> (x Lude..?> "targetCheckNames" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "dayOfWeek")
+            Lude.<*> (x Lude..?> "scheduledAuditArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeScheduledAudit
+instance Lude.ToHeaders DescribeScheduledAudit where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeScheduledAudit
-
-instance ToHeaders DescribeScheduledAudit where
-  toHeaders = const mempty
-
-instance ToPath DescribeScheduledAudit where
+instance Lude.ToPath DescribeScheduledAudit where
   toPath DescribeScheduledAudit' {..} =
-    mconcat ["/audit/scheduledaudits/", toBS _dScheduledAuditName]
+    Lude.mconcat
+      ["/audit/scheduledaudits/", Lude.toBS scheduledAuditName]
 
-instance ToQuery DescribeScheduledAudit where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeScheduledAudit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeScheduledAuditResponse' smart constructor.
+-- | /See:/ 'mkDescribeScheduledAuditResponse' smart constructor.
 data DescribeScheduledAuditResponse = DescribeScheduledAuditResponse'
-  { _dsarsFrequency ::
-      !(Maybe AuditFrequency),
-    _dsarsScheduledAuditName ::
-      !(Maybe Text),
-    _dsarsDayOfMonth ::
-      !(Maybe Text),
-    _dsarsTargetCheckNames ::
-      !(Maybe [Text]),
-    _dsarsDayOfWeek ::
-      !(Maybe DayOfWeek),
-    _dsarsScheduledAuditARN ::
-      !(Maybe Text),
-    _dsarsResponseStatus :: !Int
+  { frequency ::
+      Lude.Maybe AuditFrequency,
+    scheduledAuditName ::
+      Lude.Maybe Lude.Text,
+    dayOfMonth ::
+      Lude.Maybe Lude.Text,
+    targetCheckNames ::
+      Lude.Maybe [Lude.Text],
+    dayOfWeek ::
+      Lude.Maybe DayOfWeek,
+    scheduledAuditARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledAuditResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarsFrequency' - How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
---
--- * 'dsarsScheduledAuditName' - The name of the scheduled audit.
---
--- * 'dsarsDayOfMonth' - The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
---
--- * 'dsarsTargetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
---
--- * 'dsarsDayOfWeek' - The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
---
--- * 'dsarsScheduledAuditARN' - The ARN of the scheduled audit.
---
--- * 'dsarsResponseStatus' - -- | The response status code.
-describeScheduledAuditResponse ::
-  -- | 'dsarsResponseStatus'
-  Int ->
+-- * 'dayOfMonth' - The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+-- * 'dayOfWeek' - The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
+-- * 'frequency' - How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
+-- * 'responseStatus' - The response status code.
+-- * 'scheduledAuditARN' - The ARN of the scheduled audit.
+-- * 'scheduledAuditName' - The name of the scheduled audit.
+-- * 'targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+mkDescribeScheduledAuditResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeScheduledAuditResponse
-describeScheduledAuditResponse pResponseStatus_ =
+mkDescribeScheduledAuditResponse pResponseStatus_ =
   DescribeScheduledAuditResponse'
-    { _dsarsFrequency = Nothing,
-      _dsarsScheduledAuditName = Nothing,
-      _dsarsDayOfMonth = Nothing,
-      _dsarsTargetCheckNames = Nothing,
-      _dsarsDayOfWeek = Nothing,
-      _dsarsScheduledAuditARN = Nothing,
-      _dsarsResponseStatus = pResponseStatus_
+    { frequency = Lude.Nothing,
+      scheduledAuditName = Lude.Nothing,
+      dayOfMonth = Lude.Nothing,
+      targetCheckNames = Lude.Nothing,
+      dayOfWeek = Lude.Nothing,
+      scheduledAuditARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
-dsarsFrequency :: Lens' DescribeScheduledAuditResponse (Maybe AuditFrequency)
-dsarsFrequency = lens _dsarsFrequency (\s a -> s {_dsarsFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsFrequency :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe AuditFrequency)
+dsarsFrequency = Lens.lens (frequency :: DescribeScheduledAuditResponse -> Lude.Maybe AuditFrequency) (\s a -> s {frequency = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The name of the scheduled audit.
-dsarsScheduledAuditName :: Lens' DescribeScheduledAuditResponse (Maybe Text)
-dsarsScheduledAuditName = lens _dsarsScheduledAuditName (\s a -> s {_dsarsScheduledAuditName = a})
+--
+-- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsScheduledAuditName :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe Lude.Text)
+dsarsScheduledAuditName = Lens.lens (scheduledAuditName :: DescribeScheduledAuditResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditName = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
 -- | The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-dsarsDayOfMonth :: Lens' DescribeScheduledAuditResponse (Maybe Text)
-dsarsDayOfMonth = lens _dsarsDayOfMonth (\s a -> s {_dsarsDayOfMonth = a})
+--
+-- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsDayOfMonth :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe Lude.Text)
+dsarsDayOfMonth = Lens.lens (dayOfMonth :: DescribeScheduledAuditResponse -> Lude.Maybe Lude.Text) (\s a -> s {dayOfMonth = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
 
 -- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-dsarsTargetCheckNames :: Lens' DescribeScheduledAuditResponse [Text]
-dsarsTargetCheckNames = lens _dsarsTargetCheckNames (\s a -> s {_dsarsTargetCheckNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetCheckNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsTargetCheckNames :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe [Lude.Text])
+dsarsTargetCheckNames = Lens.lens (targetCheckNames :: DescribeScheduledAuditResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {targetCheckNames = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsTargetCheckNames "Use generic-lens or generic-optics with 'targetCheckNames' instead." #-}
 
 -- | The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
-dsarsDayOfWeek :: Lens' DescribeScheduledAuditResponse (Maybe DayOfWeek)
-dsarsDayOfWeek = lens _dsarsDayOfWeek (\s a -> s {_dsarsDayOfWeek = a})
+--
+-- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsDayOfWeek :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe DayOfWeek)
+dsarsDayOfWeek = Lens.lens (dayOfWeek :: DescribeScheduledAuditResponse -> Lude.Maybe DayOfWeek) (\s a -> s {dayOfWeek = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
 
 -- | The ARN of the scheduled audit.
-dsarsScheduledAuditARN :: Lens' DescribeScheduledAuditResponse (Maybe Text)
-dsarsScheduledAuditARN = lens _dsarsScheduledAuditARN (\s a -> s {_dsarsScheduledAuditARN = a})
+--
+-- /Note:/ Consider using 'scheduledAuditARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsScheduledAuditARN :: Lens.Lens' DescribeScheduledAuditResponse (Lude.Maybe Lude.Text)
+dsarsScheduledAuditARN = Lens.lens (scheduledAuditARN :: DescribeScheduledAuditResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditARN = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsScheduledAuditARN "Use generic-lens or generic-optics with 'scheduledAuditARN' instead." #-}
 
--- | -- | The response status code.
-dsarsResponseStatus :: Lens' DescribeScheduledAuditResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\s a -> s {_dsarsResponseStatus = a})
-
-instance NFData DescribeScheduledAuditResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsResponseStatus :: Lens.Lens' DescribeScheduledAuditResponse Lude.Int
+dsarsResponseStatus = Lens.lens (responseStatus :: DescribeScheduledAuditResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScheduledAuditResponse)
+{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.VMServer where
+module Network.AWS.SMS.Types.VMServer
+  ( VMServer (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVMServer,
+
+    -- * Lenses
+    vmsVmManagerName,
+    vmsVmManagerType,
+    vmsVmServerAddress,
+    vmsVmName,
+    vmsVmPath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.VMManagerType
 import Network.AWS.SMS.Types.VMServerAddress
 
 -- | Represents a VM server.
 --
---
---
--- /See:/ 'vMServer' smart constructor.
+-- /See:/ 'mkVMServer' smart constructor.
 data VMServer = VMServer'
-  { _vmsVmManagerName :: !(Maybe Text),
-    _vmsVmManagerType :: !(Maybe VMManagerType),
-    _vmsVmServerAddress :: !(Maybe VMServerAddress),
-    _vmsVmName :: !(Maybe Text),
-    _vmsVmPath :: !(Maybe Text)
+  { vmManagerName :: Lude.Maybe Lude.Text,
+    vmManagerType :: Lude.Maybe VMManagerType,
+    vmServerAddress :: Lude.Maybe VMServerAddress,
+    vmName :: Lude.Maybe Lude.Text,
+    vmPath :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VMServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vmsVmManagerName' - The name of the VM manager.
---
--- * 'vmsVmManagerType' - The type of VM management product.
---
--- * 'vmsVmServerAddress' - The VM server location.
---
--- * 'vmsVmName' - The name of the VM.
---
--- * 'vmsVmPath' - The VM folder path in the vCenter Server virtual machine inventory tree.
-vMServer ::
+-- * 'vmManagerName' - The name of the VM manager.
+-- * 'vmManagerType' - The type of VM management product.
+-- * 'vmName' - The name of the VM.
+-- * 'vmPath' - The VM folder path in the vCenter Server virtual machine inventory tree.
+-- * 'vmServerAddress' - The VM server location.
+mkVMServer ::
   VMServer
-vMServer =
+mkVMServer =
   VMServer'
-    { _vmsVmManagerName = Nothing,
-      _vmsVmManagerType = Nothing,
-      _vmsVmServerAddress = Nothing,
-      _vmsVmName = Nothing,
-      _vmsVmPath = Nothing
+    { vmManagerName = Lude.Nothing,
+      vmManagerType = Lude.Nothing,
+      vmServerAddress = Lude.Nothing,
+      vmName = Lude.Nothing,
+      vmPath = Lude.Nothing
     }
 
 -- | The name of the VM manager.
-vmsVmManagerName :: Lens' VMServer (Maybe Text)
-vmsVmManagerName = lens _vmsVmManagerName (\s a -> s {_vmsVmManagerName = a})
+--
+-- /Note:/ Consider using 'vmManagerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsVmManagerName :: Lens.Lens' VMServer (Lude.Maybe Lude.Text)
+vmsVmManagerName = Lens.lens (vmManagerName :: VMServer -> Lude.Maybe Lude.Text) (\s a -> s {vmManagerName = a} :: VMServer)
+{-# DEPRECATED vmsVmManagerName "Use generic-lens or generic-optics with 'vmManagerName' instead." #-}
 
 -- | The type of VM management product.
-vmsVmManagerType :: Lens' VMServer (Maybe VMManagerType)
-vmsVmManagerType = lens _vmsVmManagerType (\s a -> s {_vmsVmManagerType = a})
+--
+-- /Note:/ Consider using 'vmManagerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsVmManagerType :: Lens.Lens' VMServer (Lude.Maybe VMManagerType)
+vmsVmManagerType = Lens.lens (vmManagerType :: VMServer -> Lude.Maybe VMManagerType) (\s a -> s {vmManagerType = a} :: VMServer)
+{-# DEPRECATED vmsVmManagerType "Use generic-lens or generic-optics with 'vmManagerType' instead." #-}
 
 -- | The VM server location.
-vmsVmServerAddress :: Lens' VMServer (Maybe VMServerAddress)
-vmsVmServerAddress = lens _vmsVmServerAddress (\s a -> s {_vmsVmServerAddress = a})
+--
+-- /Note:/ Consider using 'vmServerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsVmServerAddress :: Lens.Lens' VMServer (Lude.Maybe VMServerAddress)
+vmsVmServerAddress = Lens.lens (vmServerAddress :: VMServer -> Lude.Maybe VMServerAddress) (\s a -> s {vmServerAddress = a} :: VMServer)
+{-# DEPRECATED vmsVmServerAddress "Use generic-lens or generic-optics with 'vmServerAddress' instead." #-}
 
 -- | The name of the VM.
-vmsVmName :: Lens' VMServer (Maybe Text)
-vmsVmName = lens _vmsVmName (\s a -> s {_vmsVmName = a})
+--
+-- /Note:/ Consider using 'vmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsVmName :: Lens.Lens' VMServer (Lude.Maybe Lude.Text)
+vmsVmName = Lens.lens (vmName :: VMServer -> Lude.Maybe Lude.Text) (\s a -> s {vmName = a} :: VMServer)
+{-# DEPRECATED vmsVmName "Use generic-lens or generic-optics with 'vmName' instead." #-}
 
 -- | The VM folder path in the vCenter Server virtual machine inventory tree.
-vmsVmPath :: Lens' VMServer (Maybe Text)
-vmsVmPath = lens _vmsVmPath (\s a -> s {_vmsVmPath = a})
+--
+-- /Note:/ Consider using 'vmPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsVmPath :: Lens.Lens' VMServer (Lude.Maybe Lude.Text)
+vmsVmPath = Lens.lens (vmPath :: VMServer -> Lude.Maybe Lude.Text) (\s a -> s {vmPath = a} :: VMServer)
+{-# DEPRECATED vmsVmPath "Use generic-lens or generic-optics with 'vmPath' instead." #-}
 
-instance FromJSON VMServer where
+instance Lude.FromJSON VMServer where
   parseJSON =
-    withObject
+    Lude.withObject
       "VMServer"
       ( \x ->
           VMServer'
-            <$> (x .:? "vmManagerName")
-            <*> (x .:? "vmManagerType")
-            <*> (x .:? "vmServerAddress")
-            <*> (x .:? "vmName")
-            <*> (x .:? "vmPath")
+            Lude.<$> (x Lude..:? "vmManagerName")
+            Lude.<*> (x Lude..:? "vmManagerType")
+            Lude.<*> (x Lude..:? "vmServerAddress")
+            Lude.<*> (x Lude..:? "vmName")
+            Lude.<*> (x Lude..:? "vmPath")
       )
 
-instance Hashable VMServer
-
-instance NFData VMServer
-
-instance ToJSON VMServer where
+instance Lude.ToJSON VMServer where
   toJSON VMServer' {..} =
-    object
-      ( catMaybes
-          [ ("vmManagerName" .=) <$> _vmsVmManagerName,
-            ("vmManagerType" .=) <$> _vmsVmManagerType,
-            ("vmServerAddress" .=) <$> _vmsVmServerAddress,
-            ("vmName" .=) <$> _vmsVmName,
-            ("vmPath" .=) <$> _vmsVmPath
+    Lude.object
+      ( Lude.catMaybes
+          [ ("vmManagerName" Lude..=) Lude.<$> vmManagerName,
+            ("vmManagerType" Lude..=) Lude.<$> vmManagerType,
+            ("vmServerAddress" Lude..=) Lude.<$> vmServerAddress,
+            ("vmName" Lude..=) Lude.<$> vmName,
+            ("vmPath" Lude..=) Lude.<$> vmPath
           ]
       )

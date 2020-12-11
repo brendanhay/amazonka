@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CloudWatchEncryptionMode where
+module Network.AWS.Glue.Types.CloudWatchEncryptionMode
+  ( CloudWatchEncryptionMode
+      ( CloudWatchEncryptionMode',
+        CWEMDisabled,
+        CWEMSseKMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CloudWatchEncryptionMode
-  = CWEMDisabled
-  | CWEMSseKMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CloudWatchEncryptionMode = CloudWatchEncryptionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CloudWatchEncryptionMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure CWEMDisabled
-      "sse-kms" -> pure CWEMSseKMS
-      e ->
-        fromTextError $
-          "Failure parsing CloudWatchEncryptionMode from value: '" <> e
-            <> "'. Accepted values: disabled, sse-kms"
+pattern CWEMDisabled :: CloudWatchEncryptionMode
+pattern CWEMDisabled = CloudWatchEncryptionMode' "DISABLED"
 
-instance ToText CloudWatchEncryptionMode where
-  toText = \case
-    CWEMDisabled -> "DISABLED"
-    CWEMSseKMS -> "SSE-KMS"
+pattern CWEMSseKMS :: CloudWatchEncryptionMode
+pattern CWEMSseKMS = CloudWatchEncryptionMode' "SSE-KMS"
 
-instance Hashable CloudWatchEncryptionMode
-
-instance NFData CloudWatchEncryptionMode
-
-instance ToByteString CloudWatchEncryptionMode
-
-instance ToQuery CloudWatchEncryptionMode
-
-instance ToHeader CloudWatchEncryptionMode
-
-instance ToJSON CloudWatchEncryptionMode where
-  toJSON = toJSONText
-
-instance FromJSON CloudWatchEncryptionMode where
-  parseJSON = parseJSONText "CloudWatchEncryptionMode"
+{-# COMPLETE
+  CWEMDisabled,
+  CWEMSseKMS,
+  CloudWatchEncryptionMode'
+  #-}

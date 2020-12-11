@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DefaultMessage where
+module Network.AWS.Pinpoint.Types.DefaultMessage
+  ( DefaultMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDefaultMessage,
+
+    -- * Lenses
+    dmSubstitutions,
+    dmBody,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the default message for all channels.
 --
---
---
--- /See:/ 'defaultMessage' smart constructor.
+-- /See:/ 'mkDefaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
-  { _dmSubstitutions ::
-      !(Maybe (Map Text ([Text]))),
-    _dmBody :: !(Maybe Text)
+  { substitutions ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    body :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmSubstitutions' - The default message variables to use in the message. You can override these default variables with individual address variables.
---
--- * 'dmBody' - The default body of the message.
-defaultMessage ::
+-- * 'body' - The default body of the message.
+-- * 'substitutions' - The default message variables to use in the message. You can override these default variables with individual address variables.
+mkDefaultMessage ::
   DefaultMessage
-defaultMessage =
-  DefaultMessage' {_dmSubstitutions = Nothing, _dmBody = Nothing}
+mkDefaultMessage =
+  DefaultMessage'
+    { substitutions = Lude.Nothing,
+      body = Lude.Nothing
+    }
 
 -- | The default message variables to use in the message. You can override these default variables with individual address variables.
-dmSubstitutions :: Lens' DefaultMessage (HashMap Text ([Text]))
-dmSubstitutions = lens _dmSubstitutions (\s a -> s {_dmSubstitutions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmSubstitutions :: Lens.Lens' DefaultMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+dmSubstitutions = Lens.lens (substitutions :: DefaultMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: DefaultMessage)
+{-# DEPRECATED dmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
 -- | The default body of the message.
-dmBody :: Lens' DefaultMessage (Maybe Text)
-dmBody = lens _dmBody (\s a -> s {_dmBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmBody :: Lens.Lens' DefaultMessage (Lude.Maybe Lude.Text)
+dmBody = Lens.lens (body :: DefaultMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: DefaultMessage)
+{-# DEPRECATED dmBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance Hashable DefaultMessage
-
-instance NFData DefaultMessage
-
-instance ToJSON DefaultMessage where
+instance Lude.ToJSON DefaultMessage where
   toJSON DefaultMessage' {..} =
-    object
-      ( catMaybes
-          [ ("Substitutions" .=) <$> _dmSubstitutions,
-            ("Body" .=) <$> _dmBody
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
+            ("Body" Lude..=) Lude.<$> body
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,133 @@
 --
 -- Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> in the /IAM User Guide/ .
 module Network.AWS.IAM.GetInstanceProfile
-  ( -- * Creating a Request
-    getInstanceProfile,
-    GetInstanceProfile,
+  ( -- * Creating a request
+    GetInstanceProfile (..),
+    mkGetInstanceProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipInstanceProfileName,
 
-    -- * Destructuring the Response
-    getInstanceProfileResponse,
-    GetInstanceProfileResponse,
+    -- * Destructuring the response
+    GetInstanceProfileResponse (..),
+    mkGetInstanceProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     giprsResponseStatus,
     giprsInstanceProfile,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getInstanceProfile' smart constructor.
+-- | /See:/ 'mkGetInstanceProfile' smart constructor.
 newtype GetInstanceProfile = GetInstanceProfile'
-  { _gipInstanceProfileName ::
-      Text
+  { instanceProfileName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instanceProfileName' - The name of the instance profile to get information about.
 --
--- * 'gipInstanceProfileName' - The name of the instance profile to get information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getInstanceProfile ::
-  -- | 'gipInstanceProfileName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkGetInstanceProfile ::
+  -- | 'instanceProfileName'
+  Lude.Text ->
   GetInstanceProfile
-getInstanceProfile pInstanceProfileName_ =
-  GetInstanceProfile'
-    { _gipInstanceProfileName =
-        pInstanceProfileName_
-    }
+mkGetInstanceProfile pInstanceProfileName_ =
+  GetInstanceProfile' {instanceProfileName = pInstanceProfileName_}
 
--- | The name of the instance profile to get information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-gipInstanceProfileName :: Lens' GetInstanceProfile Text
-gipInstanceProfileName = lens _gipInstanceProfileName (\s a -> s {_gipInstanceProfileName = a})
+-- | The name of the instance profile to get information about.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipInstanceProfileName :: Lens.Lens' GetInstanceProfile Lude.Text
+gipInstanceProfileName = Lens.lens (instanceProfileName :: GetInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: GetInstanceProfile)
+{-# DEPRECATED gipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
-instance AWSRequest GetInstanceProfile where
+instance Lude.AWSRequest GetInstanceProfile where
   type Rs GetInstanceProfile = GetInstanceProfileResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetInstanceProfileResult"
       ( \s h x ->
           GetInstanceProfileResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "InstanceProfile")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "InstanceProfile")
       )
 
-instance Hashable GetInstanceProfile
+instance Lude.ToHeaders GetInstanceProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetInstanceProfile
+instance Lude.ToPath GetInstanceProfile where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetInstanceProfile where
-  toHeaders = const mempty
-
-instance ToPath GetInstanceProfile where
-  toPath = const "/"
-
-instance ToQuery GetInstanceProfile where
+instance Lude.ToQuery GetInstanceProfile where
   toQuery GetInstanceProfile' {..} =
-    mconcat
-      [ "Action" =: ("GetInstanceProfile" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "InstanceProfileName" =: _gipInstanceProfileName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetInstanceProfile" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "InstanceProfileName" Lude.=: instanceProfileName
       ]
 
 -- | Contains the response to a successful 'GetInstanceProfile' request.
 --
---
---
--- /See:/ 'getInstanceProfileResponse' smart constructor.
+-- /See:/ 'mkGetInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-  { _giprsResponseStatus ::
-      !Int,
-    _giprsInstanceProfile ::
-      !InstanceProfile
+  { responseStatus ::
+      Lude.Int,
+    instanceProfile :: InstanceProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giprsResponseStatus' - -- | The response status code.
---
--- * 'giprsInstanceProfile' - A structure containing details about the instance profile.
-getInstanceProfileResponse ::
-  -- | 'giprsResponseStatus'
-  Int ->
-  -- | 'giprsInstanceProfile'
+-- * 'instanceProfile' - A structure containing details about the instance profile.
+-- * 'responseStatus' - The response status code.
+mkGetInstanceProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'instanceProfile'
   InstanceProfile ->
   GetInstanceProfileResponse
-getInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
+mkGetInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
   GetInstanceProfileResponse'
-    { _giprsResponseStatus =
-        pResponseStatus_,
-      _giprsInstanceProfile = pInstanceProfile_
+    { responseStatus = pResponseStatus_,
+      instanceProfile = pInstanceProfile_
     }
 
--- | -- | The response status code.
-giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
-giprsResponseStatus = lens _giprsResponseStatus (\s a -> s {_giprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsResponseStatus :: Lens.Lens' GetInstanceProfileResponse Lude.Int
+giprsResponseStatus = Lens.lens (responseStatus :: GetInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceProfileResponse)
+{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the instance profile.
-giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
-giprsInstanceProfile = lens _giprsInstanceProfile (\s a -> s {_giprsInstanceProfile = a})
-
-instance NFData GetInstanceProfileResponse
+--
+-- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsInstanceProfile :: Lens.Lens' GetInstanceProfileResponse InstanceProfile
+giprsInstanceProfile = Lens.lens (instanceProfile :: GetInstanceProfileResponse -> InstanceProfile) (\s a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
+{-# DEPRECATED giprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}

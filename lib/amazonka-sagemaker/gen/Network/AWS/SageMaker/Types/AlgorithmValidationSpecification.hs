@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AlgorithmValidationSpecification where
+module Network.AWS.SageMaker.Types.AlgorithmValidationSpecification
+  ( AlgorithmValidationSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAlgorithmValidationSpecification,
+
+    -- * Lenses
+    avsValidationRole,
+    avsValidationProfiles,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AlgorithmValidationProfile
 
 -- | Specifies configurations for one or more training jobs that Amazon SageMaker runs to test the algorithm.
 --
---
---
--- /See:/ 'algorithmValidationSpecification' smart constructor.
+-- /See:/ 'mkAlgorithmValidationSpecification' smart constructor.
 data AlgorithmValidationSpecification = AlgorithmValidationSpecification'
-  { _avsValidationRole ::
-      !Text,
-    _avsValidationProfiles ::
-      !( List1
-           AlgorithmValidationProfile
-       )
+  { validationRole ::
+      Lude.Text,
+    validationProfiles ::
+      Lude.NonEmpty
+        AlgorithmValidationProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmValidationSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avsValidationRole' - The IAM roles that Amazon SageMaker uses to run the training jobs.
---
--- * 'avsValidationProfiles' - An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
-algorithmValidationSpecification ::
-  -- | 'avsValidationRole'
-  Text ->
-  -- | 'avsValidationProfiles'
-  NonEmpty AlgorithmValidationProfile ->
+-- * 'validationProfiles' - An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
+-- * 'validationRole' - The IAM roles that Amazon SageMaker uses to run the training jobs.
+mkAlgorithmValidationSpecification ::
+  -- | 'validationRole'
+  Lude.Text ->
+  -- | 'validationProfiles'
+  Lude.NonEmpty AlgorithmValidationProfile ->
   AlgorithmValidationSpecification
-algorithmValidationSpecification
+mkAlgorithmValidationSpecification
   pValidationRole_
   pValidationProfiles_ =
     AlgorithmValidationSpecification'
-      { _avsValidationRole =
+      { validationRole =
           pValidationRole_,
-        _avsValidationProfiles = _List1 # pValidationProfiles_
+        validationProfiles = pValidationProfiles_
       }
 
 -- | The IAM roles that Amazon SageMaker uses to run the training jobs.
-avsValidationRole :: Lens' AlgorithmValidationSpecification Text
-avsValidationRole = lens _avsValidationRole (\s a -> s {_avsValidationRole = a})
+--
+-- /Note:/ Consider using 'validationRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsValidationRole :: Lens.Lens' AlgorithmValidationSpecification Lude.Text
+avsValidationRole = Lens.lens (validationRole :: AlgorithmValidationSpecification -> Lude.Text) (\s a -> s {validationRole = a} :: AlgorithmValidationSpecification)
+{-# DEPRECATED avsValidationRole "Use generic-lens or generic-optics with 'validationRole' instead." #-}
 
 -- | An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
-avsValidationProfiles :: Lens' AlgorithmValidationSpecification (NonEmpty AlgorithmValidationProfile)
-avsValidationProfiles = lens _avsValidationProfiles (\s a -> s {_avsValidationProfiles = a}) . _List1
+--
+-- /Note:/ Consider using 'validationProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsValidationProfiles :: Lens.Lens' AlgorithmValidationSpecification (Lude.NonEmpty AlgorithmValidationProfile)
+avsValidationProfiles = Lens.lens (validationProfiles :: AlgorithmValidationSpecification -> Lude.NonEmpty AlgorithmValidationProfile) (\s a -> s {validationProfiles = a} :: AlgorithmValidationSpecification)
+{-# DEPRECATED avsValidationProfiles "Use generic-lens or generic-optics with 'validationProfiles' instead." #-}
 
-instance FromJSON AlgorithmValidationSpecification where
+instance Lude.FromJSON AlgorithmValidationSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "AlgorithmValidationSpecification"
       ( \x ->
           AlgorithmValidationSpecification'
-            <$> (x .: "ValidationRole") <*> (x .: "ValidationProfiles")
+            Lude.<$> (x Lude..: "ValidationRole")
+            Lude.<*> (x Lude..: "ValidationProfiles")
       )
 
-instance Hashable AlgorithmValidationSpecification
-
-instance NFData AlgorithmValidationSpecification
-
-instance ToJSON AlgorithmValidationSpecification where
+instance Lude.ToJSON AlgorithmValidationSpecification where
   toJSON AlgorithmValidationSpecification' {..} =
-    object
-      ( catMaybes
-          [ Just ("ValidationRole" .= _avsValidationRole),
-            Just ("ValidationProfiles" .= _avsValidationProfiles)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ValidationRole" Lude..= validationRole),
+            Lude.Just ("ValidationProfiles" Lude..= validationProfiles)
           ]
       )

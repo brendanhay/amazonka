@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,191 +17,231 @@
 --
 --     * 'CreateGameSession'
 --
+--
 --     * 'DescribeGameSessions'
+--
 --
 --     * 'DescribeGameSessionDetails'
 --
+--
 --     * 'SearchGameSessions'
+--
 --
 --     * 'UpdateGameSession'
 --
+--
 --     * 'GetGameSessionLogUrl'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.UpdateGameSession
-  ( -- * Creating a Request
-    updateGameSession,
-    UpdateGameSession,
+  ( -- * Creating a request
+    UpdateGameSession (..),
+    mkUpdateGameSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugsMaximumPlayerSessionCount,
     ugsPlayerSessionCreationPolicy,
     ugsName,
     ugsProtectionPolicy,
     ugsGameSessionId,
 
-    -- * Destructuring the Response
-    updateGameSessionResponse,
-    UpdateGameSessionResponse,
+    -- * Destructuring the response
+    UpdateGameSessionResponse (..),
+    mkUpdateGameSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugsrsGameSession,
     ugsrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'updateGameSession' smart constructor.
+-- /See:/ 'mkUpdateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
-  { _ugsMaximumPlayerSessionCount ::
-      !(Maybe Nat),
-    _ugsPlayerSessionCreationPolicy ::
-      !(Maybe PlayerSessionCreationPolicy),
-    _ugsName :: !(Maybe Text),
-    _ugsProtectionPolicy :: !(Maybe ProtectionPolicy),
-    _ugsGameSessionId :: !Text
+  { maximumPlayerSessionCount ::
+      Lude.Maybe Lude.Natural,
+    playerSessionCreationPolicy ::
+      Lude.Maybe PlayerSessionCreationPolicy,
+    name :: Lude.Maybe Lude.Text,
+    protectionPolicy :: Lude.Maybe ProtectionPolicy,
+    gameSessionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGameSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'gameSessionId' - A unique identifier for the game session to update.
+-- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
+-- * 'name' - A descriptive label that is associated with a game session. Session names do not need to be unique.
+-- * 'playerSessionCreationPolicy' - Policy determining whether or not the game session accepts new players.
+-- * 'protectionPolicy' - Game session protection policy to apply to this game session only.
 --
--- * 'ugsMaximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
 --
--- * 'ugsPlayerSessionCreationPolicy' - Policy determining whether or not the game session accepts new players.
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
 --
--- * 'ugsName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
 --
--- * 'ugsProtectionPolicy' - Game session protection policy to apply to this game session only.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
---
--- * 'ugsGameSessionId' - A unique identifier for the game session to update.
-updateGameSession ::
-  -- | 'ugsGameSessionId'
-  Text ->
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+mkUpdateGameSession ::
+  -- | 'gameSessionId'
+  Lude.Text ->
   UpdateGameSession
-updateGameSession pGameSessionId_ =
+mkUpdateGameSession pGameSessionId_ =
   UpdateGameSession'
-    { _ugsMaximumPlayerSessionCount = Nothing,
-      _ugsPlayerSessionCreationPolicy = Nothing,
-      _ugsName = Nothing,
-      _ugsProtectionPolicy = Nothing,
-      _ugsGameSessionId = pGameSessionId_
+    { maximumPlayerSessionCount = Lude.Nothing,
+      playerSessionCreationPolicy = Lude.Nothing,
+      name = Lude.Nothing,
+      protectionPolicy = Lude.Nothing,
+      gameSessionId = pGameSessionId_
     }
 
 -- | The maximum number of players that can be connected simultaneously to the game session.
-ugsMaximumPlayerSessionCount :: Lens' UpdateGameSession (Maybe Natural)
-ugsMaximumPlayerSessionCount = lens _ugsMaximumPlayerSessionCount (\s a -> s {_ugsMaximumPlayerSessionCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsMaximumPlayerSessionCount :: Lens.Lens' UpdateGameSession (Lude.Maybe Lude.Natural)
+ugsMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: UpdateGameSession -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: UpdateGameSession)
+{-# DEPRECATED ugsMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
 
 -- | Policy determining whether or not the game session accepts new players.
-ugsPlayerSessionCreationPolicy :: Lens' UpdateGameSession (Maybe PlayerSessionCreationPolicy)
-ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\s a -> s {_ugsPlayerSessionCreationPolicy = a})
+--
+-- /Note:/ Consider using 'playerSessionCreationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsPlayerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Lude.Maybe PlayerSessionCreationPolicy)
+ugsPlayerSessionCreationPolicy = Lens.lens (playerSessionCreationPolicy :: UpdateGameSession -> Lude.Maybe PlayerSessionCreationPolicy) (\s a -> s {playerSessionCreationPolicy = a} :: UpdateGameSession)
+{-# DEPRECATED ugsPlayerSessionCreationPolicy "Use generic-lens or generic-optics with 'playerSessionCreationPolicy' instead." #-}
 
 -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
-ugsName :: Lens' UpdateGameSession (Maybe Text)
-ugsName = lens _ugsName (\s a -> s {_ugsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsName :: Lens.Lens' UpdateGameSession (Lude.Maybe Lude.Text)
+ugsName = Lens.lens (name :: UpdateGameSession -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateGameSession)
+{-# DEPRECATED ugsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Game session protection policy to apply to this game session only.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
-ugsProtectionPolicy = lens _ugsProtectionPolicy (\s a -> s {_ugsProtectionPolicy = a})
+-- | Game session protection policy to apply to this game session only.
+--
+--
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--
+--
+--
+-- /Note:/ Consider using 'protectionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsProtectionPolicy :: Lens.Lens' UpdateGameSession (Lude.Maybe ProtectionPolicy)
+ugsProtectionPolicy = Lens.lens (protectionPolicy :: UpdateGameSession -> Lude.Maybe ProtectionPolicy) (\s a -> s {protectionPolicy = a} :: UpdateGameSession)
+{-# DEPRECATED ugsProtectionPolicy "Use generic-lens or generic-optics with 'protectionPolicy' instead." #-}
 
 -- | A unique identifier for the game session to update.
-ugsGameSessionId :: Lens' UpdateGameSession Text
-ugsGameSessionId = lens _ugsGameSessionId (\s a -> s {_ugsGameSessionId = a})
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsGameSessionId :: Lens.Lens' UpdateGameSession Lude.Text
+ugsGameSessionId = Lens.lens (gameSessionId :: UpdateGameSession -> Lude.Text) (\s a -> s {gameSessionId = a} :: UpdateGameSession)
+{-# DEPRECATED ugsGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
-instance AWSRequest UpdateGameSession where
+instance Lude.AWSRequest UpdateGameSession where
   type Rs UpdateGameSession = UpdateGameSessionResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGameSessionResponse'
-            <$> (x .?> "GameSession") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameSession") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGameSession
-
-instance NFData UpdateGameSession
-
-instance ToHeaders UpdateGameSession where
+instance Lude.ToHeaders UpdateGameSession where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.UpdateGameSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.UpdateGameSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGameSession where
+instance Lude.ToJSON UpdateGameSession where
   toJSON UpdateGameSession' {..} =
-    object
-      ( catMaybes
-          [ ("MaximumPlayerSessionCount" .=)
-              <$> _ugsMaximumPlayerSessionCount,
-            ("PlayerSessionCreationPolicy" .=)
-              <$> _ugsPlayerSessionCreationPolicy,
-            ("Name" .=) <$> _ugsName,
-            ("ProtectionPolicy" .=) <$> _ugsProtectionPolicy,
-            Just ("GameSessionId" .= _ugsGameSessionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaximumPlayerSessionCount" Lude..=)
+              Lude.<$> maximumPlayerSessionCount,
+            ("PlayerSessionCreationPolicy" Lude..=)
+              Lude.<$> playerSessionCreationPolicy,
+            ("Name" Lude..=) Lude.<$> name,
+            ("ProtectionPolicy" Lude..=) Lude.<$> protectionPolicy,
+            Lude.Just ("GameSessionId" Lude..= gameSessionId)
           ]
       )
 
-instance ToPath UpdateGameSession where
-  toPath = const "/"
+instance Lude.ToPath UpdateGameSession where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGameSession where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGameSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'updateGameSessionResponse' smart constructor.
+-- /See:/ 'mkUpdateGameSessionResponse' smart constructor.
 data UpdateGameSessionResponse = UpdateGameSessionResponse'
-  { _ugsrsGameSession ::
-      !(Maybe GameSession),
-    _ugsrsResponseStatus :: !Int
+  { gameSession ::
+      Lude.Maybe GameSession,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGameSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugsrsGameSession' - The updated game session metadata.
---
--- * 'ugsrsResponseStatus' - -- | The response status code.
-updateGameSessionResponse ::
-  -- | 'ugsrsResponseStatus'
-  Int ->
+-- * 'gameSession' - The updated game session metadata.
+-- * 'responseStatus' - The response status code.
+mkUpdateGameSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGameSessionResponse
-updateGameSessionResponse pResponseStatus_ =
+mkUpdateGameSessionResponse pResponseStatus_ =
   UpdateGameSessionResponse'
-    { _ugsrsGameSession = Nothing,
-      _ugsrsResponseStatus = pResponseStatus_
+    { gameSession = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated game session metadata.
-ugsrsGameSession :: Lens' UpdateGameSessionResponse (Maybe GameSession)
-ugsrsGameSession = lens _ugsrsGameSession (\s a -> s {_ugsrsGameSession = a})
+--
+-- /Note:/ Consider using 'gameSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsrsGameSession :: Lens.Lens' UpdateGameSessionResponse (Lude.Maybe GameSession)
+ugsrsGameSession = Lens.lens (gameSession :: UpdateGameSessionResponse -> Lude.Maybe GameSession) (\s a -> s {gameSession = a} :: UpdateGameSessionResponse)
+{-# DEPRECATED ugsrsGameSession "Use generic-lens or generic-optics with 'gameSession' instead." #-}
 
--- | -- | The response status code.
-ugsrsResponseStatus :: Lens' UpdateGameSessionResponse Int
-ugsrsResponseStatus = lens _ugsrsResponseStatus (\s a -> s {_ugsrsResponseStatus = a})
-
-instance NFData UpdateGameSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsrsResponseStatus :: Lens.Lens' UpdateGameSessionResponse Lude.Int
+ugsrsResponseStatus = Lens.lens (responseStatus :: UpdateGameSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGameSessionResponse)
+{-# DEPRECATED ugsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

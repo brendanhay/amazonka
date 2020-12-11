@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Create a new invalidation.
 module Network.AWS.CloudFront.CreateInvalidation
-  ( -- * Creating a Request
-    createInvalidation,
-    CreateInvalidation,
+  ( -- * Creating a request
+    CreateInvalidation (..),
+    mkCreateInvalidation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ciDistributionId,
     ciInvalidationBatch,
 
-    -- * Destructuring the Response
-    createInvalidationResponse,
-    CreateInvalidationResponse,
+    -- * Destructuring the response
+    CreateInvalidationResponse (..),
+    mkCreateInvalidationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cirsInvalidation,
     cirsLocation,
     cirsResponseStatus,
@@ -39,127 +34,141 @@ module Network.AWS.CloudFront.CreateInvalidation
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to create an invalidation.
 --
---
---
--- /See:/ 'createInvalidation' smart constructor.
+-- /See:/ 'mkCreateInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
-  { _ciDistributionId ::
-      !Text,
-    _ciInvalidationBatch :: !InvalidationBatch
+  { distributionId ::
+      Lude.Text,
+    invalidationBatch :: InvalidationBatch
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInvalidation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciDistributionId' - The distribution's id.
---
--- * 'ciInvalidationBatch' - The batch information for the invalidation.
-createInvalidation ::
-  -- | 'ciDistributionId'
-  Text ->
-  -- | 'ciInvalidationBatch'
+-- * 'distributionId' - The distribution's id.
+-- * 'invalidationBatch' - The batch information for the invalidation.
+mkCreateInvalidation ::
+  -- | 'distributionId'
+  Lude.Text ->
+  -- | 'invalidationBatch'
   InvalidationBatch ->
   CreateInvalidation
-createInvalidation pDistributionId_ pInvalidationBatch_ =
+mkCreateInvalidation pDistributionId_ pInvalidationBatch_ =
   CreateInvalidation'
-    { _ciDistributionId = pDistributionId_,
-      _ciInvalidationBatch = pInvalidationBatch_
+    { distributionId = pDistributionId_,
+      invalidationBatch = pInvalidationBatch_
     }
 
 -- | The distribution's id.
-ciDistributionId :: Lens' CreateInvalidation Text
-ciDistributionId = lens _ciDistributionId (\s a -> s {_ciDistributionId = a})
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDistributionId :: Lens.Lens' CreateInvalidation Lude.Text
+ciDistributionId = Lens.lens (distributionId :: CreateInvalidation -> Lude.Text) (\s a -> s {distributionId = a} :: CreateInvalidation)
+{-# DEPRECATED ciDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 -- | The batch information for the invalidation.
-ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
-ciInvalidationBatch = lens _ciInvalidationBatch (\s a -> s {_ciInvalidationBatch = a})
+--
+-- /Note:/ Consider using 'invalidationBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInvalidationBatch :: Lens.Lens' CreateInvalidation InvalidationBatch
+ciInvalidationBatch = Lens.lens (invalidationBatch :: CreateInvalidation -> InvalidationBatch) (\s a -> s {invalidationBatch = a} :: CreateInvalidation)
+{-# DEPRECATED ciInvalidationBatch "Use generic-lens or generic-optics with 'invalidationBatch' instead." #-}
 
-instance AWSRequest CreateInvalidation where
+instance Lude.AWSRequest CreateInvalidation where
   type Rs CreateInvalidation = CreateInvalidationResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateInvalidationResponse'
-            <$> (parseXML x) <*> (h .#? "Location") <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x)
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateInvalidation
-
-instance NFData CreateInvalidation
-
-instance ToElement CreateInvalidation where
+instance Lude.ToElement CreateInvalidation where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}InvalidationBatch"
-      . _ciInvalidationBatch
+      Lude.. invalidationBatch
 
-instance ToHeaders CreateInvalidation where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateInvalidation where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateInvalidation where
+instance Lude.ToPath CreateInvalidation where
   toPath CreateInvalidation' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/distribution/",
-        toBS _ciDistributionId,
+        Lude.toBS distributionId,
         "/invalidation"
       ]
 
-instance ToQuery CreateInvalidation where
-  toQuery = const mempty
+instance Lude.ToQuery CreateInvalidation where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createInvalidationResponse' smart constructor.
+-- /See:/ 'mkCreateInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-  { _cirsInvalidation ::
-      !(Maybe Invalidation),
-    _cirsLocation :: !(Maybe Text),
-    _cirsResponseStatus :: !Int
+  { invalidation ::
+      Lude.Maybe Invalidation,
+    location :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cirsInvalidation' - The invalidation's information.
---
--- * 'cirsLocation' - The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
---
--- * 'cirsResponseStatus' - -- | The response status code.
-createInvalidationResponse ::
-  -- | 'cirsResponseStatus'
-  Int ->
+-- * 'invalidation' - The invalidation's information.
+-- * 'location' - The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
+-- * 'responseStatus' - The response status code.
+mkCreateInvalidationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateInvalidationResponse
-createInvalidationResponse pResponseStatus_ =
+mkCreateInvalidationResponse pResponseStatus_ =
   CreateInvalidationResponse'
-    { _cirsInvalidation = Nothing,
-      _cirsLocation = Nothing,
-      _cirsResponseStatus = pResponseStatus_
+    { invalidation = Lude.Nothing,
+      location = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The invalidation's information.
-cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
-cirsInvalidation = lens _cirsInvalidation (\s a -> s {_cirsInvalidation = a})
+--
+-- /Note:/ Consider using 'invalidation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsInvalidation :: Lens.Lens' CreateInvalidationResponse (Lude.Maybe Invalidation)
+cirsInvalidation = Lens.lens (invalidation :: CreateInvalidationResponse -> Lude.Maybe Invalidation) (\s a -> s {invalidation = a} :: CreateInvalidationResponse)
+{-# DEPRECATED cirsInvalidation "Use generic-lens or generic-optics with 'invalidation' instead." #-}
 
 -- | The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
-cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
-cirsLocation = lens _cirsLocation (\s a -> s {_cirsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsLocation :: Lens.Lens' CreateInvalidationResponse (Lude.Maybe Lude.Text)
+cirsLocation = Lens.lens (location :: CreateInvalidationResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateInvalidationResponse)
+{-# DEPRECATED cirsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CreateInvalidationResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\s a -> s {_cirsResponseStatus = a})
-
-instance NFData CreateInvalidationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsResponseStatus :: Lens.Lens' CreateInvalidationResponse Lude.Int
+cirsResponseStatus = Lens.lens (responseStatus :: CreateInvalidationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInvalidationResponse)
+{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

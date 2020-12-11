@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,128 @@
 --
 -- Returns information about a specific static IP.
 module Network.AWS.Lightsail.GetStaticIP
-  ( -- * Creating a Request
-    getStaticIP,
-    GetStaticIP,
+  ( -- * Creating a request
+    GetStaticIP (..),
+    mkGetStaticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsiStaticIPName,
 
-    -- * Destructuring the Response
-    getStaticIPResponse,
-    GetStaticIPResponse,
+    -- * Destructuring the response
+    GetStaticIPResponse (..),
+    mkGetStaticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsirsStaticIP,
     gsirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getStaticIP' smart constructor.
-newtype GetStaticIP = GetStaticIP' {_gsiStaticIPName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetStaticIP' smart constructor.
+newtype GetStaticIP = GetStaticIP' {staticIPName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStaticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsiStaticIPName' - The name of the static IP in Lightsail.
-getStaticIP ::
-  -- | 'gsiStaticIPName'
-  Text ->
+-- * 'staticIPName' - The name of the static IP in Lightsail.
+mkGetStaticIP ::
+  -- | 'staticIPName'
+  Lude.Text ->
   GetStaticIP
-getStaticIP pStaticIPName_ =
-  GetStaticIP' {_gsiStaticIPName = pStaticIPName_}
+mkGetStaticIP pStaticIPName_ =
+  GetStaticIP' {staticIPName = pStaticIPName_}
 
 -- | The name of the static IP in Lightsail.
-gsiStaticIPName :: Lens' GetStaticIP Text
-gsiStaticIPName = lens _gsiStaticIPName (\s a -> s {_gsiStaticIPName = a})
+--
+-- /Note:/ Consider using 'staticIPName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiStaticIPName :: Lens.Lens' GetStaticIP Lude.Text
+gsiStaticIPName = Lens.lens (staticIPName :: GetStaticIP -> Lude.Text) (\s a -> s {staticIPName = a} :: GetStaticIP)
+{-# DEPRECATED gsiStaticIPName "Use generic-lens or generic-optics with 'staticIPName' instead." #-}
 
-instance AWSRequest GetStaticIP where
+instance Lude.AWSRequest GetStaticIP where
   type Rs GetStaticIP = GetStaticIPResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetStaticIPResponse'
-            <$> (x .?> "staticIp") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "staticIp") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetStaticIP
-
-instance NFData GetStaticIP
-
-instance ToHeaders GetStaticIP where
+instance Lude.ToHeaders GetStaticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetStaticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetStaticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetStaticIP where
+instance Lude.ToJSON GetStaticIP where
   toJSON GetStaticIP' {..} =
-    object (catMaybes [Just ("staticIpName" .= _gsiStaticIPName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("staticIpName" Lude..= staticIPName)])
 
-instance ToPath GetStaticIP where
-  toPath = const "/"
+instance Lude.ToPath GetStaticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery GetStaticIP where
-  toQuery = const mempty
+instance Lude.ToQuery GetStaticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getStaticIPResponse' smart constructor.
+-- | /See:/ 'mkGetStaticIPResponse' smart constructor.
 data GetStaticIPResponse = GetStaticIPResponse'
-  { _gsirsStaticIP ::
-      !(Maybe StaticIP),
-    _gsirsResponseStatus :: !Int
+  { staticIP ::
+      Lude.Maybe StaticIP,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStaticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsirsStaticIP' - An array of key-value pairs containing information about the requested static IP.
---
--- * 'gsirsResponseStatus' - -- | The response status code.
-getStaticIPResponse ::
-  -- | 'gsirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'staticIP' - An array of key-value pairs containing information about the requested static IP.
+mkGetStaticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetStaticIPResponse
-getStaticIPResponse pResponseStatus_ =
+mkGetStaticIPResponse pResponseStatus_ =
   GetStaticIPResponse'
-    { _gsirsStaticIP = Nothing,
-      _gsirsResponseStatus = pResponseStatus_
+    { staticIP = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of key-value pairs containing information about the requested static IP.
-gsirsStaticIP :: Lens' GetStaticIPResponse (Maybe StaticIP)
-gsirsStaticIP = lens _gsirsStaticIP (\s a -> s {_gsirsStaticIP = a})
+--
+-- /Note:/ Consider using 'staticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsirsStaticIP :: Lens.Lens' GetStaticIPResponse (Lude.Maybe StaticIP)
+gsirsStaticIP = Lens.lens (staticIP :: GetStaticIPResponse -> Lude.Maybe StaticIP) (\s a -> s {staticIP = a} :: GetStaticIPResponse)
+{-# DEPRECATED gsirsStaticIP "Use generic-lens or generic-optics with 'staticIP' instead." #-}
 
--- | -- | The response status code.
-gsirsResponseStatus :: Lens' GetStaticIPResponse Int
-gsirsResponseStatus = lens _gsirsResponseStatus (\s a -> s {_gsirsResponseStatus = a})
-
-instance NFData GetStaticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsirsResponseStatus :: Lens.Lens' GetStaticIPResponse Lude.Int
+gsirsResponseStatus = Lens.lens (responseStatus :: GetStaticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStaticIPResponse)
+{-# DEPRECATED gsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

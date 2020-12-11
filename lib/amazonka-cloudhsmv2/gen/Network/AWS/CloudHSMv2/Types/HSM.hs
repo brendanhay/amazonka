@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,112 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.HSM where
+module Network.AWS.CloudHSMv2.Types.HSM
+  ( HSM (..),
+
+    -- * Smart constructor
+    mkHSM,
+
+    -- * Lenses
+    hsmStateMessage,
+    hsmState,
+    hsmEniId,
+    hsmSubnetId,
+    hsmAvailabilityZone,
+    hsmClusterId,
+    hsmEniIP,
+    hsmHSMId,
+  )
+where
 
 import Network.AWS.CloudHSMv2.Types.HSMState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.
 --
---
---
--- /See:/ 'hsm' smart constructor.
+-- /See:/ 'mkHSM' smart constructor.
 data HSM = HSM'
-  { _hsmStateMessage :: !(Maybe Text),
-    _hsmState :: !(Maybe HSMState),
-    _hsmEniId :: !(Maybe Text),
-    _hsmSubnetId :: !(Maybe Text),
-    _hsmAvailabilityZone :: !(Maybe Text),
-    _hsmClusterId :: !(Maybe Text),
-    _hsmEniIP :: !(Maybe Text),
-    _hsmHSMId :: !Text
+  { stateMessage :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe HSMState,
+    eniId :: Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    clusterId :: Lude.Maybe Lude.Text,
+    eniIP :: Lude.Maybe Lude.Text,
+    hsmId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSM' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hsmStateMessage' - A description of the HSM's state.
---
--- * 'hsmState' - The HSM's state.
---
--- * 'hsmEniId' - The identifier (ID) of the HSM's elastic network interface (ENI).
---
--- * 'hsmSubnetId' - The subnet that contains the HSM's elastic network interface (ENI).
---
--- * 'hsmAvailabilityZone' - The Availability Zone that contains the HSM.
---
--- * 'hsmClusterId' - The identifier (ID) of the cluster that contains the HSM.
---
--- * 'hsmEniIP' - The IP address of the HSM's elastic network interface (ENI).
---
--- * 'hsmHSMId' - The HSM's identifier (ID).
-hsm ::
-  -- | 'hsmHSMId'
-  Text ->
+-- * 'availabilityZone' - The Availability Zone that contains the HSM.
+-- * 'clusterId' - The identifier (ID) of the cluster that contains the HSM.
+-- * 'eniIP' - The IP address of the HSM's elastic network interface (ENI).
+-- * 'eniId' - The identifier (ID) of the HSM's elastic network interface (ENI).
+-- * 'hsmId' - The HSM's identifier (ID).
+-- * 'state' - The HSM's state.
+-- * 'stateMessage' - A description of the HSM's state.
+-- * 'subnetId' - The subnet that contains the HSM's elastic network interface (ENI).
+mkHSM ::
+  -- | 'hsmId'
+  Lude.Text ->
   HSM
-hsm pHSMId_ =
+mkHSM pHSMId_ =
   HSM'
-    { _hsmStateMessage = Nothing,
-      _hsmState = Nothing,
-      _hsmEniId = Nothing,
-      _hsmSubnetId = Nothing,
-      _hsmAvailabilityZone = Nothing,
-      _hsmClusterId = Nothing,
-      _hsmEniIP = Nothing,
-      _hsmHSMId = pHSMId_
+    { stateMessage = Lude.Nothing,
+      state = Lude.Nothing,
+      eniId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      clusterId = Lude.Nothing,
+      eniIP = Lude.Nothing,
+      hsmId = pHSMId_
     }
 
 -- | A description of the HSM's state.
-hsmStateMessage :: Lens' HSM (Maybe Text)
-hsmStateMessage = lens _hsmStateMessage (\s a -> s {_hsmStateMessage = a})
+--
+-- /Note:/ Consider using 'stateMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmStateMessage :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmStateMessage = Lens.lens (stateMessage :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {stateMessage = a} :: HSM)
+{-# DEPRECATED hsmStateMessage "Use generic-lens or generic-optics with 'stateMessage' instead." #-}
 
 -- | The HSM's state.
-hsmState :: Lens' HSM (Maybe HSMState)
-hsmState = lens _hsmState (\s a -> s {_hsmState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmState :: Lens.Lens' HSM (Lude.Maybe HSMState)
+hsmState = Lens.lens (state :: HSM -> Lude.Maybe HSMState) (\s a -> s {state = a} :: HSM)
+{-# DEPRECATED hsmState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The identifier (ID) of the HSM's elastic network interface (ENI).
-hsmEniId :: Lens' HSM (Maybe Text)
-hsmEniId = lens _hsmEniId (\s a -> s {_hsmEniId = a})
+--
+-- /Note:/ Consider using 'eniId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmEniId :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmEniId = Lens.lens (eniId :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {eniId = a} :: HSM)
+{-# DEPRECATED hsmEniId "Use generic-lens or generic-optics with 'eniId' instead." #-}
 
 -- | The subnet that contains the HSM's elastic network interface (ENI).
-hsmSubnetId :: Lens' HSM (Maybe Text)
-hsmSubnetId = lens _hsmSubnetId (\s a -> s {_hsmSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmSubnetId :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmSubnetId = Lens.lens (subnetId :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: HSM)
+{-# DEPRECATED hsmSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The Availability Zone that contains the HSM.
-hsmAvailabilityZone :: Lens' HSM (Maybe Text)
-hsmAvailabilityZone = lens _hsmAvailabilityZone (\s a -> s {_hsmAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmAvailabilityZone :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmAvailabilityZone = Lens.lens (availabilityZone :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: HSM)
+{-# DEPRECATED hsmAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The identifier (ID) of the cluster that contains the HSM.
-hsmClusterId :: Lens' HSM (Maybe Text)
-hsmClusterId = lens _hsmClusterId (\s a -> s {_hsmClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmClusterId :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmClusterId = Lens.lens (clusterId :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: HSM)
+{-# DEPRECATED hsmClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The IP address of the HSM's elastic network interface (ENI).
-hsmEniIP :: Lens' HSM (Maybe Text)
-hsmEniIP = lens _hsmEniIP (\s a -> s {_hsmEniIP = a})
+--
+-- /Note:/ Consider using 'eniIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmEniIP :: Lens.Lens' HSM (Lude.Maybe Lude.Text)
+hsmEniIP = Lens.lens (eniIP :: HSM -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: HSM)
+{-# DEPRECATED hsmEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
 
 -- | The HSM's identifier (ID).
-hsmHSMId :: Lens' HSM Text
-hsmHSMId = lens _hsmHSMId (\s a -> s {_hsmHSMId = a})
+--
+-- /Note:/ Consider using 'hsmId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsmHSMId :: Lens.Lens' HSM Lude.Text
+hsmHSMId = Lens.lens (hsmId :: HSM -> Lude.Text) (\s a -> s {hsmId = a} :: HSM)
+{-# DEPRECATED hsmHSMId "Use generic-lens or generic-optics with 'hsmId' instead." #-}
 
-instance FromJSON HSM where
+instance Lude.FromJSON HSM where
   parseJSON =
-    withObject
+    Lude.withObject
       "HSM"
       ( \x ->
           HSM'
-            <$> (x .:? "StateMessage")
-            <*> (x .:? "State")
-            <*> (x .:? "EniId")
-            <*> (x .:? "SubnetId")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "ClusterId")
-            <*> (x .:? "EniIp")
-            <*> (x .: "HsmId")
+            Lude.<$> (x Lude..:? "StateMessage")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "EniId")
+            Lude.<*> (x Lude..:? "SubnetId")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "ClusterId")
+            Lude.<*> (x Lude..:? "EniIp")
+            Lude.<*> (x Lude..: "HsmId")
       )
-
-instance Hashable HSM
-
-instance NFData HSM

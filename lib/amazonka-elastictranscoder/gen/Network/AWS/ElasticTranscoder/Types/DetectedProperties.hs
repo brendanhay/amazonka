@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.DetectedProperties where
+module Network.AWS.ElasticTranscoder.Types.DetectedProperties
+  ( DetectedProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDetectedProperties,
+
+    -- * Lenses
+    dpHeight,
+    dpFrameRate,
+    dpFileSize,
+    dpWidth,
+    dpDurationMillis,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The detected properties of the input file. Elastic Transcoder identifies these values from the input file.
 --
---
---
--- /See:/ 'detectedProperties' smart constructor.
+-- /See:/ 'mkDetectedProperties' smart constructor.
 data DetectedProperties = DetectedProperties'
-  { _dpHeight ::
-      !(Maybe Int),
-    _dpFrameRate :: !(Maybe Text),
-    _dpFileSize :: !(Maybe Integer),
-    _dpWidth :: !(Maybe Int),
-    _dpDurationMillis :: !(Maybe Integer)
+  { height ::
+      Lude.Maybe Lude.Int,
+    frameRate :: Lude.Maybe Lude.Text,
+    fileSize :: Lude.Maybe Lude.Integer,
+    width :: Lude.Maybe Lude.Int,
+    durationMillis :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectedProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpHeight' - The detected height of the input file, in pixels.
---
--- * 'dpFrameRate' - The detected frame rate of the input file, in frames per second.
---
--- * 'dpFileSize' - The detected file size of the input file, in bytes.
---
--- * 'dpWidth' - The detected width of the input file, in pixels.
---
--- * 'dpDurationMillis' - The detected duration of the input file, in milliseconds.
-detectedProperties ::
+-- * 'durationMillis' - The detected duration of the input file, in milliseconds.
+-- * 'fileSize' - The detected file size of the input file, in bytes.
+-- * 'frameRate' - The detected frame rate of the input file, in frames per second.
+-- * 'height' - The detected height of the input file, in pixels.
+-- * 'width' - The detected width of the input file, in pixels.
+mkDetectedProperties ::
   DetectedProperties
-detectedProperties =
+mkDetectedProperties =
   DetectedProperties'
-    { _dpHeight = Nothing,
-      _dpFrameRate = Nothing,
-      _dpFileSize = Nothing,
-      _dpWidth = Nothing,
-      _dpDurationMillis = Nothing
+    { height = Lude.Nothing,
+      frameRate = Lude.Nothing,
+      fileSize = Lude.Nothing,
+      width = Lude.Nothing,
+      durationMillis = Lude.Nothing
     }
 
 -- | The detected height of the input file, in pixels.
-dpHeight :: Lens' DetectedProperties (Maybe Int)
-dpHeight = lens _dpHeight (\s a -> s {_dpHeight = a})
+--
+-- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpHeight :: Lens.Lens' DetectedProperties (Lude.Maybe Lude.Int)
+dpHeight = Lens.lens (height :: DetectedProperties -> Lude.Maybe Lude.Int) (\s a -> s {height = a} :: DetectedProperties)
+{-# DEPRECATED dpHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | The detected frame rate of the input file, in frames per second.
-dpFrameRate :: Lens' DetectedProperties (Maybe Text)
-dpFrameRate = lens _dpFrameRate (\s a -> s {_dpFrameRate = a})
+--
+-- /Note:/ Consider using 'frameRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpFrameRate :: Lens.Lens' DetectedProperties (Lude.Maybe Lude.Text)
+dpFrameRate = Lens.lens (frameRate :: DetectedProperties -> Lude.Maybe Lude.Text) (\s a -> s {frameRate = a} :: DetectedProperties)
+{-# DEPRECATED dpFrameRate "Use generic-lens or generic-optics with 'frameRate' instead." #-}
 
 -- | The detected file size of the input file, in bytes.
-dpFileSize :: Lens' DetectedProperties (Maybe Integer)
-dpFileSize = lens _dpFileSize (\s a -> s {_dpFileSize = a})
+--
+-- /Note:/ Consider using 'fileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpFileSize :: Lens.Lens' DetectedProperties (Lude.Maybe Lude.Integer)
+dpFileSize = Lens.lens (fileSize :: DetectedProperties -> Lude.Maybe Lude.Integer) (\s a -> s {fileSize = a} :: DetectedProperties)
+{-# DEPRECATED dpFileSize "Use generic-lens or generic-optics with 'fileSize' instead." #-}
 
 -- | The detected width of the input file, in pixels.
-dpWidth :: Lens' DetectedProperties (Maybe Int)
-dpWidth = lens _dpWidth (\s a -> s {_dpWidth = a})
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpWidth :: Lens.Lens' DetectedProperties (Lude.Maybe Lude.Int)
+dpWidth = Lens.lens (width :: DetectedProperties -> Lude.Maybe Lude.Int) (\s a -> s {width = a} :: DetectedProperties)
+{-# DEPRECATED dpWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
 -- | The detected duration of the input file, in milliseconds.
-dpDurationMillis :: Lens' DetectedProperties (Maybe Integer)
-dpDurationMillis = lens _dpDurationMillis (\s a -> s {_dpDurationMillis = a})
+--
+-- /Note:/ Consider using 'durationMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDurationMillis :: Lens.Lens' DetectedProperties (Lude.Maybe Lude.Integer)
+dpDurationMillis = Lens.lens (durationMillis :: DetectedProperties -> Lude.Maybe Lude.Integer) (\s a -> s {durationMillis = a} :: DetectedProperties)
+{-# DEPRECATED dpDurationMillis "Use generic-lens or generic-optics with 'durationMillis' instead." #-}
 
-instance FromJSON DetectedProperties where
+instance Lude.FromJSON DetectedProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "DetectedProperties"
       ( \x ->
           DetectedProperties'
-            <$> (x .:? "Height")
-            <*> (x .:? "FrameRate")
-            <*> (x .:? "FileSize")
-            <*> (x .:? "Width")
-            <*> (x .:? "DurationMillis")
+            Lude.<$> (x Lude..:? "Height")
+            Lude.<*> (x Lude..:? "FrameRate")
+            Lude.<*> (x Lude..:? "FileSize")
+            Lude.<*> (x Lude..:? "Width")
+            Lude.<*> (x Lude..:? "DurationMillis")
       )
 
-instance Hashable DetectedProperties
-
-instance NFData DetectedProperties
-
-instance ToJSON DetectedProperties where
+instance Lude.ToJSON DetectedProperties where
   toJSON DetectedProperties' {..} =
-    object
-      ( catMaybes
-          [ ("Height" .=) <$> _dpHeight,
-            ("FrameRate" .=) <$> _dpFrameRate,
-            ("FileSize" .=) <$> _dpFileSize,
-            ("Width" .=) <$> _dpWidth,
-            ("DurationMillis" .=) <$> _dpDurationMillis
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Height" Lude..=) Lude.<$> height,
+            ("FrameRate" Lude..=) Lude.<$> frameRate,
+            ("FileSize" Lude..=) Lude.<$> fileSize,
+            ("Width" Lude..=) Lude.<$> width,
+            ("DurationMillis" Lude..=) Lude.<$> durationMillis
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates an AWS IoT OTAUpdate on a target group of things or groups.
 module Network.AWS.IoT.CreateOTAUpdate
-  ( -- * Creating a Request
-    createOTAUpdate,
-    CreateOTAUpdate,
+  ( -- * Creating a request
+    CreateOTAUpdate (..),
+    mkCreateOTAUpdate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cotauAwsJobAbortConfig,
     cotauAwsJobExecutionsRolloutConfig,
     cotauProtocols,
@@ -38,11 +33,11 @@ module Network.AWS.IoT.CreateOTAUpdate
     cotauFiles,
     cotauRoleARN,
 
-    -- * Destructuring the Response
-    createOTAUpdateResponse,
-    CreateOTAUpdateResponse,
+    -- * Destructuring the response
+    CreateOTAUpdateResponse (..),
+    mkCreateOTAUpdateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cotaursAwsIotJobId,
     cotaursOtaUpdateStatus,
     cotaursAwsIotJobARN,
@@ -53,253 +48,299 @@ module Network.AWS.IoT.CreateOTAUpdate
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createOTAUpdate' smart constructor.
+-- | /See:/ 'mkCreateOTAUpdate' smart constructor.
 data CreateOTAUpdate = CreateOTAUpdate'
-  { _cotauAwsJobAbortConfig ::
-      !(Maybe AWSJobAbortConfig),
-    _cotauAwsJobExecutionsRolloutConfig ::
-      !(Maybe AWSJobExecutionsRolloutConfig),
-    _cotauProtocols :: !(Maybe (List1 Protocol)),
-    _cotauAwsJobPresignedURLConfig ::
-      !(Maybe AWSJobPresignedURLConfig),
-    _cotauAdditionalParameters :: !(Maybe (Map Text (Text))),
-    _cotauAwsJobTimeoutConfig :: !(Maybe AWSJobTimeoutConfig),
-    _cotauDescription :: !(Maybe Text),
-    _cotauTargetSelection :: !(Maybe TargetSelection),
-    _cotauTags :: !(Maybe [Tag]),
-    _cotauOtaUpdateId :: !Text,
-    _cotauTargets :: !(List1 Text),
-    _cotauFiles :: !(List1 OTAUpdateFile),
-    _cotauRoleARN :: !Text
+  { awsJobAbortConfig ::
+      Lude.Maybe AWSJobAbortConfig,
+    awsJobExecutionsRolloutConfig ::
+      Lude.Maybe AWSJobExecutionsRolloutConfig,
+    protocols :: Lude.Maybe (Lude.NonEmpty Protocol),
+    awsJobPresignedURLConfig ::
+      Lude.Maybe AWSJobPresignedURLConfig,
+    additionalParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    awsJobTimeoutConfig :: Lude.Maybe AWSJobTimeoutConfig,
+    description :: Lude.Maybe Lude.Text,
+    targetSelection :: Lude.Maybe TargetSelection,
+    tags :: Lude.Maybe [Tag],
+    otaUpdateId :: Lude.Text,
+    targets :: Lude.NonEmpty Lude.Text,
+    files :: Lude.NonEmpty OTAUpdateFile,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOTAUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cotauAwsJobAbortConfig' - The criteria that determine when and how a job abort takes place.
---
--- * 'cotauAwsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
---
--- * 'cotauProtocols' - The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
---
--- * 'cotauAwsJobPresignedURLConfig' - Configuration information for pre-signed URLs.
---
--- * 'cotauAdditionalParameters' - A list of additional OTA update parameters which are name-value pairs.
---
--- * 'cotauAwsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
---
--- * 'cotauDescription' - The description of the OTA update.
---
--- * 'cotauTargetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
---
--- * 'cotauTags' - Metadata which can be used to manage updates.
---
--- * 'cotauOtaUpdateId' - The ID of the OTA update to be created.
---
--- * 'cotauTargets' - The devices targeted to receive OTA updates.
---
--- * 'cotauFiles' - The files to be streamed by the OTA update.
---
--- * 'cotauRoleARN' - The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
-createOTAUpdate ::
-  -- | 'cotauOtaUpdateId'
-  Text ->
-  -- | 'cotauTargets'
-  NonEmpty Text ->
-  -- | 'cotauFiles'
-  NonEmpty OTAUpdateFile ->
-  -- | 'cotauRoleARN'
-  Text ->
+-- * 'additionalParameters' - A list of additional OTA update parameters which are name-value pairs.
+-- * 'awsJobAbortConfig' - The criteria that determine when and how a job abort takes place.
+-- * 'awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
+-- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs.
+-- * 'awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
+-- * 'description' - The description of the OTA update.
+-- * 'files' - The files to be streamed by the OTA update.
+-- * 'otaUpdateId' - The ID of the OTA update to be created.
+-- * 'protocols' - The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
+-- * 'roleARN' - The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
+-- * 'tags' - Metadata which can be used to manage updates.
+-- * 'targetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
+-- * 'targets' - The devices targeted to receive OTA updates.
+mkCreateOTAUpdate ::
+  -- | 'otaUpdateId'
+  Lude.Text ->
+  -- | 'targets'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'files'
+  Lude.NonEmpty OTAUpdateFile ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateOTAUpdate
-createOTAUpdate pOtaUpdateId_ pTargets_ pFiles_ pRoleARN_ =
+mkCreateOTAUpdate pOtaUpdateId_ pTargets_ pFiles_ pRoleARN_ =
   CreateOTAUpdate'
-    { _cotauAwsJobAbortConfig = Nothing,
-      _cotauAwsJobExecutionsRolloutConfig = Nothing,
-      _cotauProtocols = Nothing,
-      _cotauAwsJobPresignedURLConfig = Nothing,
-      _cotauAdditionalParameters = Nothing,
-      _cotauAwsJobTimeoutConfig = Nothing,
-      _cotauDescription = Nothing,
-      _cotauTargetSelection = Nothing,
-      _cotauTags = Nothing,
-      _cotauOtaUpdateId = pOtaUpdateId_,
-      _cotauTargets = _List1 # pTargets_,
-      _cotauFiles = _List1 # pFiles_,
-      _cotauRoleARN = pRoleARN_
+    { awsJobAbortConfig = Lude.Nothing,
+      awsJobExecutionsRolloutConfig = Lude.Nothing,
+      protocols = Lude.Nothing,
+      awsJobPresignedURLConfig = Lude.Nothing,
+      additionalParameters = Lude.Nothing,
+      awsJobTimeoutConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      targetSelection = Lude.Nothing,
+      tags = Lude.Nothing,
+      otaUpdateId = pOtaUpdateId_,
+      targets = pTargets_,
+      files = pFiles_,
+      roleARN = pRoleARN_
     }
 
 -- | The criteria that determine when and how a job abort takes place.
-cotauAwsJobAbortConfig :: Lens' CreateOTAUpdate (Maybe AWSJobAbortConfig)
-cotauAwsJobAbortConfig = lens _cotauAwsJobAbortConfig (\s a -> s {_cotauAwsJobAbortConfig = a})
+--
+-- /Note:/ Consider using 'awsJobAbortConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauAwsJobAbortConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobAbortConfig)
+cotauAwsJobAbortConfig = Lens.lens (awsJobAbortConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobAbortConfig) (\s a -> s {awsJobAbortConfig = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauAwsJobAbortConfig "Use generic-lens or generic-optics with 'awsJobAbortConfig' instead." #-}
 
 -- | Configuration for the rollout of OTA updates.
-cotauAwsJobExecutionsRolloutConfig :: Lens' CreateOTAUpdate (Maybe AWSJobExecutionsRolloutConfig)
-cotauAwsJobExecutionsRolloutConfig = lens _cotauAwsJobExecutionsRolloutConfig (\s a -> s {_cotauAwsJobExecutionsRolloutConfig = a})
+--
+-- /Note:/ Consider using 'awsJobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauAwsJobExecutionsRolloutConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobExecutionsRolloutConfig)
+cotauAwsJobExecutionsRolloutConfig = Lens.lens (awsJobExecutionsRolloutConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobExecutionsRolloutConfig) (\s a -> s {awsJobExecutionsRolloutConfig = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauAwsJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'awsJobExecutionsRolloutConfig' instead." #-}
 
 -- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
-cotauProtocols :: Lens' CreateOTAUpdate (Maybe (NonEmpty Protocol))
-cotauProtocols = lens _cotauProtocols (\s a -> s {_cotauProtocols = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'protocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauProtocols :: Lens.Lens' CreateOTAUpdate (Lude.Maybe (Lude.NonEmpty Protocol))
+cotauProtocols = Lens.lens (protocols :: CreateOTAUpdate -> Lude.Maybe (Lude.NonEmpty Protocol)) (\s a -> s {protocols = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauProtocols "Use generic-lens or generic-optics with 'protocols' instead." #-}
 
 -- | Configuration information for pre-signed URLs.
-cotauAwsJobPresignedURLConfig :: Lens' CreateOTAUpdate (Maybe AWSJobPresignedURLConfig)
-cotauAwsJobPresignedURLConfig = lens _cotauAwsJobPresignedURLConfig (\s a -> s {_cotauAwsJobPresignedURLConfig = a})
+--
+-- /Note:/ Consider using 'awsJobPresignedURLConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauAwsJobPresignedURLConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobPresignedURLConfig)
+cotauAwsJobPresignedURLConfig = Lens.lens (awsJobPresignedURLConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobPresignedURLConfig) (\s a -> s {awsJobPresignedURLConfig = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauAwsJobPresignedURLConfig "Use generic-lens or generic-optics with 'awsJobPresignedURLConfig' instead." #-}
 
 -- | A list of additional OTA update parameters which are name-value pairs.
-cotauAdditionalParameters :: Lens' CreateOTAUpdate (HashMap Text (Text))
-cotauAdditionalParameters = lens _cotauAdditionalParameters (\s a -> s {_cotauAdditionalParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'additionalParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauAdditionalParameters :: Lens.Lens' CreateOTAUpdate (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cotauAdditionalParameters = Lens.lens (additionalParameters :: CreateOTAUpdate -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {additionalParameters = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauAdditionalParameters "Use generic-lens or generic-optics with 'additionalParameters' instead." #-}
 
 -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
-cotauAwsJobTimeoutConfig :: Lens' CreateOTAUpdate (Maybe AWSJobTimeoutConfig)
-cotauAwsJobTimeoutConfig = lens _cotauAwsJobTimeoutConfig (\s a -> s {_cotauAwsJobTimeoutConfig = a})
+--
+-- /Note:/ Consider using 'awsJobTimeoutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauAwsJobTimeoutConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobTimeoutConfig)
+cotauAwsJobTimeoutConfig = Lens.lens (awsJobTimeoutConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobTimeoutConfig) (\s a -> s {awsJobTimeoutConfig = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauAwsJobTimeoutConfig "Use generic-lens or generic-optics with 'awsJobTimeoutConfig' instead." #-}
 
 -- | The description of the OTA update.
-cotauDescription :: Lens' CreateOTAUpdate (Maybe Text)
-cotauDescription = lens _cotauDescription (\s a -> s {_cotauDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauDescription :: Lens.Lens' CreateOTAUpdate (Lude.Maybe Lude.Text)
+cotauDescription = Lens.lens (description :: CreateOTAUpdate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
-cotauTargetSelection :: Lens' CreateOTAUpdate (Maybe TargetSelection)
-cotauTargetSelection = lens _cotauTargetSelection (\s a -> s {_cotauTargetSelection = a})
+--
+-- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauTargetSelection :: Lens.Lens' CreateOTAUpdate (Lude.Maybe TargetSelection)
+cotauTargetSelection = Lens.lens (targetSelection :: CreateOTAUpdate -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
 -- | Metadata which can be used to manage updates.
-cotauTags :: Lens' CreateOTAUpdate [Tag]
-cotauTags = lens _cotauTags (\s a -> s {_cotauTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauTags :: Lens.Lens' CreateOTAUpdate (Lude.Maybe [Tag])
+cotauTags = Lens.lens (tags :: CreateOTAUpdate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the OTA update to be created.
-cotauOtaUpdateId :: Lens' CreateOTAUpdate Text
-cotauOtaUpdateId = lens _cotauOtaUpdateId (\s a -> s {_cotauOtaUpdateId = a})
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauOtaUpdateId :: Lens.Lens' CreateOTAUpdate Lude.Text
+cotauOtaUpdateId = Lens.lens (otaUpdateId :: CreateOTAUpdate -> Lude.Text) (\s a -> s {otaUpdateId = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
 -- | The devices targeted to receive OTA updates.
-cotauTargets :: Lens' CreateOTAUpdate (NonEmpty Text)
-cotauTargets = lens _cotauTargets (\s a -> s {_cotauTargets = a}) . _List1
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauTargets :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty Lude.Text)
+cotauTargets = Lens.lens (targets :: CreateOTAUpdate -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The files to be streamed by the OTA update.
-cotauFiles :: Lens' CreateOTAUpdate (NonEmpty OTAUpdateFile)
-cotauFiles = lens _cotauFiles (\s a -> s {_cotauFiles = a}) . _List1
+--
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauFiles :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty OTAUpdateFile)
+cotauFiles = Lens.lens (files :: CreateOTAUpdate -> Lude.NonEmpty OTAUpdateFile) (\s a -> s {files = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauFiles "Use generic-lens or generic-optics with 'files' instead." #-}
 
 -- | The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
-cotauRoleARN :: Lens' CreateOTAUpdate Text
-cotauRoleARN = lens _cotauRoleARN (\s a -> s {_cotauRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauRoleARN :: Lens.Lens' CreateOTAUpdate Lude.Text
+cotauRoleARN = Lens.lens (roleARN :: CreateOTAUpdate -> Lude.Text) (\s a -> s {roleARN = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateOTAUpdate where
+instance Lude.AWSRequest CreateOTAUpdate where
   type Rs CreateOTAUpdate = CreateOTAUpdateResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateOTAUpdateResponse'
-            <$> (x .?> "awsIotJobId")
-            <*> (x .?> "otaUpdateStatus")
-            <*> (x .?> "awsIotJobArn")
-            <*> (x .?> "otaUpdateId")
-            <*> (x .?> "otaUpdateArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "awsIotJobId")
+            Lude.<*> (x Lude..?> "otaUpdateStatus")
+            Lude.<*> (x Lude..?> "awsIotJobArn")
+            Lude.<*> (x Lude..?> "otaUpdateId")
+            Lude.<*> (x Lude..?> "otaUpdateArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateOTAUpdate
+instance Lude.ToHeaders CreateOTAUpdate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateOTAUpdate
-
-instance ToHeaders CreateOTAUpdate where
-  toHeaders = const mempty
-
-instance ToJSON CreateOTAUpdate where
+instance Lude.ToJSON CreateOTAUpdate where
   toJSON CreateOTAUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("awsJobAbortConfig" .=) <$> _cotauAwsJobAbortConfig,
-            ("awsJobExecutionsRolloutConfig" .=)
-              <$> _cotauAwsJobExecutionsRolloutConfig,
-            ("protocols" .=) <$> _cotauProtocols,
-            ("awsJobPresignedUrlConfig" .=) <$> _cotauAwsJobPresignedURLConfig,
-            ("additionalParameters" .=) <$> _cotauAdditionalParameters,
-            ("awsJobTimeoutConfig" .=) <$> _cotauAwsJobTimeoutConfig,
-            ("description" .=) <$> _cotauDescription,
-            ("targetSelection" .=) <$> _cotauTargetSelection,
-            ("tags" .=) <$> _cotauTags,
-            Just ("targets" .= _cotauTargets),
-            Just ("files" .= _cotauFiles),
-            Just ("roleArn" .= _cotauRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("awsJobAbortConfig" Lude..=) Lude.<$> awsJobAbortConfig,
+            ("awsJobExecutionsRolloutConfig" Lude..=)
+              Lude.<$> awsJobExecutionsRolloutConfig,
+            ("protocols" Lude..=) Lude.<$> protocols,
+            ("awsJobPresignedUrlConfig" Lude..=)
+              Lude.<$> awsJobPresignedURLConfig,
+            ("additionalParameters" Lude..=) Lude.<$> additionalParameters,
+            ("awsJobTimeoutConfig" Lude..=) Lude.<$> awsJobTimeoutConfig,
+            ("description" Lude..=) Lude.<$> description,
+            ("targetSelection" Lude..=) Lude.<$> targetSelection,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("targets" Lude..= targets),
+            Lude.Just ("files" Lude..= files),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath CreateOTAUpdate where
+instance Lude.ToPath CreateOTAUpdate where
   toPath CreateOTAUpdate' {..} =
-    mconcat ["/otaUpdates/", toBS _cotauOtaUpdateId]
+    Lude.mconcat ["/otaUpdates/", Lude.toBS otaUpdateId]
 
-instance ToQuery CreateOTAUpdate where
-  toQuery = const mempty
+instance Lude.ToQuery CreateOTAUpdate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createOTAUpdateResponse' smart constructor.
+-- | /See:/ 'mkCreateOTAUpdateResponse' smart constructor.
 data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
-  { _cotaursAwsIotJobId ::
-      !(Maybe Text),
-    _cotaursOtaUpdateStatus ::
-      !(Maybe OTAUpdateStatus),
-    _cotaursAwsIotJobARN :: !(Maybe Text),
-    _cotaursOtaUpdateId :: !(Maybe Text),
-    _cotaursOtaUpdateARN :: !(Maybe Text),
-    _cotaursResponseStatus :: !Int
+  { awsIotJobId ::
+      Lude.Maybe Lude.Text,
+    otaUpdateStatus ::
+      Lude.Maybe OTAUpdateStatus,
+    awsIotJobARN :: Lude.Maybe Lude.Text,
+    otaUpdateId :: Lude.Maybe Lude.Text,
+    otaUpdateARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOTAUpdateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cotaursAwsIotJobId' - The AWS IoT job ID associated with the OTA update.
---
--- * 'cotaursOtaUpdateStatus' - The OTA update status.
---
--- * 'cotaursAwsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
---
--- * 'cotaursOtaUpdateId' - The OTA update ID.
---
--- * 'cotaursOtaUpdateARN' - The OTA update ARN.
---
--- * 'cotaursResponseStatus' - -- | The response status code.
-createOTAUpdateResponse ::
-  -- | 'cotaursResponseStatus'
-  Int ->
+-- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
+-- * 'awsIotJobId' - The AWS IoT job ID associated with the OTA update.
+-- * 'otaUpdateARN' - The OTA update ARN.
+-- * 'otaUpdateId' - The OTA update ID.
+-- * 'otaUpdateStatus' - The OTA update status.
+-- * 'responseStatus' - The response status code.
+mkCreateOTAUpdateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateOTAUpdateResponse
-createOTAUpdateResponse pResponseStatus_ =
+mkCreateOTAUpdateResponse pResponseStatus_ =
   CreateOTAUpdateResponse'
-    { _cotaursAwsIotJobId = Nothing,
-      _cotaursOtaUpdateStatus = Nothing,
-      _cotaursAwsIotJobARN = Nothing,
-      _cotaursOtaUpdateId = Nothing,
-      _cotaursOtaUpdateARN = Nothing,
-      _cotaursResponseStatus = pResponseStatus_
+    { awsIotJobId = Lude.Nothing,
+      otaUpdateStatus = Lude.Nothing,
+      awsIotJobARN = Lude.Nothing,
+      otaUpdateId = Lude.Nothing,
+      otaUpdateARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS IoT job ID associated with the OTA update.
-cotaursAwsIotJobId :: Lens' CreateOTAUpdateResponse (Maybe Text)
-cotaursAwsIotJobId = lens _cotaursAwsIotJobId (\s a -> s {_cotaursAwsIotJobId = a})
+--
+-- /Note:/ Consider using 'awsIotJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursAwsIotJobId :: Lens.Lens' CreateOTAUpdateResponse (Lude.Maybe Lude.Text)
+cotaursAwsIotJobId = Lens.lens (awsIotJobId :: CreateOTAUpdateResponse -> Lude.Maybe Lude.Text) (\s a -> s {awsIotJobId = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursAwsIotJobId "Use generic-lens or generic-optics with 'awsIotJobId' instead." #-}
 
 -- | The OTA update status.
-cotaursOtaUpdateStatus :: Lens' CreateOTAUpdateResponse (Maybe OTAUpdateStatus)
-cotaursOtaUpdateStatus = lens _cotaursOtaUpdateStatus (\s a -> s {_cotaursOtaUpdateStatus = a})
+--
+-- /Note:/ Consider using 'otaUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursOtaUpdateStatus :: Lens.Lens' CreateOTAUpdateResponse (Lude.Maybe OTAUpdateStatus)
+cotaursOtaUpdateStatus = Lens.lens (otaUpdateStatus :: CreateOTAUpdateResponse -> Lude.Maybe OTAUpdateStatus) (\s a -> s {otaUpdateStatus = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursOtaUpdateStatus "Use generic-lens or generic-optics with 'otaUpdateStatus' instead." #-}
 
 -- | The AWS IoT job ARN associated with the OTA update.
-cotaursAwsIotJobARN :: Lens' CreateOTAUpdateResponse (Maybe Text)
-cotaursAwsIotJobARN = lens _cotaursAwsIotJobARN (\s a -> s {_cotaursAwsIotJobARN = a})
+--
+-- /Note:/ Consider using 'awsIotJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursAwsIotJobARN :: Lens.Lens' CreateOTAUpdateResponse (Lude.Maybe Lude.Text)
+cotaursAwsIotJobARN = Lens.lens (awsIotJobARN :: CreateOTAUpdateResponse -> Lude.Maybe Lude.Text) (\s a -> s {awsIotJobARN = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursAwsIotJobARN "Use generic-lens or generic-optics with 'awsIotJobARN' instead." #-}
 
 -- | The OTA update ID.
-cotaursOtaUpdateId :: Lens' CreateOTAUpdateResponse (Maybe Text)
-cotaursOtaUpdateId = lens _cotaursOtaUpdateId (\s a -> s {_cotaursOtaUpdateId = a})
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursOtaUpdateId :: Lens.Lens' CreateOTAUpdateResponse (Lude.Maybe Lude.Text)
+cotaursOtaUpdateId = Lens.lens (otaUpdateId :: CreateOTAUpdateResponse -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateId = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
 -- | The OTA update ARN.
-cotaursOtaUpdateARN :: Lens' CreateOTAUpdateResponse (Maybe Text)
-cotaursOtaUpdateARN = lens _cotaursOtaUpdateARN (\s a -> s {_cotaursOtaUpdateARN = a})
+--
+-- /Note:/ Consider using 'otaUpdateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursOtaUpdateARN :: Lens.Lens' CreateOTAUpdateResponse (Lude.Maybe Lude.Text)
+cotaursOtaUpdateARN = Lens.lens (otaUpdateARN :: CreateOTAUpdateResponse -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateARN = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursOtaUpdateARN "Use generic-lens or generic-optics with 'otaUpdateARN' instead." #-}
 
--- | -- | The response status code.
-cotaursResponseStatus :: Lens' CreateOTAUpdateResponse Int
-cotaursResponseStatus = lens _cotaursResponseStatus (\s a -> s {_cotaursResponseStatus = a})
-
-instance NFData CreateOTAUpdateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotaursResponseStatus :: Lens.Lens' CreateOTAUpdateResponse Lude.Int
+cotaursResponseStatus = Lens.lens (responseStatus :: CreateOTAUpdateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateOTAUpdateResponse)
+{-# DEPRECATED cotaursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

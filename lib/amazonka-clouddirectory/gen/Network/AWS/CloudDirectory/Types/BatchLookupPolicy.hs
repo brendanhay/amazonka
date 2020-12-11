@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchLookupPolicy where
+module Network.AWS.CloudDirectory.Types.BatchLookupPolicy
+  ( BatchLookupPolicy (..),
+
+    -- * Smart constructor
+    mkBatchLookupPolicy,
+
+    -- * Lenses
+    blplNextToken,
+    blplMaxResults,
+    blplObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Lists all policies from the root of the Directory to the object specified inside a 'BatchRead' operation. For more information, see 'LookupPolicy' and 'BatchReadRequest$Operations' .
 --
---
---
--- /See:/ 'batchLookupPolicy' smart constructor.
+-- /See:/ 'mkBatchLookupPolicy' smart constructor.
 data BatchLookupPolicy = BatchLookupPolicy'
-  { _blplNextToken ::
-      !(Maybe Text),
-    _blplMaxResults :: !(Maybe Nat),
-    _blplObjectReference :: !ObjectReference
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchLookupPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blplNextToken' - The pagination token.
---
--- * 'blplMaxResults' - The maximum number of results to retrieve.
---
--- * 'blplObjectReference' - Reference that identifies the object whose policies will be looked up.
-batchLookupPolicy ::
-  -- | 'blplObjectReference'
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - Reference that identifies the object whose policies will be looked up.
+mkBatchLookupPolicy ::
+  -- | 'objectReference'
   ObjectReference ->
   BatchLookupPolicy
-batchLookupPolicy pObjectReference_ =
+mkBatchLookupPolicy pObjectReference_ =
   BatchLookupPolicy'
-    { _blplNextToken = Nothing,
-      _blplMaxResults = Nothing,
-      _blplObjectReference = pObjectReference_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      objectReference = pObjectReference_
     }
 
 -- | The pagination token.
-blplNextToken :: Lens' BatchLookupPolicy (Maybe Text)
-blplNextToken = lens _blplNextToken (\s a -> s {_blplNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blplNextToken :: Lens.Lens' BatchLookupPolicy (Lude.Maybe Lude.Text)
+blplNextToken = Lens.lens (nextToken :: BatchLookupPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchLookupPolicy)
+{-# DEPRECATED blplNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to retrieve.
-blplMaxResults :: Lens' BatchLookupPolicy (Maybe Natural)
-blplMaxResults = lens _blplMaxResults (\s a -> s {_blplMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blplMaxResults :: Lens.Lens' BatchLookupPolicy (Lude.Maybe Lude.Natural)
+blplMaxResults = Lens.lens (maxResults :: BatchLookupPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchLookupPolicy)
+{-# DEPRECATED blplMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Reference that identifies the object whose policies will be looked up.
-blplObjectReference :: Lens' BatchLookupPolicy ObjectReference
-blplObjectReference = lens _blplObjectReference (\s a -> s {_blplObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blplObjectReference :: Lens.Lens' BatchLookupPolicy ObjectReference
+blplObjectReference = Lens.lens (objectReference :: BatchLookupPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: BatchLookupPolicy)
+{-# DEPRECATED blplObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchLookupPolicy
-
-instance NFData BatchLookupPolicy
-
-instance ToJSON BatchLookupPolicy where
+instance Lude.ToJSON BatchLookupPolicy where
   toJSON BatchLookupPolicy' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _blplNextToken,
-            ("MaxResults" .=) <$> _blplMaxResults,
-            Just ("ObjectReference" .= _blplObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,99 @@
 --
 -- Deregisters a specified Amazon ECS cluster from a stack. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html> .
 module Network.AWS.OpsWorks.DeregisterEcsCluster
-  ( -- * Creating a Request
-    deregisterEcsCluster,
-    DeregisterEcsCluster,
+  ( -- * Creating a request
+    DeregisterEcsCluster (..),
+    mkDeregisterEcsCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     decEcsClusterARN,
 
-    -- * Destructuring the Response
-    deregisterEcsClusterResponse,
-    DeregisterEcsClusterResponse,
+    -- * Destructuring the response
+    DeregisterEcsClusterResponse (..),
+    mkDeregisterEcsClusterResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterEcsCluster' smart constructor.
+-- | /See:/ 'mkDeregisterEcsCluster' smart constructor.
 newtype DeregisterEcsCluster = DeregisterEcsCluster'
-  { _decEcsClusterARN ::
-      Text
+  { ecsClusterARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEcsCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decEcsClusterARN' - The cluster's Amazon Resource Number (ARN).
-deregisterEcsCluster ::
-  -- | 'decEcsClusterARN'
-  Text ->
+-- * 'ecsClusterARN' - The cluster's Amazon Resource Number (ARN).
+mkDeregisterEcsCluster ::
+  -- | 'ecsClusterARN'
+  Lude.Text ->
   DeregisterEcsCluster
-deregisterEcsCluster pEcsClusterARN_ =
-  DeregisterEcsCluster' {_decEcsClusterARN = pEcsClusterARN_}
+mkDeregisterEcsCluster pEcsClusterARN_ =
+  DeregisterEcsCluster' {ecsClusterARN = pEcsClusterARN_}
 
 -- | The cluster's Amazon Resource Number (ARN).
-decEcsClusterARN :: Lens' DeregisterEcsCluster Text
-decEcsClusterARN = lens _decEcsClusterARN (\s a -> s {_decEcsClusterARN = a})
+--
+-- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decEcsClusterARN :: Lens.Lens' DeregisterEcsCluster Lude.Text
+decEcsClusterARN = Lens.lens (ecsClusterARN :: DeregisterEcsCluster -> Lude.Text) (\s a -> s {ecsClusterARN = a} :: DeregisterEcsCluster)
+{-# DEPRECATED decEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
 
-instance AWSRequest DeregisterEcsCluster where
+instance Lude.AWSRequest DeregisterEcsCluster where
   type Rs DeregisterEcsCluster = DeregisterEcsClusterResponse
-  request = postJSON opsWorks
-  response = receiveNull DeregisterEcsClusterResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeregisterEcsClusterResponse'
 
-instance Hashable DeregisterEcsCluster
-
-instance NFData DeregisterEcsCluster
-
-instance ToHeaders DeregisterEcsCluster where
+instance Lude.ToHeaders DeregisterEcsCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeregisterEcsCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeregisterEcsCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterEcsCluster where
+instance Lude.ToJSON DeregisterEcsCluster where
   toJSON DeregisterEcsCluster' {..} =
-    object (catMaybes [Just ("EcsClusterArn" .= _decEcsClusterARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EcsClusterArn" Lude..= ecsClusterARN)]
+      )
 
-instance ToPath DeregisterEcsCluster where
-  toPath = const "/"
+instance Lude.ToPath DeregisterEcsCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterEcsCluster where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterEcsCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterEcsClusterResponse' smart constructor.
+-- | /See:/ 'mkDeregisterEcsClusterResponse' smart constructor.
 data DeregisterEcsClusterResponse = DeregisterEcsClusterResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEcsClusterResponse' with the minimum fields required to make a request.
-deregisterEcsClusterResponse ::
+mkDeregisterEcsClusterResponse ::
   DeregisterEcsClusterResponse
-deregisterEcsClusterResponse = DeregisterEcsClusterResponse'
-
-instance NFData DeregisterEcsClusterResponse
+mkDeregisterEcsClusterResponse = DeregisterEcsClusterResponse'

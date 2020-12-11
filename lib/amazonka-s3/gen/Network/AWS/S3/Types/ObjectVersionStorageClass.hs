@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectVersionStorageClass where
+module Network.AWS.S3.Types.ObjectVersionStorageClass
+  ( ObjectVersionStorageClass
+      ( ObjectVersionStorageClass',
+        OVSCStandard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ObjectVersionStorageClass = OVSCStandard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectVersionStorageClass = ObjectVersionStorageClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectVersionStorageClass where
-  parser =
-    takeLowerText >>= \case
-      "standard" -> pure OVSCStandard
-      e ->
-        fromTextError $
-          "Failure parsing ObjectVersionStorageClass from value: '" <> e
-            <> "'. Accepted values: standard"
+pattern OVSCStandard :: ObjectVersionStorageClass
+pattern OVSCStandard = ObjectVersionStorageClass' "STANDARD"
 
-instance ToText ObjectVersionStorageClass where
-  toText = \case
-    OVSCStandard -> "STANDARD"
-
-instance Hashable ObjectVersionStorageClass
-
-instance NFData ObjectVersionStorageClass
-
-instance ToByteString ObjectVersionStorageClass
-
-instance ToQuery ObjectVersionStorageClass
-
-instance ToHeader ObjectVersionStorageClass
-
-instance FromXML ObjectVersionStorageClass where
-  parseXML = parseXMLText "ObjectVersionStorageClass"
+{-# COMPLETE
+  OVSCStandard,
+  ObjectVersionStorageClass'
+  #-}

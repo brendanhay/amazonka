@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates an app for a specified stack. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.CreateApp
-  ( -- * Creating a Request
-    createApp,
-    CreateApp,
+  ( -- * Creating a request
+    CreateApp (..),
+    mkCreateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caSSLConfiguration,
     caEnvironment,
     caEnableSSL,
@@ -40,221 +34,261 @@ module Network.AWS.OpsWorks.CreateApp
     caName,
     caType,
 
-    -- * Destructuring the Response
-    createAppResponse,
-    CreateAppResponse,
+    -- * Destructuring the response
+    CreateAppResponse (..),
+    mkCreateAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsAppId,
     carsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createApp' smart constructor.
+-- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { _caSSLConfiguration ::
-      !(Maybe SSLConfiguration),
-    _caEnvironment :: !(Maybe [EnvironmentVariable]),
-    _caEnableSSL :: !(Maybe Bool),
-    _caShortname :: !(Maybe Text),
-    _caDataSources :: !(Maybe [DataSource]),
-    _caAppSource :: !(Maybe Source),
-    _caAttributes :: !(Maybe (Map AppAttributesKeys (Text))),
-    _caDomains :: !(Maybe [Text]),
-    _caDescription :: !(Maybe Text),
-    _caStackId :: !Text,
-    _caName :: !Text,
-    _caType :: !AppType
+  { sslConfiguration ::
+      Lude.Maybe SSLConfiguration,
+    environment :: Lude.Maybe [EnvironmentVariable],
+    enableSSL :: Lude.Maybe Lude.Bool,
+    shortname :: Lude.Maybe Lude.Text,
+    dataSources :: Lude.Maybe [DataSource],
+    appSource :: Lude.Maybe Source,
+    attributes ::
+      Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    domains :: Lude.Maybe [Lude.Text],
+    description :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Text,
+    name :: Lude.Text,
+    type' :: AppType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appSource' - A @Source@ object that specifies the app repository.
+-- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- * 'dataSources' - The app's data source.
+-- * 'description' - A description of the app.
+-- * 'domains' - The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- * 'enableSSL' - Whether to enable SSL for the app.
+-- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 --
--- * 'caSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
---
--- * 'caEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
---
--- * 'caEnableSSL' - Whether to enable SSL for the app.
---
--- * 'caShortname' - The app's short name.
---
--- * 'caDataSources' - The app's data source.
---
--- * 'caAppSource' - A @Source@ object that specifies the app repository.
---
--- * 'caAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
---
--- * 'caDomains' - The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
---
--- * 'caDescription' - A description of the app.
---
--- * 'caStackId' - The stack ID.
---
--- * 'caName' - The app name.
---
--- * 'caType' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
-createApp ::
-  -- | 'caStackId'
-  Text ->
-  -- | 'caName'
-  Text ->
-  -- | 'caType'
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
+-- * 'name' - The app name.
+-- * 'shortname' - The app's short name.
+-- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
+-- * 'stackId' - The stack ID.
+-- * 'type'' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
+mkCreateApp ::
+  -- | 'stackId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'type''
   AppType ->
   CreateApp
-createApp pStackId_ pName_ pType_ =
+mkCreateApp pStackId_ pName_ pType_ =
   CreateApp'
-    { _caSSLConfiguration = Nothing,
-      _caEnvironment = Nothing,
-      _caEnableSSL = Nothing,
-      _caShortname = Nothing,
-      _caDataSources = Nothing,
-      _caAppSource = Nothing,
-      _caAttributes = Nothing,
-      _caDomains = Nothing,
-      _caDescription = Nothing,
-      _caStackId = pStackId_,
-      _caName = pName_,
-      _caType = pType_
+    { sslConfiguration = Lude.Nothing,
+      environment = Lude.Nothing,
+      enableSSL = Lude.Nothing,
+      shortname = Lude.Nothing,
+      dataSources = Lude.Nothing,
+      appSource = Lude.Nothing,
+      attributes = Lude.Nothing,
+      domains = Lude.Nothing,
+      description = Lude.Nothing,
+      stackId = pStackId_,
+      name = pName_,
+      type' = pType_
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
-caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
-caSSLConfiguration = lens _caSSLConfiguration (\s a -> s {_caSSLConfiguration = a})
+--
+-- /Note:/ Consider using 'sslConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caSSLConfiguration :: Lens.Lens' CreateApp (Lude.Maybe SSLConfiguration)
+caSSLConfiguration = Lens.lens (sslConfiguration :: CreateApp -> Lude.Maybe SSLConfiguration) (\s a -> s {sslConfiguration = a} :: CreateApp)
+{-# DEPRECATED caSSLConfiguration "Use generic-lens or generic-optics with 'sslConfiguration' instead." #-}
 
--- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
-caEnvironment :: Lens' CreateApp [EnvironmentVariable]
-caEnvironment = lens _caEnvironment (\s a -> s {_caEnvironment = a}) . _Default . _Coerce
+-- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
+--
+-- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEnvironment :: Lens.Lens' CreateApp (Lude.Maybe [EnvironmentVariable])
+caEnvironment = Lens.lens (environment :: CreateApp -> Lude.Maybe [EnvironmentVariable]) (\s a -> s {environment = a} :: CreateApp)
+{-# DEPRECATED caEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | Whether to enable SSL for the app.
-caEnableSSL :: Lens' CreateApp (Maybe Bool)
-caEnableSSL = lens _caEnableSSL (\s a -> s {_caEnableSSL = a})
+--
+-- /Note:/ Consider using 'enableSSL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEnableSSL :: Lens.Lens' CreateApp (Lude.Maybe Lude.Bool)
+caEnableSSL = Lens.lens (enableSSL :: CreateApp -> Lude.Maybe Lude.Bool) (\s a -> s {enableSSL = a} :: CreateApp)
+{-# DEPRECATED caEnableSSL "Use generic-lens or generic-optics with 'enableSSL' instead." #-}
 
 -- | The app's short name.
-caShortname :: Lens' CreateApp (Maybe Text)
-caShortname = lens _caShortname (\s a -> s {_caShortname = a})
+--
+-- /Note:/ Consider using 'shortname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caShortname :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caShortname = Lens.lens (shortname :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {shortname = a} :: CreateApp)
+{-# DEPRECATED caShortname "Use generic-lens or generic-optics with 'shortname' instead." #-}
 
 -- | The app's data source.
-caDataSources :: Lens' CreateApp [DataSource]
-caDataSources = lens _caDataSources (\s a -> s {_caDataSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDataSources :: Lens.Lens' CreateApp (Lude.Maybe [DataSource])
+caDataSources = Lens.lens (dataSources :: CreateApp -> Lude.Maybe [DataSource]) (\s a -> s {dataSources = a} :: CreateApp)
+{-# DEPRECATED caDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | A @Source@ object that specifies the app repository.
-caAppSource :: Lens' CreateApp (Maybe Source)
-caAppSource = lens _caAppSource (\s a -> s {_caAppSource = a})
+--
+-- /Note:/ Consider using 'appSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAppSource :: Lens.Lens' CreateApp (Lude.Maybe Source)
+caAppSource = Lens.lens (appSource :: CreateApp -> Lude.Maybe Source) (\s a -> s {appSource = a} :: CreateApp)
+{-# DEPRECATED caAppSource "Use generic-lens or generic-optics with 'appSource' instead." #-}
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
-caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys (Text))
-caAttributes = lens _caAttributes (\s a -> s {_caAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAttributes :: Lens.Lens' CreateApp (Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)))
+caAttributes = Lens.lens (attributes :: CreateApp -> Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text))) (\s a -> s {attributes = a} :: CreateApp)
+{-# DEPRECATED caAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
-caDomains :: Lens' CreateApp [Text]
-caDomains = lens _caDomains (\s a -> s {_caDomains = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDomains :: Lens.Lens' CreateApp (Lude.Maybe [Lude.Text])
+caDomains = Lens.lens (domains :: CreateApp -> Lude.Maybe [Lude.Text]) (\s a -> s {domains = a} :: CreateApp)
+{-# DEPRECATED caDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
 -- | A description of the app.
-caDescription :: Lens' CreateApp (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApp)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The stack ID.
-caStackId :: Lens' CreateApp Text
-caStackId = lens _caStackId (\s a -> s {_caStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStackId :: Lens.Lens' CreateApp Lude.Text
+caStackId = Lens.lens (stackId :: CreateApp -> Lude.Text) (\s a -> s {stackId = a} :: CreateApp)
+{-# DEPRECATED caStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The app name.
-caName :: Lens' CreateApp Text
-caName = lens _caName (\s a -> s {_caName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateApp Lude.Text
+caName = Lens.lens (name :: CreateApp -> Lude.Text) (\s a -> s {name = a} :: CreateApp)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
-caType :: Lens' CreateApp AppType
-caType = lens _caType (\s a -> s {_caType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caType :: Lens.Lens' CreateApp AppType
+caType = Lens.lens (type' :: CreateApp -> AppType) (\s a -> s {type' = a} :: CreateApp)
+{-# DEPRECATED caType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest CreateApp where
+instance Lude.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateAppResponse' <$> (x .?> "AppId") <*> (pure (fromEnum s))
+          CreateAppResponse'
+            Lude.<$> (x Lude..?> "AppId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateApp
-
-instance NFData CreateApp
-
-instance ToHeaders CreateApp where
+instance Lude.ToHeaders CreateApp where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.CreateApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.CreateApp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateApp where
+instance Lude.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    object
-      ( catMaybes
-          [ ("SslConfiguration" .=) <$> _caSSLConfiguration,
-            ("Environment" .=) <$> _caEnvironment,
-            ("EnableSsl" .=) <$> _caEnableSSL,
-            ("Shortname" .=) <$> _caShortname,
-            ("DataSources" .=) <$> _caDataSources,
-            ("AppSource" .=) <$> _caAppSource,
-            ("Attributes" .=) <$> _caAttributes,
-            ("Domains" .=) <$> _caDomains,
-            ("Description" .=) <$> _caDescription,
-            Just ("StackId" .= _caStackId),
-            Just ("Name" .= _caName),
-            Just ("Type" .= _caType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SslConfiguration" Lude..=) Lude.<$> sslConfiguration,
+            ("Environment" Lude..=) Lude.<$> environment,
+            ("EnableSsl" Lude..=) Lude.<$> enableSSL,
+            ("Shortname" Lude..=) Lude.<$> shortname,
+            ("DataSources" Lude..=) Lude.<$> dataSources,
+            ("AppSource" Lude..=) Lude.<$> appSource,
+            ("Attributes" Lude..=) Lude.<$> attributes,
+            ("Domains" Lude..=) Lude.<$> domains,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("StackId" Lude..= stackId),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Type" Lude..= type')
           ]
       )
 
-instance ToPath CreateApp where
-  toPath = const "/"
+instance Lude.ToPath CreateApp where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateApp where
-  toQuery = const mempty
+instance Lude.ToQuery CreateApp where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @CreateApp@ request.
 --
---
---
--- /See:/ 'createAppResponse' smart constructor.
+-- /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsAppId ::
-      !(Maybe Text),
-    _carsResponseStatus :: !Int
+  { appId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsAppId' - The app ID.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createAppResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'appId' - The app ID.
+-- * 'responseStatus' - The response status code.
+mkCreateAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAppResponse
-createAppResponse pResponseStatus_ =
+mkCreateAppResponse pResponseStatus_ =
   CreateAppResponse'
-    { _carsAppId = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { appId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The app ID.
-carsAppId :: Lens' CreateAppResponse (Maybe Text)
-carsAppId = lens _carsAppId (\s a -> s {_carsAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsAppId :: Lens.Lens' CreateAppResponse (Lude.Maybe Lude.Text)
+carsAppId = Lens.lens (appId :: CreateAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: CreateAppResponse)
+{-# DEPRECATED carsAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAppResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateAppResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

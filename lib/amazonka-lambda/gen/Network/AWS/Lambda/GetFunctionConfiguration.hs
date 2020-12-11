@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Returns the version-specific settings of a Lambda function or version. The output includes only options that can vary between versions of a function. To modify these settings, use 'UpdateFunctionConfiguration' .
 --
---
 -- To get all of a function's details, including function-level settings, use 'GetFunction' .
 module Network.AWS.Lambda.GetFunctionConfiguration
-  ( -- * Creating a Request
-    getFunctionConfiguration,
-    GetFunctionConfiguration,
+  ( -- * Creating a request
+    GetFunctionConfiguration (..),
+    mkGetFunctionConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfcQualifier,
     gfcFunctionName,
 
-    -- * Destructuring the Response
-    functionConfiguration,
-    FunctionConfiguration,
+    -- * Destructuring the response
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -68,61 +62,96 @@ module Network.AWS.Lambda.GetFunctionConfiguration
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFunctionConfiguration' smart constructor.
+-- | /See:/ 'mkGetFunctionConfiguration' smart constructor.
 data GetFunctionConfiguration = GetFunctionConfiguration'
-  { _gfcQualifier ::
-      !(Maybe Text),
-    _gfcFunctionName :: !Text
+  { qualifier ::
+      Lude.Maybe Lude.Text,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'gfcQualifier' - Specify a version or alias to get details about a published version of the function.
+-- __Name formats__
 --
--- * 'gfcFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-getFunctionConfiguration ::
-  -- | 'gfcFunctionName'
-  Text ->
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'qualifier' - Specify a version or alias to get details about a published version of the function.
+mkGetFunctionConfiguration ::
+  -- | 'functionName'
+  Lude.Text ->
   GetFunctionConfiguration
-getFunctionConfiguration pFunctionName_ =
+mkGetFunctionConfiguration pFunctionName_ =
   GetFunctionConfiguration'
-    { _gfcQualifier = Nothing,
-      _gfcFunctionName = pFunctionName_
+    { qualifier = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | Specify a version or alias to get details about a published version of the function.
-gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
-gfcQualifier = lens _gfcQualifier (\s a -> s {_gfcQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfcQualifier :: Lens.Lens' GetFunctionConfiguration (Lude.Maybe Lude.Text)
+gfcQualifier = Lens.lens (qualifier :: GetFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionConfiguration)
+{-# DEPRECATED gfcQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
--- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-gfcFunctionName :: Lens' GetFunctionConfiguration Text
-gfcFunctionName = lens _gfcFunctionName (\s a -> s {_gfcFunctionName = a})
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfcFunctionName :: Lens.Lens' GetFunctionConfiguration Lude.Text
+gfcFunctionName = Lens.lens (functionName :: GetFunctionConfiguration -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConfiguration)
+{-# DEPRECATED gfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest GetFunctionConfiguration where
+instance Lude.AWSRequest GetFunctionConfiguration where
   type Rs GetFunctionConfiguration = FunctionConfiguration
-  request = get lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetFunctionConfiguration
+instance Lude.ToHeaders GetFunctionConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetFunctionConfiguration
-
-instance ToHeaders GetFunctionConfiguration where
-  toHeaders = const mempty
-
-instance ToPath GetFunctionConfiguration where
+instance Lude.ToPath GetFunctionConfiguration where
   toPath GetFunctionConfiguration' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _gfcFunctionName, "/configuration"]
+    Lude.mconcat
+      [ "/2015-03-31/functions/",
+        Lude.toBS functionName,
+        "/configuration"
+      ]
 
-instance ToQuery GetFunctionConfiguration where
+instance Lude.ToQuery GetFunctionConfiguration where
   toQuery GetFunctionConfiguration' {..} =
-    mconcat ["Qualifier" =: _gfcQualifier]
+    Lude.mconcat ["Qualifier" Lude.=: qualifier]

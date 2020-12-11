@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType where
+module Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType
+  ( ProviderUserIdentifierType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProviderUserIdentifierType,
+
+    -- * Lenses
+    puitProviderAttributeValue,
+    puitProviderAttributeName,
+    puitProviderName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for information about an identity provider for a user pool.
 --
---
---
--- /See:/ 'providerUserIdentifierType' smart constructor.
+-- /See:/ 'mkProviderUserIdentifierType' smart constructor.
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
-  { _puitProviderAttributeValue ::
-      !(Maybe Text),
-    _puitProviderAttributeName ::
-      !(Maybe Text),
-    _puitProviderName :: !(Maybe Text)
+  { providerAttributeValue ::
+      Lude.Maybe Lude.Text,
+    providerAttributeName ::
+      Lude.Maybe Lude.Text,
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProviderUserIdentifierType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'puitProviderAttributeValue' - The value of the provider attribute to link to, for example, @xxxxx_account@ .
---
--- * 'puitProviderAttributeName' - The name of the provider attribute to link to, for example, @NameID@ .
---
--- * 'puitProviderName' - The name of the provider, for example, Facebook, Google, or Login with Amazon.
-providerUserIdentifierType ::
+-- * 'providerAttributeName' - The name of the provider attribute to link to, for example, @NameID@ .
+-- * 'providerAttributeValue' - The value of the provider attribute to link to, for example, @xxxxx_account@ .
+-- * 'providerName' - The name of the provider, for example, Facebook, Google, or Login with Amazon.
+mkProviderUserIdentifierType ::
   ProviderUserIdentifierType
-providerUserIdentifierType =
+mkProviderUserIdentifierType =
   ProviderUserIdentifierType'
-    { _puitProviderAttributeValue =
-        Nothing,
-      _puitProviderAttributeName = Nothing,
-      _puitProviderName = Nothing
+    { providerAttributeValue =
+        Lude.Nothing,
+      providerAttributeName = Lude.Nothing,
+      providerName = Lude.Nothing
     }
 
 -- | The value of the provider attribute to link to, for example, @xxxxx_account@ .
-puitProviderAttributeValue :: Lens' ProviderUserIdentifierType (Maybe Text)
-puitProviderAttributeValue = lens _puitProviderAttributeValue (\s a -> s {_puitProviderAttributeValue = a})
+--
+-- /Note:/ Consider using 'providerAttributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puitProviderAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Lude.Maybe Lude.Text)
+puitProviderAttributeValue = Lens.lens (providerAttributeValue :: ProviderUserIdentifierType -> Lude.Maybe Lude.Text) (\s a -> s {providerAttributeValue = a} :: ProviderUserIdentifierType)
+{-# DEPRECATED puitProviderAttributeValue "Use generic-lens or generic-optics with 'providerAttributeValue' instead." #-}
 
 -- | The name of the provider attribute to link to, for example, @NameID@ .
-puitProviderAttributeName :: Lens' ProviderUserIdentifierType (Maybe Text)
-puitProviderAttributeName = lens _puitProviderAttributeName (\s a -> s {_puitProviderAttributeName = a})
+--
+-- /Note:/ Consider using 'providerAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puitProviderAttributeName :: Lens.Lens' ProviderUserIdentifierType (Lude.Maybe Lude.Text)
+puitProviderAttributeName = Lens.lens (providerAttributeName :: ProviderUserIdentifierType -> Lude.Maybe Lude.Text) (\s a -> s {providerAttributeName = a} :: ProviderUserIdentifierType)
+{-# DEPRECATED puitProviderAttributeName "Use generic-lens or generic-optics with 'providerAttributeName' instead." #-}
 
 -- | The name of the provider, for example, Facebook, Google, or Login with Amazon.
-puitProviderName :: Lens' ProviderUserIdentifierType (Maybe Text)
-puitProviderName = lens _puitProviderName (\s a -> s {_puitProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puitProviderName :: Lens.Lens' ProviderUserIdentifierType (Lude.Maybe Lude.Text)
+puitProviderName = Lens.lens (providerName :: ProviderUserIdentifierType -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: ProviderUserIdentifierType)
+{-# DEPRECATED puitProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance Hashable ProviderUserIdentifierType
-
-instance NFData ProviderUserIdentifierType
-
-instance ToJSON ProviderUserIdentifierType where
+instance Lude.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =
-    object
-      ( catMaybes
-          [ ("ProviderAttributeValue" .=) <$> _puitProviderAttributeValue,
-            ("ProviderAttributeName" .=) <$> _puitProviderAttributeName,
-            ("ProviderName" .=) <$> _puitProviderName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProviderAttributeValue" Lude..=)
+              Lude.<$> providerAttributeValue,
+            ("ProviderAttributeName" Lude..=) Lude.<$> providerAttributeName,
+            ("ProviderName" Lude..=) Lude.<$> providerName
           ]
       )

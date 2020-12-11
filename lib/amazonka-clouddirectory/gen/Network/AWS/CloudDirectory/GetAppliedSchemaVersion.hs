@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Returns current applied schema version ARN, including the minor version in use.
 module Network.AWS.CloudDirectory.GetAppliedSchemaVersion
-  ( -- * Creating a Request
-    getAppliedSchemaVersion,
-    GetAppliedSchemaVersion,
+  ( -- * Creating a request
+    GetAppliedSchemaVersion (..),
+    mkGetAppliedSchemaVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gasvSchemaARN,
 
-    -- * Destructuring the Response
-    getAppliedSchemaVersionResponse,
-    GetAppliedSchemaVersionResponse,
+    -- * Destructuring the response
+    GetAppliedSchemaVersionResponse (..),
+    mkGetAppliedSchemaVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasvrsAppliedSchemaARN,
     gasvrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAppliedSchemaVersion' smart constructor.
+-- | /See:/ 'mkGetAppliedSchemaVersion' smart constructor.
 newtype GetAppliedSchemaVersion = GetAppliedSchemaVersion'
-  { _gasvSchemaARN ::
-      Text
+  { schemaARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppliedSchemaVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasvSchemaARN' - The ARN of the applied schema.
-getAppliedSchemaVersion ::
-  -- | 'gasvSchemaARN'
-  Text ->
+-- * 'schemaARN' - The ARN of the applied schema.
+mkGetAppliedSchemaVersion ::
+  -- | 'schemaARN'
+  Lude.Text ->
   GetAppliedSchemaVersion
-getAppliedSchemaVersion pSchemaARN_ =
-  GetAppliedSchemaVersion' {_gasvSchemaARN = pSchemaARN_}
+mkGetAppliedSchemaVersion pSchemaARN_ =
+  GetAppliedSchemaVersion' {schemaARN = pSchemaARN_}
 
 -- | The ARN of the applied schema.
-gasvSchemaARN :: Lens' GetAppliedSchemaVersion Text
-gasvSchemaARN = lens _gasvSchemaARN (\s a -> s {_gasvSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasvSchemaARN :: Lens.Lens' GetAppliedSchemaVersion Lude.Text
+gasvSchemaARN = Lens.lens (schemaARN :: GetAppliedSchemaVersion -> Lude.Text) (\s a -> s {schemaARN = a} :: GetAppliedSchemaVersion)
+{-# DEPRECATED gasvSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance AWSRequest GetAppliedSchemaVersion where
+instance Lude.AWSRequest GetAppliedSchemaVersion where
   type Rs GetAppliedSchemaVersion = GetAppliedSchemaVersionResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAppliedSchemaVersionResponse'
-            <$> (x .?> "AppliedSchemaArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AppliedSchemaArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAppliedSchemaVersion
+instance Lude.ToHeaders GetAppliedSchemaVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAppliedSchemaVersion
-
-instance ToHeaders GetAppliedSchemaVersion where
-  toHeaders = const mempty
-
-instance ToJSON GetAppliedSchemaVersion where
+instance Lude.ToJSON GetAppliedSchemaVersion where
   toJSON GetAppliedSchemaVersion' {..} =
-    object (catMaybes [Just ("SchemaArn" .= _gasvSchemaARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SchemaArn" Lude..= schemaARN)])
 
-instance ToPath GetAppliedSchemaVersion where
+instance Lude.ToPath GetAppliedSchemaVersion where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
+    Lude.const
+      "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
 
-instance ToQuery GetAppliedSchemaVersion where
-  toQuery = const mempty
+instance Lude.ToQuery GetAppliedSchemaVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppliedSchemaVersionResponse' smart constructor.
+-- | /See:/ 'mkGetAppliedSchemaVersionResponse' smart constructor.
 data GetAppliedSchemaVersionResponse = GetAppliedSchemaVersionResponse'
-  { _gasvrsAppliedSchemaARN ::
-      !(Maybe Text),
-    _gasvrsResponseStatus ::
-      !Int
+  { appliedSchemaARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppliedSchemaVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasvrsAppliedSchemaARN' - Current applied schema ARN, including the minor version in use if one was provided.
---
--- * 'gasvrsResponseStatus' - -- | The response status code.
-getAppliedSchemaVersionResponse ::
-  -- | 'gasvrsResponseStatus'
-  Int ->
+-- * 'appliedSchemaARN' - Current applied schema ARN, including the minor version in use if one was provided.
+-- * 'responseStatus' - The response status code.
+mkGetAppliedSchemaVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppliedSchemaVersionResponse
-getAppliedSchemaVersionResponse pResponseStatus_ =
+mkGetAppliedSchemaVersionResponse pResponseStatus_ =
   GetAppliedSchemaVersionResponse'
-    { _gasvrsAppliedSchemaARN =
-        Nothing,
-      _gasvrsResponseStatus = pResponseStatus_
+    { appliedSchemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Current applied schema ARN, including the minor version in use if one was provided.
-gasvrsAppliedSchemaARN :: Lens' GetAppliedSchemaVersionResponse (Maybe Text)
-gasvrsAppliedSchemaARN = lens _gasvrsAppliedSchemaARN (\s a -> s {_gasvrsAppliedSchemaARN = a})
+--
+-- /Note:/ Consider using 'appliedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasvrsAppliedSchemaARN :: Lens.Lens' GetAppliedSchemaVersionResponse (Lude.Maybe Lude.Text)
+gasvrsAppliedSchemaARN = Lens.lens (appliedSchemaARN :: GetAppliedSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {appliedSchemaARN = a} :: GetAppliedSchemaVersionResponse)
+{-# DEPRECATED gasvrsAppliedSchemaARN "Use generic-lens or generic-optics with 'appliedSchemaARN' instead." #-}
 
--- | -- | The response status code.
-gasvrsResponseStatus :: Lens' GetAppliedSchemaVersionResponse Int
-gasvrsResponseStatus = lens _gasvrsResponseStatus (\s a -> s {_gasvrsResponseStatus = a})
-
-instance NFData GetAppliedSchemaVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasvrsResponseStatus :: Lens.Lens' GetAppliedSchemaVersionResponse Lude.Int
+gasvrsResponseStatus = Lens.lens (responseStatus :: GetAppliedSchemaVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppliedSchemaVersionResponse)
+{-# DEPRECATED gasvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

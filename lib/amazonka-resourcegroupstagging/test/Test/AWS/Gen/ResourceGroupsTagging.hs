@@ -28,55 +28,55 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetComplianceSummary $
---             getComplianceSummary
+--             mkGetComplianceSummary
 --
 --         , requestDescribeReportCreation $
---             describeReportCreation
+--             mkDescribeReportCreation
 --
 --         , requestGetTagKeys $
---             getTagKeys
+--             mkGetTagKeys
 --
 --         , requestTagResources $
---             tagResources
+--             mkTagResources
 --
 --         , requestGetTagValues $
---             getTagValues
+--             mkGetTagValues
 --
 --         , requestStartReportCreation $
---             startReportCreation
+--             mkStartReportCreation
 --
 --         , requestGetResources $
---             getResources
+--             mkGetResources
 --
 --         , requestUntagResources $
---             untagResources
+--             mkUntagResources
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetComplianceSummary $
---             getComplianceSummaryResponse
+--             mkGetComplianceSummaryResponse
 --
 --         , responseDescribeReportCreation $
---             describeReportCreationResponse
+--             mkDescribeReportCreationResponse
 --
 --         , responseGetTagKeys $
---             getTagKeysResponse
+--             mkGetTagKeysResponse
 --
 --         , responseTagResources $
---             tagResourcesResponse
+--             mkTagResourcesResponse
 --
 --         , responseGetTagValues $
---             getTagValuesResponse
+--             mkGetTagValuesResponse
 --
 --         , responseStartReportCreation $
---             startReportCreationResponse
+--             mkStartReportCreationResponse
 --
 --         , responseGetResources $
---             getResourcesResponse
+--             mkGetResourcesResponse
 --
 --         , responseUntagResources $
---             untagResourcesResponse
+--             mkUntagResourcesResponse
 --
 --           ]
 --     ]
@@ -138,7 +138,7 @@ responseGetComplianceSummary =
   res
     "GetComplianceSummaryResponse"
     "fixture/GetComplianceSummaryResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy GetComplianceSummary)
 
 responseDescribeReportCreation :: DescribeReportCreationResponse -> TestTree
@@ -146,7 +146,7 @@ responseDescribeReportCreation =
   res
     "DescribeReportCreationResponse"
     "fixture/DescribeReportCreationResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy DescribeReportCreation)
 
 responseGetTagKeys :: GetTagKeysResponse -> TestTree
@@ -154,7 +154,7 @@ responseGetTagKeys =
   res
     "GetTagKeysResponse"
     "fixture/GetTagKeysResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy GetTagKeys)
 
 responseTagResources :: TagResourcesResponse -> TestTree
@@ -162,7 +162,7 @@ responseTagResources =
   res
     "TagResourcesResponse"
     "fixture/TagResourcesResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy TagResources)
 
 responseGetTagValues :: GetTagValuesResponse -> TestTree
@@ -170,7 +170,7 @@ responseGetTagValues =
   res
     "GetTagValuesResponse"
     "fixture/GetTagValuesResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy GetTagValues)
 
 responseStartReportCreation :: StartReportCreationResponse -> TestTree
@@ -178,7 +178,7 @@ responseStartReportCreation =
   res
     "StartReportCreationResponse"
     "fixture/StartReportCreationResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy StartReportCreation)
 
 responseGetResources :: GetResourcesResponse -> TestTree
@@ -186,7 +186,7 @@ responseGetResources =
   res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy GetResources)
 
 responseUntagResources :: UntagResourcesResponse -> TestTree
@@ -194,5 +194,5 @@ responseUntagResources =
   res
     "UntagResourcesResponse"
     "fixture/UntagResourcesResponse.proto"
-    resourceGroupsTagging
+    resourceGroupsTaggingService
     (Proxy :: Proxy UntagResources)

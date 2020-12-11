@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,161 @@
 --
 -- Evaluates whether a pull request has met all the conditions specified in its associated approval rules.
 module Network.AWS.CodeCommit.EvaluatePullRequestApprovalRules
-  ( -- * Creating a Request
-    evaluatePullRequestApprovalRules,
-    EvaluatePullRequestApprovalRules,
+  ( -- * Creating a request
+    EvaluatePullRequestApprovalRules (..),
+    mkEvaluatePullRequestApprovalRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eprarPullRequestId,
     eprarRevisionId,
 
-    -- * Destructuring the Response
-    evaluatePullRequestApprovalRulesResponse,
-    EvaluatePullRequestApprovalRulesResponse,
+    -- * Destructuring the response
+    EvaluatePullRequestApprovalRulesResponse (..),
+    mkEvaluatePullRequestApprovalRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eprarrsResponseStatus,
     eprarrsEvaluation,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'evaluatePullRequestApprovalRules' smart constructor.
+-- | /See:/ 'mkEvaluatePullRequestApprovalRules' smart constructor.
 data EvaluatePullRequestApprovalRules = EvaluatePullRequestApprovalRules'
-  { _eprarPullRequestId ::
-      !Text,
-    _eprarRevisionId :: !Text
+  { pullRequestId ::
+      Lude.Text,
+    revisionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluatePullRequestApprovalRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eprarPullRequestId' - The system-generated ID of the pull request you want to evaluate.
---
--- * 'eprarRevisionId' - The system-generated ID for the pull request revision. To retrieve the most recent revision ID for a pull request, use 'GetPullRequest' .
-evaluatePullRequestApprovalRules ::
-  -- | 'eprarPullRequestId'
-  Text ->
-  -- | 'eprarRevisionId'
-  Text ->
+-- * 'pullRequestId' - The system-generated ID of the pull request you want to evaluate.
+-- * 'revisionId' - The system-generated ID for the pull request revision. To retrieve the most recent revision ID for a pull request, use 'GetPullRequest' .
+mkEvaluatePullRequestApprovalRules ::
+  -- | 'pullRequestId'
+  Lude.Text ->
+  -- | 'revisionId'
+  Lude.Text ->
   EvaluatePullRequestApprovalRules
-evaluatePullRequestApprovalRules pPullRequestId_ pRevisionId_ =
+mkEvaluatePullRequestApprovalRules pPullRequestId_ pRevisionId_ =
   EvaluatePullRequestApprovalRules'
-    { _eprarPullRequestId =
+    { pullRequestId =
         pPullRequestId_,
-      _eprarRevisionId = pRevisionId_
+      revisionId = pRevisionId_
     }
 
 -- | The system-generated ID of the pull request you want to evaluate.
-eprarPullRequestId :: Lens' EvaluatePullRequestApprovalRules Text
-eprarPullRequestId = lens _eprarPullRequestId (\s a -> s {_eprarPullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprarPullRequestId :: Lens.Lens' EvaluatePullRequestApprovalRules Lude.Text
+eprarPullRequestId = Lens.lens (pullRequestId :: EvaluatePullRequestApprovalRules -> Lude.Text) (\s a -> s {pullRequestId = a} :: EvaluatePullRequestApprovalRules)
+{-# DEPRECATED eprarPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The system-generated ID for the pull request revision. To retrieve the most recent revision ID for a pull request, use 'GetPullRequest' .
-eprarRevisionId :: Lens' EvaluatePullRequestApprovalRules Text
-eprarRevisionId = lens _eprarRevisionId (\s a -> s {_eprarRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprarRevisionId :: Lens.Lens' EvaluatePullRequestApprovalRules Lude.Text
+eprarRevisionId = Lens.lens (revisionId :: EvaluatePullRequestApprovalRules -> Lude.Text) (\s a -> s {revisionId = a} :: EvaluatePullRequestApprovalRules)
+{-# DEPRECATED eprarRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance AWSRequest EvaluatePullRequestApprovalRules where
+instance Lude.AWSRequest EvaluatePullRequestApprovalRules where
   type
     Rs EvaluatePullRequestApprovalRules =
       EvaluatePullRequestApprovalRulesResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           EvaluatePullRequestApprovalRulesResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "evaluation")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "evaluation")
       )
 
-instance Hashable EvaluatePullRequestApprovalRules
-
-instance NFData EvaluatePullRequestApprovalRules
-
-instance ToHeaders EvaluatePullRequestApprovalRules where
+instance Lude.ToHeaders EvaluatePullRequestApprovalRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodeCommit_20150413.EvaluatePullRequestApprovalRules" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.EvaluatePullRequestApprovalRules" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EvaluatePullRequestApprovalRules where
+instance Lude.ToJSON EvaluatePullRequestApprovalRules where
   toJSON EvaluatePullRequestApprovalRules' {..} =
-    object
-      ( catMaybes
-          [ Just ("pullRequestId" .= _eprarPullRequestId),
-            Just ("revisionId" .= _eprarRevisionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("revisionId" Lude..= revisionId)
           ]
       )
 
-instance ToPath EvaluatePullRequestApprovalRules where
-  toPath = const "/"
+instance Lude.ToPath EvaluatePullRequestApprovalRules where
+  toPath = Lude.const "/"
 
-instance ToQuery EvaluatePullRequestApprovalRules where
-  toQuery = const mempty
+instance Lude.ToQuery EvaluatePullRequestApprovalRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'evaluatePullRequestApprovalRulesResponse' smart constructor.
+-- | /See:/ 'mkEvaluatePullRequestApprovalRulesResponse' smart constructor.
 data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRulesResponse'
-  { _eprarrsResponseStatus ::
-      !Int,
-    _eprarrsEvaluation ::
-      !Evaluation
+  { responseStatus ::
+      Lude.Int,
+    evaluation ::
+      Evaluation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluatePullRequestApprovalRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eprarrsResponseStatus' - -- | The response status code.
---
--- * 'eprarrsEvaluation' - The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
-evaluatePullRequestApprovalRulesResponse ::
-  -- | 'eprarrsResponseStatus'
-  Int ->
-  -- | 'eprarrsEvaluation'
+-- * 'evaluation' - The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
+-- * 'responseStatus' - The response status code.
+mkEvaluatePullRequestApprovalRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'evaluation'
   Evaluation ->
   EvaluatePullRequestApprovalRulesResponse
-evaluatePullRequestApprovalRulesResponse
+mkEvaluatePullRequestApprovalRulesResponse
   pResponseStatus_
   pEvaluation_ =
     EvaluatePullRequestApprovalRulesResponse'
-      { _eprarrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _eprarrsEvaluation = pEvaluation_
+        evaluation = pEvaluation_
       }
 
--- | -- | The response status code.
-eprarrsResponseStatus :: Lens' EvaluatePullRequestApprovalRulesResponse Int
-eprarrsResponseStatus = lens _eprarrsResponseStatus (\s a -> s {_eprarrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprarrsResponseStatus :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Lude.Int
+eprarrsResponseStatus = Lens.lens (responseStatus :: EvaluatePullRequestApprovalRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EvaluatePullRequestApprovalRulesResponse)
+{-# DEPRECATED eprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
-eprarrsEvaluation :: Lens' EvaluatePullRequestApprovalRulesResponse Evaluation
-eprarrsEvaluation = lens _eprarrsEvaluation (\s a -> s {_eprarrsEvaluation = a})
-
-instance NFData EvaluatePullRequestApprovalRulesResponse
+--
+-- /Note:/ Consider using 'evaluation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprarrsEvaluation :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Evaluation
+eprarrsEvaluation = Lens.lens (evaluation :: EvaluatePullRequestApprovalRulesResponse -> Evaluation) (\s a -> s {evaluation = a} :: EvaluatePullRequestApprovalRulesResponse)
+{-# DEPRECATED eprarrsEvaluation "Use generic-lens or generic-optics with 'evaluation' instead." #-}

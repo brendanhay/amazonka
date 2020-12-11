@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyLimits where
+module Network.AWS.Pinpoint.Types.JourneyLimits
+  ( JourneyLimits (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJourneyLimits,
+
+    -- * Lenses
+    jlMessagesPerSecond,
+    jlEndpointReentryCap,
+    jlDailyCap,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.
 --
---
---
--- /See:/ 'journeyLimits' smart constructor.
+-- /See:/ 'mkJourneyLimits' smart constructor.
 data JourneyLimits = JourneyLimits'
-  { _jlMessagesPerSecond ::
-      !(Maybe Int),
-    _jlEndpointReentryCap :: !(Maybe Int),
-    _jlDailyCap :: !(Maybe Int)
+  { messagesPerSecond ::
+      Lude.Maybe Lude.Int,
+    endpointReentryCap :: Lude.Maybe Lude.Int,
+    dailyCap :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jlMessagesPerSecond' - The maximum number of messages that the journey can send each second.
---
--- * 'jlEndpointReentryCap' - The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
---
--- * 'jlDailyCap' - The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
-journeyLimits ::
+-- * 'dailyCap' - The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
+-- * 'endpointReentryCap' - The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
+-- * 'messagesPerSecond' - The maximum number of messages that the journey can send each second.
+mkJourneyLimits ::
   JourneyLimits
-journeyLimits =
+mkJourneyLimits =
   JourneyLimits'
-    { _jlMessagesPerSecond = Nothing,
-      _jlEndpointReentryCap = Nothing,
-      _jlDailyCap = Nothing
+    { messagesPerSecond = Lude.Nothing,
+      endpointReentryCap = Lude.Nothing,
+      dailyCap = Lude.Nothing
     }
 
 -- | The maximum number of messages that the journey can send each second.
-jlMessagesPerSecond :: Lens' JourneyLimits (Maybe Int)
-jlMessagesPerSecond = lens _jlMessagesPerSecond (\s a -> s {_jlMessagesPerSecond = a})
+--
+-- /Note:/ Consider using 'messagesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jlMessagesPerSecond :: Lens.Lens' JourneyLimits (Lude.Maybe Lude.Int)
+jlMessagesPerSecond = Lens.lens (messagesPerSecond :: JourneyLimits -> Lude.Maybe Lude.Int) (\s a -> s {messagesPerSecond = a} :: JourneyLimits)
+{-# DEPRECATED jlMessagesPerSecond "Use generic-lens or generic-optics with 'messagesPerSecond' instead." #-}
 
 -- | The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
-jlEndpointReentryCap :: Lens' JourneyLimits (Maybe Int)
-jlEndpointReentryCap = lens _jlEndpointReentryCap (\s a -> s {_jlEndpointReentryCap = a})
+--
+-- /Note:/ Consider using 'endpointReentryCap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jlEndpointReentryCap :: Lens.Lens' JourneyLimits (Lude.Maybe Lude.Int)
+jlEndpointReentryCap = Lens.lens (endpointReentryCap :: JourneyLimits -> Lude.Maybe Lude.Int) (\s a -> s {endpointReentryCap = a} :: JourneyLimits)
+{-# DEPRECATED jlEndpointReentryCap "Use generic-lens or generic-optics with 'endpointReentryCap' instead." #-}
 
 -- | The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
-jlDailyCap :: Lens' JourneyLimits (Maybe Int)
-jlDailyCap = lens _jlDailyCap (\s a -> s {_jlDailyCap = a})
+--
+-- /Note:/ Consider using 'dailyCap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jlDailyCap :: Lens.Lens' JourneyLimits (Lude.Maybe Lude.Int)
+jlDailyCap = Lens.lens (dailyCap :: JourneyLimits -> Lude.Maybe Lude.Int) (\s a -> s {dailyCap = a} :: JourneyLimits)
+{-# DEPRECATED jlDailyCap "Use generic-lens or generic-optics with 'dailyCap' instead." #-}
 
-instance FromJSON JourneyLimits where
+instance Lude.FromJSON JourneyLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyLimits"
       ( \x ->
           JourneyLimits'
-            <$> (x .:? "MessagesPerSecond")
-            <*> (x .:? "EndpointReentryCap")
-            <*> (x .:? "DailyCap")
+            Lude.<$> (x Lude..:? "MessagesPerSecond")
+            Lude.<*> (x Lude..:? "EndpointReentryCap")
+            Lude.<*> (x Lude..:? "DailyCap")
       )
 
-instance Hashable JourneyLimits
-
-instance NFData JourneyLimits
-
-instance ToJSON JourneyLimits where
+instance Lude.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =
-    object
-      ( catMaybes
-          [ ("MessagesPerSecond" .=) <$> _jlMessagesPerSecond,
-            ("EndpointReentryCap" .=) <$> _jlEndpointReentryCap,
-            ("DailyCap" .=) <$> _jlDailyCap
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MessagesPerSecond" Lude..=) Lude.<$> messagesPerSecond,
+            ("EndpointReentryCap" Lude..=) Lude.<$> endpointReentryCap,
+            ("DailyCap" Lude..=) Lude.<$> dailyCap
           ]
       )

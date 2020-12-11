@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment where
+module Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment
+  ( FunctionConfigurationEnvironment (..),
+
+    -- * Smart constructor
+    mkFunctionConfigurationEnvironment,
+
+    -- * Lenses
+    fceVariables,
+    fceExecution,
+    fceResourceAccessPolicies,
+    fceAccessSysfs,
+  )
+where
 
 import Network.AWS.Greengrass.Types.FunctionExecutionConfig
 import Network.AWS.Greengrass.Types.ResourceAccessPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The environment configuration of the function.
 --
--- /See:/ 'functionConfigurationEnvironment' smart constructor.
+-- /See:/ 'mkFunctionConfigurationEnvironment' smart constructor.
 data FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
-  { _fceVariables ::
-      !( Maybe
-           (Map Text (Text))
-       ),
-    _fceExecution ::
-      !( Maybe
-           FunctionExecutionConfig
-       ),
-    _fceResourceAccessPolicies ::
-      !( Maybe
-           [ResourceAccessPolicy]
-       ),
-    _fceAccessSysfs ::
-      !(Maybe Bool)
+  { variables ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    execution ::
+      Lude.Maybe
+        FunctionExecutionConfig,
+    resourceAccessPolicies ::
+      Lude.Maybe
+        [ResourceAccessPolicy],
+    accessSysfs ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionConfigurationEnvironment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fceVariables' - Environment variables for the Lambda function's configuration.
---
--- * 'fceExecution' - Configuration related to executing the Lambda function
---
--- * 'fceResourceAccessPolicies' - A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
---
--- * 'fceAccessSysfs' - If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
-functionConfigurationEnvironment ::
+-- * 'accessSysfs' - If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
+-- * 'execution' - Configuration related to executing the Lambda function
+-- * 'resourceAccessPolicies' - A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
+-- * 'variables' - Environment variables for the Lambda function's configuration.
+mkFunctionConfigurationEnvironment ::
   FunctionConfigurationEnvironment
-functionConfigurationEnvironment =
+mkFunctionConfigurationEnvironment =
   FunctionConfigurationEnvironment'
-    { _fceVariables = Nothing,
-      _fceExecution = Nothing,
-      _fceResourceAccessPolicies = Nothing,
-      _fceAccessSysfs = Nothing
+    { variables = Lude.Nothing,
+      execution = Lude.Nothing,
+      resourceAccessPolicies = Lude.Nothing,
+      accessSysfs = Lude.Nothing
     }
 
 -- | Environment variables for the Lambda function's configuration.
-fceVariables :: Lens' FunctionConfigurationEnvironment (HashMap Text (Text))
-fceVariables = lens _fceVariables (\s a -> s {_fceVariables = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fceVariables :: Lens.Lens' FunctionConfigurationEnvironment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+fceVariables = Lens.lens (variables :: FunctionConfigurationEnvironment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {variables = a} :: FunctionConfigurationEnvironment)
+{-# DEPRECATED fceVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | Configuration related to executing the Lambda function
-fceExecution :: Lens' FunctionConfigurationEnvironment (Maybe FunctionExecutionConfig)
-fceExecution = lens _fceExecution (\s a -> s {_fceExecution = a})
+--
+-- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fceExecution :: Lens.Lens' FunctionConfigurationEnvironment (Lude.Maybe FunctionExecutionConfig)
+fceExecution = Lens.lens (execution :: FunctionConfigurationEnvironment -> Lude.Maybe FunctionExecutionConfig) (\s a -> s {execution = a} :: FunctionConfigurationEnvironment)
+{-# DEPRECATED fceExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
 
 -- | A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
-fceResourceAccessPolicies :: Lens' FunctionConfigurationEnvironment [ResourceAccessPolicy]
-fceResourceAccessPolicies = lens _fceResourceAccessPolicies (\s a -> s {_fceResourceAccessPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceAccessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fceResourceAccessPolicies :: Lens.Lens' FunctionConfigurationEnvironment (Lude.Maybe [ResourceAccessPolicy])
+fceResourceAccessPolicies = Lens.lens (resourceAccessPolicies :: FunctionConfigurationEnvironment -> Lude.Maybe [ResourceAccessPolicy]) (\s a -> s {resourceAccessPolicies = a} :: FunctionConfigurationEnvironment)
+{-# DEPRECATED fceResourceAccessPolicies "Use generic-lens or generic-optics with 'resourceAccessPolicies' instead." #-}
 
 -- | If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
-fceAccessSysfs :: Lens' FunctionConfigurationEnvironment (Maybe Bool)
-fceAccessSysfs = lens _fceAccessSysfs (\s a -> s {_fceAccessSysfs = a})
+--
+-- /Note:/ Consider using 'accessSysfs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fceAccessSysfs :: Lens.Lens' FunctionConfigurationEnvironment (Lude.Maybe Lude.Bool)
+fceAccessSysfs = Lens.lens (accessSysfs :: FunctionConfigurationEnvironment -> Lude.Maybe Lude.Bool) (\s a -> s {accessSysfs = a} :: FunctionConfigurationEnvironment)
+{-# DEPRECATED fceAccessSysfs "Use generic-lens or generic-optics with 'accessSysfs' instead." #-}
 
-instance FromJSON FunctionConfigurationEnvironment where
+instance Lude.FromJSON FunctionConfigurationEnvironment where
   parseJSON =
-    withObject
+    Lude.withObject
       "FunctionConfigurationEnvironment"
       ( \x ->
           FunctionConfigurationEnvironment'
-            <$> (x .:? "Variables" .!= mempty)
-            <*> (x .:? "Execution")
-            <*> (x .:? "ResourceAccessPolicies" .!= mempty)
-            <*> (x .:? "AccessSysfs")
+            Lude.<$> (x Lude..:? "Variables" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Execution")
+            Lude.<*> (x Lude..:? "ResourceAccessPolicies" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AccessSysfs")
       )
 
-instance Hashable FunctionConfigurationEnvironment
-
-instance NFData FunctionConfigurationEnvironment
-
-instance ToJSON FunctionConfigurationEnvironment where
+instance Lude.ToJSON FunctionConfigurationEnvironment where
   toJSON FunctionConfigurationEnvironment' {..} =
-    object
-      ( catMaybes
-          [ ("Variables" .=) <$> _fceVariables,
-            ("Execution" .=) <$> _fceExecution,
-            ("ResourceAccessPolicies" .=) <$> _fceResourceAccessPolicies,
-            ("AccessSysfs" .=) <$> _fceAccessSysfs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Variables" Lude..=) Lude.<$> variables,
+            ("Execution" Lude..=) Lude.<$> execution,
+            ("ResourceAccessPolicies" Lude..=) Lude.<$> resourceAccessPolicies,
+            ("AccessSysfs" Lude..=) Lude.<$> accessSysfs
           ]
       )

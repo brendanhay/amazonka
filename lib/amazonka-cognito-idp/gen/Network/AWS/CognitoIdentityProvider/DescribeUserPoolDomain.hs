@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,135 @@
 --
 -- Gets information about a domain.
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
-  ( -- * Creating a Request
-    describeUserPoolDomain,
-    DescribeUserPoolDomain,
+  ( -- * Creating a request
+    DescribeUserPoolDomain (..),
+    mkDescribeUserPoolDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDomain,
 
-    -- * Destructuring the Response
-    describeUserPoolDomainResponse,
-    DescribeUserPoolDomainResponse,
+    -- * Destructuring the response
+    DescribeUserPoolDomainResponse (..),
+    mkDescribeUserPoolDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsDomainDescription,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeUserPoolDomain' smart constructor.
+-- | /See:/ 'mkDescribeUserPoolDomain' smart constructor.
 newtype DescribeUserPoolDomain = DescribeUserPoolDomain'
-  { _dDomain ::
-      Text
+  { domain ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPoolDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDomain' - The domain string.
-describeUserPoolDomain ::
-  -- | 'dDomain'
-  Text ->
+-- * 'domain' - The domain string.
+mkDescribeUserPoolDomain ::
+  -- | 'domain'
+  Lude.Text ->
   DescribeUserPoolDomain
-describeUserPoolDomain pDomain_ =
-  DescribeUserPoolDomain' {_dDomain = pDomain_}
+mkDescribeUserPoolDomain pDomain_ =
+  DescribeUserPoolDomain' {domain = pDomain_}
 
 -- | The domain string.
-dDomain :: Lens' DescribeUserPoolDomain Text
-dDomain = lens _dDomain (\s a -> s {_dDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDomain :: Lens.Lens' DescribeUserPoolDomain Lude.Text
+dDomain = Lens.lens (domain :: DescribeUserPoolDomain -> Lude.Text) (\s a -> s {domain = a} :: DescribeUserPoolDomain)
+{-# DEPRECATED dDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
-instance AWSRequest DescribeUserPoolDomain where
+instance Lude.AWSRequest DescribeUserPoolDomain where
   type Rs DescribeUserPoolDomain = DescribeUserPoolDomainResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUserPoolDomainResponse'
-            <$> (x .?> "DomainDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUserPoolDomain
-
-instance NFData DescribeUserPoolDomain
-
-instance ToHeaders DescribeUserPoolDomain where
+instance Lude.ToHeaders DescribeUserPoolDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUserPoolDomain where
+instance Lude.ToJSON DescribeUserPoolDomain where
   toJSON DescribeUserPoolDomain' {..} =
-    object (catMaybes [Just ("Domain" .= _dDomain)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Domain" Lude..= domain)])
 
-instance ToPath DescribeUserPoolDomain where
-  toPath = const "/"
+instance Lude.ToPath DescribeUserPoolDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUserPoolDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUserPoolDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeUserPoolDomainResponse' smart constructor.
+-- | /See:/ 'mkDescribeUserPoolDomainResponse' smart constructor.
 data DescribeUserPoolDomainResponse = DescribeUserPoolDomainResponse'
-  { _drsDomainDescription ::
-      !( Maybe
-           DomainDescriptionType
-       ),
-    _drsResponseStatus :: !Int
+  { domainDescription ::
+      Lude.Maybe
+        DomainDescriptionType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPoolDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsDomainDescription' - A domain description object containing information about the domain.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeUserPoolDomainResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'domainDescription' - A domain description object containing information about the domain.
+-- * 'responseStatus' - The response status code.
+mkDescribeUserPoolDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUserPoolDomainResponse
-describeUserPoolDomainResponse pResponseStatus_ =
+mkDescribeUserPoolDomainResponse pResponseStatus_ =
   DescribeUserPoolDomainResponse'
-    { _drsDomainDescription = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { domainDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A domain description object containing information about the domain.
-drsDomainDescription :: Lens' DescribeUserPoolDomainResponse (Maybe DomainDescriptionType)
-drsDomainDescription = lens _drsDomainDescription (\s a -> s {_drsDomainDescription = a})
+--
+-- /Note:/ Consider using 'domainDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDomainDescription :: Lens.Lens' DescribeUserPoolDomainResponse (Lude.Maybe DomainDescriptionType)
+drsDomainDescription = Lens.lens (domainDescription :: DescribeUserPoolDomainResponse -> Lude.Maybe DomainDescriptionType) (\s a -> s {domainDescription = a} :: DescribeUserPoolDomainResponse)
+{-# DEPRECATED drsDomainDescription "Use generic-lens or generic-optics with 'domainDescription' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeUserPoolDomainResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeUserPoolDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeUserPoolDomainResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeUserPoolDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserPoolDomainResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

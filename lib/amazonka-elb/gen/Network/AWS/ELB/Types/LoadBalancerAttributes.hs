@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,20 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.LoadBalancerAttributes where
+module Network.AWS.ELB.Types.LoadBalancerAttributes
+  ( LoadBalancerAttributes (..),
+
+    -- * Smart constructor
+    mkLoadBalancerAttributes,
+
+    -- * Lenses
+    lbaCrossZoneLoadBalancing,
+    lbaAccessLog,
+    lbaAdditionalAttributes,
+    lbaConnectionSettings,
+    lbaConnectionDraining,
+  )
+where
 
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.AccessLog
@@ -21,93 +28,120 @@ import Network.AWS.ELB.Types.AdditionalAttribute
 import Network.AWS.ELB.Types.ConnectionDraining
 import Network.AWS.ELB.Types.ConnectionSettings
 import Network.AWS.ELB.Types.CrossZoneLoadBalancing
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The attributes for a load balancer.
 --
---
---
--- /See:/ 'loadBalancerAttributes' smart constructor.
+-- /See:/ 'mkLoadBalancerAttributes' smart constructor.
 data LoadBalancerAttributes = LoadBalancerAttributes'
-  { _lbaCrossZoneLoadBalancing ::
-      !(Maybe CrossZoneLoadBalancing),
-    _lbaAccessLog :: !(Maybe AccessLog),
-    _lbaAdditionalAttributes ::
-      !(Maybe [AdditionalAttribute]),
-    _lbaConnectionSettings ::
-      !(Maybe ConnectionSettings),
-    _lbaConnectionDraining ::
-      !(Maybe ConnectionDraining)
+  { crossZoneLoadBalancing ::
+      Lude.Maybe CrossZoneLoadBalancing,
+    accessLog :: Lude.Maybe AccessLog,
+    additionalAttributes ::
+      Lude.Maybe [AdditionalAttribute],
+    connectionSettings ::
+      Lude.Maybe ConnectionSettings,
+    connectionDraining ::
+      Lude.Maybe ConnectionDraining
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
 --
--- * 'lbaCrossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
+-- * 'additionalAttributes' - Any additional attributes.
+-- * 'connectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 --
--- * 'lbaAccessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
+-- * 'connectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 --
--- * 'lbaAdditionalAttributes' - Any additional attributes.
+-- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
+-- * 'crossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
 --
--- * 'lbaConnectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
---
--- * 'lbaConnectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
-loadBalancerAttributes ::
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
+mkLoadBalancerAttributes ::
   LoadBalancerAttributes
-loadBalancerAttributes =
+mkLoadBalancerAttributes =
   LoadBalancerAttributes'
-    { _lbaCrossZoneLoadBalancing = Nothing,
-      _lbaAccessLog = Nothing,
-      _lbaAdditionalAttributes = Nothing,
-      _lbaConnectionSettings = Nothing,
-      _lbaConnectionDraining = Nothing
+    { crossZoneLoadBalancing = Lude.Nothing,
+      accessLog = Lude.Nothing,
+      additionalAttributes = Lude.Nothing,
+      connectionSettings = Lude.Nothing,
+      connectionDraining = Lude.Nothing
     }
 
--- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
-lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
-lbaCrossZoneLoadBalancing = lens _lbaCrossZoneLoadBalancing (\s a -> s {_lbaCrossZoneLoadBalancing = a})
+-- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'crossZoneLoadBalancing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaCrossZoneLoadBalancing :: Lens.Lens' LoadBalancerAttributes (Lude.Maybe CrossZoneLoadBalancing)
+lbaCrossZoneLoadBalancing = Lens.lens (crossZoneLoadBalancing :: LoadBalancerAttributes -> Lude.Maybe CrossZoneLoadBalancing) (\s a -> s {crossZoneLoadBalancing = a} :: LoadBalancerAttributes)
+{-# DEPRECATED lbaCrossZoneLoadBalancing "Use generic-lens or generic-optics with 'crossZoneLoadBalancing' instead." #-}
 
--- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
-lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
-lbaAccessLog = lens _lbaAccessLog (\s a -> s {_lbaAccessLog = a})
+-- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'accessLog' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaAccessLog :: Lens.Lens' LoadBalancerAttributes (Lude.Maybe AccessLog)
+lbaAccessLog = Lens.lens (accessLog :: LoadBalancerAttributes -> Lude.Maybe AccessLog) (\s a -> s {accessLog = a} :: LoadBalancerAttributes)
+{-# DEPRECATED lbaAccessLog "Use generic-lens or generic-optics with 'accessLog' instead." #-}
 
 -- | Any additional attributes.
-lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
-lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\s a -> s {_lbaAdditionalAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'additionalAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaAdditionalAttributes :: Lens.Lens' LoadBalancerAttributes (Lude.Maybe [AdditionalAttribute])
+lbaAdditionalAttributes = Lens.lens (additionalAttributes :: LoadBalancerAttributes -> Lude.Maybe [AdditionalAttribute]) (\s a -> s {additionalAttributes = a} :: LoadBalancerAttributes)
+{-# DEPRECATED lbaAdditionalAttributes "Use generic-lens or generic-optics with 'additionalAttributes' instead." #-}
 
--- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
-lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
-lbaConnectionSettings = lens _lbaConnectionSettings (\s a -> s {_lbaConnectionSettings = a})
+-- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+--
+-- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'connectionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaConnectionSettings :: Lens.Lens' LoadBalancerAttributes (Lude.Maybe ConnectionSettings)
+lbaConnectionSettings = Lens.lens (connectionSettings :: LoadBalancerAttributes -> Lude.Maybe ConnectionSettings) (\s a -> s {connectionSettings = a} :: LoadBalancerAttributes)
+{-# DEPRECATED lbaConnectionSettings "Use generic-lens or generic-optics with 'connectionSettings' instead." #-}
 
--- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
-lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
-lbaConnectionDraining = lens _lbaConnectionDraining (\s a -> s {_lbaConnectionDraining = a})
+-- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'connectionDraining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbaConnectionDraining :: Lens.Lens' LoadBalancerAttributes (Lude.Maybe ConnectionDraining)
+lbaConnectionDraining = Lens.lens (connectionDraining :: LoadBalancerAttributes -> Lude.Maybe ConnectionDraining) (\s a -> s {connectionDraining = a} :: LoadBalancerAttributes)
+{-# DEPRECATED lbaConnectionDraining "Use generic-lens or generic-optics with 'connectionDraining' instead." #-}
 
-instance FromXML LoadBalancerAttributes where
+instance Lude.FromXML LoadBalancerAttributes where
   parseXML x =
     LoadBalancerAttributes'
-      <$> (x .@? "CrossZoneLoadBalancing")
-      <*> (x .@? "AccessLog")
-      <*> ( x .@? "AdditionalAttributes" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "ConnectionSettings")
-      <*> (x .@? "ConnectionDraining")
+      Lude.<$> (x Lude..@? "CrossZoneLoadBalancing")
+      Lude.<*> (x Lude..@? "AccessLog")
+      Lude.<*> ( x Lude..@? "AdditionalAttributes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "ConnectionSettings")
+      Lude.<*> (x Lude..@? "ConnectionDraining")
 
-instance Hashable LoadBalancerAttributes
-
-instance NFData LoadBalancerAttributes
-
-instance ToQuery LoadBalancerAttributes where
+instance Lude.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =
-    mconcat
-      [ "CrossZoneLoadBalancing" =: _lbaCrossZoneLoadBalancing,
-        "AccessLog" =: _lbaAccessLog,
+    Lude.mconcat
+      [ "CrossZoneLoadBalancing" Lude.=: crossZoneLoadBalancing,
+        "AccessLog" Lude.=: accessLog,
         "AdditionalAttributes"
-          =: toQuery (toQueryList "member" <$> _lbaAdditionalAttributes),
-        "ConnectionSettings" =: _lbaConnectionSettings,
-        "ConnectionDraining" =: _lbaConnectionDraining
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> additionalAttributes),
+        "ConnectionSettings" Lude.=: connectionSettings,
+        "ConnectionDraining" Lude.=: connectionDraining
       ]

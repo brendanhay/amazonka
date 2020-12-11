@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,163 @@
 --
 -- Returns information about all Amazon Lightsail virtual private servers, or /instances/ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetInstances
-  ( -- * Creating a Request
-    getInstances,
-    GetInstances,
+  ( -- * Creating a request
+    GetInstances (..),
+    mkGetInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giPageToken,
 
-    -- * Destructuring the Response
-    getInstancesResponse,
-    GetInstancesResponse,
+    -- * Destructuring the response
+    GetInstancesResponse (..),
+    mkGetInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsNextPageToken,
     grsInstances,
     grsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getInstances' smart constructor.
-newtype GetInstances = GetInstances' {_giPageToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetInstances' smart constructor.
+newtype GetInstances = GetInstances'
+  { pageToken ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'giPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetInstances@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getInstances ::
+-- To get a page token, perform an initial @GetInstances@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetInstances ::
   GetInstances
-getInstances = GetInstances' {_giPageToken = Nothing}
+mkGetInstances = GetInstances' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetInstances@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-giPageToken :: Lens' GetInstances (Maybe Text)
-giPageToken = lens _giPageToken (\s a -> s {_giPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetInstances@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giPageToken :: Lens.Lens' GetInstances (Lude.Maybe Lude.Text)
+giPageToken = Lens.lens (pageToken :: GetInstances -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetInstances)
+{-# DEPRECATED giPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetInstances where
+instance Page.AWSPager GetInstances where
   page rq rs
-    | stop (rs ^. grsNextPageToken) = Nothing
-    | stop (rs ^. grsInstances) = Nothing
-    | otherwise = Just $ rq & giPageToken .~ rs ^. grsNextPageToken
+    | Page.stop (rs Lens.^. grsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grsInstances) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& giPageToken Lens..~ rs Lens.^. grsNextPageToken
 
-instance AWSRequest GetInstances where
+instance Lude.AWSRequest GetInstances where
   type Rs GetInstances = GetInstancesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInstancesResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "instances" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "instances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInstances
-
-instance NFData GetInstances
-
-instance ToHeaders GetInstances where
+instance Lude.ToHeaders GetInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetInstances" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetInstances where
+instance Lude.ToJSON GetInstances where
   toJSON GetInstances' {..} =
-    object (catMaybes [("pageToken" .=) <$> _giPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetInstances where
-  toPath = const "/"
+instance Lude.ToPath GetInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery GetInstances where
-  toQuery = const mempty
+instance Lude.ToQuery GetInstances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInstancesResponse' smart constructor.
+-- | /See:/ 'mkGetInstancesResponse' smart constructor.
 data GetInstancesResponse = GetInstancesResponse'
-  { _grsNextPageToken ::
-      !(Maybe Text),
-    _grsInstances :: !(Maybe [Instance]),
-    _grsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    instances :: Lude.Maybe [Instance],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instances' - An array of key-value pairs containing information about your instances.
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetInstances@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'grsInstances' - An array of key-value pairs containing information about your instances.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getInstancesResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetInstances@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'responseStatus' - The response status code.
+mkGetInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInstancesResponse
-getInstancesResponse pResponseStatus_ =
+mkGetInstancesResponse pResponseStatus_ =
   GetInstancesResponse'
-    { _grsNextPageToken = Nothing,
-      _grsInstances = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      instances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetInstances@ request and specify the next page token using the @pageToken@ parameter.
-grsNextPageToken :: Lens' GetInstancesResponse (Maybe Text)
-grsNextPageToken = lens _grsNextPageToken (\s a -> s {_grsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetInstances@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsNextPageToken :: Lens.Lens' GetInstancesResponse (Lude.Maybe Lude.Text)
+grsNextPageToken = Lens.lens (nextPageToken :: GetInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetInstancesResponse)
+{-# DEPRECATED grsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of key-value pairs containing information about your instances.
-grsInstances :: Lens' GetInstancesResponse [Instance]
-grsInstances = lens _grsInstances (\s a -> s {_grsInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsInstances :: Lens.Lens' GetInstancesResponse (Lude.Maybe [Instance])
+grsInstances = Lens.lens (instances :: GetInstancesResponse -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: GetInstancesResponse)
+{-# DEPRECATED grsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetInstancesResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetInstancesResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstancesResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

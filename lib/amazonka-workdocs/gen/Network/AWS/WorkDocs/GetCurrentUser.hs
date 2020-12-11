@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,119 @@
 --
 -- Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.
 --
---
 -- This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html Authentication and Access Control for User Applications> in the /Amazon WorkDocs Developer Guide/ .
 module Network.AWS.WorkDocs.GetCurrentUser
-  ( -- * Creating a Request
-    getCurrentUser,
-    GetCurrentUser,
+  ( -- * Creating a request
+    GetCurrentUser (..),
+    mkGetCurrentUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcuAuthenticationToken,
 
-    -- * Destructuring the Response
-    getCurrentUserResponse,
-    GetCurrentUserResponse,
+    -- * Destructuring the response
+    GetCurrentUserResponse (..),
+    mkGetCurrentUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcursUser,
     gcursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'getCurrentUser' smart constructor.
+-- | /See:/ 'mkGetCurrentUser' smart constructor.
 newtype GetCurrentUser = GetCurrentUser'
-  { _gcuAuthenticationToken ::
-      Sensitive Text
+  { authenticationToken ::
+      Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCurrentUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcuAuthenticationToken' - Amazon WorkDocs authentication token.
-getCurrentUser ::
-  -- | 'gcuAuthenticationToken'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token.
+mkGetCurrentUser ::
+  -- | 'authenticationToken'
+  Lude.Sensitive Lude.Text ->
   GetCurrentUser
-getCurrentUser pAuthenticationToken_ =
-  GetCurrentUser'
-    { _gcuAuthenticationToken =
-        _Sensitive # pAuthenticationToken_
-    }
+mkGetCurrentUser pAuthenticationToken_ =
+  GetCurrentUser' {authenticationToken = pAuthenticationToken_}
 
 -- | Amazon WorkDocs authentication token.
-gcuAuthenticationToken :: Lens' GetCurrentUser Text
-gcuAuthenticationToken = lens _gcuAuthenticationToken (\s a -> s {_gcuAuthenticationToken = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcuAuthenticationToken :: Lens.Lens' GetCurrentUser (Lude.Sensitive Lude.Text)
+gcuAuthenticationToken = Lens.lens (authenticationToken :: GetCurrentUser -> Lude.Sensitive Lude.Text) (\s a -> s {authenticationToken = a} :: GetCurrentUser)
+{-# DEPRECATED gcuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
-instance AWSRequest GetCurrentUser where
+instance Lude.AWSRequest GetCurrentUser where
   type Rs GetCurrentUser = GetCurrentUserResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetCurrentUserResponse' <$> (x .?> "User") <*> (pure (fromEnum s))
+          GetCurrentUserResponse'
+            Lude.<$> (x Lude..?> "User") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCurrentUser
-
-instance NFData GetCurrentUser
-
-instance ToHeaders GetCurrentUser where
+instance Lude.ToHeaders GetCurrentUser where
   toHeaders GetCurrentUser' {..} =
-    mconcat
-      [ "Authentication" =# _gcuAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath GetCurrentUser where
-  toPath = const "/api/v1/me"
+instance Lude.ToPath GetCurrentUser where
+  toPath = Lude.const "/api/v1/me"
 
-instance ToQuery GetCurrentUser where
-  toQuery = const mempty
+instance Lude.ToQuery GetCurrentUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCurrentUserResponse' smart constructor.
+-- | /See:/ 'mkGetCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
-  { _gcursUser ::
-      !(Maybe User),
-    _gcursResponseStatus :: !Int
+  { user ::
+      Lude.Maybe User,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCurrentUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcursUser' - Metadata of the user.
---
--- * 'gcursResponseStatus' - -- | The response status code.
-getCurrentUserResponse ::
-  -- | 'gcursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'user' - Metadata of the user.
+mkGetCurrentUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCurrentUserResponse
-getCurrentUserResponse pResponseStatus_ =
+mkGetCurrentUserResponse pResponseStatus_ =
   GetCurrentUserResponse'
-    { _gcursUser = Nothing,
-      _gcursResponseStatus = pResponseStatus_
+    { user = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Metadata of the user.
-gcursUser :: Lens' GetCurrentUserResponse (Maybe User)
-gcursUser = lens _gcursUser (\s a -> s {_gcursUser = a})
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcursUser :: Lens.Lens' GetCurrentUserResponse (Lude.Maybe User)
+gcursUser = Lens.lens (user :: GetCurrentUserResponse -> Lude.Maybe User) (\s a -> s {user = a} :: GetCurrentUserResponse)
+{-# DEPRECATED gcursUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
--- | -- | The response status code.
-gcursResponseStatus :: Lens' GetCurrentUserResponse Int
-gcursResponseStatus = lens _gcursResponseStatus (\s a -> s {_gcursResponseStatus = a})
-
-instance NFData GetCurrentUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcursResponseStatus :: Lens.Lens' GetCurrentUserResponse Lude.Int
+gcursResponseStatus = Lens.lens (responseStatus :: GetCurrentUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCurrentUserResponse)
+{-# DEPRECATED gcursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

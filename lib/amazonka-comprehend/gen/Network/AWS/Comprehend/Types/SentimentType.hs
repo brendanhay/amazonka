@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.SentimentType where
+module Network.AWS.Comprehend.Types.SentimentType
+  ( SentimentType
+      ( SentimentType',
+        Mixed,
+        Negative,
+        Neutral,
+        Positive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SentimentType
-  = Mixed
-  | Negative
-  | Neutral
-  | Positive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SentimentType = SentimentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SentimentType where
-  parser =
-    takeLowerText >>= \case
-      "mixed" -> pure Mixed
-      "negative" -> pure Negative
-      "neutral" -> pure Neutral
-      "positive" -> pure Positive
-      e ->
-        fromTextError $
-          "Failure parsing SentimentType from value: '" <> e
-            <> "'. Accepted values: mixed, negative, neutral, positive"
+pattern Mixed :: SentimentType
+pattern Mixed = SentimentType' "MIXED"
 
-instance ToText SentimentType where
-  toText = \case
-    Mixed -> "MIXED"
-    Negative -> "NEGATIVE"
-    Neutral -> "NEUTRAL"
-    Positive -> "POSITIVE"
+pattern Negative :: SentimentType
+pattern Negative = SentimentType' "NEGATIVE"
 
-instance Hashable SentimentType
+pattern Neutral :: SentimentType
+pattern Neutral = SentimentType' "NEUTRAL"
 
-instance NFData SentimentType
+pattern Positive :: SentimentType
+pattern Positive = SentimentType' "POSITIVE"
 
-instance ToByteString SentimentType
-
-instance ToQuery SentimentType
-
-instance ToHeader SentimentType
-
-instance FromJSON SentimentType where
-  parseJSON = parseJSONText "SentimentType"
+{-# COMPLETE
+  Mixed,
+  Negative,
+  Neutral,
+  Positive,
+  SentimentType'
+  #-}

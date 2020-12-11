@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,122 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputGroup where
+module Network.AWS.MediaConvert.Types.OutputGroup
+  ( OutputGroup (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOutputGroup,
+
+    -- * Lenses
+    ogOutputGroupSettings,
+    ogOutputs,
+    ogCustomName,
+    ogName,
+    ogAutomatedEncodingSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AutomatedEncodingSettings
 import Network.AWS.MediaConvert.Types.Output
 import Network.AWS.MediaConvert.Types.OutputGroupSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Group of outputs
 --
--- /See:/ 'outputGroup' smart constructor.
+-- /See:/ 'mkOutputGroup' smart constructor.
 data OutputGroup = OutputGroup'
-  { _ogOutputGroupSettings ::
-      !(Maybe OutputGroupSettings),
-    _ogOutputs :: !(Maybe [Output]),
-    _ogCustomName :: !(Maybe Text),
-    _ogName :: !(Maybe Text),
-    _ogAutomatedEncodingSettings :: !(Maybe AutomatedEncodingSettings)
+  { outputGroupSettings ::
+      Lude.Maybe OutputGroupSettings,
+    outputs :: Lude.Maybe [Output],
+    customName :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    automatedEncodingSettings :: Lude.Maybe AutomatedEncodingSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogOutputGroupSettings' - Output Group settings, including type
---
--- * 'ogOutputs' - This object holds groups of encoding settings, one group of settings per output.
---
--- * 'ogCustomName' - Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
---
--- * 'ogName' - Name of the output group
---
--- * 'ogAutomatedEncodingSettings' - Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
-outputGroup ::
+-- * 'automatedEncodingSettings' - Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
+-- * 'customName' - Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
+-- * 'name' - Name of the output group
+-- * 'outputGroupSettings' - Output Group settings, including type
+-- * 'outputs' - This object holds groups of encoding settings, one group of settings per output.
+mkOutputGroup ::
   OutputGroup
-outputGroup =
+mkOutputGroup =
   OutputGroup'
-    { _ogOutputGroupSettings = Nothing,
-      _ogOutputs = Nothing,
-      _ogCustomName = Nothing,
-      _ogName = Nothing,
-      _ogAutomatedEncodingSettings = Nothing
+    { outputGroupSettings = Lude.Nothing,
+      outputs = Lude.Nothing,
+      customName = Lude.Nothing,
+      name = Lude.Nothing,
+      automatedEncodingSettings = Lude.Nothing
     }
 
 -- | Output Group settings, including type
-ogOutputGroupSettings :: Lens' OutputGroup (Maybe OutputGroupSettings)
-ogOutputGroupSettings = lens _ogOutputGroupSettings (\s a -> s {_ogOutputGroupSettings = a})
+--
+-- /Note:/ Consider using 'outputGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOutputGroupSettings :: Lens.Lens' OutputGroup (Lude.Maybe OutputGroupSettings)
+ogOutputGroupSettings = Lens.lens (outputGroupSettings :: OutputGroup -> Lude.Maybe OutputGroupSettings) (\s a -> s {outputGroupSettings = a} :: OutputGroup)
+{-# DEPRECATED ogOutputGroupSettings "Use generic-lens or generic-optics with 'outputGroupSettings' instead." #-}
 
 -- | This object holds groups of encoding settings, one group of settings per output.
-ogOutputs :: Lens' OutputGroup [Output]
-ogOutputs = lens _ogOutputs (\s a -> s {_ogOutputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOutputs :: Lens.Lens' OutputGroup (Lude.Maybe [Output])
+ogOutputs = Lens.lens (outputs :: OutputGroup -> Lude.Maybe [Output]) (\s a -> s {outputs = a} :: OutputGroup)
+{-# DEPRECATED ogOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
-ogCustomName :: Lens' OutputGroup (Maybe Text)
-ogCustomName = lens _ogCustomName (\s a -> s {_ogCustomName = a})
+--
+-- /Note:/ Consider using 'customName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogCustomName :: Lens.Lens' OutputGroup (Lude.Maybe Lude.Text)
+ogCustomName = Lens.lens (customName :: OutputGroup -> Lude.Maybe Lude.Text) (\s a -> s {customName = a} :: OutputGroup)
+{-# DEPRECATED ogCustomName "Use generic-lens or generic-optics with 'customName' instead." #-}
 
 -- | Name of the output group
-ogName :: Lens' OutputGroup (Maybe Text)
-ogName = lens _ogName (\s a -> s {_ogName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogName :: Lens.Lens' OutputGroup (Lude.Maybe Lude.Text)
+ogName = Lens.lens (name :: OutputGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OutputGroup)
+{-# DEPRECATED ogName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
-ogAutomatedEncodingSettings :: Lens' OutputGroup (Maybe AutomatedEncodingSettings)
-ogAutomatedEncodingSettings = lens _ogAutomatedEncodingSettings (\s a -> s {_ogAutomatedEncodingSettings = a})
+--
+-- /Note:/ Consider using 'automatedEncodingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogAutomatedEncodingSettings :: Lens.Lens' OutputGroup (Lude.Maybe AutomatedEncodingSettings)
+ogAutomatedEncodingSettings = Lens.lens (automatedEncodingSettings :: OutputGroup -> Lude.Maybe AutomatedEncodingSettings) (\s a -> s {automatedEncodingSettings = a} :: OutputGroup)
+{-# DEPRECATED ogAutomatedEncodingSettings "Use generic-lens or generic-optics with 'automatedEncodingSettings' instead." #-}
 
-instance FromJSON OutputGroup where
+instance Lude.FromJSON OutputGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            <$> (x .:? "outputGroupSettings")
-            <*> (x .:? "outputs" .!= mempty)
-            <*> (x .:? "customName")
-            <*> (x .:? "name")
-            <*> (x .:? "automatedEncodingSettings")
+            Lude.<$> (x Lude..:? "outputGroupSettings")
+            Lude.<*> (x Lude..:? "outputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "customName")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "automatedEncodingSettings")
       )
 
-instance Hashable OutputGroup
-
-instance NFData OutputGroup
-
-instance ToJSON OutputGroup where
+instance Lude.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    object
-      ( catMaybes
-          [ ("outputGroupSettings" .=) <$> _ogOutputGroupSettings,
-            ("outputs" .=) <$> _ogOutputs,
-            ("customName" .=) <$> _ogCustomName,
-            ("name" .=) <$> _ogName,
-            ("automatedEncodingSettings" .=) <$> _ogAutomatedEncodingSettings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("outputGroupSettings" Lude..=) Lude.<$> outputGroupSettings,
+            ("outputs" Lude..=) Lude.<$> outputs,
+            ("customName" Lude..=) Lude.<$> customName,
+            ("name" Lude..=) Lude.<$> name,
+            ("automatedEncodingSettings" Lude..=)
+              Lude.<$> automatedEncodingSettings
           ]
       )

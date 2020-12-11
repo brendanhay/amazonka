@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceBlockDeviceMappingSpecification where
+module Network.AWS.EC2.Types.InstanceBlockDeviceMappingSpecification
+  ( InstanceBlockDeviceMappingSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceBlockDeviceMappingSpecification,
+
+    -- * Lenses
+    ibdmsVirtualName,
+    ibdmsNoDevice,
+    ibdmsEBS,
+    ibdmsDeviceName,
+  )
+where
+
 import Network.AWS.EC2.Types.EBSInstanceBlockDeviceSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping entry.
 --
---
---
--- /See:/ 'instanceBlockDeviceMappingSpecification' smart constructor.
+-- /See:/ 'mkInstanceBlockDeviceMappingSpecification' smart constructor.
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
-  { _ibdmsVirtualName ::
-      !( Maybe
-           Text
-       ),
-    _ibdmsNoDevice ::
-      !( Maybe
-           Text
-       ),
-    _ibdmsEBS ::
-      !( Maybe
-           EBSInstanceBlockDeviceSpecification
-       ),
-    _ibdmsDeviceName ::
-      !( Maybe
-           Text
-       )
+  { virtualName ::
+      Lude.Maybe
+        Lude.Text,
+    noDevice ::
+      Lude.Maybe
+        Lude.Text,
+    ebs ::
+      Lude.Maybe
+        EBSInstanceBlockDeviceSpecification,
+    deviceName ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceBlockDeviceMappingSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ibdmsVirtualName' - The virtual device name.
---
--- * 'ibdmsNoDevice' - suppress the specified device included in the block device mapping.
---
--- * 'ibdmsEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
---
--- * 'ibdmsDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
-instanceBlockDeviceMappingSpecification ::
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'noDevice' - suppress the specified device included in the block device mapping.
+-- * 'virtualName' - The virtual device name.
+mkInstanceBlockDeviceMappingSpecification ::
   InstanceBlockDeviceMappingSpecification
-instanceBlockDeviceMappingSpecification =
+mkInstanceBlockDeviceMappingSpecification =
   InstanceBlockDeviceMappingSpecification'
-    { _ibdmsVirtualName =
-        Nothing,
-      _ibdmsNoDevice = Nothing,
-      _ibdmsEBS = Nothing,
-      _ibdmsDeviceName = Nothing
+    { virtualName =
+        Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = Lude.Nothing
     }
 
 -- | The virtual device name.
-ibdmsVirtualName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
-ibdmsVirtualName = lens _ibdmsVirtualName (\s a -> s {_ibdmsVirtualName = a})
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibdmsVirtualName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Lude.Maybe Lude.Text)
+ibdmsVirtualName = Lens.lens (virtualName :: InstanceBlockDeviceMappingSpecification -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: InstanceBlockDeviceMappingSpecification)
+{-# DEPRECATED ibdmsVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
 -- | suppress the specified device included in the block device mapping.
-ibdmsNoDevice :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
-ibdmsNoDevice = lens _ibdmsNoDevice (\s a -> s {_ibdmsNoDevice = a})
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibdmsNoDevice :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Lude.Maybe Lude.Text)
+ibdmsNoDevice = Lens.lens (noDevice :: InstanceBlockDeviceMappingSpecification -> Lude.Maybe Lude.Text) (\s a -> s {noDevice = a} :: InstanceBlockDeviceMappingSpecification)
+{-# DEPRECATED ibdmsNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
 -- | Parameters used to automatically set up EBS volumes when the instance is launched.
-ibdmsEBS :: Lens' InstanceBlockDeviceMappingSpecification (Maybe EBSInstanceBlockDeviceSpecification)
-ibdmsEBS = lens _ibdmsEBS (\s a -> s {_ibdmsEBS = a})
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibdmsEBS :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Lude.Maybe EBSInstanceBlockDeviceSpecification)
+ibdmsEBS = Lens.lens (ebs :: InstanceBlockDeviceMappingSpecification -> Lude.Maybe EBSInstanceBlockDeviceSpecification) (\s a -> s {ebs = a} :: InstanceBlockDeviceMappingSpecification)
+{-# DEPRECATED ibdmsEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
-ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
-ibdmsDeviceName = lens _ibdmsDeviceName (\s a -> s {_ibdmsDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibdmsDeviceName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Lude.Maybe Lude.Text)
+ibdmsDeviceName = Lens.lens (deviceName :: InstanceBlockDeviceMappingSpecification -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: InstanceBlockDeviceMappingSpecification)
+{-# DEPRECATED ibdmsDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance Hashable InstanceBlockDeviceMappingSpecification
-
-instance NFData InstanceBlockDeviceMappingSpecification
-
-instance ToQuery InstanceBlockDeviceMappingSpecification where
+instance Lude.ToQuery InstanceBlockDeviceMappingSpecification where
   toQuery InstanceBlockDeviceMappingSpecification' {..} =
-    mconcat
-      [ "VirtualName" =: _ibdmsVirtualName,
-        "NoDevice" =: _ibdmsNoDevice,
-        "Ebs" =: _ibdmsEBS,
-        "DeviceName" =: _ibdmsDeviceName
+    Lude.mconcat
+      [ "VirtualName" Lude.=: virtualName,
+        "NoDevice" Lude.=: noDevice,
+        "Ebs" Lude.=: ebs,
+        "DeviceName" Lude.=: deviceName
       ]

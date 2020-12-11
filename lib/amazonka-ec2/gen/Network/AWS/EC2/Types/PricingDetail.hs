@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PricingDetail where
+module Network.AWS.EC2.Types.PricingDetail
+  ( PricingDetail (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPricingDetail,
+
+    -- * Lenses
+    pdCount,
+    pdPrice,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Reserved Instance offering.
 --
---
---
--- /See:/ 'pricingDetail' smart constructor.
+-- /See:/ 'mkPricingDetail' smart constructor.
 data PricingDetail = PricingDetail'
-  { _pdCount :: !(Maybe Int),
-    _pdPrice :: !(Maybe Double)
+  { count :: Lude.Maybe Lude.Int,
+    price :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PricingDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdCount' - The number of reservations available for the price.
---
--- * 'pdPrice' - The price per instance.
-pricingDetail ::
+-- * 'count' - The number of reservations available for the price.
+-- * 'price' - The price per instance.
+mkPricingDetail ::
   PricingDetail
-pricingDetail =
-  PricingDetail' {_pdCount = Nothing, _pdPrice = Nothing}
+mkPricingDetail =
+  PricingDetail' {count = Lude.Nothing, price = Lude.Nothing}
 
 -- | The number of reservations available for the price.
-pdCount :: Lens' PricingDetail (Maybe Int)
-pdCount = lens _pdCount (\s a -> s {_pdCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCount :: Lens.Lens' PricingDetail (Lude.Maybe Lude.Int)
+pdCount = Lens.lens (count :: PricingDetail -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: PricingDetail)
+{-# DEPRECATED pdCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The price per instance.
-pdPrice :: Lens' PricingDetail (Maybe Double)
-pdPrice = lens _pdPrice (\s a -> s {_pdPrice = a})
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPrice :: Lens.Lens' PricingDetail (Lude.Maybe Lude.Double)
+pdPrice = Lens.lens (price :: PricingDetail -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: PricingDetail)
+{-# DEPRECATED pdPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
-instance FromXML PricingDetail where
-  parseXML x = PricingDetail' <$> (x .@? "count") <*> (x .@? "price")
-
-instance Hashable PricingDetail
-
-instance NFData PricingDetail
+instance Lude.FromXML PricingDetail where
+  parseXML x =
+    PricingDetail'
+      Lude.<$> (x Lude..@? "count") Lude.<*> (x Lude..@? "price")

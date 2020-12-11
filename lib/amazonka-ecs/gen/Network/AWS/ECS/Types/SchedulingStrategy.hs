@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.SchedulingStrategy where
+module Network.AWS.ECS.Types.SchedulingStrategy
+  ( SchedulingStrategy
+      ( SchedulingStrategy',
+        Daemon,
+        Replica
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SchedulingStrategy
-  = Daemon
-  | Replica
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchedulingStrategy = SchedulingStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchedulingStrategy where
-  parser =
-    takeLowerText >>= \case
-      "daemon" -> pure Daemon
-      "replica" -> pure Replica
-      e ->
-        fromTextError $
-          "Failure parsing SchedulingStrategy from value: '" <> e
-            <> "'. Accepted values: daemon, replica"
+pattern Daemon :: SchedulingStrategy
+pattern Daemon = SchedulingStrategy' "DAEMON"
 
-instance ToText SchedulingStrategy where
-  toText = \case
-    Daemon -> "DAEMON"
-    Replica -> "REPLICA"
+pattern Replica :: SchedulingStrategy
+pattern Replica = SchedulingStrategy' "REPLICA"
 
-instance Hashable SchedulingStrategy
-
-instance NFData SchedulingStrategy
-
-instance ToByteString SchedulingStrategy
-
-instance ToQuery SchedulingStrategy
-
-instance ToHeader SchedulingStrategy
-
-instance ToJSON SchedulingStrategy where
-  toJSON = toJSONText
-
-instance FromJSON SchedulingStrategy where
-  parseJSON = parseJSONText "SchedulingStrategy"
+{-# COMPLETE
+  Daemon,
+  Replica,
+  SchedulingStrategy'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.LogsConfig where
+module Network.AWS.CodeBuild.Types.LogsConfig
+  ( LogsConfig (..),
+
+    -- * Smart constructor
+    mkLogsConfig,
+
+    -- * Lenses
+    lcS3Logs,
+    lcCloudWatchLogs,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
 import Network.AWS.CodeBuild.Types.S3LogsConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a specified S3 bucket, or both.
 --
---
---
--- /See:/ 'logsConfig' smart constructor.
+-- /See:/ 'mkLogsConfig' smart constructor.
 data LogsConfig = LogsConfig'
-  { _lcS3Logs :: !(Maybe S3LogsConfig),
-    _lcCloudWatchLogs :: !(Maybe CloudWatchLogsConfig)
+  { s3Logs :: Lude.Maybe S3LogsConfig,
+    cloudWatchLogs :: Lude.Maybe CloudWatchLogsConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogsConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcS3Logs' - Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
---
--- * 'lcCloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
-logsConfig ::
+-- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
+-- * 's3Logs' - Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+mkLogsConfig ::
   LogsConfig
-logsConfig =
-  LogsConfig' {_lcS3Logs = Nothing, _lcCloudWatchLogs = Nothing}
+mkLogsConfig =
+  LogsConfig' {s3Logs = Lude.Nothing, cloudWatchLogs = Lude.Nothing}
 
 -- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
-lcS3Logs :: Lens' LogsConfig (Maybe S3LogsConfig)
-lcS3Logs = lens _lcS3Logs (\s a -> s {_lcS3Logs = a})
+--
+-- /Note:/ Consider using 's3Logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcS3Logs :: Lens.Lens' LogsConfig (Lude.Maybe S3LogsConfig)
+lcS3Logs = Lens.lens (s3Logs :: LogsConfig -> Lude.Maybe S3LogsConfig) (\s a -> s {s3Logs = a} :: LogsConfig)
+{-# DEPRECATED lcS3Logs "Use generic-lens or generic-optics with 's3Logs' instead." #-}
 
 -- | Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
-lcCloudWatchLogs :: Lens' LogsConfig (Maybe CloudWatchLogsConfig)
-lcCloudWatchLogs = lens _lcCloudWatchLogs (\s a -> s {_lcCloudWatchLogs = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCloudWatchLogs :: Lens.Lens' LogsConfig (Lude.Maybe CloudWatchLogsConfig)
+lcCloudWatchLogs = Lens.lens (cloudWatchLogs :: LogsConfig -> Lude.Maybe CloudWatchLogsConfig) (\s a -> s {cloudWatchLogs = a} :: LogsConfig)
+{-# DEPRECATED lcCloudWatchLogs "Use generic-lens or generic-optics with 'cloudWatchLogs' instead." #-}
 
-instance FromJSON LogsConfig where
+instance Lude.FromJSON LogsConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogsConfig"
       ( \x ->
-          LogsConfig' <$> (x .:? "s3Logs") <*> (x .:? "cloudWatchLogs")
+          LogsConfig'
+            Lude.<$> (x Lude..:? "s3Logs") Lude.<*> (x Lude..:? "cloudWatchLogs")
       )
 
-instance Hashable LogsConfig
-
-instance NFData LogsConfig
-
-instance ToJSON LogsConfig where
+instance Lude.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =
-    object
-      ( catMaybes
-          [ ("s3Logs" .=) <$> _lcS3Logs,
-            ("cloudWatchLogs" .=) <$> _lcCloudWatchLogs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("s3Logs" Lude..=) Lude.<$> s3Logs,
+            ("cloudWatchLogs" Lude..=) Lude.<$> cloudWatchLogs
           ]
       )

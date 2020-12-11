@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,138 @@
 --
 -- Returns the custom MAIL FROM attributes for a list of identities (email addresses : domains).
 --
---
 -- This operation is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
 module Network.AWS.SES.GetIdentityMailFromDomainAttributes
-  ( -- * Creating a Request
-    getIdentityMailFromDomainAttributes,
-    GetIdentityMailFromDomainAttributes,
+  ( -- * Creating a request
+    GetIdentityMailFromDomainAttributes (..),
+    mkGetIdentityMailFromDomainAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gimfdaIdentities,
 
-    -- * Destructuring the Response
-    getIdentityMailFromDomainAttributesResponse,
-    GetIdentityMailFromDomainAttributesResponse,
+    -- * Destructuring the response
+    GetIdentityMailFromDomainAttributesResponse (..),
+    mkGetIdentityMailFromDomainAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gimfdarsResponseStatus,
     gimfdarsMailFromDomainAttributes,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'getIdentityMailFromDomainAttributes' smart constructor.
+-- /See:/ 'mkGetIdentityMailFromDomainAttributes' smart constructor.
 newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttributes'
-  { _gimfdaIdentities ::
-      [Text]
+  { identities ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gimfdaIdentities' - A list of one or more identities.
-getIdentityMailFromDomainAttributes ::
+-- * 'identities' - A list of one or more identities.
+mkGetIdentityMailFromDomainAttributes ::
   GetIdentityMailFromDomainAttributes
-getIdentityMailFromDomainAttributes =
-  GetIdentityMailFromDomainAttributes' {_gimfdaIdentities = mempty}
+mkGetIdentityMailFromDomainAttributes =
+  GetIdentityMailFromDomainAttributes' {identities = Lude.mempty}
 
 -- | A list of one or more identities.
-gimfdaIdentities :: Lens' GetIdentityMailFromDomainAttributes [Text]
-gimfdaIdentities = lens _gimfdaIdentities (\s a -> s {_gimfdaIdentities = a}) . _Coerce
+--
+-- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimfdaIdentities :: Lens.Lens' GetIdentityMailFromDomainAttributes [Lude.Text]
+gimfdaIdentities = Lens.lens (identities :: GetIdentityMailFromDomainAttributes -> [Lude.Text]) (\s a -> s {identities = a} :: GetIdentityMailFromDomainAttributes)
+{-# DEPRECATED gimfdaIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
 
-instance AWSRequest GetIdentityMailFromDomainAttributes where
+instance Lude.AWSRequest GetIdentityMailFromDomainAttributes where
   type
     Rs GetIdentityMailFromDomainAttributes =
       GetIdentityMailFromDomainAttributesResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetIdentityMailFromDomainAttributesResult"
       ( \s h x ->
           GetIdentityMailFromDomainAttributesResponse'
-            <$> (pure (fromEnum s))
-            <*> ( x .@? "MailFromDomainAttributes" .!@ mempty
-                    >>= parseXMLMap "entry" "key" "value"
-                )
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "MailFromDomainAttributes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLMap "entry" "key" "value"
+                     )
       )
 
-instance Hashable GetIdentityMailFromDomainAttributes
+instance Lude.ToHeaders GetIdentityMailFromDomainAttributes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetIdentityMailFromDomainAttributes
+instance Lude.ToPath GetIdentityMailFromDomainAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetIdentityMailFromDomainAttributes where
-  toHeaders = const mempty
-
-instance ToPath GetIdentityMailFromDomainAttributes where
-  toPath = const "/"
-
-instance ToQuery GetIdentityMailFromDomainAttributes where
+instance Lude.ToQuery GetIdentityMailFromDomainAttributes where
   toQuery GetIdentityMailFromDomainAttributes' {..} =
-    mconcat
-      [ "Action" =: ("GetIdentityMailFromDomainAttributes" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Identities" =: toQueryList "member" _gimfdaIdentities
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetIdentityMailFromDomainAttributes" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Identities" Lude.=: Lude.toQueryList "member" identities
       ]
 
 -- | Represents the custom MAIL FROM attributes for a list of identities.
 --
---
---
--- /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
+-- /See:/ 'mkGetIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
-  { _gimfdarsResponseStatus ::
-      !Int,
-    _gimfdarsMailFromDomainAttributes ::
-      !( Map
-           Text
-           (IdentityMailFromDomainAttributes)
-       )
+  { responseStatus ::
+      Lude.Int,
+    mailFromDomainAttributes ::
+      Lude.HashMap
+        Lude.Text
+        (IdentityMailFromDomainAttributes)
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gimfdarsResponseStatus' - -- | The response status code.
---
--- * 'gimfdarsMailFromDomainAttributes' - A map of identities to custom MAIL FROM attributes.
-getIdentityMailFromDomainAttributesResponse ::
-  -- | 'gimfdarsResponseStatus'
-  Int ->
+-- * 'mailFromDomainAttributes' - A map of identities to custom MAIL FROM attributes.
+-- * 'responseStatus' - The response status code.
+mkGetIdentityMailFromDomainAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIdentityMailFromDomainAttributesResponse
-getIdentityMailFromDomainAttributesResponse pResponseStatus_ =
+mkGetIdentityMailFromDomainAttributesResponse pResponseStatus_ =
   GetIdentityMailFromDomainAttributesResponse'
-    { _gimfdarsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _gimfdarsMailFromDomainAttributes = mempty
+      mailFromDomainAttributes = Lude.mempty
     }
 
--- | -- | The response status code.
-gimfdarsResponseStatus :: Lens' GetIdentityMailFromDomainAttributesResponse Int
-gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\s a -> s {_gimfdarsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimfdarsResponseStatus :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse Lude.Int
+gimfdarsResponseStatus = Lens.lens (responseStatus :: GetIdentityMailFromDomainAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityMailFromDomainAttributesResponse)
+{-# DEPRECATED gimfdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of identities to custom MAIL FROM attributes.
-gimfdarsMailFromDomainAttributes :: Lens' GetIdentityMailFromDomainAttributesResponse (HashMap Text (IdentityMailFromDomainAttributes))
-gimfdarsMailFromDomainAttributes = lens _gimfdarsMailFromDomainAttributes (\s a -> s {_gimfdarsMailFromDomainAttributes = a}) . _Map
-
-instance NFData GetIdentityMailFromDomainAttributesResponse
+--
+-- /Note:/ Consider using 'mailFromDomainAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimfdarsMailFromDomainAttributes :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse (Lude.HashMap Lude.Text (IdentityMailFromDomainAttributes))
+gimfdarsMailFromDomainAttributes = Lens.lens (mailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> Lude.HashMap Lude.Text (IdentityMailFromDomainAttributes)) (\s a -> s {mailFromDomainAttributes = a} :: GetIdentityMailFromDomainAttributesResponse)
+{-# DEPRECATED gimfdarsMailFromDomainAttributes "Use generic-lens or generic-optics with 'mailFromDomainAttributes' instead." #-}

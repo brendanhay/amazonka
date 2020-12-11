@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ResourceIdentifierSummary where
+module Network.AWS.CloudFormation.Types.ResourceIdentifierSummary
+  ( ResourceIdentifierSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceIdentifierSummary,
+
+    -- * Lenses
+    risResourceType,
+    risLogicalResourceIds,
+    risResourceIdentifiers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the target resources of a specific type in your import template (for example, all @AWS::S3::Bucket@ resources) and the properties you can provide during the import to identify resources of that type.
 --
---
---
--- /See:/ 'resourceIdentifierSummary' smart constructor.
+-- /See:/ 'mkResourceIdentifierSummary' smart constructor.
 data ResourceIdentifierSummary = ResourceIdentifierSummary'
-  { _risResourceType ::
-      !(Maybe Text),
-    _risLogicalResourceIds ::
-      !(Maybe (List1 Text)),
-    _risResourceIdentifiers ::
-      !(Maybe [Text])
+  { resourceType ::
+      Lude.Maybe Lude.Text,
+    logicalResourceIds ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    resourceIdentifiers ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifierSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'risResourceType' - The template resource type of the target resources, such as @AWS::S3::Bucket@ .
---
--- * 'risLogicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@ , as defined in the import template.
---
--- * 'risResourceIdentifiers' - The resource properties you can provide during the import to identify your target resources. For example, @BucketName@ is a possible identifier property for @AWS::S3::Bucket@ resources.
-resourceIdentifierSummary ::
+-- * 'logicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@ , as defined in the import template.
+-- * 'resourceIdentifiers' - The resource properties you can provide during the import to identify your target resources. For example, @BucketName@ is a possible identifier property for @AWS::S3::Bucket@ resources.
+-- * 'resourceType' - The template resource type of the target resources, such as @AWS::S3::Bucket@ .
+mkResourceIdentifierSummary ::
   ResourceIdentifierSummary
-resourceIdentifierSummary =
+mkResourceIdentifierSummary =
   ResourceIdentifierSummary'
-    { _risResourceType = Nothing,
-      _risLogicalResourceIds = Nothing,
-      _risResourceIdentifiers = Nothing
+    { resourceType = Lude.Nothing,
+      logicalResourceIds = Lude.Nothing,
+      resourceIdentifiers = Lude.Nothing
     }
 
 -- | The template resource type of the target resources, such as @AWS::S3::Bucket@ .
-risResourceType :: Lens' ResourceIdentifierSummary (Maybe Text)
-risResourceType = lens _risResourceType (\s a -> s {_risResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risResourceType :: Lens.Lens' ResourceIdentifierSummary (Lude.Maybe Lude.Text)
+risResourceType = Lens.lens (resourceType :: ResourceIdentifierSummary -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ResourceIdentifierSummary)
+{-# DEPRECATED risResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The logical IDs of the target resources of the specified @ResourceType@ , as defined in the import template.
-risLogicalResourceIds :: Lens' ResourceIdentifierSummary (Maybe (NonEmpty Text))
-risLogicalResourceIds = lens _risLogicalResourceIds (\s a -> s {_risLogicalResourceIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'logicalResourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risLogicalResourceIds :: Lens.Lens' ResourceIdentifierSummary (Lude.Maybe (Lude.NonEmpty Lude.Text))
+risLogicalResourceIds = Lens.lens (logicalResourceIds :: ResourceIdentifierSummary -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {logicalResourceIds = a} :: ResourceIdentifierSummary)
+{-# DEPRECATED risLogicalResourceIds "Use generic-lens or generic-optics with 'logicalResourceIds' instead." #-}
 
 -- | The resource properties you can provide during the import to identify your target resources. For example, @BucketName@ is a possible identifier property for @AWS::S3::Bucket@ resources.
-risResourceIdentifiers :: Lens' ResourceIdentifierSummary [Text]
-risResourceIdentifiers = lens _risResourceIdentifiers (\s a -> s {_risResourceIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risResourceIdentifiers :: Lens.Lens' ResourceIdentifierSummary (Lude.Maybe [Lude.Text])
+risResourceIdentifiers = Lens.lens (resourceIdentifiers :: ResourceIdentifierSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceIdentifiers = a} :: ResourceIdentifierSummary)
+{-# DEPRECATED risResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
 
-instance FromXML ResourceIdentifierSummary where
+instance Lude.FromXML ResourceIdentifierSummary where
   parseXML x =
     ResourceIdentifierSummary'
-      <$> (x .@? "ResourceType")
-      <*> ( x .@? "LogicalResourceIds" .!@ mempty
-              >>= may (parseXMLList1 "member")
-          )
-      <*> ( x .@? "ResourceIdentifiers" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable ResourceIdentifierSummary
-
-instance NFData ResourceIdentifierSummary
+      Lude.<$> (x Lude..@? "ResourceType")
+      Lude.<*> ( x Lude..@? "LogicalResourceIds" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
+               )
+      Lude.<*> ( x Lude..@? "ResourceIdentifiers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

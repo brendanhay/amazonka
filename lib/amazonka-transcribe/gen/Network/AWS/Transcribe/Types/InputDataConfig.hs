@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.InputDataConfig where
+module Network.AWS.Transcribe.Types.InputDataConfig
+  ( InputDataConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputDataConfig,
+
+    -- * Lenses
+    idcTuningDataS3URI,
+    idcS3URI,
+    idcDataAccessRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The object that contains the Amazon S3 object location and access role required to train and tune your custom language model.
 --
---
---
--- /See:/ 'inputDataConfig' smart constructor.
+-- /See:/ 'mkInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { _idcTuningDataS3URI ::
-      !(Maybe Text),
-    _idcS3URI :: !Text,
-    _idcDataAccessRoleARN :: !Text
+  { tuningDataS3URI ::
+      Lude.Maybe Lude.Text,
+    s3URI :: Lude.Text,
+    dataAccessRoleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDataConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idcTuningDataS3URI' - The Amazon S3 prefix you specify to access the plain text files that you use to tune your custom language model.
---
--- * 'idcS3URI' - The Amazon S3 prefix you specify to access the plain text files that you use to train your custom language model.
---
--- * 'idcDataAccessRoleARN' - The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given Amazon Transcribe to access your Amazon S3 buckets containing your media files or text data.
-inputDataConfig ::
-  -- | 'idcS3URI'
-  Text ->
-  -- | 'idcDataAccessRoleARN'
-  Text ->
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given Amazon Transcribe to access your Amazon S3 buckets containing your media files or text data.
+-- * 's3URI' - The Amazon S3 prefix you specify to access the plain text files that you use to train your custom language model.
+-- * 'tuningDataS3URI' - The Amazon S3 prefix you specify to access the plain text files that you use to tune your custom language model.
+mkInputDataConfig ::
+  -- | 's3URI'
+  Lude.Text ->
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
   InputDataConfig
-inputDataConfig pS3URI_ pDataAccessRoleARN_ =
+mkInputDataConfig pS3URI_ pDataAccessRoleARN_ =
   InputDataConfig'
-    { _idcTuningDataS3URI = Nothing,
-      _idcS3URI = pS3URI_,
-      _idcDataAccessRoleARN = pDataAccessRoleARN_
+    { tuningDataS3URI = Lude.Nothing,
+      s3URI = pS3URI_,
+      dataAccessRoleARN = pDataAccessRoleARN_
     }
 
 -- | The Amazon S3 prefix you specify to access the plain text files that you use to tune your custom language model.
-idcTuningDataS3URI :: Lens' InputDataConfig (Maybe Text)
-idcTuningDataS3URI = lens _idcTuningDataS3URI (\s a -> s {_idcTuningDataS3URI = a})
+--
+-- /Note:/ Consider using 'tuningDataS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcTuningDataS3URI :: Lens.Lens' InputDataConfig (Lude.Maybe Lude.Text)
+idcTuningDataS3URI = Lens.lens (tuningDataS3URI :: InputDataConfig -> Lude.Maybe Lude.Text) (\s a -> s {tuningDataS3URI = a} :: InputDataConfig)
+{-# DEPRECATED idcTuningDataS3URI "Use generic-lens or generic-optics with 'tuningDataS3URI' instead." #-}
 
 -- | The Amazon S3 prefix you specify to access the plain text files that you use to train your custom language model.
-idcS3URI :: Lens' InputDataConfig Text
-idcS3URI = lens _idcS3URI (\s a -> s {_idcS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcS3URI :: Lens.Lens' InputDataConfig Lude.Text
+idcS3URI = Lens.lens (s3URI :: InputDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: InputDataConfig)
+{-# DEPRECATED idcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given Amazon Transcribe to access your Amazon S3 buckets containing your media files or text data.
-idcDataAccessRoleARN :: Lens' InputDataConfig Text
-idcDataAccessRoleARN = lens _idcDataAccessRoleARN (\s a -> s {_idcDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcDataAccessRoleARN :: Lens.Lens' InputDataConfig Lude.Text
+idcDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: InputDataConfig -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: InputDataConfig)
+{-# DEPRECATED idcDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
-instance FromJSON InputDataConfig where
+instance Lude.FromJSON InputDataConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            <$> (x .:? "TuningDataS3Uri")
-            <*> (x .: "S3Uri")
-            <*> (x .: "DataAccessRoleArn")
+            Lude.<$> (x Lude..:? "TuningDataS3Uri")
+            Lude.<*> (x Lude..: "S3Uri")
+            Lude.<*> (x Lude..: "DataAccessRoleArn")
       )
 
-instance Hashable InputDataConfig
-
-instance NFData InputDataConfig
-
-instance ToJSON InputDataConfig where
+instance Lude.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    object
-      ( catMaybes
-          [ ("TuningDataS3Uri" .=) <$> _idcTuningDataS3URI,
-            Just ("S3Uri" .= _idcS3URI),
-            Just ("DataAccessRoleArn" .= _idcDataAccessRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TuningDataS3Uri" Lude..=) Lude.<$> tuningDataS3URI,
+            Lude.Just ("S3Uri" Lude..= s3URI),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN)
           ]
       )

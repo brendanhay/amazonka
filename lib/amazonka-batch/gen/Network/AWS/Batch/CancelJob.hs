@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,130 @@
 --
 -- Cancels a job in an AWS Batch job queue. Jobs that are in the @SUBMITTED@ , @PENDING@ , or @RUNNABLE@ state are cancelled. Jobs that have progressed to @STARTING@ or @RUNNING@ are not cancelled (but the API operation still succeeds, even if no job is cancelled); these jobs must be terminated with the 'TerminateJob' operation.
 module Network.AWS.Batch.CancelJob
-  ( -- * Creating a Request
-    cancelJob,
-    CancelJob,
+  ( -- * Creating a request
+    CancelJob (..),
+    mkCancelJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cjJobId,
     cjReason,
 
-    -- * Destructuring the Response
-    cancelJobResponse,
-    CancelJobResponse,
+    -- * Destructuring the response
+    CancelJobResponse (..),
+    mkCancelJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cjrsResponseStatus,
   )
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelJob' smart constructor.
-data CancelJob = CancelJob' {_cjJobId :: !Text, _cjReason :: !Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCancelJob' smart constructor.
+data CancelJob = CancelJob'
+  { jobId :: Lude.Text,
+    reason :: Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cjJobId' - The AWS Batch job ID of the job to cancel.
---
--- * 'cjReason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
-cancelJob ::
-  -- | 'cjJobId'
-  Text ->
-  -- | 'cjReason'
-  Text ->
+-- * 'jobId' - The AWS Batch job ID of the job to cancel.
+-- * 'reason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+mkCancelJob ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'reason'
+  Lude.Text ->
   CancelJob
-cancelJob pJobId_ pReason_ =
-  CancelJob' {_cjJobId = pJobId_, _cjReason = pReason_}
+mkCancelJob pJobId_ pReason_ =
+  CancelJob' {jobId = pJobId_, reason = pReason_}
 
 -- | The AWS Batch job ID of the job to cancel.
-cjJobId :: Lens' CancelJob Text
-cjJobId = lens _cjJobId (\s a -> s {_cjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjJobId :: Lens.Lens' CancelJob Lude.Text
+cjJobId = Lens.lens (jobId :: CancelJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelJob)
+{-# DEPRECATED cjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
-cjReason :: Lens' CancelJob Text
-cjReason = lens _cjReason (\s a -> s {_cjReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjReason :: Lens.Lens' CancelJob Lude.Text
+cjReason = Lens.lens (reason :: CancelJob -> Lude.Text) (\s a -> s {reason = a} :: CancelJob)
+{-# DEPRECATED cjReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance AWSRequest CancelJob where
+instance Lude.AWSRequest CancelJob where
   type Rs CancelJob = CancelJobResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveEmpty
-      (\s h x -> CancelJobResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CancelJobResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CancelJob
-
-instance NFData CancelJob
-
-instance ToHeaders CancelJob where
+instance Lude.ToHeaders CancelJob where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CancelJob where
+instance Lude.ToJSON CancelJob where
   toJSON CancelJob' {..} =
-    object
-      ( catMaybes
-          [Just ("jobId" .= _cjJobId), Just ("reason" .= _cjReason)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("jobId" Lude..= jobId),
+            Lude.Just ("reason" Lude..= reason)
+          ]
       )
 
-instance ToPath CancelJob where
-  toPath = const "/v1/canceljob"
+instance Lude.ToPath CancelJob where
+  toPath = Lude.const "/v1/canceljob"
 
-instance ToQuery CancelJob where
-  toQuery = const mempty
+instance Lude.ToQuery CancelJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelJobResponse' smart constructor.
+-- | /See:/ 'mkCancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
-  { _cjrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cjrsResponseStatus' - -- | The response status code.
-cancelJobResponse ::
-  -- | 'cjrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelJobResponse
-cancelJobResponse pResponseStatus_ =
-  CancelJobResponse' {_cjrsResponseStatus = pResponseStatus_}
+mkCancelJobResponse pResponseStatus_ =
+  CancelJobResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cjrsResponseStatus :: Lens' CancelJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\s a -> s {_cjrsResponseStatus = a})
-
-instance NFData CancelJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
+cjrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
+{-# DEPRECATED cjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

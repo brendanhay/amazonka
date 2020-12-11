@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,166 @@
 --
 -- Attaches a block storage disk to a running or stopped Lightsail instance and exposes it to the instance with the specified disk name.
 --
---
 -- The @attach disk@ operation supports tag-based access control via resource tags applied to the resource identified by @disk name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.AttachDisk
-  ( -- * Creating a Request
-    attachDisk,
-    AttachDisk,
+  ( -- * Creating a request
+    AttachDisk (..),
+    mkAttachDisk,
 
-    -- * Request Lenses
+    -- ** Request lenses
     adDiskName,
     adInstanceName,
     adDiskPath,
 
-    -- * Destructuring the Response
-    attachDiskResponse,
-    AttachDiskResponse,
+    -- * Destructuring the response
+    AttachDiskResponse (..),
+    mkAttachDiskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     adrsOperations,
     adrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachDisk' smart constructor.
+-- | /See:/ 'mkAttachDisk' smart constructor.
 data AttachDisk = AttachDisk'
-  { _adDiskName :: !Text,
-    _adInstanceName :: !Text,
-    _adDiskPath :: !Text
+  { diskName :: Lude.Text,
+    instanceName :: Lude.Text,
+    diskPath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachDisk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adDiskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
---
--- * 'adInstanceName' - The name of the Lightsail instance where you want to utilize the storage disk.
---
--- * 'adDiskPath' - The disk path to expose to the instance (e.g., @/dev/xvdf@ ).
-attachDisk ::
-  -- | 'adDiskName'
-  Text ->
-  -- | 'adInstanceName'
-  Text ->
-  -- | 'adDiskPath'
-  Text ->
+-- * 'diskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
+-- * 'diskPath' - The disk path to expose to the instance (e.g., @/dev/xvdf@ ).
+-- * 'instanceName' - The name of the Lightsail instance where you want to utilize the storage disk.
+mkAttachDisk ::
+  -- | 'diskName'
+  Lude.Text ->
+  -- | 'instanceName'
+  Lude.Text ->
+  -- | 'diskPath'
+  Lude.Text ->
   AttachDisk
-attachDisk pDiskName_ pInstanceName_ pDiskPath_ =
+mkAttachDisk pDiskName_ pInstanceName_ pDiskPath_ =
   AttachDisk'
-    { _adDiskName = pDiskName_,
-      _adInstanceName = pInstanceName_,
-      _adDiskPath = pDiskPath_
+    { diskName = pDiskName_,
+      instanceName = pInstanceName_,
+      diskPath = pDiskPath_
     }
 
 -- | The unique Lightsail disk name (e.g., @my-disk@ ).
-adDiskName :: Lens' AttachDisk Text
-adDiskName = lens _adDiskName (\s a -> s {_adDiskName = a})
+--
+-- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDiskName :: Lens.Lens' AttachDisk Lude.Text
+adDiskName = Lens.lens (diskName :: AttachDisk -> Lude.Text) (\s a -> s {diskName = a} :: AttachDisk)
+{-# DEPRECATED adDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
 -- | The name of the Lightsail instance where you want to utilize the storage disk.
-adInstanceName :: Lens' AttachDisk Text
-adInstanceName = lens _adInstanceName (\s a -> s {_adInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adInstanceName :: Lens.Lens' AttachDisk Lude.Text
+adInstanceName = Lens.lens (instanceName :: AttachDisk -> Lude.Text) (\s a -> s {instanceName = a} :: AttachDisk)
+{-# DEPRECATED adInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
 -- | The disk path to expose to the instance (e.g., @/dev/xvdf@ ).
-adDiskPath :: Lens' AttachDisk Text
-adDiskPath = lens _adDiskPath (\s a -> s {_adDiskPath = a})
+--
+-- /Note:/ Consider using 'diskPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDiskPath :: Lens.Lens' AttachDisk Lude.Text
+adDiskPath = Lens.lens (diskPath :: AttachDisk -> Lude.Text) (\s a -> s {diskPath = a} :: AttachDisk)
+{-# DEPRECATED adDiskPath "Use generic-lens or generic-optics with 'diskPath' instead." #-}
 
-instance AWSRequest AttachDisk where
+instance Lude.AWSRequest AttachDisk where
   type Rs AttachDisk = AttachDiskResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AttachDiskResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachDisk
-
-instance NFData AttachDisk
-
-instance ToHeaders AttachDisk where
+instance Lude.ToHeaders AttachDisk where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.AttachDisk" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.AttachDisk" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AttachDisk where
+instance Lude.ToJSON AttachDisk where
   toJSON AttachDisk' {..} =
-    object
-      ( catMaybes
-          [ Just ("diskName" .= _adDiskName),
-            Just ("instanceName" .= _adInstanceName),
-            Just ("diskPath" .= _adDiskPath)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("diskName" Lude..= diskName),
+            Lude.Just ("instanceName" Lude..= instanceName),
+            Lude.Just ("diskPath" Lude..= diskPath)
           ]
       )
 
-instance ToPath AttachDisk where
-  toPath = const "/"
+instance Lude.ToPath AttachDisk where
+  toPath = Lude.const "/"
 
-instance ToQuery AttachDisk where
-  toQuery = const mempty
+instance Lude.ToQuery AttachDisk where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachDiskResponse' smart constructor.
+-- | /See:/ 'mkAttachDiskResponse' smart constructor.
 data AttachDiskResponse = AttachDiskResponse'
-  { _adrsOperations ::
-      !(Maybe [Operation]),
-    _adrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachDiskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'adrsResponseStatus' - -- | The response status code.
-attachDiskResponse ::
-  -- | 'adrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkAttachDiskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachDiskResponse
-attachDiskResponse pResponseStatus_ =
+mkAttachDiskResponse pResponseStatus_ =
   AttachDiskResponse'
-    { _adrsOperations = Nothing,
-      _adrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-adrsOperations :: Lens' AttachDiskResponse [Operation]
-adrsOperations = lens _adrsOperations (\s a -> s {_adrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adrsOperations :: Lens.Lens' AttachDiskResponse (Lude.Maybe [Operation])
+adrsOperations = Lens.lens (operations :: AttachDiskResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: AttachDiskResponse)
+{-# DEPRECATED adrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-adrsResponseStatus :: Lens' AttachDiskResponse Int
-adrsResponseStatus = lens _adrsResponseStatus (\s a -> s {_adrsResponseStatus = a})
-
-instance NFData AttachDiskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adrsResponseStatus :: Lens.Lens' AttachDiskResponse Lude.Int
+adrsResponseStatus = Lens.lens (responseStatus :: AttachDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachDiskResponse)
+{-# DEPRECATED adrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

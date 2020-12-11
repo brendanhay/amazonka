@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types
-  ( -- * Service Configuration
-    mediaPackage,
+  ( -- * Service configuration
+    mediaPackageService,
 
     -- * Errors
 
@@ -55,14 +53,14 @@ module Network.AWS.MediaPackage.Types
     UtcTiming (..),
 
     -- * Authorization
-    Authorization,
-    authorization,
+    Authorization (..),
+    mkAuthorization,
     aSecretsRoleARN,
     aCdnIdentifierSecret,
 
     -- * Channel
-    Channel,
-    channel,
+    Channel (..),
+    mkChannel,
     cIngressAccessLogs,
     cHlsIngest,
     cARN,
@@ -72,14 +70,14 @@ module Network.AWS.MediaPackage.Types
     cTags,
 
     -- * CmafEncryption
-    CmafEncryption,
-    cmafEncryption,
+    CmafEncryption (..),
+    mkCmafEncryption,
     ceKeyRotationIntervalSeconds,
     ceSpekeKeyProvider,
 
     -- * CmafPackage
-    CmafPackage,
-    cmafPackage,
+    CmafPackage (..),
+    mkCmafPackage,
     cpHlsManifests,
     cpSegmentDurationSeconds,
     cpStreamSelection,
@@ -87,8 +85,8 @@ module Network.AWS.MediaPackage.Types
     cpSegmentPrefix,
 
     -- * CmafPackageCreateOrUpdateParameters
-    CmafPackageCreateOrUpdateParameters,
-    cmafPackageCreateOrUpdateParameters,
+    CmafPackageCreateOrUpdateParameters (..),
+    mkCmafPackageCreateOrUpdateParameters,
     cpcoupHlsManifests,
     cpcoupSegmentDurationSeconds,
     cpcoupStreamSelection,
@@ -96,14 +94,14 @@ module Network.AWS.MediaPackage.Types
     cpcoupSegmentPrefix,
 
     -- * DashEncryption
-    DashEncryption,
-    dashEncryption,
+    DashEncryption (..),
+    mkDashEncryption,
     deKeyRotationIntervalSeconds,
     deSpekeKeyProvider,
 
     -- * DashPackage
-    DashPackage,
-    dashPackage,
+    DashPackage (..),
+    mkDashPackage,
     dpAdsOnDeliveryRestrictions,
     dpMinBufferTimeSeconds,
     dpUtcTiming,
@@ -121,13 +119,13 @@ module Network.AWS.MediaPackage.Types
     dpPeriodTriggers,
 
     -- * EgressAccessLogs
-    EgressAccessLogs,
-    egressAccessLogs,
+    EgressAccessLogs (..),
+    mkEgressAccessLogs,
     ealLogGroupName,
 
     -- * HarvestJob
-    HarvestJob,
-    harvestJob,
+    HarvestJob (..),
+    mkHarvestJob,
     hjStatus,
     hjOriginEndpointId,
     hjStartTime,
@@ -139,8 +137,8 @@ module Network.AWS.MediaPackage.Types
     hjId,
 
     -- * HlsEncryption
-    HlsEncryption,
-    hlsEncryption,
+    HlsEncryption (..),
+    mkHlsEncryption,
     heEncryptionMethod,
     heKeyRotationIntervalSeconds,
     heConstantInitializationVector,
@@ -148,13 +146,13 @@ module Network.AWS.MediaPackage.Types
     heSpekeKeyProvider,
 
     -- * HlsIngest
-    HlsIngest,
-    hlsIngest,
+    HlsIngest (..),
+    mkHlsIngest,
     hiIngestEndpoints,
 
     -- * HlsManifest
-    HlsManifest,
-    hlsManifest,
+    HlsManifest (..),
+    mkHlsManifest,
     hmManifestName,
     hmURL,
     hmPlaylistType,
@@ -165,8 +163,8 @@ module Network.AWS.MediaPackage.Types
     hmId,
 
     -- * HlsManifestCreateOrUpdateParameters
-    HlsManifestCreateOrUpdateParameters,
-    hlsManifestCreateOrUpdateParameters,
+    HlsManifestCreateOrUpdateParameters (..),
+    mkHlsManifestCreateOrUpdateParameters,
     hmcoupAdsOnDeliveryRestrictions,
     hmcoupManifestName,
     hmcoupPlaylistType,
@@ -178,8 +176,8 @@ module Network.AWS.MediaPackage.Types
     hmcoupId,
 
     -- * HlsPackage
-    HlsPackage,
-    hlsPackage,
+    HlsPackage (..),
+    mkHlsPackage,
     hpAdsOnDeliveryRestrictions,
     hpUseAudioRenditionGroup,
     hpPlaylistType,
@@ -193,34 +191,34 @@ module Network.AWS.MediaPackage.Types
     hpPlaylistWindowSeconds,
 
     -- * IngestEndpoint
-    IngestEndpoint,
-    ingestEndpoint,
+    IngestEndpoint (..),
+    mkIngestEndpoint,
     ieURL,
     ieUsername,
     iePassword,
     ieId,
 
     -- * IngressAccessLogs
-    IngressAccessLogs,
-    ingressAccessLogs,
+    IngressAccessLogs (..),
+    mkIngressAccessLogs,
     ialLogGroupName,
 
     -- * MssEncryption
-    MssEncryption,
-    mssEncryption,
+    MssEncryption (..),
+    mkMssEncryption,
     meSpekeKeyProvider,
 
     -- * MssPackage
-    MssPackage,
-    mssPackage,
+    MssPackage (..),
+    mkMssPackage,
     mpSegmentDurationSeconds,
     mpStreamSelection,
     mpEncryption,
     mpManifestWindowSeconds,
 
     -- * OriginEndpoint
-    OriginEndpoint,
-    originEndpoint,
+    OriginEndpoint (..),
+    mkOriginEndpoint,
     oeWhitelist,
     oeHlsPackage,
     oeARN,
@@ -239,15 +237,15 @@ module Network.AWS.MediaPackage.Types
     oeOrigination,
 
     -- * S3Destination
-    S3Destination,
-    s3Destination,
+    S3Destination (..),
+    mkS3Destination,
     sdManifestKey,
     sdBucketName,
     sdRoleARN,
 
     -- * SpekeKeyProvider
-    SpekeKeyProvider,
-    spekeKeyProvider,
+    SpekeKeyProvider (..),
+    mkSpekeKeyProvider,
     skpCertificateARN,
     skpResourceId,
     skpSystemIds,
@@ -255,15 +253,15 @@ module Network.AWS.MediaPackage.Types
     skpRoleARN,
 
     -- * StreamSelection
-    StreamSelection,
-    streamSelection,
+    StreamSelection (..),
+    mkStreamSelection,
     ssStreamOrder,
     ssMinVideoBitsPerSecond,
     ssMaxVideoBitsPerSecond,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.AdMarkers
 import Network.AWS.MediaPackage.Types.AdTriggersElement
 import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
@@ -299,47 +297,59 @@ import Network.AWS.MediaPackage.Types.Status
 import Network.AWS.MediaPackage.Types.StreamOrder
 import Network.AWS.MediaPackage.Types.StreamSelection
 import Network.AWS.MediaPackage.Types.UtcTiming
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-12@ of the Amazon Elemental MediaPackage SDK configuration.
-mediaPackage :: Service
-mediaPackage =
-  Service
-    { _svcAbbrev = "MediaPackage",
-      _svcSigner = v4,
-      _svcPrefix = "mediapackage",
-      _svcVersion = "2017-10-12",
-      _svcEndpoint = defaultEndpoint mediaPackage,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "MediaPackage",
-      _svcRetry = retry
+mediaPackageService :: Lude.Service
+mediaPackageService =
+  Lude.Service
+    { Lude._svcAbbrev = "MediaPackage",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "mediapackage",
+      Lude._svcVersion = "2017-10-12",
+      Lude._svcEndpoint = Lude.defaultEndpoint mediaPackageService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "MediaPackage",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

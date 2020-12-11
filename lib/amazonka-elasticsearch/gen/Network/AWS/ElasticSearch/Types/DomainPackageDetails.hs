@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,158 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.DomainPackageDetails where
+module Network.AWS.ElasticSearch.Types.DomainPackageDetails
+  ( DomainPackageDetails (..),
+
+    -- * Smart constructor
+    mkDomainPackageDetails,
+
+    -- * Lenses
+    dpdLastUpdated,
+    dpdPackageId,
+    dpdPackageType,
+    dpdPackageName,
+    dpdPackageVersion,
+    dpdDomainPackageStatus,
+    dpdDomainName,
+    dpdErrorDetails,
+    dpdReferencePath,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.DomainPackageStatus
 import Network.AWS.ElasticSearch.Types.ErrorDetails
 import Network.AWS.ElasticSearch.Types.PackageType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information on a package that is associated with a domain.
 --
---
---
--- /See:/ 'domainPackageDetails' smart constructor.
+-- /See:/ 'mkDomainPackageDetails' smart constructor.
 data DomainPackageDetails = DomainPackageDetails'
-  { _dpdLastUpdated ::
-      !(Maybe POSIX),
-    _dpdPackageId :: !(Maybe Text),
-    _dpdPackageType :: !(Maybe PackageType),
-    _dpdPackageName :: !(Maybe Text),
-    _dpdPackageVersion :: !(Maybe Text),
-    _dpdDomainPackageStatus ::
-      !(Maybe DomainPackageStatus),
-    _dpdDomainName :: !(Maybe Text),
-    _dpdErrorDetails :: !(Maybe ErrorDetails),
-    _dpdReferencePath :: !(Maybe Text)
+  { lastUpdated ::
+      Lude.Maybe Lude.Timestamp,
+    packageId :: Lude.Maybe Lude.Text,
+    packageType :: Lude.Maybe PackageType,
+    packageName :: Lude.Maybe Lude.Text,
+    packageVersion :: Lude.Maybe Lude.Text,
+    domainPackageStatus ::
+      Lude.Maybe DomainPackageStatus,
+    domainName :: Lude.Maybe Lude.Text,
+    errorDetails :: Lude.Maybe ErrorDetails,
+    referencePath :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainPackageDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpdLastUpdated' - Timestamp of the most-recent update to the association status.
---
--- * 'dpdPackageId' - Internal ID of the package.
---
--- * 'dpdPackageType' - Currently supports only TXT-DICTIONARY.
---
--- * 'dpdPackageName' - User specified name of the package.
---
--- * 'dpdPackageVersion' - Undocumented member.
---
--- * 'dpdDomainPackageStatus' - State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
---
--- * 'dpdDomainName' - Name of the domain you've associated a package with.
---
--- * 'dpdErrorDetails' - Additional information if the package is in an error state. Null otherwise.
---
--- * 'dpdReferencePath' - The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
-domainPackageDetails ::
+-- * 'domainName' - Name of the domain you've associated a package with.
+-- * 'domainPackageStatus' - State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+-- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
+-- * 'lastUpdated' - Timestamp of the most-recent update to the association status.
+-- * 'packageId' - Internal ID of the package.
+-- * 'packageName' - User specified name of the package.
+-- * 'packageType' - Currently supports only TXT-DICTIONARY.
+-- * 'packageVersion' - Undocumented field.
+-- * 'referencePath' - The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
+mkDomainPackageDetails ::
   DomainPackageDetails
-domainPackageDetails =
+mkDomainPackageDetails =
   DomainPackageDetails'
-    { _dpdLastUpdated = Nothing,
-      _dpdPackageId = Nothing,
-      _dpdPackageType = Nothing,
-      _dpdPackageName = Nothing,
-      _dpdPackageVersion = Nothing,
-      _dpdDomainPackageStatus = Nothing,
-      _dpdDomainName = Nothing,
-      _dpdErrorDetails = Nothing,
-      _dpdReferencePath = Nothing
+    { lastUpdated = Lude.Nothing,
+      packageId = Lude.Nothing,
+      packageType = Lude.Nothing,
+      packageName = Lude.Nothing,
+      packageVersion = Lude.Nothing,
+      domainPackageStatus = Lude.Nothing,
+      domainName = Lude.Nothing,
+      errorDetails = Lude.Nothing,
+      referencePath = Lude.Nothing
     }
 
 -- | Timestamp of the most-recent update to the association status.
-dpdLastUpdated :: Lens' DomainPackageDetails (Maybe UTCTime)
-dpdLastUpdated = lens _dpdLastUpdated (\s a -> s {_dpdLastUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdLastUpdated :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Timestamp)
+dpdLastUpdated = Lens.lens (lastUpdated :: DomainPackageDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | Internal ID of the package.
-dpdPackageId :: Lens' DomainPackageDetails (Maybe Text)
-dpdPackageId = lens _dpdPackageId (\s a -> s {_dpdPackageId = a})
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdPackageId :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Text)
+dpdPackageId = Lens.lens (packageId :: DomainPackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageId = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
 -- | Currently supports only TXT-DICTIONARY.
-dpdPackageType :: Lens' DomainPackageDetails (Maybe PackageType)
-dpdPackageType = lens _dpdPackageType (\s a -> s {_dpdPackageType = a})
+--
+-- /Note:/ Consider using 'packageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdPackageType :: Lens.Lens' DomainPackageDetails (Lude.Maybe PackageType)
+dpdPackageType = Lens.lens (packageType :: DomainPackageDetails -> Lude.Maybe PackageType) (\s a -> s {packageType = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdPackageType "Use generic-lens or generic-optics with 'packageType' instead." #-}
 
 -- | User specified name of the package.
-dpdPackageName :: Lens' DomainPackageDetails (Maybe Text)
-dpdPackageName = lens _dpdPackageName (\s a -> s {_dpdPackageName = a})
+--
+-- /Note:/ Consider using 'packageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdPackageName :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Text)
+dpdPackageName = Lens.lens (packageName :: DomainPackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageName = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdPackageName "Use generic-lens or generic-optics with 'packageName' instead." #-}
 
--- | Undocumented member.
-dpdPackageVersion :: Lens' DomainPackageDetails (Maybe Text)
-dpdPackageVersion = lens _dpdPackageVersion (\s a -> s {_dpdPackageVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'packageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdPackageVersion :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Text)
+dpdPackageVersion = Lens.lens (packageVersion :: DomainPackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageVersion = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdPackageVersion "Use generic-lens or generic-optics with 'packageVersion' instead." #-}
 
 -- | State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-dpdDomainPackageStatus :: Lens' DomainPackageDetails (Maybe DomainPackageStatus)
-dpdDomainPackageStatus = lens _dpdDomainPackageStatus (\s a -> s {_dpdDomainPackageStatus = a})
+--
+-- /Note:/ Consider using 'domainPackageStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdDomainPackageStatus :: Lens.Lens' DomainPackageDetails (Lude.Maybe DomainPackageStatus)
+dpdDomainPackageStatus = Lens.lens (domainPackageStatus :: DomainPackageDetails -> Lude.Maybe DomainPackageStatus) (\s a -> s {domainPackageStatus = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdDomainPackageStatus "Use generic-lens or generic-optics with 'domainPackageStatus' instead." #-}
 
 -- | Name of the domain you've associated a package with.
-dpdDomainName :: Lens' DomainPackageDetails (Maybe Text)
-dpdDomainName = lens _dpdDomainName (\s a -> s {_dpdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdDomainName :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Text)
+dpdDomainName = Lens.lens (domainName :: DomainPackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Additional information if the package is in an error state. Null otherwise.
-dpdErrorDetails :: Lens' DomainPackageDetails (Maybe ErrorDetails)
-dpdErrorDetails = lens _dpdErrorDetails (\s a -> s {_dpdErrorDetails = a})
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdErrorDetails :: Lens.Lens' DomainPackageDetails (Lude.Maybe ErrorDetails)
+dpdErrorDetails = Lens.lens (errorDetails :: DomainPackageDetails -> Lude.Maybe ErrorDetails) (\s a -> s {errorDetails = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
 
 -- | The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
-dpdReferencePath :: Lens' DomainPackageDetails (Maybe Text)
-dpdReferencePath = lens _dpdReferencePath (\s a -> s {_dpdReferencePath = a})
+--
+-- /Note:/ Consider using 'referencePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpdReferencePath :: Lens.Lens' DomainPackageDetails (Lude.Maybe Lude.Text)
+dpdReferencePath = Lens.lens (referencePath :: DomainPackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {referencePath = a} :: DomainPackageDetails)
+{-# DEPRECATED dpdReferencePath "Use generic-lens or generic-optics with 'referencePath' instead." #-}
 
-instance FromJSON DomainPackageDetails where
+instance Lude.FromJSON DomainPackageDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainPackageDetails"
       ( \x ->
           DomainPackageDetails'
-            <$> (x .:? "LastUpdated")
-            <*> (x .:? "PackageID")
-            <*> (x .:? "PackageType")
-            <*> (x .:? "PackageName")
-            <*> (x .:? "PackageVersion")
-            <*> (x .:? "DomainPackageStatus")
-            <*> (x .:? "DomainName")
-            <*> (x .:? "ErrorDetails")
-            <*> (x .:? "ReferencePath")
+            Lude.<$> (x Lude..:? "LastUpdated")
+            Lude.<*> (x Lude..:? "PackageID")
+            Lude.<*> (x Lude..:? "PackageType")
+            Lude.<*> (x Lude..:? "PackageName")
+            Lude.<*> (x Lude..:? "PackageVersion")
+            Lude.<*> (x Lude..:? "DomainPackageStatus")
+            Lude.<*> (x Lude..:? "DomainName")
+            Lude.<*> (x Lude..:? "ErrorDetails")
+            Lude.<*> (x Lude..:? "ReferencePath")
       )
-
-instance Hashable DomainPackageDetails
-
-instance NFData DomainPackageDetails

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,112 @@
 --
 -- Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.
 --
---
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
 module Network.AWS.CognitoSync.SetCognitoEvents
-  ( -- * Creating a Request
-    setCognitoEvents,
-    SetCognitoEvents,
+  ( -- * Creating a request
+    SetCognitoEvents (..),
+    mkSetCognitoEvents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sceIdentityPoolId,
     sceEvents,
 
-    -- * Destructuring the Response
-    setCognitoEventsResponse,
-    SetCognitoEventsResponse,
+    -- * Destructuring the response
+    SetCognitoEventsResponse (..),
+    mkSetCognitoEventsResponse,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to configure Cognito Events"
 --
---
---
--- /See:/ 'setCognitoEvents' smart constructor.
+-- /See:/ 'mkSetCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
-  { _sceIdentityPoolId ::
-      !Text,
-    _sceEvents :: !(Map Text (Text))
+  { identityPoolId ::
+      Lude.Text,
+    events :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetCognitoEvents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sceIdentityPoolId' - The Cognito Identity Pool to use when configuring Cognito Events
---
--- * 'sceEvents' - The events to configure
-setCognitoEvents ::
-  -- | 'sceIdentityPoolId'
-  Text ->
+-- * 'events' - The events to configure
+-- * 'identityPoolId' - The Cognito Identity Pool to use when configuring Cognito Events
+mkSetCognitoEvents ::
+  -- | 'identityPoolId'
+  Lude.Text ->
   SetCognitoEvents
-setCognitoEvents pIdentityPoolId_ =
+mkSetCognitoEvents pIdentityPoolId_ =
   SetCognitoEvents'
-    { _sceIdentityPoolId = pIdentityPoolId_,
-      _sceEvents = mempty
+    { identityPoolId = pIdentityPoolId_,
+      events = Lude.mempty
     }
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
-sceIdentityPoolId :: Lens' SetCognitoEvents Text
-sceIdentityPoolId = lens _sceIdentityPoolId (\s a -> s {_sceIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sceIdentityPoolId :: Lens.Lens' SetCognitoEvents Lude.Text
+sceIdentityPoolId = Lens.lens (identityPoolId :: SetCognitoEvents -> Lude.Text) (\s a -> s {identityPoolId = a} :: SetCognitoEvents)
+{-# DEPRECATED sceIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The events to configure
-sceEvents :: Lens' SetCognitoEvents (HashMap Text (Text))
-sceEvents = lens _sceEvents (\s a -> s {_sceEvents = a}) . _Map
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sceEvents :: Lens.Lens' SetCognitoEvents (Lude.HashMap Lude.Text (Lude.Text))
+sceEvents = Lens.lens (events :: SetCognitoEvents -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {events = a} :: SetCognitoEvents)
+{-# DEPRECATED sceEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance AWSRequest SetCognitoEvents where
+instance Lude.AWSRequest SetCognitoEvents where
   type Rs SetCognitoEvents = SetCognitoEventsResponse
-  request = postJSON cognitoSync
-  response = receiveNull SetCognitoEventsResponse'
+  request = Req.postJSON cognitoSyncService
+  response = Res.receiveNull SetCognitoEventsResponse'
 
-instance Hashable SetCognitoEvents
-
-instance NFData SetCognitoEvents
-
-instance ToHeaders SetCognitoEvents where
+instance Lude.ToHeaders SetCognitoEvents where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON SetCognitoEvents where
+instance Lude.ToJSON SetCognitoEvents where
   toJSON SetCognitoEvents' {..} =
-    object (catMaybes [Just ("Events" .= _sceEvents)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Events" Lude..= events)])
 
-instance ToPath SetCognitoEvents where
+instance Lude.ToPath SetCognitoEvents where
   toPath SetCognitoEvents' {..} =
-    mconcat ["/identitypools/", toBS _sceIdentityPoolId, "/events"]
+    Lude.mconcat
+      ["/identitypools/", Lude.toBS identityPoolId, "/events"]
 
-instance ToQuery SetCognitoEvents where
-  toQuery = const mempty
+instance Lude.ToQuery SetCognitoEvents where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setCognitoEventsResponse' smart constructor.
+-- | /See:/ 'mkSetCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse = SetCognitoEventsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetCognitoEventsResponse' with the minimum fields required to make a request.
-setCognitoEventsResponse ::
+mkSetCognitoEventsResponse ::
   SetCognitoEventsResponse
-setCognitoEventsResponse = SetCognitoEventsResponse'
-
-instance NFData SetCognitoEventsResponse
+mkSetCognitoEventsResponse = SetCognitoEventsResponse'

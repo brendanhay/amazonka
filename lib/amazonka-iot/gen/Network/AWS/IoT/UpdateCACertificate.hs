@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,150 @@
 --
 -- Updates a registered CA certificate.
 module Network.AWS.IoT.UpdateCACertificate
-  ( -- * Creating a Request
-    updateCACertificate,
-    UpdateCACertificate,
+  ( -- * Creating a request
+    UpdateCACertificate (..),
+    mkUpdateCACertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucacRemoveAutoRegistration,
     ucacNewStatus,
     ucacRegistrationConfig,
     ucacNewAutoRegistrationStatus,
     ucacCertificateId,
 
-    -- * Destructuring the Response
-    updateCACertificateResponse,
-    UpdateCACertificateResponse,
+    -- * Destructuring the response
+    UpdateCACertificateResponse (..),
+    mkUpdateCACertificateResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input to the UpdateCACertificate operation.
 --
---
---
--- /See:/ 'updateCACertificate' smart constructor.
+-- /See:/ 'mkUpdateCACertificate' smart constructor.
 data UpdateCACertificate = UpdateCACertificate'
-  { _ucacRemoveAutoRegistration ::
-      !(Maybe Bool),
-    _ucacNewStatus :: !(Maybe CACertificateStatus),
-    _ucacRegistrationConfig ::
-      !(Maybe RegistrationConfig),
-    _ucacNewAutoRegistrationStatus ::
-      !(Maybe AutoRegistrationStatus),
-    _ucacCertificateId :: !Text
+  { removeAutoRegistration ::
+      Lude.Maybe Lude.Bool,
+    newStatus :: Lude.Maybe CACertificateStatus,
+    registrationConfig :: Lude.Maybe RegistrationConfig,
+    newAutoRegistrationStatus ::
+      Lude.Maybe AutoRegistrationStatus,
+    certificateId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCACertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateId' - The CA certificate identifier.
+-- * 'newAutoRegistrationStatus' - The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
+-- * 'newStatus' - The updated status of the CA certificate.
 --
--- * 'ucacRemoveAutoRegistration' - If true, removes auto registration.
---
--- * 'ucacNewStatus' - The updated status of the CA certificate. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
---
--- * 'ucacRegistrationConfig' - Information about the registration configuration.
---
--- * 'ucacNewAutoRegistrationStatus' - The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
---
--- * 'ucacCertificateId' - The CA certificate identifier.
-updateCACertificate ::
-  -- | 'ucacCertificateId'
-  Text ->
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- * 'registrationConfig' - Information about the registration configuration.
+-- * 'removeAutoRegistration' - If true, removes auto registration.
+mkUpdateCACertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
   UpdateCACertificate
-updateCACertificate pCertificateId_ =
+mkUpdateCACertificate pCertificateId_ =
   UpdateCACertificate'
-    { _ucacRemoveAutoRegistration = Nothing,
-      _ucacNewStatus = Nothing,
-      _ucacRegistrationConfig = Nothing,
-      _ucacNewAutoRegistrationStatus = Nothing,
-      _ucacCertificateId = pCertificateId_
+    { removeAutoRegistration = Lude.Nothing,
+      newStatus = Lude.Nothing,
+      registrationConfig = Lude.Nothing,
+      newAutoRegistrationStatus = Lude.Nothing,
+      certificateId = pCertificateId_
     }
 
 -- | If true, removes auto registration.
-ucacRemoveAutoRegistration :: Lens' UpdateCACertificate (Maybe Bool)
-ucacRemoveAutoRegistration = lens _ucacRemoveAutoRegistration (\s a -> s {_ucacRemoveAutoRegistration = a})
+--
+-- /Note:/ Consider using 'removeAutoRegistration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacRemoveAutoRegistration :: Lens.Lens' UpdateCACertificate (Lude.Maybe Lude.Bool)
+ucacRemoveAutoRegistration = Lens.lens (removeAutoRegistration :: UpdateCACertificate -> Lude.Maybe Lude.Bool) (\s a -> s {removeAutoRegistration = a} :: UpdateCACertificate)
+{-# DEPRECATED ucacRemoveAutoRegistration "Use generic-lens or generic-optics with 'removeAutoRegistration' instead." #-}
 
--- | The updated status of the CA certificate. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
-ucacNewStatus :: Lens' UpdateCACertificate (Maybe CACertificateStatus)
-ucacNewStatus = lens _ucacNewStatus (\s a -> s {_ucacNewStatus = a})
+-- | The updated status of the CA certificate.
+--
+-- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+--
+-- /Note:/ Consider using 'newStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacNewStatus :: Lens.Lens' UpdateCACertificate (Lude.Maybe CACertificateStatus)
+ucacNewStatus = Lens.lens (newStatus :: UpdateCACertificate -> Lude.Maybe CACertificateStatus) (\s a -> s {newStatus = a} :: UpdateCACertificate)
+{-# DEPRECATED ucacNewStatus "Use generic-lens or generic-optics with 'newStatus' instead." #-}
 
 -- | Information about the registration configuration.
-ucacRegistrationConfig :: Lens' UpdateCACertificate (Maybe RegistrationConfig)
-ucacRegistrationConfig = lens _ucacRegistrationConfig (\s a -> s {_ucacRegistrationConfig = a})
+--
+-- /Note:/ Consider using 'registrationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacRegistrationConfig :: Lens.Lens' UpdateCACertificate (Lude.Maybe RegistrationConfig)
+ucacRegistrationConfig = Lens.lens (registrationConfig :: UpdateCACertificate -> Lude.Maybe RegistrationConfig) (\s a -> s {registrationConfig = a} :: UpdateCACertificate)
+{-# DEPRECATED ucacRegistrationConfig "Use generic-lens or generic-optics with 'registrationConfig' instead." #-}
 
 -- | The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
-ucacNewAutoRegistrationStatus :: Lens' UpdateCACertificate (Maybe AutoRegistrationStatus)
-ucacNewAutoRegistrationStatus = lens _ucacNewAutoRegistrationStatus (\s a -> s {_ucacNewAutoRegistrationStatus = a})
+--
+-- /Note:/ Consider using 'newAutoRegistrationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacNewAutoRegistrationStatus :: Lens.Lens' UpdateCACertificate (Lude.Maybe AutoRegistrationStatus)
+ucacNewAutoRegistrationStatus = Lens.lens (newAutoRegistrationStatus :: UpdateCACertificate -> Lude.Maybe AutoRegistrationStatus) (\s a -> s {newAutoRegistrationStatus = a} :: UpdateCACertificate)
+{-# DEPRECATED ucacNewAutoRegistrationStatus "Use generic-lens or generic-optics with 'newAutoRegistrationStatus' instead." #-}
 
 -- | The CA certificate identifier.
-ucacCertificateId :: Lens' UpdateCACertificate Text
-ucacCertificateId = lens _ucacCertificateId (\s a -> s {_ucacCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucacCertificateId :: Lens.Lens' UpdateCACertificate Lude.Text
+ucacCertificateId = Lens.lens (certificateId :: UpdateCACertificate -> Lude.Text) (\s a -> s {certificateId = a} :: UpdateCACertificate)
+{-# DEPRECATED ucacCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest UpdateCACertificate where
+instance Lude.AWSRequest UpdateCACertificate where
   type Rs UpdateCACertificate = UpdateCACertificateResponse
-  request = putJSON ioT
-  response = receiveNull UpdateCACertificateResponse'
+  request = Req.putJSON ioTService
+  response = Res.receiveNull UpdateCACertificateResponse'
 
-instance Hashable UpdateCACertificate
+instance Lude.ToHeaders UpdateCACertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateCACertificate
-
-instance ToHeaders UpdateCACertificate where
-  toHeaders = const mempty
-
-instance ToJSON UpdateCACertificate where
+instance Lude.ToJSON UpdateCACertificate where
   toJSON UpdateCACertificate' {..} =
-    object
-      ( catMaybes
-          [ ("removeAutoRegistration" .=) <$> _ucacRemoveAutoRegistration,
-            ("registrationConfig" .=) <$> _ucacRegistrationConfig
+    Lude.object
+      ( Lude.catMaybes
+          [ ("removeAutoRegistration" Lude..=)
+              Lude.<$> removeAutoRegistration,
+            ("registrationConfig" Lude..=) Lude.<$> registrationConfig
           ]
       )
 
-instance ToPath UpdateCACertificate where
+instance Lude.ToPath UpdateCACertificate where
   toPath UpdateCACertificate' {..} =
-    mconcat ["/cacertificate/", toBS _ucacCertificateId]
+    Lude.mconcat ["/cacertificate/", Lude.toBS certificateId]
 
-instance ToQuery UpdateCACertificate where
+instance Lude.ToQuery UpdateCACertificate where
   toQuery UpdateCACertificate' {..} =
-    mconcat
-      [ "newStatus" =: _ucacNewStatus,
-        "newAutoRegistrationStatus" =: _ucacNewAutoRegistrationStatus
+    Lude.mconcat
+      [ "newStatus" Lude.=: newStatus,
+        "newAutoRegistrationStatus" Lude.=: newAutoRegistrationStatus
       ]
 
--- | /See:/ 'updateCACertificateResponse' smart constructor.
+-- | /See:/ 'mkUpdateCACertificateResponse' smart constructor.
 data UpdateCACertificateResponse = UpdateCACertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCACertificateResponse' with the minimum fields required to make a request.
-updateCACertificateResponse ::
+mkUpdateCACertificateResponse ::
   UpdateCACertificateResponse
-updateCACertificateResponse = UpdateCACertificateResponse'
-
-instance NFData UpdateCACertificateResponse
+mkUpdateCACertificateResponse = UpdateCACertificateResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,112 @@
 --
 -- Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
 module Network.AWS.Inspector.SetTagsForResource
-  ( -- * Creating a Request
-    setTagsForResource,
-    SetTagsForResource,
+  ( -- * Creating a request
+    SetTagsForResource (..),
+    mkSetTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stfrTags,
     stfrResourceARN,
 
-    -- * Destructuring the Response
-    setTagsForResourceResponse,
-    SetTagsForResourceResponse,
+    -- * Destructuring the response
+    SetTagsForResourceResponse (..),
+    mkSetTagsForResourceResponse,
   )
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setTagsForResource' smart constructor.
+-- | /See:/ 'mkSetTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
-  { _stfrTags ::
-      !(Maybe [Tag]),
-    _stfrResourceARN :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stfrTags' - A collection of key and value pairs that you want to set to the assessment template.
---
--- * 'stfrResourceARN' - The ARN of the assessment template that you want to set tags to.
-setTagsForResource ::
-  -- | 'stfrResourceARN'
-  Text ->
+-- * 'resourceARN' - The ARN of the assessment template that you want to set tags to.
+-- * 'tags' - A collection of key and value pairs that you want to set to the assessment template.
+mkSetTagsForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   SetTagsForResource
-setTagsForResource pResourceARN_ =
+mkSetTagsForResource pResourceARN_ =
   SetTagsForResource'
-    { _stfrTags = Nothing,
-      _stfrResourceARN = pResourceARN_
+    { tags = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
 -- | A collection of key and value pairs that you want to set to the assessment template.
-stfrTags :: Lens' SetTagsForResource [Tag]
-stfrTags = lens _stfrTags (\s a -> s {_stfrTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stfrTags :: Lens.Lens' SetTagsForResource (Lude.Maybe [Tag])
+stfrTags = Lens.lens (tags :: SetTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SetTagsForResource)
+{-# DEPRECATED stfrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the assessment template that you want to set tags to.
-stfrResourceARN :: Lens' SetTagsForResource Text
-stfrResourceARN = lens _stfrResourceARN (\s a -> s {_stfrResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stfrResourceARN :: Lens.Lens' SetTagsForResource Lude.Text
+stfrResourceARN = Lens.lens (resourceARN :: SetTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: SetTagsForResource)
+{-# DEPRECATED stfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest SetTagsForResource where
+instance Lude.AWSRequest SetTagsForResource where
   type Rs SetTagsForResource = SetTagsForResourceResponse
-  request = postJSON inspector
-  response = receiveNull SetTagsForResourceResponse'
+  request = Req.postJSON inspectorService
+  response = Res.receiveNull SetTagsForResourceResponse'
 
-instance Hashable SetTagsForResource
-
-instance NFData SetTagsForResource
-
-instance ToHeaders SetTagsForResource where
+instance Lude.ToHeaders SetTagsForResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.SetTagsForResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.SetTagsForResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SetTagsForResource where
+instance Lude.ToJSON SetTagsForResource where
   toJSON SetTagsForResource' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _stfrTags,
-            Just ("resourceArn" .= _stfrResourceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("resourceArn" Lude..= resourceARN)
           ]
       )
 
-instance ToPath SetTagsForResource where
-  toPath = const "/"
+instance Lude.ToPath SetTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToQuery SetTagsForResource where
-  toQuery = const mempty
+instance Lude.ToQuery SetTagsForResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setTagsForResourceResponse' smart constructor.
+-- | /See:/ 'mkSetTagsForResourceResponse' smart constructor.
 data SetTagsForResourceResponse = SetTagsForResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTagsForResourceResponse' with the minimum fields required to make a request.
-setTagsForResourceResponse ::
+mkSetTagsForResourceResponse ::
   SetTagsForResourceResponse
-setTagsForResourceResponse = SetTagsForResourceResponse'
-
-instance NFData SetTagsForResourceResponse
+mkSetTagsForResourceResponse = SetTagsForResourceResponse'

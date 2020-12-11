@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.RuleGroup where
+module Network.AWS.WAF.Types.RuleGroup
+  ( RuleGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRuleGroup,
+
+    -- * Lenses
+    rgMetricName,
+    rgName,
+    rgRuleGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A collection of predefined rules that you can add to a web ACL.
---
 --
 -- Rule groups are subject to the following limits:
 --
 --     * Three rule groups per account. You can request an increase to this limit by contacting customer support.
 --
+--
 --     * One rule group per web ACL.
+--
 --
 --     * Ten rules per rule group.
 --
 --
 --
---
--- /See:/ 'ruleGroup' smart constructor.
+-- /See:/ 'mkRuleGroup' smart constructor.
 data RuleGroup = RuleGroup'
-  { _rgMetricName :: !(Maybe Text),
-    _rgName :: !(Maybe Text),
-    _rgRuleGroupId :: !Text
+  { metricName :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    ruleGroupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'metricName' - A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
+-- * 'name' - The friendly name or description for the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
+-- * 'ruleGroupId' - A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
 --
--- * 'rgMetricName' - A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
---
--- * 'rgName' - The friendly name or description for the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
---
--- * 'rgRuleGroupId' - A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ). @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-ruleGroup ::
-  -- | 'rgRuleGroupId'
-  Text ->
+-- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+mkRuleGroup ::
+  -- | 'ruleGroupId'
+  Lude.Text ->
   RuleGroup
-ruleGroup pRuleGroupId_ =
+mkRuleGroup pRuleGroupId_ =
   RuleGroup'
-    { _rgMetricName = Nothing,
-      _rgName = Nothing,
-      _rgRuleGroupId = pRuleGroupId_
+    { metricName = Lude.Nothing,
+      name = Lude.Nothing,
+      ruleGroupId = pRuleGroupId_
     }
 
 -- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
-rgMetricName :: Lens' RuleGroup (Maybe Text)
-rgMetricName = lens _rgMetricName (\s a -> s {_rgMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgMetricName :: Lens.Lens' RuleGroup (Lude.Maybe Lude.Text)
+rgMetricName = Lens.lens (metricName :: RuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: RuleGroup)
+{-# DEPRECATED rgMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The friendly name or description for the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
-rgName :: Lens' RuleGroup (Maybe Text)
-rgName = lens _rgName (\s a -> s {_rgName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgName :: Lens.Lens' RuleGroup (Lude.Maybe Lude.Text)
+rgName = Lens.lens (name :: RuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RuleGroup)
+{-# DEPRECATED rgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ). @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-rgRuleGroupId :: Lens' RuleGroup Text
-rgRuleGroupId = lens _rgRuleGroupId (\s a -> s {_rgRuleGroupId = a})
+-- | A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
+--
+-- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgRuleGroupId :: Lens.Lens' RuleGroup Lude.Text
+rgRuleGroupId = Lens.lens (ruleGroupId :: RuleGroup -> Lude.Text) (\s a -> s {ruleGroupId = a} :: RuleGroup)
+{-# DEPRECATED rgRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
 
-instance FromJSON RuleGroup where
+instance Lude.FromJSON RuleGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            <$> (x .:? "MetricName") <*> (x .:? "Name") <*> (x .: "RuleGroupId")
+            Lude.<$> (x Lude..:? "MetricName")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..: "RuleGroupId")
       )
-
-instance Hashable RuleGroup
-
-instance NFData RuleGroup

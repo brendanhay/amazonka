@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,173 @@
 --
 -- Updates an existing workflow.
 module Network.AWS.Glue.UpdateWorkflow
-  ( -- * Creating a Request
-    updateWorkflow,
-    UpdateWorkflow,
+  ( -- * Creating a request
+    UpdateWorkflow (..),
+    mkUpdateWorkflow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uwMaxConcurrentRuns,
     uwDefaultRunProperties,
     uwDescription,
     uwName,
 
-    -- * Destructuring the Response
-    updateWorkflowResponse,
-    UpdateWorkflowResponse,
+    -- * Destructuring the response
+    UpdateWorkflowResponse (..),
+    mkUpdateWorkflowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uwrsName,
     uwrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateWorkflow' smart constructor.
+-- | /See:/ 'mkUpdateWorkflow' smart constructor.
 data UpdateWorkflow = UpdateWorkflow'
-  { _uwMaxConcurrentRuns ::
-      !(Maybe Int),
-    _uwDefaultRunProperties :: !(Maybe (Map Text (Text))),
-    _uwDescription :: !(Maybe Text),
-    _uwName :: !Text
+  { maxConcurrentRuns ::
+      Lude.Maybe Lude.Int,
+    defaultRunProperties ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    description :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkflow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwMaxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
---
--- * 'uwDefaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
---
--- * 'uwDescription' - The description of the workflow.
---
--- * 'uwName' - Name of the workflow to be updated.
-updateWorkflow ::
-  -- | 'uwName'
-  Text ->
+-- * 'defaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
+-- * 'description' - The description of the workflow.
+-- * 'maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+-- * 'name' - Name of the workflow to be updated.
+mkUpdateWorkflow ::
+  -- | 'name'
+  Lude.Text ->
   UpdateWorkflow
-updateWorkflow pName_ =
+mkUpdateWorkflow pName_ =
   UpdateWorkflow'
-    { _uwMaxConcurrentRuns = Nothing,
-      _uwDefaultRunProperties = Nothing,
-      _uwDescription = Nothing,
-      _uwName = pName_
+    { maxConcurrentRuns = Lude.Nothing,
+      defaultRunProperties = Lude.Nothing,
+      description = Lude.Nothing,
+      name = pName_
     }
 
 -- | You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-uwMaxConcurrentRuns :: Lens' UpdateWorkflow (Maybe Int)
-uwMaxConcurrentRuns = lens _uwMaxConcurrentRuns (\s a -> s {_uwMaxConcurrentRuns = a})
+--
+-- /Note:/ Consider using 'maxConcurrentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwMaxConcurrentRuns :: Lens.Lens' UpdateWorkflow (Lude.Maybe Lude.Int)
+uwMaxConcurrentRuns = Lens.lens (maxConcurrentRuns :: UpdateWorkflow -> Lude.Maybe Lude.Int) (\s a -> s {maxConcurrentRuns = a} :: UpdateWorkflow)
+{-# DEPRECATED uwMaxConcurrentRuns "Use generic-lens or generic-optics with 'maxConcurrentRuns' instead." #-}
 
 -- | A collection of properties to be used as part of each execution of the workflow.
-uwDefaultRunProperties :: Lens' UpdateWorkflow (HashMap Text (Text))
-uwDefaultRunProperties = lens _uwDefaultRunProperties (\s a -> s {_uwDefaultRunProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'defaultRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwDefaultRunProperties :: Lens.Lens' UpdateWorkflow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+uwDefaultRunProperties = Lens.lens (defaultRunProperties :: UpdateWorkflow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {defaultRunProperties = a} :: UpdateWorkflow)
+{-# DEPRECATED uwDefaultRunProperties "Use generic-lens or generic-optics with 'defaultRunProperties' instead." #-}
 
 -- | The description of the workflow.
-uwDescription :: Lens' UpdateWorkflow (Maybe Text)
-uwDescription = lens _uwDescription (\s a -> s {_uwDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwDescription :: Lens.Lens' UpdateWorkflow (Lude.Maybe Lude.Text)
+uwDescription = Lens.lens (description :: UpdateWorkflow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateWorkflow)
+{-# DEPRECATED uwDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Name of the workflow to be updated.
-uwName :: Lens' UpdateWorkflow Text
-uwName = lens _uwName (\s a -> s {_uwName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwName :: Lens.Lens' UpdateWorkflow Lude.Text
+uwName = Lens.lens (name :: UpdateWorkflow -> Lude.Text) (\s a -> s {name = a} :: UpdateWorkflow)
+{-# DEPRECATED uwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdateWorkflow where
+instance Lude.AWSRequest UpdateWorkflow where
   type Rs UpdateWorkflow = UpdateWorkflowResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateWorkflowResponse' <$> (x .?> "Name") <*> (pure (fromEnum s))
+          UpdateWorkflowResponse'
+            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateWorkflow
-
-instance NFData UpdateWorkflow
-
-instance ToHeaders UpdateWorkflow where
+instance Lude.ToHeaders UpdateWorkflow where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.UpdateWorkflow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.UpdateWorkflow" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateWorkflow where
+instance Lude.ToJSON UpdateWorkflow where
   toJSON UpdateWorkflow' {..} =
-    object
-      ( catMaybes
-          [ ("MaxConcurrentRuns" .=) <$> _uwMaxConcurrentRuns,
-            ("DefaultRunProperties" .=) <$> _uwDefaultRunProperties,
-            ("Description" .=) <$> _uwDescription,
-            Just ("Name" .= _uwName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaxConcurrentRuns" Lude..=) Lude.<$> maxConcurrentRuns,
+            ("DefaultRunProperties" Lude..=) Lude.<$> defaultRunProperties,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath UpdateWorkflow where
-  toPath = const "/"
+instance Lude.ToPath UpdateWorkflow where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateWorkflow where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateWorkflow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateWorkflowResponse' smart constructor.
+-- | /See:/ 'mkUpdateWorkflowResponse' smart constructor.
 data UpdateWorkflowResponse = UpdateWorkflowResponse'
-  { _uwrsName ::
-      !(Maybe Text),
-    _uwrsResponseStatus :: !Int
+  { name ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkflowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uwrsName' - The name of the workflow which was specified in input.
---
--- * 'uwrsResponseStatus' - -- | The response status code.
-updateWorkflowResponse ::
-  -- | 'uwrsResponseStatus'
-  Int ->
+-- * 'name' - The name of the workflow which was specified in input.
+-- * 'responseStatus' - The response status code.
+mkUpdateWorkflowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateWorkflowResponse
-updateWorkflowResponse pResponseStatus_ =
+mkUpdateWorkflowResponse pResponseStatus_ =
   UpdateWorkflowResponse'
-    { _uwrsName = Nothing,
-      _uwrsResponseStatus = pResponseStatus_
+    { name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the workflow which was specified in input.
-uwrsName :: Lens' UpdateWorkflowResponse (Maybe Text)
-uwrsName = lens _uwrsName (\s a -> s {_uwrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwrsName :: Lens.Lens' UpdateWorkflowResponse (Lude.Maybe Lude.Text)
+uwrsName = Lens.lens (name :: UpdateWorkflowResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateWorkflowResponse)
+{-# DEPRECATED uwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-uwrsResponseStatus :: Lens' UpdateWorkflowResponse Int
-uwrsResponseStatus = lens _uwrsResponseStatus (\s a -> s {_uwrsResponseStatus = a})
-
-instance NFData UpdateWorkflowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwrsResponseStatus :: Lens.Lens' UpdateWorkflowResponse Lude.Int
+uwrsResponseStatus = Lens.lens (responseStatus :: UpdateWorkflowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateWorkflowResponse)
+{-# DEPRECATED uwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

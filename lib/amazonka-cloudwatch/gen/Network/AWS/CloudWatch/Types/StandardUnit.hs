@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,124 +7,174 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.StandardUnit where
+module Network.AWS.CloudWatch.Types.StandardUnit
+  ( StandardUnit
+      ( StandardUnit',
+        Bits,
+        BitsSecond,
+        Bytes,
+        BytesSecond,
+        Count,
+        CountSecond,
+        Gigabits,
+        GigabitsSecond,
+        Gigabytes,
+        GigabytesSecond,
+        Kilobits,
+        KilobitsSecond,
+        Kilobytes,
+        KilobytesSecond,
+        Megabits,
+        MegabitsSecond,
+        Megabytes,
+        MegabytesSecond,
+        Microseconds,
+        Milliseconds,
+        None,
+        Percent,
+        Seconds,
+        Terabits,
+        TerabitsSecond,
+        Terabytes,
+        TerabytesSecond
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StandardUnit
-  = Bits
-  | BitsSecond
-  | Bytes
-  | BytesSecond
-  | Count
-  | CountSecond
-  | Gigabits
-  | GigabitsSecond
-  | Gigabytes
-  | GigabytesSecond
-  | Kilobits
-  | KilobitsSecond
-  | Kilobytes
-  | KilobytesSecond
-  | Megabits
-  | MegabitsSecond
-  | Megabytes
-  | MegabytesSecond
-  | Microseconds
-  | Milliseconds
-  | None
-  | Percent
-  | Seconds
-  | Terabits
-  | TerabitsSecond
-  | Terabytes
-  | TerabytesSecond
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StandardUnit = StandardUnit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StandardUnit where
-  parser =
-    takeLowerText >>= \case
-      "bits" -> pure Bits
-      "bits/second" -> pure BitsSecond
-      "bytes" -> pure Bytes
-      "bytes/second" -> pure BytesSecond
-      "count" -> pure Count
-      "count/second" -> pure CountSecond
-      "gigabits" -> pure Gigabits
-      "gigabits/second" -> pure GigabitsSecond
-      "gigabytes" -> pure Gigabytes
-      "gigabytes/second" -> pure GigabytesSecond
-      "kilobits" -> pure Kilobits
-      "kilobits/second" -> pure KilobitsSecond
-      "kilobytes" -> pure Kilobytes
-      "kilobytes/second" -> pure KilobytesSecond
-      "megabits" -> pure Megabits
-      "megabits/second" -> pure MegabitsSecond
-      "megabytes" -> pure Megabytes
-      "megabytes/second" -> pure MegabytesSecond
-      "microseconds" -> pure Microseconds
-      "milliseconds" -> pure Milliseconds
-      "none" -> pure None
-      "percent" -> pure Percent
-      "seconds" -> pure Seconds
-      "terabits" -> pure Terabits
-      "terabits/second" -> pure TerabitsSecond
-      "terabytes" -> pure Terabytes
-      "terabytes/second" -> pure TerabytesSecond
-      e ->
-        fromTextError $
-          "Failure parsing StandardUnit from value: '" <> e
-            <> "'. Accepted values: bits, bits/second, bytes, bytes/second, count, count/second, gigabits, gigabits/second, gigabytes, gigabytes/second, kilobits, kilobits/second, kilobytes, kilobytes/second, megabits, megabits/second, megabytes, megabytes/second, microseconds, milliseconds, none, percent, seconds, terabits, terabits/second, terabytes, terabytes/second"
+pattern Bits :: StandardUnit
+pattern Bits = StandardUnit' "Bits"
 
-instance ToText StandardUnit where
-  toText = \case
-    Bits -> "Bits"
-    BitsSecond -> "Bits/Second"
-    Bytes -> "Bytes"
-    BytesSecond -> "Bytes/Second"
-    Count -> "Count"
-    CountSecond -> "Count/Second"
-    Gigabits -> "Gigabits"
-    GigabitsSecond -> "Gigabits/Second"
-    Gigabytes -> "Gigabytes"
-    GigabytesSecond -> "Gigabytes/Second"
-    Kilobits -> "Kilobits"
-    KilobitsSecond -> "Kilobits/Second"
-    Kilobytes -> "Kilobytes"
-    KilobytesSecond -> "Kilobytes/Second"
-    Megabits -> "Megabits"
-    MegabitsSecond -> "Megabits/Second"
-    Megabytes -> "Megabytes"
-    MegabytesSecond -> "Megabytes/Second"
-    Microseconds -> "Microseconds"
-    Milliseconds -> "Milliseconds"
-    None -> "None"
-    Percent -> "Percent"
-    Seconds -> "Seconds"
-    Terabits -> "Terabits"
-    TerabitsSecond -> "Terabits/Second"
-    Terabytes -> "Terabytes"
-    TerabytesSecond -> "Terabytes/Second"
+pattern BitsSecond :: StandardUnit
+pattern BitsSecond = StandardUnit' "Bits/Second"
 
-instance Hashable StandardUnit
+pattern Bytes :: StandardUnit
+pattern Bytes = StandardUnit' "Bytes"
 
-instance NFData StandardUnit
+pattern BytesSecond :: StandardUnit
+pattern BytesSecond = StandardUnit' "Bytes/Second"
 
-instance ToByteString StandardUnit
+pattern Count :: StandardUnit
+pattern Count = StandardUnit' "Count"
 
-instance ToQuery StandardUnit
+pattern CountSecond :: StandardUnit
+pattern CountSecond = StandardUnit' "Count/Second"
 
-instance ToHeader StandardUnit
+pattern Gigabits :: StandardUnit
+pattern Gigabits = StandardUnit' "Gigabits"
 
-instance FromXML StandardUnit where
-  parseXML = parseXMLText "StandardUnit"
+pattern GigabitsSecond :: StandardUnit
+pattern GigabitsSecond = StandardUnit' "Gigabits/Second"
+
+pattern Gigabytes :: StandardUnit
+pattern Gigabytes = StandardUnit' "Gigabytes"
+
+pattern GigabytesSecond :: StandardUnit
+pattern GigabytesSecond = StandardUnit' "Gigabytes/Second"
+
+pattern Kilobits :: StandardUnit
+pattern Kilobits = StandardUnit' "Kilobits"
+
+pattern KilobitsSecond :: StandardUnit
+pattern KilobitsSecond = StandardUnit' "Kilobits/Second"
+
+pattern Kilobytes :: StandardUnit
+pattern Kilobytes = StandardUnit' "Kilobytes"
+
+pattern KilobytesSecond :: StandardUnit
+pattern KilobytesSecond = StandardUnit' "Kilobytes/Second"
+
+pattern Megabits :: StandardUnit
+pattern Megabits = StandardUnit' "Megabits"
+
+pattern MegabitsSecond :: StandardUnit
+pattern MegabitsSecond = StandardUnit' "Megabits/Second"
+
+pattern Megabytes :: StandardUnit
+pattern Megabytes = StandardUnit' "Megabytes"
+
+pattern MegabytesSecond :: StandardUnit
+pattern MegabytesSecond = StandardUnit' "Megabytes/Second"
+
+pattern Microseconds :: StandardUnit
+pattern Microseconds = StandardUnit' "Microseconds"
+
+pattern Milliseconds :: StandardUnit
+pattern Milliseconds = StandardUnit' "Milliseconds"
+
+pattern None :: StandardUnit
+pattern None = StandardUnit' "None"
+
+pattern Percent :: StandardUnit
+pattern Percent = StandardUnit' "Percent"
+
+pattern Seconds :: StandardUnit
+pattern Seconds = StandardUnit' "Seconds"
+
+pattern Terabits :: StandardUnit
+pattern Terabits = StandardUnit' "Terabits"
+
+pattern TerabitsSecond :: StandardUnit
+pattern TerabitsSecond = StandardUnit' "Terabits/Second"
+
+pattern Terabytes :: StandardUnit
+pattern Terabytes = StandardUnit' "Terabytes"
+
+pattern TerabytesSecond :: StandardUnit
+pattern TerabytesSecond = StandardUnit' "Terabytes/Second"
+
+{-# COMPLETE
+  Bits,
+  BitsSecond,
+  Bytes,
+  BytesSecond,
+  Count,
+  CountSecond,
+  Gigabits,
+  GigabitsSecond,
+  Gigabytes,
+  GigabytesSecond,
+  Kilobits,
+  KilobitsSecond,
+  Kilobytes,
+  KilobytesSecond,
+  Megabits,
+  MegabitsSecond,
+  Megabytes,
+  MegabytesSecond,
+  Microseconds,
+  Milliseconds,
+  None,
+  Percent,
+  Seconds,
+  Terabits,
+  TerabitsSecond,
+  Terabytes,
+  TerabytesSecond,
+  StandardUnit'
+  #-}

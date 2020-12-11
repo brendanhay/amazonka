@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Resets a group's deployments.
 module Network.AWS.Greengrass.ResetDeployments
-  ( -- * Creating a Request
-    resetDeployments,
-    ResetDeployments,
+  ( -- * Creating a request
+    ResetDeployments (..),
+    mkResetDeployments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rdAmznClientToken,
     rdForce,
     rdGroupId,
 
-    -- * Destructuring the Response
-    resetDeploymentsResponse,
-    ResetDeploymentsResponse,
+    -- * Destructuring the response
+    ResetDeploymentsResponse (..),
+    mkResetDeploymentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rdrsDeploymentId,
     rdrsDeploymentARN,
     rdrsResponseStatus,
@@ -40,128 +35,147 @@ module Network.AWS.Greengrass.ResetDeployments
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Information needed to reset deployments.
 --
--- /See:/ 'resetDeployments' smart constructor.
+-- /See:/ 'mkResetDeployments' smart constructor.
 data ResetDeployments = ResetDeployments'
-  { _rdAmznClientToken ::
-      !(Maybe Text),
-    _rdForce :: !(Maybe Bool),
-    _rdGroupId :: !Text
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    force :: Lude.Maybe Lude.Bool,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDeployments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'rdForce' - If true, performs a best-effort only core reset.
---
--- * 'rdGroupId' - The ID of the Greengrass group.
-resetDeployments ::
-  -- | 'rdGroupId'
-  Text ->
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'force' - If true, performs a best-effort only core reset.
+-- * 'groupId' - The ID of the Greengrass group.
+mkResetDeployments ::
+  -- | 'groupId'
+  Lude.Text ->
   ResetDeployments
-resetDeployments pGroupId_ =
+mkResetDeployments pGroupId_ =
   ResetDeployments'
-    { _rdAmznClientToken = Nothing,
-      _rdForce = Nothing,
-      _rdGroupId = pGroupId_
+    { amznClientToken = Lude.Nothing,
+      force = Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | A client token used to correlate requests and responses.
-rdAmznClientToken :: Lens' ResetDeployments (Maybe Text)
-rdAmznClientToken = lens _rdAmznClientToken (\s a -> s {_rdAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdAmznClientToken :: Lens.Lens' ResetDeployments (Lude.Maybe Lude.Text)
+rdAmznClientToken = Lens.lens (amznClientToken :: ResetDeployments -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: ResetDeployments)
+{-# DEPRECATED rdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | If true, performs a best-effort only core reset.
-rdForce :: Lens' ResetDeployments (Maybe Bool)
-rdForce = lens _rdForce (\s a -> s {_rdForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdForce :: Lens.Lens' ResetDeployments (Lude.Maybe Lude.Bool)
+rdForce = Lens.lens (force :: ResetDeployments -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: ResetDeployments)
+{-# DEPRECATED rdForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The ID of the Greengrass group.
-rdGroupId :: Lens' ResetDeployments Text
-rdGroupId = lens _rdGroupId (\s a -> s {_rdGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdGroupId :: Lens.Lens' ResetDeployments Lude.Text
+rdGroupId = Lens.lens (groupId :: ResetDeployments -> Lude.Text) (\s a -> s {groupId = a} :: ResetDeployments)
+{-# DEPRECATED rdGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest ResetDeployments where
+instance Lude.AWSRequest ResetDeployments where
   type Rs ResetDeployments = ResetDeploymentsResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResetDeploymentsResponse'
-            <$> (x .?> "DeploymentId")
-            <*> (x .?> "DeploymentArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeploymentId")
+            Lude.<*> (x Lude..?> "DeploymentArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetDeployments
-
-instance NFData ResetDeployments
-
-instance ToHeaders ResetDeployments where
+instance Lude.ToHeaders ResetDeployments where
   toHeaders ResetDeployments' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _rdAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON ResetDeployments where
+instance Lude.ToJSON ResetDeployments where
   toJSON ResetDeployments' {..} =
-    object (catMaybes [("Force" .=) <$> _rdForce])
+    Lude.object (Lude.catMaybes [("Force" Lude..=) Lude.<$> force])
 
-instance ToPath ResetDeployments where
+instance Lude.ToPath ResetDeployments where
   toPath ResetDeployments' {..} =
-    mconcat
-      ["/greengrass/groups/", toBS _rdGroupId, "/deployments/$reset"]
+    Lude.mconcat
+      ["/greengrass/groups/", Lude.toBS groupId, "/deployments/$reset"]
 
-instance ToQuery ResetDeployments where
-  toQuery = const mempty
+instance Lude.ToQuery ResetDeployments where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetDeploymentsResponse' smart constructor.
+-- | /See:/ 'mkResetDeploymentsResponse' smart constructor.
 data ResetDeploymentsResponse = ResetDeploymentsResponse'
-  { _rdrsDeploymentId ::
-      !(Maybe Text),
-    _rdrsDeploymentARN :: !(Maybe Text),
-    _rdrsResponseStatus :: !Int
+  { deploymentId ::
+      Lude.Maybe Lude.Text,
+    deploymentARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDeploymentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdrsDeploymentId' - The ID of the deployment.
---
--- * 'rdrsDeploymentARN' - The ARN of the deployment.
---
--- * 'rdrsResponseStatus' - -- | The response status code.
-resetDeploymentsResponse ::
-  -- | 'rdrsResponseStatus'
-  Int ->
+-- * 'deploymentARN' - The ARN of the deployment.
+-- * 'deploymentId' - The ID of the deployment.
+-- * 'responseStatus' - The response status code.
+mkResetDeploymentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetDeploymentsResponse
-resetDeploymentsResponse pResponseStatus_ =
+mkResetDeploymentsResponse pResponseStatus_ =
   ResetDeploymentsResponse'
-    { _rdrsDeploymentId = Nothing,
-      _rdrsDeploymentARN = Nothing,
-      _rdrsResponseStatus = pResponseStatus_
+    { deploymentId = Lude.Nothing,
+      deploymentARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the deployment.
-rdrsDeploymentId :: Lens' ResetDeploymentsResponse (Maybe Text)
-rdrsDeploymentId = lens _rdrsDeploymentId (\s a -> s {_rdrsDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdrsDeploymentId :: Lens.Lens' ResetDeploymentsResponse (Lude.Maybe Lude.Text)
+rdrsDeploymentId = Lens.lens (deploymentId :: ResetDeploymentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: ResetDeploymentsResponse)
+{-# DEPRECATED rdrsDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The ARN of the deployment.
-rdrsDeploymentARN :: Lens' ResetDeploymentsResponse (Maybe Text)
-rdrsDeploymentARN = lens _rdrsDeploymentARN (\s a -> s {_rdrsDeploymentARN = a})
+--
+-- /Note:/ Consider using 'deploymentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdrsDeploymentARN :: Lens.Lens' ResetDeploymentsResponse (Lude.Maybe Lude.Text)
+rdrsDeploymentARN = Lens.lens (deploymentARN :: ResetDeploymentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {deploymentARN = a} :: ResetDeploymentsResponse)
+{-# DEPRECATED rdrsDeploymentARN "Use generic-lens or generic-optics with 'deploymentARN' instead." #-}
 
--- | -- | The response status code.
-rdrsResponseStatus :: Lens' ResetDeploymentsResponse Int
-rdrsResponseStatus = lens _rdrsResponseStatus (\s a -> s {_rdrsResponseStatus = a})
-
-instance NFData ResetDeploymentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdrsResponseStatus :: Lens.Lens' ResetDeploymentsResponse Lude.Int
+rdrsResponseStatus = Lens.lens (responseStatus :: ResetDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetDeploymentsResponse)
+{-# DEPRECATED rdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

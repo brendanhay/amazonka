@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,164 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TreatmentResource where
+module Network.AWS.Pinpoint.Types.TreatmentResource
+  ( TreatmentResource (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTreatmentResource,
+
+    -- * Lenses
+    trCustomDeliveryConfiguration,
+    trState,
+    trSchedule,
+    trTemplateConfiguration,
+    trTreatmentName,
+    trTreatmentDescription,
+    trMessageConfiguration,
+    trId,
+    trSizePercent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignState
 import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
 import Network.AWS.Pinpoint.Types.MessageConfiguration
 import Network.AWS.Pinpoint.Types.Schedule
 import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a campaign treatment. A /treatment/ is a variation of a campaign that's used for A/B testing of a campaign.
 --
---
---
--- /See:/ 'treatmentResource' smart constructor.
+-- /See:/ 'mkTreatmentResource' smart constructor.
 data TreatmentResource = TreatmentResource'
-  { _trCustomDeliveryConfiguration ::
-      !(Maybe CustomDeliveryConfiguration),
-    _trState :: !(Maybe CampaignState),
-    _trSchedule :: !(Maybe Schedule),
-    _trTemplateConfiguration ::
-      !(Maybe TemplateConfiguration),
-    _trTreatmentName :: !(Maybe Text),
-    _trTreatmentDescription :: !(Maybe Text),
-    _trMessageConfiguration ::
-      !(Maybe MessageConfiguration),
-    _trId :: !Text,
-    _trSizePercent :: !Int
+  { customDeliveryConfiguration ::
+      Lude.Maybe CustomDeliveryConfiguration,
+    state :: Lude.Maybe CampaignState,
+    schedule :: Lude.Maybe Schedule,
+    templateConfiguration ::
+      Lude.Maybe TemplateConfiguration,
+    treatmentName :: Lude.Maybe Lude.Text,
+    treatmentDescription :: Lude.Maybe Lude.Text,
+    messageConfiguration :: Lude.Maybe MessageConfiguration,
+    id :: Lude.Text,
+    sizePercent :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TreatmentResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trCustomDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
---
--- * 'trState' - The current status of the treatment.
---
--- * 'trSchedule' - The schedule settings for the treatment.
---
--- * 'trTemplateConfiguration' - The message template to use for the treatment.
---
--- * 'trTreatmentName' - The custom name of the treatment.
---
--- * 'trTreatmentDescription' - The custom description of the treatment.
---
--- * 'trMessageConfiguration' - The message configuration settings for the treatment.
---
--- * 'trId' - The unique identifier for the treatment.
---
--- * 'trSizePercent' - The allocated percentage of users (segment members) that the treatment is sent to.
-treatmentResource ::
-  -- | 'trId'
-  Text ->
-  -- | 'trSizePercent'
-  Int ->
+-- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
+-- * 'id' - The unique identifier for the treatment.
+-- * 'messageConfiguration' - The message configuration settings for the treatment.
+-- * 'schedule' - The schedule settings for the treatment.
+-- * 'sizePercent' - The allocated percentage of users (segment members) that the treatment is sent to.
+-- * 'state' - The current status of the treatment.
+-- * 'templateConfiguration' - The message template to use for the treatment.
+-- * 'treatmentDescription' - The custom description of the treatment.
+-- * 'treatmentName' - The custom name of the treatment.
+mkTreatmentResource ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'sizePercent'
+  Lude.Int ->
   TreatmentResource
-treatmentResource pId_ pSizePercent_ =
+mkTreatmentResource pId_ pSizePercent_ =
   TreatmentResource'
-    { _trCustomDeliveryConfiguration = Nothing,
-      _trState = Nothing,
-      _trSchedule = Nothing,
-      _trTemplateConfiguration = Nothing,
-      _trTreatmentName = Nothing,
-      _trTreatmentDescription = Nothing,
-      _trMessageConfiguration = Nothing,
-      _trId = pId_,
-      _trSizePercent = pSizePercent_
+    { customDeliveryConfiguration = Lude.Nothing,
+      state = Lude.Nothing,
+      schedule = Lude.Nothing,
+      templateConfiguration = Lude.Nothing,
+      treatmentName = Lude.Nothing,
+      treatmentDescription = Lude.Nothing,
+      messageConfiguration = Lude.Nothing,
+      id = pId_,
+      sizePercent = pSizePercent_
     }
 
 -- | The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
-trCustomDeliveryConfiguration :: Lens' TreatmentResource (Maybe CustomDeliveryConfiguration)
-trCustomDeliveryConfiguration = lens _trCustomDeliveryConfiguration (\s a -> s {_trCustomDeliveryConfiguration = a})
+--
+-- /Note:/ Consider using 'customDeliveryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trCustomDeliveryConfiguration :: Lens.Lens' TreatmentResource (Lude.Maybe CustomDeliveryConfiguration)
+trCustomDeliveryConfiguration = Lens.lens (customDeliveryConfiguration :: TreatmentResource -> Lude.Maybe CustomDeliveryConfiguration) (\s a -> s {customDeliveryConfiguration = a} :: TreatmentResource)
+{-# DEPRECATED trCustomDeliveryConfiguration "Use generic-lens or generic-optics with 'customDeliveryConfiguration' instead." #-}
 
 -- | The current status of the treatment.
-trState :: Lens' TreatmentResource (Maybe CampaignState)
-trState = lens _trState (\s a -> s {_trState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trState :: Lens.Lens' TreatmentResource (Lude.Maybe CampaignState)
+trState = Lens.lens (state :: TreatmentResource -> Lude.Maybe CampaignState) (\s a -> s {state = a} :: TreatmentResource)
+{-# DEPRECATED trState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The schedule settings for the treatment.
-trSchedule :: Lens' TreatmentResource (Maybe Schedule)
-trSchedule = lens _trSchedule (\s a -> s {_trSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trSchedule :: Lens.Lens' TreatmentResource (Lude.Maybe Schedule)
+trSchedule = Lens.lens (schedule :: TreatmentResource -> Lude.Maybe Schedule) (\s a -> s {schedule = a} :: TreatmentResource)
+{-# DEPRECATED trSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The message template to use for the treatment.
-trTemplateConfiguration :: Lens' TreatmentResource (Maybe TemplateConfiguration)
-trTemplateConfiguration = lens _trTemplateConfiguration (\s a -> s {_trTemplateConfiguration = a})
+--
+-- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTemplateConfiguration :: Lens.Lens' TreatmentResource (Lude.Maybe TemplateConfiguration)
+trTemplateConfiguration = Lens.lens (templateConfiguration :: TreatmentResource -> Lude.Maybe TemplateConfiguration) (\s a -> s {templateConfiguration = a} :: TreatmentResource)
+{-# DEPRECATED trTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
 
 -- | The custom name of the treatment.
-trTreatmentName :: Lens' TreatmentResource (Maybe Text)
-trTreatmentName = lens _trTreatmentName (\s a -> s {_trTreatmentName = a})
+--
+-- /Note:/ Consider using 'treatmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTreatmentName :: Lens.Lens' TreatmentResource (Lude.Maybe Lude.Text)
+trTreatmentName = Lens.lens (treatmentName :: TreatmentResource -> Lude.Maybe Lude.Text) (\s a -> s {treatmentName = a} :: TreatmentResource)
+{-# DEPRECATED trTreatmentName "Use generic-lens or generic-optics with 'treatmentName' instead." #-}
 
 -- | The custom description of the treatment.
-trTreatmentDescription :: Lens' TreatmentResource (Maybe Text)
-trTreatmentDescription = lens _trTreatmentDescription (\s a -> s {_trTreatmentDescription = a})
+--
+-- /Note:/ Consider using 'treatmentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTreatmentDescription :: Lens.Lens' TreatmentResource (Lude.Maybe Lude.Text)
+trTreatmentDescription = Lens.lens (treatmentDescription :: TreatmentResource -> Lude.Maybe Lude.Text) (\s a -> s {treatmentDescription = a} :: TreatmentResource)
+{-# DEPRECATED trTreatmentDescription "Use generic-lens or generic-optics with 'treatmentDescription' instead." #-}
 
 -- | The message configuration settings for the treatment.
-trMessageConfiguration :: Lens' TreatmentResource (Maybe MessageConfiguration)
-trMessageConfiguration = lens _trMessageConfiguration (\s a -> s {_trMessageConfiguration = a})
+--
+-- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trMessageConfiguration :: Lens.Lens' TreatmentResource (Lude.Maybe MessageConfiguration)
+trMessageConfiguration = Lens.lens (messageConfiguration :: TreatmentResource -> Lude.Maybe MessageConfiguration) (\s a -> s {messageConfiguration = a} :: TreatmentResource)
+{-# DEPRECATED trMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
 
 -- | The unique identifier for the treatment.
-trId :: Lens' TreatmentResource Text
-trId = lens _trId (\s a -> s {_trId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trId :: Lens.Lens' TreatmentResource Lude.Text
+trId = Lens.lens (id :: TreatmentResource -> Lude.Text) (\s a -> s {id = a} :: TreatmentResource)
+{-# DEPRECATED trId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The allocated percentage of users (segment members) that the treatment is sent to.
-trSizePercent :: Lens' TreatmentResource Int
-trSizePercent = lens _trSizePercent (\s a -> s {_trSizePercent = a})
+--
+-- /Note:/ Consider using 'sizePercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trSizePercent :: Lens.Lens' TreatmentResource Lude.Int
+trSizePercent = Lens.lens (sizePercent :: TreatmentResource -> Lude.Int) (\s a -> s {sizePercent = a} :: TreatmentResource)
+{-# DEPRECATED trSizePercent "Use generic-lens or generic-optics with 'sizePercent' instead." #-}
 
-instance FromJSON TreatmentResource where
+instance Lude.FromJSON TreatmentResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "TreatmentResource"
       ( \x ->
           TreatmentResource'
-            <$> (x .:? "CustomDeliveryConfiguration")
-            <*> (x .:? "State")
-            <*> (x .:? "Schedule")
-            <*> (x .:? "TemplateConfiguration")
-            <*> (x .:? "TreatmentName")
-            <*> (x .:? "TreatmentDescription")
-            <*> (x .:? "MessageConfiguration")
-            <*> (x .: "Id")
-            <*> (x .: "SizePercent")
+            Lude.<$> (x Lude..:? "CustomDeliveryConfiguration")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "Schedule")
+            Lude.<*> (x Lude..:? "TemplateConfiguration")
+            Lude.<*> (x Lude..:? "TreatmentName")
+            Lude.<*> (x Lude..:? "TreatmentDescription")
+            Lude.<*> (x Lude..:? "MessageConfiguration")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "SizePercent")
       )
-
-instance Hashable TreatmentResource
-
-instance NFData TreatmentResource

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,138 @@
 --
 -- Updates the specified attributes of the specified folder. The user must have access to both the folder and its parent folder, if applicable.
 module Network.AWS.WorkDocs.UpdateFolder
-  ( -- * Creating a Request
-    updateFolder,
-    UpdateFolder,
+  ( -- * Creating a request
+    UpdateFolder (..),
+    mkUpdateFolder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufParentFolderId,
     ufAuthenticationToken,
     ufName,
     ufResourceState,
     ufFolderId,
 
-    -- * Destructuring the Response
-    updateFolderResponse,
-    UpdateFolderResponse,
+    -- * Destructuring the response
+    UpdateFolderResponse (..),
+    mkUpdateFolderResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'updateFolder' smart constructor.
+-- | /See:/ 'mkUpdateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { _ufParentFolderId ::
-      !(Maybe Text),
-    _ufAuthenticationToken :: !(Maybe (Sensitive Text)),
-    _ufName :: !(Maybe Text),
-    _ufResourceState :: !(Maybe ResourceStateType),
-    _ufFolderId :: !Text
+  { parentFolderId ::
+      Lude.Maybe Lude.Text,
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text,
+    resourceState :: Lude.Maybe ResourceStateType,
+    folderId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFolder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufParentFolderId' - The ID of the parent folder.
---
--- * 'ufAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'ufName' - The name of the folder.
---
--- * 'ufResourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
---
--- * 'ufFolderId' - The ID of the folder.
-updateFolder ::
-  -- | 'ufFolderId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'folderId' - The ID of the folder.
+-- * 'name' - The name of the folder.
+-- * 'parentFolderId' - The ID of the parent folder.
+-- * 'resourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
+mkUpdateFolder ::
+  -- | 'folderId'
+  Lude.Text ->
   UpdateFolder
-updateFolder pFolderId_ =
+mkUpdateFolder pFolderId_ =
   UpdateFolder'
-    { _ufParentFolderId = Nothing,
-      _ufAuthenticationToken = Nothing,
-      _ufName = Nothing,
-      _ufResourceState = Nothing,
-      _ufFolderId = pFolderId_
+    { parentFolderId = Lude.Nothing,
+      authenticationToken = Lude.Nothing,
+      name = Lude.Nothing,
+      resourceState = Lude.Nothing,
+      folderId = pFolderId_
     }
 
 -- | The ID of the parent folder.
-ufParentFolderId :: Lens' UpdateFolder (Maybe Text)
-ufParentFolderId = lens _ufParentFolderId (\s a -> s {_ufParentFolderId = a})
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufParentFolderId :: Lens.Lens' UpdateFolder (Lude.Maybe Lude.Text)
+ufParentFolderId = Lens.lens (parentFolderId :: UpdateFolder -> Lude.Maybe Lude.Text) (\s a -> s {parentFolderId = a} :: UpdateFolder)
+{-# DEPRECATED ufParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-ufAuthenticationToken :: Lens' UpdateFolder (Maybe Text)
-ufAuthenticationToken = lens _ufAuthenticationToken (\s a -> s {_ufAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufAuthenticationToken :: Lens.Lens' UpdateFolder (Lude.Maybe (Lude.Sensitive Lude.Text))
+ufAuthenticationToken = Lens.lens (authenticationToken :: UpdateFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: UpdateFolder)
+{-# DEPRECATED ufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The name of the folder.
-ufName :: Lens' UpdateFolder (Maybe Text)
-ufName = lens _ufName (\s a -> s {_ufName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufName :: Lens.Lens' UpdateFolder (Lude.Maybe Lude.Text)
+ufName = Lens.lens (name :: UpdateFolder -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateFolder)
+{-# DEPRECATED ufName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
-ufResourceState :: Lens' UpdateFolder (Maybe ResourceStateType)
-ufResourceState = lens _ufResourceState (\s a -> s {_ufResourceState = a})
+--
+-- /Note:/ Consider using 'resourceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufResourceState :: Lens.Lens' UpdateFolder (Lude.Maybe ResourceStateType)
+ufResourceState = Lens.lens (resourceState :: UpdateFolder -> Lude.Maybe ResourceStateType) (\s a -> s {resourceState = a} :: UpdateFolder)
+{-# DEPRECATED ufResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
 
 -- | The ID of the folder.
-ufFolderId :: Lens' UpdateFolder Text
-ufFolderId = lens _ufFolderId (\s a -> s {_ufFolderId = a})
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFolderId :: Lens.Lens' UpdateFolder Lude.Text
+ufFolderId = Lens.lens (folderId :: UpdateFolder -> Lude.Text) (\s a -> s {folderId = a} :: UpdateFolder)
+{-# DEPRECATED ufFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
-instance AWSRequest UpdateFolder where
+instance Lude.AWSRequest UpdateFolder where
   type Rs UpdateFolder = UpdateFolderResponse
-  request = patchJSON workDocs
-  response = receiveNull UpdateFolderResponse'
+  request = Req.patchJSON workDocsService
+  response = Res.receiveNull UpdateFolderResponse'
 
-instance Hashable UpdateFolder
-
-instance NFData UpdateFolder
-
-instance ToHeaders UpdateFolder where
+instance Lude.ToHeaders UpdateFolder where
   toHeaders UpdateFolder' {..} =
-    mconcat
-      [ "Authentication" =# _ufAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON UpdateFolder where
+instance Lude.ToJSON UpdateFolder where
   toJSON UpdateFolder' {..} =
-    object
-      ( catMaybes
-          [ ("ParentFolderId" .=) <$> _ufParentFolderId,
-            ("Name" .=) <$> _ufName,
-            ("ResourceState" .=) <$> _ufResourceState
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ParentFolderId" Lude..=) Lude.<$> parentFolderId,
+            ("Name" Lude..=) Lude.<$> name,
+            ("ResourceState" Lude..=) Lude.<$> resourceState
           ]
       )
 
-instance ToPath UpdateFolder where
+instance Lude.ToPath UpdateFolder where
   toPath UpdateFolder' {..} =
-    mconcat ["/api/v1/folders/", toBS _ufFolderId]
+    Lude.mconcat ["/api/v1/folders/", Lude.toBS folderId]
 
-instance ToQuery UpdateFolder where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFolder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFolderResponse' smart constructor.
+-- | /See:/ 'mkUpdateFolderResponse' smart constructor.
 data UpdateFolderResponse = UpdateFolderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFolderResponse' with the minimum fields required to make a request.
-updateFolderResponse ::
+mkUpdateFolderResponse ::
   UpdateFolderResponse
-updateFolderResponse = UpdateFolderResponse'
-
-instance NFData UpdateFolderResponse
+mkUpdateFolderResponse = UpdateFolderResponse'

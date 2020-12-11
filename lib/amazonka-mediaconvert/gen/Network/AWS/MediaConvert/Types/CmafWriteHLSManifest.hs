@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafWriteHLSManifest where
+module Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
+  ( CmafWriteHLSManifest
+      ( CmafWriteHLSManifest',
+        CWHLSMDisabled,
+        CWHLSMEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to ENABLED, an Apple HLS manifest will be generated for this output.
-data CmafWriteHLSManifest
-  = CWHLSMDisabled
-  | CWHLSMEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CmafWriteHLSManifest = CmafWriteHLSManifest' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CmafWriteHLSManifest where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure CWHLSMDisabled
-      "enabled" -> pure CWHLSMEnabled
-      e ->
-        fromTextError $
-          "Failure parsing CmafWriteHLSManifest from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern CWHLSMDisabled :: CmafWriteHLSManifest
+pattern CWHLSMDisabled = CmafWriteHLSManifest' "DISABLED"
 
-instance ToText CmafWriteHLSManifest where
-  toText = \case
-    CWHLSMDisabled -> "DISABLED"
-    CWHLSMEnabled -> "ENABLED"
+pattern CWHLSMEnabled :: CmafWriteHLSManifest
+pattern CWHLSMEnabled = CmafWriteHLSManifest' "ENABLED"
 
-instance Hashable CmafWriteHLSManifest
-
-instance NFData CmafWriteHLSManifest
-
-instance ToByteString CmafWriteHLSManifest
-
-instance ToQuery CmafWriteHLSManifest
-
-instance ToHeader CmafWriteHLSManifest
-
-instance ToJSON CmafWriteHLSManifest where
-  toJSON = toJSONText
-
-instance FromJSON CmafWriteHLSManifest where
-  parseJSON = parseJSONText "CmafWriteHLSManifest"
+{-# COMPLETE
+  CWHLSMDisabled,
+  CWHLSMEnabled,
+  CmafWriteHLSManifest'
+  #-}

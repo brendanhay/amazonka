@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ReplicationRunState where
+module Network.AWS.SMS.Types.ReplicationRunState
+  ( ReplicationRunState
+      ( ReplicationRunState',
+        RRSActive,
+        RRSCompleted,
+        RRSDeleted,
+        RRSDeleting,
+        RRSFailed,
+        RRSMissed,
+        RRSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplicationRunState
-  = RRSActive
-  | RRSCompleted
-  | RRSDeleted
-  | RRSDeleting
-  | RRSFailed
-  | RRSMissed
-  | RRSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplicationRunState = ReplicationRunState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplicationRunState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RRSActive
-      "completed" -> pure RRSCompleted
-      "deleted" -> pure RRSDeleted
-      "deleting" -> pure RRSDeleting
-      "failed" -> pure RRSFailed
-      "missed" -> pure RRSMissed
-      "pending" -> pure RRSPending
-      e ->
-        fromTextError $
-          "Failure parsing ReplicationRunState from value: '" <> e
-            <> "'. Accepted values: active, completed, deleted, deleting, failed, missed, pending"
+pattern RRSActive :: ReplicationRunState
+pattern RRSActive = ReplicationRunState' "ACTIVE"
 
-instance ToText ReplicationRunState where
-  toText = \case
-    RRSActive -> "ACTIVE"
-    RRSCompleted -> "COMPLETED"
-    RRSDeleted -> "DELETED"
-    RRSDeleting -> "DELETING"
-    RRSFailed -> "FAILED"
-    RRSMissed -> "MISSED"
-    RRSPending -> "PENDING"
+pattern RRSCompleted :: ReplicationRunState
+pattern RRSCompleted = ReplicationRunState' "COMPLETED"
 
-instance Hashable ReplicationRunState
+pattern RRSDeleted :: ReplicationRunState
+pattern RRSDeleted = ReplicationRunState' "DELETED"
 
-instance NFData ReplicationRunState
+pattern RRSDeleting :: ReplicationRunState
+pattern RRSDeleting = ReplicationRunState' "DELETING"
 
-instance ToByteString ReplicationRunState
+pattern RRSFailed :: ReplicationRunState
+pattern RRSFailed = ReplicationRunState' "FAILED"
 
-instance ToQuery ReplicationRunState
+pattern RRSMissed :: ReplicationRunState
+pattern RRSMissed = ReplicationRunState' "MISSED"
 
-instance ToHeader ReplicationRunState
+pattern RRSPending :: ReplicationRunState
+pattern RRSPending = ReplicationRunState' "PENDING"
 
-instance FromJSON ReplicationRunState where
-  parseJSON = parseJSONText "ReplicationRunState"
+{-# COMPLETE
+  RRSActive,
+  RRSCompleted,
+  RRSDeleted,
+  RRSDeleting,
+  RRSFailed,
+  RRSMissed,
+  RRSPending,
+  ReplicationRunState'
+  #-}

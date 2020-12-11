@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,157 @@
 --
 -- Retrieves the metadata of the specified folder.
 module Network.AWS.WorkDocs.GetFolder
-  ( -- * Creating a Request
-    getFolder,
-    GetFolder,
+  ( -- * Creating a request
+    GetFolder (..),
+    mkGetFolder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfAuthenticationToken,
     gfIncludeCustomMetadata,
     gfFolderId,
 
-    -- * Destructuring the Response
-    getFolderResponse,
-    GetFolderResponse,
+    -- * Destructuring the response
+    GetFolderResponse (..),
+    mkGetFolderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfrsCustomMetadata,
     gfrsMetadata,
     gfrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'getFolder' smart constructor.
+-- | /See:/ 'mkGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { _gfAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _gfIncludeCustomMetadata :: !(Maybe Bool),
-    _gfFolderId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    includeCustomMetadata :: Lude.Maybe Lude.Bool,
+    folderId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFolder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'gfIncludeCustomMetadata' - Set to TRUE to include custom metadata in the response.
---
--- * 'gfFolderId' - The ID of the folder.
-getFolder ::
-  -- | 'gfFolderId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'folderId' - The ID of the folder.
+-- * 'includeCustomMetadata' - Set to TRUE to include custom metadata in the response.
+mkGetFolder ::
+  -- | 'folderId'
+  Lude.Text ->
   GetFolder
-getFolder pFolderId_ =
+mkGetFolder pFolderId_ =
   GetFolder'
-    { _gfAuthenticationToken = Nothing,
-      _gfIncludeCustomMetadata = Nothing,
-      _gfFolderId = pFolderId_
+    { authenticationToken = Lude.Nothing,
+      includeCustomMetadata = Lude.Nothing,
+      folderId = pFolderId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-gfAuthenticationToken :: Lens' GetFolder (Maybe Text)
-gfAuthenticationToken = lens _gfAuthenticationToken (\s a -> s {_gfAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfAuthenticationToken :: Lens.Lens' GetFolder (Lude.Maybe (Lude.Sensitive Lude.Text))
+gfAuthenticationToken = Lens.lens (authenticationToken :: GetFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetFolder)
+{-# DEPRECATED gfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | Set to TRUE to include custom metadata in the response.
-gfIncludeCustomMetadata :: Lens' GetFolder (Maybe Bool)
-gfIncludeCustomMetadata = lens _gfIncludeCustomMetadata (\s a -> s {_gfIncludeCustomMetadata = a})
+--
+-- /Note:/ Consider using 'includeCustomMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfIncludeCustomMetadata :: Lens.Lens' GetFolder (Lude.Maybe Lude.Bool)
+gfIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetFolder -> Lude.Maybe Lude.Bool) (\s a -> s {includeCustomMetadata = a} :: GetFolder)
+{-# DEPRECATED gfIncludeCustomMetadata "Use generic-lens or generic-optics with 'includeCustomMetadata' instead." #-}
 
 -- | The ID of the folder.
-gfFolderId :: Lens' GetFolder Text
-gfFolderId = lens _gfFolderId (\s a -> s {_gfFolderId = a})
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfFolderId :: Lens.Lens' GetFolder Lude.Text
+gfFolderId = Lens.lens (folderId :: GetFolder -> Lude.Text) (\s a -> s {folderId = a} :: GetFolder)
+{-# DEPRECATED gfFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
-instance AWSRequest GetFolder where
+instance Lude.AWSRequest GetFolder where
   type Rs GetFolder = GetFolderResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            <$> (x .?> "CustomMetadata" .!@ mempty)
-            <*> (x .?> "Metadata")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CustomMetadata" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Metadata")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFolder
-
-instance NFData GetFolder
-
-instance ToHeaders GetFolder where
+instance Lude.ToHeaders GetFolder where
   toHeaders GetFolder' {..} =
-    mconcat
-      [ "Authentication" =# _gfAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath GetFolder where
+instance Lude.ToPath GetFolder where
   toPath GetFolder' {..} =
-    mconcat ["/api/v1/folders/", toBS _gfFolderId]
+    Lude.mconcat ["/api/v1/folders/", Lude.toBS folderId]
 
-instance ToQuery GetFolder where
+instance Lude.ToQuery GetFolder where
   toQuery GetFolder' {..} =
-    mconcat ["includeCustomMetadata" =: _gfIncludeCustomMetadata]
+    Lude.mconcat
+      ["includeCustomMetadata" Lude.=: includeCustomMetadata]
 
--- | /See:/ 'getFolderResponse' smart constructor.
+-- | /See:/ 'mkGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-  { _gfrsCustomMetadata ::
-      !(Maybe (Map Text (Text))),
-    _gfrsMetadata :: !(Maybe FolderMetadata),
-    _gfrsResponseStatus :: !Int
+  { customMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    metadata :: Lude.Maybe FolderMetadata,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFolderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfrsCustomMetadata' - The custom metadata on the folder.
---
--- * 'gfrsMetadata' - The metadata of the folder.
---
--- * 'gfrsResponseStatus' - -- | The response status code.
-getFolderResponse ::
-  -- | 'gfrsResponseStatus'
-  Int ->
+-- * 'customMetadata' - The custom metadata on the folder.
+-- * 'metadata' - The metadata of the folder.
+-- * 'responseStatus' - The response status code.
+mkGetFolderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFolderResponse
-getFolderResponse pResponseStatus_ =
+mkGetFolderResponse pResponseStatus_ =
   GetFolderResponse'
-    { _gfrsCustomMetadata = Nothing,
-      _gfrsMetadata = Nothing,
-      _gfrsResponseStatus = pResponseStatus_
+    { customMetadata = Lude.Nothing,
+      metadata = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The custom metadata on the folder.
-gfrsCustomMetadata :: Lens' GetFolderResponse (HashMap Text (Text))
-gfrsCustomMetadata = lens _gfrsCustomMetadata (\s a -> s {_gfrsCustomMetadata = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'customMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsCustomMetadata :: Lens.Lens' GetFolderResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gfrsCustomMetadata = Lens.lens (customMetadata :: GetFolderResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {customMetadata = a} :: GetFolderResponse)
+{-# DEPRECATED gfrsCustomMetadata "Use generic-lens or generic-optics with 'customMetadata' instead." #-}
 
 -- | The metadata of the folder.
-gfrsMetadata :: Lens' GetFolderResponse (Maybe FolderMetadata)
-gfrsMetadata = lens _gfrsMetadata (\s a -> s {_gfrsMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsMetadata :: Lens.Lens' GetFolderResponse (Lude.Maybe FolderMetadata)
+gfrsMetadata = Lens.lens (metadata :: GetFolderResponse -> Lude.Maybe FolderMetadata) (\s a -> s {metadata = a} :: GetFolderResponse)
+{-# DEPRECATED gfrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
--- | -- | The response status code.
-gfrsResponseStatus :: Lens' GetFolderResponse Int
-gfrsResponseStatus = lens _gfrsResponseStatus (\s a -> s {_gfrsResponseStatus = a})
-
-instance NFData GetFolderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsResponseStatus :: Lens.Lens' GetFolderResponse Lude.Int
+gfrsResponseStatus = Lens.lens (responseStatus :: GetFolderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFolderResponse)
+{-# DEPRECATED gfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

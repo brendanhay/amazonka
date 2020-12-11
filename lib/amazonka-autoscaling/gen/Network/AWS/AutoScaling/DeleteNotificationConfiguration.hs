@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,108 @@
 --
 -- Deletes the specified notification.
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
-  ( -- * Creating a Request
-    deleteNotificationConfiguration,
-    DeleteNotificationConfiguration,
+  ( -- * Creating a request
+    DeleteNotificationConfiguration (..),
+    mkDeleteNotificationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dncAutoScalingGroupName,
     dncTopicARN,
 
-    -- * Destructuring the Response
-    deleteNotificationConfigurationResponse,
-    DeleteNotificationConfigurationResponse,
+    -- * Destructuring the response
+    DeleteNotificationConfigurationResponse (..),
+    mkDeleteNotificationConfigurationResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteNotificationConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
-  { _dncAutoScalingGroupName ::
-      !Text,
-    _dncTopicARN :: !Text
+  { autoScalingGroupName ::
+      Lude.Text,
+    topicARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dncAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'dncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
-deleteNotificationConfiguration ::
-  -- | 'dncAutoScalingGroupName'
-  Text ->
-  -- | 'dncTopicARN'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+mkDeleteNotificationConfiguration ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
+  -- | 'topicARN'
+  Lude.Text ->
   DeleteNotificationConfiguration
-deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
+mkDeleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
   DeleteNotificationConfiguration'
-    { _dncAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _dncTopicARN = pTopicARN_
+      topicARN = pTopicARN_
     }
 
 -- | The name of the Auto Scaling group.
-dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
-dncAutoScalingGroupName = lens _dncAutoScalingGroupName (\s a -> s {_dncAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncAutoScalingGroupName :: Lens.Lens' DeleteNotificationConfiguration Lude.Text
+dncAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteNotificationConfiguration -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteNotificationConfiguration)
+{-# DEPRECATED dncAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
-dncTopicARN :: Lens' DeleteNotificationConfiguration Text
-dncTopicARN = lens _dncTopicARN (\s a -> s {_dncTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncTopicARN :: Lens.Lens' DeleteNotificationConfiguration Lude.Text
+dncTopicARN = Lens.lens (topicARN :: DeleteNotificationConfiguration -> Lude.Text) (\s a -> s {topicARN = a} :: DeleteNotificationConfiguration)
+{-# DEPRECATED dncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
-instance AWSRequest DeleteNotificationConfiguration where
+instance Lude.AWSRequest DeleteNotificationConfiguration where
   type
     Rs DeleteNotificationConfiguration =
       DeleteNotificationConfigurationResponse
-  request = postQuery autoScaling
-  response = receiveNull DeleteNotificationConfigurationResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull DeleteNotificationConfigurationResponse'
 
-instance Hashable DeleteNotificationConfiguration
+instance Lude.ToHeaders DeleteNotificationConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteNotificationConfiguration
+instance Lude.ToPath DeleteNotificationConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteNotificationConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DeleteNotificationConfiguration where
-  toPath = const "/"
-
-instance ToQuery DeleteNotificationConfiguration where
+instance Lude.ToQuery DeleteNotificationConfiguration where
   toQuery DeleteNotificationConfiguration' {..} =
-    mconcat
-      [ "Action" =: ("DeleteNotificationConfiguration" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _dncAutoScalingGroupName,
-        "TopicARN" =: _dncTopicARN
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteNotificationConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "TopicARN" Lude.=: topicARN
       ]
 
--- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteNotificationConfigurationResponse' smart constructor.
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationConfigurationResponse' with the minimum fields required to make a request.
-deleteNotificationConfigurationResponse ::
+mkDeleteNotificationConfigurationResponse ::
   DeleteNotificationConfigurationResponse
-deleteNotificationConfigurationResponse =
+mkDeleteNotificationConfigurationResponse =
   DeleteNotificationConfigurationResponse'
-
-instance NFData DeleteNotificationConfigurationResponse

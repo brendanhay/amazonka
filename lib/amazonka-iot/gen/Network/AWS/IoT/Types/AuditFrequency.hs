@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditFrequency where
+module Network.AWS.IoT.Types.AuditFrequency
+  ( AuditFrequency
+      ( AuditFrequency',
+        Biweekly,
+        Daily,
+        Monthly,
+        Weekly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditFrequency
-  = Biweekly
-  | Daily
-  | Monthly
-  | Weekly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditFrequency = AuditFrequency' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditFrequency where
-  parser =
-    takeLowerText >>= \case
-      "biweekly" -> pure Biweekly
-      "daily" -> pure Daily
-      "monthly" -> pure Monthly
-      "weekly" -> pure Weekly
-      e ->
-        fromTextError $
-          "Failure parsing AuditFrequency from value: '" <> e
-            <> "'. Accepted values: biweekly, daily, monthly, weekly"
+pattern Biweekly :: AuditFrequency
+pattern Biweekly = AuditFrequency' "BIWEEKLY"
 
-instance ToText AuditFrequency where
-  toText = \case
-    Biweekly -> "BIWEEKLY"
-    Daily -> "DAILY"
-    Monthly -> "MONTHLY"
-    Weekly -> "WEEKLY"
+pattern Daily :: AuditFrequency
+pattern Daily = AuditFrequency' "DAILY"
 
-instance Hashable AuditFrequency
+pattern Monthly :: AuditFrequency
+pattern Monthly = AuditFrequency' "MONTHLY"
 
-instance NFData AuditFrequency
+pattern Weekly :: AuditFrequency
+pattern Weekly = AuditFrequency' "WEEKLY"
 
-instance ToByteString AuditFrequency
-
-instance ToQuery AuditFrequency
-
-instance ToHeader AuditFrequency
-
-instance ToJSON AuditFrequency where
-  toJSON = toJSONText
-
-instance FromJSON AuditFrequency where
-  parseJSON = parseJSONText "AuditFrequency"
+{-# COMPLETE
+  Biweekly,
+  Daily,
+  Monthly,
+  Weekly,
+  AuditFrequency'
+  #-}

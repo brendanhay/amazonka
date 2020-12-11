@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserStatusType where
+module Network.AWS.CognitoIdentityProvider.Types.UserStatusType
+  ( UserStatusType
+      ( UserStatusType',
+        Archived,
+        Compromised,
+        Confirmed,
+        ForceChangePassword,
+        ResetRequired,
+        Unconfirmed,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserStatusType
-  = Archived
-  | Compromised
-  | Confirmed
-  | ForceChangePassword
-  | ResetRequired
-  | Unconfirmed
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserStatusType = UserStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserStatusType where
-  parser =
-    takeLowerText >>= \case
-      "archived" -> pure Archived
-      "compromised" -> pure Compromised
-      "confirmed" -> pure Confirmed
-      "force_change_password" -> pure ForceChangePassword
-      "reset_required" -> pure ResetRequired
-      "unconfirmed" -> pure Unconfirmed
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing UserStatusType from value: '" <> e
-            <> "'. Accepted values: archived, compromised, confirmed, force_change_password, reset_required, unconfirmed, unknown"
+pattern Archived :: UserStatusType
+pattern Archived = UserStatusType' "ARCHIVED"
 
-instance ToText UserStatusType where
-  toText = \case
-    Archived -> "ARCHIVED"
-    Compromised -> "COMPROMISED"
-    Confirmed -> "CONFIRMED"
-    ForceChangePassword -> "FORCE_CHANGE_PASSWORD"
-    ResetRequired -> "RESET_REQUIRED"
-    Unconfirmed -> "UNCONFIRMED"
-    Unknown -> "UNKNOWN"
+pattern Compromised :: UserStatusType
+pattern Compromised = UserStatusType' "COMPROMISED"
 
-instance Hashable UserStatusType
+pattern Confirmed :: UserStatusType
+pattern Confirmed = UserStatusType' "CONFIRMED"
 
-instance NFData UserStatusType
+pattern ForceChangePassword :: UserStatusType
+pattern ForceChangePassword = UserStatusType' "FORCE_CHANGE_PASSWORD"
 
-instance ToByteString UserStatusType
+pattern ResetRequired :: UserStatusType
+pattern ResetRequired = UserStatusType' "RESET_REQUIRED"
 
-instance ToQuery UserStatusType
+pattern Unconfirmed :: UserStatusType
+pattern Unconfirmed = UserStatusType' "UNCONFIRMED"
 
-instance ToHeader UserStatusType
+pattern Unknown :: UserStatusType
+pattern Unknown = UserStatusType' "UNKNOWN"
 
-instance FromJSON UserStatusType where
-  parseJSON = parseJSONText "UserStatusType"
+{-# COMPLETE
+  Archived,
+  Compromised,
+  Confirmed,
+  ForceChangePassword,
+  ResetRequired,
+  Unconfirmed,
+  Unknown,
+  UserStatusType'
+  #-}

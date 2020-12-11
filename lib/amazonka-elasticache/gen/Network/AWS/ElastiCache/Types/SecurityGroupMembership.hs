@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.SecurityGroupMembership where
+module Network.AWS.ElastiCache.Types.SecurityGroupMembership
+  ( SecurityGroupMembership (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSecurityGroupMembership,
+
+    -- * Lenses
+    sgmStatus,
+    sgmSecurityGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a single cache security group and its status.
 --
---
---
--- /See:/ 'securityGroupMembership' smart constructor.
+-- /See:/ 'mkSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-  { _sgmStatus ::
-      !(Maybe Text),
-    _sgmSecurityGroupId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    securityGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgmStatus' - The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
---
--- * 'sgmSecurityGroupId' - The identifier of the cache security group.
-securityGroupMembership ::
+-- * 'securityGroupId' - The identifier of the cache security group.
+-- * 'status' - The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
+mkSecurityGroupMembership ::
   SecurityGroupMembership
-securityGroupMembership =
+mkSecurityGroupMembership =
   SecurityGroupMembership'
-    { _sgmStatus = Nothing,
-      _sgmSecurityGroupId = Nothing
+    { status = Lude.Nothing,
+      securityGroupId = Lude.Nothing
     }
 
 -- | The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
-sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
-sgmStatus = lens _sgmStatus (\s a -> s {_sgmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgmStatus :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
+sgmStatus = Lens.lens (status :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SecurityGroupMembership)
+{-# DEPRECATED sgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The identifier of the cache security group.
-sgmSecurityGroupId :: Lens' SecurityGroupMembership (Maybe Text)
-sgmSecurityGroupId = lens _sgmSecurityGroupId (\s a -> s {_sgmSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'securityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgmSecurityGroupId :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
+sgmSecurityGroupId = Lens.lens (securityGroupId :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {securityGroupId = a} :: SecurityGroupMembership)
+{-# DEPRECATED sgmSecurityGroupId "Use generic-lens or generic-optics with 'securityGroupId' instead." #-}
 
-instance FromXML SecurityGroupMembership where
+instance Lude.FromXML SecurityGroupMembership where
   parseXML x =
     SecurityGroupMembership'
-      <$> (x .@? "Status") <*> (x .@? "SecurityGroupId")
-
-instance Hashable SecurityGroupMembership
-
-instance NFData SecurityGroupMembership
+      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "SecurityGroupId")

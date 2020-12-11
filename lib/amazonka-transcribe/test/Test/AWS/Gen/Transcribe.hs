@@ -28,169 +28,169 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListLanguageModels $
---             listLanguageModels
+--             mkListLanguageModels
 --
 --         , requestGetVocabulary $
---             getVocabulary
+--             mkGetVocabulary
 --
 --         , requestDeleteLanguageModel $
---             deleteLanguageModel
+--             mkDeleteLanguageModel
 --
 --         , requestGetTranscriptionJob $
---             getTranscriptionJob
+--             mkGetTranscriptionJob
 --
 --         , requestStartMedicalTranscriptionJob $
---             startMedicalTranscriptionJob
+--             mkStartMedicalTranscriptionJob
 --
 --         , requestDeleteMedicalVocabulary $
---             deleteMedicalVocabulary
+--             mkDeleteMedicalVocabulary
 --
 --         , requestUpdateMedicalVocabulary $
---             updateMedicalVocabulary
+--             mkUpdateMedicalVocabulary
 --
 --         , requestDeleteTranscriptionJob $
---             deleteTranscriptionJob
+--             mkDeleteTranscriptionJob
 --
 --         , requestDescribeLanguageModel $
---             describeLanguageModel
+--             mkDescribeLanguageModel
 --
 --         , requestDeleteMedicalTranscriptionJob $
---             deleteMedicalTranscriptionJob
+--             mkDeleteMedicalTranscriptionJob
 --
 --         , requestDeleteVocabulary $
---             deleteVocabulary
+--             mkDeleteVocabulary
 --
 --         , requestUpdateVocabulary $
---             updateVocabulary
+--             mkUpdateVocabulary
 --
 --         , requestCreateVocabularyFilter $
---             createVocabularyFilter
+--             mkCreateVocabularyFilter
 --
 --         , requestGetMedicalTranscriptionJob $
---             getMedicalTranscriptionJob
+--             mkGetMedicalTranscriptionJob
 --
 --         , requestGetVocabularyFilter $
---             getVocabularyFilter
+--             mkGetVocabularyFilter
 --
 --         , requestGetMedicalVocabulary $
---             getMedicalVocabulary
+--             mkGetMedicalVocabulary
 --
 --         , requestCreateMedicalVocabulary $
---             createMedicalVocabulary
+--             mkCreateMedicalVocabulary
 --
 --         , requestListMedicalVocabularies $
---             listMedicalVocabularies
+--             mkListMedicalVocabularies
 --
 --         , requestListTranscriptionJobs $
---             listTranscriptionJobs
+--             mkListTranscriptionJobs
 --
 --         , requestListMedicalTranscriptionJobs $
---             listMedicalTranscriptionJobs
+--             mkListMedicalTranscriptionJobs
 --
 --         , requestDeleteVocabularyFilter $
---             deleteVocabularyFilter
+--             mkDeleteVocabularyFilter
 --
 --         , requestListVocabularyFilters $
---             listVocabularyFilters
+--             mkListVocabularyFilters
 --
 --         , requestUpdateVocabularyFilter $
---             updateVocabularyFilter
+--             mkUpdateVocabularyFilter
 --
 --         , requestListVocabularies $
---             listVocabularies
+--             mkListVocabularies
 --
 --         , requestCreateVocabulary $
---             createVocabulary
+--             mkCreateVocabulary
 --
 --         , requestCreateLanguageModel $
---             createLanguageModel
+--             mkCreateLanguageModel
 --
 --         , requestStartTranscriptionJob $
---             startTranscriptionJob
+--             mkStartTranscriptionJob
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListLanguageModels $
---             listLanguageModelsResponse
+--             mkListLanguageModelsResponse
 --
 --         , responseGetVocabulary $
---             getVocabularyResponse
+--             mkGetVocabularyResponse
 --
 --         , responseDeleteLanguageModel $
---             deleteLanguageModelResponse
+--             mkDeleteLanguageModelResponse
 --
 --         , responseGetTranscriptionJob $
---             getTranscriptionJobResponse
+--             mkGetTranscriptionJobResponse
 --
 --         , responseStartMedicalTranscriptionJob $
---             startMedicalTranscriptionJobResponse
+--             mkStartMedicalTranscriptionJobResponse
 --
 --         , responseDeleteMedicalVocabulary $
---             deleteMedicalVocabularyResponse
+--             mkDeleteMedicalVocabularyResponse
 --
 --         , responseUpdateMedicalVocabulary $
---             updateMedicalVocabularyResponse
+--             mkUpdateMedicalVocabularyResponse
 --
 --         , responseDeleteTranscriptionJob $
---             deleteTranscriptionJobResponse
+--             mkDeleteTranscriptionJobResponse
 --
 --         , responseDescribeLanguageModel $
---             describeLanguageModelResponse
+--             mkDescribeLanguageModelResponse
 --
 --         , responseDeleteMedicalTranscriptionJob $
---             deleteMedicalTranscriptionJobResponse
+--             mkDeleteMedicalTranscriptionJobResponse
 --
 --         , responseDeleteVocabulary $
---             deleteVocabularyResponse
+--             mkDeleteVocabularyResponse
 --
 --         , responseUpdateVocabulary $
---             updateVocabularyResponse
+--             mkUpdateVocabularyResponse
 --
 --         , responseCreateVocabularyFilter $
---             createVocabularyFilterResponse
+--             mkCreateVocabularyFilterResponse
 --
 --         , responseGetMedicalTranscriptionJob $
---             getMedicalTranscriptionJobResponse
+--             mkGetMedicalTranscriptionJobResponse
 --
 --         , responseGetVocabularyFilter $
---             getVocabularyFilterResponse
+--             mkGetVocabularyFilterResponse
 --
 --         , responseGetMedicalVocabulary $
---             getMedicalVocabularyResponse
+--             mkGetMedicalVocabularyResponse
 --
 --         , responseCreateMedicalVocabulary $
---             createMedicalVocabularyResponse
+--             mkCreateMedicalVocabularyResponse
 --
 --         , responseListMedicalVocabularies $
---             listMedicalVocabulariesResponse
+--             mkListMedicalVocabulariesResponse
 --
 --         , responseListTranscriptionJobs $
---             listTranscriptionJobsResponse
+--             mkListTranscriptionJobsResponse
 --
 --         , responseListMedicalTranscriptionJobs $
---             listMedicalTranscriptionJobsResponse
+--             mkListMedicalTranscriptionJobsResponse
 --
 --         , responseDeleteVocabularyFilter $
---             deleteVocabularyFilterResponse
+--             mkDeleteVocabularyFilterResponse
 --
 --         , responseListVocabularyFilters $
---             listVocabularyFiltersResponse
+--             mkListVocabularyFiltersResponse
 --
 --         , responseUpdateVocabularyFilter $
---             updateVocabularyFilterResponse
+--             mkUpdateVocabularyFilterResponse
 --
 --         , responseListVocabularies $
---             listVocabulariesResponse
+--             mkListVocabulariesResponse
 --
 --         , responseCreateVocabulary $
---             createVocabularyResponse
+--             mkCreateVocabularyResponse
 --
 --         , responseCreateLanguageModel $
---             createLanguageModelResponse
+--             mkCreateLanguageModelResponse
 --
 --         , responseStartTranscriptionJob $
---             startTranscriptionJobResponse
+--             mkStartTranscriptionJobResponse
 --
 --           ]
 --     ]
@@ -366,7 +366,7 @@ responseListLanguageModels =
   res
     "ListLanguageModelsResponse"
     "fixture/ListLanguageModelsResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListLanguageModels)
 
 responseGetVocabulary :: GetVocabularyResponse -> TestTree
@@ -374,7 +374,7 @@ responseGetVocabulary =
   res
     "GetVocabularyResponse"
     "fixture/GetVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy GetVocabulary)
 
 responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
@@ -382,7 +382,7 @@ responseDeleteLanguageModel =
   res
     "DeleteLanguageModelResponse"
     "fixture/DeleteLanguageModelResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteLanguageModel)
 
 responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
@@ -390,7 +390,7 @@ responseGetTranscriptionJob =
   res
     "GetTranscriptionJobResponse"
     "fixture/GetTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy GetTranscriptionJob)
 
 responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
@@ -398,7 +398,7 @@ responseStartMedicalTranscriptionJob =
   res
     "StartMedicalTranscriptionJobResponse"
     "fixture/StartMedicalTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy StartMedicalTranscriptionJob)
 
 responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
@@ -406,7 +406,7 @@ responseDeleteMedicalVocabulary =
   res
     "DeleteMedicalVocabularyResponse"
     "fixture/DeleteMedicalVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteMedicalVocabulary)
 
 responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
@@ -414,7 +414,7 @@ responseUpdateMedicalVocabulary =
   res
     "UpdateMedicalVocabularyResponse"
     "fixture/UpdateMedicalVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy UpdateMedicalVocabulary)
 
 responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
@@ -422,7 +422,7 @@ responseDeleteTranscriptionJob =
   res
     "DeleteTranscriptionJobResponse"
     "fixture/DeleteTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteTranscriptionJob)
 
 responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
@@ -430,7 +430,7 @@ responseDescribeLanguageModel =
   res
     "DescribeLanguageModelResponse"
     "fixture/DescribeLanguageModelResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DescribeLanguageModel)
 
 responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
@@ -438,7 +438,7 @@ responseDeleteMedicalTranscriptionJob =
   res
     "DeleteMedicalTranscriptionJobResponse"
     "fixture/DeleteMedicalTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteMedicalTranscriptionJob)
 
 responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
@@ -446,7 +446,7 @@ responseDeleteVocabulary =
   res
     "DeleteVocabularyResponse"
     "fixture/DeleteVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteVocabulary)
 
 responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
@@ -454,7 +454,7 @@ responseUpdateVocabulary =
   res
     "UpdateVocabularyResponse"
     "fixture/UpdateVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy UpdateVocabulary)
 
 responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
@@ -462,7 +462,7 @@ responseCreateVocabularyFilter =
   res
     "CreateVocabularyFilterResponse"
     "fixture/CreateVocabularyFilterResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy CreateVocabularyFilter)
 
 responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
@@ -470,7 +470,7 @@ responseGetMedicalTranscriptionJob =
   res
     "GetMedicalTranscriptionJobResponse"
     "fixture/GetMedicalTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy GetMedicalTranscriptionJob)
 
 responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
@@ -478,7 +478,7 @@ responseGetVocabularyFilter =
   res
     "GetVocabularyFilterResponse"
     "fixture/GetVocabularyFilterResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy GetVocabularyFilter)
 
 responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
@@ -486,7 +486,7 @@ responseGetMedicalVocabulary =
   res
     "GetMedicalVocabularyResponse"
     "fixture/GetMedicalVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy GetMedicalVocabulary)
 
 responseCreateMedicalVocabulary :: CreateMedicalVocabularyResponse -> TestTree
@@ -494,7 +494,7 @@ responseCreateMedicalVocabulary =
   res
     "CreateMedicalVocabularyResponse"
     "fixture/CreateMedicalVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy CreateMedicalVocabulary)
 
 responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListMedicalVocabularies =
   res
     "ListMedicalVocabulariesResponse"
     "fixture/ListMedicalVocabulariesResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListMedicalVocabularies)
 
 responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
@@ -510,7 +510,7 @@ responseListTranscriptionJobs =
   res
     "ListTranscriptionJobsResponse"
     "fixture/ListTranscriptionJobsResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListTranscriptionJobs)
 
 responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
@@ -518,7 +518,7 @@ responseListMedicalTranscriptionJobs =
   res
     "ListMedicalTranscriptionJobsResponse"
     "fixture/ListMedicalTranscriptionJobsResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListMedicalTranscriptionJobs)
 
 responseDeleteVocabularyFilter :: DeleteVocabularyFilterResponse -> TestTree
@@ -526,7 +526,7 @@ responseDeleteVocabularyFilter =
   res
     "DeleteVocabularyFilterResponse"
     "fixture/DeleteVocabularyFilterResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy DeleteVocabularyFilter)
 
 responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
@@ -534,7 +534,7 @@ responseListVocabularyFilters =
   res
     "ListVocabularyFiltersResponse"
     "fixture/ListVocabularyFiltersResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListVocabularyFilters)
 
 responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
@@ -542,7 +542,7 @@ responseUpdateVocabularyFilter =
   res
     "UpdateVocabularyFilterResponse"
     "fixture/UpdateVocabularyFilterResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy UpdateVocabularyFilter)
 
 responseListVocabularies :: ListVocabulariesResponse -> TestTree
@@ -550,7 +550,7 @@ responseListVocabularies =
   res
     "ListVocabulariesResponse"
     "fixture/ListVocabulariesResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy ListVocabularies)
 
 responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
@@ -558,7 +558,7 @@ responseCreateVocabulary =
   res
     "CreateVocabularyResponse"
     "fixture/CreateVocabularyResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy CreateVocabulary)
 
 responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
@@ -566,7 +566,7 @@ responseCreateLanguageModel =
   res
     "CreateLanguageModelResponse"
     "fixture/CreateLanguageModelResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy CreateLanguageModel)
 
 responseStartTranscriptionJob :: StartTranscriptionJobResponse -> TestTree
@@ -574,5 +574,5 @@ responseStartTranscriptionJob =
   res
     "StartTranscriptionJobResponse"
     "fixture/StartTranscriptionJobResponse.proto"
-    transcribe
+    transcribeService
     (Proxy :: Proxy StartTranscriptionJob)

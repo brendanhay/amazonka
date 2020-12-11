@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription where
+module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
+  ( KinesisFirehoseOutputDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisFirehoseOutputDescription,
+
+    -- * Lenses
+    kfodResourceARN,
+    kfodRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | For an application output, describes the Amazon Kinesis Firehose delivery stream configured as its destination.
 --
---
---
--- /See:/ 'kinesisFirehoseOutputDescription' smart constructor.
+-- /See:/ 'mkKinesisFirehoseOutputDescription' smart constructor.
 data KinesisFirehoseOutputDescription = KinesisFirehoseOutputDescription'
-  { _kfodResourceARN ::
-      !(Maybe Text),
-    _kfodRoleARN ::
-      !(Maybe Text)
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisFirehoseOutputDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kfodResourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
---
--- * 'kfodRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
-kinesisFirehoseOutputDescription ::
+-- * 'resourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
+-- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
+mkKinesisFirehoseOutputDescription ::
   KinesisFirehoseOutputDescription
-kinesisFirehoseOutputDescription =
+mkKinesisFirehoseOutputDescription =
   KinesisFirehoseOutputDescription'
-    { _kfodResourceARN = Nothing,
-      _kfodRoleARN = Nothing
+    { resourceARN = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
-kfodResourceARN :: Lens' KinesisFirehoseOutputDescription (Maybe Text)
-kfodResourceARN = lens _kfodResourceARN (\s a -> s {_kfodResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfodResourceARN :: Lens.Lens' KinesisFirehoseOutputDescription (Lude.Maybe Lude.Text)
+kfodResourceARN = Lens.lens (resourceARN :: KinesisFirehoseOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: KinesisFirehoseOutputDescription)
+{-# DEPRECATED kfodResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.
-kfodRoleARN :: Lens' KinesisFirehoseOutputDescription (Maybe Text)
-kfodRoleARN = lens _kfodRoleARN (\s a -> s {_kfodRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfodRoleARN :: Lens.Lens' KinesisFirehoseOutputDescription (Lude.Maybe Lude.Text)
+kfodRoleARN = Lens.lens (roleARN :: KinesisFirehoseOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: KinesisFirehoseOutputDescription)
+{-# DEPRECATED kfodRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON KinesisFirehoseOutputDescription where
+instance Lude.FromJSON KinesisFirehoseOutputDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisFirehoseOutputDescription"
       ( \x ->
           KinesisFirehoseOutputDescription'
-            <$> (x .:? "ResourceARN") <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable KinesisFirehoseOutputDescription
-
-instance NFData KinesisFirehoseOutputDescription

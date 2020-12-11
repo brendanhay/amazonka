@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,183 @@
 --
 -- Lists custom tape pools. You specify custom tape pools to list by specifying one or more custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN, the operation lists all custom tape pools.
 --
---
 -- This operation supports pagination. You can optionally specify the @Limit@ parameter in the body to limit the number of tape pools in the response. If the number of tape pools returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tape pools.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListTapePools
-  ( -- * Creating a Request
-    listTapePools,
-    ListTapePools,
+  ( -- * Creating a request
+    ListTapePools (..),
+    mkListTapePools,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltpPoolARNs,
     ltpMarker,
     ltpLimit,
 
-    -- * Destructuring the Response
-    listTapePoolsResponse,
-    ListTapePoolsResponse,
+    -- * Destructuring the response
+    ListTapePoolsResponse (..),
+    mkListTapePoolsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltprsPoolInfos,
     ltprsMarker,
     ltprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'listTapePools' smart constructor.
+-- | /See:/ 'mkListTapePools' smart constructor.
 data ListTapePools = ListTapePools'
-  { _ltpPoolARNs ::
-      !(Maybe [Text]),
-    _ltpMarker :: !(Maybe Text),
-    _ltpLimit :: !(Maybe Nat)
+  { poolARNs ::
+      Lude.Maybe [Lude.Text],
+    marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapePools' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltpPoolARNs' - The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools.
---
--- * 'ltpMarker' - A string that indicates the position at which to begin the returned list of tape pools.
---
--- * 'ltpLimit' - An optional number limit for the tape pools in the list returned by this call.
-listTapePools ::
+-- * 'limit' - An optional number limit for the tape pools in the list returned by this call.
+-- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools.
+-- * 'poolARNs' - The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools.
+mkListTapePools ::
   ListTapePools
-listTapePools =
+mkListTapePools =
   ListTapePools'
-    { _ltpPoolARNs = Nothing,
-      _ltpMarker = Nothing,
-      _ltpLimit = Nothing
+    { poolARNs = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools.
-ltpPoolARNs :: Lens' ListTapePools [Text]
-ltpPoolARNs = lens _ltpPoolARNs (\s a -> s {_ltpPoolARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'poolARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpPoolARNs :: Lens.Lens' ListTapePools (Lude.Maybe [Lude.Text])
+ltpPoolARNs = Lens.lens (poolARNs :: ListTapePools -> Lude.Maybe [Lude.Text]) (\s a -> s {poolARNs = a} :: ListTapePools)
+{-# DEPRECATED ltpPoolARNs "Use generic-lens or generic-optics with 'poolARNs' instead." #-}
 
 -- | A string that indicates the position at which to begin the returned list of tape pools.
-ltpMarker :: Lens' ListTapePools (Maybe Text)
-ltpMarker = lens _ltpMarker (\s a -> s {_ltpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpMarker :: Lens.Lens' ListTapePools (Lude.Maybe Lude.Text)
+ltpMarker = Lens.lens (marker :: ListTapePools -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTapePools)
+{-# DEPRECATED ltpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An optional number limit for the tape pools in the list returned by this call.
-ltpLimit :: Lens' ListTapePools (Maybe Natural)
-ltpLimit = lens _ltpLimit (\s a -> s {_ltpLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpLimit :: Lens.Lens' ListTapePools (Lude.Maybe Lude.Natural)
+ltpLimit = Lens.lens (limit :: ListTapePools -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTapePools)
+{-# DEPRECATED ltpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListTapePools where
+instance Page.AWSPager ListTapePools where
   page rq rs
-    | stop (rs ^. ltprsMarker) = Nothing
-    | stop (rs ^. ltprsPoolInfos) = Nothing
-    | otherwise = Just $ rq & ltpMarker .~ rs ^. ltprsMarker
+    | Page.stop (rs Lens.^. ltprsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltprsPoolInfos) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& ltpMarker Lens..~ rs Lens.^. ltprsMarker
 
-instance AWSRequest ListTapePools where
+instance Lude.AWSRequest ListTapePools where
   type Rs ListTapePools = ListTapePoolsResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTapePoolsResponse'
-            <$> (x .?> "PoolInfos" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PoolInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTapePools
-
-instance NFData ListTapePools
-
-instance ToHeaders ListTapePools where
+instance Lude.ToHeaders ListTapePools where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ListTapePools" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ListTapePools" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTapePools where
+instance Lude.ToJSON ListTapePools where
   toJSON ListTapePools' {..} =
-    object
-      ( catMaybes
-          [ ("PoolARNs" .=) <$> _ltpPoolARNs,
-            ("Marker" .=) <$> _ltpMarker,
-            ("Limit" .=) <$> _ltpLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PoolARNs" Lude..=) Lude.<$> poolARNs,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListTapePools where
-  toPath = const "/"
+instance Lude.ToPath ListTapePools where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTapePools where
-  toQuery = const mempty
+instance Lude.ToQuery ListTapePools where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTapePoolsResponse' smart constructor.
+-- | /See:/ 'mkListTapePoolsResponse' smart constructor.
 data ListTapePoolsResponse = ListTapePoolsResponse'
-  { _ltprsPoolInfos ::
-      !(Maybe [PoolInfo]),
-    _ltprsMarker :: !(Maybe Text),
-    _ltprsResponseStatus :: !Int
+  { poolInfos ::
+      Lude.Maybe [PoolInfo],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapePoolsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltprsPoolInfos' - An array of @PoolInfo@ objects, where each object describes a single custom tape pool. If there are no custom tape pools, the @PoolInfos@ is an empty array.
---
--- * 'ltprsMarker' - A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
---
--- * 'ltprsResponseStatus' - -- | The response status code.
-listTapePoolsResponse ::
-  -- | 'ltprsResponseStatus'
-  Int ->
+-- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
+-- * 'poolInfos' - An array of @PoolInfo@ objects, where each object describes a single custom tape pool. If there are no custom tape pools, the @PoolInfos@ is an empty array.
+-- * 'responseStatus' - The response status code.
+mkListTapePoolsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTapePoolsResponse
-listTapePoolsResponse pResponseStatus_ =
+mkListTapePoolsResponse pResponseStatus_ =
   ListTapePoolsResponse'
-    { _ltprsPoolInfos = Nothing,
-      _ltprsMarker = Nothing,
-      _ltprsResponseStatus = pResponseStatus_
+    { poolInfos = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @PoolInfo@ objects, where each object describes a single custom tape pool. If there are no custom tape pools, the @PoolInfos@ is an empty array.
-ltprsPoolInfos :: Lens' ListTapePoolsResponse [PoolInfo]
-ltprsPoolInfos = lens _ltprsPoolInfos (\s a -> s {_ltprsPoolInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'poolInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprsPoolInfos :: Lens.Lens' ListTapePoolsResponse (Lude.Maybe [PoolInfo])
+ltprsPoolInfos = Lens.lens (poolInfos :: ListTapePoolsResponse -> Lude.Maybe [PoolInfo]) (\s a -> s {poolInfos = a} :: ListTapePoolsResponse)
+{-# DEPRECATED ltprsPoolInfos "Use generic-lens or generic-optics with 'poolInfos' instead." #-}
 
 -- | A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
-ltprsMarker :: Lens' ListTapePoolsResponse (Maybe Text)
-ltprsMarker = lens _ltprsMarker (\s a -> s {_ltprsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprsMarker :: Lens.Lens' ListTapePoolsResponse (Lude.Maybe Lude.Text)
+ltprsMarker = Lens.lens (marker :: ListTapePoolsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTapePoolsResponse)
+{-# DEPRECATED ltprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-ltprsResponseStatus :: Lens' ListTapePoolsResponse Int
-ltprsResponseStatus = lens _ltprsResponseStatus (\s a -> s {_ltprsResponseStatus = a})
-
-instance NFData ListTapePoolsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprsResponseStatus :: Lens.Lens' ListTapePoolsResponse Lude.Int
+ltprsResponseStatus = Lens.lens (responseStatus :: ListTapePoolsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTapePoolsResponse)
+{-# DEPRECATED ltprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

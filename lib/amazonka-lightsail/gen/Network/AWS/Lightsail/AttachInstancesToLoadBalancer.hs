@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,165 @@
 --
 -- Attaches one or more Lightsail instances to a load balancer.
 --
---
 -- After some time, the instances are attached to the load balancer and the health check status is available.
---
 -- The @attach instances to load balancer@ operation supports tag-based access control via resource tags applied to the resource identified by @load balancer name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.AttachInstancesToLoadBalancer
-  ( -- * Creating a Request
-    attachInstancesToLoadBalancer,
-    AttachInstancesToLoadBalancer,
+  ( -- * Creating a request
+    AttachInstancesToLoadBalancer (..),
+    mkAttachInstancesToLoadBalancer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aitlbLoadBalancerName,
     aitlbInstanceNames,
 
-    -- * Destructuring the Response
-    attachInstancesToLoadBalancerResponse,
-    AttachInstancesToLoadBalancerResponse,
+    -- * Destructuring the response
+    AttachInstancesToLoadBalancerResponse (..),
+    mkAttachInstancesToLoadBalancerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aitlbrsOperations,
     aitlbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachInstancesToLoadBalancer' smart constructor.
+-- | /See:/ 'mkAttachInstancesToLoadBalancer' smart constructor.
 data AttachInstancesToLoadBalancer = AttachInstancesToLoadBalancer'
-  { _aitlbLoadBalancerName ::
-      !Text,
-    _aitlbInstanceNames :: ![Text]
+  { loadBalancerName ::
+      Lude.Text,
+    instanceNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesToLoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'instanceNames' - An array of strings representing the instance name(s) you want to attach to your load balancer.
 --
--- * 'aitlbLoadBalancerName' - The name of the load balancer.
---
--- * 'aitlbInstanceNames' - An array of strings representing the instance name(s) you want to attach to your load balancer. An instance must be @running@ before you can attach it to your load balancer. There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
-attachInstancesToLoadBalancer ::
-  -- | 'aitlbLoadBalancerName'
-  Text ->
+-- An instance must be @running@ before you can attach it to your load balancer.
+-- There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
+-- * 'loadBalancerName' - The name of the load balancer.
+mkAttachInstancesToLoadBalancer ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   AttachInstancesToLoadBalancer
-attachInstancesToLoadBalancer pLoadBalancerName_ =
+mkAttachInstancesToLoadBalancer pLoadBalancerName_ =
   AttachInstancesToLoadBalancer'
-    { _aitlbLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_,
-      _aitlbInstanceNames = mempty
+      instanceNames = Lude.mempty
     }
 
 -- | The name of the load balancer.
-aitlbLoadBalancerName :: Lens' AttachInstancesToLoadBalancer Text
-aitlbLoadBalancerName = lens _aitlbLoadBalancerName (\s a -> s {_aitlbLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aitlbLoadBalancerName :: Lens.Lens' AttachInstancesToLoadBalancer Lude.Text
+aitlbLoadBalancerName = Lens.lens (loadBalancerName :: AttachInstancesToLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: AttachInstancesToLoadBalancer)
+{-# DEPRECATED aitlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
--- | An array of strings representing the instance name(s) you want to attach to your load balancer. An instance must be @running@ before you can attach it to your load balancer. There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
-aitlbInstanceNames :: Lens' AttachInstancesToLoadBalancer [Text]
-aitlbInstanceNames = lens _aitlbInstanceNames (\s a -> s {_aitlbInstanceNames = a}) . _Coerce
+-- | An array of strings representing the instance name(s) you want to attach to your load balancer.
+--
+-- An instance must be @running@ before you can attach it to your load balancer.
+-- There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aitlbInstanceNames :: Lens.Lens' AttachInstancesToLoadBalancer [Lude.Text]
+aitlbInstanceNames = Lens.lens (instanceNames :: AttachInstancesToLoadBalancer -> [Lude.Text]) (\s a -> s {instanceNames = a} :: AttachInstancesToLoadBalancer)
+{-# DEPRECATED aitlbInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
-instance AWSRequest AttachInstancesToLoadBalancer where
+instance Lude.AWSRequest AttachInstancesToLoadBalancer where
   type
     Rs AttachInstancesToLoadBalancer =
       AttachInstancesToLoadBalancerResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AttachInstancesToLoadBalancerResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachInstancesToLoadBalancer
-
-instance NFData AttachInstancesToLoadBalancer
-
-instance ToHeaders AttachInstancesToLoadBalancer where
+instance Lude.ToHeaders AttachInstancesToLoadBalancer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.AttachInstancesToLoadBalancer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.AttachInstancesToLoadBalancer" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AttachInstancesToLoadBalancer where
+instance Lude.ToJSON AttachInstancesToLoadBalancer where
   toJSON AttachInstancesToLoadBalancer' {..} =
-    object
-      ( catMaybes
-          [ Just ("loadBalancerName" .= _aitlbLoadBalancerName),
-            Just ("instanceNames" .= _aitlbInstanceNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
+            Lude.Just ("instanceNames" Lude..= instanceNames)
           ]
       )
 
-instance ToPath AttachInstancesToLoadBalancer where
-  toPath = const "/"
+instance Lude.ToPath AttachInstancesToLoadBalancer where
+  toPath = Lude.const "/"
 
-instance ToQuery AttachInstancesToLoadBalancer where
-  toQuery = const mempty
+instance Lude.ToQuery AttachInstancesToLoadBalancer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachInstancesToLoadBalancerResponse' smart constructor.
+-- | /See:/ 'mkAttachInstancesToLoadBalancerResponse' smart constructor.
 data AttachInstancesToLoadBalancerResponse = AttachInstancesToLoadBalancerResponse'
-  { _aitlbrsOperations ::
-      !( Maybe
-           [Operation]
-       ),
-    _aitlbrsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe
+        [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesToLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aitlbrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'aitlbrsResponseStatus' - -- | The response status code.
-attachInstancesToLoadBalancerResponse ::
-  -- | 'aitlbrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkAttachInstancesToLoadBalancerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachInstancesToLoadBalancerResponse
-attachInstancesToLoadBalancerResponse pResponseStatus_ =
+mkAttachInstancesToLoadBalancerResponse pResponseStatus_ =
   AttachInstancesToLoadBalancerResponse'
-    { _aitlbrsOperations =
-        Nothing,
-      _aitlbrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-aitlbrsOperations :: Lens' AttachInstancesToLoadBalancerResponse [Operation]
-aitlbrsOperations = lens _aitlbrsOperations (\s a -> s {_aitlbrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aitlbrsOperations :: Lens.Lens' AttachInstancesToLoadBalancerResponse (Lude.Maybe [Operation])
+aitlbrsOperations = Lens.lens (operations :: AttachInstancesToLoadBalancerResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: AttachInstancesToLoadBalancerResponse)
+{-# DEPRECATED aitlbrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-aitlbrsResponseStatus :: Lens' AttachInstancesToLoadBalancerResponse Int
-aitlbrsResponseStatus = lens _aitlbrsResponseStatus (\s a -> s {_aitlbrsResponseStatus = a})
-
-instance NFData AttachInstancesToLoadBalancerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aitlbrsResponseStatus :: Lens.Lens' AttachInstancesToLoadBalancerResponse Lude.Int
+aitlbrsResponseStatus = Lens.lens (responseStatus :: AttachInstancesToLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachInstancesToLoadBalancerResponse)
+{-# DEPRECATED aitlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

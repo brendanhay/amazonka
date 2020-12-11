@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,100 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CrawlerTargets where
+module Network.AWS.Glue.Types.CrawlerTargets
+  ( CrawlerTargets (..),
+
+    -- * Smart constructor
+    mkCrawlerTargets,
+
+    -- * Lenses
+    ctDynamoDBTargets,
+    ctS3Targets,
+    ctMongoDBTargets,
+    ctCatalogTargets,
+    ctJdbcTargets,
+  )
+where
 
 import Network.AWS.Glue.Types.CatalogTarget
 import Network.AWS.Glue.Types.DynamoDBTarget
 import Network.AWS.Glue.Types.JdbcTarget
 import Network.AWS.Glue.Types.MongoDBTarget
 import Network.AWS.Glue.Types.S3Target
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies data stores to crawl.
 --
---
---
--- /See:/ 'crawlerTargets' smart constructor.
+-- /See:/ 'mkCrawlerTargets' smart constructor.
 data CrawlerTargets = CrawlerTargets'
-  { _ctDynamoDBTargets ::
-      !(Maybe [DynamoDBTarget]),
-    _ctS3Targets :: !(Maybe [S3Target]),
-    _ctMongoDBTargets :: !(Maybe [MongoDBTarget]),
-    _ctCatalogTargets :: !(Maybe [CatalogTarget]),
-    _ctJdbcTargets :: !(Maybe [JdbcTarget])
+  { dynamoDBTargets ::
+      Lude.Maybe [DynamoDBTarget],
+    s3Targets :: Lude.Maybe [S3Target],
+    mongoDBTargets :: Lude.Maybe [MongoDBTarget],
+    catalogTargets :: Lude.Maybe [CatalogTarget],
+    jdbcTargets :: Lude.Maybe [JdbcTarget]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctDynamoDBTargets' - Specifies Amazon DynamoDB targets.
---
--- * 'ctS3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
---
--- * 'ctMongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
---
--- * 'ctCatalogTargets' - Specifies AWS Glue Data Catalog targets.
---
--- * 'ctJdbcTargets' - Specifies JDBC targets.
-crawlerTargets ::
+-- * 'catalogTargets' - Specifies AWS Glue Data Catalog targets.
+-- * 'dynamoDBTargets' - Specifies Amazon DynamoDB targets.
+-- * 'jdbcTargets' - Specifies JDBC targets.
+-- * 'mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
+-- * 's3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
+mkCrawlerTargets ::
   CrawlerTargets
-crawlerTargets =
+mkCrawlerTargets =
   CrawlerTargets'
-    { _ctDynamoDBTargets = Nothing,
-      _ctS3Targets = Nothing,
-      _ctMongoDBTargets = Nothing,
-      _ctCatalogTargets = Nothing,
-      _ctJdbcTargets = Nothing
+    { dynamoDBTargets = Lude.Nothing,
+      s3Targets = Lude.Nothing,
+      mongoDBTargets = Lude.Nothing,
+      catalogTargets = Lude.Nothing,
+      jdbcTargets = Lude.Nothing
     }
 
 -- | Specifies Amazon DynamoDB targets.
-ctDynamoDBTargets :: Lens' CrawlerTargets [DynamoDBTarget]
-ctDynamoDBTargets = lens _ctDynamoDBTargets (\s a -> s {_ctDynamoDBTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dynamoDBTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctDynamoDBTargets :: Lens.Lens' CrawlerTargets (Lude.Maybe [DynamoDBTarget])
+ctDynamoDBTargets = Lens.lens (dynamoDBTargets :: CrawlerTargets -> Lude.Maybe [DynamoDBTarget]) (\s a -> s {dynamoDBTargets = a} :: CrawlerTargets)
+{-# DEPRECATED ctDynamoDBTargets "Use generic-lens or generic-optics with 'dynamoDBTargets' instead." #-}
 
 -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
-ctS3Targets :: Lens' CrawlerTargets [S3Target]
-ctS3Targets = lens _ctS3Targets (\s a -> s {_ctS3Targets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 's3Targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctS3Targets :: Lens.Lens' CrawlerTargets (Lude.Maybe [S3Target])
+ctS3Targets = Lens.lens (s3Targets :: CrawlerTargets -> Lude.Maybe [S3Target]) (\s a -> s {s3Targets = a} :: CrawlerTargets)
+{-# DEPRECATED ctS3Targets "Use generic-lens or generic-optics with 's3Targets' instead." #-}
 
 -- | Specifies Amazon DocumentDB or MongoDB targets.
-ctMongoDBTargets :: Lens' CrawlerTargets [MongoDBTarget]
-ctMongoDBTargets = lens _ctMongoDBTargets (\s a -> s {_ctMongoDBTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'mongoDBTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctMongoDBTargets :: Lens.Lens' CrawlerTargets (Lude.Maybe [MongoDBTarget])
+ctMongoDBTargets = Lens.lens (mongoDBTargets :: CrawlerTargets -> Lude.Maybe [MongoDBTarget]) (\s a -> s {mongoDBTargets = a} :: CrawlerTargets)
+{-# DEPRECATED ctMongoDBTargets "Use generic-lens or generic-optics with 'mongoDBTargets' instead." #-}
 
 -- | Specifies AWS Glue Data Catalog targets.
-ctCatalogTargets :: Lens' CrawlerTargets [CatalogTarget]
-ctCatalogTargets = lens _ctCatalogTargets (\s a -> s {_ctCatalogTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'catalogTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctCatalogTargets :: Lens.Lens' CrawlerTargets (Lude.Maybe [CatalogTarget])
+ctCatalogTargets = Lens.lens (catalogTargets :: CrawlerTargets -> Lude.Maybe [CatalogTarget]) (\s a -> s {catalogTargets = a} :: CrawlerTargets)
+{-# DEPRECATED ctCatalogTargets "Use generic-lens or generic-optics with 'catalogTargets' instead." #-}
 
 -- | Specifies JDBC targets.
-ctJdbcTargets :: Lens' CrawlerTargets [JdbcTarget]
-ctJdbcTargets = lens _ctJdbcTargets (\s a -> s {_ctJdbcTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jdbcTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctJdbcTargets :: Lens.Lens' CrawlerTargets (Lude.Maybe [JdbcTarget])
+ctJdbcTargets = Lens.lens (jdbcTargets :: CrawlerTargets -> Lude.Maybe [JdbcTarget]) (\s a -> s {jdbcTargets = a} :: CrawlerTargets)
+{-# DEPRECATED ctJdbcTargets "Use generic-lens or generic-optics with 'jdbcTargets' instead." #-}
 
-instance FromJSON CrawlerTargets where
+instance Lude.FromJSON CrawlerTargets where
   parseJSON =
-    withObject
+    Lude.withObject
       "CrawlerTargets"
       ( \x ->
           CrawlerTargets'
-            <$> (x .:? "DynamoDBTargets" .!= mempty)
-            <*> (x .:? "S3Targets" .!= mempty)
-            <*> (x .:? "MongoDBTargets" .!= mempty)
-            <*> (x .:? "CatalogTargets" .!= mempty)
-            <*> (x .:? "JdbcTargets" .!= mempty)
+            Lude.<$> (x Lude..:? "DynamoDBTargets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "S3Targets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MongoDBTargets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CatalogTargets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "JdbcTargets" Lude..!= Lude.mempty)
       )
 
-instance Hashable CrawlerTargets
-
-instance NFData CrawlerTargets
-
-instance ToJSON CrawlerTargets where
+instance Lude.ToJSON CrawlerTargets where
   toJSON CrawlerTargets' {..} =
-    object
-      ( catMaybes
-          [ ("DynamoDBTargets" .=) <$> _ctDynamoDBTargets,
-            ("S3Targets" .=) <$> _ctS3Targets,
-            ("MongoDBTargets" .=) <$> _ctMongoDBTargets,
-            ("CatalogTargets" .=) <$> _ctCatalogTargets,
-            ("JdbcTargets" .=) <$> _ctJdbcTargets
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DynamoDBTargets" Lude..=) Lude.<$> dynamoDBTargets,
+            ("S3Targets" Lude..=) Lude.<$> s3Targets,
+            ("MongoDBTargets" Lude..=) Lude.<$> mongoDBTargets,
+            ("CatalogTargets" Lude..=) Lude.<$> catalogTargets,
+            ("JdbcTargets" Lude..=) Lude.<$> jdbcTargets
           ]
       )

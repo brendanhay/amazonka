@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.OrganizationResourceDetailedStatus where
+module Network.AWS.Config.Types.OrganizationResourceDetailedStatus
+  ( OrganizationResourceDetailedStatus
+      ( OrganizationResourceDetailedStatus',
+        CreateFailed,
+        CreateInProgress,
+        CreateSuccessful,
+        DeleteFailed,
+        DeleteInProgress,
+        DeleteSuccessful,
+        UpdateFailed,
+        UpdateInProgress,
+        UpdateSuccessful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrganizationResourceDetailedStatus
-  = CreateFailed
-  | CreateInProgress
-  | CreateSuccessful
-  | DeleteFailed
-  | DeleteInProgress
-  | DeleteSuccessful
-  | UpdateFailed
-  | UpdateInProgress
-  | UpdateSuccessful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrganizationResourceDetailedStatus = OrganizationResourceDetailedStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrganizationResourceDetailedStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure CreateFailed
-      "create_in_progress" -> pure CreateInProgress
-      "create_successful" -> pure CreateSuccessful
-      "delete_failed" -> pure DeleteFailed
-      "delete_in_progress" -> pure DeleteInProgress
-      "delete_successful" -> pure DeleteSuccessful
-      "update_failed" -> pure UpdateFailed
-      "update_in_progress" -> pure UpdateInProgress
-      "update_successful" -> pure UpdateSuccessful
-      e ->
-        fromTextError $
-          "Failure parsing OrganizationResourceDetailedStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, create_in_progress, create_successful, delete_failed, delete_in_progress, delete_successful, update_failed, update_in_progress, update_successful"
+pattern CreateFailed :: OrganizationResourceDetailedStatus
+pattern CreateFailed = OrganizationResourceDetailedStatus' "CREATE_FAILED"
 
-instance ToText OrganizationResourceDetailedStatus where
-  toText = \case
-    CreateFailed -> "CREATE_FAILED"
-    CreateInProgress -> "CREATE_IN_PROGRESS"
-    CreateSuccessful -> "CREATE_SUCCESSFUL"
-    DeleteFailed -> "DELETE_FAILED"
-    DeleteInProgress -> "DELETE_IN_PROGRESS"
-    DeleteSuccessful -> "DELETE_SUCCESSFUL"
-    UpdateFailed -> "UPDATE_FAILED"
-    UpdateInProgress -> "UPDATE_IN_PROGRESS"
-    UpdateSuccessful -> "UPDATE_SUCCESSFUL"
+pattern CreateInProgress :: OrganizationResourceDetailedStatus
+pattern CreateInProgress = OrganizationResourceDetailedStatus' "CREATE_IN_PROGRESS"
 
-instance Hashable OrganizationResourceDetailedStatus
+pattern CreateSuccessful :: OrganizationResourceDetailedStatus
+pattern CreateSuccessful = OrganizationResourceDetailedStatus' "CREATE_SUCCESSFUL"
 
-instance NFData OrganizationResourceDetailedStatus
+pattern DeleteFailed :: OrganizationResourceDetailedStatus
+pattern DeleteFailed = OrganizationResourceDetailedStatus' "DELETE_FAILED"
 
-instance ToByteString OrganizationResourceDetailedStatus
+pattern DeleteInProgress :: OrganizationResourceDetailedStatus
+pattern DeleteInProgress = OrganizationResourceDetailedStatus' "DELETE_IN_PROGRESS"
 
-instance ToQuery OrganizationResourceDetailedStatus
+pattern DeleteSuccessful :: OrganizationResourceDetailedStatus
+pattern DeleteSuccessful = OrganizationResourceDetailedStatus' "DELETE_SUCCESSFUL"
 
-instance ToHeader OrganizationResourceDetailedStatus
+pattern UpdateFailed :: OrganizationResourceDetailedStatus
+pattern UpdateFailed = OrganizationResourceDetailedStatus' "UPDATE_FAILED"
 
-instance ToJSON OrganizationResourceDetailedStatus where
-  toJSON = toJSONText
+pattern UpdateInProgress :: OrganizationResourceDetailedStatus
+pattern UpdateInProgress = OrganizationResourceDetailedStatus' "UPDATE_IN_PROGRESS"
 
-instance FromJSON OrganizationResourceDetailedStatus where
-  parseJSON = parseJSONText "OrganizationResourceDetailedStatus"
+pattern UpdateSuccessful :: OrganizationResourceDetailedStatus
+pattern UpdateSuccessful = OrganizationResourceDetailedStatus' "UPDATE_SUCCESSFUL"
+
+{-# COMPLETE
+  CreateFailed,
+  CreateInProgress,
+  CreateSuccessful,
+  DeleteFailed,
+  DeleteInProgress,
+  DeleteSuccessful,
+  UpdateFailed,
+  UpdateInProgress,
+  UpdateSuccessful,
+  OrganizationResourceDetailedStatus'
+  #-}

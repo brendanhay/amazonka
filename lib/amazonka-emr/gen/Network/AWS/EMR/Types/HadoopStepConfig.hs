@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.HadoopStepConfig where
+module Network.AWS.EMR.Types.HadoopStepConfig
+  ( HadoopStepConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHadoopStepConfig,
+
+    -- * Lenses
+    hscArgs,
+    hscJAR,
+    hscMainClass,
+    hscProperties,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A cluster step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
---
---
--- /See:/ 'hadoopStepConfig' smart constructor.
+-- /See:/ 'mkHadoopStepConfig' smart constructor.
 data HadoopStepConfig = HadoopStepConfig'
-  { _hscArgs ::
-      !(Maybe [Text]),
-    _hscJAR :: !(Maybe Text),
-    _hscMainClass :: !(Maybe Text),
-    _hscProperties :: !(Maybe (Map Text (Text)))
+  { args ::
+      Lude.Maybe [Lude.Text],
+    jar :: Lude.Maybe Lude.Text,
+    mainClass :: Lude.Maybe Lude.Text,
+    properties ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HadoopStepConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hscArgs' - The list of command line arguments to pass to the JAR file's main function for execution.
---
--- * 'hscJAR' - The path to the JAR file that runs during the step.
---
--- * 'hscMainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
---
--- * 'hscProperties' - The list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
-hadoopStepConfig ::
+-- * 'args' - The list of command line arguments to pass to the JAR file's main function for execution.
+-- * 'jar' - The path to the JAR file that runs during the step.
+-- * 'mainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
+-- * 'properties' - The list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+mkHadoopStepConfig ::
   HadoopStepConfig
-hadoopStepConfig =
+mkHadoopStepConfig =
   HadoopStepConfig'
-    { _hscArgs = Nothing,
-      _hscJAR = Nothing,
-      _hscMainClass = Nothing,
-      _hscProperties = Nothing
+    { args = Lude.Nothing,
+      jar = Lude.Nothing,
+      mainClass = Lude.Nothing,
+      properties = Lude.Nothing
     }
 
 -- | The list of command line arguments to pass to the JAR file's main function for execution.
-hscArgs :: Lens' HadoopStepConfig [Text]
-hscArgs = lens _hscArgs (\s a -> s {_hscArgs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hscArgs :: Lens.Lens' HadoopStepConfig (Lude.Maybe [Lude.Text])
+hscArgs = Lens.lens (args :: HadoopStepConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: HadoopStepConfig)
+{-# DEPRECATED hscArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The path to the JAR file that runs during the step.
-hscJAR :: Lens' HadoopStepConfig (Maybe Text)
-hscJAR = lens _hscJAR (\s a -> s {_hscJAR = a})
+--
+-- /Note:/ Consider using 'jar' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hscJAR :: Lens.Lens' HadoopStepConfig (Lude.Maybe Lude.Text)
+hscJAR = Lens.lens (jar :: HadoopStepConfig -> Lude.Maybe Lude.Text) (\s a -> s {jar = a} :: HadoopStepConfig)
+{-# DEPRECATED hscJAR "Use generic-lens or generic-optics with 'jar' instead." #-}
 
 -- | The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
-hscMainClass :: Lens' HadoopStepConfig (Maybe Text)
-hscMainClass = lens _hscMainClass (\s a -> s {_hscMainClass = a})
+--
+-- /Note:/ Consider using 'mainClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hscMainClass :: Lens.Lens' HadoopStepConfig (Lude.Maybe Lude.Text)
+hscMainClass = Lens.lens (mainClass :: HadoopStepConfig -> Lude.Maybe Lude.Text) (\s a -> s {mainClass = a} :: HadoopStepConfig)
+{-# DEPRECATED hscMainClass "Use generic-lens or generic-optics with 'mainClass' instead." #-}
 
 -- | The list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
-hscProperties :: Lens' HadoopStepConfig (HashMap Text (Text))
-hscProperties = lens _hscProperties (\s a -> s {_hscProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hscProperties :: Lens.Lens' HadoopStepConfig (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+hscProperties = Lens.lens (properties :: HadoopStepConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {properties = a} :: HadoopStepConfig)
+{-# DEPRECATED hscProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance FromJSON HadoopStepConfig where
+instance Lude.FromJSON HadoopStepConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "HadoopStepConfig"
       ( \x ->
           HadoopStepConfig'
-            <$> (x .:? "Args" .!= mempty)
-            <*> (x .:? "Jar")
-            <*> (x .:? "MainClass")
-            <*> (x .:? "Properties" .!= mempty)
+            Lude.<$> (x Lude..:? "Args" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Jar")
+            Lude.<*> (x Lude..:? "MainClass")
+            Lude.<*> (x Lude..:? "Properties" Lude..!= Lude.mempty)
       )
-
-instance Hashable HadoopStepConfig
-
-instance NFData HadoopStepConfig

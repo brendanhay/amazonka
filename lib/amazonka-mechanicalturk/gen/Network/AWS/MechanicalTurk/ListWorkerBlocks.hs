@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- The @ListWorkersBlocks@ operation retrieves a list of Workers who are blocked from working on your HITs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListWorkerBlocks
-  ( -- * Creating a Request
-    listWorkerBlocks,
-    ListWorkerBlocks,
+  ( -- * Creating a request
+    ListWorkerBlocks (..),
+    mkListWorkerBlocks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lwbNextToken,
     lwbMaxResults,
 
-    -- * Destructuring the Response
-    listWorkerBlocksResponse,
-    ListWorkerBlocksResponse,
+    -- * Destructuring the response
+    ListWorkerBlocksResponse (..),
+    mkListWorkerBlocksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lwbrsWorkerBlocks,
     lwbrsNextToken,
     lwbrsNumResults,
@@ -43,139 +36,163 @@ module Network.AWS.MechanicalTurk.ListWorkerBlocks
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listWorkerBlocks' smart constructor.
+-- | /See:/ 'mkListWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
-  { _lwbNextToken ::
-      !(Maybe Text),
-    _lwbMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkerBlocks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwbNextToken' - Pagination token
---
--- * 'lwbMaxResults' - Undocumented member.
-listWorkerBlocks ::
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Pagination token
+mkListWorkerBlocks ::
   ListWorkerBlocks
-listWorkerBlocks =
+mkListWorkerBlocks =
   ListWorkerBlocks'
-    { _lwbNextToken = Nothing,
-      _lwbMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Pagination token
-lwbNextToken :: Lens' ListWorkerBlocks (Maybe Text)
-lwbNextToken = lens _lwbNextToken (\s a -> s {_lwbNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbNextToken :: Lens.Lens' ListWorkerBlocks (Lude.Maybe Lude.Text)
+lwbNextToken = Lens.lens (nextToken :: ListWorkerBlocks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkerBlocks)
+{-# DEPRECATED lwbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-lwbMaxResults :: Lens' ListWorkerBlocks (Maybe Natural)
-lwbMaxResults = lens _lwbMaxResults (\s a -> s {_lwbMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbMaxResults :: Lens.Lens' ListWorkerBlocks (Lude.Maybe Lude.Natural)
+lwbMaxResults = Lens.lens (maxResults :: ListWorkerBlocks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkerBlocks)
+{-# DEPRECATED lwbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListWorkerBlocks where
+instance Page.AWSPager ListWorkerBlocks where
   page rq rs
-    | stop (rs ^. lwbrsNextToken) = Nothing
-    | stop (rs ^. lwbrsWorkerBlocks) = Nothing
-    | otherwise = Just $ rq & lwbNextToken .~ rs ^. lwbrsNextToken
+    | Page.stop (rs Lens.^. lwbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lwbrsWorkerBlocks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lwbNextToken Lens..~ rs Lens.^. lwbrsNextToken
 
-instance AWSRequest ListWorkerBlocks where
+instance Lude.AWSRequest ListWorkerBlocks where
   type Rs ListWorkerBlocks = ListWorkerBlocksResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListWorkerBlocksResponse'
-            <$> (x .?> "WorkerBlocks" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "NumResults")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "WorkerBlocks" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "NumResults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListWorkerBlocks
-
-instance NFData ListWorkerBlocks
-
-instance ToHeaders ListWorkerBlocks where
+instance Lude.ToHeaders ListWorkerBlocks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.ListWorkerBlocks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ListWorkerBlocks" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListWorkerBlocks where
+instance Lude.ToJSON ListWorkerBlocks where
   toJSON ListWorkerBlocks' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lwbNextToken,
-            ("MaxResults" .=) <$> _lwbMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListWorkerBlocks where
-  toPath = const "/"
+instance Lude.ToPath ListWorkerBlocks where
+  toPath = Lude.const "/"
 
-instance ToQuery ListWorkerBlocks where
-  toQuery = const mempty
+instance Lude.ToQuery ListWorkerBlocks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listWorkerBlocksResponse' smart constructor.
+-- | /See:/ 'mkListWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-  { _lwbrsWorkerBlocks ::
-      !(Maybe [WorkerBlock]),
-    _lwbrsNextToken :: !(Maybe Text),
-    _lwbrsNumResults :: !(Maybe Int),
-    _lwbrsResponseStatus :: !Int
+  { workerBlocks ::
+      Lude.Maybe [WorkerBlock],
+    nextToken :: Lude.Maybe Lude.Text,
+    numResults :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkerBlocksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwbrsWorkerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
---
--- * 'lwbrsNextToken' - Undocumented member.
---
--- * 'lwbrsNumResults' - The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
---
--- * 'lwbrsResponseStatus' - -- | The response status code.
-listWorkerBlocksResponse ::
-  -- | 'lwbrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Undocumented field.
+-- * 'numResults' - The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
+-- * 'responseStatus' - The response status code.
+-- * 'workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
+mkListWorkerBlocksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListWorkerBlocksResponse
-listWorkerBlocksResponse pResponseStatus_ =
+mkListWorkerBlocksResponse pResponseStatus_ =
   ListWorkerBlocksResponse'
-    { _lwbrsWorkerBlocks = Nothing,
-      _lwbrsNextToken = Nothing,
-      _lwbrsNumResults = Nothing,
-      _lwbrsResponseStatus = pResponseStatus_
+    { workerBlocks = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      numResults = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
-lwbrsWorkerBlocks :: Lens' ListWorkerBlocksResponse [WorkerBlock]
-lwbrsWorkerBlocks = lens _lwbrsWorkerBlocks (\s a -> s {_lwbrsWorkerBlocks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'workerBlocks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbrsWorkerBlocks :: Lens.Lens' ListWorkerBlocksResponse (Lude.Maybe [WorkerBlock])
+lwbrsWorkerBlocks = Lens.lens (workerBlocks :: ListWorkerBlocksResponse -> Lude.Maybe [WorkerBlock]) (\s a -> s {workerBlocks = a} :: ListWorkerBlocksResponse)
+{-# DEPRECATED lwbrsWorkerBlocks "Use generic-lens or generic-optics with 'workerBlocks' instead." #-}
 
--- | Undocumented member.
-lwbrsNextToken :: Lens' ListWorkerBlocksResponse (Maybe Text)
-lwbrsNextToken = lens _lwbrsNextToken (\s a -> s {_lwbrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbrsNextToken :: Lens.Lens' ListWorkerBlocksResponse (Lude.Maybe Lude.Text)
+lwbrsNextToken = Lens.lens (nextToken :: ListWorkerBlocksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkerBlocksResponse)
+{-# DEPRECATED lwbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
-lwbrsNumResults :: Lens' ListWorkerBlocksResponse (Maybe Int)
-lwbrsNumResults = lens _lwbrsNumResults (\s a -> s {_lwbrsNumResults = a})
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbrsNumResults :: Lens.Lens' ListWorkerBlocksResponse (Lude.Maybe Lude.Int)
+lwbrsNumResults = Lens.lens (numResults :: ListWorkerBlocksResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListWorkerBlocksResponse)
+{-# DEPRECATED lwbrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
--- | -- | The response status code.
-lwbrsResponseStatus :: Lens' ListWorkerBlocksResponse Int
-lwbrsResponseStatus = lens _lwbrsResponseStatus (\s a -> s {_lwbrsResponseStatus = a})
-
-instance NFData ListWorkerBlocksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwbrsResponseStatus :: Lens.Lens' ListWorkerBlocksResponse Lude.Int
+lwbrsResponseStatus = Lens.lens (responseStatus :: ListWorkerBlocksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkerBlocksResponse)
+{-# DEPRECATED lwbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

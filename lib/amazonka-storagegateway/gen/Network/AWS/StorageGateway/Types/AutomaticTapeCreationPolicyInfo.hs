@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo where
+module Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
+  ( AutomaticTapeCreationPolicyInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutomaticTapeCreationPolicyInfo,
+
+    -- * Lenses
+    atcpiGatewayARN,
+    atcpiAutomaticTapeCreationRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
 
 -- | Information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
 --
---
---
--- /See:/ 'automaticTapeCreationPolicyInfo' smart constructor.
+-- /See:/ 'mkAutomaticTapeCreationPolicyInfo' smart constructor.
 data AutomaticTapeCreationPolicyInfo = AutomaticTapeCreationPolicyInfo'
-  { _atcpiGatewayARN ::
-      !(Maybe Text),
-    _atcpiAutomaticTapeCreationRules ::
-      !( Maybe
-           ( List1
-               AutomaticTapeCreationRule
-           )
-       )
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    automaticTapeCreationRules ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            AutomaticTapeCreationRule
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomaticTapeCreationPolicyInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atcpiGatewayARN' - Undocumented member.
---
--- * 'atcpiAutomaticTapeCreationRules' - An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes.
-automaticTapeCreationPolicyInfo ::
+-- * 'automaticTapeCreationRules' - An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes.
+-- * 'gatewayARN' - Undocumented field.
+mkAutomaticTapeCreationPolicyInfo ::
   AutomaticTapeCreationPolicyInfo
-automaticTapeCreationPolicyInfo =
+mkAutomaticTapeCreationPolicyInfo =
   AutomaticTapeCreationPolicyInfo'
-    { _atcpiGatewayARN = Nothing,
-      _atcpiAutomaticTapeCreationRules = Nothing
+    { gatewayARN = Lude.Nothing,
+      automaticTapeCreationRules = Lude.Nothing
     }
 
--- | Undocumented member.
-atcpiGatewayARN :: Lens' AutomaticTapeCreationPolicyInfo (Maybe Text)
-atcpiGatewayARN = lens _atcpiGatewayARN (\s a -> s {_atcpiGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcpiGatewayARN :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Lude.Maybe Lude.Text)
+atcpiGatewayARN = Lens.lens (gatewayARN :: AutomaticTapeCreationPolicyInfo -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: AutomaticTapeCreationPolicyInfo)
+{-# DEPRECATED atcpiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes.
-atcpiAutomaticTapeCreationRules :: Lens' AutomaticTapeCreationPolicyInfo (Maybe (NonEmpty AutomaticTapeCreationRule))
-atcpiAutomaticTapeCreationRules = lens _atcpiAutomaticTapeCreationRules (\s a -> s {_atcpiAutomaticTapeCreationRules = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'automaticTapeCreationRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcpiAutomaticTapeCreationRules :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Lude.Maybe (Lude.NonEmpty AutomaticTapeCreationRule))
+atcpiAutomaticTapeCreationRules = Lens.lens (automaticTapeCreationRules :: AutomaticTapeCreationPolicyInfo -> Lude.Maybe (Lude.NonEmpty AutomaticTapeCreationRule)) (\s a -> s {automaticTapeCreationRules = a} :: AutomaticTapeCreationPolicyInfo)
+{-# DEPRECATED atcpiAutomaticTapeCreationRules "Use generic-lens or generic-optics with 'automaticTapeCreationRules' instead." #-}
 
-instance FromJSON AutomaticTapeCreationPolicyInfo where
+instance Lude.FromJSON AutomaticTapeCreationPolicyInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutomaticTapeCreationPolicyInfo"
       ( \x ->
           AutomaticTapeCreationPolicyInfo'
-            <$> (x .:? "GatewayARN") <*> (x .:? "AutomaticTapeCreationRules")
+            Lude.<$> (x Lude..:? "GatewayARN")
+            Lude.<*> (x Lude..:? "AutomaticTapeCreationRules")
       )
-
-instance Hashable AutomaticTapeCreationPolicyInfo
-
-instance NFData AutomaticTapeCreationPolicyInfo

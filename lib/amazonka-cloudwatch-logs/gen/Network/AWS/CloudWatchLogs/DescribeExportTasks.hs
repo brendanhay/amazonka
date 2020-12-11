@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
-  ( -- * Creating a Request
-    describeExportTasks,
-    DescribeExportTasks,
+  ( -- * Creating a request
+    DescribeExportTasks (..),
+    mkDescribeExportTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detTaskId,
     detNextToken,
     detLimit,
     detStatusCode,
 
-    -- * Destructuring the Response
-    describeExportTasksResponse,
-    DescribeExportTasksResponse,
+    -- * Destructuring the response
+    DescribeExportTasksResponse (..),
+    mkDescribeExportTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     detrsNextToken,
     detrsExportTasks,
     detrsResponseStatus,
@@ -45,148 +38,172 @@ module Network.AWS.CloudWatchLogs.DescribeExportTasks
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeExportTasks' smart constructor.
+-- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { _detTaskId ::
-      !(Maybe Text),
-    _detNextToken :: !(Maybe Text),
-    _detLimit :: !(Maybe Nat),
-    _detStatusCode :: !(Maybe ExportTaskStatusCode)
+  { taskId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    statusCode :: Lude.Maybe ExportTaskStatusCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detTaskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
---
--- * 'detNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'detLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
---
--- * 'detStatusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
-describeExportTasks ::
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'statusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
+-- * 'taskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
+mkDescribeExportTasks ::
   DescribeExportTasks
-describeExportTasks =
+mkDescribeExportTasks =
   DescribeExportTasks'
-    { _detTaskId = Nothing,
-      _detNextToken = Nothing,
-      _detLimit = Nothing,
-      _detStatusCode = Nothing
+    { taskId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
 -- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
-detTaskId :: Lens' DescribeExportTasks (Maybe Text)
-detTaskId = lens _detTaskId (\s a -> s {_detTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detTaskId :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
+detTaskId = Lens.lens (taskId :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: DescribeExportTasks)
+{-# DEPRECATED detTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-detNextToken :: Lens' DescribeExportTasks (Maybe Text)
-detNextToken = lens _detNextToken (\s a -> s {_detNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detNextToken :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
+detNextToken = Lens.lens (nextToken :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportTasks)
+{-# DEPRECATED detNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-detLimit :: Lens' DescribeExportTasks (Maybe Natural)
-detLimit = lens _detLimit (\s a -> s {_detLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detLimit :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Natural)
+detLimit = Lens.lens (limit :: DescribeExportTasks -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeExportTasks)
+{-# DEPRECATED detLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
-detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
-detStatusCode = lens _detStatusCode (\s a -> s {_detStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detStatusCode :: Lens.Lens' DescribeExportTasks (Lude.Maybe ExportTaskStatusCode)
+detStatusCode = Lens.lens (statusCode :: DescribeExportTasks -> Lude.Maybe ExportTaskStatusCode) (\s a -> s {statusCode = a} :: DescribeExportTasks)
+{-# DEPRECATED detStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSPager DescribeExportTasks where
+instance Page.AWSPager DescribeExportTasks where
   page rq rs
-    | stop (rs ^. detrsNextToken) = Nothing
-    | stop (rs ^. detrsExportTasks) = Nothing
-    | otherwise = Just $ rq & detNextToken .~ rs ^. detrsNextToken
+    | Page.stop (rs Lens.^. detrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. detrsExportTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& detNextToken Lens..~ rs Lens.^. detrsNextToken
 
-instance AWSRequest DescribeExportTasks where
+instance Lude.AWSRequest DescribeExportTasks where
   type Rs DescribeExportTasks = DescribeExportTasksResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeExportTasksResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "exportTasks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "exportTasks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeExportTasks
-
-instance NFData DescribeExportTasks
-
-instance ToHeaders DescribeExportTasks where
+instance Lude.ToHeaders DescribeExportTasks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DescribeExportTasks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DescribeExportTasks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeExportTasks where
+instance Lude.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
-    object
-      ( catMaybes
-          [ ("taskId" .=) <$> _detTaskId,
-            ("nextToken" .=) <$> _detNextToken,
-            ("limit" .=) <$> _detLimit,
-            ("statusCode" .=) <$> _detStatusCode
+    Lude.object
+      ( Lude.catMaybes
+          [ ("taskId" Lude..=) Lude.<$> taskId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("limit" Lude..=) Lude.<$> limit,
+            ("statusCode" Lude..=) Lude.<$> statusCode
           ]
       )
 
-instance ToPath DescribeExportTasks where
-  toPath = const "/"
+instance Lude.ToPath DescribeExportTasks where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeExportTasks where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeExportTasks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeExportTasksResponse' smart constructor.
+-- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { _detrsNextToken ::
-      !(Maybe Text),
-    _detrsExportTasks ::
-      !(Maybe [ExportTask]),
-    _detrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    exportTasks ::
+      Lude.Maybe [ExportTask],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsNextToken' - Undocumented member.
---
--- * 'detrsExportTasks' - The export tasks.
---
--- * 'detrsResponseStatus' - -- | The response status code.
-describeExportTasksResponse ::
-  -- | 'detrsResponseStatus'
-  Int ->
+-- * 'exportTasks' - The export tasks.
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeExportTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeExportTasksResponse
-describeExportTasksResponse pResponseStatus_ =
+mkDescribeExportTasksResponse pResponseStatus_ =
   DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing,
-      _detrsExportTasks = Nothing,
-      _detrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      exportTasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\s a -> s {_detrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsNextToken :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe Lude.Text)
+detrsNextToken = Lens.lens (nextToken :: DescribeExportTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportTasksResponse)
+{-# DEPRECATED detrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The export tasks.
-detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks = lens _detrsExportTasks (\s a -> s {_detrsExportTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exportTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsExportTasks :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe [ExportTask])
+detrsExportTasks = Lens.lens (exportTasks :: DescribeExportTasksResponse -> Lude.Maybe [ExportTask]) (\s a -> s {exportTasks = a} :: DescribeExportTasksResponse)
+{-# DEPRECATED detrsExportTasks "Use generic-lens or generic-optics with 'exportTasks' instead." #-}
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\s a -> s {_detrsResponseStatus = a})
-
-instance NFData DescribeExportTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DescribeExportTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportTasksResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

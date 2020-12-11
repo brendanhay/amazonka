@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,171 @@
 --
 -- Retrieves settings for one or more trails associated with the current region for your account.
 module Network.AWS.CloudTrail.DescribeTrails
-  ( -- * Creating a Request
-    describeTrails,
-    DescribeTrails,
+  ( -- * Creating a request
+    DescribeTrails (..),
+    mkDescribeTrails,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtIncludeShadowTrails,
     dtTrailNameList,
 
-    -- * Destructuring the Response
-    describeTrailsResponse,
-    DescribeTrailsResponse,
+    -- * Destructuring the response
+    DescribeTrailsResponse (..),
+    mkDescribeTrailsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsTrailList,
     dtrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudTrail.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Returns information about the trail.
 --
---
---
--- /See:/ 'describeTrails' smart constructor.
+-- /See:/ 'mkDescribeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
-  { _dtIncludeShadowTrails ::
-      !(Maybe Bool),
-    _dtTrailNameList :: !(Maybe [Text])
+  { includeShadowTrails ::
+      Lude.Maybe Lude.Bool,
+    trailNameList :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'includeShadowTrails' - Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region, or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account and region replication trails will not be returned. The default is true.
+-- * 'trailNameList' - Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:
 --
--- * 'dtIncludeShadowTrails' - Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region, or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account and region replication trails will not be returned. The default is true.
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- If an empty list is specified, information for the trail in the current region is returned.
 --
--- * 'dtTrailNameList' - Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@  If an empty list is specified, information for the trail in the current region is returned.     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
-describeTrails ::
+--     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.
+--
+--
+--     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
+mkDescribeTrails ::
   DescribeTrails
-describeTrails =
+mkDescribeTrails =
   DescribeTrails'
-    { _dtIncludeShadowTrails = Nothing,
-      _dtTrailNameList = Nothing
+    { includeShadowTrails = Lude.Nothing,
+      trailNameList = Lude.Nothing
     }
 
 -- | Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region, or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account and region replication trails will not be returned. The default is true.
-dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
-dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\s a -> s {_dtIncludeShadowTrails = a})
+--
+-- /Note:/ Consider using 'includeShadowTrails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtIncludeShadowTrails :: Lens.Lens' DescribeTrails (Lude.Maybe Lude.Bool)
+dtIncludeShadowTrails = Lens.lens (includeShadowTrails :: DescribeTrails -> Lude.Maybe Lude.Bool) (\s a -> s {includeShadowTrails = a} :: DescribeTrails)
+{-# DEPRECATED dtIncludeShadowTrails "Use generic-lens or generic-optics with 'includeShadowTrails' instead." #-}
 
--- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@  If an empty list is specified, information for the trail in the current region is returned.     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
-dtTrailNameList :: Lens' DescribeTrails [Text]
-dtTrailNameList = lens _dtTrailNameList (\s a -> s {_dtTrailNameList = a}) . _Default . _Coerce
+-- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:
+--
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- If an empty list is specified, information for the trail in the current region is returned.
+--
+--     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.
+--
+--
+--     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
+--
+--
+--
+-- /Note:/ Consider using 'trailNameList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTrailNameList :: Lens.Lens' DescribeTrails (Lude.Maybe [Lude.Text])
+dtTrailNameList = Lens.lens (trailNameList :: DescribeTrails -> Lude.Maybe [Lude.Text]) (\s a -> s {trailNameList = a} :: DescribeTrails)
+{-# DEPRECATED dtTrailNameList "Use generic-lens or generic-optics with 'trailNameList' instead." #-}
 
-instance AWSRequest DescribeTrails where
+instance Lude.AWSRequest DescribeTrails where
   type Rs DescribeTrails = DescribeTrailsResponse
-  request = postJSON cloudTrail
+  request = Req.postJSON cloudTrailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTrailsResponse'
-            <$> (x .?> "trailList" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "trailList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTrails
-
-instance NFData DescribeTrails
-
-instance ToHeaders DescribeTrails where
+instance Lude.ToHeaders DescribeTrails where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTrails where
+instance Lude.ToJSON DescribeTrails where
   toJSON DescribeTrails' {..} =
-    object
-      ( catMaybes
-          [ ("includeShadowTrails" .=) <$> _dtIncludeShadowTrails,
-            ("trailNameList" .=) <$> _dtTrailNameList
+    Lude.object
+      ( Lude.catMaybes
+          [ ("includeShadowTrails" Lude..=) Lude.<$> includeShadowTrails,
+            ("trailNameList" Lude..=) Lude.<$> trailNameList
           ]
       )
 
-instance ToPath DescribeTrails where
-  toPath = const "/"
+instance Lude.ToPath DescribeTrails where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTrails where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTrails where
+  toQuery = Lude.const Lude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
---
---
--- /See:/ 'describeTrailsResponse' smart constructor.
+-- /See:/ 'mkDescribeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
-  { _dtrsTrailList ::
-      !(Maybe [Trail]),
-    _dtrsResponseStatus :: !Int
+  { trailList ::
+      Lude.Maybe [Trail],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsTrailList' - The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration. For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in results if a trail is configured to send SNS notifications. Similarly, @KMSKeyId@ only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTrailsResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trailList' - The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration. For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in results if a trail is configured to send SNS notifications. Similarly, @KMSKeyId@ only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.
+mkDescribeTrailsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTrailsResponse
-describeTrailsResponse pResponseStatus_ =
+mkDescribeTrailsResponse pResponseStatus_ =
   DescribeTrailsResponse'
-    { _dtrsTrailList = Nothing,
-      _dtrsResponseStatus = pResponseStatus_
+    { trailList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration. For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in results if a trail is configured to send SNS notifications. Similarly, @KMSKeyId@ only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.
-dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrsTrailList = lens _dtrsTrailList (\s a -> s {_dtrsTrailList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'trailList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsTrailList :: Lens.Lens' DescribeTrailsResponse (Lude.Maybe [Trail])
+dtrsTrailList = Lens.lens (trailList :: DescribeTrailsResponse -> Lude.Maybe [Trail]) (\s a -> s {trailList = a} :: DescribeTrailsResponse)
+{-# DEPRECATED dtrsTrailList "Use generic-lens or generic-optics with 'trailList' instead." #-}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DescribeTrailsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DescribeTrailsResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTrailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrailsResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

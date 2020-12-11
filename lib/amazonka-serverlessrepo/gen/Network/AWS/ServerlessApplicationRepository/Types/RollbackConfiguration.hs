@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration where
+module Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration
+  ( RollbackConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRollbackConfiguration,
+
+    -- * Lenses
+    rcRollbackTriggers,
+    rcMonitoringTimeInMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
 
 -- | This property corresponds to the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
 --
---
---
--- /See:/ 'rollbackConfiguration' smart constructor.
+-- /See:/ 'mkRollbackConfiguration' smart constructor.
 data RollbackConfiguration = RollbackConfiguration'
-  { _rcRollbackTriggers ::
-      !(Maybe [RollbackTrigger]),
-    _rcMonitoringTimeInMinutes :: !(Maybe Int)
+  { rollbackTriggers ::
+      Lude.Maybe [RollbackTrigger],
+    monitoringTimeInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RollbackConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcRollbackTriggers' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
---
--- * 'rcMonitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
-rollbackConfiguration ::
+-- * 'monitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
+-- * 'rollbackTriggers' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
+mkRollbackConfiguration ::
   RollbackConfiguration
-rollbackConfiguration =
+mkRollbackConfiguration =
   RollbackConfiguration'
-    { _rcRollbackTriggers = Nothing,
-      _rcMonitoringTimeInMinutes = Nothing
+    { rollbackTriggers = Lude.Nothing,
+      monitoringTimeInMinutes = Lude.Nothing
     }
 
 -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
-rcRollbackTriggers :: Lens' RollbackConfiguration [RollbackTrigger]
-rcRollbackTriggers = lens _rcRollbackTriggers (\s a -> s {_rcRollbackTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rollbackTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRollbackTriggers :: Lens.Lens' RollbackConfiguration (Lude.Maybe [RollbackTrigger])
+rcRollbackTriggers = Lens.lens (rollbackTriggers :: RollbackConfiguration -> Lude.Maybe [RollbackTrigger]) (\s a -> s {rollbackTriggers = a} :: RollbackConfiguration)
+{-# DEPRECATED rcRollbackTriggers "Use generic-lens or generic-optics with 'rollbackTriggers' instead." #-}
 
 -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
-rcMonitoringTimeInMinutes :: Lens' RollbackConfiguration (Maybe Int)
-rcMonitoringTimeInMinutes = lens _rcMonitoringTimeInMinutes (\s a -> s {_rcMonitoringTimeInMinutes = a})
+--
+-- /Note:/ Consider using 'monitoringTimeInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcMonitoringTimeInMinutes :: Lens.Lens' RollbackConfiguration (Lude.Maybe Lude.Int)
+rcMonitoringTimeInMinutes = Lens.lens (monitoringTimeInMinutes :: RollbackConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {monitoringTimeInMinutes = a} :: RollbackConfiguration)
+{-# DEPRECATED rcMonitoringTimeInMinutes "Use generic-lens or generic-optics with 'monitoringTimeInMinutes' instead." #-}
 
-instance Hashable RollbackConfiguration
-
-instance NFData RollbackConfiguration
-
-instance ToJSON RollbackConfiguration where
+instance Lude.ToJSON RollbackConfiguration where
   toJSON RollbackConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("rollbackTriggers" .=) <$> _rcRollbackTriggers,
-            ("monitoringTimeInMinutes" .=) <$> _rcMonitoringTimeInMinutes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("rollbackTriggers" Lude..=) Lude.<$> rollbackTriggers,
+            ("monitoringTimeInMinutes" Lude..=)
+              Lude.<$> monitoringTimeInMinutes
           ]
       )

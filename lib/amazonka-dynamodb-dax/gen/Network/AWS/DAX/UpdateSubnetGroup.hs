@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,160 @@
 --
 -- Modifies an existing subnet group.
 module Network.AWS.DAX.UpdateSubnetGroup
-  ( -- * Creating a Request
-    updateSubnetGroup,
-    UpdateSubnetGroup,
+  ( -- * Creating a request
+    UpdateSubnetGroup (..),
+    mkUpdateSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usgSubnetIds,
     usgDescription,
     usgSubnetGroupName,
 
-    -- * Destructuring the Response
-    updateSubnetGroupResponse,
-    UpdateSubnetGroupResponse,
+    -- * Destructuring the response
+    UpdateSubnetGroupResponse (..),
+    mkUpdateSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usgrsSubnetGroup,
     usgrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSubnetGroup' smart constructor.
+-- | /See:/ 'mkUpdateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
-  { _usgSubnetIds ::
-      !(Maybe [Text]),
-    _usgDescription :: !(Maybe Text),
-    _usgSubnetGroupName :: !Text
+  { subnetIds ::
+      Lude.Maybe [Lude.Text],
+    description :: Lude.Maybe Lude.Text,
+    subnetGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usgSubnetIds' - A list of subnet IDs in the subnet group.
---
--- * 'usgDescription' - A description of the subnet group.
---
--- * 'usgSubnetGroupName' - The name of the subnet group.
-updateSubnetGroup ::
-  -- | 'usgSubnetGroupName'
-  Text ->
+-- * 'description' - A description of the subnet group.
+-- * 'subnetGroupName' - The name of the subnet group.
+-- * 'subnetIds' - A list of subnet IDs in the subnet group.
+mkUpdateSubnetGroup ::
+  -- | 'subnetGroupName'
+  Lude.Text ->
   UpdateSubnetGroup
-updateSubnetGroup pSubnetGroupName_ =
+mkUpdateSubnetGroup pSubnetGroupName_ =
   UpdateSubnetGroup'
-    { _usgSubnetIds = Nothing,
-      _usgDescription = Nothing,
-      _usgSubnetGroupName = pSubnetGroupName_
+    { subnetIds = Lude.Nothing,
+      description = Lude.Nothing,
+      subnetGroupName = pSubnetGroupName_
     }
 
 -- | A list of subnet IDs in the subnet group.
-usgSubnetIds :: Lens' UpdateSubnetGroup [Text]
-usgSubnetIds = lens _usgSubnetIds (\s a -> s {_usgSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgSubnetIds :: Lens.Lens' UpdateSubnetGroup (Lude.Maybe [Lude.Text])
+usgSubnetIds = Lens.lens (subnetIds :: UpdateSubnetGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: UpdateSubnetGroup)
+{-# DEPRECATED usgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | A description of the subnet group.
-usgDescription :: Lens' UpdateSubnetGroup (Maybe Text)
-usgDescription = lens _usgDescription (\s a -> s {_usgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgDescription :: Lens.Lens' UpdateSubnetGroup (Lude.Maybe Lude.Text)
+usgDescription = Lens.lens (description :: UpdateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateSubnetGroup)
+{-# DEPRECATED usgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the subnet group.
-usgSubnetGroupName :: Lens' UpdateSubnetGroup Text
-usgSubnetGroupName = lens _usgSubnetGroupName (\s a -> s {_usgSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgSubnetGroupName :: Lens.Lens' UpdateSubnetGroup Lude.Text
+usgSubnetGroupName = Lens.lens (subnetGroupName :: UpdateSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: UpdateSubnetGroup)
+{-# DEPRECATED usgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
-instance AWSRequest UpdateSubnetGroup where
+instance Lude.AWSRequest UpdateSubnetGroup where
   type Rs UpdateSubnetGroup = UpdateSubnetGroupResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateSubnetGroupResponse'
-            <$> (x .?> "SubnetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SubnetGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSubnetGroup
-
-instance NFData UpdateSubnetGroup
-
-instance ToHeaders UpdateSubnetGroup where
+instance Lude.ToHeaders UpdateSubnetGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.UpdateSubnetGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.UpdateSubnetGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateSubnetGroup where
+instance Lude.ToJSON UpdateSubnetGroup where
   toJSON UpdateSubnetGroup' {..} =
-    object
-      ( catMaybes
-          [ ("SubnetIds" .=) <$> _usgSubnetIds,
-            ("Description" .=) <$> _usgDescription,
-            Just ("SubnetGroupName" .= _usgSubnetGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SubnetIds" Lude..=) Lude.<$> subnetIds,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("SubnetGroupName" Lude..= subnetGroupName)
           ]
       )
 
-instance ToPath UpdateSubnetGroup where
-  toPath = const "/"
+instance Lude.ToPath UpdateSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateSubnetGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSubnetGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSubnetGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateSubnetGroupResponse' smart constructor.
 data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
-  { _usgrsSubnetGroup ::
-      !(Maybe SubnetGroup),
-    _usgrsResponseStatus :: !Int
+  { subnetGroup ::
+      Lude.Maybe SubnetGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usgrsSubnetGroup' - The subnet group that has been modified.
---
--- * 'usgrsResponseStatus' - -- | The response status code.
-updateSubnetGroupResponse ::
-  -- | 'usgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'subnetGroup' - The subnet group that has been modified.
+mkUpdateSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSubnetGroupResponse
-updateSubnetGroupResponse pResponseStatus_ =
+mkUpdateSubnetGroupResponse pResponseStatus_ =
   UpdateSubnetGroupResponse'
-    { _usgrsSubnetGroup = Nothing,
-      _usgrsResponseStatus = pResponseStatus_
+    { subnetGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The subnet group that has been modified.
-usgrsSubnetGroup :: Lens' UpdateSubnetGroupResponse (Maybe SubnetGroup)
-usgrsSubnetGroup = lens _usgrsSubnetGroup (\s a -> s {_usgrsSubnetGroup = a})
+--
+-- /Note:/ Consider using 'subnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrsSubnetGroup :: Lens.Lens' UpdateSubnetGroupResponse (Lude.Maybe SubnetGroup)
+usgrsSubnetGroup = Lens.lens (subnetGroup :: UpdateSubnetGroupResponse -> Lude.Maybe SubnetGroup) (\s a -> s {subnetGroup = a} :: UpdateSubnetGroupResponse)
+{-# DEPRECATED usgrsSubnetGroup "Use generic-lens or generic-optics with 'subnetGroup' instead." #-}
 
--- | -- | The response status code.
-usgrsResponseStatus :: Lens' UpdateSubnetGroupResponse Int
-usgrsResponseStatus = lens _usgrsResponseStatus (\s a -> s {_usgrsResponseStatus = a})
-
-instance NFData UpdateSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrsResponseStatus :: Lens.Lens' UpdateSubnetGroupResponse Lude.Int
+usgrsResponseStatus = Lens.lens (responseStatus :: UpdateSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSubnetGroupResponse)
+{-# DEPRECATED usgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

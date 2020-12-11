@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify its association ID. You can get the association ID by using 'DescribeVpcs' . You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.
 --
---
 -- You cannot disassociate the CIDR block with which you originally created the VPC (the primary CIDR block).
 module Network.AWS.EC2.DisassociateVPCCidrBlock
-  ( -- * Creating a Request
-    disassociateVPCCidrBlock,
-    DisassociateVPCCidrBlock,
+  ( -- * Creating a request
+    DisassociateVPCCidrBlock (..),
+    mkDisassociateVPCCidrBlock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvcbAssociationId,
 
-    -- * Destructuring the Response
-    disassociateVPCCidrBlockResponse,
-    DisassociateVPCCidrBlockResponse,
+    -- * Destructuring the response
+    DisassociateVPCCidrBlockResponse (..),
+    mkDisassociateVPCCidrBlockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvcbrsVPCId,
     dvcbrsCidrBlockAssociation,
     dvcbrsIPv6CidrBlockAssociation,
@@ -42,119 +36,133 @@ module Network.AWS.EC2.DisassociateVPCCidrBlock
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateVPCCidrBlock' smart constructor.
+-- | /See:/ 'mkDisassociateVPCCidrBlock' smart constructor.
 newtype DisassociateVPCCidrBlock = DisassociateVPCCidrBlock'
-  { _dvcbAssociationId ::
-      Text
+  { associationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCCidrBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcbAssociationId' - The association ID for the CIDR block.
-disassociateVPCCidrBlock ::
-  -- | 'dvcbAssociationId'
-  Text ->
+-- * 'associationId' - The association ID for the CIDR block.
+mkDisassociateVPCCidrBlock ::
+  -- | 'associationId'
+  Lude.Text ->
   DisassociateVPCCidrBlock
-disassociateVPCCidrBlock pAssociationId_ =
-  DisassociateVPCCidrBlock' {_dvcbAssociationId = pAssociationId_}
+mkDisassociateVPCCidrBlock pAssociationId_ =
+  DisassociateVPCCidrBlock' {associationId = pAssociationId_}
 
 -- | The association ID for the CIDR block.
-dvcbAssociationId :: Lens' DisassociateVPCCidrBlock Text
-dvcbAssociationId = lens _dvcbAssociationId (\s a -> s {_dvcbAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcbAssociationId :: Lens.Lens' DisassociateVPCCidrBlock Lude.Text
+dvcbAssociationId = Lens.lens (associationId :: DisassociateVPCCidrBlock -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateVPCCidrBlock)
+{-# DEPRECATED dvcbAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
-instance AWSRequest DisassociateVPCCidrBlock where
+instance Lude.AWSRequest DisassociateVPCCidrBlock where
   type Rs DisassociateVPCCidrBlock = DisassociateVPCCidrBlockResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DisassociateVPCCidrBlockResponse'
-            <$> (x .@? "vpcId")
-            <*> (x .@? "cidrBlockAssociation")
-            <*> (x .@? "ipv6CidrBlockAssociation")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpcId")
+            Lude.<*> (x Lude..@? "cidrBlockAssociation")
+            Lude.<*> (x Lude..@? "ipv6CidrBlockAssociation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateVPCCidrBlock
+instance Lude.ToHeaders DisassociateVPCCidrBlock where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisassociateVPCCidrBlock
+instance Lude.ToPath DisassociateVPCCidrBlock where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisassociateVPCCidrBlock where
-  toHeaders = const mempty
-
-instance ToPath DisassociateVPCCidrBlock where
-  toPath = const "/"
-
-instance ToQuery DisassociateVPCCidrBlock where
+instance Lude.ToQuery DisassociateVPCCidrBlock where
   toQuery DisassociateVPCCidrBlock' {..} =
-    mconcat
-      [ "Action" =: ("DisassociateVpcCidrBlock" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "AssociationId" =: _dvcbAssociationId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DisassociateVpcCidrBlock" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "AssociationId" Lude.=: associationId
       ]
 
--- | /See:/ 'disassociateVPCCidrBlockResponse' smart constructor.
+-- | /See:/ 'mkDisassociateVPCCidrBlockResponse' smart constructor.
 data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
-  { _dvcbrsVPCId ::
-      !(Maybe Text),
-    _dvcbrsCidrBlockAssociation ::
-      !( Maybe
-           VPCCidrBlockAssociation
-       ),
-    _dvcbrsIPv6CidrBlockAssociation ::
-      !( Maybe
-           VPCIPv6CidrBlockAssociation
-       ),
-    _dvcbrsResponseStatus ::
-      !Int
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    cidrBlockAssociation ::
+      Lude.Maybe
+        VPCCidrBlockAssociation,
+    ipv6CidrBlockAssociation ::
+      Lude.Maybe
+        VPCIPv6CidrBlockAssociation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcbrsVPCId' - The ID of the VPC.
---
--- * 'dvcbrsCidrBlockAssociation' - Information about the IPv4 CIDR block association.
---
--- * 'dvcbrsIPv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
---
--- * 'dvcbrsResponseStatus' - -- | The response status code.
-disassociateVPCCidrBlockResponse ::
-  -- | 'dvcbrsResponseStatus'
-  Int ->
+-- * 'cidrBlockAssociation' - Information about the IPv4 CIDR block association.
+-- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcId' - The ID of the VPC.
+mkDisassociateVPCCidrBlockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateVPCCidrBlockResponse
-disassociateVPCCidrBlockResponse pResponseStatus_ =
+mkDisassociateVPCCidrBlockResponse pResponseStatus_ =
   DisassociateVPCCidrBlockResponse'
-    { _dvcbrsVPCId = Nothing,
-      _dvcbrsCidrBlockAssociation = Nothing,
-      _dvcbrsIPv6CidrBlockAssociation = Nothing,
-      _dvcbrsResponseStatus = pResponseStatus_
+    { vpcId = Lude.Nothing,
+      cidrBlockAssociation = Lude.Nothing,
+      ipv6CidrBlockAssociation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the VPC.
-dvcbrsVPCId :: Lens' DisassociateVPCCidrBlockResponse (Maybe Text)
-dvcbrsVPCId = lens _dvcbrsVPCId (\s a -> s {_dvcbrsVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcbrsVPCId :: Lens.Lens' DisassociateVPCCidrBlockResponse (Lude.Maybe Lude.Text)
+dvcbrsVPCId = Lens.lens (vpcId :: DisassociateVPCCidrBlockResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DisassociateVPCCidrBlockResponse)
+{-# DEPRECATED dvcbrsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Information about the IPv4 CIDR block association.
-dvcbrsCidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
-dvcbrsCidrBlockAssociation = lens _dvcbrsCidrBlockAssociation (\s a -> s {_dvcbrsCidrBlockAssociation = a})
+--
+-- /Note:/ Consider using 'cidrBlockAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcbrsCidrBlockAssociation :: Lens.Lens' DisassociateVPCCidrBlockResponse (Lude.Maybe VPCCidrBlockAssociation)
+dvcbrsCidrBlockAssociation = Lens.lens (cidrBlockAssociation :: DisassociateVPCCidrBlockResponse -> Lude.Maybe VPCCidrBlockAssociation) (\s a -> s {cidrBlockAssociation = a} :: DisassociateVPCCidrBlockResponse)
+{-# DEPRECATED dvcbrsCidrBlockAssociation "Use generic-lens or generic-optics with 'cidrBlockAssociation' instead." #-}
 
 -- | Information about the IPv6 CIDR block association.
-dvcbrsIPv6CidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)
-dvcbrsIPv6CidrBlockAssociation = lens _dvcbrsIPv6CidrBlockAssociation (\s a -> s {_dvcbrsIPv6CidrBlockAssociation = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlockAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcbrsIPv6CidrBlockAssociation :: Lens.Lens' DisassociateVPCCidrBlockResponse (Lude.Maybe VPCIPv6CidrBlockAssociation)
+dvcbrsIPv6CidrBlockAssociation = Lens.lens (ipv6CidrBlockAssociation :: DisassociateVPCCidrBlockResponse -> Lude.Maybe VPCIPv6CidrBlockAssociation) (\s a -> s {ipv6CidrBlockAssociation = a} :: DisassociateVPCCidrBlockResponse)
+{-# DEPRECATED dvcbrsIPv6CidrBlockAssociation "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociation' instead." #-}
 
--- | -- | The response status code.
-dvcbrsResponseStatus :: Lens' DisassociateVPCCidrBlockResponse Int
-dvcbrsResponseStatus = lens _dvcbrsResponseStatus (\s a -> s {_dvcbrsResponseStatus = a})
-
-instance NFData DisassociateVPCCidrBlockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcbrsResponseStatus :: Lens.Lens' DisassociateVPCCidrBlockResponse Lude.Int
+dvcbrsResponseStatus = Lens.lens (responseStatus :: DisassociateVPCCidrBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateVPCCidrBlockResponse)
+{-# DEPRECATED dvcbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists all attributes that are associated with an object.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListObjectAttributes
-  ( -- * Creating a Request
-    listObjectAttributes,
-    ListObjectAttributes,
+  ( -- * Creating a request
+    ListObjectAttributes (..),
+    mkListObjectAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     loaFacetFilter,
     loaConsistencyLevel,
     loaNextToken,
@@ -35,11 +28,11 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
     loaDirectoryARN,
     loaObjectReference,
 
-    -- * Destructuring the Response
-    listObjectAttributesResponse,
-    ListObjectAttributesResponse,
+    -- * Destructuring the response
+    ListObjectAttributesResponse (..),
+    mkListObjectAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loarsNextToken,
     loarsAttributes,
     loarsResponseStatus,
@@ -47,165 +40,193 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listObjectAttributes' smart constructor.
+-- | /See:/ 'mkListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-  { _loaFacetFilter ::
-      !(Maybe SchemaFacet),
-    _loaConsistencyLevel :: !(Maybe ConsistencyLevel),
-    _loaNextToken :: !(Maybe Text),
-    _loaMaxResults :: !(Maybe Nat),
-    _loaDirectoryARN :: !Text,
-    _loaObjectReference :: !ObjectReference
+  { facetFilter ::
+      Lude.Maybe SchemaFacet,
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loaFacetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
---
--- * 'loaConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- * 'loaNextToken' - The pagination token.
---
--- * 'loaMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- * 'loaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
---
--- * 'loaObjectReference' - The reference that identifies the object whose attributes will be listed.
-listObjectAttributes ::
-  -- | 'loaDirectoryARN'
-  Text ->
-  -- | 'loaObjectReference'
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'facetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - The reference that identifies the object whose attributes will be listed.
+mkListObjectAttributes ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'objectReference'
   ObjectReference ->
   ListObjectAttributes
-listObjectAttributes pDirectoryARN_ pObjectReference_ =
+mkListObjectAttributes pDirectoryARN_ pObjectReference_ =
   ListObjectAttributes'
-    { _loaFacetFilter = Nothing,
-      _loaConsistencyLevel = Nothing,
-      _loaNextToken = Nothing,
-      _loaMaxResults = Nothing,
-      _loaDirectoryARN = pDirectoryARN_,
-      _loaObjectReference = pObjectReference_
+    { facetFilter = Lude.Nothing,
+      consistencyLevel = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      objectReference = pObjectReference_
     }
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
-loaFacetFilter :: Lens' ListObjectAttributes (Maybe SchemaFacet)
-loaFacetFilter = lens _loaFacetFilter (\s a -> s {_loaFacetFilter = a})
+--
+-- /Note:/ Consider using 'facetFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaFacetFilter :: Lens.Lens' ListObjectAttributes (Lude.Maybe SchemaFacet)
+loaFacetFilter = Lens.lens (facetFilter :: ListObjectAttributes -> Lude.Maybe SchemaFacet) (\s a -> s {facetFilter = a} :: ListObjectAttributes)
+{-# DEPRECATED loaFacetFilter "Use generic-lens or generic-optics with 'facetFilter' instead." #-}
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-loaConsistencyLevel :: Lens' ListObjectAttributes (Maybe ConsistencyLevel)
-loaConsistencyLevel = lens _loaConsistencyLevel (\s a -> s {_loaConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaConsistencyLevel :: Lens.Lens' ListObjectAttributes (Lude.Maybe ConsistencyLevel)
+loaConsistencyLevel = Lens.lens (consistencyLevel :: ListObjectAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListObjectAttributes)
+{-# DEPRECATED loaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The pagination token.
-loaNextToken :: Lens' ListObjectAttributes (Maybe Text)
-loaNextToken = lens _loaNextToken (\s a -> s {_loaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaNextToken :: Lens.Lens' ListObjectAttributes (Lude.Maybe Lude.Text)
+loaNextToken = Lens.lens (nextToken :: ListObjectAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectAttributes)
+{-# DEPRECATED loaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-loaMaxResults :: Lens' ListObjectAttributes (Maybe Natural)
-loaMaxResults = lens _loaMaxResults (\s a -> s {_loaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaMaxResults :: Lens.Lens' ListObjectAttributes (Lude.Maybe Lude.Natural)
+loaMaxResults = Lens.lens (maxResults :: ListObjectAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectAttributes)
+{-# DEPRECATED loaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-loaDirectoryARN :: Lens' ListObjectAttributes Text
-loaDirectoryARN = lens _loaDirectoryARN (\s a -> s {_loaDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaDirectoryARN :: Lens.Lens' ListObjectAttributes Lude.Text
+loaDirectoryARN = Lens.lens (directoryARN :: ListObjectAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectAttributes)
+{-# DEPRECATED loaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The reference that identifies the object whose attributes will be listed.
-loaObjectReference :: Lens' ListObjectAttributes ObjectReference
-loaObjectReference = lens _loaObjectReference (\s a -> s {_loaObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaObjectReference :: Lens.Lens' ListObjectAttributes ObjectReference
+loaObjectReference = Lens.lens (objectReference :: ListObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectAttributes)
+{-# DEPRECATED loaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance AWSPager ListObjectAttributes where
+instance Page.AWSPager ListObjectAttributes where
   page rq rs
-    | stop (rs ^. loarsNextToken) = Nothing
-    | stop (rs ^. loarsAttributes) = Nothing
-    | otherwise = Just $ rq & loaNextToken .~ rs ^. loarsNextToken
+    | Page.stop (rs Lens.^. loarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. loarsAttributes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& loaNextToken Lens..~ rs Lens.^. loarsNextToken
 
-instance AWSRequest ListObjectAttributes where
+instance Lude.AWSRequest ListObjectAttributes where
   type Rs ListObjectAttributes = ListObjectAttributesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListObjectAttributesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Attributes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListObjectAttributes
-
-instance NFData ListObjectAttributes
-
-instance ToHeaders ListObjectAttributes where
+instance Lude.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
-    mconcat
-      [ "x-amz-consistency-level" =# _loaConsistencyLevel,
-        "x-amz-data-partition" =# _loaDirectoryARN
+    Lude.mconcat
+      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
+        "x-amz-data-partition" Lude.=# directoryARN
       ]
 
-instance ToJSON ListObjectAttributes where
+instance Lude.ToJSON ListObjectAttributes where
   toJSON ListObjectAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("FacetFilter" .=) <$> _loaFacetFilter,
-            ("NextToken" .=) <$> _loaNextToken,
-            ("MaxResults" .=) <$> _loaMaxResults,
-            Just ("ObjectReference" .= _loaObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FacetFilter" Lude..=) Lude.<$> facetFilter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
-instance ToPath ListObjectAttributes where
-  toPath = const "/amazonclouddirectory/2017-01-11/object/attributes"
+instance Lude.ToPath ListObjectAttributes where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/object/attributes"
 
-instance ToQuery ListObjectAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery ListObjectAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listObjectAttributesResponse' smart constructor.
+-- | /See:/ 'mkListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-  { _loarsNextToken ::
-      !(Maybe Text),
-    _loarsAttributes ::
-      !(Maybe [AttributeKeyAndValue]),
-    _loarsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe [AttributeKeyAndValue],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loarsNextToken' - The pagination token.
---
--- * 'loarsAttributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
---
--- * 'loarsResponseStatus' - -- | The response status code.
-listObjectAttributesResponse ::
-  -- | 'loarsResponseStatus'
-  Int ->
+-- * 'attributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkListObjectAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListObjectAttributesResponse
-listObjectAttributesResponse pResponseStatus_ =
+mkListObjectAttributesResponse pResponseStatus_ =
   ListObjectAttributesResponse'
-    { _loarsNextToken = Nothing,
-      _loarsAttributes = Nothing,
-      _loarsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token.
-loarsNextToken :: Lens' ListObjectAttributesResponse (Maybe Text)
-loarsNextToken = lens _loarsNextToken (\s a -> s {_loarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loarsNextToken :: Lens.Lens' ListObjectAttributesResponse (Lude.Maybe Lude.Text)
+loarsNextToken = Lens.lens (nextToken :: ListObjectAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectAttributesResponse)
+{-# DEPRECATED loarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
-loarsAttributes :: Lens' ListObjectAttributesResponse [AttributeKeyAndValue]
-loarsAttributes = lens _loarsAttributes (\s a -> s {_loarsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loarsAttributes :: Lens.Lens' ListObjectAttributesResponse (Lude.Maybe [AttributeKeyAndValue])
+loarsAttributes = Lens.lens (attributes :: ListObjectAttributesResponse -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {attributes = a} :: ListObjectAttributesResponse)
+{-# DEPRECATED loarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-loarsResponseStatus :: Lens' ListObjectAttributesResponse Int
-loarsResponseStatus = lens _loarsResponseStatus (\s a -> s {_loarsResponseStatus = a})
-
-instance NFData ListObjectAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loarsResponseStatus :: Lens.Lens' ListObjectAttributesResponse Lude.Int
+loarsResponseStatus = Lens.lens (responseStatus :: ListObjectAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectAttributesResponse)
+{-# DEPRECATED loarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

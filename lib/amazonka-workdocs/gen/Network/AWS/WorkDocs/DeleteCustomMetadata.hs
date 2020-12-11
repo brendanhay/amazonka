@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,159 @@
 --
 -- Deletes custom metadata from the specified resource.
 module Network.AWS.WorkDocs.DeleteCustomMetadata
-  ( -- * Creating a Request
-    deleteCustomMetadata,
-    DeleteCustomMetadata,
+  ( -- * Creating a request
+    DeleteCustomMetadata (..),
+    mkDeleteCustomMetadata,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcmVersionId,
     dcmDeleteAll,
     dcmAuthenticationToken,
     dcmKeys,
     dcmResourceId,
 
-    -- * Destructuring the Response
-    deleteCustomMetadataResponse,
-    DeleteCustomMetadataResponse,
+    -- * Destructuring the response
+    DeleteCustomMetadataResponse (..),
+    mkDeleteCustomMetadataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'deleteCustomMetadata' smart constructor.
+-- | /See:/ 'mkDeleteCustomMetadata' smart constructor.
 data DeleteCustomMetadata = DeleteCustomMetadata'
-  { _dcmVersionId ::
-      !(Maybe Text),
-    _dcmDeleteAll :: !(Maybe Bool),
-    _dcmAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _dcmKeys :: !(Maybe [Text]),
-    _dcmResourceId :: !Text
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    deleteAll :: Lude.Maybe Lude.Bool,
+    authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    keys :: Lude.Maybe [Lude.Text],
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcmVersionId' - The ID of the version, if the custom metadata is being deleted from a document version.
---
--- * 'dcmDeleteAll' - Flag to indicate removal of all custom metadata properties from the specified resource.
---
--- * 'dcmAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'dcmKeys' - List of properties to remove.
---
--- * 'dcmResourceId' - The ID of the resource, either a document or folder.
-deleteCustomMetadata ::
-  -- | 'dcmResourceId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'deleteAll' - Flag to indicate removal of all custom metadata properties from the specified resource.
+-- * 'keys' - List of properties to remove.
+-- * 'resourceId' - The ID of the resource, either a document or folder.
+-- * 'versionId' - The ID of the version, if the custom metadata is being deleted from a document version.
+mkDeleteCustomMetadata ::
+  -- | 'resourceId'
+  Lude.Text ->
   DeleteCustomMetadata
-deleteCustomMetadata pResourceId_ =
+mkDeleteCustomMetadata pResourceId_ =
   DeleteCustomMetadata'
-    { _dcmVersionId = Nothing,
-      _dcmDeleteAll = Nothing,
-      _dcmAuthenticationToken = Nothing,
-      _dcmKeys = Nothing,
-      _dcmResourceId = pResourceId_
+    { versionId = Lude.Nothing,
+      deleteAll = Lude.Nothing,
+      authenticationToken = Lude.Nothing,
+      keys = Lude.Nothing,
+      resourceId = pResourceId_
     }
 
 -- | The ID of the version, if the custom metadata is being deleted from a document version.
-dcmVersionId :: Lens' DeleteCustomMetadata (Maybe Text)
-dcmVersionId = lens _dcmVersionId (\s a -> s {_dcmVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmVersionId :: Lens.Lens' DeleteCustomMetadata (Lude.Maybe Lude.Text)
+dcmVersionId = Lens.lens (versionId :: DeleteCustomMetadata -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: DeleteCustomMetadata)
+{-# DEPRECATED dcmVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Flag to indicate removal of all custom metadata properties from the specified resource.
-dcmDeleteAll :: Lens' DeleteCustomMetadata (Maybe Bool)
-dcmDeleteAll = lens _dcmDeleteAll (\s a -> s {_dcmDeleteAll = a})
+--
+-- /Note:/ Consider using 'deleteAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmDeleteAll :: Lens.Lens' DeleteCustomMetadata (Lude.Maybe Lude.Bool)
+dcmDeleteAll = Lens.lens (deleteAll :: DeleteCustomMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAll = a} :: DeleteCustomMetadata)
+{-# DEPRECATED dcmDeleteAll "Use generic-lens or generic-optics with 'deleteAll' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-dcmAuthenticationToken :: Lens' DeleteCustomMetadata (Maybe Text)
-dcmAuthenticationToken = lens _dcmAuthenticationToken (\s a -> s {_dcmAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmAuthenticationToken :: Lens.Lens' DeleteCustomMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
+dcmAuthenticationToken = Lens.lens (authenticationToken :: DeleteCustomMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteCustomMetadata)
+{-# DEPRECATED dcmAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | List of properties to remove.
-dcmKeys :: Lens' DeleteCustomMetadata [Text]
-dcmKeys = lens _dcmKeys (\s a -> s {_dcmKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmKeys :: Lens.Lens' DeleteCustomMetadata (Lude.Maybe [Lude.Text])
+dcmKeys = Lens.lens (keys :: DeleteCustomMetadata -> Lude.Maybe [Lude.Text]) (\s a -> s {keys = a} :: DeleteCustomMetadata)
+{-# DEPRECATED dcmKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | The ID of the resource, either a document or folder.
-dcmResourceId :: Lens' DeleteCustomMetadata Text
-dcmResourceId = lens _dcmResourceId (\s a -> s {_dcmResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmResourceId :: Lens.Lens' DeleteCustomMetadata Lude.Text
+dcmResourceId = Lens.lens (resourceId :: DeleteCustomMetadata -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteCustomMetadata)
+{-# DEPRECATED dcmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest DeleteCustomMetadata where
+instance Lude.AWSRequest DeleteCustomMetadata where
   type Rs DeleteCustomMetadata = DeleteCustomMetadataResponse
-  request = delete workDocs
+  request = Req.delete workDocsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteCustomMetadataResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteCustomMetadataResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteCustomMetadata
-
-instance NFData DeleteCustomMetadata
-
-instance ToHeaders DeleteCustomMetadata where
+instance Lude.ToHeaders DeleteCustomMetadata where
   toHeaders DeleteCustomMetadata' {..} =
-    mconcat
-      [ "Authentication" =# _dcmAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath DeleteCustomMetadata where
+instance Lude.ToPath DeleteCustomMetadata where
   toPath DeleteCustomMetadata' {..} =
-    mconcat
-      ["/api/v1/resources/", toBS _dcmResourceId, "/customMetadata"]
+    Lude.mconcat
+      ["/api/v1/resources/", Lude.toBS resourceId, "/customMetadata"]
 
-instance ToQuery DeleteCustomMetadata where
+instance Lude.ToQuery DeleteCustomMetadata where
   toQuery DeleteCustomMetadata' {..} =
-    mconcat
-      [ "versionId" =: _dcmVersionId,
-        "deleteAll" =: _dcmDeleteAll,
-        "keys" =: toQuery (toQueryList "member" <$> _dcmKeys)
+    Lude.mconcat
+      [ "versionId" Lude.=: versionId,
+        "deleteAll" Lude.=: deleteAll,
+        "keys"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> keys)
       ]
 
--- | /See:/ 'deleteCustomMetadataResponse' smart constructor.
+-- | /See:/ 'mkDeleteCustomMetadataResponse' smart constructor.
 newtype DeleteCustomMetadataResponse = DeleteCustomMetadataResponse'
-  { _dcmrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomMetadataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcmrsResponseStatus' - -- | The response status code.
-deleteCustomMetadataResponse ::
-  -- | 'dcmrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteCustomMetadataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCustomMetadataResponse
-deleteCustomMetadataResponse pResponseStatus_ =
-  DeleteCustomMetadataResponse'
-    { _dcmrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteCustomMetadataResponse pResponseStatus_ =
+  DeleteCustomMetadataResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dcmrsResponseStatus :: Lens' DeleteCustomMetadataResponse Int
-dcmrsResponseStatus = lens _dcmrsResponseStatus (\s a -> s {_dcmrsResponseStatus = a})
-
-instance NFData DeleteCustomMetadataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmrsResponseStatus :: Lens.Lens' DeleteCustomMetadataResponse Lude.Int
+dcmrsResponseStatus = Lens.lens (responseStatus :: DeleteCustomMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCustomMetadataResponse)
+{-# DEPRECATED dcmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

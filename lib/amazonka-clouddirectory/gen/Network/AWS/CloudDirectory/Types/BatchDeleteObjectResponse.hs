@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,30 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse where
+module Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
+  ( BatchDeleteObjectResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchDeleteObjectResponse,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'DeleteObject' response operation.
 --
---
---
--- /See:/ 'batchDeleteObjectResponse' smart constructor.
+-- /See:/ 'mkBatchDeleteObjectResponse' smart constructor.
 data BatchDeleteObjectResponse = BatchDeleteObjectResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteObjectResponse' with the minimum fields required to make a request.
-batchDeleteObjectResponse ::
+mkBatchDeleteObjectResponse ::
   BatchDeleteObjectResponse
-batchDeleteObjectResponse = BatchDeleteObjectResponse'
+mkBatchDeleteObjectResponse = BatchDeleteObjectResponse'
 
-instance FromJSON BatchDeleteObjectResponse where
+instance Lude.FromJSON BatchDeleteObjectResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDeleteObjectResponse"
-      (\x -> pure BatchDeleteObjectResponse')
-
-instance Hashable BatchDeleteObjectResponse
-
-instance NFData BatchDeleteObjectResponse
+      (\x -> Lude.pure BatchDeleteObjectResponse')

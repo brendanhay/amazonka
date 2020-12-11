@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describes a version of a SageMaker image.
 module Network.AWS.SageMaker.DescribeImageVersion
-  ( -- * Creating a Request
-    describeImageVersion,
-    DescribeImageVersion,
+  ( -- * Creating a request
+    DescribeImageVersion (..),
+    mkDescribeImageVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dVersion,
     dImageName,
 
-    -- * Destructuring the Response
-    describeImageVersionResponse,
-    DescribeImageVersionResponse,
+    -- * Destructuring the response
+    DescribeImageVersionResponse (..),
+    mkDescribeImageVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     divirsCreationTime,
     divirsFailureReason,
     divirsContainerImage,
@@ -45,191 +40,225 @@ module Network.AWS.SageMaker.DescribeImageVersion
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeImageVersion' smart constructor.
+-- | /See:/ 'mkDescribeImageVersion' smart constructor.
 data DescribeImageVersion = DescribeImageVersion'
-  { _dVersion ::
-      !(Maybe Nat),
-    _dImageName :: !Text
+  { version ::
+      Lude.Maybe Lude.Natural,
+    imageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dVersion' - The version of the image. If not specified, the latest version is described.
---
--- * 'dImageName' - The name of the image.
-describeImageVersion ::
-  -- | 'dImageName'
-  Text ->
+-- * 'imageName' - The name of the image.
+-- * 'version' - The version of the image. If not specified, the latest version is described.
+mkDescribeImageVersion ::
+  -- | 'imageName'
+  Lude.Text ->
   DescribeImageVersion
-describeImageVersion pImageName_ =
+mkDescribeImageVersion pImageName_ =
   DescribeImageVersion'
-    { _dVersion = Nothing,
-      _dImageName = pImageName_
+    { version = Lude.Nothing,
+      imageName = pImageName_
     }
 
 -- | The version of the image. If not specified, the latest version is described.
-dVersion :: Lens' DescribeImageVersion (Maybe Natural)
-dVersion = lens _dVersion (\s a -> s {_dVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVersion :: Lens.Lens' DescribeImageVersion (Lude.Maybe Lude.Natural)
+dVersion = Lens.lens (version :: DescribeImageVersion -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: DescribeImageVersion)
+{-# DEPRECATED dVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the image.
-dImageName :: Lens' DescribeImageVersion Text
-dImageName = lens _dImageName (\s a -> s {_dImageName = a})
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dImageName :: Lens.Lens' DescribeImageVersion Lude.Text
+dImageName = Lens.lens (imageName :: DescribeImageVersion -> Lude.Text) (\s a -> s {imageName = a} :: DescribeImageVersion)
+{-# DEPRECATED dImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
-instance AWSRequest DescribeImageVersion where
+instance Lude.AWSRequest DescribeImageVersion where
   type Rs DescribeImageVersion = DescribeImageVersionResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeImageVersionResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "ContainerImage")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "ImageVersionStatus")
-            <*> (x .?> "Version")
-            <*> (x .?> "BaseImage")
-            <*> (x .?> "ImageArn")
-            <*> (x .?> "ImageVersionArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "ContainerImage")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "ImageVersionStatus")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "BaseImage")
+            Lude.<*> (x Lude..?> "ImageArn")
+            Lude.<*> (x Lude..?> "ImageVersionArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImageVersion
-
-instance NFData DescribeImageVersion
-
-instance ToHeaders DescribeImageVersion where
+instance Lude.ToHeaders DescribeImageVersion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeImageVersion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeImageVersion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeImageVersion where
+instance Lude.ToJSON DescribeImageVersion where
   toJSON DescribeImageVersion' {..} =
-    object
-      ( catMaybes
-          [("Version" .=) <$> _dVersion, Just ("ImageName" .= _dImageName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Version" Lude..=) Lude.<$> version,
+            Lude.Just ("ImageName" Lude..= imageName)
+          ]
       )
 
-instance ToPath DescribeImageVersion where
-  toPath = const "/"
+instance Lude.ToPath DescribeImageVersion where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeImageVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeImageVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeImageVersionResponse' smart constructor.
+-- | /See:/ 'mkDescribeImageVersionResponse' smart constructor.
 data DescribeImageVersionResponse = DescribeImageVersionResponse'
-  { _divirsCreationTime ::
-      !(Maybe POSIX),
-    _divirsFailureReason ::
-      !(Maybe Text),
-    _divirsContainerImage ::
-      !(Maybe Text),
-    _divirsLastModifiedTime ::
-      !(Maybe POSIX),
-    _divirsImageVersionStatus ::
-      !(Maybe ImageVersionStatus),
-    _divirsVersion :: !(Maybe Nat),
-    _divirsBaseImage :: !(Maybe Text),
-    _divirsImageARN :: !(Maybe Text),
-    _divirsImageVersionARN ::
-      !(Maybe Text),
-    _divirsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    failureReason ::
+      Lude.Maybe Lude.Text,
+    containerImage ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    imageVersionStatus ::
+      Lude.Maybe ImageVersionStatus,
+    version ::
+      Lude.Maybe Lude.Natural,
+    baseImage :: Lude.Maybe Lude.Text,
+    imageARN :: Lude.Maybe Lude.Text,
+    imageVersionARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'divirsCreationTime' - When the version was created.
---
--- * 'divirsFailureReason' - When a create or delete operation fails, the reason for the failure.
---
--- * 'divirsContainerImage' - The registry path of the container image that contains this image version.
---
--- * 'divirsLastModifiedTime' - When the version was last modified.
---
--- * 'divirsImageVersionStatus' - The status of the version.
---
--- * 'divirsVersion' - The version number.
---
--- * 'divirsBaseImage' - The registry path of the container image on which this image version is based.
---
--- * 'divirsImageARN' - The Amazon Resource Name (ARN) of the image the version is based on.
---
--- * 'divirsImageVersionARN' - The ARN of the version.
---
--- * 'divirsResponseStatus' - -- | The response status code.
-describeImageVersionResponse ::
-  -- | 'divirsResponseStatus'
-  Int ->
+-- * 'baseImage' - The registry path of the container image on which this image version is based.
+-- * 'containerImage' - The registry path of the container image that contains this image version.
+-- * 'creationTime' - When the version was created.
+-- * 'failureReason' - When a create or delete operation fails, the reason for the failure.
+-- * 'imageARN' - The Amazon Resource Name (ARN) of the image the version is based on.
+-- * 'imageVersionARN' - The ARN of the version.
+-- * 'imageVersionStatus' - The status of the version.
+-- * 'lastModifiedTime' - When the version was last modified.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The version number.
+mkDescribeImageVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImageVersionResponse
-describeImageVersionResponse pResponseStatus_ =
+mkDescribeImageVersionResponse pResponseStatus_ =
   DescribeImageVersionResponse'
-    { _divirsCreationTime = Nothing,
-      _divirsFailureReason = Nothing,
-      _divirsContainerImage = Nothing,
-      _divirsLastModifiedTime = Nothing,
-      _divirsImageVersionStatus = Nothing,
-      _divirsVersion = Nothing,
-      _divirsBaseImage = Nothing,
-      _divirsImageARN = Nothing,
-      _divirsImageVersionARN = Nothing,
-      _divirsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      containerImage = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      imageVersionStatus = Lude.Nothing,
+      version = Lude.Nothing,
+      baseImage = Lude.Nothing,
+      imageARN = Lude.Nothing,
+      imageVersionARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | When the version was created.
-divirsCreationTime :: Lens' DescribeImageVersionResponse (Maybe UTCTime)
-divirsCreationTime = lens _divirsCreationTime (\s a -> s {_divirsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsCreationTime :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Timestamp)
+divirsCreationTime = Lens.lens (creationTime :: DescribeImageVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | When a create or delete operation fails, the reason for the failure.
-divirsFailureReason :: Lens' DescribeImageVersionResponse (Maybe Text)
-divirsFailureReason = lens _divirsFailureReason (\s a -> s {_divirsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsFailureReason :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Text)
+divirsFailureReason = Lens.lens (failureReason :: DescribeImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The registry path of the container image that contains this image version.
-divirsContainerImage :: Lens' DescribeImageVersionResponse (Maybe Text)
-divirsContainerImage = lens _divirsContainerImage (\s a -> s {_divirsContainerImage = a})
+--
+-- /Note:/ Consider using 'containerImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsContainerImage :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Text)
+divirsContainerImage = Lens.lens (containerImage :: DescribeImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {containerImage = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsContainerImage "Use generic-lens or generic-optics with 'containerImage' instead." #-}
 
 -- | When the version was last modified.
-divirsLastModifiedTime :: Lens' DescribeImageVersionResponse (Maybe UTCTime)
-divirsLastModifiedTime = lens _divirsLastModifiedTime (\s a -> s {_divirsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsLastModifiedTime :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Timestamp)
+divirsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeImageVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The status of the version.
-divirsImageVersionStatus :: Lens' DescribeImageVersionResponse (Maybe ImageVersionStatus)
-divirsImageVersionStatus = lens _divirsImageVersionStatus (\s a -> s {_divirsImageVersionStatus = a})
+--
+-- /Note:/ Consider using 'imageVersionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsImageVersionStatus :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe ImageVersionStatus)
+divirsImageVersionStatus = Lens.lens (imageVersionStatus :: DescribeImageVersionResponse -> Lude.Maybe ImageVersionStatus) (\s a -> s {imageVersionStatus = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsImageVersionStatus "Use generic-lens or generic-optics with 'imageVersionStatus' instead." #-}
 
 -- | The version number.
-divirsVersion :: Lens' DescribeImageVersionResponse (Maybe Natural)
-divirsVersion = lens _divirsVersion (\s a -> s {_divirsVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsVersion :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Natural)
+divirsVersion = Lens.lens (version :: DescribeImageVersionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The registry path of the container image on which this image version is based.
-divirsBaseImage :: Lens' DescribeImageVersionResponse (Maybe Text)
-divirsBaseImage = lens _divirsBaseImage (\s a -> s {_divirsBaseImage = a})
+--
+-- /Note:/ Consider using 'baseImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsBaseImage :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Text)
+divirsBaseImage = Lens.lens (baseImage :: DescribeImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {baseImage = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsBaseImage "Use generic-lens or generic-optics with 'baseImage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the image the version is based on.
-divirsImageARN :: Lens' DescribeImageVersionResponse (Maybe Text)
-divirsImageARN = lens _divirsImageARN (\s a -> s {_divirsImageARN = a})
+--
+-- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsImageARN :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Text)
+divirsImageARN = Lens.lens (imageARN :: DescribeImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageARN = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
 
 -- | The ARN of the version.
-divirsImageVersionARN :: Lens' DescribeImageVersionResponse (Maybe Text)
-divirsImageVersionARN = lens _divirsImageVersionARN (\s a -> s {_divirsImageVersionARN = a})
+--
+-- /Note:/ Consider using 'imageVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsImageVersionARN :: Lens.Lens' DescribeImageVersionResponse (Lude.Maybe Lude.Text)
+divirsImageVersionARN = Lens.lens (imageVersionARN :: DescribeImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageVersionARN = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsImageVersionARN "Use generic-lens or generic-optics with 'imageVersionARN' instead." #-}
 
--- | -- | The response status code.
-divirsResponseStatus :: Lens' DescribeImageVersionResponse Int
-divirsResponseStatus = lens _divirsResponseStatus (\s a -> s {_divirsResponseStatus = a})
-
-instance NFData DescribeImageVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divirsResponseStatus :: Lens.Lens' DescribeImageVersionResponse Lude.Int
+divirsResponseStatus = Lens.lens (responseStatus :: DescribeImageVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageVersionResponse)
+{-# DEPRECATED divirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

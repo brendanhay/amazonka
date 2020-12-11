@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeAttachmentState where
+module Network.AWS.EC2.Types.VolumeAttachmentState
+  ( VolumeAttachmentState
+      ( VolumeAttachmentState',
+        VAttached,
+        VAttaching,
+        VBusy,
+        VDetached,
+        VDetaching
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeAttachmentState
-  = VAttached
-  | VAttaching
-  | VBusy
-  | VDetached
-  | VDetaching
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeAttachmentState = VolumeAttachmentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeAttachmentState where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure VAttached
-      "attaching" -> pure VAttaching
-      "busy" -> pure VBusy
-      "detached" -> pure VDetached
-      "detaching" -> pure VDetaching
-      e ->
-        fromTextError $
-          "Failure parsing VolumeAttachmentState from value: '" <> e
-            <> "'. Accepted values: attached, attaching, busy, detached, detaching"
+pattern VAttached :: VolumeAttachmentState
+pattern VAttached = VolumeAttachmentState' "attached"
 
-instance ToText VolumeAttachmentState where
-  toText = \case
-    VAttached -> "attached"
-    VAttaching -> "attaching"
-    VBusy -> "busy"
-    VDetached -> "detached"
-    VDetaching -> "detaching"
+pattern VAttaching :: VolumeAttachmentState
+pattern VAttaching = VolumeAttachmentState' "attaching"
 
-instance Hashable VolumeAttachmentState
+pattern VBusy :: VolumeAttachmentState
+pattern VBusy = VolumeAttachmentState' "busy"
 
-instance NFData VolumeAttachmentState
+pattern VDetached :: VolumeAttachmentState
+pattern VDetached = VolumeAttachmentState' "detached"
 
-instance ToByteString VolumeAttachmentState
+pattern VDetaching :: VolumeAttachmentState
+pattern VDetaching = VolumeAttachmentState' "detaching"
 
-instance ToQuery VolumeAttachmentState
-
-instance ToHeader VolumeAttachmentState
-
-instance FromXML VolumeAttachmentState where
-  parseXML = parseXMLText "VolumeAttachmentState"
+{-# COMPLETE
+  VAttached,
+  VAttaching,
+  VBusy,
+  VDetached,
+  VDetaching,
+  VolumeAttachmentState'
+  #-}

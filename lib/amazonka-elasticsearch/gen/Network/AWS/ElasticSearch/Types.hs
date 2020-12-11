@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types
-  ( -- * Service Configuration
-    elasticSearch,
+  ( -- * Service configuration
+    elasticSearchService,
 
     -- * Errors
 
@@ -64,73 +62,73 @@ module Network.AWS.ElasticSearch.Types
     VolumeType (..),
 
     -- * AccessPoliciesStatus
-    AccessPoliciesStatus,
-    accessPoliciesStatus,
+    AccessPoliciesStatus (..),
+    mkAccessPoliciesStatus,
     apsOptions,
     apsStatus,
 
     -- * AdditionalLimit
-    AdditionalLimit,
-    additionalLimit,
+    AdditionalLimit (..),
+    mkAdditionalLimit,
     alLimitName,
     alLimitValues,
 
     -- * AdvancedOptionsStatus
-    AdvancedOptionsStatus,
-    advancedOptionsStatus,
+    AdvancedOptionsStatus (..),
+    mkAdvancedOptionsStatus,
     aosOptions,
     aosStatus,
 
     -- * AdvancedSecurityOptions
-    AdvancedSecurityOptions,
-    advancedSecurityOptions,
+    AdvancedSecurityOptions (..),
+    mkAdvancedSecurityOptions,
     asoEnabled,
     asoInternalUserDatabaseEnabled,
     asoSAMLOptions,
 
     -- * AdvancedSecurityOptionsInput
-    AdvancedSecurityOptionsInput,
-    advancedSecurityOptionsInput,
+    AdvancedSecurityOptionsInput (..),
+    mkAdvancedSecurityOptionsInput,
     asoiEnabled,
     asoiInternalUserDatabaseEnabled,
     asoiMasterUserOptions,
     asoiSAMLOptions,
 
     -- * AdvancedSecurityOptionsStatus
-    AdvancedSecurityOptionsStatus,
-    advancedSecurityOptionsStatus,
+    AdvancedSecurityOptionsStatus (..),
+    mkAdvancedSecurityOptionsStatus,
     asosOptions,
     asosStatus,
 
     -- * CognitoOptions
-    CognitoOptions,
-    cognitoOptions,
+    CognitoOptions (..),
+    mkCognitoOptions,
     coIdentityPoolId,
     coEnabled,
     coUserPoolId,
     coRoleARN,
 
     -- * CognitoOptionsStatus
-    CognitoOptionsStatus,
-    cognitoOptionsStatus,
+    CognitoOptionsStatus (..),
+    mkCognitoOptionsStatus,
     cosOptions,
     cosStatus,
 
     -- * CompatibleVersionsMap
-    CompatibleVersionsMap,
-    compatibleVersionsMap,
+    CompatibleVersionsMap (..),
+    mkCompatibleVersionsMap,
     cvmSourceVersion,
     cvmTargetVersions,
 
     -- * DescribePackagesFilter
-    DescribePackagesFilter,
-    describePackagesFilter,
+    DescribePackagesFilter (..),
+    mkDescribePackagesFilter,
     dpfValue,
     dpfName,
 
     -- * DomainEndpointOptions
-    DomainEndpointOptions,
-    domainEndpointOptions,
+    DomainEndpointOptions (..),
+    mkDomainEndpointOptions,
     deoEnforceHTTPS,
     deoTLSSecurityPolicy,
     deoCustomEndpointEnabled,
@@ -138,26 +136,26 @@ module Network.AWS.ElasticSearch.Types
     deoCustomEndpointCertificateARN,
 
     -- * DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus,
-    domainEndpointOptionsStatus,
+    DomainEndpointOptionsStatus (..),
+    mkDomainEndpointOptionsStatus,
     deosOptions,
     deosStatus,
 
     -- * DomainInfo
-    DomainInfo,
-    domainInfo,
+    DomainInfo (..),
+    mkDomainInfo,
     dDomainName,
 
     -- * DomainInformation
-    DomainInformation,
-    domainInformation,
+    DomainInformation (..),
+    mkDomainInformation,
     diOwnerId,
     diRegion,
     diDomainName,
 
     -- * DomainPackageDetails
-    DomainPackageDetails,
-    domainPackageDetails,
+    DomainPackageDetails (..),
+    mkDomainPackageDetails,
     dpdLastUpdated,
     dpdPackageId,
     dpdPackageType,
@@ -169,22 +167,22 @@ module Network.AWS.ElasticSearch.Types
     dpdReferencePath,
 
     -- * EBSOptions
-    EBSOptions,
-    ebsOptions,
+    EBSOptions (..),
+    mkEBSOptions,
     eoVolumeSize,
     eoIOPS,
     eoVolumeType,
     eoEBSEnabled,
 
     -- * EBSOptionsStatus
-    EBSOptionsStatus,
-    ebsOptionsStatus,
+    EBSOptionsStatus (..),
+    mkEBSOptionsStatus,
     eosOptions,
     eosStatus,
 
     -- * ElasticsearchClusterConfig
-    ElasticsearchClusterConfig,
-    elasticsearchClusterConfig,
+    ElasticsearchClusterConfig (..),
+    mkElasticsearchClusterConfig,
     eccDedicatedMasterCount,
     eccDedicatedMasterType,
     eccDedicatedMasterEnabled,
@@ -197,14 +195,14 @@ module Network.AWS.ElasticSearch.Types
     eccWarmType,
 
     -- * ElasticsearchClusterConfigStatus
-    ElasticsearchClusterConfigStatus,
-    elasticsearchClusterConfigStatus,
+    ElasticsearchClusterConfigStatus (..),
+    mkElasticsearchClusterConfigStatus,
     eccsOptions,
     eccsStatus,
 
     -- * ElasticsearchDomainConfig
-    ElasticsearchDomainConfig,
-    elasticsearchDomainConfig,
+    ElasticsearchDomainConfig (..),
+    mkElasticsearchDomainConfig,
     edcEBSOptions,
     edcNodeToNodeEncryptionOptions,
     edcAccessPolicies,
@@ -220,8 +218,8 @@ module Network.AWS.ElasticSearch.Types
     edcElasticsearchVersion,
 
     -- * ElasticsearchDomainStatus
-    ElasticsearchDomainStatus,
-    elasticsearchDomainStatus,
+    ElasticsearchDomainStatus (..),
+    mkElasticsearchDomainStatus,
     edsEBSOptions,
     edsNodeToNodeEncryptionOptions,
     edsAccessPolicies,
@@ -247,100 +245,100 @@ module Network.AWS.ElasticSearch.Types
     edsElasticsearchClusterConfig,
 
     -- * ElasticsearchVersionStatus
-    ElasticsearchVersionStatus,
-    elasticsearchVersionStatus,
+    ElasticsearchVersionStatus (..),
+    mkElasticsearchVersionStatus,
     evsOptions,
     evsStatus,
 
     -- * EncryptionAtRestOptions
-    EncryptionAtRestOptions,
-    encryptionAtRestOptions,
+    EncryptionAtRestOptions (..),
+    mkEncryptionAtRestOptions,
     earoEnabled,
     earoKMSKeyId,
 
     -- * EncryptionAtRestOptionsStatus
-    EncryptionAtRestOptionsStatus,
-    encryptionAtRestOptionsStatus,
+    EncryptionAtRestOptionsStatus (..),
+    mkEncryptionAtRestOptionsStatus,
     earosOptions,
     earosStatus,
 
     -- * ErrorDetails
-    ErrorDetails,
-    errorDetails,
+    ErrorDetails (..),
+    mkErrorDetails,
     edErrorType,
     edErrorMessage,
 
     -- * Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fValues,
     fName,
 
     -- * InboundCrossClusterSearchConnection
-    InboundCrossClusterSearchConnection,
-    inboundCrossClusterSearchConnection,
+    InboundCrossClusterSearchConnection (..),
+    mkInboundCrossClusterSearchConnection,
     iccscDestinationDomainInfo,
     iccscCrossClusterSearchConnectionId,
     iccscConnectionStatus,
     iccscSourceDomainInfo,
 
     -- * InboundCrossClusterSearchConnectionStatus
-    InboundCrossClusterSearchConnectionStatus,
-    inboundCrossClusterSearchConnectionStatus,
+    InboundCrossClusterSearchConnectionStatus (..),
+    mkInboundCrossClusterSearchConnectionStatus,
     iccscsMessage,
     iccscsStatusCode,
 
     -- * InstanceCountLimits
-    InstanceCountLimits,
-    instanceCountLimits,
+    InstanceCountLimits (..),
+    mkInstanceCountLimits,
     iclMaximumInstanceCount,
     iclMinimumInstanceCount,
 
     -- * InstanceLimits
-    InstanceLimits,
-    instanceLimits,
+    InstanceLimits (..),
+    mkInstanceLimits,
     ilInstanceCountLimits,
 
     -- * Limits
-    Limits,
-    limits,
+    Limits (..),
+    mkLimits,
     lInstanceLimits,
     lAdditionalLimits,
     lStorageTypes,
 
     -- * LogPublishingOption
-    LogPublishingOption,
-    logPublishingOption,
+    LogPublishingOption (..),
+    mkLogPublishingOption,
     lpoEnabled,
     lpoCloudWatchLogsLogGroupARN,
 
     -- * LogPublishingOptionsStatus
-    LogPublishingOptionsStatus,
-    logPublishingOptionsStatus,
+    LogPublishingOptionsStatus (..),
+    mkLogPublishingOptionsStatus,
     lposStatus,
     lposOptions,
 
     -- * MasterUserOptions
-    MasterUserOptions,
-    masterUserOptions,
+    MasterUserOptions (..),
+    mkMasterUserOptions,
     muoMasterUserPassword,
     muoMasterUserName,
     muoMasterUserARN,
 
     -- * NodeToNodeEncryptionOptions
-    NodeToNodeEncryptionOptions,
-    nodeToNodeEncryptionOptions,
+    NodeToNodeEncryptionOptions (..),
+    mkNodeToNodeEncryptionOptions,
     ntneoEnabled,
 
     -- * NodeToNodeEncryptionOptionsStatus
-    NodeToNodeEncryptionOptionsStatus,
-    nodeToNodeEncryptionOptionsStatus,
+    NodeToNodeEncryptionOptionsStatus (..),
+    mkNodeToNodeEncryptionOptionsStatus,
     ntneosOptions,
     ntneosStatus,
 
     -- * OptionStatus
-    OptionStatus,
-    optionStatus,
+    OptionStatus (..),
+    mkOptionStatus,
     osPendingDeletion,
     osUpdateVersion,
     osCreationDate,
@@ -348,8 +346,8 @@ module Network.AWS.ElasticSearch.Types
     osState,
 
     -- * OutboundCrossClusterSearchConnection
-    OutboundCrossClusterSearchConnection,
-    outboundCrossClusterSearchConnection,
+    OutboundCrossClusterSearchConnection (..),
+    mkOutboundCrossClusterSearchConnection,
     occscDestinationDomainInfo,
     occscConnectionAlias,
     occscCrossClusterSearchConnectionId,
@@ -357,14 +355,14 @@ module Network.AWS.ElasticSearch.Types
     occscSourceDomainInfo,
 
     -- * OutboundCrossClusterSearchConnectionStatus
-    OutboundCrossClusterSearchConnectionStatus,
-    outboundCrossClusterSearchConnectionStatus,
+    OutboundCrossClusterSearchConnectionStatus (..),
+    mkOutboundCrossClusterSearchConnectionStatus,
     occscsMessage,
     occscsStatusCode,
 
     -- * PackageDetails
-    PackageDetails,
-    packageDetails,
+    PackageDetails (..),
+    mkPackageDetails,
     pdPackageId,
     pdPackageType,
     pdLastUpdatedAt,
@@ -376,27 +374,27 @@ module Network.AWS.ElasticSearch.Types
     pdAvailablePackageVersion,
 
     -- * PackageSource
-    PackageSource,
-    packageSource,
+    PackageSource (..),
+    mkPackageSource,
     psS3Key,
     psS3BucketName,
 
     -- * PackageVersionHistory
-    PackageVersionHistory,
-    packageVersionHistory,
+    PackageVersionHistory (..),
+    mkPackageVersionHistory,
     pvhCreatedAt,
     pvhPackageVersion,
     pvhCommitMessage,
 
     -- * RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- * ReservedElasticsearchInstance
-    ReservedElasticsearchInstance,
-    reservedElasticsearchInstance,
+    ReservedElasticsearchInstance (..),
+    mkReservedElasticsearchInstance,
     reiState,
     reiCurrencyCode,
     reiStartTime,
@@ -412,8 +410,8 @@ module Network.AWS.ElasticSearch.Types
     reiPaymentOption,
 
     -- * ReservedElasticsearchInstanceOffering
-    ReservedElasticsearchInstanceOffering,
-    reservedElasticsearchInstanceOffering,
+    ReservedElasticsearchInstanceOffering (..),
+    mkReservedElasticsearchInstanceOffering,
     reioCurrencyCode,
     reioReservedElasticsearchInstanceOfferingId,
     reioElasticsearchInstanceType,
@@ -424,14 +422,14 @@ module Network.AWS.ElasticSearch.Types
     reioPaymentOption,
 
     -- * SAMLIdp
-    SAMLIdp,
-    sAMLIdp,
+    SAMLIdp (..),
+    mkSAMLIdp,
     samliMetadataContent,
     samliEntityId,
 
     -- * SAMLOptionsInput
-    SAMLOptionsInput,
-    sAMLOptionsInput,
+    SAMLOptionsInput (..),
+    mkSAMLOptionsInput,
     samloiMasterUserName,
     samloiEnabled,
     samloiIdp,
@@ -441,8 +439,8 @@ module Network.AWS.ElasticSearch.Types
     samloiSubjectKey,
 
     -- * SAMLOptionsOutput
-    SAMLOptionsOutput,
-    sAMLOptionsOutput,
+    SAMLOptionsOutput (..),
+    mkSAMLOptionsOutput,
     samlooEnabled,
     samlooIdp,
     samlooRolesKey,
@@ -450,8 +448,8 @@ module Network.AWS.ElasticSearch.Types
     samlooSubjectKey,
 
     -- * ServiceSoftwareOptions
-    ServiceSoftwareOptions,
-    serviceSoftwareOptions,
+    ServiceSoftwareOptions (..),
+    mkServiceSoftwareOptions,
     ssoAutomatedUpdateDate,
     ssoCurrentVersion,
     ssoOptionalDeployment,
@@ -462,74 +460,74 @@ module Network.AWS.ElasticSearch.Types
     ssoNewVersion,
 
     -- * SnapshotOptions
-    SnapshotOptions,
-    snapshotOptions,
+    SnapshotOptions (..),
+    mkSnapshotOptions,
     soAutomatedSnapshotStartHour,
 
     -- * SnapshotOptionsStatus
-    SnapshotOptionsStatus,
-    snapshotOptionsStatus,
+    SnapshotOptionsStatus (..),
+    mkSnapshotOptionsStatus,
     sosOptions,
     sosStatus,
 
     -- * StorageType
-    StorageType,
-    storageType,
+    StorageType (..),
+    mkStorageType,
     stStorageTypeLimits,
     stStorageSubTypeName,
     stStorageTypeName,
 
     -- * StorageTypeLimit
-    StorageTypeLimit,
-    storageTypeLimit,
+    StorageTypeLimit (..),
+    mkStorageTypeLimit,
     stlLimitName,
     stlLimitValues,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * UpgradeHistory
-    UpgradeHistory,
-    upgradeHistory,
+    UpgradeHistory (..),
+    mkUpgradeHistory,
     uhUpgradeStatus,
     uhStepsList,
     uhUpgradeName,
     uhStartTimestamp,
 
     -- * UpgradeStepItem
-    UpgradeStepItem,
-    upgradeStepItem,
+    UpgradeStepItem (..),
+    mkUpgradeStepItem,
     usiUpgradeStepStatus,
     usiProgressPercent,
     usiIssues,
     usiUpgradeStep,
 
     -- * VPCDerivedInfo
-    VPCDerivedInfo,
-    vpcDerivedInfo,
+    VPCDerivedInfo (..),
+    mkVPCDerivedInfo,
     vdiSecurityGroupIds,
     vdiSubnetIds,
     vdiVPCId,
     vdiAvailabilityZones,
 
     -- * VPCDerivedInfoStatus
-    VPCDerivedInfoStatus,
-    vpcDerivedInfoStatus,
+    VPCDerivedInfoStatus (..),
+    mkVPCDerivedInfoStatus,
     vdisOptions,
     vdisStatus,
 
     -- * VPCOptions
-    VPCOptions,
-    vpcOptions,
+    VPCOptions (..),
+    mkVPCOptions,
     voSecurityGroupIds,
     voSubnetIds,
 
     -- * ZoneAwarenessConfig
-    ZoneAwarenessConfig,
-    zoneAwarenessConfig,
+    ZoneAwarenessConfig (..),
+    mkZoneAwarenessConfig,
     zacAvailabilityZoneCount,
   )
 where
@@ -610,48 +608,60 @@ import Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
 import Network.AWS.ElasticSearch.Types.VPCOptions
 import Network.AWS.ElasticSearch.Types.VolumeType
 import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-01-01@ of the Amazon Elasticsearch Service SDK configuration.
-elasticSearch :: Service
-elasticSearch =
-  Service
-    { _svcAbbrev = "ElasticSearch",
-      _svcSigner = v4,
-      _svcPrefix = "es",
-      _svcVersion = "2015-01-01",
-      _svcEndpoint = defaultEndpoint elasticSearch,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ElasticSearch",
-      _svcRetry = retry
+elasticSearchService :: Lude.Service
+elasticSearchService =
+  Lude.Service
+    { Lude._svcAbbrev = "ElasticSearch",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "es",
+      Lude._svcVersion = "2015-01-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint elasticSearchService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ElasticSearch",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

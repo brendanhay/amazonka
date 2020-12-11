@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,157 @@
 --
 -- Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications> in the /AWS Database Migration Service User Guide./
 module Network.AWS.DMS.DescribeEventCategories
-  ( -- * Creating a Request
-    describeEventCategories,
-    DescribeEventCategories,
+  ( -- * Creating a request
+    DescribeEventCategories (..),
+    mkDescribeEventCategories,
 
-    -- * Request Lenses
+    -- ** Request lenses
     decSourceType,
     decFilters,
 
-    -- * Destructuring the Response
-    describeEventCategoriesResponse,
-    DescribeEventCategoriesResponse,
+    -- * Destructuring the response
+    DescribeEventCategoriesResponse (..),
+    mkDescribeEventCategoriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     decrsEventCategoryGroupList,
     decrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeEventCategories' smart constructor.
+-- /See:/ 'mkDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { _decSourceType ::
-      !(Maybe Text),
-    _decFilters :: !(Maybe [Filter])
+  { sourceType ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe [Filter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Filters applied to the event categories.
+-- * 'sourceType' - The type of AWS DMS resource that generates events.
 --
--- * 'decSourceType' - The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-task
---
--- * 'decFilters' - Filters applied to the event categories.
-describeEventCategories ::
+-- Valid values: replication-instance | replication-task
+mkDescribeEventCategories ::
   DescribeEventCategories
-describeEventCategories =
+mkDescribeEventCategories =
   DescribeEventCategories'
-    { _decSourceType = Nothing,
-      _decFilters = Nothing
+    { sourceType = Lude.Nothing,
+      filters = Lude.Nothing
     }
 
--- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-task
-decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\s a -> s {_decSourceType = a})
+-- | The type of AWS DMS resource that generates events.
+--
+-- Valid values: replication-instance | replication-task
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decSourceType :: Lens.Lens' DescribeEventCategories (Lude.Maybe Lude.Text)
+decSourceType = Lens.lens (sourceType :: DescribeEventCategories -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: DescribeEventCategories)
+{-# DEPRECATED decSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | Filters applied to the event categories.
-decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\s a -> s {_decFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decFilters :: Lens.Lens' DescribeEventCategories (Lude.Maybe [Filter])
+decFilters = Lens.lens (filters :: DescribeEventCategories -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEventCategories)
+{-# DEPRECATED decFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
-instance AWSRequest DescribeEventCategories where
+instance Lude.AWSRequest DescribeEventCategories where
   type Rs DescribeEventCategories = DescribeEventCategoriesResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            <$> (x .?> "EventCategoryGroupList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventCategoryGroupList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventCategories
-
-instance NFData DescribeEventCategories
-
-instance ToHeaders DescribeEventCategories where
+instance Lude.ToHeaders DescribeEventCategories where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DescribeEventCategories" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DescribeEventCategories" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEventCategories where
+instance Lude.ToJSON DescribeEventCategories where
   toJSON DescribeEventCategories' {..} =
-    object
-      ( catMaybes
-          [ ("SourceType" .=) <$> _decSourceType,
-            ("Filters" .=) <$> _decFilters
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SourceType" Lude..=) Lude.<$> sourceType,
+            ("Filters" Lude..=) Lude.<$> filters
           ]
       )
 
-instance ToPath DescribeEventCategories where
-  toPath = const "/"
+instance Lude.ToPath DescribeEventCategories where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEventCategories where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEventCategories where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeEventCategoriesResponse' smart constructor.
+-- /See:/ 'mkDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { _decrsEventCategoryGroupList ::
-      !( Maybe
-           [EventCategoryGroup]
-       ),
-    _decrsResponseStatus ::
-      !Int
+  { eventCategoryGroupList ::
+      Lude.Maybe
+        [EventCategoryGroup],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decrsEventCategoryGroupList' - A list of event categories.
---
--- * 'decrsResponseStatus' - -- | The response status code.
-describeEventCategoriesResponse ::
-  -- | 'decrsResponseStatus'
-  Int ->
+-- * 'eventCategoryGroupList' - A list of event categories.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventCategoriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventCategoriesResponse
-describeEventCategoriesResponse pResponseStatus_ =
+mkDescribeEventCategoriesResponse pResponseStatus_ =
   DescribeEventCategoriesResponse'
-    { _decrsEventCategoryGroupList =
-        Nothing,
-      _decrsResponseStatus = pResponseStatus_
+    { eventCategoryGroupList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of event categories.
-decrsEventCategoryGroupList :: Lens' DescribeEventCategoriesResponse [EventCategoryGroup]
-decrsEventCategoryGroupList = lens _decrsEventCategoryGroupList (\s a -> s {_decrsEventCategoryGroupList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategoryGroupList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsEventCategoryGroupList :: Lens.Lens' DescribeEventCategoriesResponse (Lude.Maybe [EventCategoryGroup])
+decrsEventCategoryGroupList = Lens.lens (eventCategoryGroupList :: DescribeEventCategoriesResponse -> Lude.Maybe [EventCategoryGroup]) (\s a -> s {eventCategoryGroupList = a} :: DescribeEventCategoriesResponse)
+{-# DEPRECATED decrsEventCategoryGroupList "Use generic-lens or generic-optics with 'eventCategoryGroupList' instead." #-}
 
--- | -- | The response status code.
-decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\s a -> s {_decrsResponseStatus = a})
-
-instance NFData DescribeEventCategoriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrsResponseStatus :: Lens.Lens' DescribeEventCategoriesResponse Lude.Int
+decrsResponseStatus = Lens.lens (responseStatus :: DescribeEventCategoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventCategoriesResponse)
+{-# DEPRECATED decrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

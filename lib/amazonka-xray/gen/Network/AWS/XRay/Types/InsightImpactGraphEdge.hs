@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightImpactGraphEdge where
+module Network.AWS.XRay.Types.InsightImpactGraphEdge
+  ( InsightImpactGraphEdge (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInsightImpactGraphEdge,
+
+    -- * Lenses
+    iigeReferenceId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The connection between two service in an insight impact graph.
 --
---
---
--- /See:/ 'insightImpactGraphEdge' smart constructor.
+-- /See:/ 'mkInsightImpactGraphEdge' smart constructor.
 newtype InsightImpactGraphEdge = InsightImpactGraphEdge'
-  { _iigeReferenceId ::
-      Maybe Int
+  { referenceId ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightImpactGraphEdge' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iigeReferenceId' - Identifier of the edge. Unique within a service map.
-insightImpactGraphEdge ::
+-- * 'referenceId' - Identifier of the edge. Unique within a service map.
+mkInsightImpactGraphEdge ::
   InsightImpactGraphEdge
-insightImpactGraphEdge =
-  InsightImpactGraphEdge' {_iigeReferenceId = Nothing}
+mkInsightImpactGraphEdge =
+  InsightImpactGraphEdge' {referenceId = Lude.Nothing}
 
 -- | Identifier of the edge. Unique within a service map.
-iigeReferenceId :: Lens' InsightImpactGraphEdge (Maybe Int)
-iigeReferenceId = lens _iigeReferenceId (\s a -> s {_iigeReferenceId = a})
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iigeReferenceId :: Lens.Lens' InsightImpactGraphEdge (Lude.Maybe Lude.Int)
+iigeReferenceId = Lens.lens (referenceId :: InsightImpactGraphEdge -> Lude.Maybe Lude.Int) (\s a -> s {referenceId = a} :: InsightImpactGraphEdge)
+{-# DEPRECATED iigeReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
-instance FromJSON InsightImpactGraphEdge where
+instance Lude.FromJSON InsightImpactGraphEdge where
   parseJSON =
-    withObject
+    Lude.withObject
       "InsightImpactGraphEdge"
-      (\x -> InsightImpactGraphEdge' <$> (x .:? "ReferenceId"))
-
-instance Hashable InsightImpactGraphEdge
-
-instance NFData InsightImpactGraphEdge
+      ( \x ->
+          InsightImpactGraphEdge' Lude.<$> (x Lude..:? "ReferenceId")
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.Deserializer where
+module Network.AWS.Firehose.Types.Deserializer
+  ( Deserializer (..),
+
+    -- * Smart constructor
+    mkDeserializer,
+
+    -- * Lenses
+    dOpenXJSONSerDe,
+    dHiveJSONSerDe,
+  )
+where
 
 import Network.AWS.Firehose.Types.HiveJSONSerDe
 import Network.AWS.Firehose.Types.OpenXJSONSerDe
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the 'Serializer' . Kinesis Data Firehose supports two types of deserializers: the <https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON Apache Hive JSON SerDe> and the <https://github.com/rcongiu/Hive-JSON-Serde OpenX JSON SerDe> .
 --
---
---
--- /See:/ 'deserializer' smart constructor.
+-- /See:/ 'mkDeserializer' smart constructor.
 data Deserializer = Deserializer'
-  { _dOpenXJSONSerDe ::
-      !(Maybe OpenXJSONSerDe),
-    _dHiveJSONSerDe :: !(Maybe HiveJSONSerDe)
+  { openXJSONSerDe ::
+      Lude.Maybe OpenXJSONSerDe,
+    hiveJSONSerDe :: Lude.Maybe HiveJSONSerDe
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deserializer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dOpenXJSONSerDe' - The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
---
--- * 'dHiveJSONSerDe' - The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
-deserializer ::
+-- * 'hiveJSONSerDe' - The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
+-- * 'openXJSONSerDe' - The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+mkDeserializer ::
   Deserializer
-deserializer =
+mkDeserializer =
   Deserializer'
-    { _dOpenXJSONSerDe = Nothing,
-      _dHiveJSONSerDe = Nothing
+    { openXJSONSerDe = Lude.Nothing,
+      hiveJSONSerDe = Lude.Nothing
     }
 
 -- | The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
-dOpenXJSONSerDe :: Lens' Deserializer (Maybe OpenXJSONSerDe)
-dOpenXJSONSerDe = lens _dOpenXJSONSerDe (\s a -> s {_dOpenXJSONSerDe = a})
+--
+-- /Note:/ Consider using 'openXJSONSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dOpenXJSONSerDe :: Lens.Lens' Deserializer (Lude.Maybe OpenXJSONSerDe)
+dOpenXJSONSerDe = Lens.lens (openXJSONSerDe :: Deserializer -> Lude.Maybe OpenXJSONSerDe) (\s a -> s {openXJSONSerDe = a} :: Deserializer)
+{-# DEPRECATED dOpenXJSONSerDe "Use generic-lens or generic-optics with 'openXJSONSerDe' instead." #-}
 
 -- | The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
-dHiveJSONSerDe :: Lens' Deserializer (Maybe HiveJSONSerDe)
-dHiveJSONSerDe = lens _dHiveJSONSerDe (\s a -> s {_dHiveJSONSerDe = a})
+--
+-- /Note:/ Consider using 'hiveJSONSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dHiveJSONSerDe :: Lens.Lens' Deserializer (Lude.Maybe HiveJSONSerDe)
+dHiveJSONSerDe = Lens.lens (hiveJSONSerDe :: Deserializer -> Lude.Maybe HiveJSONSerDe) (\s a -> s {hiveJSONSerDe = a} :: Deserializer)
+{-# DEPRECATED dHiveJSONSerDe "Use generic-lens or generic-optics with 'hiveJSONSerDe' instead." #-}
 
-instance FromJSON Deserializer where
+instance Lude.FromJSON Deserializer where
   parseJSON =
-    withObject
+    Lude.withObject
       "Deserializer"
       ( \x ->
           Deserializer'
-            <$> (x .:? "OpenXJsonSerDe") <*> (x .:? "HiveJsonSerDe")
+            Lude.<$> (x Lude..:? "OpenXJsonSerDe")
+            Lude.<*> (x Lude..:? "HiveJsonSerDe")
       )
 
-instance Hashable Deserializer
-
-instance NFData Deserializer
-
-instance ToJSON Deserializer where
+instance Lude.ToJSON Deserializer where
   toJSON Deserializer' {..} =
-    object
-      ( catMaybes
-          [ ("OpenXJsonSerDe" .=) <$> _dOpenXJSONSerDe,
-            ("HiveJsonSerDe" .=) <$> _dHiveJSONSerDe
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OpenXJsonSerDe" Lude..=) Lude.<$> openXJSONSerDe,
+            ("HiveJsonSerDe" Lude..=) Lude.<$> hiveJSONSerDe
           ]
       )

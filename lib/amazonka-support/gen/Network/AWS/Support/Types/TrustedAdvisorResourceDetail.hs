@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.TrustedAdvisorResourceDetail where
+module Network.AWS.Support.Types.TrustedAdvisorResourceDetail
+  ( TrustedAdvisorResourceDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrustedAdvisorResourceDetail,
+
+    -- * Lenses
+    tardIsSuppressed,
+    tardRegion,
+    tardStatus,
+    tardResourceId,
+    tardMetadata,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a resource identified by a Trusted Advisor check.
 --
---
---
--- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
+-- /See:/ 'mkTrustedAdvisorResourceDetail' smart constructor.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
-  { _tardIsSuppressed ::
-      !(Maybe Bool),
-    _tardRegion :: !(Maybe Text),
-    _tardStatus :: !Text,
-    _tardResourceId :: !Text,
-    _tardMetadata :: ![Text]
+  { isSuppressed ::
+      Lude.Maybe Lude.Bool,
+    region :: Lude.Maybe Lude.Text,
+    status :: Lude.Text,
+    resourceId :: Lude.Text,
+    metadata :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedAdvisorResourceDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tardIsSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
---
--- * 'tardRegion' - The AWS region in which the identified resource is located.
---
--- * 'tardStatus' - The status code for the resource identified in the Trusted Advisor check.
---
--- * 'tardResourceId' - The unique identifier for the identified resource.
---
--- * 'tardMetadata' - Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
-trustedAdvisorResourceDetail ::
-  -- | 'tardStatus'
-  Text ->
-  -- | 'tardResourceId'
-  Text ->
+-- * 'isSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
+-- * 'metadata' - Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
+-- * 'region' - The AWS region in which the identified resource is located.
+-- * 'resourceId' - The unique identifier for the identified resource.
+-- * 'status' - The status code for the resource identified in the Trusted Advisor check.
+mkTrustedAdvisorResourceDetail ::
+  -- | 'status'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   TrustedAdvisorResourceDetail
-trustedAdvisorResourceDetail pStatus_ pResourceId_ =
+mkTrustedAdvisorResourceDetail pStatus_ pResourceId_ =
   TrustedAdvisorResourceDetail'
-    { _tardIsSuppressed = Nothing,
-      _tardRegion = Nothing,
-      _tardStatus = pStatus_,
-      _tardResourceId = pResourceId_,
-      _tardMetadata = mempty
+    { isSuppressed = Lude.Nothing,
+      region = Lude.Nothing,
+      status = pStatus_,
+      resourceId = pResourceId_,
+      metadata = Lude.mempty
     }
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
-tardIsSuppressed :: Lens' TrustedAdvisorResourceDetail (Maybe Bool)
-tardIsSuppressed = lens _tardIsSuppressed (\s a -> s {_tardIsSuppressed = a})
+--
+-- /Note:/ Consider using 'isSuppressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardIsSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Lude.Maybe Lude.Bool)
+tardIsSuppressed = Lens.lens (isSuppressed :: TrustedAdvisorResourceDetail -> Lude.Maybe Lude.Bool) (\s a -> s {isSuppressed = a} :: TrustedAdvisorResourceDetail)
+{-# DEPRECATED tardIsSuppressed "Use generic-lens or generic-optics with 'isSuppressed' instead." #-}
 
 -- | The AWS region in which the identified resource is located.
-tardRegion :: Lens' TrustedAdvisorResourceDetail (Maybe Text)
-tardRegion = lens _tardRegion (\s a -> s {_tardRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardRegion :: Lens.Lens' TrustedAdvisorResourceDetail (Lude.Maybe Lude.Text)
+tardRegion = Lens.lens (region :: TrustedAdvisorResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: TrustedAdvisorResourceDetail)
+{-# DEPRECATED tardRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The status code for the resource identified in the Trusted Advisor check.
-tardStatus :: Lens' TrustedAdvisorResourceDetail Text
-tardStatus = lens _tardStatus (\s a -> s {_tardStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardStatus :: Lens.Lens' TrustedAdvisorResourceDetail Lude.Text
+tardStatus = Lens.lens (status :: TrustedAdvisorResourceDetail -> Lude.Text) (\s a -> s {status = a} :: TrustedAdvisorResourceDetail)
+{-# DEPRECATED tardStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier for the identified resource.
-tardResourceId :: Lens' TrustedAdvisorResourceDetail Text
-tardResourceId = lens _tardResourceId (\s a -> s {_tardResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardResourceId :: Lens.Lens' TrustedAdvisorResourceDetail Lude.Text
+tardResourceId = Lens.lens (resourceId :: TrustedAdvisorResourceDetail -> Lude.Text) (\s a -> s {resourceId = a} :: TrustedAdvisorResourceDetail)
+{-# DEPRECATED tardResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
-tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
-tardMetadata = lens _tardMetadata (\s a -> s {_tardMetadata = a}) . _Coerce
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardMetadata :: Lens.Lens' TrustedAdvisorResourceDetail [Lude.Text]
+tardMetadata = Lens.lens (metadata :: TrustedAdvisorResourceDetail -> [Lude.Text]) (\s a -> s {metadata = a} :: TrustedAdvisorResourceDetail)
+{-# DEPRECATED tardMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
-instance FromJSON TrustedAdvisorResourceDetail where
+instance Lude.FromJSON TrustedAdvisorResourceDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrustedAdvisorResourceDetail"
       ( \x ->
           TrustedAdvisorResourceDetail'
-            <$> (x .:? "isSuppressed")
-            <*> (x .:? "region")
-            <*> (x .: "status")
-            <*> (x .: "resourceId")
-            <*> (x .:? "metadata" .!= mempty)
+            Lude.<$> (x Lude..:? "isSuppressed")
+            Lude.<*> (x Lude..:? "region")
+            Lude.<*> (x Lude..: "status")
+            Lude.<*> (x Lude..: "resourceId")
+            Lude.<*> (x Lude..:? "metadata" Lude..!= Lude.mempty)
       )
-
-instance Hashable TrustedAdvisorResourceDetail
-
-instance NFData TrustedAdvisorResourceDetail

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectoryStage where
+module Network.AWS.DirectoryService.Types.DirectoryStage
+  ( DirectoryStage
+      ( DirectoryStage',
+        DSActive,
+        DSCreated,
+        DSCreating,
+        DSDeleted,
+        DSDeleting,
+        DSFailed,
+        DSImpaired,
+        DSInoperable,
+        DSRequested,
+        DSRestoreFailed,
+        DSRestoring
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectoryStage
-  = DSActive
-  | DSCreated
-  | DSCreating
-  | DSDeleted
-  | DSDeleting
-  | DSFailed
-  | DSImpaired
-  | DSInoperable
-  | DSRequested
-  | DSRestoreFailed
-  | DSRestoring
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectoryStage = DirectoryStage' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectoryStage where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DSActive
-      "created" -> pure DSCreated
-      "creating" -> pure DSCreating
-      "deleted" -> pure DSDeleted
-      "deleting" -> pure DSDeleting
-      "failed" -> pure DSFailed
-      "impaired" -> pure DSImpaired
-      "inoperable" -> pure DSInoperable
-      "requested" -> pure DSRequested
-      "restorefailed" -> pure DSRestoreFailed
-      "restoring" -> pure DSRestoring
-      e ->
-        fromTextError $
-          "Failure parsing DirectoryStage from value: '" <> e
-            <> "'. Accepted values: active, created, creating, deleted, deleting, failed, impaired, inoperable, requested, restorefailed, restoring"
+pattern DSActive :: DirectoryStage
+pattern DSActive = DirectoryStage' "Active"
 
-instance ToText DirectoryStage where
-  toText = \case
-    DSActive -> "Active"
-    DSCreated -> "Created"
-    DSCreating -> "Creating"
-    DSDeleted -> "Deleted"
-    DSDeleting -> "Deleting"
-    DSFailed -> "Failed"
-    DSImpaired -> "Impaired"
-    DSInoperable -> "Inoperable"
-    DSRequested -> "Requested"
-    DSRestoreFailed -> "RestoreFailed"
-    DSRestoring -> "Restoring"
+pattern DSCreated :: DirectoryStage
+pattern DSCreated = DirectoryStage' "Created"
 
-instance Hashable DirectoryStage
+pattern DSCreating :: DirectoryStage
+pattern DSCreating = DirectoryStage' "Creating"
 
-instance NFData DirectoryStage
+pattern DSDeleted :: DirectoryStage
+pattern DSDeleted = DirectoryStage' "Deleted"
 
-instance ToByteString DirectoryStage
+pattern DSDeleting :: DirectoryStage
+pattern DSDeleting = DirectoryStage' "Deleting"
 
-instance ToQuery DirectoryStage
+pattern DSFailed :: DirectoryStage
+pattern DSFailed = DirectoryStage' "Failed"
 
-instance ToHeader DirectoryStage
+pattern DSImpaired :: DirectoryStage
+pattern DSImpaired = DirectoryStage' "Impaired"
 
-instance FromJSON DirectoryStage where
-  parseJSON = parseJSONText "DirectoryStage"
+pattern DSInoperable :: DirectoryStage
+pattern DSInoperable = DirectoryStage' "Inoperable"
+
+pattern DSRequested :: DirectoryStage
+pattern DSRequested = DirectoryStage' "Requested"
+
+pattern DSRestoreFailed :: DirectoryStage
+pattern DSRestoreFailed = DirectoryStage' "RestoreFailed"
+
+pattern DSRestoring :: DirectoryStage
+pattern DSRestoring = DirectoryStage' "Restoring"
+
+{-# COMPLETE
+  DSActive,
+  DSCreated,
+  DSCreating,
+  DSDeleted,
+  DSDeleting,
+  DSFailed,
+  DSImpaired,
+  DSInoperable,
+  DSRequested,
+  DSRestoreFailed,
+  DSRestoring,
+  DirectoryStage'
+  #-}

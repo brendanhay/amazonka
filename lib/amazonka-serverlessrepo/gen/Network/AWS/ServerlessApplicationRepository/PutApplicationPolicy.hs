@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,128 +18,146 @@
 --  Permissions>
 --  .
 module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
-  ( -- * Creating a Request
-    putApplicationPolicy,
-    PutApplicationPolicy,
+  ( -- * Creating a request
+    PutApplicationPolicy (..),
+    mkPutApplicationPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     papApplicationId,
     papStatements,
 
-    -- * Destructuring the Response
-    putApplicationPolicyResponse,
-    PutApplicationPolicyResponse,
+    -- * Destructuring the response
+    PutApplicationPolicyResponse (..),
+    mkPutApplicationPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     paprsStatements,
     paprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'putApplicationPolicy' smart constructor.
+-- | /See:/ 'mkPutApplicationPolicy' smart constructor.
 data PutApplicationPolicy = PutApplicationPolicy'
-  { _papApplicationId ::
-      !Text,
-    _papStatements :: ![ApplicationPolicyStatement]
+  { applicationId ::
+      Lude.Text,
+    statements :: [ApplicationPolicyStatement]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutApplicationPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'papApplicationId' - The Amazon Resource Name (ARN) of the application.
---
--- * 'papStatements' - An array of policy statements applied to the application.
-putApplicationPolicy ::
-  -- | 'papApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'statements' - An array of policy statements applied to the application.
+mkPutApplicationPolicy ::
+  -- | 'applicationId'
+  Lude.Text ->
   PutApplicationPolicy
-putApplicationPolicy pApplicationId_ =
+mkPutApplicationPolicy pApplicationId_ =
   PutApplicationPolicy'
-    { _papApplicationId = pApplicationId_,
-      _papStatements = mempty
+    { applicationId = pApplicationId_,
+      statements = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the application.
-papApplicationId :: Lens' PutApplicationPolicy Text
-papApplicationId = lens _papApplicationId (\s a -> s {_papApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papApplicationId :: Lens.Lens' PutApplicationPolicy Lude.Text
+papApplicationId = Lens.lens (applicationId :: PutApplicationPolicy -> Lude.Text) (\s a -> s {applicationId = a} :: PutApplicationPolicy)
+{-# DEPRECATED papApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | An array of policy statements applied to the application.
-papStatements :: Lens' PutApplicationPolicy [ApplicationPolicyStatement]
-papStatements = lens _papStatements (\s a -> s {_papStatements = a}) . _Coerce
+--
+-- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papStatements :: Lens.Lens' PutApplicationPolicy [ApplicationPolicyStatement]
+papStatements = Lens.lens (statements :: PutApplicationPolicy -> [ApplicationPolicyStatement]) (\s a -> s {statements = a} :: PutApplicationPolicy)
+{-# DEPRECATED papStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
-instance AWSRequest PutApplicationPolicy where
+instance Lude.AWSRequest PutApplicationPolicy where
   type Rs PutApplicationPolicy = PutApplicationPolicyResponse
-  request = putJSON serverlessApplicationRepository
+  request = Req.putJSON serverlessApplicationRepositoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutApplicationPolicyResponse'
-            <$> (x .?> "statements" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "statements" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutApplicationPolicy
-
-instance NFData PutApplicationPolicy
-
-instance ToHeaders PutApplicationPolicy where
+instance Lude.ToHeaders PutApplicationPolicy where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON PutApplicationPolicy where
+instance Lude.ToJSON PutApplicationPolicy where
   toJSON PutApplicationPolicy' {..} =
-    object (catMaybes [Just ("statements" .= _papStatements)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("statements" Lude..= statements)])
 
-instance ToPath PutApplicationPolicy where
+instance Lude.ToPath PutApplicationPolicy where
   toPath PutApplicationPolicy' {..} =
-    mconcat ["/applications/", toBS _papApplicationId, "/policy"]
+    Lude.mconcat
+      ["/applications/", Lude.toBS applicationId, "/policy"]
 
-instance ToQuery PutApplicationPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutApplicationPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putApplicationPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutApplicationPolicyResponse' smart constructor.
 data PutApplicationPolicyResponse = PutApplicationPolicyResponse'
-  { _paprsStatements ::
-      !( Maybe
-           [ApplicationPolicyStatement]
-       ),
-    _paprsResponseStatus :: !Int
+  { statements ::
+      Lude.Maybe
+        [ApplicationPolicyStatement],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutApplicationPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paprsStatements' - An array of policy statements applied to the application.
---
--- * 'paprsResponseStatus' - -- | The response status code.
-putApplicationPolicyResponse ::
-  -- | 'paprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'statements' - An array of policy statements applied to the application.
+mkPutApplicationPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutApplicationPolicyResponse
-putApplicationPolicyResponse pResponseStatus_ =
+mkPutApplicationPolicyResponse pResponseStatus_ =
   PutApplicationPolicyResponse'
-    { _paprsStatements = Nothing,
-      _paprsResponseStatus = pResponseStatus_
+    { statements = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of policy statements applied to the application.
-paprsStatements :: Lens' PutApplicationPolicyResponse [ApplicationPolicyStatement]
-paprsStatements = lens _paprsStatements (\s a -> s {_paprsStatements = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paprsStatements :: Lens.Lens' PutApplicationPolicyResponse (Lude.Maybe [ApplicationPolicyStatement])
+paprsStatements = Lens.lens (statements :: PutApplicationPolicyResponse -> Lude.Maybe [ApplicationPolicyStatement]) (\s a -> s {statements = a} :: PutApplicationPolicyResponse)
+{-# DEPRECATED paprsStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
--- | -- | The response status code.
-paprsResponseStatus :: Lens' PutApplicationPolicyResponse Int
-paprsResponseStatus = lens _paprsResponseStatus (\s a -> s {_paprsResponseStatus = a})
-
-instance NFData PutApplicationPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paprsResponseStatus :: Lens.Lens' PutApplicationPolicyResponse Lude.Int
+paprsResponseStatus = Lens.lens (responseStatus :: PutApplicationPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutApplicationPolicyResponse)
+{-# DEPRECATED paprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

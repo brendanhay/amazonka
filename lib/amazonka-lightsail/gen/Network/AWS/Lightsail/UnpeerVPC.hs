@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,111 @@
 --
 -- Attempts to unpeer the Lightsail VPC from the user's default VPC.
 module Network.AWS.Lightsail.UnpeerVPC
-  ( -- * Creating a Request
-    unpeerVPC,
-    UnpeerVPC,
+  ( -- * Creating a request
+    UnpeerVPC (..),
+    mkUnpeerVPC,
 
-    -- * Destructuring the Response
-    unpeerVPCResponse,
-    UnpeerVPCResponse,
+    -- * Destructuring the response
+    UnpeerVPCResponse (..),
+    mkUnpeerVPCResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uvrsOperation,
     uvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'unpeerVPC' smart constructor.
+-- | /See:/ 'mkUnpeerVPC' smart constructor.
 data UnpeerVPC = UnpeerVPC'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnpeerVPC' with the minimum fields required to make a request.
-unpeerVPC ::
+mkUnpeerVPC ::
   UnpeerVPC
-unpeerVPC = UnpeerVPC'
+mkUnpeerVPC = UnpeerVPC'
 
-instance AWSRequest UnpeerVPC where
+instance Lude.AWSRequest UnpeerVPC where
   type Rs UnpeerVPC = UnpeerVPCResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UnpeerVPCResponse' <$> (x .?> "operation") <*> (pure (fromEnum s))
+          UnpeerVPCResponse'
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UnpeerVPC
-
-instance NFData UnpeerVPC
-
-instance ToHeaders UnpeerVPC where
+instance Lude.ToHeaders UnpeerVPC where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.UnpeerVpc" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.UnpeerVpc" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UnpeerVPC where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON UnpeerVPC where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath UnpeerVPC where
-  toPath = const "/"
+instance Lude.ToPath UnpeerVPC where
+  toPath = Lude.const "/"
 
-instance ToQuery UnpeerVPC where
-  toQuery = const mempty
+instance Lude.ToQuery UnpeerVPC where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unpeerVPCResponse' smart constructor.
+-- | /See:/ 'mkUnpeerVPCResponse' smart constructor.
 data UnpeerVPCResponse = UnpeerVPCResponse'
-  { _uvrsOperation ::
-      !(Maybe Operation),
-    _uvrsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnpeerVPCResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uvrsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'uvrsResponseStatus' - -- | The response status code.
-unpeerVPCResponse ::
-  -- | 'uvrsResponseStatus'
-  Int ->
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkUnpeerVPCResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UnpeerVPCResponse
-unpeerVPCResponse pResponseStatus_ =
+mkUnpeerVPCResponse pResponseStatus_ =
   UnpeerVPCResponse'
-    { _uvrsOperation = Nothing,
-      _uvrsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-uvrsOperation :: Lens' UnpeerVPCResponse (Maybe Operation)
-uvrsOperation = lens _uvrsOperation (\s a -> s {_uvrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvrsOperation :: Lens.Lens' UnpeerVPCResponse (Lude.Maybe Operation)
+uvrsOperation = Lens.lens (operation :: UnpeerVPCResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: UnpeerVPCResponse)
+{-# DEPRECATED uvrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-uvrsResponseStatus :: Lens' UnpeerVPCResponse Int
-uvrsResponseStatus = lens _uvrsResponseStatus (\s a -> s {_uvrsResponseStatus = a})
-
-instance NFData UnpeerVPCResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvrsResponseStatus :: Lens.Lens' UnpeerVPCResponse Lude.Int
+uvrsResponseStatus = Lens.lens (responseStatus :: UnpeerVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UnpeerVPCResponse)
+{-# DEPRECATED uvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ArtifactsType where
+module Network.AWS.CodeBuild.Types.ArtifactsType
+  ( ArtifactsType
+      ( ArtifactsType',
+        Codepipeline,
+        NoArtifacts,
+        S3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArtifactsType
-  = Codepipeline
-  | NoArtifacts
-  | S3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArtifactsType = ArtifactsType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArtifactsType where
-  parser =
-    takeLowerText >>= \case
-      "codepipeline" -> pure Codepipeline
-      "no_artifacts" -> pure NoArtifacts
-      "s3" -> pure S3
-      e ->
-        fromTextError $
-          "Failure parsing ArtifactsType from value: '" <> e
-            <> "'. Accepted values: codepipeline, no_artifacts, s3"
+pattern Codepipeline :: ArtifactsType
+pattern Codepipeline = ArtifactsType' "CODEPIPELINE"
 
-instance ToText ArtifactsType where
-  toText = \case
-    Codepipeline -> "CODEPIPELINE"
-    NoArtifacts -> "NO_ARTIFACTS"
-    S3 -> "S3"
+pattern NoArtifacts :: ArtifactsType
+pattern NoArtifacts = ArtifactsType' "NO_ARTIFACTS"
 
-instance Hashable ArtifactsType
+pattern S3 :: ArtifactsType
+pattern S3 = ArtifactsType' "S3"
 
-instance NFData ArtifactsType
-
-instance ToByteString ArtifactsType
-
-instance ToQuery ArtifactsType
-
-instance ToHeader ArtifactsType
-
-instance ToJSON ArtifactsType where
-  toJSON = toJSONText
-
-instance FromJSON ArtifactsType where
-  parseJSON = parseJSONText "ArtifactsType"
+{-# COMPLETE
+  Codepipeline,
+  NoArtifacts,
+  S3,
+  ArtifactsType'
+  #-}

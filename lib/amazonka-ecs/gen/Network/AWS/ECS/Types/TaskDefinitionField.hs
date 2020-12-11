@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinitionField where
+module Network.AWS.ECS.Types.TaskDefinitionField
+  ( TaskDefinitionField
+      ( TaskDefinitionField',
+        TDFTags
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskDefinitionField = TDFTags
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskDefinitionField = TaskDefinitionField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskDefinitionField where
-  parser =
-    takeLowerText >>= \case
-      "tags" -> pure TDFTags
-      e ->
-        fromTextError $
-          "Failure parsing TaskDefinitionField from value: '" <> e
-            <> "'. Accepted values: tags"
+pattern TDFTags :: TaskDefinitionField
+pattern TDFTags = TaskDefinitionField' "TAGS"
 
-instance ToText TaskDefinitionField where
-  toText = \case
-    TDFTags -> "TAGS"
-
-instance Hashable TaskDefinitionField
-
-instance NFData TaskDefinitionField
-
-instance ToByteString TaskDefinitionField
-
-instance ToQuery TaskDefinitionField
-
-instance ToHeader TaskDefinitionField
-
-instance ToJSON TaskDefinitionField where
-  toJSON = toJSONText
+{-# COMPLETE
+  TDFTags,
+  TaskDefinitionField'
+  #-}

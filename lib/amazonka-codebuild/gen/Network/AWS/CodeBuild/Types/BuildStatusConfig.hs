@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BuildStatusConfig where
+module Network.AWS.CodeBuild.Types.BuildStatusConfig
+  ( BuildStatusConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBuildStatusConfig,
+
+    -- * Lenses
+    bscContext,
+    bscTargetURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information that defines how the AWS CodeBuild build project reports the build status to the source provider.
 --
---
---
--- /See:/ 'buildStatusConfig' smart constructor.
+-- /See:/ 'mkBuildStatusConfig' smart constructor.
 data BuildStatusConfig = BuildStatusConfig'
-  { _bscContext ::
-      !(Maybe Text),
-    _bscTargetURL :: !(Maybe Text)
+  { context ::
+      Lude.Maybe Lude.Text,
+    targetURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildStatusConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'context' - Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
 --
--- * 'bscContext' - Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.     * Bitbucket    * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.     * GitHub/GitHub Enterprise Server    * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
 --
--- * 'bscTargetURL' - Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.     * Bitbucket    * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.     * GitHub/GitHub Enterprise Server    * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
-buildStatusConfig ::
+--     * Bitbucket
+--
+--     * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+--
+--
+--     * GitHub/GitHub Enterprise Server
+--
+--     * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+--
+--
+-- * 'targetURL' - Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+--
+--
+--     * Bitbucket
+--
+--     * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+--
+--
+--     * GitHub/GitHub Enterprise Server
+--
+--     * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+mkBuildStatusConfig ::
   BuildStatusConfig
-buildStatusConfig =
+mkBuildStatusConfig =
   BuildStatusConfig'
-    { _bscContext = Nothing,
-      _bscTargetURL = Nothing
+    { context = Lude.Nothing,
+      targetURL = Lude.Nothing
     }
 
--- | Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.     * Bitbucket    * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.     * GitHub/GitHub Enterprise Server    * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
-bscContext :: Lens' BuildStatusConfig (Maybe Text)
-bscContext = lens _bscContext (\s a -> s {_bscContext = a})
+-- | Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+--
+--
+--     * Bitbucket
+--
+--     * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+--
+--
+--     * GitHub/GitHub Enterprise Server
+--
+--     * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+--
+--
+--
+-- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bscContext :: Lens.Lens' BuildStatusConfig (Lude.Maybe Lude.Text)
+bscContext = Lens.lens (context :: BuildStatusConfig -> Lude.Maybe Lude.Text) (\s a -> s {context = a} :: BuildStatusConfig)
+{-# DEPRECATED bscContext "Use generic-lens or generic-optics with 'context' instead." #-}
 
--- | Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.     * Bitbucket    * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.     * GitHub/GitHub Enterprise Server    * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
-bscTargetURL :: Lens' BuildStatusConfig (Maybe Text)
-bscTargetURL = lens _bscTargetURL (\s a -> s {_bscTargetURL = a})
+-- | Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+--
+--
+--     * Bitbucket
+--
+--     * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+--
+--
+--     * GitHub/GitHub Enterprise Server
+--
+--     * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+--
+--
+--
+-- /Note:/ Consider using 'targetURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bscTargetURL :: Lens.Lens' BuildStatusConfig (Lude.Maybe Lude.Text)
+bscTargetURL = Lens.lens (targetURL :: BuildStatusConfig -> Lude.Maybe Lude.Text) (\s a -> s {targetURL = a} :: BuildStatusConfig)
+{-# DEPRECATED bscTargetURL "Use generic-lens or generic-optics with 'targetURL' instead." #-}
 
-instance FromJSON BuildStatusConfig where
+instance Lude.FromJSON BuildStatusConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "BuildStatusConfig"
       ( \x ->
-          BuildStatusConfig' <$> (x .:? "context") <*> (x .:? "targetUrl")
+          BuildStatusConfig'
+            Lude.<$> (x Lude..:? "context") Lude.<*> (x Lude..:? "targetUrl")
       )
 
-instance Hashable BuildStatusConfig
-
-instance NFData BuildStatusConfig
-
-instance ToJSON BuildStatusConfig where
+instance Lude.ToJSON BuildStatusConfig where
   toJSON BuildStatusConfig' {..} =
-    object
-      ( catMaybes
-          [ ("context" .=) <$> _bscContext,
-            ("targetUrl" .=) <$> _bscTargetURL
+    Lude.object
+      ( Lude.catMaybes
+          [ ("context" Lude..=) Lude.<$> context,
+            ("targetUrl" Lude..=) Lude.<$> targetURL
           ]
       )

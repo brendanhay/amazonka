@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ContainerType where
+module Network.AWS.MediaConvert.Types.ContainerType
+  ( ContainerType
+      ( ContainerType',
+        CTCmfc,
+        CTF4V,
+        CTIsmv,
+        CTM2TS,
+        CTM3U8,
+        CTMP4,
+        CTMov,
+        CTMpd,
+        CTMxf,
+        CTRaw,
+        CTWebm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
-data ContainerType
-  = CTCmfc
-  | CTF4V
-  | CTIsmv
-  | CTM2TS
-  | CTM3U8
-  | CTMP4
-  | CTMov
-  | CTMpd
-  | CTMxf
-  | CTRaw
-  | CTWebm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerType = ContainerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerType where
-  parser =
-    takeLowerText >>= \case
-      "cmfc" -> pure CTCmfc
-      "f4v" -> pure CTF4V
-      "ismv" -> pure CTIsmv
-      "m2ts" -> pure CTM2TS
-      "m3u8" -> pure CTM3U8
-      "mp4" -> pure CTMP4
-      "mov" -> pure CTMov
-      "mpd" -> pure CTMpd
-      "mxf" -> pure CTMxf
-      "raw" -> pure CTRaw
-      "webm" -> pure CTWebm
-      e ->
-        fromTextError $
-          "Failure parsing ContainerType from value: '" <> e
-            <> "'. Accepted values: cmfc, f4v, ismv, m2ts, m3u8, mp4, mov, mpd, mxf, raw, webm"
+pattern CTCmfc :: ContainerType
+pattern CTCmfc = ContainerType' "CMFC"
 
-instance ToText ContainerType where
-  toText = \case
-    CTCmfc -> "CMFC"
-    CTF4V -> "F4V"
-    CTIsmv -> "ISMV"
-    CTM2TS -> "M2TS"
-    CTM3U8 -> "M3U8"
-    CTMP4 -> "MP4"
-    CTMov -> "MOV"
-    CTMpd -> "MPD"
-    CTMxf -> "MXF"
-    CTRaw -> "RAW"
-    CTWebm -> "WEBM"
+pattern CTF4V :: ContainerType
+pattern CTF4V = ContainerType' "F4V"
 
-instance Hashable ContainerType
+pattern CTIsmv :: ContainerType
+pattern CTIsmv = ContainerType' "ISMV"
 
-instance NFData ContainerType
+pattern CTM2TS :: ContainerType
+pattern CTM2TS = ContainerType' "M2TS"
 
-instance ToByteString ContainerType
+pattern CTM3U8 :: ContainerType
+pattern CTM3U8 = ContainerType' "M3U8"
 
-instance ToQuery ContainerType
+pattern CTMP4 :: ContainerType
+pattern CTMP4 = ContainerType' "MP4"
 
-instance ToHeader ContainerType
+pattern CTMov :: ContainerType
+pattern CTMov = ContainerType' "MOV"
 
-instance ToJSON ContainerType where
-  toJSON = toJSONText
+pattern CTMpd :: ContainerType
+pattern CTMpd = ContainerType' "MPD"
 
-instance FromJSON ContainerType where
-  parseJSON = parseJSONText "ContainerType"
+pattern CTMxf :: ContainerType
+pattern CTMxf = ContainerType' "MXF"
+
+pattern CTRaw :: ContainerType
+pattern CTRaw = ContainerType' "RAW"
+
+pattern CTWebm :: ContainerType
+pattern CTWebm = ContainerType' "WEBM"
+
+{-# COMPLETE
+  CTCmfc,
+  CTF4V,
+  CTIsmv,
+  CTM2TS,
+  CTM3U8,
+  CTMP4,
+  CTMov,
+  CTMpd,
+  CTMxf,
+  CTRaw,
+  CTWebm,
+  ContainerType'
+  #-}

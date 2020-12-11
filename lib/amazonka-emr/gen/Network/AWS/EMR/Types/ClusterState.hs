@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ClusterState where
+module Network.AWS.EMR.Types.ClusterState
+  ( ClusterState
+      ( ClusterState',
+        CSBootstrapping,
+        CSRunning,
+        CSStarting,
+        CSTerminated,
+        CSTerminatedWithErrors,
+        CSTerminating,
+        CSWaiting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClusterState
-  = CSBootstrapping
-  | CSRunning
-  | CSStarting
-  | CSTerminated
-  | CSTerminatedWithErrors
-  | CSTerminating
-  | CSWaiting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClusterState = ClusterState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClusterState where
-  parser =
-    takeLowerText >>= \case
-      "bootstrapping" -> pure CSBootstrapping
-      "running" -> pure CSRunning
-      "starting" -> pure CSStarting
-      "terminated" -> pure CSTerminated
-      "terminated_with_errors" -> pure CSTerminatedWithErrors
-      "terminating" -> pure CSTerminating
-      "waiting" -> pure CSWaiting
-      e ->
-        fromTextError $
-          "Failure parsing ClusterState from value: '" <> e
-            <> "'. Accepted values: bootstrapping, running, starting, terminated, terminated_with_errors, terminating, waiting"
+pattern CSBootstrapping :: ClusterState
+pattern CSBootstrapping = ClusterState' "BOOTSTRAPPING"
 
-instance ToText ClusterState where
-  toText = \case
-    CSBootstrapping -> "BOOTSTRAPPING"
-    CSRunning -> "RUNNING"
-    CSStarting -> "STARTING"
-    CSTerminated -> "TERMINATED"
-    CSTerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
-    CSTerminating -> "TERMINATING"
-    CSWaiting -> "WAITING"
+pattern CSRunning :: ClusterState
+pattern CSRunning = ClusterState' "RUNNING"
 
-instance Hashable ClusterState
+pattern CSStarting :: ClusterState
+pattern CSStarting = ClusterState' "STARTING"
 
-instance NFData ClusterState
+pattern CSTerminated :: ClusterState
+pattern CSTerminated = ClusterState' "TERMINATED"
 
-instance ToByteString ClusterState
+pattern CSTerminatedWithErrors :: ClusterState
+pattern CSTerminatedWithErrors = ClusterState' "TERMINATED_WITH_ERRORS"
 
-instance ToQuery ClusterState
+pattern CSTerminating :: ClusterState
+pattern CSTerminating = ClusterState' "TERMINATING"
 
-instance ToHeader ClusterState
+pattern CSWaiting :: ClusterState
+pattern CSWaiting = ClusterState' "WAITING"
 
-instance ToJSON ClusterState where
-  toJSON = toJSONText
-
-instance FromJSON ClusterState where
-  parseJSON = parseJSONText "ClusterState"
+{-# COMPLETE
+  CSBootstrapping,
+  CSRunning,
+  CSStarting,
+  CSTerminated,
+  CSTerminatedWithErrors,
+  CSTerminating,
+  CSWaiting,
+  ClusterState'
+  #-}

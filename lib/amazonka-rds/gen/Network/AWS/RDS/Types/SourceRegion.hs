@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.SourceRegion where
+module Network.AWS.RDS.Types.SourceRegion
+  ( SourceRegion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceRegion,
+
+    -- * Lenses
+    srStatus,
+    srRegionName,
+    srEndpoint,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains an AWS Region name as the result of a successful call to the @DescribeSourceRegions@ action.
 --
---
---
--- /See:/ 'sourceRegion' smart constructor.
+-- /See:/ 'mkSourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
-  { _srStatus :: !(Maybe Text),
-    _srRegionName :: !(Maybe Text),
-    _srEndpoint :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    regionName :: Lude.Maybe Lude.Text,
+    endpoint :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceRegion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srStatus' - The status of the source AWS Region.
---
--- * 'srRegionName' - The name of the source AWS Region.
---
--- * 'srEndpoint' - The endpoint for the source AWS Region endpoint.
-sourceRegion ::
+-- * 'endpoint' - The endpoint for the source AWS Region endpoint.
+-- * 'regionName' - The name of the source AWS Region.
+-- * 'status' - The status of the source AWS Region.
+mkSourceRegion ::
   SourceRegion
-sourceRegion =
+mkSourceRegion =
   SourceRegion'
-    { _srStatus = Nothing,
-      _srRegionName = Nothing,
-      _srEndpoint = Nothing
+    { status = Lude.Nothing,
+      regionName = Lude.Nothing,
+      endpoint = Lude.Nothing
     }
 
 -- | The status of the source AWS Region.
-srStatus :: Lens' SourceRegion (Maybe Text)
-srStatus = lens _srStatus (\s a -> s {_srStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srStatus :: Lens.Lens' SourceRegion (Lude.Maybe Lude.Text)
+srStatus = Lens.lens (status :: SourceRegion -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SourceRegion)
+{-# DEPRECATED srStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the source AWS Region.
-srRegionName :: Lens' SourceRegion (Maybe Text)
-srRegionName = lens _srRegionName (\s a -> s {_srRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srRegionName :: Lens.Lens' SourceRegion (Lude.Maybe Lude.Text)
+srRegionName = Lens.lens (regionName :: SourceRegion -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: SourceRegion)
+{-# DEPRECATED srRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The endpoint for the source AWS Region endpoint.
-srEndpoint :: Lens' SourceRegion (Maybe Text)
-srEndpoint = lens _srEndpoint (\s a -> s {_srEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srEndpoint :: Lens.Lens' SourceRegion (Lude.Maybe Lude.Text)
+srEndpoint = Lens.lens (endpoint :: SourceRegion -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: SourceRegion)
+{-# DEPRECATED srEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance FromXML SourceRegion where
+instance Lude.FromXML SourceRegion where
   parseXML x =
     SourceRegion'
-      <$> (x .@? "Status") <*> (x .@? "RegionName") <*> (x .@? "Endpoint")
-
-instance Hashable SourceRegion
-
-instance NFData SourceRegion
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "RegionName")
+      Lude.<*> (x Lude..@? "Endpoint")

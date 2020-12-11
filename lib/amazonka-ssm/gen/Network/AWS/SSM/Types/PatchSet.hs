@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchSet where
+module Network.AWS.SSM.Types.PatchSet
+  ( PatchSet
+      ( PatchSet',
+        Application,
+        OS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchSet
-  = Application
-  | OS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchSet = PatchSet' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchSet where
-  parser =
-    takeLowerText >>= \case
-      "application" -> pure Application
-      "os" -> pure OS
-      e ->
-        fromTextError $
-          "Failure parsing PatchSet from value: '" <> e
-            <> "'. Accepted values: application, os"
+pattern Application :: PatchSet
+pattern Application = PatchSet' "APPLICATION"
 
-instance ToText PatchSet where
-  toText = \case
-    Application -> "APPLICATION"
-    OS -> "OS"
+pattern OS :: PatchSet
+pattern OS = PatchSet' "OS"
 
-instance Hashable PatchSet
-
-instance NFData PatchSet
-
-instance ToByteString PatchSet
-
-instance ToQuery PatchSet
-
-instance ToHeader PatchSet
-
-instance ToJSON PatchSet where
-  toJSON = toJSONText
+{-# COMPLETE
+  Application,
+  OS,
+  PatchSet'
+  #-}

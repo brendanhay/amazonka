@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Deregisters the specified task definition by family and revision. Upon deregistration, the task definition is marked as @INACTIVE@ . Existing tasks and services that reference an @INACTIVE@ task definition continue to run without disruption. Existing services that reference an @INACTIVE@ task definition can still scale up or down by modifying the service's desired count.
 --
---
 -- You cannot use an @INACTIVE@ task definition to run new tasks or create new services, and you cannot update an existing service to reference an @INACTIVE@ task definition. However, there may be up to a 10-minute window following deregistration where these restrictions have not yet taken effect.
 module Network.AWS.ECS.DeregisterTaskDefinition
-  ( -- * Creating a Request
-    deregisterTaskDefinition,
-    DeregisterTaskDefinition,
+  ( -- * Creating a request
+    DeregisterTaskDefinition (..),
+    mkDeregisterTaskDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     derTaskDefinition,
 
-    -- * Destructuring the Response
-    deregisterTaskDefinitionResponse,
-    DeregisterTaskDefinitionResponse,
+    -- * Destructuring the response
+    DeregisterTaskDefinitionResponse (..),
+    mkDeregisterTaskDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtdrsTaskDefinition,
     dtdrsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterTaskDefinition' smart constructor.
+-- | /See:/ 'mkDeregisterTaskDefinition' smart constructor.
 newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
-  { _derTaskDefinition ::
-      Text
+  { taskDefinition ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTaskDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a @revision@ .
-deregisterTaskDefinition ::
-  -- | 'derTaskDefinition'
-  Text ->
+-- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a @revision@ .
+mkDeregisterTaskDefinition ::
+  -- | 'taskDefinition'
+  Lude.Text ->
   DeregisterTaskDefinition
-deregisterTaskDefinition pTaskDefinition_ =
-  DeregisterTaskDefinition' {_derTaskDefinition = pTaskDefinition_}
+mkDeregisterTaskDefinition pTaskDefinition_ =
+  DeregisterTaskDefinition' {taskDefinition = pTaskDefinition_}
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a @revision@ .
-derTaskDefinition :: Lens' DeregisterTaskDefinition Text
-derTaskDefinition = lens _derTaskDefinition (\s a -> s {_derTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derTaskDefinition :: Lens.Lens' DeregisterTaskDefinition Lude.Text
+derTaskDefinition = Lens.lens (taskDefinition :: DeregisterTaskDefinition -> Lude.Text) (\s a -> s {taskDefinition = a} :: DeregisterTaskDefinition)
+{-# DEPRECATED derTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
-instance AWSRequest DeregisterTaskDefinition where
+instance Lude.AWSRequest DeregisterTaskDefinition where
   type Rs DeregisterTaskDefinition = DeregisterTaskDefinitionResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeregisterTaskDefinitionResponse'
-            <$> (x .?> "taskDefinition") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskDefinition")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterTaskDefinition
-
-instance NFData DeregisterTaskDefinition
-
-instance ToHeaders DeregisterTaskDefinition where
+instance Lude.ToHeaders DeregisterTaskDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterTaskDefinition where
+instance Lude.ToJSON DeregisterTaskDefinition where
   toJSON DeregisterTaskDefinition' {..} =
-    object
-      (catMaybes [Just ("taskDefinition" .= _derTaskDefinition)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("taskDefinition" Lude..= taskDefinition)]
+      )
 
-instance ToPath DeregisterTaskDefinition where
-  toPath = const "/"
+instance Lude.ToPath DeregisterTaskDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterTaskDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterTaskDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterTaskDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeregisterTaskDefinitionResponse' smart constructor.
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
-  { _dtdrsTaskDefinition ::
-      !(Maybe TaskDefinition),
-    _dtdrsResponseStatus ::
-      !Int
+  { taskDefinition ::
+      Lude.Maybe TaskDefinition,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTaskDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtdrsTaskDefinition' - The full description of the deregistered task.
---
--- * 'dtdrsResponseStatus' - -- | The response status code.
-deregisterTaskDefinitionResponse ::
-  -- | 'dtdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'taskDefinition' - The full description of the deregistered task.
+mkDeregisterTaskDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse pResponseStatus_ =
+mkDeregisterTaskDefinitionResponse pResponseStatus_ =
   DeregisterTaskDefinitionResponse'
-    { _dtdrsTaskDefinition = Nothing,
-      _dtdrsResponseStatus = pResponseStatus_
+    { taskDefinition = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The full description of the deregistered task.
-dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
-dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\s a -> s {_dtdrsTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtdrsTaskDefinition :: Lens.Lens' DeregisterTaskDefinitionResponse (Lude.Maybe TaskDefinition)
+dtdrsTaskDefinition = Lens.lens (taskDefinition :: DeregisterTaskDefinitionResponse -> Lude.Maybe TaskDefinition) (\s a -> s {taskDefinition = a} :: DeregisterTaskDefinitionResponse)
+{-# DEPRECATED dtdrsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
--- | -- | The response status code.
-dtdrsResponseStatus :: Lens' DeregisterTaskDefinitionResponse Int
-dtdrsResponseStatus = lens _dtdrsResponseStatus (\s a -> s {_dtdrsResponseStatus = a})
-
-instance NFData DeregisterTaskDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtdrsResponseStatus :: Lens.Lens' DeregisterTaskDefinitionResponse Lude.Int
+dtdrsResponseStatus = Lens.lens (responseStatus :: DeregisterTaskDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTaskDefinitionResponse)
+{-# DEPRECATED dtdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

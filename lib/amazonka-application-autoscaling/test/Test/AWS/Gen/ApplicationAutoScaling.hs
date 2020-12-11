@@ -28,67 +28,67 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDeleteScalingPolicy $
---             deleteScalingPolicy
+--             mkDeleteScalingPolicy
 --
 --         , requestPutScalingPolicy $
---             putScalingPolicy
+--             mkPutScalingPolicy
 --
 --         , requestRegisterScalableTarget $
---             registerScalableTarget
+--             mkRegisterScalableTarget
 --
 --         , requestDescribeScalingPolicies $
---             describeScalingPolicies
+--             mkDescribeScalingPolicies
 --
 --         , requestPutScheduledAction $
---             putScheduledAction
+--             mkPutScheduledAction
 --
 --         , requestDeleteScheduledAction $
---             deleteScheduledAction
+--             mkDeleteScheduledAction
 --
 --         , requestDescribeScheduledActions $
---             describeScheduledActions
+--             mkDescribeScheduledActions
 --
 --         , requestDescribeScalableTargets $
---             describeScalableTargets
+--             mkDescribeScalableTargets
 --
 --         , requestDescribeScalingActivities $
---             describeScalingActivities
+--             mkDescribeScalingActivities
 --
 --         , requestDeregisterScalableTarget $
---             deregisterScalableTarget
+--             mkDeregisterScalableTarget
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDeleteScalingPolicy $
---             deleteScalingPolicyResponse
+--             mkDeleteScalingPolicyResponse
 --
 --         , responsePutScalingPolicy $
---             putScalingPolicyResponse
+--             mkPutScalingPolicyResponse
 --
 --         , responseRegisterScalableTarget $
---             registerScalableTargetResponse
+--             mkRegisterScalableTargetResponse
 --
 --         , responseDescribeScalingPolicies $
---             describeScalingPoliciesResponse
+--             mkDescribeScalingPoliciesResponse
 --
 --         , responsePutScheduledAction $
---             putScheduledActionResponse
+--             mkPutScheduledActionResponse
 --
 --         , responseDeleteScheduledAction $
---             deleteScheduledActionResponse
+--             mkDeleteScheduledActionResponse
 --
 --         , responseDescribeScheduledActions $
---             describeScheduledActionsResponse
+--             mkDescribeScheduledActionsResponse
 --
 --         , responseDescribeScalableTargets $
---             describeScalableTargetsResponse
+--             mkDescribeScalableTargetsResponse
 --
 --         , responseDescribeScalingActivities $
---             describeScalingActivitiesResponse
+--             mkDescribeScalingActivitiesResponse
 --
 --         , responseDeregisterScalableTarget $
---             deregisterScalableTargetResponse
+--             mkDeregisterScalableTargetResponse
 --
 --           ]
 --     ]
@@ -162,7 +162,7 @@ responseDeleteScalingPolicy =
   res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
@@ -170,7 +170,7 @@ responsePutScalingPolicy =
   res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy PutScalingPolicy)
 
 responseRegisterScalableTarget :: RegisterScalableTargetResponse -> TestTree
@@ -178,7 +178,7 @@ responseRegisterScalableTarget =
   res
     "RegisterScalableTargetResponse"
     "fixture/RegisterScalableTargetResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy RegisterScalableTarget)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
@@ -186,7 +186,7 @@ responseDescribeScalingPolicies =
   res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DescribeScalingPolicies)
 
 responsePutScheduledAction :: PutScheduledActionResponse -> TestTree
@@ -194,7 +194,7 @@ responsePutScheduledAction =
   res
     "PutScheduledActionResponse"
     "fixture/PutScheduledActionResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy PutScheduledAction)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
@@ -202,7 +202,7 @@ responseDeleteScheduledAction =
   res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
@@ -210,7 +210,7 @@ responseDescribeScheduledActions =
   res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
@@ -218,7 +218,7 @@ responseDescribeScalableTargets =
   res
     "DescribeScalableTargetsResponse"
     "fixture/DescribeScalableTargetsResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DescribeScalableTargets)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
@@ -226,7 +226,7 @@ responseDescribeScalingActivities =
   res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DescribeScalingActivities)
 
 responseDeregisterScalableTarget :: DeregisterScalableTargetResponse -> TestTree
@@ -234,5 +234,5 @@ responseDeregisterScalableTarget =
   res
     "DeregisterScalableTargetResponse"
     "fixture/DeregisterScalableTargetResponse.proto"
-    applicationAutoScaling
+    applicationAutoScalingService
     (Proxy :: Proxy DeregisterScalableTarget)

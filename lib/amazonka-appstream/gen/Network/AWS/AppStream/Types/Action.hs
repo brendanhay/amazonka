@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Action where
+module Network.AWS.AppStream.Types.Action
+  ( Action
+      ( Action',
+        ClipboardCopyFromLocalDevice,
+        ClipboardCopyToLocalDevice,
+        FileDownload,
+        FileUpload,
+        PrintingToLocalDevice
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Action
-  = ClipboardCopyFromLocalDevice
-  | ClipboardCopyToLocalDevice
-  | FileDownload
-  | FileUpload
-  | PrintingToLocalDevice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Action = Action' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Action where
-  parser =
-    takeLowerText >>= \case
-      "clipboard_copy_from_local_device" -> pure ClipboardCopyFromLocalDevice
-      "clipboard_copy_to_local_device" -> pure ClipboardCopyToLocalDevice
-      "file_download" -> pure FileDownload
-      "file_upload" -> pure FileUpload
-      "printing_to_local_device" -> pure PrintingToLocalDevice
-      e ->
-        fromTextError $
-          "Failure parsing Action from value: '" <> e
-            <> "'. Accepted values: clipboard_copy_from_local_device, clipboard_copy_to_local_device, file_download, file_upload, printing_to_local_device"
+pattern ClipboardCopyFromLocalDevice :: Action
+pattern ClipboardCopyFromLocalDevice = Action' "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
 
-instance ToText Action where
-  toText = \case
-    ClipboardCopyFromLocalDevice -> "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
-    ClipboardCopyToLocalDevice -> "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
-    FileDownload -> "FILE_DOWNLOAD"
-    FileUpload -> "FILE_UPLOAD"
-    PrintingToLocalDevice -> "PRINTING_TO_LOCAL_DEVICE"
+pattern ClipboardCopyToLocalDevice :: Action
+pattern ClipboardCopyToLocalDevice = Action' "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
 
-instance Hashable Action
+pattern FileDownload :: Action
+pattern FileDownload = Action' "FILE_DOWNLOAD"
 
-instance NFData Action
+pattern FileUpload :: Action
+pattern FileUpload = Action' "FILE_UPLOAD"
 
-instance ToByteString Action
+pattern PrintingToLocalDevice :: Action
+pattern PrintingToLocalDevice = Action' "PRINTING_TO_LOCAL_DEVICE"
 
-instance ToQuery Action
-
-instance ToHeader Action
-
-instance ToJSON Action where
-  toJSON = toJSONText
-
-instance FromJSON Action where
-  parseJSON = parseJSONText "Action"
+{-# COMPLETE
+  ClipboardCopyFromLocalDevice,
+  ClipboardCopyToLocalDevice,
+  FileDownload,
+  FileUpload,
+  PrintingToLocalDevice,
+  Action'
+  #-}

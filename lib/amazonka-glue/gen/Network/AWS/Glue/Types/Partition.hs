@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Partition where
+module Network.AWS.Glue.Types.Partition
+  ( Partition (..),
+
+    -- * Smart constructor
+    mkPartition,
+
+    -- * Lenses
+    pCreationTime,
+    pValues,
+    pCatalogId,
+    pLastAnalyzedTime,
+    pStorageDescriptor,
+    pDatabaseName,
+    pParameters,
+    pLastAccessTime,
+    pTableName,
+  )
+where
 
 import Network.AWS.Glue.Types.StorageDescriptor
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a slice of table data.
 --
---
---
--- /See:/ 'partition' smart constructor.
+-- /See:/ 'mkPartition' smart constructor.
 data Partition = Partition'
-  { _pCreationTime :: !(Maybe POSIX),
-    _pValues :: !(Maybe [Text]),
-    _pCatalogId :: !(Maybe Text),
-    _pLastAnalyzedTime :: !(Maybe POSIX),
-    _pStorageDescriptor :: !(Maybe StorageDescriptor),
-    _pDatabaseName :: !(Maybe Text),
-    _pParameters :: !(Maybe (Map Text (Text))),
-    _pLastAccessTime :: !(Maybe POSIX),
-    _pTableName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    values :: Lude.Maybe [Lude.Text],
+    catalogId :: Lude.Maybe Lude.Text,
+    lastAnalyzedTime :: Lude.Maybe Lude.Timestamp,
+    storageDescriptor :: Lude.Maybe StorageDescriptor,
+    databaseName :: Lude.Maybe Lude.Text,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    lastAccessTime :: Lude.Maybe Lude.Timestamp,
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Partition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pCreationTime' - The time at which the partition was created.
---
--- * 'pValues' - The values of the partition.
---
--- * 'pCatalogId' - The ID of the Data Catalog in which the partition resides.
---
--- * 'pLastAnalyzedTime' - The last time at which column statistics were computed for this partition.
---
--- * 'pStorageDescriptor' - Provides information about the physical location where the partition is stored.
---
--- * 'pDatabaseName' - The name of the catalog database in which to create the partition.
---
--- * 'pParameters' - These key-value pairs define partition parameters.
---
--- * 'pLastAccessTime' - The last time at which the partition was accessed.
---
--- * 'pTableName' - The name of the database table in which to create the partition.
-partition ::
+-- * 'catalogId' - The ID of the Data Catalog in which the partition resides.
+-- * 'creationTime' - The time at which the partition was created.
+-- * 'databaseName' - The name of the catalog database in which to create the partition.
+-- * 'lastAccessTime' - The last time at which the partition was accessed.
+-- * 'lastAnalyzedTime' - The last time at which column statistics were computed for this partition.
+-- * 'parameters' - These key-value pairs define partition parameters.
+-- * 'storageDescriptor' - Provides information about the physical location where the partition is stored.
+-- * 'tableName' - The name of the database table in which to create the partition.
+-- * 'values' - The values of the partition.
+mkPartition ::
   Partition
-partition =
+mkPartition =
   Partition'
-    { _pCreationTime = Nothing,
-      _pValues = Nothing,
-      _pCatalogId = Nothing,
-      _pLastAnalyzedTime = Nothing,
-      _pStorageDescriptor = Nothing,
-      _pDatabaseName = Nothing,
-      _pParameters = Nothing,
-      _pLastAccessTime = Nothing,
-      _pTableName = Nothing
+    { creationTime = Lude.Nothing,
+      values = Lude.Nothing,
+      catalogId = Lude.Nothing,
+      lastAnalyzedTime = Lude.Nothing,
+      storageDescriptor = Lude.Nothing,
+      databaseName = Lude.Nothing,
+      parameters = Lude.Nothing,
+      lastAccessTime = Lude.Nothing,
+      tableName = Lude.Nothing
     }
 
 -- | The time at which the partition was created.
-pCreationTime :: Lens' Partition (Maybe UTCTime)
-pCreationTime = lens _pCreationTime (\s a -> s {_pCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCreationTime :: Lens.Lens' Partition (Lude.Maybe Lude.Timestamp)
+pCreationTime = Lens.lens (creationTime :: Partition -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Partition)
+{-# DEPRECATED pCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The values of the partition.
-pValues :: Lens' Partition [Text]
-pValues = lens _pValues (\s a -> s {_pValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pValues :: Lens.Lens' Partition (Lude.Maybe [Lude.Text])
+pValues = Lens.lens (values :: Partition -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: Partition)
+{-# DEPRECATED pValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The ID of the Data Catalog in which the partition resides.
-pCatalogId :: Lens' Partition (Maybe Text)
-pCatalogId = lens _pCatalogId (\s a -> s {_pCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCatalogId :: Lens.Lens' Partition (Lude.Maybe Lude.Text)
+pCatalogId = Lens.lens (catalogId :: Partition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: Partition)
+{-# DEPRECATED pCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The last time at which column statistics were computed for this partition.
-pLastAnalyzedTime :: Lens' Partition (Maybe UTCTime)
-pLastAnalyzedTime = lens _pLastAnalyzedTime (\s a -> s {_pLastAnalyzedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastAnalyzedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLastAnalyzedTime :: Lens.Lens' Partition (Lude.Maybe Lude.Timestamp)
+pLastAnalyzedTime = Lens.lens (lastAnalyzedTime :: Partition -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAnalyzedTime = a} :: Partition)
+{-# DEPRECATED pLastAnalyzedTime "Use generic-lens or generic-optics with 'lastAnalyzedTime' instead." #-}
 
 -- | Provides information about the physical location where the partition is stored.
-pStorageDescriptor :: Lens' Partition (Maybe StorageDescriptor)
-pStorageDescriptor = lens _pStorageDescriptor (\s a -> s {_pStorageDescriptor = a})
+--
+-- /Note:/ Consider using 'storageDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pStorageDescriptor :: Lens.Lens' Partition (Lude.Maybe StorageDescriptor)
+pStorageDescriptor = Lens.lens (storageDescriptor :: Partition -> Lude.Maybe StorageDescriptor) (\s a -> s {storageDescriptor = a} :: Partition)
+{-# DEPRECATED pStorageDescriptor "Use generic-lens or generic-optics with 'storageDescriptor' instead." #-}
 
 -- | The name of the catalog database in which to create the partition.
-pDatabaseName :: Lens' Partition (Maybe Text)
-pDatabaseName = lens _pDatabaseName (\s a -> s {_pDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDatabaseName :: Lens.Lens' Partition (Lude.Maybe Lude.Text)
+pDatabaseName = Lens.lens (databaseName :: Partition -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: Partition)
+{-# DEPRECATED pDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | These key-value pairs define partition parameters.
-pParameters :: Lens' Partition (HashMap Text (Text))
-pParameters = lens _pParameters (\s a -> s {_pParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameters :: Lens.Lens' Partition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+pParameters = Lens.lens (parameters :: Partition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: Partition)
+{-# DEPRECATED pParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The last time at which the partition was accessed.
-pLastAccessTime :: Lens' Partition (Maybe UTCTime)
-pLastAccessTime = lens _pLastAccessTime (\s a -> s {_pLastAccessTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastAccessTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLastAccessTime :: Lens.Lens' Partition (Lude.Maybe Lude.Timestamp)
+pLastAccessTime = Lens.lens (lastAccessTime :: Partition -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAccessTime = a} :: Partition)
+{-# DEPRECATED pLastAccessTime "Use generic-lens or generic-optics with 'lastAccessTime' instead." #-}
 
 -- | The name of the database table in which to create the partition.
-pTableName :: Lens' Partition (Maybe Text)
-pTableName = lens _pTableName (\s a -> s {_pTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTableName :: Lens.Lens' Partition (Lude.Maybe Lude.Text)
+pTableName = Lens.lens (tableName :: Partition -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: Partition)
+{-# DEPRECATED pTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON Partition where
+instance Lude.FromJSON Partition where
   parseJSON =
-    withObject
+    Lude.withObject
       "Partition"
       ( \x ->
           Partition'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Values" .!= mempty)
-            <*> (x .:? "CatalogId")
-            <*> (x .:? "LastAnalyzedTime")
-            <*> (x .:? "StorageDescriptor")
-            <*> (x .:? "DatabaseName")
-            <*> (x .:? "Parameters" .!= mempty)
-            <*> (x .:? "LastAccessTime")
-            <*> (x .:? "TableName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CatalogId")
+            Lude.<*> (x Lude..:? "LastAnalyzedTime")
+            Lude.<*> (x Lude..:? "StorageDescriptor")
+            Lude.<*> (x Lude..:? "DatabaseName")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LastAccessTime")
+            Lude.<*> (x Lude..:? "TableName")
       )
-
-instance Hashable Partition
-
-instance NFData Partition

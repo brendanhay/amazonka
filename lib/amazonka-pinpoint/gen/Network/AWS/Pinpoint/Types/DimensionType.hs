@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DimensionType where
+module Network.AWS.Pinpoint.Types.DimensionType
+  ( DimensionType
+      ( DimensionType',
+        DTExclusive,
+        DTInclusive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DimensionType
-  = DTExclusive
-  | DTInclusive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DimensionType = DimensionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DimensionType where
-  parser =
-    takeLowerText >>= \case
-      "exclusive" -> pure DTExclusive
-      "inclusive" -> pure DTInclusive
-      e ->
-        fromTextError $
-          "Failure parsing DimensionType from value: '" <> e
-            <> "'. Accepted values: exclusive, inclusive"
+pattern DTExclusive :: DimensionType
+pattern DTExclusive = DimensionType' "EXCLUSIVE"
 
-instance ToText DimensionType where
-  toText = \case
-    DTExclusive -> "EXCLUSIVE"
-    DTInclusive -> "INCLUSIVE"
+pattern DTInclusive :: DimensionType
+pattern DTInclusive = DimensionType' "INCLUSIVE"
 
-instance Hashable DimensionType
-
-instance NFData DimensionType
-
-instance ToByteString DimensionType
-
-instance ToQuery DimensionType
-
-instance ToHeader DimensionType
-
-instance ToJSON DimensionType where
-  toJSON = toJSONText
-
-instance FromJSON DimensionType where
-  parseJSON = parseJSONText "DimensionType"
+{-# COMPLETE
+  DTExclusive,
+  DTInclusive,
+  DimensionType'
+  #-}

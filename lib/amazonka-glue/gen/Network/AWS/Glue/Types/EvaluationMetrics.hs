@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.EvaluationMetrics where
+module Network.AWS.Glue.Types.EvaluationMetrics
+  ( EvaluationMetrics (..),
+
+    -- * Smart constructor
+    mkEvaluationMetrics,
+
+    -- * Lenses
+    emFindMatchesMetrics,
+    emTransformType,
+  )
+where
 
 import Network.AWS.Glue.Types.FindMatchesMetrics
 import Network.AWS.Glue.Types.TransformType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Evaluation metrics provide an estimate of the quality of your machine learning transform.
 --
---
---
--- /See:/ 'evaluationMetrics' smart constructor.
+-- /See:/ 'mkEvaluationMetrics' smart constructor.
 data EvaluationMetrics = EvaluationMetrics'
-  { _emFindMatchesMetrics ::
-      !(Maybe FindMatchesMetrics),
-    _emTransformType :: !TransformType
+  { findMatchesMetrics ::
+      Lude.Maybe FindMatchesMetrics,
+    transformType :: TransformType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'emFindMatchesMetrics' - The evaluation metrics for the find matches algorithm.
---
--- * 'emTransformType' - The type of machine learning transform.
-evaluationMetrics ::
-  -- | 'emTransformType'
+-- * 'findMatchesMetrics' - The evaluation metrics for the find matches algorithm.
+-- * 'transformType' - The type of machine learning transform.
+mkEvaluationMetrics ::
+  -- | 'transformType'
   TransformType ->
   EvaluationMetrics
-evaluationMetrics pTransformType_ =
+mkEvaluationMetrics pTransformType_ =
   EvaluationMetrics'
-    { _emFindMatchesMetrics = Nothing,
-      _emTransformType = pTransformType_
+    { findMatchesMetrics = Lude.Nothing,
+      transformType = pTransformType_
     }
 
 -- | The evaluation metrics for the find matches algorithm.
-emFindMatchesMetrics :: Lens' EvaluationMetrics (Maybe FindMatchesMetrics)
-emFindMatchesMetrics = lens _emFindMatchesMetrics (\s a -> s {_emFindMatchesMetrics = a})
+--
+-- /Note:/ Consider using 'findMatchesMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emFindMatchesMetrics :: Lens.Lens' EvaluationMetrics (Lude.Maybe FindMatchesMetrics)
+emFindMatchesMetrics = Lens.lens (findMatchesMetrics :: EvaluationMetrics -> Lude.Maybe FindMatchesMetrics) (\s a -> s {findMatchesMetrics = a} :: EvaluationMetrics)
+{-# DEPRECATED emFindMatchesMetrics "Use generic-lens or generic-optics with 'findMatchesMetrics' instead." #-}
 
 -- | The type of machine learning transform.
-emTransformType :: Lens' EvaluationMetrics TransformType
-emTransformType = lens _emTransformType (\s a -> s {_emTransformType = a})
+--
+-- /Note:/ Consider using 'transformType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emTransformType :: Lens.Lens' EvaluationMetrics TransformType
+emTransformType = Lens.lens (transformType :: EvaluationMetrics -> TransformType) (\s a -> s {transformType = a} :: EvaluationMetrics)
+{-# DEPRECATED emTransformType "Use generic-lens or generic-optics with 'transformType' instead." #-}
 
-instance FromJSON EvaluationMetrics where
+instance Lude.FromJSON EvaluationMetrics where
   parseJSON =
-    withObject
+    Lude.withObject
       "EvaluationMetrics"
       ( \x ->
           EvaluationMetrics'
-            <$> (x .:? "FindMatchesMetrics") <*> (x .: "TransformType")
+            Lude.<$> (x Lude..:? "FindMatchesMetrics")
+            Lude.<*> (x Lude..: "TransformType")
       )
-
-instance Hashable EvaluationMetrics
-
-instance NFData EvaluationMetrics

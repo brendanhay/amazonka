@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ApplicationsResponse where
+module Network.AWS.Pinpoint.Types.ApplicationsResponse
+  ( ApplicationsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkApplicationsResponse,
+
+    -- * Lenses
+    appNextToken,
+    appItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ApplicationResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all of your applications.
 --
---
---
--- /See:/ 'applicationsResponse' smart constructor.
+-- /See:/ 'mkApplicationsResponse' smart constructor.
 data ApplicationsResponse = ApplicationsResponse'
-  { _appNextToken ::
-      !(Maybe Text),
-    _appItem :: !(Maybe [ApplicationResponse])
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: Lude.Maybe [ApplicationResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'appNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'appItem' - An array of responses, one for each application that was returned.
-applicationsResponse ::
+-- * 'item' - An array of responses, one for each application that was returned.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkApplicationsResponse ::
   ApplicationsResponse
-applicationsResponse =
+mkApplicationsResponse =
   ApplicationsResponse'
-    { _appNextToken = Nothing,
-      _appItem = Nothing
+    { nextToken = Lude.Nothing,
+      item = Lude.Nothing
     }
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-appNextToken :: Lens' ApplicationsResponse (Maybe Text)
-appNextToken = lens _appNextToken (\s a -> s {_appNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appNextToken :: Lens.Lens' ApplicationsResponse (Lude.Maybe Lude.Text)
+appNextToken = Lens.lens (nextToken :: ApplicationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ApplicationsResponse)
+{-# DEPRECATED appNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each application that was returned.
-appItem :: Lens' ApplicationsResponse [ApplicationResponse]
-appItem = lens _appItem (\s a -> s {_appItem = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appItem :: Lens.Lens' ApplicationsResponse (Lude.Maybe [ApplicationResponse])
+appItem = Lens.lens (item :: ApplicationsResponse -> Lude.Maybe [ApplicationResponse]) (\s a -> s {item = a} :: ApplicationsResponse)
+{-# DEPRECATED appItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON ApplicationsResponse where
+instance Lude.FromJSON ApplicationsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationsResponse"
       ( \x ->
           ApplicationsResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable ApplicationsResponse
-
-instance NFData ApplicationsResponse

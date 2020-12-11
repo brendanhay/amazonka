@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest where
+module Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
+  ( LaunchTemplateSpotMarketOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateSpotMarketOptionsRequest,
+
+    -- * Lenses
+    ltsmorBlockDurationMinutes,
+    ltsmorInstanceInterruptionBehavior,
+    ltsmorValidUntil,
+    ltsmorSpotInstanceType,
+    ltsmorMaxPrice,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceInterruptionBehavior
 import Network.AWS.EC2.Types.SpotInstanceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The options for Spot Instances.
 --
---
---
--- /See:/ 'launchTemplateSpotMarketOptionsRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateSpotMarketOptionsRequest' smart constructor.
 data LaunchTemplateSpotMarketOptionsRequest = LaunchTemplateSpotMarketOptionsRequest'
-  { _ltsmorBlockDurationMinutes ::
-      !(Maybe Int),
-    _ltsmorInstanceInterruptionBehavior ::
-      !( Maybe
-           InstanceInterruptionBehavior
-       ),
-    _ltsmorValidUntil ::
-      !( Maybe
-           ISO8601
-       ),
-    _ltsmorSpotInstanceType ::
-      !( Maybe
-           SpotInstanceType
-       ),
-    _ltsmorMaxPrice ::
-      !(Maybe Text)
+  { blockDurationMinutes ::
+      Lude.Maybe
+        Lude.Int,
+    instanceInterruptionBehavior ::
+      Lude.Maybe
+        InstanceInterruptionBehavior,
+    validUntil ::
+      Lude.Maybe
+        Lude.ISO8601,
+    spotInstanceType ::
+      Lude.Maybe
+        SpotInstanceType,
+    maxPrice ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateSpotMarketOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltsmorBlockDurationMinutes' - The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
---
--- * 'ltsmorInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
---
--- * 'ltsmorValidUntil' - The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
---
--- * 'ltsmorSpotInstanceType' - The Spot Instance request type.
---
--- * 'ltsmorMaxPrice' - The maximum hourly price you're willing to pay for the Spot Instances.
-launchTemplateSpotMarketOptionsRequest ::
+-- * 'blockDurationMinutes' - The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+-- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+-- * 'maxPrice' - The maximum hourly price you're willing to pay for the Spot Instances.
+-- * 'spotInstanceType' - The Spot Instance request type.
+-- * 'validUntil' - The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
+mkLaunchTemplateSpotMarketOptionsRequest ::
   LaunchTemplateSpotMarketOptionsRequest
-launchTemplateSpotMarketOptionsRequest =
+mkLaunchTemplateSpotMarketOptionsRequest =
   LaunchTemplateSpotMarketOptionsRequest'
-    { _ltsmorBlockDurationMinutes =
-        Nothing,
-      _ltsmorInstanceInterruptionBehavior = Nothing,
-      _ltsmorValidUntil = Nothing,
-      _ltsmorSpotInstanceType = Nothing,
-      _ltsmorMaxPrice = Nothing
+    { blockDurationMinutes =
+        Lude.Nothing,
+      instanceInterruptionBehavior = Lude.Nothing,
+      validUntil = Lude.Nothing,
+      spotInstanceType = Lude.Nothing,
+      maxPrice = Lude.Nothing
     }
 
 -- | The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-ltsmorBlockDurationMinutes :: Lens' LaunchTemplateSpotMarketOptionsRequest (Maybe Int)
-ltsmorBlockDurationMinutes = lens _ltsmorBlockDurationMinutes (\s a -> s {_ltsmorBlockDurationMinutes = a})
+--
+-- /Note:/ Consider using 'blockDurationMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsmorBlockDurationMinutes :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe Lude.Int)
+ltsmorBlockDurationMinutes = Lens.lens (blockDurationMinutes :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe Lude.Int) (\s a -> s {blockDurationMinutes = a} :: LaunchTemplateSpotMarketOptionsRequest)
+{-# DEPRECATED ltsmorBlockDurationMinutes "Use generic-lens or generic-optics with 'blockDurationMinutes' instead." #-}
 
 -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
-ltsmorInstanceInterruptionBehavior :: Lens' LaunchTemplateSpotMarketOptionsRequest (Maybe InstanceInterruptionBehavior)
-ltsmorInstanceInterruptionBehavior = lens _ltsmorInstanceInterruptionBehavior (\s a -> s {_ltsmorInstanceInterruptionBehavior = a})
+--
+-- /Note:/ Consider using 'instanceInterruptionBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsmorInstanceInterruptionBehavior :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe InstanceInterruptionBehavior)
+ltsmorInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe InstanceInterruptionBehavior) (\s a -> s {instanceInterruptionBehavior = a} :: LaunchTemplateSpotMarketOptionsRequest)
+{-# DEPRECATED ltsmorInstanceInterruptionBehavior "Use generic-lens or generic-optics with 'instanceInterruptionBehavior' instead." #-}
 
 -- | The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
-ltsmorValidUntil :: Lens' LaunchTemplateSpotMarketOptionsRequest (Maybe UTCTime)
-ltsmorValidUntil = lens _ltsmorValidUntil (\s a -> s {_ltsmorValidUntil = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsmorValidUntil :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe Lude.ISO8601)
+ltsmorValidUntil = Lens.lens (validUntil :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: LaunchTemplateSpotMarketOptionsRequest)
+{-# DEPRECATED ltsmorValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The Spot Instance request type.
-ltsmorSpotInstanceType :: Lens' LaunchTemplateSpotMarketOptionsRequest (Maybe SpotInstanceType)
-ltsmorSpotInstanceType = lens _ltsmorSpotInstanceType (\s a -> s {_ltsmorSpotInstanceType = a})
+--
+-- /Note:/ Consider using 'spotInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsmorSpotInstanceType :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe SpotInstanceType)
+ltsmorSpotInstanceType = Lens.lens (spotInstanceType :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe SpotInstanceType) (\s a -> s {spotInstanceType = a} :: LaunchTemplateSpotMarketOptionsRequest)
+{-# DEPRECATED ltsmorSpotInstanceType "Use generic-lens or generic-optics with 'spotInstanceType' instead." #-}
 
 -- | The maximum hourly price you're willing to pay for the Spot Instances.
-ltsmorMaxPrice :: Lens' LaunchTemplateSpotMarketOptionsRequest (Maybe Text)
-ltsmorMaxPrice = lens _ltsmorMaxPrice (\s a -> s {_ltsmorMaxPrice = a})
+--
+-- /Note:/ Consider using 'maxPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsmorMaxPrice :: Lens.Lens' LaunchTemplateSpotMarketOptionsRequest (Lude.Maybe Lude.Text)
+ltsmorMaxPrice = Lens.lens (maxPrice :: LaunchTemplateSpotMarketOptionsRequest -> Lude.Maybe Lude.Text) (\s a -> s {maxPrice = a} :: LaunchTemplateSpotMarketOptionsRequest)
+{-# DEPRECATED ltsmorMaxPrice "Use generic-lens or generic-optics with 'maxPrice' instead." #-}
 
-instance Hashable LaunchTemplateSpotMarketOptionsRequest
-
-instance NFData LaunchTemplateSpotMarketOptionsRequest
-
-instance ToQuery LaunchTemplateSpotMarketOptionsRequest where
+instance Lude.ToQuery LaunchTemplateSpotMarketOptionsRequest where
   toQuery LaunchTemplateSpotMarketOptionsRequest' {..} =
-    mconcat
-      [ "BlockDurationMinutes" =: _ltsmorBlockDurationMinutes,
+    Lude.mconcat
+      [ "BlockDurationMinutes" Lude.=: blockDurationMinutes,
         "InstanceInterruptionBehavior"
-          =: _ltsmorInstanceInterruptionBehavior,
-        "ValidUntil" =: _ltsmorValidUntil,
-        "SpotInstanceType" =: _ltsmorSpotInstanceType,
-        "MaxPrice" =: _ltsmorMaxPrice
+          Lude.=: instanceInterruptionBehavior,
+        "ValidUntil" Lude.=: validUntil,
+        "SpotInstanceType" Lude.=: spotInstanceType,
+        "MaxPrice" Lude.=: maxPrice
       ]

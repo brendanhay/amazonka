@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,126 @@
 --
 -- Resumes a paused cluster.
 module Network.AWS.Redshift.ResumeCluster
-  ( -- * Creating a Request
-    resumeCluster,
-    ResumeCluster,
+  ( -- * Creating a request
+    ResumeCluster (..),
+    mkResumeCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     resClusterIdentifier,
 
-    -- * Destructuring the Response
-    resumeClusterResponse,
-    ResumeClusterResponse,
+    -- * Destructuring the response
+    ResumeClusterResponse (..),
+    mkResumeClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcrsCluster,
     rcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Describes a resume cluster operation. For example, a scheduled action to run the @ResumeCluster@ API operation.
 --
---
---
--- /See:/ 'resumeCluster' smart constructor.
+-- /See:/ 'mkResumeCluster' smart constructor.
 newtype ResumeCluster = ResumeCluster'
-  { _resClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'resClusterIdentifier' - The identifier of the cluster to be resumed.
-resumeCluster ::
-  -- | 'resClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The identifier of the cluster to be resumed.
+mkResumeCluster ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   ResumeCluster
-resumeCluster pClusterIdentifier_ =
-  ResumeCluster' {_resClusterIdentifier = pClusterIdentifier_}
+mkResumeCluster pClusterIdentifier_ =
+  ResumeCluster' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The identifier of the cluster to be resumed.
-resClusterIdentifier :: Lens' ResumeCluster Text
-resClusterIdentifier = lens _resClusterIdentifier (\s a -> s {_resClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resClusterIdentifier :: Lens.Lens' ResumeCluster Lude.Text
+resClusterIdentifier = Lens.lens (clusterIdentifier :: ResumeCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResumeCluster)
+{-# DEPRECATED resClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest ResumeCluster where
+instance Lude.AWSRequest ResumeCluster where
   type Rs ResumeCluster = ResumeClusterResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ResumeClusterResult"
       ( \s h x ->
           ResumeClusterResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResumeCluster
+instance Lude.ToHeaders ResumeCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResumeCluster
+instance Lude.ToPath ResumeCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResumeCluster where
-  toHeaders = const mempty
-
-instance ToPath ResumeCluster where
-  toPath = const "/"
-
-instance ToQuery ResumeCluster where
+instance Lude.ToQuery ResumeCluster where
   toQuery ResumeCluster' {..} =
-    mconcat
-      [ "Action" =: ("ResumeCluster" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _resClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("ResumeCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'resumeClusterResponse' smart constructor.
+-- | /See:/ 'mkResumeClusterResponse' smart constructor.
 data ResumeClusterResponse = ResumeClusterResponse'
-  { _rcrsCluster ::
-      !(Maybe Cluster),
-    _rcrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcrsCluster' - Undocumented member.
---
--- * 'rcrsResponseStatus' - -- | The response status code.
-resumeClusterResponse ::
-  -- | 'rcrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkResumeClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResumeClusterResponse
-resumeClusterResponse pResponseStatus_ =
+mkResumeClusterResponse pResponseStatus_ =
   ResumeClusterResponse'
-    { _rcrsCluster = Nothing,
-      _rcrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rcrsCluster :: Lens' ResumeClusterResponse (Maybe Cluster)
-rcrsCluster = lens _rcrsCluster (\s a -> s {_rcrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsCluster :: Lens.Lens' ResumeClusterResponse (Lude.Maybe Cluster)
+rcrsCluster = Lens.lens (cluster :: ResumeClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ResumeClusterResponse)
+{-# DEPRECATED rcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' ResumeClusterResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\s a -> s {_rcrsResponseStatus = a})
-
-instance NFData ResumeClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrsResponseStatus :: Lens.Lens' ResumeClusterResponse Lude.Int
+rcrsResponseStatus = Lens.lens (responseStatus :: ResumeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResumeClusterResponse)
+{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.InspectorEvent where
+module Network.AWS.Inspector.Types.InspectorEvent
+  ( InspectorEvent
+      ( InspectorEvent',
+        AssessmentRunCompleted,
+        AssessmentRunStarted,
+        AssessmentRunStateChanged,
+        FindingReported,
+        Other
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InspectorEvent
-  = AssessmentRunCompleted
-  | AssessmentRunStarted
-  | AssessmentRunStateChanged
-  | FindingReported
-  | Other
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InspectorEvent = InspectorEvent' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InspectorEvent where
-  parser =
-    takeLowerText >>= \case
-      "assessment_run_completed" -> pure AssessmentRunCompleted
-      "assessment_run_started" -> pure AssessmentRunStarted
-      "assessment_run_state_changed" -> pure AssessmentRunStateChanged
-      "finding_reported" -> pure FindingReported
-      "other" -> pure Other
-      e ->
-        fromTextError $
-          "Failure parsing InspectorEvent from value: '" <> e
-            <> "'. Accepted values: assessment_run_completed, assessment_run_started, assessment_run_state_changed, finding_reported, other"
+pattern AssessmentRunCompleted :: InspectorEvent
+pattern AssessmentRunCompleted = InspectorEvent' "ASSESSMENT_RUN_COMPLETED"
 
-instance ToText InspectorEvent where
-  toText = \case
-    AssessmentRunCompleted -> "ASSESSMENT_RUN_COMPLETED"
-    AssessmentRunStarted -> "ASSESSMENT_RUN_STARTED"
-    AssessmentRunStateChanged -> "ASSESSMENT_RUN_STATE_CHANGED"
-    FindingReported -> "FINDING_REPORTED"
-    Other -> "OTHER"
+pattern AssessmentRunStarted :: InspectorEvent
+pattern AssessmentRunStarted = InspectorEvent' "ASSESSMENT_RUN_STARTED"
 
-instance Hashable InspectorEvent
+pattern AssessmentRunStateChanged :: InspectorEvent
+pattern AssessmentRunStateChanged = InspectorEvent' "ASSESSMENT_RUN_STATE_CHANGED"
 
-instance NFData InspectorEvent
+pattern FindingReported :: InspectorEvent
+pattern FindingReported = InspectorEvent' "FINDING_REPORTED"
 
-instance ToByteString InspectorEvent
+pattern Other :: InspectorEvent
+pattern Other = InspectorEvent' "OTHER"
 
-instance ToQuery InspectorEvent
-
-instance ToHeader InspectorEvent
-
-instance ToJSON InspectorEvent where
-  toJSON = toJSONText
-
-instance FromJSON InspectorEvent where
-  parseJSON = parseJSONText "InspectorEvent"
+{-# COMPLETE
+  AssessmentRunCompleted,
+  AssessmentRunStarted,
+  AssessmentRunStateChanged,
+  FindingReported,
+  Other,
+  InspectorEvent'
+  #-}

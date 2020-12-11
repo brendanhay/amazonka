@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,108 @@
 --
 -- Unassigns one or more secondary private IP addresses from a network interface.
 module Network.AWS.EC2.UnassignPrivateIPAddresses
-  ( -- * Creating a Request
-    unassignPrivateIPAddresses,
-    UnassignPrivateIPAddresses,
+  ( -- * Creating a request
+    UnassignPrivateIPAddresses (..),
+    mkUnassignPrivateIPAddresses,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upiaNetworkInterfaceId,
     upiaPrivateIPAddresses,
 
-    -- * Destructuring the Response
-    unassignPrivateIPAddressesResponse,
-    UnassignPrivateIPAddressesResponse,
+    -- * Destructuring the response
+    UnassignPrivateIPAddressesResponse (..),
+    mkUnassignPrivateIPAddressesResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for UnassignPrivateIpAddresses.
 --
---
---
--- /See:/ 'unassignPrivateIPAddresses' smart constructor.
+-- /See:/ 'mkUnassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
-  { _upiaNetworkInterfaceId ::
-      !Text,
-    _upiaPrivateIPAddresses :: ![Text]
+  { networkInterfaceId ::
+      Lude.Text,
+    privateIPAddresses :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignPrivateIPAddresses' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upiaNetworkInterfaceId' - The ID of the network interface.
---
--- * 'upiaPrivateIPAddresses' - The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
-unassignPrivateIPAddresses ::
-  -- | 'upiaNetworkInterfaceId'
-  Text ->
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'privateIPAddresses' - The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
+mkUnassignPrivateIPAddresses ::
+  -- | 'networkInterfaceId'
+  Lude.Text ->
   UnassignPrivateIPAddresses
-unassignPrivateIPAddresses pNetworkInterfaceId_ =
+mkUnassignPrivateIPAddresses pNetworkInterfaceId_ =
   UnassignPrivateIPAddresses'
-    { _upiaNetworkInterfaceId =
+    { networkInterfaceId =
         pNetworkInterfaceId_,
-      _upiaPrivateIPAddresses = mempty
+      privateIPAddresses = Lude.mempty
     }
 
 -- | The ID of the network interface.
-upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
-upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\s a -> s {_upiaNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upiaNetworkInterfaceId :: Lens.Lens' UnassignPrivateIPAddresses Lude.Text
+upiaNetworkInterfaceId = Lens.lens (networkInterfaceId :: UnassignPrivateIPAddresses -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: UnassignPrivateIPAddresses)
+{-# DEPRECATED upiaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
-upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
-upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\s a -> s {_upiaPrivateIPAddresses = a}) . _Coerce
+--
+-- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upiaPrivateIPAddresses :: Lens.Lens' UnassignPrivateIPAddresses [Lude.Text]
+upiaPrivateIPAddresses = Lens.lens (privateIPAddresses :: UnassignPrivateIPAddresses -> [Lude.Text]) (\s a -> s {privateIPAddresses = a} :: UnassignPrivateIPAddresses)
+{-# DEPRECATED upiaPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
 
-instance AWSRequest UnassignPrivateIPAddresses where
+instance Lude.AWSRequest UnassignPrivateIPAddresses where
   type
     Rs UnassignPrivateIPAddresses =
       UnassignPrivateIPAddressesResponse
-  request = postQuery ec2
-  response = receiveNull UnassignPrivateIPAddressesResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull UnassignPrivateIPAddressesResponse'
 
-instance Hashable UnassignPrivateIPAddresses
+instance Lude.ToHeaders UnassignPrivateIPAddresses where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UnassignPrivateIPAddresses
+instance Lude.ToPath UnassignPrivateIPAddresses where
+  toPath = Lude.const "/"
 
-instance ToHeaders UnassignPrivateIPAddresses where
-  toHeaders = const mempty
-
-instance ToPath UnassignPrivateIPAddresses where
-  toPath = const "/"
-
-instance ToQuery UnassignPrivateIPAddresses where
+instance Lude.ToQuery UnassignPrivateIPAddresses where
   toQuery UnassignPrivateIPAddresses' {..} =
-    mconcat
-      [ "Action" =: ("UnassignPrivateIpAddresses" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NetworkInterfaceId" =: _upiaNetworkInterfaceId,
-        toQueryList "PrivateIpAddress" _upiaPrivateIPAddresses
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("UnassignPrivateIpAddresses" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
+        Lude.toQueryList "PrivateIpAddress" privateIPAddresses
       ]
 
--- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
+-- | /See:/ 'mkUnassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignPrivateIPAddressesResponse' with the minimum fields required to make a request.
-unassignPrivateIPAddressesResponse ::
+mkUnassignPrivateIPAddressesResponse ::
   UnassignPrivateIPAddressesResponse
-unassignPrivateIPAddressesResponse =
+mkUnassignPrivateIPAddressesResponse =
   UnassignPrivateIPAddressesResponse'
-
-instance NFData UnassignPrivateIPAddressesResponse

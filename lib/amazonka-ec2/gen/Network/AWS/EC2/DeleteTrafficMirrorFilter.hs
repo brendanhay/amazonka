@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,144 @@
 --
 -- Deletes the specified Traffic Mirror filter.
 --
---
 -- You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.
 module Network.AWS.EC2.DeleteTrafficMirrorFilter
-  ( -- * Creating a Request
-    deleteTrafficMirrorFilter,
-    DeleteTrafficMirrorFilter,
+  ( -- * Creating a request
+    DeleteTrafficMirrorFilter (..),
+    mkDeleteTrafficMirrorFilter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtmftDryRun,
     dtmftTrafficMirrorFilterId,
 
-    -- * Destructuring the Response
-    deleteTrafficMirrorFilterResponse,
-    DeleteTrafficMirrorFilterResponse,
+    -- * Destructuring the response
+    DeleteTrafficMirrorFilterResponse (..),
+    mkDeleteTrafficMirrorFilterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtmfrsTrafficMirrorFilterId,
     dtmfrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTrafficMirrorFilter' smart constructor.
+-- | /See:/ 'mkDeleteTrafficMirrorFilter' smart constructor.
 data DeleteTrafficMirrorFilter = DeleteTrafficMirrorFilter'
-  { _dtmftDryRun ::
-      !(Maybe Bool),
-    _dtmftTrafficMirrorFilterId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    trafficMirrorFilterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficMirrorFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtmftDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dtmftTrafficMirrorFilterId' - The ID of the Traffic Mirror filter.
-deleteTrafficMirrorFilter ::
-  -- | 'dtmftTrafficMirrorFilterId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+mkDeleteTrafficMirrorFilter ::
+  -- | 'trafficMirrorFilterId'
+  Lude.Text ->
   DeleteTrafficMirrorFilter
-deleteTrafficMirrorFilter pTrafficMirrorFilterId_ =
+mkDeleteTrafficMirrorFilter pTrafficMirrorFilterId_ =
   DeleteTrafficMirrorFilter'
-    { _dtmftDryRun = Nothing,
-      _dtmftTrafficMirrorFilterId = pTrafficMirrorFilterId_
+    { dryRun = Lude.Nothing,
+      trafficMirrorFilterId = pTrafficMirrorFilterId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtmftDryRun :: Lens' DeleteTrafficMirrorFilter (Maybe Bool)
-dtmftDryRun = lens _dtmftDryRun (\s a -> s {_dtmftDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmftDryRun :: Lens.Lens' DeleteTrafficMirrorFilter (Lude.Maybe Lude.Bool)
+dtmftDryRun = Lens.lens (dryRun :: DeleteTrafficMirrorFilter -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTrafficMirrorFilter)
+{-# DEPRECATED dtmftDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Traffic Mirror filter.
-dtmftTrafficMirrorFilterId :: Lens' DeleteTrafficMirrorFilter Text
-dtmftTrafficMirrorFilterId = lens _dtmftTrafficMirrorFilterId (\s a -> s {_dtmftTrafficMirrorFilterId = a})
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmftTrafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilter Lude.Text
+dtmftTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: DeleteTrafficMirrorFilter -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilter)
+{-# DEPRECATED dtmftTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
 
-instance AWSRequest DeleteTrafficMirrorFilter where
+instance Lude.AWSRequest DeleteTrafficMirrorFilter where
   type
     Rs DeleteTrafficMirrorFilter =
       DeleteTrafficMirrorFilterResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteTrafficMirrorFilterResponse'
-            <$> (x .@? "trafficMirrorFilterId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "trafficMirrorFilterId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTrafficMirrorFilter
+instance Lude.ToHeaders DeleteTrafficMirrorFilter where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTrafficMirrorFilter
+instance Lude.ToPath DeleteTrafficMirrorFilter where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteTrafficMirrorFilter where
-  toHeaders = const mempty
-
-instance ToPath DeleteTrafficMirrorFilter where
-  toPath = const "/"
-
-instance ToQuery DeleteTrafficMirrorFilter where
+instance Lude.ToQuery DeleteTrafficMirrorFilter where
   toQuery DeleteTrafficMirrorFilter' {..} =
-    mconcat
-      [ "Action" =: ("DeleteTrafficMirrorFilter" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dtmftDryRun,
-        "TrafficMirrorFilterId" =: _dtmftTrafficMirrorFilterId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteTrafficMirrorFilter" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId
       ]
 
--- | /See:/ 'deleteTrafficMirrorFilterResponse' smart constructor.
+-- | /See:/ 'mkDeleteTrafficMirrorFilterResponse' smart constructor.
 data DeleteTrafficMirrorFilterResponse = DeleteTrafficMirrorFilterResponse'
-  { _dtmfrsTrafficMirrorFilterId ::
-      !(Maybe Text),
-    _dtmfrsResponseStatus ::
-      !Int
+  { trafficMirrorFilterId ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficMirrorFilterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtmfrsTrafficMirrorFilterId' - The ID of the Traffic Mirror filter.
---
--- * 'dtmfrsResponseStatus' - -- | The response status code.
-deleteTrafficMirrorFilterResponse ::
-  -- | 'dtmfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+mkDeleteTrafficMirrorFilterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTrafficMirrorFilterResponse
-deleteTrafficMirrorFilterResponse pResponseStatus_ =
+mkDeleteTrafficMirrorFilterResponse pResponseStatus_ =
   DeleteTrafficMirrorFilterResponse'
-    { _dtmfrsTrafficMirrorFilterId =
-        Nothing,
-      _dtmfrsResponseStatus = pResponseStatus_
+    { trafficMirrorFilterId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the Traffic Mirror filter.
-dtmfrsTrafficMirrorFilterId :: Lens' DeleteTrafficMirrorFilterResponse (Maybe Text)
-dtmfrsTrafficMirrorFilterId = lens _dtmfrsTrafficMirrorFilterId (\s a -> s {_dtmfrsTrafficMirrorFilterId = a})
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfrsTrafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilterResponse (Lude.Maybe Lude.Text)
+dtmfrsTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: DeleteTrafficMirrorFilterResponse -> Lude.Maybe Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilterResponse)
+{-# DEPRECATED dtmfrsTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
 
--- | -- | The response status code.
-dtmfrsResponseStatus :: Lens' DeleteTrafficMirrorFilterResponse Int
-dtmfrsResponseStatus = lens _dtmfrsResponseStatus (\s a -> s {_dtmfrsResponseStatus = a})
-
-instance NFData DeleteTrafficMirrorFilterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfrsResponseStatus :: Lens.Lens' DeleteTrafficMirrorFilterResponse Lude.Int
+dtmfrsResponseStatus = Lens.lens (responseStatus :: DeleteTrafficMirrorFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrafficMirrorFilterResponse)
+{-# DEPRECATED dtmfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

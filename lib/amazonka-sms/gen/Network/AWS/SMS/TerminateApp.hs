@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Terminates the stack for the specified application.
 module Network.AWS.SMS.TerminateApp
-  ( -- * Creating a Request
-    terminateApp,
-    TerminateApp,
+  ( -- * Creating a request
+    TerminateApp (..),
+    mkTerminateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     taAppId,
 
-    -- * Destructuring the Response
-    terminateAppResponse,
-    TerminateAppResponse,
+    -- * Destructuring the response
+    TerminateAppResponse (..),
+    mkTerminateAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'terminateApp' smart constructor.
-newtype TerminateApp = TerminateApp' {_taAppId :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkTerminateApp' smart constructor.
+newtype TerminateApp = TerminateApp' {appId :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'taAppId' - The ID of the application.
-terminateApp ::
+-- * 'appId' - The ID of the application.
+mkTerminateApp ::
   TerminateApp
-terminateApp = TerminateApp' {_taAppId = Nothing}
+mkTerminateApp = TerminateApp' {appId = Lude.Nothing}
 
 -- | The ID of the application.
-taAppId :: Lens' TerminateApp (Maybe Text)
-taAppId = lens _taAppId (\s a -> s {_taAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taAppId :: Lens.Lens' TerminateApp (Lude.Maybe Lude.Text)
+taAppId = Lens.lens (appId :: TerminateApp -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: TerminateApp)
+{-# DEPRECATED taAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest TerminateApp where
+instance Lude.AWSRequest TerminateApp where
   type Rs TerminateApp = TerminateAppResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> TerminateAppResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          TerminateAppResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable TerminateApp
-
-instance NFData TerminateApp
-
-instance ToHeaders TerminateApp where
+instance Lude.ToHeaders TerminateApp where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.TerminateApp" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.TerminateApp" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TerminateApp where
+instance Lude.ToJSON TerminateApp where
   toJSON TerminateApp' {..} =
-    object (catMaybes [("appId" .=) <$> _taAppId])
+    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
 
-instance ToPath TerminateApp where
-  toPath = const "/"
+instance Lude.ToPath TerminateApp where
+  toPath = Lude.const "/"
 
-instance ToQuery TerminateApp where
-  toQuery = const mempty
+instance Lude.ToQuery TerminateApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'terminateAppResponse' smart constructor.
+-- | /See:/ 'mkTerminateAppResponse' smart constructor.
 newtype TerminateAppResponse = TerminateAppResponse'
-  { _tarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tarsResponseStatus' - -- | The response status code.
-terminateAppResponse ::
-  -- | 'tarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkTerminateAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TerminateAppResponse
-terminateAppResponse pResponseStatus_ =
-  TerminateAppResponse' {_tarsResponseStatus = pResponseStatus_}
+mkTerminateAppResponse pResponseStatus_ =
+  TerminateAppResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-tarsResponseStatus :: Lens' TerminateAppResponse Int
-tarsResponseStatus = lens _tarsResponseStatus (\s a -> s {_tarsResponseStatus = a})
-
-instance NFData TerminateAppResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tarsResponseStatus :: Lens.Lens' TerminateAppResponse Lude.Int
+tarsResponseStatus = Lens.lens (responseStatus :: TerminateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateAppResponse)
+{-# DEPRECATED tarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

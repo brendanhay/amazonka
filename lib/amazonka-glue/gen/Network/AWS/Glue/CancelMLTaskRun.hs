@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS Glue runs on your behalf as part of various machine learning workflows. You can cancel a machine learning task run at any time by calling @CancelMLTaskRun@ with a task run's parent transform's @TransformID@ and the task run's @TaskRunId@ .
 module Network.AWS.Glue.CancelMLTaskRun
-  ( -- * Creating a Request
-    cancelMLTaskRun,
-    CancelMLTaskRun,
+  ( -- * Creating a request
+    CancelMLTaskRun (..),
+    mkCancelMLTaskRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmltrTransformId,
     cmltrTaskRunId,
 
-    -- * Destructuring the Response
-    cancelMLTaskRunResponse,
-    CancelMLTaskRunResponse,
+    -- * Destructuring the response
+    CancelMLTaskRunResponse (..),
+    mkCancelMLTaskRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmltrrsStatus,
     cmltrrsTransformId,
     cmltrrsTaskRunId,
@@ -40,133 +35,153 @@ module Network.AWS.Glue.CancelMLTaskRun
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelMLTaskRun' smart constructor.
+-- | /See:/ 'mkCancelMLTaskRun' smart constructor.
 data CancelMLTaskRun = CancelMLTaskRun'
-  { _cmltrTransformId :: !Text,
-    _cmltrTaskRunId :: !Text
+  { transformId :: Lude.Text,
+    taskRunId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelMLTaskRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmltrTransformId' - The unique identifier of the machine learning transform.
---
--- * 'cmltrTaskRunId' - A unique identifier for the task run.
-cancelMLTaskRun ::
-  -- | 'cmltrTransformId'
-  Text ->
-  -- | 'cmltrTaskRunId'
-  Text ->
+-- * 'taskRunId' - A unique identifier for the task run.
+-- * 'transformId' - The unique identifier of the machine learning transform.
+mkCancelMLTaskRun ::
+  -- | 'transformId'
+  Lude.Text ->
+  -- | 'taskRunId'
+  Lude.Text ->
   CancelMLTaskRun
-cancelMLTaskRun pTransformId_ pTaskRunId_ =
+mkCancelMLTaskRun pTransformId_ pTaskRunId_ =
   CancelMLTaskRun'
-    { _cmltrTransformId = pTransformId_,
-      _cmltrTaskRunId = pTaskRunId_
+    { transformId = pTransformId_,
+      taskRunId = pTaskRunId_
     }
 
 -- | The unique identifier of the machine learning transform.
-cmltrTransformId :: Lens' CancelMLTaskRun Text
-cmltrTransformId = lens _cmltrTransformId (\s a -> s {_cmltrTransformId = a})
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrTransformId :: Lens.Lens' CancelMLTaskRun Lude.Text
+cmltrTransformId = Lens.lens (transformId :: CancelMLTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: CancelMLTaskRun)
+{-# DEPRECATED cmltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | A unique identifier for the task run.
-cmltrTaskRunId :: Lens' CancelMLTaskRun Text
-cmltrTaskRunId = lens _cmltrTaskRunId (\s a -> s {_cmltrTaskRunId = a})
+--
+-- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrTaskRunId :: Lens.Lens' CancelMLTaskRun Lude.Text
+cmltrTaskRunId = Lens.lens (taskRunId :: CancelMLTaskRun -> Lude.Text) (\s a -> s {taskRunId = a} :: CancelMLTaskRun)
+{-# DEPRECATED cmltrTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
-instance AWSRequest CancelMLTaskRun where
+instance Lude.AWSRequest CancelMLTaskRun where
   type Rs CancelMLTaskRun = CancelMLTaskRunResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CancelMLTaskRunResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "TransformId")
-            <*> (x .?> "TaskRunId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "TransformId")
+            Lude.<*> (x Lude..?> "TaskRunId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelMLTaskRun
-
-instance NFData CancelMLTaskRun
-
-instance ToHeaders CancelMLTaskRun where
+instance Lude.ToHeaders CancelMLTaskRun where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CancelMLTaskRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CancelMLTaskRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelMLTaskRun where
+instance Lude.ToJSON CancelMLTaskRun where
   toJSON CancelMLTaskRun' {..} =
-    object
-      ( catMaybes
-          [ Just ("TransformId" .= _cmltrTransformId),
-            Just ("TaskRunId" .= _cmltrTaskRunId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TransformId" Lude..= transformId),
+            Lude.Just ("TaskRunId" Lude..= taskRunId)
           ]
       )
 
-instance ToPath CancelMLTaskRun where
-  toPath = const "/"
+instance Lude.ToPath CancelMLTaskRun where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelMLTaskRun where
-  toQuery = const mempty
+instance Lude.ToQuery CancelMLTaskRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelMLTaskRunResponse' smart constructor.
+-- | /See:/ 'mkCancelMLTaskRunResponse' smart constructor.
 data CancelMLTaskRunResponse = CancelMLTaskRunResponse'
-  { _cmltrrsStatus ::
-      !(Maybe TaskStatusType),
-    _cmltrrsTransformId :: !(Maybe Text),
-    _cmltrrsTaskRunId :: !(Maybe Text),
-    _cmltrrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe TaskStatusType,
+    transformId :: Lude.Maybe Lude.Text,
+    taskRunId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelMLTaskRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmltrrsStatus' - The status for this run.
---
--- * 'cmltrrsTransformId' - The unique identifier of the machine learning transform.
---
--- * 'cmltrrsTaskRunId' - The unique identifier for the task run.
---
--- * 'cmltrrsResponseStatus' - -- | The response status code.
-cancelMLTaskRunResponse ::
-  -- | 'cmltrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status for this run.
+-- * 'taskRunId' - The unique identifier for the task run.
+-- * 'transformId' - The unique identifier of the machine learning transform.
+mkCancelMLTaskRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelMLTaskRunResponse
-cancelMLTaskRunResponse pResponseStatus_ =
+mkCancelMLTaskRunResponse pResponseStatus_ =
   CancelMLTaskRunResponse'
-    { _cmltrrsStatus = Nothing,
-      _cmltrrsTransformId = Nothing,
-      _cmltrrsTaskRunId = Nothing,
-      _cmltrrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      transformId = Lude.Nothing,
+      taskRunId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status for this run.
-cmltrrsStatus :: Lens' CancelMLTaskRunResponse (Maybe TaskStatusType)
-cmltrrsStatus = lens _cmltrrsStatus (\s a -> s {_cmltrrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrrsStatus :: Lens.Lens' CancelMLTaskRunResponse (Lude.Maybe TaskStatusType)
+cmltrrsStatus = Lens.lens (status :: CancelMLTaskRunResponse -> Lude.Maybe TaskStatusType) (\s a -> s {status = a} :: CancelMLTaskRunResponse)
+{-# DEPRECATED cmltrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier of the machine learning transform.
-cmltrrsTransformId :: Lens' CancelMLTaskRunResponse (Maybe Text)
-cmltrrsTransformId = lens _cmltrrsTransformId (\s a -> s {_cmltrrsTransformId = a})
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrrsTransformId :: Lens.Lens' CancelMLTaskRunResponse (Lude.Maybe Lude.Text)
+cmltrrsTransformId = Lens.lens (transformId :: CancelMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {transformId = a} :: CancelMLTaskRunResponse)
+{-# DEPRECATED cmltrrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The unique identifier for the task run.
-cmltrrsTaskRunId :: Lens' CancelMLTaskRunResponse (Maybe Text)
-cmltrrsTaskRunId = lens _cmltrrsTaskRunId (\s a -> s {_cmltrrsTaskRunId = a})
+--
+-- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrrsTaskRunId :: Lens.Lens' CancelMLTaskRunResponse (Lude.Maybe Lude.Text)
+cmltrrsTaskRunId = Lens.lens (taskRunId :: CancelMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskRunId = a} :: CancelMLTaskRunResponse)
+{-# DEPRECATED cmltrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
--- | -- | The response status code.
-cmltrrsResponseStatus :: Lens' CancelMLTaskRunResponse Int
-cmltrrsResponseStatus = lens _cmltrrsResponseStatus (\s a -> s {_cmltrrsResponseStatus = a})
-
-instance NFData CancelMLTaskRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmltrrsResponseStatus :: Lens.Lens' CancelMLTaskRunResponse Lude.Int
+cmltrrsResponseStatus = Lens.lens (responseStatus :: CancelMLTaskRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelMLTaskRunResponse)
+{-# DEPRECATED cmltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

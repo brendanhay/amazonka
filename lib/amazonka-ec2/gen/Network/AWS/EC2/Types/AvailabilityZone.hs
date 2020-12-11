@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,137 +7,189 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AvailabilityZone where
+module Network.AWS.EC2.Types.AvailabilityZone
+  ( AvailabilityZone (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkAvailabilityZone,
+
+    -- * Lenses
+    azState,
+    azParentZoneId,
+    azRegionName,
+    azParentZoneName,
+    azNetworkBorderGroup,
+    azZoneId,
+    azZoneName,
+    azOptInStatus,
+    azMessages,
+    azGroupName,
+    azZoneType,
+  )
+where
+
 import Network.AWS.EC2.Types.AvailabilityZoneMessage
 import Network.AWS.EC2.Types.AvailabilityZoneOptInStatus
 import Network.AWS.EC2.Types.AvailabilityZoneState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes Availability Zones, Local Zones, and Wavelength Zones.
 --
---
---
--- /See:/ 'availabilityZone' smart constructor.
+-- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { _azState ::
-      !(Maybe AvailabilityZoneState),
-    _azParentZoneId :: !(Maybe Text),
-    _azRegionName :: !(Maybe Text),
-    _azParentZoneName :: !(Maybe Text),
-    _azNetworkBorderGroup :: !(Maybe Text),
-    _azZoneId :: !(Maybe Text),
-    _azZoneName :: !(Maybe Text),
-    _azOptInStatus :: !(Maybe AvailabilityZoneOptInStatus),
-    _azMessages :: !(Maybe [AvailabilityZoneMessage]),
-    _azGroupName :: !(Maybe Text),
-    _azZoneType :: !(Maybe Text)
+  { state ::
+      Lude.Maybe AvailabilityZoneState,
+    parentZoneId :: Lude.Maybe Lude.Text,
+    regionName :: Lude.Maybe Lude.Text,
+    parentZoneName :: Lude.Maybe Lude.Text,
+    networkBorderGroup :: Lude.Maybe Lude.Text,
+    zoneId :: Lude.Maybe Lude.Text,
+    zoneName :: Lude.Maybe Lude.Text,
+    optInStatus :: Lude.Maybe AvailabilityZoneOptInStatus,
+    messages :: Lude.Maybe [AvailabilityZoneMessage],
+    groupName :: Lude.Maybe Lude.Text,
+    zoneType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - For Availability Zones, this parameter has the same value as the Region name.
 --
--- * 'azState' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
+-- For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ .
+-- For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
+-- * 'messages' - Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'networkBorderGroup' - The name of the network border group.
+-- * 'optInStatus' - For Availability Zones, this parameter always has the value of @opt-in-not-required@ .
 --
--- * 'azParentZoneId' - The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
---
--- * 'azRegionName' - The name of the Region.
---
--- * 'azParentZoneName' - The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
---
--- * 'azNetworkBorderGroup' - The name of the network border group.
---
--- * 'azZoneId' - The ID of the Availability Zone, Local Zone, or Wavelength Zone.
---
--- * 'azZoneName' - The name of the Availability Zone, Local Zone, or Wavelength Zone.
---
--- * 'azOptInStatus' - For Availability Zones, this parameter always has the value of @opt-in-not-required@ . For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
---
--- * 'azMessages' - Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
---
--- * 'azGroupName' - For Availability Zones, this parameter has the same value as the Region name. For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ . For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
---
--- * 'azZoneType' - The type of zone. The valid values are @availability-zone@ , @local-zone@ , and @wavelength-zone@ .
-availabilityZone ::
+-- For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
+-- * 'parentZoneId' - The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+-- * 'parentZoneName' - The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+-- * 'regionName' - The name of the Region.
+-- * 'state' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'zoneId' - The ID of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'zoneName' - The name of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'zoneType' - The type of zone. The valid values are @availability-zone@ , @local-zone@ , and @wavelength-zone@ .
+mkAvailabilityZone ::
   AvailabilityZone
-availabilityZone =
+mkAvailabilityZone =
   AvailabilityZone'
-    { _azState = Nothing,
-      _azParentZoneId = Nothing,
-      _azRegionName = Nothing,
-      _azParentZoneName = Nothing,
-      _azNetworkBorderGroup = Nothing,
-      _azZoneId = Nothing,
-      _azZoneName = Nothing,
-      _azOptInStatus = Nothing,
-      _azMessages = Nothing,
-      _azGroupName = Nothing,
-      _azZoneType = Nothing
+    { state = Lude.Nothing,
+      parentZoneId = Lude.Nothing,
+      regionName = Lude.Nothing,
+      parentZoneName = Lude.Nothing,
+      networkBorderGroup = Lude.Nothing,
+      zoneId = Lude.Nothing,
+      zoneName = Lude.Nothing,
+      optInStatus = Lude.Nothing,
+      messages = Lude.Nothing,
+      groupName = Lude.Nothing,
+      zoneType = Lude.Nothing
     }
 
 -- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
-azState :: Lens' AvailabilityZone (Maybe AvailabilityZoneState)
-azState = lens _azState (\s a -> s {_azState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azState :: Lens.Lens' AvailabilityZone (Lude.Maybe AvailabilityZoneState)
+azState = Lens.lens (state :: AvailabilityZone -> Lude.Maybe AvailabilityZoneState) (\s a -> s {state = a} :: AvailabilityZone)
+{-# DEPRECATED azState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-azParentZoneId :: Lens' AvailabilityZone (Maybe Text)
-azParentZoneId = lens _azParentZoneId (\s a -> s {_azParentZoneId = a})
+--
+-- /Note:/ Consider using 'parentZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azParentZoneId :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azParentZoneId = Lens.lens (parentZoneId :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {parentZoneId = a} :: AvailabilityZone)
+{-# DEPRECATED azParentZoneId "Use generic-lens or generic-optics with 'parentZoneId' instead." #-}
 
 -- | The name of the Region.
-azRegionName :: Lens' AvailabilityZone (Maybe Text)
-azRegionName = lens _azRegionName (\s a -> s {_azRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azRegionName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azRegionName = Lens.lens (regionName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: AvailabilityZone)
+{-# DEPRECATED azRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-azParentZoneName :: Lens' AvailabilityZone (Maybe Text)
-azParentZoneName = lens _azParentZoneName (\s a -> s {_azParentZoneName = a})
+--
+-- /Note:/ Consider using 'parentZoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azParentZoneName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azParentZoneName = Lens.lens (parentZoneName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {parentZoneName = a} :: AvailabilityZone)
+{-# DEPRECATED azParentZoneName "Use generic-lens or generic-optics with 'parentZoneName' instead." #-}
 
 -- | The name of the network border group.
-azNetworkBorderGroup :: Lens' AvailabilityZone (Maybe Text)
-azNetworkBorderGroup = lens _azNetworkBorderGroup (\s a -> s {_azNetworkBorderGroup = a})
+--
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azNetworkBorderGroup :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azNetworkBorderGroup = Lens.lens (networkBorderGroup :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: AvailabilityZone)
+{-# DEPRECATED azNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
 
 -- | The ID of the Availability Zone, Local Zone, or Wavelength Zone.
-azZoneId :: Lens' AvailabilityZone (Maybe Text)
-azZoneId = lens _azZoneId (\s a -> s {_azZoneId = a})
+--
+-- /Note:/ Consider using 'zoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azZoneId :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azZoneId = Lens.lens (zoneId :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {zoneId = a} :: AvailabilityZone)
+{-# DEPRECATED azZoneId "Use generic-lens or generic-optics with 'zoneId' instead." #-}
 
 -- | The name of the Availability Zone, Local Zone, or Wavelength Zone.
-azZoneName :: Lens' AvailabilityZone (Maybe Text)
-azZoneName = lens _azZoneName (\s a -> s {_azZoneName = a})
+--
+-- /Note:/ Consider using 'zoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azZoneName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azZoneName = Lens.lens (zoneName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {zoneName = a} :: AvailabilityZone)
+{-# DEPRECATED azZoneName "Use generic-lens or generic-optics with 'zoneName' instead." #-}
 
--- | For Availability Zones, this parameter always has the value of @opt-in-not-required@ . For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
-azOptInStatus :: Lens' AvailabilityZone (Maybe AvailabilityZoneOptInStatus)
-azOptInStatus = lens _azOptInStatus (\s a -> s {_azOptInStatus = a})
+-- | For Availability Zones, this parameter always has the value of @opt-in-not-required@ .
+--
+-- For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
+--
+-- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azOptInStatus :: Lens.Lens' AvailabilityZone (Lude.Maybe AvailabilityZoneOptInStatus)
+azOptInStatus = Lens.lens (optInStatus :: AvailabilityZone -> Lude.Maybe AvailabilityZoneOptInStatus) (\s a -> s {optInStatus = a} :: AvailabilityZone)
+{-# DEPRECATED azOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
 
 -- | Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
-azMessages :: Lens' AvailabilityZone [AvailabilityZoneMessage]
-azMessages = lens _azMessages (\s a -> s {_azMessages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'messages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azMessages :: Lens.Lens' AvailabilityZone (Lude.Maybe [AvailabilityZoneMessage])
+azMessages = Lens.lens (messages :: AvailabilityZone -> Lude.Maybe [AvailabilityZoneMessage]) (\s a -> s {messages = a} :: AvailabilityZone)
+{-# DEPRECATED azMessages "Use generic-lens or generic-optics with 'messages' instead." #-}
 
--- | For Availability Zones, this parameter has the same value as the Region name. For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ . For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
-azGroupName :: Lens' AvailabilityZone (Maybe Text)
-azGroupName = lens _azGroupName (\s a -> s {_azGroupName = a})
+-- | For Availability Zones, this parameter has the same value as the Region name.
+--
+-- For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ .
+-- For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azGroupName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azGroupName = Lens.lens (groupName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: AvailabilityZone)
+{-# DEPRECATED azGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The type of zone. The valid values are @availability-zone@ , @local-zone@ , and @wavelength-zone@ .
-azZoneType :: Lens' AvailabilityZone (Maybe Text)
-azZoneType = lens _azZoneType (\s a -> s {_azZoneType = a})
+--
+-- /Note:/ Consider using 'zoneType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azZoneType :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azZoneType = Lens.lens (zoneType :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {zoneType = a} :: AvailabilityZone)
+{-# DEPRECATED azZoneType "Use generic-lens or generic-optics with 'zoneType' instead." #-}
 
-instance FromXML AvailabilityZone where
+instance Lude.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      <$> (x .@? "zoneState")
-      <*> (x .@? "parentZoneId")
-      <*> (x .@? "regionName")
-      <*> (x .@? "parentZoneName")
-      <*> (x .@? "networkBorderGroup")
-      <*> (x .@? "zoneId")
-      <*> (x .@? "zoneName")
-      <*> (x .@? "optInStatus")
-      <*> (x .@? "messageSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "groupName")
-      <*> (x .@? "zoneType")
-
-instance Hashable AvailabilityZone
-
-instance NFData AvailabilityZone
+      Lude.<$> (x Lude..@? "zoneState")
+      Lude.<*> (x Lude..@? "parentZoneId")
+      Lude.<*> (x Lude..@? "regionName")
+      Lude.<*> (x Lude..@? "parentZoneName")
+      Lude.<*> (x Lude..@? "networkBorderGroup")
+      Lude.<*> (x Lude..@? "zoneId")
+      Lude.<*> (x Lude..@? "zoneName")
+      Lude.<*> (x Lude..@? "optInStatus")
+      Lude.<*> ( x Lude..@? "messageSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "groupName")
+      Lude.<*> (x Lude..@? "zoneType")

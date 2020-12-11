@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Copies the input published schema, at the specified version, into the 'Directory' with the same name and version as that of the published schema.
 module Network.AWS.CloudDirectory.ApplySchema
-  ( -- * Creating a Request
-    applySchema,
-    ApplySchema,
+  ( -- * Creating a request
+    ApplySchema (..),
+    mkApplySchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asPublishedSchemaARN,
     asDirectoryARN,
 
-    -- * Destructuring the Response
-    applySchemaResponse,
-    ApplySchemaResponse,
+    -- * Destructuring the response
+    ApplySchemaResponse (..),
+    mkApplySchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asrsDirectoryARN,
     asrsAppliedSchemaARN,
     asrsResponseStatus,
@@ -39,115 +34,133 @@ module Network.AWS.CloudDirectory.ApplySchema
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'applySchema' smart constructor.
+-- | /See:/ 'mkApplySchema' smart constructor.
 data ApplySchema = ApplySchema'
-  { _asPublishedSchemaARN :: !Text,
-    _asDirectoryARN :: !Text
+  { publishedSchemaARN :: Lude.Text,
+    directoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asPublishedSchemaARN' - Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
---
--- * 'asDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
-applySchema ::
-  -- | 'asPublishedSchemaARN'
-  Text ->
-  -- | 'asDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
+-- * 'publishedSchemaARN' - Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
+mkApplySchema ::
+  -- | 'publishedSchemaARN'
+  Lude.Text ->
+  -- | 'directoryARN'
+  Lude.Text ->
   ApplySchema
-applySchema pPublishedSchemaARN_ pDirectoryARN_ =
+mkApplySchema pPublishedSchemaARN_ pDirectoryARN_ =
   ApplySchema'
-    { _asPublishedSchemaARN = pPublishedSchemaARN_,
-      _asDirectoryARN = pDirectoryARN_
+    { publishedSchemaARN = pPublishedSchemaARN_,
+      directoryARN = pDirectoryARN_
     }
 
 -- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
-asPublishedSchemaARN :: Lens' ApplySchema Text
-asPublishedSchemaARN = lens _asPublishedSchemaARN (\s a -> s {_asPublishedSchemaARN = a})
+--
+-- /Note:/ Consider using 'publishedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asPublishedSchemaARN :: Lens.Lens' ApplySchema Lude.Text
+asPublishedSchemaARN = Lens.lens (publishedSchemaARN :: ApplySchema -> Lude.Text) (\s a -> s {publishedSchemaARN = a} :: ApplySchema)
+{-# DEPRECATED asPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
-asDirectoryARN :: Lens' ApplySchema Text
-asDirectoryARN = lens _asDirectoryARN (\s a -> s {_asDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asDirectoryARN :: Lens.Lens' ApplySchema Lude.Text
+asDirectoryARN = Lens.lens (directoryARN :: ApplySchema -> Lude.Text) (\s a -> s {directoryARN = a} :: ApplySchema)
+{-# DEPRECATED asDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
-instance AWSRequest ApplySchema where
+instance Lude.AWSRequest ApplySchema where
   type Rs ApplySchema = ApplySchemaResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ApplySchemaResponse'
-            <$> (x .?> "DirectoryArn")
-            <*> (x .?> "AppliedSchemaArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryArn")
+            Lude.<*> (x Lude..?> "AppliedSchemaArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ApplySchema
-
-instance NFData ApplySchema
-
-instance ToHeaders ApplySchema where
+instance Lude.ToHeaders ApplySchema where
   toHeaders ApplySchema' {..} =
-    mconcat ["x-amz-data-partition" =# _asDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON ApplySchema where
+instance Lude.ToJSON ApplySchema where
   toJSON ApplySchema' {..} =
-    object
-      (catMaybes [Just ("PublishedSchemaArn" .= _asPublishedSchemaARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("PublishedSchemaArn" Lude..= publishedSchemaARN)]
+      )
 
-instance ToPath ApplySchema where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema/apply"
+instance Lude.ToPath ApplySchema where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/schema/apply"
 
-instance ToQuery ApplySchema where
-  toQuery = const mempty
+instance Lude.ToQuery ApplySchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'applySchemaResponse' smart constructor.
+-- | /See:/ 'mkApplySchemaResponse' smart constructor.
 data ApplySchemaResponse = ApplySchemaResponse'
-  { _asrsDirectoryARN ::
-      !(Maybe Text),
-    _asrsAppliedSchemaARN :: !(Maybe Text),
-    _asrsResponseStatus :: !Int
+  { directoryARN ::
+      Lude.Maybe Lude.Text,
+    appliedSchemaARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asrsDirectoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
---
--- * 'asrsAppliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
---
--- * 'asrsResponseStatus' - -- | The response status code.
-applySchemaResponse ::
-  -- | 'asrsResponseStatus'
-  Int ->
+-- * 'appliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
+-- * 'directoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'responseStatus' - The response status code.
+mkApplySchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ApplySchemaResponse
-applySchemaResponse pResponseStatus_ =
+mkApplySchemaResponse pResponseStatus_ =
   ApplySchemaResponse'
-    { _asrsDirectoryARN = Nothing,
-      _asrsAppliedSchemaARN = Nothing,
-      _asrsResponseStatus = pResponseStatus_
+    { directoryARN = Lude.Nothing,
+      appliedSchemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
-asrsDirectoryARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsDirectoryARN = lens _asrsDirectoryARN (\s a -> s {_asrsDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrsDirectoryARN :: Lens.Lens' ApplySchemaResponse (Lude.Maybe Lude.Text)
+asrsDirectoryARN = Lens.lens (directoryARN :: ApplySchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryARN = a} :: ApplySchemaResponse)
+{-# DEPRECATED asrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
-asrsAppliedSchemaARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\s a -> s {_asrsAppliedSchemaARN = a})
+--
+-- /Note:/ Consider using 'appliedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrsAppliedSchemaARN :: Lens.Lens' ApplySchemaResponse (Lude.Maybe Lude.Text)
+asrsAppliedSchemaARN = Lens.lens (appliedSchemaARN :: ApplySchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {appliedSchemaARN = a} :: ApplySchemaResponse)
+{-# DEPRECATED asrsAppliedSchemaARN "Use generic-lens or generic-optics with 'appliedSchemaARN' instead." #-}
 
--- | -- | The response status code.
-asrsResponseStatus :: Lens' ApplySchemaResponse Int
-asrsResponseStatus = lens _asrsResponseStatus (\s a -> s {_asrsResponseStatus = a})
-
-instance NFData ApplySchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrsResponseStatus :: Lens.Lens' ApplySchemaResponse Lude.Int
+asrsResponseStatus = Lens.lens (responseStatus :: ApplySchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApplySchemaResponse)
+{-# DEPRECATED asrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

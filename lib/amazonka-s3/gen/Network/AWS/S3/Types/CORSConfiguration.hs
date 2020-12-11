@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CORSConfiguration where
+module Network.AWS.S3.Types.CORSConfiguration
+  ( CORSConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCORSConfiguration,
+
+    -- * Lenses
+    ccCORSRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.CORSRule
 
 -- | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing> in the /Amazon Simple Storage Service Developer Guide/ .
 --
---
---
--- /See:/ 'corsConfiguration' smart constructor.
+-- /See:/ 'mkCORSConfiguration' smart constructor.
 newtype CORSConfiguration = CORSConfiguration'
-  { _ccCORSRules ::
+  { corsRules ::
       [CORSRule]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CORSConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccCORSRules' - A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-corsConfiguration ::
+-- * 'corsRules' - A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+mkCORSConfiguration ::
   CORSConfiguration
-corsConfiguration = CORSConfiguration' {_ccCORSRules = mempty}
+mkCORSConfiguration = CORSConfiguration' {corsRules = Lude.mempty}
 
 -- | A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-ccCORSRules :: Lens' CORSConfiguration [CORSRule]
-ccCORSRules = lens _ccCORSRules (\s a -> s {_ccCORSRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'corsRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
+ccCORSRules = Lens.lens (corsRules :: CORSConfiguration -> [CORSRule]) (\s a -> s {corsRules = a} :: CORSConfiguration)
+{-# DEPRECATED ccCORSRules "Use generic-lens or generic-optics with 'corsRules' instead." #-}
 
-instance Hashable CORSConfiguration
-
-instance NFData CORSConfiguration
-
-instance ToXML CORSConfiguration where
+instance Lude.ToXML CORSConfiguration where
   toXML CORSConfiguration' {..} =
-    mconcat [toXMLList "CORSRule" _ccCORSRules]
+    Lude.mconcat [Lude.toXMLList "CORSRule" corsRules]

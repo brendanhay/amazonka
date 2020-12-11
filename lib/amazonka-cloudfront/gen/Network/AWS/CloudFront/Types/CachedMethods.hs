@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachedMethods where
+module Network.AWS.CloudFront.Types.CachedMethods
+  ( CachedMethods (..),
+
+    -- * Smart constructor
+    mkCachedMethods,
+
+    -- * Lenses
+    cmQuantity,
+    cmItems,
+  )
+where
 
 import Network.AWS.CloudFront.Types.Method
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
 --
 --
 --     * CloudFront caches responses to @GET@ and @HEAD@ requests.
 --
---     * CloudFront caches responses to @GET@ , @HEAD@ , and @OPTIONS@ requests.
 --
+--     * CloudFront caches responses to @GET@ , @HEAD@ , and @OPTIONS@ requests.
 --
 --
 -- If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
 --
---
--- /See:/ 'cachedMethods' smart constructor.
+-- /See:/ 'mkCachedMethods' smart constructor.
 data CachedMethods = CachedMethods'
-  { _cmQuantity :: !Int,
-    _cmItems :: ![Method]
+  { quantity :: Lude.Int,
+    items :: [Method]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachedMethods' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmQuantity' - The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
---
--- * 'cmItems' - A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
-cachedMethods ::
-  -- | 'cmQuantity'
-  Int ->
+-- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
+-- * 'quantity' - The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
+mkCachedMethods ::
+  -- | 'quantity'
+  Lude.Int ->
   CachedMethods
-cachedMethods pQuantity_ =
-  CachedMethods' {_cmQuantity = pQuantity_, _cmItems = mempty}
+mkCachedMethods pQuantity_ =
+  CachedMethods' {quantity = pQuantity_, items = Lude.mempty}
 
 -- | The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
-cmQuantity :: Lens' CachedMethods Int
-cmQuantity = lens _cmQuantity (\s a -> s {_cmQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmQuantity :: Lens.Lens' CachedMethods Lude.Int
+cmQuantity = Lens.lens (quantity :: CachedMethods -> Lude.Int) (\s a -> s {quantity = a} :: CachedMethods)
+{-# DEPRECATED cmQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
-cmItems :: Lens' CachedMethods [Method]
-cmItems = lens _cmItems (\s a -> s {_cmItems = a}) . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmItems :: Lens.Lens' CachedMethods [Method]
+cmItems = Lens.lens (items :: CachedMethods -> [Method]) (\s a -> s {items = a} :: CachedMethods)
+{-# DEPRECATED cmItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance FromXML CachedMethods where
+instance Lude.FromXML CachedMethods where
   parseXML x =
     CachedMethods'
-      <$> (x .@ "Quantity")
-      <*> (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "Method"
+               )
 
-instance Hashable CachedMethods
-
-instance NFData CachedMethods
-
-instance ToXML CachedMethods where
+instance Lude.ToXML CachedMethods where
   toXML CachedMethods' {..} =
-    mconcat
-      ["Quantity" @= _cmQuantity, "Items" @= toXMLList "Method" _cmItems]
+    Lude.mconcat
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXMLList "Method" items
+      ]

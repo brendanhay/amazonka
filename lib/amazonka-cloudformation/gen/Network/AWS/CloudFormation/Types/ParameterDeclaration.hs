@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ParameterDeclaration where
+module Network.AWS.CloudFormation.Types.ParameterDeclaration
+  ( ParameterDeclaration (..),
+
+    -- * Smart constructor
+    mkParameterDeclaration,
+
+    -- * Lenses
+    pdParameterKey,
+    pdParameterType,
+    pdParameterConstraints,
+    pdDefaultValue,
+    pdNoEcho,
+    pdDescription,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.ParameterConstraints
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The ParameterDeclaration data type.
 --
---
---
--- /See:/ 'parameterDeclaration' smart constructor.
+-- /See:/ 'mkParameterDeclaration' smart constructor.
 data ParameterDeclaration = ParameterDeclaration'
-  { _pdParameterKey ::
-      !(Maybe Text),
-    _pdParameterType :: !(Maybe Text),
-    _pdParameterConstraints ::
-      !(Maybe ParameterConstraints),
-    _pdDefaultValue :: !(Maybe Text),
-    _pdNoEcho :: !(Maybe Bool),
-    _pdDescription :: !(Maybe Text)
+  { parameterKey ::
+      Lude.Maybe Lude.Text,
+    parameterType :: Lude.Maybe Lude.Text,
+    parameterConstraints ::
+      Lude.Maybe ParameterConstraints,
+    defaultValue :: Lude.Maybe Lude.Text,
+    noEcho :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterDeclaration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdParameterKey' - The name that is associated with the parameter.
---
--- * 'pdParameterType' - The type of parameter.
---
--- * 'pdParameterConstraints' - The criteria that AWS CloudFormation uses to validate parameter values.
---
--- * 'pdDefaultValue' - The default value of the parameter.
---
--- * 'pdNoEcho' - Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
---
--- * 'pdDescription' - The description that is associate with the parameter.
-parameterDeclaration ::
+-- * 'defaultValue' - The default value of the parameter.
+-- * 'description' - The description that is associate with the parameter.
+-- * 'noEcho' - Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
+-- * 'parameterConstraints' - The criteria that AWS CloudFormation uses to validate parameter values.
+-- * 'parameterKey' - The name that is associated with the parameter.
+-- * 'parameterType' - The type of parameter.
+mkParameterDeclaration ::
   ParameterDeclaration
-parameterDeclaration =
+mkParameterDeclaration =
   ParameterDeclaration'
-    { _pdParameterKey = Nothing,
-      _pdParameterType = Nothing,
-      _pdParameterConstraints = Nothing,
-      _pdDefaultValue = Nothing,
-      _pdNoEcho = Nothing,
-      _pdDescription = Nothing
+    { parameterKey = Lude.Nothing,
+      parameterType = Lude.Nothing,
+      parameterConstraints = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      noEcho = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The name that is associated with the parameter.
-pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
-pdParameterKey = lens _pdParameterKey (\s a -> s {_pdParameterKey = a})
+--
+-- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdParameterKey :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
+pdParameterKey = Lens.lens (parameterKey :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {parameterKey = a} :: ParameterDeclaration)
+{-# DEPRECATED pdParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The type of parameter.
-pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
-pdParameterType = lens _pdParameterType (\s a -> s {_pdParameterType = a})
+--
+-- /Note:/ Consider using 'parameterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdParameterType :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
+pdParameterType = Lens.lens (parameterType :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {parameterType = a} :: ParameterDeclaration)
+{-# DEPRECATED pdParameterType "Use generic-lens or generic-optics with 'parameterType' instead." #-}
 
 -- | The criteria that AWS CloudFormation uses to validate parameter values.
-pdParameterConstraints :: Lens' ParameterDeclaration (Maybe ParameterConstraints)
-pdParameterConstraints = lens _pdParameterConstraints (\s a -> s {_pdParameterConstraints = a})
+--
+-- /Note:/ Consider using 'parameterConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdParameterConstraints :: Lens.Lens' ParameterDeclaration (Lude.Maybe ParameterConstraints)
+pdParameterConstraints = Lens.lens (parameterConstraints :: ParameterDeclaration -> Lude.Maybe ParameterConstraints) (\s a -> s {parameterConstraints = a} :: ParameterDeclaration)
+{-# DEPRECATED pdParameterConstraints "Use generic-lens or generic-optics with 'parameterConstraints' instead." #-}
 
 -- | The default value of the parameter.
-pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
-pdDefaultValue = lens _pdDefaultValue (\s a -> s {_pdDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDefaultValue :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
+pdDefaultValue = Lens.lens (defaultValue :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: ParameterDeclaration)
+{-# DEPRECATED pdDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
-pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
-pdNoEcho = lens _pdNoEcho (\s a -> s {_pdNoEcho = a})
+--
+-- /Note:/ Consider using 'noEcho' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdNoEcho :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Bool)
+pdNoEcho = Lens.lens (noEcho :: ParameterDeclaration -> Lude.Maybe Lude.Bool) (\s a -> s {noEcho = a} :: ParameterDeclaration)
+{-# DEPRECATED pdNoEcho "Use generic-lens or generic-optics with 'noEcho' instead." #-}
 
 -- | The description that is associate with the parameter.
-pdDescription :: Lens' ParameterDeclaration (Maybe Text)
-pdDescription = lens _pdDescription (\s a -> s {_pdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDescription :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
+pdDescription = Lens.lens (description :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ParameterDeclaration)
+{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ParameterDeclaration where
+instance Lude.FromXML ParameterDeclaration where
   parseXML x =
     ParameterDeclaration'
-      <$> (x .@? "ParameterKey")
-      <*> (x .@? "ParameterType")
-      <*> (x .@? "ParameterConstraints")
-      <*> (x .@? "DefaultValue")
-      <*> (x .@? "NoEcho")
-      <*> (x .@? "Description")
-
-instance Hashable ParameterDeclaration
-
-instance NFData ParameterDeclaration
+      Lude.<$> (x Lude..@? "ParameterKey")
+      Lude.<*> (x Lude..@? "ParameterType")
+      Lude.<*> (x Lude..@? "ParameterConstraints")
+      Lude.<*> (x Lude..@? "DefaultValue")
+      Lude.<*> (x Lude..@? "NoEcho")
+      Lude.<*> (x Lude..@? "Description")

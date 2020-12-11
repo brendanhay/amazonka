@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3Settings where
+module Network.AWS.MediaConvert.Types.Eac3Settings
+  ( Eac3Settings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEac3Settings,
+
+    -- * Lenses
+    esStereoDownmix,
+    esLoRoCenterMixLevel,
+    esLtRtCenterMixLevel,
+    esLfeFilter,
+    esDynamicRangeCompressionLine,
+    esLtRtSurroundMixLevel,
+    esMetadataControl,
+    esLoRoSurroundMixLevel,
+    esSurroundMode,
+    esAttenuationControl,
+    esPassthroughControl,
+    esBitstreamMode,
+    esLfeControl,
+    esDynamicRangeCompressionRf,
+    esCodingMode,
+    esSampleRate,
+    esDcFilter,
+    esBitrate,
+    esPhaseControl,
+    esSurroundExMode,
+    esDialnorm,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Eac3AttenuationControl
 import Network.AWS.MediaConvert.Types.Eac3BitstreamMode
 import Network.AWS.MediaConvert.Types.Eac3CodingMode
@@ -30,253 +53,298 @@ import Network.AWS.MediaConvert.Types.Eac3PhaseControl
 import Network.AWS.MediaConvert.Types.Eac3StereoDownmix
 import Network.AWS.MediaConvert.Types.Eac3SurroundExMode
 import Network.AWS.MediaConvert.Types.Eac3SurroundMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
 --
--- /See:/ 'eac3Settings' smart constructor.
+-- /See:/ 'mkEac3Settings' smart constructor.
 data Eac3Settings = Eac3Settings'
-  { _esStereoDownmix ::
-      !(Maybe Eac3StereoDownmix),
-    _esLoRoCenterMixLevel :: !(Maybe Double),
-    _esLtRtCenterMixLevel :: !(Maybe Double),
-    _esLfeFilter :: !(Maybe Eac3LfeFilter),
-    _esDynamicRangeCompressionLine ::
-      !(Maybe Eac3DynamicRangeCompressionLine),
-    _esLtRtSurroundMixLevel :: !(Maybe Double),
-    _esMetadataControl :: !(Maybe Eac3MetadataControl),
-    _esLoRoSurroundMixLevel :: !(Maybe Double),
-    _esSurroundMode :: !(Maybe Eac3SurroundMode),
-    _esAttenuationControl :: !(Maybe Eac3AttenuationControl),
-    _esPassthroughControl :: !(Maybe Eac3PassthroughControl),
-    _esBitstreamMode :: !(Maybe Eac3BitstreamMode),
-    _esLfeControl :: !(Maybe Eac3LfeControl),
-    _esDynamicRangeCompressionRf ::
-      !(Maybe Eac3DynamicRangeCompressionRf),
-    _esCodingMode :: !(Maybe Eac3CodingMode),
-    _esSampleRate :: !(Maybe Nat),
-    _esDcFilter :: !(Maybe Eac3DcFilter),
-    _esBitrate :: !(Maybe Nat),
-    _esPhaseControl :: !(Maybe Eac3PhaseControl),
-    _esSurroundExMode :: !(Maybe Eac3SurroundExMode),
-    _esDialnorm :: !(Maybe Nat)
+  { stereoDownmix ::
+      Lude.Maybe Eac3StereoDownmix,
+    loRoCenterMixLevel :: Lude.Maybe Lude.Double,
+    ltRtCenterMixLevel :: Lude.Maybe Lude.Double,
+    lfeFilter :: Lude.Maybe Eac3LfeFilter,
+    dynamicRangeCompressionLine ::
+      Lude.Maybe Eac3DynamicRangeCompressionLine,
+    ltRtSurroundMixLevel :: Lude.Maybe Lude.Double,
+    metadataControl :: Lude.Maybe Eac3MetadataControl,
+    loRoSurroundMixLevel :: Lude.Maybe Lude.Double,
+    surroundMode :: Lude.Maybe Eac3SurroundMode,
+    attenuationControl :: Lude.Maybe Eac3AttenuationControl,
+    passthroughControl :: Lude.Maybe Eac3PassthroughControl,
+    bitstreamMode :: Lude.Maybe Eac3BitstreamMode,
+    lfeControl :: Lude.Maybe Eac3LfeControl,
+    dynamicRangeCompressionRf ::
+      Lude.Maybe Eac3DynamicRangeCompressionRf,
+    codingMode :: Lude.Maybe Eac3CodingMode,
+    sampleRate :: Lude.Maybe Lude.Natural,
+    dcFilter :: Lude.Maybe Eac3DcFilter,
+    bitrate :: Lude.Maybe Lude.Natural,
+    phaseControl :: Lude.Maybe Eac3PhaseControl,
+    surroundExMode :: Lude.Maybe Eac3SurroundExMode,
+    dialnorm :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Eac3Settings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esStereoDownmix' - Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
---
--- * 'esLoRoCenterMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only center (loRoCenterMixLevel).
---
--- * 'esLtRtCenterMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total center (ltRtCenterMixLevel).
---
--- * 'esLfeFilter' - Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
---
--- * 'esDynamicRangeCompressionLine' - Specify the absolute peak level for a signal with dynamic range compression.
---
--- * 'esLtRtSurroundMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total surround (ltRtSurroundMixLevel).
---
--- * 'esMetadataControl' - When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
---
--- * 'esLoRoSurroundMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only surround (loRoSurroundMixLevel).
---
--- * 'esSurroundMode' - When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
---
--- * 'esAttenuationControl' - If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
---
--- * 'esPassthroughControl' - When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it is present on the input. this detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
---
--- * 'esBitstreamMode' - Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
---
--- * 'esLfeControl' - When encoding 3/2 audio, controls whether the LFE channel is enabled
---
--- * 'esDynamicRangeCompressionRf' - Specify how the service limits the audio dynamic range when compressing the audio.
---
--- * 'esCodingMode' - Dolby Digital Plus coding mode. Determines number of channels.
---
--- * 'esSampleRate' - This value is always 48000. It represents the sample rate in Hz.
---
--- * 'esDcFilter' - Activates a DC highpass filter for all input channels.
---
--- * 'esBitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
---
--- * 'esPhaseControl' - Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
---
--- * 'esSurroundExMode' - When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
---
--- * 'esDialnorm' - Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
-eac3Settings ::
+-- * 'attenuationControl' - If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
+-- * 'bitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+-- * 'bitstreamMode' - Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
+-- * 'codingMode' - Dolby Digital Plus coding mode. Determines number of channels.
+-- * 'dcFilter' - Activates a DC highpass filter for all input channels.
+-- * 'dialnorm' - Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
+-- * 'dynamicRangeCompressionLine' - Specify the absolute peak level for a signal with dynamic range compression.
+-- * 'dynamicRangeCompressionRf' - Specify how the service limits the audio dynamic range when compressing the audio.
+-- * 'lfeControl' - When encoding 3/2 audio, controls whether the LFE channel is enabled
+-- * 'lfeFilter' - Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
+-- * 'loRoCenterMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only center (loRoCenterMixLevel).
+-- * 'loRoSurroundMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only surround (loRoSurroundMixLevel).
+-- * 'ltRtCenterMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total center (ltRtCenterMixLevel).
+-- * 'ltRtSurroundMixLevel' - Specify a value for the following Dolby Digital Plus setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total surround (ltRtSurroundMixLevel).
+-- * 'metadataControl' - When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+-- * 'passthroughControl' - When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it is present on the input. this detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
+-- * 'phaseControl' - Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
+-- * 'sampleRate' - This value is always 48000. It represents the sample rate in Hz.
+-- * 'stereoDownmix' - Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
+-- * 'surroundExMode' - When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
+-- * 'surroundMode' - When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
+mkEac3Settings ::
   Eac3Settings
-eac3Settings =
+mkEac3Settings =
   Eac3Settings'
-    { _esStereoDownmix = Nothing,
-      _esLoRoCenterMixLevel = Nothing,
-      _esLtRtCenterMixLevel = Nothing,
-      _esLfeFilter = Nothing,
-      _esDynamicRangeCompressionLine = Nothing,
-      _esLtRtSurroundMixLevel = Nothing,
-      _esMetadataControl = Nothing,
-      _esLoRoSurroundMixLevel = Nothing,
-      _esSurroundMode = Nothing,
-      _esAttenuationControl = Nothing,
-      _esPassthroughControl = Nothing,
-      _esBitstreamMode = Nothing,
-      _esLfeControl = Nothing,
-      _esDynamicRangeCompressionRf = Nothing,
-      _esCodingMode = Nothing,
-      _esSampleRate = Nothing,
-      _esDcFilter = Nothing,
-      _esBitrate = Nothing,
-      _esPhaseControl = Nothing,
-      _esSurroundExMode = Nothing,
-      _esDialnorm = Nothing
+    { stereoDownmix = Lude.Nothing,
+      loRoCenterMixLevel = Lude.Nothing,
+      ltRtCenterMixLevel = Lude.Nothing,
+      lfeFilter = Lude.Nothing,
+      dynamicRangeCompressionLine = Lude.Nothing,
+      ltRtSurroundMixLevel = Lude.Nothing,
+      metadataControl = Lude.Nothing,
+      loRoSurroundMixLevel = Lude.Nothing,
+      surroundMode = Lude.Nothing,
+      attenuationControl = Lude.Nothing,
+      passthroughControl = Lude.Nothing,
+      bitstreamMode = Lude.Nothing,
+      lfeControl = Lude.Nothing,
+      dynamicRangeCompressionRf = Lude.Nothing,
+      codingMode = Lude.Nothing,
+      sampleRate = Lude.Nothing,
+      dcFilter = Lude.Nothing,
+      bitrate = Lude.Nothing,
+      phaseControl = Lude.Nothing,
+      surroundExMode = Lude.Nothing,
+      dialnorm = Lude.Nothing
     }
 
 -- | Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
-esStereoDownmix :: Lens' Eac3Settings (Maybe Eac3StereoDownmix)
-esStereoDownmix = lens _esStereoDownmix (\s a -> s {_esStereoDownmix = a})
+--
+-- /Note:/ Consider using 'stereoDownmix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esStereoDownmix :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3StereoDownmix)
+esStereoDownmix = Lens.lens (stereoDownmix :: Eac3Settings -> Lude.Maybe Eac3StereoDownmix) (\s a -> s {stereoDownmix = a} :: Eac3Settings)
+{-# DEPRECATED esStereoDownmix "Use generic-lens or generic-optics with 'stereoDownmix' instead." #-}
 
 -- | Specify a value for the following Dolby Digital Plus setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only center (loRoCenterMixLevel).
-esLoRoCenterMixLevel :: Lens' Eac3Settings (Maybe Double)
-esLoRoCenterMixLevel = lens _esLoRoCenterMixLevel (\s a -> s {_esLoRoCenterMixLevel = a})
+--
+-- /Note:/ Consider using 'loRoCenterMixLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLoRoCenterMixLevel :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Double)
+esLoRoCenterMixLevel = Lens.lens (loRoCenterMixLevel :: Eac3Settings -> Lude.Maybe Lude.Double) (\s a -> s {loRoCenterMixLevel = a} :: Eac3Settings)
+{-# DEPRECATED esLoRoCenterMixLevel "Use generic-lens or generic-optics with 'loRoCenterMixLevel' instead." #-}
 
 -- | Specify a value for the following Dolby Digital Plus setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total center (ltRtCenterMixLevel).
-esLtRtCenterMixLevel :: Lens' Eac3Settings (Maybe Double)
-esLtRtCenterMixLevel = lens _esLtRtCenterMixLevel (\s a -> s {_esLtRtCenterMixLevel = a})
+--
+-- /Note:/ Consider using 'ltRtCenterMixLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLtRtCenterMixLevel :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Double)
+esLtRtCenterMixLevel = Lens.lens (ltRtCenterMixLevel :: Eac3Settings -> Lude.Maybe Lude.Double) (\s a -> s {ltRtCenterMixLevel = a} :: Eac3Settings)
+{-# DEPRECATED esLtRtCenterMixLevel "Use generic-lens or generic-optics with 'ltRtCenterMixLevel' instead." #-}
 
 -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
-esLfeFilter :: Lens' Eac3Settings (Maybe Eac3LfeFilter)
-esLfeFilter = lens _esLfeFilter (\s a -> s {_esLfeFilter = a})
+--
+-- /Note:/ Consider using 'lfeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLfeFilter :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3LfeFilter)
+esLfeFilter = Lens.lens (lfeFilter :: Eac3Settings -> Lude.Maybe Eac3LfeFilter) (\s a -> s {lfeFilter = a} :: Eac3Settings)
+{-# DEPRECATED esLfeFilter "Use generic-lens or generic-optics with 'lfeFilter' instead." #-}
 
 -- | Specify the absolute peak level for a signal with dynamic range compression.
-esDynamicRangeCompressionLine :: Lens' Eac3Settings (Maybe Eac3DynamicRangeCompressionLine)
-esDynamicRangeCompressionLine = lens _esDynamicRangeCompressionLine (\s a -> s {_esDynamicRangeCompressionLine = a})
+--
+-- /Note:/ Consider using 'dynamicRangeCompressionLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esDynamicRangeCompressionLine :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3DynamicRangeCompressionLine)
+esDynamicRangeCompressionLine = Lens.lens (dynamicRangeCompressionLine :: Eac3Settings -> Lude.Maybe Eac3DynamicRangeCompressionLine) (\s a -> s {dynamicRangeCompressionLine = a} :: Eac3Settings)
+{-# DEPRECATED esDynamicRangeCompressionLine "Use generic-lens or generic-optics with 'dynamicRangeCompressionLine' instead." #-}
 
 -- | Specify a value for the following Dolby Digital Plus setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total surround (ltRtSurroundMixLevel).
-esLtRtSurroundMixLevel :: Lens' Eac3Settings (Maybe Double)
-esLtRtSurroundMixLevel = lens _esLtRtSurroundMixLevel (\s a -> s {_esLtRtSurroundMixLevel = a})
+--
+-- /Note:/ Consider using 'ltRtSurroundMixLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLtRtSurroundMixLevel :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Double)
+esLtRtSurroundMixLevel = Lens.lens (ltRtSurroundMixLevel :: Eac3Settings -> Lude.Maybe Lude.Double) (\s a -> s {ltRtSurroundMixLevel = a} :: Eac3Settings)
+{-# DEPRECATED esLtRtSurroundMixLevel "Use generic-lens or generic-optics with 'ltRtSurroundMixLevel' instead." #-}
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-esMetadataControl :: Lens' Eac3Settings (Maybe Eac3MetadataControl)
-esMetadataControl = lens _esMetadataControl (\s a -> s {_esMetadataControl = a})
+--
+-- /Note:/ Consider using 'metadataControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esMetadataControl :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3MetadataControl)
+esMetadataControl = Lens.lens (metadataControl :: Eac3Settings -> Lude.Maybe Eac3MetadataControl) (\s a -> s {metadataControl = a} :: Eac3Settings)
+{-# DEPRECATED esMetadataControl "Use generic-lens or generic-optics with 'metadataControl' instead." #-}
 
 -- | Specify a value for the following Dolby Digital Plus setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only surround (loRoSurroundMixLevel).
-esLoRoSurroundMixLevel :: Lens' Eac3Settings (Maybe Double)
-esLoRoSurroundMixLevel = lens _esLoRoSurroundMixLevel (\s a -> s {_esLoRoSurroundMixLevel = a})
+--
+-- /Note:/ Consider using 'loRoSurroundMixLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLoRoSurroundMixLevel :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Double)
+esLoRoSurroundMixLevel = Lens.lens (loRoSurroundMixLevel :: Eac3Settings -> Lude.Maybe Lude.Double) (\s a -> s {loRoSurroundMixLevel = a} :: Eac3Settings)
+{-# DEPRECATED esLoRoSurroundMixLevel "Use generic-lens or generic-optics with 'loRoSurroundMixLevel' instead." #-}
 
 -- | When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-esSurroundMode :: Lens' Eac3Settings (Maybe Eac3SurroundMode)
-esSurroundMode = lens _esSurroundMode (\s a -> s {_esSurroundMode = a})
+--
+-- /Note:/ Consider using 'surroundMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSurroundMode :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3SurroundMode)
+esSurroundMode = Lens.lens (surroundMode :: Eac3Settings -> Lude.Maybe Eac3SurroundMode) (\s a -> s {surroundMode = a} :: Eac3Settings)
+{-# DEPRECATED esSurroundMode "Use generic-lens or generic-optics with 'surroundMode' instead." #-}
 
 -- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
-esAttenuationControl :: Lens' Eac3Settings (Maybe Eac3AttenuationControl)
-esAttenuationControl = lens _esAttenuationControl (\s a -> s {_esAttenuationControl = a})
+--
+-- /Note:/ Consider using 'attenuationControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esAttenuationControl :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3AttenuationControl)
+esAttenuationControl = Lens.lens (attenuationControl :: Eac3Settings -> Lude.Maybe Eac3AttenuationControl) (\s a -> s {attenuationControl = a} :: Eac3Settings)
+{-# DEPRECATED esAttenuationControl "Use generic-lens or generic-optics with 'attenuationControl' instead." #-}
 
 -- | When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it is present on the input. this detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
-esPassthroughControl :: Lens' Eac3Settings (Maybe Eac3PassthroughControl)
-esPassthroughControl = lens _esPassthroughControl (\s a -> s {_esPassthroughControl = a})
+--
+-- /Note:/ Consider using 'passthroughControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esPassthroughControl :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3PassthroughControl)
+esPassthroughControl = Lens.lens (passthroughControl :: Eac3Settings -> Lude.Maybe Eac3PassthroughControl) (\s a -> s {passthroughControl = a} :: Eac3Settings)
+{-# DEPRECATED esPassthroughControl "Use generic-lens or generic-optics with 'passthroughControl' instead." #-}
 
 -- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
-esBitstreamMode :: Lens' Eac3Settings (Maybe Eac3BitstreamMode)
-esBitstreamMode = lens _esBitstreamMode (\s a -> s {_esBitstreamMode = a})
+--
+-- /Note:/ Consider using 'bitstreamMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esBitstreamMode :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3BitstreamMode)
+esBitstreamMode = Lens.lens (bitstreamMode :: Eac3Settings -> Lude.Maybe Eac3BitstreamMode) (\s a -> s {bitstreamMode = a} :: Eac3Settings)
+{-# DEPRECATED esBitstreamMode "Use generic-lens or generic-optics with 'bitstreamMode' instead." #-}
 
 -- | When encoding 3/2 audio, controls whether the LFE channel is enabled
-esLfeControl :: Lens' Eac3Settings (Maybe Eac3LfeControl)
-esLfeControl = lens _esLfeControl (\s a -> s {_esLfeControl = a})
+--
+-- /Note:/ Consider using 'lfeControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esLfeControl :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3LfeControl)
+esLfeControl = Lens.lens (lfeControl :: Eac3Settings -> Lude.Maybe Eac3LfeControl) (\s a -> s {lfeControl = a} :: Eac3Settings)
+{-# DEPRECATED esLfeControl "Use generic-lens or generic-optics with 'lfeControl' instead." #-}
 
 -- | Specify how the service limits the audio dynamic range when compressing the audio.
-esDynamicRangeCompressionRf :: Lens' Eac3Settings (Maybe Eac3DynamicRangeCompressionRf)
-esDynamicRangeCompressionRf = lens _esDynamicRangeCompressionRf (\s a -> s {_esDynamicRangeCompressionRf = a})
+--
+-- /Note:/ Consider using 'dynamicRangeCompressionRf' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esDynamicRangeCompressionRf :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3DynamicRangeCompressionRf)
+esDynamicRangeCompressionRf = Lens.lens (dynamicRangeCompressionRf :: Eac3Settings -> Lude.Maybe Eac3DynamicRangeCompressionRf) (\s a -> s {dynamicRangeCompressionRf = a} :: Eac3Settings)
+{-# DEPRECATED esDynamicRangeCompressionRf "Use generic-lens or generic-optics with 'dynamicRangeCompressionRf' instead." #-}
 
 -- | Dolby Digital Plus coding mode. Determines number of channels.
-esCodingMode :: Lens' Eac3Settings (Maybe Eac3CodingMode)
-esCodingMode = lens _esCodingMode (\s a -> s {_esCodingMode = a})
+--
+-- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esCodingMode :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3CodingMode)
+esCodingMode = Lens.lens (codingMode :: Eac3Settings -> Lude.Maybe Eac3CodingMode) (\s a -> s {codingMode = a} :: Eac3Settings)
+{-# DEPRECATED esCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | This value is always 48000. It represents the sample rate in Hz.
-esSampleRate :: Lens' Eac3Settings (Maybe Natural)
-esSampleRate = lens _esSampleRate (\s a -> s {_esSampleRate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSampleRate :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Natural)
+esSampleRate = Lens.lens (sampleRate :: Eac3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: Eac3Settings)
+{-# DEPRECATED esSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | Activates a DC highpass filter for all input channels.
-esDcFilter :: Lens' Eac3Settings (Maybe Eac3DcFilter)
-esDcFilter = lens _esDcFilter (\s a -> s {_esDcFilter = a})
+--
+-- /Note:/ Consider using 'dcFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esDcFilter :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3DcFilter)
+esDcFilter = Lens.lens (dcFilter :: Eac3Settings -> Lude.Maybe Eac3DcFilter) (\s a -> s {dcFilter = a} :: Eac3Settings)
+{-# DEPRECATED esDcFilter "Use generic-lens or generic-optics with 'dcFilter' instead." #-}
 
 -- | Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
-esBitrate :: Lens' Eac3Settings (Maybe Natural)
-esBitrate = lens _esBitrate (\s a -> s {_esBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esBitrate :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Natural)
+esBitrate = Lens.lens (bitrate :: Eac3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {bitrate = a} :: Eac3Settings)
+{-# DEPRECATED esBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
 -- | Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
-esPhaseControl :: Lens' Eac3Settings (Maybe Eac3PhaseControl)
-esPhaseControl = lens _esPhaseControl (\s a -> s {_esPhaseControl = a})
+--
+-- /Note:/ Consider using 'phaseControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esPhaseControl :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3PhaseControl)
+esPhaseControl = Lens.lens (phaseControl :: Eac3Settings -> Lude.Maybe Eac3PhaseControl) (\s a -> s {phaseControl = a} :: Eac3Settings)
+{-# DEPRECATED esPhaseControl "Use generic-lens or generic-optics with 'phaseControl' instead." #-}
 
 -- | When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
-esSurroundExMode :: Lens' Eac3Settings (Maybe Eac3SurroundExMode)
-esSurroundExMode = lens _esSurroundExMode (\s a -> s {_esSurroundExMode = a})
+--
+-- /Note:/ Consider using 'surroundExMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSurroundExMode :: Lens.Lens' Eac3Settings (Lude.Maybe Eac3SurroundExMode)
+esSurroundExMode = Lens.lens (surroundExMode :: Eac3Settings -> Lude.Maybe Eac3SurroundExMode) (\s a -> s {surroundExMode = a} :: Eac3Settings)
+{-# DEPRECATED esSurroundExMode "Use generic-lens or generic-optics with 'surroundExMode' instead." #-}
 
 -- | Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
-esDialnorm :: Lens' Eac3Settings (Maybe Natural)
-esDialnorm = lens _esDialnorm (\s a -> s {_esDialnorm = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'dialnorm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esDialnorm :: Lens.Lens' Eac3Settings (Lude.Maybe Lude.Natural)
+esDialnorm = Lens.lens (dialnorm :: Eac3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {dialnorm = a} :: Eac3Settings)
+{-# DEPRECATED esDialnorm "Use generic-lens or generic-optics with 'dialnorm' instead." #-}
 
-instance FromJSON Eac3Settings where
+instance Lude.FromJSON Eac3Settings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Eac3Settings"
       ( \x ->
           Eac3Settings'
-            <$> (x .:? "stereoDownmix")
-            <*> (x .:? "loRoCenterMixLevel")
-            <*> (x .:? "ltRtCenterMixLevel")
-            <*> (x .:? "lfeFilter")
-            <*> (x .:? "dynamicRangeCompressionLine")
-            <*> (x .:? "ltRtSurroundMixLevel")
-            <*> (x .:? "metadataControl")
-            <*> (x .:? "loRoSurroundMixLevel")
-            <*> (x .:? "surroundMode")
-            <*> (x .:? "attenuationControl")
-            <*> (x .:? "passthroughControl")
-            <*> (x .:? "bitstreamMode")
-            <*> (x .:? "lfeControl")
-            <*> (x .:? "dynamicRangeCompressionRf")
-            <*> (x .:? "codingMode")
-            <*> (x .:? "sampleRate")
-            <*> (x .:? "dcFilter")
-            <*> (x .:? "bitrate")
-            <*> (x .:? "phaseControl")
-            <*> (x .:? "surroundExMode")
-            <*> (x .:? "dialnorm")
+            Lude.<$> (x Lude..:? "stereoDownmix")
+            Lude.<*> (x Lude..:? "loRoCenterMixLevel")
+            Lude.<*> (x Lude..:? "ltRtCenterMixLevel")
+            Lude.<*> (x Lude..:? "lfeFilter")
+            Lude.<*> (x Lude..:? "dynamicRangeCompressionLine")
+            Lude.<*> (x Lude..:? "ltRtSurroundMixLevel")
+            Lude.<*> (x Lude..:? "metadataControl")
+            Lude.<*> (x Lude..:? "loRoSurroundMixLevel")
+            Lude.<*> (x Lude..:? "surroundMode")
+            Lude.<*> (x Lude..:? "attenuationControl")
+            Lude.<*> (x Lude..:? "passthroughControl")
+            Lude.<*> (x Lude..:? "bitstreamMode")
+            Lude.<*> (x Lude..:? "lfeControl")
+            Lude.<*> (x Lude..:? "dynamicRangeCompressionRf")
+            Lude.<*> (x Lude..:? "codingMode")
+            Lude.<*> (x Lude..:? "sampleRate")
+            Lude.<*> (x Lude..:? "dcFilter")
+            Lude.<*> (x Lude..:? "bitrate")
+            Lude.<*> (x Lude..:? "phaseControl")
+            Lude.<*> (x Lude..:? "surroundExMode")
+            Lude.<*> (x Lude..:? "dialnorm")
       )
 
-instance Hashable Eac3Settings
-
-instance NFData Eac3Settings
-
-instance ToJSON Eac3Settings where
+instance Lude.ToJSON Eac3Settings where
   toJSON Eac3Settings' {..} =
-    object
-      ( catMaybes
-          [ ("stereoDownmix" .=) <$> _esStereoDownmix,
-            ("loRoCenterMixLevel" .=) <$> _esLoRoCenterMixLevel,
-            ("ltRtCenterMixLevel" .=) <$> _esLtRtCenterMixLevel,
-            ("lfeFilter" .=) <$> _esLfeFilter,
-            ("dynamicRangeCompressionLine" .=)
-              <$> _esDynamicRangeCompressionLine,
-            ("ltRtSurroundMixLevel" .=) <$> _esLtRtSurroundMixLevel,
-            ("metadataControl" .=) <$> _esMetadataControl,
-            ("loRoSurroundMixLevel" .=) <$> _esLoRoSurroundMixLevel,
-            ("surroundMode" .=) <$> _esSurroundMode,
-            ("attenuationControl" .=) <$> _esAttenuationControl,
-            ("passthroughControl" .=) <$> _esPassthroughControl,
-            ("bitstreamMode" .=) <$> _esBitstreamMode,
-            ("lfeControl" .=) <$> _esLfeControl,
-            ("dynamicRangeCompressionRf" .=) <$> _esDynamicRangeCompressionRf,
-            ("codingMode" .=) <$> _esCodingMode,
-            ("sampleRate" .=) <$> _esSampleRate,
-            ("dcFilter" .=) <$> _esDcFilter,
-            ("bitrate" .=) <$> _esBitrate,
-            ("phaseControl" .=) <$> _esPhaseControl,
-            ("surroundExMode" .=) <$> _esSurroundExMode,
-            ("dialnorm" .=) <$> _esDialnorm
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stereoDownmix" Lude..=) Lude.<$> stereoDownmix,
+            ("loRoCenterMixLevel" Lude..=) Lude.<$> loRoCenterMixLevel,
+            ("ltRtCenterMixLevel" Lude..=) Lude.<$> ltRtCenterMixLevel,
+            ("lfeFilter" Lude..=) Lude.<$> lfeFilter,
+            ("dynamicRangeCompressionLine" Lude..=)
+              Lude.<$> dynamicRangeCompressionLine,
+            ("ltRtSurroundMixLevel" Lude..=) Lude.<$> ltRtSurroundMixLevel,
+            ("metadataControl" Lude..=) Lude.<$> metadataControl,
+            ("loRoSurroundMixLevel" Lude..=) Lude.<$> loRoSurroundMixLevel,
+            ("surroundMode" Lude..=) Lude.<$> surroundMode,
+            ("attenuationControl" Lude..=) Lude.<$> attenuationControl,
+            ("passthroughControl" Lude..=) Lude.<$> passthroughControl,
+            ("bitstreamMode" Lude..=) Lude.<$> bitstreamMode,
+            ("lfeControl" Lude..=) Lude.<$> lfeControl,
+            ("dynamicRangeCompressionRf" Lude..=)
+              Lude.<$> dynamicRangeCompressionRf,
+            ("codingMode" Lude..=) Lude.<$> codingMode,
+            ("sampleRate" Lude..=) Lude.<$> sampleRate,
+            ("dcFilter" Lude..=) Lude.<$> dcFilter,
+            ("bitrate" Lude..=) Lude.<$> bitrate,
+            ("phaseControl" Lude..=) Lude.<$> phaseControl,
+            ("surroundExMode" Lude..=) Lude.<$> surroundExMode,
+            ("dialnorm" Lude..=) Lude.<$> dialnorm
           ]
       )

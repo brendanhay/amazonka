@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264InterlaceMode where
+module Network.AWS.MediaConvert.Types.H264InterlaceMode
+  ( H264InterlaceMode
+      ( H264InterlaceMode',
+        HIMBottomField,
+        HIMFollowBottomField,
+        HIMFollowTopField,
+        HIMProgressive,
+        HIMTopField
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Choose the scan line type for the output. Keep the default value, Progressive (PROGRESSIVE) to create a progressive output, regardless of the scan type of your input. Use Top field first (TOP_FIELD) or Bottom field first (BOTTOM_FIELD) to create an output that's interlaced with the same field polarity throughout. Use Follow, default top (FOLLOW_TOP_FIELD) or Follow, default bottom (FOLLOW_BOTTOM_FIELD) to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
-data H264InterlaceMode
-  = HIMBottomField
-  | HIMFollowBottomField
-  | HIMFollowTopField
-  | HIMProgressive
-  | HIMTopField
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264InterlaceMode = H264InterlaceMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264InterlaceMode where
-  parser =
-    takeLowerText >>= \case
-      "bottom_field" -> pure HIMBottomField
-      "follow_bottom_field" -> pure HIMFollowBottomField
-      "follow_top_field" -> pure HIMFollowTopField
-      "progressive" -> pure HIMProgressive
-      "top_field" -> pure HIMTopField
-      e ->
-        fromTextError $
-          "Failure parsing H264InterlaceMode from value: '" <> e
-            <> "'. Accepted values: bottom_field, follow_bottom_field, follow_top_field, progressive, top_field"
+pattern HIMBottomField :: H264InterlaceMode
+pattern HIMBottomField = H264InterlaceMode' "BOTTOM_FIELD"
 
-instance ToText H264InterlaceMode where
-  toText = \case
-    HIMBottomField -> "BOTTOM_FIELD"
-    HIMFollowBottomField -> "FOLLOW_BOTTOM_FIELD"
-    HIMFollowTopField -> "FOLLOW_TOP_FIELD"
-    HIMProgressive -> "PROGRESSIVE"
-    HIMTopField -> "TOP_FIELD"
+pattern HIMFollowBottomField :: H264InterlaceMode
+pattern HIMFollowBottomField = H264InterlaceMode' "FOLLOW_BOTTOM_FIELD"
 
-instance Hashable H264InterlaceMode
+pattern HIMFollowTopField :: H264InterlaceMode
+pattern HIMFollowTopField = H264InterlaceMode' "FOLLOW_TOP_FIELD"
 
-instance NFData H264InterlaceMode
+pattern HIMProgressive :: H264InterlaceMode
+pattern HIMProgressive = H264InterlaceMode' "PROGRESSIVE"
 
-instance ToByteString H264InterlaceMode
+pattern HIMTopField :: H264InterlaceMode
+pattern HIMTopField = H264InterlaceMode' "TOP_FIELD"
 
-instance ToQuery H264InterlaceMode
-
-instance ToHeader H264InterlaceMode
-
-instance ToJSON H264InterlaceMode where
-  toJSON = toJSONText
-
-instance FromJSON H264InterlaceMode where
-  parseJSON = parseJSONText "H264InterlaceMode"
+{-# COMPLETE
+  HIMBottomField,
+  HIMFollowBottomField,
+  HIMFollowTopField,
+  HIMProgressive,
+  HIMTopField,
+  H264InterlaceMode'
+  #-}

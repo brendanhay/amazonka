@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AacSpec where
+module Network.AWS.MediaLive.Types.AacSpec
+  ( AacSpec
+      ( AacSpec',
+        ASMPEG2,
+        ASMPEG4
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Aac Spec
-data AacSpec
-  = ASMPEG2
-  | ASMPEG4
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AacSpec = AacSpec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AacSpec where
-  parser =
-    takeLowerText >>= \case
-      "mpeg2" -> pure ASMPEG2
-      "mpeg4" -> pure ASMPEG4
-      e ->
-        fromTextError $
-          "Failure parsing AacSpec from value: '" <> e
-            <> "'. Accepted values: mpeg2, mpeg4"
+pattern ASMPEG2 :: AacSpec
+pattern ASMPEG2 = AacSpec' "MPEG2"
 
-instance ToText AacSpec where
-  toText = \case
-    ASMPEG2 -> "MPEG2"
-    ASMPEG4 -> "MPEG4"
+pattern ASMPEG4 :: AacSpec
+pattern ASMPEG4 = AacSpec' "MPEG4"
 
-instance Hashable AacSpec
-
-instance NFData AacSpec
-
-instance ToByteString AacSpec
-
-instance ToQuery AacSpec
-
-instance ToHeader AacSpec
-
-instance ToJSON AacSpec where
-  toJSON = toJSONText
-
-instance FromJSON AacSpec where
-  parseJSON = parseJSONText "AacSpec"
+{-# COMPLETE
+  ASMPEG2,
+  ASMPEG4,
+  AacSpec'
+  #-}

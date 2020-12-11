@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.CompressionFormat where
+module Network.AWS.Firehose.Types.CompressionFormat
+  ( CompressionFormat
+      ( CompressionFormat',
+        Gzip,
+        HadoopSnappy,
+        Snappy,
+        Uncompressed,
+        Zip
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CompressionFormat
-  = Gzip
-  | HadoopSnappy
-  | Snappy
-  | Uncompressed
-  | Zip
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompressionFormat = CompressionFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompressionFormat where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure Gzip
-      "hadoop_snappy" -> pure HadoopSnappy
-      "snappy" -> pure Snappy
-      "uncompressed" -> pure Uncompressed
-      "zip" -> pure Zip
-      e ->
-        fromTextError $
-          "Failure parsing CompressionFormat from value: '" <> e
-            <> "'. Accepted values: gzip, hadoop_snappy, snappy, uncompressed, zip"
+pattern Gzip :: CompressionFormat
+pattern Gzip = CompressionFormat' "GZIP"
 
-instance ToText CompressionFormat where
-  toText = \case
-    Gzip -> "GZIP"
-    HadoopSnappy -> "HADOOP_SNAPPY"
-    Snappy -> "Snappy"
-    Uncompressed -> "UNCOMPRESSED"
-    Zip -> "ZIP"
+pattern HadoopSnappy :: CompressionFormat
+pattern HadoopSnappy = CompressionFormat' "HADOOP_SNAPPY"
 
-instance Hashable CompressionFormat
+pattern Snappy :: CompressionFormat
+pattern Snappy = CompressionFormat' "Snappy"
 
-instance NFData CompressionFormat
+pattern Uncompressed :: CompressionFormat
+pattern Uncompressed = CompressionFormat' "UNCOMPRESSED"
 
-instance ToByteString CompressionFormat
+pattern Zip :: CompressionFormat
+pattern Zip = CompressionFormat' "ZIP"
 
-instance ToQuery CompressionFormat
-
-instance ToHeader CompressionFormat
-
-instance ToJSON CompressionFormat where
-  toJSON = toJSONText
-
-instance FromJSON CompressionFormat where
-  parseJSON = parseJSONText "CompressionFormat"
+{-# COMPLETE
+  Gzip,
+  HadoopSnappy,
+  Snappy,
+  Uncompressed,
+  Zip,
+  CompressionFormat'
+  #-}

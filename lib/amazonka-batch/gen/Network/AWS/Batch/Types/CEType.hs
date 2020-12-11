@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.CEType where
+module Network.AWS.Batch.Types.CEType
+  ( CEType
+      ( CEType',
+        Managed,
+        Unmanaged
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CEType
-  = Managed
-  | Unmanaged
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CEType = CEType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CEType where
-  parser =
-    takeLowerText >>= \case
-      "managed" -> pure Managed
-      "unmanaged" -> pure Unmanaged
-      e ->
-        fromTextError $
-          "Failure parsing CEType from value: '" <> e
-            <> "'. Accepted values: managed, unmanaged"
+pattern Managed :: CEType
+pattern Managed = CEType' "MANAGED"
 
-instance ToText CEType where
-  toText = \case
-    Managed -> "MANAGED"
-    Unmanaged -> "UNMANAGED"
+pattern Unmanaged :: CEType
+pattern Unmanaged = CEType' "UNMANAGED"
 
-instance Hashable CEType
-
-instance NFData CEType
-
-instance ToByteString CEType
-
-instance ToQuery CEType
-
-instance ToHeader CEType
-
-instance ToJSON CEType where
-  toJSON = toJSONText
-
-instance FromJSON CEType where
-  parseJSON = parseJSONText "CEType"
+{-# COMPLETE
+  Managed,
+  Unmanaged,
+  CEType'
+  #-}

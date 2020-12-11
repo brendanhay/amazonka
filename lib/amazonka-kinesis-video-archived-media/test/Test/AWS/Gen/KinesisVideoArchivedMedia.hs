@@ -28,37 +28,37 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetHLSStreamingSessionURL $
---             getHLSStreamingSessionURL
+--             mkGetHLSStreamingSessionURL
 --
 --         , requestGetClip $
---             getClip
+--             mkGetClip
 --
 --         , requestGetMediaForFragmentList $
---             getMediaForFragmentList
+--             mkGetMediaForFragmentList
 --
 --         , requestListFragments $
---             listFragments
+--             mkListFragments
 --
 --         , requestGetDASHStreamingSessionURL $
---             getDASHStreamingSessionURL
+--             mkGetDASHStreamingSessionURL
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetHLSStreamingSessionURL $
---             getHLSStreamingSessionURLResponse
+--             mkGetHLSStreamingSessionURLResponse
 --
 --         , responseGetClip $
---             getClipResponse
+--             mkGetClipResponse
 --
 --         , responseGetMediaForFragmentList $
---             getMediaForFragmentListResponse
+--             mkGetMediaForFragmentListResponse
 --
 --         , responseListFragments $
---             listFragmentsResponse
+--             mkListFragmentsResponse
 --
 --         , responseGetDASHStreamingSessionURL $
---             getDASHStreamingSessionURLResponse
+--             mkGetDASHStreamingSessionURLResponse
 --
 --           ]
 --     ]
@@ -102,7 +102,7 @@ responseGetHLSStreamingSessionURL =
   res
     "GetHLSStreamingSessionURLResponse"
     "fixture/GetHLSStreamingSessionURLResponse.proto"
-    kinesisVideoArchivedMedia
+    kinesisVideoArchivedMediaService
     (Proxy :: Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
@@ -110,7 +110,7 @@ responseListFragments =
   res
     "ListFragmentsResponse"
     "fixture/ListFragmentsResponse.proto"
-    kinesisVideoArchivedMedia
+    kinesisVideoArchivedMediaService
     (Proxy :: Proxy ListFragments)
 
 responseGetDASHStreamingSessionURL :: GetDASHStreamingSessionURLResponse -> TestTree
@@ -118,5 +118,5 @@ responseGetDASHStreamingSessionURL =
   res
     "GetDASHStreamingSessionURLResponse"
     "fixture/GetDASHStreamingSessionURLResponse.proto"
-    kinesisVideoArchivedMedia
+    kinesisVideoArchivedMediaService
     (Proxy :: Proxy GetDASHStreamingSessionURL)

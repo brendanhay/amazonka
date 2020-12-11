@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SubscribedWorkteam where
+module Network.AWS.SageMaker.Types.SubscribedWorkteam
+  ( SubscribedWorkteam (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubscribedWorkteam,
+
+    -- * Lenses
+    swMarketplaceTitle,
+    swSellerName,
+    swListingId,
+    swMarketplaceDescription,
+    swWorkteamARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a work team of a vendor that does the a labelling job.
 --
---
---
--- /See:/ 'subscribedWorkteam' smart constructor.
+-- /See:/ 'mkSubscribedWorkteam' smart constructor.
 data SubscribedWorkteam = SubscribedWorkteam'
-  { _swMarketplaceTitle ::
-      !(Maybe Text),
-    _swSellerName :: !(Maybe Text),
-    _swListingId :: !(Maybe Text),
-    _swMarketplaceDescription :: !(Maybe Text),
-    _swWorkteamARN :: !Text
+  { marketplaceTitle ::
+      Lude.Maybe Lude.Text,
+    sellerName :: Lude.Maybe Lude.Text,
+    listingId :: Lude.Maybe Lude.Text,
+    marketplaceDescription :: Lude.Maybe Lude.Text,
+    workteamARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribedWorkteam' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'swMarketplaceTitle' - The title of the service provided by the vendor in the Amazon Marketplace.
---
--- * 'swSellerName' - The name of the vendor in the Amazon Marketplace.
---
--- * 'swListingId' - Marketplace product listing ID.
---
--- * 'swMarketplaceDescription' - The description of the vendor from the Amazon Marketplace.
---
--- * 'swWorkteamARN' - The Amazon Resource Name (ARN) of the vendor that you have subscribed.
-subscribedWorkteam ::
-  -- | 'swWorkteamARN'
-  Text ->
+-- * 'listingId' - Marketplace product listing ID.
+-- * 'marketplaceDescription' - The description of the vendor from the Amazon Marketplace.
+-- * 'marketplaceTitle' - The title of the service provided by the vendor in the Amazon Marketplace.
+-- * 'sellerName' - The name of the vendor in the Amazon Marketplace.
+-- * 'workteamARN' - The Amazon Resource Name (ARN) of the vendor that you have subscribed.
+mkSubscribedWorkteam ::
+  -- | 'workteamARN'
+  Lude.Text ->
   SubscribedWorkteam
-subscribedWorkteam pWorkteamARN_ =
+mkSubscribedWorkteam pWorkteamARN_ =
   SubscribedWorkteam'
-    { _swMarketplaceTitle = Nothing,
-      _swSellerName = Nothing,
-      _swListingId = Nothing,
-      _swMarketplaceDescription = Nothing,
-      _swWorkteamARN = pWorkteamARN_
+    { marketplaceTitle = Lude.Nothing,
+      sellerName = Lude.Nothing,
+      listingId = Lude.Nothing,
+      marketplaceDescription = Lude.Nothing,
+      workteamARN = pWorkteamARN_
     }
 
 -- | The title of the service provided by the vendor in the Amazon Marketplace.
-swMarketplaceTitle :: Lens' SubscribedWorkteam (Maybe Text)
-swMarketplaceTitle = lens _swMarketplaceTitle (\s a -> s {_swMarketplaceTitle = a})
+--
+-- /Note:/ Consider using 'marketplaceTitle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swMarketplaceTitle :: Lens.Lens' SubscribedWorkteam (Lude.Maybe Lude.Text)
+swMarketplaceTitle = Lens.lens (marketplaceTitle :: SubscribedWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {marketplaceTitle = a} :: SubscribedWorkteam)
+{-# DEPRECATED swMarketplaceTitle "Use generic-lens or generic-optics with 'marketplaceTitle' instead." #-}
 
 -- | The name of the vendor in the Amazon Marketplace.
-swSellerName :: Lens' SubscribedWorkteam (Maybe Text)
-swSellerName = lens _swSellerName (\s a -> s {_swSellerName = a})
+--
+-- /Note:/ Consider using 'sellerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swSellerName :: Lens.Lens' SubscribedWorkteam (Lude.Maybe Lude.Text)
+swSellerName = Lens.lens (sellerName :: SubscribedWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {sellerName = a} :: SubscribedWorkteam)
+{-# DEPRECATED swSellerName "Use generic-lens or generic-optics with 'sellerName' instead." #-}
 
 -- | Marketplace product listing ID.
-swListingId :: Lens' SubscribedWorkteam (Maybe Text)
-swListingId = lens _swListingId (\s a -> s {_swListingId = a})
+--
+-- /Note:/ Consider using 'listingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swListingId :: Lens.Lens' SubscribedWorkteam (Lude.Maybe Lude.Text)
+swListingId = Lens.lens (listingId :: SubscribedWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {listingId = a} :: SubscribedWorkteam)
+{-# DEPRECATED swListingId "Use generic-lens or generic-optics with 'listingId' instead." #-}
 
 -- | The description of the vendor from the Amazon Marketplace.
-swMarketplaceDescription :: Lens' SubscribedWorkteam (Maybe Text)
-swMarketplaceDescription = lens _swMarketplaceDescription (\s a -> s {_swMarketplaceDescription = a})
+--
+-- /Note:/ Consider using 'marketplaceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swMarketplaceDescription :: Lens.Lens' SubscribedWorkteam (Lude.Maybe Lude.Text)
+swMarketplaceDescription = Lens.lens (marketplaceDescription :: SubscribedWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {marketplaceDescription = a} :: SubscribedWorkteam)
+{-# DEPRECATED swMarketplaceDescription "Use generic-lens or generic-optics with 'marketplaceDescription' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the vendor that you have subscribed.
-swWorkteamARN :: Lens' SubscribedWorkteam Text
-swWorkteamARN = lens _swWorkteamARN (\s a -> s {_swWorkteamARN = a})
+--
+-- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swWorkteamARN :: Lens.Lens' SubscribedWorkteam Lude.Text
+swWorkteamARN = Lens.lens (workteamARN :: SubscribedWorkteam -> Lude.Text) (\s a -> s {workteamARN = a} :: SubscribedWorkteam)
+{-# DEPRECATED swWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
 
-instance FromJSON SubscribedWorkteam where
+instance Lude.FromJSON SubscribedWorkteam where
   parseJSON =
-    withObject
+    Lude.withObject
       "SubscribedWorkteam"
       ( \x ->
           SubscribedWorkteam'
-            <$> (x .:? "MarketplaceTitle")
-            <*> (x .:? "SellerName")
-            <*> (x .:? "ListingId")
-            <*> (x .:? "MarketplaceDescription")
-            <*> (x .: "WorkteamArn")
+            Lude.<$> (x Lude..:? "MarketplaceTitle")
+            Lude.<*> (x Lude..:? "SellerName")
+            Lude.<*> (x Lude..:? "ListingId")
+            Lude.<*> (x Lude..:? "MarketplaceDescription")
+            Lude.<*> (x Lude..: "WorkteamArn")
       )
-
-instance Hashable SubscribedWorkteam
-
-instance NFData SubscribedWorkteam

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.StreamSummary where
+module Network.AWS.IoT.Types.StreamSummary
+  ( StreamSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStreamSummary,
+
+    -- * Lenses
+    ssStreamVersion,
+    ssStreamARN,
+    ssDescription,
+    ssStreamId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A summary of a stream.
 --
---
---
--- /See:/ 'streamSummary' smart constructor.
+-- /See:/ 'mkStreamSummary' smart constructor.
 data StreamSummary = StreamSummary'
-  { _ssStreamVersion ::
-      !(Maybe Nat),
-    _ssStreamARN :: !(Maybe Text),
-    _ssDescription :: !(Maybe Text),
-    _ssStreamId :: !(Maybe Text)
+  { streamVersion ::
+      Lude.Maybe Lude.Natural,
+    streamARN :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    streamId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssStreamVersion' - The stream version.
---
--- * 'ssStreamARN' - The stream ARN.
---
--- * 'ssDescription' - A description of the stream.
---
--- * 'ssStreamId' - The stream ID.
-streamSummary ::
+-- * 'description' - A description of the stream.
+-- * 'streamARN' - The stream ARN.
+-- * 'streamId' - The stream ID.
+-- * 'streamVersion' - The stream version.
+mkStreamSummary ::
   StreamSummary
-streamSummary =
+mkStreamSummary =
   StreamSummary'
-    { _ssStreamVersion = Nothing,
-      _ssStreamARN = Nothing,
-      _ssDescription = Nothing,
-      _ssStreamId = Nothing
+    { streamVersion = Lude.Nothing,
+      streamARN = Lude.Nothing,
+      description = Lude.Nothing,
+      streamId = Lude.Nothing
     }
 
 -- | The stream version.
-ssStreamVersion :: Lens' StreamSummary (Maybe Natural)
-ssStreamVersion = lens _ssStreamVersion (\s a -> s {_ssStreamVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'streamVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamVersion :: Lens.Lens' StreamSummary (Lude.Maybe Lude.Natural)
+ssStreamVersion = Lens.lens (streamVersion :: StreamSummary -> Lude.Maybe Lude.Natural) (\s a -> s {streamVersion = a} :: StreamSummary)
+{-# DEPRECATED ssStreamVersion "Use generic-lens or generic-optics with 'streamVersion' instead." #-}
 
 -- | The stream ARN.
-ssStreamARN :: Lens' StreamSummary (Maybe Text)
-ssStreamARN = lens _ssStreamARN (\s a -> s {_ssStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamARN :: Lens.Lens' StreamSummary (Lude.Maybe Lude.Text)
+ssStreamARN = Lens.lens (streamARN :: StreamSummary -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: StreamSummary)
+{-# DEPRECATED ssStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | A description of the stream.
-ssDescription :: Lens' StreamSummary (Maybe Text)
-ssDescription = lens _ssDescription (\s a -> s {_ssDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDescription :: Lens.Lens' StreamSummary (Lude.Maybe Lude.Text)
+ssDescription = Lens.lens (description :: StreamSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StreamSummary)
+{-# DEPRECATED ssDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The stream ID.
-ssStreamId :: Lens' StreamSummary (Maybe Text)
-ssStreamId = lens _ssStreamId (\s a -> s {_ssStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamId :: Lens.Lens' StreamSummary (Lude.Maybe Lude.Text)
+ssStreamId = Lens.lens (streamId :: StreamSummary -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: StreamSummary)
+{-# DEPRECATED ssStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
-instance FromJSON StreamSummary where
+instance Lude.FromJSON StreamSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "StreamSummary"
       ( \x ->
           StreamSummary'
-            <$> (x .:? "streamVersion")
-            <*> (x .:? "streamArn")
-            <*> (x .:? "description")
-            <*> (x .:? "streamId")
+            Lude.<$> (x Lude..:? "streamVersion")
+            Lude.<*> (x Lude..:? "streamArn")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "streamId")
       )
-
-instance Hashable StreamSummary
-
-instance NFData StreamSummary

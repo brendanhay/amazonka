@@ -13,8 +13,8 @@
 --
 -- DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramatically speeds up database reads by caching frequently-accessed data from DynamoDB, so applications can access that data with sub-millisecond latency. You can create a DAX cluster easily, using the AWS Management Console. With a few simple modifications to your code, your application can begin taking advantage of the DAX cluster and realize significant improvements in read performance.
 module Network.AWS.DAX
-  ( -- * Service Configuration
-    dax,
+  ( -- * Service configuration
+    daxService,
 
     -- * Errors
     -- $errors
@@ -106,8 +106,8 @@ module Network.AWS.DAX
     SourceType (..),
 
     -- ** Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cStatus,
     cIAMRoleARN,
     cClusterARN,
@@ -127,22 +127,22 @@ module Network.AWS.DAX
     cParameterGroup,
 
     -- ** Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eAddress,
     ePort,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceName,
     eSourceType,
     eDate,
     eMessage,
 
     -- ** Node
-    Node,
-    node,
+    Node (..),
+    mkNode,
     nNodeStatus,
     nParameterGroupStatus,
     nAvailabilityZone,
@@ -151,20 +151,20 @@ module Network.AWS.DAX
     nNodeCreateTime,
 
     -- ** NodeTypeSpecificValue
-    NodeTypeSpecificValue,
-    nodeTypeSpecificValue,
+    NodeTypeSpecificValue (..),
+    mkNodeTypeSpecificValue,
     ntsvValue,
     ntsvNodeType,
 
     -- ** NotificationConfiguration
-    NotificationConfiguration,
-    notificationConfiguration,
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
     ncTopicStatus,
     ncTopicARN,
 
     -- ** Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pParameterValue,
     pParameterType,
     pSource,
@@ -177,59 +177,70 @@ module Network.AWS.DAX
     pChangeType,
 
     -- ** ParameterGroup
-    ParameterGroup,
-    parameterGroup,
+    ParameterGroup (..),
+    mkParameterGroup,
     pgDescription,
     pgParameterGroupName,
 
     -- ** ParameterGroupStatus
-    ParameterGroupStatus,
-    parameterGroupStatus,
+    ParameterGroupStatus (..),
+    mkParameterGroupStatus,
     pgsNodeIdsToReboot,
     pgsParameterApplyStatus,
     pgsParameterGroupName,
 
     -- ** ParameterNameValue
-    ParameterNameValue,
-    parameterNameValue,
+    ParameterNameValue (..),
+    mkParameterNameValue,
     pnvParameterValue,
     pnvParameterName,
 
     -- ** SSEDescription
-    SSEDescription,
-    sSEDescription,
+    SSEDescription (..),
+    mkSSEDescription,
     ssedStatus,
 
     -- ** SSESpecification
-    SSESpecification,
-    sSESpecification,
+    SSESpecification (..),
+    mkSSESpecification,
     ssesEnabled,
 
     -- ** SecurityGroupMembership
-    SecurityGroupMembership,
-    securityGroupMembership,
+    SecurityGroupMembership (..),
+    mkSecurityGroupMembership,
     sgmStatus,
     sgmSecurityGroupIdentifier,
 
     -- ** Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
 
     -- ** SubnetGroup
-    SubnetGroup,
-    subnetGroup,
+    SubnetGroup (..),
+    mkSubnetGroup,
     sgVPCId,
     sgSubnets,
     sgSubnetGroupName,
     sgDescription,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -256,6 +267,7 @@ import Network.AWS.DAX.UpdateCluster
 import Network.AWS.DAX.UpdateParameterGroup
 import Network.AWS.DAX.UpdateSubnetGroup
 import Network.AWS.DAX.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

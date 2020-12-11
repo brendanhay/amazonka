@@ -28,517 +28,517 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestImportAsProvisionedProduct $
---             importAsProvisionedProduct
+--             mkImportAsProvisionedProduct
 --
 --         , requestDeleteConstraint $
---             deleteConstraint
+--             mkDeleteConstraint
 --
 --         , requestUpdateConstraint $
---             updateConstraint
+--             mkUpdateConstraint
 --
 --         , requestCreateProvisionedProductPlan $
---             createProvisionedProductPlan
+--             mkCreateProvisionedProductPlan
 --
 --         , requestExecuteProvisionedProductServiceAction $
---             executeProvisionedProductServiceAction
+--             mkExecuteProvisionedProductServiceAction
 --
 --         , requestCreateProduct $
---             createProduct
+--             mkCreateProduct
 --
 --         , requestDescribeCopyProductStatus $
---             describeCopyProductStatus
+--             mkDescribeCopyProductStatus
 --
 --         , requestCreateServiceAction $
---             createServiceAction
+--             mkCreateServiceAction
 --
 --         , requestTerminateProvisionedProduct $
---             terminateProvisionedProduct
+--             mkTerminateProvisionedProduct
 --
 --         , requestUpdateProvisionedProduct $
---             updateProvisionedProduct
+--             mkUpdateProvisionedProduct
 --
 --         , requestDescribeProvisioningArtifact $
---             describeProvisioningArtifact
+--             mkDescribeProvisioningArtifact
 --
 --         , requestAssociateServiceActionWithProvisioningArtifact $
---             associateServiceActionWithProvisioningArtifact
+--             mkAssociateServiceActionWithProvisioningArtifact
 --
 --         , requestListRecordHistory $
---             listRecordHistory
+--             mkListRecordHistory
 --
 --         , requestDescribeProvisionedProductPlan $
---             describeProvisionedProductPlan
+--             mkDescribeProvisionedProductPlan
 --
 --         , requestAssociateTagOptionWithResource $
---             associateTagOptionWithResource
+--             mkAssociateTagOptionWithResource
 --
 --         , requestCreateTagOption $
---             createTagOption
+--             mkCreateTagOption
 --
 --         , requestListBudgetsForResource $
---             listBudgetsForResource
+--             mkListBudgetsForResource
 --
 --         , requestDisassociateProductFromPortfolio $
---             disassociateProductFromPortfolio
+--             mkDisassociateProductFromPortfolio
 --
 --         , requestListConstraintsForPortfolio $
---             listConstraintsForPortfolio
+--             mkListConstraintsForPortfolio
 --
 --         , requestDescribeRecord $
---             describeRecord
+--             mkDescribeRecord
 --
 --         , requestEnableAWSOrganizationsAccess $
---             enableAWSOrganizationsAccess
+--             mkEnableAWSOrganizationsAccess
 --
 --         , requestDescribeConstraint $
---             describeConstraint
+--             mkDescribeConstraint
 --
 --         , requestCreateProvisioningArtifact $
---             createProvisioningArtifact
+--             mkCreateProvisioningArtifact
 --
 --         , requestListPortfolios $
---             listPortfolios
+--             mkListPortfolios
 --
 --         , requestDisassociateBudgetFromResource $
---             disassociateBudgetFromResource
+--             mkDisassociateBudgetFromResource
 --
 --         , requestDescribeProductView $
---             describeProductView
+--             mkDescribeProductView
 --
 --         , requestCreatePortfolioShare $
---             createPortfolioShare
+--             mkCreatePortfolioShare
 --
 --         , requestListProvisioningArtifacts $
---             listProvisioningArtifacts
+--             mkListProvisioningArtifacts
 --
 --         , requestListServiceActionsForProvisioningArtifact $
---             listServiceActionsForProvisioningArtifact
+--             mkListServiceActionsForProvisioningArtifact
 --
 --         , requestSearchProducts $
---             searchProducts
+--             mkSearchProducts
 --
 --         , requestDescribeServiceActionExecutionParameters $
---             describeServiceActionExecutionParameters
+--             mkDescribeServiceActionExecutionParameters
 --
 --         , requestSearchProvisionedProducts $
---             searchProvisionedProducts
+--             mkSearchProvisionedProducts
 --
 --         , requestListStackInstancesForProvisionedProduct $
---             listStackInstancesForProvisionedProduct
+--             mkListStackInstancesForProvisionedProduct
 --
 --         , requestDescribeServiceAction $
---             describeServiceAction
+--             mkDescribeServiceAction
 --
 --         , requestDescribeProduct $
---             describeProduct
+--             mkDescribeProduct
 --
 --         , requestDeleteProvisionedProductPlan $
---             deleteProvisionedProductPlan
+--             mkDeleteProvisionedProductPlan
 --
 --         , requestGetProvisionedProductOutputs $
---             getProvisionedProductOutputs
+--             mkGetProvisionedProductOutputs
 --
 --         , requestCreateConstraint $
---             createConstraint
+--             mkCreateConstraint
 --
 --         , requestListProvisionedProductPlans $
---             listProvisionedProductPlans
+--             mkListProvisionedProductPlans
 --
 --         , requestListPortfolioAccess $
---             listPortfolioAccess
+--             mkListPortfolioAccess
 --
 --         , requestBatchDisassociateServiceActionFromProvisioningArtifact $
---             batchDisassociateServiceActionFromProvisioningArtifact
+--             mkBatchDisassociateServiceActionFromProvisioningArtifact
 --
 --         , requestDisassociatePrincipalFromPortfolio $
---             disassociatePrincipalFromPortfolio
+--             mkDisassociatePrincipalFromPortfolio
 --
 --         , requestDescribeTagOption $
---             describeTagOption
+--             mkDescribeTagOption
 --
 --         , requestDisassociateTagOptionFromResource $
---             disassociateTagOptionFromResource
+--             mkDisassociateTagOptionFromResource
 --
 --         , requestDescribePortfolio $
---             describePortfolio
+--             mkDescribePortfolio
 --
 --         , requestAssociateProductWithPortfolio $
---             associateProductWithPortfolio
+--             mkAssociateProductWithPortfolio
 --
 --         , requestListAcceptedPortfolioShares $
---             listAcceptedPortfolioShares
+--             mkListAcceptedPortfolioShares
 --
 --         , requestExecuteProvisionedProductPlan $
---             executeProvisionedProductPlan
+--             mkExecuteProvisionedProductPlan
 --
 --         , requestAcceptPortfolioShare $
---             acceptPortfolioShare
+--             mkAcceptPortfolioShare
 --
 --         , requestScanProvisionedProducts $
---             scanProvisionedProducts
+--             mkScanProvisionedProducts
 --
 --         , requestListOrganizationPortfolioAccess $
---             listOrganizationPortfolioAccess
+--             mkListOrganizationPortfolioAccess
 --
 --         , requestListPrincipalsForPortfolio $
---             listPrincipalsForPortfolio
+--             mkListPrincipalsForPortfolio
 --
 --         , requestDeleteProduct $
---             deleteProduct
+--             mkDeleteProduct
 --
 --         , requestUpdateProduct $
---             updateProduct
+--             mkUpdateProduct
 --
 --         , requestListServiceActions $
---             listServiceActions
+--             mkListServiceActions
 --
 --         , requestProvisionProduct $
---             provisionProduct
+--             mkProvisionProduct
 --
 --         , requestDeleteServiceAction $
---             deleteServiceAction
+--             mkDeleteServiceAction
 --
 --         , requestUpdateServiceAction $
---             updateServiceAction
+--             mkUpdateServiceAction
 --
 --         , requestDisableAWSOrganizationsAccess $
---             disableAWSOrganizationsAccess
+--             mkDisableAWSOrganizationsAccess
 --
 --         , requestRejectPortfolioShare $
---             rejectPortfolioShare
+--             mkRejectPortfolioShare
 --
 --         , requestDisassociateServiceActionFromProvisioningArtifact $
---             disassociateServiceActionFromProvisioningArtifact
+--             mkDisassociateServiceActionFromProvisioningArtifact
 --
 --         , requestDeleteTagOption $
---             deleteTagOption
+--             mkDeleteTagOption
 --
 --         , requestUpdateTagOption $
---             updateTagOption
+--             mkUpdateTagOption
 --
 --         , requestListTagOptions $
---             listTagOptions
+--             mkListTagOptions
 --
 --         , requestUpdateProvisionedProductProperties $
---             updateProvisionedProductProperties
+--             mkUpdateProvisionedProductProperties
 --
 --         , requestSearchProductsAsAdmin $
---             searchProductsAsAdmin
+--             mkSearchProductsAsAdmin
 --
 --         , requestDeletePortfolio $
---             deletePortfolio
+--             mkDeletePortfolio
 --
 --         , requestUpdatePortfolio $
---             updatePortfolio
+--             mkUpdatePortfolio
 --
 --         , requestListPortfoliosForProduct $
---             listPortfoliosForProduct
+--             mkListPortfoliosForProduct
 --
 --         , requestGetAWSOrganizationsAccessStatus $
---             getAWSOrganizationsAccessStatus
+--             mkGetAWSOrganizationsAccessStatus
 --
 --         , requestDescribeProductAsAdmin $
---             describeProductAsAdmin
+--             mkDescribeProductAsAdmin
 --
 --         , requestBatchAssociateServiceActionWithProvisioningArtifact $
---             batchAssociateServiceActionWithProvisioningArtifact
+--             mkBatchAssociateServiceActionWithProvisioningArtifact
 --
 --         , requestDescribeProvisioningParameters $
---             describeProvisioningParameters
+--             mkDescribeProvisioningParameters
 --
 --         , requestAssociatePrincipalWithPortfolio $
---             associatePrincipalWithPortfolio
+--             mkAssociatePrincipalWithPortfolio
 --
 --         , requestDescribeProvisionedProduct $
---             describeProvisionedProduct
+--             mkDescribeProvisionedProduct
 --
 --         , requestCopyProduct $
---             copyProduct
+--             mkCopyProduct
 --
 --         , requestDescribePortfolioShareStatus $
---             describePortfolioShareStatus
+--             mkDescribePortfolioShareStatus
 --
 --         , requestUpdateProvisioningArtifact $
---             updateProvisioningArtifact
+--             mkUpdateProvisioningArtifact
 --
 --         , requestDeletePortfolioShare $
---             deletePortfolioShare
+--             mkDeletePortfolioShare
 --
 --         , requestDeleteProvisioningArtifact $
---             deleteProvisioningArtifact
+--             mkDeleteProvisioningArtifact
 --
 --         , requestListProvisioningArtifactsForServiceAction $
---             listProvisioningArtifactsForServiceAction
+--             mkListProvisioningArtifactsForServiceAction
 --
 --         , requestCreatePortfolio $
---             createPortfolio
+--             mkCreatePortfolio
 --
 --         , requestListLaunchPaths $
---             listLaunchPaths
+--             mkListLaunchPaths
 --
 --         , requestListResourcesForTagOption $
---             listResourcesForTagOption
+--             mkListResourcesForTagOption
 --
 --         , requestAssociateBudgetWithResource $
---             associateBudgetWithResource
+--             mkAssociateBudgetWithResource
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseImportAsProvisionedProduct $
---             importAsProvisionedProductResponse
+--             mkImportAsProvisionedProductResponse
 --
 --         , responseDeleteConstraint $
---             deleteConstraintResponse
+--             mkDeleteConstraintResponse
 --
 --         , responseUpdateConstraint $
---             updateConstraintResponse
+--             mkUpdateConstraintResponse
 --
 --         , responseCreateProvisionedProductPlan $
---             createProvisionedProductPlanResponse
+--             mkCreateProvisionedProductPlanResponse
 --
 --         , responseExecuteProvisionedProductServiceAction $
---             executeProvisionedProductServiceActionResponse
+--             mkExecuteProvisionedProductServiceActionResponse
 --
 --         , responseCreateProduct $
---             createProductResponse
+--             mkCreateProductResponse
 --
 --         , responseDescribeCopyProductStatus $
---             describeCopyProductStatusResponse
+--             mkDescribeCopyProductStatusResponse
 --
 --         , responseCreateServiceAction $
---             createServiceActionResponse
+--             mkCreateServiceActionResponse
 --
 --         , responseTerminateProvisionedProduct $
---             terminateProvisionedProductResponse
+--             mkTerminateProvisionedProductResponse
 --
 --         , responseUpdateProvisionedProduct $
---             updateProvisionedProductResponse
+--             mkUpdateProvisionedProductResponse
 --
 --         , responseDescribeProvisioningArtifact $
---             describeProvisioningArtifactResponse
+--             mkDescribeProvisioningArtifactResponse
 --
 --         , responseAssociateServiceActionWithProvisioningArtifact $
---             associateServiceActionWithProvisioningArtifactResponse
+--             mkAssociateServiceActionWithProvisioningArtifactResponse
 --
 --         , responseListRecordHistory $
---             listRecordHistoryResponse
+--             mkListRecordHistoryResponse
 --
 --         , responseDescribeProvisionedProductPlan $
---             describeProvisionedProductPlanResponse
+--             mkDescribeProvisionedProductPlanResponse
 --
 --         , responseAssociateTagOptionWithResource $
---             associateTagOptionWithResourceResponse
+--             mkAssociateTagOptionWithResourceResponse
 --
 --         , responseCreateTagOption $
---             createTagOptionResponse
+--             mkCreateTagOptionResponse
 --
 --         , responseListBudgetsForResource $
---             listBudgetsForResourceResponse
+--             mkListBudgetsForResourceResponse
 --
 --         , responseDisassociateProductFromPortfolio $
---             disassociateProductFromPortfolioResponse
+--             mkDisassociateProductFromPortfolioResponse
 --
 --         , responseListConstraintsForPortfolio $
---             listConstraintsForPortfolioResponse
+--             mkListConstraintsForPortfolioResponse
 --
 --         , responseDescribeRecord $
---             describeRecordResponse
+--             mkDescribeRecordResponse
 --
 --         , responseEnableAWSOrganizationsAccess $
---             enableAWSOrganizationsAccessResponse
+--             mkEnableAWSOrganizationsAccessResponse
 --
 --         , responseDescribeConstraint $
---             describeConstraintResponse
+--             mkDescribeConstraintResponse
 --
 --         , responseCreateProvisioningArtifact $
---             createProvisioningArtifactResponse
+--             mkCreateProvisioningArtifactResponse
 --
 --         , responseListPortfolios $
---             listPortfoliosResponse
+--             mkListPortfoliosResponse
 --
 --         , responseDisassociateBudgetFromResource $
---             disassociateBudgetFromResourceResponse
+--             mkDisassociateBudgetFromResourceResponse
 --
 --         , responseDescribeProductView $
---             describeProductViewResponse
+--             mkDescribeProductViewResponse
 --
 --         , responseCreatePortfolioShare $
---             createPortfolioShareResponse
+--             mkCreatePortfolioShareResponse
 --
 --         , responseListProvisioningArtifacts $
---             listProvisioningArtifactsResponse
+--             mkListProvisioningArtifactsResponse
 --
 --         , responseListServiceActionsForProvisioningArtifact $
---             listServiceActionsForProvisioningArtifactResponse
+--             mkListServiceActionsForProvisioningArtifactResponse
 --
 --         , responseSearchProducts $
---             searchProductsResponse
+--             mkSearchProductsResponse
 --
 --         , responseDescribeServiceActionExecutionParameters $
---             describeServiceActionExecutionParametersResponse
+--             mkDescribeServiceActionExecutionParametersResponse
 --
 --         , responseSearchProvisionedProducts $
---             searchProvisionedProductsResponse
+--             mkSearchProvisionedProductsResponse
 --
 --         , responseListStackInstancesForProvisionedProduct $
---             listStackInstancesForProvisionedProductResponse
+--             mkListStackInstancesForProvisionedProductResponse
 --
 --         , responseDescribeServiceAction $
---             describeServiceActionResponse
+--             mkDescribeServiceActionResponse
 --
 --         , responseDescribeProduct $
---             describeProductResponse
+--             mkDescribeProductResponse
 --
 --         , responseDeleteProvisionedProductPlan $
---             deleteProvisionedProductPlanResponse
+--             mkDeleteProvisionedProductPlanResponse
 --
 --         , responseGetProvisionedProductOutputs $
---             getProvisionedProductOutputsResponse
+--             mkGetProvisionedProductOutputsResponse
 --
 --         , responseCreateConstraint $
---             createConstraintResponse
+--             mkCreateConstraintResponse
 --
 --         , responseListProvisionedProductPlans $
---             listProvisionedProductPlansResponse
+--             mkListProvisionedProductPlansResponse
 --
 --         , responseListPortfolioAccess $
---             listPortfolioAccessResponse
+--             mkListPortfolioAccessResponse
 --
 --         , responseBatchDisassociateServiceActionFromProvisioningArtifact $
---             batchDisassociateServiceActionFromProvisioningArtifactResponse
+--             mkBatchDisassociateServiceActionFromProvisioningArtifactResponse
 --
 --         , responseDisassociatePrincipalFromPortfolio $
---             disassociatePrincipalFromPortfolioResponse
+--             mkDisassociatePrincipalFromPortfolioResponse
 --
 --         , responseDescribeTagOption $
---             describeTagOptionResponse
+--             mkDescribeTagOptionResponse
 --
 --         , responseDisassociateTagOptionFromResource $
---             disassociateTagOptionFromResourceResponse
+--             mkDisassociateTagOptionFromResourceResponse
 --
 --         , responseDescribePortfolio $
---             describePortfolioResponse
+--             mkDescribePortfolioResponse
 --
 --         , responseAssociateProductWithPortfolio $
---             associateProductWithPortfolioResponse
+--             mkAssociateProductWithPortfolioResponse
 --
 --         , responseListAcceptedPortfolioShares $
---             listAcceptedPortfolioSharesResponse
+--             mkListAcceptedPortfolioSharesResponse
 --
 --         , responseExecuteProvisionedProductPlan $
---             executeProvisionedProductPlanResponse
+--             mkExecuteProvisionedProductPlanResponse
 --
 --         , responseAcceptPortfolioShare $
---             acceptPortfolioShareResponse
+--             mkAcceptPortfolioShareResponse
 --
 --         , responseScanProvisionedProducts $
---             scanProvisionedProductsResponse
+--             mkScanProvisionedProductsResponse
 --
 --         , responseListOrganizationPortfolioAccess $
---             listOrganizationPortfolioAccessResponse
+--             mkListOrganizationPortfolioAccessResponse
 --
 --         , responseListPrincipalsForPortfolio $
---             listPrincipalsForPortfolioResponse
+--             mkListPrincipalsForPortfolioResponse
 --
 --         , responseDeleteProduct $
---             deleteProductResponse
+--             mkDeleteProductResponse
 --
 --         , responseUpdateProduct $
---             updateProductResponse
+--             mkUpdateProductResponse
 --
 --         , responseListServiceActions $
---             listServiceActionsResponse
+--             mkListServiceActionsResponse
 --
 --         , responseProvisionProduct $
---             provisionProductResponse
+--             mkProvisionProductResponse
 --
 --         , responseDeleteServiceAction $
---             deleteServiceActionResponse
+--             mkDeleteServiceActionResponse
 --
 --         , responseUpdateServiceAction $
---             updateServiceActionResponse
+--             mkUpdateServiceActionResponse
 --
 --         , responseDisableAWSOrganizationsAccess $
---             disableAWSOrganizationsAccessResponse
+--             mkDisableAWSOrganizationsAccessResponse
 --
 --         , responseRejectPortfolioShare $
---             rejectPortfolioShareResponse
+--             mkRejectPortfolioShareResponse
 --
 --         , responseDisassociateServiceActionFromProvisioningArtifact $
---             disassociateServiceActionFromProvisioningArtifactResponse
+--             mkDisassociateServiceActionFromProvisioningArtifactResponse
 --
 --         , responseDeleteTagOption $
---             deleteTagOptionResponse
+--             mkDeleteTagOptionResponse
 --
 --         , responseUpdateTagOption $
---             updateTagOptionResponse
+--             mkUpdateTagOptionResponse
 --
 --         , responseListTagOptions $
---             listTagOptionsResponse
+--             mkListTagOptionsResponse
 --
 --         , responseUpdateProvisionedProductProperties $
---             updateProvisionedProductPropertiesResponse
+--             mkUpdateProvisionedProductPropertiesResponse
 --
 --         , responseSearchProductsAsAdmin $
---             searchProductsAsAdminResponse
+--             mkSearchProductsAsAdminResponse
 --
 --         , responseDeletePortfolio $
---             deletePortfolioResponse
+--             mkDeletePortfolioResponse
 --
 --         , responseUpdatePortfolio $
---             updatePortfolioResponse
+--             mkUpdatePortfolioResponse
 --
 --         , responseListPortfoliosForProduct $
---             listPortfoliosForProductResponse
+--             mkListPortfoliosForProductResponse
 --
 --         , responseGetAWSOrganizationsAccessStatus $
---             getAWSOrganizationsAccessStatusResponse
+--             mkGetAWSOrganizationsAccessStatusResponse
 --
 --         , responseDescribeProductAsAdmin $
---             describeProductAsAdminResponse
+--             mkDescribeProductAsAdminResponse
 --
 --         , responseBatchAssociateServiceActionWithProvisioningArtifact $
---             batchAssociateServiceActionWithProvisioningArtifactResponse
+--             mkBatchAssociateServiceActionWithProvisioningArtifactResponse
 --
 --         , responseDescribeProvisioningParameters $
---             describeProvisioningParametersResponse
+--             mkDescribeProvisioningParametersResponse
 --
 --         , responseAssociatePrincipalWithPortfolio $
---             associatePrincipalWithPortfolioResponse
+--             mkAssociatePrincipalWithPortfolioResponse
 --
 --         , responseDescribeProvisionedProduct $
---             describeProvisionedProductResponse
+--             mkDescribeProvisionedProductResponse
 --
 --         , responseCopyProduct $
---             copyProductResponse
+--             mkCopyProductResponse
 --
 --         , responseDescribePortfolioShareStatus $
---             describePortfolioShareStatusResponse
+--             mkDescribePortfolioShareStatusResponse
 --
 --         , responseUpdateProvisioningArtifact $
---             updateProvisioningArtifactResponse
+--             mkUpdateProvisioningArtifactResponse
 --
 --         , responseDeletePortfolioShare $
---             deletePortfolioShareResponse
+--             mkDeletePortfolioShareResponse
 --
 --         , responseDeleteProvisioningArtifact $
---             deleteProvisioningArtifactResponse
+--             mkDeleteProvisioningArtifactResponse
 --
 --         , responseListProvisioningArtifactsForServiceAction $
---             listProvisioningArtifactsForServiceActionResponse
+--             mkListProvisioningArtifactsForServiceActionResponse
 --
 --         , responseCreatePortfolio $
---             createPortfolioResponse
+--             mkCreatePortfolioResponse
 --
 --         , responseListLaunchPaths $
---             listLaunchPathsResponse
+--             mkListLaunchPathsResponse
 --
 --         , responseListResourcesForTagOption $
---             listResourcesForTagOptionResponse
+--             mkListResourcesForTagOptionResponse
 --
 --         , responseAssociateBudgetWithResource $
---             associateBudgetWithResourceResponse
+--             mkAssociateBudgetWithResourceResponse
 --
 --           ]
 --     ]
@@ -1062,7 +1062,7 @@ responseImportAsProvisionedProduct =
   res
     "ImportAsProvisionedProductResponse"
     "fixture/ImportAsProvisionedProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ImportAsProvisionedProduct)
 
 responseDeleteConstraint :: DeleteConstraintResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseDeleteConstraint =
   res
     "DeleteConstraintResponse"
     "fixture/DeleteConstraintResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteConstraint)
 
 responseUpdateConstraint :: UpdateConstraintResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseUpdateConstraint =
   res
     "UpdateConstraintResponse"
     "fixture/UpdateConstraintResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateConstraint)
 
 responseCreateProvisionedProductPlan :: CreateProvisionedProductPlanResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseCreateProvisionedProductPlan =
   res
     "CreateProvisionedProductPlanResponse"
     "fixture/CreateProvisionedProductPlanResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateProvisionedProductPlan)
 
 responseExecuteProvisionedProductServiceAction :: ExecuteProvisionedProductServiceActionResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseExecuteProvisionedProductServiceAction =
   res
     "ExecuteProvisionedProductServiceActionResponse"
     "fixture/ExecuteProvisionedProductServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ExecuteProvisionedProductServiceAction)
 
 responseCreateProduct :: CreateProductResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseCreateProduct =
   res
     "CreateProductResponse"
     "fixture/CreateProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateProduct)
 
 responseDescribeCopyProductStatus :: DescribeCopyProductStatusResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseDescribeCopyProductStatus =
   res
     "DescribeCopyProductStatusResponse"
     "fixture/DescribeCopyProductStatusResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeCopyProductStatus)
 
 responseCreateServiceAction :: CreateServiceActionResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseCreateServiceAction =
   res
     "CreateServiceActionResponse"
     "fixture/CreateServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateServiceAction)
 
 responseTerminateProvisionedProduct :: TerminateProvisionedProductResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseTerminateProvisionedProduct =
   res
     "TerminateProvisionedProductResponse"
     "fixture/TerminateProvisionedProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy TerminateProvisionedProduct)
 
 responseUpdateProvisionedProduct :: UpdateProvisionedProductResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseUpdateProvisionedProduct =
   res
     "UpdateProvisionedProductResponse"
     "fixture/UpdateProvisionedProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateProvisionedProduct)
 
 responseDescribeProvisioningArtifact :: DescribeProvisioningArtifactResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseDescribeProvisioningArtifact =
   res
     "DescribeProvisioningArtifactResponse"
     "fixture/DescribeProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProvisioningArtifact)
 
 responseAssociateServiceActionWithProvisioningArtifact :: AssociateServiceActionWithProvisioningArtifactResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseAssociateServiceActionWithProvisioningArtifact =
   res
     "AssociateServiceActionWithProvisioningArtifactResponse"
     "fixture/AssociateServiceActionWithProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AssociateServiceActionWithProvisioningArtifact)
 
 responseListRecordHistory :: ListRecordHistoryResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseListRecordHistory =
   res
     "ListRecordHistoryResponse"
     "fixture/ListRecordHistoryResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListRecordHistory)
 
 responseDescribeProvisionedProductPlan :: DescribeProvisionedProductPlanResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseDescribeProvisionedProductPlan =
   res
     "DescribeProvisionedProductPlanResponse"
     "fixture/DescribeProvisionedProductPlanResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProvisionedProductPlan)
 
 responseAssociateTagOptionWithResource :: AssociateTagOptionWithResourceResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseAssociateTagOptionWithResource =
   res
     "AssociateTagOptionWithResourceResponse"
     "fixture/AssociateTagOptionWithResourceResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AssociateTagOptionWithResource)
 
 responseCreateTagOption :: CreateTagOptionResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseCreateTagOption =
   res
     "CreateTagOptionResponse"
     "fixture/CreateTagOptionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateTagOption)
 
 responseListBudgetsForResource :: ListBudgetsForResourceResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseListBudgetsForResource =
   res
     "ListBudgetsForResourceResponse"
     "fixture/ListBudgetsForResourceResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListBudgetsForResource)
 
 responseDisassociateProductFromPortfolio :: DisassociateProductFromPortfolioResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseDisassociateProductFromPortfolio =
   res
     "DisassociateProductFromPortfolioResponse"
     "fixture/DisassociateProductFromPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisassociateProductFromPortfolio)
 
 responseListConstraintsForPortfolio :: ListConstraintsForPortfolioResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseListConstraintsForPortfolio =
   res
     "ListConstraintsForPortfolioResponse"
     "fixture/ListConstraintsForPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListConstraintsForPortfolio)
 
 responseDescribeRecord :: DescribeRecordResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseDescribeRecord =
   res
     "DescribeRecordResponse"
     "fixture/DescribeRecordResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeRecord)
 
 responseEnableAWSOrganizationsAccess :: EnableAWSOrganizationsAccessResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseEnableAWSOrganizationsAccess =
   res
     "EnableAWSOrganizationsAccessResponse"
     "fixture/EnableAWSOrganizationsAccessResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy EnableAWSOrganizationsAccess)
 
 responseDescribeConstraint :: DescribeConstraintResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseDescribeConstraint =
   res
     "DescribeConstraintResponse"
     "fixture/DescribeConstraintResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeConstraint)
 
 responseCreateProvisioningArtifact :: CreateProvisioningArtifactResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseCreateProvisioningArtifact =
   res
     "CreateProvisioningArtifactResponse"
     "fixture/CreateProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateProvisioningArtifact)
 
 responseListPortfolios :: ListPortfoliosResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseListPortfolios =
   res
     "ListPortfoliosResponse"
     "fixture/ListPortfoliosResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListPortfolios)
 
 responseDisassociateBudgetFromResource :: DisassociateBudgetFromResourceResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseDisassociateBudgetFromResource =
   res
     "DisassociateBudgetFromResourceResponse"
     "fixture/DisassociateBudgetFromResourceResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisassociateBudgetFromResource)
 
 responseDescribeProductView :: DescribeProductViewResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseDescribeProductView =
   res
     "DescribeProductViewResponse"
     "fixture/DescribeProductViewResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProductView)
 
 responseCreatePortfolioShare :: CreatePortfolioShareResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseCreatePortfolioShare =
   res
     "CreatePortfolioShareResponse"
     "fixture/CreatePortfolioShareResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreatePortfolioShare)
 
 responseListProvisioningArtifacts :: ListProvisioningArtifactsResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseListProvisioningArtifacts =
   res
     "ListProvisioningArtifactsResponse"
     "fixture/ListProvisioningArtifactsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListProvisioningArtifacts)
 
 responseListServiceActionsForProvisioningArtifact :: ListServiceActionsForProvisioningArtifactResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseListServiceActionsForProvisioningArtifact =
   res
     "ListServiceActionsForProvisioningArtifactResponse"
     "fixture/ListServiceActionsForProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListServiceActionsForProvisioningArtifact)
 
 responseSearchProducts :: SearchProductsResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseSearchProducts =
   res
     "SearchProductsResponse"
     "fixture/SearchProductsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy SearchProducts)
 
 responseDescribeServiceActionExecutionParameters :: DescribeServiceActionExecutionParametersResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseDescribeServiceActionExecutionParameters =
   res
     "DescribeServiceActionExecutionParametersResponse"
     "fixture/DescribeServiceActionExecutionParametersResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeServiceActionExecutionParameters)
 
 responseSearchProvisionedProducts :: SearchProvisionedProductsResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseSearchProvisionedProducts =
   res
     "SearchProvisionedProductsResponse"
     "fixture/SearchProvisionedProductsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy SearchProvisionedProducts)
 
 responseListStackInstancesForProvisionedProduct :: ListStackInstancesForProvisionedProductResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseListStackInstancesForProvisionedProduct =
   res
     "ListStackInstancesForProvisionedProductResponse"
     "fixture/ListStackInstancesForProvisionedProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListStackInstancesForProvisionedProduct)
 
 responseDescribeServiceAction :: DescribeServiceActionResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseDescribeServiceAction =
   res
     "DescribeServiceActionResponse"
     "fixture/DescribeServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeServiceAction)
 
 responseDescribeProduct :: DescribeProductResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseDescribeProduct =
   res
     "DescribeProductResponse"
     "fixture/DescribeProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProduct)
 
 responseDeleteProvisionedProductPlan :: DeleteProvisionedProductPlanResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseDeleteProvisionedProductPlan =
   res
     "DeleteProvisionedProductPlanResponse"
     "fixture/DeleteProvisionedProductPlanResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteProvisionedProductPlan)
 
 responseGetProvisionedProductOutputs :: GetProvisionedProductOutputsResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseGetProvisionedProductOutputs =
   res
     "GetProvisionedProductOutputsResponse"
     "fixture/GetProvisionedProductOutputsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy GetProvisionedProductOutputs)
 
 responseCreateConstraint :: CreateConstraintResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseCreateConstraint =
   res
     "CreateConstraintResponse"
     "fixture/CreateConstraintResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreateConstraint)
 
 responseListProvisionedProductPlans :: ListProvisionedProductPlansResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseListProvisionedProductPlans =
   res
     "ListProvisionedProductPlansResponse"
     "fixture/ListProvisionedProductPlansResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListProvisionedProductPlans)
 
 responseListPortfolioAccess :: ListPortfolioAccessResponse -> TestTree
@@ -1374,7 +1374,7 @@ responseListPortfolioAccess =
   res
     "ListPortfolioAccessResponse"
     "fixture/ListPortfolioAccessResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListPortfolioAccess)
 
 responseBatchDisassociateServiceActionFromProvisioningArtifact :: BatchDisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseBatchDisassociateServiceActionFromProvisioningArtifact =
   res
     "BatchDisassociateServiceActionFromProvisioningArtifactResponse"
     "fixture/BatchDisassociateServiceActionFromProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy BatchDisassociateServiceActionFromProvisioningArtifact)
 
 responseDisassociatePrincipalFromPortfolio :: DisassociatePrincipalFromPortfolioResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseDisassociatePrincipalFromPortfolio =
   res
     "DisassociatePrincipalFromPortfolioResponse"
     "fixture/DisassociatePrincipalFromPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisassociatePrincipalFromPortfolio)
 
 responseDescribeTagOption :: DescribeTagOptionResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseDescribeTagOption =
   res
     "DescribeTagOptionResponse"
     "fixture/DescribeTagOptionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeTagOption)
 
 responseDisassociateTagOptionFromResource :: DisassociateTagOptionFromResourceResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseDisassociateTagOptionFromResource =
   res
     "DisassociateTagOptionFromResourceResponse"
     "fixture/DisassociateTagOptionFromResourceResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisassociateTagOptionFromResource)
 
 responseDescribePortfolio :: DescribePortfolioResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseDescribePortfolio =
   res
     "DescribePortfolioResponse"
     "fixture/DescribePortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribePortfolio)
 
 responseAssociateProductWithPortfolio :: AssociateProductWithPortfolioResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseAssociateProductWithPortfolio =
   res
     "AssociateProductWithPortfolioResponse"
     "fixture/AssociateProductWithPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AssociateProductWithPortfolio)
 
 responseListAcceptedPortfolioShares :: ListAcceptedPortfolioSharesResponse -> TestTree
@@ -1430,7 +1430,7 @@ responseListAcceptedPortfolioShares =
   res
     "ListAcceptedPortfolioSharesResponse"
     "fixture/ListAcceptedPortfolioSharesResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListAcceptedPortfolioShares)
 
 responseExecuteProvisionedProductPlan :: ExecuteProvisionedProductPlanResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseExecuteProvisionedProductPlan =
   res
     "ExecuteProvisionedProductPlanResponse"
     "fixture/ExecuteProvisionedProductPlanResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ExecuteProvisionedProductPlan)
 
 responseAcceptPortfolioShare :: AcceptPortfolioShareResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseAcceptPortfolioShare =
   res
     "AcceptPortfolioShareResponse"
     "fixture/AcceptPortfolioShareResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AcceptPortfolioShare)
 
 responseScanProvisionedProducts :: ScanProvisionedProductsResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseScanProvisionedProducts =
   res
     "ScanProvisionedProductsResponse"
     "fixture/ScanProvisionedProductsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ScanProvisionedProducts)
 
 responseListOrganizationPortfolioAccess :: ListOrganizationPortfolioAccessResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseListOrganizationPortfolioAccess =
   res
     "ListOrganizationPortfolioAccessResponse"
     "fixture/ListOrganizationPortfolioAccessResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListOrganizationPortfolioAccess)
 
 responseListPrincipalsForPortfolio :: ListPrincipalsForPortfolioResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseListPrincipalsForPortfolio =
   res
     "ListPrincipalsForPortfolioResponse"
     "fixture/ListPrincipalsForPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListPrincipalsForPortfolio)
 
 responseDeleteProduct :: DeleteProductResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseDeleteProduct =
   res
     "DeleteProductResponse"
     "fixture/DeleteProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteProduct)
 
 responseUpdateProduct :: UpdateProductResponse -> TestTree
@@ -1486,7 +1486,7 @@ responseUpdateProduct =
   res
     "UpdateProductResponse"
     "fixture/UpdateProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateProduct)
 
 responseListServiceActions :: ListServiceActionsResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseListServiceActions =
   res
     "ListServiceActionsResponse"
     "fixture/ListServiceActionsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListServiceActions)
 
 responseProvisionProduct :: ProvisionProductResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseProvisionProduct =
   res
     "ProvisionProductResponse"
     "fixture/ProvisionProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ProvisionProduct)
 
 responseDeleteServiceAction :: DeleteServiceActionResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseDeleteServiceAction =
   res
     "DeleteServiceActionResponse"
     "fixture/DeleteServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteServiceAction)
 
 responseUpdateServiceAction :: UpdateServiceActionResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseUpdateServiceAction =
   res
     "UpdateServiceActionResponse"
     "fixture/UpdateServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateServiceAction)
 
 responseDisableAWSOrganizationsAccess :: DisableAWSOrganizationsAccessResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseDisableAWSOrganizationsAccess =
   res
     "DisableAWSOrganizationsAccessResponse"
     "fixture/DisableAWSOrganizationsAccessResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisableAWSOrganizationsAccess)
 
 responseRejectPortfolioShare :: RejectPortfolioShareResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseRejectPortfolioShare =
   res
     "RejectPortfolioShareResponse"
     "fixture/RejectPortfolioShareResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy RejectPortfolioShare)
 
 responseDisassociateServiceActionFromProvisioningArtifact :: DisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseDisassociateServiceActionFromProvisioningArtifact =
   res
     "DisassociateServiceActionFromProvisioningArtifactResponse"
     "fixture/DisassociateServiceActionFromProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DisassociateServiceActionFromProvisioningArtifact)
 
 responseDeleteTagOption :: DeleteTagOptionResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseDeleteTagOption =
   res
     "DeleteTagOptionResponse"
     "fixture/DeleteTagOptionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteTagOption)
 
 responseUpdateTagOption :: UpdateTagOptionResponse -> TestTree
@@ -1558,7 +1558,7 @@ responseUpdateTagOption =
   res
     "UpdateTagOptionResponse"
     "fixture/UpdateTagOptionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateTagOption)
 
 responseListTagOptions :: ListTagOptionsResponse -> TestTree
@@ -1566,7 +1566,7 @@ responseListTagOptions =
   res
     "ListTagOptionsResponse"
     "fixture/ListTagOptionsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListTagOptions)
 
 responseUpdateProvisionedProductProperties :: UpdateProvisionedProductPropertiesResponse -> TestTree
@@ -1574,7 +1574,7 @@ responseUpdateProvisionedProductProperties =
   res
     "UpdateProvisionedProductPropertiesResponse"
     "fixture/UpdateProvisionedProductPropertiesResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateProvisionedProductProperties)
 
 responseSearchProductsAsAdmin :: SearchProductsAsAdminResponse -> TestTree
@@ -1582,7 +1582,7 @@ responseSearchProductsAsAdmin =
   res
     "SearchProductsAsAdminResponse"
     "fixture/SearchProductsAsAdminResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy SearchProductsAsAdmin)
 
 responseDeletePortfolio :: DeletePortfolioResponse -> TestTree
@@ -1590,7 +1590,7 @@ responseDeletePortfolio =
   res
     "DeletePortfolioResponse"
     "fixture/DeletePortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeletePortfolio)
 
 responseUpdatePortfolio :: UpdatePortfolioResponse -> TestTree
@@ -1598,7 +1598,7 @@ responseUpdatePortfolio =
   res
     "UpdatePortfolioResponse"
     "fixture/UpdatePortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdatePortfolio)
 
 responseListPortfoliosForProduct :: ListPortfoliosForProductResponse -> TestTree
@@ -1606,7 +1606,7 @@ responseListPortfoliosForProduct =
   res
     "ListPortfoliosForProductResponse"
     "fixture/ListPortfoliosForProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListPortfoliosForProduct)
 
 responseGetAWSOrganizationsAccessStatus :: GetAWSOrganizationsAccessStatusResponse -> TestTree
@@ -1614,7 +1614,7 @@ responseGetAWSOrganizationsAccessStatus =
   res
     "GetAWSOrganizationsAccessStatusResponse"
     "fixture/GetAWSOrganizationsAccessStatusResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy GetAWSOrganizationsAccessStatus)
 
 responseDescribeProductAsAdmin :: DescribeProductAsAdminResponse -> TestTree
@@ -1622,7 +1622,7 @@ responseDescribeProductAsAdmin =
   res
     "DescribeProductAsAdminResponse"
     "fixture/DescribeProductAsAdminResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProductAsAdmin)
 
 responseBatchAssociateServiceActionWithProvisioningArtifact :: BatchAssociateServiceActionWithProvisioningArtifactResponse -> TestTree
@@ -1630,7 +1630,7 @@ responseBatchAssociateServiceActionWithProvisioningArtifact =
   res
     "BatchAssociateServiceActionWithProvisioningArtifactResponse"
     "fixture/BatchAssociateServiceActionWithProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy BatchAssociateServiceActionWithProvisioningArtifact)
 
 responseDescribeProvisioningParameters :: DescribeProvisioningParametersResponse -> TestTree
@@ -1638,7 +1638,7 @@ responseDescribeProvisioningParameters =
   res
     "DescribeProvisioningParametersResponse"
     "fixture/DescribeProvisioningParametersResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProvisioningParameters)
 
 responseAssociatePrincipalWithPortfolio :: AssociatePrincipalWithPortfolioResponse -> TestTree
@@ -1646,7 +1646,7 @@ responseAssociatePrincipalWithPortfolio =
   res
     "AssociatePrincipalWithPortfolioResponse"
     "fixture/AssociatePrincipalWithPortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AssociatePrincipalWithPortfolio)
 
 responseDescribeProvisionedProduct :: DescribeProvisionedProductResponse -> TestTree
@@ -1654,7 +1654,7 @@ responseDescribeProvisionedProduct =
   res
     "DescribeProvisionedProductResponse"
     "fixture/DescribeProvisionedProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribeProvisionedProduct)
 
 responseCopyProduct :: CopyProductResponse -> TestTree
@@ -1662,7 +1662,7 @@ responseCopyProduct =
   res
     "CopyProductResponse"
     "fixture/CopyProductResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CopyProduct)
 
 responseDescribePortfolioShareStatus :: DescribePortfolioShareStatusResponse -> TestTree
@@ -1670,7 +1670,7 @@ responseDescribePortfolioShareStatus =
   res
     "DescribePortfolioShareStatusResponse"
     "fixture/DescribePortfolioShareStatusResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DescribePortfolioShareStatus)
 
 responseUpdateProvisioningArtifact :: UpdateProvisioningArtifactResponse -> TestTree
@@ -1678,7 +1678,7 @@ responseUpdateProvisioningArtifact =
   res
     "UpdateProvisioningArtifactResponse"
     "fixture/UpdateProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy UpdateProvisioningArtifact)
 
 responseDeletePortfolioShare :: DeletePortfolioShareResponse -> TestTree
@@ -1686,7 +1686,7 @@ responseDeletePortfolioShare =
   res
     "DeletePortfolioShareResponse"
     "fixture/DeletePortfolioShareResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeletePortfolioShare)
 
 responseDeleteProvisioningArtifact :: DeleteProvisioningArtifactResponse -> TestTree
@@ -1694,7 +1694,7 @@ responseDeleteProvisioningArtifact =
   res
     "DeleteProvisioningArtifactResponse"
     "fixture/DeleteProvisioningArtifactResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy DeleteProvisioningArtifact)
 
 responseListProvisioningArtifactsForServiceAction :: ListProvisioningArtifactsForServiceActionResponse -> TestTree
@@ -1702,7 +1702,7 @@ responseListProvisioningArtifactsForServiceAction =
   res
     "ListProvisioningArtifactsForServiceActionResponse"
     "fixture/ListProvisioningArtifactsForServiceActionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListProvisioningArtifactsForServiceAction)
 
 responseCreatePortfolio :: CreatePortfolioResponse -> TestTree
@@ -1710,7 +1710,7 @@ responseCreatePortfolio =
   res
     "CreatePortfolioResponse"
     "fixture/CreatePortfolioResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy CreatePortfolio)
 
 responseListLaunchPaths :: ListLaunchPathsResponse -> TestTree
@@ -1718,7 +1718,7 @@ responseListLaunchPaths =
   res
     "ListLaunchPathsResponse"
     "fixture/ListLaunchPathsResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListLaunchPaths)
 
 responseListResourcesForTagOption :: ListResourcesForTagOptionResponse -> TestTree
@@ -1726,7 +1726,7 @@ responseListResourcesForTagOption =
   res
     "ListResourcesForTagOptionResponse"
     "fixture/ListResourcesForTagOptionResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy ListResourcesForTagOption)
 
 responseAssociateBudgetWithResource :: AssociateBudgetWithResourceResponse -> TestTree
@@ -1734,5 +1734,5 @@ responseAssociateBudgetWithResource =
   res
     "AssociateBudgetWithResourceResponse"
     "fixture/AssociateBudgetWithResourceResponse.proto"
-    serviceCatalog
+    serviceCatalogService
     (Proxy :: Proxy AssociateBudgetWithResource)

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,143 @@
 --
 -- Adds a permission to a queue for a specific <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> . This allows sharing access to the queue.
 --
---
 -- When you create a queue, you have full control access rights for the queue. Only you, the owner of the queue, can grant or deny permissions to the queue. For more information about these permissions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue> in the /Amazon Simple Queue Service Developer Guide/ .
---
 -- Some actions take lists of parameters. These lists are specified using the @param.n@ notation. Values of @n@ are integers starting from 1. For example, a parameter list with two elements looks like this:
---
 -- @&AttributeName.1=first@
---
 -- @&AttributeName.2=second@
 module Network.AWS.SQS.AddPermission
-  ( -- * Creating a Request
-    addPermission,
-    AddPermission,
+  ( -- * Creating a request
+    AddPermission (..),
+    mkAddPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     apQueueURL,
     apLabel,
     apAWSAccountIds,
     apActions,
 
-    -- * Destructuring the Response
-    addPermissionResponse,
-    AddPermissionResponse,
+    -- * Destructuring the response
+    AddPermissionResponse (..),
+    mkAddPermissionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'addPermission' smart constructor.
+-- /See:/ 'mkAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { _apQueueURL :: !Text,
-    _apLabel :: !Text,
-    _apAWSAccountIds :: ![Text],
-    _apActions :: ![Text]
+  { queueURL :: Lude.Text,
+    label :: Lude.Text,
+    awsAccountIds :: [Lude.Text],
+    actions :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actions' - The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ .
 --
--- * 'apQueueURL' - The URL of the Amazon SQS queue to which permissions are added. Queue URLs and names are case-sensitive.
+-- For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ .
+-- Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
+-- * 'awsAccountIds' - The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
+-- * 'label' - The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
+-- * 'queueURL' - The URL of the Amazon SQS queue to which permissions are added.
 --
--- * 'apLabel' - The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
---
--- * 'apAWSAccountIds' - The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
---
--- * 'apActions' - The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ . For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
-addPermission ::
-  -- | 'apQueueURL'
-  Text ->
-  -- | 'apLabel'
-  Text ->
+-- Queue URLs and names are case-sensitive.
+mkAddPermission ::
+  -- | 'queueURL'
+  Lude.Text ->
+  -- | 'label'
+  Lude.Text ->
   AddPermission
-addPermission pQueueURL_ pLabel_ =
+mkAddPermission pQueueURL_ pLabel_ =
   AddPermission'
-    { _apQueueURL = pQueueURL_,
-      _apLabel = pLabel_,
-      _apAWSAccountIds = mempty,
-      _apActions = mempty
+    { queueURL = pQueueURL_,
+      label = pLabel_,
+      awsAccountIds = Lude.mempty,
+      actions = Lude.mempty
     }
 
--- | The URL of the Amazon SQS queue to which permissions are added. Queue URLs and names are case-sensitive.
-apQueueURL :: Lens' AddPermission Text
-apQueueURL = lens _apQueueURL (\s a -> s {_apQueueURL = a})
+-- | The URL of the Amazon SQS queue to which permissions are added.
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apQueueURL :: Lens.Lens' AddPermission Lude.Text
+apQueueURL = Lens.lens (queueURL :: AddPermission -> Lude.Text) (\s a -> s {queueURL = a} :: AddPermission)
+{-# DEPRECATED apQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
 -- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
-apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\s a -> s {_apLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apLabel :: Lens.Lens' AddPermission Lude.Text
+apLabel = Lens.lens (label :: AddPermission -> Lude.Text) (\s a -> s {label = a} :: AddPermission)
+{-# DEPRECATED apLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
-apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\s a -> s {_apAWSAccountIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'awsAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAWSAccountIds :: Lens.Lens' AddPermission [Lude.Text]
+apAWSAccountIds = Lens.lens (awsAccountIds :: AddPermission -> [Lude.Text]) (\s a -> s {awsAccountIds = a} :: AddPermission)
+{-# DEPRECATED apAWSAccountIds "Use generic-lens or generic-optics with 'awsAccountIds' instead." #-}
 
--- | The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ . For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
-apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\s a -> s {_apActions = a}) . _Coerce
+-- | The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ .
+--
+-- For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ .
+-- Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apActions :: Lens.Lens' AddPermission [Lude.Text]
+apActions = Lens.lens (actions :: AddPermission -> [Lude.Text]) (\s a -> s {actions = a} :: AddPermission)
+{-# DEPRECATED apActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
-instance AWSRequest AddPermission where
+instance Lude.AWSRequest AddPermission where
   type Rs AddPermission = AddPermissionResponse
-  request = postQuery sqs
-  response = receiveNull AddPermissionResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull AddPermissionResponse'
 
-instance Hashable AddPermission
+instance Lude.ToHeaders AddPermission where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddPermission
+instance Lude.ToPath AddPermission where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddPermission where
-  toHeaders = const mempty
-
-instance ToPath AddPermission where
-  toPath = const "/"
-
-instance ToQuery AddPermission where
+instance Lude.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    mconcat
-      [ "Action" =: ("AddPermission" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _apQueueURL,
-        "Label" =: _apLabel,
-        toQueryList "AWSAccountId" _apAWSAccountIds,
-        toQueryList "ActionName" _apActions
+    Lude.mconcat
+      [ "Action" Lude.=: ("AddPermission" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL,
+        "Label" Lude.=: label,
+        Lude.toQueryList "AWSAccountId" awsAccountIds,
+        Lude.toQueryList "ActionName" actions
       ]
 
--- | /See:/ 'addPermissionResponse' smart constructor.
+-- | /See:/ 'mkAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
-addPermissionResponse ::
+mkAddPermissionResponse ::
   AddPermissionResponse
-addPermissionResponse = AddPermissionResponse'
-
-instance NFData AddPermissionResponse
+mkAddPermissionResponse = AddPermissionResponse'

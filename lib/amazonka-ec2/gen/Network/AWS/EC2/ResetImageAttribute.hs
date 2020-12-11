@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,117 @@
 --
 -- Resets an attribute of an AMI to its default value.
 module Network.AWS.EC2.ResetImageAttribute
-  ( -- * Creating a Request
-    resetImageAttribute,
-    ResetImageAttribute,
+  ( -- * Creating a request
+    ResetImageAttribute (..),
+    mkResetImageAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     resDryRun,
     resAttribute,
     resImageId,
 
-    -- * Destructuring the Response
-    resetImageAttributeResponse,
-    ResetImageAttributeResponse,
+    -- * Destructuring the response
+    ResetImageAttributeResponse (..),
+    mkResetImageAttributeResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ResetImageAttribute.
 --
---
---
--- /See:/ 'resetImageAttribute' smart constructor.
+-- /See:/ 'mkResetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
-  { _resDryRun ::
-      !(Maybe Bool),
-    _resAttribute :: !ResetImageAttributeName,
-    _resImageId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: ResetImageAttributeName,
+    imageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'resDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'resAttribute' - The attribute to reset (currently you can only reset the launch permission attribute).
---
--- * 'resImageId' - The ID of the AMI.
-resetImageAttribute ::
-  -- | 'resAttribute'
+-- * 'attribute' - The attribute to reset (currently you can only reset the launch permission attribute).
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'imageId' - The ID of the AMI.
+mkResetImageAttribute ::
+  -- | 'attribute'
   ResetImageAttributeName ->
-  -- | 'resImageId'
-  Text ->
+  -- | 'imageId'
+  Lude.Text ->
   ResetImageAttribute
-resetImageAttribute pAttribute_ pImageId_ =
+mkResetImageAttribute pAttribute_ pImageId_ =
   ResetImageAttribute'
-    { _resDryRun = Nothing,
-      _resAttribute = pAttribute_,
-      _resImageId = pImageId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      imageId = pImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
-resDryRun = lens _resDryRun (\s a -> s {_resDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resDryRun :: Lens.Lens' ResetImageAttribute (Lude.Maybe Lude.Bool)
+resDryRun = Lens.lens (dryRun :: ResetImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetImageAttribute)
+{-# DEPRECATED resDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The attribute to reset (currently you can only reset the launch permission attribute).
-resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
-resAttribute = lens _resAttribute (\s a -> s {_resAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resAttribute :: Lens.Lens' ResetImageAttribute ResetImageAttributeName
+resAttribute = Lens.lens (attribute :: ResetImageAttribute -> ResetImageAttributeName) (\s a -> s {attribute = a} :: ResetImageAttribute)
+{-# DEPRECATED resAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the AMI.
-resImageId :: Lens' ResetImageAttribute Text
-resImageId = lens _resImageId (\s a -> s {_resImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resImageId :: Lens.Lens' ResetImageAttribute Lude.Text
+resImageId = Lens.lens (imageId :: ResetImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ResetImageAttribute)
+{-# DEPRECATED resImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance AWSRequest ResetImageAttribute where
+instance Lude.AWSRequest ResetImageAttribute where
   type Rs ResetImageAttribute = ResetImageAttributeResponse
-  request = postQuery ec2
-  response = receiveNull ResetImageAttributeResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ResetImageAttributeResponse'
 
-instance Hashable ResetImageAttribute
+instance Lude.ToHeaders ResetImageAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResetImageAttribute
+instance Lude.ToPath ResetImageAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResetImageAttribute where
-  toHeaders = const mempty
-
-instance ToPath ResetImageAttribute where
-  toPath = const "/"
-
-instance ToQuery ResetImageAttribute where
+instance Lude.ToQuery ResetImageAttribute where
   toQuery ResetImageAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ResetImageAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _resDryRun,
-        "Attribute" =: _resAttribute,
-        "ImageId" =: _resImageId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ResetImageAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "ImageId" Lude.=: imageId
       ]
 
--- | /See:/ 'resetImageAttributeResponse' smart constructor.
+-- | /See:/ 'mkResetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse = ResetImageAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.
-resetImageAttributeResponse ::
+mkResetImageAttributeResponse ::
   ResetImageAttributeResponse
-resetImageAttributeResponse = ResetImageAttributeResponse'
-
-instance NFData ResetImageAttributeResponse
+mkResetImageAttributeResponse = ResetImageAttributeResponse'

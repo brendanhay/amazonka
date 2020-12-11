@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,57 +10,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Waiters where
+module Network.AWS.CloudFront.Waiters
+  ( -- * StreamingDistributionDeployed
+    mkStreamingDistributionDeployed,
+
+    -- * DistributionDeployed
+    mkDistributionDeployed,
+
+    -- * InvalidationCompleted
+    mkInvalidationCompleted,
+  )
+where
 
 import Network.AWS.CloudFront.GetDistribution
 import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetStreamingDistribution
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
-streamingDistributionDeployed :: Wait GetStreamingDistribution
-streamingDistributionDeployed =
-  Wait
-    { _waitName = "StreamingDistributionDeployed",
-      _waitAttempts = 25,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkStreamingDistributionDeployed :: Wait.Wait GetStreamingDistribution
+mkStreamingDistributionDeployed =
+  Wait.Wait
+    { Wait._waitName = "StreamingDistributionDeployed",
+      Wait._waitAttempts = 25,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Deployed"
-            AcceptSuccess
-            (gsdrsStreamingDistribution . _Just . sdStatus . to toTextCI)
+            Wait.AcceptSuccess
+            ( gsdrsStreamingDistribution Lude.. Lens._Just Lude.. sdStatus
+                Lude.. Lens.to Lude.toText
+            )
         ]
     }
 
 -- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
-distributionDeployed :: Wait GetDistribution
-distributionDeployed =
-  Wait
-    { _waitName = "DistributionDeployed",
-      _waitAttempts = 35,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkDistributionDeployed :: Wait.Wait GetDistribution
+mkDistributionDeployed =
+  Wait.Wait
+    { Wait._waitName = "DistributionDeployed",
+      Wait._waitAttempts = 35,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Deployed"
-            AcceptSuccess
-            (gdrsDistribution . _Just . dStatus . to toTextCI)
+            Wait.AcceptSuccess
+            ( gdrsDistribution Lude.. Lens._Just Lude.. dStatus
+                Lude.. Lens.to Lude.toText
+            )
         ]
     }
 
 -- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
-invalidationCompleted :: Wait GetInvalidation
-invalidationCompleted =
-  Wait
-    { _waitName = "InvalidationCompleted",
-      _waitAttempts = 30,
-      _waitDelay = 20,
-      _waitAcceptors =
-        [ matchAll
+mkInvalidationCompleted :: Wait.Wait GetInvalidation
+mkInvalidationCompleted =
+  Wait.Wait
+    { Wait._waitName = "InvalidationCompleted",
+      Wait._waitAttempts = 30,
+      Wait._waitDelay = 20,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "Completed"
-            AcceptSuccess
-            (girsInvalidation . _Just . iStatus . to toTextCI)
+            Wait.AcceptSuccess
+            ( girsInvalidation Lude.. Lens._Just Lude.. iStatus
+                Lude.. Lens.to Lude.toText
+            )
         ]
     }

@@ -14,71 +14,84 @@
 -- __AWS OpsWorks__
 --
 -- Welcome to the /AWS OpsWorks Stacks API Reference/ . This guide provides descriptions, syntax, and usage examples for AWS OpsWorks Stacks actions and data types, including common parameters and error codes.
---
 -- AWS OpsWorks Stacks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
---
 -- __SDKs and CLI__
---
 -- The most common way to use the AWS OpsWorks Stacks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:
 --
 --     * <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
 --
+--
 --     * <https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
+--
 --
 --     * <https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm AWS SDK for .NET>
 --
+--
 --     * <https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html AWS SDK for PHP 2>
+--
 --
 --     * <http://docs.aws.amazon.com/sdkforruby/api/ AWS SDK for Ruby>
 --
+--
 --     * <http://aws.amazon.com/documentation/sdkforjavascript/ AWS SDK for Node.js>
+--
 --
 --     * <http://docs.pythonboto.org/en/latest/ref/opsworks.html AWS SDK for Python(Boto)>
 --
 --
---
 -- __Endpoints__
---
 -- AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Stacks can only be accessed or managed within the endpoint in which they are created.
 --
 --     * opsworks.us-east-1.amazonaws.com
 --
+--
 --     * opsworks.us-east-2.amazonaws.com
+--
 --
 --     * opsworks.us-west-1.amazonaws.com
 --
+--
 --     * opsworks.us-west-2.amazonaws.com
+--
 --
 --     * opsworks.ca-central-1.amazonaws.com (API only; not available in the AWS console)
 --
+--
 --     * opsworks.eu-west-1.amazonaws.com
+--
 --
 --     * opsworks.eu-west-2.amazonaws.com
 --
+--
 --     * opsworks.eu-west-3.amazonaws.com
+--
 --
 --     * opsworks.eu-central-1.amazonaws.com
 --
+--
 --     * opsworks.ap-northeast-1.amazonaws.com
+--
 --
 --     * opsworks.ap-northeast-2.amazonaws.com
 --
+--
 --     * opsworks.ap-south-1.amazonaws.com
+--
 --
 --     * opsworks.ap-southeast-1.amazonaws.com
 --
+--
 --     * opsworks.ap-southeast-2.amazonaws.com
+--
 --
 --     * opsworks.sa-east-1.amazonaws.com
 --
 --
---
 -- __Chef Versions__
---
 -- When you call 'CreateStack' , 'CloneStack' , or 'UpdateStack' we recommend you use the @ConfigurationManager@ parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions> .
 module Network.AWS.OpsWorks
-  ( -- * Service Configuration
-    opsWorks,
+  ( -- * Service configuration
+    opsWorksService,
 
     -- * Errors
     -- $errors
@@ -87,22 +100,22 @@ module Network.AWS.OpsWorks
     -- $waiters
 
     -- ** InstanceTerminated
-    instanceTerminated,
+    mkInstanceTerminated,
 
     -- ** DeploymentSuccessful
-    deploymentSuccessful,
+    mkDeploymentSuccessful,
 
     -- ** InstanceStopped
-    instanceStopped,
+    mkInstanceStopped,
 
     -- ** InstanceOnline
-    instanceOnline,
+    mkInstanceOnline,
 
     -- ** AppExists
-    appExists,
+    mkAppExists,
 
     -- ** InstanceRegistered
-    instanceRegistered,
+    mkInstanceRegistered,
 
     -- * Operations
     -- $operations
@@ -320,8 +333,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeEcsClusters (Paginated)
     module Network.AWS.OpsWorks.DescribeEcsClusters,
 
-    -- ** DescribeRAIdArrays
-    module Network.AWS.OpsWorks.DescribeRAIdArrays,
+    -- ** DescribeRAIDArrays
+    module Network.AWS.OpsWorks.DescribeRAIDArrays,
 
     -- ** UpdateVolume
     module Network.AWS.OpsWorks.UpdateVolume,
@@ -377,32 +390,32 @@ module Network.AWS.OpsWorks
     VolumeType (..),
 
     -- ** AgentVersion
-    AgentVersion,
-    agentVersion,
+    AgentVersion (..),
+    mkAgentVersion,
     avVersion,
     avConfigurationManager,
 
     -- ** App
-    App,
-    app,
-    appSSLConfiguration,
-    appEnvironment,
-    appEnableSSL,
-    appCreatedAt,
-    appShortname,
-    appDataSources,
-    appAppSource,
-    appAppId,
-    appAttributes,
-    appName,
-    appType,
-    appStackId,
-    appDomains,
-    appDescription,
+    App (..),
+    mkApp,
+    aSSLConfiguration,
+    aEnvironment,
+    aEnableSSL,
+    aCreatedAt,
+    aShortname,
+    aDataSources,
+    aAppSource,
+    aAppId,
+    aAttributes,
+    aName,
+    aType,
+    aStackId,
+    aDomains,
+    aDescription,
 
     -- ** AutoScalingThresholds
-    AutoScalingThresholds,
-    autoScalingThresholds,
+    AutoScalingThresholds (..),
+    mkAutoScalingThresholds,
     astInstanceCount,
     astIgnoreMetricsTime,
     astLoadThreshold,
@@ -412,28 +425,28 @@ module Network.AWS.OpsWorks
     astCPUThreshold,
 
     -- ** BlockDeviceMapping
-    BlockDeviceMapping,
-    blockDeviceMapping,
+    BlockDeviceMapping (..),
+    mkBlockDeviceMapping,
     bdmVirtualName,
     bdmNoDevice,
     bdmEBS,
     bdmDeviceName,
 
     -- ** ChefConfiguration
-    ChefConfiguration,
-    chefConfiguration,
+    ChefConfiguration (..),
+    mkChefConfiguration,
     ccBerkshelfVersion,
     ccManageBerkshelf,
 
     -- ** CloudWatchLogsConfiguration
-    CloudWatchLogsConfiguration,
-    cloudWatchLogsConfiguration,
+    CloudWatchLogsConfiguration (..),
+    mkCloudWatchLogsConfiguration,
     cwlcEnabled,
     cwlcLogStreams,
 
     -- ** CloudWatchLogsLogStream
-    CloudWatchLogsLogStream,
-    cloudWatchLogsLogStream,
+    CloudWatchLogsLogStream (..),
+    mkCloudWatchLogsLogStream,
     cwllsBatchCount,
     cwllsFileFingerprintLines,
     cwllsBufferDuration,
@@ -447,8 +460,8 @@ module Network.AWS.OpsWorks
     cwllsFile,
 
     -- ** Command
-    Command,
-    command,
+    Command (..),
+    mkCommand,
     cDeploymentId,
     cInstanceId,
     cStatus,
@@ -461,15 +474,15 @@ module Network.AWS.OpsWorks
     cAcknowledgedAt,
 
     -- ** DataSource
-    DataSource,
-    dataSource,
+    DataSource (..),
+    mkDataSource,
     dsARN,
     dsDatabaseName,
     dsType,
 
     -- ** Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dDeploymentId,
     dStatus,
     dCommand,
@@ -484,14 +497,14 @@ module Network.AWS.OpsWorks
     dDuration,
 
     -- ** DeploymentCommand
-    DeploymentCommand,
-    deploymentCommand,
+    DeploymentCommand (..),
+    mkDeploymentCommand,
     dcArgs,
     dcName,
 
     -- ** EBSBlockDevice
-    EBSBlockDevice,
-    ebsBlockDevice,
+    EBSBlockDevice (..),
+    mkEBSBlockDevice,
     ebdDeleteOnTermination,
     ebdVolumeSize,
     ebdIOPS,
@@ -499,16 +512,16 @@ module Network.AWS.OpsWorks
     ebdSnapshotId,
 
     -- ** EcsCluster
-    EcsCluster,
-    ecsCluster,
+    EcsCluster (..),
+    mkEcsCluster,
     ecEcsClusterARN,
     ecEcsClusterName,
     ecRegisteredAt,
     ecStackId,
 
     -- ** ElasticIP
-    ElasticIP,
-    elasticIP,
+    ElasticIP (..),
+    mkElasticIP,
     eiInstanceId,
     eiDomain,
     eiIP,
@@ -516,8 +529,8 @@ module Network.AWS.OpsWorks
     eiRegion,
 
     -- ** ElasticLoadBalancer
-    ElasticLoadBalancer,
-    elasticLoadBalancer,
+    ElasticLoadBalancer (..),
+    mkElasticLoadBalancer,
     elbSubnetIds,
     elbVPCId,
     elbAvailabilityZones,
@@ -529,15 +542,15 @@ module Network.AWS.OpsWorks
     elbDNSName,
 
     -- ** EnvironmentVariable
-    EnvironmentVariable,
-    environmentVariable,
+    EnvironmentVariable (..),
+    mkEnvironmentVariable,
     evSecure,
     evKey,
     evValue,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iPrivateDNS,
     iReportedAgentVersion,
     iInstanceId,
@@ -581,14 +594,14 @@ module Network.AWS.OpsWorks
     iBlockDeviceMappings,
 
     -- ** InstanceIdentity
-    InstanceIdentity,
-    instanceIdentity,
+    InstanceIdentity (..),
+    mkInstanceIdentity,
     iiSignature,
     iiDocument,
 
     -- ** InstancesCount
-    InstancesCount,
-    instancesCount,
+    InstancesCount (..),
+    mkInstancesCount,
     icTerminating,
     icPending,
     icOnline,
@@ -611,8 +624,8 @@ module Network.AWS.OpsWorks
     icRegistering,
 
     -- ** Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lCustomInstanceProfileARN,
     lCustomSecurityGroupIds,
     lInstallUpdatesOnBoot,
@@ -638,21 +651,21 @@ module Network.AWS.OpsWorks
     lAutoAssignElasticIPs,
 
     -- ** LifecycleEventConfiguration
-    LifecycleEventConfiguration,
-    lifecycleEventConfiguration,
+    LifecycleEventConfiguration (..),
+    mkLifecycleEventConfiguration,
     lecShutdown,
 
     -- ** LoadBasedAutoScalingConfiguration
-    LoadBasedAutoScalingConfiguration,
-    loadBasedAutoScalingConfiguration,
+    LoadBasedAutoScalingConfiguration (..),
+    mkLoadBasedAutoScalingConfiguration,
     lbascUpScaling,
     lbascEnable,
     lbascDownScaling,
     lbascLayerId,
 
     -- ** OperatingSystem
-    OperatingSystem,
-    operatingSystem,
+    OperatingSystem (..),
+    mkOperatingSystem,
     osReportedVersion,
     osSupported,
     osName,
@@ -662,40 +675,40 @@ module Network.AWS.OpsWorks
     osReportedName,
 
     -- ** OperatingSystemConfigurationManager
-    OperatingSystemConfigurationManager,
-    operatingSystemConfigurationManager,
+    OperatingSystemConfigurationManager (..),
+    mkOperatingSystemConfigurationManager,
     oscmName,
     oscmVersion,
 
     -- ** Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pIAMUserARN,
     pAllowSudo,
     pStackId,
     pLevel,
     pAllowSSH,
 
-    -- ** RAIdArray
-    RAIdArray,
-    rAIdArray,
+    -- ** RAIDArray
+    RAIDArray (..),
+    mkRAIDArray,
     raiaInstanceId,
     raiaSize,
     raiaIOPS,
     raiaCreatedAt,
-    raiaRAIdLevel,
+    raiaRAIDLevel,
     raiaDevice,
     raiaNumberOfDisks,
     raiaAvailabilityZone,
     raiaName,
-    raiaRAIdArrayId,
+    raiaRAIDArrayId,
     raiaVolumeType,
     raiaStackId,
     raiaMountPoint,
 
     -- ** RDSDBInstance
-    RDSDBInstance,
-    rdsDBInstance,
+    RDSDBInstance (..),
+    mkRDSDBInstance,
     rdiRDSDBInstanceARN,
     rdiDBUser,
     rdiMissingOnRDS,
@@ -707,8 +720,8 @@ module Network.AWS.OpsWorks
     rdiDBPassword,
 
     -- ** Recipes
-    Recipes,
-    recipes,
+    Recipes (..),
+    mkRecipes,
     rSetup,
     rShutdown,
     rUndeploy,
@@ -716,30 +729,30 @@ module Network.AWS.OpsWorks
     rDeploy,
 
     -- ** ReportedOS
-    ReportedOS,
-    reportedOS,
+    ReportedOS (..),
+    mkReportedOS,
     roFamily,
     roName,
     roVersion,
 
     -- ** SSLConfiguration
-    SSLConfiguration,
-    sslConfiguration,
+    SSLConfiguration (..),
+    mkSSLConfiguration,
     scPrivateKey,
     scCertificate,
     scChain,
 
     -- ** SelfUserProfile
-    SelfUserProfile,
-    selfUserProfile,
+    SelfUserProfile (..),
+    mkSelfUserProfile,
     supSSHPublicKey,
     supSSHUsername,
     supIAMUserARN,
     supName,
 
     -- ** ServiceError'
-    ServiceError',
-    serviceError',
+    ServiceError' (..),
+    mkServiceError',
     seInstanceId,
     seCreatedAt,
     seServiceErrorId,
@@ -748,14 +761,14 @@ module Network.AWS.OpsWorks
     seMessage,
 
     -- ** ShutdownEventConfiguration
-    ShutdownEventConfiguration,
-    shutdownEventConfiguration,
+    ShutdownEventConfiguration (..),
+    mkShutdownEventConfiguration,
     secExecutionTimeout,
     secDelayUntilElbConnectionsDrained,
 
     -- ** Source
-    Source,
-    source,
+    Source (..),
+    mkSource,
     sURL,
     sUsername,
     sSSHKey,
@@ -764,8 +777,8 @@ module Network.AWS.OpsWorks
     sRevision,
 
     -- ** Stack
-    Stack,
-    stack,
+    Stack (..),
+    mkStack,
     sDefaultInstanceProfileARN,
     sServiceRoleARN,
     sDefaultRootDeviceType,
@@ -790,14 +803,14 @@ module Network.AWS.OpsWorks
     sHostnameTheme,
 
     -- ** StackConfigurationManager
-    StackConfigurationManager,
-    stackConfigurationManager,
+    StackConfigurationManager (..),
+    mkStackConfigurationManager,
     scmName,
     scmVersion,
 
     -- ** StackSummary
-    StackSummary,
-    stackSummary,
+    StackSummary (..),
+    mkStackSummary,
     ssARN,
     ssAppsCount,
     ssName,
@@ -806,22 +819,22 @@ module Network.AWS.OpsWorks
     ssInstancesCount,
 
     -- ** TemporaryCredential
-    TemporaryCredential,
-    temporaryCredential,
+    TemporaryCredential (..),
+    mkTemporaryCredential,
     tcInstanceId,
     tcUsername,
     tcPassword,
     tcValidForInMinutes,
 
     -- ** TimeBasedAutoScalingConfiguration
-    TimeBasedAutoScalingConfiguration,
-    timeBasedAutoScalingConfiguration,
+    TimeBasedAutoScalingConfiguration (..),
+    mkTimeBasedAutoScalingConfiguration,
     tbascInstanceId,
     tbascAutoScalingSchedule,
 
     -- ** UserProfile
-    UserProfile,
-    userProfile,
+    UserProfile (..),
+    mkUserProfile,
     upAllowSelfManagement,
     upSSHPublicKey,
     upSSHUsername,
@@ -829,8 +842,8 @@ module Network.AWS.OpsWorks
     upName,
 
     -- ** Volume
-    Volume,
-    volume,
+    Volume (..),
+    mkVolume,
     vInstanceId,
     vStatus,
     vSize,
@@ -839,7 +852,7 @@ module Network.AWS.OpsWorks
     vEncrypted,
     vAvailabilityZone,
     vName,
-    vRAIdArrayId,
+    vRAIDArrayId,
     vVolumeId,
     vRegion,
     vVolumeType,
@@ -847,10 +860,10 @@ module Network.AWS.OpsWorks
     vMountPoint,
 
     -- ** VolumeConfiguration
-    VolumeConfiguration,
-    volumeConfiguration,
+    VolumeConfiguration (..),
+    mkVolumeConfiguration,
     vcIOPS,
-    vcRAIdLevel,
+    vcRAIDLevel,
     vcEncrypted,
     vcVolumeType,
     vcMountPoint,
@@ -858,8 +871,8 @@ module Network.AWS.OpsWorks
     vcSize,
 
     -- ** WeeklyAutoScalingSchedule
-    WeeklyAutoScalingSchedule,
-    weeklyAutoScalingSchedule,
+    WeeklyAutoScalingSchedule (..),
+    mkWeeklyAutoScalingSchedule,
     wassThursday,
     wassWednesday,
     wassSaturday,
@@ -867,6 +880,17 @@ module Network.AWS.OpsWorks
     wassFriday,
     wassSunday,
     wassTuesday,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -904,7 +928,7 @@ import Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 import Network.AWS.OpsWorks.DescribeMyUserProfile
 import Network.AWS.OpsWorks.DescribeOperatingSystems
 import Network.AWS.OpsWorks.DescribePermissions
-import Network.AWS.OpsWorks.DescribeRAIdArrays
+import Network.AWS.OpsWorks.DescribeRAIDArrays
 import Network.AWS.OpsWorks.DescribeRDSDBInstances
 import Network.AWS.OpsWorks.DescribeServiceErrors
 import Network.AWS.OpsWorks.DescribeStackProvisioningParameters
@@ -946,6 +970,7 @@ import Network.AWS.OpsWorks.UpdateStack
 import Network.AWS.OpsWorks.UpdateUserProfile
 import Network.AWS.OpsWorks.UpdateVolume
 import Network.AWS.OpsWorks.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ChangeSetType where
+module Network.AWS.CloudFormation.Types.ChangeSetType
+  ( ChangeSetType
+      ( ChangeSetType',
+        CSTCreate,
+        CSTImport,
+        CSTUpdate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeSetType
-  = CSTCreate
-  | CSTImport
-  | CSTUpdate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeSetType = ChangeSetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeSetType where
-  parser =
-    takeLowerText >>= \case
-      "create" -> pure CSTCreate
-      "import" -> pure CSTImport
-      "update" -> pure CSTUpdate
-      e ->
-        fromTextError $
-          "Failure parsing ChangeSetType from value: '" <> e
-            <> "'. Accepted values: create, import, update"
+pattern CSTCreate :: ChangeSetType
+pattern CSTCreate = ChangeSetType' "CREATE"
 
-instance ToText ChangeSetType where
-  toText = \case
-    CSTCreate -> "CREATE"
-    CSTImport -> "IMPORT"
-    CSTUpdate -> "UPDATE"
+pattern CSTImport :: ChangeSetType
+pattern CSTImport = ChangeSetType' "IMPORT"
 
-instance Hashable ChangeSetType
+pattern CSTUpdate :: ChangeSetType
+pattern CSTUpdate = ChangeSetType' "UPDATE"
 
-instance NFData ChangeSetType
-
-instance ToByteString ChangeSetType
-
-instance ToQuery ChangeSetType
-
-instance ToHeader ChangeSetType
+{-# COMPLETE
+  CSTCreate,
+  CSTImport,
+  CSTUpdate,
+  ChangeSetType'
+  #-}

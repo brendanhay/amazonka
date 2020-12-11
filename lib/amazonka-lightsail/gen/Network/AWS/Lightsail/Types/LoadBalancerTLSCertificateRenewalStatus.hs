@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateRenewalStatus where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateRenewalStatus
+  ( LoadBalancerTLSCertificateRenewalStatus
+      ( LoadBalancerTLSCertificateRenewalStatus',
+        LBTCRSFailed,
+        LBTCRSPendingAutoRenewal,
+        LBTCRSPendingValidation,
+        LBTCRSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerTLSCertificateRenewalStatus
-  = LBTCRSFailed
-  | LBTCRSPendingAutoRenewal
-  | LBTCRSPendingValidation
-  | LBTCRSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerTLSCertificateRenewalStatus = LoadBalancerTLSCertificateRenewalStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerTLSCertificateRenewalStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure LBTCRSFailed
-      "pending_auto_renewal" -> pure LBTCRSPendingAutoRenewal
-      "pending_validation" -> pure LBTCRSPendingValidation
-      "success" -> pure LBTCRSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerTLSCertificateRenewalStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending_auto_renewal, pending_validation, success"
+pattern LBTCRSFailed :: LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSFailed = LoadBalancerTLSCertificateRenewalStatus' "FAILED"
 
-instance ToText LoadBalancerTLSCertificateRenewalStatus where
-  toText = \case
-    LBTCRSFailed -> "FAILED"
-    LBTCRSPendingAutoRenewal -> "PENDING_AUTO_RENEWAL"
-    LBTCRSPendingValidation -> "PENDING_VALIDATION"
-    LBTCRSSuccess -> "SUCCESS"
+pattern LBTCRSPendingAutoRenewal :: LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSPendingAutoRenewal = LoadBalancerTLSCertificateRenewalStatus' "PENDING_AUTO_RENEWAL"
 
-instance Hashable LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSPendingValidation :: LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSPendingValidation = LoadBalancerTLSCertificateRenewalStatus' "PENDING_VALIDATION"
 
-instance NFData LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSSuccess :: LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSSuccess = LoadBalancerTLSCertificateRenewalStatus' "SUCCESS"
 
-instance ToByteString LoadBalancerTLSCertificateRenewalStatus
-
-instance ToQuery LoadBalancerTLSCertificateRenewalStatus
-
-instance ToHeader LoadBalancerTLSCertificateRenewalStatus
-
-instance FromJSON LoadBalancerTLSCertificateRenewalStatus where
-  parseJSON = parseJSONText "LoadBalancerTLSCertificateRenewalStatus"
+{-# COMPLETE
+  LBTCRSFailed,
+  LBTCRSPendingAutoRenewal,
+  LBTCRSPendingValidation,
+  LBTCRSSuccess,
+  LoadBalancerTLSCertificateRenewalStatus'
+  #-}

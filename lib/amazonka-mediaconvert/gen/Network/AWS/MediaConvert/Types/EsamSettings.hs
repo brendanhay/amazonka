@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.EsamSettings where
+module Network.AWS.MediaConvert.Types.EsamSettings
+  ( EsamSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEsamSettings,
+
+    -- * Lenses
+    esManifestConfirmConditionNotification,
+    esResponseSignalPreroll,
+    esSignalProcessingNotification,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
 import Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
 --
--- /See:/ 'esamSettings' smart constructor.
+-- /See:/ 'mkEsamSettings' smart constructor.
 data EsamSettings = EsamSettings'
-  { _esManifestConfirmConditionNotification ::
-      !(Maybe EsamManifestConfirmConditionNotification),
-    _esResponseSignalPreroll :: !(Maybe Nat),
-    _esSignalProcessingNotification ::
-      !(Maybe EsamSignalProcessingNotification)
+  { manifestConfirmConditionNotification ::
+      Lude.Maybe EsamManifestConfirmConditionNotification,
+    responseSignalPreroll :: Lude.Maybe Lude.Natural,
+    signalProcessingNotification ::
+      Lude.Maybe EsamSignalProcessingNotification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EsamSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esManifestConfirmConditionNotification' - Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
---
--- * 'esResponseSignalPreroll' - Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
---
--- * 'esSignalProcessingNotification' - Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
-esamSettings ::
+-- * 'manifestConfirmConditionNotification' - Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
+-- * 'responseSignalPreroll' - Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
+-- * 'signalProcessingNotification' - Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
+mkEsamSettings ::
   EsamSettings
-esamSettings =
+mkEsamSettings =
   EsamSettings'
-    { _esManifestConfirmConditionNotification = Nothing,
-      _esResponseSignalPreroll = Nothing,
-      _esSignalProcessingNotification = Nothing
+    { manifestConfirmConditionNotification =
+        Lude.Nothing,
+      responseSignalPreroll = Lude.Nothing,
+      signalProcessingNotification = Lude.Nothing
     }
 
 -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
-esManifestConfirmConditionNotification :: Lens' EsamSettings (Maybe EsamManifestConfirmConditionNotification)
-esManifestConfirmConditionNotification = lens _esManifestConfirmConditionNotification (\s a -> s {_esManifestConfirmConditionNotification = a})
+--
+-- /Note:/ Consider using 'manifestConfirmConditionNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esManifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Lude.Maybe EsamManifestConfirmConditionNotification)
+esManifestConfirmConditionNotification = Lens.lens (manifestConfirmConditionNotification :: EsamSettings -> Lude.Maybe EsamManifestConfirmConditionNotification) (\s a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
+{-# DEPRECATED esManifestConfirmConditionNotification "Use generic-lens or generic-optics with 'manifestConfirmConditionNotification' instead." #-}
 
 -- | Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
-esResponseSignalPreroll :: Lens' EsamSettings (Maybe Natural)
-esResponseSignalPreroll = lens _esResponseSignalPreroll (\s a -> s {_esResponseSignalPreroll = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'responseSignalPreroll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esResponseSignalPreroll :: Lens.Lens' EsamSettings (Lude.Maybe Lude.Natural)
+esResponseSignalPreroll = Lens.lens (responseSignalPreroll :: EsamSettings -> Lude.Maybe Lude.Natural) (\s a -> s {responseSignalPreroll = a} :: EsamSettings)
+{-# DEPRECATED esResponseSignalPreroll "Use generic-lens or generic-optics with 'responseSignalPreroll' instead." #-}
 
 -- | Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
-esSignalProcessingNotification :: Lens' EsamSettings (Maybe EsamSignalProcessingNotification)
-esSignalProcessingNotification = lens _esSignalProcessingNotification (\s a -> s {_esSignalProcessingNotification = a})
+--
+-- /Note:/ Consider using 'signalProcessingNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSignalProcessingNotification :: Lens.Lens' EsamSettings (Lude.Maybe EsamSignalProcessingNotification)
+esSignalProcessingNotification = Lens.lens (signalProcessingNotification :: EsamSettings -> Lude.Maybe EsamSignalProcessingNotification) (\s a -> s {signalProcessingNotification = a} :: EsamSettings)
+{-# DEPRECATED esSignalProcessingNotification "Use generic-lens or generic-optics with 'signalProcessingNotification' instead." #-}
 
-instance FromJSON EsamSettings where
+instance Lude.FromJSON EsamSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "EsamSettings"
       ( \x ->
           EsamSettings'
-            <$> (x .:? "manifestConfirmConditionNotification")
-            <*> (x .:? "responseSignalPreroll")
-            <*> (x .:? "signalProcessingNotification")
+            Lude.<$> (x Lude..:? "manifestConfirmConditionNotification")
+            Lude.<*> (x Lude..:? "responseSignalPreroll")
+            Lude.<*> (x Lude..:? "signalProcessingNotification")
       )
 
-instance Hashable EsamSettings
-
-instance NFData EsamSettings
-
-instance ToJSON EsamSettings where
+instance Lude.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =
-    object
-      ( catMaybes
-          [ ("manifestConfirmConditionNotification" .=)
-              <$> _esManifestConfirmConditionNotification,
-            ("responseSignalPreroll" .=) <$> _esResponseSignalPreroll,
-            ("signalProcessingNotification" .=)
-              <$> _esSignalProcessingNotification
+    Lude.object
+      ( Lude.catMaybes
+          [ ("manifestConfirmConditionNotification" Lude..=)
+              Lude.<$> manifestConfirmConditionNotification,
+            ("responseSignalPreroll" Lude..=) Lude.<$> responseSignalPreroll,
+            ("signalProcessingNotification" Lude..=)
+              Lude.<$> signalProcessingNotification
           ]
       )

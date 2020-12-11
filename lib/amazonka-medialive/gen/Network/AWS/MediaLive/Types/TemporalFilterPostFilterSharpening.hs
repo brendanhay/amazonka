@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening where
+module Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
+  ( TemporalFilterPostFilterSharpening
+      ( TemporalFilterPostFilterSharpening',
+        TFPFSAuto,
+        TFPFSDisabled,
+        TFPFSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Temporal Filter Post Filter Sharpening
-data TemporalFilterPostFilterSharpening
-  = TFPFSAuto
-  | TFPFSDisabled
-  | TFPFSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TemporalFilterPostFilterSharpening = TemporalFilterPostFilterSharpening' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TemporalFilterPostFilterSharpening where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure TFPFSAuto
-      "disabled" -> pure TFPFSDisabled
-      "enabled" -> pure TFPFSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing TemporalFilterPostFilterSharpening from value: '" <> e
-            <> "'. Accepted values: auto, disabled, enabled"
+pattern TFPFSAuto :: TemporalFilterPostFilterSharpening
+pattern TFPFSAuto = TemporalFilterPostFilterSharpening' "AUTO"
 
-instance ToText TemporalFilterPostFilterSharpening where
-  toText = \case
-    TFPFSAuto -> "AUTO"
-    TFPFSDisabled -> "DISABLED"
-    TFPFSEnabled -> "ENABLED"
+pattern TFPFSDisabled :: TemporalFilterPostFilterSharpening
+pattern TFPFSDisabled = TemporalFilterPostFilterSharpening' "DISABLED"
 
-instance Hashable TemporalFilterPostFilterSharpening
+pattern TFPFSEnabled :: TemporalFilterPostFilterSharpening
+pattern TFPFSEnabled = TemporalFilterPostFilterSharpening' "ENABLED"
 
-instance NFData TemporalFilterPostFilterSharpening
-
-instance ToByteString TemporalFilterPostFilterSharpening
-
-instance ToQuery TemporalFilterPostFilterSharpening
-
-instance ToHeader TemporalFilterPostFilterSharpening
-
-instance ToJSON TemporalFilterPostFilterSharpening where
-  toJSON = toJSONText
-
-instance FromJSON TemporalFilterPostFilterSharpening where
-  parseJSON = parseJSONText "TemporalFilterPostFilterSharpening"
+{-# COMPLETE
+  TFPFSAuto,
+  TFPFSDisabled,
+  TFPFSEnabled,
+  TemporalFilterPostFilterSharpening'
+  #-}

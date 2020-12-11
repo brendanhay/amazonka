@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CompliantSummary where
+module Network.AWS.SSM.Types.CompliantSummary
+  ( CompliantSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCompliantSummary,
+
+    -- * Lenses
+    csCompliantCount,
+    csSeveritySummary,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.SeveritySummary
 
 -- | A summary of resources that are compliant. The summary is organized according to the resource count for each compliance type.
 --
---
---
--- /See:/ 'compliantSummary' smart constructor.
+-- /See:/ 'mkCompliantSummary' smart constructor.
 data CompliantSummary = CompliantSummary'
-  { _csCompliantCount ::
-      !(Maybe Int),
-    _csSeveritySummary :: !(Maybe SeveritySummary)
+  { compliantCount ::
+      Lude.Maybe Lude.Int,
+    severitySummary :: Lude.Maybe SeveritySummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompliantSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csCompliantCount' - The total number of resources that are compliant.
---
--- * 'csSeveritySummary' - A summary of the compliance severity by compliance type.
-compliantSummary ::
+-- * 'compliantCount' - The total number of resources that are compliant.
+-- * 'severitySummary' - A summary of the compliance severity by compliance type.
+mkCompliantSummary ::
   CompliantSummary
-compliantSummary =
+mkCompliantSummary =
   CompliantSummary'
-    { _csCompliantCount = Nothing,
-      _csSeveritySummary = Nothing
+    { compliantCount = Lude.Nothing,
+      severitySummary = Lude.Nothing
     }
 
 -- | The total number of resources that are compliant.
-csCompliantCount :: Lens' CompliantSummary (Maybe Int)
-csCompliantCount = lens _csCompliantCount (\s a -> s {_csCompliantCount = a})
+--
+-- /Note:/ Consider using 'compliantCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCompliantCount :: Lens.Lens' CompliantSummary (Lude.Maybe Lude.Int)
+csCompliantCount = Lens.lens (compliantCount :: CompliantSummary -> Lude.Maybe Lude.Int) (\s a -> s {compliantCount = a} :: CompliantSummary)
+{-# DEPRECATED csCompliantCount "Use generic-lens or generic-optics with 'compliantCount' instead." #-}
 
 -- | A summary of the compliance severity by compliance type.
-csSeveritySummary :: Lens' CompliantSummary (Maybe SeveritySummary)
-csSeveritySummary = lens _csSeveritySummary (\s a -> s {_csSeveritySummary = a})
+--
+-- /Note:/ Consider using 'severitySummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSeveritySummary :: Lens.Lens' CompliantSummary (Lude.Maybe SeveritySummary)
+csSeveritySummary = Lens.lens (severitySummary :: CompliantSummary -> Lude.Maybe SeveritySummary) (\s a -> s {severitySummary = a} :: CompliantSummary)
+{-# DEPRECATED csSeveritySummary "Use generic-lens or generic-optics with 'severitySummary' instead." #-}
 
-instance FromJSON CompliantSummary where
+instance Lude.FromJSON CompliantSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "CompliantSummary"
       ( \x ->
           CompliantSummary'
-            <$> (x .:? "CompliantCount") <*> (x .:? "SeveritySummary")
+            Lude.<$> (x Lude..:? "CompliantCount")
+            Lude.<*> (x Lude..:? "SeveritySummary")
       )
-
-instance Hashable CompliantSummary
-
-instance NFData CompliantSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ImageStateChangeReasonCode where
+module Network.AWS.AppStream.Types.ImageStateChangeReasonCode
+  ( ImageStateChangeReasonCode
+      ( ImageStateChangeReasonCode',
+        ISCRCImageBuilderNotAvailable,
+        ISCRCImageCopyFailure,
+        ISCRCInternalError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageStateChangeReasonCode
-  = ISCRCImageBuilderNotAvailable
-  | ISCRCImageCopyFailure
-  | ISCRCInternalError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageStateChangeReasonCode = ImageStateChangeReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageStateChangeReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "image_builder_not_available" -> pure ISCRCImageBuilderNotAvailable
-      "image_copy_failure" -> pure ISCRCImageCopyFailure
-      "internal_error" -> pure ISCRCInternalError
-      e ->
-        fromTextError $
-          "Failure parsing ImageStateChangeReasonCode from value: '" <> e
-            <> "'. Accepted values: image_builder_not_available, image_copy_failure, internal_error"
+pattern ISCRCImageBuilderNotAvailable :: ImageStateChangeReasonCode
+pattern ISCRCImageBuilderNotAvailable = ImageStateChangeReasonCode' "IMAGE_BUILDER_NOT_AVAILABLE"
 
-instance ToText ImageStateChangeReasonCode where
-  toText = \case
-    ISCRCImageBuilderNotAvailable -> "IMAGE_BUILDER_NOT_AVAILABLE"
-    ISCRCImageCopyFailure -> "IMAGE_COPY_FAILURE"
-    ISCRCInternalError -> "INTERNAL_ERROR"
+pattern ISCRCImageCopyFailure :: ImageStateChangeReasonCode
+pattern ISCRCImageCopyFailure = ImageStateChangeReasonCode' "IMAGE_COPY_FAILURE"
 
-instance Hashable ImageStateChangeReasonCode
+pattern ISCRCInternalError :: ImageStateChangeReasonCode
+pattern ISCRCInternalError = ImageStateChangeReasonCode' "INTERNAL_ERROR"
 
-instance NFData ImageStateChangeReasonCode
-
-instance ToByteString ImageStateChangeReasonCode
-
-instance ToQuery ImageStateChangeReasonCode
-
-instance ToHeader ImageStateChangeReasonCode
-
-instance FromJSON ImageStateChangeReasonCode where
-  parseJSON = parseJSONText "ImageStateChangeReasonCode"
+{-# COMPLETE
+  ISCRCImageBuilderNotAvailable,
+  ISCRCImageCopyFailure,
+  ISCRCInternalError,
+  ImageStateChangeReasonCode'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,114 @@
 --
 -- Records the configuration state for a custom resource that has been deleted. This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.
 module Network.AWS.Config.DeleteResourceConfig
-  ( -- * Creating a Request
-    deleteResourceConfig,
-    DeleteResourceConfig,
+  ( -- * Creating a request
+    DeleteResourceConfig (..),
+    mkDeleteResourceConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drcResourceType,
     drcResourceId,
 
-    -- * Destructuring the Response
-    deleteResourceConfigResponse,
-    DeleteResourceConfigResponse,
+    -- * Destructuring the response
+    DeleteResourceConfigResponse (..),
+    mkDeleteResourceConfigResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteResourceConfig' smart constructor.
+-- | /See:/ 'mkDeleteResourceConfig' smart constructor.
 data DeleteResourceConfig = DeleteResourceConfig'
-  { _drcResourceType ::
-      !Text,
-    _drcResourceId :: !Text
+  { resourceType ::
+      Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcResourceType' - The type of the resource.
---
--- * 'drcResourceId' - Unique identifier of the resource.
-deleteResourceConfig ::
-  -- | 'drcResourceType'
-  Text ->
-  -- | 'drcResourceId'
-  Text ->
+-- * 'resourceId' - Unique identifier of the resource.
+-- * 'resourceType' - The type of the resource.
+mkDeleteResourceConfig ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   DeleteResourceConfig
-deleteResourceConfig pResourceType_ pResourceId_ =
+mkDeleteResourceConfig pResourceType_ pResourceId_ =
   DeleteResourceConfig'
-    { _drcResourceType = pResourceType_,
-      _drcResourceId = pResourceId_
+    { resourceType = pResourceType_,
+      resourceId = pResourceId_
     }
 
 -- | The type of the resource.
-drcResourceType :: Lens' DeleteResourceConfig Text
-drcResourceType = lens _drcResourceType (\s a -> s {_drcResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcResourceType :: Lens.Lens' DeleteResourceConfig Lude.Text
+drcResourceType = Lens.lens (resourceType :: DeleteResourceConfig -> Lude.Text) (\s a -> s {resourceType = a} :: DeleteResourceConfig)
+{-# DEPRECATED drcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Unique identifier of the resource.
-drcResourceId :: Lens' DeleteResourceConfig Text
-drcResourceId = lens _drcResourceId (\s a -> s {_drcResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcResourceId :: Lens.Lens' DeleteResourceConfig Lude.Text
+drcResourceId = Lens.lens (resourceId :: DeleteResourceConfig -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteResourceConfig)
+{-# DEPRECATED drcResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest DeleteResourceConfig where
+instance Lude.AWSRequest DeleteResourceConfig where
   type Rs DeleteResourceConfig = DeleteResourceConfigResponse
-  request = postJSON config
-  response = receiveNull DeleteResourceConfigResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteResourceConfigResponse'
 
-instance Hashable DeleteResourceConfig
-
-instance NFData DeleteResourceConfig
-
-instance ToHeaders DeleteResourceConfig where
+instance Lude.ToHeaders DeleteResourceConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteResourceConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DeleteResourceConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteResourceConfig where
+instance Lude.ToJSON DeleteResourceConfig where
   toJSON DeleteResourceConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceType" .= _drcResourceType),
-            Just ("ResourceId" .= _drcResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath DeleteResourceConfig where
-  toPath = const "/"
+instance Lude.ToPath DeleteResourceConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteResourceConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteResourceConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteResourceConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteResourceConfigResponse' smart constructor.
 data DeleteResourceConfigResponse = DeleteResourceConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceConfigResponse' with the minimum fields required to make a request.
-deleteResourceConfigResponse ::
+mkDeleteResourceConfigResponse ::
   DeleteResourceConfigResponse
-deleteResourceConfigResponse = DeleteResourceConfigResponse'
-
-instance NFData DeleteResourceConfigResponse
+mkDeleteResourceConfigResponse = DeleteResourceConfigResponse'

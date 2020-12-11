@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,135 @@
 --
 -- Creates an application.
 module Network.AWS.Pinpoint.CreateApp
-  ( -- * Creating a Request
-    createApp,
-    CreateApp,
+  ( -- * Creating a request
+    CreateApp (..),
+    mkCreateApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caCreateApplicationRequest,
 
-    -- * Destructuring the Response
-    createAppResponse,
-    CreateAppResponse,
+    -- * Destructuring the response
+    CreateAppResponse (..),
+    mkCreateAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsResponseStatus,
     carsApplicationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createApp' smart constructor.
+-- | /See:/ 'mkCreateApp' smart constructor.
 newtype CreateApp = CreateApp'
-  { _caCreateApplicationRequest ::
+  { createApplicationRequest ::
       CreateApplicationRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caCreateApplicationRequest' - Undocumented member.
-createApp ::
-  -- | 'caCreateApplicationRequest'
+-- * 'createApplicationRequest' - Undocumented field.
+mkCreateApp ::
+  -- | 'createApplicationRequest'
   CreateApplicationRequest ->
   CreateApp
-createApp pCreateApplicationRequest_ =
-  CreateApp'
-    { _caCreateApplicationRequest =
-        pCreateApplicationRequest_
-    }
+mkCreateApp pCreateApplicationRequest_ =
+  CreateApp' {createApplicationRequest = pCreateApplicationRequest_}
 
--- | Undocumented member.
-caCreateApplicationRequest :: Lens' CreateApp CreateApplicationRequest
-caCreateApplicationRequest = lens _caCreateApplicationRequest (\s a -> s {_caCreateApplicationRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'createApplicationRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCreateApplicationRequest :: Lens.Lens' CreateApp CreateApplicationRequest
+caCreateApplicationRequest = Lens.lens (createApplicationRequest :: CreateApp -> CreateApplicationRequest) (\s a -> s {createApplicationRequest = a} :: CreateApp)
+{-# DEPRECATED caCreateApplicationRequest "Use generic-lens or generic-optics with 'createApplicationRequest' instead." #-}
 
-instance AWSRequest CreateApp where
+instance Lude.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
-  request = postJSON pinpoint
+  request = Req.postJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateAppResponse' <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+          CreateAppResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable CreateApp
-
-instance NFData CreateApp
-
-instance ToHeaders CreateApp where
+instance Lude.ToHeaders CreateApp where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateApp where
+instance Lude.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    object
-      ( catMaybes
-          [Just ("CreateApplicationRequest" .= _caCreateApplicationRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("CreateApplicationRequest" Lude..= createApplicationRequest)
+          ]
       )
 
-instance ToPath CreateApp where
-  toPath = const "/v1/apps"
+instance Lude.ToPath CreateApp where
+  toPath = Lude.const "/v1/apps"
 
-instance ToQuery CreateApp where
-  toQuery = const mempty
+instance Lude.ToQuery CreateApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAppResponse' smart constructor.
+-- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsResponseStatus ::
-      !Int,
-    _carsApplicationResponse :: !ApplicationResponse
+  { responseStatus ::
+      Lude.Int,
+    applicationResponse :: ApplicationResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsResponseStatus' - -- | The response status code.
---
--- * 'carsApplicationResponse' - Undocumented member.
-createAppResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
-  -- | 'carsApplicationResponse'
+-- * 'applicationResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationResponse'
   ApplicationResponse ->
   CreateAppResponse
-createAppResponse pResponseStatus_ pApplicationResponse_ =
+mkCreateAppResponse pResponseStatus_ pApplicationResponse_ =
   CreateAppResponse'
-    { _carsResponseStatus = pResponseStatus_,
-      _carsApplicationResponse = pApplicationResponse_
+    { responseStatus = pResponseStatus_,
+      applicationResponse = pApplicationResponse_
     }
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAppResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-carsApplicationResponse :: Lens' CreateAppResponse ApplicationResponse
-carsApplicationResponse = lens _carsApplicationResponse (\s a -> s {_carsApplicationResponse = a})
-
-instance NFData CreateAppResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'applicationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsApplicationResponse :: Lens.Lens' CreateAppResponse ApplicationResponse
+carsApplicationResponse = Lens.lens (applicationResponse :: CreateAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: CreateAppResponse)
+{-# DEPRECATED carsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}

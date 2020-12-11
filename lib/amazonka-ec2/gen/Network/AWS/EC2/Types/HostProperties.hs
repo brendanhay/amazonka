@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.HostProperties where
+module Network.AWS.EC2.Types.HostProperties
+  ( HostProperties (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHostProperties,
+
+    -- * Lenses
+    hpInstanceFamily,
+    hpInstanceType,
+    hpTotalVCPUs,
+    hpCores,
+    hpSockets,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the properties of a Dedicated Host.
 --
---
---
--- /See:/ 'hostProperties' smart constructor.
+-- /See:/ 'mkHostProperties' smart constructor.
 data HostProperties = HostProperties'
-  { _hpInstanceFamily ::
-      !(Maybe Text),
-    _hpInstanceType :: !(Maybe Text),
-    _hpTotalVCPUs :: !(Maybe Int),
-    _hpCores :: !(Maybe Int),
-    _hpSockets :: !(Maybe Int)
+  { instanceFamily ::
+      Lude.Maybe Lude.Text,
+    instanceType :: Lude.Maybe Lude.Text,
+    totalVCPUs :: Lude.Maybe Lude.Int,
+    cores :: Lude.Maybe Lude.Int,
+    sockets :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hpInstanceFamily' - The instance family supported by the Dedicated Host. For example, @m5@ .
---
--- * 'hpInstanceType' - The instance type supported by the Dedicated Host. For example, @m5.large@ . If the host supports multiple instance types, no __instanceType__ is returned.
---
--- * 'hpTotalVCPUs' - The total number of vCPUs on the Dedicated Host.
---
--- * 'hpCores' - The number of cores on the Dedicated Host.
---
--- * 'hpSockets' - The number of sockets on the Dedicated Host.
-hostProperties ::
+-- * 'cores' - The number of cores on the Dedicated Host.
+-- * 'instanceFamily' - The instance family supported by the Dedicated Host. For example, @m5@ .
+-- * 'instanceType' - The instance type supported by the Dedicated Host. For example, @m5.large@ . If the host supports multiple instance types, no __instanceType__ is returned.
+-- * 'sockets' - The number of sockets on the Dedicated Host.
+-- * 'totalVCPUs' - The total number of vCPUs on the Dedicated Host.
+mkHostProperties ::
   HostProperties
-hostProperties =
+mkHostProperties =
   HostProperties'
-    { _hpInstanceFamily = Nothing,
-      _hpInstanceType = Nothing,
-      _hpTotalVCPUs = Nothing,
-      _hpCores = Nothing,
-      _hpSockets = Nothing
+    { instanceFamily = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      totalVCPUs = Lude.Nothing,
+      cores = Lude.Nothing,
+      sockets = Lude.Nothing
     }
 
 -- | The instance family supported by the Dedicated Host. For example, @m5@ .
-hpInstanceFamily :: Lens' HostProperties (Maybe Text)
-hpInstanceFamily = lens _hpInstanceFamily (\s a -> s {_hpInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpInstanceFamily :: Lens.Lens' HostProperties (Lude.Maybe Lude.Text)
+hpInstanceFamily = Lens.lens (instanceFamily :: HostProperties -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: HostProperties)
+{-# DEPRECATED hpInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The instance type supported by the Dedicated Host. For example, @m5.large@ . If the host supports multiple instance types, no __instanceType__ is returned.
-hpInstanceType :: Lens' HostProperties (Maybe Text)
-hpInstanceType = lens _hpInstanceType (\s a -> s {_hpInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpInstanceType :: Lens.Lens' HostProperties (Lude.Maybe Lude.Text)
+hpInstanceType = Lens.lens (instanceType :: HostProperties -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: HostProperties)
+{-# DEPRECATED hpInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The total number of vCPUs on the Dedicated Host.
-hpTotalVCPUs :: Lens' HostProperties (Maybe Int)
-hpTotalVCPUs = lens _hpTotalVCPUs (\s a -> s {_hpTotalVCPUs = a})
+--
+-- /Note:/ Consider using 'totalVCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpTotalVCPUs :: Lens.Lens' HostProperties (Lude.Maybe Lude.Int)
+hpTotalVCPUs = Lens.lens (totalVCPUs :: HostProperties -> Lude.Maybe Lude.Int) (\s a -> s {totalVCPUs = a} :: HostProperties)
+{-# DEPRECATED hpTotalVCPUs "Use generic-lens or generic-optics with 'totalVCPUs' instead." #-}
 
 -- | The number of cores on the Dedicated Host.
-hpCores :: Lens' HostProperties (Maybe Int)
-hpCores = lens _hpCores (\s a -> s {_hpCores = a})
+--
+-- /Note:/ Consider using 'cores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpCores :: Lens.Lens' HostProperties (Lude.Maybe Lude.Int)
+hpCores = Lens.lens (cores :: HostProperties -> Lude.Maybe Lude.Int) (\s a -> s {cores = a} :: HostProperties)
+{-# DEPRECATED hpCores "Use generic-lens or generic-optics with 'cores' instead." #-}
 
 -- | The number of sockets on the Dedicated Host.
-hpSockets :: Lens' HostProperties (Maybe Int)
-hpSockets = lens _hpSockets (\s a -> s {_hpSockets = a})
+--
+-- /Note:/ Consider using 'sockets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hpSockets :: Lens.Lens' HostProperties (Lude.Maybe Lude.Int)
+hpSockets = Lens.lens (sockets :: HostProperties -> Lude.Maybe Lude.Int) (\s a -> s {sockets = a} :: HostProperties)
+{-# DEPRECATED hpSockets "Use generic-lens or generic-optics with 'sockets' instead." #-}
 
-instance FromXML HostProperties where
+instance Lude.FromXML HostProperties where
   parseXML x =
     HostProperties'
-      <$> (x .@? "instanceFamily")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "totalVCpus")
-      <*> (x .@? "cores")
-      <*> (x .@? "sockets")
-
-instance Hashable HostProperties
-
-instance NFData HostProperties
+      Lude.<$> (x Lude..@? "instanceFamily")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "totalVCpus")
+      Lude.<*> (x Lude..@? "cores")
+      Lude.<*> (x Lude..@? "sockets")

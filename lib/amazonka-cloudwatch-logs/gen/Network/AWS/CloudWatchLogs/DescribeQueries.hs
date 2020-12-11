@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries or limit it to queries of a specific log group or queries with a certain status.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeQueries
-  ( -- * Creating a Request
-    describeQueries,
-    DescribeQueries,
+  ( -- * Creating a request
+    DescribeQueries (..),
+    mkDescribeQueries,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqStatus,
     dqLogGroupName,
     dqNextToken,
     dqMaxResults,
 
-    -- * Destructuring the Response
-    describeQueriesResponse,
-    DescribeQueriesResponse,
+    -- * Destructuring the response
+    DescribeQueriesResponse (..),
+    mkDescribeQueriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dqrsQueries,
     dqrsNextToken,
     dqrsResponseStatus,
@@ -45,146 +38,171 @@ module Network.AWS.CloudWatchLogs.DescribeQueries
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeQueries' smart constructor.
+-- | /See:/ 'mkDescribeQueries' smart constructor.
 data DescribeQueries = DescribeQueries'
-  { _dqStatus ::
-      !(Maybe QueryStatus),
-    _dqLogGroupName :: !(Maybe Text),
-    _dqNextToken :: !(Maybe Text),
-    _dqMaxResults :: !(Maybe Nat)
+  { status ::
+      Lude.Maybe QueryStatus,
+    logGroupName :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueries' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqStatus' - Limits the returned queries to only those that have the specified status. Valid values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , and @Scheduled@ .
---
--- * 'dqLogGroupName' - Limits the returned queries to only those for the specified log group.
---
--- * 'dqNextToken' - Undocumented member.
---
--- * 'dqMaxResults' - Limits the number of returned queries to the specified number.
-describeQueries ::
+-- * 'logGroupName' - Limits the returned queries to only those for the specified log group.
+-- * 'maxResults' - Limits the number of returned queries to the specified number.
+-- * 'nextToken' - Undocumented field.
+-- * 'status' - Limits the returned queries to only those that have the specified status. Valid values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , and @Scheduled@ .
+mkDescribeQueries ::
   DescribeQueries
-describeQueries =
+mkDescribeQueries =
   DescribeQueries'
-    { _dqStatus = Nothing,
-      _dqLogGroupName = Nothing,
-      _dqNextToken = Nothing,
-      _dqMaxResults = Nothing
+    { status = Lude.Nothing,
+      logGroupName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Limits the returned queries to only those that have the specified status. Valid values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , and @Scheduled@ .
-dqStatus :: Lens' DescribeQueries (Maybe QueryStatus)
-dqStatus = lens _dqStatus (\s a -> s {_dqStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqStatus :: Lens.Lens' DescribeQueries (Lude.Maybe QueryStatus)
+dqStatus = Lens.lens (status :: DescribeQueries -> Lude.Maybe QueryStatus) (\s a -> s {status = a} :: DescribeQueries)
+{-# DEPRECATED dqStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Limits the returned queries to only those for the specified log group.
-dqLogGroupName :: Lens' DescribeQueries (Maybe Text)
-dqLogGroupName = lens _dqLogGroupName (\s a -> s {_dqLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqLogGroupName :: Lens.Lens' DescribeQueries (Lude.Maybe Lude.Text)
+dqLogGroupName = Lens.lens (logGroupName :: DescribeQueries -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: DescribeQueries)
+{-# DEPRECATED dqLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | Undocumented member.
-dqNextToken :: Lens' DescribeQueries (Maybe Text)
-dqNextToken = lens _dqNextToken (\s a -> s {_dqNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqNextToken :: Lens.Lens' DescribeQueries (Lude.Maybe Lude.Text)
+dqNextToken = Lens.lens (nextToken :: DescribeQueries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeQueries)
+{-# DEPRECATED dqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits the number of returned queries to the specified number.
-dqMaxResults :: Lens' DescribeQueries (Maybe Natural)
-dqMaxResults = lens _dqMaxResults (\s a -> s {_dqMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqMaxResults :: Lens.Lens' DescribeQueries (Lude.Maybe Lude.Natural)
+dqMaxResults = Lens.lens (maxResults :: DescribeQueries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeQueries)
+{-# DEPRECATED dqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeQueries where
+instance Page.AWSPager DescribeQueries where
   page rq rs
-    | stop (rs ^. dqrsNextToken) = Nothing
-    | stop (rs ^. dqrsQueries) = Nothing
-    | otherwise = Just $ rq & dqNextToken .~ rs ^. dqrsNextToken
+    | Page.stop (rs Lens.^. dqrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dqrsQueries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dqNextToken Lens..~ rs Lens.^. dqrsNextToken
 
-instance AWSRequest DescribeQueries where
+instance Lude.AWSRequest DescribeQueries where
   type Rs DescribeQueries = DescribeQueriesResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeQueriesResponse'
-            <$> (x .?> "queries" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "queries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeQueries
-
-instance NFData DescribeQueries
-
-instance ToHeaders DescribeQueries where
+instance Lude.ToHeaders DescribeQueries where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.DescribeQueries" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.DescribeQueries" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeQueries where
+instance Lude.ToJSON DescribeQueries where
   toJSON DescribeQueries' {..} =
-    object
-      ( catMaybes
-          [ ("status" .=) <$> _dqStatus,
-            ("logGroupName" .=) <$> _dqLogGroupName,
-            ("nextToken" .=) <$> _dqNextToken,
-            ("maxResults" .=) <$> _dqMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("status" Lude..=) Lude.<$> status,
+            ("logGroupName" Lude..=) Lude.<$> logGroupName,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeQueries where
-  toPath = const "/"
+instance Lude.ToPath DescribeQueries where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeQueries where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeQueries where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeQueriesResponse' smart constructor.
+-- | /See:/ 'mkDescribeQueriesResponse' smart constructor.
 data DescribeQueriesResponse = DescribeQueriesResponse'
-  { _dqrsQueries ::
-      !(Maybe [QueryInfo]),
-    _dqrsNextToken :: !(Maybe Text),
-    _dqrsResponseStatus :: !Int
+  { queries ::
+      Lude.Maybe [QueryInfo],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqrsQueries' - The list of queries that match the request.
---
--- * 'dqrsNextToken' - Undocumented member.
---
--- * 'dqrsResponseStatus' - -- | The response status code.
-describeQueriesResponse ::
-  -- | 'dqrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Undocumented field.
+-- * 'queries' - The list of queries that match the request.
+-- * 'responseStatus' - The response status code.
+mkDescribeQueriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeQueriesResponse
-describeQueriesResponse pResponseStatus_ =
+mkDescribeQueriesResponse pResponseStatus_ =
   DescribeQueriesResponse'
-    { _dqrsQueries = Nothing,
-      _dqrsNextToken = Nothing,
-      _dqrsResponseStatus = pResponseStatus_
+    { queries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of queries that match the request.
-dqrsQueries :: Lens' DescribeQueriesResponse [QueryInfo]
-dqrsQueries = lens _dqrsQueries (\s a -> s {_dqrsQueries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrsQueries :: Lens.Lens' DescribeQueriesResponse (Lude.Maybe [QueryInfo])
+dqrsQueries = Lens.lens (queries :: DescribeQueriesResponse -> Lude.Maybe [QueryInfo]) (\s a -> s {queries = a} :: DescribeQueriesResponse)
+{-# DEPRECATED dqrsQueries "Use generic-lens or generic-optics with 'queries' instead." #-}
 
--- | Undocumented member.
-dqrsNextToken :: Lens' DescribeQueriesResponse (Maybe Text)
-dqrsNextToken = lens _dqrsNextToken (\s a -> s {_dqrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrsNextToken :: Lens.Lens' DescribeQueriesResponse (Lude.Maybe Lude.Text)
+dqrsNextToken = Lens.lens (nextToken :: DescribeQueriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeQueriesResponse)
+{-# DEPRECATED dqrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dqrsResponseStatus :: Lens' DescribeQueriesResponse Int
-dqrsResponseStatus = lens _dqrsResponseStatus (\s a -> s {_dqrsResponseStatus = a})
-
-instance NFData DescribeQueriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrsResponseStatus :: Lens.Lens' DescribeQueriesResponse Lude.Int
+dqrsResponseStatus = Lens.lens (responseStatus :: DescribeQueriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeQueriesResponse)
+{-# DEPRECATED dqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

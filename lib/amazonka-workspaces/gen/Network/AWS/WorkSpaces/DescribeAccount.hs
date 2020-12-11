@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,130 @@
 --
 -- Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for the specified account.
 module Network.AWS.WorkSpaces.DescribeAccount
-  ( -- * Creating a Request
-    describeAccount,
-    DescribeAccount,
+  ( -- * Creating a request
+    DescribeAccount (..),
+    mkDescribeAccount,
 
-    -- * Destructuring the Response
-    describeAccountResponse,
-    DescribeAccountResponse,
+    -- * Destructuring the response
+    DescribeAccountResponse (..),
+    mkDescribeAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsDedicatedTenancySupport,
     darsDedicatedTenancyManagementCidrRange,
     darsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeAccount' smart constructor.
+-- | /See:/ 'mkDescribeAccount' smart constructor.
 data DescribeAccount = DescribeAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccount' with the minimum fields required to make a request.
-describeAccount ::
+mkDescribeAccount ::
   DescribeAccount
-describeAccount = DescribeAccount'
+mkDescribeAccount = DescribeAccount'
 
-instance AWSRequest DescribeAccount where
+instance Lude.AWSRequest DescribeAccount where
   type Rs DescribeAccount = DescribeAccountResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAccountResponse'
-            <$> (x .?> "DedicatedTenancySupport")
-            <*> (x .?> "DedicatedTenancyManagementCidrRange")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DedicatedTenancySupport")
+            Lude.<*> (x Lude..?> "DedicatedTenancyManagementCidrRange")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccount
-
-instance NFData DescribeAccount
-
-instance ToHeaders DescribeAccount where
+instance Lude.ToHeaders DescribeAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DescribeAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DescribeAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAccount where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeAccount where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeAccount where
-  toPath = const "/"
+instance Lude.ToPath DescribeAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAccountResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
-  { _darsDedicatedTenancySupport ::
-      !(Maybe DedicatedTenancySupportResultEnum),
-    _darsDedicatedTenancyManagementCidrRange ::
-      !(Maybe Text),
-    _darsResponseStatus :: !Int
+  { dedicatedTenancySupport ::
+      Lude.Maybe
+        DedicatedTenancySupportResultEnum,
+    dedicatedTenancyManagementCidrRange ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, used for the management network interface.
 --
--- * 'darsDedicatedTenancySupport' - The status of BYOL (whether BYOL is enabled or disabled).
---
--- * 'darsDedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, used for the management network interface. The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeAccountResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
+-- * 'dedicatedTenancySupport' - The status of BYOL (whether BYOL is enabled or disabled).
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountResponse
-describeAccountResponse pResponseStatus_ =
+mkDescribeAccountResponse pResponseStatus_ =
   DescribeAccountResponse'
-    { _darsDedicatedTenancySupport = Nothing,
-      _darsDedicatedTenancyManagementCidrRange = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { dedicatedTenancySupport = Lude.Nothing,
+      dedicatedTenancyManagementCidrRange = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of BYOL (whether BYOL is enabled or disabled).
-darsDedicatedTenancySupport :: Lens' DescribeAccountResponse (Maybe DedicatedTenancySupportResultEnum)
-darsDedicatedTenancySupport = lens _darsDedicatedTenancySupport (\s a -> s {_darsDedicatedTenancySupport = a})
+--
+-- /Note:/ Consider using 'dedicatedTenancySupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsDedicatedTenancySupport :: Lens.Lens' DescribeAccountResponse (Lude.Maybe DedicatedTenancySupportResultEnum)
+darsDedicatedTenancySupport = Lens.lens (dedicatedTenancySupport :: DescribeAccountResponse -> Lude.Maybe DedicatedTenancySupportResultEnum) (\s a -> s {dedicatedTenancySupport = a} :: DescribeAccountResponse)
+{-# DEPRECATED darsDedicatedTenancySupport "Use generic-lens or generic-optics with 'dedicatedTenancySupport' instead." #-}
 
--- | The IP address range, specified as an IPv4 CIDR block, used for the management network interface. The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
-darsDedicatedTenancyManagementCidrRange :: Lens' DescribeAccountResponse (Maybe Text)
-darsDedicatedTenancyManagementCidrRange = lens _darsDedicatedTenancyManagementCidrRange (\s a -> s {_darsDedicatedTenancyManagementCidrRange = a})
+-- | The IP address range, specified as an IPv4 CIDR block, used for the management network interface.
+--
+-- The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
+--
+-- /Note:/ Consider using 'dedicatedTenancyManagementCidrRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsDedicatedTenancyManagementCidrRange :: Lens.Lens' DescribeAccountResponse (Lude.Maybe Lude.Text)
+darsDedicatedTenancyManagementCidrRange = Lens.lens (dedicatedTenancyManagementCidrRange :: DescribeAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {dedicatedTenancyManagementCidrRange = a} :: DescribeAccountResponse)
+{-# DEPRECATED darsDedicatedTenancyManagementCidrRange "Use generic-lens or generic-optics with 'dedicatedTenancyManagementCidrRange' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAccountResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeAccountResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

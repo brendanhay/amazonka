@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35Descriptor where
+module Network.AWS.MediaLive.Types.Scte35Descriptor
+  ( Scte35Descriptor (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkScte35Descriptor,
+
+    -- * Lenses
+    sdScte35DescriptorSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35DescriptorSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Holds one set of SCTE-35 Descriptor Settings.
 --
--- /See:/ 'scte35Descriptor' smart constructor.
+-- /See:/ 'mkScte35Descriptor' smart constructor.
 newtype Scte35Descriptor = Scte35Descriptor'
-  { _sdScte35DescriptorSettings ::
+  { scte35DescriptorSettings ::
       Scte35DescriptorSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35Descriptor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdScte35DescriptorSettings' - SCTE-35 Descriptor Settings.
-scte35Descriptor ::
-  -- | 'sdScte35DescriptorSettings'
+-- * 'scte35DescriptorSettings' - SCTE-35 Descriptor Settings.
+mkScte35Descriptor ::
+  -- | 'scte35DescriptorSettings'
   Scte35DescriptorSettings ->
   Scte35Descriptor
-scte35Descriptor pScte35DescriptorSettings_ =
+mkScte35Descriptor pScte35DescriptorSettings_ =
   Scte35Descriptor'
-    { _sdScte35DescriptorSettings =
+    { scte35DescriptorSettings =
         pScte35DescriptorSettings_
     }
 
 -- | SCTE-35 Descriptor Settings.
-sdScte35DescriptorSettings :: Lens' Scte35Descriptor Scte35DescriptorSettings
-sdScte35DescriptorSettings = lens _sdScte35DescriptorSettings (\s a -> s {_sdScte35DescriptorSettings = a})
+--
+-- /Note:/ Consider using 'scte35DescriptorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdScte35DescriptorSettings :: Lens.Lens' Scte35Descriptor Scte35DescriptorSettings
+sdScte35DescriptorSettings = Lens.lens (scte35DescriptorSettings :: Scte35Descriptor -> Scte35DescriptorSettings) (\s a -> s {scte35DescriptorSettings = a} :: Scte35Descriptor)
+{-# DEPRECATED sdScte35DescriptorSettings "Use generic-lens or generic-optics with 'scte35DescriptorSettings' instead." #-}
 
-instance FromJSON Scte35Descriptor where
+instance Lude.FromJSON Scte35Descriptor where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35Descriptor"
-      (\x -> Scte35Descriptor' <$> (x .: "scte35DescriptorSettings"))
+      ( \x ->
+          Scte35Descriptor' Lude.<$> (x Lude..: "scte35DescriptorSettings")
+      )
 
-instance Hashable Scte35Descriptor
-
-instance NFData Scte35Descriptor
-
-instance ToJSON Scte35Descriptor where
+instance Lude.ToJSON Scte35Descriptor where
   toJSON Scte35Descriptor' {..} =
-    object
-      ( catMaybes
-          [Just ("scte35DescriptorSettings" .= _sdScte35DescriptorSettings)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("scte35DescriptorSettings" Lude..= scte35DescriptorSettings)
+          ]
       )

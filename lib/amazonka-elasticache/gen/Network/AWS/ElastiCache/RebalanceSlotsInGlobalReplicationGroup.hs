@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,154 @@
 --
 -- Redistribute slots to ensure uniform distribution across existing shards in the cluster.
 module Network.AWS.ElastiCache.RebalanceSlotsInGlobalReplicationGroup
-  ( -- * Creating a Request
-    rebalanceSlotsInGlobalReplicationGroup,
-    RebalanceSlotsInGlobalReplicationGroup,
+  ( -- * Creating a request
+    RebalanceSlotsInGlobalReplicationGroup (..),
+    mkRebalanceSlotsInGlobalReplicationGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsigrgGlobalReplicationGroupId,
     rsigrgApplyImmediately,
 
-    -- * Destructuring the Response
-    rebalanceSlotsInGlobalReplicationGroupResponse,
-    RebalanceSlotsInGlobalReplicationGroupResponse,
+    -- * Destructuring the response
+    RebalanceSlotsInGlobalReplicationGroupResponse (..),
+    mkRebalanceSlotsInGlobalReplicationGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsigrgrsGlobalReplicationGroup,
     rsigrgrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebalanceSlotsInGlobalReplicationGroup' smart constructor.
+-- | /See:/ 'mkRebalanceSlotsInGlobalReplicationGroup' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationGroup'
-  { _rsigrgGlobalReplicationGroupId ::
-      !Text,
-    _rsigrgApplyImmediately ::
-      !Bool
+  { globalReplicationGroupId ::
+      Lude.Text,
+    applyImmediately ::
+      Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebalanceSlotsInGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsigrgGlobalReplicationGroupId' - The name of the Global Datastore
---
--- * 'rsigrgApplyImmediately' - If @True@ , redistribution is applied immediately.
-rebalanceSlotsInGlobalReplicationGroup ::
-  -- | 'rsigrgGlobalReplicationGroupId'
-  Text ->
-  -- | 'rsigrgApplyImmediately'
-  Bool ->
+-- * 'applyImmediately' - If @True@ , redistribution is applied immediately.
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+mkRebalanceSlotsInGlobalReplicationGroup ::
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
+  -- | 'applyImmediately'
+  Lude.Bool ->
   RebalanceSlotsInGlobalReplicationGroup
-rebalanceSlotsInGlobalReplicationGroup
+mkRebalanceSlotsInGlobalReplicationGroup
   pGlobalReplicationGroupId_
   pApplyImmediately_ =
     RebalanceSlotsInGlobalReplicationGroup'
-      { _rsigrgGlobalReplicationGroupId =
+      { globalReplicationGroupId =
           pGlobalReplicationGroupId_,
-        _rsigrgApplyImmediately = pApplyImmediately_
+        applyImmediately = pApplyImmediately_
       }
 
 -- | The name of the Global Datastore
-rsigrgGlobalReplicationGroupId :: Lens' RebalanceSlotsInGlobalReplicationGroup Text
-rsigrgGlobalReplicationGroupId = lens _rsigrgGlobalReplicationGroupId (\s a -> s {_rsigrgGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsigrgGlobalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Lude.Text
+rsigrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: RebalanceSlotsInGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: RebalanceSlotsInGlobalReplicationGroup)
+{-# DEPRECATED rsigrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | If @True@ , redistribution is applied immediately.
-rsigrgApplyImmediately :: Lens' RebalanceSlotsInGlobalReplicationGroup Bool
-rsigrgApplyImmediately = lens _rsigrgApplyImmediately (\s a -> s {_rsigrgApplyImmediately = a})
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsigrgApplyImmediately :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Lude.Bool
+rsigrgApplyImmediately = Lens.lens (applyImmediately :: RebalanceSlotsInGlobalReplicationGroup -> Lude.Bool) (\s a -> s {applyImmediately = a} :: RebalanceSlotsInGlobalReplicationGroup)
+{-# DEPRECATED rsigrgApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
-instance AWSRequest RebalanceSlotsInGlobalReplicationGroup where
+instance Lude.AWSRequest RebalanceSlotsInGlobalReplicationGroup where
   type
     Rs RebalanceSlotsInGlobalReplicationGroup =
       RebalanceSlotsInGlobalReplicationGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RebalanceSlotsInGlobalReplicationGroupResult"
       ( \s h x ->
           RebalanceSlotsInGlobalReplicationGroupResponse'
-            <$> (x .@? "GlobalReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebalanceSlotsInGlobalReplicationGroup
+instance Lude.ToHeaders RebalanceSlotsInGlobalReplicationGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RebalanceSlotsInGlobalReplicationGroup
+instance Lude.ToPath RebalanceSlotsInGlobalReplicationGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders RebalanceSlotsInGlobalReplicationGroup where
-  toHeaders = const mempty
-
-instance ToPath RebalanceSlotsInGlobalReplicationGroup where
-  toPath = const "/"
-
-instance ToQuery RebalanceSlotsInGlobalReplicationGroup where
+instance Lude.ToQuery RebalanceSlotsInGlobalReplicationGroup where
   toQuery RebalanceSlotsInGlobalReplicationGroup' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("RebalanceSlotsInGlobalReplicationGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "GlobalReplicationGroupId" =: _rsigrgGlobalReplicationGroupId,
-        "ApplyImmediately" =: _rsigrgApplyImmediately
+          Lude.=: ("RebalanceSlotsInGlobalReplicationGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
+        "ApplyImmediately" Lude.=: applyImmediately
       ]
 
--- | /See:/ 'rebalanceSlotsInGlobalReplicationGroupResponse' smart constructor.
+-- | /See:/ 'mkRebalanceSlotsInGlobalReplicationGroupResponse' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroupResponse = RebalanceSlotsInGlobalReplicationGroupResponse'
-  { _rsigrgrsGlobalReplicationGroup ::
-      !( Maybe
-           GlobalReplicationGroup
-       ),
-    _rsigrgrsResponseStatus ::
-      !Int
+  { globalReplicationGroup ::
+      Lude.Maybe
+        GlobalReplicationGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'RebalanceSlotsInGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsigrgrsGlobalReplicationGroup' - Undocumented member.
---
--- * 'rsigrgrsResponseStatus' - -- | The response status code.
-rebalanceSlotsInGlobalReplicationGroupResponse ::
-  -- | 'rsigrgrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRebalanceSlotsInGlobalReplicationGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebalanceSlotsInGlobalReplicationGroupResponse
-rebalanceSlotsInGlobalReplicationGroupResponse pResponseStatus_ =
+mkRebalanceSlotsInGlobalReplicationGroupResponse pResponseStatus_ =
   RebalanceSlotsInGlobalReplicationGroupResponse'
-    { _rsigrgrsGlobalReplicationGroup =
-        Nothing,
-      _rsigrgrsResponseStatus = pResponseStatus_
+    { globalReplicationGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rsigrgrsGlobalReplicationGroup :: Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Maybe GlobalReplicationGroup)
-rsigrgrsGlobalReplicationGroup = lens _rsigrgrsGlobalReplicationGroup (\s a -> s {_rsigrgrsGlobalReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsigrgrsGlobalReplicationGroup :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+rsigrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: RebalanceSlotsInGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
+{-# DEPRECATED rsigrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
--- | -- | The response status code.
-rsigrgrsResponseStatus :: Lens' RebalanceSlotsInGlobalReplicationGroupResponse Int
-rsigrgrsResponseStatus = lens _rsigrgrsResponseStatus (\s a -> s {_rsigrgrsResponseStatus = a})
-
-instance NFData RebalanceSlotsInGlobalReplicationGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsigrgrsResponseStatus :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse Lude.Int
+rsigrgrsResponseStatus = Lens.lens (responseStatus :: RebalanceSlotsInGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
+{-# DEPRECATED rsigrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

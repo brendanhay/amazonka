@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.UtcTiming where
+module Network.AWS.MediaPackage.Types.UtcTiming
+  ( UtcTiming
+      ( UtcTiming',
+        UTHTTPHead,
+        UTHTTPIso,
+        UTNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UtcTiming
-  = UTHTTPHead
-  | UTHTTPIso
-  | UTNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UtcTiming = UtcTiming' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UtcTiming where
-  parser =
-    takeLowerText >>= \case
-      "http-head" -> pure UTHTTPHead
-      "http-iso" -> pure UTHTTPIso
-      "none" -> pure UTNone
-      e ->
-        fromTextError $
-          "Failure parsing UtcTiming from value: '" <> e
-            <> "'. Accepted values: http-head, http-iso, none"
+pattern UTHTTPHead :: UtcTiming
+pattern UTHTTPHead = UtcTiming' "HTTP-HEAD"
 
-instance ToText UtcTiming where
-  toText = \case
-    UTHTTPHead -> "HTTP-HEAD"
-    UTHTTPIso -> "HTTP-ISO"
-    UTNone -> "NONE"
+pattern UTHTTPIso :: UtcTiming
+pattern UTHTTPIso = UtcTiming' "HTTP-ISO"
 
-instance Hashable UtcTiming
+pattern UTNone :: UtcTiming
+pattern UTNone = UtcTiming' "NONE"
 
-instance NFData UtcTiming
-
-instance ToByteString UtcTiming
-
-instance ToQuery UtcTiming
-
-instance ToHeader UtcTiming
-
-instance ToJSON UtcTiming where
-  toJSON = toJSONText
-
-instance FromJSON UtcTiming where
-  parseJSON = parseJSONText "UtcTiming"
+{-# COMPLETE
+  UTHTTPHead,
+  UTHTTPIso,
+  UTNone,
+  UtcTiming'
+  #-}

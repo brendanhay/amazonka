@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns the scan findings for the specified image.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ECR.DescribeImageScanFindings
-  ( -- * Creating a Request
-    describeImageScanFindings,
-    DescribeImageScanFindings,
+  ( -- * Creating a request
+    DescribeImageScanFindings (..),
+    mkDescribeImageScanFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     disfRegistryId,
     disfNextToken,
     disfMaxResults,
     disfRepositoryName,
     disfImageId,
 
-    -- * Destructuring the Response
-    describeImageScanFindingsResponse,
-    DescribeImageScanFindingsResponse,
+    -- * Destructuring the response
+    DescribeImageScanFindingsResponse (..),
+    mkDescribeImageScanFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     disfrsRegistryId,
     disfrsImageScanFindings,
     disfrsImageScanStatus,
@@ -50,213 +43,249 @@ module Network.AWS.ECR.DescribeImageScanFindings
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeImageScanFindings' smart constructor.
+-- | /See:/ 'mkDescribeImageScanFindings' smart constructor.
 data DescribeImageScanFindings = DescribeImageScanFindings'
-  { _disfRegistryId ::
-      !(Maybe Text),
-    _disfNextToken :: !(Maybe Text),
-    _disfMaxResults :: !(Maybe Nat),
-    _disfRepositoryName :: !Text,
-    _disfImageId :: !ImageIdentifier
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    repositoryName :: Lude.Text,
+    imageId :: ImageIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageScanFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disfRegistryId' - The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
---
--- * 'disfNextToken' - The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
---
--- * 'disfMaxResults' - The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
---
--- * 'disfRepositoryName' - The repository for the image for which to describe the scan findings.
---
--- * 'disfImageId' - Undocumented member.
-describeImageScanFindings ::
-  -- | 'disfRepositoryName'
-  Text ->
-  -- | 'disfImageId'
+-- * 'imageId' - Undocumented field.
+-- * 'maxResults' - The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The repository for the image for which to describe the scan findings.
+mkDescribeImageScanFindings ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'imageId'
   ImageIdentifier ->
   DescribeImageScanFindings
-describeImageScanFindings pRepositoryName_ pImageId_ =
+mkDescribeImageScanFindings pRepositoryName_ pImageId_ =
   DescribeImageScanFindings'
-    { _disfRegistryId = Nothing,
-      _disfNextToken = Nothing,
-      _disfMaxResults = Nothing,
-      _disfRepositoryName = pRepositoryName_,
-      _disfImageId = pImageId_
+    { registryId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      imageId = pImageId_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
-disfRegistryId :: Lens' DescribeImageScanFindings (Maybe Text)
-disfRegistryId = lens _disfRegistryId (\s a -> s {_disfRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfRegistryId :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Text)
+disfRegistryId = Lens.lens (registryId :: DescribeImageScanFindings -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
-disfNextToken :: Lens' DescribeImageScanFindings (Maybe Text)
-disfNextToken = lens _disfNextToken (\s a -> s {_disfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfNextToken :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Text)
+disfNextToken = Lens.lens (nextToken :: DescribeImageScanFindings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
-disfMaxResults :: Lens' DescribeImageScanFindings (Maybe Natural)
-disfMaxResults = lens _disfMaxResults (\s a -> s {_disfMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfMaxResults :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Natural)
+disfMaxResults = Lens.lens (maxResults :: DescribeImageScanFindings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The repository for the image for which to describe the scan findings.
-disfRepositoryName :: Lens' DescribeImageScanFindings Text
-disfRepositoryName = lens _disfRepositoryName (\s a -> s {_disfRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfRepositoryName :: Lens.Lens' DescribeImageScanFindings Lude.Text
+disfRepositoryName = Lens.lens (repositoryName :: DescribeImageScanFindings -> Lude.Text) (\s a -> s {repositoryName = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | Undocumented member.
-disfImageId :: Lens' DescribeImageScanFindings ImageIdentifier
-disfImageId = lens _disfImageId (\s a -> s {_disfImageId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfImageId :: Lens.Lens' DescribeImageScanFindings ImageIdentifier
+disfImageId = Lens.lens (imageId :: DescribeImageScanFindings -> ImageIdentifier) (\s a -> s {imageId = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance AWSPager DescribeImageScanFindings where
+instance Page.AWSPager DescribeImageScanFindings where
   page rq rs
-    | stop (rs ^. disfrsNextToken) = Nothing
-    | stop (rs ^? disfrsImageScanFindings . _Just . isfFindings) =
-      Nothing
-    | otherwise = Just $ rq & disfNextToken .~ rs ^. disfrsNextToken
+    | Page.stop (rs Lens.^. disfrsNextToken) = Lude.Nothing
+    | Page.stop
+        ( rs
+            Lens.^? disfrsImageScanFindings Lude.. Lens._Just
+              Lude.. isfFindings
+              Lude.. Lens._Just
+        ) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& disfNextToken Lens..~ rs Lens.^. disfrsNextToken
 
-instance AWSRequest DescribeImageScanFindings where
+instance Lude.AWSRequest DescribeImageScanFindings where
   type
     Rs DescribeImageScanFindings =
       DescribeImageScanFindingsResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeImageScanFindingsResponse'
-            <$> (x .?> "registryId")
-            <*> (x .?> "imageScanFindings")
-            <*> (x .?> "imageScanStatus")
-            <*> (x .?> "nextToken")
-            <*> (x .?> "imageId")
-            <*> (x .?> "repositoryName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "registryId")
+            Lude.<*> (x Lude..?> "imageScanFindings")
+            Lude.<*> (x Lude..?> "imageScanStatus")
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "imageId")
+            Lude.<*> (x Lude..?> "repositoryName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeImageScanFindings
-
-instance NFData DescribeImageScanFindings
-
-instance ToHeaders DescribeImageScanFindings where
+instance Lude.ToHeaders DescribeImageScanFindings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeImageScanFindings where
+instance Lude.ToJSON DescribeImageScanFindings where
   toJSON DescribeImageScanFindings' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _disfRegistryId,
-            ("nextToken" .=) <$> _disfNextToken,
-            ("maxResults" .=) <$> _disfMaxResults,
-            Just ("repositoryName" .= _disfRepositoryName),
-            Just ("imageId" .= _disfImageId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("imageId" Lude..= imageId)
           ]
       )
 
-instance ToPath DescribeImageScanFindings where
-  toPath = const "/"
+instance Lude.ToPath DescribeImageScanFindings where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeImageScanFindings where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeImageScanFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeImageScanFindingsResponse' smart constructor.
+-- | /See:/ 'mkDescribeImageScanFindingsResponse' smart constructor.
 data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
-  { _disfrsRegistryId ::
-      !(Maybe Text),
-    _disfrsImageScanFindings ::
-      !( Maybe
-           ImageScanFindings
-       ),
-    _disfrsImageScanStatus ::
-      !( Maybe
-           ImageScanStatus
-       ),
-    _disfrsNextToken ::
-      !(Maybe Text),
-    _disfrsImageId ::
-      !( Maybe
-           ImageIdentifier
-       ),
-    _disfrsRepositoryName ::
-      !(Maybe Text),
-    _disfrsResponseStatus ::
-      !Int
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    imageScanFindings ::
+      Lude.Maybe
+        ImageScanFindings,
+    imageScanStatus ::
+      Lude.Maybe
+        ImageScanStatus,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    imageId ::
+      Lude.Maybe
+        ImageIdentifier,
+    repositoryName ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageScanFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disfrsRegistryId' - The registry ID associated with the request.
---
--- * 'disfrsImageScanFindings' - The information contained in the image scan findings.
---
--- * 'disfrsImageScanStatus' - The current state of the scan.
---
--- * 'disfrsNextToken' - The @nextToken@ value to include in a future @DescribeImageScanFindings@ request. When the results of a @DescribeImageScanFindings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
---
--- * 'disfrsImageId' - Undocumented member.
---
--- * 'disfrsRepositoryName' - The repository name associated with the request.
---
--- * 'disfrsResponseStatus' - -- | The response status code.
-describeImageScanFindingsResponse ::
-  -- | 'disfrsResponseStatus'
-  Int ->
+-- * 'imageId' - Undocumented field.
+-- * 'imageScanFindings' - The information contained in the image scan findings.
+-- * 'imageScanStatus' - The current state of the scan.
+-- * 'nextToken' - The @nextToken@ value to include in a future @DescribeImageScanFindings@ request. When the results of a @DescribeImageScanFindings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+-- * 'registryId' - The registry ID associated with the request.
+-- * 'repositoryName' - The repository name associated with the request.
+-- * 'responseStatus' - The response status code.
+mkDescribeImageScanFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeImageScanFindingsResponse
-describeImageScanFindingsResponse pResponseStatus_ =
+mkDescribeImageScanFindingsResponse pResponseStatus_ =
   DescribeImageScanFindingsResponse'
-    { _disfrsRegistryId = Nothing,
-      _disfrsImageScanFindings = Nothing,
-      _disfrsImageScanStatus = Nothing,
-      _disfrsNextToken = Nothing,
-      _disfrsImageId = Nothing,
-      _disfrsRepositoryName = Nothing,
-      _disfrsResponseStatus = pResponseStatus_
+    { registryId = Lude.Nothing,
+      imageScanFindings = Lude.Nothing,
+      imageScanStatus = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      imageId = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The registry ID associated with the request.
-disfrsRegistryId :: Lens' DescribeImageScanFindingsResponse (Maybe Text)
-disfrsRegistryId = lens _disfrsRegistryId (\s a -> s {_disfrsRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsRegistryId :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe Lude.Text)
+disfrsRegistryId = Lens.lens (registryId :: DescribeImageScanFindingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The information contained in the image scan findings.
-disfrsImageScanFindings :: Lens' DescribeImageScanFindingsResponse (Maybe ImageScanFindings)
-disfrsImageScanFindings = lens _disfrsImageScanFindings (\s a -> s {_disfrsImageScanFindings = a})
+--
+-- /Note:/ Consider using 'imageScanFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsImageScanFindings :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe ImageScanFindings)
+disfrsImageScanFindings = Lens.lens (imageScanFindings :: DescribeImageScanFindingsResponse -> Lude.Maybe ImageScanFindings) (\s a -> s {imageScanFindings = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsImageScanFindings "Use generic-lens or generic-optics with 'imageScanFindings' instead." #-}
 
 -- | The current state of the scan.
-disfrsImageScanStatus :: Lens' DescribeImageScanFindingsResponse (Maybe ImageScanStatus)
-disfrsImageScanStatus = lens _disfrsImageScanStatus (\s a -> s {_disfrsImageScanStatus = a})
+--
+-- /Note:/ Consider using 'imageScanStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsImageScanStatus :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe ImageScanStatus)
+disfrsImageScanStatus = Lens.lens (imageScanStatus :: DescribeImageScanFindingsResponse -> Lude.Maybe ImageScanStatus) (\s a -> s {imageScanStatus = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsImageScanStatus "Use generic-lens or generic-optics with 'imageScanStatus' instead." #-}
 
 -- | The @nextToken@ value to include in a future @DescribeImageScanFindings@ request. When the results of a @DescribeImageScanFindings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
-disfrsNextToken :: Lens' DescribeImageScanFindingsResponse (Maybe Text)
-disfrsNextToken = lens _disfrsNextToken (\s a -> s {_disfrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsNextToken :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe Lude.Text)
+disfrsNextToken = Lens.lens (nextToken :: DescribeImageScanFindingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-disfrsImageId :: Lens' DescribeImageScanFindingsResponse (Maybe ImageIdentifier)
-disfrsImageId = lens _disfrsImageId (\s a -> s {_disfrsImageId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsImageId :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe ImageIdentifier)
+disfrsImageId = Lens.lens (imageId :: DescribeImageScanFindingsResponse -> Lude.Maybe ImageIdentifier) (\s a -> s {imageId = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The repository name associated with the request.
-disfrsRepositoryName :: Lens' DescribeImageScanFindingsResponse (Maybe Text)
-disfrsRepositoryName = lens _disfrsRepositoryName (\s a -> s {_disfrsRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsRepositoryName :: Lens.Lens' DescribeImageScanFindingsResponse (Lude.Maybe Lude.Text)
+disfrsRepositoryName = Lens.lens (repositoryName :: DescribeImageScanFindingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | -- | The response status code.
-disfrsResponseStatus :: Lens' DescribeImageScanFindingsResponse Int
-disfrsResponseStatus = lens _disfrsResponseStatus (\s a -> s {_disfrsResponseStatus = a})
-
-instance NFData DescribeImageScanFindingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfrsResponseStatus :: Lens.Lens' DescribeImageScanFindingsResponse Lude.Int
+disfrsResponseStatus = Lens.lens (responseStatus :: DescribeImageScanFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageScanFindingsResponse)
+{-# DEPRECATED disfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

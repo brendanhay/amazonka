@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,35 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Action where
+module Network.AWS.IoT.Types.Action
+  ( Action (..),
+
+    -- * Smart constructor
+    mkAction,
+
+    -- * Lenses
+    aCloudwatchMetric,
+    aCloudwatchLogs,
+    aDynamoDBv2,
+    aStepFunctions,
+    aCloudwatchAlarm,
+    aSns,
+    aDynamoDB,
+    aFirehose,
+    aTimestream,
+    aIotSiteWise,
+    aIotAnalytics,
+    aLambda,
+    aIotEvents,
+    aSalesforce,
+    aKinesis,
+    aS3,
+    aHttp,
+    aElasticsearch,
+    aRepublish,
+    aSqs,
+  )
+where
 
 import Network.AWS.IoT.Types.CloudwatchAlarmAction
 import Network.AWS.IoT.Types.CloudwatchLogsAction
@@ -35,243 +57,283 @@ import Network.AWS.IoT.Types.SalesforceAction
 import Network.AWS.IoT.Types.SqsAction
 import Network.AWS.IoT.Types.StepFunctionsAction
 import Network.AWS.IoT.Types.TimestreamAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the actions associated with a rule.
 --
---
---
--- /See:/ 'action' smart constructor.
+-- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { _aCloudwatchMetric ::
-      !(Maybe CloudwatchMetricAction),
-    _aCloudwatchLogs :: !(Maybe CloudwatchLogsAction),
-    _aDynamoDBv2 :: !(Maybe DynamoDBv2Action),
-    _aStepFunctions :: !(Maybe StepFunctionsAction),
-    _aCloudwatchAlarm :: !(Maybe CloudwatchAlarmAction),
-    _aSns :: !(Maybe SNSAction),
-    _aDynamoDB :: !(Maybe DynamoDBAction),
-    _aFirehose :: !(Maybe FirehoseAction),
-    _aTimestream :: !(Maybe TimestreamAction),
-    _aIotSiteWise :: !(Maybe IotSiteWiseAction),
-    _aIotAnalytics :: !(Maybe IotAnalyticsAction),
-    _aLambda :: !(Maybe LambdaAction),
-    _aIotEvents :: !(Maybe IotEventsAction),
-    _aSalesforce :: !(Maybe SalesforceAction),
-    _aKinesis :: !(Maybe KinesisAction),
-    _aS3 :: !(Maybe S3Action),
-    _aHttp :: !(Maybe HTTPAction),
-    _aElasticsearch :: !(Maybe ElasticsearchAction),
-    _aRepublish :: !(Maybe RepublishAction),
-    _aSqs :: !(Maybe SqsAction)
+  { cloudwatchMetric ::
+      Lude.Maybe CloudwatchMetricAction,
+    cloudwatchLogs :: Lude.Maybe CloudwatchLogsAction,
+    dynamoDBv2 :: Lude.Maybe DynamoDBv2Action,
+    stepFunctions :: Lude.Maybe StepFunctionsAction,
+    cloudwatchAlarm :: Lude.Maybe CloudwatchAlarmAction,
+    sns :: Lude.Maybe SNSAction,
+    dynamoDB :: Lude.Maybe DynamoDBAction,
+    firehose :: Lude.Maybe FirehoseAction,
+    timestream :: Lude.Maybe TimestreamAction,
+    iotSiteWise :: Lude.Maybe IotSiteWiseAction,
+    iotAnalytics :: Lude.Maybe IotAnalyticsAction,
+    lambda :: Lude.Maybe LambdaAction,
+    iotEvents :: Lude.Maybe IotEventsAction,
+    salesforce :: Lude.Maybe SalesforceAction,
+    kinesis :: Lude.Maybe KinesisAction,
+    s3 :: Lude.Maybe S3Action,
+    http :: Lude.Maybe HTTPAction,
+    elasticsearch :: Lude.Maybe ElasticsearchAction,
+    republish :: Lude.Maybe RepublishAction,
+    sqs :: Lude.Maybe SqsAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aCloudwatchMetric' - Capture a CloudWatch metric.
---
--- * 'aCloudwatchLogs' - Send data to CloudWatch Logs.
---
--- * 'aDynamoDBv2' - Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
---
--- * 'aStepFunctions' - Starts execution of a Step Functions state machine.
---
--- * 'aCloudwatchAlarm' - Change the state of a CloudWatch alarm.
---
--- * 'aSns' - Publish to an Amazon SNS topic.
---
--- * 'aDynamoDB' - Write to a DynamoDB table.
---
--- * 'aFirehose' - Write to an Amazon Kinesis Firehose stream.
---
--- * 'aTimestream' - The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream> topic rule action documentation.
---
--- * 'aIotSiteWise' - Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
---
--- * 'aIotAnalytics' - Sends message data to an AWS IoT Analytics channel.
---
--- * 'aLambda' - Invoke a Lambda function.
---
--- * 'aIotEvents' - Sends an input to an AWS IoT Events detector.
---
--- * 'aSalesforce' - Send a message to a Salesforce IoT Cloud Input Stream.
---
--- * 'aKinesis' - Write data to an Amazon Kinesis stream.
---
--- * 'aS3' - Write to an Amazon S3 bucket.
---
--- * 'aHttp' - Send data to an HTTPS endpoint.
---
--- * 'aElasticsearch' - Write data to an Amazon Elasticsearch Service domain.
---
--- * 'aRepublish' - Publish to another MQTT topic.
---
--- * 'aSqs' - Publish to an Amazon SQS queue.
-action ::
+-- * 'cloudwatchAlarm' - Change the state of a CloudWatch alarm.
+-- * 'cloudwatchLogs' - Send data to CloudWatch Logs.
+-- * 'cloudwatchMetric' - Capture a CloudWatch metric.
+-- * 'dynamoDB' - Write to a DynamoDB table.
+-- * 'dynamoDBv2' - Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+-- * 'elasticsearch' - Write data to an Amazon Elasticsearch Service domain.
+-- * 'firehose' - Write to an Amazon Kinesis Firehose stream.
+-- * 'http' - Send data to an HTTPS endpoint.
+-- * 'iotAnalytics' - Sends message data to an AWS IoT Analytics channel.
+-- * 'iotEvents' - Sends an input to an AWS IoT Events detector.
+-- * 'iotSiteWise' - Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+-- * 'kinesis' - Write data to an Amazon Kinesis stream.
+-- * 'lambda' - Invoke a Lambda function.
+-- * 'republish' - Publish to another MQTT topic.
+-- * 's3' - Write to an Amazon S3 bucket.
+-- * 'salesforce' - Send a message to a Salesforce IoT Cloud Input Stream.
+-- * 'sns' - Publish to an Amazon SNS topic.
+-- * 'sqs' - Publish to an Amazon SQS queue.
+-- * 'stepFunctions' - Starts execution of a Step Functions state machine.
+-- * 'timestream' - The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream> topic rule action documentation.
+mkAction ::
   Action
-action =
+mkAction =
   Action'
-    { _aCloudwatchMetric = Nothing,
-      _aCloudwatchLogs = Nothing,
-      _aDynamoDBv2 = Nothing,
-      _aStepFunctions = Nothing,
-      _aCloudwatchAlarm = Nothing,
-      _aSns = Nothing,
-      _aDynamoDB = Nothing,
-      _aFirehose = Nothing,
-      _aTimestream = Nothing,
-      _aIotSiteWise = Nothing,
-      _aIotAnalytics = Nothing,
-      _aLambda = Nothing,
-      _aIotEvents = Nothing,
-      _aSalesforce = Nothing,
-      _aKinesis = Nothing,
-      _aS3 = Nothing,
-      _aHttp = Nothing,
-      _aElasticsearch = Nothing,
-      _aRepublish = Nothing,
-      _aSqs = Nothing
+    { cloudwatchMetric = Lude.Nothing,
+      cloudwatchLogs = Lude.Nothing,
+      dynamoDBv2 = Lude.Nothing,
+      stepFunctions = Lude.Nothing,
+      cloudwatchAlarm = Lude.Nothing,
+      sns = Lude.Nothing,
+      dynamoDB = Lude.Nothing,
+      firehose = Lude.Nothing,
+      timestream = Lude.Nothing,
+      iotSiteWise = Lude.Nothing,
+      iotAnalytics = Lude.Nothing,
+      lambda = Lude.Nothing,
+      iotEvents = Lude.Nothing,
+      salesforce = Lude.Nothing,
+      kinesis = Lude.Nothing,
+      s3 = Lude.Nothing,
+      http = Lude.Nothing,
+      elasticsearch = Lude.Nothing,
+      republish = Lude.Nothing,
+      sqs = Lude.Nothing
     }
 
 -- | Capture a CloudWatch metric.
-aCloudwatchMetric :: Lens' Action (Maybe CloudwatchMetricAction)
-aCloudwatchMetric = lens _aCloudwatchMetric (\s a -> s {_aCloudwatchMetric = a})
+--
+-- /Note:/ Consider using 'cloudwatchMetric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCloudwatchMetric :: Lens.Lens' Action (Lude.Maybe CloudwatchMetricAction)
+aCloudwatchMetric = Lens.lens (cloudwatchMetric :: Action -> Lude.Maybe CloudwatchMetricAction) (\s a -> s {cloudwatchMetric = a} :: Action)
+{-# DEPRECATED aCloudwatchMetric "Use generic-lens or generic-optics with 'cloudwatchMetric' instead." #-}
 
 -- | Send data to CloudWatch Logs.
-aCloudwatchLogs :: Lens' Action (Maybe CloudwatchLogsAction)
-aCloudwatchLogs = lens _aCloudwatchLogs (\s a -> s {_aCloudwatchLogs = a})
+--
+-- /Note:/ Consider using 'cloudwatchLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCloudwatchLogs :: Lens.Lens' Action (Lude.Maybe CloudwatchLogsAction)
+aCloudwatchLogs = Lens.lens (cloudwatchLogs :: Action -> Lude.Maybe CloudwatchLogsAction) (\s a -> s {cloudwatchLogs = a} :: Action)
+{-# DEPRECATED aCloudwatchLogs "Use generic-lens or generic-optics with 'cloudwatchLogs' instead." #-}
 
 -- | Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
-aDynamoDBv2 :: Lens' Action (Maybe DynamoDBv2Action)
-aDynamoDBv2 = lens _aDynamoDBv2 (\s a -> s {_aDynamoDBv2 = a})
+--
+-- /Note:/ Consider using 'dynamoDBv2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDynamoDBv2 :: Lens.Lens' Action (Lude.Maybe DynamoDBv2Action)
+aDynamoDBv2 = Lens.lens (dynamoDBv2 :: Action -> Lude.Maybe DynamoDBv2Action) (\s a -> s {dynamoDBv2 = a} :: Action)
+{-# DEPRECATED aDynamoDBv2 "Use generic-lens or generic-optics with 'dynamoDBv2' instead." #-}
 
 -- | Starts execution of a Step Functions state machine.
-aStepFunctions :: Lens' Action (Maybe StepFunctionsAction)
-aStepFunctions = lens _aStepFunctions (\s a -> s {_aStepFunctions = a})
+--
+-- /Note:/ Consider using 'stepFunctions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStepFunctions :: Lens.Lens' Action (Lude.Maybe StepFunctionsAction)
+aStepFunctions = Lens.lens (stepFunctions :: Action -> Lude.Maybe StepFunctionsAction) (\s a -> s {stepFunctions = a} :: Action)
+{-# DEPRECATED aStepFunctions "Use generic-lens or generic-optics with 'stepFunctions' instead." #-}
 
 -- | Change the state of a CloudWatch alarm.
-aCloudwatchAlarm :: Lens' Action (Maybe CloudwatchAlarmAction)
-aCloudwatchAlarm = lens _aCloudwatchAlarm (\s a -> s {_aCloudwatchAlarm = a})
+--
+-- /Note:/ Consider using 'cloudwatchAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCloudwatchAlarm :: Lens.Lens' Action (Lude.Maybe CloudwatchAlarmAction)
+aCloudwatchAlarm = Lens.lens (cloudwatchAlarm :: Action -> Lude.Maybe CloudwatchAlarmAction) (\s a -> s {cloudwatchAlarm = a} :: Action)
+{-# DEPRECATED aCloudwatchAlarm "Use generic-lens or generic-optics with 'cloudwatchAlarm' instead." #-}
 
 -- | Publish to an Amazon SNS topic.
-aSns :: Lens' Action (Maybe SNSAction)
-aSns = lens _aSns (\s a -> s {_aSns = a})
+--
+-- /Note:/ Consider using 'sns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSns :: Lens.Lens' Action (Lude.Maybe SNSAction)
+aSns = Lens.lens (sns :: Action -> Lude.Maybe SNSAction) (\s a -> s {sns = a} :: Action)
+{-# DEPRECATED aSns "Use generic-lens or generic-optics with 'sns' instead." #-}
 
 -- | Write to a DynamoDB table.
-aDynamoDB :: Lens' Action (Maybe DynamoDBAction)
-aDynamoDB = lens _aDynamoDB (\s a -> s {_aDynamoDB = a})
+--
+-- /Note:/ Consider using 'dynamoDB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDynamoDB :: Lens.Lens' Action (Lude.Maybe DynamoDBAction)
+aDynamoDB = Lens.lens (dynamoDB :: Action -> Lude.Maybe DynamoDBAction) (\s a -> s {dynamoDB = a} :: Action)
+{-# DEPRECATED aDynamoDB "Use generic-lens or generic-optics with 'dynamoDB' instead." #-}
 
 -- | Write to an Amazon Kinesis Firehose stream.
-aFirehose :: Lens' Action (Maybe FirehoseAction)
-aFirehose = lens _aFirehose (\s a -> s {_aFirehose = a})
+--
+-- /Note:/ Consider using 'firehose' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aFirehose :: Lens.Lens' Action (Lude.Maybe FirehoseAction)
+aFirehose = Lens.lens (firehose :: Action -> Lude.Maybe FirehoseAction) (\s a -> s {firehose = a} :: Action)
+{-# DEPRECATED aFirehose "Use generic-lens or generic-optics with 'firehose' instead." #-}
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream> topic rule action documentation.
-aTimestream :: Lens' Action (Maybe TimestreamAction)
-aTimestream = lens _aTimestream (\s a -> s {_aTimestream = a})
+--
+-- /Note:/ Consider using 'timestream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTimestream :: Lens.Lens' Action (Lude.Maybe TimestreamAction)
+aTimestream = Lens.lens (timestream :: Action -> Lude.Maybe TimestreamAction) (\s a -> s {timestream = a} :: Action)
+{-# DEPRECATED aTimestream "Use generic-lens or generic-optics with 'timestream' instead." #-}
 
 -- | Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
-aIotSiteWise :: Lens' Action (Maybe IotSiteWiseAction)
-aIotSiteWise = lens _aIotSiteWise (\s a -> s {_aIotSiteWise = a})
+--
+-- /Note:/ Consider using 'iotSiteWise' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aIotSiteWise :: Lens.Lens' Action (Lude.Maybe IotSiteWiseAction)
+aIotSiteWise = Lens.lens (iotSiteWise :: Action -> Lude.Maybe IotSiteWiseAction) (\s a -> s {iotSiteWise = a} :: Action)
+{-# DEPRECATED aIotSiteWise "Use generic-lens or generic-optics with 'iotSiteWise' instead." #-}
 
 -- | Sends message data to an AWS IoT Analytics channel.
-aIotAnalytics :: Lens' Action (Maybe IotAnalyticsAction)
-aIotAnalytics = lens _aIotAnalytics (\s a -> s {_aIotAnalytics = a})
+--
+-- /Note:/ Consider using 'iotAnalytics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aIotAnalytics :: Lens.Lens' Action (Lude.Maybe IotAnalyticsAction)
+aIotAnalytics = Lens.lens (iotAnalytics :: Action -> Lude.Maybe IotAnalyticsAction) (\s a -> s {iotAnalytics = a} :: Action)
+{-# DEPRECATED aIotAnalytics "Use generic-lens or generic-optics with 'iotAnalytics' instead." #-}
 
 -- | Invoke a Lambda function.
-aLambda :: Lens' Action (Maybe LambdaAction)
-aLambda = lens _aLambda (\s a -> s {_aLambda = a})
+--
+-- /Note:/ Consider using 'lambda' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLambda :: Lens.Lens' Action (Lude.Maybe LambdaAction)
+aLambda = Lens.lens (lambda :: Action -> Lude.Maybe LambdaAction) (\s a -> s {lambda = a} :: Action)
+{-# DEPRECATED aLambda "Use generic-lens or generic-optics with 'lambda' instead." #-}
 
 -- | Sends an input to an AWS IoT Events detector.
-aIotEvents :: Lens' Action (Maybe IotEventsAction)
-aIotEvents = lens _aIotEvents (\s a -> s {_aIotEvents = a})
+--
+-- /Note:/ Consider using 'iotEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aIotEvents :: Lens.Lens' Action (Lude.Maybe IotEventsAction)
+aIotEvents = Lens.lens (iotEvents :: Action -> Lude.Maybe IotEventsAction) (\s a -> s {iotEvents = a} :: Action)
+{-# DEPRECATED aIotEvents "Use generic-lens or generic-optics with 'iotEvents' instead." #-}
 
 -- | Send a message to a Salesforce IoT Cloud Input Stream.
-aSalesforce :: Lens' Action (Maybe SalesforceAction)
-aSalesforce = lens _aSalesforce (\s a -> s {_aSalesforce = a})
+--
+-- /Note:/ Consider using 'salesforce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSalesforce :: Lens.Lens' Action (Lude.Maybe SalesforceAction)
+aSalesforce = Lens.lens (salesforce :: Action -> Lude.Maybe SalesforceAction) (\s a -> s {salesforce = a} :: Action)
+{-# DEPRECATED aSalesforce "Use generic-lens or generic-optics with 'salesforce' instead." #-}
 
 -- | Write data to an Amazon Kinesis stream.
-aKinesis :: Lens' Action (Maybe KinesisAction)
-aKinesis = lens _aKinesis (\s a -> s {_aKinesis = a})
+--
+-- /Note:/ Consider using 'kinesis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aKinesis :: Lens.Lens' Action (Lude.Maybe KinesisAction)
+aKinesis = Lens.lens (kinesis :: Action -> Lude.Maybe KinesisAction) (\s a -> s {kinesis = a} :: Action)
+{-# DEPRECATED aKinesis "Use generic-lens or generic-optics with 'kinesis' instead." #-}
 
 -- | Write to an Amazon S3 bucket.
-aS3 :: Lens' Action (Maybe S3Action)
-aS3 = lens _aS3 (\s a -> s {_aS3 = a})
+--
+-- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aS3 :: Lens.Lens' Action (Lude.Maybe S3Action)
+aS3 = Lens.lens (s3 :: Action -> Lude.Maybe S3Action) (\s a -> s {s3 = a} :: Action)
+{-# DEPRECATED aS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
 -- | Send data to an HTTPS endpoint.
-aHttp :: Lens' Action (Maybe HTTPAction)
-aHttp = lens _aHttp (\s a -> s {_aHttp = a})
+--
+-- /Note:/ Consider using 'http' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aHttp :: Lens.Lens' Action (Lude.Maybe HTTPAction)
+aHttp = Lens.lens (http :: Action -> Lude.Maybe HTTPAction) (\s a -> s {http = a} :: Action)
+{-# DEPRECATED aHttp "Use generic-lens or generic-optics with 'http' instead." #-}
 
 -- | Write data to an Amazon Elasticsearch Service domain.
-aElasticsearch :: Lens' Action (Maybe ElasticsearchAction)
-aElasticsearch = lens _aElasticsearch (\s a -> s {_aElasticsearch = a})
+--
+-- /Note:/ Consider using 'elasticsearch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aElasticsearch :: Lens.Lens' Action (Lude.Maybe ElasticsearchAction)
+aElasticsearch = Lens.lens (elasticsearch :: Action -> Lude.Maybe ElasticsearchAction) (\s a -> s {elasticsearch = a} :: Action)
+{-# DEPRECATED aElasticsearch "Use generic-lens or generic-optics with 'elasticsearch' instead." #-}
 
 -- | Publish to another MQTT topic.
-aRepublish :: Lens' Action (Maybe RepublishAction)
-aRepublish = lens _aRepublish (\s a -> s {_aRepublish = a})
+--
+-- /Note:/ Consider using 'republish' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRepublish :: Lens.Lens' Action (Lude.Maybe RepublishAction)
+aRepublish = Lens.lens (republish :: Action -> Lude.Maybe RepublishAction) (\s a -> s {republish = a} :: Action)
+{-# DEPRECATED aRepublish "Use generic-lens or generic-optics with 'republish' instead." #-}
 
 -- | Publish to an Amazon SQS queue.
-aSqs :: Lens' Action (Maybe SqsAction)
-aSqs = lens _aSqs (\s a -> s {_aSqs = a})
+--
+-- /Note:/ Consider using 'sqs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSqs :: Lens.Lens' Action (Lude.Maybe SqsAction)
+aSqs = Lens.lens (sqs :: Action -> Lude.Maybe SqsAction) (\s a -> s {sqs = a} :: Action)
+{-# DEPRECATED aSqs "Use generic-lens or generic-optics with 'sqs' instead." #-}
 
-instance FromJSON Action where
+instance Lude.FromJSON Action where
   parseJSON =
-    withObject
+    Lude.withObject
       "Action"
       ( \x ->
           Action'
-            <$> (x .:? "cloudwatchMetric")
-            <*> (x .:? "cloudwatchLogs")
-            <*> (x .:? "dynamoDBv2")
-            <*> (x .:? "stepFunctions")
-            <*> (x .:? "cloudwatchAlarm")
-            <*> (x .:? "sns")
-            <*> (x .:? "dynamoDB")
-            <*> (x .:? "firehose")
-            <*> (x .:? "timestream")
-            <*> (x .:? "iotSiteWise")
-            <*> (x .:? "iotAnalytics")
-            <*> (x .:? "lambda")
-            <*> (x .:? "iotEvents")
-            <*> (x .:? "salesforce")
-            <*> (x .:? "kinesis")
-            <*> (x .:? "s3")
-            <*> (x .:? "http")
-            <*> (x .:? "elasticsearch")
-            <*> (x .:? "republish")
-            <*> (x .:? "sqs")
+            Lude.<$> (x Lude..:? "cloudwatchMetric")
+            Lude.<*> (x Lude..:? "cloudwatchLogs")
+            Lude.<*> (x Lude..:? "dynamoDBv2")
+            Lude.<*> (x Lude..:? "stepFunctions")
+            Lude.<*> (x Lude..:? "cloudwatchAlarm")
+            Lude.<*> (x Lude..:? "sns")
+            Lude.<*> (x Lude..:? "dynamoDB")
+            Lude.<*> (x Lude..:? "firehose")
+            Lude.<*> (x Lude..:? "timestream")
+            Lude.<*> (x Lude..:? "iotSiteWise")
+            Lude.<*> (x Lude..:? "iotAnalytics")
+            Lude.<*> (x Lude..:? "lambda")
+            Lude.<*> (x Lude..:? "iotEvents")
+            Lude.<*> (x Lude..:? "salesforce")
+            Lude.<*> (x Lude..:? "kinesis")
+            Lude.<*> (x Lude..:? "s3")
+            Lude.<*> (x Lude..:? "http")
+            Lude.<*> (x Lude..:? "elasticsearch")
+            Lude.<*> (x Lude..:? "republish")
+            Lude.<*> (x Lude..:? "sqs")
       )
 
-instance Hashable Action
-
-instance NFData Action
-
-instance ToJSON Action where
+instance Lude.ToJSON Action where
   toJSON Action' {..} =
-    object
-      ( catMaybes
-          [ ("cloudwatchMetric" .=) <$> _aCloudwatchMetric,
-            ("cloudwatchLogs" .=) <$> _aCloudwatchLogs,
-            ("dynamoDBv2" .=) <$> _aDynamoDBv2,
-            ("stepFunctions" .=) <$> _aStepFunctions,
-            ("cloudwatchAlarm" .=) <$> _aCloudwatchAlarm,
-            ("sns" .=) <$> _aSns,
-            ("dynamoDB" .=) <$> _aDynamoDB,
-            ("firehose" .=) <$> _aFirehose,
-            ("timestream" .=) <$> _aTimestream,
-            ("iotSiteWise" .=) <$> _aIotSiteWise,
-            ("iotAnalytics" .=) <$> _aIotAnalytics,
-            ("lambda" .=) <$> _aLambda,
-            ("iotEvents" .=) <$> _aIotEvents,
-            ("salesforce" .=) <$> _aSalesforce,
-            ("kinesis" .=) <$> _aKinesis,
-            ("s3" .=) <$> _aS3,
-            ("http" .=) <$> _aHttp,
-            ("elasticsearch" .=) <$> _aElasticsearch,
-            ("republish" .=) <$> _aRepublish,
-            ("sqs" .=) <$> _aSqs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cloudwatchMetric" Lude..=) Lude.<$> cloudwatchMetric,
+            ("cloudwatchLogs" Lude..=) Lude.<$> cloudwatchLogs,
+            ("dynamoDBv2" Lude..=) Lude.<$> dynamoDBv2,
+            ("stepFunctions" Lude..=) Lude.<$> stepFunctions,
+            ("cloudwatchAlarm" Lude..=) Lude.<$> cloudwatchAlarm,
+            ("sns" Lude..=) Lude.<$> sns,
+            ("dynamoDB" Lude..=) Lude.<$> dynamoDB,
+            ("firehose" Lude..=) Lude.<$> firehose,
+            ("timestream" Lude..=) Lude.<$> timestream,
+            ("iotSiteWise" Lude..=) Lude.<$> iotSiteWise,
+            ("iotAnalytics" Lude..=) Lude.<$> iotAnalytics,
+            ("lambda" Lude..=) Lude.<$> lambda,
+            ("iotEvents" Lude..=) Lude.<$> iotEvents,
+            ("salesforce" Lude..=) Lude.<$> salesforce,
+            ("kinesis" Lude..=) Lude.<$> kinesis,
+            ("s3" Lude..=) Lude.<$> s3,
+            ("http" Lude..=) Lude.<$> http,
+            ("elasticsearch" Lude..=) Lude.<$> elasticsearch,
+            ("republish" Lude..=) Lude.<$> republish,
+            ("sqs" Lude..=) Lude.<$> sqs
           ]
       )

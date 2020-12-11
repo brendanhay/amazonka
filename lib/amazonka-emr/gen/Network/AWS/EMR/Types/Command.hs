@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.Command where
+module Network.AWS.EMR.Types.Command
+  ( Command (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCommand,
+
+    -- * Lenses
+    comArgs,
+    comScriptPath,
+    comName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An entity describing an executable that runs on a cluster.
 --
---
---
--- /See:/ 'command' smart constructor.
+-- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
-  { _comArgs :: !(Maybe [Text]),
-    _comScriptPath :: !(Maybe Text),
-    _comName :: !(Maybe Text)
+  { args :: Lude.Maybe [Lude.Text],
+    scriptPath :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'comArgs' - Arguments for Amazon EMR to pass to the command for execution.
---
--- * 'comScriptPath' - The Amazon S3 location of the command script.
---
--- * 'comName' - The name of the command.
-command ::
+-- * 'args' - Arguments for Amazon EMR to pass to the command for execution.
+-- * 'name' - The name of the command.
+-- * 'scriptPath' - The Amazon S3 location of the command script.
+mkCommand ::
   Command
-command =
+mkCommand =
   Command'
-    { _comArgs = Nothing,
-      _comScriptPath = Nothing,
-      _comName = Nothing
+    { args = Lude.Nothing,
+      scriptPath = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-comArgs :: Lens' Command [Text]
-comArgs = lens _comArgs (\s a -> s {_comArgs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+comArgs :: Lens.Lens' Command (Lude.Maybe [Lude.Text])
+comArgs = Lens.lens (args :: Command -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: Command)
+{-# DEPRECATED comArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The Amazon S3 location of the command script.
-comScriptPath :: Lens' Command (Maybe Text)
-comScriptPath = lens _comScriptPath (\s a -> s {_comScriptPath = a})
+--
+-- /Note:/ Consider using 'scriptPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+comScriptPath :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+comScriptPath = Lens.lens (scriptPath :: Command -> Lude.Maybe Lude.Text) (\s a -> s {scriptPath = a} :: Command)
+{-# DEPRECATED comScriptPath "Use generic-lens or generic-optics with 'scriptPath' instead." #-}
 
 -- | The name of the command.
-comName :: Lens' Command (Maybe Text)
-comName = lens _comName (\s a -> s {_comName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+comName :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+comName = Lens.lens (name :: Command -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Command)
+{-# DEPRECATED comName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Command where
+instance Lude.FromJSON Command where
   parseJSON =
-    withObject
+    Lude.withObject
       "Command"
       ( \x ->
           Command'
-            <$> (x .:? "Args" .!= mempty)
-            <*> (x .:? "ScriptPath")
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "Args" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ScriptPath")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable Command
-
-instance NFData Command

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DeleteFleetError where
+module Network.AWS.EC2.Types.DeleteFleetError
+  ( DeleteFleetError (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDeleteFleetError,
+
+    -- * Lenses
+    dfeCode,
+    dfeMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.DeleteFleetErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an EC2 Fleet error.
 --
---
---
--- /See:/ 'deleteFleetError' smart constructor.
+-- /See:/ 'mkDeleteFleetError' smart constructor.
 data DeleteFleetError = DeleteFleetError'
-  { _dfeCode ::
-      !(Maybe DeleteFleetErrorCode),
-    _dfeMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe DeleteFleetErrorCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfeCode' - The error code.
---
--- * 'dfeMessage' - The description for the error code.
-deleteFleetError ::
+-- * 'code' - The error code.
+-- * 'message' - The description for the error code.
+mkDeleteFleetError ::
   DeleteFleetError
-deleteFleetError =
-  DeleteFleetError' {_dfeCode = Nothing, _dfeMessage = Nothing}
+mkDeleteFleetError =
+  DeleteFleetError' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The error code.
-dfeCode :: Lens' DeleteFleetError (Maybe DeleteFleetErrorCode)
-dfeCode = lens _dfeCode (\s a -> s {_dfeCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeCode :: Lens.Lens' DeleteFleetError (Lude.Maybe DeleteFleetErrorCode)
+dfeCode = Lens.lens (code :: DeleteFleetError -> Lude.Maybe DeleteFleetErrorCode) (\s a -> s {code = a} :: DeleteFleetError)
+{-# DEPRECATED dfeCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The description for the error code.
-dfeMessage :: Lens' DeleteFleetError (Maybe Text)
-dfeMessage = lens _dfeMessage (\s a -> s {_dfeMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeMessage :: Lens.Lens' DeleteFleetError (Lude.Maybe Lude.Text)
+dfeMessage = Lens.lens (message :: DeleteFleetError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DeleteFleetError)
+{-# DEPRECATED dfeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML DeleteFleetError where
+instance Lude.FromXML DeleteFleetError where
   parseXML x =
-    DeleteFleetError' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable DeleteFleetError
-
-instance NFData DeleteFleetError
+    DeleteFleetError'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,144 @@
 --
 -- Modifies the database revision of a cluster. The database revision is a unique revision of the database running in a cluster.
 module Network.AWS.Redshift.ModifyClusterDBRevision
-  ( -- * Creating a Request
-    modifyClusterDBRevision,
-    ModifyClusterDBRevision,
+  ( -- * Creating a request
+    ModifyClusterDBRevision (..),
+    mkModifyClusterDBRevision,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcdrClusterIdentifier,
     mcdrRevisionTarget,
 
-    -- * Destructuring the Response
-    modifyClusterDBRevisionResponse,
-    ModifyClusterDBRevisionResponse,
+    -- * Destructuring the response
+    ModifyClusterDBRevisionResponse (..),
+    mkModifyClusterDBRevisionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcdrrsCluster,
     mcdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyClusterDBRevision' smart constructor.
+-- | /See:/ 'mkModifyClusterDBRevision' smart constructor.
 data ModifyClusterDBRevision = ModifyClusterDBRevision'
-  { _mcdrClusterIdentifier ::
-      !Text,
-    _mcdrRevisionTarget :: !Text
+  { clusterIdentifier ::
+      Lude.Text,
+    revisionTarget :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterDBRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The unique identifier of a cluster whose database revision you want to modify.
 --
--- * 'mcdrClusterIdentifier' - The unique identifier of a cluster whose database revision you want to modify.  Example: @examplecluster@
---
--- * 'mcdrRevisionTarget' - The identifier of the database revision. You can retrieve this value from the response to the 'DescribeClusterDbRevisions' request.
-modifyClusterDBRevision ::
-  -- | 'mcdrClusterIdentifier'
-  Text ->
-  -- | 'mcdrRevisionTarget'
-  Text ->
+-- Example: @examplecluster@
+-- * 'revisionTarget' - The identifier of the database revision. You can retrieve this value from the response to the 'DescribeClusterDbRevisions' request.
+mkModifyClusterDBRevision ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
+  -- | 'revisionTarget'
+  Lude.Text ->
   ModifyClusterDBRevision
-modifyClusterDBRevision pClusterIdentifier_ pRevisionTarget_ =
+mkModifyClusterDBRevision pClusterIdentifier_ pRevisionTarget_ =
   ModifyClusterDBRevision'
-    { _mcdrClusterIdentifier =
-        pClusterIdentifier_,
-      _mcdrRevisionTarget = pRevisionTarget_
+    { clusterIdentifier = pClusterIdentifier_,
+      revisionTarget = pRevisionTarget_
     }
 
--- | The unique identifier of a cluster whose database revision you want to modify.  Example: @examplecluster@
-mcdrClusterIdentifier :: Lens' ModifyClusterDBRevision Text
-mcdrClusterIdentifier = lens _mcdrClusterIdentifier (\s a -> s {_mcdrClusterIdentifier = a})
+-- | The unique identifier of a cluster whose database revision you want to modify.
+--
+-- Example: @examplecluster@
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcdrClusterIdentifier :: Lens.Lens' ModifyClusterDBRevision Lude.Text
+mcdrClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterDBRevision -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterDBRevision)
+{-# DEPRECATED mcdrClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | The identifier of the database revision. You can retrieve this value from the response to the 'DescribeClusterDbRevisions' request.
-mcdrRevisionTarget :: Lens' ModifyClusterDBRevision Text
-mcdrRevisionTarget = lens _mcdrRevisionTarget (\s a -> s {_mcdrRevisionTarget = a})
+--
+-- /Note:/ Consider using 'revisionTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcdrRevisionTarget :: Lens.Lens' ModifyClusterDBRevision Lude.Text
+mcdrRevisionTarget = Lens.lens (revisionTarget :: ModifyClusterDBRevision -> Lude.Text) (\s a -> s {revisionTarget = a} :: ModifyClusterDBRevision)
+{-# DEPRECATED mcdrRevisionTarget "Use generic-lens or generic-optics with 'revisionTarget' instead." #-}
 
-instance AWSRequest ModifyClusterDBRevision where
+instance Lude.AWSRequest ModifyClusterDBRevision where
   type Rs ModifyClusterDBRevision = ModifyClusterDBRevisionResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyClusterDbRevisionResult"
       ( \s h x ->
           ModifyClusterDBRevisionResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyClusterDBRevision
+instance Lude.ToHeaders ModifyClusterDBRevision where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyClusterDBRevision
+instance Lude.ToPath ModifyClusterDBRevision where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyClusterDBRevision where
-  toHeaders = const mempty
-
-instance ToPath ModifyClusterDBRevision where
-  toPath = const "/"
-
-instance ToQuery ModifyClusterDBRevision where
+instance Lude.ToQuery ModifyClusterDBRevision where
   toQuery ModifyClusterDBRevision' {..} =
-    mconcat
-      [ "Action" =: ("ModifyClusterDbRevision" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _mcdrClusterIdentifier,
-        "RevisionTarget" =: _mcdrRevisionTarget
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyClusterDbRevision" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "RevisionTarget" Lude.=: revisionTarget
       ]
 
--- | /See:/ 'modifyClusterDBRevisionResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterDBRevisionResponse' smart constructor.
 data ModifyClusterDBRevisionResponse = ModifyClusterDBRevisionResponse'
-  { _mcdrrsCluster ::
-      !(Maybe Cluster),
-    _mcdrrsResponseStatus ::
-      !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterDBRevisionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcdrrsCluster' - Undocumented member.
---
--- * 'mcdrrsResponseStatus' - -- | The response status code.
-modifyClusterDBRevisionResponse ::
-  -- | 'mcdrrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyClusterDBRevisionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterDBRevisionResponse
-modifyClusterDBRevisionResponse pResponseStatus_ =
+mkModifyClusterDBRevisionResponse pResponseStatus_ =
   ModifyClusterDBRevisionResponse'
-    { _mcdrrsCluster = Nothing,
-      _mcdrrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mcdrrsCluster :: Lens' ModifyClusterDBRevisionResponse (Maybe Cluster)
-mcdrrsCluster = lens _mcdrrsCluster (\s a -> s {_mcdrrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcdrrsCluster :: Lens.Lens' ModifyClusterDBRevisionResponse (Lude.Maybe Cluster)
+mcdrrsCluster = Lens.lens (cluster :: ModifyClusterDBRevisionResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ModifyClusterDBRevisionResponse)
+{-# DEPRECATED mcdrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-mcdrrsResponseStatus :: Lens' ModifyClusterDBRevisionResponse Int
-mcdrrsResponseStatus = lens _mcdrrsResponseStatus (\s a -> s {_mcdrrsResponseStatus = a})
-
-instance NFData ModifyClusterDBRevisionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcdrrsResponseStatus :: Lens.Lens' ModifyClusterDBRevisionResponse Lude.Int
+mcdrrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterDBRevisionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterDBRevisionResponse)
+{-# DEPRECATED mcdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

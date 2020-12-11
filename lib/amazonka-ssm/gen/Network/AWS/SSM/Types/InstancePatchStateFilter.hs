@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstancePatchStateFilter where
+module Network.AWS.SSM.Types.InstancePatchStateFilter
+  ( InstancePatchStateFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstancePatchStateFilter,
+
+    -- * Lenses
+    ipsfKey,
+    ipsfValues,
+    ipsfType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InstancePatchStateOperatorType
 
 -- | Defines a filter used in 'DescribeInstancePatchStatesForPatchGroup' used to scope down the information returned by the API.
 --
---
---
--- /See:/ 'instancePatchStateFilter' smart constructor.
+-- /See:/ 'mkInstancePatchStateFilter' smart constructor.
 data InstancePatchStateFilter = InstancePatchStateFilter'
-  { _ipsfKey ::
-      !Text,
-    _ipsfValues :: !(List1 Text),
-    _ipsfType ::
-      !InstancePatchStateOperatorType
+  { key ::
+      Lude.Text,
+    values :: Lude.NonEmpty Lude.Text,
+    type' :: InstancePatchStateOperatorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancePatchStateFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipsfKey' - The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
---
--- * 'ipsfValues' - The value for the filter, must be an integer greater than or equal to 0.
---
--- * 'ipsfType' - The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
-instancePatchStateFilter ::
-  -- | 'ipsfKey'
-  Text ->
-  -- | 'ipsfValues'
-  NonEmpty Text ->
-  -- | 'ipsfType'
+-- * 'key' - The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
+-- * 'type'' - The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
+-- * 'values' - The value for the filter, must be an integer greater than or equal to 0.
+mkInstancePatchStateFilter ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'type''
   InstancePatchStateOperatorType ->
   InstancePatchStateFilter
-instancePatchStateFilter pKey_ pValues_ pType_ =
+mkInstancePatchStateFilter pKey_ pValues_ pType_ =
   InstancePatchStateFilter'
-    { _ipsfKey = pKey_,
-      _ipsfValues = _List1 # pValues_,
-      _ipsfType = pType_
+    { key = pKey_,
+      values = pValues_,
+      type' = pType_
     }
 
 -- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
-ipsfKey :: Lens' InstancePatchStateFilter Text
-ipsfKey = lens _ipsfKey (\s a -> s {_ipsfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsfKey :: Lens.Lens' InstancePatchStateFilter Lude.Text
+ipsfKey = Lens.lens (key :: InstancePatchStateFilter -> Lude.Text) (\s a -> s {key = a} :: InstancePatchStateFilter)
+{-# DEPRECATED ipsfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The value for the filter, must be an integer greater than or equal to 0.
-ipsfValues :: Lens' InstancePatchStateFilter (NonEmpty Text)
-ipsfValues = lens _ipsfValues (\s a -> s {_ipsfValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsfValues :: Lens.Lens' InstancePatchStateFilter (Lude.NonEmpty Lude.Text)
+ipsfValues = Lens.lens (values :: InstancePatchStateFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: InstancePatchStateFilter)
+{-# DEPRECATED ipsfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
-ipsfType :: Lens' InstancePatchStateFilter InstancePatchStateOperatorType
-ipsfType = lens _ipsfType (\s a -> s {_ipsfType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsfType :: Lens.Lens' InstancePatchStateFilter InstancePatchStateOperatorType
+ipsfType = Lens.lens (type' :: InstancePatchStateFilter -> InstancePatchStateOperatorType) (\s a -> s {type' = a} :: InstancePatchStateFilter)
+{-# DEPRECATED ipsfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable InstancePatchStateFilter
-
-instance NFData InstancePatchStateFilter
-
-instance ToJSON InstancePatchStateFilter where
+instance Lude.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =
-    object
-      ( catMaybes
-          [ Just ("Key" .= _ipsfKey),
-            Just ("Values" .= _ipsfValues),
-            Just ("Type" .= _ipsfType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

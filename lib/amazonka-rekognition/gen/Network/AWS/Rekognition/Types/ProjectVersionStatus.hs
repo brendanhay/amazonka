@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProjectVersionStatus where
+module Network.AWS.Rekognition.Types.ProjectVersionStatus
+  ( ProjectVersionStatus
+      ( ProjectVersionStatus',
+        Deleting,
+        Failed,
+        Running,
+        Starting,
+        Stopped,
+        Stopping,
+        TrainingCompleted,
+        TrainingFailed,
+        TrainingInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProjectVersionStatus
-  = Deleting
-  | Failed
-  | Running
-  | Starting
-  | Stopped
-  | Stopping
-  | TrainingCompleted
-  | TrainingFailed
-  | TrainingInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProjectVersionStatus = ProjectVersionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProjectVersionStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "starting" -> pure Starting
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      "training_completed" -> pure TrainingCompleted
-      "training_failed" -> pure TrainingFailed
-      "training_in_progress" -> pure TrainingInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ProjectVersionStatus from value: '" <> e
-            <> "'. Accepted values: deleting, failed, running, starting, stopped, stopping, training_completed, training_failed, training_in_progress"
+pattern Deleting :: ProjectVersionStatus
+pattern Deleting = ProjectVersionStatus' "DELETING"
 
-instance ToText ProjectVersionStatus where
-  toText = \case
-    Deleting -> "DELETING"
-    Failed -> "FAILED"
-    Running -> "RUNNING"
-    Starting -> "STARTING"
-    Stopped -> "STOPPED"
-    Stopping -> "STOPPING"
-    TrainingCompleted -> "TRAINING_COMPLETED"
-    TrainingFailed -> "TRAINING_FAILED"
-    TrainingInProgress -> "TRAINING_IN_PROGRESS"
+pattern Failed :: ProjectVersionStatus
+pattern Failed = ProjectVersionStatus' "FAILED"
 
-instance Hashable ProjectVersionStatus
+pattern Running :: ProjectVersionStatus
+pattern Running = ProjectVersionStatus' "RUNNING"
 
-instance NFData ProjectVersionStatus
+pattern Starting :: ProjectVersionStatus
+pattern Starting = ProjectVersionStatus' "STARTING"
 
-instance ToByteString ProjectVersionStatus
+pattern Stopped :: ProjectVersionStatus
+pattern Stopped = ProjectVersionStatus' "STOPPED"
 
-instance ToQuery ProjectVersionStatus
+pattern Stopping :: ProjectVersionStatus
+pattern Stopping = ProjectVersionStatus' "STOPPING"
 
-instance ToHeader ProjectVersionStatus
+pattern TrainingCompleted :: ProjectVersionStatus
+pattern TrainingCompleted = ProjectVersionStatus' "TRAINING_COMPLETED"
 
-instance FromJSON ProjectVersionStatus where
-  parseJSON = parseJSONText "ProjectVersionStatus"
+pattern TrainingFailed :: ProjectVersionStatus
+pattern TrainingFailed = ProjectVersionStatus' "TRAINING_FAILED"
+
+pattern TrainingInProgress :: ProjectVersionStatus
+pattern TrainingInProgress = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
+
+{-# COMPLETE
+  Deleting,
+  Failed,
+  Running,
+  Starting,
+  Stopped,
+  Stopping,
+  TrainingCompleted,
+  TrainingFailed,
+  TrainingInProgress,
+  ProjectVersionStatus'
+  #-}

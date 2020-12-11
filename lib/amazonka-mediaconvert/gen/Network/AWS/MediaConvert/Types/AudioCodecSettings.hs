@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioCodecSettings where
+module Network.AWS.MediaConvert.Types.AudioCodecSettings
+  ( AudioCodecSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioCodecSettings,
+
+    -- * Lenses
+    acsAiffSettings,
+    acsCodec,
+    acsAc3Settings,
+    acsOpusSettings,
+    acsMp2Settings,
+    acsWavSettings,
+    acsEac3AtmosSettings,
+    acsMp3Settings,
+    acsVorbisSettings,
+    acsAacSettings,
+    acsEac3Settings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AacSettings
 import Network.AWS.MediaConvert.Types.Ac3Settings
 import Network.AWS.MediaConvert.Types.AiffSettings
@@ -27,150 +40,174 @@ import Network.AWS.MediaConvert.Types.Mp3Settings
 import Network.AWS.MediaConvert.Types.OpusSettings
 import Network.AWS.MediaConvert.Types.VorbisSettings
 import Network.AWS.MediaConvert.Types.WavSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS, OpusSettings
 --
--- /See:/ 'audioCodecSettings' smart constructor.
+-- /See:/ 'mkAudioCodecSettings' smart constructor.
 data AudioCodecSettings = AudioCodecSettings'
-  { _acsAiffSettings ::
-      !(Maybe AiffSettings),
-    _acsCodec :: !(Maybe AudioCodec),
-    _acsAc3Settings :: !(Maybe Ac3Settings),
-    _acsOpusSettings :: !(Maybe OpusSettings),
-    _acsMp2Settings :: !(Maybe Mp2Settings),
-    _acsWavSettings :: !(Maybe WavSettings),
-    _acsEac3AtmosSettings :: !(Maybe Eac3AtmosSettings),
-    _acsMp3Settings :: !(Maybe Mp3Settings),
-    _acsVorbisSettings :: !(Maybe VorbisSettings),
-    _acsAacSettings :: !(Maybe AacSettings),
-    _acsEac3Settings :: !(Maybe Eac3Settings)
+  { aiffSettings ::
+      Lude.Maybe AiffSettings,
+    codec :: Lude.Maybe AudioCodec,
+    ac3Settings :: Lude.Maybe Ac3Settings,
+    opusSettings :: Lude.Maybe OpusSettings,
+    mp2Settings :: Lude.Maybe Mp2Settings,
+    wavSettings :: Lude.Maybe WavSettings,
+    eac3AtmosSettings :: Lude.Maybe Eac3AtmosSettings,
+    mp3Settings :: Lude.Maybe Mp3Settings,
+    vorbisSettings :: Lude.Maybe VorbisSettings,
+    aacSettings :: Lude.Maybe AacSettings,
+    eac3Settings :: Lude.Maybe Eac3Settings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioCodecSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acsAiffSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
---
--- * 'acsCodec' - Type of Audio codec.
---
--- * 'acsAc3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
---
--- * 'acsOpusSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
---
--- * 'acsMp2Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
---
--- * 'acsWavSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
---
--- * 'acsEac3AtmosSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
---
--- * 'acsMp3Settings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
---
--- * 'acsVorbisSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
---
--- * 'acsAacSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
---
--- * 'acsEac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
-audioCodecSettings ::
+-- * 'aacSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+-- * 'ac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
+-- * 'aiffSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
+-- * 'codec' - Type of Audio codec.
+-- * 'eac3AtmosSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
+-- * 'eac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
+-- * 'mp2Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
+-- * 'mp3Settings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+-- * 'opusSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
+-- * 'vorbisSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
+-- * 'wavSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
+mkAudioCodecSettings ::
   AudioCodecSettings
-audioCodecSettings =
+mkAudioCodecSettings =
   AudioCodecSettings'
-    { _acsAiffSettings = Nothing,
-      _acsCodec = Nothing,
-      _acsAc3Settings = Nothing,
-      _acsOpusSettings = Nothing,
-      _acsMp2Settings = Nothing,
-      _acsWavSettings = Nothing,
-      _acsEac3AtmosSettings = Nothing,
-      _acsMp3Settings = Nothing,
-      _acsVorbisSettings = Nothing,
-      _acsAacSettings = Nothing,
-      _acsEac3Settings = Nothing
+    { aiffSettings = Lude.Nothing,
+      codec = Lude.Nothing,
+      ac3Settings = Lude.Nothing,
+      opusSettings = Lude.Nothing,
+      mp2Settings = Lude.Nothing,
+      wavSettings = Lude.Nothing,
+      eac3AtmosSettings = Lude.Nothing,
+      mp3Settings = Lude.Nothing,
+      vorbisSettings = Lude.Nothing,
+      aacSettings = Lude.Nothing,
+      eac3Settings = Lude.Nothing
     }
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
-acsAiffSettings :: Lens' AudioCodecSettings (Maybe AiffSettings)
-acsAiffSettings = lens _acsAiffSettings (\s a -> s {_acsAiffSettings = a})
+--
+-- /Note:/ Consider using 'aiffSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAiffSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe AiffSettings)
+acsAiffSettings = Lens.lens (aiffSettings :: AudioCodecSettings -> Lude.Maybe AiffSettings) (\s a -> s {aiffSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsAiffSettings "Use generic-lens or generic-optics with 'aiffSettings' instead." #-}
 
 -- | Type of Audio codec.
-acsCodec :: Lens' AudioCodecSettings (Maybe AudioCodec)
-acsCodec = lens _acsCodec (\s a -> s {_acsCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsCodec :: Lens.Lens' AudioCodecSettings (Lude.Maybe AudioCodec)
+acsCodec = Lens.lens (codec :: AudioCodecSettings -> Lude.Maybe AudioCodec) (\s a -> s {codec = a} :: AudioCodecSettings)
+{-# DEPRECATED acsCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
-acsAc3Settings :: Lens' AudioCodecSettings (Maybe Ac3Settings)
-acsAc3Settings = lens _acsAc3Settings (\s a -> s {_acsAc3Settings = a})
+--
+-- /Note:/ Consider using 'ac3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAc3Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Ac3Settings)
+acsAc3Settings = Lens.lens (ac3Settings :: AudioCodecSettings -> Lude.Maybe Ac3Settings) (\s a -> s {ac3Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsAc3Settings "Use generic-lens or generic-optics with 'ac3Settings' instead." #-}
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
-acsOpusSettings :: Lens' AudioCodecSettings (Maybe OpusSettings)
-acsOpusSettings = lens _acsOpusSettings (\s a -> s {_acsOpusSettings = a})
+--
+-- /Note:/ Consider using 'opusSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsOpusSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe OpusSettings)
+acsOpusSettings = Lens.lens (opusSettings :: AudioCodecSettings -> Lude.Maybe OpusSettings) (\s a -> s {opusSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsOpusSettings "Use generic-lens or generic-optics with 'opusSettings' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
-acsMp2Settings :: Lens' AudioCodecSettings (Maybe Mp2Settings)
-acsMp2Settings = lens _acsMp2Settings (\s a -> s {_acsMp2Settings = a})
+--
+-- /Note:/ Consider using 'mp2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsMp2Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Mp2Settings)
+acsMp2Settings = Lens.lens (mp2Settings :: AudioCodecSettings -> Lude.Maybe Mp2Settings) (\s a -> s {mp2Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsMp2Settings "Use generic-lens or generic-optics with 'mp2Settings' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
-acsWavSettings :: Lens' AudioCodecSettings (Maybe WavSettings)
-acsWavSettings = lens _acsWavSettings (\s a -> s {_acsWavSettings = a})
+--
+-- /Note:/ Consider using 'wavSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsWavSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe WavSettings)
+acsWavSettings = Lens.lens (wavSettings :: AudioCodecSettings -> Lude.Maybe WavSettings) (\s a -> s {wavSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsWavSettings "Use generic-lens or generic-optics with 'wavSettings' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
-acsEac3AtmosSettings :: Lens' AudioCodecSettings (Maybe Eac3AtmosSettings)
-acsEac3AtmosSettings = lens _acsEac3AtmosSettings (\s a -> s {_acsEac3AtmosSettings = a})
+--
+-- /Note:/ Consider using 'eac3AtmosSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsEac3AtmosSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Eac3AtmosSettings)
+acsEac3AtmosSettings = Lens.lens (eac3AtmosSettings :: AudioCodecSettings -> Lude.Maybe Eac3AtmosSettings) (\s a -> s {eac3AtmosSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsEac3AtmosSettings "Use generic-lens or generic-optics with 'eac3AtmosSettings' instead." #-}
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
-acsMp3Settings :: Lens' AudioCodecSettings (Maybe Mp3Settings)
-acsMp3Settings = lens _acsMp3Settings (\s a -> s {_acsMp3Settings = a})
+--
+-- /Note:/ Consider using 'mp3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsMp3Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Mp3Settings)
+acsMp3Settings = Lens.lens (mp3Settings :: AudioCodecSettings -> Lude.Maybe Mp3Settings) (\s a -> s {mp3Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsMp3Settings "Use generic-lens or generic-optics with 'mp3Settings' instead." #-}
 
 -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
-acsVorbisSettings :: Lens' AudioCodecSettings (Maybe VorbisSettings)
-acsVorbisSettings = lens _acsVorbisSettings (\s a -> s {_acsVorbisSettings = a})
+--
+-- /Note:/ Consider using 'vorbisSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsVorbisSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe VorbisSettings)
+acsVorbisSettings = Lens.lens (vorbisSettings :: AudioCodecSettings -> Lude.Maybe VorbisSettings) (\s a -> s {vorbisSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsVorbisSettings "Use generic-lens or generic-optics with 'vorbisSettings' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
-acsAacSettings :: Lens' AudioCodecSettings (Maybe AacSettings)
-acsAacSettings = lens _acsAacSettings (\s a -> s {_acsAacSettings = a})
+--
+-- /Note:/ Consider using 'aacSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAacSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe AacSettings)
+acsAacSettings = Lens.lens (aacSettings :: AudioCodecSettings -> Lude.Maybe AacSettings) (\s a -> s {aacSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsAacSettings "Use generic-lens or generic-optics with 'aacSettings' instead." #-}
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
-acsEac3Settings :: Lens' AudioCodecSettings (Maybe Eac3Settings)
-acsEac3Settings = lens _acsEac3Settings (\s a -> s {_acsEac3Settings = a})
+--
+-- /Note:/ Consider using 'eac3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsEac3Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Eac3Settings)
+acsEac3Settings = Lens.lens (eac3Settings :: AudioCodecSettings -> Lude.Maybe Eac3Settings) (\s a -> s {eac3Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsEac3Settings "Use generic-lens or generic-optics with 'eac3Settings' instead." #-}
 
-instance FromJSON AudioCodecSettings where
+instance Lude.FromJSON AudioCodecSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioCodecSettings"
       ( \x ->
           AudioCodecSettings'
-            <$> (x .:? "aiffSettings")
-            <*> (x .:? "codec")
-            <*> (x .:? "ac3Settings")
-            <*> (x .:? "opusSettings")
-            <*> (x .:? "mp2Settings")
-            <*> (x .:? "wavSettings")
-            <*> (x .:? "eac3AtmosSettings")
-            <*> (x .:? "mp3Settings")
-            <*> (x .:? "vorbisSettings")
-            <*> (x .:? "aacSettings")
-            <*> (x .:? "eac3Settings")
+            Lude.<$> (x Lude..:? "aiffSettings")
+            Lude.<*> (x Lude..:? "codec")
+            Lude.<*> (x Lude..:? "ac3Settings")
+            Lude.<*> (x Lude..:? "opusSettings")
+            Lude.<*> (x Lude..:? "mp2Settings")
+            Lude.<*> (x Lude..:? "wavSettings")
+            Lude.<*> (x Lude..:? "eac3AtmosSettings")
+            Lude.<*> (x Lude..:? "mp3Settings")
+            Lude.<*> (x Lude..:? "vorbisSettings")
+            Lude.<*> (x Lude..:? "aacSettings")
+            Lude.<*> (x Lude..:? "eac3Settings")
       )
 
-instance Hashable AudioCodecSettings
-
-instance NFData AudioCodecSettings
-
-instance ToJSON AudioCodecSettings where
+instance Lude.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =
-    object
-      ( catMaybes
-          [ ("aiffSettings" .=) <$> _acsAiffSettings,
-            ("codec" .=) <$> _acsCodec,
-            ("ac3Settings" .=) <$> _acsAc3Settings,
-            ("opusSettings" .=) <$> _acsOpusSettings,
-            ("mp2Settings" .=) <$> _acsMp2Settings,
-            ("wavSettings" .=) <$> _acsWavSettings,
-            ("eac3AtmosSettings" .=) <$> _acsEac3AtmosSettings,
-            ("mp3Settings" .=) <$> _acsMp3Settings,
-            ("vorbisSettings" .=) <$> _acsVorbisSettings,
-            ("aacSettings" .=) <$> _acsAacSettings,
-            ("eac3Settings" .=) <$> _acsEac3Settings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("aiffSettings" Lude..=) Lude.<$> aiffSettings,
+            ("codec" Lude..=) Lude.<$> codec,
+            ("ac3Settings" Lude..=) Lude.<$> ac3Settings,
+            ("opusSettings" Lude..=) Lude.<$> opusSettings,
+            ("mp2Settings" Lude..=) Lude.<$> mp2Settings,
+            ("wavSettings" Lude..=) Lude.<$> wavSettings,
+            ("eac3AtmosSettings" Lude..=) Lude.<$> eac3AtmosSettings,
+            ("mp3Settings" Lude..=) Lude.<$> mp3Settings,
+            ("vorbisSettings" Lude..=) Lude.<$> vorbisSettings,
+            ("aacSettings" Lude..=) Lude.<$> aacSettings,
+            ("eac3Settings" Lude..=) Lude.<$> eac3Settings
           ]
       )

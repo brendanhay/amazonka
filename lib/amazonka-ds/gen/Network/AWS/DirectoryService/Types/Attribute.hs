@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.Attribute where
+module Network.AWS.DirectoryService.Types.Attribute
+  ( Attribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttribute,
+
+    -- * Lenses
+    aValue,
+    aName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a named directory attribute.
 --
---
---
--- /See:/ 'attribute' smart constructor.
+-- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { _aValue :: !(Maybe Text),
-    _aName :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aValue' - The value of the attribute.
---
--- * 'aName' - The name of the attribute.
-attribute ::
+-- * 'name' - The name of the attribute.
+-- * 'value' - The value of the attribute.
+mkAttribute ::
   Attribute
-attribute = Attribute' {_aValue = Nothing, _aName = Nothing}
+mkAttribute = Attribute' {value = Lude.Nothing, name = Lude.Nothing}
 
 -- | The value of the attribute.
-aValue :: Lens' Attribute (Maybe Text)
-aValue = lens _aValue (\s a -> s {_aValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aValue :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
+aValue = Lens.lens (value :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Attribute)
+{-# DEPRECATED aValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of the attribute.
-aName :: Lens' Attribute (Maybe Text)
-aName = lens _aName (\s a -> s {_aName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
+aName = Lens.lens (name :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Attribute)
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Attribute where
+instance Lude.FromJSON Attribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "Attribute"
-      (\x -> Attribute' <$> (x .:? "Value") <*> (x .:? "Name"))
+      ( \x ->
+          Attribute'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Name")
+      )
 
-instance Hashable Attribute
-
-instance NFData Attribute
-
-instance ToJSON Attribute where
+instance Lude.ToJSON Attribute where
   toJSON Attribute' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _aValue, ("Name" .=) <$> _aName])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Name" Lude..=) Lude.<$> name]
+      )

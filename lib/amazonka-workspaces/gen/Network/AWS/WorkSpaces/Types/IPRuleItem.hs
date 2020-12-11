@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.IPRuleItem where
+module Network.AWS.WorkSpaces.Types.IPRuleItem
+  ( IPRuleItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPRuleItem,
+
+    -- * Lenses
+    iriRuleDesc,
+    iriIpRule,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a rule for an IP access control group.
 --
---
---
--- /See:/ 'ipRuleItem' smart constructor.
+-- /See:/ 'mkIPRuleItem' smart constructor.
 data IPRuleItem = IPRuleItem'
-  { _iriRuleDesc :: !(Maybe Text),
-    _iriIpRule :: !(Maybe Text)
+  { ruleDesc :: Lude.Maybe Lude.Text,
+    ipRule :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRuleItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iriRuleDesc' - The description.
---
--- * 'iriIpRule' - The IP address range, in CIDR notation.
-ipRuleItem ::
+-- * 'ipRule' - The IP address range, in CIDR notation.
+-- * 'ruleDesc' - The description.
+mkIPRuleItem ::
   IPRuleItem
-ipRuleItem =
-  IPRuleItem' {_iriRuleDesc = Nothing, _iriIpRule = Nothing}
+mkIPRuleItem =
+  IPRuleItem' {ruleDesc = Lude.Nothing, ipRule = Lude.Nothing}
 
 -- | The description.
-iriRuleDesc :: Lens' IPRuleItem (Maybe Text)
-iriRuleDesc = lens _iriRuleDesc (\s a -> s {_iriRuleDesc = a})
+--
+-- /Note:/ Consider using 'ruleDesc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriRuleDesc :: Lens.Lens' IPRuleItem (Lude.Maybe Lude.Text)
+iriRuleDesc = Lens.lens (ruleDesc :: IPRuleItem -> Lude.Maybe Lude.Text) (\s a -> s {ruleDesc = a} :: IPRuleItem)
+{-# DEPRECATED iriRuleDesc "Use generic-lens or generic-optics with 'ruleDesc' instead." #-}
 
 -- | The IP address range, in CIDR notation.
-iriIpRule :: Lens' IPRuleItem (Maybe Text)
-iriIpRule = lens _iriIpRule (\s a -> s {_iriIpRule = a})
+--
+-- /Note:/ Consider using 'ipRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriIpRule :: Lens.Lens' IPRuleItem (Lude.Maybe Lude.Text)
+iriIpRule = Lens.lens (ipRule :: IPRuleItem -> Lude.Maybe Lude.Text) (\s a -> s {ipRule = a} :: IPRuleItem)
+{-# DEPRECATED iriIpRule "Use generic-lens or generic-optics with 'ipRule' instead." #-}
 
-instance FromJSON IPRuleItem where
+instance Lude.FromJSON IPRuleItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "IPRuleItem"
-      (\x -> IPRuleItem' <$> (x .:? "ruleDesc") <*> (x .:? "ipRule"))
+      ( \x ->
+          IPRuleItem'
+            Lude.<$> (x Lude..:? "ruleDesc") Lude.<*> (x Lude..:? "ipRule")
+      )
 
-instance Hashable IPRuleItem
-
-instance NFData IPRuleItem
-
-instance ToJSON IPRuleItem where
+instance Lude.ToJSON IPRuleItem where
   toJSON IPRuleItem' {..} =
-    object
-      ( catMaybes
-          [("ruleDesc" .=) <$> _iriRuleDesc, ("ipRule" .=) <$> _iriIpRule]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ruleDesc" Lude..=) Lude.<$> ruleDesc,
+            ("ipRule" Lude..=) Lude.<$> ipRule
+          ]
       )

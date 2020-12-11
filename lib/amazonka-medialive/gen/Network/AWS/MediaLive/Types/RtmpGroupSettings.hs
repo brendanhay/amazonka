@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,157 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpGroupSettings where
+module Network.AWS.MediaLive.Types.RtmpGroupSettings
+  ( RtmpGroupSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRtmpGroupSettings,
+
+    -- * Lenses
+    rgsInputLossAction,
+    rgsCaptionData,
+    rgsAdMarkers,
+    rgsRestartDelay,
+    rgsAuthenticationScheme,
+    rgsCacheLength,
+    rgsCacheFullBehavior,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AuthenticationScheme
 import Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
 import Network.AWS.MediaLive.Types.RtmpAdMarkers
 import Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
 import Network.AWS.MediaLive.Types.RtmpCaptionData
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rtmp Group Settings
 --
--- /See:/ 'rtmpGroupSettings' smart constructor.
+-- /See:/ 'mkRtmpGroupSettings' smart constructor.
 data RtmpGroupSettings = RtmpGroupSettings'
-  { _rgsInputLossAction ::
-      !(Maybe InputLossActionForRtmpOut),
-    _rgsCaptionData :: !(Maybe RtmpCaptionData),
-    _rgsAdMarkers :: !(Maybe [RtmpAdMarkers]),
-    _rgsRestartDelay :: !(Maybe Nat),
-    _rgsAuthenticationScheme ::
-      !(Maybe AuthenticationScheme),
-    _rgsCacheLength :: !(Maybe Nat),
-    _rgsCacheFullBehavior :: !(Maybe RtmpCacheFullBehavior)
+  { inputLossAction ::
+      Lude.Maybe InputLossActionForRtmpOut,
+    captionData :: Lude.Maybe RtmpCaptionData,
+    adMarkers :: Lude.Maybe [RtmpAdMarkers],
+    restartDelay :: Lude.Maybe Lude.Natural,
+    authenticationScheme :: Lude.Maybe AuthenticationScheme,
+    cacheLength :: Lude.Maybe Lude.Natural,
+    cacheFullBehavior :: Lude.Maybe RtmpCacheFullBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RtmpGroupSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'adMarkers' - Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
+-- * 'authenticationScheme' - Authentication scheme to use when connecting with CDN
+-- * 'cacheFullBehavior' - Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
+-- * 'cacheLength' - Cache length, in seconds, is used to calculate buffer size.
+-- * 'captionData' - Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
+-- * 'inputLossAction' - Controls the behavior of this RTMP group if input becomes unavailable.
 --
--- * 'rgsInputLossAction' - Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
 --
--- * 'rgsCaptionData' - Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
---
--- * 'rgsAdMarkers' - Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
---
--- * 'rgsRestartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
---
--- * 'rgsAuthenticationScheme' - Authentication scheme to use when connecting with CDN
---
--- * 'rgsCacheLength' - Cache length, in seconds, is used to calculate buffer size.
---
--- * 'rgsCacheFullBehavior' - Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
-rtmpGroupSettings ::
+-- - emitOutput: Emit a slate until input returns.
+-- - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+-- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+mkRtmpGroupSettings ::
   RtmpGroupSettings
-rtmpGroupSettings =
+mkRtmpGroupSettings =
   RtmpGroupSettings'
-    { _rgsInputLossAction = Nothing,
-      _rgsCaptionData = Nothing,
-      _rgsAdMarkers = Nothing,
-      _rgsRestartDelay = Nothing,
-      _rgsAuthenticationScheme = Nothing,
-      _rgsCacheLength = Nothing,
-      _rgsCacheFullBehavior = Nothing
+    { inputLossAction = Lude.Nothing,
+      captionData = Lude.Nothing,
+      adMarkers = Lude.Nothing,
+      restartDelay = Lude.Nothing,
+      authenticationScheme = Lude.Nothing,
+      cacheLength = Lude.Nothing,
+      cacheFullBehavior = Lude.Nothing
     }
 
--- | Controls the behavior of this RTMP group if input becomes unavailable. - emitOutput: Emit a slate until input returns. - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
-rgsInputLossAction :: Lens' RtmpGroupSettings (Maybe InputLossActionForRtmpOut)
-rgsInputLossAction = lens _rgsInputLossAction (\s a -> s {_rgsInputLossAction = a})
+-- | Controls the behavior of this RTMP group if input becomes unavailable.
+--
+--
+-- - emitOutput: Emit a slate until input returns.
+-- - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+--
+-- /Note:/ Consider using 'inputLossAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsInputLossAction :: Lens.Lens' RtmpGroupSettings (Lude.Maybe InputLossActionForRtmpOut)
+rgsInputLossAction = Lens.lens (inputLossAction :: RtmpGroupSettings -> Lude.Maybe InputLossActionForRtmpOut) (\s a -> s {inputLossAction = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsInputLossAction "Use generic-lens or generic-optics with 'inputLossAction' instead." #-}
 
 -- | Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
-rgsCaptionData :: Lens' RtmpGroupSettings (Maybe RtmpCaptionData)
-rgsCaptionData = lens _rgsCaptionData (\s a -> s {_rgsCaptionData = a})
+--
+-- /Note:/ Consider using 'captionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsCaptionData :: Lens.Lens' RtmpGroupSettings (Lude.Maybe RtmpCaptionData)
+rgsCaptionData = Lens.lens (captionData :: RtmpGroupSettings -> Lude.Maybe RtmpCaptionData) (\s a -> s {captionData = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsCaptionData "Use generic-lens or generic-optics with 'captionData' instead." #-}
 
 -- | Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
-rgsAdMarkers :: Lens' RtmpGroupSettings [RtmpAdMarkers]
-rgsAdMarkers = lens _rgsAdMarkers (\s a -> s {_rgsAdMarkers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'adMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsAdMarkers :: Lens.Lens' RtmpGroupSettings (Lude.Maybe [RtmpAdMarkers])
+rgsAdMarkers = Lens.lens (adMarkers :: RtmpGroupSettings -> Lude.Maybe [RtmpAdMarkers]) (\s a -> s {adMarkers = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsAdMarkers "Use generic-lens or generic-optics with 'adMarkers' instead." #-}
 
 -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-rgsRestartDelay :: Lens' RtmpGroupSettings (Maybe Natural)
-rgsRestartDelay = lens _rgsRestartDelay (\s a -> s {_rgsRestartDelay = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'restartDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsRestartDelay :: Lens.Lens' RtmpGroupSettings (Lude.Maybe Lude.Natural)
+rgsRestartDelay = Lens.lens (restartDelay :: RtmpGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {restartDelay = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsRestartDelay "Use generic-lens or generic-optics with 'restartDelay' instead." #-}
 
 -- | Authentication scheme to use when connecting with CDN
-rgsAuthenticationScheme :: Lens' RtmpGroupSettings (Maybe AuthenticationScheme)
-rgsAuthenticationScheme = lens _rgsAuthenticationScheme (\s a -> s {_rgsAuthenticationScheme = a})
+--
+-- /Note:/ Consider using 'authenticationScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsAuthenticationScheme :: Lens.Lens' RtmpGroupSettings (Lude.Maybe AuthenticationScheme)
+rgsAuthenticationScheme = Lens.lens (authenticationScheme :: RtmpGroupSettings -> Lude.Maybe AuthenticationScheme) (\s a -> s {authenticationScheme = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsAuthenticationScheme "Use generic-lens or generic-optics with 'authenticationScheme' instead." #-}
 
 -- | Cache length, in seconds, is used to calculate buffer size.
-rgsCacheLength :: Lens' RtmpGroupSettings (Maybe Natural)
-rgsCacheLength = lens _rgsCacheLength (\s a -> s {_rgsCacheLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'cacheLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsCacheLength :: Lens.Lens' RtmpGroupSettings (Lude.Maybe Lude.Natural)
+rgsCacheLength = Lens.lens (cacheLength :: RtmpGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {cacheLength = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsCacheLength "Use generic-lens or generic-optics with 'cacheLength' instead." #-}
 
 -- | Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
-rgsCacheFullBehavior :: Lens' RtmpGroupSettings (Maybe RtmpCacheFullBehavior)
-rgsCacheFullBehavior = lens _rgsCacheFullBehavior (\s a -> s {_rgsCacheFullBehavior = a})
+--
+-- /Note:/ Consider using 'cacheFullBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsCacheFullBehavior :: Lens.Lens' RtmpGroupSettings (Lude.Maybe RtmpCacheFullBehavior)
+rgsCacheFullBehavior = Lens.lens (cacheFullBehavior :: RtmpGroupSettings -> Lude.Maybe RtmpCacheFullBehavior) (\s a -> s {cacheFullBehavior = a} :: RtmpGroupSettings)
+{-# DEPRECATED rgsCacheFullBehavior "Use generic-lens or generic-optics with 'cacheFullBehavior' instead." #-}
 
-instance FromJSON RtmpGroupSettings where
+instance Lude.FromJSON RtmpGroupSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "RtmpGroupSettings"
       ( \x ->
           RtmpGroupSettings'
-            <$> (x .:? "inputLossAction")
-            <*> (x .:? "captionData")
-            <*> (x .:? "adMarkers" .!= mempty)
-            <*> (x .:? "restartDelay")
-            <*> (x .:? "authenticationScheme")
-            <*> (x .:? "cacheLength")
-            <*> (x .:? "cacheFullBehavior")
+            Lude.<$> (x Lude..:? "inputLossAction")
+            Lude.<*> (x Lude..:? "captionData")
+            Lude.<*> (x Lude..:? "adMarkers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "restartDelay")
+            Lude.<*> (x Lude..:? "authenticationScheme")
+            Lude.<*> (x Lude..:? "cacheLength")
+            Lude.<*> (x Lude..:? "cacheFullBehavior")
       )
 
-instance Hashable RtmpGroupSettings
-
-instance NFData RtmpGroupSettings
-
-instance ToJSON RtmpGroupSettings where
+instance Lude.ToJSON RtmpGroupSettings where
   toJSON RtmpGroupSettings' {..} =
-    object
-      ( catMaybes
-          [ ("inputLossAction" .=) <$> _rgsInputLossAction,
-            ("captionData" .=) <$> _rgsCaptionData,
-            ("adMarkers" .=) <$> _rgsAdMarkers,
-            ("restartDelay" .=) <$> _rgsRestartDelay,
-            ("authenticationScheme" .=) <$> _rgsAuthenticationScheme,
-            ("cacheLength" .=) <$> _rgsCacheLength,
-            ("cacheFullBehavior" .=) <$> _rgsCacheFullBehavior
+    Lude.object
+      ( Lude.catMaybes
+          [ ("inputLossAction" Lude..=) Lude.<$> inputLossAction,
+            ("captionData" Lude..=) Lude.<$> captionData,
+            ("adMarkers" Lude..=) Lude.<$> adMarkers,
+            ("restartDelay" Lude..=) Lude.<$> restartDelay,
+            ("authenticationScheme" Lude..=) Lude.<$> authenticationScheme,
+            ("cacheLength" Lude..=) Lude.<$> cacheLength,
+            ("cacheFullBehavior" Lude..=) Lude.<$> cacheFullBehavior
           ]
       )

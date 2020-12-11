@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,162 @@
 --
 -- Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.
 module Network.AWS.IoTJobsData.StartNextPendingJobExecution
-  ( -- * Creating a Request
-    startNextPendingJobExecution,
-    StartNextPendingJobExecution,
+  ( -- * Creating a request
+    StartNextPendingJobExecution (..),
+    mkStartNextPendingJobExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     snpjeStepTimeoutInMinutes,
     snpjeStatusDetails,
     snpjeThingName,
 
-    -- * Destructuring the Response
-    startNextPendingJobExecutionResponse,
-    StartNextPendingJobExecutionResponse,
+    -- * Destructuring the response
+    StartNextPendingJobExecutionResponse (..),
+    mkStartNextPendingJobExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     snpjersExecution,
     snpjersResponseStatus,
   )
 where
 
 import Network.AWS.IoTJobsData.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startNextPendingJobExecution' smart constructor.
+-- | /See:/ 'mkStartNextPendingJobExecution' smart constructor.
 data StartNextPendingJobExecution = StartNextPendingJobExecution'
-  { _snpjeStepTimeoutInMinutes ::
-      !(Maybe Integer),
-    _snpjeStatusDetails ::
-      !(Maybe (Map Text (Text))),
-    _snpjeThingName :: !Text
+  { stepTimeoutInMinutes ::
+      Lude.Maybe Lude.Integer,
+    statusDetails ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNextPendingJobExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'snpjeStepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
---
--- * 'snpjeStatusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
---
--- * 'snpjeThingName' - The name of the thing associated with the device.
-startNextPendingJobExecution ::
-  -- | 'snpjeThingName'
-  Text ->
+-- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+-- * 'stepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+-- * 'thingName' - The name of the thing associated with the device.
+mkStartNextPendingJobExecution ::
+  -- | 'thingName'
+  Lude.Text ->
   StartNextPendingJobExecution
-startNextPendingJobExecution pThingName_ =
+mkStartNextPendingJobExecution pThingName_ =
   StartNextPendingJobExecution'
-    { _snpjeStepTimeoutInMinutes =
-        Nothing,
-      _snpjeStatusDetails = Nothing,
-      _snpjeThingName = pThingName_
+    { stepTimeoutInMinutes =
+        Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
-snpjeStepTimeoutInMinutes :: Lens' StartNextPendingJobExecution (Maybe Integer)
-snpjeStepTimeoutInMinutes = lens _snpjeStepTimeoutInMinutes (\s a -> s {_snpjeStepTimeoutInMinutes = a})
+--
+-- /Note:/ Consider using 'stepTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snpjeStepTimeoutInMinutes :: Lens.Lens' StartNextPendingJobExecution (Lude.Maybe Lude.Integer)
+snpjeStepTimeoutInMinutes = Lens.lens (stepTimeoutInMinutes :: StartNextPendingJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {stepTimeoutInMinutes = a} :: StartNextPendingJobExecution)
+{-# DEPRECATED snpjeStepTimeoutInMinutes "Use generic-lens or generic-optics with 'stepTimeoutInMinutes' instead." #-}
 
 -- | A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
-snpjeStatusDetails :: Lens' StartNextPendingJobExecution (HashMap Text (Text))
-snpjeStatusDetails = lens _snpjeStatusDetails (\s a -> s {_snpjeStatusDetails = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snpjeStatusDetails :: Lens.Lens' StartNextPendingJobExecution (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+snpjeStatusDetails = Lens.lens (statusDetails :: StartNextPendingJobExecution -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {statusDetails = a} :: StartNextPendingJobExecution)
+{-# DEPRECATED snpjeStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The name of the thing associated with the device.
-snpjeThingName :: Lens' StartNextPendingJobExecution Text
-snpjeThingName = lens _snpjeThingName (\s a -> s {_snpjeThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snpjeThingName :: Lens.Lens' StartNextPendingJobExecution Lude.Text
+snpjeThingName = Lens.lens (thingName :: StartNextPendingJobExecution -> Lude.Text) (\s a -> s {thingName = a} :: StartNextPendingJobExecution)
+{-# DEPRECATED snpjeThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest StartNextPendingJobExecution where
+instance Lude.AWSRequest StartNextPendingJobExecution where
   type
     Rs StartNextPendingJobExecution =
       StartNextPendingJobExecutionResponse
-  request = putJSON ioTJobsData
+  request = Req.putJSON ioTJobsDataService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartNextPendingJobExecutionResponse'
-            <$> (x .?> "execution") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "execution") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartNextPendingJobExecution
+instance Lude.ToHeaders StartNextPendingJobExecution where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StartNextPendingJobExecution
-
-instance ToHeaders StartNextPendingJobExecution where
-  toHeaders = const mempty
-
-instance ToJSON StartNextPendingJobExecution where
+instance Lude.ToJSON StartNextPendingJobExecution where
   toJSON StartNextPendingJobExecution' {..} =
-    object
-      ( catMaybes
-          [ ("stepTimeoutInMinutes" .=) <$> _snpjeStepTimeoutInMinutes,
-            ("statusDetails" .=) <$> _snpjeStatusDetails
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stepTimeoutInMinutes" Lude..=) Lude.<$> stepTimeoutInMinutes,
+            ("statusDetails" Lude..=) Lude.<$> statusDetails
           ]
       )
 
-instance ToPath StartNextPendingJobExecution where
+instance Lude.ToPath StartNextPendingJobExecution where
   toPath StartNextPendingJobExecution' {..} =
-    mconcat ["/things/", toBS _snpjeThingName, "/jobs/$next"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/jobs/$next"]
 
-instance ToQuery StartNextPendingJobExecution where
-  toQuery = const mempty
+instance Lude.ToQuery StartNextPendingJobExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startNextPendingJobExecutionResponse' smart constructor.
+-- | /See:/ 'mkStartNextPendingJobExecutionResponse' smart constructor.
 data StartNextPendingJobExecutionResponse = StartNextPendingJobExecutionResponse'
-  { _snpjersExecution ::
-      !( Maybe
-           JobExecution
-       ),
-    _snpjersResponseStatus ::
-      !Int
+  { execution ::
+      Lude.Maybe
+        JobExecution,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNextPendingJobExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'snpjersExecution' - A JobExecution object.
---
--- * 'snpjersResponseStatus' - -- | The response status code.
-startNextPendingJobExecutionResponse ::
-  -- | 'snpjersResponseStatus'
-  Int ->
+-- * 'execution' - A JobExecution object.
+-- * 'responseStatus' - The response status code.
+mkStartNextPendingJobExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartNextPendingJobExecutionResponse
-startNextPendingJobExecutionResponse pResponseStatus_ =
+mkStartNextPendingJobExecutionResponse pResponseStatus_ =
   StartNextPendingJobExecutionResponse'
-    { _snpjersExecution =
-        Nothing,
-      _snpjersResponseStatus = pResponseStatus_
+    { execution = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A JobExecution object.
-snpjersExecution :: Lens' StartNextPendingJobExecutionResponse (Maybe JobExecution)
-snpjersExecution = lens _snpjersExecution (\s a -> s {_snpjersExecution = a})
+--
+-- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snpjersExecution :: Lens.Lens' StartNextPendingJobExecutionResponse (Lude.Maybe JobExecution)
+snpjersExecution = Lens.lens (execution :: StartNextPendingJobExecutionResponse -> Lude.Maybe JobExecution) (\s a -> s {execution = a} :: StartNextPendingJobExecutionResponse)
+{-# DEPRECATED snpjersExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
 
--- | -- | The response status code.
-snpjersResponseStatus :: Lens' StartNextPendingJobExecutionResponse Int
-snpjersResponseStatus = lens _snpjersResponseStatus (\s a -> s {_snpjersResponseStatus = a})
-
-instance NFData StartNextPendingJobExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snpjersResponseStatus :: Lens.Lens' StartNextPendingJobExecutionResponse Lude.Int
+snpjersResponseStatus = Lens.lens (responseStatus :: StartNextPendingJobExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartNextPendingJobExecutionResponse)
+{-# DEPRECATED snpjersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,156 @@
 --
 -- Deletes the specified product.
 --
---
 -- You cannot delete a product if it was shared with you or is associated with a portfolio.
---
 -- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.DeleteProduct
-  ( -- * Creating a Request
-    deleteProduct,
-    DeleteProduct,
+  ( -- * Creating a request
+    DeleteProduct (..),
+    mkDeleteProduct,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dppAcceptLanguage,
     dppId,
 
-    -- * Destructuring the Response
-    deleteProductResponse,
-    DeleteProductResponse,
+    -- * Destructuring the response
+    DeleteProductResponse (..),
+    mkDeleteProductResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'deleteProduct' smart constructor.
+-- | /See:/ 'mkDeleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-  { _dppAcceptLanguage ::
-      !(Maybe Text),
-    _dppId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProduct' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'dppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dppId' - The product identifier.
-deleteProduct ::
-  -- | 'dppId'
-  Text ->
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'id' - The product identifier.
+mkDeleteProduct ::
+  -- | 'id'
+  Lude.Text ->
   DeleteProduct
-deleteProduct pId_ =
-  DeleteProduct' {_dppAcceptLanguage = Nothing, _dppId = pId_}
+mkDeleteProduct pId_ =
+  DeleteProduct' {acceptLanguage = Lude.Nothing, id = pId_}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dppAcceptLanguage :: Lens' DeleteProduct (Maybe Text)
-dppAcceptLanguage = lens _dppAcceptLanguage (\s a -> s {_dppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppAcceptLanguage :: Lens.Lens' DeleteProduct (Lude.Maybe Lude.Text)
+dppAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProduct)
+{-# DEPRECATED dppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier.
-dppId :: Lens' DeleteProduct Text
-dppId = lens _dppId (\s a -> s {_dppId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppId :: Lens.Lens' DeleteProduct Lude.Text
+dppId = Lens.lens (id :: DeleteProduct -> Lude.Text) (\s a -> s {id = a} :: DeleteProduct)
+{-# DEPRECATED dppId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteProduct where
+instance Lude.AWSRequest DeleteProduct where
   type Rs DeleteProduct = DeleteProductResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
-      (\s h x -> DeleteProductResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteProductResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteProduct
-
-instance NFData DeleteProduct
-
-instance ToHeaders DeleteProduct where
+instance Lude.ToHeaders DeleteProduct where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.DeleteProduct" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.DeleteProduct" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteProduct where
+instance Lude.ToJSON DeleteProduct where
   toJSON DeleteProduct' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _dppAcceptLanguage,
-            Just ("Id" .= _dppId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath DeleteProduct where
-  toPath = const "/"
+instance Lude.ToPath DeleteProduct where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteProduct where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteProduct where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteProductResponse' smart constructor.
+-- | /See:/ 'mkDeleteProductResponse' smart constructor.
 newtype DeleteProductResponse = DeleteProductResponse'
-  { _delersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProductResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delersResponseStatus' - -- | The response status code.
-deleteProductResponse ::
-  -- | 'delersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteProductResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteProductResponse
-deleteProductResponse pResponseStatus_ =
-  DeleteProductResponse' {_delersResponseStatus = pResponseStatus_}
+mkDeleteProductResponse pResponseStatus_ =
+  DeleteProductResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delersResponseStatus :: Lens' DeleteProductResponse Int
-delersResponseStatus = lens _delersResponseStatus (\s a -> s {_delersResponseStatus = a})
-
-instance NFData DeleteProductResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delersResponseStatus :: Lens.Lens' DeleteProductResponse Lude.Int
+delersResponseStatus = Lens.lens (responseStatus :: DeleteProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProductResponse)
+{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

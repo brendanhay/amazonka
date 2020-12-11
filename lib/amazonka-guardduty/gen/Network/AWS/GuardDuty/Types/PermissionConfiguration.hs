@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.PermissionConfiguration where
+module Network.AWS.GuardDuty.Types.PermissionConfiguration
+  ( PermissionConfiguration (..),
+
+    -- * Smart constructor
+    mkPermissionConfiguration,
+
+    -- * Lenses
+    pcBucketLevelPermissions,
+    pcAccountLevelPermissions,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.AccountLevelPermissions
 import Network.AWS.GuardDuty.Types.BucketLevelPermissions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about how permissions are configured for the S3 bucket.
 --
---
---
--- /See:/ 'permissionConfiguration' smart constructor.
+-- /See:/ 'mkPermissionConfiguration' smart constructor.
 data PermissionConfiguration = PermissionConfiguration'
-  { _pcBucketLevelPermissions ::
-      !(Maybe BucketLevelPermissions),
-    _pcAccountLevelPermissions ::
-      !(Maybe AccountLevelPermissions)
+  { bucketLevelPermissions ::
+      Lude.Maybe BucketLevelPermissions,
+    accountLevelPermissions ::
+      Lude.Maybe AccountLevelPermissions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PermissionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcBucketLevelPermissions' - Contains information about the bucket level permissions for the S3 bucket.
---
--- * 'pcAccountLevelPermissions' - Contains information about the account level permissions on the S3 bucket.
-permissionConfiguration ::
+-- * 'accountLevelPermissions' - Contains information about the account level permissions on the S3 bucket.
+-- * 'bucketLevelPermissions' - Contains information about the bucket level permissions for the S3 bucket.
+mkPermissionConfiguration ::
   PermissionConfiguration
-permissionConfiguration =
+mkPermissionConfiguration =
   PermissionConfiguration'
-    { _pcBucketLevelPermissions = Nothing,
-      _pcAccountLevelPermissions = Nothing
+    { bucketLevelPermissions = Lude.Nothing,
+      accountLevelPermissions = Lude.Nothing
     }
 
 -- | Contains information about the bucket level permissions for the S3 bucket.
-pcBucketLevelPermissions :: Lens' PermissionConfiguration (Maybe BucketLevelPermissions)
-pcBucketLevelPermissions = lens _pcBucketLevelPermissions (\s a -> s {_pcBucketLevelPermissions = a})
+--
+-- /Note:/ Consider using 'bucketLevelPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcBucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Lude.Maybe BucketLevelPermissions)
+pcBucketLevelPermissions = Lens.lens (bucketLevelPermissions :: PermissionConfiguration -> Lude.Maybe BucketLevelPermissions) (\s a -> s {bucketLevelPermissions = a} :: PermissionConfiguration)
+{-# DEPRECATED pcBucketLevelPermissions "Use generic-lens or generic-optics with 'bucketLevelPermissions' instead." #-}
 
 -- | Contains information about the account level permissions on the S3 bucket.
-pcAccountLevelPermissions :: Lens' PermissionConfiguration (Maybe AccountLevelPermissions)
-pcAccountLevelPermissions = lens _pcAccountLevelPermissions (\s a -> s {_pcAccountLevelPermissions = a})
+--
+-- /Note:/ Consider using 'accountLevelPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcAccountLevelPermissions :: Lens.Lens' PermissionConfiguration (Lude.Maybe AccountLevelPermissions)
+pcAccountLevelPermissions = Lens.lens (accountLevelPermissions :: PermissionConfiguration -> Lude.Maybe AccountLevelPermissions) (\s a -> s {accountLevelPermissions = a} :: PermissionConfiguration)
+{-# DEPRECATED pcAccountLevelPermissions "Use generic-lens or generic-optics with 'accountLevelPermissions' instead." #-}
 
-instance FromJSON PermissionConfiguration where
+instance Lude.FromJSON PermissionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "PermissionConfiguration"
       ( \x ->
           PermissionConfiguration'
-            <$> (x .:? "bucketLevelPermissions")
-            <*> (x .:? "accountLevelPermissions")
+            Lude.<$> (x Lude..:? "bucketLevelPermissions")
+            Lude.<*> (x Lude..:? "accountLevelPermissions")
       )
-
-instance Hashable PermissionConfiguration
-
-instance NFData PermissionConfiguration

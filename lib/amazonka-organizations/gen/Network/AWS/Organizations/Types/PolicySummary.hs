@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,130 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.PolicySummary where
+module Network.AWS.Organizations.Types.PolicySummary
+  ( PolicySummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPolicySummary,
+
+    -- * Lenses
+    psARN,
+    psName,
+    psId,
+    psAWSManaged,
+    psType,
+    psDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicyType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a policy, but does not include the content. To see the content of a policy, see 'DescribePolicy' .
 --
---
---
--- /See:/ 'policySummary' smart constructor.
+-- /See:/ 'mkPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { _psARN :: !(Maybe Text),
-    _psName :: !(Maybe Text),
-    _psId :: !(Maybe Text),
-    _psAWSManaged :: !(Maybe Bool),
-    _psType :: !(Maybe PolicyType),
-    _psDescription :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    awsManaged :: Lude.Maybe Lude.Bool,
+    type' :: Lude.Maybe PolicyType,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicySummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the policy.
 --
--- * 'psARN' - The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'awsManaged' - A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
+-- * 'description' - The description of the policy.
+-- * 'id' - The unique identifier (ID) of the policy.
 --
--- * 'psName' - The friendly name of the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+-- * 'name' - The friendly name of the policy.
 --
--- * 'psId' - The unique identifier (ID) of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
---
--- * 'psAWSManaged' - A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
---
--- * 'psType' - The type of policy.
---
--- * 'psDescription' - The description of the policy.
-policySummary ::
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'type'' - The type of policy.
+mkPolicySummary ::
   PolicySummary
-policySummary =
+mkPolicySummary =
   PolicySummary'
-    { _psARN = Nothing,
-      _psName = Nothing,
-      _psId = Nothing,
-      _psAWSManaged = Nothing,
-      _psType = Nothing,
-      _psDescription = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      awsManaged = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
-psARN :: Lens' PolicySummary (Maybe Text)
-psARN = lens _psARN (\s a -> s {_psARN = a})
+-- | The Amazon Resource Name (ARN) of the policy.
+--
+-- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psARN :: Lens.Lens' PolicySummary (Lude.Maybe Lude.Text)
+psARN = Lens.lens (arn :: PolicySummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PolicySummary)
+{-# DEPRECATED psARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The friendly name of the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-psName :: Lens' PolicySummary (Maybe Text)
-psName = lens _psName (\s a -> s {_psName = a})
+-- | The friendly name of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psName :: Lens.Lens' PolicySummary (Lude.Maybe Lude.Text)
+psName = Lens.lens (name :: PolicySummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PolicySummary)
+{-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The unique identifier (ID) of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-psId :: Lens' PolicySummary (Maybe Text)
-psId = lens _psId (\s a -> s {_psId = a})
+-- | The unique identifier (ID) of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psId :: Lens.Lens' PolicySummary (Lude.Maybe Lude.Text)
+psId = Lens.lens (id :: PolicySummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PolicySummary)
+{-# DEPRECATED psId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
-psAWSManaged :: Lens' PolicySummary (Maybe Bool)
-psAWSManaged = lens _psAWSManaged (\s a -> s {_psAWSManaged = a})
+--
+-- /Note:/ Consider using 'awsManaged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psAWSManaged :: Lens.Lens' PolicySummary (Lude.Maybe Lude.Bool)
+psAWSManaged = Lens.lens (awsManaged :: PolicySummary -> Lude.Maybe Lude.Bool) (\s a -> s {awsManaged = a} :: PolicySummary)
+{-# DEPRECATED psAWSManaged "Use generic-lens or generic-optics with 'awsManaged' instead." #-}
 
 -- | The type of policy.
-psType :: Lens' PolicySummary (Maybe PolicyType)
-psType = lens _psType (\s a -> s {_psType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psType :: Lens.Lens' PolicySummary (Lude.Maybe PolicyType)
+psType = Lens.lens (type' :: PolicySummary -> Lude.Maybe PolicyType) (\s a -> s {type' = a} :: PolicySummary)
+{-# DEPRECATED psType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the policy.
-psDescription :: Lens' PolicySummary (Maybe Text)
-psDescription = lens _psDescription (\s a -> s {_psDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psDescription :: Lens.Lens' PolicySummary (Lude.Maybe Lude.Text)
+psDescription = Lens.lens (description :: PolicySummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PolicySummary)
+{-# DEPRECATED psDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON PolicySummary where
+instance Lude.FromJSON PolicySummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            <$> (x .:? "Arn")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "AwsManaged")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "AwsManaged")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable PolicySummary
-
-instance NFData PolicySummary

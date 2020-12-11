@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.CompressionTypeValue where
+module Network.AWS.DMS.Types.CompressionTypeValue
+  ( CompressionTypeValue
+      ( CompressionTypeValue',
+        CTVGzip,
+        CTVNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CompressionTypeValue
-  = CTVGzip
-  | CTVNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompressionTypeValue = CompressionTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompressionTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure CTVGzip
-      "none" -> pure CTVNone
-      e ->
-        fromTextError $
-          "Failure parsing CompressionTypeValue from value: '" <> e
-            <> "'. Accepted values: gzip, none"
+pattern CTVGzip :: CompressionTypeValue
+pattern CTVGzip = CompressionTypeValue' "gzip"
 
-instance ToText CompressionTypeValue where
-  toText = \case
-    CTVGzip -> "gzip"
-    CTVNone -> "none"
+pattern CTVNone :: CompressionTypeValue
+pattern CTVNone = CompressionTypeValue' "none"
 
-instance Hashable CompressionTypeValue
-
-instance NFData CompressionTypeValue
-
-instance ToByteString CompressionTypeValue
-
-instance ToQuery CompressionTypeValue
-
-instance ToHeader CompressionTypeValue
-
-instance ToJSON CompressionTypeValue where
-  toJSON = toJSONText
-
-instance FromJSON CompressionTypeValue where
-  parseJSON = parseJSONText "CompressionTypeValue"
+{-# COMPLETE
+  CTVGzip,
+  CTVNone,
+  CompressionTypeValue'
+  #-}

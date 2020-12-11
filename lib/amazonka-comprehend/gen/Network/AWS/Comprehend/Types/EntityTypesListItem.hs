@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityTypesListItem where
+module Network.AWS.Comprehend.Types.EntityTypesListItem
+  ( EntityTypesListItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityTypesListItem,
+
+    -- * Lenses
+    etliType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 --
---
---
--- /See:/ 'entityTypesListItem' smart constructor.
+-- /See:/ 'mkEntityTypesListItem' smart constructor.
 newtype EntityTypesListItem = EntityTypesListItem'
-  { _etliType ::
-      Text
+  { type' ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityTypesListItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'type'' - An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 --
--- * 'etliType' - An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
-entityTypesListItem ::
-  -- | 'etliType'
-  Text ->
+-- Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
+mkEntityTypesListItem ::
+  -- | 'type''
+  Lude.Text ->
   EntityTypesListItem
-entityTypesListItem pType_ =
-  EntityTypesListItem' {_etliType = pType_}
+mkEntityTypesListItem pType_ = EntityTypesListItem' {type' = pType_}
 
--- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
-etliType :: Lens' EntityTypesListItem Text
-etliType = lens _etliType (\s a -> s {_etliType = a})
+-- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+--
+-- Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etliType :: Lens.Lens' EntityTypesListItem Lude.Text
+etliType = Lens.lens (type' :: EntityTypesListItem -> Lude.Text) (\s a -> s {type' = a} :: EntityTypesListItem)
+{-# DEPRECATED etliType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON EntityTypesListItem where
+instance Lude.FromJSON EntityTypesListItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityTypesListItem"
-      (\x -> EntityTypesListItem' <$> (x .: "Type"))
+      (\x -> EntityTypesListItem' Lude.<$> (x Lude..: "Type"))
 
-instance Hashable EntityTypesListItem
-
-instance NFData EntityTypesListItem
-
-instance ToJSON EntityTypesListItem where
+instance Lude.ToJSON EntityTypesListItem where
   toJSON EntityTypesListItem' {..} =
-    object (catMaybes [Just ("Type" .= _etliType)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Type" Lude..= type')])

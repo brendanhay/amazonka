@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ContentEncoding where
+module Network.AWS.Firehose.Types.ContentEncoding
+  ( ContentEncoding
+      ( ContentEncoding',
+        CEGzip,
+        CENone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentEncoding
-  = CEGzip
-  | CENone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentEncoding = ContentEncoding' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentEncoding where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure CEGzip
-      "none" -> pure CENone
-      e ->
-        fromTextError $
-          "Failure parsing ContentEncoding from value: '" <> e
-            <> "'. Accepted values: gzip, none"
+pattern CEGzip :: ContentEncoding
+pattern CEGzip = ContentEncoding' "GZIP"
 
-instance ToText ContentEncoding where
-  toText = \case
-    CEGzip -> "GZIP"
-    CENone -> "NONE"
+pattern CENone :: ContentEncoding
+pattern CENone = ContentEncoding' "NONE"
 
-instance Hashable ContentEncoding
-
-instance NFData ContentEncoding
-
-instance ToByteString ContentEncoding
-
-instance ToQuery ContentEncoding
-
-instance ToHeader ContentEncoding
-
-instance ToJSON ContentEncoding where
-  toJSON = toJSONText
-
-instance FromJSON ContentEncoding where
-  parseJSON = parseJSONText "ContentEncoding"
+{-# COMPLETE
+  CEGzip,
+  CENone,
+  ContentEncoding'
+  #-}

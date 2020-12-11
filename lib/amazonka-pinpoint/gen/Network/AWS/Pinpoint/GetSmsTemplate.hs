@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,165 @@
 --
 -- Retrieves the content and settings of a message template for messages that are sent through the SMS channel.
 module Network.AWS.Pinpoint.GetSmsTemplate
-  ( -- * Creating a Request
-    getSmsTemplate,
-    GetSmsTemplate,
+  ( -- * Creating a request
+    GetSmsTemplate (..),
+    mkGetSmsTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstVersion,
     gstTemplateName,
 
-    -- * Destructuring the Response
-    getSmsTemplateResponse,
-    GetSmsTemplateResponse,
+    -- * Destructuring the response
+    GetSmsTemplateResponse (..),
+    mkGetSmsTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gstrsResponseStatus,
     gstrsSMSTemplateResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSmsTemplate' smart constructor.
+-- | /See:/ 'mkGetSmsTemplate' smart constructor.
 data GetSmsTemplate = GetSmsTemplate'
-  { _gstVersion :: !(Maybe Text),
-    _gstTemplateName :: !Text
+  { version ::
+      Lude.Maybe Lude.Text,
+    templateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
--- * 'gstVersion' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
 --
--- * 'gstTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-getSmsTemplate ::
-  -- | 'gstTemplateName'
-  Text ->
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+mkGetSmsTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   GetSmsTemplate
-getSmsTemplate pTemplateName_ =
+mkGetSmsTemplate pTemplateName_ =
   GetSmsTemplate'
-    { _gstVersion = Nothing,
-      _gstTemplateName = pTemplateName_
+    { version = Lude.Nothing,
+      templateName = pTemplateName_
     }
 
--- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
-gstVersion :: Lens' GetSmsTemplate (Maybe Text)
-gstVersion = lens _gstVersion (\s a -> s {_gstVersion = a})
+-- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+--
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+--
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstVersion :: Lens.Lens' GetSmsTemplate (Lude.Maybe Lude.Text)
+gstVersion = Lens.lens (version :: GetSmsTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetSmsTemplate)
+{-# DEPRECATED gstVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-gstTemplateName :: Lens' GetSmsTemplate Text
-gstTemplateName = lens _gstTemplateName (\s a -> s {_gstTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstTemplateName :: Lens.Lens' GetSmsTemplate Lude.Text
+gstTemplateName = Lens.lens (templateName :: GetSmsTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetSmsTemplate)
+{-# DEPRECATED gstTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest GetSmsTemplate where
+instance Lude.AWSRequest GetSmsTemplate where
   type Rs GetSmsTemplate = GetSmsTemplateResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSmsTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetSmsTemplate
-
-instance NFData GetSmsTemplate
-
-instance ToHeaders GetSmsTemplate where
+instance Lude.ToHeaders GetSmsTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSmsTemplate where
+instance Lude.ToPath GetSmsTemplate where
   toPath GetSmsTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _gstTemplateName, "/sms"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/sms"]
 
-instance ToQuery GetSmsTemplate where
-  toQuery GetSmsTemplate' {..} = mconcat ["version" =: _gstVersion]
+instance Lude.ToQuery GetSmsTemplate where
+  toQuery GetSmsTemplate' {..} =
+    Lude.mconcat ["version" Lude.=: version]
 
--- | /See:/ 'getSmsTemplateResponse' smart constructor.
+-- | /See:/ 'mkGetSmsTemplateResponse' smart constructor.
 data GetSmsTemplateResponse = GetSmsTemplateResponse'
-  { _gstrsResponseStatus ::
-      !Int,
-    _gstrsSMSTemplateResponse ::
-      !SMSTemplateResponse
+  { responseStatus ::
+      Lude.Int,
+    sMSTemplateResponse :: SMSTemplateResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstrsResponseStatus' - -- | The response status code.
---
--- * 'gstrsSMSTemplateResponse' - Undocumented member.
-getSmsTemplateResponse ::
-  -- | 'gstrsResponseStatus'
-  Int ->
-  -- | 'gstrsSMSTemplateResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'sMSTemplateResponse' - Undocumented field.
+mkGetSmsTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'sMSTemplateResponse'
   SMSTemplateResponse ->
   GetSmsTemplateResponse
-getSmsTemplateResponse pResponseStatus_ pSMSTemplateResponse_ =
+mkGetSmsTemplateResponse pResponseStatus_ pSMSTemplateResponse_ =
   GetSmsTemplateResponse'
-    { _gstrsResponseStatus = pResponseStatus_,
-      _gstrsSMSTemplateResponse = pSMSTemplateResponse_
+    { responseStatus = pResponseStatus_,
+      sMSTemplateResponse = pSMSTemplateResponse_
     }
 
--- | -- | The response status code.
-gstrsResponseStatus :: Lens' GetSmsTemplateResponse Int
-gstrsResponseStatus = lens _gstrsResponseStatus (\s a -> s {_gstrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsResponseStatus :: Lens.Lens' GetSmsTemplateResponse Lude.Int
+gstrsResponseStatus = Lens.lens (responseStatus :: GetSmsTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSmsTemplateResponse)
+{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gstrsSMSTemplateResponse :: Lens' GetSmsTemplateResponse SMSTemplateResponse
-gstrsSMSTemplateResponse = lens _gstrsSMSTemplateResponse (\s a -> s {_gstrsSMSTemplateResponse = a})
-
-instance NFData GetSmsTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sMSTemplateResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsSMSTemplateResponse :: Lens.Lens' GetSmsTemplateResponse SMSTemplateResponse
+gstrsSMSTemplateResponse = Lens.lens (sMSTemplateResponse :: GetSmsTemplateResponse -> SMSTemplateResponse) (\s a -> s {sMSTemplateResponse = a} :: GetSmsTemplateResponse)
+{-# DEPRECATED gstrsSMSTemplateResponse "Use generic-lens or generic-optics with 'sMSTemplateResponse' instead." #-}

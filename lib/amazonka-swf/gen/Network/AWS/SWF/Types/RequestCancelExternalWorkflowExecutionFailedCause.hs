@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause where
+module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause
+  ( RequestCancelExternalWorkflowExecutionFailedCause
+      ( RequestCancelExternalWorkflowExecutionFailedCause',
+        RCEWEFCOperationNotPermitted,
+        RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
+        RCEWEFCUnknownExternalWorkflowExecution
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RequestCancelExternalWorkflowExecutionFailedCause
-  = RCEWEFCOperationNotPermitted
-  | RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
-  | RCEWEFCUnknownExternalWorkflowExecution
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequestCancelExternalWorkflowExecutionFailedCause = RequestCancelExternalWorkflowExecutionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "operation_not_permitted" -> pure RCEWEFCOperationNotPermitted
-      "request_cancel_external_workflow_execution_rate_exceeded" -> pure RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
-      "unknown_external_workflow_execution" -> pure RCEWEFCUnknownExternalWorkflowExecution
-      e ->
-        fromTextError $
-          "Failure parsing RequestCancelExternalWorkflowExecutionFailedCause from value: '" <> e
-            <> "'. Accepted values: operation_not_permitted, request_cancel_external_workflow_execution_rate_exceeded, unknown_external_workflow_execution"
+pattern RCEWEFCOperationNotPermitted :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCOperationNotPermitted = RequestCancelExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
-  toText = \case
-    RCEWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-    RCEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded = RequestCancelExternalWorkflowExecutionFailedCause' "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
 
-instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCUnknownExternalWorkflowExecution :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCUnknownExternalWorkflowExecution = RequestCancelExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
-instance NFData RequestCancelExternalWorkflowExecutionFailedCause
-
-instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
-
-instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause
-
-instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause
-
-instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
-  parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"
+{-# COMPLETE
+  RCEWEFCOperationNotPermitted,
+  RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
+  RCEWEFCUnknownExternalWorkflowExecution,
+  RequestCancelExternalWorkflowExecutionFailedCause'
+  #-}

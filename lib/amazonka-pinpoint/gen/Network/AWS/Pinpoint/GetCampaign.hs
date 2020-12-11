@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,146 @@
 --
 -- Retrieves information about the status, configuration, and other settings for a campaign.
 module Network.AWS.Pinpoint.GetCampaign
-  ( -- * Creating a Request
-    getCampaign,
-    GetCampaign,
+  ( -- * Creating a request
+    GetCampaign (..),
+    mkGetCampaign,
 
-    -- * Request Lenses
+    -- ** Request lenses
     getCampaignId,
     getApplicationId,
 
-    -- * Destructuring the Response
-    getCampaignResponse,
-    GetCampaignResponse,
+    -- * Destructuring the response
+    GetCampaignResponse (..),
+    mkGetCampaignResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsResponseStatus,
     gcrsCampaignResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCampaign' smart constructor.
+-- | /See:/ 'mkGetCampaign' smart constructor.
 data GetCampaign = GetCampaign'
-  { _getCampaignId :: !Text,
-    _getApplicationId :: !Text
+  { campaignId :: Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaign' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'getCampaignId' - The unique identifier for the campaign.
---
--- * 'getApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getCampaign ::
-  -- | 'getCampaignId'
-  Text ->
-  -- | 'getApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'campaignId' - The unique identifier for the campaign.
+mkGetCampaign ::
+  -- | 'campaignId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   GetCampaign
-getCampaign pCampaignId_ pApplicationId_ =
+mkGetCampaign pCampaignId_ pApplicationId_ =
   GetCampaign'
-    { _getCampaignId = pCampaignId_,
-      _getApplicationId = pApplicationId_
+    { campaignId = pCampaignId_,
+      applicationId = pApplicationId_
     }
 
 -- | The unique identifier for the campaign.
-getCampaignId :: Lens' GetCampaign Text
-getCampaignId = lens _getCampaignId (\s a -> s {_getCampaignId = a})
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getCampaignId :: Lens.Lens' GetCampaign Lude.Text
+getCampaignId = Lens.lens (campaignId :: GetCampaign -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaign)
+{-# DEPRECATED getCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getApplicationId :: Lens' GetCampaign Text
-getApplicationId = lens _getApplicationId (\s a -> s {_getApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getApplicationId :: Lens.Lens' GetCampaign Lude.Text
+getApplicationId = Lens.lens (applicationId :: GetCampaign -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaign)
+{-# DEPRECATED getApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetCampaign where
+instance Lude.AWSRequest GetCampaign where
   type Rs GetCampaign = GetCampaignResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCampaignResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetCampaign
-
-instance NFData GetCampaign
-
-instance ToHeaders GetCampaign where
+instance Lude.ToHeaders GetCampaign where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetCampaign where
+instance Lude.ToPath GetCampaign where
   toPath GetCampaign' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _getApplicationId,
+        Lude.toBS applicationId,
         "/campaigns/",
-        toBS _getCampaignId
+        Lude.toBS campaignId
       ]
 
-instance ToQuery GetCampaign where
-  toQuery = const mempty
+instance Lude.ToQuery GetCampaign where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCampaignResponse' smart constructor.
+-- | /See:/ 'mkGetCampaignResponse' smart constructor.
 data GetCampaignResponse = GetCampaignResponse'
-  { _gcrsResponseStatus ::
-      !Int,
-    _gcrsCampaignResponse :: !CampaignResponse
+  { responseStatus ::
+      Lude.Int,
+    campaignResponse :: CampaignResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsResponseStatus' - -- | The response status code.
---
--- * 'gcrsCampaignResponse' - Undocumented member.
-getCampaignResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
-  -- | 'gcrsCampaignResponse'
+-- * 'campaignResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetCampaignResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'campaignResponse'
   CampaignResponse ->
   GetCampaignResponse
-getCampaignResponse pResponseStatus_ pCampaignResponse_ =
+mkGetCampaignResponse pResponseStatus_ pCampaignResponse_ =
   GetCampaignResponse'
-    { _gcrsResponseStatus = pResponseStatus_,
-      _gcrsCampaignResponse = pCampaignResponse_
+    { responseStatus = pResponseStatus_,
+      campaignResponse = pCampaignResponse_
     }
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetCampaignResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetCampaignResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gcrsCampaignResponse :: Lens' GetCampaignResponse CampaignResponse
-gcrsCampaignResponse = lens _gcrsCampaignResponse (\s a -> s {_gcrsCampaignResponse = a})
-
-instance NFData GetCampaignResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'campaignResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsCampaignResponse :: Lens.Lens' GetCampaignResponse CampaignResponse
+gcrsCampaignResponse = Lens.lens (campaignResponse :: GetCampaignResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: GetCampaignResponse)
+{-# DEPRECATED gcrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}

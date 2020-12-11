@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.CapacityProviderUpdateStatus where
+module Network.AWS.ECS.Types.CapacityProviderUpdateStatus
+  ( CapacityProviderUpdateStatus
+      ( CapacityProviderUpdateStatus',
+        DeleteComplete,
+        DeleteFailed,
+        DeleteInProgress,
+        UpdateComplete,
+        UpdateFailed,
+        UpdateInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CapacityProviderUpdateStatus
-  = DeleteComplete
-  | DeleteFailed
-  | DeleteInProgress
-  | UpdateComplete
-  | UpdateFailed
-  | UpdateInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CapacityProviderUpdateStatus = CapacityProviderUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CapacityProviderUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "delete_complete" -> pure DeleteComplete
-      "delete_failed" -> pure DeleteFailed
-      "delete_in_progress" -> pure DeleteInProgress
-      "update_complete" -> pure UpdateComplete
-      "update_failed" -> pure UpdateFailed
-      "update_in_progress" -> pure UpdateInProgress
-      e ->
-        fromTextError $
-          "Failure parsing CapacityProviderUpdateStatus from value: '" <> e
-            <> "'. Accepted values: delete_complete, delete_failed, delete_in_progress, update_complete, update_failed, update_in_progress"
+pattern DeleteComplete :: CapacityProviderUpdateStatus
+pattern DeleteComplete = CapacityProviderUpdateStatus' "DELETE_COMPLETE"
 
-instance ToText CapacityProviderUpdateStatus where
-  toText = \case
-    DeleteComplete -> "DELETE_COMPLETE"
-    DeleteFailed -> "DELETE_FAILED"
-    DeleteInProgress -> "DELETE_IN_PROGRESS"
-    UpdateComplete -> "UPDATE_COMPLETE"
-    UpdateFailed -> "UPDATE_FAILED"
-    UpdateInProgress -> "UPDATE_IN_PROGRESS"
+pattern DeleteFailed :: CapacityProviderUpdateStatus
+pattern DeleteFailed = CapacityProviderUpdateStatus' "DELETE_FAILED"
 
-instance Hashable CapacityProviderUpdateStatus
+pattern DeleteInProgress :: CapacityProviderUpdateStatus
+pattern DeleteInProgress = CapacityProviderUpdateStatus' "DELETE_IN_PROGRESS"
 
-instance NFData CapacityProviderUpdateStatus
+pattern UpdateComplete :: CapacityProviderUpdateStatus
+pattern UpdateComplete = CapacityProviderUpdateStatus' "UPDATE_COMPLETE"
 
-instance ToByteString CapacityProviderUpdateStatus
+pattern UpdateFailed :: CapacityProviderUpdateStatus
+pattern UpdateFailed = CapacityProviderUpdateStatus' "UPDATE_FAILED"
 
-instance ToQuery CapacityProviderUpdateStatus
+pattern UpdateInProgress :: CapacityProviderUpdateStatus
+pattern UpdateInProgress = CapacityProviderUpdateStatus' "UPDATE_IN_PROGRESS"
 
-instance ToHeader CapacityProviderUpdateStatus
-
-instance FromJSON CapacityProviderUpdateStatus where
-  parseJSON = parseJSONText "CapacityProviderUpdateStatus"
+{-# COMPLETE
+  DeleteComplete,
+  DeleteFailed,
+  DeleteInProgress,
+  UpdateComplete,
+  UpdateFailed,
+  UpdateInProgress,
+  CapacityProviderUpdateStatus'
+  #-}

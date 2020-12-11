@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.DistributionMetricName where
+module Network.AWS.Lightsail.Types.DistributionMetricName
+  ( DistributionMetricName
+      ( DistributionMetricName',
+        BytesDownloaded,
+        BytesUploaded,
+        HTTP4xxErrorRate,
+        HTTP5xxErrorRate,
+        Requests,
+        TotalErrorRate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DistributionMetricName
-  = BytesDownloaded
-  | BytesUploaded
-  | HTTP4xxErrorRate
-  | HTTP5xxErrorRate
-  | Requests
-  | TotalErrorRate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DistributionMetricName = DistributionMetricName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DistributionMetricName where
-  parser =
-    takeLowerText >>= \case
-      "bytesdownloaded" -> pure BytesDownloaded
-      "bytesuploaded" -> pure BytesUploaded
-      "http4xxerrorrate" -> pure HTTP4xxErrorRate
-      "http5xxerrorrate" -> pure HTTP5xxErrorRate
-      "requests" -> pure Requests
-      "totalerrorrate" -> pure TotalErrorRate
-      e ->
-        fromTextError $
-          "Failure parsing DistributionMetricName from value: '" <> e
-            <> "'. Accepted values: bytesdownloaded, bytesuploaded, http4xxerrorrate, http5xxerrorrate, requests, totalerrorrate"
+pattern BytesDownloaded :: DistributionMetricName
+pattern BytesDownloaded = DistributionMetricName' "BytesDownloaded"
 
-instance ToText DistributionMetricName where
-  toText = \case
-    BytesDownloaded -> "BytesDownloaded"
-    BytesUploaded -> "BytesUploaded"
-    HTTP4xxErrorRate -> "Http4xxErrorRate"
-    HTTP5xxErrorRate -> "Http5xxErrorRate"
-    Requests -> "Requests"
-    TotalErrorRate -> "TotalErrorRate"
+pattern BytesUploaded :: DistributionMetricName
+pattern BytesUploaded = DistributionMetricName' "BytesUploaded"
 
-instance Hashable DistributionMetricName
+pattern HTTP4xxErrorRate :: DistributionMetricName
+pattern HTTP4xxErrorRate = DistributionMetricName' "Http4xxErrorRate"
 
-instance NFData DistributionMetricName
+pattern HTTP5xxErrorRate :: DistributionMetricName
+pattern HTTP5xxErrorRate = DistributionMetricName' "Http5xxErrorRate"
 
-instance ToByteString DistributionMetricName
+pattern Requests :: DistributionMetricName
+pattern Requests = DistributionMetricName' "Requests"
 
-instance ToQuery DistributionMetricName
+pattern TotalErrorRate :: DistributionMetricName
+pattern TotalErrorRate = DistributionMetricName' "TotalErrorRate"
 
-instance ToHeader DistributionMetricName
-
-instance ToJSON DistributionMetricName where
-  toJSON = toJSONText
-
-instance FromJSON DistributionMetricName where
-  parseJSON = parseJSONText "DistributionMetricName"
+{-# COMPLETE
+  BytesDownloaded,
+  BytesUploaded,
+  HTTP4xxErrorRate,
+  HTTP5xxErrorRate,
+  Requests,
+  TotalErrorRate,
+  DistributionMetricName'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsWebdavSettings where
+module Network.AWS.MediaLive.Types.HlsWebdavSettings
+  ( HlsWebdavSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsWebdavSettings,
+
+    -- * Lenses
+    hwsHTTPTransferMode,
+    hwsNumRetries,
+    hwsConnectionRetryInterval,
+    hwsFilecacheDuration,
+    hwsRestartDelay,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.HlsWebdavHTTPTransferMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Hls Webdav Settings
 --
--- /See:/ 'hlsWebdavSettings' smart constructor.
+-- /See:/ 'mkHlsWebdavSettings' smart constructor.
 data HlsWebdavSettings = HlsWebdavSettings'
-  { _hwsHTTPTransferMode ::
-      !(Maybe HlsWebdavHTTPTransferMode),
-    _hwsNumRetries :: !(Maybe Nat),
-    _hwsConnectionRetryInterval :: !(Maybe Nat),
-    _hwsFilecacheDuration :: !(Maybe Nat),
-    _hwsRestartDelay :: !(Maybe Nat)
+  { hTTPTransferMode ::
+      Lude.Maybe HlsWebdavHTTPTransferMode,
+    numRetries :: Lude.Maybe Lude.Natural,
+    connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    filecacheDuration :: Lude.Maybe Lude.Natural,
+    restartDelay :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsWebdavSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hwsHTTPTransferMode' - Specify whether or not to use chunked transfer encoding to WebDAV.
---
--- * 'hwsNumRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
---
--- * 'hwsConnectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
---
--- * 'hwsFilecacheDuration' - Size in seconds of file cache for streaming outputs.
---
--- * 'hwsRestartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-hlsWebdavSettings ::
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+-- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
+-- * 'hTTPTransferMode' - Specify whether or not to use chunked transfer encoding to WebDAV.
+-- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
+-- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+mkHlsWebdavSettings ::
   HlsWebdavSettings
-hlsWebdavSettings =
+mkHlsWebdavSettings =
   HlsWebdavSettings'
-    { _hwsHTTPTransferMode = Nothing,
-      _hwsNumRetries = Nothing,
-      _hwsConnectionRetryInterval = Nothing,
-      _hwsFilecacheDuration = Nothing,
-      _hwsRestartDelay = Nothing
+    { hTTPTransferMode = Lude.Nothing,
+      numRetries = Lude.Nothing,
+      connectionRetryInterval = Lude.Nothing,
+      filecacheDuration = Lude.Nothing,
+      restartDelay = Lude.Nothing
     }
 
 -- | Specify whether or not to use chunked transfer encoding to WebDAV.
-hwsHTTPTransferMode :: Lens' HlsWebdavSettings (Maybe HlsWebdavHTTPTransferMode)
-hwsHTTPTransferMode = lens _hwsHTTPTransferMode (\s a -> s {_hwsHTTPTransferMode = a})
+--
+-- /Note:/ Consider using 'hTTPTransferMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hwsHTTPTransferMode :: Lens.Lens' HlsWebdavSettings (Lude.Maybe HlsWebdavHTTPTransferMode)
+hwsHTTPTransferMode = Lens.lens (hTTPTransferMode :: HlsWebdavSettings -> Lude.Maybe HlsWebdavHTTPTransferMode) (\s a -> s {hTTPTransferMode = a} :: HlsWebdavSettings)
+{-# DEPRECATED hwsHTTPTransferMode "Use generic-lens or generic-optics with 'hTTPTransferMode' instead." #-}
 
 -- | Number of retry attempts that will be made before the Live Event is put into an error state.
-hwsNumRetries :: Lens' HlsWebdavSettings (Maybe Natural)
-hwsNumRetries = lens _hwsNumRetries (\s a -> s {_hwsNumRetries = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hwsNumRetries :: Lens.Lens' HlsWebdavSettings (Lude.Maybe Lude.Natural)
+hwsNumRetries = Lens.lens (numRetries :: HlsWebdavSettings -> Lude.Maybe Lude.Natural) (\s a -> s {numRetries = a} :: HlsWebdavSettings)
+{-# DEPRECATED hwsNumRetries "Use generic-lens or generic-optics with 'numRetries' instead." #-}
 
 -- | Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-hwsConnectionRetryInterval :: Lens' HlsWebdavSettings (Maybe Natural)
-hwsConnectionRetryInterval = lens _hwsConnectionRetryInterval (\s a -> s {_hwsConnectionRetryInterval = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'connectionRetryInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hwsConnectionRetryInterval :: Lens.Lens' HlsWebdavSettings (Lude.Maybe Lude.Natural)
+hwsConnectionRetryInterval = Lens.lens (connectionRetryInterval :: HlsWebdavSettings -> Lude.Maybe Lude.Natural) (\s a -> s {connectionRetryInterval = a} :: HlsWebdavSettings)
+{-# DEPRECATED hwsConnectionRetryInterval "Use generic-lens or generic-optics with 'connectionRetryInterval' instead." #-}
 
 -- | Size in seconds of file cache for streaming outputs.
-hwsFilecacheDuration :: Lens' HlsWebdavSettings (Maybe Natural)
-hwsFilecacheDuration = lens _hwsFilecacheDuration (\s a -> s {_hwsFilecacheDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'filecacheDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hwsFilecacheDuration :: Lens.Lens' HlsWebdavSettings (Lude.Maybe Lude.Natural)
+hwsFilecacheDuration = Lens.lens (filecacheDuration :: HlsWebdavSettings -> Lude.Maybe Lude.Natural) (\s a -> s {filecacheDuration = a} :: HlsWebdavSettings)
+{-# DEPRECATED hwsFilecacheDuration "Use generic-lens or generic-optics with 'filecacheDuration' instead." #-}
 
 -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-hwsRestartDelay :: Lens' HlsWebdavSettings (Maybe Natural)
-hwsRestartDelay = lens _hwsRestartDelay (\s a -> s {_hwsRestartDelay = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'restartDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hwsRestartDelay :: Lens.Lens' HlsWebdavSettings (Lude.Maybe Lude.Natural)
+hwsRestartDelay = Lens.lens (restartDelay :: HlsWebdavSettings -> Lude.Maybe Lude.Natural) (\s a -> s {restartDelay = a} :: HlsWebdavSettings)
+{-# DEPRECATED hwsRestartDelay "Use generic-lens or generic-optics with 'restartDelay' instead." #-}
 
-instance FromJSON HlsWebdavSettings where
+instance Lude.FromJSON HlsWebdavSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsWebdavSettings"
       ( \x ->
           HlsWebdavSettings'
-            <$> (x .:? "httpTransferMode")
-            <*> (x .:? "numRetries")
-            <*> (x .:? "connectionRetryInterval")
-            <*> (x .:? "filecacheDuration")
-            <*> (x .:? "restartDelay")
+            Lude.<$> (x Lude..:? "httpTransferMode")
+            Lude.<*> (x Lude..:? "numRetries")
+            Lude.<*> (x Lude..:? "connectionRetryInterval")
+            Lude.<*> (x Lude..:? "filecacheDuration")
+            Lude.<*> (x Lude..:? "restartDelay")
       )
 
-instance Hashable HlsWebdavSettings
-
-instance NFData HlsWebdavSettings
-
-instance ToJSON HlsWebdavSettings where
+instance Lude.ToJSON HlsWebdavSettings where
   toJSON HlsWebdavSettings' {..} =
-    object
-      ( catMaybes
-          [ ("httpTransferMode" .=) <$> _hwsHTTPTransferMode,
-            ("numRetries" .=) <$> _hwsNumRetries,
-            ("connectionRetryInterval" .=) <$> _hwsConnectionRetryInterval,
-            ("filecacheDuration" .=) <$> _hwsFilecacheDuration,
-            ("restartDelay" .=) <$> _hwsRestartDelay
+    Lude.object
+      ( Lude.catMaybes
+          [ ("httpTransferMode" Lude..=) Lude.<$> hTTPTransferMode,
+            ("numRetries" Lude..=) Lude.<$> numRetries,
+            ("connectionRetryInterval" Lude..=)
+              Lude.<$> connectionRetryInterval,
+            ("filecacheDuration" Lude..=) Lude.<$> filecacheDuration,
+            ("restartDelay" Lude..=) Lude.<$> restartDelay
           ]
       )

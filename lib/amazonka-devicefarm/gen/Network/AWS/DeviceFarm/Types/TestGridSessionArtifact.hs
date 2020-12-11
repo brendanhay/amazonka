@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.TestGridSessionArtifact where
+module Network.AWS.DeviceFarm.Types.TestGridSessionArtifact
+  ( TestGridSessionArtifact (..),
+
+    -- * Smart constructor
+    mkTestGridSessionArtifact,
+
+    -- * Lenses
+    tgsaUrl,
+    tgsaType,
+    tgsaFilename,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Artifacts are video and other files that are produced in the process of running a browser in an automated context.
 --
---
---
--- /See:/ 'testGridSessionArtifact' smart constructor.
+-- /See:/ 'mkTestGridSessionArtifact' smart constructor.
 data TestGridSessionArtifact = TestGridSessionArtifact'
-  { _tgsaUrl ::
-      !(Maybe Text),
-    _tgsaType ::
-      !(Maybe TestGridSessionArtifactType),
-    _tgsaFilename :: !(Maybe Text)
+  { url ::
+      Lude.Maybe Lude.Text,
+    type' ::
+      Lude.Maybe TestGridSessionArtifactType,
+    filename :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridSessionArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgsaUrl' - A semi-stable URL to the content of the object.
---
--- * 'tgsaType' - The kind of artifact.
---
--- * 'tgsaFilename' - The file name of the artifact.
-testGridSessionArtifact ::
+-- * 'filename' - The file name of the artifact.
+-- * 'type'' - The kind of artifact.
+-- * 'url' - A semi-stable URL to the content of the object.
+mkTestGridSessionArtifact ::
   TestGridSessionArtifact
-testGridSessionArtifact =
+mkTestGridSessionArtifact =
   TestGridSessionArtifact'
-    { _tgsaUrl = Nothing,
-      _tgsaType = Nothing,
-      _tgsaFilename = Nothing
+    { url = Lude.Nothing,
+      type' = Lude.Nothing,
+      filename = Lude.Nothing
     }
 
 -- | A semi-stable URL to the content of the object.
-tgsaUrl :: Lens' TestGridSessionArtifact (Maybe Text)
-tgsaUrl = lens _tgsaUrl (\s a -> s {_tgsaUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaUrl :: Lens.Lens' TestGridSessionArtifact (Lude.Maybe Lude.Text)
+tgsaUrl = Lens.lens (url :: TestGridSessionArtifact -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: TestGridSessionArtifact)
+{-# DEPRECATED tgsaUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The kind of artifact.
-tgsaType :: Lens' TestGridSessionArtifact (Maybe TestGridSessionArtifactType)
-tgsaType = lens _tgsaType (\s a -> s {_tgsaType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaType :: Lens.Lens' TestGridSessionArtifact (Lude.Maybe TestGridSessionArtifactType)
+tgsaType = Lens.lens (type' :: TestGridSessionArtifact -> Lude.Maybe TestGridSessionArtifactType) (\s a -> s {type' = a} :: TestGridSessionArtifact)
+{-# DEPRECATED tgsaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The file name of the artifact.
-tgsaFilename :: Lens' TestGridSessionArtifact (Maybe Text)
-tgsaFilename = lens _tgsaFilename (\s a -> s {_tgsaFilename = a})
+--
+-- /Note:/ Consider using 'filename' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgsaFilename :: Lens.Lens' TestGridSessionArtifact (Lude.Maybe Lude.Text)
+tgsaFilename = Lens.lens (filename :: TestGridSessionArtifact -> Lude.Maybe Lude.Text) (\s a -> s {filename = a} :: TestGridSessionArtifact)
+{-# DEPRECATED tgsaFilename "Use generic-lens or generic-optics with 'filename' instead." #-}
 
-instance FromJSON TestGridSessionArtifact where
+instance Lude.FromJSON TestGridSessionArtifact where
   parseJSON =
-    withObject
+    Lude.withObject
       "TestGridSessionArtifact"
       ( \x ->
           TestGridSessionArtifact'
-            <$> (x .:? "url") <*> (x .:? "type") <*> (x .:? "filename")
+            Lude.<$> (x Lude..:? "url")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "filename")
       )
-
-instance Hashable TestGridSessionArtifact
-
-instance NFData TestGridSessionArtifact

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewResultDetail where
+module Network.AWS.MechanicalTurk.Types.ReviewResultDetail
+  ( ReviewResultDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReviewResultDetail,
+
+    -- * Lenses
+    rrdValue,
+    rrdActionId,
+    rrdSubjectType,
+    rrdKey,
+    rrdQuestionId,
+    rrdSubjectId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data structure is returned multiple times for each result specified in the Review Policy.
 --
---
---
--- /See:/ 'reviewResultDetail' smart constructor.
+-- /See:/ 'mkReviewResultDetail' smart constructor.
 data ReviewResultDetail = ReviewResultDetail'
-  { _rrdValue ::
-      !(Maybe Text),
-    _rrdActionId :: !(Maybe Text),
-    _rrdSubjectType :: !(Maybe Text),
-    _rrdKey :: !(Maybe Text),
-    _rrdQuestionId :: !(Maybe Text),
-    _rrdSubjectId :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    actionId :: Lude.Maybe Lude.Text,
+    subjectType :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text,
+    questionId :: Lude.Maybe Lude.Text,
+    subjectId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewResultDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrdValue' - The values of Key provided by the review policies you have selected.
---
--- * 'rrdActionId' - A unique identifier of the Review action result.
---
--- * 'rrdSubjectType' - The type of the object from the SubjectId field.
---
--- * 'rrdKey' - Key identifies the particular piece of reviewed information.
---
--- * 'rrdQuestionId' - Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT.
---
--- * 'rrdSubjectId' - The HITID or AssignmentId about which this result was taken. Note that HIT-level Review Policies will often emit results about both the HIT itself and its Assignments, while Assignment-level review policies generally only emit results about the Assignment itself.
-reviewResultDetail ::
+-- * 'actionId' - A unique identifier of the Review action result.
+-- * 'key' - Key identifies the particular piece of reviewed information.
+-- * 'questionId' - Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT.
+-- * 'subjectId' - The HITID or AssignmentId about which this result was taken. Note that HIT-level Review Policies will often emit results about both the HIT itself and its Assignments, while Assignment-level review policies generally only emit results about the Assignment itself.
+-- * 'subjectType' - The type of the object from the SubjectId field.
+-- * 'value' - The values of Key provided by the review policies you have selected.
+mkReviewResultDetail ::
   ReviewResultDetail
-reviewResultDetail =
+mkReviewResultDetail =
   ReviewResultDetail'
-    { _rrdValue = Nothing,
-      _rrdActionId = Nothing,
-      _rrdSubjectType = Nothing,
-      _rrdKey = Nothing,
-      _rrdQuestionId = Nothing,
-      _rrdSubjectId = Nothing
+    { value = Lude.Nothing,
+      actionId = Lude.Nothing,
+      subjectType = Lude.Nothing,
+      key = Lude.Nothing,
+      questionId = Lude.Nothing,
+      subjectId = Lude.Nothing
     }
 
 -- | The values of Key provided by the review policies you have selected.
-rrdValue :: Lens' ReviewResultDetail (Maybe Text)
-rrdValue = lens _rrdValue (\s a -> s {_rrdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdValue :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdValue = Lens.lens (value :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | A unique identifier of the Review action result.
-rrdActionId :: Lens' ReviewResultDetail (Maybe Text)
-rrdActionId = lens _rrdActionId (\s a -> s {_rrdActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdActionId :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdActionId = Lens.lens (actionId :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The type of the object from the SubjectId field.
-rrdSubjectType :: Lens' ReviewResultDetail (Maybe Text)
-rrdSubjectType = lens _rrdSubjectType (\s a -> s {_rrdSubjectType = a})
+--
+-- /Note:/ Consider using 'subjectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdSubjectType :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdSubjectType = Lens.lens (subjectType :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {subjectType = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdSubjectType "Use generic-lens or generic-optics with 'subjectType' instead." #-}
 
 -- | Key identifies the particular piece of reviewed information.
-rrdKey :: Lens' ReviewResultDetail (Maybe Text)
-rrdKey = lens _rrdKey (\s a -> s {_rrdKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdKey :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdKey = Lens.lens (key :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT.
-rrdQuestionId :: Lens' ReviewResultDetail (Maybe Text)
-rrdQuestionId = lens _rrdQuestionId (\s a -> s {_rrdQuestionId = a})
+--
+-- /Note:/ Consider using 'questionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdQuestionId :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdQuestionId = Lens.lens (questionId :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {questionId = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdQuestionId "Use generic-lens or generic-optics with 'questionId' instead." #-}
 
 -- | The HITID or AssignmentId about which this result was taken. Note that HIT-level Review Policies will often emit results about both the HIT itself and its Assignments, while Assignment-level review policies generally only emit results about the Assignment itself.
-rrdSubjectId :: Lens' ReviewResultDetail (Maybe Text)
-rrdSubjectId = lens _rrdSubjectId (\s a -> s {_rrdSubjectId = a})
+--
+-- /Note:/ Consider using 'subjectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdSubjectId :: Lens.Lens' ReviewResultDetail (Lude.Maybe Lude.Text)
+rrdSubjectId = Lens.lens (subjectId :: ReviewResultDetail -> Lude.Maybe Lude.Text) (\s a -> s {subjectId = a} :: ReviewResultDetail)
+{-# DEPRECATED rrdSubjectId "Use generic-lens or generic-optics with 'subjectId' instead." #-}
 
-instance FromJSON ReviewResultDetail where
+instance Lude.FromJSON ReviewResultDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReviewResultDetail"
       ( \x ->
           ReviewResultDetail'
-            <$> (x .:? "Value")
-            <*> (x .:? "ActionId")
-            <*> (x .:? "SubjectType")
-            <*> (x .:? "Key")
-            <*> (x .:? "QuestionId")
-            <*> (x .:? "SubjectId")
+            Lude.<$> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "ActionId")
+            Lude.<*> (x Lude..:? "SubjectType")
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "QuestionId")
+            Lude.<*> (x Lude..:? "SubjectId")
       )
-
-instance Hashable ReviewResultDetail
-
-instance NFData ReviewResultDetail

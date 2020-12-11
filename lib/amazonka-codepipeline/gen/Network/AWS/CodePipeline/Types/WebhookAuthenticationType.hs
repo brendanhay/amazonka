@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.WebhookAuthenticationType where
+module Network.AWS.CodePipeline.Types.WebhookAuthenticationType
+  ( WebhookAuthenticationType
+      ( WebhookAuthenticationType',
+        GithubHmac,
+        IP,
+        Unauthenticated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WebhookAuthenticationType
-  = GithubHmac
-  | IP
-  | Unauthenticated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WebhookAuthenticationType = WebhookAuthenticationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WebhookAuthenticationType where
-  parser =
-    takeLowerText >>= \case
-      "github_hmac" -> pure GithubHmac
-      "ip" -> pure IP
-      "unauthenticated" -> pure Unauthenticated
-      e ->
-        fromTextError $
-          "Failure parsing WebhookAuthenticationType from value: '" <> e
-            <> "'. Accepted values: github_hmac, ip, unauthenticated"
+pattern GithubHmac :: WebhookAuthenticationType
+pattern GithubHmac = WebhookAuthenticationType' "GITHUB_HMAC"
 
-instance ToText WebhookAuthenticationType where
-  toText = \case
-    GithubHmac -> "GITHUB_HMAC"
-    IP -> "IP"
-    Unauthenticated -> "UNAUTHENTICATED"
+pattern IP :: WebhookAuthenticationType
+pattern IP = WebhookAuthenticationType' "IP"
 
-instance Hashable WebhookAuthenticationType
+pattern Unauthenticated :: WebhookAuthenticationType
+pattern Unauthenticated = WebhookAuthenticationType' "UNAUTHENTICATED"
 
-instance NFData WebhookAuthenticationType
-
-instance ToByteString WebhookAuthenticationType
-
-instance ToQuery WebhookAuthenticationType
-
-instance ToHeader WebhookAuthenticationType
-
-instance ToJSON WebhookAuthenticationType where
-  toJSON = toJSONText
-
-instance FromJSON WebhookAuthenticationType where
-  parseJSON = parseJSONText "WebhookAuthenticationType"
+{-# COMPLETE
+  GithubHmac,
+  IP,
+  Unauthenticated,
+  WebhookAuthenticationType'
+  #-}

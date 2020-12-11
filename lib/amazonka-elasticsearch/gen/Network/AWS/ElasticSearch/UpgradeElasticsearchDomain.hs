@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.
 module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
-  ( -- * Creating a Request
-    upgradeElasticsearchDomain,
-    UpgradeElasticsearchDomain,
+  ( -- * Creating a request
+    UpgradeElasticsearchDomain (..),
+    mkUpgradeElasticsearchDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uedPerformCheckOnly,
     uedDomainName,
     uedTargetVersion,
 
-    -- * Destructuring the Response
-    upgradeElasticsearchDomainResponse,
-    UpgradeElasticsearchDomainResponse,
+    -- * Destructuring the response
+    UpgradeElasticsearchDomainResponse (..),
+    mkUpgradeElasticsearchDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uedrsDomainName,
     uedrsPerformCheckOnly,
     uedrsTargetVersion,
@@ -41,150 +36,166 @@ module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for request parameters to @'UpgradeElasticsearchDomain' @ operation.
 --
---
---
--- /See:/ 'upgradeElasticsearchDomain' smart constructor.
+-- /See:/ 'mkUpgradeElasticsearchDomain' smart constructor.
 data UpgradeElasticsearchDomain = UpgradeElasticsearchDomain'
-  { _uedPerformCheckOnly ::
-      !(Maybe Bool),
-    _uedDomainName :: !Text,
-    _uedTargetVersion :: !Text
+  { performCheckOnly ::
+      Lude.Maybe Lude.Bool,
+    domainName :: Lude.Text,
+    targetVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeElasticsearchDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uedPerformCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
---
--- * 'uedDomainName' - Undocumented member.
---
--- * 'uedTargetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
-upgradeElasticsearchDomain ::
-  -- | 'uedDomainName'
-  Text ->
-  -- | 'uedTargetVersion'
-  Text ->
+-- * 'domainName' - Undocumented field.
+-- * 'performCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+-- * 'targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
+mkUpgradeElasticsearchDomain ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'targetVersion'
+  Lude.Text ->
   UpgradeElasticsearchDomain
-upgradeElasticsearchDomain pDomainName_ pTargetVersion_ =
+mkUpgradeElasticsearchDomain pDomainName_ pTargetVersion_ =
   UpgradeElasticsearchDomain'
-    { _uedPerformCheckOnly = Nothing,
-      _uedDomainName = pDomainName_,
-      _uedTargetVersion = pTargetVersion_
+    { performCheckOnly = Lude.Nothing,
+      domainName = pDomainName_,
+      targetVersion = pTargetVersion_
     }
 
 -- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
-uedPerformCheckOnly :: Lens' UpgradeElasticsearchDomain (Maybe Bool)
-uedPerformCheckOnly = lens _uedPerformCheckOnly (\s a -> s {_uedPerformCheckOnly = a})
+--
+-- /Note:/ Consider using 'performCheckOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedPerformCheckOnly :: Lens.Lens' UpgradeElasticsearchDomain (Lude.Maybe Lude.Bool)
+uedPerformCheckOnly = Lens.lens (performCheckOnly :: UpgradeElasticsearchDomain -> Lude.Maybe Lude.Bool) (\s a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomain)
+{-# DEPRECATED uedPerformCheckOnly "Use generic-lens or generic-optics with 'performCheckOnly' instead." #-}
 
--- | Undocumented member.
-uedDomainName :: Lens' UpgradeElasticsearchDomain Text
-uedDomainName = lens _uedDomainName (\s a -> s {_uedDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedDomainName :: Lens.Lens' UpgradeElasticsearchDomain Lude.Text
+uedDomainName = Lens.lens (domainName :: UpgradeElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: UpgradeElasticsearchDomain)
+{-# DEPRECATED uedDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The version of Elasticsearch that you intend to upgrade the domain to.
-uedTargetVersion :: Lens' UpgradeElasticsearchDomain Text
-uedTargetVersion = lens _uedTargetVersion (\s a -> s {_uedTargetVersion = a})
+--
+-- /Note:/ Consider using 'targetVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedTargetVersion :: Lens.Lens' UpgradeElasticsearchDomain Lude.Text
+uedTargetVersion = Lens.lens (targetVersion :: UpgradeElasticsearchDomain -> Lude.Text) (\s a -> s {targetVersion = a} :: UpgradeElasticsearchDomain)
+{-# DEPRECATED uedTargetVersion "Use generic-lens or generic-optics with 'targetVersion' instead." #-}
 
-instance AWSRequest UpgradeElasticsearchDomain where
+instance Lude.AWSRequest UpgradeElasticsearchDomain where
   type
     Rs UpgradeElasticsearchDomain =
       UpgradeElasticsearchDomainResponse
-  request = postJSON elasticSearch
+  request = Req.postJSON elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpgradeElasticsearchDomainResponse'
-            <$> (x .?> "DomainName")
-            <*> (x .?> "PerformCheckOnly")
-            <*> (x .?> "TargetVersion")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainName")
+            Lude.<*> (x Lude..?> "PerformCheckOnly")
+            Lude.<*> (x Lude..?> "TargetVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpgradeElasticsearchDomain
+instance Lude.ToHeaders UpgradeElasticsearchDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpgradeElasticsearchDomain
-
-instance ToHeaders UpgradeElasticsearchDomain where
-  toHeaders = const mempty
-
-instance ToJSON UpgradeElasticsearchDomain where
+instance Lude.ToJSON UpgradeElasticsearchDomain where
   toJSON UpgradeElasticsearchDomain' {..} =
-    object
-      ( catMaybes
-          [ ("PerformCheckOnly" .=) <$> _uedPerformCheckOnly,
-            Just ("DomainName" .= _uedDomainName),
-            Just ("TargetVersion" .= _uedTargetVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PerformCheckOnly" Lude..=) Lude.<$> performCheckOnly,
+            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("TargetVersion" Lude..= targetVersion)
           ]
       )
 
-instance ToPath UpgradeElasticsearchDomain where
-  toPath = const "/2015-01-01/es/upgradeDomain"
+instance Lude.ToPath UpgradeElasticsearchDomain where
+  toPath = Lude.const "/2015-01-01/es/upgradeDomain"
 
-instance ToQuery UpgradeElasticsearchDomain where
-  toQuery = const mempty
+instance Lude.ToQuery UpgradeElasticsearchDomain where
+  toQuery = Lude.const Lude.mempty
 
 -- | Container for response returned by @'UpgradeElasticsearchDomain' @ operation.
 --
---
---
--- /See:/ 'upgradeElasticsearchDomainResponse' smart constructor.
+-- /See:/ 'mkUpgradeElasticsearchDomainResponse' smart constructor.
 data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
-  { _uedrsDomainName ::
-      !(Maybe Text),
-    _uedrsPerformCheckOnly ::
-      !(Maybe Bool),
-    _uedrsTargetVersion ::
-      !(Maybe Text),
-    _uedrsResponseStatus ::
-      !Int
+  { domainName ::
+      Lude.Maybe Lude.Text,
+    performCheckOnly ::
+      Lude.Maybe Lude.Bool,
+    targetVersion ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uedrsDomainName' - Undocumented member.
---
--- * 'uedrsPerformCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
---
--- * 'uedrsTargetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
---
--- * 'uedrsResponseStatus' - -- | The response status code.
-upgradeElasticsearchDomainResponse ::
-  -- | 'uedrsResponseStatus'
-  Int ->
+-- * 'domainName' - Undocumented field.
+-- * 'performCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+-- * 'responseStatus' - The response status code.
+-- * 'targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
+mkUpgradeElasticsearchDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpgradeElasticsearchDomainResponse
-upgradeElasticsearchDomainResponse pResponseStatus_ =
+mkUpgradeElasticsearchDomainResponse pResponseStatus_ =
   UpgradeElasticsearchDomainResponse'
-    { _uedrsDomainName = Nothing,
-      _uedrsPerformCheckOnly = Nothing,
-      _uedrsTargetVersion = Nothing,
-      _uedrsResponseStatus = pResponseStatus_
+    { domainName = Lude.Nothing,
+      performCheckOnly = Lude.Nothing,
+      targetVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-uedrsDomainName :: Lens' UpgradeElasticsearchDomainResponse (Maybe Text)
-uedrsDomainName = lens _uedrsDomainName (\s a -> s {_uedrsDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedrsDomainName :: Lens.Lens' UpgradeElasticsearchDomainResponse (Lude.Maybe Lude.Text)
+uedrsDomainName = Lens.lens (domainName :: UpgradeElasticsearchDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: UpgradeElasticsearchDomainResponse)
+{-# DEPRECATED uedrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
-uedrsPerformCheckOnly :: Lens' UpgradeElasticsearchDomainResponse (Maybe Bool)
-uedrsPerformCheckOnly = lens _uedrsPerformCheckOnly (\s a -> s {_uedrsPerformCheckOnly = a})
+--
+-- /Note:/ Consider using 'performCheckOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedrsPerformCheckOnly :: Lens.Lens' UpgradeElasticsearchDomainResponse (Lude.Maybe Lude.Bool)
+uedrsPerformCheckOnly = Lens.lens (performCheckOnly :: UpgradeElasticsearchDomainResponse -> Lude.Maybe Lude.Bool) (\s a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomainResponse)
+{-# DEPRECATED uedrsPerformCheckOnly "Use generic-lens or generic-optics with 'performCheckOnly' instead." #-}
 
 -- | The version of Elasticsearch that you intend to upgrade the domain to.
-uedrsTargetVersion :: Lens' UpgradeElasticsearchDomainResponse (Maybe Text)
-uedrsTargetVersion = lens _uedrsTargetVersion (\s a -> s {_uedrsTargetVersion = a})
+--
+-- /Note:/ Consider using 'targetVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedrsTargetVersion :: Lens.Lens' UpgradeElasticsearchDomainResponse (Lude.Maybe Lude.Text)
+uedrsTargetVersion = Lens.lens (targetVersion :: UpgradeElasticsearchDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {targetVersion = a} :: UpgradeElasticsearchDomainResponse)
+{-# DEPRECATED uedrsTargetVersion "Use generic-lens or generic-optics with 'targetVersion' instead." #-}
 
--- | -- | The response status code.
-uedrsResponseStatus :: Lens' UpgradeElasticsearchDomainResponse Int
-uedrsResponseStatus = lens _uedrsResponseStatus (\s a -> s {_uedrsResponseStatus = a})
-
-instance NFData UpgradeElasticsearchDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedrsResponseStatus :: Lens.Lens' UpgradeElasticsearchDomainResponse Lude.Int
+uedrsResponseStatus = Lens.lens (responseStatus :: UpgradeElasticsearchDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpgradeElasticsearchDomainResponse)
+{-# DEPRECATED uedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

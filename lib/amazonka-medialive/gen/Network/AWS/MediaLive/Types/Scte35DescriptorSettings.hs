@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35DescriptorSettings where
+module Network.AWS.MediaLive.Types.Scte35DescriptorSettings
+  ( Scte35DescriptorSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkScte35DescriptorSettings,
+
+    -- * Lenses
+    sdsSegmentationDescriptorScte35DescriptorSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | SCTE-35 Descriptor settings.
 --
--- /See:/ 'scte35DescriptorSettings' smart constructor.
+-- /See:/ 'mkScte35DescriptorSettings' smart constructor.
 newtype Scte35DescriptorSettings = Scte35DescriptorSettings'
-  { _sdsSegmentationDescriptorScte35DescriptorSettings ::
+  { segmentationDescriptorScte35DescriptorSettings ::
       Scte35SegmentationDescriptor
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35DescriptorSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdsSegmentationDescriptorScte35DescriptorSettings' - SCTE-35 Segmentation Descriptor.
-scte35DescriptorSettings ::
-  -- | 'sdsSegmentationDescriptorScte35DescriptorSettings'
+-- * 'segmentationDescriptorScte35DescriptorSettings' - SCTE-35 Segmentation Descriptor.
+mkScte35DescriptorSettings ::
+  -- | 'segmentationDescriptorScte35DescriptorSettings'
   Scte35SegmentationDescriptor ->
   Scte35DescriptorSettings
-scte35DescriptorSettings
+mkScte35DescriptorSettings
   pSegmentationDescriptorScte35DescriptorSettings_ =
     Scte35DescriptorSettings'
-      { _sdsSegmentationDescriptorScte35DescriptorSettings =
+      { segmentationDescriptorScte35DescriptorSettings =
           pSegmentationDescriptorScte35DescriptorSettings_
       }
 
 -- | SCTE-35 Segmentation Descriptor.
-sdsSegmentationDescriptorScte35DescriptorSettings :: Lens' Scte35DescriptorSettings Scte35SegmentationDescriptor
-sdsSegmentationDescriptorScte35DescriptorSettings = lens _sdsSegmentationDescriptorScte35DescriptorSettings (\s a -> s {_sdsSegmentationDescriptorScte35DescriptorSettings = a})
+--
+-- /Note:/ Consider using 'segmentationDescriptorScte35DescriptorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsSegmentationDescriptorScte35DescriptorSettings :: Lens.Lens' Scte35DescriptorSettings Scte35SegmentationDescriptor
+sdsSegmentationDescriptorScte35DescriptorSettings = Lens.lens (segmentationDescriptorScte35DescriptorSettings :: Scte35DescriptorSettings -> Scte35SegmentationDescriptor) (\s a -> s {segmentationDescriptorScte35DescriptorSettings = a} :: Scte35DescriptorSettings)
+{-# DEPRECATED sdsSegmentationDescriptorScte35DescriptorSettings "Use generic-lens or generic-optics with 'segmentationDescriptorScte35DescriptorSettings' instead." #-}
 
-instance FromJSON Scte35DescriptorSettings where
+instance Lude.FromJSON Scte35DescriptorSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scte35DescriptorSettings"
       ( \x ->
           Scte35DescriptorSettings'
-            <$> (x .: "segmentationDescriptorScte35DescriptorSettings")
+            Lude.<$> (x Lude..: "segmentationDescriptorScte35DescriptorSettings")
       )
 
-instance Hashable Scte35DescriptorSettings
-
-instance NFData Scte35DescriptorSettings
-
-instance ToJSON Scte35DescriptorSettings where
+instance Lude.ToJSON Scte35DescriptorSettings where
   toJSON Scte35DescriptorSettings' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "segmentationDescriptorScte35DescriptorSettings"
-                  .= _sdsSegmentationDescriptorScte35DescriptorSettings
+                  Lude..= segmentationDescriptorScte35DescriptorSettings
               )
           ]
       )

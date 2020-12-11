@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ServiceField where
+module Network.AWS.ECS.Types.ServiceField
+  ( ServiceField
+      ( ServiceField',
+        SFTags
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceField = SFTags
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceField = ServiceField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceField where
-  parser =
-    takeLowerText >>= \case
-      "tags" -> pure SFTags
-      e ->
-        fromTextError $
-          "Failure parsing ServiceField from value: '" <> e
-            <> "'. Accepted values: tags"
+pattern SFTags :: ServiceField
+pattern SFTags = ServiceField' "TAGS"
 
-instance ToText ServiceField where
-  toText = \case
-    SFTags -> "TAGS"
-
-instance Hashable ServiceField
-
-instance NFData ServiceField
-
-instance ToByteString ServiceField
-
-instance ToQuery ServiceField
-
-instance ToHeader ServiceField
-
-instance ToJSON ServiceField where
-  toJSON = toJSONText
+{-# COMPLETE
+  SFTags,
+  ServiceField'
+  #-}

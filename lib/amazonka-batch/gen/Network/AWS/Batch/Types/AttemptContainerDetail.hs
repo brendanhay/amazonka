@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.AttemptContainerDetail where
+module Network.AWS.Batch.Types.AttemptContainerDetail
+  ( AttemptContainerDetail (..),
+
+    -- * Smart constructor
+    mkAttemptContainerDetail,
+
+    -- * Lenses
+    acdNetworkInterfaces,
+    acdTaskARN,
+    acdContainerInstanceARN,
+    acdReason,
+    acdLogStreamName,
+    acdExitCode,
+  )
+where
 
 import Network.AWS.Batch.Types.NetworkInterface
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the details of a container that is part of a job attempt.
 --
---
---
--- /See:/ 'attemptContainerDetail' smart constructor.
+-- /See:/ 'mkAttemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
-  { _acdNetworkInterfaces ::
-      !(Maybe [NetworkInterface]),
-    _acdTaskARN :: !(Maybe Text),
-    _acdContainerInstanceARN :: !(Maybe Text),
-    _acdReason :: !(Maybe Text),
-    _acdLogStreamName :: !(Maybe Text),
-    _acdExitCode :: !(Maybe Int)
+  { networkInterfaces ::
+      Lude.Maybe [NetworkInterface],
+    taskARN :: Lude.Maybe Lude.Text,
+    containerInstanceARN :: Lude.Maybe Lude.Text,
+    reason :: Lude.Maybe Lude.Text,
+    logStreamName :: Lude.Maybe Lude.Text,
+    exitCode :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttemptContainerDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acdNetworkInterfaces' - The network interfaces associated with the job attempt.
---
--- * 'acdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
---
--- * 'acdContainerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
---
--- * 'acdReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
---
--- * 'acdLogStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
---
--- * 'acdExitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
-attemptContainerDetail ::
+-- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
+-- * 'exitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
+-- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
+-- * 'networkInterfaces' - The network interfaces associated with the job attempt.
+-- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+-- * 'taskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
+mkAttemptContainerDetail ::
   AttemptContainerDetail
-attemptContainerDetail =
+mkAttemptContainerDetail =
   AttemptContainerDetail'
-    { _acdNetworkInterfaces = Nothing,
-      _acdTaskARN = Nothing,
-      _acdContainerInstanceARN = Nothing,
-      _acdReason = Nothing,
-      _acdLogStreamName = Nothing,
-      _acdExitCode = Nothing
+    { networkInterfaces = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      containerInstanceARN = Lude.Nothing,
+      reason = Lude.Nothing,
+      logStreamName = Lude.Nothing,
+      exitCode = Lude.Nothing
     }
 
 -- | The network interfaces associated with the job attempt.
-acdNetworkInterfaces :: Lens' AttemptContainerDetail [NetworkInterface]
-acdNetworkInterfaces = lens _acdNetworkInterfaces (\s a -> s {_acdNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdNetworkInterfaces :: Lens.Lens' AttemptContainerDetail (Lude.Maybe [NetworkInterface])
+acdNetworkInterfaces = Lens.lens (networkInterfaces :: AttemptContainerDetail -> Lude.Maybe [NetworkInterface]) (\s a -> s {networkInterfaces = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
-acdTaskARN :: Lens' AttemptContainerDetail (Maybe Text)
-acdTaskARN = lens _acdTaskARN (\s a -> s {_acdTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdTaskARN :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
+acdTaskARN = Lens.lens (taskARN :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
-acdContainerInstanceARN :: Lens' AttemptContainerDetail (Maybe Text)
-acdContainerInstanceARN = lens _acdContainerInstanceARN (\s a -> s {_acdContainerInstanceARN = a})
+--
+-- /Note:/ Consider using 'containerInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdContainerInstanceARN :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
+acdContainerInstanceARN = Lens.lens (containerInstanceARN :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {containerInstanceARN = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdContainerInstanceARN "Use generic-lens or generic-optics with 'containerInstanceARN' instead." #-}
 
 -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
-acdReason :: Lens' AttemptContainerDetail (Maybe Text)
-acdReason = lens _acdReason (\s a -> s {_acdReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdReason :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
+acdReason = Lens.lens (reason :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
-acdLogStreamName :: Lens' AttemptContainerDetail (Maybe Text)
-acdLogStreamName = lens _acdLogStreamName (\s a -> s {_acdLogStreamName = a})
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdLogStreamName :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Text)
+acdLogStreamName = Lens.lens (logStreamName :: AttemptContainerDetail -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | The exit code for the job attempt. A non-zero exit code is considered a failure.
-acdExitCode :: Lens' AttemptContainerDetail (Maybe Int)
-acdExitCode = lens _acdExitCode (\s a -> s {_acdExitCode = a})
+--
+-- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acdExitCode :: Lens.Lens' AttemptContainerDetail (Lude.Maybe Lude.Int)
+acdExitCode = Lens.lens (exitCode :: AttemptContainerDetail -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: AttemptContainerDetail)
+{-# DEPRECATED acdExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
 
-instance FromJSON AttemptContainerDetail where
+instance Lude.FromJSON AttemptContainerDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttemptContainerDetail"
       ( \x ->
           AttemptContainerDetail'
-            <$> (x .:? "networkInterfaces" .!= mempty)
-            <*> (x .:? "taskArn")
-            <*> (x .:? "containerInstanceArn")
-            <*> (x .:? "reason")
-            <*> (x .:? "logStreamName")
-            <*> (x .:? "exitCode")
+            Lude.<$> (x Lude..:? "networkInterfaces" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "taskArn")
+            Lude.<*> (x Lude..:? "containerInstanceArn")
+            Lude.<*> (x Lude..:? "reason")
+            Lude.<*> (x Lude..:? "logStreamName")
+            Lude.<*> (x Lude..:? "exitCode")
       )
-
-instance Hashable AttemptContainerDetail
-
-instance NFData AttemptContainerDetail

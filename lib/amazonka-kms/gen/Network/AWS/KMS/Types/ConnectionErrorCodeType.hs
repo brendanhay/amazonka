@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.ConnectionErrorCodeType where
+module Network.AWS.KMS.Types.ConnectionErrorCodeType
+  ( ConnectionErrorCodeType
+      ( ConnectionErrorCodeType',
+        ClusterNotFound,
+        InsufficientCloudhsmHSMs,
+        InternalError,
+        InvalidCredentials,
+        NetworkErrors,
+        SubnetNotFound,
+        UserLockedOut,
+        UserLoggedIn,
+        UserNotFound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConnectionErrorCodeType
-  = ClusterNotFound
-  | InsufficientCloudhsmHSMs
-  | InternalError
-  | InvalidCredentials
-  | NetworkErrors
-  | SubnetNotFound
-  | UserLockedOut
-  | UserLoggedIn
-  | UserNotFound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConnectionErrorCodeType = ConnectionErrorCodeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConnectionErrorCodeType where
-  parser =
-    takeLowerText >>= \case
-      "cluster_not_found" -> pure ClusterNotFound
-      "insufficient_cloudhsm_hsms" -> pure InsufficientCloudhsmHSMs
-      "internal_error" -> pure InternalError
-      "invalid_credentials" -> pure InvalidCredentials
-      "network_errors" -> pure NetworkErrors
-      "subnet_not_found" -> pure SubnetNotFound
-      "user_locked_out" -> pure UserLockedOut
-      "user_logged_in" -> pure UserLoggedIn
-      "user_not_found" -> pure UserNotFound
-      e ->
-        fromTextError $
-          "Failure parsing ConnectionErrorCodeType from value: '" <> e
-            <> "'. Accepted values: cluster_not_found, insufficient_cloudhsm_hsms, internal_error, invalid_credentials, network_errors, subnet_not_found, user_locked_out, user_logged_in, user_not_found"
+pattern ClusterNotFound :: ConnectionErrorCodeType
+pattern ClusterNotFound = ConnectionErrorCodeType' "CLUSTER_NOT_FOUND"
 
-instance ToText ConnectionErrorCodeType where
-  toText = \case
-    ClusterNotFound -> "CLUSTER_NOT_FOUND"
-    InsufficientCloudhsmHSMs -> "INSUFFICIENT_CLOUDHSM_HSMS"
-    InternalError -> "INTERNAL_ERROR"
-    InvalidCredentials -> "INVALID_CREDENTIALS"
-    NetworkErrors -> "NETWORK_ERRORS"
-    SubnetNotFound -> "SUBNET_NOT_FOUND"
-    UserLockedOut -> "USER_LOCKED_OUT"
-    UserLoggedIn -> "USER_LOGGED_IN"
-    UserNotFound -> "USER_NOT_FOUND"
+pattern InsufficientCloudhsmHSMs :: ConnectionErrorCodeType
+pattern InsufficientCloudhsmHSMs = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
 
-instance Hashable ConnectionErrorCodeType
+pattern InternalError :: ConnectionErrorCodeType
+pattern InternalError = ConnectionErrorCodeType' "INTERNAL_ERROR"
 
-instance NFData ConnectionErrorCodeType
+pattern InvalidCredentials :: ConnectionErrorCodeType
+pattern InvalidCredentials = ConnectionErrorCodeType' "INVALID_CREDENTIALS"
 
-instance ToByteString ConnectionErrorCodeType
+pattern NetworkErrors :: ConnectionErrorCodeType
+pattern NetworkErrors = ConnectionErrorCodeType' "NETWORK_ERRORS"
 
-instance ToQuery ConnectionErrorCodeType
+pattern SubnetNotFound :: ConnectionErrorCodeType
+pattern SubnetNotFound = ConnectionErrorCodeType' "SUBNET_NOT_FOUND"
 
-instance ToHeader ConnectionErrorCodeType
+pattern UserLockedOut :: ConnectionErrorCodeType
+pattern UserLockedOut = ConnectionErrorCodeType' "USER_LOCKED_OUT"
 
-instance FromJSON ConnectionErrorCodeType where
-  parseJSON = parseJSONText "ConnectionErrorCodeType"
+pattern UserLoggedIn :: ConnectionErrorCodeType
+pattern UserLoggedIn = ConnectionErrorCodeType' "USER_LOGGED_IN"
+
+pattern UserNotFound :: ConnectionErrorCodeType
+pattern UserNotFound = ConnectionErrorCodeType' "USER_NOT_FOUND"
+
+{-# COMPLETE
+  ClusterNotFound,
+  InsufficientCloudhsmHSMs,
+  InternalError,
+  InvalidCredentials,
+  NetworkErrors,
+  SubnetNotFound,
+  UserLockedOut,
+  UserLoggedIn,
+  UserNotFound,
+  ConnectionErrorCodeType'
+  #-}

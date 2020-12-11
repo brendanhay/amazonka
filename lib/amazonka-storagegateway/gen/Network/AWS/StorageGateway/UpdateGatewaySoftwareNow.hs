@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,140 @@
 --
 -- Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
 --
---
 -- /Important:/ A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing your Windows iSCSI settings> and <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing your Linux iSCSI settings> , respectively.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-  ( -- * Creating a Request
-    updateGatewaySoftwareNow,
-    UpdateGatewaySoftwareNow,
+  ( -- * Creating a request
+    UpdateGatewaySoftwareNow (..),
+    mkUpdateGatewaySoftwareNow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugsnGatewayARN,
 
-    -- * Destructuring the Response
-    updateGatewaySoftwareNowResponse,
-    UpdateGatewaySoftwareNowResponse,
+    -- * Destructuring the response
+    UpdateGatewaySoftwareNowResponse (..),
+    mkUpdateGatewaySoftwareNowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugsnrsGatewayARN,
     ugsnrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.
 --
---
---
--- /See:/ 'updateGatewaySoftwareNow' smart constructor.
+-- /See:/ 'mkUpdateGatewaySoftwareNow' smart constructor.
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-  { _ugsnGatewayARN ::
-      Text
+  { gatewayARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewaySoftwareNow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugsnGatewayARN' - Undocumented member.
-updateGatewaySoftwareNow ::
-  -- | 'ugsnGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkUpdateGatewaySoftwareNow ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   UpdateGatewaySoftwareNow
-updateGatewaySoftwareNow pGatewayARN_ =
-  UpdateGatewaySoftwareNow' {_ugsnGatewayARN = pGatewayARN_}
+mkUpdateGatewaySoftwareNow pGatewayARN_ =
+  UpdateGatewaySoftwareNow' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
-ugsnGatewayARN = lens _ugsnGatewayARN (\s a -> s {_ugsnGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsnGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Lude.Text
+ugsnGatewayARN = Lens.lens (gatewayARN :: UpdateGatewaySoftwareNow -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNow)
+{-# DEPRECATED ugsnGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest UpdateGatewaySoftwareNow where
+instance Lude.AWSRequest UpdateGatewaySoftwareNow where
   type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGatewaySoftwareNowResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGatewaySoftwareNow
-
-instance NFData UpdateGatewaySoftwareNow
-
-instance ToHeaders UpdateGatewaySoftwareNow where
+instance Lude.ToHeaders UpdateGatewaySoftwareNow where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.UpdateGatewaySoftwareNow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.UpdateGatewaySoftwareNow" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGatewaySoftwareNow where
+instance Lude.ToJSON UpdateGatewaySoftwareNow where
   toJSON UpdateGatewaySoftwareNow' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _ugsnGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath UpdateGatewaySoftwareNow where
-  toPath = const "/"
+instance Lude.ToPath UpdateGatewaySoftwareNow where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGatewaySoftwareNow where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGatewaySoftwareNow where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway that was updated.
 --
---
---
--- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
+-- /See:/ 'mkUpdateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-  { _ugsnrsGatewayARN ::
-      !(Maybe Text),
-    _ugsnrsResponseStatus ::
-      !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewaySoftwareNowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugsnrsGatewayARN' - Undocumented member.
---
--- * 'ugsnrsResponseStatus' - -- | The response status code.
-updateGatewaySoftwareNowResponse ::
-  -- | 'ugsnrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateGatewaySoftwareNowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNowResponse pResponseStatus_ =
+mkUpdateGatewaySoftwareNowResponse pResponseStatus_ =
   UpdateGatewaySoftwareNowResponse'
-    { _ugsnrsGatewayARN = Nothing,
-      _ugsnrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\s a -> s {_ugsnrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsnrsGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Lude.Maybe Lude.Text)
+ugsnrsGatewayARN = Lens.lens (gatewayARN :: UpdateGatewaySoftwareNowResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNowResponse)
+{-# DEPRECATED ugsnrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
-ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\s a -> s {_ugsnrsResponseStatus = a})
-
-instance NFData UpdateGatewaySoftwareNowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsnrsResponseStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Lude.Int
+ugsnrsResponseStatus = Lens.lens (responseStatus :: UpdateGatewaySoftwareNowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGatewaySoftwareNowResponse)
+{-# DEPRECATED ugsnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

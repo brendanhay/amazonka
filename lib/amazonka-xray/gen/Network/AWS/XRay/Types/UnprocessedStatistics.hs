@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.UnprocessedStatistics where
+module Network.AWS.XRay.Types.UnprocessedStatistics
+  ( UnprocessedStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUnprocessedStatistics,
+
+    -- * Lenses
+    usRuleName,
+    usErrorCode,
+    usMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Sampling statistics from a call to 'GetSamplingTargets' that X-Ray could not process.
 --
---
---
--- /See:/ 'unprocessedStatistics' smart constructor.
+-- /See:/ 'mkUnprocessedStatistics' smart constructor.
 data UnprocessedStatistics = UnprocessedStatistics'
-  { _usRuleName ::
-      !(Maybe Text),
-    _usErrorCode :: !(Maybe Text),
-    _usMessage :: !(Maybe Text)
+  { ruleName ::
+      Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usRuleName' - The name of the sampling rule.
---
--- * 'usErrorCode' - The error code.
---
--- * 'usMessage' - The error message.
-unprocessedStatistics ::
+-- * 'errorCode' - The error code.
+-- * 'message' - The error message.
+-- * 'ruleName' - The name of the sampling rule.
+mkUnprocessedStatistics ::
   UnprocessedStatistics
-unprocessedStatistics =
+mkUnprocessedStatistics =
   UnprocessedStatistics'
-    { _usRuleName = Nothing,
-      _usErrorCode = Nothing,
-      _usMessage = Nothing
+    { ruleName = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The name of the sampling rule.
-usRuleName :: Lens' UnprocessedStatistics (Maybe Text)
-usRuleName = lens _usRuleName (\s a -> s {_usRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usRuleName :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
+usRuleName = Lens.lens (ruleName :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: UnprocessedStatistics)
+{-# DEPRECATED usRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The error code.
-usErrorCode :: Lens' UnprocessedStatistics (Maybe Text)
-usErrorCode = lens _usErrorCode (\s a -> s {_usErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usErrorCode :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
+usErrorCode = Lens.lens (errorCode :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: UnprocessedStatistics)
+{-# DEPRECATED usErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
-usMessage :: Lens' UnprocessedStatistics (Maybe Text)
-usMessage = lens _usMessage (\s a -> s {_usMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usMessage :: Lens.Lens' UnprocessedStatistics (Lude.Maybe Lude.Text)
+usMessage = Lens.lens (message :: UnprocessedStatistics -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UnprocessedStatistics)
+{-# DEPRECATED usMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON UnprocessedStatistics where
+instance Lude.FromJSON UnprocessedStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "UnprocessedStatistics"
       ( \x ->
           UnprocessedStatistics'
-            <$> (x .:? "RuleName") <*> (x .:? "ErrorCode") <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "RuleName")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable UnprocessedStatistics
-
-instance NFData UnprocessedStatistics

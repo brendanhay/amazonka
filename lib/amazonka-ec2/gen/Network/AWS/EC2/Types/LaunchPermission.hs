@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchPermission where
+module Network.AWS.EC2.Types.LaunchPermission
+  ( LaunchPermission (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchPermission,
+
+    -- * Lenses
+    lGroup,
+    lUserId,
+  )
+where
+
 import Network.AWS.EC2.Types.PermissionGroup
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch permission.
 --
---
---
--- /See:/ 'launchPermission' smart constructor.
+-- /See:/ 'mkLaunchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
-  { _lGroup ::
-      !(Maybe PermissionGroup),
-    _lUserId :: !(Maybe Text)
+  { group ::
+      Lude.Maybe PermissionGroup,
+    userId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lGroup' - The name of the group.
---
--- * 'lUserId' - The AWS account ID.
-launchPermission ::
+-- * 'group' - The name of the group.
+-- * 'userId' - The AWS account ID.
+mkLaunchPermission ::
   LaunchPermission
-launchPermission =
-  LaunchPermission' {_lGroup = Nothing, _lUserId = Nothing}
+mkLaunchPermission =
+  LaunchPermission' {group = Lude.Nothing, userId = Lude.Nothing}
 
 -- | The name of the group.
-lGroup :: Lens' LaunchPermission (Maybe PermissionGroup)
-lGroup = lens _lGroup (\s a -> s {_lGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lGroup :: Lens.Lens' LaunchPermission (Lude.Maybe PermissionGroup)
+lGroup = Lens.lens (group :: LaunchPermission -> Lude.Maybe PermissionGroup) (\s a -> s {group = a} :: LaunchPermission)
+{-# DEPRECATED lGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The AWS account ID.
-lUserId :: Lens' LaunchPermission (Maybe Text)
-lUserId = lens _lUserId (\s a -> s {_lUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lUserId :: Lens.Lens' LaunchPermission (Lude.Maybe Lude.Text)
+lUserId = Lens.lens (userId :: LaunchPermission -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: LaunchPermission)
+{-# DEPRECATED lUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance FromXML LaunchPermission where
+instance Lude.FromXML LaunchPermission where
   parseXML x =
-    LaunchPermission' <$> (x .@? "group") <*> (x .@? "userId")
+    LaunchPermission'
+      Lude.<$> (x Lude..@? "group") Lude.<*> (x Lude..@? "userId")
 
-instance Hashable LaunchPermission
-
-instance NFData LaunchPermission
-
-instance ToQuery LaunchPermission where
+instance Lude.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
-    mconcat ["Group" =: _lGroup, "UserId" =: _lUserId]
+    Lude.mconcat ["Group" Lude.=: group, "UserId" Lude.=: userId]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.GetDocumentationVersion
-  ( -- * Creating a Request
-    getDocumentationVersion,
-    GetDocumentationVersion,
+  ( -- * Creating a request
+    GetDocumentationVersion (..),
+    mkGetDocumentationVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdvdRestAPIId,
     gdvdDocumentationVersion,
 
-    -- * Destructuring the Response
-    documentationVersion,
-    DocumentationVersion,
+    -- * Destructuring the response
+    DocumentationVersion (..),
+    mkDocumentationVersion,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvCreatedDate,
     dvVersion,
     dvDescription,
@@ -39,71 +34,78 @@ module Network.AWS.APIGateway.GetDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Gets a documentation snapshot of an API.
 --
---
---
--- /See:/ 'getDocumentationVersion' smart constructor.
+-- /See:/ 'mkGetDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
-  { _gdvdRestAPIId ::
-      !Text,
-    _gdvdDocumentationVersion :: !Text
+  { restAPIId ::
+      Lude.Text,
+    documentationVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdvdRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gdvdDocumentationVersion' - [Required] The version identifier of the to-be-retrieved documentation snapshot.
-getDocumentationVersion ::
-  -- | 'gdvdRestAPIId'
-  Text ->
-  -- | 'gdvdDocumentationVersion'
-  Text ->
+-- * 'documentationVersion' - [Required] The version identifier of the to-be-retrieved documentation snapshot.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetDocumentationVersion ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'documentationVersion'
+  Lude.Text ->
   GetDocumentationVersion
-getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkGetDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   GetDocumentationVersion'
-    { _gdvdRestAPIId = pRestAPIId_,
-      _gdvdDocumentationVersion = pDocumentationVersion_
+    { restAPIId = pRestAPIId_,
+      documentationVersion = pDocumentationVersion_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gdvdRestAPIId :: Lens' GetDocumentationVersion Text
-gdvdRestAPIId = lens _gdvdRestAPIId (\s a -> s {_gdvdRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvdRestAPIId :: Lens.Lens' GetDocumentationVersion Lude.Text
+gdvdRestAPIId = Lens.lens (restAPIId :: GetDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationVersion)
+{-# DEPRECATED gdvdRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The version identifier of the to-be-retrieved documentation snapshot.
-gdvdDocumentationVersion :: Lens' GetDocumentationVersion Text
-gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\s a -> s {_gdvdDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvdDocumentationVersion :: Lens.Lens' GetDocumentationVersion Lude.Text
+gdvdDocumentationVersion = Lens.lens (documentationVersion :: GetDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: GetDocumentationVersion)
+{-# DEPRECATED gdvdDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
-instance AWSRequest GetDocumentationVersion where
+instance Lude.AWSRequest GetDocumentationVersion where
   type Rs GetDocumentationVersion = DocumentationVersion
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetDocumentationVersion
-
-instance NFData GetDocumentationVersion
-
-instance ToHeaders GetDocumentationVersion where
+instance Lude.ToHeaders GetDocumentationVersion where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetDocumentationVersion where
+instance Lude.ToPath GetDocumentationVersion where
   toPath GetDocumentationVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gdvdRestAPIId,
+        Lude.toBS restAPIId,
         "/documentation/versions/",
-        toBS _gdvdDocumentationVersion
+        Lude.toBS documentationVersion
       ]
 
-instance ToQuery GetDocumentationVersion where
-  toQuery = const mempty
+instance Lude.ToQuery GetDocumentationVersion where
+  toQuery = Lude.const Lude.mempty

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,173 @@
 --
 -- Creates a skill group with a specified name and description.
 module Network.AWS.AlexaBusiness.CreateSkillGroup
-  ( -- * Creating a Request
-    createSkillGroup,
-    CreateSkillGroup,
+  ( -- * Creating a request
+    CreateSkillGroup (..),
+    mkCreateSkillGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csgClientRequestToken,
     csgDescription,
     csgTags,
     csgSkillGroupName,
 
-    -- * Destructuring the Response
-    createSkillGroupResponse,
-    CreateSkillGroupResponse,
+    -- * Destructuring the response
+    CreateSkillGroupResponse (..),
+    mkCreateSkillGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csgrsSkillGroupARN,
     csgrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSkillGroup' smart constructor.
+-- | /See:/ 'mkCreateSkillGroup' smart constructor.
 data CreateSkillGroup = CreateSkillGroup'
-  { _csgClientRequestToken ::
-      !(Maybe Text),
-    _csgDescription :: !(Maybe Text),
-    _csgTags :: !(Maybe [Tag]),
-    _csgSkillGroupName :: !Text
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    skillGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSkillGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csgClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
---
--- * 'csgDescription' - The description for the skill group.
---
--- * 'csgTags' - The tags for the skill group.
---
--- * 'csgSkillGroupName' - The name for the skill group.
-createSkillGroup ::
-  -- | 'csgSkillGroupName'
-  Text ->
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- * 'description' - The description for the skill group.
+-- * 'skillGroupName' - The name for the skill group.
+-- * 'tags' - The tags for the skill group.
+mkCreateSkillGroup ::
+  -- | 'skillGroupName'
+  Lude.Text ->
   CreateSkillGroup
-createSkillGroup pSkillGroupName_ =
+mkCreateSkillGroup pSkillGroupName_ =
   CreateSkillGroup'
-    { _csgClientRequestToken = Nothing,
-      _csgDescription = Nothing,
-      _csgTags = Nothing,
-      _csgSkillGroupName = pSkillGroupName_
+    { clientRequestToken = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      skillGroupName = pSkillGroupName_
     }
 
 -- | A unique, user-specified identifier for this request that ensures idempotency.
-csgClientRequestToken :: Lens' CreateSkillGroup (Maybe Text)
-csgClientRequestToken = lens _csgClientRequestToken (\s a -> s {_csgClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgClientRequestToken :: Lens.Lens' CreateSkillGroup (Lude.Maybe Lude.Text)
+csgClientRequestToken = Lens.lens (clientRequestToken :: CreateSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateSkillGroup)
+{-# DEPRECATED csgClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The description for the skill group.
-csgDescription :: Lens' CreateSkillGroup (Maybe Text)
-csgDescription = lens _csgDescription (\s a -> s {_csgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgDescription :: Lens.Lens' CreateSkillGroup (Lude.Maybe Lude.Text)
+csgDescription = Lens.lens (description :: CreateSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSkillGroup)
+{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the skill group.
-csgTags :: Lens' CreateSkillGroup [Tag]
-csgTags = lens _csgTags (\s a -> s {_csgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgTags :: Lens.Lens' CreateSkillGroup (Lude.Maybe [Tag])
+csgTags = Lens.lens (tags :: CreateSkillGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSkillGroup)
+{-# DEPRECATED csgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the skill group.
-csgSkillGroupName :: Lens' CreateSkillGroup Text
-csgSkillGroupName = lens _csgSkillGroupName (\s a -> s {_csgSkillGroupName = a})
+--
+-- /Note:/ Consider using 'skillGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSkillGroupName :: Lens.Lens' CreateSkillGroup Lude.Text
+csgSkillGroupName = Lens.lens (skillGroupName :: CreateSkillGroup -> Lude.Text) (\s a -> s {skillGroupName = a} :: CreateSkillGroup)
+{-# DEPRECATED csgSkillGroupName "Use generic-lens or generic-optics with 'skillGroupName' instead." #-}
 
-instance AWSRequest CreateSkillGroup where
+instance Lude.AWSRequest CreateSkillGroup where
   type Rs CreateSkillGroup = CreateSkillGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSkillGroupResponse'
-            <$> (x .?> "SkillGroupArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SkillGroupArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSkillGroup
-
-instance NFData CreateSkillGroup
-
-instance ToHeaders CreateSkillGroup where
+instance Lude.ToHeaders CreateSkillGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.CreateSkillGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.CreateSkillGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateSkillGroup where
+instance Lude.ToJSON CreateSkillGroup where
   toJSON CreateSkillGroup' {..} =
-    object
-      ( catMaybes
-          [ ("ClientRequestToken" .=) <$> _csgClientRequestToken,
-            ("Description" .=) <$> _csgDescription,
-            ("Tags" .=) <$> _csgTags,
-            Just ("SkillGroupName" .= _csgSkillGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("SkillGroupName" Lude..= skillGroupName)
           ]
       )
 
-instance ToPath CreateSkillGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateSkillGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateSkillGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSkillGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSkillGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateSkillGroupResponse' smart constructor.
 data CreateSkillGroupResponse = CreateSkillGroupResponse'
-  { _csgrsSkillGroupARN ::
-      !(Maybe Text),
-    _csgrsResponseStatus :: !Int
+  { skillGroupARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSkillGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csgrsSkillGroupARN' - The ARN of the newly created skill group in the response.
---
--- * 'csgrsResponseStatus' - -- | The response status code.
-createSkillGroupResponse ::
-  -- | 'csgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'skillGroupARN' - The ARN of the newly created skill group in the response.
+mkCreateSkillGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSkillGroupResponse
-createSkillGroupResponse pResponseStatus_ =
+mkCreateSkillGroupResponse pResponseStatus_ =
   CreateSkillGroupResponse'
-    { _csgrsSkillGroupARN = Nothing,
-      _csgrsResponseStatus = pResponseStatus_
+    { skillGroupARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly created skill group in the response.
-csgrsSkillGroupARN :: Lens' CreateSkillGroupResponse (Maybe Text)
-csgrsSkillGroupARN = lens _csgrsSkillGroupARN (\s a -> s {_csgrsSkillGroupARN = a})
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgrsSkillGroupARN :: Lens.Lens' CreateSkillGroupResponse (Lude.Maybe Lude.Text)
+csgrsSkillGroupARN = Lens.lens (skillGroupARN :: CreateSkillGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: CreateSkillGroupResponse)
+{-# DEPRECATED csgrsSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
--- | -- | The response status code.
-csgrsResponseStatus :: Lens' CreateSkillGroupResponse Int
-csgrsResponseStatus = lens _csgrsResponseStatus (\s a -> s {_csgrsResponseStatus = a})
-
-instance NFData CreateSkillGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgrsResponseStatus :: Lens.Lens' CreateSkillGroupResponse Lude.Int
+csgrsResponseStatus = Lens.lens (responseStatus :: CreateSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSkillGroupResponse)
+{-# DEPRECATED csgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

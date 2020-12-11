@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,159 @@
 --
 -- The @ApproveAssignment@ operation approves the results of a completed assignment.
 --
---
 -- Approving an assignment initiates two payments from the Requester's Amazon.com account
 --
 --     * The Worker who submitted the results is paid the reward specified in the HIT.
 --
+--
 --     * Amazon Mechanical Turk fees are debited.
 --
 --
---
 -- If the Requester's account does not have adequate funds for these payments, the call to ApproveAssignment returns an exception, and the approval is not processed. You can include an optional feedback message with the approval, which the Worker can see in the Status section of the web site.
---
 -- You can also call this operation for assignments that were previous rejected and approve them by explicitly overriding the previous rejection. This only works on rejected assignments that were submitted within the previous 30 days and only if the assignment's related HIT has not been deleted.
 module Network.AWS.MechanicalTurk.ApproveAssignment
-  ( -- * Creating a Request
-    approveAssignment,
-    ApproveAssignment,
+  ( -- * Creating a request
+    ApproveAssignment (..),
+    mkApproveAssignment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aaOverrideRejection,
     aaRequesterFeedback,
     aaAssignmentId,
 
-    -- * Destructuring the Response
-    approveAssignmentResponse,
-    ApproveAssignmentResponse,
+    -- * Destructuring the response
+    ApproveAssignmentResponse (..),
+    mkApproveAssignmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'approveAssignment' smart constructor.
+-- | /See:/ 'mkApproveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'
-  { _aaOverrideRejection ::
-      !(Maybe Bool),
-    _aaRequesterFeedback :: !(Maybe Text),
-    _aaAssignmentId :: !Text
+  { overrideRejection ::
+      Lude.Maybe Lude.Bool,
+    requesterFeedback :: Lude.Maybe Lude.Text,
+    assignmentId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveAssignment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaOverrideRejection' - A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
---
--- * 'aaRequesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
---
--- * 'aaAssignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
-approveAssignment ::
-  -- | 'aaAssignmentId'
-  Text ->
+-- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+-- * 'overrideRejection' - A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
+-- * 'requesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
+mkApproveAssignment ::
+  -- | 'assignmentId'
+  Lude.Text ->
   ApproveAssignment
-approveAssignment pAssignmentId_ =
+mkApproveAssignment pAssignmentId_ =
   ApproveAssignment'
-    { _aaOverrideRejection = Nothing,
-      _aaRequesterFeedback = Nothing,
-      _aaAssignmentId = pAssignmentId_
+    { overrideRejection = Lude.Nothing,
+      requesterFeedback = Lude.Nothing,
+      assignmentId = pAssignmentId_
     }
 
 -- | A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
-aaOverrideRejection :: Lens' ApproveAssignment (Maybe Bool)
-aaOverrideRejection = lens _aaOverrideRejection (\s a -> s {_aaOverrideRejection = a})
+--
+-- /Note:/ Consider using 'overrideRejection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaOverrideRejection :: Lens.Lens' ApproveAssignment (Lude.Maybe Lude.Bool)
+aaOverrideRejection = Lens.lens (overrideRejection :: ApproveAssignment -> Lude.Maybe Lude.Bool) (\s a -> s {overrideRejection = a} :: ApproveAssignment)
+{-# DEPRECATED aaOverrideRejection "Use generic-lens or generic-optics with 'overrideRejection' instead." #-}
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
-aaRequesterFeedback :: Lens' ApproveAssignment (Maybe Text)
-aaRequesterFeedback = lens _aaRequesterFeedback (\s a -> s {_aaRequesterFeedback = a})
+--
+-- /Note:/ Consider using 'requesterFeedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaRequesterFeedback :: Lens.Lens' ApproveAssignment (Lude.Maybe Lude.Text)
+aaRequesterFeedback = Lens.lens (requesterFeedback :: ApproveAssignment -> Lude.Maybe Lude.Text) (\s a -> s {requesterFeedback = a} :: ApproveAssignment)
+{-# DEPRECATED aaRequesterFeedback "Use generic-lens or generic-optics with 'requesterFeedback' instead." #-}
 
 -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
-aaAssignmentId :: Lens' ApproveAssignment Text
-aaAssignmentId = lens _aaAssignmentId (\s a -> s {_aaAssignmentId = a})
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAssignmentId :: Lens.Lens' ApproveAssignment Lude.Text
+aaAssignmentId = Lens.lens (assignmentId :: ApproveAssignment -> Lude.Text) (\s a -> s {assignmentId = a} :: ApproveAssignment)
+{-# DEPRECATED aaAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
-instance AWSRequest ApproveAssignment where
+instance Lude.AWSRequest ApproveAssignment where
   type Rs ApproveAssignment = ApproveAssignmentResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> ApproveAssignmentResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ApproveAssignmentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ApproveAssignment
-
-instance NFData ApproveAssignment
-
-instance ToHeaders ApproveAssignment where
+instance Lude.ToHeaders ApproveAssignment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.ApproveAssignment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ApproveAssignment" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ApproveAssignment where
+instance Lude.ToJSON ApproveAssignment where
   toJSON ApproveAssignment' {..} =
-    object
-      ( catMaybes
-          [ ("OverrideRejection" .=) <$> _aaOverrideRejection,
-            ("RequesterFeedback" .=) <$> _aaRequesterFeedback,
-            Just ("AssignmentId" .= _aaAssignmentId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OverrideRejection" Lude..=) Lude.<$> overrideRejection,
+            ("RequesterFeedback" Lude..=) Lude.<$> requesterFeedback,
+            Lude.Just ("AssignmentId" Lude..= assignmentId)
           ]
       )
 
-instance ToPath ApproveAssignment where
-  toPath = const "/"
+instance Lude.ToPath ApproveAssignment where
+  toPath = Lude.const "/"
 
-instance ToQuery ApproveAssignment where
-  toQuery = const mempty
+instance Lude.ToQuery ApproveAssignment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'approveAssignmentResponse' smart constructor.
+-- | /See:/ 'mkApproveAssignmentResponse' smart constructor.
 newtype ApproveAssignmentResponse = ApproveAssignmentResponse'
-  { _aarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveAssignmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aarsResponseStatus' - -- | The response status code.
-approveAssignmentResponse ::
-  -- | 'aarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkApproveAssignmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ApproveAssignmentResponse
-approveAssignmentResponse pResponseStatus_ =
-  ApproveAssignmentResponse'
-    { _aarsResponseStatus =
-        pResponseStatus_
-    }
+mkApproveAssignmentResponse pResponseStatus_ =
+  ApproveAssignmentResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-aarsResponseStatus :: Lens' ApproveAssignmentResponse Int
-aarsResponseStatus = lens _aarsResponseStatus (\s a -> s {_aarsResponseStatus = a})
-
-instance NFData ApproveAssignmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aarsResponseStatus :: Lens.Lens' ApproveAssignmentResponse Lude.Int
+aarsResponseStatus = Lens.lens (responseStatus :: ApproveAssignmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApproveAssignmentResponse)
+{-# DEPRECATED aarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.DomainStatusType where
+module Network.AWS.CognitoIdentityProvider.Types.DomainStatusType
+  ( DomainStatusType
+      ( DomainStatusType',
+        DSTActive,
+        DSTCreating,
+        DSTDeleting,
+        DSTFailed,
+        DSTUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainStatusType
-  = DSTActive
-  | DSTCreating
-  | DSTDeleting
-  | DSTFailed
-  | DSTUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainStatusType = DomainStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainStatusType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DSTActive
-      "creating" -> pure DSTCreating
-      "deleting" -> pure DSTDeleting
-      "failed" -> pure DSTFailed
-      "updating" -> pure DSTUpdating
-      e ->
-        fromTextError $
-          "Failure parsing DomainStatusType from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, failed, updating"
+pattern DSTActive :: DomainStatusType
+pattern DSTActive = DomainStatusType' "ACTIVE"
 
-instance ToText DomainStatusType where
-  toText = \case
-    DSTActive -> "ACTIVE"
-    DSTCreating -> "CREATING"
-    DSTDeleting -> "DELETING"
-    DSTFailed -> "FAILED"
-    DSTUpdating -> "UPDATING"
+pattern DSTCreating :: DomainStatusType
+pattern DSTCreating = DomainStatusType' "CREATING"
 
-instance Hashable DomainStatusType
+pattern DSTDeleting :: DomainStatusType
+pattern DSTDeleting = DomainStatusType' "DELETING"
 
-instance NFData DomainStatusType
+pattern DSTFailed :: DomainStatusType
+pattern DSTFailed = DomainStatusType' "FAILED"
 
-instance ToByteString DomainStatusType
+pattern DSTUpdating :: DomainStatusType
+pattern DSTUpdating = DomainStatusType' "UPDATING"
 
-instance ToQuery DomainStatusType
-
-instance ToHeader DomainStatusType
-
-instance FromJSON DomainStatusType where
-  parseJSON = parseJSONText "DomainStatusType"
+{-# COMPLETE
+  DSTActive,
+  DSTCreating,
+  DSTDeleting,
+  DSTFailed,
+  DSTUpdating,
+  DomainStatusType'
+  #-}

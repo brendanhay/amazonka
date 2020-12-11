@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SnapshotAttributeToSortBy where
+module Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
+  ( SnapshotAttributeToSortBy
+      ( SnapshotAttributeToSortBy',
+        CreateTime,
+        SourceType,
+        TotalSize
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data SnapshotAttributeToSortBy
-  = CreateTime
-  | SourceType
-  | TotalSize
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SnapshotAttributeToSortBy = SnapshotAttributeToSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SnapshotAttributeToSortBy where
-  parser =
-    takeLowerText >>= \case
-      "create_time" -> pure CreateTime
-      "source_type" -> pure SourceType
-      "total_size" -> pure TotalSize
-      e ->
-        fromTextError $
-          "Failure parsing SnapshotAttributeToSortBy from value: '" <> e
-            <> "'. Accepted values: create_time, source_type, total_size"
+pattern CreateTime :: SnapshotAttributeToSortBy
+pattern CreateTime = SnapshotAttributeToSortBy' "CREATE_TIME"
 
-instance ToText SnapshotAttributeToSortBy where
-  toText = \case
-    CreateTime -> "CREATE_TIME"
-    SourceType -> "SOURCE_TYPE"
-    TotalSize -> "TOTAL_SIZE"
+pattern SourceType :: SnapshotAttributeToSortBy
+pattern SourceType = SnapshotAttributeToSortBy' "SOURCE_TYPE"
 
-instance Hashable SnapshotAttributeToSortBy
+pattern TotalSize :: SnapshotAttributeToSortBy
+pattern TotalSize = SnapshotAttributeToSortBy' "TOTAL_SIZE"
 
-instance NFData SnapshotAttributeToSortBy
-
-instance ToByteString SnapshotAttributeToSortBy
-
-instance ToQuery SnapshotAttributeToSortBy
-
-instance ToHeader SnapshotAttributeToSortBy
+{-# COMPLETE
+  CreateTime,
+  SourceType,
+  TotalSize,
+  SnapshotAttributeToSortBy'
+  #-}

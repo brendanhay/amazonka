@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.OidcConfig where
+module Network.AWS.SageMaker.Types.OidcConfig
+  ( OidcConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOidcConfig,
+
+    -- * Lenses
+    ocClientId,
+    ocClientSecret,
+    ocIssuer,
+    ocAuthorizationEndpoint,
+    ocTokenEndpoint,
+    ocUserInfoEndpoint,
+    ocLogoutEndpoint,
+    ocJwksURI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use this parameter to configure your OIDC Identity Provider (IdP).
 --
---
---
--- /See:/ 'oidcConfig' smart constructor.
+-- /See:/ 'mkOidcConfig' smart constructor.
 data OidcConfig = OidcConfig'
-  { _ocClientId :: !Text,
-    _ocClientSecret :: !(Sensitive Text),
-    _ocIssuer :: !Text,
-    _ocAuthorizationEndpoint :: !Text,
-    _ocTokenEndpoint :: !Text,
-    _ocUserInfoEndpoint :: !Text,
-    _ocLogoutEndpoint :: !Text,
-    _ocJwksURI :: !Text
+  { clientId :: Lude.Text,
+    clientSecret :: Lude.Sensitive Lude.Text,
+    issuer :: Lude.Text,
+    authorizationEndpoint :: Lude.Text,
+    tokenEndpoint :: Lude.Text,
+    userInfoEndpoint :: Lude.Text,
+    logoutEndpoint :: Lude.Text,
+    jwksURI :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OidcConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocClientId' - The OIDC IdP client ID used to configure your private workforce.
---
--- * 'ocClientSecret' - The OIDC IdP client secret used to configure your private workforce.
---
--- * 'ocIssuer' - The OIDC IdP issuer used to configure your private workforce.
---
--- * 'ocAuthorizationEndpoint' - The OIDC IdP authorization endpoint used to configure your private workforce.
---
--- * 'ocTokenEndpoint' - The OIDC IdP token endpoint used to configure your private workforce.
---
--- * 'ocUserInfoEndpoint' - The OIDC IdP user information endpoint used to configure your private workforce.
---
--- * 'ocLogoutEndpoint' - The OIDC IdP logout endpoint used to configure your private workforce.
---
--- * 'ocJwksURI' - The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
-oidcConfig ::
-  -- | 'ocClientId'
-  Text ->
-  -- | 'ocClientSecret'
-  Text ->
-  -- | 'ocIssuer'
-  Text ->
-  -- | 'ocAuthorizationEndpoint'
-  Text ->
-  -- | 'ocTokenEndpoint'
-  Text ->
-  -- | 'ocUserInfoEndpoint'
-  Text ->
-  -- | 'ocLogoutEndpoint'
-  Text ->
-  -- | 'ocJwksURI'
-  Text ->
+-- * 'authorizationEndpoint' - The OIDC IdP authorization endpoint used to configure your private workforce.
+-- * 'clientId' - The OIDC IdP client ID used to configure your private workforce.
+-- * 'clientSecret' - The OIDC IdP client secret used to configure your private workforce.
+-- * 'issuer' - The OIDC IdP issuer used to configure your private workforce.
+-- * 'jwksURI' - The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+-- * 'logoutEndpoint' - The OIDC IdP logout endpoint used to configure your private workforce.
+-- * 'tokenEndpoint' - The OIDC IdP token endpoint used to configure your private workforce.
+-- * 'userInfoEndpoint' - The OIDC IdP user information endpoint used to configure your private workforce.
+mkOidcConfig ::
+  -- | 'clientId'
+  Lude.Text ->
+  -- | 'clientSecret'
+  Lude.Sensitive Lude.Text ->
+  -- | 'issuer'
+  Lude.Text ->
+  -- | 'authorizationEndpoint'
+  Lude.Text ->
+  -- | 'tokenEndpoint'
+  Lude.Text ->
+  -- | 'userInfoEndpoint'
+  Lude.Text ->
+  -- | 'logoutEndpoint'
+  Lude.Text ->
+  -- | 'jwksURI'
+  Lude.Text ->
   OidcConfig
-oidcConfig
+mkOidcConfig
   pClientId_
   pClientSecret_
   pIssuer_
@@ -82,63 +82,83 @@ oidcConfig
   pLogoutEndpoint_
   pJwksURI_ =
     OidcConfig'
-      { _ocClientId = pClientId_,
-        _ocClientSecret = _Sensitive # pClientSecret_,
-        _ocIssuer = pIssuer_,
-        _ocAuthorizationEndpoint = pAuthorizationEndpoint_,
-        _ocTokenEndpoint = pTokenEndpoint_,
-        _ocUserInfoEndpoint = pUserInfoEndpoint_,
-        _ocLogoutEndpoint = pLogoutEndpoint_,
-        _ocJwksURI = pJwksURI_
+      { clientId = pClientId_,
+        clientSecret = pClientSecret_,
+        issuer = pIssuer_,
+        authorizationEndpoint = pAuthorizationEndpoint_,
+        tokenEndpoint = pTokenEndpoint_,
+        userInfoEndpoint = pUserInfoEndpoint_,
+        logoutEndpoint = pLogoutEndpoint_,
+        jwksURI = pJwksURI_
       }
 
 -- | The OIDC IdP client ID used to configure your private workforce.
-ocClientId :: Lens' OidcConfig Text
-ocClientId = lens _ocClientId (\s a -> s {_ocClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocClientId :: Lens.Lens' OidcConfig Lude.Text
+ocClientId = Lens.lens (clientId :: OidcConfig -> Lude.Text) (\s a -> s {clientId = a} :: OidcConfig)
+{-# DEPRECATED ocClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The OIDC IdP client secret used to configure your private workforce.
-ocClientSecret :: Lens' OidcConfig Text
-ocClientSecret = lens _ocClientSecret (\s a -> s {_ocClientSecret = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'clientSecret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocClientSecret :: Lens.Lens' OidcConfig (Lude.Sensitive Lude.Text)
+ocClientSecret = Lens.lens (clientSecret :: OidcConfig -> Lude.Sensitive Lude.Text) (\s a -> s {clientSecret = a} :: OidcConfig)
+{-# DEPRECATED ocClientSecret "Use generic-lens or generic-optics with 'clientSecret' instead." #-}
 
 -- | The OIDC IdP issuer used to configure your private workforce.
-ocIssuer :: Lens' OidcConfig Text
-ocIssuer = lens _ocIssuer (\s a -> s {_ocIssuer = a})
+--
+-- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocIssuer :: Lens.Lens' OidcConfig Lude.Text
+ocIssuer = Lens.lens (issuer :: OidcConfig -> Lude.Text) (\s a -> s {issuer = a} :: OidcConfig)
+{-# DEPRECATED ocIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
 
 -- | The OIDC IdP authorization endpoint used to configure your private workforce.
-ocAuthorizationEndpoint :: Lens' OidcConfig Text
-ocAuthorizationEndpoint = lens _ocAuthorizationEndpoint (\s a -> s {_ocAuthorizationEndpoint = a})
+--
+-- /Note:/ Consider using 'authorizationEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocAuthorizationEndpoint :: Lens.Lens' OidcConfig Lude.Text
+ocAuthorizationEndpoint = Lens.lens (authorizationEndpoint :: OidcConfig -> Lude.Text) (\s a -> s {authorizationEndpoint = a} :: OidcConfig)
+{-# DEPRECATED ocAuthorizationEndpoint "Use generic-lens or generic-optics with 'authorizationEndpoint' instead." #-}
 
 -- | The OIDC IdP token endpoint used to configure your private workforce.
-ocTokenEndpoint :: Lens' OidcConfig Text
-ocTokenEndpoint = lens _ocTokenEndpoint (\s a -> s {_ocTokenEndpoint = a})
+--
+-- /Note:/ Consider using 'tokenEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTokenEndpoint :: Lens.Lens' OidcConfig Lude.Text
+ocTokenEndpoint = Lens.lens (tokenEndpoint :: OidcConfig -> Lude.Text) (\s a -> s {tokenEndpoint = a} :: OidcConfig)
+{-# DEPRECATED ocTokenEndpoint "Use generic-lens or generic-optics with 'tokenEndpoint' instead." #-}
 
 -- | The OIDC IdP user information endpoint used to configure your private workforce.
-ocUserInfoEndpoint :: Lens' OidcConfig Text
-ocUserInfoEndpoint = lens _ocUserInfoEndpoint (\s a -> s {_ocUserInfoEndpoint = a})
+--
+-- /Note:/ Consider using 'userInfoEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocUserInfoEndpoint :: Lens.Lens' OidcConfig Lude.Text
+ocUserInfoEndpoint = Lens.lens (userInfoEndpoint :: OidcConfig -> Lude.Text) (\s a -> s {userInfoEndpoint = a} :: OidcConfig)
+{-# DEPRECATED ocUserInfoEndpoint "Use generic-lens or generic-optics with 'userInfoEndpoint' instead." #-}
 
 -- | The OIDC IdP logout endpoint used to configure your private workforce.
-ocLogoutEndpoint :: Lens' OidcConfig Text
-ocLogoutEndpoint = lens _ocLogoutEndpoint (\s a -> s {_ocLogoutEndpoint = a})
+--
+-- /Note:/ Consider using 'logoutEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocLogoutEndpoint :: Lens.Lens' OidcConfig Lude.Text
+ocLogoutEndpoint = Lens.lens (logoutEndpoint :: OidcConfig -> Lude.Text) (\s a -> s {logoutEndpoint = a} :: OidcConfig)
+{-# DEPRECATED ocLogoutEndpoint "Use generic-lens or generic-optics with 'logoutEndpoint' instead." #-}
 
 -- | The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
-ocJwksURI :: Lens' OidcConfig Text
-ocJwksURI = lens _ocJwksURI (\s a -> s {_ocJwksURI = a})
+--
+-- /Note:/ Consider using 'jwksURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocJwksURI :: Lens.Lens' OidcConfig Lude.Text
+ocJwksURI = Lens.lens (jwksURI :: OidcConfig -> Lude.Text) (\s a -> s {jwksURI = a} :: OidcConfig)
+{-# DEPRECATED ocJwksURI "Use generic-lens or generic-optics with 'jwksURI' instead." #-}
 
-instance Hashable OidcConfig
-
-instance NFData OidcConfig
-
-instance ToJSON OidcConfig where
+instance Lude.ToJSON OidcConfig where
   toJSON OidcConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("ClientId" .= _ocClientId),
-            Just ("ClientSecret" .= _ocClientSecret),
-            Just ("Issuer" .= _ocIssuer),
-            Just ("AuthorizationEndpoint" .= _ocAuthorizationEndpoint),
-            Just ("TokenEndpoint" .= _ocTokenEndpoint),
-            Just ("UserInfoEndpoint" .= _ocUserInfoEndpoint),
-            Just ("LogoutEndpoint" .= _ocLogoutEndpoint),
-            Just ("JwksUri" .= _ocJwksURI)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("ClientSecret" Lude..= clientSecret),
+            Lude.Just ("Issuer" Lude..= issuer),
+            Lude.Just ("AuthorizationEndpoint" Lude..= authorizationEndpoint),
+            Lude.Just ("TokenEndpoint" Lude..= tokenEndpoint),
+            Lude.Just ("UserInfoEndpoint" Lude..= userInfoEndpoint),
+            Lude.Just ("LogoutEndpoint" Lude..= logoutEndpoint),
+            Lude.Just ("JwksUri" Lude..= jwksURI)
           ]
       )

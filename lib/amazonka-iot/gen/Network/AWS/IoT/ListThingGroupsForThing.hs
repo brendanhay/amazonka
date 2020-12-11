@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- List the thing groups to which the specified thing belongs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingGroupsForThing
-  ( -- * Creating a Request
-    listThingGroupsForThing,
-    ListThingGroupsForThing,
+  ( -- * Creating a request
+    ListThingGroupsForThing (..),
+    mkListThingGroupsForThing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltgftNextToken,
     ltgftMaxResults,
     ltgftThingName,
 
-    -- * Destructuring the Response
-    listThingGroupsForThingResponse,
-    ListThingGroupsForThingResponse,
+    -- * Destructuring the response
+    ListThingGroupsForThingResponse (..),
+    mkListThingGroupsForThingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltgftrsThingGroups,
     ltgftrsNextToken,
     ltgftrsResponseStatus,
@@ -44,128 +37,149 @@ module Network.AWS.IoT.ListThingGroupsForThing
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listThingGroupsForThing' smart constructor.
+-- | /See:/ 'mkListThingGroupsForThing' smart constructor.
 data ListThingGroupsForThing = ListThingGroupsForThing'
-  { _ltgftNextToken ::
-      !(Maybe Text),
-    _ltgftMaxResults :: !(Maybe Nat),
-    _ltgftThingName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroupsForThing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgftNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'ltgftMaxResults' - The maximum number of results to return at one time.
---
--- * 'ltgftThingName' - The thing name.
-listThingGroupsForThing ::
-  -- | 'ltgftThingName'
-  Text ->
+-- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'thingName' - The thing name.
+mkListThingGroupsForThing ::
+  -- | 'thingName'
+  Lude.Text ->
   ListThingGroupsForThing
-listThingGroupsForThing pThingName_ =
+mkListThingGroupsForThing pThingName_ =
   ListThingGroupsForThing'
-    { _ltgftNextToken = Nothing,
-      _ltgftMaxResults = Nothing,
-      _ltgftThingName = pThingName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-ltgftNextToken :: Lens' ListThingGroupsForThing (Maybe Text)
-ltgftNextToken = lens _ltgftNextToken (\s a -> s {_ltgftNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftNextToken :: Lens.Lens' ListThingGroupsForThing (Lude.Maybe Lude.Text)
+ltgftNextToken = Lens.lens (nextToken :: ListThingGroupsForThing -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingGroupsForThing)
+{-# DEPRECATED ltgftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
-ltgftMaxResults :: Lens' ListThingGroupsForThing (Maybe Natural)
-ltgftMaxResults = lens _ltgftMaxResults (\s a -> s {_ltgftMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftMaxResults :: Lens.Lens' ListThingGroupsForThing (Lude.Maybe Lude.Natural)
+ltgftMaxResults = Lens.lens (maxResults :: ListThingGroupsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingGroupsForThing)
+{-# DEPRECATED ltgftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The thing name.
-ltgftThingName :: Lens' ListThingGroupsForThing Text
-ltgftThingName = lens _ltgftThingName (\s a -> s {_ltgftThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftThingName :: Lens.Lens' ListThingGroupsForThing Lude.Text
+ltgftThingName = Lens.lens (thingName :: ListThingGroupsForThing -> Lude.Text) (\s a -> s {thingName = a} :: ListThingGroupsForThing)
+{-# DEPRECATED ltgftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSPager ListThingGroupsForThing where
+instance Page.AWSPager ListThingGroupsForThing where
   page rq rs
-    | stop (rs ^. ltgftrsNextToken) = Nothing
-    | stop (rs ^. ltgftrsThingGroups) = Nothing
-    | otherwise = Just $ rq & ltgftNextToken .~ rs ^. ltgftrsNextToken
+    | Page.stop (rs Lens.^. ltgftrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltgftrsThingGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltgftNextToken Lens..~ rs Lens.^. ltgftrsNextToken
 
-instance AWSRequest ListThingGroupsForThing where
+instance Lude.AWSRequest ListThingGroupsForThing where
   type Rs ListThingGroupsForThing = ListThingGroupsForThingResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListThingGroupsForThingResponse'
-            <$> (x .?> "thingGroups" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "thingGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListThingGroupsForThing
+instance Lude.ToHeaders ListThingGroupsForThing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListThingGroupsForThing
-
-instance ToHeaders ListThingGroupsForThing where
-  toHeaders = const mempty
-
-instance ToPath ListThingGroupsForThing where
+instance Lude.ToPath ListThingGroupsForThing where
   toPath ListThingGroupsForThing' {..} =
-    mconcat ["/things/", toBS _ltgftThingName, "/thing-groups"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/thing-groups"]
 
-instance ToQuery ListThingGroupsForThing where
+instance Lude.ToQuery ListThingGroupsForThing where
   toQuery ListThingGroupsForThing' {..} =
-    mconcat
-      ["nextToken" =: _ltgftNextToken, "maxResults" =: _ltgftMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listThingGroupsForThingResponse' smart constructor.
+-- | /See:/ 'mkListThingGroupsForThingResponse' smart constructor.
 data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
-  { _ltgftrsThingGroups ::
-      !(Maybe [GroupNameAndARN]),
-    _ltgftrsNextToken ::
-      !(Maybe Text),
-    _ltgftrsResponseStatus ::
-      !Int
+  { thingGroups ::
+      Lude.Maybe
+        [GroupNameAndARN],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroupsForThingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltgftrsThingGroups' - The thing groups.
---
--- * 'ltgftrsNextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
---
--- * 'ltgftrsResponseStatus' - -- | The response status code.
-listThingGroupsForThingResponse ::
-  -- | 'ltgftrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'thingGroups' - The thing groups.
+mkListThingGroupsForThingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListThingGroupsForThingResponse
-listThingGroupsForThingResponse pResponseStatus_ =
+mkListThingGroupsForThingResponse pResponseStatus_ =
   ListThingGroupsForThingResponse'
-    { _ltgftrsThingGroups = Nothing,
-      _ltgftrsNextToken = Nothing,
-      _ltgftrsResponseStatus = pResponseStatus_
+    { thingGroups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The thing groups.
-ltgftrsThingGroups :: Lens' ListThingGroupsForThingResponse [GroupNameAndARN]
-ltgftrsThingGroups = lens _ltgftrsThingGroups (\s a -> s {_ltgftrsThingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'thingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftrsThingGroups :: Lens.Lens' ListThingGroupsForThingResponse (Lude.Maybe [GroupNameAndARN])
+ltgftrsThingGroups = Lens.lens (thingGroups :: ListThingGroupsForThingResponse -> Lude.Maybe [GroupNameAndARN]) (\s a -> s {thingGroups = a} :: ListThingGroupsForThingResponse)
+{-# DEPRECATED ltgftrsThingGroups "Use generic-lens or generic-optics with 'thingGroups' instead." #-}
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-ltgftrsNextToken :: Lens' ListThingGroupsForThingResponse (Maybe Text)
-ltgftrsNextToken = lens _ltgftrsNextToken (\s a -> s {_ltgftrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftrsNextToken :: Lens.Lens' ListThingGroupsForThingResponse (Lude.Maybe Lude.Text)
+ltgftrsNextToken = Lens.lens (nextToken :: ListThingGroupsForThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingGroupsForThingResponse)
+{-# DEPRECATED ltgftrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltgftrsResponseStatus :: Lens' ListThingGroupsForThingResponse Int
-ltgftrsResponseStatus = lens _ltgftrsResponseStatus (\s a -> s {_ltgftrsResponseStatus = a})
-
-instance NFData ListThingGroupsForThingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftrsResponseStatus :: Lens.Lens' ListThingGroupsForThingResponse Lude.Int
+ltgftrsResponseStatus = Lens.lens (responseStatus :: ListThingGroupsForThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThingGroupsForThingResponse)
+{-# DEPRECATED ltgftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

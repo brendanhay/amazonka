@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBInstance where
+module Network.AWS.RDS.Types.DBInstance
+  ( DBInstance (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBInstance,
+
+    -- * Lenses
+    diEngineVersion,
+    diDBSecurityGroups,
+    diDeletionProtection,
+    diStorageEncrypted,
+    diDBClusterIdentifier,
+    diPubliclyAccessible,
+    diAutoMinorVersionUpgrade,
+    diDBInstanceARN,
+    diMasterUsername,
+    diReadReplicaDBInstanceIdentifiers,
+    diIAMDatabaseAuthenticationEnabled,
+    diMonitoringRoleARN,
+    diIOPS,
+    diInstanceCreateTime,
+    diTagList,
+    diReadReplicaSourceDBInstanceIdentifier,
+    diReplicaMode,
+    diMonitoringInterval,
+    diEngine,
+    diProcessorFeatures,
+    diLatestRestorableTime,
+    diDBInstanceClass,
+    diPromotionTier,
+    diLicenseModel,
+    diPreferredMaintenanceWindow,
+    diPerformanceInsightsRetentionPeriod,
+    diCACertificateIdentifier,
+    diDBInstanceIdentifier,
+    diCharacterSetName,
+    diMaxAllocatedStorage,
+    diKMSKeyId,
+    diPreferredBackupWindow,
+    diAssociatedRoles,
+    diAvailabilityZone,
+    diVPCSecurityGroups,
+    diBackupRetentionPeriod,
+    diNcharCharacterSetName,
+    diPerformanceInsightsKMSKeyId,
+    diDBSubnetGroup,
+    diMultiAZ,
+    diListenerEndpoint,
+    diOptionGroupMemberships,
+    diEnabledCloudwatchLogsExports,
+    diEnhancedMonitoringResourceARN,
+    diSecondaryAvailabilityZone,
+    diPerformanceInsightsEnabled,
+    diAllocatedStorage,
+    diDBiResourceId,
+    diDBParameterGroups,
+    diCopyTagsToSnapshot,
+    diTimezone,
+    diTDECredentialARN,
+    diEndpoint,
+    diDBInstanceStatus,
+    diDBInstancePort,
+    diPendingModifiedValues,
+    diReadReplicaDBClusterIdentifiers,
+    diStorageType,
+    diStatusInfos,
+    diDomainMemberships,
+    diDBName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.DBInstanceRole
 import Network.AWS.RDS.Types.DBInstanceStatusInfo
 import Network.AWS.RDS.Types.DBParameterGroupStatus
@@ -33,599 +96,782 @@ import Network.AWS.RDS.Types.VPCSecurityGroupMembership
 
 -- | Contains the details of an Amazon RDS DB instance.
 --
---
 -- This data type is used as a response element in the @DescribeDBInstances@ action.
 --
---
--- /See:/ 'dbInstance' smart constructor.
+-- /See:/ 'mkDBInstance' smart constructor.
 data DBInstance = DBInstance'
-  { _diEngineVersion :: !(Maybe Text),
-    _diDBSecurityGroups :: !(Maybe [DBSecurityGroupMembership]),
-    _diDeletionProtection :: !(Maybe Bool),
-    _diStorageEncrypted :: !(Maybe Bool),
-    _diDBClusterIdentifier :: !(Maybe Text),
-    _diPubliclyAccessible :: !(Maybe Bool),
-    _diAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _diDBInstanceARN :: !(Maybe Text),
-    _diMasterUsername :: !(Maybe Text),
-    _diReadReplicaDBInstanceIdentifiers :: !(Maybe [Text]),
-    _diIAMDatabaseAuthenticationEnabled :: !(Maybe Bool),
-    _diMonitoringRoleARN :: !(Maybe Text),
-    _diIOPS :: !(Maybe Int),
-    _diInstanceCreateTime :: !(Maybe ISO8601),
-    _diTagList :: !(Maybe [Tag]),
-    _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text),
-    _diReplicaMode :: !(Maybe ReplicaMode),
-    _diMonitoringInterval :: !(Maybe Int),
-    _diEngine :: !(Maybe Text),
-    _diProcessorFeatures :: !(Maybe [ProcessorFeature]),
-    _diLatestRestorableTime :: !(Maybe ISO8601),
-    _diDBInstanceClass :: !(Maybe Text),
-    _diPromotionTier :: !(Maybe Int),
-    _diLicenseModel :: !(Maybe Text),
-    _diPreferredMaintenanceWindow :: !(Maybe Text),
-    _diPerformanceInsightsRetentionPeriod :: !(Maybe Int),
-    _diCACertificateIdentifier :: !(Maybe Text),
-    _diDBInstanceIdentifier :: !(Maybe Text),
-    _diCharacterSetName :: !(Maybe Text),
-    _diMaxAllocatedStorage :: !(Maybe Int),
-    _diKMSKeyId :: !(Maybe Text),
-    _diPreferredBackupWindow :: !(Maybe Text),
-    _diAssociatedRoles :: !(Maybe [DBInstanceRole]),
-    _diAvailabilityZone :: !(Maybe Text),
-    _diVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership]),
-    _diBackupRetentionPeriod :: !(Maybe Int),
-    _diNcharCharacterSetName :: !(Maybe Text),
-    _diPerformanceInsightsKMSKeyId :: !(Maybe Text),
-    _diDBSubnetGroup :: !(Maybe DBSubnetGroup),
-    _diMultiAZ :: !(Maybe Bool),
-    _diListenerEndpoint :: !(Maybe Endpoint),
-    _diOptionGroupMemberships :: !(Maybe [OptionGroupMembership]),
-    _diEnabledCloudwatchLogsExports :: !(Maybe [Text]),
-    _diEnhancedMonitoringResourceARN :: !(Maybe Text),
-    _diSecondaryAvailabilityZone :: !(Maybe Text),
-    _diPerformanceInsightsEnabled :: !(Maybe Bool),
-    _diAllocatedStorage :: !(Maybe Int),
-    _diDBiResourceId :: !(Maybe Text),
-    _diDBParameterGroups :: !(Maybe [DBParameterGroupStatus]),
-    _diCopyTagsToSnapshot :: !(Maybe Bool),
-    _diTimezone :: !(Maybe Text),
-    _diTDECredentialARN :: !(Maybe Text),
-    _diEndpoint :: !(Maybe Endpoint),
-    _diDBInstanceStatus :: !(Maybe Text),
-    _diDBInstancePort :: !(Maybe Int),
-    _diPendingModifiedValues :: !(Maybe PendingModifiedValues),
-    _diReadReplicaDBClusterIdentifiers :: !(Maybe [Text]),
-    _diStorageType :: !(Maybe Text),
-    _diStatusInfos :: !(Maybe [DBInstanceStatusInfo]),
-    _diDomainMemberships :: !(Maybe [DomainMembership]),
-    _diDBName :: !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    dbSecurityGroups :: Lude.Maybe [DBSecurityGroupMembership],
+    deletionProtection :: Lude.Maybe Lude.Bool,
+    storageEncrypted :: Lude.Maybe Lude.Bool,
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    dbInstanceARN :: Lude.Maybe Lude.Text,
+    masterUsername :: Lude.Maybe Lude.Text,
+    readReplicaDBInstanceIdentifiers :: Lude.Maybe [Lude.Text],
+    iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    monitoringRoleARN :: Lude.Maybe Lude.Text,
+    iops :: Lude.Maybe Lude.Int,
+    instanceCreateTime :: Lude.Maybe Lude.ISO8601,
+    tagList :: Lude.Maybe [Tag],
+    readReplicaSourceDBInstanceIdentifier :: Lude.Maybe Lude.Text,
+    replicaMode :: Lude.Maybe ReplicaMode,
+    monitoringInterval :: Lude.Maybe Lude.Int,
+    engine :: Lude.Maybe Lude.Text,
+    processorFeatures :: Lude.Maybe [ProcessorFeature],
+    latestRestorableTime :: Lude.Maybe Lude.ISO8601,
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    promotionTier :: Lude.Maybe Lude.Int,
+    licenseModel :: Lude.Maybe Lude.Text,
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    performanceInsightsRetentionPeriod :: Lude.Maybe Lude.Int,
+    cACertificateIdentifier :: Lude.Maybe Lude.Text,
+    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    characterSetName :: Lude.Maybe Lude.Text,
+    maxAllocatedStorage :: Lude.Maybe Lude.Int,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    preferredBackupWindow :: Lude.Maybe Lude.Text,
+    associatedRoles :: Lude.Maybe [DBInstanceRole],
+    availabilityZone :: Lude.Maybe Lude.Text,
+    vpcSecurityGroups :: Lude.Maybe [VPCSecurityGroupMembership],
+    backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    ncharCharacterSetName :: Lude.Maybe Lude.Text,
+    performanceInsightsKMSKeyId :: Lude.Maybe Lude.Text,
+    dbSubnetGroup :: Lude.Maybe DBSubnetGroup,
+    multiAZ :: Lude.Maybe Lude.Bool,
+    listenerEndpoint :: Lude.Maybe Endpoint,
+    optionGroupMemberships :: Lude.Maybe [OptionGroupMembership],
+    enabledCloudwatchLogsExports :: Lude.Maybe [Lude.Text],
+    enhancedMonitoringResourceARN :: Lude.Maybe Lude.Text,
+    secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    performanceInsightsEnabled :: Lude.Maybe Lude.Bool,
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    dbiResourceId :: Lude.Maybe Lude.Text,
+    dbParameterGroups :: Lude.Maybe [DBParameterGroupStatus],
+    copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
+    timezone :: Lude.Maybe Lude.Text,
+    tdeCredentialARN :: Lude.Maybe Lude.Text,
+    endpoint :: Lude.Maybe Endpoint,
+    dbInstanceStatus :: Lude.Maybe Lude.Text,
+    dbInstancePort :: Lude.Maybe Lude.Int,
+    pendingModifiedValues :: Lude.Maybe PendingModifiedValues,
+    readReplicaDBClusterIdentifiers :: Lude.Maybe [Lude.Text],
+    storageType :: Lude.Maybe Lude.Text,
+    statusInfos :: Lude.Maybe [DBInstanceStatusInfo],
+    domainMemberships :: Lude.Maybe [DomainMembership],
+    dbName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocatedStorage' - Specifies the allocated storage size specified in gibibytes.
+-- * 'associatedRoles' - The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+-- * 'autoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
+-- * 'availabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
+-- * 'backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
+-- * 'cACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
+-- * 'characterSetName' - If present, specifies the name of the character set that this instance is associated with.
+-- * 'copyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
 --
--- * 'diEngineVersion' - Indicates the database engine version.
+-- __Amazon Aurora__
+-- Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
+-- * 'dbClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
+-- * 'dbInstanceARN' - The Amazon Resource Name (ARN) for the DB instance.
+-- * 'dbInstanceClass' - Contains the name of the compute and memory capacity class of the DB instance.
+-- * 'dbInstanceIdentifier' - Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
+-- * 'dbInstancePort' - Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
+-- * 'dbInstanceStatus' - Specifies the current state of this database.
 --
--- * 'diDBSecurityGroups' - A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
+-- For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
+-- * 'dbName' - The meaning of this parameter differs according to the database engine you use.
 --
--- * 'diDeletionProtection' - Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- __MySQL, MariaDB, SQL Server, PostgreSQL__
+-- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+-- Type: String
+-- __Oracle__
+-- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
+-- * 'dbParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
+-- * 'dbSecurityGroups' - A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
+-- * 'dbSubnetGroup' - Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
+-- * 'dbiResourceId' - The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+-- * 'deletionProtection' - Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- * 'domainMemberships' - The Active Directory Domain membership records associated with the DB instance.
+-- * 'enabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs.
 --
--- * 'diStorageEncrypted' - Specifies whether the DB instance is encrypted.
+-- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
+-- * 'endpoint' - Specifies the connection endpoint.
+-- * 'engine' - The name of the database engine to be used for this DB instance.
+-- * 'engineVersion' - Indicates the database engine version.
+-- * 'enhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
+-- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 --
--- * 'diDBClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
+-- IAM database authentication can be enabled for the following database engines
 --
--- * 'diPubliclyAccessible' - Specifies the accessibility options for the DB instance. When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. For more information, see 'CreateDBInstance' .
+--     * For MySQL 5.6, minor version 5.6.34 or higher
 --
--- * 'diAutoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
 --
--- * 'diDBInstanceARN' - The Amazon Resource Name (ARN) for the DB instance.
+--     * For MySQL 5.7, minor version 5.7.16 or higher
 --
--- * 'diMasterUsername' - Contains the master username for the DB instance.
 --
--- * 'diReadReplicaDBInstanceIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB instance.
+--     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
 --
--- * 'diIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false. IAM database authentication can be enabled for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
 --
--- * 'diMonitoringRoleARN' - The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+-- * 'instanceCreateTime' - Provides the date and time the DB instance was created.
+-- * 'iops' - Specifies the Provisioned IOPS (I/O operations per second) value.
+-- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
+-- * 'latestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
+-- * 'licenseModel' - License model information for this DB instance.
+-- * 'listenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
+-- * 'masterUsername' - Contains the master username for the DB instance.
+-- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+-- * 'monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+-- * 'monitoringRoleARN' - The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+-- * 'multiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
+-- * 'ncharCharacterSetName' - The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
+-- * 'optionGroupMemberships' - Provides the list of option group memberships for this DB instance.
+-- * 'pendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
+-- * 'performanceInsightsEnabled' - True if Performance Insights is enabled for the DB instance, and otherwise false.
+-- * 'performanceInsightsKMSKeyId' - The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+-- * 'performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+-- * 'preferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
+-- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+-- * 'publiclyAccessible' - Specifies the accessibility options for the DB instance.
 --
--- * 'diIOPS' - Specifies the Provisioned IOPS (I/O operations per second) value.
---
--- * 'diInstanceCreateTime' - Provides the date and time the DB instance was created.
---
--- * 'diTagList' - Undocumented member.
---
--- * 'diReadReplicaSourceDBInstanceIdentifier' - Contains the identifier of the source DB instance if this DB instance is a read replica.
---
--- * 'diReplicaMode' - The open mode of an Oracle read replica. The default is @open-read-only@ . For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS> in the /Amazon RDS User Guide/ .
---
--- * 'diMonitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
---
--- * 'diEngine' - The name of the database engine to be used for this DB instance.
---
--- * 'diProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
---
--- * 'diLatestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
---
--- * 'diDBInstanceClass' - Contains the name of the compute and memory capacity class of the DB instance.
---
--- * 'diPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
---
--- * 'diLicenseModel' - License model information for this DB instance.
---
--- * 'diPreferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
---
--- * 'diPerformanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
---
--- * 'diCACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
---
--- * 'diDBInstanceIdentifier' - Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
---
--- * 'diCharacterSetName' - If present, specifies the name of the character set that this instance is associated with.
---
--- * 'diMaxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
---
--- * 'diKMSKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
---
--- * 'diPreferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
---
--- * 'diAssociatedRoles' - The AWS Identity and Access Management (IAM) roles associated with the DB instance.
---
--- * 'diAvailabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
---
--- * 'diVPCSecurityGroups' - Provides a list of VPC security group elements that the DB instance belongs to.
---
--- * 'diBackupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
---
--- * 'diNcharCharacterSetName' - The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
---
--- * 'diPerformanceInsightsKMSKeyId' - The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
---
--- * 'diDBSubnetGroup' - Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
---
--- * 'diMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
---
--- * 'diListenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
---
--- * 'diOptionGroupMemberships' - Provides the list of option group memberships for this DB instance.
---
--- * 'diEnabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
---
--- * 'diEnhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
---
--- * 'diSecondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
---
--- * 'diPerformanceInsightsEnabled' - True if Performance Insights is enabled for the DB instance, and otherwise false.
---
--- * 'diAllocatedStorage' - Specifies the allocated storage size specified in gibibytes.
---
--- * 'diDBiResourceId' - The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
---
--- * 'diDBParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
---
--- * 'diCopyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance. __Amazon Aurora__  Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
---
--- * 'diTimezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
---
--- * 'diTDECredentialARN' - The ARN from the key store with which the instance is associated for TDE encryption.
---
--- * 'diEndpoint' - Specifies the connection endpoint.
---
--- * 'diDBInstanceStatus' - Specifies the current state of this database. For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
---
--- * 'diDBInstancePort' - Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
---
--- * 'diPendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
---
--- * 'diReadReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
---
--- * 'diStorageType' - Specifies the storage type associated with DB instance.
---
--- * 'diStatusInfos' - The status of a read replica. If the instance isn't a read replica, this is blank.
---
--- * 'diDomainMemberships' - The Active Directory Domain membership records associated with the DB instance.
---
--- * 'diDBName' - The meaning of this parameter differs according to the database engine you use. __MySQL, MariaDB, SQL Server, PostgreSQL__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
-dbInstance ::
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
+-- * 'readReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
+-- * 'readReplicaDBInstanceIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB instance.
+-- * 'readReplicaSourceDBInstanceIdentifier' - Contains the identifier of the source DB instance if this DB instance is a read replica.
+-- * 'replicaMode' - The open mode of an Oracle read replica. The default is @open-read-only@ . For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS> in the /Amazon RDS User Guide/ .
+-- * 'secondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+-- * 'statusInfos' - The status of a read replica. If the instance isn't a read replica, this is blank.
+-- * 'storageEncrypted' - Specifies whether the DB instance is encrypted.
+-- * 'storageType' - Specifies the storage type associated with DB instance.
+-- * 'tagList' - Undocumented field.
+-- * 'tdeCredentialARN' - The ARN from the key store with which the instance is associated for TDE encryption.
+-- * 'timezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'vpcSecurityGroups' - Provides a list of VPC security group elements that the DB instance belongs to.
+mkDBInstance ::
   DBInstance
-dbInstance =
+mkDBInstance =
   DBInstance'
-    { _diEngineVersion = Nothing,
-      _diDBSecurityGroups = Nothing,
-      _diDeletionProtection = Nothing,
-      _diStorageEncrypted = Nothing,
-      _diDBClusterIdentifier = Nothing,
-      _diPubliclyAccessible = Nothing,
-      _diAutoMinorVersionUpgrade = Nothing,
-      _diDBInstanceARN = Nothing,
-      _diMasterUsername = Nothing,
-      _diReadReplicaDBInstanceIdentifiers = Nothing,
-      _diIAMDatabaseAuthenticationEnabled = Nothing,
-      _diMonitoringRoleARN = Nothing,
-      _diIOPS = Nothing,
-      _diInstanceCreateTime = Nothing,
-      _diTagList = Nothing,
-      _diReadReplicaSourceDBInstanceIdentifier = Nothing,
-      _diReplicaMode = Nothing,
-      _diMonitoringInterval = Nothing,
-      _diEngine = Nothing,
-      _diProcessorFeatures = Nothing,
-      _diLatestRestorableTime = Nothing,
-      _diDBInstanceClass = Nothing,
-      _diPromotionTier = Nothing,
-      _diLicenseModel = Nothing,
-      _diPreferredMaintenanceWindow = Nothing,
-      _diPerformanceInsightsRetentionPeriod = Nothing,
-      _diCACertificateIdentifier = Nothing,
-      _diDBInstanceIdentifier = Nothing,
-      _diCharacterSetName = Nothing,
-      _diMaxAllocatedStorage = Nothing,
-      _diKMSKeyId = Nothing,
-      _diPreferredBackupWindow = Nothing,
-      _diAssociatedRoles = Nothing,
-      _diAvailabilityZone = Nothing,
-      _diVPCSecurityGroups = Nothing,
-      _diBackupRetentionPeriod = Nothing,
-      _diNcharCharacterSetName = Nothing,
-      _diPerformanceInsightsKMSKeyId = Nothing,
-      _diDBSubnetGroup = Nothing,
-      _diMultiAZ = Nothing,
-      _diListenerEndpoint = Nothing,
-      _diOptionGroupMemberships = Nothing,
-      _diEnabledCloudwatchLogsExports = Nothing,
-      _diEnhancedMonitoringResourceARN = Nothing,
-      _diSecondaryAvailabilityZone = Nothing,
-      _diPerformanceInsightsEnabled = Nothing,
-      _diAllocatedStorage = Nothing,
-      _diDBiResourceId = Nothing,
-      _diDBParameterGroups = Nothing,
-      _diCopyTagsToSnapshot = Nothing,
-      _diTimezone = Nothing,
-      _diTDECredentialARN = Nothing,
-      _diEndpoint = Nothing,
-      _diDBInstanceStatus = Nothing,
-      _diDBInstancePort = Nothing,
-      _diPendingModifiedValues = Nothing,
-      _diReadReplicaDBClusterIdentifiers = Nothing,
-      _diStorageType = Nothing,
-      _diStatusInfos = Nothing,
-      _diDomainMemberships = Nothing,
-      _diDBName = Nothing
+    { engineVersion = Lude.Nothing,
+      dbSecurityGroups = Lude.Nothing,
+      deletionProtection = Lude.Nothing,
+      storageEncrypted = Lude.Nothing,
+      dbClusterIdentifier = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      dbInstanceARN = Lude.Nothing,
+      masterUsername = Lude.Nothing,
+      readReplicaDBInstanceIdentifiers = Lude.Nothing,
+      iamDatabaseAuthenticationEnabled = Lude.Nothing,
+      monitoringRoleARN = Lude.Nothing,
+      iops = Lude.Nothing,
+      instanceCreateTime = Lude.Nothing,
+      tagList = Lude.Nothing,
+      readReplicaSourceDBInstanceIdentifier = Lude.Nothing,
+      replicaMode = Lude.Nothing,
+      monitoringInterval = Lude.Nothing,
+      engine = Lude.Nothing,
+      processorFeatures = Lude.Nothing,
+      latestRestorableTime = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      promotionTier = Lude.Nothing,
+      licenseModel = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      performanceInsightsRetentionPeriod = Lude.Nothing,
+      cACertificateIdentifier = Lude.Nothing,
+      dbInstanceIdentifier = Lude.Nothing,
+      characterSetName = Lude.Nothing,
+      maxAllocatedStorage = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      preferredBackupWindow = Lude.Nothing,
+      associatedRoles = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      vpcSecurityGroups = Lude.Nothing,
+      backupRetentionPeriod = Lude.Nothing,
+      ncharCharacterSetName = Lude.Nothing,
+      performanceInsightsKMSKeyId = Lude.Nothing,
+      dbSubnetGroup = Lude.Nothing,
+      multiAZ = Lude.Nothing,
+      listenerEndpoint = Lude.Nothing,
+      optionGroupMemberships = Lude.Nothing,
+      enabledCloudwatchLogsExports = Lude.Nothing,
+      enhancedMonitoringResourceARN = Lude.Nothing,
+      secondaryAvailabilityZone = Lude.Nothing,
+      performanceInsightsEnabled = Lude.Nothing,
+      allocatedStorage = Lude.Nothing,
+      dbiResourceId = Lude.Nothing,
+      dbParameterGroups = Lude.Nothing,
+      copyTagsToSnapshot = Lude.Nothing,
+      timezone = Lude.Nothing,
+      tdeCredentialARN = Lude.Nothing,
+      endpoint = Lude.Nothing,
+      dbInstanceStatus = Lude.Nothing,
+      dbInstancePort = Lude.Nothing,
+      pendingModifiedValues = Lude.Nothing,
+      readReplicaDBClusterIdentifiers = Lude.Nothing,
+      storageType = Lude.Nothing,
+      statusInfos = Lude.Nothing,
+      domainMemberships = Lude.Nothing,
+      dbName = Lude.Nothing
     }
 
 -- | Indicates the database engine version.
-diEngineVersion :: Lens' DBInstance (Maybe Text)
-diEngineVersion = lens _diEngineVersion (\s a -> s {_diEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEngineVersion :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diEngineVersion = Lens.lens (engineVersion :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DBInstance)
+{-# DEPRECATED diEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
-diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
-diDBSecurityGroups = lens _diDBSecurityGroups (\s a -> s {_diDBSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBSecurityGroups :: Lens.Lens' DBInstance (Lude.Maybe [DBSecurityGroupMembership])
+diDBSecurityGroups = Lens.lens (dbSecurityGroups :: DBInstance -> Lude.Maybe [DBSecurityGroupMembership]) (\s a -> s {dbSecurityGroups = a} :: DBInstance)
+{-# DEPRECATED diDBSecurityGroups "Use generic-lens or generic-optics with 'dbSecurityGroups' instead." #-}
 
 -- | Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
-diDeletionProtection :: Lens' DBInstance (Maybe Bool)
-diDeletionProtection = lens _diDeletionProtection (\s a -> s {_diDeletionProtection = a})
+--
+-- /Note:/ Consider using 'deletionProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDeletionProtection :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diDeletionProtection = Lens.lens (deletionProtection :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {deletionProtection = a} :: DBInstance)
+{-# DEPRECATED diDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
 
 -- | Specifies whether the DB instance is encrypted.
-diStorageEncrypted :: Lens' DBInstance (Maybe Bool)
-diStorageEncrypted = lens _diStorageEncrypted (\s a -> s {_diStorageEncrypted = a})
+--
+-- /Note:/ Consider using 'storageEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diStorageEncrypted :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diStorageEncrypted = Lens.lens (storageEncrypted :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {storageEncrypted = a} :: DBInstance)
+{-# DEPRECATED diStorageEncrypted "Use generic-lens or generic-optics with 'storageEncrypted' instead." #-}
 
 -- | If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-diDBClusterIdentifier :: Lens' DBInstance (Maybe Text)
-diDBClusterIdentifier = lens _diDBClusterIdentifier (\s a -> s {_diDBClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBClusterIdentifier :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DBInstance)
+{-# DEPRECATED diDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
--- | Specifies the accessibility options for the DB instance. When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it. When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address. For more information, see 'CreateDBInstance' .
-diPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
-diPubliclyAccessible = lens _diPubliclyAccessible (\s a -> s {_diPubliclyAccessible = a})
+-- | Specifies the accessibility options for the DB instance.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPubliclyAccessible :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diPubliclyAccessible = Lens.lens (publiclyAccessible :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: DBInstance)
+{-# DEPRECATED diPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | Indicates that minor version patches are applied automatically.
-diAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
-diAutoMinorVersionUpgrade = lens _diAutoMinorVersionUpgrade (\s a -> s {_diAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAutoMinorVersionUpgrade :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: DBInstance)
+{-# DEPRECATED diAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the DB instance.
-diDBInstanceARN :: Lens' DBInstance (Maybe Text)
-diDBInstanceARN = lens _diDBInstanceARN (\s a -> s {_diDBInstanceARN = a})
+--
+-- /Note:/ Consider using 'dbInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBInstanceARN :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBInstanceARN = Lens.lens (dbInstanceARN :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceARN = a} :: DBInstance)
+{-# DEPRECATED diDBInstanceARN "Use generic-lens or generic-optics with 'dbInstanceARN' instead." #-}
 
 -- | Contains the master username for the DB instance.
-diMasterUsername :: Lens' DBInstance (Maybe Text)
-diMasterUsername = lens _diMasterUsername (\s a -> s {_diMasterUsername = a})
+--
+-- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMasterUsername :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diMasterUsername = Lens.lens (masterUsername :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {masterUsername = a} :: DBInstance)
+{-# DEPRECATED diMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
 
 -- | Contains one or more identifiers of the read replicas associated with this DB instance.
-diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
-diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\s a -> s {_diReadReplicaDBInstanceIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'readReplicaDBInstanceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diReadReplicaDBInstanceIdentifiers :: Lens.Lens' DBInstance (Lude.Maybe [Lude.Text])
+diReadReplicaDBInstanceIdentifiers = Lens.lens (readReplicaDBInstanceIdentifiers :: DBInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {readReplicaDBInstanceIdentifiers = a} :: DBInstance)
+{-# DEPRECATED diReadReplicaDBInstanceIdentifiers "Use generic-lens or generic-optics with 'readReplicaDBInstanceIdentifiers' instead." #-}
 
--- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false. IAM database authentication can be enabled for the following database engines     * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
-diIAMDatabaseAuthenticationEnabled :: Lens' DBInstance (Maybe Bool)
-diIAMDatabaseAuthenticationEnabled = lens _diIAMDatabaseAuthenticationEnabled (\s a -> s {_diIAMDatabaseAuthenticationEnabled = a})
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+--
+-- IAM database authentication can be enabled for the following database engines
+--
+--     * For MySQL 5.6, minor version 5.6.34 or higher
+--
+--
+--     * For MySQL 5.7, minor version 5.7.16 or higher
+--
+--
+--     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
+--
+--
+--
+-- /Note:/ Consider using 'iamDatabaseAuthenticationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diIAMDatabaseAuthenticationEnabled :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diIAMDatabaseAuthenticationEnabled = Lens.lens (iamDatabaseAuthenticationEnabled :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {iamDatabaseAuthenticationEnabled = a} :: DBInstance)
+{-# DEPRECATED diIAMDatabaseAuthenticationEnabled "Use generic-lens or generic-optics with 'iamDatabaseAuthenticationEnabled' instead." #-}
 
 -- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
-diMonitoringRoleARN :: Lens' DBInstance (Maybe Text)
-diMonitoringRoleARN = lens _diMonitoringRoleARN (\s a -> s {_diMonitoringRoleARN = a})
+--
+-- /Note:/ Consider using 'monitoringRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMonitoringRoleARN :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diMonitoringRoleARN = Lens.lens (monitoringRoleARN :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {monitoringRoleARN = a} :: DBInstance)
+{-# DEPRECATED diMonitoringRoleARN "Use generic-lens or generic-optics with 'monitoringRoleARN' instead." #-}
 
 -- | Specifies the Provisioned IOPS (I/O operations per second) value.
-diIOPS :: Lens' DBInstance (Maybe Int)
-diIOPS = lens _diIOPS (\s a -> s {_diIOPS = a})
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diIOPS :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diIOPS = Lens.lens (iops :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: DBInstance)
+{-# DEPRECATED diIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | Provides the date and time the DB instance was created.
-diInstanceCreateTime :: Lens' DBInstance (Maybe UTCTime)
-diInstanceCreateTime = lens _diInstanceCreateTime (\s a -> s {_diInstanceCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'instanceCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diInstanceCreateTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.ISO8601)
+diInstanceCreateTime = Lens.lens (instanceCreateTime :: DBInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {instanceCreateTime = a} :: DBInstance)
+{-# DEPRECATED diInstanceCreateTime "Use generic-lens or generic-optics with 'instanceCreateTime' instead." #-}
 
--- | Undocumented member.
-diTagList :: Lens' DBInstance [Tag]
-diTagList = lens _diTagList (\s a -> s {_diTagList = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTagList :: Lens.Lens' DBInstance (Lude.Maybe [Tag])
+diTagList = Lens.lens (tagList :: DBInstance -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: DBInstance)
+{-# DEPRECATED diTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | Contains the identifier of the source DB instance if this DB instance is a read replica.
-diReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
-diReadReplicaSourceDBInstanceIdentifier = lens _diReadReplicaSourceDBInstanceIdentifier (\s a -> s {_diReadReplicaSourceDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'readReplicaSourceDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diReadReplicaSourceDBInstanceIdentifier :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diReadReplicaSourceDBInstanceIdentifier = Lens.lens (readReplicaSourceDBInstanceIdentifier :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {readReplicaSourceDBInstanceIdentifier = a} :: DBInstance)
+{-# DEPRECATED diReadReplicaSourceDBInstanceIdentifier "Use generic-lens or generic-optics with 'readReplicaSourceDBInstanceIdentifier' instead." #-}
 
 -- | The open mode of an Oracle read replica. The default is @open-read-only@ . For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS> in the /Amazon RDS User Guide/ .
-diReplicaMode :: Lens' DBInstance (Maybe ReplicaMode)
-diReplicaMode = lens _diReplicaMode (\s a -> s {_diReplicaMode = a})
+--
+-- /Note:/ Consider using 'replicaMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diReplicaMode :: Lens.Lens' DBInstance (Lude.Maybe ReplicaMode)
+diReplicaMode = Lens.lens (replicaMode :: DBInstance -> Lude.Maybe ReplicaMode) (\s a -> s {replicaMode = a} :: DBInstance)
+{-# DEPRECATED diReplicaMode "Use generic-lens or generic-optics with 'replicaMode' instead." #-}
 
 -- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
-diMonitoringInterval :: Lens' DBInstance (Maybe Int)
-diMonitoringInterval = lens _diMonitoringInterval (\s a -> s {_diMonitoringInterval = a})
+--
+-- /Note:/ Consider using 'monitoringInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMonitoringInterval :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diMonitoringInterval = Lens.lens (monitoringInterval :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {monitoringInterval = a} :: DBInstance)
+{-# DEPRECATED diMonitoringInterval "Use generic-lens or generic-optics with 'monitoringInterval' instead." #-}
 
 -- | The name of the database engine to be used for this DB instance.
-diEngine :: Lens' DBInstance (Maybe Text)
-diEngine = lens _diEngine (\s a -> s {_diEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEngine :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diEngine = Lens.lens (engine :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DBInstance)
+{-# DEPRECATED diEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
-diProcessorFeatures :: Lens' DBInstance [ProcessorFeature]
-diProcessorFeatures = lens _diProcessorFeatures (\s a -> s {_diProcessorFeatures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diProcessorFeatures :: Lens.Lens' DBInstance (Lude.Maybe [ProcessorFeature])
+diProcessorFeatures = Lens.lens (processorFeatures :: DBInstance -> Lude.Maybe [ProcessorFeature]) (\s a -> s {processorFeatures = a} :: DBInstance)
+{-# DEPRECATED diProcessorFeatures "Use generic-lens or generic-optics with 'processorFeatures' instead." #-}
 
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
-diLatestRestorableTime :: Lens' DBInstance (Maybe UTCTime)
-diLatestRestorableTime = lens _diLatestRestorableTime (\s a -> s {_diLatestRestorableTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLatestRestorableTime :: Lens.Lens' DBInstance (Lude.Maybe Lude.ISO8601)
+diLatestRestorableTime = Lens.lens (latestRestorableTime :: DBInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestRestorableTime = a} :: DBInstance)
+{-# DEPRECATED diLatestRestorableTime "Use generic-lens or generic-optics with 'latestRestorableTime' instead." #-}
 
 -- | Contains the name of the compute and memory capacity class of the DB instance.
-diDBInstanceClass :: Lens' DBInstance (Maybe Text)
-diDBInstanceClass = lens _diDBInstanceClass (\s a -> s {_diDBInstanceClass = a})
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBInstanceClass :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBInstanceClass = Lens.lens (dbInstanceClass :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: DBInstance)
+{-# DEPRECATED diDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
 -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
-diPromotionTier :: Lens' DBInstance (Maybe Int)
-diPromotionTier = lens _diPromotionTier (\s a -> s {_diPromotionTier = a})
+--
+-- /Note:/ Consider using 'promotionTier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPromotionTier :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diPromotionTier = Lens.lens (promotionTier :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {promotionTier = a} :: DBInstance)
+{-# DEPRECATED diPromotionTier "Use generic-lens or generic-optics with 'promotionTier' instead." #-}
 
 -- | License model information for this DB instance.
-diLicenseModel :: Lens' DBInstance (Maybe Text)
-diLicenseModel = lens _diLicenseModel (\s a -> s {_diLicenseModel = a})
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLicenseModel :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diLicenseModel = Lens.lens (licenseModel :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: DBInstance)
+{-# DEPRECATED diLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
 
 -- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-diPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
-diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\s a -> s {_diPreferredMaintenanceWindow = a})
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPreferredMaintenanceWindow :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: DBInstance)
+{-# DEPRECATED diPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
-diPerformanceInsightsRetentionPeriod :: Lens' DBInstance (Maybe Int)
-diPerformanceInsightsRetentionPeriod = lens _diPerformanceInsightsRetentionPeriod (\s a -> s {_diPerformanceInsightsRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'performanceInsightsRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPerformanceInsightsRetentionPeriod :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diPerformanceInsightsRetentionPeriod = Lens.lens (performanceInsightsRetentionPeriod :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {performanceInsightsRetentionPeriod = a} :: DBInstance)
+{-# DEPRECATED diPerformanceInsightsRetentionPeriod "Use generic-lens or generic-optics with 'performanceInsightsRetentionPeriod' instead." #-}
 
 -- | The identifier of the CA certificate for this DB instance.
-diCACertificateIdentifier :: Lens' DBInstance (Maybe Text)
-diCACertificateIdentifier = lens _diCACertificateIdentifier (\s a -> s {_diCACertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'cACertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCACertificateIdentifier :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diCACertificateIdentifier = Lens.lens (cACertificateIdentifier :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {cACertificateIdentifier = a} :: DBInstance)
+{-# DEPRECATED diCACertificateIdentifier "Use generic-lens or generic-optics with 'cACertificateIdentifier' instead." #-}
 
 -- | Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
-diDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
-diDBInstanceIdentifier = lens _diDBInstanceIdentifier (\s a -> s {_diDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBInstanceIdentifier :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DBInstance)
+{-# DEPRECATED diDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | If present, specifies the name of the character set that this instance is associated with.
-diCharacterSetName :: Lens' DBInstance (Maybe Text)
-diCharacterSetName = lens _diCharacterSetName (\s a -> s {_diCharacterSetName = a})
+--
+-- /Note:/ Consider using 'characterSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCharacterSetName :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diCharacterSetName = Lens.lens (characterSetName :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {characterSetName = a} :: DBInstance)
+{-# DEPRECATED diCharacterSetName "Use generic-lens or generic-optics with 'characterSetName' instead." #-}
 
 -- | The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
-diMaxAllocatedStorage :: Lens' DBInstance (Maybe Int)
-diMaxAllocatedStorage = lens _diMaxAllocatedStorage (\s a -> s {_diMaxAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'maxAllocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMaxAllocatedStorage :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diMaxAllocatedStorage = Lens.lens (maxAllocatedStorage :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {maxAllocatedStorage = a} :: DBInstance)
+{-# DEPRECATED diMaxAllocatedStorage "Use generic-lens or generic-optics with 'maxAllocatedStorage' instead." #-}
 
 -- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
-diKMSKeyId :: Lens' DBInstance (Maybe Text)
-diKMSKeyId = lens _diKMSKeyId (\s a -> s {_diKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diKMSKeyId :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diKMSKeyId = Lens.lens (kmsKeyId :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: DBInstance)
+{-# DEPRECATED diKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
-diPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
-diPreferredBackupWindow = lens _diPreferredBackupWindow (\s a -> s {_diPreferredBackupWindow = a})
+--
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPreferredBackupWindow :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diPreferredBackupWindow = Lens.lens (preferredBackupWindow :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: DBInstance)
+{-# DEPRECATED diPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
 -- | The AWS Identity and Access Management (IAM) roles associated with the DB instance.
-diAssociatedRoles :: Lens' DBInstance [DBInstanceRole]
-diAssociatedRoles = lens _diAssociatedRoles (\s a -> s {_diAssociatedRoles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'associatedRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAssociatedRoles :: Lens.Lens' DBInstance (Lude.Maybe [DBInstanceRole])
+diAssociatedRoles = Lens.lens (associatedRoles :: DBInstance -> Lude.Maybe [DBInstanceRole]) (\s a -> s {associatedRoles = a} :: DBInstance)
+{-# DEPRECATED diAssociatedRoles "Use generic-lens or generic-optics with 'associatedRoles' instead." #-}
 
 -- | Specifies the name of the Availability Zone the DB instance is located in.
-diAvailabilityZone :: Lens' DBInstance (Maybe Text)
-diAvailabilityZone = lens _diAvailabilityZone (\s a -> s {_diAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAvailabilityZone :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diAvailabilityZone = Lens.lens (availabilityZone :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DBInstance)
+{-# DEPRECATED diAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | Provides a list of VPC security group elements that the DB instance belongs to.
-diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
-diVPCSecurityGroups = lens _diVPCSecurityGroups (\s a -> s {_diVPCSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diVPCSecurityGroups :: Lens.Lens' DBInstance (Lude.Maybe [VPCSecurityGroupMembership])
+diVPCSecurityGroups = Lens.lens (vpcSecurityGroups :: DBInstance -> Lude.Maybe [VPCSecurityGroupMembership]) (\s a -> s {vpcSecurityGroups = a} :: DBInstance)
+{-# DEPRECATED diVPCSecurityGroups "Use generic-lens or generic-optics with 'vpcSecurityGroups' instead." #-}
 
 -- | Specifies the number of days for which automatic DB snapshots are retained.
-diBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
-diBackupRetentionPeriod = lens _diBackupRetentionPeriod (\s a -> s {_diBackupRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'backupRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diBackupRetentionPeriod :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diBackupRetentionPeriod = Lens.lens (backupRetentionPeriod :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionPeriod = a} :: DBInstance)
+{-# DEPRECATED diBackupRetentionPeriod "Use generic-lens or generic-optics with 'backupRetentionPeriod' instead." #-}
 
 -- | The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
-diNcharCharacterSetName :: Lens' DBInstance (Maybe Text)
-diNcharCharacterSetName = lens _diNcharCharacterSetName (\s a -> s {_diNcharCharacterSetName = a})
+--
+-- /Note:/ Consider using 'ncharCharacterSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diNcharCharacterSetName :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diNcharCharacterSetName = Lens.lens (ncharCharacterSetName :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {ncharCharacterSetName = a} :: DBInstance)
+{-# DEPRECATED diNcharCharacterSetName "Use generic-lens or generic-optics with 'ncharCharacterSetName' instead." #-}
 
 -- | The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-diPerformanceInsightsKMSKeyId :: Lens' DBInstance (Maybe Text)
-diPerformanceInsightsKMSKeyId = lens _diPerformanceInsightsKMSKeyId (\s a -> s {_diPerformanceInsightsKMSKeyId = a})
+--
+-- /Note:/ Consider using 'performanceInsightsKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPerformanceInsightsKMSKeyId :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diPerformanceInsightsKMSKeyId = Lens.lens (performanceInsightsKMSKeyId :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {performanceInsightsKMSKeyId = a} :: DBInstance)
+{-# DEPRECATED diPerformanceInsightsKMSKeyId "Use generic-lens or generic-optics with 'performanceInsightsKMSKeyId' instead." #-}
 
 -- | Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
-diDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
-diDBSubnetGroup = lens _diDBSubnetGroup (\s a -> s {_diDBSubnetGroup = a})
+--
+-- /Note:/ Consider using 'dbSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBSubnetGroup :: Lens.Lens' DBInstance (Lude.Maybe DBSubnetGroup)
+diDBSubnetGroup = Lens.lens (dbSubnetGroup :: DBInstance -> Lude.Maybe DBSubnetGroup) (\s a -> s {dbSubnetGroup = a} :: DBInstance)
+{-# DEPRECATED diDBSubnetGroup "Use generic-lens or generic-optics with 'dbSubnetGroup' instead." #-}
 
 -- | Specifies if the DB instance is a Multi-AZ deployment.
-diMultiAZ :: Lens' DBInstance (Maybe Bool)
-diMultiAZ = lens _diMultiAZ (\s a -> s {_diMultiAZ = a})
+--
+-- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMultiAZ :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diMultiAZ = Lens.lens (multiAZ :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: DBInstance)
+{-# DEPRECATED diMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | Specifies the listener connection endpoint for SQL Server Always On.
-diListenerEndpoint :: Lens' DBInstance (Maybe Endpoint)
-diListenerEndpoint = lens _diListenerEndpoint (\s a -> s {_diListenerEndpoint = a})
+--
+-- /Note:/ Consider using 'listenerEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diListenerEndpoint :: Lens.Lens' DBInstance (Lude.Maybe Endpoint)
+diListenerEndpoint = Lens.lens (listenerEndpoint :: DBInstance -> Lude.Maybe Endpoint) (\s a -> s {listenerEndpoint = a} :: DBInstance)
+{-# DEPRECATED diListenerEndpoint "Use generic-lens or generic-optics with 'listenerEndpoint' instead." #-}
 
 -- | Provides the list of option group memberships for this DB instance.
-diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
-diOptionGroupMemberships = lens _diOptionGroupMemberships (\s a -> s {_diOptionGroupMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionGroupMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diOptionGroupMemberships :: Lens.Lens' DBInstance (Lude.Maybe [OptionGroupMembership])
+diOptionGroupMemberships = Lens.lens (optionGroupMemberships :: DBInstance -> Lude.Maybe [OptionGroupMembership]) (\s a -> s {optionGroupMemberships = a} :: DBInstance)
+{-# DEPRECATED diOptionGroupMemberships "Use generic-lens or generic-optics with 'optionGroupMemberships' instead." #-}
 
--- | A list of log types that this DB instance is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
-diEnabledCloudwatchLogsExports :: Lens' DBInstance [Text]
-diEnabledCloudwatchLogsExports = lens _diEnabledCloudwatchLogsExports (\s a -> s {_diEnabledCloudwatchLogsExports = a}) . _Default . _Coerce
+-- | A list of log types that this DB instance is configured to export to CloudWatch Logs.
+--
+-- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
+--
+-- /Note:/ Consider using 'enabledCloudwatchLogsExports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEnabledCloudwatchLogsExports :: Lens.Lens' DBInstance (Lude.Maybe [Lude.Text])
+diEnabledCloudwatchLogsExports = Lens.lens (enabledCloudwatchLogsExports :: DBInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {enabledCloudwatchLogsExports = a} :: DBInstance)
+{-# DEPRECATED diEnabledCloudwatchLogsExports "Use generic-lens or generic-optics with 'enabledCloudwatchLogsExports' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
-diEnhancedMonitoringResourceARN :: Lens' DBInstance (Maybe Text)
-diEnhancedMonitoringResourceARN = lens _diEnhancedMonitoringResourceARN (\s a -> s {_diEnhancedMonitoringResourceARN = a})
+--
+-- /Note:/ Consider using 'enhancedMonitoringResourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEnhancedMonitoringResourceARN :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diEnhancedMonitoringResourceARN = Lens.lens (enhancedMonitoringResourceARN :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {enhancedMonitoringResourceARN = a} :: DBInstance)
+{-# DEPRECATED diEnhancedMonitoringResourceARN "Use generic-lens or generic-optics with 'enhancedMonitoringResourceARN' instead." #-}
 
 -- | If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
-diSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
-diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\s a -> s {_diSecondaryAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'secondaryAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diSecondaryAvailabilityZone :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diSecondaryAvailabilityZone = Lens.lens (secondaryAvailabilityZone :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {secondaryAvailabilityZone = a} :: DBInstance)
+{-# DEPRECATED diSecondaryAvailabilityZone "Use generic-lens or generic-optics with 'secondaryAvailabilityZone' instead." #-}
 
 -- | True if Performance Insights is enabled for the DB instance, and otherwise false.
-diPerformanceInsightsEnabled :: Lens' DBInstance (Maybe Bool)
-diPerformanceInsightsEnabled = lens _diPerformanceInsightsEnabled (\s a -> s {_diPerformanceInsightsEnabled = a})
+--
+-- /Note:/ Consider using 'performanceInsightsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPerformanceInsightsEnabled :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diPerformanceInsightsEnabled = Lens.lens (performanceInsightsEnabled :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {performanceInsightsEnabled = a} :: DBInstance)
+{-# DEPRECATED diPerformanceInsightsEnabled "Use generic-lens or generic-optics with 'performanceInsightsEnabled' instead." #-}
 
 -- | Specifies the allocated storage size specified in gibibytes.
-diAllocatedStorage :: Lens' DBInstance (Maybe Int)
-diAllocatedStorage = lens _diAllocatedStorage (\s a -> s {_diAllocatedStorage = a})
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAllocatedStorage :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diAllocatedStorage = Lens.lens (allocatedStorage :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: DBInstance)
+{-# DEPRECATED diAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
-diDBiResourceId :: Lens' DBInstance (Maybe Text)
-diDBiResourceId = lens _diDBiResourceId (\s a -> s {_diDBiResourceId = a})
+--
+-- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBiResourceId :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBiResourceId = Lens.lens (dbiResourceId :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbiResourceId = a} :: DBInstance)
+{-# DEPRECATED diDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
-diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
-diDBParameterGroups = lens _diDBParameterGroups (\s a -> s {_diDBParameterGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbParameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBParameterGroups :: Lens.Lens' DBInstance (Lude.Maybe [DBParameterGroupStatus])
+diDBParameterGroups = Lens.lens (dbParameterGroups :: DBInstance -> Lude.Maybe [DBParameterGroupStatus]) (\s a -> s {dbParameterGroups = a} :: DBInstance)
+{-# DEPRECATED diDBParameterGroups "Use generic-lens or generic-optics with 'dbParameterGroups' instead." #-}
 
--- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance. __Amazon Aurora__  Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
-diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
-diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\s a -> s {_diCopyTagsToSnapshot = a})
+-- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+--
+-- __Amazon Aurora__
+-- Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
+--
+-- /Note:/ Consider using 'copyTagsToSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCopyTagsToSnapshot :: Lens.Lens' DBInstance (Lude.Maybe Lude.Bool)
+diCopyTagsToSnapshot = Lens.lens (copyTagsToSnapshot :: DBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {copyTagsToSnapshot = a} :: DBInstance)
+{-# DEPRECATED diCopyTagsToSnapshot "Use generic-lens or generic-optics with 'copyTagsToSnapshot' instead." #-}
 
 -- | The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
-diTimezone :: Lens' DBInstance (Maybe Text)
-diTimezone = lens _diTimezone (\s a -> s {_diTimezone = a})
+--
+-- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTimezone :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diTimezone = Lens.lens (timezone :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: DBInstance)
+{-# DEPRECATED diTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
 -- | The ARN from the key store with which the instance is associated for TDE encryption.
-diTDECredentialARN :: Lens' DBInstance (Maybe Text)
-diTDECredentialARN = lens _diTDECredentialARN (\s a -> s {_diTDECredentialARN = a})
+--
+-- /Note:/ Consider using 'tdeCredentialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTDECredentialARN :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diTDECredentialARN = Lens.lens (tdeCredentialARN :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {tdeCredentialARN = a} :: DBInstance)
+{-# DEPRECATED diTDECredentialARN "Use generic-lens or generic-optics with 'tdeCredentialARN' instead." #-}
 
 -- | Specifies the connection endpoint.
-diEndpoint :: Lens' DBInstance (Maybe Endpoint)
-diEndpoint = lens _diEndpoint (\s a -> s {_diEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diEndpoint :: Lens.Lens' DBInstance (Lude.Maybe Endpoint)
+diEndpoint = Lens.lens (endpoint :: DBInstance -> Lude.Maybe Endpoint) (\s a -> s {endpoint = a} :: DBInstance)
+{-# DEPRECATED diEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
--- | Specifies the current state of this database. For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
-diDBInstanceStatus :: Lens' DBInstance (Maybe Text)
-diDBInstanceStatus = lens _diDBInstanceStatus (\s a -> s {_diDBInstanceStatus = a})
+-- | Specifies the current state of this database.
+--
+-- For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
+--
+-- /Note:/ Consider using 'dbInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBInstanceStatus :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBInstanceStatus = Lens.lens (dbInstanceStatus :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceStatus = a} :: DBInstance)
+{-# DEPRECATED diDBInstanceStatus "Use generic-lens or generic-optics with 'dbInstanceStatus' instead." #-}
 
 -- | Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
-diDBInstancePort :: Lens' DBInstance (Maybe Int)
-diDBInstancePort = lens _diDBInstancePort (\s a -> s {_diDBInstancePort = a})
+--
+-- /Note:/ Consider using 'dbInstancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBInstancePort :: Lens.Lens' DBInstance (Lude.Maybe Lude.Int)
+diDBInstancePort = Lens.lens (dbInstancePort :: DBInstance -> Lude.Maybe Lude.Int) (\s a -> s {dbInstancePort = a} :: DBInstance)
+{-# DEPRECATED diDBInstancePort "Use generic-lens or generic-optics with 'dbInstancePort' instead." #-}
 
 -- | Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
-diPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
-diPendingModifiedValues = lens _diPendingModifiedValues (\s a -> s {_diPendingModifiedValues = a})
+--
+-- /Note:/ Consider using 'pendingModifiedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPendingModifiedValues :: Lens.Lens' DBInstance (Lude.Maybe PendingModifiedValues)
+diPendingModifiedValues = Lens.lens (pendingModifiedValues :: DBInstance -> Lude.Maybe PendingModifiedValues) (\s a -> s {pendingModifiedValues = a} :: DBInstance)
+{-# DEPRECATED diPendingModifiedValues "Use generic-lens or generic-optics with 'pendingModifiedValues' instead." #-}
 
 -- | Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
-diReadReplicaDBClusterIdentifiers :: Lens' DBInstance [Text]
-diReadReplicaDBClusterIdentifiers = lens _diReadReplicaDBClusterIdentifiers (\s a -> s {_diReadReplicaDBClusterIdentifiers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'readReplicaDBClusterIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diReadReplicaDBClusterIdentifiers :: Lens.Lens' DBInstance (Lude.Maybe [Lude.Text])
+diReadReplicaDBClusterIdentifiers = Lens.lens (readReplicaDBClusterIdentifiers :: DBInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {readReplicaDBClusterIdentifiers = a} :: DBInstance)
+{-# DEPRECATED diReadReplicaDBClusterIdentifiers "Use generic-lens or generic-optics with 'readReplicaDBClusterIdentifiers' instead." #-}
 
 -- | Specifies the storage type associated with DB instance.
-diStorageType :: Lens' DBInstance (Maybe Text)
-diStorageType = lens _diStorageType (\s a -> s {_diStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diStorageType :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diStorageType = Lens.lens (storageType :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {storageType = a} :: DBInstance)
+{-# DEPRECATED diStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
 -- | The status of a read replica. If the instance isn't a read replica, this is blank.
-diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
-diStatusInfos = lens _diStatusInfos (\s a -> s {_diStatusInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statusInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diStatusInfos :: Lens.Lens' DBInstance (Lude.Maybe [DBInstanceStatusInfo])
+diStatusInfos = Lens.lens (statusInfos :: DBInstance -> Lude.Maybe [DBInstanceStatusInfo]) (\s a -> s {statusInfos = a} :: DBInstance)
+{-# DEPRECATED diStatusInfos "Use generic-lens or generic-optics with 'statusInfos' instead." #-}
 
 -- | The Active Directory Domain membership records associated with the DB instance.
-diDomainMemberships :: Lens' DBInstance [DomainMembership]
-diDomainMemberships = lens _diDomainMemberships (\s a -> s {_diDomainMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDomainMemberships :: Lens.Lens' DBInstance (Lude.Maybe [DomainMembership])
+diDomainMemberships = Lens.lens (domainMemberships :: DBInstance -> Lude.Maybe [DomainMembership]) (\s a -> s {domainMemberships = a} :: DBInstance)
+{-# DEPRECATED diDomainMemberships "Use generic-lens or generic-optics with 'domainMemberships' instead." #-}
 
--- | The meaning of this parameter differs according to the database engine you use. __MySQL, MariaDB, SQL Server, PostgreSQL__  Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance. Type: String __Oracle__  Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
-diDBName :: Lens' DBInstance (Maybe Text)
-diDBName = lens _diDBName (\s a -> s {_diDBName = a})
+-- | The meaning of this parameter differs according to the database engine you use.
+--
+-- __MySQL, MariaDB, SQL Server, PostgreSQL__
+-- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+-- Type: String
+-- __Oracle__
+-- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
+--
+-- /Note:/ Consider using 'dbName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDBName :: Lens.Lens' DBInstance (Lude.Maybe Lude.Text)
+diDBName = Lens.lens (dbName :: DBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbName = a} :: DBInstance)
+{-# DEPRECATED diDBName "Use generic-lens or generic-optics with 'dbName' instead." #-}
 
-instance FromXML DBInstance where
+instance Lude.FromXML DBInstance where
   parseXML x =
     DBInstance'
-      <$> (x .@? "EngineVersion")
-      <*> ( x .@? "DBSecurityGroups" .!@ mempty
-              >>= may (parseXMLList "DBSecurityGroup")
-          )
-      <*> (x .@? "DeletionProtection")
-      <*> (x .@? "StorageEncrypted")
-      <*> (x .@? "DBClusterIdentifier")
-      <*> (x .@? "PubliclyAccessible")
-      <*> (x .@? "AutoMinorVersionUpgrade")
-      <*> (x .@? "DBInstanceArn")
-      <*> (x .@? "MasterUsername")
-      <*> ( x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
-              >>= may (parseXMLList "ReadReplicaDBInstanceIdentifier")
-          )
-      <*> (x .@? "IAMDatabaseAuthenticationEnabled")
-      <*> (x .@? "MonitoringRoleArn")
-      <*> (x .@? "Iops")
-      <*> (x .@? "InstanceCreateTime")
-      <*> (x .@? "TagList" .!@ mempty >>= may (parseXMLList "Tag"))
-      <*> (x .@? "ReadReplicaSourceDBInstanceIdentifier")
-      <*> (x .@? "ReplicaMode")
-      <*> (x .@? "MonitoringInterval")
-      <*> (x .@? "Engine")
-      <*> ( x .@? "ProcessorFeatures" .!@ mempty
-              >>= may (parseXMLList "ProcessorFeature")
-          )
-      <*> (x .@? "LatestRestorableTime")
-      <*> (x .@? "DBInstanceClass")
-      <*> (x .@? "PromotionTier")
-      <*> (x .@? "LicenseModel")
-      <*> (x .@? "PreferredMaintenanceWindow")
-      <*> (x .@? "PerformanceInsightsRetentionPeriod")
-      <*> (x .@? "CACertificateIdentifier")
-      <*> (x .@? "DBInstanceIdentifier")
-      <*> (x .@? "CharacterSetName")
-      <*> (x .@? "MaxAllocatedStorage")
-      <*> (x .@? "KmsKeyId")
-      <*> (x .@? "PreferredBackupWindow")
-      <*> ( x .@? "AssociatedRoles" .!@ mempty
-              >>= may (parseXMLList "DBInstanceRole")
-          )
-      <*> (x .@? "AvailabilityZone")
-      <*> ( x .@? "VpcSecurityGroups" .!@ mempty
-              >>= may (parseXMLList "VpcSecurityGroupMembership")
-          )
-      <*> (x .@? "BackupRetentionPeriod")
-      <*> (x .@? "NcharCharacterSetName")
-      <*> (x .@? "PerformanceInsightsKMSKeyId")
-      <*> (x .@? "DBSubnetGroup")
-      <*> (x .@? "MultiAZ")
-      <*> (x .@? "ListenerEndpoint")
-      <*> ( x .@? "OptionGroupMemberships" .!@ mempty
-              >>= may (parseXMLList "OptionGroupMembership")
-          )
-      <*> ( x .@? "EnabledCloudwatchLogsExports" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "EnhancedMonitoringResourceArn")
-      <*> (x .@? "SecondaryAvailabilityZone")
-      <*> (x .@? "PerformanceInsightsEnabled")
-      <*> (x .@? "AllocatedStorage")
-      <*> (x .@? "DbiResourceId")
-      <*> ( x .@? "DBParameterGroups" .!@ mempty
-              >>= may (parseXMLList "DBParameterGroup")
-          )
-      <*> (x .@? "CopyTagsToSnapshot")
-      <*> (x .@? "Timezone")
-      <*> (x .@? "TdeCredentialArn")
-      <*> (x .@? "Endpoint")
-      <*> (x .@? "DBInstanceStatus")
-      <*> (x .@? "DbInstancePort")
-      <*> (x .@? "PendingModifiedValues")
-      <*> ( x .@? "ReadReplicaDBClusterIdentifiers" .!@ mempty
-              >>= may (parseXMLList "ReadReplicaDBClusterIdentifier")
-          )
-      <*> (x .@? "StorageType")
-      <*> ( x .@? "StatusInfos" .!@ mempty
-              >>= may (parseXMLList "DBInstanceStatusInfo")
-          )
-      <*> ( x .@? "DomainMemberships" .!@ mempty
-              >>= may (parseXMLList "DomainMembership")
-          )
-      <*> (x .@? "DBName")
-
-instance Hashable DBInstance
-
-instance NFData DBInstance
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> ( x Lude..@? "DBSecurityGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBSecurityGroup")
+               )
+      Lude.<*> (x Lude..@? "DeletionProtection")
+      Lude.<*> (x Lude..@? "StorageEncrypted")
+      Lude.<*> (x Lude..@? "DBClusterIdentifier")
+      Lude.<*> (x Lude..@? "PubliclyAccessible")
+      Lude.<*> (x Lude..@? "AutoMinorVersionUpgrade")
+      Lude.<*> (x Lude..@? "DBInstanceArn")
+      Lude.<*> (x Lude..@? "MasterUsername")
+      Lude.<*> ( x Lude..@? "ReadReplicaDBInstanceIdentifiers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ReadReplicaDBInstanceIdentifier")
+               )
+      Lude.<*> (x Lude..@? "IAMDatabaseAuthenticationEnabled")
+      Lude.<*> (x Lude..@? "MonitoringRoleArn")
+      Lude.<*> (x Lude..@? "Iops")
+      Lude.<*> (x Lude..@? "InstanceCreateTime")
+      Lude.<*> ( x Lude..@? "TagList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
+      Lude.<*> (x Lude..@? "ReadReplicaSourceDBInstanceIdentifier")
+      Lude.<*> (x Lude..@? "ReplicaMode")
+      Lude.<*> (x Lude..@? "MonitoringInterval")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> ( x Lude..@? "ProcessorFeatures" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ProcessorFeature")
+               )
+      Lude.<*> (x Lude..@? "LatestRestorableTime")
+      Lude.<*> (x Lude..@? "DBInstanceClass")
+      Lude.<*> (x Lude..@? "PromotionTier")
+      Lude.<*> (x Lude..@? "LicenseModel")
+      Lude.<*> (x Lude..@? "PreferredMaintenanceWindow")
+      Lude.<*> (x Lude..@? "PerformanceInsightsRetentionPeriod")
+      Lude.<*> (x Lude..@? "CACertificateIdentifier")
+      Lude.<*> (x Lude..@? "DBInstanceIdentifier")
+      Lude.<*> (x Lude..@? "CharacterSetName")
+      Lude.<*> (x Lude..@? "MaxAllocatedStorage")
+      Lude.<*> (x Lude..@? "KmsKeyId")
+      Lude.<*> (x Lude..@? "PreferredBackupWindow")
+      Lude.<*> ( x Lude..@? "AssociatedRoles" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBInstanceRole")
+               )
+      Lude.<*> (x Lude..@? "AvailabilityZone")
+      Lude.<*> ( x Lude..@? "VpcSecurityGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "VpcSecurityGroupMembership")
+               )
+      Lude.<*> (x Lude..@? "BackupRetentionPeriod")
+      Lude.<*> (x Lude..@? "NcharCharacterSetName")
+      Lude.<*> (x Lude..@? "PerformanceInsightsKMSKeyId")
+      Lude.<*> (x Lude..@? "DBSubnetGroup")
+      Lude.<*> (x Lude..@? "MultiAZ")
+      Lude.<*> (x Lude..@? "ListenerEndpoint")
+      Lude.<*> ( x Lude..@? "OptionGroupMemberships" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "OptionGroupMembership")
+               )
+      Lude.<*> ( x Lude..@? "EnabledCloudwatchLogsExports" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "EnhancedMonitoringResourceArn")
+      Lude.<*> (x Lude..@? "SecondaryAvailabilityZone")
+      Lude.<*> (x Lude..@? "PerformanceInsightsEnabled")
+      Lude.<*> (x Lude..@? "AllocatedStorage")
+      Lude.<*> (x Lude..@? "DbiResourceId")
+      Lude.<*> ( x Lude..@? "DBParameterGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBParameterGroup")
+               )
+      Lude.<*> (x Lude..@? "CopyTagsToSnapshot")
+      Lude.<*> (x Lude..@? "Timezone")
+      Lude.<*> (x Lude..@? "TdeCredentialArn")
+      Lude.<*> (x Lude..@? "Endpoint")
+      Lude.<*> (x Lude..@? "DBInstanceStatus")
+      Lude.<*> (x Lude..@? "DbInstancePort")
+      Lude.<*> (x Lude..@? "PendingModifiedValues")
+      Lude.<*> ( x Lude..@? "ReadReplicaDBClusterIdentifiers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ReadReplicaDBClusterIdentifier")
+               )
+      Lude.<*> (x Lude..@? "StorageType")
+      Lude.<*> ( x Lude..@? "StatusInfos" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBInstanceStatusInfo")
+               )
+      Lude.<*> ( x Lude..@? "DomainMemberships" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DomainMembership")
+               )
+      Lude.<*> (x Lude..@? "DBName")

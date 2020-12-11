@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Describes your IAM instance profile associations.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
-  ( -- * Creating a Request
-    describeIAMInstanceProfileAssociations,
-    DescribeIAMInstanceProfileAssociations,
+  ( -- * Creating a request
+    DescribeIAMInstanceProfileAssociations (..),
+    mkDescribeIAMInstanceProfileAssociations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diapaFilters,
     diapaNextToken,
     diapaAssociationIds,
     diapaMaxResults,
 
-    -- * Destructuring the Response
-    describeIAMInstanceProfileAssociationsResponse,
-    DescribeIAMInstanceProfileAssociationsResponse,
+    -- * Destructuring the response
+    DescribeIAMInstanceProfileAssociationsResponse (..),
+    mkDescribeIAMInstanceProfileAssociationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diaparsIAMInstanceProfileAssociations,
     diaparsNextToken,
     diaparsResponseStatus,
@@ -45,163 +38,198 @@ module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeIAMInstanceProfileAssociations' smart constructor.
+-- | /See:/ 'mkDescribeIAMInstanceProfileAssociations' smart constructor.
 data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociations'
-  { _diapaFilters ::
-      !( Maybe
-           [Filter]
-       ),
-    _diapaNextToken ::
-      !(Maybe Text),
-    _diapaAssociationIds ::
-      !( Maybe
-           [Text]
-       ),
-    _diapaMaxResults ::
-      !(Maybe Nat)
+  { filters ::
+      Lude.Maybe
+        [Filter],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    associationIds ::
+      Lude.Maybe
+        [Lude.Text],
+    maxResults ::
+      Lude.Maybe
+        Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'associationIds' - The IAM instance profile associations.
+-- * 'filters' - The filters.
 --
--- * 'diapaFilters' - The filters.     * @instance-id@ - The ID of the instance.     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
 --
--- * 'diapaNextToken' - The token to request the next page of results.
+--     * @instance-id@ - The ID of the instance.
 --
--- * 'diapaAssociationIds' - The IAM instance profile associations.
 --
--- * 'diapaMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-describeIAMInstanceProfileAssociations ::
+--     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
+--
+--
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'nextToken' - The token to request the next page of results.
+mkDescribeIAMInstanceProfileAssociations ::
   DescribeIAMInstanceProfileAssociations
-describeIAMInstanceProfileAssociations =
+mkDescribeIAMInstanceProfileAssociations =
   DescribeIAMInstanceProfileAssociations'
-    { _diapaFilters = Nothing,
-      _diapaNextToken = Nothing,
-      _diapaAssociationIds = Nothing,
-      _diapaMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      associationIds = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | The filters.     * @instance-id@ - The ID of the instance.     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
-diapaFilters :: Lens' DescribeIAMInstanceProfileAssociations [Filter]
-diapaFilters = lens _diapaFilters (\s a -> s {_diapaFilters = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @instance-id@ - The ID of the instance.
+--
+--
+--     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diapaFilters :: Lens.Lens' DescribeIAMInstanceProfileAssociations (Lude.Maybe [Filter])
+diapaFilters = Lens.lens (filters :: DescribeIAMInstanceProfileAssociations -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeIAMInstanceProfileAssociations)
+{-# DEPRECATED diapaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to request the next page of results.
-diapaNextToken :: Lens' DescribeIAMInstanceProfileAssociations (Maybe Text)
-diapaNextToken = lens _diapaNextToken (\s a -> s {_diapaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diapaNextToken :: Lens.Lens' DescribeIAMInstanceProfileAssociations (Lude.Maybe Lude.Text)
+diapaNextToken = Lens.lens (nextToken :: DescribeIAMInstanceProfileAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeIAMInstanceProfileAssociations)
+{-# DEPRECATED diapaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IAM instance profile associations.
-diapaAssociationIds :: Lens' DescribeIAMInstanceProfileAssociations [Text]
-diapaAssociationIds = lens _diapaAssociationIds (\s a -> s {_diapaAssociationIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'associationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diapaAssociationIds :: Lens.Lens' DescribeIAMInstanceProfileAssociations (Lude.Maybe [Lude.Text])
+diapaAssociationIds = Lens.lens (associationIds :: DescribeIAMInstanceProfileAssociations -> Lude.Maybe [Lude.Text]) (\s a -> s {associationIds = a} :: DescribeIAMInstanceProfileAssociations)
+{-# DEPRECATED diapaAssociationIds "Use generic-lens or generic-optics with 'associationIds' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-diapaMaxResults :: Lens' DescribeIAMInstanceProfileAssociations (Maybe Natural)
-diapaMaxResults = lens _diapaMaxResults (\s a -> s {_diapaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diapaMaxResults :: Lens.Lens' DescribeIAMInstanceProfileAssociations (Lude.Maybe Lude.Natural)
+diapaMaxResults = Lens.lens (maxResults :: DescribeIAMInstanceProfileAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeIAMInstanceProfileAssociations)
+{-# DEPRECATED diapaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeIAMInstanceProfileAssociations where
+instance Page.AWSPager DescribeIAMInstanceProfileAssociations where
   page rq rs
-    | stop (rs ^. diaparsNextToken) = Nothing
-    | stop (rs ^. diaparsIAMInstanceProfileAssociations) = Nothing
-    | otherwise = Just $ rq & diapaNextToken .~ rs ^. diaparsNextToken
+    | Page.stop (rs Lens.^. diaparsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. diaparsIAMInstanceProfileAssociations) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& diapaNextToken Lens..~ rs Lens.^. diaparsNextToken
 
-instance AWSRequest DescribeIAMInstanceProfileAssociations where
+instance Lude.AWSRequest DescribeIAMInstanceProfileAssociations where
   type
     Rs DescribeIAMInstanceProfileAssociations =
       DescribeIAMInstanceProfileAssociationsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeIAMInstanceProfileAssociationsResponse'
-            <$> ( x .@? "iamInstanceProfileAssociationSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "iamInstanceProfileAssociationSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeIAMInstanceProfileAssociations
+instance Lude.ToHeaders DescribeIAMInstanceProfileAssociations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeIAMInstanceProfileAssociations
+instance Lude.ToPath DescribeIAMInstanceProfileAssociations where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeIAMInstanceProfileAssociations where
-  toHeaders = const mempty
-
-instance ToPath DescribeIAMInstanceProfileAssociations where
-  toPath = const "/"
-
-instance ToQuery DescribeIAMInstanceProfileAssociations where
+instance Lude.ToQuery DescribeIAMInstanceProfileAssociations where
   toQuery DescribeIAMInstanceProfileAssociations' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DescribeIamInstanceProfileAssociations" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _diapaFilters),
-        "NextToken" =: _diapaNextToken,
-        toQuery (toQueryList "AssociationId" <$> _diapaAssociationIds),
-        "MaxResults" =: _diapaMaxResults
+          Lude.=: ("DescribeIamInstanceProfileAssociations" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery
+          (Lude.toQueryList "AssociationId" Lude.<$> associationIds),
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeIAMInstanceProfileAssociationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeIAMInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIAMInstanceProfileAssociationsResponse = DescribeIAMInstanceProfileAssociationsResponse'
-  { _diaparsIAMInstanceProfileAssociations ::
-      !( Maybe
-           [IAMInstanceProfileAssociation]
-       ),
-    _diaparsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _diaparsResponseStatus ::
-      !Int
+  { iamInstanceProfileAssociations ::
+      Lude.Maybe
+        [IAMInstanceProfileAssociation],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diaparsIAMInstanceProfileAssociations' - Information about the IAM instance profile associations.
---
--- * 'diaparsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'diaparsResponseStatus' - -- | The response status code.
-describeIAMInstanceProfileAssociationsResponse ::
-  -- | 'diaparsResponseStatus'
-  Int ->
+-- * 'iamInstanceProfileAssociations' - Information about the IAM instance profile associations.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeIAMInstanceProfileAssociationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeIAMInstanceProfileAssociationsResponse
-describeIAMInstanceProfileAssociationsResponse pResponseStatus_ =
+mkDescribeIAMInstanceProfileAssociationsResponse pResponseStatus_ =
   DescribeIAMInstanceProfileAssociationsResponse'
-    { _diaparsIAMInstanceProfileAssociations =
-        Nothing,
-      _diaparsNextToken = Nothing,
-      _diaparsResponseStatus = pResponseStatus_
+    { iamInstanceProfileAssociations =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the IAM instance profile associations.
-diaparsIAMInstanceProfileAssociations :: Lens' DescribeIAMInstanceProfileAssociationsResponse [IAMInstanceProfileAssociation]
-diaparsIAMInstanceProfileAssociations = lens _diaparsIAMInstanceProfileAssociations (\s a -> s {_diaparsIAMInstanceProfileAssociations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'iamInstanceProfileAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaparsIAMInstanceProfileAssociations :: Lens.Lens' DescribeIAMInstanceProfileAssociationsResponse (Lude.Maybe [IAMInstanceProfileAssociation])
+diaparsIAMInstanceProfileAssociations = Lens.lens (iamInstanceProfileAssociations :: DescribeIAMInstanceProfileAssociationsResponse -> Lude.Maybe [IAMInstanceProfileAssociation]) (\s a -> s {iamInstanceProfileAssociations = a} :: DescribeIAMInstanceProfileAssociationsResponse)
+{-# DEPRECATED diaparsIAMInstanceProfileAssociations "Use generic-lens or generic-optics with 'iamInstanceProfileAssociations' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-diaparsNextToken :: Lens' DescribeIAMInstanceProfileAssociationsResponse (Maybe Text)
-diaparsNextToken = lens _diaparsNextToken (\s a -> s {_diaparsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaparsNextToken :: Lens.Lens' DescribeIAMInstanceProfileAssociationsResponse (Lude.Maybe Lude.Text)
+diaparsNextToken = Lens.lens (nextToken :: DescribeIAMInstanceProfileAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeIAMInstanceProfileAssociationsResponse)
+{-# DEPRECATED diaparsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-diaparsResponseStatus :: Lens' DescribeIAMInstanceProfileAssociationsResponse Int
-diaparsResponseStatus = lens _diaparsResponseStatus (\s a -> s {_diaparsResponseStatus = a})
-
-instance NFData DescribeIAMInstanceProfileAssociationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaparsResponseStatus :: Lens.Lens' DescribeIAMInstanceProfileAssociationsResponse Lude.Int
+diaparsResponseStatus = Lens.lens (responseStatus :: DescribeIAMInstanceProfileAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIAMInstanceProfileAssociationsResponse)
+{-# DEPRECATED diaparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

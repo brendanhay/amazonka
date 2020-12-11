@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,145 +7,189 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.ServiceUpdate where
+module Network.AWS.ElastiCache.Types.ServiceUpdate
+  ( ServiceUpdate (..),
+
+    -- * Smart constructor
+    mkServiceUpdate,
+
+    -- * Lenses
+    suEngineVersion,
+    suServiceUpdateType,
+    suServiceUpdateName,
+    suEngine,
+    suServiceUpdateReleaseDate,
+    suAutoUpdateAfterRecommendedApplyByDate,
+    suServiceUpdateSeverity,
+    suServiceUpdateEndDate,
+    suServiceUpdateDescription,
+    suServiceUpdateRecommendedApplyByDate,
+    suServiceUpdateStatus,
+    suEstimatedUpdateTime,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
 import Network.AWS.ElastiCache.Types.ServiceUpdateStatus
 import Network.AWS.ElastiCache.Types.ServiceUpdateType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An update that you can apply to your Redis clusters.
 --
---
---
--- /See:/ 'serviceUpdate' smart constructor.
+-- /See:/ 'mkServiceUpdate' smart constructor.
 data ServiceUpdate = ServiceUpdate'
-  { _suEngineVersion ::
-      !(Maybe Text),
-    _suServiceUpdateType :: !(Maybe ServiceUpdateType),
-    _suServiceUpdateName :: !(Maybe Text),
-    _suEngine :: !(Maybe Text),
-    _suServiceUpdateReleaseDate :: !(Maybe ISO8601),
-    _suAutoUpdateAfterRecommendedApplyByDate :: !(Maybe Bool),
-    _suServiceUpdateSeverity :: !(Maybe ServiceUpdateSeverity),
-    _suServiceUpdateEndDate :: !(Maybe ISO8601),
-    _suServiceUpdateDescription :: !(Maybe Text),
-    _suServiceUpdateRecommendedApplyByDate :: !(Maybe ISO8601),
-    _suServiceUpdateStatus :: !(Maybe ServiceUpdateStatus),
-    _suEstimatedUpdateTime :: !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    serviceUpdateType :: Lude.Maybe ServiceUpdateType,
+    serviceUpdateName :: Lude.Maybe Lude.Text,
+    engine :: Lude.Maybe Lude.Text,
+    serviceUpdateReleaseDate :: Lude.Maybe Lude.ISO8601,
+    autoUpdateAfterRecommendedApplyByDate :: Lude.Maybe Lude.Bool,
+    serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
+    serviceUpdateEndDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateDescription :: Lude.Maybe Lude.Text,
+    serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.ISO8601,
+    serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
+    estimatedUpdateTime :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'suEngineVersion' - The Elasticache engine version to which the update applies. Either Redis or Memcached engine version
---
--- * 'suServiceUpdateType' - Reflects the nature of the service update
---
--- * 'suServiceUpdateName' - The unique ID of the service update
---
--- * 'suEngine' - The Elasticache engine to which the update applies. Either Redis or Memcached
---
--- * 'suServiceUpdateReleaseDate' - The date when the service update is initially available
---
--- * 'suAutoUpdateAfterRecommendedApplyByDate' - Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
---
--- * 'suServiceUpdateSeverity' - The severity of the service update
---
--- * 'suServiceUpdateEndDate' - The date after which the service update is no longer available
---
--- * 'suServiceUpdateDescription' - Provides details of the service update
---
--- * 'suServiceUpdateRecommendedApplyByDate' - The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
---
--- * 'suServiceUpdateStatus' - The status of the service update
---
--- * 'suEstimatedUpdateTime' - The estimated length of time the service update will take
-serviceUpdate ::
+-- * 'autoUpdateAfterRecommendedApplyByDate' - Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
+-- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
+-- * 'engineVersion' - The Elasticache engine version to which the update applies. Either Redis or Memcached engine version
+-- * 'estimatedUpdateTime' - The estimated length of time the service update will take
+-- * 'serviceUpdateDescription' - Provides details of the service update
+-- * 'serviceUpdateEndDate' - The date after which the service update is no longer available
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'serviceUpdateRecommendedApplyByDate' - The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
+-- * 'serviceUpdateReleaseDate' - The date when the service update is initially available
+-- * 'serviceUpdateSeverity' - The severity of the service update
+-- * 'serviceUpdateStatus' - The status of the service update
+-- * 'serviceUpdateType' - Reflects the nature of the service update
+mkServiceUpdate ::
   ServiceUpdate
-serviceUpdate =
+mkServiceUpdate =
   ServiceUpdate'
-    { _suEngineVersion = Nothing,
-      _suServiceUpdateType = Nothing,
-      _suServiceUpdateName = Nothing,
-      _suEngine = Nothing,
-      _suServiceUpdateReleaseDate = Nothing,
-      _suAutoUpdateAfterRecommendedApplyByDate = Nothing,
-      _suServiceUpdateSeverity = Nothing,
-      _suServiceUpdateEndDate = Nothing,
-      _suServiceUpdateDescription = Nothing,
-      _suServiceUpdateRecommendedApplyByDate = Nothing,
-      _suServiceUpdateStatus = Nothing,
-      _suEstimatedUpdateTime = Nothing
+    { engineVersion = Lude.Nothing,
+      serviceUpdateType = Lude.Nothing,
+      serviceUpdateName = Lude.Nothing,
+      engine = Lude.Nothing,
+      serviceUpdateReleaseDate = Lude.Nothing,
+      autoUpdateAfterRecommendedApplyByDate = Lude.Nothing,
+      serviceUpdateSeverity = Lude.Nothing,
+      serviceUpdateEndDate = Lude.Nothing,
+      serviceUpdateDescription = Lude.Nothing,
+      serviceUpdateRecommendedApplyByDate = Lude.Nothing,
+      serviceUpdateStatus = Lude.Nothing,
+      estimatedUpdateTime = Lude.Nothing
     }
 
 -- | The Elasticache engine version to which the update applies. Either Redis or Memcached engine version
-suEngineVersion :: Lens' ServiceUpdate (Maybe Text)
-suEngineVersion = lens _suEngineVersion (\s a -> s {_suEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suEngineVersion :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Text)
+suEngineVersion = Lens.lens (engineVersion :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: ServiceUpdate)
+{-# DEPRECATED suEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Reflects the nature of the service update
-suServiceUpdateType :: Lens' ServiceUpdate (Maybe ServiceUpdateType)
-suServiceUpdateType = lens _suServiceUpdateType (\s a -> s {_suServiceUpdateType = a})
+--
+-- /Note:/ Consider using 'serviceUpdateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateType :: Lens.Lens' ServiceUpdate (Lude.Maybe ServiceUpdateType)
+suServiceUpdateType = Lens.lens (serviceUpdateType :: ServiceUpdate -> Lude.Maybe ServiceUpdateType) (\s a -> s {serviceUpdateType = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateType "Use generic-lens or generic-optics with 'serviceUpdateType' instead." #-}
 
 -- | The unique ID of the service update
-suServiceUpdateName :: Lens' ServiceUpdate (Maybe Text)
-suServiceUpdateName = lens _suServiceUpdateName (\s a -> s {_suServiceUpdateName = a})
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateName :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Text)
+suServiceUpdateName = Lens.lens (serviceUpdateName :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateName = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
 
 -- | The Elasticache engine to which the update applies. Either Redis or Memcached
-suEngine :: Lens' ServiceUpdate (Maybe Text)
-suEngine = lens _suEngine (\s a -> s {_suEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suEngine :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Text)
+suEngine = Lens.lens (engine :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: ServiceUpdate)
+{-# DEPRECATED suEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The date when the service update is initially available
-suServiceUpdateReleaseDate :: Lens' ServiceUpdate (Maybe UTCTime)
-suServiceUpdateReleaseDate = lens _suServiceUpdateReleaseDate (\s a -> s {_suServiceUpdateReleaseDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serviceUpdateReleaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateReleaseDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
+suServiceUpdateReleaseDate = Lens.lens (serviceUpdateReleaseDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateReleaseDate = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateReleaseDate "Use generic-lens or generic-optics with 'serviceUpdateReleaseDate' instead." #-}
 
 -- | Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
-suAutoUpdateAfterRecommendedApplyByDate :: Lens' ServiceUpdate (Maybe Bool)
-suAutoUpdateAfterRecommendedApplyByDate = lens _suAutoUpdateAfterRecommendedApplyByDate (\s a -> s {_suAutoUpdateAfterRecommendedApplyByDate = a})
+--
+-- /Note:/ Consider using 'autoUpdateAfterRecommendedApplyByDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suAutoUpdateAfterRecommendedApplyByDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Bool)
+suAutoUpdateAfterRecommendedApplyByDate = Lens.lens (autoUpdateAfterRecommendedApplyByDate :: ServiceUpdate -> Lude.Maybe Lude.Bool) (\s a -> s {autoUpdateAfterRecommendedApplyByDate = a} :: ServiceUpdate)
+{-# DEPRECATED suAutoUpdateAfterRecommendedApplyByDate "Use generic-lens or generic-optics with 'autoUpdateAfterRecommendedApplyByDate' instead." #-}
 
 -- | The severity of the service update
-suServiceUpdateSeverity :: Lens' ServiceUpdate (Maybe ServiceUpdateSeverity)
-suServiceUpdateSeverity = lens _suServiceUpdateSeverity (\s a -> s {_suServiceUpdateSeverity = a})
+--
+-- /Note:/ Consider using 'serviceUpdateSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateSeverity :: Lens.Lens' ServiceUpdate (Lude.Maybe ServiceUpdateSeverity)
+suServiceUpdateSeverity = Lens.lens (serviceUpdateSeverity :: ServiceUpdate -> Lude.Maybe ServiceUpdateSeverity) (\s a -> s {serviceUpdateSeverity = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateSeverity "Use generic-lens or generic-optics with 'serviceUpdateSeverity' instead." #-}
 
 -- | The date after which the service update is no longer available
-suServiceUpdateEndDate :: Lens' ServiceUpdate (Maybe UTCTime)
-suServiceUpdateEndDate = lens _suServiceUpdateEndDate (\s a -> s {_suServiceUpdateEndDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serviceUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateEndDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
+suServiceUpdateEndDate = Lens.lens (serviceUpdateEndDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateEndDate = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateEndDate "Use generic-lens or generic-optics with 'serviceUpdateEndDate' instead." #-}
 
 -- | Provides details of the service update
-suServiceUpdateDescription :: Lens' ServiceUpdate (Maybe Text)
-suServiceUpdateDescription = lens _suServiceUpdateDescription (\s a -> s {_suServiceUpdateDescription = a})
+--
+-- /Note:/ Consider using 'serviceUpdateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateDescription :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Text)
+suServiceUpdateDescription = Lens.lens (serviceUpdateDescription :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateDescription = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateDescription "Use generic-lens or generic-optics with 'serviceUpdateDescription' instead." #-}
 
 -- | The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
-suServiceUpdateRecommendedApplyByDate :: Lens' ServiceUpdate (Maybe UTCTime)
-suServiceUpdateRecommendedApplyByDate = lens _suServiceUpdateRecommendedApplyByDate (\s a -> s {_suServiceUpdateRecommendedApplyByDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'serviceUpdateRecommendedApplyByDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateRecommendedApplyByDate :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.ISO8601)
+suServiceUpdateRecommendedApplyByDate = Lens.lens (serviceUpdateRecommendedApplyByDate :: ServiceUpdate -> Lude.Maybe Lude.ISO8601) (\s a -> s {serviceUpdateRecommendedApplyByDate = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateRecommendedApplyByDate "Use generic-lens or generic-optics with 'serviceUpdateRecommendedApplyByDate' instead." #-}
 
 -- | The status of the service update
-suServiceUpdateStatus :: Lens' ServiceUpdate (Maybe ServiceUpdateStatus)
-suServiceUpdateStatus = lens _suServiceUpdateStatus (\s a -> s {_suServiceUpdateStatus = a})
+--
+-- /Note:/ Consider using 'serviceUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suServiceUpdateStatus :: Lens.Lens' ServiceUpdate (Lude.Maybe ServiceUpdateStatus)
+suServiceUpdateStatus = Lens.lens (serviceUpdateStatus :: ServiceUpdate -> Lude.Maybe ServiceUpdateStatus) (\s a -> s {serviceUpdateStatus = a} :: ServiceUpdate)
+{-# DEPRECATED suServiceUpdateStatus "Use generic-lens or generic-optics with 'serviceUpdateStatus' instead." #-}
 
 -- | The estimated length of time the service update will take
-suEstimatedUpdateTime :: Lens' ServiceUpdate (Maybe Text)
-suEstimatedUpdateTime = lens _suEstimatedUpdateTime (\s a -> s {_suEstimatedUpdateTime = a})
+--
+-- /Note:/ Consider using 'estimatedUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suEstimatedUpdateTime :: Lens.Lens' ServiceUpdate (Lude.Maybe Lude.Text)
+suEstimatedUpdateTime = Lens.lens (estimatedUpdateTime :: ServiceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {estimatedUpdateTime = a} :: ServiceUpdate)
+{-# DEPRECATED suEstimatedUpdateTime "Use generic-lens or generic-optics with 'estimatedUpdateTime' instead." #-}
 
-instance FromXML ServiceUpdate where
+instance Lude.FromXML ServiceUpdate where
   parseXML x =
     ServiceUpdate'
-      <$> (x .@? "EngineVersion")
-      <*> (x .@? "ServiceUpdateType")
-      <*> (x .@? "ServiceUpdateName")
-      <*> (x .@? "Engine")
-      <*> (x .@? "ServiceUpdateReleaseDate")
-      <*> (x .@? "AutoUpdateAfterRecommendedApplyByDate")
-      <*> (x .@? "ServiceUpdateSeverity")
-      <*> (x .@? "ServiceUpdateEndDate")
-      <*> (x .@? "ServiceUpdateDescription")
-      <*> (x .@? "ServiceUpdateRecommendedApplyByDate")
-      <*> (x .@? "ServiceUpdateStatus")
-      <*> (x .@? "EstimatedUpdateTime")
-
-instance Hashable ServiceUpdate
-
-instance NFData ServiceUpdate
+      Lude.<$> (x Lude..@? "EngineVersion")
+      Lude.<*> (x Lude..@? "ServiceUpdateType")
+      Lude.<*> (x Lude..@? "ServiceUpdateName")
+      Lude.<*> (x Lude..@? "Engine")
+      Lude.<*> (x Lude..@? "ServiceUpdateReleaseDate")
+      Lude.<*> (x Lude..@? "AutoUpdateAfterRecommendedApplyByDate")
+      Lude.<*> (x Lude..@? "ServiceUpdateSeverity")
+      Lude.<*> (x Lude..@? "ServiceUpdateEndDate")
+      Lude.<*> (x Lude..@? "ServiceUpdateDescription")
+      Lude.<*> (x Lude..@? "ServiceUpdateRecommendedApplyByDate")
+      Lude.<*> (x Lude..@? "ServiceUpdateStatus")
+      Lude.<*> (x Lude..@? "EstimatedUpdateTime")

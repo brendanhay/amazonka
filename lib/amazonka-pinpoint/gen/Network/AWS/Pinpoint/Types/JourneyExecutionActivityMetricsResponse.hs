@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,180 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyExecutionActivityMetricsResponse where
+module Network.AWS.Pinpoint.Types.JourneyExecutionActivityMetricsResponse
+  ( JourneyExecutionActivityMetricsResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJourneyExecutionActivityMetricsResponse,
+
+    -- * Lenses
+    jeamMetrics,
+    jeamJourneyId,
+    jeamLastEvaluatedTime,
+    jeamJourneyActivityId,
+    jeamActivityType,
+    jeamApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.
 --
---
---
--- /See:/ 'journeyExecutionActivityMetricsResponse' smart constructor.
+-- /See:/ 'mkJourneyExecutionActivityMetricsResponse' smart constructor.
 data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsResponse'
-  { _jeamMetrics ::
-      !( Map
-           Text
-           (Text)
-       ),
-    _jeamJourneyId ::
-      !Text,
-    _jeamLastEvaluatedTime ::
-      !Text,
-    _jeamJourneyActivityId ::
-      !Text,
-    _jeamActivityType ::
-      !Text,
-    _jeamApplicationId ::
-      !Text
+  { metrics ::
+      Lude.HashMap
+        Lude.Text
+        (Lude.Text),
+    journeyId ::
+      Lude.Text,
+    lastEvaluatedTime ::
+      Lude.Text,
+    journeyActivityId ::
+      Lude.Text,
+    activityType ::
+      Lude.Text,
+    applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyExecutionActivityMetricsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'activityType' - The type of activity that the metric applies to. Possible values are:
 --
--- * 'jeamMetrics' - A JSON object that contains the results of the query. The results vary depending on the type of activity (ActivityType). For information about the structure and contents of the results, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
 --
--- * 'jeamJourneyId' - The unique identifier for the journey that the metric applies to.
+--     * CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.
 --
--- * 'jeamLastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity and updated the data for the metric.
 --
--- * 'jeamJourneyActivityId' - The unique identifier for the activity that the metric applies to.
+--     * HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.
 --
--- * 'jeamActivityType' - The type of activity that the metric applies to. Possible values are:     * CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.     * HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.     * MESSAGE - For an email activity, which is an activity that sends an email message to participants.     * MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.     * RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.     * WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
 --
--- * 'jeamApplicationId' - The unique identifier for the application that the metric applies to.
-journeyExecutionActivityMetricsResponse ::
-  -- | 'jeamJourneyId'
-  Text ->
-  -- | 'jeamLastEvaluatedTime'
-  Text ->
-  -- | 'jeamJourneyActivityId'
-  Text ->
-  -- | 'jeamActivityType'
-  Text ->
-  -- | 'jeamApplicationId'
-  Text ->
+--     * MESSAGE - For an email activity, which is an activity that sends an email message to participants.
+--
+--
+--     * MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.
+--
+--
+--     * RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.
+--
+--
+--     * WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
+--
+--
+-- * 'applicationId' - The unique identifier for the application that the metric applies to.
+-- * 'journeyActivityId' - The unique identifier for the activity that the metric applies to.
+-- * 'journeyId' - The unique identifier for the journey that the metric applies to.
+-- * 'lastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity and updated the data for the metric.
+-- * 'metrics' - A JSON object that contains the results of the query. The results vary depending on the type of activity (ActivityType). For information about the structure and contents of the results, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+mkJourneyExecutionActivityMetricsResponse ::
+  -- | 'journeyId'
+  Lude.Text ->
+  -- | 'lastEvaluatedTime'
+  Lude.Text ->
+  -- | 'journeyActivityId'
+  Lude.Text ->
+  -- | 'activityType'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   JourneyExecutionActivityMetricsResponse
-journeyExecutionActivityMetricsResponse
+mkJourneyExecutionActivityMetricsResponse
   pJourneyId_
   pLastEvaluatedTime_
   pJourneyActivityId_
   pActivityType_
   pApplicationId_ =
     JourneyExecutionActivityMetricsResponse'
-      { _jeamMetrics = mempty,
-        _jeamJourneyId = pJourneyId_,
-        _jeamLastEvaluatedTime = pLastEvaluatedTime_,
-        _jeamJourneyActivityId = pJourneyActivityId_,
-        _jeamActivityType = pActivityType_,
-        _jeamApplicationId = pApplicationId_
+      { metrics = Lude.mempty,
+        journeyId = pJourneyId_,
+        lastEvaluatedTime = pLastEvaluatedTime_,
+        journeyActivityId = pJourneyActivityId_,
+        activityType = pActivityType_,
+        applicationId = pApplicationId_
       }
 
 -- | A JSON object that contains the results of the query. The results vary depending on the type of activity (ActivityType). For information about the structure and contents of the results, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-jeamMetrics :: Lens' JourneyExecutionActivityMetricsResponse (HashMap Text (Text))
-jeamMetrics = lens _jeamMetrics (\s a -> s {_jeamMetrics = a}) . _Map
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamMetrics :: Lens.Lens' JourneyExecutionActivityMetricsResponse (Lude.HashMap Lude.Text (Lude.Text))
+jeamMetrics = Lens.lens (metrics :: JourneyExecutionActivityMetricsResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metrics = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The unique identifier for the journey that the metric applies to.
-jeamJourneyId :: Lens' JourneyExecutionActivityMetricsResponse Text
-jeamJourneyId = lens _jeamJourneyId (\s a -> s {_jeamJourneyId = a})
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamJourneyId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Lude.Text
+jeamJourneyId = Lens.lens (journeyId :: JourneyExecutionActivityMetricsResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity and updated the data for the metric.
-jeamLastEvaluatedTime :: Lens' JourneyExecutionActivityMetricsResponse Text
-jeamLastEvaluatedTime = lens _jeamLastEvaluatedTime (\s a -> s {_jeamLastEvaluatedTime = a})
+--
+-- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamLastEvaluatedTime :: Lens.Lens' JourneyExecutionActivityMetricsResponse Lude.Text
+jeamLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: JourneyExecutionActivityMetricsResponse -> Lude.Text) (\s a -> s {lastEvaluatedTime = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
 
 -- | The unique identifier for the activity that the metric applies to.
-jeamJourneyActivityId :: Lens' JourneyExecutionActivityMetricsResponse Text
-jeamJourneyActivityId = lens _jeamJourneyActivityId (\s a -> s {_jeamJourneyActivityId = a})
+--
+-- /Note:/ Consider using 'journeyActivityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamJourneyActivityId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Lude.Text
+jeamJourneyActivityId = Lens.lens (journeyActivityId :: JourneyExecutionActivityMetricsResponse -> Lude.Text) (\s a -> s {journeyActivityId = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamJourneyActivityId "Use generic-lens or generic-optics with 'journeyActivityId' instead." #-}
 
--- | The type of activity that the metric applies to. Possible values are:     * CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.     * HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.     * MESSAGE - For an email activity, which is an activity that sends an email message to participants.     * MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.     * RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.     * WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
-jeamActivityType :: Lens' JourneyExecutionActivityMetricsResponse Text
-jeamActivityType = lens _jeamActivityType (\s a -> s {_jeamActivityType = a})
+-- | The type of activity that the metric applies to. Possible values are:
+--
+--
+--     * CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.
+--
+--
+--     * HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.
+--
+--
+--     * MESSAGE - For an email activity, which is an activity that sends an email message to participants.
+--
+--
+--     * MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.
+--
+--
+--     * RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.
+--
+--
+--     * WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
+--
+--
+--
+-- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamActivityType :: Lens.Lens' JourneyExecutionActivityMetricsResponse Lude.Text
+jeamActivityType = Lens.lens (activityType :: JourneyExecutionActivityMetricsResponse -> Lude.Text) (\s a -> s {activityType = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
 
 -- | The unique identifier for the application that the metric applies to.
-jeamApplicationId :: Lens' JourneyExecutionActivityMetricsResponse Text
-jeamApplicationId = lens _jeamApplicationId (\s a -> s {_jeamApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jeamApplicationId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Lude.Text
+jeamApplicationId = Lens.lens (applicationId :: JourneyExecutionActivityMetricsResponse -> Lude.Text) (\s a -> s {applicationId = a} :: JourneyExecutionActivityMetricsResponse)
+{-# DEPRECATED jeamApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON JourneyExecutionActivityMetricsResponse where
+instance Lude.FromJSON JourneyExecutionActivityMetricsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyExecutionActivityMetricsResponse"
       ( \x ->
           JourneyExecutionActivityMetricsResponse'
-            <$> (x .:? "Metrics" .!= mempty)
-            <*> (x .: "JourneyId")
-            <*> (x .: "LastEvaluatedTime")
-            <*> (x .: "JourneyActivityId")
-            <*> (x .: "ActivityType")
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "JourneyId")
+            Lude.<*> (x Lude..: "LastEvaluatedTime")
+            Lude.<*> (x Lude..: "JourneyActivityId")
+            Lude.<*> (x Lude..: "ActivityType")
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable JourneyExecutionActivityMetricsResponse
-
-instance NFData JourneyExecutionActivityMetricsResponse

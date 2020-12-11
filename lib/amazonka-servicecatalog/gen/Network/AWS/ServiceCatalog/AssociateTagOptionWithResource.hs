@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,144 @@
 --
 -- Associate the specified TagOption with the specified portfolio or product.
 module Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
-  ( -- * Creating a Request
-    associateTagOptionWithResource,
-    AssociateTagOptionWithResource,
+  ( -- * Creating a request
+    AssociateTagOptionWithResource (..),
+    mkAssociateTagOptionWithResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atowrResourceId,
     atowrTagOptionId,
 
-    -- * Destructuring the Response
-    associateTagOptionWithResourceResponse,
-    AssociateTagOptionWithResourceResponse,
+    -- * Destructuring the response
+    AssociateTagOptionWithResourceResponse (..),
+    mkAssociateTagOptionWithResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atowrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'associateTagOptionWithResource' smart constructor.
+-- | /See:/ 'mkAssociateTagOptionWithResource' smart constructor.
 data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
-  { _atowrResourceId ::
-      !Text,
-    _atowrTagOptionId :: !Text
+  { resourceId ::
+      Lude.Text,
+    tagOptionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTagOptionWithResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atowrResourceId' - The resource identifier.
---
--- * 'atowrTagOptionId' - The TagOption identifier.
-associateTagOptionWithResource ::
-  -- | 'atowrResourceId'
-  Text ->
-  -- | 'atowrTagOptionId'
-  Text ->
+-- * 'resourceId' - The resource identifier.
+-- * 'tagOptionId' - The TagOption identifier.
+mkAssociateTagOptionWithResource ::
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'tagOptionId'
+  Lude.Text ->
   AssociateTagOptionWithResource
-associateTagOptionWithResource pResourceId_ pTagOptionId_ =
+mkAssociateTagOptionWithResource pResourceId_ pTagOptionId_ =
   AssociateTagOptionWithResource'
-    { _atowrResourceId = pResourceId_,
-      _atowrTagOptionId = pTagOptionId_
+    { resourceId = pResourceId_,
+      tagOptionId = pTagOptionId_
     }
 
 -- | The resource identifier.
-atowrResourceId :: Lens' AssociateTagOptionWithResource Text
-atowrResourceId = lens _atowrResourceId (\s a -> s {_atowrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atowrResourceId :: Lens.Lens' AssociateTagOptionWithResource Lude.Text
+atowrResourceId = Lens.lens (resourceId :: AssociateTagOptionWithResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateTagOptionWithResource)
+{-# DEPRECATED atowrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The TagOption identifier.
-atowrTagOptionId :: Lens' AssociateTagOptionWithResource Text
-atowrTagOptionId = lens _atowrTagOptionId (\s a -> s {_atowrTagOptionId = a})
+--
+-- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atowrTagOptionId :: Lens.Lens' AssociateTagOptionWithResource Lude.Text
+atowrTagOptionId = Lens.lens (tagOptionId :: AssociateTagOptionWithResource -> Lude.Text) (\s a -> s {tagOptionId = a} :: AssociateTagOptionWithResource)
+{-# DEPRECATED atowrTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
 
-instance AWSRequest AssociateTagOptionWithResource where
+instance Lude.AWSRequest AssociateTagOptionWithResource where
   type
     Rs AssociateTagOptionWithResource =
       AssociateTagOptionWithResourceResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateTagOptionWithResourceResponse' <$> (pure (fromEnum s))
+          AssociateTagOptionWithResourceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateTagOptionWithResource
-
-instance NFData AssociateTagOptionWithResource
-
-instance ToHeaders AssociateTagOptionWithResource where
+instance Lude.ToHeaders AssociateTagOptionWithResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.AssociateTagOptionWithResource" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.AssociateTagOptionWithResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateTagOptionWithResource where
+instance Lude.ToJSON AssociateTagOptionWithResource where
   toJSON AssociateTagOptionWithResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceId" .= _atowrResourceId),
-            Just ("TagOptionId" .= _atowrTagOptionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("TagOptionId" Lude..= tagOptionId)
           ]
       )
 
-instance ToPath AssociateTagOptionWithResource where
-  toPath = const "/"
+instance Lude.ToPath AssociateTagOptionWithResource where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateTagOptionWithResource where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateTagOptionWithResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateTagOptionWithResourceResponse' smart constructor.
+-- | /See:/ 'mkAssociateTagOptionWithResourceResponse' smart constructor.
 newtype AssociateTagOptionWithResourceResponse = AssociateTagOptionWithResourceResponse'
-  { _atowrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTagOptionWithResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atowrrsResponseStatus' - -- | The response status code.
-associateTagOptionWithResourceResponse ::
-  -- | 'atowrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateTagOptionWithResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateTagOptionWithResourceResponse
-associateTagOptionWithResourceResponse pResponseStatus_ =
+mkAssociateTagOptionWithResourceResponse pResponseStatus_ =
   AssociateTagOptionWithResourceResponse'
-    { _atowrrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-atowrrsResponseStatus :: Lens' AssociateTagOptionWithResourceResponse Int
-atowrrsResponseStatus = lens _atowrrsResponseStatus (\s a -> s {_atowrrsResponseStatus = a})
-
-instance NFData AssociateTagOptionWithResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atowrrsResponseStatus :: Lens.Lens' AssociateTagOptionWithResourceResponse Lude.Int
+atowrrsResponseStatus = Lens.lens (responseStatus :: AssociateTagOptionWithResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateTagOptionWithResourceResponse)
+{-# DEPRECATED atowrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

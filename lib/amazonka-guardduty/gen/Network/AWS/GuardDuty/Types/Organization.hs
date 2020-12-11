@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Organization where
+module Network.AWS.GuardDuty.Types.Organization
+  ( Organization (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganization,
+
+    -- * Lenses
+    oOrg,
+    oASNOrg,
+    oASN,
+    oIsp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the ISP organization of the remote IP address.
 --
---
---
--- /See:/ 'organization' smart constructor.
+-- /See:/ 'mkOrganization' smart constructor.
 data Organization = Organization'
-  { _oOrg :: !(Maybe Text),
-    _oASNOrg :: !(Maybe Text),
-    _oASN :: !(Maybe Text),
-    _oIsp :: !(Maybe Text)
+  { org :: Lude.Maybe Lude.Text,
+    asnOrg :: Lude.Maybe Lude.Text,
+    asn :: Lude.Maybe Lude.Text,
+    isp :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Organization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oOrg' - The name of the internet provider.
---
--- * 'oASNOrg' - The organization that registered this ASN.
---
--- * 'oASN' - The Autonomous System Number (ASN) of the internet provider of the remote IP address.
---
--- * 'oIsp' - The ISP information for the internet provider.
-organization ::
+-- * 'asn' - The Autonomous System Number (ASN) of the internet provider of the remote IP address.
+-- * 'asnOrg' - The organization that registered this ASN.
+-- * 'isp' - The ISP information for the internet provider.
+-- * 'org' - The name of the internet provider.
+mkOrganization ::
   Organization
-organization =
+mkOrganization =
   Organization'
-    { _oOrg = Nothing,
-      _oASNOrg = Nothing,
-      _oASN = Nothing,
-      _oIsp = Nothing
+    { org = Lude.Nothing,
+      asnOrg = Lude.Nothing,
+      asn = Lude.Nothing,
+      isp = Lude.Nothing
     }
 
 -- | The name of the internet provider.
-oOrg :: Lens' Organization (Maybe Text)
-oOrg = lens _oOrg (\s a -> s {_oOrg = a})
+--
+-- /Note:/ Consider using 'org' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOrg :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
+oOrg = Lens.lens (org :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {org = a} :: Organization)
+{-# DEPRECATED oOrg "Use generic-lens or generic-optics with 'org' instead." #-}
 
 -- | The organization that registered this ASN.
-oASNOrg :: Lens' Organization (Maybe Text)
-oASNOrg = lens _oASNOrg (\s a -> s {_oASNOrg = a})
+--
+-- /Note:/ Consider using 'asnOrg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oASNOrg :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
+oASNOrg = Lens.lens (asnOrg :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {asnOrg = a} :: Organization)
+{-# DEPRECATED oASNOrg "Use generic-lens or generic-optics with 'asnOrg' instead." #-}
 
 -- | The Autonomous System Number (ASN) of the internet provider of the remote IP address.
-oASN :: Lens' Organization (Maybe Text)
-oASN = lens _oASN (\s a -> s {_oASN = a})
+--
+-- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oASN :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
+oASN = Lens.lens (asn :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {asn = a} :: Organization)
+{-# DEPRECATED oASN "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The ISP information for the internet provider.
-oIsp :: Lens' Organization (Maybe Text)
-oIsp = lens _oIsp (\s a -> s {_oIsp = a})
+--
+-- /Note:/ Consider using 'isp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oIsp :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
+oIsp = Lens.lens (isp :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {isp = a} :: Organization)
+{-# DEPRECATED oIsp "Use generic-lens or generic-optics with 'isp' instead." #-}
 
-instance FromJSON Organization where
+instance Lude.FromJSON Organization where
   parseJSON =
-    withObject
+    Lude.withObject
       "Organization"
       ( \x ->
           Organization'
-            <$> (x .:? "org")
-            <*> (x .:? "asnOrg")
-            <*> (x .:? "asn")
-            <*> (x .:? "isp")
+            Lude.<$> (x Lude..:? "org")
+            Lude.<*> (x Lude..:? "asnOrg")
+            Lude.<*> (x Lude..:? "asn")
+            Lude.<*> (x Lude..:? "isp")
       )
-
-instance Hashable Organization
-
-instance NFData Organization

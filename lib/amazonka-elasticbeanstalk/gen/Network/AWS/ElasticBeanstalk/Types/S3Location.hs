@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.S3Location where
+module Network.AWS.ElasticBeanstalk.Types.S3Location
+  ( S3Location (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3Location,
+
+    -- * Lenses
+    slS3Key,
+    slS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The bucket and key of an item stored in Amazon S3.
 --
---
---
--- /See:/ 's3Location' smart constructor.
+-- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { _slS3Key :: !(Maybe Text),
-    _slS3Bucket :: !(Maybe Text)
+  { s3Key :: Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slS3Key' - The Amazon S3 key where the data is located.
---
--- * 'slS3Bucket' - The Amazon S3 bucket where the data is located.
-s3Location ::
+-- * 's3Bucket' - The Amazon S3 bucket where the data is located.
+-- * 's3Key' - The Amazon S3 key where the data is located.
+mkS3Location ::
   S3Location
-s3Location = S3Location' {_slS3Key = Nothing, _slS3Bucket = Nothing}
+mkS3Location =
+  S3Location' {s3Key = Lude.Nothing, s3Bucket = Lude.Nothing}
 
 -- | The Amazon S3 key where the data is located.
-slS3Key :: Lens' S3Location (Maybe Text)
-slS3Key = lens _slS3Key (\s a -> s {_slS3Key = a})
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slS3Key :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
+slS3Key = Lens.lens (s3Key :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: S3Location)
+{-# DEPRECATED slS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
 
 -- | The Amazon S3 bucket where the data is located.
-slS3Bucket :: Lens' S3Location (Maybe Text)
-slS3Bucket = lens _slS3Bucket (\s a -> s {_slS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slS3Bucket :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
+slS3Bucket = Lens.lens (s3Bucket :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: S3Location)
+{-# DEPRECATED slS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance FromXML S3Location where
-  parseXML x = S3Location' <$> (x .@? "S3Key") <*> (x .@? "S3Bucket")
+instance Lude.FromXML S3Location where
+  parseXML x =
+    S3Location'
+      Lude.<$> (x Lude..@? "S3Key") Lude.<*> (x Lude..@? "S3Bucket")
 
-instance Hashable S3Location
-
-instance NFData S3Location
-
-instance ToQuery S3Location where
+instance Lude.ToQuery S3Location where
   toQuery S3Location' {..} =
-    mconcat ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
+    Lude.mconcat ["S3Key" Lude.=: s3Key, "S3Bucket" Lude.=: s3Bucket]

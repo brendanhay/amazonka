@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ItemResponse where
+module Network.AWS.DynamoDB.Types.ItemResponse
+  ( ItemResponse (..),
+
+    -- * Smart constructor
+    mkItemResponse,
+
+    -- * Lenses
+    iItem,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.AttributeValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details for the requested item.
 --
---
---
--- /See:/ 'itemResponse' smart constructor.
+-- /See:/ 'mkItemResponse' smart constructor.
 newtype ItemResponse = ItemResponse'
-  { _iItem ::
-      Maybe (Map Text (AttributeValue))
+  { item ::
+      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iItem' - Map of attribute data consisting of the data type and attribute value.
-itemResponse ::
+-- * 'item' - Map of attribute data consisting of the data type and attribute value.
+mkItemResponse ::
   ItemResponse
-itemResponse = ItemResponse' {_iItem = Nothing}
+mkItemResponse = ItemResponse' {item = Lude.Nothing}
 
 -- | Map of attribute data consisting of the data type and attribute value.
-iItem :: Lens' ItemResponse (HashMap Text (AttributeValue))
-iItem = lens _iItem (\s a -> s {_iItem = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iItem :: Lens.Lens' ItemResponse (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
+iItem = Lens.lens (item :: ItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {item = a} :: ItemResponse)
+{-# DEPRECATED iItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON ItemResponse where
+instance Lude.FromJSON ItemResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ItemResponse"
-      (\x -> ItemResponse' <$> (x .:? "Item" .!= mempty))
-
-instance Hashable ItemResponse
-
-instance NFData ItemResponse
+      ( \x ->
+          ItemResponse' Lude.<$> (x Lude..:? "Item" Lude..!= Lude.mempty)
+      )

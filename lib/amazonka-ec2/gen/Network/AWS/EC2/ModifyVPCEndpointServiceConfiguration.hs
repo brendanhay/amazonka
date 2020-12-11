@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Modifies the attributes of your VPC endpoint service configuration. You can change the Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is required for requests to connect to your endpoint service through an interface VPC endpoint.
 --
---
 -- If you set or modify the private DNS name, you must prove that you own the private DNS domain name. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html VPC Endpoint Service Private DNS Name Verification> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration
-  ( -- * Creating a Request
-    modifyVPCEndpointServiceConfiguration,
-    ModifyVPCEndpointServiceConfiguration,
+  ( -- * Creating a request
+    ModifyVPCEndpointServiceConfiguration (..),
+    mkModifyVPCEndpointServiceConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mvescRemoveGatewayLoadBalancerARNs,
     mvescRemovePrivateDNSName,
     mvescAddGatewayLoadBalancerARNs,
@@ -37,213 +31,244 @@ module Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration
     mvescDryRun,
     mvescServiceId,
 
-    -- * Destructuring the Response
-    modifyVPCEndpointServiceConfigurationResponse,
-    ModifyVPCEndpointServiceConfigurationResponse,
+    -- * Destructuring the response
+    ModifyVPCEndpointServiceConfigurationResponse (..),
+    mkModifyVPCEndpointServiceConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mvescrsReturn,
     mvescrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyVPCEndpointServiceConfiguration' smart constructor.
+-- | /See:/ 'mkModifyVPCEndpointServiceConfiguration' smart constructor.
 data ModifyVPCEndpointServiceConfiguration = ModifyVPCEndpointServiceConfiguration'
-  { _mvescRemoveGatewayLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _mvescRemovePrivateDNSName ::
-      !(Maybe Bool),
-    _mvescAddGatewayLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _mvescRemoveNetworkLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _mvescAcceptanceRequired ::
-      !(Maybe Bool),
-    _mvescAddNetworkLoadBalancerARNs ::
-      !(Maybe [Text]),
-    _mvescPrivateDNSName ::
-      !(Maybe Text),
-    _mvescDryRun ::
-      !(Maybe Bool),
-    _mvescServiceId ::
-      !Text
+  { removeGatewayLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    removePrivateDNSName ::
+      Lude.Maybe
+        Lude.Bool,
+    addGatewayLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    removeNetworkLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    acceptanceRequired ::
+      Lude.Maybe
+        Lude.Bool,
+    addNetworkLoadBalancerARNs ::
+      Lude.Maybe
+        [Lude.Text],
+    privateDNSName ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    serviceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointServiceConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvescRemoveGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
---
--- * 'mvescRemovePrivateDNSName' - (Interface endpoint configuration) Removes the private DNS name of the endpoint service.
---
--- * 'mvescAddGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
---
--- * 'mvescRemoveNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
---
--- * 'mvescAcceptanceRequired' - Indicates whether requests to create an endpoint to your service must be accepted.
---
--- * 'mvescAddNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
---
--- * 'mvescPrivateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
---
--- * 'mvescDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mvescServiceId' - The ID of the service.
-modifyVPCEndpointServiceConfiguration ::
-  -- | 'mvescServiceId'
-  Text ->
+-- * 'acceptanceRequired' - Indicates whether requests to create an endpoint to your service must be accepted.
+-- * 'addGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
+-- * 'addNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
+-- * 'removeGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
+-- * 'removeNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
+-- * 'removePrivateDNSName' - (Interface endpoint configuration) Removes the private DNS name of the endpoint service.
+-- * 'serviceId' - The ID of the service.
+mkModifyVPCEndpointServiceConfiguration ::
+  -- | 'serviceId'
+  Lude.Text ->
   ModifyVPCEndpointServiceConfiguration
-modifyVPCEndpointServiceConfiguration pServiceId_ =
+mkModifyVPCEndpointServiceConfiguration pServiceId_ =
   ModifyVPCEndpointServiceConfiguration'
-    { _mvescRemoveGatewayLoadBalancerARNs =
-        Nothing,
-      _mvescRemovePrivateDNSName = Nothing,
-      _mvescAddGatewayLoadBalancerARNs = Nothing,
-      _mvescRemoveNetworkLoadBalancerARNs = Nothing,
-      _mvescAcceptanceRequired = Nothing,
-      _mvescAddNetworkLoadBalancerARNs = Nothing,
-      _mvescPrivateDNSName = Nothing,
-      _mvescDryRun = Nothing,
-      _mvescServiceId = pServiceId_
+    { removeGatewayLoadBalancerARNs =
+        Lude.Nothing,
+      removePrivateDNSName = Lude.Nothing,
+      addGatewayLoadBalancerARNs = Lude.Nothing,
+      removeNetworkLoadBalancerARNs = Lude.Nothing,
+      acceptanceRequired = Lude.Nothing,
+      addNetworkLoadBalancerARNs = Lude.Nothing,
+      privateDNSName = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      serviceId = pServiceId_
     }
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
-mvescRemoveGatewayLoadBalancerARNs :: Lens' ModifyVPCEndpointServiceConfiguration [Text]
-mvescRemoveGatewayLoadBalancerARNs = lens _mvescRemoveGatewayLoadBalancerARNs (\s a -> s {_mvescRemoveGatewayLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeGatewayLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescRemoveGatewayLoadBalancerARNs :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+mvescRemoveGatewayLoadBalancerARNs = Lens.lens (removeGatewayLoadBalancerARNs :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {removeGatewayLoadBalancerARNs = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescRemoveGatewayLoadBalancerARNs "Use generic-lens or generic-optics with 'removeGatewayLoadBalancerARNs' instead." #-}
 
 -- | (Interface endpoint configuration) Removes the private DNS name of the endpoint service.
-mvescRemovePrivateDNSName :: Lens' ModifyVPCEndpointServiceConfiguration (Maybe Bool)
-mvescRemovePrivateDNSName = lens _mvescRemovePrivateDNSName (\s a -> s {_mvescRemovePrivateDNSName = a})
+--
+-- /Note:/ Consider using 'removePrivateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescRemovePrivateDNSName :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
+mvescRemovePrivateDNSName = Lens.lens (removePrivateDNSName :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {removePrivateDNSName = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescRemovePrivateDNSName "Use generic-lens or generic-optics with 'removePrivateDNSName' instead." #-}
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
-mvescAddGatewayLoadBalancerARNs :: Lens' ModifyVPCEndpointServiceConfiguration [Text]
-mvescAddGatewayLoadBalancerARNs = lens _mvescAddGatewayLoadBalancerARNs (\s a -> s {_mvescAddGatewayLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addGatewayLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescAddGatewayLoadBalancerARNs :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+mvescAddGatewayLoadBalancerARNs = Lens.lens (addGatewayLoadBalancerARNs :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {addGatewayLoadBalancerARNs = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescAddGatewayLoadBalancerARNs "Use generic-lens or generic-optics with 'addGatewayLoadBalancerARNs' instead." #-}
 
 -- | The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
-mvescRemoveNetworkLoadBalancerARNs :: Lens' ModifyVPCEndpointServiceConfiguration [Text]
-mvescRemoveNetworkLoadBalancerARNs = lens _mvescRemoveNetworkLoadBalancerARNs (\s a -> s {_mvescRemoveNetworkLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeNetworkLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescRemoveNetworkLoadBalancerARNs :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+mvescRemoveNetworkLoadBalancerARNs = Lens.lens (removeNetworkLoadBalancerARNs :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {removeNetworkLoadBalancerARNs = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescRemoveNetworkLoadBalancerARNs "Use generic-lens or generic-optics with 'removeNetworkLoadBalancerARNs' instead." #-}
 
 -- | Indicates whether requests to create an endpoint to your service must be accepted.
-mvescAcceptanceRequired :: Lens' ModifyVPCEndpointServiceConfiguration (Maybe Bool)
-mvescAcceptanceRequired = lens _mvescAcceptanceRequired (\s a -> s {_mvescAcceptanceRequired = a})
+--
+-- /Note:/ Consider using 'acceptanceRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescAcceptanceRequired :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
+mvescAcceptanceRequired = Lens.lens (acceptanceRequired :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {acceptanceRequired = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
 
 -- | The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
-mvescAddNetworkLoadBalancerARNs :: Lens' ModifyVPCEndpointServiceConfiguration [Text]
-mvescAddNetworkLoadBalancerARNs = lens _mvescAddNetworkLoadBalancerARNs (\s a -> s {_mvescAddNetworkLoadBalancerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addNetworkLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescAddNetworkLoadBalancerARNs :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe [Lude.Text])
+mvescAddNetworkLoadBalancerARNs = Lens.lens (addNetworkLoadBalancerARNs :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {addNetworkLoadBalancerARNs = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescAddNetworkLoadBalancerARNs "Use generic-lens or generic-optics with 'addNetworkLoadBalancerARNs' instead." #-}
 
 -- | (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
-mvescPrivateDNSName :: Lens' ModifyVPCEndpointServiceConfiguration (Maybe Text)
-mvescPrivateDNSName = lens _mvescPrivateDNSName (\s a -> s {_mvescPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescPrivateDNSName :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe Lude.Text)
+mvescPrivateDNSName = Lens.lens (privateDNSName :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mvescDryRun :: Lens' ModifyVPCEndpointServiceConfiguration (Maybe Bool)
-mvescDryRun = lens _mvescDryRun (\s a -> s {_mvescDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescDryRun :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
+mvescDryRun = Lens.lens (dryRun :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the service.
-mvescServiceId :: Lens' ModifyVPCEndpointServiceConfiguration Text
-mvescServiceId = lens _mvescServiceId (\s a -> s {_mvescServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescServiceId :: Lens.Lens' ModifyVPCEndpointServiceConfiguration Lude.Text
+mvescServiceId = Lens.lens (serviceId :: ModifyVPCEndpointServiceConfiguration -> Lude.Text) (\s a -> s {serviceId = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance AWSRequest ModifyVPCEndpointServiceConfiguration where
+instance Lude.AWSRequest ModifyVPCEndpointServiceConfiguration where
   type
     Rs ModifyVPCEndpointServiceConfiguration =
       ModifyVPCEndpointServiceConfigurationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyVPCEndpointServiceConfigurationResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyVPCEndpointServiceConfiguration
+instance Lude.ToHeaders ModifyVPCEndpointServiceConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyVPCEndpointServiceConfiguration
+instance Lude.ToPath ModifyVPCEndpointServiceConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyVPCEndpointServiceConfiguration where
-  toHeaders = const mempty
-
-instance ToPath ModifyVPCEndpointServiceConfiguration where
-  toPath = const "/"
-
-instance ToQuery ModifyVPCEndpointServiceConfiguration where
+instance Lude.ToQuery ModifyVPCEndpointServiceConfiguration where
   toQuery ModifyVPCEndpointServiceConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("ModifyVpcEndpointServiceConfiguration" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          ( toQueryList "RemoveGatewayLoadBalancerArn"
-              <$> _mvescRemoveGatewayLoadBalancerARNs
+          Lude.=: ("ModifyVpcEndpointServiceConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          ( Lude.toQueryList "RemoveGatewayLoadBalancerArn"
+              Lude.<$> removeGatewayLoadBalancerARNs
           ),
-        "RemovePrivateDnsName" =: _mvescRemovePrivateDNSName,
-        toQuery
-          ( toQueryList "AddGatewayLoadBalancerArn"
-              <$> _mvescAddGatewayLoadBalancerARNs
+        "RemovePrivateDnsName" Lude.=: removePrivateDNSName,
+        Lude.toQuery
+          ( Lude.toQueryList "AddGatewayLoadBalancerArn"
+              Lude.<$> addGatewayLoadBalancerARNs
           ),
-        toQuery
-          ( toQueryList "RemoveNetworkLoadBalancerArn"
-              <$> _mvescRemoveNetworkLoadBalancerARNs
+        Lude.toQuery
+          ( Lude.toQueryList "RemoveNetworkLoadBalancerArn"
+              Lude.<$> removeNetworkLoadBalancerARNs
           ),
-        "AcceptanceRequired" =: _mvescAcceptanceRequired,
-        toQuery
-          ( toQueryList "AddNetworkLoadBalancerArn"
-              <$> _mvescAddNetworkLoadBalancerARNs
+        "AcceptanceRequired" Lude.=: acceptanceRequired,
+        Lude.toQuery
+          ( Lude.toQueryList "AddNetworkLoadBalancerArn"
+              Lude.<$> addNetworkLoadBalancerARNs
           ),
-        "PrivateDnsName" =: _mvescPrivateDNSName,
-        "DryRun" =: _mvescDryRun,
-        "ServiceId" =: _mvescServiceId
+        "PrivateDnsName" Lude.=: privateDNSName,
+        "DryRun" Lude.=: dryRun,
+        "ServiceId" Lude.=: serviceId
       ]
 
--- | /See:/ 'modifyVPCEndpointServiceConfigurationResponse' smart constructor.
+-- | /See:/ 'mkModifyVPCEndpointServiceConfigurationResponse' smart constructor.
 data ModifyVPCEndpointServiceConfigurationResponse = ModifyVPCEndpointServiceConfigurationResponse'
-  { _mvescrsReturn ::
-      !( Maybe
-           Bool
-       ),
-    _mvescrsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ModifyVPCEndpointServiceConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvescrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'mvescrsResponseStatus' - -- | The response status code.
-modifyVPCEndpointServiceConfigurationResponse ::
-  -- | 'mvescrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkModifyVPCEndpointServiceConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyVPCEndpointServiceConfigurationResponse
-modifyVPCEndpointServiceConfigurationResponse pResponseStatus_ =
+mkModifyVPCEndpointServiceConfigurationResponse pResponseStatus_ =
   ModifyVPCEndpointServiceConfigurationResponse'
-    { _mvescrsReturn =
-        Nothing,
-      _mvescrsResponseStatus = pResponseStatus_
+    { return =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-mvescrsReturn :: Lens' ModifyVPCEndpointServiceConfigurationResponse (Maybe Bool)
-mvescrsReturn = lens _mvescrsReturn (\s a -> s {_mvescrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescrsReturn :: Lens.Lens' ModifyVPCEndpointServiceConfigurationResponse (Lude.Maybe Lude.Bool)
+mvescrsReturn = Lens.lens (return :: ModifyVPCEndpointServiceConfigurationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ModifyVPCEndpointServiceConfigurationResponse)
+{-# DEPRECATED mvescrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-mvescrsResponseStatus :: Lens' ModifyVPCEndpointServiceConfigurationResponse Int
-mvescrsResponseStatus = lens _mvescrsResponseStatus (\s a -> s {_mvescrsResponseStatus = a})
-
-instance NFData ModifyVPCEndpointServiceConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescrsResponseStatus :: Lens.Lens' ModifyVPCEndpointServiceConfigurationResponse Lude.Int
+mvescrsResponseStatus = Lens.lens (responseStatus :: ModifyVPCEndpointServiceConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVPCEndpointServiceConfigurationResponse)
+{-# DEPRECATED mvescrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

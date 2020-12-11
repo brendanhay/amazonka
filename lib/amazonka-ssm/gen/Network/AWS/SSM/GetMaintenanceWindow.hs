@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves a maintenance window.
 module Network.AWS.SSM.GetMaintenanceWindow
-  ( -- * Creating a Request
-    getMaintenanceWindow,
-    GetMaintenanceWindow,
+  ( -- * Creating a request
+    GetMaintenanceWindow (..),
+    mkGetMaintenanceWindow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmwWindowId,
 
-    -- * Destructuring the Response
-    getMaintenanceWindowResponse,
-    GetMaintenanceWindowResponse,
+    -- * Destructuring the response
+    GetMaintenanceWindowResponse (..),
+    mkGetMaintenanceWindowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmwrsEnabled,
     gmwrsSchedule,
     gmwrsNextExecutionTime,
@@ -50,234 +45,272 @@ module Network.AWS.SSM.GetMaintenanceWindow
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getMaintenanceWindow' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindow' smart constructor.
 newtype GetMaintenanceWindow = GetMaintenanceWindow'
-  { _gmwWindowId ::
-      Text
+  { windowId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmwWindowId' - The ID of the maintenance window for which you want to retrieve information.
-getMaintenanceWindow ::
-  -- | 'gmwWindowId'
-  Text ->
+-- * 'windowId' - The ID of the maintenance window for which you want to retrieve information.
+mkGetMaintenanceWindow ::
+  -- | 'windowId'
+  Lude.Text ->
   GetMaintenanceWindow
-getMaintenanceWindow pWindowId_ =
-  GetMaintenanceWindow' {_gmwWindowId = pWindowId_}
+mkGetMaintenanceWindow pWindowId_ =
+  GetMaintenanceWindow' {windowId = pWindowId_}
 
 -- | The ID of the maintenance window for which you want to retrieve information.
-gmwWindowId :: Lens' GetMaintenanceWindow Text
-gmwWindowId = lens _gmwWindowId (\s a -> s {_gmwWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwWindowId :: Lens.Lens' GetMaintenanceWindow Lude.Text
+gmwWindowId = Lens.lens (windowId :: GetMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: GetMaintenanceWindow)
+{-# DEPRECATED gmwWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance AWSRequest GetMaintenanceWindow where
+instance Lude.AWSRequest GetMaintenanceWindow where
   type Rs GetMaintenanceWindow = GetMaintenanceWindowResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowResponse'
-            <$> (x .?> "Enabled")
-            <*> (x .?> "Schedule")
-            <*> (x .?> "NextExecutionTime")
-            <*> (x .?> "ScheduleOffset")
-            <*> (x .?> "EndDate")
-            <*> (x .?> "ScheduleTimezone")
-            <*> (x .?> "StartDate")
-            <*> (x .?> "CreatedDate")
-            <*> (x .?> "Name")
-            <*> (x .?> "ModifiedDate")
-            <*> (x .?> "Cutoff")
-            <*> (x .?> "AllowUnassociatedTargets")
-            <*> (x .?> "Description")
-            <*> (x .?> "Duration")
-            <*> (x .?> "WindowId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Enabled")
+            Lude.<*> (x Lude..?> "Schedule")
+            Lude.<*> (x Lude..?> "NextExecutionTime")
+            Lude.<*> (x Lude..?> "ScheduleOffset")
+            Lude.<*> (x Lude..?> "EndDate")
+            Lude.<*> (x Lude..?> "ScheduleTimezone")
+            Lude.<*> (x Lude..?> "StartDate")
+            Lude.<*> (x Lude..?> "CreatedDate")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "ModifiedDate")
+            Lude.<*> (x Lude..?> "Cutoff")
+            Lude.<*> (x Lude..?> "AllowUnassociatedTargets")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "Duration")
+            Lude.<*> (x Lude..?> "WindowId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMaintenanceWindow
-
-instance NFData GetMaintenanceWindow
-
-instance ToHeaders GetMaintenanceWindow where
+instance Lude.ToHeaders GetMaintenanceWindow where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetMaintenanceWindow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetMaintenanceWindow" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMaintenanceWindow where
+instance Lude.ToJSON GetMaintenanceWindow where
   toJSON GetMaintenanceWindow' {..} =
-    object (catMaybes [Just ("WindowId" .= _gmwWindowId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("WindowId" Lude..= windowId)])
 
-instance ToPath GetMaintenanceWindow where
-  toPath = const "/"
+instance Lude.ToPath GetMaintenanceWindow where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMaintenanceWindow where
-  toQuery = const mempty
+instance Lude.ToQuery GetMaintenanceWindow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMaintenanceWindowResponse' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindowResponse' smart constructor.
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
-  { _gmwrsEnabled ::
-      !(Maybe Bool),
-    _gmwrsSchedule :: !(Maybe Text),
-    _gmwrsNextExecutionTime ::
-      !(Maybe Text),
-    _gmwrsScheduleOffset ::
-      !(Maybe Nat),
-    _gmwrsEndDate :: !(Maybe Text),
-    _gmwrsScheduleTimezone ::
-      !(Maybe Text),
-    _gmwrsStartDate :: !(Maybe Text),
-    _gmwrsCreatedDate ::
-      !(Maybe POSIX),
-    _gmwrsName :: !(Maybe Text),
-    _gmwrsModifiedDate ::
-      !(Maybe POSIX),
-    _gmwrsCutoff :: !(Maybe Nat),
-    _gmwrsAllowUnassociatedTargets ::
-      !(Maybe Bool),
-    _gmwrsDescription ::
-      !(Maybe (Sensitive Text)),
-    _gmwrsDuration :: !(Maybe Nat),
-    _gmwrsWindowId :: !(Maybe Text),
-    _gmwrsResponseStatus :: !Int
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    schedule :: Lude.Maybe Lude.Text,
+    nextExecutionTime ::
+      Lude.Maybe Lude.Text,
+    scheduleOffset ::
+      Lude.Maybe Lude.Natural,
+    endDate :: Lude.Maybe Lude.Text,
+    scheduleTimezone ::
+      Lude.Maybe Lude.Text,
+    startDate :: Lude.Maybe Lude.Text,
+    createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    modifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    cutoff :: Lude.Maybe Lude.Natural,
+    allowUnassociatedTargets ::
+      Lude.Maybe Lude.Bool,
+    description ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    duration ::
+      Lude.Maybe Lude.Natural,
+    windowId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmwrsEnabled' - Indicates whether the maintenance window is enabled.
---
--- * 'gmwrsSchedule' - The schedule of the maintenance window in the form of a cron or rate expression.
---
--- * 'gmwrsNextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
---
--- * 'gmwrsScheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
---
--- * 'gmwrsEndDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
---
--- * 'gmwrsScheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
---
--- * 'gmwrsStartDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
---
--- * 'gmwrsCreatedDate' - The date the maintenance window was created.
---
--- * 'gmwrsName' - The name of the maintenance window.
---
--- * 'gmwrsModifiedDate' - The date the maintenance window was last modified.
---
--- * 'gmwrsCutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
---
--- * 'gmwrsAllowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
---
--- * 'gmwrsDescription' - The description of the maintenance window.
---
--- * 'gmwrsDuration' - The duration of the maintenance window in hours.
---
--- * 'gmwrsWindowId' - The ID of the created maintenance window.
---
--- * 'gmwrsResponseStatus' - -- | The response status code.
-getMaintenanceWindowResponse ::
-  -- | 'gmwrsResponseStatus'
-  Int ->
+-- * 'allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
+-- * 'createdDate' - The date the maintenance window was created.
+-- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+-- * 'description' - The description of the maintenance window.
+-- * 'duration' - The duration of the maintenance window in hours.
+-- * 'enabled' - Indicates whether the maintenance window is enabled.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
+-- * 'modifiedDate' - The date the maintenance window was last modified.
+-- * 'name' - The name of the maintenance window.
+-- * 'nextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
+-- * 'responseStatus' - The response status code.
+-- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
+-- * 'scheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+-- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+-- * 'startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
+-- * 'windowId' - The ID of the created maintenance window.
+mkGetMaintenanceWindowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMaintenanceWindowResponse
-getMaintenanceWindowResponse pResponseStatus_ =
+mkGetMaintenanceWindowResponse pResponseStatus_ =
   GetMaintenanceWindowResponse'
-    { _gmwrsEnabled = Nothing,
-      _gmwrsSchedule = Nothing,
-      _gmwrsNextExecutionTime = Nothing,
-      _gmwrsScheduleOffset = Nothing,
-      _gmwrsEndDate = Nothing,
-      _gmwrsScheduleTimezone = Nothing,
-      _gmwrsStartDate = Nothing,
-      _gmwrsCreatedDate = Nothing,
-      _gmwrsName = Nothing,
-      _gmwrsModifiedDate = Nothing,
-      _gmwrsCutoff = Nothing,
-      _gmwrsAllowUnassociatedTargets = Nothing,
-      _gmwrsDescription = Nothing,
-      _gmwrsDuration = Nothing,
-      _gmwrsWindowId = Nothing,
-      _gmwrsResponseStatus = pResponseStatus_
+    { enabled = Lude.Nothing,
+      schedule = Lude.Nothing,
+      nextExecutionTime = Lude.Nothing,
+      scheduleOffset = Lude.Nothing,
+      endDate = Lude.Nothing,
+      scheduleTimezone = Lude.Nothing,
+      startDate = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      modifiedDate = Lude.Nothing,
+      cutoff = Lude.Nothing,
+      allowUnassociatedTargets = Lude.Nothing,
+      description = Lude.Nothing,
+      duration = Lude.Nothing,
+      windowId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the maintenance window is enabled.
-gmwrsEnabled :: Lens' GetMaintenanceWindowResponse (Maybe Bool)
-gmwrsEnabled = lens _gmwrsEnabled (\s a -> s {_gmwrsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsEnabled :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Bool)
+gmwrsEnabled = Lens.lens (enabled :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The schedule of the maintenance window in the form of a cron or rate expression.
-gmwrsSchedule :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsSchedule = lens _gmwrsSchedule (\s a -> s {_gmwrsSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsSchedule :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsSchedule = Lens.lens (schedule :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
-gmwrsNextExecutionTime :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsNextExecutionTime = lens _gmwrsNextExecutionTime (\s a -> s {_gmwrsNextExecutionTime = a})
+--
+-- /Note:/ Consider using 'nextExecutionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsNextExecutionTime :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsNextExecutionTime = Lens.lens (nextExecutionTime :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextExecutionTime = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsNextExecutionTime "Use generic-lens or generic-optics with 'nextExecutionTime' instead." #-}
 
 -- | The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
-gmwrsScheduleOffset :: Lens' GetMaintenanceWindowResponse (Maybe Natural)
-gmwrsScheduleOffset = lens _gmwrsScheduleOffset (\s a -> s {_gmwrsScheduleOffset = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'scheduleOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsScheduleOffset :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+gmwrsScheduleOffset = Lens.lens (scheduleOffset :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {scheduleOffset = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsScheduleOffset "Use generic-lens or generic-optics with 'scheduleOffset' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
-gmwrsEndDate :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsEndDate = lens _gmwrsEndDate (\s a -> s {_gmwrsEndDate = a})
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsEndDate :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsEndDate = Lens.lens (endDate :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
-gmwrsScheduleTimezone :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsScheduleTimezone = lens _gmwrsScheduleTimezone (\s a -> s {_gmwrsScheduleTimezone = a})
+--
+-- /Note:/ Consider using 'scheduleTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsScheduleTimezone :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsScheduleTimezone = Lens.lens (scheduleTimezone :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduleTimezone = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsScheduleTimezone "Use generic-lens or generic-optics with 'scheduleTimezone' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
-gmwrsStartDate :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsStartDate = lens _gmwrsStartDate (\s a -> s {_gmwrsStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsStartDate :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsStartDate = Lens.lens (startDate :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The date the maintenance window was created.
-gmwrsCreatedDate :: Lens' GetMaintenanceWindowResponse (Maybe UTCTime)
-gmwrsCreatedDate = lens _gmwrsCreatedDate (\s a -> s {_gmwrsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsCreatedDate :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Timestamp)
+gmwrsCreatedDate = Lens.lens (createdDate :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the maintenance window.
-gmwrsName :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsName = lens _gmwrsName (\s a -> s {_gmwrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsName :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsName = Lens.lens (name :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date the maintenance window was last modified.
-gmwrsModifiedDate :: Lens' GetMaintenanceWindowResponse (Maybe UTCTime)
-gmwrsModifiedDate = lens _gmwrsModifiedDate (\s a -> s {_gmwrsModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsModifiedDate :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Timestamp)
+gmwrsModifiedDate = Lens.lens (modifiedDate :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedDate = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsModifiedDate "Use generic-lens or generic-optics with 'modifiedDate' instead." #-}
 
 -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
-gmwrsCutoff :: Lens' GetMaintenanceWindowResponse (Maybe Natural)
-gmwrsCutoff = lens _gmwrsCutoff (\s a -> s {_gmwrsCutoff = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'cutoff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsCutoff :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+gmwrsCutoff = Lens.lens (cutoff :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {cutoff = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsCutoff "Use generic-lens or generic-optics with 'cutoff' instead." #-}
 
 -- | Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
-gmwrsAllowUnassociatedTargets :: Lens' GetMaintenanceWindowResponse (Maybe Bool)
-gmwrsAllowUnassociatedTargets = lens _gmwrsAllowUnassociatedTargets (\s a -> s {_gmwrsAllowUnassociatedTargets = a})
+--
+-- /Note:/ Consider using 'allowUnassociatedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsAllowUnassociatedTargets :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Bool)
+gmwrsAllowUnassociatedTargets = Lens.lens (allowUnassociatedTargets :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Bool) (\s a -> s {allowUnassociatedTargets = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsAllowUnassociatedTargets "Use generic-lens or generic-optics with 'allowUnassociatedTargets' instead." #-}
 
 -- | The description of the maintenance window.
-gmwrsDescription :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsDescription = lens _gmwrsDescription (\s a -> s {_gmwrsDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsDescription :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+gmwrsDescription = Lens.lens (description :: GetMaintenanceWindowResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The duration of the maintenance window in hours.
-gmwrsDuration :: Lens' GetMaintenanceWindowResponse (Maybe Natural)
-gmwrsDuration = lens _gmwrsDuration (\s a -> s {_gmwrsDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsDuration :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+gmwrsDuration = Lens.lens (duration :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {duration = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The ID of the created maintenance window.
-gmwrsWindowId :: Lens' GetMaintenanceWindowResponse (Maybe Text)
-gmwrsWindowId = lens _gmwrsWindowId (\s a -> s {_gmwrsWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsWindowId :: Lens.Lens' GetMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+gmwrsWindowId = Lens.lens (windowId :: GetMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
--- | -- | The response status code.
-gmwrsResponseStatus :: Lens' GetMaintenanceWindowResponse Int
-gmwrsResponseStatus = lens _gmwrsResponseStatus (\s a -> s {_gmwrsResponseStatus = a})
-
-instance NFData GetMaintenanceWindowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwrsResponseStatus :: Lens.Lens' GetMaintenanceWindowResponse Lude.Int
+gmwrsResponseStatus = Lens.lens (responseStatus :: GetMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMaintenanceWindowResponse)
+{-# DEPRECATED gmwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

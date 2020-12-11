@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolClientDescription where
+module Network.AWS.CognitoIdentityProvider.Types.UserPoolClientDescription
+  ( UserPoolClientDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserPoolClientDescription,
+
+    -- * Lenses
+    upcdClientId,
+    upcdUserPoolId,
+    upcdClientName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The description of the user pool client.
 --
---
---
--- /See:/ 'userPoolClientDescription' smart constructor.
+-- /See:/ 'mkUserPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
-  { _upcdClientId ::
-      !(Maybe (Sensitive Text)),
-    _upcdUserPoolId :: !(Maybe Text),
-    _upcdClientName :: !(Maybe Text)
+  { clientId ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    userPoolId :: Lude.Maybe Lude.Text,
+    clientName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolClientDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upcdClientId' - The ID of the client associated with the user pool.
---
--- * 'upcdUserPoolId' - The user pool ID for the user pool where you want to describe the user pool client.
---
--- * 'upcdClientName' - The client name from the user pool client description.
-userPoolClientDescription ::
+-- * 'clientId' - The ID of the client associated with the user pool.
+-- * 'clientName' - The client name from the user pool client description.
+-- * 'userPoolId' - The user pool ID for the user pool where you want to describe the user pool client.
+mkUserPoolClientDescription ::
   UserPoolClientDescription
-userPoolClientDescription =
+mkUserPoolClientDescription =
   UserPoolClientDescription'
-    { _upcdClientId = Nothing,
-      _upcdUserPoolId = Nothing,
-      _upcdClientName = Nothing
+    { clientId = Lude.Nothing,
+      userPoolId = Lude.Nothing,
+      clientName = Lude.Nothing
     }
 
 -- | The ID of the client associated with the user pool.
-upcdClientId :: Lens' UserPoolClientDescription (Maybe Text)
-upcdClientId = lens _upcdClientId (\s a -> s {_upcdClientId = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcdClientId :: Lens.Lens' UserPoolClientDescription (Lude.Maybe (Lude.Sensitive Lude.Text))
+upcdClientId = Lens.lens (clientId :: UserPoolClientDescription -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: UserPoolClientDescription)
+{-# DEPRECATED upcdClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The user pool ID for the user pool where you want to describe the user pool client.
-upcdUserPoolId :: Lens' UserPoolClientDescription (Maybe Text)
-upcdUserPoolId = lens _upcdUserPoolId (\s a -> s {_upcdUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcdUserPoolId :: Lens.Lens' UserPoolClientDescription (Lude.Maybe Lude.Text)
+upcdUserPoolId = Lens.lens (userPoolId :: UserPoolClientDescription -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: UserPoolClientDescription)
+{-# DEPRECATED upcdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The client name from the user pool client description.
-upcdClientName :: Lens' UserPoolClientDescription (Maybe Text)
-upcdClientName = lens _upcdClientName (\s a -> s {_upcdClientName = a})
+--
+-- /Note:/ Consider using 'clientName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcdClientName :: Lens.Lens' UserPoolClientDescription (Lude.Maybe Lude.Text)
+upcdClientName = Lens.lens (clientName :: UserPoolClientDescription -> Lude.Maybe Lude.Text) (\s a -> s {clientName = a} :: UserPoolClientDescription)
+{-# DEPRECATED upcdClientName "Use generic-lens or generic-optics with 'clientName' instead." #-}
 
-instance FromJSON UserPoolClientDescription where
+instance Lude.FromJSON UserPoolClientDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPoolClientDescription"
       ( \x ->
           UserPoolClientDescription'
-            <$> (x .:? "ClientId")
-            <*> (x .:? "UserPoolId")
-            <*> (x .:? "ClientName")
+            Lude.<$> (x Lude..:? "ClientId")
+            Lude.<*> (x Lude..:? "UserPoolId")
+            Lude.<*> (x Lude..:? "ClientName")
       )
-
-instance Hashable UserPoolClientDescription
-
-instance NFData UserPoolClientDescription

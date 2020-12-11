@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,98 @@
 --
 -- Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
 module Network.AWS.ElasticSearch.AddTags
-  ( -- * Creating a Request
-    addTags,
-    AddTags,
+  ( -- * Creating a request
+    AddTags (..),
+    mkAddTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atARN,
     atTagList,
 
-    -- * Destructuring the Response
-    addTagsResponse,
-    AddTagsResponse,
+    -- * Destructuring the response
+    AddTagsResponse (..),
+    mkAddTagsResponse,
   )
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'AddTags' @ operation. Specify the tags that you want to attach to the Elasticsearch domain.
 --
---
---
--- /See:/ 'addTags' smart constructor.
-data AddTags = AddTags' {_atARN :: !Text, _atTagList :: ![Tag]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkAddTags' smart constructor.
+data AddTags = AddTags' {arn :: Lude.Text, tagList :: [Tag]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atARN' - Specify the @ARN@ for which you want to add the tags.
---
--- * 'atTagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
-addTags ::
-  -- | 'atARN'
-  Text ->
+-- * 'arn' - Specify the @ARN@ for which you want to add the tags.
+-- * 'tagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
+mkAddTags ::
+  -- | 'arn'
+  Lude.Text ->
   AddTags
-addTags pARN_ = AddTags' {_atARN = pARN_, _atTagList = mempty}
+mkAddTags pARN_ = AddTags' {arn = pARN_, tagList = Lude.mempty}
 
 -- | Specify the @ARN@ for which you want to add the tags.
-atARN :: Lens' AddTags Text
-atARN = lens _atARN (\s a -> s {_atARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atARN :: Lens.Lens' AddTags Lude.Text
+atARN = Lens.lens (arn :: AddTags -> Lude.Text) (\s a -> s {arn = a} :: AddTags)
+{-# DEPRECATED atARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | List of @Tag@ that need to be added for the Elasticsearch domain.
-atTagList :: Lens' AddTags [Tag]
-atTagList = lens _atTagList (\s a -> s {_atTagList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTagList :: Lens.Lens' AddTags [Tag]
+atTagList = Lens.lens (tagList :: AddTags -> [Tag]) (\s a -> s {tagList = a} :: AddTags)
+{-# DEPRECATED atTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
-instance AWSRequest AddTags where
+instance Lude.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = postJSON elasticSearch
-  response = receiveNull AddTagsResponse'
+  request = Req.postJSON elasticSearchService
+  response = Res.receiveNull AddTagsResponse'
 
-instance Hashable AddTags
+instance Lude.ToHeaders AddTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddTags
-
-instance ToHeaders AddTags where
-  toHeaders = const mempty
-
-instance ToJSON AddTags where
+instance Lude.ToJSON AddTags where
   toJSON AddTags' {..} =
-    object
-      ( catMaybes
-          [Just ("ARN" .= _atARN), Just ("TagList" .= _atTagList)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ARN" Lude..= arn),
+            Lude.Just ("TagList" Lude..= tagList)
+          ]
       )
 
-instance ToPath AddTags where
-  toPath = const "/2015-01-01/tags"
+instance Lude.ToPath AddTags where
+  toPath = Lude.const "/2015-01-01/tags"
 
-instance ToQuery AddTags where
-  toQuery = const mempty
+instance Lude.ToQuery AddTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addTagsResponse' smart constructor.
+-- | /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
-addTagsResponse ::
+mkAddTagsResponse ::
   AddTagsResponse
-addTagsResponse = AddTagsResponse'
-
-instance NFData AddTagsResponse
+mkAddTagsResponse = AddTagsResponse'

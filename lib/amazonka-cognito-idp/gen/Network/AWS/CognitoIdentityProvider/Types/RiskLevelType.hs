@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.RiskLevelType where
+module Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
+  ( RiskLevelType
+      ( RiskLevelType',
+        High,
+        Low,
+        Medium
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RiskLevelType
-  = High
-  | Low
-  | Medium
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RiskLevelType = RiskLevelType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RiskLevelType where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure High
-      "low" -> pure Low
-      "medium" -> pure Medium
-      e ->
-        fromTextError $
-          "Failure parsing RiskLevelType from value: '" <> e
-            <> "'. Accepted values: high, low, medium"
+pattern High :: RiskLevelType
+pattern High = RiskLevelType' "High"
 
-instance ToText RiskLevelType where
-  toText = \case
-    High -> "High"
-    Low -> "Low"
-    Medium -> "Medium"
+pattern Low :: RiskLevelType
+pattern Low = RiskLevelType' "Low"
 
-instance Hashable RiskLevelType
+pattern Medium :: RiskLevelType
+pattern Medium = RiskLevelType' "Medium"
 
-instance NFData RiskLevelType
-
-instance ToByteString RiskLevelType
-
-instance ToQuery RiskLevelType
-
-instance ToHeader RiskLevelType
-
-instance FromJSON RiskLevelType where
-  parseJSON = parseJSONText "RiskLevelType"
+{-# COMPLETE
+  High,
+  Low,
+  Medium,
+  RiskLevelType'
+  #-}

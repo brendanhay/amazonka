@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLS3DataSource where
+module Network.AWS.SageMaker.Types.AutoMLS3DataSource
+  ( AutoMLS3DataSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutoMLS3DataSource,
+
+    -- * Lenses
+    amlsdsS3DataType,
+    amlsdsS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AutoMLS3DataType
 
 -- | The Amazon S3 data source.
 --
---
---
--- /See:/ 'autoMLS3DataSource' smart constructor.
+-- /See:/ 'mkAutoMLS3DataSource' smart constructor.
 data AutoMLS3DataSource = AutoMLS3DataSource'
-  { _amlsdsS3DataType ::
-      !AutoMLS3DataType,
-    _amlsdsS3URI :: !Text
+  { s3DataType ::
+      AutoMLS3DataType,
+    s3URI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLS3DataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amlsdsS3DataType' - The data type.
---
--- * 'amlsdsS3URI' - The URL to the Amazon S3 data source.
-autoMLS3DataSource ::
-  -- | 'amlsdsS3DataType'
+-- * 's3DataType' - The data type.
+-- * 's3URI' - The URL to the Amazon S3 data source.
+mkAutoMLS3DataSource ::
+  -- | 's3DataType'
   AutoMLS3DataType ->
-  -- | 'amlsdsS3URI'
-  Text ->
+  -- | 's3URI'
+  Lude.Text ->
   AutoMLS3DataSource
-autoMLS3DataSource pS3DataType_ pS3URI_ =
-  AutoMLS3DataSource'
-    { _amlsdsS3DataType = pS3DataType_,
-      _amlsdsS3URI = pS3URI_
-    }
+mkAutoMLS3DataSource pS3DataType_ pS3URI_ =
+  AutoMLS3DataSource' {s3DataType = pS3DataType_, s3URI = pS3URI_}
 
 -- | The data type.
-amlsdsS3DataType :: Lens' AutoMLS3DataSource AutoMLS3DataType
-amlsdsS3DataType = lens _amlsdsS3DataType (\s a -> s {_amlsdsS3DataType = a})
+--
+-- /Note:/ Consider using 's3DataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlsdsS3DataType :: Lens.Lens' AutoMLS3DataSource AutoMLS3DataType
+amlsdsS3DataType = Lens.lens (s3DataType :: AutoMLS3DataSource -> AutoMLS3DataType) (\s a -> s {s3DataType = a} :: AutoMLS3DataSource)
+{-# DEPRECATED amlsdsS3DataType "Use generic-lens or generic-optics with 's3DataType' instead." #-}
 
 -- | The URL to the Amazon S3 data source.
-amlsdsS3URI :: Lens' AutoMLS3DataSource Text
-amlsdsS3URI = lens _amlsdsS3URI (\s a -> s {_amlsdsS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlsdsS3URI :: Lens.Lens' AutoMLS3DataSource Lude.Text
+amlsdsS3URI = Lens.lens (s3URI :: AutoMLS3DataSource -> Lude.Text) (\s a -> s {s3URI = a} :: AutoMLS3DataSource)
+{-# DEPRECATED amlsdsS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON AutoMLS3DataSource where
+instance Lude.FromJSON AutoMLS3DataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutoMLS3DataSource"
       ( \x ->
-          AutoMLS3DataSource' <$> (x .: "S3DataType") <*> (x .: "S3Uri")
+          AutoMLS3DataSource'
+            Lude.<$> (x Lude..: "S3DataType") Lude.<*> (x Lude..: "S3Uri")
       )
 
-instance Hashable AutoMLS3DataSource
-
-instance NFData AutoMLS3DataSource
-
-instance ToJSON AutoMLS3DataSource where
+instance Lude.ToJSON AutoMLS3DataSource where
   toJSON AutoMLS3DataSource' {..} =
-    object
-      ( catMaybes
-          [ Just ("S3DataType" .= _amlsdsS3DataType),
-            Just ("S3Uri" .= _amlsdsS3URI)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("S3DataType" Lude..= s3DataType),
+            Lude.Just ("S3Uri" Lude..= s3URI)
           ]
       )

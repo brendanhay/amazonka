@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.
 module Network.AWS.Athena.DeleteWorkGroup
-  ( -- * Creating a Request
-    deleteWorkGroup,
-    DeleteWorkGroup,
+  ( -- * Creating a request
+    DeleteWorkGroup (..),
+    mkDeleteWorkGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwgRecursiveDeleteOption,
     dwgWorkGroup,
 
-    -- * Destructuring the Response
-    deleteWorkGroupResponse,
-    DeleteWorkGroupResponse,
+    -- * Destructuring the response
+    DeleteWorkGroupResponse (..),
+    mkDeleteWorkGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwgrsResponseStatus,
   )
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteWorkGroup' smart constructor.
+-- | /See:/ 'mkDeleteWorkGroup' smart constructor.
 data DeleteWorkGroup = DeleteWorkGroup'
-  { _dwgRecursiveDeleteOption ::
-      !(Maybe Bool),
-    _dwgWorkGroup :: !Text
+  { recursiveDeleteOption ::
+      Lude.Maybe Lude.Bool,
+    workGroup :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwgRecursiveDeleteOption' - The option to delete the workgroup and its contents even if the workgroup contains any named queries.
---
--- * 'dwgWorkGroup' - The unique name of the workgroup to delete.
-deleteWorkGroup ::
-  -- | 'dwgWorkGroup'
-  Text ->
+-- * 'recursiveDeleteOption' - The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+-- * 'workGroup' - The unique name of the workgroup to delete.
+mkDeleteWorkGroup ::
+  -- | 'workGroup'
+  Lude.Text ->
   DeleteWorkGroup
-deleteWorkGroup pWorkGroup_ =
+mkDeleteWorkGroup pWorkGroup_ =
   DeleteWorkGroup'
-    { _dwgRecursiveDeleteOption = Nothing,
-      _dwgWorkGroup = pWorkGroup_
+    { recursiveDeleteOption = Lude.Nothing,
+      workGroup = pWorkGroup_
     }
 
 -- | The option to delete the workgroup and its contents even if the workgroup contains any named queries.
-dwgRecursiveDeleteOption :: Lens' DeleteWorkGroup (Maybe Bool)
-dwgRecursiveDeleteOption = lens _dwgRecursiveDeleteOption (\s a -> s {_dwgRecursiveDeleteOption = a})
+--
+-- /Note:/ Consider using 'recursiveDeleteOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwgRecursiveDeleteOption :: Lens.Lens' DeleteWorkGroup (Lude.Maybe Lude.Bool)
+dwgRecursiveDeleteOption = Lens.lens (recursiveDeleteOption :: DeleteWorkGroup -> Lude.Maybe Lude.Bool) (\s a -> s {recursiveDeleteOption = a} :: DeleteWorkGroup)
+{-# DEPRECATED dwgRecursiveDeleteOption "Use generic-lens or generic-optics with 'recursiveDeleteOption' instead." #-}
 
 -- | The unique name of the workgroup to delete.
-dwgWorkGroup :: Lens' DeleteWorkGroup Text
-dwgWorkGroup = lens _dwgWorkGroup (\s a -> s {_dwgWorkGroup = a})
+--
+-- /Note:/ Consider using 'workGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwgWorkGroup :: Lens.Lens' DeleteWorkGroup Lude.Text
+dwgWorkGroup = Lens.lens (workGroup :: DeleteWorkGroup -> Lude.Text) (\s a -> s {workGroup = a} :: DeleteWorkGroup)
+{-# DEPRECATED dwgWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
 
-instance AWSRequest DeleteWorkGroup where
+instance Lude.AWSRequest DeleteWorkGroup where
   type Rs DeleteWorkGroup = DeleteWorkGroupResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveEmpty
-      (\s h x -> DeleteWorkGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteWorkGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteWorkGroup
-
-instance NFData DeleteWorkGroup
-
-instance ToHeaders DeleteWorkGroup where
+instance Lude.ToHeaders DeleteWorkGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonAthena.DeleteWorkGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonAthena.DeleteWorkGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteWorkGroup where
+instance Lude.ToJSON DeleteWorkGroup where
   toJSON DeleteWorkGroup' {..} =
-    object
-      ( catMaybes
-          [ ("RecursiveDeleteOption" .=) <$> _dwgRecursiveDeleteOption,
-            Just ("WorkGroup" .= _dwgWorkGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RecursiveDeleteOption" Lude..=) Lude.<$> recursiveDeleteOption,
+            Lude.Just ("WorkGroup" Lude..= workGroup)
           ]
       )
 
-instance ToPath DeleteWorkGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteWorkGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteWorkGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteWorkGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteWorkGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteWorkGroupResponse' smart constructor.
 newtype DeleteWorkGroupResponse = DeleteWorkGroupResponse'
-  { _dwgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwgrsResponseStatus' - -- | The response status code.
-deleteWorkGroupResponse ::
-  -- | 'dwgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteWorkGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteWorkGroupResponse
-deleteWorkGroupResponse pResponseStatus_ =
-  DeleteWorkGroupResponse' {_dwgrsResponseStatus = pResponseStatus_}
+mkDeleteWorkGroupResponse pResponseStatus_ =
+  DeleteWorkGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dwgrsResponseStatus :: Lens' DeleteWorkGroupResponse Int
-dwgrsResponseStatus = lens _dwgrsResponseStatus (\s a -> s {_dwgrsResponseStatus = a})
-
-instance NFData DeleteWorkGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwgrsResponseStatus :: Lens.Lens' DeleteWorkGroupResponse Lude.Int
+dwgrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkGroupResponse)
+{-# DEPRECATED dwgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

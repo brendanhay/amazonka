@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Returns the IAM policy attached to the RuleGroup.
 module Network.AWS.WAFRegional.GetPermissionPolicy
-  ( -- * Creating a Request
-    getPermissionPolicy,
-    GetPermissionPolicy,
+  ( -- * Creating a request
+    GetPermissionPolicy (..),
+    mkGetPermissionPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gppResourceARN,
 
-    -- * Destructuring the Response
-    getPermissionPolicyResponse,
-    GetPermissionPolicyResponse,
+    -- * Destructuring the response
+    GetPermissionPolicyResponse (..),
+    mkGetPermissionPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpprsPolicy,
     gpprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getPermissionPolicy' smart constructor.
+-- | /See:/ 'mkGetPermissionPolicy' smart constructor.
 newtype GetPermissionPolicy = GetPermissionPolicy'
-  { _gppResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPermissionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gppResourceARN' - The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.
-getPermissionPolicy ::
-  -- | 'gppResourceARN'
-  Text ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.
+mkGetPermissionPolicy ::
+  -- | 'resourceARN'
+  Lude.Text ->
   GetPermissionPolicy
-getPermissionPolicy pResourceARN_ =
-  GetPermissionPolicy' {_gppResourceARN = pResourceARN_}
+mkGetPermissionPolicy pResourceARN_ =
+  GetPermissionPolicy' {resourceARN = pResourceARN_}
 
 -- | The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.
-gppResourceARN :: Lens' GetPermissionPolicy Text
-gppResourceARN = lens _gppResourceARN (\s a -> s {_gppResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gppResourceARN :: Lens.Lens' GetPermissionPolicy Lude.Text
+gppResourceARN = Lens.lens (resourceARN :: GetPermissionPolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: GetPermissionPolicy)
+{-# DEPRECATED gppResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest GetPermissionPolicy where
+instance Lude.AWSRequest GetPermissionPolicy where
   type Rs GetPermissionPolicy = GetPermissionPolicyResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPermissionPolicyResponse'
-            <$> (x .?> "Policy") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPermissionPolicy
-
-instance NFData GetPermissionPolicy
-
-instance ToHeaders GetPermissionPolicy where
+instance Lude.ToHeaders GetPermissionPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetPermissionPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.GetPermissionPolicy" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetPermissionPolicy where
+instance Lude.ToJSON GetPermissionPolicy where
   toJSON GetPermissionPolicy' {..} =
-    object (catMaybes [Just ("ResourceArn" .= _gppResourceARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
 
-instance ToPath GetPermissionPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetPermissionPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetPermissionPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetPermissionPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPermissionPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetPermissionPolicyResponse' smart constructor.
 data GetPermissionPolicyResponse = GetPermissionPolicyResponse'
-  { _gpprsPolicy ::
-      !(Maybe Text),
-    _gpprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPermissionPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpprsPolicy' - The IAM policy attached to the specified RuleGroup.
---
--- * 'gpprsResponseStatus' - -- | The response status code.
-getPermissionPolicyResponse ::
-  -- | 'gpprsResponseStatus'
-  Int ->
+-- * 'policy' - The IAM policy attached to the specified RuleGroup.
+-- * 'responseStatus' - The response status code.
+mkGetPermissionPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPermissionPolicyResponse
-getPermissionPolicyResponse pResponseStatus_ =
+mkGetPermissionPolicyResponse pResponseStatus_ =
   GetPermissionPolicyResponse'
-    { _gpprsPolicy = Nothing,
-      _gpprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The IAM policy attached to the specified RuleGroup.
-gpprsPolicy :: Lens' GetPermissionPolicyResponse (Maybe Text)
-gpprsPolicy = lens _gpprsPolicy (\s a -> s {_gpprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpprsPolicy :: Lens.Lens' GetPermissionPolicyResponse (Lude.Maybe Lude.Text)
+gpprsPolicy = Lens.lens (policy :: GetPermissionPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetPermissionPolicyResponse)
+{-# DEPRECATED gpprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-gpprsResponseStatus :: Lens' GetPermissionPolicyResponse Int
-gpprsResponseStatus = lens _gpprsResponseStatus (\s a -> s {_gpprsResponseStatus = a})
-
-instance NFData GetPermissionPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpprsResponseStatus :: Lens.Lens' GetPermissionPolicyResponse Lude.Int
+gpprsResponseStatus = Lens.lens (responseStatus :: GetPermissionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPermissionPolicyResponse)
+{-# DEPRECATED gpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

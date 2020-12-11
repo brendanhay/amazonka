@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType where
+module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
+  ( WorkspaceDirectoryType
+      ( WorkspaceDirectoryType',
+        AdConnector,
+        SimpleAd
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkspaceDirectoryType
-  = AdConnector
-  | SimpleAd
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkspaceDirectoryType = WorkspaceDirectoryType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkspaceDirectoryType where
-  parser =
-    takeLowerText >>= \case
-      "ad_connector" -> pure AdConnector
-      "simple_ad" -> pure SimpleAd
-      e ->
-        fromTextError $
-          "Failure parsing WorkspaceDirectoryType from value: '" <> e
-            <> "'. Accepted values: ad_connector, simple_ad"
+pattern AdConnector :: WorkspaceDirectoryType
+pattern AdConnector = WorkspaceDirectoryType' "AD_CONNECTOR"
 
-instance ToText WorkspaceDirectoryType where
-  toText = \case
-    AdConnector -> "AD_CONNECTOR"
-    SimpleAd -> "SIMPLE_AD"
+pattern SimpleAd :: WorkspaceDirectoryType
+pattern SimpleAd = WorkspaceDirectoryType' "SIMPLE_AD"
 
-instance Hashable WorkspaceDirectoryType
-
-instance NFData WorkspaceDirectoryType
-
-instance ToByteString WorkspaceDirectoryType
-
-instance ToQuery WorkspaceDirectoryType
-
-instance ToHeader WorkspaceDirectoryType
-
-instance FromJSON WorkspaceDirectoryType where
-  parseJSON = parseJSONText "WorkspaceDirectoryType"
+{-# COMPLETE
+  AdConnector,
+  SimpleAd,
+  WorkspaceDirectoryType'
+  #-}

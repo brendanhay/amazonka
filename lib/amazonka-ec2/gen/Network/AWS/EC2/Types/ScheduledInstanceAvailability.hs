@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,167 +7,213 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstanceAvailability where
+module Network.AWS.EC2.Types.ScheduledInstanceAvailability
+  ( ScheduledInstanceAvailability (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkScheduledInstanceAvailability,
+
+    -- * Lenses
+    siaMaxTermDurationInDays,
+    siaPlatform,
+    siaPurchaseToken,
+    siaHourlyPrice,
+    siaAvailableInstanceCount,
+    siaSlotDurationInHours,
+    siaTotalScheduledInstanceHours,
+    siaInstanceType,
+    siaRecurrence,
+    siaAvailabilityZone,
+    siaMinTermDurationInDays,
+    siaFirstSlotStartTime,
+    siaNetworkPlatform,
+  )
+where
+
 import Network.AWS.EC2.Types.ScheduledInstanceRecurrence
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a schedule that is available for your Scheduled Instances.
 --
---
---
--- /See:/ 'scheduledInstanceAvailability' smart constructor.
+-- /See:/ 'mkScheduledInstanceAvailability' smart constructor.
 data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
-  { _siaMaxTermDurationInDays ::
-      !(Maybe Int),
-    _siaPlatform :: !(Maybe Text),
-    _siaPurchaseToken ::
-      !(Maybe Text),
-    _siaHourlyPrice ::
-      !(Maybe Text),
-    _siaAvailableInstanceCount ::
-      !(Maybe Int),
-    _siaSlotDurationInHours ::
-      !(Maybe Int),
-    _siaTotalScheduledInstanceHours ::
-      !(Maybe Int),
-    _siaInstanceType ::
-      !(Maybe Text),
-    _siaRecurrence ::
-      !( Maybe
-           ScheduledInstanceRecurrence
-       ),
-    _siaAvailabilityZone ::
-      !(Maybe Text),
-    _siaMinTermDurationInDays ::
-      !(Maybe Int),
-    _siaFirstSlotStartTime ::
-      !(Maybe ISO8601),
-    _siaNetworkPlatform ::
-      !(Maybe Text)
+  { maxTermDurationInDays ::
+      Lude.Maybe Lude.Int,
+    platform ::
+      Lude.Maybe Lude.Text,
+    purchaseToken ::
+      Lude.Maybe Lude.Text,
+    hourlyPrice ::
+      Lude.Maybe Lude.Text,
+    availableInstanceCount ::
+      Lude.Maybe Lude.Int,
+    slotDurationInHours ::
+      Lude.Maybe Lude.Int,
+    totalScheduledInstanceHours ::
+      Lude.Maybe Lude.Int,
+    instanceType ::
+      Lude.Maybe Lude.Text,
+    recurrence ::
+      Lude.Maybe
+        ScheduledInstanceRecurrence,
+    availabilityZone ::
+      Lude.Maybe Lude.Text,
+    minTermDurationInDays ::
+      Lude.Maybe Lude.Int,
+    firstSlotStartTime ::
+      Lude.Maybe Lude.ISO8601,
+    networkPlatform ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstanceAvailability' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siaMaxTermDurationInDays' - The maximum term. The only possible value is 365 days.
---
--- * 'siaPlatform' - The platform (@Linux/UNIX@ or @Windows@ ).
---
--- * 'siaPurchaseToken' - The purchase token. This token expires in two hours.
---
--- * 'siaHourlyPrice' - The hourly price for a single instance.
---
--- * 'siaAvailableInstanceCount' - The number of available instances.
---
--- * 'siaSlotDurationInHours' - The number of hours in the schedule.
---
--- * 'siaTotalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.
---
--- * 'siaInstanceType' - The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
---
--- * 'siaRecurrence' - The schedule recurrence.
---
--- * 'siaAvailabilityZone' - The Availability Zone.
---
--- * 'siaMinTermDurationInDays' - The minimum term. The only possible value is 365 days.
---
--- * 'siaFirstSlotStartTime' - The time period for the first schedule to start.
---
--- * 'siaNetworkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
-scheduledInstanceAvailability ::
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'availableInstanceCount' - The number of available instances.
+-- * 'firstSlotStartTime' - The time period for the first schedule to start.
+-- * 'hourlyPrice' - The hourly price for a single instance.
+-- * 'instanceType' - The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
+-- * 'maxTermDurationInDays' - The maximum term. The only possible value is 365 days.
+-- * 'minTermDurationInDays' - The minimum term. The only possible value is 365 days.
+-- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
+-- * 'platform' - The platform (@Linux/UNIX@ or @Windows@ ).
+-- * 'purchaseToken' - The purchase token. This token expires in two hours.
+-- * 'recurrence' - The schedule recurrence.
+-- * 'slotDurationInHours' - The number of hours in the schedule.
+-- * 'totalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.
+mkScheduledInstanceAvailability ::
   ScheduledInstanceAvailability
-scheduledInstanceAvailability =
+mkScheduledInstanceAvailability =
   ScheduledInstanceAvailability'
-    { _siaMaxTermDurationInDays =
-        Nothing,
-      _siaPlatform = Nothing,
-      _siaPurchaseToken = Nothing,
-      _siaHourlyPrice = Nothing,
-      _siaAvailableInstanceCount = Nothing,
-      _siaSlotDurationInHours = Nothing,
-      _siaTotalScheduledInstanceHours = Nothing,
-      _siaInstanceType = Nothing,
-      _siaRecurrence = Nothing,
-      _siaAvailabilityZone = Nothing,
-      _siaMinTermDurationInDays = Nothing,
-      _siaFirstSlotStartTime = Nothing,
-      _siaNetworkPlatform = Nothing
+    { maxTermDurationInDays =
+        Lude.Nothing,
+      platform = Lude.Nothing,
+      purchaseToken = Lude.Nothing,
+      hourlyPrice = Lude.Nothing,
+      availableInstanceCount = Lude.Nothing,
+      slotDurationInHours = Lude.Nothing,
+      totalScheduledInstanceHours = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      recurrence = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      minTermDurationInDays = Lude.Nothing,
+      firstSlotStartTime = Lude.Nothing,
+      networkPlatform = Lude.Nothing
     }
 
 -- | The maximum term. The only possible value is 365 days.
-siaMaxTermDurationInDays :: Lens' ScheduledInstanceAvailability (Maybe Int)
-siaMaxTermDurationInDays = lens _siaMaxTermDurationInDays (\s a -> s {_siaMaxTermDurationInDays = a})
+--
+-- /Note:/ Consider using 'maxTermDurationInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaMaxTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Int)
+siaMaxTermDurationInDays = Lens.lens (maxTermDurationInDays :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {maxTermDurationInDays = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaMaxTermDurationInDays "Use generic-lens or generic-optics with 'maxTermDurationInDays' instead." #-}
 
 -- | The platform (@Linux/UNIX@ or @Windows@ ).
-siaPlatform :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaPlatform = lens _siaPlatform (\s a -> s {_siaPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaPlatform :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaPlatform = Lens.lens (platform :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The purchase token. This token expires in two hours.
-siaPurchaseToken :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaPurchaseToken = lens _siaPurchaseToken (\s a -> s {_siaPurchaseToken = a})
+--
+-- /Note:/ Consider using 'purchaseToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaPurchaseToken :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaPurchaseToken = Lens.lens (purchaseToken :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {purchaseToken = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaPurchaseToken "Use generic-lens or generic-optics with 'purchaseToken' instead." #-}
 
 -- | The hourly price for a single instance.
-siaHourlyPrice :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaHourlyPrice = lens _siaHourlyPrice (\s a -> s {_siaHourlyPrice = a})
+--
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaHourlyPrice :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaHourlyPrice = Lens.lens (hourlyPrice :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The number of available instances.
-siaAvailableInstanceCount :: Lens' ScheduledInstanceAvailability (Maybe Int)
-siaAvailableInstanceCount = lens _siaAvailableInstanceCount (\s a -> s {_siaAvailableInstanceCount = a})
+--
+-- /Note:/ Consider using 'availableInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaAvailableInstanceCount :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Int)
+siaAvailableInstanceCount = Lens.lens (availableInstanceCount :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {availableInstanceCount = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaAvailableInstanceCount "Use generic-lens or generic-optics with 'availableInstanceCount' instead." #-}
 
 -- | The number of hours in the schedule.
-siaSlotDurationInHours :: Lens' ScheduledInstanceAvailability (Maybe Int)
-siaSlotDurationInHours = lens _siaSlotDurationInHours (\s a -> s {_siaSlotDurationInHours = a})
+--
+-- /Note:/ Consider using 'slotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaSlotDurationInHours :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Int)
+siaSlotDurationInHours = Lens.lens (slotDurationInHours :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {slotDurationInHours = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaSlotDurationInHours "Use generic-lens or generic-optics with 'slotDurationInHours' instead." #-}
 
 -- | The total number of hours for a single instance for the entire term.
-siaTotalScheduledInstanceHours :: Lens' ScheduledInstanceAvailability (Maybe Int)
-siaTotalScheduledInstanceHours = lens _siaTotalScheduledInstanceHours (\s a -> s {_siaTotalScheduledInstanceHours = a})
+--
+-- /Note:/ Consider using 'totalScheduledInstanceHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaTotalScheduledInstanceHours :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Int)
+siaTotalScheduledInstanceHours = Lens.lens (totalScheduledInstanceHours :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {totalScheduledInstanceHours = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaTotalScheduledInstanceHours "Use generic-lens or generic-optics with 'totalScheduledInstanceHours' instead." #-}
 
 -- | The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
-siaInstanceType :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaInstanceType = lens _siaInstanceType (\s a -> s {_siaInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaInstanceType :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaInstanceType = Lens.lens (instanceType :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The schedule recurrence.
-siaRecurrence :: Lens' ScheduledInstanceAvailability (Maybe ScheduledInstanceRecurrence)
-siaRecurrence = lens _siaRecurrence (\s a -> s {_siaRecurrence = a})
+--
+-- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaRecurrence :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe ScheduledInstanceRecurrence)
+siaRecurrence = Lens.lens (recurrence :: ScheduledInstanceAvailability -> Lude.Maybe ScheduledInstanceRecurrence) (\s a -> s {recurrence = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
 
 -- | The Availability Zone.
-siaAvailabilityZone :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaAvailabilityZone = lens _siaAvailabilityZone (\s a -> s {_siaAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaAvailabilityZone :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaAvailabilityZone = Lens.lens (availabilityZone :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The minimum term. The only possible value is 365 days.
-siaMinTermDurationInDays :: Lens' ScheduledInstanceAvailability (Maybe Int)
-siaMinTermDurationInDays = lens _siaMinTermDurationInDays (\s a -> s {_siaMinTermDurationInDays = a})
+--
+-- /Note:/ Consider using 'minTermDurationInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaMinTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Int)
+siaMinTermDurationInDays = Lens.lens (minTermDurationInDays :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Int) (\s a -> s {minTermDurationInDays = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaMinTermDurationInDays "Use generic-lens or generic-optics with 'minTermDurationInDays' instead." #-}
 
 -- | The time period for the first schedule to start.
-siaFirstSlotStartTime :: Lens' ScheduledInstanceAvailability (Maybe UTCTime)
-siaFirstSlotStartTime = lens _siaFirstSlotStartTime (\s a -> s {_siaFirstSlotStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'firstSlotStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaFirstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.ISO8601)
+siaFirstSlotStartTime = Lens.lens (firstSlotStartTime :: ScheduledInstanceAvailability -> Lude.Maybe Lude.ISO8601) (\s a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaFirstSlotStartTime "Use generic-lens or generic-optics with 'firstSlotStartTime' instead." #-}
 
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).
-siaNetworkPlatform :: Lens' ScheduledInstanceAvailability (Maybe Text)
-siaNetworkPlatform = lens _siaNetworkPlatform (\s a -> s {_siaNetworkPlatform = a})
+--
+-- /Note:/ Consider using 'networkPlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siaNetworkPlatform :: Lens.Lens' ScheduledInstanceAvailability (Lude.Maybe Lude.Text)
+siaNetworkPlatform = Lens.lens (networkPlatform :: ScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {networkPlatform = a} :: ScheduledInstanceAvailability)
+{-# DEPRECATED siaNetworkPlatform "Use generic-lens or generic-optics with 'networkPlatform' instead." #-}
 
-instance FromXML ScheduledInstanceAvailability where
+instance Lude.FromXML ScheduledInstanceAvailability where
   parseXML x =
     ScheduledInstanceAvailability'
-      <$> (x .@? "maxTermDurationInDays")
-      <*> (x .@? "platform")
-      <*> (x .@? "purchaseToken")
-      <*> (x .@? "hourlyPrice")
-      <*> (x .@? "availableInstanceCount")
-      <*> (x .@? "slotDurationInHours")
-      <*> (x .@? "totalScheduledInstanceHours")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "recurrence")
-      <*> (x .@? "availabilityZone")
-      <*> (x .@? "minTermDurationInDays")
-      <*> (x .@? "firstSlotStartTime")
-      <*> (x .@? "networkPlatform")
-
-instance Hashable ScheduledInstanceAvailability
-
-instance NFData ScheduledInstanceAvailability
+      Lude.<$> (x Lude..@? "maxTermDurationInDays")
+      Lude.<*> (x Lude..@? "platform")
+      Lude.<*> (x Lude..@? "purchaseToken")
+      Lude.<*> (x Lude..@? "hourlyPrice")
+      Lude.<*> (x Lude..@? "availableInstanceCount")
+      Lude.<*> (x Lude..@? "slotDurationInHours")
+      Lude.<*> (x Lude..@? "totalScheduledInstanceHours")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "recurrence")
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> (x Lude..@? "minTermDurationInDays")
+      Lude.<*> (x Lude..@? "firstSlotStartTime")
+      Lude.<*> (x Lude..@? "networkPlatform")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,125 @@
 --
 -- Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.
 --
---
 -- This configuration overwrites any existing configuration.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html Getting Amazon SNS notifications when your Auto Scaling group scales> in the /Amazon EC2 Auto Scaling User Guide/ .
---
 -- If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call fails.
 module Network.AWS.AutoScaling.PutNotificationConfiguration
-  ( -- * Creating a Request
-    putNotificationConfiguration,
-    PutNotificationConfiguration,
+  ( -- * Creating a request
+    PutNotificationConfiguration (..),
+    mkPutNotificationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pncAutoScalingGroupName,
     pncTopicARN,
     pncNotificationTypes,
 
-    -- * Destructuring the Response
-    putNotificationConfigurationResponse,
-    PutNotificationConfigurationResponse,
+    -- * Destructuring the response
+    PutNotificationConfigurationResponse (..),
+    mkPutNotificationConfigurationResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putNotificationConfiguration' smart constructor.
+-- | /See:/ 'mkPutNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
-  { _pncAutoScalingGroupName ::
-      !Text,
-    _pncTopicARN :: !Text,
-    _pncNotificationTypes :: ![Text]
+  { autoScalingGroupName ::
+      Lude.Text,
+    topicARN :: Lude.Text,
+    notificationTypes :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutNotificationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pncAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'pncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
---
--- * 'pncNotificationTypes' - The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
-putNotificationConfiguration ::
-  -- | 'pncAutoScalingGroupName'
-  Text ->
-  -- | 'pncTopicARN'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'notificationTypes' - The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
+-- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+mkPutNotificationConfiguration ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
+  -- | 'topicARN'
+  Lude.Text ->
   PutNotificationConfiguration
-putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
+mkPutNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
   PutNotificationConfiguration'
-    { _pncAutoScalingGroupName =
+    { autoScalingGroupName =
         pAutoScalingGroupName_,
-      _pncTopicARN = pTopicARN_,
-      _pncNotificationTypes = mempty
+      topicARN = pTopicARN_,
+      notificationTypes = Lude.mempty
     }
 
 -- | The name of the Auto Scaling group.
-pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
-pncAutoScalingGroupName = lens _pncAutoScalingGroupName (\s a -> s {_pncAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncAutoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Lude.Text
+pncAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutNotificationConfiguration -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutNotificationConfiguration)
+{-# DEPRECATED pncAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
-pncTopicARN :: Lens' PutNotificationConfiguration Text
-pncTopicARN = lens _pncTopicARN (\s a -> s {_pncTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncTopicARN :: Lens.Lens' PutNotificationConfiguration Lude.Text
+pncTopicARN = Lens.lens (topicARN :: PutNotificationConfiguration -> Lude.Text) (\s a -> s {topicARN = a} :: PutNotificationConfiguration)
+{-# DEPRECATED pncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
-pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
-pncNotificationTypes = lens _pncNotificationTypes (\s a -> s {_pncNotificationTypes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'notificationTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncNotificationTypes :: Lens.Lens' PutNotificationConfiguration [Lude.Text]
+pncNotificationTypes = Lens.lens (notificationTypes :: PutNotificationConfiguration -> [Lude.Text]) (\s a -> s {notificationTypes = a} :: PutNotificationConfiguration)
+{-# DEPRECATED pncNotificationTypes "Use generic-lens or generic-optics with 'notificationTypes' instead." #-}
 
-instance AWSRequest PutNotificationConfiguration where
+instance Lude.AWSRequest PutNotificationConfiguration where
   type
     Rs PutNotificationConfiguration =
       PutNotificationConfigurationResponse
-  request = postQuery autoScaling
-  response = receiveNull PutNotificationConfigurationResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull PutNotificationConfigurationResponse'
 
-instance Hashable PutNotificationConfiguration
+instance Lude.ToHeaders PutNotificationConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutNotificationConfiguration
+instance Lude.ToPath PutNotificationConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders PutNotificationConfiguration where
-  toHeaders = const mempty
-
-instance ToPath PutNotificationConfiguration where
-  toPath = const "/"
-
-instance ToQuery PutNotificationConfiguration where
+instance Lude.ToQuery PutNotificationConfiguration where
   toQuery PutNotificationConfiguration' {..} =
-    mconcat
-      [ "Action" =: ("PutNotificationConfiguration" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _pncAutoScalingGroupName,
-        "TopicARN" =: _pncTopicARN,
-        "NotificationTypes" =: toQueryList "member" _pncNotificationTypes
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("PutNotificationConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "TopicARN" Lude.=: topicARN,
+        "NotificationTypes"
+          Lude.=: Lude.toQueryList "member" notificationTypes
       ]
 
--- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutNotificationConfigurationResponse' with the minimum fields required to make a request.
-putNotificationConfigurationResponse ::
+mkPutNotificationConfigurationResponse ::
   PutNotificationConfigurationResponse
-putNotificationConfigurationResponse =
+mkPutNotificationConfigurationResponse =
   PutNotificationConfigurationResponse'
-
-instance NFData PutNotificationConfigurationResponse

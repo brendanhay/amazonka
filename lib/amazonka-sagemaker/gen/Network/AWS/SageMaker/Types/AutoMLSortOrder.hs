@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AutoMLSortOrder where
+module Network.AWS.SageMaker.Types.AutoMLSortOrder
+  ( AutoMLSortOrder
+      ( AutoMLSortOrder',
+        AMLSOAscending,
+        AMLSODescending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoMLSortOrder
-  = AMLSOAscending
-  | AMLSODescending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoMLSortOrder = AutoMLSortOrder' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoMLSortOrder where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure AMLSOAscending
-      "descending" -> pure AMLSODescending
-      e ->
-        fromTextError $
-          "Failure parsing AutoMLSortOrder from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern AMLSOAscending :: AutoMLSortOrder
+pattern AMLSOAscending = AutoMLSortOrder' "Ascending"
 
-instance ToText AutoMLSortOrder where
-  toText = \case
-    AMLSOAscending -> "Ascending"
-    AMLSODescending -> "Descending"
+pattern AMLSODescending :: AutoMLSortOrder
+pattern AMLSODescending = AutoMLSortOrder' "Descending"
 
-instance Hashable AutoMLSortOrder
-
-instance NFData AutoMLSortOrder
-
-instance ToByteString AutoMLSortOrder
-
-instance ToQuery AutoMLSortOrder
-
-instance ToHeader AutoMLSortOrder
-
-instance ToJSON AutoMLSortOrder where
-  toJSON = toJSONText
+{-# COMPLETE
+  AMLSOAscending,
+  AMLSODescending,
+  AutoMLSortOrder'
+  #-}

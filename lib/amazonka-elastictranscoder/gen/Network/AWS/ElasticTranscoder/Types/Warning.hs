@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.Warning where
+module Network.AWS.ElasticTranscoder.Types.Warning
+  ( Warning (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWarning,
+
+    -- * Lenses
+    wCode,
+    wMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
 --
---
 -- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 --
---
--- /See:/ 'warning' smart constructor.
+-- /See:/ 'mkWarning' smart constructor.
 data Warning = Warning'
-  { _wCode :: !(Maybe Text),
-    _wMessage :: !(Maybe Text)
+  { code :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Warning' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wCode' - The code of the cross-regional warning.
---
--- * 'wMessage' - The message explaining what resources are in a different region from the pipeline.
-warning ::
+-- * 'code' - The code of the cross-regional warning.
+-- * 'message' - The message explaining what resources are in a different region from the pipeline.
+mkWarning ::
   Warning
-warning = Warning' {_wCode = Nothing, _wMessage = Nothing}
+mkWarning = Warning' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The code of the cross-regional warning.
-wCode :: Lens' Warning (Maybe Text)
-wCode = lens _wCode (\s a -> s {_wCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wCode :: Lens.Lens' Warning (Lude.Maybe Lude.Text)
+wCode = Lens.lens (code :: Warning -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: Warning)
+{-# DEPRECATED wCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The message explaining what resources are in a different region from the pipeline.
-wMessage :: Lens' Warning (Maybe Text)
-wMessage = lens _wMessage (\s a -> s {_wMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wMessage :: Lens.Lens' Warning (Lude.Maybe Lude.Text)
+wMessage = Lens.lens (message :: Warning -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Warning)
+{-# DEPRECATED wMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON Warning where
+instance Lude.FromJSON Warning where
   parseJSON =
-    withObject
+    Lude.withObject
       "Warning"
-      (\x -> Warning' <$> (x .:? "Code") <*> (x .:? "Message"))
-
-instance Hashable Warning
-
-instance NFData Warning
+      ( \x ->
+          Warning'
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
+      )

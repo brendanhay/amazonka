@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.Message where
+module Network.AWS.LexModels.Types.Message
+  ( Message (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMessage,
+
+    -- * Lenses
+    mGroupNumber,
+    mContentType,
+    mContent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.ContentType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The message object that provides the message text and its type.
 --
---
---
--- /See:/ 'message' smart constructor.
+-- /See:/ 'mkMessage' smart constructor.
 data Message = Message'
-  { _mGroupNumber :: !(Maybe Nat),
-    _mContentType :: !ContentType,
-    _mContent :: !Text
+  { groupNumber :: Lude.Maybe Lude.Natural,
+    contentType :: ContentType,
+    content :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mGroupNumber' - Identifies the message group that the message belongs to. When a group is assigned to a message, Amazon Lex returns one message from each group in the response.
---
--- * 'mContentType' - The content type of the message string.
---
--- * 'mContent' - The text of the message.
-message ::
-  -- | 'mContentType'
+-- * 'content' - The text of the message.
+-- * 'contentType' - The content type of the message string.
+-- * 'groupNumber' - Identifies the message group that the message belongs to. When a group is assigned to a message, Amazon Lex returns one message from each group in the response.
+mkMessage ::
+  -- | 'contentType'
   ContentType ->
-  -- | 'mContent'
-  Text ->
+  -- | 'content'
+  Lude.Text ->
   Message
-message pContentType_ pContent_ =
+mkMessage pContentType_ pContent_ =
   Message'
-    { _mGroupNumber = Nothing,
-      _mContentType = pContentType_,
-      _mContent = pContent_
+    { groupNumber = Lude.Nothing,
+      contentType = pContentType_,
+      content = pContent_
     }
 
 -- | Identifies the message group that the message belongs to. When a group is assigned to a message, Amazon Lex returns one message from each group in the response.
-mGroupNumber :: Lens' Message (Maybe Natural)
-mGroupNumber = lens _mGroupNumber (\s a -> s {_mGroupNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'groupNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mGroupNumber :: Lens.Lens' Message (Lude.Maybe Lude.Natural)
+mGroupNumber = Lens.lens (groupNumber :: Message -> Lude.Maybe Lude.Natural) (\s a -> s {groupNumber = a} :: Message)
+{-# DEPRECATED mGroupNumber "Use generic-lens or generic-optics with 'groupNumber' instead." #-}
 
 -- | The content type of the message string.
-mContentType :: Lens' Message ContentType
-mContentType = lens _mContentType (\s a -> s {_mContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mContentType :: Lens.Lens' Message ContentType
+mContentType = Lens.lens (contentType :: Message -> ContentType) (\s a -> s {contentType = a} :: Message)
+{-# DEPRECATED mContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | The text of the message.
-mContent :: Lens' Message Text
-mContent = lens _mContent (\s a -> s {_mContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mContent :: Lens.Lens' Message Lude.Text
+mContent = Lens.lens (content :: Message -> Lude.Text) (\s a -> s {content = a} :: Message)
+{-# DEPRECATED mContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance FromJSON Message where
+instance Lude.FromJSON Message where
   parseJSON =
-    withObject
+    Lude.withObject
       "Message"
       ( \x ->
           Message'
-            <$> (x .:? "groupNumber")
-            <*> (x .: "contentType")
-            <*> (x .: "content")
+            Lude.<$> (x Lude..:? "groupNumber")
+            Lude.<*> (x Lude..: "contentType")
+            Lude.<*> (x Lude..: "content")
       )
 
-instance Hashable Message
-
-instance NFData Message
-
-instance ToJSON Message where
+instance Lude.ToJSON Message where
   toJSON Message' {..} =
-    object
-      ( catMaybes
-          [ ("groupNumber" .=) <$> _mGroupNumber,
-            Just ("contentType" .= _mContentType),
-            Just ("content" .= _mContent)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("groupNumber" Lude..=) Lude.<$> groupNumber,
+            Lude.Just ("contentType" Lude..= contentType),
+            Lude.Just ("content" Lude..= content)
           ]
       )

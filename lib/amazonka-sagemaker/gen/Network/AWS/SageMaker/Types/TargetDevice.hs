@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,174 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TargetDevice where
+module Network.AWS.SageMaker.Types.TargetDevice
+  ( TargetDevice
+      ( TargetDevice',
+        Aisage,
+        AmbaCV22,
+        Coreml,
+        Deeplens,
+        Imx8qm,
+        JetsonNano,
+        JetsonTX1,
+        JetsonTX2,
+        JetsonXavier,
+        Lambda,
+        MlC4,
+        MlC5,
+        MlG4dn,
+        MlINF1,
+        MlM4,
+        MlM5,
+        MlP2,
+        MlP3,
+        QCS603,
+        QCS605,
+        RK3288,
+        RK3399,
+        Rasp3b,
+        Sbec,
+        SitaraAm57x,
+        X86WIN32,
+        X86WIN64
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetDevice
-  = Aisage
-  | AmbaCV22
-  | Coreml
-  | Deeplens
-  | Imx8qm
-  | JetsonNano
-  | JetsonTX1
-  | JetsonTX2
-  | JetsonXavier
-  | Lambda
-  | MlC4
-  | MlC5
-  | MlG4dn
-  | MlINF1
-  | MlM4
-  | MlM5
-  | MlP2
-  | MlP3
-  | QCS603
-  | QCS605
-  | RK3288
-  | RK3399
-  | Rasp3b
-  | Sbec
-  | SitaraAm57x
-  | X86WIN32
-  | X86WIN64
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetDevice = TargetDevice' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetDevice where
-  parser =
-    takeLowerText >>= \case
-      "aisage" -> pure Aisage
-      "amba_cv22" -> pure AmbaCV22
-      "coreml" -> pure Coreml
-      "deeplens" -> pure Deeplens
-      "imx8qm" -> pure Imx8qm
-      "jetson_nano" -> pure JetsonNano
-      "jetson_tx1" -> pure JetsonTX1
-      "jetson_tx2" -> pure JetsonTX2
-      "jetson_xavier" -> pure JetsonXavier
-      "lambda" -> pure Lambda
-      "ml_c4" -> pure MlC4
-      "ml_c5" -> pure MlC5
-      "ml_g4dn" -> pure MlG4dn
-      "ml_inf1" -> pure MlINF1
-      "ml_m4" -> pure MlM4
-      "ml_m5" -> pure MlM5
-      "ml_p2" -> pure MlP2
-      "ml_p3" -> pure MlP3
-      "qcs603" -> pure QCS603
-      "qcs605" -> pure QCS605
-      "rk3288" -> pure RK3288
-      "rk3399" -> pure RK3399
-      "rasp3b" -> pure Rasp3b
-      "sbe_c" -> pure Sbec
-      "sitara_am57x" -> pure SitaraAm57x
-      "x86_win32" -> pure X86WIN32
-      "x86_win64" -> pure X86WIN64
-      e ->
-        fromTextError $
-          "Failure parsing TargetDevice from value: '" <> e
-            <> "'. Accepted values: aisage, amba_cv22, coreml, deeplens, imx8qm, jetson_nano, jetson_tx1, jetson_tx2, jetson_xavier, lambda, ml_c4, ml_c5, ml_g4dn, ml_inf1, ml_m4, ml_m5, ml_p2, ml_p3, qcs603, qcs605, rk3288, rk3399, rasp3b, sbe_c, sitara_am57x, x86_win32, x86_win64"
+pattern Aisage :: TargetDevice
+pattern Aisage = TargetDevice' "aisage"
 
-instance ToText TargetDevice where
-  toText = \case
-    Aisage -> "aisage"
-    AmbaCV22 -> "amba_cv22"
-    Coreml -> "coreml"
-    Deeplens -> "deeplens"
-    Imx8qm -> "imx8qm"
-    JetsonNano -> "jetson_nano"
-    JetsonTX1 -> "jetson_tx1"
-    JetsonTX2 -> "jetson_tx2"
-    JetsonXavier -> "jetson_xavier"
-    Lambda -> "lambda"
-    MlC4 -> "ml_c4"
-    MlC5 -> "ml_c5"
-    MlG4dn -> "ml_g4dn"
-    MlINF1 -> "ml_inf1"
-    MlM4 -> "ml_m4"
-    MlM5 -> "ml_m5"
-    MlP2 -> "ml_p2"
-    MlP3 -> "ml_p3"
-    QCS603 -> "qcs603"
-    QCS605 -> "qcs605"
-    RK3288 -> "rk3288"
-    RK3399 -> "rk3399"
-    Rasp3b -> "rasp3b"
-    Sbec -> "sbe_c"
-    SitaraAm57x -> "sitara_am57x"
-    X86WIN32 -> "x86_win32"
-    X86WIN64 -> "x86_win64"
+pattern AmbaCV22 :: TargetDevice
+pattern AmbaCV22 = TargetDevice' "amba_cv22"
 
-instance Hashable TargetDevice
+pattern Coreml :: TargetDevice
+pattern Coreml = TargetDevice' "coreml"
 
-instance NFData TargetDevice
+pattern Deeplens :: TargetDevice
+pattern Deeplens = TargetDevice' "deeplens"
 
-instance ToByteString TargetDevice
+pattern Imx8qm :: TargetDevice
+pattern Imx8qm = TargetDevice' "imx8qm"
 
-instance ToQuery TargetDevice
+pattern JetsonNano :: TargetDevice
+pattern JetsonNano = TargetDevice' "jetson_nano"
 
-instance ToHeader TargetDevice
+pattern JetsonTX1 :: TargetDevice
+pattern JetsonTX1 = TargetDevice' "jetson_tx1"
 
-instance ToJSON TargetDevice where
-  toJSON = toJSONText
+pattern JetsonTX2 :: TargetDevice
+pattern JetsonTX2 = TargetDevice' "jetson_tx2"
 
-instance FromJSON TargetDevice where
-  parseJSON = parseJSONText "TargetDevice"
+pattern JetsonXavier :: TargetDevice
+pattern JetsonXavier = TargetDevice' "jetson_xavier"
+
+pattern Lambda :: TargetDevice
+pattern Lambda = TargetDevice' "lambda"
+
+pattern MlC4 :: TargetDevice
+pattern MlC4 = TargetDevice' "ml_c4"
+
+pattern MlC5 :: TargetDevice
+pattern MlC5 = TargetDevice' "ml_c5"
+
+pattern MlG4dn :: TargetDevice
+pattern MlG4dn = TargetDevice' "ml_g4dn"
+
+pattern MlINF1 :: TargetDevice
+pattern MlINF1 = TargetDevice' "ml_inf1"
+
+pattern MlM4 :: TargetDevice
+pattern MlM4 = TargetDevice' "ml_m4"
+
+pattern MlM5 :: TargetDevice
+pattern MlM5 = TargetDevice' "ml_m5"
+
+pattern MlP2 :: TargetDevice
+pattern MlP2 = TargetDevice' "ml_p2"
+
+pattern MlP3 :: TargetDevice
+pattern MlP3 = TargetDevice' "ml_p3"
+
+pattern QCS603 :: TargetDevice
+pattern QCS603 = TargetDevice' "qcs603"
+
+pattern QCS605 :: TargetDevice
+pattern QCS605 = TargetDevice' "qcs605"
+
+pattern RK3288 :: TargetDevice
+pattern RK3288 = TargetDevice' "rk3288"
+
+pattern RK3399 :: TargetDevice
+pattern RK3399 = TargetDevice' "rk3399"
+
+pattern Rasp3b :: TargetDevice
+pattern Rasp3b = TargetDevice' "rasp3b"
+
+pattern Sbec :: TargetDevice
+pattern Sbec = TargetDevice' "sbe_c"
+
+pattern SitaraAm57x :: TargetDevice
+pattern SitaraAm57x = TargetDevice' "sitara_am57x"
+
+pattern X86WIN32 :: TargetDevice
+pattern X86WIN32 = TargetDevice' "x86_win32"
+
+pattern X86WIN64 :: TargetDevice
+pattern X86WIN64 = TargetDevice' "x86_win64"
+
+{-# COMPLETE
+  Aisage,
+  AmbaCV22,
+  Coreml,
+  Deeplens,
+  Imx8qm,
+  JetsonNano,
+  JetsonTX1,
+  JetsonTX2,
+  JetsonXavier,
+  Lambda,
+  MlC4,
+  MlC5,
+  MlG4dn,
+  MlINF1,
+  MlM4,
+  MlM5,
+  MlP2,
+  MlP3,
+  QCS603,
+  QCS605,
+  RK3288,
+  RK3399,
+  Rasp3b,
+  Sbec,
+  SitaraAm57x,
+  X86WIN32,
+  X86WIN64,
+  TargetDevice'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainStatus where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainStatus
+  ( LoadBalancerTLSCertificateDomainStatus
+      ( LoadBalancerTLSCertificateDomainStatus',
+        LBTCDSFailed,
+        LBTCDSPendingValidation,
+        LBTCDSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerTLSCertificateDomainStatus
-  = LBTCDSFailed
-  | LBTCDSPendingValidation
-  | LBTCDSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerTLSCertificateDomainStatus = LoadBalancerTLSCertificateDomainStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerTLSCertificateDomainStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure LBTCDSFailed
-      "pending_validation" -> pure LBTCDSPendingValidation
-      "success" -> pure LBTCDSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerTLSCertificateDomainStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending_validation, success"
+pattern LBTCDSFailed :: LoadBalancerTLSCertificateDomainStatus
+pattern LBTCDSFailed = LoadBalancerTLSCertificateDomainStatus' "FAILED"
 
-instance ToText LoadBalancerTLSCertificateDomainStatus where
-  toText = \case
-    LBTCDSFailed -> "FAILED"
-    LBTCDSPendingValidation -> "PENDING_VALIDATION"
-    LBTCDSSuccess -> "SUCCESS"
+pattern LBTCDSPendingValidation :: LoadBalancerTLSCertificateDomainStatus
+pattern LBTCDSPendingValidation = LoadBalancerTLSCertificateDomainStatus' "PENDING_VALIDATION"
 
-instance Hashable LoadBalancerTLSCertificateDomainStatus
+pattern LBTCDSSuccess :: LoadBalancerTLSCertificateDomainStatus
+pattern LBTCDSSuccess = LoadBalancerTLSCertificateDomainStatus' "SUCCESS"
 
-instance NFData LoadBalancerTLSCertificateDomainStatus
-
-instance ToByteString LoadBalancerTLSCertificateDomainStatus
-
-instance ToQuery LoadBalancerTLSCertificateDomainStatus
-
-instance ToHeader LoadBalancerTLSCertificateDomainStatus
-
-instance FromJSON LoadBalancerTLSCertificateDomainStatus where
-  parseJSON = parseJSONText "LoadBalancerTLSCertificateDomainStatus"
+{-# COMPLETE
+  LBTCDSFailed,
+  LBTCDSPendingValidation,
+  LBTCDSSuccess,
+  LoadBalancerTLSCertificateDomainStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.MapIterationEventDetails where
+module Network.AWS.StepFunctions.Types.MapIterationEventDetails
+  ( MapIterationEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMapIterationEventDetails,
+
+    -- * Lenses
+    miedName,
+    miedIndex,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about an iteration of a Map state.
 --
---
---
--- /See:/ 'mapIterationEventDetails' smart constructor.
+-- /See:/ 'mkMapIterationEventDetails' smart constructor.
 data MapIterationEventDetails = MapIterationEventDetails'
-  { _miedName ::
-      !(Maybe Text),
-    _miedIndex :: !(Maybe Nat)
+  { name ::
+      Lude.Maybe Lude.Text,
+    index :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MapIterationEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miedName' - The name of the iteration’s parent Map state.
---
--- * 'miedIndex' - The index of the array belonging to the Map state iteration.
-mapIterationEventDetails ::
+-- * 'index' - The index of the array belonging to the Map state iteration.
+-- * 'name' - The name of the iteration’s parent Map state.
+mkMapIterationEventDetails ::
   MapIterationEventDetails
-mapIterationEventDetails =
+mkMapIterationEventDetails =
   MapIterationEventDetails'
-    { _miedName = Nothing,
-      _miedIndex = Nothing
+    { name = Lude.Nothing,
+      index = Lude.Nothing
     }
 
 -- | The name of the iteration’s parent Map state.
-miedName :: Lens' MapIterationEventDetails (Maybe Text)
-miedName = lens _miedName (\s a -> s {_miedName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miedName :: Lens.Lens' MapIterationEventDetails (Lude.Maybe Lude.Text)
+miedName = Lens.lens (name :: MapIterationEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MapIterationEventDetails)
+{-# DEPRECATED miedName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The index of the array belonging to the Map state iteration.
-miedIndex :: Lens' MapIterationEventDetails (Maybe Natural)
-miedIndex = lens _miedIndex (\s a -> s {_miedIndex = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miedIndex :: Lens.Lens' MapIterationEventDetails (Lude.Maybe Lude.Natural)
+miedIndex = Lens.lens (index :: MapIterationEventDetails -> Lude.Maybe Lude.Natural) (\s a -> s {index = a} :: MapIterationEventDetails)
+{-# DEPRECATED miedIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance FromJSON MapIterationEventDetails where
+instance Lude.FromJSON MapIterationEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "MapIterationEventDetails"
       ( \x ->
-          MapIterationEventDetails' <$> (x .:? "name") <*> (x .:? "index")
+          MapIterationEventDetails'
+            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "index")
       )
-
-instance Hashable MapIterationEventDetails
-
-instance NFData MapIterationEventDetails

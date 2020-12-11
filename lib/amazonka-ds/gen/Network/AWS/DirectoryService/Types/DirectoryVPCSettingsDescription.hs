@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectoryVPCSettingsDescription where
+module Network.AWS.DirectoryService.Types.DirectoryVPCSettingsDescription
+  ( DirectoryVPCSettingsDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDirectoryVPCSettingsDescription,
+
+    -- * Lenses
+    dvsdSubnetIds,
+    dvsdVPCId,
+    dvsdSecurityGroupId,
+    dvsdAvailabilityZones,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the directory.
 --
---
---
--- /See:/ 'directoryVPCSettingsDescription' smart constructor.
+-- /See:/ 'mkDirectoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-  { _dvsdSubnetIds ::
-      !(Maybe [Text]),
-    _dvsdVPCId :: !(Maybe Text),
-    _dvsdSecurityGroupId ::
-      !(Maybe Text),
-    _dvsdAvailabilityZones ::
-      !(Maybe [Text])
+  { subnetIds ::
+      Lude.Maybe [Lude.Text],
+    vpcId ::
+      Lude.Maybe Lude.Text,
+    securityGroupId ::
+      Lude.Maybe Lude.Text,
+    availabilityZones ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryVPCSettingsDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvsdSubnetIds' - The identifiers of the subnets for the directory servers.
---
--- * 'dvsdVPCId' - The identifier of the VPC that the directory is in.
---
--- * 'dvsdSecurityGroupId' - The domain controller security group identifier for the directory.
---
--- * 'dvsdAvailabilityZones' - The list of Availability Zones that the directory is in.
-directoryVPCSettingsDescription ::
+-- * 'availabilityZones' - The list of Availability Zones that the directory is in.
+-- * 'securityGroupId' - The domain controller security group identifier for the directory.
+-- * 'subnetIds' - The identifiers of the subnets for the directory servers.
+-- * 'vpcId' - The identifier of the VPC that the directory is in.
+mkDirectoryVPCSettingsDescription ::
   DirectoryVPCSettingsDescription
-directoryVPCSettingsDescription =
+mkDirectoryVPCSettingsDescription =
   DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds = Nothing,
-      _dvsdVPCId = Nothing,
-      _dvsdSecurityGroupId = Nothing,
-      _dvsdAvailabilityZones = Nothing
+    { subnetIds = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      securityGroupId = Lude.Nothing,
+      availabilityZones = Lude.Nothing
     }
 
 -- | The identifiers of the subnets for the directory servers.
-dvsdSubnetIds :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdSubnetIds = lens _dvsdSubnetIds (\s a -> s {_dvsdSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvsdSubnetIds :: Lens.Lens' DirectoryVPCSettingsDescription (Lude.Maybe [Lude.Text])
+dvsdSubnetIds = Lens.lens (subnetIds :: DirectoryVPCSettingsDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: DirectoryVPCSettingsDescription)
+{-# DEPRECATED dvsdSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The identifier of the VPC that the directory is in.
-dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
-dvsdVPCId = lens _dvsdVPCId (\s a -> s {_dvsdVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvsdVPCId :: Lens.Lens' DirectoryVPCSettingsDescription (Lude.Maybe Lude.Text)
+dvsdVPCId = Lens.lens (vpcId :: DirectoryVPCSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DirectoryVPCSettingsDescription)
+{-# DEPRECATED dvsdVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The domain controller security group identifier for the directory.
-dvsdSecurityGroupId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
-dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\s a -> s {_dvsdSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'securityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvsdSecurityGroupId :: Lens.Lens' DirectoryVPCSettingsDescription (Lude.Maybe Lude.Text)
+dvsdSecurityGroupId = Lens.lens (securityGroupId :: DirectoryVPCSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {securityGroupId = a} :: DirectoryVPCSettingsDescription)
+{-# DEPRECATED dvsdSecurityGroupId "Use generic-lens or generic-optics with 'securityGroupId' instead." #-}
 
 -- | The list of Availability Zones that the directory is in.
-dvsdAvailabilityZones :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdAvailabilityZones = lens _dvsdAvailabilityZones (\s a -> s {_dvsdAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvsdAvailabilityZones :: Lens.Lens' DirectoryVPCSettingsDescription (Lude.Maybe [Lude.Text])
+dvsdAvailabilityZones = Lens.lens (availabilityZones :: DirectoryVPCSettingsDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: DirectoryVPCSettingsDescription)
+{-# DEPRECATED dvsdAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
-instance FromJSON DirectoryVPCSettingsDescription where
+instance Lude.FromJSON DirectoryVPCSettingsDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "DirectoryVPCSettingsDescription"
       ( \x ->
           DirectoryVPCSettingsDescription'
-            <$> (x .:? "SubnetIds" .!= mempty)
-            <*> (x .:? "VpcId")
-            <*> (x .:? "SecurityGroupId")
-            <*> (x .:? "AvailabilityZones" .!= mempty)
+            Lude.<$> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "VpcId")
+            Lude.<*> (x Lude..:? "SecurityGroupId")
+            Lude.<*> (x Lude..:? "AvailabilityZones" Lude..!= Lude.mempty)
       )
-
-instance Hashable DirectoryVPCSettingsDescription
-
-instance NFData DirectoryVPCSettingsDescription

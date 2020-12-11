@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MLUserDataEncryptionModeString where
+module Network.AWS.Glue.Types.MLUserDataEncryptionModeString
+  ( MLUserDataEncryptionModeString
+      ( MLUserDataEncryptionModeString',
+        MLUDEMSDisabled,
+        MLUDEMSSseKMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MLUserDataEncryptionModeString
-  = MLUDEMSDisabled
-  | MLUDEMSSseKMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MLUserDataEncryptionModeString = MLUserDataEncryptionModeString' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MLUserDataEncryptionModeString where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure MLUDEMSDisabled
-      "sse-kms" -> pure MLUDEMSSseKMS
-      e ->
-        fromTextError $
-          "Failure parsing MLUserDataEncryptionModeString from value: '" <> e
-            <> "'. Accepted values: disabled, sse-kms"
+pattern MLUDEMSDisabled :: MLUserDataEncryptionModeString
+pattern MLUDEMSDisabled = MLUserDataEncryptionModeString' "DISABLED"
 
-instance ToText MLUserDataEncryptionModeString where
-  toText = \case
-    MLUDEMSDisabled -> "DISABLED"
-    MLUDEMSSseKMS -> "SSE-KMS"
+pattern MLUDEMSSseKMS :: MLUserDataEncryptionModeString
+pattern MLUDEMSSseKMS = MLUserDataEncryptionModeString' "SSE-KMS"
 
-instance Hashable MLUserDataEncryptionModeString
-
-instance NFData MLUserDataEncryptionModeString
-
-instance ToByteString MLUserDataEncryptionModeString
-
-instance ToQuery MLUserDataEncryptionModeString
-
-instance ToHeader MLUserDataEncryptionModeString
-
-instance ToJSON MLUserDataEncryptionModeString where
-  toJSON = toJSONText
-
-instance FromJSON MLUserDataEncryptionModeString where
-  parseJSON = parseJSONText "MLUserDataEncryptionModeString"
+{-# COMPLETE
+  MLUDEMSDisabled,
+  MLUDEMSSseKMS,
+  MLUserDataEncryptionModeString'
+  #-}

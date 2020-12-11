@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Function where
+module Network.AWS.Greengrass.Types.Function
+  ( Function (..),
+
+    -- * Smart constructor
+    mkFunction,
+
+    -- * Lenses
+    fFunctionARN,
+    fFunctionConfiguration,
+    fId,
+  )
+where
 
 import Network.AWS.Greengrass.Types.FunctionConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a Lambda function.
 --
--- /See:/ 'function' smart constructor.
+-- /See:/ 'mkFunction' smart constructor.
 data Function = Function'
-  { _fFunctionARN :: !(Maybe Text),
-    _fFunctionConfiguration :: !(Maybe FunctionConfiguration),
-    _fId :: !Text
+  { functionARN :: Lude.Maybe Lude.Text,
+    functionConfiguration :: Lude.Maybe FunctionConfiguration,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Function' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fFunctionARN' - The ARN of the Lambda function.
---
--- * 'fFunctionConfiguration' - The configuration of the Lambda function.
---
--- * 'fId' - A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-function ::
-  -- | 'fId'
-  Text ->
+-- * 'functionARN' - The ARN of the Lambda function.
+-- * 'functionConfiguration' - The configuration of the Lambda function.
+-- * 'id' - A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+mkFunction ::
+  -- | 'id'
+  Lude.Text ->
   Function
-function pId_ =
+mkFunction pId_ =
   Function'
-    { _fFunctionARN = Nothing,
-      _fFunctionConfiguration = Nothing,
-      _fId = pId_
+    { functionARN = Lude.Nothing,
+      functionConfiguration = Lude.Nothing,
+      id = pId_
     }
 
 -- | The ARN of the Lambda function.
-fFunctionARN :: Lens' Function (Maybe Text)
-fFunctionARN = lens _fFunctionARN (\s a -> s {_fFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFunctionARN :: Lens.Lens' Function (Lude.Maybe Lude.Text)
+fFunctionARN = Lens.lens (functionARN :: Function -> Lude.Maybe Lude.Text) (\s a -> s {functionARN = a} :: Function)
+{-# DEPRECATED fFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
 -- | The configuration of the Lambda function.
-fFunctionConfiguration :: Lens' Function (Maybe FunctionConfiguration)
-fFunctionConfiguration = lens _fFunctionConfiguration (\s a -> s {_fFunctionConfiguration = a})
+--
+-- /Note:/ Consider using 'functionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFunctionConfiguration :: Lens.Lens' Function (Lude.Maybe FunctionConfiguration)
+fFunctionConfiguration = Lens.lens (functionConfiguration :: Function -> Lude.Maybe FunctionConfiguration) (\s a -> s {functionConfiguration = a} :: Function)
+{-# DEPRECATED fFunctionConfiguration "Use generic-lens or generic-optics with 'functionConfiguration' instead." #-}
 
 -- | A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-fId :: Lens' Function Text
-fId = lens _fId (\s a -> s {_fId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fId :: Lens.Lens' Function Lude.Text
+fId = Lens.lens (id :: Function -> Lude.Text) (\s a -> s {id = a} :: Function)
+{-# DEPRECATED fId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON Function where
+instance Lude.FromJSON Function where
   parseJSON =
-    withObject
+    Lude.withObject
       "Function"
       ( \x ->
           Function'
-            <$> (x .:? "FunctionArn")
-            <*> (x .:? "FunctionConfiguration")
-            <*> (x .: "Id")
+            Lude.<$> (x Lude..:? "FunctionArn")
+            Lude.<*> (x Lude..:? "FunctionConfiguration")
+            Lude.<*> (x Lude..: "Id")
       )
 
-instance Hashable Function
-
-instance NFData Function
-
-instance ToJSON Function where
+instance Lude.ToJSON Function where
   toJSON Function' {..} =
-    object
-      ( catMaybes
-          [ ("FunctionArn" .=) <$> _fFunctionARN,
-            ("FunctionConfiguration" .=) <$> _fFunctionConfiguration,
-            Just ("Id" .= _fId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FunctionArn" Lude..=) Lude.<$> functionARN,
+            ("FunctionConfiguration" Lude..=) Lude.<$> functionConfiguration,
+            Lude.Just ("Id" Lude..= id)
           ]
       )

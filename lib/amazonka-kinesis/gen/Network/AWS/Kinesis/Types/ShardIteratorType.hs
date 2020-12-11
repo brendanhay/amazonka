@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.ShardIteratorType where
+module Network.AWS.Kinesis.Types.ShardIteratorType
+  ( ShardIteratorType
+      ( ShardIteratorType',
+        SITAfterSequenceNumber,
+        SITAtSequenceNumber,
+        SITAtTimestamp,
+        SITLatest,
+        SITTrimHorizon
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ShardIteratorType
-  = SITAfterSequenceNumber
-  | SITAtSequenceNumber
-  | SITAtTimestamp
-  | SITLatest
-  | SITTrimHorizon
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ShardIteratorType = ShardIteratorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ShardIteratorType where
-  parser =
-    takeLowerText >>= \case
-      "after_sequence_number" -> pure SITAfterSequenceNumber
-      "at_sequence_number" -> pure SITAtSequenceNumber
-      "at_timestamp" -> pure SITAtTimestamp
-      "latest" -> pure SITLatest
-      "trim_horizon" -> pure SITTrimHorizon
-      e ->
-        fromTextError $
-          "Failure parsing ShardIteratorType from value: '" <> e
-            <> "'. Accepted values: after_sequence_number, at_sequence_number, at_timestamp, latest, trim_horizon"
+pattern SITAfterSequenceNumber :: ShardIteratorType
+pattern SITAfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
 
-instance ToText ShardIteratorType where
-  toText = \case
-    SITAfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
-    SITAtSequenceNumber -> "AT_SEQUENCE_NUMBER"
-    SITAtTimestamp -> "AT_TIMESTAMP"
-    SITLatest -> "LATEST"
-    SITTrimHorizon -> "TRIM_HORIZON"
+pattern SITAtSequenceNumber :: ShardIteratorType
+pattern SITAtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
 
-instance Hashable ShardIteratorType
+pattern SITAtTimestamp :: ShardIteratorType
+pattern SITAtTimestamp = ShardIteratorType' "AT_TIMESTAMP"
 
-instance NFData ShardIteratorType
+pattern SITLatest :: ShardIteratorType
+pattern SITLatest = ShardIteratorType' "LATEST"
 
-instance ToByteString ShardIteratorType
+pattern SITTrimHorizon :: ShardIteratorType
+pattern SITTrimHorizon = ShardIteratorType' "TRIM_HORIZON"
 
-instance ToQuery ShardIteratorType
-
-instance ToHeader ShardIteratorType
-
-instance ToJSON ShardIteratorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  SITAfterSequenceNumber,
+  SITAtSequenceNumber,
+  SITAtTimestamp,
+  SITLatest,
+  SITTrimHorizon,
+  ShardIteratorType'
+  #-}

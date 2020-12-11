@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.AvailabilityZone where
+module Network.AWS.DMS.Types.AvailabilityZone
+  ( AvailabilityZone (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAvailabilityZone,
+
+    -- * Lenses
+    azName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The name of an Availability Zone for use during database migration. @AvailabilityZone@ is an optional parameter to the <https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html @CreateReplicationInstance@ > operation, and it’s value relates to the AWS Region of an endpoint. For example, the availability zone of an endpoint in the us-east-1 region might be us-east-1a, us-east-1b, us-east-1c, or us-east-1d.
 --
---
---
--- /See:/ 'availabilityZone' smart constructor.
-newtype AvailabilityZone = AvailabilityZone' {_azName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkAvailabilityZone' smart constructor.
+newtype AvailabilityZone = AvailabilityZone'
+  { name ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'azName' - The name of the Availability Zone.
-availabilityZone ::
+-- * 'name' - The name of the Availability Zone.
+mkAvailabilityZone ::
   AvailabilityZone
-availabilityZone = AvailabilityZone' {_azName = Nothing}
+mkAvailabilityZone = AvailabilityZone' {name = Lude.Nothing}
 
 -- | The name of the Availability Zone.
-azName :: Lens' AvailabilityZone (Maybe Text)
-azName = lens _azName (\s a -> s {_azName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azName = Lens.lens (name :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailabilityZone)
+{-# DEPRECATED azName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON AvailabilityZone where
+instance Lude.FromJSON AvailabilityZone where
   parseJSON =
-    withObject
+    Lude.withObject
       "AvailabilityZone"
-      (\x -> AvailabilityZone' <$> (x .:? "Name"))
-
-instance Hashable AvailabilityZone
-
-instance NFData AvailabilityZone
+      (\x -> AvailabilityZone' Lude.<$> (x Lude..:? "Name"))

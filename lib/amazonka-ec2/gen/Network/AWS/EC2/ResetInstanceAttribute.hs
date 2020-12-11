@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,121 @@
 --
 -- Resets an attribute of an instance to its default value. To reset the @kernel@ or @ramdisk@ , the instance must be in a stopped state. To reset the @sourceDestCheck@ , the instance can be either running or stopped.
 --
---
 -- The @sourceDestCheck@ attribute controls whether source/destination checking is enabled. The default value is @true@ , which means checking is enabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.ResetInstanceAttribute
-  ( -- * Creating a Request
-    resetInstanceAttribute,
-    ResetInstanceAttribute,
+  ( -- * Creating a request
+    ResetInstanceAttribute (..),
+    mkResetInstanceAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riaDryRun,
     riaAttribute,
     riaInstanceId,
 
-    -- * Destructuring the Response
-    resetInstanceAttributeResponse,
-    ResetInstanceAttributeResponse,
+    -- * Destructuring the response
+    ResetInstanceAttributeResponse (..),
+    mkResetInstanceAttributeResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetInstanceAttribute' smart constructor.
+-- | /See:/ 'mkResetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
-  { _riaDryRun ::
-      !(Maybe Bool),
-    _riaAttribute :: !InstanceAttributeName,
-    _riaInstanceId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: InstanceAttributeName,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attribute' - The attribute to reset.
 --
--- * 'riaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'riaAttribute' - The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
---
--- * 'riaInstanceId' - The ID of the instance.
-resetInstanceAttribute ::
-  -- | 'riaAttribute'
+-- /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceId' - The ID of the instance.
+mkResetInstanceAttribute ::
+  -- | 'attribute'
   InstanceAttributeName ->
-  -- | 'riaInstanceId'
-  Text ->
+  -- | 'instanceId'
+  Lude.Text ->
   ResetInstanceAttribute
-resetInstanceAttribute pAttribute_ pInstanceId_ =
+mkResetInstanceAttribute pAttribute_ pInstanceId_ =
   ResetInstanceAttribute'
-    { _riaDryRun = Nothing,
-      _riaAttribute = pAttribute_,
-      _riaInstanceId = pInstanceId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      instanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
-riaDryRun = lens _riaDryRun (\s a -> s {_riaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaDryRun :: Lens.Lens' ResetInstanceAttribute (Lude.Maybe Lude.Bool)
+riaDryRun = Lens.lens (dryRun :: ResetInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
-riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = lens _riaAttribute (\s a -> s {_riaAttribute = a})
+-- | The attribute to reset.
+--
+-- /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaAttribute :: Lens.Lens' ResetInstanceAttribute InstanceAttributeName
+riaAttribute = Lens.lens (attribute :: ResetInstanceAttribute -> InstanceAttributeName) (\s a -> s {attribute = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the instance.
-riaInstanceId :: Lens' ResetInstanceAttribute Text
-riaInstanceId = lens _riaInstanceId (\s a -> s {_riaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaInstanceId :: Lens.Lens' ResetInstanceAttribute Lude.Text
+riaInstanceId = Lens.lens (instanceId :: ResetInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest ResetInstanceAttribute where
+instance Lude.AWSRequest ResetInstanceAttribute where
   type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
-  request = postQuery ec2
-  response = receiveNull ResetInstanceAttributeResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ResetInstanceAttributeResponse'
 
-instance Hashable ResetInstanceAttribute
+instance Lude.ToHeaders ResetInstanceAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResetInstanceAttribute
+instance Lude.ToPath ResetInstanceAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResetInstanceAttribute where
-  toHeaders = const mempty
-
-instance ToPath ResetInstanceAttribute where
-  toPath = const "/"
-
-instance ToQuery ResetInstanceAttribute where
+instance Lude.ToQuery ResetInstanceAttribute where
   toQuery ResetInstanceAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ResetInstanceAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _riaDryRun,
-        "Attribute" =: _riaAttribute,
-        "InstanceId" =: _riaInstanceId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ResetInstanceAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "InstanceId" Lude.=: instanceId
       ]
 
--- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
+-- | /See:/ 'mkResetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.
-resetInstanceAttributeResponse ::
+mkResetInstanceAttributeResponse ::
   ResetInstanceAttributeResponse
-resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
-
-instance NFData ResetInstanceAttributeResponse
+mkResetInstanceAttributeResponse = ResetInstanceAttributeResponse'

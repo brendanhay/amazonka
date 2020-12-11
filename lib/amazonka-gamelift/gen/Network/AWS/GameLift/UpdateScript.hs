@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,184 +14,217 @@
 --
 -- Updates Realtime script metadata and content.
 --
---
 -- To update script metadata, specify the script ID and provide updated name and/or version values.
---
 -- To update script content, provide an updated zip file by pointing to either a local file or an Amazon S3 bucket location. You can use either method regardless of how the original script was uploaded. Use the /Version/ parameter to track updates to the script.
---
 -- If the call is successful, the updated metadata is stored in the script record and a revised script is uploaded to the Amazon GameLift service. Once the script is updated and acquired by a fleet instance, the new version is used for all new game sessions.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html Amazon GameLift Realtime Servers>
---
 -- __Related operations__
 --
 --     * 'CreateScript'
 --
+--
 --     * 'ListScripts'
+--
 --
 --     * 'DescribeScript'
 --
+--
 --     * 'UpdateScript'
+--
 --
 --     * 'DeleteScript'
 module Network.AWS.GameLift.UpdateScript
-  ( -- * Creating a Request
-    updateScript,
-    UpdateScript,
+  ( -- * Creating a request
+    UpdateScript (..),
+    mkUpdateScript,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usStorageLocation,
     usZipFile,
     usName,
     usVersion,
     usScriptId,
 
-    -- * Destructuring the Response
-    updateScriptResponse,
-    UpdateScriptResponse,
+    -- * Destructuring the response
+    UpdateScriptResponse (..),
+    mkUpdateScriptResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usrsScript,
     usrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateScript' smart constructor.
+-- | /See:/ 'mkUpdateScript' smart constructor.
 data UpdateScript = UpdateScript'
-  { _usStorageLocation ::
-      !(Maybe S3Location),
-    _usZipFile :: !(Maybe Base64),
-    _usName :: !(Maybe Text),
-    _usVersion :: !(Maybe Text),
-    _usScriptId :: !Text
+  { storageLocation ::
+      Lude.Maybe S3Location,
+    zipFile :: Lude.Maybe Lude.Base64,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    scriptId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScript' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - A descriptive label that is associated with a script. Script names do not need to be unique.
+-- * 'scriptId' - A unique identifier for a Realtime script to update. You can use either the script ID or ARN value.
+-- * 'storageLocation' - The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region as the script you're updating. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
+-- * 'version' - The version that is associated with a build or script. Version strings do not need to be unique.
+-- * 'zipFile' - A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 --
--- * 'usStorageLocation' - The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region as the script you're updating. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
---
--- * 'usZipFile' - A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB. When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'usName' - A descriptive label that is associated with a script. Script names do not need to be unique.
---
--- * 'usVersion' - The version that is associated with a build or script. Version strings do not need to be unique.
---
--- * 'usScriptId' - A unique identifier for a Realtime script to update. You can use either the script ID or ARN value.
-updateScript ::
-  -- | 'usScriptId'
-  Text ->
+-- When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkUpdateScript ::
+  -- | 'scriptId'
+  Lude.Text ->
   UpdateScript
-updateScript pScriptId_ =
+mkUpdateScript pScriptId_ =
   UpdateScript'
-    { _usStorageLocation = Nothing,
-      _usZipFile = Nothing,
-      _usName = Nothing,
-      _usVersion = Nothing,
-      _usScriptId = pScriptId_
+    { storageLocation = Lude.Nothing,
+      zipFile = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      scriptId = pScriptId_
     }
 
 -- | The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region as the script you're updating. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
-usStorageLocation :: Lens' UpdateScript (Maybe S3Location)
-usStorageLocation = lens _usStorageLocation (\s a -> s {_usStorageLocation = a})
+--
+-- /Note:/ Consider using 'storageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStorageLocation :: Lens.Lens' UpdateScript (Lude.Maybe S3Location)
+usStorageLocation = Lens.lens (storageLocation :: UpdateScript -> Lude.Maybe S3Location) (\s a -> s {storageLocation = a} :: UpdateScript)
+{-# DEPRECATED usStorageLocation "Use generic-lens or generic-optics with 'storageLocation' instead." #-}
 
--- | A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB. When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-usZipFile :: Lens' UpdateScript (Maybe ByteString)
-usZipFile = lens _usZipFile (\s a -> s {_usZipFile = a}) . mapping _Base64
+-- | A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+--
+-- When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'zipFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usZipFile :: Lens.Lens' UpdateScript (Lude.Maybe Lude.Base64)
+usZipFile = Lens.lens (zipFile :: UpdateScript -> Lude.Maybe Lude.Base64) (\s a -> s {zipFile = a} :: UpdateScript)
+{-# DEPRECATED usZipFile "Use generic-lens or generic-optics with 'zipFile' instead." #-}
 
 -- | A descriptive label that is associated with a script. Script names do not need to be unique.
-usName :: Lens' UpdateScript (Maybe Text)
-usName = lens _usName (\s a -> s {_usName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usName :: Lens.Lens' UpdateScript (Lude.Maybe Lude.Text)
+usName = Lens.lens (name :: UpdateScript -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateScript)
+{-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version that is associated with a build or script. Version strings do not need to be unique.
-usVersion :: Lens' UpdateScript (Maybe Text)
-usVersion = lens _usVersion (\s a -> s {_usVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usVersion :: Lens.Lens' UpdateScript (Lude.Maybe Lude.Text)
+usVersion = Lens.lens (version :: UpdateScript -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateScript)
+{-# DEPRECATED usVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | A unique identifier for a Realtime script to update. You can use either the script ID or ARN value.
-usScriptId :: Lens' UpdateScript Text
-usScriptId = lens _usScriptId (\s a -> s {_usScriptId = a})
+--
+-- /Note:/ Consider using 'scriptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usScriptId :: Lens.Lens' UpdateScript Lude.Text
+usScriptId = Lens.lens (scriptId :: UpdateScript -> Lude.Text) (\s a -> s {scriptId = a} :: UpdateScript)
+{-# DEPRECATED usScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
 
-instance AWSRequest UpdateScript where
+instance Lude.AWSRequest UpdateScript where
   type Rs UpdateScript = UpdateScriptResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateScriptResponse' <$> (x .?> "Script") <*> (pure (fromEnum s))
+          UpdateScriptResponse'
+            Lude.<$> (x Lude..?> "Script") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateScript
-
-instance NFData UpdateScript
-
-instance ToHeaders UpdateScript where
+instance Lude.ToHeaders UpdateScript where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.UpdateScript" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.UpdateScript" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateScript where
+instance Lude.ToJSON UpdateScript where
   toJSON UpdateScript' {..} =
-    object
-      ( catMaybes
-          [ ("StorageLocation" .=) <$> _usStorageLocation,
-            ("ZipFile" .=) <$> _usZipFile,
-            ("Name" .=) <$> _usName,
-            ("Version" .=) <$> _usVersion,
-            Just ("ScriptId" .= _usScriptId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StorageLocation" Lude..=) Lude.<$> storageLocation,
+            ("ZipFile" Lude..=) Lude.<$> zipFile,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Version" Lude..=) Lude.<$> version,
+            Lude.Just ("ScriptId" Lude..= scriptId)
           ]
       )
 
-instance ToPath UpdateScript where
-  toPath = const "/"
+instance Lude.ToPath UpdateScript where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateScript where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateScript where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateScriptResponse' smart constructor.
+-- | /See:/ 'mkUpdateScriptResponse' smart constructor.
 data UpdateScriptResponse = UpdateScriptResponse'
-  { _usrsScript ::
-      !(Maybe Script),
-    _usrsResponseStatus :: !Int
+  { script ::
+      Lude.Maybe Script,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScriptResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usrsScript' - The newly created script record with a unique script ID. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
---
--- * 'usrsResponseStatus' - -- | The response status code.
-updateScriptResponse ::
-  -- | 'usrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'script' - The newly created script record with a unique script ID. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
+mkUpdateScriptResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateScriptResponse
-updateScriptResponse pResponseStatus_ =
+mkUpdateScriptResponse pResponseStatus_ =
   UpdateScriptResponse'
-    { _usrsScript = Nothing,
-      _usrsResponseStatus = pResponseStatus_
+    { script = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The newly created script record with a unique script ID. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
-usrsScript :: Lens' UpdateScriptResponse (Maybe Script)
-usrsScript = lens _usrsScript (\s a -> s {_usrsScript = a})
+--
+-- /Note:/ Consider using 'script' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsScript :: Lens.Lens' UpdateScriptResponse (Lude.Maybe Script)
+usrsScript = Lens.lens (script :: UpdateScriptResponse -> Lude.Maybe Script) (\s a -> s {script = a} :: UpdateScriptResponse)
+{-# DEPRECATED usrsScript "Use generic-lens or generic-optics with 'script' instead." #-}
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateScriptResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\s a -> s {_usrsResponseStatus = a})
-
-instance NFData UpdateScriptResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsResponseStatus :: Lens.Lens' UpdateScriptResponse Lude.Int
+usrsResponseStatus = Lens.lens (responseStatus :: UpdateScriptResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateScriptResponse)
+{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

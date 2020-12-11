@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,159 @@
 --
 -- Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.
 module Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
-  ( -- * Creating a Request
-    updateAPNSSandboxChannel,
-    UpdateAPNSSandboxChannel,
+  ( -- * Creating a request
+    UpdateAPNSSandboxChannel (..),
+    mkUpdateAPNSSandboxChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uascApplicationId,
     uascAPNSSandboxChannelRequest,
 
-    -- * Destructuring the Response
-    updateAPNSSandboxChannelResponse,
-    UpdateAPNSSandboxChannelResponse,
+    -- * Destructuring the response
+    UpdateAPNSSandboxChannelResponse (..),
+    mkUpdateAPNSSandboxChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uascrsResponseStatus,
     uascrsAPNSSandboxChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAPNSSandboxChannel' smart constructor.
+-- | /See:/ 'mkUpdateAPNSSandboxChannel' smart constructor.
 data UpdateAPNSSandboxChannel = UpdateAPNSSandboxChannel'
-  { _uascApplicationId ::
-      !Text,
-    _uascAPNSSandboxChannelRequest ::
-      !APNSSandboxChannelRequest
+  { applicationId ::
+      Lude.Text,
+    apnsSandboxChannelRequest ::
+      APNSSandboxChannelRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPNSSandboxChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uascApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'uascAPNSSandboxChannelRequest' - Undocumented member.
-updateAPNSSandboxChannel ::
-  -- | 'uascApplicationId'
-  Text ->
-  -- | 'uascAPNSSandboxChannelRequest'
+-- * 'apnsSandboxChannelRequest' - Undocumented field.
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkUpdateAPNSSandboxChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'apnsSandboxChannelRequest'
   APNSSandboxChannelRequest ->
   UpdateAPNSSandboxChannel
-updateAPNSSandboxChannel
+mkUpdateAPNSSandboxChannel
   pApplicationId_
   pAPNSSandboxChannelRequest_ =
     UpdateAPNSSandboxChannel'
-      { _uascApplicationId = pApplicationId_,
-        _uascAPNSSandboxChannelRequest = pAPNSSandboxChannelRequest_
+      { applicationId = pApplicationId_,
+        apnsSandboxChannelRequest = pAPNSSandboxChannelRequest_
       }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-uascApplicationId :: Lens' UpdateAPNSSandboxChannel Text
-uascApplicationId = lens _uascApplicationId (\s a -> s {_uascApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uascApplicationId :: Lens.Lens' UpdateAPNSSandboxChannel Lude.Text
+uascApplicationId = Lens.lens (applicationId :: UpdateAPNSSandboxChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateAPNSSandboxChannel)
+{-# DEPRECATED uascApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-uascAPNSSandboxChannelRequest :: Lens' UpdateAPNSSandboxChannel APNSSandboxChannelRequest
-uascAPNSSandboxChannelRequest = lens _uascAPNSSandboxChannelRequest (\s a -> s {_uascAPNSSandboxChannelRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apnsSandboxChannelRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uascAPNSSandboxChannelRequest :: Lens.Lens' UpdateAPNSSandboxChannel APNSSandboxChannelRequest
+uascAPNSSandboxChannelRequest = Lens.lens (apnsSandboxChannelRequest :: UpdateAPNSSandboxChannel -> APNSSandboxChannelRequest) (\s a -> s {apnsSandboxChannelRequest = a} :: UpdateAPNSSandboxChannel)
+{-# DEPRECATED uascAPNSSandboxChannelRequest "Use generic-lens or generic-optics with 'apnsSandboxChannelRequest' instead." #-}
 
-instance AWSRequest UpdateAPNSSandboxChannel where
+instance Lude.AWSRequest UpdateAPNSSandboxChannel where
   type Rs UpdateAPNSSandboxChannel = UpdateAPNSSandboxChannelResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAPNSSandboxChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateAPNSSandboxChannel
-
-instance NFData UpdateAPNSSandboxChannel
-
-instance ToHeaders UpdateAPNSSandboxChannel where
+instance Lude.ToHeaders UpdateAPNSSandboxChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateAPNSSandboxChannel where
-  toJSON UpdateAPNSSandboxChannel' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("APNSSandboxChannelRequest" .= _uascAPNSSandboxChannelRequest)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateAPNSSandboxChannel where
+instance Lude.ToJSON UpdateAPNSSandboxChannel where
+  toJSON UpdateAPNSSandboxChannel' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("APNSSandboxChannelRequest" Lude..= apnsSandboxChannelRequest)
+          ]
+      )
+
+instance Lude.ToPath UpdateAPNSSandboxChannel where
   toPath UpdateAPNSSandboxChannel' {..} =
-    mconcat
-      ["/v1/apps/", toBS _uascApplicationId, "/channels/apns_sandbox"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/apns_sandbox"]
 
-instance ToQuery UpdateAPNSSandboxChannel where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAPNSSandboxChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAPNSSandboxChannelResponse' smart constructor.
+-- | /See:/ 'mkUpdateAPNSSandboxChannelResponse' smart constructor.
 data UpdateAPNSSandboxChannelResponse = UpdateAPNSSandboxChannelResponse'
-  { _uascrsResponseStatus ::
-      !Int,
-    _uascrsAPNSSandboxChannelResponse ::
-      !APNSSandboxChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    apnsSandboxChannelResponse ::
+      APNSSandboxChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uascrsResponseStatus' - -- | The response status code.
---
--- * 'uascrsAPNSSandboxChannelResponse' - Undocumented member.
-updateAPNSSandboxChannelResponse ::
-  -- | 'uascrsResponseStatus'
-  Int ->
-  -- | 'uascrsAPNSSandboxChannelResponse'
+-- * 'apnsSandboxChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateAPNSSandboxChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'apnsSandboxChannelResponse'
   APNSSandboxChannelResponse ->
   UpdateAPNSSandboxChannelResponse
-updateAPNSSandboxChannelResponse
+mkUpdateAPNSSandboxChannelResponse
   pResponseStatus_
   pAPNSSandboxChannelResponse_ =
     UpdateAPNSSandboxChannelResponse'
-      { _uascrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _uascrsAPNSSandboxChannelResponse =
-          pAPNSSandboxChannelResponse_
+        apnsSandboxChannelResponse = pAPNSSandboxChannelResponse_
       }
 
--- | -- | The response status code.
-uascrsResponseStatus :: Lens' UpdateAPNSSandboxChannelResponse Int
-uascrsResponseStatus = lens _uascrsResponseStatus (\s a -> s {_uascrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uascrsResponseStatus :: Lens.Lens' UpdateAPNSSandboxChannelResponse Lude.Int
+uascrsResponseStatus = Lens.lens (responseStatus :: UpdateAPNSSandboxChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAPNSSandboxChannelResponse)
+{-# DEPRECATED uascrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-uascrsAPNSSandboxChannelResponse :: Lens' UpdateAPNSSandboxChannelResponse APNSSandboxChannelResponse
-uascrsAPNSSandboxChannelResponse = lens _uascrsAPNSSandboxChannelResponse (\s a -> s {_uascrsAPNSSandboxChannelResponse = a})
-
-instance NFData UpdateAPNSSandboxChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apnsSandboxChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uascrsAPNSSandboxChannelResponse :: Lens.Lens' UpdateAPNSSandboxChannelResponse APNSSandboxChannelResponse
+uascrsAPNSSandboxChannelResponse = Lens.lens (apnsSandboxChannelResponse :: UpdateAPNSSandboxChannelResponse -> APNSSandboxChannelResponse) (\s a -> s {apnsSandboxChannelResponse = a} :: UpdateAPNSSandboxChannelResponse)
+{-# DEPRECATED uascrsAPNSSandboxChannelResponse "Use generic-lens or generic-optics with 'apnsSandboxChannelResponse' instead." #-}

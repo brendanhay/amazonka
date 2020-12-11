@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,114 @@
 --
 -- Deletes the specified archive.
 module Network.AWS.CloudWatchEvents.DeleteArchive
-  ( -- * Creating a Request
-    deleteArchive,
-    DeleteArchive,
+  ( -- * Creating a request
+    DeleteArchive (..),
+    mkDeleteArchive,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dArchiveName,
 
-    -- * Destructuring the Response
-    deleteArchiveResponse,
-    DeleteArchiveResponse,
+    -- * Destructuring the response
+    DeleteArchiveResponse (..),
+    mkDeleteArchiveResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteArchive' smart constructor.
-newtype DeleteArchive = DeleteArchive' {_dArchiveName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteArchive' smart constructor.
+newtype DeleteArchive = DeleteArchive' {archiveName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteArchive' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dArchiveName' - The name of the archive to delete.
-deleteArchive ::
-  -- | 'dArchiveName'
-  Text ->
+-- * 'archiveName' - The name of the archive to delete.
+mkDeleteArchive ::
+  -- | 'archiveName'
+  Lude.Text ->
   DeleteArchive
-deleteArchive pArchiveName_ =
-  DeleteArchive' {_dArchiveName = pArchiveName_}
+mkDeleteArchive pArchiveName_ =
+  DeleteArchive' {archiveName = pArchiveName_}
 
 -- | The name of the archive to delete.
-dArchiveName :: Lens' DeleteArchive Text
-dArchiveName = lens _dArchiveName (\s a -> s {_dArchiveName = a})
+--
+-- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dArchiveName :: Lens.Lens' DeleteArchive Lude.Text
+dArchiveName = Lens.lens (archiveName :: DeleteArchive -> Lude.Text) (\s a -> s {archiveName = a} :: DeleteArchive)
+{-# DEPRECATED dArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
-instance AWSRequest DeleteArchive where
+instance Lude.AWSRequest DeleteArchive where
   type Rs DeleteArchive = DeleteArchiveResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteArchiveResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteArchiveResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteArchive
-
-instance NFData DeleteArchive
-
-instance ToHeaders DeleteArchive where
+instance Lude.ToHeaders DeleteArchive where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DeleteArchive" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DeleteArchive" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteArchive where
+instance Lude.ToJSON DeleteArchive where
   toJSON DeleteArchive' {..} =
-    object (catMaybes [Just ("ArchiveName" .= _dArchiveName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ArchiveName" Lude..= archiveName)])
 
-instance ToPath DeleteArchive where
-  toPath = const "/"
+instance Lude.ToPath DeleteArchive where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteArchive where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteArchive where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteArchiveResponse' smart constructor.
+-- | /See:/ 'mkDeleteArchiveResponse' smart constructor.
 newtype DeleteArchiveResponse = DeleteArchiveResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteArchiveResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteArchiveResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteArchiveResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteArchiveResponse
-deleteArchiveResponse pResponseStatus_ =
-  DeleteArchiveResponse' {_delrsResponseStatus = pResponseStatus_}
+mkDeleteArchiveResponse pResponseStatus_ =
+  DeleteArchiveResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteArchiveResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteArchiveResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteArchiveResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteArchiveResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

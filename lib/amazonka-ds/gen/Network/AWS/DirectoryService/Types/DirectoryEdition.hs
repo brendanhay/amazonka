@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectoryEdition where
+module Network.AWS.DirectoryService.Types.DirectoryEdition
+  ( DirectoryEdition
+      ( DirectoryEdition',
+        Enterprise,
+        Standard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectoryEdition
-  = Enterprise
-  | Standard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectoryEdition = DirectoryEdition' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectoryEdition where
-  parser =
-    takeLowerText >>= \case
-      "enterprise" -> pure Enterprise
-      "standard" -> pure Standard
-      e ->
-        fromTextError $
-          "Failure parsing DirectoryEdition from value: '" <> e
-            <> "'. Accepted values: enterprise, standard"
+pattern Enterprise :: DirectoryEdition
+pattern Enterprise = DirectoryEdition' "Enterprise"
 
-instance ToText DirectoryEdition where
-  toText = \case
-    Enterprise -> "Enterprise"
-    Standard -> "Standard"
+pattern Standard :: DirectoryEdition
+pattern Standard = DirectoryEdition' "Standard"
 
-instance Hashable DirectoryEdition
-
-instance NFData DirectoryEdition
-
-instance ToByteString DirectoryEdition
-
-instance ToQuery DirectoryEdition
-
-instance ToHeader DirectoryEdition
-
-instance ToJSON DirectoryEdition where
-  toJSON = toJSONText
-
-instance FromJSON DirectoryEdition where
-  parseJSON = parseJSONText "DirectoryEdition"
+{-# COMPLETE
+  Enterprise,
+  Standard,
+  DirectoryEdition'
+  #-}

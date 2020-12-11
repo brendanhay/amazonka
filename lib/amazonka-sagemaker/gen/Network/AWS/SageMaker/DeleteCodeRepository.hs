@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,97 @@
 --
 -- Deletes the specified Git repository from your account.
 module Network.AWS.SageMaker.DeleteCodeRepository
-  ( -- * Creating a Request
-    deleteCodeRepository,
-    DeleteCodeRepository,
+  ( -- * Creating a request
+    DeleteCodeRepository (..),
+    mkDeleteCodeRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCodeRepositoryName,
 
-    -- * Destructuring the Response
-    deleteCodeRepositoryResponse,
-    DeleteCodeRepositoryResponse,
+    -- * Destructuring the response
+    DeleteCodeRepositoryResponse (..),
+    mkDeleteCodeRepositoryResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteCodeRepository' smart constructor.
+-- | /See:/ 'mkDeleteCodeRepository' smart constructor.
 newtype DeleteCodeRepository = DeleteCodeRepository'
-  { _dCodeRepositoryName ::
-      Text
+  { codeRepositoryName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCodeRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dCodeRepositoryName' - The name of the Git repository to delete.
-deleteCodeRepository ::
-  -- | 'dCodeRepositoryName'
-  Text ->
+-- * 'codeRepositoryName' - The name of the Git repository to delete.
+mkDeleteCodeRepository ::
+  -- | 'codeRepositoryName'
+  Lude.Text ->
   DeleteCodeRepository
-deleteCodeRepository pCodeRepositoryName_ =
-  DeleteCodeRepository'
-    { _dCodeRepositoryName =
-        pCodeRepositoryName_
-    }
+mkDeleteCodeRepository pCodeRepositoryName_ =
+  DeleteCodeRepository' {codeRepositoryName = pCodeRepositoryName_}
 
 -- | The name of the Git repository to delete.
-dCodeRepositoryName :: Lens' DeleteCodeRepository Text
-dCodeRepositoryName = lens _dCodeRepositoryName (\s a -> s {_dCodeRepositoryName = a})
+--
+-- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCodeRepositoryName :: Lens.Lens' DeleteCodeRepository Lude.Text
+dCodeRepositoryName = Lens.lens (codeRepositoryName :: DeleteCodeRepository -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: DeleteCodeRepository)
+{-# DEPRECATED dCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
-instance AWSRequest DeleteCodeRepository where
+instance Lude.AWSRequest DeleteCodeRepository where
   type Rs DeleteCodeRepository = DeleteCodeRepositoryResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteCodeRepositoryResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteCodeRepositoryResponse'
 
-instance Hashable DeleteCodeRepository
-
-instance NFData DeleteCodeRepository
-
-instance ToHeaders DeleteCodeRepository where
+instance Lude.ToHeaders DeleteCodeRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DeleteCodeRepository" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DeleteCodeRepository" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCodeRepository where
+instance Lude.ToJSON DeleteCodeRepository where
   toJSON DeleteCodeRepository' {..} =
-    object
-      (catMaybes [Just ("CodeRepositoryName" .= _dCodeRepositoryName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CodeRepositoryName" Lude..= codeRepositoryName)]
+      )
 
-instance ToPath DeleteCodeRepository where
-  toPath = const "/"
+instance Lude.ToPath DeleteCodeRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCodeRepository where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCodeRepository where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCodeRepositoryResponse' smart constructor.
+-- | /See:/ 'mkDeleteCodeRepositoryResponse' smart constructor.
 data DeleteCodeRepositoryResponse = DeleteCodeRepositoryResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCodeRepositoryResponse' with the minimum fields required to make a request.
-deleteCodeRepositoryResponse ::
+mkDeleteCodeRepositoryResponse ::
   DeleteCodeRepositoryResponse
-deleteCodeRepositoryResponse = DeleteCodeRepositoryResponse'
-
-instance NFData DeleteCodeRepositoryResponse
+mkDeleteCodeRepositoryResponse = DeleteCodeRepositoryResponse'

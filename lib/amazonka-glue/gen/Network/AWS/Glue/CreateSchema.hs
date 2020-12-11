@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.
 --
---
 -- When the schema set is created, a version checkpoint will be set to the first version. Compatibility mode "DISABLED" restricts any additional schema versions from being added after the first schema version. For all other compatibility modes, validation of compatibility settings will be applied only from the second version onwards when the @RegisterSchemaVersion@ API is used.
---
 -- When this API is called without a @RegistryId@ , this will create an entry for a "default-registry" in the registry database tables, if it is not already present.
 module Network.AWS.Glue.CreateSchema
-  ( -- * Creating a Request
-    createSchema,
-    CreateSchema,
+  ( -- * Creating a request
+    CreateSchema (..),
+    mkCreateSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csSchemaDefinition,
     csRegistryId,
     csDescription,
@@ -37,11 +30,11 @@ module Network.AWS.Glue.CreateSchema
     csSchemaName,
     csDataFormat,
 
-    -- * Destructuring the Response
-    createSchemaResponse,
-    CreateSchemaResponse,
+    -- * Destructuring the response
+    CreateSchemaResponse (..),
+    mkCreateSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsSchemaVersionStatus,
     csrsRegistryName,
     csrsSchemaStatus,
@@ -61,278 +54,383 @@ module Network.AWS.Glue.CreateSchema
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSchema' smart constructor.
+-- | /See:/ 'mkCreateSchema' smart constructor.
 data CreateSchema = CreateSchema'
-  { _csSchemaDefinition ::
-      !(Maybe Text),
-    _csRegistryId :: !(Maybe RegistryId),
-    _csDescription :: !(Maybe Text),
-    _csCompatibility :: !(Maybe Compatibility),
-    _csTags :: !(Maybe (Map Text (Text))),
-    _csSchemaName :: !Text,
-    _csDataFormat :: !DataFormat
+  { schemaDefinition ::
+      Lude.Maybe Lude.Text,
+    registryId :: Lude.Maybe RegistryId,
+    description :: Lude.Maybe Lude.Text,
+    compatibility :: Lude.Maybe Compatibility,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    schemaName :: Lude.Text,
+    dataFormat :: DataFormat
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'compatibility' - The compatibility mode of the schema. The possible values are:
 --
--- * 'csSchemaDefinition' - The schema definition using the @DataFormat@ setting for @SchemaName@ .
 --
--- * 'csRegistryId' - This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: @arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id@ .
+--     * /NONE/ : No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.
 --
--- * 'csDescription' - An optional description of the schema. If description is not provided, there will not be any automatic default value for this.
 --
--- * 'csCompatibility' - The compatibility mode of the schema. The possible values are:     * /NONE/ : No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.     * /DISABLED/ : This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.     * /BACKWARD/ : This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.     * /BACKWARD_ALL/ : This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions.      * /FORWARD/ : This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.     * /FORWARD_ALL/ : This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.     * /FULL/ : This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.     * /FULL_ALL/ : This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.
+--     * /DISABLED/ : This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.
 --
--- * 'csTags' - AWS tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the AWS tags-on-create pattern.
 --
--- * 'csSchemaName' - Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+--     * /BACKWARD/ : This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.
 --
--- * 'csDataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
-createSchema ::
-  -- | 'csSchemaName'
-  Text ->
-  -- | 'csDataFormat'
+--
+--     * /BACKWARD_ALL/ : This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions.
+--
+--
+--     * /FORWARD/ : This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.
+--
+--
+--     * /FORWARD_ALL/ : This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.
+--
+--
+--     * /FULL/ : This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.
+--
+--
+--     * /FULL_ALL/ : This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.
+--
+--
+-- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
+-- * 'description' - An optional description of the schema. If description is not provided, there will not be any automatic default value for this.
+-- * 'registryId' - This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: @arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id@ .
+-- * 'schemaDefinition' - The schema definition using the @DataFormat@ setting for @SchemaName@ .
+-- * 'schemaName' - Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+-- * 'tags' - AWS tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the AWS tags-on-create pattern.
+mkCreateSchema ::
+  -- | 'schemaName'
+  Lude.Text ->
+  -- | 'dataFormat'
   DataFormat ->
   CreateSchema
-createSchema pSchemaName_ pDataFormat_ =
+mkCreateSchema pSchemaName_ pDataFormat_ =
   CreateSchema'
-    { _csSchemaDefinition = Nothing,
-      _csRegistryId = Nothing,
-      _csDescription = Nothing,
-      _csCompatibility = Nothing,
-      _csTags = Nothing,
-      _csSchemaName = pSchemaName_,
-      _csDataFormat = pDataFormat_
+    { schemaDefinition = Lude.Nothing,
+      registryId = Lude.Nothing,
+      description = Lude.Nothing,
+      compatibility = Lude.Nothing,
+      tags = Lude.Nothing,
+      schemaName = pSchemaName_,
+      dataFormat = pDataFormat_
     }
 
 -- | The schema definition using the @DataFormat@ setting for @SchemaName@ .
-csSchemaDefinition :: Lens' CreateSchema (Maybe Text)
-csSchemaDefinition = lens _csSchemaDefinition (\s a -> s {_csSchemaDefinition = a})
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSchemaDefinition :: Lens.Lens' CreateSchema (Lude.Maybe Lude.Text)
+csSchemaDefinition = Lens.lens (schemaDefinition :: CreateSchema -> Lude.Maybe Lude.Text) (\s a -> s {schemaDefinition = a} :: CreateSchema)
+{-# DEPRECATED csSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 -- | This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: @arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id@ .
-csRegistryId :: Lens' CreateSchema (Maybe RegistryId)
-csRegistryId = lens _csRegistryId (\s a -> s {_csRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRegistryId :: Lens.Lens' CreateSchema (Lude.Maybe RegistryId)
+csRegistryId = Lens.lens (registryId :: CreateSchema -> Lude.Maybe RegistryId) (\s a -> s {registryId = a} :: CreateSchema)
+{-# DEPRECATED csRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | An optional description of the schema. If description is not provided, there will not be any automatic default value for this.
-csDescription :: Lens' CreateSchema (Maybe Text)
-csDescription = lens _csDescription (\s a -> s {_csDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDescription :: Lens.Lens' CreateSchema (Lude.Maybe Lude.Text)
+csDescription = Lens.lens (description :: CreateSchema -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSchema)
+{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The compatibility mode of the schema. The possible values are:     * /NONE/ : No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.     * /DISABLED/ : This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.     * /BACKWARD/ : This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.     * /BACKWARD_ALL/ : This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions.      * /FORWARD/ : This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.     * /FORWARD_ALL/ : This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.     * /FULL/ : This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.     * /FULL_ALL/ : This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.
-csCompatibility :: Lens' CreateSchema (Maybe Compatibility)
-csCompatibility = lens _csCompatibility (\s a -> s {_csCompatibility = a})
+-- | The compatibility mode of the schema. The possible values are:
+--
+--
+--     * /NONE/ : No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.
+--
+--
+--     * /DISABLED/ : This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.
+--
+--
+--     * /BACKWARD/ : This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.
+--
+--
+--     * /BACKWARD_ALL/ : This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions.
+--
+--
+--     * /FORWARD/ : This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.
+--
+--
+--     * /FORWARD_ALL/ : This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.
+--
+--
+--     * /FULL/ : This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.
+--
+--
+--     * /FULL_ALL/ : This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.
+--
+--
+--
+-- /Note:/ Consider using 'compatibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCompatibility :: Lens.Lens' CreateSchema (Lude.Maybe Compatibility)
+csCompatibility = Lens.lens (compatibility :: CreateSchema -> Lude.Maybe Compatibility) (\s a -> s {compatibility = a} :: CreateSchema)
+{-# DEPRECATED csCompatibility "Use generic-lens or generic-optics with 'compatibility' instead." #-}
 
 -- | AWS tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the AWS tags-on-create pattern.
-csTags :: Lens' CreateSchema (HashMap Text (Text))
-csTags = lens _csTags (\s a -> s {_csTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateSchema (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+csTags = Lens.lens (tags :: CreateSchema -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateSchema)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
-csSchemaName :: Lens' CreateSchema Text
-csSchemaName = lens _csSchemaName (\s a -> s {_csSchemaName = a})
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSchemaName :: Lens.Lens' CreateSchema Lude.Text
+csSchemaName = Lens.lens (schemaName :: CreateSchema -> Lude.Text) (\s a -> s {schemaName = a} :: CreateSchema)
+{-# DEPRECATED csSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The data format of the schema definition. Currently only @AVRO@ is supported.
-csDataFormat :: Lens' CreateSchema DataFormat
-csDataFormat = lens _csDataFormat (\s a -> s {_csDataFormat = a})
+--
+-- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDataFormat :: Lens.Lens' CreateSchema DataFormat
+csDataFormat = Lens.lens (dataFormat :: CreateSchema -> DataFormat) (\s a -> s {dataFormat = a} :: CreateSchema)
+{-# DEPRECATED csDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
-instance AWSRequest CreateSchema where
+instance Lude.AWSRequest CreateSchema where
   type Rs CreateSchema = CreateSchemaResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            <$> (x .?> "SchemaVersionStatus")
-            <*> (x .?> "RegistryName")
-            <*> (x .?> "SchemaStatus")
-            <*> (x .?> "RegistryArn")
-            <*> (x .?> "LatestSchemaVersion")
-            <*> (x .?> "DataFormat")
-            <*> (x .?> "SchemaCheckpoint")
-            <*> (x .?> "SchemaName")
-            <*> (x .?> "SchemaVersionId")
-            <*> (x .?> "SchemaArn")
-            <*> (x .?> "NextSchemaVersion")
-            <*> (x .?> "Description")
-            <*> (x .?> "Compatibility")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SchemaVersionStatus")
+            Lude.<*> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "SchemaStatus")
+            Lude.<*> (x Lude..?> "RegistryArn")
+            Lude.<*> (x Lude..?> "LatestSchemaVersion")
+            Lude.<*> (x Lude..?> "DataFormat")
+            Lude.<*> (x Lude..?> "SchemaCheckpoint")
+            Lude.<*> (x Lude..?> "SchemaName")
+            Lude.<*> (x Lude..?> "SchemaVersionId")
+            Lude.<*> (x Lude..?> "SchemaArn")
+            Lude.<*> (x Lude..?> "NextSchemaVersion")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "Compatibility")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSchema
-
-instance NFData CreateSchema
-
-instance ToHeaders CreateSchema where
+instance Lude.ToHeaders CreateSchema where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateSchema" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateSchema" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateSchema where
+instance Lude.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    object
-      ( catMaybes
-          [ ("SchemaDefinition" .=) <$> _csSchemaDefinition,
-            ("RegistryId" .=) <$> _csRegistryId,
-            ("Description" .=) <$> _csDescription,
-            ("Compatibility" .=) <$> _csCompatibility,
-            ("Tags" .=) <$> _csTags,
-            Just ("SchemaName" .= _csSchemaName),
-            Just ("DataFormat" .= _csDataFormat)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SchemaDefinition" Lude..=) Lude.<$> schemaDefinition,
+            ("RegistryId" Lude..=) Lude.<$> registryId,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Compatibility" Lude..=) Lude.<$> compatibility,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("SchemaName" Lude..= schemaName),
+            Lude.Just ("DataFormat" Lude..= dataFormat)
           ]
       )
 
-instance ToPath CreateSchema where
-  toPath = const "/"
+instance Lude.ToPath CreateSchema where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateSchema where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSchemaResponse' smart constructor.
+-- | /See:/ 'mkCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
-  { _csrsSchemaVersionStatus ::
-      !(Maybe SchemaVersionStatus),
-    _csrsRegistryName :: !(Maybe Text),
-    _csrsSchemaStatus :: !(Maybe SchemaStatus),
-    _csrsRegistryARN :: !(Maybe Text),
-    _csrsLatestSchemaVersion :: !(Maybe Nat),
-    _csrsDataFormat :: !(Maybe DataFormat),
-    _csrsSchemaCheckpoint :: !(Maybe Nat),
-    _csrsSchemaName :: !(Maybe Text),
-    _csrsSchemaVersionId :: !(Maybe Text),
-    _csrsSchemaARN :: !(Maybe Text),
-    _csrsNextSchemaVersion :: !(Maybe Nat),
-    _csrsDescription :: !(Maybe Text),
-    _csrsCompatibility :: !(Maybe Compatibility),
-    _csrsTags :: !(Maybe (Map Text (Text))),
-    _csrsResponseStatus :: !Int
+  { schemaVersionStatus ::
+      Lude.Maybe SchemaVersionStatus,
+    registryName :: Lude.Maybe Lude.Text,
+    schemaStatus :: Lude.Maybe SchemaStatus,
+    registryARN :: Lude.Maybe Lude.Text,
+    latestSchemaVersion :: Lude.Maybe Lude.Natural,
+    dataFormat :: Lude.Maybe DataFormat,
+    schemaCheckpoint :: Lude.Maybe Lude.Natural,
+    schemaName :: Lude.Maybe Lude.Text,
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    schemaARN :: Lude.Maybe Lude.Text,
+    nextSchemaVersion :: Lude.Maybe Lude.Natural,
+    description :: Lude.Maybe Lude.Text,
+    compatibility :: Lude.Maybe Compatibility,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsSchemaVersionStatus' - The status of the first schema version created.
---
--- * 'csrsRegistryName' - The name of the registry.
---
--- * 'csrsSchemaStatus' - The status of the schema.
---
--- * 'csrsRegistryARN' - The Amazon Resource Name (ARN) of the registry.
---
--- * 'csrsLatestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
---
--- * 'csrsDataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
---
--- * 'csrsSchemaCheckpoint' - The version number of the checkpoint (the last time the compatibility mode was changed).
---
--- * 'csrsSchemaName' - The name of the schema.
---
--- * 'csrsSchemaVersionId' - The unique identifier of the first schema version.
---
--- * 'csrsSchemaARN' - The Amazon Resource Name (ARN) of the schema.
---
--- * 'csrsNextSchemaVersion' - The next version of the schema associated with the returned schema definition.
---
--- * 'csrsDescription' - A description of the schema if specified when created.
---
--- * 'csrsCompatibility' - The schema compatibility mode.
---
--- * 'csrsTags' - The tags for the schema.
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createSchemaResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'compatibility' - The schema compatibility mode.
+-- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
+-- * 'description' - A description of the schema if specified when created.
+-- * 'latestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
+-- * 'nextSchemaVersion' - The next version of the schema associated with the returned schema definition.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
+-- * 'registryName' - The name of the registry.
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility mode was changed).
+-- * 'schemaName' - The name of the schema.
+-- * 'schemaStatus' - The status of the schema.
+-- * 'schemaVersionId' - The unique identifier of the first schema version.
+-- * 'schemaVersionStatus' - The status of the first schema version created.
+-- * 'tags' - The tags for the schema.
+mkCreateSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSchemaResponse
-createSchemaResponse pResponseStatus_ =
+mkCreateSchemaResponse pResponseStatus_ =
   CreateSchemaResponse'
-    { _csrsSchemaVersionStatus = Nothing,
-      _csrsRegistryName = Nothing,
-      _csrsSchemaStatus = Nothing,
-      _csrsRegistryARN = Nothing,
-      _csrsLatestSchemaVersion = Nothing,
-      _csrsDataFormat = Nothing,
-      _csrsSchemaCheckpoint = Nothing,
-      _csrsSchemaName = Nothing,
-      _csrsSchemaVersionId = Nothing,
-      _csrsSchemaARN = Nothing,
-      _csrsNextSchemaVersion = Nothing,
-      _csrsDescription = Nothing,
-      _csrsCompatibility = Nothing,
-      _csrsTags = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { schemaVersionStatus = Lude.Nothing,
+      registryName = Lude.Nothing,
+      schemaStatus = Lude.Nothing,
+      registryARN = Lude.Nothing,
+      latestSchemaVersion = Lude.Nothing,
+      dataFormat = Lude.Nothing,
+      schemaCheckpoint = Lude.Nothing,
+      schemaName = Lude.Nothing,
+      schemaVersionId = Lude.Nothing,
+      schemaARN = Lude.Nothing,
+      nextSchemaVersion = Lude.Nothing,
+      description = Lude.Nothing,
+      compatibility = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the first schema version created.
-csrsSchemaVersionStatus :: Lens' CreateSchemaResponse (Maybe SchemaVersionStatus)
-csrsSchemaVersionStatus = lens _csrsSchemaVersionStatus (\s a -> s {_csrsSchemaVersionStatus = a})
+--
+-- /Note:/ Consider using 'schemaVersionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaVersionStatus :: Lens.Lens' CreateSchemaResponse (Lude.Maybe SchemaVersionStatus)
+csrsSchemaVersionStatus = Lens.lens (schemaVersionStatus :: CreateSchemaResponse -> Lude.Maybe SchemaVersionStatus) (\s a -> s {schemaVersionStatus = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaVersionStatus "Use generic-lens or generic-optics with 'schemaVersionStatus' instead." #-}
 
 -- | The name of the registry.
-csrsRegistryName :: Lens' CreateSchemaResponse (Maybe Text)
-csrsRegistryName = lens _csrsRegistryName (\s a -> s {_csrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsRegistryName :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsRegistryName = Lens.lens (registryName :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The status of the schema.
-csrsSchemaStatus :: Lens' CreateSchemaResponse (Maybe SchemaStatus)
-csrsSchemaStatus = lens _csrsSchemaStatus (\s a -> s {_csrsSchemaStatus = a})
+--
+-- /Note:/ Consider using 'schemaStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaStatus :: Lens.Lens' CreateSchemaResponse (Lude.Maybe SchemaStatus)
+csrsSchemaStatus = Lens.lens (schemaStatus :: CreateSchemaResponse -> Lude.Maybe SchemaStatus) (\s a -> s {schemaStatus = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaStatus "Use generic-lens or generic-optics with 'schemaStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the registry.
-csrsRegistryARN :: Lens' CreateSchemaResponse (Maybe Text)
-csrsRegistryARN = lens _csrsRegistryARN (\s a -> s {_csrsRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsRegistryARN :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsRegistryARN = Lens.lens (registryARN :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
 -- | The latest version of the schema associated with the returned schema definition.
-csrsLatestSchemaVersion :: Lens' CreateSchemaResponse (Maybe Natural)
-csrsLatestSchemaVersion = lens _csrsLatestSchemaVersion (\s a -> s {_csrsLatestSchemaVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'latestSchemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsLatestSchemaVersion :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Natural)
+csrsLatestSchemaVersion = Lens.lens (latestSchemaVersion :: CreateSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {latestSchemaVersion = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsLatestSchemaVersion "Use generic-lens or generic-optics with 'latestSchemaVersion' instead." #-}
 
 -- | The data format of the schema definition. Currently only @AVRO@ is supported.
-csrsDataFormat :: Lens' CreateSchemaResponse (Maybe DataFormat)
-csrsDataFormat = lens _csrsDataFormat (\s a -> s {_csrsDataFormat = a})
+--
+-- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsDataFormat :: Lens.Lens' CreateSchemaResponse (Lude.Maybe DataFormat)
+csrsDataFormat = Lens.lens (dataFormat :: CreateSchemaResponse -> Lude.Maybe DataFormat) (\s a -> s {dataFormat = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
 -- | The version number of the checkpoint (the last time the compatibility mode was changed).
-csrsSchemaCheckpoint :: Lens' CreateSchemaResponse (Maybe Natural)
-csrsSchemaCheckpoint = lens _csrsSchemaCheckpoint (\s a -> s {_csrsSchemaCheckpoint = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'schemaCheckpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaCheckpoint :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Natural)
+csrsSchemaCheckpoint = Lens.lens (schemaCheckpoint :: CreateSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {schemaCheckpoint = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaCheckpoint "Use generic-lens or generic-optics with 'schemaCheckpoint' instead." #-}
 
 -- | The name of the schema.
-csrsSchemaName :: Lens' CreateSchemaResponse (Maybe Text)
-csrsSchemaName = lens _csrsSchemaName (\s a -> s {_csrsSchemaName = a})
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaName :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsSchemaName = Lens.lens (schemaName :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The unique identifier of the first schema version.
-csrsSchemaVersionId :: Lens' CreateSchemaResponse (Maybe Text)
-csrsSchemaVersionId = lens _csrsSchemaVersionId (\s a -> s {_csrsSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaVersionId :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsSchemaVersionId = Lens.lens (schemaVersionId :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the schema.
-csrsSchemaARN :: Lens' CreateSchemaResponse (Maybe Text)
-csrsSchemaARN = lens _csrsSchemaARN (\s a -> s {_csrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaARN :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsSchemaARN = Lens.lens (schemaARN :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The next version of the schema associated with the returned schema definition.
-csrsNextSchemaVersion :: Lens' CreateSchemaResponse (Maybe Natural)
-csrsNextSchemaVersion = lens _csrsNextSchemaVersion (\s a -> s {_csrsNextSchemaVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'nextSchemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsNextSchemaVersion :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Natural)
+csrsNextSchemaVersion = Lens.lens (nextSchemaVersion :: CreateSchemaResponse -> Lude.Maybe Lude.Natural) (\s a -> s {nextSchemaVersion = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsNextSchemaVersion "Use generic-lens or generic-optics with 'nextSchemaVersion' instead." #-}
 
 -- | A description of the schema if specified when created.
-csrsDescription :: Lens' CreateSchemaResponse (Maybe Text)
-csrsDescription = lens _csrsDescription (\s a -> s {_csrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsDescription :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsDescription = Lens.lens (description :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The schema compatibility mode.
-csrsCompatibility :: Lens' CreateSchemaResponse (Maybe Compatibility)
-csrsCompatibility = lens _csrsCompatibility (\s a -> s {_csrsCompatibility = a})
+--
+-- /Note:/ Consider using 'compatibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsCompatibility :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Compatibility)
+csrsCompatibility = Lens.lens (compatibility :: CreateSchemaResponse -> Lude.Maybe Compatibility) (\s a -> s {compatibility = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsCompatibility "Use generic-lens or generic-optics with 'compatibility' instead." #-}
 
 -- | The tags for the schema.
-csrsTags :: Lens' CreateSchemaResponse (HashMap Text (Text))
-csrsTags = lens _csrsTags (\s a -> s {_csrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsTags :: Lens.Lens' CreateSchemaResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+csrsTags = Lens.lens (tags :: CreateSchemaResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSchemaResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSchemaResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,97 @@
 --
 -- Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and returns it to your control. This action cannot be used with instances that were created with AWS OpsWorks Stacks.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeregisterInstance
-  ( -- * Creating a Request
-    deregisterInstance,
-    DeregisterInstance,
+  ( -- * Creating a request
+    DeregisterInstance (..),
+    mkDeregisterInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dInstanceId,
 
-    -- * Destructuring the Response
-    deregisterInstanceResponse,
-    DeregisterInstanceResponse,
+    -- * Destructuring the response
+    DeregisterInstanceResponse (..),
+    mkDeregisterInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterInstance' smart constructor.
+-- | /See:/ 'mkDeregisterInstance' smart constructor.
 newtype DeregisterInstance = DeregisterInstance'
-  { _dInstanceId ::
-      Text
+  { instanceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dInstanceId' - The instance ID.
-deregisterInstance ::
-  -- | 'dInstanceId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+mkDeregisterInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   DeregisterInstance
-deregisterInstance pInstanceId_ =
-  DeregisterInstance' {_dInstanceId = pInstanceId_}
+mkDeregisterInstance pInstanceId_ =
+  DeregisterInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-dInstanceId :: Lens' DeregisterInstance Text
-dInstanceId = lens _dInstanceId (\s a -> s {_dInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dInstanceId :: Lens.Lens' DeregisterInstance Lude.Text
+dInstanceId = Lens.lens (instanceId :: DeregisterInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterInstance)
+{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest DeregisterInstance where
+instance Lude.AWSRequest DeregisterInstance where
   type Rs DeregisterInstance = DeregisterInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull DeregisterInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeregisterInstanceResponse'
 
-instance Hashable DeregisterInstance
-
-instance NFData DeregisterInstance
-
-instance ToHeaders DeregisterInstance where
+instance Lude.ToHeaders DeregisterInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeregisterInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeregisterInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterInstance where
+instance Lude.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
-    object (catMaybes [Just ("InstanceId" .= _dInstanceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
 
-instance ToPath DeregisterInstance where
-  toPath = const "/"
+instance Lude.ToPath DeregisterInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterInstanceResponse' smart constructor.
+-- | /See:/ 'mkDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.
-deregisterInstanceResponse ::
+mkDeregisterInstanceResponse ::
   DeregisterInstanceResponse
-deregisterInstanceResponse = DeregisterInstanceResponse'
-
-instance NFData DeregisterInstanceResponse
+mkDeregisterInstanceResponse = DeregisterInstanceResponse'

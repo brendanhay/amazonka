@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,117 @@
 --
 -- Updates the specified application version to have the specified properties.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-  ( -- * Creating a Request
-    updateApplicationVersion,
-    UpdateApplicationVersion,
+  ( -- * Creating a request
+    UpdateApplicationVersion (..),
+    mkUpdateApplicationVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uavDescription,
     uavApplicationName,
     uavVersionLabel,
 
-    -- * Destructuring the Response
-    applicationVersionDescriptionMessage,
-    ApplicationVersionDescriptionMessage,
+    -- * Destructuring the response
+    ApplicationVersionDescriptionMessage (..),
+    mkApplicationVersionDescriptionMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     avdmApplicationVersion,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'updateApplicationVersion' smart constructor.
+-- /See:/ 'mkUpdateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
-  { _uavDescription ::
-      !(Maybe Text),
-    _uavApplicationName :: !Text,
-    _uavVersionLabel :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Text,
+    versionLabel :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of the application associated with this version.
 --
--- * 'uavDescription' - A new description for this version.
+-- If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+-- * 'description' - A new description for this version.
+-- * 'versionLabel' - The name of the version to update.
 --
--- * 'uavApplicationName' - The name of the application associated with this version. If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
---
--- * 'uavVersionLabel' - The name of the version to update. If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-updateApplicationVersion ::
-  -- | 'uavApplicationName'
-  Text ->
-  -- | 'uavVersionLabel'
-  Text ->
+-- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+mkUpdateApplicationVersion ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'versionLabel'
+  Lude.Text ->
   UpdateApplicationVersion
-updateApplicationVersion pApplicationName_ pVersionLabel_ =
+mkUpdateApplicationVersion pApplicationName_ pVersionLabel_ =
   UpdateApplicationVersion'
-    { _uavDescription = Nothing,
-      _uavApplicationName = pApplicationName_,
-      _uavVersionLabel = pVersionLabel_
+    { description = Lude.Nothing,
+      applicationName = pApplicationName_,
+      versionLabel = pVersionLabel_
     }
 
 -- | A new description for this version.
-uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
-uavDescription = lens _uavDescription (\s a -> s {_uavDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavDescription :: Lens.Lens' UpdateApplicationVersion (Lude.Maybe Lude.Text)
+uavDescription = Lens.lens (description :: UpdateApplicationVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplicationVersion)
+{-# DEPRECATED uavDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The name of the application associated with this version. If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uavApplicationName :: Lens' UpdateApplicationVersion Text
-uavApplicationName = lens _uavApplicationName (\s a -> s {_uavApplicationName = a})
+-- | The name of the application associated with this version.
+--
+-- If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavApplicationName :: Lens.Lens' UpdateApplicationVersion Lude.Text
+uavApplicationName = Lens.lens (applicationName :: UpdateApplicationVersion -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplicationVersion)
+{-# DEPRECATED uavApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
--- | The name of the version to update. If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uavVersionLabel :: Lens' UpdateApplicationVersion Text
-uavVersionLabel = lens _uavVersionLabel (\s a -> s {_uavVersionLabel = a})
+-- | The name of the version to update.
+--
+-- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavVersionLabel :: Lens.Lens' UpdateApplicationVersion Lude.Text
+uavVersionLabel = Lens.lens (versionLabel :: UpdateApplicationVersion -> Lude.Text) (\s a -> s {versionLabel = a} :: UpdateApplicationVersion)
+{-# DEPRECATED uavVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
-instance AWSRequest UpdateApplicationVersion where
+instance Lude.AWSRequest UpdateApplicationVersion where
   type
     Rs UpdateApplicationVersion =
       ApplicationVersionDescriptionMessage
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateApplicationVersionResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable UpdateApplicationVersion
+instance Lude.ToHeaders UpdateApplicationVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateApplicationVersion
+instance Lude.ToPath UpdateApplicationVersion where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateApplicationVersion where
-  toHeaders = const mempty
-
-instance ToPath UpdateApplicationVersion where
-  toPath = const "/"
-
-instance ToQuery UpdateApplicationVersion where
+instance Lude.ToQuery UpdateApplicationVersion where
   toQuery UpdateApplicationVersion' {..} =
-    mconcat
-      [ "Action" =: ("UpdateApplicationVersion" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Description" =: _uavDescription,
-        "ApplicationName" =: _uavApplicationName,
-        "VersionLabel" =: _uavVersionLabel
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateApplicationVersion" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Description" Lude.=: description,
+        "ApplicationName" Lude.=: applicationName,
+        "VersionLabel" Lude.=: versionLabel
       ]

@@ -28,259 +28,259 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetLogGroupFields $
---             getLogGroupFields
+--             mkGetLogGroupFields
 --
 --         , requestGetLogRecord $
---             getLogRecord
+--             mkGetLogRecord
 --
 --         , requestDescribeDestinations $
---             describeDestinations
+--             mkDescribeDestinations
 --
 --         , requestUntagLogGroup $
---             untagLogGroup
+--             mkUntagLogGroup
 --
 --         , requestStopQuery $
---             stopQuery
+--             mkStopQuery
 --
 --         , requestCreateExportTask $
---             createExportTask
+--             mkCreateExportTask
 --
 --         , requestPutDestination $
---             putDestination
+--             mkPutDestination
 --
 --         , requestDescribeSubscriptionFilters $
---             describeSubscriptionFilters
+--             mkDescribeSubscriptionFilters
 --
 --         , requestGetLogEvents $
---             getLogEvents
+--             mkGetLogEvents
 --
 --         , requestDescribeLogGroups $
---             describeLogGroups
+--             mkDescribeLogGroups
 --
 --         , requestDeleteDestination $
---             deleteDestination
+--             mkDeleteDestination
 --
 --         , requestDisassociateKMSKey $
---             disassociateKMSKey
+--             mkDisassociateKMSKey
 --
 --         , requestFilterLogEvents $
---             filterLogEvents
+--             mkFilterLogEvents
 --
 --         , requestDeleteQueryDefinition $
---             deleteQueryDefinition
+--             mkDeleteQueryDefinition
 --
 --         , requestPutQueryDefinition $
---             putQueryDefinition
+--             mkPutQueryDefinition
 --
 --         , requestTagLogGroup $
---             tagLogGroup
+--             mkTagLogGroup
 --
 --         , requestDescribeResourcePolicies $
---             describeResourcePolicies
+--             mkDescribeResourcePolicies
 --
 --         , requestDescribeQueryDefinitions $
---             describeQueryDefinitions
+--             mkDescribeQueryDefinitions
 --
 --         , requestDeleteLogStream $
---             deleteLogStream
+--             mkDeleteLogStream
 --
 --         , requestDescribeQueries $
---             describeQueries
+--             mkDescribeQueries
 --
 --         , requestCreateLogStream $
---             createLogStream
+--             mkCreateLogStream
 --
 --         , requestCreateLogGroup $
---             createLogGroup
+--             mkCreateLogGroup
 --
 --         , requestDescribeExportTasks $
---             describeExportTasks
+--             mkDescribeExportTasks
 --
 --         , requestCancelExportTask $
---             cancelExportTask
+--             mkCancelExportTask
 --
 --         , requestPutSubscriptionFilter $
---             putSubscriptionFilter
+--             mkPutSubscriptionFilter
 --
 --         , requestStartQuery $
---             startQuery
+--             mkStartQuery
 --
 --         , requestDeleteLogGroup $
---             deleteLogGroup
+--             mkDeleteLogGroup
 --
 --         , requestDeleteSubscriptionFilter $
---             deleteSubscriptionFilter
+--             mkDeleteSubscriptionFilter
 --
 --         , requestPutLogEvents $
---             putLogEvents
+--             mkPutLogEvents
 --
 --         , requestDescribeMetricFilters $
---             describeMetricFilters
+--             mkDescribeMetricFilters
 --
 --         , requestTestMetricFilter $
---             testMetricFilter
+--             mkTestMetricFilter
 --
 --         , requestPutDestinationPolicy $
---             putDestinationPolicy
+--             mkPutDestinationPolicy
 --
 --         , requestPutMetricFilter $
---             putMetricFilter
+--             mkPutMetricFilter
 --
 --         , requestDeleteRetentionPolicy $
---             deleteRetentionPolicy
+--             mkDeleteRetentionPolicy
 --
 --         , requestDeleteMetricFilter $
---             deleteMetricFilter
+--             mkDeleteMetricFilter
 --
 --         , requestPutRetentionPolicy $
---             putRetentionPolicy
+--             mkPutRetentionPolicy
 --
 --         , requestListTagsLogGroup $
---             listTagsLogGroup
+--             mkListTagsLogGroup
 --
 --         , requestPutResourcePolicy $
---             putResourcePolicy
+--             mkPutResourcePolicy
 --
 --         , requestDeleteResourcePolicy $
---             deleteResourcePolicy
+--             mkDeleteResourcePolicy
 --
 --         , requestAssociateKMSKey $
---             associateKMSKey
+--             mkAssociateKMSKey
 --
 --         , requestGetQueryResults $
---             getQueryResults
+--             mkGetQueryResults
 --
 --         , requestDescribeLogStreams $
---             describeLogStreams
+--             mkDescribeLogStreams
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetLogGroupFields $
---             getLogGroupFieldsResponse
+--             mkGetLogGroupFieldsResponse
 --
 --         , responseGetLogRecord $
---             getLogRecordResponse
+--             mkGetLogRecordResponse
 --
 --         , responseDescribeDestinations $
---             describeDestinationsResponse
+--             mkDescribeDestinationsResponse
 --
 --         , responseUntagLogGroup $
---             untagLogGroupResponse
+--             mkUntagLogGroupResponse
 --
 --         , responseStopQuery $
---             stopQueryResponse
+--             mkStopQueryResponse
 --
 --         , responseCreateExportTask $
---             createExportTaskResponse
+--             mkCreateExportTaskResponse
 --
 --         , responsePutDestination $
---             putDestinationResponse
+--             mkPutDestinationResponse
 --
 --         , responseDescribeSubscriptionFilters $
---             describeSubscriptionFiltersResponse
+--             mkDescribeSubscriptionFiltersResponse
 --
 --         , responseGetLogEvents $
---             getLogEventsResponse
+--             mkGetLogEventsResponse
 --
 --         , responseDescribeLogGroups $
---             describeLogGroupsResponse
+--             mkDescribeLogGroupsResponse
 --
 --         , responseDeleteDestination $
---             deleteDestinationResponse
+--             mkDeleteDestinationResponse
 --
 --         , responseDisassociateKMSKey $
---             disassociateKMSKeyResponse
+--             mkDisassociateKMSKeyResponse
 --
 --         , responseFilterLogEvents $
---             filterLogEventsResponse
+--             mkFilterLogEventsResponse
 --
 --         , responseDeleteQueryDefinition $
---             deleteQueryDefinitionResponse
+--             mkDeleteQueryDefinitionResponse
 --
 --         , responsePutQueryDefinition $
---             putQueryDefinitionResponse
+--             mkPutQueryDefinitionResponse
 --
 --         , responseTagLogGroup $
---             tagLogGroupResponse
+--             mkTagLogGroupResponse
 --
 --         , responseDescribeResourcePolicies $
---             describeResourcePoliciesResponse
+--             mkDescribeResourcePoliciesResponse
 --
 --         , responseDescribeQueryDefinitions $
---             describeQueryDefinitionsResponse
+--             mkDescribeQueryDefinitionsResponse
 --
 --         , responseDeleteLogStream $
---             deleteLogStreamResponse
+--             mkDeleteLogStreamResponse
 --
 --         , responseDescribeQueries $
---             describeQueriesResponse
+--             mkDescribeQueriesResponse
 --
 --         , responseCreateLogStream $
---             createLogStreamResponse
+--             mkCreateLogStreamResponse
 --
 --         , responseCreateLogGroup $
---             createLogGroupResponse
+--             mkCreateLogGroupResponse
 --
 --         , responseDescribeExportTasks $
---             describeExportTasksResponse
+--             mkDescribeExportTasksResponse
 --
 --         , responseCancelExportTask $
---             cancelExportTaskResponse
+--             mkCancelExportTaskResponse
 --
 --         , responsePutSubscriptionFilter $
---             putSubscriptionFilterResponse
+--             mkPutSubscriptionFilterResponse
 --
 --         , responseStartQuery $
---             startQueryResponse
+--             mkStartQueryResponse
 --
 --         , responseDeleteLogGroup $
---             deleteLogGroupResponse
+--             mkDeleteLogGroupResponse
 --
 --         , responseDeleteSubscriptionFilter $
---             deleteSubscriptionFilterResponse
+--             mkDeleteSubscriptionFilterResponse
 --
 --         , responsePutLogEvents $
---             putLogEventsResponse
+--             mkPutLogEventsResponse
 --
 --         , responseDescribeMetricFilters $
---             describeMetricFiltersResponse
+--             mkDescribeMetricFiltersResponse
 --
 --         , responseTestMetricFilter $
---             testMetricFilterResponse
+--             mkTestMetricFilterResponse
 --
 --         , responsePutDestinationPolicy $
---             putDestinationPolicyResponse
+--             mkPutDestinationPolicyResponse
 --
 --         , responsePutMetricFilter $
---             putMetricFilterResponse
+--             mkPutMetricFilterResponse
 --
 --         , responseDeleteRetentionPolicy $
---             deleteRetentionPolicyResponse
+--             mkDeleteRetentionPolicyResponse
 --
 --         , responseDeleteMetricFilter $
---             deleteMetricFilterResponse
+--             mkDeleteMetricFilterResponse
 --
 --         , responsePutRetentionPolicy $
---             putRetentionPolicyResponse
+--             mkPutRetentionPolicyResponse
 --
 --         , responseListTagsLogGroup $
---             listTagsLogGroupResponse
+--             mkListTagsLogGroupResponse
 --
 --         , responsePutResourcePolicy $
---             putResourcePolicyResponse
+--             mkPutResourcePolicyResponse
 --
 --         , responseDeleteResourcePolicy $
---             deleteResourcePolicyResponse
+--             mkDeleteResourcePolicyResponse
 --
 --         , responseAssociateKMSKey $
---             associateKMSKeyResponse
+--             mkAssociateKMSKeyResponse
 --
 --         , responseGetQueryResults $
---             getQueryResultsResponse
+--             mkGetQueryResultsResponse
 --
 --         , responseDescribeLogStreams $
---             describeLogStreamsResponse
+--             mkDescribeLogStreamsResponse
 --
 --           ]
 --     ]
@@ -546,7 +546,7 @@ responseGetLogGroupFields =
   res
     "GetLogGroupFieldsResponse"
     "fixture/GetLogGroupFieldsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy GetLogGroupFields)
 
 responseGetLogRecord :: GetLogRecordResponse -> TestTree
@@ -554,7 +554,7 @@ responseGetLogRecord =
   res
     "GetLogRecordResponse"
     "fixture/GetLogRecordResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy GetLogRecord)
 
 responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
@@ -562,7 +562,7 @@ responseDescribeDestinations =
   res
     "DescribeDestinationsResponse"
     "fixture/DescribeDestinationsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeDestinations)
 
 responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
@@ -570,7 +570,7 @@ responseUntagLogGroup =
   res
     "UntagLogGroupResponse"
     "fixture/UntagLogGroupResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy UntagLogGroup)
 
 responseStopQuery :: StopQueryResponse -> TestTree
@@ -578,7 +578,7 @@ responseStopQuery =
   res
     "StopQueryResponse"
     "fixture/StopQueryResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy StopQuery)
 
 responseCreateExportTask :: CreateExportTaskResponse -> TestTree
@@ -586,7 +586,7 @@ responseCreateExportTask =
   res
     "CreateExportTaskResponse"
     "fixture/CreateExportTaskResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy CreateExportTask)
 
 responsePutDestination :: PutDestinationResponse -> TestTree
@@ -594,7 +594,7 @@ responsePutDestination =
   res
     "PutDestinationResponse"
     "fixture/PutDestinationResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutDestination)
 
 responseDescribeSubscriptionFilters :: DescribeSubscriptionFiltersResponse -> TestTree
@@ -602,7 +602,7 @@ responseDescribeSubscriptionFilters =
   res
     "DescribeSubscriptionFiltersResponse"
     "fixture/DescribeSubscriptionFiltersResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeSubscriptionFilters)
 
 responseGetLogEvents :: GetLogEventsResponse -> TestTree
@@ -610,7 +610,7 @@ responseGetLogEvents =
   res
     "GetLogEventsResponse"
     "fixture/GetLogEventsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy GetLogEvents)
 
 responseDescribeLogGroups :: DescribeLogGroupsResponse -> TestTree
@@ -618,7 +618,7 @@ responseDescribeLogGroups =
   res
     "DescribeLogGroupsResponse"
     "fixture/DescribeLogGroupsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeLogGroups)
 
 responseDeleteDestination :: DeleteDestinationResponse -> TestTree
@@ -626,7 +626,7 @@ responseDeleteDestination =
   res
     "DeleteDestinationResponse"
     "fixture/DeleteDestinationResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteDestination)
 
 responseDisassociateKMSKey :: DisassociateKMSKeyResponse -> TestTree
@@ -634,7 +634,7 @@ responseDisassociateKMSKey =
   res
     "DisassociateKMSKeyResponse"
     "fixture/DisassociateKMSKeyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DisassociateKMSKey)
 
 responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
@@ -642,7 +642,7 @@ responseFilterLogEvents =
   res
     "FilterLogEventsResponse"
     "fixture/FilterLogEventsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy FilterLogEvents)
 
 responseDeleteQueryDefinition :: DeleteQueryDefinitionResponse -> TestTree
@@ -650,7 +650,7 @@ responseDeleteQueryDefinition =
   res
     "DeleteQueryDefinitionResponse"
     "fixture/DeleteQueryDefinitionResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteQueryDefinition)
 
 responsePutQueryDefinition :: PutQueryDefinitionResponse -> TestTree
@@ -658,7 +658,7 @@ responsePutQueryDefinition =
   res
     "PutQueryDefinitionResponse"
     "fixture/PutQueryDefinitionResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutQueryDefinition)
 
 responseTagLogGroup :: TagLogGroupResponse -> TestTree
@@ -666,7 +666,7 @@ responseTagLogGroup =
   res
     "TagLogGroupResponse"
     "fixture/TagLogGroupResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy TagLogGroup)
 
 responseDescribeResourcePolicies :: DescribeResourcePoliciesResponse -> TestTree
@@ -674,7 +674,7 @@ responseDescribeResourcePolicies =
   res
     "DescribeResourcePoliciesResponse"
     "fixture/DescribeResourcePoliciesResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeResourcePolicies)
 
 responseDescribeQueryDefinitions :: DescribeQueryDefinitionsResponse -> TestTree
@@ -682,7 +682,7 @@ responseDescribeQueryDefinitions =
   res
     "DescribeQueryDefinitionsResponse"
     "fixture/DescribeQueryDefinitionsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeQueryDefinitions)
 
 responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
@@ -690,7 +690,7 @@ responseDeleteLogStream =
   res
     "DeleteLogStreamResponse"
     "fixture/DeleteLogStreamResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteLogStream)
 
 responseDescribeQueries :: DescribeQueriesResponse -> TestTree
@@ -698,7 +698,7 @@ responseDescribeQueries =
   res
     "DescribeQueriesResponse"
     "fixture/DescribeQueriesResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeQueries)
 
 responseCreateLogStream :: CreateLogStreamResponse -> TestTree
@@ -706,7 +706,7 @@ responseCreateLogStream =
   res
     "CreateLogStreamResponse"
     "fixture/CreateLogStreamResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy CreateLogStream)
 
 responseCreateLogGroup :: CreateLogGroupResponse -> TestTree
@@ -714,7 +714,7 @@ responseCreateLogGroup =
   res
     "CreateLogGroupResponse"
     "fixture/CreateLogGroupResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy CreateLogGroup)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
@@ -722,7 +722,7 @@ responseDescribeExportTasks =
   res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeExportTasks)
 
 responseCancelExportTask :: CancelExportTaskResponse -> TestTree
@@ -730,7 +730,7 @@ responseCancelExportTask =
   res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy CancelExportTask)
 
 responsePutSubscriptionFilter :: PutSubscriptionFilterResponse -> TestTree
@@ -738,7 +738,7 @@ responsePutSubscriptionFilter =
   res
     "PutSubscriptionFilterResponse"
     "fixture/PutSubscriptionFilterResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutSubscriptionFilter)
 
 responseStartQuery :: StartQueryResponse -> TestTree
@@ -746,7 +746,7 @@ responseStartQuery =
   res
     "StartQueryResponse"
     "fixture/StartQueryResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy StartQuery)
 
 responseDeleteLogGroup :: DeleteLogGroupResponse -> TestTree
@@ -754,7 +754,7 @@ responseDeleteLogGroup =
   res
     "DeleteLogGroupResponse"
     "fixture/DeleteLogGroupResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteLogGroup)
 
 responseDeleteSubscriptionFilter :: DeleteSubscriptionFilterResponse -> TestTree
@@ -762,7 +762,7 @@ responseDeleteSubscriptionFilter =
   res
     "DeleteSubscriptionFilterResponse"
     "fixture/DeleteSubscriptionFilterResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteSubscriptionFilter)
 
 responsePutLogEvents :: PutLogEventsResponse -> TestTree
@@ -770,7 +770,7 @@ responsePutLogEvents =
   res
     "PutLogEventsResponse"
     "fixture/PutLogEventsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutLogEvents)
 
 responseDescribeMetricFilters :: DescribeMetricFiltersResponse -> TestTree
@@ -778,7 +778,7 @@ responseDescribeMetricFilters =
   res
     "DescribeMetricFiltersResponse"
     "fixture/DescribeMetricFiltersResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeMetricFilters)
 
 responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
@@ -786,7 +786,7 @@ responseTestMetricFilter =
   res
     "TestMetricFilterResponse"
     "fixture/TestMetricFilterResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy TestMetricFilter)
 
 responsePutDestinationPolicy :: PutDestinationPolicyResponse -> TestTree
@@ -794,7 +794,7 @@ responsePutDestinationPolicy =
   res
     "PutDestinationPolicyResponse"
     "fixture/PutDestinationPolicyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutDestinationPolicy)
 
 responsePutMetricFilter :: PutMetricFilterResponse -> TestTree
@@ -802,7 +802,7 @@ responsePutMetricFilter =
   res
     "PutMetricFilterResponse"
     "fixture/PutMetricFilterResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutMetricFilter)
 
 responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
@@ -810,7 +810,7 @@ responseDeleteRetentionPolicy =
   res
     "DeleteRetentionPolicyResponse"
     "fixture/DeleteRetentionPolicyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteRetentionPolicy)
 
 responseDeleteMetricFilter :: DeleteMetricFilterResponse -> TestTree
@@ -818,7 +818,7 @@ responseDeleteMetricFilter =
   res
     "DeleteMetricFilterResponse"
     "fixture/DeleteMetricFilterResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteMetricFilter)
 
 responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
@@ -826,7 +826,7 @@ responsePutRetentionPolicy =
   res
     "PutRetentionPolicyResponse"
     "fixture/PutRetentionPolicyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutRetentionPolicy)
 
 responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
@@ -834,7 +834,7 @@ responseListTagsLogGroup =
   res
     "ListTagsLogGroupResponse"
     "fixture/ListTagsLogGroupResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy ListTagsLogGroup)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
@@ -842,7 +842,7 @@ responsePutResourcePolicy =
   res
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
@@ -850,7 +850,7 @@ responseDeleteResourcePolicy =
   res
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DeleteResourcePolicy)
 
 responseAssociateKMSKey :: AssociateKMSKeyResponse -> TestTree
@@ -858,7 +858,7 @@ responseAssociateKMSKey =
   res
     "AssociateKMSKeyResponse"
     "fixture/AssociateKMSKeyResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy AssociateKMSKey)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
@@ -866,7 +866,7 @@ responseGetQueryResults =
   res
     "GetQueryResultsResponse"
     "fixture/GetQueryResultsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy GetQueryResults)
 
 responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
@@ -874,5 +874,5 @@ responseDescribeLogStreams =
   res
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse.proto"
-    cloudWatchLogs
+    cloudWatchLogsService
     (Proxy :: Proxy DescribeLogStreams)

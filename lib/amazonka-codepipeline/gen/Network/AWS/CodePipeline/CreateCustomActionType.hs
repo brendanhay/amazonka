@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new custom action that can be used in all pipelines associated with the AWS account. Only used for custom actions.
 module Network.AWS.CodePipeline.CreateCustomActionType
-  ( -- * Creating a Request
-    createCustomActionType,
-    CreateCustomActionType,
+  ( -- * Creating a request
+    CreateCustomActionType (..),
+    mkCreateCustomActionType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccatSettings,
     ccatConfigurationProperties,
     ccatTags,
@@ -33,11 +28,11 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     ccatInputArtifactDetails,
     ccatOutputArtifactDetails,
 
-    -- * Destructuring the Response
-    createCustomActionTypeResponse,
-    CreateCustomActionTypeResponse,
+    -- * Destructuring the response
+    CreateCustomActionTypeResponse (..),
+    mkCreateCustomActionTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccatrsTags,
     ccatrsResponseStatus,
     ccatrsActionType,
@@ -45,204 +40,230 @@ module Network.AWS.CodePipeline.CreateCustomActionType
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a CreateCustomActionType operation.
 --
---
---
--- /See:/ 'createCustomActionType' smart constructor.
+-- /See:/ 'mkCreateCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
-  { _ccatSettings ::
-      !(Maybe ActionTypeSettings),
-    _ccatConfigurationProperties ::
-      !(Maybe [ActionConfigurationProperty]),
-    _ccatTags :: !(Maybe [Tag]),
-    _ccatCategory :: !ActionCategory,
-    _ccatProvider :: !Text,
-    _ccatVersion :: !Text,
-    _ccatInputArtifactDetails :: !ArtifactDetails,
-    _ccatOutputArtifactDetails ::
-      !ArtifactDetails
+  { settings ::
+      Lude.Maybe ActionTypeSettings,
+    configurationProperties ::
+      Lude.Maybe [ActionConfigurationProperty],
+    tags :: Lude.Maybe [Tag],
+    category :: ActionCategory,
+    provider :: Lude.Text,
+    version :: Lude.Text,
+    inputArtifactDetails :: ArtifactDetails,
+    outputArtifactDetails :: ArtifactDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomActionType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccatSettings' - URLs that provide users information about this custom action.
---
--- * 'ccatConfigurationProperties' - The configuration properties for the custom action.
---
--- * 'ccatTags' - The tags for the custom action.
---
--- * 'ccatCategory' - The category of the custom action, such as a build action or a test action.
---
--- * 'ccatProvider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
---
--- * 'ccatVersion' - The version identifier of the custom action.
---
--- * 'ccatInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
---
--- * 'ccatOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
-createCustomActionType ::
-  -- | 'ccatCategory'
+-- * 'category' - The category of the custom action, such as a build action or a test action.
+-- * 'configurationProperties' - The configuration properties for the custom action.
+-- * 'inputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
+-- * 'outputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
+-- * 'provider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
+-- * 'settings' - URLs that provide users information about this custom action.
+-- * 'tags' - The tags for the custom action.
+-- * 'version' - The version identifier of the custom action.
+mkCreateCustomActionType ::
+  -- | 'category'
   ActionCategory ->
-  -- | 'ccatProvider'
-  Text ->
-  -- | 'ccatVersion'
-  Text ->
-  -- | 'ccatInputArtifactDetails'
+  -- | 'provider'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
+  -- | 'inputArtifactDetails'
   ArtifactDetails ->
-  -- | 'ccatOutputArtifactDetails'
+  -- | 'outputArtifactDetails'
   ArtifactDetails ->
   CreateCustomActionType
-createCustomActionType
+mkCreateCustomActionType
   pCategory_
   pProvider_
   pVersion_
   pInputArtifactDetails_
   pOutputArtifactDetails_ =
     CreateCustomActionType'
-      { _ccatSettings = Nothing,
-        _ccatConfigurationProperties = Nothing,
-        _ccatTags = Nothing,
-        _ccatCategory = pCategory_,
-        _ccatProvider = pProvider_,
-        _ccatVersion = pVersion_,
-        _ccatInputArtifactDetails = pInputArtifactDetails_,
-        _ccatOutputArtifactDetails = pOutputArtifactDetails_
+      { settings = Lude.Nothing,
+        configurationProperties = Lude.Nothing,
+        tags = Lude.Nothing,
+        category = pCategory_,
+        provider = pProvider_,
+        version = pVersion_,
+        inputArtifactDetails = pInputArtifactDetails_,
+        outputArtifactDetails = pOutputArtifactDetails_
       }
 
 -- | URLs that provide users information about this custom action.
-ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
-ccatSettings = lens _ccatSettings (\s a -> s {_ccatSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatSettings :: Lens.Lens' CreateCustomActionType (Lude.Maybe ActionTypeSettings)
+ccatSettings = Lens.lens (settings :: CreateCustomActionType -> Lude.Maybe ActionTypeSettings) (\s a -> s {settings = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The configuration properties for the custom action.
-ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
-ccatConfigurationProperties = lens _ccatConfigurationProperties (\s a -> s {_ccatConfigurationProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatConfigurationProperties :: Lens.Lens' CreateCustomActionType (Lude.Maybe [ActionConfigurationProperty])
+ccatConfigurationProperties = Lens.lens (configurationProperties :: CreateCustomActionType -> Lude.Maybe [ActionConfigurationProperty]) (\s a -> s {configurationProperties = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatConfigurationProperties "Use generic-lens or generic-optics with 'configurationProperties' instead." #-}
 
 -- | The tags for the custom action.
-ccatTags :: Lens' CreateCustomActionType [Tag]
-ccatTags = lens _ccatTags (\s a -> s {_ccatTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatTags :: Lens.Lens' CreateCustomActionType (Lude.Maybe [Tag])
+ccatTags = Lens.lens (tags :: CreateCustomActionType -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The category of the custom action, such as a build action or a test action.
-ccatCategory :: Lens' CreateCustomActionType ActionCategory
-ccatCategory = lens _ccatCategory (\s a -> s {_ccatCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatCategory :: Lens.Lens' CreateCustomActionType ActionCategory
+ccatCategory = Lens.lens (category :: CreateCustomActionType -> ActionCategory) (\s a -> s {category = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | The provider of the service used in the custom action, such as AWS CodeDeploy.
-ccatProvider :: Lens' CreateCustomActionType Text
-ccatProvider = lens _ccatProvider (\s a -> s {_ccatProvider = a})
+--
+-- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatProvider :: Lens.Lens' CreateCustomActionType Lude.Text
+ccatProvider = Lens.lens (provider :: CreateCustomActionType -> Lude.Text) (\s a -> s {provider = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
 
 -- | The version identifier of the custom action.
-ccatVersion :: Lens' CreateCustomActionType Text
-ccatVersion = lens _ccatVersion (\s a -> s {_ccatVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatVersion :: Lens.Lens' CreateCustomActionType Lude.Text
+ccatVersion = Lens.lens (version :: CreateCustomActionType -> Lude.Text) (\s a -> s {version = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The details of the input artifact for the action, such as its commit ID.
-ccatInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
-ccatInputArtifactDetails = lens _ccatInputArtifactDetails (\s a -> s {_ccatInputArtifactDetails = a})
+--
+-- /Note:/ Consider using 'inputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatInputArtifactDetails :: Lens.Lens' CreateCustomActionType ArtifactDetails
+ccatInputArtifactDetails = Lens.lens (inputArtifactDetails :: CreateCustomActionType -> ArtifactDetails) (\s a -> s {inputArtifactDetails = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatInputArtifactDetails "Use generic-lens or generic-optics with 'inputArtifactDetails' instead." #-}
 
 -- | The details of the output artifact of the action, such as its commit ID.
-ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
-ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\s a -> s {_ccatOutputArtifactDetails = a})
+--
+-- /Note:/ Consider using 'outputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatOutputArtifactDetails :: Lens.Lens' CreateCustomActionType ArtifactDetails
+ccatOutputArtifactDetails = Lens.lens (outputArtifactDetails :: CreateCustomActionType -> ArtifactDetails) (\s a -> s {outputArtifactDetails = a} :: CreateCustomActionType)
+{-# DEPRECATED ccatOutputArtifactDetails "Use generic-lens or generic-optics with 'outputArtifactDetails' instead." #-}
 
-instance AWSRequest CreateCustomActionType where
+instance Lude.AWSRequest CreateCustomActionType where
   type Rs CreateCustomActionType = CreateCustomActionTypeResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCustomActionTypeResponse'
-            <$> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
-            <*> (x .:> "actionType")
+            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "actionType")
       )
 
-instance Hashable CreateCustomActionType
-
-instance NFData CreateCustomActionType
-
-instance ToHeaders CreateCustomActionType where
+instance Lude.ToHeaders CreateCustomActionType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.CreateCustomActionType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.CreateCustomActionType" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateCustomActionType where
+instance Lude.ToJSON CreateCustomActionType where
   toJSON CreateCustomActionType' {..} =
-    object
-      ( catMaybes
-          [ ("settings" .=) <$> _ccatSettings,
-            ("configurationProperties" .=) <$> _ccatConfigurationProperties,
-            ("tags" .=) <$> _ccatTags,
-            Just ("category" .= _ccatCategory),
-            Just ("provider" .= _ccatProvider),
-            Just ("version" .= _ccatVersion),
-            Just ("inputArtifactDetails" .= _ccatInputArtifactDetails),
-            Just ("outputArtifactDetails" .= _ccatOutputArtifactDetails)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("settings" Lude..=) Lude.<$> settings,
+            ("configurationProperties" Lude..=)
+              Lude.<$> configurationProperties,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("category" Lude..= category),
+            Lude.Just ("provider" Lude..= provider),
+            Lude.Just ("version" Lude..= version),
+            Lude.Just ("inputArtifactDetails" Lude..= inputArtifactDetails),
+            Lude.Just ("outputArtifactDetails" Lude..= outputArtifactDetails)
           ]
       )
 
-instance ToPath CreateCustomActionType where
-  toPath = const "/"
+instance Lude.ToPath CreateCustomActionType where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateCustomActionType where
-  toQuery = const mempty
+instance Lude.ToQuery CreateCustomActionType where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateCustomActionType@ operation.
 --
---
---
--- /See:/ 'createCustomActionTypeResponse' smart constructor.
+-- /See:/ 'mkCreateCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-  { _ccatrsTags ::
-      !(Maybe [Tag]),
-    _ccatrsResponseStatus :: !Int,
-    _ccatrsActionType ::
-      !ActionType
+  { tags ::
+      Lude.Maybe [Tag],
+    responseStatus :: Lude.Int,
+    actionType :: ActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomActionTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccatrsTags' - Specifies the tags applied to the custom action.
---
--- * 'ccatrsResponseStatus' - -- | The response status code.
---
--- * 'ccatrsActionType' - Returns information about the details of an action type.
-createCustomActionTypeResponse ::
-  -- | 'ccatrsResponseStatus'
-  Int ->
-  -- | 'ccatrsActionType'
+-- * 'actionType' - Returns information about the details of an action type.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Specifies the tags applied to the custom action.
+mkCreateCustomActionTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'actionType'
   ActionType ->
   CreateCustomActionTypeResponse
-createCustomActionTypeResponse pResponseStatus_ pActionType_ =
+mkCreateCustomActionTypeResponse pResponseStatus_ pActionType_ =
   CreateCustomActionTypeResponse'
-    { _ccatrsTags = Nothing,
-      _ccatrsResponseStatus = pResponseStatus_,
-      _ccatrsActionType = pActionType_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      actionType = pActionType_
     }
 
 -- | Specifies the tags applied to the custom action.
-ccatrsTags :: Lens' CreateCustomActionTypeResponse [Tag]
-ccatrsTags = lens _ccatrsTags (\s a -> s {_ccatrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatrsTags :: Lens.Lens' CreateCustomActionTypeResponse (Lude.Maybe [Tag])
+ccatrsTags = Lens.lens (tags :: CreateCustomActionTypeResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCustomActionTypeResponse)
+{-# DEPRECATED ccatrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
-ccatrsResponseStatus = lens _ccatrsResponseStatus (\s a -> s {_ccatrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatrsResponseStatus :: Lens.Lens' CreateCustomActionTypeResponse Lude.Int
+ccatrsResponseStatus = Lens.lens (responseStatus :: CreateCustomActionTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCustomActionTypeResponse)
+{-# DEPRECATED ccatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Returns information about the details of an action type.
-ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
-ccatrsActionType = lens _ccatrsActionType (\s a -> s {_ccatrsActionType = a})
-
-instance NFData CreateCustomActionTypeResponse
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccatrsActionType :: Lens.Lens' CreateCustomActionTypeResponse ActionType
+ccatrsActionType = Lens.lens (actionType :: CreateCustomActionTypeResponse -> ActionType) (\s a -> s {actionType = a} :: CreateCustomActionTypeResponse)
+{-# DEPRECATED ccatrsActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}

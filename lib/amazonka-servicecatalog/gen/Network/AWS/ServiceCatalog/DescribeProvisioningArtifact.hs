@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Gets information about the specified provisioning artifact (also known as a version) for the specified product.
 module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
-  ( -- * Creating a Request
-    describeProvisioningArtifact,
-    DescribeProvisioningArtifact,
+  ( -- * Creating a request
+    DescribeProvisioningArtifact (..),
+    mkDescribeProvisioningArtifact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpaProductName,
     dpaProvisioningArtifactId,
     dpaVerbose,
@@ -31,11 +26,11 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
     dpaAcceptLanguage,
     dpaProductId,
 
-    -- * Destructuring the Response
-    describeProvisioningArtifactResponse,
-    DescribeProvisioningArtifactResponse,
+    -- * Destructuring the response
+    DescribeProvisioningArtifactResponse (..),
+    mkDescribeProvisioningArtifactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpaprsStatus,
     dpaprsInfo,
     dpaprsProvisioningArtifactDetail,
@@ -43,187 +38,234 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'describeProvisioningArtifact' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-  { _dpaProductName ::
-      !(Maybe Text),
-    _dpaProvisioningArtifactId ::
-      !(Maybe Text),
-    _dpaVerbose :: !(Maybe Bool),
-    _dpaProvisioningArtifactName ::
-      !(Maybe Text),
-    _dpaAcceptLanguage ::
-      !(Maybe Text),
-    _dpaProductId :: !(Maybe Text)
+  { productName ::
+      Lude.Maybe Lude.Text,
+    provisioningArtifactId ::
+      Lude.Maybe Lude.Text,
+    verbose :: Lude.Maybe Lude.Bool,
+    provisioningArtifactName ::
+      Lude.Maybe Lude.Text,
+    acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'dpaProductName' - The product name.
 --
--- * 'dpaProvisioningArtifactId' - The identifier of the provisioning artifact.
+--     * @en@ - English (default)
 --
--- * 'dpaVerbose' - Indicates whether a verbose level of detail is enabled.
 --
--- * 'dpaProvisioningArtifactName' - The provisioning artifact name.
+--     * @jp@ - Japanese
 --
--- * 'dpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpaProductId' - The product identifier.
-describeProvisioningArtifact ::
+--     * @zh@ - Chinese
+--
+--
+-- * 'productId' - The product identifier.
+-- * 'productName' - The product name.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'provisioningArtifactName' - The provisioning artifact name.
+-- * 'verbose' - Indicates whether a verbose level of detail is enabled.
+mkDescribeProvisioningArtifact ::
   DescribeProvisioningArtifact
-describeProvisioningArtifact =
+mkDescribeProvisioningArtifact =
   DescribeProvisioningArtifact'
-    { _dpaProductName = Nothing,
-      _dpaProvisioningArtifactId = Nothing,
-      _dpaVerbose = Nothing,
-      _dpaProvisioningArtifactName = Nothing,
-      _dpaAcceptLanguage = Nothing,
-      _dpaProductId = Nothing
+    { productName = Lude.Nothing,
+      provisioningArtifactId = Lude.Nothing,
+      verbose = Lude.Nothing,
+      provisioningArtifactName = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      productId = Lude.Nothing
     }
 
 -- | The product name.
-dpaProductName :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaProductName = lens _dpaProductName (\s a -> s {_dpaProductName = a})
+--
+-- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaProductName :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Text)
+dpaProductName = Lens.lens (productName :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {productName = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-dpaProvisioningArtifactId :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaProvisioningArtifactId = lens _dpaProvisioningArtifactId (\s a -> s {_dpaProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaProvisioningArtifactId :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Text)
+dpaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | Indicates whether a verbose level of detail is enabled.
-dpaVerbose :: Lens' DescribeProvisioningArtifact (Maybe Bool)
-dpaVerbose = lens _dpaVerbose (\s a -> s {_dpaVerbose = a})
+--
+-- /Note:/ Consider using 'verbose' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaVerbose :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Bool)
+dpaVerbose = Lens.lens (verbose :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Bool) (\s a -> s {verbose = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaVerbose "Use generic-lens or generic-optics with 'verbose' instead." #-}
 
 -- | The provisioning artifact name.
-dpaProvisioningArtifactName :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaProvisioningArtifactName = lens _dpaProvisioningArtifactName (\s a -> s {_dpaProvisioningArtifactName = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaProvisioningArtifactName :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Text)
+dpaProvisioningArtifactName = Lens.lens (provisioningArtifactName :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactName = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dpaAcceptLanguage :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaAcceptLanguage = lens _dpaAcceptLanguage (\s a -> s {_dpaAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaAcceptLanguage :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Text)
+dpaAcceptLanguage = Lens.lens (acceptLanguage :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier.
-dpaProductId :: Lens' DescribeProvisioningArtifact (Maybe Text)
-dpaProductId = lens _dpaProductId (\s a -> s {_dpaProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaProductId :: Lens.Lens' DescribeProvisioningArtifact (Lude.Maybe Lude.Text)
+dpaProductId = Lens.lens (productId :: DescribeProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: DescribeProvisioningArtifact)
+{-# DEPRECATED dpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance AWSRequest DescribeProvisioningArtifact where
+instance Lude.AWSRequest DescribeProvisioningArtifact where
   type
     Rs DescribeProvisioningArtifact =
       DescribeProvisioningArtifactResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProvisioningArtifactResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "Info" .!@ mempty)
-            <*> (x .?> "ProvisioningArtifactDetail")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "Info" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ProvisioningArtifactDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeProvisioningArtifact
-
-instance NFData DescribeProvisioningArtifact
-
-instance ToHeaders DescribeProvisioningArtifact where
+instance Lude.ToHeaders DescribeProvisioningArtifact where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.DescribeProvisioningArtifact" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.DescribeProvisioningArtifact" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeProvisioningArtifact where
+instance Lude.ToJSON DescribeProvisioningArtifact where
   toJSON DescribeProvisioningArtifact' {..} =
-    object
-      ( catMaybes
-          [ ("ProductName" .=) <$> _dpaProductName,
-            ("ProvisioningArtifactId" .=) <$> _dpaProvisioningArtifactId,
-            ("Verbose" .=) <$> _dpaVerbose,
-            ("ProvisioningArtifactName" .=) <$> _dpaProvisioningArtifactName,
-            ("AcceptLanguage" .=) <$> _dpaAcceptLanguage,
-            ("ProductId" .=) <$> _dpaProductId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProductName" Lude..=) Lude.<$> productName,
+            ("ProvisioningArtifactId" Lude..=) Lude.<$> provisioningArtifactId,
+            ("Verbose" Lude..=) Lude.<$> verbose,
+            ("ProvisioningArtifactName" Lude..=)
+              Lude.<$> provisioningArtifactName,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("ProductId" Lude..=) Lude.<$> productId
           ]
       )
 
-instance ToPath DescribeProvisioningArtifact where
-  toPath = const "/"
+instance Lude.ToPath DescribeProvisioningArtifact where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeProvisioningArtifact where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeProvisioningArtifact where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-  { _dpaprsStatus ::
-      !( Maybe
-           RequestStatus
-       ),
-    _dpaprsInfo ::
-      !( Maybe
-           ( Map
-               Text
-               (Text)
-           )
-       ),
-    _dpaprsProvisioningArtifactDetail ::
-      !( Maybe
-           ProvisioningArtifactDetail
-       ),
-    _dpaprsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        RequestStatus,
+    info ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    provisioningArtifactDetail ::
+      Lude.Maybe
+        ProvisioningArtifactDetail,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpaprsStatus' - The status of the current request.
---
--- * 'dpaprsInfo' - The URL of the CloudFormation template in Amazon S3.
---
--- * 'dpaprsProvisioningArtifactDetail' - Information about the provisioning artifact.
---
--- * 'dpaprsResponseStatus' - -- | The response status code.
-describeProvisioningArtifactResponse ::
-  -- | 'dpaprsResponseStatus'
-  Int ->
+-- * 'info' - The URL of the CloudFormation template in Amazon S3.
+-- * 'provisioningArtifactDetail' - Information about the provisioning artifact.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the current request.
+mkDescribeProvisioningArtifactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProvisioningArtifactResponse
-describeProvisioningArtifactResponse pResponseStatus_ =
+mkDescribeProvisioningArtifactResponse pResponseStatus_ =
   DescribeProvisioningArtifactResponse'
-    { _dpaprsStatus = Nothing,
-      _dpaprsInfo = Nothing,
-      _dpaprsProvisioningArtifactDetail = Nothing,
-      _dpaprsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      info = Lude.Nothing,
+      provisioningArtifactDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the current request.
-dpaprsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
-dpaprsStatus = lens _dpaprsStatus (\s a -> s {_dpaprsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaprsStatus :: Lens.Lens' DescribeProvisioningArtifactResponse (Lude.Maybe RequestStatus)
+dpaprsStatus = Lens.lens (status :: DescribeProvisioningArtifactResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: DescribeProvisioningArtifactResponse)
+{-# DEPRECATED dpaprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The URL of the CloudFormation template in Amazon S3.
-dpaprsInfo :: Lens' DescribeProvisioningArtifactResponse (HashMap Text (Text))
-dpaprsInfo = lens _dpaprsInfo (\s a -> s {_dpaprsInfo = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaprsInfo :: Lens.Lens' DescribeProvisioningArtifactResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dpaprsInfo = Lens.lens (info :: DescribeProvisioningArtifactResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {info = a} :: DescribeProvisioningArtifactResponse)
+{-# DEPRECATED dpaprsInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
 -- | Information about the provisioning artifact.
-dpaprsProvisioningArtifactDetail :: Lens' DescribeProvisioningArtifactResponse (Maybe ProvisioningArtifactDetail)
-dpaprsProvisioningArtifactDetail = lens _dpaprsProvisioningArtifactDetail (\s a -> s {_dpaprsProvisioningArtifactDetail = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaprsProvisioningArtifactDetail :: Lens.Lens' DescribeProvisioningArtifactResponse (Lude.Maybe ProvisioningArtifactDetail)
+dpaprsProvisioningArtifactDetail = Lens.lens (provisioningArtifactDetail :: DescribeProvisioningArtifactResponse -> Lude.Maybe ProvisioningArtifactDetail) (\s a -> s {provisioningArtifactDetail = a} :: DescribeProvisioningArtifactResponse)
+{-# DEPRECATED dpaprsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
 
--- | -- | The response status code.
-dpaprsResponseStatus :: Lens' DescribeProvisioningArtifactResponse Int
-dpaprsResponseStatus = lens _dpaprsResponseStatus (\s a -> s {_dpaprsResponseStatus = a})
-
-instance NFData DescribeProvisioningArtifactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaprsResponseStatus :: Lens.Lens' DescribeProvisioningArtifactResponse Lude.Int
+dpaprsResponseStatus = Lens.lens (responseStatus :: DescribeProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisioningArtifactResponse)
+{-# DEPRECATED dpaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

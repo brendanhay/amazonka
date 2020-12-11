@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBClusterSnapshotAttribute where
+module Network.AWS.RDS.Types.DBClusterSnapshotAttribute
+  ( DBClusterSnapshotAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBClusterSnapshotAttribute,
+
+    -- * Lenses
+    dcsaAttributeValues,
+    dcsaAttributeName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the name and values of a manual DB cluster snapshot attribute.
 --
---
 -- Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore a manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
 --
---
--- /See:/ 'dbClusterSnapshotAttribute' smart constructor.
+-- /See:/ 'mkDBClusterSnapshotAttribute' smart constructor.
 data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
-  { _dcsaAttributeValues ::
-      !(Maybe [Text]),
-    _dcsaAttributeName :: !(Maybe Text)
+  { attributeValues ::
+      Lude.Maybe [Lude.Text],
+    attributeName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterSnapshotAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeName' - The name of the manual DB cluster snapshot attribute.
 --
--- * 'dcsaAttributeValues' - The value(s) for the manual DB cluster snapshot attribute. If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of @all@ is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
+-- The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
+-- * 'attributeValues' - The value(s) for the manual DB cluster snapshot attribute.
 --
--- * 'dcsaAttributeName' - The name of the manual DB cluster snapshot attribute. The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
-dbClusterSnapshotAttribute ::
+-- If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of @all@ is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
+mkDBClusterSnapshotAttribute ::
   DBClusterSnapshotAttribute
-dbClusterSnapshotAttribute =
+mkDBClusterSnapshotAttribute =
   DBClusterSnapshotAttribute'
-    { _dcsaAttributeValues = Nothing,
-      _dcsaAttributeName = Nothing
+    { attributeValues = Lude.Nothing,
+      attributeName = Lude.Nothing
     }
 
--- | The value(s) for the manual DB cluster snapshot attribute. If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of @all@ is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
-dcsaAttributeValues :: Lens' DBClusterSnapshotAttribute [Text]
-dcsaAttributeValues = lens _dcsaAttributeValues (\s a -> s {_dcsaAttributeValues = a}) . _Default . _Coerce
+-- | The value(s) for the manual DB cluster snapshot attribute.
+--
+-- If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of @all@ is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
+--
+-- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsaAttributeValues :: Lens.Lens' DBClusterSnapshotAttribute (Lude.Maybe [Lude.Text])
+dcsaAttributeValues = Lens.lens (attributeValues :: DBClusterSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeValues = a} :: DBClusterSnapshotAttribute)
+{-# DEPRECATED dcsaAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
 
--- | The name of the manual DB cluster snapshot attribute. The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
-dcsaAttributeName :: Lens' DBClusterSnapshotAttribute (Maybe Text)
-dcsaAttributeName = lens _dcsaAttributeName (\s a -> s {_dcsaAttributeName = a})
+-- | The name of the manual DB cluster snapshot attribute.
+--
+-- The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsaAttributeName :: Lens.Lens' DBClusterSnapshotAttribute (Lude.Maybe Lude.Text)
+dcsaAttributeName = Lens.lens (attributeName :: DBClusterSnapshotAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: DBClusterSnapshotAttribute)
+{-# DEPRECATED dcsaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance FromXML DBClusterSnapshotAttribute where
+instance Lude.FromXML DBClusterSnapshotAttribute where
   parseXML x =
     DBClusterSnapshotAttribute'
-      <$> ( x .@? "AttributeValues" .!@ mempty
-              >>= may (parseXMLList "AttributeValue")
-          )
-      <*> (x .@? "AttributeName")
-
-instance Hashable DBClusterSnapshotAttribute
-
-instance NFData DBClusterSnapshotAttribute
+      Lude.<$> ( x Lude..@? "AttributeValues" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "AttributeValue")
+               )
+      Lude.<*> (x Lude..@? "AttributeName")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.AWSCredentials where
+module Network.AWS.GameLift.Types.AWSCredentials
+  ( AWSCredentials (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAWSCredentials,
+
+    -- * Lenses
+    acSecretAccessKey,
+    acSessionToken,
+    acAccessKeyId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Temporary access credentials used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling 'RequestUploadCredentials' .
 --
---
---
--- /See:/ 'awsCredentials' smart constructor.
+-- /See:/ 'mkAWSCredentials' smart constructor.
 data AWSCredentials = AWSCredentials'
-  { _acSecretAccessKey ::
-      !(Maybe Text),
-    _acSessionToken :: !(Maybe Text),
-    _acAccessKeyId :: !(Maybe Text)
+  { secretAccessKey ::
+      Lude.Maybe Lude.Text,
+    sessionToken :: Lude.Maybe Lude.Text,
+    accessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSCredentials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acSecretAccessKey' - Temporary secret key allowing access to the Amazon GameLift S3 account.
---
--- * 'acSessionToken' - Token used to associate a specific build ID with the files uploaded using these credentials.
---
--- * 'acAccessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
-awsCredentials ::
+-- * 'accessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
+-- * 'secretAccessKey' - Temporary secret key allowing access to the Amazon GameLift S3 account.
+-- * 'sessionToken' - Token used to associate a specific build ID with the files uploaded using these credentials.
+mkAWSCredentials ::
   AWSCredentials
-awsCredentials =
+mkAWSCredentials =
   AWSCredentials'
-    { _acSecretAccessKey = Nothing,
-      _acSessionToken = Nothing,
-      _acAccessKeyId = Nothing
+    { secretAccessKey = Lude.Nothing,
+      sessionToken = Lude.Nothing,
+      accessKeyId = Lude.Nothing
     }
 
 -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
-acSecretAccessKey :: Lens' AWSCredentials (Maybe Text)
-acSecretAccessKey = lens _acSecretAccessKey (\s a -> s {_acSecretAccessKey = a})
+--
+-- /Note:/ Consider using 'secretAccessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acSecretAccessKey :: Lens.Lens' AWSCredentials (Lude.Maybe Lude.Text)
+acSecretAccessKey = Lens.lens (secretAccessKey :: AWSCredentials -> Lude.Maybe Lude.Text) (\s a -> s {secretAccessKey = a} :: AWSCredentials)
+{-# DEPRECATED acSecretAccessKey "Use generic-lens or generic-optics with 'secretAccessKey' instead." #-}
 
 -- | Token used to associate a specific build ID with the files uploaded using these credentials.
-acSessionToken :: Lens' AWSCredentials (Maybe Text)
-acSessionToken = lens _acSessionToken (\s a -> s {_acSessionToken = a})
+--
+-- /Note:/ Consider using 'sessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acSessionToken :: Lens.Lens' AWSCredentials (Lude.Maybe Lude.Text)
+acSessionToken = Lens.lens (sessionToken :: AWSCredentials -> Lude.Maybe Lude.Text) (\s a -> s {sessionToken = a} :: AWSCredentials)
+{-# DEPRECATED acSessionToken "Use generic-lens or generic-optics with 'sessionToken' instead." #-}
 
 -- | Temporary key allowing access to the Amazon GameLift S3 account.
-acAccessKeyId :: Lens' AWSCredentials (Maybe Text)
-acAccessKeyId = lens _acAccessKeyId (\s a -> s {_acAccessKeyId = a})
+--
+-- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAccessKeyId :: Lens.Lens' AWSCredentials (Lude.Maybe Lude.Text)
+acAccessKeyId = Lens.lens (accessKeyId :: AWSCredentials -> Lude.Maybe Lude.Text) (\s a -> s {accessKeyId = a} :: AWSCredentials)
+{-# DEPRECATED acAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance FromJSON AWSCredentials where
+instance Lude.FromJSON AWSCredentials where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSCredentials"
       ( \x ->
           AWSCredentials'
-            <$> (x .:? "SecretAccessKey")
-            <*> (x .:? "SessionToken")
-            <*> (x .:? "AccessKeyId")
+            Lude.<$> (x Lude..:? "SecretAccessKey")
+            Lude.<*> (x Lude..:? "SessionToken")
+            Lude.<*> (x Lude..:? "AccessKeyId")
       )
-
-instance Hashable AWSCredentials
-
-instance NFData AWSCredentials

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,131 +7,166 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.Parameter where
+module Network.AWS.Redshift.Types.Parameter
+  ( Parameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameter,
+
+    -- * Lenses
+    pApplyType,
+    pParameterValue,
+    pMinimumEngineVersion,
+    pSource,
+    pIsModifiable,
+    pDataType,
+    pAllowedValues,
+    pParameterName,
+    pDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ParameterApplyType
 
 -- | Describes a parameter in a cluster parameter group.
 --
---
---
--- /See:/ 'parameter' smart constructor.
+-- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { _pApplyType ::
-      !(Maybe ParameterApplyType),
-    _pParameterValue :: !(Maybe Text),
-    _pMinimumEngineVersion :: !(Maybe Text),
-    _pSource :: !(Maybe Text),
-    _pIsModifiable :: !(Maybe Bool),
-    _pDataType :: !(Maybe Text),
-    _pAllowedValues :: !(Maybe Text),
-    _pParameterName :: !(Maybe Text),
-    _pDescription :: !(Maybe Text)
+  { applyType ::
+      Lude.Maybe ParameterApplyType,
+    parameterValue :: Lude.Maybe Lude.Text,
+    minimumEngineVersion :: Lude.Maybe Lude.Text,
+    source :: Lude.Maybe Lude.Text,
+    isModifiable :: Lude.Maybe Lude.Bool,
+    dataType :: Lude.Maybe Lude.Text,
+    allowedValues :: Lude.Maybe Lude.Text,
+    parameterName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pApplyType' - Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
---
--- * 'pParameterValue' - The value of the parameter.
---
--- * 'pMinimumEngineVersion' - The earliest engine version to which the parameter can apply.
---
--- * 'pSource' - The source of the parameter value, such as "engine-default" or "user".
---
--- * 'pIsModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
---
--- * 'pDataType' - The data type of the parameter.
---
--- * 'pAllowedValues' - The valid range of values for the parameter.
---
--- * 'pParameterName' - The name of the parameter.
---
--- * 'pDescription' - A description of the parameter.
-parameter ::
+-- * 'allowedValues' - The valid range of values for the parameter.
+-- * 'applyType' - Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+-- * 'dataType' - The data type of the parameter.
+-- * 'description' - A description of the parameter.
+-- * 'isModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
+-- * 'parameterName' - The name of the parameter.
+-- * 'parameterValue' - The value of the parameter.
+-- * 'source' - The source of the parameter value, such as "engine-default" or "user".
+mkParameter ::
   Parameter
-parameter =
+mkParameter =
   Parameter'
-    { _pApplyType = Nothing,
-      _pParameterValue = Nothing,
-      _pMinimumEngineVersion = Nothing,
-      _pSource = Nothing,
-      _pIsModifiable = Nothing,
-      _pDataType = Nothing,
-      _pAllowedValues = Nothing,
-      _pParameterName = Nothing,
-      _pDescription = Nothing
+    { applyType = Lude.Nothing,
+      parameterValue = Lude.Nothing,
+      minimumEngineVersion = Lude.Nothing,
+      source = Lude.Nothing,
+      isModifiable = Lude.Nothing,
+      dataType = Lude.Nothing,
+      allowedValues = Lude.Nothing,
+      parameterName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
-pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
-pApplyType = lens _pApplyType (\s a -> s {_pApplyType = a})
+--
+-- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pApplyType :: Lens.Lens' Parameter (Lude.Maybe ParameterApplyType)
+pApplyType = Lens.lens (applyType :: Parameter -> Lude.Maybe ParameterApplyType) (\s a -> s {applyType = a} :: Parameter)
+{-# DEPRECATED pApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
 
 -- | The value of the parameter.
-pParameterValue :: Lens' Parameter (Maybe Text)
-pParameterValue = lens _pParameterValue (\s a -> s {_pParameterValue = a})
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
+{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
 -- | The earliest engine version to which the parameter can apply.
-pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-pMinimumEngineVersion = lens _pMinimumEngineVersion (\s a -> s {_pMinimumEngineVersion = a})
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMinimumEngineVersion :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pMinimumEngineVersion = Lens.lens (minimumEngineVersion :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: Parameter)
+{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
 
 -- | The source of the parameter value, such as "engine-default" or "user".
-pSource :: Lens' Parameter (Maybe Text)
-pSource = lens _pSource (\s a -> s {_pSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pSource = Lens.lens (source :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: Parameter)
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
-pIsModifiable :: Lens' Parameter (Maybe Bool)
-pIsModifiable = lens _pIsModifiable (\s a -> s {_pIsModifiable = a})
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsModifiable :: Lens.Lens' Parameter (Lude.Maybe Lude.Bool)
+pIsModifiable = Lens.lens (isModifiable :: Parameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: Parameter)
+{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
 
 -- | The data type of the parameter.
-pDataType :: Lens' Parameter (Maybe Text)
-pDataType = lens _pDataType (\s a -> s {_pDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
+{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | The valid range of values for the parameter.
-pAllowedValues :: Lens' Parameter (Maybe Text)
-pAllowedValues = lens _pAllowedValues (\s a -> s {_pAllowedValues = a})
+--
+-- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAllowedValues :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pAllowedValues = Lens.lens (allowedValues :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: Parameter)
+{-# DEPRECATED pAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
 -- | The name of the parameter.
-pParameterName :: Lens' Parameter (Maybe Text)
-pParameterName = lens _pParameterName (\s a -> s {_pParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pParameterName = Lens.lens (parameterName :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: Parameter)
+{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | A description of the parameter.
-pDescription :: Lens' Parameter (Maybe Text)
-pDescription = lens _pDescription (\s a -> s {_pDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDescription :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
+pDescription = Lens.lens (description :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Parameter)
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML Parameter where
+instance Lude.FromXML Parameter where
   parseXML x =
     Parameter'
-      <$> (x .@? "ApplyType")
-      <*> (x .@? "ParameterValue")
-      <*> (x .@? "MinimumEngineVersion")
-      <*> (x .@? "Source")
-      <*> (x .@? "IsModifiable")
-      <*> (x .@? "DataType")
-      <*> (x .@? "AllowedValues")
-      <*> (x .@? "ParameterName")
-      <*> (x .@? "Description")
+      Lude.<$> (x Lude..@? "ApplyType")
+      Lude.<*> (x Lude..@? "ParameterValue")
+      Lude.<*> (x Lude..@? "MinimumEngineVersion")
+      Lude.<*> (x Lude..@? "Source")
+      Lude.<*> (x Lude..@? "IsModifiable")
+      Lude.<*> (x Lude..@? "DataType")
+      Lude.<*> (x Lude..@? "AllowedValues")
+      Lude.<*> (x Lude..@? "ParameterName")
+      Lude.<*> (x Lude..@? "Description")
 
-instance Hashable Parameter
-
-instance NFData Parameter
-
-instance ToQuery Parameter where
+instance Lude.ToQuery Parameter where
   toQuery Parameter' {..} =
-    mconcat
-      [ "ApplyType" =: _pApplyType,
-        "ParameterValue" =: _pParameterValue,
-        "MinimumEngineVersion" =: _pMinimumEngineVersion,
-        "Source" =: _pSource,
-        "IsModifiable" =: _pIsModifiable,
-        "DataType" =: _pDataType,
-        "AllowedValues" =: _pAllowedValues,
-        "ParameterName" =: _pParameterName,
-        "Description" =: _pDescription
+    Lude.mconcat
+      [ "ApplyType" Lude.=: applyType,
+        "ParameterValue" Lude.=: parameterValue,
+        "MinimumEngineVersion" Lude.=: minimumEngineVersion,
+        "Source" Lude.=: source,
+        "IsModifiable" Lude.=: isModifiable,
+        "DataType" Lude.=: dataType,
+        "AllowedValues" Lude.=: allowedValues,
+        "ParameterName" Lude.=: parameterName,
+        "Description" Lude.=: description
       ]

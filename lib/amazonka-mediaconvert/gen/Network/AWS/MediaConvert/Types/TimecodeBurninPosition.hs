@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TimecodeBurninPosition where
+module Network.AWS.MediaConvert.Types.TimecodeBurninPosition
+  ( TimecodeBurninPosition
+      ( TimecodeBurninPosition',
+        BottomCenter,
+        BottomLeft,
+        BottomRight,
+        MiddleCenter,
+        MiddleLeft,
+        MiddleRight,
+        TopCenter,
+        TopLeft,
+        TopRight
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
-data TimecodeBurninPosition
-  = BottomCenter
-  | BottomLeft
-  | BottomRight
-  | MiddleCenter
-  | MiddleLeft
-  | MiddleRight
-  | TopCenter
-  | TopLeft
-  | TopRight
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimecodeBurninPosition = TimecodeBurninPosition' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimecodeBurninPosition where
-  parser =
-    takeLowerText >>= \case
-      "bottom_center" -> pure BottomCenter
-      "bottom_left" -> pure BottomLeft
-      "bottom_right" -> pure BottomRight
-      "middle_center" -> pure MiddleCenter
-      "middle_left" -> pure MiddleLeft
-      "middle_right" -> pure MiddleRight
-      "top_center" -> pure TopCenter
-      "top_left" -> pure TopLeft
-      "top_right" -> pure TopRight
-      e ->
-        fromTextError $
-          "Failure parsing TimecodeBurninPosition from value: '" <> e
-            <> "'. Accepted values: bottom_center, bottom_left, bottom_right, middle_center, middle_left, middle_right, top_center, top_left, top_right"
+pattern BottomCenter :: TimecodeBurninPosition
+pattern BottomCenter = TimecodeBurninPosition' "BOTTOM_CENTER"
 
-instance ToText TimecodeBurninPosition where
-  toText = \case
-    BottomCenter -> "BOTTOM_CENTER"
-    BottomLeft -> "BOTTOM_LEFT"
-    BottomRight -> "BOTTOM_RIGHT"
-    MiddleCenter -> "MIDDLE_CENTER"
-    MiddleLeft -> "MIDDLE_LEFT"
-    MiddleRight -> "MIDDLE_RIGHT"
-    TopCenter -> "TOP_CENTER"
-    TopLeft -> "TOP_LEFT"
-    TopRight -> "TOP_RIGHT"
+pattern BottomLeft :: TimecodeBurninPosition
+pattern BottomLeft = TimecodeBurninPosition' "BOTTOM_LEFT"
 
-instance Hashable TimecodeBurninPosition
+pattern BottomRight :: TimecodeBurninPosition
+pattern BottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
 
-instance NFData TimecodeBurninPosition
+pattern MiddleCenter :: TimecodeBurninPosition
+pattern MiddleCenter = TimecodeBurninPosition' "MIDDLE_CENTER"
 
-instance ToByteString TimecodeBurninPosition
+pattern MiddleLeft :: TimecodeBurninPosition
+pattern MiddleLeft = TimecodeBurninPosition' "MIDDLE_LEFT"
 
-instance ToQuery TimecodeBurninPosition
+pattern MiddleRight :: TimecodeBurninPosition
+pattern MiddleRight = TimecodeBurninPosition' "MIDDLE_RIGHT"
 
-instance ToHeader TimecodeBurninPosition
+pattern TopCenter :: TimecodeBurninPosition
+pattern TopCenter = TimecodeBurninPosition' "TOP_CENTER"
 
-instance ToJSON TimecodeBurninPosition where
-  toJSON = toJSONText
+pattern TopLeft :: TimecodeBurninPosition
+pattern TopLeft = TimecodeBurninPosition' "TOP_LEFT"
 
-instance FromJSON TimecodeBurninPosition where
-  parseJSON = parseJSONText "TimecodeBurninPosition"
+pattern TopRight :: TimecodeBurninPosition
+pattern TopRight = TimecodeBurninPosition' "TOP_RIGHT"
+
+{-# COMPLETE
+  BottomCenter,
+  BottomLeft,
+  BottomRight,
+  MiddleCenter,
+  MiddleLeft,
+  MiddleRight,
+  TopCenter,
+  TopLeft,
+  TopRight,
+  TimecodeBurninPosition'
+  #-}

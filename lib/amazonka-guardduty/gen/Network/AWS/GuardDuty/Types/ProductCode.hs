@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.ProductCode where
+module Network.AWS.GuardDuty.Types.ProductCode
+  ( ProductCode (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProductCode,
+
+    -- * Lenses
+    pcProductType,
+    pcCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the product code for the EC2 instance.
 --
---
---
--- /See:/ 'productCode' smart constructor.
+-- /See:/ 'mkProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { _pcProductType :: !(Maybe Text),
-    _pcCode :: !(Maybe Text)
+  { productType ::
+      Lude.Maybe Lude.Text,
+    code :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductCode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcProductType' - The product code type.
---
--- * 'pcCode' - The product code information.
-productCode ::
+-- * 'code' - The product code information.
+-- * 'productType' - The product code type.
+mkProductCode ::
   ProductCode
-productCode =
-  ProductCode' {_pcProductType = Nothing, _pcCode = Nothing}
+mkProductCode =
+  ProductCode' {productType = Lude.Nothing, code = Lude.Nothing}
 
 -- | The product code type.
-pcProductType :: Lens' ProductCode (Maybe Text)
-pcProductType = lens _pcProductType (\s a -> s {_pcProductType = a})
+--
+-- /Note:/ Consider using 'productType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcProductType :: Lens.Lens' ProductCode (Lude.Maybe Lude.Text)
+pcProductType = Lens.lens (productType :: ProductCode -> Lude.Maybe Lude.Text) (\s a -> s {productType = a} :: ProductCode)
+{-# DEPRECATED pcProductType "Use generic-lens or generic-optics with 'productType' instead." #-}
 
 -- | The product code information.
-pcCode :: Lens' ProductCode (Maybe Text)
-pcCode = lens _pcCode (\s a -> s {_pcCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcCode :: Lens.Lens' ProductCode (Lude.Maybe Lude.Text)
+pcCode = Lens.lens (code :: ProductCode -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: ProductCode)
+{-# DEPRECATED pcCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromJSON ProductCode where
+instance Lude.FromJSON ProductCode where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProductCode"
-      (\x -> ProductCode' <$> (x .:? "productType") <*> (x .:? "code"))
-
-instance Hashable ProductCode
-
-instance NFData ProductCode
+      ( \x ->
+          ProductCode'
+            Lude.<$> (x Lude..:? "productType") Lude.<*> (x Lude..:? "code")
+      )

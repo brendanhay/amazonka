@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AvailabilityZoneMessage where
+module Network.AWS.EC2.Types.AvailabilityZoneMessage
+  ( AvailabilityZoneMessage (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAvailabilityZoneMessage,
+
+    -- * Lenses
+    azmMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.
 --
---
---
--- /See:/ 'availabilityZoneMessage' smart constructor.
+-- /See:/ 'mkAvailabilityZoneMessage' smart constructor.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
-  { _azmMessage ::
-      Maybe Text
+  { message ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZoneMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'azmMessage' - The message about the Availability Zone, Local Zone, or Wavelength Zone.
-availabilityZoneMessage ::
+-- * 'message' - The message about the Availability Zone, Local Zone, or Wavelength Zone.
+mkAvailabilityZoneMessage ::
   AvailabilityZoneMessage
-availabilityZoneMessage =
-  AvailabilityZoneMessage' {_azmMessage = Nothing}
+mkAvailabilityZoneMessage =
+  AvailabilityZoneMessage' {message = Lude.Nothing}
 
 -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-azmMessage :: Lens' AvailabilityZoneMessage (Maybe Text)
-azmMessage = lens _azmMessage (\s a -> s {_azmMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azmMessage :: Lens.Lens' AvailabilityZoneMessage (Lude.Maybe Lude.Text)
+azmMessage = Lens.lens (message :: AvailabilityZoneMessage -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AvailabilityZoneMessage)
+{-# DEPRECATED azmMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML AvailabilityZoneMessage where
-  parseXML x = AvailabilityZoneMessage' <$> (x .@? "message")
-
-instance Hashable AvailabilityZoneMessage
-
-instance NFData AvailabilityZoneMessage
+instance Lude.FromXML AvailabilityZoneMessage where
+  parseXML x =
+    AvailabilityZoneMessage' Lude.<$> (x Lude..@? "message")

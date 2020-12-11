@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,172 @@
 --
 -- Describes the ClassicLink status of one or more VPCs.
 module Network.AWS.EC2.DescribeVPCClassicLink
-  ( -- * Creating a Request
-    describeVPCClassicLink,
-    DescribeVPCClassicLink,
+  ( -- * Creating a request
+    DescribeVPCClassicLink (..),
+    mkDescribeVPCClassicLink,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvclFilters,
     dvclVPCIds,
     dvclDryRun,
 
-    -- * Destructuring the Response
-    describeVPCClassicLinkResponse,
-    DescribeVPCClassicLinkResponse,
+    -- * Destructuring the response
+    DescribeVPCClassicLinkResponse (..),
+    mkDescribeVPCClassicLinkResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvclrsVPCs,
     dvclrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCClassicLink' smart constructor.
+-- | /See:/ 'mkDescribeVPCClassicLink' smart constructor.
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
-  { _dvclFilters ::
-      !(Maybe [Filter]),
-    _dvclVPCIds :: !(Maybe [Text]),
-    _dvclDryRun :: !(Maybe Bool)
+  { filters ::
+      Lude.Maybe [Filter],
+    vpcIds :: Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
 --
--- * 'dvclFilters' - One or more filters.     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
--- * 'dvclVPCIds' - One or more VPCs for which you want to describe the ClassicLink status.
+--     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).
 --
--- * 'dvclDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeVPCClassicLink ::
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+-- * 'vpcIds' - One or more VPCs for which you want to describe the ClassicLink status.
+mkDescribeVPCClassicLink ::
   DescribeVPCClassicLink
-describeVPCClassicLink =
+mkDescribeVPCClassicLink =
   DescribeVPCClassicLink'
-    { _dvclFilters = Nothing,
-      _dvclVPCIds = Nothing,
-      _dvclDryRun = Nothing
+    { filters = Lude.Nothing,
+      vpcIds = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
--- | One or more filters.     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
-dvclFilters = lens _dvclFilters (\s a -> s {_dvclFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvclFilters :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Filter])
+dvclFilters = Lens.lens (filters :: DescribeVPCClassicLink -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvclFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
-dvclVPCIds = lens _dvclVPCIds (\s a -> s {_dvclVPCIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvclVPCIds :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Lude.Text])
+dvclVPCIds = Lens.lens (vpcIds :: DescribeVPCClassicLink -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcIds = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvclVPCIds "Use generic-lens or generic-optics with 'vpcIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
-dvclDryRun = lens _dvclDryRun (\s a -> s {_dvclDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvclDryRun :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe Lude.Bool)
+dvclDryRun = Lens.lens (dryRun :: DescribeVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DescribeVPCClassicLink where
+instance Lude.AWSRequest DescribeVPCClassicLink where
   type Rs DescribeVPCClassicLink = DescribeVPCClassicLinkResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCClassicLinkResponse'
-            <$> (x .@? "vpcSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "vpcSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCClassicLink
+instance Lude.ToHeaders DescribeVPCClassicLink where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCClassicLink
+instance Lude.ToPath DescribeVPCClassicLink where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCClassicLink where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCClassicLink where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCClassicLink where
+instance Lude.ToQuery DescribeVPCClassicLink where
   toQuery DescribeVPCClassicLink' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpcClassicLink" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvclFilters),
-        toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
-        "DryRun" =: _dvclDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeVpcClassicLink" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        Lude.toQuery (Lude.toQueryList "VpcId" Lude.<$> vpcIds),
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCClassicLinkResponse' smart constructor.
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-  { _dvclrsVPCs ::
-      !(Maybe [VPCClassicLink]),
-    _dvclrsResponseStatus :: !Int
+  { vpcs ::
+      Lude.Maybe [VPCClassicLink],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvclrsVPCs' - The ClassicLink status of one or more VPCs.
---
--- * 'dvclrsResponseStatus' - -- | The response status code.
-describeVPCClassicLinkResponse ::
-  -- | 'dvclrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpcs' - The ClassicLink status of one or more VPCs.
+mkDescribeVPCClassicLinkResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse pResponseStatus_ =
+mkDescribeVPCClassicLinkResponse pResponseStatus_ =
   DescribeVPCClassicLinkResponse'
-    { _dvclrsVPCs = Nothing,
-      _dvclrsResponseStatus = pResponseStatus_
+    { vpcs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ClassicLink status of one or more VPCs.
-dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
-dvclrsVPCs = lens _dvclrsVPCs (\s a -> s {_dvclrsVPCs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvclrsVPCs :: Lens.Lens' DescribeVPCClassicLinkResponse (Lude.Maybe [VPCClassicLink])
+dvclrsVPCs = Lens.lens (vpcs :: DescribeVPCClassicLinkResponse -> Lude.Maybe [VPCClassicLink]) (\s a -> s {vpcs = a} :: DescribeVPCClassicLinkResponse)
+{-# DEPRECATED dvclrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
 
--- | -- | The response status code.
-dvclrsResponseStatus :: Lens' DescribeVPCClassicLinkResponse Int
-dvclrsResponseStatus = lens _dvclrsResponseStatus (\s a -> s {_dvclrsResponseStatus = a})
-
-instance NFData DescribeVPCClassicLinkResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvclrsResponseStatus :: Lens.Lens' DescribeVPCClassicLinkResponse Lude.Int
+dvclrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCClassicLinkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCClassicLinkResponse)
+{-# DEPRECATED dvclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

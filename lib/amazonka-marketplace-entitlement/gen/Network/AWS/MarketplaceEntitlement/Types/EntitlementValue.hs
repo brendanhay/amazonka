@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceEntitlement.Types.EntitlementValue where
+module Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
+  ( EntitlementValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntitlementValue,
+
+    -- * Lenses
+    evIntegerValue,
+    evDoubleValue,
+    evStringValue,
+    evBooleanValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
 --
---
---
--- /See:/ 'entitlementValue' smart constructor.
+-- /See:/ 'mkEntitlementValue' smart constructor.
 data EntitlementValue = EntitlementValue'
-  { _evIntegerValue ::
-      !(Maybe Int),
-    _evDoubleValue :: !(Maybe Double),
-    _evStringValue :: !(Maybe Text),
-    _evBooleanValue :: !(Maybe Bool)
+  { integerValue ::
+      Lude.Maybe Lude.Int,
+    doubleValue :: Lude.Maybe Lude.Double,
+    stringValue :: Lude.Maybe Lude.Text,
+    booleanValue :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntitlementValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evIntegerValue' - The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
---
--- * 'evDoubleValue' - The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
---
--- * 'evStringValue' - The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.
---
--- * 'evBooleanValue' - The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
-entitlementValue ::
+-- * 'booleanValue' - The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
+-- * 'doubleValue' - The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
+-- * 'integerValue' - The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
+-- * 'stringValue' - The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.
+mkEntitlementValue ::
   EntitlementValue
-entitlementValue =
+mkEntitlementValue =
   EntitlementValue'
-    { _evIntegerValue = Nothing,
-      _evDoubleValue = Nothing,
-      _evStringValue = Nothing,
-      _evBooleanValue = Nothing
+    { integerValue = Lude.Nothing,
+      doubleValue = Lude.Nothing,
+      stringValue = Lude.Nothing,
+      booleanValue = Lude.Nothing
     }
 
 -- | The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
-evIntegerValue :: Lens' EntitlementValue (Maybe Int)
-evIntegerValue = lens _evIntegerValue (\s a -> s {_evIntegerValue = a})
+--
+-- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evIntegerValue :: Lens.Lens' EntitlementValue (Lude.Maybe Lude.Int)
+evIntegerValue = Lens.lens (integerValue :: EntitlementValue -> Lude.Maybe Lude.Int) (\s a -> s {integerValue = a} :: EntitlementValue)
+{-# DEPRECATED evIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
 
 -- | The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
-evDoubleValue :: Lens' EntitlementValue (Maybe Double)
-evDoubleValue = lens _evDoubleValue (\s a -> s {_evDoubleValue = a})
+--
+-- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evDoubleValue :: Lens.Lens' EntitlementValue (Lude.Maybe Lude.Double)
+evDoubleValue = Lens.lens (doubleValue :: EntitlementValue -> Lude.Maybe Lude.Double) (\s a -> s {doubleValue = a} :: EntitlementValue)
+{-# DEPRECATED evDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
 
 -- | The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.
-evStringValue :: Lens' EntitlementValue (Maybe Text)
-evStringValue = lens _evStringValue (\s a -> s {_evStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evStringValue :: Lens.Lens' EntitlementValue (Lude.Maybe Lude.Text)
+evStringValue = Lens.lens (stringValue :: EntitlementValue -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: EntitlementValue)
+{-# DEPRECATED evStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
 -- | The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
-evBooleanValue :: Lens' EntitlementValue (Maybe Bool)
-evBooleanValue = lens _evBooleanValue (\s a -> s {_evBooleanValue = a})
+--
+-- /Note:/ Consider using 'booleanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evBooleanValue :: Lens.Lens' EntitlementValue (Lude.Maybe Lude.Bool)
+evBooleanValue = Lens.lens (booleanValue :: EntitlementValue -> Lude.Maybe Lude.Bool) (\s a -> s {booleanValue = a} :: EntitlementValue)
+{-# DEPRECATED evBooleanValue "Use generic-lens or generic-optics with 'booleanValue' instead." #-}
 
-instance FromJSON EntitlementValue where
+instance Lude.FromJSON EntitlementValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntitlementValue"
       ( \x ->
           EntitlementValue'
-            <$> (x .:? "IntegerValue")
-            <*> (x .:? "DoubleValue")
-            <*> (x .:? "StringValue")
-            <*> (x .:? "BooleanValue")
+            Lude.<$> (x Lude..:? "IntegerValue")
+            Lude.<*> (x Lude..:? "DoubleValue")
+            Lude.<*> (x Lude..:? "StringValue")
+            Lude.<*> (x Lude..:? "BooleanValue")
       )
-
-instance Hashable EntitlementValue
-
-instance NFData EntitlementValue

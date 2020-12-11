@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,26 @@
 --
 -- Returns a list of AWS Batch jobs.
 --
---
 -- You must specify only one of the following:
 --
 --     * a job queue ID to return a list of jobs in that job queue
 --
+--
 --     * a multi-node parallel job ID to return a list of that job's nodes
+--
 --
 --     * an array job ID to return a list of that job's children
 --
 --
---
 -- You can filter the results by job status with the @jobStatus@ parameter. If you do not specify a status, only @RUNNING@ jobs are returned.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Batch.ListJobs
-  ( -- * Creating a Request
-    listJobs,
-    ListJobs,
+  ( -- * Creating a request
+    ListJobs (..),
+    mkListJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ljNextToken,
     ljMultiNodeJobId,
     ljJobStatus,
@@ -47,11 +41,11 @@ module Network.AWS.Batch.ListJobs
     ljJobQueue,
     ljMaxResults,
 
-    -- * Destructuring the Response
-    listJobsResponse,
-    ListJobsResponse,
+    -- * Destructuring the response
+    ListJobsResponse (..),
+    mkListJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ljrsNextToken,
     ljrsResponseStatus,
     ljrsJobSummaryList,
@@ -59,161 +53,190 @@ module Network.AWS.Batch.ListJobs
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listJobs' smart constructor.
+-- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { _ljNextToken :: !(Maybe Text),
-    _ljMultiNodeJobId :: !(Maybe Text),
-    _ljJobStatus :: !(Maybe JobStatus),
-    _ljArrayJobId :: !(Maybe Text),
-    _ljJobQueue :: !(Maybe Text),
-    _ljMaxResults :: !(Maybe Int)
+  { nextToken :: Lude.Maybe Lude.Text,
+    multiNodeJobId :: Lude.Maybe Lude.Text,
+    jobStatus :: Lude.Maybe JobStatus,
+    arrayJobId :: Lude.Maybe Lude.Text,
+    jobQueue :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljNextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
---
--- * 'ljMultiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.
---
--- * 'ljJobStatus' - The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
---
--- * 'ljArrayJobId' - The job ID for an array job. Specifying an array job ID with this parameter lists all child jobs from within the specified array.
---
--- * 'ljJobQueue' - The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs.
---
--- * 'ljMaxResults' - The maximum number of results returned by @ListJobs@ in paginated output. When this parameter is used, @ListJobs@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListJobs@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListJobs@ returns up to 100 results and a @nextToken@ value if applicable.
-listJobs ::
+-- * 'arrayJobId' - The job ID for an array job. Specifying an array job ID with this parameter lists all child jobs from within the specified array.
+-- * 'jobQueue' - The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs.
+-- * 'jobStatus' - The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
+-- * 'maxResults' - The maximum number of results returned by @ListJobs@ in paginated output. When this parameter is used, @ListJobs@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListJobs@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListJobs@ returns up to 100 results and a @nextToken@ value if applicable.
+-- * 'multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+mkListJobs ::
   ListJobs
-listJobs =
+mkListJobs =
   ListJobs'
-    { _ljNextToken = Nothing,
-      _ljMultiNodeJobId = Nothing,
-      _ljJobStatus = Nothing,
-      _ljArrayJobId = Nothing,
-      _ljJobQueue = Nothing,
-      _ljMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      multiNodeJobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      arrayJobId = Lude.Nothing,
+      jobQueue = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
-ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\s a -> s {_ljNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.
-ljMultiNodeJobId :: Lens' ListJobs (Maybe Text)
-ljMultiNodeJobId = lens _ljMultiNodeJobId (\s a -> s {_ljMultiNodeJobId = a})
+--
+-- /Note:/ Consider using 'multiNodeJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljMultiNodeJobId :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljMultiNodeJobId = Lens.lens (multiNodeJobId :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {multiNodeJobId = a} :: ListJobs)
+{-# DEPRECATED ljMultiNodeJobId "Use generic-lens or generic-optics with 'multiNodeJobId' instead." #-}
 
 -- | The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
-ljJobStatus :: Lens' ListJobs (Maybe JobStatus)
-ljJobStatus = lens _ljJobStatus (\s a -> s {_ljJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljJobStatus :: Lens.Lens' ListJobs (Lude.Maybe JobStatus)
+ljJobStatus = Lens.lens (jobStatus :: ListJobs -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: ListJobs)
+{-# DEPRECATED ljJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The job ID for an array job. Specifying an array job ID with this parameter lists all child jobs from within the specified array.
-ljArrayJobId :: Lens' ListJobs (Maybe Text)
-ljArrayJobId = lens _ljArrayJobId (\s a -> s {_ljArrayJobId = a})
+--
+-- /Note:/ Consider using 'arrayJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljArrayJobId :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljArrayJobId = Lens.lens (arrayJobId :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {arrayJobId = a} :: ListJobs)
+{-# DEPRECATED ljArrayJobId "Use generic-lens or generic-optics with 'arrayJobId' instead." #-}
 
 -- | The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs.
-ljJobQueue :: Lens' ListJobs (Maybe Text)
-ljJobQueue = lens _ljJobQueue (\s a -> s {_ljJobQueue = a})
+--
+-- /Note:/ Consider using 'jobQueue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljJobQueue :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljJobQueue = Lens.lens (jobQueue :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {jobQueue = a} :: ListJobs)
+{-# DEPRECATED ljJobQueue "Use generic-lens or generic-optics with 'jobQueue' instead." #-}
 
 -- | The maximum number of results returned by @ListJobs@ in paginated output. When this parameter is used, @ListJobs@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListJobs@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListJobs@ returns up to 100 results and a @nextToken@ value if applicable.
-ljMaxResults :: Lens' ListJobs (Maybe Int)
-ljMaxResults = lens _ljMaxResults (\s a -> s {_ljMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljMaxResults :: Lens.Lens' ListJobs (Lude.Maybe Lude.Int)
+ljMaxResults = Lens.lens (maxResults :: ListJobs -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListJobs)
+{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListJobs where
+instance Page.AWSPager ListJobs where
   page rq rs
-    | stop (rs ^. ljrsNextToken) = Nothing
-    | stop (rs ^. ljrsJobSummaryList) = Nothing
-    | otherwise = Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
+    | Page.stop (rs Lens.^. ljrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ljrsJobSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ljNextToken Lens..~ rs Lens.^. ljrsNextToken
 
-instance AWSRequest ListJobs where
+instance Lude.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "jobSummaryList" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "jobSummaryList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListJobs
-
-instance NFData ListJobs
-
-instance ToHeaders ListJobs where
+instance Lude.ToHeaders ListJobs where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON ListJobs where
-  toJSON ListJobs' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _ljNextToken,
-            ("multiNodeJobId" .=) <$> _ljMultiNodeJobId,
-            ("jobStatus" .=) <$> _ljJobStatus,
-            ("arrayJobId" .=) <$> _ljArrayJobId,
-            ("jobQueue" .=) <$> _ljJobQueue,
-            ("maxResults" .=) <$> _ljMaxResults
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath ListJobs where
-  toPath = const "/v1/listjobs"
+instance Lude.ToJSON ListJobs where
+  toJSON ListJobs' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("multiNodeJobId" Lude..=) Lude.<$> multiNodeJobId,
+            ("jobStatus" Lude..=) Lude.<$> jobStatus,
+            ("arrayJobId" Lude..=) Lude.<$> arrayJobId,
+            ("jobQueue" Lude..=) Lude.<$> jobQueue,
+            ("maxResults" Lude..=) Lude.<$> maxResults
+          ]
+      )
 
-instance ToQuery ListJobs where
-  toQuery = const mempty
+instance Lude.ToPath ListJobs where
+  toPath = Lude.const "/v1/listjobs"
 
--- | /See:/ 'listJobsResponse' smart constructor.
+instance Lude.ToQuery ListJobs where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { _ljrsNextToken ::
-      !(Maybe Text),
-    _ljrsResponseStatus :: !Int,
-    _ljrsJobSummaryList :: ![JobSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    jobSummaryList :: [JobSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljrsNextToken' - The @nextToken@ value to include in a future @ListJobs@ request. When the results of a @ListJobs@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'ljrsResponseStatus' - -- | The response status code.
---
--- * 'ljrsJobSummaryList' - A list of job summaries that match the request.
-listJobsResponse ::
-  -- | 'ljrsResponseStatus'
-  Int ->
+-- * 'jobSummaryList' - A list of job summaries that match the request.
+-- * 'nextToken' - The @nextToken@ value to include in a future @ListJobs@ request. When the results of a @ListJobs@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkListJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListJobsResponse
-listJobsResponse pResponseStatus_ =
+mkListJobsResponse pResponseStatus_ =
   ListJobsResponse'
-    { _ljrsNextToken = Nothing,
-      _ljrsResponseStatus = pResponseStatus_,
-      _ljrsJobSummaryList = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      jobSummaryList = Lude.mempty
     }
 
 -- | The @nextToken@ value to include in a future @ListJobs@ request. When the results of a @ListJobs@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrsNextToken = lens _ljrsNextToken (\s a -> s {_ljrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
+ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ljrsResponseStatus :: Lens' ListJobsResponse Int
-ljrsResponseStatus = lens _ljrsResponseStatus (\s a -> s {_ljrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
+ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of job summaries that match the request.
-ljrsJobSummaryList :: Lens' ListJobsResponse [JobSummary]
-ljrsJobSummaryList = lens _ljrsJobSummaryList (\s a -> s {_ljrsJobSummaryList = a}) . _Coerce
-
-instance NFData ListJobsResponse
+--
+-- /Note:/ Consider using 'jobSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrsJobSummaryList :: Lens.Lens' ListJobsResponse [JobSummary]
+ljrsJobSummaryList = Lens.lens (jobSummaryList :: ListJobsResponse -> [JobSummary]) (\s a -> s {jobSummaryList = a} :: ListJobsResponse)
+{-# DEPRECATED ljrsJobSummaryList "Use generic-lens or generic-optics with 'jobSummaryList' instead." #-}

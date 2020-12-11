@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyEmailMessage where
+module Network.AWS.Pinpoint.Types.JourneyEmailMessage
+  ( JourneyEmailMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJourneyEmailMessage,
+
+    -- * Lenses
+    jemFromAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the "From" address for an email message that's sent to participants in a journey.
 --
---
---
--- /See:/ 'journeyEmailMessage' smart constructor.
+-- /See:/ 'mkJourneyEmailMessage' smart constructor.
 newtype JourneyEmailMessage = JourneyEmailMessage'
-  { _jemFromAddress ::
-      Maybe Text
+  { fromAddress ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyEmailMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jemFromAddress' - The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.
-journeyEmailMessage ::
+-- * 'fromAddress' - The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.
+mkJourneyEmailMessage ::
   JourneyEmailMessage
-journeyEmailMessage =
-  JourneyEmailMessage' {_jemFromAddress = Nothing}
+mkJourneyEmailMessage =
+  JourneyEmailMessage' {fromAddress = Lude.Nothing}
 
 -- | The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.
-jemFromAddress :: Lens' JourneyEmailMessage (Maybe Text)
-jemFromAddress = lens _jemFromAddress (\s a -> s {_jemFromAddress = a})
+--
+-- /Note:/ Consider using 'fromAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemFromAddress :: Lens.Lens' JourneyEmailMessage (Lude.Maybe Lude.Text)
+jemFromAddress = Lens.lens (fromAddress :: JourneyEmailMessage -> Lude.Maybe Lude.Text) (\s a -> s {fromAddress = a} :: JourneyEmailMessage)
+{-# DEPRECATED jemFromAddress "Use generic-lens or generic-optics with 'fromAddress' instead." #-}
 
-instance FromJSON JourneyEmailMessage where
+instance Lude.FromJSON JourneyEmailMessage where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyEmailMessage"
-      (\x -> JourneyEmailMessage' <$> (x .:? "FromAddress"))
+      (\x -> JourneyEmailMessage' Lude.<$> (x Lude..:? "FromAddress"))
 
-instance Hashable JourneyEmailMessage
-
-instance NFData JourneyEmailMessage
-
-instance ToJSON JourneyEmailMessage where
+instance Lude.ToJSON JourneyEmailMessage where
   toJSON JourneyEmailMessage' {..} =
-    object (catMaybes [("FromAddress" .=) <$> _jemFromAddress])
+    Lude.object
+      (Lude.catMaybes [("FromAddress" Lude..=) Lude.<$> fromAddress])

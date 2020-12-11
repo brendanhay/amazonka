@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,172 +14,185 @@
 --
 -- Describes the connection status of the specified WorkSpaces.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
-  ( -- * Creating a Request
-    describeWorkspacesConnectionStatus,
-    DescribeWorkspacesConnectionStatus,
+  ( -- * Creating a request
+    DescribeWorkspacesConnectionStatus (..),
+    mkDescribeWorkspacesConnectionStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwcsWorkspaceIds,
     dwcsNextToken,
 
-    -- * Destructuring the Response
-    describeWorkspacesConnectionStatusResponse,
-    DescribeWorkspacesConnectionStatusResponse,
+    -- * Destructuring the response
+    DescribeWorkspacesConnectionStatusResponse (..),
+    mkDescribeWorkspacesConnectionStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwcsrsNextToken,
     dwcsrsWorkspacesConnectionStatus,
     dwcsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspacesConnectionStatus' smart constructor.
+-- | /See:/ 'mkDescribeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-  { _dwcsWorkspaceIds ::
-      !(Maybe (List1 Text)),
-    _dwcsNextToken ::
-      !(Maybe Text)
+  { workspaceIds ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            Lude.Text
+        ),
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwcsWorkspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
---
--- * 'dwcsNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-describeWorkspacesConnectionStatus ::
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+-- * 'workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+mkDescribeWorkspacesConnectionStatus ::
   DescribeWorkspacesConnectionStatus
-describeWorkspacesConnectionStatus =
+mkDescribeWorkspacesConnectionStatus =
   DescribeWorkspacesConnectionStatus'
-    { _dwcsWorkspaceIds = Nothing,
-      _dwcsNextToken = Nothing
+    { workspaceIds = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
-dwcsWorkspaceIds :: Lens' DescribeWorkspacesConnectionStatus (Maybe (NonEmpty Text))
-dwcsWorkspaceIds = lens _dwcsWorkspaceIds (\s a -> s {_dwcsWorkspaceIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'workspaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwcsWorkspaceIds :: Lens.Lens' DescribeWorkspacesConnectionStatus (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dwcsWorkspaceIds = Lens.lens (workspaceIds :: DescribeWorkspacesConnectionStatus -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {workspaceIds = a} :: DescribeWorkspacesConnectionStatus)
+{-# DEPRECATED dwcsWorkspaceIds "Use generic-lens or generic-optics with 'workspaceIds' instead." #-}
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-dwcsNextToken :: Lens' DescribeWorkspacesConnectionStatus (Maybe Text)
-dwcsNextToken = lens _dwcsNextToken (\s a -> s {_dwcsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwcsNextToken :: Lens.Lens' DescribeWorkspacesConnectionStatus (Lude.Maybe Lude.Text)
+dwcsNextToken = Lens.lens (nextToken :: DescribeWorkspacesConnectionStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspacesConnectionStatus)
+{-# DEPRECATED dwcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager DescribeWorkspacesConnectionStatus where
+instance Page.AWSPager DescribeWorkspacesConnectionStatus where
   page rq rs
-    | stop (rs ^. dwcsrsNextToken) = Nothing
-    | stop (rs ^. dwcsrsWorkspacesConnectionStatus) = Nothing
-    | otherwise = Just $ rq & dwcsNextToken .~ rs ^. dwcsrsNextToken
+    | Page.stop (rs Lens.^. dwcsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dwcsrsWorkspacesConnectionStatus) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dwcsNextToken Lens..~ rs Lens.^. dwcsrsNextToken
 
-instance AWSRequest DescribeWorkspacesConnectionStatus where
+instance Lude.AWSRequest DescribeWorkspacesConnectionStatus where
   type
     Rs DescribeWorkspacesConnectionStatus =
       DescribeWorkspacesConnectionStatusResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeWorkspacesConnectionStatusResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "WorkspacesConnectionStatus" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "WorkspacesConnectionStatus" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeWorkspacesConnectionStatus
-
-instance NFData DescribeWorkspacesConnectionStatus
-
-instance ToHeaders DescribeWorkspacesConnectionStatus where
+instance Lude.ToHeaders DescribeWorkspacesConnectionStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "WorkspacesService.DescribeWorkspacesConnectionStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DescribeWorkspacesConnectionStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeWorkspacesConnectionStatus where
+instance Lude.ToJSON DescribeWorkspacesConnectionStatus where
   toJSON DescribeWorkspacesConnectionStatus' {..} =
-    object
-      ( catMaybes
-          [ ("WorkspaceIds" .=) <$> _dwcsWorkspaceIds,
-            ("NextToken" .=) <$> _dwcsNextToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WorkspaceIds" Lude..=) Lude.<$> workspaceIds,
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
-instance ToPath DescribeWorkspacesConnectionStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeWorkspacesConnectionStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeWorkspacesConnectionStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeWorkspacesConnectionStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeWorkspacesConnectionStatusResponse' smart constructor.
+-- | /See:/ 'mkDescribeWorkspacesConnectionStatusResponse' smart constructor.
 data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionStatusResponse'
-  { _dwcsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dwcsrsWorkspacesConnectionStatus ::
-      !( Maybe
-           [WorkspaceConnectionStatus]
-       ),
-    _dwcsrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    workspacesConnectionStatus ::
+      Lude.Maybe
+        [WorkspaceConnectionStatus],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwcsrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'dwcsrsWorkspacesConnectionStatus' - Information about the connection status of the WorkSpace.
---
--- * 'dwcsrsResponseStatus' - -- | The response status code.
-describeWorkspacesConnectionStatusResponse ::
-  -- | 'dwcsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+-- * 'workspacesConnectionStatus' - Information about the connection status of the WorkSpace.
+mkDescribeWorkspacesConnectionStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkspacesConnectionStatusResponse
-describeWorkspacesConnectionStatusResponse pResponseStatus_ =
+mkDescribeWorkspacesConnectionStatusResponse pResponseStatus_ =
   DescribeWorkspacesConnectionStatusResponse'
-    { _dwcsrsNextToken =
-        Nothing,
-      _dwcsrsWorkspacesConnectionStatus = Nothing,
-      _dwcsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      workspacesConnectionStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-dwcsrsNextToken :: Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
-dwcsrsNextToken = lens _dwcsrsNextToken (\s a -> s {_dwcsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwcsrsNextToken :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse (Lude.Maybe Lude.Text)
+dwcsrsNextToken = Lens.lens (nextToken :: DescribeWorkspacesConnectionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspacesConnectionStatusResponse)
+{-# DEPRECATED dwcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the connection status of the WorkSpace.
-dwcsrsWorkspacesConnectionStatus :: Lens' DescribeWorkspacesConnectionStatusResponse [WorkspaceConnectionStatus]
-dwcsrsWorkspacesConnectionStatus = lens _dwcsrsWorkspacesConnectionStatus (\s a -> s {_dwcsrsWorkspacesConnectionStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'workspacesConnectionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwcsrsWorkspacesConnectionStatus :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse (Lude.Maybe [WorkspaceConnectionStatus])
+dwcsrsWorkspacesConnectionStatus = Lens.lens (workspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> Lude.Maybe [WorkspaceConnectionStatus]) (\s a -> s {workspacesConnectionStatus = a} :: DescribeWorkspacesConnectionStatusResponse)
+{-# DEPRECATED dwcsrsWorkspacesConnectionStatus "Use generic-lens or generic-optics with 'workspacesConnectionStatus' instead." #-}
 
--- | -- | The response status code.
-dwcsrsResponseStatus :: Lens' DescribeWorkspacesConnectionStatusResponse Int
-dwcsrsResponseStatus = lens _dwcsrsResponseStatus (\s a -> s {_dwcsrsResponseStatus = a})
-
-instance NFData DescribeWorkspacesConnectionStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwcsrsResponseStatus :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse Lude.Int
+dwcsrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspacesConnectionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspacesConnectionStatusResponse)
+{-# DEPRECATED dwcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

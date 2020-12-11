@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types
-  ( -- * Service Configuration
-    rekognition,
+  ( -- * Service configuration
+    rekognitionService,
 
     -- * Errors
 
@@ -85,41 +83,41 @@ module Network.AWS.Rekognition.Types
     VideoJobStatus (..),
 
     -- * AgeRange
-    AgeRange,
-    ageRange,
+    AgeRange (..),
+    mkAgeRange,
     arLow,
     arHigh,
 
     -- * Asset
-    Asset,
-    asset,
+    Asset (..),
+    mkAsset,
     aGroundTruthManifest,
 
     -- * AudioMetadata
-    AudioMetadata,
-    audioMetadata,
+    AudioMetadata (..),
+    mkAudioMetadata,
     amCodec,
     amSampleRate,
     amNumberOfChannels,
     amDurationMillis,
 
     -- * Beard
-    Beard,
-    beard,
+    Beard (..),
+    mkBeard,
     bValue,
     bConfidence,
 
     -- * BoundingBox
-    BoundingBox,
-    boundingBox,
+    BoundingBox (..),
+    mkBoundingBox,
     bbHeight,
     bbLeft,
     bbWidth,
     bbTop,
 
     -- * Celebrity
-    Celebrity,
-    celebrity,
+    Celebrity (..),
+    mkCelebrity,
     cMatchConfidence,
     cURLs,
     cName,
@@ -127,8 +125,8 @@ module Network.AWS.Rekognition.Types
     cFace,
 
     -- * CelebrityDetail
-    CelebrityDetail,
-    celebrityDetail,
+    CelebrityDetail (..),
+    mkCelebrityDetail,
     cdBoundingBox,
     cdURLs,
     cdConfidence,
@@ -137,20 +135,20 @@ module Network.AWS.Rekognition.Types
     cdFace,
 
     -- * CelebrityRecognition
-    CelebrityRecognition,
-    celebrityRecognition,
+    CelebrityRecognition (..),
+    mkCelebrityRecognition,
     crCelebrity,
     crTimestamp,
 
     -- * CompareFacesMatch
-    CompareFacesMatch,
-    compareFacesMatch,
+    CompareFacesMatch (..),
+    mkCompareFacesMatch,
     cfmSimilarity,
     cfmFace,
 
     -- * ComparedFace
-    ComparedFace,
-    comparedFace,
+    ComparedFace (..),
+    mkComparedFace,
     cfBoundingBox,
     cfPose,
     cfConfidence,
@@ -158,78 +156,78 @@ module Network.AWS.Rekognition.Types
     cfLandmarks,
 
     -- * ComparedSourceImageFace
-    ComparedSourceImageFace,
-    comparedSourceImageFace,
+    ComparedSourceImageFace (..),
+    mkComparedSourceImageFace,
     csifBoundingBox,
     csifConfidence,
 
     -- * ContentModerationDetection
-    ContentModerationDetection,
-    contentModerationDetection,
+    ContentModerationDetection (..),
+    mkContentModerationDetection,
     cmdModerationLabel,
     cmdTimestamp,
 
     -- * CoversBodyPart
-    CoversBodyPart,
-    coversBodyPart,
+    CoversBodyPart (..),
+    mkCoversBodyPart,
     cbpValue,
     cbpConfidence,
 
     -- * CustomLabel
-    CustomLabel,
-    customLabel,
+    CustomLabel (..),
+    mkCustomLabel,
     clConfidence,
     clName,
     clGeometry,
 
     -- * DetectTextFilters
-    DetectTextFilters,
-    detectTextFilters,
+    DetectTextFilters (..),
+    mkDetectTextFilters,
     dtfRegionsOfInterest,
     dtfWordFilter,
 
     -- * DetectionFilter
-    DetectionFilter,
-    detectionFilter,
+    DetectionFilter (..),
+    mkDetectionFilter,
     dfMinBoundingBoxHeight,
     dfMinBoundingBoxWidth,
     dfMinConfidence,
 
     -- * Emotion
-    Emotion,
-    emotion,
+    Emotion (..),
+    mkEmotion,
     eConfidence,
     eType,
 
     -- * EquipmentDetection
-    EquipmentDetection,
-    equipmentDetection,
+    EquipmentDetection (..),
+    mkEquipmentDetection,
     edBoundingBox,
     edCoversBodyPart,
     edConfidence,
     edType,
 
     -- * EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erSummary,
     erF1Score,
 
     -- * EyeOpen
-    EyeOpen,
-    eyeOpen,
+    EyeOpen (..),
+    mkEyeOpen,
     eoValue,
     eoConfidence,
 
     -- * Eyeglasses
-    Eyeglasses,
-    eyeglasses,
+    Eyeglasses (..),
+    mkEyeglasses,
     eyeValue,
     eyeConfidence,
 
     -- * Face
-    Face,
-    face,
+    Face (..),
+    mkFace,
     fFaceId,
     fBoundingBox,
     fExternalImageId,
@@ -237,8 +235,8 @@ module Network.AWS.Rekognition.Types
     fImageId,
 
     -- * FaceDetail
-    FaceDetail,
-    faceDetail,
+    FaceDetail (..),
+    mkFaceDetail,
     fdAgeRange,
     fdSunglasses,
     fdMouthOpen,
@@ -256,193 +254,193 @@ module Network.AWS.Rekognition.Types
     fdLandmarks,
 
     -- * FaceDetection
-    FaceDetection,
-    faceDetection,
+    FaceDetection (..),
+    mkFaceDetection,
     fdTimestamp,
     fdFace,
 
     -- * FaceMatch
-    FaceMatch,
-    faceMatch,
+    FaceMatch (..),
+    mkFaceMatch,
     fmSimilarity,
     fmFace,
 
     -- * FaceRecord
-    FaceRecord,
-    faceRecord,
+    FaceRecord (..),
+    mkFaceRecord,
     frFaceDetail,
     frFace,
 
     -- * FaceSearchSettings
-    FaceSearchSettings,
-    faceSearchSettings,
+    FaceSearchSettings (..),
+    mkFaceSearchSettings,
     fssFaceMatchThreshold,
     fssCollectionId,
 
     -- * Gender
-    Gender,
-    gender,
+    Gender (..),
+    mkGender,
     gValue,
     gConfidence,
 
     -- * Geometry
-    Geometry,
-    geometry,
+    Geometry (..),
+    mkGeometry,
     gBoundingBox,
     gPolygon,
 
     -- * GroundTruthManifest
-    GroundTruthManifest,
-    groundTruthManifest,
+    GroundTruthManifest (..),
+    mkGroundTruthManifest,
     gtmS3Object,
 
     -- * HumanLoopActivationOutput
-    HumanLoopActivationOutput,
-    humanLoopActivationOutput,
+    HumanLoopActivationOutput (..),
+    mkHumanLoopActivationOutput,
     hlaoHumanLoopActivationReasons,
     hlaoHumanLoopARN,
     hlaoHumanLoopActivationConditionsEvaluationResults,
 
     -- * HumanLoopConfig
-    HumanLoopConfig,
-    humanLoopConfig,
+    HumanLoopConfig (..),
+    mkHumanLoopConfig,
     hlcDataAttributes,
     hlcHumanLoopName,
     hlcFlowDefinitionARN,
 
     -- * HumanLoopDataAttributes
-    HumanLoopDataAttributes,
-    humanLoopDataAttributes,
+    HumanLoopDataAttributes (..),
+    mkHumanLoopDataAttributes,
     hldaContentClassifiers,
 
     -- * Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iS3Object,
     iBytes,
 
     -- * ImageQuality
-    ImageQuality,
-    imageQuality,
+    ImageQuality (..),
+    mkImageQuality,
     iqSharpness,
     iqBrightness,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iBoundingBox,
     iConfidence,
 
     -- * KinesisDataStream
-    KinesisDataStream,
-    kinesisDataStream,
+    KinesisDataStream (..),
+    mkKinesisDataStream,
     kdsARN,
 
     -- * KinesisVideoStream
-    KinesisVideoStream,
-    kinesisVideoStream,
+    KinesisVideoStream (..),
+    mkKinesisVideoStream,
     kvsARN,
 
     -- * Label
-    Label,
-    label,
+    Label (..),
+    mkLabel,
     lConfidence,
     lParents,
     lName,
     lInstances,
 
     -- * LabelDetection
-    LabelDetection,
-    labelDetection,
+    LabelDetection (..),
+    mkLabelDetection,
     ldLabel,
     ldTimestamp,
 
     -- * Landmark
-    Landmark,
-    landmark,
+    Landmark (..),
+    mkLandmark,
     lType,
     lX,
     lY,
 
     -- * ModerationLabel
-    ModerationLabel,
-    moderationLabel,
+    ModerationLabel (..),
+    mkModerationLabel,
     mlConfidence,
     mlName,
     mlParentName,
 
     -- * MouthOpen
-    MouthOpen,
-    mouthOpen,
+    MouthOpen (..),
+    mkMouthOpen,
     moValue,
     moConfidence,
 
     -- * Mustache
-    Mustache,
-    mustache,
+    Mustache (..),
+    mkMustache,
     mValue,
     mConfidence,
 
     -- * NotificationChannel
-    NotificationChannel,
-    notificationChannel,
+    NotificationChannel (..),
+    mkNotificationChannel,
     ncSNSTopicARN,
     ncRoleARN,
 
     -- * OutputConfig
-    OutputConfig,
-    outputConfig,
+    OutputConfig (..),
+    mkOutputConfig,
     ocS3KeyPrefix,
     ocS3Bucket,
 
     -- * Parent
-    Parent,
-    parent,
+    Parent (..),
+    mkParent,
     pName,
 
     -- * PersonDetail
-    PersonDetail,
-    personDetail,
+    PersonDetail (..),
+    mkPersonDetail,
     pdBoundingBox,
     pdIndex,
     pdFace,
 
     -- * PersonDetection
-    PersonDetection,
-    personDetection,
+    PersonDetection (..),
+    mkPersonDetection,
     pdPerson,
     pdTimestamp,
 
     -- * PersonMatch
-    PersonMatch,
-    personMatch,
+    PersonMatch (..),
+    mkPersonMatch,
     pmFaceMatches,
     pmPerson,
     pmTimestamp,
 
     -- * Point
-    Point,
-    point,
+    Point (..),
+    mkPoint,
     pX,
     pY,
 
     -- * Pose
-    Pose,
-    pose,
+    Pose (..),
+    mkPose,
     pYaw,
     pRoll,
     pPitch,
 
     -- * ProjectDescription
-    ProjectDescription,
-    projectDescription,
+    ProjectDescription (..),
+    mkProjectDescription,
     pdStatus,
     pdCreationTimestamp,
     pdProjectARN,
 
     -- * ProjectVersionDescription
-    ProjectVersionDescription,
-    projectVersionDescription,
+    ProjectVersionDescription (..),
+    mkProjectVersionDescription,
     pvdMinInferenceUnits,
     pvdStatus,
     pvdEvaluationResult,
@@ -457,48 +455,48 @@ module Network.AWS.Rekognition.Types
     pvdTrainingDataResult,
 
     -- * ProtectiveEquipmentBodyPart
-    ProtectiveEquipmentBodyPart,
-    protectiveEquipmentBodyPart,
+    ProtectiveEquipmentBodyPart (..),
+    mkProtectiveEquipmentBodyPart,
     pebpEquipmentDetections,
     pebpConfidence,
     pebpName,
 
     -- * ProtectiveEquipmentPerson
-    ProtectiveEquipmentPerson,
-    protectiveEquipmentPerson,
+    ProtectiveEquipmentPerson (..),
+    mkProtectiveEquipmentPerson,
     pepBodyParts,
     pepBoundingBox,
     pepConfidence,
     pepId,
 
     -- * ProtectiveEquipmentSummarizationAttributes
-    ProtectiveEquipmentSummarizationAttributes,
-    protectiveEquipmentSummarizationAttributes,
+    ProtectiveEquipmentSummarizationAttributes (..),
+    mkProtectiveEquipmentSummarizationAttributes,
     pesaMinConfidence,
     pesaRequiredEquipmentTypes,
 
     -- * ProtectiveEquipmentSummary
-    ProtectiveEquipmentSummary,
-    protectiveEquipmentSummary,
+    ProtectiveEquipmentSummary (..),
+    mkProtectiveEquipmentSummary,
     pesPersonsWithRequiredEquipment,
     pesPersonsWithoutRequiredEquipment,
     pesPersonsIndeterminate,
 
     -- * RegionOfInterest
-    RegionOfInterest,
-    regionOfInterest,
+    RegionOfInterest (..),
+    mkRegionOfInterest,
     roiBoundingBox,
 
     -- * S3Object
-    S3Object,
-    s3Object,
+    S3Object (..),
+    mkS3Object,
     soBucket,
     soName,
     soVersion,
 
     -- * SegmentDetection
-    SegmentDetection,
-    segmentDetection,
+    SegmentDetection (..),
+    mkSegmentDetection,
     sdTechnicalCueSegment,
     sdDurationSMPTE,
     sdEndTimestampMillis,
@@ -510,99 +508,99 @@ module Network.AWS.Rekognition.Types
     sdShotSegment,
 
     -- * SegmentTypeInfo
-    SegmentTypeInfo,
-    segmentTypeInfo,
+    SegmentTypeInfo (..),
+    mkSegmentTypeInfo,
     stiModelVersion,
     stiType,
 
     -- * ShotSegment
-    ShotSegment,
-    shotSegment,
+    ShotSegment (..),
+    mkShotSegment,
     ssConfidence,
     ssIndex,
 
     -- * Smile
-    Smile,
-    smile,
+    Smile (..),
+    mkSmile,
     smiValue,
     smiConfidence,
 
     -- * StartSegmentDetectionFilters
-    StartSegmentDetectionFilters,
-    startSegmentDetectionFilters,
+    StartSegmentDetectionFilters (..),
+    mkStartSegmentDetectionFilters,
     ssdfTechnicalCueFilter,
     ssdfShotFilter,
 
     -- * StartShotDetectionFilter
-    StartShotDetectionFilter,
-    startShotDetectionFilter,
+    StartShotDetectionFilter (..),
+    mkStartShotDetectionFilter,
     ssdfMinSegmentConfidence,
 
     -- * StartTechnicalCueDetectionFilter
-    StartTechnicalCueDetectionFilter,
-    startTechnicalCueDetectionFilter,
+    StartTechnicalCueDetectionFilter (..),
+    mkStartTechnicalCueDetectionFilter,
     stcdfMinSegmentConfidence,
 
     -- * StartTextDetectionFilters
-    StartTextDetectionFilters,
-    startTextDetectionFilters,
+    StartTextDetectionFilters (..),
+    mkStartTextDetectionFilters,
     stdfRegionsOfInterest,
     stdfWordFilter,
 
     -- * StreamProcessor
-    StreamProcessor,
-    streamProcessor,
+    StreamProcessor (..),
+    mkStreamProcessor,
     spStatus,
     spName,
 
     -- * StreamProcessorInput
-    StreamProcessorInput,
-    streamProcessorInput,
+    StreamProcessorInput (..),
+    mkStreamProcessorInput,
     spiKinesisVideoStream,
 
     -- * StreamProcessorOutput
-    StreamProcessorOutput,
-    streamProcessorOutput,
+    StreamProcessorOutput (..),
+    mkStreamProcessorOutput,
     spoKinesisDataStream,
 
     -- * StreamProcessorSettings
-    StreamProcessorSettings,
-    streamProcessorSettings,
+    StreamProcessorSettings (..),
+    mkStreamProcessorSettings,
     spsFaceSearch,
 
     -- * Summary
-    Summary,
-    summary,
+    Summary (..),
+    mkSummary,
     sS3Object,
 
     -- * Sunglasses
-    Sunglasses,
-    sunglasses,
+    Sunglasses (..),
+    mkSunglasses,
     sValue,
     sConfidence,
 
     -- * TechnicalCueSegment
-    TechnicalCueSegment,
-    technicalCueSegment,
+    TechnicalCueSegment (..),
+    mkTechnicalCueSegment,
     tcsConfidence,
     tcsType,
 
     -- * TestingData
-    TestingData,
-    testingData,
+    TestingData (..),
+    mkTestingData,
     tdAssets,
     tdAutoCreate,
 
     -- * TestingDataResult
-    TestingDataResult,
-    testingDataResult,
+    TestingDataResult (..),
+    mkTestingDataResult,
     tdrInput,
     tdrOutput,
     tdrValidation,
 
     -- * TextDetection
-    TextDetection,
-    textDetection,
+    TextDetection (..),
+    mkTextDetection,
     tdDetectedText,
     tdConfidence,
     tdGeometry,
@@ -611,42 +609,42 @@ module Network.AWS.Rekognition.Types
     tdParentId,
 
     -- * TextDetectionResult
-    TextDetectionResult,
-    textDetectionResult,
+    TextDetectionResult (..),
+    mkTextDetectionResult,
     tdrTextDetection,
     tdrTimestamp,
 
     -- * TrainingData
-    TrainingData,
-    trainingData,
+    TrainingData (..),
+    mkTrainingData,
     tAssets,
 
     -- * TrainingDataResult
-    TrainingDataResult,
-    trainingDataResult,
+    TrainingDataResult (..),
+    mkTrainingDataResult,
     tInput,
     tOutput,
     tValidation,
 
     -- * UnindexedFace
-    UnindexedFace,
-    unindexedFace,
+    UnindexedFace (..),
+    mkUnindexedFace,
     ufReasons,
     ufFaceDetail,
 
     -- * ValidationData
-    ValidationData,
-    validationData,
+    ValidationData (..),
+    mkValidationData,
     vdAssets,
 
     -- * Video
-    Video,
-    video,
+    Video (..),
+    mkVideo,
     vS3Object,
 
     -- * VideoMetadata
-    VideoMetadata,
-    videoMetadata,
+    VideoMetadata (..),
+    mkVideoMetadata,
     vmFrameRate,
     vmFormat,
     vmCodec,
@@ -656,8 +654,8 @@ module Network.AWS.Rekognition.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.AgeRange
 import Network.AWS.Rekognition.Types.Asset
 import Network.AWS.Rekognition.Types.Attribute
@@ -766,46 +764,58 @@ import Network.AWS.Rekognition.Types.ValidationData
 import Network.AWS.Rekognition.Types.Video
 import Network.AWS.Rekognition.Types.VideoJobStatus
 import Network.AWS.Rekognition.Types.VideoMetadata
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-06-27@ of the Amazon Rekognition SDK configuration.
-rekognition :: Service
-rekognition =
-  Service
-    { _svcAbbrev = "Rekognition",
-      _svcSigner = v4,
-      _svcPrefix = "rekognition",
-      _svcVersion = "2016-06-27",
-      _svcEndpoint = defaultEndpoint rekognition,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Rekognition",
-      _svcRetry = retry
+rekognitionService :: Lude.Service
+rekognitionService =
+  Lude.Service
+    { Lude._svcAbbrev = "Rekognition",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "rekognition",
+      Lude._svcVersion = "2016-06-27",
+      Lude._svcEndpoint = Lude.defaultEndpoint rekognitionService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Rekognition",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

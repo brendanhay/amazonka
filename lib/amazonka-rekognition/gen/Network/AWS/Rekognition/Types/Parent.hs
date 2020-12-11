@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,35 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Parent where
+module Network.AWS.Rekognition.Types.Parent
+  ( Parent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParent,
+
+    -- * Lenses
+    pName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A parent label for a label. A label can have 0, 1, or more parents.
 --
---
---
--- /See:/ 'parent' smart constructor.
-newtype Parent = Parent' {_pName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkParent' smart constructor.
+newtype Parent = Parent' {name :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pName' - The name of the parent label.
-parent ::
+-- * 'name' - The name of the parent label.
+mkParent ::
   Parent
-parent = Parent' {_pName = Nothing}
+mkParent = Parent' {name = Lude.Nothing}
 
 -- | The name of the parent label.
-pName :: Lens' Parent (Maybe Text)
-pName = lens _pName (\s a -> s {_pName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
+pName = Lens.lens (name :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Parent)
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Parent where
-  parseJSON = withObject "Parent" (\x -> Parent' <$> (x .:? "Name"))
-
-instance Hashable Parent
-
-instance NFData Parent
+instance Lude.FromJSON Parent where
+  parseJSON =
+    Lude.withObject
+      "Parent"
+      (\x -> Parent' Lude.<$> (x Lude..:? "Name"))

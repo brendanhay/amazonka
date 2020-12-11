@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.CognitoUserPoolConfig where
+module Network.AWS.AppSync.Types.CognitoUserPoolConfig
+  ( CognitoUserPoolConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCognitoUserPoolConfig,
+
+    -- * Lenses
+    cupcAppIdClientRegex,
+    cupcUserPoolId,
+    cupcAwsRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon Cognito user pool configuration.
 --
---
---
--- /See:/ 'cognitoUserPoolConfig' smart constructor.
+-- /See:/ 'mkCognitoUserPoolConfig' smart constructor.
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
-  { _cupcAppIdClientRegex ::
-      !(Maybe Text),
-    _cupcUserPoolId :: !Text,
-    _cupcAwsRegion :: !Text
+  { appIdClientRegex ::
+      Lude.Maybe Lude.Text,
+    userPoolId :: Lude.Text,
+    awsRegion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoUserPoolConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cupcAppIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
---
--- * 'cupcUserPoolId' - The user pool ID.
---
--- * 'cupcAwsRegion' - The AWS Region in which the user pool was created.
-cognitoUserPoolConfig ::
-  -- | 'cupcUserPoolId'
-  Text ->
-  -- | 'cupcAwsRegion'
-  Text ->
+-- * 'appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+-- * 'awsRegion' - The AWS Region in which the user pool was created.
+-- * 'userPoolId' - The user pool ID.
+mkCognitoUserPoolConfig ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'awsRegion'
+  Lude.Text ->
   CognitoUserPoolConfig
-cognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
+mkCognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
   CognitoUserPoolConfig'
-    { _cupcAppIdClientRegex = Nothing,
-      _cupcUserPoolId = pUserPoolId_,
-      _cupcAwsRegion = pAwsRegion_
+    { appIdClientRegex = Lude.Nothing,
+      userPoolId = pUserPoolId_,
+      awsRegion = pAwsRegion_
     }
 
 -- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-cupcAppIdClientRegex :: Lens' CognitoUserPoolConfig (Maybe Text)
-cupcAppIdClientRegex = lens _cupcAppIdClientRegex (\s a -> s {_cupcAppIdClientRegex = a})
+--
+-- /Note:/ Consider using 'appIdClientRegex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupcAppIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Lude.Maybe Lude.Text)
+cupcAppIdClientRegex = Lens.lens (appIdClientRegex :: CognitoUserPoolConfig -> Lude.Maybe Lude.Text) (\s a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
+{-# DEPRECATED cupcAppIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead." #-}
 
 -- | The user pool ID.
-cupcUserPoolId :: Lens' CognitoUserPoolConfig Text
-cupcUserPoolId = lens _cupcUserPoolId (\s a -> s {_cupcUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupcUserPoolId :: Lens.Lens' CognitoUserPoolConfig Lude.Text
+cupcUserPoolId = Lens.lens (userPoolId :: CognitoUserPoolConfig -> Lude.Text) (\s a -> s {userPoolId = a} :: CognitoUserPoolConfig)
+{-# DEPRECATED cupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The AWS Region in which the user pool was created.
-cupcAwsRegion :: Lens' CognitoUserPoolConfig Text
-cupcAwsRegion = lens _cupcAwsRegion (\s a -> s {_cupcAwsRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupcAwsRegion :: Lens.Lens' CognitoUserPoolConfig Lude.Text
+cupcAwsRegion = Lens.lens (awsRegion :: CognitoUserPoolConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: CognitoUserPoolConfig)
+{-# DEPRECATED cupcAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance FromJSON CognitoUserPoolConfig where
+instance Lude.FromJSON CognitoUserPoolConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "CognitoUserPoolConfig"
       ( \x ->
           CognitoUserPoolConfig'
-            <$> (x .:? "appIdClientRegex")
-            <*> (x .: "userPoolId")
-            <*> (x .: "awsRegion")
+            Lude.<$> (x Lude..:? "appIdClientRegex")
+            Lude.<*> (x Lude..: "userPoolId")
+            Lude.<*> (x Lude..: "awsRegion")
       )
 
-instance Hashable CognitoUserPoolConfig
-
-instance NFData CognitoUserPoolConfig
-
-instance ToJSON CognitoUserPoolConfig where
+instance Lude.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =
-    object
-      ( catMaybes
-          [ ("appIdClientRegex" .=) <$> _cupcAppIdClientRegex,
-            Just ("userPoolId" .= _cupcUserPoolId),
-            Just ("awsRegion" .= _cupcAwsRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("appIdClientRegex" Lude..=) Lude.<$> appIdClientRegex,
+            Lude.Just ("userPoolId" Lude..= userPoolId),
+            Lude.Just ("awsRegion" Lude..= awsRegion)
           ]
       )

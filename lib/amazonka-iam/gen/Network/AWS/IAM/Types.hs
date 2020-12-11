@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types
-  ( -- * Service Configuration
-    iam,
+  ( -- * Service configuration
+    iamService,
 
     -- * Errors
 
@@ -76,8 +74,8 @@ module Network.AWS.IAM.Types
     SummaryKeyType (..),
 
     -- * AccessDetail
-    AccessDetail,
-    accessDetail,
+    AccessDetail (..),
+    mkAccessDetail,
     adEntityPath,
     adRegion,
     adLastAuthenticatedTime,
@@ -86,8 +84,8 @@ module Network.AWS.IAM.Types
     adServiceNamespace,
 
     -- * AccessKeyInfo
-    AccessKeyInfo,
-    accessKeyInfo,
+    AccessKeyInfo (..),
+    mkAccessKeyInfo,
     akiCreateDate,
     akiUserName,
     akiAccessKeyId,
@@ -95,54 +93,54 @@ module Network.AWS.IAM.Types
     akiSecretAccessKey,
 
     -- * AccessKeyLastUsed
-    AccessKeyLastUsed,
-    accessKeyLastUsed,
+    AccessKeyLastUsed (..),
+    mkAccessKeyLastUsed,
     akluLastUsedDate,
     akluServiceName,
     akluRegion,
 
     -- * AccessKeyMetadata
-    AccessKeyMetadata,
-    accessKeyMetadata,
+    AccessKeyMetadata (..),
+    mkAccessKeyMetadata,
     akmStatus,
     akmCreateDate,
     akmUserName,
     akmAccessKeyId,
 
     -- * AttachedPermissionsBoundary
-    AttachedPermissionsBoundary,
-    attachedPermissionsBoundary,
+    AttachedPermissionsBoundary (..),
+    mkAttachedPermissionsBoundary,
     apbPermissionsBoundaryType,
     apbPermissionsBoundaryARN,
 
     -- * AttachedPolicy
-    AttachedPolicy,
-    attachedPolicy,
+    AttachedPolicy (..),
+    mkAttachedPolicy,
     apPolicyName,
     apPolicyARN,
 
     -- * ContextEntry
-    ContextEntry,
-    contextEntry,
+    ContextEntry (..),
+    mkContextEntry,
     ceContextKeyValues,
     ceContextKeyName,
     ceContextKeyType,
 
     -- * DeletionTaskFailureReasonType
-    DeletionTaskFailureReasonType,
-    deletionTaskFailureReasonType,
+    DeletionTaskFailureReasonType (..),
+    mkDeletionTaskFailureReasonType,
     dtfrtRoleUsageList,
     dtfrtReason,
 
     -- * EntityDetails
-    EntityDetails,
-    entityDetails,
+    EntityDetails (..),
+    mkEntityDetails,
     edLastAuthenticated,
     edEntityInfo,
 
     -- * EntityInfo
-    EntityInfo,
-    entityInfo,
+    EntityInfo (..),
+    mkEntityInfo,
     eiPath,
     eiARN,
     eiName,
@@ -150,14 +148,14 @@ module Network.AWS.IAM.Types
     eiId,
 
     -- * ErrorDetails
-    ErrorDetails,
-    errorDetails,
+    ErrorDetails (..),
+    mkErrorDetails,
     edMessage,
     edCode,
 
     -- * EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erMatchedStatements,
     erEvalDecisionDetails,
     erResourceSpecificResults,
@@ -169,13 +167,13 @@ module Network.AWS.IAM.Types
     erEvalDecision,
 
     -- * GetContextKeysForPolicyResponse
-    GetContextKeysForPolicyResponse,
-    getContextKeysForPolicyResponse,
+    GetContextKeysForPolicyResponse (..),
+    mkGetContextKeysForPolicyResponse,
     gckfpContextKeyNames,
 
     -- * Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gPath,
     gGroupName,
     gGroupId,
@@ -183,8 +181,8 @@ module Network.AWS.IAM.Types
     gCreateDate,
 
     -- * GroupDetail
-    GroupDetail,
-    groupDetail,
+    GroupDetail (..),
+    mkGroupDetail,
     gdARN,
     gdPath,
     gdCreateDate,
@@ -194,8 +192,8 @@ module Network.AWS.IAM.Types
     gdAttachedManagedPolicies,
 
     -- * InstanceProfile
-    InstanceProfile,
-    instanceProfile,
+    InstanceProfile (..),
+    mkInstanceProfile,
     ipPath,
     ipInstanceProfileName,
     ipInstanceProfileId,
@@ -204,28 +202,28 @@ module Network.AWS.IAM.Types
     ipRoles,
 
     -- * ListPoliciesGrantingServiceAccessEntry
-    ListPoliciesGrantingServiceAccessEntry,
-    listPoliciesGrantingServiceAccessEntry,
+    ListPoliciesGrantingServiceAccessEntry (..),
+    mkListPoliciesGrantingServiceAccessEntry,
     lpgsaeServiceNamespace,
     lpgsaePolicies,
 
     -- * LoginProfile
-    LoginProfile,
-    loginProfile,
+    LoginProfile (..),
+    mkLoginProfile,
     lpPasswordResetRequired,
     lpUserName,
     lpCreateDate,
 
     -- * MFADevice
-    MFADevice,
-    mfaDevice,
+    MFADevice (..),
+    mkMFADevice,
     mdUserName,
     mdSerialNumber,
     mdEnableDate,
 
     -- * ManagedPolicyDetail
-    ManagedPolicyDetail,
-    managedPolicyDetail,
+    ManagedPolicyDetail (..),
+    mkManagedPolicyDetail,
     mpdPolicyName,
     mpdARN,
     mpdUpdateDate,
@@ -240,18 +238,18 @@ module Network.AWS.IAM.Types
     mpdDescription,
 
     -- * OpenIdConnectProviderListEntry
-    OpenIdConnectProviderListEntry,
-    openIdConnectProviderListEntry,
+    OpenIdConnectProviderListEntry (..),
+    mkOpenIdConnectProviderListEntry,
     oicpleARN,
 
     -- * OrganizationsDecisionDetail
-    OrganizationsDecisionDetail,
-    organizationsDecisionDetail,
+    OrganizationsDecisionDetail (..),
+    mkOrganizationsDecisionDetail,
     oddAllowedByOrganizations,
 
     -- * PasswordPolicy
-    PasswordPolicy,
-    passwordPolicy,
+    PasswordPolicy (..),
+    mkPasswordPolicy,
     ppExpirePasswords,
     ppMinimumPasswordLength,
     ppRequireNumbers,
@@ -264,13 +262,13 @@ module Network.AWS.IAM.Types
     ppAllowUsersToChangePassword,
 
     -- * PermissionsBoundaryDecisionDetail
-    PermissionsBoundaryDecisionDetail,
-    permissionsBoundaryDecisionDetail,
+    PermissionsBoundaryDecisionDetail (..),
+    mkPermissionsBoundaryDecisionDetail,
     pbddAllowedByPermissionsBoundary,
 
     -- * Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pPolicyName,
     pARN,
     pUpdateDate,
@@ -284,14 +282,14 @@ module Network.AWS.IAM.Types
     pDescription,
 
     -- * PolicyDetail
-    PolicyDetail,
-    policyDetail,
+    PolicyDetail (..),
+    mkPolicyDetail,
     pdPolicyDocument,
     pdPolicyName,
 
     -- * PolicyGrantingServiceAccess
-    PolicyGrantingServiceAccess,
-    policyGrantingServiceAccess,
+    PolicyGrantingServiceAccess (..),
+    mkPolicyGrantingServiceAccess,
     pgsaEntityName,
     pgsaEntityType,
     pgsaPolicyARN,
@@ -299,40 +297,40 @@ module Network.AWS.IAM.Types
     pgsaPolicyType,
 
     -- * PolicyGroup
-    PolicyGroup,
-    policyGroup,
+    PolicyGroup (..),
+    mkPolicyGroup,
     pgGroupId,
     pgGroupName,
 
     -- * PolicyRole
-    PolicyRole,
-    policyRole,
+    PolicyRole (..),
+    mkPolicyRole,
     prRoleName,
     prRoleId,
 
     -- * PolicyUser
-    PolicyUser,
-    policyUser,
+    PolicyUser (..),
+    mkPolicyUser,
     puUserName,
     puUserId,
 
     -- * PolicyVersion
-    PolicyVersion,
-    policyVersion,
+    PolicyVersion (..),
+    mkPolicyVersion,
     pvVersionId,
     pvCreateDate,
     pvDocument,
     pvIsDefaultVersion,
 
     -- * Position
-    Position,
-    position,
+    Position (..),
+    mkPosition,
     pLine,
     pColumn,
 
     -- * ResourceSpecificResult
-    ResourceSpecificResult,
-    resourceSpecificResult,
+    ResourceSpecificResult (..),
+    mkResourceSpecificResult,
     rsrMatchedStatements,
     rsrEvalDecisionDetails,
     rsrMissingContextValues,
@@ -341,8 +339,8 @@ module Network.AWS.IAM.Types
     rsrEvalResourceDecision,
 
     -- * Role
-    Role,
-    role',
+    Role (..),
+    mkRole,
     rMaxSessionDuration,
     rAssumeRolePolicyDocument,
     rRoleLastUsed,
@@ -356,8 +354,8 @@ module Network.AWS.IAM.Types
     rCreateDate,
 
     -- * RoleDetail
-    RoleDetail,
-    roleDetail,
+    RoleDetail (..),
+    mkRoleDetail,
     rdAssumeRolePolicyDocument,
     rdARN,
     rdPath,
@@ -372,27 +370,27 @@ module Network.AWS.IAM.Types
     rdAttachedManagedPolicies,
 
     -- * RoleLastUsed
-    RoleLastUsed,
-    roleLastUsed,
+    RoleLastUsed (..),
+    mkRoleLastUsed,
     rluLastUsedDate,
     rluRegion,
 
     -- * RoleUsageType
-    RoleUsageType,
-    roleUsageType,
+    RoleUsageType (..),
+    mkRoleUsageType,
     rutResources,
     rutRegion,
 
     -- * SAMLProviderListEntry
-    SAMLProviderListEntry,
-    sAMLProviderListEntry,
+    SAMLProviderListEntry (..),
+    mkSAMLProviderListEntry,
     samlpleARN,
     samlpleCreateDate,
     samlpleValidUntil,
 
     -- * SSHPublicKey
-    SSHPublicKey,
-    sshPublicKey,
+    SSHPublicKey (..),
+    mkSSHPublicKey,
     spkUploadDate,
     spkUserName,
     spkSSHPublicKeyId,
@@ -401,23 +399,23 @@ module Network.AWS.IAM.Types
     spkStatus,
 
     -- * SSHPublicKeyMetadata
-    SSHPublicKeyMetadata,
-    sshPublicKeyMetadata,
+    SSHPublicKeyMetadata (..),
+    mkSSHPublicKeyMetadata,
     spkmUserName,
     spkmSSHPublicKeyId,
     spkmStatus,
     spkmUploadDate,
 
     -- * ServerCertificate
-    ServerCertificate,
-    serverCertificate,
+    ServerCertificate (..),
+    mkServerCertificate,
     sCertificateChain,
     sServerCertificateMetadata,
     sCertificateBody,
 
     -- * ServerCertificateMetadata
-    ServerCertificateMetadata,
-    serverCertificateMetadata,
+    ServerCertificateMetadata (..),
+    mkServerCertificateMetadata,
     scmUploadDate,
     scmExpiration,
     scmPath,
@@ -426,8 +424,8 @@ module Network.AWS.IAM.Types
     scmARN,
 
     -- * ServiceLastAccessed
-    ServiceLastAccessed,
-    serviceLastAccessed,
+    ServiceLastAccessed (..),
+    mkServiceLastAccessed,
     slaLastAuthenticated,
     slaTrackedActionsLastAccessed,
     slaLastAuthenticatedEntity,
@@ -437,8 +435,8 @@ module Network.AWS.IAM.Types
     slaServiceNamespace,
 
     -- * ServiceSpecificCredential
-    ServiceSpecificCredential,
-    serviceSpecificCredential,
+    ServiceSpecificCredential (..),
+    mkServiceSpecificCredential,
     sscCreateDate,
     sscServiceName,
     sscServiceUserName,
@@ -448,8 +446,8 @@ module Network.AWS.IAM.Types
     sscStatus,
 
     -- * ServiceSpecificCredentialMetadata
-    ServiceSpecificCredentialMetadata,
-    serviceSpecificCredentialMetadata,
+    ServiceSpecificCredentialMetadata (..),
+    mkServiceSpecificCredentialMetadata,
     sscmUserName,
     sscmStatus,
     sscmServiceUserName,
@@ -458,8 +456,8 @@ module Network.AWS.IAM.Types
     sscmServiceName,
 
     -- * SigningCertificate
-    SigningCertificate,
-    signingCertificate,
+    SigningCertificate (..),
+    mkSigningCertificate,
     scUploadDate,
     scUserName,
     scCertificateId,
@@ -467,37 +465,37 @@ module Network.AWS.IAM.Types
     scStatus,
 
     -- * SimulatePolicyResponse
-    SimulatePolicyResponse,
-    simulatePolicyResponse,
+    SimulatePolicyResponse (..),
+    mkSimulatePolicyResponse,
     spEvaluationResults,
     spMarker,
     spIsTruncated,
 
     -- * Statement
-    Statement,
-    statement,
+    Statement (..),
+    mkStatement,
     sSourcePolicyType,
     sSourcePolicyId,
     sEndPosition,
     sStartPosition,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TrackedActionLastAccessed
-    TrackedActionLastAccessed,
-    trackedActionLastAccessed,
+    TrackedActionLastAccessed (..),
+    mkTrackedActionLastAccessed,
     talaLastAccessedTime,
     talaActionName,
     talaLastAccessedEntity,
     talaLastAccessedRegion,
 
     -- * User
-    User,
-    user,
+    User (..),
+    mkUser,
     uPasswordLastUsed,
     uPermissionsBoundary,
     uTags,
@@ -508,8 +506,8 @@ module Network.AWS.IAM.Types
     uCreateDate,
 
     -- * UserDetail
-    UserDetail,
-    userDetail,
+    UserDetail (..),
+    mkUserDetail,
     udGroupList,
     udARN,
     udPath,
@@ -522,8 +520,8 @@ module Network.AWS.IAM.Types
     udAttachedManagedPolicies,
 
     -- * VirtualMFADevice
-    VirtualMFADevice,
-    virtualMFADevice,
+    VirtualMFADevice (..),
+    mkVirtualMFADevice,
     vmdQRCodePNG,
     vmdBase32StringSeed,
     vmdUser,
@@ -605,48 +603,60 @@ import Network.AWS.IAM.Types.TrackedActionLastAccessed
 import Network.AWS.IAM.Types.User
 import Network.AWS.IAM.Types.UserDetail
 import Network.AWS.IAM.Types.VirtualMFADevice
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-05-08@ of the Amazon Identity and Access Management SDK configuration.
-iam :: Service
-iam =
-  Service
-    { _svcAbbrev = "IAM",
-      _svcSigner = v4,
-      _svcPrefix = "iam",
-      _svcVersion = "2010-05-08",
-      _svcEndpoint = defaultEndpoint iam,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "IAM",
-      _svcRetry = retry
+iamService :: Lude.Service
+iamService =
+  Lude.Service
+    { Lude._svcAbbrev = "IAM",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "iam",
+      Lude._svcVersion = "2010-05-08",
+      Lude._svcEndpoint = Lude.defaultEndpoint iamService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "IAM",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

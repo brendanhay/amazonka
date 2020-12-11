@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Channel where
+module Network.AWS.Connect.Types.Channel
+  ( Channel
+      ( Channel',
+        Chat,
+        Voice
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Channel
-  = Chat
-  | Voice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Channel = Channel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Channel where
-  parser =
-    takeLowerText >>= \case
-      "chat" -> pure Chat
-      "voice" -> pure Voice
-      e ->
-        fromTextError $
-          "Failure parsing Channel from value: '" <> e
-            <> "'. Accepted values: chat, voice"
+pattern Chat :: Channel
+pattern Chat = Channel' "CHAT"
 
-instance ToText Channel where
-  toText = \case
-    Chat -> "CHAT"
-    Voice -> "VOICE"
+pattern Voice :: Channel
+pattern Voice = Channel' "VOICE"
 
-instance Hashable Channel
-
-instance NFData Channel
-
-instance ToByteString Channel
-
-instance ToQuery Channel
-
-instance ToHeader Channel
-
-instance ToJSON Channel where
-  toJSON = toJSONText
-
-instance FromJSON Channel where
-  parseJSON = parseJSONText "Channel"
+{-# COMPLETE
+  Chat,
+  Voice,
+  Channel'
+  #-}

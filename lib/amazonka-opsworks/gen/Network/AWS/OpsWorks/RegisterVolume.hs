@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,149 @@
 --
 -- Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling 'DeregisterVolume' . For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.RegisterVolume
-  ( -- * Creating a Request
-    registerVolume,
-    RegisterVolume,
+  ( -- * Creating a request
+    RegisterVolume (..),
+    mkRegisterVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rvEC2VolumeId,
     rvStackId,
 
-    -- * Destructuring the Response
-    registerVolumeResponse,
-    RegisterVolumeResponse,
+    -- * Destructuring the response
+    RegisterVolumeResponse (..),
+    mkRegisterVolumeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rvrsVolumeId,
     rvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerVolume' smart constructor.
+-- | /See:/ 'mkRegisterVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
-  { _rvEC2VolumeId ::
-      !(Maybe Text),
-    _rvStackId :: !Text
+  { ec2VolumeId ::
+      Lude.Maybe Lude.Text,
+    stackId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvEC2VolumeId' - The Amazon EBS volume ID.
---
--- * 'rvStackId' - The stack ID.
-registerVolume ::
-  -- | 'rvStackId'
-  Text ->
+-- * 'ec2VolumeId' - The Amazon EBS volume ID.
+-- * 'stackId' - The stack ID.
+mkRegisterVolume ::
+  -- | 'stackId'
+  Lude.Text ->
   RegisterVolume
-registerVolume pStackId_ =
-  RegisterVolume' {_rvEC2VolumeId = Nothing, _rvStackId = pStackId_}
+mkRegisterVolume pStackId_ =
+  RegisterVolume' {ec2VolumeId = Lude.Nothing, stackId = pStackId_}
 
 -- | The Amazon EBS volume ID.
-rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvEC2VolumeId = lens _rvEC2VolumeId (\s a -> s {_rvEC2VolumeId = a})
+--
+-- /Note:/ Consider using 'ec2VolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvEC2VolumeId :: Lens.Lens' RegisterVolume (Lude.Maybe Lude.Text)
+rvEC2VolumeId = Lens.lens (ec2VolumeId :: RegisterVolume -> Lude.Maybe Lude.Text) (\s a -> s {ec2VolumeId = a} :: RegisterVolume)
+{-# DEPRECATED rvEC2VolumeId "Use generic-lens or generic-optics with 'ec2VolumeId' instead." #-}
 
 -- | The stack ID.
-rvStackId :: Lens' RegisterVolume Text
-rvStackId = lens _rvStackId (\s a -> s {_rvStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvStackId :: Lens.Lens' RegisterVolume Lude.Text
+rvStackId = Lens.lens (stackId :: RegisterVolume -> Lude.Text) (\s a -> s {stackId = a} :: RegisterVolume)
+{-# DEPRECATED rvStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest RegisterVolume where
+instance Lude.AWSRequest RegisterVolume where
   type Rs RegisterVolume = RegisterVolumeResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterVolumeResponse'
-            <$> (x .?> "VolumeId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VolumeId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterVolume
-
-instance NFData RegisterVolume
-
-instance ToHeaders RegisterVolume where
+instance Lude.ToHeaders RegisterVolume where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.RegisterVolume" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.RegisterVolume" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterVolume where
+instance Lude.ToJSON RegisterVolume where
   toJSON RegisterVolume' {..} =
-    object
-      ( catMaybes
-          [ ("Ec2VolumeId" .=) <$> _rvEC2VolumeId,
-            Just ("StackId" .= _rvStackId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Ec2VolumeId" Lude..=) Lude.<$> ec2VolumeId,
+            Lude.Just ("StackId" Lude..= stackId)
           ]
       )
 
-instance ToPath RegisterVolume where
-  toPath = const "/"
+instance Lude.ToPath RegisterVolume where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterVolume where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterVolume where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @RegisterVolume@ request.
 --
---
---
--- /See:/ 'registerVolumeResponse' smart constructor.
+-- /See:/ 'mkRegisterVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-  { _rvrsVolumeId ::
-      !(Maybe Text),
-    _rvrsResponseStatus :: !Int
+  { volumeId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvrsVolumeId' - The volume ID.
---
--- * 'rvrsResponseStatus' - -- | The response status code.
-registerVolumeResponse ::
-  -- | 'rvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'volumeId' - The volume ID.
+mkRegisterVolumeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterVolumeResponse
-registerVolumeResponse pResponseStatus_ =
+mkRegisterVolumeResponse pResponseStatus_ =
   RegisterVolumeResponse'
-    { _rvrsVolumeId = Nothing,
-      _rvrsResponseStatus = pResponseStatus_
+    { volumeId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The volume ID.
-rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvrsVolumeId = lens _rvrsVolumeId (\s a -> s {_rvrsVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvrsVolumeId :: Lens.Lens' RegisterVolumeResponse (Lude.Maybe Lude.Text)
+rvrsVolumeId = Lens.lens (volumeId :: RegisterVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: RegisterVolumeResponse)
+{-# DEPRECATED rvrsVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
--- | -- | The response status code.
-rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
-rvrsResponseStatus = lens _rvrsResponseStatus (\s a -> s {_rvrsResponseStatus = a})
-
-instance NFData RegisterVolumeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvrsResponseStatus :: Lens.Lens' RegisterVolumeResponse Lude.Int
+rvrsResponseStatus = Lens.lens (responseStatus :: RegisterVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterVolumeResponse)
+{-# DEPRECATED rvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

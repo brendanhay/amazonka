@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.OrganizationRuleStatus where
+module Network.AWS.Config.Types.OrganizationRuleStatus
+  ( OrganizationRuleStatus
+      ( OrganizationRuleStatus',
+        OCreateFailed,
+        OCreateInProgress,
+        OCreateSuccessful,
+        ODeleteFailed,
+        ODeleteInProgress,
+        ODeleteSuccessful,
+        OUpdateFailed,
+        OUpdateInProgress,
+        OUpdateSuccessful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrganizationRuleStatus
-  = OCreateFailed
-  | OCreateInProgress
-  | OCreateSuccessful
-  | ODeleteFailed
-  | ODeleteInProgress
-  | ODeleteSuccessful
-  | OUpdateFailed
-  | OUpdateInProgress
-  | OUpdateSuccessful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrganizationRuleStatus = OrganizationRuleStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrganizationRuleStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure OCreateFailed
-      "create_in_progress" -> pure OCreateInProgress
-      "create_successful" -> pure OCreateSuccessful
-      "delete_failed" -> pure ODeleteFailed
-      "delete_in_progress" -> pure ODeleteInProgress
-      "delete_successful" -> pure ODeleteSuccessful
-      "update_failed" -> pure OUpdateFailed
-      "update_in_progress" -> pure OUpdateInProgress
-      "update_successful" -> pure OUpdateSuccessful
-      e ->
-        fromTextError $
-          "Failure parsing OrganizationRuleStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, create_in_progress, create_successful, delete_failed, delete_in_progress, delete_successful, update_failed, update_in_progress, update_successful"
+pattern OCreateFailed :: OrganizationRuleStatus
+pattern OCreateFailed = OrganizationRuleStatus' "CREATE_FAILED"
 
-instance ToText OrganizationRuleStatus where
-  toText = \case
-    OCreateFailed -> "CREATE_FAILED"
-    OCreateInProgress -> "CREATE_IN_PROGRESS"
-    OCreateSuccessful -> "CREATE_SUCCESSFUL"
-    ODeleteFailed -> "DELETE_FAILED"
-    ODeleteInProgress -> "DELETE_IN_PROGRESS"
-    ODeleteSuccessful -> "DELETE_SUCCESSFUL"
-    OUpdateFailed -> "UPDATE_FAILED"
-    OUpdateInProgress -> "UPDATE_IN_PROGRESS"
-    OUpdateSuccessful -> "UPDATE_SUCCESSFUL"
+pattern OCreateInProgress :: OrganizationRuleStatus
+pattern OCreateInProgress = OrganizationRuleStatus' "CREATE_IN_PROGRESS"
 
-instance Hashable OrganizationRuleStatus
+pattern OCreateSuccessful :: OrganizationRuleStatus
+pattern OCreateSuccessful = OrganizationRuleStatus' "CREATE_SUCCESSFUL"
 
-instance NFData OrganizationRuleStatus
+pattern ODeleteFailed :: OrganizationRuleStatus
+pattern ODeleteFailed = OrganizationRuleStatus' "DELETE_FAILED"
 
-instance ToByteString OrganizationRuleStatus
+pattern ODeleteInProgress :: OrganizationRuleStatus
+pattern ODeleteInProgress = OrganizationRuleStatus' "DELETE_IN_PROGRESS"
 
-instance ToQuery OrganizationRuleStatus
+pattern ODeleteSuccessful :: OrganizationRuleStatus
+pattern ODeleteSuccessful = OrganizationRuleStatus' "DELETE_SUCCESSFUL"
 
-instance ToHeader OrganizationRuleStatus
+pattern OUpdateFailed :: OrganizationRuleStatus
+pattern OUpdateFailed = OrganizationRuleStatus' "UPDATE_FAILED"
 
-instance FromJSON OrganizationRuleStatus where
-  parseJSON = parseJSONText "OrganizationRuleStatus"
+pattern OUpdateInProgress :: OrganizationRuleStatus
+pattern OUpdateInProgress = OrganizationRuleStatus' "UPDATE_IN_PROGRESS"
+
+pattern OUpdateSuccessful :: OrganizationRuleStatus
+pattern OUpdateSuccessful = OrganizationRuleStatus' "UPDATE_SUCCESSFUL"
+
+{-# COMPLETE
+  OCreateFailed,
+  OCreateInProgress,
+  OCreateSuccessful,
+  ODeleteFailed,
+  ODeleteInProgress,
+  ODeleteSuccessful,
+  OUpdateFailed,
+  OUpdateInProgress,
+  OUpdateSuccessful,
+  OrganizationRuleStatus'
+  #-}

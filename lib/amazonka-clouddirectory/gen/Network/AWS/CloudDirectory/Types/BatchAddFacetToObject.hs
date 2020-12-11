@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAddFacetToObject where
+module Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
+  ( BatchAddFacetToObject (..),
+
+    -- * Smart constructor
+    mkBatchAddFacetToObject,
+
+    -- * Lenses
+    baftoSchemaFacet,
+    baftoObjectAttributeList,
+    baftoObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.SchemaFacet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a batch add facet to object operation.
 --
---
---
--- /See:/ 'batchAddFacetToObject' smart constructor.
+-- /See:/ 'mkBatchAddFacetToObject' smart constructor.
 data BatchAddFacetToObject = BatchAddFacetToObject'
-  { _baftoSchemaFacet ::
-      !SchemaFacet,
-    _baftoObjectAttributeList ::
-      ![AttributeKeyAndValue],
-    _baftoObjectReference :: !ObjectReference
+  { schemaFacet ::
+      SchemaFacet,
+    objectAttributeList :: [AttributeKeyAndValue],
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAddFacetToObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'baftoSchemaFacet' - Represents the facet being added to the object.
---
--- * 'baftoObjectAttributeList' - The attributes to set on the object.
---
--- * 'baftoObjectReference' - A reference to the object being mutated.
-batchAddFacetToObject ::
-  -- | 'baftoSchemaFacet'
+-- * 'objectAttributeList' - The attributes to set on the object.
+-- * 'objectReference' - A reference to the object being mutated.
+-- * 'schemaFacet' - Represents the facet being added to the object.
+mkBatchAddFacetToObject ::
+  -- | 'schemaFacet'
   SchemaFacet ->
-  -- | 'baftoObjectReference'
+  -- | 'objectReference'
   ObjectReference ->
   BatchAddFacetToObject
-batchAddFacetToObject pSchemaFacet_ pObjectReference_ =
+mkBatchAddFacetToObject pSchemaFacet_ pObjectReference_ =
   BatchAddFacetToObject'
-    { _baftoSchemaFacet = pSchemaFacet_,
-      _baftoObjectAttributeList = mempty,
-      _baftoObjectReference = pObjectReference_
+    { schemaFacet = pSchemaFacet_,
+      objectAttributeList = Lude.mempty,
+      objectReference = pObjectReference_
     }
 
 -- | Represents the facet being added to the object.
-baftoSchemaFacet :: Lens' BatchAddFacetToObject SchemaFacet
-baftoSchemaFacet = lens _baftoSchemaFacet (\s a -> s {_baftoSchemaFacet = a})
+--
+-- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baftoSchemaFacet :: Lens.Lens' BatchAddFacetToObject SchemaFacet
+baftoSchemaFacet = Lens.lens (schemaFacet :: BatchAddFacetToObject -> SchemaFacet) (\s a -> s {schemaFacet = a} :: BatchAddFacetToObject)
+{-# DEPRECATED baftoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
 -- | The attributes to set on the object.
-baftoObjectAttributeList :: Lens' BatchAddFacetToObject [AttributeKeyAndValue]
-baftoObjectAttributeList = lens _baftoObjectAttributeList (\s a -> s {_baftoObjectAttributeList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baftoObjectAttributeList :: Lens.Lens' BatchAddFacetToObject [AttributeKeyAndValue]
+baftoObjectAttributeList = Lens.lens (objectAttributeList :: BatchAddFacetToObject -> [AttributeKeyAndValue]) (\s a -> s {objectAttributeList = a} :: BatchAddFacetToObject)
+{-# DEPRECATED baftoObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
 
 -- | A reference to the object being mutated.
-baftoObjectReference :: Lens' BatchAddFacetToObject ObjectReference
-baftoObjectReference = lens _baftoObjectReference (\s a -> s {_baftoObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baftoObjectReference :: Lens.Lens' BatchAddFacetToObject ObjectReference
+baftoObjectReference = Lens.lens (objectReference :: BatchAddFacetToObject -> ObjectReference) (\s a -> s {objectReference = a} :: BatchAddFacetToObject)
+{-# DEPRECATED baftoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchAddFacetToObject
-
-instance NFData BatchAddFacetToObject
-
-instance ToJSON BatchAddFacetToObject where
+instance Lude.ToJSON BatchAddFacetToObject where
   toJSON BatchAddFacetToObject' {..} =
-    object
-      ( catMaybes
-          [ Just ("SchemaFacet" .= _baftoSchemaFacet),
-            Just ("ObjectAttributeList" .= _baftoObjectAttributeList),
-            Just ("ObjectReference" .= _baftoObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
+            Lude.Just ("ObjectAttributeList" Lude..= objectAttributeList),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

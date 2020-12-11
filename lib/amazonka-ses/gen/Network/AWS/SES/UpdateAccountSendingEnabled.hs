@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,86 +14,93 @@
 --
 -- Enables or disables email sending across your entire Amazon SES account in the current AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending across your Amazon SES account in a given AWS Region when reputation metrics (such as your bounce or complaint rates) reach certain thresholds.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.UpdateAccountSendingEnabled
-  ( -- * Creating a Request
-    updateAccountSendingEnabled,
-    UpdateAccountSendingEnabled,
+  ( -- * Creating a request
+    UpdateAccountSendingEnabled (..),
+    mkUpdateAccountSendingEnabled,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaseEnabled,
 
-    -- * Destructuring the Response
-    updateAccountSendingEnabledResponse,
-    UpdateAccountSendingEnabledResponse,
+    -- * Destructuring the response
+    UpdateAccountSendingEnabledResponse (..),
+    mkUpdateAccountSendingEnabledResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.
 --
---
---
--- /See:/ 'updateAccountSendingEnabled' smart constructor.
+-- /See:/ 'mkUpdateAccountSendingEnabled' smart constructor.
 newtype UpdateAccountSendingEnabled = UpdateAccountSendingEnabled'
-  { _uaseEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountSendingEnabled' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaseEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
-updateAccountSendingEnabled ::
+-- * 'enabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
+mkUpdateAccountSendingEnabled ::
   UpdateAccountSendingEnabled
-updateAccountSendingEnabled =
-  UpdateAccountSendingEnabled' {_uaseEnabled = Nothing}
+mkUpdateAccountSendingEnabled =
+  UpdateAccountSendingEnabled' {enabled = Lude.Nothing}
 
 -- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
-uaseEnabled :: Lens' UpdateAccountSendingEnabled (Maybe Bool)
-uaseEnabled = lens _uaseEnabled (\s a -> s {_uaseEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaseEnabled :: Lens.Lens' UpdateAccountSendingEnabled (Lude.Maybe Lude.Bool)
+uaseEnabled = Lens.lens (enabled :: UpdateAccountSendingEnabled -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateAccountSendingEnabled)
+{-# DEPRECATED uaseEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance AWSRequest UpdateAccountSendingEnabled where
+instance Lude.AWSRequest UpdateAccountSendingEnabled where
   type
     Rs UpdateAccountSendingEnabled =
       UpdateAccountSendingEnabledResponse
-  request = postQuery ses
-  response = receiveNull UpdateAccountSendingEnabledResponse'
+  request = Req.postQuery sesService
+  response = Res.receiveNull UpdateAccountSendingEnabledResponse'
 
-instance Hashable UpdateAccountSendingEnabled
+instance Lude.ToHeaders UpdateAccountSendingEnabled where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateAccountSendingEnabled
+instance Lude.ToPath UpdateAccountSendingEnabled where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateAccountSendingEnabled where
-  toHeaders = const mempty
-
-instance ToPath UpdateAccountSendingEnabled where
-  toPath = const "/"
-
-instance ToQuery UpdateAccountSendingEnabled where
+instance Lude.ToQuery UpdateAccountSendingEnabled where
   toQuery UpdateAccountSendingEnabled' {..} =
-    mconcat
-      [ "Action" =: ("UpdateAccountSendingEnabled" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Enabled" =: _uaseEnabled
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("UpdateAccountSendingEnabled" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Enabled" Lude.=: enabled
       ]
 
--- | /See:/ 'updateAccountSendingEnabledResponse' smart constructor.
+-- | /See:/ 'mkUpdateAccountSendingEnabledResponse' smart constructor.
 data UpdateAccountSendingEnabledResponse = UpdateAccountSendingEnabledResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountSendingEnabledResponse' with the minimum fields required to make a request.
-updateAccountSendingEnabledResponse ::
+mkUpdateAccountSendingEnabledResponse ::
   UpdateAccountSendingEnabledResponse
-updateAccountSendingEnabledResponse =
+mkUpdateAccountSendingEnabledResponse =
   UpdateAccountSendingEnabledResponse'
-
-instance NFData UpdateAccountSendingEnabledResponse

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo where
+module Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
+  ( ExportTaskExecutionInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExportTaskExecutionInfo,
+
+    -- * Lenses
+    eteiCreationTime,
+    eteiCompletionTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the status of an export task.
 --
---
---
--- /See:/ 'exportTaskExecutionInfo' smart constructor.
+-- /See:/ 'mkExportTaskExecutionInfo' smart constructor.
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
-  { _eteiCreationTime ::
-      !(Maybe Nat),
-    _eteiCompletionTime :: !(Maybe Nat)
+  { creationTime ::
+      Lude.Maybe Lude.Natural,
+    completionTime :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskExecutionInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eteiCreationTime' - The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'eteiCompletionTime' - The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-exportTaskExecutionInfo ::
+-- * 'completionTime' - The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'creationTime' - The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+mkExportTaskExecutionInfo ::
   ExportTaskExecutionInfo
-exportTaskExecutionInfo =
+mkExportTaskExecutionInfo =
   ExportTaskExecutionInfo'
-    { _eteiCreationTime = Nothing,
-      _eteiCompletionTime = Nothing
+    { creationTime = Lude.Nothing,
+      completionTime = Lude.Nothing
     }
 
 -- | The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
-eteiCreationTime = lens _eteiCreationTime (\s a -> s {_eteiCreationTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eteiCreationTime :: Lens.Lens' ExportTaskExecutionInfo (Lude.Maybe Lude.Natural)
+eteiCreationTime = Lens.lens (creationTime :: ExportTaskExecutionInfo -> Lude.Maybe Lude.Natural) (\s a -> s {creationTime = a} :: ExportTaskExecutionInfo)
+{-# DEPRECATED eteiCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
-eteiCompletionTime = lens _eteiCompletionTime (\s a -> s {_eteiCompletionTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'completionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eteiCompletionTime :: Lens.Lens' ExportTaskExecutionInfo (Lude.Maybe Lude.Natural)
+eteiCompletionTime = Lens.lens (completionTime :: ExportTaskExecutionInfo -> Lude.Maybe Lude.Natural) (\s a -> s {completionTime = a} :: ExportTaskExecutionInfo)
+{-# DEPRECATED eteiCompletionTime "Use generic-lens or generic-optics with 'completionTime' instead." #-}
 
-instance FromJSON ExportTaskExecutionInfo where
+instance Lude.FromJSON ExportTaskExecutionInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportTaskExecutionInfo"
       ( \x ->
           ExportTaskExecutionInfo'
-            <$> (x .:? "creationTime") <*> (x .:? "completionTime")
+            Lude.<$> (x Lude..:? "creationTime") Lude.<*> (x Lude..:? "completionTime")
       )
-
-instance Hashable ExportTaskExecutionInfo
-
-instance NFData ExportTaskExecutionInfo

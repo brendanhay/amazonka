@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.RevocationReason where
+module Network.AWS.CertificateManager.Types.RevocationReason
+  ( RevocationReason
+      ( RevocationReason',
+        AACompromise,
+        AffiliationChanged,
+        CaCompromise,
+        CertificateHold,
+        CessationOfOperation,
+        KeyCompromise,
+        PrivilegeWithdrawn,
+        RemoveFromCrl,
+        Superceded,
+        Unspecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RevocationReason
-  = AACompromise
-  | AffiliationChanged
-  | CaCompromise
-  | CertificateHold
-  | CessationOfOperation
-  | KeyCompromise
-  | PrivilegeWithdrawn
-  | RemoveFromCrl
-  | Superceded
-  | Unspecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RevocationReason = RevocationReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RevocationReason where
-  parser =
-    takeLowerText >>= \case
-      "a_a_compromise" -> pure AACompromise
-      "affiliation_changed" -> pure AffiliationChanged
-      "ca_compromise" -> pure CaCompromise
-      "certificate_hold" -> pure CertificateHold
-      "cessation_of_operation" -> pure CessationOfOperation
-      "key_compromise" -> pure KeyCompromise
-      "privilege_withdrawn" -> pure PrivilegeWithdrawn
-      "remove_from_crl" -> pure RemoveFromCrl
-      "superceded" -> pure Superceded
-      "unspecified" -> pure Unspecified
-      e ->
-        fromTextError $
-          "Failure parsing RevocationReason from value: '" <> e
-            <> "'. Accepted values: a_a_compromise, affiliation_changed, ca_compromise, certificate_hold, cessation_of_operation, key_compromise, privilege_withdrawn, remove_from_crl, superceded, unspecified"
+pattern AACompromise :: RevocationReason
+pattern AACompromise = RevocationReason' "A_A_COMPROMISE"
 
-instance ToText RevocationReason where
-  toText = \case
-    AACompromise -> "A_A_COMPROMISE"
-    AffiliationChanged -> "AFFILIATION_CHANGED"
-    CaCompromise -> "CA_COMPROMISE"
-    CertificateHold -> "CERTIFICATE_HOLD"
-    CessationOfOperation -> "CESSATION_OF_OPERATION"
-    KeyCompromise -> "KEY_COMPROMISE"
-    PrivilegeWithdrawn -> "PRIVILEGE_WITHDRAWN"
-    RemoveFromCrl -> "REMOVE_FROM_CRL"
-    Superceded -> "SUPERCEDED"
-    Unspecified -> "UNSPECIFIED"
+pattern AffiliationChanged :: RevocationReason
+pattern AffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
 
-instance Hashable RevocationReason
+pattern CaCompromise :: RevocationReason
+pattern CaCompromise = RevocationReason' "CA_COMPROMISE"
 
-instance NFData RevocationReason
+pattern CertificateHold :: RevocationReason
+pattern CertificateHold = RevocationReason' "CERTIFICATE_HOLD"
 
-instance ToByteString RevocationReason
+pattern CessationOfOperation :: RevocationReason
+pattern CessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
 
-instance ToQuery RevocationReason
+pattern KeyCompromise :: RevocationReason
+pattern KeyCompromise = RevocationReason' "KEY_COMPROMISE"
 
-instance ToHeader RevocationReason
+pattern PrivilegeWithdrawn :: RevocationReason
+pattern PrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
 
-instance FromJSON RevocationReason where
-  parseJSON = parseJSONText "RevocationReason"
+pattern RemoveFromCrl :: RevocationReason
+pattern RemoveFromCrl = RevocationReason' "REMOVE_FROM_CRL"
+
+pattern Superceded :: RevocationReason
+pattern Superceded = RevocationReason' "SUPERCEDED"
+
+pattern Unspecified :: RevocationReason
+pattern Unspecified = RevocationReason' "UNSPECIFIED"
+
+{-# COMPLETE
+  AACompromise,
+  AffiliationChanged,
+  CaCompromise,
+  CertificateHold,
+  CessationOfOperation,
+  KeyCompromise,
+  PrivilegeWithdrawn,
+  RemoveFromCrl,
+  Superceded,
+  Unspecified,
+  RevocationReason'
+  #-}

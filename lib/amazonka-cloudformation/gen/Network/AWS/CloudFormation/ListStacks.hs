@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns the summary information for stacks whose status matches the specified StackStatusFilter. Summary information for stacks that have been deleted is kept for 90 days after the stack is deleted. If no StackStatusFilter is specified, summary information for all stacks is returned (including existing stacks and stacks that have been deleted).
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStacks
-  ( -- * Creating a Request
-    listStacks,
-    ListStacks,
+  ( -- * Creating a request
+    ListStacks (..),
+    mkListStacks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsNextToken,
     lsStackStatusFilter,
 
-    -- * Destructuring the Response
-    listStacksResponse,
-    ListStacksResponse,
+    -- * Destructuring the response
+    ListStacksResponse (..),
+    mkListStacksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrsNextToken,
     lsrsStackSummaries,
     lsrsResponseStatus,
@@ -43,128 +36,146 @@ module Network.AWS.CloudFormation.ListStacks
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for 'ListStacks' action.
 --
---
---
--- /See:/ 'listStacks' smart constructor.
+-- /See:/ 'mkListStacks' smart constructor.
 data ListStacks = ListStacks'
-  { _lsNextToken :: !(Maybe Text),
-    _lsStackStatusFilter :: !(Maybe [StackStatus])
+  { nextToken :: Lude.Maybe Lude.Text,
+    stackStatusFilter :: Lude.Maybe [StackStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStacks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsNextToken' - A string that identifies the next page of stacks that you want to retrieve.
---
--- * 'lsStackStatusFilter' - Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
-listStacks ::
+-- * 'nextToken' - A string that identifies the next page of stacks that you want to retrieve.
+-- * 'stackStatusFilter' - Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
+mkListStacks ::
   ListStacks
-listStacks =
+mkListStacks =
   ListStacks'
-    { _lsNextToken = Nothing,
-      _lsStackStatusFilter = Nothing
+    { nextToken = Lude.Nothing,
+      stackStatusFilter = Lude.Nothing
     }
 
 -- | A string that identifies the next page of stacks that you want to retrieve.
-lsNextToken :: Lens' ListStacks (Maybe Text)
-lsNextToken = lens _lsNextToken (\s a -> s {_lsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListStacks (Lude.Maybe Lude.Text)
+lsNextToken = Lens.lens (nextToken :: ListStacks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStacks)
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
-lsStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsStackStatusFilter = lens _lsStackStatusFilter (\s a -> s {_lsStackStatusFilter = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stackStatusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsStackStatusFilter :: Lens.Lens' ListStacks (Lude.Maybe [StackStatus])
+lsStackStatusFilter = Lens.lens (stackStatusFilter :: ListStacks -> Lude.Maybe [StackStatus]) (\s a -> s {stackStatusFilter = a} :: ListStacks)
+{-# DEPRECATED lsStackStatusFilter "Use generic-lens or generic-optics with 'stackStatusFilter' instead." #-}
 
-instance AWSPager ListStacks where
+instance Page.AWSPager ListStacks where
   page rq rs
-    | stop (rs ^. lsrsNextToken) = Nothing
-    | stop (rs ^. lsrsStackSummaries) = Nothing
-    | otherwise = Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsrsStackSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
 
-instance AWSRequest ListStacks where
+instance Lude.AWSRequest ListStacks where
   type Rs ListStacks = ListStacksResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListStacksResult"
       ( \s h x ->
           ListStacksResponse'
-            <$> (x .@? "NextToken")
-            <*> (x .@? "StackSummaries" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "StackSummaries" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListStacks
+instance Lude.ToHeaders ListStacks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListStacks
+instance Lude.ToPath ListStacks where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListStacks where
-  toHeaders = const mempty
-
-instance ToPath ListStacks where
-  toPath = const "/"
-
-instance ToQuery ListStacks where
+instance Lude.ToQuery ListStacks where
   toQuery ListStacks' {..} =
-    mconcat
-      [ "Action" =: ("ListStacks" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "NextToken" =: _lsNextToken,
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListStacks" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
         "StackStatusFilter"
-          =: toQuery (toQueryList "member" <$> _lsStackStatusFilter)
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> stackStatusFilter)
       ]
 
 -- | The output for 'ListStacks' action.
 --
---
---
--- /See:/ 'listStacksResponse' smart constructor.
+-- /See:/ 'mkListStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
-  { _lsrsNextToken ::
-      !(Maybe Text),
-    _lsrsStackSummaries :: !(Maybe [StackSummary]),
-    _lsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    stackSummaries :: Lude.Maybe [StackSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStacksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrsNextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
---
--- * 'lsrsStackSummaries' - A list of @StackSummary@ structures containing information about the specified stacks.
---
--- * 'lsrsResponseStatus' - -- | The response status code.
-listStacksResponse ::
-  -- | 'lsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'stackSummaries' - A list of @StackSummary@ structures containing information about the specified stacks.
+mkListStacksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStacksResponse
-listStacksResponse pResponseStatus_ =
+mkListStacksResponse pResponseStatus_ =
   ListStacksResponse'
-    { _lsrsNextToken = Nothing,
-      _lsrsStackSummaries = Nothing,
-      _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      stackSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
-lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s {_lsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsNextToken :: Lens.Lens' ListStacksResponse (Lude.Maybe Lude.Text)
+lsrsNextToken = Lens.lens (nextToken :: ListStacksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStacksResponse)
+{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @StackSummary@ structures containing information about the specified stacks.
-lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
-lsrsStackSummaries = lens _lsrsStackSummaries (\s a -> s {_lsrsStackSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stackSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsStackSummaries :: Lens.Lens' ListStacksResponse (Lude.Maybe [StackSummary])
+lsrsStackSummaries = Lens.lens (stackSummaries :: ListStacksResponse -> Lude.Maybe [StackSummary]) (\s a -> s {stackSummaries = a} :: ListStacksResponse)
+{-# DEPRECATED lsrsStackSummaries "Use generic-lens or generic-optics with 'stackSummaries' instead." #-}
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListStacksResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\s a -> s {_lsrsResponseStatus = a})
-
-instance NFData ListStacksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListStacksResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListStacksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStacksResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types
-  ( -- * Service Configuration
-    ecs,
+  ( -- * Service configuration
+    ecsService,
 
     -- * Errors
 
@@ -169,50 +167,50 @@ module Network.AWS.ECS.Types
     UlimitName (..),
 
     -- * AWSVPCConfiguration
-    AWSVPCConfiguration,
-    awsVPCConfiguration,
+    AWSVPCConfiguration (..),
+    mkAWSVPCConfiguration,
     avcSecurityGroups,
     avcAssignPublicIP,
     avcSubnets,
 
     -- * Attachment
-    Attachment,
-    attachment,
+    Attachment (..),
+    mkAttachment,
     aStatus,
     aDetails,
     aId,
     aType,
 
     -- * AttachmentStateChange
-    AttachmentStateChange,
-    attachmentStateChange,
+    AttachmentStateChange (..),
+    mkAttachmentStateChange,
     ascAttachmentARN,
     ascStatus,
 
     -- * Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aTargetId,
     aValue,
     aTargetType,
     aName,
 
     -- * AutoScalingGroupProvider
-    AutoScalingGroupProvider,
-    autoScalingGroupProvider,
+    AutoScalingGroupProvider (..),
+    mkAutoScalingGroupProvider,
     asgpManagedScaling,
     asgpManagedTerminationProtection,
     asgpAutoScalingGroupARN,
 
     -- * AutoScalingGroupProviderUpdate
-    AutoScalingGroupProviderUpdate,
-    autoScalingGroupProviderUpdate,
+    AutoScalingGroupProviderUpdate (..),
+    mkAutoScalingGroupProviderUpdate,
     asgpuManagedScaling,
     asgpuManagedTerminationProtection,
 
     -- * CapacityProvider
-    CapacityProvider,
-    capacityProvider,
+    CapacityProvider (..),
+    mkCapacityProvider,
     cpStatus,
     cpUpdateStatusReason,
     cpAutoScalingGroupProvider,
@@ -222,15 +220,15 @@ module Network.AWS.ECS.Types
     cpTags,
 
     -- * CapacityProviderStrategyItem
-    CapacityProviderStrategyItem,
-    capacityProviderStrategyItem,
+    CapacityProviderStrategyItem (..),
+    mkCapacityProviderStrategyItem,
     cpsiBase,
     cpsiWeight,
     cpsiCapacityProvider,
 
     -- * Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cStatus,
     cClusterARN,
     cAttachments,
@@ -247,14 +245,14 @@ module Network.AWS.ECS.Types
     cTags,
 
     -- * ClusterSetting
-    ClusterSetting,
-    clusterSetting,
+    ClusterSetting (..),
+    mkClusterSetting,
     csValue,
     csName,
 
     -- * Container
-    Container,
-    container,
+    Container (..),
+    mkContainer,
     cGpuIds,
     cNetworkBindings,
     cImage,
@@ -273,8 +271,8 @@ module Network.AWS.ECS.Types
     cMemoryReservation,
 
     -- * ContainerDefinition
-    ContainerDefinition,
-    containerDefinition,
+    ContainerDefinition (..),
+    mkContainerDefinition,
     cdImage,
     cdCommand,
     cdHostname,
@@ -316,14 +314,14 @@ module Network.AWS.ECS.Types
     cdMemoryReservation,
 
     -- * ContainerDependency
-    ContainerDependency,
-    containerDependency,
+    ContainerDependency (..),
+    mkContainerDependency,
     cdContainerName,
     cdCondition,
 
     -- * ContainerInstance
-    ContainerInstance,
-    containerInstance,
+    ContainerInstance (..),
+    mkContainerInstance,
     ciStatus,
     ciAttachments,
     ciRunningTasksCount,
@@ -343,8 +341,8 @@ module Network.AWS.ECS.Types
     ciRegisteredResources,
 
     -- * ContainerOverride
-    ContainerOverride,
-    containerOverride,
+    ContainerOverride (..),
+    mkContainerOverride,
     coCommand,
     coEnvironment,
     coEnvironmentFiles,
@@ -355,8 +353,8 @@ module Network.AWS.ECS.Types
     coMemoryReservation,
 
     -- * ContainerService
-    ContainerService,
-    containerService,
+    ContainerService (..),
+    mkContainerService,
     csTaskSets,
     csRunningCount,
     csStatus,
@@ -388,8 +386,8 @@ module Network.AWS.ECS.Types
     csDeploymentConfiguration,
 
     -- * ContainerStateChange
-    ContainerStateChange,
-    containerStateChange,
+    ContainerStateChange (..),
+    mkContainerStateChange,
     cscNetworkBindings,
     cscStatus,
     cscContainerName,
@@ -399,8 +397,8 @@ module Network.AWS.ECS.Types
     cscRuntimeId,
 
     -- * Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dRolloutState,
     dRunningCount,
     dStatus,
@@ -418,33 +416,33 @@ module Network.AWS.ECS.Types
     dCapacityProviderStrategy,
 
     -- * DeploymentCircuitBreaker
-    DeploymentCircuitBreaker,
-    deploymentCircuitBreaker,
+    DeploymentCircuitBreaker (..),
+    mkDeploymentCircuitBreaker,
     dcbEnable,
     dcbRollback,
 
     -- * DeploymentConfiguration
-    DeploymentConfiguration,
-    deploymentConfiguration,
+    DeploymentConfiguration (..),
+    mkDeploymentConfiguration,
     dcMinimumHealthyPercent,
     dcMaximumPercent,
     dcDeploymentCircuitBreaker,
 
     -- * DeploymentController
-    DeploymentController,
-    deploymentController,
+    DeploymentController (..),
+    mkDeploymentController,
     dcType,
 
     -- * Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dContainerPath,
     dPermissions,
     dHostPath,
 
     -- * DockerVolumeConfiguration
-    DockerVolumeConfiguration,
-    dockerVolumeConfiguration,
+    DockerVolumeConfiguration (..),
+    mkDockerVolumeConfiguration,
     dvcDriverOpts,
     dvcDriver,
     dvcScope,
@@ -452,14 +450,14 @@ module Network.AWS.ECS.Types
     dvcAutoprovision,
 
     -- * EFSAuthorizationConfig
-    EFSAuthorizationConfig,
-    eFSAuthorizationConfig,
+    EFSAuthorizationConfig (..),
+    mkEFSAuthorizationConfig,
     efsacAccessPointId,
     efsacIam,
 
     -- * EFSVolumeConfiguration
-    EFSVolumeConfiguration,
-    eFSVolumeConfiguration,
+    EFSVolumeConfiguration (..),
+    mkEFSVolumeConfiguration,
     efsvcRootDirectory,
     efsvcTransitEncryption,
     efsvcAuthorizationConfig,
@@ -467,40 +465,40 @@ module Network.AWS.ECS.Types
     efsvcFileSystemId,
 
     -- * EnvironmentFile
-    EnvironmentFile,
-    environmentFile,
+    EnvironmentFile (..),
+    mkEnvironmentFile,
     efValue,
     efType,
 
     -- * FSxWindowsFileServerAuthorizationConfig
-    FSxWindowsFileServerAuthorizationConfig,
-    fSxWindowsFileServerAuthorizationConfig,
+    FSxWindowsFileServerAuthorizationConfig (..),
+    mkFSxWindowsFileServerAuthorizationConfig,
     fswfsacCredentialsParameter,
     fswfsacDomain,
 
     -- * FSxWindowsFileServerVolumeConfiguration
-    FSxWindowsFileServerVolumeConfiguration,
-    fSxWindowsFileServerVolumeConfiguration,
+    FSxWindowsFileServerVolumeConfiguration (..),
+    mkFSxWindowsFileServerVolumeConfiguration,
     fswfsvcFileSystemId,
     fswfsvcRootDirectory,
     fswfsvcAuthorizationConfig,
 
     -- * Failure
-    Failure,
-    failure,
+    Failure (..),
+    mkFailure,
     fArn,
     fReason,
     fDetail,
 
     -- * FirelensConfiguration
-    FirelensConfiguration,
-    firelensConfiguration,
+    FirelensConfiguration (..),
+    mkFirelensConfiguration,
     fcOptions,
     fcType,
 
     -- * HealthCheck
-    HealthCheck,
-    healthCheck,
+    HealthCheck (..),
+    mkHealthCheck,
     hcStartPeriod,
     hcRetries,
     hcInterval,
@@ -508,43 +506,43 @@ module Network.AWS.ECS.Types
     hcCommand,
 
     -- * HostEntry
-    HostEntry,
-    hostEntry,
+    HostEntry (..),
+    mkHostEntry,
     heHostname,
     heIpAddress,
 
     -- * HostVolumeProperties
-    HostVolumeProperties,
-    hostVolumeProperties,
+    HostVolumeProperties (..),
+    mkHostVolumeProperties,
     hvpSourcePath,
 
     -- * InferenceAccelerator
-    InferenceAccelerator,
-    inferenceAccelerator,
+    InferenceAccelerator (..),
+    mkInferenceAccelerator,
     iaDeviceName,
     iaDeviceType,
 
     -- * InferenceAcceleratorOverride
-    InferenceAcceleratorOverride,
-    inferenceAcceleratorOverride,
+    InferenceAcceleratorOverride (..),
+    mkInferenceAcceleratorOverride,
     iaoDeviceName,
     iaoDeviceType,
 
     -- * KernelCapabilities
-    KernelCapabilities,
-    kernelCapabilities,
+    KernelCapabilities (..),
+    mkKernelCapabilities,
     kcDrop,
     kcAdd,
 
     -- * KeyValuePair
-    KeyValuePair,
-    keyValuePair,
+    KeyValuePair (..),
+    mkKeyValuePair,
     kvpValue,
     kvpName,
 
     -- * LinuxParameters
-    LinuxParameters,
-    linuxParameters,
+    LinuxParameters (..),
+    mkLinuxParameters,
     lpSharedMemorySize,
     lpInitProcessEnabled,
     lpTmpfs,
@@ -554,23 +552,23 @@ module Network.AWS.ECS.Types
     lpMaxSwap,
 
     -- * LoadBalancer
-    LoadBalancer,
-    loadBalancer,
+    LoadBalancer (..),
+    mkLoadBalancer,
     lbLoadBalancerName,
     lbContainerName,
     lbTargetGroupARN,
     lbContainerPort,
 
     -- * LogConfiguration
-    LogConfiguration,
-    logConfiguration,
+    LogConfiguration (..),
+    mkLogConfiguration,
     lcOptions,
     lcSecretOptions,
     lcLogDriver,
 
     -- * ManagedScaling
-    ManagedScaling,
-    managedScaling,
+    ManagedScaling (..),
+    mkManagedScaling,
     msStatus,
     msMaximumScalingStepSize,
     msTargetCapacity,
@@ -578,72 +576,72 @@ module Network.AWS.ECS.Types
     msInstanceWarmupPeriod,
 
     -- * MountPoint
-    MountPoint,
-    mountPoint,
+    MountPoint (..),
+    mkMountPoint,
     mpContainerPath,
     mpSourceVolume,
     mpReadOnly,
 
     -- * NetworkBinding
-    NetworkBinding,
-    networkBinding,
+    NetworkBinding (..),
+    mkNetworkBinding,
     nbBindIP,
     nbProtocol,
     nbHostPort,
     nbContainerPort,
 
     -- * NetworkConfiguration
-    NetworkConfiguration,
-    networkConfiguration,
+    NetworkConfiguration (..),
+    mkNetworkConfiguration,
     ncAwsvpcConfiguration,
 
     -- * NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niIpv6Address,
     niPrivateIPv4Address,
     niAttachmentId,
 
     -- * PlacementConstraint
-    PlacementConstraint,
-    placementConstraint,
+    PlacementConstraint (..),
+    mkPlacementConstraint,
     pcExpression,
     pcType,
 
     -- * PlacementStrategy
-    PlacementStrategy,
-    placementStrategy,
+    PlacementStrategy (..),
+    mkPlacementStrategy,
     psField,
     psType,
 
     -- * PlatformDevice
-    PlatformDevice,
-    platformDevice,
+    PlatformDevice (..),
+    mkPlatformDevice,
     pdId,
     pdType,
 
     -- * PortMapping
-    PortMapping,
-    portMapping,
+    PortMapping (..),
+    mkPortMapping,
     pmProtocol,
     pmHostPort,
     pmContainerPort,
 
     -- * ProxyConfiguration
-    ProxyConfiguration,
-    proxyConfiguration,
+    ProxyConfiguration (..),
+    mkProxyConfiguration,
     pType,
     pProperties,
     pContainerName,
 
     -- * RepositoryCredentials
-    RepositoryCredentials,
-    repositoryCredentials,
+    RepositoryCredentials (..),
+    mkRepositoryCredentials,
     rcCredentialsParameter,
 
     -- * Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rStringSetValue,
     rIntegerValue,
     rDoubleValue,
@@ -652,60 +650,60 @@ module Network.AWS.ECS.Types
     rType,
 
     -- * ResourceRequirement
-    ResourceRequirement,
-    resourceRequirement,
+    ResourceRequirement (..),
+    mkResourceRequirement,
     rrValue,
     rrType,
 
     -- * Scale
-    Scale,
-    scale,
+    Scale (..),
+    mkScale,
     sValue,
     sUnit,
 
     -- * Secret
-    Secret,
-    secret,
+    Secret (..),
+    mkSecret,
     sName,
     sValueFrom,
 
     -- * ServiceEvent
-    ServiceEvent,
-    serviceEvent,
+    ServiceEvent (..),
+    mkServiceEvent,
     seCreatedAt,
     seId,
     seMessage,
 
     -- * ServiceRegistry
-    ServiceRegistry,
-    serviceRegistry,
+    ServiceRegistry (..),
+    mkServiceRegistry,
     srRegistryARN,
     srContainerName,
     srContainerPort,
     srPort,
 
     -- * Setting
-    Setting,
-    setting,
+    Setting (..),
+    mkSetting,
     setValue,
     setName,
     setPrincipalARN,
 
     -- * SystemControl
-    SystemControl,
-    systemControl,
+    SystemControl (..),
+    mkSystemControl,
     scValue,
     scNamespace,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * Task
-    Task,
-    task,
+    Task (..),
+    mkTask,
     tStoppedAt,
     tDesiredStatus,
     tOverrides,
@@ -741,8 +739,8 @@ module Network.AWS.ECS.Types
     tTags,
 
     -- * TaskDefinition
-    TaskDefinition,
-    taskDefinition,
+    TaskDefinition (..),
+    mkTaskDefinition,
     tdStatus,
     tdInferenceAccelerators,
     tdExecutionRoleARN,
@@ -764,14 +762,14 @@ module Network.AWS.ECS.Types
     tdRequiresAttributes,
 
     -- * TaskDefinitionPlacementConstraint
-    TaskDefinitionPlacementConstraint,
-    taskDefinitionPlacementConstraint,
+    TaskDefinitionPlacementConstraint (..),
+    mkTaskDefinitionPlacementConstraint,
     tdpcExpression,
     tdpcType,
 
     -- * TaskOverride
-    TaskOverride,
-    taskOverride,
+    TaskOverride (..),
+    mkTaskOverride,
     toContainerOverrides,
     toExecutionRoleARN,
     toMemory,
@@ -780,8 +778,8 @@ module Network.AWS.ECS.Types
     toCpu,
 
     -- * TaskSet
-    TaskSet,
-    taskSet,
+    TaskSet (..),
+    mkTaskSet,
     tsRunningCount,
     tsStatus,
     tsClusterARN,
@@ -807,29 +805,29 @@ module Network.AWS.ECS.Types
     tsTags,
 
     -- * Tmpfs
-    Tmpfs,
-    tmpfs,
+    Tmpfs (..),
+    mkTmpfs,
     tMountOptions,
     tContainerPath,
     tSize,
 
     -- * Ulimit
-    Ulimit,
-    ulimit,
+    Ulimit (..),
+    mkUlimit,
     uName,
     uSoftLimit,
     uHardLimit,
 
     -- * VersionInfo
-    VersionInfo,
-    versionInfo,
+    VersionInfo (..),
+    mkVersionInfo,
     viAgentHash,
     viAgentVersion,
     viDockerVersion,
 
     -- * Volume
-    Volume,
-    volume,
+    Volume (..),
+    mkVolume,
     vDockerVolumeConfiguration,
     vFsxWindowsFileServerVolumeConfiguration,
     vName,
@@ -837,8 +835,8 @@ module Network.AWS.ECS.Types
     vHost,
 
     -- * VolumeFrom
-    VolumeFrom,
-    volumeFrom,
+    VolumeFrom (..),
+    mkVolumeFrom,
     vfSourceContainer,
     vfReadOnly,
   )
@@ -965,48 +963,60 @@ import Network.AWS.ECS.Types.UlimitName
 import Network.AWS.ECS.Types.VersionInfo
 import Network.AWS.ECS.Types.Volume
 import Network.AWS.ECS.Types.VolumeFrom
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-13@ of the Amazon EC2 Container Service SDK configuration.
-ecs :: Service
-ecs =
-  Service
-    { _svcAbbrev = "ECS",
-      _svcSigner = v4,
-      _svcPrefix = "ecs",
-      _svcVersion = "2014-11-13",
-      _svcEndpoint = defaultEndpoint ecs,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ECS",
-      _svcRetry = retry
+ecsService :: Lude.Service
+ecsService =
+  Lude.Service
+    { Lude._svcAbbrev = "ECS",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "ecs",
+      Lude._svcVersion = "2014-11-13",
+      Lude._svcEndpoint = Lude.defaultEndpoint ecsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ECS",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

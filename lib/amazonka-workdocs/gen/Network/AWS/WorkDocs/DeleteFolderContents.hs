@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,96 @@
 --
 -- Deletes the contents of the specified folder.
 module Network.AWS.WorkDocs.DeleteFolderContents
-  ( -- * Creating a Request
-    deleteFolderContents,
-    DeleteFolderContents,
+  ( -- * Creating a request
+    DeleteFolderContents (..),
+    mkDeleteFolderContents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfcAuthenticationToken,
     dfcFolderId,
 
-    -- * Destructuring the Response
-    deleteFolderContentsResponse,
-    DeleteFolderContentsResponse,
+    -- * Destructuring the response
+    DeleteFolderContentsResponse (..),
+    mkDeleteFolderContentsResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'deleteFolderContents' smart constructor.
+-- | /See:/ 'mkDeleteFolderContents' smart constructor.
 data DeleteFolderContents = DeleteFolderContents'
-  { _dfcAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _dfcFolderId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    folderId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFolderContents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfcAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'dfcFolderId' - The ID of the folder.
-deleteFolderContents ::
-  -- | 'dfcFolderId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'folderId' - The ID of the folder.
+mkDeleteFolderContents ::
+  -- | 'folderId'
+  Lude.Text ->
   DeleteFolderContents
-deleteFolderContents pFolderId_ =
+mkDeleteFolderContents pFolderId_ =
   DeleteFolderContents'
-    { _dfcAuthenticationToken = Nothing,
-      _dfcFolderId = pFolderId_
+    { authenticationToken = Lude.Nothing,
+      folderId = pFolderId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-dfcAuthenticationToken :: Lens' DeleteFolderContents (Maybe Text)
-dfcAuthenticationToken = lens _dfcAuthenticationToken (\s a -> s {_dfcAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcAuthenticationToken :: Lens.Lens' DeleteFolderContents (Lude.Maybe (Lude.Sensitive Lude.Text))
+dfcAuthenticationToken = Lens.lens (authenticationToken :: DeleteFolderContents -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteFolderContents)
+{-# DEPRECATED dfcAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the folder.
-dfcFolderId :: Lens' DeleteFolderContents Text
-dfcFolderId = lens _dfcFolderId (\s a -> s {_dfcFolderId = a})
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcFolderId :: Lens.Lens' DeleteFolderContents Lude.Text
+dfcFolderId = Lens.lens (folderId :: DeleteFolderContents -> Lude.Text) (\s a -> s {folderId = a} :: DeleteFolderContents)
+{-# DEPRECATED dfcFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
-instance AWSRequest DeleteFolderContents where
+instance Lude.AWSRequest DeleteFolderContents where
   type Rs DeleteFolderContents = DeleteFolderContentsResponse
-  request = delete workDocs
-  response = receiveNull DeleteFolderContentsResponse'
+  request = Req.delete workDocsService
+  response = Res.receiveNull DeleteFolderContentsResponse'
 
-instance Hashable DeleteFolderContents
-
-instance NFData DeleteFolderContents
-
-instance ToHeaders DeleteFolderContents where
+instance Lude.ToHeaders DeleteFolderContents where
   toHeaders DeleteFolderContents' {..} =
-    mconcat
-      [ "Authentication" =# _dfcAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath DeleteFolderContents where
+instance Lude.ToPath DeleteFolderContents where
   toPath DeleteFolderContents' {..} =
-    mconcat ["/api/v1/folders/", toBS _dfcFolderId, "/contents"]
+    Lude.mconcat
+      ["/api/v1/folders/", Lude.toBS folderId, "/contents"]
 
-instance ToQuery DeleteFolderContents where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFolderContents where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFolderContentsResponse' smart constructor.
+-- | /See:/ 'mkDeleteFolderContentsResponse' smart constructor.
 data DeleteFolderContentsResponse = DeleteFolderContentsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFolderContentsResponse' with the minimum fields required to make a request.
-deleteFolderContentsResponse ::
+mkDeleteFolderContentsResponse ::
   DeleteFolderContentsResponse
-deleteFolderContentsResponse = DeleteFolderContentsResponse'
-
-instance NFData DeleteFolderContentsResponse
+mkDeleteFolderContentsResponse = DeleteFolderContentsResponse'

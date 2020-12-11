@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,126 @@
 --
 -- Starts an existing trigger. See <https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html Triggering Jobs> for information about how different types of trigger are started.
 module Network.AWS.Glue.StartTrigger
-  ( -- * Creating a Request
-    startTrigger,
-    StartTrigger,
+  ( -- * Creating a request
+    StartTrigger (..),
+    mkStartTrigger,
 
-    -- * Request Lenses
+    -- ** Request lenses
     staName,
 
-    -- * Destructuring the Response
-    startTriggerResponse,
-    StartTriggerResponse,
+    -- * Destructuring the response
+    StartTriggerResponse (..),
+    mkStartTriggerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     starsName,
     starsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startTrigger' smart constructor.
-newtype StartTrigger = StartTrigger' {_staName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStartTrigger' smart constructor.
+newtype StartTrigger = StartTrigger' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTrigger' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'staName' - The name of the trigger to start.
-startTrigger ::
-  -- | 'staName'
-  Text ->
+-- * 'name' - The name of the trigger to start.
+mkStartTrigger ::
+  -- | 'name'
+  Lude.Text ->
   StartTrigger
-startTrigger pName_ = StartTrigger' {_staName = pName_}
+mkStartTrigger pName_ = StartTrigger' {name = pName_}
 
 -- | The name of the trigger to start.
-staName :: Lens' StartTrigger Text
-staName = lens _staName (\s a -> s {_staName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+staName :: Lens.Lens' StartTrigger Lude.Text
+staName = Lens.lens (name :: StartTrigger -> Lude.Text) (\s a -> s {name = a} :: StartTrigger)
+{-# DEPRECATED staName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest StartTrigger where
+instance Lude.AWSRequest StartTrigger where
   type Rs StartTrigger = StartTriggerResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          StartTriggerResponse' <$> (x .?> "Name") <*> (pure (fromEnum s))
+          StartTriggerResponse'
+            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartTrigger
-
-instance NFData StartTrigger
-
-instance ToHeaders StartTrigger where
+instance Lude.ToHeaders StartTrigger where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.StartTrigger" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.StartTrigger" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartTrigger where
+instance Lude.ToJSON StartTrigger where
   toJSON StartTrigger' {..} =
-    object (catMaybes [Just ("Name" .= _staName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath StartTrigger where
-  toPath = const "/"
+instance Lude.ToPath StartTrigger where
+  toPath = Lude.const "/"
 
-instance ToQuery StartTrigger where
-  toQuery = const mempty
+instance Lude.ToQuery StartTrigger where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startTriggerResponse' smart constructor.
+-- | /See:/ 'mkStartTriggerResponse' smart constructor.
 data StartTriggerResponse = StartTriggerResponse'
-  { _starsName ::
-      !(Maybe Text),
-    _starsResponseStatus :: !Int
+  { name ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTriggerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'starsName' - The name of the trigger that was started.
---
--- * 'starsResponseStatus' - -- | The response status code.
-startTriggerResponse ::
-  -- | 'starsResponseStatus'
-  Int ->
+-- * 'name' - The name of the trigger that was started.
+-- * 'responseStatus' - The response status code.
+mkStartTriggerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartTriggerResponse
-startTriggerResponse pResponseStatus_ =
+mkStartTriggerResponse pResponseStatus_ =
   StartTriggerResponse'
-    { _starsName = Nothing,
-      _starsResponseStatus = pResponseStatus_
+    { name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the trigger that was started.
-starsName :: Lens' StartTriggerResponse (Maybe Text)
-starsName = lens _starsName (\s a -> s {_starsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsName :: Lens.Lens' StartTriggerResponse (Lude.Maybe Lude.Text)
+starsName = Lens.lens (name :: StartTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartTriggerResponse)
+{-# DEPRECATED starsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-starsResponseStatus :: Lens' StartTriggerResponse Int
-starsResponseStatus = lens _starsResponseStatus (\s a -> s {_starsResponseStatus = a})
-
-instance NFData StartTriggerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsResponseStatus :: Lens.Lens' StartTriggerResponse Lude.Int
+starsResponseStatus = Lens.lens (responseStatus :: StartTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTriggerResponse)
+{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.HadoopJARStepConfig where
+module Network.AWS.EMR.Types.HadoopJARStepConfig
+  ( HadoopJARStepConfig (..),
+
+    -- * Smart constructor
+    mkHadoopJARStepConfig,
+
+    -- * Lenses
+    hjscArgs,
+    hjscMainClass,
+    hjscProperties,
+    hjscJAR,
+  )
+where
 
 import Network.AWS.EMR.Types.KeyValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
---
---
--- /See:/ 'hadoopJARStepConfig' smart constructor.
+-- /See:/ 'mkHadoopJARStepConfig' smart constructor.
 data HadoopJARStepConfig = HadoopJARStepConfig'
-  { _hjscArgs ::
-      !(Maybe [Text]),
-    _hjscMainClass :: !(Maybe Text),
-    _hjscProperties :: !(Maybe [KeyValue]),
-    _hjscJAR :: !Text
+  { args ::
+      Lude.Maybe [Lude.Text],
+    mainClass :: Lude.Maybe Lude.Text,
+    properties :: Lude.Maybe [KeyValue],
+    jar :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HadoopJARStepConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hjscArgs' - A list of command line arguments passed to the JAR file's main function when executed.
---
--- * 'hjscMainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
---
--- * 'hjscProperties' - A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
---
--- * 'hjscJAR' - A path to a JAR file run during the step.
-hadoopJARStepConfig ::
-  -- | 'hjscJAR'
-  Text ->
+-- * 'args' - A list of command line arguments passed to the JAR file's main function when executed.
+-- * 'jar' - A path to a JAR file run during the step.
+-- * 'mainClass' - The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+-- * 'properties' - A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+mkHadoopJARStepConfig ::
+  -- | 'jar'
+  Lude.Text ->
   HadoopJARStepConfig
-hadoopJARStepConfig pJAR_ =
+mkHadoopJARStepConfig pJAR_ =
   HadoopJARStepConfig'
-    { _hjscArgs = Nothing,
-      _hjscMainClass = Nothing,
-      _hjscProperties = Nothing,
-      _hjscJAR = pJAR_
+    { args = Lude.Nothing,
+      mainClass = Lude.Nothing,
+      properties = Lude.Nothing,
+      jar = pJAR_
     }
 
 -- | A list of command line arguments passed to the JAR file's main function when executed.
-hjscArgs :: Lens' HadoopJARStepConfig [Text]
-hjscArgs = lens _hjscArgs (\s a -> s {_hjscArgs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hjscArgs :: Lens.Lens' HadoopJARStepConfig (Lude.Maybe [Lude.Text])
+hjscArgs = Lens.lens (args :: HadoopJARStepConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: HadoopJARStepConfig)
+{-# DEPRECATED hjscArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-hjscMainClass :: Lens' HadoopJARStepConfig (Maybe Text)
-hjscMainClass = lens _hjscMainClass (\s a -> s {_hjscMainClass = a})
+--
+-- /Note:/ Consider using 'mainClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hjscMainClass :: Lens.Lens' HadoopJARStepConfig (Lude.Maybe Lude.Text)
+hjscMainClass = Lens.lens (mainClass :: HadoopJARStepConfig -> Lude.Maybe Lude.Text) (\s a -> s {mainClass = a} :: HadoopJARStepConfig)
+{-# DEPRECATED hjscMainClass "Use generic-lens or generic-optics with 'mainClass' instead." #-}
 
 -- | A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-hjscProperties :: Lens' HadoopJARStepConfig [KeyValue]
-hjscProperties = lens _hjscProperties (\s a -> s {_hjscProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hjscProperties :: Lens.Lens' HadoopJARStepConfig (Lude.Maybe [KeyValue])
+hjscProperties = Lens.lens (properties :: HadoopJARStepConfig -> Lude.Maybe [KeyValue]) (\s a -> s {properties = a} :: HadoopJARStepConfig)
+{-# DEPRECATED hjscProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
 -- | A path to a JAR file run during the step.
-hjscJAR :: Lens' HadoopJARStepConfig Text
-hjscJAR = lens _hjscJAR (\s a -> s {_hjscJAR = a})
+--
+-- /Note:/ Consider using 'jar' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hjscJAR :: Lens.Lens' HadoopJARStepConfig Lude.Text
+hjscJAR = Lens.lens (jar :: HadoopJARStepConfig -> Lude.Text) (\s a -> s {jar = a} :: HadoopJARStepConfig)
+{-# DEPRECATED hjscJAR "Use generic-lens or generic-optics with 'jar' instead." #-}
 
-instance Hashable HadoopJARStepConfig
-
-instance NFData HadoopJARStepConfig
-
-instance ToJSON HadoopJARStepConfig where
+instance Lude.ToJSON HadoopJARStepConfig where
   toJSON HadoopJARStepConfig' {..} =
-    object
-      ( catMaybes
-          [ ("Args" .=) <$> _hjscArgs,
-            ("MainClass" .=) <$> _hjscMainClass,
-            ("Properties" .=) <$> _hjscProperties,
-            Just ("Jar" .= _hjscJAR)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Args" Lude..=) Lude.<$> args,
+            ("MainClass" Lude..=) Lude.<$> mainClass,
+            ("Properties" Lude..=) Lude.<$> properties,
+            Lude.Just ("Jar" Lude..= jar)
           ]
       )

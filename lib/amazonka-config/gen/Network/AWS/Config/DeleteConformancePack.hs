@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,102 @@
 --
 -- Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that conformance pack.
 --
---
 -- AWS Config sets the conformance pack to @DELETE_IN_PROGRESS@ until the deletion is complete. You cannot update a conformance pack while it is in this state.
 module Network.AWS.Config.DeleteConformancePack
-  ( -- * Creating a Request
-    deleteConformancePack,
-    DeleteConformancePack,
+  ( -- * Creating a request
+    DeleteConformancePack (..),
+    mkDeleteConformancePack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcpConformancePackName,
 
-    -- * Destructuring the Response
-    deleteConformancePackResponse,
-    DeleteConformancePackResponse,
+    -- * Destructuring the response
+    DeleteConformancePackResponse (..),
+    mkDeleteConformancePackResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteConformancePack' smart constructor.
+-- | /See:/ 'mkDeleteConformancePack' smart constructor.
 newtype DeleteConformancePack = DeleteConformancePack'
-  { _dcpConformancePackName ::
-      Text
+  { conformancePackName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConformancePack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpConformancePackName' - Name of the conformance pack you want to delete.
-deleteConformancePack ::
-  -- | 'dcpConformancePackName'
-  Text ->
+-- * 'conformancePackName' - Name of the conformance pack you want to delete.
+mkDeleteConformancePack ::
+  -- | 'conformancePackName'
+  Lude.Text ->
   DeleteConformancePack
-deleteConformancePack pConformancePackName_ =
+mkDeleteConformancePack pConformancePackName_ =
   DeleteConformancePack'
-    { _dcpConformancePackName =
+    { conformancePackName =
         pConformancePackName_
     }
 
 -- | Name of the conformance pack you want to delete.
-dcpConformancePackName :: Lens' DeleteConformancePack Text
-dcpConformancePackName = lens _dcpConformancePackName (\s a -> s {_dcpConformancePackName = a})
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpConformancePackName :: Lens.Lens' DeleteConformancePack Lude.Text
+dcpConformancePackName = Lens.lens (conformancePackName :: DeleteConformancePack -> Lude.Text) (\s a -> s {conformancePackName = a} :: DeleteConformancePack)
+{-# DEPRECATED dcpConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
-instance AWSRequest DeleteConformancePack where
+instance Lude.AWSRequest DeleteConformancePack where
   type Rs DeleteConformancePack = DeleteConformancePackResponse
-  request = postJSON config
-  response = receiveNull DeleteConformancePackResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteConformancePackResponse'
 
-instance Hashable DeleteConformancePack
-
-instance NFData DeleteConformancePack
-
-instance ToHeaders DeleteConformancePack where
+instance Lude.ToHeaders DeleteConformancePack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteConformancePack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DeleteConformancePack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteConformancePack where
+instance Lude.ToJSON DeleteConformancePack where
   toJSON DeleteConformancePack' {..} =
-    object
-      ( catMaybes
-          [Just ("ConformancePackName" .= _dcpConformancePackName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ConformancePackName" Lude..= conformancePackName)]
       )
 
-instance ToPath DeleteConformancePack where
-  toPath = const "/"
+instance Lude.ToPath DeleteConformancePack where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteConformancePack where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteConformancePack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteConformancePackResponse' smart constructor.
+-- | /See:/ 'mkDeleteConformancePackResponse' smart constructor.
 data DeleteConformancePackResponse = DeleteConformancePackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConformancePackResponse' with the minimum fields required to make a request.
-deleteConformancePackResponse ::
+mkDeleteConformancePackResponse ::
   DeleteConformancePackResponse
-deleteConformancePackResponse = DeleteConformancePackResponse'
-
-instance NFData DeleteConformancePackResponse
+mkDeleteConformancePackResponse = DeleteConformancePackResponse'

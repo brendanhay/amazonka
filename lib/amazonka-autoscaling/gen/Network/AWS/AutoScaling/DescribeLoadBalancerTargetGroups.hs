@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Describes the target groups for the specified Auto Scaling group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
-  ( -- * Creating a Request
-    describeLoadBalancerTargetGroups,
-    DescribeLoadBalancerTargetGroups,
+  ( -- * Creating a request
+    DescribeLoadBalancerTargetGroups (..),
+    mkDescribeLoadBalancerTargetGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlbtgsNextToken,
     dlbtgsMaxRecords,
     dlbtgsAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    describeLoadBalancerTargetGroupsResponse,
-    DescribeLoadBalancerTargetGroupsResponse,
+    -- * Destructuring the response
+    DescribeLoadBalancerTargetGroupsResponse (..),
+    mkDescribeLoadBalancerTargetGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlbtgsrsLoadBalancerTargetGroups,
     dlbtgsrsNextToken,
     dlbtgsrsResponseStatus,
@@ -44,145 +37,165 @@ module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
+-- | /See:/ 'mkDescribeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
-  { _dlbtgsNextToken ::
-      !(Maybe Text),
-    _dlbtgsMaxRecords ::
-      !(Maybe Int),
-    _dlbtgsAutoScalingGroupName ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int,
+    autoScalingGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbtgsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
---
--- * 'dlbtgsAutoScalingGroupName' - The name of the Auto Scaling group.
-describeLoadBalancerTargetGroups ::
-  -- | 'dlbtgsAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeLoadBalancerTargetGroups ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   DescribeLoadBalancerTargetGroups
-describeLoadBalancerTargetGroups pAutoScalingGroupName_ =
+mkDescribeLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DescribeLoadBalancerTargetGroups'
-    { _dlbtgsNextToken = Nothing,
-      _dlbtgsMaxRecords = Nothing,
-      _dlbtgsAutoScalingGroupName = pAutoScalingGroupName_
+    { nextToken = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dlbtgsNextToken :: Lens' DescribeLoadBalancerTargetGroups (Maybe Text)
-dlbtgsNextToken = lens _dlbtgsNextToken (\s a -> s {_dlbtgsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsNextToken :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Text)
+dlbtgsNextToken = Lens.lens (nextToken :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
-dlbtgsMaxRecords :: Lens' DescribeLoadBalancerTargetGroups (Maybe Int)
-dlbtgsMaxRecords = lens _dlbtgsMaxRecords (\s a -> s {_dlbtgsMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsMaxRecords :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Int)
+dlbtgsMaxRecords = Lens.lens (maxRecords :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of the Auto Scaling group.
-dlbtgsAutoScalingGroupName :: Lens' DescribeLoadBalancerTargetGroups Text
-dlbtgsAutoScalingGroupName = lens _dlbtgsAutoScalingGroupName (\s a -> s {_dlbtgsAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsAutoScalingGroupName :: Lens.Lens' DescribeLoadBalancerTargetGroups Lude.Text
+dlbtgsAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgsAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSPager DescribeLoadBalancerTargetGroups where
+instance Page.AWSPager DescribeLoadBalancerTargetGroups where
   page rq rs
-    | stop (rs ^. dlbtgsrsNextToken) = Nothing
-    | stop (rs ^. dlbtgsrsLoadBalancerTargetGroups) = Nothing
-    | otherwise =
-      Just $ rq & dlbtgsNextToken .~ rs ^. dlbtgsrsNextToken
+    | Page.stop (rs Lens.^. dlbtgsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlbtgsrsLoadBalancerTargetGroups) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dlbtgsNextToken Lens..~ rs Lens.^. dlbtgsrsNextToken
 
-instance AWSRequest DescribeLoadBalancerTargetGroups where
+instance Lude.AWSRequest DescribeLoadBalancerTargetGroups where
   type
     Rs DescribeLoadBalancerTargetGroups =
       DescribeLoadBalancerTargetGroupsResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DescribeLoadBalancerTargetGroupsResponse'
-            <$> ( x .@? "LoadBalancerTargetGroups" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "LoadBalancerTargetGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLoadBalancerTargetGroups
+instance Lude.ToHeaders DescribeLoadBalancerTargetGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLoadBalancerTargetGroups
+instance Lude.ToPath DescribeLoadBalancerTargetGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLoadBalancerTargetGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeLoadBalancerTargetGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeLoadBalancerTargetGroups where
+instance Lude.ToQuery DescribeLoadBalancerTargetGroups where
   toQuery DescribeLoadBalancerTargetGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLoadBalancerTargetGroups" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "NextToken" =: _dlbtgsNextToken,
-        "MaxRecords" =: _dlbtgsMaxRecords,
-        "AutoScalingGroupName" =: _dlbtgsAutoScalingGroupName
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeLoadBalancerTargetGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "MaxRecords" Lude.=: maxRecords,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-  { _dlbtgsrsLoadBalancerTargetGroups ::
-      !( Maybe
-           [LoadBalancerTargetGroupState]
-       ),
-    _dlbtgsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dlbtgsrsResponseStatus ::
-      !Int
+  { loadBalancerTargetGroups ::
+      Lude.Maybe
+        [LoadBalancerTargetGroupState],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbtgsrsLoadBalancerTargetGroups' - Information about the target groups.
---
--- * 'dlbtgsrsNextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
---
--- * 'dlbtgsrsResponseStatus' - -- | The response status code.
-describeLoadBalancerTargetGroupsResponse ::
-  -- | 'dlbtgsrsResponseStatus'
-  Int ->
+-- * 'loadBalancerTargetGroups' - Information about the target groups.
+-- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeLoadBalancerTargetGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLoadBalancerTargetGroupsResponse
-describeLoadBalancerTargetGroupsResponse pResponseStatus_ =
+mkDescribeLoadBalancerTargetGroupsResponse pResponseStatus_ =
   DescribeLoadBalancerTargetGroupsResponse'
-    { _dlbtgsrsLoadBalancerTargetGroups =
-        Nothing,
-      _dlbtgsrsNextToken = Nothing,
-      _dlbtgsrsResponseStatus = pResponseStatus_
+    { loadBalancerTargetGroups =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the target groups.
-dlbtgsrsLoadBalancerTargetGroups :: Lens' DescribeLoadBalancerTargetGroupsResponse [LoadBalancerTargetGroupState]
-dlbtgsrsLoadBalancerTargetGroups = lens _dlbtgsrsLoadBalancerTargetGroups (\s a -> s {_dlbtgsrsLoadBalancerTargetGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancerTargetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsrsLoadBalancerTargetGroups :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Lude.Maybe [LoadBalancerTargetGroupState])
+dlbtgsrsLoadBalancerTargetGroups = Lens.lens (loadBalancerTargetGroups :: DescribeLoadBalancerTargetGroupsResponse -> Lude.Maybe [LoadBalancerTargetGroupState]) (\s a -> s {loadBalancerTargetGroups = a} :: DescribeLoadBalancerTargetGroupsResponse)
+{-# DEPRECATED dlbtgsrsLoadBalancerTargetGroups "Use generic-lens or generic-optics with 'loadBalancerTargetGroups' instead." #-}
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-dlbtgsrsNextToken :: Lens' DescribeLoadBalancerTargetGroupsResponse (Maybe Text)
-dlbtgsrsNextToken = lens _dlbtgsrsNextToken (\s a -> s {_dlbtgsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsrsNextToken :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Lude.Maybe Lude.Text)
+dlbtgsrsNextToken = Lens.lens (nextToken :: DescribeLoadBalancerTargetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroupsResponse)
+{-# DEPRECATED dlbtgsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dlbtgsrsResponseStatus :: Lens' DescribeLoadBalancerTargetGroupsResponse Int
-dlbtgsrsResponseStatus = lens _dlbtgsrsResponseStatus (\s a -> s {_dlbtgsrsResponseStatus = a})
-
-instance NFData DescribeLoadBalancerTargetGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgsrsResponseStatus :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse Lude.Int
+dlbtgsrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerTargetGroupsResponse)
+{-# DEPRECATED dlbtgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

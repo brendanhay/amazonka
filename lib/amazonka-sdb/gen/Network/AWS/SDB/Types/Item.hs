@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SDB.Types.Item where
+module Network.AWS.SDB.Types.Item
+  ( Item (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkItem,
+
+    -- * Lenses
+    iAlternateNameEncoding,
+    iName,
+    iAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SDB.Types.Attribute
 
 -- |
 --
---
---
--- /See:/ 'item' smart constructor.
+-- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { _iAlternateNameEncoding :: !(Maybe Text),
-    _iName :: !Text,
-    _iAttributes :: ![Attribute]
+  { alternateNameEncoding :: Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    attributes :: [Attribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Item' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iAlternateNameEncoding' -
---
--- * 'iName' - The name of the item.
---
--- * 'iAttributes' - A list of attributes.
-item ::
-  -- | 'iName'
-  Text ->
+-- * 'alternateNameEncoding' -
+-- * 'attributes' - A list of attributes.
+-- * 'name' - The name of the item.
+mkItem ::
+  -- | 'name'
+  Lude.Text ->
   Item
-item pName_ =
+mkItem pName_ =
   Item'
-    { _iAlternateNameEncoding = Nothing,
-      _iName = pName_,
-      _iAttributes = mempty
+    { alternateNameEncoding = Lude.Nothing,
+      name = pName_,
+      attributes = Lude.mempty
     }
 
 -- |
-iAlternateNameEncoding :: Lens' Item (Maybe Text)
-iAlternateNameEncoding = lens _iAlternateNameEncoding (\s a -> s {_iAlternateNameEncoding = a})
+--
+-- /Note:/ Consider using 'alternateNameEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAlternateNameEncoding :: Lens.Lens' Item (Lude.Maybe Lude.Text)
+iAlternateNameEncoding = Lens.lens (alternateNameEncoding :: Item -> Lude.Maybe Lude.Text) (\s a -> s {alternateNameEncoding = a} :: Item)
+{-# DEPRECATED iAlternateNameEncoding "Use generic-lens or generic-optics with 'alternateNameEncoding' instead." #-}
 
 -- | The name of the item.
-iName :: Lens' Item Text
-iName = lens _iName (\s a -> s {_iName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iName :: Lens.Lens' Item Lude.Text
+iName = Lens.lens (name :: Item -> Lude.Text) (\s a -> s {name = a} :: Item)
+{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of attributes.
-iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\s a -> s {_iAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAttributes :: Lens.Lens' Item [Attribute]
+iAttributes = Lens.lens (attributes :: Item -> [Attribute]) (\s a -> s {attributes = a} :: Item)
+{-# DEPRECATED iAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromXML Item where
+instance Lude.FromXML Item where
   parseXML x =
     Item'
-      <$> (x .@? "AlternateNameEncoding")
-      <*> (x .@ "Name")
-      <*> (parseXMLList "Attribute" x)
-
-instance Hashable Item
-
-instance NFData Item
+      Lude.<$> (x Lude..@? "AlternateNameEncoding")
+      Lude.<*> (x Lude..@ "Name")
+      Lude.<*> (Lude.parseXMLList "Attribute" x)

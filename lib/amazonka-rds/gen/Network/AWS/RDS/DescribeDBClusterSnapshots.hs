@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +14,15 @@
 --
 -- Returns information about DB cluster snapshots. This API action supports pagination.
 --
---
 -- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
---
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusterSnapshots
-  ( -- * Creating a Request
-    describeDBClusterSnapshots,
-    DescribeDBClusterSnapshots,
+  ( -- * Creating a request
+    DescribeDBClusterSnapshots (..),
+    mkDescribeDBClusterSnapshots,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddbcsDBClusterIdentifier,
     ddbcsIncludeShared,
     ddbcsDBClusterSnapshotIdentifier,
@@ -39,203 +32,337 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     ddbcsMaxRecords,
     ddbcsIncludePublic,
 
-    -- * Destructuring the Response
-    describeDBClusterSnapshotsResponse,
-    DescribeDBClusterSnapshotsResponse,
+    -- * Destructuring the response
+    DescribeDBClusterSnapshotsResponse (..),
+    mkDescribeDBClusterSnapshotsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddbcsrsMarker,
     ddbcsrsDBClusterSnapshots,
     ddbcsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeDBClusterSnapshots' smart constructor.
+-- /See:/ 'mkDescribeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
-  { _ddbcsDBClusterIdentifier ::
-      !(Maybe Text),
-    _ddbcsIncludeShared :: !(Maybe Bool),
-    _ddbcsDBClusterSnapshotIdentifier ::
-      !(Maybe Text),
-    _ddbcsFilters :: !(Maybe [Filter]),
-    _ddbcsSnapshotType :: !(Maybe Text),
-    _ddbcsMarker :: !(Maybe Text),
-    _ddbcsMaxRecords :: !(Maybe Int),
-    _ddbcsIncludePublic :: !(Maybe Bool)
+  { dbClusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    includeShared :: Lude.Maybe Lude.Bool,
+    dbClusterSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe [Filter],
+    snapshotType :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    includePublic :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterSnapshots' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbClusterIdentifier' - The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter isn't case-sensitive.
 --
--- * 'ddbcsDBClusterIdentifier' - The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter isn't case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
+-- Constraints:
 --
--- * 'ddbcsIncludeShared' - A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included. You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
+--     * If supplied, must match the identifier of an existing DBCluster.
 --
--- * 'ddbcsDBClusterSnapshotIdentifier' - A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
--- * 'ddbcsFilters' - A filter that specifies one or more DB cluster snapshots to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs).     * @db-cluster-snapshot-id@ - Accepts DB cluster snapshot identifiers.     * @snapshot-type@ - Accepts types of DB cluster snapshots.     * @engine@ - Accepts names of database engines.
+-- * 'dbClusterSnapshotIdentifier' - A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.
 --
--- * 'ddbcsSnapshotType' - The type of DB cluster snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.     * @public@ - Return all DB cluster snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter. The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+-- Constraints:
 --
--- * 'ddbcsMarker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+--     * If supplied, must match the identifier of an existing DBClusterSnapshot.
 --
--- * 'ddbcsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddbcsIncludePublic' - A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
-describeDBClusterSnapshots ::
+--     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+--
+--
+-- * 'filters' - A filter that specifies one or more DB cluster snapshots to describe.
+--
+-- Supported filters:
+--
+--     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs).
+--
+--
+--     * @db-cluster-snapshot-id@ - Accepts DB cluster snapshot identifiers.
+--
+--
+--     * @snapshot-type@ - Accepts types of DB cluster snapshots.
+--
+--
+--     * @engine@ - Accepts names of database engines.
+--
+--
+-- * 'includePublic' - A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
+--
+-- You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
+-- * 'includeShared' - A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+--
+-- You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'snapshotType' - The type of DB cluster snapshots to be returned. You can specify one of the following values:
+--
+--
+--     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.
+--
+--
+--     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.
+--
+--
+--     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.
+--
+--
+--     * @public@ - Return all DB cluster snapshots that have been marked as public.
+--
+--
+-- If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter.
+-- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+mkDescribeDBClusterSnapshots ::
   DescribeDBClusterSnapshots
-describeDBClusterSnapshots =
+mkDescribeDBClusterSnapshots =
   DescribeDBClusterSnapshots'
-    { _ddbcsDBClusterIdentifier = Nothing,
-      _ddbcsIncludeShared = Nothing,
-      _ddbcsDBClusterSnapshotIdentifier = Nothing,
-      _ddbcsFilters = Nothing,
-      _ddbcsSnapshotType = Nothing,
-      _ddbcsMarker = Nothing,
-      _ddbcsMaxRecords = Nothing,
-      _ddbcsIncludePublic = Nothing
+    { dbClusterIdentifier = Lude.Nothing,
+      includeShared = Lude.Nothing,
+      dbClusterSnapshotIdentifier = Lude.Nothing,
+      filters = Lude.Nothing,
+      snapshotType = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      includePublic = Lude.Nothing
     }
 
--- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter isn't case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBCluster.
-ddbcsDBClusterIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsDBClusterIdentifier = lens _ddbcsDBClusterIdentifier (\s a -> s {_ddbcsDBClusterIdentifier = a})
+-- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * If supplied, must match the identifier of an existing DBCluster.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsDBClusterIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Text)
+ddbcsDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
--- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included. You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
-ddbcsIncludeShared :: Lens' DescribeDBClusterSnapshots (Maybe Bool)
-ddbcsIncludeShared = lens _ddbcsIncludeShared (\s a -> s {_ddbcsIncludeShared = a})
+-- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+--
+-- You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
+--
+-- /Note:/ Consider using 'includeShared' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsIncludeShared :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Bool)
+ddbcsIncludeShared = Lens.lens (includeShared :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {includeShared = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsIncludeShared "Use generic-lens or generic-optics with 'includeShared' instead." #-}
 
--- | A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBClusterSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
-ddbcsDBClusterSnapshotIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsDBClusterSnapshotIdentifier = lens _ddbcsDBClusterSnapshotIdentifier (\s a -> s {_ddbcsDBClusterSnapshotIdentifier = a})
+-- | A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * If supplied, must match the identifier of an existing DBClusterSnapshot.
+--
+--
+--     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsDBClusterSnapshotIdentifier :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Text)
+ddbcsDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
--- | A filter that specifies one or more DB cluster snapshots to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs).     * @db-cluster-snapshot-id@ - Accepts DB cluster snapshot identifiers.     * @snapshot-type@ - Accepts types of DB cluster snapshots.     * @engine@ - Accepts names of database engines.
-ddbcsFilters :: Lens' DescribeDBClusterSnapshots [Filter]
-ddbcsFilters = lens _ddbcsFilters (\s a -> s {_ddbcsFilters = a}) . _Default . _Coerce
+-- | A filter that specifies one or more DB cluster snapshots to describe.
+--
+-- Supported filters:
+--
+--     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs).
+--
+--
+--     * @db-cluster-snapshot-id@ - Accepts DB cluster snapshot identifiers.
+--
+--
+--     * @snapshot-type@ - Accepts types of DB cluster snapshots.
+--
+--
+--     * @engine@ - Accepts names of database engines.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsFilters :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe [Filter])
+ddbcsFilters = Lens.lens (filters :: DescribeDBClusterSnapshots -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The type of DB cluster snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.     * @public@ - Return all DB cluster snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter. The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
-ddbcsSnapshotType :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsSnapshotType = lens _ddbcsSnapshotType (\s a -> s {_ddbcsSnapshotType = a})
+-- | The type of DB cluster snapshots to be returned. You can specify one of the following values:
+--
+--
+--     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.
+--
+--
+--     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.
+--
+--
+--     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.
+--
+--
+--     * @public@ - Return all DB cluster snapshots that have been marked as public.
+--
+--
+-- If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter.
+-- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+--
+-- /Note:/ Consider using 'snapshotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsSnapshotType :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Text)
+ddbcsSnapshotType = Lens.lens (snapshotType :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotType = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddbcsMarker :: Lens' DescribeDBClusterSnapshots (Maybe Text)
-ddbcsMarker = lens _ddbcsMarker (\s a -> s {_ddbcsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsMarker :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Text)
+ddbcsMarker = Lens.lens (marker :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddbcsMaxRecords :: Lens' DescribeDBClusterSnapshots (Maybe Int)
-ddbcsMaxRecords = lens _ddbcsMaxRecords (\s a -> s {_ddbcsMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsMaxRecords :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Int)
+ddbcsMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included. You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
-ddbcsIncludePublic :: Lens' DescribeDBClusterSnapshots (Maybe Bool)
-ddbcsIncludePublic = lens _ddbcsIncludePublic (\s a -> s {_ddbcsIncludePublic = a})
+-- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
+--
+-- You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
+--
+-- /Note:/ Consider using 'includePublic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsIncludePublic :: Lens.Lens' DescribeDBClusterSnapshots (Lude.Maybe Lude.Bool)
+ddbcsIncludePublic = Lens.lens (includePublic :: DescribeDBClusterSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {includePublic = a} :: DescribeDBClusterSnapshots)
+{-# DEPRECATED ddbcsIncludePublic "Use generic-lens or generic-optics with 'includePublic' instead." #-}
 
-instance AWSPager DescribeDBClusterSnapshots where
+instance Page.AWSPager DescribeDBClusterSnapshots where
   page rq rs
-    | stop (rs ^. ddbcsrsMarker) = Nothing
-    | stop (rs ^. ddbcsrsDBClusterSnapshots) = Nothing
-    | otherwise = Just $ rq & ddbcsMarker .~ rs ^. ddbcsrsMarker
+    | Page.stop (rs Lens.^. ddbcsrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddbcsrsDBClusterSnapshots) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddbcsMarker Lens..~ rs Lens.^. ddbcsrsMarker
 
-instance AWSRequest DescribeDBClusterSnapshots where
+instance Lude.AWSRequest DescribeDBClusterSnapshots where
   type
     Rs DescribeDBClusterSnapshots =
       DescribeDBClusterSnapshotsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDBClusterSnapshotsResult"
       ( \s h x ->
           DescribeDBClusterSnapshotsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "DBClusterSnapshots" .!@ mempty
-                    >>= may (parseXMLList "DBClusterSnapshot")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "DBClusterSnapshots" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "DBClusterSnapshot")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDBClusterSnapshots
+instance Lude.ToHeaders DescribeDBClusterSnapshots where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDBClusterSnapshots
+instance Lude.ToPath DescribeDBClusterSnapshots where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDBClusterSnapshots where
-  toHeaders = const mempty
-
-instance ToPath DescribeDBClusterSnapshots where
-  toPath = const "/"
-
-instance ToQuery DescribeDBClusterSnapshots where
+instance Lude.ToQuery DescribeDBClusterSnapshots where
   toQuery DescribeDBClusterSnapshots' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDBClusterSnapshots" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBClusterIdentifier" =: _ddbcsDBClusterIdentifier,
-        "IncludeShared" =: _ddbcsIncludeShared,
-        "DBClusterSnapshotIdentifier" =: _ddbcsDBClusterSnapshotIdentifier,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _ddbcsFilters),
-        "SnapshotType" =: _ddbcsSnapshotType,
-        "Marker" =: _ddbcsMarker,
-        "MaxRecords" =: _ddbcsMaxRecords,
-        "IncludePublic" =: _ddbcsIncludePublic
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeDBClusterSnapshots" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "IncludeShared" Lude.=: includeShared,
+        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "SnapshotType" Lude.=: snapshotType,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "IncludePublic" Lude.=: includePublic
       ]
 
 -- | Provides a list of DB cluster snapshots for the user as the result of a call to the @DescribeDBClusterSnapshots@ action.
 --
---
---
--- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
+-- /See:/ 'mkDescribeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
-  { _ddbcsrsMarker ::
-      !(Maybe Text),
-    _ddbcsrsDBClusterSnapshots ::
-      !( Maybe
-           [DBClusterSnapshot]
-       ),
-    _ddbcsrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    dbClusterSnapshots ::
+      Lude.Maybe
+        [DBClusterSnapshot],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterSnapshotsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddbcsrsMarker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddbcsrsDBClusterSnapshots' - Provides a list of DB cluster snapshots for the user.
---
--- * 'ddbcsrsResponseStatus' - -- | The response status code.
-describeDBClusterSnapshotsResponse ::
-  -- | 'ddbcsrsResponseStatus'
-  Int ->
+-- * 'dbClusterSnapshots' - Provides a list of DB cluster snapshots for the user.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeDBClusterSnapshotsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDBClusterSnapshotsResponse
-describeDBClusterSnapshotsResponse pResponseStatus_ =
+mkDescribeDBClusterSnapshotsResponse pResponseStatus_ =
   DescribeDBClusterSnapshotsResponse'
-    { _ddbcsrsMarker = Nothing,
-      _ddbcsrsDBClusterSnapshots = Nothing,
-      _ddbcsrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      dbClusterSnapshots = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
-ddbcsrsMarker = lens _ddbcsrsMarker (\s a -> s {_ddbcsrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsrsMarker :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Lude.Maybe Lude.Text)
+ddbcsrsMarker = Lens.lens (marker :: DescribeDBClusterSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterSnapshotsResponse)
+{-# DEPRECATED ddbcsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Provides a list of DB cluster snapshots for the user.
-ddbcsrsDBClusterSnapshots :: Lens' DescribeDBClusterSnapshotsResponse [DBClusterSnapshot]
-ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\s a -> s {_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbClusterSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsrsDBClusterSnapshots :: Lens.Lens' DescribeDBClusterSnapshotsResponse (Lude.Maybe [DBClusterSnapshot])
+ddbcsrsDBClusterSnapshots = Lens.lens (dbClusterSnapshots :: DescribeDBClusterSnapshotsResponse -> Lude.Maybe [DBClusterSnapshot]) (\s a -> s {dbClusterSnapshots = a} :: DescribeDBClusterSnapshotsResponse)
+{-# DEPRECATED ddbcsrsDBClusterSnapshots "Use generic-lens or generic-optics with 'dbClusterSnapshots' instead." #-}
 
--- | -- | The response status code.
-ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
-ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\s a -> s {_ddbcsrsResponseStatus = a})
-
-instance NFData DescribeDBClusterSnapshotsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsrsResponseStatus :: Lens.Lens' DescribeDBClusterSnapshotsResponse Lude.Int
+ddbcsrsResponseStatus = Lens.lens (responseStatus :: DescribeDBClusterSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBClusterSnapshotsResponse)
+{-# DEPRECATED ddbcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

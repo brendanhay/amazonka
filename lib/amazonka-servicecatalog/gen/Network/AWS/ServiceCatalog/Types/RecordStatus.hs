@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.RecordStatus where
+module Network.AWS.ServiceCatalog.Types.RecordStatus
+  ( RecordStatus
+      ( RecordStatus',
+        RSCreated,
+        RSFailed,
+        RSInProgress,
+        RSInProgressInError,
+        RSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordStatus
-  = RSCreated
-  | RSFailed
-  | RSInProgress
-  | RSInProgressInError
-  | RSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordStatus = RecordStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordStatus where
-  parser =
-    takeLowerText >>= \case
-      "created" -> pure RSCreated
-      "failed" -> pure RSFailed
-      "in_progress" -> pure RSInProgress
-      "in_progress_in_error" -> pure RSInProgressInError
-      "succeeded" -> pure RSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing RecordStatus from value: '" <> e
-            <> "'. Accepted values: created, failed, in_progress, in_progress_in_error, succeeded"
+pattern RSCreated :: RecordStatus
+pattern RSCreated = RecordStatus' "CREATED"
 
-instance ToText RecordStatus where
-  toText = \case
-    RSCreated -> "CREATED"
-    RSFailed -> "FAILED"
-    RSInProgress -> "IN_PROGRESS"
-    RSInProgressInError -> "IN_PROGRESS_IN_ERROR"
-    RSSucceeded -> "SUCCEEDED"
+pattern RSFailed :: RecordStatus
+pattern RSFailed = RecordStatus' "FAILED"
 
-instance Hashable RecordStatus
+pattern RSInProgress :: RecordStatus
+pattern RSInProgress = RecordStatus' "IN_PROGRESS"
 
-instance NFData RecordStatus
+pattern RSInProgressInError :: RecordStatus
+pattern RSInProgressInError = RecordStatus' "IN_PROGRESS_IN_ERROR"
 
-instance ToByteString RecordStatus
+pattern RSSucceeded :: RecordStatus
+pattern RSSucceeded = RecordStatus' "SUCCEEDED"
 
-instance ToQuery RecordStatus
-
-instance ToHeader RecordStatus
-
-instance FromJSON RecordStatus where
-  parseJSON = parseJSONText "RecordStatus"
+{-# COMPLETE
+  RSCreated,
+  RSFailed,
+  RSInProgress,
+  RSInProgressInError,
+  RSSucceeded,
+  RecordStatus'
+  #-}

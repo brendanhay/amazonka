@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,32 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings where
+module Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
+  ( EmbeddedPlusScte20DestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEmbeddedPlusScte20DestinationSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Embedded Plus Scte20 Destination Settings
 --
--- /See:/ 'embeddedPlusScte20DestinationSettings' smart constructor.
+-- /See:/ 'mkEmbeddedPlusScte20DestinationSettings' smart constructor.
 data EmbeddedPlusScte20DestinationSettings = EmbeddedPlusScte20DestinationSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmbeddedPlusScte20DestinationSettings' with the minimum fields required to make a request.
-embeddedPlusScte20DestinationSettings ::
+mkEmbeddedPlusScte20DestinationSettings ::
   EmbeddedPlusScte20DestinationSettings
-embeddedPlusScte20DestinationSettings =
+mkEmbeddedPlusScte20DestinationSettings =
   EmbeddedPlusScte20DestinationSettings'
 
-instance FromJSON EmbeddedPlusScte20DestinationSettings where
+instance Lude.FromJSON EmbeddedPlusScte20DestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "EmbeddedPlusScte20DestinationSettings"
-      (\x -> pure EmbeddedPlusScte20DestinationSettings')
+      (\x -> Lude.pure EmbeddedPlusScte20DestinationSettings')
 
-instance Hashable EmbeddedPlusScte20DestinationSettings
-
-instance NFData EmbeddedPlusScte20DestinationSettings
-
-instance ToJSON EmbeddedPlusScte20DestinationSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON EmbeddedPlusScte20DestinationSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

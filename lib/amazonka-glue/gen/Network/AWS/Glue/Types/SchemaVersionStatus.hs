@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaVersionStatus where
+module Network.AWS.Glue.Types.SchemaVersionStatus
+  ( SchemaVersionStatus
+      ( SchemaVersionStatus',
+        SVSAvailable,
+        SVSDeleting,
+        SVSFailure,
+        SVSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SchemaVersionStatus
-  = SVSAvailable
-  | SVSDeleting
-  | SVSFailure
-  | SVSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchemaVersionStatus = SchemaVersionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchemaVersionStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure SVSAvailable
-      "deleting" -> pure SVSDeleting
-      "failure" -> pure SVSFailure
-      "pending" -> pure SVSPending
-      e ->
-        fromTextError $
-          "Failure parsing SchemaVersionStatus from value: '" <> e
-            <> "'. Accepted values: available, deleting, failure, pending"
+pattern SVSAvailable :: SchemaVersionStatus
+pattern SVSAvailable = SchemaVersionStatus' "AVAILABLE"
 
-instance ToText SchemaVersionStatus where
-  toText = \case
-    SVSAvailable -> "AVAILABLE"
-    SVSDeleting -> "DELETING"
-    SVSFailure -> "FAILURE"
-    SVSPending -> "PENDING"
+pattern SVSDeleting :: SchemaVersionStatus
+pattern SVSDeleting = SchemaVersionStatus' "DELETING"
 
-instance Hashable SchemaVersionStatus
+pattern SVSFailure :: SchemaVersionStatus
+pattern SVSFailure = SchemaVersionStatus' "FAILURE"
 
-instance NFData SchemaVersionStatus
+pattern SVSPending :: SchemaVersionStatus
+pattern SVSPending = SchemaVersionStatus' "PENDING"
 
-instance ToByteString SchemaVersionStatus
-
-instance ToQuery SchemaVersionStatus
-
-instance ToHeader SchemaVersionStatus
-
-instance FromJSON SchemaVersionStatus where
-  parseJSON = parseJSONText "SchemaVersionStatus"
+{-# COMPLETE
+  SVSAvailable,
+  SVSDeleting,
+  SVSFailure,
+  SVSPending,
+  SchemaVersionStatus'
+  #-}

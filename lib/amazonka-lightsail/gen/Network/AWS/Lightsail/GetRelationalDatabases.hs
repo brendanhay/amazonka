@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,166 @@
 --
 -- Returns information about all of your databases in Amazon Lightsail.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetRelationalDatabases
-  ( -- * Creating a Request
-    getRelationalDatabases,
-    GetRelationalDatabases,
+  ( -- * Creating a request
+    GetRelationalDatabases (..),
+    mkGetRelationalDatabases,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdPageToken,
 
-    -- * Destructuring the Response
-    getRelationalDatabasesResponse,
-    GetRelationalDatabasesResponse,
+    -- * Destructuring the response
+    GetRelationalDatabasesResponse (..),
+    mkGetRelationalDatabasesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdrsNextPageToken,
     grdrsRelationalDatabases,
     grdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabases' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabases' smart constructor.
 newtype GetRelationalDatabases = GetRelationalDatabases'
-  { _grdPageToken ::
-      Maybe Text
+  { pageToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabases' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdPageToken' - The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabases@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-getRelationalDatabases ::
+-- To get a page token, perform an initial @GetRelationalDatabases@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+mkGetRelationalDatabases ::
   GetRelationalDatabases
-getRelationalDatabases =
-  GetRelationalDatabases' {_grdPageToken = Nothing}
+mkGetRelationalDatabases =
+  GetRelationalDatabases' {pageToken = Lude.Nothing}
 
--- | The token to advance to the next page of results from your request. To get a page token, perform an initial @GetRelationalDatabases@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-grdPageToken :: Lens' GetRelationalDatabases (Maybe Text)
-grdPageToken = lens _grdPageToken (\s a -> s {_grdPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetRelationalDatabases@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdPageToken :: Lens.Lens' GetRelationalDatabases (Lude.Maybe Lude.Text)
+grdPageToken = Lens.lens (pageToken :: GetRelationalDatabases -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetRelationalDatabases)
+{-# DEPRECATED grdPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance AWSPager GetRelationalDatabases where
+instance Page.AWSPager GetRelationalDatabases where
   page rq rs
-    | stop (rs ^. grdrsNextPageToken) = Nothing
-    | stop (rs ^. grdrsRelationalDatabases) = Nothing
-    | otherwise = Just $ rq & grdPageToken .~ rs ^. grdrsNextPageToken
+    | Page.stop (rs Lens.^. grdrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. grdrsRelationalDatabases) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grdPageToken Lens..~ rs Lens.^. grdrsNextPageToken
 
-instance AWSRequest GetRelationalDatabases where
+instance Lude.AWSRequest GetRelationalDatabases where
   type Rs GetRelationalDatabases = GetRelationalDatabasesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabasesResponse'
-            <$> (x .?> "nextPageToken")
-            <*> (x .?> "relationalDatabases" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextPageToken")
+            Lude.<*> (x Lude..?> "relationalDatabases" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabases
-
-instance NFData GetRelationalDatabases
-
-instance ToHeaders GetRelationalDatabases where
+instance Lude.ToHeaders GetRelationalDatabases where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetRelationalDatabases" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetRelationalDatabases" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabases where
+instance Lude.ToJSON GetRelationalDatabases where
   toJSON GetRelationalDatabases' {..} =
-    object (catMaybes [("pageToken" .=) <$> _grdPageToken])
+    Lude.object
+      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
 
-instance ToPath GetRelationalDatabases where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabases where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabases where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabases where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabasesResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabasesResponse' smart constructor.
 data GetRelationalDatabasesResponse = GetRelationalDatabasesResponse'
-  { _grdrsNextPageToken ::
-      !(Maybe Text),
-    _grdrsRelationalDatabases ::
-      !(Maybe [RelationalDatabase]),
-    _grdrsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    relationalDatabases ::
+      Lude.Maybe
+        [RelationalDatabase],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabasesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
--- * 'grdrsNextPageToken' - The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabases@ request and specify the next page token using the @pageToken@ parameter.
---
--- * 'grdrsRelationalDatabases' - An object describing the result of your get relational databases request.
---
--- * 'grdrsResponseStatus' - -- | The response status code.
-getRelationalDatabasesResponse ::
-  -- | 'grdrsResponseStatus'
-  Int ->
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabases@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'relationalDatabases' - An object describing the result of your get relational databases request.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabasesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabasesResponse
-getRelationalDatabasesResponse pResponseStatus_ =
+mkGetRelationalDatabasesResponse pResponseStatus_ =
   GetRelationalDatabasesResponse'
-    { _grdrsNextPageToken = Nothing,
-      _grdrsRelationalDatabases = Nothing,
-      _grdrsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      relationalDatabases = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The token to advance to the next page of results from your request. A next page token is not returned if there are no more results to display. To get the next page of results, perform another @GetRelationalDatabases@ request and specify the next page token using the @pageToken@ parameter.
-grdrsNextPageToken :: Lens' GetRelationalDatabasesResponse (Maybe Text)
-grdrsNextPageToken = lens _grdrsNextPageToken (\s a -> s {_grdrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to display.
+-- To get the next page of results, perform another @GetRelationalDatabases@ request and specify the next page token using the @pageToken@ parameter.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdrsNextPageToken :: Lens.Lens' GetRelationalDatabasesResponse (Lude.Maybe Lude.Text)
+grdrsNextPageToken = Lens.lens (nextPageToken :: GetRelationalDatabasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRelationalDatabasesResponse)
+{-# DEPRECATED grdrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An object describing the result of your get relational databases request.
-grdrsRelationalDatabases :: Lens' GetRelationalDatabasesResponse [RelationalDatabase]
-grdrsRelationalDatabases = lens _grdrsRelationalDatabases (\s a -> s {_grdrsRelationalDatabases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'relationalDatabases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdrsRelationalDatabases :: Lens.Lens' GetRelationalDatabasesResponse (Lude.Maybe [RelationalDatabase])
+grdrsRelationalDatabases = Lens.lens (relationalDatabases :: GetRelationalDatabasesResponse -> Lude.Maybe [RelationalDatabase]) (\s a -> s {relationalDatabases = a} :: GetRelationalDatabasesResponse)
+{-# DEPRECATED grdrsRelationalDatabases "Use generic-lens or generic-optics with 'relationalDatabases' instead." #-}
 
--- | -- | The response status code.
-grdrsResponseStatus :: Lens' GetRelationalDatabasesResponse Int
-grdrsResponseStatus = lens _grdrsResponseStatus (\s a -> s {_grdrsResponseStatus = a})
-
-instance NFData GetRelationalDatabasesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdrsResponseStatus :: Lens.Lens' GetRelationalDatabasesResponse Lude.Int
+grdrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabasesResponse)
+{-# DEPRECATED grdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

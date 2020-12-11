@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CACertificateUpdateAction where
+module Network.AWS.IoT.Types.CACertificateUpdateAction
+  ( CACertificateUpdateAction
+      ( CACertificateUpdateAction',
+        Deactivate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CACertificateUpdateAction = Deactivate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CACertificateUpdateAction = CACertificateUpdateAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CACertificateUpdateAction where
-  parser =
-    takeLowerText >>= \case
-      "deactivate" -> pure Deactivate
-      e ->
-        fromTextError $
-          "Failure parsing CACertificateUpdateAction from value: '" <> e
-            <> "'. Accepted values: deactivate"
+pattern Deactivate :: CACertificateUpdateAction
+pattern Deactivate = CACertificateUpdateAction' "DEACTIVATE"
 
-instance ToText CACertificateUpdateAction where
-  toText = \case
-    Deactivate -> "DEACTIVATE"
-
-instance Hashable CACertificateUpdateAction
-
-instance NFData CACertificateUpdateAction
-
-instance ToByteString CACertificateUpdateAction
-
-instance ToQuery CACertificateUpdateAction
-
-instance ToHeader CACertificateUpdateAction
-
-instance ToJSON CACertificateUpdateAction where
-  toJSON = toJSONText
-
-instance FromJSON CACertificateUpdateAction where
-  parseJSON = parseJSONText "CACertificateUpdateAction"
+{-# COMPLETE
+  Deactivate,
+  CACertificateUpdateAction'
+  #-}

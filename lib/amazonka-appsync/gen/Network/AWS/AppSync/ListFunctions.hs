@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- List multiple functions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListFunctions
-  ( -- * Creating a Request
-    listFunctions,
-    ListFunctions,
+  ( -- * Creating a request
+    ListFunctions (..),
+    mkListFunctions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lfNextToken,
     lfMaxResults,
     lfApiId,
 
-    -- * Destructuring the Response
-    listFunctionsResponse,
-    ListFunctionsResponse,
+    -- * Destructuring the response
+    ListFunctionsResponse (..),
+    mkListFunctionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lfrsNextToken,
     lfrsFunctions,
     lfrsResponseStatus,
@@ -44,130 +37,153 @@ module Network.AWS.AppSync.ListFunctions
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listFunctions' smart constructor.
+-- | /See:/ 'mkListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { _lfNextToken :: !(Maybe Text),
-    _lfMaxResults :: !(Maybe Nat),
-    _lfApiId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    apiId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lfMaxResults' - The maximum number of results you want the request to return.
---
--- * 'lfApiId' - The GraphQL API ID.
-listFunctions ::
-  -- | 'lfApiId'
-  Text ->
+-- * 'apiId' - The GraphQL API ID.
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListFunctions ::
+  -- | 'apiId'
+  Lude.Text ->
   ListFunctions
-listFunctions pApiId_ =
+mkListFunctions pApiId_ =
   ListFunctions'
-    { _lfNextToken = Nothing,
-      _lfMaxResults = Nothing,
-      _lfApiId = pApiId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      apiId = pApiId_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lfNextToken :: Lens' ListFunctions (Maybe Text)
-lfNextToken = lens _lfNextToken (\s a -> s {_lfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfNextToken :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Text)
+lfNextToken = Lens.lens (nextToken :: ListFunctions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFunctions)
+{-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-lfMaxResults :: Lens' ListFunctions (Maybe Natural)
-lfMaxResults = lens _lfMaxResults (\s a -> s {_lfMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMaxResults :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Natural)
+lfMaxResults = Lens.lens (maxResults :: ListFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFunctions)
+{-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The GraphQL API ID.
-lfApiId :: Lens' ListFunctions Text
-lfApiId = lens _lfApiId (\s a -> s {_lfApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfApiId :: Lens.Lens' ListFunctions Lude.Text
+lfApiId = Lens.lens (apiId :: ListFunctions -> Lude.Text) (\s a -> s {apiId = a} :: ListFunctions)
+{-# DEPRECATED lfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSPager ListFunctions where
+instance Page.AWSPager ListFunctions where
   page rq rs
-    | stop (rs ^. lfrsNextToken) = Nothing
-    | stop (rs ^. lfrsFunctions) = Nothing
-    | otherwise = Just $ rq & lfNextToken .~ rs ^. lfrsNextToken
+    | Page.stop (rs Lens.^. lfrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lfrsFunctions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lfNextToken Lens..~ rs Lens.^. lfrsNextToken
 
-instance AWSRequest ListFunctions where
+instance Lude.AWSRequest ListFunctions where
   type Rs ListFunctions = ListFunctionsResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "functions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "functions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListFunctions
-
-instance NFData ListFunctions
-
-instance ToHeaders ListFunctions where
+instance Lude.ToHeaders ListFunctions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListFunctions where
+instance Lude.ToPath ListFunctions where
   toPath ListFunctions' {..} =
-    mconcat ["/v1/apis/", toBS _lfApiId, "/functions"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/functions"]
 
-instance ToQuery ListFunctions where
+instance Lude.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
-    mconcat
-      ["nextToken" =: _lfNextToken, "maxResults" =: _lfMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listFunctionsResponse' smart constructor.
+-- | /See:/ 'mkListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { _lfrsNextToken ::
-      !(Maybe Text),
-    _lfrsFunctions ::
-      !(Maybe [FunctionConfiguration]),
-    _lfrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    functions :: Lude.Maybe [FunctionConfiguration],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lfrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lfrsFunctions' - A list of @Function@ objects.
---
--- * 'lfrsResponseStatus' - -- | The response status code.
-listFunctionsResponse ::
-  -- | 'lfrsResponseStatus'
-  Int ->
+-- * 'functions' - A list of @Function@ objects.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListFunctionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListFunctionsResponse
-listFunctionsResponse pResponseStatus_ =
+mkListFunctionsResponse pResponseStatus_ =
   ListFunctionsResponse'
-    { _lfrsNextToken = Nothing,
-      _lfrsFunctions = Nothing,
-      _lfrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      functions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lfrsNextToken :: Lens' ListFunctionsResponse (Maybe Text)
-lfrsNextToken = lens _lfrsNextToken (\s a -> s {_lfrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsNextToken :: Lens.Lens' ListFunctionsResponse (Lude.Maybe Lude.Text)
+lfrsNextToken = Lens.lens (nextToken :: ListFunctionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFunctionsResponse)
+{-# DEPRECATED lfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @Function@ objects.
-lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
-lfrsFunctions = lens _lfrsFunctions (\s a -> s {_lfrsFunctions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsFunctions :: Lens.Lens' ListFunctionsResponse (Lude.Maybe [FunctionConfiguration])
+lfrsFunctions = Lens.lens (functions :: ListFunctionsResponse -> Lude.Maybe [FunctionConfiguration]) (\s a -> s {functions = a} :: ListFunctionsResponse)
+{-# DEPRECATED lfrsFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
--- | -- | The response status code.
-lfrsResponseStatus :: Lens' ListFunctionsResponse Int
-lfrsResponseStatus = lens _lfrsResponseStatus (\s a -> s {_lfrsResponseStatus = a})
-
-instance NFData ListFunctionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsResponseStatus :: Lens.Lens' ListFunctionsResponse Lude.Int
+lfrsResponseStatus = Lens.lens (responseStatus :: ListFunctionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFunctionsResponse)
+{-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters where
+module Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters
+  ( ConfigRuleComplianceSummaryFilters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConfigRuleComplianceSummaryFilters,
+
+    -- * Lenses
+    crcsfAccountId,
+    crcsfAWSRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filters the results based on the account IDs and regions.
 --
---
---
--- /See:/ 'configRuleComplianceSummaryFilters' smart constructor.
+-- /See:/ 'mkConfigRuleComplianceSummaryFilters' smart constructor.
 data ConfigRuleComplianceSummaryFilters = ConfigRuleComplianceSummaryFilters'
-  { _crcsfAccountId ::
-      !(Maybe Text),
-    _crcsfAWSRegion ::
-      !(Maybe Text)
+  { accountId ::
+      Lude.Maybe Lude.Text,
+    awsRegion ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRuleComplianceSummaryFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crcsfAccountId' - The 12-digit account ID of the source account.
---
--- * 'crcsfAWSRegion' - The source region where the data is aggregated.
-configRuleComplianceSummaryFilters ::
+-- * 'accountId' - The 12-digit account ID of the source account.
+-- * 'awsRegion' - The source region where the data is aggregated.
+mkConfigRuleComplianceSummaryFilters ::
   ConfigRuleComplianceSummaryFilters
-configRuleComplianceSummaryFilters =
+mkConfigRuleComplianceSummaryFilters =
   ConfigRuleComplianceSummaryFilters'
-    { _crcsfAccountId = Nothing,
-      _crcsfAWSRegion = Nothing
+    { accountId = Lude.Nothing,
+      awsRegion = Lude.Nothing
     }
 
 -- | The 12-digit account ID of the source account.
-crcsfAccountId :: Lens' ConfigRuleComplianceSummaryFilters (Maybe Text)
-crcsfAccountId = lens _crcsfAccountId (\s a -> s {_crcsfAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcsfAccountId :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Lude.Maybe Lude.Text)
+crcsfAccountId = Lens.lens (accountId :: ConfigRuleComplianceSummaryFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ConfigRuleComplianceSummaryFilters)
+{-# DEPRECATED crcsfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The source region where the data is aggregated.
-crcsfAWSRegion :: Lens' ConfigRuleComplianceSummaryFilters (Maybe Text)
-crcsfAWSRegion = lens _crcsfAWSRegion (\s a -> s {_crcsfAWSRegion = a})
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcsfAWSRegion :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Lude.Maybe Lude.Text)
+crcsfAWSRegion = Lens.lens (awsRegion :: ConfigRuleComplianceSummaryFilters -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: ConfigRuleComplianceSummaryFilters)
+{-# DEPRECATED crcsfAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance Hashable ConfigRuleComplianceSummaryFilters
-
-instance NFData ConfigRuleComplianceSummaryFilters
-
-instance ToJSON ConfigRuleComplianceSummaryFilters where
+instance Lude.ToJSON ConfigRuleComplianceSummaryFilters where
   toJSON ConfigRuleComplianceSummaryFilters' {..} =
-    object
-      ( catMaybes
-          [ ("AccountId" .=) <$> _crcsfAccountId,
-            ("AwsRegion" .=) <$> _crcsfAWSRegion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccountId" Lude..=) Lude.<$> accountId,
+            ("AwsRegion" Lude..=) Lude.<$> awsRegion
           ]
       )

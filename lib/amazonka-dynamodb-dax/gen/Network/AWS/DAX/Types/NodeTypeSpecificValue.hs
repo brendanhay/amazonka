@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.NodeTypeSpecificValue where
+module Network.AWS.DAX.Types.NodeTypeSpecificValue
+  ( NodeTypeSpecificValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNodeTypeSpecificValue,
+
+    -- * Lenses
+    ntsvValue,
+    ntsvNodeType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a parameter value that is applicable to a particular node type.
 --
---
---
--- /See:/ 'nodeTypeSpecificValue' smart constructor.
+-- /See:/ 'mkNodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
-  { _ntsvValue ::
-      !(Maybe Text),
-    _ntsvNodeType :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeTypeSpecificValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ntsvValue' - The parameter value for this node type.
---
--- * 'ntsvNodeType' - A node type to which the parameter value applies.
-nodeTypeSpecificValue ::
+-- * 'nodeType' - A node type to which the parameter value applies.
+-- * 'value' - The parameter value for this node type.
+mkNodeTypeSpecificValue ::
   NodeTypeSpecificValue
-nodeTypeSpecificValue =
+mkNodeTypeSpecificValue =
   NodeTypeSpecificValue'
-    { _ntsvValue = Nothing,
-      _ntsvNodeType = Nothing
+    { value = Lude.Nothing,
+      nodeType = Lude.Nothing
     }
 
 -- | The parameter value for this node type.
-ntsvValue :: Lens' NodeTypeSpecificValue (Maybe Text)
-ntsvValue = lens _ntsvValue (\s a -> s {_ntsvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntsvValue :: Lens.Lens' NodeTypeSpecificValue (Lude.Maybe Lude.Text)
+ntsvValue = Lens.lens (value :: NodeTypeSpecificValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: NodeTypeSpecificValue)
+{-# DEPRECATED ntsvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | A node type to which the parameter value applies.
-ntsvNodeType :: Lens' NodeTypeSpecificValue (Maybe Text)
-ntsvNodeType = lens _ntsvNodeType (\s a -> s {_ntsvNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntsvNodeType :: Lens.Lens' NodeTypeSpecificValue (Lude.Maybe Lude.Text)
+ntsvNodeType = Lens.lens (nodeType :: NodeTypeSpecificValue -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: NodeTypeSpecificValue)
+{-# DEPRECATED ntsvNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance FromJSON NodeTypeSpecificValue where
+instance Lude.FromJSON NodeTypeSpecificValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "NodeTypeSpecificValue"
       ( \x ->
-          NodeTypeSpecificValue' <$> (x .:? "Value") <*> (x .:? "NodeType")
+          NodeTypeSpecificValue'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "NodeType")
       )
-
-instance Hashable NodeTypeSpecificValue
-
-instance NFData NodeTypeSpecificValue

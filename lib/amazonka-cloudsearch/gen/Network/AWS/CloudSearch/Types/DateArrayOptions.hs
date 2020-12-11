@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.DateArrayOptions where
+module Network.AWS.CloudSearch.Types.DateArrayOptions
+  ( DateArrayOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDateArrayOptions,
+
+    -- * Lenses
+    daosSourceFields,
+    daosReturnEnabled,
+    daosFacetEnabled,
+    daosSearchEnabled,
+    daosDefaultValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options for a field that contains an array of dates. Present if @IndexFieldType@ specifies the field is of type @date-array@ . All options are enabled by default.
 --
---
---
--- /See:/ 'dateArrayOptions' smart constructor.
+-- /See:/ 'mkDateArrayOptions' smart constructor.
 data DateArrayOptions = DateArrayOptions'
-  { _daosSourceFields ::
-      !(Maybe Text),
-    _daosReturnEnabled :: !(Maybe Bool),
-    _daosFacetEnabled :: !(Maybe Bool),
-    _daosSearchEnabled :: !(Maybe Bool),
-    _daosDefaultValue :: !(Maybe Text)
+  { sourceFields ::
+      Lude.Maybe Lude.Text,
+    returnEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Lude.Maybe Lude.Bool,
+    defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DateArrayOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daosSourceFields' - A list of source fields to map to the field.
---
--- * 'daosReturnEnabled' - Whether the contents of the field can be returned in the search results.
---
--- * 'daosFacetEnabled' - Whether facet information can be returned for the field.
---
--- * 'daosSearchEnabled' - Whether the contents of the field are searchable.
---
--- * 'daosDefaultValue' - A value to use for the field if the field isn't specified for a document.
-dateArrayOptions ::
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'searchEnabled' - Whether the contents of the field are searchable.
+-- * 'sourceFields' - A list of source fields to map to the field.
+mkDateArrayOptions ::
   DateArrayOptions
-dateArrayOptions =
+mkDateArrayOptions =
   DateArrayOptions'
-    { _daosSourceFields = Nothing,
-      _daosReturnEnabled = Nothing,
-      _daosFacetEnabled = Nothing,
-      _daosSearchEnabled = Nothing,
-      _daosDefaultValue = Nothing
+    { sourceFields = Lude.Nothing,
+      returnEnabled = Lude.Nothing,
+      facetEnabled = Lude.Nothing,
+      searchEnabled = Lude.Nothing,
+      defaultValue = Lude.Nothing
     }
 
 -- | A list of source fields to map to the field.
-daosSourceFields :: Lens' DateArrayOptions (Maybe Text)
-daosSourceFields = lens _daosSourceFields (\s a -> s {_daosSourceFields = a})
+--
+-- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daosSourceFields :: Lens.Lens' DateArrayOptions (Lude.Maybe Lude.Text)
+daosSourceFields = Lens.lens (sourceFields :: DateArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceFields = a} :: DateArrayOptions)
+{-# DEPRECATED daosSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
 
 -- | Whether the contents of the field can be returned in the search results.
-daosReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosReturnEnabled = lens _daosReturnEnabled (\s a -> s {_daosReturnEnabled = a})
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daosReturnEnabled :: Lens.Lens' DateArrayOptions (Lude.Maybe Lude.Bool)
+daosReturnEnabled = Lens.lens (returnEnabled :: DateArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: DateArrayOptions)
+{-# DEPRECATED daosReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether facet information can be returned for the field.
-daosFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosFacetEnabled = lens _daosFacetEnabled (\s a -> s {_daosFacetEnabled = a})
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daosFacetEnabled :: Lens.Lens' DateArrayOptions (Lude.Maybe Lude.Bool)
+daosFacetEnabled = Lens.lens (facetEnabled :: DateArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: DateArrayOptions)
+{-# DEPRECATED daosFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
-daosSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
-daosSearchEnabled = lens _daosSearchEnabled (\s a -> s {_daosSearchEnabled = a})
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daosSearchEnabled :: Lens.Lens' DateArrayOptions (Lude.Maybe Lude.Bool)
+daosSearchEnabled = Lens.lens (searchEnabled :: DateArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: DateArrayOptions)
+{-# DEPRECATED daosSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
-daosDefaultValue :: Lens' DateArrayOptions (Maybe Text)
-daosDefaultValue = lens _daosDefaultValue (\s a -> s {_daosDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daosDefaultValue :: Lens.Lens' DateArrayOptions (Lude.Maybe Lude.Text)
+daosDefaultValue = Lens.lens (defaultValue :: DateArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: DateArrayOptions)
+{-# DEPRECATED daosDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance FromXML DateArrayOptions where
+instance Lude.FromXML DateArrayOptions where
   parseXML x =
     DateArrayOptions'
-      <$> (x .@? "SourceFields")
-      <*> (x .@? "ReturnEnabled")
-      <*> (x .@? "FacetEnabled")
-      <*> (x .@? "SearchEnabled")
-      <*> (x .@? "DefaultValue")
+      Lude.<$> (x Lude..@? "SourceFields")
+      Lude.<*> (x Lude..@? "ReturnEnabled")
+      Lude.<*> (x Lude..@? "FacetEnabled")
+      Lude.<*> (x Lude..@? "SearchEnabled")
+      Lude.<*> (x Lude..@? "DefaultValue")
 
-instance Hashable DateArrayOptions
-
-instance NFData DateArrayOptions
-
-instance ToQuery DateArrayOptions where
+instance Lude.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =
-    mconcat
-      [ "SourceFields" =: _daosSourceFields,
-        "ReturnEnabled" =: _daosReturnEnabled,
-        "FacetEnabled" =: _daosFacetEnabled,
-        "SearchEnabled" =: _daosSearchEnabled,
-        "DefaultValue" =: _daosDefaultValue
+    Lude.mconcat
+      [ "SourceFields" Lude.=: sourceFields,
+        "ReturnEnabled" Lude.=: returnEnabled,
+        "FacetEnabled" Lude.=: facetEnabled,
+        "SearchEnabled" Lude.=: searchEnabled,
+        "DefaultValue" Lude.=: defaultValue
       ]

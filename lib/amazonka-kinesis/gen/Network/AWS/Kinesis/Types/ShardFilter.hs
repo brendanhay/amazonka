@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.ShardFilter where
+module Network.AWS.Kinesis.Types.ShardFilter
+  ( ShardFilter (..),
+
+    -- * Smart constructor
+    mkShardFilter,
+
+    -- * Lenses
+    sfTimestamp,
+    sfShardId,
+    sfType,
+  )
+where
 
 import Network.AWS.Kinesis.Types.ShardFilterType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'shardFilter' smart constructor.
+-- | /See:/ 'mkShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { _sfTimestamp :: !(Maybe POSIX),
-    _sfShardId :: !(Maybe Text),
-    _sfType :: !ShardFilterType
+  { timestamp ::
+      Lude.Maybe Lude.Timestamp,
+    shardId :: Lude.Maybe Lude.Text,
+    type' :: ShardFilterType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShardFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfTimestamp' - Undocumented member.
---
--- * 'sfShardId' - Undocumented member.
---
--- * 'sfType' - Undocumented member.
-shardFilter ::
-  -- | 'sfType'
+-- * 'shardId' - Undocumented field.
+-- * 'timestamp' - Undocumented field.
+-- * 'type'' - Undocumented field.
+mkShardFilter ::
+  -- | 'type''
   ShardFilterType ->
   ShardFilter
-shardFilter pType_ =
+mkShardFilter pType_ =
   ShardFilter'
-    { _sfTimestamp = Nothing,
-      _sfShardId = Nothing,
-      _sfType = pType_
+    { timestamp = Lude.Nothing,
+      shardId = Lude.Nothing,
+      type' = pType_
     }
 
--- | Undocumented member.
-sfTimestamp :: Lens' ShardFilter (Maybe UTCTime)
-sfTimestamp = lens _sfTimestamp (\s a -> s {_sfTimestamp = a}) . mapping _Time
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfTimestamp :: Lens.Lens' ShardFilter (Lude.Maybe Lude.Timestamp)
+sfTimestamp = Lens.lens (timestamp :: ShardFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: ShardFilter)
+{-# DEPRECATED sfTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | Undocumented member.
-sfShardId :: Lens' ShardFilter (Maybe Text)
-sfShardId = lens _sfShardId (\s a -> s {_sfShardId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfShardId :: Lens.Lens' ShardFilter (Lude.Maybe Lude.Text)
+sfShardId = Lens.lens (shardId :: ShardFilter -> Lude.Maybe Lude.Text) (\s a -> s {shardId = a} :: ShardFilter)
+{-# DEPRECATED sfShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
--- | Undocumented member.
-sfType :: Lens' ShardFilter ShardFilterType
-sfType = lens _sfType (\s a -> s {_sfType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfType :: Lens.Lens' ShardFilter ShardFilterType
+sfType = Lens.lens (type' :: ShardFilter -> ShardFilterType) (\s a -> s {type' = a} :: ShardFilter)
+{-# DEPRECATED sfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable ShardFilter
-
-instance NFData ShardFilter
-
-instance ToJSON ShardFilter where
+instance Lude.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Timestamp" .=) <$> _sfTimestamp,
-            ("ShardId" .=) <$> _sfShardId,
-            Just ("Type" .= _sfType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Timestamp" Lude..=) Lude.<$> timestamp,
+            ("ShardId" Lude..=) Lude.<$> shardId,
+            Lude.Just ("Type" Lude..= type')
           ]
       )

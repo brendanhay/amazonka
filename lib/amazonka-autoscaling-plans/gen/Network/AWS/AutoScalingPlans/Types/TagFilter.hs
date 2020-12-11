@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.TagFilter where
+module Network.AWS.AutoScalingPlans.Types.TagFilter
+  ( TagFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTagFilter,
+
+    -- * Lenses
+    tfValues,
+    tfKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a tag.
 --
---
---
--- /See:/ 'tagFilter' smart constructor.
+-- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { _tfValues :: !(Maybe [Text]),
-    _tfKey :: !(Maybe Text)
+  { values :: Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tfValues' - The tag values (0 to 20).
---
--- * 'tfKey' - The tag key.
-tagFilter ::
+-- * 'key' - The tag key.
+-- * 'values' - The tag values (0 to 20).
+mkTagFilter ::
   TagFilter
-tagFilter = TagFilter' {_tfValues = Nothing, _tfKey = Nothing}
+mkTagFilter = TagFilter' {values = Lude.Nothing, key = Lude.Nothing}
 
 -- | The tag values (0 to 20).
-tfValues :: Lens' TagFilter [Text]
-tfValues = lens _tfValues (\s a -> s {_tfValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfValues :: Lens.Lens' TagFilter (Lude.Maybe [Lude.Text])
+tfValues = Lens.lens (values :: TagFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagFilter)
+{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The tag key.
-tfKey :: Lens' TagFilter (Maybe Text)
-tfKey = lens _tfKey (\s a -> s {_tfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfKey :: Lens.Lens' TagFilter (Lude.Maybe Lude.Text)
+tfKey = Lens.lens (key :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagFilter)
+{-# DEPRECATED tfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON TagFilter where
+instance Lude.FromJSON TagFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "TagFilter"
       ( \x ->
-          TagFilter' <$> (x .:? "Values" .!= mempty) <*> (x .:? "Key")
+          TagFilter'
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
       )
 
-instance Hashable TagFilter
-
-instance NFData TagFilter
-
-instance ToJSON TagFilter where
+instance Lude.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    object
-      (catMaybes [("Values" .=) <$> _tfValues, ("Key" .=) <$> _tfKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+      )

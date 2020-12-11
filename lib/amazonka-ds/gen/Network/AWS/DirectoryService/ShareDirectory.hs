@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,175 @@
 --
 -- Shares a specified directory (@DirectoryId@ ) in your AWS account (directory owner) with another AWS account (directory consumer). With this operation you can use your directory from any AWS account and from any Amazon VPC within an AWS Region.
 --
---
 -- When you share your AWS Managed Microsoft AD directory, AWS Directory Service creates a shared directory in the directory consumer account. This shared directory contains the metadata to provide access to the directory within the directory owner account. The shared directory is visible in all VPCs in the directory consumer account.
---
 -- The @ShareMethod@ parameter determines whether the specified directory can be shared between AWS accounts inside the same AWS organization (@ORGANIZATIONS@ ). It also determines whether you can share the directory with any other AWS account either inside or outside of the organization (@HANDSHAKE@ ).
---
 -- The @ShareNotes@ parameter is only used when @HANDSHAKE@ is called, which sends a directory sharing request to the directory consumer.
 module Network.AWS.DirectoryService.ShareDirectory
-  ( -- * Creating a Request
-    shareDirectory,
-    ShareDirectory,
+  ( -- * Creating a request
+    ShareDirectory (..),
+    mkShareDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdShareNotes,
     sdDirectoryId,
     sdShareTarget,
     sdShareMethod,
 
-    -- * Destructuring the Response
-    shareDirectoryResponse,
-    ShareDirectoryResponse,
+    -- * Destructuring the response
+    ShareDirectoryResponse (..),
+    mkShareDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdrsSharedDirectoryId,
     sdrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'shareDirectory' smart constructor.
+-- | /See:/ 'mkShareDirectory' smart constructor.
 data ShareDirectory = ShareDirectory'
-  { _sdShareNotes ::
-      !(Maybe (Sensitive Text)),
-    _sdDirectoryId :: !Text,
-    _sdShareTarget :: !ShareTarget,
-    _sdShareMethod :: !ShareMethod
+  { shareNotes ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    directoryId :: Lude.Text,
+    shareTarget :: ShareTarget,
+    shareMethod :: ShareMethod
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShareDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdShareNotes' - A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
---
--- * 'sdDirectoryId' - Identifier of the AWS Managed Microsoft AD directory that you want to share with other AWS accounts.
---
--- * 'sdShareTarget' - Identifier for the directory consumer account with whom the directory is to be shared.
---
--- * 'sdShareMethod' - The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a directory sharing request (@HANDSHAKE@ ).
-shareDirectory ::
-  -- | 'sdDirectoryId'
-  Text ->
-  -- | 'sdShareTarget'
+-- * 'directoryId' - Identifier of the AWS Managed Microsoft AD directory that you want to share with other AWS accounts.
+-- * 'shareMethod' - The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a directory sharing request (@HANDSHAKE@ ).
+-- * 'shareNotes' - A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
+-- * 'shareTarget' - Identifier for the directory consumer account with whom the directory is to be shared.
+mkShareDirectory ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'shareTarget'
   ShareTarget ->
-  -- | 'sdShareMethod'
+  -- | 'shareMethod'
   ShareMethod ->
   ShareDirectory
-shareDirectory pDirectoryId_ pShareTarget_ pShareMethod_ =
+mkShareDirectory pDirectoryId_ pShareTarget_ pShareMethod_ =
   ShareDirectory'
-    { _sdShareNotes = Nothing,
-      _sdDirectoryId = pDirectoryId_,
-      _sdShareTarget = pShareTarget_,
-      _sdShareMethod = pShareMethod_
+    { shareNotes = Lude.Nothing,
+      directoryId = pDirectoryId_,
+      shareTarget = pShareTarget_,
+      shareMethod = pShareMethod_
     }
 
 -- | A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
-sdShareNotes :: Lens' ShareDirectory (Maybe Text)
-sdShareNotes = lens _sdShareNotes (\s a -> s {_sdShareNotes = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'shareNotes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdShareNotes :: Lens.Lens' ShareDirectory (Lude.Maybe (Lude.Sensitive Lude.Text))
+sdShareNotes = Lens.lens (shareNotes :: ShareDirectory -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {shareNotes = a} :: ShareDirectory)
+{-# DEPRECATED sdShareNotes "Use generic-lens or generic-optics with 'shareNotes' instead." #-}
 
 -- | Identifier of the AWS Managed Microsoft AD directory that you want to share with other AWS accounts.
-sdDirectoryId :: Lens' ShareDirectory Text
-sdDirectoryId = lens _sdDirectoryId (\s a -> s {_sdDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDirectoryId :: Lens.Lens' ShareDirectory Lude.Text
+sdDirectoryId = Lens.lens (directoryId :: ShareDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: ShareDirectory)
+{-# DEPRECATED sdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | Identifier for the directory consumer account with whom the directory is to be shared.
-sdShareTarget :: Lens' ShareDirectory ShareTarget
-sdShareTarget = lens _sdShareTarget (\s a -> s {_sdShareTarget = a})
+--
+-- /Note:/ Consider using 'shareTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdShareTarget :: Lens.Lens' ShareDirectory ShareTarget
+sdShareTarget = Lens.lens (shareTarget :: ShareDirectory -> ShareTarget) (\s a -> s {shareTarget = a} :: ShareDirectory)
+{-# DEPRECATED sdShareTarget "Use generic-lens or generic-optics with 'shareTarget' instead." #-}
 
 -- | The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a directory sharing request (@HANDSHAKE@ ).
-sdShareMethod :: Lens' ShareDirectory ShareMethod
-sdShareMethod = lens _sdShareMethod (\s a -> s {_sdShareMethod = a})
+--
+-- /Note:/ Consider using 'shareMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdShareMethod :: Lens.Lens' ShareDirectory ShareMethod
+sdShareMethod = Lens.lens (shareMethod :: ShareDirectory -> ShareMethod) (\s a -> s {shareMethod = a} :: ShareDirectory)
+{-# DEPRECATED sdShareMethod "Use generic-lens or generic-optics with 'shareMethod' instead." #-}
 
-instance AWSRequest ShareDirectory where
+instance Lude.AWSRequest ShareDirectory where
   type Rs ShareDirectory = ShareDirectoryResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ShareDirectoryResponse'
-            <$> (x .?> "SharedDirectoryId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SharedDirectoryId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ShareDirectory
-
-instance NFData ShareDirectory
-
-instance ToHeaders ShareDirectory where
+instance Lude.ToHeaders ShareDirectory where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.ShareDirectory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.ShareDirectory" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ShareDirectory where
+instance Lude.ToJSON ShareDirectory where
   toJSON ShareDirectory' {..} =
-    object
-      ( catMaybes
-          [ ("ShareNotes" .=) <$> _sdShareNotes,
-            Just ("DirectoryId" .= _sdDirectoryId),
-            Just ("ShareTarget" .= _sdShareTarget),
-            Just ("ShareMethod" .= _sdShareMethod)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ShareNotes" Lude..=) Lude.<$> shareNotes,
+            Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("ShareTarget" Lude..= shareTarget),
+            Lude.Just ("ShareMethod" Lude..= shareMethod)
           ]
       )
 
-instance ToPath ShareDirectory where
-  toPath = const "/"
+instance Lude.ToPath ShareDirectory where
+  toPath = Lude.const "/"
 
-instance ToQuery ShareDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery ShareDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'shareDirectoryResponse' smart constructor.
+-- | /See:/ 'mkShareDirectoryResponse' smart constructor.
 data ShareDirectoryResponse = ShareDirectoryResponse'
-  { _sdrsSharedDirectoryId ::
-      !(Maybe Text),
-    _sdrsResponseStatus :: !Int
+  { sharedDirectoryId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShareDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdrsSharedDirectoryId' - Identifier of the directory that is stored in the directory consumer account that is shared from the specified directory (@DirectoryId@ ).
---
--- * 'sdrsResponseStatus' - -- | The response status code.
-shareDirectoryResponse ::
-  -- | 'sdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sharedDirectoryId' - Identifier of the directory that is stored in the directory consumer account that is shared from the specified directory (@DirectoryId@ ).
+mkShareDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ShareDirectoryResponse
-shareDirectoryResponse pResponseStatus_ =
+mkShareDirectoryResponse pResponseStatus_ =
   ShareDirectoryResponse'
-    { _sdrsSharedDirectoryId = Nothing,
-      _sdrsResponseStatus = pResponseStatus_
+    { sharedDirectoryId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifier of the directory that is stored in the directory consumer account that is shared from the specified directory (@DirectoryId@ ).
-sdrsSharedDirectoryId :: Lens' ShareDirectoryResponse (Maybe Text)
-sdrsSharedDirectoryId = lens _sdrsSharedDirectoryId (\s a -> s {_sdrsSharedDirectoryId = a})
+--
+-- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsSharedDirectoryId :: Lens.Lens' ShareDirectoryResponse (Lude.Maybe Lude.Text)
+sdrsSharedDirectoryId = Lens.lens (sharedDirectoryId :: ShareDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {sharedDirectoryId = a} :: ShareDirectoryResponse)
+{-# DEPRECATED sdrsSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
 
--- | -- | The response status code.
-sdrsResponseStatus :: Lens' ShareDirectoryResponse Int
-sdrsResponseStatus = lens _sdrsResponseStatus (\s a -> s {_sdrsResponseStatus = a})
-
-instance NFData ShareDirectoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsResponseStatus :: Lens.Lens' ShareDirectoryResponse Lude.Int
+sdrsResponseStatus = Lens.lens (responseStatus :: ShareDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ShareDirectoryResponse)
+{-# DEPRECATED sdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

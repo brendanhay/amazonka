@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DataFormat where
+module Network.AWS.Glue.Types.DataFormat
+  ( DataFormat
+      ( DataFormat',
+        Avro
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DataFormat = Avro
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DataFormat = DataFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DataFormat where
-  parser =
-    takeLowerText >>= \case
-      "avro" -> pure Avro
-      e ->
-        fromTextError $
-          "Failure parsing DataFormat from value: '" <> e
-            <> "'. Accepted values: avro"
+pattern Avro :: DataFormat
+pattern Avro = DataFormat' "AVRO"
 
-instance ToText DataFormat where
-  toText = \case
-    Avro -> "AVRO"
-
-instance Hashable DataFormat
-
-instance NFData DataFormat
-
-instance ToByteString DataFormat
-
-instance ToQuery DataFormat
-
-instance ToHeader DataFormat
-
-instance ToJSON DataFormat where
-  toJSON = toJSONText
-
-instance FromJSON DataFormat where
-  parseJSON = parseJSONText "DataFormat"
+{-# COMPLETE
+  Avro,
+  DataFormat'
+  #-}

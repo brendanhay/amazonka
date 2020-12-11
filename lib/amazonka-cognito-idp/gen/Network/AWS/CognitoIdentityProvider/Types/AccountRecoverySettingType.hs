@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType where
+module Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType
+  ( AccountRecoverySettingType (..),
+
+    -- * Smart constructor
+    mkAccountRecoverySettingType,
+
+    -- * Lenses
+    arstRecoveryMechanisms,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The data type for @AccountRecoverySetting@ .
 --
---
---
--- /See:/ 'accountRecoverySettingType' smart constructor.
+-- /See:/ 'mkAccountRecoverySettingType' smart constructor.
 newtype AccountRecoverySettingType = AccountRecoverySettingType'
-  { _arstRecoveryMechanisms ::
-      Maybe (List1 RecoveryOptionType)
+  { recoveryMechanisms ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            RecoveryOptionType
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountRecoverySettingType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arstRecoveryMechanisms' - The list of @RecoveryOptionTypes@ .
-accountRecoverySettingType ::
+-- * 'recoveryMechanisms' - The list of @RecoveryOptionTypes@ .
+mkAccountRecoverySettingType ::
   AccountRecoverySettingType
-accountRecoverySettingType =
-  AccountRecoverySettingType' {_arstRecoveryMechanisms = Nothing}
+mkAccountRecoverySettingType =
+  AccountRecoverySettingType' {recoveryMechanisms = Lude.Nothing}
 
 -- | The list of @RecoveryOptionTypes@ .
-arstRecoveryMechanisms :: Lens' AccountRecoverySettingType (Maybe (NonEmpty RecoveryOptionType))
-arstRecoveryMechanisms = lens _arstRecoveryMechanisms (\s a -> s {_arstRecoveryMechanisms = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'recoveryMechanisms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arstRecoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Lude.Maybe (Lude.NonEmpty RecoveryOptionType))
+arstRecoveryMechanisms = Lens.lens (recoveryMechanisms :: AccountRecoverySettingType -> Lude.Maybe (Lude.NonEmpty RecoveryOptionType)) (\s a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType)
+{-# DEPRECATED arstRecoveryMechanisms "Use generic-lens or generic-optics with 'recoveryMechanisms' instead." #-}
 
-instance FromJSON AccountRecoverySettingType where
+instance Lude.FromJSON AccountRecoverySettingType where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccountRecoverySettingType"
       ( \x ->
-          AccountRecoverySettingType' <$> (x .:? "RecoveryMechanisms")
+          AccountRecoverySettingType'
+            Lude.<$> (x Lude..:? "RecoveryMechanisms")
       )
 
-instance Hashable AccountRecoverySettingType
-
-instance NFData AccountRecoverySettingType
-
-instance ToJSON AccountRecoverySettingType where
+instance Lude.ToJSON AccountRecoverySettingType where
   toJSON AccountRecoverySettingType' {..} =
-    object
-      (catMaybes [("RecoveryMechanisms" .=) <$> _arstRecoveryMechanisms])
+    Lude.object
+      ( Lude.catMaybes
+          [("RecoveryMechanisms" Lude..=) Lude.<$> recoveryMechanisms]
+      )

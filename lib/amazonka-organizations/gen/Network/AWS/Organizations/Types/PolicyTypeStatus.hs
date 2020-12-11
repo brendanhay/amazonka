@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.PolicyTypeStatus where
+module Network.AWS.Organizations.Types.PolicyTypeStatus
+  ( PolicyTypeStatus
+      ( PolicyTypeStatus',
+        Enabled,
+        PendingDisable,
+        PendingEnable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyTypeStatus
-  = Enabled
-  | PendingDisable
-  | PendingEnable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyTypeStatus = PolicyTypeStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyTypeStatus where
-  parser =
-    takeLowerText >>= \case
-      "enabled" -> pure Enabled
-      "pending_disable" -> pure PendingDisable
-      "pending_enable" -> pure PendingEnable
-      e ->
-        fromTextError $
-          "Failure parsing PolicyTypeStatus from value: '" <> e
-            <> "'. Accepted values: enabled, pending_disable, pending_enable"
+pattern Enabled :: PolicyTypeStatus
+pattern Enabled = PolicyTypeStatus' "ENABLED"
 
-instance ToText PolicyTypeStatus where
-  toText = \case
-    Enabled -> "ENABLED"
-    PendingDisable -> "PENDING_DISABLE"
-    PendingEnable -> "PENDING_ENABLE"
+pattern PendingDisable :: PolicyTypeStatus
+pattern PendingDisable = PolicyTypeStatus' "PENDING_DISABLE"
 
-instance Hashable PolicyTypeStatus
+pattern PendingEnable :: PolicyTypeStatus
+pattern PendingEnable = PolicyTypeStatus' "PENDING_ENABLE"
 
-instance NFData PolicyTypeStatus
-
-instance ToByteString PolicyTypeStatus
-
-instance ToQuery PolicyTypeStatus
-
-instance ToHeader PolicyTypeStatus
-
-instance FromJSON PolicyTypeStatus where
-  parseJSON = parseJSONText "PolicyTypeStatus"
+{-# COMPLETE
+  Enabled,
+  PendingDisable,
+  PendingEnable,
+  PolicyTypeStatus'
+  #-}

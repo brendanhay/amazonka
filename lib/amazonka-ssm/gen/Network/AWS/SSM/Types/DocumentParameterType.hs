@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentParameterType where
+module Network.AWS.SSM.Types.DocumentParameterType
+  ( DocumentParameterType
+      ( DocumentParameterType',
+        DPTString,
+        DPTStringList
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentParameterType
-  = DPTString
-  | DPTStringList
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentParameterType = DocumentParameterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentParameterType where
-  parser =
-    takeLowerText >>= \case
-      "string" -> pure DPTString
-      "stringlist" -> pure DPTStringList
-      e ->
-        fromTextError $
-          "Failure parsing DocumentParameterType from value: '" <> e
-            <> "'. Accepted values: string, stringlist"
+pattern DPTString :: DocumentParameterType
+pattern DPTString = DocumentParameterType' "String"
 
-instance ToText DocumentParameterType where
-  toText = \case
-    DPTString -> "String"
-    DPTStringList -> "StringList"
+pattern DPTStringList :: DocumentParameterType
+pattern DPTStringList = DocumentParameterType' "StringList"
 
-instance Hashable DocumentParameterType
-
-instance NFData DocumentParameterType
-
-instance ToByteString DocumentParameterType
-
-instance ToQuery DocumentParameterType
-
-instance ToHeader DocumentParameterType
-
-instance FromJSON DocumentParameterType where
-  parseJSON = parseJSONText "DocumentParameterType"
+{-# COMPLETE
+  DPTString,
+  DPTStringList,
+  DocumentParameterType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.RunningMode where
+module Network.AWS.WorkSpaces.Types.RunningMode
+  ( RunningMode
+      ( RunningMode',
+        AlwaysOn,
+        AutoStop
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RunningMode
-  = AlwaysOn
-  | AutoStop
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RunningMode = RunningMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RunningMode where
-  parser =
-    takeLowerText >>= \case
-      "always_on" -> pure AlwaysOn
-      "auto_stop" -> pure AutoStop
-      e ->
-        fromTextError $
-          "Failure parsing RunningMode from value: '" <> e
-            <> "'. Accepted values: always_on, auto_stop"
+pattern AlwaysOn :: RunningMode
+pattern AlwaysOn = RunningMode' "ALWAYS_ON"
 
-instance ToText RunningMode where
-  toText = \case
-    AlwaysOn -> "ALWAYS_ON"
-    AutoStop -> "AUTO_STOP"
+pattern AutoStop :: RunningMode
+pattern AutoStop = RunningMode' "AUTO_STOP"
 
-instance Hashable RunningMode
-
-instance NFData RunningMode
-
-instance ToByteString RunningMode
-
-instance ToQuery RunningMode
-
-instance ToHeader RunningMode
-
-instance ToJSON RunningMode where
-  toJSON = toJSONText
-
-instance FromJSON RunningMode where
-  parseJSON = parseJSONText "RunningMode"
+{-# COMPLETE
+  AlwaysOn,
+  AutoStop,
+  RunningMode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ServiceRegistry where
+module Network.AWS.ECS.Types.ServiceRegistry
+  ( ServiceRegistry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceRegistry,
+
+    -- * Lenses
+    srRegistryARN,
+    srContainerName,
+    srContainerPort,
+    srPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the service registry.
 --
---
---
--- /See:/ 'serviceRegistry' smart constructor.
+-- /See:/ 'mkServiceRegistry' smart constructor.
 data ServiceRegistry = ServiceRegistry'
-  { _srRegistryARN ::
-      !(Maybe Text),
-    _srContainerName :: !(Maybe Text),
-    _srContainerPort :: !(Maybe Int),
-    _srPort :: !(Maybe Int)
+  { registryARN ::
+      Lude.Maybe Lude.Text,
+    containerName :: Lude.Maybe Lude.Text,
+    containerPort :: Lude.Maybe Lude.Int,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceRegistry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srRegistryARN' - The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
---
--- * 'srContainerName' - The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition that your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
---
--- * 'srContainerPort' - The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
---
--- * 'srPort' - The port value used if your service discovery service specified an SRV record. This field may be used if both the @awsvpc@ network mode and SRV records are used.
-serviceRegistry ::
+-- * 'containerName' - The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition that your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
+-- * 'containerPort' - The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
+-- * 'port' - The port value used if your service discovery service specified an SRV record. This field may be used if both the @awsvpc@ network mode and SRV records are used.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
+mkServiceRegistry ::
   ServiceRegistry
-serviceRegistry =
+mkServiceRegistry =
   ServiceRegistry'
-    { _srRegistryARN = Nothing,
-      _srContainerName = Nothing,
-      _srContainerPort = Nothing,
-      _srPort = Nothing
+    { registryARN = Lude.Nothing,
+      containerName = Lude.Nothing,
+      containerPort = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
-srRegistryARN :: Lens' ServiceRegistry (Maybe Text)
-srRegistryARN = lens _srRegistryARN (\s a -> s {_srRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srRegistryARN :: Lens.Lens' ServiceRegistry (Lude.Maybe Lude.Text)
+srRegistryARN = Lens.lens (registryARN :: ServiceRegistry -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: ServiceRegistry)
+{-# DEPRECATED srRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
 -- | The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition that your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
-srContainerName :: Lens' ServiceRegistry (Maybe Text)
-srContainerName = lens _srContainerName (\s a -> s {_srContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srContainerName :: Lens.Lens' ServiceRegistry (Lude.Maybe Lude.Text)
+srContainerName = Lens.lens (containerName :: ServiceRegistry -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: ServiceRegistry)
+{-# DEPRECATED srContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
-srContainerPort :: Lens' ServiceRegistry (Maybe Int)
-srContainerPort = lens _srContainerPort (\s a -> s {_srContainerPort = a})
+--
+-- /Note:/ Consider using 'containerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srContainerPort :: Lens.Lens' ServiceRegistry (Lude.Maybe Lude.Int)
+srContainerPort = Lens.lens (containerPort :: ServiceRegistry -> Lude.Maybe Lude.Int) (\s a -> s {containerPort = a} :: ServiceRegistry)
+{-# DEPRECATED srContainerPort "Use generic-lens or generic-optics with 'containerPort' instead." #-}
 
 -- | The port value used if your service discovery service specified an SRV record. This field may be used if both the @awsvpc@ network mode and SRV records are used.
-srPort :: Lens' ServiceRegistry (Maybe Int)
-srPort = lens _srPort (\s a -> s {_srPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srPort :: Lens.Lens' ServiceRegistry (Lude.Maybe Lude.Int)
+srPort = Lens.lens (port :: ServiceRegistry -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: ServiceRegistry)
+{-# DEPRECATED srPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON ServiceRegistry where
+instance Lude.FromJSON ServiceRegistry where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceRegistry"
       ( \x ->
           ServiceRegistry'
-            <$> (x .:? "registryArn")
-            <*> (x .:? "containerName")
-            <*> (x .:? "containerPort")
-            <*> (x .:? "port")
+            Lude.<$> (x Lude..:? "registryArn")
+            Lude.<*> (x Lude..:? "containerName")
+            Lude.<*> (x Lude..:? "containerPort")
+            Lude.<*> (x Lude..:? "port")
       )
 
-instance Hashable ServiceRegistry
-
-instance NFData ServiceRegistry
-
-instance ToJSON ServiceRegistry where
+instance Lude.ToJSON ServiceRegistry where
   toJSON ServiceRegistry' {..} =
-    object
-      ( catMaybes
-          [ ("registryArn" .=) <$> _srRegistryARN,
-            ("containerName" .=) <$> _srContainerName,
-            ("containerPort" .=) <$> _srContainerPort,
-            ("port" .=) <$> _srPort
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryArn" Lude..=) Lude.<$> registryARN,
+            ("containerName" Lude..=) Lude.<$> containerName,
+            ("containerPort" Lude..=) Lude.<$> containerPort,
+            ("port" Lude..=) Lude.<$> port
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Statistics where
+module Network.AWS.IoT.Types.Statistics
+  ( Statistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStatistics,
+
+    -- * Lenses
+    sStdDeviation,
+    sMaximum,
+    sAverage,
+    sCount,
+    sMinimum,
+    sVariance,
+    sSumOfSquares,
+    sSum,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A map of key-value pairs for all supported statistics. Currently, only count is supported.
 --
---
---
--- /See:/ 'statistics' smart constructor.
+-- /See:/ 'mkStatistics' smart constructor.
 data Statistics = Statistics'
-  { _sStdDeviation :: !(Maybe Double),
-    _sMaximum :: !(Maybe Double),
-    _sAverage :: !(Maybe Double),
-    _sCount :: !(Maybe Int),
-    _sMinimum :: !(Maybe Double),
-    _sVariance :: !(Maybe Double),
-    _sSumOfSquares :: !(Maybe Double),
-    _sSum :: !(Maybe Double)
+  { stdDeviation ::
+      Lude.Maybe Lude.Double,
+    maximum :: Lude.Maybe Lude.Double,
+    average :: Lude.Maybe Lude.Double,
+    count :: Lude.Maybe Lude.Int,
+    minimum :: Lude.Maybe Lude.Double,
+    variance :: Lude.Maybe Lude.Double,
+    sumOfSquares :: Lude.Maybe Lude.Double,
+    sum :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Statistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sStdDeviation' - The standard deviation of the aggregated field values.
---
--- * 'sMaximum' - The maximum aggregated field value.
---
--- * 'sAverage' - The average of the aggregated field values.
---
--- * 'sCount' - The count of things that match the query.
---
--- * 'sMinimum' - The minimum aggregated field value.
---
--- * 'sVariance' - The variance of the aggregated field values.
---
--- * 'sSumOfSquares' - The sum of the squares of the aggregated field values.
---
--- * 'sSum' - The sum of the aggregated field values.
-statistics ::
+-- * 'average' - The average of the aggregated field values.
+-- * 'count' - The count of things that match the query.
+-- * 'maximum' - The maximum aggregated field value.
+-- * 'minimum' - The minimum aggregated field value.
+-- * 'stdDeviation' - The standard deviation of the aggregated field values.
+-- * 'sum' - The sum of the aggregated field values.
+-- * 'sumOfSquares' - The sum of the squares of the aggregated field values.
+-- * 'variance' - The variance of the aggregated field values.
+mkStatistics ::
   Statistics
-statistics =
+mkStatistics =
   Statistics'
-    { _sStdDeviation = Nothing,
-      _sMaximum = Nothing,
-      _sAverage = Nothing,
-      _sCount = Nothing,
-      _sMinimum = Nothing,
-      _sVariance = Nothing,
-      _sSumOfSquares = Nothing,
-      _sSum = Nothing
+    { stdDeviation = Lude.Nothing,
+      maximum = Lude.Nothing,
+      average = Lude.Nothing,
+      count = Lude.Nothing,
+      minimum = Lude.Nothing,
+      variance = Lude.Nothing,
+      sumOfSquares = Lude.Nothing,
+      sum = Lude.Nothing
     }
 
 -- | The standard deviation of the aggregated field values.
-sStdDeviation :: Lens' Statistics (Maybe Double)
-sStdDeviation = lens _sStdDeviation (\s a -> s {_sStdDeviation = a})
+--
+-- /Note:/ Consider using 'stdDeviation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStdDeviation :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sStdDeviation = Lens.lens (stdDeviation :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {stdDeviation = a} :: Statistics)
+{-# DEPRECATED sStdDeviation "Use generic-lens or generic-optics with 'stdDeviation' instead." #-}
 
 -- | The maximum aggregated field value.
-sMaximum :: Lens' Statistics (Maybe Double)
-sMaximum = lens _sMaximum (\s a -> s {_sMaximum = a})
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMaximum :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sMaximum = Lens.lens (maximum :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {maximum = a} :: Statistics)
+{-# DEPRECATED sMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The average of the aggregated field values.
-sAverage :: Lens' Statistics (Maybe Double)
-sAverage = lens _sAverage (\s a -> s {_sAverage = a})
+--
+-- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAverage :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sAverage = Lens.lens (average :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {average = a} :: Statistics)
+{-# DEPRECATED sAverage "Use generic-lens or generic-optics with 'average' instead." #-}
 
 -- | The count of things that match the query.
-sCount :: Lens' Statistics (Maybe Int)
-sCount = lens _sCount (\s a -> s {_sCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCount :: Lens.Lens' Statistics (Lude.Maybe Lude.Int)
+sCount = Lens.lens (count :: Statistics -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: Statistics)
+{-# DEPRECATED sCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The minimum aggregated field value.
-sMinimum :: Lens' Statistics (Maybe Double)
-sMinimum = lens _sMinimum (\s a -> s {_sMinimum = a})
+--
+-- /Note:/ Consider using 'minimum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMinimum :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sMinimum = Lens.lens (minimum :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {minimum = a} :: Statistics)
+{-# DEPRECATED sMinimum "Use generic-lens or generic-optics with 'minimum' instead." #-}
 
 -- | The variance of the aggregated field values.
-sVariance :: Lens' Statistics (Maybe Double)
-sVariance = lens _sVariance (\s a -> s {_sVariance = a})
+--
+-- /Note:/ Consider using 'variance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVariance :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sVariance = Lens.lens (variance :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {variance = a} :: Statistics)
+{-# DEPRECATED sVariance "Use generic-lens or generic-optics with 'variance' instead." #-}
 
 -- | The sum of the squares of the aggregated field values.
-sSumOfSquares :: Lens' Statistics (Maybe Double)
-sSumOfSquares = lens _sSumOfSquares (\s a -> s {_sSumOfSquares = a})
+--
+-- /Note:/ Consider using 'sumOfSquares' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSumOfSquares :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sSumOfSquares = Lens.lens (sumOfSquares :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {sumOfSquares = a} :: Statistics)
+{-# DEPRECATED sSumOfSquares "Use generic-lens or generic-optics with 'sumOfSquares' instead." #-}
 
 -- | The sum of the aggregated field values.
-sSum :: Lens' Statistics (Maybe Double)
-sSum = lens _sSum (\s a -> s {_sSum = a})
+--
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSum :: Lens.Lens' Statistics (Lude.Maybe Lude.Double)
+sSum = Lens.lens (sum :: Statistics -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: Statistics)
+{-# DEPRECATED sSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
-instance FromJSON Statistics where
+instance Lude.FromJSON Statistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "Statistics"
       ( \x ->
           Statistics'
-            <$> (x .:? "stdDeviation")
-            <*> (x .:? "maximum")
-            <*> (x .:? "average")
-            <*> (x .:? "count")
-            <*> (x .:? "minimum")
-            <*> (x .:? "variance")
-            <*> (x .:? "sumOfSquares")
-            <*> (x .:? "sum")
+            Lude.<$> (x Lude..:? "stdDeviation")
+            Lude.<*> (x Lude..:? "maximum")
+            Lude.<*> (x Lude..:? "average")
+            Lude.<*> (x Lude..:? "count")
+            Lude.<*> (x Lude..:? "minimum")
+            Lude.<*> (x Lude..:? "variance")
+            Lude.<*> (x Lude..:? "sumOfSquares")
+            Lude.<*> (x Lude..:? "sum")
       )
-
-instance Hashable Statistics
-
-instance NFData Statistics

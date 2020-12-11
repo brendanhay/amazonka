@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstancePrivateIPAddress where
+module Network.AWS.EC2.Types.InstancePrivateIPAddress
+  ( InstancePrivateIPAddress (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstancePrivateIPAddress,
+
+    -- * Lenses
+    ipiaPrimary,
+    ipiaPrivateIPAddress,
+    ipiaPrivateDNSName,
+    ipiaAssociation,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a private IPv4 address.
 --
---
---
--- /See:/ 'instancePrivateIPAddress' smart constructor.
+-- /See:/ 'mkInstancePrivateIPAddress' smart constructor.
 data InstancePrivateIPAddress = InstancePrivateIPAddress'
-  { _ipiaPrimary ::
-      !(Maybe Bool),
-    _ipiaPrivateIPAddress :: !(Maybe Text),
-    _ipiaPrivateDNSName :: !(Maybe Text),
-    _ipiaAssociation ::
-      !( Maybe
-           InstanceNetworkInterfaceAssociation
-       )
+  { primary ::
+      Lude.Maybe Lude.Bool,
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateDNSName :: Lude.Maybe Lude.Text,
+    association ::
+      Lude.Maybe
+        InstanceNetworkInterfaceAssociation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancePrivateIPAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipiaPrimary' - Indicates whether this IPv4 address is the primary private IP address of the network interface.
---
--- * 'ipiaPrivateIPAddress' - The private IPv4 address of the network interface.
---
--- * 'ipiaPrivateDNSName' - The private IPv4 DNS name.
---
--- * 'ipiaAssociation' - The association information for an Elastic IP address for the network interface.
-instancePrivateIPAddress ::
+-- * 'association' - The association information for an Elastic IP address for the network interface.
+-- * 'primary' - Indicates whether this IPv4 address is the primary private IP address of the network interface.
+-- * 'privateDNSName' - The private IPv4 DNS name.
+-- * 'privateIPAddress' - The private IPv4 address of the network interface.
+mkInstancePrivateIPAddress ::
   InstancePrivateIPAddress
-instancePrivateIPAddress =
+mkInstancePrivateIPAddress =
   InstancePrivateIPAddress'
-    { _ipiaPrimary = Nothing,
-      _ipiaPrivateIPAddress = Nothing,
-      _ipiaPrivateDNSName = Nothing,
-      _ipiaAssociation = Nothing
+    { primary = Lude.Nothing,
+      privateIPAddress = Lude.Nothing,
+      privateDNSName = Lude.Nothing,
+      association = Lude.Nothing
     }
 
 -- | Indicates whether this IPv4 address is the primary private IP address of the network interface.
-ipiaPrimary :: Lens' InstancePrivateIPAddress (Maybe Bool)
-ipiaPrimary = lens _ipiaPrimary (\s a -> s {_ipiaPrimary = a})
+--
+-- /Note:/ Consider using 'primary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipiaPrimary :: Lens.Lens' InstancePrivateIPAddress (Lude.Maybe Lude.Bool)
+ipiaPrimary = Lens.lens (primary :: InstancePrivateIPAddress -> Lude.Maybe Lude.Bool) (\s a -> s {primary = a} :: InstancePrivateIPAddress)
+{-# DEPRECATED ipiaPrimary "Use generic-lens or generic-optics with 'primary' instead." #-}
 
 -- | The private IPv4 address of the network interface.
-ipiaPrivateIPAddress :: Lens' InstancePrivateIPAddress (Maybe Text)
-ipiaPrivateIPAddress = lens _ipiaPrivateIPAddress (\s a -> s {_ipiaPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipiaPrivateIPAddress :: Lens.Lens' InstancePrivateIPAddress (Lude.Maybe Lude.Text)
+ipiaPrivateIPAddress = Lens.lens (privateIPAddress :: InstancePrivateIPAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: InstancePrivateIPAddress)
+{-# DEPRECATED ipiaPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The private IPv4 DNS name.
-ipiaPrivateDNSName :: Lens' InstancePrivateIPAddress (Maybe Text)
-ipiaPrivateDNSName = lens _ipiaPrivateDNSName (\s a -> s {_ipiaPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipiaPrivateDNSName :: Lens.Lens' InstancePrivateIPAddress (Lude.Maybe Lude.Text)
+ipiaPrivateDNSName = Lens.lens (privateDNSName :: InstancePrivateIPAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: InstancePrivateIPAddress)
+{-# DEPRECATED ipiaPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | The association information for an Elastic IP address for the network interface.
-ipiaAssociation :: Lens' InstancePrivateIPAddress (Maybe InstanceNetworkInterfaceAssociation)
-ipiaAssociation = lens _ipiaAssociation (\s a -> s {_ipiaAssociation = a})
+--
+-- /Note:/ Consider using 'association' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipiaAssociation :: Lens.Lens' InstancePrivateIPAddress (Lude.Maybe InstanceNetworkInterfaceAssociation)
+ipiaAssociation = Lens.lens (association :: InstancePrivateIPAddress -> Lude.Maybe InstanceNetworkInterfaceAssociation) (\s a -> s {association = a} :: InstancePrivateIPAddress)
+{-# DEPRECATED ipiaAssociation "Use generic-lens or generic-optics with 'association' instead." #-}
 
-instance FromXML InstancePrivateIPAddress where
+instance Lude.FromXML InstancePrivateIPAddress where
   parseXML x =
     InstancePrivateIPAddress'
-      <$> (x .@? "primary")
-      <*> (x .@? "privateIpAddress")
-      <*> (x .@? "privateDnsName")
-      <*> (x .@? "association")
-
-instance Hashable InstancePrivateIPAddress
-
-instance NFData InstancePrivateIPAddress
+      Lude.<$> (x Lude..@? "primary")
+      Lude.<*> (x Lude..@? "privateIpAddress")
+      Lude.<*> (x Lude..@? "privateDnsName")
+      Lude.<*> (x Lude..@? "association")

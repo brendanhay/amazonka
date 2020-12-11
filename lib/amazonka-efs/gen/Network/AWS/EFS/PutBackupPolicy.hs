@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,86 +14,93 @@
 --
 -- Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system.
 module Network.AWS.EFS.PutBackupPolicy
-  ( -- * Creating a Request
-    putBackupPolicy,
-    PutBackupPolicy,
+  ( -- * Creating a request
+    PutBackupPolicy (..),
+    mkPutBackupPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbpFileSystemId,
     pbpBackupPolicy,
 
-    -- * Destructuring the Response
-    backupPolicyDescription,
-    BackupPolicyDescription,
+    -- * Destructuring the response
+    BackupPolicyDescription (..),
+    mkBackupPolicyDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpdBackupPolicy,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putBackupPolicy' smart constructor.
+-- | /See:/ 'mkPutBackupPolicy' smart constructor.
 data PutBackupPolicy = PutBackupPolicy'
-  { _pbpFileSystemId :: !Text,
-    _pbpBackupPolicy :: !BackupPolicy
+  { fileSystemId :: Lude.Text,
+    backupPolicy :: BackupPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBackupPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbpFileSystemId' - Specifies which EFS file system to update the backup policy for.
---
--- * 'pbpBackupPolicy' - The backup policy included in the @PutBackupPolicy@ request.
-putBackupPolicy ::
-  -- | 'pbpFileSystemId'
-  Text ->
-  -- | 'pbpBackupPolicy'
+-- * 'backupPolicy' - The backup policy included in the @PutBackupPolicy@ request.
+-- * 'fileSystemId' - Specifies which EFS file system to update the backup policy for.
+mkPutBackupPolicy ::
+  -- | 'fileSystemId'
+  Lude.Text ->
+  -- | 'backupPolicy'
   BackupPolicy ->
   PutBackupPolicy
-putBackupPolicy pFileSystemId_ pBackupPolicy_ =
+mkPutBackupPolicy pFileSystemId_ pBackupPolicy_ =
   PutBackupPolicy'
-    { _pbpFileSystemId = pFileSystemId_,
-      _pbpBackupPolicy = pBackupPolicy_
+    { fileSystemId = pFileSystemId_,
+      backupPolicy = pBackupPolicy_
     }
 
 -- | Specifies which EFS file system to update the backup policy for.
-pbpFileSystemId :: Lens' PutBackupPolicy Text
-pbpFileSystemId = lens _pbpFileSystemId (\s a -> s {_pbpFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbpFileSystemId :: Lens.Lens' PutBackupPolicy Lude.Text
+pbpFileSystemId = Lens.lens (fileSystemId :: PutBackupPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: PutBackupPolicy)
+{-# DEPRECATED pbpFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | The backup policy included in the @PutBackupPolicy@ request.
-pbpBackupPolicy :: Lens' PutBackupPolicy BackupPolicy
-pbpBackupPolicy = lens _pbpBackupPolicy (\s a -> s {_pbpBackupPolicy = a})
+--
+-- /Note:/ Consider using 'backupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbpBackupPolicy :: Lens.Lens' PutBackupPolicy BackupPolicy
+pbpBackupPolicy = Lens.lens (backupPolicy :: PutBackupPolicy -> BackupPolicy) (\s a -> s {backupPolicy = a} :: PutBackupPolicy)
+{-# DEPRECATED pbpBackupPolicy "Use generic-lens or generic-optics with 'backupPolicy' instead." #-}
 
-instance AWSRequest PutBackupPolicy where
+instance Lude.AWSRequest PutBackupPolicy where
   type Rs PutBackupPolicy = BackupPolicyDescription
-  request = putJSON efs
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.putJSON efsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable PutBackupPolicy
+instance Lude.ToHeaders PutBackupPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutBackupPolicy
-
-instance ToHeaders PutBackupPolicy where
-  toHeaders = const mempty
-
-instance ToJSON PutBackupPolicy where
+instance Lude.ToJSON PutBackupPolicy where
   toJSON PutBackupPolicy' {..} =
-    object (catMaybes [Just ("BackupPolicy" .= _pbpBackupPolicy)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BackupPolicy" Lude..= backupPolicy)])
 
-instance ToPath PutBackupPolicy where
+instance Lude.ToPath PutBackupPolicy where
   toPath PutBackupPolicy' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-02-01/file-systems/",
-        toBS _pbpFileSystemId,
+        Lude.toBS fileSystemId,
         "/backup-policy"
       ]
 
-instance ToQuery PutBackupPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutBackupPolicy where
+  toQuery = Lude.const Lude.mempty

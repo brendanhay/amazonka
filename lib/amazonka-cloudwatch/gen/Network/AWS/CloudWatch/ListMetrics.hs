@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,32 +14,28 @@
 --
 -- List the specified metrics. You can use the returned metrics with <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html GetMetricData> or <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html GetMetricStatistics> to obtain statistical data.
 --
---
 -- Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with subsequent calls.
---
 -- After you create a metric, allow up to 15 minutes before the metric appears. You can see statistics about the metric sooner by using <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html GetMetricData> or <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html GetMetricStatistics> .
---
 -- @ListMetrics@ doesn't return information about metrics if those metrics haven't reported data in the past two weeks. To retrieve those metrics, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html GetMetricData> or <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html GetMetricStatistics> .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
-  ( -- * Creating a Request
-    listMetrics,
-    ListMetrics,
+  ( -- * Creating a request
+    ListMetrics (..),
+    mkListMetrics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmMetricName,
     lmNamespace,
     lmNextToken,
     lmRecentlyActive,
     lmDimensions,
 
-    -- * Destructuring the Response
-    listMetricsResponse,
-    ListMetricsResponse,
+    -- * Destructuring the response
+    ListMetricsResponse (..),
+    mkListMetricsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmrsMetrics,
     lmrsNextToken,
     lmrsResponseStatus,
@@ -52,146 +43,178 @@ module Network.AWS.CloudWatch.ListMetrics
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listMetrics' smart constructor.
+-- | /See:/ 'mkListMetrics' smart constructor.
 data ListMetrics = ListMetrics'
-  { _lmMetricName :: !(Maybe Text),
-    _lmNamespace :: !(Maybe Text),
-    _lmNextToken :: !(Maybe Text),
-    _lmRecentlyActive :: !(Maybe RecentlyActive),
-    _lmDimensions :: !(Maybe [DimensionFilter])
+  { metricName :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    recentlyActive :: Lude.Maybe RecentlyActive,
+    dimensions :: Lude.Maybe [DimensionFilter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dimensions' - The dimensions to filter against. Only the dimensions that match exactly will be returned.
+-- * 'metricName' - The name of the metric to filter against. Only the metrics with names that match exactly will be returned.
+-- * 'namespace' - The metric namespace to filter against. Only the namespace that matches exactly will be returned.
+-- * 'nextToken' - The token returned by a previous call to indicate that there is more data available.
+-- * 'recentlyActive' - To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter.
 --
--- * 'lmMetricName' - The name of the metric to filter against. Only the metrics with names that match exactly will be returned.
---
--- * 'lmNamespace' - The metric namespace to filter against. Only the namespace that matches exactly will be returned.
---
--- * 'lmNextToken' - The token returned by a previous call to indicate that there is more data available.
---
--- * 'lmRecentlyActive' - To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter. The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
---
--- * 'lmDimensions' - The dimensions to filter against. Only the dimensions that match exactly will be returned.
-listMetrics ::
+-- The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
+mkListMetrics ::
   ListMetrics
-listMetrics =
+mkListMetrics =
   ListMetrics'
-    { _lmMetricName = Nothing,
-      _lmNamespace = Nothing,
-      _lmNextToken = Nothing,
-      _lmRecentlyActive = Nothing,
-      _lmDimensions = Nothing
+    { metricName = Lude.Nothing,
+      namespace = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      recentlyActive = Lude.Nothing,
+      dimensions = Lude.Nothing
     }
 
 -- | The name of the metric to filter against. Only the metrics with names that match exactly will be returned.
-lmMetricName :: Lens' ListMetrics (Maybe Text)
-lmMetricName = lens _lmMetricName (\s a -> s {_lmMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmMetricName :: Lens.Lens' ListMetrics (Lude.Maybe Lude.Text)
+lmMetricName = Lens.lens (metricName :: ListMetrics -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: ListMetrics)
+{-# DEPRECATED lmMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The metric namespace to filter against. Only the namespace that matches exactly will be returned.
-lmNamespace :: Lens' ListMetrics (Maybe Text)
-lmNamespace = lens _lmNamespace (\s a -> s {_lmNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNamespace :: Lens.Lens' ListMetrics (Lude.Maybe Lude.Text)
+lmNamespace = Lens.lens (namespace :: ListMetrics -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: ListMetrics)
+{-# DEPRECATED lmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The token returned by a previous call to indicate that there is more data available.
-lmNextToken :: Lens' ListMetrics (Maybe Text)
-lmNextToken = lens _lmNextToken (\s a -> s {_lmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNextToken :: Lens.Lens' ListMetrics (Lude.Maybe Lude.Text)
+lmNextToken = Lens.lens (nextToken :: ListMetrics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMetrics)
+{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter. The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
-lmRecentlyActive :: Lens' ListMetrics (Maybe RecentlyActive)
-lmRecentlyActive = lens _lmRecentlyActive (\s a -> s {_lmRecentlyActive = a})
+-- | To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter.
+--
+-- The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
+--
+-- /Note:/ Consider using 'recentlyActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmRecentlyActive :: Lens.Lens' ListMetrics (Lude.Maybe RecentlyActive)
+lmRecentlyActive = Lens.lens (recentlyActive :: ListMetrics -> Lude.Maybe RecentlyActive) (\s a -> s {recentlyActive = a} :: ListMetrics)
+{-# DEPRECATED lmRecentlyActive "Use generic-lens or generic-optics with 'recentlyActive' instead." #-}
 
 -- | The dimensions to filter against. Only the dimensions that match exactly will be returned.
-lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\s a -> s {_lmDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmDimensions :: Lens.Lens' ListMetrics (Lude.Maybe [DimensionFilter])
+lmDimensions = Lens.lens (dimensions :: ListMetrics -> Lude.Maybe [DimensionFilter]) (\s a -> s {dimensions = a} :: ListMetrics)
+{-# DEPRECATED lmDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance AWSPager ListMetrics where
+instance Page.AWSPager ListMetrics where
   page rq rs
-    | stop (rs ^. lmrsNextToken) = Nothing
-    | stop (rs ^. lmrsMetrics) = Nothing
-    | otherwise = Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
+    | Page.stop (rs Lens.^. lmrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmrsMetrics) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmNextToken Lens..~ rs Lens.^. lmrsNextToken
 
-instance AWSRequest ListMetrics where
+instance Lude.AWSRequest ListMetrics where
   type Rs ListMetrics = ListMetricsResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListMetricsResult"
       ( \s h x ->
           ListMetricsResponse'
-            <$> (x .@? "Metrics" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Metrics" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListMetrics
+instance Lude.ToHeaders ListMetrics where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListMetrics
+instance Lude.ToPath ListMetrics where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListMetrics where
-  toHeaders = const mempty
-
-instance ToPath ListMetrics where
-  toPath = const "/"
-
-instance ToQuery ListMetrics where
+instance Lude.ToQuery ListMetrics where
   toQuery ListMetrics' {..} =
-    mconcat
-      [ "Action" =: ("ListMetrics" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "MetricName" =: _lmMetricName,
-        "Namespace" =: _lmNamespace,
-        "NextToken" =: _lmNextToken,
-        "RecentlyActive" =: _lmRecentlyActive,
-        "Dimensions" =: toQuery (toQueryList "member" <$> _lmDimensions)
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListMetrics" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
+        "NextToken" Lude.=: nextToken,
+        "RecentlyActive" Lude.=: recentlyActive,
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions)
       ]
 
--- | /See:/ 'listMetricsResponse' smart constructor.
+-- | /See:/ 'mkListMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
-  { _lmrsMetrics ::
-      !(Maybe [Metric]),
-    _lmrsNextToken :: !(Maybe Text),
-    _lmrsResponseStatus :: !Int
+  { metrics ::
+      Lude.Maybe [Metric],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmrsMetrics' - The metrics that match your request.
---
--- * 'lmrsNextToken' - The token that marks the start of the next batch of returned results.
---
--- * 'lmrsResponseStatus' - -- | The response status code.
-listMetricsResponse ::
-  -- | 'lmrsResponseStatus'
-  Int ->
+-- * 'metrics' - The metrics that match your request.
+-- * 'nextToken' - The token that marks the start of the next batch of returned results.
+-- * 'responseStatus' - The response status code.
+mkListMetricsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMetricsResponse
-listMetricsResponse pResponseStatus_ =
+mkListMetricsResponse pResponseStatus_ =
   ListMetricsResponse'
-    { _lmrsMetrics = Nothing,
-      _lmrsNextToken = Nothing,
-      _lmrsResponseStatus = pResponseStatus_
+    { metrics = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The metrics that match your request.
-lmrsMetrics :: Lens' ListMetricsResponse [Metric]
-lmrsMetrics = lens _lmrsMetrics (\s a -> s {_lmrsMetrics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsMetrics :: Lens.Lens' ListMetricsResponse (Lude.Maybe [Metric])
+lmrsMetrics = Lens.lens (metrics :: ListMetricsResponse -> Lude.Maybe [Metric]) (\s a -> s {metrics = a} :: ListMetricsResponse)
+{-# DEPRECATED lmrsMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The token that marks the start of the next batch of returned results.
-lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
-lmrsNextToken = lens _lmrsNextToken (\s a -> s {_lmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsNextToken :: Lens.Lens' ListMetricsResponse (Lude.Maybe Lude.Text)
+lmrsNextToken = Lens.lens (nextToken :: ListMetricsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMetricsResponse)
+{-# DEPRECATED lmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lmrsResponseStatus :: Lens' ListMetricsResponse Int
-lmrsResponseStatus = lens _lmrsResponseStatus (\s a -> s {_lmrsResponseStatus = a})
-
-instance NFData ListMetricsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsResponseStatus :: Lens.Lens' ListMetricsResponse Lude.Int
+lmrsResponseStatus = Lens.lens (responseStatus :: ListMetricsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMetricsResponse)
+{-# DEPRECATED lmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

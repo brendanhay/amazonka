@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Releases the specified Elastic IP address.
 --
---
 -- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use 'DisassociateAddress' .
---
 -- [Nondefault VPC] You must use 'DisassociateAddress' to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (@InvalidIPAddress.InUse@ ).
---
 -- After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an @AuthFailure@ error if the address is already allocated to another AWS account.
---
 -- [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see 'AllocateAddress' .
 module Network.AWS.EC2.ReleaseAddress
-  ( -- * Creating a Request
-    releaseAddress,
-    ReleaseAddress,
+  ( -- * Creating a request
+    ReleaseAddress (..),
+    mkReleaseAddress,
 
-    -- * Request Lenses
+    -- ** Request lenses
     raAllocationId,
     raNetworkBorderGroup,
     raPublicIP,
     raDryRun,
 
-    -- * Destructuring the Response
-    releaseAddressResponse,
-    ReleaseAddressResponse,
+    -- * Destructuring the response
+    ReleaseAddressResponse (..),
+    mkReleaseAddressResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'releaseAddress' smart constructor.
+-- | /See:/ 'mkReleaseAddress' smart constructor.
 data ReleaseAddress = ReleaseAddress'
-  { _raAllocationId ::
-      !(Maybe Text),
-    _raNetworkBorderGroup :: !(Maybe Text),
-    _raPublicIP :: !(Maybe Text),
-    _raDryRun :: !(Maybe Bool)
+  { allocationId ::
+      Lude.Maybe Lude.Text,
+    networkBorderGroup :: Lude.Maybe Lude.Text,
+    publicIP :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
 --
--- * 'raAllocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
---
--- * 'raNetworkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. If you provide an incorrect network border group, you will receive an @InvalidAddress.NotFound@ error. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
---
--- * 'raPublicIP' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
---
--- * 'raDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-releaseAddress ::
+-- If you provide an incorrect network border group, you will receive an @InvalidAddress.NotFound@ error. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
+-- * 'publicIP' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+mkReleaseAddress ::
   ReleaseAddress
-releaseAddress =
+mkReleaseAddress =
   ReleaseAddress'
-    { _raAllocationId = Nothing,
-      _raNetworkBorderGroup = Nothing,
-      _raPublicIP = Nothing,
-      _raDryRun = Nothing
+    { allocationId = Lude.Nothing,
+      networkBorderGroup = Lude.Nothing,
+      publicIP = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-raAllocationId :: Lens' ReleaseAddress (Maybe Text)
-raAllocationId = lens _raAllocationId (\s a -> s {_raAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAllocationId :: Lens.Lens' ReleaseAddress (Lude.Maybe Lude.Text)
+raAllocationId = Lens.lens (allocationId :: ReleaseAddress -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: ReleaseAddress)
+{-# DEPRECATED raAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
--- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. If you provide an incorrect network border group, you will receive an @InvalidAddress.NotFound@ error. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
-raNetworkBorderGroup :: Lens' ReleaseAddress (Maybe Text)
-raNetworkBorderGroup = lens _raNetworkBorderGroup (\s a -> s {_raNetworkBorderGroup = a})
+-- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+--
+-- If you provide an incorrect network border group, you will receive an @InvalidAddress.NotFound@ error. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
+--
+-- /Note:/ Consider using 'networkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raNetworkBorderGroup :: Lens.Lens' ReleaseAddress (Lude.Maybe Lude.Text)
+raNetworkBorderGroup = Lens.lens (networkBorderGroup :: ReleaseAddress -> Lude.Maybe Lude.Text) (\s a -> s {networkBorderGroup = a} :: ReleaseAddress)
+{-# DEPRECATED raNetworkBorderGroup "Use generic-lens or generic-optics with 'networkBorderGroup' instead." #-}
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-raPublicIP :: Lens' ReleaseAddress (Maybe Text)
-raPublicIP = lens _raPublicIP (\s a -> s {_raPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raPublicIP :: Lens.Lens' ReleaseAddress (Lude.Maybe Lude.Text)
+raPublicIP = Lens.lens (publicIP :: ReleaseAddress -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: ReleaseAddress)
+{-# DEPRECATED raPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-raDryRun :: Lens' ReleaseAddress (Maybe Bool)
-raDryRun = lens _raDryRun (\s a -> s {_raDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raDryRun :: Lens.Lens' ReleaseAddress (Lude.Maybe Lude.Bool)
+raDryRun = Lens.lens (dryRun :: ReleaseAddress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReleaseAddress)
+{-# DEPRECATED raDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest ReleaseAddress where
+instance Lude.AWSRequest ReleaseAddress where
   type Rs ReleaseAddress = ReleaseAddressResponse
-  request = postQuery ec2
-  response = receiveNull ReleaseAddressResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ReleaseAddressResponse'
 
-instance Hashable ReleaseAddress
+instance Lude.ToHeaders ReleaseAddress where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReleaseAddress
+instance Lude.ToPath ReleaseAddress where
+  toPath = Lude.const "/"
 
-instance ToHeaders ReleaseAddress where
-  toHeaders = const mempty
-
-instance ToPath ReleaseAddress where
-  toPath = const "/"
-
-instance ToQuery ReleaseAddress where
+instance Lude.ToQuery ReleaseAddress where
   toQuery ReleaseAddress' {..} =
-    mconcat
-      [ "Action" =: ("ReleaseAddress" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "AllocationId" =: _raAllocationId,
-        "NetworkBorderGroup" =: _raNetworkBorderGroup,
-        "PublicIp" =: _raPublicIP,
-        "DryRun" =: _raDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("ReleaseAddress" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "AllocationId" Lude.=: allocationId,
+        "NetworkBorderGroup" Lude.=: networkBorderGroup,
+        "PublicIp" Lude.=: publicIP,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'releaseAddressResponse' smart constructor.
+-- | /See:/ 'mkReleaseAddressResponse' smart constructor.
 data ReleaseAddressResponse = ReleaseAddressResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseAddressResponse' with the minimum fields required to make a request.
-releaseAddressResponse ::
+mkReleaseAddressResponse ::
   ReleaseAddressResponse
-releaseAddressResponse = ReleaseAddressResponse'
-
-instance NFData ReleaseAddressResponse
+mkReleaseAddressResponse = ReleaseAddressResponse'

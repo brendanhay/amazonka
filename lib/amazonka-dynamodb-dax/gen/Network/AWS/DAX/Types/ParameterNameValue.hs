@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.ParameterNameValue where
+module Network.AWS.DAX.Types.ParameterNameValue
+  ( ParameterNameValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterNameValue,
+
+    -- * Lenses
+    pnvParameterValue,
+    pnvParameterName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An individual DAX parameter.
 --
---
---
--- /See:/ 'parameterNameValue' smart constructor.
+-- /See:/ 'mkParameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
-  { _pnvParameterValue ::
-      !(Maybe Text),
-    _pnvParameterName :: !(Maybe Text)
+  { parameterValue ::
+      Lude.Maybe Lude.Text,
+    parameterName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterNameValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pnvParameterValue' - The value of the parameter.
---
--- * 'pnvParameterName' - The name of the parameter.
-parameterNameValue ::
+-- * 'parameterName' - The name of the parameter.
+-- * 'parameterValue' - The value of the parameter.
+mkParameterNameValue ::
   ParameterNameValue
-parameterNameValue =
+mkParameterNameValue =
   ParameterNameValue'
-    { _pnvParameterValue = Nothing,
-      _pnvParameterName = Nothing
+    { parameterValue = Lude.Nothing,
+      parameterName = Lude.Nothing
     }
 
 -- | The value of the parameter.
-pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterValue = lens _pnvParameterValue (\s a -> s {_pnvParameterValue = a})
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvParameterValue :: Lens.Lens' ParameterNameValue (Lude.Maybe Lude.Text)
+pnvParameterValue = Lens.lens (parameterValue :: ParameterNameValue -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: ParameterNameValue)
+{-# DEPRECATED pnvParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
 -- | The name of the parameter.
-pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
-pnvParameterName = lens _pnvParameterName (\s a -> s {_pnvParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvParameterName :: Lens.Lens' ParameterNameValue (Lude.Maybe Lude.Text)
+pnvParameterName = Lens.lens (parameterName :: ParameterNameValue -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: ParameterNameValue)
+{-# DEPRECATED pnvParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
-instance Hashable ParameterNameValue
-
-instance NFData ParameterNameValue
-
-instance ToJSON ParameterNameValue where
+instance Lude.ToJSON ParameterNameValue where
   toJSON ParameterNameValue' {..} =
-    object
-      ( catMaybes
-          [ ("ParameterValue" .=) <$> _pnvParameterValue,
-            ("ParameterName" .=) <$> _pnvParameterName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ParameterValue" Lude..=) Lude.<$> parameterValue,
+            ("ParameterName" Lude..=) Lude.<$> parameterName
           ]
       )

@@ -14,15 +14,15 @@
 -- __Amazon AppStream 2.0__
 --
 -- This is the /Amazon AppStream 2.0 API Reference/ . This documentation provides descriptions and syntax for each of the actions and data types in AppStream 2.0. AppStream 2.0 is a fully managed, secure application streaming service that lets you stream desktop applications to users without rewriting applications. AppStream 2.0 manages the AWS resources that are required to host and run your applications, scales automatically, and provides access to your users on demand.
---
 -- To learn more about AppStream 2.0, see the following resources:
 --
 --     * <http://aws.amazon.com/appstream2 Amazon AppStream 2.0 product page>
 --
+--
 --     * <http://aws.amazon.com/documentation/appstream2 Amazon AppStream 2.0 documentation>
 module Network.AWS.AppStream
-  ( -- * Service Configuration
-    appStream,
+  ( -- * Service configuration
+    appStreamService,
 
     -- * Errors
     -- $errors
@@ -31,10 +31,10 @@ module Network.AWS.AppStream
     -- $waiters
 
     -- ** FleetStopped
-    fleetStopped,
+    mkFleetStopped,
 
     -- ** FleetStarted
-    fleetStarted,
+    mkFleetStarted,
 
     -- * Operations
     -- $operations
@@ -255,14 +255,14 @@ module Network.AWS.AppStream
     VisibilityType (..),
 
     -- ** AccessEndpoint
-    AccessEndpoint,
-    accessEndpoint,
+    AccessEndpoint (..),
+    mkAccessEndpoint,
     aeVPCeId,
     aeEndpointType,
 
     -- ** Application
-    Application,
-    application,
+    Application (..),
+    mkApplication,
     appEnabled,
     appLaunchPath,
     appLaunchParameters,
@@ -272,48 +272,48 @@ module Network.AWS.AppStream
     appIconURL,
 
     -- ** ApplicationSettings
-    ApplicationSettings,
-    applicationSettings,
+    ApplicationSettings (..),
+    mkApplicationSettings,
     aSettingsGroup,
     aEnabled,
 
     -- ** ApplicationSettingsResponse
-    ApplicationSettingsResponse,
-    applicationSettingsResponse,
+    ApplicationSettingsResponse (..),
+    mkApplicationSettingsResponse,
     asEnabled,
     asSettingsGroup,
     asS3BucketName,
 
     -- ** ComputeCapacity
-    ComputeCapacity,
-    computeCapacity,
+    ComputeCapacity (..),
+    mkComputeCapacity,
     ccDesiredInstances,
 
     -- ** ComputeCapacityStatus
-    ComputeCapacityStatus,
-    computeCapacityStatus,
+    ComputeCapacityStatus (..),
+    mkComputeCapacityStatus,
     ccsInUse,
     ccsRunning,
     ccsAvailable,
     ccsDesired,
 
     -- ** DirectoryConfig
-    DirectoryConfig,
-    directoryConfig,
+    DirectoryConfig (..),
+    mkDirectoryConfig,
     dcCreatedTime,
     dcServiceAccountCredentials,
     dcOrganizationalUnitDistinguishedNames,
     dcDirectoryName,
 
     -- ** DomainJoinInfo
-    DomainJoinInfo,
-    domainJoinInfo,
+    DomainJoinInfo (..),
+    mkDomainJoinInfo,
     djiOrganizationalUnitDistinguishedName,
     djiDirectoryName,
 
     -- ** Fleet
-    Fleet,
-    fleet,
+    Fleet (..),
+    mkFleet,
     fDomainJoinInfo,
     fIAMRoleARN,
     fDisconnectTimeoutInSeconds,
@@ -336,14 +336,14 @@ module Network.AWS.AppStream
     fState,
 
     -- ** FleetError
-    FleetError,
-    fleetError,
+    FleetError (..),
+    mkFleetError,
     feErrorCode,
     feErrorMessage,
 
     -- ** Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iState,
     iImagePermissions,
     iPlatform,
@@ -362,8 +362,8 @@ module Network.AWS.AppStream
     iName,
 
     -- ** ImageBuilder
-    ImageBuilder,
-    imageBuilder,
+    ImageBuilder (..),
+    mkImageBuilder,
     ibDomainJoinInfo,
     ibIAMRoleARN,
     ibState,
@@ -384,51 +384,51 @@ module Network.AWS.AppStream
     ibName,
 
     -- ** ImageBuilderStateChangeReason
-    ImageBuilderStateChangeReason,
-    imageBuilderStateChangeReason,
+    ImageBuilderStateChangeReason (..),
+    mkImageBuilderStateChangeReason,
     ibscrCode,
     ibscrMessage,
 
     -- ** ImagePermissions
-    ImagePermissions,
-    imagePermissions,
+    ImagePermissions (..),
+    mkImagePermissions,
     ipAllowFleet,
     ipAllowImageBuilder,
 
     -- ** ImageStateChangeReason
-    ImageStateChangeReason,
-    imageStateChangeReason,
+    ImageStateChangeReason (..),
+    mkImageStateChangeReason,
     iscrCode,
     iscrMessage,
 
     -- ** LastReportGenerationExecutionError
-    LastReportGenerationExecutionError,
-    lastReportGenerationExecutionError,
+    LastReportGenerationExecutionError (..),
+    mkLastReportGenerationExecutionError,
     lrgeeErrorCode,
     lrgeeErrorMessage,
 
     -- ** NetworkAccessConfiguration
-    NetworkAccessConfiguration,
-    networkAccessConfiguration,
+    NetworkAccessConfiguration (..),
+    mkNetworkAccessConfiguration,
     nacEniId,
     nacEniPrivateIPAddress,
 
     -- ** ResourceError
-    ResourceError,
-    resourceError,
+    ResourceError (..),
+    mkResourceError,
     reErrorCode,
     reErrorMessage,
     reErrorTimestamp,
 
     -- ** ServiceAccountCredentials
-    ServiceAccountCredentials,
-    serviceAccountCredentials,
+    ServiceAccountCredentials (..),
+    mkServiceAccountCredentials,
     sacAccountName,
     sacAccountPassword,
 
     -- ** Session
-    Session,
-    session,
+    Session (..),
+    mkSession,
     sNetworkAccessConfiguration,
     sMaxExpirationTime,
     sStartTime,
@@ -441,14 +441,14 @@ module Network.AWS.AppStream
     sState,
 
     -- ** SharedImagePermissions
-    SharedImagePermissions,
-    sharedImagePermissions,
+    SharedImagePermissions (..),
+    mkSharedImagePermissions,
     sipSharedAccountId,
     sipImagePermissions,
 
     -- ** Stack
-    Stack,
-    stack,
+    Stack (..),
+    mkStack,
     sUserSettings,
     sApplicationSettings,
     sFeedbackURL,
@@ -464,29 +464,29 @@ module Network.AWS.AppStream
     sName,
 
     -- ** StackError
-    StackError,
-    stackError,
+    StackError (..),
+    mkStackError,
     seErrorCode,
     seErrorMessage,
 
     -- ** StorageConnector
-    StorageConnector,
-    storageConnector,
+    StorageConnector (..),
+    mkStorageConnector,
     scDomains,
     scResourceIdentifier,
     scConnectorType,
 
     -- ** UsageReportSubscription
-    UsageReportSubscription,
-    usageReportSubscription,
+    UsageReportSubscription (..),
+    mkUsageReportSubscription,
     ursLastGeneratedReportDate,
     ursSchedule,
     ursSubscriptionErrors,
     ursS3BucketName,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uStatus,
     uEnabled,
     uLastName,
@@ -497,31 +497,42 @@ module Network.AWS.AppStream
     uAuthenticationType,
 
     -- ** UserSetting
-    UserSetting,
-    userSetting,
+    UserSetting (..),
+    mkUserSetting,
     usAction,
     usPermission,
 
     -- ** UserStackAssociation
-    UserStackAssociation,
-    userStackAssociation,
+    UserStackAssociation (..),
+    mkUserStackAssociation,
     usaSendEmailNotification,
     usaStackName,
     usaUserName,
     usaAuthenticationType,
 
     -- ** UserStackAssociationError
-    UserStackAssociationError,
-    userStackAssociationError,
+    UserStackAssociationError (..),
+    mkUserStackAssociationError,
     usaeUserStackAssociation,
     usaeErrorCode,
     usaeErrorMessage,
 
     -- ** VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vcSecurityGroupIds,
     vcSubnetIds,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -574,6 +585,7 @@ import Network.AWS.AppStream.UpdateFleet
 import Network.AWS.AppStream.UpdateImagePermissions
 import Network.AWS.AppStream.UpdateStack
 import Network.AWS.AppStream.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

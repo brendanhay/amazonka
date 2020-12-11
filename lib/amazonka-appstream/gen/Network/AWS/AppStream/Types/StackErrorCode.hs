@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.StackErrorCode where
+module Network.AWS.AppStream.Types.StackErrorCode
+  ( StackErrorCode
+      ( StackErrorCode',
+        SECInternalServiceError,
+        SECStorageConnectorError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackErrorCode
-  = SECInternalServiceError
-  | SECStorageConnectorError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackErrorCode = StackErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "internal_service_error" -> pure SECInternalServiceError
-      "storage_connector_error" -> pure SECStorageConnectorError
-      e ->
-        fromTextError $
-          "Failure parsing StackErrorCode from value: '" <> e
-            <> "'. Accepted values: internal_service_error, storage_connector_error"
+pattern SECInternalServiceError :: StackErrorCode
+pattern SECInternalServiceError = StackErrorCode' "INTERNAL_SERVICE_ERROR"
 
-instance ToText StackErrorCode where
-  toText = \case
-    SECInternalServiceError -> "INTERNAL_SERVICE_ERROR"
-    SECStorageConnectorError -> "STORAGE_CONNECTOR_ERROR"
+pattern SECStorageConnectorError :: StackErrorCode
+pattern SECStorageConnectorError = StackErrorCode' "STORAGE_CONNECTOR_ERROR"
 
-instance Hashable StackErrorCode
-
-instance NFData StackErrorCode
-
-instance ToByteString StackErrorCode
-
-instance ToQuery StackErrorCode
-
-instance ToHeader StackErrorCode
-
-instance FromJSON StackErrorCode where
-  parseJSON = parseJSONText "StackErrorCode"
+{-# COMPLETE
+  SECInternalServiceError,
+  SECStorageConnectorError,
+  StackErrorCode'
+  #-}

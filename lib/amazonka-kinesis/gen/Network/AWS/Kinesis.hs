@@ -15,8 +15,8 @@
 --
 -- Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.
 module Network.AWS.Kinesis
-  ( -- * Service Configuration
-    kinesis,
+  ( -- * Service configuration
+    kinesisService,
 
     -- * Errors
     -- $errors
@@ -52,10 +52,10 @@ module Network.AWS.Kinesis
     -- $waiters
 
     -- ** StreamExists
-    streamExists,
+    mkStreamExists,
 
     -- ** StreamNotExists
-    streamNotExists,
+    mkStreamNotExists,
 
     -- * Operations
     -- $operations
@@ -168,23 +168,23 @@ module Network.AWS.Kinesis
     StreamStatus (..),
 
     -- ** ChildShard
-    ChildShard,
-    childShard,
+    ChildShard (..),
+    mkChildShard,
     csShardId,
     csParentShards,
     csHashKeyRange,
 
     -- ** Consumer
-    Consumer,
-    consumer,
+    Consumer (..),
+    mkConsumer,
     cConsumerName,
     cConsumerARN,
     cConsumerStatus,
     cConsumerCreationTimestamp,
 
     -- ** ConsumerDescription
-    ConsumerDescription,
-    consumerDescription,
+    ConsumerDescription (..),
+    mkConsumerDescription,
     cdConsumerName,
     cdConsumerARN,
     cdConsumerStatus,
@@ -192,41 +192,41 @@ module Network.AWS.Kinesis
     cdStreamARN,
 
     -- ** EnhancedMetrics
-    EnhancedMetrics,
-    enhancedMetrics,
+    EnhancedMetrics (..),
+    mkEnhancedMetrics,
     emShardLevelMetrics,
 
     -- ** EnhancedMonitoringOutput
-    EnhancedMonitoringOutput,
-    enhancedMonitoringOutput,
+    EnhancedMonitoringOutput (..),
+    mkEnhancedMonitoringOutput,
     emoDesiredShardLevelMetrics,
     emoCurrentShardLevelMetrics,
     emoStreamName,
 
     -- ** HashKeyRange
-    HashKeyRange,
-    hashKeyRange,
+    HashKeyRange (..),
+    mkHashKeyRange,
     hkrStartingHashKey,
     hkrEndingHashKey,
 
     -- ** PutRecordsRequestEntry
-    PutRecordsRequestEntry,
-    putRecordsRequestEntry,
+    PutRecordsRequestEntry (..),
+    mkPutRecordsRequestEntry,
     prreExplicitHashKey,
     prreData,
     prrePartitionKey,
 
     -- ** PutRecordsResultEntry
-    PutRecordsResultEntry,
-    putRecordsResultEntry,
+    PutRecordsResultEntry (..),
+    mkPutRecordsResultEntry,
     prreSequenceNumber,
     prreErrorCode,
     prreErrorMessage,
     prreShardId,
 
     -- ** Record
-    Record,
-    record,
+    Record (..),
+    mkRecord,
     rEncryptionType,
     rApproximateArrivalTimestamp,
     rSequenceNumber,
@@ -234,14 +234,14 @@ module Network.AWS.Kinesis
     rPartitionKey,
 
     -- ** SequenceNumberRange
-    SequenceNumberRange,
-    sequenceNumberRange,
+    SequenceNumberRange (..),
+    mkSequenceNumberRange,
     snrEndingSequenceNumber,
     snrStartingSequenceNumber,
 
     -- ** Shard
-    Shard,
-    shard,
+    Shard (..),
+    mkShard,
     sAdjacentParentShardId,
     sParentShardId,
     sShardId,
@@ -249,22 +249,22 @@ module Network.AWS.Kinesis
     sSequenceNumberRange,
 
     -- ** ShardFilter
-    ShardFilter,
-    shardFilter,
+    ShardFilter (..),
+    mkShardFilter,
     sfTimestamp,
     sfShardId,
     sfType,
 
     -- ** StartingPosition
-    StartingPosition,
-    startingPosition,
+    StartingPosition (..),
+    mkStartingPosition,
     spSequenceNumber,
     spTimestamp,
     spType,
 
     -- ** StreamDescription
-    StreamDescription,
-    streamDescription,
+    StreamDescription (..),
+    mkStreamDescription,
     sdEncryptionType,
     sdKeyId,
     sdStreamName,
@@ -277,8 +277,8 @@ module Network.AWS.Kinesis
     sdEnhancedMonitoring,
 
     -- ** StreamDescriptionSummary
-    StreamDescriptionSummary,
-    streamDescriptionSummary,
+    StreamDescriptionSummary (..),
+    mkStreamDescriptionSummary,
     sdsEncryptionType,
     sdsKeyId,
     sdsConsumerCount,
@@ -291,16 +291,16 @@ module Network.AWS.Kinesis
     sdsOpenShardCount,
 
     -- ** SubscribeToShardEvent
-    SubscribeToShardEvent,
-    subscribeToShardEvent,
+    SubscribeToShardEvent (..),
+    mkSubscribeToShardEvent,
     stseChildShards,
     stseRecords,
     stseContinuationSequenceNumber,
     stseMillisBehindLatest,
 
     -- ** SubscribeToShardEventStream
-    SubscribeToShardEventStream,
-    subscribeToShardEventStream,
+    SubscribeToShardEventStream (..),
+    mkSubscribeToShardEventStream,
     stsesKMSInvalidStateException,
     stsesKMSThrottlingException,
     stsesKMSOptInRequired,
@@ -313,10 +313,21 @@ module Network.AWS.Kinesis
     stsesSubscribeToShardEvent,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -350,6 +361,7 @@ import Network.AWS.Kinesis.SubscribeToShard
 import Network.AWS.Kinesis.Types
 import Network.AWS.Kinesis.UpdateShardCount
 import Network.AWS.Kinesis.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

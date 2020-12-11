@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the contents of a data set as presigned URIs.
 module Network.AWS.IoTAnalytics.GetDatasetContent
-  ( -- * Creating a Request
-    getDatasetContent,
-    GetDatasetContent,
+  ( -- * Creating a request
+    GetDatasetContent (..),
+    mkGetDatasetContent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdcVersionId,
     gdcDatasetName,
 
-    -- * Destructuring the Response
-    getDatasetContentResponse,
-    GetDatasetContentResponse,
+    -- * Destructuring the response
+    GetDatasetContentResponse (..),
+    mkGetDatasetContentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdcrsStatus,
     gdcrsEntries,
     gdcrsTimestamp,
@@ -40,120 +35,137 @@ module Network.AWS.IoTAnalytics.GetDatasetContent
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDatasetContent' smart constructor.
+-- | /See:/ 'mkGetDatasetContent' smart constructor.
 data GetDatasetContent = GetDatasetContent'
-  { _gdcVersionId ::
-      !(Maybe Text),
-    _gdcDatasetName :: !Text
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    datasetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatasetContent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcVersionId' - The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
---
--- * 'gdcDatasetName' - The name of the data set whose contents are retrieved.
-getDatasetContent ::
-  -- | 'gdcDatasetName'
-  Text ->
+-- * 'datasetName' - The name of the data set whose contents are retrieved.
+-- * 'versionId' - The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+mkGetDatasetContent ::
+  -- | 'datasetName'
+  Lude.Text ->
   GetDatasetContent
-getDatasetContent pDatasetName_ =
+mkGetDatasetContent pDatasetName_ =
   GetDatasetContent'
-    { _gdcVersionId = Nothing,
-      _gdcDatasetName = pDatasetName_
+    { versionId = Lude.Nothing,
+      datasetName = pDatasetName_
     }
 
 -- | The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
-gdcVersionId :: Lens' GetDatasetContent (Maybe Text)
-gdcVersionId = lens _gdcVersionId (\s a -> s {_gdcVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcVersionId :: Lens.Lens' GetDatasetContent (Lude.Maybe Lude.Text)
+gdcVersionId = Lens.lens (versionId :: GetDatasetContent -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: GetDatasetContent)
+{-# DEPRECATED gdcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The name of the data set whose contents are retrieved.
-gdcDatasetName :: Lens' GetDatasetContent Text
-gdcDatasetName = lens _gdcDatasetName (\s a -> s {_gdcDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcDatasetName :: Lens.Lens' GetDatasetContent Lude.Text
+gdcDatasetName = Lens.lens (datasetName :: GetDatasetContent -> Lude.Text) (\s a -> s {datasetName = a} :: GetDatasetContent)
+{-# DEPRECATED gdcDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest GetDatasetContent where
+instance Lude.AWSRequest GetDatasetContent where
   type Rs GetDatasetContent = GetDatasetContentResponse
-  request = get ioTAnalytics
+  request = Req.get ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDatasetContentResponse'
-            <$> (x .?> "status")
-            <*> (x .?> "entries" .!@ mempty)
-            <*> (x .?> "timestamp")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "entries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "timestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDatasetContent
+instance Lude.ToHeaders GetDatasetContent where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetDatasetContent
-
-instance ToHeaders GetDatasetContent where
-  toHeaders = const mempty
-
-instance ToPath GetDatasetContent where
+instance Lude.ToPath GetDatasetContent where
   toPath GetDatasetContent' {..} =
-    mconcat ["/datasets/", toBS _gdcDatasetName, "/content"]
+    Lude.mconcat ["/datasets/", Lude.toBS datasetName, "/content"]
 
-instance ToQuery GetDatasetContent where
+instance Lude.ToQuery GetDatasetContent where
   toQuery GetDatasetContent' {..} =
-    mconcat ["versionId" =: _gdcVersionId]
+    Lude.mconcat ["versionId" Lude.=: versionId]
 
--- | /See:/ 'getDatasetContentResponse' smart constructor.
+-- | /See:/ 'mkGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
-  { _gdcrsStatus ::
-      !(Maybe DatasetContentStatus),
-    _gdcrsEntries ::
-      !(Maybe [DatasetEntry]),
-    _gdcrsTimestamp :: !(Maybe POSIX),
-    _gdcrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe DatasetContentStatus,
+    entries :: Lude.Maybe [DatasetEntry],
+    timestamp :: Lude.Maybe Lude.Timestamp,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatasetContentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdcrsStatus' - The status of the data set content.
---
--- * 'gdcrsEntries' - A list of @DatasetEntry@ objects.
---
--- * 'gdcrsTimestamp' - The time when the request was made.
---
--- * 'gdcrsResponseStatus' - -- | The response status code.
-getDatasetContentResponse ::
-  -- | 'gdcrsResponseStatus'
-  Int ->
+-- * 'entries' - A list of @DatasetEntry@ objects.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the data set content.
+-- * 'timestamp' - The time when the request was made.
+mkGetDatasetContentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDatasetContentResponse
-getDatasetContentResponse pResponseStatus_ =
+mkGetDatasetContentResponse pResponseStatus_ =
   GetDatasetContentResponse'
-    { _gdcrsStatus = Nothing,
-      _gdcrsEntries = Nothing,
-      _gdcrsTimestamp = Nothing,
-      _gdcrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      entries = Lude.Nothing,
+      timestamp = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the data set content.
-gdcrsStatus :: Lens' GetDatasetContentResponse (Maybe DatasetContentStatus)
-gdcrsStatus = lens _gdcrsStatus (\s a -> s {_gdcrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsStatus :: Lens.Lens' GetDatasetContentResponse (Lude.Maybe DatasetContentStatus)
+gdcrsStatus = Lens.lens (status :: GetDatasetContentResponse -> Lude.Maybe DatasetContentStatus) (\s a -> s {status = a} :: GetDatasetContentResponse)
+{-# DEPRECATED gdcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A list of @DatasetEntry@ objects.
-gdcrsEntries :: Lens' GetDatasetContentResponse [DatasetEntry]
-gdcrsEntries = lens _gdcrsEntries (\s a -> s {_gdcrsEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsEntries :: Lens.Lens' GetDatasetContentResponse (Lude.Maybe [DatasetEntry])
+gdcrsEntries = Lens.lens (entries :: GetDatasetContentResponse -> Lude.Maybe [DatasetEntry]) (\s a -> s {entries = a} :: GetDatasetContentResponse)
+{-# DEPRECATED gdcrsEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 -- | The time when the request was made.
-gdcrsTimestamp :: Lens' GetDatasetContentResponse (Maybe UTCTime)
-gdcrsTimestamp = lens _gdcrsTimestamp (\s a -> s {_gdcrsTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsTimestamp :: Lens.Lens' GetDatasetContentResponse (Lude.Maybe Lude.Timestamp)
+gdcrsTimestamp = Lens.lens (timestamp :: GetDatasetContentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: GetDatasetContentResponse)
+{-# DEPRECATED gdcrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | -- | The response status code.
-gdcrsResponseStatus :: Lens' GetDatasetContentResponse Int
-gdcrsResponseStatus = lens _gdcrsResponseStatus (\s a -> s {_gdcrsResponseStatus = a})
-
-instance NFData GetDatasetContentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrsResponseStatus :: Lens.Lens' GetDatasetContentResponse Lude.Int
+gdcrsResponseStatus = Lens.lens (responseStatus :: GetDatasetContentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDatasetContentResponse)
+{-# DEPRECATED gdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

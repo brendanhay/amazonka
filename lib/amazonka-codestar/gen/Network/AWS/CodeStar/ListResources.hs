@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists resources associated with a project in AWS CodeStar.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeStar.ListResources
-  ( -- * Creating a Request
-    listResources,
-    ListResources,
+  ( -- * Creating a request
+    ListResources (..),
+    mkListResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrNextToken,
     lrMaxResults,
     lrProjectId,
 
-    -- * Destructuring the Response
-    listResourcesResponse,
-    ListResourcesResponse,
+    -- * Destructuring the response
+    ListResourcesResponse (..),
+    mkListResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrrsResources,
     lrrsNextToken,
     lrrsResponseStatus,
@@ -44,139 +37,162 @@ module Network.AWS.CodeStar.ListResources
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listResources' smart constructor.
+-- | /See:/ 'mkListResources' smart constructor.
 data ListResources = ListResources'
-  { _lrNextToken :: !(Maybe Text),
-    _lrMaxResults :: !(Maybe Nat),
-    _lrProjectId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    projectId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrNextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
---
--- * 'lrMaxResults' - The maximum amount of data that can be contained in a single set of results.
---
--- * 'lrProjectId' - The ID of the project.
-listResources ::
-  -- | 'lrProjectId'
-  Text ->
+-- * 'maxResults' - The maximum amount of data that can be contained in a single set of results.
+-- * 'nextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
+-- * 'projectId' - The ID of the project.
+mkListResources ::
+  -- | 'projectId'
+  Lude.Text ->
   ListResources
-listResources pProjectId_ =
+mkListResources pProjectId_ =
   ListResources'
-    { _lrNextToken = Nothing,
-      _lrMaxResults = Nothing,
-      _lrProjectId = pProjectId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      projectId = pProjectId_
     }
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
-lrNextToken :: Lens' ListResources (Maybe Text)
-lrNextToken = lens _lrNextToken (\s a -> s {_lrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListResources (Lude.Maybe Lude.Text)
+lrNextToken = Lens.lens (nextToken :: ListResources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResources)
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum amount of data that can be contained in a single set of results.
-lrMaxResults :: Lens' ListResources (Maybe Natural)
-lrMaxResults = lens _lrMaxResults (\s a -> s {_lrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrMaxResults :: Lens.Lens' ListResources (Lude.Maybe Lude.Natural)
+lrMaxResults = Lens.lens (maxResults :: ListResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResources)
+{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the project.
-lrProjectId :: Lens' ListResources Text
-lrProjectId = lens _lrProjectId (\s a -> s {_lrProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrProjectId :: Lens.Lens' ListResources Lude.Text
+lrProjectId = Lens.lens (projectId :: ListResources -> Lude.Text) (\s a -> s {projectId = a} :: ListResources)
+{-# DEPRECATED lrProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance AWSPager ListResources where
+instance Page.AWSPager ListResources where
   page rq rs
-    | stop (rs ^. lrrsNextToken) = Nothing
-    | stop (rs ^. lrrsResources) = Nothing
-    | otherwise = Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrrsResources) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrNextToken Lens..~ rs Lens.^. lrrsNextToken
 
-instance AWSRequest ListResources where
+instance Lude.AWSRequest ListResources where
   type Rs ListResources = ListResourcesResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            <$> (x .?> "resources" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "resources" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListResources
-
-instance NFData ListResources
-
-instance ToHeaders ListResources where
+instance Lude.ToHeaders ListResources where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.ListResources" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.ListResources" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListResources where
+instance Lude.ToJSON ListResources where
   toJSON ListResources' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lrNextToken,
-            ("maxResults" .=) <$> _lrMaxResults,
-            Just ("projectId" .= _lrProjectId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("projectId" Lude..= projectId)
           ]
       )
 
-instance ToPath ListResources where
-  toPath = const "/"
+instance Lude.ToPath ListResources where
+  toPath = Lude.const "/"
 
-instance ToQuery ListResources where
-  toQuery = const mempty
+instance Lude.ToQuery ListResources where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listResourcesResponse' smart constructor.
+-- | /See:/ 'mkListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { _lrrsResources ::
-      !(Maybe [Resource]),
-    _lrrsNextToken :: !(Maybe Text),
-    _lrrsResponseStatus :: !Int
+  { resources ::
+      Lude.Maybe [Resource],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsResources' - An array of resources associated with the project.
---
--- * 'lrrsNextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listResourcesResponse ::
-  -- | 'lrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
+-- * 'resources' - An array of resources associated with the project.
+-- * 'responseStatus' - The response status code.
+mkListResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResourcesResponse
-listResourcesResponse pResponseStatus_ =
+mkListResourcesResponse pResponseStatus_ =
   ListResourcesResponse'
-    { _lrrsResources = Nothing,
-      _lrrsNextToken = Nothing,
-      _lrrsResponseStatus = pResponseStatus_
+    { resources = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of resources associated with the project.
-lrrsResources :: Lens' ListResourcesResponse [Resource]
-lrrsResources = lens _lrrsResources (\s a -> s {_lrrsResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsResources :: Lens.Lens' ListResourcesResponse (Lude.Maybe [Resource])
+lrrsResources = Lens.lens (resources :: ListResourcesResponse -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: ListResourcesResponse)
+{-# DEPRECATED lrrsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
-lrrsNextToken :: Lens' ListResourcesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\s a -> s {_lrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsNextToken :: Lens.Lens' ListResourcesResponse (Lude.Maybe Lude.Text)
+lrrsNextToken = Lens.lens (nextToken :: ListResourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResourcesResponse)
+{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListResourcesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\s a -> s {_lrrsResponseStatus = a})
-
-instance NFData ListResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsResponseStatus :: Lens.Lens' ListResourcesResponse Lude.Int
+lrrsResponseStatus = Lens.lens (responseStatus :: ListResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourcesResponse)
+{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

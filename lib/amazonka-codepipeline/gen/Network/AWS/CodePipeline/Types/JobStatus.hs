@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.JobStatus where
+module Network.AWS.CodePipeline.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        JSCreated,
+        JSDispatched,
+        JSFailed,
+        JSInProgress,
+        JSQueued,
+        JSSucceeded,
+        JSTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatus
-  = JSCreated
-  | JSDispatched
-  | JSFailed
-  | JSInProgress
-  | JSQueued
-  | JSSucceeded
-  | JSTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "created" -> pure JSCreated
-      "dispatched" -> pure JSDispatched
-      "failed" -> pure JSFailed
-      "inprogress" -> pure JSInProgress
-      "queued" -> pure JSQueued
-      "succeeded" -> pure JSSucceeded
-      "timedout" -> pure JSTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: created, dispatched, failed, inprogress, queued, succeeded, timedout"
+pattern JSCreated :: JobStatus
+pattern JSCreated = JobStatus' "Created"
 
-instance ToText JobStatus where
-  toText = \case
-    JSCreated -> "Created"
-    JSDispatched -> "Dispatched"
-    JSFailed -> "Failed"
-    JSInProgress -> "InProgress"
-    JSQueued -> "Queued"
-    JSSucceeded -> "Succeeded"
-    JSTimedOut -> "TimedOut"
+pattern JSDispatched :: JobStatus
+pattern JSDispatched = JobStatus' "Dispatched"
 
-instance Hashable JobStatus
+pattern JSFailed :: JobStatus
+pattern JSFailed = JobStatus' "Failed"
 
-instance NFData JobStatus
+pattern JSInProgress :: JobStatus
+pattern JSInProgress = JobStatus' "InProgress"
 
-instance ToByteString JobStatus
+pattern JSQueued :: JobStatus
+pattern JSQueued = JobStatus' "Queued"
 
-instance ToQuery JobStatus
+pattern JSSucceeded :: JobStatus
+pattern JSSucceeded = JobStatus' "Succeeded"
 
-instance ToHeader JobStatus
+pattern JSTimedOut :: JobStatus
+pattern JSTimedOut = JobStatus' "TimedOut"
 
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+{-# COMPLETE
+  JSCreated,
+  JSDispatched,
+  JSFailed,
+  JSInProgress,
+  JSQueued,
+  JSSucceeded,
+  JSTimedOut,
+  JobStatus'
+  #-}

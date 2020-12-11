@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264RateControlMode where
+module Network.AWS.MediaConvert.Types.H264RateControlMode
+  ( H264RateControlMode
+      ( H264RateControlMode',
+        HCbr,
+        HQvbr,
+        HVbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-data H264RateControlMode
-  = HCbr
-  | HQvbr
-  | HVbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264RateControlMode = H264RateControlMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264RateControlMode where
-  parser =
-    takeLowerText >>= \case
-      "cbr" -> pure HCbr
-      "qvbr" -> pure HQvbr
-      "vbr" -> pure HVbr
-      e ->
-        fromTextError $
-          "Failure parsing H264RateControlMode from value: '" <> e
-            <> "'. Accepted values: cbr, qvbr, vbr"
+pattern HCbr :: H264RateControlMode
+pattern HCbr = H264RateControlMode' "CBR"
 
-instance ToText H264RateControlMode where
-  toText = \case
-    HCbr -> "CBR"
-    HQvbr -> "QVBR"
-    HVbr -> "VBR"
+pattern HQvbr :: H264RateControlMode
+pattern HQvbr = H264RateControlMode' "QVBR"
 
-instance Hashable H264RateControlMode
+pattern HVbr :: H264RateControlMode
+pattern HVbr = H264RateControlMode' "VBR"
 
-instance NFData H264RateControlMode
-
-instance ToByteString H264RateControlMode
-
-instance ToQuery H264RateControlMode
-
-instance ToHeader H264RateControlMode
-
-instance ToJSON H264RateControlMode where
-  toJSON = toJSONText
-
-instance FromJSON H264RateControlMode where
-  parseJSON = parseJSONText "H264RateControlMode"
+{-# COMPLETE
+  HCbr,
+  HQvbr,
+  HVbr,
+  H264RateControlMode'
+  #-}

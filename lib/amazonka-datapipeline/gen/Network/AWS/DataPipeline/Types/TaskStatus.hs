@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.TaskStatus where
+module Network.AWS.DataPipeline.Types.TaskStatus
+  ( TaskStatus
+      ( TaskStatus',
+        Failed,
+        False,
+        Finished
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskStatus
-  = Failed
-  | False'
-  | Finished
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskStatus = TaskStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "false" -> pure False'
-      "finished" -> pure Finished
-      e ->
-        fromTextError $
-          "Failure parsing TaskStatus from value: '" <> e
-            <> "'. Accepted values: failed, false, finished"
+pattern Failed :: TaskStatus
+pattern Failed = TaskStatus' "FAILED"
 
-instance ToText TaskStatus where
-  toText = \case
-    Failed -> "FAILED"
-    False' -> "FALSE"
-    Finished -> "FINISHED"
+pattern False :: TaskStatus
+pattern False = TaskStatus' "FALSE"
 
-instance Hashable TaskStatus
+pattern Finished :: TaskStatus
+pattern Finished = TaskStatus' "FINISHED"
 
-instance NFData TaskStatus
-
-instance ToByteString TaskStatus
-
-instance ToQuery TaskStatus
-
-instance ToHeader TaskStatus
-
-instance ToJSON TaskStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  Failed,
+  False,
+  Finished,
+  TaskStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,149 @@
 --
 -- Used by the AWS X-Ray daemon to upload telemetry.
 module Network.AWS.XRay.PutTelemetryRecords
-  ( -- * Creating a Request
-    putTelemetryRecords,
-    PutTelemetryRecords,
+  ( -- * Creating a request
+    PutTelemetryRecords (..),
+    mkPutTelemetryRecords,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ptrHostname,
     ptrEC2InstanceId,
     ptrResourceARN,
     ptrTelemetryRecords,
 
-    -- * Destructuring the Response
-    putTelemetryRecordsResponse,
-    PutTelemetryRecordsResponse,
+    -- * Destructuring the response
+    PutTelemetryRecordsResponse (..),
+    mkPutTelemetryRecordsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ptrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'putTelemetryRecords' smart constructor.
+-- | /See:/ 'mkPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { _ptrHostname ::
-      !(Maybe Text),
-    _ptrEC2InstanceId :: !(Maybe Text),
-    _ptrResourceARN :: !(Maybe Text),
-    _ptrTelemetryRecords :: ![TelemetryRecord]
+  { hostname ::
+      Lude.Maybe Lude.Text,
+    ec2InstanceId :: Lude.Maybe Lude.Text,
+    resourceARN :: Lude.Maybe Lude.Text,
+    telemetryRecords :: [TelemetryRecord]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTelemetryRecords' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptrHostname' -
---
--- * 'ptrEC2InstanceId' -
---
--- * 'ptrResourceARN' -
---
--- * 'ptrTelemetryRecords' -
-putTelemetryRecords ::
+-- * 'ec2InstanceId' -
+-- * 'hostname' -
+-- * 'resourceARN' -
+-- * 'telemetryRecords' -
+mkPutTelemetryRecords ::
   PutTelemetryRecords
-putTelemetryRecords =
+mkPutTelemetryRecords =
   PutTelemetryRecords'
-    { _ptrHostname = Nothing,
-      _ptrEC2InstanceId = Nothing,
-      _ptrResourceARN = Nothing,
-      _ptrTelemetryRecords = mempty
+    { hostname = Lude.Nothing,
+      ec2InstanceId = Lude.Nothing,
+      resourceARN = Lude.Nothing,
+      telemetryRecords = Lude.mempty
     }
 
 -- |
-ptrHostname :: Lens' PutTelemetryRecords (Maybe Text)
-ptrHostname = lens _ptrHostname (\s a -> s {_ptrHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrHostname :: Lens.Lens' PutTelemetryRecords (Lude.Maybe Lude.Text)
+ptrHostname = Lens.lens (hostname :: PutTelemetryRecords -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: PutTelemetryRecords)
+{-# DEPRECATED ptrHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- |
-ptrEC2InstanceId :: Lens' PutTelemetryRecords (Maybe Text)
-ptrEC2InstanceId = lens _ptrEC2InstanceId (\s a -> s {_ptrEC2InstanceId = a})
+--
+-- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrEC2InstanceId :: Lens.Lens' PutTelemetryRecords (Lude.Maybe Lude.Text)
+ptrEC2InstanceId = Lens.lens (ec2InstanceId :: PutTelemetryRecords -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceId = a} :: PutTelemetryRecords)
+{-# DEPRECATED ptrEC2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
 
 -- |
-ptrResourceARN :: Lens' PutTelemetryRecords (Maybe Text)
-ptrResourceARN = lens _ptrResourceARN (\s a -> s {_ptrResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrResourceARN :: Lens.Lens' PutTelemetryRecords (Lude.Maybe Lude.Text)
+ptrResourceARN = Lens.lens (resourceARN :: PutTelemetryRecords -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: PutTelemetryRecords)
+{-# DEPRECATED ptrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- |
-ptrTelemetryRecords :: Lens' PutTelemetryRecords [TelemetryRecord]
-ptrTelemetryRecords = lens _ptrTelemetryRecords (\s a -> s {_ptrTelemetryRecords = a}) . _Coerce
+--
+-- /Note:/ Consider using 'telemetryRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrTelemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
+ptrTelemetryRecords = Lens.lens (telemetryRecords :: PutTelemetryRecords -> [TelemetryRecord]) (\s a -> s {telemetryRecords = a} :: PutTelemetryRecords)
+{-# DEPRECATED ptrTelemetryRecords "Use generic-lens or generic-optics with 'telemetryRecords' instead." #-}
 
-instance AWSRequest PutTelemetryRecords where
+instance Lude.AWSRequest PutTelemetryRecords where
   type Rs PutTelemetryRecords = PutTelemetryRecordsResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveEmpty
-      (\s h x -> PutTelemetryRecordsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutTelemetryRecordsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutTelemetryRecords
+instance Lude.ToHeaders PutTelemetryRecords where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutTelemetryRecords
-
-instance ToHeaders PutTelemetryRecords where
-  toHeaders = const mempty
-
-instance ToJSON PutTelemetryRecords where
+instance Lude.ToJSON PutTelemetryRecords where
   toJSON PutTelemetryRecords' {..} =
-    object
-      ( catMaybes
-          [ ("Hostname" .=) <$> _ptrHostname,
-            ("EC2InstanceId" .=) <$> _ptrEC2InstanceId,
-            ("ResourceARN" .=) <$> _ptrResourceARN,
-            Just ("TelemetryRecords" .= _ptrTelemetryRecords)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Hostname" Lude..=) Lude.<$> hostname,
+            ("EC2InstanceId" Lude..=) Lude.<$> ec2InstanceId,
+            ("ResourceARN" Lude..=) Lude.<$> resourceARN,
+            Lude.Just ("TelemetryRecords" Lude..= telemetryRecords)
           ]
       )
 
-instance ToPath PutTelemetryRecords where
-  toPath = const "/TelemetryRecords"
+instance Lude.ToPath PutTelemetryRecords where
+  toPath = Lude.const "/TelemetryRecords"
 
-instance ToQuery PutTelemetryRecords where
-  toQuery = const mempty
+instance Lude.ToQuery PutTelemetryRecords where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putTelemetryRecordsResponse' smart constructor.
+-- | /See:/ 'mkPutTelemetryRecordsResponse' smart constructor.
 newtype PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
-  { _ptrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTelemetryRecordsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptrrsResponseStatus' - -- | The response status code.
-putTelemetryRecordsResponse ::
-  -- | 'ptrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutTelemetryRecordsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutTelemetryRecordsResponse
-putTelemetryRecordsResponse pResponseStatus_ =
-  PutTelemetryRecordsResponse'
-    { _ptrrsResponseStatus =
-        pResponseStatus_
-    }
+mkPutTelemetryRecordsResponse pResponseStatus_ =
+  PutTelemetryRecordsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ptrrsResponseStatus :: Lens' PutTelemetryRecordsResponse Int
-ptrrsResponseStatus = lens _ptrrsResponseStatus (\s a -> s {_ptrrsResponseStatus = a})
-
-instance NFData PutTelemetryRecordsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrrsResponseStatus :: Lens.Lens' PutTelemetryRecordsResponse Lude.Int
+ptrrsResponseStatus = Lens.lens (responseStatus :: PutTelemetryRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutTelemetryRecordsResponse)
+{-# DEPRECATED ptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

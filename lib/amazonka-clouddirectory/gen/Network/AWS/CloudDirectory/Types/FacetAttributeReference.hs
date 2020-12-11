@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.FacetAttributeReference where
+module Network.AWS.CloudDirectory.Types.FacetAttributeReference
+  ( FacetAttributeReference (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFacetAttributeReference,
+
+    -- * Lenses
+    farTargetFacetName,
+    farTargetAttributeName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The facet attribute reference that specifies the attribute definition that contains the attribute facet name and attribute name.
 --
---
---
--- /See:/ 'facetAttributeReference' smart constructor.
+-- /See:/ 'mkFacetAttributeReference' smart constructor.
 data FacetAttributeReference = FacetAttributeReference'
-  { _farTargetFacetName ::
-      !Text,
-    _farTargetAttributeName :: !Text
+  { targetFacetName ::
+      Lude.Text,
+    targetAttributeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttributeReference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'farTargetFacetName' - The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
---
--- * 'farTargetAttributeName' - The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-facetAttributeReference ::
-  -- | 'farTargetFacetName'
-  Text ->
-  -- | 'farTargetAttributeName'
-  Text ->
+-- * 'targetAttributeName' - The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+-- * 'targetFacetName' - The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+mkFacetAttributeReference ::
+  -- | 'targetFacetName'
+  Lude.Text ->
+  -- | 'targetAttributeName'
+  Lude.Text ->
   FacetAttributeReference
-facetAttributeReference pTargetFacetName_ pTargetAttributeName_ =
+mkFacetAttributeReference pTargetFacetName_ pTargetAttributeName_ =
   FacetAttributeReference'
-    { _farTargetFacetName = pTargetFacetName_,
-      _farTargetAttributeName = pTargetAttributeName_
+    { targetFacetName = pTargetFacetName_,
+      targetAttributeName = pTargetAttributeName_
     }
 
 -- | The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-farTargetFacetName :: Lens' FacetAttributeReference Text
-farTargetFacetName = lens _farTargetFacetName (\s a -> s {_farTargetFacetName = a})
+--
+-- /Note:/ Consider using 'targetFacetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+farTargetFacetName :: Lens.Lens' FacetAttributeReference Lude.Text
+farTargetFacetName = Lens.lens (targetFacetName :: FacetAttributeReference -> Lude.Text) (\s a -> s {targetFacetName = a} :: FacetAttributeReference)
+{-# DEPRECATED farTargetFacetName "Use generic-lens or generic-optics with 'targetFacetName' instead." #-}
 
 -- | The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-farTargetAttributeName :: Lens' FacetAttributeReference Text
-farTargetAttributeName = lens _farTargetAttributeName (\s a -> s {_farTargetAttributeName = a})
+--
+-- /Note:/ Consider using 'targetAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+farTargetAttributeName :: Lens.Lens' FacetAttributeReference Lude.Text
+farTargetAttributeName = Lens.lens (targetAttributeName :: FacetAttributeReference -> Lude.Text) (\s a -> s {targetAttributeName = a} :: FacetAttributeReference)
+{-# DEPRECATED farTargetAttributeName "Use generic-lens or generic-optics with 'targetAttributeName' instead." #-}
 
-instance FromJSON FacetAttributeReference where
+instance Lude.FromJSON FacetAttributeReference where
   parseJSON =
-    withObject
+    Lude.withObject
       "FacetAttributeReference"
       ( \x ->
           FacetAttributeReference'
-            <$> (x .: "TargetFacetName") <*> (x .: "TargetAttributeName")
+            Lude.<$> (x Lude..: "TargetFacetName")
+            Lude.<*> (x Lude..: "TargetAttributeName")
       )
 
-instance Hashable FacetAttributeReference
-
-instance NFData FacetAttributeReference
-
-instance ToJSON FacetAttributeReference where
+instance Lude.ToJSON FacetAttributeReference where
   toJSON FacetAttributeReference' {..} =
-    object
-      ( catMaybes
-          [ Just ("TargetFacetName" .= _farTargetFacetName),
-            Just ("TargetAttributeName" .= _farTargetAttributeName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("TargetFacetName" Lude..= targetFacetName),
+            Lude.Just ("TargetAttributeName" Lude..= targetAttributeName)
           ]
       )

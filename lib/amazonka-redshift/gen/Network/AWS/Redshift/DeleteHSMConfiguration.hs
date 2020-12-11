@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,92 @@
 --
 -- Deletes the specified Amazon Redshift HSM configuration.
 module Network.AWS.Redshift.DeleteHSMConfiguration
-  ( -- * Creating a Request
-    deleteHSMConfiguration,
-    DeleteHSMConfiguration,
+  ( -- * Creating a request
+    DeleteHSMConfiguration (..),
+    mkDeleteHSMConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhcHSMConfigurationIdentifier,
 
-    -- * Destructuring the Response
-    deleteHSMConfigurationResponse,
-    DeleteHSMConfigurationResponse,
+    -- * Destructuring the response
+    DeleteHSMConfigurationResponse (..),
+    mkDeleteHSMConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteHSMConfiguration' smart constructor.
+-- /See:/ 'mkDeleteHSMConfiguration' smart constructor.
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
-  { _dhcHSMConfigurationIdentifier ::
-      Text
+  { hsmConfigurationIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhcHSMConfigurationIdentifier' - The identifier of the Amazon Redshift HSM configuration to be deleted.
-deleteHSMConfiguration ::
-  -- | 'dhcHSMConfigurationIdentifier'
-  Text ->
+-- * 'hsmConfigurationIdentifier' - The identifier of the Amazon Redshift HSM configuration to be deleted.
+mkDeleteHSMConfiguration ::
+  -- | 'hsmConfigurationIdentifier'
+  Lude.Text ->
   DeleteHSMConfiguration
-deleteHSMConfiguration pHSMConfigurationIdentifier_ =
+mkDeleteHSMConfiguration pHSMConfigurationIdentifier_ =
   DeleteHSMConfiguration'
-    { _dhcHSMConfigurationIdentifier =
+    { hsmConfigurationIdentifier =
         pHSMConfigurationIdentifier_
     }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
-dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\s a -> s {_dhcHSMConfigurationIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmConfigurationIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcHSMConfigurationIdentifier :: Lens.Lens' DeleteHSMConfiguration Lude.Text
+dhcHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: DeleteHSMConfiguration -> Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: DeleteHSMConfiguration)
+{-# DEPRECATED dhcHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
 
-instance AWSRequest DeleteHSMConfiguration where
+instance Lude.AWSRequest DeleteHSMConfiguration where
   type Rs DeleteHSMConfiguration = DeleteHSMConfigurationResponse
-  request = postQuery redshift
-  response = receiveNull DeleteHSMConfigurationResponse'
+  request = Req.postQuery redshiftService
+  response = Res.receiveNull DeleteHSMConfigurationResponse'
 
-instance Hashable DeleteHSMConfiguration
+instance Lude.ToHeaders DeleteHSMConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteHSMConfiguration
+instance Lude.ToPath DeleteHSMConfiguration where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteHSMConfiguration where
-  toHeaders = const mempty
-
-instance ToPath DeleteHSMConfiguration where
-  toPath = const "/"
-
-instance ToQuery DeleteHSMConfiguration where
+instance Lude.ToQuery DeleteHSMConfiguration where
   toQuery DeleteHSMConfiguration' {..} =
-    mconcat
-      [ "Action" =: ("DeleteHsmConfiguration" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "HsmConfigurationIdentifier" =: _dhcHSMConfigurationIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteHsmConfiguration" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "HsmConfigurationIdentifier" Lude.=: hsmConfigurationIdentifier
       ]
 
--- | /See:/ 'deleteHSMConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteHSMConfigurationResponse' smart constructor.
 data DeleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMConfigurationResponse' with the minimum fields required to make a request.
-deleteHSMConfigurationResponse ::
+mkDeleteHSMConfigurationResponse ::
   DeleteHSMConfigurationResponse
-deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
-
-instance NFData DeleteHSMConfigurationResponse
+mkDeleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.RegionType where
+module Network.AWS.DirectoryService.Types.RegionType
+  ( RegionType
+      ( RegionType',
+        Additional,
+        Primary
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RegionType
-  = Additional
-  | Primary
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RegionType = RegionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RegionType where
-  parser =
-    takeLowerText >>= \case
-      "additional" -> pure Additional
-      "primary" -> pure Primary
-      e ->
-        fromTextError $
-          "Failure parsing RegionType from value: '" <> e
-            <> "'. Accepted values: additional, primary"
+pattern Additional :: RegionType
+pattern Additional = RegionType' "Additional"
 
-instance ToText RegionType where
-  toText = \case
-    Additional -> "Additional"
-    Primary -> "Primary"
+pattern Primary :: RegionType
+pattern Primary = RegionType' "Primary"
 
-instance Hashable RegionType
-
-instance NFData RegionType
-
-instance ToByteString RegionType
-
-instance ToQuery RegionType
-
-instance ToHeader RegionType
-
-instance FromJSON RegionType where
-  parseJSON = parseJSONText "RegionType"
+{-# COMPLETE
+  Additional,
+  Primary,
+  RegionType'
+  #-}

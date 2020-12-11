@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.ResourceFilter where
+module Network.AWS.ResourceGroups.Types.ResourceFilter
+  ( ResourceFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceFilter,
+
+    -- * Lenses
+    rfName,
+    rfValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ResourceGroups.Types.ResourceFilterName
 
 -- | A filter name and value pair that is used to obtain more specific results from a list of resources.
 --
---
---
--- /See:/ 'resourceFilter' smart constructor.
+-- /See:/ 'mkResourceFilter' smart constructor.
 data ResourceFilter = ResourceFilter'
-  { _rfName ::
-      !ResourceFilterName,
-    _rfValues :: !(List1 Text)
+  { name :: ResourceFilterName,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfName' - The name of the filter. Filter names are case-sensitive.
---
--- * 'rfValues' - One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
-resourceFilter ::
-  -- | 'rfName'
+-- * 'name' - The name of the filter. Filter names are case-sensitive.
+-- * 'values' - One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
+mkResourceFilter ::
+  -- | 'name'
   ResourceFilterName ->
-  -- | 'rfValues'
-  NonEmpty Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   ResourceFilter
-resourceFilter pName_ pValues_ =
-  ResourceFilter' {_rfName = pName_, _rfValues = _List1 # pValues_}
+mkResourceFilter pName_ pValues_ =
+  ResourceFilter' {name = pName_, values = pValues_}
 
 -- | The name of the filter. Filter names are case-sensitive.
-rfName :: Lens' ResourceFilter ResourceFilterName
-rfName = lens _rfName (\s a -> s {_rfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfName :: Lens.Lens' ResourceFilter ResourceFilterName
+rfName = Lens.lens (name :: ResourceFilter -> ResourceFilterName) (\s a -> s {name = a} :: ResourceFilter)
+{-# DEPRECATED rfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
-rfValues :: Lens' ResourceFilter (NonEmpty Text)
-rfValues = lens _rfValues (\s a -> s {_rfValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfValues :: Lens.Lens' ResourceFilter (Lude.NonEmpty Lude.Text)
+rfValues = Lens.lens (values :: ResourceFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: ResourceFilter)
+{-# DEPRECATED rfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable ResourceFilter
-
-instance NFData ResourceFilter
-
-instance ToJSON ResourceFilter where
+instance Lude.ToJSON ResourceFilter where
   toJSON ResourceFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("Name" .= _rfName), Just ("Values" .= _rfValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Values" Lude..= values)
+          ]
       )

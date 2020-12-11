@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus where
+module Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
+  ( SnapshotOptionsStatus (..),
+
+    -- * Smart constructor
+    mkSnapshotOptionsStatus,
+
+    -- * Lenses
+    sosOptions,
+    sosStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.SnapshotOptions
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of a daily automated snapshot.
 --
---
---
--- /See:/ 'snapshotOptionsStatus' smart constructor.
+-- /See:/ 'mkSnapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'
-  { _sosOptions ::
-      !SnapshotOptions,
-    _sosStatus :: !OptionStatus
+  { options ::
+      SnapshotOptions,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sosOptions' - Specifies the daily snapshot options specified for the Elasticsearch domain.
---
--- * 'sosStatus' - Specifies the status of a daily automated snapshot.
-snapshotOptionsStatus ::
-  -- | 'sosOptions'
+-- * 'options' - Specifies the daily snapshot options specified for the Elasticsearch domain.
+-- * 'status' - Specifies the status of a daily automated snapshot.
+mkSnapshotOptionsStatus ::
+  -- | 'options'
   SnapshotOptions ->
-  -- | 'sosStatus'
+  -- | 'status'
   OptionStatus ->
   SnapshotOptionsStatus
-snapshotOptionsStatus pOptions_ pStatus_ =
-  SnapshotOptionsStatus'
-    { _sosOptions = pOptions_,
-      _sosStatus = pStatus_
-    }
+mkSnapshotOptionsStatus pOptions_ pStatus_ =
+  SnapshotOptionsStatus' {options = pOptions_, status = pStatus_}
 
 -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
-sosOptions :: Lens' SnapshotOptionsStatus SnapshotOptions
-sosOptions = lens _sosOptions (\s a -> s {_sosOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sosOptions :: Lens.Lens' SnapshotOptionsStatus SnapshotOptions
+sosOptions = Lens.lens (options :: SnapshotOptionsStatus -> SnapshotOptions) (\s a -> s {options = a} :: SnapshotOptionsStatus)
+{-# DEPRECATED sosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of a daily automated snapshot.
-sosStatus :: Lens' SnapshotOptionsStatus OptionStatus
-sosStatus = lens _sosStatus (\s a -> s {_sosStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sosStatus :: Lens.Lens' SnapshotOptionsStatus OptionStatus
+sosStatus = Lens.lens (status :: SnapshotOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: SnapshotOptionsStatus)
+{-# DEPRECATED sosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON SnapshotOptionsStatus where
+instance Lude.FromJSON SnapshotOptionsStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "SnapshotOptionsStatus"
       ( \x ->
-          SnapshotOptionsStatus' <$> (x .: "Options") <*> (x .: "Status")
+          SnapshotOptionsStatus'
+            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable SnapshotOptionsStatus
-
-instance NFData SnapshotOptionsStatus

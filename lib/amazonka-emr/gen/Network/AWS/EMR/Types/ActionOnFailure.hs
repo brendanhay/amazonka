@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ActionOnFailure where
+module Network.AWS.EMR.Types.ActionOnFailure
+  ( ActionOnFailure
+      ( ActionOnFailure',
+        CancelAndWait,
+        Continue,
+        TerminateCluster,
+        TerminateJobFlow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionOnFailure
-  = CancelAndWait
-  | Continue
-  | TerminateCluster
-  | TerminateJobFlow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionOnFailure = ActionOnFailure' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionOnFailure where
-  parser =
-    takeLowerText >>= \case
-      "cancel_and_wait" -> pure CancelAndWait
-      "continue" -> pure Continue
-      "terminate_cluster" -> pure TerminateCluster
-      "terminate_job_flow" -> pure TerminateJobFlow
-      e ->
-        fromTextError $
-          "Failure parsing ActionOnFailure from value: '" <> e
-            <> "'. Accepted values: cancel_and_wait, continue, terminate_cluster, terminate_job_flow"
+pattern CancelAndWait :: ActionOnFailure
+pattern CancelAndWait = ActionOnFailure' "CANCEL_AND_WAIT"
 
-instance ToText ActionOnFailure where
-  toText = \case
-    CancelAndWait -> "CANCEL_AND_WAIT"
-    Continue -> "CONTINUE"
-    TerminateCluster -> "TERMINATE_CLUSTER"
-    TerminateJobFlow -> "TERMINATE_JOB_FLOW"
+pattern Continue :: ActionOnFailure
+pattern Continue = ActionOnFailure' "CONTINUE"
 
-instance Hashable ActionOnFailure
+pattern TerminateCluster :: ActionOnFailure
+pattern TerminateCluster = ActionOnFailure' "TERMINATE_CLUSTER"
 
-instance NFData ActionOnFailure
+pattern TerminateJobFlow :: ActionOnFailure
+pattern TerminateJobFlow = ActionOnFailure' "TERMINATE_JOB_FLOW"
 
-instance ToByteString ActionOnFailure
-
-instance ToQuery ActionOnFailure
-
-instance ToHeader ActionOnFailure
-
-instance ToJSON ActionOnFailure where
-  toJSON = toJSONText
-
-instance FromJSON ActionOnFailure where
-  parseJSON = parseJSONText "ActionOnFailure"
+{-# COMPLETE
+  CancelAndWait,
+  Continue,
+  TerminateCluster,
+  TerminateJobFlow,
+  ActionOnFailure'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,155 @@
 --
 -- Creates a new function definition in the Data Catalog.
 module Network.AWS.Glue.CreateUserDefinedFunction
-  ( -- * Creating a Request
-    createUserDefinedFunction,
-    CreateUserDefinedFunction,
+  ( -- * Creating a request
+    CreateUserDefinedFunction (..),
+    mkCreateUserDefinedFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cudfCatalogId,
     cudfDatabaseName,
     cudfFunctionInput,
 
-    -- * Destructuring the Response
-    createUserDefinedFunctionResponse,
-    CreateUserDefinedFunctionResponse,
+    -- * Destructuring the response
+    CreateUserDefinedFunctionResponse (..),
+    mkCreateUserDefinedFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cudfrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createUserDefinedFunction' smart constructor.
+-- | /See:/ 'mkCreateUserDefinedFunction' smart constructor.
 data CreateUserDefinedFunction = CreateUserDefinedFunction'
-  { _cudfCatalogId ::
-      !(Maybe Text),
-    _cudfDatabaseName :: !Text,
-    _cudfFunctionInput ::
-      !UserDefinedFunctionInput
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    functionInput ::
+      UserDefinedFunctionInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserDefinedFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cudfCatalogId' - The ID of the Data Catalog in which to create the function. If none is provided, the AWS account ID is used by default.
---
--- * 'cudfDatabaseName' - The name of the catalog database in which to create the function.
---
--- * 'cudfFunctionInput' - A @FunctionInput@ object that defines the function to create in the Data Catalog.
-createUserDefinedFunction ::
-  -- | 'cudfDatabaseName'
-  Text ->
-  -- | 'cudfFunctionInput'
+-- * 'catalogId' - The ID of the Data Catalog in which to create the function. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database in which to create the function.
+-- * 'functionInput' - A @FunctionInput@ object that defines the function to create in the Data Catalog.
+mkCreateUserDefinedFunction ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'functionInput'
   UserDefinedFunctionInput ->
   CreateUserDefinedFunction
-createUserDefinedFunction pDatabaseName_ pFunctionInput_ =
+mkCreateUserDefinedFunction pDatabaseName_ pFunctionInput_ =
   CreateUserDefinedFunction'
-    { _cudfCatalogId = Nothing,
-      _cudfDatabaseName = pDatabaseName_,
-      _cudfFunctionInput = pFunctionInput_
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      functionInput = pFunctionInput_
     }
 
 -- | The ID of the Data Catalog in which to create the function. If none is provided, the AWS account ID is used by default.
-cudfCatalogId :: Lens' CreateUserDefinedFunction (Maybe Text)
-cudfCatalogId = lens _cudfCatalogId (\s a -> s {_cudfCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cudfCatalogId :: Lens.Lens' CreateUserDefinedFunction (Lude.Maybe Lude.Text)
+cudfCatalogId = Lens.lens (catalogId :: CreateUserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateUserDefinedFunction)
+{-# DEPRECATED cudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database in which to create the function.
-cudfDatabaseName :: Lens' CreateUserDefinedFunction Text
-cudfDatabaseName = lens _cudfDatabaseName (\s a -> s {_cudfDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cudfDatabaseName :: Lens.Lens' CreateUserDefinedFunction Lude.Text
+cudfDatabaseName = Lens.lens (databaseName :: CreateUserDefinedFunction -> Lude.Text) (\s a -> s {databaseName = a} :: CreateUserDefinedFunction)
+{-# DEPRECATED cudfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | A @FunctionInput@ object that defines the function to create in the Data Catalog.
-cudfFunctionInput :: Lens' CreateUserDefinedFunction UserDefinedFunctionInput
-cudfFunctionInput = lens _cudfFunctionInput (\s a -> s {_cudfFunctionInput = a})
+--
+-- /Note:/ Consider using 'functionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cudfFunctionInput :: Lens.Lens' CreateUserDefinedFunction UserDefinedFunctionInput
+cudfFunctionInput = Lens.lens (functionInput :: CreateUserDefinedFunction -> UserDefinedFunctionInput) (\s a -> s {functionInput = a} :: CreateUserDefinedFunction)
+{-# DEPRECATED cudfFunctionInput "Use generic-lens or generic-optics with 'functionInput' instead." #-}
 
-instance AWSRequest CreateUserDefinedFunction where
+instance Lude.AWSRequest CreateUserDefinedFunction where
   type
     Rs CreateUserDefinedFunction =
       CreateUserDefinedFunctionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          CreateUserDefinedFunctionResponse' <$> (pure (fromEnum s))
+          CreateUserDefinedFunctionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateUserDefinedFunction
-
-instance NFData CreateUserDefinedFunction
-
-instance ToHeaders CreateUserDefinedFunction where
+instance Lude.ToHeaders CreateUserDefinedFunction where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.CreateUserDefinedFunction" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.CreateUserDefinedFunction" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUserDefinedFunction where
+instance Lude.ToJSON CreateUserDefinedFunction where
   toJSON CreateUserDefinedFunction' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _cudfCatalogId,
-            Just ("DatabaseName" .= _cudfDatabaseName),
-            Just ("FunctionInput" .= _cudfFunctionInput)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("FunctionInput" Lude..= functionInput)
           ]
       )
 
-instance ToPath CreateUserDefinedFunction where
-  toPath = const "/"
+instance Lude.ToPath CreateUserDefinedFunction where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUserDefinedFunction where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUserDefinedFunction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserDefinedFunctionResponse' smart constructor.
+-- | /See:/ 'mkCreateUserDefinedFunctionResponse' smart constructor.
 newtype CreateUserDefinedFunctionResponse = CreateUserDefinedFunctionResponse'
-  { _cudfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserDefinedFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cudfrsResponseStatus' - -- | The response status code.
-createUserDefinedFunctionResponse ::
-  -- | 'cudfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateUserDefinedFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserDefinedFunctionResponse
-createUserDefinedFunctionResponse pResponseStatus_ =
+mkCreateUserDefinedFunctionResponse pResponseStatus_ =
   CreateUserDefinedFunctionResponse'
-    { _cudfrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-cudfrsResponseStatus :: Lens' CreateUserDefinedFunctionResponse Int
-cudfrsResponseStatus = lens _cudfrsResponseStatus (\s a -> s {_cudfrsResponseStatus = a})
-
-instance NFData CreateUserDefinedFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cudfrsResponseStatus :: Lens.Lens' CreateUserDefinedFunctionResponse Lude.Int
+cudfrsResponseStatus = Lens.lens (responseStatus :: CreateUserDefinedFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserDefinedFunctionResponse)
+{-# DEPRECATED cudfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

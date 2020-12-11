@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,178 @@
 --
 -- Retrieves an object's retention settings. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects> .
 --
---
 -- This action is not supported by Amazon S3 on Outposts.
 module Network.AWS.S3.GetObjectRetention
-  ( -- * Creating a Request
-    getObjectRetention,
-    GetObjectRetention,
+  ( -- * Creating a request
+    GetObjectRetention (..),
+    mkGetObjectRetention,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gorVersionId,
     gorRequestPayer,
     gorExpectedBucketOwner,
     gorBucket,
     gorKey,
 
-    -- * Destructuring the Response
-    getObjectRetentionResponse,
-    GetObjectRetentionResponse,
+    -- * Destructuring the response
+    GetObjectRetentionResponse (..),
+    mkGetObjectRetentionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gorrsRetention,
     gorrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'getObjectRetention' smart constructor.
+-- | /See:/ 'mkGetObjectRetention' smart constructor.
 data GetObjectRetention = GetObjectRetention'
-  { _gorVersionId ::
-      !(Maybe ObjectVersionId),
-    _gorRequestPayer :: !(Maybe RequestPayer),
-    _gorExpectedBucketOwner :: !(Maybe Text),
-    _gorBucket :: !BucketName,
-    _gorKey :: !ObjectKey
+  { versionId ::
+      Lude.Maybe ObjectVersionId,
+    requestPayer :: Lude.Maybe RequestPayer,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    key :: ObjectKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectRetention' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The bucket name containing the object whose retention settings you want to retrieve.
 --
--- * 'gorVersionId' - The version ID for the object whose retention settings you want to retrieve.
---
--- * 'gorRequestPayer' - Undocumented member.
---
--- * 'gorExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'gorBucket' - The bucket name containing the object whose retention settings you want to retrieve.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- * 'gorKey' - The key name for the object whose retention settings you want to retrieve.
-getObjectRetention ::
-  -- | 'gorBucket'
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'key' - The key name for the object whose retention settings you want to retrieve.
+-- * 'requestPayer' - Undocumented field.
+-- * 'versionId' - The version ID for the object whose retention settings you want to retrieve.
+mkGetObjectRetention ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'gorKey'
+  -- | 'key'
   ObjectKey ->
   GetObjectRetention
-getObjectRetention pBucket_ pKey_ =
+mkGetObjectRetention pBucket_ pKey_ =
   GetObjectRetention'
-    { _gorVersionId = Nothing,
-      _gorRequestPayer = Nothing,
-      _gorExpectedBucketOwner = Nothing,
-      _gorBucket = pBucket_,
-      _gorKey = pKey_
+    { versionId = Lude.Nothing,
+      requestPayer = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_,
+      key = pKey_
     }
 
 -- | The version ID for the object whose retention settings you want to retrieve.
-gorVersionId :: Lens' GetObjectRetention (Maybe ObjectVersionId)
-gorVersionId = lens _gorVersionId (\s a -> s {_gorVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorVersionId :: Lens.Lens' GetObjectRetention (Lude.Maybe ObjectVersionId)
+gorVersionId = Lens.lens (versionId :: GetObjectRetention -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectRetention)
+{-# DEPRECATED gorVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | Undocumented member.
-gorRequestPayer :: Lens' GetObjectRetention (Maybe RequestPayer)
-gorRequestPayer = lens _gorRequestPayer (\s a -> s {_gorRequestPayer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorRequestPayer :: Lens.Lens' GetObjectRetention (Lude.Maybe RequestPayer)
+gorRequestPayer = Lens.lens (requestPayer :: GetObjectRetention -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectRetention)
+{-# DEPRECATED gorRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-gorExpectedBucketOwner :: Lens' GetObjectRetention (Maybe Text)
-gorExpectedBucketOwner = lens _gorExpectedBucketOwner (\s a -> s {_gorExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorExpectedBucketOwner :: Lens.Lens' GetObjectRetention (Lude.Maybe Lude.Text)
+gorExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectRetention -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectRetention)
+{-# DEPRECATED gorExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket name containing the object whose retention settings you want to retrieve.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
-gorBucket :: Lens' GetObjectRetention BucketName
-gorBucket = lens _gorBucket (\s a -> s {_gorBucket = a})
+-- | The bucket name containing the object whose retention settings you want to retrieve.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorBucket :: Lens.Lens' GetObjectRetention BucketName
+gorBucket = Lens.lens (bucket :: GetObjectRetention -> BucketName) (\s a -> s {bucket = a} :: GetObjectRetention)
+{-# DEPRECATED gorBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The key name for the object whose retention settings you want to retrieve.
-gorKey :: Lens' GetObjectRetention ObjectKey
-gorKey = lens _gorKey (\s a -> s {_gorKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorKey :: Lens.Lens' GetObjectRetention ObjectKey
+gorKey = Lens.lens (key :: GetObjectRetention -> ObjectKey) (\s a -> s {key = a} :: GetObjectRetention)
+{-# DEPRECATED gorKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest GetObjectRetention where
+instance Lude.AWSRequest GetObjectRetention where
   type Rs GetObjectRetention = GetObjectRetentionResponse
-  request = get s3
+  request = Req.get s3Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetObjectRetentionResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetObjectRetention
-
-instance NFData GetObjectRetention
-
-instance ToHeaders GetObjectRetention where
+instance Lude.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
-    mconcat
-      [ "x-amz-request-payer" =# _gorRequestPayer,
-        "x-amz-expected-bucket-owner" =# _gorExpectedBucketOwner
+    Lude.mconcat
+      [ "x-amz-request-payer" Lude.=# requestPayer,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath GetObjectRetention where
+instance Lude.ToPath GetObjectRetention where
   toPath GetObjectRetention' {..} =
-    mconcat ["/", toBS _gorBucket, "/", toBS _gorKey]
+    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
 
-instance ToQuery GetObjectRetention where
+instance Lude.ToQuery GetObjectRetention where
   toQuery GetObjectRetention' {..} =
-    mconcat ["versionId" =: _gorVersionId, "retention"]
+    Lude.mconcat ["versionId" Lude.=: versionId, "retention"]
 
--- | /See:/ 'getObjectRetentionResponse' smart constructor.
+-- | /See:/ 'mkGetObjectRetentionResponse' smart constructor.
 data GetObjectRetentionResponse = GetObjectRetentionResponse'
-  { _gorrsRetention ::
-      !(Maybe ObjectLockRetention),
-    _gorrsResponseStatus :: !Int
+  { retention ::
+      Lude.Maybe ObjectLockRetention,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectRetentionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gorrsRetention' - The container element for an object's retention settings.
---
--- * 'gorrsResponseStatus' - -- | The response status code.
-getObjectRetentionResponse ::
-  -- | 'gorrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'retention' - The container element for an object's retention settings.
+mkGetObjectRetentionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetObjectRetentionResponse
-getObjectRetentionResponse pResponseStatus_ =
+mkGetObjectRetentionResponse pResponseStatus_ =
   GetObjectRetentionResponse'
-    { _gorrsRetention = Nothing,
-      _gorrsResponseStatus = pResponseStatus_
+    { retention = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The container element for an object's retention settings.
-gorrsRetention :: Lens' GetObjectRetentionResponse (Maybe ObjectLockRetention)
-gorrsRetention = lens _gorrsRetention (\s a -> s {_gorrsRetention = a})
+--
+-- /Note:/ Consider using 'retention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsRetention :: Lens.Lens' GetObjectRetentionResponse (Lude.Maybe ObjectLockRetention)
+gorrsRetention = Lens.lens (retention :: GetObjectRetentionResponse -> Lude.Maybe ObjectLockRetention) (\s a -> s {retention = a} :: GetObjectRetentionResponse)
+{-# DEPRECATED gorrsRetention "Use generic-lens or generic-optics with 'retention' instead." #-}
 
--- | -- | The response status code.
-gorrsResponseStatus :: Lens' GetObjectRetentionResponse Int
-gorrsResponseStatus = lens _gorrsResponseStatus (\s a -> s {_gorrsResponseStatus = a})
-
-instance NFData GetObjectRetentionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsResponseStatus :: Lens.Lens' GetObjectRetentionResponse Lude.Int
+gorrsResponseStatus = Lens.lens (responseStatus :: GetObjectRetentionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectRetentionResponse)
+{-# DEPRECATED gorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

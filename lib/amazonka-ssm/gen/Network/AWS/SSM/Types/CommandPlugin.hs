@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,147 +7,271 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandPlugin where
+module Network.AWS.SSM.Types.CommandPlugin
+  ( CommandPlugin (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCommandPlugin,
+
+    -- * Lenses
+    cpStatus,
+    cpResponseStartDateTime,
+    cpOutputS3KeyPrefix,
+    cpStandardErrorURL,
+    cpResponseCode,
+    cpStatusDetails,
+    cpOutput,
+    cpStandardOutputURL,
+    cpName,
+    cpOutputS3Region,
+    cpOutputS3BucketName,
+    cpResponseFinishDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.CommandPluginStatus
 
 -- | Describes plugin details.
 --
---
---
--- /See:/ 'commandPlugin' smart constructor.
+-- /See:/ 'mkCommandPlugin' smart constructor.
 data CommandPlugin = CommandPlugin'
-  { _cpStatus ::
-      !(Maybe CommandPluginStatus),
-    _cpResponseStartDateTime :: !(Maybe POSIX),
-    _cpOutputS3KeyPrefix :: !(Maybe Text),
-    _cpStandardErrorURL :: !(Maybe Text),
-    _cpResponseCode :: !(Maybe Int),
-    _cpStatusDetails :: !(Maybe Text),
-    _cpOutput :: !(Maybe Text),
-    _cpStandardOutputURL :: !(Maybe Text),
-    _cpName :: !(Maybe Text),
-    _cpOutputS3Region :: !(Maybe Text),
-    _cpOutputS3BucketName :: !(Maybe Text),
-    _cpResponseFinishDateTime :: !(Maybe POSIX)
+  { status ::
+      Lude.Maybe CommandPluginStatus,
+    responseStartDateTime :: Lude.Maybe Lude.Timestamp,
+    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    standardErrorURL :: Lude.Maybe Lude.Text,
+    responseCode :: Lude.Maybe Lude.Int,
+    statusDetails :: Lude.Maybe Lude.Text,
+    output :: Lude.Maybe Lude.Text,
+    standardOutputURL :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    outputS3Region :: Lude.Maybe Lude.Text,
+    outputS3BucketName :: Lude.Maybe Lude.Text,
+    responseFinishDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommandPlugin' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
+-- * 'output' - Output of the plugin execution.
+-- * 'outputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:
 --
--- * 'cpStatus' - The status of this plugin. You can run a document with multiple plugins.
+-- doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript
+-- doc-example-bucket is the name of the S3 bucket;
+-- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- i-02573cafcfEXAMPLE is the instance ID;
+-- awsrunShellScript is the name of the plugin.
+-- * 'outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:
 --
--- * 'cpResponseStartDateTime' - The time the plugin started running.
+-- doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript
+-- doc-example-bucket is the name of the S3 bucket;
+-- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- i-02573cafcfEXAMPLE is the instance ID;
+-- awsrunShellScript is the name of the plugin.
+-- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the S3 bucket region.
+-- * 'responseCode' - A numeric response code generated after running the plugin.
+-- * 'responseFinishDateTime' - The time the plugin stopped running. Could stop prematurely if, for example, a cancel command was sent.
+-- * 'responseStartDateTime' - The time the plugin started running.
+-- * 'standardErrorURL' - The URL for the complete text written by the plugin to stderr. If execution is not yet complete, then this string is empty.
+-- * 'standardOutputURL' - The URL for the complete text written by the plugin to stdout in Amazon S3. If the S3 bucket for the command was not specified, then this string is empty.
+-- * 'status' - The status of this plugin. You can run a document with multiple plugins.
+-- * 'statusDetails' - A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
 --
--- * 'cpOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript  doc-example-bucket is the name of the S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-02573cafcfEXAMPLE is the instance ID; awsrunShellScript is the name of the plugin.
 --
--- * 'cpStandardErrorURL' - The URL for the complete text written by the plugin to stderr. If execution is not yet complete, then this string is empty.
+--     * Pending: The command has not been sent to the instance.
 --
--- * 'cpResponseCode' - A numeric response code generated after running the plugin.
 --
--- * 'cpStatusDetails' - A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+--     * In Progress: The command has been sent to the instance but has not reached a terminal state.
 --
--- * 'cpOutput' - Output of the plugin execution.
 --
--- * 'cpStandardOutputURL' - The URL for the complete text written by the plugin to stdout in Amazon S3. If the S3 bucket for the command was not specified, then this string is empty.
+--     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.
 --
--- * 'cpName' - The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
 --
--- * 'cpOutputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the S3 bucket region.
+--     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
 --
--- * 'cpOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript  doc-example-bucket is the name of the S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-02573cafcfEXAMPLE is the instance ID; awsrunShellScript is the name of the plugin.
 --
--- * 'cpResponseFinishDateTime' - The time the plugin stopped running. Could stop prematurely if, for example, a cancel command was sent.
-commandPlugin ::
+--     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.
+--
+--
+--     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.
+--
+--
+--     * Canceled: The command was terminated before it was completed. This is a terminal state.
+--
+--
+--     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
+--
+--
+--     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+mkCommandPlugin ::
   CommandPlugin
-commandPlugin =
+mkCommandPlugin =
   CommandPlugin'
-    { _cpStatus = Nothing,
-      _cpResponseStartDateTime = Nothing,
-      _cpOutputS3KeyPrefix = Nothing,
-      _cpStandardErrorURL = Nothing,
-      _cpResponseCode = Nothing,
-      _cpStatusDetails = Nothing,
-      _cpOutput = Nothing,
-      _cpStandardOutputURL = Nothing,
-      _cpName = Nothing,
-      _cpOutputS3Region = Nothing,
-      _cpOutputS3BucketName = Nothing,
-      _cpResponseFinishDateTime = Nothing
+    { status = Lude.Nothing,
+      responseStartDateTime = Lude.Nothing,
+      outputS3KeyPrefix = Lude.Nothing,
+      standardErrorURL = Lude.Nothing,
+      responseCode = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      output = Lude.Nothing,
+      standardOutputURL = Lude.Nothing,
+      name = Lude.Nothing,
+      outputS3Region = Lude.Nothing,
+      outputS3BucketName = Lude.Nothing,
+      responseFinishDateTime = Lude.Nothing
     }
 
 -- | The status of this plugin. You can run a document with multiple plugins.
-cpStatus :: Lens' CommandPlugin (Maybe CommandPluginStatus)
-cpStatus = lens _cpStatus (\s a -> s {_cpStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpStatus :: Lens.Lens' CommandPlugin (Lude.Maybe CommandPluginStatus)
+cpStatus = Lens.lens (status :: CommandPlugin -> Lude.Maybe CommandPluginStatus) (\s a -> s {status = a} :: CommandPlugin)
+{-# DEPRECATED cpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time the plugin started running.
-cpResponseStartDateTime :: Lens' CommandPlugin (Maybe UTCTime)
-cpResponseStartDateTime = lens _cpResponseStartDateTime (\s a -> s {_cpResponseStartDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'responseStartDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpResponseStartDateTime :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Timestamp)
+cpResponseStartDateTime = Lens.lens (responseStartDateTime :: CommandPlugin -> Lude.Maybe Lude.Timestamp) (\s a -> s {responseStartDateTime = a} :: CommandPlugin)
+{-# DEPRECATED cpResponseStartDateTime "Use generic-lens or generic-optics with 'responseStartDateTime' instead." #-}
 
--- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript  doc-example-bucket is the name of the S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-02573cafcfEXAMPLE is the instance ID; awsrunShellScript is the name of the plugin.
-cpOutputS3KeyPrefix :: Lens' CommandPlugin (Maybe Text)
-cpOutputS3KeyPrefix = lens _cpOutputS3KeyPrefix (\s a -> s {_cpOutputS3KeyPrefix = a})
+-- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:
+--
+-- doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript
+-- doc-example-bucket is the name of the S3 bucket;
+-- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- i-02573cafcfEXAMPLE is the instance ID;
+-- awsrunShellScript is the name of the plugin.
+--
+-- /Note:/ Consider using 'outputS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOutputS3KeyPrefix :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpOutputS3KeyPrefix = Lens.lens (outputS3KeyPrefix :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {outputS3KeyPrefix = a} :: CommandPlugin)
+{-# DEPRECATED cpOutputS3KeyPrefix "Use generic-lens or generic-optics with 'outputS3KeyPrefix' instead." #-}
 
 -- | The URL for the complete text written by the plugin to stderr. If execution is not yet complete, then this string is empty.
-cpStandardErrorURL :: Lens' CommandPlugin (Maybe Text)
-cpStandardErrorURL = lens _cpStandardErrorURL (\s a -> s {_cpStandardErrorURL = a})
+--
+-- /Note:/ Consider using 'standardErrorURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpStandardErrorURL :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpStandardErrorURL = Lens.lens (standardErrorURL :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {standardErrorURL = a} :: CommandPlugin)
+{-# DEPRECATED cpStandardErrorURL "Use generic-lens or generic-optics with 'standardErrorURL' instead." #-}
 
 -- | A numeric response code generated after running the plugin.
-cpResponseCode :: Lens' CommandPlugin (Maybe Int)
-cpResponseCode = lens _cpResponseCode (\s a -> s {_cpResponseCode = a})
+--
+-- /Note:/ Consider using 'responseCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpResponseCode :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Int)
+cpResponseCode = Lens.lens (responseCode :: CommandPlugin -> Lude.Maybe Lude.Int) (\s a -> s {responseCode = a} :: CommandPlugin)
+{-# DEPRECATED cpResponseCode "Use generic-lens or generic-optics with 'responseCode' instead." #-}
 
--- | A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
-cpStatusDetails :: Lens' CommandPlugin (Maybe Text)
-cpStatusDetails = lens _cpStatusDetails (\s a -> s {_cpStatusDetails = a})
+-- | A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
+--
+--
+--     * Pending: The command has not been sent to the instance.
+--
+--
+--     * In Progress: The command has been sent to the instance but has not reached a terminal state.
+--
+--
+--     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.
+--
+--
+--     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
+--
+--
+--     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.
+--
+--
+--     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.
+--
+--
+--     * Canceled: The command was terminated before it was completed. This is a terminal state.
+--
+--
+--     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
+--
+--
+--     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+--
+--
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpStatusDetails :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpStatusDetails = Lens.lens (statusDetails :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: CommandPlugin)
+{-# DEPRECATED cpStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | Output of the plugin execution.
-cpOutput :: Lens' CommandPlugin (Maybe Text)
-cpOutput = lens _cpOutput (\s a -> s {_cpOutput = a})
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOutput :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpOutput = Lens.lens (output :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {output = a} :: CommandPlugin)
+{-# DEPRECATED cpOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The URL for the complete text written by the plugin to stdout in Amazon S3. If the S3 bucket for the command was not specified, then this string is empty.
-cpStandardOutputURL :: Lens' CommandPlugin (Maybe Text)
-cpStandardOutputURL = lens _cpStandardOutputURL (\s a -> s {_cpStandardOutputURL = a})
+--
+-- /Note:/ Consider using 'standardOutputURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpStandardOutputURL :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpStandardOutputURL = Lens.lens (standardOutputURL :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {standardOutputURL = a} :: CommandPlugin)
+{-# DEPRECATED cpStandardOutputURL "Use generic-lens or generic-optics with 'standardOutputURL' instead." #-}
 
 -- | The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
-cpName :: Lens' CommandPlugin (Maybe Text)
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpName = Lens.lens (name :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CommandPlugin)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the S3 bucket region.
-cpOutputS3Region :: Lens' CommandPlugin (Maybe Text)
-cpOutputS3Region = lens _cpOutputS3Region (\s a -> s {_cpOutputS3Region = a})
+--
+-- /Note:/ Consider using 'outputS3Region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOutputS3Region :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpOutputS3Region = Lens.lens (outputS3Region :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {outputS3Region = a} :: CommandPlugin)
+{-# DEPRECATED cpOutputS3Region "Use generic-lens or generic-optics with 'outputS3Region' instead." #-}
 
--- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response: doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript  doc-example-bucket is the name of the S3 bucket; ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-02573cafcfEXAMPLE is the instance ID; awsrunShellScript is the name of the plugin.
-cpOutputS3BucketName :: Lens' CommandPlugin (Maybe Text)
-cpOutputS3BucketName = lens _cpOutputS3BucketName (\s a -> s {_cpOutputS3BucketName = a})
+-- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:
+--
+-- doc-example-bucket/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-02573cafcfEXAMPLE/awsrunShellScript
+-- doc-example-bucket is the name of the S3 bucket;
+-- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- i-02573cafcfEXAMPLE is the instance ID;
+-- awsrunShellScript is the name of the plugin.
+--
+-- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOutputS3BucketName :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Text)
+cpOutputS3BucketName = Lens.lens (outputS3BucketName :: CommandPlugin -> Lude.Maybe Lude.Text) (\s a -> s {outputS3BucketName = a} :: CommandPlugin)
+{-# DEPRECATED cpOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
 
 -- | The time the plugin stopped running. Could stop prematurely if, for example, a cancel command was sent.
-cpResponseFinishDateTime :: Lens' CommandPlugin (Maybe UTCTime)
-cpResponseFinishDateTime = lens _cpResponseFinishDateTime (\s a -> s {_cpResponseFinishDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'responseFinishDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpResponseFinishDateTime :: Lens.Lens' CommandPlugin (Lude.Maybe Lude.Timestamp)
+cpResponseFinishDateTime = Lens.lens (responseFinishDateTime :: CommandPlugin -> Lude.Maybe Lude.Timestamp) (\s a -> s {responseFinishDateTime = a} :: CommandPlugin)
+{-# DEPRECATED cpResponseFinishDateTime "Use generic-lens or generic-optics with 'responseFinishDateTime' instead." #-}
 
-instance FromJSON CommandPlugin where
+instance Lude.FromJSON CommandPlugin where
   parseJSON =
-    withObject
+    Lude.withObject
       "CommandPlugin"
       ( \x ->
           CommandPlugin'
-            <$> (x .:? "Status")
-            <*> (x .:? "ResponseStartDateTime")
-            <*> (x .:? "OutputS3KeyPrefix")
-            <*> (x .:? "StandardErrorUrl")
-            <*> (x .:? "ResponseCode")
-            <*> (x .:? "StatusDetails")
-            <*> (x .:? "Output")
-            <*> (x .:? "StandardOutputUrl")
-            <*> (x .:? "Name")
-            <*> (x .:? "OutputS3Region")
-            <*> (x .:? "OutputS3BucketName")
-            <*> (x .:? "ResponseFinishDateTime")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ResponseStartDateTime")
+            Lude.<*> (x Lude..:? "OutputS3KeyPrefix")
+            Lude.<*> (x Lude..:? "StandardErrorUrl")
+            Lude.<*> (x Lude..:? "ResponseCode")
+            Lude.<*> (x Lude..:? "StatusDetails")
+            Lude.<*> (x Lude..:? "Output")
+            Lude.<*> (x Lude..:? "StandardOutputUrl")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "OutputS3Region")
+            Lude.<*> (x Lude..:? "OutputS3BucketName")
+            Lude.<*> (x Lude..:? "ResponseFinishDateTime")
       )
-
-instance Hashable CommandPlugin
-
-instance NFData CommandPlugin

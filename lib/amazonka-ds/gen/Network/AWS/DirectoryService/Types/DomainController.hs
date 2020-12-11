@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,129 +7,167 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DomainController where
+module Network.AWS.DirectoryService.Types.DomainController
+  ( DomainController (..),
+
+    -- * Smart constructor
+    mkDomainController,
+
+    -- * Lenses
+    dcStatus,
+    dcDirectoryId,
+    dcVPCId,
+    dcLaunchTime,
+    dcSubnetId,
+    dcAvailabilityZone,
+    dcStatusLastUpdatedDateTime,
+    dcStatusReason,
+    dcDNSIPAddr,
+    dcDomainControllerId,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.DomainControllerStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the domain controllers for a specified directory.
 --
---
---
--- /See:/ 'domainController' smart constructor.
+-- /See:/ 'mkDomainController' smart constructor.
 data DomainController = DomainController'
-  { _dcStatus ::
-      !(Maybe DomainControllerStatus),
-    _dcDirectoryId :: !(Maybe Text),
-    _dcVPCId :: !(Maybe Text),
-    _dcLaunchTime :: !(Maybe POSIX),
-    _dcSubnetId :: !(Maybe Text),
-    _dcAvailabilityZone :: !(Maybe Text),
-    _dcStatusLastUpdatedDateTime :: !(Maybe POSIX),
-    _dcStatusReason :: !(Maybe Text),
-    _dcDNSIPAddr :: !(Maybe Text),
-    _dcDomainControllerId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe DomainControllerStatus,
+    directoryId :: Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    launchTime :: Lude.Maybe Lude.Timestamp,
+    subnetId :: Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    statusLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    statusReason :: Lude.Maybe Lude.Text,
+    dnsIPAddr :: Lude.Maybe Lude.Text,
+    domainControllerId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainController' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcStatus' - The status of the domain controller.
---
--- * 'dcDirectoryId' - Identifier of the directory where the domain controller resides.
---
--- * 'dcVPCId' - The identifier of the VPC that contains the domain controller.
---
--- * 'dcLaunchTime' - Specifies when the domain controller was created.
---
--- * 'dcSubnetId' - Identifier of the subnet in the VPC that contains the domain controller.
---
--- * 'dcAvailabilityZone' - The Availability Zone where the domain controller is located.
---
--- * 'dcStatusLastUpdatedDateTime' - The date and time that the status was last updated.
---
--- * 'dcStatusReason' - A description of the domain controller state.
---
--- * 'dcDNSIPAddr' - The IP address of the domain controller.
---
--- * 'dcDomainControllerId' - Identifies a specific domain controller in the directory.
-domainController ::
+-- * 'availabilityZone' - The Availability Zone where the domain controller is located.
+-- * 'directoryId' - Identifier of the directory where the domain controller resides.
+-- * 'dnsIPAddr' - The IP address of the domain controller.
+-- * 'domainControllerId' - Identifies a specific domain controller in the directory.
+-- * 'launchTime' - Specifies when the domain controller was created.
+-- * 'status' - The status of the domain controller.
+-- * 'statusLastUpdatedDateTime' - The date and time that the status was last updated.
+-- * 'statusReason' - A description of the domain controller state.
+-- * 'subnetId' - Identifier of the subnet in the VPC that contains the domain controller.
+-- * 'vpcId' - The identifier of the VPC that contains the domain controller.
+mkDomainController ::
   DomainController
-domainController =
+mkDomainController =
   DomainController'
-    { _dcStatus = Nothing,
-      _dcDirectoryId = Nothing,
-      _dcVPCId = Nothing,
-      _dcLaunchTime = Nothing,
-      _dcSubnetId = Nothing,
-      _dcAvailabilityZone = Nothing,
-      _dcStatusLastUpdatedDateTime = Nothing,
-      _dcStatusReason = Nothing,
-      _dcDNSIPAddr = Nothing,
-      _dcDomainControllerId = Nothing
+    { status = Lude.Nothing,
+      directoryId = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      launchTime = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      statusLastUpdatedDateTime = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      dnsIPAddr = Lude.Nothing,
+      domainControllerId = Lude.Nothing
     }
 
 -- | The status of the domain controller.
-dcStatus :: Lens' DomainController (Maybe DomainControllerStatus)
-dcStatus = lens _dcStatus (\s a -> s {_dcStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcStatus :: Lens.Lens' DomainController (Lude.Maybe DomainControllerStatus)
+dcStatus = Lens.lens (status :: DomainController -> Lude.Maybe DomainControllerStatus) (\s a -> s {status = a} :: DomainController)
+{-# DEPRECATED dcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Identifier of the directory where the domain controller resides.
-dcDirectoryId :: Lens' DomainController (Maybe Text)
-dcDirectoryId = lens _dcDirectoryId (\s a -> s {_dcDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDirectoryId :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcDirectoryId = Lens.lens (directoryId :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DomainController)
+{-# DEPRECATED dcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the VPC that contains the domain controller.
-dcVPCId :: Lens' DomainController (Maybe Text)
-dcVPCId = lens _dcVPCId (\s a -> s {_dcVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcVPCId :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcVPCId = Lens.lens (vpcId :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DomainController)
+{-# DEPRECATED dcVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Specifies when the domain controller was created.
-dcLaunchTime :: Lens' DomainController (Maybe UTCTime)
-dcLaunchTime = lens _dcLaunchTime (\s a -> s {_dcLaunchTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'launchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcLaunchTime :: Lens.Lens' DomainController (Lude.Maybe Lude.Timestamp)
+dcLaunchTime = Lens.lens (launchTime :: DomainController -> Lude.Maybe Lude.Timestamp) (\s a -> s {launchTime = a} :: DomainController)
+{-# DEPRECATED dcLaunchTime "Use generic-lens or generic-optics with 'launchTime' instead." #-}
 
 -- | Identifier of the subnet in the VPC that contains the domain controller.
-dcSubnetId :: Lens' DomainController (Maybe Text)
-dcSubnetId = lens _dcSubnetId (\s a -> s {_dcSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcSubnetId :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcSubnetId = Lens.lens (subnetId :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: DomainController)
+{-# DEPRECATED dcSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The Availability Zone where the domain controller is located.
-dcAvailabilityZone :: Lens' DomainController (Maybe Text)
-dcAvailabilityZone = lens _dcAvailabilityZone (\s a -> s {_dcAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcAvailabilityZone :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcAvailabilityZone = Lens.lens (availabilityZone :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DomainController)
+{-# DEPRECATED dcAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The date and time that the status was last updated.
-dcStatusLastUpdatedDateTime :: Lens' DomainController (Maybe UTCTime)
-dcStatusLastUpdatedDateTime = lens _dcStatusLastUpdatedDateTime (\s a -> s {_dcStatusLastUpdatedDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'statusLastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcStatusLastUpdatedDateTime :: Lens.Lens' DomainController (Lude.Maybe Lude.Timestamp)
+dcStatusLastUpdatedDateTime = Lens.lens (statusLastUpdatedDateTime :: DomainController -> Lude.Maybe Lude.Timestamp) (\s a -> s {statusLastUpdatedDateTime = a} :: DomainController)
+{-# DEPRECATED dcStatusLastUpdatedDateTime "Use generic-lens or generic-optics with 'statusLastUpdatedDateTime' instead." #-}
 
 -- | A description of the domain controller state.
-dcStatusReason :: Lens' DomainController (Maybe Text)
-dcStatusReason = lens _dcStatusReason (\s a -> s {_dcStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcStatusReason :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcStatusReason = Lens.lens (statusReason :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: DomainController)
+{-# DEPRECATED dcStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The IP address of the domain controller.
-dcDNSIPAddr :: Lens' DomainController (Maybe Text)
-dcDNSIPAddr = lens _dcDNSIPAddr (\s a -> s {_dcDNSIPAddr = a})
+--
+-- /Note:/ Consider using 'dnsIPAddr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDNSIPAddr :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcDNSIPAddr = Lens.lens (dnsIPAddr :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {dnsIPAddr = a} :: DomainController)
+{-# DEPRECATED dcDNSIPAddr "Use generic-lens or generic-optics with 'dnsIPAddr' instead." #-}
 
 -- | Identifies a specific domain controller in the directory.
-dcDomainControllerId :: Lens' DomainController (Maybe Text)
-dcDomainControllerId = lens _dcDomainControllerId (\s a -> s {_dcDomainControllerId = a})
+--
+-- /Note:/ Consider using 'domainControllerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDomainControllerId :: Lens.Lens' DomainController (Lude.Maybe Lude.Text)
+dcDomainControllerId = Lens.lens (domainControllerId :: DomainController -> Lude.Maybe Lude.Text) (\s a -> s {domainControllerId = a} :: DomainController)
+{-# DEPRECATED dcDomainControllerId "Use generic-lens or generic-optics with 'domainControllerId' instead." #-}
 
-instance FromJSON DomainController where
+instance Lude.FromJSON DomainController where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainController"
       ( \x ->
           DomainController'
-            <$> (x .:? "Status")
-            <*> (x .:? "DirectoryId")
-            <*> (x .:? "VpcId")
-            <*> (x .:? "LaunchTime")
-            <*> (x .:? "SubnetId")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "StatusLastUpdatedDateTime")
-            <*> (x .:? "StatusReason")
-            <*> (x .:? "DnsIpAddr")
-            <*> (x .:? "DomainControllerId")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "VpcId")
+            Lude.<*> (x Lude..:? "LaunchTime")
+            Lude.<*> (x Lude..:? "SubnetId")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "StatusLastUpdatedDateTime")
+            Lude.<*> (x Lude..:? "StatusReason")
+            Lude.<*> (x Lude..:? "DnsIpAddr")
+            Lude.<*> (x Lude..:? "DomainControllerId")
       )
-
-instance Hashable DomainController
-
-instance NFData DomainController

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,113 @@
 --
 -- Disassociates a skill from the organization under a user's AWS account. If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill that is rejected can be added later by calling the ApproveSkill API.
 module Network.AWS.AlexaBusiness.RejectSkill
-  ( -- * Creating a Request
-    rejectSkill,
-    RejectSkill,
+  ( -- * Creating a request
+    RejectSkill (..),
+    mkRejectSkill,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsSkillId,
 
-    -- * Destructuring the Response
-    rejectSkillResponse,
-    RejectSkillResponse,
+    -- * Destructuring the response
+    RejectSkillResponse (..),
+    mkRejectSkillResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectSkill' smart constructor.
-newtype RejectSkill = RejectSkill' {_rsSkillId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkRejectSkill' smart constructor.
+newtype RejectSkill = RejectSkill' {skillId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectSkill' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsSkillId' - The unique identifier of the skill.
-rejectSkill ::
-  -- | 'rsSkillId'
-  Text ->
+-- * 'skillId' - The unique identifier of the skill.
+mkRejectSkill ::
+  -- | 'skillId'
+  Lude.Text ->
   RejectSkill
-rejectSkill pSkillId_ = RejectSkill' {_rsSkillId = pSkillId_}
+mkRejectSkill pSkillId_ = RejectSkill' {skillId = pSkillId_}
 
 -- | The unique identifier of the skill.
-rsSkillId :: Lens' RejectSkill Text
-rsSkillId = lens _rsSkillId (\s a -> s {_rsSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsSkillId :: Lens.Lens' RejectSkill Lude.Text
+rsSkillId = Lens.lens (skillId :: RejectSkill -> Lude.Text) (\s a -> s {skillId = a} :: RejectSkill)
+{-# DEPRECATED rsSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest RejectSkill where
+instance Lude.AWSRequest RejectSkill where
   type Rs RejectSkill = RejectSkillResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> RejectSkillResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RejectSkillResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RejectSkill
-
-instance NFData RejectSkill
-
-instance ToHeaders RejectSkill where
+instance Lude.ToHeaders RejectSkill where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.RejectSkill" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.RejectSkill" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RejectSkill where
+instance Lude.ToJSON RejectSkill where
   toJSON RejectSkill' {..} =
-    object (catMaybes [Just ("SkillId" .= _rsSkillId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SkillId" Lude..= skillId)])
 
-instance ToPath RejectSkill where
-  toPath = const "/"
+instance Lude.ToPath RejectSkill where
+  toPath = Lude.const "/"
 
-instance ToQuery RejectSkill where
-  toQuery = const mempty
+instance Lude.ToQuery RejectSkill where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rejectSkillResponse' smart constructor.
+-- | /See:/ 'mkRejectSkillResponse' smart constructor.
 newtype RejectSkillResponse = RejectSkillResponse'
-  { _rsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectSkillResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsrsResponseStatus' - -- | The response status code.
-rejectSkillResponse ::
-  -- | 'rsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRejectSkillResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectSkillResponse
-rejectSkillResponse pResponseStatus_ =
-  RejectSkillResponse' {_rsrsResponseStatus = pResponseStatus_}
+mkRejectSkillResponse pResponseStatus_ =
+  RejectSkillResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rsrsResponseStatus :: Lens' RejectSkillResponse Int
-rsrsResponseStatus = lens _rsrsResponseStatus (\s a -> s {_rsrsResponseStatus = a})
-
-instance NFData RejectSkillResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsrsResponseStatus :: Lens.Lens' RejectSkillResponse Lude.Int
+rsrsResponseStatus = Lens.lens (responseStatus :: RejectSkillResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectSkillResponse)
+{-# DEPRECATED rsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

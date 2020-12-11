@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ScalingStatusCode where
+module Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
+  ( ScalingStatusCode
+      ( ScalingStatusCode',
+        Active,
+        Inactive,
+        PartiallyActive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalingStatusCode
-  = Active
-  | Inactive
-  | PartiallyActive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingStatusCode = ScalingStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "inactive" -> pure Inactive
-      "partiallyactive" -> pure PartiallyActive
-      e ->
-        fromTextError $
-          "Failure parsing ScalingStatusCode from value: '" <> e
-            <> "'. Accepted values: active, inactive, partiallyactive"
+pattern Active :: ScalingStatusCode
+pattern Active = ScalingStatusCode' "Active"
 
-instance ToText ScalingStatusCode where
-  toText = \case
-    Active -> "Active"
-    Inactive -> "Inactive"
-    PartiallyActive -> "PartiallyActive"
+pattern Inactive :: ScalingStatusCode
+pattern Inactive = ScalingStatusCode' "Inactive"
 
-instance Hashable ScalingStatusCode
+pattern PartiallyActive :: ScalingStatusCode
+pattern PartiallyActive = ScalingStatusCode' "PartiallyActive"
 
-instance NFData ScalingStatusCode
-
-instance ToByteString ScalingStatusCode
-
-instance ToQuery ScalingStatusCode
-
-instance ToHeader ScalingStatusCode
-
-instance FromJSON ScalingStatusCode where
-  parseJSON = parseJSONText "ScalingStatusCode"
+{-# COMPLETE
+  Active,
+  Inactive,
+  PartiallyActive,
+  ScalingStatusCode'
+  #-}

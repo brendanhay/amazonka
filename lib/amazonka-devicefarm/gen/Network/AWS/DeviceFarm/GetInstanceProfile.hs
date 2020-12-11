@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- Returns information about the specified instance profile.
 module Network.AWS.DeviceFarm.GetInstanceProfile
-  ( -- * Creating a Request
-    getInstanceProfile,
-    GetInstanceProfile,
+  ( -- * Creating a request
+    GetInstanceProfile (..),
+    mkGetInstanceProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipArn,
 
-    -- * Destructuring the Response
-    getInstanceProfileResponse,
-    GetInstanceProfileResponse,
+    -- * Destructuring the response
+    GetInstanceProfileResponse (..),
+    mkGetInstanceProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     giprsInstanceProfile,
     giprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getInstanceProfile' smart constructor.
-newtype GetInstanceProfile = GetInstanceProfile' {_gipArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetInstanceProfile' smart constructor.
+newtype GetInstanceProfile = GetInstanceProfile' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipArn' - The Amazon Resource Name (ARN) of an instance profile.
-getInstanceProfile ::
-  -- | 'gipArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of an instance profile.
+mkGetInstanceProfile ::
+  -- | 'arn'
+  Lude.Text ->
   GetInstanceProfile
-getInstanceProfile pArn_ = GetInstanceProfile' {_gipArn = pArn_}
+mkGetInstanceProfile pArn_ = GetInstanceProfile' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of an instance profile.
-gipArn :: Lens' GetInstanceProfile Text
-gipArn = lens _gipArn (\s a -> s {_gipArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipArn :: Lens.Lens' GetInstanceProfile Lude.Text
+gipArn = Lens.lens (arn :: GetInstanceProfile -> Lude.Text) (\s a -> s {arn = a} :: GetInstanceProfile)
+{-# DEPRECATED gipArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetInstanceProfile where
+instance Lude.AWSRequest GetInstanceProfile where
   type Rs GetInstanceProfile = GetInstanceProfileResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInstanceProfileResponse'
-            <$> (x .?> "instanceProfile") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "instanceProfile")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInstanceProfile
-
-instance NFData GetInstanceProfile
-
-instance ToHeaders GetInstanceProfile where
+instance Lude.ToHeaders GetInstanceProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.GetInstanceProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.GetInstanceProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetInstanceProfile where
+instance Lude.ToJSON GetInstanceProfile where
   toJSON GetInstanceProfile' {..} =
-    object (catMaybes [Just ("arn" .= _gipArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetInstanceProfile where
-  toPath = const "/"
+instance Lude.ToPath GetInstanceProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery GetInstanceProfile where
-  toQuery = const mempty
+instance Lude.ToQuery GetInstanceProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInstanceProfileResponse' smart constructor.
+-- | /See:/ 'mkGetInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-  { _giprsInstanceProfile ::
-      !(Maybe InstanceProfile),
-    _giprsResponseStatus :: !Int
+  { instanceProfile ::
+      Lude.Maybe InstanceProfile,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giprsInstanceProfile' - An object that contains information about an instance profile.
---
--- * 'giprsResponseStatus' - -- | The response status code.
-getInstanceProfileResponse ::
-  -- | 'giprsResponseStatus'
-  Int ->
+-- * 'instanceProfile' - An object that contains information about an instance profile.
+-- * 'responseStatus' - The response status code.
+mkGetInstanceProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInstanceProfileResponse
-getInstanceProfileResponse pResponseStatus_ =
+mkGetInstanceProfileResponse pResponseStatus_ =
   GetInstanceProfileResponse'
-    { _giprsInstanceProfile = Nothing,
-      _giprsResponseStatus = pResponseStatus_
+    { instanceProfile = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains information about an instance profile.
-giprsInstanceProfile :: Lens' GetInstanceProfileResponse (Maybe InstanceProfile)
-giprsInstanceProfile = lens _giprsInstanceProfile (\s a -> s {_giprsInstanceProfile = a})
+--
+-- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsInstanceProfile :: Lens.Lens' GetInstanceProfileResponse (Lude.Maybe InstanceProfile)
+giprsInstanceProfile = Lens.lens (instanceProfile :: GetInstanceProfileResponse -> Lude.Maybe InstanceProfile) (\s a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
+{-# DEPRECATED giprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
 
--- | -- | The response status code.
-giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
-giprsResponseStatus = lens _giprsResponseStatus (\s a -> s {_giprsResponseStatus = a})
-
-instance NFData GetInstanceProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsResponseStatus :: Lens.Lens' GetInstanceProfileResponse Lude.Int
+giprsResponseStatus = Lens.lens (responseStatus :: GetInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceProfileResponse)
+{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

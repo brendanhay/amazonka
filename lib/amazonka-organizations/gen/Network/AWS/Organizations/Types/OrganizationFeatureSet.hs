@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.OrganizationFeatureSet where
+module Network.AWS.Organizations.Types.OrganizationFeatureSet
+  ( OrganizationFeatureSet
+      ( OrganizationFeatureSet',
+        All,
+        ConsolidatedBilling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrganizationFeatureSet
-  = All
-  | ConsolidatedBilling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrganizationFeatureSet = OrganizationFeatureSet' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrganizationFeatureSet where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "consolidated_billing" -> pure ConsolidatedBilling
-      e ->
-        fromTextError $
-          "Failure parsing OrganizationFeatureSet from value: '" <> e
-            <> "'. Accepted values: all, consolidated_billing"
+pattern All :: OrganizationFeatureSet
+pattern All = OrganizationFeatureSet' "ALL"
 
-instance ToText OrganizationFeatureSet where
-  toText = \case
-    All -> "ALL"
-    ConsolidatedBilling -> "CONSOLIDATED_BILLING"
+pattern ConsolidatedBilling :: OrganizationFeatureSet
+pattern ConsolidatedBilling = OrganizationFeatureSet' "CONSOLIDATED_BILLING"
 
-instance Hashable OrganizationFeatureSet
-
-instance NFData OrganizationFeatureSet
-
-instance ToByteString OrganizationFeatureSet
-
-instance ToQuery OrganizationFeatureSet
-
-instance ToHeader OrganizationFeatureSet
-
-instance ToJSON OrganizationFeatureSet where
-  toJSON = toJSONText
-
-instance FromJSON OrganizationFeatureSet where
-  parseJSON = parseJSONText "OrganizationFeatureSet"
+{-# COMPLETE
+  All,
+  ConsolidatedBilling,
+  OrganizationFeatureSet'
+  #-}

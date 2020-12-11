@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AWSJobAbortCriteriaFailureType where
+module Network.AWS.IoT.Types.AWSJobAbortCriteriaFailureType
+  ( AWSJobAbortCriteriaFailureType
+      ( AWSJobAbortCriteriaFailureType',
+        AJACFTAll,
+        AJACFTFailed,
+        AJACFTRejected,
+        AJACFTTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AWSJobAbortCriteriaFailureType
-  = AJACFTAll
-  | AJACFTFailed
-  | AJACFTRejected
-  | AJACFTTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AWSJobAbortCriteriaFailureType = AWSJobAbortCriteriaFailureType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AWSJobAbortCriteriaFailureType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure AJACFTAll
-      "failed" -> pure AJACFTFailed
-      "rejected" -> pure AJACFTRejected
-      "timed_out" -> pure AJACFTTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing AWSJobAbortCriteriaFailureType from value: '" <> e
-            <> "'. Accepted values: all, failed, rejected, timed_out"
+pattern AJACFTAll :: AWSJobAbortCriteriaFailureType
+pattern AJACFTAll = AWSJobAbortCriteriaFailureType' "ALL"
 
-instance ToText AWSJobAbortCriteriaFailureType where
-  toText = \case
-    AJACFTAll -> "ALL"
-    AJACFTFailed -> "FAILED"
-    AJACFTRejected -> "REJECTED"
-    AJACFTTimedOut -> "TIMED_OUT"
+pattern AJACFTFailed :: AWSJobAbortCriteriaFailureType
+pattern AJACFTFailed = AWSJobAbortCriteriaFailureType' "FAILED"
 
-instance Hashable AWSJobAbortCriteriaFailureType
+pattern AJACFTRejected :: AWSJobAbortCriteriaFailureType
+pattern AJACFTRejected = AWSJobAbortCriteriaFailureType' "REJECTED"
 
-instance NFData AWSJobAbortCriteriaFailureType
+pattern AJACFTTimedOut :: AWSJobAbortCriteriaFailureType
+pattern AJACFTTimedOut = AWSJobAbortCriteriaFailureType' "TIMED_OUT"
 
-instance ToByteString AWSJobAbortCriteriaFailureType
-
-instance ToQuery AWSJobAbortCriteriaFailureType
-
-instance ToHeader AWSJobAbortCriteriaFailureType
-
-instance ToJSON AWSJobAbortCriteriaFailureType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AJACFTAll,
+  AJACFTFailed,
+  AJACFTRejected,
+  AJACFTTimedOut,
+  AWSJobAbortCriteriaFailureType'
+  #-}

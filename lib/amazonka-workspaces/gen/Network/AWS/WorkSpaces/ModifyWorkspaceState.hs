@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,139 @@
 --
 -- Sets the state of the specified WorkSpace.
 --
---
 -- To maintain a WorkSpace without being interrupted, set the WorkSpace state to @ADMIN_MAINTENANCE@ . WorkSpaces in this state do not respond to requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not stopped. Users cannot log into a WorkSpace in the @ADMIN_MAINTENANCE@ state.
 module Network.AWS.WorkSpaces.ModifyWorkspaceState
-  ( -- * Creating a Request
-    modifyWorkspaceState,
-    ModifyWorkspaceState,
+  ( -- * Creating a request
+    ModifyWorkspaceState (..),
+    mkModifyWorkspaceState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mwsWorkspaceId,
     mwsWorkspaceState,
 
-    -- * Destructuring the Response
-    modifyWorkspaceStateResponse,
-    ModifyWorkspaceStateResponse,
+    -- * Destructuring the response
+    ModifyWorkspaceStateResponse (..),
+    mkModifyWorkspaceStateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mwsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'modifyWorkspaceState' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceState' smart constructor.
 data ModifyWorkspaceState = ModifyWorkspaceState'
-  { _mwsWorkspaceId ::
-      !Text,
-    _mwsWorkspaceState :: !TargetWorkspaceState
+  { workspaceId ::
+      Lude.Text,
+    workspaceState :: TargetWorkspaceState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwsWorkspaceId' - The identifier of the WorkSpace.
---
--- * 'mwsWorkspaceState' - The WorkSpace state.
-modifyWorkspaceState ::
-  -- | 'mwsWorkspaceId'
-  Text ->
-  -- | 'mwsWorkspaceState'
+-- * 'workspaceId' - The identifier of the WorkSpace.
+-- * 'workspaceState' - The WorkSpace state.
+mkModifyWorkspaceState ::
+  -- | 'workspaceId'
+  Lude.Text ->
+  -- | 'workspaceState'
   TargetWorkspaceState ->
   ModifyWorkspaceState
-modifyWorkspaceState pWorkspaceId_ pWorkspaceState_ =
+mkModifyWorkspaceState pWorkspaceId_ pWorkspaceState_ =
   ModifyWorkspaceState'
-    { _mwsWorkspaceId = pWorkspaceId_,
-      _mwsWorkspaceState = pWorkspaceState_
+    { workspaceId = pWorkspaceId_,
+      workspaceState = pWorkspaceState_
     }
 
 -- | The identifier of the WorkSpace.
-mwsWorkspaceId :: Lens' ModifyWorkspaceState Text
-mwsWorkspaceId = lens _mwsWorkspaceId (\s a -> s {_mwsWorkspaceId = a})
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwsWorkspaceId :: Lens.Lens' ModifyWorkspaceState Lude.Text
+mwsWorkspaceId = Lens.lens (workspaceId :: ModifyWorkspaceState -> Lude.Text) (\s a -> s {workspaceId = a} :: ModifyWorkspaceState)
+{-# DEPRECATED mwsWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
 -- | The WorkSpace state.
-mwsWorkspaceState :: Lens' ModifyWorkspaceState TargetWorkspaceState
-mwsWorkspaceState = lens _mwsWorkspaceState (\s a -> s {_mwsWorkspaceState = a})
+--
+-- /Note:/ Consider using 'workspaceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwsWorkspaceState :: Lens.Lens' ModifyWorkspaceState TargetWorkspaceState
+mwsWorkspaceState = Lens.lens (workspaceState :: ModifyWorkspaceState -> TargetWorkspaceState) (\s a -> s {workspaceState = a} :: ModifyWorkspaceState)
+{-# DEPRECATED mwsWorkspaceState "Use generic-lens or generic-optics with 'workspaceState' instead." #-}
 
-instance AWSRequest ModifyWorkspaceState where
+instance Lude.AWSRequest ModifyWorkspaceState where
   type Rs ModifyWorkspaceState = ModifyWorkspaceStateResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> ModifyWorkspaceStateResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ModifyWorkspaceStateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ModifyWorkspaceState
-
-instance NFData ModifyWorkspaceState
-
-instance ToHeaders ModifyWorkspaceState where
+instance Lude.ToHeaders ModifyWorkspaceState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.ModifyWorkspaceState" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.ModifyWorkspaceState" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyWorkspaceState where
+instance Lude.ToJSON ModifyWorkspaceState where
   toJSON ModifyWorkspaceState' {..} =
-    object
-      ( catMaybes
-          [ Just ("WorkspaceId" .= _mwsWorkspaceId),
-            Just ("WorkspaceState" .= _mwsWorkspaceState)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("WorkspaceId" Lude..= workspaceId),
+            Lude.Just ("WorkspaceState" Lude..= workspaceState)
           ]
       )
 
-instance ToPath ModifyWorkspaceState where
-  toPath = const "/"
+instance Lude.ToPath ModifyWorkspaceState where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyWorkspaceState where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyWorkspaceState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyWorkspaceStateResponse' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceStateResponse' smart constructor.
 newtype ModifyWorkspaceStateResponse = ModifyWorkspaceStateResponse'
-  { _mwsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceStateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwsrsResponseStatus' - -- | The response status code.
-modifyWorkspaceStateResponse ::
-  -- | 'mwsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkModifyWorkspaceStateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyWorkspaceStateResponse
-modifyWorkspaceStateResponse pResponseStatus_ =
-  ModifyWorkspaceStateResponse'
-    { _mwsrsResponseStatus =
-        pResponseStatus_
-    }
+mkModifyWorkspaceStateResponse pResponseStatus_ =
+  ModifyWorkspaceStateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-mwsrsResponseStatus :: Lens' ModifyWorkspaceStateResponse Int
-mwsrsResponseStatus = lens _mwsrsResponseStatus (\s a -> s {_mwsrsResponseStatus = a})
-
-instance NFData ModifyWorkspaceStateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwsrsResponseStatus :: Lens.Lens' ModifyWorkspaceStateResponse Lude.Int
+mwsrsResponseStatus = Lens.lens (responseStatus :: ModifyWorkspaceStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyWorkspaceStateResponse)
+{-# DEPRECATED mwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

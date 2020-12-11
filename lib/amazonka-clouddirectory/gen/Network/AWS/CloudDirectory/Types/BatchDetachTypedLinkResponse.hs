@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,30 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse where
+module Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
+  ( BatchDetachTypedLinkResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchDetachTypedLinkResponse,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'DetachTypedLink' response operation.
 --
---
---
--- /See:/ 'batchDetachTypedLinkResponse' smart constructor.
+-- /See:/ 'mkBatchDetachTypedLinkResponse' smart constructor.
 data BatchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetachTypedLinkResponse' with the minimum fields required to make a request.
-batchDetachTypedLinkResponse ::
+mkBatchDetachTypedLinkResponse ::
   BatchDetachTypedLinkResponse
-batchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
+mkBatchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
 
-instance FromJSON BatchDetachTypedLinkResponse where
+instance Lude.FromJSON BatchDetachTypedLinkResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDetachTypedLinkResponse"
-      (\x -> pure BatchDetachTypedLinkResponse')
-
-instance Hashable BatchDetachTypedLinkResponse
-
-instance NFData BatchDetachTypedLinkResponse
+      (\x -> Lude.pure BatchDetachTypedLinkResponse')

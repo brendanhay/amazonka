@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,40 +14,39 @@
 --
 -- Retrieves the properties for one or more game session queues. When requesting multiple queues, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionQueue' object is returned for each requested queue. When specifying a list of queues, objects are returned only for queues that currently exist in the Region.
 --
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html View Your Queues>
---
 -- __Related operations__
 --
 --     * 'CreateGameSessionQueue'
 --
+--
 --     * 'DescribeGameSessionQueues'
 --
+--
 --     * 'UpdateGameSessionQueue'
+--
 --
 --     * 'DeleteGameSessionQueue'
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameSessionQueues
-  ( -- * Creating a Request
-    describeGameSessionQueues,
-    DescribeGameSessionQueues,
+  ( -- * Creating a request
+    DescribeGameSessionQueues (..),
+    mkDescribeGameSessionQueues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgsqNextToken,
     dgsqNames,
     dgsqLimit,
 
-    -- * Destructuring the Response
-    describeGameSessionQueuesResponse,
-    DescribeGameSessionQueuesResponse,
+    -- * Destructuring the response
+    DescribeGameSessionQueuesResponse (..),
+    mkDescribeGameSessionQueuesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsNextToken,
     drsGameSessionQueues,
     drsResponseStatus,
@@ -60,152 +54,169 @@ module Network.AWS.GameLift.DescribeGameSessionQueues
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeGameSessionQueues' smart constructor.
+-- /See:/ 'mkDescribeGameSessionQueues' smart constructor.
 data DescribeGameSessionQueues = DescribeGameSessionQueues'
-  { _dgsqNextToken ::
-      !(Maybe Text),
-    _dgsqNames :: !(Maybe [Text]),
-    _dgsqLimit :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text],
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameSessionQueues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgsqNextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- * 'dgsqNames' - A list of queue names to retrieve information for. You can use either the queue ID or ARN value. To request settings for all queues, leave this parameter empty.
---
--- * 'dgsqLimit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. You can request up to 50 results.
-describeGameSessionQueues ::
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. You can request up to 50 results.
+-- * 'names' - A list of queue names to retrieve information for. You can use either the queue ID or ARN value. To request settings for all queues, leave this parameter empty.
+-- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+mkDescribeGameSessionQueues ::
   DescribeGameSessionQueues
-describeGameSessionQueues =
+mkDescribeGameSessionQueues =
   DescribeGameSessionQueues'
-    { _dgsqNextToken = Nothing,
-      _dgsqNames = Nothing,
-      _dgsqLimit = Nothing
+    { nextToken = Lude.Nothing,
+      names = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
-dgsqNextToken :: Lens' DescribeGameSessionQueues (Maybe Text)
-dgsqNextToken = lens _dgsqNextToken (\s a -> s {_dgsqNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsqNextToken :: Lens.Lens' DescribeGameSessionQueues (Lude.Maybe Lude.Text)
+dgsqNextToken = Lens.lens (nextToken :: DescribeGameSessionQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeGameSessionQueues)
+{-# DEPRECATED dgsqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of queue names to retrieve information for. You can use either the queue ID or ARN value. To request settings for all queues, leave this parameter empty.
-dgsqNames :: Lens' DescribeGameSessionQueues [Text]
-dgsqNames = lens _dgsqNames (\s a -> s {_dgsqNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsqNames :: Lens.Lens' DescribeGameSessionQueues (Lude.Maybe [Lude.Text])
+dgsqNames = Lens.lens (names :: DescribeGameSessionQueues -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeGameSessionQueues)
+{-# DEPRECATED dgsqNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. You can request up to 50 results.
-dgsqLimit :: Lens' DescribeGameSessionQueues (Maybe Natural)
-dgsqLimit = lens _dgsqLimit (\s a -> s {_dgsqLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsqLimit :: Lens.Lens' DescribeGameSessionQueues (Lude.Maybe Lude.Natural)
+dgsqLimit = Lens.lens (limit :: DescribeGameSessionQueues -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeGameSessionQueues)
+{-# DEPRECATED dgsqLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeGameSessionQueues where
+instance Page.AWSPager DescribeGameSessionQueues where
   page rq rs
-    | stop (rs ^. drsNextToken) = Nothing
-    | stop (rs ^. drsGameSessionQueues) = Nothing
-    | otherwise = Just $ rq & dgsqNextToken .~ rs ^. drsNextToken
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsGameSessionQueues) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dgsqNextToken Lens..~ rs Lens.^. drsNextToken
 
-instance AWSRequest DescribeGameSessionQueues where
+instance Lude.AWSRequest DescribeGameSessionQueues where
   type
     Rs DescribeGameSessionQueues =
       DescribeGameSessionQueuesResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeGameSessionQueuesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "GameSessionQueues" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "GameSessionQueues" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGameSessionQueues
-
-instance NFData DescribeGameSessionQueues
-
-instance ToHeaders DescribeGameSessionQueues where
+instance Lude.ToHeaders DescribeGameSessionQueues where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeGameSessionQueues" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeGameSessionQueues" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeGameSessionQueues where
+instance Lude.ToJSON DescribeGameSessionQueues where
   toJSON DescribeGameSessionQueues' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dgsqNextToken,
-            ("Names" .=) <$> _dgsqNames,
-            ("Limit" .=) <$> _dgsqLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Names" Lude..=) Lude.<$> names,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeGameSessionQueues where
-  toPath = const "/"
+instance Lude.ToPath DescribeGameSessionQueues where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeGameSessionQueues where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeGameSessionQueues where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeGameSessionQueuesResponse' smart constructor.
+-- /See:/ 'mkDescribeGameSessionQueuesResponse' smart constructor.
 data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
-  { _drsNextToken ::
-      !(Maybe Text),
-    _drsGameSessionQueues ::
-      !( Maybe
-           [GameSessionQueue]
-       ),
-    _drsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    gameSessionQueues ::
+      Lude.Maybe
+        [GameSessionQueue],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameSessionQueuesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsNextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- * 'drsGameSessionQueues' - A collection of objects that describe the requested game session queues.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeGameSessionQueuesResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'gameSessionQueues' - A collection of objects that describe the requested game session queues.
+-- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'responseStatus' - The response status code.
+mkDescribeGameSessionQueuesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGameSessionQueuesResponse
-describeGameSessionQueuesResponse pResponseStatus_ =
+mkDescribeGameSessionQueuesResponse pResponseStatus_ =
   DescribeGameSessionQueuesResponse'
-    { _drsNextToken = Nothing,
-      _drsGameSessionQueues = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      gameSessionQueues = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-drsNextToken :: Lens' DescribeGameSessionQueuesResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\s a -> s {_drsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsNextToken :: Lens.Lens' DescribeGameSessionQueuesResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeGameSessionQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeGameSessionQueuesResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A collection of objects that describe the requested game session queues.
-drsGameSessionQueues :: Lens' DescribeGameSessionQueuesResponse [GameSessionQueue]
-drsGameSessionQueues = lens _drsGameSessionQueues (\s a -> s {_drsGameSessionQueues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gameSessionQueues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsGameSessionQueues :: Lens.Lens' DescribeGameSessionQueuesResponse (Lude.Maybe [GameSessionQueue])
+drsGameSessionQueues = Lens.lens (gameSessionQueues :: DescribeGameSessionQueuesResponse -> Lude.Maybe [GameSessionQueue]) (\s a -> s {gameSessionQueues = a} :: DescribeGameSessionQueuesResponse)
+{-# DEPRECATED drsGameSessionQueues "Use generic-lens or generic-optics with 'gameSessionQueues' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeGameSessionQueuesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeGameSessionQueuesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeGameSessionQueuesResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeGameSessionQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameSessionQueuesResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

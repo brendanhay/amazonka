@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SortDirectionType where
+module Network.AWS.Glue.Types.SortDirectionType
+  ( SortDirectionType
+      ( SortDirectionType',
+        Ascending,
+        Descending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SortDirectionType
-  = Ascending
-  | Descending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SortDirectionType = SortDirectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SortDirectionType where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure Ascending
-      "descending" -> pure Descending
-      e ->
-        fromTextError $
-          "Failure parsing SortDirectionType from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern Ascending :: SortDirectionType
+pattern Ascending = SortDirectionType' "ASCENDING"
 
-instance ToText SortDirectionType where
-  toText = \case
-    Ascending -> "ASCENDING"
-    Descending -> "DESCENDING"
+pattern Descending :: SortDirectionType
+pattern Descending = SortDirectionType' "DESCENDING"
 
-instance Hashable SortDirectionType
-
-instance NFData SortDirectionType
-
-instance ToByteString SortDirectionType
-
-instance ToQuery SortDirectionType
-
-instance ToHeader SortDirectionType
-
-instance ToJSON SortDirectionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Ascending,
+  Descending,
+  SortDirectionType'
+  #-}

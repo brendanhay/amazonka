@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.SnapshotLimits where
+module Network.AWS.DirectoryService.Types.SnapshotLimits
+  ( SnapshotLimits (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSnapshotLimits,
+
+    -- * Lenses
+    slManualSnapshotsLimitReached,
+    slManualSnapshotsCurrentCount,
+    slManualSnapshotsLimit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains manual snapshot limit information for a directory.
 --
---
---
--- /See:/ 'snapshotLimits' smart constructor.
+-- /See:/ 'mkSnapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-  { _slManualSnapshotsLimitReached ::
-      !(Maybe Bool),
-    _slManualSnapshotsCurrentCount :: !(Maybe Nat),
-    _slManualSnapshotsLimit :: !(Maybe Nat)
+  { manualSnapshotsLimitReached ::
+      Lude.Maybe Lude.Bool,
+    manualSnapshotsCurrentCount :: Lude.Maybe Lude.Natural,
+    manualSnapshotsLimit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slManualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
---
--- * 'slManualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
---
--- * 'slManualSnapshotsLimit' - The maximum number of manual snapshots allowed.
-snapshotLimits ::
+-- * 'manualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
+-- * 'manualSnapshotsLimit' - The maximum number of manual snapshots allowed.
+-- * 'manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
+mkSnapshotLimits ::
   SnapshotLimits
-snapshotLimits =
+mkSnapshotLimits =
   SnapshotLimits'
-    { _slManualSnapshotsLimitReached = Nothing,
-      _slManualSnapshotsCurrentCount = Nothing,
-      _slManualSnapshotsLimit = Nothing
+    { manualSnapshotsLimitReached = Lude.Nothing,
+      manualSnapshotsCurrentCount = Lude.Nothing,
+      manualSnapshotsLimit = Lude.Nothing
     }
 
 -- | Indicates if the manual snapshot limit has been reached.
-slManualSnapshotsLimitReached :: Lens' SnapshotLimits (Maybe Bool)
-slManualSnapshotsLimitReached = lens _slManualSnapshotsLimitReached (\s a -> s {_slManualSnapshotsLimitReached = a})
+--
+-- /Note:/ Consider using 'manualSnapshotsLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slManualSnapshotsLimitReached :: Lens.Lens' SnapshotLimits (Lude.Maybe Lude.Bool)
+slManualSnapshotsLimitReached = Lens.lens (manualSnapshotsLimitReached :: SnapshotLimits -> Lude.Maybe Lude.Bool) (\s a -> s {manualSnapshotsLimitReached = a} :: SnapshotLimits)
+{-# DEPRECATED slManualSnapshotsLimitReached "Use generic-lens or generic-optics with 'manualSnapshotsLimitReached' instead." #-}
 
 -- | The current number of manual snapshots of the directory.
-slManualSnapshotsCurrentCount :: Lens' SnapshotLimits (Maybe Natural)
-slManualSnapshotsCurrentCount = lens _slManualSnapshotsCurrentCount (\s a -> s {_slManualSnapshotsCurrentCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'manualSnapshotsCurrentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slManualSnapshotsCurrentCount :: Lens.Lens' SnapshotLimits (Lude.Maybe Lude.Natural)
+slManualSnapshotsCurrentCount = Lens.lens (manualSnapshotsCurrentCount :: SnapshotLimits -> Lude.Maybe Lude.Natural) (\s a -> s {manualSnapshotsCurrentCount = a} :: SnapshotLimits)
+{-# DEPRECATED slManualSnapshotsCurrentCount "Use generic-lens or generic-optics with 'manualSnapshotsCurrentCount' instead." #-}
 
 -- | The maximum number of manual snapshots allowed.
-slManualSnapshotsLimit :: Lens' SnapshotLimits (Maybe Natural)
-slManualSnapshotsLimit = lens _slManualSnapshotsLimit (\s a -> s {_slManualSnapshotsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'manualSnapshotsLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slManualSnapshotsLimit :: Lens.Lens' SnapshotLimits (Lude.Maybe Lude.Natural)
+slManualSnapshotsLimit = Lens.lens (manualSnapshotsLimit :: SnapshotLimits -> Lude.Maybe Lude.Natural) (\s a -> s {manualSnapshotsLimit = a} :: SnapshotLimits)
+{-# DEPRECATED slManualSnapshotsLimit "Use generic-lens or generic-optics with 'manualSnapshotsLimit' instead." #-}
 
-instance FromJSON SnapshotLimits where
+instance Lude.FromJSON SnapshotLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "SnapshotLimits"
       ( \x ->
           SnapshotLimits'
-            <$> (x .:? "ManualSnapshotsLimitReached")
-            <*> (x .:? "ManualSnapshotsCurrentCount")
-            <*> (x .:? "ManualSnapshotsLimit")
+            Lude.<$> (x Lude..:? "ManualSnapshotsLimitReached")
+            Lude.<*> (x Lude..:? "ManualSnapshotsCurrentCount")
+            Lude.<*> (x Lude..:? "ManualSnapshotsLimit")
       )
-
-instance Hashable SnapshotLimits
-
-instance NFData SnapshotLimits

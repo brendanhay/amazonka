@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,76 +14,89 @@
 --
 -- Deletes a usage plan of a given plan Id.
 module Network.AWS.APIGateway.DeleteUsagePlan
-  ( -- * Creating a Request
-    deleteUsagePlan,
-    DeleteUsagePlan,
+  ( -- * Creating a request
+    DeleteUsagePlan (..),
+    mkDeleteUsagePlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupUsagePlanId,
 
-    -- * Destructuring the Response
-    deleteUsagePlanResponse,
-    DeleteUsagePlanResponse,
+    -- * Destructuring the response
+    DeleteUsagePlanResponse (..),
+    mkDeleteUsagePlanResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The DELETE request to delete a usage plan of a given plan Id.
 --
---
---
--- /See:/ 'deleteUsagePlan' smart constructor.
-newtype DeleteUsagePlan = DeleteUsagePlan' {_dupUsagePlanId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteUsagePlan' smart constructor.
+newtype DeleteUsagePlan = DeleteUsagePlan'
+  { usagePlanId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupUsagePlanId' - [Required] The Id of the to-be-deleted usage plan.
-deleteUsagePlan ::
-  -- | 'dupUsagePlanId'
-  Text ->
+-- * 'usagePlanId' - [Required] The Id of the to-be-deleted usage plan.
+mkDeleteUsagePlan ::
+  -- | 'usagePlanId'
+  Lude.Text ->
   DeleteUsagePlan
-deleteUsagePlan pUsagePlanId_ =
-  DeleteUsagePlan' {_dupUsagePlanId = pUsagePlanId_}
+mkDeleteUsagePlan pUsagePlanId_ =
+  DeleteUsagePlan' {usagePlanId = pUsagePlanId_}
 
 -- | [Required] The Id of the to-be-deleted usage plan.
-dupUsagePlanId :: Lens' DeleteUsagePlan Text
-dupUsagePlanId = lens _dupUsagePlanId (\s a -> s {_dupUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupUsagePlanId :: Lens.Lens' DeleteUsagePlan Lude.Text
+dupUsagePlanId = Lens.lens (usagePlanId :: DeleteUsagePlan -> Lude.Text) (\s a -> s {usagePlanId = a} :: DeleteUsagePlan)
+{-# DEPRECATED dupUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
-instance AWSRequest DeleteUsagePlan where
+instance Lude.AWSRequest DeleteUsagePlan where
   type Rs DeleteUsagePlan = DeleteUsagePlanResponse
-  request = delete apiGateway
-  response = receiveNull DeleteUsagePlanResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteUsagePlanResponse'
 
-instance Hashable DeleteUsagePlan
-
-instance NFData DeleteUsagePlan
-
-instance ToHeaders DeleteUsagePlan where
+instance Lude.ToHeaders DeleteUsagePlan where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteUsagePlan where
+instance Lude.ToPath DeleteUsagePlan where
   toPath DeleteUsagePlan' {..} =
-    mconcat ["/usageplans/", toBS _dupUsagePlanId]
+    Lude.mconcat ["/usageplans/", Lude.toBS usagePlanId]
 
-instance ToQuery DeleteUsagePlan where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUsagePlan where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUsagePlanResponse' smart constructor.
+-- | /See:/ 'mkDeleteUsagePlanResponse' smart constructor.
 data DeleteUsagePlanResponse = DeleteUsagePlanResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlanResponse' with the minimum fields required to make a request.
-deleteUsagePlanResponse ::
+mkDeleteUsagePlanResponse ::
   DeleteUsagePlanResponse
-deleteUsagePlanResponse = DeleteUsagePlanResponse'
-
-instance NFData DeleteUsagePlanResponse
+mkDeleteUsagePlanResponse = DeleteUsagePlanResponse'

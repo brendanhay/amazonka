@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,32 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings where
+module Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings
+  ( RtmpCaptionInfoDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRtmpCaptionInfoDestinationSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rtmp Caption Info Destination Settings
 --
--- /See:/ 'rtmpCaptionInfoDestinationSettings' smart constructor.
+-- /See:/ 'mkRtmpCaptionInfoDestinationSettings' smart constructor.
 data RtmpCaptionInfoDestinationSettings = RtmpCaptionInfoDestinationSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RtmpCaptionInfoDestinationSettings' with the minimum fields required to make a request.
-rtmpCaptionInfoDestinationSettings ::
+mkRtmpCaptionInfoDestinationSettings ::
   RtmpCaptionInfoDestinationSettings
-rtmpCaptionInfoDestinationSettings =
+mkRtmpCaptionInfoDestinationSettings =
   RtmpCaptionInfoDestinationSettings'
 
-instance FromJSON RtmpCaptionInfoDestinationSettings where
+instance Lude.FromJSON RtmpCaptionInfoDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "RtmpCaptionInfoDestinationSettings"
-      (\x -> pure RtmpCaptionInfoDestinationSettings')
+      (\x -> Lude.pure RtmpCaptionInfoDestinationSettings')
 
-instance Hashable RtmpCaptionInfoDestinationSettings
-
-instance NFData RtmpCaptionInfoDestinationSettings
-
-instance ToJSON RtmpCaptionInfoDestinationSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON RtmpCaptionInfoDestinationSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

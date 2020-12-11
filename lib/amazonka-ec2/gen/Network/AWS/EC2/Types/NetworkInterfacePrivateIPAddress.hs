@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfacePrivateIPAddress where
+module Network.AWS.EC2.Types.NetworkInterfacePrivateIPAddress
+  ( NetworkInterfacePrivateIPAddress (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkNetworkInterfacePrivateIPAddress,
+
+    -- * Lenses
+    nipiaPrimary,
+    nipiaPrivateIPAddress,
+    nipiaPrivateDNSName,
+    nipiaAssociation,
+  )
+where
+
 import Network.AWS.EC2.Types.NetworkInterfaceAssociation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the private IPv4 address of a network interface.
 --
---
---
--- /See:/ 'networkInterfacePrivateIPAddress' smart constructor.
+-- /See:/ 'mkNetworkInterfacePrivateIPAddress' smart constructor.
 data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
-  { _nipiaPrimary ::
-      !(Maybe Bool),
-    _nipiaPrivateIPAddress ::
-      !(Maybe Text),
-    _nipiaPrivateDNSName ::
-      !(Maybe Text),
-    _nipiaAssociation ::
-      !( Maybe
-           NetworkInterfaceAssociation
-       )
+  { primary ::
+      Lude.Maybe Lude.Bool,
+    privateIPAddress ::
+      Lude.Maybe Lude.Text,
+    privateDNSName ::
+      Lude.Maybe Lude.Text,
+    association ::
+      Lude.Maybe
+        NetworkInterfaceAssociation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfacePrivateIPAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nipiaPrimary' - Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
---
--- * 'nipiaPrivateIPAddress' - The private IPv4 address.
---
--- * 'nipiaPrivateDNSName' - The private DNS name.
---
--- * 'nipiaAssociation' - The association information for an Elastic IP address (IPv4) associated with the network interface.
-networkInterfacePrivateIPAddress ::
+-- * 'association' - The association information for an Elastic IP address (IPv4) associated with the network interface.
+-- * 'primary' - Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
+-- * 'privateDNSName' - The private DNS name.
+-- * 'privateIPAddress' - The private IPv4 address.
+mkNetworkInterfacePrivateIPAddress ::
   NetworkInterfacePrivateIPAddress
-networkInterfacePrivateIPAddress =
+mkNetworkInterfacePrivateIPAddress =
   NetworkInterfacePrivateIPAddress'
-    { _nipiaPrimary = Nothing,
-      _nipiaPrivateIPAddress = Nothing,
-      _nipiaPrivateDNSName = Nothing,
-      _nipiaAssociation = Nothing
+    { primary = Lude.Nothing,
+      privateIPAddress = Lude.Nothing,
+      privateDNSName = Lude.Nothing,
+      association = Lude.Nothing
     }
 
 -- | Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
-nipiaPrimary :: Lens' NetworkInterfacePrivateIPAddress (Maybe Bool)
-nipiaPrimary = lens _nipiaPrimary (\s a -> s {_nipiaPrimary = a})
+--
+-- /Note:/ Consider using 'primary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nipiaPrimary :: Lens.Lens' NetworkInterfacePrivateIPAddress (Lude.Maybe Lude.Bool)
+nipiaPrimary = Lens.lens (primary :: NetworkInterfacePrivateIPAddress -> Lude.Maybe Lude.Bool) (\s a -> s {primary = a} :: NetworkInterfacePrivateIPAddress)
+{-# DEPRECATED nipiaPrimary "Use generic-lens or generic-optics with 'primary' instead." #-}
 
 -- | The private IPv4 address.
-nipiaPrivateIPAddress :: Lens' NetworkInterfacePrivateIPAddress (Maybe Text)
-nipiaPrivateIPAddress = lens _nipiaPrivateIPAddress (\s a -> s {_nipiaPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nipiaPrivateIPAddress :: Lens.Lens' NetworkInterfacePrivateIPAddress (Lude.Maybe Lude.Text)
+nipiaPrivateIPAddress = Lens.lens (privateIPAddress :: NetworkInterfacePrivateIPAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: NetworkInterfacePrivateIPAddress)
+{-# DEPRECATED nipiaPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The private DNS name.
-nipiaPrivateDNSName :: Lens' NetworkInterfacePrivateIPAddress (Maybe Text)
-nipiaPrivateDNSName = lens _nipiaPrivateDNSName (\s a -> s {_nipiaPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nipiaPrivateDNSName :: Lens.Lens' NetworkInterfacePrivateIPAddress (Lude.Maybe Lude.Text)
+nipiaPrivateDNSName = Lens.lens (privateDNSName :: NetworkInterfacePrivateIPAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: NetworkInterfacePrivateIPAddress)
+{-# DEPRECATED nipiaPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | The association information for an Elastic IP address (IPv4) associated with the network interface.
-nipiaAssociation :: Lens' NetworkInterfacePrivateIPAddress (Maybe NetworkInterfaceAssociation)
-nipiaAssociation = lens _nipiaAssociation (\s a -> s {_nipiaAssociation = a})
+--
+-- /Note:/ Consider using 'association' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nipiaAssociation :: Lens.Lens' NetworkInterfacePrivateIPAddress (Lude.Maybe NetworkInterfaceAssociation)
+nipiaAssociation = Lens.lens (association :: NetworkInterfacePrivateIPAddress -> Lude.Maybe NetworkInterfaceAssociation) (\s a -> s {association = a} :: NetworkInterfacePrivateIPAddress)
+{-# DEPRECATED nipiaAssociation "Use generic-lens or generic-optics with 'association' instead." #-}
 
-instance FromXML NetworkInterfacePrivateIPAddress where
+instance Lude.FromXML NetworkInterfacePrivateIPAddress where
   parseXML x =
     NetworkInterfacePrivateIPAddress'
-      <$> (x .@? "primary")
-      <*> (x .@? "privateIpAddress")
-      <*> (x .@? "privateDnsName")
-      <*> (x .@? "association")
-
-instance Hashable NetworkInterfacePrivateIPAddress
-
-instance NFData NetworkInterfacePrivateIPAddress
+      Lude.<$> (x Lude..@? "primary")
+      Lude.<*> (x Lude..@? "privateIpAddress")
+      Lude.<*> (x Lude..@? "privateDnsName")
+      Lude.<*> (x Lude..@? "association")

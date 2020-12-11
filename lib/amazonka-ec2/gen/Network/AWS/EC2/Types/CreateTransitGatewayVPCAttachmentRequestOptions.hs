@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CreateTransitGatewayVPCAttachmentRequestOptions where
+module Network.AWS.EC2.Types.CreateTransitGatewayVPCAttachmentRequestOptions
+  ( CreateTransitGatewayVPCAttachmentRequestOptions (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkCreateTransitGatewayVPCAttachmentRequestOptions,
+
+    -- * Lenses
+    ctgvaroIPv6Support,
+    ctgvaroApplianceModeSupport,
+    ctgvaroDNSSupport,
+  )
+where
+
 import Network.AWS.EC2.Types.ApplianceModeSupportValue
 import Network.AWS.EC2.Types.DNSSupportValue
 import Network.AWS.EC2.Types.IPv6SupportValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the options for a VPC attachment.
 --
---
---
--- /See:/ 'createTransitGatewayVPCAttachmentRequestOptions' smart constructor.
+-- /See:/ 'mkCreateTransitGatewayVPCAttachmentRequestOptions' smart constructor.
 data CreateTransitGatewayVPCAttachmentRequestOptions = CreateTransitGatewayVPCAttachmentRequestOptions'
-  { _ctgvaroIPv6Support ::
-      !( Maybe
-           IPv6SupportValue
-       ),
-    _ctgvaroApplianceModeSupport ::
-      !( Maybe
-           ApplianceModeSupportValue
-       ),
-    _ctgvaroDNSSupport ::
-      !( Maybe
-           DNSSupportValue
-       )
+  { ipv6Support ::
+      Lude.Maybe
+        IPv6SupportValue,
+    applianceModeSupport ::
+      Lude.Maybe
+        ApplianceModeSupportValue,
+    dnsSupport ::
+      Lude.Maybe
+        DNSSupportValue
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'CreateTransitGatewayVPCAttachmentRequestOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgvaroIPv6Support' - Enable or disable IPv6 support.
---
--- * 'ctgvaroApplianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is @disable@ .
---
--- * 'ctgvaroDNSSupport' - Enable or disable DNS support. The default is @enable@ .
-createTransitGatewayVPCAttachmentRequestOptions ::
+-- * 'applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is @disable@ .
+-- * 'dnsSupport' - Enable or disable DNS support. The default is @enable@ .
+-- * 'ipv6Support' - Enable or disable IPv6 support.
+mkCreateTransitGatewayVPCAttachmentRequestOptions ::
   CreateTransitGatewayVPCAttachmentRequestOptions
-createTransitGatewayVPCAttachmentRequestOptions =
+mkCreateTransitGatewayVPCAttachmentRequestOptions =
   CreateTransitGatewayVPCAttachmentRequestOptions'
-    { _ctgvaroIPv6Support =
-        Nothing,
-      _ctgvaroApplianceModeSupport = Nothing,
-      _ctgvaroDNSSupport = Nothing
+    { ipv6Support =
+        Lude.Nothing,
+      applianceModeSupport = Lude.Nothing,
+      dnsSupport = Lude.Nothing
     }
 
 -- | Enable or disable IPv6 support.
-ctgvaroIPv6Support :: Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Maybe IPv6SupportValue)
-ctgvaroIPv6Support = lens _ctgvaroIPv6Support (\s a -> s {_ctgvaroIPv6Support = a})
+--
+-- /Note:/ Consider using 'ipv6Support' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaroIPv6Support :: Lens.Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Lude.Maybe IPv6SupportValue)
+ctgvaroIPv6Support = Lens.lens (ipv6Support :: CreateTransitGatewayVPCAttachmentRequestOptions -> Lude.Maybe IPv6SupportValue) (\s a -> s {ipv6Support = a} :: CreateTransitGatewayVPCAttachmentRequestOptions)
+{-# DEPRECATED ctgvaroIPv6Support "Use generic-lens or generic-optics with 'ipv6Support' instead." #-}
 
 -- | Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is @disable@ .
-ctgvaroApplianceModeSupport :: Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Maybe ApplianceModeSupportValue)
-ctgvaroApplianceModeSupport = lens _ctgvaroApplianceModeSupport (\s a -> s {_ctgvaroApplianceModeSupport = a})
+--
+-- /Note:/ Consider using 'applianceModeSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaroApplianceModeSupport :: Lens.Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Lude.Maybe ApplianceModeSupportValue)
+ctgvaroApplianceModeSupport = Lens.lens (applianceModeSupport :: CreateTransitGatewayVPCAttachmentRequestOptions -> Lude.Maybe ApplianceModeSupportValue) (\s a -> s {applianceModeSupport = a} :: CreateTransitGatewayVPCAttachmentRequestOptions)
+{-# DEPRECATED ctgvaroApplianceModeSupport "Use generic-lens or generic-optics with 'applianceModeSupport' instead." #-}
 
 -- | Enable or disable DNS support. The default is @enable@ .
-ctgvaroDNSSupport :: Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Maybe DNSSupportValue)
-ctgvaroDNSSupport = lens _ctgvaroDNSSupport (\s a -> s {_ctgvaroDNSSupport = a})
+--
+-- /Note:/ Consider using 'dnsSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaroDNSSupport :: Lens.Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Lude.Maybe DNSSupportValue)
+ctgvaroDNSSupport = Lens.lens (dnsSupport :: CreateTransitGatewayVPCAttachmentRequestOptions -> Lude.Maybe DNSSupportValue) (\s a -> s {dnsSupport = a} :: CreateTransitGatewayVPCAttachmentRequestOptions)
+{-# DEPRECATED ctgvaroDNSSupport "Use generic-lens or generic-optics with 'dnsSupport' instead." #-}
 
-instance Hashable CreateTransitGatewayVPCAttachmentRequestOptions
-
-instance NFData CreateTransitGatewayVPCAttachmentRequestOptions
-
-instance ToQuery CreateTransitGatewayVPCAttachmentRequestOptions where
+instance
+  Lude.ToQuery
+    CreateTransitGatewayVPCAttachmentRequestOptions
+  where
   toQuery CreateTransitGatewayVPCAttachmentRequestOptions' {..} =
-    mconcat
-      [ "Ipv6Support" =: _ctgvaroIPv6Support,
-        "ApplianceModeSupport" =: _ctgvaroApplianceModeSupport,
-        "DnsSupport" =: _ctgvaroDNSSupport
+    Lude.mconcat
+      [ "Ipv6Support" Lude.=: ipv6Support,
+        "ApplianceModeSupport" Lude.=: applianceModeSupport,
+        "DnsSupport" Lude.=: dnsSupport
       ]

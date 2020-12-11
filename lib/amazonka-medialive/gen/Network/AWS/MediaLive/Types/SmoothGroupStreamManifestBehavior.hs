@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior where
+module Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior
+  ( SmoothGroupStreamManifestBehavior
+      ( SmoothGroupStreamManifestBehavior',
+        DoNotSend,
+        Send
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smooth Group Stream Manifest Behavior
-data SmoothGroupStreamManifestBehavior
-  = DoNotSend
-  | Send
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SmoothGroupStreamManifestBehavior = SmoothGroupStreamManifestBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SmoothGroupStreamManifestBehavior where
-  parser =
-    takeLowerText >>= \case
-      "do_not_send" -> pure DoNotSend
-      "send" -> pure Send
-      e ->
-        fromTextError $
-          "Failure parsing SmoothGroupStreamManifestBehavior from value: '" <> e
-            <> "'. Accepted values: do_not_send, send"
+pattern DoNotSend :: SmoothGroupStreamManifestBehavior
+pattern DoNotSend = SmoothGroupStreamManifestBehavior' "DO_NOT_SEND"
 
-instance ToText SmoothGroupStreamManifestBehavior where
-  toText = \case
-    DoNotSend -> "DO_NOT_SEND"
-    Send -> "SEND"
+pattern Send :: SmoothGroupStreamManifestBehavior
+pattern Send = SmoothGroupStreamManifestBehavior' "SEND"
 
-instance Hashable SmoothGroupStreamManifestBehavior
-
-instance NFData SmoothGroupStreamManifestBehavior
-
-instance ToByteString SmoothGroupStreamManifestBehavior
-
-instance ToQuery SmoothGroupStreamManifestBehavior
-
-instance ToHeader SmoothGroupStreamManifestBehavior
-
-instance ToJSON SmoothGroupStreamManifestBehavior where
-  toJSON = toJSONText
-
-instance FromJSON SmoothGroupStreamManifestBehavior where
-  parseJSON = parseJSONText "SmoothGroupStreamManifestBehavior"
+{-# COMPLETE
+  DoNotSend,
+  Send,
+  SmoothGroupStreamManifestBehavior'
+  #-}

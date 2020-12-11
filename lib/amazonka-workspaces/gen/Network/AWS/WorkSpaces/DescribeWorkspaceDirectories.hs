@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,193 @@
 --
 -- Describes the available directories that are registered with Amazon WorkSpaces.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
-  ( -- * Creating a Request
-    describeWorkspaceDirectories,
-    DescribeWorkspaceDirectories,
+  ( -- * Creating a request
+    DescribeWorkspaceDirectories (..),
+    mkDescribeWorkspaceDirectories,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwdNextToken,
     dwdDirectoryIds,
     dwdLimit,
 
-    -- * Destructuring the Response
-    describeWorkspaceDirectoriesResponse,
-    DescribeWorkspaceDirectoriesResponse,
+    -- * Destructuring the response
+    DescribeWorkspaceDirectoriesResponse (..),
+    mkDescribeWorkspaceDirectoriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwdrsDirectories,
     dwdrsNextToken,
     dwdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeWorkspaceDirectories' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-  { _dwdNextToken ::
-      !(Maybe Text),
-    _dwdDirectoryIds ::
-      !(Maybe (List1 Text)),
-    _dwdLimit :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    directoryIds ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceDirectories' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwdNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- * 'dwdDirectoryIds' - The identifiers of the directories. If the value is null, all directories are retrieved.
---
--- * 'dwdLimit' - The maximum number of directories to return.
-describeWorkspaceDirectories ::
+-- * 'directoryIds' - The identifiers of the directories. If the value is null, all directories are retrieved.
+-- * 'limit' - The maximum number of directories to return.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+mkDescribeWorkspaceDirectories ::
   DescribeWorkspaceDirectories
-describeWorkspaceDirectories =
+mkDescribeWorkspaceDirectories =
   DescribeWorkspaceDirectories'
-    { _dwdNextToken = Nothing,
-      _dwdDirectoryIds = Nothing,
-      _dwdLimit = Nothing
+    { nextToken = Lude.Nothing,
+      directoryIds = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
-dwdNextToken = lens _dwdNextToken (\s a -> s {_dwdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdNextToken :: Lens.Lens' DescribeWorkspaceDirectories (Lude.Maybe Lude.Text)
+dwdNextToken = Lens.lens (nextToken :: DescribeWorkspaceDirectories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceDirectories)
+{-# DEPRECATED dwdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The identifiers of the directories. If the value is null, all directories are retrieved.
-dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
-dwdDirectoryIds = lens _dwdDirectoryIds (\s a -> s {_dwdDirectoryIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'directoryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdDirectoryIds :: Lens.Lens' DescribeWorkspaceDirectories (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dwdDirectoryIds = Lens.lens (directoryIds :: DescribeWorkspaceDirectories -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {directoryIds = a} :: DescribeWorkspaceDirectories)
+{-# DEPRECATED dwdDirectoryIds "Use generic-lens or generic-optics with 'directoryIds' instead." #-}
 
 -- | The maximum number of directories to return.
-dwdLimit :: Lens' DescribeWorkspaceDirectories (Maybe Natural)
-dwdLimit = lens _dwdLimit (\s a -> s {_dwdLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdLimit :: Lens.Lens' DescribeWorkspaceDirectories (Lude.Maybe Lude.Natural)
+dwdLimit = Lens.lens (limit :: DescribeWorkspaceDirectories -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeWorkspaceDirectories)
+{-# DEPRECATED dwdLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeWorkspaceDirectories where
+instance Page.AWSPager DescribeWorkspaceDirectories where
   page rq rs
-    | stop (rs ^. dwdrsNextToken) = Nothing
-    | stop (rs ^. dwdrsDirectories) = Nothing
-    | otherwise = Just $ rq & dwdNextToken .~ rs ^. dwdrsNextToken
+    | Page.stop (rs Lens.^. dwdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dwdrsDirectories) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dwdNextToken Lens..~ rs Lens.^. dwdrsNextToken
 
-instance AWSRequest DescribeWorkspaceDirectories where
+instance Lude.AWSRequest DescribeWorkspaceDirectories where
   type
     Rs DescribeWorkspaceDirectories =
       DescribeWorkspaceDirectoriesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeWorkspaceDirectoriesResponse'
-            <$> (x .?> "Directories" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Directories" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeWorkspaceDirectories
-
-instance NFData DescribeWorkspaceDirectories
-
-instance ToHeaders DescribeWorkspaceDirectories where
+instance Lude.ToHeaders DescribeWorkspaceDirectories where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DescribeWorkspaceDirectories" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DescribeWorkspaceDirectories" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeWorkspaceDirectories where
+instance Lude.ToJSON DescribeWorkspaceDirectories where
   toJSON DescribeWorkspaceDirectories' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dwdNextToken,
-            ("DirectoryIds" .=) <$> _dwdDirectoryIds,
-            ("Limit" .=) <$> _dwdLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("DirectoryIds" Lude..=) Lude.<$> directoryIds,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeWorkspaceDirectories where
-  toPath = const "/"
+instance Lude.ToPath DescribeWorkspaceDirectories where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeWorkspaceDirectories where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeWorkspaceDirectories where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
+-- | /See:/ 'mkDescribeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-  { _dwdrsDirectories ::
-      !( Maybe
-           [WorkspaceDirectory]
-       ),
-    _dwdrsNextToken ::
-      !(Maybe Text),
-    _dwdrsResponseStatus ::
-      !Int
+  { directories ::
+      Lude.Maybe
+        [WorkspaceDirectory],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceDirectoriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwdrsDirectories' - Information about the directories.
---
--- * 'dwdrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'dwdrsResponseStatus' - -- | The response status code.
-describeWorkspaceDirectoriesResponse ::
-  -- | 'dwdrsResponseStatus'
-  Int ->
+-- * 'directories' - Information about the directories.
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+mkDescribeWorkspaceDirectoriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse pResponseStatus_ =
+mkDescribeWorkspaceDirectoriesResponse pResponseStatus_ =
   DescribeWorkspaceDirectoriesResponse'
-    { _dwdrsDirectories =
-        Nothing,
-      _dwdrsNextToken = Nothing,
-      _dwdrsResponseStatus = pResponseStatus_
+    { directories = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the directories.
-dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
-dwdrsDirectories = lens _dwdrsDirectories (\s a -> s {_dwdrsDirectories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'directories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdrsDirectories :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Lude.Maybe [WorkspaceDirectory])
+dwdrsDirectories = Lens.lens (directories :: DescribeWorkspaceDirectoriesResponse -> Lude.Maybe [WorkspaceDirectory]) (\s a -> s {directories = a} :: DescribeWorkspaceDirectoriesResponse)
+{-# DEPRECATED dwdrsDirectories "Use generic-lens or generic-optics with 'directories' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
-dwdrsNextToken = lens _dwdrsNextToken (\s a -> s {_dwdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdrsNextToken :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Lude.Maybe Lude.Text)
+dwdrsNextToken = Lens.lens (nextToken :: DescribeWorkspaceDirectoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceDirectoriesResponse)
+{-# DEPRECATED dwdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
-dwdrsResponseStatus = lens _dwdrsResponseStatus (\s a -> s {_dwdrsResponseStatus = a})
-
-instance NFData DescribeWorkspaceDirectoriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwdrsResponseStatus :: Lens.Lens' DescribeWorkspaceDirectoriesResponse Lude.Int
+dwdrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspaceDirectoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspaceDirectoriesResponse)
+{-# DEPRECATED dwdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

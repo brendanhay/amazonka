@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.PlatformDevice where
+module Network.AWS.ECS.Types.PlatformDevice
+  ( PlatformDevice (..),
+
+    -- * Smart constructor
+    mkPlatformDevice,
+
+    -- * Lenses
+    pdId,
+    pdType,
+  )
+where
 
 import Network.AWS.ECS.Types.PlatformDeviceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The devices that are available on the container instance. The only supported device type is a GPU.
 --
---
---
--- /See:/ 'platformDevice' smart constructor.
+-- /See:/ 'mkPlatformDevice' smart constructor.
 data PlatformDevice = PlatformDevice'
-  { _pdId :: !Text,
-    _pdType :: !PlatformDeviceType
+  { id :: Lude.Text,
+    type' :: PlatformDeviceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdId' - The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
---
--- * 'pdType' - The type of device that is available on the container instance. The only supported value is @GPU@ .
-platformDevice ::
-  -- | 'pdId'
-  Text ->
-  -- | 'pdType'
+-- * 'id' - The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
+-- * 'type'' - The type of device that is available on the container instance. The only supported value is @GPU@ .
+mkPlatformDevice ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'type''
   PlatformDeviceType ->
   PlatformDevice
-platformDevice pId_ pType_ =
-  PlatformDevice' {_pdId = pId_, _pdType = pType_}
+mkPlatformDevice pId_ pType_ =
+  PlatformDevice' {id = pId_, type' = pType_}
 
 -- | The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
-pdId :: Lens' PlatformDevice Text
-pdId = lens _pdId (\s a -> s {_pdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdId :: Lens.Lens' PlatformDevice Lude.Text
+pdId = Lens.lens (id :: PlatformDevice -> Lude.Text) (\s a -> s {id = a} :: PlatformDevice)
+{-# DEPRECATED pdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of device that is available on the container instance. The only supported value is @GPU@ .
-pdType :: Lens' PlatformDevice PlatformDeviceType
-pdType = lens _pdType (\s a -> s {_pdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdType :: Lens.Lens' PlatformDevice PlatformDeviceType
+pdType = Lens.lens (type' :: PlatformDevice -> PlatformDeviceType) (\s a -> s {type' = a} :: PlatformDevice)
+{-# DEPRECATED pdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable PlatformDevice
-
-instance NFData PlatformDevice
-
-instance ToJSON PlatformDevice where
+instance Lude.ToJSON PlatformDevice where
   toJSON PlatformDevice' {..} =
-    object
-      (catMaybes [Just ("id" .= _pdId), Just ("type" .= _pdType)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("id" Lude..= id), Lude.Just ("type" Lude..= type')]
+      )

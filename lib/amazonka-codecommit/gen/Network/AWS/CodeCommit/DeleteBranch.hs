@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,154 @@
 --
 -- Deletes a branch from a repository, unless that branch is the default branch for the repository.
 module Network.AWS.CodeCommit.DeleteBranch
-  ( -- * Creating a Request
-    deleteBranch,
-    DeleteBranch,
+  ( -- * Creating a request
+    DeleteBranch (..),
+    mkDeleteBranch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbRepositoryName,
     dbBranchName,
 
-    -- * Destructuring the Response
-    deleteBranchResponse,
-    DeleteBranchResponse,
+    -- * Destructuring the response
+    DeleteBranchResponse (..),
+    mkDeleteBranchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsDeletedBranch,
     dbrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a delete branch operation.
 --
---
---
--- /See:/ 'deleteBranch' smart constructor.
+-- /See:/ 'mkDeleteBranch' smart constructor.
 data DeleteBranch = DeleteBranch'
-  { _dbRepositoryName :: !Text,
-    _dbBranchName :: !Text
+  { repositoryName :: Lude.Text,
+    branchName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBranch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbRepositoryName' - The name of the repository that contains the branch to be deleted.
---
--- * 'dbBranchName' - The name of the branch to delete.
-deleteBranch ::
-  -- | 'dbRepositoryName'
-  Text ->
-  -- | 'dbBranchName'
-  Text ->
+-- * 'branchName' - The name of the branch to delete.
+-- * 'repositoryName' - The name of the repository that contains the branch to be deleted.
+mkDeleteBranch ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'branchName'
+  Lude.Text ->
   DeleteBranch
-deleteBranch pRepositoryName_ pBranchName_ =
+mkDeleteBranch pRepositoryName_ pBranchName_ =
   DeleteBranch'
-    { _dbRepositoryName = pRepositoryName_,
-      _dbBranchName = pBranchName_
+    { repositoryName = pRepositoryName_,
+      branchName = pBranchName_
     }
 
 -- | The name of the repository that contains the branch to be deleted.
-dbRepositoryName :: Lens' DeleteBranch Text
-dbRepositoryName = lens _dbRepositoryName (\s a -> s {_dbRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbRepositoryName :: Lens.Lens' DeleteBranch Lude.Text
+dbRepositoryName = Lens.lens (repositoryName :: DeleteBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: DeleteBranch)
+{-# DEPRECATED dbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The name of the branch to delete.
-dbBranchName :: Lens' DeleteBranch Text
-dbBranchName = lens _dbBranchName (\s a -> s {_dbBranchName = a})
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbBranchName :: Lens.Lens' DeleteBranch Lude.Text
+dbBranchName = Lens.lens (branchName :: DeleteBranch -> Lude.Text) (\s a -> s {branchName = a} :: DeleteBranch)
+{-# DEPRECATED dbBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
-instance AWSRequest DeleteBranch where
+instance Lude.AWSRequest DeleteBranch where
   type Rs DeleteBranch = DeleteBranchResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteBranchResponse'
-            <$> (x .?> "deletedBranch") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deletedBranch")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBranch
-
-instance NFData DeleteBranch
-
-instance ToHeaders DeleteBranch where
+instance Lude.ToHeaders DeleteBranch where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.DeleteBranch" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.DeleteBranch" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBranch where
+instance Lude.ToJSON DeleteBranch where
   toJSON DeleteBranch' {..} =
-    object
-      ( catMaybes
-          [ Just ("repositoryName" .= _dbRepositoryName),
-            Just ("branchName" .= _dbBranchName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("branchName" Lude..= branchName)
           ]
       )
 
-instance ToPath DeleteBranch where
-  toPath = const "/"
+instance Lude.ToPath DeleteBranch where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBranch where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBranch where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a delete branch operation.
 --
---
---
--- /See:/ 'deleteBranchResponse' smart constructor.
+-- /See:/ 'mkDeleteBranchResponse' smart constructor.
 data DeleteBranchResponse = DeleteBranchResponse'
-  { _dbrsDeletedBranch ::
-      !(Maybe BranchInfo),
-    _dbrsResponseStatus :: !Int
+  { deletedBranch ::
+      Lude.Maybe BranchInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBranchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsDeletedBranch' - Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.
---
--- * 'dbrsResponseStatus' - -- | The response status code.
-deleteBranchResponse ::
-  -- | 'dbrsResponseStatus'
-  Int ->
+-- * 'deletedBranch' - Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.
+-- * 'responseStatus' - The response status code.
+mkDeleteBranchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBranchResponse
-deleteBranchResponse pResponseStatus_ =
+mkDeleteBranchResponse pResponseStatus_ =
   DeleteBranchResponse'
-    { _dbrsDeletedBranch = Nothing,
-      _dbrsResponseStatus = pResponseStatus_
+    { deletedBranch = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.
-dbrsDeletedBranch :: Lens' DeleteBranchResponse (Maybe BranchInfo)
-dbrsDeletedBranch = lens _dbrsDeletedBranch (\s a -> s {_dbrsDeletedBranch = a})
+--
+-- /Note:/ Consider using 'deletedBranch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsDeletedBranch :: Lens.Lens' DeleteBranchResponse (Lude.Maybe BranchInfo)
+dbrsDeletedBranch = Lens.lens (deletedBranch :: DeleteBranchResponse -> Lude.Maybe BranchInfo) (\s a -> s {deletedBranch = a} :: DeleteBranchResponse)
+{-# DEPRECATED dbrsDeletedBranch "Use generic-lens or generic-optics with 'deletedBranch' instead." #-}
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DeleteBranchResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\s a -> s {_dbrsResponseStatus = a})
-
-instance NFData DeleteBranchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsResponseStatus :: Lens.Lens' DeleteBranchResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DeleteBranchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBranchResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationRuleStatus where
+module Network.AWS.S3.Types.ReplicationRuleStatus
+  ( ReplicationRuleStatus
+      ( ReplicationRuleStatus',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ReplicationRuleStatus
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplicationRuleStatus = ReplicationRuleStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplicationRuleStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing ReplicationRuleStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: ReplicationRuleStatus
+pattern Disabled = ReplicationRuleStatus' "Disabled"
 
-instance ToText ReplicationRuleStatus where
-  toText = \case
-    Disabled -> "Disabled"
-    Enabled -> "Enabled"
+pattern Enabled :: ReplicationRuleStatus
+pattern Enabled = ReplicationRuleStatus' "Enabled"
 
-instance Hashable ReplicationRuleStatus
-
-instance NFData ReplicationRuleStatus
-
-instance ToByteString ReplicationRuleStatus
-
-instance ToQuery ReplicationRuleStatus
-
-instance ToHeader ReplicationRuleStatus
-
-instance FromXML ReplicationRuleStatus where
-  parseXML = parseXMLText "ReplicationRuleStatus"
-
-instance ToXML ReplicationRuleStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  ReplicationRuleStatus'
+  #-}

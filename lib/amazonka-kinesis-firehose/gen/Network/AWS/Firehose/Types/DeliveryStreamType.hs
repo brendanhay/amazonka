@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamType where
+module Network.AWS.Firehose.Types.DeliveryStreamType
+  ( DeliveryStreamType
+      ( DeliveryStreamType',
+        DirectPut,
+        KinesisStreamAsSource
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStreamType
-  = DirectPut
-  | KinesisStreamAsSource
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStreamType = DeliveryStreamType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStreamType where
-  parser =
-    takeLowerText >>= \case
-      "directput" -> pure DirectPut
-      "kinesisstreamassource" -> pure KinesisStreamAsSource
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStreamType from value: '" <> e
-            <> "'. Accepted values: directput, kinesisstreamassource"
+pattern DirectPut :: DeliveryStreamType
+pattern DirectPut = DeliveryStreamType' "DirectPut"
 
-instance ToText DeliveryStreamType where
-  toText = \case
-    DirectPut -> "DirectPut"
-    KinesisStreamAsSource -> "KinesisStreamAsSource"
+pattern KinesisStreamAsSource :: DeliveryStreamType
+pattern KinesisStreamAsSource = DeliveryStreamType' "KinesisStreamAsSource"
 
-instance Hashable DeliveryStreamType
-
-instance NFData DeliveryStreamType
-
-instance ToByteString DeliveryStreamType
-
-instance ToQuery DeliveryStreamType
-
-instance ToHeader DeliveryStreamType
-
-instance ToJSON DeliveryStreamType where
-  toJSON = toJSONText
-
-instance FromJSON DeliveryStreamType where
-  parseJSON = parseJSONText "DeliveryStreamType"
+{-# COMPLETE
+  DirectPut,
+  KinesisStreamAsSource,
+  DeliveryStreamType'
+  #-}

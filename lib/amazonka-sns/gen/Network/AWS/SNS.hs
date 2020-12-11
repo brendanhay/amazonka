@@ -14,13 +14,11 @@
 -- __Amazon Simple Notification Service__
 --
 -- Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see <http://aws.amazon.com/sns/ https://aws.amazon.com/sns> . For detailed information about Amazon SNS features and their associated API calls, see the <https://docs.aws.amazon.com/sns/latest/dg/ Amazon SNS Developer Guide> .
---
 -- For information on the permissions you need to use this API, see <https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html Identity and access management in Amazon SNS> in the /Amazon SNS Developer Guide./
---
 -- We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
 module Network.AWS.SNS
-  ( -- * Service Configuration
-    sns,
+  ( -- * Service configuration
+    snsService,
 
     -- * Errors
     -- $errors
@@ -133,27 +131,27 @@ module Network.AWS.SNS
     -- * Types
 
     -- ** Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eAttributes,
     eEndpointARN,
 
     -- ** MessageAttributeValue
-    MessageAttributeValue,
-    messageAttributeValue,
+    MessageAttributeValue (..),
+    mkMessageAttributeValue,
     mavBinaryValue,
     mavStringValue,
     mavDataType,
 
     -- ** PlatformApplication
-    PlatformApplication,
-    platformApplication,
+    PlatformApplication (..),
+    mkPlatformApplication,
     paPlatformApplicationARN,
     paAttributes,
 
     -- ** Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sProtocol,
     sOwner,
     sTopicARN,
@@ -161,18 +159,30 @@ module Network.AWS.SNS
     sSubscriptionARN,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Topic
-    Topic,
-    topic,
+    Topic (..),
+    mkTopic,
     tTopicARN,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SNS.AddPermission
 import Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
 import Network.AWS.SNS.ConfirmSubscription

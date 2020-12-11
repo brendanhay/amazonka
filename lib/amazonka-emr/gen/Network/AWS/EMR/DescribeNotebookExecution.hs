@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,142 @@
 --
 -- Provides details of a notebook execution.
 module Network.AWS.EMR.DescribeNotebookExecution
-  ( -- * Creating a Request
-    describeNotebookExecution,
-    DescribeNotebookExecution,
+  ( -- * Creating a request
+    DescribeNotebookExecution (..),
+    mkDescribeNotebookExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dneNotebookExecutionId,
 
-    -- * Destructuring the Response
-    describeNotebookExecutionResponse,
-    DescribeNotebookExecutionResponse,
+    -- * Destructuring the response
+    DescribeNotebookExecutionResponse (..),
+    mkDescribeNotebookExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnersNotebookExecution,
     dnersResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeNotebookExecution' smart constructor.
+-- | /See:/ 'mkDescribeNotebookExecution' smart constructor.
 newtype DescribeNotebookExecution = DescribeNotebookExecution'
-  { _dneNotebookExecutionId ::
-      Text
+  { notebookExecutionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dneNotebookExecutionId' - The unique identifier of the notebook execution.
-describeNotebookExecution ::
-  -- | 'dneNotebookExecutionId'
-  Text ->
+-- * 'notebookExecutionId' - The unique identifier of the notebook execution.
+mkDescribeNotebookExecution ::
+  -- | 'notebookExecutionId'
+  Lude.Text ->
   DescribeNotebookExecution
-describeNotebookExecution pNotebookExecutionId_ =
+mkDescribeNotebookExecution pNotebookExecutionId_ =
   DescribeNotebookExecution'
-    { _dneNotebookExecutionId =
+    { notebookExecutionId =
         pNotebookExecutionId_
     }
 
 -- | The unique identifier of the notebook execution.
-dneNotebookExecutionId :: Lens' DescribeNotebookExecution Text
-dneNotebookExecutionId = lens _dneNotebookExecutionId (\s a -> s {_dneNotebookExecutionId = a})
+--
+-- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dneNotebookExecutionId :: Lens.Lens' DescribeNotebookExecution Lude.Text
+dneNotebookExecutionId = Lens.lens (notebookExecutionId :: DescribeNotebookExecution -> Lude.Text) (\s a -> s {notebookExecutionId = a} :: DescribeNotebookExecution)
+{-# DEPRECATED dneNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
 
-instance AWSRequest DescribeNotebookExecution where
+instance Lude.AWSRequest DescribeNotebookExecution where
   type
     Rs DescribeNotebookExecution =
       DescribeNotebookExecutionResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeNotebookExecutionResponse'
-            <$> (x .?> "NotebookExecution") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NotebookExecution")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNotebookExecution
-
-instance NFData DescribeNotebookExecution
-
-instance ToHeaders DescribeNotebookExecution where
+instance Lude.ToHeaders DescribeNotebookExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.DescribeNotebookExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.DescribeNotebookExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeNotebookExecution where
+instance Lude.ToJSON DescribeNotebookExecution where
   toJSON DescribeNotebookExecution' {..} =
-    object
-      ( catMaybes
-          [Just ("NotebookExecutionId" .= _dneNotebookExecutionId)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("NotebookExecutionId" Lude..= notebookExecutionId)]
       )
 
-instance ToPath DescribeNotebookExecution where
-  toPath = const "/"
+instance Lude.ToPath DescribeNotebookExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeNotebookExecution where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeNotebookExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeNotebookExecutionResponse' smart constructor.
+-- | /See:/ 'mkDescribeNotebookExecutionResponse' smart constructor.
 data DescribeNotebookExecutionResponse = DescribeNotebookExecutionResponse'
-  { _dnersNotebookExecution ::
-      !( Maybe
-           NotebookExecution
-       ),
-    _dnersResponseStatus ::
-      !Int
+  { notebookExecution ::
+      Lude.Maybe
+        NotebookExecution,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnersNotebookExecution' - Properties of the notebook execution.
---
--- * 'dnersResponseStatus' - -- | The response status code.
-describeNotebookExecutionResponse ::
-  -- | 'dnersResponseStatus'
-  Int ->
+-- * 'notebookExecution' - Properties of the notebook execution.
+-- * 'responseStatus' - The response status code.
+mkDescribeNotebookExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNotebookExecutionResponse
-describeNotebookExecutionResponse pResponseStatus_ =
+mkDescribeNotebookExecutionResponse pResponseStatus_ =
   DescribeNotebookExecutionResponse'
-    { _dnersNotebookExecution =
-        Nothing,
-      _dnersResponseStatus = pResponseStatus_
+    { notebookExecution =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Properties of the notebook execution.
-dnersNotebookExecution :: Lens' DescribeNotebookExecutionResponse (Maybe NotebookExecution)
-dnersNotebookExecution = lens _dnersNotebookExecution (\s a -> s {_dnersNotebookExecution = a})
+--
+-- /Note:/ Consider using 'notebookExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnersNotebookExecution :: Lens.Lens' DescribeNotebookExecutionResponse (Lude.Maybe NotebookExecution)
+dnersNotebookExecution = Lens.lens (notebookExecution :: DescribeNotebookExecutionResponse -> Lude.Maybe NotebookExecution) (\s a -> s {notebookExecution = a} :: DescribeNotebookExecutionResponse)
+{-# DEPRECATED dnersNotebookExecution "Use generic-lens or generic-optics with 'notebookExecution' instead." #-}
 
--- | -- | The response status code.
-dnersResponseStatus :: Lens' DescribeNotebookExecutionResponse Int
-dnersResponseStatus = lens _dnersResponseStatus (\s a -> s {_dnersResponseStatus = a})
-
-instance NFData DescribeNotebookExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnersResponseStatus :: Lens.Lens' DescribeNotebookExecutionResponse Lude.Int
+dnersResponseStatus = Lens.lens (responseStatus :: DescribeNotebookExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotebookExecutionResponse)
+{-# DEPRECATED dnersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,162 @@
 --
 -- Gets a list of cache policies.
 --
---
 -- You can optionally apply a filter to return only the managed policies created by AWS, or only the custom policies created in your AWS account.
---
 -- You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the @NextMarker@ value from the current response as the @Marker@ value in the subsequent request.
 module Network.AWS.CloudFront.ListCachePolicies
-  ( -- * Creating a Request
-    listCachePolicies,
-    ListCachePolicies,
+  ( -- * Creating a request
+    ListCachePolicies (..),
+    mkListCachePolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcpMarker,
     lcpMaxItems,
     lcpType,
 
-    -- * Destructuring the Response
-    listCachePoliciesResponse,
-    ListCachePoliciesResponse,
+    -- * Destructuring the response
+    ListCachePoliciesResponse (..),
+    mkListCachePoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcprsCachePolicyList,
     lcprsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCachePolicies' smart constructor.
+-- | /See:/ 'mkListCachePolicies' smart constructor.
 data ListCachePolicies = ListCachePolicies'
-  { _lcpMarker ::
-      !(Maybe Text),
-    _lcpMaxItems :: !(Maybe Text),
-    _lcpType :: !(Maybe CachePolicyType)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe CachePolicyType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCachePolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this field when paginating results to indicate where to begin in your list of cache policies. The response includes cache policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+-- * 'maxItems' - The maximum number of cache policies that you want in the response.
+-- * 'type'' - A filter to return only the specified kinds of cache policies. Valid values are:
 --
--- * 'lcpMarker' - Use this field when paginating results to indicate where to begin in your list of cache policies. The response includes cache policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
--- * 'lcpMaxItems' - The maximum number of cache policies that you want in the response.
+--     * @managed@ – Returns only the managed policies created by AWS.
 --
--- * 'lcpType' - A filter to return only the specified kinds of cache policies. Valid values are:     * @managed@ – Returns only the managed policies created by AWS.     * @custom@ – Returns only the custom policies created in your AWS account.
-listCachePolicies ::
+--
+--     * @custom@ – Returns only the custom policies created in your AWS account.
+mkListCachePolicies ::
   ListCachePolicies
-listCachePolicies =
+mkListCachePolicies =
   ListCachePolicies'
-    { _lcpMarker = Nothing,
-      _lcpMaxItems = Nothing,
-      _lcpType = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | Use this field when paginating results to indicate where to begin in your list of cache policies. The response includes cache policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-lcpMarker :: Lens' ListCachePolicies (Maybe Text)
-lcpMarker = lens _lcpMarker (\s a -> s {_lcpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcpMarker :: Lens.Lens' ListCachePolicies (Lude.Maybe Lude.Text)
+lcpMarker = Lens.lens (marker :: ListCachePolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListCachePolicies)
+{-# DEPRECATED lcpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of cache policies that you want in the response.
-lcpMaxItems :: Lens' ListCachePolicies (Maybe Text)
-lcpMaxItems = lens _lcpMaxItems (\s a -> s {_lcpMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcpMaxItems :: Lens.Lens' ListCachePolicies (Lude.Maybe Lude.Text)
+lcpMaxItems = Lens.lens (maxItems :: ListCachePolicies -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListCachePolicies)
+{-# DEPRECATED lcpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | A filter to return only the specified kinds of cache policies. Valid values are:     * @managed@ – Returns only the managed policies created by AWS.     * @custom@ – Returns only the custom policies created in your AWS account.
-lcpType :: Lens' ListCachePolicies (Maybe CachePolicyType)
-lcpType = lens _lcpType (\s a -> s {_lcpType = a})
+-- | A filter to return only the specified kinds of cache policies. Valid values are:
+--
+--
+--     * @managed@ – Returns only the managed policies created by AWS.
+--
+--
+--     * @custom@ – Returns only the custom policies created in your AWS account.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcpType :: Lens.Lens' ListCachePolicies (Lude.Maybe CachePolicyType)
+lcpType = Lens.lens (type' :: ListCachePolicies -> Lude.Maybe CachePolicyType) (\s a -> s {type' = a} :: ListCachePolicies)
+{-# DEPRECATED lcpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest ListCachePolicies where
+instance Lude.AWSRequest ListCachePolicies where
   type Rs ListCachePolicies = ListCachePoliciesResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListCachePoliciesResponse'
-            <$> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCachePolicies
+instance Lude.ToHeaders ListCachePolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListCachePolicies
+instance Lude.ToPath ListCachePolicies where
+  toPath = Lude.const "/2020-05-31/cache-policy"
 
-instance ToHeaders ListCachePolicies where
-  toHeaders = const mempty
-
-instance ToPath ListCachePolicies where
-  toPath = const "/2020-05-31/cache-policy"
-
-instance ToQuery ListCachePolicies where
+instance Lude.ToQuery ListCachePolicies where
   toQuery ListCachePolicies' {..} =
-    mconcat
-      [ "Marker" =: _lcpMarker,
-        "MaxItems" =: _lcpMaxItems,
-        "Type" =: _lcpType
+    Lude.mconcat
+      [ "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "Type" Lude.=: type'
       ]
 
--- | /See:/ 'listCachePoliciesResponse' smart constructor.
+-- | /See:/ 'mkListCachePoliciesResponse' smart constructor.
 data ListCachePoliciesResponse = ListCachePoliciesResponse'
-  { _lcprsCachePolicyList ::
-      !(Maybe CachePolicyList),
-    _lcprsResponseStatus :: !Int
+  { cachePolicyList ::
+      Lude.Maybe CachePolicyList,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCachePoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcprsCachePolicyList' - A list of cache policies.
---
--- * 'lcprsResponseStatus' - -- | The response status code.
-listCachePoliciesResponse ::
-  -- | 'lcprsResponseStatus'
-  Int ->
+-- * 'cachePolicyList' - A list of cache policies.
+-- * 'responseStatus' - The response status code.
+mkListCachePoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCachePoliciesResponse
-listCachePoliciesResponse pResponseStatus_ =
+mkListCachePoliciesResponse pResponseStatus_ =
   ListCachePoliciesResponse'
-    { _lcprsCachePolicyList = Nothing,
-      _lcprsResponseStatus = pResponseStatus_
+    { cachePolicyList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of cache policies.
-lcprsCachePolicyList :: Lens' ListCachePoliciesResponse (Maybe CachePolicyList)
-lcprsCachePolicyList = lens _lcprsCachePolicyList (\s a -> s {_lcprsCachePolicyList = a})
+--
+-- /Note:/ Consider using 'cachePolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcprsCachePolicyList :: Lens.Lens' ListCachePoliciesResponse (Lude.Maybe CachePolicyList)
+lcprsCachePolicyList = Lens.lens (cachePolicyList :: ListCachePoliciesResponse -> Lude.Maybe CachePolicyList) (\s a -> s {cachePolicyList = a} :: ListCachePoliciesResponse)
+{-# DEPRECATED lcprsCachePolicyList "Use generic-lens or generic-optics with 'cachePolicyList' instead." #-}
 
--- | -- | The response status code.
-lcprsResponseStatus :: Lens' ListCachePoliciesResponse Int
-lcprsResponseStatus = lens _lcprsResponseStatus (\s a -> s {_lcprsResponseStatus = a})
-
-instance NFData ListCachePoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcprsResponseStatus :: Lens.Lens' ListCachePoliciesResponse Lude.Int
+lcprsResponseStatus = Lens.lens (responseStatus :: ListCachePoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCachePoliciesResponse)
+{-# DEPRECATED lcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

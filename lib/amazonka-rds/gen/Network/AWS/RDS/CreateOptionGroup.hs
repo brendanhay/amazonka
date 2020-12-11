@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,212 @@
 --
 -- Creates a new option group. You can create up to 20 option groups.
 module Network.AWS.RDS.CreateOptionGroup
-  ( -- * Creating a Request
-    createOptionGroup,
-    CreateOptionGroup,
+  ( -- * Creating a request
+    CreateOptionGroup (..),
+    mkCreateOptionGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cogTags,
     cogOptionGroupName,
     cogEngineName,
     cogMajorEngineVersion,
     cogOptionGroupDescription,
 
-    -- * Destructuring the Response
-    createOptionGroupResponse,
-    CreateOptionGroupResponse,
+    -- * Destructuring the response
+    CreateOptionGroupResponse (..),
+    mkCreateOptionGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsOptionGroup,
     crsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createOptionGroup' smart constructor.
+-- /See:/ 'mkCreateOptionGroup' smart constructor.
 data CreateOptionGroup = CreateOptionGroup'
-  { _cogTags ::
-      !(Maybe [Tag]),
-    _cogOptionGroupName :: !Text,
-    _cogEngineName :: !Text,
-    _cogMajorEngineVersion :: !Text,
-    _cogOptionGroupDescription :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    optionGroupName :: Lude.Text,
+    engineName :: Lude.Text,
+    majorEngineVersion :: Lude.Text,
+    optionGroupDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOptionGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'engineName' - Specifies the name of the engine that this option group should be associated with.
+-- * 'majorEngineVersion' - Specifies the major version of the engine that this option group should be associated with.
+-- * 'optionGroupDescription' - The description of the option group.
+-- * 'optionGroupName' - Specifies the name of the option group to be created.
 --
--- * 'cogTags' - Tags to assign to the option group.
+-- Constraints:
 --
--- * 'cogOptionGroupName' - Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
+--     * Must be 1 to 255 letters, numbers, or hyphens
 --
--- * 'cogEngineName' - Specifies the name of the engine that this option group should be associated with.
 --
--- * 'cogMajorEngineVersion' - Specifies the major version of the engine that this option group should be associated with.
+--     * First character must be a letter
 --
--- * 'cogOptionGroupDescription' - The description of the option group.
-createOptionGroup ::
-  -- | 'cogOptionGroupName'
-  Text ->
-  -- | 'cogEngineName'
-  Text ->
-  -- | 'cogMajorEngineVersion'
-  Text ->
-  -- | 'cogOptionGroupDescription'
-  Text ->
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @myoptiongroup@
+-- * 'tags' - Tags to assign to the option group.
+mkCreateOptionGroup ::
+  -- | 'optionGroupName'
+  Lude.Text ->
+  -- | 'engineName'
+  Lude.Text ->
+  -- | 'majorEngineVersion'
+  Lude.Text ->
+  -- | 'optionGroupDescription'
+  Lude.Text ->
   CreateOptionGroup
-createOptionGroup
+mkCreateOptionGroup
   pOptionGroupName_
   pEngineName_
   pMajorEngineVersion_
   pOptionGroupDescription_ =
     CreateOptionGroup'
-      { _cogTags = Nothing,
-        _cogOptionGroupName = pOptionGroupName_,
-        _cogEngineName = pEngineName_,
-        _cogMajorEngineVersion = pMajorEngineVersion_,
-        _cogOptionGroupDescription = pOptionGroupDescription_
+      { tags = Lude.Nothing,
+        optionGroupName = pOptionGroupName_,
+        engineName = pEngineName_,
+        majorEngineVersion = pMajorEngineVersion_,
+        optionGroupDescription = pOptionGroupDescription_
       }
 
 -- | Tags to assign to the option group.
-cogTags :: Lens' CreateOptionGroup [Tag]
-cogTags = lens _cogTags (\s a -> s {_cogTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cogTags :: Lens.Lens' CreateOptionGroup (Lude.Maybe [Tag])
+cogTags = Lens.lens (tags :: CreateOptionGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateOptionGroup)
+{-# DEPRECATED cogTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
-cogOptionGroupName :: Lens' CreateOptionGroup Text
-cogOptionGroupName = lens _cogOptionGroupName (\s a -> s {_cogOptionGroupName = a})
+-- | Specifies the name of the option group to be created.
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @myoptiongroup@
+--
+-- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cogOptionGroupName :: Lens.Lens' CreateOptionGroup Lude.Text
+cogOptionGroupName = Lens.lens (optionGroupName :: CreateOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: CreateOptionGroup)
+{-# DEPRECATED cogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
 -- | Specifies the name of the engine that this option group should be associated with.
-cogEngineName :: Lens' CreateOptionGroup Text
-cogEngineName = lens _cogEngineName (\s a -> s {_cogEngineName = a})
+--
+-- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cogEngineName :: Lens.Lens' CreateOptionGroup Lude.Text
+cogEngineName = Lens.lens (engineName :: CreateOptionGroup -> Lude.Text) (\s a -> s {engineName = a} :: CreateOptionGroup)
+{-# DEPRECATED cogEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 -- | Specifies the major version of the engine that this option group should be associated with.
-cogMajorEngineVersion :: Lens' CreateOptionGroup Text
-cogMajorEngineVersion = lens _cogMajorEngineVersion (\s a -> s {_cogMajorEngineVersion = a})
+--
+-- /Note:/ Consider using 'majorEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cogMajorEngineVersion :: Lens.Lens' CreateOptionGroup Lude.Text
+cogMajorEngineVersion = Lens.lens (majorEngineVersion :: CreateOptionGroup -> Lude.Text) (\s a -> s {majorEngineVersion = a} :: CreateOptionGroup)
+{-# DEPRECATED cogMajorEngineVersion "Use generic-lens or generic-optics with 'majorEngineVersion' instead." #-}
 
 -- | The description of the option group.
-cogOptionGroupDescription :: Lens' CreateOptionGroup Text
-cogOptionGroupDescription = lens _cogOptionGroupDescription (\s a -> s {_cogOptionGroupDescription = a})
+--
+-- /Note:/ Consider using 'optionGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cogOptionGroupDescription :: Lens.Lens' CreateOptionGroup Lude.Text
+cogOptionGroupDescription = Lens.lens (optionGroupDescription :: CreateOptionGroup -> Lude.Text) (\s a -> s {optionGroupDescription = a} :: CreateOptionGroup)
+{-# DEPRECATED cogOptionGroupDescription "Use generic-lens or generic-optics with 'optionGroupDescription' instead." #-}
 
-instance AWSRequest CreateOptionGroup where
+instance Lude.AWSRequest CreateOptionGroup where
   type Rs CreateOptionGroup = CreateOptionGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateOptionGroupResult"
       ( \s h x ->
           CreateOptionGroupResponse'
-            <$> (x .@? "OptionGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "OptionGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateOptionGroup
+instance Lude.ToHeaders CreateOptionGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateOptionGroup
+instance Lude.ToPath CreateOptionGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateOptionGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateOptionGroup where
-  toPath = const "/"
-
-instance ToQuery CreateOptionGroup where
+instance Lude.ToQuery CreateOptionGroup where
   toQuery CreateOptionGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateOptionGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cogTags),
-        "OptionGroupName" =: _cogOptionGroupName,
-        "EngineName" =: _cogEngineName,
-        "MajorEngineVersion" =: _cogMajorEngineVersion,
-        "OptionGroupDescription" =: _cogOptionGroupDescription
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateOptionGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "OptionGroupName" Lude.=: optionGroupName,
+        "EngineName" Lude.=: engineName,
+        "MajorEngineVersion" Lude.=: majorEngineVersion,
+        "OptionGroupDescription" Lude.=: optionGroupDescription
       ]
 
--- | /See:/ 'createOptionGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateOptionGroupResponse' smart constructor.
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
-  { _crsOptionGroup ::
-      !(Maybe OptionGroup),
-    _crsResponseStatus :: !Int
+  { optionGroup ::
+      Lude.Maybe OptionGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOptionGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsOptionGroup' - Undocumented member.
---
--- * 'crsResponseStatus' - -- | The response status code.
-createOptionGroupResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'optionGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateOptionGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateOptionGroupResponse
-createOptionGroupResponse pResponseStatus_ =
+mkCreateOptionGroupResponse pResponseStatus_ =
   CreateOptionGroupResponse'
-    { _crsOptionGroup = Nothing,
-      _crsResponseStatus = pResponseStatus_
+    { optionGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-crsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-crsOptionGroup = lens _crsOptionGroup (\s a -> s {_crsOptionGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'optionGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsOptionGroup :: Lens.Lens' CreateOptionGroupResponse (Lude.Maybe OptionGroup)
+crsOptionGroup = Lens.lens (optionGroup :: CreateOptionGroupResponse -> Lude.Maybe OptionGroup) (\s a -> s {optionGroup = a} :: CreateOptionGroupResponse)
+{-# DEPRECATED crsOptionGroup "Use generic-lens or generic-optics with 'optionGroup' instead." #-}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateOptionGroupResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData CreateOptionGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' CreateOptionGroupResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateOptionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateOptionGroupResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

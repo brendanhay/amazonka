@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.EcsCluster where
+module Network.AWS.OpsWorks.Types.EcsCluster
+  ( EcsCluster (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEcsCluster,
+
+    -- * Lenses
+    ecEcsClusterARN,
+    ecEcsClusterName,
+    ecRegisteredAt,
+    ecStackId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a registered Amazon ECS cluster.
 --
---
---
--- /See:/ 'ecsCluster' smart constructor.
+-- /See:/ 'mkEcsCluster' smart constructor.
 data EcsCluster = EcsCluster'
-  { _ecEcsClusterARN :: !(Maybe Text),
-    _ecEcsClusterName :: !(Maybe Text),
-    _ecRegisteredAt :: !(Maybe Text),
-    _ecStackId :: !(Maybe Text)
+  { ecsClusterARN ::
+      Lude.Maybe Lude.Text,
+    ecsClusterName :: Lude.Maybe Lude.Text,
+    registeredAt :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EcsCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecEcsClusterARN' - The cluster's ARN.
---
--- * 'ecEcsClusterName' - The cluster name.
---
--- * 'ecRegisteredAt' - The time and date that the cluster was registered with the stack.
---
--- * 'ecStackId' - The stack ID.
-ecsCluster ::
+-- * 'ecsClusterARN' - The cluster's ARN.
+-- * 'ecsClusterName' - The cluster name.
+-- * 'registeredAt' - The time and date that the cluster was registered with the stack.
+-- * 'stackId' - The stack ID.
+mkEcsCluster ::
   EcsCluster
-ecsCluster =
+mkEcsCluster =
   EcsCluster'
-    { _ecEcsClusterARN = Nothing,
-      _ecEcsClusterName = Nothing,
-      _ecRegisteredAt = Nothing,
-      _ecStackId = Nothing
+    { ecsClusterARN = Lude.Nothing,
+      ecsClusterName = Lude.Nothing,
+      registeredAt = Lude.Nothing,
+      stackId = Lude.Nothing
     }
 
 -- | The cluster's ARN.
-ecEcsClusterARN :: Lens' EcsCluster (Maybe Text)
-ecEcsClusterARN = lens _ecEcsClusterARN (\s a -> s {_ecEcsClusterARN = a})
+--
+-- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEcsClusterARN :: Lens.Lens' EcsCluster (Lude.Maybe Lude.Text)
+ecEcsClusterARN = Lens.lens (ecsClusterARN :: EcsCluster -> Lude.Maybe Lude.Text) (\s a -> s {ecsClusterARN = a} :: EcsCluster)
+{-# DEPRECATED ecEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
 
 -- | The cluster name.
-ecEcsClusterName :: Lens' EcsCluster (Maybe Text)
-ecEcsClusterName = lens _ecEcsClusterName (\s a -> s {_ecEcsClusterName = a})
+--
+-- /Note:/ Consider using 'ecsClusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEcsClusterName :: Lens.Lens' EcsCluster (Lude.Maybe Lude.Text)
+ecEcsClusterName = Lens.lens (ecsClusterName :: EcsCluster -> Lude.Maybe Lude.Text) (\s a -> s {ecsClusterName = a} :: EcsCluster)
+{-# DEPRECATED ecEcsClusterName "Use generic-lens or generic-optics with 'ecsClusterName' instead." #-}
 
 -- | The time and date that the cluster was registered with the stack.
-ecRegisteredAt :: Lens' EcsCluster (Maybe Text)
-ecRegisteredAt = lens _ecRegisteredAt (\s a -> s {_ecRegisteredAt = a})
+--
+-- /Note:/ Consider using 'registeredAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecRegisteredAt :: Lens.Lens' EcsCluster (Lude.Maybe Lude.Text)
+ecRegisteredAt = Lens.lens (registeredAt :: EcsCluster -> Lude.Maybe Lude.Text) (\s a -> s {registeredAt = a} :: EcsCluster)
+{-# DEPRECATED ecRegisteredAt "Use generic-lens or generic-optics with 'registeredAt' instead." #-}
 
 -- | The stack ID.
-ecStackId :: Lens' EcsCluster (Maybe Text)
-ecStackId = lens _ecStackId (\s a -> s {_ecStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecStackId :: Lens.Lens' EcsCluster (Lude.Maybe Lude.Text)
+ecStackId = Lens.lens (stackId :: EcsCluster -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: EcsCluster)
+{-# DEPRECATED ecStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance FromJSON EcsCluster where
+instance Lude.FromJSON EcsCluster where
   parseJSON =
-    withObject
+    Lude.withObject
       "EcsCluster"
       ( \x ->
           EcsCluster'
-            <$> (x .:? "EcsClusterArn")
-            <*> (x .:? "EcsClusterName")
-            <*> (x .:? "RegisteredAt")
-            <*> (x .:? "StackId")
+            Lude.<$> (x Lude..:? "EcsClusterArn")
+            Lude.<*> (x Lude..:? "EcsClusterName")
+            Lude.<*> (x Lude..:? "RegisteredAt")
+            Lude.<*> (x Lude..:? "StackId")
       )
-
-instance Hashable EcsCluster
-
-instance NFData EcsCluster

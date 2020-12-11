@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Create a new field-level encryption configuration.
 module Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
-  ( -- * Creating a Request
-    createFieldLevelEncryptionConfig,
-    CreateFieldLevelEncryptionConfig,
+  ( -- * Creating a request
+    CreateFieldLevelEncryptionConfig (..),
+    mkCreateFieldLevelEncryptionConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cflecFieldLevelEncryptionConfig,
 
-    -- * Destructuring the Response
-    createFieldLevelEncryptionConfigResponse,
-    CreateFieldLevelEncryptionConfigResponse,
+    -- * Destructuring the response
+    CreateFieldLevelEncryptionConfigResponse (..),
+    mkCreateFieldLevelEncryptionConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cflecrsETag,
     cflecrsLocation,
     cflecrsFieldLevelEncryption,
@@ -39,127 +34,140 @@ module Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createFieldLevelEncryptionConfig' smart constructor.
+-- | /See:/ 'mkCreateFieldLevelEncryptionConfig' smart constructor.
 newtype CreateFieldLevelEncryptionConfig = CreateFieldLevelEncryptionConfig'
-  { _cflecFieldLevelEncryptionConfig ::
+  { fieldLevelEncryptionConfig ::
       FieldLevelEncryptionConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFieldLevelEncryptionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cflecFieldLevelEncryptionConfig' - The request to create a new field-level encryption configuration.
-createFieldLevelEncryptionConfig ::
-  -- | 'cflecFieldLevelEncryptionConfig'
+-- * 'fieldLevelEncryptionConfig' - The request to create a new field-level encryption configuration.
+mkCreateFieldLevelEncryptionConfig ::
+  -- | 'fieldLevelEncryptionConfig'
   FieldLevelEncryptionConfig ->
   CreateFieldLevelEncryptionConfig
-createFieldLevelEncryptionConfig pFieldLevelEncryptionConfig_ =
+mkCreateFieldLevelEncryptionConfig pFieldLevelEncryptionConfig_ =
   CreateFieldLevelEncryptionConfig'
-    { _cflecFieldLevelEncryptionConfig =
+    { fieldLevelEncryptionConfig =
         pFieldLevelEncryptionConfig_
     }
 
 -- | The request to create a new field-level encryption configuration.
-cflecFieldLevelEncryptionConfig :: Lens' CreateFieldLevelEncryptionConfig FieldLevelEncryptionConfig
-cflecFieldLevelEncryptionConfig = lens _cflecFieldLevelEncryptionConfig (\s a -> s {_cflecFieldLevelEncryptionConfig = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cflecFieldLevelEncryptionConfig :: Lens.Lens' CreateFieldLevelEncryptionConfig FieldLevelEncryptionConfig
+cflecFieldLevelEncryptionConfig = Lens.lens (fieldLevelEncryptionConfig :: CreateFieldLevelEncryptionConfig -> FieldLevelEncryptionConfig) (\s a -> s {fieldLevelEncryptionConfig = a} :: CreateFieldLevelEncryptionConfig)
+{-# DEPRECATED cflecFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
 
-instance AWSRequest CreateFieldLevelEncryptionConfig where
+instance Lude.AWSRequest CreateFieldLevelEncryptionConfig where
   type
     Rs CreateFieldLevelEncryptionConfig =
       CreateFieldLevelEncryptionConfigResponse
-  request = postXML cloudFront
+  request = Req.postXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateFieldLevelEncryptionConfigResponse'
-            <$> (h .#? "ETag")
-            <*> (h .#? "Location")
-            <*> (parseXML x)
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (h Lude..#? "Location")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateFieldLevelEncryptionConfig
-
-instance NFData CreateFieldLevelEncryptionConfig
-
-instance ToElement CreateFieldLevelEncryptionConfig where
+instance Lude.ToElement CreateFieldLevelEncryptionConfig where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}FieldLevelEncryptionConfig"
-      . _cflecFieldLevelEncryptionConfig
+      Lude.. fieldLevelEncryptionConfig
 
-instance ToHeaders CreateFieldLevelEncryptionConfig where
-  toHeaders = const mempty
+instance Lude.ToHeaders CreateFieldLevelEncryptionConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath CreateFieldLevelEncryptionConfig where
-  toPath = const "/2020-05-31/field-level-encryption"
+instance Lude.ToPath CreateFieldLevelEncryptionConfig where
+  toPath = Lude.const "/2020-05-31/field-level-encryption"
 
-instance ToQuery CreateFieldLevelEncryptionConfig where
-  toQuery = const mempty
+instance Lude.ToQuery CreateFieldLevelEncryptionConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createFieldLevelEncryptionConfigResponse' smart constructor.
+-- | /See:/ 'mkCreateFieldLevelEncryptionConfigResponse' smart constructor.
 data CreateFieldLevelEncryptionConfigResponse = CreateFieldLevelEncryptionConfigResponse'
-  { _cflecrsETag ::
-      !( Maybe
-           Text
-       ),
-    _cflecrsLocation ::
-      !( Maybe
-           Text
-       ),
-    _cflecrsFieldLevelEncryption ::
-      !( Maybe
-           FieldLevelEncryption
-       ),
-    _cflecrsResponseStatus ::
-      !Int
+  { eTag ::
+      Lude.Maybe
+        Lude.Text,
+    location ::
+      Lude.Maybe
+        Lude.Text,
+    fieldLevelEncryption ::
+      Lude.Maybe
+        FieldLevelEncryption,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cflecrsETag' - The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'cflecrsLocation' - The fully qualified URI of the new configuration resource just created.
---
--- * 'cflecrsFieldLevelEncryption' - Returned when you create a new field-level encryption configuration.
---
--- * 'cflecrsResponseStatus' - -- | The response status code.
-createFieldLevelEncryptionConfigResponse ::
-  -- | 'cflecrsResponseStatus'
-  Int ->
+-- * 'eTag' - The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
+-- * 'fieldLevelEncryption' - Returned when you create a new field-level encryption configuration.
+-- * 'location' - The fully qualified URI of the new configuration resource just created.
+-- * 'responseStatus' - The response status code.
+mkCreateFieldLevelEncryptionConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateFieldLevelEncryptionConfigResponse
-createFieldLevelEncryptionConfigResponse pResponseStatus_ =
+mkCreateFieldLevelEncryptionConfigResponse pResponseStatus_ =
   CreateFieldLevelEncryptionConfigResponse'
-    { _cflecrsETag = Nothing,
-      _cflecrsLocation = Nothing,
-      _cflecrsFieldLevelEncryption = Nothing,
-      _cflecrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      location = Lude.Nothing,
+      fieldLevelEncryption = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
-cflecrsETag :: Lens' CreateFieldLevelEncryptionConfigResponse (Maybe Text)
-cflecrsETag = lens _cflecrsETag (\s a -> s {_cflecrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cflecrsETag :: Lens.Lens' CreateFieldLevelEncryptionConfigResponse (Lude.Maybe Lude.Text)
+cflecrsETag = Lens.lens (eTag :: CreateFieldLevelEncryptionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateFieldLevelEncryptionConfigResponse)
+{-# DEPRECATED cflecrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new configuration resource just created.
-cflecrsLocation :: Lens' CreateFieldLevelEncryptionConfigResponse (Maybe Text)
-cflecrsLocation = lens _cflecrsLocation (\s a -> s {_cflecrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cflecrsLocation :: Lens.Lens' CreateFieldLevelEncryptionConfigResponse (Lude.Maybe Lude.Text)
+cflecrsLocation = Lens.lens (location :: CreateFieldLevelEncryptionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateFieldLevelEncryptionConfigResponse)
+{-# DEPRECATED cflecrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | Returned when you create a new field-level encryption configuration.
-cflecrsFieldLevelEncryption :: Lens' CreateFieldLevelEncryptionConfigResponse (Maybe FieldLevelEncryption)
-cflecrsFieldLevelEncryption = lens _cflecrsFieldLevelEncryption (\s a -> s {_cflecrsFieldLevelEncryption = a})
+--
+-- /Note:/ Consider using 'fieldLevelEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cflecrsFieldLevelEncryption :: Lens.Lens' CreateFieldLevelEncryptionConfigResponse (Lude.Maybe FieldLevelEncryption)
+cflecrsFieldLevelEncryption = Lens.lens (fieldLevelEncryption :: CreateFieldLevelEncryptionConfigResponse -> Lude.Maybe FieldLevelEncryption) (\s a -> s {fieldLevelEncryption = a} :: CreateFieldLevelEncryptionConfigResponse)
+{-# DEPRECATED cflecrsFieldLevelEncryption "Use generic-lens or generic-optics with 'fieldLevelEncryption' instead." #-}
 
--- | -- | The response status code.
-cflecrsResponseStatus :: Lens' CreateFieldLevelEncryptionConfigResponse Int
-cflecrsResponseStatus = lens _cflecrsResponseStatus (\s a -> s {_cflecrsResponseStatus = a})
-
-instance NFData CreateFieldLevelEncryptionConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cflecrsResponseStatus :: Lens.Lens' CreateFieldLevelEncryptionConfigResponse Lude.Int
+cflecrsResponseStatus = Lens.lens (responseStatus :: CreateFieldLevelEncryptionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFieldLevelEncryptionConfigResponse)
+{-# DEPRECATED cflecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

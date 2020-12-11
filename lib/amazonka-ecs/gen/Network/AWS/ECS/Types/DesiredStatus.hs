@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.DesiredStatus where
+module Network.AWS.ECS.Types.DesiredStatus
+  ( DesiredStatus
+      ( DesiredStatus',
+        Pending,
+        Running,
+        Stopped
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DesiredStatus
-  = Pending
-  | Running
-  | Stopped
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DesiredStatus = DesiredStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DesiredStatus where
-  parser =
-    takeLowerText >>= \case
-      "pending" -> pure Pending
-      "running" -> pure Running
-      "stopped" -> pure Stopped
-      e ->
-        fromTextError $
-          "Failure parsing DesiredStatus from value: '" <> e
-            <> "'. Accepted values: pending, running, stopped"
+pattern Pending :: DesiredStatus
+pattern Pending = DesiredStatus' "PENDING"
 
-instance ToText DesiredStatus where
-  toText = \case
-    Pending -> "PENDING"
-    Running -> "RUNNING"
-    Stopped -> "STOPPED"
+pattern Running :: DesiredStatus
+pattern Running = DesiredStatus' "RUNNING"
 
-instance Hashable DesiredStatus
+pattern Stopped :: DesiredStatus
+pattern Stopped = DesiredStatus' "STOPPED"
 
-instance NFData DesiredStatus
-
-instance ToByteString DesiredStatus
-
-instance ToQuery DesiredStatus
-
-instance ToHeader DesiredStatus
-
-instance ToJSON DesiredStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  Pending,
+  Running,
+  Stopped,
+  DesiredStatus'
+  #-}

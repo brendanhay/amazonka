@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate where
+module Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate
+  ( InputParallelismUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputParallelismUpdate,
+
+    -- * Lenses
+    ipuCountUpdate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides updates to the parallelism count.
 --
---
---
--- /See:/ 'inputParallelismUpdate' smart constructor.
+-- /See:/ 'mkInputParallelismUpdate' smart constructor.
 newtype InputParallelismUpdate = InputParallelismUpdate'
-  { _ipuCountUpdate ::
-      Maybe Nat
+  { countUpdate ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputParallelismUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipuCountUpdate' - Number of in-application streams to create for the specified streaming source.
-inputParallelismUpdate ::
+-- * 'countUpdate' - Number of in-application streams to create for the specified streaming source.
+mkInputParallelismUpdate ::
   InputParallelismUpdate
-inputParallelismUpdate =
-  InputParallelismUpdate' {_ipuCountUpdate = Nothing}
+mkInputParallelismUpdate =
+  InputParallelismUpdate' {countUpdate = Lude.Nothing}
 
 -- | Number of in-application streams to create for the specified streaming source.
-ipuCountUpdate :: Lens' InputParallelismUpdate (Maybe Natural)
-ipuCountUpdate = lens _ipuCountUpdate (\s a -> s {_ipuCountUpdate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'countUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipuCountUpdate :: Lens.Lens' InputParallelismUpdate (Lude.Maybe Lude.Natural)
+ipuCountUpdate = Lens.lens (countUpdate :: InputParallelismUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {countUpdate = a} :: InputParallelismUpdate)
+{-# DEPRECATED ipuCountUpdate "Use generic-lens or generic-optics with 'countUpdate' instead." #-}
 
-instance Hashable InputParallelismUpdate
-
-instance NFData InputParallelismUpdate
-
-instance ToJSON InputParallelismUpdate where
+instance Lude.ToJSON InputParallelismUpdate where
   toJSON InputParallelismUpdate' {..} =
-    object (catMaybes [("CountUpdate" .=) <$> _ipuCountUpdate])
+    Lude.object
+      (Lude.catMaybes [("CountUpdate" Lude..=) Lude.<$> countUpdate])

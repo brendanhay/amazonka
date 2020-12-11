@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.UsageReportExecutionErrorCode where
+module Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
+  ( UsageReportExecutionErrorCode
+      ( UsageReportExecutionErrorCode',
+        UREECAccessDenied,
+        UREECInternalServiceError,
+        UREECResourceNotFound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UsageReportExecutionErrorCode
-  = UREECAccessDenied
-  | UREECInternalServiceError
-  | UREECResourceNotFound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageReportExecutionErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "access_denied" -> pure UREECAccessDenied
-      "internal_service_error" -> pure UREECInternalServiceError
-      "resource_not_found" -> pure UREECResourceNotFound
-      e ->
-        fromTextError $
-          "Failure parsing UsageReportExecutionErrorCode from value: '" <> e
-            <> "'. Accepted values: access_denied, internal_service_error, resource_not_found"
+pattern UREECAccessDenied :: UsageReportExecutionErrorCode
+pattern UREECAccessDenied = UsageReportExecutionErrorCode' "ACCESS_DENIED"
 
-instance ToText UsageReportExecutionErrorCode where
-  toText = \case
-    UREECAccessDenied -> "ACCESS_DENIED"
-    UREECInternalServiceError -> "INTERNAL_SERVICE_ERROR"
-    UREECResourceNotFound -> "RESOURCE_NOT_FOUND"
+pattern UREECInternalServiceError :: UsageReportExecutionErrorCode
+pattern UREECInternalServiceError = UsageReportExecutionErrorCode' "INTERNAL_SERVICE_ERROR"
 
-instance Hashable UsageReportExecutionErrorCode
+pattern UREECResourceNotFound :: UsageReportExecutionErrorCode
+pattern UREECResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
 
-instance NFData UsageReportExecutionErrorCode
-
-instance ToByteString UsageReportExecutionErrorCode
-
-instance ToQuery UsageReportExecutionErrorCode
-
-instance ToHeader UsageReportExecutionErrorCode
-
-instance FromJSON UsageReportExecutionErrorCode where
-  parseJSON = parseJSONText "UsageReportExecutionErrorCode"
+{-# COMPLETE
+  UREECAccessDenied,
+  UREECInternalServiceError,
+  UREECResourceNotFound,
+  UsageReportExecutionErrorCode'
+  #-}

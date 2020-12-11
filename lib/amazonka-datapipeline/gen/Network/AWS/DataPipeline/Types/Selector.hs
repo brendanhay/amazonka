@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.Selector where
+module Network.AWS.DataPipeline.Types.Selector
+  ( Selector (..),
+
+    -- * Smart constructor
+    mkSelector,
+
+    -- * Lenses
+    sOperator,
+    sFieldName,
+  )
+where
 
 import Network.AWS.DataPipeline.Types.Operator
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A comparision that is used to determine whether a query should return this object.
 --
---
---
--- /See:/ 'selector' smart constructor.
+-- /See:/ 'mkSelector' smart constructor.
 data Selector = Selector'
-  { _sOperator :: !(Maybe Operator),
-    _sFieldName :: !(Maybe Text)
+  { operator :: Lude.Maybe Operator,
+    fieldName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Selector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sOperator' - Undocumented member.
---
--- * 'sFieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
-selector ::
+-- * 'fieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+-- * 'operator' - Undocumented field.
+mkSelector ::
   Selector
-selector = Selector' {_sOperator = Nothing, _sFieldName = Nothing}
+mkSelector =
+  Selector' {operator = Lude.Nothing, fieldName = Lude.Nothing}
 
--- | Undocumented member.
-sOperator :: Lens' Selector (Maybe Operator)
-sOperator = lens _sOperator (\s a -> s {_sOperator = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOperator :: Lens.Lens' Selector (Lude.Maybe Operator)
+sOperator = Lens.lens (operator :: Selector -> Lude.Maybe Operator) (\s a -> s {operator = a} :: Selector)
+{-# DEPRECATED sOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
 -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
-sFieldName :: Lens' Selector (Maybe Text)
-sFieldName = lens _sFieldName (\s a -> s {_sFieldName = a})
+--
+-- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sFieldName :: Lens.Lens' Selector (Lude.Maybe Lude.Text)
+sFieldName = Lens.lens (fieldName :: Selector -> Lude.Maybe Lude.Text) (\s a -> s {fieldName = a} :: Selector)
+{-# DEPRECATED sFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance Hashable Selector
-
-instance NFData Selector
-
-instance ToJSON Selector where
+instance Lude.ToJSON Selector where
   toJSON Selector' {..} =
-    object
-      ( catMaybes
-          [("operator" .=) <$> _sOperator, ("fieldName" .=) <$> _sFieldName]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("operator" Lude..=) Lude.<$> operator,
+            ("fieldName" Lude..=) Lude.<$> fieldName
+          ]
       )

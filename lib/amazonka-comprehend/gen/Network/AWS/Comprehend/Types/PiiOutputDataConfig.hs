@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiOutputDataConfig where
+module Network.AWS.Comprehend.Types.PiiOutputDataConfig
+  ( PiiOutputDataConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPiiOutputDataConfig,
+
+    -- * Lenses
+    podcKMSKeyId,
+    podcS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides configuration parameters for the output of PII entity detection jobs.
 --
---
---
--- /See:/ 'piiOutputDataConfig' smart constructor.
+-- /See:/ 'mkPiiOutputDataConfig' smart constructor.
 data PiiOutputDataConfig = PiiOutputDataConfig'
-  { _podcKMSKeyId ::
-      !(Maybe Text),
-    _podcS3URI :: !Text
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    s3URI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiOutputDataConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'podcKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.
---
--- * 'podcS3URI' - When you use the @PiiOutputDataConfig@ object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data.
-piiOutputDataConfig ::
-  -- | 'podcS3URI'
-  Text ->
+-- * 'kmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.
+-- * 's3URI' - When you use the @PiiOutputDataConfig@ object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data.
+mkPiiOutputDataConfig ::
+  -- | 's3URI'
+  Lude.Text ->
   PiiOutputDataConfig
-piiOutputDataConfig pS3URI_ =
-  PiiOutputDataConfig'
-    { _podcKMSKeyId = Nothing,
-      _podcS3URI = pS3URI_
-    }
+mkPiiOutputDataConfig pS3URI_ =
+  PiiOutputDataConfig' {kmsKeyId = Lude.Nothing, s3URI = pS3URI_}
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.
-podcKMSKeyId :: Lens' PiiOutputDataConfig (Maybe Text)
-podcKMSKeyId = lens _podcKMSKeyId (\s a -> s {_podcKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+podcKMSKeyId :: Lens.Lens' PiiOutputDataConfig (Lude.Maybe Lude.Text)
+podcKMSKeyId = Lens.lens (kmsKeyId :: PiiOutputDataConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: PiiOutputDataConfig)
+{-# DEPRECATED podcKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | When you use the @PiiOutputDataConfig@ object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data.
-podcS3URI :: Lens' PiiOutputDataConfig Text
-podcS3URI = lens _podcS3URI (\s a -> s {_podcS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+podcS3URI :: Lens.Lens' PiiOutputDataConfig Lude.Text
+podcS3URI = Lens.lens (s3URI :: PiiOutputDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: PiiOutputDataConfig)
+{-# DEPRECATED podcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON PiiOutputDataConfig where
+instance Lude.FromJSON PiiOutputDataConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "PiiOutputDataConfig"
       ( \x ->
-          PiiOutputDataConfig' <$> (x .:? "KmsKeyId") <*> (x .: "S3Uri")
+          PiiOutputDataConfig'
+            Lude.<$> (x Lude..:? "KmsKeyId") Lude.<*> (x Lude..: "S3Uri")
       )
-
-instance Hashable PiiOutputDataConfig
-
-instance NFData PiiOutputDataConfig

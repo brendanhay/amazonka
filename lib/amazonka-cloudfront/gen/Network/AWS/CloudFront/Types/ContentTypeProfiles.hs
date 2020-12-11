@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.ContentTypeProfiles where
+module Network.AWS.CloudFront.Types.ContentTypeProfiles
+  ( ContentTypeProfiles (..),
+
+    -- * Smart constructor
+    mkContentTypeProfiles,
+
+    -- * Lenses
+    ctpItems,
+    ctpQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.ContentTypeProfile
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Field-level encryption content type-profile.
 --
---
---
--- /See:/ 'contentTypeProfiles' smart constructor.
+-- /See:/ 'mkContentTypeProfiles' smart constructor.
 data ContentTypeProfiles = ContentTypeProfiles'
-  { _ctpItems ::
-      !(Maybe [ContentTypeProfile]),
-    _ctpQuantity :: !Int
+  { items ::
+      Lude.Maybe [ContentTypeProfile],
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentTypeProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctpItems' - Items in a field-level encryption content type-profile mapping.
---
--- * 'ctpQuantity' - The number of field-level encryption content type-profile mappings.
-contentTypeProfiles ::
-  -- | 'ctpQuantity'
-  Int ->
+-- * 'items' - Items in a field-level encryption content type-profile mapping.
+-- * 'quantity' - The number of field-level encryption content type-profile mappings.
+mkContentTypeProfiles ::
+  -- | 'quantity'
+  Lude.Int ->
   ContentTypeProfiles
-contentTypeProfiles pQuantity_ =
-  ContentTypeProfiles'
-    { _ctpItems = Nothing,
-      _ctpQuantity = pQuantity_
-    }
+mkContentTypeProfiles pQuantity_ =
+  ContentTypeProfiles' {items = Lude.Nothing, quantity = pQuantity_}
 
 -- | Items in a field-level encryption content type-profile mapping.
-ctpItems :: Lens' ContentTypeProfiles [ContentTypeProfile]
-ctpItems = lens _ctpItems (\s a -> s {_ctpItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpItems :: Lens.Lens' ContentTypeProfiles (Lude.Maybe [ContentTypeProfile])
+ctpItems = Lens.lens (items :: ContentTypeProfiles -> Lude.Maybe [ContentTypeProfile]) (\s a -> s {items = a} :: ContentTypeProfiles)
+{-# DEPRECATED ctpItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of field-level encryption content type-profile mappings.
-ctpQuantity :: Lens' ContentTypeProfiles Int
-ctpQuantity = lens _ctpQuantity (\s a -> s {_ctpQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpQuantity :: Lens.Lens' ContentTypeProfiles Lude.Int
+ctpQuantity = Lens.lens (quantity :: ContentTypeProfiles -> Lude.Int) (\s a -> s {quantity = a} :: ContentTypeProfiles)
+{-# DEPRECATED ctpQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML ContentTypeProfiles where
+instance Lude.FromXML ContentTypeProfiles where
   parseXML x =
     ContentTypeProfiles'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "ContentTypeProfile")
-          )
-      <*> (x .@ "Quantity")
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ContentTypeProfile")
+               )
+      Lude.<*> (x Lude..@ "Quantity")
 
-instance Hashable ContentTypeProfiles
-
-instance NFData ContentTypeProfiles
-
-instance ToXML ContentTypeProfiles where
+instance Lude.ToXML ContentTypeProfiles where
   toXML ContentTypeProfiles' {..} =
-    mconcat
-      [ "Items" @= toXML (toXMLList "ContentTypeProfile" <$> _ctpItems),
-        "Quantity" @= _ctpQuantity
+    Lude.mconcat
+      [ "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "ContentTypeProfile" Lude.<$> items),
+        "Quantity" Lude.@= quantity
       ]

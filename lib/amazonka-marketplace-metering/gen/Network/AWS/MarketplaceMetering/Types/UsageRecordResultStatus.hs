@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus where
+module Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
+  ( UsageRecordResultStatus
+      ( UsageRecordResultStatus',
+        CustomerNotSubscribed,
+        DuplicateRecord,
+        Success
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UsageRecordResultStatus
-  = CustomerNotSubscribed
-  | DuplicateRecord
-  | Success
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageRecordResultStatus = UsageRecordResultStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageRecordResultStatus where
-  parser =
-    takeLowerText >>= \case
-      "customernotsubscribed" -> pure CustomerNotSubscribed
-      "duplicaterecord" -> pure DuplicateRecord
-      "success" -> pure Success
-      e ->
-        fromTextError $
-          "Failure parsing UsageRecordResultStatus from value: '" <> e
-            <> "'. Accepted values: customernotsubscribed, duplicaterecord, success"
+pattern CustomerNotSubscribed :: UsageRecordResultStatus
+pattern CustomerNotSubscribed = UsageRecordResultStatus' "CustomerNotSubscribed"
 
-instance ToText UsageRecordResultStatus where
-  toText = \case
-    CustomerNotSubscribed -> "CustomerNotSubscribed"
-    DuplicateRecord -> "DuplicateRecord"
-    Success -> "Success"
+pattern DuplicateRecord :: UsageRecordResultStatus
+pattern DuplicateRecord = UsageRecordResultStatus' "DuplicateRecord"
 
-instance Hashable UsageRecordResultStatus
+pattern Success :: UsageRecordResultStatus
+pattern Success = UsageRecordResultStatus' "Success"
 
-instance NFData UsageRecordResultStatus
-
-instance ToByteString UsageRecordResultStatus
-
-instance ToQuery UsageRecordResultStatus
-
-instance ToHeader UsageRecordResultStatus
-
-instance FromJSON UsageRecordResultStatus where
-  parseJSON = parseJSONText "UsageRecordResultStatus"
+{-# COMPLETE
+  CustomerNotSubscribed,
+  DuplicateRecord,
+  Success,
+  UsageRecordResultStatus'
+  #-}

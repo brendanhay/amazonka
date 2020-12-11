@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,142 +15,190 @@
 -- The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
 --
 --
---
---
 -- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 module Network.AWS.RDS.DeleteDBCluster
-  ( -- * Creating a Request
-    deleteDBCluster,
-    DeleteDBCluster,
+  ( -- * Creating a request
+    DeleteDBCluster (..),
+    mkDeleteDBCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddbcFinalDBSnapshotIdentifier,
     ddbcSkipFinalSnapshot,
     ddbcDBClusterIdentifier,
 
-    -- * Destructuring the Response
-    deleteDBClusterResponse,
-    DeleteDBClusterResponse,
+    -- * Destructuring the response
+    DeleteDBClusterResponse (..),
+    mkDeleteDBClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddbcrsDBCluster,
     ddbcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteDBCluster' smart constructor.
+-- /See:/ 'mkDeleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
-  { _ddbcFinalDBSnapshotIdentifier ::
-      !(Maybe Text),
-    _ddbcSkipFinalSnapshot :: !(Maybe Bool),
-    _ddbcDBClusterIdentifier :: !Text
+  { finalDBSnapshotIdentifier ::
+      Lude.Maybe Lude.Text,
+    skipFinalSnapshot :: Lude.Maybe Lude.Bool,
+    dbClusterIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbClusterIdentifier' - The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
 --
--- * 'ddbcFinalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is disabled.  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
+-- Constraints:
 --
--- * 'ddbcSkipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB cluster snapshot before the DB cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip isn't specified, a DB cluster snapshot is created before the DB cluster is deleted. By default, skip isn't specified, and the DB cluster snapshot is created. By default, this parameter is disabled.
+--     * Must match an existing DBClusterIdentifier.
 --
--- * 'ddbcDBClusterIdentifier' - The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive. Constraints:     * Must match an existing DBClusterIdentifier.
-deleteDBCluster ::
-  -- | 'ddbcDBClusterIdentifier'
-  Text ->
+--
+-- * 'finalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is disabled.
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- * 'skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB cluster snapshot before the DB cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip isn't specified, a DB cluster snapshot is created before the DB cluster is deleted. By default, skip isn't specified, and the DB cluster snapshot is created. By default, this parameter is disabled.
+mkDeleteDBCluster ::
+  -- | 'dbClusterIdentifier'
+  Lude.Text ->
   DeleteDBCluster
-deleteDBCluster pDBClusterIdentifier_ =
+mkDeleteDBCluster pDBClusterIdentifier_ =
   DeleteDBCluster'
-    { _ddbcFinalDBSnapshotIdentifier = Nothing,
-      _ddbcSkipFinalSnapshot = Nothing,
-      _ddbcDBClusterIdentifier = pDBClusterIdentifier_
+    { finalDBSnapshotIdentifier = Lude.Nothing,
+      skipFinalSnapshot = Lude.Nothing,
+      dbClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is disabled.  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
-ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
-ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\s a -> s {_ddbcFinalDBSnapshotIdentifier = a})
+-- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is disabled.
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--
+-- /Note:/ Consider using 'finalDBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcFinalDBSnapshotIdentifier :: Lens.Lens' DeleteDBCluster (Lude.Maybe Lude.Text)
+ddbcFinalDBSnapshotIdentifier = Lens.lens (finalDBSnapshotIdentifier :: DeleteDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBCluster)
+{-# DEPRECATED ddbcFinalDBSnapshotIdentifier "Use generic-lens or generic-optics with 'finalDBSnapshotIdentifier' instead." #-}
 
 -- | A value that indicates whether to skip the creation of a final DB cluster snapshot before the DB cluster is deleted. If skip is specified, no DB cluster snapshot is created. If skip isn't specified, a DB cluster snapshot is created before the DB cluster is deleted. By default, skip isn't specified, and the DB cluster snapshot is created. By default, this parameter is disabled.
-ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
-ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\s a -> s {_ddbcSkipFinalSnapshot = a})
+--
+-- /Note:/ Consider using 'skipFinalSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcSkipFinalSnapshot :: Lens.Lens' DeleteDBCluster (Lude.Maybe Lude.Bool)
+ddbcSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteDBCluster -> Lude.Maybe Lude.Bool) (\s a -> s {skipFinalSnapshot = a} :: DeleteDBCluster)
+{-# DEPRECATED ddbcSkipFinalSnapshot "Use generic-lens or generic-optics with 'skipFinalSnapshot' instead." #-}
 
--- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive. Constraints:     * Must match an existing DBClusterIdentifier.
-ddbcDBClusterIdentifier :: Lens' DeleteDBCluster Text
-ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\s a -> s {_ddbcDBClusterIdentifier = a})
+-- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match an existing DBClusterIdentifier.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcDBClusterIdentifier :: Lens.Lens' DeleteDBCluster Lude.Text
+ddbcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DeleteDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DeleteDBCluster)
+{-# DEPRECATED ddbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
-instance AWSRequest DeleteDBCluster where
+instance Lude.AWSRequest DeleteDBCluster where
   type Rs DeleteDBCluster = DeleteDBClusterResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteDBClusterResult"
       ( \s h x ->
           DeleteDBClusterResponse'
-            <$> (x .@? "DBCluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBCluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDBCluster
+instance Lude.ToHeaders DeleteDBCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDBCluster
+instance Lude.ToPath DeleteDBCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDBCluster where
-  toHeaders = const mempty
-
-instance ToPath DeleteDBCluster where
-  toPath = const "/"
-
-instance ToQuery DeleteDBCluster where
+instance Lude.ToQuery DeleteDBCluster where
   toQuery DeleteDBCluster' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDBCluster" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "FinalDBSnapshotIdentifier" =: _ddbcFinalDBSnapshotIdentifier,
-        "SkipFinalSnapshot" =: _ddbcSkipFinalSnapshot,
-        "DBClusterIdentifier" =: _ddbcDBClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDBCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "FinalDBSnapshotIdentifier" Lude.=: finalDBSnapshotIdentifier,
+        "SkipFinalSnapshot" Lude.=: skipFinalSnapshot,
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier
       ]
 
--- | /See:/ 'deleteDBClusterResponse' smart constructor.
+-- | /See:/ 'mkDeleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
-  { _ddbcrsDBCluster ::
-      !(Maybe DBCluster),
-    _ddbcrsResponseStatus :: !Int
+  { dbCluster ::
+      Lude.Maybe DBCluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddbcrsDBCluster' - Undocumented member.
---
--- * 'ddbcrsResponseStatus' - -- | The response status code.
-deleteDBClusterResponse ::
-  -- | 'ddbcrsResponseStatus'
-  Int ->
+-- * 'dbCluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteDBClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDBClusterResponse
-deleteDBClusterResponse pResponseStatus_ =
+mkDeleteDBClusterResponse pResponseStatus_ =
   DeleteDBClusterResponse'
-    { _ddbcrsDBCluster = Nothing,
-      _ddbcrsResponseStatus = pResponseStatus_
+    { dbCluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
-ddbcrsDBCluster = lens _ddbcrsDBCluster (\s a -> s {_ddbcrsDBCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcrsDBCluster :: Lens.Lens' DeleteDBClusterResponse (Lude.Maybe DBCluster)
+ddbcrsDBCluster = Lens.lens (dbCluster :: DeleteDBClusterResponse -> Lude.Maybe DBCluster) (\s a -> s {dbCluster = a} :: DeleteDBClusterResponse)
+{-# DEPRECATED ddbcrsDBCluster "Use generic-lens or generic-optics with 'dbCluster' instead." #-}
 
--- | -- | The response status code.
-ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
-ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\s a -> s {_ddbcrsResponseStatus = a})
-
-instance NFData DeleteDBClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcrsResponseStatus :: Lens.Lens' DeleteDBClusterResponse Lude.Int
+ddbcrsResponseStatus = Lens.lens (responseStatus :: DeleteDBClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBClusterResponse)
+{-# DEPRECATED ddbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

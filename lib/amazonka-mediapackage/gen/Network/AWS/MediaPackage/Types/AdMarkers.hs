@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.AdMarkers where
+module Network.AWS.MediaPackage.Types.AdMarkers
+  ( AdMarkers
+      ( AdMarkers',
+        AMDaterange,
+        AMNone,
+        AMPassthrough,
+        AMSCTE35Enhanced
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AdMarkers
-  = AMDaterange
-  | AMNone
-  | AMPassthrough
-  | AMSCTE35Enhanced
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AdMarkers = AdMarkers' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AdMarkers where
-  parser =
-    takeLowerText >>= \case
-      "daterange" -> pure AMDaterange
-      "none" -> pure AMNone
-      "passthrough" -> pure AMPassthrough
-      "scte35_enhanced" -> pure AMSCTE35Enhanced
-      e ->
-        fromTextError $
-          "Failure parsing AdMarkers from value: '" <> e
-            <> "'. Accepted values: daterange, none, passthrough, scte35_enhanced"
+pattern AMDaterange :: AdMarkers
+pattern AMDaterange = AdMarkers' "DATERANGE"
 
-instance ToText AdMarkers where
-  toText = \case
-    AMDaterange -> "DATERANGE"
-    AMNone -> "NONE"
-    AMPassthrough -> "PASSTHROUGH"
-    AMSCTE35Enhanced -> "SCTE35_ENHANCED"
+pattern AMNone :: AdMarkers
+pattern AMNone = AdMarkers' "NONE"
 
-instance Hashable AdMarkers
+pattern AMPassthrough :: AdMarkers
+pattern AMPassthrough = AdMarkers' "PASSTHROUGH"
 
-instance NFData AdMarkers
+pattern AMSCTE35Enhanced :: AdMarkers
+pattern AMSCTE35Enhanced = AdMarkers' "SCTE35_ENHANCED"
 
-instance ToByteString AdMarkers
-
-instance ToQuery AdMarkers
-
-instance ToHeader AdMarkers
-
-instance ToJSON AdMarkers where
-  toJSON = toJSONText
-
-instance FromJSON AdMarkers where
-  parseJSON = parseJSONText "AdMarkers"
+{-# COMPLETE
+  AMDaterange,
+  AMNone,
+  AMPassthrough,
+  AMSCTE35Enhanced,
+  AdMarkers'
+  #-}

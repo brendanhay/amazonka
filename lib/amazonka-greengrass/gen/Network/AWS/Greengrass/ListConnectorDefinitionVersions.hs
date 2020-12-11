@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListConnectorDefinitionVersions
-  ( -- * Creating a Request
-    listConnectorDefinitionVersions,
-    ListConnectorDefinitionVersions,
+  ( -- * Creating a request
+    ListConnectorDefinitionVersions (..),
+    mkListConnectorDefinitionVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcdvNextToken,
     lcdvMaxResults,
     lcdvConnectorDefinitionId,
 
-    -- * Destructuring the Response
-    listConnectorDefinitionVersionsResponse,
-    ListConnectorDefinitionVersionsResponse,
+    -- * Destructuring the response
+    ListConnectorDefinitionVersionsResponse (..),
+    mkListConnectorDefinitionVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcdvsrsVersions,
     lcdvsrsNextToken,
     lcdvsrsResponseStatus,
@@ -42,145 +37,165 @@ module Network.AWS.Greengrass.ListConnectorDefinitionVersions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listConnectorDefinitionVersions' smart constructor.
+-- | /See:/ 'mkListConnectorDefinitionVersions' smart constructor.
 data ListConnectorDefinitionVersions = ListConnectorDefinitionVersions'
-  { _lcdvNextToken ::
-      !(Maybe Text),
-    _lcdvMaxResults ::
-      !(Maybe Text),
-    _lcdvConnectorDefinitionId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Text,
+    connectorDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitionVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lcdvMaxResults' - The maximum number of results to be returned per request.
---
--- * 'lcdvConnectorDefinitionId' - The ID of the connector definition.
-listConnectorDefinitionVersions ::
-  -- | 'lcdvConnectorDefinitionId'
-  Text ->
+-- * 'connectorDefinitionId' - The ID of the connector definition.
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListConnectorDefinitionVersions ::
+  -- | 'connectorDefinitionId'
+  Lude.Text ->
   ListConnectorDefinitionVersions
-listConnectorDefinitionVersions pConnectorDefinitionId_ =
+mkListConnectorDefinitionVersions pConnectorDefinitionId_ =
   ListConnectorDefinitionVersions'
-    { _lcdvNextToken = Nothing,
-      _lcdvMaxResults = Nothing,
-      _lcdvConnectorDefinitionId = pConnectorDefinitionId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      connectorDefinitionId = pConnectorDefinitionId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lcdvNextToken :: Lens' ListConnectorDefinitionVersions (Maybe Text)
-lcdvNextToken = lens _lcdvNextToken (\s a -> s {_lcdvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvNextToken :: Lens.Lens' ListConnectorDefinitionVersions (Lude.Maybe Lude.Text)
+lcdvNextToken = Lens.lens (nextToken :: ListConnectorDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitionVersions)
+{-# DEPRECATED lcdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lcdvMaxResults :: Lens' ListConnectorDefinitionVersions (Maybe Text)
-lcdvMaxResults = lens _lcdvMaxResults (\s a -> s {_lcdvMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvMaxResults :: Lens.Lens' ListConnectorDefinitionVersions (Lude.Maybe Lude.Text)
+lcdvMaxResults = Lens.lens (maxResults :: ListConnectorDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListConnectorDefinitionVersions)
+{-# DEPRECATED lcdvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the connector definition.
-lcdvConnectorDefinitionId :: Lens' ListConnectorDefinitionVersions Text
-lcdvConnectorDefinitionId = lens _lcdvConnectorDefinitionId (\s a -> s {_lcdvConnectorDefinitionId = a})
+--
+-- /Note:/ Consider using 'connectorDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvConnectorDefinitionId :: Lens.Lens' ListConnectorDefinitionVersions Lude.Text
+lcdvConnectorDefinitionId = Lens.lens (connectorDefinitionId :: ListConnectorDefinitionVersions -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: ListConnectorDefinitionVersions)
+{-# DEPRECATED lcdvConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
 
-instance AWSPager ListConnectorDefinitionVersions where
+instance Page.AWSPager ListConnectorDefinitionVersions where
   page rq rs
-    | stop (rs ^. lcdvsrsNextToken) = Nothing
-    | stop (rs ^. lcdvsrsVersions) = Nothing
-    | otherwise = Just $ rq & lcdvNextToken .~ rs ^. lcdvsrsNextToken
+    | Page.stop (rs Lens.^. lcdvsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcdvsrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcdvNextToken Lens..~ rs Lens.^. lcdvsrsNextToken
 
-instance AWSRequest ListConnectorDefinitionVersions where
+instance Lude.AWSRequest ListConnectorDefinitionVersions where
   type
     Rs ListConnectorDefinitionVersions =
       ListConnectorDefinitionVersionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListConnectorDefinitionVersionsResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListConnectorDefinitionVersions
-
-instance NFData ListConnectorDefinitionVersions
-
-instance ToHeaders ListConnectorDefinitionVersions where
+instance Lude.ToHeaders ListConnectorDefinitionVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListConnectorDefinitionVersions where
+instance Lude.ToPath ListConnectorDefinitionVersions where
   toPath ListConnectorDefinitionVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/connectors/",
-        toBS _lcdvConnectorDefinitionId,
+        Lude.toBS connectorDefinitionId,
         "/versions"
       ]
 
-instance ToQuery ListConnectorDefinitionVersions where
+instance Lude.ToQuery ListConnectorDefinitionVersions where
   toQuery ListConnectorDefinitionVersions' {..} =
-    mconcat
-      ["NextToken" =: _lcdvNextToken, "MaxResults" =: _lcdvMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listConnectorDefinitionVersionsResponse' smart constructor.
+-- | /See:/ 'mkListConnectorDefinitionVersionsResponse' smart constructor.
 data ListConnectorDefinitionVersionsResponse = ListConnectorDefinitionVersionsResponse'
-  { _lcdvsrsVersions ::
-      !( Maybe
-           [VersionInformation]
-       ),
-    _lcdvsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _lcdvsrsResponseStatus ::
-      !Int
+  { versions ::
+      Lude.Maybe
+        [VersionInformation],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcdvsrsVersions' - Information about a version.
---
--- * 'lcdvsrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lcdvsrsResponseStatus' - -- | The response status code.
-listConnectorDefinitionVersionsResponse ::
-  -- | 'lcdvsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - Information about a version.
+mkListConnectorDefinitionVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListConnectorDefinitionVersionsResponse
-listConnectorDefinitionVersionsResponse pResponseStatus_ =
+mkListConnectorDefinitionVersionsResponse pResponseStatus_ =
   ListConnectorDefinitionVersionsResponse'
-    { _lcdvsrsVersions =
-        Nothing,
-      _lcdvsrsNextToken = Nothing,
-      _lcdvsrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about a version.
-lcdvsrsVersions :: Lens' ListConnectorDefinitionVersionsResponse [VersionInformation]
-lcdvsrsVersions = lens _lcdvsrsVersions (\s a -> s {_lcdvsrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsrsVersions :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Lude.Maybe [VersionInformation])
+lcdvsrsVersions = Lens.lens (versions :: ListConnectorDefinitionVersionsResponse -> Lude.Maybe [VersionInformation]) (\s a -> s {versions = a} :: ListConnectorDefinitionVersionsResponse)
+{-# DEPRECATED lcdvsrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lcdvsrsNextToken :: Lens' ListConnectorDefinitionVersionsResponse (Maybe Text)
-lcdvsrsNextToken = lens _lcdvsrsNextToken (\s a -> s {_lcdvsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsrsNextToken :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Lude.Maybe Lude.Text)
+lcdvsrsNextToken = Lens.lens (nextToken :: ListConnectorDefinitionVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitionVersionsResponse)
+{-# DEPRECATED lcdvsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcdvsrsResponseStatus :: Lens' ListConnectorDefinitionVersionsResponse Int
-lcdvsrsResponseStatus = lens _lcdvsrsResponseStatus (\s a -> s {_lcdvsrsResponseStatus = a})
-
-instance NFData ListConnectorDefinitionVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcdvsrsResponseStatus :: Lens.Lens' ListConnectorDefinitionVersionsResponse Lude.Int
+lcdvsrsResponseStatus = Lens.lens (responseStatus :: ListConnectorDefinitionVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConnectorDefinitionVersionsResponse)
+{-# DEPRECATED lcdvsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,109 @@
 --
 -- Creates a new configuration recorder to record the selected resource configurations.
 --
---
 -- You can use this action to change the role @roleARN@ or the @recordingGroup@ of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.
 module Network.AWS.Config.PutConfigurationRecorder
-  ( -- * Creating a Request
-    putConfigurationRecorder,
-    PutConfigurationRecorder,
+  ( -- * Creating a request
+    PutConfigurationRecorder (..),
+    mkPutConfigurationRecorder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcrConfigurationRecorder,
 
-    -- * Destructuring the Response
-    putConfigurationRecorderResponse,
-    PutConfigurationRecorderResponse,
+    -- * Destructuring the response
+    PutConfigurationRecorderResponse (..),
+    mkPutConfigurationRecorderResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'PutConfigurationRecorder' action.
 --
---
---
--- /See:/ 'putConfigurationRecorder' smart constructor.
+-- /See:/ 'mkPutConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
-  { _pcrConfigurationRecorder ::
+  { configurationRecorder ::
       ConfigurationRecorder
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcrConfigurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
-putConfigurationRecorder ::
-  -- | 'pcrConfigurationRecorder'
+-- * 'configurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
+mkPutConfigurationRecorder ::
+  -- | 'configurationRecorder'
   ConfigurationRecorder ->
   PutConfigurationRecorder
-putConfigurationRecorder pConfigurationRecorder_ =
+mkPutConfigurationRecorder pConfigurationRecorder_ =
   PutConfigurationRecorder'
-    { _pcrConfigurationRecorder =
+    { configurationRecorder =
         pConfigurationRecorder_
     }
 
 -- | The configuration recorder object that records each configuration change made to the resources.
-pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\s a -> s {_pcrConfigurationRecorder = a})
+--
+-- /Note:/ Consider using 'configurationRecorder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrConfigurationRecorder :: Lens.Lens' PutConfigurationRecorder ConfigurationRecorder
+pcrConfigurationRecorder = Lens.lens (configurationRecorder :: PutConfigurationRecorder -> ConfigurationRecorder) (\s a -> s {configurationRecorder = a} :: PutConfigurationRecorder)
+{-# DEPRECATED pcrConfigurationRecorder "Use generic-lens or generic-optics with 'configurationRecorder' instead." #-}
 
-instance AWSRequest PutConfigurationRecorder where
+instance Lude.AWSRequest PutConfigurationRecorder where
   type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
-  request = postJSON config
-  response = receiveNull PutConfigurationRecorderResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull PutConfigurationRecorderResponse'
 
-instance Hashable PutConfigurationRecorder
-
-instance NFData PutConfigurationRecorder
-
-instance ToHeaders PutConfigurationRecorder where
+instance Lude.ToHeaders PutConfigurationRecorder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.PutConfigurationRecorder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutConfigurationRecorder where
+instance Lude.ToJSON PutConfigurationRecorder where
   toJSON PutConfigurationRecorder' {..} =
-    object
-      ( catMaybes
-          [Just ("ConfigurationRecorder" .= _pcrConfigurationRecorder)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ConfigurationRecorder" Lude..= configurationRecorder)
+          ]
       )
 
-instance ToPath PutConfigurationRecorder where
-  toPath = const "/"
+instance Lude.ToPath PutConfigurationRecorder where
+  toPath = Lude.const "/"
 
-instance ToQuery PutConfigurationRecorder where
-  toQuery = const mempty
+instance Lude.ToQuery PutConfigurationRecorder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
+-- | /See:/ 'mkPutConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
-putConfigurationRecorderResponse ::
+mkPutConfigurationRecorderResponse ::
   PutConfigurationRecorderResponse
-putConfigurationRecorderResponse =
+mkPutConfigurationRecorderResponse =
   PutConfigurationRecorderResponse'
-
-instance NFData PutConfigurationRecorderResponse

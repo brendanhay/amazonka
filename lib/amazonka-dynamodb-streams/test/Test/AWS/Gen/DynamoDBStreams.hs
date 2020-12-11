@@ -28,31 +28,31 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetShardIterator $
---             getShardIterator
+--             mkGetShardIterator
 --
 --         , requestGetRecords $
---             getRecords
+--             mkGetRecords
 --
 --         , requestListStreams $
---             listStreams
+--             mkListStreams
 --
 --         , requestDescribeStream $
---             describeStream
+--             mkDescribeStream
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetShardIterator $
---             getShardIteratorResponse
+--             mkGetShardIteratorResponse
 --
 --         , responseGetRecords $
---             getRecordsResponse
+--             mkGetRecordsResponse
 --
 --         , responseListStreams $
---             listStreamsResponse
+--             mkListStreamsResponse
 --
 --         , responseDescribeStream $
---             describeStreamResponse
+--             mkDescribeStreamResponse
 --
 --           ]
 --     ]
@@ -90,7 +90,7 @@ responseGetShardIterator =
   res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
-    dynamoDBStreams
+    dynamoDBStreamsService
     (Proxy :: Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
@@ -98,7 +98,7 @@ responseGetRecords =
   res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
-    dynamoDBStreams
+    dynamoDBStreamsService
     (Proxy :: Proxy GetRecords)
 
 responseListStreams :: ListStreamsResponse -> TestTree
@@ -106,7 +106,7 @@ responseListStreams =
   res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
-    dynamoDBStreams
+    dynamoDBStreamsService
     (Proxy :: Proxy ListStreams)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
@@ -114,5 +114,5 @@ responseDescribeStream =
   res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
-    dynamoDBStreams
+    dynamoDBStreamsService
     (Proxy :: Proxy DescribeStream)

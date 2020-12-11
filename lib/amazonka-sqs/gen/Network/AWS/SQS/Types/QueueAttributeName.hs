@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.QueueAttributeName where
+module Network.AWS.SQS.Types.QueueAttributeName
+  ( QueueAttributeName
+      ( QueueAttributeName',
+        QANAll,
+        QANApproximateNumberOfMessages,
+        QANApproximateNumberOfMessagesDelayed,
+        QANApproximateNumberOfMessagesNotVisible,
+        QANContentBasedDeduplication,
+        QANCreatedTimestamp,
+        QANDelaySeconds,
+        QANFifoQueue,
+        QANKMSDataKeyReusePeriodSeconds,
+        QANKMSMasterKeyId,
+        QANLastModifiedTimestamp,
+        QANMaximumMessageSize,
+        QANMessageRetentionPeriod,
+        QANPolicy,
+        QANQueueARN,
+        QANReceiveMessageWaitTimeSeconds,
+        QANRedrivePolicy,
+        QANVisibilityTimeout
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueueAttributeName
-  = QANAll
-  | QANApproximateNumberOfMessages
-  | QANApproximateNumberOfMessagesDelayed
-  | QANApproximateNumberOfMessagesNotVisible
-  | QANContentBasedDeduplication
-  | QANCreatedTimestamp
-  | QANDelaySeconds
-  | QANFifoQueue
-  | QANKMSDataKeyReusePeriodSeconds
-  | QANKMSMasterKeyId
-  | QANLastModifiedTimestamp
-  | QANMaximumMessageSize
-  | QANMessageRetentionPeriod
-  | QANPolicy
-  | QANQueueARN
-  | QANReceiveMessageWaitTimeSeconds
-  | QANRedrivePolicy
-  | QANVisibilityTimeout
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueueAttributeName = QueueAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueueAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure QANAll
-      "approximatenumberofmessages" -> pure QANApproximateNumberOfMessages
-      "approximatenumberofmessagesdelayed" -> pure QANApproximateNumberOfMessagesDelayed
-      "approximatenumberofmessagesnotvisible" -> pure QANApproximateNumberOfMessagesNotVisible
-      "contentbaseddeduplication" -> pure QANContentBasedDeduplication
-      "createdtimestamp" -> pure QANCreatedTimestamp
-      "delayseconds" -> pure QANDelaySeconds
-      "fifoqueue" -> pure QANFifoQueue
-      "kmsdatakeyreuseperiodseconds" -> pure QANKMSDataKeyReusePeriodSeconds
-      "kmsmasterkeyid" -> pure QANKMSMasterKeyId
-      "lastmodifiedtimestamp" -> pure QANLastModifiedTimestamp
-      "maximummessagesize" -> pure QANMaximumMessageSize
-      "messageretentionperiod" -> pure QANMessageRetentionPeriod
-      "policy" -> pure QANPolicy
-      "queuearn" -> pure QANQueueARN
-      "receivemessagewaittimeseconds" -> pure QANReceiveMessageWaitTimeSeconds
-      "redrivepolicy" -> pure QANRedrivePolicy
-      "visibilitytimeout" -> pure QANVisibilityTimeout
-      e ->
-        fromTextError $
-          "Failure parsing QueueAttributeName from value: '" <> e
-            <> "'. Accepted values: all, approximatenumberofmessages, approximatenumberofmessagesdelayed, approximatenumberofmessagesnotvisible, contentbaseddeduplication, createdtimestamp, delayseconds, fifoqueue, kmsdatakeyreuseperiodseconds, kmsmasterkeyid, lastmodifiedtimestamp, maximummessagesize, messageretentionperiod, policy, queuearn, receivemessagewaittimeseconds, redrivepolicy, visibilitytimeout"
+pattern QANAll :: QueueAttributeName
+pattern QANAll = QueueAttributeName' "All"
 
-instance ToText QueueAttributeName where
-  toText = \case
-    QANAll -> "All"
-    QANApproximateNumberOfMessages -> "ApproximateNumberOfMessages"
-    QANApproximateNumberOfMessagesDelayed -> "ApproximateNumberOfMessagesDelayed"
-    QANApproximateNumberOfMessagesNotVisible -> "ApproximateNumberOfMessagesNotVisible"
-    QANContentBasedDeduplication -> "ContentBasedDeduplication"
-    QANCreatedTimestamp -> "CreatedTimestamp"
-    QANDelaySeconds -> "DelaySeconds"
-    QANFifoQueue -> "FifoQueue"
-    QANKMSDataKeyReusePeriodSeconds -> "KmsDataKeyReusePeriodSeconds"
-    QANKMSMasterKeyId -> "KmsMasterKeyId"
-    QANLastModifiedTimestamp -> "LastModifiedTimestamp"
-    QANMaximumMessageSize -> "MaximumMessageSize"
-    QANMessageRetentionPeriod -> "MessageRetentionPeriod"
-    QANPolicy -> "Policy"
-    QANQueueARN -> "QueueArn"
-    QANReceiveMessageWaitTimeSeconds -> "ReceiveMessageWaitTimeSeconds"
-    QANRedrivePolicy -> "RedrivePolicy"
-    QANVisibilityTimeout -> "VisibilityTimeout"
+pattern QANApproximateNumberOfMessages :: QueueAttributeName
+pattern QANApproximateNumberOfMessages = QueueAttributeName' "ApproximateNumberOfMessages"
 
-instance Hashable QueueAttributeName
+pattern QANApproximateNumberOfMessagesDelayed :: QueueAttributeName
+pattern QANApproximateNumberOfMessagesDelayed = QueueAttributeName' "ApproximateNumberOfMessagesDelayed"
 
-instance NFData QueueAttributeName
+pattern QANApproximateNumberOfMessagesNotVisible :: QueueAttributeName
+pattern QANApproximateNumberOfMessagesNotVisible = QueueAttributeName' "ApproximateNumberOfMessagesNotVisible"
 
-instance ToByteString QueueAttributeName
+pattern QANContentBasedDeduplication :: QueueAttributeName
+pattern QANContentBasedDeduplication = QueueAttributeName' "ContentBasedDeduplication"
 
-instance ToQuery QueueAttributeName
+pattern QANCreatedTimestamp :: QueueAttributeName
+pattern QANCreatedTimestamp = QueueAttributeName' "CreatedTimestamp"
 
-instance ToHeader QueueAttributeName
+pattern QANDelaySeconds :: QueueAttributeName
+pattern QANDelaySeconds = QueueAttributeName' "DelaySeconds"
 
-instance FromXML QueueAttributeName where
-  parseXML = parseXMLText "QueueAttributeName"
+pattern QANFifoQueue :: QueueAttributeName
+pattern QANFifoQueue = QueueAttributeName' "FifoQueue"
+
+pattern QANKMSDataKeyReusePeriodSeconds :: QueueAttributeName
+pattern QANKMSDataKeyReusePeriodSeconds = QueueAttributeName' "KmsDataKeyReusePeriodSeconds"
+
+pattern QANKMSMasterKeyId :: QueueAttributeName
+pattern QANKMSMasterKeyId = QueueAttributeName' "KmsMasterKeyId"
+
+pattern QANLastModifiedTimestamp :: QueueAttributeName
+pattern QANLastModifiedTimestamp = QueueAttributeName' "LastModifiedTimestamp"
+
+pattern QANMaximumMessageSize :: QueueAttributeName
+pattern QANMaximumMessageSize = QueueAttributeName' "MaximumMessageSize"
+
+pattern QANMessageRetentionPeriod :: QueueAttributeName
+pattern QANMessageRetentionPeriod = QueueAttributeName' "MessageRetentionPeriod"
+
+pattern QANPolicy :: QueueAttributeName
+pattern QANPolicy = QueueAttributeName' "Policy"
+
+pattern QANQueueARN :: QueueAttributeName
+pattern QANQueueARN = QueueAttributeName' "QueueArn"
+
+pattern QANReceiveMessageWaitTimeSeconds :: QueueAttributeName
+pattern QANReceiveMessageWaitTimeSeconds = QueueAttributeName' "ReceiveMessageWaitTimeSeconds"
+
+pattern QANRedrivePolicy :: QueueAttributeName
+pattern QANRedrivePolicy = QueueAttributeName' "RedrivePolicy"
+
+pattern QANVisibilityTimeout :: QueueAttributeName
+pattern QANVisibilityTimeout = QueueAttributeName' "VisibilityTimeout"
+
+{-# COMPLETE
+  QANAll,
+  QANApproximateNumberOfMessages,
+  QANApproximateNumberOfMessagesDelayed,
+  QANApproximateNumberOfMessagesNotVisible,
+  QANContentBasedDeduplication,
+  QANCreatedTimestamp,
+  QANDelaySeconds,
+  QANFifoQueue,
+  QANKMSDataKeyReusePeriodSeconds,
+  QANKMSMasterKeyId,
+  QANLastModifiedTimestamp,
+  QANMaximumMessageSize,
+  QANMessageRetentionPeriod,
+  QANPolicy,
+  QANQueueARN,
+  QANReceiveMessageWaitTimeSeconds,
+  QANRedrivePolicy,
+  QANVisibilityTimeout,
+  QueueAttributeName'
+  #-}

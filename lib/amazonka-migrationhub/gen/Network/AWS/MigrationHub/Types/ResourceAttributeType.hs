@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ResourceAttributeType where
+module Network.AWS.MigrationHub.Types.ResourceAttributeType
+  ( ResourceAttributeType
+      ( ResourceAttributeType',
+        BiosId,
+        Fqdn,
+        IPV4Address,
+        IPV6Address,
+        MACAddress,
+        MotherboardSerialNumber,
+        VMManagedObjectReference,
+        VMManagerId,
+        VMName,
+        VMPath
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceAttributeType
-  = BiosId
-  | Fqdn
-  | IPV4Address
-  | IPV6Address
-  | MACAddress
-  | MotherboardSerialNumber
-  | VMManagedObjectReference
-  | VMManagerId
-  | VMName
-  | VMPath
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceAttributeType = ResourceAttributeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceAttributeType where
-  parser =
-    takeLowerText >>= \case
-      "bios_id" -> pure BiosId
-      "fqdn" -> pure Fqdn
-      "ipv4_address" -> pure IPV4Address
-      "ipv6_address" -> pure IPV6Address
-      "mac_address" -> pure MACAddress
-      "motherboard_serial_number" -> pure MotherboardSerialNumber
-      "vm_managed_object_reference" -> pure VMManagedObjectReference
-      "vm_manager_id" -> pure VMManagerId
-      "vm_name" -> pure VMName
-      "vm_path" -> pure VMPath
-      e ->
-        fromTextError $
-          "Failure parsing ResourceAttributeType from value: '" <> e
-            <> "'. Accepted values: bios_id, fqdn, ipv4_address, ipv6_address, mac_address, motherboard_serial_number, vm_managed_object_reference, vm_manager_id, vm_name, vm_path"
+pattern BiosId :: ResourceAttributeType
+pattern BiosId = ResourceAttributeType' "BIOS_ID"
 
-instance ToText ResourceAttributeType where
-  toText = \case
-    BiosId -> "BIOS_ID"
-    Fqdn -> "FQDN"
-    IPV4Address -> "IPV4_ADDRESS"
-    IPV6Address -> "IPV6_ADDRESS"
-    MACAddress -> "MAC_ADDRESS"
-    MotherboardSerialNumber -> "MOTHERBOARD_SERIAL_NUMBER"
-    VMManagedObjectReference -> "VM_MANAGED_OBJECT_REFERENCE"
-    VMManagerId -> "VM_MANAGER_ID"
-    VMName -> "VM_NAME"
-    VMPath -> "VM_PATH"
+pattern Fqdn :: ResourceAttributeType
+pattern Fqdn = ResourceAttributeType' "FQDN"
 
-instance Hashable ResourceAttributeType
+pattern IPV4Address :: ResourceAttributeType
+pattern IPV4Address = ResourceAttributeType' "IPV4_ADDRESS"
 
-instance NFData ResourceAttributeType
+pattern IPV6Address :: ResourceAttributeType
+pattern IPV6Address = ResourceAttributeType' "IPV6_ADDRESS"
 
-instance ToByteString ResourceAttributeType
+pattern MACAddress :: ResourceAttributeType
+pattern MACAddress = ResourceAttributeType' "MAC_ADDRESS"
 
-instance ToQuery ResourceAttributeType
+pattern MotherboardSerialNumber :: ResourceAttributeType
+pattern MotherboardSerialNumber = ResourceAttributeType' "MOTHERBOARD_SERIAL_NUMBER"
 
-instance ToHeader ResourceAttributeType
+pattern VMManagedObjectReference :: ResourceAttributeType
+pattern VMManagedObjectReference = ResourceAttributeType' "VM_MANAGED_OBJECT_REFERENCE"
 
-instance ToJSON ResourceAttributeType where
-  toJSON = toJSONText
+pattern VMManagerId :: ResourceAttributeType
+pattern VMManagerId = ResourceAttributeType' "VM_MANAGER_ID"
 
-instance FromJSON ResourceAttributeType where
-  parseJSON = parseJSONText "ResourceAttributeType"
+pattern VMName :: ResourceAttributeType
+pattern VMName = ResourceAttributeType' "VM_NAME"
+
+pattern VMPath :: ResourceAttributeType
+pattern VMPath = ResourceAttributeType' "VM_PATH"
+
+{-# COMPLETE
+  BiosId,
+  Fqdn,
+  IPV4Address,
+  IPV6Address,
+  MACAddress,
+  MotherboardSerialNumber,
+  VMManagedObjectReference,
+  VMManagerId,
+  VMName,
+  VMPath,
+  ResourceAttributeType'
+  #-}

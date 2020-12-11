@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,179 @@
 --
 -- Modifies a task set. This is used when a service uses the @EXTERNAL@ deployment controller type. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types> in the /Amazon Elastic Container Service Developer Guide/ .
 module Network.AWS.ECS.UpdateTaskSet
-  ( -- * Creating a Request
-    updateTaskSet,
-    UpdateTaskSet,
+  ( -- * Creating a request
+    UpdateTaskSet (..),
+    mkUpdateTaskSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utsCluster,
     utsService,
     utsTaskSet,
     utsScale,
 
-    -- * Destructuring the Response
-    updateTaskSetResponse,
-    UpdateTaskSetResponse,
+    -- * Destructuring the response
+    UpdateTaskSetResponse (..),
+    mkUpdateTaskSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utsrsTaskSet,
     utsrsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTaskSet' smart constructor.
+-- | /See:/ 'mkUpdateTaskSet' smart constructor.
 data UpdateTaskSet = UpdateTaskSet'
-  { _utsCluster :: !Text,
-    _utsService :: !Text,
-    _utsTaskSet :: !Text,
-    _utsScale :: !Scale
+  { cluster :: Lude.Text,
+    service :: Lude.Text,
+    taskSet :: Lude.Text,
+    scale :: Scale
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTaskSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utsCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
---
--- * 'utsService' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
---
--- * 'utsTaskSet' - The short name or full Amazon Resource Name (ARN) of the task set to update.
---
--- * 'utsScale' - Undocumented member.
-updateTaskSet ::
-  -- | 'utsCluster'
-  Text ->
-  -- | 'utsService'
-  Text ->
-  -- | 'utsTaskSet'
-  Text ->
-  -- | 'utsScale'
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+-- * 'scale' - Undocumented field.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+-- * 'taskSet' - The short name or full Amazon Resource Name (ARN) of the task set to update.
+mkUpdateTaskSet ::
+  -- | 'cluster'
+  Lude.Text ->
+  -- | 'service'
+  Lude.Text ->
+  -- | 'taskSet'
+  Lude.Text ->
+  -- | 'scale'
   Scale ->
   UpdateTaskSet
-updateTaskSet pCluster_ pService_ pTaskSet_ pScale_ =
+mkUpdateTaskSet pCluster_ pService_ pTaskSet_ pScale_ =
   UpdateTaskSet'
-    { _utsCluster = pCluster_,
-      _utsService = pService_,
-      _utsTaskSet = pTaskSet_,
-      _utsScale = pScale_
+    { cluster = pCluster_,
+      service = pService_,
+      taskSet = pTaskSet_,
+      scale = pScale_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
-utsCluster :: Lens' UpdateTaskSet Text
-utsCluster = lens _utsCluster (\s a -> s {_utsCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsCluster :: Lens.Lens' UpdateTaskSet Lude.Text
+utsCluster = Lens.lens (cluster :: UpdateTaskSet -> Lude.Text) (\s a -> s {cluster = a} :: UpdateTaskSet)
+{-# DEPRECATED utsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
-utsService :: Lens' UpdateTaskSet Text
-utsService = lens _utsService (\s a -> s {_utsService = a})
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsService :: Lens.Lens' UpdateTaskSet Lude.Text
+utsService = Lens.lens (service :: UpdateTaskSet -> Lude.Text) (\s a -> s {service = a} :: UpdateTaskSet)
+{-# DEPRECATED utsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the task set to update.
-utsTaskSet :: Lens' UpdateTaskSet Text
-utsTaskSet = lens _utsTaskSet (\s a -> s {_utsTaskSet = a})
+--
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsTaskSet :: Lens.Lens' UpdateTaskSet Lude.Text
+utsTaskSet = Lens.lens (taskSet :: UpdateTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: UpdateTaskSet)
+{-# DEPRECATED utsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
--- | Undocumented member.
-utsScale :: Lens' UpdateTaskSet Scale
-utsScale = lens _utsScale (\s a -> s {_utsScale = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsScale :: Lens.Lens' UpdateTaskSet Scale
+utsScale = Lens.lens (scale :: UpdateTaskSet -> Scale) (\s a -> s {scale = a} :: UpdateTaskSet)
+{-# DEPRECATED utsScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
-instance AWSRequest UpdateTaskSet where
+instance Lude.AWSRequest UpdateTaskSet where
   type Rs UpdateTaskSet = UpdateTaskSetResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateTaskSetResponse'
-            <$> (x .?> "taskSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateTaskSet
-
-instance NFData UpdateTaskSet
-
-instance ToHeaders UpdateTaskSet where
+instance Lude.ToHeaders UpdateTaskSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonEC2ContainerServiceV20141113.UpdateTaskSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateTaskSet where
+instance Lude.ToJSON UpdateTaskSet where
   toJSON UpdateTaskSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("cluster" .= _utsCluster),
-            Just ("service" .= _utsService),
-            Just ("taskSet" .= _utsTaskSet),
-            Just ("scale" .= _utsScale)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("cluster" Lude..= cluster),
+            Lude.Just ("service" Lude..= service),
+            Lude.Just ("taskSet" Lude..= taskSet),
+            Lude.Just ("scale" Lude..= scale)
           ]
       )
 
-instance ToPath UpdateTaskSet where
-  toPath = const "/"
+instance Lude.ToPath UpdateTaskSet where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateTaskSet where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTaskSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTaskSetResponse' smart constructor.
+-- | /See:/ 'mkUpdateTaskSetResponse' smart constructor.
 data UpdateTaskSetResponse = UpdateTaskSetResponse'
-  { _utsrsTaskSet ::
-      !(Maybe TaskSet),
-    _utsrsResponseStatus :: !Int
+  { taskSet ::
+      Lude.Maybe TaskSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTaskSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utsrsTaskSet' - Undocumented member.
---
--- * 'utsrsResponseStatus' - -- | The response status code.
-updateTaskSetResponse ::
-  -- | 'utsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'taskSet' - Undocumented field.
+mkUpdateTaskSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTaskSetResponse
-updateTaskSetResponse pResponseStatus_ =
+mkUpdateTaskSetResponse pResponseStatus_ =
   UpdateTaskSetResponse'
-    { _utsrsTaskSet = Nothing,
-      _utsrsResponseStatus = pResponseStatus_
+    { taskSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-utsrsTaskSet :: Lens' UpdateTaskSetResponse (Maybe TaskSet)
-utsrsTaskSet = lens _utsrsTaskSet (\s a -> s {_utsrsTaskSet = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsrsTaskSet :: Lens.Lens' UpdateTaskSetResponse (Lude.Maybe TaskSet)
+utsrsTaskSet = Lens.lens (taskSet :: UpdateTaskSetResponse -> Lude.Maybe TaskSet) (\s a -> s {taskSet = a} :: UpdateTaskSetResponse)
+{-# DEPRECATED utsrsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
--- | -- | The response status code.
-utsrsResponseStatus :: Lens' UpdateTaskSetResponse Int
-utsrsResponseStatus = lens _utsrsResponseStatus (\s a -> s {_utsrsResponseStatus = a})
-
-instance NFData UpdateTaskSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsrsResponseStatus :: Lens.Lens' UpdateTaskSetResponse Lude.Int
+utsrsResponseStatus = Lens.lens (responseStatus :: UpdateTaskSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTaskSetResponse)
+{-# DEPRECATED utsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

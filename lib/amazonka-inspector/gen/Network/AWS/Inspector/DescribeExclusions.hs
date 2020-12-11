@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describes the exclusions that are specified by the exclusions' ARNs.
 module Network.AWS.Inspector.DescribeExclusions
-  ( -- * Creating a Request
-    describeExclusions,
-    DescribeExclusions,
+  ( -- * Creating a request
+    DescribeExclusions (..),
+    mkDescribeExclusions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deLocale,
     deExclusionARNs,
 
-    -- * Destructuring the Response
-    describeExclusionsResponse,
-    DescribeExclusionsResponse,
+    -- * Destructuring the response
+    DescribeExclusionsResponse (..),
+    mkDescribeExclusionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersResponseStatus,
     dersExclusions,
     dersFailedItems,
@@ -39,127 +34,145 @@ module Network.AWS.Inspector.DescribeExclusions
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeExclusions' smart constructor.
+-- | /See:/ 'mkDescribeExclusions' smart constructor.
 data DescribeExclusions = DescribeExclusions'
-  { _deLocale ::
-      !(Maybe Locale),
-    _deExclusionARNs :: !(List1 Text)
+  { locale ::
+      Lude.Maybe Locale,
+    exclusionARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExclusions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deLocale' - The locale into which you want to translate the exclusion's title, description, and recommendation.
---
--- * 'deExclusionARNs' - The list of ARNs that specify the exclusions that you want to describe.
-describeExclusions ::
-  -- | 'deExclusionARNs'
-  NonEmpty Text ->
+-- * 'exclusionARNs' - The list of ARNs that specify the exclusions that you want to describe.
+-- * 'locale' - The locale into which you want to translate the exclusion's title, description, and recommendation.
+mkDescribeExclusions ::
+  -- | 'exclusionARNs'
+  Lude.NonEmpty Lude.Text ->
   DescribeExclusions
-describeExclusions pExclusionARNs_ =
+mkDescribeExclusions pExclusionARNs_ =
   DescribeExclusions'
-    { _deLocale = Nothing,
-      _deExclusionARNs = _List1 # pExclusionARNs_
+    { locale = Lude.Nothing,
+      exclusionARNs = pExclusionARNs_
     }
 
 -- | The locale into which you want to translate the exclusion's title, description, and recommendation.
-deLocale :: Lens' DescribeExclusions (Maybe Locale)
-deLocale = lens _deLocale (\s a -> s {_deLocale = a})
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deLocale :: Lens.Lens' DescribeExclusions (Lude.Maybe Locale)
+deLocale = Lens.lens (locale :: DescribeExclusions -> Lude.Maybe Locale) (\s a -> s {locale = a} :: DescribeExclusions)
+{-# DEPRECATED deLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The list of ARNs that specify the exclusions that you want to describe.
-deExclusionARNs :: Lens' DescribeExclusions (NonEmpty Text)
-deExclusionARNs = lens _deExclusionARNs (\s a -> s {_deExclusionARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'exclusionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExclusionARNs :: Lens.Lens' DescribeExclusions (Lude.NonEmpty Lude.Text)
+deExclusionARNs = Lens.lens (exclusionARNs :: DescribeExclusions -> Lude.NonEmpty Lude.Text) (\s a -> s {exclusionARNs = a} :: DescribeExclusions)
+{-# DEPRECATED deExclusionARNs "Use generic-lens or generic-optics with 'exclusionARNs' instead." #-}
 
-instance AWSRequest DescribeExclusions where
+instance Lude.AWSRequest DescribeExclusions where
   type Rs DescribeExclusions = DescribeExclusionsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeExclusionsResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "exclusions" .!@ mempty)
-            <*> (x .?> "failedItems" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "exclusions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeExclusions
-
-instance NFData DescribeExclusions
-
-instance ToHeaders DescribeExclusions where
+instance Lude.ToHeaders DescribeExclusions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.DescribeExclusions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.DescribeExclusions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeExclusions where
+instance Lude.ToJSON DescribeExclusions where
   toJSON DescribeExclusions' {..} =
-    object
-      ( catMaybes
-          [ ("locale" .=) <$> _deLocale,
-            Just ("exclusionArns" .= _deExclusionARNs)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("locale" Lude..=) Lude.<$> locale,
+            Lude.Just ("exclusionArns" Lude..= exclusionARNs)
           ]
       )
 
-instance ToPath DescribeExclusions where
-  toPath = const "/"
+instance Lude.ToPath DescribeExclusions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeExclusions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeExclusions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeExclusionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeExclusionsResponse' smart constructor.
 data DescribeExclusionsResponse = DescribeExclusionsResponse'
-  { _dersResponseStatus ::
-      !Int,
-    _dersExclusions ::
-      !(Map Text (Exclusion)),
-    _dersFailedItems ::
-      !(Map Text (FailedItemDetails))
+  { responseStatus ::
+      Lude.Int,
+    exclusions ::
+      Lude.HashMap Lude.Text (Exclusion),
+    failedItems ::
+      Lude.HashMap
+        Lude.Text
+        (FailedItemDetails)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExclusionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersResponseStatus' - -- | The response status code.
---
--- * 'dersExclusions' - Information about the exclusions.
---
--- * 'dersFailedItems' - Exclusion details that cannot be described. An error code is provided for each failed item.
-describeExclusionsResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
+-- * 'exclusions' - Information about the exclusions.
+-- * 'failedItems' - Exclusion details that cannot be described. An error code is provided for each failed item.
+-- * 'responseStatus' - The response status code.
+mkDescribeExclusionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeExclusionsResponse
-describeExclusionsResponse pResponseStatus_ =
+mkDescribeExclusionsResponse pResponseStatus_ =
   DescribeExclusionsResponse'
-    { _dersResponseStatus =
-        pResponseStatus_,
-      _dersExclusions = mempty,
-      _dersFailedItems = mempty
+    { responseStatus = pResponseStatus_,
+      exclusions = Lude.mempty,
+      failedItems = Lude.mempty
     }
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeExclusionsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeExclusionsResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeExclusionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExclusionsResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the exclusions.
-dersExclusions :: Lens' DescribeExclusionsResponse (HashMap Text (Exclusion))
-dersExclusions = lens _dersExclusions (\s a -> s {_dersExclusions = a}) . _Map
+--
+-- /Note:/ Consider using 'exclusions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersExclusions :: Lens.Lens' DescribeExclusionsResponse (Lude.HashMap Lude.Text (Exclusion))
+dersExclusions = Lens.lens (exclusions :: DescribeExclusionsResponse -> Lude.HashMap Lude.Text (Exclusion)) (\s a -> s {exclusions = a} :: DescribeExclusionsResponse)
+{-# DEPRECATED dersExclusions "Use generic-lens or generic-optics with 'exclusions' instead." #-}
 
 -- | Exclusion details that cannot be described. An error code is provided for each failed item.
-dersFailedItems :: Lens' DescribeExclusionsResponse (HashMap Text (FailedItemDetails))
-dersFailedItems = lens _dersFailedItems (\s a -> s {_dersFailedItems = a}) . _Map
-
-instance NFData DescribeExclusionsResponse
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersFailedItems :: Lens.Lens' DescribeExclusionsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
+dersFailedItems = Lens.lens (failedItems :: DescribeExclusionsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeExclusionsResponse)
+{-# DEPRECATED dersFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}

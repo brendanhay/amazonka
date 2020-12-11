@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.UsageLimitPeriod where
+module Network.AWS.Redshift.Types.UsageLimitPeriod
+  ( UsageLimitPeriod
+      ( UsageLimitPeriod',
+        Daily,
+        Monthly,
+        Weekly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data UsageLimitPeriod
-  = Daily
-  | Monthly
-  | Weekly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageLimitPeriod = UsageLimitPeriod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageLimitPeriod where
-  parser =
-    takeLowerText >>= \case
-      "daily" -> pure Daily
-      "monthly" -> pure Monthly
-      "weekly" -> pure Weekly
-      e ->
-        fromTextError $
-          "Failure parsing UsageLimitPeriod from value: '" <> e
-            <> "'. Accepted values: daily, monthly, weekly"
+pattern Daily :: UsageLimitPeriod
+pattern Daily = UsageLimitPeriod' "daily"
 
-instance ToText UsageLimitPeriod where
-  toText = \case
-    Daily -> "daily"
-    Monthly -> "monthly"
-    Weekly -> "weekly"
+pattern Monthly :: UsageLimitPeriod
+pattern Monthly = UsageLimitPeriod' "monthly"
 
-instance Hashable UsageLimitPeriod
+pattern Weekly :: UsageLimitPeriod
+pattern Weekly = UsageLimitPeriod' "weekly"
 
-instance NFData UsageLimitPeriod
-
-instance ToByteString UsageLimitPeriod
-
-instance ToQuery UsageLimitPeriod
-
-instance ToHeader UsageLimitPeriod
-
-instance FromXML UsageLimitPeriod where
-  parseXML = parseXMLText "UsageLimitPeriod"
+{-# COMPLETE
+  Daily,
+  Monthly,
+  Weekly,
+  UsageLimitPeriod'
+  #-}

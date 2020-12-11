@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes Amazon Elastic Container Service container instances. Returns metadata about registered and remaining resources on each container instance requested.
 module Network.AWS.ECS.DescribeContainerInstances
-  ( -- * Creating a Request
-    describeContainerInstances,
-    DescribeContainerInstances,
+  ( -- * Creating a request
+    DescribeContainerInstances (..),
+    mkDescribeContainerInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dciInclude,
     dciCluster,
     dciContainerInstances,
 
-    -- * Destructuring the Response
-    describeContainerInstancesResponse,
-    DescribeContainerInstancesResponse,
+    -- * Destructuring the response
+    DescribeContainerInstancesResponse (..),
+    mkDescribeContainerInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcisrsFailures,
     dcisrsContainerInstances,
     dcisrsResponseStatus,
@@ -40,139 +35,157 @@ module Network.AWS.ECS.DescribeContainerInstances
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeContainerInstances' smart constructor.
+-- | /See:/ 'mkDescribeContainerInstances' smart constructor.
 data DescribeContainerInstances = DescribeContainerInstances'
-  { _dciInclude ::
-      !(Maybe [ContainerInstanceField]),
-    _dciCluster :: !(Maybe Text),
-    _dciContainerInstances :: ![Text]
+  { include ::
+      Lude.Maybe [ContainerInstanceField],
+    cluster :: Lude.Maybe Lude.Text,
+    containerInstances :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContainerInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dciInclude' - Specifies whether you want to see the resource tags for the container instance. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
---
--- * 'dciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the container instance or container instances you are describing were launched in any cluster other than the default cluster.
---
--- * 'dciContainerInstances' - A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
-describeContainerInstances ::
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the container instance or container instances you are describing were launched in any cluster other than the default cluster.
+-- * 'containerInstances' - A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
+-- * 'include' - Specifies whether you want to see the resource tags for the container instance. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+mkDescribeContainerInstances ::
   DescribeContainerInstances
-describeContainerInstances =
+mkDescribeContainerInstances =
   DescribeContainerInstances'
-    { _dciInclude = Nothing,
-      _dciCluster = Nothing,
-      _dciContainerInstances = mempty
+    { include = Lude.Nothing,
+      cluster = Lude.Nothing,
+      containerInstances = Lude.mempty
     }
 
 -- | Specifies whether you want to see the resource tags for the container instance. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
-dciInclude :: Lens' DescribeContainerInstances [ContainerInstanceField]
-dciInclude = lens _dciInclude (\s a -> s {_dciInclude = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciInclude :: Lens.Lens' DescribeContainerInstances (Lude.Maybe [ContainerInstanceField])
+dciInclude = Lens.lens (include :: DescribeContainerInstances -> Lude.Maybe [ContainerInstanceField]) (\s a -> s {include = a} :: DescribeContainerInstances)
+{-# DEPRECATED dciInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the container instance or container instances you are describing were launched in any cluster other than the default cluster.
-dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
-dciCluster = lens _dciCluster (\s a -> s {_dciCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciCluster :: Lens.Lens' DescribeContainerInstances (Lude.Maybe Lude.Text)
+dciCluster = Lens.lens (cluster :: DescribeContainerInstances -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DescribeContainerInstances)
+{-# DEPRECATED dciCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
-dciContainerInstances :: Lens' DescribeContainerInstances [Text]
-dciContainerInstances = lens _dciContainerInstances (\s a -> s {_dciContainerInstances = a}) . _Coerce
+--
+-- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciContainerInstances :: Lens.Lens' DescribeContainerInstances [Lude.Text]
+dciContainerInstances = Lens.lens (containerInstances :: DescribeContainerInstances -> [Lude.Text]) (\s a -> s {containerInstances = a} :: DescribeContainerInstances)
+{-# DEPRECATED dciContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
 
-instance AWSRequest DescribeContainerInstances where
+instance Lude.AWSRequest DescribeContainerInstances where
   type
     Rs DescribeContainerInstances =
       DescribeContainerInstancesResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeContainerInstancesResponse'
-            <$> (x .?> "failures" .!@ mempty)
-            <*> (x .?> "containerInstances" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "containerInstances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeContainerInstances
-
-instance NFData DescribeContainerInstances
-
-instance ToHeaders DescribeContainerInstances where
+instance Lude.ToHeaders DescribeContainerInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeContainerInstances where
+instance Lude.ToJSON DescribeContainerInstances where
   toJSON DescribeContainerInstances' {..} =
-    object
-      ( catMaybes
-          [ ("include" .=) <$> _dciInclude,
-            ("cluster" .=) <$> _dciCluster,
-            Just ("containerInstances" .= _dciContainerInstances)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("include" Lude..=) Lude.<$> include,
+            ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("containerInstances" Lude..= containerInstances)
           ]
       )
 
-instance ToPath DescribeContainerInstances where
-  toPath = const "/"
+instance Lude.ToPath DescribeContainerInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeContainerInstances where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeContainerInstances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeContainerInstancesResponse' smart constructor.
+-- | /See:/ 'mkDescribeContainerInstancesResponse' smart constructor.
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-  { _dcisrsFailures ::
-      !(Maybe [Failure]),
-    _dcisrsContainerInstances ::
-      !( Maybe
-           [ContainerInstance]
-       ),
-    _dcisrsResponseStatus ::
-      !Int
+  { failures ::
+      Lude.Maybe [Failure],
+    containerInstances ::
+      Lude.Maybe
+        [ContainerInstance],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContainerInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcisrsFailures' - Any failures associated with the call.
---
--- * 'dcisrsContainerInstances' - The list of container instances.
---
--- * 'dcisrsResponseStatus' - -- | The response status code.
-describeContainerInstancesResponse ::
-  -- | 'dcisrsResponseStatus'
-  Int ->
+-- * 'containerInstances' - The list of container instances.
+-- * 'failures' - Any failures associated with the call.
+-- * 'responseStatus' - The response status code.
+mkDescribeContainerInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeContainerInstancesResponse
-describeContainerInstancesResponse pResponseStatus_ =
+mkDescribeContainerInstancesResponse pResponseStatus_ =
   DescribeContainerInstancesResponse'
-    { _dcisrsFailures = Nothing,
-      _dcisrsContainerInstances = Nothing,
-      _dcisrsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      containerInstances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Any failures associated with the call.
-dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-dcisrsFailures = lens _dcisrsFailures (\s a -> s {_dcisrsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcisrsFailures :: Lens.Lens' DescribeContainerInstancesResponse (Lude.Maybe [Failure])
+dcisrsFailures = Lens.lens (failures :: DescribeContainerInstancesResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: DescribeContainerInstancesResponse)
+{-# DEPRECATED dcisrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The list of container instances.
-dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-dcisrsContainerInstances = lens _dcisrsContainerInstances (\s a -> s {_dcisrsContainerInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcisrsContainerInstances :: Lens.Lens' DescribeContainerInstancesResponse (Lude.Maybe [ContainerInstance])
+dcisrsContainerInstances = Lens.lens (containerInstances :: DescribeContainerInstancesResponse -> Lude.Maybe [ContainerInstance]) (\s a -> s {containerInstances = a} :: DescribeContainerInstancesResponse)
+{-# DEPRECATED dcisrsContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
 
--- | -- | The response status code.
-dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
-dcisrsResponseStatus = lens _dcisrsResponseStatus (\s a -> s {_dcisrsResponseStatus = a})
-
-instance NFData DescribeContainerInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcisrsResponseStatus :: Lens.Lens' DescribeContainerInstancesResponse Lude.Int
+dcisrsResponseStatus = Lens.lens (responseStatus :: DescribeContainerInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContainerInstancesResponse)
+{-# DEPRECATED dcisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

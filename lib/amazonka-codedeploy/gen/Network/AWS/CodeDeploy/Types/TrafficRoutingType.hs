@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TrafficRoutingType where
+module Network.AWS.CodeDeploy.Types.TrafficRoutingType
+  ( TrafficRoutingType
+      ( TrafficRoutingType',
+        AllAtOnce,
+        TimeBasedCanary,
+        TimeBasedLinear
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficRoutingType
-  = AllAtOnce
-  | TimeBasedCanary
-  | TimeBasedLinear
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficRoutingType = TrafficRoutingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficRoutingType where
-  parser =
-    takeLowerText >>= \case
-      "allatonce" -> pure AllAtOnce
-      "timebasedcanary" -> pure TimeBasedCanary
-      "timebasedlinear" -> pure TimeBasedLinear
-      e ->
-        fromTextError $
-          "Failure parsing TrafficRoutingType from value: '" <> e
-            <> "'. Accepted values: allatonce, timebasedcanary, timebasedlinear"
+pattern AllAtOnce :: TrafficRoutingType
+pattern AllAtOnce = TrafficRoutingType' "AllAtOnce"
 
-instance ToText TrafficRoutingType where
-  toText = \case
-    AllAtOnce -> "AllAtOnce"
-    TimeBasedCanary -> "TimeBasedCanary"
-    TimeBasedLinear -> "TimeBasedLinear"
+pattern TimeBasedCanary :: TrafficRoutingType
+pattern TimeBasedCanary = TrafficRoutingType' "TimeBasedCanary"
 
-instance Hashable TrafficRoutingType
+pattern TimeBasedLinear :: TrafficRoutingType
+pattern TimeBasedLinear = TrafficRoutingType' "TimeBasedLinear"
 
-instance NFData TrafficRoutingType
-
-instance ToByteString TrafficRoutingType
-
-instance ToQuery TrafficRoutingType
-
-instance ToHeader TrafficRoutingType
-
-instance ToJSON TrafficRoutingType where
-  toJSON = toJSONText
-
-instance FromJSON TrafficRoutingType where
-  parseJSON = parseJSONText "TrafficRoutingType"
+{-# COMPLETE
+  AllAtOnce,
+  TimeBasedCanary,
+  TimeBasedLinear,
+  TrafficRoutingType'
+  #-}

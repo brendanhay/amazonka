@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.ResourceTag where
+module Network.AWS.DirectConnect.Types.ResourceTag
+  ( ResourceTag (..),
+
+    -- * Smart constructor
+    mkResourceTag,
+
+    -- * Lenses
+    rtResourceARN,
+    rtTags,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a tag associated with an AWS Direct Connect resource.
 --
---
---
--- /See:/ 'resourceTag' smart constructor.
+-- /See:/ 'mkResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { _rtResourceARN :: !(Maybe Text),
-    _rtTags :: !(Maybe (List1 Tag))
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtResourceARN' - The Amazon Resource Name (ARN) of the resource.
---
--- * 'rtTags' - The tags.
-resourceTag ::
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
+-- * 'tags' - The tags.
+mkResourceTag ::
   ResourceTag
-resourceTag =
-  ResourceTag' {_rtResourceARN = Nothing, _rtTags = Nothing}
+mkResourceTag =
+  ResourceTag' {resourceARN = Lude.Nothing, tags = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-rtResourceARN :: Lens' ResourceTag (Maybe Text)
-rtResourceARN = lens _rtResourceARN (\s a -> s {_rtResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtResourceARN :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
+rtResourceARN = Lens.lens (resourceARN :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ResourceTag)
+{-# DEPRECATED rtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tags.
-rtTags :: Lens' ResourceTag (Maybe (NonEmpty Tag))
-rtTags = lens _rtTags (\s a -> s {_rtTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTags :: Lens.Lens' ResourceTag (Lude.Maybe (Lude.NonEmpty Tag))
+rtTags = Lens.lens (tags :: ResourceTag -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ResourceTag)
+{-# DEPRECATED rtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON ResourceTag where
+instance Lude.FromJSON ResourceTag where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceTag"
-      (\x -> ResourceTag' <$> (x .:? "resourceArn") <*> (x .:? "tags"))
-
-instance Hashable ResourceTag
-
-instance NFData ResourceTag
+      ( \x ->
+          ResourceTag'
+            Lude.<$> (x Lude..:? "resourceArn") Lude.<*> (x Lude..:? "tags")
+      )

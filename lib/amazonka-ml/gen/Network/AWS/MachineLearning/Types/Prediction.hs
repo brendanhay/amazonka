@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.Prediction where
+module Network.AWS.MachineLearning.Types.Prediction
+  ( Prediction (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPrediction,
+
+    -- * Lenses
+    pPredictedValue,
+    pPredictedLabel,
+    pPredictedScores,
+    pDetails,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.DetailsAttributes
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The output from a @Predict@ operation:
 --
 --
 --     * @Details@ - Contains the following attributes: @DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY | MULTICLASS@ @DetailsAttributes.ALGORITHM - SGD@
 --
+--
 --     * @PredictedLabel@ - Present for either a @BINARY@ or @MULTICLASS@ @MLModel@ request.
 --
+--
 --     * @PredictedScores@ - Contains the raw classification score corresponding to each label.
+--
 --
 --     * @PredictedValue@ - Present for a @REGRESSION@ @MLModel@ request.
 --
 --
 --
---
--- /See:/ 'prediction' smart constructor.
+-- /See:/ 'mkPrediction' smart constructor.
 data Prediction = Prediction'
-  { _pPredictedValue :: !(Maybe Double),
-    _pPredictedLabel :: !(Maybe Text),
-    _pPredictedScores :: !(Maybe (Map Text (Double))),
-    _pDetails :: !(Maybe (Map DetailsAttributes (Text)))
+  { predictedValue ::
+      Lude.Maybe Lude.Double,
+    predictedLabel :: Lude.Maybe Lude.Text,
+    predictedScores ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    details :: Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Prediction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pPredictedValue' - The prediction value for @REGRESSION@ @MLModel@ .
---
--- * 'pPredictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
---
--- * 'pPredictedScores' - Undocumented member.
---
--- * 'pDetails' - Undocumented member.
-prediction ::
+-- * 'details' - Undocumented field.
+-- * 'predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
+-- * 'predictedScores' - Undocumented field.
+-- * 'predictedValue' - The prediction value for @REGRESSION@ @MLModel@ .
+mkPrediction ::
   Prediction
-prediction =
+mkPrediction =
   Prediction'
-    { _pPredictedValue = Nothing,
-      _pPredictedLabel = Nothing,
-      _pPredictedScores = Nothing,
-      _pDetails = Nothing
+    { predictedValue = Lude.Nothing,
+      predictedLabel = Lude.Nothing,
+      predictedScores = Lude.Nothing,
+      details = Lude.Nothing
     }
 
 -- | The prediction value for @REGRESSION@ @MLModel@ .
-pPredictedValue :: Lens' Prediction (Maybe Double)
-pPredictedValue = lens _pPredictedValue (\s a -> s {_pPredictedValue = a})
+--
+-- /Note:/ Consider using 'predictedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPredictedValue :: Lens.Lens' Prediction (Lude.Maybe Lude.Double)
+pPredictedValue = Lens.lens (predictedValue :: Prediction -> Lude.Maybe Lude.Double) (\s a -> s {predictedValue = a} :: Prediction)
+{-# DEPRECATED pPredictedValue "Use generic-lens or generic-optics with 'predictedValue' instead." #-}
 
 -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
-pPredictedLabel :: Lens' Prediction (Maybe Text)
-pPredictedLabel = lens _pPredictedLabel (\s a -> s {_pPredictedLabel = a})
+--
+-- /Note:/ Consider using 'predictedLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPredictedLabel :: Lens.Lens' Prediction (Lude.Maybe Lude.Text)
+pPredictedLabel = Lens.lens (predictedLabel :: Prediction -> Lude.Maybe Lude.Text) (\s a -> s {predictedLabel = a} :: Prediction)
+{-# DEPRECATED pPredictedLabel "Use generic-lens or generic-optics with 'predictedLabel' instead." #-}
 
--- | Undocumented member.
-pPredictedScores :: Lens' Prediction (HashMap Text (Double))
-pPredictedScores = lens _pPredictedScores (\s a -> s {_pPredictedScores = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'predictedScores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPredictedScores :: Lens.Lens' Prediction (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
+pPredictedScores = Lens.lens (predictedScores :: Prediction -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {predictedScores = a} :: Prediction)
+{-# DEPRECATED pPredictedScores "Use generic-lens or generic-optics with 'predictedScores' instead." #-}
 
--- | Undocumented member.
-pDetails :: Lens' Prediction (HashMap DetailsAttributes (Text))
-pDetails = lens _pDetails (\s a -> s {_pDetails = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDetails :: Lens.Lens' Prediction (Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text)))
+pDetails = Lens.lens (details :: Prediction -> Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text))) (\s a -> s {details = a} :: Prediction)
+{-# DEPRECATED pDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance FromJSON Prediction where
+instance Lude.FromJSON Prediction where
   parseJSON =
-    withObject
+    Lude.withObject
       "Prediction"
       ( \x ->
           Prediction'
-            <$> (x .:? "predictedValue")
-            <*> (x .:? "predictedLabel")
-            <*> (x .:? "predictedScores" .!= mempty)
-            <*> (x .:? "details" .!= mempty)
+            Lude.<$> (x Lude..:? "predictedValue")
+            Lude.<*> (x Lude..:? "predictedLabel")
+            Lude.<*> (x Lude..:? "predictedScores" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "details" Lude..!= Lude.mempty)
       )
-
-instance Hashable Prediction
-
-instance NFData Prediction

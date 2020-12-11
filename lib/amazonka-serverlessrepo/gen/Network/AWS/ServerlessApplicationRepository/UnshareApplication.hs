@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,114 @@
 --
 -- Unshares an application from an AWS Organization.
 --
---
 -- This operation can be called only from the organization's master account.
 module Network.AWS.ServerlessApplicationRepository.UnshareApplication
-  ( -- * Creating a Request
-    unshareApplication,
-    UnshareApplication,
+  ( -- * Creating a request
+    UnshareApplication (..),
+    mkUnshareApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaApplicationId,
     uaOrganizationId,
 
-    -- * Destructuring the Response
-    unshareApplicationResponse,
-    UnshareApplicationResponse,
+    -- * Destructuring the response
+    UnshareApplicationResponse (..),
+    mkUnshareApplicationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'unshareApplication' smart constructor.
+-- | /See:/ 'mkUnshareApplication' smart constructor.
 data UnshareApplication = UnshareApplication'
-  { _uaApplicationId ::
-      !Text,
-    _uaOrganizationId :: !Text
+  { applicationId ::
+      Lude.Text,
+    organizationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaApplicationId' - The Amazon Resource Name (ARN) of the application.
---
--- * 'uaOrganizationId' - The AWS Organization ID to unshare the application from.
-unshareApplication ::
-  -- | 'uaApplicationId'
-  Text ->
-  -- | 'uaOrganizationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'organizationId' - The AWS Organization ID to unshare the application from.
+mkUnshareApplication ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   UnshareApplication
-unshareApplication pApplicationId_ pOrganizationId_ =
+mkUnshareApplication pApplicationId_ pOrganizationId_ =
   UnshareApplication'
-    { _uaApplicationId = pApplicationId_,
-      _uaOrganizationId = pOrganizationId_
+    { applicationId = pApplicationId_,
+      organizationId = pOrganizationId_
     }
 
 -- | The Amazon Resource Name (ARN) of the application.
-uaApplicationId :: Lens' UnshareApplication Text
-uaApplicationId = lens _uaApplicationId (\s a -> s {_uaApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationId :: Lens.Lens' UnshareApplication Lude.Text
+uaApplicationId = Lens.lens (applicationId :: UnshareApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UnshareApplication)
+{-# DEPRECATED uaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The AWS Organization ID to unshare the application from.
-uaOrganizationId :: Lens' UnshareApplication Text
-uaOrganizationId = lens _uaOrganizationId (\s a -> s {_uaOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaOrganizationId :: Lens.Lens' UnshareApplication Lude.Text
+uaOrganizationId = Lens.lens (organizationId :: UnshareApplication -> Lude.Text) (\s a -> s {organizationId = a} :: UnshareApplication)
+{-# DEPRECATED uaOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest UnshareApplication where
+instance Lude.AWSRequest UnshareApplication where
   type Rs UnshareApplication = UnshareApplicationResponse
-  request = postJSON serverlessApplicationRepository
-  response = receiveNull UnshareApplicationResponse'
+  request = Req.postJSON serverlessApplicationRepositoryService
+  response = Res.receiveNull UnshareApplicationResponse'
 
-instance Hashable UnshareApplication
-
-instance NFData UnshareApplication
-
-instance ToHeaders UnshareApplication where
+instance Lude.ToHeaders UnshareApplication where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UnshareApplication where
+instance Lude.ToJSON UnshareApplication where
   toJSON UnshareApplication' {..} =
-    object (catMaybes [Just ("organizationId" .= _uaOrganizationId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("organizationId" Lude..= organizationId)]
+      )
 
-instance ToPath UnshareApplication where
+instance Lude.ToPath UnshareApplication where
   toPath UnshareApplication' {..} =
-    mconcat ["/applications/", toBS _uaApplicationId, "/unshare"]
+    Lude.mconcat
+      ["/applications/", Lude.toBS applicationId, "/unshare"]
 
-instance ToQuery UnshareApplication where
-  toQuery = const mempty
+instance Lude.ToQuery UnshareApplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'unshareApplicationResponse' smart constructor.
+-- | /See:/ 'mkUnshareApplicationResponse' smart constructor.
 data UnshareApplicationResponse = UnshareApplicationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareApplicationResponse' with the minimum fields required to make a request.
-unshareApplicationResponse ::
+mkUnshareApplicationResponse ::
   UnshareApplicationResponse
-unshareApplicationResponse = UnshareApplicationResponse'
-
-instance NFData UnshareApplicationResponse
+mkUnshareApplicationResponse = UnshareApplicationResponse'

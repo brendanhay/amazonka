@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,133 @@
 --
 -- Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
 module Network.AWS.DirectoryService.EnableRadius
-  ( -- * Creating a Request
-    enableRadius,
-    EnableRadius,
+  ( -- * Creating a request
+    EnableRadius (..),
+    mkEnableRadius,
 
-    -- * Request Lenses
+    -- ** Request lenses
     erDirectoryId,
     erRadiusSettings,
 
-    -- * Destructuring the Response
-    enableRadiusResponse,
-    EnableRadiusResponse,
+    -- * Destructuring the response
+    EnableRadiusResponse (..),
+    mkEnableRadiusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     errsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'EnableRadius' operation.
 --
---
---
--- /See:/ 'enableRadius' smart constructor.
+-- /See:/ 'mkEnableRadius' smart constructor.
 data EnableRadius = EnableRadius'
-  { _erDirectoryId :: !Text,
-    _erRadiusSettings :: !RadiusSettings
+  { directoryId :: Lude.Text,
+    radiusSettings :: RadiusSettings
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableRadius' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erDirectoryId' - The identifier of the directory for which to enable MFA.
---
--- * 'erRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
-enableRadius ::
-  -- | 'erDirectoryId'
-  Text ->
-  -- | 'erRadiusSettings'
+-- * 'directoryId' - The identifier of the directory for which to enable MFA.
+-- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
+mkEnableRadius ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'radiusSettings'
   RadiusSettings ->
   EnableRadius
-enableRadius pDirectoryId_ pRadiusSettings_ =
+mkEnableRadius pDirectoryId_ pRadiusSettings_ =
   EnableRadius'
-    { _erDirectoryId = pDirectoryId_,
-      _erRadiusSettings = pRadiusSettings_
+    { directoryId = pDirectoryId_,
+      radiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory for which to enable MFA.
-erDirectoryId :: Lens' EnableRadius Text
-erDirectoryId = lens _erDirectoryId (\s a -> s {_erDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erDirectoryId :: Lens.Lens' EnableRadius Lude.Text
+erDirectoryId = Lens.lens (directoryId :: EnableRadius -> Lude.Text) (\s a -> s {directoryId = a} :: EnableRadius)
+{-# DEPRECATED erDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
-erRadiusSettings :: Lens' EnableRadius RadiusSettings
-erRadiusSettings = lens _erRadiusSettings (\s a -> s {_erRadiusSettings = a})
+--
+-- /Note:/ Consider using 'radiusSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erRadiusSettings :: Lens.Lens' EnableRadius RadiusSettings
+erRadiusSettings = Lens.lens (radiusSettings :: EnableRadius -> RadiusSettings) (\s a -> s {radiusSettings = a} :: EnableRadius)
+{-# DEPRECATED erRadiusSettings "Use generic-lens or generic-optics with 'radiusSettings' instead." #-}
 
-instance AWSRequest EnableRadius where
+instance Lude.AWSRequest EnableRadius where
   type Rs EnableRadius = EnableRadiusResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> EnableRadiusResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          EnableRadiusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable EnableRadius
-
-instance NFData EnableRadius
-
-instance ToHeaders EnableRadius where
+instance Lude.ToHeaders EnableRadius where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.EnableRadius" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.EnableRadius" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableRadius where
+instance Lude.ToJSON EnableRadius where
   toJSON EnableRadius' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _erDirectoryId),
-            Just ("RadiusSettings" .= _erRadiusSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("RadiusSettings" Lude..= radiusSettings)
           ]
       )
 
-instance ToPath EnableRadius where
-  toPath = const "/"
+instance Lude.ToPath EnableRadius where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableRadius where
-  toQuery = const mempty
+instance Lude.ToQuery EnableRadius where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'EnableRadius' operation.
 --
---
---
--- /See:/ 'enableRadiusResponse' smart constructor.
+-- /See:/ 'mkEnableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'
-  { _errsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableRadiusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'errsResponseStatus' - -- | The response status code.
-enableRadiusResponse ::
-  -- | 'errsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkEnableRadiusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableRadiusResponse
-enableRadiusResponse pResponseStatus_ =
-  EnableRadiusResponse' {_errsResponseStatus = pResponseStatus_}
+mkEnableRadiusResponse pResponseStatus_ =
+  EnableRadiusResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-errsResponseStatus :: Lens' EnableRadiusResponse Int
-errsResponseStatus = lens _errsResponseStatus (\s a -> s {_errsResponseStatus = a})
-
-instance NFData EnableRadiusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+errsResponseStatus :: Lens.Lens' EnableRadiusResponse Lude.Int
+errsResponseStatus = Lens.lens (responseStatus :: EnableRadiusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableRadiusResponse)
+{-# DEPRECATED errsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

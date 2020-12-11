@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ManagedActionHistoryItem where
+module Network.AWS.ElasticBeanstalk.Types.ManagedActionHistoryItem
+  ( ManagedActionHistoryItem (..),
+
+    -- * Smart constructor
+    mkManagedActionHistoryItem,
+
+    -- * Lenses
+    mahiStatus,
+    mahiFailureType,
+    mahiActionId,
+    mahiFailureDescription,
+    mahiFinishedTime,
+    mahiActionDescription,
+    mahiExecutedTime,
+    mahiActionType,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
 import Network.AWS.ElasticBeanstalk.Types.ActionType
 import Network.AWS.ElasticBeanstalk.Types.FailureType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The record of a completed or failed managed action.
 --
---
---
--- /See:/ 'managedActionHistoryItem' smart constructor.
+-- /See:/ 'mkManagedActionHistoryItem' smart constructor.
 data ManagedActionHistoryItem = ManagedActionHistoryItem'
-  { _mahiStatus ::
-      !(Maybe ActionHistoryStatus),
-    _mahiFailureType :: !(Maybe FailureType),
-    _mahiActionId :: !(Maybe Text),
-    _mahiFailureDescription :: !(Maybe Text),
-    _mahiFinishedTime :: !(Maybe ISO8601),
-    _mahiActionDescription :: !(Maybe Text),
-    _mahiExecutedTime :: !(Maybe ISO8601),
-    _mahiActionType :: !(Maybe ActionType)
+  { status ::
+      Lude.Maybe ActionHistoryStatus,
+    failureType :: Lude.Maybe FailureType,
+    actionId :: Lude.Maybe Lude.Text,
+    failureDescription ::
+      Lude.Maybe Lude.Text,
+    finishedTime :: Lude.Maybe Lude.ISO8601,
+    actionDescription :: Lude.Maybe Lude.Text,
+    executedTime :: Lude.Maybe Lude.ISO8601,
+    actionType :: Lude.Maybe ActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedActionHistoryItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mahiStatus' - The status of the action.
---
--- * 'mahiFailureType' - If the action failed, the type of failure.
---
--- * 'mahiActionId' - A unique identifier for the managed action.
---
--- * 'mahiFailureDescription' - If the action failed, a description of the failure.
---
--- * 'mahiFinishedTime' - The date and time that the action finished executing.
---
--- * 'mahiActionDescription' - A description of the managed action.
---
--- * 'mahiExecutedTime' - The date and time that the action started executing.
---
--- * 'mahiActionType' - The type of the managed action.
-managedActionHistoryItem ::
+-- * 'actionDescription' - A description of the managed action.
+-- * 'actionId' - A unique identifier for the managed action.
+-- * 'actionType' - The type of the managed action.
+-- * 'executedTime' - The date and time that the action started executing.
+-- * 'failureDescription' - If the action failed, a description of the failure.
+-- * 'failureType' - If the action failed, the type of failure.
+-- * 'finishedTime' - The date and time that the action finished executing.
+-- * 'status' - The status of the action.
+mkManagedActionHistoryItem ::
   ManagedActionHistoryItem
-managedActionHistoryItem =
+mkManagedActionHistoryItem =
   ManagedActionHistoryItem'
-    { _mahiStatus = Nothing,
-      _mahiFailureType = Nothing,
-      _mahiActionId = Nothing,
-      _mahiFailureDescription = Nothing,
-      _mahiFinishedTime = Nothing,
-      _mahiActionDescription = Nothing,
-      _mahiExecutedTime = Nothing,
-      _mahiActionType = Nothing
+    { status = Lude.Nothing,
+      failureType = Lude.Nothing,
+      actionId = Lude.Nothing,
+      failureDescription = Lude.Nothing,
+      finishedTime = Lude.Nothing,
+      actionDescription = Lude.Nothing,
+      executedTime = Lude.Nothing,
+      actionType = Lude.Nothing
     }
 
 -- | The status of the action.
-mahiStatus :: Lens' ManagedActionHistoryItem (Maybe ActionHistoryStatus)
-mahiStatus = lens _mahiStatus (\s a -> s {_mahiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiStatus :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe ActionHistoryStatus)
+mahiStatus = Lens.lens (status :: ManagedActionHistoryItem -> Lude.Maybe ActionHistoryStatus) (\s a -> s {status = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | If the action failed, the type of failure.
-mahiFailureType :: Lens' ManagedActionHistoryItem (Maybe FailureType)
-mahiFailureType = lens _mahiFailureType (\s a -> s {_mahiFailureType = a})
+--
+-- /Note:/ Consider using 'failureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiFailureType :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe FailureType)
+mahiFailureType = Lens.lens (failureType :: ManagedActionHistoryItem -> Lude.Maybe FailureType) (\s a -> s {failureType = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiFailureType "Use generic-lens or generic-optics with 'failureType' instead." #-}
 
 -- | A unique identifier for the managed action.
-mahiActionId :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiActionId = lens _mahiActionId (\s a -> s {_mahiActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiActionId :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.Text)
+mahiActionId = Lens.lens (actionId :: ManagedActionHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | If the action failed, a description of the failure.
-mahiFailureDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiFailureDescription = lens _mahiFailureDescription (\s a -> s {_mahiFailureDescription = a})
+--
+-- /Note:/ Consider using 'failureDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiFailureDescription :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.Text)
+mahiFailureDescription = Lens.lens (failureDescription :: ManagedActionHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {failureDescription = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiFailureDescription "Use generic-lens or generic-optics with 'failureDescription' instead." #-}
 
 -- | The date and time that the action finished executing.
-mahiFinishedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
-mahiFinishedTime = lens _mahiFinishedTime (\s a -> s {_mahiFinishedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'finishedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiFinishedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.ISO8601)
+mahiFinishedTime = Lens.lens (finishedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {finishedTime = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiFinishedTime "Use generic-lens or generic-optics with 'finishedTime' instead." #-}
 
 -- | A description of the managed action.
-mahiActionDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
-mahiActionDescription = lens _mahiActionDescription (\s a -> s {_mahiActionDescription = a})
+--
+-- /Note:/ Consider using 'actionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiActionDescription :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.Text)
+mahiActionDescription = Lens.lens (actionDescription :: ManagedActionHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {actionDescription = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiActionDescription "Use generic-lens or generic-optics with 'actionDescription' instead." #-}
 
 -- | The date and time that the action started executing.
-mahiExecutedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
-mahiExecutedTime = lens _mahiExecutedTime (\s a -> s {_mahiExecutedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiExecutedTime :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe Lude.ISO8601)
+mahiExecutedTime = Lens.lens (executedTime :: ManagedActionHistoryItem -> Lude.Maybe Lude.ISO8601) (\s a -> s {executedTime = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiExecutedTime "Use generic-lens or generic-optics with 'executedTime' instead." #-}
 
 -- | The type of the managed action.
-mahiActionType :: Lens' ManagedActionHistoryItem (Maybe ActionType)
-mahiActionType = lens _mahiActionType (\s a -> s {_mahiActionType = a})
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mahiActionType :: Lens.Lens' ManagedActionHistoryItem (Lude.Maybe ActionType)
+mahiActionType = Lens.lens (actionType :: ManagedActionHistoryItem -> Lude.Maybe ActionType) (\s a -> s {actionType = a} :: ManagedActionHistoryItem)
+{-# DEPRECATED mahiActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance FromXML ManagedActionHistoryItem where
+instance Lude.FromXML ManagedActionHistoryItem where
   parseXML x =
     ManagedActionHistoryItem'
-      <$> (x .@? "Status")
-      <*> (x .@? "FailureType")
-      <*> (x .@? "ActionId")
-      <*> (x .@? "FailureDescription")
-      <*> (x .@? "FinishedTime")
-      <*> (x .@? "ActionDescription")
-      <*> (x .@? "ExecutedTime")
-      <*> (x .@? "ActionType")
-
-instance Hashable ManagedActionHistoryItem
-
-instance NFData ManagedActionHistoryItem
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "FailureType")
+      Lude.<*> (x Lude..@? "ActionId")
+      Lude.<*> (x Lude..@? "FailureDescription")
+      Lude.<*> (x Lude..@? "FinishedTime")
+      Lude.<*> (x Lude..@? "ActionDescription")
+      Lude.<*> (x Lude..@? "ExecutedTime")
+      Lude.<*> (x Lude..@? "ActionType")

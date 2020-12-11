@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AssociatedTargetNetwork where
+module Network.AWS.EC2.Types.AssociatedTargetNetwork
+  ( AssociatedTargetNetwork (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkAssociatedTargetNetwork,
+
+    -- * Lenses
+    atnNetworkId,
+    atnNetworkType,
+  )
+where
+
 import Network.AWS.EC2.Types.AssociatedNetworkType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.
 --
---
---
--- /See:/ 'associatedTargetNetwork' smart constructor.
+-- /See:/ 'mkAssociatedTargetNetwork' smart constructor.
 data AssociatedTargetNetwork = AssociatedTargetNetwork'
-  { _atnNetworkId ::
-      !(Maybe Text),
-    _atnNetworkType ::
-      !(Maybe AssociatedNetworkType)
+  { networkId ::
+      Lude.Maybe Lude.Text,
+    networkType ::
+      Lude.Maybe AssociatedNetworkType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatedTargetNetwork' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atnNetworkId' - The ID of the subnet.
---
--- * 'atnNetworkType' - The target network type.
-associatedTargetNetwork ::
+-- * 'networkId' - The ID of the subnet.
+-- * 'networkType' - The target network type.
+mkAssociatedTargetNetwork ::
   AssociatedTargetNetwork
-associatedTargetNetwork =
+mkAssociatedTargetNetwork =
   AssociatedTargetNetwork'
-    { _atnNetworkId = Nothing,
-      _atnNetworkType = Nothing
+    { networkId = Lude.Nothing,
+      networkType = Lude.Nothing
     }
 
 -- | The ID of the subnet.
-atnNetworkId :: Lens' AssociatedTargetNetwork (Maybe Text)
-atnNetworkId = lens _atnNetworkId (\s a -> s {_atnNetworkId = a})
+--
+-- /Note:/ Consider using 'networkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atnNetworkId :: Lens.Lens' AssociatedTargetNetwork (Lude.Maybe Lude.Text)
+atnNetworkId = Lens.lens (networkId :: AssociatedTargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {networkId = a} :: AssociatedTargetNetwork)
+{-# DEPRECATED atnNetworkId "Use generic-lens or generic-optics with 'networkId' instead." #-}
 
 -- | The target network type.
-atnNetworkType :: Lens' AssociatedTargetNetwork (Maybe AssociatedNetworkType)
-atnNetworkType = lens _atnNetworkType (\s a -> s {_atnNetworkType = a})
+--
+-- /Note:/ Consider using 'networkType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atnNetworkType :: Lens.Lens' AssociatedTargetNetwork (Lude.Maybe AssociatedNetworkType)
+atnNetworkType = Lens.lens (networkType :: AssociatedTargetNetwork -> Lude.Maybe AssociatedNetworkType) (\s a -> s {networkType = a} :: AssociatedTargetNetwork)
+{-# DEPRECATED atnNetworkType "Use generic-lens or generic-optics with 'networkType' instead." #-}
 
-instance FromXML AssociatedTargetNetwork where
+instance Lude.FromXML AssociatedTargetNetwork where
   parseXML x =
     AssociatedTargetNetwork'
-      <$> (x .@? "networkId") <*> (x .@? "networkType")
-
-instance Hashable AssociatedTargetNetwork
-
-instance NFData AssociatedTargetNetwork
+      Lude.<$> (x Lude..@? "networkId") Lude.<*> (x Lude..@? "networkType")

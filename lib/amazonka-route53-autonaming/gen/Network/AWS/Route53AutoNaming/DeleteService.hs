@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Deletes a specified service. If the service still contains one or more registered instances, the request fails.
 module Network.AWS.Route53AutoNaming.DeleteService
-  ( -- * Creating a Request
-    deleteService,
-    DeleteService,
+  ( -- * Creating a request
+    DeleteService (..),
+    mkDeleteService,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsId,
 
-    -- * Destructuring the Response
-    deleteServiceResponse,
-    DeleteServiceResponse,
+    -- * Destructuring the response
+    DeleteServiceResponse (..),
+    mkDeleteServiceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'deleteService' smart constructor.
-newtype DeleteService = DeleteService' {_dsId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteService' smart constructor.
+newtype DeleteService = DeleteService' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsId' - The ID of the service that you want to delete.
-deleteService ::
-  -- | 'dsId'
-  Text ->
+-- * 'id' - The ID of the service that you want to delete.
+mkDeleteService ::
+  -- | 'id'
+  Lude.Text ->
   DeleteService
-deleteService pId_ = DeleteService' {_dsId = pId_}
+mkDeleteService pId_ = DeleteService' {id = pId_}
 
 -- | The ID of the service that you want to delete.
-dsId :: Lens' DeleteService Text
-dsId = lens _dsId (\s a -> s {_dsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsId :: Lens.Lens' DeleteService Lude.Text
+dsId = Lens.lens (id :: DeleteService -> Lude.Text) (\s a -> s {id = a} :: DeleteService)
+{-# DEPRECATED dsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteService where
+instance Lude.AWSRequest DeleteService where
   type Rs DeleteService = DeleteServiceResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveEmpty
-      (\s h x -> DeleteServiceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteServiceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteService
-
-instance NFData DeleteService
-
-instance ToHeaders DeleteService where
+instance Lude.ToHeaders DeleteService where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.DeleteService" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.DeleteService" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteService where
+instance Lude.ToJSON DeleteService where
   toJSON DeleteService' {..} =
-    object (catMaybes [Just ("Id" .= _dsId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
 
-instance ToPath DeleteService where
-  toPath = const "/"
+instance Lude.ToPath DeleteService where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteService where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteService where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteServiceResponse' smart constructor.
+-- | /See:/ 'mkDeleteServiceResponse' smart constructor.
 newtype DeleteServiceResponse = DeleteServiceResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteServiceResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteServiceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteServiceResponse
-deleteServiceResponse pResponseStatus_ =
-  DeleteServiceResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteServiceResponse pResponseStatus_ =
+  DeleteServiceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteServiceResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteServiceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteServiceResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

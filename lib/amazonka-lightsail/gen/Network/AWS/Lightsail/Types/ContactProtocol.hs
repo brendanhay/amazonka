@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContactProtocol where
+module Network.AWS.Lightsail.Types.ContactProtocol
+  ( ContactProtocol
+      ( ContactProtocol',
+        Email,
+        Sms
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContactProtocol
-  = Email
-  | Sms
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContactProtocol = ContactProtocol' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContactProtocol where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure Email
-      "sms" -> pure Sms
-      e ->
-        fromTextError $
-          "Failure parsing ContactProtocol from value: '" <> e
-            <> "'. Accepted values: email, sms"
+pattern Email :: ContactProtocol
+pattern Email = ContactProtocol' "Email"
 
-instance ToText ContactProtocol where
-  toText = \case
-    Email -> "Email"
-    Sms -> "SMS"
+pattern Sms :: ContactProtocol
+pattern Sms = ContactProtocol' "SMS"
 
-instance Hashable ContactProtocol
-
-instance NFData ContactProtocol
-
-instance ToByteString ContactProtocol
-
-instance ToQuery ContactProtocol
-
-instance ToHeader ContactProtocol
-
-instance ToJSON ContactProtocol where
-  toJSON = toJSONText
-
-instance FromJSON ContactProtocol where
-  parseJSON = parseJSONText "ContactProtocol"
+{-# COMPLETE
+  Email,
+  Sms,
+  ContactProtocol'
+  #-}

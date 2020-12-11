@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeUpdateStatus where
+module Network.AWS.ElastiCache.Types.NodeUpdateStatus
+  ( NodeUpdateStatus
+      ( NodeUpdateStatus',
+        NUSComplete,
+        NUSInProgress,
+        NUSNotApplied,
+        NUSStopped,
+        NUSStopping,
+        NUSWaitingToStart
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NodeUpdateStatus
-  = NUSComplete
-  | NUSInProgress
-  | NUSNotApplied
-  | NUSStopped
-  | NUSStopping
-  | NUSWaitingToStart
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NodeUpdateStatus = NodeUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NodeUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure NUSComplete
-      "in-progress" -> pure NUSInProgress
-      "not-applied" -> pure NUSNotApplied
-      "stopped" -> pure NUSStopped
-      "stopping" -> pure NUSStopping
-      "waiting-to-start" -> pure NUSWaitingToStart
-      e ->
-        fromTextError $
-          "Failure parsing NodeUpdateStatus from value: '" <> e
-            <> "'. Accepted values: complete, in-progress, not-applied, stopped, stopping, waiting-to-start"
+pattern NUSComplete :: NodeUpdateStatus
+pattern NUSComplete = NodeUpdateStatus' "complete"
 
-instance ToText NodeUpdateStatus where
-  toText = \case
-    NUSComplete -> "complete"
-    NUSInProgress -> "in-progress"
-    NUSNotApplied -> "not-applied"
-    NUSStopped -> "stopped"
-    NUSStopping -> "stopping"
-    NUSWaitingToStart -> "waiting-to-start"
+pattern NUSInProgress :: NodeUpdateStatus
+pattern NUSInProgress = NodeUpdateStatus' "in-progress"
 
-instance Hashable NodeUpdateStatus
+pattern NUSNotApplied :: NodeUpdateStatus
+pattern NUSNotApplied = NodeUpdateStatus' "not-applied"
 
-instance NFData NodeUpdateStatus
+pattern NUSStopped :: NodeUpdateStatus
+pattern NUSStopped = NodeUpdateStatus' "stopped"
 
-instance ToByteString NodeUpdateStatus
+pattern NUSStopping :: NodeUpdateStatus
+pattern NUSStopping = NodeUpdateStatus' "stopping"
 
-instance ToQuery NodeUpdateStatus
+pattern NUSWaitingToStart :: NodeUpdateStatus
+pattern NUSWaitingToStart = NodeUpdateStatus' "waiting-to-start"
 
-instance ToHeader NodeUpdateStatus
-
-instance FromXML NodeUpdateStatus where
-  parseXML = parseXMLText "NodeUpdateStatus"
+{-# COMPLETE
+  NUSComplete,
+  NUSInProgress,
+  NUSNotApplied,
+  NUSStopped,
+  NUSStopping,
+  NUSWaitingToStart,
+  NodeUpdateStatus'
+  #-}

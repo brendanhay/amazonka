@@ -28,739 +28,739 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetConnectionStatus $
---             getConnectionStatus
+--             mkGetConnectionStatus
 --
 --         , requestDescribeInstancePatches $
---             describeInstancePatches
+--             mkDescribeInstancePatches
 --
 --         , requestGetInventory $
---             getInventory
+--             mkGetInventory
 --
 --         , requestGetParameters $
---             getParameters
+--             mkGetParameters
 --
 --         , requestDeletePatchBaseline $
---             deletePatchBaseline
+--             mkDeletePatchBaseline
 --
 --         , requestUpdatePatchBaseline $
---             updatePatchBaseline
+--             mkUpdatePatchBaseline
 --
 --         , requestTerminateSession $
---             terminateSession
+--             mkTerminateSession
 --
 --         , requestGetParameter $
---             getParameter
+--             mkGetParameter
 --
 --         , requestUpdateDocumentDefaultVersion $
---             updateDocumentDefaultVersion
+--             mkUpdateDocumentDefaultVersion
 --
 --         , requestListResourceDataSync $
---             listResourceDataSync
+--             mkListResourceDataSync
 --
 --         , requestGetOpsItem $
---             getOpsItem
+--             mkGetOpsItem
 --
 --         , requestResumeSession $
---             resumeSession
+--             mkResumeSession
 --
 --         , requestGetDeployablePatchSnapshotForInstance $
---             getDeployablePatchSnapshotForInstance
+--             mkGetDeployablePatchSnapshotForInstance
 --
 --         , requestDescribeParameters $
---             describeParameters
+--             mkDescribeParameters
 --
 --         , requestDescribeOpsItems $
---             describeOpsItems
+--             mkDescribeOpsItems
 --
 --         , requestGetParametersByPath $
---             getParametersByPath
+--             mkGetParametersByPath
 --
 --         , requestPutComplianceItems $
---             putComplianceItems
+--             mkPutComplianceItems
 --
 --         , requestDescribeActivations $
---             describeActivations
+--             mkDescribeActivations
 --
 --         , requestGetMaintenanceWindowTask $
---             getMaintenanceWindowTask
+--             mkGetMaintenanceWindowTask
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestDescribeDocument $
---             describeDocument
+--             mkDescribeDocument
 --
 --         , requestDescribePatchProperties $
---             describePatchProperties
+--             mkDescribePatchProperties
 --
 --         , requestCreateAssociation $
---             createAssociation
+--             mkCreateAssociation
 --
 --         , requestDeleteActivation $
---             deleteActivation
+--             mkDeleteActivation
 --
 --         , requestDescribeMaintenanceWindowExecutions $
---             describeMaintenanceWindowExecutions
+--             mkDescribeMaintenanceWindowExecutions
 --
 --         , requestDescribeMaintenanceWindowsForTarget $
---             describeMaintenanceWindowsForTarget
+--             mkDescribeMaintenanceWindowsForTarget
 --
 --         , requestCancelMaintenanceWindowExecution $
---             cancelMaintenanceWindowExecution
+--             mkCancelMaintenanceWindowExecution
 --
 --         , requestGetInventorySchema $
---             getInventorySchema
+--             mkGetInventorySchema
 --
 --         , requestListComplianceSummaries $
---             listComplianceSummaries
+--             mkListComplianceSummaries
 --
 --         , requestStartAutomationExecution $
---             startAutomationExecution
+--             mkStartAutomationExecution
 --
 --         , requestCreateOpsItem $
---             createOpsItem
+--             mkCreateOpsItem
 --
 --         , requestCreateActivation $
---             createActivation
+--             mkCreateActivation
 --
 --         , requestDeleteMaintenanceWindow $
---             deleteMaintenanceWindow
+--             mkDeleteMaintenanceWindow
 --
 --         , requestUpdateMaintenanceWindow $
---             updateMaintenanceWindow
+--             mkUpdateMaintenanceWindow
 --
 --         , requestDescribeSessions $
---             describeSessions
+--             mkDescribeSessions
 --
 --         , requestDescribeMaintenanceWindowExecutionTasks $
---             describeMaintenanceWindowExecutionTasks
+--             mkDescribeMaintenanceWindowExecutionTasks
 --
 --         , requestGetDefaultPatchBaseline $
---             getDefaultPatchBaseline
+--             mkGetDefaultPatchBaseline
 --
 --         , requestGetMaintenanceWindowExecutionTask $
---             getMaintenanceWindowExecutionTask
+--             mkGetMaintenanceWindowExecutionTask
 --
 --         , requestCreateDocument $
---             createDocument
+--             mkCreateDocument
 --
 --         , requestRemoveTagsFromResource $
---             removeTagsFromResource
+--             mkRemoveTagsFromResource
 --
 --         , requestGetCalendarState $
---             getCalendarState
+--             mkGetCalendarState
 --
 --         , requestDeleteParameters $
---             deleteParameters
+--             mkDeleteParameters
 --
 --         , requestDescribePatchGroupState $
---             describePatchGroupState
+--             mkDescribePatchGroupState
 --
 --         , requestListCommandInvocations $
---             listCommandInvocations
+--             mkListCommandInvocations
 --
 --         , requestDeregisterTargetFromMaintenanceWindow $
---             deregisterTargetFromMaintenanceWindow
+--             mkDeregisterTargetFromMaintenanceWindow
 --
 --         , requestDescribeEffectivePatchesForPatchBaseline $
---             describeEffectivePatchesForPatchBaseline
+--             mkDescribeEffectivePatchesForPatchBaseline
 --
 --         , requestDescribeMaintenanceWindowTargets $
---             describeMaintenanceWindowTargets
+--             mkDescribeMaintenanceWindowTargets
 --
 --         , requestResetServiceSetting $
---             resetServiceSetting
+--             mkResetServiceSetting
 --
 --         , requestRegisterPatchBaselineForPatchGroup $
---             registerPatchBaselineForPatchGroup
+--             mkRegisterPatchBaselineForPatchGroup
 --
 --         , requestListDocuments $
---             listDocuments
+--             mkListDocuments
 --
 --         , requestDescribeInstancePatchStates $
---             describeInstancePatchStates
+--             mkDescribeInstancePatchStates
 --
 --         , requestGetOpsSummary $
---             getOpsSummary
+--             mkGetOpsSummary
 --
 --         , requestGetPatchBaselineForPatchGroup $
---             getPatchBaselineForPatchGroup
+--             mkGetPatchBaselineForPatchGroup
 --
 --         , requestUpdateManagedInstanceRole $
---             updateManagedInstanceRole
+--             mkUpdateManagedInstanceRole
 --
 --         , requestListComplianceItems $
---             listComplianceItems
+--             mkListComplianceItems
 --
 --         , requestGetDocument $
---             getDocument
+--             mkGetDocument
 --
 --         , requestDescribeMaintenanceWindowSchedule $
---             describeMaintenanceWindowSchedule
+--             mkDescribeMaintenanceWindowSchedule
 --
 --         , requestAddTagsToResource $
---             addTagsToResource
+--             mkAddTagsToResource
 --
 --         , requestCancelCommand $
---             cancelCommand
+--             mkCancelCommand
 --
 --         , requestDescribeAutomationStepExecutions $
---             describeAutomationStepExecutions
+--             mkDescribeAutomationStepExecutions
 --
 --         , requestGetCommandInvocation $
---             getCommandInvocation
+--             mkGetCommandInvocation
 --
 --         , requestDescribeInstancePatchStatesForPatchGroup $
---             describeInstancePatchStatesForPatchGroup
+--             mkDescribeInstancePatchStatesForPatchGroup
 --
 --         , requestDeregisterManagedInstance $
---             deregisterManagedInstance
+--             mkDeregisterManagedInstance
 --
 --         , requestDescribeAssociation $
---             describeAssociation
+--             mkDescribeAssociation
 --
 --         , requestDescribeAssociationExecutionTargets $
---             describeAssociationExecutionTargets
+--             mkDescribeAssociationExecutionTargets
 --
 --         , requestModifyDocumentPermission $
---             modifyDocumentPermission
+--             mkModifyDocumentPermission
 --
 --         , requestUpdateResourceDataSync $
---             updateResourceDataSync
+--             mkUpdateResourceDataSync
 --
 --         , requestDeleteResourceDataSync $
---             deleteResourceDataSync
+--             mkDeleteResourceDataSync
 --
 --         , requestUpdateAssociationStatus $
---             updateAssociationStatus
+--             mkUpdateAssociationStatus
 --
 --         , requestDescribeAvailablePatches $
---             describeAvailablePatches
+--             mkDescribeAvailablePatches
 --
 --         , requestListDocumentVersions $
---             listDocumentVersions
+--             mkListDocumentVersions
 --
 --         , requestDeregisterPatchBaselineForPatchGroup $
---             deregisterPatchBaselineForPatchGroup
+--             mkDeregisterPatchBaselineForPatchGroup
 --
 --         , requestDescribePatchGroups $
---             describePatchGroups
+--             mkDescribePatchGroups
 --
 --         , requestGetMaintenanceWindow $
---             getMaintenanceWindow
+--             mkGetMaintenanceWindow
 --
 --         , requestDescribeMaintenanceWindows $
---             describeMaintenanceWindows
+--             mkDescribeMaintenanceWindows
 --
 --         , requestRegisterTaskWithMaintenanceWindow $
---             registerTaskWithMaintenanceWindow
+--             mkRegisterTaskWithMaintenanceWindow
 --
 --         , requestRegisterDefaultPatchBaseline $
---             registerDefaultPatchBaseline
+--             mkRegisterDefaultPatchBaseline
 --
 --         , requestListResourceComplianceSummaries $
---             listResourceComplianceSummaries
+--             mkListResourceComplianceSummaries
 --
 --         , requestListAssociationVersions $
---             listAssociationVersions
+--             mkListAssociationVersions
 --
 --         , requestUpdateServiceSetting $
---             updateServiceSetting
+--             mkUpdateServiceSetting
 --
 --         , requestDescribeMaintenanceWindowTasks $
---             describeMaintenanceWindowTasks
+--             mkDescribeMaintenanceWindowTasks
 --
 --         , requestDescribeInstanceAssociationsStatus $
---             describeInstanceAssociationsStatus
+--             mkDescribeInstanceAssociationsStatus
 --
 --         , requestDeregisterTaskFromMaintenanceWindow $
---             deregisterTaskFromMaintenanceWindow
+--             mkDeregisterTaskFromMaintenanceWindow
 --
 --         , requestListInventoryEntries $
---             listInventoryEntries
+--             mkListInventoryEntries
 --
 --         , requestLabelParameterVersion $
---             labelParameterVersion
+--             mkLabelParameterVersion
 --
 --         , requestUpdateMaintenanceWindowTask $
---             updateMaintenanceWindowTask
+--             mkUpdateMaintenanceWindowTask
 --
 --         , requestGetParameterHistory $
---             getParameterHistory
+--             mkGetParameterHistory
 --
 --         , requestDescribeAssociationExecutions $
---             describeAssociationExecutions
+--             mkDescribeAssociationExecutions
 --
 --         , requestGetServiceSetting $
---             getServiceSetting
+--             mkGetServiceSetting
 --
 --         , requestStartAssociationsOnce $
---             startAssociationsOnce
+--             mkStartAssociationsOnce
 --
 --         , requestCreateMaintenanceWindow $
---             createMaintenanceWindow
+--             mkCreateMaintenanceWindow
 --
 --         , requestStopAutomationExecution $
---             stopAutomationExecution
+--             mkStopAutomationExecution
 --
 --         , requestGetMaintenanceWindowExecution $
---             getMaintenanceWindowExecution
+--             mkGetMaintenanceWindowExecution
 --
 --         , requestSendAutomationSignal $
---             sendAutomationSignal
+--             mkSendAutomationSignal
 --
 --         , requestPutParameter $
---             putParameter
+--             mkPutParameter
 --
 --         , requestDescribeMaintenanceWindowExecutionTaskInvocations $
---             describeMaintenanceWindowExecutionTaskInvocations
+--             mkDescribeMaintenanceWindowExecutionTaskInvocations
 --
 --         , requestGetMaintenanceWindowExecutionTaskInvocation $
---             getMaintenanceWindowExecutionTaskInvocation
+--             mkGetMaintenanceWindowExecutionTaskInvocation
 --
 --         , requestDeleteParameter $
---             deleteParameter
+--             mkDeleteParameter
 --
 --         , requestDescribeInstanceInformation $
---             describeInstanceInformation
+--             mkDescribeInstanceInformation
 --
 --         , requestListAssociations $
---             listAssociations
+--             mkListAssociations
 --
 --         , requestUpdateOpsItem $
---             updateOpsItem
+--             mkUpdateOpsItem
 --
 --         , requestDeleteAssociation $
---             deleteAssociation
+--             mkDeleteAssociation
 --
 --         , requestUpdateAssociation $
---             updateAssociation
+--             mkUpdateAssociation
 --
 --         , requestDescribeInventoryDeletions $
---             describeInventoryDeletions
+--             mkDescribeInventoryDeletions
 --
 --         , requestDeleteInventory $
---             deleteInventory
+--             mkDeleteInventory
 --
 --         , requestPutInventory $
---             putInventory
+--             mkPutInventory
 --
 --         , requestDescribeEffectiveInstanceAssociations $
---             describeEffectiveInstanceAssociations
+--             mkDescribeEffectiveInstanceAssociations
 --
 --         , requestDescribeAutomationExecutions $
---             describeAutomationExecutions
+--             mkDescribeAutomationExecutions
 --
 --         , requestGetAutomationExecution $
---             getAutomationExecution
+--             mkGetAutomationExecution
 --
 --         , requestSendCommand $
---             sendCommand
+--             mkSendCommand
 --
 --         , requestDescribePatchBaselines $
---             describePatchBaselines
+--             mkDescribePatchBaselines
 --
 --         , requestGetPatchBaseline $
---             getPatchBaseline
+--             mkGetPatchBaseline
 --
 --         , requestRegisterTargetWithMaintenanceWindow $
---             registerTargetWithMaintenanceWindow
+--             mkRegisterTargetWithMaintenanceWindow
 --
 --         , requestStartSession $
---             startSession
+--             mkStartSession
 --
 --         , requestListCommands $
---             listCommands
+--             mkListCommands
 --
 --         , requestUpdateDocument $
---             updateDocument
+--             mkUpdateDocument
 --
 --         , requestDeleteDocument $
---             deleteDocument
+--             mkDeleteDocument
 --
 --         , requestDescribeDocumentPermission $
---             describeDocumentPermission
+--             mkDescribeDocumentPermission
 --
 --         , requestCreateAssociationBatch $
---             createAssociationBatch
+--             mkCreateAssociationBatch
 --
 --         , requestUpdateMaintenanceWindowTarget $
---             updateMaintenanceWindowTarget
+--             mkUpdateMaintenanceWindowTarget
 --
 --         , requestCreateResourceDataSync $
---             createResourceDataSync
+--             mkCreateResourceDataSync
 --
 --         , requestCreatePatchBaseline $
---             createPatchBaseline
+--             mkCreatePatchBaseline
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetConnectionStatus $
---             getConnectionStatusResponse
+--             mkGetConnectionStatusResponse
 --
 --         , responseDescribeInstancePatches $
---             describeInstancePatchesResponse
+--             mkDescribeInstancePatchesResponse
 --
 --         , responseGetInventory $
---             getInventoryResponse
+--             mkGetInventoryResponse
 --
 --         , responseGetParameters $
---             getParametersResponse
+--             mkGetParametersResponse
 --
 --         , responseDeletePatchBaseline $
---             deletePatchBaselineResponse
+--             mkDeletePatchBaselineResponse
 --
 --         , responseUpdatePatchBaseline $
---             updatePatchBaselineResponse
+--             mkUpdatePatchBaselineResponse
 --
 --         , responseTerminateSession $
---             terminateSessionResponse
+--             mkTerminateSessionResponse
 --
 --         , responseGetParameter $
---             getParameterResponse
+--             mkGetParameterResponse
 --
 --         , responseUpdateDocumentDefaultVersion $
---             updateDocumentDefaultVersionResponse
+--             mkUpdateDocumentDefaultVersionResponse
 --
 --         , responseListResourceDataSync $
---             listResourceDataSyncResponse
+--             mkListResourceDataSyncResponse
 --
 --         , responseGetOpsItem $
---             getOpsItemResponse
+--             mkGetOpsItemResponse
 --
 --         , responseResumeSession $
---             resumeSessionResponse
+--             mkResumeSessionResponse
 --
 --         , responseGetDeployablePatchSnapshotForInstance $
---             getDeployablePatchSnapshotForInstanceResponse
+--             mkGetDeployablePatchSnapshotForInstanceResponse
 --
 --         , responseDescribeParameters $
---             describeParametersResponse
+--             mkDescribeParametersResponse
 --
 --         , responseDescribeOpsItems $
---             describeOpsItemsResponse
+--             mkDescribeOpsItemsResponse
 --
 --         , responseGetParametersByPath $
---             getParametersByPathResponse
+--             mkGetParametersByPathResponse
 --
 --         , responsePutComplianceItems $
---             putComplianceItemsResponse
+--             mkPutComplianceItemsResponse
 --
 --         , responseDescribeActivations $
---             describeActivationsResponse
+--             mkDescribeActivationsResponse
 --
 --         , responseGetMaintenanceWindowTask $
---             getMaintenanceWindowTaskResponse
+--             mkGetMaintenanceWindowTaskResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseDescribeDocument $
---             describeDocumentResponse
+--             mkDescribeDocumentResponse
 --
 --         , responseDescribePatchProperties $
---             describePatchPropertiesResponse
+--             mkDescribePatchPropertiesResponse
 --
 --         , responseCreateAssociation $
---             createAssociationResponse
+--             mkCreateAssociationResponse
 --
 --         , responseDeleteActivation $
---             deleteActivationResponse
+--             mkDeleteActivationResponse
 --
 --         , responseDescribeMaintenanceWindowExecutions $
---             describeMaintenanceWindowExecutionsResponse
+--             mkDescribeMaintenanceWindowExecutionsResponse
 --
 --         , responseDescribeMaintenanceWindowsForTarget $
---             describeMaintenanceWindowsForTargetResponse
+--             mkDescribeMaintenanceWindowsForTargetResponse
 --
 --         , responseCancelMaintenanceWindowExecution $
---             cancelMaintenanceWindowExecutionResponse
+--             mkCancelMaintenanceWindowExecutionResponse
 --
 --         , responseGetInventorySchema $
---             getInventorySchemaResponse
+--             mkGetInventorySchemaResponse
 --
 --         , responseListComplianceSummaries $
---             listComplianceSummariesResponse
+--             mkListComplianceSummariesResponse
 --
 --         , responseStartAutomationExecution $
---             startAutomationExecutionResponse
+--             mkStartAutomationExecutionResponse
 --
 --         , responseCreateOpsItem $
---             createOpsItemResponse
+--             mkCreateOpsItemResponse
 --
 --         , responseCreateActivation $
---             createActivationResponse
+--             mkCreateActivationResponse
 --
 --         , responseDeleteMaintenanceWindow $
---             deleteMaintenanceWindowResponse
+--             mkDeleteMaintenanceWindowResponse
 --
 --         , responseUpdateMaintenanceWindow $
---             updateMaintenanceWindowResponse
+--             mkUpdateMaintenanceWindowResponse
 --
 --         , responseDescribeSessions $
---             describeSessionsResponse
+--             mkDescribeSessionsResponse
 --
 --         , responseDescribeMaintenanceWindowExecutionTasks $
---             describeMaintenanceWindowExecutionTasksResponse
+--             mkDescribeMaintenanceWindowExecutionTasksResponse
 --
 --         , responseGetDefaultPatchBaseline $
---             getDefaultPatchBaselineResponse
+--             mkGetDefaultPatchBaselineResponse
 --
 --         , responseGetMaintenanceWindowExecutionTask $
---             getMaintenanceWindowExecutionTaskResponse
+--             mkGetMaintenanceWindowExecutionTaskResponse
 --
 --         , responseCreateDocument $
---             createDocumentResponse
+--             mkCreateDocumentResponse
 --
 --         , responseRemoveTagsFromResource $
---             removeTagsFromResourceResponse
+--             mkRemoveTagsFromResourceResponse
 --
 --         , responseGetCalendarState $
---             getCalendarStateResponse
+--             mkGetCalendarStateResponse
 --
 --         , responseDeleteParameters $
---             deleteParametersResponse
+--             mkDeleteParametersResponse
 --
 --         , responseDescribePatchGroupState $
---             describePatchGroupStateResponse
+--             mkDescribePatchGroupStateResponse
 --
 --         , responseListCommandInvocations $
---             listCommandInvocationsResponse
+--             mkListCommandInvocationsResponse
 --
 --         , responseDeregisterTargetFromMaintenanceWindow $
---             deregisterTargetFromMaintenanceWindowResponse
+--             mkDeregisterTargetFromMaintenanceWindowResponse
 --
 --         , responseDescribeEffectivePatchesForPatchBaseline $
---             describeEffectivePatchesForPatchBaselineResponse
+--             mkDescribeEffectivePatchesForPatchBaselineResponse
 --
 --         , responseDescribeMaintenanceWindowTargets $
---             describeMaintenanceWindowTargetsResponse
+--             mkDescribeMaintenanceWindowTargetsResponse
 --
 --         , responseResetServiceSetting $
---             resetServiceSettingResponse
+--             mkResetServiceSettingResponse
 --
 --         , responseRegisterPatchBaselineForPatchGroup $
---             registerPatchBaselineForPatchGroupResponse
+--             mkRegisterPatchBaselineForPatchGroupResponse
 --
 --         , responseListDocuments $
---             listDocumentsResponse
+--             mkListDocumentsResponse
 --
 --         , responseDescribeInstancePatchStates $
---             describeInstancePatchStatesResponse
+--             mkDescribeInstancePatchStatesResponse
 --
 --         , responseGetOpsSummary $
---             getOpsSummaryResponse
+--             mkGetOpsSummaryResponse
 --
 --         , responseGetPatchBaselineForPatchGroup $
---             getPatchBaselineForPatchGroupResponse
+--             mkGetPatchBaselineForPatchGroupResponse
 --
 --         , responseUpdateManagedInstanceRole $
---             updateManagedInstanceRoleResponse
+--             mkUpdateManagedInstanceRoleResponse
 --
 --         , responseListComplianceItems $
---             listComplianceItemsResponse
+--             mkListComplianceItemsResponse
 --
 --         , responseGetDocument $
---             getDocumentResponse
+--             mkGetDocumentResponse
 --
 --         , responseDescribeMaintenanceWindowSchedule $
---             describeMaintenanceWindowScheduleResponse
+--             mkDescribeMaintenanceWindowScheduleResponse
 --
 --         , responseAddTagsToResource $
---             addTagsToResourceResponse
+--             mkAddTagsToResourceResponse
 --
 --         , responseCancelCommand $
---             cancelCommandResponse
+--             mkCancelCommandResponse
 --
 --         , responseDescribeAutomationStepExecutions $
---             describeAutomationStepExecutionsResponse
+--             mkDescribeAutomationStepExecutionsResponse
 --
 --         , responseGetCommandInvocation $
---             getCommandInvocationResponse
+--             mkGetCommandInvocationResponse
 --
 --         , responseDescribeInstancePatchStatesForPatchGroup $
---             describeInstancePatchStatesForPatchGroupResponse
+--             mkDescribeInstancePatchStatesForPatchGroupResponse
 --
 --         , responseDeregisterManagedInstance $
---             deregisterManagedInstanceResponse
+--             mkDeregisterManagedInstanceResponse
 --
 --         , responseDescribeAssociation $
---             describeAssociationResponse
+--             mkDescribeAssociationResponse
 --
 --         , responseDescribeAssociationExecutionTargets $
---             describeAssociationExecutionTargetsResponse
+--             mkDescribeAssociationExecutionTargetsResponse
 --
 --         , responseModifyDocumentPermission $
---             modifyDocumentPermissionResponse
+--             mkModifyDocumentPermissionResponse
 --
 --         , responseUpdateResourceDataSync $
---             updateResourceDataSyncResponse
+--             mkUpdateResourceDataSyncResponse
 --
 --         , responseDeleteResourceDataSync $
---             deleteResourceDataSyncResponse
+--             mkDeleteResourceDataSyncResponse
 --
 --         , responseUpdateAssociationStatus $
---             updateAssociationStatusResponse
+--             mkUpdateAssociationStatusResponse
 --
 --         , responseDescribeAvailablePatches $
---             describeAvailablePatchesResponse
+--             mkDescribeAvailablePatchesResponse
 --
 --         , responseListDocumentVersions $
---             listDocumentVersionsResponse
+--             mkListDocumentVersionsResponse
 --
 --         , responseDeregisterPatchBaselineForPatchGroup $
---             deregisterPatchBaselineForPatchGroupResponse
+--             mkDeregisterPatchBaselineForPatchGroupResponse
 --
 --         , responseDescribePatchGroups $
---             describePatchGroupsResponse
+--             mkDescribePatchGroupsResponse
 --
 --         , responseGetMaintenanceWindow $
---             getMaintenanceWindowResponse
+--             mkGetMaintenanceWindowResponse
 --
 --         , responseDescribeMaintenanceWindows $
---             describeMaintenanceWindowsResponse
+--             mkDescribeMaintenanceWindowsResponse
 --
 --         , responseRegisterTaskWithMaintenanceWindow $
---             registerTaskWithMaintenanceWindowResponse
+--             mkRegisterTaskWithMaintenanceWindowResponse
 --
 --         , responseRegisterDefaultPatchBaseline $
---             registerDefaultPatchBaselineResponse
+--             mkRegisterDefaultPatchBaselineResponse
 --
 --         , responseListResourceComplianceSummaries $
---             listResourceComplianceSummariesResponse
+--             mkListResourceComplianceSummariesResponse
 --
 --         , responseListAssociationVersions $
---             listAssociationVersionsResponse
+--             mkListAssociationVersionsResponse
 --
 --         , responseUpdateServiceSetting $
---             updateServiceSettingResponse
+--             mkUpdateServiceSettingResponse
 --
 --         , responseDescribeMaintenanceWindowTasks $
---             describeMaintenanceWindowTasksResponse
+--             mkDescribeMaintenanceWindowTasksResponse
 --
 --         , responseDescribeInstanceAssociationsStatus $
---             describeInstanceAssociationsStatusResponse
+--             mkDescribeInstanceAssociationsStatusResponse
 --
 --         , responseDeregisterTaskFromMaintenanceWindow $
---             deregisterTaskFromMaintenanceWindowResponse
+--             mkDeregisterTaskFromMaintenanceWindowResponse
 --
 --         , responseListInventoryEntries $
---             listInventoryEntriesResponse
+--             mkListInventoryEntriesResponse
 --
 --         , responseLabelParameterVersion $
---             labelParameterVersionResponse
+--             mkLabelParameterVersionResponse
 --
 --         , responseUpdateMaintenanceWindowTask $
---             updateMaintenanceWindowTaskResponse
+--             mkUpdateMaintenanceWindowTaskResponse
 --
 --         , responseGetParameterHistory $
---             getParameterHistoryResponse
+--             mkGetParameterHistoryResponse
 --
 --         , responseDescribeAssociationExecutions $
---             describeAssociationExecutionsResponse
+--             mkDescribeAssociationExecutionsResponse
 --
 --         , responseGetServiceSetting $
---             getServiceSettingResponse
+--             mkGetServiceSettingResponse
 --
 --         , responseStartAssociationsOnce $
---             startAssociationsOnceResponse
+--             mkStartAssociationsOnceResponse
 --
 --         , responseCreateMaintenanceWindow $
---             createMaintenanceWindowResponse
+--             mkCreateMaintenanceWindowResponse
 --
 --         , responseStopAutomationExecution $
---             stopAutomationExecutionResponse
+--             mkStopAutomationExecutionResponse
 --
 --         , responseGetMaintenanceWindowExecution $
---             getMaintenanceWindowExecutionResponse
+--             mkGetMaintenanceWindowExecutionResponse
 --
 --         , responseSendAutomationSignal $
---             sendAutomationSignalResponse
+--             mkSendAutomationSignalResponse
 --
 --         , responsePutParameter $
---             putParameterResponse
+--             mkPutParameterResponse
 --
 --         , responseDescribeMaintenanceWindowExecutionTaskInvocations $
---             describeMaintenanceWindowExecutionTaskInvocationsResponse
+--             mkDescribeMaintenanceWindowExecutionTaskInvocationsResponse
 --
 --         , responseGetMaintenanceWindowExecutionTaskInvocation $
---             getMaintenanceWindowExecutionTaskInvocationResponse
+--             mkGetMaintenanceWindowExecutionTaskInvocationResponse
 --
 --         , responseDeleteParameter $
---             deleteParameterResponse
+--             mkDeleteParameterResponse
 --
 --         , responseDescribeInstanceInformation $
---             describeInstanceInformationResponse
+--             mkDescribeInstanceInformationResponse
 --
 --         , responseListAssociations $
---             listAssociationsResponse
+--             mkListAssociationsResponse
 --
 --         , responseUpdateOpsItem $
---             updateOpsItemResponse
+--             mkUpdateOpsItemResponse
 --
 --         , responseDeleteAssociation $
---             deleteAssociationResponse
+--             mkDeleteAssociationResponse
 --
 --         , responseUpdateAssociation $
---             updateAssociationResponse
+--             mkUpdateAssociationResponse
 --
 --         , responseDescribeInventoryDeletions $
---             describeInventoryDeletionsResponse
+--             mkDescribeInventoryDeletionsResponse
 --
 --         , responseDeleteInventory $
---             deleteInventoryResponse
+--             mkDeleteInventoryResponse
 --
 --         , responsePutInventory $
---             putInventoryResponse
+--             mkPutInventoryResponse
 --
 --         , responseDescribeEffectiveInstanceAssociations $
---             describeEffectiveInstanceAssociationsResponse
+--             mkDescribeEffectiveInstanceAssociationsResponse
 --
 --         , responseDescribeAutomationExecutions $
---             describeAutomationExecutionsResponse
+--             mkDescribeAutomationExecutionsResponse
 --
 --         , responseGetAutomationExecution $
---             getAutomationExecutionResponse
+--             mkGetAutomationExecutionResponse
 --
 --         , responseSendCommand $
---             sendCommandResponse
+--             mkSendCommandResponse
 --
 --         , responseDescribePatchBaselines $
---             describePatchBaselinesResponse
+--             mkDescribePatchBaselinesResponse
 --
 --         , responseGetPatchBaseline $
---             getPatchBaselineResponse
+--             mkGetPatchBaselineResponse
 --
 --         , responseRegisterTargetWithMaintenanceWindow $
---             registerTargetWithMaintenanceWindowResponse
+--             mkRegisterTargetWithMaintenanceWindowResponse
 --
 --         , responseStartSession $
---             startSessionResponse
+--             mkStartSessionResponse
 --
 --         , responseListCommands $
---             listCommandsResponse
+--             mkListCommandsResponse
 --
 --         , responseUpdateDocument $
---             updateDocumentResponse
+--             mkUpdateDocumentResponse
 --
 --         , responseDeleteDocument $
---             deleteDocumentResponse
+--             mkDeleteDocumentResponse
 --
 --         , responseDescribeDocumentPermission $
---             describeDocumentPermissionResponse
+--             mkDescribeDocumentPermissionResponse
 --
 --         , responseCreateAssociationBatch $
---             createAssociationBatchResponse
+--             mkCreateAssociationBatchResponse
 --
 --         , responseUpdateMaintenanceWindowTarget $
---             updateMaintenanceWindowTargetResponse
+--             mkUpdateMaintenanceWindowTargetResponse
 --
 --         , responseCreateResourceDataSync $
---             createResourceDataSyncResponse
+--             mkCreateResourceDataSyncResponse
 --
 --         , responseCreatePatchBaseline $
---             createPatchBaselineResponse
+--             mkCreatePatchBaselineResponse
 --
 --           ]
 --     ]
@@ -1506,7 +1506,7 @@ responseGetConnectionStatus =
   res
     "GetConnectionStatusResponse"
     "fixture/GetConnectionStatusResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetConnectionStatus)
 
 responseDescribeInstancePatches :: DescribeInstancePatchesResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseDescribeInstancePatches =
   res
     "DescribeInstancePatchesResponse"
     "fixture/DescribeInstancePatchesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInstancePatches)
 
 responseGetInventory :: GetInventoryResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseGetInventory =
   res
     "GetInventoryResponse"
     "fixture/GetInventoryResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetInventory)
 
 responseGetParameters :: GetParametersResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseGetParameters =
   res
     "GetParametersResponse"
     "fixture/GetParametersResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetParameters)
 
 responseDeletePatchBaseline :: DeletePatchBaselineResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseDeletePatchBaseline =
   res
     "DeletePatchBaselineResponse"
     "fixture/DeletePatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeletePatchBaseline)
 
 responseUpdatePatchBaseline :: UpdatePatchBaselineResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseUpdatePatchBaseline =
   res
     "UpdatePatchBaselineResponse"
     "fixture/UpdatePatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdatePatchBaseline)
 
 responseTerminateSession :: TerminateSessionResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseTerminateSession =
   res
     "TerminateSessionResponse"
     "fixture/TerminateSessionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy TerminateSession)
 
 responseGetParameter :: GetParameterResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseGetParameter =
   res
     "GetParameterResponse"
     "fixture/GetParameterResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetParameter)
 
 responseUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersionResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseUpdateDocumentDefaultVersion =
   res
     "UpdateDocumentDefaultVersionResponse"
     "fixture/UpdateDocumentDefaultVersionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateDocumentDefaultVersion)
 
 responseListResourceDataSync :: ListResourceDataSyncResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseListResourceDataSync =
   res
     "ListResourceDataSyncResponse"
     "fixture/ListResourceDataSyncResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListResourceDataSync)
 
 responseGetOpsItem :: GetOpsItemResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseGetOpsItem =
   res
     "GetOpsItemResponse"
     "fixture/GetOpsItemResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetOpsItem)
 
 responseResumeSession :: ResumeSessionResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseResumeSession =
   res
     "ResumeSessionResponse"
     "fixture/ResumeSessionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ResumeSession)
 
 responseGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstanceResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseGetDeployablePatchSnapshotForInstance =
   res
     "GetDeployablePatchSnapshotForInstanceResponse"
     "fixture/GetDeployablePatchSnapshotForInstanceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetDeployablePatchSnapshotForInstance)
 
 responseDescribeParameters :: DescribeParametersResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseDescribeParameters =
   res
     "DescribeParametersResponse"
     "fixture/DescribeParametersResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeParameters)
 
 responseDescribeOpsItems :: DescribeOpsItemsResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseDescribeOpsItems =
   res
     "DescribeOpsItemsResponse"
     "fixture/DescribeOpsItemsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeOpsItems)
 
 responseGetParametersByPath :: GetParametersByPathResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseGetParametersByPath =
   res
     "GetParametersByPathResponse"
     "fixture/GetParametersByPathResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetParametersByPath)
 
 responsePutComplianceItems :: PutComplianceItemsResponse -> TestTree
@@ -1634,7 +1634,7 @@ responsePutComplianceItems =
   res
     "PutComplianceItemsResponse"
     "fixture/PutComplianceItemsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy PutComplianceItems)
 
 responseDescribeActivations :: DescribeActivationsResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseDescribeActivations =
   res
     "DescribeActivationsResponse"
     "fixture/DescribeActivationsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeActivations)
 
 responseGetMaintenanceWindowTask :: GetMaintenanceWindowTaskResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseGetMaintenanceWindowTask =
   res
     "GetMaintenanceWindowTaskResponse"
     "fixture/GetMaintenanceWindowTaskResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetMaintenanceWindowTask)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeDocument :: DescribeDocumentResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseDescribeDocument =
   res
     "DescribeDocumentResponse"
     "fixture/DescribeDocumentResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeDocument)
 
 responseDescribePatchProperties :: DescribePatchPropertiesResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseDescribePatchProperties =
   res
     "DescribePatchPropertiesResponse"
     "fixture/DescribePatchPropertiesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribePatchProperties)
 
 responseCreateAssociation :: CreateAssociationResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseCreateAssociation =
   res
     "CreateAssociationResponse"
     "fixture/CreateAssociationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateAssociation)
 
 responseDeleteActivation :: DeleteActivationResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseDeleteActivation =
   res
     "DeleteActivationResponse"
     "fixture/DeleteActivationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteActivation)
 
 responseDescribeMaintenanceWindowExecutions :: DescribeMaintenanceWindowExecutionsResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseDescribeMaintenanceWindowExecutions =
   res
     "DescribeMaintenanceWindowExecutionsResponse"
     "fixture/DescribeMaintenanceWindowExecutionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowExecutions)
 
 responseDescribeMaintenanceWindowsForTarget :: DescribeMaintenanceWindowsForTargetResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseDescribeMaintenanceWindowsForTarget =
   res
     "DescribeMaintenanceWindowsForTargetResponse"
     "fixture/DescribeMaintenanceWindowsForTargetResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowsForTarget)
 
 responseCancelMaintenanceWindowExecution :: CancelMaintenanceWindowExecutionResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseCancelMaintenanceWindowExecution =
   res
     "CancelMaintenanceWindowExecutionResponse"
     "fixture/CancelMaintenanceWindowExecutionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CancelMaintenanceWindowExecution)
 
 responseGetInventorySchema :: GetInventorySchemaResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseGetInventorySchema =
   res
     "GetInventorySchemaResponse"
     "fixture/GetInventorySchemaResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetInventorySchema)
 
 responseListComplianceSummaries :: ListComplianceSummariesResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseListComplianceSummaries =
   res
     "ListComplianceSummariesResponse"
     "fixture/ListComplianceSummariesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListComplianceSummaries)
 
 responseStartAutomationExecution :: StartAutomationExecutionResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseStartAutomationExecution =
   res
     "StartAutomationExecutionResponse"
     "fixture/StartAutomationExecutionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy StartAutomationExecution)
 
 responseCreateOpsItem :: CreateOpsItemResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseCreateOpsItem =
   res
     "CreateOpsItemResponse"
     "fixture/CreateOpsItemResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateOpsItem)
 
 responseCreateActivation :: CreateActivationResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseCreateActivation =
   res
     "CreateActivationResponse"
     "fixture/CreateActivationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateActivation)
 
 responseDeleteMaintenanceWindow :: DeleteMaintenanceWindowResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseDeleteMaintenanceWindow =
   res
     "DeleteMaintenanceWindowResponse"
     "fixture/DeleteMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteMaintenanceWindow)
 
 responseUpdateMaintenanceWindow :: UpdateMaintenanceWindowResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseUpdateMaintenanceWindow =
   res
     "UpdateMaintenanceWindowResponse"
     "fixture/UpdateMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateMaintenanceWindow)
 
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseDescribeSessions =
   res
     "DescribeSessionsResponse"
     "fixture/DescribeSessionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeSessions)
 
 responseDescribeMaintenanceWindowExecutionTasks :: DescribeMaintenanceWindowExecutionTasksResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseDescribeMaintenanceWindowExecutionTasks =
   res
     "DescribeMaintenanceWindowExecutionTasksResponse"
     "fixture/DescribeMaintenanceWindowExecutionTasksResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowExecutionTasks)
 
 responseGetDefaultPatchBaseline :: GetDefaultPatchBaselineResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseGetDefaultPatchBaseline =
   res
     "GetDefaultPatchBaselineResponse"
     "fixture/GetDefaultPatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetDefaultPatchBaseline)
 
 responseGetMaintenanceWindowExecutionTask :: GetMaintenanceWindowExecutionTaskResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseGetMaintenanceWindowExecutionTask =
   res
     "GetMaintenanceWindowExecutionTaskResponse"
     "fixture/GetMaintenanceWindowExecutionTaskResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetMaintenanceWindowExecutionTask)
 
 responseCreateDocument :: CreateDocumentResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseCreateDocument =
   res
     "CreateDocumentResponse"
     "fixture/CreateDocumentResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateDocument)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseRemoveTagsFromResource =
   res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy RemoveTagsFromResource)
 
 responseGetCalendarState :: GetCalendarStateResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseGetCalendarState =
   res
     "GetCalendarStateResponse"
     "fixture/GetCalendarStateResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetCalendarState)
 
 responseDeleteParameters :: DeleteParametersResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseDeleteParameters =
   res
     "DeleteParametersResponse"
     "fixture/DeleteParametersResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteParameters)
 
 responseDescribePatchGroupState :: DescribePatchGroupStateResponse -> TestTree
@@ -1842,7 +1842,7 @@ responseDescribePatchGroupState =
   res
     "DescribePatchGroupStateResponse"
     "fixture/DescribePatchGroupStateResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribePatchGroupState)
 
 responseListCommandInvocations :: ListCommandInvocationsResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseListCommandInvocations =
   res
     "ListCommandInvocationsResponse"
     "fixture/ListCommandInvocationsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListCommandInvocations)
 
 responseDeregisterTargetFromMaintenanceWindow :: DeregisterTargetFromMaintenanceWindowResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseDeregisterTargetFromMaintenanceWindow =
   res
     "DeregisterTargetFromMaintenanceWindowResponse"
     "fixture/DeregisterTargetFromMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeregisterTargetFromMaintenanceWindow)
 
 responseDescribeEffectivePatchesForPatchBaseline :: DescribeEffectivePatchesForPatchBaselineResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseDescribeEffectivePatchesForPatchBaseline =
   res
     "DescribeEffectivePatchesForPatchBaselineResponse"
     "fixture/DescribeEffectivePatchesForPatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeEffectivePatchesForPatchBaseline)
 
 responseDescribeMaintenanceWindowTargets :: DescribeMaintenanceWindowTargetsResponse -> TestTree
@@ -1874,7 +1874,7 @@ responseDescribeMaintenanceWindowTargets =
   res
     "DescribeMaintenanceWindowTargetsResponse"
     "fixture/DescribeMaintenanceWindowTargetsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowTargets)
 
 responseResetServiceSetting :: ResetServiceSettingResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseResetServiceSetting =
   res
     "ResetServiceSettingResponse"
     "fixture/ResetServiceSettingResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ResetServiceSetting)
 
 responseRegisterPatchBaselineForPatchGroup :: RegisterPatchBaselineForPatchGroupResponse -> TestTree
@@ -1890,7 +1890,7 @@ responseRegisterPatchBaselineForPatchGroup =
   res
     "RegisterPatchBaselineForPatchGroupResponse"
     "fixture/RegisterPatchBaselineForPatchGroupResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy RegisterPatchBaselineForPatchGroup)
 
 responseListDocuments :: ListDocumentsResponse -> TestTree
@@ -1898,7 +1898,7 @@ responseListDocuments =
   res
     "ListDocumentsResponse"
     "fixture/ListDocumentsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListDocuments)
 
 responseDescribeInstancePatchStates :: DescribeInstancePatchStatesResponse -> TestTree
@@ -1906,7 +1906,7 @@ responseDescribeInstancePatchStates =
   res
     "DescribeInstancePatchStatesResponse"
     "fixture/DescribeInstancePatchStatesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInstancePatchStates)
 
 responseGetOpsSummary :: GetOpsSummaryResponse -> TestTree
@@ -1914,7 +1914,7 @@ responseGetOpsSummary =
   res
     "GetOpsSummaryResponse"
     "fixture/GetOpsSummaryResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetOpsSummary)
 
 responseGetPatchBaselineForPatchGroup :: GetPatchBaselineForPatchGroupResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseGetPatchBaselineForPatchGroup =
   res
     "GetPatchBaselineForPatchGroupResponse"
     "fixture/GetPatchBaselineForPatchGroupResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetPatchBaselineForPatchGroup)
 
 responseUpdateManagedInstanceRole :: UpdateManagedInstanceRoleResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseUpdateManagedInstanceRole =
   res
     "UpdateManagedInstanceRoleResponse"
     "fixture/UpdateManagedInstanceRoleResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateManagedInstanceRole)
 
 responseListComplianceItems :: ListComplianceItemsResponse -> TestTree
@@ -1938,7 +1938,7 @@ responseListComplianceItems =
   res
     "ListComplianceItemsResponse"
     "fixture/ListComplianceItemsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListComplianceItems)
 
 responseGetDocument :: GetDocumentResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseGetDocument =
   res
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetDocument)
 
 responseDescribeMaintenanceWindowSchedule :: DescribeMaintenanceWindowScheduleResponse -> TestTree
@@ -1954,7 +1954,7 @@ responseDescribeMaintenanceWindowSchedule =
   res
     "DescribeMaintenanceWindowScheduleResponse"
     "fixture/DescribeMaintenanceWindowScheduleResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowSchedule)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
@@ -1962,7 +1962,7 @@ responseAddTagsToResource =
   res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy AddTagsToResource)
 
 responseCancelCommand :: CancelCommandResponse -> TestTree
@@ -1970,7 +1970,7 @@ responseCancelCommand =
   res
     "CancelCommandResponse"
     "fixture/CancelCommandResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CancelCommand)
 
 responseDescribeAutomationStepExecutions :: DescribeAutomationStepExecutionsResponse -> TestTree
@@ -1978,7 +1978,7 @@ responseDescribeAutomationStepExecutions =
   res
     "DescribeAutomationStepExecutionsResponse"
     "fixture/DescribeAutomationStepExecutionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAutomationStepExecutions)
 
 responseGetCommandInvocation :: GetCommandInvocationResponse -> TestTree
@@ -1986,7 +1986,7 @@ responseGetCommandInvocation =
   res
     "GetCommandInvocationResponse"
     "fixture/GetCommandInvocationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetCommandInvocation)
 
 responseDescribeInstancePatchStatesForPatchGroup :: DescribeInstancePatchStatesForPatchGroupResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseDescribeInstancePatchStatesForPatchGroup =
   res
     "DescribeInstancePatchStatesForPatchGroupResponse"
     "fixture/DescribeInstancePatchStatesForPatchGroupResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInstancePatchStatesForPatchGroup)
 
 responseDeregisterManagedInstance :: DeregisterManagedInstanceResponse -> TestTree
@@ -2002,7 +2002,7 @@ responseDeregisterManagedInstance =
   res
     "DeregisterManagedInstanceResponse"
     "fixture/DeregisterManagedInstanceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeregisterManagedInstance)
 
 responseDescribeAssociation :: DescribeAssociationResponse -> TestTree
@@ -2010,7 +2010,7 @@ responseDescribeAssociation =
   res
     "DescribeAssociationResponse"
     "fixture/DescribeAssociationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAssociation)
 
 responseDescribeAssociationExecutionTargets :: DescribeAssociationExecutionTargetsResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseDescribeAssociationExecutionTargets =
   res
     "DescribeAssociationExecutionTargetsResponse"
     "fixture/DescribeAssociationExecutionTargetsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAssociationExecutionTargets)
 
 responseModifyDocumentPermission :: ModifyDocumentPermissionResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseModifyDocumentPermission =
   res
     "ModifyDocumentPermissionResponse"
     "fixture/ModifyDocumentPermissionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ModifyDocumentPermission)
 
 responseUpdateResourceDataSync :: UpdateResourceDataSyncResponse -> TestTree
@@ -2034,7 +2034,7 @@ responseUpdateResourceDataSync =
   res
     "UpdateResourceDataSyncResponse"
     "fixture/UpdateResourceDataSyncResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateResourceDataSync)
 
 responseDeleteResourceDataSync :: DeleteResourceDataSyncResponse -> TestTree
@@ -2042,7 +2042,7 @@ responseDeleteResourceDataSync =
   res
     "DeleteResourceDataSyncResponse"
     "fixture/DeleteResourceDataSyncResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteResourceDataSync)
 
 responseUpdateAssociationStatus :: UpdateAssociationStatusResponse -> TestTree
@@ -2050,7 +2050,7 @@ responseUpdateAssociationStatus =
   res
     "UpdateAssociationStatusResponse"
     "fixture/UpdateAssociationStatusResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateAssociationStatus)
 
 responseDescribeAvailablePatches :: DescribeAvailablePatchesResponse -> TestTree
@@ -2058,7 +2058,7 @@ responseDescribeAvailablePatches =
   res
     "DescribeAvailablePatchesResponse"
     "fixture/DescribeAvailablePatchesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAvailablePatches)
 
 responseListDocumentVersions :: ListDocumentVersionsResponse -> TestTree
@@ -2066,7 +2066,7 @@ responseListDocumentVersions =
   res
     "ListDocumentVersionsResponse"
     "fixture/ListDocumentVersionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListDocumentVersions)
 
 responseDeregisterPatchBaselineForPatchGroup :: DeregisterPatchBaselineForPatchGroupResponse -> TestTree
@@ -2074,7 +2074,7 @@ responseDeregisterPatchBaselineForPatchGroup =
   res
     "DeregisterPatchBaselineForPatchGroupResponse"
     "fixture/DeregisterPatchBaselineForPatchGroupResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeregisterPatchBaselineForPatchGroup)
 
 responseDescribePatchGroups :: DescribePatchGroupsResponse -> TestTree
@@ -2082,7 +2082,7 @@ responseDescribePatchGroups =
   res
     "DescribePatchGroupsResponse"
     "fixture/DescribePatchGroupsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribePatchGroups)
 
 responseGetMaintenanceWindow :: GetMaintenanceWindowResponse -> TestTree
@@ -2090,7 +2090,7 @@ responseGetMaintenanceWindow =
   res
     "GetMaintenanceWindowResponse"
     "fixture/GetMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetMaintenanceWindow)
 
 responseDescribeMaintenanceWindows :: DescribeMaintenanceWindowsResponse -> TestTree
@@ -2098,7 +2098,7 @@ responseDescribeMaintenanceWindows =
   res
     "DescribeMaintenanceWindowsResponse"
     "fixture/DescribeMaintenanceWindowsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindows)
 
 responseRegisterTaskWithMaintenanceWindow :: RegisterTaskWithMaintenanceWindowResponse -> TestTree
@@ -2106,7 +2106,7 @@ responseRegisterTaskWithMaintenanceWindow =
   res
     "RegisterTaskWithMaintenanceWindowResponse"
     "fixture/RegisterTaskWithMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy RegisterTaskWithMaintenanceWindow)
 
 responseRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaselineResponse -> TestTree
@@ -2114,7 +2114,7 @@ responseRegisterDefaultPatchBaseline =
   res
     "RegisterDefaultPatchBaselineResponse"
     "fixture/RegisterDefaultPatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy RegisterDefaultPatchBaseline)
 
 responseListResourceComplianceSummaries :: ListResourceComplianceSummariesResponse -> TestTree
@@ -2122,7 +2122,7 @@ responseListResourceComplianceSummaries =
   res
     "ListResourceComplianceSummariesResponse"
     "fixture/ListResourceComplianceSummariesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListResourceComplianceSummaries)
 
 responseListAssociationVersions :: ListAssociationVersionsResponse -> TestTree
@@ -2130,7 +2130,7 @@ responseListAssociationVersions =
   res
     "ListAssociationVersionsResponse"
     "fixture/ListAssociationVersionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListAssociationVersions)
 
 responseUpdateServiceSetting :: UpdateServiceSettingResponse -> TestTree
@@ -2138,7 +2138,7 @@ responseUpdateServiceSetting =
   res
     "UpdateServiceSettingResponse"
     "fixture/UpdateServiceSettingResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateServiceSetting)
 
 responseDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasksResponse -> TestTree
@@ -2146,7 +2146,7 @@ responseDescribeMaintenanceWindowTasks =
   res
     "DescribeMaintenanceWindowTasksResponse"
     "fixture/DescribeMaintenanceWindowTasksResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowTasks)
 
 responseDescribeInstanceAssociationsStatus :: DescribeInstanceAssociationsStatusResponse -> TestTree
@@ -2154,7 +2154,7 @@ responseDescribeInstanceAssociationsStatus =
   res
     "DescribeInstanceAssociationsStatusResponse"
     "fixture/DescribeInstanceAssociationsStatusResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInstanceAssociationsStatus)
 
 responseDeregisterTaskFromMaintenanceWindow :: DeregisterTaskFromMaintenanceWindowResponse -> TestTree
@@ -2162,7 +2162,7 @@ responseDeregisterTaskFromMaintenanceWindow =
   res
     "DeregisterTaskFromMaintenanceWindowResponse"
     "fixture/DeregisterTaskFromMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeregisterTaskFromMaintenanceWindow)
 
 responseListInventoryEntries :: ListInventoryEntriesResponse -> TestTree
@@ -2170,7 +2170,7 @@ responseListInventoryEntries =
   res
     "ListInventoryEntriesResponse"
     "fixture/ListInventoryEntriesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListInventoryEntries)
 
 responseLabelParameterVersion :: LabelParameterVersionResponse -> TestTree
@@ -2178,7 +2178,7 @@ responseLabelParameterVersion =
   res
     "LabelParameterVersionResponse"
     "fixture/LabelParameterVersionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy LabelParameterVersion)
 
 responseUpdateMaintenanceWindowTask :: UpdateMaintenanceWindowTaskResponse -> TestTree
@@ -2186,7 +2186,7 @@ responseUpdateMaintenanceWindowTask =
   res
     "UpdateMaintenanceWindowTaskResponse"
     "fixture/UpdateMaintenanceWindowTaskResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateMaintenanceWindowTask)
 
 responseGetParameterHistory :: GetParameterHistoryResponse -> TestTree
@@ -2194,7 +2194,7 @@ responseGetParameterHistory =
   res
     "GetParameterHistoryResponse"
     "fixture/GetParameterHistoryResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetParameterHistory)
 
 responseDescribeAssociationExecutions :: DescribeAssociationExecutionsResponse -> TestTree
@@ -2202,7 +2202,7 @@ responseDescribeAssociationExecutions =
   res
     "DescribeAssociationExecutionsResponse"
     "fixture/DescribeAssociationExecutionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAssociationExecutions)
 
 responseGetServiceSetting :: GetServiceSettingResponse -> TestTree
@@ -2210,7 +2210,7 @@ responseGetServiceSetting =
   res
     "GetServiceSettingResponse"
     "fixture/GetServiceSettingResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetServiceSetting)
 
 responseStartAssociationsOnce :: StartAssociationsOnceResponse -> TestTree
@@ -2218,7 +2218,7 @@ responseStartAssociationsOnce =
   res
     "StartAssociationsOnceResponse"
     "fixture/StartAssociationsOnceResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy StartAssociationsOnce)
 
 responseCreateMaintenanceWindow :: CreateMaintenanceWindowResponse -> TestTree
@@ -2226,7 +2226,7 @@ responseCreateMaintenanceWindow =
   res
     "CreateMaintenanceWindowResponse"
     "fixture/CreateMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateMaintenanceWindow)
 
 responseStopAutomationExecution :: StopAutomationExecutionResponse -> TestTree
@@ -2234,7 +2234,7 @@ responseStopAutomationExecution =
   res
     "StopAutomationExecutionResponse"
     "fixture/StopAutomationExecutionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy StopAutomationExecution)
 
 responseGetMaintenanceWindowExecution :: GetMaintenanceWindowExecutionResponse -> TestTree
@@ -2242,7 +2242,7 @@ responseGetMaintenanceWindowExecution =
   res
     "GetMaintenanceWindowExecutionResponse"
     "fixture/GetMaintenanceWindowExecutionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetMaintenanceWindowExecution)
 
 responseSendAutomationSignal :: SendAutomationSignalResponse -> TestTree
@@ -2250,7 +2250,7 @@ responseSendAutomationSignal =
   res
     "SendAutomationSignalResponse"
     "fixture/SendAutomationSignalResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy SendAutomationSignal)
 
 responsePutParameter :: PutParameterResponse -> TestTree
@@ -2258,7 +2258,7 @@ responsePutParameter =
   res
     "PutParameterResponse"
     "fixture/PutParameterResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy PutParameter)
 
 responseDescribeMaintenanceWindowExecutionTaskInvocations :: DescribeMaintenanceWindowExecutionTaskInvocationsResponse -> TestTree
@@ -2266,7 +2266,7 @@ responseDescribeMaintenanceWindowExecutionTaskInvocations =
   res
     "DescribeMaintenanceWindowExecutionTaskInvocationsResponse"
     "fixture/DescribeMaintenanceWindowExecutionTaskInvocationsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeMaintenanceWindowExecutionTaskInvocations)
 
 responseGetMaintenanceWindowExecutionTaskInvocation :: GetMaintenanceWindowExecutionTaskInvocationResponse -> TestTree
@@ -2274,7 +2274,7 @@ responseGetMaintenanceWindowExecutionTaskInvocation =
   res
     "GetMaintenanceWindowExecutionTaskInvocationResponse"
     "fixture/GetMaintenanceWindowExecutionTaskInvocationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetMaintenanceWindowExecutionTaskInvocation)
 
 responseDeleteParameter :: DeleteParameterResponse -> TestTree
@@ -2282,7 +2282,7 @@ responseDeleteParameter =
   res
     "DeleteParameterResponse"
     "fixture/DeleteParameterResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteParameter)
 
 responseDescribeInstanceInformation :: DescribeInstanceInformationResponse -> TestTree
@@ -2290,7 +2290,7 @@ responseDescribeInstanceInformation =
   res
     "DescribeInstanceInformationResponse"
     "fixture/DescribeInstanceInformationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInstanceInformation)
 
 responseListAssociations :: ListAssociationsResponse -> TestTree
@@ -2298,7 +2298,7 @@ responseListAssociations =
   res
     "ListAssociationsResponse"
     "fixture/ListAssociationsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListAssociations)
 
 responseUpdateOpsItem :: UpdateOpsItemResponse -> TestTree
@@ -2306,7 +2306,7 @@ responseUpdateOpsItem =
   res
     "UpdateOpsItemResponse"
     "fixture/UpdateOpsItemResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateOpsItem)
 
 responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
@@ -2314,7 +2314,7 @@ responseDeleteAssociation =
   res
     "DeleteAssociationResponse"
     "fixture/DeleteAssociationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteAssociation)
 
 responseUpdateAssociation :: UpdateAssociationResponse -> TestTree
@@ -2322,7 +2322,7 @@ responseUpdateAssociation =
   res
     "UpdateAssociationResponse"
     "fixture/UpdateAssociationResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateAssociation)
 
 responseDescribeInventoryDeletions :: DescribeInventoryDeletionsResponse -> TestTree
@@ -2330,7 +2330,7 @@ responseDescribeInventoryDeletions =
   res
     "DescribeInventoryDeletionsResponse"
     "fixture/DescribeInventoryDeletionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeInventoryDeletions)
 
 responseDeleteInventory :: DeleteInventoryResponse -> TestTree
@@ -2338,7 +2338,7 @@ responseDeleteInventory =
   res
     "DeleteInventoryResponse"
     "fixture/DeleteInventoryResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteInventory)
 
 responsePutInventory :: PutInventoryResponse -> TestTree
@@ -2346,7 +2346,7 @@ responsePutInventory =
   res
     "PutInventoryResponse"
     "fixture/PutInventoryResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy PutInventory)
 
 responseDescribeEffectiveInstanceAssociations :: DescribeEffectiveInstanceAssociationsResponse -> TestTree
@@ -2354,7 +2354,7 @@ responseDescribeEffectiveInstanceAssociations =
   res
     "DescribeEffectiveInstanceAssociationsResponse"
     "fixture/DescribeEffectiveInstanceAssociationsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeEffectiveInstanceAssociations)
 
 responseDescribeAutomationExecutions :: DescribeAutomationExecutionsResponse -> TestTree
@@ -2362,7 +2362,7 @@ responseDescribeAutomationExecutions =
   res
     "DescribeAutomationExecutionsResponse"
     "fixture/DescribeAutomationExecutionsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeAutomationExecutions)
 
 responseGetAutomationExecution :: GetAutomationExecutionResponse -> TestTree
@@ -2370,7 +2370,7 @@ responseGetAutomationExecution =
   res
     "GetAutomationExecutionResponse"
     "fixture/GetAutomationExecutionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetAutomationExecution)
 
 responseSendCommand :: SendCommandResponse -> TestTree
@@ -2378,7 +2378,7 @@ responseSendCommand =
   res
     "SendCommandResponse"
     "fixture/SendCommandResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy SendCommand)
 
 responseDescribePatchBaselines :: DescribePatchBaselinesResponse -> TestTree
@@ -2386,7 +2386,7 @@ responseDescribePatchBaselines =
   res
     "DescribePatchBaselinesResponse"
     "fixture/DescribePatchBaselinesResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribePatchBaselines)
 
 responseGetPatchBaseline :: GetPatchBaselineResponse -> TestTree
@@ -2394,7 +2394,7 @@ responseGetPatchBaseline =
   res
     "GetPatchBaselineResponse"
     "fixture/GetPatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy GetPatchBaseline)
 
 responseRegisterTargetWithMaintenanceWindow :: RegisterTargetWithMaintenanceWindowResponse -> TestTree
@@ -2402,7 +2402,7 @@ responseRegisterTargetWithMaintenanceWindow =
   res
     "RegisterTargetWithMaintenanceWindowResponse"
     "fixture/RegisterTargetWithMaintenanceWindowResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy RegisterTargetWithMaintenanceWindow)
 
 responseStartSession :: StartSessionResponse -> TestTree
@@ -2410,7 +2410,7 @@ responseStartSession =
   res
     "StartSessionResponse"
     "fixture/StartSessionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy StartSession)
 
 responseListCommands :: ListCommandsResponse -> TestTree
@@ -2418,7 +2418,7 @@ responseListCommands =
   res
     "ListCommandsResponse"
     "fixture/ListCommandsResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy ListCommands)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
@@ -2426,7 +2426,7 @@ responseUpdateDocument =
   res
     "UpdateDocumentResponse"
     "fixture/UpdateDocumentResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateDocument)
 
 responseDeleteDocument :: DeleteDocumentResponse -> TestTree
@@ -2434,7 +2434,7 @@ responseDeleteDocument =
   res
     "DeleteDocumentResponse"
     "fixture/DeleteDocumentResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DeleteDocument)
 
 responseDescribeDocumentPermission :: DescribeDocumentPermissionResponse -> TestTree
@@ -2442,7 +2442,7 @@ responseDescribeDocumentPermission =
   res
     "DescribeDocumentPermissionResponse"
     "fixture/DescribeDocumentPermissionResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy DescribeDocumentPermission)
 
 responseCreateAssociationBatch :: CreateAssociationBatchResponse -> TestTree
@@ -2450,7 +2450,7 @@ responseCreateAssociationBatch =
   res
     "CreateAssociationBatchResponse"
     "fixture/CreateAssociationBatchResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateAssociationBatch)
 
 responseUpdateMaintenanceWindowTarget :: UpdateMaintenanceWindowTargetResponse -> TestTree
@@ -2458,7 +2458,7 @@ responseUpdateMaintenanceWindowTarget =
   res
     "UpdateMaintenanceWindowTargetResponse"
     "fixture/UpdateMaintenanceWindowTargetResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy UpdateMaintenanceWindowTarget)
 
 responseCreateResourceDataSync :: CreateResourceDataSyncResponse -> TestTree
@@ -2466,7 +2466,7 @@ responseCreateResourceDataSync =
   res
     "CreateResourceDataSyncResponse"
     "fixture/CreateResourceDataSyncResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreateResourceDataSync)
 
 responseCreatePatchBaseline :: CreatePatchBaselineResponse -> TestTree
@@ -2474,5 +2474,5 @@ responseCreatePatchBaseline =
   res
     "CreatePatchBaselineResponse"
     "fixture/CreatePatchBaselineResponse.proto"
-    ssm
+    ssmService
     (Proxy :: Proxy CreatePatchBaseline)

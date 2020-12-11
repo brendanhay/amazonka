@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.ScalingType where
+module Network.AWS.Kinesis.Types.ScalingType
+  ( ScalingType
+      ( ScalingType',
+        UniformScaling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalingType = UniformScaling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingType = ScalingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingType where
-  parser =
-    takeLowerText >>= \case
-      "uniform_scaling" -> pure UniformScaling
-      e ->
-        fromTextError $
-          "Failure parsing ScalingType from value: '" <> e
-            <> "'. Accepted values: uniform_scaling"
+pattern UniformScaling :: ScalingType
+pattern UniformScaling = ScalingType' "UNIFORM_SCALING"
 
-instance ToText ScalingType where
-  toText = \case
-    UniformScaling -> "UNIFORM_SCALING"
-
-instance Hashable ScalingType
-
-instance NFData ScalingType
-
-instance ToByteString ScalingType
-
-instance ToQuery ScalingType
-
-instance ToHeader ScalingType
-
-instance ToJSON ScalingType where
-  toJSON = toJSONText
+{-# COMPLETE
+  UniformScaling,
+  ScalingType'
+  #-}

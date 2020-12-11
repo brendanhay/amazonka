@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TargetFilterName where
+module Network.AWS.CodeDeploy.Types.TargetFilterName
+  ( TargetFilterName
+      ( TargetFilterName',
+        ServerInstanceLabel,
+        TargetStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetFilterName
-  = ServerInstanceLabel
-  | TargetStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetFilterName = TargetFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetFilterName where
-  parser =
-    takeLowerText >>= \case
-      "serverinstancelabel" -> pure ServerInstanceLabel
-      "targetstatus" -> pure TargetStatus
-      e ->
-        fromTextError $
-          "Failure parsing TargetFilterName from value: '" <> e
-            <> "'. Accepted values: serverinstancelabel, targetstatus"
+pattern ServerInstanceLabel :: TargetFilterName
+pattern ServerInstanceLabel = TargetFilterName' "ServerInstanceLabel"
 
-instance ToText TargetFilterName where
-  toText = \case
-    ServerInstanceLabel -> "ServerInstanceLabel"
-    TargetStatus -> "TargetStatus"
+pattern TargetStatus :: TargetFilterName
+pattern TargetStatus = TargetFilterName' "TargetStatus"
 
-instance Hashable TargetFilterName
-
-instance NFData TargetFilterName
-
-instance ToByteString TargetFilterName
-
-instance ToQuery TargetFilterName
-
-instance ToHeader TargetFilterName
-
-instance ToJSON TargetFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  ServerInstanceLabel,
+  TargetStatus,
+  TargetFilterName'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describe a 'BasePathMapping' resource.
 module Network.AWS.APIGateway.GetBasePathMapping
-  ( -- * Creating a Request
-    getBasePathMapping,
-    GetBasePathMapping,
+  ( -- * Creating a request
+    GetBasePathMapping (..),
+    mkGetBasePathMapping,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbpmDomainName,
     gbpmBasePath,
 
-    -- * Destructuring the Response
-    basePathMapping,
-    BasePathMapping,
+    -- * Destructuring the response
+    BasePathMapping (..),
+    mkBasePathMapping,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpmStage,
     bpmBasePath,
     bpmRestAPIId,
@@ -39,71 +34,78 @@ module Network.AWS.APIGateway.GetBasePathMapping
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe a 'BasePathMapping' resource.
 --
---
---
--- /See:/ 'getBasePathMapping' smart constructor.
+-- /See:/ 'mkGetBasePathMapping' smart constructor.
 data GetBasePathMapping = GetBasePathMapping'
-  { _gbpmDomainName ::
-      !Text,
-    _gbpmBasePath :: !Text
+  { domainName ::
+      Lude.Text,
+    basePath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBasePathMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to be described.
---
--- * 'gbpmBasePath' - [Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.
-getBasePathMapping ::
-  -- | 'gbpmDomainName'
-  Text ->
-  -- | 'gbpmBasePath'
-  Text ->
+-- * 'basePath' - [Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.
+-- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to be described.
+mkGetBasePathMapping ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'basePath'
+  Lude.Text ->
   GetBasePathMapping
-getBasePathMapping pDomainName_ pBasePath_ =
+mkGetBasePathMapping pDomainName_ pBasePath_ =
   GetBasePathMapping'
-    { _gbpmDomainName = pDomainName_,
-      _gbpmBasePath = pBasePath_
+    { domainName = pDomainName_,
+      basePath = pBasePath_
     }
 
 -- | [Required] The domain name of the 'BasePathMapping' resource to be described.
-gbpmDomainName :: Lens' GetBasePathMapping Text
-gbpmDomainName = lens _gbpmDomainName (\s a -> s {_gbpmDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmDomainName :: Lens.Lens' GetBasePathMapping Lude.Text
+gbpmDomainName = Lens.lens (domainName :: GetBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: GetBasePathMapping)
+{-# DEPRECATED gbpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | [Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.
-gbpmBasePath :: Lens' GetBasePathMapping Text
-gbpmBasePath = lens _gbpmBasePath (\s a -> s {_gbpmBasePath = a})
+--
+-- /Note:/ Consider using 'basePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmBasePath :: Lens.Lens' GetBasePathMapping Lude.Text
+gbpmBasePath = Lens.lens (basePath :: GetBasePathMapping -> Lude.Text) (\s a -> s {basePath = a} :: GetBasePathMapping)
+{-# DEPRECATED gbpmBasePath "Use generic-lens or generic-optics with 'basePath' instead." #-}
 
-instance AWSRequest GetBasePathMapping where
+instance Lude.AWSRequest GetBasePathMapping where
   type Rs GetBasePathMapping = BasePathMapping
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetBasePathMapping
-
-instance NFData GetBasePathMapping
-
-instance ToHeaders GetBasePathMapping where
+instance Lude.ToHeaders GetBasePathMapping where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetBasePathMapping where
+instance Lude.ToPath GetBasePathMapping where
   toPath GetBasePathMapping' {..} =
-    mconcat
+    Lude.mconcat
       [ "/domainnames/",
-        toBS _gbpmDomainName,
+        Lude.toBS domainName,
         "/basepathmappings/",
-        toBS _gbpmBasePath
+        Lude.toBS basePath
       ]
 
-instance ToQuery GetBasePathMapping where
-  toQuery = const mempty
+instance Lude.ToQuery GetBasePathMapping where
+  toQuery = Lude.const Lude.mempty

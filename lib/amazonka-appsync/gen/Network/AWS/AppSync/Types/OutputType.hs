@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.OutputType where
+module Network.AWS.AppSync.Types.OutputType
+  ( OutputType
+      ( OutputType',
+        OTJSON,
+        OTSdl
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutputType
-  = OTJSON
-  | OTSdl
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutputType = OutputType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutputType where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure OTJSON
-      "sdl" -> pure OTSdl
-      e ->
-        fromTextError $
-          "Failure parsing OutputType from value: '" <> e
-            <> "'. Accepted values: json, sdl"
+pattern OTJSON :: OutputType
+pattern OTJSON = OutputType' "JSON"
 
-instance ToText OutputType where
-  toText = \case
-    OTJSON -> "JSON"
-    OTSdl -> "SDL"
+pattern OTSdl :: OutputType
+pattern OTSdl = OutputType' "SDL"
 
-instance Hashable OutputType
-
-instance NFData OutputType
-
-instance ToByteString OutputType
-
-instance ToQuery OutputType
-
-instance ToHeader OutputType
-
-instance ToJSON OutputType where
-  toJSON = toJSONText
+{-# COMPLETE
+  OTJSON,
+  OTSdl,
+  OutputType'
+  #-}
